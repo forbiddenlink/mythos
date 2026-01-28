@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "description": "Mythology & Folklore Encyclopedia - Research-backed interactive database",
-  "packageManager": "pnpm@10.26.2",
+  "packageManager": "pnpm@10.28.0",
   "scripts": {
     "dev": "turbo dev",
     "build": "turbo build",
