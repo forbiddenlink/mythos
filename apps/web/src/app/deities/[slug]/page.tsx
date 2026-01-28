@@ -1,0 +1,259 @@
+'use client';
+
+import { useQuery } from '@tanstack/react-query';
+import { graphqlClient } from '@/lib/graphql-client';
+import { gql } from 'graphql-request';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
+import { Loader2, Sparkles, Shield, Users, Network } from 'lucide-react';
+import Link from 'next/link';
+import Image from 'next/image';
+import { notFound } from 'next/navigation';
+import { FamilyTreeVisualization } from '@/components/family-tree/FamilyTreeVisualization';
+
+interface Deity {
+  id: string;
+  pantheonId: string;
+  name: string;
+  slug: string;
+  gender: string | null;
+  domain: string[];
+  symbols: string[];
+  description: string | null;
+  originStory: string | null;
+  importanceRank: number | null;
+  imageUrl: string | null;
+  alternateNames: string[];
+}
+
+interface Relationship {
+  id: string;
+  deityId: string;
+  relatedDeityId: string;
+  relationshipType: string;
+  description: string | null;
+}
+
+export default function DeityPage({ params }: { params: { slug: string } }) {
+  const { data, isLoading, error } = useQuery<{ deity: Deity | null }>({
+    queryKey: ['deity', params.slug],
+    queryFn: async () => {
+      // For now, we'll need to get all deities and find by slug
+      // In a real app, you'd modify the backend to support slug queries
+      const allDeities = await graphqlClient.request<{ deities: Deity[] }>(gql`
+        query GetDeities {
+          deities(pantheonId: null) {
+            id
+            pantheonId
+            name
+            slug
+            gender
+            domain
+            symbols
+            description
+            originStory
+            importanceRank
+            imageUrl
+            alternateNames
+          }
+        }
+      `);
+      return { deity: allDeities.deities.find(d => d.slug === params.slug) || null };
+    },
+  });
+
+  // Fetch relationships for this deity
+  const { data: relationshipsData } = useQuery<{ deityRelationships: Relationship[] }>({
+    queryKey: ['deity-relationships', data?.deity?.id],
+    queryFn: async () => {
+      if (!data?.deity?.id) return { deityRelationships: [] };
+      return graphqlClient.request(gql`
+        query GetDeityRelationships($deityId: String!) {
+          deityRelationships(deityId: $deityId) {
+            id
+            deityId
+            relatedDeityId
+            relationshipType
+            description
+          }
+        }
+      `, { deityId: data.deity.id });
+    },
+    enabled: !!data?.deity?.id,
+  });
+
+  // Fetch all deities for the family tree
+  const { data: allDeitiesData } = useQuery<{ deities: Deity[] }>({
+    queryKey: ['all-deities'],
+    queryFn: async () => {
+      return graphqlClient.request(gql`
+        query GetAllDeities {
+          deities(pantheonId: null) {
+            id
+            name
+            slug
+            gender
+            domain
+          }
+        }
+      `);
+    },
+  });
+
+  if (isLoading) {
+    return (
+      <div className="container mx-auto max-w-4xl px-4 py-24 flex items-center justify-center">
+        <Loader2 className="h-8 w-8 animate-spin text-primary" />
+      </div>
+    );
+  }
+
+  if (error || !data?.deity) {
+    notFound();
+  }
+
+  const deity = data.deity;
+
+  return (
+    <div className="min-h-screen">
+      {/* Hero Section with Background Image */}
+      <div className="relative overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/deity-hero.jpg"
+            alt="Ancient Greek Statue"
+            fill
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-linear-to-br from-slate-900/70 via-slate-800/65 to-amber-900/70"></div>
+        </div>
+        
+        <div className="container mx-auto max-w-4xl px-4 py-12 relative z-10">
+          <Link 
+            href="/deities" 
+            className="text-sm text-slate-200 hover:text-white mb-6 inline-block"
+          >
+            ← Back to Deities
+          </Link>
+
+          <div className="space-y-8">
+            {/* Header */}
+            <div>
+              <div className="flex items-center gap-4 mb-4">
+                <div className="w-16 h-16 rounded-xl bg-linear-to-br from-amber-600 to-orange-700 flex items-center justify-center shadow-lg">
+                  <Sparkles className="h-8 w-8 text-white" />
+                </div>
+                <div>
+                  <h1 className="font-serif text-4xl font-bold tracking-tight text-white">{deity.name}</h1>
+                  {deity.alternateNames && deity.alternateNames.length > 0 && (
+                    <p className="text-slate-200 mt-1 font-light">
+                      Also known as: {deity.alternateNames.join(', ')}
+                    </p>
+                  )}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Content Section */}
+      <div className="container mx-auto max-w-4xl px-4 py-12">
+        <div className="space-y-8">
+
+        {/* Quick Info Cards */}
+        <div className="grid gap-4 md:grid-cols-2">
+          {deity.domain && deity.domain.length > 0 && (
+            <Card className="bg-white dark:bg-slate-900">
+              <CardHeader>
+                <CardTitle className="font-serif flex items-center gap-2 text-lg">
+                  <Shield className="h-5 w-5 text-teal-600" />
+                  Domains
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="flex flex-wrap gap-2">
+                  {deity.domain.map((d) => (
+                    <Badge key={d} variant="secondary" className="bg-teal-100 dark:bg-teal-900/30 text-teal-700 dark:text-teal-300">{d}</Badge>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+          )}
+
+          {deity.symbols && deity.symbols.length > 0 && (
+            <Card className="bg-white dark:bg-slate-900">
+              <CardHeader>
+                <CardTitle className="font-serif flex items-center gap-2 text-lg">
+                  <Users className="h-5 w-5 text-amber-600" />
+                  Symbols
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="flex flex-wrap gap-2">
+                  {deity.symbols.map((s) => (
+                    <Badge key={s} variant="outline" className="border-amber-200 dark:border-amber-800">{s}</Badge>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+          )}
+        </div>
+
+        {/* Description */}
+        {deity.description && (
+          <Card className="bg-white dark:bg-slate-900">
+            <CardHeader>
+              <CardTitle className="font-serif">About</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
+                {deity.description}
+              </p>
+            </CardContent>
+          </Card>
+        )}
+
+        {/* Origin Story */}
+        {deity.originStory && (
+          <Card className="bg-white dark:bg-slate-900">
+            <CardHeader>
+              <CardTitle className="font-serif">Origin Story</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-slate-600 dark:text-slate-400 leading-relaxed whitespace-pre-line">
+                {deity.originStory}
+              </p>
+            </CardContent>
+          </Card>
+        )}
+
+        {/* Family Tree */}
+        {relationshipsData?.deityRelationships && relationshipsData.deityRelationships.length > 0 && (
+          <Card className="bg-white dark:bg-slate-900">
+            <CardHeader>
+              <CardTitle className="font-serif flex items-center gap-2">
+                <Network className="h-5 w-5 text-teal-600" />
+                Family Tree
+              </CardTitle>
+              <CardDescription>
+                Explore {deity.name}&apos;s relationships with other deities
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              {allDeitiesData?.deities && (
+                <FamilyTreeVisualization
+                  deities={allDeitiesData.deities}
+                  relationships={relationshipsData.deityRelationships}
+                  focusDeityId={deity.id}
+                />
+              )}
+            </CardContent>
+          </Card>
+        )}
+        </div>
+      </div>
+    </div>
+  );
+}
