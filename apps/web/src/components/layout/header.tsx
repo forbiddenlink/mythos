@@ -8,10 +8,22 @@ import { useState, useEffect } from 'react';
 
 export function Header() {
   const [isMac, setIsMac] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
     setIsMac(navigator.platform.toUpperCase().indexOf('MAC') >= 0);
   }, []);
+
+  const handleSearchClick = () => {
+    const event = new KeyboardEvent('keydown', {
+      key: 'k',
+      metaKey: isMac,
+      ctrlKey: !isMac,
+      bubbles: true
+    });
+    document.dispatchEvent(event);
+  };
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-white/95 dark:bg-slate-950/95 backdrop-blur supports-backdrop-filter:bg-white/80 dark:supports-backdrop-filter:bg-slate-950/80 shadow-sm">
@@ -24,28 +36,28 @@ export function Header() {
             Mythos Atlas
           </span>
         </Link>
-        
+
         <nav className="ml-auto flex gap-6 items-center">
-          <Link 
-            href="/pantheons" 
+          <Link
+            href="/pantheons"
             className="text-sm font-medium transition-colors hover:text-primary"
           >
             Pantheons
           </Link>
-          <Link 
-            href="/deities" 
+          <Link
+            href="/deities"
             className="text-sm font-medium transition-colors hover:text-primary"
           >
             Deities
           </Link>
-          <Link 
-            href="/family-tree" 
+          <Link
+            href="/family-tree"
             className="text-sm font-medium transition-colors hover:text-primary"
           >
             Family Tree
           </Link>
-          <Link 
-            href="/stories" 
+          <Link
+            href="/stories"
             className="text-sm font-medium transition-colors hover:text-primary"
           >
             Stories
@@ -53,22 +65,16 @@ export function Header() {
 
           {/* Command Palette Trigger */}
           <button
-            onClick={() => {
-              const event = new KeyboardEvent('keydown', {
-                key: 'k',
-                metaKey: isMac,
-                ctrlKey: !isMac,
-                bubbles: true
-              });
-              document.dispatchEvent(event);
-            }}
+            onClick={handleSearchClick}
             className="flex items-center gap-2 px-3 py-1.5 text-sm text-slate-600 dark:text-slate-400 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 rounded-lg border border-slate-200 dark:border-slate-700 transition-colors group"
             aria-label="Open command palette"
           >
             <Search className="h-4 w-4" />
             <span className="hidden md:inline">Search</span>
             <kbd className="hidden md:inline-flex items-center gap-0.5 px-1.5 py-0.5 text-xs rounded bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-600">
-              {isMac ? <Command className="h-3 w-3" /> : 'Ctrl'}
+              {mounted && isMac ? <Command className="h-3 w-3" /> : null}
+              {mounted && !isMac ? 'Ctrl' : null}
+              {!mounted ? <span className="w-4" /> : null}
               <span>K</span>
             </kbd>
           </button>

@@ -1,0 +1,44 @@
+[
+  {
+    "id": "greek-pantheon",
+    "name": "Greek Pantheon",
+    "slug": "greek",
+    "culture": "Ancient Greek",
+    "region": "Mediterranean",
+    "timePeriodStart": -800,
+    "timePeriodEnd": 400,
+    "description": "The Greek pantheon encompasses the gods and goddesses of ancient Greek mythology, centered on Mount Olympus and featuring the twelve Olympians who ruled after the Titanomachy.",
+    "citationSources": [
+      {"title": "Theogony", "author": "Hesiod", "date": "~700 BCE", "type": "primary"},
+      {"title": "The Library", "author": "Apollodorus", "date": "1st or 2nd century CE", "type": "primary"}
+    ]
+  },
+  {
+    "id": "norse-pantheon",
+    "name": "Norse Pantheon",
+    "slug": "norse",
+    "culture": "Norse/Germanic",
+    "region": "Scandinavia",
+    "timePeriodStart": -1200,
+    "timePeriodEnd": 1100,
+    "description": "The Norse pantheon includes the Aesir and Vanir gods of Scandinavian mythology, centered in Asgard and featuring stories of creation, heroism, and the prophesied end of the world known as Ragnarok.",
+    "citationSources": [
+      {"title": "Poetic Edda", "author": "Anonymous", "date": "~1270 CE", "type": "primary"},
+      {"title": "Prose Edda", "author": "Snorri Sturluson", "date": "~1220 CE", "type": "primary"}
+    ]
+  },
+  {
+    "id": "egyptian-pantheon",
+    "name": "Egyptian Pantheon",
+    "slug": "egyptian",
+    "culture": "Ancient Egyptian",
+    "region": "Nile River Valley",
+    "timePeriodStart": -3100,
+    "timePeriodEnd": 640,
+    "description": "The Egyptian pantheon encompasses the gods and goddesses of ancient Egypt, featuring creation deities, solar worship, the afterlife, and the eternal struggle between order (Ma'at) and chaos (Isfet).",
+    "citationSources": [
+      {"title": "Pyramid Texts", "date": "~2400-2300 BCE", "type": "primary"},
+      {"title": "Book of the Dead", "date": "~1550 BCE onwards", "type": "primary"}
+    ]
+  }
+]

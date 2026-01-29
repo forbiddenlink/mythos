@@ -1,0 +1,167 @@
+[
+  {
+    "id": "titanomachy",
+    "pantheonId": "greek-pantheon",
+    "title": "The Titanomachy",
+    "slug": "titanomachy",
+    "summary": "The ten-year war between the Olympian gods led by Zeus and the Titans led by Cronus, resulting in the establishment of the Olympian order.",
+    "keyExcerpts": "The Titanomachy was a series of battles fought between the younger generation of gods (the Olympians) and the older generation (the Titans). After Zeus freed his siblings from Cronus's belly, they waged war against the Titans for ten years.",
+    "category": "war",
+    "moralThemes": ["generational conflict", "divine succession", "cosmic order", "justice", "power"],
+    "culturalSignificance": "This story explains the origin of the Olympian gods' rule and their victory over the older Titan generation.",
+    "citationSources": [
+      {"title": "Theogony", "author": "Hesiod", "lines": "617-735", "type": "primary"},
+      {"title": "Library", "author": "Apollodorus", "book": "1.2.1", "type": "primary"}
+    ]
+  },
+  {
+    "id": "ragnarok",
+    "pantheonId": "norse-pantheon",
+    "title": "Ragnarok - The Twilight of the Gods",
+    "slug": "ragnarok",
+    "summary": "The prophesied end of the world in Norse mythology. After a great winter called Fimbulvetr, the bound wolf Fenrir will break free, the Midgard Serpent will rise from the ocean, and the giants will sail to battle the gods.",
+    "keyExcerpts": "Odin will be devoured by Fenrir, Thor will kill Jormungandr but die from its poison, and Heimdall and Loki will slay each other. The world will be consumed by fire and sink into the sea, but eventually rise again renewed.",
+    "category": "apocalypse",
+    "moralThemes": ["fate", "courage", "cosmic cycle", "destruction and renewal"],
+    "culturalSignificance": "Ragnarok represents the Norse concept of cyclical time and the inevitability of fate, even for gods.",
+    "citationSources": [
+      {"title": "Poetic Edda - Voluspa", "lines": "40-66"},
+      {"title": "Prose Edda - Gylfaginning", "chapters": "51-53"}
+    ]
+  },
+  {
+    "id": "creation-myth-norse",
+    "pantheonId": "norse-pantheon",
+    "title": "The Creation of the World",
+    "slug": "creation-myth-norse",
+    "summary": "In the beginning was the void Ginnungagap, with Muspelheim (fire) to the south and Niflheim (ice) to the north. When fire and ice met, they created the giant Ymir.",
+    "keyExcerpts": "Odin, Vili, and Ve killed Ymir and created the world from his body: his flesh became earth, his blood the seas, his bones the mountains, his skull the sky. From two trees they created the first humans, Ask and Embla.",
+    "category": "creation",
+    "moralThemes": ["creation from chaos", "sacrifice", "divine craftsmanship"],
+    "culturalSignificance": "This creation myth explains the Norse cosmology and the origin of humanity.",
+    "citationSources": [
+      {"title": "Poetic Edda - Voluspa", "lines": "3-18"},
+      {"title": "Prose Edda - Gylfaginning", "chapters": "4-9"}
+    ]
+  },
+  {
+    "id": "death-of-baldur",
+    "pantheonId": "norse-pantheon",
+    "title": "The Death of Baldur",
+    "slug": "death-of-baldur",
+    "summary": "Baldur, the most beloved god, was troubled by dreams of his death. His mother Frigg extracted oaths from all things not to harm him, making him invulnerable - except she overlooked mistletoe.",
+    "keyExcerpts": "Loki discovered this weakness and fashioned a dart from mistletoe. He gave it to the blind god Hodr, who unknowingly threw it, killing Baldur. The gods attempted to ransom him from Hel, but Loki refused to weep for him.",
+    "category": "tragedy",
+    "moralThemes": ["treachery", "vulnerability", "grief", "fate"],
+    "culturalSignificance": "Baldur's death is a pivotal event leading to Ragnarok and represents the loss of light and innocence.",
+    "citationSources": [
+      {"title": "Prose Edda - Gylfaginning", "chapters": "49-50"},
+      {"title": "Poetic Edda - Baldrs draumar"}
+    ]
+  },
+  {
+    "id": "binding-of-fenrir",
+    "pantheonId": "norse-pantheon",
+    "title": "The Binding of Fenrir",
+    "slug": "binding-of-fenrir",
+    "summary": "The gods raised the wolf Fenrir in Asgard, but as he grew enormous and dangerous, they decided he must be bound. The dwarves crafted Gleipnir, a ribbon made from impossible things.",
+    "keyExcerpts": "Gleipnir was made from the sound of a cat's footfall, the beard of a woman, the roots of a mountain, the sinews of a bear, the breath of a fish, and the spittle of a bird. Tyr volunteered to place his hand in Fenrir's mouth as a pledge, and when Fenrir couldn't break free, he bit off Tyr's hand.",
+    "category": "myth",
+    "moralThemes": ["sacrifice", "courage", "necessity of binding chaos"],
+    "culturalSignificance": "This story explains Tyr's missing hand and illustrates the gods' desperate measures to prevent destruction.",
+    "citationSources": [
+      {"title": "Prose Edda - Gylfaginning", "chapter": "34"}
+    ]
+  },
+  {
+    "id": "yggdrasil",
+    "pantheonId": "norse-pantheon",
+    "title": "Yggdrasil - The World Tree",
+    "slug": "yggdrasil",
+    "summary": "The immense ash tree that stands at the center of the cosmos and connects the Nine Worlds. Its roots extend into multiple realms, and its branches stretch over all existence.",
+    "keyExcerpts": "At its base sit the Norns (Fates), and various creatures live within it, including the eagle at its crown, the dragon Nidhoggr gnawing at its roots, and the squirrel Ratatoskr running up and down carrying messages.",
+    "category": "cosmology",
+    "moralThemes": ["interconnection", "cosmic order", "the axis mundi"],
+    "culturalSignificance": "Yggdrasil represents the Norse understanding of the universe's structure and the connections between all realms.",
+    "citationSources": [
+      {"title": "Poetic Edda - Voluspa", "lines": "19-20"},
+      {"title": "Prose Edda - Gylfaginning", "chapters": "15-16"}
+    ]
+  },
+  {
+    "id": "creation-heliopolis",
+    "pantheonId": "egyptian-pantheon",
+    "title": "The Heliopolitan Creation Myth",
+    "slug": "creation-heliopolis",
+    "summary": "In the beginning was the primordial waters of Nun, dark and chaotic. From these waters arose the primeval mound, and upon it stood Atum (later identified with Ra), the self-created god.",
+    "keyExcerpts": "Atum created Shu (air) and Tefnut (moisture) through his own essence. They gave birth to Geb (earth) and Nut (sky). Geb and Nut produced Osiris, Isis, Set, and Nephthys, forming the Ennead.",
+    "category": "creation",
+    "moralThemes": ["order from chaos", "divine hierarchy", "the power of the word"],
+    "culturalSignificance": "This is the primary Egyptian creation myth, establishing the theological foundation of Heliopolis.",
+    "citationSources": [
+      {"title": "Pyramid Texts", "spells": "600-602"},
+      {"title": "Coffin Texts", "spell": "80"}
+    ]
+  },
+  {
+    "id": "osiris-myth",
+    "pantheonId": "egyptian-pantheon",
+    "title": "The Murder and Resurrection of Osiris",
+    "slug": "osiris-myth",
+    "summary": "Osiris ruled Egypt as its first pharaoh, teaching agriculture and civilization. His brother Set, consumed by jealousy, murdered him and scattered his body across Egypt.",
+    "keyExcerpts": "Isis searched all of Egypt for her husband's body parts. Through her magic and Anubis's first embalming, Osiris was resurrected enough to conceive Horus before becoming lord of the dead.",
+    "category": "tragedy",
+    "moralThemes": ["death and resurrection", "loyalty", "justice", "the afterlife"],
+    "culturalSignificance": "The central myth of Egyptian religion, explaining death, mummification, and the hope for afterlife.",
+    "citationSources": [
+      {"title": "Pyramid Texts", "spells": "366-375"},
+      {"title": "Plutarch - De Iside et Osiride"}
+    ]
+  },
+  {
+    "id": "ra-journey",
+    "pantheonId": "egyptian-pantheon",
+    "title": "The Solar Barque - Ra's Daily Journey",
+    "slug": "ra-journey",
+    "summary": "Each day, Ra travels across the sky in his solar barque, bringing light and warmth to the world. As night falls, Ra enters the underworld (Duat), facing his greatest enemy: Apophis.",
+    "keyExcerpts": "The chaos serpent Apophis tries to swallow Ra and prevent sunrise. Set, despite his negative role elsewhere, protects Ra by spearing Apophis. Each dawn represents Ra's victory over chaos.",
+    "category": "cosmology",
+    "moralThemes": ["order vs chaos", "daily renewal", "the eternal cycle"],
+    "culturalSignificance": "This daily journey explains the sun's movement and represents the eternal battle between order and chaos.",
+    "citationSources": [
+      {"title": "Book of the Dead", "spell": "15"},
+      {"title": "Amduat"},
+      {"title": "Litany of Ra"}
+    ]
+  },
+  {
+    "id": "contendings",
+    "pantheonId": "egyptian-pantheon",
+    "title": "The Contendings of Horus and Set",
+    "slug": "contendings",
+    "summary": "After Osiris's death, his son Horus challenged Set for the throne of Egypt, leading to an 80-year conflict with many contests and trials.",
+    "keyExcerpts": "Set damaged Horus's eye, while Horus castrated Set. Eventually, Osiris sent a threatening letter from the underworld, and the gods decided Horus was the rightful king. Horus's damaged eye was healed by Thoth and became the Wedjat.",
+    "category": "war",
+    "moralThemes": ["rightful succession", "justice", "perseverance"],
+    "culturalSignificance": "This story legitimizes royal succession and explains the origin of the Eye of Horus symbol.",
+    "citationSources": [
+      {"title": "The Contendings of Horus and Seth (Papyrus Chester Beatty I)", "date": "~1160 BCE"},
+      {"title": "Pyramid Texts", "spells": "350-360"}
+    ]
+  },
+  {
+    "id": "weighing-heart",
+    "pantheonId": "egyptian-pantheon",
+    "title": "The Weighing of the Heart Ceremony",
+    "slug": "weighing-heart",
+    "summary": "When a person dies, their heart is weighed on scales by Anubis against the feather of Ma'at (truth and justice). Thoth records the results.",
+    "keyExcerpts": "If the heart is lighter than the feather, the soul proceeds to Aaru (paradise). If the heart is heavy with sin, it is devoured by Ammit, causing the 'second death' - the soul ceases to exist.",
+    "category": "afterlife",
+    "moralThemes": ["moral judgment", "truth", "consequences of actions"],
+    "culturalSignificance": "This ceremony was central to Egyptian funerary beliefs and moral philosophy.",
+    "citationSources": [
+      {"title": "Book of the Dead", "spell": "125"},
+      {"title": "Papyrus of Ani"}
+    ]
+  }
+]
