@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Playfair_Display } from "next/font/google";
+import { Source_Sans_3, Cinzel, Crimson_Pro } from "next/font/google";
 import "./globals.css";
 import { QueryProvider } from "@/providers/query-provider";
 import { ThemeProvider } from "@/providers/theme-provider";
@@ -9,16 +9,27 @@ import { CommandPaletteProvider } from "@/components/command-palette/CommandPale
 import { SkipToContent } from "@/components/accessibility/SkipToContent";
 import { generateBaseMetadata } from "@/lib/metadata";
 
-const inter = Inter({
-  variable: "--font-inter",
+// Cinzel - Elegant classical display font inspired by Roman inscriptions
+const cinzel = Cinzel({
+  variable: "--font-cinzel",
+  subsets: ["latin"],
+  display: "swap",
+  weight: ["400", "500", "600", "700", "800"],
+});
+
+// Source Sans 3 - Clean, readable UI font
+const sourceSans = Source_Sans_3({
+  variable: "--font-source-sans",
   subsets: ["latin"],
   display: "swap",
 });
 
-const playfair = Playfair_Display({
-  variable: "--font-playfair",
+// Crimson Pro - Elegant serif for body text and quotes
+const crimsonPro = Crimson_Pro({
+  variable: "--font-crimson",
   subsets: ["latin"],
   display: "swap",
+  style: ["normal", "italic"],
 });
 
 export const metadata: Metadata = generateBaseMetadata({
@@ -34,7 +45,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.variable} ${playfair.variable} font-sans antialiased`}>
+      <body className={`${sourceSans.variable} ${cinzel.variable} ${crimsonPro.variable} font-sans antialiased`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"

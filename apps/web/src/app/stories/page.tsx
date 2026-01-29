@@ -67,7 +67,7 @@ export default function StoriesPage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section with Background Image */}
-      <div className="relative overflow-hidden">
+      <div className="relative h-[50vh] min-h-[400px] flex items-center justify-center overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <Image
@@ -79,69 +79,81 @@ export default function StoriesPage() {
             sizes="100vw"
             quality={85}
           />
-          <div className="absolute inset-0 bg-linear-to-br from-slate-900/70 via-slate-800/65 to-amber-900/70"></div>
         </div>
-        
-        <div className="container mx-auto max-w-7xl px-4 py-16 relative z-10">
-          <div className="flex items-center gap-3 mb-4">
-            <div className="w-16 h-16 rounded-2xl bg-linear-to-br from-amber-600 to-orange-700 flex items-center justify-center shadow-lg">
-              <ScrollText className="h-8 w-8 text-white" />
-            </div>
-            <div>
-              <h1 className="font-serif text-5xl font-bold tracking-tight text-white mb-2">
-                Mythological Stories
-              </h1>
-              <p className="text-xl text-slate-200 font-light">
-                Epic tales and legends from ancient civilizations
-              </p>
+        {/* Gradient Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-midnight/70 via-midnight/60 to-midnight/80 z-10" />
+
+        {/* Radial gold glow */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[120%] h-[60%] bg-gradient-radial from-gold/10 via-transparent to-transparent z-10" />
+
+        {/* Hero Content */}
+        <div className="relative z-20 text-center px-4 max-w-4xl mx-auto">
+          <div className="flex items-center justify-center mb-6">
+            <div className="relative p-4 rounded-xl border border-gold/20 bg-midnight/50 backdrop-blur-sm">
+              <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-gold/10 to-transparent" />
+              <ScrollText className="relative h-10 w-10 text-gold" strokeWidth={1.5} />
             </div>
           </div>
+          <span className="inline-block text-gold/80 text-sm tracking-[0.25em] uppercase mb-4 font-medium">
+            Epic Tales
+          </span>
+          <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tight mb-6 text-parchment">
+            Mythological Stories
+          </h1>
+          <div className="flex items-center justify-center gap-4 mb-6">
+            <div className="w-12 h-px bg-gradient-to-r from-transparent to-gold/40" />
+            <div className="w-1.5 h-1.5 rotate-45 bg-gold/50" />
+            <div className="w-12 h-px bg-gradient-to-l from-transparent to-gold/40" />
+          </div>
+          <p className="text-lg md:text-xl text-parchment/70 max-w-2xl mx-auto font-body leading-relaxed">
+            Epic tales and legends from ancient civilizations
+          </p>
         </div>
       </div>
 
       {/* Stories Grid */}
-      <div className="container mx-auto max-w-7xl px-4 py-12">
+      <div className="container mx-auto max-w-7xl px-4 py-12 bg-mythic">
         <Breadcrumbs />
         {data?.stories && data.stories.length > 0 ? (
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 mt-6">
             {data.stories.map((story, index) => (
               <Link key={story.id} href={`/stories/${story.slug}`}>
-                <Card className="h-full group hover:shadow-xl transition-all duration-300 hover:scale-[1.01] border-2 hover:border-amber-200 dark:hover:border-amber-800 overflow-hidden bg-white dark:bg-slate-900">
+                <Card className="group h-full cursor-pointer card-elevated bg-card hover:scale-[1.01] overflow-hidden">
                   {/* Subtle Top Border */}
-                  <div className="h-1 bg-linear-to-r from-amber-600 via-orange-600 to-amber-600"></div>
-                  
+                  <div className="h-0.5 bg-gradient-to-r from-gold-dark via-gold to-gold-dark"></div>
+
                   <CardHeader className="relative">
-                    <div className="absolute top-4 right-4 opacity-5 group-hover:opacity-10 transition-opacity">
-                      <BookOpen className="h-24 w-24 text-amber-600" />
+                    <div className="absolute top-4 right-4 opacity-[0.03] group-hover:opacity-[0.06] transition-opacity">
+                      <BookOpen className="h-24 w-24 text-gold" />
                     </div>
                     <div className="flex items-start gap-3 relative z-10">
-                      <div className={`w-12 h-12 rounded-xl bg-linear-to-br ${
-                        index % 3 === 0 ? 'from-amber-600 to-orange-700' :
-                        index % 3 === 1 ? 'from-slate-600 to-slate-700' :
-                        'from-teal-600 to-emerald-700'
-                      } flex items-center justify-center shrink-0 shadow-md group-hover:scale-105 transition-transform`}>
-                        <ScrollText className="h-6 w-6 text-white" />
+                      <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${
+                        index % 3 === 0 ? 'from-gold-dark to-bronze' :
+                        index % 3 === 1 ? 'from-midnight-light to-midnight' :
+                        'from-patina to-[oklch(0.45_0.10_170)]'
+                      } flex items-center justify-center shrink-0 shadow-md group-hover:scale-105 transition-transform duration-300`}>
+                        <ScrollText className="h-6 w-6 text-white/90" strokeWidth={1.5} />
                       </div>
                       <div className="flex-1 min-w-0">
-                        <CardTitle className="font-serif text-xl group-hover:text-amber-700 dark:group-hover:text-amber-300 transition-colors line-clamp-2">
+                        <CardTitle className="text-lg group-hover:text-gold transition-colors duration-300 line-clamp-2">
                           {story.title}
                         </CardTitle>
                       </div>
                     </div>
                   </CardHeader>
-                  
+
                   {story.summary && (
                     <CardContent className="space-y-4">
-                      <p className="text-slate-600 dark:text-slate-400 line-clamp-3 leading-relaxed">
+                      <p className="text-muted-foreground text-sm line-clamp-3 leading-relaxed">
                         {story.summary}
                       </p>
                       {story.themes && story.themes.length > 0 && (
                         <div className="flex flex-wrap gap-2">
                           {story.themes.slice(0, 3).map((theme) => (
-                            <Badge 
-                              key={theme} 
+                            <Badge
+                              key={theme}
                               variant="secondary"
-                              className="text-xs bg-amber-100 text-amber-800 dark:bg-amber-900/30 dark:text-amber-300 border border-amber-200 dark:border-amber-800"
+                              className="text-xs bg-gold/10 text-gold border border-gold/20"
                             >
                               {theme}
                             </Badge>
@@ -156,11 +168,11 @@ export default function StoriesPage() {
           </div>
         ) : (
           <div className="text-center py-20">
-            <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-slate-100 dark:bg-slate-800 mb-6">
-              <ScrollText className="h-10 w-10 text-slate-400" />
+            <div className="inline-flex items-center justify-center w-20 h-20 rounded-xl bg-muted border border-border mb-6">
+              <ScrollText className="h-10 w-10 text-muted-foreground" strokeWidth={1.5} />
             </div>
-            <h2 className="text-2xl font-semibold mb-2 text-slate-900 dark:text-slate-100">No stories yet</h2>
-            <p className="text-slate-600 dark:text-slate-400">
+            <h2 className="text-2xl font-serif font-semibold mb-2 text-foreground">No stories yet</h2>
+            <p className="text-muted-foreground">
               Check back later for mythological tales and legends
             </p>
           </div>

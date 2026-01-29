@@ -1,36 +1,51 @@
 export function Logo({ className = "h-8 w-8" }: { className?: string }) {
   return (
-    <svg 
+    <svg
       className={className}
-      viewBox="0 0 32 32" 
-      fill="none" 
+      viewBox="0 0 32 32"
+      fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      {/* Classical Column Base */}
-      <rect x="6" y="26" width="20" height="2" rx="1" fill="currentColor"/>
-      
-      {/* Column Shafts */}
-      <path d="M10 10 L10 26 L14 26 L14 10 Z" fill="currentColor" opacity="0.9"/>
-      <path d="M18 10 L18 26 L22 26 L22 10 Z" fill="currentColor" opacity="0.9"/>
-      
-      {/* Capitals */}
-      <rect x="8" y="8" width="6" height="2" rx="1" fill="currentColor"/>
-      <rect x="18" y="8" width="6" height="2" rx="1" fill="currentColor"/>
-      
-      {/* Laurel Crown */}
-      <path 
-        d="M16 2 Q12 3 10 6 Q11 4 13 3.5 Q14.5 3 16 3 Q17.5 3 19 3.5 Q21 4 22 6 Q20 3 16 2 Z" 
+      {/* Outer ring */}
+      <circle cx="16" cy="16" r="14" stroke="currentColor" strokeWidth="1" opacity="0.2"/>
+
+      {/* Inner decorative ring */}
+      <circle cx="16" cy="16" r="11" stroke="currentColor" strokeWidth="0.5" opacity="0.15"/>
+
+      {/* Temple pediment (triangle top) */}
+      <path
+        d="M16 5 L22 11 L10 11 Z"
         fill="currentColor"
+        opacity="0.9"
       />
-      <circle cx="16" cy="5" r="2" fill="currentColor"/>
-      
-      {/* Decorative Dots */}
-      <circle cx="12" cy="13" r="0.8" fill="currentColor" opacity="0.5"/>
-      <circle cx="20" cy="13" r="0.8" fill="currentColor" opacity="0.5"/>
-      <circle cx="12" cy="17" r="0.8" fill="currentColor" opacity="0.5"/>
-      <circle cx="20" cy="17" r="0.8" fill="currentColor" opacity="0.5"/>
-      <circle cx="12" cy="21" r="0.8" fill="currentColor" opacity="0.5"/>
-      <circle cx="20" cy="21" r="0.8" fill="currentColor" opacity="0.5"/>
+
+      {/* Entablature (horizontal bar under pediment) */}
+      <rect x="9" y="11" width="14" height="1.5" fill="currentColor" opacity="0.8"/>
+
+      {/* Left column */}
+      <rect x="10.5" y="12.5" width="2.5" height="10" fill="currentColor" opacity="0.85"/>
+      <rect x="10" y="12.5" width="3.5" height="1" rx="0.25" fill="currentColor"/>
+
+      {/* Center column */}
+      <rect x="14.75" y="12.5" width="2.5" height="10" fill="currentColor" opacity="0.85"/>
+      <rect x="14.25" y="12.5" width="3.5" height="1" rx="0.25" fill="currentColor"/>
+
+      {/* Right column */}
+      <rect x="19" y="12.5" width="2.5" height="10" fill="currentColor" opacity="0.85"/>
+      <rect x="18.5" y="12.5" width="3.5" height="1" rx="0.25" fill="currentColor"/>
+
+      {/* Base/Stylobate */}
+      <rect x="8" y="22.5" width="16" height="1.5" rx="0.5" fill="currentColor"/>
+      <rect x="7" y="24" width="18" height="1" rx="0.25" fill="currentColor" opacity="0.7"/>
+
+      {/* Small decorative star at top */}
+      <circle cx="16" cy="7" r="0.8" fill="currentColor"/>
+
+      {/* Corner decorations */}
+      <circle cx="8" cy="8" r="0.6" fill="currentColor" opacity="0.3"/>
+      <circle cx="24" cy="8" r="0.6" fill="currentColor" opacity="0.3"/>
+      <circle cx="8" cy="24" r="0.6" fill="currentColor" opacity="0.3"/>
+      <circle cx="24" cy="24" r="0.6" fill="currentColor" opacity="0.3"/>
     </svg>
   );
 }

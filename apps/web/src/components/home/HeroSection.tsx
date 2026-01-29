@@ -1,9 +1,10 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Sparkles } from 'lucide-react';
+import { Compass } from 'lucide-react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
+import { useState, useEffect } from 'react';
 
 const mythologyQuotes = [
   { text: "In the beginning was the Word, and the Word was with God...", source: "Various Mythologies" },
@@ -13,133 +14,227 @@ const mythologyQuotes = [
 ];
 
 export function HeroSection() {
-  const randomQuote = mythologyQuotes[Math.floor(Math.random() * mythologyQuotes.length)];
+  // Use deterministic quote on server, then randomize on client
+  const [quoteIndex, setQuoteIndex] = useState(0);
+
+  useEffect(() => {
+    setQuoteIndex(Math.floor(Math.random() * mythologyQuotes.length));
+  }, []);
+
+  const randomQuote = mythologyQuotes[quoteIndex];
 
   return (
-    <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-to-b from-slate-900 via-amber-900/20 to-slate-900">
-      {/* Animated background pattern */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute inset-0" style={{
-          backgroundImage: 'radial-gradient(circle at 2px 2px, currentColor 1px, transparent 0)',
-          backgroundSize: '40px 40px',
-          color: '#f59e0b'
-        }} />
-      </div>
+    <section className="relative min-h-[100vh] flex items-center justify-center overflow-hidden bg-hero-gradient">
+      {/* Noise texture overlay */}
+      <div className="absolute inset-0 opacity-[0.015]" style={{
+        backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`,
+      }} />
 
-      {/* Glowing orbs */}
+      {/* Radial gradient light source - like candlelight */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[120%] h-[60%] bg-gradient-radial from-[rgba(178,143,86,0.15)] via-[rgba(178,143,86,0.05)] to-transparent" />
+
+      {/* Vignette effect */}
+      <div className="absolute inset-0 bg-gradient-radial from-transparent via-transparent to-[rgba(10,10,25,0.5)]" />
+
+      {/* Floating orbs - more subtle and elegant */}
       <motion.div
-        className="absolute top-20 left-20 w-64 h-64 bg-amber-500/20 rounded-full blur-3xl"
+        className="absolute top-[15%] left-[10%] w-80 h-80 rounded-full"
+        style={{
+          background: 'radial-gradient(circle, rgba(178,143,86,0.12) 0%, transparent 70%)',
+          filter: 'blur(40px)',
+        }}
         animate={{
-          scale: [1, 1.2, 1],
-          opacity: [0.3, 0.5, 0.3],
+          scale: [1, 1.15, 1],
+          opacity: [0.4, 0.6, 0.4],
+          x: [0, 20, 0],
+          y: [0, -15, 0],
         }}
         transition={{
-          duration: 8,
+          duration: 12,
           repeat: Infinity,
           ease: "easeInOut",
         }}
       />
       <motion.div
-        className="absolute bottom-20 right-20 w-96 h-96 bg-orange-500/20 rounded-full blur-3xl"
+        className="absolute bottom-[20%] right-[8%] w-96 h-96 rounded-full"
+        style={{
+          background: 'radial-gradient(circle, rgba(98,87,150,0.1) 0%, transparent 70%)',
+          filter: 'blur(50px)',
+        }}
         animate={{
-          scale: [1, 1.3, 1],
-          opacity: [0.2, 0.4, 0.2],
+          scale: [1, 1.2, 1],
+          opacity: [0.3, 0.5, 0.3],
+          x: [0, -25, 0],
+          y: [0, 20, 0],
+        }}
+        transition={{
+          duration: 15,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 2,
+        }}
+      />
+      <motion.div
+        className="absolute top-[50%] right-[25%] w-64 h-64 rounded-full"
+        style={{
+          background: 'radial-gradient(circle, rgba(140,95,60,0.08) 0%, transparent 70%)',
+          filter: 'blur(35px)',
+        }}
+        animate={{
+          scale: [1, 1.1, 1],
+          opacity: [0.25, 0.4, 0.25],
         }}
         transition={{
           duration: 10,
           repeat: Infinity,
           ease: "easeInOut",
-          delay: 1,
+          delay: 4,
         }}
       />
 
+      {/* Decorative lines - classical aesthetic */}
+      <div className="absolute top-8 left-8 right-8 h-px bg-gradient-to-r from-transparent via-gold/20 to-transparent" />
+      <div className="absolute bottom-8 left-8 right-8 h-px bg-gradient-to-r from-transparent via-gold/20 to-transparent" />
+
       <div className="relative z-10 container mx-auto px-4 text-center">
+        {/* Decorative emblem */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="flex justify-center mb-8"
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+          className="flex justify-center mb-10"
         >
           <div className="relative">
+            {/* Outer glow ring */}
             <motion.div
-              className="absolute inset-0 bg-amber-500/30 rounded-full blur-xl"
+              className="absolute inset-[-20px] rounded-full"
+              style={{
+                background: 'radial-gradient(circle, rgba(178,143,86,0.2) 0%, transparent 70%)',
+              }}
               animate={{
-                scale: [1, 1.2, 1],
+                scale: [1, 1.1, 1],
+                opacity: [0.5, 0.8, 0.5],
               }}
               transition={{
-                duration: 3,
+                duration: 4,
                 repeat: Infinity,
+                ease: "easeInOut",
               }}
             />
-            <div className="relative p-6 rounded-full bg-gradient-to-br from-amber-600 to-orange-700">
-              <Sparkles className="h-12 w-12 text-white" />
+            {/* Icon container with ornate border */}
+            <div className="relative p-5 rounded-full border border-gold/30 bg-gradient-to-br from-midnight-light/80 to-midnight/90 backdrop-blur-sm">
+              <div className="absolute inset-1 rounded-full border border-gold/10" />
+              <Compass className="h-10 w-10 text-gold animate-glow" strokeWidth={1.5} />
             </div>
           </div>
         </motion.div>
 
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
+        {/* Main title with refined typography */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="font-serif text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-6 text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-amber-400 to-orange-500"
+          transition={{ duration: 0.9, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
         >
-          Mythos Atlas
+          <span className="block text-gold/80 text-sm tracking-[0.4em] uppercase mb-4 font-sans font-medium">
+            Encyclopedia of Ancient Mythology
+          </span>
+        </motion.div>
+
+        <motion.h1
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
+          className="font-serif text-6xl md:text-7xl lg:text-[5.5rem] xl:text-[6.5rem] font-semibold tracking-tight mb-6"
+        >
+          <span className="text-gradient-hero">Mythos Atlas</span>
         </motion.h1>
+
+        {/* Decorative divider */}
+        <motion.div
+          initial={{ opacity: 0, scaleX: 0 }}
+          animate={{ opacity: 1, scaleX: 1 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          className="flex items-center justify-center gap-4 mb-8"
+        >
+          <div className="w-16 md:w-24 h-px bg-gradient-to-r from-transparent to-gold/40" />
+          <div className="w-1.5 h-1.5 rotate-45 bg-gold/60" />
+          <div className="w-16 md:w-24 h-px bg-gradient-to-l from-transparent to-gold/40" />
+        </motion.div>
 
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="text-xl md:text-2xl lg:text-3xl text-slate-300 max-w-3xl mx-auto mb-8 font-light leading-relaxed"
+          transition={{ duration: 0.8, delay: 0.5 }}
+          className="text-lg md:text-xl lg:text-2xl text-parchment/80 max-w-2xl mx-auto mb-12 font-body leading-relaxed tracking-wide"
         >
-          Journey through the ancient stories that shaped civilizations
+          Journey through the ancient stories, divine beings, and sacred wisdom that shaped civilizations across the ages
         </motion.p>
 
+        {/* CTA Buttons */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12"
+          transition={{ duration: 0.8, delay: 0.65 }}
+          className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16"
         >
-          <Button asChild size="lg" className="bg-gradient-to-r from-amber-600 to-orange-700 hover:from-amber-700 hover:to-orange-800 text-white px-8 py-6 text-lg">
+          <Button
+            asChild
+            size="lg"
+            className="relative overflow-hidden bg-gradient-to-r from-gold-dark via-gold to-gold-dark hover:from-gold hover:via-gold-light hover:to-gold text-midnight font-semibold px-10 py-6 text-base tracking-wide transition-all duration-300 shadow-lg shadow-gold/20 hover:shadow-xl hover:shadow-gold/30"
+          >
             <Link href="/pantheons">
               Explore Mythologies
             </Link>
           </Button>
-          <Button asChild size="lg" variant="outline" className="border-amber-500 text-amber-400 hover:bg-amber-500/10 px-8 py-6 text-lg">
+          <Button
+            asChild
+            size="lg"
+            variant="outline"
+            className="border-gold/40 text-gold hover:bg-gold/10 hover:border-gold/60 px-10 py-6 text-base tracking-wide transition-all duration-300"
+          >
             <Link href="/deities">
               Meet the Gods
             </Link>
           </Button>
         </motion.div>
 
+        {/* Quote block with refined styling */}
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.8 }}
-          className="max-w-2xl mx-auto p-6 rounded-lg bg-slate-800/50 backdrop-blur-sm border border-amber-500/20"
+          className="max-w-xl mx-auto"
         >
-          <p className="text-amber-200 italic text-lg font-serif mb-2">
-            "{randomQuote.text}"
-          </p>
-          <p className="text-slate-400 text-sm">
-            — {randomQuote.source}
-          </p>
+          <div className="relative p-8 rounded-lg border border-gold/10 bg-midnight-light/30 backdrop-blur-sm">
+            {/* Corner decorations */}
+            <div className="absolute top-0 left-0 w-4 h-4 border-t border-l border-gold/30" />
+            <div className="absolute top-0 right-0 w-4 h-4 border-t border-r border-gold/30" />
+            <div className="absolute bottom-0 left-0 w-4 h-4 border-b border-l border-gold/30" />
+            <div className="absolute bottom-0 right-0 w-4 h-4 border-b border-r border-gold/30" />
+
+            <p className="text-gold-light/90 italic text-lg font-body leading-relaxed mb-3">
+              &ldquo;{randomQuote.text}&rdquo;
+            </p>
+            <p className="text-parchment/50 text-sm font-sans tracking-wide">
+              — {randomQuote.source}
+            </p>
+          </div>
         </motion.div>
 
         {/* Scroll indicator */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 1 }}
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+          transition={{ duration: 0.8, delay: 1.2 }}
+          className="absolute bottom-12 left-1/2 transform -translate-x-1/2"
         >
           <motion.div
-            animate={{ y: [0, 10, 0] }}
-            transition={{ duration: 2, repeat: Infinity }}
-            className="text-amber-400"
+            animate={{ y: [0, 8, 0] }}
+            transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
+            className="flex flex-col items-center gap-2"
           >
-            <svg className="w-6 h-6" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor">
+            <span className="text-gold/40 text-xs tracking-[0.2em] uppercase font-sans">Scroll</span>
+            <svg className="w-5 h-5 text-gold/40" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" stroke="currentColor">
               <path d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
             </svg>
           </motion.div>

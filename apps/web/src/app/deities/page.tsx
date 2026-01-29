@@ -59,7 +59,7 @@ export default function DeitiesPage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <div className="relative h-[50vh] min-h-100 flex items-center justify-center">
+      <div className="relative h-[50vh] min-h-[400px] flex items-center justify-center overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <Image
@@ -71,27 +71,39 @@ export default function DeitiesPage() {
           />
         </div>
         {/* Gradient Overlay */}
-        <div className="absolute inset-0 bg-linear-to-b from-amber-900/65 via-amber-900/65 to-amber-900/70 z-10" />
-        
+        <div className="absolute inset-0 bg-gradient-to-b from-midnight/70 via-midnight/60 to-midnight/80 z-10" />
+
+        {/* Radial gold glow */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[120%] h-[60%] bg-gradient-radial from-gold/10 via-transparent to-transparent z-10" />
+
         {/* Hero Content */}
         <div className="relative z-20 text-center px-4 max-w-4xl mx-auto">
           <div className="flex items-center justify-center mb-6">
-            <div className="p-4 rounded-full bg-amber-500/20 backdrop-blur-sm">
-              <Sparkles className="h-12 w-12 text-amber-300" />
+            <div className="relative p-4 rounded-xl border border-gold/20 bg-midnight/50 backdrop-blur-sm">
+              <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-gold/10 to-transparent" />
+              <Sparkles className="relative h-10 w-10 text-gold" strokeWidth={1.5} />
             </div>
           </div>
-          <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6 text-white">
+          <span className="inline-block text-gold/80 text-sm tracking-[0.25em] uppercase mb-4 font-medium">
+            Divine Beings
+          </span>
+          <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tight mb-6 text-parchment">
             Deities
           </h1>
-          <p className="text-xl md:text-2xl text-amber-100 max-w-2xl mx-auto font-light leading-relaxed">
-            Discover gods and goddesses from mythology across ancient civilizations.
+          <div className="flex items-center justify-center gap-4 mb-6">
+            <div className="w-12 h-px bg-gradient-to-r from-transparent to-gold/40" />
+            <div className="w-1.5 h-1.5 rotate-45 bg-gold/50" />
+            <div className="w-12 h-px bg-gradient-to-l from-transparent to-gold/40" />
+          </div>
+          <p className="text-lg md:text-xl text-parchment/70 max-w-2xl mx-auto font-body leading-relaxed">
+            Discover gods and goddesses from mythology across ancient civilizations
           </p>
         </div>
       </div>
 
       {/* Content Section */}
-      <div className="container mx-auto max-w-6xl px-4 py-16">
-      <div className="flex items-center justify-between mb-6">
+      <div className="container mx-auto max-w-6xl px-4 py-16 bg-mythic">
+      <div className="flex items-center justify-between mb-8">
         <Breadcrumbs />
         <div className="flex items-center gap-2">
           <Button
@@ -121,28 +133,28 @@ export default function DeitiesPage() {
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {data?.deities.map((deity) => (
           <Link key={deity.id} href={`/deities/${deity.slug}`}>
-            <Card className="h-full transition-all hover:shadow-lg hover:scale-[1.02] cursor-pointer bg-white dark:bg-slate-900">
+            <Card className="group h-full cursor-pointer card-elevated bg-card hover:scale-[1.01]">
               <CardHeader>
                 <div className="flex items-start justify-between">
-                  <div className="p-2 rounded-full bg-amber-500/10">
-                    <Sparkles className="h-6 w-6 text-amber-600 dark:text-amber-500" />
+                  <div className="p-2.5 rounded-xl bg-gold/10 border border-gold/20 group-hover:bg-gold/15 transition-colors duration-300">
+                    <Sparkles className="h-5 w-5 text-gold" strokeWidth={1.5} />
                   </div>
                   {deity.importanceRank && deity.importanceRank <= 5 && (
-                    <span className="text-xs font-semibold px-2 py-1 rounded-full bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-300">
+                    <span className="text-xs font-medium px-2.5 py-1 rounded-full bg-gold/10 border border-gold/20 text-gold">
                       Major Deity
                     </span>
                   )}
                 </div>
-                <CardTitle className="font-serif text-slate-900 dark:text-slate-100 mt-4">{deity.name}</CardTitle>
+                <CardTitle className="text-foreground mt-4 group-hover:text-gold transition-colors duration-300">{deity.name}</CardTitle>
                 {deity.domain && deity.domain.length > 0 && (
-                  <CardDescription className="text-slate-600 dark:text-slate-400">
+                  <CardDescription>
                     {deity.domain.slice(0, 3).join(', ')}
                   </CardDescription>
                 )}
               </CardHeader>
               {deity.description && (
                 <CardContent>
-                  <p className="text-slate-600 dark:text-slate-400 line-clamp-3">
+                  <p className="text-muted-foreground text-sm line-clamp-3 leading-relaxed">
                     {deity.description}
                   </p>
                 </CardContent>

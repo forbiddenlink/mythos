@@ -5,14 +5,30 @@ import { Search, Command } from 'lucide-react';
 import { Logo } from '@/components/ui/logo';
 import { ThemeToggle } from '@/components/ui/theme-toggle';
 import { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
+
+const navLinks = [
+  { href: '/pantheons', label: 'Pantheons' },
+  { href: '/deities', label: 'Deities' },
+  { href: '/family-tree', label: 'Family Tree' },
+  { href: '/stories', label: 'Stories' },
+];
 
 export function Header() {
   const [isMac, setIsMac] = useState(false);
   const [mounted, setMounted] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     setMounted(true);
     setIsMac(navigator.platform.toUpperCase().indexOf('MAC') >= 0);
+
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const handleSearchClick = () => {
@@ -26,55 +42,64 @@ export function Header() {
   };
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-white/95 dark:bg-slate-950/95 backdrop-blur supports-backdrop-filter:bg-white/80 dark:supports-backdrop-filter:bg-slate-950/80 shadow-sm">
-      <div className="container mx-auto max-w-7xl flex h-16 items-center px-4">
-        <Link href="/" className="flex items-center space-x-3 group">
-          <div className="text-slate-700 dark:text-slate-300 group-hover:text-slate-900 dark:group-hover:text-slate-100 transition-colors">
-            <Logo className="h-8 w-8" />
+    <header
+      className={`sticky top-0 z-50 w-full transition-all duration-300 ${
+        scrolled
+          ? 'bg-background/95 backdrop-blur-md border-b border-border/50 shadow-sm'
+          : 'bg-transparent border-b border-transparent'
+      }`}
+    >
+      <div className="container mx-auto max-w-7xl flex h-18 items-center px-4 py-4">
+        {/* Logo */}
+        <Link href="/" className="flex items-center gap-3 group">
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            transition={{ type: 'spring', stiffness: 400, damping: 17 }}
+            className="relative"
+          >
+            <div className="absolute inset-0 bg-gold/20 rounded-lg blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            <div className="relative text-foreground group-hover:text-gold transition-colors duration-300">
+              <Logo className="h-9 w-9" />
+            </div>
+          </motion.div>
+          <div className="flex flex-col">
+            <span className="font-serif text-lg font-semibold text-foreground tracking-wide leading-tight">
+              Mythos Atlas
+            </span>
+            <span className="text-[10px] text-muted-foreground tracking-[0.15em] uppercase hidden sm:block">
+              Ancient Mythology
+            </span>
           </div>
-          <span className="font-serif text-xl font-semibold text-slate-900 dark:text-slate-100 tracking-tight">
-            Mythos Atlas
-          </span>
         </Link>
 
-        <nav className="ml-auto flex gap-6 items-center">
-          <Link
-            href="/pantheons"
-            className="text-sm font-medium transition-colors hover:text-primary"
-          >
-            Pantheons
-          </Link>
-          <Link
-            href="/deities"
-            className="text-sm font-medium transition-colors hover:text-primary"
-          >
-            Deities
-          </Link>
-          <Link
-            href="/family-tree"
-            className="text-sm font-medium transition-colors hover:text-primary"
-          >
-            Family Tree
-          </Link>
-          <Link
-            href="/stories"
-            className="text-sm font-medium transition-colors hover:text-primary"
-          >
-            Stories
-          </Link>
+        {/* Navigation */}
+        <nav className="ml-auto flex items-center gap-1 md:gap-2">
+          {navLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className="relative px-3 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors duration-200 group"
+            >
+              <span className="relative z-10">{link.label}</span>
+              <span className="absolute inset-x-1 -bottom-px h-px bg-gradient-to-r from-transparent via-gold/60 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
+            </Link>
+          ))}
+
+          {/* Divider */}
+          <div className="hidden md:block w-px h-6 bg-border mx-2" />
 
           {/* Command Palette Trigger */}
           <button
             onClick={handleSearchClick}
-            className="flex items-center gap-2 px-3 py-1.5 text-sm text-slate-600 dark:text-slate-400 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 rounded-lg border border-slate-200 dark:border-slate-700 transition-colors group"
+            className="flex items-center gap-2 px-3 py-2 text-sm text-muted-foreground hover:text-foreground bg-muted/50 hover:bg-muted rounded-lg border border-border/50 hover:border-border transition-all duration-200 group"
             aria-label="Open command palette"
           >
-            <Search className="h-4 w-4" />
-            <span className="hidden md:inline">Search</span>
-            <kbd className="hidden md:inline-flex items-center gap-0.5 px-1.5 py-0.5 text-xs rounded bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-600">
-              {mounted && isMac ? <Command className="h-3 w-3" /> : null}
+            <Search className="h-4 w-4 group-hover:text-gold transition-colors duration-200" />
+            <span className="hidden lg:inline">Search</span>
+            <kbd className="hidden md:inline-flex items-center gap-0.5 px-1.5 py-0.5 text-[10px] font-mono rounded bg-background border border-border/80 text-muted-foreground">
+              {mounted && isMac ? <Command className="h-2.5 w-2.5" /> : null}
               {mounted && !isMac ? 'Ctrl' : null}
-              {!mounted ? <span className="w-4" /> : null}
+              {!mounted ? <span className="w-3" /> : null}
               <span>K</span>
             </kbd>
           </button>
