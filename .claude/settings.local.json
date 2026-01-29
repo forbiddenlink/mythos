@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(gh api:*)",
+      "mcp__plugin_playwright_playwright__browser_navigate",
+      "mcp__plugin_playwright_playwright__browser_click",
+      "Bash(npx tsc:*)",
+      "Bash(pnpm build:*)",
+      "Bash(git add:*)"
+    ]
+  }
+}

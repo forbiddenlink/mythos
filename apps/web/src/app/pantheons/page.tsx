@@ -54,7 +54,7 @@ export default function PantheonsPage() {
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <Image
-            src="/pantheons-hero.jpg"
+            src="/pantheons-hero.png"
             alt="Ancient Pantheons"
             fill
             className="object-cover"

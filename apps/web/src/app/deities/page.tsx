@@ -63,7 +63,7 @@ export default function DeitiesPage() {
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <Image
-            src="/deities-list-hero.jpg"
+            src="/deities-list-hero.png"
             alt="Divine Beings"
             fill
             className="object-cover"
@@ -103,67 +103,67 @@ export default function DeitiesPage() {
 
       {/* Content Section */}
       <div className="container mx-auto max-w-6xl px-4 py-16 bg-mythic">
-      <div className="flex items-center justify-between mb-8">
-        <Breadcrumbs />
-        <div className="flex items-center gap-2">
-          <Button
-            variant={viewMode === 'grid' ? 'default' : 'outline'}
-            size="sm"
-            onClick={() => setViewMode('grid')}
-            className="gap-2"
-          >
-            <LayoutGrid className="h-4 w-4" />
-            Grid
-          </Button>
-          <Button
-            variant={viewMode === 'table' ? 'default' : 'outline'}
-            size="sm"
-            onClick={() => setViewMode('table')}
-            className="gap-2"
-          >
-            <Table className="h-4 w-4" />
-            Table
-          </Button>
+        <div className="flex items-center justify-between mb-8">
+          <Breadcrumbs />
+          <div className="flex items-center gap-2">
+            <Button
+              variant={viewMode === 'grid' ? 'default' : 'outline'}
+              size="sm"
+              onClick={() => setViewMode('grid')}
+              className="gap-2"
+            >
+              <LayoutGrid className="h-4 w-4" />
+              Grid
+            </Button>
+            <Button
+              variant={viewMode === 'table' ? 'default' : 'outline'}
+              size="sm"
+              onClick={() => setViewMode('table')}
+              className="gap-2"
+            >
+              <Table className="h-4 w-4" />
+              Table
+            </Button>
+          </div>
         </div>
-      </div>
 
-      {viewMode === 'table' ? (
-        <DeitiesTable deities={data?.deities || []} />
-      ) : (
-      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {data?.deities.map((deity) => (
-          <Link key={deity.id} href={`/deities/${deity.slug}`}>
-            <Card className="group h-full cursor-pointer card-elevated bg-card hover:scale-[1.01]">
-              <CardHeader>
-                <div className="flex items-start justify-between">
-                  <div className="p-2.5 rounded-xl bg-gold/10 border border-gold/20 group-hover:bg-gold/15 transition-colors duration-300">
-                    <Sparkles className="h-5 w-5 text-gold" strokeWidth={1.5} />
-                  </div>
-                  {deity.importanceRank && deity.importanceRank <= 5 && (
-                    <span className="text-xs font-medium px-2.5 py-1 rounded-full bg-gold/10 border border-gold/20 text-gold">
-                      Major Deity
-                    </span>
+        {viewMode === 'table' ? (
+          <DeitiesTable deities={data?.deities || []} />
+        ) : (
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {data?.deities.map((deity) => (
+              <Link key={deity.id} href={`/deities/${deity.slug}`}>
+                <Card className="group h-full cursor-pointer card-elevated bg-card hover:scale-[1.01]">
+                  <CardHeader>
+                    <div className="flex items-start justify-between">
+                      <div className="p-2.5 rounded-xl bg-gold/10 border border-gold/20 group-hover:bg-gold/15 transition-colors duration-300">
+                        <Sparkles className="h-5 w-5 text-gold" strokeWidth={1.5} />
+                      </div>
+                      {deity.importanceRank && deity.importanceRank <= 5 && (
+                        <span className="text-xs font-medium px-2.5 py-1 rounded-full bg-gold/10 border border-gold/20 text-gold">
+                          Major Deity
+                        </span>
+                      )}
+                    </div>
+                    <CardTitle className="text-foreground mt-4 group-hover:text-gold transition-colors duration-300">{deity.name}</CardTitle>
+                    {deity.domain && deity.domain.length > 0 && (
+                      <CardDescription>
+                        {deity.domain.slice(0, 3).join(', ')}
+                      </CardDescription>
+                    )}
+                  </CardHeader>
+                  {deity.description && (
+                    <CardContent>
+                      <p className="text-muted-foreground text-sm line-clamp-3 leading-relaxed">
+                        {deity.description}
+                      </p>
+                    </CardContent>
                   )}
-                </div>
-                <CardTitle className="text-foreground mt-4 group-hover:text-gold transition-colors duration-300">{deity.name}</CardTitle>
-                {deity.domain && deity.domain.length > 0 && (
-                  <CardDescription>
-                    {deity.domain.slice(0, 3).join(', ')}
-                  </CardDescription>
-                )}
-              </CardHeader>
-              {deity.description && (
-                <CardContent>
-                  <p className="text-muted-foreground text-sm line-clamp-3 leading-relaxed">
-                    {deity.description}
-                  </p>
-                </CardContent>
-              )}
-            </Card>
-          </Link>
-        ))}
-      </div>
-      )}
+                </Card>
+              </Link>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );

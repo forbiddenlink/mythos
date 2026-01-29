@@ -18,7 +18,7 @@ const footerLinks = {
 
 export function Footer() {
   return (
-    <footer className="relative border-t border-border/50 bg-muted/30">
+    <footer className="relative border-t border-border/50 bg-muted/30 backdrop-blur-sm">
       {/* Subtle top gradient line */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-px bg-gradient-to-r from-transparent via-gold/20 to-transparent" />
 

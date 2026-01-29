@@ -26,9 +26,15 @@ export function HeroSection() {
   return (
     <section className="relative min-h-[100vh] flex items-center justify-center overflow-hidden bg-hero-gradient">
       {/* Noise texture overlay */}
-      <div className="absolute inset-0 opacity-[0.015]" style={{
+      <div className="absolute inset-0 opacity-[0.015] z-10" style={{
         backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`,
       }} />
+
+      {/* Background Image */}
+      <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 bg-[url('/hero-columns.png')] bg-cover bg-center opacity-40 mix-blend-overlay"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-midnight/60 via-midnight/40 to-midnight"></div>
+      </div>
 
       {/* Radial gradient light source - like candlelight */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[120%] h-[60%] bg-gradient-radial from-[rgba(178,143,86,0.15)] via-[rgba(178,143,86,0.05)] to-transparent" />

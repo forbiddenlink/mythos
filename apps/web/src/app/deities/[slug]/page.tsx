@@ -120,7 +120,7 @@ export default function DeityPage({ params }: { params: { slug: string } }) {
       <div className="relative overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
-            src="/deity-hero.jpg"
+            src="/deity-hero.png"
             alt="Ancient Greek Statue"
             fill
             className="object-cover"
@@ -128,10 +128,10 @@ export default function DeityPage({ params }: { params: { slug: string } }) {
           />
           <div className="absolute inset-0 bg-linear-to-br from-slate-900/70 via-slate-800/65 to-amber-900/70"></div>
         </div>
-        
+
         <div className="container mx-auto max-w-4xl px-4 py-12 relative z-10">
-          <Link 
-            href="/deities" 
+          <Link
+            href="/deities"
             className="text-sm text-slate-200 hover:text-white mb-6 inline-block"
           >
             ← Back to Deities
@@ -162,96 +162,96 @@ export default function DeityPage({ params }: { params: { slug: string } }) {
       <div className="container mx-auto max-w-4xl px-4 py-12">
         <div className="space-y-8">
 
-        {/* Quick Info Cards */}
-        <div className="grid gap-4 md:grid-cols-2">
-          {deity.domain && deity.domain.length > 0 && (
+          {/* Quick Info Cards */}
+          <div className="grid gap-4 md:grid-cols-2">
+            {deity.domain && deity.domain.length > 0 && (
+              <Card className="bg-white dark:bg-slate-900">
+                <CardHeader>
+                  <CardTitle className="font-serif flex items-center gap-2 text-lg">
+                    <Shield className="h-5 w-5 text-teal-600" />
+                    Domains
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="flex flex-wrap gap-2">
+                    {deity.domain.map((d) => (
+                      <Badge key={d} variant="secondary" className="bg-teal-100 dark:bg-teal-900/30 text-teal-700 dark:text-teal-300">{d}</Badge>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+            )}
+
+            {deity.symbols && deity.symbols.length > 0 && (
+              <Card className="bg-white dark:bg-slate-900">
+                <CardHeader>
+                  <CardTitle className="font-serif flex items-center gap-2 text-lg">
+                    <Users className="h-5 w-5 text-amber-600" />
+                    Symbols
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="flex flex-wrap gap-2">
+                    {deity.symbols.map((s) => (
+                      <Badge key={s} variant="outline" className="border-amber-200 dark:border-amber-800">{s}</Badge>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+            )}
+          </div>
+
+          {/* Description */}
+          {deity.description && (
             <Card className="bg-white dark:bg-slate-900">
               <CardHeader>
-                <CardTitle className="font-serif flex items-center gap-2 text-lg">
-                  <Shield className="h-5 w-5 text-teal-600" />
-                  Domains
-                </CardTitle>
+                <CardTitle className="font-serif">About</CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="flex flex-wrap gap-2">
-                  {deity.domain.map((d) => (
-                    <Badge key={d} variant="secondary" className="bg-teal-100 dark:bg-teal-900/30 text-teal-700 dark:text-teal-300">{d}</Badge>
-                  ))}
-                </div>
+                <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
+                  {deity.description}
+                </p>
               </CardContent>
             </Card>
           )}
 
-          {deity.symbols && deity.symbols.length > 0 && (
+          {/* Origin Story */}
+          {deity.originStory && (
             <Card className="bg-white dark:bg-slate-900">
               <CardHeader>
-                <CardTitle className="font-serif flex items-center gap-2 text-lg">
-                  <Users className="h-5 w-5 text-amber-600" />
-                  Symbols
-                </CardTitle>
+                <CardTitle className="font-serif">Origin Story</CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="flex flex-wrap gap-2">
-                  {deity.symbols.map((s) => (
-                    <Badge key={s} variant="outline" className="border-amber-200 dark:border-amber-800">{s}</Badge>
-                  ))}
-                </div>
+                <p className="text-slate-600 dark:text-slate-400 leading-relaxed whitespace-pre-line">
+                  {deity.originStory}
+                </p>
               </CardContent>
             </Card>
           )}
-        </div>
 
-        {/* Description */}
-        {deity.description && (
-          <Card className="bg-white dark:bg-slate-900">
-            <CardHeader>
-              <CardTitle className="font-serif">About</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
-                {deity.description}
-              </p>
-            </CardContent>
-          </Card>
-        )}
-
-        {/* Origin Story */}
-        {deity.originStory && (
-          <Card className="bg-white dark:bg-slate-900">
-            <CardHeader>
-              <CardTitle className="font-serif">Origin Story</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-slate-600 dark:text-slate-400 leading-relaxed whitespace-pre-line">
-                {deity.originStory}
-              </p>
-            </CardContent>
-          </Card>
-        )}
-
-        {/* Family Tree */}
-        {relationshipsData?.deityRelationships && relationshipsData.deityRelationships.length > 0 && (
-          <Card className="bg-white dark:bg-slate-900">
-            <CardHeader>
-              <CardTitle className="font-serif flex items-center gap-2">
-                <Network className="h-5 w-5 text-teal-600" />
-                Family Tree
-              </CardTitle>
-              <CardDescription>
-                Explore {deity.name}&apos;s relationships with other deities
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              {allDeitiesData?.deities && (
-                <FamilyTreeVisualization
-                  deities={allDeitiesData.deities}
-                  relationships={relationshipsData.deityRelationships}
-                  focusDeityId={deity.id}
-                />
-              )}
-            </CardContent>
-          </Card>
-        )}
+          {/* Family Tree */}
+          {relationshipsData?.deityRelationships && relationshipsData.deityRelationships.length > 0 && (
+            <Card className="bg-white dark:bg-slate-900">
+              <CardHeader>
+                <CardTitle className="font-serif flex items-center gap-2">
+                  <Network className="h-5 w-5 text-teal-600" />
+                  Family Tree
+                </CardTitle>
+                <CardDescription>
+                  Explore {deity.name}&apos;s relationships with other deities
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                {allDeitiesData?.deities && (
+                  <FamilyTreeVisualization
+                    deities={allDeitiesData.deities}
+                    relationships={relationshipsData.deityRelationships}
+                    focusDeityId={deity.id}
+                  />
+                )}
+              </CardContent>
+            </Card>
+          )}
         </div>
       </div>
     </div>

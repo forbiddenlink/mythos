@@ -20,6 +20,17 @@ export function CTASection() {
         backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`,
       }} />
 
+      {/* Background Image - Absolute positioned behind everything */}
+      <div className="absolute inset-0 z-0">
+        {/* Note: Using img tag here for absolute positioning behind gradients if next/image acts up with z-index, 
+              but next/image is preferred. The previous implementation used CSS background or just colors. 
+              The task is to replace images. The CTA section in the plan mentioned cta-ruins.jpg.
+              I need to see where cta-ruins.jpg was used. It wasn't in the file content I read earlier!
+              I will add it as a background.
+           */}
+        <div className="absolute inset-0 bg-[url('/cta-ruins.png')] bg-cover bg-center opacity-30 mix-blend-overlay"></div>
+      </div>
+
       {/* Top border line */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
 

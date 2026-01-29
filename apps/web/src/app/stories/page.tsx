@@ -71,7 +71,7 @@ export default function StoriesPage() {
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <Image
-            src="/stories-hero.jpg"
+            src="/stories-hero.png"
             alt="Ancient Manuscripts"
             fill
             priority
@@ -127,11 +127,10 @@ export default function StoriesPage() {
                       <BookOpen className="h-24 w-24 text-gold" />
                     </div>
                     <div className="flex items-start gap-3 relative z-10">
-                      <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${
-                        index % 3 === 0 ? 'from-gold-dark to-bronze' :
-                        index % 3 === 1 ? 'from-midnight-light to-midnight' :
-                        'from-patina to-[oklch(0.45_0.10_170)]'
-                      } flex items-center justify-center shrink-0 shadow-md group-hover:scale-105 transition-transform duration-300`}>
+                      <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${index % 3 === 0 ? 'from-gold-dark to-bronze' :
+                          index % 3 === 1 ? 'from-midnight-light to-midnight' :
+                            'from-patina to-[oklch(0.45_0.10_170)]'
+                        } flex items-center justify-center shrink-0 shadow-md group-hover:scale-105 transition-transform duration-300`}>
                         <ScrollText className="h-6 w-6 text-white/90" strokeWidth={1.5} />
                       </div>
                       <div className="flex-1 min-w-0">

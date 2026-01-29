@@ -47,8 +47,8 @@ export default function FamilyTreePage() {
     },
   });
 
-  const { data: relationshipsData, isLoading: relationshipsLoading } = useQuery<{ 
-    allRelationships: Relationship[] 
+  const { data: relationshipsData, isLoading: relationshipsLoading } = useQuery<{
+    allRelationships: Relationship[]
   }>({
     queryKey: ['all-relationships'],
     queryFn: async () => {
@@ -85,7 +85,7 @@ export default function FamilyTreePage() {
       <div className="relative overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
-            src="/family-tree-hero.jpg"
+            src="/family-tree-hero.png"
             alt="Ancient Genealogy"
             fill
             className="object-cover"
@@ -93,7 +93,7 @@ export default function FamilyTreePage() {
           />
           <div className="absolute inset-0 bg-linear-to-br from-slate-900/70 via-slate-800/65 to-emerald-900/70"></div>
         </div>
-        
+
         <div className="container mx-auto max-w-7xl px-4 py-16 relative z-10">
           <div className="flex items-center gap-3 mb-4">
             <div className="w-12 h-12 rounded-lg bg-linear-to-br from-teal-600 to-emerald-700 flex items-center justify-center shadow-lg">
@@ -112,7 +112,7 @@ export default function FamilyTreePage() {
       {/* Content Section */}
       <div className="container mx-auto max-w-7xl px-4 py-12">
         <Breadcrumbs />
-        
+
         {/* View Toggle */}
         <div className="flex items-center justify-between mb-6">
           <div className="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400">
@@ -147,71 +147,71 @@ export default function FamilyTreePage() {
                 {viewMode === 'hierarchical' ? 'Hierarchical Family Tree' : 'Network View'}
               </CardTitle>
               <span className="text-sm text-slate-500 dark:text-slate-400">
-                {viewMode === 'hierarchical' 
-                  ? 'Click nodes to expand/collapse branches' 
+                {viewMode === 'hierarchical'
+                  ? 'Click nodes to expand/collapse branches'
                   : 'Drag to pan, scroll to zoom'}
               </span>
             </div>
           </CardHeader>
-        <CardContent>
-          {deitiesData?.deities && relationshipsData?.allRelationships ? (
-            viewMode === 'hierarchical' ? (
-              <EnhancedFamilyTree
-                deities={deitiesData.deities}
-                relationships={relationshipsData.allRelationships}
-              />
+          <CardContent>
+            {deitiesData?.deities && relationshipsData?.allRelationships ? (
+              viewMode === 'hierarchical' ? (
+                <EnhancedFamilyTree
+                  deities={deitiesData.deities}
+                  relationships={relationshipsData.allRelationships}
+                />
+              ) : (
+                <FamilyTreeVisualization
+                  deities={deitiesData.deities}
+                  relationships={relationshipsData.allRelationships}
+                />
+              )
             ) : (
-              <FamilyTreeVisualization
-                deities={deitiesData.deities}
-                relationships={relationshipsData.allRelationships}
-              />
-            )
-          ) : (
-            <div className="text-center py-12 text-slate-600 dark:text-slate-400">
-              <Network className="h-12 w-12 mx-auto mb-4 opacity-50" />
-              <p>No relationship data available</p>
-            </div>
-          )}
-        </CardContent>
-      </Card>
-
-      <div className="mt-8 grid gap-4 md:grid-cols-4">
-        <Card>
-          <CardHeader>
-            <CardTitle className="text-sm font-medium">Legend</CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-2">
-            <div className="flex items-center gap-2">
-              <div className="w-4 h-0.5 bg-blue-500"></div>
-              <span className="text-sm">Parent</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <div className="w-4 h-0.5 bg-green-500"></div>
-              <span className="text-sm">Child</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <div className="w-4 h-0.5 bg-pink-500"></div>
-              <span className="text-sm">Spouse</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <div className="w-4 h-0.5 bg-purple-500"></div>
-              <span className="text-sm">Sibling</span>
-            </div>
+              <div className="text-center py-12 text-slate-600 dark:text-slate-400">
+                <Network className="h-12 w-12 mx-auto mb-4 opacity-50" />
+                <p>No relationship data available</p>
+              </div>
+            )}
           </CardContent>
         </Card>
 
-        <Card className="md:col-span-3 bg-white dark:bg-slate-900">
-          <CardHeader>
-            <CardTitle className="text-sm font-medium font-serif">Tips</CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-2 text-sm text-slate-600 dark:text-slate-400">
-            <p>• Drag nodes to rearrange the layout</p>
-            <p>• Use the controls in the bottom-left to zoom and fit the view</p>
-            <p>• Click on a deity card to view their full profile</p>
-            <p>• Use the minimap in the bottom-right for quick navigation</p>
-          </CardContent>
-        </Card>
-      </div>
+        <div className="mt-8 grid gap-4 md:grid-cols-4">
+          <Card>
+            <CardHeader>
+              <CardTitle className="text-sm font-medium">Legend</CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-2">
+              <div className="flex items-center gap-2">
+                <div className="w-4 h-0.5 bg-blue-500"></div>
+                <span className="text-sm">Parent</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="w-4 h-0.5 bg-green-500"></div>
+                <span className="text-sm">Child</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="w-4 h-0.5 bg-pink-500"></div>
+                <span className="text-sm">Spouse</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="w-4 h-0.5 bg-purple-500"></div>
+                <span className="text-sm">Sibling</span>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card className="md:col-span-3 bg-white dark:bg-slate-900">
+            <CardHeader>
+              <CardTitle className="text-sm font-medium font-serif">Tips</CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-2 text-sm text-slate-600 dark:text-slate-400">
+              <p>• Drag nodes to rearrange the layout</p>
+              <p>• Use the controls in the bottom-left to zoom and fit the view</p>
+              <p>• Click on a deity card to view their full profile</p>
+              <p>• Use the minimap in the bottom-right for quick navigation</p>
+            </CardContent>
+          </Card>
+        </div>
       </div>
     </div>
   );
