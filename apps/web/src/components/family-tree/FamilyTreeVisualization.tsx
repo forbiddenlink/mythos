@@ -26,8 +26,8 @@ interface Deity {
 
 interface Relationship {
   id: string;
-  deityId: string;
-  relatedDeityId: string;
+  fromDeityId: string;
+  toDeityId: string;
   relationshipType: string;
   description: string | null;
 }
@@ -126,10 +126,10 @@ export function FamilyTreeVisualization({
 
       // Add parents above
       const parents = relationships.filter(r => 
-        r.relatedDeityId === focusDeityId && r.relationshipType.toLowerCase() === 'parent'
+        r.toDeityId === focusDeityId && r.relationshipType.toLowerCase() === 'parent'
       );
       parents.forEach((rel, idx) => {
-        const parentDeity = deityMap.get(rel.deityId);
+        const parentDeity = deityMap.get(rel.fromDeityId);
         if (parentDeity && !positioned.has(parentDeity.id)) {
           nodes.push({
             id: parentDeity.id,
@@ -156,10 +156,10 @@ export function FamilyTreeVisualization({
 
       // Add children below
       const children = relationships.filter(r => 
-        r.deityId === focusDeityId && r.relationshipType.toLowerCase() === 'child'
+        r.fromDeityId === focusDeityId && r.relationshipType.toLowerCase() === 'child'
       );
       children.forEach((rel, idx) => {
-        const childDeity = deityMap.get(rel.relatedDeityId);
+        const childDeity = deityMap.get(rel.toDeityId);
         if (childDeity && !positioned.has(childDeity.id)) {
           nodes.push({
             id: childDeity.id,
@@ -186,11 +186,11 @@ export function FamilyTreeVisualization({
 
       // Add spouses to the side
       const spouses = relationships.filter(r => 
-        (r.deityId === focusDeityId || r.relatedDeityId === focusDeityId) && 
+        (r.fromDeityId === focusDeityId || r.toDeityId === focusDeityId) && 
         r.relationshipType.toLowerCase() === 'spouse'
       );
       spouses.forEach((rel, idx) => {
-        const spouseId = rel.deityId === focusDeityId ? rel.relatedDeityId : rel.deityId;
+        const spouseId = rel.fromDeityId === focusDeityId ? rel.toDeityId : rel.fromDeityId;
         const spouseDeity = deityMap.get(spouseId);
         if (spouseDeity && !positioned.has(spouseDeity.id)) {
           nodes.push({
@@ -231,11 +231,11 @@ export function FamilyTreeVisualization({
 
       // Add all edges
       relationships.forEach(rel => {
-        if (deityMap.has(rel.deityId) && deityMap.has(rel.relatedDeityId)) {
+        if (deityMap.has(rel.fromDeityId) && deityMap.has(rel.toDeityId)) {
           edges.push({
             id: rel.id,
-            source: rel.deityId,
-            target: rel.relatedDeityId,
+            source: rel.fromDeityId,
+            target: rel.toDeityId,
             type: 'smoothstep',
             animated: false,
             label: rel.relationshipType,

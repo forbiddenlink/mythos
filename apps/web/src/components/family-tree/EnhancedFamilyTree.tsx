@@ -16,8 +16,8 @@ interface Deity {
 
 interface Relationship {
   id: string;
-  deityId: string;
-  relatedDeityId: string;
+  fromDeityId: string;
+  toDeityId: string;
   relationshipType: string;
   description: string | null;
 }
@@ -108,7 +108,7 @@ function buildTreeData(
     const childIds = new Set(
       relationships
         .filter(r => r.relationshipType.toLowerCase() === 'parent')
-        .map(r => r.relatedDeityId)
+        .map(r => r.toDeityId)
     );
     rootId = deities.find(d => !childIds.has(d.id))?.id || deities[0]?.id;
   }
@@ -126,11 +126,11 @@ function buildTreeData(
     
     // Add children
     const childRelationships = relationships.filter(
-      r => r.deityId === deityId && r.relationshipType.toLowerCase() === 'child'
+      r => r.fromDeityId === deityId && r.relationshipType.toLowerCase() === 'child'
     );
     
     for (const rel of childRelationships) {
-      const childNode = buildNode(rel.relatedDeityId, new Set(visited));
+      const childNode = buildNode(rel.toDeityId, new Set(visited));
       if (childNode) {
         childNode.relationshipType = 'Child';
         children.push(childNode);
@@ -139,12 +139,12 @@ function buildTreeData(
 
     // Add spouses as children (shown side by side)
     const spouseRelationships = relationships.filter(
-      r => (r.deityId === deityId || r.relatedDeityId === deityId) && 
+      r => (r.fromDeityId === deityId || r.toDeityId === deityId) && 
            r.relationshipType.toLowerCase() === 'spouse'
     );
     
     for (const rel of spouseRelationships) {
-      const spouseId = rel.deityId === deityId ? rel.relatedDeityId : rel.deityId;
+      const spouseId = rel.fromDeityId === deityId ? rel.toDeityId : rel.fromDeityId;
       if (!visited.has(spouseId)) {
         const spouseDeity = deityMap.get(spouseId);
         if (spouseDeity) {

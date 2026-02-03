@@ -22,8 +22,8 @@ interface Deity {
 
 interface Relationship {
   id: string;
-  deityId: string;
-  relatedDeityId: string;
+  fromDeityId: string;
+  toDeityId: string;
   relationshipType: string;
   description: string | null;
 }
@@ -48,23 +48,38 @@ export default function FamilyTreePage() {
   });
 
   const { data: relationshipsData, isLoading: relationshipsLoading } = useQuery<{
-    allRelationships: Relationship[]
+    deities: { relationships: Relationship[] }[]
   }>({
     queryKey: ['all-relationships'],
     queryFn: async () => {
-      // Since we don't have allRelationships query yet, we'll fetch all deity relationships
-      // For now, we'll get relationships from the first deity as a demo
-      return graphqlClient.request(gql`
-        query GetDeityRelationships($deityId: String!) {
-          deityRelationships(deityId: $deityId) {
-            id
-            deityId
-            relatedDeityId
-            relationshipType
-            description
+      // Fetch relationships for all deities
+      if (!deitiesData?.deities || deitiesData.deities.length === 0) {
+        return { deities: [] };
+      }
+      
+      // Get relationships for all deities
+      const allRelationships: Relationship[] = [];
+      for (const deity of deitiesData.deities) {
+        const result = await graphqlClient.request<{ deityRelationships: Relationship[] }>(gql`
+          query GetDeityRelationships($deityId: String!) {
+            deityRelationships(deityId: $deityId) {
+              id
+              fromDeityId
+              toDeityId
+              relationshipType
+              description
+            }
           }
-        }
-      `, { deityId: deitiesData?.deities[0]?.id || '' });
+        `, { deityId: deity.id });
+        allRelationships.push(...result.deityRelationships);
+      }
+      
+      // Deduplicate relationships (since a relationship from A to B is the same as B to A)
+      const uniqueRelationships = allRelationships.filter((rel, index, self) => 
+        index === self.findIndex(r => r.id === rel.id)
+      );
+      
+      return { deities: [{ relationships: uniqueRelationships }] };
     },
     enabled: !!deitiesData?.deities && deitiesData.deities.length > 0,
   });
@@ -154,22 +169,22 @@ export default function FamilyTreePage() {
             </div>
           </CardHeader>
           <CardContent>
-            {deitiesData?.deities && relationshipsData?.allRelationships ? (
+            {deitiesData?.deities && relationshipsData?.deities?.[0]?.relationships ? (
               viewMode === 'hierarchical' ? (
                 <EnhancedFamilyTree
                   deities={deitiesData.deities}
-                  relationships={relationshipsData.allRelationships}
+                  relationships={relationshipsData.deities[0].relationships}
                 />
               ) : (
                 <FamilyTreeVisualization
                   deities={deitiesData.deities}
-                  relationships={relationshipsData.allRelationships}
+                  relationships={relationshipsData.deities[0].relationships}
                 />
               )
             ) : (
               <div className="text-center py-12 text-slate-600 dark:text-slate-400">
                 <Network className="h-12 w-12 mx-auto mb-4 opacity-50" />
-                <p>No relationship data available</p>
+                <p>{isLoading ? 'Loading relationship data...' : 'No relationship data available'}</p>
               </div>
             )}
           </CardContent>
