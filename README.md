@@ -2,14 +2,17 @@
 
 > **Research-backed interactive encyclopedia of world mythologies**
 
-An interactive storytelling database exploring deities, pantheons, stories, and cultural contexts through beautiful visualizations including deity family trees, cultural maps, and mythological timelines.
+An interactive storytelling database exploring 6 major pantheons with 78+ deities, epic stories, and cultural contexts through beautiful visualizations including deity family trees, cultural maps, and mythological timelines.
 
 ## 🏛️ Features
 
+- **6 Comprehensive Pantheons** - Greek, Norse, Egyptian, Roman, Hindu, and Japanese/Shinto mythologies
+- **78+ Deities** - Detailed profiles with domains, symbols, origins, and relationships
+- **Epic Stories** - Ramayana, Mahabharata, Ragnarök, Aeneid, and many more
 - **Deity Family Trees** - Interactive graph visualization of relationships and genealogy
 - **Culture Explorer** - Geographic map of mythological regions and sacred sites  
 - **Story Timelines** - Chronological visualization of mythological events
-- **Rich Content** - Curated summaries with cited sources and public domain excerpts
+- **Rich Content** - Curated summaries with cited primary sources (Vedas, Eddas, Kojiki, etc.)
 
 ## 🛠️ Tech Stack
 
@@ -88,14 +91,26 @@ mythos-atlas/
 ## 🗄️ Database
 
 The database schema includes:
-- **Pantheons** - Cultural mythology systems (Greek, Norse, Egyptian, etc.)
-- **Deities** - Gods and goddesses with attributes and domains
-- **Relationships** - Family trees and connections (parent_of, spouse_of, etc.)
-- **Stories** - Myths and legends with citations
+- **Pantheons** - 6 comprehensive cultural mythology systems:
+  - 🏛️ **Greek** - Classical Olympian gods and Titans
+  - ⚔️ **Norse** - Germanic gods, Asgard, and Ragnarök
+  - 𓂀 **Egyptian** - Ancient gods, pharaohs, and the afterlife
+  - 🏺 **Roman** - State religion and founding myths
+  - 🕉️ **Hindu** - Vedic traditions, Trimurti, and avatars
+  - ⛩️ **Japanese** - Shinto kami and creation myths
+- **Deities** - 78+ gods and goddesses with attributes, domains, and symbolism
+- **Relationships** - Complex family trees and divine connections (marriages, parent-child, siblings, lovers)
+- **Stories** - Epic myths and legends including:
+  - Greek: Titanomachy, Labors of Heracles
+  - Norse: Ragnarök, Theft of Mjolnir, Death of Baldr
+  - Egyptian: Osiris Myth, Ra's Journey, Creation of Humanity
+  - Roman: The Aeneid, Romulus and Remus
+  - Hindu: Ramayana, Mahabharata, Churning of the Ocean
+  - Japanese: Creation of Japan, Amaterasu's Cave, Yamata no Orochi
 - **Events** - Timeline of mythological happenings
 - **Locations** - Geographic and mythical places
 
-All content includes `citation_sources` for transparency and academic rigor.
+All content includes `citation_sources` from primary texts (Hesiod, Eddas, Vedas, Kojiki, etc.) for transparency and academic rigor.
 
 ## 🧪 Development Commands
 
