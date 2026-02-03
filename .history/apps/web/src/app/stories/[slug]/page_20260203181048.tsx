@@ -50,19 +50,7 @@ export default function StoryPage({ params }: { params: { slug: string } }) {
   const story = data?.stories.find(s => s.slug === params.slug);
 
   if (!story && !isLoading) {
-    return (
-      <div className="container mx-auto max-w-6xl px-4 py-24">
-        <div className="text-center">
-          <h2 className="text-2xl font-bold">Story Not Found</h2>
-          <p className="text-slate-600 dark:text-slate-400 mt-2">
-            The story you're looking for doesn't exist.
-          </p>
-          <Link href="/stories" className="text-gold hover:underline mt-4 inline-block">
-            View all stories
-          </Link>
-        </div>
-      </div>
-    );
+    notFound();
   }
 
   if (!story) {

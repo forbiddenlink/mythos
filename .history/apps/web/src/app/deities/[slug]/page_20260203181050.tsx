@@ -8,6 +8,7 @@ import { Badge } from '@/components/ui/badge';
 import { Loader2, Sparkles, Shield, Users, Network } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { notFound } from 'next/navigation';
 import { FamilyTreeVisualization } from '@/components/family-tree/FamilyTreeVisualization';
 
 interface Deity {
@@ -121,19 +122,7 @@ export default function DeityPage({ params }: { params: { slug: string } }) {
   }
 
   if (!data?.deity && !isLoading) {
-    return (
-      <div className="container mx-auto max-w-6xl px-4 py-24">
-        <div className="text-center">
-          <h2 className="text-2xl font-bold">Deity Not Found</h2>
-          <p className="text-slate-600 dark:text-slate-400 mt-2">
-            The deity you're looking for doesn't exist.
-          </p>
-          <Link href="/deities" className="text-gold hover:underline mt-4 inline-block">
-            View all deities
-          </Link>
-        </div>
-      </div>
-    );
+    notFound();
   }
 
   if (!data?.deity) {

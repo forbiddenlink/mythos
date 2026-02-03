@@ -82,19 +82,7 @@ export default function PantheonPage({ params }: { params: { slug: string } }) {
   }
 
   if (!pantheon && !pantheonsLoading) {
-    return (
-      <div className="container mx-auto max-w-6xl px-4 py-24">
-        <div className="text-center">
-          <h2 className="text-2xl font-bold">Pantheon Not Found</h2>
-          <p className="text-slate-600 dark:text-slate-400 mt-2">
-            The pantheon you're looking for doesn't exist.
-          </p>
-          <Link href="/pantheons" className="text-gold hover:underline mt-4 inline-block">
-            View all pantheons
-          </Link>
-        </div>
-      </div>
-    );
+    notFound();
   }
 
   if (!pantheon) {
