@@ -45,12 +45,24 @@ export default function PantheonPage() {
   const params = useParams<{ slug: string }>();
   const slug = params?.slug;
   
+  console.log('[PantheonPage] Rendering with slug:', slug);
+  
   const { data: pantheonsData, isLoading: pantheonsLoading, error: pantheonsError } = useQuery<{ pantheons: Pantheon[] }>({
     queryKey: ['pantheons'],
-    queryFn: async () => graphqlClient.request(GET_PANTHEONS),
-    retry: false, // Don't retry on error for faster debugging
-    staleTime: 0, // Always fetch fresh data
+    queryFn: async () => {
+      console.log('[PantheonPage] Fetching pantheons...');
+      try {
+        const result = await graphqlClient.request(GET_PANTHEONS);
+        console.log('[PantheonPage] Fetched pantheons:', result);
+        return result;
+      } catch (err) {
+        console.error('[PantheonPage] Error fetching pantheons:', err);
+        throw err;
+      }
+    },
   });
+
+  console.log('[PantheonPage] Query state:', { isLoading: pantheonsLoading, hasData: !!pantheonsData, error: pantheonsError });
 
   const pantheon = pantheonsData?.pantheons.find(p => p.slug === slug);
 
