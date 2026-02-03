@@ -1,6 +1,6 @@
 'use client';
 
-import { useParams } from 'next/navigation';
+import { use } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { graphqlClient } from '@/lib/graphql-client';
 import { gql } from 'graphql-request';
@@ -34,9 +34,8 @@ interface Relationship {
   description: string | null;
 }
 
-export default function DeityPage() {
-  const params = useParams<{ slug: string }>();
-  const slug = params?.slug;
+export default function DeityPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = use(params);
   
   const { data, isLoading, error } = useQuery<{ deity: Deity | null }>({
     queryKey: ['deity', slug],

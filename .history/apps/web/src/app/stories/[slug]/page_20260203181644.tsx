@@ -1,6 +1,6 @@
 'use client';
 
-import { useParams } from 'next/navigation';
+import { use } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { graphqlClient } from '@/lib/graphql-client';
 import { GET_STORIES } from '@/lib/queries';
@@ -21,9 +21,8 @@ interface Story {
   culturalSignificance?: string;
 }
 
-export default function StoryPage() {
-  const params = useParams<{ slug: string }>();
-  const slug = params?.slug;
+export default function StoryPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = use(params);
   
   const { data, isLoading, error } = useQuery<{ stories: Story[] }>({
     queryKey: ['stories'],

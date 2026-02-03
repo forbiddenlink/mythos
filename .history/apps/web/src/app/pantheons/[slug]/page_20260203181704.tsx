@@ -1,6 +1,6 @@
 'use client';
 
-import { useParams } from 'next/navigation';
+import { use } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { graphqlClient } from '@/lib/graphql-client';
 import { GET_PANTHEONS, GET_DEITIES, GET_STORIES } from '@/lib/queries';
@@ -41,9 +41,8 @@ interface Story {
   category: string;
 }
 
-export default function PantheonPage() {
-  const params = useParams<{ slug: string }>();
-  const slug = params?.slug;
+export default function PantheonPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = use(params);
   
   const { data: pantheonsData, isLoading: pantheonsLoading, error: pantheonsError } = useQuery<{ pantheons: Pantheon[] }>({
     queryKey: ['pantheons'],
