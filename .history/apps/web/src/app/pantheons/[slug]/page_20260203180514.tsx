@@ -42,7 +42,7 @@ interface Story {
 }
 
 export default function PantheonPage({ params }: { params: { slug: string } }) {
-  const { data: pantheonsData, isLoading: pantheonsLoading, error: pantheonsError } = useQuery<{ pantheons: Pantheon[] }>({
+  const { data: pantheonsData, isLoading: pantheonsLoading } = useQuery<{ pantheons: Pantheon[] }>({
     queryKey: ['pantheons'],
     queryFn: async () => graphqlClient.request(GET_PANTHEONS),
   });
@@ -69,25 +69,8 @@ export default function PantheonPage({ params }: { params: { slug: string } }) {
     );
   }
 
-  if (pantheonsError) {
-    return (
-      <div className="container mx-auto max-w-6xl px-4 py-24">
-        <div className="text-center">
-          <h2 className="text-2xl font-bold text-red-600">Error loading pantheons</h2>
-          <p className="text-slate-600 dark:text-slate-400 mt-2">
-            {pantheonsError instanceof Error ? pantheonsError.message : 'An error occurred'}
-          </p>
-        </div>
-      </div>
-    );
-  }
-
-  if (!pantheon && !pantheonsLoading) {
-    notFound();
-  }
-
   if (!pantheon) {
-    return null;
+    notFound();
   }
 
   const isLoading = deitiesLoading || storiesLoading;

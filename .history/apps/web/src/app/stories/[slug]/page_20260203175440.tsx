@@ -50,12 +50,8 @@ export default function StoryPage({ params }: { params: { slug: string } }) {
 
   const story = data?.stories.find(s => s.slug === params.slug);
 
-  if (!story && !isLoading) {
-    notFound();
-  }
-
   if (!story) {
-    return null;
+    notFound();
   }
 
   return (
