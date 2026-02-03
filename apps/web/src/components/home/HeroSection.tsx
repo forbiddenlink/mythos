@@ -209,7 +209,7 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.8 }}
-          className="max-w-xl mx-auto"
+          className="max-w-xl mx-auto mb-24"
         >
           <div className="relative p-8 rounded-lg border border-gold/10 bg-midnight-light/30 backdrop-blur-sm">
             {/* Corner decorations */}
@@ -232,7 +232,7 @@ export function HeroSection() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 1.2 }}
-          className="absolute bottom-12 left-1/2 transform -translate-x-1/2"
+          className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
         >
           <motion.div
             animate={{ y: [0, 8, 0] }}
