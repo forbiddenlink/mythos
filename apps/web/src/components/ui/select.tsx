@@ -1,4 +1,5 @@
 'use client';
+// Force reload
 
 import * as React from 'react';
 import { cn } from '@/lib/utils';
@@ -58,7 +59,7 @@ function Select({ value = '', onValueChange, children }: SelectProps) {
  * SelectTrigger
  * --------------------------------------------------------------------------*/
 
-interface SelectTriggerProps extends React.ComponentProps<'button'> {}
+interface SelectTriggerProps extends React.ComponentProps<'button'> { }
 
 function SelectTrigger({ className, children, ...props }: SelectTriggerProps) {
   const { open, setOpen, triggerRef } = useSelectContext();
@@ -158,7 +159,7 @@ function SelectDisplayValue() {
  * SelectContent
  * --------------------------------------------------------------------------*/
 
-interface SelectContentProps extends React.ComponentProps<'div'> {}
+interface SelectContentProps extends React.ComponentProps<'div'> { }
 
 function SelectContent({ className, children, ...props }: SelectContentProps) {
   const { open, setOpen, triggerRef } = useSelectContext();
