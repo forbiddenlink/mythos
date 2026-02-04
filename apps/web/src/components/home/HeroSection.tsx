@@ -18,6 +18,7 @@ export function HeroSection() {
   const [quoteIndex, setQuoteIndex] = useState(0);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setQuoteIndex(Math.floor(Math.random() * mythologyQuotes.length));
   }, []);
 

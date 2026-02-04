@@ -1,49 +1,469 @@
 [
-  {"id": "r1", "fromDeityId": "zeus", "toDeityId": "hera", "relationshipType": "spouse_of", "confidenceLevel": "high"},
-  {"id": "r2", "fromDeityId": "zeus", "toDeityId": "hera", "relationshipType": "sibling_of", "confidenceLevel": "high"},
-  {"id": "r3", "fromDeityId": "zeus", "toDeityId": "poseidon", "relationshipType": "sibling_of", "confidenceLevel": "high"},
-  {"id": "r4", "fromDeityId": "zeus", "toDeityId": "hades", "relationshipType": "sibling_of", "confidenceLevel": "high"},
-  {"id": "r5", "fromDeityId": "zeus", "toDeityId": "demeter", "relationshipType": "sibling_of", "confidenceLevel": "high"},
-  {"id": "r6", "fromDeityId": "zeus", "toDeityId": "hestia", "relationshipType": "sibling_of", "confidenceLevel": "high"},
-  {"id": "r7", "fromDeityId": "zeus", "toDeityId": "ares", "relationshipType": "parent_of", "confidenceLevel": "high"},
-  {"id": "r8", "fromDeityId": "zeus", "toDeityId": "athena", "relationshipType": "parent_of", "confidenceLevel": "high"},
-  {"id": "r9", "fromDeityId": "zeus", "toDeityId": "apollo", "relationshipType": "parent_of", "confidenceLevel": "high"},
-  {"id": "r10", "fromDeityId": "zeus", "toDeityId": "artemis", "relationshipType": "parent_of", "confidenceLevel": "high"},
-  {"id": "r11", "fromDeityId": "zeus", "toDeityId": "hermes", "relationshipType": "parent_of", "confidenceLevel": "high"},
-  {"id": "r12", "fromDeityId": "zeus", "toDeityId": "dionysus", "relationshipType": "parent_of", "confidenceLevel": "high"},
-  {"id": "r13", "fromDeityId": "zeus", "toDeityId": "hephaestus", "relationshipType": "parent_of", "confidenceLevel": "medium"},
-  {"id": "r14", "fromDeityId": "hera", "toDeityId": "ares", "relationshipType": "parent_of", "confidenceLevel": "high"},
-  {"id": "r15", "fromDeityId": "hera", "toDeityId": "hephaestus", "relationshipType": "parent_of", "confidenceLevel": "high"},
-  {"id": "r16", "fromDeityId": "apollo", "toDeityId": "artemis", "relationshipType": "sibling_of", "confidenceLevel": "high", "description": "Twin siblings"},
-  {"id": "r17", "fromDeityId": "aphrodite", "toDeityId": "ares", "relationshipType": "ally_of", "confidenceLevel": "high"},
-  {"id": "r18", "fromDeityId": "aphrodite", "toDeityId": "hephaestus", "relationshipType": "spouse_of", "confidenceLevel": "high"},
-
-  {"id": "r19", "fromDeityId": "odin", "toDeityId": "frigg", "relationshipType": "spouse_of", "confidenceLevel": "high"},
-  {"id": "r20", "fromDeityId": "odin", "toDeityId": "thor", "relationshipType": "parent_of", "confidenceLevel": "high"},
-  {"id": "r21", "fromDeityId": "odin", "toDeityId": "baldur", "relationshipType": "parent_of", "confidenceLevel": "high"},
-  {"id": "r22", "fromDeityId": "frigg", "toDeityId": "baldur", "relationshipType": "parent_of", "confidenceLevel": "high"},
-  {"id": "r23", "fromDeityId": "thor", "toDeityId": "sif", "relationshipType": "spouse_of", "confidenceLevel": "high"},
-  {"id": "r24", "fromDeityId": "freyr", "toDeityId": "freyja", "relationshipType": "sibling_of", "confidenceLevel": "high", "description": "Twin siblings"},
-  {"id": "r25", "fromDeityId": "loki", "toDeityId": "hel", "relationshipType": "parent_of", "confidenceLevel": "high"},
-  {"id": "r26", "fromDeityId": "loki", "toDeityId": "fenrir", "relationshipType": "parent_of", "confidenceLevel": "high"},
-  {"id": "r27", "fromDeityId": "loki", "toDeityId": "heimdall", "relationshipType": "enemy_of", "confidenceLevel": "high", "description": "Fated to kill each other at Ragnarok"},
-  {"id": "r28", "fromDeityId": "thor", "toDeityId": "fenrir", "relationshipType": "enemy_of", "confidenceLevel": "high"},
-  {"id": "r29", "fromDeityId": "odin", "toDeityId": "fenrir", "relationshipType": "enemy_of", "confidenceLevel": "high", "description": "Fenrir will devour Odin at Ragnarok"},
-  {"id": "r30", "fromDeityId": "odin", "toDeityId": "loki", "relationshipType": "ally_of", "confidenceLevel": "high", "description": "Blood brothers"},
-
-  {"id": "r31", "fromDeityId": "osiris", "toDeityId": "isis", "relationshipType": "spouse_of", "confidenceLevel": "high"},
-  {"id": "r32", "fromDeityId": "osiris", "toDeityId": "isis", "relationshipType": "sibling_of", "confidenceLevel": "high"},
-  {"id": "r33", "fromDeityId": "osiris", "toDeityId": "set", "relationshipType": "sibling_of", "confidenceLevel": "high"},
-  {"id": "r34", "fromDeityId": "osiris", "toDeityId": "nephthys", "relationshipType": "sibling_of", "confidenceLevel": "high"},
-  {"id": "r35", "fromDeityId": "set", "toDeityId": "nephthys", "relationshipType": "spouse_of", "confidenceLevel": "high"},
-  {"id": "r36", "fromDeityId": "isis", "toDeityId": "nephthys", "relationshipType": "sibling_of", "confidenceLevel": "high"},
-  {"id": "r37", "fromDeityId": "osiris", "toDeityId": "horus", "relationshipType": "parent_of", "confidenceLevel": "high"},
-  {"id": "r38", "fromDeityId": "isis", "toDeityId": "horus", "relationshipType": "parent_of", "confidenceLevel": "high"},
-  {"id": "r39", "fromDeityId": "osiris", "toDeityId": "anubis", "relationshipType": "parent_of", "confidenceLevel": "medium"},
-  {"id": "r40", "fromDeityId": "nephthys", "toDeityId": "anubis", "relationshipType": "parent_of", "confidenceLevel": "medium"},
-  {"id": "r41", "fromDeityId": "horus", "toDeityId": "set", "relationshipType": "enemy_of", "confidenceLevel": "high", "description": "80-year conflict for the throne"},
-  {"id": "r42", "fromDeityId": "osiris", "toDeityId": "set", "relationshipType": "enemy_of", "confidenceLevel": "high", "description": "Set murdered Osiris"},
-  {"id": "r43", "fromDeityId": "isis", "toDeityId": "thoth", "relationshipType": "ally_of", "confidenceLevel": "high"},
-  {"id": "r44", "fromDeityId": "horus", "toDeityId": "thoth", "relationshipType": "ally_of", "confidenceLevel": "high", "description": "Thoth healed Horus's eye"},
-  {"id": "r45", "fromDeityId": "bastet", "toDeityId": "sekhmet", "relationshipType": "aspect_of", "confidenceLevel": "medium"}
+  {
+    "id": "r1",
+    "fromDeityId": "zeus",
+    "toDeityId": "hera",
+    "relationshipType": "spouse_of",
+    "confidenceLevel": "high"
+  },
+  {
+    "id": "r2",
+    "fromDeityId": "zeus",
+    "toDeityId": "hera",
+    "relationshipType": "sibling_of",
+    "confidenceLevel": "high"
+  },
+  {
+    "id": "r3",
+    "fromDeityId": "zeus",
+    "toDeityId": "poseidon",
+    "relationshipType": "sibling_of",
+    "confidenceLevel": "high"
+  },
+  {
+    "id": "r4",
+    "fromDeityId": "zeus",
+    "toDeityId": "hades",
+    "relationshipType": "sibling_of",
+    "confidenceLevel": "high"
+  },
+  {
+    "id": "r5",
+    "fromDeityId": "zeus",
+    "toDeityId": "demeter",
+    "relationshipType": "sibling_of",
+    "confidenceLevel": "high"
+  },
+  {
+    "id": "r6",
+    "fromDeityId": "zeus",
+    "toDeityId": "hestia",
+    "relationshipType": "sibling_of",
+    "confidenceLevel": "high"
+  },
+  {
+    "id": "r7",
+    "fromDeityId": "zeus",
+    "toDeityId": "ares",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high"
+  },
+  {
+    "id": "r8",
+    "fromDeityId": "zeus",
+    "toDeityId": "athena",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high"
+  },
+  {
+    "id": "r9",
+    "fromDeityId": "zeus",
+    "toDeityId": "apollo",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high"
+  },
+  {
+    "id": "r10",
+    "fromDeityId": "zeus",
+    "toDeityId": "artemis",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high"
+  },
+  {
+    "id": "r11",
+    "fromDeityId": "zeus",
+    "toDeityId": "hermes",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high"
+  },
+  {
+    "id": "r12",
+    "fromDeityId": "zeus",
+    "toDeityId": "dionysus",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high"
+  },
+  {
+    "id": "r13",
+    "fromDeityId": "zeus",
+    "toDeityId": "hephaestus",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "medium"
+  },
+  {
+    "id": "r14",
+    "fromDeityId": "hera",
+    "toDeityId": "ares",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high"
+  },
+  {
+    "id": "r15",
+    "fromDeityId": "hera",
+    "toDeityId": "hephaestus",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high"
+  },
+  {
+    "id": "r16",
+    "fromDeityId": "apollo",
+    "toDeityId": "artemis",
+    "relationshipType": "sibling_of",
+    "confidenceLevel": "high",
+    "description": "Twin siblings"
+  },
+  {
+    "id": "r17",
+    "fromDeityId": "aphrodite",
+    "toDeityId": "ares",
+    "relationshipType": "ally_of",
+    "confidenceLevel": "high"
+  },
+  {
+    "id": "r18",
+    "fromDeityId": "aphrodite",
+    "toDeityId": "hephaestus",
+    "relationshipType": "spouse_of",
+    "confidenceLevel": "high"
+  },
+  {
+    "id": "r19",
+    "fromDeityId": "odin",
+    "toDeityId": "frigg",
+    "relationshipType": "spouse_of",
+    "confidenceLevel": "high"
+  },
+  {
+    "id": "r20",
+    "fromDeityId": "odin",
+    "toDeityId": "thor",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high"
+  },
+  {
+    "id": "r21",
+    "fromDeityId": "odin",
+    "toDeityId": "baldur",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high"
+  },
+  {
+    "id": "r22",
+    "fromDeityId": "frigg",
+    "toDeityId": "baldur",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high"
+  },
+  {
+    "id": "r23",
+    "fromDeityId": "thor",
+    "toDeityId": "sif",
+    "relationshipType": "spouse_of",
+    "confidenceLevel": "high"
+  },
+  {
+    "id": "r24",
+    "fromDeityId": "freyr",
+    "toDeityId": "freyja",
+    "relationshipType": "sibling_of",
+    "confidenceLevel": "high",
+    "description": "Twin siblings"
+  },
+  {
+    "id": "r25",
+    "fromDeityId": "loki",
+    "toDeityId": "hel",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high"
+  },
+  {
+    "id": "r26",
+    "fromDeityId": "loki",
+    "toDeityId": "fenrir",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high"
+  },
+  {
+    "id": "r27",
+    "fromDeityId": "loki",
+    "toDeityId": "heimdall",
+    "relationshipType": "enemy_of",
+    "confidenceLevel": "high",
+    "description": "Fated to kill each other at Ragnarok"
+  },
+  {
+    "id": "r28",
+    "fromDeityId": "thor",
+    "toDeityId": "fenrir",
+    "relationshipType": "enemy_of",
+    "confidenceLevel": "high"
+  },
+  {
+    "id": "r29",
+    "fromDeityId": "odin",
+    "toDeityId": "fenrir",
+    "relationshipType": "enemy_of",
+    "confidenceLevel": "high",
+    "description": "Fenrir will devour Odin at Ragnarok"
+  },
+  {
+    "id": "r30",
+    "fromDeityId": "odin",
+    "toDeityId": "loki",
+    "relationshipType": "ally_of",
+    "confidenceLevel": "high",
+    "description": "Blood brothers"
+  },
+  {
+    "id": "r31",
+    "fromDeityId": "osiris",
+    "toDeityId": "isis",
+    "relationshipType": "spouse_of",
+    "confidenceLevel": "high"
+  },
+  {
+    "id": "r32",
+    "fromDeityId": "osiris",
+    "toDeityId": "isis",
+    "relationshipType": "sibling_of",
+    "confidenceLevel": "high"
+  },
+  {
+    "id": "r33",
+    "fromDeityId": "osiris",
+    "toDeityId": "set",
+    "relationshipType": "sibling_of",
+    "confidenceLevel": "high"
+  },
+  {
+    "id": "r34",
+    "fromDeityId": "osiris",
+    "toDeityId": "nephthys",
+    "relationshipType": "sibling_of",
+    "confidenceLevel": "high"
+  },
+  {
+    "id": "r35",
+    "fromDeityId": "set",
+    "toDeityId": "nephthys",
+    "relationshipType": "spouse_of",
+    "confidenceLevel": "high"
+  },
+  {
+    "id": "r36",
+    "fromDeityId": "isis",
+    "toDeityId": "nephthys",
+    "relationshipType": "sibling_of",
+    "confidenceLevel": "high"
+  },
+  {
+    "id": "r37",
+    "fromDeityId": "osiris",
+    "toDeityId": "horus",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high"
+  },
+  {
+    "id": "r38",
+    "fromDeityId": "isis",
+    "toDeityId": "horus",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high"
+  },
+  {
+    "id": "r39",
+    "fromDeityId": "osiris",
+    "toDeityId": "anubis",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "medium"
+  },
+  {
+    "id": "r40",
+    "fromDeityId": "nephthys",
+    "toDeityId": "anubis",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "medium"
+  },
+  {
+    "id": "r41",
+    "fromDeityId": "horus",
+    "toDeityId": "set",
+    "relationshipType": "enemy_of",
+    "confidenceLevel": "high",
+    "description": "80-year conflict for the throne"
+  },
+  {
+    "id": "r42",
+    "fromDeityId": "osiris",
+    "toDeityId": "set",
+    "relationshipType": "enemy_of",
+    "confidenceLevel": "high",
+    "description": "Set murdered Osiris"
+  },
+  {
+    "id": "r43",
+    "fromDeityId": "isis",
+    "toDeityId": "thoth",
+    "relationshipType": "ally_of",
+    "confidenceLevel": "high"
+  },
+  {
+    "id": "r44",
+    "fromDeityId": "horus",
+    "toDeityId": "thoth",
+    "relationshipType": "ally_of",
+    "confidenceLevel": "high",
+    "description": "Thoth healed Horus's eye"
+  },
+  {
+    "id": "r45",
+    "fromDeityId": "bastet",
+    "toDeityId": "sekhmet",
+    "relationshipType": "aspect_of",
+    "confidenceLevel": "medium"
+  },
+  {
+    "id": "r46",
+    "fromDeityId": "jupiter",
+    "toDeityId": "juno",
+    "relationshipType": "spouse_of",
+    "confidenceLevel": "high",
+    "description": "Divine marriage of king and queen of gods"
+  },
+  {
+    "id": "r47",
+    "fromDeityId": "jupiter",
+    "toDeityId": "mars-roman",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high",
+    "description": "Jupiter is father of Mars"
+  },
+  {
+    "id": "r48",
+    "fromDeityId": "venus",
+    "toDeityId": "mars-roman",
+    "relationshipType": "lover",
+    "confidenceLevel": "high",
+    "description": "Famous affair of Venus and Mars"
+  },
+  {
+    "id": "r49",
+    "fromDeityId": "apollo-roman",
+    "toDeityId": "diana",
+    "relationshipType": "sibling_of",
+    "confidenceLevel": "high",
+    "description": "Twin siblings, children of Jupiter and Latona"
+  },
+  {
+    "id": "r50",
+    "fromDeityId": "brahma",
+    "toDeityId": "saraswati",
+    "relationshipType": "spouse_of",
+    "confidenceLevel": "high",
+    "description": "Divine couple - Creator and Knowledge"
+  },
+  {
+    "id": "r51",
+    "fromDeityId": "vishnu",
+    "toDeityId": "lakshmi",
+    "relationshipType": "spouse_of",
+    "confidenceLevel": "high",
+    "description": "Divine couple - Preserver and Prosperity"
+  },
+  {
+    "id": "r52",
+    "fromDeityId": "shiva",
+    "toDeityId": "parvati",
+    "relationshipType": "spouse_of",
+    "confidenceLevel": "high",
+    "description": "Divine couple - Destroyer and Power"
+  },
+  {
+    "id": "r53",
+    "fromDeityId": "shiva",
+    "toDeityId": "ganesha",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high",
+    "description": "Shiva is father of Ganesha"
+  },
+  {
+    "id": "r54",
+    "fromDeityId": "rama",
+    "toDeityId": "hanuman",
+    "relationshipType": "deity",
+    "confidenceLevel": "high",
+    "description": "Rama is lord of Hanuman"
+  },
+  {
+    "id": "r55",
+    "fromDeityId": "izanagi",
+    "toDeityId": "izanami",
+    "relationshipType": "spouse_of",
+    "confidenceLevel": "high",
+    "description": "Divine couple who created Japan"
+  },
+  {
+    "id": "r56",
+    "fromDeityId": "amaterasu",
+    "toDeityId": "susanoo",
+    "relationshipType": "sibling_of",
+    "confidenceLevel": "high",
+    "description": "Sun and storm siblings"
+  },
+  {
+    "id": "r57",
+    "fromDeityId": "amaterasu",
+    "toDeityId": "tsukuyomi",
+    "relationshipType": "sibling_of",
+    "confidenceLevel": "high",
+    "description": "Sun and moon siblings"
+  },
+  {
+    "id": "r90",
+    "fromDeityId": "morrigan",
+    "toDeityId": "dagda",
+    "relationshipType": "spouse_of",
+    "confidenceLevel": "high",
+    "description": "Union of sovereignty and earth-kingship"
+  },
+  {
+    "id": "r91",
+    "fromDeityId": "lug",
+    "toDeityId": "dagda",
+    "relationshipType": "ally_of",
+    "confidenceLevel": "high",
+    "description": "Leaders of the Tuatha Dé Danann"
+  },
+  {
+    "id": "r92",
+    "fromDeityId": "quetzalcoatl",
+    "toDeityId": "tezcatlipoca",
+    "relationshipType": "enemy_of",
+    "confidenceLevel": "high",
+    "description": "Eternal cosmic rivals (Creation vs Destruction)"
+  },
+  {
+    "id": "r93",
+    "fromDeityId": "huitzilopochtli",
+    "toDeityId": "coatlicue",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high",
+    "description": "Huitzilopochtli was born from Coatlicue"
+  },
+  {
+    "id": "r94",
+    "fromDeityId": "jade-emperor",
+    "toDeityId": "sun-wukong",
+    "relationshipType": "enemy_of",
+    "confidenceLevel": "medium",
+    "description": "Sun Wukong rebelled against the Jade Emperor"
+  },
+  {
+    "id": "r95",
+    "fromDeityId": "guanyin",
+    "toDeityId": "sun-wukong",
+    "relationshipType": "ally_of",
+    "confidenceLevel": "high",
+    "description": "Guanyin often aided Sun Wukong on his journey"
+  }
 ]

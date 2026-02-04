@@ -1,0 +1,105 @@
+
+> web@0.1.0 lint
+> eslint
+
+
+/Volumes/LizsDisk/Mythos/apps/web/src/app/about/page.tsx
+    2:29   warning  'CardDescription' is defined but never used                      @typescript-eslint/no-unused-vars
+  128:17   error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  128:268  error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  188:57   error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+/Volumes/LizsDisk/Mythos/apps/web/src/app/api/graphql/route.ts
+  69:10  warning  'parseGraphQLQuery' is defined but never used  @typescript-eslint/no-unused-vars
+
+/Volumes/LizsDisk/Mythos/apps/web/src/app/api/page.tsx
+  5:8  warning  'Link' is defined but never used  @typescript-eslint/no-unused-vars
+
+/Volumes/LizsDisk/Mythos/apps/web/src/app/deities/[slug]/page.tsx
+  133:26  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  133:47  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+/Volumes/LizsDisk/Mythos/apps/web/src/app/not-found.tsx
+   3:16  warning  'Search' is defined but never used                               @typescript-eslint/no-unused-vars
+  41:56  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+/Volumes/LizsDisk/Mythos/apps/web/src/app/pantheons/[slug]/page.tsx
+  10:8   warning  'Image' is defined but never used                                @typescript-eslint/no-unused-vars
+  96:29  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  96:50  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+/Volumes/LizsDisk/Mythos/apps/web/src/app/stories/[slug]/page.tsx
+   7:29  warning  'CardDescription' is defined but never used                      @typescript-eslint/no-unused-vars
+  62:26  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  62:47  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+/Volumes/LizsDisk/Mythos/apps/web/src/components/deities/DeitiesTable.tsx
+  163:17  warning  Compilation Skipped: Use of incompatible library
+
+This API returns functions which cannot be memoized without leading to stale UI. To prevent this, by default React Compiler will skip memoizing this component/hook. However, you may see issues if values from this API are passed to other components/hooks that are memoized.
+
+/Volumes/LizsDisk/Mythos/apps/web/src/components/deities/DeitiesTable.tsx:163:17
+  161 |   )
+  162 |
+> 163 |   const table = useReactTable({
+      |                 ^^^^^^^^^^^^^ TanStack Table's `useReactTable()` API returns functions that cannot be memoized safely
+  164 |     data: deities,
+  165 |     columns,
+  166 |     state: {  react-hooks/incompatible-library
+
+/Volumes/LizsDisk/Mythos/apps/web/src/components/home/HeroSection.tsx
+  21:5  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+/Volumes/LizsDisk/Mythos/apps/web/src/components/home/HeroSection.tsx:21:5
+  19 |
+  20 |   useEffect(() => {
+> 21 |     setQuoteIndex(Math.floor(Math.random() * mythologyQuotes.length));
+     |     ^^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  22 |   }, []);
+  23 |
+  24 |   const randomQuote = mythologyQuotes[quoteIndex];  react-hooks/set-state-in-effect
+
+/Volumes/LizsDisk/Mythos/apps/web/src/components/home/StatsSection.tsx
+  3:18  warning  'useMotionValue' is defined but never used  @typescript-eslint/no-unused-vars
+  3:34  warning  'useTransform' is defined but never used    @typescript-eslint/no-unused-vars
+
+/Volumes/LizsDisk/Mythos/apps/web/src/components/layout/footer.tsx
+  3:18  warning  'Twitter' is defined but never used  @typescript-eslint/no-unused-vars
+
+/Volumes/LizsDisk/Mythos/apps/web/src/components/layout/header.tsx
+  25:5  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+/Volumes/LizsDisk/Mythos/apps/web/src/components/layout/header.tsx:25:5
+  23 |
+  24 |   useEffect(() => {
+> 25 |     setMounted(true);
+     |     ^^^^^^^^^^ Avoid calling setState() directly within an effect
+  26 |     setIsMac(navigator.platform.toUpperCase().indexOf('MAC') >= 0);
+  27 |
+  28 |     const handleScroll = () => {  react-hooks/set-state-in-effect
+
+/Volumes/LizsDisk/Mythos/apps/web/src/components/mythology/ComparativeMythology.tsx
+   8:29  warning  'Crown' is defined but never used  @typescript-eslint/no-unused-vars
+  63:15  warning  '_' is defined but never used      @typescript-eslint/no-unused-vars
+
+/Volumes/LizsDisk/Mythos/apps/web/src/components/quiz/MythologyQuiz.tsx
+    9:10  warning  'Badge' is defined but never used                                @typescript-eslint/no-unused-vars
+  162:55  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+/Volumes/LizsDisk/Mythos/apps/web/src/components/ui/input.tsx
+  4:18  error  An interface declaring no members is equivalent to its supertype  @typescript-eslint/no-empty-object-type
+
+✖ 27 problems (14 errors, 13 warnings)
+

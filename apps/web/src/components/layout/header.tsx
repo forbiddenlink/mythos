@@ -22,6 +22,7 @@ export function Header() {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setMounted(true);
     setIsMac(navigator.platform.toUpperCase().indexOf('MAC') >= 0);
 
@@ -45,11 +46,10 @@ export function Header() {
 
   return (
     <header
-      className={`sticky top-0 z-50 w-full transition-all duration-300 ${
-        scrolled
+      className={`sticky top-0 z-50 w-full transition-all duration-300 ${scrolled
           ? 'bg-background/95 backdrop-blur-md border-b border-border/50 shadow-sm'
           : 'bg-transparent border-b border-transparent'
-      }`}
+        }`}
     >
       <div className="container mx-auto max-w-7xl flex h-18 items-center px-4 py-4">
         {/* Logo */}

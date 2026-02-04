@@ -7,11 +7,28 @@
     "summary": "The ten-year war between the Olympian gods led by Zeus and the Titans led by Cronus, resulting in the establishment of the Olympian order.",
     "keyExcerpts": "The Titanomachy was a series of battles fought between the younger generation of gods (the Olympians) and the older generation (the Titans). After Zeus freed his siblings from Cronus's belly, they waged war against the Titans for ten years.",
     "category": "war",
-    "moralThemes": ["generational conflict", "divine succession", "cosmic order", "justice", "power"],
+    "moralThemes": [
+      "generational conflict",
+      "divine succession",
+      "cosmic order",
+      "justice",
+      "power"
+    ],
     "culturalSignificance": "This story explains the origin of the Olympian gods' rule and their victory over the older Titan generation.",
+    "imageUrl": "/stories/titanomachy.png",
     "citationSources": [
-      {"title": "Theogony", "author": "Hesiod", "lines": "617-735", "type": "primary"},
-      {"title": "Library", "author": "Apollodorus", "book": "1.2.1", "type": "primary"}
+      {
+        "title": "Theogony",
+        "author": "Hesiod",
+        "lines": "617-735",
+        "type": "primary"
+      },
+      {
+        "title": "Library",
+        "author": "Apollodorus",
+        "book": "1.2.1",
+        "type": "primary"
+      }
     ]
   },
   {
@@ -22,11 +39,23 @@
     "summary": "The prophesied end of the world in Norse mythology. After a great winter called Fimbulvetr, the bound wolf Fenrir will break free, the Midgard Serpent will rise from the ocean, and the giants will sail to battle the gods.",
     "keyExcerpts": "Odin will be devoured by Fenrir, Thor will kill Jormungandr but die from its poison, and Heimdall and Loki will slay each other. The world will be consumed by fire and sink into the sea, but eventually rise again renewed.",
     "category": "apocalypse",
-    "moralThemes": ["fate", "courage", "cosmic cycle", "destruction and renewal"],
+    "moralThemes": [
+      "fate",
+      "courage",
+      "cosmic cycle",
+      "destruction and renewal"
+    ],
     "culturalSignificance": "Ragnarok represents the Norse concept of cyclical time and the inevitability of fate, even for gods.",
+    "imageUrl": "/stories/ragnarok.png",
     "citationSources": [
-      {"title": "Poetic Edda - Voluspa", "lines": "40-66"},
-      {"title": "Prose Edda - Gylfaginning", "chapters": "51-53"}
+      {
+        "title": "Poetic Edda - Voluspa",
+        "lines": "40-66"
+      },
+      {
+        "title": "Prose Edda - Gylfaginning",
+        "chapters": "51-53"
+      }
     ]
   },
   {
@@ -37,11 +66,22 @@
     "summary": "In the beginning was the void Ginnungagap, with Muspelheim (fire) to the south and Niflheim (ice) to the north. When fire and ice met, they created the giant Ymir.",
     "keyExcerpts": "Odin, Vili, and Ve killed Ymir and created the world from his body: his flesh became earth, his blood the seas, his bones the mountains, his skull the sky. From two trees they created the first humans, Ask and Embla.",
     "category": "creation",
-    "moralThemes": ["creation from chaos", "sacrifice", "divine craftsmanship"],
+    "moralThemes": [
+      "creation from chaos",
+      "sacrifice",
+      "divine craftsmanship"
+    ],
     "culturalSignificance": "This creation myth explains the Norse cosmology and the origin of humanity.",
+    "imageUrl": "/stories/creation-myth-norse.png",
     "citationSources": [
-      {"title": "Poetic Edda - Voluspa", "lines": "3-18"},
-      {"title": "Prose Edda - Gylfaginning", "chapters": "4-9"}
+      {
+        "title": "Poetic Edda - Voluspa",
+        "lines": "3-18"
+      },
+      {
+        "title": "Prose Edda - Gylfaginning",
+        "chapters": "4-9"
+      }
     ]
   },
   {
@@ -52,11 +92,22 @@
     "summary": "Baldur, the most beloved god, was troubled by dreams of his death. His mother Frigg extracted oaths from all things not to harm him, making him invulnerable - except she overlooked mistletoe.",
     "keyExcerpts": "Loki discovered this weakness and fashioned a dart from mistletoe. He gave it to the blind god Hodr, who unknowingly threw it, killing Baldur. The gods attempted to ransom him from Hel, but Loki refused to weep for him.",
     "category": "tragedy",
-    "moralThemes": ["treachery", "vulnerability", "grief", "fate"],
+    "moralThemes": [
+      "treachery",
+      "vulnerability",
+      "grief",
+      "fate"
+    ],
     "culturalSignificance": "Baldur's death is a pivotal event leading to Ragnarok and represents the loss of light and innocence.",
+    "imageUrl": "/stories/death-of-baldur.png",
     "citationSources": [
-      {"title": "Prose Edda - Gylfaginning", "chapters": "49-50"},
-      {"title": "Poetic Edda - Baldrs draumar"}
+      {
+        "title": "Prose Edda - Gylfaginning",
+        "chapters": "49-50"
+      },
+      {
+        "title": "Poetic Edda - Baldrs draumar"
+      }
     ]
   },
   {
@@ -67,10 +118,18 @@
     "summary": "The gods raised the wolf Fenrir in Asgard, but as he grew enormous and dangerous, they decided he must be bound. The dwarves crafted Gleipnir, a ribbon made from impossible things.",
     "keyExcerpts": "Gleipnir was made from the sound of a cat's footfall, the beard of a woman, the roots of a mountain, the sinews of a bear, the breath of a fish, and the spittle of a bird. Tyr volunteered to place his hand in Fenrir's mouth as a pledge, and when Fenrir couldn't break free, he bit off Tyr's hand.",
     "category": "myth",
-    "moralThemes": ["sacrifice", "courage", "necessity of binding chaos"],
+    "moralThemes": [
+      "sacrifice",
+      "courage",
+      "necessity of binding chaos"
+    ],
     "culturalSignificance": "This story explains Tyr's missing hand and illustrates the gods' desperate measures to prevent destruction.",
+    "imageUrl": "/stories/binding-of-fenrir.png",
     "citationSources": [
-      {"title": "Prose Edda - Gylfaginning", "chapter": "34"}
+      {
+        "title": "Prose Edda - Gylfaginning",
+        "chapter": "34"
+      }
     ]
   },
   {
@@ -81,11 +140,22 @@
     "summary": "The immense ash tree that stands at the center of the cosmos and connects the Nine Worlds. Its roots extend into multiple realms, and its branches stretch over all existence.",
     "keyExcerpts": "At its base sit the Norns (Fates), and various creatures live within it, including the eagle at its crown, the dragon Nidhoggr gnawing at its roots, and the squirrel Ratatoskr running up and down carrying messages.",
     "category": "cosmology",
-    "moralThemes": ["interconnection", "cosmic order", "the axis mundi"],
+    "moralThemes": [
+      "interconnection",
+      "cosmic order",
+      "the axis mundi"
+    ],
     "culturalSignificance": "Yggdrasil represents the Norse understanding of the universe's structure and the connections between all realms.",
+    "imageUrl": "/stories/yggdrasil.png",
     "citationSources": [
-      {"title": "Poetic Edda - Voluspa", "lines": "19-20"},
-      {"title": "Prose Edda - Gylfaginning", "chapters": "15-16"}
+      {
+        "title": "Poetic Edda - Voluspa",
+        "lines": "19-20"
+      },
+      {
+        "title": "Prose Edda - Gylfaginning",
+        "chapters": "15-16"
+      }
     ]
   },
   {
@@ -96,11 +166,22 @@
     "summary": "In the beginning was the primordial waters of Nun, dark and chaotic. From these waters arose the primeval mound, and upon it stood Atum (later identified with Ra), the self-created god.",
     "keyExcerpts": "Atum created Shu (air) and Tefnut (moisture) through his own essence. They gave birth to Geb (earth) and Nut (sky). Geb and Nut produced Osiris, Isis, Set, and Nephthys, forming the Ennead.",
     "category": "creation",
-    "moralThemes": ["order from chaos", "divine hierarchy", "the power of the word"],
+    "moralThemes": [
+      "order from chaos",
+      "divine hierarchy",
+      "the power of the word"
+    ],
     "culturalSignificance": "This is the primary Egyptian creation myth, establishing the theological foundation of Heliopolis.",
+    "imageUrl": "/stories/creation-heliopolis.png",
     "citationSources": [
-      {"title": "Pyramid Texts", "spells": "600-602"},
-      {"title": "Coffin Texts", "spell": "80"}
+      {
+        "title": "Pyramid Texts",
+        "spells": "600-602"
+      },
+      {
+        "title": "Coffin Texts",
+        "spell": "80"
+      }
     ]
   },
   {
@@ -111,11 +192,22 @@
     "summary": "Osiris ruled Egypt as its first pharaoh, teaching agriculture and civilization. His brother Set, consumed by jealousy, murdered him and scattered his body across Egypt.",
     "keyExcerpts": "Isis searched all of Egypt for her husband's body parts. Through her magic and Anubis's first embalming, Osiris was resurrected enough to conceive Horus before becoming lord of the dead.",
     "category": "tragedy",
-    "moralThemes": ["death and resurrection", "loyalty", "justice", "the afterlife"],
+    "moralThemes": [
+      "death and resurrection",
+      "loyalty",
+      "justice",
+      "the afterlife"
+    ],
     "culturalSignificance": "The central myth of Egyptian religion, explaining death, mummification, and the hope for afterlife.",
+    "imageUrl": "/stories/osiris-myth.png",
     "citationSources": [
-      {"title": "Pyramid Texts", "spells": "366-375"},
-      {"title": "Plutarch - De Iside et Osiride"}
+      {
+        "title": "Pyramid Texts",
+        "spells": "366-375"
+      },
+      {
+        "title": "Plutarch - De Iside et Osiride"
+      }
     ]
   },
   {
@@ -126,12 +218,24 @@
     "summary": "Each day, Ra travels across the sky in his solar barque, bringing light and warmth to the world. As night falls, Ra enters the underworld (Duat), facing his greatest enemy: Apophis.",
     "keyExcerpts": "The chaos serpent Apophis tries to swallow Ra and prevent sunrise. Set, despite his negative role elsewhere, protects Ra by spearing Apophis. Each dawn represents Ra's victory over chaos.",
     "category": "cosmology",
-    "moralThemes": ["order vs chaos", "daily renewal", "the eternal cycle"],
+    "moralThemes": [
+      "order vs chaos",
+      "daily renewal",
+      "the eternal cycle"
+    ],
     "culturalSignificance": "This daily journey explains the sun's movement and represents the eternal battle between order and chaos.",
+    "imageUrl": "/stories/ra-journey.png",
     "citationSources": [
-      {"title": "Book of the Dead", "spell": "15"},
-      {"title": "Amduat"},
-      {"title": "Litany of Ra"}
+      {
+        "title": "Book of the Dead",
+        "spell": "15"
+      },
+      {
+        "title": "Amduat"
+      },
+      {
+        "title": "Litany of Ra"
+      }
     ]
   },
   {
@@ -142,11 +246,22 @@
     "summary": "After Osiris's death, his son Horus challenged Set for the throne of Egypt, leading to an 80-year conflict with many contests and trials.",
     "keyExcerpts": "Set damaged Horus's eye, while Horus castrated Set. Eventually, Osiris sent a threatening letter from the underworld, and the gods decided Horus was the rightful king. Horus's damaged eye was healed by Thoth and became the Wedjat.",
     "category": "war",
-    "moralThemes": ["rightful succession", "justice", "perseverance"],
+    "moralThemes": [
+      "rightful succession",
+      "justice",
+      "perseverance"
+    ],
     "culturalSignificance": "This story legitimizes royal succession and explains the origin of the Eye of Horus symbol.",
+    "imageUrl": "/stories/contendings.png",
     "citationSources": [
-      {"title": "The Contendings of Horus and Seth (Papyrus Chester Beatty I)", "date": "~1160 BCE"},
-      {"title": "Pyramid Texts", "spells": "350-360"}
+      {
+        "title": "The Contendings of Horus and Seth (Papyrus Chester Beatty I)",
+        "date": "~1160 BCE"
+      },
+      {
+        "title": "Pyramid Texts",
+        "spells": "350-360"
+      }
     ]
   },
   {
@@ -157,11 +272,222 @@
     "summary": "When a person dies, their heart is weighed on scales by Anubis against the feather of Ma'at (truth and justice). Thoth records the results.",
     "keyExcerpts": "If the heart is lighter than the feather, the soul proceeds to Aaru (paradise). If the heart is heavy with sin, it is devoured by Ammit, causing the 'second death' - the soul ceases to exist.",
     "category": "afterlife",
-    "moralThemes": ["moral judgment", "truth", "consequences of actions"],
+    "moralThemes": [
+      "moral judgment",
+      "truth",
+      "consequences of actions"
+    ],
     "culturalSignificance": "This ceremony was central to Egyptian funerary beliefs and moral philosophy.",
+    "imageUrl": "/stories/weighing-heart.png",
     "citationSources": [
-      {"title": "Book of the Dead", "spell": "125"},
-      {"title": "Papyrus of Ani"}
+      {
+        "title": "Book of the Dead",
+        "spell": "125"
+      },
+      {
+        "title": "Papyrus of Ani"
+      }
+    ]
+  },
+  {
+    "id": "aeneid",
+    "pantheonId": "roman-pantheon",
+    "title": "The Aeneid - Journey to Rome",
+    "slug": "aeneid",
+    "summary": "The epic tale of Aeneas, Trojan hero and son of Venus, who escapes the fall of Troy and journeys to Italy to found the Roman race. Guided by fate and divine will, he overcomes trials, wars, and personal loss.",
+    "category": "epic",
+    "imageUrl": "/stories/aeneid.png",
+    "citationSources": [
+      {
+        "title": "Aeneid",
+        "author": "Virgil",
+        "date": "~19 BCE",
+        "type": "primary"
+      }
+    ]
+  },
+  {
+    "id": "romulus-remus",
+    "pantheonId": "roman-pantheon",
+    "title": "Romulus and Remus - Founding of Rome",
+    "slug": "romulus-remus",
+    "summary": "Twin sons of Mars and Rhea Silvia, abandoned as infants and raised by a she-wolf. They founded Rome but quarreled over leadership, resulting in Romulus killing Remus and becoming Rome's first king.",
+    "category": "myth",
+    "imageUrl": "/stories/romulus-remus.png",
+    "citationSources": [
+      {
+        "title": "Ab Urbe Condita",
+        "author": "Livy",
+        "type": "primary"
+      }
+    ]
+  },
+  {
+    "id": "ramayana",
+    "pantheonId": "hindu-pantheon",
+    "title": "The Ramayana",
+    "slug": "ramayana",
+    "summary": "Epic tale of Prince Rama's exile, the abduction of his wife Sita by demon king Ravana, and the great war to rescue her. Demonstrates the ideals of dharma, duty, devotion, and righteous conduct.",
+    "category": "epic",
+    "imageUrl": "/stories/ramayana.png",
+    "citationSources": [
+      {
+        "title": "Ramayana",
+        "author": "Valmiki",
+        "type": "primary"
+      }
+    ]
+  },
+  {
+    "id": "mahabharata",
+    "pantheonId": "hindu-pantheon",
+    "title": "The Mahabharata",
+    "slug": "mahabharata",
+    "summary": "Epic saga of the conflict between the Pandavas and Kauravas for the throne of Hastinapura, culminating in the great Kurukshetra war. Contains the Bhagavad Gita.",
+    "category": "epic",
+    "imageUrl": "/stories/mahabharata.png",
+    "citationSources": [
+      {
+        "title": "Mahabharata",
+        "author": "Vyasa",
+        "type": "primary"
+      }
+    ]
+  },
+  {
+    "id": "churning-ocean",
+    "pantheonId": "hindu-pantheon",
+    "title": "Samudra Manthan - Churning of the Ocean",
+    "slug": "churning-ocean",
+    "summary": "Gods and demons cooperate to churn the cosmic ocean to obtain amrita (nectar of immortality). Various precious things emerge, including Lakshmi, before finally the nectar appears.",
+    "category": "myth",
+    "imageUrl": "/stories/churning-ocean.png",
+    "citationSources": [
+      {
+        "title": "Bhagavata Purana",
+        "type": "primary"
+      }
+    ]
+  },
+  {
+    "id": "creation-japan",
+    "pantheonId": "japanese-pantheon",
+    "title": "The Creation of Japan",
+    "slug": "creation-japan",
+    "summary": "The primordial gods Izanagi and Izanami create the Japanese islands and countless kami, establishing the divine origins of Japan and its imperial line.",
+    "category": "creation",
+    "imageUrl": "/stories/creation-japan.png",
+    "citationSources": [
+      {
+        "title": "Kojiki",
+        "type": "primary"
+      }
+    ]
+  },
+  {
+    "id": "amaterasu-cave",
+    "pantheonId": "japanese-pantheon",
+    "title": "Amaterasu and the Heavenly Cave",
+    "slug": "amaterasu-cave",
+    "summary": "When Susanoo's violence drives Amaterasu into hiding in a cave, the world falls into darkness. The gods devise a plan to lure her out, restoring light to the world. Explains the importance of ritual.",
+    "category": "myth",
+    "imageUrl": "/stories/amaterasu-cave.png",
+    "citationSources": [
+      {
+        "title": "Kojiki",
+        "type": "primary"
+      }
+    ]
+  },
+  {
+    "id": "yamata-no-orochi",
+    "pantheonId": "japanese-pantheon",
+    "title": "Susanoo and Yamata no Orochi",
+    "slug": "yamata-no-orochi",
+    "summary": "Exiled storm god Susanoo encounters an eight-headed, eight-tailed dragon terrorizing a family. He slays the beast and discovers the sacred sword Kusanagi in its tail.",
+    "category": "myth",
+    "imageUrl": "/stories/yamata-no-orochi.png",
+    "citationSources": [
+      {
+        "title": "Kojiki",
+        "type": "primary"
+      }
+    ]
+  },
+  {
+    "id": "cath-maige-tuired",
+    "pantheonId": "celtic-pantheon",
+    "title": "The Second Battle of Mag Tuired",
+    "slug": "cath-maige-tuired",
+    "summary": "The Tuatha Dé Danann fight the Fomorians for control of Ireland. Lugh leads the gods to victory, slaying his grandfather Balor.",
+    "category": "war",
+    "imageUrl": "/stories/cath-maige-tuired.png",
+    "citationSources": [
+      {
+        "title": "Cath Maige Tuired",
+        "type": "primary"
+      }
+    ]
+  },
+  {
+    "id": "children-lir",
+    "pantheonId": "celtic-pantheon",
+    "title": "The Children of Lir",
+    "slug": "children-lir",
+    "summary": "A tragedy where four children are cursed by their jealous stepmother to live as swans for 900 years.",
+    "category": "tragedy",
+    "imageUrl": "/stories/children-lir.png",
+    "citationSources": [
+      {
+        "title": "Oidheadh Clainne Lir",
+        "type": "primary"
+      }
+    ]
+  },
+  {
+    "id": "five-suns",
+    "pantheonId": "aztec-pantheon",
+    "title": "The Legend of the Five Suns",
+    "slug": "five-suns",
+    "summary": "The Aztec creation myth describing four previous worlds that were destroyed, and the creation of the current fifth world by the sacrifice of the gods.",
+    "category": "creation",
+    "imageUrl": "/stories/five-suns.png",
+    "citationSources": [
+      {
+        "title": "Leyenda de los Soles",
+        "type": "primary"
+      }
+    ]
+  },
+  {
+    "id": "journey-to-west",
+    "pantheonId": "chinese-pantheon",
+    "title": "Journey to the West",
+    "slug": "journey-to-west",
+    "summary": "The legendary pilgrimage of the monk Tang Sanzang and his disciples (including Sun Wukong) to retrieve sacred Buddhist scriptures.",
+    "category": "epic",
+    "imageUrl": "/stories/journey-to-west.png",
+    "citationSources": [
+      {
+        "title": "Journey to the West",
+        "author": "Wu Cheng'en",
+        "type": "primary"
+      }
+    ]
+  },
+  {
+    "id": "archer-yi",
+    "pantheonId": "chinese-pantheon",
+    "title": "Hou Yi Shoots the Suns",
+    "slug": "archer-yi",
+    "summary": "When ten suns appeared in the sky, scorching the earth, the archer Hou Yi shot down nine of them to save humanity.",
+    "category": "myth",
+    "imageUrl": "/stories/archer-yi.png",
+    "citationSources": [
+      {
+        "title": "Huainanzi",
+        "type": "primary"
+      }
     ]
   }
 ]

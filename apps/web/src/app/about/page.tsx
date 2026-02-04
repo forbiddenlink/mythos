@@ -125,11 +125,11 @@ export default function AboutPage() {
                 </div>
               </div>
               <p className="text-parchment/70 text-sm italic border-l-2 border-gold/30 pl-4">
-                "This project was born from a fascination with how ancient myths connect cultures across time and space. By leveraging modern web technologies, I wanted to create an immersive experience that brings these timeless stories to life for a new generation."
+                &quot;This project was born from a fascination with how ancient myths connect cultures across time and space. By leveraging modern web technologies, I wanted to create an immersive experience that brings these timeless stories to life for a new generation.&quot;
               </p>
             </CardContent>
           </Card>
-          
+
           <Card className="border-gold/20 bg-midnight-light/50">
             <CardHeader>
               <CardTitle className="text-parchment text-2xl font-serif">Technology Stack</CardTitle>
@@ -171,7 +171,7 @@ export default function AboutPage() {
               </div>
             </CardContent>
           </Card>
-          
+
           <Card className="border-gold/20 bg-midnight-light/50">
             <CardHeader>
               <CardTitle className="text-parchment text-2xl font-serif">Project Status</CardTitle>
@@ -185,7 +185,7 @@ export default function AboutPage() {
               </p>
               <div className="pt-2 border-t border-gold/20">
                 <p className="text-parchment/70 text-sm">
-                  Have suggestions or found an error? We're continuously improving accuracy and coverage based on scholarly sources and community feedback.
+                  Have suggestions or found an error? We&apos;re continuously improving accuracy and coverage based on scholarly sources and community feedback.
                 </p>
               </div>
             </CardContent>

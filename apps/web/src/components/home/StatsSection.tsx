@@ -1,6 +1,6 @@
 'use client';
 
-import { motion, useMotionValue, useTransform, animate } from 'framer-motion';
+import { animate, motion } from 'framer-motion';
 import { Users, BookOpen, Globe2 } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
@@ -75,21 +75,21 @@ export function StatsSection() {
   const stats = [
     {
       icon: Globe2,
-      value: statsData?.pantheonCount || 3,
+      value: statsData?.pantheonCount || 9,
       suffix: '',
       label: 'Pantheons',
       description: 'From Greek to Norse to Egyptian',
     },
     {
       icon: Users,
-      value: statsData?.deityCount || 39,
+      value: statsData?.deityCount || 86,
       suffix: '+',
       label: 'Deities',
       description: 'Gods and goddesses across cultures',
     },
     {
       icon: BookOpen,
-      value: statsData?.storyCount || 11,
+      value: statsData?.storyCount || 24,
       suffix: '+',
       label: 'Stories',
       description: 'Epic myths and legends',

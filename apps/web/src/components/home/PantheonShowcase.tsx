@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { Columns, Compass, Pyramid, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
+// Hardcoded for now to match the "Featured" style, but updated to include more
 const pantheons = [
   {
     name: 'Greek',
@@ -35,6 +36,66 @@ const pantheons = [
     icon: Pyramid,
     gradient: 'from-gold-dark via-gold to-bronze',
     accentColor: 'bg-gold',
+  },
+  {
+    name: 'Roman',
+    fullName: 'Roman Pantheon',
+    slug: 'roman',
+    culture: 'Ancient Roman',
+    description: 'The deities of the Roman state, emphasizing duty, discipline, and the glory of the Empire.',
+    icon: Columns,
+    gradient: 'from-red-900 via-red-800 to-orange-900',
+    accentColor: 'bg-red-700',
+  },
+  {
+    name: 'Hindu',
+    fullName: 'Hindu Pantheon',
+    slug: 'hindu',
+    culture: 'Vedic/Hindu',
+    description: 'The diverse family of gods centered on the Trimurti, governing dharma and karma.',
+    icon: Columns, // Using generic icon
+    gradient: 'from-orange-600 via-amber-500 to-yellow-600',
+    accentColor: 'bg-orange-500',
+  },
+  {
+    name: 'Japanese',
+    fullName: 'Japanese Pantheon',
+    slug: 'japanese',
+    culture: 'Shinto',
+    description: 'The Kami of nature and ancestors, inhabiting the islands and shrines of Japan.',
+    icon: Columns, // Using generic icon
+    gradient: 'from-red-600 via-pink-600 to-white',
+    accentColor: 'bg-red-600',
+  },
+  {
+    name: 'Celtic',
+    fullName: 'Celtic Pantheon',
+    slug: 'celtic',
+    culture: 'Celtic',
+    description: 'The gods of nature, magic, and sovereignty from Ireland, Wales, and Gaul.',
+    icon: Compass,
+    gradient: 'from-green-700 via-emerald-600 to-lime-600',
+    accentColor: 'bg-green-600',
+  },
+  {
+    name: 'Aztec',
+    fullName: 'Aztec Pantheon',
+    slug: 'aztec',
+    culture: 'Aztec/Nahua',
+    description: 'The sun-soaked, blood-nourished gods of the Mexica, maintaining the cosmic cycle.',
+    icon: Pyramid,
+    gradient: 'from-red-600 via-orange-600 to-yellow-500',
+    accentColor: 'bg-red-600',
+  },
+  {
+    name: 'Chinese',
+    fullName: 'Chinese Pantheon',
+    slug: 'chinese',
+    culture: 'Chinese',
+    description: 'The celestial bureaucracy of gods, immortals, and spirits governing heaven and earth.',
+    icon: Columns,
+    gradient: 'from-red-800 via-yellow-700 to-red-900',
+    accentColor: 'bg-red-800',
   },
 ];
 

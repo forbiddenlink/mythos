@@ -9,8 +9,18 @@
     "timePeriodEnd": 400,
     "description": "The Greek pantheon encompasses the gods and goddesses of ancient Greek mythology, centered on Mount Olympus and featuring the twelve Olympians who ruled after the Titanomachy.",
     "citationSources": [
-      {"title": "Theogony", "author": "Hesiod", "date": "~700 BCE", "type": "primary"},
-      {"title": "The Library", "author": "Apollodorus", "date": "1st or 2nd century CE", "type": "primary"}
+      {
+        "title": "Theogony",
+        "author": "Hesiod",
+        "date": "~700 BCE",
+        "type": "primary"
+      },
+      {
+        "title": "The Library",
+        "author": "Apollodorus",
+        "date": "1st or 2nd century CE",
+        "type": "primary"
+      }
     ]
   },
   {
@@ -23,8 +33,18 @@
     "timePeriodEnd": 1100,
     "description": "The Norse pantheon includes the Aesir and Vanir gods of Scandinavian mythology, centered in Asgard and featuring stories of creation, heroism, and the prophesied end of the world known as Ragnarok.",
     "citationSources": [
-      {"title": "Poetic Edda", "author": "Anonymous", "date": "~1270 CE", "type": "primary"},
-      {"title": "Prose Edda", "author": "Snorri Sturluson", "date": "~1220 CE", "type": "primary"}
+      {
+        "title": "Poetic Edda",
+        "author": "Anonymous",
+        "date": "~1270 CE",
+        "type": "primary"
+      },
+      {
+        "title": "Prose Edda",
+        "author": "Snorri Sturluson",
+        "date": "~1220 CE",
+        "type": "primary"
+      }
     ]
   },
   {
@@ -37,8 +57,160 @@
     "timePeriodEnd": 640,
     "description": "The Egyptian pantheon encompasses the gods and goddesses of ancient Egypt, featuring creation deities, solar worship, the afterlife, and the eternal struggle between order (Ma'at) and chaos (Isfet).",
     "citationSources": [
-      {"title": "Pyramid Texts", "date": "~2400-2300 BCE", "type": "primary"},
-      {"title": "Book of the Dead", "date": "~1550 BCE onwards", "type": "primary"}
+      {
+        "title": "Pyramid Texts",
+        "date": "~2400-2300 BCE",
+        "type": "primary"
+      },
+      {
+        "title": "Book of the Dead",
+        "date": "~1550 BCE onwards",
+        "type": "primary"
+      }
+    ]
+  },
+  {
+    "id": "roman-pantheon",
+    "name": "Roman Pantheon",
+    "slug": "roman",
+    "culture": "Ancient Roman",
+    "region": "Italian Peninsula and Mediterranean",
+    "timePeriodStart": -753,
+    "timePeriodEnd": 476,
+    "description": "The Roman pantheon adapted and expanded upon Greek mythology, creating a rich religious tradition that emphasized duty, piety, and the divine favor of the state. The Romans identified their gods with Greek counterparts while maintaining distinct characteristics and rituals.",
+    "citationSources": [
+      {
+        "title": "Metamorphoses",
+        "author": "Ovid",
+        "date": "8 CE",
+        "type": "primary"
+      },
+      {
+        "title": "Aeneid",
+        "author": "Virgil",
+        "date": "~19 BCE",
+        "type": "primary"
+      },
+      {
+        "title": "Fasti",
+        "author": "Ovid",
+        "date": "~8 CE",
+        "type": "primary"
+      }
+    ]
+  },
+  {
+    "id": "hindu-pantheon",
+    "name": "Hindu Pantheon",
+    "slug": "hindu",
+    "culture": "Hindu/Vedic",
+    "region": "Indian Subcontinent",
+    "timePeriodStart": -1500,
+    "timePeriodEnd": null,
+    "description": "Hindu mythology encompasses thousands of years of religious and philosophical tradition from the Indian subcontinent. Centered on the Trimurti (Brahma the Creator, Vishnu the Preserver, and Shiva the Destroyer) and featuring countless gods, goddesses, and avatars.",
+    "citationSources": [
+      {
+        "title": "Rigveda",
+        "date": "~1500-1200 BCE",
+        "type": "primary"
+      },
+      {
+        "title": "Mahabharata",
+        "author": "Vyasa",
+        "date": "~400 BCE-400 CE",
+        "type": "primary"
+      },
+      {
+        "title": "Ramayana",
+        "author": "Valmiki",
+        "date": "~500-100 BCE",
+        "type": "primary"
+      }
+    ]
+  },
+  {
+    "id": "japanese-pantheon",
+    "name": "Japanese Pantheon",
+    "slug": "japanese",
+    "culture": "Shinto/Japanese",
+    "region": "Japanese Archipelago",
+    "timePeriodStart": -660,
+    "timePeriodEnd": null,
+    "description": "Shinto (Way of the Kami) is the indigenous spirituality of Japan, featuring countless kami (divine spirits or gods) associated with natural phenomena, ancestors, and sacred places.",
+    "citationSources": [
+      {
+        "title": "Kojiki",
+        "author": "O no Yasumaro",
+        "date": "712 CE",
+        "type": "primary"
+      },
+      {
+        "title": "Nihon Shoki",
+        "date": "720 CE",
+        "type": "primary"
+      }
+    ]
+  },
+  {
+    "id": "celtic-pantheon",
+    "name": "Celtic Pantheon",
+    "slug": "celtic",
+    "culture": "Celtic",
+    "region": "Western Europe",
+    "timePeriodStart": -500,
+    "timePeriodEnd": 400,
+    "description": "The deities of the Celtic peoples, associated with nature, magic, war, and sovereignty. Known for the Tuatha Dé Danann in Irish mythology.",
+    "citationSources": [
+      {
+        "title": "Lebor Gabála Érenn",
+        "type": "primary"
+      },
+      {
+        "title": "The Mabinogion",
+        "type": "primary"
+      }
+    ]
+  },
+  {
+    "id": "aztec-pantheon",
+    "name": "Aztec Pantheon",
+    "slug": "aztec",
+    "culture": "Nahua/Aztec",
+    "region": "Central Mexico",
+    "timePeriodStart": 1300,
+    "timePeriodEnd": 1521,
+    "description": "A complex pantheon centered on duality, sacrifice, and the sun, demanding blood sacrifice to sustain the cosmos.",
+    "citationSources": [
+      {
+        "title": "Florentine Codex",
+        "date": "16th Century",
+        "type": "primary"
+      },
+      {
+        "title": "Codex Borgia",
+        "type": "primary"
+      }
+    ]
+  },
+  {
+    "id": "chinese-pantheon",
+    "name": "Chinese Pantheon",
+    "slug": "chinese",
+    "culture": "Chinese",
+    "region": "China",
+    "timePeriodStart": -1600,
+    "timePeriodEnd": null,
+    "description": "A vast bureaucracy of gods, spirits, and immortals reflecting the imperial government on earth, blending Taoism, Buddhism, and folk religion.",
+    "citationSources": [
+      {
+        "title": "Journey to the West",
+        "author": "Wu Cheng'en",
+        "type": "primary"
+      },
+      {
+        "title": "Fengshen Yanyi",
+        "type": "primary"
+      }
     ]
   }
 ]

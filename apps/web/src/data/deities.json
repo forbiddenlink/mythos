@@ -4,181 +4,364 @@
     "pantheonId": "greek-pantheon",
     "name": "Zeus",
     "slug": "zeus",
-    "alternateNames": ["Jupiter", "Jove"],
+    "alternateNames": [
+      "Jupiter",
+      "Jove"
+    ],
     "gender": "male",
-    "domain": ["sky", "thunder", "lightning", "law", "order"],
-    "symbols": ["thunderbolt", "eagle", "oak tree", "bull"],
+    "domain": [
+      "sky",
+      "thunder",
+      "lightning",
+      "law",
+      "order"
+    ],
+    "symbols": [
+      "thunderbolt",
+      "eagle",
+      "oak tree",
+      "bull"
+    ],
     "description": "King of the gods and ruler of Mount Olympus. God of the sky, thunder, and justice. Zeus overthrew his father Cronus to become the supreme deity of the Greek pantheon.",
     "originStory": "Zeus was the youngest son of the Titans Cronus and Rhea. Cronus, fearing a prophecy that he would be overthrown by his children, swallowed each child at birth. Rhea hid Zeus and gave Cronus a stone wrapped in swaddling clothes instead. Zeus was raised in secret and later forced Cronus to regurgitate his siblings, leading the rebellion against the Titans.",
     "importanceRank": 1,
-    "imageUrl": "https://images.unsplash.com/photo-1608376630927-313b0b1fd859?w=400"
+    "imageUrl": "/deities/zeus.png"
   },
   {
     "id": "hera",
     "pantheonId": "greek-pantheon",
     "name": "Hera",
     "slug": "hera",
-    "alternateNames": ["Juno"],
+    "alternateNames": [
+      "Juno"
+    ],
     "gender": "female",
-    "domain": ["marriage", "women", "family", "childbirth"],
-    "symbols": ["peacock", "cow", "pomegranate", "diadem"],
+    "domain": [
+      "marriage",
+      "women",
+      "family",
+      "childbirth"
+    ],
+    "symbols": [
+      "peacock",
+      "cow",
+      "pomegranate",
+      "diadem"
+    ],
     "description": "Queen of the gods and goddess of marriage and family. Wife and sister of Zeus, known for her jealousy toward Zeus's lovers and illegitimate children.",
     "originStory": "Hera was the eldest daughter of Cronus and Rhea, swallowed by Cronus at birth and later freed by Zeus. She became Zeus's wife after he courted her in the form of a cuckoo bird.",
     "importanceRank": 2,
-    "imageUrl": "https://images.unsplash.com/photo-1599689018034-48e2ead82951?w=400"
+    "imageUrl": "/deities/hera.png"
   },
   {
     "id": "poseidon",
     "pantheonId": "greek-pantheon",
     "name": "Poseidon",
     "slug": "poseidon",
-    "alternateNames": ["Neptune"],
+    "alternateNames": [
+      "Neptune"
+    ],
     "gender": "male",
-    "domain": ["sea", "earthquakes", "horses", "storms"],
-    "symbols": ["trident", "horse", "dolphin", "bull"],
+    "domain": [
+      "sea",
+      "earthquakes",
+      "horses",
+      "storms"
+    ],
+    "symbols": [
+      "trident",
+      "horse",
+      "dolphin",
+      "bull"
+    ],
     "description": "God of the sea, earthquakes, and horses. Brother of Zeus and Hades, ruler of the oceans and all waters.",
     "importanceRank": 3,
-    "imageUrl": "https://images.unsplash.com/photo-1505118380757-91f5f5632de0?w=400"
+    "imageUrl": "/deities/poseidon.png"
   },
   {
     "id": "hades",
     "pantheonId": "greek-pantheon",
     "name": "Hades",
     "slug": "hades",
-    "alternateNames": ["Pluto", "Plouton"],
+    "alternateNames": [
+      "Pluto",
+      "Plouton"
+    ],
     "gender": "male",
-    "domain": ["underworld", "death", "wealth"],
-    "symbols": ["helm of darkness", "bident", "Cerberus", "cornucopia"],
+    "domain": [
+      "underworld",
+      "death",
+      "wealth"
+    ],
+    "symbols": [
+      "helm of darkness",
+      "bident",
+      "Cerberus",
+      "cornucopia"
+    ],
     "description": "God of the underworld and the dead. Ruler of the realm of Hades, rarely leaving his kingdom.",
     "importanceRank": 4,
-    "imageUrl": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=400"
+    "imageUrl": "/deities/hades.png"
   },
   {
     "id": "athena",
     "pantheonId": "greek-pantheon",
     "name": "Athena",
     "slug": "athena",
-    "alternateNames": ["Minerva", "Pallas Athena"],
+    "alternateNames": [
+      "Minerva",
+      "Pallas Athena"
+    ],
     "gender": "female",
-    "domain": ["wisdom", "warfare", "crafts", "strategy"],
-    "symbols": ["owl", "olive tree", "aegis", "spear"],
+    "domain": [
+      "wisdom",
+      "warfare",
+      "crafts",
+      "strategy"
+    ],
+    "symbols": [
+      "owl",
+      "olive tree",
+      "aegis",
+      "spear"
+    ],
     "description": "Goddess of wisdom, warfare, and crafts. Born fully armed from Zeus's forehead after he swallowed her mother Metis.",
     "importanceRank": 7,
-    "imageUrl": "https://images.unsplash.com/photo-1594825250885-3a8a2a1c3e5c?w=400"
+    "imageUrl": "/deities/athena.png"
   },
   {
     "id": "apollo",
     "pantheonId": "greek-pantheon",
     "name": "Apollo",
     "slug": "apollo",
-    "alternateNames": ["Phoebus", "Phoebus Apollo"],
+    "alternateNames": [
+      "Phoebus",
+      "Phoebus Apollo"
+    ],
     "gender": "male",
-    "domain": ["sun", "music", "poetry", "prophecy", "healing", "archery"],
-    "symbols": ["lyre", "bow and arrow", "laurel wreath", "sun", "raven"],
+    "domain": [
+      "sun",
+      "music",
+      "poetry",
+      "prophecy",
+      "healing",
+      "archery"
+    ],
+    "symbols": [
+      "lyre",
+      "bow and arrow",
+      "laurel wreath",
+      "sun",
+      "raven"
+    ],
     "description": "God of sun, music, poetry, prophecy, and healing. Twin brother of Artemis, patron of the Muses and leader of the nine sisters.",
     "importanceRank": 8,
-    "imageUrl": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400"
+    "imageUrl": "/deities/apollo.png"
   },
   {
     "id": "artemis",
     "pantheonId": "greek-pantheon",
     "name": "Artemis",
     "slug": "artemis",
-    "alternateNames": ["Diana"],
+    "alternateNames": [
+      "Diana"
+    ],
     "gender": "female",
-    "domain": ["hunt", "wilderness", "moon", "childbirth", "virginity"],
-    "symbols": ["bow and arrow", "deer", "moon", "cypress"],
+    "domain": [
+      "hunt",
+      "wilderness",
+      "moon",
+      "childbirth",
+      "virginity"
+    ],
+    "symbols": [
+      "bow and arrow",
+      "deer",
+      "moon",
+      "cypress"
+    ],
     "description": "Goddess of the hunt, wilderness, and the moon. Twin sister of Apollo, protector of young women and animals.",
     "importanceRank": 9,
-    "imageUrl": "https://images.unsplash.com/photo-1516410529446-2c777cb7366d?w=400"
+    "imageUrl": "/deities/artemis.png"
   },
   {
     "id": "ares",
     "pantheonId": "greek-pantheon",
     "name": "Ares",
     "slug": "ares",
-    "alternateNames": ["Mars"],
+    "alternateNames": [
+      "Mars"
+    ],
     "gender": "male",
-    "domain": ["war", "violence", "bloodshed"],
-    "symbols": ["sword", "spear", "shield", "helmet", "vulture"],
+    "domain": [
+      "war",
+      "violence",
+      "bloodshed"
+    ],
+    "symbols": [
+      "sword",
+      "spear",
+      "shield",
+      "helmet",
+      "vulture"
+    ],
     "description": "God of war, violence, and bloodshed. Son of Zeus and Hera, representing the brutal and chaotic aspects of warfare.",
     "importanceRank": 10,
-    "imageUrl": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400"
+    "imageUrl": "/deities/ares.png"
   },
   {
     "id": "aphrodite",
     "pantheonId": "greek-pantheon",
     "name": "Aphrodite",
     "slug": "aphrodite",
-    "alternateNames": ["Venus", "Kypris"],
+    "alternateNames": [
+      "Venus",
+      "Kypris"
+    ],
     "gender": "female",
-    "domain": ["love", "beauty", "desire", "sexuality"],
-    "symbols": ["dove", "swan", "rose", "myrtle", "sparrow"],
+    "domain": [
+      "love",
+      "beauty",
+      "desire",
+      "sexuality"
+    ],
+    "symbols": [
+      "dove",
+      "swan",
+      "rose",
+      "myrtle",
+      "sparrow"
+    ],
     "description": "Goddess of love, beauty, and desire. Born from the sea foam after Cronus castrated Uranus and threw his genitals into the sea.",
     "importanceRank": 11,
-    "imageUrl": "https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=400"
+    "imageUrl": "/deities/aphrodite.png"
   },
   {
     "id": "hermes",
     "pantheonId": "greek-pantheon",
     "name": "Hermes",
     "slug": "hermes",
-    "alternateNames": ["Mercury"],
+    "alternateNames": [
+      "Mercury"
+    ],
     "gender": "male",
-    "domain": ["messengers", "commerce", "thieves", "travelers", "boundaries"],
-    "symbols": ["caduceus", "winged sandals", "petasos", "tortoise", "rooster"],
+    "domain": [
+      "messengers",
+      "commerce",
+      "thieves",
+      "travelers",
+      "boundaries"
+    ],
+    "symbols": [
+      "caduceus",
+      "winged sandals",
+      "petasos",
+      "tortoise",
+      "rooster"
+    ],
     "description": "God of messengers, commerce, thieves, and travelers. Son of Zeus and the nymph Maia, known for his cunning and speed.",
     "importanceRank": 13,
-    "imageUrl": "https://images.unsplash.com/photo-1533903345306-15d1c30952de?w=400"
+    "imageUrl": "/deities/hermes.png"
   },
   {
     "id": "dionysus",
     "pantheonId": "greek-pantheon",
     "name": "Dionysus",
     "slug": "dionysus",
-    "alternateNames": ["Bacchus", "Liber"],
+    "alternateNames": [
+      "Bacchus",
+      "Liber"
+    ],
     "gender": "male",
-    "domain": ["wine", "festivity", "theater", "madness", "ecstasy"],
-    "symbols": ["thyrsus", "grapevine", "ivy", "leopard", "panther"],
+    "domain": [
+      "wine",
+      "festivity",
+      "theater",
+      "madness",
+      "ecstasy"
+    ],
+    "symbols": [
+      "thyrsus",
+      "grapevine",
+      "ivy",
+      "leopard",
+      "panther"
+    ],
     "description": "God of wine, festivity, and theater. Son of Zeus and the mortal Semele, the only Olympian born to a mortal parent.",
     "importanceRank": 14,
-    "imageUrl": "https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=400"
+    "imageUrl": "/deities/dionysus.png"
   },
   {
     "id": "demeter",
     "pantheonId": "greek-pantheon",
     "name": "Demeter",
     "slug": "demeter",
-    "alternateNames": ["Ceres"],
+    "alternateNames": [
+      "Ceres"
+    ],
     "gender": "female",
-    "domain": ["agriculture", "harvest", "fertility", "sacred law"],
-    "symbols": ["wheat", "torch", "cornucopia", "poppies"],
+    "domain": [
+      "agriculture",
+      "harvest",
+      "fertility",
+      "sacred law"
+    ],
+    "symbols": [
+      "wheat",
+      "torch",
+      "cornucopia",
+      "poppies"
+    ],
     "description": "Goddess of agriculture, harvest, and fertility. Mother of Persephone, whose abduction by Hades explains the seasons.",
     "importanceRank": 5,
-    "imageUrl": "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=400"
+    "imageUrl": "/deities/demeter.png"
   },
   {
     "id": "hephaestus",
     "pantheonId": "greek-pantheon",
     "name": "Hephaestus",
     "slug": "hephaestus",
-    "alternateNames": ["Vulcan", "Hephaistos"],
+    "alternateNames": [
+      "Vulcan",
+      "Hephaistos"
+    ],
     "gender": "male",
-    "domain": ["fire", "metalworking", "crafts", "sculpture"],
-    "symbols": ["hammer", "anvil", "tongs", "forge"],
+    "domain": [
+      "fire",
+      "metalworking",
+      "crafts",
+      "sculpture"
+    ],
+    "symbols": [
+      "hammer",
+      "anvil",
+      "tongs",
+      "forge"
+    ],
     "description": "God of fire, metalworking, and crafts. Son of Hera (and possibly Zeus), cast from Olympus due to his lameness but later readmitted.",
     "importanceRank": 12,
-    "imageUrl": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400"
+    "imageUrl": "/deities/hephaestus.png"
   },
   {
     "id": "hestia",
     "pantheonId": "greek-pantheon",
     "name": "Hestia",
     "slug": "hestia",
-    "alternateNames": ["Vesta"],
+    "alternateNames": [
+      "Vesta"
+    ],
     "gender": "female",
-    "domain": ["hearth", "home", "domesticity", "family"],
-    "symbols": ["hearth", "fire", "kettle"],
+    "domain": [
+      "hearth",
+      "home",
+      "domesticity",
+      "family"
+    ],
+    "symbols": [
+      "hearth",
+      "fire",
+      "kettle"
+    ],
     "description": "Goddess of the hearth, home, and family. The firstborn of Cronus and Rhea, she maintained eternal virginity and tended the sacred fire of Olympus.",
     "importanceRank": 6,
     "imageUrl": "https://images.unsplash.com/photo-1513875528452-39400ac14a93?w=400"
@@ -188,24 +371,57 @@
     "pantheonId": "norse-pantheon",
     "name": "Odin",
     "slug": "odin",
-    "alternateNames": ["Allfather", "Woden", "Wotan", "The Wanderer"],
+    "alternateNames": [
+      "Allfather",
+      "Woden",
+      "Wotan",
+      "The Wanderer"
+    ],
     "gender": "male",
-    "domain": ["wisdom", "war", "death", "poetry", "magic", "knowledge"],
-    "symbols": ["spear Gungnir", "ravens Huginn and Muninn", "eight-legged horse Sleipnir", "wolves Geri and Freki", "one eye"],
+    "domain": [
+      "wisdom",
+      "war",
+      "death",
+      "poetry",
+      "magic",
+      "knowledge"
+    ],
+    "symbols": [
+      "spear Gungnir",
+      "ravens Huginn and Muninn",
+      "eight-legged horse Sleipnir",
+      "wolves Geri and Freki",
+      "one eye"
+    ],
     "description": "King of the Aesir and god of wisdom, war, and death. Odin sacrificed his eye at Mimir's well for wisdom and hung himself on Yggdrasil for nine days to learn the runes.",
     "originStory": "Odin is the son of the primordial beings Borr and Bestla. Along with his brothers Vili and Ve, he slew the giant Ymir and created the world from his body.",
     "importanceRank": 1,
-    "imageUrl": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400"
+    "imageUrl": "/deities/odin.png"
   },
   {
     "id": "thor",
     "pantheonId": "norse-pantheon",
     "name": "Thor",
     "slug": "thor",
-    "alternateNames": ["Donar", "Thunder God"],
+    "alternateNames": [
+      "Donar",
+      "Thunder God"
+    ],
     "gender": "male",
-    "domain": ["thunder", "lightning", "strength", "protection", "storms"],
-    "symbols": ["hammer Mjolnir", "belt Megingjord", "iron gloves", "goats", "red beard"],
+    "domain": [
+      "thunder",
+      "lightning",
+      "strength",
+      "protection",
+      "storms"
+    ],
+    "symbols": [
+      "hammer Mjolnir",
+      "belt Megingjord",
+      "iron gloves",
+      "goats",
+      "red beard"
+    ],
     "description": "Son of Odin and the earth goddess Jord. God of thunder, lightning, and storms. Protector of mankind and the gods, wielding the mighty hammer Mjolnir.",
     "importanceRank": 3,
     "imageUrl": "https://images.unsplash.com/photo-1534088568595-a066f410bcda?w=400"
@@ -215,10 +431,25 @@
     "pantheonId": "norse-pantheon",
     "name": "Loki",
     "slug": "loki",
-    "alternateNames": ["Lopt", "Trickster", "Shape-Shifter"],
+    "alternateNames": [
+      "Lopt",
+      "Trickster",
+      "Shape-Shifter"
+    ],
     "gender": "male",
-    "domain": ["mischief", "trickery", "chaos", "fire", "transformation"],
-    "symbols": ["flames", "serpent", "salmon", "fly"],
+    "domain": [
+      "mischief",
+      "trickery",
+      "chaos",
+      "fire",
+      "transformation"
+    ],
+    "symbols": [
+      "flames",
+      "serpent",
+      "salmon",
+      "fly"
+    ],
     "description": "A complex figure, blood brother to Odin but frequently causing trouble for the gods. A shape-shifter and trickster who fathers monstrous children including Fenrir, Jormungandr, and Hel.",
     "importanceRank": 5,
     "imageUrl": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400"
@@ -228,10 +459,23 @@
     "pantheonId": "norse-pantheon",
     "name": "Frigg",
     "slug": "frigg",
-    "alternateNames": ["Frigga", "Fricka"],
+    "alternateNames": [
+      "Frigga",
+      "Fricka"
+    ],
     "gender": "female",
-    "domain": ["marriage", "motherhood", "domestic arts", "prophecy", "fate"],
-    "symbols": ["spinning wheel", "keys", "falcon feather cloak"],
+    "domain": [
+      "marriage",
+      "motherhood",
+      "domestic arts",
+      "prophecy",
+      "fate"
+    ],
+    "symbols": [
+      "spinning wheel",
+      "keys",
+      "falcon feather cloak"
+    ],
     "description": "Queen of the Aesir and wife of Odin. Goddess of marriage, motherhood, and the home. She possesses the power of prophecy but chooses not to reveal what she knows.",
     "importanceRank": 2,
     "imageUrl": "https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=400"
@@ -241,10 +485,26 @@
     "pantheonId": "norse-pantheon",
     "name": "Freyja",
     "slug": "freyja",
-    "alternateNames": ["Freya", "Lady", "Vanadis"],
+    "alternateNames": [
+      "Freya",
+      "Lady",
+      "Vanadis"
+    ],
     "gender": "female",
-    "domain": ["love", "beauty", "fertility", "war", "death", "magic"],
-    "symbols": ["necklace Brisingamen", "falcon feather cloak", "chariot pulled by cats", "boar Hildisvini"],
+    "domain": [
+      "love",
+      "beauty",
+      "fertility",
+      "war",
+      "death",
+      "magic"
+    ],
+    "symbols": [
+      "necklace Brisingamen",
+      "falcon feather cloak",
+      "chariot pulled by cats",
+      "boar Hildisvini"
+    ],
     "description": "Most renowned of the Vanir, goddess of love, beauty, and fertility, but also associated with war and death. She receives half of those who die in battle in her hall Folkvangr.",
     "importanceRank": 6,
     "imageUrl": "https://images.unsplash.com/photo-1523712999610-f77fbcfc3843?w=400"
@@ -254,10 +514,25 @@
     "pantheonId": "norse-pantheon",
     "name": "Baldur",
     "slug": "baldur",
-    "alternateNames": ["Baldr", "Balder", "The Beautiful", "The Shining One"],
+    "alternateNames": [
+      "Baldr",
+      "Balder",
+      "The Beautiful",
+      "The Shining One"
+    ],
     "gender": "male",
-    "domain": ["light", "purity", "beauty", "love", "innocence"],
-    "symbols": ["mistletoe", "white", "ship Hringhorni"],
+    "domain": [
+      "light",
+      "purity",
+      "beauty",
+      "love",
+      "innocence"
+    ],
+    "symbols": [
+      "mistletoe",
+      "white",
+      "ship Hringhorni"
+    ],
     "description": "The most beloved of all gods, son of Odin and Frigg. God of light, purity, and beauty. His death, orchestrated by Loki using mistletoe, is one of the great tragedies leading to Ragnarok.",
     "importanceRank": 8,
     "imageUrl": "https://images.unsplash.com/photo-1494500764479-0c8f2919a3d8?w=400"
@@ -267,10 +542,23 @@
     "pantheonId": "norse-pantheon",
     "name": "Tyr",
     "slug": "tyr",
-    "alternateNames": ["Tiw", "Ziu"],
+    "alternateNames": [
+      "Tiw",
+      "Ziu"
+    ],
     "gender": "male",
-    "domain": ["war", "justice", "law", "courage", "oaths"],
-    "symbols": ["sword", "one hand", "rune Tiwaz"],
+    "domain": [
+      "war",
+      "justice",
+      "law",
+      "courage",
+      "oaths"
+    ],
+    "symbols": [
+      "sword",
+      "one hand",
+      "rune Tiwaz"
+    ],
     "description": "God of war, justice, and law. Bravest of the gods. Sacrificed his right hand to bind the wolf Fenrir, demonstrating his courage and willingness to uphold cosmic order.",
     "importanceRank": 9,
     "imageUrl": "https://images.unsplash.com/photo-1566936737687-8f392a237b8b?w=400"
@@ -280,10 +568,24 @@
     "pantheonId": "norse-pantheon",
     "name": "Heimdall",
     "slug": "heimdall",
-    "alternateNames": ["Heimdallr", "The White God", "Rig"],
+    "alternateNames": [
+      "Heimdallr",
+      "The White God",
+      "Rig"
+    ],
     "gender": "male",
-    "domain": ["vigilance", "light", "foreknowledge", "class structure"],
-    "symbols": ["horn Gjallarhorn", "sword Hofud", "Bifrost bridge", "gold teeth"],
+    "domain": [
+      "vigilance",
+      "light",
+      "foreknowledge",
+      "class structure"
+    ],
+    "symbols": [
+      "horn Gjallarhorn",
+      "sword Hofud",
+      "Bifrost bridge",
+      "gold teeth"
+    ],
     "description": "Watchman of the gods who guards the rainbow bridge Bifrost connecting Asgard and Midgard. Possesses incredible hearing and eyesight, and will blow his horn Gjallarhorn to signal the onset of Ragnarok.",
     "importanceRank": 10,
     "imageUrl": "https://images.unsplash.com/photo-1532630571098-79a3d222b00d?w=400"
@@ -293,10 +595,24 @@
     "pantheonId": "norse-pantheon",
     "name": "Freyr",
     "slug": "freyr",
-    "alternateNames": ["Yngvi", "Lord"],
+    "alternateNames": [
+      "Yngvi",
+      "Lord"
+    ],
     "gender": "male",
-    "domain": ["prosperity", "sunshine", "rain", "fertility", "peace"],
-    "symbols": ["boar Gullinbursti", "ship Skidbladnir", "sword", "antler"],
+    "domain": [
+      "prosperity",
+      "sunshine",
+      "rain",
+      "fertility",
+      "peace"
+    ],
+    "symbols": [
+      "boar Gullinbursti",
+      "ship Skidbladnir",
+      "sword",
+      "antler"
+    ],
     "description": "One of the Vanir, god of fertility, prosperity, and fair weather. Owner of the magical ship Skidbladnir and the golden boar Gullinbursti.",
     "importanceRank": 7,
     "imageUrl": "https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?w=400"
@@ -306,10 +622,21 @@
     "pantheonId": "norse-pantheon",
     "name": "Fenrir",
     "slug": "fenrir",
-    "alternateNames": ["Fenrisulfr", "Fenris Wolf"],
+    "alternateNames": [
+      "Fenrisulfr",
+      "Fenris Wolf"
+    ],
     "gender": "male",
-    "domain": ["destruction", "chaos", "fate"],
-    "symbols": ["chain Gleipnir", "massive wolf", "jaws"],
+    "domain": [
+      "destruction",
+      "chaos",
+      "fate"
+    ],
+    "symbols": [
+      "chain Gleipnir",
+      "massive wolf",
+      "jaws"
+    ],
     "description": "Monstrous wolf, son of Loki. Bound by the gods but prophesied to break free at Ragnarok and devour Odin. Represents the inevitable forces of chaos and destruction.",
     "importanceRank": 12,
     "imageUrl": "https://images.unsplash.com/photo-1474511320723-9a56873571b7?w=400"
@@ -319,10 +646,19 @@
     "pantheonId": "norse-pantheon",
     "name": "Hel",
     "slug": "hel",
-    "alternateNames": ["Hela"],
+    "alternateNames": [
+      "Hela"
+    ],
     "gender": "female",
-    "domain": ["death", "underworld", "disease"],
-    "symbols": ["half living/half dead appearance", "realm Niflheim"],
+    "domain": [
+      "death",
+      "underworld",
+      "disease"
+    ],
+    "symbols": [
+      "half living/half dead appearance",
+      "realm Niflheim"
+    ],
     "description": "Goddess and ruler of the underworld realm of the dead (also called Hel or Helheim). Daughter of Loki. Her realm receives those who die of sickness or old age.",
     "importanceRank": 11,
     "imageUrl": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=400"
@@ -332,10 +668,19 @@
     "pantheonId": "norse-pantheon",
     "name": "Sif",
     "slug": "sif",
-    "alternateNames": ["Golden-Haired"],
+    "alternateNames": [
+      "Golden-Haired"
+    ],
     "gender": "female",
-    "domain": ["harvest", "fertility", "family"],
-    "symbols": ["golden hair", "wheat"],
+    "domain": [
+      "harvest",
+      "fertility",
+      "family"
+    ],
+    "symbols": [
+      "golden hair",
+      "wheat"
+    ],
     "description": "Wife of Thor and goddess associated with earth and harvest. Famous for her beautiful golden hair, which was once cut by Loki as a prank.",
     "importanceRank": 4,
     "imageUrl": "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=400"
@@ -345,10 +690,27 @@
     "pantheonId": "egyptian-pantheon",
     "name": "Ra",
     "slug": "ra",
-    "alternateNames": ["Re", "Ra-Horakhty", "Atum-Ra", "Amun-Ra"],
+    "alternateNames": [
+      "Re",
+      "Ra-Horakhty",
+      "Atum-Ra",
+      "Amun-Ra"
+    ],
     "gender": "male",
-    "domain": ["sun", "creation", "kingship", "order", "light"],
-    "symbols": ["sun disk", "falcon", "solar barque", "cobra", "scarab beetle"],
+    "domain": [
+      "sun",
+      "creation",
+      "kingship",
+      "order",
+      "light"
+    ],
+    "symbols": [
+      "sun disk",
+      "falcon",
+      "solar barque",
+      "cobra",
+      "scarab beetle"
+    ],
     "description": "The supreme solar deity and creator god. Ra travels across the sky each day in his solar barque and through the underworld each night, battling the serpent Apophis.",
     "originStory": "Ra emerged from the primordial waters of Nun at the dawn of creation, creating himself. He then created Shu (air) and Tefnut (moisture), establishing the cosmos.",
     "importanceRank": 1,
@@ -359,10 +721,25 @@
     "pantheonId": "egyptian-pantheon",
     "name": "Osiris",
     "slug": "osiris",
-    "alternateNames": ["Usir", "Lord of the Perfect Black"],
+    "alternateNames": [
+      "Usir",
+      "Lord of the Perfect Black"
+    ],
     "gender": "male",
-    "domain": ["afterlife", "resurrection", "fertility", "agriculture", "judgment"],
-    "symbols": ["crook and flail", "atef crown", "green or black skin", "mummy wrappings", "djed pillar"],
+    "domain": [
+      "afterlife",
+      "resurrection",
+      "fertility",
+      "agriculture",
+      "judgment"
+    ],
+    "symbols": [
+      "crook and flail",
+      "atef crown",
+      "green or black skin",
+      "mummy wrappings",
+      "djed pillar"
+    ],
     "description": "God of the afterlife, resurrection, and fertility. First pharaoh and lawgiver who taught agriculture to humanity. Murdered by his brother Set and resurrected by Isis.",
     "importanceRank": 2,
     "imageUrl": "https://images.unsplash.com/photo-1539650116574-75c0c6d73f6e?w=400"
@@ -372,10 +749,26 @@
     "pantheonId": "egyptian-pantheon",
     "name": "Isis",
     "slug": "isis",
-    "alternateNames": ["Aset", "Throne", "Lady of Ten Thousand Names"],
+    "alternateNames": [
+      "Aset",
+      "Throne",
+      "Lady of Ten Thousand Names"
+    ],
     "gender": "female",
-    "domain": ["magic", "motherhood", "healing", "protection", "wisdom"],
-    "symbols": ["throne", "tyet knot", "wings", "vulture headdress", "sistrum"],
+    "domain": [
+      "magic",
+      "motherhood",
+      "healing",
+      "protection",
+      "wisdom"
+    ],
+    "symbols": [
+      "throne",
+      "tyet knot",
+      "wings",
+      "vulture headdress",
+      "sistrum"
+    ],
     "description": "The most powerful goddess in the Egyptian pantheon, wife of Osiris and mother of Horus. Goddess of magic, healing, and protection.",
     "importanceRank": 3,
     "imageUrl": "https://images.unsplash.com/photo-1568702846914-96b305d2uj8c?w=400"
@@ -385,10 +778,25 @@
     "pantheonId": "egyptian-pantheon",
     "name": "Horus",
     "slug": "horus",
-    "alternateNames": ["Heru", "Horus the Elder", "Horus the Younger"],
+    "alternateNames": [
+      "Heru",
+      "Horus the Elder",
+      "Horus the Younger"
+    ],
     "gender": "male",
-    "domain": ["kingship", "sky", "war", "protection", "hunting"],
-    "symbols": ["falcon", "Eye of Horus (Wedjat)", "pschent crown", "winged sun disk"],
+    "domain": [
+      "kingship",
+      "sky",
+      "war",
+      "protection",
+      "hunting"
+    ],
+    "symbols": [
+      "falcon",
+      "Eye of Horus (Wedjat)",
+      "pschent crown",
+      "winged sun disk"
+    ],
     "description": "Sky god whose eyes are the sun and moon. Son of Osiris and Isis, he avenged his father by defeating Set in battle, becoming the rightful king.",
     "importanceRank": 4,
     "imageUrl": "https://images.unsplash.com/photo-1553729784-e91953dec042?w=400"
@@ -398,10 +806,25 @@
     "pantheonId": "egyptian-pantheon",
     "name": "Set",
     "slug": "set",
-    "alternateNames": ["Seth", "Sutekh", "Lord of the Red Land"],
+    "alternateNames": [
+      "Seth",
+      "Sutekh",
+      "Lord of the Red Land"
+    ],
     "gender": "male",
-    "domain": ["chaos", "desert", "storms", "foreigners", "violence", "strength"],
-    "symbols": ["was scepter", "Set animal", "red color"],
+    "domain": [
+      "chaos",
+      "desert",
+      "storms",
+      "foreigners",
+      "violence",
+      "strength"
+    ],
+    "symbols": [
+      "was scepter",
+      "Set animal",
+      "red color"
+    ],
     "description": "God of chaos, storms, and the desert. Brother and murderer of Osiris, enemy of Horus. Despite being a villain in myth, he also protects Ra's solar barque from Apophis each night.",
     "importanceRank": 5,
     "imageUrl": "https://images.unsplash.com/photo-1509316785289-025f5b846b35?w=400"
@@ -411,10 +834,26 @@
     "pantheonId": "egyptian-pantheon",
     "name": "Anubis",
     "slug": "anubis",
-    "alternateNames": ["Anpu", "Inpu", "Anup"],
+    "alternateNames": [
+      "Anpu",
+      "Inpu",
+      "Anup"
+    ],
     "gender": "male",
-    "domain": ["mummification", "death", "cemeteries", "embalming", "judgment"],
-    "symbols": ["jackal", "black color", "flail", "crook", "embalming tools"],
+    "domain": [
+      "mummification",
+      "death",
+      "cemeteries",
+      "embalming",
+      "judgment"
+    ],
+    "symbols": [
+      "jackal",
+      "black color",
+      "flail",
+      "crook",
+      "embalming tools"
+    ],
     "description": "God of mummification and the afterlife. Guardian of tombs and guide of souls to judgment. He oversees the weighing of the heart ceremony.",
     "importanceRank": 7,
     "imageUrl": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=400"
@@ -424,10 +863,28 @@
     "pantheonId": "egyptian-pantheon",
     "name": "Thoth",
     "slug": "thoth",
-    "alternateNames": ["Djehuty", "Tehuti", "Three Times Great"],
+    "alternateNames": [
+      "Djehuty",
+      "Tehuti",
+      "Three Times Great"
+    ],
     "gender": "male",
-    "domain": ["wisdom", "writing", "magic", "moon", "time", "knowledge", "judgment"],
-    "symbols": ["ibis", "baboon", "writing palette", "moon disk", "papyrus scroll"],
+    "domain": [
+      "wisdom",
+      "writing",
+      "magic",
+      "moon",
+      "time",
+      "knowledge",
+      "judgment"
+    ],
+    "symbols": [
+      "ibis",
+      "baboon",
+      "writing palette",
+      "moon disk",
+      "papyrus scroll"
+    ],
     "description": "God of wisdom, writing, and magic. Inventor of hieroglyphs and scribe of the gods. He records the results of the weighing of hearts ceremony.",
     "importanceRank": 8,
     "imageUrl": "https://images.unsplash.com/photo-1551884170-09fb70a3a2ed?w=400"
@@ -437,10 +894,26 @@
     "pantheonId": "egyptian-pantheon",
     "name": "Bastet",
     "slug": "bastet",
-    "alternateNames": ["Bast", "Ubasti", "Lady of Dread"],
+    "alternateNames": [
+      "Bast",
+      "Ubasti",
+      "Lady of Dread"
+    ],
     "gender": "female",
-    "domain": ["protection", "cats", "joy", "dance", "music", "fertility"],
-    "symbols": ["cat", "lioness", "sistrum", "aegis"],
+    "domain": [
+      "protection",
+      "cats",
+      "joy",
+      "dance",
+      "music",
+      "fertility"
+    ],
+    "symbols": [
+      "cat",
+      "lioness",
+      "sistrum",
+      "aegis"
+    ],
     "description": "Goddess of home, fertility, and protection. Originally a fierce lioness warrior goddess, she later became gentler as a cat goddess.",
     "importanceRank": 9,
     "imageUrl": "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=400"
@@ -450,10 +923,26 @@
     "pantheonId": "egyptian-pantheon",
     "name": "Hathor",
     "slug": "hathor",
-    "alternateNames": ["Het-Heru", "Lady of Stars"],
+    "alternateNames": [
+      "Het-Heru",
+      "Lady of Stars"
+    ],
     "gender": "female",
-    "domain": ["love", "beauty", "music", "motherhood", "joy", "mining"],
-    "symbols": ["cow", "cow horns and sun disk", "sistrum", "mirror", "menat necklace"],
+    "domain": [
+      "love",
+      "beauty",
+      "music",
+      "motherhood",
+      "joy",
+      "mining"
+    ],
+    "symbols": [
+      "cow",
+      "cow horns and sun disk",
+      "sistrum",
+      "mirror",
+      "menat necklace"
+    ],
     "description": "Goddess of love, beauty, music, and motherhood. The 'Golden One' who embodies the feminine ideal. Protector of women.",
     "importanceRank": 11,
     "imageUrl": "https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=400"
@@ -463,10 +952,23 @@
     "pantheonId": "egyptian-pantheon",
     "name": "Ma'at",
     "slug": "maat",
-    "alternateNames": ["Mayet"],
+    "alternateNames": [
+      "Mayet"
+    ],
     "gender": "female",
-    "domain": ["truth", "justice", "harmony", "order", "balance"],
-    "symbols": ["ostrich feather", "scales", "ankh", "was scepter"],
+    "domain": [
+      "truth",
+      "justice",
+      "harmony",
+      "order",
+      "balance"
+    ],
+    "symbols": [
+      "ostrich feather",
+      "scales",
+      "ankh",
+      "was scepter"
+    ],
     "description": "Goddess embodying truth, justice, and cosmic order. Her feather is weighed against the hearts of the dead in judgment.",
     "importanceRank": 13,
     "imageUrl": "https://images.unsplash.com/photo-1589994965851-a8f479c573a9?w=400"
@@ -476,10 +978,23 @@
     "pantheonId": "egyptian-pantheon",
     "name": "Nephthys",
     "slug": "nephthys",
-    "alternateNames": ["Nebet-Het", "Lady of the Temple Enclosure"],
+    "alternateNames": [
+      "Nebet-Het",
+      "Lady of the Temple Enclosure"
+    ],
     "gender": "female",
-    "domain": ["mourning", "death", "protection", "night", "childbirth"],
-    "symbols": ["house on head", "wings", "kite bird"],
+    "domain": [
+      "mourning",
+      "death",
+      "protection",
+      "night",
+      "childbirth"
+    ],
+    "symbols": [
+      "house on head",
+      "wings",
+      "kite bird"
+    ],
     "description": "Goddess of mourning and protector of the dead. Sister-wife of Set but loyal to Isis. She aided Isis in gathering Osiris's body and mourned him.",
     "importanceRank": 6,
     "imageUrl": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400"
@@ -489,10 +1004,25 @@
     "pantheonId": "egyptian-pantheon",
     "name": "Sekhmet",
     "slug": "sekhmet",
-    "alternateNames": ["Sakhmet", "Lady of Slaughter", "The Scarlet Lady"],
+    "alternateNames": [
+      "Sakhmet",
+      "Lady of Slaughter",
+      "The Scarlet Lady"
+    ],
     "gender": "female",
-    "domain": ["war", "plague", "healing", "vengeance", "fire"],
-    "symbols": ["lioness", "red color", "sun disk", "uraeus"],
+    "domain": [
+      "war",
+      "plague",
+      "healing",
+      "vengeance",
+      "fire"
+    ],
+    "symbols": [
+      "lioness",
+      "red color",
+      "sun disk",
+      "uraeus"
+    ],
     "description": "Fierce goddess of war, plagues, and healing. The destructive aspect of the sun. Ra sent her to punish humanity.",
     "importanceRank": 10,
     "imageUrl": "https://images.unsplash.com/photo-1547036967-23d11aacaee0?w=400"
@@ -502,12 +1032,1256 @@
     "pantheonId": "egyptian-pantheon",
     "name": "Sobek",
     "slug": "sobek",
-    "alternateNames": ["Sebek", "Suchos"],
+    "alternateNames": [
+      "Sebek",
+      "Suchos"
+    ],
     "gender": "male",
-    "domain": ["Nile", "crocodiles", "fertility", "military prowess", "pharaonic power"],
-    "symbols": ["crocodile", "was scepter", "ankh"],
+    "domain": [
+      "Nile",
+      "crocodiles",
+      "fertility",
+      "military prowess",
+      "pharaonic power"
+    ],
+    "symbols": [
+      "crocodile",
+      "was scepter",
+      "ankh"
+    ],
     "description": "Crocodile god of the Nile and its fertility. Protector against the dangers of the Nile and symbol of pharaonic power and military prowess.",
     "importanceRank": 14,
     "imageUrl": "https://images.unsplash.com/photo-1504450874802-0ba2bcd9b5ae?w=400"
+  },
+  {
+    "id": "jupiter",
+    "pantheonId": "roman-pantheon",
+    "name": "Jupiter",
+    "slug": "jupiter",
+    "alternateNames": [
+      "Jove",
+      "Iuppiter"
+    ],
+    "gender": "male",
+    "domain": [
+      "sky",
+      "thunder",
+      "lightning",
+      "kingship",
+      "law"
+    ],
+    "symbols": [
+      "thunderbolt",
+      "eagle",
+      "oak tree",
+      "scepter"
+    ],
+    "description": "King of the gods and god of sky, lightning, and thunder. Supreme deity of the Roman state religion, protector of Rome and source of divine authority for Roman emperors.",
+    "originStory": "Jupiter corresponds to the Greek Zeus, born to Saturn (Cronus) and Ops (Rhea). He overthrew his father to become king of the gods, establishing divine order and justice.",
+    "importanceRank": 1,
+    "imageUrl": "/deities/jupiter.png"
+  },
+  {
+    "id": "juno",
+    "pantheonId": "roman-pantheon",
+    "name": "Juno",
+    "slug": "juno",
+    "alternateNames": [
+      "Juno Regina"
+    ],
+    "gender": "female",
+    "domain": [
+      "marriage",
+      "women",
+      "childbirth",
+      "family"
+    ],
+    "symbols": [
+      "peacock",
+      "pomegranate",
+      "diadem",
+      "cow"
+    ],
+    "description": "Queen of the gods and protector of the Roman state. Goddess of marriage, women, and childbirth. Wife and sister of Jupiter, patron of married women and the Roman matrons.",
+    "originStory": "Juno is the Roman equivalent of Hera, daughter of Saturn and Ops. She became Jupiter's consort and queen of heaven, fiercely protective of marriage and legitimate children.",
+    "importanceRank": 2,
+    "imageUrl": "/deities/juno.png"
+  },
+  {
+    "id": "neptune",
+    "pantheonId": "roman-pantheon",
+    "name": "Neptune",
+    "slug": "neptune",
+    "alternateNames": [
+      "Neptunus"
+    ],
+    "gender": "male",
+    "domain": [
+      "sea",
+      "earthquakes",
+      "horses",
+      "freshwater"
+    ],
+    "symbols": [
+      "trident",
+      "horse",
+      "dolphin"
+    ],
+    "description": "God of the sea, earthquakes, and horses. Brother of Jupiter and Pluto, ruler of all waters. Also associated with freshwater springs and patronage of horse racing.",
+    "importanceRank": 3,
+    "imageUrl": "/deities/neptune.png"
+  },
+  {
+    "id": "mars-roman",
+    "pantheonId": "roman-pantheon",
+    "name": "Mars",
+    "slug": "mars",
+    "alternateNames": [
+      "Mars Gradivus",
+      "Mars Ultor"
+    ],
+    "gender": "male",
+    "domain": [
+      "war",
+      "military",
+      "agriculture",
+      "spring"
+    ],
+    "symbols": [
+      "spear",
+      "shield",
+      "wolf",
+      "woodpecker"
+    ],
+    "description": "God of war and guardian of Rome. More prominent in Roman religion than his Greek counterpart Ares, Mars was also a god of agriculture and fertility. Father of Romulus and Remus, legendary founders of Rome.",
+    "originStory": "Mars was the son of Jupiter and Juno. He fathered Romulus and Remus with the Vestal Virgin Rhea Silvia, making him the divine ancestor of the Roman people.",
+    "importanceRank": 2,
+    "imageUrl": "/deities/mars.png"
+  },
+  {
+    "id": "venus",
+    "pantheonId": "roman-pantheon",
+    "name": "Venus",
+    "slug": "venus",
+    "alternateNames": [
+      "Venus Genetrix",
+      "Venus Victrix"
+    ],
+    "gender": "female",
+    "domain": [
+      "love",
+      "beauty",
+      "desire",
+      "fertility",
+      "victory"
+    ],
+    "symbols": [
+      "dove",
+      "rose",
+      "myrtle",
+      "swan",
+      "sparrow"
+    ],
+    "description": "Goddess of love, beauty, desire, sex, and fertility. Mother of the Roman people through her son Aeneas, ancestor of Romulus. Patron goddess of the Julian family.",
+    "originStory": "Venus corresponds to Greek Aphrodite. In Roman tradition, she was mother of Aeneas by the Trojan prince Anchises. Through Aeneas, she became the divine ancestress of the Roman people.",
+    "importanceRank": 2,
+    "imageUrl": "/deities/venus.png"
+  },
+  {
+    "id": "minerva",
+    "pantheonId": "roman-pantheon",
+    "name": "Minerva",
+    "slug": "minerva",
+    "alternateNames": [],
+    "gender": "female",
+    "domain": [
+      "wisdom",
+      "warfare",
+      "crafts",
+      "strategy",
+      "arts"
+    ],
+    "symbols": [
+      "owl",
+      "olive tree",
+      "aegis",
+      "spear"
+    ],
+    "description": "Goddess of wisdom, strategic warfare, and crafts. Part of the Capitoline Triad with Jupiter and Juno. Patron of artisans, teachers, and strategic warfare. Roman equivalent of Athena.",
+    "importanceRank": 3,
+    "imageUrl": "/deities/minerva.png"
+  },
+  {
+    "id": "apollo-roman",
+    "pantheonId": "roman-pantheon",
+    "name": "Apollo",
+    "slug": "apollo-roman",
+    "alternateNames": [
+      "Phoebus Apollo"
+    ],
+    "gender": "male",
+    "domain": [
+      "sun",
+      "music",
+      "poetry",
+      "prophecy",
+      "healing",
+      "archery"
+    ],
+    "symbols": [
+      "lyre",
+      "laurel wreath",
+      "bow",
+      "raven",
+      "sun"
+    ],
+    "description": "God of the sun, music, poetry, prophecy, healing, and archery. One of the few gods whose name remained unchanged from Greek to Roman. Patron of the Sibylline Books and protector of Augustus.",
+    "importanceRank": 4,
+    "imageUrl": "/deities/apollo-roman.png"
+  },
+  {
+    "id": "diana",
+    "pantheonId": "roman-pantheon",
+    "name": "Diana",
+    "slug": "diana",
+    "alternateNames": [
+      "Diana Nemorensis"
+    ],
+    "gender": "female",
+    "domain": [
+      "hunt",
+      "wilderness",
+      "moon",
+      "childbirth",
+      "virginity"
+    ],
+    "symbols": [
+      "bow",
+      "deer",
+      "crescent moon",
+      "cypress"
+    ],
+    "description": "Goddess of the hunt, wild animals, wilderness, and the moon. Protector of women in childbirth. Twin sister of Apollo. Roman equivalent of Artemis.",
+    "importanceRank": 4,
+    "imageUrl": "/deities/diana.png"
+  },
+  {
+    "id": "mercury",
+    "pantheonId": "roman-pantheon",
+    "name": "Mercury",
+    "slug": "mercury",
+    "alternateNames": [
+      "Mercurius"
+    ],
+    "gender": "male",
+    "domain": [
+      "messengers",
+      "commerce",
+      "thieves",
+      "travelers",
+      "boundaries",
+      "eloquence"
+    ],
+    "symbols": [
+      "caduceus",
+      "winged sandals",
+      "winged cap",
+      "rooster"
+    ],
+    "description": "Messenger of the gods and god of commerce, eloquence, messages, travelers, boundaries, luck, and thieves. Guide of souls to the underworld. Roman equivalent of Hermes.",
+    "importanceRank": 5,
+    "imageUrl": "/deities/mercury-roman.png"
+  },
+  {
+    "id": "bacchus",
+    "pantheonId": "roman-pantheon",
+    "name": "Bacchus",
+    "slug": "bacchus",
+    "alternateNames": [
+      "Liber"
+    ],
+    "gender": "male",
+    "domain": [
+      "wine",
+      "festivity",
+      "theater",
+      "fertility",
+      "madness"
+    ],
+    "symbols": [
+      "thyrsus",
+      "grapevine",
+      "leopard",
+      "ivy"
+    ],
+    "description": "God of wine, festivity, fertility, and ritual madness. His cult included the Bacchanalia festivals. Roman equivalent of Dionysus, also identified with the Italian god Liber.",
+    "importanceRank": 6,
+    "imageUrl": "/deities/bacchus.png"
+  },
+  {
+    "id": "vulcan",
+    "pantheonId": "roman-pantheon",
+    "name": "Vulcan",
+    "slug": "vulcan",
+    "alternateNames": [
+      "Vulcanus"
+    ],
+    "gender": "male",
+    "domain": [
+      "fire",
+      "metalworking",
+      "forges",
+      "volcanoes"
+    ],
+    "symbols": [
+      "anvil",
+      "hammer",
+      "tongs",
+      "volcano"
+    ],
+    "description": "God of fire, metalworking, and the forge. Craftsman of the gods who forged divine weapons and armor. Roman equivalent of Hephaestus. Associated with volcanic activity.",
+    "importanceRank": 6,
+    "imageUrl": "/deities/vulcan.png"
+  },
+  {
+    "id": "ceres",
+    "pantheonId": "roman-pantheon",
+    "name": "Ceres",
+    "slug": "ceres",
+    "alternateNames": [],
+    "gender": "female",
+    "domain": [
+      "agriculture",
+      "grain",
+      "harvest",
+      "fertility",
+      "motherhood"
+    ],
+    "symbols": [
+      "wheat",
+      "torch",
+      "cornucopia",
+      "poppies"
+    ],
+    "description": "Goddess of agriculture, grain crops, fertility, and motherhood. Her cult was central to Roman plebeian identity. Mother of Proserpina (Persephone). Roman equivalent of Demeter.",
+    "importanceRank": 5,
+    "imageUrl": "/deities/ceres.png"
+  },
+  {
+    "id": "vesta",
+    "pantheonId": "roman-pantheon",
+    "name": "Vesta",
+    "slug": "vesta",
+    "alternateNames": [],
+    "gender": "female",
+    "domain": [
+      "hearth",
+      "home",
+      "family",
+      "state"
+    ],
+    "symbols": [
+      "sacred fire",
+      "donkey",
+      "kettle"
+    ],
+    "description": "Goddess of the hearth, home, and family. Her sacred fire in the Forum Romanum symbolized Rome's eternal life. Served by the Vestal Virgins, priestesses who tended her sacred flame.",
+    "originStory": "Vesta corresponds to Greek Hestia. Her worship was fundamental to Roman identity - the sacred fire in her temple represented Rome itself and could never be allowed to go out.",
+    "importanceRank": 4,
+    "imageUrl": "/deities/vesta.png"
+  },
+  {
+    "id": "janus",
+    "pantheonId": "roman-pantheon",
+    "name": "Janus",
+    "slug": "janus",
+    "alternateNames": [
+      "Ianus"
+    ],
+    "gender": "male",
+    "domain": [
+      "beginnings",
+      "gates",
+      "transitions",
+      "time",
+      "doorways",
+      "endings"
+    ],
+    "symbols": [
+      "two faces",
+      "key",
+      "staff",
+      "gate"
+    ],
+    "description": "God of beginnings, gates, transitions, time, duality, doorways, passages, and endings. Uniquely Roman deity with no Greek equivalent. Depicted with two faces looking to past and future.",
+    "originStory": "Janus is one of the oldest Roman gods, said to have no Greek counterpart. He presided over the beginning and end of conflicts, and hence war and peace. All ceremonies and rituals began with an invocation to Janus.",
+    "importanceRank": 3,
+    "imageUrl": "/deities/janus.png"
+  },
+  {
+    "id": "brahma",
+    "pantheonId": "hindu-pantheon",
+    "name": "Brahma",
+    "slug": "brahma",
+    "alternateNames": [
+      "Pitamaha",
+      "Svayambhu"
+    ],
+    "gender": "male",
+    "domain": [
+      "creation",
+      "knowledge",
+      "time",
+      "universe"
+    ],
+    "symbols": [
+      "lotus",
+      "four faces",
+      "four arms",
+      "prayer beads",
+      "water pot"
+    ],
+    "description": "The creator god and first member of the Trimurti. Brahma created the universe and all creatures. Depicted with four heads facing the four directions, representing omniscience.",
+    "originStory": "Brahma emerged from a golden egg (Hiranyagarbha) or from a lotus growing from Vishnu's navel. He created the world and all beings, including the gods and sages.",
+    "importanceRank": 1,
+    "imageUrl": "/deities/brahma.png"
+  },
+  {
+    "id": "vishnu",
+    "pantheonId": "hindu-pantheon",
+    "name": "Vishnu",
+    "slug": "vishnu",
+    "alternateNames": [
+      "Narayana",
+      "Hari",
+      "Vasudeva"
+    ],
+    "gender": "male",
+    "domain": [
+      "preservation",
+      "protection",
+      "dharma",
+      "cosmic order"
+    ],
+    "symbols": [
+      "lotus",
+      "conch",
+      "discus",
+      "mace",
+      "Garuda"
+    ],
+    "description": "The preserver and protector of the universe, second member of the Trimurti. Vishnu maintains cosmic order (dharma) and appears in various avatars to restore balance when evil threatens.",
+    "originStory": "Vishnu reclines on the cosmic serpent Shesha in the ocean of milk. He is eternal and omnipresent. When dharma declines and chaos increases, Vishnu descends to Earth in different incarnations (avatars) to restore order.",
+    "importanceRank": 1,
+    "imageUrl": "/deities/vishnu.png"
+  },
+  {
+    "id": "shiva",
+    "pantheonId": "hindu-pantheon",
+    "name": "Shiva",
+    "slug": "shiva",
+    "alternateNames": [
+      "Mahadeva",
+      "Rudra",
+      "Nataraja",
+      "Maheshvara"
+    ],
+    "gender": "male",
+    "domain": [
+      "destruction",
+      "transformation",
+      "meditation",
+      "time",
+      "dance"
+    ],
+    "symbols": [
+      "third eye",
+      "trident",
+      "crescent moon",
+      "snake",
+      "drum"
+    ],
+    "description": "The destroyer and transformer, third member of the Trimurti. Shiva destroys the universe at the end of each cosmic cycle to allow recreation. God of meditation, yoga, and the arts.",
+    "originStory": "Shiva is eternal and was never born. He manifested in various forms throughout cosmic time. He lives on Mount Kailash with his consort Parvati. His meditation sustains the universe.",
+    "importanceRank": 1,
+    "imageUrl": "/deities/shiva.png"
+  },
+  {
+    "id": "lakshmi",
+    "pantheonId": "hindu-pantheon",
+    "name": "Lakshmi",
+    "slug": "lakshmi",
+    "alternateNames": [
+      "Sri",
+      "Mahalakshmi"
+    ],
+    "gender": "female",
+    "domain": [
+      "wealth",
+      "fortune",
+      "prosperity",
+      "beauty"
+    ],
+    "symbols": [
+      "lotus",
+      "gold coins",
+      "owl",
+      "elephant"
+    ],
+    "description": "Goddess of wealth, fortune, prosperity, and beauty. Consort of Vishnu, she incarnates alongside him in his avatars. She represents both material and spiritual prosperity.",
+    "originStory": "Lakshmi emerged from the churning of the cosmic ocean (Samudra Manthan), standing on a lotus flower. The gods and demons churned the ocean to obtain the nectar of immortality, and Lakshmi arose as one of the treasures.",
+    "importanceRank": 2,
+    "imageUrl": "/deities/lakshmi.png"
+  },
+  {
+    "id": "saraswati",
+    "pantheonId": "hindu-pantheon",
+    "name": "Saraswati",
+    "slug": "saraswati",
+    "alternateNames": [
+      "Vac",
+      "Bharati"
+    ],
+    "gender": "female",
+    "domain": [
+      "knowledge",
+      "music",
+      "arts",
+      "wisdom",
+      "learning"
+    ],
+    "symbols": [
+      "veena",
+      "books",
+      "lotus",
+      "swan"
+    ],
+    "description": "Goddess of knowledge, music, arts, wisdom, and learning. Consort of Brahma. She invented Sanskrit and the Devanagari script. Patron of students, artists, and scholars.",
+    "originStory": "Saraswati emerged from Brahma's mouth or was created by him. She represents the feminine creative power (shakti) of Brahma. Originally also a river goddess, she embodies the flow of knowledge and consciousness.",
+    "importanceRank": 2,
+    "imageUrl": "/deities/saraswati.png"
+  },
+  {
+    "id": "parvati",
+    "pantheonId": "hindu-pantheon",
+    "name": "Parvati",
+    "slug": "parvati",
+    "alternateNames": [
+      "Uma",
+      "Gauri",
+      "Shakti"
+    ],
+    "gender": "female",
+    "domain": [
+      "power",
+      "fertility",
+      "love",
+      "devotion",
+      "divine energy"
+    ],
+    "symbols": [
+      "lion",
+      "lotus",
+      "trident"
+    ],
+    "description": "Goddess of power, fertility, love, and devotion. Consort of Shiva and mother of Ganesha and Kartikeya. Represents Shakti, the divine feminine creative power.",
+    "originStory": "Parvati is the reincarnation of Sati, who immolated herself when her father insulted Shiva. Born as the daughter of the mountain king Himavan, she performed severe penance to win Shiva's love.",
+    "importanceRank": 2,
+    "imageUrl": "/deities/parvati.png"
+  },
+  {
+    "id": "durga",
+    "pantheonId": "hindu-pantheon",
+    "name": "Durga",
+    "slug": "durga",
+    "alternateNames": [
+      "Devi",
+      "Shakti",
+      "Mahishasuramardini"
+    ],
+    "gender": "female",
+    "domain": [
+      "war",
+      "protection",
+      "strength",
+      "victory"
+    ],
+    "symbols": [
+      "lion",
+      "tiger",
+      "weapons",
+      "trident"
+    ],
+    "description": "Fierce warrior goddess and protector of dharma. Form of Parvati who slayed the buffalo demon Mahishasura. Depicted riding a lion or tiger with multiple arms wielding divine weapons.",
+    "originStory": "When the buffalo demon Mahishasura threatened the gods, they combined their powers to create Durga. Each god gave her a weapon - Shiva's trident, Vishnu's discus, Indra's thunderbolt. She fought Mahishasura for nine days before defeating him.",
+    "importanceRank": 2,
+    "imageUrl": "/deities/durga.png"
+  },
+  {
+    "id": "kali",
+    "pantheonId": "hindu-pantheon",
+    "name": "Kali",
+    "slug": "kali",
+    "alternateNames": [
+      "Mahakali",
+      "Bhadrakali",
+      "Kalika"
+    ],
+    "gender": "female",
+    "domain": [
+      "time",
+      "change",
+      "death",
+      "destruction",
+      "liberation"
+    ],
+    "symbols": [
+      "sword",
+      "severed head",
+      "skull",
+      "blood"
+    ],
+    "description": "Fierce goddess of time, change, death, and ultimate reality. A form of Parvati/Durga. Despite her terrifying appearance, she destroys evil and liberates devotees from ego and illusion.",
+    "originStory": "Kali emerged from Durga's forehead during battle with demons. Her rage was so fierce she began destroying everything. Shiva lay beneath her feet to calm her. Kali is black, representing the void.",
+    "importanceRank": 3,
+    "imageUrl": "/deities/kali.png"
+  },
+  {
+    "id": "ganesha",
+    "pantheonId": "hindu-pantheon",
+    "name": "Ganesha",
+    "slug": "ganesha",
+    "alternateNames": [
+      "Ganapati",
+      "Vinayaka",
+      "Vighnaharta"
+    ],
+    "gender": "male",
+    "domain": [
+      "wisdom",
+      "beginnings",
+      "obstacles",
+      "intellect",
+      "arts"
+    ],
+    "symbols": [
+      "elephant head",
+      "mouse",
+      "modak",
+      "axe",
+      "lotus"
+    ],
+    "description": "Elephant-headed god of wisdom, new beginnings, and remover of obstacles. Son of Shiva and Parvati. Worshipped before any new venture. Patron of arts and sciences.",
+    "originStory": "Parvati created Ganesha from sandalwood paste to guard her. When Shiva tried to enter, he beheaded the boy. To console Parvati, Shiva replaced Ganesha's head with that of an elephant.",
+    "importanceRank": 2,
+    "imageUrl": "/deities/ganesha.png"
+  },
+  {
+    "id": "hanuman",
+    "pantheonId": "hindu-pantheon",
+    "name": "Hanuman",
+    "slug": "hanuman",
+    "alternateNames": [
+      "Anjaneya",
+      "Maruti",
+      "Bajrangbali"
+    ],
+    "gender": "male",
+    "domain": [
+      "strength",
+      "devotion",
+      "service",
+      "courage",
+      "learning"
+    ],
+    "symbols": [
+      "mace",
+      "mountain",
+      "monkey"
+    ],
+    "description": "Monkey deity symbolizing strength, devotion, and selfless service. Greatest devotee of Rama and central figure in the Ramayana. Son of the wind god Vayu.",
+    "originStory": "Son of Anjana and the wind god Vayu. As a child, he tried to eat the sun. Indra struck him with thunderbolt, but he was revived and blessed by the gods with immortality and great powers.",
+    "importanceRank": 3,
+    "imageUrl": "/deities/hanuman.png"
+  },
+  {
+    "id": "rama",
+    "pantheonId": "hindu-pantheon",
+    "name": "Rama",
+    "slug": "rama",
+    "alternateNames": [
+      "Ramachandra",
+      "Maryada Purushottama"
+    ],
+    "gender": "male",
+    "domain": [
+      "dharma",
+      "virtue",
+      "duty",
+      "ideal kingship"
+    ],
+    "symbols": [
+      "bow",
+      "arrow",
+      "lotus"
+    ],
+    "description": "Seventh avatar of Vishnu and hero of the Ramayana epic. Ideal man, son, husband, and king. His life demonstrates perfect adherence to dharma (duty).",
+    "originStory": "Born as prince of Ayodhya. Exiled for 14 years, during which his wife Sita was kidnapped by Ravana. With the help of Hanuman, he defeated Ravana and returned to rule as ideal king.",
+    "importanceRank": 2,
+    "imageUrl": "/deities/rama.png"
+  },
+  {
+    "id": "krishna",
+    "pantheonId": "hindu-pantheon",
+    "name": "Krishna",
+    "slug": "krishna",
+    "alternateNames": [
+      "Govinda",
+      "Gopala",
+      "Vasudeva"
+    ],
+    "gender": "male",
+    "domain": [
+      "love",
+      "compassion",
+      "tenderness",
+      "divine play"
+    ],
+    "symbols": [
+      "flute",
+      "peacock feather",
+      "butter pot",
+      "cow"
+    ],
+    "description": "Eighth avatar of Vishnu and central deity. As a child, a playful cowherd; as an adult, prince and charioteer who spoke the Bhagavad Gita.",
+    "originStory": "Born to Devaki and Vasudeva but raised by foster parents to protect him from his evil uncle Kamsa. In the Mahabharata war, he served as Arjuna's charioteer and revealed the Bhagavad Gita.",
+    "importanceRank": 1,
+    "imageUrl": "/deities/krishna.png"
+  },
+  {
+    "id": "indra",
+    "pantheonId": "hindu-pantheon",
+    "name": "Indra",
+    "slug": "indra",
+    "alternateNames": [
+      "Shakra",
+      "Purandara"
+    ],
+    "gender": "male",
+    "domain": [
+      "thunder",
+      "rain",
+      "storms",
+      "heaven",
+      "war"
+    ],
+    "symbols": [
+      "thunderbolt",
+      "elephant",
+      "rainbow"
+    ],
+    "description": "King of the gods (Devas) and lord of heaven (Svarga). God of thunder, rain, and war. Slayer of the dragon Vritra. Rides the white elephant Airavata.",
+    "originStory": "Indra was born to the sky god Dyaus and earth goddess Prithvi. He became king of the gods by defeating the dragon Vritra. His weapon is the thunderbolt (Vajra).",
+    "importanceRank": 3,
+    "imageUrl": "/deities/indra.png"
+  },
+  {
+    "id": "agni",
+    "pantheonId": "hindu-pantheon",
+    "name": "Agni",
+    "slug": "agni",
+    "alternateNames": [
+      "Vahni",
+      "Pavaka"
+    ],
+    "gender": "male",
+    "domain": [
+      "fire",
+      "sacrifice",
+      "purification",
+      "messenger"
+    ],
+    "symbols": [
+      "flame",
+      "ram",
+      "seven tongues"
+    ],
+    "description": "God of fire and messenger between gods and humans. Central to Vedic ritual, he carries offerings to the gods. Represents the sacrificial fire, digestive fire, and cosmic fire.",
+    "importanceRank": 4,
+    "imageUrl": "/deities/agni.png"
+  },
+  {
+    "id": "izanagi",
+    "pantheonId": "japanese-pantheon",
+    "name": "Izanagi",
+    "slug": "izanagi",
+    "alternateNames": [
+      "Izanagi-no-Mikoto"
+    ],
+    "gender": "male",
+    "domain": [
+      "creation",
+      "life",
+      "sky"
+    ],
+    "symbols": [
+      "spear",
+      "jeweled spear"
+    ],
+    "description": "Male primordial deity who, with Izanami, created the Japanese islands and many kami. After Izanami's death, he performed the first purification ritual.",
+    "originStory": "Izanagi and Izanami were commanded to solidify and create land. Standing on the Floating Bridge of Heaven, Izanagi thrust his spear into the chaos. Drops fell and formed the first island.",
+    "importanceRank": 1,
+    "imageUrl": "/deities/izanagi.png"
+  },
+  {
+    "id": "izanami",
+    "pantheonId": "japanese-pantheon",
+    "name": "Izanami",
+    "slug": "izanami",
+    "alternateNames": [
+      "Izanami-no-Mikoto"
+    ],
+    "gender": "female",
+    "domain": [
+      "creation",
+      "death",
+      "underworld"
+    ],
+    "symbols": [
+      "fire",
+      "death"
+    ],
+    "description": "Female primordial deity who created the Japanese islands and kami with Izanagi. After dying in childbirth, she became goddess of death and ruler of Yomi.",
+    "originStory": "Izanami died giving birth to the fire god Kagutsuchi. Grief-stricken, Izanagi followed her to Yomi but fled when he saw her decaying form. She swore to kill 1,000 people each day.",
+    "importanceRank": 1,
+    "imageUrl": "/deities/izanami.png"
+  },
+  {
+    "id": "amaterasu",
+    "pantheonId": "japanese-pantheon",
+    "name": "Amaterasu",
+    "slug": "amaterasu",
+    "alternateNames": [
+      "Amaterasu-omikami"
+    ],
+    "gender": "female",
+    "domain": [
+      "sun",
+      "light",
+      "universe",
+      "agriculture",
+      "imperial authority"
+    ],
+    "symbols": [
+      "mirror",
+      "jewel",
+      "sun"
+    ],
+    "description": "Supreme goddess of the sun and universe. Ruler of the High Celestial Plain. Divine ancestor of the Japanese Imperial family. Most important deity in Shinto.",
+    "originStory": "Born from Izanagi's left eye during his purification ritual. She was assigned to rule the heavens. Her grandson Ninigi descended to Earth, becoming ancestor of Japan's emperors.",
+    "importanceRank": 1,
+    "imageUrl": "/deities/amaterasu.png"
+  },
+  {
+    "id": "tsukuyomi",
+    "pantheonId": "japanese-pantheon",
+    "name": "Tsukuyomi",
+    "slug": "tsukuyomi",
+    "alternateNames": [
+      "Tsukuyomi-no-Mikoto"
+    ],
+    "gender": "male",
+    "domain": [
+      "moon",
+      "night",
+      "time"
+    ],
+    "symbols": [
+      "moon",
+      "darkness"
+    ],
+    "description": "God of the moon and night. Brother of Amaterasu and Susanoo. Represents night, time, and the lunar cycle. Ruler of the night realm.",
+    "originStory": "Born from Izanagi's right eye during purification. Assigned to rule the night. His relationship with Amaterasu soured when he killed a goddess, causing sun and moon to separate.",
+    "importanceRank": 2,
+    "imageUrl": "/deities/tsukuyomi.png"
+  },
+  {
+    "id": "susanoo",
+    "pantheonId": "japanese-pantheon",
+    "name": "Susanoo",
+    "slug": "susanoo",
+    "alternateNames": [
+      "Susanoo-no-Mikoto"
+    ],
+    "gender": "male",
+    "domain": [
+      "storms",
+      "sea",
+      "chaos",
+      "heroism"
+    ],
+    "symbols": [
+      "sword",
+      "storm",
+      "dragon"
+    ],
+    "description": "God of storms, sea, and chaos. Brother of Amaterasu. Initially wild but later heroic. Famous for slaying the eight-headed dragon Yamata no Orochi.",
+    "originStory": "Born from Izanagi's nose during purification. Exiled from heaven for his violence, he descended to Earth where he became a hero, slaying the dragon Yamata no Orochi.",
+    "importanceRank": 2,
+    "imageUrl": "/deities/susanoo.png"
+  },
+  {
+    "id": "inari",
+    "pantheonId": "japanese-pantheon",
+    "name": "Inari",
+    "slug": "inari",
+    "alternateNames": [
+      "Inari Okami"
+    ],
+    "gender": "androgynous",
+    "domain": [
+      "rice",
+      "fertility",
+      "prosperity",
+      "foxes",
+      "industry"
+    ],
+    "symbols": [
+      "fox",
+      "rice",
+      "jewel",
+      "sword"
+    ],
+    "description": "Kami of rice, fertility, agriculture, industry, and prosperity. One of the most popular kami in Japan. Associated with foxes (kitsune) as messengers.",
+    "importanceRank": 2,
+    "imageUrl": "/deities/inari.png"
+  },
+  {
+    "id": "hachiman",
+    "pantheonId": "japanese-pantheon",
+    "name": "Hachiman",
+    "slug": "hachiman",
+    "alternateNames": [
+      "Hachiman-jin",
+      "Yawata"
+    ],
+    "gender": "male",
+    "domain": [
+      "war",
+      "archery",
+      "protection",
+      "samurai"
+    ],
+    "symbols": [
+      "bow",
+      "dove",
+      "torii gate"
+    ],
+    "description": "Syncretic god of war, archery, and protector of Japan and warriors. Originally Emperor Ojin deified. Patron of the samurai clains.",
+    "originStory": "Originally Emperor Ojin, deified as Hachiman. Over time, led to becoming protector of Buddhism in Japan and guardian deity of warriors.",
+    "importanceRank": 3,
+    "imageUrl": "/deities/hachiman.png"
+  },
+  {
+    "id": "raijin",
+    "pantheonId": "japanese-pantheon",
+    "name": "Raijin",
+    "slug": "raijin",
+    "alternateNames": [
+      "Raiden"
+    ],
+    "gender": "male",
+    "domain": [
+      "thunder",
+      "lightning",
+      "storms"
+    ],
+    "symbols": [
+      "drums",
+      "lightning",
+      "tomoe"
+    ],
+    "description": "God of thunder, lightning, and storms. Depicted as a demon beating drums to create thunder. Works with Fujin (wind god).",
+    "importanceRank": 3,
+    "imageUrl": "/deities/raijin.png"
+  },
+  {
+    "id": "fujin",
+    "pantheonId": "japanese-pantheon",
+    "name": "Fujin",
+    "slug": "fujin",
+    "alternateNames": [
+      "Futen"
+    ],
+    "gender": "male",
+    "domain": [
+      "wind",
+      "air",
+      "storms"
+    ],
+    "symbols": [
+      "wind bag",
+      "leopard skin"
+    ],
+    "description": "God of wind and air. Depicted as a demon carrying a large bag of winds. Twin to Raijin. Controls gentle breezes and destructive typhoons.",
+    "importanceRank": 3,
+    "imageUrl": "/deities/fujin.png"
+  },
+  {
+    "id": "benzaiten",
+    "pantheonId": "japanese-pantheon",
+    "name": "Benzaiten",
+    "slug": "benzaiten",
+    "alternateNames": [
+      "Benten"
+    ],
+    "gender": "female",
+    "domain": [
+      "water",
+      "music",
+      "eloquence",
+      "wisdom",
+      "arts"
+    ],
+    "symbols": [
+      "biwa lute",
+      "snake",
+      "torii gate"
+    ],
+    "description": "Goddess of everything that flows: water, time, words, music, and knowledge. One of the Seven Lucky Gods. Originated from Hindu goddess Saraswati.",
+    "originStory": "Originally the Hindu goddess Saraswati, introduced to Japan via Buddhism. Syncretized with native water and sea kami.",
+    "importanceRank": 4,
+    "imageUrl": "/deities/benzaiten.png"
+  },
+  {
+    "id": "dagda",
+    "pantheonId": "celtic-pantheon",
+    "name": "The Dagda",
+    "slug": "dagda",
+    "alternateNames": [
+      "Eochaid Ollathair",
+      "Ruad Rohez"
+    ],
+    "gender": "male",
+    "domain": [
+      "fertility",
+      "agriculture",
+      "manliness",
+      "strength",
+      "magic",
+      "druidry",
+      "wisdom"
+    ],
+    "symbols": [
+      "cauldron",
+      "club",
+      "harp"
+    ],
+    "description": "The father figure and king of the Tuatha Dé Danann. A giant, bearded powerhouse with a magic club that can kill with one end and heal with the other, and a cauldron that never runs empty.",
+    "originStory": "One of the leaders of the Tuatha Dé Danann who arrived in Ireland in cloud-ships. He is a primary husband of the Mórrígan.",
+    "importanceRank": 1,
+    "imageUrl": "/deities/dagda.png"
+  },
+  {
+    "id": "morrigan",
+    "pantheonId": "celtic-pantheon",
+    "name": "The Morrígan",
+    "slug": "morrigan",
+    "alternateNames": [
+      "Morrígu",
+      "Phantom Queen"
+    ],
+    "gender": "female",
+    "domain": [
+      "war",
+      "fate",
+      "death",
+      "sovereignty"
+    ],
+    "symbols": [
+      "crow",
+      "raven",
+      "cattle"
+    ],
+    "description": "A shapeshifting goddess of war and fate, often appearing as a crow to foretell doom or victory. She represents the terrifying power of sovereignty.",
+    "originStory": "A member of the Tuatha Dé Danann, she often actively participates in battles, such as the Second Battle of Mag Tuired, using magic to influence the outcome.",
+    "importanceRank": 1,
+    "imageUrl": "/deities/morrigan.png"
+  },
+  {
+    "id": "lug",
+    "pantheonId": "celtic-pantheon",
+    "name": "Lugh",
+    "slug": "lug",
+    "alternateNames": [
+      "Lugh Lámhfhada",
+      "Samildánach"
+    ],
+    "gender": "male",
+    "domain": [
+      "skill",
+      "craft",
+      "arts",
+      "oaths",
+      "kingship"
+    ],
+    "symbols": [
+      "spear",
+      "sling"
+    ],
+    "description": "The master of all skills and arts. A youthful warrior king who led the Tuatha Dé Danann to victory against the Fomorians.",
+    "originStory": "Grandson of the Fomorian king Balor, whom he was prophesied to kill. He gained entry to Tara by demonstrating he possessed every skill known to the court.",
+    "importanceRank": 1,
+    "imageUrl": "/deities/lug.png"
+  },
+  {
+    "id": "quetzalcoatl",
+    "pantheonId": "aztec-pantheon",
+    "name": "Quetzalcoatl",
+    "slug": "quetzalcoatl",
+    "alternateNames": [
+      "Feathered Serpent"
+    ],
+    "gender": "male",
+    "domain": [
+      "wind",
+      "wisdom",
+      "learning",
+      "creation",
+      "priesthood"
+    ],
+    "symbols": [
+      "feathered serpent",
+      "conch shell",
+      "wind jewel"
+    ],
+    "description": "The Feathered Serpent, a creator deity who contributed to the creation of mankind. Patron of priests and inventor of books and the calendar.",
+    "originStory": "One of the four sons of the creator couple Ometeotl. He journeyed to Mictlan to retrieve the bones of the ancestors to create the current race of humans.",
+    "importanceRank": 1,
+    "imageUrl": "/deities/quetzalcoatl.png"
+  },
+  {
+    "id": "huitzilopochtli",
+    "pantheonId": "aztec-pantheon",
+    "name": "Huitzilopochtli",
+    "slug": "huitzilopochtli",
+    "alternateNames": [
+      "Hummingbird of the South"
+    ],
+    "gender": "male",
+    "domain": [
+      "sun",
+      "war",
+      "sacrifice",
+      "Tenochtitlan"
+    ],
+    "symbols": [
+      "hummingbird",
+      "fire serpent (Xiuhcoatl)"
+    ],
+    "description": "The patron god of the Aztecs and Tenochtitlan. A solar warrior who requires blood sacrifice to battle the infinite night and keep the sun moving.",
+    "originStory": "Born fully armed from his mother Coatlicue to defend her from his 400 siblings who plotted to kill her. He slew them and drove them away.",
+    "importanceRank": 1,
+    "imageUrl": "/deities/huitzilopochtli.png"
+  },
+  {
+    "id": "tezcatlipoca",
+    "pantheonId": "aztec-pantheon",
+    "name": "Tezcatlipoca",
+    "slug": "tezcatlipoca",
+    "alternateNames": [
+      "Smoking Mirror"
+    ],
+    "gender": "male",
+    "domain": [
+      "night",
+      "sorcery",
+      "obsidian",
+      "destiny",
+      "jaguars"
+    ],
+    "symbols": [
+      "obsidian mirror",
+      "jaguar"
+    ],
+    "description": "The omnipotent and capricious god of the night sky, ancestral memory, and time. Rival to Quetzalcoatl and tester of humanity.",
+    "originStory": "He sacrificed his foot to lure the earth monster Cipactli so the world could be made from her body.",
+    "importanceRank": 1,
+    "imageUrl": "/deities/tezcatlipoca.png"
+  },
+  {
+    "id": "jade-emperor",
+    "pantheonId": "chinese-pantheon",
+    "name": "Jade Emperor",
+    "slug": "jade-emperor",
+    "alternateNames": [
+      "Yu Huang",
+      "Yu Di"
+    ],
+    "gender": "male",
+    "domain": [
+      "heaven",
+      "order",
+      "bureaucracy",
+      "justice"
+    ],
+    "symbols": [
+      "imperial robes",
+      "jade tablet"
+    ],
+    "description": "The supreme ruler of Heaven and the first emperor of China in myth. He governs the cosmos and organizes the celestial bureaucracy.",
+    "originStory": "After eons of cultivation and cultivation of Tao, he ascended to become the supreme sovereign of the universe.",
+    "importanceRank": 1,
+    "imageUrl": "/deities/jade-emperor.png"
+  },
+  {
+    "id": "sun-wukong",
+    "pantheonId": "chinese-pantheon",
+    "name": "Sun Wukong",
+    "slug": "sun-wukong",
+    "alternateNames": [
+      "Monkey King",
+      "Great Sage Equal to Heaven"
+    ],
+    "gender": "male",
+    "domain": [
+      "trickery",
+      "strength",
+      "fighting",
+      "rebellion"
+    ],
+    "symbols": [
+      "golden staff",
+      "circlet"
+    ],
+    "description": "A monkey born from stone who acquired supernatural powers through Taoist practices. He rebelled against heaven and later accompanied monk Tang Sanzang on a journey to the West.",
+    "originStory": "Born from a magic stone on the Mountain of Flowers and Fruit. He learned the way of immortality and wreaked havoc in Heaven until subdued by Buddha.",
+    "importanceRank": 1,
+    "imageUrl": "/deities/sun-wukong.png"
+  },
+  {
+    "id": "guanyin",
+    "pantheonId": "chinese-pantheon",
+    "name": "Guanyin",
+    "slug": "guanyin",
+    "alternateNames": [
+      "Avalokitesvara"
+    ],
+    "gender": "female",
+    "domain": [
+      "mercy",
+      "compassion",
+      "healing",
+      "children"
+    ],
+    "symbols": [
+      "willow branch",
+      "vase of pure water",
+      "lotus"
+    ],
+    "description": "The Bodhisattva of Compassion who hears the cries of the world. Revered as a goddess of mercy who helps all beings.",
+    "originStory": "Originally a male Bodhisattva in India, transformed into a female figure in China representing the motherly aspect of compassion.",
+    "importanceRank": 1,
+    "imageUrl": "/deities/guanyin.png"
   }
 ]

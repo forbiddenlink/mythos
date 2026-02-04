@@ -3,6 +3,7 @@ import pantheons from '@/data/pantheons.json';
 import deities from '@/data/deities.json';
 import stories from '@/data/stories.json';
 import relationships from '@/data/relationships.json';
+import locations from '@/data/locations.json';
 
 // Type definitions
 interface Pantheon {
@@ -52,6 +53,16 @@ interface Relationship {
   description?: string;
   storyContext?: string;
   isDisputed?: boolean;
+}
+
+interface Location {
+  id: string;
+  name: string;
+  locationType: string;
+  pantheonId: string;
+  description: string;
+  latitude?: number;
+  longitude?: number;
 }
 
 // Simple GraphQL query parser
@@ -108,6 +119,17 @@ function resolveAllRelationships(pantheonId?: string): Relationship[] {
   return relationships as Relationship[];
 }
 
+function resolveLocations(pantheonId?: string): Location[] {
+  if (pantheonId) {
+    return (locations as Location[]).filter(l => l.pantheonId === pantheonId);
+  }
+  return locations as Location[];
+}
+
+function resolveLocation(id: string): Location | undefined {
+  return (locations as Location[]).find(l => l.id === id);
+}
+
 function resolveSearch(queryStr: string, limit: number = 10) {
   const query = queryStr.toLowerCase();
 
@@ -147,7 +169,7 @@ export async function POST(request: NextRequest) {
     const body = await request.json();
     const { query, variables = {} } = body;
 
-    let data: Record<string, unknown> = {};
+    const data: Record<string, unknown> = {};
 
     // Parse the query to determine what to resolve
     if (query.includes('GetPantheons') || query.includes('pantheons {')) {
@@ -195,9 +217,16 @@ export async function POST(request: NextRequest) {
       }
     }
 
-    // Handle locations and events (return empty for now)
-    if (query.includes('locations')) {
-      data.locations = [];
+    // Handle locations and events
+    if (query.includes('GetLocations') || query.includes('locations(') || query.includes('locations {')) {
+      data.locations = resolveLocations(variables.pantheonId as string | undefined);
+    }
+
+    if (query.includes('GetLocation') || query.includes('location(')) {
+      const id = variables.id as string;
+      if (id) {
+        data.location = resolveLocation(id);
+      }
     }
 
     if (query.includes('events')) {

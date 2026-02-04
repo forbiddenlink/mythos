@@ -1,0 +1,232 @@
+[
+  {
+    "id": "mount-olympus",
+    "name": "Mount Olympus",
+    "locationType": "mountain",
+    "pantheonId": "greek-pantheon",
+    "description": "The highest mountain in Greece and the mythological home of the twelve Olympian gods.",
+    "latitude": 40.086,
+    "longitude": 22.358,
+    "imageUrl": "/locations/"`jq -r .id`".png"
+  },
+  {
+    "id": "underworld",
+    "name": "The Underworld",
+    "locationType": "realm",
+    "pantheonId": "greek-pantheon",
+    "description": "The gloomy realm of the dead ruled by Hades, located deep beneath the earth.",
+    "latitude": 36.38,
+    "longitude": 22.48,
+    "imageUrl": "/locations/"`jq -r .id`".png"
+  },
+  {
+    "id": "delphi",
+    "name": "Delphi",
+    "locationType": "city",
+    "pantheonId": "greek-pantheon",
+    "description": "The site of the oracle of Apollo, considered the center of the world by the ancient Greeks.",
+    "latitude": 38.48,
+    "longitude": 22.5,
+    "imageUrl": "/locations/"`jq -r .id`".png"
+  },
+  {
+    "id": "asgard",
+    "name": "Asgard",
+    "locationType": "realm",
+    "pantheonId": "norse-pantheon",
+    "description": "One of the Nine Worlds and home to the Aesir tribe of gods.",
+    "latitude": null,
+    "longitude": null,
+    "imageUrl": "/locations/"`jq -r .id`".png"
+  },
+  {
+    "id": "midgard",
+    "name": "Midgard",
+    "locationType": "realm",
+    "pantheonId": "norse-pantheon",
+    "description": "The realm of humanity (Earth), connected to Asgard by the Bifrost bridge.",
+    "latitude": null,
+    "longitude": null,
+    "imageUrl": "/locations/"`jq -r .id`".png"
+  },
+  {
+    "id": "giza-plateau",
+    "name": "Giza Plateau",
+    "locationType": "monument",
+    "pantheonId": "egyptian-pantheon",
+    "description": "The site of the Great Pyramids and the Sphinx, associated with pharaonic power and the afterlife.",
+    "latitude": 29.979,
+    "longitude": 31.134,
+    "imageUrl": "/locations/"`jq -r .id`".png"
+  },
+  {
+    "id": "karnak",
+    "name": "Karnak Temple Complex",
+    "locationType": "temple",
+    "pantheonId": "egyptian-pantheon",
+    "description": "A vast mix of decayed temples, chapels, pylons, and other buildings near Luxor, primarily dedicated to Amun.",
+    "latitude": 25.719,
+    "longitude": 32.657,
+    "imageUrl": "/locations/"`jq -r .id`".png"
+  },
+  {
+    "id": "roman-forum",
+    "name": "Roman Forum",
+    "locationType": "sacred_site",
+    "pantheonId": "roman-pantheon",
+    "description": "The center of Roman public life, containing major temples including the Temple of Vesta and Temple of Saturn.",
+    "latitude": 41.8925,
+    "longitude": 12.4853,
+    "imageUrl": "/locations/"`jq -r .id`".png"
+  },
+  {
+    "id": "capitoline-hill",
+    "name": "Capitoline Hill",
+    "locationType": "sacred_site",
+    "pantheonId": "roman-pantheon",
+    "description": "The citadel of the earliest Romans and site of the Temple of Jupiter Optimus Maximus.",
+    "latitude": 41.8933,
+    "longitude": 12.4828,
+    "imageUrl": "/locations/"`jq -r .id`".png"
+  },
+  {
+    "id": "mount-kailash",
+    "name": "Mount Kailash",
+    "locationType": "sacred_site",
+    "pantheonId": "hindu-pantheon",
+    "description": "A peak in the Kailash Range, considered the abode of Lord Shiva and a place of eternal bliss.",
+    "latitude": 31.0674,
+    "longitude": 81.3119,
+    "imageUrl": "/locations/"`jq -r .id`".png"
+  },
+  {
+    "id": "varanasi",
+    "name": "Varanasi",
+    "locationType": "city",
+    "pantheonId": "hindu-pantheon",
+    "description": "The spiritual capital of India, situated on the banks of the Ganges, dedicated to Lord Shiva.",
+    "latitude": 25.3176,
+    "longitude": 82.9739,
+    "imageUrl": "/locations/"`jq -r .id`".png"
+  },
+  {
+    "id": "ayodhya",
+    "name": "Ayodhya",
+    "locationType": "city",
+    "pantheonId": "hindu-pantheon",
+    "description": "The birthplace of Rama and setting of the Ramayana epic.",
+    "latitude": 26.7922,
+    "longitude": 82.1961,
+    "imageUrl": "/locations/"`jq -r .id`".png"
+  },
+  {
+    "id": "ise-grand-shrine",
+    "name": "Ise Grand Shrine",
+    "locationType": "temple",
+    "pantheonId": "japanese-pantheon",
+    "description": "The most sacred Shinto shrine, dedicated to Amaterasu, rebuilt every 20 years.",
+    "latitude": 34.4550,
+    "longitude": 136.7258,
+    "imageUrl": "/locations/"`jq -r .id`".png"
+  },
+  {
+    "id": "izumo-taisha",
+    "name": "Izumo Taisha",
+    "locationType": "temple",
+    "pantheonId": "japanese-pantheon",
+    "description": "One of the most ancient and important Shinto shrines, dedicated to Okuninushi (descendant of Susanoo).",
+    "latitude": 35.4020,
+    "longitude": 132.6855,
+    "imageUrl": "/locations/"`jq -r .id`".png"
+  },
+  {
+    "id": "mount-fuji",
+    "name": "Mount Fuji",
+    "locationType": "sacred_site",
+    "pantheonId": "japanese-pantheon",
+    "description": "Japan's highest mountain, considered a sacred place and dwelling of kami.",
+    "latitude": 35.3606,
+    "longitude": 138.7274,
+    "imageUrl": "/locations/"`jq -r .id`".png"
+  },
+  {
+    "id": "floating-bridge",
+    "name": "Floating Bridge of Heaven",
+    "locationType": "mythical_realm",
+    "pantheonId": "japanese-pantheon",
+    "description": "The bridge from which Izanagi and Izanami stood to create the islands of Japan.",
+    "latitude": null,
+    "longitude": null,
+    "imageUrl": "/locations/"`jq -r .id`".png"
+  },
+  {
+    "id": "yomi",
+    "name": "Yomi",
+    "locationType": "underworld",
+    "pantheonId": "japanese-pantheon",
+    "description": "The land of the dead in Japanese mythology, ruled by Izanami.",
+    "latitude": null,
+    "longitude": null,
+    "imageUrl": "/locations/yomi.png"
+  },
+  {
+    "id": "newgrange",
+    "name": "Newgrange (Sí an Bhrú)",
+    "locationType": "tomb",
+    "pantheonId": "celtic-pantheon",
+    "description": "A grand prehistoric passage tomb and the home of the Dagda (and later Aengus). Associated with the winter solstice.",
+    "latitude": 53.6947,
+    "longitude": -6.4756,
+    "imageUrl": "/locations/newgrange.png"
+  },
+  {
+    "id": "tara",
+    "name": "Hill of Tara",
+    "locationType": "sacred_site",
+    "pantheonId": "celtic-pantheon",
+    "description": "The ancient seat of the High Kings of Ireland and a sacred dwelling place of the gods.",
+    "latitude": 53.5786,
+    "longitude": -6.6119,
+    "imageUrl": "/locations/tara.png"
+  },
+  {
+    "id": "tenochtitlan",
+    "name": "Tenochtitlan",
+    "locationType": "city",
+    "pantheonId": "aztec-pantheon",
+    "description": "The capital city of the Aztec Empire, built on an island in Lake Texcoco. Site of the Templo Mayor.",
+    "latitude": 19.4326,
+    "longitude": -99.1332,
+    "imageUrl": "/locations/tenochtitlan.png"
+  },
+  {
+    "id": "mictlan",
+    "name": "Mictlan",
+    "locationType": "underworld",
+    "pantheonId": "aztec-pantheon",
+    "description": "The nine-level underworld of Aztec mythology, a dangerous journey for the souls of the dead.",
+    "latitude": null,
+    "longitude": null,
+    "imageUrl": "/locations/mictlan.png"
+  },
+  {
+    "id": "mount-kunlun",
+    "name": "Mount Kunlun",
+    "locationType": "mountain",
+    "pantheonId": "chinese-pantheon",
+    "description": "A mythical mountain in the west, dwelling place of Xiwangmu (Queen Mother of the West) and source of the peaches of immortality.",
+    "latitude": 36.0000,
+    "longitude": 84.0000,
+    "imageUrl": "/locations/mount-kunlun.png"
+  },
+  {
+    "id": "heavenly-palace",
+    "name": "The Heavenly Palace",
+    "locationType": "realm",
+    "pantheonId": "chinese-pantheon",
+    "description": "The opulent abode of the Jade Emperor, located in the highest heavens, resembling the forbidden city.",
+    "latitude": null,
+    "longitude": null,
+    "imageUrl": "/locations/heavenly-palace.png"
+  }
+]
