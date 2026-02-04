@@ -1,0 +1,130 @@
+[
+    {
+        "id": "creation-egypt",
+        "title": "Emergence of Ra",
+        "year": -3100,
+        "pantheonId": "egyptian-pantheon",
+        "type": "mythical",
+        "description": "Ra emerges from the primordial waters of Nun using his will to create himself and the universe."
+    },
+    {
+        "id": "unification-egypt",
+        "title": "Unification of Egypt",
+        "year": -3150,
+        "pantheonId": "egyptian-pantheon",
+        "type": "historical",
+        "description": "The unification of Upper and Lower Egypt by the first Pharaoh, Narmer (or Menes), marking the beginning of the Dynastic period."
+    },
+    {
+        "id": "pyramids",
+        "title": "Great Pyramid of Giza",
+        "year": -2560,
+        "pantheonId": "egyptian-pantheon",
+        "type": "historical",
+        "description": "Completion of the Great Pyramid for Pharaoh Khufu, a testament to the divine status of the Pharaohs."
+    },
+    {
+        "id": "titanomachy",
+        "title": "The Titanomachy",
+        "year": -2000,
+        "pantheonId": "greek-pantheon",
+        "type": "mythical",
+        "description": "The ten-year war between the Titans and the Olympians, ending with Zeus's victory and the imprisonment of the Titans in Tartarus."
+    },
+    {
+        "id": "osiris-myth",
+        "title": "Resurrection of Osiris",
+        "year": -2500,
+        "pantheonId": "egyptian-pantheon",
+        "type": "mythical",
+        "description": "Isis resurrects her husband Osiris after his murder by Set, establishing him as the Lord of the Dead."
+    },
+    {
+        "id": "trojan-war",
+        "title": "The Trojan War",
+        "year": -1190,
+        "pantheonId": "greek-pantheon",
+        "type": "mythical",
+        "description": "The legendary conflict between the Greeks and the people of Troy, sparked by the abduction of Helen."
+    },
+    {
+        "id": "homer-epics",
+        "title": "Iliad & Odyssey Copied",
+        "year": -750,
+        "pantheonId": "greek-pantheon",
+        "type": "historical",
+        "description": "The approximate date when the oral traditions of Homer's epic poems were likely set down in writing."
+    },
+    {
+        "id": "founding-rome",
+        "title": "Founding of Rome",
+        "year": -753,
+        "pantheonId": "roman-pantheon",
+        "type": "mythical",
+        "description": "Romulus kills his brother Remus and founds the city of Rome on the Palatine Hill."
+    },
+    {
+        "id": "roman-republic",
+        "title": "Roman Republic Founded",
+        "year": -509,
+        "pantheonId": "roman-pantheon",
+        "type": "historical",
+        "description": "The overthrow of the Roman Kingdom and the establishment of the Republic."
+    },
+    {
+        "id": "mahabharata",
+        "title": "Kurukshetra War",
+        "year": -3102,
+        "pantheonId": "hindu-pantheon",
+        "type": "mythical",
+        "description": "The climactic war of the Mahabharata, marking the beginning of the Kali Yuga."
+    },
+    {
+        "id": "yggdrasil",
+        "title": "Yggdrasil & Nine Realms",
+        "year": -1000,
+        "pantheonId": "norse-pantheon",
+        "type": "mythical",
+        "description": "The 'time before time' when the World Tree connects the Nine Realms, established by Odin and his brothers."
+    },
+    {
+        "id": "viking-age",
+        "title": "Start of Viking Age",
+        "year": 793,
+        "pantheonId": "norse-pantheon",
+        "type": "historical",
+        "description": "The raid on Lindisfarne monastery marks the beginning of the Viking expansion and the wider spread of Norse mythology."
+    },
+    {
+        "id": "baldur-death",
+        "title": "Death of Baldur",
+        "year": 900,
+        "pantheonId": "norse-pantheon",
+        "type": "mythical",
+        "description": "The tragic death of the god of light, orchestrated by Loki, which signals the coming of Ragnarok."
+    },
+    {
+        "id": "prose-edda",
+        "title": "Prose Edda Written",
+        "year": 1220,
+        "pantheonId": "norse-pantheon",
+        "type": "historical",
+        "description": "Snorri Sturluson compiles the Prose Edda in Iceland, preserving the bulk of Norse mythology."
+    },
+    {
+        "id": "izumo",
+        "title": "Transfer of the Land",
+        "year": -660,
+        "pantheonId": "japanese-pantheon",
+        "type": "mythical",
+        "description": "Okuninushi yields control of the land (Japan) to Ninigi-no-Mikoto, grandson of Amaterasu."
+    },
+    {
+        "id": "kojiki",
+        "title": "Kojiki Compiled",
+        "year": 712,
+        "pantheonId": "japanese-pantheon",
+        "type": "historical",
+        "description": "The completion of the 'Records of Ancient Matters', the oldest surviving chronicle in Japan."
+    }
+]

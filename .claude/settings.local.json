@@ -6,7 +6,19 @@
       "mcp__plugin_playwright_playwright__browser_click",
       "Bash(npx tsc:*)",
       "Bash(pnpm build:*)",
-      "Bash(git add:*)"
+      "Bash(pnpm install:*)",
+      "Bash(pnpm test:*)",
+      "Bash(pnpm run test:*)",
+      "Bash(pnpm vitest:*)",
+      "Bash(git add:*)",
+      "WebSearch",
+      "Bash(wc:*)",
+      "Bash(ls:*)",
+      "Bash(mkdir:*)",
+      "WebFetch(domain:github.com)",
+      "Bash(echo:*)",
+      "Bash(git rev-parse:*)",
+      "Bash(npx vitest:*)"
     ]
   }
 }

@@ -8,6 +8,7 @@
     "timePeriodStart": -800,
     "timePeriodEnd": 400,
     "description": "The Greek pantheon encompasses the gods and goddesses of ancient Greek mythology, centered on Mount Olympus and featuring the twelve Olympians who ruled after the Titanomachy.",
+    "detailedHistory": "## Origins of the Olympians\n\nThe Greek pantheon emerged from the mingling of indigenous Pelasgian beliefs with the sky-god traditions of invading Hellenic tribes.\n\n### The Golden Age\n\nBefore the gods, there were the Titans, ruled by Cronus. This was a time of peace and prosperity, but also stagnation. The rise of Zeus and the Olympians marked the beginning of a new cosmic order—civilization, law, and justice replacing the raw elemental forces of the Titans.\n\n### Mount Olympus\n\nThe twelve major gods (Olympians) dwelt on Mount Olympus, the highest peak in Greece. From their divine palaces, they observed human affairs, intervening to reward piety or punish hubris.",
     "citationSources": [
       {
         "title": "Theogony",
@@ -32,6 +33,7 @@
     "timePeriodStart": -1200,
     "timePeriodEnd": 1100,
     "description": "The Norse pantheon includes the Aesir and Vanir gods of Scandinavian mythology, centered in Asgard and featuring stories of creation, heroism, and the prophesied end of the world known as Ragnarok.",
+    "detailedHistory": "## The World Tree and Ragnarok\n\nNorse mythology centers on Yggdrasil, the Ash Tree connecting the nine worlds. The Aesir (sky gods) and Vanir (earth gods) eventually unified after a war.\n\n### The Prophecy\n\nUnique among mythologies, the Norse gods know their end. **Ragnarok** is the prophesied twilight of the gods, where they will battle the frost giants and chaos monsters, resulting in the destruction and renewal of the world.",
     "citationSources": [
       {
         "title": "Poetic Edda",
@@ -56,6 +58,7 @@
     "timePeriodStart": -3100,
     "timePeriodEnd": 640,
     "description": "The Egyptian pantheon encompasses the gods and goddesses of ancient Egypt, featuring creation deities, solar worship, the afterlife, and the eternal struggle between order (Ma'at) and chaos (Isfet).",
+    "detailedHistory": "## Gods of the Nile\n\nEgyptian mythology is one of the longest-enduring religious systems in history. It focused heavily on the afterlife, the sun's journey, and the maintenance of *Ma'at* (cosmic order).\n\n### The Afterlife\n\nThe Egyptians believed the soul faced judgment in the Hall of Truth, where the heart was weighed against the feather of Ma'at. Only the righteous could enter the Field of Reeds.",
     "citationSources": [
       {
         "title": "Pyramid Texts",

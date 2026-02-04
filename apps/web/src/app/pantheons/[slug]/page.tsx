@@ -3,13 +3,21 @@
 import { useParams } from 'next/navigation';
 import { useQuery } from '@tanstack/react-query';
 import { graphqlClient } from '@/lib/graphql-client';
-import { GET_PANTHEONS, GET_DEITIES, GET_STORIES } from '@/lib/queries';
+import { GET_DEITIES, GET_STORIES } from '@/lib/queries';
+// Note: We need to ensure the query actually fetches the new field.
+
+// Since GET_PANTHEONS is imported, we might need to modify it in queries.ts OR override it here.
+// Checking queries.ts first would be wise, but I can just use a local query like in DeityPage.
+import { gql } from 'graphql-request';
+
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Loader2, MapPin, Calendar, Users, BookOpen } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Breadcrumbs } from '@/components/navigation/Breadcrumbs';
 import { CollectionPageJsonLd } from '@/components/seo/JsonLd';
+import ReactMarkdown from 'react-markdown';
+
 
 interface Pantheon {
   id: string;
@@ -18,8 +26,10 @@ interface Pantheon {
   culture: string;
   region: string;
   description: string | null;
+  detailedHistory?: string | null;
   timePeriodStart: number | null;
   timePeriodEnd: number | null;
+
 }
 
 interface Deity {
@@ -45,13 +55,28 @@ interface Story {
 export default function PantheonPage() {
   const params = useParams<{ slug: string }>();
   const slug = params?.slug;
-  
+
   const { data: pantheonsData, isLoading: pantheonsLoading, error: pantheonsError } = useQuery<{ pantheons: Pantheon[] }>({
     queryKey: ['pantheons'],
-    queryFn: async () => graphqlClient.request(GET_PANTHEONS),
-    retry: false, // Don't retry on error for faster debugging
-    staleTime: 0, // Always fetch fresh data
+    queryFn: async () => graphqlClient.request(gql`
+      query GetPantheons {
+        pantheons {
+          id
+          name
+          slug
+          culture
+          region
+          description
+          detailedHistory
+          timePeriodStart
+          timePeriodEnd
+        }
+      }
+    `),
+    retry: false,
+    staleTime: 0,
   });
+
 
   const pantheon = pantheonsData?.pantheons.find(p => p.slug === slug);
 
@@ -185,17 +210,22 @@ export default function PantheonPage() {
           </Card>
         </div>
 
-        {/* Description */}
-        {pantheon.description && (
-          <Card className="border-gold/20 bg-midnight-light/50 mb-12">
-            <CardHeader>
-              <CardTitle className="text-parchment text-2xl font-serif">About</CardTitle>
-            </CardHeader>
-            <CardContent>
+        {/* Detailed History (Markdown) or Description */}
+        <Card className="border-gold/20 bg-midnight-light/50 mb-12">
+          <CardHeader>
+            <CardTitle className="text-parchment text-2xl font-serif">About</CardTitle>
+          </CardHeader>
+          <CardContent>
+            {pantheon.detailedHistory ? (
+              <div className="prose prose-invert prose-gold max-w-none">
+                <ReactMarkdown>{pantheon.detailedHistory}</ReactMarkdown>
+              </div>
+            ) : (
               <p className="text-parchment/80 leading-relaxed text-lg">{pantheon.description}</p>
-            </CardContent>
-          </Card>
-        )}
+            )}
+          </CardContent>
+        </Card>
+
 
         {/* Deities Section */}
         <section className="mb-12">
@@ -203,7 +233,7 @@ export default function PantheonPage() {
             <Users className="h-6 w-6 text-gold" />
             <h2 className="text-3xl font-serif font-semibold text-parchment">Deities</h2>
           </div>
-          
+
           {isLoading ? (
             <div className="flex items-center justify-center py-12">
               <Loader2 className="h-8 w-8 animate-spin text-gold" />
@@ -243,7 +273,7 @@ export default function PantheonPage() {
             <BookOpen className="h-6 w-6 text-gold" />
             <h2 className="text-3xl font-serif font-semibold text-parchment">Stories & Myths</h2>
           </div>
-          
+
           {isLoading ? (
             <div className="flex items-center justify-center py-12">
               <Loader2 className="h-8 w-8 animate-spin text-gold" />

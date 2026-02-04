@@ -4,6 +4,7 @@ import deities from '@/data/deities.json';
 import stories from '@/data/stories.json';
 import relationships from '@/data/relationships.json';
 import locations from '@/data/locations.json';
+import Fuse from 'fuse.js';
 
 // Type definitions
 interface Pantheon {
@@ -15,6 +16,7 @@ interface Pantheon {
   timePeriodStart: number;
   timePeriodEnd: number;
   description: string;
+  detailedHistory?: string;
 }
 
 interface Deity {
@@ -27,7 +29,9 @@ interface Deity {
   domain: string[];
   symbols: string[];
   description: string;
+  detailedBio?: string;
   originStory?: string;
+
   importanceRank: number;
   imageUrl?: string;
 }
@@ -132,30 +136,45 @@ function resolveLocation(id: string): Location | undefined {
 }
 
 function resolveSearch(queryStr: string, limit: number = 10) {
-  const query = queryStr.toLowerCase();
+  const options = {
+    includeScore: true,
+    threshold: 0.3, // 0.0 is perfect match, 1.0 is match anything
+  };
 
-  const matchedDeities = (deities as Deity[])
-    .filter(d =>
-      d.name.toLowerCase().includes(query) ||
-      d.description.toLowerCase().includes(query) ||
-      d.domain.some(dom => dom.toLowerCase().includes(query))
-    )
-    .slice(0, limit);
+  const deityFuse = new Fuse(deities as Deity[], {
+    ...options,
+    keys: [
+      { name: 'name', weight: 0.7 },
+      { name: 'alternateNames', weight: 0.5 },
+      { name: 'domain', weight: 0.4 },
+      { name: 'description', weight: 0.2 },
+      { name: 'detailedBio', weight: 0.2 },
+    ],
+  });
 
-  const matchedPantheons = (pantheons as Pantheon[])
-    .filter(p =>
-      p.name.toLowerCase().includes(query) ||
-      p.culture.toLowerCase().includes(query) ||
-      p.description.toLowerCase().includes(query)
-    )
-    .slice(0, limit);
+  const pantheonFuse = new Fuse(pantheons as Pantheon[], {
+    ...options,
+    keys: [
+      { name: 'name', weight: 0.7 },
+      { name: 'culture', weight: 0.5 },
+      { name: 'description', weight: 0.3 },
+      { name: 'detailedHistory', weight: 0.2 },
+    ],
+  });
 
-  const matchedStories = (stories as Story[])
-    .filter(s =>
-      s.title.toLowerCase().includes(query) ||
-      s.summary.toLowerCase().includes(query)
-    )
-    .slice(0, limit);
+  const storyFuse = new Fuse(stories as Story[], {
+    ...options,
+    keys: [
+      { name: 'title', weight: 0.7 },
+      { name: 'summary', weight: 0.3 },
+      { name: 'fullNarrative', weight: 0.2 },
+      { name: 'moralThemes', weight: 0.3 },
+    ],
+  });
+
+  const matchedDeities = deityFuse.search(queryStr).map(result => result.item).slice(0, limit);
+  const matchedPantheons = pantheonFuse.search(queryStr).map(result => result.item).slice(0, limit);
+  const matchedStories = storyFuse.search(queryStr).map(result => result.item).slice(0, limit);
 
   return {
     deities: matchedDeities,

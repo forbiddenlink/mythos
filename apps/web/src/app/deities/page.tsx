@@ -33,7 +33,7 @@ interface Deity {
 export default function DeitiesPage() {
   const [viewMode, setViewMode] = useState<'grid' | 'table'>('grid');
   const [filteredDeities, setFilteredDeities] = useState<Deity[]>([]);
-  
+
   const { data, isLoading, error } = useQuery<{ deities: Deity[] }>({
     queryKey: ['deities'],
     queryFn: async () => graphqlClient.request(GET_DEITIES),
@@ -140,8 +140,8 @@ export default function DeitiesPage() {
         </div>
 
         {data?.deities && (
-          <DeityFilters 
-            deities={data.deities} 
+          <DeityFilters
+            deities={data.deities}
             onFilteredChange={setFilteredDeities}
           />
         )}
@@ -155,9 +155,20 @@ export default function DeitiesPage() {
                 <Card className="group h-full cursor-pointer card-elevated bg-card hover:scale-[1.01]">
                   <CardHeader>
                     <div className="flex items-start justify-between">
-                      <div className="p-2.5 rounded-xl bg-gold/10 border border-gold/20 group-hover:bg-gold/15 transition-colors duration-300">
-                        <Sparkles className="h-5 w-5 text-gold" strokeWidth={1.5} />
-                      </div>
+                      {deity.imageUrl ? (
+                        <div className="relative w-16 h-16 rounded-xl overflow-hidden border border-gold/20 shadow-sm">
+                          <Image
+                            src={deity.imageUrl}
+                            alt={deity.name}
+                            fill
+                            className="object-cover"
+                          />
+                        </div>
+                      ) : (
+                        <div className="p-2.5 rounded-xl bg-gold/10 border border-gold/20 group-hover:bg-gold/15 transition-colors duration-300">
+                          <Sparkles className="h-5 w-5 text-gold" strokeWidth={1.5} />
+                        </div>
+                      )}
                       <div className="flex items-center gap-2">
                         {deity.importanceRank && deity.importanceRank <= 5 && (
                           <span className="text-xs font-medium px-2.5 py-1 rounded-full bg-gold/10 border border-gold/20 text-gold">

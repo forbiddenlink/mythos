@@ -306,7 +306,16 @@
     "title": "The Aeneid - Journey to Rome",
     "slug": "aeneid",
     "summary": "The epic tale of Aeneas, Trojan hero and son of Venus, who escapes the fall of Troy and journeys to Italy to found the Roman race. Guided by fate and divine will, he overcomes trials, wars, and personal loss.",
+    "fullNarrative": "## Flight from Troy\n\nWhen the Greeks poured out of the Wooden Horse and Troy fell to flames, the hero Aeneas, son of the goddess Venus and the mortal Anchises, fought bravely but was told by the ghost of Hector that hope for the city was lost. His destiny lay elsewhere. Shouldering his elderly father Anchises and leading his young son Ascanius by the hand, Aeneas fled the burning city, carrying with him the household gods (Penates) of Troy. He gathered a band of refugees and set sail, beginning a long and perilous odyssey to find a new home in the west.\n\n## The Passion of Dido\n\nAfter years of wandering, blown off course by Juno (who hated the Trojans), Aeneas washed ashore in Carthage, a rising city in North Africa ruled by Queen Dido. Venus caused Dido to fall madly in love with Aeneas to ensure his safety. For a time, Aeneas forgot his mission, living in luxury with the queen.\n\nBut Jupiter sent Mercury to remind Aeneas of his destiny: he was not born to rule Carthage but to found a great empire in Italy. Reluctantly, placing duty (pietas) above love, Aeneas secretly prepared to leave. When Dido discovered his betrayal, she cursed him and his descendants—foretelling the Punic Wars between Rome and Carthage—before taking her own life upon a burning pyre as his ships sailed away.\n\n## Descent into the Underworld\n\nUpon reaching Italy, Aeneas visited the Sibyl of Cumae, a prophetess who guided him into the Underworld to consult the shade of his father. There, in the Elysian Fields, Anchises showed his son a procession of future souls waiting to be born: the great heroes and leaders of Rome, culminating in Augustus Caesar. This vision of Rome's glorious future renewed Aeneas's resolve.\n\n## War for Italy\n\nAeneas arrived in Latium, where the local king Latinus offered him his daughter Lavinia in marriage. However, Turnus, a local prince who had been betrothed to her, was incited to war by the fury Allecto (sent by Juno). War erupted between the Trojans and the Rutulians. \n\nThe conflict was brutal and bloody, mirroring the Trojan War. Finally, the war came down to single combat between Aeneas and Turnus. Aeneas wounded Turnus, who begged for mercy. Aeneas hesitated, considering sparing him, until he saw the sword-belt of his young friend Pallas (whom Turnus had slain) on his enemy's shoulder. Consumed by rage and grief, Aeneas drove his sword through Turnus's chest, ending the war and securing the foundation of the Roman race.",
+    "keyExcerpts": "Aeneas carries his father Anchises from burning Troy. He tragically leaves Queen Dido of Carthage to fulfill his destiny. He journeys to the Underworld to see the future glory of Rome.",
     "category": "epic",
+    "moralThemes": [
+      "pietas (duty)",
+      "fate",
+      "sacrifice",
+      "empire"
+    ],
+    "culturalSignificance": "Virgil's Aeneid is the national epic of Rome, linking the Romans to the heroic age of Greece and legitimizing the Julian dynasty (Augustus) as descendants of Venus.",
     "imageUrl": "/stories/aeneid.png",
     "citationSources": [
       {
@@ -323,7 +332,16 @@
     "title": "Romulus and Remus - Founding of Rome",
     "slug": "romulus-remus",
     "summary": "Twin sons of Mars and Rhea Silvia, abandoned as infants and raised by a she-wolf. They founded Rome but quarreled over leadership, resulting in Romulus killing Remus and becoming Rome's first king.",
+    "fullNarrative": "## The Divine Twins\n\nRhea Silvia, a Vestal Virgin and daughter of the usurped King Numitor of Alba Longa, was visited by Mars, the god of war, and conceived twin sons. When they were born, her uncle Amulius (who had stolen the throne) ordered the infants drowned in the Tiber River to prevent them from growing up to challenge him.\n\nBut the servants took pity on the boys, or perhaps the river god Tiberinus interceded. They placed the twins in a basket which floated downstream and caught in the roots of a fig tree (the Ficus Ruminalis). There, a she-wolf (Lupa) destined by Mars found them. Instead of devouring them, she suckled them, and a woodpecker (picus) brought them food, until they were discovered by the royal shepherd Faustulus.\n\n## The Restoration\n\nFaustulus and his wife Acca Larentia raised the boys, naming them Romulus and Remus. They grew up to be strong, charismatic leaders of a band of shepherd warriors. Eventually, they discovered their true identity, killed the usurper Amulius, and restored their grandfather Numitor to the throne of Alba Longa.\n\n## The Fatal Quarrel\n\nNot content to wait for a throne, the twins decided to found their own city at the site where they had been saved. However, they disagreed on the exact location: Romulus favored the Palatine Hill, while Remus chose the Aventine. To settle the dispute, they consulted augury (watching for birds).\n\nRemus saw six vultures first, but Romulus saw twelve soon after. Each claimed victory—Remus by priority, Romulus by number. The dispute turned violent. Romulus began building the city walls on the Palatine. Remus, mocking his brother's efforts, leaped over the low wall. Enraged by this act of disrespect and invasion, Romulus struck his brother dead, shouting, \"So perish everyone that shall hereafter leap over my wall!\"\n\nRomulus became the sole ruler, giving his name to the new city: Rome. To populate it, he declared it an asylum for refugees and outlaws, ensuring its future strength through a mix of peoples.",
+    "keyExcerpts": "Abandoned in the Tiber, they were suckled by a she-wolf. They restored their grandfather to power. Romulus killed Remus for leaping over his wall, becoming the first king of Rome.",
     "category": "myth",
+    "moralThemes": [
+      "fratricide",
+      "destiny",
+      "divine favor",
+      "founding violence"
+    ],
+    "culturalSignificance": "The myth explains Rome's martial character (sons of Mars) and its rise from humble, often violent beginnings to world domination.",
     "imageUrl": "/stories/romulus-remus.png",
     "citationSources": [
       {
@@ -339,7 +357,16 @@
     "title": "The Ramayana",
     "slug": "ramayana",
     "summary": "Epic tale of Prince Rama's exile, the abduction of his wife Sita by demon king Ravana, and the great war to rescue her. Demonstrates the ideals of dharma, duty, devotion, and righteous conduct.",
+    "fullNarrative": "## The Perfect Prince\n\nRama, the eldest son of King Dasharatha of Ayodhya, was the embodiment of virtue and the perfect heir. He was also an avatar of the preserver god Vishnu, born to rid the world of the demon king Ravana. However, on the eve of his coronation, his stepmother Kaikeyi invoked an old boon, forcing the king to banish Rama to the forest for fourteen years and crown her own son, Bharata, instead.\n\nRama accepted his father's command without resentment, honoring his dharma (duty). He departed for the wilderness, accompanied by his devoted wife Sita (avatar of Lakshmi) and his loyal brother Lakshmana.\n\n## The Abduction of Sita\n\nIn the forest of Dandaka, the trio lived as ascetics, battling demons who threatened the sages. Their presence attracted the attention of Ravana, the ten-headed Rakshasa king of Lanka. Ravana engineered a diversion: a golden deer that Sita desired. While Rama and Lakshmana were drawn away, Ravana engaged Sita, kidnapped her, and flew her south to his island fortress of Lanka.\n\nSita, fiercely loyal to Rama, refused Ravana's advances and was held captive in the Ashoka garden, dreaming of her rescue.\n\n## The Search and the War\n\nRama and Lakshmana began a desperate search. They forged an alliance with the Vanaras (monkey race), led by the exiled king Sugriva and his mighty general Hanuman. Hanuman, son of the wind god, leaped across the ocean to Lanka, found Sita, and assured her of Rama's coming. He then allowed himself to be captured, set his tail on fire, and burned down the golden city of Lanka before escaping.\n\nThe monkey army built a bridge of floating stones across the ocean. Rama led his forces to Lanka, where a terrible war raged. Ravana, protected by boons that made him immune to gods and demons (but not humans), was formidable. But Rama, fighting as a mortal man, eventually pierced Ravana's heart with the Brahmastra weapon.\n\n## The Trial by Fire\n\nWith Ravana dead, Sita was freed. But Rama, bound by the strict codes of honor and public perception, hesitated to accept her back, fearing rumors about her purity after living in another man's house. To prove her chastity, Sita entered a blazing fire. Agni, the fire god, carried her out unharmed, testifying to her absolute purity.\n\nRama revealed he knew her truth all along but needed the world to witness it. They returned to Ayodhya, where Rama was crowned king (Ram Rajya), establishing a golden age of righteousness.",
+    "keyExcerpts": "Rama accepts 14 years of exile. Sita is kidnapped by Ravana. Hanuman burns Lanka. Rama kills Ravana. Sita performs the Agni Pariksha (trial by fire) to prove her purity.",
     "category": "epic",
+    "moralThemes": [
+      "dharma (duty)",
+      "devotion",
+      "honor",
+      "good vs evil"
+    ],
+    "culturalSignificance": "The Ramayana presents the ideals of human relationships: the ideal son, brother, wife, and king. It is a cornerstone of Hindu ethics and culture.",
     "imageUrl": "/stories/ramayana.png",
     "citationSources": [
       {
@@ -355,7 +382,16 @@
     "title": "The Mahabharata",
     "slug": "mahabharata",
     "summary": "Epic saga of the conflict between the Pandavas and Kauravas for the throne of Hastinapura, culminating in the great Kurukshetra war. Contains the Bhagavad Gita.",
+    "fullNarrative": "## The Game of Dice\n\nThe dynastic struggle centered on two sets of cousins: the five Pandavas (sons of Pandu, though divinely fathered) and the one hundred Kauravas (sons of the blind king Dhritarashtra). Current King Duryodhana of the Kauravas, jealous of the Pandavas' prosperity, invited the eldest Pandava, Yudhishthira, to a rigged game of dice.\n\nYudhishthira, bound by honor and addicted to gambling, lost everything: his kingdom, his brothers, himself, and finally their shared wife, Draupadi. The Kauravas humiliated Draupadi in the court, attempting to disrobe her, but Krishna miraculously made her sari endless, protecting her dignity. The Pandavas were sentenced to thirteen years of exile.\n\n## The Bhagavad Gita\n\nWhen the exile ended, the Kauravas refused to return the kingdom. War became inevitable. The armies gathered at Kurukshetra. Arjuna, the greatest archer of the Pandavas, looked across the battlefield and saw his cousins, teachers, and elders arrayed against him. Overcome with grief at the prospect of killing his kin, he dropped his bow.\n\nKrishna, acting as Arjuna's charioteer (and revealed as the Supreme God), paused time to deliver the Bhagavad Gita. He taught Arjuna about the immortality of the soul, the duty of a warrior (dharma), and the path of selfless action (Karma Yoga). He urged Arjuna to fight not for gain, but to uphold righteousness.\n\n## The Great War\n\nThe war lasted eighteen days and involved millions of warriors. It was a war of devastating weaponry and complex morality. The code of chivalry broke down. The great grandsire Bhishma fell on a bed of arrows. The teacher Drona was tricked into laying down his arms. Karna, the secret eldest brother of the Pandavas fighting for the enemy, was killed while his chariot wheel was stuck.\n\nIn the end, the Pandavas won, but the victory was pyrrhic. Almost all the warriors on both sides were dead. The 100 Kauravas were slain. The Pandavas ruled for 36 years, seeking redemption for the sins of the war, before renouncing the world and climbing the Himalayas to reach heaven.",
+    "keyExcerpts": "The game of dice and humiliation of Draupadi. Krishna delivering the Bhagavad Gita to Arjuna. The 18-day war of Kurukshetra where righteousness triumphs at great cost.",
     "category": "epic",
+    "moralThemes": [
+      "dharma",
+      "karma",
+      "futility of war",
+      "divine will"
+    ],
+    "culturalSignificance": "The longest epic poem known to man. It is a comprehensive guide to life, ethics, philosophy, and governance in Hinduism.",
     "imageUrl": "/stories/mahabharata.png",
     "citationSources": [
       {
@@ -371,7 +407,15 @@
     "title": "Samudra Manthan - Churning of the Ocean",
     "slug": "churning-ocean",
     "summary": "Gods and demons cooperate to churn the cosmic ocean to obtain amrita (nectar of immortality). Various precious things emerge, including Lakshmi, before finally the nectar appears.",
+    "fullNarrative": "## The Curse of Durvasa\n\nOnce, the Devas (gods) lost their glory and strength due to a curse from the sage Durvasa. The Asuras (demons) seized the opportunity to defeat them and take control of the universe. Desperate, the gods appealed to Vishnu, the Preserver.\n\nVishnu advised them to churn the Milky Ocean (Ksheera Sagara) to obtain Amrita, the nectar of immortality, which would restore their power. However, the task was too great for the gods alone. They had to form a diplomatic alliance with their enemies, the Asuras, promising to share the nectar.\n\n## The Great Churning\n\nThey used Mount Mandara as the churning rod and the giant serpent Vasuki as the rope. The gods held the tail, and the demons held the head (which spat poison). But the mountain began to sink into the ocean floor. Vishnu assumed his Kurma (tortoise) avatar, diving to the bottom to support the mountain on his back.\n\nAs they churned for a thousand years, the ocean first produced Halahala, a deadly poison that threatened to destroy all creation. Shiva, the Destroyer, stepped forward and drank the poison to save the world. Parvati, his consort, gripped his throat to stop the poison from reaching his stomach, turning his neck blue (hence his name Neelakantha).\n\n## Treasures of the Deep\n\nContinued churning released fourteen distinct treasures (Ratnas), including:\n- Kamadhenu, the wish-fulfilling cow\n- Airavata, the white elephant\n- The Moon (Chandra)\n- Lakshmi, the goddess of wealth, who immediately chose Vishnu as her consort.\n\n## The Deception\n\nFinally, Dhanvantari, the physician of the gods, emerged holding the pot of Amrita. The Asuras immediately snatched it. Chaos ensued.\n\nVishnu then transformed into Mohini, a breathtakingly beautiful enchantress. She distracted the Asuras and offered to distribute the nectar fairly. Mesmerized by her beauty, the Asuras agreed. Mohini seated the gods and demons in separate rows. She served the nectar only to the gods. One demon, Rahu, disguised himself as a god and took a sip. The Sun and Moon spotted him, and Vishnu cut off his head. Since the nectar had touched his throat, his head remained immortal (Rahu) while his body died (Ketu), causing eclipses by swallowing the sun and moon.\n\nThe gods, now immortal, defeated the Asuras and restored order to the cosmos.",
+    "keyExcerpts": "Vishnu as Kurma (the tortoise) supports the mountain. Shiva drinks the poison Halahala. Lakshmi emerges from the ocean. Vishnu as Mohini tricks the Asuras to give the nectar only to the gods.",
     "category": "myth",
+    "moralThemes": [
+      "cooperation",
+      "greed vs wisdom",
+      "divine intervention"
+    ],
+    "culturalSignificance": "Explain the origin of many divine items, the eclipses (Rahu/Ketu), and Shiva's blue throat. It symbolizes the spiritual process of churning one's mind to reach self-realization.",
     "imageUrl": "/stories/churning-ocean.png",
     "citationSources": [
       {
@@ -386,7 +430,16 @@
     "title": "The Creation of Japan",
     "slug": "creation-japan",
     "summary": "The primordial gods Izanagi and Izanami create the Japanese islands and countless kami, establishing the divine origins of Japan and its imperial line.",
+    "fullNarrative": "## The Floating Bridge\n\nBefore the world was formed, there was a chaotic, oily mass like a jellyfish. The elder gods summoned the divine pair, Izanagi (He Who Invites) and Izanami (She Who Invites), and commanded them to solidify the drifting land. They were given the Jeweled Spear of Heaven (Amenonuhoko).\n\nStanding on the Floating Bridge of Heaven, they stirred the chaotic brine below with the spear. When they lifted it, the salty drops that fell from the tip coagulated to form the first island, Onogoro. They descended to this island and erected a heavenly pillar and a great hall.\n\n## Birth of the Islands\n\nTo populate the world, they devised a marriage ritual of walking around the pillar. However, Izanami spoke first upon meeting, which was considered improper. Their first children were deformed (the Leech Child) and were set adrift in a reed boat. The elder gods told them to redo the ritual correctly, with Izanagi speaking first.\n\nAfter correcting the ritual, they gave birth to the eight great islands of Japan (Oypashima) and then hundreds of smaller islands. Following the land, they gave birth to the kami (spirits) of the sea, wind, mountains, and trees.\n\n## Death of Izanami\n\nTragedy struck when Izanami gave birth to Kagutsuchi, the fire god. The flames burned her so badly that she died and descended to Yomi, the Land of the Dead. Enraged with grief, Izanagi beheaded his fiery son, and from the blood, more kami were born.\n\nIzanagi journeyed to Yomi to retrieve his wife. He found her, but she warned him not to look at her as she prepared to leave. Overcome by impatience, he lit a tooth of his comb solely to see her. He saw her rotting corpse writhing with maggots. Horrified, he fled.\n\nShamed and furious, Izanagi sent hags of the underworld to chase him. He escaped and sealed the entrance to Yomi with a great boulder. From behind the rock, Izanami vowed to kill 1,000 of his people every day. Izanagi replied he would cause 1,500 to be born every day—establishing the cycle of life and death.\n\n## The Precious Children\n\nTo purify himself from the pollution of death, Izanagi bathed in a river. As he washed his face, the three noble children were born:\n- From his left eye: **Amaterasu** (Sun Goddess)\n- From his right eye: **Tsukuyomi** (Moon God)\n- From his nose: **Susanoo** (Storm God)\n\nHe divided the rule of the heavens and earth among them.",
+    "keyExcerpts": "Stirring the ocean with the Jeweled Spear to create islands. The failed first ritual. The birth of the fire god killing Izanami. Izanagi's descent to Yomi and the birth of Amaterasu, Tsukuyomi, and Susanoo from his purification.",
     "category": "creation",
+    "moralThemes": [
+      "ritual propriety",
+      "life and death cycle",
+      "purity (kegare)",
+      "divine ancestry"
+    ],
+    "culturalSignificance": "The foundation of Shinto, explaining the divine origin of the Japanese archipelago and the Imperial family (descendants of Amaterasu).",
     "imageUrl": "/stories/creation-japan.png",
     "citationSources": [
       {
@@ -401,7 +454,15 @@
     "title": "Amaterasu and the Heavenly Cave",
     "slug": "amaterasu-cave",
     "summary": "When Susanoo's violence drives Amaterasu into hiding in a cave, the world falls into darkness. The gods devise a plan to lure her out, restoring light to the world. Explains the importance of ritual.",
+    "fullNarrative": "## The Storm God's Rampage\n\nSusanoo, the storm god, was jealous of his sister Amaterasu, the sun goddess. He went on a destructive rampage in her realm of the High Plain of Heaven. He destroyed her rice fields, defecated in her sacred halls, and finally threw a flayed pony through the roof of her weaving hall, killing one of her attendants.\n\nTerrified and outraged, Amaterasu fled into the Heavenly Rock Cave (Ama-no-Iwato) and sealed the door shut. Instantly, the world was plunged into eternal night. Chaos reigned, and evil spirits swarmed in the darkness.\n\n## The Divine Plan\n\nThe eight hundred myriad kami gathered by the Heavenly River to figure out how to coax the sun back. Omoikane, the god of wisdom, devised a plan. They made a mirror (Yata no Kagami) and jewels (Yasakani no Magatama) and hung them on a Sakaki tree outside the cave.\n\nThen, the goddess Ame-no-Uzume overturned a tub and began a wild, erotic dance upon it, stomping her feet and exposing herself. The gathered gods laughed and cheered so uproariously that the ground shook.\n\n## The Return of Light\n\nInside the cave, Amaterasu was puzzled. \"Why are they celebrating when the world is dark?\" She opened the stone door just a crack to peek out. \"Why do you laugh?\"\n\nUzume replied, \"We rejoice because there is a new goddess here more illustrious than you!\" At that moment, they held up the mirror. Amaterasu, seeing her own brilliant reflection and thinking it was another sun goddess, stepped forward in fascination.\n\nA string god who was waiting in the shadows grabbed her hand and pulled her out, and a straw rope (shimenawa) was quickly tied across the entrance so she could not return. Light flooded the world once more, chasing away the shadows and evil spirits.",
+    "keyExcerpts": "Susanoo's pranks drive the sun into a cave. The world goes dark. Ame-no-Uzume performs a lewd dance to make the gods laugh. Amaterasu is lured out by a mirror and her own curiosity.",
     "category": "myth",
+    "moralThemes": [
+      "shared responsibility",
+      "power of laughter/arts",
+      "restoration of order"
+    ],
+    "culturalSignificance": "Explains the solar eclipse and the winter solstice. The mirror and jewels became part of the Imperial Regalia of Japan.",
     "imageUrl": "/stories/amaterasu-cave.png",
     "citationSources": [
       {
@@ -416,7 +477,15 @@
     "title": "Susanoo and Yamata no Orochi",
     "slug": "yamata-no-orochi",
     "summary": "Exiled storm god Susanoo encounters an eight-headed, eight-tailed dragon terrorizing a family. He slays the beast and discovers the sacred sword Kusanagi in its tail.",
+    "fullNarrative": "## The Exile\n\nBanishment from heaven for his crimes against Amaterasu, Susanoo descended to the province of Izumo on earth. By the Hi river, he found an old couple weeping with their beautiful daughter, Kushinada-hime. They explained that for the past seven years, the terrible eight-headed serpent Yamata no Orochi had come to devour one of their daughters. Now, only Kushinada remained, and the dragon was coming for her.\n\n## The Trap\n\nSusanoo agreed to slay the monster if he could have Kushinada's hand in marriage. He turned the girl into a comb and placed her in his hair for safety. Then, he instructed the couple to build a fence with eight gates. At each gate, they placed a vat of strong sake (rice wine).\n\nWhen Yamata no Orochi arrived, its eyes glowing like winter cherries, its eight heads dipped into the eight vats and drank greedily. The beast soon fell into a drunken stupor.\n\n## The Sword in the Tail\n\nSusanoo drew his sword and hacked the sleeping dragon to pieces. The river flowed red with blood. As he cut into the middle tail, his blade chipped. Investigating, he pulled open the flesh and found a magnificent sword hidden inside: the Kusanagi-no-Tsurugi (Grass-Cutting Sword).\n\nRealizing this was a divine treasure, Susanoo sent the sword up to heaven as a reconciliation gift to his sister Amaterasu. He then built a palace in Izumo and lived happily with his wife Kushinada, composing the first waka poem about the clouds rising around their home.",
+    "keyExcerpts": "Susanoo saves Kushinada-hime by getting the eight-headed dragon drunk on sake. He finds the Kusanagi sword in its tail and gives it to Amaterasu.",
     "category": "myth",
+    "moralThemes": [
+      "redemption",
+      "heroism",
+      "ingenuity over brute force"
+    ],
+    "culturalSignificance": "Marks Susanoo's transition from troublemaker to hero. The Kusanagi sword is one of the three Imperial Regalia of Japan.",
     "imageUrl": "/stories/yamata-no-orochi.png",
     "citationSources": [
       {
@@ -431,7 +500,15 @@
     "title": "The Second Battle of Mag Tuired",
     "slug": "cath-maige-tuired",
     "summary": "The Tuatha Dé Danann fight the Fomorians for control of Ireland. Lugh leads the gods to victory, slaying his grandfather Balor.",
+    "fullNarrative": "## The Oppression\n\nThe Tuatha Dé Danann, the tribe of gods, ruled Ireland but suffered under the oppression of the Fomorians, a dark race of sea-raiders who demanded heavy tribute. The current king of the Tuatha Dé, Bres (half-Fomorian), was a tyrant who enslaved his own people. Nuada, the previous king, had lost his arm and thus his right to rule, though he later had it replaced with a silver one.\n\n## The Arrival of Lugh\n\nA young warrior named Lugh arrived at the feast of Nuada. The doorkeeper refused him entry unless he possessed a skill no one else had. Lugh listed his skills: smith, champion, harpist, poet, historian, sorcerer, and physician. The doorkeeper noted they already had experts in all those fields. Lugh asked, \"But do you have any one man who possesses *all* these together?\" He was admitted as the Samildánach (Master of All Arts).\n\nRecognizing his power, Nuada temporarily yielded the throne to Lugh to lead the war effort against the Fomorians.\n\n## The Battle\n\nThe armies met at Mag Tuired (Moytura). It was a war of magic as much as steel. The Fomorian champion was Balor of the Evil Eye, a giant whose single eyelid was so heavy it had to be lifted by attendants. His gaze killed instantly.\n\nIn the battle, Balor killed Nuada. Lugh then faced his grandfather, Balor. As the giant's eyelid was being lifted, Lugh used his sling to fire a tathlum (concrete stone) through the eye. The force of the blow drove the eye backward through Balor's skull, turning its deadly gaze upon the Fomorian army behind him. The Fomorians were routed and driven into the sea.\n\nThe victory secured the Tuatha Dé Danann's dominion over Ireland until the coming of the Milesians (humans).",
+    "keyExcerpts": "Lugh functions as the master of all arts. He kills Balor with a sling-stone through the Evil Eye. The Fomorians are defeated.",
     "category": "war",
+    "moralThemes": [
+      "skill vs brute strength",
+      "tyranny vs liberty",
+      "prophecy"
+    ],
+    "culturalSignificance": "The defining conflict of Irish mythology, establishing the hierarchy of the gods and Lugh's supremacy.",
     "imageUrl": "/stories/cath-maige-tuired.png",
     "citationSources": [
       {
@@ -446,7 +523,16 @@
     "title": "The Children of Lir",
     "slug": "children-lir",
     "summary": "A tragedy where four children are cursed by their jealous stepmother to live as swans for 900 years.",
+    "fullNarrative": "## The Curse\n\nLir, a lord of the Tuatha Dé Danann, had four beautiful children: Fionnuala, Aodh, Fiachra, and Conn. After his wife died, he married her sister, Aoife. At first, Aoife loved the children, but she soon grew jealously possessive of Lir's affection for them.\n\nOne day, she took the children to a lake. While they were swimming, she used a druidic wand to transform them into white swans. She cursed them to remain as swans for 900 years: 300 on Lake Derravaragh, 300 on the Sea of Moyle, and 300 on the Atlantic isle of Inishglora. They retained their human voices and the ability to sing more beautifully than any mortal.\n\n## The Long Exile\n\nWhen Lir discovered what Aoife had done, he was heartbroken. He could not break the spell, but he punished Aoife by turning her into an air demon to wander the skies forever. Lir and his people spent the first 300 years by the lake listening to the swans' sad, sweet songs.\n\nBut the centuries passed. Lir died, and the Tuatha Dé Danann faded into the mounds to become the Sidhe (fairies). The swans endured harsh winters and stormy seas, separated and battered by ice, yet kept together by Fionnuala's leadership. They witnessed the arrival of Christianity in Ireland, marked by the sound of the first church bell.\n\n## The End of the Spell\n\nFinally, on the isle of Inishglora, they heard the bell of the holy man Mo Caemoc. The spell was broken. But 900 years had passed. As true form returned, they were not children, but withered, ancient crones and old men. They were baptized by the monk just before they collapsed and died of extreme old age, their souls going to heaven, finally at peace.",
+    "keyExcerpts": "Aoife turns her stepchildren into swans out of jealousy. They sing beautifully for 900 years across three locations. The spell breaks upon hearing a Christian bell, and they die as ancients.",
     "category": "tragedy",
+    "moralThemes": [
+      "jealousy",
+      "endurance",
+      "innocence lost",
+      "religious transition"
+    ],
+    "culturalSignificance": "One of the 'Three Sorrows of Storytelling' in Irish myth. It bridges the gap between pagan Celtic myth and the arrival of Christianity.",
     "imageUrl": "/stories/children-lir.png",
     "citationSources": [
       {
@@ -461,7 +547,15 @@
     "title": "The Legend of the Five Suns",
     "slug": "five-suns",
     "summary": "The Aztec creation myth describing four previous worlds that were destroyed, and the creation of the current fifth world by the sacrifice of the gods.",
+    "fullNarrative": "## The Cycle of Destruction\n\nThe Aztecs believed that time was cyclical and the universe had been created and destroyed four times before. Each era was called a \"Sun.\"\n\n1. **Nahui-Ocelotl (Jaguar Sun):** Ruled by Tezcatlipoca. Giants lived then. Quetzalcoatl knocked Tezcatlipoca into the sea, he became a jaguar, and jaguars ate all the giants.\n2. **Nahui-Ehecatl (Wind Sun):** Ruled by Quetzalcoatl. Destroyed by hurricanes. Humans turned into monkeys.\n3. **Nahui-Quiahuitl (Rain Sun):** Ruled by Tlaloc. Destroyed by a rain of fire (volcanoes). Humans turned into turkeys/birds.\n4. **Nahui-Atl (Water Sun):** Ruled by Chalchiuhtlicue. Destroyed by a great flood. Humans turned into fish.\n\n## The Fifth Sun\n\nThe gods gathered at Teotihuacan in darkness to create a new sun. Two gods volunteered: the wealthy but cowardly Tecuciztecatl and the poor, humble Nanahuatzin. A great bonfire was lit. Tecuciztecatl hesitated four times, afraid of the heat. Nanahuatzin, without a word, leaped into the flames and became the Sun (Tonatiuh).\n\nShamed, Tecuciztecatl followed him and became the Moon. But now there were two equally bright suns. One of the gods threw a rabbit into the face of the second sun to dim it, creating the moon with the rabbit marking.\n\n## The Demand for Blood\n\nEven with the sun created, it did not move. It hung burning in the sky. The sun god demanded payment: \"Give me blood, or I will not move.\" The gods realized they had to sacrifice themselves to set the universe in motion. Ehécatl (wind god) slew the other gods and blew the sun into motion.\n\nThus, the Fifth Sun, **Nahui-Ollin (Movement Sun)**, began. But it is prophesied to end in earthquakes. To prevent this, humanity must continuously offer sacrifice (newtork) to repay the debt of the gods.",
+    "keyExcerpts": "Four worlds destroyed by jaguars, wind, fire, and water. Nanahuatzin jumps into the fire to become the sun. The gods sacrifice themselves to make the sun move.",
     "category": "creation",
+    "moralThemes": [
+      "sacrifice keeps the world alive",
+      "cyclical time",
+      "debt to the gods"
+    ],
+    "culturalSignificance": "The central justification for Aztec human sacrifice: avoiding the end of the world.",
     "imageUrl": "/stories/five-suns.png",
     "citationSources": [
       {
@@ -476,7 +570,16 @@
     "title": "Journey to the West",
     "slug": "journey-to-west",
     "summary": "The legendary pilgrimage of the monk Tang Sanzang and his disciples (including Sun Wukong) to retrieve sacred Buddhist scriptures.",
+    "fullNarrative": "## The Monkey King\n\nSun Wukong was born from a stone egg atop the Mountain of Flowers and Fruit. He learned Taoist arts, mastered the 72 transformations, acquired a 13,500-pound cudgel that could shrink to the size of a needle, and erased his name from the Book of Life and Death. After wreaking havoc in Heaven and declaring himself the Great Sage Equal to Heaven, he was imprisoned under a mountain by the Buddha for 500 years.\n\n## The Pilgrimage\n\nDecades later, the bodhisattva Guanyin arranged his release on the condition that he protect the monk Tang Sanzang on a journey to India (the West) to retrieve Buddhist sutras. They were joined by two other disciples seeking redemption: Zhu Bajie (Pigsy), a lecherous pig-demon, and Sha Wujing (Sandy), a river ogre.\n\n## The 81 Tribulations\n\nThe journey was a gauntlet of 81 trials. Demons sought to eat the monk's flesh to gain immortality. Beautiful spirits tried to seduce them. They faced flaming mountains, spider-women, and white-bone spirits.\n\nSun Wukong was the powerhouse, using his golden eyes to see through disguises and his cudgel to smash monsters. However, the monk constantly punished Wukong for his violence using a magical headache-inducing headband. The tension between the pacifist monk and the violent warrior is central to the story.\n\n## Enlightenment\n\nAfter fourteen years and 108,000 miles, they reached Vulture Peak, received the scriptures from the Buddha, and returned to China. Wukong was granted Buddhahood for his service, becoming the Victorious Fighting Buddha. The story is a metaphor for the journey toward enlightenment, taming the 'monkey mind' (restless thoughts) through discipline.",
+    "keyExcerpts": "Sun Wukong's rebellion and imprisonment. The journey with Pigsy and Sandy. Battling the White Bone Spirit. Reaching the Western Heaven.",
     "category": "epic",
+    "moralThemes": [
+      "redemption",
+      "discipline",
+      "loyalty",
+      "Buddhist philosophy"
+    ],
+    "culturalSignificance": "One of the Four Great Classical Novels of China. Sun Wukong is one of the most popular literary characters in East Asia.",
     "imageUrl": "/stories/journey-to-west.png",
     "citationSources": [
       {
@@ -492,7 +595,15 @@
     "title": "Hou Yi Shoots the Suns",
     "slug": "archer-yi",
     "summary": "When ten suns appeared in the sky, scorching the earth, the archer Hou Yi shot down nine of them to save humanity.",
+    "fullNarrative": "## The Ten Suns\n\nIn the ancient times, there were ten suns, the children of the Jade Emperor. They normally took turns rising, one each day, so the earth stayed warm but not hot. But one day, bored with the routine, all ten suns decided to rise together.\n\nThe heat was catastrophic. Rivers dried up, crops withered to dust, and people began to die of thirst and heatstroke. Monsters emerged from the chaos to prey on the survivors. The Jade Emperor asked his greatest archer, the immortal Hou Yi, to discipline his sons.\n\n## The Archer's Solution\n\nHou Yi descended to earth with his white bow and golden arrows. At first, he tried to reason with the suns, but they ignored him. Seeing the suffering of the people, Hou Yi's anger grew. He drew his bow and fired.\n\nA great ball of fire exploded in the sky, and a three-legged raven (the spirit of the sun) fell to the earth. Hou Yi fired again and again. One by one, the suns fell. The earth began to cool.\n\nHe had shot down nine suns. He was aiming at the last one when the Emperor's officials (or his wife Chang'e in some versions) stole his last arrow, realizing that if he killed them all, the earth would freeze in eternal darkness. Thus, one sun was left to provide light and warmth.\n\n## The Tragic Aftermath\n\nAlthough he saved the world, the Jade Emperor was furious that Hou Yi had killed his sons. He stripped Hou Yi and his wife Chang'e of their immortality and banished them to live as mortals on earth. This leads to the sequel story where Chang'e steals the elixir of immortality and floats to the moon.",
+    "keyExcerpts": "Ten suns rise at once. Hou Yi shoots down nine. He is punished by becoming mortal.",
     "category": "myth",
+    "moralThemes": [
+      "heroism requiring sacrifice",
+      "consequences of rebellion",
+      "balance of nature"
+    ],
+    "culturalSignificance": "Celebrated during the Mid-Autumn Festival (along with Chang'e). Explains why there is only one sun.",
     "imageUrl": "/stories/archer-yi.png",
     "citationSources": [
       {

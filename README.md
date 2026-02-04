@@ -35,11 +35,67 @@ An immersive web application exploring ancient mythologies through interactive v
 - Discover parallels across cultures
 - See how different civilizations portrayed similar domains
 
-### 🧠 **Educational Quiz**
-- Test your mythology knowledge
-- Dynamic questions generated from deity data
-- Progress tracking and score display
-- Instant feedback with explanations
+### 🔊 **Audio & Ambiance**
+- Immersive background audio for each pantheon
+- Global volume control with mute/unmute
+- Sound effects for interactive elements
+
+### 🏛️ **3D Artifacts**
+- Interactive 3D visualization of legendary items
+- Examine relics like the Golden Apple or Shields from all angles
+- Procedurally generated 3D meshes using React Three Fiber
+
+### 🗺️ **Locations Map**
+- Interactive map to explore mythical sites
+- Filter by Pantheon and Location Type (Temple, City, Underworld)
+- Visualizing sacred geography across the ancient world
+
+### 🗣️ **Accessibility**
+- **Text-to-Speech**: Listen to long-form stories with one click
+- Keyboard navigable interface
+- **Fuzzy Search**: Find content even with typos (e.g., "Zues" -> "Zeus")
+
+## 🏗️ Architecture
+
+```mermaid
+graph TD
+    User[User Browser]
+    
+    subgraph Frontend [Next.js App Router]
+        Page[Pages / Layouts]
+        Comp[UI Components]
+        Hooks[Custom Hooks]
+        Audio[Audio Context]
+    end
+    
+    subgraph API [Next.js API Routes]
+        GraphQL[GraphQL Route Handler]
+        Resolvers[Data Resolvers]
+        Search[Fuse.js Search Engine]
+    end
+    
+    subgraph Data [JSON Data Layer]
+        Pantheons[pantheons.json]
+        Deities[deities.json]
+        Stories[stories.json]
+        Locations[locations.json]
+    end
+    
+    User --> Page
+    Page --> Comp
+    Comp --> Hooks
+    Hooks --> GraphQL
+    
+    Page --> Audio
+    
+    GraphQL --> Resolvers
+    Resolvers --> Search
+    
+    Resolvers --> Pantheons
+    Resolvers --> Deities
+    Resolvers --> Stories
+    Resolvers --> Locations
+```
 
 ## 🛠️ Tech Stack
 
@@ -48,14 +104,17 @@ An immersive web application exploring ancient mythologies through interactive v
 - **React 19.2.3** - UI library
 - **TypeScript** - Type-safe development
 - **Tailwind CSS 4** - Modern styling
-- **React Query (TanStack Query)** - Data fetching and caching
+- **React Query** - Data fetching and caching
 - **ReactFlow** - Network graph visualization
-- **React D3 Tree** - Hierarchical tree visualization
+- **D3.js & React-D3-Tree** - Data visualizations
+- **React Three Fiber** - 3D Rendering
+- **Howler.js** - Audio management
 - **Framer Motion** - Smooth animations
 - **shadcn/ui** - Beautiful UI components
 
-### Backend
-- **GraphQL API** - Route handler with local JSON data
+### Backend & Data
+- **GraphQL API** - Flexible data querying
+- **Fuse.js** - Fuzzy search engine
 - **Next.js API Routes** - Serverless functions
 
 ### Deployment

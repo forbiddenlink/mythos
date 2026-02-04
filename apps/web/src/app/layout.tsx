@@ -9,6 +9,8 @@ import { CommandPaletteProvider } from "@/components/command-palette/CommandPale
 import { SkipToContent } from "@/components/accessibility/SkipToContent";
 import { BookmarksProvider } from "@/providers/bookmarks-provider";
 import { generateBaseMetadata } from "@/lib/metadata";
+import { AudioProvider } from "@/components/audio/AudioContext";
+import { AudioControls } from "@/components/audio/AudioControls";
 
 // Cinzel - Elegant classical display font inspired by Roman inscriptions
 const cinzel = Cinzel({
@@ -23,6 +25,7 @@ const sourceSans = Source_Sans_3({
   variable: "--font-source-sans",
   subsets: ["latin"],
   display: "swap",
+  weight: ["400", "500"],
 });
 
 // Crimson Pro - Elegant serif for body text and quotes
@@ -55,16 +58,19 @@ export default function RootLayout({
         >
           <QueryProvider>
             <BookmarksProvider>
-              <CommandPaletteProvider>
-                <SkipToContent />
-                <div className="flex min-h-screen flex-col">
-                  <Header />
-                  <main id="main-content" className="flex-1" tabIndex={-1}>
-                    {children}
-                  </main>
-                  <Footer />
-                </div>
-              </CommandPaletteProvider>
+              <AudioProvider>
+                <CommandPaletteProvider>
+                  <SkipToContent />
+                  <div className="flex min-h-screen flex-col">
+                    <Header />
+                    <main id="main-content" className="flex-1" tabIndex={-1}>
+                      {children}
+                    </main>
+                    <Footer />
+                  </div>
+                  <AudioControls />
+                </CommandPaletteProvider>
+              </AudioProvider>
             </BookmarksProvider>
           </QueryProvider>
         </ThemeProvider>

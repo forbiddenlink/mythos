@@ -12,6 +12,8 @@ import Image from 'next/image';
 import { FamilyTreeVisualization } from '@/components/family-tree/FamilyTreeVisualization';
 import { BookmarkButton } from '@/components/ui/bookmark-button';
 import { DeityJsonLd } from '@/components/seo/JsonLd';
+import ReactMarkdown from 'react-markdown';
+
 
 interface Deity {
   id: string;
@@ -22,7 +24,9 @@ interface Deity {
   domain: string[];
   symbols: string[];
   description: string | null;
+  detailedBio?: string | null;
   originStory: string | null;
+
   importanceRank: number | null;
   imageUrl: string | null;
   alternateNames: string[];
@@ -55,6 +59,7 @@ export default function DeityPage() {
             domain
             symbols
             description
+            detailedBio
             originStory
             importanceRank
             imageUrl
@@ -221,19 +226,23 @@ export default function DeityPage() {
 
             {/* Content Cards */}
             <div className="space-y-8">
-              {/* Description */}
-              {deity.description && (
-                <Card className="bg-white dark:bg-slate-900 border-l-4 border-l-gold">
-                  <CardHeader>
-                    <CardTitle className="font-serif text-2xl">About {deity.name}</CardTitle>
-                  </CardHeader>
-                  <CardContent>
+              {/* Detailed Bio (Markdown) or Description */}
+              <Card className="bg-white dark:bg-slate-900 border-l-4 border-l-gold">
+                <CardHeader>
+                  <CardTitle className="font-serif text-2xl">About {deity.name}</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  {deity.detailedBio ? (
+                    <div className="prose prose-slate dark:prose-invert prose-headings:font-serif prose-headings:text-amber-700 dark:prose-headings:text-amber-500 prose-a:text-teal-600 dark:prose-a:text-teal-400 max-w-none">
+                      <ReactMarkdown>{deity.detailedBio}</ReactMarkdown>
+                    </div>
+                  ) : (
                     <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-lg">
                       {deity.description}
                     </p>
-                  </CardContent>
-                </Card>
-              )}
+                  )}
+                </CardContent>
+              </Card>
 
               {/* Origin Story */}
               {deity.originStory && (

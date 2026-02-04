@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { graphqlClient } from '@/lib/graphql-client';
 import { gql } from 'graphql-request';
@@ -11,6 +11,8 @@ import Image from 'next/image';
 import { FamilyTreeVisualization } from '@/components/family-tree/FamilyTreeVisualization';
 import { EnhancedFamilyTree } from '@/components/family-tree/EnhancedFamilyTree';
 import { Breadcrumbs } from '@/components/navigation/Breadcrumbs';
+import pantheonsData from '@/data/pantheons.json';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 
 interface Deity {
   id: string;
@@ -18,6 +20,7 @@ interface Deity {
   slug: string;
   domain: string[];
   gender: string | null;
+  pantheonId?: string;
 }
 
 interface Relationship {
@@ -30,6 +33,8 @@ interface Relationship {
 
 export default function FamilyTreePage() {
   const [viewMode, setViewMode] = useState<'hierarchical' | 'network'>('hierarchical');
+  const [selectedPantheon, setSelectedPantheon] = useState<string>('greek-pantheon');
+
   const { data: deitiesData, isLoading: deitiesLoading } = useQuery<{ deities: Deity[] }>({
     queryKey: ['all-deities-family-tree'],
     queryFn: async () => {
@@ -41,6 +46,7 @@ export default function FamilyTreePage() {
             slug
             gender
             domain
+            pantheonId
           }
         }
       `);
@@ -67,6 +73,35 @@ export default function FamilyTreePage() {
   });
 
   const isLoading = deitiesLoading || relationshipsLoading;
+
+  const filteredData = useState(() => {
+    // This is a derived state calculation that runs during render
+    if (!deitiesData?.deities || !relationshipsData?.allRelationships) return { deities: [], relationships: [] };
+
+    const filteredDeities = deitiesData.deities.filter(d => d.pantheonId === selectedPantheon);
+    const deityIds = new Set(filteredDeities.map(d => d.id));
+
+    const filteredRelationships = relationshipsData.allRelationships.filter(r =>
+      deityIds.has(r.fromDeityId) && deityIds.has(r.toDeityId)
+    );
+
+    return { deities: filteredDeities, relationships: filteredRelationships };
+  });
+
+  // Re-calculate when deps change (memoized)
+  const { deities: finalDeities, relationships: finalRelationships } = useMemo(() => {
+    if (!deitiesData?.deities || !relationshipsData?.allRelationships) return { deities: [], relationships: [] };
+
+    const filteredDeities = deitiesData.deities.filter(d => d.pantheonId === selectedPantheon);
+    const deityIds = new Set(filteredDeities.map(d => d.id));
+
+    const filteredRelationships = relationshipsData.allRelationships.filter(r =>
+      deityIds.has(r.fromDeityId) && deityIds.has(r.toDeityId)
+    );
+
+    return { deities: filteredDeities, relationships: filteredRelationships };
+  }, [deitiesData, relationshipsData, selectedPantheon]);
+
 
   if (isLoading) {
     return (
@@ -110,65 +145,84 @@ export default function FamilyTreePage() {
       <div className="container mx-auto max-w-7xl px-4 py-12">
         <Breadcrumbs />
 
-        {/* View Toggle */}
-        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-6">
-          <div className="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400">
-            <span className="font-medium">Visualization:</span>
+        {/* Controls Bar */}
+        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 mb-6 bg-white dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-800 shadow-xs">
+          <div className="flex items-center gap-4 w-full md:w-auto">
+            <div className="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400 shrink-0">
+              <span className="font-medium">Pantheon:</span>
+            </div>
+            <Select value={selectedPantheon} onValueChange={setSelectedPantheon}>
+              <SelectTrigger className="w-[200px]">
+                <SelectValue placeholder="Select Pantheon" />
+              </SelectTrigger>
+              <SelectContent>
+                {pantheonsData.map(p => (
+                  <SelectItem key={p.id} value={p.id}>{p.name}</SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
           </div>
-          <div className="flex flex-wrap gap-2">
-            <Button
-              variant={viewMode === 'hierarchical' ? 'default' : 'outline'}
-              size="sm"
-              onClick={() => setViewMode('hierarchical')}
-              className="gap-2"
-            >
-              <GitBranch className="h-4 w-4" />
-              <span className="hidden sm:inline">Hierarchical Tree</span>
-              <span className="sm:hidden">Tree</span>
-            </Button>
-            <Button
-              variant={viewMode === 'network' ? 'default' : 'outline'}
-              size="sm"
-              onClick={() => setViewMode('network')}
-              className="gap-2"
-            >
-              <Network className="h-4 w-4" />
-              <span className="hidden sm:inline">Network Graph</span>
-              <span className="sm:hidden">Network</span>
-            </Button>
+
+          <div className="flex items-center gap-4 w-full md:w-auto">
+            <div className="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400 shrink-0">
+              <span className="font-medium">Visualization:</span>
+            </div>
+            <div className="flex bg-slate-100 dark:bg-slate-800 p-1 rounded-lg">
+              <Button
+                variant={viewMode === 'hierarchical' ? 'default' : 'ghost'}
+                size="sm"
+                onClick={() => setViewMode('hierarchical')}
+                className="gap-2 h-8"
+              >
+                <GitBranch className="h-3.5 w-3.5" />
+                <span className="hidden sm:inline">Hierarchical</span>
+              </Button>
+              <Button
+                variant={viewMode === 'network' ? 'default' : 'ghost'}
+                size="sm"
+                onClick={() => setViewMode('network')}
+                className="gap-2 h-8"
+              >
+                <Network className="h-3.5 w-3.5" />
+                <span className="hidden sm:inline">Network</span>
+              </Button>
+            </div>
           </div>
         </div>
 
-        <Card className="bg-white dark:bg-slate-900">
-          <CardHeader>
+        <Card className="bg-white dark:bg-slate-900 overflow-hidden">
+          <CardHeader className="border-b border-border/50 bg-slate-50/50 dark:bg-slate-900/50">
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
-              <CardTitle className="font-serif">
-                {viewMode === 'hierarchical' ? 'Hierarchical Family Tree' : 'Network View'}
+              <CardTitle className="font-serif flex items-center gap-2">
+                {pantheonsData.find(p => p.id === selectedPantheon)?.name}
+                <span className="text-muted-foreground font-sans font-normal text-sm opacity-60">
+                  {viewMode === 'hierarchical' ? 'Family Tree' : 'Network Graph'}
+                </span>
               </CardTitle>
               <span className="text-xs sm:text-sm text-slate-500 dark:text-slate-400">
                 {viewMode === 'hierarchical'
-                  ? 'Click nodes to expand/collapse'
+                  ? 'Click nodes to expand/collapse branches'
                   : 'Drag to pan, scroll to zoom'}
               </span>
             </div>
           </CardHeader>
-          <CardContent>
-            {deitiesData?.deities && relationshipsData?.allRelationships ? (
+          <CardContent className="p-0">
+            {finalDeities.length > 0 ? (
               viewMode === 'hierarchical' ? (
                 <EnhancedFamilyTree
-                  deities={deitiesData.deities}
-                  relationships={relationshipsData.allRelationships}
+                  deities={finalDeities}
+                  relationships={finalRelationships}
                 />
               ) : (
                 <FamilyTreeVisualization
-                  deities={deitiesData.deities}
-                  relationships={relationshipsData.allRelationships}
+                  deities={finalDeities}
+                  relationships={finalRelationships}
                 />
               )
             ) : (
-              <div className="text-center py-12 text-slate-600 dark:text-slate-400">
+              <div className="text-center py-24 text-slate-600 dark:text-slate-400 bg-slate-50/30">
                 <Network className="h-12 w-12 mx-auto mb-4 opacity-50" />
-                <p>{isLoading ? 'Loading relationship data...' : 'No relationship data available'}</p>
+                <p>No family tree data available for this pantheon.</p>
               </div>
             )}
           </CardContent>

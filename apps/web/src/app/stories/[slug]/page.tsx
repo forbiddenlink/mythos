@@ -10,6 +10,11 @@ import { Breadcrumbs } from '@/components/navigation/Breadcrumbs';
 import { BookmarkButton } from '@/components/ui/bookmark-button';
 import { ArticleJsonLd } from '@/components/seo/JsonLd';
 import Link from 'next/link';
+import ReactMarkdown from 'react-markdown';
+import { useTextToSpeech } from '@/hooks/useTextToSpeech';
+import { Volume2, Square } from 'lucide-react';
+import { ArtifactViewer } from '@/components/artifacts/ArtifactViewer';
+
 
 interface Story {
   id: string;
@@ -17,6 +22,7 @@ interface Story {
   title: string;
   slug: string;
   summary: string;
+  fullNarrative?: string | null;
   keyExcerpts?: string;
   category: string;
   moralThemes?: string[];
@@ -26,7 +32,9 @@ interface Story {
 export default function StoryPage() {
   const params = useParams<{ slug: string }>();
   const slug = params?.slug;
-  
+  const { speak, cancel, isSpeaking, isPaused, pause, resume } = useTextToSpeech();
+
+
   const { data, isLoading, error } = useQuery<{ stories: Story[] }>({
     queryKey: ['stories'],
     queryFn: async () => graphqlClient.request(GET_STORIES),
@@ -105,9 +113,40 @@ export default function StoryPage() {
           </div>
           <div className="flex items-center justify-center gap-2 mb-4">
             <Tag className="h-4 w-4 text-gold/80" />
-            <p className="text-gold/80 font-body">{story.category}</p>
+            <p className="text-gold/80 font-body">{story?.category}</p>
           </div>
-          <BookmarkButton type="story" id={story.id} size="lg" variant="light" />
+
+          <div className="flex items-center justify-center gap-4">
+            <BookmarkButton type="story" id={story?.id || ''} size="lg" variant="light" />
+
+            {story && (
+              <button
+                onClick={() => {
+                  if (isSpeaking) {
+                    cancel();
+                  } else {
+                    speak(story.fullNarrative || story.summary);
+                  }
+                }}
+                className={`flex items-center gap-2 px-4 py-2 rounded-lg border transition-all ${isSpeaking
+                  ? 'bg-red-500/20 border-red-500/50 text-red-200 hover:bg-red-500/30'
+                  : 'bg-gold/20 border-gold/40 text-gold hover:bg-gold/30'
+                  }`}
+              >
+                {isSpeaking ? (
+                  <>
+                    <Square className="h-4 w-4 fill-current" />
+                    <span className="font-semibold">Stop Reading</span>
+                  </>
+                ) : (
+                  <>
+                    <Volume2 className="h-4 w-4" />
+                    <span className="font-semibold">Read Aloud</span>
+                  </>
+                )}
+              </button>
+            )}
+          </div>
         </div>
       </div>
 
@@ -116,19 +155,33 @@ export default function StoryPage() {
         <Breadcrumbs />
 
         <div className="mt-8 space-y-8">
-          {/* Summary */}
-          <Card className="border-gold/20 bg-midnight-light/50">
-            <CardHeader>
-              <CardTitle className="text-parchment text-2xl font-serif">Summary</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-parchment/80 leading-relaxed text-lg whitespace-pre-line">
-                {story.summary}
-              </p>
-            </CardContent>
-          </Card>
 
-          {/* Key Excerpts */}
+          {/* Full Narrative */}
+          {story.fullNarrative ? (
+            <Card className="border-gold/20 bg-midnight-light/50 overflow-hidden">
+              <CardHeader>
+                <CardTitle className="text-parchment text-2xl font-serif">The Tale</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="prose prose-invert prose-gold max-w-none prose-p:leading-relaxed prose-headings:font-serif prose-headings:text-gold/90 prose-strong:text-gold/80 prose-blockquote:border-l-gold/40 prose-blockquote:text-parchment/70 prose-li:marker:text-gold/50">
+                  <ReactMarkdown>{story.fullNarrative}</ReactMarkdown>
+                </div>
+              </CardContent>
+            </Card>
+          ) : (
+            <Card className="border-gold/20 bg-midnight-light/50">
+              <CardHeader>
+                <CardTitle className="text-parchment text-2xl font-serif">Summary</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-parchment/80 leading-relaxed text-lg whitespace-pre-line">
+                  {story.summary}
+                </p>
+              </CardContent>
+            </Card>
+          )}
+
+          {/* Key Excerpts - Only show if we have a full narrative (as a summary) or if specific excerpts exist */}
           {story.keyExcerpts && (
             <Card className="border-gold/20 bg-midnight-light/50">
               <CardHeader>
@@ -178,6 +231,17 @@ export default function StoryPage() {
               </CardContent>
             </Card>
           )}
+
+          {/* Museum Relics */}
+          <Card className="border-gold/20 bg-midnight-light/50 overflow-hidden">
+            <CardHeader>
+              <CardTitle className="text-parchment text-2xl font-serif">Museum Artifacts</CardTitle>
+              <CardDescription>Interactive 3D relics associated with this legend.</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <ArtifactViewer type={story.title.toLowerCase().includes('war') || story.title.toLowerCase().includes('battle') ? 'shield' : 'apple'} />
+            </CardContent>
+          </Card>
 
           {/* Navigation */}
           <div className="flex justify-center pt-8">

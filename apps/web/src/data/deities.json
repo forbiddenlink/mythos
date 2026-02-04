@@ -23,6 +23,7 @@
       "bull"
     ],
     "description": "King of the gods and ruler of Mount Olympus. God of the sky, thunder, and justice. Zeus overthrew his father Cronus to become the supreme deity of the Greek pantheon.",
+    "detailedBio": "## The King of Olympus\n\nZeus is the supreme ruler of the gods, the lord of the sky, and the wielder of the thunderbolt. His power is greater than that of all the other gods combined. He presides over the oaths of men and the laws of the universe, ensuring justice and order.\n\n### Rise to Power\n\nBorn to the Titans Cronus and Rhea in a secret cave on Crete, Zeus was hidden from his father's voracious appetite. When he came of age, he tricked Cronus into regurgitating his swallowed siblings. Together, they waged the **Titanomachy**, a ten-year war against the Titans, eventually imprisoning them in Tartarus.\n\n### The Loves of Zeus\n\nFamous for his many affairs, Zeus fathered countless heroes (Heracles, Perseus) and gods (Apollo, Artemis, Dionysus) with both mortals and goddesses, often incurring the wrath of his wife, Hera.",
     "originStory": "Zeus was the youngest son of the Titans Cronus and Rhea. Cronus, fearing a prophecy that he would be overthrown by his children, swallowed each child at birth. Rhea hid Zeus and gave Cronus a stone wrapped in swaddling clothes instead. Zeus was raised in secret and later forced Cronus to regurgitate his siblings, leading the rebellion against the Titans.",
     "importanceRank": 1,
     "imageUrl": "/deities/zeus.png"
@@ -49,6 +50,7 @@
       "diadem"
     ],
     "description": "Queen of the gods and goddess of marriage and family. Wife and sister of Zeus, known for her jealousy toward Zeus's lovers and illegitimate children.",
+    "detailedBio": "## Queen of the Gods\n\nHera is the majestic queen of Olympus and the goddess of marriage and childbirth. As the wife of Zeus, she holds immense power, but she is most famously known for her jealousy and vengeance against Zeus's lovers and illegitimate children.\n\n### The Divine Marriage\n\nHer marriage to Zeus is turbulent, reflecting the storms of the sky. Despite his infidelities, Hera remains the protector of lawful marriage and the sanctity of the family. She is often depicted holding a pomegranate (symbol of fertility) and accompanied by a peacock.",
     "originStory": "Hera was the eldest daughter of Cronus and Rhea, swallowed by Cronus at birth and later freed by Zeus. She became Zeus's wife after he courted her in the form of a cuckoo bird.",
     "importanceRank": 2,
     "imageUrl": "/deities/hera.png"
@@ -75,6 +77,7 @@
       "bull"
     ],
     "description": "God of the sea, earthquakes, and horses. Brother of Zeus and Hades, ruler of the oceans and all waters.",
+    "detailedBio": "## Lord of the Seas\n\nPoseidon rules the vast oceans, earthquakes (\"Earth-Shaker\"), and horses. He is a moody and tempestuous god, much like the sea itself. Sailors prayed to him for safe passage, often sacrificing horses or bulls to appease his wrath.\n\n### Contest for Athens\n\nPoseidon competed with Athena for the patronage of Athens. He struck the Acropolis with his trident, creating a salt spring. Athena planted an olive tree. The people chose the olive tree, and Poseidon, enraged, flooded the Thriasian plain.",
     "importanceRank": 3,
     "imageUrl": "/deities/poseidon.png"
   },
@@ -394,6 +397,7 @@
       "one eye"
     ],
     "description": "King of the Aesir and god of wisdom, war, and death. Odin sacrificed his eye at Mimir's well for wisdom and hung himself on Yggdrasil for nine days to learn the runes.",
+    "detailedBio": "## The Allfather\n\nOdin is the chief of the Aesir, a relentless seeker of wisdom. He sacrificed his eye to Mimir's Well for knowledge and hung himself from Yggdrasil for nine nights to discover the runes.\n\n### God of War and Poetry\n\nParadoxically, he grants both the frenzy of battle (berserkers) and the inspiration of poetry (mead of poetry). He rules Valhalla, gathering slain warriors to prepare for Ragnarok.",
     "originStory": "Odin is the son of the primordial beings Borr and Bestla. Along with his brothers Vili and Ve, he slew the giant Ymir and created the world from his body.",
     "importanceRank": 1,
     "imageUrl": "/deities/odin.png"
@@ -423,6 +427,7 @@
       "red beard"
     ],
     "description": "Son of Odin and the earth goddess Jord. God of thunder, lightning, and storms. Protector of mankind and the gods, wielding the mighty hammer Mjolnir.",
+    "detailedBio": "## The Thunderer\n\nThor is the defender of Asgard and Midgard, wielding the mighty hammer **Mjolnir**. Unlike the cunning Odin, Thor is straightforward, strong, and short-tempered, but fiercely loyal.\n\n### Battles with Giants\n\nMost of Thor's myths involve his expeditions into Jotunheim to slay giants who threaten the gods. His greatest enemy is Jormungandr, the World Serpent, whom he is destined to slay (and be slain by) at Ragnarok.",
     "importanceRank": 3,
     "imageUrl": "/deities/thor.png"
   },
@@ -451,6 +456,7 @@
       "fly"
     ],
     "description": "A complex figure, blood brother to Odin but frequently causing trouble for the gods. A shape-shifter and trickster who fathers monstrous children including Fenrir, Jormungandr, and Hel.",
+    "detailedBio": "## The Trickster God\n\nLoki is a shape-shifter and the catalyst for most Norse myths. Sometimes a helpful ally, often a malicious nuisance, his actions drive the plot of the gods' lives.\n\n### The Architect of Doom\n\nWhile he helped the gods acquire their greatest treasures (Mjolnir, Gungnir), his jealousy led to the death of Baldur. His punishment—bound beneath a dripping serpent—sets the stage for his revenge at Ragnarok.",
     "importanceRank": 5,
     "imageUrl": "/deities/loki.png"
   },
@@ -712,6 +718,7 @@
       "scarab beetle"
     ],
     "description": "The supreme solar deity and creator god. Ra travels across the sky each day in his solar barque and through the underworld each night, battling the serpent Apophis.",
+    "detailedBio": "## The Sun God\n\nRa is the supreme creator and king of the gods. He travels across the sky in his solar barque by day and battles the chaos serpent Apophis in the underworld by night.\n\n### Aspects of Ra\n\nRa changes forms throughout the day: **Khepri** (scarab) at sunrise, **Ra-Horakhty** (falcon) at noon, and **Atum** (elder) at sunset. All life was believed to have been created from Ra's tears.",
     "originStory": "Ra emerged from the primordial waters of Nun at the dawn of creation, creating himself. He then created Shu (air) and Tefnut (moisture), establishing the cosmos.",
     "importanceRank": 1,
     "imageUrl": "/deities/ra.png"
@@ -741,6 +748,7 @@
       "djed pillar"
     ],
     "description": "God of the afterlife, resurrection, and fertility. First pharaoh and lawgiver who taught agriculture to humanity. Murdered by his brother Set and resurrected by Isis.",
+    "detailedBio": "## Lord of the Dead\n\nOsiris was the first mythical pharaoh of Egypt, who brought civilization and agriculture. After being murdered and dismembered by his jealous brother Set, he was resurrected by Isis to rule the Underworld.\n\n### Judgement of the Dead\n\nAs ruler of the afterlife, Osiris presides over the weighing of the heart. He represents hope for eternal life and the cycle of vegetation and regeneration.",
     "importanceRank": 2,
     "imageUrl": "/deities/osiris.png"
   },
@@ -770,6 +778,7 @@
       "sistrum"
     ],
     "description": "The most powerful goddess in the Egyptian pantheon, wife of Osiris and mother of Horus. Goddess of magic, healing, and protection.",
+    "detailedBio": "## The Great Enchantress\n\nIsis is the goddess of magic, healing, and motherhood. Her cleverness and magical power allowed her to learn the secret name of Ra, gaining dominion over the cosmos.\n\n### The Resurrection of Osiris\n\nHer greatest feat was finding the scattered pieces of her husband Osiris and restoring him to life long enough to conceive their son, Horus. She protected Horus from Set until he was old enough to claim the throne.",
     "importanceRank": 3,
     "imageUrl": "/deities/isis.png"
   },

@@ -3,11 +3,12 @@
 import Image from 'next/image'
 import { Clock } from 'lucide-react'
 import { Breadcrumbs } from '@/components/navigation/Breadcrumbs'
-import { TimelineVisualization } from '@/components/timeline/TimelineVisualization'
+import { TimelineVisualizationD3 } from '@/components/timeline/TimelineVisualizationD3'
 
 import pantheonsData from '@/data/pantheons.json'
 import storiesData from '@/data/stories.json'
 import deitiesData from '@/data/deities.json'
+import eventsData from '@/data/events.json'
 
 interface Pantheon {
   id: string
@@ -38,10 +39,20 @@ interface Deity {
   importanceRank: number
 }
 
+interface TimelineEvent {
+  id: string
+  title: string
+  year: number
+  pantheonId: string
+  type: 'mythical' | 'historical'
+  description: string
+}
+
 export function TimelinePageClient() {
   const pantheons = pantheonsData as unknown as Pantheon[]
   const stories = storiesData as unknown as Story[]
   const deities = deitiesData as unknown as Deity[]
+  const events = eventsData as unknown as TimelineEvent[]
 
   return (
     <div className="min-h-screen">
@@ -83,7 +94,7 @@ export function TimelinePageClient() {
             <div className="w-12 h-px bg-gradient-to-l from-transparent to-gold/40" />
           </div>
           <p className="text-lg md:text-xl text-parchment/70 max-w-2xl mx-auto font-body leading-relaxed">
-            Trace the rise and evolution of mythological traditions across five millennia of human civilization
+            Trace the rise and evolution of mythological traditions and major events across five millennia.
           </p>
         </div>
       </div>
@@ -92,41 +103,38 @@ export function TimelinePageClient() {
       <div className="container mx-auto max-w-7xl px-4 py-12 bg-mythic">
         <Breadcrumbs />
 
-        <div className="mt-6">
-          <TimelineVisualization
+        <div className="mt-8">
+          <TimelineVisualizationD3
             pantheons={pantheons}
-            stories={stories}
-            deities={deities}
+            events={events}
           />
         </div>
 
         {/* Historical Context Card */}
         <div className="mt-12 p-6 rounded-xl border border-border bg-card/50 backdrop-blur-sm">
           <h2 className="font-serif text-xl font-semibold text-foreground mb-3">
-            Understanding the Timeline
+            Using the Interactive Timeline
           </h2>
           <div className="grid gap-4 md:grid-cols-3 text-sm text-muted-foreground leading-relaxed">
             <div>
-              <h3 className="font-medium text-foreground mb-1">Date Ranges</h3>
+              <h3 className="font-medium text-foreground mb-1">Navigation</h3>
               <p>
-                Time periods represent when mythological traditions were actively practiced and recorded.
-                Some traditions like Hindu, Japanese, and Chinese mythology continue to the present day.
+                Use your mouse wheel to <strong>zoom in</strong> up to 50x magnification.
+                Click and drag to <strong>pan</strong> across different eras.
               </p>
             </div>
             <div>
-              <h3 className="font-medium text-foreground mb-1">Overlapping Traditions</h3>
+              <h3 className="font-medium text-foreground mb-1">Events & Details</h3>
               <p>
-                Many mythological traditions coexisted and influenced each other. Greek and Roman
-                mythology share extensive parallels, while Norse mythology absorbed elements from
-                Celtic traditions.
+                <strong>Hollow circles</strong> represent key mythical or historical events.
+                Hover over them to reveal detailed descriptions and dates.
               </p>
             </div>
             <div>
-              <h3 className="font-medium text-foreground mb-1">Interaction</h3>
+              <h3 className="font-medium text-foreground mb-1">Pantheons</h3>
               <p>
-                Click or tap any pantheon bar to reveal its key deities and stories. Use the zoom
-                controls to focus on specific eras, and filter by region to compare geographically
-                related traditions.
+                Colored bars show the active periods of major civilizations.
+                <strong>Click</strong> a bar to highlight that pantheon and dim others.
               </p>
             </div>
           </div>

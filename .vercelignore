@@ -1,0 +1,11 @@
+.git
+.ds_store
+.env
+.env.local
+node_modules
+apps/web/node_modules
+apps/web/.next
+.vercel
+.turbo
+*.log
+apps/api
