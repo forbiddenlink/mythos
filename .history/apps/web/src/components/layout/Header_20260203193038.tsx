@@ -13,7 +13,6 @@ const navLinks = [
   { href: '/family-tree', label: 'Family Tree' },
   { href: '/stories', label: 'Stories' },
   { href: '/quiz', label: 'Quiz' },
-  { href: '/about', label: 'About' },
 ];
 
 export function Header() {

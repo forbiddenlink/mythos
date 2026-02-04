@@ -36,17 +36,26 @@ export function Footer() {
               </div>
             </Link>
             <p className="text-sm text-muted-foreground max-w-xs leading-relaxed mb-6">
-              An interactive encyclopedia of ancient mythology from civilizations around the world. Built by Elizabeth Stein with Next.js and modern web technologies.
+              An encyclopedia of ancient mythology. Exploring divine stories, legendary heroes, and timeless wisdom from civilizations across the world.
             </p>
             <div className="flex items-center gap-3">
               <a
-                href="https://github.com/forbiddenlink/mythos"
+                href="https://github.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted transition-colors duration-200"
-                aria-label="View source on GitHub"
+                aria-label="GitHub"
               >
                 <Github className="h-5 w-5" />
+              </a>
+              <a
+                href="https://twitter.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted transition-colors duration-200"
+                aria-label="Twitter"
+              >
+                <Twitter className="h-5 w-5" />
               </a>
             </div>
           </div>
@@ -93,10 +102,10 @@ export function Footer() {
         <div className="mt-12 pt-8 border-t border-border/50">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <p className="text-xs text-muted-foreground text-center md:text-left">
-              Built by Elizabeth Stein with Next.js, TypeScript, React Query, and GraphQL • February 2026
+              Built with Next.js, Rust, and PostgreSQL. Data sourced from public domain mythology texts.
             </p>
             <p className="text-xs text-muted-foreground">
-              © {new Date().getFullYear()} Mythos Atlas
+              © {new Date().getFullYear()} Mythos Atlas. All rights reserved.
             </p>
           </div>
         </div>
