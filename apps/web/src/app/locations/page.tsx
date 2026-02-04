@@ -49,17 +49,17 @@ interface Pantheon {
   culture: string;
 }
 
-// ─── Pantheon color mapping (shared with MapVisualization) ──────────────
+// ─── Constants ──────────────────────────────────────────────────────────
 const PANTHEON_COLORS: Record<string, { bg: string; label: string }> = {
-  'greek-pantheon':    { bg: '#3b82f6', label: 'Greek' },
-  'norse-pantheon':    { bg: '#8b5cf6', label: 'Norse' },
+  'greek-pantheon': { bg: '#3b82f6', label: 'Greek' },
+  'norse-pantheon': { bg: '#8b5cf6', label: 'Norse' },
   'egyptian-pantheon': { bg: '#f59e0b', label: 'Egyptian' },
-  'roman-pantheon':    { bg: '#ef4444', label: 'Roman' },
-  'hindu-pantheon':    { bg: '#f97316', label: 'Hindu' },
+  'roman-pantheon': { bg: '#ef4444', label: 'Roman' },
+  'hindu-pantheon': { bg: '#f97316', label: 'Hindu' },
   'japanese-pantheon': { bg: '#ec4899', label: 'Japanese' },
-  'celtic-pantheon':   { bg: '#22c55e', label: 'Celtic' },
-  'aztec-pantheon':    { bg: '#14b8a6', label: 'Aztec' },
-  'chinese-pantheon':  { bg: '#e11d48', label: 'Chinese' },
+  'celtic-pantheon': { bg: '#22c55e', label: 'Celtic' },
+  'aztec-pantheon': { bg: '#14b8a6', label: 'Aztec' },
+  'chinese-pantheon': { bg: '#e11d48', label: 'Chinese' },
 };
 
 function getLocationTypeLabel(type: string): string {
@@ -79,30 +79,75 @@ function getLocationTypeLabel(type: string): string {
 
 // ─── Page Component ─────────────────────────────────────────────────────
 export default function LocationsPage() {
-  const [viewMode, setViewMode] = useState<'map' | 'list'>('map');
-
   const locations = locationsData as Location[];
   const pantheons = pantheonsData as Pantheon[];
 
+  const [viewMode, setViewMode] = useState<'map' | 'list'>('map');
+  const [activePantheons, setActivePantheons] = useState<Set<string>>(
+    new Set(pantheons.map((p) => p.id))
+  );
+  const [activeLocationTypes, setActiveLocationTypes] = useState<Set<string>>(
+    new Set(locations.map((l) => l.locationType))
+  );
+
+  // Derived filters
+  const allLocationTypes = useMemo(() =>
+    Array.from(new Set(locations.map(l => l.locationType))).sort(),
+    [locations]);
+
+  const pantheonsWithLocations = useMemo(() => {
+    const ids = new Set(locations.map((loc) => loc.pantheonId));
+    return pantheons.filter((p) => ids.has(p.id));
+  }, [locations, pantheons]);
+
+  // Filtering Logic
+  const filteredLocations = useMemo(() => {
+    return locations.filter(loc =>
+      activePantheons.has(loc.pantheonId) && activeLocationTypes.has(loc.locationType)
+    );
+  }, [locations, activePantheons, activeLocationTypes]);
+
+  const togglePantheon = (id: string) => {
+    setActivePantheons(prev => {
+      const next = new Set(prev);
+      next.has(id) ? next.delete(id) : next.add(id);
+      return next;
+    });
+  };
+
+  const toggleLocationType = (type: string) => {
+    setActiveLocationTypes(prev => {
+      const next = new Set(prev);
+      next.has(type) ? next.delete(type) : next.add(type);
+      return next;
+    });
+  };
+
+  const toggleAll = (type: 'pantheons' | 'types') => {
+    if (type === 'pantheons') {
+      setActivePantheons(prev => prev.size === pantheonsWithLocations.length ? new Set() : new Set(pantheonsWithLocations.map(p => p.id)));
+    } else {
+      setActiveLocationTypes(prev => prev.size === allLocationTypes.length ? new Set() : new Set(allLocationTypes));
+    }
+  };
+
   const locationStats = useMemo(() => {
-    const total = locations.length;
-    const mappable = locations.filter((l) => l.latitude !== null && l.longitude !== null).length;
+    // Stats based on FILTERED locations
+    const total = filteredLocations.length;
+    const mappable = filteredLocations.filter((l) => l.latitude !== null && l.longitude !== null).length;
     const mythical = total - mappable;
-    const types = new Set(locations.map((l) => l.locationType)).size;
+    // Count of types present in current selection
+    const types = new Set(filteredLocations.map((l) => l.locationType)).size;
     return { total, mappable, mythical, types };
-  }, [locations]);
+  }, [filteredLocations]);
 
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <div className="relative h-[50vh] min-h-[400px] flex items-center justify-center overflow-hidden">
-        {/* Background - dark gradient since no hero image yet */}
+      <div className="relative h-[45vh] min-h-[360px] flex items-center justify-center overflow-hidden">
+        {/* Background */}
         <div className="absolute inset-0 z-0 bg-hero-gradient" />
-
-        {/* Gradient Overlay */}
         <div className="absolute inset-0 bg-gradient-to-b from-midnight/70 via-midnight/60 to-midnight/80 z-10" />
-
-        {/* Radial gold glow */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[120%] h-[60%] bg-gradient-radial from-gold/10 via-transparent to-transparent z-10" />
 
         {/* Hero Content */}
@@ -113,17 +158,8 @@ export default function LocationsPage() {
               <MapPin className="relative h-10 w-10 text-gold" strokeWidth={1.5} />
             </div>
           </div>
-          <span className="inline-block text-gold/80 text-sm tracking-[0.25em] uppercase mb-4 font-medium">
-            Sacred Geography
-          </span>
-          <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tight mb-6 text-parchment">
-            Locations
-          </h1>
-          <div className="flex items-center justify-center gap-4 mb-6">
-            <div className="w-12 h-px bg-gradient-to-r from-transparent to-gold/40" />
-            <div className="w-1.5 h-1.5 rotate-45 bg-gold/50" />
-            <div className="w-12 h-px bg-gradient-to-l from-transparent to-gold/40" />
-          </div>
+          <span className="inline-block text-gold/80 text-sm tracking-[0.25em] uppercase mb-4 font-medium">Sacred Geography</span>
+          <h1 className="font-serif text-5xl md:text-6xl font-semibold tracking-tight mb-6 text-parchment">Locations</h1>
           <p className="text-lg md:text-xl text-parchment/70 max-w-2xl mx-auto font-body leading-relaxed">
             Explore temples, sacred sites, and mythical realms across ancient civilizations
           </p>
@@ -131,65 +167,113 @@ export default function LocationsPage() {
       </div>
 
       {/* Content Section */}
-      <div className="container mx-auto max-w-7xl px-4 py-16 bg-mythic">
-        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-8">
-          <Breadcrumbs />
-          <div className="flex items-center gap-2">
-            <Button
-              variant={viewMode === 'map' ? 'default' : 'outline'}
-              size="sm"
-              onClick={() => setViewMode('map')}
-              className="gap-2"
-            >
-              <Map className="h-4 w-4" />
-              Map
-            </Button>
-            <Button
-              variant={viewMode === 'list' ? 'default' : 'outline'}
-              size="sm"
-              onClick={() => setViewMode('list')}
-              className="gap-2"
-            >
-              <List className="h-4 w-4" />
-              List
-            </Button>
+      <div className="container mx-auto max-w-7xl px-4 py-12 bg-mythic">
+
+        {/* Controls Bar */}
+        <div className="sticky top-20 z-30 mb-8 bg-background/95 backdrop-blur-md rounded-xl border border-border p-4 shadow-sm transition-all">
+          <div className="flex flex-col gap-6">
+
+            {/* Top Row: Breadcrumbs + View Toggle */}
+            <div className="flex flex-col sm:flex-row items-center justify-between gap-4 border-b border-border/50 pb-4">
+              <Breadcrumbs />
+              <div className="flex items-center gap-2 bg-muted/50 p-1 rounded-lg border border-border/50">
+                <Button variant={viewMode === 'map' ? 'default' : 'ghost'} size="sm" onClick={() => setViewMode('map')} className="gap-2 h-8">
+                  <Map className="h-4 w-4" /> Map
+                </Button>
+                <Button variant={viewMode === 'list' ? 'default' : 'ghost'} size="sm" onClick={() => setViewMode('list')} className="gap-2 h-8">
+                  <List className="h-4 w-4" /> List
+                </Button>
+              </div>
+            </div>
+
+            {/* Filters Row */}
+            <div className="grid md:grid-cols-2 gap-6">
+              {/* Pantheon Filter */}
+              <div className="space-y-2">
+                <div className="flex items-center justify-between">
+                  <label className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">Pantheons</label>
+                  <button onClick={() => toggleAll('pantheons')} className="text-xs text-gold hover:text-gold/80 font-medium">
+                    {activePantheons.size === pantheonsWithLocations.length ? 'Clear All' : 'Select All'}
+                  </button>
+                </div>
+                <div className="flex flex-wrap gap-1.5 max-h-24 overflow-y-auto scrollbar-thin">
+                  {pantheonsWithLocations.map(p => {
+                    const colors = PANTHEON_COLORS[p.id];
+                    const isActive = activePantheons.has(p.id);
+                    return (
+                      <button
+                        key={p.id}
+                        onClick={() => togglePantheon(p.id)}
+                        className={`text-[10px] px-2.5 py-1 rounded-full border transition-all ${isActive
+                            ? 'border-transparent text-white'
+                            : 'border-border text-muted-foreground bg-muted/30 hover:bg-muted'
+                          }`}
+                        style={isActive ? { backgroundColor: colors.bg } : undefined}
+                      >
+                        {p.name}
+                      </button>
+                    )
+                  })}
+                </div>
+              </div>
+
+              {/* Location Type Filter */}
+              <div className="space-y-2">
+                <div className="flex items-center justify-between">
+                  <label className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">Types</label>
+                  <button onClick={() => toggleAll('types')} className="text-xs text-gold hover:text-gold/80 font-medium">
+                    {activeLocationTypes.size === allLocationTypes.length ? 'Clear All' : 'Select All'}
+                  </button>
+                </div>
+                <div className="flex flex-wrap gap-1.5 max-h-24 overflow-y-auto scrollbar-thin">
+                  {allLocationTypes.map(type => {
+                    const isActive = activeLocationTypes.has(type);
+                    return (
+                      <button
+                        key={type}
+                        onClick={() => toggleLocationType(type)}
+                        className={`text-[10px] px-2.5 py-1 rounded-full border transition-all ${isActive
+                            ? 'bg-gold/20 border-gold/30 text-gold-light font-medium'
+                            : 'border-border text-muted-foreground bg-muted/30 hover:bg-muted'
+                          }`}
+                      >
+                        {getLocationTypeLabel(type)}
+                      </button>
+                    )
+                  })}
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
 
         {/* Stats Bar */}
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8">
           {[
-            { label: 'Total Locations', value: locationStats.total },
+            { label: 'Locations Shown', value: locationStats.total },
             { label: 'On Map', value: locationStats.mappable },
             { label: 'Mythical Realms', value: locationStats.mythical },
-            { label: 'Location Types', value: locationStats.types },
+            { label: 'Types Shown', value: locationStats.types },
           ].map((stat) => (
-            <div
-              key={stat.label}
-              className="rounded-lg border border-border bg-card px-4 py-3 text-center"
-            >
-              <div className="text-2xl font-serif font-semibold text-gold">
-                {stat.value}
-              </div>
-              <div className="text-xs text-muted-foreground uppercase tracking-wide mt-0.5">
-                {stat.label}
-              </div>
+            <div key={stat.label} className="rounded-lg border border-border bg-card px-4 py-3 text-center">
+              <div className="text-2xl font-serif font-semibold text-gold">{stat.value}</div>
+              <div className="text-xs text-muted-foreground uppercase tracking-wide mt-0.5">{stat.label}</div>
             </div>
           ))}
         </div>
 
         {/* Map View */}
         {viewMode === 'map' && (
-          <MapVisualization locations={locations} pantheons={pantheons} />
+          <MapVisualization locations={filteredLocations} pantheons={pantheons} />
         )}
 
         {/* List View */}
         {viewMode === 'list' && (
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {locations.map((location) => {
+            {filteredLocations.map((location) => {
               const colors = PANTHEON_COLORS[location.pantheonId] || {
-                bg: '#6b7280',
-                label: location.pantheonId,
+                bg: '#6b7280', label: location.pantheonId,
               };
               const hasCords = location.latitude !== null && location.longitude !== null;
 
