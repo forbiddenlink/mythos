@@ -1,20 +1,24 @@
 import { MythologyQuiz } from '@/components/quiz/MythologyQuiz';
 import { Breadcrumbs } from '@/components/navigation/Breadcrumbs';
 import { Brain, BookOpen, Trophy } from 'lucide-react';
-import { Metadata } from 'next';
+import { QuizJsonLd } from '@/components/seo/JsonLd';
+import { generateBaseMetadata } from '@/lib/metadata';
 
-export const metadata: Metadata = {
-  title: 'Mythology Quiz - Test Your Knowledge | Mythos Atlas',
+export const metadata = generateBaseMetadata({
+  title: 'Mythology Quiz - Test Your Knowledge',
   description: 'Test your knowledge of Greek, Norse, Egyptian, and world mythology. Learn about deities, symbols, and domains through interactive quizzes.',
-  openGraph: {
-    title: 'Mythology Quiz - Test Your Knowledge',
-    description: 'Challenge yourself with questions about gods, goddesses, and ancient legends',
-  },
-};
+  url: '/quiz',
+  keywords: ['mythology quiz', 'Greek mythology quiz', 'Norse mythology quiz', 'test knowledge', 'trivia', 'educational quiz'],
+});
 
 export default function QuizPage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-background to-mythic">
+      <QuizJsonLd
+        name="Mythology Quiz - Test Your Knowledge"
+        description="Test your knowledge of Greek, Norse, Egyptian, and world mythology with interactive quizzes about deities, symbols, and domains."
+        url="/quiz"
+      />
       <div className="container mx-auto max-w-7xl px-4 py-12">
         <Breadcrumbs />
         

@@ -38,6 +38,7 @@ interface Story {
   title: string;
   slug: string;
   summary: string;
+  fullNarrative?: string;
   keyExcerpts?: string;
   category: string;
   moralThemes?: string[];

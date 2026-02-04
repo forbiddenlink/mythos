@@ -9,6 +9,7 @@ import { Loader2, MapPin, Calendar, Users, BookOpen } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Breadcrumbs } from '@/components/navigation/Breadcrumbs';
+import { CollectionPageJsonLd } from '@/components/seo/JsonLd';
 
 interface Pantheon {
   id: string;
@@ -111,6 +112,12 @@ export default function PantheonPage() {
 
   return (
     <div className="min-h-screen bg-mythic">
+      <CollectionPageJsonLd
+        name={`${pantheon.name} - ${pantheon.culture} Mythology`}
+        description={pantheon.description || `Explore the ${pantheon.name} from ${pantheon.culture} mythology.`}
+        url={`/pantheons/${pantheon.slug}`}
+        numberOfItems={deitiesData?.deities?.length}
+      />
       {/* Hero Section */}
       <div className="relative h-[40vh] min-h-[300px] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-midnight/70 via-midnight/60 to-mythic z-10" />

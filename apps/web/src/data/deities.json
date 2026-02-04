@@ -364,7 +364,7 @@
     ],
     "description": "Goddess of the hearth, home, and family. The firstborn of Cronus and Rhea, she maintained eternal virginity and tended the sacred fire of Olympus.",
     "importanceRank": 6,
-    "imageUrl": "https://images.unsplash.com/photo-1513875528452-39400ac14a93?w=400"
+    "imageUrl": "/deities/hestia.png"
   },
   {
     "id": "odin",
@@ -424,7 +424,7 @@
     ],
     "description": "Son of Odin and the earth goddess Jord. God of thunder, lightning, and storms. Protector of mankind and the gods, wielding the mighty hammer Mjolnir.",
     "importanceRank": 3,
-    "imageUrl": "https://images.unsplash.com/photo-1534088568595-a066f410bcda?w=400"
+    "imageUrl": "/deities/thor.png"
   },
   {
     "id": "loki",
@@ -452,7 +452,7 @@
     ],
     "description": "A complex figure, blood brother to Odin but frequently causing trouble for the gods. A shape-shifter and trickster who fathers monstrous children including Fenrir, Jormungandr, and Hel.",
     "importanceRank": 5,
-    "imageUrl": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400"
+    "imageUrl": "/deities/loki.png"
   },
   {
     "id": "frigg",
@@ -478,7 +478,7 @@
     ],
     "description": "Queen of the Aesir and wife of Odin. Goddess of marriage, motherhood, and the home. She possesses the power of prophecy but chooses not to reveal what she knows.",
     "importanceRank": 2,
-    "imageUrl": "https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=400"
+    "imageUrl": "/deities/frigg.png"
   },
   {
     "id": "freyja",
@@ -507,7 +507,7 @@
     ],
     "description": "Most renowned of the Vanir, goddess of love, beauty, and fertility, but also associated with war and death. She receives half of those who die in battle in her hall Folkvangr.",
     "importanceRank": 6,
-    "imageUrl": "https://images.unsplash.com/photo-1523712999610-f77fbcfc3843?w=400"
+    "imageUrl": "/deities/freyja.png"
   },
   {
     "id": "baldur",
@@ -535,7 +535,7 @@
     ],
     "description": "The most beloved of all gods, son of Odin and Frigg. God of light, purity, and beauty. His death, orchestrated by Loki using mistletoe, is one of the great tragedies leading to Ragnarok.",
     "importanceRank": 8,
-    "imageUrl": "https://images.unsplash.com/photo-1494500764479-0c8f2919a3d8?w=400"
+    "imageUrl": "/deities/baldur.png"
   },
   {
     "id": "tyr",
@@ -561,7 +561,7 @@
     ],
     "description": "God of war, justice, and law. Bravest of the gods. Sacrificed his right hand to bind the wolf Fenrir, demonstrating his courage and willingness to uphold cosmic order.",
     "importanceRank": 9,
-    "imageUrl": "https://images.unsplash.com/photo-1566936737687-8f392a237b8b?w=400"
+    "imageUrl": "/deities/tyr.png"
   },
   {
     "id": "heimdall",
@@ -588,7 +588,7 @@
     ],
     "description": "Watchman of the gods who guards the rainbow bridge Bifrost connecting Asgard and Midgard. Possesses incredible hearing and eyesight, and will blow his horn Gjallarhorn to signal the onset of Ragnarok.",
     "importanceRank": 10,
-    "imageUrl": "https://images.unsplash.com/photo-1532630571098-79a3d222b00d?w=400"
+    "imageUrl": "/deities/heimdall.png"
   },
   {
     "id": "freyr",
@@ -615,7 +615,7 @@
     ],
     "description": "One of the Vanir, god of fertility, prosperity, and fair weather. Owner of the magical ship Skidbladnir and the golden boar Gullinbursti.",
     "importanceRank": 7,
-    "imageUrl": "https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?w=400"
+    "imageUrl": "/deities/freyr.png"
   },
   {
     "id": "fenrir",
@@ -639,7 +639,7 @@
     ],
     "description": "Monstrous wolf, son of Loki. Bound by the gods but prophesied to break free at Ragnarok and devour Odin. Represents the inevitable forces of chaos and destruction.",
     "importanceRank": 12,
-    "imageUrl": "https://images.unsplash.com/photo-1474511320723-9a56873571b7?w=400"
+    "imageUrl": "/deities/fenrir.png"
   },
   {
     "id": "hel",
@@ -661,7 +661,7 @@
     ],
     "description": "Goddess and ruler of the underworld realm of the dead (also called Hel or Helheim). Daughter of Loki. Her realm receives those who die of sickness or old age.",
     "importanceRank": 11,
-    "imageUrl": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=400"
+    "imageUrl": "/deities/hel.png"
   },
   {
     "id": "sif",
@@ -683,7 +683,7 @@
     ],
     "description": "Wife of Thor and goddess associated with earth and harvest. Famous for her beautiful golden hair, which was once cut by Loki as a prank.",
     "importanceRank": 4,
-    "imageUrl": "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=400"
+    "imageUrl": "/deities/sif.png"
   },
   {
     "id": "ra",
@@ -714,7 +714,7 @@
     "description": "The supreme solar deity and creator god. Ra travels across the sky each day in his solar barque and through the underworld each night, battling the serpent Apophis.",
     "originStory": "Ra emerged from the primordial waters of Nun at the dawn of creation, creating himself. He then created Shu (air) and Tefnut (moisture), establishing the cosmos.",
     "importanceRank": 1,
-    "imageUrl": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400"
+    "imageUrl": "/deities/ra.png"
   },
   {
     "id": "osiris",
@@ -742,7 +742,7 @@
     ],
     "description": "God of the afterlife, resurrection, and fertility. First pharaoh and lawgiver who taught agriculture to humanity. Murdered by his brother Set and resurrected by Isis.",
     "importanceRank": 2,
-    "imageUrl": "https://images.unsplash.com/photo-1539650116574-75c0c6d73f6e?w=400"
+    "imageUrl": "/deities/osiris.png"
   },
   {
     "id": "isis",
@@ -771,7 +771,7 @@
     ],
     "description": "The most powerful goddess in the Egyptian pantheon, wife of Osiris and mother of Horus. Goddess of magic, healing, and protection.",
     "importanceRank": 3,
-    "imageUrl": "https://images.unsplash.com/photo-1568702846914-96b305d2uj8c?w=400"
+    "imageUrl": "/deities/isis.png"
   },
   {
     "id": "horus",
@@ -827,7 +827,7 @@
     ],
     "description": "God of chaos, storms, and the desert. Brother and murderer of Osiris, enemy of Horus. Despite being a villain in myth, he also protects Ra's solar barque from Apophis each night.",
     "importanceRank": 5,
-    "imageUrl": "https://images.unsplash.com/photo-1509316785289-025f5b846b35?w=400"
+    "imageUrl": "/deities/set.png"
   },
   {
     "id": "anubis",
@@ -856,7 +856,7 @@
     ],
     "description": "God of mummification and the afterlife. Guardian of tombs and guide of souls to judgment. He oversees the weighing of the heart ceremony.",
     "importanceRank": 7,
-    "imageUrl": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=400"
+    "imageUrl": "/deities/anubis.png"
   },
   {
     "id": "thoth",
@@ -887,7 +887,7 @@
     ],
     "description": "God of wisdom, writing, and magic. Inventor of hieroglyphs and scribe of the gods. He records the results of the weighing of hearts ceremony.",
     "importanceRank": 8,
-    "imageUrl": "https://images.unsplash.com/photo-1551884170-09fb70a3a2ed?w=400"
+    "imageUrl": "/deities/thoth.png"
   },
   {
     "id": "bastet",
@@ -916,7 +916,7 @@
     ],
     "description": "Goddess of home, fertility, and protection. Originally a fierce lioness warrior goddess, she later became gentler as a cat goddess.",
     "importanceRank": 9,
-    "imageUrl": "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=400"
+    "imageUrl": "/deities/bastet.png"
   },
   {
     "id": "hathor",
@@ -945,7 +945,7 @@
     ],
     "description": "Goddess of love, beauty, music, and motherhood. The 'Golden One' who embodies the feminine ideal. Protector of women.",
     "importanceRank": 11,
-    "imageUrl": "https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=400"
+    "imageUrl": "/deities/hathor.png"
   },
   {
     "id": "maat",
@@ -971,7 +971,7 @@
     ],
     "description": "Goddess embodying truth, justice, and cosmic order. Her feather is weighed against the hearts of the dead in judgment.",
     "importanceRank": 13,
-    "imageUrl": "https://images.unsplash.com/photo-1589994965851-a8f479c573a9?w=400"
+    "imageUrl": "/deities/maat.png"
   },
   {
     "id": "nephthys",
@@ -997,7 +997,7 @@
     ],
     "description": "Goddess of mourning and protector of the dead. Sister-wife of Set but loyal to Isis. She aided Isis in gathering Osiris's body and mourned him.",
     "importanceRank": 6,
-    "imageUrl": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400"
+    "imageUrl": "/deities/nephthys.png"
   },
   {
     "id": "sekhmet",
@@ -1025,7 +1025,7 @@
     ],
     "description": "Fierce goddess of war, plagues, and healing. The destructive aspect of the sun. Ra sent her to punish humanity.",
     "importanceRank": 10,
-    "imageUrl": "https://images.unsplash.com/photo-1547036967-23d11aacaee0?w=400"
+    "imageUrl": "/deities/sekhmet.png"
   },
   {
     "id": "sobek",
@@ -1051,7 +1051,7 @@
     ],
     "description": "Crocodile god of the Nile and its fertility. Protector against the dangers of the Nile and symbol of pharaonic power and military prowess.",
     "importanceRank": 14,
-    "imageUrl": "https://images.unsplash.com/photo-1504450874802-0ba2bcd9b5ae?w=400"
+    "imageUrl": "/deities/sobek.png"
   },
   {
     "id": "jupiter",
@@ -1132,7 +1132,7 @@
     "imageUrl": "/deities/neptune.png"
   },
   {
-    "id": "mars-roman",
+    "id": "mars",
     "pantheonId": "roman-pantheon",
     "name": "Mars",
     "slug": "mars",
@@ -2208,6 +2208,32 @@
     "originStory": "He sacrificed his foot to lure the earth monster Cipactli so the world could be made from her body.",
     "importanceRank": 1,
     "imageUrl": "/deities/tezcatlipoca.png"
+  },
+  {
+    "id": "coatlicue",
+    "pantheonId": "aztec-pantheon",
+    "name": "Coatlicue",
+    "slug": "coatlicue",
+    "alternateNames": [
+      "She of the Serpent Skirt",
+      "Teteoh Innan"
+    ],
+    "gender": "female",
+    "domain": [
+      "earth",
+      "fertility",
+      "life",
+      "death"
+    ],
+    "symbols": [
+      "serpent skirt",
+      "skull necklace",
+      "clawed hands"
+    ],
+    "description": "Earth mother goddess who gave birth to the moon, stars, and Huitzilopochtli. Depicted wearing a skirt of writhing serpents and a necklace of human hearts and hands.",
+    "originStory": "While sweeping a temple on Coatepec, a ball of feathers fell on her and she became miraculously pregnant with Huitzilopochtli. Her other children plotted to kill her, but Huitzilopochtli was born fully armed and defended her.",
+    "importanceRank": 2,
+    "imageUrl": "/deities/coatlicue.png"
   },
   {
     "id": "jade-emperor",

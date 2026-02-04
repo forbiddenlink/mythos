@@ -18,7 +18,11 @@ interface Deity {
   slug: string;
   gender: string | null;
   domain: string[];
+  symbols: string[];
+  description: string | null;
   importanceRank: number | null;
+  imageUrl: string | null;
+  alternateNames: string[];
   pantheonId?: string;
 }
 

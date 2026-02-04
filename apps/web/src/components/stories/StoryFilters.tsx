@@ -14,10 +14,15 @@ import { Filter, X } from 'lucide-react';
 
 interface Story {
   id: string;
+  pantheonId: string;
   title: string;
   slug: string;
-  category: string;
-  pantheonId?: string;
+  summary: string | null;
+  fullNarrative: string | null;
+  themes: string[];
+  culturalSignificance: string | null;
+  imageUrl: string | null;
+  category?: string;
   moralThemes?: string[];
 }
 
@@ -31,7 +36,7 @@ export function StoryFilters({ stories, onFilteredChange }: StoryFiltersProps) {
   const [themeFilter, setThemeFilter] = useState<string>('all');
 
   const allCategories = Array.from(
-    new Set(stories.map(s => s.category).filter(Boolean))
+    new Set(stories.map(s => s.category).filter((c): c is string => Boolean(c)))
   ).sort();
 
   const allThemes = Array.from(

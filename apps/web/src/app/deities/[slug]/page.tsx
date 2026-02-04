@@ -10,6 +10,8 @@ import { Loader2, Sparkles, Shield, Users, Network } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { FamilyTreeVisualization } from '@/components/family-tree/FamilyTreeVisualization';
+import { BookmarkButton } from '@/components/ui/bookmark-button';
+import { DeityJsonLd } from '@/components/seo/JsonLd';
 
 interface Deity {
   id: string;
@@ -148,6 +150,14 @@ export default function DeityPage() {
 
   return (
     <div className="min-h-screen">
+      <DeityJsonLd
+        name={deity.name}
+        description={deity.description || `${deity.name} - deity from ancient mythology`}
+        alternateNames={deity.alternateNames}
+        domains={deity.domain}
+        url={`/deities/${deity.slug}`}
+        image={deity.imageUrl || undefined}
+      />
       {/* Hero Section with Background Image */}
       <div className="relative overflow-hidden">
         <div className="absolute inset-0 z-0">
@@ -176,7 +186,7 @@ export default function DeityPage() {
                 <div className="w-16 h-16 rounded-xl bg-linear-to-br from-amber-600 to-orange-700 flex items-center justify-center shadow-lg">
                   <Sparkles className="h-8 w-8 text-white" />
                 </div>
-                <div>
+                <div className="flex-1">
                   <h1 className="font-serif text-4xl font-bold tracking-tight text-white">{deity.name}</h1>
                   {deity.alternateNames && deity.alternateNames.length > 0 && (
                     <p className="text-slate-200 mt-1 font-light">
@@ -184,6 +194,7 @@ export default function DeityPage() {
                     </p>
                   )}
                 </div>
+                <BookmarkButton type="deity" id={deity.id} size="lg" variant="light" />
               </div>
             </div>
           </div>

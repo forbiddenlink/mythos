@@ -1,16 +1,23 @@
-import { Metadata } from 'next';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { BookOpen, Users, Globe, Code } from 'lucide-react';
 import { Breadcrumbs } from '@/components/navigation/Breadcrumbs';
+import { AboutPageJsonLd } from '@/components/seo/JsonLd';
+import { generateBaseMetadata } from '@/lib/metadata';
 
-export const metadata: Metadata = {
-  title: 'About - Mythos Atlas',
-  description: 'Learn about Mythos Atlas, an interactive encyclopedia exploring ancient mythology from civilizations around the world.',
-};
+export const metadata = generateBaseMetadata({
+  title: 'About Mythos Atlas',
+  description: 'Learn about Mythos Atlas, an interactive encyclopedia exploring ancient mythology from civilizations around the world. Created by Elizabeth Stein.',
+  url: '/about',
+  keywords: ['about', 'mythology encyclopedia', 'Elizabeth Stein', 'ancient mythology project'],
+});
 
 export default function AboutPage() {
   return (
     <div className="min-h-screen bg-mythic">
+      <AboutPageJsonLd
+        creatorName="Elizabeth Stein"
+        creatorDescription="A passionate developer and mythology enthusiast who combines technical expertise with a deep appreciation for ancient cultures and storytelling."
+      />
       {/* Hero Section */}
       <div className="relative h-[40vh] min-h-[300px] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-midnight/70 via-midnight/60 to-mythic z-10" />

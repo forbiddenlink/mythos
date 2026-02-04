@@ -4,32 +4,22 @@ import { StatsSection } from '@/components/home/StatsSection';
 import { PantheonShowcase } from '@/components/home/PantheonShowcase';
 import { CTASection } from '@/components/home/CTASection';
 import { ComparativeMythology } from '@/components/mythology/ComparativeMythology';
-import { Metadata } from 'next';
+import { WebSiteJsonLd } from '@/components/seo/JsonLd';
+import { generateBaseMetadata } from '@/lib/metadata';
 
-export const metadata: Metadata = {
+export const metadata = generateBaseMetadata({
   title: 'Mythos Atlas - Explore World Mythology',
   description: 'Discover gods, goddesses, and epic tales from Greek, Norse, Egyptian, and world mythologies. Interactive family trees, comparative analysis, and educational resources. Built by Elizabeth Stein.',
+  url: '/',
   keywords: ['mythology', 'Greek gods', 'Norse mythology', 'Egyptian deities', 'pantheons', 'family tree', 'comparative mythology', 'Elizabeth Stein'],
-  authors: [{ name: 'Elizabeth Stein' }],
-  creator: 'Elizabeth Stein',
-  openGraph: {
-    title: 'Mythos Atlas - Journey Through World Mythology',
-    description: 'Explore deities, stories, and connections across ancient civilizations',
-    type: 'website',
-    url: 'https://mythos-web-seven.vercel.app',
-    siteName: 'Mythos Atlas',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Mythos Atlas - Explore World Mythology',
-    description: 'Discover gods, goddesses, and epic tales from ancient civilizations',
-    creator: '@mythosatlas',
-  },
-};
+});
 
 export default function Home() {
   return (
     <main className="min-h-screen">
+      <WebSiteJsonLd
+        searchActionTarget="https://mythos-web-seven.vercel.app/?search={search_term_string}"
+      />
       <HeroSection />
       <FeaturesGrid />
       <StatsSection />

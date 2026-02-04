@@ -333,7 +333,7 @@
   {
     "id": "r47",
     "fromDeityId": "jupiter",
-    "toDeityId": "mars-roman",
+    "toDeityId": "mars",
     "relationshipType": "parent_of",
     "confidenceLevel": "high",
     "description": "Jupiter is father of Mars"
@@ -341,7 +341,7 @@
   {
     "id": "r48",
     "fromDeityId": "venus",
-    "toDeityId": "mars-roman",
+    "toDeityId": "mars",
     "relationshipType": "lover",
     "confidenceLevel": "high",
     "description": "Famous affair of Venus and Mars"

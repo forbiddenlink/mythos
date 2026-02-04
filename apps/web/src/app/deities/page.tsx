@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { graphqlClient } from '@/lib/graphql-client';
 import { GET_DEITIES } from '@/lib/queries';
@@ -12,6 +12,7 @@ import Image from 'next/image';
 import { Breadcrumbs } from '@/components/navigation/Breadcrumbs';
 import { DeitiesTable } from '@/components/deities/DeitiesTable';
 import { DeityFilters } from '@/components/deities/DeityFilters';
+import { BookmarkButton } from '@/components/ui/bookmark-button';
 
 // Note: Metadata export removed - use layout.tsx for client components
 // SEO is handled via dynamic title updates below
@@ -36,10 +37,13 @@ export default function DeitiesPage() {
   const { data, isLoading, error } = useQuery<{ deities: Deity[] }>({
     queryKey: ['deities'],
     queryFn: async () => graphqlClient.request(GET_DEITIES),
-    onSuccess: (data) => {
-      setFilteredDeities(data.deities);
-    },
   });
+
+  useEffect(() => {
+    if (data) {
+      setFilteredDeities(data.deities);
+    }
+  }, [data]);
 
   const displayDeities = filteredDeities.length > 0 ? filteredDeities : (data?.deities || []);
 
@@ -154,11 +158,14 @@ export default function DeitiesPage() {
                       <div className="p-2.5 rounded-xl bg-gold/10 border border-gold/20 group-hover:bg-gold/15 transition-colors duration-300">
                         <Sparkles className="h-5 w-5 text-gold" strokeWidth={1.5} />
                       </div>
-                      {deity.importanceRank && deity.importanceRank <= 5 && (
-                        <span className="text-xs font-medium px-2.5 py-1 rounded-full bg-gold/10 border border-gold/20 text-gold">
-                          Major Deity
-                        </span>
-                      )}
+                      <div className="flex items-center gap-2">
+                        {deity.importanceRank && deity.importanceRank <= 5 && (
+                          <span className="text-xs font-medium px-2.5 py-1 rounded-full bg-gold/10 border border-gold/20 text-gold">
+                            Major Deity
+                          </span>
+                        )}
+                        <BookmarkButton type="deity" id={deity.id} size="sm" />
+                      </div>
                     </div>
                     <CardTitle className="text-foreground mt-4 group-hover:text-gold transition-colors duration-300">{deity.name}</CardTitle>
                     {deity.domain && deity.domain.length > 0 && (

@@ -1,12 +1,14 @@
-import { Metadata } from 'next';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { BookOpen, ExternalLink } from 'lucide-react';
 import { Breadcrumbs } from '@/components/navigation/Breadcrumbs';
+import { generateBaseMetadata } from '@/lib/metadata';
 
-export const metadata: Metadata = {
-  title: 'Sources & References - Mythos Atlas',
-  description: 'Academic sources and references used in compiling the Mythos Atlas mythology encyclopedia.',
-};
+export const metadata = generateBaseMetadata({
+  title: 'Sources & References',
+  description: 'Academic sources, primary texts, and scholarly references used in compiling the Mythos Atlas mythology encyclopedia.',
+  url: '/sources',
+  keywords: ['mythology sources', 'academic references', 'primary texts', 'Hesiod', 'Homer', 'Prose Edda', 'Book of the Dead'],
+});
 
 export default function SourcesPage() {
   const sources = [

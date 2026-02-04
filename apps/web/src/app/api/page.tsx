@@ -1,13 +1,15 @@
-import { Metadata } from 'next';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Code, Database, Zap } from 'lucide-react';
 import { Breadcrumbs } from '@/components/navigation/Breadcrumbs';
 import Link from 'next/link';
+import { generateBaseMetadata } from '@/lib/metadata';
 
-export const metadata: Metadata = {
-  title: 'API Documentation - Mythos Atlas',
-  description: 'GraphQL API documentation for accessing Mythos Atlas mythology data programmatically.',
-};
+export const metadata = generateBaseMetadata({
+  title: 'API Documentation',
+  description: 'GraphQL API documentation for accessing Mythos Atlas mythology data programmatically. Query pantheons, deities, stories, and relationships.',
+  url: '/api',
+  keywords: ['GraphQL API', 'mythology API', 'developer documentation', 'REST API', 'deities data'],
+});
 
 export default function APIPage() {
   const endpoints = [
