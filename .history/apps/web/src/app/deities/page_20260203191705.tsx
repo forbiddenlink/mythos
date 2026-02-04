@@ -135,18 +135,11 @@ export default function DeitiesPage() {
           </div>
         </div>
 
-        {data?.deities && (
-          <DeityFilters 
-            deities={data.deities} 
-            onFilteredChange={setFilteredDeities}
-          />
-        )}
-
         {viewMode === 'table' ? (
-          <DeitiesTable deities={displayDeities} />
+          <DeitiesTable deities={data?.deities || []} />
         ) : (
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {displayDeities.map((deity) => (
+            {data?.deities.map((deity) => (
               <Link key={deity.id} href={`/deities/${deity.slug}`}>
                 <Card className="group h-full cursor-pointer card-elevated bg-card hover:scale-[1.01]">
                   <CardHeader>
