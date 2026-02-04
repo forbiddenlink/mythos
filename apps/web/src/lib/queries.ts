@@ -89,6 +89,7 @@ export const GET_STORIES = gql`
       title
       slug
       summary
+      fullNarrative
       keyExcerpts
       category
       moralThemes
@@ -107,6 +108,7 @@ export const GET_STORY = gql`
       title
       slug
       summary
+      fullNarrative
       keyExcerpts
       category
       moralThemes

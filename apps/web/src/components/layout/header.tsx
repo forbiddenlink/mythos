@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link';
-import { Search, Command } from 'lucide-react';
+import { Search, Command, Heart } from 'lucide-react';
 import { Logo } from '@/components/ui/logo';
 import { ThemeToggle } from '@/components/ui/theme-toggle';
 import { useState, useEffect } from 'react';
@@ -10,7 +10,9 @@ import { motion } from 'framer-motion';
 const navLinks = [
   { href: '/pantheons', label: 'Pantheons' },
   { href: '/deities', label: 'Deities' },
+  { href: '/timeline', label: 'Timeline' },
   { href: '/family-tree', label: 'Family Tree' },
+  { href: '/locations', label: 'Locations' },
   { href: '/stories', label: 'Stories' },
   { href: '/quiz', label: 'Quiz' },
   { href: '/about', label: 'About' },
@@ -105,6 +107,15 @@ export function Header() {
               <span>K</span>
             </kbd>
           </button>
+
+          {/* Bookmarks */}
+          <Link
+            href="/bookmarks"
+            className="flex items-center justify-center p-2 text-muted-foreground hover:text-gold rounded-lg hover:bg-muted/50 transition-all duration-200"
+            aria-label="Bookmarks"
+          >
+            <Heart className="h-4 w-4" strokeWidth={1.5} />
+          </Link>
 
           {/* Theme Toggle */}
           <ThemeToggle />

@@ -7,6 +7,7 @@ import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { CommandPaletteProvider } from "@/components/command-palette/CommandPaletteProvider";
 import { SkipToContent } from "@/components/accessibility/SkipToContent";
+import { BookmarksProvider } from "@/providers/bookmarks-provider";
 import { generateBaseMetadata } from "@/lib/metadata";
 
 // Cinzel - Elegant classical display font inspired by Roman inscriptions
@@ -53,16 +54,18 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <QueryProvider>
-            <CommandPaletteProvider>
-              <SkipToContent />
-              <div className="flex min-h-screen flex-col">
-                <Header />
-                <main id="main-content" className="flex-1" tabIndex={-1}>
-                  {children}
-                </main>
-                <Footer />
-              </div>
-            </CommandPaletteProvider>
+            <BookmarksProvider>
+              <CommandPaletteProvider>
+                <SkipToContent />
+                <div className="flex min-h-screen flex-col">
+                  <Header />
+                  <main id="main-content" className="flex-1" tabIndex={-1}>
+                    {children}
+                  </main>
+                  <Footer />
+                </div>
+              </CommandPaletteProvider>
+            </BookmarksProvider>
           </QueryProvider>
         </ThemeProvider>
       </body>

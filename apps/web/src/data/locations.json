@@ -7,7 +7,7 @@
     "description": "The highest mountain in Greece and the mythological home of the twelve Olympian gods.",
     "latitude": 40.086,
     "longitude": 22.358,
-    "imageUrl": "/locations/"`jq -r .id`".png"
+    "imageUrl": "/locations/mount-olympus.png"
   },
   {
     "id": "underworld",
@@ -17,7 +17,7 @@
     "description": "The gloomy realm of the dead ruled by Hades, located deep beneath the earth.",
     "latitude": 36.38,
     "longitude": 22.48,
-    "imageUrl": "/locations/"`jq -r .id`".png"
+    "imageUrl": "/locations/underworld.png"
   },
   {
     "id": "delphi",
@@ -27,7 +27,7 @@
     "description": "The site of the oracle of Apollo, considered the center of the world by the ancient Greeks.",
     "latitude": 38.48,
     "longitude": 22.5,
-    "imageUrl": "/locations/"`jq -r .id`".png"
+    "imageUrl": "/locations/delphi.png"
   },
   {
     "id": "asgard",
@@ -37,7 +37,7 @@
     "description": "One of the Nine Worlds and home to the Aesir tribe of gods.",
     "latitude": null,
     "longitude": null,
-    "imageUrl": "/locations/"`jq -r .id`".png"
+    "imageUrl": "/locations/asgard.png"
   },
   {
     "id": "midgard",
@@ -47,7 +47,7 @@
     "description": "The realm of humanity (Earth), connected to Asgard by the Bifrost bridge.",
     "latitude": null,
     "longitude": null,
-    "imageUrl": "/locations/"`jq -r .id`".png"
+    "imageUrl": "/locations/midgard.png"
   },
   {
     "id": "giza-plateau",
@@ -57,7 +57,7 @@
     "description": "The site of the Great Pyramids and the Sphinx, associated with pharaonic power and the afterlife.",
     "latitude": 29.979,
     "longitude": 31.134,
-    "imageUrl": "/locations/"`jq -r .id`".png"
+    "imageUrl": "/locations/giza-plateau.png"
   },
   {
     "id": "karnak",
@@ -67,7 +67,7 @@
     "description": "A vast mix of decayed temples, chapels, pylons, and other buildings near Luxor, primarily dedicated to Amun.",
     "latitude": 25.719,
     "longitude": 32.657,
-    "imageUrl": "/locations/"`jq -r .id`".png"
+    "imageUrl": "/locations/karnak.png"
   },
   {
     "id": "roman-forum",
@@ -77,7 +77,7 @@
     "description": "The center of Roman public life, containing major temples including the Temple of Vesta and Temple of Saturn.",
     "latitude": 41.8925,
     "longitude": 12.4853,
-    "imageUrl": "/locations/"`jq -r .id`".png"
+    "imageUrl": "/locations/roman-forum.png"
   },
   {
     "id": "capitoline-hill",
@@ -87,7 +87,7 @@
     "description": "The citadel of the earliest Romans and site of the Temple of Jupiter Optimus Maximus.",
     "latitude": 41.8933,
     "longitude": 12.4828,
-    "imageUrl": "/locations/"`jq -r .id`".png"
+    "imageUrl": "/locations/capitoline-hill.png"
   },
   {
     "id": "mount-kailash",
@@ -97,7 +97,7 @@
     "description": "A peak in the Kailash Range, considered the abode of Lord Shiva and a place of eternal bliss.",
     "latitude": 31.0674,
     "longitude": 81.3119,
-    "imageUrl": "/locations/"`jq -r .id`".png"
+    "imageUrl": "/locations/mount-kailash.png"
   },
   {
     "id": "varanasi",
@@ -107,7 +107,7 @@
     "description": "The spiritual capital of India, situated on the banks of the Ganges, dedicated to Lord Shiva.",
     "latitude": 25.3176,
     "longitude": 82.9739,
-    "imageUrl": "/locations/"`jq -r .id`".png"
+    "imageUrl": "/locations/varanasi.png"
   },
   {
     "id": "ayodhya",
@@ -117,7 +117,7 @@
     "description": "The birthplace of Rama and setting of the Ramayana epic.",
     "latitude": 26.7922,
     "longitude": 82.1961,
-    "imageUrl": "/locations/"`jq -r .id`".png"
+    "imageUrl": "/locations/ayodhya.png"
   },
   {
     "id": "ise-grand-shrine",
@@ -127,7 +127,7 @@
     "description": "The most sacred Shinto shrine, dedicated to Amaterasu, rebuilt every 20 years.",
     "latitude": 34.4550,
     "longitude": 136.7258,
-    "imageUrl": "/locations/"`jq -r .id`".png"
+    "imageUrl": "/locations/ise-grand-shrine.png"
   },
   {
     "id": "izumo-taisha",
@@ -137,7 +137,7 @@
     "description": "One of the most ancient and important Shinto shrines, dedicated to Okuninushi (descendant of Susanoo).",
     "latitude": 35.4020,
     "longitude": 132.6855,
-    "imageUrl": "/locations/"`jq -r .id`".png"
+    "imageUrl": "/locations/izumo-taisha.png"
   },
   {
     "id": "mount-fuji",
@@ -147,7 +147,7 @@
     "description": "Japan's highest mountain, considered a sacred place and dwelling of kami.",
     "latitude": 35.3606,
     "longitude": 138.7274,
-    "imageUrl": "/locations/"`jq -r .id`".png"
+    "imageUrl": "/locations/mount-fuji.png"
   },
   {
     "id": "floating-bridge",
@@ -157,7 +157,7 @@
     "description": "The bridge from which Izanagi and Izanami stood to create the islands of Japan.",
     "latitude": null,
     "longitude": null,
-    "imageUrl": "/locations/"`jq -r .id`".png"
+    "imageUrl": "/locations/floating-bridge.png"
   },
   {
     "id": "yomi",

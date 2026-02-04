@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { ChevronRight, Home } from 'lucide-react'
 import { usePathname } from 'next/navigation'
 import { BreadcrumbJsonLd } from '@/components/seo/JsonLd'
+import { siteConfig } from '@/lib/metadata'
 
 interface BreadcrumbItem {
   label: string
@@ -44,7 +45,7 @@ export function Breadcrumbs() {
 
   const jsonLdItems = breadcrumbs.map(item => ({
     name: item.label,
-    item: `https://mythosatlas.com${item.href}`
+    item: `${siteConfig.url}${item.href}`
   }))
 
   return (

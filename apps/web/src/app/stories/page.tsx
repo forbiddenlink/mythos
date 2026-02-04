@@ -11,6 +11,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Breadcrumbs } from '@/components/navigation/Breadcrumbs';
 import { StoryFilters } from '@/components/stories/StoryFilters';
+import { BookmarkButton } from '@/components/ui/bookmark-button';
 
 interface Story {
   id: string;
@@ -161,6 +162,7 @@ export default function StoriesPage() {
                           {story.title}
                         </CardTitle>
                       </div>
+                      <BookmarkButton type="story" id={story.id} size="sm" />
                     </div>
                   </CardHeader>
 

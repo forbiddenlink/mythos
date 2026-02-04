@@ -543,5 +543,53 @@
     outline: none;
     box-shadow: 0 0 0 2px var(--background), 0 0 0 4px var(--gold);
   }
+
+  /* ═══════════════════════════════════════════════════════════════════
+     LEAFLET MAP OVERRIDES
+     ═══════════════════════════════════════════════════════════════════ */
+  .custom-map-marker {
+    background: transparent !important;
+    border: none !important;
+  }
+
+  .leaflet-popup-content-wrapper {
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+  }
+
+  .leaflet-popup-tip {
+    box-shadow: none;
+  }
+
+  .leaflet-popup-close-button {
+    color: #64748b !important;
+    font-size: 20px !important;
+    padding: 6px 8px 0 0 !important;
+  }
+
+  .leaflet-popup-close-button:hover {
+    color: #1e293b !important;
+  }
+
+  .leaflet-control-zoom a {
+    background-color: var(--card) !important;
+    color: var(--foreground) !important;
+    border-color: var(--border) !important;
+  }
+
+  .leaflet-control-zoom a:hover {
+    background-color: var(--muted) !important;
+  }
+
+  .leaflet-control-attribution {
+    background-color: var(--card) !important;
+    color: var(--muted-foreground) !important;
+    font-size: 10px !important;
+  }
+
+  .leaflet-control-attribution a {
+    color: var(--gold) !important;
+  }
 }
 

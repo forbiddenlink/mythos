@@ -7,6 +7,8 @@ import { GET_STORIES } from '@/lib/queries';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Loader2, BookOpen, Tag } from 'lucide-react';
 import { Breadcrumbs } from '@/components/navigation/Breadcrumbs';
+import { BookmarkButton } from '@/components/ui/bookmark-button';
+import { ArticleJsonLd } from '@/components/seo/JsonLd';
 import Link from 'next/link';
 
 interface Story {
@@ -75,6 +77,13 @@ export default function StoryPage() {
 
   return (
     <div className="min-h-screen bg-mythic">
+      <ArticleJsonLd
+        headline={story.title}
+        description={story.summary}
+        section={story.category}
+        tags={story.moralThemes}
+        url={`/stories/${story.slug}`}
+      />
       {/* Hero Section */}
       <div className="relative h-[40vh] min-h-[300px] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-midnight/70 via-midnight/60 to-mythic z-10" />
@@ -94,10 +103,11 @@ export default function StoryPage() {
             <div className="w-1.5 h-1.5 rotate-45 bg-gold/50" />
             <div className="w-12 h-px bg-gradient-to-l from-transparent to-gold/40" />
           </div>
-          <div className="flex items-center justify-center gap-2">
+          <div className="flex items-center justify-center gap-2 mb-4">
             <Tag className="h-4 w-4 text-gold/80" />
             <p className="text-gold/80 font-body">{story.category}</p>
           </div>
+          <BookmarkButton type="story" id={story.id} size="lg" variant="light" />
         </div>
       </div>
 
