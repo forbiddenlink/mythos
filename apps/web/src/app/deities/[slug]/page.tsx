@@ -39,7 +39,7 @@ interface Relationship {
 export default function DeityPage() {
   const params = useParams<{ slug: string }>();
   const slug = params?.slug;
-  
+
   const { data, isLoading, error } = useQuery<{ deity: Deity | null }>({
     queryKey: ['deity', slug],
     queryFn: async () => {
@@ -183,9 +183,6 @@ export default function DeityPage() {
             {/* Header */}
             <div>
               <div className="flex items-center gap-4 mb-4">
-                <div className="w-16 h-16 rounded-xl bg-linear-to-br from-amber-600 to-orange-700 flex items-center justify-center shadow-lg">
-                  <Sparkles className="h-8 w-8 text-white" />
-                </div>
                 <div className="flex-1">
                   <h1 className="font-serif text-4xl font-bold tracking-tight text-white">{deity.name}</h1>
                   {deity.alternateNames && deity.alternateNames.length > 0 && (
@@ -205,72 +202,94 @@ export default function DeityPage() {
       <div className="container mx-auto max-w-4xl px-4 py-12">
         <div className="space-y-8">
 
-          {/* Quick Info Cards */}
-          <div className="grid gap-4 md:grid-cols-2">
-            {deity.domain && deity.domain.length > 0 && (
-              <Card className="bg-white dark:bg-slate-900">
-                <CardHeader>
-                  <CardTitle className="font-serif flex items-center gap-2 text-lg">
-                    <Shield className="h-5 w-5 text-teal-600" />
-                    Domains
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <div className="flex flex-wrap gap-2">
-                    {deity.domain.map((d) => (
-                      <Badge key={d} variant="secondary" className="bg-teal-100 dark:bg-teal-900/30 text-teal-700 dark:text-teal-300">{d}</Badge>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
+
+          <div className="space-y-8">
+            {/* Centered Image */}
+            {deity.imageUrl && (
+              <div className="relative w-full max-w-lg mx-auto rounded-2xl overflow-hidden border-4 border-white dark:border-slate-800 shadow-2xl">
+                <div className="aspect-[3/4] relative">
+                  <Image
+                    src={deity.imageUrl}
+                    alt={deity.name}
+                    fill
+                    className="object-cover hover:scale-105 transition-transform duration-700"
+                    priority
+                  />
+                  <div className="absolute inset-0 ring-1 ring-inset ring-black/10 rounded-2xl"></div>
+                </div>
+              </div>
             )}
 
-            {deity.symbols && deity.symbols.length > 0 && (
-              <Card className="bg-white dark:bg-slate-900">
-                <CardHeader>
-                  <CardTitle className="font-serif flex items-center gap-2 text-lg">
-                    <Users className="h-5 w-5 text-amber-600" />
-                    Symbols
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <div className="flex flex-wrap gap-2">
-                    {deity.symbols.map((s) => (
-                      <Badge key={s} variant="outline" className="border-amber-200 dark:border-amber-800">{s}</Badge>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
-            )}
+            {/* Content Cards */}
+            <div className="space-y-8">
+              {/* Description */}
+              {deity.description && (
+                <Card className="bg-white dark:bg-slate-900 border-l-4 border-l-gold">
+                  <CardHeader>
+                    <CardTitle className="font-serif text-2xl">About {deity.name}</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-lg">
+                      {deity.description}
+                    </p>
+                  </CardContent>
+                </Card>
+              )}
+
+              {/* Origin Story */}
+              {deity.originStory && (
+                <Card className="bg-white dark:bg-slate-900">
+                  <CardHeader>
+                    <CardTitle className="font-serif text-xl">Origin Story</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-slate-600 dark:text-slate-400 leading-relaxed whitespace-pre-line">
+                      {deity.originStory}
+                    </p>
+                  </CardContent>
+                </Card>
+              )}
+
+              {/* Quick Info Cards */}
+              <div className="grid sm:grid-cols-2 gap-4">
+                {deity.domain && deity.domain.length > 0 && (
+                  <Card className="bg-white dark:bg-slate-900">
+                    <CardHeader className="pb-3">
+                      <CardTitle className="font-serif flex items-center gap-2 text-lg">
+                        <Shield className="h-5 w-5 text-teal-600" />
+                        Domains
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <div className="flex flex-wrap gap-2">
+                        {deity.domain.map((d) => (
+                          <Badge key={d} variant="secondary" className="bg-teal-100 dark:bg-teal-900/30 text-teal-700 dark:text-teal-300">{d}</Badge>
+                        ))}
+                      </div>
+                    </CardContent>
+                  </Card>
+                )}
+
+                {deity.symbols && deity.symbols.length > 0 && (
+                  <Card className="bg-white dark:bg-slate-900">
+                    <CardHeader className="pb-3">
+                      <CardTitle className="font-serif flex items-center gap-2 text-lg">
+                        <Users className="h-5 w-5 text-amber-600" />
+                        Symbols
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <div className="flex flex-wrap gap-2">
+                        {deity.symbols.map((s) => (
+                          <Badge key={s} variant="outline" className="border-amber-200 dark:border-amber-800">{s}</Badge>
+                        ))}
+                      </div>
+                    </CardContent>
+                  </Card>
+                )}
+              </div>
+            </div>
           </div>
-
-          {/* Description */}
-          {deity.description && (
-            <Card className="bg-white dark:bg-slate-900">
-              <CardHeader>
-                <CardTitle className="font-serif">About</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
-                  {deity.description}
-                </p>
-              </CardContent>
-            </Card>
-          )}
-
-          {/* Origin Story */}
-          {deity.originStory && (
-            <Card className="bg-white dark:bg-slate-900">
-              <CardHeader>
-                <CardTitle className="font-serif">Origin Story</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-slate-600 dark:text-slate-400 leading-relaxed whitespace-pre-line">
-                  {deity.originStory}
-                </p>
-              </CardContent>
-            </Card>
-          )}
 
           {/* Family Tree */}
           {relationshipsData?.deityRelationships && relationshipsData.deityRelationships.length > 0 && (
