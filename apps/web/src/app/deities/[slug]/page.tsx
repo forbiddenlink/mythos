@@ -206,7 +206,7 @@ export default function DeityPage() {
           <div className="space-y-8">
             {/* Centered Image */}
             {deity.imageUrl && (
-              <div className="relative w-full max-w-lg mx-auto rounded-2xl overflow-hidden border-4 border-white dark:border-slate-800 shadow-2xl">
+              <div className="relative w-full max-w-sm mx-auto rounded-2xl overflow-hidden border-4 border-white dark:border-slate-800 shadow-2xl">
                 <div className="aspect-[3/4] relative">
                   <Image
                     src={deity.imageUrl}
