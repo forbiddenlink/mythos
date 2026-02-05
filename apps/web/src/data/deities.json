@@ -828,7 +828,7 @@
     "description": "Sky god whose eyes are the sun and moon. Son of Osiris and Isis, he avenged his father by defeating Set in battle, becoming the rightful king.",
     "detailedBio": "## The Living Pharaoh\n\nHorus is the falcon-headed god of the sky and kingship. Every pharaoh was believed to be the living incarnation of Horus.\n\n### The Eye of Horus\n\nIn his battles with his uncle Set to avenge his father Osiris, Horus lost his left eye. It was restored by Thoth and became the **Wedjat** eye, a powerful symbol of protection and healing.",
     "importanceRank": 4,
-    "imageUrl": "https://images.unsplash.com/photo-1553729784-e91953dec042?w=400"
+    "imageUrl": "/deities/horus.png"
   },
   {
     "id": "set",
@@ -1272,7 +1272,7 @@
     ],
     "description": "God of the sun, music, poetry, prophecy, healing, and archery. One of the few gods whose name remained unchanged from Greek to Roman. Patron of the Sibylline Books and protector of Augustus.",
     "importanceRank": 4,
-    "imageUrl": "/deities/apollo-roman.png"
+    "imageUrl": "/deities/apollo.png"
   },
   {
     "id": "diana",
@@ -1298,7 +1298,7 @@
     ],
     "description": "Goddess of the hunt, wild animals, wilderness, and the moon. Protector of women in childbirth. Twin sister of Apollo. Roman equivalent of Artemis.",
     "importanceRank": 4,
-    "imageUrl": "/deities/diana.png"
+    "imageUrl": "/deities/artemis.png"
   },
   {
     "id": "mercury",
@@ -1325,7 +1325,7 @@
     ],
     "description": "Messenger of the gods and god of commerce, eloquence, messages, travelers, boundaries, luck, and thieves. Guide of souls to the underworld. Roman equivalent of Hermes.",
     "importanceRank": 5,
-    "imageUrl": "/deities/mercury-roman.png"
+    "imageUrl": "/deities/hermes.png"
   },
   {
     "id": "bacchus",
@@ -1351,7 +1351,7 @@
     ],
     "description": "God of wine, festivity, fertility, and ritual madness. His cult included the Bacchanalia festivals. Roman equivalent of Dionysus, also identified with the Italian god Liber.",
     "importanceRank": 6,
-    "imageUrl": "/deities/bacchus.png"
+    "imageUrl": "/deities/dionysus.png"
   },
   {
     "id": "vulcan",
@@ -1376,7 +1376,7 @@
     ],
     "description": "God of fire, metalworking, and the forge. Craftsman of the gods who forged divine weapons and armor. Roman equivalent of Hephaestus. Associated with volcanic activity.",
     "importanceRank": 6,
-    "imageUrl": "/deities/vulcan.png"
+    "imageUrl": "/deities/hephaestus.png"
   },
   {
     "id": "ceres",
@@ -1400,7 +1400,7 @@
     ],
     "description": "Goddess of agriculture, grain crops, fertility, and motherhood. Her cult was central to Roman plebeian identity. Mother of Proserpina (Persephone). Roman equivalent of Demeter.",
     "importanceRank": 5,
-    "imageUrl": "/deities/ceres.png"
+    "imageUrl": "/deities/demeter.png"
   },
   {
     "id": "vesta",
@@ -1423,7 +1423,7 @@
     "description": "Goddess of the hearth, home, and family. Her sacred fire in the Forum Romanum symbolized Rome's eternal life. Served by the Vestal Virgins, priestesses who tended her sacred flame.",
     "originStory": "Vesta corresponds to Greek Hestia. Her worship was fundamental to Roman identity - the sacred fire in her temple represented Rome itself and could never be allowed to go out.",
     "importanceRank": 4,
-    "imageUrl": "/deities/vesta.png"
+    "imageUrl": "/deities/hestia.png"
   },
   {
     "id": "janus",
