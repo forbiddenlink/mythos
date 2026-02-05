@@ -129,6 +129,7 @@
       "spear"
     ],
     "description": "Goddess of wisdom, warfare, and crafts. Born fully armed from Zeus's forehead after he swallowed her mother Metis.",
+    "detailedBio": "## The Grey-Eyed Goddess\n\nAthena is the goddess of wisdom, courage, and **strategic warfare**. Unlike Ares, who embodies bloodlust, Athena represents the intellectual and civilized side of war.\n\n### Birth from the Head\n\nProphecy warned Zeus that a child of Metis would overthrow him. He swallowed Metis whole, but later suffered a splitting headache. Hephaestus (or Prometheus) struck his head with an axe, and Athena sprang forth, fully grown and armored.\n\n### Patron of Heroes\n\nShe is the great helper of heroes, aiding Odysseus, Perseus, and Heracles in their quests. She is the patron deity of Athens, having won the city in a contest against Poseidon by gifting the olive tree.",
     "importanceRank": 7,
     "imageUrl": "/deities/athena.png"
   },
@@ -158,6 +159,7 @@
       "raven"
     ],
     "description": "God of sun, music, poetry, prophecy, and healing. Twin brother of Artemis, patron of the Muses and leader of the nine sisters.",
+    "detailedBio": "## The Golden God\n\nApollo is the ideal of the *kouros* (beardless youth), representing light, harmony, and reason. He is the master of the lyre and the leader of the Muses.\n\n### The Oracle of Delphi\n\nApollo slew the serpent Python to seize the oracle at Delphi, which became the most important religious site in Greece. His prophecies were delivered through the Pythia.\n\n### Healer and Plague-Bringer\n\nHe has a dual nature: he can bring deadly plague with his silver arrows (as seen in the *Iliad*) but also heal the sick. He is the father of Asclepius, the god of medicine.",
     "importanceRank": 8,
     "imageUrl": "/deities/apollo.png"
   },
@@ -184,6 +186,7 @@
       "cypress"
     ],
     "description": "Goddess of the hunt, wilderness, and the moon. Twin sister of Apollo, protector of young women and animals.",
+    "detailedBio": "## Mistress of Beasts\n\nArtemis is the fierce virgin goddess of the hunt and the wilderness (\"*Potnia Theron*\"). She roams the forests with her band of nymphs, protecting the natural world and punishing those who disrespect it.\n\n### The Virgin Huntress\n\nShe swore an oath of eternal maidenhood to Zeus. Actaeon, a hunter who accidentally saw her bathing, was transformed into a stag and devoured by his own hounds. She also punished Niobe for boasting that she was superior to Leto (Artemis's mother).",
     "importanceRank": 9,
     "imageUrl": "/deities/artemis.png"
   },
@@ -209,6 +212,7 @@
       "vulture"
     ],
     "description": "God of war, violence, and bloodshed. Son of Zeus and Hera, representing the brutal and chaotic aspects of warfare.",
+    "detailedBio": "## The God of War\n\nAres embodies the physical valor and untamed violence of war. While Athena represents strategy, Ares is the chaotic frenzy of battle. He was not well-liked by the Greeks, who found him dangerous and overwhelming.\n\n### Affair with Aphrodite\n\nHis most famous myth involves his affair with Aphrodite. Her husband, Hephaestus, crafted an unbreakable golden net and trapped the lovers in bed, inviting all the other gods to laugh at them.",
     "importanceRank": 10,
     "imageUrl": "/deities/ares.png"
   },
@@ -236,6 +240,7 @@
       "sparrow"
     ],
     "description": "Goddess of love, beauty, and desire. Born from the sea foam after Cronus castrated Uranus and threw his genitals into the sea.",
+    "detailedBio": "## The Cyprian\n\nAphrodite is the irresistible goddess of love and beauty. Though married to Hephaestus, she had many lovers, most notably Ares. She has the power to make anyone fall in love, a power that even Zeus cannot resist.\n\n### Birth from Foam\n\nShe was born from the white foam (*aphros*) produced by the severed genitals of Uranus when they were thrown into the sea. She washed ashore on Cyprus (or Cythera), where she was attended by the Seasons.",
     "importanceRank": 11,
     "imageUrl": "/deities/aphrodite.png"
   },
@@ -263,6 +268,7 @@
       "rooster"
     ],
     "description": "God of messengers, commerce, thieves, and travelers. Son of Zeus and the nymph Maia, known for his cunning and speed.",
+    "detailedBio": "## The Divine Messenger\n\nHermes is the swift messenger of the gods, wearing winged sandals and carrying the caduceus. He is the patron of boundaries and travelers, and the only god (besides Hades and Persephone) who can freely travel to the Underworld.\n\n### The Infant Thief\n\nOn the very day he was born, Hermes stole Apollo's sacred cattle. To reconcile, he invented the lyre from a tortoise shell and gifted it to Apollo. This established his role as a trickster and patron of thieves and merchants.",
     "importanceRank": 13,
     "imageUrl": "/deities/hermes.png"
   },
@@ -291,6 +297,7 @@
       "panther"
     ],
     "description": "God of wine, festivity, and theater. Son of Zeus and the mortal Semele, the only Olympian born to a mortal parent.",
+    "detailedBio": "## The God of Wine\n\nDionysus represents the liberating power of wine and religious ecstasy. He wanders the world spreading the culture of the vine, accompanied by satyrs and maenads (wild female followers).\n\n### Twice-Born\n\nHis mother Semele was consumed by Zeus's lightning. Zeus sewed the unborn Dionysus into his thigh until he was ready to be born, making him \"twice-born.\" He is the patron of theater, as Greek drama originated in festivals honoring him.",
     "importanceRank": 14,
     "imageUrl": "/deities/dionysus.png"
   },
@@ -316,6 +323,7 @@
       "poppies"
     ],
     "description": "Goddess of agriculture, harvest, and fertility. Mother of Persephone, whose abduction by Hades explains the seasons.",
+    "detailedBio": "## The Earth Mother\n\nDemeter acts as the provider of food and the protector of marriage. She presides over the cycle of life and death through the harvest.\n\n### The Seasons\n\nHer daughter Persephone was abducted by Hades. In her grief, Demeter neglected the earth, causing a great famine (winter). Zeus intervened, and it was decreed that Persephone would spend part of the year in the Underworld (winter) and part with her mother (spring/summer).",
     "importanceRank": 5,
     "imageUrl": "/deities/demeter.png"
   },
@@ -342,6 +350,7 @@
       "forge"
     ],
     "description": "God of fire, metalworking, and crafts. Son of Hera (and possibly Zeus), cast from Olympus due to his lameness but later readmitted.",
+    "detailedBio": "## The Smith God\n\nHephaestus is the master blacksmith of the gods, controlling fire and the forge. He is the patron of all craftsmen. Unlike the other beautiful immortals, he was born lame and was cast off Olympus by his mother Hera (or Zeus).\n\n### The Divine Artificer\n\nHe returned to Olympus and built the golden palaces of the gods. He crafted Achilles' armor, Zeus's thunderbolts, and Pandora (the first woman). He is married to Aphrodite, though she is unfaithful to him.",
     "importanceRank": 12,
     "imageUrl": "/deities/hephaestus.png"
   },
@@ -366,6 +375,7 @@
       "kettle"
     ],
     "description": "Goddess of the hearth, home, and family. The firstborn of Cronus and Rhea, she maintained eternal virginity and tended the sacred fire of Olympus.",
+    "detailedBio": "## Keeper of the Hearth\n\nHestia is the gentle goddess of the hearth fire (*hestia*), which burned in the center of every Greek home and city. She received the first offering at every sacrifice.\n\n### First and Last\n\nShe was the first child swallowed by Cronus and the last regurgitated, making her both the oldest and youngest of the Olympians. She gave up her seat on Olympus to Dionysus to prevent conflict, tending instead to the sacred fire that could never go out.",
     "importanceRank": 6,
     "imageUrl": "/deities/hestia.png"
   },
@@ -483,6 +493,7 @@
       "falcon feather cloak"
     ],
     "description": "Queen of the Aesir and wife of Odin. Goddess of marriage, motherhood, and the home. She possesses the power of prophecy but chooses not to reveal what she knows.",
+    "detailedBio": "## Queen of Asgard\n\nFrigg is the wife of Odin and the foremost goddess of the Aesir. She sits enthroned in Fensalir. She is the only one besides Odin allowed to sit on Hlidskjalf and look out over all the worlds.\n\n### The Silent Prophet\n\nWhile Odin wanders constantly seeking knowledge, Frigg already knows the fate of all things (\"*orlog*\") but chooses to remain silent. Her greatest tragedy is the death of her son Baldur, whom she tried to protect by extracting oaths from everything in creation—except the mistletoe.",
     "importanceRank": 2,
     "imageUrl": "/deities/frigg.png"
   },
@@ -512,6 +523,7 @@
       "boar Hildisvini"
     ],
     "description": "Most renowned of the Vanir, goddess of love, beauty, and fertility, but also associated with war and death. She receives half of those who die in battle in her hall Folkvangr.",
+    "detailedBio": "## Lady of the Vanir\n\nFreyja is the goddess of love, beauty, gold, and magic (*seidr*). She drives a chariot pulled by giant cats and wears the necklace Brisingamen.\n\n### Goddess of War\n\nUnlike Aphrodite, Freyja is not just a lover but a warrior. She rides into battle and has the first pick of the slain warriors (the Oskorei), taking half to her field Folkvangr, while Odin takes the rest to Valhalla.",
     "importanceRank": 6,
     "imageUrl": "/deities/freyja.png"
   },
@@ -540,6 +552,7 @@
       "ship Hringhorni"
     ],
     "description": "The most beloved of all gods, son of Odin and Frigg. God of light, purity, and beauty. His death, orchestrated by Loki using mistletoe, is one of the great tragedies leading to Ragnarok.",
+    "detailedBio": "## The Shining One\n\nBaldur is the son of Odin and Frigg, so beautiful and bright that light shines from him. He is the wisest, most eloquent, and most gracious of the Aesir.\n\n### The Death of Baldur\n\nPlagued by dreams of his death, his mother Frigg made everything in creation swear not to harm him. The gods amused themselves by throwing weapons at him, as they bounced off harmlessly. But Loki discovered the mistletoe had not sworn. He tricked the blind god Hodr into throwing a mistletoe dart, which pierced Baldur's heart, killing him instantly and plunging the worlds into grief.",
     "importanceRank": 8,
     "imageUrl": "/deities/baldur.png"
   },
@@ -566,6 +579,7 @@
       "rune Tiwaz"
     ],
     "description": "God of war, justice, and law. Bravest of the gods. Sacrificed his right hand to bind the wolf Fenrir, demonstrating his courage and willingness to uphold cosmic order.",
+    "detailedBio": "## The One-Handed God\n\nTyr is the ancient god of war and the guarantor of justice and oaths (`thing`). While Thor represents the physical strength of a warrior, Tyr represents the legal and moral principles of war.\n\n### The Binding of Fenrir\n\nWhen the gods decided to bind the monstrous wolf Fenrir, the beast only agreed to be chained if one of them placed a hand in his mouth as a pledge of good faith. Tyr alone had the courage to do so. When Fenrir realized he was trapped, he bit off Tyr's hand.",
     "importanceRank": 9,
     "imageUrl": "/deities/tyr.png"
   },
@@ -593,6 +607,7 @@
       "gold teeth"
     ],
     "description": "Watchman of the gods who guards the rainbow bridge Bifrost connecting Asgard and Midgard. Possesses incredible hearing and eyesight, and will blow his horn Gjallarhorn to signal the onset of Ragnarok.",
+    "detailedBio": "## The Watchman of Asgard\n\nHeimdall is the ever-vigilant guardian of the **Bifrost**, the rainbow bridge. He requires less sleep than a bird and can hear the grass growing.\n\n### The Horn of Doom\n\nHe possesses the **Gjallarhorn**, which he will sound at the beginning of Ragnarok to summon the gods to battle. He is destined to kill and be killed by Loki during the final conflict.",
     "importanceRank": 10,
     "imageUrl": "/deities/heimdall.png"
   },
@@ -620,6 +635,7 @@
       "antler"
     ],
     "description": "One of the Vanir, god of fertility, prosperity, and fair weather. Owner of the magical ship Skidbladnir and the golden boar Gullinbursti.",
+    "detailedBio": "## Lord of the Harvest\n\nFreyr is the noble brother of Freyja and ruler of Alfheim (realm of the Elves). He brings peace and prosperity to mortals.\n\n### The Price of Love\n\nHe fell in love with the giantess Gerdr and gave away his magical sword (which could fight on its own) to win her hand. This sacrifice will cost him his life at Ragnarok, where he will be defenseless against the fire giant Surtr.",
     "importanceRank": 7,
     "imageUrl": "/deities/freyr.png"
   },
@@ -644,6 +660,7 @@
       "jaws"
     ],
     "description": "Monstrous wolf, son of Loki. Bound by the gods but prophesied to break free at Ragnarok and devour Odin. Represents the inevitable forces of chaos and destruction.",
+    "detailedBio": "## The World-Eater\n\nFenrir is the most infamous child of Loki. He grew so large and terrifying that the gods tricked him into being bound by the magical ribbon **Gleipnir** (costing Tyr his hand).\n\n### Ragnarok\n\nHe is destined to remain bound until Ragnarok, when he will break his chains and swallow Odin whole, ending the reign of the Aesir. He will eventually be slain by Odin's son Vidar.",
     "importanceRank": 12,
     "imageUrl": "/deities/fenrir.png"
   },
@@ -666,6 +683,7 @@
       "realm Niflheim"
     ],
     "description": "Goddess and ruler of the underworld realm of the dead (also called Hel or Helheim). Daughter of Loki. Her realm receives those who die of sickness or old age.",
+    "detailedBio": "## Mistress of the Underworld\n\nHel is the ruler of **Helheim**, the realm of the dead (for those who did not die a warrior's death). She is half living flesh and half rotting corpse.\n\n### The Final Host\n\nWhen Baldur died, Hermod rode to Helheim to beg for his release. Hel agreed only if every living thing wept for him. Because one giantess (Loki in disguise) refused, Baldur remained in her domain.",
     "importanceRank": 11,
     "imageUrl": "/deities/hel.png"
   },
@@ -688,6 +706,7 @@
       "wheat"
     ],
     "description": "Wife of Thor and goddess associated with earth and harvest. Famous for her beautiful golden hair, which was once cut by Loki as a prank.",
+    "detailedBio": "## The Golden Harvest\n\nSif is the wife of Thor and a goddess of the earth. Her long golden hair represents the fields of wheat.\n\n### The Golden Hair\n\nLoki once cut off all her hair as a malicious prank. To escape Thor's wrath, Loki blackmailed the dwarves into forging new hair of pure gold that would grow like real hair, along with Mjolnir and other treasures.",
     "importanceRank": 4,
     "imageUrl": "/deities/sif.png"
   },
@@ -807,6 +826,7 @@
       "winged sun disk"
     ],
     "description": "Sky god whose eyes are the sun and moon. Son of Osiris and Isis, he avenged his father by defeating Set in battle, becoming the rightful king.",
+    "detailedBio": "## The Living Pharaoh\n\nHorus is the falcon-headed god of the sky and kingship. Every pharaoh was believed to be the living incarnation of Horus.\n\n### The Eye of Horus\n\nIn his battles with his uncle Set to avenge his father Osiris, Horus lost his left eye. It was restored by Thoth and became the **Wedjat** eye, a powerful symbol of protection and healing.",
     "importanceRank": 4,
     "imageUrl": "https://images.unsplash.com/photo-1553729784-e91953dec042?w=400"
   },
@@ -835,6 +855,7 @@
       "red color"
     ],
     "description": "God of chaos, storms, and the desert. Brother and murderer of Osiris, enemy of Horus. Despite being a villain in myth, he also protects Ra's solar barque from Apophis each night.",
+    "detailedBio": "## Lord of Chaos\n\nSet is the god of storms, deserts, and foreigners. He represents the necessary chaos (*Isfet*) that balances order.\n\n### The Protector of Ra\n\nThough he is the villain in the Osiris myth (murdering his brother), Set has a heroic role as the only god strong enough to stand on the prow of Ra's solar barge and spear the chaos serpent Apophis every night.",
     "importanceRank": 5,
     "imageUrl": "/deities/set.png"
   },
@@ -864,6 +885,7 @@
       "embalming tools"
     ],
     "description": "God of mummification and the afterlife. Guardian of tombs and guide of souls to judgment. He oversees the weighing of the heart ceremony.",
+    "detailedBio": "## Guardian of the Dead\n\nAnubis is the jackal-headed god who presided over embalming and accompanied the dead to the afterlife. He was the original lord of the underworld before Osiris.\n\n### Weighing of the Heart\n\nHis most crucial role is in the Hall of Truth, where he weighs the heart of the deceased against the feather of Ma'at. If the heart is heavy with sin, it is devoured by Ammit.",
     "importanceRank": 7,
     "imageUrl": "/deities/anubis.png"
   },
@@ -895,6 +917,7 @@
       "papyrus scroll"
     ],
     "description": "God of wisdom, writing, and magic. Inventor of hieroglyphs and scribe of the gods. He records the results of the weighing of hearts ceremony.",
+    "detailedBio": "## Scribe of the Gods\n\nThoth is the ibis-headed god of wisdom, writing, and magic. He invented hieroglyphs and maintains the universe through his precise calculations.\n\n### Mediator\n\nHe often acts as a mediator between good and evil, ensuring that neither destroys the other. He healed Horus's eye and helped Isis bring Osiris back to life.",
     "importanceRank": 8,
     "imageUrl": "/deities/thoth.png"
   },
@@ -924,6 +947,7 @@
       "aegis"
     ],
     "description": "Goddess of home, fertility, and protection. Originally a fierce lioness warrior goddess, she later became gentler as a cat goddess.",
+    "detailedBio": "## Lady of the East\n\nBastet is the feline goddess of the home, women's secrets, cats, and fertility. Originally a lioness warrior, she evolved into the domestic cat deity.\n\n### Protector\n\nShe protects the home from evil spirits and disease. She is also the goddess of perfume (her name means \"She of the Perfume Jar\").",
     "importanceRank": 9,
     "imageUrl": "/deities/bastet.png"
   },
@@ -953,6 +977,7 @@
       "menat necklace"
     ],
     "description": "Goddess of love, beauty, music, and motherhood. The 'Golden One' who embodies the feminine ideal. Protector of women.",
+    "detailedBio": "## Mistress of the West\n\nHathor is the goddess of joy, love, motherhood, and music. She welcomed the dead into the afterlife.\n\n### The Eye of Ra\n\nIn one myth, she was sent by Ra to punish humanity as the fierce lioness Sekhmet. When she became bloodthirsty, Ra tricked her by dyeing beer red to look like blood. She drank it, became drunk, and transformed back into the gentle Hathor.",
     "importanceRank": 11,
     "imageUrl": "/deities/hathor.png"
   },
@@ -979,6 +1004,7 @@
       "was scepter"
     ],
     "description": "Goddess embodying truth, justice, and cosmic order. Her feather is weighed against the hearts of the dead in judgment.",
+    "detailedBio": "## Cosmic Order\n\nMa'at is not just a goddess but the fundamental concept of truth, balance, order, law, morality, and justice. Without Ma'at, the universe would crumble into chaos.\n\n### The Feather of Truth\n\nShe is depicted with an ostrich feather on her head. This is the very feather against which the hearts of the dead are weighed in the afterlife.",
     "importanceRank": 13,
     "imageUrl": "/deities/maat.png"
   },

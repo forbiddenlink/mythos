@@ -2,11 +2,13 @@
 
 import { useState, useMemo } from 'react';
 import dynamic from 'next/dynamic';
-import { MapPin, List, Map, Loader2 } from 'lucide-react';
+import { MapPin, List, Map, Loader2, Search } from 'lucide-react';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+import { Input } from '@/components/ui/input';
+import { HoverCard, HoverCardContent, HoverCardTrigger } from '@/components/ui/hover-card';
 import { Breadcrumbs } from '@/components/navigation/Breadcrumbs';
 import locationsData from '@/data/locations.json';
 import pantheonsData from '@/data/pantheons.json';
@@ -83,6 +85,7 @@ export default function LocationsPage() {
   const pantheons = pantheonsData as Pantheon[];
 
   const [viewMode, setViewMode] = useState<'map' | 'list'>('map');
+  const [searchQuery, setSearchQuery] = useState('');
   const [activePantheons, setActivePantheons] = useState<Set<string>>(
     new Set(pantheons.map((p) => p.id))
   );
@@ -102,10 +105,16 @@ export default function LocationsPage() {
 
   // Filtering Logic
   const filteredLocations = useMemo(() => {
-    return locations.filter(loc =>
-      activePantheons.has(loc.pantheonId) && activeLocationTypes.has(loc.locationType)
-    );
-  }, [locations, activePantheons, activeLocationTypes]);
+    return locations.filter(loc => {
+      const matchesPantheon = activePantheons.has(loc.pantheonId);
+      const matchesType = activeLocationTypes.has(loc.locationType);
+      const matchesSearch = searchQuery === '' ||
+        loc.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        loc.description.toLowerCase().includes(searchQuery.toLowerCase());
+
+      return matchesPantheon && matchesType && matchesSearch;
+    });
+  }, [locations, activePantheons, activeLocationTypes, searchQuery]);
 
   const togglePantheon = (id: string) => {
     setActivePantheons(prev => {
@@ -173,16 +182,29 @@ export default function LocationsPage() {
         <div className="sticky top-20 z-30 mb-8 bg-background/95 backdrop-blur-md rounded-xl border border-border p-4 shadow-sm transition-all">
           <div className="flex flex-col gap-6">
 
-            {/* Top Row: Breadcrumbs + View Toggle */}
-            <div className="flex flex-col sm:flex-row items-center justify-between gap-4 border-b border-border/50 pb-4">
+            {/* Top Row: Breadcrumbs + Search + View Toggle */}
+            <div className="flex flex-col md:flex-row items-center justify-between gap-4 border-b border-border/50 pb-4">
               <Breadcrumbs />
-              <div className="flex items-center gap-2 bg-muted/50 p-1 rounded-lg border border-border/50">
-                <Button variant={viewMode === 'map' ? 'default' : 'ghost'} size="sm" onClick={() => setViewMode('map')} className="gap-2 h-8">
-                  <Map className="h-4 w-4" /> Map
-                </Button>
-                <Button variant={viewMode === 'list' ? 'default' : 'ghost'} size="sm" onClick={() => setViewMode('list')} className="gap-2 h-8">
-                  <List className="h-4 w-4" /> List
-                </Button>
+
+              <div className="flex items-center gap-4 w-full md:w-auto">
+                <div className="relative w-full md:w-64">
+                  <Search className="absolute left-2 top-2.5 h-4 w-4 text-muted-foreground" />
+                  <Input
+                    placeholder="Search locations..."
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    className="pl-8 bg-muted/50 border-border/50 focus:bg-background transition-colors"
+                  />
+                </div>
+
+                <div className="flex items-center gap-2 bg-muted/50 p-1 rounded-lg border border-border/50 shrink-0">
+                  <Button variant={viewMode === 'map' ? 'default' : 'ghost'} size="sm" onClick={() => setViewMode('map')} className="gap-2 h-8">
+                    <Map className="h-4 w-4" /> <span className="hidden sm:inline">Map</span>
+                  </Button>
+                  <Button variant={viewMode === 'list' ? 'default' : 'ghost'} size="sm" onClick={() => setViewMode('list')} className="gap-2 h-8">
+                    <List className="h-4 w-4" /> <span className="hidden sm:inline">List</span>
+                  </Button>
+                </div>
               </div>
             </div>
 
@@ -205,8 +227,8 @@ export default function LocationsPage() {
                         key={p.id}
                         onClick={() => togglePantheon(p.id)}
                         className={`text-[10px] px-2.5 py-1 rounded-full border transition-all ${isActive
-                            ? 'border-transparent text-white'
-                            : 'border-border text-muted-foreground bg-muted/30 hover:bg-muted'
+                          ? 'border-transparent text-white'
+                          : 'border-border text-muted-foreground bg-muted/30 hover:bg-muted'
                           }`}
                         style={isActive ? { backgroundColor: colors.bg } : undefined}
                       >
@@ -233,8 +255,8 @@ export default function LocationsPage() {
                         key={type}
                         onClick={() => toggleLocationType(type)}
                         className={`text-[10px] px-2.5 py-1 rounded-full border transition-all ${isActive
-                            ? 'bg-gold/20 border-gold/30 text-gold-light font-medium'
-                            : 'border-border text-muted-foreground bg-muted/30 hover:bg-muted'
+                          ? 'bg-gold/20 border-gold/30 text-gold-light font-medium'
+                          : 'border-border text-muted-foreground bg-muted/30 hover:bg-muted'
                           }`}
                       >
                         {getLocationTypeLabel(type)}
@@ -272,6 +294,7 @@ export default function LocationsPage() {
         {viewMode === 'list' && (
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {filteredLocations.map((location) => {
+              const pantheon = pantheons.find(p => p.id === location.pantheonId);
               const colors = PANTHEON_COLORS[location.pantheonId] || {
                 bg: '#6b7280', label: location.pantheonId,
               };
@@ -303,17 +326,37 @@ export default function LocationsPage() {
                         />
                       </div>
                       <div className="flex items-center gap-1.5">
-                        <Badge
-                          variant="secondary"
-                          className="text-[10px] border"
-                          style={{
-                            backgroundColor: `${colors.bg}15`,
-                            borderColor: `${colors.bg}30`,
-                            color: colors.bg,
-                          }}
-                        >
-                          {colors.label}
-                        </Badge>
+                        <HoverCard>
+                          <HoverCardTrigger asChild>
+                            <Badge
+                              variant="secondary"
+                              className="text-[10px] border cursor-help"
+                              style={{
+                                backgroundColor: `${colors.bg}15`,
+                                borderColor: `${colors.bg}30`,
+                                color: colors.bg,
+                              }}
+                            >
+                              {colors.label}
+                            </Badge>
+                          </HoverCardTrigger>
+                          <HoverCardContent className="w-80 bg-background border-border">
+                            <div className="flex justify-between space-x-4">
+                              <div className="space-y-1">
+                                <h4 className="text-sm font-semibold">{pantheon?.name}</h4>
+                                <p className="text-sm text-muted-foreground">
+                                  {pantheon?.culture} Pantheon
+                                </p>
+                                <div className="flex items-center pt-2">
+                                  <span className="text-xs text-muted-foreground">
+                                    Click to filter by this pantheon only
+                                  </span>
+                                </div>
+                              </div>
+                            </div>
+                          </HoverCardContent>
+                        </HoverCard>
+
                         {!hasCords && (
                           <Badge
                             variant="outline"
@@ -355,7 +398,7 @@ export default function LocationsPage() {
               All Locations
             </h3>
             <div className="space-y-3">
-              {locations.map((location) => {
+              {filteredLocations.map((location) => {
                 const colors = PANTHEON_COLORS[location.pantheonId] || {
                   bg: '#6b7280',
                   label: location.pantheonId,

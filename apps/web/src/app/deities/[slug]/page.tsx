@@ -49,8 +49,8 @@ export default function DeityPage() {
     queryFn: async () => {
       // Fetch specific deity by slug (API supports slug as ID)
       const result = await graphqlClient.request<{ deity: Deity }>(gql`
-        query GetDeity($slug: String!) {
-          deity(id: $slug) {
+        query GetDeity($id: String!) {
+          deity(id: $id) {
             id
             pantheonId
             name
@@ -66,7 +66,7 @@ export default function DeityPage() {
             alternateNames
           }
         }
-      `, { slug });
+      `, { id: slug });
       return { deity: result.deity || null };
     },
   });

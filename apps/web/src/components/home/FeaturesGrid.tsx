@@ -33,7 +33,7 @@ const features = [
     icon: MapIcon,
     title: 'Sacred Geography',
     description: 'Explore the real and mythical locations where these stories unfolded',
-    href: '/map',
+    href: '/locations',
     iconBg: 'from-patina to-[oklch(0.45_0.10_170)]',
     accent: 'group-hover:text-patina',
   },
