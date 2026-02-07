@@ -1,0 +1,58 @@
+[
+    {
+        "id": "fenrir",
+        "pantheonId": "norse-pantheon",
+        "name": "Fenrir",
+        "slug": "fenrir",
+        "description": "A monstrous wolf, son of Loki and Angrboda. Foretold to kill Odin during Ragnarök, he is bound by the magical ribbon Gleipnir.",
+        "habitat": "Lyngvi (The Island of Heather)",
+        "abilities": [
+            "Boundless Growth",
+            "God-slaying Strength"
+        ],
+        "dangerLevel": 10,
+        "imageUrl": "/stories/binding-of-fenrir.png"
+    },
+    {
+        "id": "cerberus",
+        "pantheonId": "greek-pantheon",
+        "name": "Cerberus",
+        "slug": "cerberus",
+        "description": "The multi-headed hound of Hades who guards the gates of the Underworld to prevent the dead from leaving.",
+        "habitat": "The Underworld (Gates)",
+        "abilities": [
+            "Multi-headed Awareness",
+            "Immortality"
+        ],
+        "dangerLevel": 8,
+        "imageUrl": "/deities/hades.png"
+    },
+    {
+        "id": "yamata-no-orochi",
+        "pantheonId": "japanese-pantheon",
+        "name": "Yamata no Orochi",
+        "slug": "yamata-no-orochi",
+        "description": "A legendary eight-headed and eight-tailed Japanese dragon/serpent. Slain by the storm god Susanoo.",
+        "habitat": "Koshi Province",
+        "abilities": [
+            "Eight Heads",
+            "Size Manipulation"
+        ],
+        "dangerLevel": 9,
+        "imageUrl": "/stories/yamata-no-orochi.png"
+    },
+    {
+        "id": "apep",
+        "pantheonId": "egyptian-pantheon",
+        "name": "Apep",
+        "slug": "apep",
+        "description": "The serpent of chaos and enemy of Ra. He attempts to swallow the sun barge every night in the Duat.",
+        "habitat": "The Duat (Underworld)",
+        "abilities": [
+            "Hypnotic Gaze",
+            "Chaos Magic"
+        ],
+        "dangerLevel": 10,
+        "imageUrl": "/stories/ra-journey.png"
+    }
+]

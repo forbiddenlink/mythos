@@ -4,14 +4,14 @@
 
 ## Overview
 
-This is the web frontend for Mythos Atlas, an interactive encyclopedia of ancient mythology featuring Greek, Norse, and Egyptian pantheons with 39 deities, 11+ stories, and comprehensive educational features.
+This is the web frontend for Mythos Atlas, an interactive encyclopedia of ancient mythology featuring Greek, Norse, and Egyptian pantheons with **80+ deities**, 11+ stories, and comprehensive educational features.
 
 **Built by Elizabeth Stein** using Next.js 16, React 19, TypeScript, and modern web technologies.
 
 ## Features
 
 - 🏛️ **Interactive Pantheons** - Browse Greek, Norse, and Egyptian mythologies
-- 👑 **Deity Profiles** - 39 gods and goddesses with filtering and sorting
+- 👑 **Deity Profiles** - **80+ gods and goddesses** with filtering and sorting
 - 📖 **Epic Stories** - 11+ mythological tales with theme filtering  
 - 🌳 **Family Trees** - Network and hierarchical relationship visualizations
 - 🧠 **Educational Quiz** - Interactive mythology quiz with progress tracking
@@ -103,6 +103,7 @@ src/
 - **Hierarchical Tree**: React D3 Tree with expand/collapse
 - Color-coded relationships (parent, child, spouse, sibling)
 - Mobile-responsive with touch controls
+- **Multi-Pantheon Support**: Handles complex lineages (e.g., Norse)
 
 ### Search System
 - Global command palette (⌘K or Ctrl+K)

@@ -35,60 +35,107 @@ interface TimelineEvent {
 interface TimelineVisualizationProps {
     pantheons: Pantheon[]
     events: TimelineEvent[]
+    viewRange: [number, number]
 }
 
 // ---------------------------------------------------------------------------
 // Constants
 // ---------------------------------------------------------------------------
 
+const MARGIN = { top: 40, right: 40, bottom: 40, left: 220 }
 const TIMELINE_START = -3500
-const TIMELINE_END = 2025 // Extended to present
-const MARGIN = { top: 60, right: 40, bottom: 40, left: 220 } // Left margin for pantheon labels
+const TIMELINE_END = 2025
 
+/* 
+  Reusing the color palette from other components for consistency.
+*/
 const PANTHEON_COLORS: Record<string, string> = {
     'greek-pantheon': '#3b82f6', // blue-500
-    'norse-pantheon': '#10b981', // emerald-500
+    'norse-pantheon': '#8b5cf6', // violet-500
     'egyptian-pantheon': '#f59e0b', // amber-500
     'roman-pantheon': '#ef4444', // red-500
     'hindu-pantheon': '#f97316', // orange-500
-    'japanese-pantheon': '#f43f5e', // rose-500
-    'celtic-pantheon': '#14b8a6', // teal-500
-    'aztec-pantheon': '#84cc16', // lime-500
-    'chinese-pantheon': '#a855f7', // purple-500
+    'japanese-pantheon': '#ec4899', // pink-500
+    'celtic-pantheon': '#22c55e', // green-500
+    'aztec-pantheon': '#14b8a6',   // teal-500
+    'chinese-pantheon': '#e11d48', // rose-600
 }
 
 const ERA_MARKERS = [
-    { start: -3500, end: -3000, label: 'Early Bronze', color: 'rgba(180, 83, 9, 0.1)' },
-    { start: -3000, end: -1200, label: 'Bronze Age', color: 'rgba(217, 119, 6, 0.08)' },
-    { start: -1200, end: -800, label: 'Iron Age', color: 'rgba(100, 116, 139, 0.1)' },
-    { start: -800, end: -500, label: 'Archaic', color: 'rgba(37, 99, 235, 0.05)' },
-    { start: -500, end: -323, label: 'Classical', color: 'rgba(59, 130, 246, 0.08)' },
-    { start: -323, end: -31, label: 'Hellenistic', color: 'rgba(99, 102, 241, 0.08)' },
-    { start: -31, end: 476, label: 'Roman Empire', color: 'rgba(220, 38, 38, 0.08)' },
-    { start: 476, end: 1000, label: 'Early Medieval', color: 'rgba(120, 113, 108, 0.1)' },
-    { start: 1000, end: 1500, label: 'Medieval', color: 'rgba(87, 83, 78, 0.1)' },
-    { start: 1500, end: 2025, label: 'Modern Era', color: 'rgba(120, 113, 108, 0.05)' },
+    { label: 'Bronze Age', start: -3300, end: -1200, color: 'rgba(217, 119, 6, 0.1)' },
+    { label: 'Iron Age', start: -1200, end: -500, color: 'rgba(100, 116, 139, 0.1)' },
+    { label: 'Classical Antiquity', start: -800, end: 600, color: 'rgba(14, 165, 233, 0.1)' },
+    { label: 'Middle Ages', start: 500, end: 1500, color: 'rgba(139, 92, 246, 0.1)' },
+    { label: 'Modern Era', start: 1500, end: 2025, color: 'rgba(16, 185, 129, 0.1)' },
 ]
 
-// ---------------------------------------------------------------------------
-// Helpers
-// ---------------------------------------------------------------------------
-
-function formatYear(year: number): string {
+function formatYear(year: number) {
     if (year < 0) return `${Math.abs(year)} BCE`
-    if (year === 0) return '1 CE'
     return `${year} CE`
 }
 
-// ---------------------------------------------------------------------------
-// D3 Component
-// ---------------------------------------------------------------------------
-
-export function TimelineVisualizationD3({ pantheons, events }: TimelineVisualizationProps) {
+export function TimelineVisualizationD3({ pantheons, events, viewRange }: TimelineVisualizationProps) {
     const containerRef = useRef<HTMLDivElement>(null)
     const svgRef = useRef<SVGSVGElement>(null)
     const [selectedPantheon, setSelectedPantheon] = useState<string | null>(null)
     const [tooltip, setTooltip] = useState<{ x: number; y: number; content: React.ReactNode } | null>(null)
+    // We keep a ref to the zoom behavior to call it programmatically
+    const zoomBehaviorRef = useRef<d3.ZoomBehavior<SVGSVGElement, unknown> | null>(null)
+    const xScaleRef = useRef<d3.ScaleLinear<number, number> | null>(null)
+
+    // Handle View Range Updates (Programmatic Zoom)
+    useEffect(() => {
+        if (!svgRef.current || !xScaleRef.current || !zoomBehaviorRef.current) return
+
+        const svg = d3.select(svgRef.current)
+        const width = containerRef.current?.getBoundingClientRect().width || 0
+        const innerWidth = width - MARGIN.left - MARGIN.right
+
+        // Calculate the transform needed to show viewRange
+        // Current Scale Domain: [-3500, 2025] -> Total Span: 5525
+        // Target Scale Domain: [start, end] -> Target Span: end - start
+        // k (Scale Factor) = TotalSpan / TargetSpan
+
+        const totalSpan = TIMELINE_END - TIMELINE_START
+        const targetSpan = viewRange[1] - viewRange[0]
+        const k = Math.min(50, Math.max(1, totalSpan / targetSpan))
+
+        // Calculate translation (tx)
+        // We want the 'start' date to be at x=0 (after scale)
+        // Default d3.zoomIdentity maps domain[0] to range[0]
+
+        // Let's use d3.zoomIdentity props
+        const t = d3.zoomIdentity
+            .scale(k)
+            .translate(-((viewRange[0] - TIMELINE_START) / totalSpan) * innerWidth, 0) // Approximation, usually better to use scale invert
+
+        // Better approach: Calculate tx such that xScale(viewRange[0]) === 0
+        // xScale(x) = k * xOriginal(x) + tx
+        // At zoom identity: xOriginal(-3500) = 0
+
+        // Actually, easiest way is to re-call the zoom transform on the svg selection
+        // But we need to calculate the correct transform.
+
+        const xOriginal = d3.scaleLinear().domain([TIMELINE_START, TIMELINE_END]).range([0, innerWidth])
+
+        // X coord of desired start in original scale
+        const xStart = xOriginal(viewRange[0])
+        const xEnd = xOriginal(viewRange[1])
+
+        // We want to scale such that (xEnd - xStart) * k = innerWidth
+        const newK = innerWidth / (xEnd - xStart)
+
+        // And translate such that newX(viewRange[0]) = 0
+        // newX(d) = (xOriginal(d) * k) + tx
+        // 0 = (xStart * k) + tx  =>  tx = -xStart * k
+
+        const newTx = -xStart * newK
+
+        svg.transition().duration(750)
+            .call(zoomBehaviorRef.current.transform,
+                d3.zoomIdentity.translate(newTx, 0).scale(newK))
+
+    }, [viewRange]) // Only run when range changes from controls
 
     // Initialize D3
     useEffect(() => {
@@ -111,6 +158,8 @@ export function TimelineVisualizationD3({ pantheons, events }: TimelineVisualiza
             .domain([TIMELINE_START, TIMELINE_END])
             .range([0, innerWidth])
 
+        xScaleRef.current = xScaleOriginal
+
         let xScale = xScaleOriginal
 
         const zoom = d3.zoom<SVGSVGElement, unknown>()
@@ -121,6 +170,8 @@ export function TimelineVisualizationD3({ pantheons, events }: TimelineVisualiza
                 xScale = event.transform.rescaleX(xScaleOriginal)
                 update()
             })
+
+        zoomBehaviorRef.current = zoom
 
         svg.call(zoom)
             // Disable double click zoom

@@ -2,7 +2,7 @@
 
 > **Interactive encyclopedia of world mythology**
 
-An immersive web application exploring ancient mythologies through interactive visualizations, comprehensive deity profiles, epic stories, and educational features. Currently featuring Greek, Norse, and Egyptian pantheons with 39 deities and 11+ legendary tales.
+An immersive web application exploring ancient mythologies through interactive visualizations, comprehensive deity profiles, epic stories, and educational features. Currently featuring Greek, Norse, and Egyptian pantheons with **80+ deities** and 11+ legendary tales.
 
 ## ✨ Features
 
@@ -12,7 +12,7 @@ An immersive web application exploring ancient mythologies through interactive v
 - Divine hierarchies and pantheon structures
 
 ### 👑 **Discover Deities**
-- 39 detailed deity profiles with domains, symbols, and attributes
+- **80+ detailed deity profiles** with domains, symbols, and attributes
 - **Advanced Filtering**: Filter by gender, domain (war, love, wisdom, etc.)
 - **Smart Sorting**: Sort by importance rank or alphabetical name
 - Interactive search with ⌘K keyboard shortcut
@@ -24,11 +24,18 @@ An immersive web application exploring ancient mythologies through interactive v
 - Cultural significance and moral themes
 
 ### 🌳 **Interactive Family Trees**
-- Visual relationship networks using ReactFlow
-- Hierarchical tree view with D3
-- Color-coded relationships (parent, child, spouse, sibling)
-- Zoom, pan, and explore divine genealogies
+- **Dual Visualizations**:
+    - **Network Graph**: ReactFlow-powered interactive nodes
+    - **Hierarchical Tree**: D3.js powered lineage views
+- **Multi-Pantheon Support**: Fully interactive trees for Greek, Norse, and Egyptian datasets
+- **Deep Exploration**: Zoom, pan, and clicking nodes to expand/collapse lineages
 - Mobile-responsive with touch controls
+
+### 🛠️ **Recent Updates (February 2026)**
+- **Enhanced Family Tree**: Verified robust support for complex lineages beyond just Olympian gods (e.g., full Norse family tree).
+- **Mobile Experience**: Completely overhauled mobile navigation with slide-out drawers and horizontal scrolling filters.
+- **Deep Search**: Improved command palette (⌘K) to index all new content.
+- **Visual Polish**: Verified dark mode consistency and premium typography (`Cinzel`, `Crimson Pro`) across the entire app.
 
 ### 🔍 **Comparative Mythology**
 - Cross-pantheon deity comparisons
@@ -172,7 +179,7 @@ mythos/
 The application uses JSON files for mythology data:
 
 - **pantheons.json** - 3 pantheons (Greek, Norse, Egyptian)
-- **deities.json** - 39 detailed deity profiles
+- **deities.json** - **80+** detailed deity profiles
 - **stories.json** - 11+ epic tales and legends
 - **relationships.json** - Divine family connections
 
@@ -204,15 +211,14 @@ pnpm lint
 - Interactive quiz with progress tracking
 - Comparative mythology section
 - Global search with ⌘K command palette
-- Full mobile responsiveness
+- **Full mobile responsiveness** (New navigation & touch controls)
 - SEO metadata and OpenGraph tags
 - Custom 404 page
 
 ### 🚧 Planned Enhancements
 - Roman, Hindu, and Japanese pantheons
-- Deity profile images
-- Story illustrations
-- Additional quiz modes
+- Expanded story illustrations
+- Additional quiz modes (Time Attack, Survival)
 - User favorites and bookmarks
 - Print/export functionality
 

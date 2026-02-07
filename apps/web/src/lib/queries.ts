@@ -51,6 +51,71 @@ export const GET_DEITY = gql`
   }
 `;
 
+export const GET_CREATURES = gql`
+  query GetCreatures($pantheonId: String) {
+    creatures(pantheonId: $pantheonId) {
+      id
+      pantheonId
+      name
+      slug
+      habitat
+      abilities
+      dangerLevel
+      description
+      imageUrl
+    }
+  }
+`;
+
+export const GET_CREATURE = gql`
+  query GetCreature($id: String!) {
+    creature(id: $id) {
+      id
+      pantheonId
+      name
+      slug
+      habitat
+      abilities
+      dangerLevel
+      description
+      imageUrl
+    }
+  }
+`;
+
+export const GET_ARTIFACTS = gql`
+  query GetArtifacts($pantheonId: String) {
+    artifacts(pantheonId: $pantheonId) {
+      id
+      pantheonId
+      name
+      slug
+      ownerId
+      type
+      powers
+      description
+      imageUrl
+    }
+  }
+`;
+
+export const GET_ARTIFACT = gql`
+  query GetArtifact($id: String!) {
+    artifact(id: $id) {
+      id
+      pantheonId
+      name
+      slug
+      ownerId
+      type
+      powers
+      description
+      originStory
+      imageUrl
+    }
+  }
+`;
+
 export const GET_DEITY_RELATIONSHIPS = gql`
   query GetDeityRelationships($deityId: String!) {
     deityRelationships(deityId: $deityId) {
@@ -171,6 +236,22 @@ export const SEARCH = gql`
         name
         slug
         domain
+        description
+        imageUrl
+      }
+      creatures {
+        id
+        name
+        slug
+        habitat
+        description
+        imageUrl
+      }
+      artifacts {
+        id
+        name
+        slug
+        type
         description
         imageUrl
       }

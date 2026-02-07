@@ -3,45 +3,82 @@
 import { useEffect, useState, useCallback } from 'react'
 import { useRouter } from 'next/navigation'
 import { Command } from 'cmdk'
-import { 
-  Search, 
-  Home, 
-  Users, 
-  BookOpen, 
-  Network, 
+import {
+  Search,
+  Home,
+  Users,
+  BookOpen,
+  Network,
   Globe,
   Sparkles
 } from 'lucide-react'
 
-interface CommandPaletteProps {
-  deities?: Array<{ name: string; slug: string; pantheon?: string }>
-  stories?: Array<{ title: string; slug: string }>
-  pantheons?: Array<{ name: string; slug: string }>
+import { LucideIcon } from 'lucide-react'
+
+export interface SearchItem {
+  id: string
+  title: string
+  subtitle?: string
+  href: string
+  icon?: LucideIcon
+  iconColor?: string // Tailwind class e.g., "text-red-500"
 }
 
-export function CommandPalette({ deities = [], stories = [], pantheons = [] }: CommandPaletteProps) {
-  const [open, setOpen] = useState(false)
-  const [search, setSearch] = useState('')
-  const router = useRouter()
+export interface SearchGroup {
+  heading: string
+  items: SearchItem[]
+}
 
-  // Toggle command palette with Cmd+K / Ctrl+K
-  useEffect(() => {
-    const down = (e: KeyboardEvent) => {
-      if (e.key === 'k' && (e.metaKey || e.ctrlKey)) {
-        e.preventDefault()
-        setOpen((open) => !open)
-      }
+interface CommandPaletteProps {
+  groups?: SearchGroup[]
+  open?: boolean
+  onOpenChange?: (open: boolean) => void
+  searchQuery?: string
+  onSearchQueryChange?: (query: string) => void
+  isLoading?: boolean
+}
+
+export function CommandPalette({
+  groups = [],
+  open: controlledOpen,
+  onOpenChange,
+  searchQuery,
+  onSearchQueryChange,
+  isLoading
+}: CommandPaletteProps) {
+  const [internalOpen, setInternalOpen] = useState(false)
+
+  const isControlled = controlledOpen !== undefined
+  const open = isControlled ? controlledOpen : internalOpen
+  const setOpen = useCallback((newOpen: boolean | ((prevState: boolean) => boolean)) => {
+    if (onOpenChange) {
+      // If controlled, just notify parent. The parent updates the prop, which updates 'open'.
+      // We need to resolve the value if it's a function.
+      const startValue = isControlled ? controlledOpen : internalOpen;
+      const nextValue = typeof newOpen === 'function' ? newOpen(startValue || false) : newOpen;
+
+      onOpenChange(nextValue);
     }
 
-    document.addEventListener('keydown', down)
-    return () => document.removeEventListener('keydown', down)
-  }, [])
+    if (!isControlled) {
+      setInternalOpen(newOpen);
+    }
+  }, [isControlled, onOpenChange, controlledOpen, internalOpen]);
+
+  const [internalSearch, setInternalSearch] = useState('')
+  const search = searchQuery !== undefined ? searchQuery : internalSearch
+  const setSearch = (value: string) => {
+    if (onSearchQueryChange) onSearchQueryChange(value)
+    if (searchQuery === undefined) setInternalSearch(value)
+  }
+
+  const router = useRouter()
 
   const handleSelect = useCallback((href: string) => {
     setOpen(false)
     setSearch('')
     router.push(href)
-  }, [router])
+  }, [router, setOpen])
 
   if (!open) return null
 
@@ -70,120 +107,45 @@ export function CommandPalette({ deities = [], stories = [], pantheons = [] }: C
           </div>
 
           <Command.List className="max-h-100 overflow-y-auto p-2">
-            <Command.Empty className="py-8 text-center text-sm text-slate-500">
-              No results found.
-            </Command.Empty>
 
-            {/* Main Navigation */}
-            <Command.Group
-              heading="Navigation"
-              className="px-2 py-2 text-xs font-semibold text-slate-500 dark:text-slate-400"
-            >
-              <Command.Item
-                onSelect={() => handleSelect('/')}
-                className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm cursor-pointer hover:bg-teal-50 dark:hover:bg-teal-950/30 aria-selected:bg-teal-100 dark:aria-selected:bg-teal-900/40"
-              >
-                <Home className="h-4 w-4 text-teal-600" />
-                <span>Home</span>
-              </Command.Item>
-              
-              <Command.Item
-                onSelect={() => handleSelect('/deities')}
-                className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm cursor-pointer hover:bg-teal-50 dark:hover:bg-teal-950/30 aria-selected:bg-teal-100 dark:aria-selected:bg-teal-900/40"
-              >
-                <Users className="h-4 w-4 text-teal-600" />
-                <span>All Deities</span>
-              </Command.Item>
-
-              <Command.Item
-                onSelect={() => handleSelect('/stories')}
-                className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm cursor-pointer hover:bg-amber-50 dark:hover:bg-amber-950/30 aria-selected:bg-amber-100 dark:aria-selected:bg-amber-900/40"
-              >
-                <BookOpen className="h-4 w-4 text-amber-600" />
-                <span>Stories</span>
-              </Command.Item>
-
-              <Command.Item
-                onSelect={() => handleSelect('/family-tree')}
-                className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm cursor-pointer hover:bg-emerald-50 dark:hover:bg-emerald-950/30 aria-selected:bg-emerald-100 dark:aria-selected:bg-emerald-900/40"
-              >
-                <Network className="h-4 w-4 text-emerald-600" />
-                <span>Family Tree</span>
-              </Command.Item>
-
-              <Command.Item
-                onSelect={() => handleSelect('/pantheons')}
-                className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm cursor-pointer hover:bg-slate-50 dark:hover:bg-slate-800 aria-selected:bg-slate-100 dark:aria-selected:bg-slate-800"
-              >
-                <Globe className="h-4 w-4 text-slate-600" />
-                <span>Pantheons</span>
-              </Command.Item>
-            </Command.Group>
-
-            {/* Deities */}
-            {deities.length > 0 && (
-              <Command.Group
-                heading="Deities"
-                className="px-2 py-2 text-xs font-semibold text-slate-500 dark:text-slate-400"
-              >
-                {deities.slice(0, 5).map((deity) => (
-                  <Command.Item
-                    key={deity.slug}
-                    value={deity.name}
-                    onSelect={() => handleSelect(`/deities/${deity.slug}`)}
-                    className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm cursor-pointer hover:bg-teal-50 dark:hover:bg-teal-950/30 aria-selected:bg-teal-100 dark:aria-selected:bg-teal-900/40"
-                  >
-                    <Sparkles className="h-4 w-4 text-teal-600" />
-                    <div className="flex flex-col">
-                      <span>{deity.name}</span>
-                      {deity.pantheon && (
-                        <span className="text-xs text-slate-500">{deity.pantheon}</span>
-                      )}
-                    </div>
-                  </Command.Item>
-                ))}
-              </Command.Group>
+            {isLoading && (
+              <div className="py-6 text-center text-sm text-slate-500">Loading...</div>
             )}
 
-            {/* Stories */}
-            {stories.length > 0 && (
-              <Command.Group
-                heading="Stories"
-                className="px-2 py-2 text-xs font-semibold text-slate-500 dark:text-slate-400"
-              >
-                {stories.slice(0, 5).map((story) => (
-                  <Command.Item
-                    key={story.slug}
-                    value={story.title}
-                    onSelect={() => handleSelect(`/stories/${story.slug}`)}
-                    className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm cursor-pointer hover:bg-amber-50 dark:hover:bg-amber-950/30 aria-selected:bg-amber-100 dark:aria-selected:bg-amber-900/40"
-                  >
-                    <BookOpen className="h-4 w-4 text-amber-600" />
-                    <span>{story.title}</span>
-                  </Command.Item>
-                ))}
-              </Command.Group>
+            {!isLoading && groups.length === 0 && (
+              <Command.Empty className="py-8 text-center text-sm text-slate-500">
+                No results found.
+              </Command.Empty>
             )}
 
-            {/* Pantheons */}
-            {pantheons.length > 0 && (
+            {!isLoading && groups.map((group) => (
               <Command.Group
-                heading="Pantheons"
+                key={group.heading}
+                heading={group.heading}
                 className="px-2 py-2 text-xs font-semibold text-slate-500 dark:text-slate-400"
               >
-                {pantheons.slice(0, 5).map((pantheon) => (
-                  <Command.Item
-                    key={pantheon.slug}
-                    value={pantheon.name}
-                    onSelect={() => handleSelect(`/pantheons/${pantheon.slug}`)}
-                    className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm cursor-pointer hover:bg-slate-50 dark:hover:bg-slate-800 aria-selected:bg-slate-100 dark:aria-selected:bg-slate-800"
-                  >
-                    <Globe className="h-4 w-4 text-slate-600" />
-                    <span>{pantheon.name}</span>
-                  </Command.Item>
-                ))}
+                {group.items.map((item) => {
+                  const Icon = item.icon || Sparkles
+                  return (
+                    <Command.Item
+                      key={item.id}
+                      value={item.title}
+                      onSelect={() => handleSelect(item.href)}
+                      className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm cursor-pointer hover:bg-slate-50 dark:hover:bg-slate-800/50 aria-selected:bg-slate-100 dark:aria-selected:bg-slate-800"
+                    >
+                      <Icon className={`h-4 w-4 ${item.iconColor || 'text-slate-500'}`} />
+                      <div className="flex flex-col">
+                        <span>{item.title}</span>
+                        {item.subtitle && (
+                          <span className="text-xs text-slate-500 dark:text-slate-400">{item.subtitle}</span>
+                        )}
+                      </div>
+                    </Command.Item>
+                  )
+                })}
               </Command.Group>
-            )}
+            ))}
+
           </Command.List>
 
           <div className="border-t border-slate-200 dark:border-slate-800 px-4 py-3 text-xs text-slate-500 flex items-center justify-between">

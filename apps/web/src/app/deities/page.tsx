@@ -131,7 +131,7 @@ export default function DeitiesPage() {
               variant={viewMode === 'table' ? 'default' : 'outline'}
               size="sm"
               onClick={() => setViewMode('table')}
-              className="gap-2"
+              className="gap-2 hidden sm:flex"
             >
               <Table className="h-4 w-4" />
               Table

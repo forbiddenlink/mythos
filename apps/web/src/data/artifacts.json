@@ -1,0 +1,64 @@
+[
+    {
+        "id": "mjolnir",
+        "pantheonId": "norse-pantheon",
+        "name": "Mjölnir",
+        "slug": "mjolnir",
+        "ownerId": "thor",
+        "type": "Weapon",
+        "description": "The hammer of Thor, the Norse god of thunder. It is capable of leveling mountains and always returns to its owner's hand.",
+        "powers": [
+            "Lightning Summoning",
+            "Unbreakable",
+            "Returning"
+        ],
+        "originStory": "Forged by the dwarf brothers Sindri and Brokkr as part of a wager with Loki.",
+        "imageUrl": "/deities/thor.png"
+    },
+    {
+        "id": "aegis",
+        "pantheonId": "greek-pantheon",
+        "name": "Aegis",
+        "slug": "aegis",
+        "ownerId": "athena",
+        "type": "Shield",
+        "description": "A shield carried by Athena and Zeus, often bearing the head of a Gorgon. It inspires terror in enemies and protects the wielder.",
+        "powers": [
+            "Invulnerability",
+            "Fear Inducement"
+        ],
+        "originStory": "Forged by Hephaestus, often depicted as a goatskin shield adorned with the head of Medusa.",
+        "imageUrl": "/deities/athena.png"
+    },
+    {
+        "id": "ru-yi-jing-gu-bang",
+        "pantheonId": "chinese-pantheon",
+        "name": "Ruyi Jingu Bang",
+        "slug": "ruyi-jingu-bang",
+        "ownerId": "sun-wukong",
+        "type": "Staff",
+        "description": "The magical golden-hooped staff of Sun Wukong. It can change size at will, from a pillar holding up the ocean to a needle behind the ear.",
+        "powers": [
+            "Size Manipulation",
+            "Infinite Weight",
+            "Indestructible"
+        ],
+        "originStory": "Originally a pillar used by Yu the Great to measure the depth of the ocean floodwaters.",
+        "imageUrl": "/deities/sun-wukong.png"
+    },
+    {
+        "id": "gangu-ta",
+        "pantheonId": "japanese-pantheon",
+        "name": "Ame-no-Nuboko",
+        "slug": "ame-no-nuboko",
+        "ownerId": "izanagi",
+        "type": "Spear",
+        "description": "The Heavenly Jeweled Spear used by Izanagi and Izanami to churn the sea and create the first land.",
+        "powers": [
+            "Creation",
+            "Chaos Manipulation"
+        ],
+        "originStory": "Given to the primal couple by the older heavenly gods to bring order to the chaos below.",
+        "imageUrl": "/deities/izanagi.png"
+    }
+]

@@ -4,6 +4,8 @@ import deities from '@/data/deities.json';
 import stories from '@/data/stories.json';
 import relationships from '@/data/relationships.json';
 import locations from '@/data/locations.json';
+import creatures from '@/data/creatures.json';
+import artifacts from '@/data/artifacts.json';
 import Fuse from 'fuse.js';
 
 // Type definitions
@@ -33,6 +35,31 @@ interface Deity {
   originStory?: string;
 
   importanceRank: number;
+  imageUrl?: string;
+}
+
+interface Creature {
+  id: string;
+  pantheonId: string;
+  name: string;
+  slug: string;
+  description: string;
+  habitat: string;
+  abilities: string[];
+  dangerLevel: number;
+  imageUrl?: string;
+}
+
+interface Artifact {
+  id: string;
+  pantheonId: string;
+  name: string;
+  slug: string;
+  ownerId?: string;
+  type: string;
+  description: string;
+  powers: string[];
+  originStory?: string;
   imageUrl?: string;
 }
 
@@ -95,6 +122,28 @@ function resolveDeity(id: string): Deity | undefined {
   return (deities as Deity[]).find(d => d.id === id || d.slug === id);
 }
 
+function resolveCreatures(pantheonId?: string): Creature[] {
+  if (pantheonId) {
+    return (creatures as Creature[]).filter(c => c.pantheonId === pantheonId);
+  }
+  return creatures as Creature[];
+}
+
+function resolveCreature(id: string): Creature | undefined {
+  return (creatures as Creature[]).find(c => c.id === id || c.slug === id);
+}
+
+function resolveArtifacts(pantheonId?: string): Artifact[] {
+  if (pantheonId) {
+    return (artifacts as Artifact[]).filter(a => a.pantheonId === pantheonId);
+  }
+  return artifacts as Artifact[];
+}
+
+function resolveArtifact(id: string): Artifact | undefined {
+  return (artifacts as Artifact[]).find(a => a.id === id || a.slug === id);
+}
+
 function resolveStories(pantheonId?: string): Story[] {
   if (pantheonId) {
     return (stories as Story[]).filter(s => s.pantheonId === pantheonId);
@@ -152,6 +201,26 @@ function resolveSearch(queryStr: string, limit: number = 10) {
     ],
   });
 
+  const creatureFuse = new Fuse(creatures as Creature[], {
+    ...options,
+    keys: [
+      { name: 'name', weight: 0.7 },
+      { name: 'habitat', weight: 0.5 },
+      { name: 'description', weight: 0.3 },
+      { name: 'abilities', weight: 0.3 },
+    ],
+  });
+
+  const artifactFuse = new Fuse(artifacts as Artifact[], {
+    ...options,
+    keys: [
+      { name: 'name', weight: 0.7 },
+      { name: 'type', weight: 0.5 },
+      { name: 'description', weight: 0.3 },
+      { name: 'powers', weight: 0.3 },
+    ],
+  });
+
   const pantheonFuse = new Fuse(pantheons as Pantheon[], {
     ...options,
     keys: [
@@ -173,11 +242,15 @@ function resolveSearch(queryStr: string, limit: number = 10) {
   });
 
   const matchedDeities = deityFuse.search(queryStr).map(result => result.item).slice(0, limit);
+  const matchedCreatures = creatureFuse.search(queryStr).map(result => result.item).slice(0, limit);
+  const matchedArtifacts = artifactFuse.search(queryStr).map(result => result.item).slice(0, limit);
   const matchedPantheons = pantheonFuse.search(queryStr).map(result => result.item).slice(0, limit);
   const matchedStories = storyFuse.search(queryStr).map(result => result.item).slice(0, limit);
 
   return {
     deities: matchedDeities,
+    creatures: matchedCreatures,
+    artifacts: matchedArtifacts,
     pantheons: matchedPantheons,
     stories: matchedStories,
   };
@@ -204,6 +277,28 @@ export async function POST(request: NextRequest) {
       const id = variables.id as string;
       if (id) {
         data.deity = resolveDeity(id);
+      }
+    }
+
+    if (query.includes('GetCreatures') || query.includes('creatures(') || query.includes('creatures {')) {
+      data.creatures = resolveCreatures(variables.pantheonId as string | undefined);
+    }
+
+    if (query.includes('GetCreature') || query.includes('creature(')) {
+      const id = variables.id as string;
+      if (id) {
+        data.creature = resolveCreature(id);
+      }
+    }
+
+    if (query.includes('GetArtifacts') || query.includes('artifacts(') || query.includes('artifacts {')) {
+      data.artifacts = resolveArtifacts(variables.pantheonId as string | undefined);
+    }
+
+    if (query.includes('GetArtifact') || query.includes('artifact(')) {
+      const id = variables.id as string;
+      if (id) {
+        data.artifact = resolveArtifact(id);
       }
     }
 
@@ -271,6 +366,10 @@ export async function GET() {
       pantheons: 'Query all pantheons',
       deities: 'Query deities, optionally filtered by pantheonId',
       deity: 'Query a single deity by id',
+      creatures: 'Query all creatures, optionally filtered by pantheonId',
+      creature: 'Query a single creature by id/slug',
+      artifacts: 'Query all artifacts, optionally filtered by pantheonId',
+      artifact: 'Query a single artifact by id/slug',
       stories: 'Query stories, optionally filtered by pantheonId',
       story: 'Query a single story by id',
       deityRelationships: 'Query relationships for a specific deity',

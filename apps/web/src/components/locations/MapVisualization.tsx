@@ -1,7 +1,6 @@
 'use client';
 
-import { useState, useMemo } from 'react';
-import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
+import { useState, useMemo, useEffect, useRef } from 'react';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 
@@ -101,95 +100,110 @@ function getLocationTypeLabel(type: string): string {
   return labels[type] || type.replace(/_/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase());
 }
 
-// ─── Fit bounds component ───────────────────────────────────────────────
-function FitBounds({ locations }: { locations: Location[] }) {
-  const map = useMap();
 
-  useMemo(() => {
-    const validLocations = locations.filter(
-      (loc) => loc.latitude !== null && loc.longitude !== null
-    );
-    if (validLocations.length > 0) {
-      const bounds = L.latLngBounds(
-        validLocations.map((loc) => [loc.latitude!, loc.longitude!])
-      );
-      map.fitBounds(bounds, { padding: [50, 50], maxZoom: 5 });
-    }
-  }, [locations, map]);
-
-  return null;
-}
-
-// ─── Main component ────────────────────────────────────────────────────
 export function MapVisualization({ locations, pantheons }: MapVisualizationProps) {
+  // Ref for the container div
+  const mapContainerRef = typeof window === 'undefined' ? null : document.createElement('div') as unknown as React.MutableRefObject<HTMLDivElement | null>;
+  // We'll use a real ref in the render, this is just to satisfy Typescript if needed or standard useRef
+  const containerRef = useMemo(() => ({ current: null as HTMLDivElement | null }), []);
+
+  const mapInstanceRef = useMemo(() => ({ current: null as L.Map | null }), []);
+
   // Only show locations with coordinates
   const mappableLocations = useMemo(
     () => locations.filter((loc) => loc.latitude !== null && loc.longitude !== null),
     [locations]
   );
 
-  return (
-    <div className="relative rounded-xl overflow-hidden border border-border shadow-lg" style={{ height: '600px' }}>
-      <MapContainer
-        center={[30, 30]}
-        zoom={3}
-        scrollWheelZoom={true}
-        className="h-full w-full z-0"
-        style={{ background: 'oklch(0.14 0.03 265)' }}
-      >
-        <TileLayer
-          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-          url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
-        />
+  useEffect(() => {
+    if (!containerRef.current) return;
 
-        <FitBounds locations={mappableLocations} />
+    // Cleanup existing map if it exists
+    if (mapInstanceRef.current) {
+      mapInstanceRef.current.remove();
+      mapInstanceRef.current = null;
+    }
 
-        {mappableLocations.map((location) => (
-          <Marker
-            key={location.id}
-            position={[location.latitude!, location.longitude!]}
-            icon={createMarkerIcon(location.pantheonId, location.locationType)}
-          >
-            <Popup className="mythic-popup">
-              <div className="min-w-[220px] max-w-[280px]">
-                <div className="flex items-start gap-2 mb-2">
-                  <span
-                    className="mt-1 w-3 h-3 rounded-full shrink-0"
-                    style={{
-                      backgroundColor:
-                        PANTHEON_COLORS[location.pantheonId]?.bg || '#6b7280',
-                    }}
-                  />
-                  <div>
-                    <h3 className="font-serif font-semibold text-base leading-tight text-slate-900">
-                      {location.name}
-                    </h3>
-                    <div className="flex items-center gap-2 mt-0.5">
-                      <span className="text-[11px] font-medium text-slate-500 uppercase tracking-wide">
-                        {getLocationTypeLabel(location.locationType)}
-                      </span>
-                      <span className="text-slate-300">|</span>
-                      <span
-                        className="text-[11px] font-medium uppercase tracking-wide"
-                        style={{
-                          color:
-                            PANTHEON_COLORS[location.pantheonId]?.bg || '#6b7280',
-                        }}
-                      >
-                        {PANTHEON_COLORS[location.pantheonId]?.label ||
-                          location.pantheonId}
-                      </span>
-                    </div>
-                  </div>
-                </div>
-                <p className="text-sm text-slate-600 leading-relaxed">
-                  {location.description}
-                </p>
+    // Double check if the element has internal Leaflet ID (strict mode safety)
+    const element = containerRef.current as any;
+    if (element._leaflet_id) {
+      element._leaflet_id = null;
+    }
+
+    // Initialize Map
+    const map = L.map(containerRef.current).setView([30, 10], 3);
+    mapInstanceRef.current = map;
+
+    // Add Tile Layer
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    }).addTo(map);
+
+    // Fit Bounds
+    if (mappableLocations.length > 0) {
+      const bounds = L.latLngBounds(
+        mappableLocations.map((loc) => [loc.latitude!, loc.longitude!])
+      );
+      map.fitBounds(bounds, { padding: [50, 50], maxZoom: 5 });
+    }
+
+    // Add Markers
+    mappableLocations.forEach(location => {
+      const icon = createMarkerIcon(location.pantheonId, location.locationType);
+
+      // Create Popup Content
+      const popupContent = document.createElement('div');
+      popupContent.className = 'mythic-popup';
+
+      const colors = PANTHEON_COLORS[location.pantheonId] || { bg: '#6b7280', border: '#4b5563', label: location.pantheonId };
+      const typeLabel = getLocationTypeLabel(location.locationType);
+
+      popupContent.innerHTML = `
+        <div class="min-w-[220px] max-w-[280px]">
+          <div class="flex items-start gap-2 mb-2">
+            <span class="mt-1 w-3 h-3 rounded-full shrink-0" style="background-color: ${colors.bg}"></span>
+            <div>
+              <h3 class="font-serif font-semibold text-base leading-tight text-slate-900">${location.name}</h3>
+              <div class="flex items-center gap-2 mt-0.5">
+                <span class="text-[11px] font-medium text-slate-500 uppercase tracking-wide">${typeLabel}</span>
+                <span class="text-slate-300">|</span>
+                <span class="text-[11px] font-medium uppercase tracking-wide" style="color: ${colors.bg}">${colors.label}</span>
               </div>
-            </Popup>
-          </Marker>
-        ))}
-      </MapContainer>
+            </div>
+          </div>
+          <p class="text-sm text-slate-600 leading-relaxed">${location.description}</p>
+        </div>
+      `;
+
+      L.marker([location.latitude!, location.longitude!], { icon })
+        .bindPopup(popupContent)
+        .addTo(map);
+    });
+
+    // FlyTo Listener
+    const handleFlyTo = (e: Event) => {
+      const customEvent = e as CustomEvent<{ lat: number; lng: number }>;
+      const { lat, lng } = customEvent.detail;
+      map.flyTo([lat, lng], 8, { duration: 1.5 });
+    };
+    window.addEventListener('flyToLocation', handleFlyTo);
+
+    return () => {
+      window.removeEventListener('flyToLocation', handleFlyTo);
+      if (mapInstanceRef.current) {
+        mapInstanceRef.current.remove();
+        mapInstanceRef.current = null;
+      }
+    };
+  }, [mappableLocations]); // We re-init if locations change significantly or on mount
+
+  return (
+    <div className="relative w-full h-full min-h-[500px] bg-slate-950 rounded-xl overflow-hidden border border-slate-800">
+      <div
+        ref={containerRef}
+        className="z-0 w-full h-full"
+        style={{ width: '100%', height: '100%', minHeight: '500px' }}
+      />
 
       {/* Map stats overlay */}
       <div className="absolute bottom-4 left-4 z-[1000] bg-card/90 backdrop-blur-sm border border-border rounded-lg px-3 py-2 text-xs text-muted-foreground">

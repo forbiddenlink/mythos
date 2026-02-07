@@ -7,12 +7,16 @@ import { ThemeToggle } from '@/components/ui/theme-toggle';
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
+import { MobileNav } from '@/components/layout/mobile-nav';
+
 const navLinks = [
   { href: '/pantheons', label: 'Pantheons' },
   { href: '/deities', label: 'Deities' },
   { href: '/timeline', label: 'Timeline' },
   { href: '/family-tree', label: 'Family Tree' },
   { href: '/locations', label: 'Locations' },
+  { href: '/creatures', label: 'Creatures' },
+  { href: '/artifacts', label: 'Artifacts' },
   { href: '/stories', label: 'Stories' },
   { href: '/quiz', label: 'Quiz' },
   { href: '/about', label: 'About' },
@@ -49,13 +53,18 @@ export function Header() {
   return (
     <header
       className={`sticky top-0 z-50 w-full transition-all duration-300 ${scrolled
-          ? 'bg-background/95 backdrop-blur-md border-b border-border/50 shadow-sm'
-          : 'bg-transparent border-b border-transparent'
+        ? 'bg-background/95 backdrop-blur-md border-b border-border/50 shadow-sm'
+        : 'bg-transparent border-b border-transparent'
         }`}
     >
-      <div className="container mx-auto max-w-7xl flex h-18 items-center px-4 py-4">
+      <div className="container mx-auto max-w-7xl flex h-16 items-center px-4">
+        {/* Mobile Navigation Trigger */}
+        <div className="lg:hidden mr-2">
+          <MobileNav navLinks={navLinks} />
+        </div>
+
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-3 group">
+        <Link href="/" className="flex items-center gap-3 group mr-auto lg:mr-0">
           <motion.div
             whileHover={{ scale: 1.05 }}
             transition={{ type: 'spring', stiffness: 400, damping: 17 }}
@@ -63,7 +72,7 @@ export function Header() {
           >
             <div className="absolute inset-0 bg-gold/20 rounded-lg blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             <div className="relative text-foreground group-hover:text-gold transition-colors duration-300">
-              <Logo className="h-9 w-9" />
+              <Logo className="h-8 w-8 sm:h-9 sm:w-9" />
             </div>
           </motion.div>
           <div className="flex flex-col">
@@ -76,8 +85,8 @@ export function Header() {
           </div>
         </Link>
 
-        {/* Navigation */}
-        <nav className="ml-auto flex items-center gap-1 md:gap-2">
+        {/* Desktop Navigation */}
+        <nav className="hidden lg:flex items-center gap-1 xl:gap-2 mx-auto">
           {navLinks.map((link) => (
             <Link
               key={link.href}
@@ -88,9 +97,12 @@ export function Header() {
               <span className="absolute inset-x-1 -bottom-px h-px bg-gradient-to-r from-transparent via-gold/60 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
             </Link>
           ))}
+        </nav>
 
+        {/* Right Actions */}
+        <div className="flex items-center gap-2 ml-auto lg:ml-0">
           {/* Divider */}
-          <div className="hidden md:block w-px h-6 bg-border mx-2" />
+          <div className="hidden lg:block w-px h-6 bg-border mx-2" />
 
           {/* Command Palette Trigger */}
           <button
@@ -119,7 +131,7 @@ export function Header() {
 
           {/* Theme Toggle */}
           <ThemeToggle />
-        </nav>
+        </div>
       </div>
     </header>
   );

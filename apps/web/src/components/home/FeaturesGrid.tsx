@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Globe, Network, ScrollText, Map as MapIcon, ArrowRight } from 'lucide-react';
+import { Globe, Network, ScrollText, Map as MapIcon, ArrowRight, Skull, Gem } from 'lucide-react';
 import Link from 'next/link';
 
 const features = [
@@ -37,6 +37,22 @@ const features = [
     iconBg: 'from-patina to-[oklch(0.45_0.10_170)]',
     accent: 'group-hover:text-patina',
   },
+  {
+    icon: Skull,
+    title: 'The Bestiary',
+    description: 'Face the legendary beasts and monsters that roam the mythological world',
+    href: '/creatures',
+    iconBg: 'from-red-600 to-red-800',
+    accent: 'group-hover:text-red-600',
+  },
+  {
+    icon: Gem,
+    title: 'The Arsenal',
+    description: 'Wield the powerful weapons and artifacts forged by the gods',
+    href: '/artifacts',
+    iconBg: 'from-purple-600 to-purple-800',
+    accent: 'group-hover:text-purple-500',
+  },
 ];
 
 export function FeaturesGrid() {
@@ -71,7 +87,7 @@ export function FeaturesGrid() {
         </motion.div>
 
         {/* Feature cards grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {features.map((feature, index) => (
             <motion.div
               key={feature.title}

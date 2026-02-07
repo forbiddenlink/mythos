@@ -226,7 +226,7 @@ export default function LocationsPage() {
                       <button
                         key={p.id}
                         onClick={() => togglePantheon(p.id)}
-                        className={`text-[10px] px-2.5 py-1 rounded-full border transition-all ${isActive
+                        className={`text-xs px-3 py-1.5 rounded-full border transition-all ${isActive
                           ? 'border-transparent text-white'
                           : 'border-border text-muted-foreground bg-muted/30 hover:bg-muted'
                           }`}
@@ -254,7 +254,7 @@ export default function LocationsPage() {
                       <button
                         key={type}
                         onClick={() => toggleLocationType(type)}
-                        className={`text-[10px] px-2.5 py-1 rounded-full border transition-all ${isActive
+                        className={`text-xs px-3 py-1.5 rounded-full border transition-all ${isActive
                           ? 'bg-gold/20 border-gold/30 text-gold-light font-medium'
                           : 'border-border text-muted-foreground bg-muted/30 hover:bg-muted'
                           }`}
@@ -285,169 +285,70 @@ export default function LocationsPage() {
           ))}
         </div>
 
-        {/* Map View */}
-        {viewMode === 'map' && (
-          <MapVisualization locations={filteredLocations} pantheons={pantheons} />
-        )}
+        {/* Mobile Controls (Toggle) - Only visible on small screens */}
+        <div className="md:hidden flex items-center gap-2 bg-muted/50 p-1 rounded-lg border border-border/50 shrink-0 mb-4 mx-auto w-fit">
+          <Button variant={viewMode === 'map' ? 'default' : 'ghost'} size="sm" onClick={() => setViewMode('map')} className="gap-2 h-8">
+            <Map className="h-4 w-4" /> Map
+          </Button>
+          <Button variant={viewMode === 'list' ? 'default' : 'ghost'} size="sm" onClick={() => setViewMode('list')} className="gap-2 h-8">
+            <List className="h-4 w-4" /> List
+          </Button>
+        </div>
 
-        {/* List View */}
-        {viewMode === 'list' && (
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {filteredLocations.map((location) => {
-              const pantheon = pantheons.find(p => p.id === location.pantheonId);
-              const colors = PANTHEON_COLORS[location.pantheonId] || {
-                bg: '#6b7280', label: location.pantheonId,
-              };
-              const hasCords = location.latitude !== null && location.longitude !== null;
+        {/* Split View Content */}
+        <div className="flex flex-col-reverse lg:flex-row gap-6 h-[calc(100vh-200px)] min-h-[600px]">
 
-              return (
-                <Card
-                  key={location.id}
-                  className="group h-full card-elevated bg-card hover:scale-[1.01] overflow-hidden"
-                >
-                  {/* Pantheon color bar */}
-                  <div
-                    className="h-0.5"
-                    style={{
-                      background: `linear-gradient(to right, transparent, ${colors.bg}, transparent)`,
-                    }}
-                  />
-
-                  <CardHeader>
-                    <div className="flex items-start justify-between gap-2">
-                      <div
-                        className="p-2.5 rounded-xl border border-border/50 group-hover:scale-105 transition-transform duration-300"
-                        style={{ backgroundColor: `${colors.bg}15` }}
-                      >
-                        <MapPin
-                          className="h-5 w-5"
-                          strokeWidth={1.5}
-                          style={{ color: colors.bg }}
-                        />
-                      </div>
-                      <div className="flex items-center gap-1.5">
-                        <HoverCard>
-                          <HoverCardTrigger asChild>
-                            <Badge
-                              variant="secondary"
-                              className="text-[10px] border cursor-help"
-                              style={{
-                                backgroundColor: `${colors.bg}15`,
-                                borderColor: `${colors.bg}30`,
-                                color: colors.bg,
-                              }}
-                            >
-                              {colors.label}
-                            </Badge>
-                          </HoverCardTrigger>
-                          <HoverCardContent className="w-80 bg-background border-border">
-                            <div className="flex justify-between space-x-4">
-                              <div className="space-y-1">
-                                <h4 className="text-sm font-semibold">{pantheon?.name}</h4>
-                                <p className="text-sm text-muted-foreground">
-                                  {pantheon?.culture} Pantheon
-                                </p>
-                                <div className="flex items-center pt-2">
-                                  <span className="text-xs text-muted-foreground">
-                                    Click to filter by this pantheon only
-                                  </span>
-                                </div>
-                              </div>
-                            </div>
-                          </HoverCardContent>
-                        </HoverCard>
-
-                        {!hasCords && (
-                          <Badge
-                            variant="outline"
-                            className="text-[10px] border-gold/20 text-gold/70"
-                          >
-                            Mythical
-                          </Badge>
-                        )}
-                      </div>
-                    </div>
-                    <CardTitle className="text-foreground mt-3 group-hover:text-gold transition-colors duration-300">
-                      {location.name}
-                    </CardTitle>
-                    <span className="text-xs font-medium text-muted-foreground uppercase tracking-wide">
-                      {getLocationTypeLabel(location.locationType)}
-                    </span>
-                  </CardHeader>
-
-                  <CardContent>
-                    <p className="text-muted-foreground text-sm line-clamp-3 leading-relaxed">
-                      {location.description}
-                    </p>
-                    {hasCords && (
-                      <p className="text-xs text-muted-foreground/60 mt-3 font-mono">
-                        {location.latitude?.toFixed(2)}, {location.longitude?.toFixed(2)}
-                      </p>
-                    )}
-                  </CardContent>
-                </Card>
-              );
-            })}
-          </div>
-        )}
-
-        {/* Mobile: show list below map */}
-        {viewMode === 'map' && (
-          <div className="mt-8 block lg:hidden">
-            <h3 className="font-serif text-lg font-semibold text-foreground mb-4">
-              All Locations
-            </h3>
-            <div className="space-y-3">
+          {/* List Side (Left) - Always visible on desktop, toggled on mobile */}
+          <div className={`lg:w-1/3 flex flex-col h-full bg-card/30 rounded-xl border border-border overflow-hidden ${viewMode === 'map' ? 'hidden lg:flex' : 'flex'}`}>
+            <div className="p-4 border-b border-border bg-card/50 backdrop-blur-sm">
+              <h3 className="font-serif text-lg font-semibold flex items-center gap-2">
+                <List className="h-4 w-4 text-gold" /> Locations ({filteredLocations.length})
+              </h3>
+            </div>
+            <div className="flex-1 overflow-y-auto p-4 space-y-4 scrollbar-thin">
               {filteredLocations.map((location) => {
-                const colors = PANTHEON_COLORS[location.pantheonId] || {
-                  bg: '#6b7280',
-                  label: location.pantheonId,
-                };
-                const hasCords =
-                  location.latitude !== null && location.longitude !== null;
+                const pantheon = pantheons.find(p => p.id === location.pantheonId);
+                const colors = PANTHEON_COLORS[location.pantheonId] || { bg: '#6b7280', label: location.pantheonId };
+                const hasCords = location.latitude !== null && location.longitude !== null;
 
                 return (
-                  <div
+                  <Card
                     key={location.id}
-                    className="flex items-start gap-3 rounded-lg border border-border bg-card p-3"
+                    className={`group cursor-pointer hover:border-gold/50 transition-all duration-300 ${!hasCords ? 'opacity-75 grayscale-[0.5]' : ''}`}
+                    onClick={() => {
+                      if (hasCords && location.latitude && location.longitude) {
+                        // Dispatch custom event for Map component to listen to
+                        window.dispatchEvent(new CustomEvent('flyToLocation', {
+                          detail: { lat: location.latitude, lng: location.longitude }
+                        }));
+                        // On mobile, switch to map view
+                        if (window.innerWidth < 1024) setViewMode('map');
+                      }
+                    }}
                   >
-                    <span
-                      className="mt-1.5 w-3 h-3 rounded-full shrink-0"
-                      style={{ backgroundColor: colors.bg }}
-                    />
-                    <div className="min-w-0 flex-1">
-                      <div className="flex items-center gap-2">
-                        <h4 className="font-serif font-semibold text-sm text-foreground truncate">
-                          {location.name}
-                        </h4>
-                        {!hasCords && (
-                          <span className="text-[10px] text-gold/70 shrink-0">
-                            Mythical
-                          </span>
-                        )}
+                    <div className="h-1" style={{ background: colors.bg }} />
+                    <CardHeader className="p-4 pb-2">
+                      <div className="flex justify-between items-start">
+                        <h4 className="font-semibold text-foreground group-hover:text-gold transition-colors">{location.name}</h4>
+                        {hasCords ? <MapPin className="h-3 w-3 text-muted-foreground" /> : <span className="text-[10px] border border-border px-1 rounded">Myth</span>}
                       </div>
-                      <div className="flex items-center gap-1.5 mt-0.5">
-                        <span className="text-[11px] text-muted-foreground">
-                          {getLocationTypeLabel(location.locationType)}
-                        </span>
-                        <span className="text-border">|</span>
-                        <span
-                          className="text-[11px] font-medium"
-                          style={{ color: colors.bg }}
-                        >
-                          {colors.label}
-                        </span>
-                      </div>
-                      <p className="text-xs text-muted-foreground mt-1 line-clamp-2">
-                        {location.description}
-                      </p>
-                    </div>
-                  </div>
-                );
+                      <p className="text-xs text-muted-foreground uppercase">{pantheon?.name}</p>
+                    </CardHeader>
+                    <CardContent className="p-4 pt-2">
+                      <p className="text-xs text-muted-foreground line-clamp-2">{location.description}</p>
+                    </CardContent>
+                  </Card>
+                )
               })}
             </div>
           </div>
-        )}
+
+          {/* Map Side (Right) - Always visible on desktop, toggled on mobile */}
+          <div className={`flex-1 rounded-xl overflow-hidden border border-border shadow-lg relative ${viewMode === 'list' ? 'hidden lg:block' : 'block'}`}>
+            <MapVisualization locations={filteredLocations} pantheons={pantheons} />
+          </div>
+
+        </div>
       </div>
     </div>
   );
