@@ -1,6 +1,7 @@
 {
   "name": "Mythos Atlas",
   "short_name": "Mythos",
+  "version": "1.0.0",
   "description": "Explore ancient mythology through interactive deity family trees, comparative analysis, and epic stories from civilizations around the world.",
   "start_url": "/",
   "display": "standalone",
