@@ -36,11 +36,21 @@ const crimsonPro = Crimson_Pro({
   style: ["normal", "italic"],
 });
 
-export const metadata: Metadata = generateBaseMetadata({
-  title: "Mythos Atlas - Ancient Mythology Encyclopedia",
-  description: "Explore ancient mythology through interactive deity family trees, comparative analysis, and epic stories from Greek, Norse, Egyptian, and world civilizations. Built by Elizabeth Stein with Next.js and modern web technologies.",
-  url: "/",
-});
+export const metadata: Metadata = {
+  ...generateBaseMetadata({
+    title: "Mythos Atlas - Ancient Mythology Encyclopedia",
+    description: "Explore ancient mythology through interactive deity family trees, comparative analysis, and epic stories from Greek, Norse, Egyptian, and world civilizations. Built by Elizabeth Stein with Next.js and modern web technologies.",
+    url: "/",
+  }),
+  icons: {
+    icon: [
+      { url: '/icon.png', type: 'image/png' },
+    ],
+    apple: [
+      { url: '/apple-icon.png', type: 'image/png' },
+    ],
+  },
+};
 
 export default function RootLayout({
   children,
@@ -49,6 +59,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <link rel="manifest" href="/manifest.json" />
+        <meta name="theme-color" content="#1e293b" />
+      </head>
       <body className={`${sourceSans.variable} ${cinzel.variable} ${crimsonPro.variable} font-sans antialiased`}>
         <ThemeProvider
           attribute="class"

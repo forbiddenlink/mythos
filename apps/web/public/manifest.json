@@ -1,0 +1,42 @@
+{
+  "name": "Mythos Atlas",
+  "short_name": "Mythos",
+  "description": "Explore ancient mythology through interactive deity family trees, comparative analysis, and epic stories from civilizations around the world.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#1e293b",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["education", "entertainment", "books"],
+  "shortcuts": [
+    {
+      "name": "Deities",
+      "short_name": "Deities",
+      "description": "Browse ancient deities",
+      "url": "/deities",
+      "icons": [{ "src": "/icon.png", "sizes": "512x512" }]
+    },
+    {
+      "name": "Pantheons",
+      "short_name": "Pantheons",
+      "description": "Explore mythological pantheons",
+      "url": "/pantheons",
+      "icons": [{ "src": "/icon.png", "sizes": "512x512" }]
+    },
+    {
+      "name": "Stories",
+      "short_name": "Stories",
+      "description": "Read epic mythology stories",
+      "url": "/stories",
+      "icons": [{ "src": "/icon.png", "sizes": "512x512" }]
+    }
+  ]
+}
