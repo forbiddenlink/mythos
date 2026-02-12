@@ -14,6 +14,30 @@ export default defineConfig({
     setupFiles: ['./src/__tests__/setup.js'],
     include: ['src/__tests__/**/*.{test,spec}.{ts,tsx}'],
     css: false,
+    server: {
+      deps: {
+        inline: ['react', 'react-dom', '@testing-library/react'],
+      },
+    },
+    coverage: {
+      provider: 'v8',
+      include: [
+        'src/lib/spaced-repetition.ts',
+        'src/lib/mastery.ts',
+        'src/lib/search.ts',
+        'src/lib/relationship-quiz.ts',
+        'src/lib/utils.ts',
+        'src/hooks/use-debounce.ts',
+        'src/providers/progress-provider.tsx',
+      ],
+      exclude: ['**/*.d.ts', '**/types/**', '**/__tests__/**'],
+      thresholds: {
+        lines: 80,
+        functions: 80,
+        branches: 70,
+        statements: 80,
+      },
+    },
   },
   resolve: {
     alias: {

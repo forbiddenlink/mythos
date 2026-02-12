@@ -6,14 +6,20 @@ const { describe, it, expect } = await import('vitest');
 const validPantheonIds = pantheons.map((p: { id: string }) => p.id);
 
 const validCategories = [
-  'creation',
-  'war',
-  'tragedy',
-  'myth',
-  'cosmology',
   'afterlife',
-  'epic',
   'apocalypse',
+  'cosmology',
+  'creation',
+  'epic',
+  'hero',
+  'heroic',
+  'myth',
+  'rivalry',
+  'romance',
+  'tragedy',
+  'transformation',
+  'trickster',
+  'war',
 ];
 
 describe('stories.json data integrity', () => {

@@ -47,7 +47,7 @@ describe('deities.json data integrity', () => {
   });
 
   it('every deity should have a valid gender', () => {
-    const validGenders = ['male', 'female', 'androgynous', null];
+    const validGenders = ['male', 'female', 'androgynous', 'none', null];
     for (const deity of deities) {
       expect(validGenders).toContain(deity.gender);
     }
