@@ -1,0 +1,143 @@
+[
+  {
+    "id": "odyssey",
+    "name": "The Odyssey Route",
+    "description": "Follow Odysseus's 10-year journey home from Troy, encountering monsters, gods, and magical islands along the way.",
+    "pantheonId": "greek-pantheon",
+    "difficulty": "intermediate",
+    "estimatedTime": "15 min",
+    "locations": [
+      "troy",
+      "cicones-coast",
+      "lotus-eaters-island",
+      "cyclops-cave",
+      "aeolus-island",
+      "laestrygonians-harbor",
+      "circe-island",
+      "underworld",
+      "sirens-strait",
+      "scylla-charybdis",
+      "thrinacia",
+      "calypso-island",
+      "phaeacia",
+      "ithaca"
+    ],
+    "highlights": [
+      "The Cyclops Polyphemus",
+      "Circe's transformation magic",
+      "Journey to the Underworld",
+      "The Sirens' song",
+      "Scylla and Charybdis"
+    ]
+  },
+  {
+    "id": "argonauts",
+    "name": "Quest for the Golden Fleece",
+    "description": "Sail with Jason and the Argonauts aboard the Argo, from Iolcos to Colchis and back, facing trials at every turn.",
+    "pantheonId": "greek-pantheon",
+    "difficulty": "advanced",
+    "estimatedTime": "20 min",
+    "locations": [
+      "iolcos",
+      "lemnos",
+      "samothrace",
+      "cyzicus",
+      "bebryces",
+      "symplegades",
+      "colchis",
+      "sirens-strait",
+      "scylla-charybdis",
+      "phaeacia",
+      "libya",
+      "crete",
+      "iolcos"
+    ],
+    "highlights": [
+      "The Clashing Rocks (Symplegades)",
+      "Medea's magic",
+      "The Golden Fleece",
+      "The Bronze Giant Talos",
+      "The Harpies and Phineus"
+    ]
+  },
+  {
+    "id": "norse-realms",
+    "name": "Journey Through the Nine Realms",
+    "description": "Travel along Yggdrasil, the World Tree, exploring all nine realms of Norse cosmology from Asgard to Niflheim.",
+    "pantheonId": "norse-pantheon",
+    "difficulty": "beginner",
+    "estimatedTime": "12 min",
+    "locations": [
+      "asgard",
+      "vanaheim",
+      "alfheim",
+      "midgard",
+      "jotunheim",
+      "svartalfheim",
+      "nidavellir",
+      "niflheim",
+      "muspelheim"
+    ],
+    "highlights": [
+      "Odin's hall Valhalla in Asgard",
+      "The Bifrost Rainbow Bridge",
+      "The roots of Yggdrasil",
+      "The frost giants of Jotunheim",
+      "The forges of the dwarves"
+    ]
+  },
+  {
+    "id": "egyptian-afterlife",
+    "name": "Journey Through the Duat",
+    "description": "Follow the soul's perilous path through the Egyptian underworld, from death to judgment before Osiris.",
+    "pantheonId": "egyptian-pantheon",
+    "difficulty": "intermediate",
+    "estimatedTime": "18 min",
+    "locations": [
+      "western-horizon",
+      "first-gate",
+      "hall-of-maat",
+      "lake-of-fire",
+      "field-of-reeds",
+      "osiris-throne",
+      "giza-plateau",
+      "karnak"
+    ],
+    "highlights": [
+      "The Weighing of the Heart",
+      "Meeting the 42 Judges",
+      "Navigating the twelve hours of night",
+      "The devourer Ammit",
+      "The paradise of the Field of Reeds"
+    ]
+  },
+  {
+    "id": "heracles-labors",
+    "name": "The Twelve Labors of Heracles",
+    "description": "Visit the locations of Heracles's legendary twelve labors, from the Nemean Lion to the capture of Cerberus.",
+    "pantheonId": "greek-pantheon",
+    "difficulty": "advanced",
+    "estimatedTime": "25 min",
+    "locations": [
+      "nemea",
+      "lerna",
+      "ceryneia",
+      "erymanthus",
+      "augean-stables",
+      "lake-stymphalus",
+      "crete",
+      "thrace",
+      "themiscyra",
+      "erytheia",
+      "garden-of-hesperides",
+      "underworld"
+    ],
+    "highlights": [
+      "The Nemean Lion's impenetrable hide",
+      "The Hydra of Lerna",
+      "The Cerynian Hind",
+      "The Augean Stables",
+      "Capturing Cerberus from the Underworld"
+    ]
+  }
+]

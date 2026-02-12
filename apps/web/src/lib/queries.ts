@@ -161,6 +161,9 @@ export const GET_STORIES = gql`
       culturalSignificance
       externalLinks
       citationSources
+      featuredDeities
+      featuredLocations
+      relatedStories
     }
   }
 `;
@@ -181,6 +184,9 @@ export const GET_STORY = gql`
       relatedFestivals
       externalLinks
       citationSources
+      featuredDeities
+      featuredLocations
+      relatedStories
     }
   }
 `;
