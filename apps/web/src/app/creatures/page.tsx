@@ -44,8 +44,8 @@ export default function CreaturesPage() {
         return (
             <div className="container mx-auto max-w-6xl px-4 py-24">
                 <div className="text-center">
-                    <h2 className="text-2xl font-bold text-red-600">Error loading creatures</h2>
-                    <p className="text-slate-600 dark:text-slate-400 mt-2">
+                    <h2 className="text-2xl font-bold text-destructive">Error loading creatures</h2>
+                    <p className="text-muted-foreground mt-2">
                         {error instanceof Error ? error.message : 'An error occurred'}
                     </p>
                 </div>
@@ -153,7 +153,7 @@ export default function CreaturesPage() {
                                         {creature.abilities.length > 0 && (
                                             <div className="flex flex-wrap gap-1.5">
                                                 {creature.abilities.slice(0, 3).map(ability => (
-                                                    <span key={ability} className="text-[10px] px-2 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400">
+                                                    <span key={ability} className="text-[10px] px-2 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 text-muted-foreground">
                                                         {ability}
                                                     </span>
                                                 ))}

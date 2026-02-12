@@ -108,9 +108,8 @@ export default function KnowledgeGraphPage() {
     // ReactFlow controls handle this internally
   }, []);
 
-  const handleCenterNode = useCallback((nodeId: string) => {
-    // This would be handled by ReactFlow - for now we just highlight
-    console.log('Center on node:', nodeId);
+  const handleCenterNode = useCallback((_nodeId: string) => {
+    // This would be handled by ReactFlow - currently just placeholder
   }, []);
 
   const toggleFullscreen = useCallback(() => {

@@ -19,7 +19,6 @@ import {
   compareMythVersions,
   PRESET_MYTH_COMPARISONS,
   getAvailableCategories,
-  searchStories,
 } from '@/lib/myth-comparison';
 import storiesData from '@/data/stories.json';
 
@@ -250,7 +249,7 @@ export default function CompareMythsPage() {
             <div className="w-12 h-px bg-gradient-to-l from-transparent to-gold/40" />
           </div>
           <p className="text-lg md:text-xl text-parchment/70 max-w-2xl mx-auto font-body leading-relaxed">
-            Discover common themes and unique perspectives in myths from different cultures
+            See how flood myths, creation stories, and underworld journeys differ across cultures
           </p>
         </div>
       </div>

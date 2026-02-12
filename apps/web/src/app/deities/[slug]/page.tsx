@@ -212,8 +212,8 @@ export default function DeityPage() {
     return (
       <div className="container mx-auto max-w-6xl px-4 py-24">
         <div className="text-center">
-          <h2 className="text-2xl font-bold text-red-600">Error loading deity</h2>
-          <p className="text-slate-600 dark:text-slate-400 mt-2">
+          <h2 className="text-2xl font-bold text-destructive">Error loading deity</h2>
+          <p className="text-muted-foreground mt-2">
             {error instanceof Error ? error.message : 'An error occurred'}
           </p>
         </div>
@@ -226,7 +226,7 @@ export default function DeityPage() {
       <div className="container mx-auto max-w-6xl px-4 py-24">
         <div className="text-center">
           <h2 className="text-2xl font-bold">Deity Not Found</h2>
-          <p className="text-slate-600 dark:text-slate-400 mt-2">
+          <p className="text-muted-foreground mt-2">
             The deity you're looking for doesn't exist.
           </p>
           <Link href="/deities" className="text-gold hover:underline mt-4 inline-block">
@@ -362,7 +362,7 @@ export default function DeityPage() {
                       <ReactMarkdown>{deity.detailedBio}</ReactMarkdown>
                     </div>
                   ) : (
-                    <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-lg">
+                    <p className="text-muted-foreground leading-relaxed text-lg">
                       {deity.description}
                     </p>
                   )}
@@ -376,7 +376,7 @@ export default function DeityPage() {
                     <CardTitle className="font-serif text-xl">Origin Story</CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-slate-600 dark:text-slate-400 leading-relaxed whitespace-pre-line">
+                    <p className="text-muted-foreground leading-relaxed whitespace-pre-line">
                       {deity.originStory}
                     </p>
                   </CardContent>
@@ -410,7 +410,7 @@ export default function DeityPage() {
                               ({parallel.pantheonId})
                             </span>
                           </div>
-                          <p className="text-slate-600 dark:text-slate-400 text-sm mt-1">
+                          <p className="text-muted-foreground text-sm mt-1">
                             {parallel.note}
                           </p>
                         </li>
@@ -509,7 +509,7 @@ export default function DeityPage() {
                           {deity.worship.temples.map((temple, index) => (
                             <li
                               key={index}
-                              className="text-slate-600 dark:text-slate-400 flex items-start gap-2"
+                              className="text-muted-foreground flex items-start gap-2"
                             >
                               <span className="text-gold mt-1">&#8226;</span>
                               {temple}
@@ -544,7 +544,7 @@ export default function DeityPage() {
                         <h4 className="font-medium text-slate-800 dark:text-slate-200 mb-2">
                           Worship Practices
                         </h4>
-                        <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
+                        <p className="text-muted-foreground leading-relaxed">
                           {deity.worship.practices}
                         </p>
                       </div>

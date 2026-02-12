@@ -6,7 +6,7 @@ import { graphqlClient } from '@/lib/graphql-client';
 import { GET_DEITIES } from '@/lib/queries';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Loader2, Sparkles, LayoutGrid, Table } from 'lucide-react';
+import { Sparkles, LayoutGrid, Table } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Breadcrumbs } from '@/components/navigation/Breadcrumbs';
@@ -74,8 +74,8 @@ export default function DeitiesPage() {
     return (
       <div className="container mx-auto max-w-6xl px-4 py-24">
         <div className="text-center">
-          <h2 className="text-2xl font-bold text-red-600">Error loading deities</h2>
-          <p className="text-slate-600 dark:text-slate-400 mt-2">
+          <h2 className="text-2xl font-bold text-destructive">Error loading deities</h2>
+          <p className="text-muted-foreground mt-2">
             {error instanceof Error ? error.message : 'An error occurred'}
           </p>
         </div>
@@ -123,7 +123,7 @@ export default function DeitiesPage() {
             <div className="w-12 h-px bg-gradient-to-l from-transparent to-gold/40" />
           </div>
           <p className="text-lg md:text-xl text-parchment/70 max-w-2xl mx-auto font-body leading-relaxed">
-            Discover gods and goddesses from mythology across ancient civilizations
+            Gods and goddesses from 12 pantheons, with family trees, domains, and stories
           </p>
         </div>
       </div>

@@ -87,7 +87,6 @@ export async function registerBackgroundSync(tag: string = 'progress-sync'): Pro
     // Check if Background Sync API is available
     if ('sync' in registration) {
       await (registration as ServiceWorkerRegistration & { sync: { register: (tag: string) => Promise<void> } }).sync.register(tag);
-      console.log(`Background sync registered: ${tag}`);
       return true;
     } else {
       console.warn('Background Sync API not supported');

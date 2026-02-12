@@ -46,8 +46,8 @@ export default function ArtifactPage() {
         return (
             <div className="container mx-auto max-w-6xl px-4 py-24">
                 <div className="text-center">
-                    <h2 className="text-2xl font-bold text-red-600">Artifact Not Found</h2>
-                    <p className="text-slate-600 dark:text-slate-400 mt-2">
+                    <h2 className="text-2xl font-bold text-destructive">Artifact Not Found</h2>
+                    <p className="text-muted-foreground mt-2">
                         The legendary item you seek is lost to time.
                     </p>
                     <Link href="/artifacts" className="text-purple-500 hover:underline mt-4 inline-block">
@@ -140,7 +140,7 @@ export default function ArtifactPage() {
                                     <CardTitle className="font-serif text-2xl">Description</CardTitle>
                                 </CardHeader>
                                 <CardContent>
-                                    <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-lg">
+                                    <p className="text-muted-foreground leading-relaxed text-lg">
                                         {artifact.description}
                                     </p>
                                 </CardContent>

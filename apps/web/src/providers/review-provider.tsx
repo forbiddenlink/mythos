@@ -5,9 +5,7 @@ import {
   type CardState,
   type ReviewCard,
   type ReviewState,
-  type ReviewStats,
   type DifficultyRating,
-  type FlashcardType,
   createInitialCardState,
   updateCardState,
   isCardDue,
@@ -113,7 +111,8 @@ export function ReviewProvider({ children }: { children: ReactNode }) {
 
   const progressContext = useContext(ProgressContext);
 
-  // Load review state from localStorage on mount
+  // Hydration-safe: load from localStorage on client mount
+  // eslint-disable-next-line react-hooks/set-state-in-effect -- intentional hydration pattern
   useEffect(() => {
     const loaded = loadReviewState();
 

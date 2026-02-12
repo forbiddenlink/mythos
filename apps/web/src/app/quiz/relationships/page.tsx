@@ -183,7 +183,7 @@ export default function RelationshipQuizPage() {
         <div className="container mx-auto max-w-4xl px-4 py-12">
           <Card className="border-red-200 dark:border-red-900">
             <CardContent className="p-6 text-center">
-              <p className="text-red-600 dark:text-red-400">Failed to load quiz data. Please try again.</p>
+              <p className="text-destructive dark:text-red-400">Failed to load quiz data. Please try again.</p>
               <Button onClick={() => window.location.reload()} className="mt-4">
                 <RefreshCw className="h-4 w-4 mr-2" />
                 Retry

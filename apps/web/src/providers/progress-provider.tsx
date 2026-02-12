@@ -95,7 +95,8 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
   const [progress, setProgress] = useState<UserProgress>(DEFAULT_PROGRESS);
   const [mounted, setMounted] = useState(false);
 
-  // Load progress from localStorage on mount
+  // Hydration-safe: load from localStorage on client mount
+  // eslint-disable-next-line react-hooks/set-state-in-effect -- intentional hydration pattern
   useEffect(() => {
     setProgress(loadProgress());
     setMounted(true);

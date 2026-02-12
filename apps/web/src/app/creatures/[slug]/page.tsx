@@ -49,8 +49,8 @@ export default function CreaturePage() {
         return (
             <div className="container mx-auto max-w-6xl px-4 py-24">
                 <div className="text-center">
-                    <h2 className="text-2xl font-bold text-red-600">Creature Not Found</h2>
-                    <p className="text-slate-600 dark:text-slate-400 mt-2">
+                    <h2 className="text-2xl font-bold text-destructive">Creature Not Found</h2>
+                    <p className="text-muted-foreground mt-2">
                         The beast you seek remains elusive.
                     </p>
                     <Link href="/creatures" className="text-red-500 hover:underline mt-4 inline-block">
@@ -62,7 +62,7 @@ export default function CreaturePage() {
     }
 
     const creature = data.creature;
-    const dangerColor = creature.dangerLevel >= 9 ? 'text-red-600' : creature.dangerLevel >= 7 ? 'text-orange-500' : 'text-yellow-500';
+    const dangerColor = creature.dangerLevel >= 9 ? 'text-destructive' : creature.dangerLevel >= 7 ? 'text-orange-500' : 'text-yellow-500';
 
     const breadcrumbItems = [
         { name: 'Home', item: siteConfig.url },
@@ -163,7 +163,7 @@ export default function CreaturePage() {
                                     <CardTitle className="font-serif text-2xl">Lore & Legend</CardTitle>
                                 </CardHeader>
                                 <CardContent>
-                                    <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-lg">
+                                    <p className="text-muted-foreground leading-relaxed text-lg">
                                         {creature.description}
                                     </p>
                                 </CardContent>

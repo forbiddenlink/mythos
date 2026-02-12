@@ -1,7 +1,7 @@
 'use client';
 
 import { useAchievements, type AchievementWithStatus } from '@/hooks/useAchievements';
-import { tierColors, categoryLabels, type Achievement } from '@/data/achievements';
+import { tierColors, categoryLabels } from '@/data/achievements';
 import { motion } from 'framer-motion';
 import { Trophy, Lock, Star, Flame, BookOpen, Compass, Crown } from 'lucide-react';
 import { Progress } from '@/components/ui/progress';
@@ -168,7 +168,7 @@ export default function AchievementsPage() {
             </h1>
 
             <p className="text-lg text-parchment/70 mb-8">
-              Track your journey through the ancient myths. Earn achievements as you explore deities, read stories, and master mythology.
+              Earn badges as you read stories, study deities, and test your knowledge across all 12 pantheons.
             </p>
 
             {/* Stats */}

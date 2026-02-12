@@ -81,7 +81,7 @@ export function StoryTimelinePageClient() {
               <p>
                 Every culture tells stories of creation, golden ages, and endings.
                 Compare how different pantheons conceptualize the same cosmic moments
-                and discover the universal themes of human mythology.
+                and see where their stories align.
               </p>
             </div>
             <div>

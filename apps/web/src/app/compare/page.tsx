@@ -197,8 +197,8 @@ export default function ComparePage() {
     return (
       <div className="container mx-auto max-w-6xl px-4 py-24">
         <div className="text-center">
-          <h2 className="text-2xl font-bold text-red-600">Error loading deities</h2>
-          <p className="text-slate-600 dark:text-slate-400 mt-2">
+          <h2 className="text-2xl font-bold text-destructive">Error loading deities</h2>
+          <p className="text-muted-foreground mt-2">
             {deitiesError instanceof Error ? deitiesError.message : 'An error occurred'}
           </p>
         </div>

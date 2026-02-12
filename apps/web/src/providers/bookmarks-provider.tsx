@@ -72,6 +72,8 @@ export function BookmarksProvider({ children }: { children: ReactNode }) {
   const [readingProgress, setReadingProgressState] = useState<Record<string, ReadingProgress>>({});
   const [mounted, setMounted] = useState(false);
 
+  // Hydration-safe: load from localStorage on client mount
+  // eslint-disable-next-line react-hooks/set-state-in-effect -- intentional hydration pattern
   useEffect(() => {
     setBookmarks(loadBookmarks());
     setReadingProgressState(loadReadingProgress());

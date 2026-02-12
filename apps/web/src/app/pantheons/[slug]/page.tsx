@@ -104,8 +104,8 @@ export default function PantheonPage() {
     return (
       <div className="container mx-auto max-w-6xl px-4 py-24">
         <div className="text-center">
-          <h2 className="text-2xl font-bold text-red-600">Error loading pantheons</h2>
-          <p className="text-slate-600 dark:text-slate-400 mt-2">
+          <h2 className="text-2xl font-bold text-destructive">Error loading pantheons</h2>
+          <p className="text-muted-foreground mt-2">
             {pantheonsError instanceof Error ? pantheonsError.message : 'An error occurred'}
           </p>
         </div>
@@ -118,7 +118,7 @@ export default function PantheonPage() {
       <div className="container mx-auto max-w-6xl px-4 py-24">
         <div className="text-center">
           <h2 className="text-2xl font-bold">Pantheon Not Found</h2>
-          <p className="text-slate-600 dark:text-slate-400 mt-2">
+          <p className="text-muted-foreground mt-2">
             The pantheon you're looking for doesn't exist.
           </p>
           <Link href="/pantheons" className="text-gold hover:underline mt-4 inline-block">

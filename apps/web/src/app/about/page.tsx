@@ -1,4 +1,4 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { BookOpen, Users, Globe, Code } from 'lucide-react';
 import { Breadcrumbs } from '@/components/navigation/Breadcrumbs';
 import { AboutPageJsonLd } from '@/components/seo/JsonLd';
@@ -49,7 +49,7 @@ export default function AboutPage() {
             </CardHeader>
             <CardContent className="space-y-4">
               <p className="text-parchment/80 leading-relaxed text-lg">
-                Mythos Atlas is dedicated to preserving and sharing the rich tapestry of ancient mythology from civilizations around the world. We believe these timeless stories hold valuable insights into human nature, culture, and the universal questions that have captivated humanity for millennia.
+                Mythos Atlas preserves the interconnected mythology of ancient civilizations, revealing how different cultures understood creation, divinity, and human purpose. These stories offer genuine insight into how our ancestors explained the world and their place in it.
               </p>
               <p className="text-parchment/80 leading-relaxed text-lg">
                 Through interactive visualizations, comprehensive deity profiles, and carefully curated stories, we aim to make mythology accessible and engaging for everyone—from students and researchers to mythology enthusiasts and casual learners.
@@ -67,7 +67,7 @@ export default function AboutPage() {
               </CardHeader>
               <CardContent>
                 <p className="text-parchment/70">
-                  Explore mythologies from Greek, Norse, Egyptian, and other ancient civilizations, with new pantheons being added regularly.
+                  Browse 12 pantheons from Greek to Yoruba, with 150+ deities, 65+ stories, and 90+ sacred locations documented.
                 </p>
               </CardContent>
             </Card>
@@ -95,7 +95,7 @@ export default function AboutPage() {
               </CardHeader>
               <CardContent>
                 <p className="text-parchment/70">
-                  Discover the epic myths, creation stories, and heroic tales that have shaped cultures and inspired generations.
+                  Read original myths from primary sources—the Eddas, Theogony, Popol Vuh, and more—with modern context and academic citations.
                 </p>
               </CardContent>
             </Card>
@@ -132,7 +132,7 @@ export default function AboutPage() {
                 </div>
               </div>
               <p className="text-parchment/70 text-sm italic border-l-2 border-gold/30 pl-4">
-                &quot;This project was born from a fascination with how ancient myths connect cultures across time and space. By leveraging modern web technologies, I wanted to create an immersive experience that brings these timeless stories to life for a new generation.&quot;
+                &quot;I built Mythos Atlas because I couldn&apos;t find a mythology resource that combined scholarly accuracy with good design. These stories deserve better than dusty encyclopedias or clickbait listicles.&quot;
               </p>
             </CardContent>
           </Card>

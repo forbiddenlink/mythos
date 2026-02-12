@@ -94,8 +94,8 @@ export default function LearningPathsPage() {
             </h1>
             <p className="text-lg text-slate-400 max-w-2xl mx-auto">
               {hasProgress
-                ? 'Continue your journey with personalized paths based on your interests and progress.'
-                : 'Choose a path to begin your mythological journey. Each path is designed to guide you through the rich tapestry of ancient myths.'}
+                ? 'Continue where you left off with paths tailored to your interests and progress.'
+                : 'Choose a focused path through mythology—from Greek heroes to Norse cosmology to Egyptian afterlife beliefs.'}
             </p>
             <div className="flex items-center justify-center gap-4 mt-6">
               <div className="w-12 h-px bg-gradient-to-r from-transparent to-purple-500/40" />
