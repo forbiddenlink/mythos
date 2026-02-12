@@ -6,7 +6,7 @@ import { useQuery } from '@tanstack/react-query';
 import { graphqlClient } from '@/lib/graphql-client';
 import { GET_STORIES } from '@/lib/queries';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Loader2, BookOpen, Tag } from 'lucide-react';
+import { Loader2, BookOpen, Tag, ScrollText } from 'lucide-react';
 import { Breadcrumbs } from '@/components/navigation/Breadcrumbs';
 import { BookmarkButton } from '@/components/ui/bookmark-button';
 import { ExportIconButton } from '@/components/ui/export-button';
@@ -23,6 +23,8 @@ import deitiesData from '@/data/deities.json';
 import locationsData from '@/data/locations.json';
 import { DetailPageSkeleton } from '@/components/ui/skeleton-cards';
 import { StoryNarrator } from '@/components/stories/StoryNarrator';
+import { SourceExcerptsList, ReferencesList } from '@/components/sources';
+import type { PrimarySourceExcerpt, FurtherReadingReference } from '@/components/sources';
 
 function useProgress() {
   const context = useContext(ProgressContext);
@@ -70,6 +72,8 @@ interface Story {
   featuredLocations?: string[];
   relatedStories?: string[];
   variants?: MythVariant[];
+  primarySourceExcerpts?: PrimarySourceExcerpt[];
+  furtherReading?: FurtherReadingReference[];
 }
 
 interface Deity {
@@ -364,6 +368,37 @@ export default function StoryPage() {
           {/* Myth Variants */}
           {story.variants && story.variants.length > 0 && (
             <MythVariants variants={story.variants} />
+          )}
+
+          {/* Primary Source Excerpts */}
+          {story.primarySourceExcerpts && story.primarySourceExcerpts.length > 0 && (
+            <Card className="border-gold/20 bg-midnight-light/50">
+              <CardHeader>
+                <CardTitle className="text-parchment text-2xl font-serif flex items-center gap-2">
+                  <ScrollText className="h-5 w-5 text-gold" />
+                  Ancient Sources
+                </CardTitle>
+                <CardDescription>
+                  Original texts with translations - toggle to see the original language
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <SourceExcerptsList excerpts={story.primarySourceExcerpts} />
+              </CardContent>
+            </Card>
+          )}
+
+          {/* Further Reading */}
+          {story.furtherReading && story.furtherReading.length > 0 && (
+            <div className="[&_*]:!bg-midnight-light/50 [&_*]:!border-gold/20 [&_h3]:!text-parchment [&_h4]:!text-gold [&_p]:!text-parchment/80 [&_cite]:!text-parchment [&_span]:!text-parchment/60">
+              <ReferencesList
+                references={story.furtherReading}
+                title="Further Reading"
+                showDescriptions={false}
+                collapsible={true}
+                defaultExpanded={false}
+              />
+            </div>
           )}
 
           {/* Related Content Section */}

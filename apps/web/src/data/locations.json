@@ -544,10 +544,70 @@
     "name": "The Heavenly Palace",
     "locationType": "realm",
     "pantheonId": "chinese-pantheon",
-    "description": "The opulent celestial court of the Jade Emperor, where the celestial bureaucracy governs all of heaven and earth.",
+    "description": "The opulent celestial court of the Jade Emperor, where the celestial bureaucracy governs all of heaven and earth. Also known as the Lingxiao Palace, it is the seat of divine government.",
     "latitude": null,
     "longitude": null,
     "imageUrl": "/locations/heavenly-palace.png"
+  },
+  {
+    "id": "flaming-mountains",
+    "name": "Flaming Mountains",
+    "locationType": "mountain",
+    "pantheonId": "chinese-pantheon",
+    "description": "A range of scorching mountains created when Sun Wukong kicked over Laozi's alchemical furnace during his rampage in Heaven. The monk Tang Sanzang and his disciples had to obtain the Banana Leaf Fan from Princess Iron Fan to extinguish the flames and pass through.",
+    "latitude": 42.85,
+    "longitude": 89.27,
+    "imageUrl": "/locations/flaming-mountains.png"
+  },
+  {
+    "id": "five-elements-mountain",
+    "name": "Five Elements Mountain",
+    "locationType": "mountain",
+    "pantheonId": "chinese-pantheon",
+    "description": "The mountain created by Buddha to imprison Sun Wukong for 500 years after his rebellion against Heaven. The Buddha placed a seal on the mountain, and only the destined pilgrim Tang Sanzang could release the Monkey King.",
+    "latitude": null,
+    "longitude": null,
+    "imageUrl": "/locations/five-elements-mountain.png"
+  },
+  {
+    "id": "flower-fruit-mountain",
+    "name": "Mountain of Flowers and Fruit",
+    "locationType": "mountain",
+    "pantheonId": "chinese-pantheon",
+    "description": "The mystical mountain in the Eastern Sea where Sun Wukong was born from a stone egg. Behind the Water Curtain Cave, he established his kingdom of monkeys and ruled as their king before seeking immortality.",
+    "latitude": null,
+    "longitude": null,
+    "imageUrl": "/locations/flower-fruit-mountain.png"
+  },
+  {
+    "id": "lunar-palace",
+    "name": "Guanghan Palace",
+    "locationType": "realm",
+    "pantheonId": "chinese-pantheon",
+    "description": "The Palace of Cold Vastness on the moon, where Chang'e lives in eternal solitude after drinking the elixir of immortality. She is accompanied only by the Jade Rabbit and the woodcutter Wu Gang.",
+    "latitude": null,
+    "longitude": null,
+    "imageUrl": "/locations/lunar-palace.png"
+  },
+  {
+    "id": "diyu",
+    "name": "Diyu (Chinese Underworld)",
+    "locationType": "underworld",
+    "pantheonId": "chinese-pantheon",
+    "description": "The realm of the dead where souls are judged by Yan Wang (King Yama) and punished or rewarded based on their earthly deeds. It contains multiple courts and hells, after which souls drink from the River of Oblivion before reincarnation.",
+    "latitude": null,
+    "longitude": null,
+    "imageUrl": "/locations/diyu.png"
+  },
+  {
+    "id": "eastern-sea-dragon-palace",
+    "name": "Crystal Palace of the Eastern Sea",
+    "locationType": "realm",
+    "pantheonId": "chinese-pantheon",
+    "description": "The underwater palace of Ao Guang, the Dragon King of the Eastern Sea. It was here that Sun Wukong obtained his famous weapon, the Ruyi Jingu Bang, originally a pillar used to measure sea depths.",
+    "latitude": null,
+    "longitude": null,
+    "imageUrl": "/locations/dragon-palace.png"
   },
   {
     "id": "babylon",
@@ -578,5 +638,215 @@
     "latitude": 34.0000,
     "longitude": 36.0000,
     "imageUrl": "/locations/cedar-forest.png"
+  },
+  {
+    "id": "xibalba",
+    "name": "Xibalba",
+    "locationType": "underworld",
+    "pantheonId": "mesoamerican-pantheon",
+    "description": "The Maya underworld, 'Place of Fear,' ruled by the death lords One Death and Seven Death. Souls must pass through houses of darkness, knives, cold, jaguars, fire, and bats. The Hero Twins descended here to defeat death itself.",
+    "latitude": null,
+    "longitude": null,
+    "imageUrl": "/locations/xibalba.png"
+  },
+  {
+    "id": "tamoanchan",
+    "name": "Tamoanchan",
+    "locationType": "realm",
+    "pantheonId": "mesoamerican-pantheon",
+    "description": "The Aztec paradise where the gods created humanity from the bones retrieved from Mictlan. A place of flowering trees and eternal spring, Tamoanchan represents the original state of creation before the current world age.",
+    "latitude": null,
+    "longitude": null,
+    "imageUrl": "/locations/tamoanchan.png"
+  },
+  {
+    "id": "tollan",
+    "name": "Tollan (Tula)",
+    "locationType": "city",
+    "pantheonId": "mesoamerican-pantheon",
+    "description": "The legendary Toltec capital associated with Quetzalcoatl as priest-king. A place of artistic and cultural perfection where corn grew in brilliant colors and cotton grew already dyed. Quetzalcoatl was tricked into disgrace here by Tezcatlipoca.",
+    "latitude": 20.0650,
+    "longitude": -99.3410,
+    "imageUrl": "/locations/tollan.png"
+  },
+  {
+    "id": "aztlan",
+    "name": "Aztlan",
+    "locationType": "realm",
+    "pantheonId": "mesoamerican-pantheon",
+    "description": "The mythical homeland of the Aztec people, 'Place of Whiteness' or 'Place of Herons.' From this island city, the Mexica began their long migration south, guided by Huitzilopochtli, until they found the eagle on the cactus that marked Tenochtitlan.",
+    "latitude": null,
+    "longitude": null,
+    "imageUrl": "/locations/aztlan.png"
+  },
+  {
+    "id": "chichen-itza",
+    "name": "Chichen Itza",
+    "locationType": "sacred_site",
+    "pantheonId": "mesoamerican-pantheon",
+    "description": "The great Maya-Toltec city dominated by El Castillo, the pyramid of Kukulkan. During the equinoxes, shadows create the illusion of a serpent descending the stairs. The cenote here received sacrificial offerings to Chaac.",
+    "latitude": 20.6843,
+    "longitude": -88.5678,
+    "imageUrl": "/locations/chichen-itza.png"
+  },
+  {
+    "id": "coatepec",
+    "name": "Coatepec (Serpent Mountain)",
+    "locationType": "sacred_site",
+    "pantheonId": "mesoamerican-pantheon",
+    "description": "The mythical mountain where Huitzilopochtli was born fully armed to defeat his sister Coyolxauhqui and four hundred brothers. The Templo Mayor of Tenochtitlan was a recreation of this sacred mountain.",
+    "latitude": null,
+    "longitude": null,
+    "imageUrl": "/locations/coatepec.png"
+  },
+  {
+    "id": "teotihuacan",
+    "name": "Teotihuacan",
+    "locationType": "sacred_site",
+    "pantheonId": "mesoamerican-pantheon",
+    "description": "The 'Place Where Gods Are Made,' site of the Fifth Sun's creation. Here the gods gathered in darkness, and Nanahuatzin sacrificed himself in fire to become the sun. The Pyramid of the Sun and Pyramid of the Moon mark this sacred ground.",
+    "latitude": 19.6925,
+    "longitude": -98.8438,
+    "imageUrl": "/locations/teotihuacan.png"
+  },
+  {
+    "id": "tlalocan",
+    "name": "Tlalocan",
+    "locationType": "realm",
+    "pantheonId": "mesoamerican-pantheon",
+    "description": "The earthly paradise ruled by Tlaloc, a place of eternal spring and abundance. Those who died by drowning, lightning, or water-related diseases went to Tlalocan rather than Mictlan, considered a blessed fate.",
+    "latitude": null,
+    "longitude": null,
+    "imageUrl": "/locations/tlalocan.png"
+  },
+  {
+    "id": "hawaiki",
+    "name": "Hawaiki",
+    "locationType": "realm",
+    "pantheonId": "polynesian-pantheon",
+    "description": "The legendary ancestral homeland of the Polynesian peoples, from which the great voyaging canoes departed to settle the Pacific islands. Hawaiki is both a physical place (possibly in the Society Islands) and a spiritual realm where souls return after death.",
+    "latitude": null,
+    "longitude": null,
+    "imageUrl": "/locations/hawaiki.png"
+  },
+  {
+    "id": "kilauea",
+    "name": "Kilauea Volcano",
+    "locationType": "sacred_site",
+    "pantheonId": "polynesian-pantheon",
+    "description": "The home of Pele, goddess of volcanoes, located on the Big Island of Hawaii. The Halemaumau crater within Kilauea is considered Pele's residence, where she creates new land through volcanic eruptions. One of the most active volcanoes on Earth.",
+    "latitude": 19.4069,
+    "longitude": -155.2834,
+    "imageUrl": "/locations/kilauea.png"
+  },
+  {
+    "id": "te-po",
+    "name": "Te Po (The Underworld)",
+    "locationType": "underworld",
+    "pantheonId": "polynesian-pantheon",
+    "description": "The Polynesian realm of darkness and the dead, ruled by Hine-nui-te-po, the goddess of death. Te Po is where souls journey after death, a shadowy realm contrasting with Te Ao (the world of light). Maui died attempting to conquer Te Po.",
+    "latitude": null,
+    "longitude": null,
+    "imageUrl": "/locations/te-po.png"
+  },
+  {
+    "id": "mauna-kea",
+    "name": "Mauna Kea",
+    "locationType": "mountain",
+    "pantheonId": "polynesian-pantheon",
+    "description": "The tallest mountain in Hawaii and home of Poliahu, the snow goddess. Its summit, often covered with snow, is considered sacred and represents the realm of ice that opposes Pele's volcanic fire. The name means 'White Mountain.'",
+    "latitude": 19.8207,
+    "longitude": -155.4680,
+    "imageUrl": "/locations/mauna-kea.png"
+  },
+  {
+    "id": "haleakala",
+    "name": "Haleakala",
+    "locationType": "sacred_site",
+    "pantheonId": "polynesian-pantheon",
+    "description": "The 'House of the Sun' on the island of Maui, where according to Hawaiian tradition, Maui captured and beat the sun to slow its passage across the sky. The massive volcanic crater is one of Hawaii's most sacred sites.",
+    "latitude": 20.7097,
+    "longitude": -156.2533,
+    "imageUrl": "/locations/haleakala.png"
+  },
+  {
+    "id": "te-reinga",
+    "name": "Te Rerenga Wairua (Cape Reinga)",
+    "locationType": "sacred_site",
+    "pantheonId": "polynesian-pantheon",
+    "description": "The northernmost tip of New Zealand, where Maori tradition holds that the spirits of the dead depart for the afterlife. Souls travel north along the island, descend an ancient pohutukawa tree, and slide down its roots into the sea to journey to Hawaiki.",
+    "latitude": -34.4289,
+    "longitude": 172.6803,
+    "imageUrl": "/locations/te-reinga.png"
+  },
+  {
+    "id": "rangiatea",
+    "name": "Ra'iatea (Sacred Island)",
+    "locationType": "sacred_site",
+    "pantheonId": "polynesian-pantheon",
+    "description": "An island in the Society Islands group, traditionally considered one of the most sacred places in Polynesia. The marae (temple) of Taputapuatea was a center of religious and political power, from which voyaging canoes departed to settle distant islands.",
+    "latitude": -16.8333,
+    "longitude": -151.4333,
+    "imageUrl": "/locations/rangiatea.png"
+  },
+  {
+    "id": "ile-ife",
+    "name": "Ile-Ife",
+    "locationType": "sacred_site",
+    "pantheonId": "african-pantheon",
+    "description": "The holiest city in Yoruba religion, where Obatala first descended from heaven and created land from the primordial waters. Known as 'the navel of the world' and the place where creation began. The city remains the spiritual center of Yoruba tradition, and its kings trace descent from the Orishas.",
+    "latitude": 7.4833,
+    "longitude": 4.5667,
+    "imageUrl": "/locations/ile-ife.png"
+  },
+  {
+    "id": "orun",
+    "name": "Orun (Heaven)",
+    "locationType": "realm",
+    "pantheonId": "african-pantheon",
+    "description": "The heavenly realm where Olodumare and the Orishas dwell. Orun exists in layers, with the supreme being at the highest level. It is also the destination of righteous souls after death, where they join the ancestors and may eventually be reborn into the earthly realm (Aye).",
+    "latitude": null,
+    "longitude": null,
+    "imageUrl": "/locations/orun.png"
+  },
+  {
+    "id": "osun-osogbo-grove",
+    "name": "Osun-Osogbo Sacred Grove",
+    "locationType": "sacred_site",
+    "pantheonId": "african-pantheon",
+    "description": "A UNESCO World Heritage Site and the most important shrine to the goddess Oshun. Located along the Osun River in Nigeria, the grove contains ancient sculptures, shrines, and sanctuaries. The annual Osun-Osogbo Festival draws hundreds of thousands of worshippers from around the world.",
+    "latitude": 7.7556,
+    "longitude": 4.5361,
+    "imageUrl": "/locations/osun-osogbo.png"
+  },
+  {
+    "id": "oyo",
+    "name": "Oyo",
+    "locationType": "city",
+    "pantheonId": "african-pantheon",
+    "description": "The capital of the ancient Oyo Empire and the city where Shango ruled as the fourth Alaafin (king). After his tragic death and deification, Oyo became a center of Shango worship. The city represents the intersection of historical kingship and divine mythology in Yoruba tradition.",
+    "latitude": 7.8439,
+    "longitude": 3.9306,
+    "imageUrl": "/locations/oyo.png"
+  },
+  {
+    "id": "igbo-orun",
+    "name": "Igbo-Orun (Forest of Heaven)",
+    "locationType": "sacred_site",
+    "pantheonId": "african-pantheon",
+    "description": "A sacred forest believed to be a physical connection point between the earthly realm (Aye) and the heavenly realm (Orun). Such forests throughout Yorubaland are protected as dwelling places of the Orishas and sites for important rituals and initiations.",
+    "latitude": null,
+    "longitude": null,
+    "imageUrl": "/locations/igbo-orun.png"
+  },
+  {
+    "id": "crossroads-eshu",
+    "name": "The Crossroads",
+    "locationType": "sacred_site",
+    "pantheonId": "african-pantheon",
+    "description": "Not a single location but every place where paths meet. The crossroads is the domain of Eshu, where decisions are made and fates are determined. Offerings to Eshu are placed at crossroads, and all Yoruba rituals must honor Eshu at the crossroads before proceeding to other Orishas.",
+    "latitude": null,
+    "longitude": null,
+    "imageUrl": "/locations/crossroads.png"
   }
 ]

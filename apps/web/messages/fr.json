@@ -1,0 +1,225 @@
+{
+  "navigation": {
+    "home": "Accueil",
+    "explore": "Explorer",
+    "discover": "Découvrir",
+    "learn": "Apprendre",
+    "more": "Plus",
+    "pantheons": "Panthéons",
+    "deities": "Divinités",
+    "stories": "Histoires",
+    "creatures": "Créatures",
+    "artifacts": "Artefacts",
+    "locations": "Lieux",
+    "heroJourneys": "Voyages du Héros",
+    "divineDomains": "Domaines Divins",
+    "compareDeities": "Comparer les Divinités",
+    "knowledgeGraph": "Graphe de Connaissances",
+    "familyTree": "Arbre Généalogique",
+    "timeline": "Chronologie",
+    "quiz": "Quiz",
+    "dailyReview": "Révision Quotidienne",
+    "progress": "Progrès",
+    "bookmarks": "Favoris",
+    "about": "À propos"
+  },
+  "actions": {
+    "search": "Rechercher",
+    "filter": "Filtrer",
+    "compare": "Comparer",
+    "learnMore": "En savoir plus",
+    "viewAll": "Tout voir",
+    "readMore": "Lire la suite",
+    "explore": "Explorer",
+    "discover": "Découvrir",
+    "share": "Partager",
+    "bookmark": "Ajouter aux favoris",
+    "removeBookmark": "Retirer des favoris",
+    "copyLink": "Copier le lien",
+    "download": "Télécharger",
+    "print": "Imprimer",
+    "close": "Fermer",
+    "cancel": "Annuler",
+    "confirm": "Confirmer",
+    "save": "Enregistrer",
+    "reset": "Réinitialiser",
+    "apply": "Appliquer",
+    "clear": "Effacer",
+    "back": "Retour",
+    "next": "Suivant",
+    "previous": "Précédent",
+    "startQuiz": "Commencer le quiz",
+    "submitAnswer": "Soumettre la réponse",
+    "tryAgain": "Réessayer",
+    "showAnswer": "Afficher la réponse",
+    "continueReading": "Continuer la lecture"
+  },
+  "pages": {
+    "home": {
+      "title": "Mythos Atlas",
+      "subtitle": "Encyclopédie de Mythologie Ancienne",
+      "description": "Explorez la mythologie ancienne à travers des arbres généalogiques interactifs, des analyses comparatives et des récits épiques des civilisations grecque, nordique, égyptienne et du monde entier.",
+      "heroTitle": "Voyagez à travers la Mythologie Ancienne",
+      "heroSubtitle": "Découvrez dieux, héros et légendes de cultures du monde entier",
+      "featuredPantheons": "Panthéons en Vedette",
+      "popularDeities": "Divinités Populaires",
+      "recentStories": "Histoires Récentes",
+      "startExploring": "Commencer l'Exploration"
+    },
+    "pantheons": {
+      "title": "Panthéons",
+      "description": "Explorez la mythologie de différentes cultures et civilisations",
+      "selectPantheon": "Sélectionnez un panthéon à explorer"
+    },
+    "deities": {
+      "title": "Divinités",
+      "description": "Parcourez les dieux et déesses des mythologies du monde",
+      "filterByPantheon": "Filtrer par panthéon",
+      "filterByDomain": "Filtrer par domaine",
+      "allPantheons": "Tous les panthéons",
+      "allDomains": "Tous les domaines",
+      "domains": "Domaines",
+      "symbols": "Symboles",
+      "parents": "Parents",
+      "siblings": "Frères et sœurs",
+      "consorts": "Consorts",
+      "children": "Enfants",
+      "relatedDeities": "Divinités Associées",
+      "associatedStories": "Histoires Associées"
+    },
+    "stories": {
+      "title": "Histoires",
+      "description": "Lisez des récits épiques et des légendes des mythologies anciennes",
+      "filterByType": "Filtrer par type",
+      "allTypes": "Tous les types",
+      "characters": "Personnages",
+      "themes": "Thèmes",
+      "morals": "Morales",
+      "relatedStories": "Histoires Associées"
+    },
+    "creatures": {
+      "title": "Créatures",
+      "description": "Découvrez des bêtes mythiques et des êtres légendaires",
+      "habitat": "Habitat",
+      "abilities": "Capacités",
+      "weaknesses": "Faiblesses",
+      "appearances": "Apparitions dans la mythologie"
+    },
+    "compare": {
+      "title": "Comparer les Divinités",
+      "description": "Comparez dieux et déesses de différentes mythologies",
+      "selectDeities": "Sélectionnez les divinités à comparer",
+      "addDeity": "Ajouter une divinité",
+      "removeDeity": "Retirer une divinité",
+      "similarities": "Similitudes",
+      "differences": "Différences",
+      "domains": "Domaines",
+      "attributes": "Attributs"
+    },
+    "familyTree": {
+      "title": "Arbre Généalogique",
+      "description": "Explorez les généalogies divines et les relations familiales",
+      "selectPantheon": "Sélectionnez un panthéon"
+    },
+    "knowledgeGraph": {
+      "title": "Graphe de Connaissances",
+      "description": "Visualisez les connexions entre les entités mythologiques"
+    },
+    "timeline": {
+      "title": "Chronologie",
+      "description": "Explorez les événements mythologiques à travers le temps"
+    },
+    "quiz": {
+      "title": "Quiz de Mythologie",
+      "description": "Testez vos connaissances en mythologie ancienne",
+      "question": "Question",
+      "of": "sur",
+      "score": "Score",
+      "correct": "Correct !",
+      "incorrect": "Incorrect",
+      "quizComplete": "Quiz Terminé",
+      "yourScore": "Votre score"
+    },
+    "progress": {
+      "title": "Votre Progrès",
+      "description": "Suivez votre parcours d'apprentissage de la mythologie",
+      "deitiesExplored": "Divinités Explorées",
+      "storiesRead": "Histoires Lues",
+      "quizzesCompleted": "Quiz Complétés",
+      "streak": "Jours Consécutifs",
+      "achievements": "Succès"
+    },
+    "bookmarks": {
+      "title": "Favoris",
+      "description": "Votre contenu mythologique sauvegardé",
+      "noBookmarks": "Pas encore de favoris",
+      "noBookmarksDescription": "Sauvegardez des divinités, histoires et plus pour y accéder rapidement"
+    },
+    "about": {
+      "title": "À propos de Mythos Atlas",
+      "description": "Découvrez ce projet d'encyclopédie mythologique"
+    }
+  },
+  "ui": {
+    "loading": "Chargement...",
+    "error": "Une erreur s'est produite",
+    "noResults": "Aucun résultat",
+    "noResultsDescription": "Essayez d'ajuster votre recherche ou vos filtres",
+    "searchPlaceholder": "Rechercher dans la mythologie...",
+    "selectLanguage": "Choisir la langue",
+    "theme": "Thème",
+    "lightMode": "Mode clair",
+    "darkMode": "Mode sombre",
+    "systemTheme": "Thème du système",
+    "viewDetails": "Voir les détails",
+    "showMore": "Afficher plus",
+    "showLess": "Afficher moins",
+    "sortBy": "Trier par",
+    "gridView": "Vue grille",
+    "listView": "Vue liste",
+    "filterResults": "Filtrer les résultats",
+    "clearFilters": "Effacer les filtres",
+    "resultsCount": "{count, plural, =0 {Aucun résultat} =1 {1 résultat} other {# résultats}}",
+    "itemsCount": "{count, plural, =0 {Aucun élément} =1 {1 élément} other {# éléments}}",
+    "pageOf": "Page {current} sur {total}",
+    "commandPalette": {
+      "placeholder": "Tapez une commande ou recherchez...",
+      "noResults": "Aucun résultat",
+      "recentSearches": "Recherches récentes",
+      "suggestions": "Suggestions"
+    },
+    "offline": {
+      "title": "Vous êtes hors ligne",
+      "description": "Certaines fonctionnalités peuvent être limitées"
+    },
+    "install": {
+      "title": "Installer Mythos Atlas",
+      "description": "Ajoutez à votre écran d'accueil pour un accès rapide",
+      "install": "Installer",
+      "dismiss": "Ignorer"
+    }
+  },
+  "accessibility": {
+    "skipToContent": "Aller au contenu",
+    "openMenu": "Ouvrir le menu",
+    "closeMenu": "Fermer le menu",
+    "openSearch": "Ouvrir la recherche",
+    "closeSearch": "Fermer la recherche",
+    "expandSection": "Développer la section",
+    "collapseSection": "Réduire la section",
+    "nextSlide": "Diapositive suivante",
+    "previousSlide": "Diapositive précédente",
+    "playAudio": "Lire l'audio",
+    "pauseAudio": "Mettre en pause",
+    "muteAudio": "Couper le son",
+    "unmuteAudio": "Activer le son"
+  },
+  "footer": {
+    "madeWith": "Fait avec",
+    "by": "par",
+    "mythology": "Encyclopédie de Mythologie Ancienne",
+    "privacy": "Confidentialité",
+    "terms": "Conditions",
+    "contact": "Contact"
+  }
+}

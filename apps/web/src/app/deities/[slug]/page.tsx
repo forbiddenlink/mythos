@@ -8,7 +8,7 @@ import { graphqlClient } from '@/lib/graphql-client';
 import { gql } from 'graphql-request';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Loader2, Sparkles, Shield, Users, Network, Link2, BookOpen, Building, Calendar } from 'lucide-react';
+import { Loader2, Sparkles, Shield, Users, Network, Link2, BookOpen, Building, Calendar, ScrollText } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { FamilyTreeVisualization } from '@/components/family-tree/FamilyTreeVisualization';
@@ -18,6 +18,8 @@ import { DeityJsonLd } from '@/components/seo/JsonLd';
 import ReactMarkdown from 'react-markdown';
 import { DetailPageSkeleton } from '@/components/ui/skeleton-cards';
 import { PronunciationDisplay } from '@/components/ui/pronunciation';
+import { SourceExcerptsList, ReferencesList, OriginalLanguageName } from '@/components/sources';
+import type { PrimarySourceExcerpt, FurtherReadingReference, OriginalLanguageNameData } from '@/components/sources';
 
 function useProgress() {
   const context = useContext(ProgressContext);
@@ -58,6 +60,9 @@ interface Deity {
     source: string;
     date?: string;
   }>;
+  primarySourceExcerpts?: PrimarySourceExcerpt[];
+  furtherReading?: FurtherReadingReference[];
+  originalLanguageName?: OriginalLanguageNameData;
   worship?: {
     temples?: string[];
     festivals?: string[];
@@ -111,6 +116,25 @@ export default function DeityPage() {
               text
               source
               date
+            }
+            primarySourceExcerpts {
+              text
+              translation
+              source
+              sourceId
+              lineNumbers
+              translator
+              originalLanguage
+            }
+            furtherReading {
+              sourceId
+              note
+            }
+            originalLanguageName {
+              text
+              language
+              transliteration
+              meaning
             }
             worship {
               temples
@@ -258,6 +282,11 @@ export default function DeityPage() {
                       />
                     )}
                   </div>
+                  {deity.originalLanguageName && (
+                    <p className="text-slate-200 mt-1">
+                      <OriginalLanguageName data={deity.originalLanguageName} variant="inline" className="text-slate-100" />
+                    </p>
+                  )}
                   {deity.alternateNames && deity.alternateNames.length > 0 && (
                     <p className="text-slate-200 mt-1 font-light">
                       Also known as: {deity.alternateNames.join(', ')}
@@ -385,8 +414,26 @@ export default function DeityPage() {
                 </Card>
               )}
 
-              {/* Primary Sources */}
-              {deity.primarySources && deity.primarySources.length > 0 && (
+              {/* Primary Source Excerpts (with original language toggle) */}
+              {deity.primarySourceExcerpts && deity.primarySourceExcerpts.length > 0 && (
+                <Card className="bg-white dark:bg-slate-900">
+                  <CardHeader>
+                    <CardTitle className="font-serif flex items-center gap-2 text-xl">
+                      <ScrollText className="h-5 w-5 text-teal-600" />
+                      Ancient Sources
+                    </CardTitle>
+                    <CardDescription>
+                      Original texts with translations - toggle to see the original language
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <SourceExcerptsList excerpts={deity.primarySourceExcerpts} />
+                  </CardContent>
+                </Card>
+              )}
+
+              {/* Primary Sources (simple quotes) */}
+              {deity.primarySources && deity.primarySources.length > 0 && !deity.primarySourceExcerpts?.length && (
                 <Card className="bg-white dark:bg-slate-900">
                   <CardHeader>
                     <CardTitle className="font-serif flex items-center gap-2 text-xl">
@@ -420,6 +467,17 @@ export default function DeityPage() {
                     </div>
                   </CardContent>
                 </Card>
+              )}
+
+              {/* Further Reading */}
+              {deity.furtherReading && deity.furtherReading.length > 0 && (
+                <ReferencesList
+                  references={deity.furtherReading}
+                  title="Further Reading"
+                  showDescriptions={false}
+                  collapsible={true}
+                  defaultExpanded={false}
+                />
               )}
 
               {/* Worship & Cult */}

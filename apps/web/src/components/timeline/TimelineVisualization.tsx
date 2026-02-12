@@ -65,6 +65,9 @@ const PANTHEON_COLORS: Record<string, { bg: string; border: string; text: string
   'aztec-pantheon':    { bg: 'bg-lime-500/20',    border: 'border-lime-500/40',    text: 'text-lime-400',    glow: 'shadow-lime-500/20' },
   'chinese-pantheon':  { bg: 'bg-purple-500/20',  border: 'border-purple-500/40',  text: 'text-purple-400',  glow: 'shadow-purple-500/20' },
   'mesopotamian-pantheon': { bg: 'bg-yellow-700/20', border: 'border-yellow-700/40', text: 'text-yellow-600', glow: 'shadow-yellow-700/20' },
+  'african-pantheon': { bg: 'bg-violet-500/20', border: 'border-violet-500/40', text: 'text-violet-400', glow: 'shadow-violet-500/20' },
+  'polynesian-pantheon': { bg: 'bg-cyan-500/20', border: 'border-cyan-500/40', text: 'text-cyan-400', glow: 'shadow-cyan-500/20' },
+  'mesoamerican-pantheon': { bg: 'bg-lime-600/20', border: 'border-lime-600/40', text: 'text-lime-500', glow: 'shadow-lime-600/20' },
 }
 
 const PANTHEON_BAR_COLORS: Record<string, string> = {
@@ -78,6 +81,9 @@ const PANTHEON_BAR_COLORS: Record<string, string> = {
   'aztec-pantheon':    'from-lime-600 to-lime-400',
   'chinese-pantheon':  'from-purple-600 to-purple-400',
   'mesopotamian-pantheon': 'from-yellow-700 to-yellow-500',
+  'african-pantheon':  'from-violet-600 to-violet-400',
+  'polynesian-pantheon': 'from-cyan-600 to-cyan-400',
+  'mesoamerican-pantheon': 'from-lime-700 to-lime-500',
 }
 
 const ERA_MARKERS = [

@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Source_Sans_3, Cinzel, Crimson_Pro } from "next/font/google";
 import "./globals.css";
+import { NextIntlClientProvider } from "next-intl";
+import { getLocale, getMessages } from "next-intl/server";
 import { QueryProvider } from "@/providers/query-provider";
 import { ThemeProvider } from "@/providers/theme-provider";
 import { Header } from "@/components/layout/header";
@@ -54,13 +56,16 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const locale = await getLocale();
+  const messages = await getMessages();
+
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang={locale} suppressHydrationWarning>
       <head>
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#d4af37" />
@@ -70,34 +75,36 @@ export default function RootLayout({
         <link rel="apple-touch-icon" href="/apple-icon.png" />
       </head>
       <body className={`${sourceSans.variable} ${cinzel.variable} ${crimsonPro.variable} font-sans antialiased`}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <QueryProvider>
-            <BookmarksProvider>
-              <ProgressProvider>
-              <AudioProvider>
-                <CommandPaletteProvider>
-                  <SkipToContent />
-                  <OfflineIndicator />
-                  <div className="flex min-h-screen flex-col">
-                    <Header />
-                    <main id="main-content" className="flex-1" tabIndex={-1}>
-                      {children}
-                    </main>
-                    <Footer />
-                  </div>
-                  <AudioControls />
-                  <InstallPrompt />
-                </CommandPaletteProvider>
-              </AudioProvider>
-              </ProgressProvider>
-            </BookmarksProvider>
-          </QueryProvider>
-        </ThemeProvider>
+        <NextIntlClientProvider messages={messages} locale={locale}>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <QueryProvider>
+              <BookmarksProvider>
+                <ProgressProvider>
+                <AudioProvider>
+                  <CommandPaletteProvider>
+                    <SkipToContent />
+                    <OfflineIndicator />
+                    <div className="flex min-h-screen flex-col">
+                      <Header />
+                      <main id="main-content" className="flex-1" tabIndex={-1}>
+                        {children}
+                      </main>
+                      <Footer />
+                    </div>
+                    <AudioControls />
+                    <InstallPrompt />
+                  </CommandPaletteProvider>
+                </AudioProvider>
+                </ProgressProvider>
+              </BookmarksProvider>
+            </QueryProvider>
+          </ThemeProvider>
+        </NextIntlClientProvider>
       </body>
     </html>
   );

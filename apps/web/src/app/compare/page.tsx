@@ -5,8 +5,9 @@ import { useSearchParams, useRouter } from 'next/navigation';
 import { useQuery } from '@tanstack/react-query';
 import { graphqlClient } from '@/lib/graphql-client';
 import { GET_DEITIES, GET_PANTHEONS } from '@/lib/queries';
-import { Loader2, Scale, Sparkles, Share2, Check } from 'lucide-react';
+import { Loader2, Scale, Sparkles, Share2, Check, BookOpen } from 'lucide-react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { Breadcrumbs } from '@/components/navigation/Breadcrumbs';
 import { Button } from '@/components/ui/button';
 import { ComparisonSelector } from '@/components/compare/ComparisonSelector';
@@ -253,7 +254,15 @@ export default function ComparePage() {
       {/* Content Section */}
       <div className="container mx-auto max-w-7xl px-4 py-16 bg-mythic">
         <div className="flex items-center justify-between mb-8">
-          <Breadcrumbs />
+          <div className="flex items-center gap-4">
+            <Breadcrumbs />
+            <Link href="/compare/myths">
+              <Button variant="ghost" size="sm" className="gap-2">
+                <BookOpen className="h-4 w-4" />
+                Compare Myths
+              </Button>
+            </Link>
+          </div>
           {selectedDeities.length > 0 && (
             <Button
               variant="outline"

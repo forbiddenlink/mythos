@@ -30,6 +30,9 @@ const PANTHEON_COLORS: Record<string, { primary: string; secondary: string }> = 
   'aztec-pantheon': { primary: '#14b8a6', secondary: '#0d9488' },
   'chinese-pantheon': { primary: '#e11d48', secondary: '#be123c' },
   'mesopotamian-pantheon': { primary: '#a16207', secondary: '#854d0e' },
+  'african-pantheon': { primary: '#7c3aed', secondary: '#6d28d9' },
+  'polynesian-pantheon': { primary: '#06b6d4', secondary: '#0891b2' },
+  'mesoamerican-pantheon': { primary: '#65a30d', secondary: '#4d7c0f' },
 };
 
 export function JourneyPreviewMap({ waypoints, pantheonId, isHovered = false }: JourneyPreviewMapProps) {

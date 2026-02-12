@@ -78,6 +78,9 @@ const PANTHEON_COLORS: Record<string, string> = {
   'aztec-pantheon': '#f97316',     // Orange
   'chinese-pantheon': '#eab308',   // Yellow
   'mesopotamian-pantheon': '#a16207', // Clay/Bronze
+  'african-pantheon': '#7c3aed',   // Violet
+  'polynesian-pantheon': '#06b6d4', // Cyan
+  'mesoamerican-pantheon': '#65a30d', // Lime
 };
 
 const getPantheonColor = (pantheonId: string): string => {

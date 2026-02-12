@@ -31,6 +31,40 @@
         "type": "primary"
       }
     ],
+    "primarySourceExcerpts": [
+      {
+        "text": "ἄπλητος δ᾽ ὀρυμαγδὸς ἀπέιρονος αἰθέρος ἔργου ξυνοχή τ᾽ ὀλοὴ γένετο, κτύπος ἀμφὶ δὲ γαῖα σμερδαλέον κονάβιζε, μέγας δ᾽ ἐλελίζετ᾽ Ὄλυμπος.",
+        "translation": "The boundless roar of terrible strife came from the mingling, and a dreadful crash. The earth resounded terribly, and vast Olympus shook.",
+        "source": "Hesiod, Theogony",
+        "sourceId": "theogony",
+        "lineNumbers": "678-680",
+        "translator": "Hugh G. Evelyn-White",
+        "originalLanguage": "Ancient Greek"
+      },
+      {
+        "text": "τοῖσι δ᾽ ἐπὶ Κρονίδης τέκμωρ μάκαρας θεοὺς ἔταξε, διὰ δ᾽ ἔκριναν τιμάς.",
+        "translation": "Then Zeus appointed honors for the blessed gods, and divided their privileges among them.",
+        "source": "Hesiod, Theogony",
+        "sourceId": "theogony",
+        "lineNumbers": "881-882",
+        "translator": "Hugh G. Evelyn-White",
+        "originalLanguage": "Ancient Greek"
+      }
+    ],
+    "furtherReading": [
+      {
+        "sourceId": "theogony",
+        "note": "The primary and most complete ancient account of the war"
+      },
+      {
+        "sourceId": "library-apollodorus",
+        "note": "Later systematic compilation of the myth"
+      },
+      {
+        "sourceId": "mythology-hamilton",
+        "note": "Accessible modern retelling for general readers"
+      }
+    ],
     "variants": [
       {
         "source": "Apollodorus's Library",
@@ -75,6 +109,40 @@
       {
         "title": "Prose Edda - Gylfaginning",
         "chapters": "51-53"
+      }
+    ],
+    "primarySourceExcerpts": [
+      {
+        "text": "Bræðr muno beriaz ok at bönom verðaz, muno systrungar sifjom spilla; hart er í heimi, hórdómr mikill, skeggöld, skálmöld, skildir ro klofnir, vindöld, vargöld, áðr veröld steypiz.",
+        "translation": "Brothers shall fight and slay each other, cousins shall break their kinship bonds. Hard it is in the world, whoredom abounds, an axe age, a sword age, shields are cloven, a wind age, a wolf age, before the world sinks.",
+        "source": "Voluspa, Poetic Edda",
+        "sourceId": "poetic-edda",
+        "lineNumbers": "45-46",
+        "translator": "Carolyne Larrington",
+        "originalLanguage": "Old Norse"
+      },
+      {
+        "text": "Sól tér sortna, sígr fold í mar, hverfa af himni heiðar stjörnur; geisar eimi við aldrnara, leikr hár hiti við himin sjálfan.",
+        "translation": "The sun turns black, earth sinks into the sea, the bright stars vanish from the sky; steam rises up with the life-nurturer, high flames lick heaven itself.",
+        "source": "Voluspa, Poetic Edda",
+        "sourceId": "poetic-edda",
+        "lineNumbers": "57",
+        "translator": "Carolyne Larrington",
+        "originalLanguage": "Old Norse"
+      }
+    ],
+    "furtherReading": [
+      {
+        "sourceId": "poetic-edda",
+        "note": "Contains the Voluspa, the primary prophecy of Ragnarok"
+      },
+      {
+        "sourceId": "prose-edda",
+        "note": "Snorri's systematic retelling with additional details"
+      },
+      {
+        "sourceId": "norse-mythology-crossley-holland",
+        "note": "Accessible modern retelling preserving the poetic spirit"
       }
     ],
     "variants": [
@@ -662,6 +730,196 @@
       {
         "title": "Huainanzi",
         "type": "primary"
+      }
+    ],
+    "featuredDeities": ["hou-yi", "chang-e"],
+    "relatedStories": ["chang-e-moon"]
+  },
+  {
+    "id": "chang-e-moon",
+    "pantheonId": "chinese-pantheon",
+    "title": "Chang'e Flies to the Moon",
+    "slug": "chang-e-moon",
+    "summary": "After her husband Hou Yi saves the world by shooting down nine suns, Chang'e drinks the elixir of immortality and floats to the moon, where she dwells in eternal solitude with only a jade rabbit for company.",
+    "fullNarrative": "## The Archer's Reward\n\nAfter Hou Yi shot down nine of the ten suns and saved the earth from destruction, the Jade Emperor was furious. Though Hou Yi had acted to save humanity, he had killed the Emperor's nephews (or sons, in some versions). As punishment, both Hou Yi and his beautiful wife Chang'e were stripped of their immortality and banished from Heaven to live as mortals on Earth.\n\nHou Yi, once a god, now grew old like any man. He felt his strength slowly fading, his joints stiffening, his eyesight dimming. Chang'e, too, felt the weight of mortality pressing upon her. She had given up everything for her husband, and now she was to grow old and die.\n\n## The Quest for Immortality\n\nDesperate to regain what they had lost, Hou Yi set out on a perilous journey to Mount Kunlun, the paradise of Xi Wangmu, the Queen Mother of the West. After overcoming countless obstacles, he reached her jade palace and begged for the elixir of immortality.\n\nXi Wangmu took pity on the hero. She gave him a single dose of the elixir - enough for two people to live forever, or enough for one person to ascend directly to Heaven. \"Share this with your wife,\" she warned, \"and you will both live eternally on Earth. If one drinks it all, they will return to Heaven alone.\"\n\nHou Yi carried the precious elixir home, intending to share it with Chang'e. He hid it in a cabinet, waiting for an auspicious day.\n\n## The Fateful Night\n\nWhat happened next is told differently in different versions of the tale.\n\nIn one telling, Chang'e discovered the elixir while Hou Yi was away hunting. Consumed by desire to return to Heaven, she drank it all herself, abandoning her husband to mortality.\n\nIn another version, one of Hou Yi's apprentices, a wicked man named Feng Meng, learned of the elixir. When Hou Yi was away, Feng Meng broke into the house to steal it. Chang'e, knowing that such a man should never gain immortality, swallowed the entire elixir to keep it from him.\n\nIn the most sympathetic telling, Chang'e accidentally drank too much, not realizing the single dose was meant for two.\n\n> The elixir coursed through her body like fire and ice. She felt herself becoming lighter than air, her feet leaving the ground. She cried out for her husband, but she was already rising through the roof, ascending into the night sky.\n\n## The Lonely Moon\n\nChang'e rose higher and higher, until she reached the moon. There she stopped, for the moon was as far as her guilty heart would let her go - close enough to see Earth, but forever separated from it.\n\nOn the moon, she found only cold loneliness. Her sole companions became the Jade Rabbit, who endlessly pounds the elixir of immortality in a mortar (though for whom, no one knows), and later Wu Gang, condemned to eternally chop at a self-healing osmanthus tree.\n\nChang'e took up residence in the Guanghan Palace (Palace of Cold Vastness), where she weeps and gazes down at the earth, regretting her separation from the husband she loved.\n\n## The Festival of Reunion\n\nOn Earth, Hou Yi was devastated. He set up an altar in the garden facing the moon and laid out Chang'e's favorite fruits and sweets as offerings. The villagers, learning of his faithful devotion, began to do the same.\n\nThis became the Mid-Autumn Festival, celebrated on the fifteenth day of the eighth lunar month, when the moon is fullest and brightest. Families gather to eat mooncakes, admire the moon, and remember the lady who dwells there.\n\nIt is said that on this night, Chang'e's figure can be seen dancing in the lunar light. And perhaps, for just one night, the distance between the moon and Earth seems a little less vast.",
+    "keyExcerpts": "Hou Yi obtained the elixir of immortality from Xi Wangmu. Chang'e drank it and floated to the moon, where she lives in eternal isolation. The Mid-Autumn Festival commemorates their separation.",
+    "category": "tragedy",
+    "moralThemes": [
+      "sacrifice",
+      "loneliness",
+      "consequences of choices",
+      "eternal love"
+    ],
+    "culturalSignificance": "The story of Chang'e is central to the Mid-Autumn Festival, one of China's most important traditional holidays. Families gather, eat mooncakes, and gaze at the full moon while remembering the goddess who dwells there. China's lunar exploration program is named after Chang'e, connecting ancient mythology to modern space exploration.",
+    "imageUrl": "/stories/chang-e-moon.png",
+    "citationSources": [
+      {
+        "title": "Huainanzi",
+        "date": "139 BCE",
+        "type": "primary"
+      },
+      {
+        "title": "Shan Hai Jing",
+        "type": "primary"
+      }
+    ],
+    "featuredDeities": ["chang-e", "hou-yi", "xi-wangmu"],
+    "relatedStories": ["archer-yi"],
+    "variants": [
+      {
+        "source": "Folk tradition",
+        "difference": "Some versions portray Chang'e as selfish, stealing the elixir for herself. Others show her as noble, preventing the elixir from falling into evil hands.",
+        "note": "The character of Chang'e varies significantly, from villainess to tragic heroine, reflecting different storytellers' moral emphases."
+      }
+    ]
+  },
+  {
+    "id": "pangu-creation",
+    "pantheonId": "chinese-pantheon",
+    "title": "Pangu Creates the World",
+    "slug": "pangu-creation",
+    "summary": "The primordial giant Pangu is born from cosmic chaos, separates Heaven and Earth, and upon his death, his body transforms into all the features of the world.",
+    "fullNarrative": "## The Cosmic Egg\n\nIn the beginning, there was nothing but chaos - a formless, swirling darkness that stretched in all directions. This chaos took the shape of a cosmic egg, within which the two primal forces of yin (darkness, heaviness, coldness) and yang (light, lightness, warmth) were mixed together in undifferentiated confusion.\n\nFor eighteen thousand years, these forces slowly began to separate within the egg. And as they separated, something new took shape at the center - a being formed from the very essence of yin and yang combined. This was Pangu, the first living thing.\n\n## The Awakening\n\nPangu grew within the egg for eighteen thousand years, until one day he awoke. He found himself cramped in darkness, unable to stretch or move. With his great arms, he pushed against the confining shell. It would not give.\n\nThen Pangu took up his mighty axe and swung it with all his strength. The cosmic egg cracked and split apart. The light, clear elements (yang) rose upward and became Heaven (Tian). The heavy, murky elements (yin) sank downward and became Earth (Di).\n\n> With the first swing of Pangu's axe, chaos was divided into order. Light separated from darkness, up from down, being from non-being.\n\n## The Separation\n\nBut the world was not yet stable. Heaven and Earth might yet collapse back into chaos. So Pangu stood between them, his feet planted firmly on the earth, his hands pressing up against the sky. He held them apart by the sheer force of his will.\n\nEach day, Heaven rose ten feet higher. Each day, Earth grew ten feet thicker. And each day, Pangu grew ten feet taller to fill the space between them. For eighteen thousand more years, he stood thus, a living pillar holding apart Heaven and Earth.\n\nWhen at last Heaven was immeasurably high and Earth was immeasurably deep, when there was no danger of them coming back together, Pangu's great labor was complete.\n\n## The Ultimate Transformation\n\nExhausted from his endless labor, Pangu lay down and died. But his death was not an ending - it was the final act of creation.\n\nHis breath became the wind and clouds. His voice became the rolling thunder. His left eye became the sun, his right eye the moon. His four limbs became the four corners of the world - east, west, north, and south. His trunk became the mountains. His blood became the rivers, his veins the roads and paths.\n\nHis flesh became the fertile soil. His skin and hair became the grass and trees. His teeth and bones became precious metals and minerals. His marrow became jade and pearls. His sweat became the rain and dew.\n\nAnd the parasites on his body? They became human beings.\n\n## The Living World\n\nThus, everything in the world came from Pangu. When you feel the wind, you feel his breath. When you hear thunder, you hear his voice. When you look at the sun and moon, you see his eyes. The mountains are his body, the rivers his blood, and we ourselves are part of his legacy.\n\nThis is why the Chinese say all things under Heaven are connected - because they all originated from a single being who sacrificed himself so that the world could exist.",
+    "keyExcerpts": "Pangu was born in a cosmic egg of chaos. He split the egg and held Heaven and Earth apart for 18,000 years. When he died, his body became all the features of the world - his breath the wind, his eyes the sun and moon, his blood the rivers.",
+    "category": "creation",
+    "moralThemes": [
+      "creation through sacrifice",
+      "cosmic order from chaos",
+      "interconnection of all things"
+    ],
+    "culturalSignificance": "The Pangu creation myth is one of China's foundational stories, explaining the origin of the universe and humanity's place within it. The concept of yin and yang separating from primordial chaos became fundamental to Chinese philosophy, while the image of all things originating from a single being reinforces the interconnected worldview central to Chinese thought.",
+    "imageUrl": "/stories/pangu-creation.png",
+    "citationSources": [
+      {
+        "title": "Sanwu Liji",
+        "author": "Xu Zheng",
+        "date": "3rd century CE",
+        "type": "primary"
+      },
+      {
+        "title": "Wuyun Linian Ji",
+        "type": "primary"
+      }
+    ],
+    "featuredDeities": ["pangu"],
+    "variants": [
+      {
+        "source": "Southern Chinese traditions",
+        "difference": "Some versions from southern China, particularly among the Miao people, portray Pangu with a dog's head, connecting the creation myth to the Dog Ancestor mythology.",
+        "note": "This variant shows how the Pangu myth was adapted and merged with local traditions across different regions."
+      }
+    ]
+  },
+  {
+    "id": "nezha-legend",
+    "pantheonId": "chinese-pantheon",
+    "title": "The Legend of Nezha",
+    "slug": "nezha-legend",
+    "summary": "A divine child born after three years in the womb kills a dragon prince, defies his father, commits suicide to save his family, and is reborn from lotus flowers to become one of Heaven's greatest warriors.",
+    "fullNarrative": "## The Miraculous Birth\n\nLi Jing was a military commander serving the last king of the Shang dynasty. His wife, Lady Yin, became pregnant but did not give birth for three years and six months. When she finally went into labor, she produced not a child but a ball of flesh.\n\nThinking his wife had given birth to a demon, Li Jing drew his sword and struck the fleshy ball. It split open, and out leaped a boy already the size of a seven-year-old, wearing a golden bracelet on his wrist and a red silk sash around his waist. These were divine gifts from the immortal Taiyi Zhenren, who had placed his spirit in the child's body.\n\nTaiyi Zhenren arrived shortly after and named the child Nezha. He would become the boy's master, teaching him the ways of immortals.\n\n## The Dragon Prince\n\nAt age seven, Nezha went to bathe in the Eastern Sea. His presence disturbed the Crystal Palace of the Dragon King Ao Guang. When a yaksha servant came to investigate, Nezha killed him with his Universe Ring. The Dragon King sent his third son, Ao Bing, to punish the boy.\n\nAo Bing transformed into his true dragon form and attacked. Nezha, not intimidated, fought back. With a few moves, he killed the dragon prince. Then, to make a gift for his father, Nezha stripped the dragon's tendons to make a belt.\n\n> \"What's a dragon to me?\" laughed Nezha, standing over the body of a prince of the sea. \"If his father wants revenge, I'll kill him too.\"\n\n## The Dragon's Vengeance\n\nAo Guang, the Dragon King, was devastated by his son's death. He complained to the other Dragon Kings, and together they ascended to Heaven to petition the Jade Emperor. They demanded justice: the Li family must be executed for Nezha's crimes.\n\nNezha, learning of this, intercepted the Dragon King on his way to Heaven and beat him savagely, threatening to skin him alive if he continued. Ao Guang agreed to withdraw his complaint but secretly continued to the Jade Emperor's court.\n\n## The Sacrifice\n\nThe Jade Emperor ordered Li Jing to bring Nezha for punishment. Nezha's parents would also be executed for failing to control their son. Li Jing was torn between duty to Heaven and love for his child.\n\nNezha made the choice for him. To save his parents from execution, he cut off his own arm and disemboweled himself, returning his flesh to his mother and his bones to his father. \"Now I owe you nothing,\" he declared, and died.\n\n## Rebirth from the Lotus\n\nNezha's spirit went to his master, Taiyi Zhenren. The immortal constructed a new body for Nezha from lotus flowers - two lotus roots for legs, lotus leaves for clothing, and a lotus flower for his face. This lotus body made Nezha even more powerful than before, immune to normal weapons.\n\nReborn, Nezha sought out his father Li Jing, furious that he had destroyed the temple his mother had built to honor Nezha's spirit. Father and son fought a terrible battle until the Buddha himself intervened, giving Li Jing the Linglong Pagoda to suppress Nezha when necessary.\n\n## The Warrior of Heaven\n\nNezha went on to become one of the greatest warriors in Heaven, serving as Marshal of the Central Altar. Armed with his Universe Ring, Fire-Tipped Spear, Red Armillary Sash, and Wind Fire Wheels (which allow him to fly), he fought demons and served the gods with the same fierce energy he once used to rebel.\n\nHis story became central to the Investiture of the Gods, where he helped overthrow the Shang dynasty and establish the Zhou, earning his place in the celestial hierarchy.",
+    "keyExcerpts": "Nezha was born as a ball of flesh after three years in the womb. He killed the Dragon King's son and stripped his tendons. To save his parents, he returned his flesh and bones and died. His master rebuilt him from lotus flowers.",
+    "category": "hero",
+    "moralThemes": [
+      "filial piety and its limits",
+      "sacrifice and redemption",
+      "rebellion and reconciliation",
+      "youth and defiance"
+    ],
+    "culturalSignificance": "Nezha's story raises profound questions about filial piety, the supreme Confucian virtue. His suicide is both an act of filial devotion (saving his parents) and defiance (negating his debt to them). The story asks: when does duty to parents end? What does a child owe those who gave them life? These questions remain powerful in Chinese culture today.",
+    "imageUrl": "/stories/nezha-legend.png",
+    "citationSources": [
+      {
+        "title": "Fengshen Yanyi (Investiture of the Gods)",
+        "date": "16th century CE",
+        "type": "primary"
+      },
+      {
+        "title": "Journey to the West",
+        "author": "Wu Cheng'en",
+        "date": "1592 CE",
+        "type": "secondary"
+      }
+    ],
+    "featuredDeities": ["nezha", "jade-emperor"],
+    "variants": [
+      {
+        "source": "Buddhist tradition",
+        "difference": "Buddhist versions emphasize Nezha's protection of Buddhism and his role as a dharma guardian, downplaying the violent aspects of his myth.",
+        "note": "Nezha is syncretized across Taoist, Buddhist, and folk traditions, each emphasizing different aspects."
+      }
+    ]
+  },
+  {
+    "id": "cowherd-weaver",
+    "pantheonId": "chinese-pantheon",
+    "title": "The Cowherd and the Weaver Girl",
+    "slug": "cowherd-weaver",
+    "summary": "A mortal cowherd falls in love with a celestial weaving maiden. When Heaven discovers their marriage, they are separated by the Milky Way, permitted to meet only once a year when magpies form a bridge across the stars.",
+    "fullNarrative": "## The Celestial Weaver\n\nIn Heaven, the Jade Emperor had a granddaughter named Zhinu (the Weaver Girl), who wove the clouds and rainbows across the sky. Her fabric was so beautiful that it colored the sunrise and sunset. Though divine, she was lonely, weaving endlessly in her celestial workshop.\n\nOne day, with her sisters, she descended to Earth to bathe in a river. There, a young cowherd named Niulang saw them and, on the advice of his magical ox, stole Zhinu's feathered robe so she could not return to Heaven.\n\n## The Hidden Marriage\n\nUnable to return to the sky, Zhinu agreed to marry Niulang. Though their union was unusual - a mortal and an immortal - they loved each other deeply. They had two children, a boy and a girl, and lived in simple happiness tending their farm.\n\nNiulang's ox was no ordinary beast - it was a former celestial being punished by exile. Before it died, the ox told Niulang: \"Keep my hide. When danger comes, it will help you.\"\n\n## The Heavenly Wrath\n\nThe Jade Emperor eventually learned that his granddaughter was living as a mortal's wife. Furious at this violation of celestial law, he sent celestial soldiers to retrieve her. Zhinu was dragged back to Heaven, torn from her husband and children.\n\nNiulang remembered the ox's words. He wrapped his children in baskets hung from a carrying pole, put on the ox's hide, and flew into the sky in pursuit of his wife.\n\n## The River of Stars\n\nJust as Niulang was about to reach Zhinu, the Queen Mother of the West (or the Jade Emperor, in some versions) pulled out her golden hairpin and scratched a river of stars across the sky - the Milky Way (called the Silver River in Chinese). Niulang and Zhinu were separated forever, he on one bank, she on the other.\n\n> Across the river of stars they called to each other, their tears falling like rain. But the Silver River could not be crossed, and their hands could not meet.\n\n## The Magpie Bridge\n\nThe separated lovers wept so piteously that even the heavens were moved. The Jade Emperor relented slightly: once a year, on the seventh day of the seventh lunar month, all the magpies in the world would fly up to Heaven and form a bridge of wings across the Milky Way.\n\nOn this one night, Niulang and Zhinu can cross the magpie bridge and be reunited. If it rains on Qixi (the Double Seventh Festival), the drops are said to be the tears of the lovers, weeping for joy at their reunion or sorrow at their parting come dawn.\n\n## The Stars Tonight\n\nLook up at the summer sky. The star Vega, in the constellation Lyra, is Zhinu the Weaver Girl. Across the Milky Way, the star Altair, in the constellation Aquila, is Niulang the Cowherd. The two small stars beside Altair are their children, still carried in their baskets.\n\nEvery year they wait, watching each other across the Silver River, until the magpies come and they can touch once more.",
+    "keyExcerpts": "A celestial weaver married a mortal cowherd. When Heaven discovered the union, they were separated by the Milky Way. They meet only once a year on the seventh day of the seventh month, when magpies form a bridge across the stars.",
+    "category": "romance",
+    "moralThemes": [
+      "forbidden love",
+      "separation and reunion",
+      "celestial law versus human emotion",
+      "eternal devotion"
+    ],
+    "culturalSignificance": "The Qixi Festival (Double Seventh Festival) celebrates this story and is sometimes called Chinese Valentine's Day. The tale explains the stars Vega and Altair and the Milky Way between them. It has inspired countless poems, operas, and stories, and similar versions exist across East Asia (Tanabata in Japan, Chilseok in Korea).",
+    "imageUrl": "/stories/cowherd-weaver.png",
+    "citationSources": [
+      {
+        "title": "Shijing (Book of Songs)",
+        "date": "11th-7th century BCE",
+        "type": "primary"
+      },
+      {
+        "title": "Jingchu Suishi Ji (Annual Customs of Jingchu)",
+        "date": "6th century CE",
+        "type": "primary"
+      }
+    ],
+    "variants": [
+      {
+        "source": "Japanese Tanabata",
+        "difference": "In Japan, the story is celebrated as Tanabata. The weaver is Orihime and the cowherd is Hikoboshi. People write wishes on paper strips and hang them on bamboo.",
+        "note": "The story spread throughout East Asia, adapting to local customs while maintaining its core elements."
+      }
+    ]
+  },
+  {
+    "id": "nuwa-repairs-sky",
+    "pantheonId": "chinese-pantheon",
+    "title": "Nuwa Repairs the Sky",
+    "slug": "nuwa-repairs-sky",
+    "summary": "When the water god and fire god wage war and break the pillar of Heaven, the sky cracks and chaos engulfs the world. The goddess Nuwa melts five-colored stones to repair the sky and saves all living things from destruction.",
+    "fullNarrative": "## The War of Gods\n\nLong ago, after Nuwa had created humanity from yellow clay, the world knew peace. But then two gods went to war. Gonggong, the god of water, and Zhurong, the god of fire, clashed in a battle that shook the cosmos. Their conflict was so fierce that it threatened to tear the world apart.\n\n## The Breaking of Heaven\n\nGonggong was defeated. In his shame and rage, rather than accept defeat, he smashed his head against Mount Buzhou, the great mountain in the northwest that served as one of the pillars holding up Heaven.\n\nThe mountain crumbled. The pillar collapsed. And the sky... cracked.\n\nA great tear opened in the heavens, through which fire poured down. The world began to tilt, for the northwestern pillar was broken while the southeastern remained intact. Waters rushed toward the southeast, flames consumed the forests, and floods drowned the fields. Monsters and demons emerged from the chaos to prey upon the suffering people.\n\n> The four corners of the world were shattered, the nine regions were rent asunder. Heaven did not cover all, Earth did not bear all. Fire blazed and could not be quenched, waters flooded and would not recede.\n\n## Nuwa's Compassion\n\nNuwa, the mother who had created humanity, could not bear to watch her children perish. She set out to repair the broken world and save all living things.\n\nFirst, she gathered stones of five colors from the rivers - blue, white, red, yellow, and black. She melted these stones in a great fire and used the molten mixture to patch the hole in the sky. The brilliant colors spread across the heavens, becoming the clouds that paint the sunset.\n\n## Restoring Order\n\nBut repairing the sky was not enough. Nuwa still had to restore order to the ravaged earth.\n\nShe killed the Black Dragon that had been terrorizing the people, driving back the chaos monsters. She piled ashes from burned reeds to absorb the floodwaters that threatened to drown the land. And for a new pillar to support the sky, she cut off the four legs of a giant cosmic turtle and set them at the four corners of the world.\n\n## The World Restored\n\nThanks to Nuwa's labor, the sky was sealed, the floods receded, and the monsters were driven back. Life could begin again.\n\nBut the world was never quite the same. Because the northwestern pillar remained broken and shorter than the others, the sky still tilts toward the northwest. That is why the sun, moon, and stars appear to move toward the west. And because the waters rushed southeast when the world tipped, the great rivers of China still flow to the eastern sea.\n\nNuwa, her work complete, retired to her celestial abode. But the five-colored stones she melted still shimmer in the sky at sunrise and sunset, a reminder of the goddess who saved the world.",
+    "keyExcerpts": "Gonggong smashed Mount Buzhou, cracking the sky. Nuwa melted five-colored stones to repair the heavens, killed the Black Dragon, stopped the floods, and used a turtle's legs as new pillars. Her work explains why the sky tilts and rivers flow east.",
+    "category": "creation",
+    "moralThemes": [
+      "destruction and restoration",
+      "maternal protection",
+      "sacrifice for others",
+      "cosmic order"
+    ],
+    "culturalSignificance": "This myth provides etiological explanations for geographical features: why rivers flow east, why the sky appears to tilt, why sunsets have many colors. Nuwa's role as the great savior reinforces her position as the mother goddess who not only created humanity but protects them from cosmic disaster.",
+    "imageUrl": "/stories/nuwa-repairs-sky.png",
+    "citationSources": [
+      {
+        "title": "Huainanzi",
+        "date": "139 BCE",
+        "type": "primary"
+      },
+      {
+        "title": "Liezi",
+        "type": "primary"
+      }
+    ],
+    "featuredDeities": ["nuwa"],
+    "variants": [
+      {
+        "source": "Huainanzi",
+        "difference": "The earliest version does not name the goddess who repairs the sky, attributing the act simply to a nameless divine figure.",
+        "note": "Nuwa was later identified as the sky-repairer, merging two separate mythological traditions."
       }
     ]
   },
@@ -1365,5 +1623,393 @@
     ],
     "featuredDeities": ["gilgamesh", "enkidu", "inanna"],
     "relatedStories": ["epic-of-gilgamesh", "inanna-descent"]
+  },
+  {
+    "id": "five-suns-mesoamerican",
+    "pantheonId": "mesoamerican-pantheon",
+    "title": "The Legend of the Five Suns",
+    "slug": "five-suns-mesoamerican",
+    "summary": "The Aztec creation myth describing four previous worlds that were destroyed, and the creation of the current Fifth Sun through the sacrifice of the gods at Teotihuacan.",
+    "fullNarrative": "## The Cycle of Destruction\n\nThe Aztecs believed that time was cyclical and the universe had been created and destroyed four times before. Each era was called a \"Sun,\" presided over by different gods and destroyed through different catastrophes.\n\n### The First Sun: Nahui-Ocelotl (Jaguar Sun)\n\nThe first world was ruled by **Tezcatlipoca**, who became the sun. Giants inhabited this earth and subsisted on acorns. But Tezcatlipoca was an incomplete sun, providing dim light. **Quetzalcoatl**, jealous or seeking to improve creation, struck Tezcatlipoca down with his staff. The fallen god transformed into a jaguar and devoured all the giants. The first world ended in darkness and death.\n\n### The Second Sun: Nahui-Ehecatl (Wind Sun)\n\n**Quetzalcoatl** became the second sun. Humans lived in this era and ate pine nuts. But Tezcatlipoca sought revenge. He transformed Quetzalcoatl into a monkey-like creature, and a great hurricane destroyed this world. The humans were transformed into monkeys, which is why monkeys resemble people.\n\n### The Third Sun: Nahui-Quiahuitl (Rain Sun)\n\n**Tlaloc**, the rain god, became the third sun. But Tezcatlipoca seduced Tlaloc's wife **Xochiquetzal**, driving Tlaloc mad with grief. The heartbroken rain god refused to send rain until the people's pleas became unbearable. Then, in his rage, he sent a rain of fire that destroyed the world. Humans were transformed into turkeys and dogs.\n\n### The Fourth Sun: Nahui-Atl (Water Sun)\n\n**Chalchiuhtlicue**, goddess of water and Tlaloc's new consort, became the fourth sun. This world lasted 676 years before a great flood destroyed everything. The sky fell upon the earth, and humans were transformed into fish. The gods Tezcatlipoca and Quetzalcoatl transformed into giant trees to raise the sky back up.\n\n## The Creation of the Fifth Sun\n\nAfter the fourth destruction, the world lay in darkness. The gods gathered at **Teotihuacan** (\"Place Where Gods Are Made\") to create a new sun. But who would become the sun? It required the ultimate sacrifice: self-immolation in a great bonfire.\n\n### Two Volunteers\n\nTwo gods volunteered: **Tecuciztecatl**, a wealthy and beautiful god who arrived in magnificent regalia with precious offerings of quetzal feathers, gold, and jade; and **Nanahuatzin**, a poor, humble god covered in sores, who could only offer cactus thorns, hay, and scabs from his own body.\n\nA great bonfire was prepared. Four times Tecuciztecatl approached the flames, and four times he drew back, afraid of the pain. Then Nanahuatzin, without hesitation, threw himself into the fire. Shamed by the lowly god's courage, Tecuciztecatl finally leapt in after him.\n\n### Two Suns Rise\n\nNanahuatzin emerged as **Tonatiuh**, the sun, blazing with unbearable brightness. Tecuciztecatl emerged as a second sun, equally bright. But the gods could not allow two suns. One threw a rabbit at Tecuciztecatl's face, dimming his light. He became the **moon**, forever bearing the mark of the rabbit.\n\n## The Sun Demands Blood\n\nBut even with the sun created, it would not move. Tonatiuh hung motionless in the sky, scorching the earth. \"I will not move,\" the sun declared, \"unless you give me your blood.\"\n\nThe gods realized what was required. **Ehecatl**, the wind god, drew his obsidian knife and sacrificed all the other gods, one by one. Their blood flowed, and with their life force, the sun began to move across the sky.\n\n> Thus the Fifth Sun began to move, but only through sacrifice could it continue. The gods had given their lives, and now humanity must repay this cosmic debt.\n\n## The Fifth Sun: Nahui-Ollin (Movement Sun)\n\nThe current world is the **Fifth Sun**, destined to end in earthquakes when the **tzitzimime** (star demons) descend to devour humanity. To postpone this doom, the Aztecs believed they must continue the cycle of sacrifice that set the sun in motion. The human heart was *chalchihuatl* (\"precious water\"), the nourishment the sun required to complete its daily journey.\n\nThis was the fundamental logic of Aztec human sacrifice: not cruelty, but cosmic necessity. The gods sacrificed themselves to create the world; humans must sacrifice to maintain it.",
+    "keyExcerpts": "Four worlds destroyed by jaguars, wind, fire, and water. Nanahuatzin jumps into the fire to become the sun while wealthy Tecuciztecatl hesitates. The gods sacrifice themselves to make the sun move.",
+    "category": "creation",
+    "moralThemes": [
+      "sacrifice keeps the world alive",
+      "cyclical time",
+      "cosmic debt",
+      "humility over pride",
+      "duality and balance"
+    ],
+    "culturalSignificance": "The Legend of the Five Suns is the central creation myth of Aztec religion and the primary justification for human sacrifice. It explains why the world has been destroyed multiple times, why humans owe a debt to the gods, and why that debt must be repaid in blood. The story also reveals fundamental Aztec values: the superiority of humble courage over wealthy cowardice, and the cyclical nature of time in which the current world is not permanent but must be actively maintained through proper ritual.",
+    "imageUrl": "/stories/five-suns.png",
+    "citationSources": [
+      {
+        "title": "Leyenda de los Soles",
+        "date": "c. 1558 CE",
+        "type": "primary"
+      },
+      {
+        "title": "Historia de los Mexicanos por sus Pinturas",
+        "date": "c. 1535 CE",
+        "type": "primary"
+      }
+    ],
+    "featuredDeities": ["tezcatlipoca", "quetzalcoatl", "tlaloc", "chalchiuhtlicue"],
+    "relatedStories": ["quetzalcoatl-mictlan"]
+  },
+  {
+    "id": "quetzalcoatl-mictlan",
+    "pantheonId": "mesoamerican-pantheon",
+    "title": "Quetzalcoatl's Journey to Mictlan",
+    "slug": "quetzalcoatl-mictlan",
+    "summary": "After the destruction of the Fourth Sun, Quetzalcoatl descends to the underworld to retrieve the bones of previous humanity and create a new race of people for the Fifth Sun.",
+    "fullNarrative": "## The Need for New Humans\n\nAfter the creation of the Fifth Sun through the sacrifice of the gods at Teotihuacan, the world remained empty. The previous humanity had been transformed into fish during the flood of the Fourth Sun. The gods needed to create new humans to inhabit the earth and provide the sacrifices necessary to keep the sun moving.\n\nBut how to create humans? The gods debated. Finally, they agreed: the bones of previous humanity lay in **Mictlan**, the underworld, guarded by **Mictlantecuhtli**, the Lord of the Dead. Someone must descend and retrieve them.\n\n**Quetzalcoatl**, the Feathered Serpent, volunteered for this dangerous mission.\n\n## The Descent to Mictlan\n\nQuetzalcoatl traveled to the edge of the earth where the sun sets and descended into darkness. He passed through the nine levels of Mictlan, each more terrible than the last:\n\nFirst, the crossing of a swift river, aided by a red dog.\nThen between two mountains that clash together.\nPast a mountain of obsidian knives.\nThrough a place of freezing wind.\nWhere banners whip like blades.\nWhere arrows fly without cease.\nWhere jaguars devour hearts.\nThrough the lake of dark water.\nFinally reaching the throne of Mictlantecuhtli.\n\n## The Lord of Death's Tests\n\nMictlantecuhtli sat on his throne of human bones, skeletal and terrible. Beside him was **Mictecacihuatl**, Lady of the Dead. The death lord listened to Quetzalcoatl's request and seemed to agree.\n\n\"You may take the bones,\" Mictlantecuhtli said, \"if you perform a simple task. Take this conch shell and sound it as you circle my realm four times.\"\n\nBut the conch shell had no holes. It could make no sound. Quetzalcoatl called upon worms to bore holes through the shell and bees to enter and create buzzing music. He completed the circuits, and the shell sang throughout Mictlan.\n\nReluctantly, Mictlantecuhtli told him where the bones lay. But as Quetzalcoatl gathered the precious bones of men and women, the death lord schemed.\n\n## The Trap and the Stumble\n\n\"Let him take the bones,\" Mictlantecuhtli told his servants, \"but dig a pit in his path.\"\n\nQuetzalcoatl bundled the bones and began his ascent. But suddenly, **quail** flew up around him, startling him. He stumbled into the pit, dropping the bundle. The bones scattered and broke, and the quail pecked at them.\n\n> This is why humans come in different sizes: because the bones were broken and scattered. Had they remained whole, all humans would be the same height.\n\nQuetzalcoatl gathered the broken bones and continued his journey, eventually reaching the surface world.\n\n## The Creation of Humanity\n\nQuetzalcoatl brought the bones to **Tamoanchan**, the paradise where the gods dwelt. The goddess **Cihuacoatl** (Serpent Woman) ground the bones into powder and placed them in a precious jade vessel.\n\nThe gods gathered around. Quetzalcoatl drew blood from his own body, piercing his flesh with maguey spines. The divine blood dripped onto the bone meal. Other gods contributed their blood as well.\n\nFrom this mixture of ancestral bones and divine blood, the new humans were formed: the people of the Fifth Sun, the Aztecs and all humanity. They were called **macehualli**, \"those who were merited by penance,\" for they were created through the gods' painful sacrifice.\n\n## The Debt of Blood\n\nThis story established the fundamental relationship between gods and humans. The gods gave their blood to create humanity; therefore, humanity must give blood to sustain the gods and the cosmos.\n\n> We are made of divine blood mixed with ancestral bone. The blood we offer in sacrifice returns what was given to create us. This is not cruelty but reciprocity, the sacred contract that keeps the universe in motion.\n\nQuetzalcoatl's journey to Mictlan is not merely a creation myth but a charter for the ritual life of Aztec civilization.",
+    "keyExcerpts": "Quetzalcoatl descends through the nine levels of Mictlan. He tricks Mictlantecuhtli with bees and worms to sound a blocked conch. He stumbles and breaks the bones, which is why humans vary in size. The gods sacrifice their own blood on the bones to create humanity.",
+    "category": "creation",
+    "moralThemes": [
+      "sacrifice and creation",
+      "cleverness overcomes obstacles",
+      "divine-human reciprocity",
+      "imperfection through accident"
+    ],
+    "culturalSignificance": "This myth explains the origin of the current humanity and establishes the reciprocal relationship between gods and humans that justified Aztec blood sacrifice. The idea that humans were 'merited through penance' placed them in perpetual debt to the gods who suffered to create them. Quetzalcoatl's cleverness in overcoming Mictlantecuhtli's tests also establishes him as a culture hero and patron of knowledge.",
+    "imageUrl": "/stories/quetzalcoatl-mictlan.png",
+    "citationSources": [
+      {
+        "title": "Leyenda de los Soles",
+        "date": "c. 1558 CE",
+        "type": "primary"
+      }
+    ],
+    "featuredDeities": ["quetzalcoatl", "mictlantecuhtli"],
+    "relatedStories": ["five-suns-mesoamerican"]
+  },
+  {
+    "id": "hero-twins-popol-vuh",
+    "pantheonId": "mesoamerican-pantheon",
+    "title": "The Hero Twins and the Lords of Xibalba",
+    "slug": "hero-twins-popol-vuh",
+    "summary": "The central narrative of the Maya Popol Vuh: the Hero Twins Hunahpu and Xbalanque descend to the underworld, outwit the lords of death, resurrect their father the Maize God, and ascend to become the sun and moon.",
+    "fullNarrative": "## The Father's Doom\n\nIn the time before the current creation, **Hun Hunahpu** (One Hunahpu) and his brother **Vucub Hunahpu** (Seven Hunahpu) were great ballplayers. Day after day, they played on the ball court at the edge of **Xibalba**, the underworld. The constant pounding of the rubber ball disturbed the lords of death below.\n\n**One Death** and **Seven Death**, rulers of Xibalba, sent their owl messengers to summon the brothers. \"Come and play ball with us,\" they demanded. But it was a trap.\n\nThe brothers descended the steep road to Xibalba, crossed rivers of pus and blood, and entered the council hall. But they greeted wooden mannequins, not realizing the lords of death watched and laughed. They failed the test of the **Dark House**, lighting their torches when told not to burn them. At dawn, they were sacrificed.\n\nHun Hunahpu's head was placed in a calabash tree as a trophy, forbidden to all.\n\n## The Blood Moon Maiden\n\n**Xquic** (Blood Moon), daughter of one of the Xibalba lords, heard of the wondrous skull in the tree and went to see it. \"What fruit is this?\" she asked, reaching out.\n\n\"Do you want it?\" the skull asked.\n\n\"Yes,\" she said.\n\nThe skull spat into her palm, and she became pregnant. When her father discovered this disgrace, he ordered her sacrificed. But the owls sent to kill her took pity. They substituted tree sap shaped like a heart, and Xquic escaped to the surface world.\n\nThere she found **Xmucane**, Hun Hunahpu's mother, and gave birth to the **Hero Twins**: **Hunahpu** (One Blowgunner) and **Xbalanque** (Jaguar Deer).\n\n## The Trickster Children\n\nThe twins grew up poor and mistreated by their half-brothers, who resented them. But Hunahpu and Xbalanque were cunning. They tricked their brothers into climbing a tree after birds, then magically made the tree grow until their brothers were stranded. \"Transform into monkeys,\" the twins said, and so they became the **howler monkeys**, ancestors of all monkeys.\n\nThe twins discovered their father's ballgame equipment hidden in the rafters and learned to play. Again, the ball's thunder disturbed Xibalba, and again the death lords summoned players.\n\n## Descent to Xibalba\n\nBut where their father failed, the twins succeeded through **cleverness**.\n\nFirst, they sent a mosquito ahead to bite each of the death lords. As each cried out and was named by the others, the mosquito learned all their names. When the twins arrived, they ignored the wooden mannequins and greeted each lord by name.\n\nIn the **Dark House**, they did not light their torches but substituted macaw feathers for flames and fireflies for the burning ends of cigars. In the morning, their torches appeared unburned, and the lords were confounded.\n\nThey survived the **Razor House**, convincing the obsidian blades to spare them in exchange for animal flesh. They survived the **Cold House**, the **Jaguar House**, and the **Fire House**.\n\n### The Bat House\n\nIn the **House of Bats**, Hunahpu made a fatal error. He peeked out from inside his blowgun to see if dawn had come, and **Camazotz**, the death bat, swept down and severed his head.\n\nXbalanque, alone, called upon the animals. A turtle agreed to become Hunahpu's temporary head. Meanwhile, the lords of Xibalba placed Hunahpu's real head in the ball court for the next day's game.\n\n## The Final Defeat of Death\n\nDuring the ball game, Xbalanque managed to substitute a squash for his brother's head and retrieve the real head, restoring Hunahpu. But the twins knew they could not defeat death by force.\n\nThey allowed themselves to be **sacrificed**, thrown into a fire, their bones ground to powder and scattered in the river. But five days later, they **returned**, first as catfish, then as two ragged wanderers who performed amazing feats.\n\nThe lords of Xibalba heard of these wanderers who could burn a house and restore it, who could sacrifice a dog and bring it back to life, who could sacrifice a human and revive them. They summoned the performers.\n\n\"Sacrifice yourselves!\" the lords demanded, eager to see the trick.\n\nXbalanque killed Hunahpu and brought him back. The lords, delighted, demanded the same be done to them.\n\n\"Sacrifice us! Bring us back to life!\"\n\nThe twins killed One Death and Seven Death. But they did not revive them.\n\n> Thus the lords of Xibalba were humbled. Their power was broken, and death no longer held absolute dominion.\n\n## Resurrection and Apotheosis\n\nThe twins descended to where their father and uncle lay buried beneath the ball court. They resurrected **Hun Hunahpu**, the Maize God, who rose from the cracked earth like a maize sprout from the seed.\n\nThen Hunahpu and Xbalanque ascended into the sky. One became the **Sun**, the other the **Moon** (or in some versions, the planet Venus). The Hero Twins, who had defeated death, became the celestial order that governs all time.",
+    "keyExcerpts": "Their father fails the tests of Xibalba and is sacrificed. A skull impregnates the Blood Moon maiden. The Hero Twins survive the houses of Darkness, Knives, Cold, Jaguars, Fire, and Bats through cleverness. They allow themselves to be killed, resurrect, and trick the death lords into demanding to be sacrificed. They raise their father and become the sun and moon.",
+    "category": "hero",
+    "moralThemes": [
+      "cleverness over brute force",
+      "death can be defeated through sacrifice",
+      "resurrection and renewal",
+      "cosmic order through heroic deeds"
+    ],
+    "culturalSignificance": "The Hero Twins saga is the central narrative of Maya mythology, preserved in the Popol Vuh of the K'iche' Maya. It explains the origin of the sun and moon, the defeat of death's power, and the resurrection of the Maize God that enables agriculture. The story's themes of sacrifice, transformation, and rebirth permeate Maya religious thought. The ball game, so prominent in the story, was a sacred ritual reenacting this cosmic drama throughout the Maya world.",
+    "imageUrl": "/stories/hero-twins.png",
+    "citationSources": [
+      {
+        "title": "Popol Vuh",
+        "date": "c. 1550 CE (recording ancient traditions)",
+        "type": "primary"
+      }
+    ],
+    "featuredDeities": ["hero-twins", "hun-hunahpu", "ah-puch"],
+    "relatedStories": ["maize-god-rebirth"]
+  },
+  {
+    "id": "birth-huitzilopochtli",
+    "pantheonId": "mesoamerican-pantheon",
+    "title": "The Birth of Huitzilopochtli",
+    "slug": "birth-huitzilopochtli",
+    "summary": "The miraculous birth of the Aztec sun and war god Huitzilopochtli, who sprang fully armed from his mother Coatlicue to slay his sister the moon and his four hundred brothers the stars.",
+    "fullNarrative": "## The Mother on the Mountain\n\n**Coatlicue**, She of the Serpent Skirt, was the earth mother goddess who lived on **Coatepec** (Serpent Mountain) as a penitent priestess. Each day she swept the temple, maintaining its purity. She was already the mother of **Coyolxauhqui** (She with Bells on Her Cheeks), goddess of the moon, and the **Centzon Huitznahua**, the Four Hundred Gods of the South, who were the stars.\n\nOne day, as Coatlicue swept, a ball of hummingbird feathers fell from the sky. Enchanted by its beauty, she tucked it into her waistband. When she finished her work and reached for the feathers, they were gone. But she discovered she was pregnant.\n\n## The Children's Rage\n\nWhen Coyolxauhqui and her four hundred brothers learned of their mother's pregnancy, they were furious. This mysterious conception without a father was a disgrace that could only be cleansed by blood.\n\n\"She has dishonored us!\" Coyolxauhqui declared. \"We must kill her!\"\n\nThe moon goddess led her starry brothers in a march up Coatepec, fully armed for war. They painted their faces and readied their weapons to slay their mother and the unborn thing within her.\n\n## The Warning\n\nOne brother, **Quahuitl Icac** (Wooden Standing), doubted the righteousness of this matricide. He slipped away and whispered to the unborn child within Coatlicue's womb, warning him of the approaching army.\n\n> \"Do not be afraid, mother,\" the voice from within replied. \"I know what I must do.\"\n\nAs the warriors climbed the mountain, as Coyolxauhqui raised her weapon to strike, the moment of birth arrived.\n\n## The Sun God Emerges\n\n**Huitzilopochtli** (Hummingbird of the South) burst from his mother's womb **fully grown and fully armed**. He wore the feathered war costume of an Aztec warrior and carried **Xiuhcoatl**, the Fire Serpent, a weapon of divine flame.\n\nWithout hesitation, he struck down Coyolxauhqui. He cut off her head with a single blow, and her dismembered body tumbled down the slopes of Coatepec, breaking apart as it fell.\n\n> This is why the great stone of Coyolxauhqui at the base of the Templo Mayor shows her dismembered: head separated, arms and legs scattered, her moon goddess ornaments strewn around her broken form.\n\nHuitzilopochtli then turned on his four hundred brothers. With Xiuhcoatl blazing, he pursued them across the sky, slaughtering nearly all. The few who escaped fled to the south, where they became the faint stars of the southern sky.\n\n## Cosmic Meaning\n\nThis battle is not merely mythological history but happens every day. Each dawn, **Huitzilopochtli** (the Sun) defeats **Coyolxauhqui** (the Moon) and the **Centzon Huitznahua** (the stars), driving them from the sky. But night will come again, and the moon and stars will return. The sun must battle them anew each morning.\n\nFor this daily struggle, Huitzilopochtli requires nourishment. He demands the *chalchihuatl*, the \"precious water\" of human blood and hearts, to give him strength for his eternal war against darkness.\n\n## Coatepec and Templo Mayor\n\nThe Templo Mayor of Tenochtitlan was a recreation of Coatepec. The great stone disk of Coyolxauhqui lay at the base of the pyramid's stairs, where victims' bodies tumbled after sacrifice - reenacting the moon goddess's fall. Each sacrifice was a repetition of Huitzilopochtli's birth, a contribution to the sun's daily victory over darkness.\n\nThe birth of Huitzilopochtli is thus not merely creation myth but the charter for Aztec power: the sun god who emerged to defend his mother and defeat her enemies is the patron who led the Aztecs from their wandering to their imperial destiny.",
+    "keyExcerpts": "A ball of hummingbird feathers impregnates Coatlicue. Her daughter Coyolxauhqui (the moon) leads her four hundred sons (the stars) to kill her. Huitzilopochtli bursts from the womb fully armed and slays them all, beginning the eternal battle between sun and night.",
+    "category": "creation",
+    "moralThemes": [
+      "divine birth and destiny",
+      "eternal struggle of light and darkness",
+      "sacrifice as cosmic necessity",
+      "defense of the mother"
+    ],
+    "culturalSignificance": "This is the foundation myth of Aztec religion and state power. Huitzilopochtli was the patron god of the Aztecs specifically, believed to have guided them from Aztlan to Tenochtitlan. His daily battle against night justified the imperial wars to capture sacrificial victims. The Templo Mayor was a ritual machine for reenacting this cosmic drama, with each sacrifice strengthening the sun for his never-ending war.",
+    "imageUrl": "/stories/birth-huitzilopochtli.png",
+    "citationSources": [
+      {
+        "title": "Florentine Codex",
+        "author": "Bernardino de Sahagun",
+        "date": "16th Century",
+        "type": "primary"
+      }
+    ],
+    "featuredDeities": ["huitzilopochtli", "coatlicue"],
+    "relatedStories": ["five-suns-mesoamerican"]
+  },
+  {
+    "id": "maize-god-rebirth",
+    "pantheonId": "mesoamerican-pantheon",
+    "title": "The Death and Rebirth of the Maize God",
+    "slug": "maize-god-rebirth",
+    "summary": "The Maya myth of the Maize God's death, burial, and resurrection - a sacred narrative that explains the agricultural cycle and the deep connection between human sacrifice, agriculture, and cosmic renewal.",
+    "fullNarrative": "## The Cycle of Maize\n\nFor the ancient Maya, **maize** (corn) was not merely a crop but the very substance of humanity. The Popol Vuh tells that after the gods' failed attempts to create people from mud and wood, they finally succeeded using **maize dough**. Humans are literally made of corn.\n\nAt the center of Maya agricultural religion stood the **Maize God**, known in different forms as **Hun Hunahpu**, **God E**, or simply the **Young Maize God**. His story is the story of the agricultural cycle: planting, death in the earth, and glorious rebirth.\n\n## The Death\n\nThe Maize God was beautiful, forever young, with an elongated head shaped like a corn cob and hair like silk tassels. He was a ballplayer, and his playing on the ball court above Xibalba attracted the attention of the death lords.\n\nSummoned to the underworld, the Maize God failed the tests of Xibalba. He was sacrificed, his body buried beneath the ball court like a seed planted in the earth. His head was hung in a calabash tree, where it would impregnate the maiden Xquic with the Hero Twins.\n\n> The Maize God descends into the earth as the seed descends into the soil. Both must die to be reborn.\n\n## The Realm of Death\n\nIn the darkness of Xibalba, beneath the earth, the Maize God remained. He was not destroyed but transformed, waiting for the conditions of his rebirth. This period corresponds to the time between planting and germination, when the seed lies in the soil.\n\nThe lords of death believed they had triumphed. But death is not the end in Maya cosmology - it is transformation, the necessary passage to new life.\n\n## The Hero Twins' Descent\n\nThe Maize God's sons, **Hunahpu and Xbalanque**, grew to maturity and discovered their destiny. They descended to Xibalba to avenge their father and retrieve him from death.\n\nThrough cleverness, sacrifice, and resurrection, the Hero Twins defeated the lords of death. They found where their father was buried, beneath the cracked surface of the ball court.\n\n## The Resurrection\n\nThe twins spoke the words of resurrection. The earth split open, and the Maize God rose from the crack, reborn as the young green maize plant emerges from the soil.\n\nIn Maya art, this moment is depicted as the Maize God rising from a turtle shell (representing the earth) or emerging from a cracked glyph representing the earth's surface. He rises beautiful and young, often attended by two figures (his sons) who pour water on him - the rain that enables germination.\n\n> From death comes life. From the buried seed comes the sprout. From sacrifice comes sustenance.\n\n## The Agricultural Meaning\n\nThis myth is not merely story but agricultural instruction encoded in sacred narrative:\n\n- **Death/Planting**: The seed (the Maize God) must be buried in the earth (the underworld)\n- **Waiting/Germination**: The seed lies in darkness, transformed but not destroyed\n- **Water/Rain**: The twins (rain gods or their helpers) pour water to enable growth\n- **Resurrection/Sprouting**: The Maize God rises as the plant emerges\n- **Harvest/Sacrifice**: The cycle continues as the mature plant is cut down\n\n## Human Sacrifice and Agriculture\n\nThe Maya understood human sacrifice in agricultural terms. Just as the maize must die to provide sustenance, just as the Maize God was sacrificed and reborn, so human sacrifice sustained the cosmic cycle.\n\nBloodletting rituals allowed rulers to communicate with the Maize God and ensure successful harvests. Human sacrifice fed the gods who sent rain. The ballgame itself was a ritual drama reenacting the Maize God's contest with death.\n\n## Living Tradition\n\nFor modern Maya communities, the Maize God remains important. The planting and harvesting of maize is accompanied by prayers and rituals honoring the sacred nature of the crop. The story of death and rebirth encoded in the ancient myths continues to shape understanding of the relationship between humans, plants, and the divine.",
+    "keyExcerpts": "The Maize God is sacrificed and buried like a seed. He waits in darkness until his sons resurrect him. He rises from the cracked earth like a maize sprout. The agricultural cycle mirrors the cosmic drama of death and rebirth.",
+    "category": "myth",
+    "moralThemes": [
+      "death and resurrection",
+      "agricultural cycle as sacred drama",
+      "sacrifice enables renewal",
+      "humans made from maize"
+    ],
+    "culturalSignificance": "The Maize God's death and rebirth is central to Maya cosmology and agriculture. This myth explains why humans are made of maize, why the agricultural cycle follows patterns of death and renewal, and why sacrifice was necessary to ensure successful harvests. It connects daily agricultural practice to the deepest questions of life, death, and cosmic order.",
+    "imageUrl": "/stories/maize-god-rebirth.png",
+    "citationSources": [
+      {
+        "title": "Popol Vuh",
+        "date": "c. 1550 CE (recording ancient traditions)",
+        "type": "primary"
+      },
+      {
+        "title": "Maya ceramic vessels and sculpture",
+        "date": "Classic period (250-900 CE)",
+        "type": "primary"
+      }
+    ],
+    "featuredDeities": ["hun-hunahpu", "hero-twins"],
+    "relatedStories": ["hero-twins-popol-vuh"]
+  },
+  {
+    "id": "maui-fishes-up-islands",
+    "pantheonId": "polynesian-pantheon",
+    "title": "Maui Fishes Up the Islands",
+    "slug": "maui-fishes-up-islands",
+    "summary": "The demigod Maui uses a magical fishhook to pull islands from the ocean floor, creating the lands where Polynesian peoples would live. This foundational myth explains the origin of Pacific islands.",
+    "fullNarrative": "## The Magic Fishhook\n\nMaui, youngest and cleverest of his brothers, possessed a fishhook of extraordinary power. In some traditions, it was fashioned from the jawbone of his grandmother Murirangawhenua, who gave it to him as a gift. In others, he crafted it himself with divine magic. Whatever its origin, the hook had the power to catch anything - even land from beneath the sea.\n\nMaui's brothers were great fishermen, but they refused to take their strange younger brother on their expeditions. They mocked him for his small size and his claims of supernatural power. But Maui was determined to prove himself.\n\n## The Secret Voyage\n\nOne night, Maui hid in the hull of his brothers' canoe. When dawn came and they had paddled far out to sea, he revealed himself. His brothers were furious, but they could not turn back - they were too far from land.\n\n\"Give me bait,\" Maui demanded, \"and I will show you fishing such as you have never seen.\"\n\nHis brothers refused, hoarding their bait for themselves. So Maui struck his own nose and used the blood as bait, or in some versions, used a piece of his own ear. He cast his magical hook deep into the water, far deeper than ordinary hooks could reach.\n\n> \"Let this hook descend to the uttermost depths, where no line has gone before. Let it catch what lies below the foundations of the sea.\"\n\n## The Great Catch\n\nThe hook sank down, down, through the realms of Tangaroa's fish, past the caves of sea spirits, until it caught on something vast and immovable. When Maui pulled, his brothers felt the canoe lurch. They thought they had struck a reef.\n\n\"Paddle!\" Maui commanded. \"Paddle as you have never paddled before, and do not look back!\"\n\nThe brothers bent to their paddles while Maui hauled on his line. The sea churned and heaved. The sky darkened as something enormous rose from the depths. Slowly, incredibly, land began to emerge from the water - mountains breaching the surface like whales, valleys filling with waterfalls, forests springing up where a moment before there had been only ocean.\n\n## The Forbidden Look\n\nMaui had warned his brothers not to look, not to stop paddling until he told them the land was secure. But overcome with curiosity, one brother turned to see what Maui had caught. In that moment, the spell was broken.\n\nThe land, which had been rising smooth and flat, buckled and cracked. Mountains thrust upward in jagged peaks. Valleys collapsed into deep gorges. The beautiful, level land became rough and broken.\n\n\"Fools!\" Maui cried. \"If you had only waited, the land would have been flat and easy to travel. Now see what your impatience has caused!\"\n\n## The Islands Named\n\nIn Maori tradition, the North Island of New Zealand is **Te Ika a Maui** - the Fish of Maui. You can still see the shape of the fish: Wellington Harbour is its mouth, the East Cape is its tail, and the ranges down the center are its spine. The South Island is Maui's canoe, and Stewart Island is his anchor stone.\n\nIn Hawaiian tradition, Maui fished up the Hawaiian islands one by one, each a separate catch. The island of Maui is named for the demigod himself.\n\n## The Cultural Meaning\n\nThis story served multiple purposes for Polynesian peoples:\n\n- **Origin myth**: It explained where the islands came from and why they have their particular shapes\n- **Cultural charter**: It established Maui as the founder-figure who made human life possible by creating land\n- **Warning tale**: The rough terrain was caused by impatience - a moral about obeying instructions and waiting for the right moment\n- **Navigation aid**: The story encoded geographic knowledge about the shapes and relationships of islands",
+    "keyExcerpts": "Maui used a magical fishhook made from his grandmother's jawbone to pull islands from the ocean floor. His brothers' impatience caused the land to become rough and mountainous instead of smooth and flat.",
+    "category": "creation",
+    "moralThemes": [
+      "cleverness overcomes obstacles",
+      "patience and obedience",
+      "creation through effort",
+      "consequences of curiosity"
+    ],
+    "culturalSignificance": "This is one of the most important Polynesian myths, told across the Pacific from New Zealand to Hawaii. It explains the origin of the islands and establishes Maui as the culture hero who made human habitation possible. The story's variations across different island groups reflect how the myth was adapted to local geography while maintaining its core meaning.",
+    "imageUrl": "/stories/maui-fishes-up-islands.png",
+    "citationSources": [
+      {
+        "title": "Polynesian Mythology",
+        "author": "Johannes Andersen",
+        "date": "1928",
+        "type": "secondary"
+      },
+      {
+        "title": "Maori Oral Tradition",
+        "type": "primary"
+      }
+    ],
+    "featuredDeities": ["maui"],
+    "relatedStories": ["maui-slows-the-sun", "maui-steals-fire"]
+  },
+  {
+    "id": "maui-slows-the-sun",
+    "pantheonId": "polynesian-pantheon",
+    "title": "Maui Slows the Sun",
+    "slug": "maui-slows-the-sun",
+    "summary": "When the sun raced too quickly across the sky, leaving people without enough daylight for their work, Maui captured and beat it until it agreed to move slowly. This myth explains the length of days.",
+    "fullNarrative": "## The Problem of Short Days\n\nIn the early times, the sun raced across the sky so quickly that the days were too short for people to accomplish their work. Food could not be properly cooked before darkness fell. Tapa cloth could not be dried. Crops withered for lack of sunlight. The people cried out in distress.\n\nMaui's mother Taranga (or Hina, in some versions) complained bitterly as she tried to dry her tapa cloth. \"The sun moves too fast! My cloth never dries properly. Someone should do something about this!\"\n\nMaui, hearing his mother's complaint, decided he would be that someone.\n\n## The Preparation\n\nMaui knew he would need special ropes to capture the sun - ordinary ropes would burn in its heat. He went to his sister (or grandmother, depending on the tradition) and asked for strands of her hair, which possessed supernatural properties.\n\n\"Sister, I need your hair to make ropes. I am going to capture the sun and teach it to move slowly.\"\n\nHis sister thought him mad, but she cut her hair and gave it to him. Maui wove the hair into strong ropes, plaiting them with sacred chants that gave them power to withstand fire.\n\nHe also gathered his brothers and taught them what they must do. They would journey to Te Rua o te Ra - the Pit of the Sun - where the sun rose each morning.\n\n## The Ambush\n\nThe brothers traveled east for many days until they reached the edge of the world where the sun emerged each morning. They built walls of clay on either side of the sun's path, creating an ambush point. Then they waited in the darkness before dawn.\n\nAs the first light appeared, Maui readied his ropes. The sun began to rise, not suspecting the trap. When it was halfway out of its pit, Maui shouted the signal.\n\n\"Now! Cast the ropes!\"\n\nThe brothers threw their nooses over the sun's rays. The ropes, made from sacred hair, did not burn. The sun thrashed and struggled, trying to break free, but the ropes held fast.\n\n## The Beating\n\nMaui approached the bound sun, carrying the jawbone of his grandmother (the same bone from which his fishhook was made, in some versions). The sun roared and blazed with anger, but it could not escape.\n\n> \"You have made our days too short!\" Maui cried. \"People cannot finish their work. The land suffers from your haste. I am going to beat you until you agree to travel slowly!\"\n\nMaui struck the sun again and again with the sacred jawbone. The sun screamed and begged for mercy, but Maui did not stop until it made a solemn promise.\n\n\"I will move slowly! I will give people long days to do their work! Only stop beating me!\"\n\n## The Covenant\n\nMaui made the sun swear a sacred oath. In summer, it would move slowly, giving long days for planting and harvesting. In winter, it would move faster, but still slowly enough for people to accomplish their essential tasks. The sun agreed, and Maui released the ropes.\n\nSince that day, the sun has kept its promise. It rises and sets at a measured pace, giving humanity the daylight they need. The marks of Maui's beating can still be seen - the spots and flares on the sun's surface are the bruises left by the jawbone.\n\n## Regional Variations\n\n**Maori version**: Maui and his brothers travel to Te Rua o te Ra and use flax ropes strengthened with karakia (sacred chants). The jawbone belongs to his ancestor Murirangawhenua.\n\n**Hawaiian version**: Maui climbs to the summit of Haleakala (\"House of the Sun\") on Maui island. The crater is where he trapped the sun. The mountain is sacred because of this deed.\n\n**Tahitian version**: Maui uses ropes made from coconut fiber blessed by the gods. The sun's agreement created the regular seasons.",
+    "keyExcerpts": "Maui made ropes from his sister's hair, ambushed the sun at its rising place, bound it with the ropes, and beat it with a sacred jawbone until it agreed to move slowly across the sky.",
+    "category": "myth",
+    "moralThemes": [
+      "problem-solving through cleverness",
+      "persistence against great odds",
+      "negotiating with natural forces",
+      "benefiting the community"
+    ],
+    "culturalSignificance": "This myth explains the length of days and the changing seasons, while establishing Maui as the hero who makes human life workable. The story appears across Polynesia with local variations. In Hawaii, Haleakala volcano on Maui island is considered the site of this deed, making it a sacred place.",
+    "imageUrl": "/stories/maui-slows-the-sun.png",
+    "citationSources": [
+      {
+        "title": "Hawaiian Mythology",
+        "author": "Martha Beckwith",
+        "date": "1940",
+        "type": "secondary"
+      },
+      {
+        "title": "Maori Oral Tradition",
+        "type": "primary"
+      }
+    ],
+    "featuredDeities": ["maui", "hina"],
+    "relatedStories": ["maui-fishes-up-islands", "maui-steals-fire"]
+  },
+  {
+    "id": "maui-steals-fire",
+    "pantheonId": "polynesian-pantheon",
+    "title": "Maui Steals Fire",
+    "slug": "maui-steals-fire",
+    "summary": "Maui tricks his ancestress Mahuika, goddess of fire, into giving him her flaming fingernails, then preserves the secret of fire in the wood of trees when she tries to destroy him.",
+    "fullNarrative": "## The Loss of Fire\n\nIn the early times, humans had fire, but they did not know how to make it. The secret of fire belonged to Mahuika, Maui's grandmother (or great-grandmother), who lived at the edge of the world. She kept fire in her fingernails and toenails, which blazed eternally.\n\nOne night, Maui extinguished all the fires in his village. When morning came and the people woke to cold hearths, they were distraught.\n\n\"The fires are out! How will we cook? How will we stay warm?\"\n\nMaui's mother turned to him. \"You must go to your grandmother Mahuika in the underworld. She is the keeper of fire. Ask her for some so we can rekindle our hearths.\"\n\nMaui agreed, though he had his own plans.\n\n## The Journey to Mahuika\n\nMaui traveled to the place where Mahuika dwelt, following the path his mother described. He found an old woman sitting by a fire that seemed to burn without fuel. Her hands and feet glowed with inner flame.\n\n\"Grandmother,\" Maui said politely, \"I have come from the world above. Our fires have gone out. Will you give me fire so my people can cook and stay warm?\"\n\nMahuika was pleased to see her great-grandson. \"Of course, child.\" She pulled off one of her flaming fingernails and gave it to him. \"Take this and guard it well.\"\n\n## The Trickster's Game\n\nMaui took the burning nail, but as soon as he was out of sight, he extinguished it in a stream. Then he returned to Mahuika.\n\n\"Grandmother, I stumbled and dropped the fire in water. May I have another?\"\n\nMahuika frowned but gave him a second fingernail. Again Maui extinguished it. Again he returned. This continued until Mahuika had given away all her fingernails. Then she began on her toenails.\n\n> Maui was not merely foolish - he was testing how much fire Mahuika possessed, learning the full extent of her power.\n\n## Mahuika's Rage\n\nWhen Mahuika had only one toenail left, she finally understood that Maui was tricking her. Enraged at his deception, she pulled off her last nail and threw it at him.\n\n\"You think you're clever? I'll show you fire!\"\n\nThe world erupted in flames. Fire raced across the land, consuming everything in its path. Maui ran, but the fire pursued him. In desperation, he called upon his power to change shape, transforming into a hawk (or in some versions, he called upon the god of rain).\n\n## The Salvation of Fire\n\nMaui called down rain to quench the fire. Great storms swept across the land, extinguishing the blaze. Mahuika screamed as her fire died, but at the last moment, she threw her final sparks into certain trees: the kaikomako, the mahoe, the totara, and the pukatea.\n\nThe rain stopped. The fire seemed gone entirely. But Maui, wise in the ways of the world, examined the trees where Mahuika's last sparks had hidden. He found that when he rubbed the wood together rapidly, fire emerged.\n\nThis is how humans learned to make fire. The secret is hidden in the wood of these trees, placed there by Mahuika's dying flames, discovered by Maui's cleverness.\n\n## The Gift and the Price\n\nMaui returned to his village and taught the people how to create fire from wood. Never again would they be helpless when their fires went out. This was Maui's gift to humanity.\n\nBut Mahuika was not destroyed - she retreated to the volcanoes, where her fire still burns. When volcanoes erupt, it is Mahuika's rage still smoldering. The alliance between Maui's descendants and Mahuika's fire remains uneasy to this day.",
+    "keyExcerpts": "Maui tricked Mahuika into giving away her flaming fingernails one by one. When she attacked him with fire, he called down rain, but she preserved fire in certain trees. Humans learned to make fire by rubbing this wood together.",
+    "category": "myth",
+    "moralThemes": [
+      "fire as divine gift",
+      "trickery as tool of progress",
+      "knowledge comes at a price",
+      "respecting natural forces"
+    ],
+    "culturalSignificance": "This Polynesian fire-theft myth parallels the Greek story of Prometheus but with distinctly Polynesian characteristics. The practical knowledge of which woods produce fire is encoded in the sacred narrative. The story also explains volcanic activity as the ongoing presence of the fire goddess.",
+    "imageUrl": "/stories/maui-steals-fire.png",
+    "citationSources": [
+      {
+        "title": "Polynesian Mythology",
+        "author": "Johannes Andersen",
+        "date": "1928",
+        "type": "secondary"
+      },
+      {
+        "title": "Maori Oral Tradition",
+        "type": "primary"
+      }
+    ],
+    "featuredDeities": ["maui"],
+    "relatedStories": ["maui-fishes-up-islands", "maui-slows-the-sun"]
+  },
+  {
+    "id": "pele-and-hiiaka",
+    "pantheonId": "polynesian-pantheon",
+    "title": "Pele and Hi'iaka",
+    "slug": "pele-and-hiiaka",
+    "summary": "The epic saga of Pele's love for the mortal chief Lohiau, and the dangerous journey her sister Hi'iaka undertakes to bring him to Hawaii - a story of love, jealousy, and the conflict between divine sisters.",
+    "fullNarrative": "## Pele's Dream\n\nOne night, as Pele slept in her fire pit at Kilauea, her spirit traveled across the ocean to the island of Kauai. There she heard the sound of drums and followed them to a hula celebration. Among the dancers was **Lohiau**, a chief of surpassing beauty and grace.\n\nPele, in spirit form, appeared to Lohiau as a beautiful woman. They danced together, fell in love, and spent three nights in passionate union. But on the fourth morning, Pele had to return to her body. She promised Lohiau she would send for him.\n\nWhen Pele awoke in Hawaii, she was consumed with longing for her mortal lover.\n\n## The Mission\n\nPele called her youngest sister, **Hi'iaka-i-ka-poli-o-Pele** (Hi'iaka in the bosom of Pele), and gave her a mission: travel to Kauai, find Lohiau, and bring him back to Kilauea.\n\n\"But you must return within forty days,\" Pele warned. \"And you must not embrace him, for he is mine.\"\n\nPele gave Hi'iaka supernatural powers for the journey: the ability to defeat monsters, restore the dead to life, and command the forces of nature. In return, she demanded absolute obedience.\n\nHi'iaka loved her sister, but she made one request: \"Promise me you will not harm my beloved ohia forests while I am gone. They are dear to me.\"\n\nPele promised, and Hi'iaka set out on her journey.\n\n## The Journey\n\nHi'iaka's journey to Kauai forms the longest epic narrative in Hawaiian tradition. Along the way, she:\n\n- Defeated the **mo'o** (dragon/lizard spirits) that blocked her path\n- Restored villages that had been devastated by supernatural forces\n- Made friends and allies who would remember her kindness\n- Composed **mele** (songs/chants) praising the beauty of each place she visited\n\nThe journey took far longer than forty days. Months passed, and still Hi'iaka had not reached Kauai.\n\n## Pele's Jealousy\n\nBack at Kilauea, Pele grew impatient, then suspicious. She convinced herself that Hi'iaka was deliberately delaying, perhaps falling in love with Lohiau herself.\n\nIn her rage, Pele broke her promise. She sent rivers of lava flowing through Hi'iaka's beloved ohia forests, destroying the groves that her sister treasured.\n\n> When Hi'iaka finally looked back toward Hawaii and saw the smoke rising from her forests, her heart broke.\n\n## Finding Lohiau\n\nWhen Hi'iaka finally reached Kauai, she found Lohiau dead. He had died of grief, waiting for the beautiful woman from his dream who never returned. Using the powers Pele had given her, Hi'iaka captured Lohiau's spirit and restored him to life.\n\nThe journey back was long and difficult. Hi'iaka honored her promise not to embrace Lohiau, though she had begun to love him. They traveled as companions, nothing more.\n\n## The Betrayal\n\nWhen Hi'iaka and Lohiau finally reached Kilauea, they stood at the crater's edge and looked down at Pele. Hi'iaka saw the devastation of her forests and understood her sister's betrayal.\n\nIn that moment, Hi'iaka made a choice. Standing where Pele could see her, she embraced Lohiau and kissed him.\n\n## Pele's Revenge\n\nPele's rage was volcanic - literally. She poured fire and lava over Lohiau, burning him to death as Hi'iaka watched helplessly. Then she turned her flames on Hi'iaka herself.\n\nBut Hi'iaka had her own powers. She could not be burned. She descended into the earth, digging toward the water table beneath the volcano. If she reached it, the resulting steam explosion would destroy Pele herself.\n\n## Reconciliation\n\nTheir brother **Kane-milo-hai** intervened before the sisters destroyed each other. He reminded them of their bond, their shared journey from Kahiki, the love they had once had.\n\nPele relented. She allowed Hi'iaka to restore Lohiau to life once more. But this time, Pele gave up her claim on him. Lohiau became Hi'iaka's husband.\n\nThe sisters reconciled, but their relationship would never be quite the same. The forests grew back, but they bore the scars of Pele's fire. And when the volcano rumbles today, some say it is the memory of that terrible quarrel, never quite healed.",
+    "keyExcerpts": "Pele sent Hi'iaka to fetch her mortal lover Lohiau. The journey took longer than expected, and Pele, in jealous rage, destroyed Hi'iaka's forests. When Hi'iaka returned, she embraced Lohiau in defiance, leading to his death and near-destruction of both sisters.",
+    "category": "epic",
+    "moralThemes": [
+      "jealousy destroys love",
+      "promises should be kept",
+      "loyalty tested to breaking point",
+      "reconciliation after betrayal"
+    ],
+    "culturalSignificance": "This is the longest and most elaborate narrative in Hawaiian mythology, forming the basis for many hula performances and chants. The story explores themes of sisterhood, jealousy, and the proper relationship between humans and gods. It also explains landscape features across the Hawaiian islands.",
+    "imageUrl": "/stories/pele-and-hiiaka.png",
+    "citationSources": [
+      {
+        "title": "The Epic Tale of Hi'iakaikapoliopele",
+        "author": "Ho'oulumahiehie",
+        "type": "primary"
+      },
+      {
+        "title": "Hawaiian Mythology",
+        "author": "Martha Beckwith",
+        "date": "1940",
+        "type": "secondary"
+      }
+    ],
+    "featuredDeities": ["pele", "hiiaka"],
+    "relatedStories": ["separation-of-rangi-and-papa"]
+  },
+  {
+    "id": "separation-of-rangi-and-papa",
+    "pantheonId": "polynesian-pantheon",
+    "title": "The Separation of Rangi and Papa",
+    "slug": "separation-of-rangi-and-papa",
+    "summary": "The Maori creation myth telling how the children of the Sky Father and Earth Mother, trapped in darkness between their parents' embrace, debated and finally succeeded in pushing them apart, bringing light into the world.",
+    "fullNarrative": "## In the Beginning\n\nBefore the world as we know it, there was only darkness. **Rangi**, the Sky Father, and **Papa**, the Earth Mother, lay locked in an eternal embrace, their bodies pressed so tightly together that no light could enter the space between them.\n\nIn this cramped darkness, their children were born and grew: **Tane** (forests and birds), **Tangaroa** (the sea), **Tu** (war), **Rongo** (cultivated plants), **Haumia** (wild plants), and **Tawhirimatea** (storms). For ages beyond counting, the children lived in this suffocating darkness, never seeing light, never knowing the beauty of the world.\n\n## The Debate\n\nAt last, the children gathered to discuss their plight. They could not continue living in darkness. Something had to change.\n\n**Tu**, fierce and warlike, spoke first: \"Let us kill our parents. That will end our suffering.\"\n\nBut **Tane**, gentler and wiser, disagreed: \"No, let us not kill them. Instead, let us push them apart. Rangi can go above to become the sky, and Papa can remain below as the earth. Then there will be space and light between them.\"\n\nMost of the brothers agreed with Tane. But **Tawhirimatea** loved his parents too much to see them separated. \"I will not support this. If you do this terrible thing, I will fight against you forever.\"\n\nThe others ignored his warning and decided to proceed.\n\n## The Attempts\n\nOne by one, the brothers tried to push their parents apart:\n\n**Rongo** tried first, but he was too gentle. He pushed and strained, but Rangi and Papa did not move.\n\n**Tangaroa** tried next, heaving with all the strength of the sea, but he could not separate them.\n\n**Haumia** tried, then **Tu**, but none could break the primordial embrace.\n\n## Tane's Success\n\nFinally, **Tane** stepped forward. He did not push with his hands like the others. Instead, he lay on his back, with his shoulders against Papa (the earth) and his feet against Rangi (the sky). Then he began to push upward with his legs.\n\n> Slowly, painfully, the sky began to lift. Rangi clung to Papa, crying out in grief. Papa reached up toward Rangi, her arms stretching but unable to hold him. Light began to flood into the world for the first time.\n\nTane pushed and pushed. The sky rose higher and higher. At last, Rangi was far above, and Papa lay below, and between them was the space where life could flourish.\n\n## The World Transformed\n\nLight flooded the world. The children of Rangi and Papa saw each other clearly for the first time. They saw the beauty of existence that had been hidden in darkness.\n\nTane adorned his father with the sun, moon, and stars as ornaments. He covered his mother with trees, plants, and all growing things. The world became beautiful.\n\nBut Rangi and Papa wept for their separation. Rangi's tears fell as rain upon Papa. Papa's sighs rose as mist toward Rangi. Even today, the mist at dawn and the rain at evening are signs of their eternal longing for each other.\n\n## Tawhirimatea's Revenge\n\nTawhirimatea kept his promise. Enraged at what his brothers had done, he ascended to the sky with his father and launched a terrible attack on his siblings.\n\nHe sent his children - the winds, storms, hurricanes, and clouds - against his brothers. **Tangaroa's** fish fled to the depths of the sea or onto the land, dividing into fish and reptiles. **Tane's** trees were torn and battered. **Rongo** and **Haumia** hid in the body of their mother Papa.\n\nOnly **Tu** stood firm against the assault. When the storm finally passed, Tu was furious at his brothers for their cowardice. He turned on them in revenge, trapping their children - fish, birds, and plants - to become food for humanity.\n\nThis is why humans eat the children of Tangaroa (fish), Tane (birds), Rongo (cultivated plants), and Haumia (wild plants) - because Tu conquered them when they fled from Tawhirimatea's storm.\n\n## The Eternal Grief\n\nThe separation was necessary for life to exist, but it came at a cost. Rangi and Papa still love each other and grieve their separation. They will never be reunited in this world.\n\nYet their love persists. Every sunrise and sunset, when sky and earth seem to touch at the horizon, is a moment when Rangi and Papa almost embrace again. The beauty of these moments reminds us of the love that still connects heaven and earth.",
+    "keyExcerpts": "Tane lay on his back and pushed the sky from the earth with his feet, bringing light into the world. The sky father and earth mother still weep for each other - rain is Rangi's tears, mist is Papa's sighs.",
+    "category": "creation",
+    "moralThemes": [
+      "creation requires sacrifice",
+      "light comes from darkness",
+      "love persists through separation",
+      "actions have consequences"
+    ],
+    "culturalSignificance": "This is the foundational creation myth of Maori tradition, explaining the origin of the world, the separation of heaven and earth, and the relationships between the major gods. It also establishes the basis for why humans eat fish, birds, and plants. The emotional depth of the primordial parents' grief gives Maori cosmology a distinctive poignancy.",
+    "imageUrl": "/stories/separation-of-rangi-and-papa.png",
+    "citationSources": [
+      {
+        "title": "Maori Oral Tradition",
+        "type": "primary"
+      },
+      {
+        "title": "Polynesian Mythology",
+        "author": "Johannes Andersen",
+        "date": "1928",
+        "type": "secondary"
+      }
+    ],
+    "featuredDeities": ["rangi", "papa-polynesian", "tane", "tangaroa", "tu", "tawhirimatea"],
+    "relatedStories": ["maui-fishes-up-islands"]
+  },
+  {
+    "id": "yoruba-creation",
+    "pantheonId": "african-pantheon",
+    "title": "The Creation of the World",
+    "slug": "yoruba-creation",
+    "summary": "How Obatala descended from heaven with a snail shell of sand and a white hen to create land from the primordial waters, founding the sacred city of Ile-Ife.",
+    "fullNarrative": "## In the Beginning\n\nBefore land existed, there was only water stretching endlessly in every direction. Above the waters lay **Orun**, the heavens, where **Olodumare** the supreme creator dwelt with the Orishas. Below was an infinite ocean with no shore, no land, no place for life to take root.\n\nOlodumare looked down at the waters and determined that creation must proceed. He summoned **Obatala**, the wisest of the Orishas, and gave him a sacred task: descend to the waters and create land where none existed.\n\n## The Descent from Heaven\n\nOlodumare provided Obatala with the tools of creation: a long golden chain to climb down from heaven, a snail shell filled with sacred sand, a white hen, a black cat, and a palm nut. Obatala gathered these items and began his descent.\n\nAs he climbed down the golden chain, Obatala passed through layer after layer of sky. The journey was long and arduous. Below him, the dark waters churned endlessly. At last, the chain ended, but Obatala was still far above the water's surface.\n\n> Obatala hung from the end of the chain, the primordial waters swirling beneath him. There was no land in sight, only endless ocean. This was the moment of creation.\n\n## The First Land\n\nObatala poured the sand from the snail shell onto the water. Then he released the white hen, who began to scratch and scatter the sand in all directions. Where the sand fell, land formed. The hen scratched and scattered, and the land spread wider and wider.\n\nObatala dropped onto the new land - the first solid ground in existence. The black cat followed, becoming his companion in this new world. Obatala planted the palm nut, and from it grew the first palm tree, providing food and shelter.\n\n## The Naming of Ile-Ife\n\nThe place where Obatala landed, where creation began, was called **Ile-Ife**, meaning 'the spreading of the earth.' It became the most sacred place in Yoruba cosmology, the center from which all other lands spread, the spiritual heart of the world.\n\nObatala looked upon his work and was pleased. Where there had been only water, now there was land. Where there had been nothing, now there was the foundation for all life to come.\n\n## The Creation of Humanity\n\nObatala's work was not finished. Olodumare instructed him to create human beings to populate the new land. Obatala gathered clay from the earth and began to mold human forms with his hands. He shaped heads and limbs, bodies and faces, working carefully to create the vessels for humanity.\n\nBut the work was hot and tedious. Obatala paused to drink palm wine to cool himself. One cup led to another, and soon Obatala was intoxicated. His hands became clumsy. Some of the figures he molded were bent or twisted. Some lacked limbs. Some had parts in the wrong places.\n\n## Olodumare Breathes Life\n\nWhen the figures were complete, Olodumare breathed life into each one, and they became living humans. Only then did Obatala see what his drunkenness had wrought. Some humans were perfect, but others bore the marks of his impaired craftsmanship - those with disabilities, albinism, and other conditions.\n\nObatala was filled with shame and remorse. He declared that he would forever be the special protector of those he had inadvertently harmed. He forbade his worshippers from ever drinking palm wine, so that none would repeat his error. To this day, those with disabilities are considered sacred to Obatala, under his special protection.\n\n## The Completion of Creation\n\nThe other Orishas descended from heaven to join Obatala in the new world. Each was given a domain: **Ogun** received iron and war, **Yemoja** received the waters, **Shango** received thunder, **Oshun** received the rivers. Together they established the world as it exists today.\n\nIle-Ife remains the most sacred city in Yoruba tradition, the navel of the world, the place where creation began. The kings of Ile-Ife are considered descendants of the Orishas themselves, guardians of the sacred site where Obatala first touched the earth.",
+    "keyExcerpts": "Obatala poured sand from a snail shell onto the primordial waters and released a white hen to scatter it, creating land. He then molded humans from clay, but became drunk on palm wine and created some imperfectly, becoming their eternal protector.",
+    "category": "creation",
+    "moralThemes": ["responsibility for mistakes", "imperfection in creation", "compassion for the disabled", "the origins of humanity"],
+    "culturalSignificance": "This is the central creation myth of Yoruba religion, establishing Ile-Ife as the sacred center of the world. It also provides an origin story for human disability that emphasizes protection and sacred status rather than punishment. The story spread throughout the African diaspora and remains central to Santeria, Candomble, and other diaspora traditions.",
+    "imageUrl": "/stories/yoruba-creation.png",
+    "citationSources": [{"title": "Ifa Oral Tradition", "type": "primary"}, {"title": "Yoruba Myths", "author": "Ulli Beier", "date": "1980", "type": "secondary"}],
+    "featuredDeities": ["obatala", "olodumare"],
+    "relatedStories": ["shango-becomes-orisha", "oshun-saves-world"]
+  },
+  {
+    "id": "shango-becomes-orisha",
+    "pantheonId": "african-pantheon",
+    "title": "How Shango Became an Orisha",
+    "slug": "shango-becomes-orisha",
+    "summary": "The story of the fourth king of Oyo, who mastered thunder and lightning but faced tragedy, only to be elevated to divine status after his death.",
+    "fullNarrative": "## The Fourth King of Oyo\n\n**Shango** was the fourth Alaafin (king) of the great Oyo Empire. He was not born an Orisha but a mortal man, though no ordinary one. His presence commanded fear and respect in equal measure. His voice was like thunder, his anger like lightning. It was said he had learned the secret of summoning storms from the sky.\n\nShango ruled with power and passion. He was a great warrior who expanded the empire through conquest. He was a lover with three wives - **Oya**, **Oshun**, and **Oba** - each powerful in her own right. But his temperament was volatile, his pride immense.\n\n## The Secret of the Thunderstones\n\nShango possessed medicine that could call down lightning from the heavens. With a word and a gesture, he could destroy his enemies with fire from the sky. He kept this power secret, using it to terrify his subjects and devastate his opponents.\n\nBut his generals, Timi and Gbonka, grew jealous of his power and began to challenge his authority. The empire was divided between those loyal to Shango and those who whispered that the king's power was too dangerous, too unpredictable.\n\n## The Tragic Demonstration\n\nOne day, to demonstrate his power and cow his rivals, Shango decided to call lightning from his palace roof. But something went wrong. Whether his medicine failed or the storm escaped his control, the lightning struck his own palace instead of his enemies.\n\n> The fire consumed everything. The palace burned. Shango's own family members, including some of his children, perished in the flames. The king who controlled thunder had destroyed his own household.\n\nShango was devastated. The accident shattered his pride and his heart. His enemies mocked him. His supporters fell away. The king who had terrorized armies now wandered in shame.\n\n## The Ayan Tree\n\nShango traveled to a place called Koso, seeking solitude to mourn what he had lost. There, according to some versions of the story, he hanged himself from an ayan tree, unable to bear his grief and humiliation.\n\nBut his followers refused to accept his death. When they arrived at Koso, they declared that Shango had not died but had descended into the earth, becoming one with the storms he had once commanded.\n\n## Oba Koso - The King Did Not Hang\n\nThose who had mocked Shango's death soon learned their error. Lightning began to strike his detractors. Thunder rolled across clear skies when his name was spoken in mockery. Fire appeared where none should be.\n\nShango's followers proclaimed: **'Oba koso!'** - 'The king did not hang!' Shango had not died but had transformed. He had become something greater than a mortal king. He had become the Orisha of thunder and lightning.\n\n## The Thunder God\n\nShango's worship spread rapidly throughout Yorubaland and beyond. Where he had been a mortal king of one empire, he became a god worshipped across West Africa and, eventually, throughout the African diaspora.\n\nHis symbol became the double-headed axe, oshe, representing his power to strike in any direction. The thunderstones found after lightning strikes became his sacred objects. The ram became his animal, its forceful nature matching his own.\n\n## A Living God\n\nUnlike other Orishas who were created in the time before time, Shango walked the earth as a man within historical memory. His transformation demonstrates a profound Yoruba belief: divinity is not limited to ancient times. Mortals of sufficient power, passion, and destiny can become Orishas themselves.\n\nShango's story also teaches that tragedy can become transcendence. The king who destroyed his own palace in a moment of hubris became the god who brings justice through lightning. His worshippers call upon him to punish liars and evildoers, and they say that when lightning strikes, Shango has passed judgment on the wicked.",
+    "keyExcerpts": "Shango was a mortal king of Oyo who mastered thunder but accidentally destroyed his own palace with lightning. After his death, lightning struck all who mocked him, and his followers declared 'Oba koso!' - 'The king did not hang!' - recognizing his transformation into the Orisha of thunder.",
+    "category": "transformation",
+    "moralThemes": ["power and responsibility", "tragedy leading to transcendence", "hubris and redemption", "divine justice"],
+    "culturalSignificance": "This is one of the most important stories in Yoruba religion, explaining how a historical figure became one of the most worshipped Orishas. It demonstrates the Yoruba belief that humans can achieve divine status and that tragedy can be the path to transcendence. Shango's story traveled across the Atlantic and remains central to diaspora traditions.",
+    "imageUrl": "/stories/shango-becomes-orisha.png",
+    "citationSources": [{"title": "Yoruba Oral Tradition", "type": "primary"}, {"title": "Shango Cult", "author": "Pierre Verger", "type": "secondary"}],
+    "featuredDeities": ["shango", "oya", "oshun"],
+    "relatedStories": ["yoruba-creation", "ogun-shango-contest"]
+  },
+  {
+    "id": "oshun-saves-world",
+    "pantheonId": "african-pantheon",
+    "title": "Oshun Saves the World",
+    "slug": "oshun-saves-world",
+    "summary": "When the world was dying and all the male Orishas had failed, Oshun transformed herself into a peacock and flew to heaven, sacrificing her beauty to save creation.",
+    "fullNarrative": "## The Dying World\n\nA time came when the world began to wither and die. The crops failed. The rivers ran dry. The rains did not come. Children were born sickly. The people cried out to the Orishas for help, but nothing improved.\n\nThe great Orishas gathered in council to address the crisis. **Ogun** was there with his iron machete. **Shango** brought his thunderbolts. **Obatala** came in his white robes of wisdom. All the mighty gods assembled to determine what had gone wrong and how to fix it.\n\n## The Ignored Goddess\n\nBut there was one who was not invited to the council: **Oshun**, the goddess of rivers and love. The other Orishas dismissed her as merely beautiful, concerned only with honey and mirrors and dancing. What could she possibly contribute to a matter this serious?\n\nOshun waited for an invitation that never came. She watched from the banks of her river as the great Orishas made their plans.\n\n## The Failure of the Warriors\n\nOne by one, the mighty Orishas attempted to reach Olodumare in the heavens to ask for the supreme being's intervention. But each one failed. Ogun could not cut a path to heaven with his machete. Shango's lightning could not reach high enough. Obatala's wisdom could not find the way.\n\nThe world continued to die. The Orishas were at a loss. Everything they tried failed.\n\n> At last, in desperation, they turned to Oshun. The goddess they had dismissed. The beautiful one they had considered frivolous. They asked for her help.\n\n## The Peacock's Flight\n\nOshun agreed to try what the warriors could not accomplish. She transformed herself into a peacock, the most beautiful of birds, and began to fly toward the heavens. Her magnificent feathers caught the light as she rose higher and higher, leaving the earth far behind.\n\nBut the journey was not easy. The higher Oshun flew, the hotter the sun became. Her beautiful feathers began to burn. One by one, they fell away, scorched by the celestial heat. Still she flew higher.\n\nBy the time Oshun reached Olodumare's realm, she was no longer a beautiful peacock. Her feathers were gone, burned to nothing. She arrived as a vulture, bald and dark, all her beauty sacrificed in the journey.\n\n## The Audience with Olodumare\n\nDespite her appearance, Olodumare recognized Oshun's courage and sacrifice. The supreme being listened to her plea for the world below. Moved by her devotion and the sacrifice of her beauty, Olodumare agreed to restore balance to the world.\n\nThe rains returned. The rivers flowed. The crops grew. The children were born healthy. The world was saved.\n\n## The Vulture's Honor\n\nOshun returned to earth, no longer the beautiful peacock but the bald vulture. But her sacrifice was honored. The vulture became sacred to Oshun, a reminder of what true beauty means - not appearance but action, not adornment but devotion.\n\nThis is why the vulture, though not beautiful to the eye, holds a place of honor in Yoruba tradition. It is one of Oshun's sacred animals, representing the goddess at the moment of her greatest sacrifice.\n\n## The Lesson of Oshun\n\nThe other Orishas learned that they had been wrong to dismiss Oshun. Her power was not less than theirs - it was different. Where strength and force had failed, love and sacrifice had succeeded.\n\nOshun's story teaches that true power comes in many forms. The gentle river carves through rock. The mother's love moves mountains. What appears soft or frivolous may hold the greatest strength of all.\n\nAnd never again did the Orishas fail to invite Oshun to their councils.",
+    "keyExcerpts": "When all the mighty Orishas failed to save the dying world, Oshun transformed into a peacock and flew to heaven. Her beautiful feathers burned away in the journey, but she reached Olodumare and convinced the supreme being to restore the world. She returned as a vulture, her sacrifice honored forever.",
+    "category": "heroic",
+    "moralThemes": ["underestimated power", "sacrifice for others", "true beauty is action", "feminine strength"],
+    "culturalSignificance": "This story is central to understanding Oshun's place in the Yoruba pantheon. It challenges the dismissal of feminine power and beauty as trivial, showing that what appears decorative may be essential. The story has particular resonance in diaspora traditions where Oshun represents the power of women to save what warriors cannot.",
+    "imageUrl": "/stories/oshun-saves-world.png",
+    "citationSources": [{"title": "Ifa Oral Tradition", "type": "primary"}, {"title": "Osun Osogbo Festival Narratives", "type": "primary"}],
+    "featuredDeities": ["oshun", "olodumare", "ogun", "shango", "obatala"],
+    "relatedStories": ["yoruba-creation", "eshu-two-friends"]
+  },
+  {
+    "id": "eshu-two-friends",
+    "pantheonId": "african-pantheon",
+    "title": "Eshu and the Two Friends",
+    "slug": "eshu-two-friends",
+    "summary": "A classic trickster tale in which Eshu teaches two best friends a painful lesson about the dangers of perspective and assumption.",
+    "fullNarrative": "## The Best of Friends\n\nThere were once two farmers who were the best of friends. They had been inseparable since childhood. Their farms lay side by side, with only a small path dividing their properties. Each day they would wave to each other across the path as they worked. Each evening they would share their meals and their stories.\n\nThe two friends boasted of their friendship everywhere they went. 'Nothing could ever come between us,' they would say. 'Our bond is unbreakable.'\n\n**Eshu**, the trickster Orisha, heard these boasts and smiled his knowing smile. He decided to test whether their friendship was as strong as they claimed.\n\n## The Two-Colored Hat\n\nEshu fashioned a hat of a most peculiar design. One side was bright red, the color of fire and passion. The other side was deep black, the color of night and mystery. He placed this hat upon his head and set out to walk down the path between the two farms.\n\nAs Eshu strolled down the path, both friends looked up from their work to see who was passing.\n\n> The farmer on the left side of the path saw a stranger in a striking red hat. The farmer on the right side of the path saw a stranger in a mysterious black hat. Neither could see the other side.\n\nEshu walked slowly, greeting each farmer with a wave, then continued on his way until he was out of sight.\n\n## The Argument\n\nThat evening, the two friends met as always to share their meal. The conversation soon turned to the stranger who had passed by that day.\n\n'Did you see the man in the red hat?' asked the first farmer. 'What a bold color!'\n\n'Red hat?' replied the second farmer. 'The man was wearing a black hat.'\n\n'No, no, it was definitely red. I have eyes, don't I?'\n\n'As do I, and I tell you the hat was black!'\n\nWhat began as friendly disagreement quickly escalated. Each man was certain of what he had seen. Each accused the other of being blind, then of being a liar. Their voices rose to shouts.\n\n'How can we be friends if you lie to my face?' demanded one.\n\n'I am not lying! You are trying to make me look foolish!' retorted the other.\n\nTheir lifelong friendship dissolved in minutes. They parted in anger, vowing never to speak to each other again.\n\n## Eshu's Return\n\nThe next day, as the two former friends worked their fields in bitter silence, Eshu came strolling down the path again. But this time he walked in the other direction, and this time each farmer saw the opposite color.\n\nThe first farmer, who had seen red before, now saw black.\n\nThe second farmer, who had seen black before, now saw red.\n\nBoth men were confused. They looked at each other across the path. For the first time, doubt crept in.\n\nEshu stopped in the middle of the path and removed his hat, revealing both colors to both men.\n\n'You see?' Eshu said, laughing. 'You were both right. And you were both wrong. The hat has two colors, and each of you could only see one. You destroyed your friendship over something that was true from both perspectives.'\n\n## The Lesson\n\nThe two farmers were ashamed. They begged each other's forgiveness and renewed their friendship, wiser than before. They had learned Eshu's lesson: that truth can look different from different perspectives, and that assuming your view is the only view leads to destruction.\n\n'Remember,' Eshu said before he departed, 'the crossroads I guard is not just where two paths meet. It is where two truths meet. The wise person understands that both paths are real.'\n\n## Eshu's Teaching\n\nThis story is told throughout Yorubaland and the diaspora as a warning against the arrogance of certainty. It teaches that Eshu's tricks are not merely mischief but profound lessons about the nature of reality.\n\nWhen we are certain that our perspective is the only truth, we risk losing everything that matters. The hat has two colors. The truth has many sides. Only those who can accept this wisdom can walk the crossroads without being lost.",
+    "keyExcerpts": "Eshu wore a hat that was red on one side and black on the other. Walking between two best friends, each saw a different color. Their argument over who was right destroyed their friendship until Eshu revealed that both were right - and both were wrong.",
+    "category": "trickster",
+    "moralThemes": ["perspective and truth", "dangers of certainty", "humility in perception", "the complexity of reality"],
+    "culturalSignificance": "This is one of the most widely told Eshu stories, used to teach the importance of humility and open-mindedness. It demonstrates Eshu's role not as a malicious trickster but as a teacher who uses chaos to reveal deeper truths. The story is particularly relevant in conflicts where both sides believe they possess the complete truth.",
+    "imageUrl": "/stories/eshu-two-friends.png",
+    "citationSources": [{"title": "Ifa Oral Tradition", "type": "primary"}, {"title": "Eshu-Elegba: The Yoruba Trickster God", "type": "secondary"}],
+    "featuredDeities": ["eshu"],
+    "relatedStories": ["yoruba-creation", "ogun-shango-contest"]
+  },
+  {
+    "id": "ogun-shango-contest",
+    "pantheonId": "african-pantheon",
+    "title": "The Contest Between Ogun and Shango",
+    "slug": "ogun-shango-contest",
+    "summary": "A tale of rivalry between two great Orishas - Ogun of iron and Shango of thunder - who compete for supremacy with unexpected results.",
+    "fullNarrative": "## Two Great Powers\n\nAmong all the Orishas, none were more powerful than **Ogun** and **Shango**. Ogun was the lord of iron, the divine blacksmith who had cleared the path from heaven to earth. Shango was the lord of thunder, the deified king who commanded lightning from the sky.\n\nFor a time, they respected each other's domains. Ogun ruled over metal and war on earth. Shango ruled over storms and justice from the sky. But pride, that old enemy of the mighty, began to whisper to both of them.\n\n'Who is the greater Orisha?' the question formed in both their minds.\n\n## The Challenge\n\nOne day, Shango could contain his pride no longer. He descended from the sky and found Ogun at his forge, hammering iron into weapons.\n\n'Ogun,' Shango declared, 'for too long you have claimed to be the greatest of warriors. But I am Shango. I wield lightning itself. No weapon you forge can match my power.'\n\nOgun set down his hammer and regarded Shango coolly. 'You mistake noise for power, king of thunder. Your lightning is impressive, but it is I who forged the tools that built civilization. I who cleared the path from heaven. Come, let us settle this.'\n\n## The Contest Begins\n\nThe two Orishas agreed to a series of contests to determine who was superior. All the other Orishas gathered to watch, along with the ancestors and the spirits of nature.\n\n> First, they competed in strength. They wrestled, they lifted great stones, they tore trees from the ground. But neither could overpower the other. They were equally matched.\n\nNext, they competed in destruction. Shango called down lightning bolts that shattered mountains. Ogun's iron weapons cut through stone like water. Again, neither proved superior.\n\nThey competed in speed, in endurance, in cunning. Every contest ended in a draw.\n\n## Oshun's Intervention\n\nAs the contest stretched on, it began to cause chaos in the world. The storms from Shango's lightning flooded the lands. The fires from Ogun's forge scorched the earth. The people below suffered while the great Orishas competed for glory.\n\n**Oshun**, who loved both Ogun and Shango (having been wife to each at different times), could not bear to see the destruction. She stepped between the two combatants, her beauty and power commanding their attention.\n\n'Stop this foolishness,' she said. 'Look at what your pride has wrought. The people below are suffering while you play games of ego.'\n\nOgun and Shango paused, looking down at the devastation they had caused. Shame touched their proud hearts.\n\n## The True Measure of Power\n\nOshun continued: 'You ask who is greater? Let me tell you the measure of true power. It is not in destruction but in creation. Not in domination but in service. The greatest Orisha is the one who brings the most good to the people who worship us.'\n\nShe gestured to Ogun. 'You gave humanity iron, which they use to farm and build. That is your greatness.'\n\nShe gestured to Shango. 'You bring rain for the crops and justice to the wicked. That is your greatness.'\n\n'You are both necessary. You are both powerful. But this contest has shown only that your pride can cause as much harm as your powers can cause good.'\n\n## The Resolution\n\nOgun and Shango stood in silence, considering Oshun's words. At last, Ogun spoke:\n\n'She is right. We have been fools.'\n\nShango nodded. 'Let there be no more contest between us. We serve different purposes, and both purposes are vital.'\n\nThey clasped hands in respect, if not friendship. The storm clouds parted. The fires died down. The world began to heal.\n\n## The Lesson\n\nFrom that day, while Ogun and Shango remained rivals in some ways, they no longer sought to prove one superior to the other. They understood that the Orishas, like all forces in nature, exist in balance. Iron and thunder, earth and sky, forge and storm - all are necessary.\n\nAnd when worshippers invoke both Ogun and Shango, they remember this story: that competition between the mighty can harm the world, and that true power lies not in domination but in fulfilling one's purpose in service to creation.",
+    "keyExcerpts": "Ogun of iron and Shango of thunder competed to prove who was the greater Orisha, their contest devastating the world below. Oshun intervened, teaching them that true power lies in service, not domination, and that both were necessary to the world.",
+    "category": "rivalry",
+    "moralThemes": ["pride and humility", "complementary powers", "service over domination", "balance in nature"],
+    "culturalSignificance": "This story illustrates the Yoruba understanding of balance between competing forces. Neither Ogun nor Shango is diminished by their draw - instead, both are revealed as essential. The story is often cited in discussions of healthy rivalry and the dangers of unchecked ego. Oshun's role as peacemaker highlights the feminine divine as a balancing force.",
+    "imageUrl": "/stories/ogun-shango-contest.png",
+    "citationSources": [{"title": "Yoruba Oral Tradition", "type": "primary"}],
+    "featuredDeities": ["ogun", "shango", "oshun"],
+    "relatedStories": ["shango-becomes-orisha", "oshun-saves-world"]
   }
 ]

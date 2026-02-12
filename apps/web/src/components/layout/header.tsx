@@ -10,6 +10,7 @@ import { motion } from 'framer-motion';
 import { MobileNav } from '@/components/layout/mobile-nav';
 import { MegaMenu } from '@/components/layout/mega-menu';
 import { QuickActions } from '@/components/layout/quick-actions';
+import { LanguageSwitcher } from '@/components/i18n/LanguageSwitcher';
 
 // Navigation structure for mobile
 export const mobileNavSections = [
@@ -152,6 +153,9 @@ export function Header() {
           >
             <Heart className="h-4 w-4" strokeWidth={1.5} />
           </Link>
+
+          {/* Language Switcher */}
+          <LanguageSwitcher />
 
           {/* Theme Toggle */}
           <ThemeToggle />

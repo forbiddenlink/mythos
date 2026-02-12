@@ -4,6 +4,12 @@
     "pantheonId": "greek-pantheon",
     "name": "Zeus",
     "slug": "zeus",
+    "originalLanguageName": {
+      "text": "Ζεύς",
+      "language": "Ancient Greek",
+      "transliteration": "Zeus",
+      "meaning": "Sky, shine (from Proto-Indo-European *dyeu-)"
+    },
     "alternateNames": [
       "Jupiter",
       "Jove"
@@ -39,6 +45,40 @@
         "date": "c. 750 BCE"
       }
     ],
+    "primarySourceExcerpts": [
+      {
+        "text": "Ζεὺς δ᾽ ἐπεὶ οὖν κατέπαυσε θεῶν χόλον ἠδὲ καὶ ἀνδρῶν, ἤτοι Κρονίδης ὕψιζυγος αἰθέρι ναίων βροντῇ τε στεροπῇ τε· τὰ γὰρ βέλη εἰσὶ Διός.",
+        "translation": "And Zeus, when he had stilled the wrath of gods and men, the high-throned Son of Cronos dwelling in the heavens with thunder and lightning—for these are the weapons of Zeus.",
+        "source": "Hesiod, Theogony",
+        "sourceId": "theogony",
+        "lineNumbers": "71-73",
+        "translator": "Hugh G. Evelyn-White",
+        "originalLanguage": "Ancient Greek"
+      },
+      {
+        "text": "πάτερ ἡμέτερε Κρονίδη, ὕπατε κρειόντων, εὖ νυ καὶ ἡμεῖς ἴδμεν ὅ τοι σθένος οὐκ ἐπιεικτόν.",
+        "translation": "Our father, son of Cronus, supreme ruler, we know well that your might is unyielding.",
+        "source": "Homer, Iliad",
+        "sourceId": "iliad",
+        "lineNumbers": "8.31-32",
+        "translator": "Richmond Lattimore",
+        "originalLanguage": "Ancient Greek"
+      }
+    ],
+    "furtherReading": [
+      {
+        "sourceId": "theogony",
+        "note": "The definitive genealogy of Zeus and his rise to power"
+      },
+      {
+        "sourceId": "mythology-hamilton",
+        "note": "Accessible modern retelling of Zeus myths"
+      },
+      {
+        "sourceId": "library-apollodorus",
+        "note": "Comprehensive catalog of Zeus's myths and offspring"
+      }
+    ],
     "crossPantheonParallels": [
       {
         "pantheonId": "roman-pantheon",
@@ -66,6 +106,12 @@
     "pantheonId": "greek-pantheon",
     "name": "Hera",
     "slug": "hera",
+    "originalLanguageName": {
+      "text": "Ἥρα",
+      "language": "Ancient Greek",
+      "transliteration": "Hera",
+      "meaning": "Lady, mistress (possibly from Proto-Greek)"
+    },
     "alternateNames": [
       "Juno"
     ],
@@ -87,6 +133,34 @@
     "originStory": "Hera was the eldest daughter of Cronus and Rhea, swallowed by Cronus at birth and later freed by Zeus. She became Zeus's wife after he courted her in the form of a cuckoo bird.",
     "importanceRank": 2,
     "imageUrl": "/deities/hera.png",
+    "primarySources": [
+      {
+        "text": "Hera, golden-throned queen, whom Rhea bare, immortal queen, the wife of Zeus who holds the aegis, sister and bedmate of loud-thundering Zeus.",
+        "source": "Homeric Hymn to Hera",
+        "date": "c. 650 BCE"
+      }
+    ],
+    "primarySourceExcerpts": [
+      {
+        "text": "Ἥρην δ᾽ ἀργυρόπεζα θεὰ λίπε νύξ τε καὶ ἦμαρ, ἦμος ὅτ᾽ ἀθανάτων τε καὶ ἀνδρῶν ἤρχετο μῦθος.",
+        "translation": "Hera of the silver sandals the goddess left not night nor day, from the time when she first began to rule over immortals and mortals.",
+        "source": "Homeric Hymn to Hera",
+        "sourceId": "homeric-hymns",
+        "lineNumbers": "1-3",
+        "translator": "Hugh G. Evelyn-White",
+        "originalLanguage": "Ancient Greek"
+      }
+    ],
+    "furtherReading": [
+      {
+        "sourceId": "iliad",
+        "note": "Hera's role in the Trojan War and conflicts with Zeus"
+      },
+      {
+        "sourceId": "library-apollodorus",
+        "note": "Comprehensive account of Hera's persecution of Heracles"
+      }
+    ],
     "pronunciation": {
       "ipa": "/ˈhɪərə/",
       "phonetic": "HEER-uh"
@@ -97,6 +171,12 @@
     "pantheonId": "greek-pantheon",
     "name": "Poseidon",
     "slug": "poseidon",
+    "originalLanguageName": {
+      "text": "Ποσειδῶν",
+      "language": "Ancient Greek",
+      "transliteration": "Poseidon",
+      "meaning": "Lord of the earth (from *potis 'husband, lord' + *da 'earth')"
+    },
     "alternateNames": [
       "Neptune"
     ],
@@ -204,6 +284,12 @@
     "pantheonId": "greek-pantheon",
     "name": "Athena",
     "slug": "athena",
+    "originalLanguageName": {
+      "text": "Ἀθηνᾶ",
+      "language": "Ancient Greek",
+      "transliteration": "Athena",
+      "meaning": "Unknown etymology; possibly pre-Greek"
+    },
     "alternateNames": [
       "Minerva",
       "Pallas Athena"
@@ -615,6 +701,12 @@
     "pantheonId": "norse-pantheon",
     "name": "Odin",
     "slug": "odin",
+    "originalLanguageName": {
+      "text": "Óðinn",
+      "language": "Old Norse",
+      "transliteration": "Odhinn",
+      "meaning": "Frenzy, inspiration, rage (from *wodanaz)"
+    },
     "alternateNames": [
       "Allfather",
       "Woden",
@@ -642,6 +734,47 @@
     "originStory": "Odin is the son of the primordial beings Borr and Bestla. Along with his brothers Vili and Ve, he slew the giant Ymir and created the world from his body.",
     "importanceRank": 1,
     "imageUrl": "/deities/odin.png",
+    "primarySources": [
+      {
+        "text": "I know that I hung on a windy tree nine long nights, wounded with a spear, dedicated to Odin, myself to myself, on that tree of which no man knows from where its roots run.",
+        "source": "Havamal, Poetic Edda",
+        "date": "c. 10th century CE"
+      }
+    ],
+    "primarySourceExcerpts": [
+      {
+        "text": "Veit ek, at ek hekk vindga meiði á nætr allar níu, geiri undaðr ok gefinn Óðni, sjálfr sjálfum mér, á þeim meiði, er manngi veit hvers af rótum renn.",
+        "translation": "I know that I hung on a windy tree nine long nights, wounded with a spear, dedicated to Odin, myself to myself, on that tree of which no man knows from where its roots run.",
+        "source": "Havamal, Poetic Edda",
+        "sourceId": "poetic-edda",
+        "lineNumbers": "138-141",
+        "translator": "Carolyne Larrington",
+        "originalLanguage": "Old Norse"
+      },
+      {
+        "text": "Huginn ok Muninn fljúga hverjan dag Jörmungrund yfir; óumk ek of Hugin, at hann aftr né komi-t, þó sjámk meirr of Munin.",
+        "translation": "Huginn and Muninn fly every day over the mighty earth. I fear for Huginn that he may not return, yet I am more anxious about Muninn.",
+        "source": "Grimnismal, Poetic Edda",
+        "sourceId": "poetic-edda",
+        "lineNumbers": "20",
+        "translator": "Henry Adams Bellows",
+        "originalLanguage": "Old Norse"
+      }
+    ],
+    "furtherReading": [
+      {
+        "sourceId": "poetic-edda",
+        "note": "Primary source for Odin's wisdom quest and the Havamal"
+      },
+      {
+        "sourceId": "prose-edda",
+        "note": "Snorri's systematic account of Norse cosmology and Odin's role"
+      },
+      {
+        "sourceId": "norse-mythology-crossley-holland",
+        "note": "Modern retelling accessible to contemporary readers"
+      }
+    ],
     "pronunciation": {
       "ipa": "/ˈoʊdɪn/",
       "phonetic": "OH-din"
@@ -652,6 +785,12 @@
     "pantheonId": "norse-pantheon",
     "name": "Thor",
     "slug": "thor",
+    "originalLanguageName": {
+      "text": "Þórr",
+      "language": "Old Norse",
+      "transliteration": "Thorr",
+      "meaning": "Thunder (from Proto-Germanic *Þunraz)"
+    },
     "alternateNames": [
       "Donar",
       "Thunder God"
@@ -1005,6 +1144,12 @@
     "pantheonId": "egyptian-pantheon",
     "name": "Ra",
     "slug": "ra",
+    "originalLanguageName": {
+      "text": "rꜥ",
+      "language": "Ancient Egyptian",
+      "transliteration": "Ra / Re",
+      "meaning": "Sun"
+    },
     "alternateNames": [
       "Re",
       "Ra-Horakhty",
@@ -1031,6 +1176,33 @@
     "originStory": "Ra emerged from the primordial waters of Nun at the dawn of creation, creating himself. He then created Shu (air) and Tefnut (moisture), establishing the cosmos.",
     "importanceRank": 1,
     "imageUrl": "/deities/ra.png",
+    "primarySources": [
+      {
+        "text": "Homage to thee, O Ra, at thy tremendous rising! Thou risest! Thou shinest! The heavens are rolled aside! Thou art the King of Gods, thou art the All-comprising.",
+        "source": "Book of the Dead, Hymn to Ra",
+        "date": "c. 1550-50 BCE"
+      }
+    ],
+    "primarySourceExcerpts": [
+      {
+        "text": "Worship of Ra when he rises in the eastern horizon of heaven. Hail to you, Ra, in your rising, Atum-Horakhty.",
+        "translation": "Worship of Ra when he rises in the eastern horizon of heaven. Hail to you, Ra, in your rising, Atum-Horakhty.",
+        "source": "Book of the Dead, Spell 15",
+        "sourceId": "book-of-the-dead",
+        "translator": "Raymond O. Faulkner",
+        "originalLanguage": "Ancient Egyptian (Hieroglyphic)"
+      }
+    ],
+    "furtherReading": [
+      {
+        "sourceId": "book-of-the-dead",
+        "note": "Contains hymns to Ra and descriptions of his nightly journey"
+      },
+      {
+        "sourceId": "pyramid-texts",
+        "note": "Earliest Egyptian religious texts mentioning Ra"
+      }
+    ],
     "pronunciation": {
       "ipa": "/rɑː/",
       "phonetic": "RAH"
@@ -1041,6 +1213,12 @@
     "pantheonId": "egyptian-pantheon",
     "name": "Osiris",
     "slug": "osiris",
+    "originalLanguageName": {
+      "text": "wsjr",
+      "language": "Ancient Egyptian",
+      "transliteration": "Usir / Wesir",
+      "meaning": "Powerful one (etymology debated)"
+    },
     "alternateNames": [
       "Usir",
       "Lord of the Perfect Black"
@@ -1897,6 +2075,12 @@
     "pantheonId": "hindu-pantheon",
     "name": "Vishnu",
     "slug": "vishnu",
+    "originalLanguageName": {
+      "text": "विष्णु",
+      "language": "Sanskrit",
+      "transliteration": "Vishnu",
+      "meaning": "The all-pervading one (from root 'vish' - to pervade)"
+    },
     "alternateNames": [
       "Narayana",
       "Hari",
@@ -1931,6 +2115,12 @@
     "pantheonId": "hindu-pantheon",
     "name": "Shiva",
     "slug": "shiva",
+    "originalLanguageName": {
+      "text": "शिव",
+      "language": "Sanskrit",
+      "transliteration": "Shiva",
+      "meaning": "The auspicious one"
+    },
     "alternateNames": [
       "Mahadeva",
       "Rudra",
@@ -2381,6 +2571,12 @@
     "pantheonId": "japanese-pantheon",
     "name": "Amaterasu",
     "slug": "amaterasu",
+    "originalLanguageName": {
+      "text": "天照大御神",
+      "language": "Japanese",
+      "transliteration": "Amaterasu-omikami",
+      "meaning": "Great Divinity Illuminating Heaven"
+    },
     "alternateNames": [
       "Amaterasu-omikami"
     ],
@@ -2873,23 +3069,48 @@
     "slug": "jade-emperor",
     "alternateNames": [
       "Yu Huang",
-      "Yu Di"
+      "Yu Di",
+      "Yu Huang Shangdi",
+      "Heavenly Grandfather"
     ],
     "gender": "male",
     "domain": [
       "heaven",
       "order",
       "bureaucracy",
-      "justice"
+      "justice",
+      "sovereignty"
     ],
     "symbols": [
       "imperial robes",
-      "jade tablet"
+      "jade tablet",
+      "dragon throne",
+      "twelve-tiered crown"
     ],
-    "description": "The supreme ruler of Heaven and the first emperor of China in myth. He governs the cosmos and organizes the celestial bureaucracy.",
-    "originStory": "After eons of cultivation and cultivation of Tao, he ascended to become the supreme sovereign of the universe.",
+    "description": "The supreme ruler of Heaven and lord of all gods. He governs the cosmos through a vast celestial bureaucracy, determining the fate of mortals and immortals alike.",
+    "detailedBio": "## The Sovereign of Heaven\n\nThe Jade Emperor (Yu Huang) reigns supreme over the entire Chinese pantheon from his magnificent palace in Heaven. Unlike many supreme deities who rule through raw power, the Jade Emperor governs through an elaborate celestial bureaucracy that mirrors the imperial Chinese government on Earth. He presides over ministries of thunder, rain, fire, and pestilence, promoting or demoting gods based on their performance.\n\n### The Long Path to Sovereignty\n\nAccording to Taoist tradition, the Jade Emperor was originally a mortal prince who renounced his throne to cultivate the Tao in the mountains. Over 1,750 kalpas (each kalpa lasting 129,600 years), he practiced virtue and meditation, eventually attaining supreme enlightenment and ascending to rule Heaven. His journey emphasizes the Taoist ideal that even the highest divinity is achieved through moral cultivation.\n\n### The Celestial Court\n\nThe Jade Emperor holds court in the Lingxiao Palace ('Palace of the Numinous Sky'), surrounded by celestial officials, warriors, and servants. He receives reports from the Kitchen God on each household's behavior, consults with the Dragon Kings about rainfall, and dispatches thunder deities to punish the wicked. Every soul's fate passes through his court.\n\n### In Popular Worship\n\nThe Jade Emperor's birthday on the ninth day of the first lunar month is one of the most important festivals in Chinese folk religion. Families burn incense and paper offerings, and temples hold elaborate ceremonies. Despite his supreme status, he is approachable through prayer, especially when seeking justice or divine intervention in worldly affairs.",
+    "originStory": "In the primordial age, a prince of the Blessed Kingdom of Pure Felicity renounced his throne to cultivate the Tao. Through 1,750 kalpas of moral cultivation and 3,000 tribulations, he achieved complete enlightenment and became worthy to rule Heaven.",
     "importanceRank": 1,
     "imageUrl": "/deities/jade-emperor.png",
+    "primarySources": [
+      {
+        "text": "The Jade Emperor in his Lingxiao Palace rules the three realms of Heaven, Earth, and the Underworld.",
+        "source": "Journey to the West",
+        "date": "1592 CE"
+      }
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "greek-pantheon",
+        "deityId": "zeus",
+        "note": "Both are supreme rulers of their respective pantheons who govern from celestial palaces, though the Jade Emperor rules through bureaucracy rather than direct power"
+      },
+      {
+        "pantheonId": "hindu-pantheon",
+        "deityId": "indra",
+        "note": "Indra as king of the Devas parallels the Jade Emperor's role as king of the celestial realm"
+      }
+    ],
     "pronunciation": {
       "ipa": "/dʒeɪd ˈɛmpərər/",
       "phonetic": "JAYD EM-per-ur"
@@ -2902,23 +3123,49 @@
     "slug": "sun-wukong",
     "alternateNames": [
       "Monkey King",
-      "Great Sage Equal to Heaven"
+      "Great Sage Equal to Heaven",
+      "Victorious Fighting Buddha",
+      "Beautiful Monkey King"
     ],
     "gender": "male",
     "domain": [
       "trickery",
       "strength",
       "fighting",
-      "rebellion"
+      "rebellion",
+      "transformation",
+      "immortality"
     ],
     "symbols": [
-      "golden staff",
-      "circlet"
+      "Ruyi Jingu Bang (golden cudgel)",
+      "golden fillet (headband)",
+      "cloud-walking boots",
+      "phoenix-feather cap"
     ],
-    "description": "A monkey born from stone who acquired supernatural powers through Taoist practices. He rebelled against heaven and later accompanied monk Tang Sanzang on a journey to the West.",
-    "originStory": "Born from a magic stone on the Mountain of Flowers and Fruit. He learned the way of immortality and wreaked havoc in Heaven until subdued by Buddha.",
+    "description": "A monkey born from a magical stone who acquired supernatural powers through Taoist cultivation. After wreaking havoc in Heaven, he was imprisoned for 500 years before redeeming himself as the protector of the monk Tang Sanzang on the journey to retrieve Buddhist scriptures.",
+    "detailedBio": "## The Great Sage Equal to Heaven\n\nSun Wukong is China's most beloved mythological figure, a trickster hero who combines irreverent rebellion with ultimate redemption. Born from a stone egg nourished by heaven and earth, he embodies the tension between chaos and order, individual freedom and cosmic duty.\n\n### The Stone Monkey's Rise\n\nOn the Mountain of Flowers and Fruit, a stone egg exposed to the five elements for eons hatched into a stone monkey of extraordinary intelligence. He became king of the monkeys and, fearing death, journeyed to find the secret of immortality. Under the Taoist master Subhuti, he learned the 72 transformations (allowing him to change into any form) and cloud-somersaulting (traveling 108,000 li in one leap).\n\n### Havoc in Heaven\n\nArmed with the Ruyi Jingu Bang (a 13,500-pound pillar from the Dragon King's palace that could shrink to the size of a needle), Wukong erased his name from the Book of Life and Death, making himself truly immortal. When Heaven tried to contain him with minor posts, he declared himself 'Great Sage Equal to Heaven' and battled the entire celestial army. Even the Jade Emperor's forces could not defeat him.\n\n### Buddha's Wager\n\nFinally, the Buddha himself intervened. He bet Wukong could not leap out of his palm. Wukong somersaulted to what he thought was the edge of the universe, only to discover the 'five pillars' he found were Buddha's fingers. He was imprisoned under Five Elements Mountain for 500 years.\n\n### The Journey West\n\nReleased by the bodhisattva Guanyin, Wukong pledged to protect Tang Sanzang on the pilgrimage to India. A golden fillet on his head caused excruciating pain when the monk recited a sutra, keeping the wild monkey in check. Through 81 tribulations, Wukong's fierce loyalty and combat prowess saved his master repeatedly. At journey's end, he achieved Buddhahood as the 'Victorious Fighting Buddha.'\n\n### Legacy\n\nSun Wukong represents the untamed human spirit that must be disciplined through spiritual practice. His journey from rebel to Buddha mirrors the path of enlightenment: raw potential refined through hardship into wisdom.",
+    "originStory": "On the Mountain of Flowers and Fruit, a magical stone nourished by heaven and earth for eons produced a stone egg. When the wind blew upon it, the egg transformed into a stone monkey with golden eyes. This monkey would become Sun Wukong, the Great Sage Equal to Heaven.",
     "importanceRank": 1,
     "imageUrl": "/deities/sun-wukong.png",
+    "primarySources": [
+      {
+        "text": "My name is Sun Wukong. I was born of Heaven and Earth, nourished by the sun and moon, formed by the creative essence of the universe!",
+        "source": "Journey to the West, Chapter 1",
+        "date": "1592 CE"
+      }
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "hindu-pantheon",
+        "deityId": "hanuman",
+        "note": "Both are monkey heroes of immense strength and devotion. Some scholars suggest Hanuman may have influenced Sun Wukong's character"
+      },
+      {
+        "pantheonId": "norse-pantheon",
+        "deityId": "loki",
+        "note": "Both are trickster figures who rebel against cosmic order and use shape-shifting abilities"
+      }
+    ],
     "pronunciation": {
       "ipa": "/suːn wuːˈkɒŋ/",
       "phonetic": "SOON woo-KONG"
@@ -2930,27 +3177,613 @@
     "name": "Guanyin",
     "slug": "guanyin",
     "alternateNames": [
-      "Avalokitesvara"
+      "Avalokiteshvara",
+      "Kannon (Japanese)",
+      "Quan Am (Vietnamese)",
+      "Goddess of Mercy"
     ],
     "gender": "female",
     "domain": [
       "mercy",
       "compassion",
       "healing",
-      "children"
+      "children",
+      "sailors",
+      "protection"
     ],
     "symbols": [
       "willow branch",
       "vase of pure water",
-      "lotus"
+      "lotus",
+      "white robes",
+      "thousand arms"
     ],
-    "description": "The Bodhisattva of Compassion who hears the cries of the world. Revered as a goddess of mercy who helps all beings.",
-    "originStory": "Originally a male Bodhisattva in India, transformed into a female figure in China representing the motherly aspect of compassion.",
+    "description": "The Bodhisattva of Compassion who hears the cries of all beings in the world. She is one of the most beloved deities in East Asian Buddhism, embodying unconditional mercy and the motherly aspect of divine love.",
+    "detailedBio": "## She Who Hears the Cries of the World\n\nGuanyin is the most widely venerated bodhisattva in East Asian Buddhism, worshipped by millions across China, Japan, Korea, and Vietnam. Her name means 'One Who Perceives the Sounds [Cries] of the World,' reflecting her boundless compassion for all suffering beings.\n\n### From Male to Female\n\nOriginally the male bodhisattva Avalokiteshvara in Indian Buddhism, Guanyin transformed into a female figure in China by the Song dynasty (960-1279 CE). This transformation allowed her to embody maternal compassion and made her more accessible to women, who prayed to her for children, protection, and mercy. Her gender fluidity reflects the Buddhist teaching that enlightened beings transcend worldly distinctions.\n\n### The Vow of Compassion\n\nAccording to legend, Guanyin was about to enter Nirvana when she heard the cries of suffering beings. She vowed to remain in the world until all beings are liberated, postponing her own final enlightenment out of compassion. This selfless vow makes her the model of Mahayana Buddhist compassion.\n\n### The Thousand Arms\n\nOne popular form shows Guanyin with a thousand arms, each with an eye in the palm, representing her ability to see and reach out to all beings in distress. She is also depicted riding a dragon, standing on a lotus, or holding a child for women praying for offspring.\n\n### Journey to the West\n\nIn the classic novel, Guanyin orchestrates the entire pilgrimage, selecting Tang Sanzang for the mission and providing Sun Wukong with the golden fillet that keeps him obedient. She appears repeatedly to rescue the pilgrims, demonstrating the Buddhist principle of compassionate intervention.\n\n### Popular Worship\n\nGuanyin is worshipped both in Buddhist temples and home shrines. Pregnant women, fishermen, and those in danger especially seek her protection. The 19th day of the second, sixth, and ninth lunar months are sacred to her. Putuo Mountain in Zhejiang Province is her primary pilgrimage site.",
+    "originStory": "The bodhisattva Avalokiteshvara attained enlightenment but postponed entering Nirvana upon hearing the suffering cries of the world. Vowing to save all beings before accepting final liberation, she took the form of Guanyin and remains accessible to all who call upon her name.",
     "importanceRank": 1,
     "imageUrl": "/deities/guanyin.png",
+    "primarySources": [
+      {
+        "text": "If there be countless hundreds of thousands of beings suffering pain, and they hear of Bodhisattva Guanyin and single-mindedly call her name, Guanyin will immediately hear their voices and rescue them.",
+        "source": "Lotus Sutra, Chapter 25",
+        "date": "~1st century CE"
+      }
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "hindu-pantheon",
+        "deityId": "avalokiteshvara",
+        "note": "Guanyin is the Chinese form of the Indian bodhisattva Avalokiteshvara, transformed from male to female"
+      },
+      {
+        "pantheonId": "greek-pantheon",
+        "deityId": "hestia",
+        "note": "Both are gentle, compassionate deities who offer protection and are associated with the domestic sphere"
+      }
+    ],
     "pronunciation": {
       "ipa": "/ɡwɑːnˈjɪn/",
       "phonetic": "gwahn-YIN"
+    }
+  },
+  {
+    "id": "nezha",
+    "pantheonId": "chinese-pantheon",
+    "name": "Nezha",
+    "slug": "nezha",
+    "alternateNames": [
+      "Na Zha",
+      "Third Lotus Prince",
+      "Marshal of the Central Altar"
+    ],
+    "gender": "male",
+    "domain": [
+      "war",
+      "protection",
+      "youth",
+      "filial defiance"
+    ],
+    "symbols": [
+      "Universe Ring",
+      "Wind Fire Wheels",
+      "Red Armillary Sash",
+      "Fire-Tipped Spear"
+    ],
+    "description": "A fierce child warrior deity born after three years and six months of pregnancy. He killed a dragon prince, defied his father, and was reborn from lotus flowers to become one of Heaven's greatest warriors.",
+    "detailedBio": "## The Rebellious Lotus Prince\n\nNezha is one of Chinese mythology's most compelling figures: a child warrior whose story encompasses birth, filial rebellion, suicide, resurrection, and ultimate redemption. He represents both the terrifying power of youthful defiance and its eventual reconciliation with cosmic order.\n\n### The Extraordinary Birth\n\nLi Jing, a military commander, and his wife Lady Yin conceived a child who remained in the womb for three years and six months. When he was finally born, he emerged as a ball of flesh. Thinking it a demon, Li Jing struck it with his sword, and out sprang a fully-formed boy wearing golden bracelets and a red silk sash - gifts from the immortal Taiyi Zhenren, who became his master.\n\n### The Dragon Prince\n\nAt age seven, Nezha went to bathe in the Eastern Sea and accidentally disrupted the Dragon King's palace. When the Dragon King's third son Ao Bing attacked him, Nezha killed the dragon prince and stripped his tendons to make a belt for his father. The enraged Dragon King demanded justice from the Jade Emperor.\n\n### Sacrifice and Rebirth\n\nFacing the threat of his entire family's execution, Nezha committed suicide to spare them. His master Taiyi Zhenren collected his spirit and reconstructed his body from lotus flowers, giving him a new form neither fully human nor spirit. This lotus body made him immortal and even more powerful.\n\n### The Conflict with His Father\n\nReborn, Nezha confronted his father who had destroyed his temple. Their battle was interrupted by the Buddha and the immortal Randeng, who reconciled them. Nezha went on to serve as a commander in the war against the demons during the Investiture of the Gods.\n\n### Cultural Significance\n\nNezha embodies the tension between filial piety (the greatest Confucian virtue) and individual righteousness. His story asks: what happens when a child must defy a father to do what is right? This question resonates deeply in Chinese culture.",
+    "originStory": "Lady Yin was pregnant for three years and six months before giving birth to a ball of flesh. When her husband Li Jing struck it with his sword, a boy emerged wearing golden bracelets and a red sash - divine gifts marking him as no ordinary child.",
+    "importanceRank": 2,
+    "imageUrl": "/deities/nezha.png",
+    "primarySources": [
+      {
+        "text": "I return my flesh to my mother, my bones to my father. Now I owe them nothing!",
+        "source": "Fengshen Yanyi (Investiture of the Gods)",
+        "date": "16th century CE"
+      }
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "greek-pantheon",
+        "deityId": "ares",
+        "note": "Both are war deities known for fierce tempers, though Nezha is more sympathetic as a child warrior"
+      },
+      {
+        "pantheonId": "hindu-pantheon",
+        "deityId": "kartikeya",
+        "note": "Both are young warrior gods who command divine armies"
+      }
+    ],
+    "pronunciation": {
+      "ipa": "/nəˈʒɑː/",
+      "phonetic": "nuh-ZHAH"
+    }
+  },
+  {
+    "id": "erlang-shen",
+    "pantheonId": "chinese-pantheon",
+    "name": "Erlang Shen",
+    "slug": "erlang-shen",
+    "alternateNames": [
+      "Yang Jian",
+      "Lord of Sichuan",
+      "True Lord Erlang"
+    ],
+    "gender": "male",
+    "domain": [
+      "war",
+      "water",
+      "engineering",
+      "truth"
+    ],
+    "symbols": [
+      "three-pointed double-edged lance",
+      "third eye",
+      "celestial hound Xiaotian",
+      "armor"
+    ],
+    "description": "A powerful warrior god with a truth-seeing third eye, nephew of the Jade Emperor. He is famed for defeating Sun Wukong in combat and for controlling floods.",
+    "detailedBio": "## The Third-Eyed Truth Seer\n\nErlang Shen is one of Heaven's greatest warriors, distinguished by the all-seeing third eye in the center of his forehead. He serves the Jade Emperor but maintains a complicated relationship with the celestial court due to his mother's forbidden marriage to a mortal.\n\n### Divine Parentage\n\nErlang Shen's mother was the Jade Emperor's sister, who fell in love with a mortal scholar named Yang Tianyou. For violating celestial law, she was imprisoned under Peach Mountain. Erlang Shen grew to become a mighty warrior and eventually rescued his mother by splitting the mountain with his axe - only to repeat history when his own sister fell in love with a mortal (the story of Liu Chenxiang).\n\n### The Battle with Sun Wukong\n\nWhen Sun Wukong rebelled against Heaven, Erlang Shen was dispatched to capture him. Their legendary duel involved countless transformations, with each matching the other's shape-shifting abilities. Erlang Shen's third eye could see through Wukong's disguises, and with help from Laozi's diamond snare, he finally captured the Monkey King. This battle is one of the most celebrated in Chinese literature.\n\n### The Third Eye\n\nErlang Shen's third eye can see through any illusion, deception, or transformation. This ability represents divine truth that penetrates worldly appearances. His eye can also project destructive energy, making it both a tool of insight and a weapon.\n\n### Flood Control\n\nBeyond warfare, Erlang Shen is worshipped as a patron of irrigation and flood control. According to Sichuan legend, he tamed the waters by chaining troublesome dragons and directing rivers. The Dujiangyan Irrigation System, an ancient engineering marvel, is associated with his worship.",
+    "originStory": "Born of the Jade Emperor's sister and a mortal scholar, Erlang Shen grew up knowing his mother was imprisoned under a mountain for her forbidden love. He trained with immortal masters, developed his third eye, and eventually freed his mother by splitting Peach Mountain with his divine axe.",
+    "importanceRank": 2,
+    "imageUrl": "/deities/erlang-shen.png",
+    "primarySources": [
+      {
+        "text": "True Lord Erlang, with his celestial hound and truth-seeing eye, was the only warrior of Heaven who could match the Great Sage.",
+        "source": "Journey to the West",
+        "date": "1592 CE"
+      }
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "hindu-pantheon",
+        "deityId": "shiva",
+        "note": "Both possess a powerful third eye that sees truth and can unleash destructive power"
+      },
+      {
+        "pantheonId": "greek-pantheon",
+        "deityId": "heracles",
+        "note": "Both are semi-divine warriors of immense strength who serve the king of the gods"
+      }
+    ],
+    "pronunciation": {
+      "ipa": "/ɜːrˈlɑːŋ ˈʃɛn/",
+      "phonetic": "er-LAHNG SHEN"
+    }
+  },
+  {
+    "id": "chang-e",
+    "pantheonId": "chinese-pantheon",
+    "name": "Chang'e",
+    "slug": "chang-e",
+    "alternateNames": [
+      "Lady in the Moon",
+      "Moon Goddess",
+      "Heng'e"
+    ],
+    "gender": "female",
+    "domain": [
+      "moon",
+      "beauty",
+      "immortality",
+      "loneliness"
+    ],
+    "symbols": [
+      "moon",
+      "jade rabbit",
+      "elixir of immortality",
+      "osmanthus tree"
+    ],
+    "description": "The goddess of the moon who lives in the Lunar Palace. She became immortal after drinking an elixir meant for her husband Hou Yi, and now dwells eternally on the moon with only a jade rabbit for company.",
+    "detailedBio": "## The Lady in the Moon\n\nChang'e is the solitary goddess of the moon, forever separated from her beloved husband, the archer Hou Yi. Her story is one of Chinese mythology's most poignant tales, exploring themes of sacrifice, immortality, and eternal loneliness.\n\n### The Archer's Wife\n\nChang'e was the beautiful wife of Hou Yi, the divine archer who saved the world by shooting down nine of the ten suns that threatened to scorch the earth. For this heroic act, the Jade Emperor stripped Hou Yi and Chang'e of their immortality and banished them to live as mortals.\n\n### The Elixir of Immortality\n\nDesperate to regain their immortality, Hou Yi journeyed to the Queen Mother of the West (Xi Wangmu) on Mount Kunlun. She gave him a single dose of the elixir of immortality - enough for two people to live forever, or enough for one person to ascend to Heaven.\n\n### The Fateful Choice\n\nWhat happened next varies by version. In some tellings, Chang'e selfishly stole the elixir when Hou Yi was away. In others, she swallowed it to prevent it from falling into the hands of Hou Yi's treacherous apprentice Feng Meng. In the most sympathetic version, she sacrificed her chance at shared immortality with her husband to prevent a wicked man from gaining divine power.\n\n### Eternal Isolation\n\nAfter drinking the entire elixir, Chang'e floated up to the moon, where she has dwelled ever since in the Cold Lunar Palace. Her only companions are the Jade Rabbit (who endlessly pounds the elixir of immortality in a mortar) and Wu Gang (who eternally chops at a self-healing osmanthus tree). She gazes down at the earth, forever separated from her husband.\n\n### The Mid-Autumn Festival\n\nOn the fifteenth day of the eighth lunar month, when the moon is fullest, the Chinese celebrate the Mid-Autumn Festival. Families gather to eat mooncakes, admire the full moon, and remember Chang'e. It is said that Hou Yi would set out fruits and cakes as offerings to his wife, gazing up at the moon where she dwells.",
+    "originStory": "Chang'e was the beautiful wife of the archer Hou Yi. When the Queen Mother of the West gave her husband a single dose of the elixir of immortality, Chang'e drank it all and floated up to the moon, where she has lived in solitude ever since.",
+    "importanceRank": 2,
+    "imageUrl": "/deities/chang-e.png",
+    "primarySources": [
+      {
+        "text": "Chang'e regretted stealing the magic elixir. Night after night, she gazed at the blue sea and blue sky, her heart full of loneliness.",
+        "source": "Huainanzi",
+        "date": "139 BCE"
+      }
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "greek-pantheon",
+        "deityId": "artemis",
+        "note": "Both are moon goddesses associated with beauty and isolation"
+      },
+      {
+        "pantheonId": "japanese-pantheon",
+        "deityId": "tsukuyomi",
+        "note": "Both are moon deities living in eternal isolation from a former companion"
+      }
+    ],
+    "pronunciation": {
+      "ipa": "/tʃɑːŋˈə/",
+      "phonetic": "chahng-UH"
+    }
+  },
+  {
+    "id": "guan-yu",
+    "pantheonId": "chinese-pantheon",
+    "name": "Guan Yu",
+    "slug": "guan-yu",
+    "alternateNames": [
+      "Lord Guan",
+      "Guan Di",
+      "God of War",
+      "Guan Gong"
+    ],
+    "gender": "male",
+    "domain": [
+      "war",
+      "loyalty",
+      "righteousness",
+      "brotherhood",
+      "protection"
+    ],
+    "symbols": [
+      "Green Dragon Crescent Blade (guandao)",
+      "red face",
+      "long black beard",
+      "green robe"
+    ],
+    "description": "A deified historical general from the Three Kingdoms period, worshipped as the God of War and patron of righteousness, loyalty, and brotherhood. His red face symbolizes his intense devotion to honor.",
+    "detailedBio": "## The God of Righteousness\n\nGuan Yu is the rare deity who was once a historical person. A general during the turbulent Three Kingdoms period (220-280 CE), his extraordinary loyalty and martial prowess led to his deification. Today he is worshipped across Chinese culture as the god of war, loyalty, and righteousness.\n\n### The Sworn Brotherhood\n\nIn the famous Peach Garden Oath, Guan Yu swore eternal brotherhood with Liu Bei and Zhang Fei, vowing 'Though we were not born on the same day, we hope to die on the same day.' This oath became the model of loyalty and brotherhood in Chinese culture. Guan Yu's unwavering devotion to Liu Bei, even when offered wealth and status by enemy lords, made him the exemplar of yi (righteousness).\n\n### The Red-Faced Warrior\n\nGuan Yu is always depicted with a red face, symbolizing his loyal and righteous character (red representing devotion). His magnificent long black beard, which he would stroke before battle, earned him the nickname 'Lord of the Beautiful Beard.' He wielded the Green Dragon Crescent Blade, a massive guandao weighing 82 jin (about 45 kg).\n\n### Deification\n\nAfter his death, Guan Yu was gradually deified over centuries. Buddhist monks claimed he had converted and become a dharma protector. Taoist priests incorporated him as a celestial marshal. By the Ming dynasty, emperors officially elevated him to divine status. He was eventually titled 'Holy Emperor Lord Guan, Subduer of Demons of the Three Worlds and All Places, Miraculous Warrior.'\n\n### Modern Worship\n\nGuan Yu is worshipped by seemingly contradictory groups: police and criminals alike venerate him for his code of honor. He is the patron deity of martial artists, soldiers, merchants (for his honesty), and accountants. In Hong Kong, nearly every shop has a shrine to Guan Di for protection and prosperity.",
+    "originStory": "Guan Yu (160-220 CE) was a general during the Three Kingdoms period who served the warlord Liu Bei with legendary loyalty. After his death in battle, his spirit was gradually elevated through Buddhist, Taoist, and imperial recognition until he became one of China's most widely worshipped gods.",
+    "importanceRank": 2,
+    "imageUrl": "/deities/guan-yu.png",
+    "primarySources": [
+      {
+        "text": "We three, though of different surnames, join in brotherhood. We shall rescue the common people and serve the nation. We dare not hope to be together always, but we swear to die on the same day.",
+        "source": "Romance of the Three Kingdoms",
+        "date": "14th century CE"
+      }
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "greek-pantheon",
+        "deityId": "ares",
+        "note": "Both are gods of war, though Guan Yu is also strongly associated with honor and loyalty"
+      },
+      {
+        "pantheonId": "norse-pantheon",
+        "deityId": "tyr",
+        "note": "Both are warrior gods especially associated with honor, oaths, and righteous combat"
+      }
+    ],
+    "pronunciation": {
+      "ipa": "/ɡwɑːn juː/",
+      "phonetic": "GWAHN YOO"
+    }
+  },
+  {
+    "id": "zao-jun",
+    "pantheonId": "chinese-pantheon",
+    "name": "Zao Jun",
+    "slug": "zao-jun",
+    "alternateNames": [
+      "Kitchen God",
+      "Zao Shen",
+      "Stove Master"
+    ],
+    "gender": "male",
+    "domain": [
+      "kitchen",
+      "hearth",
+      "family",
+      "domestic harmony"
+    ],
+    "symbols": [
+      "stove",
+      "paper image",
+      "sweet offerings",
+      "honey"
+    ],
+    "description": "The domestic deity who resides in the kitchen and reports on each household's conduct to the Jade Emperor at the end of each year. Families make sweet offerings to ensure his favorable report.",
+    "detailedBio": "## The Watchful Hearth Guardian\n\nZao Jun, the Kitchen God, is perhaps the most intimate deity in Chinese folk religion. He resides in every kitchen, observing the daily life of the family and keeping record of their deeds. His annual report to the Jade Emperor determines the household's fortune for the coming year.\n\n### The Watchman in Every Home\n\nUnlike remote celestial deities, Zao Jun lives among the people. A paper image of him is placed above the stove in traditional Chinese homes, where he witnesses all family activities - arguments, reconciliations, acts of kindness, and moments of cruelty. Nothing escapes his notice.\n\n### Origin Stories\n\nSeveral stories explain Zao Jun's origins. In one popular tale, Zhang Lang abandoned his virtuous wife for another woman. After his second wife abandoned him and he went blind, he became a beggar. Unknowingly, he came to his first wife's door. She recognized him and cooked him a meal. When he realized whose kindness had saved him, he was so ashamed he threw himself into the stove. Taking pity, the Jade Emperor made him the Kitchen God.\n\n### The Annual Report\n\nOn the 23rd day of the twelfth lunar month, Zao Jun ascends to Heaven to report to the Jade Emperor. To ensure a favorable report, families smear honey or sweet sticky rice on the paper god's lips - either to sweeten his words or to seal them shut. They then burn the paper image, sending him heavenward. On New Year's Eve, a new image is pasted up to welcome him back.\n\n### Cultural Significance\n\nZao Jun represents the integration of religion with daily life in traditional Chinese culture. He embodies the belief that divine observation extends into the most private domestic spaces, encouraging moral behavior through constant awareness of spiritual scrutiny.",
+    "originStory": "Zhang Lang, having abandoned his virtuous wife, fell into ruin and became a blind beggar. When his first wife showed him kindness, he was so ashamed he threw himself into the cooking fire. The Jade Emperor, moved by the story, appointed him guardian of all kitchens.",
+    "importanceRank": 3,
+    "imageUrl": "/deities/zao-jun.png",
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "greek-pantheon",
+        "deityId": "hestia",
+        "note": "Both are hearth deities associated with domestic life and the sacred fire of the home"
+      },
+      {
+        "pantheonId": "roman-pantheon",
+        "deityId": "vesta",
+        "note": "Both protect the household and are associated with the hearth fire"
+      }
+    ],
+    "pronunciation": {
+      "ipa": "/dzaʊ dʒuːn/",
+      "phonetic": "DZOW JOON"
+    }
+  },
+  {
+    "id": "lei-gong",
+    "pantheonId": "chinese-pantheon",
+    "name": "Lei Gong",
+    "slug": "lei-gong",
+    "alternateNames": [
+      "Duke of Thunder",
+      "Lei Shen",
+      "Master of Thunder"
+    ],
+    "gender": "male",
+    "domain": [
+      "thunder",
+      "punishment",
+      "justice",
+      "storms"
+    ],
+    "symbols": [
+      "drum and mallet",
+      "bird beak and claws",
+      "blue skin",
+      "wings"
+    ],
+    "description": "The god of thunder who punishes evildoers and hidden crimes with his thunderbolts. He appears as a fearsome creature with a bird's beak, claws, and blue skin, carrying drums that create thunder.",
+    "detailedBio": "## The Thundering Punisher\n\nLei Gong is the terrifying god of thunder, charged with punishing evil and executing divine justice. His thunder announces the wrath of Heaven against those whose crimes have escaped human judgment.\n\n### Fearsome Appearance\n\nLei Gong is depicted as a frightening hybrid creature: he has blue or black skin, the beak of a rooster, eagle claws, and bat wings. He carries drums strapped to his body, and with his mallets creates the thunder that shakes the heavens. His appearance is meant to terrify evildoers into righteousness.\n\n### The Ministry of Thunder\n\nLei Gong works within the celestial bureaucracy as head of the Ministry of Thunder. He receives orders from the Jade Emperor specifying who should be punished. He is assisted by Dian Mu (Mother of Lightning), who uses her mirrors to illuminate hidden sinners so Lei Gong can strike them accurately. Yun Zhongjun (Cloud Master) and Yu Shi (Rain Master) also work alongside him.\n\n### Divine Justice\n\nLei Gong's primary function is to punish crimes that escape human justice - secret murders, unfilial children, and those who cheat the gods. Those struck by lightning are presumed guilty of some hidden crime. However, Lei Gong is not infallible; stories tell of him accidentally striking innocent people and having to make amends.\n\n### Popular Tales\n\nIn one famous story, Lei Gong was captured by a mortal who tied him up. The man's son fed Lei Gong water, allowing the thunder god to escape. In gratitude, Lei Gong gave the boy a seed that grew into a giant gourd. When the great flood came, the boy and his sister survived in the gourd, becoming the ancestors of humanity.",
+    "originStory": "Lei Gong was appointed by the Jade Emperor to administer divine punishment through thunder. He beats his cosmic drums to create thunder and hurls thunderbolts at evildoers, working with the Ministry of Thunder to maintain cosmic justice.",
+    "importanceRank": 3,
+    "imageUrl": "/deities/lei-gong.png",
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "greek-pantheon",
+        "deityId": "zeus",
+        "note": "Both wield thunderbolts as instruments of divine justice"
+      },
+      {
+        "pantheonId": "norse-pantheon",
+        "deityId": "thor",
+        "note": "Both are thunder gods who create storms, though Thor is more of a warrior than a punisher"
+      }
+    ],
+    "pronunciation": {
+      "ipa": "/leɪ ɡɒŋ/",
+      "phonetic": "LAY GONG"
+    }
+  },
+  {
+    "id": "mazu",
+    "pantheonId": "chinese-pantheon",
+    "name": "Mazu",
+    "slug": "mazu",
+    "alternateNames": [
+      "Tianhou",
+      "Empress of Heaven",
+      "Lin Moniang",
+      "Goddess of the Sea"
+    ],
+    "gender": "female",
+    "domain": [
+      "sea",
+      "sailors",
+      "fishermen",
+      "protection",
+      "storms"
+    ],
+    "symbols": [
+      "red robes",
+      "imperial crown",
+      "sea",
+      "red lanterns"
+    ],
+    "description": "The goddess of the sea and protector of sailors, fishermen, and all who travel by water. Originally a human girl from Fujian Province with miraculous powers, she was deified after her death.",
+    "detailedBio": "## The Heavenly Empress of the Sea\n\nMazu is the most important sea goddess in Chinese coastal religion, worshipped by millions of fishermen, sailors, and coastal communities across East and Southeast Asia. Her origins as a historical woman from Fujian Province make her one of the most relatable deities in the Chinese pantheon.\n\n### The Historical Lin Moniang\n\nAccording to tradition, Mazu was born as Lin Moniang in 960 CE in Meizhou Island, Fujian Province. She was born silent and did not cry for a month, so she was named 'Silent Girl' (Mo = silent, Niang = girl). From childhood, she displayed supernatural abilities, including the power to calm storms and predict weather.\n\n### The Miraculous Rescue\n\nThe most famous story tells how Lin Moniang, while in a trance, spiritually projected herself to save her father and brothers from a storm at sea. Her mother, seeing her unresponsive, shook her awake - causing her to 'drop' one brother, who drowned. In other versions, she walked on clouds or across the water itself to guide ships to safety.\n\n### Deification\n\nLin Moniang died young (around age 27-28) under mysterious circumstances - some say she ascended to heaven from Meizhou Peak, others that she died peacefully. Shortly after, sailors began reporting miraculous rescues by a woman in red who calmed storms. The Song Emperor officially recognized her as a goddess in 1123 CE, and subsequent emperors elevated her status further.\n\n### Global Influence\n\nFrom her origins in Fujian, Mazu worship spread with Chinese maritime traders to Taiwan (where she is the most important deity), Southeast Asia, Japan, and beyond. Today there are over 1,500 Mazu temples worldwide. Her annual pilgrimage in Taiwan is one of the largest religious gatherings on Earth.",
+    "originStory": "Lin Moniang was born on Meizhou Island in 960 CE and displayed miraculous powers from childhood. After saving many sailors from storms through spiritual intervention, she ascended to heaven and was deified as Mazu, protector of all who travel by sea.",
+    "importanceRank": 2,
+    "imageUrl": "/deities/mazu.png",
+    "primarySources": [
+      {
+        "text": "The girl in red appeared upon the waves, and the storm parted before her. The sailors knew they had been saved by the Heavenly Empress.",
+        "source": "Mazu Temple Records",
+        "date": "Song Dynasty"
+      }
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "greek-pantheon",
+        "deityId": "poseidon",
+        "note": "Both are deities who control the seas and protect (or endanger) sailors, though Mazu is more benevolent"
+      },
+      {
+        "pantheonId": "norse-pantheon",
+        "deityId": "njord",
+        "note": "Both are sea deities invoked for safe voyages and good fishing"
+      }
+    ],
+    "pronunciation": {
+      "ipa": "/mɑːˈdzuː/",
+      "phonetic": "mah-DZOO"
+    }
+  },
+  {
+    "id": "xi-wangmu",
+    "pantheonId": "chinese-pantheon",
+    "name": "Xi Wangmu",
+    "slug": "xi-wangmu",
+    "alternateNames": [
+      "Queen Mother of the West",
+      "Lady Queen Mother",
+      "Golden Mother of the Shining Lake"
+    ],
+    "gender": "female",
+    "domain": [
+      "immortality",
+      "peaches",
+      "the west",
+      "female immortals"
+    ],
+    "symbols": [
+      "peaches of immortality",
+      "phoenix headdress",
+      "jade mountain",
+      "three-legged crow"
+    ],
+    "description": "The supreme goddess of immortality who rules from her paradise on Mount Kunlun. She grows the Peaches of Immortality that ripen once every 3,000 years and hosts the legendary banquet of the gods.",
+    "detailedBio": "## The Queen of Immortal Paradise\n\nXi Wangmu (Queen Mother of the West) is one of the oldest and most important goddesses in Chinese religion, predating even Taoism. She rules over the western paradise on Mount Kunlun and controls access to immortality through her sacred peaches.\n\n### Ancient Origins\n\nXi Wangmu appears in the earliest Chinese texts, including oracle bone inscriptions from the Shang Dynasty (1600-1046 BCE). In the ancient Classic of Mountains and Seas, she is described as a wild figure with a leopard's tail, tiger's teeth, and a magnificent disheveled appearance. Over centuries, she was transformed into an elegant, regal goddess.\n\n### Mount Kunlun Paradise\n\nXi Wangmu resides in a magnificent palace on Mount Kunlun, the mythical axis mundi of Chinese cosmology. Her paradise is filled with jade palaces, magic gardens, and the Pool of Jewels. Here she is attended by jade maidens and the three-legged crow messenger. The gardens contain the legendary Peaches of Immortality.\n\n### The Peaches of Immortality\n\nXi Wangmu's most famous possession is the orchard of immortal peach trees. These trees flower once every 3,000 years, and their fruits take another 3,000 years to ripen. Eating one grants immortality. When the peaches ripen, Xi Wangmu hosts a great banquet for all the immortals, the Peach Banquet (Pantao Hui).\n\n### The Monkey King's Crime\n\nIn Journey to the West, Sun Wukong was appointed guardian of the peach orchard. Instead of guarding, he ate many of the peaches, gaining immense power. He then crashed the Peach Banquet and consumed all the food and drink. This crime was one of the main reasons for his imprisonment under Five Elements Mountain.\n\n### Goddess of Female Immortals\n\nXi Wangmu rules over all female immortals and teaches the secret arts to worthy women seeking transcendence. She represents the yin (female) principle at its most powerful, balancing the yang (male) Jade Emperor.",
+    "originStory": "Xi Wangmu is a primordial goddess who has existed since the beginning of time. She established her paradise on Mount Kunlun in the far west and planted the orchards of immortal peaches that grant eternal life to the gods.",
+    "importanceRank": 1,
+    "imageUrl": "/deities/xi-wangmu.png",
+    "primarySources": [
+      {
+        "text": "The Queen Mother of the West dwells on Jade Mountain. Her appearance is like that of a human, but she has a leopard's tail and a tiger's teeth. She is good at whistling and wears a crown of victory in her hair.",
+        "source": "Shan Hai Jing (Classic of Mountains and Seas)",
+        "date": "4th century BCE"
+      }
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "greek-pantheon",
+        "deityId": "hera",
+        "note": "Both are powerful queen goddesses who rule over divine realms and host divine banquets"
+      },
+      {
+        "pantheonId": "norse-pantheon",
+        "deityId": "freya",
+        "note": "Both are associated with immortality/afterlife and rule over certain classes of divine beings"
+      }
+    ],
+    "pronunciation": {
+      "ipa": "/ʃiː wɑːŋmuː/",
+      "phonetic": "SHEE wahng-MOO"
+    }
+  },
+  {
+    "id": "pangu",
+    "pantheonId": "chinese-pantheon",
+    "name": "Pangu",
+    "slug": "pangu",
+    "alternateNames": [
+      "Pan Gu",
+      "Primordial Giant"
+    ],
+    "gender": "male",
+    "domain": [
+      "creation",
+      "separation of heaven and earth",
+      "primordial being"
+    ],
+    "symbols": [
+      "cosmic egg",
+      "axe",
+      "chisel",
+      "yin-yang"
+    ],
+    "description": "The primordial giant who created the world by separating yin and yang, Heaven and Earth. After holding them apart for 18,000 years, his body became the features of the universe.",
+    "detailedBio": "## The First Being\n\nPangu is the creator deity of Chinese mythology, a primordial giant whose birth, life, and death created the universe as we know it. His story is one of the most profound creation myths, combining themes of sacrifice, transformation, and the origin of cosmic order.\n\n### Birth from Chaos\n\nIn the beginning, there was only chaos (hundun), formless and dark, contained within a cosmic egg. Within this egg, the opposing forces of yin (dark, heavy, feminine) and yang (light, airy, masculine) were undifferentiated. For 18,000 years, these forces slowly separated and coalesced, and within the egg, Pangu took form.\n\n### The Separation\n\nWhen Pangu awoke, he found himself cramped in darkness. With a great axe, he split the egg. The light, clear yang rose up to become Heaven (Tian), while the heavy, turbid yin sank down to become Earth (Di). Fearing they might merge again, Pangu stood between them, growing taller each day.\n\n### The Long Labor\n\nFor 18,000 years, Pangu stood with his arms pushing up Heaven and his feet pressing down Earth. Each day, Heaven rose ten feet higher, Earth grew ten feet thicker, and Pangu grew ten feet taller to keep them apart. After this immense span of time, Heaven and Earth were finally stable.\n\n### The Ultimate Sacrifice\n\nWhen his work was done, Pangu died. But from his death came the world's features. His breath became wind and clouds. His voice became thunder. His left eye became the sun, his right eye the moon. His limbs became the four directions. His blood became rivers, his veins the roads. His flesh became soil, his hair the plants. His bones and teeth became minerals. His sweat became rain. And the parasites on his body became humanity.\n\n### Significance\n\nPangu's myth teaches that creation requires sacrifice and that all things in the universe are interconnected, having originated from a single being. The story also establishes the fundamental dualism of yin and yang that underlies all Chinese philosophy.",
+    "originStory": "Before the world existed, there was only a cosmic egg of chaos. Within it, Pangu grew for 18,000 years until he awoke and split the egg with his axe, creating Heaven above and Earth below. He held them apart until they were stable, then his body became the features of the world.",
+    "importanceRank": 1,
+    "imageUrl": "/deities/pangu.png",
+    "primarySources": [
+      {
+        "text": "Heaven and Earth were in chaos like a chicken's egg, and Pangu was born in the middle of it. In 18,000 years, Heaven and Earth opened and unfolded. The clear and light rose up to form Heaven, the murky and heavy sank down to form Earth.",
+        "source": "Sanwu Liji (Historical Records of the Three Sovereigns and Five Emperors)",
+        "date": "3rd century CE"
+      }
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "norse-pantheon",
+        "deityId": "ymir",
+        "note": "Both are primordial giants whose bodies become the world after their deaths"
+      },
+      {
+        "pantheonId": "hindu-pantheon",
+        "deityId": "purusha",
+        "note": "Both are cosmic beings sacrificed to create the world and its various parts"
+      }
+    ],
+    "pronunciation": {
+      "ipa": "/pɑːnˈɡuː/",
+      "phonetic": "pahn-GOO"
+    }
+  },
+  {
+    "id": "hou-yi",
+    "pantheonId": "chinese-pantheon",
+    "name": "Hou Yi",
+    "slug": "hou-yi",
+    "alternateNames": [
+      "Yi the Archer",
+      "Shen Yi",
+      "Lord Archer"
+    ],
+    "gender": "male",
+    "domain": [
+      "archery",
+      "heroism",
+      "the sun",
+      "protection"
+    ],
+    "symbols": [
+      "bow and arrows",
+      "the sun",
+      "red sun crow"
+    ],
+    "description": "The divine archer who saved the world by shooting down nine of the ten suns. His heroic act brought salvation to humanity but cost him his immortality and eventual separation from his beloved wife Chang'e.",
+    "detailedBio": "## The Archer Who Saved the World\n\nHou Yi is one of Chinese mythology's greatest heroes, a divine archer whose skill saved humanity from annihilation. His story encompasses triumph and tragedy, heroism and loss, illustrating the often bitter cost of doing what is right.\n\n### The Divine Archer\n\nHou Yi was a god in the service of the Jade Emperor, renowned throughout Heaven as the greatest archer in existence. His bow was said to shoot with the power of a dragon, and he never missed his mark. He was married to the beautiful goddess Chang'e, and together they lived in celestial bliss.\n\n### The Ten Suns\n\nIn ancient times, ten suns lived in a divine mulberry tree at the edge of the Eastern Sea. They were the children of Di Jun, the God of the Eastern Sky, and took turns crossing the heavens, one each day. But one day, all ten suns decided to rise together.\n\nThe combined heat was catastrophic. Rivers boiled dry, crops withered, and people died of heat and famine. Monsters emerged from the scorched earth to prey on survivors. The Jade Emperor sent Hou Yi to discipline the suns.\n\n### The Nine Arrows\n\nHou Yi tried reasoning with the suns, but they ignored him. Seeing the suffering below, his anger grew. He notched an arrow, drew his mighty bow, and shot down one sun. A giant three-legged crow (the sun's spirit) fell to earth. He shot another, then another. Only the quick thinking of his wife (or the Emperor's officials in some versions) stopped him from shooting the tenth, preserving the one sun we have today.\n\n### The Bitter Reward\n\nAlthough Hou Yi saved the world, the Jade Emperor was furious - the ten suns were divine beings, some say his own nephews. As punishment, Hou Yi and Chang'e were stripped of their immortality and banished to live as mortals on earth.\n\nHou Yi sought the elixir of immortality from the Queen Mother of the West, receiving one dose - enough for two to live forever or one to ascend to Heaven. But Chang'e drank it alone and floated to the moon, leaving Hou Yi earthbound and heartbroken.\n\n### Legacy\n\nHou Yi eventually died as a mortal, though some accounts say he was murdered by his own apprentice. He is remembered as the archetypal hero who sacrifices everything - divine status, immortality, even his wife - to save humanity.",
+    "originStory": "When ten suns rose at once and threatened to destroy the earth, the Jade Emperor sent his greatest archer, Hou Yi, to restore order. Hou Yi shot down nine suns, saving humanity but earning divine punishment and the loss of his immortality.",
+    "importanceRank": 2,
+    "imageUrl": "/deities/hou-yi.png",
+    "primarySources": [
+      {
+        "text": "When Yao was ruler, the ten suns all rose at once, scorching the crops and killing plants. Yao ordered Yi to shoot at them. Yi shot nine of them.",
+        "source": "Huainanzi",
+        "date": "139 BCE"
+      }
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "greek-pantheon",
+        "deityId": "apollo",
+        "note": "Both are divine archers associated with the sun, though Apollo drives the sun while Hou Yi shot them down"
+      },
+      {
+        "pantheonId": "hindu-pantheon",
+        "deityId": "arjuna",
+        "note": "Both are legendary archers who accomplish seemingly impossible feats"
+      }
+    ],
+    "pronunciation": {
+      "ipa": "/hoʊ jiː/",
+      "phonetic": "HOH YEE"
+    }
+  },
+  {
+    "id": "nuwa",
+    "pantheonId": "chinese-pantheon",
+    "name": "Nuwa",
+    "slug": "nuwa",
+    "alternateNames": [
+      "Nu Wa",
+      "Empress Wa",
+      "Snake Goddess"
+    ],
+    "gender": "female",
+    "domain": [
+      "creation",
+      "humanity",
+      "marriage",
+      "order"
+    ],
+    "symbols": [
+      "serpent tail",
+      "compass",
+      "five-colored stones",
+      "clay figures"
+    ],
+    "description": "The serpent-bodied goddess who created humanity from yellow clay and repaired the broken sky after a great catastrophe. She is the mother of mankind and establisher of marriage.",
+    "detailedBio": "## The Mother of Humanity\n\nNuwa is one of the most ancient and important goddesses in Chinese mythology, credited with creating humanity and saving the world from destruction. With her brother-husband Fuxi, she represents the primordial creative forces that shaped civilization.\n\n### The Creation of Humanity\n\nAfter Pangu's death created the world, Nuwa wandered the earth. Finding it beautiful but lonely, she began molding figures from yellow clay in her own image. When she breathed life into them, they became the first humans. At first, she carefully crafted each figure by hand - these became the nobles and wealthy. But tiring of this slow work, she dipped a rope in clay and flicked droplets across the land - these became the common people.\n\n### Repairing the Sky\n\nA great catastrophe occurred when the fire god Zhurong and water god Gonggong fought a terrible war. In his defeat, Gonggong smashed his head against Mount Buzhou, one of the pillars holding up the sky. The sky cracked, floods and fires ravaged the earth, and monsters emerged to prey on humanity.\n\nNuwa gathered stones of five colors - blue, white, red, yellow, and black - and melted them to repair the hole in the sky. She killed the Black Dragon to stop the floods, piled ashes from burned reeds to absorb the waters, and cut off the legs of a giant turtle to serve as new pillars for the sky.\n\n### The First Marriage\n\nIn some versions, after a great flood destroyed all humanity except Nuwa and her brother Fuxi, they were compelled by Heaven to marry to repopulate the earth. This story establishes Nuwa as the goddess of marriage and the legitimizer of the marriage institution.\n\n### Appearance and Iconography\n\nNuwa is typically depicted with a human upper body and a serpent tail, sometimes shown intertwined with her brother Fuxi. Together they hold a compass and square, representing the ordering of the cosmos. This image appears in countless Han dynasty tomb paintings.",
+    "originStory": "In the age after Pangu created the world, the goddess Nuwa felt lonely wandering the empty earth. She took yellow clay and molded it into figures like herself, breathing life into them to create humanity. She is the mother of all people.",
+    "importanceRank": 1,
+    "imageUrl": "/deities/nuwa.png",
+    "primarySources": [
+      {
+        "text": "In ancient times, the four poles of the world collapsed, the nine regions were rent asunder, Heaven did not cover all, and Earth did not support all. Nuwa smelted stones of five colors to repair the azure sky.",
+        "source": "Huainanzi",
+        "date": "139 BCE"
+      }
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "greek-pantheon",
+        "deityId": "prometheus",
+        "note": "Both create humanity from clay and are benefactors of mankind"
+      },
+      {
+        "pantheonId": "mesopotamian-pantheon",
+        "deityId": "aruru",
+        "note": "Both are creator goddesses who fashion humans from clay"
+      }
+    ],
+    "pronunciation": {
+      "ipa": "/nuːˈwɑː/",
+      "phonetic": "noo-WAH"
     }
   },
   {
@@ -3554,5 +4387,1466 @@
       "ipa": "/ˈɛnkɪduː/",
       "phonetic": "EN-kih-doo"
     }
+  },
+  {
+    "id": "kukulkan",
+    "pantheonId": "mesoamerican-pantheon",
+    "name": "Kukulkan",
+    "slug": "kukulkan",
+    "alternateNames": [
+      "K'uk'ulkan",
+      "Gukumatz",
+      "Q'uq'umatz"
+    ],
+    "gender": "male",
+    "domain": [
+      "wind",
+      "rain",
+      "sky",
+      "wisdom",
+      "creation"
+    ],
+    "symbols": [
+      "feathered serpent",
+      "quetzal feathers",
+      "serpent"
+    ],
+    "description": "The Maya feathered serpent deity, cognate with the Aztec Quetzalcoatl. Kukulkan represents the union of earth and sky, associated with wind, rain, and the transmission of knowledge to humanity.",
+    "detailedBio": "## The Maya Feathered Serpent\n\nKukulkan is the Yucatec Maya name for the feathered serpent deity worshipped throughout Mesoamerica. In K'iche' Maya tradition, he is known as **Q'uq'umatz** or **Gukumatz**. The name combines the Maya words for the quetzal bird (*k'uk'*) and serpent (*kan*), embodying the same earth-sky duality as the Aztec Quetzalcoatl.\n\n### The Creator Deity\n\nIn the **Popol Vuh**, the K'iche' Maya creation epic, Q'uq'umatz (Kukulkan) is one of the creator deities who shaped the earth and crafted humanity. Together with Tepeu (the Sovereign), he created the world through divine speech, calling forth mountains, rivers, and all living things.\n\n### The Descent of the Serpent\n\nThe great pyramid at **Chichen Itza**, known as El Castillo, is aligned so that during the spring and autumn equinoxes, the setting sun casts shadows that create the illusion of a serpent descending the pyramid's stairs. This dramatic hierophany connects Kukulkan to agricultural cycles and the renewal of time.\n\n### Historical Figure or Divine Being?\n\nSome scholars suggest that Kukulkan, like Quetzalcoatl, may have been a historical priest-king whose deeds were deified. Maya texts mention a ruler named K'uk'ulkan who founded a dynasty at Chichen Itza. Regardless of historical origins, Kukulkan became a powerful divine figure associated with wisdom, civilization, and cosmic order.",
+    "originStory": "Kukulkan emerged from the primordial sea as a creator deity alongside Tepeu. Together they spoke the world into existence, creating earth from the waters and all living things through the power of divine speech.",
+    "importanceRank": 1,
+    "imageUrl": "/deities/kukulkan.png",
+    "primarySources": [
+      {
+        "text": "Only the Maker, Modeler alone, Sovereign Plumed Serpent, the Bearers, Begetters, were in the water, a filtered light.",
+        "source": "Popol Vuh",
+        "date": "c. 1550 CE (recording ancient traditions)"
+      }
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "aztec-pantheon",
+        "deityId": "quetzalcoatl",
+        "note": "Kukulkan is the Maya equivalent of Quetzalcoatl, sharing the feathered serpent iconography and associations with wind, wisdom, and creation"
+      }
+    ],
+    "pronunciation": {
+      "ipa": "/kuːkuːlˈkɑːn/",
+      "phonetic": "koo-kool-KAHN"
+    }
+  },
+  {
+    "id": "itzamna",
+    "pantheonId": "mesoamerican-pantheon",
+    "name": "Itzamna",
+    "slug": "itzamna",
+    "alternateNames": [
+      "Itzam Na",
+      "God D",
+      "Zamna"
+    ],
+    "gender": "male",
+    "domain": [
+      "creation",
+      "sky",
+      "writing",
+      "healing",
+      "agriculture"
+    ],
+    "symbols": [
+      "aged face",
+      "roman nose",
+      "sky band",
+      "caiman"
+    ],
+    "description": "The supreme creator god of the Maya, lord of the heavens and inventor of writing, calendars, and agriculture. Depicted as a wise, aged figure, Itzamna represents cosmic order and benevolent rulership.",
+    "detailedBio": "## The Supreme Sky Lord\n\nItzamna stands at the apex of the Maya pantheon as the lord of the heavens and the supreme creator deity. His name may derive from *itz* (dew or sap, associated with divine essence) and *amna* (house), making him \"Lord of the Celestial House.\"\n\n### Father of Gods and Civilization\n\nItzamna is credited with inventing **writing**, the **calendar**, **medicine**, and **agriculture**. He is depicted as a wise, elderly man with a prominent Roman nose, sunken cheeks, and a single tooth.\n\n### The Celestial Caiman\n\nIn some traditions, Itzamna takes the form of a great **cosmic caiman** whose body forms the earth and sky. The stars move across his back, and his jaws represent the eastern and western horizons.\n\n### Itzamna and Ix Chel\n\nItzamna's consort is **Ix Chel**, the moon goddess. Together they represent the complementary forces of sky and earth, day and night, masculine and feminine.",
+    "originStory": "Itzamna emerged in the primordial time before the current creation. He established cosmic order, separating sky from earth, setting the sun and moon on their courses, and teaching humanity the arts of civilization.",
+    "importanceRank": 1,
+    "imageUrl": "/deities/itzamna.png",
+    "primarySources": [
+      {
+        "text": "Itzamna was the first priest, and he invented writing and books. He gave names to all the lands.",
+        "source": "Diego de Landa, Relacion de las cosas de Yucatan",
+        "date": "c. 1566 CE"
+      }
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "egyptian-pantheon",
+        "deityId": "thoth",
+        "note": "Both are wise creator gods credited with inventing writing and calendars"
+      },
+      {
+        "pantheonId": "mesopotamian-pantheon",
+        "deityId": "enki",
+        "note": "Both are wise, benevolent creator gods associated with knowledge and civilization"
+      }
+    ],
+    "pronunciation": {
+      "ipa": "/ɪtsɑːmˈnɑː/",
+      "phonetic": "eet-sahm-NAH"
+    }
+  },
+  {
+    "id": "ix-chel",
+    "pantheonId": "mesoamerican-pantheon",
+    "name": "Ix Chel",
+    "slug": "ix-chel",
+    "alternateNames": [
+      "Goddess O",
+      "Chak Chel",
+      "Lady Rainbow"
+    ],
+    "gender": "female",
+    "domain": [
+      "moon",
+      "fertility",
+      "medicine",
+      "weaving",
+      "water"
+    ],
+    "symbols": [
+      "rabbit",
+      "water jar",
+      "serpent headdress",
+      "weaving tools"
+    ],
+    "description": "The Maya moon goddess associated with fertility, childbirth, medicine, and weaving. Ix Chel appears in both young and aged forms, representing different aspects of the lunar cycle and feminine power.",
+    "detailedBio": "## The Rainbow Lady\n\nIx Chel, whose name means \"Lady Rainbow,\" is one of the most important goddesses of the Maya pantheon. She governs the **moon**, **fertility**, **childbirth**, **medicine**, and **weaving**.\n\n### Two Forms, Two Ages\n\nIx Chel appears in two distinct forms: **Goddess I** (young form), a beautiful young woman associated with the waxing moon, and **Goddess O** (aged form), an elderly woman with serpent headdress associated with destruction and wisdom.\n\n### The Cosmic Weaver\n\nIx Chel invented **weaving**, teaching Maya women this essential art. Weaving was deeply symbolic, connecting the weaver to cosmic creative power.\n\n### Healer and Midwife\n\nAs goddess of **medicine**, Ix Chel was patron of healers, particularly midwives. She was invoked during childbirth to ensure safe delivery.\n\n### The Rabbit in the Moon\n\nThe rabbit is Ix Chel's companion and symbol, connecting to the Maya belief that a rabbit lives in the moon.",
+    "originStory": "Ix Chel was the consort of Itzamna, the supreme creator god. In one myth, she was wounded by her grandfather and sought refuge in the underworld before rising to the sky as the moon.",
+    "importanceRank": 2,
+    "imageUrl": "/deities/ix-chel.png",
+    "primarySources": [
+      {
+        "text": "In this island of Cozumel there was a shrine to which the Indians of Yucatan had great devotion.",
+        "source": "Diego de Landa, Relacion de las cosas de Yucatan",
+        "date": "c. 1566 CE"
+      }
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "greek-pantheon",
+        "deityId": "artemis",
+        "note": "Both are moon goddesses associated with childbirth"
+      },
+      {
+        "pantheonId": "egyptian-pantheon",
+        "deityId": "isis",
+        "note": "Both are powerful mother goddesses associated with magic and healing"
+      }
+    ],
+    "pronunciation": {
+      "ipa": "/iːʃˈtʃɛl/",
+      "phonetic": "eesh-CHEL"
+    }
+  },
+  {
+    "id": "chaac",
+    "pantheonId": "mesoamerican-pantheon",
+    "name": "Chaac",
+    "slug": "chaac",
+    "alternateNames": [
+      "Chac",
+      "God B",
+      "Chaahk"
+    ],
+    "gender": "male",
+    "domain": [
+      "rain",
+      "lightning",
+      "thunder",
+      "agriculture"
+    ],
+    "symbols": [
+      "axe",
+      "serpent",
+      "frog",
+      "long curling nose"
+    ],
+    "description": "The Maya god of rain, lightning, and thunder. Chaac wields his lightning axe to split the clouds and bring life-giving rain to the maize fields. One of the most widely worshipped Maya deities.",
+    "detailedBio": "## The Lord of Rain\n\nChaac is the Maya god of rain, one of the most important deities for an agricultural civilization. He is recognizable by his long, curling **nose**, **fangs**, and the **lightning axe** he wields to break open the clouds.\n\n### The Four Chaacs\n\nChaac manifests in **four forms** associated with the cardinal directions: Red Chaac (East), White Chaac (North), Black Chaac (West), and Yellow Chaac (South).\n\n### The Lightning Axe\n\nChaac creates thunder and lightning by striking the clouds with his **jade axe**. The flash of lightning is the axe blade; the thunder is its impact.\n\n### Cenotes and Caves\n\nChaac was associated with **cenotes** and **caves**, considered entrances to the watery underworld where rain originated.\n\n### Agricultural Rituals\n\nFarmers performed **Cha-Chaac** ceremonies to invoke rain, involving prayers and offerings. These ceremonies continue in traditional Maya communities today.",
+    "originStory": "Chaac emerged from the primordial waters as lord of rain and storms. He established the seasonal cycles that make agriculture possible.",
+    "importanceRank": 2,
+    "imageUrl": "/deities/chaac.png",
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "aztec-pantheon",
+        "deityId": "tlaloc",
+        "note": "Tlaloc is the Aztec equivalent of Chaac, both being rain gods essential to maize agriculture"
+      },
+      {
+        "pantheonId": "greek-pantheon",
+        "deityId": "zeus",
+        "note": "Both are thunder gods who wield divine weapons to produce storms"
+      }
+    ],
+    "pronunciation": {
+      "ipa": "/tʃɑːk/",
+      "phonetic": "CHAHK"
+    }
+  },
+  {
+    "id": "ah-puch",
+    "pantheonId": "mesoamerican-pantheon",
+    "name": "Ah Puch",
+    "slug": "ah-puch",
+    "alternateNames": [
+      "God A",
+      "Cizin",
+      "Kisin",
+      "Yum Cimil"
+    ],
+    "gender": "male",
+    "domain": [
+      "death",
+      "underworld",
+      "disaster",
+      "decay"
+    ],
+    "symbols": [
+      "skull",
+      "skeletal body",
+      "owl",
+      "death bells"
+    ],
+    "description": "The Maya god of death and ruler of Metnal, the lowest level of the underworld. Depicted as a skeletal figure with exposed bones and decay, Ah Puch represents the terror of death.",
+    "detailedBio": "## The Lord of Death\n\nAh Puch is the fearsome god of death and chief lord of **Xibalba**, the Maya underworld. His appearance is horrifying: a **skeletal figure** with exposed bones, rotting flesh, and bells that announce his approach.\n\n### Names of Death\n\nThe death god is known by many names: **Ah Puch** (The Decomposing One), **Cizin/Kisin** (The Stinking One), **Yum Cimil** (Lord of Death).\n\n### Ruler of Xibalba\n\nAh Puch rules **Xibalba** (Place of Fear), the Maya underworld, alongside other death lords. The **Popol Vuh** describes the Hero Twins' journey through Xibalba and their triumph over its lords.\n\n### Owl Messengers\n\nAh Puch's messengers are **owls**, birds of ill omen. The hoot of an owl near a house foretold death.",
+    "originStory": "Ah Puch has existed since the beginning, for death is as old as life itself. He rules Xibalba alongside other death lords, receiving and testing the souls of the dead.",
+    "importanceRank": 2,
+    "imageUrl": "/deities/ah-puch.png",
+    "primarySources": [
+      {
+        "text": "The lords of Xibalba are One Death and Seven Death.",
+        "source": "Popol Vuh",
+        "date": "c. 1550 CE (recording ancient traditions)"
+      }
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "aztec-pantheon",
+        "deityId": "mictlantecuhtli",
+        "note": "Both are skeletal death gods ruling the underworld"
+      },
+      {
+        "pantheonId": "greek-pantheon",
+        "deityId": "hades",
+        "note": "Both rule realms of the dead"
+      }
+    ],
+    "pronunciation": {
+      "ipa": "/ɑːˈpuːtʃ/",
+      "phonetic": "ah-POOCH"
+    }
+  },
+  {
+    "id": "tlaloc",
+    "pantheonId": "mesoamerican-pantheon",
+    "name": "Tlaloc",
+    "slug": "tlaloc",
+    "alternateNames": [
+      "He Who Makes Things Sprout",
+      "Tlaloque"
+    ],
+    "gender": "male",
+    "domain": [
+      "rain",
+      "fertility",
+      "lightning",
+      "earthquakes"
+    ],
+    "symbols": [
+      "goggle eyes",
+      "fangs",
+      "jade",
+      "water lilies"
+    ],
+    "description": "The Aztec god of rain, fertility, and water. Tlaloc's distinctive goggled eyes and fanged mouth make him one of the most recognizable deities in Mesoamerican art. He shared the summit of the Templo Mayor with Huitzilopochtli.",
+    "detailedBio": "## The Rain Bringer\n\nTlaloc is one of the most ancient and important deities in Mesoamerican religion. His name derives from the Nahuatl word *tlalli* (earth) and may mean \"He Who Makes Things Sprout.\" He controlled the **rain** essential for maize agriculture.\n\n### Unmistakable Appearance\n\nTlaloc is recognizable by his large **goggle eyes**, prominent upper lip with **jaguar fangs**, and often a **headdress of heron feathers**. He is typically painted **blue** or **blue-green**.\n\n### The Tlaloque\n\nTlaloc was served by lesser deities called the **Tlaloque**, small rain spirits dwelling on mountaintops who held **water jars**. When they broke their jars, rain fell.\n\n### Tlalocan: The Earthly Paradise\n\nTlaloc ruled **Tlalocan**, a verdant paradise where those who died by drowning or lightning went after death.\n\n### The Templo Mayor\n\nTlaloc's shrine occupied the **northern** half of the Templo Mayor's summit, painted in blue and white. Huitzilopochtli occupied the southern half.",
+    "originStory": "Tlaloc was one of the primordial deities who existed before the current creation. He presided over the Third Sun before its destruction by a rain of fire.",
+    "importanceRank": 1,
+    "imageUrl": "/deities/tlaloc.png",
+    "primarySources": [
+      {
+        "text": "Tlaloc was a great god among the Mexicans. He was lord of the earthly paradise called Tlalocan.",
+        "source": "Florentine Codex",
+        "date": "16th Century"
+      }
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "mesoamerican-pantheon",
+        "deityId": "chaac",
+        "note": "Chaac is the Maya equivalent of Tlaloc, both being rain gods with long noses/fangs"
+      },
+      {
+        "pantheonId": "norse-pantheon",
+        "deityId": "thor",
+        "note": "Both are thunder gods associated with storms and agricultural fertility"
+      }
+    ],
+    "pronunciation": {
+      "ipa": "/ˈtlɑːlɒk/",
+      "phonetic": "TLAH-lok"
+    }
+  },
+  {
+    "id": "xipe-totec",
+    "pantheonId": "mesoamerican-pantheon",
+    "name": "Xipe Totec",
+    "slug": "xipe-totec",
+    "alternateNames": [
+      "Our Lord the Flayed One",
+      "Red Tezcatlipoca"
+    ],
+    "gender": "male",
+    "domain": [
+      "spring",
+      "renewal",
+      "agriculture",
+      "goldsmiths"
+    ],
+    "symbols": [
+      "flayed skin",
+      "pointed cap",
+      "rattle staff"
+    ],
+    "description": "The Aztec god of spring, renewal, and new vegetation. Xipe Totec represents the cycle of death and rebirth in nature. Priests wore the flayed skins of sacrificial victims, symbolizing the earth's new covering of vegetation.",
+    "detailedBio": "## Our Lord the Flayed One\n\nXipe Totec presents one of the most visceral images in Aztec religion. His name means \"Our Lord the Flayed One,\" and his worship involved priests wearing **flayed skins** of sacrificial victims for twenty days.\n\n### The Red Tezcatlipoca\n\nXipe Totec is identified as the **Red Tezcatlipoca**, one of the four sons of the primordial creator couple. Associated with the **east** and the **dawn**.\n\n### The Flayed Skin Symbolism\n\nThe flayed skin symbolizes the **earth renewing itself** with new vegetation each spring, the **maize seed** shedding its outer covering to sprout, and **death** as the necessary precursor to **rebirth**.\n\n### Tlacaxipehualiztli\n\nThe festival of **Tlacaxipehualiztli** (The Flaying of Men) was celebrated in March during the spring equinox.\n\n### Patron of Goldsmiths\n\nXipe Totec was also patron of **goldsmiths**, connecting the casting process (molten gold \"dressed\" in clay) to agricultural cycles.",
+    "originStory": "Xipe Totec was one of the four creator gods. As the Red Tezcatlipoca, he governs the eastern direction. In one myth, he flayed himself to provide food for humanity.",
+    "importanceRank": 2,
+    "imageUrl": "/deities/xipe-totec.png",
+    "primarySources": [
+      {
+        "text": "And the priests who wore the skins of the captives went about the city, going from house to house, visiting and demanding gifts.",
+        "source": "Florentine Codex",
+        "date": "16th Century"
+      }
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "greek-pantheon",
+        "deityId": "persephone",
+        "note": "Both are associated with agricultural cycles and death-rebirth patterns"
+      },
+      {
+        "pantheonId": "egyptian-pantheon",
+        "deityId": "osiris",
+        "note": "Both represent death and resurrection in the agricultural cycle"
+      }
+    ],
+    "pronunciation": {
+      "ipa": "/ˈʃiːpeɪ ˈtoʊtɛk/",
+      "phonetic": "SHEE-pay TOH-tek"
+    }
+  },
+  {
+    "id": "mictlantecuhtli",
+    "pantheonId": "mesoamerican-pantheon",
+    "name": "Mictlantecuhtli",
+    "slug": "mictlantecuhtli",
+    "alternateNames": [
+      "Lord of Mictlan",
+      "Lord of the Dead"
+    ],
+    "gender": "male",
+    "domain": [
+      "death",
+      "underworld",
+      "the north"
+    ],
+    "symbols": [
+      "skull",
+      "skeletal body",
+      "owl feathers",
+      "spider"
+    ],
+    "description": "The Aztec god of death and ruler of Mictlan, the deepest underworld realm. A skeletal figure wearing owl feathers, Mictlantecuhtli received the souls of those who died of natural causes.",
+    "detailedBio": "## Lord of the Dead\n\nMictlantecuhtli rules **Mictlan**, the deepest of the nine levels of the Aztec underworld. His name means \"Lord of Mictlan.\" He is depicted as a **skeletal figure** wearing **owl feathers**.\n\n### The Nine Levels of Mictlan\n\nMictlan was the destination for those who died **ordinary deaths**. The journey took **four years** and involved passing through nine levels of trials.\n\n### Mictecacihuatl\n\nMictlantecuhtli's consort is **Mictecacihuatl**, Lady of the Dead. She is associated with **Dia de los Muertos** traditions.\n\n### The Bones of Humanity\n\nIn the creation myth, **Quetzalcoatl** descended to Mictlan to retrieve the **bones of previous humanity** from Mictlantecuhtli.\n\n### North and Darkness\n\nMictlantecuhtli is associated with the **north**, the direction of death in Aztec cosmology.",
+    "originStory": "Mictlantecuhtli has existed since the beginning, for death came into being with the first life. He was assigned rulership over Mictlan and guards the bones of previous human creations.",
+    "importanceRank": 2,
+    "imageUrl": "/deities/mictlantecuhtli.png",
+    "primarySources": [
+      {
+        "text": "And Quetzalcoatl went to Mictlan to the Lord and Lady of the Dead.",
+        "source": "Leyenda de los Soles",
+        "date": "16th Century"
+      }
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "mesoamerican-pantheon",
+        "deityId": "ah-puch",
+        "note": "Ah Puch is the Maya equivalent, both being skeletal death gods"
+      },
+      {
+        "pantheonId": "greek-pantheon",
+        "deityId": "hades",
+        "note": "Both rule underworld realms that receive ordinary dead"
+      }
+    ],
+    "pronunciation": {
+      "ipa": "/miːktlɑːntɛˈkuːtli/",
+      "phonetic": "meek-tlahn-te-KOOT-lee"
+    }
+  },
+  {
+    "id": "hun-hunahpu",
+    "pantheonId": "mesoamerican-pantheon",
+    "name": "Hun Hunahpu",
+    "slug": "hun-hunahpu",
+    "alternateNames": [
+      "One Hunahpu",
+      "The Maize God",
+      "God E"
+    ],
+    "gender": "male",
+    "domain": [
+      "maize",
+      "fertility",
+      "death and rebirth",
+      "ballgame"
+    ],
+    "symbols": [
+      "maize plant",
+      "jade",
+      "cacao",
+      "rubber ball"
+    ],
+    "description": "The Maya maize god, father of the Hero Twins. Hun Hunahpu's death in Xibalba and resurrection by his sons represents the planting and sprouting of maize, the fundamental cycle of Maya agricultural life.",
+    "detailedBio": "## The Dying and Rising Maize God\n\nHun Hunahpu (One Hunahpu) is the **maize god** whose death, burial, and resurrection mirrors the agricultural cycle. His story forms the background for the Hero Twins' adventures in the **Popol Vuh**.\n\n### The First Ballgame\n\nHun Hunahpu and his brother **Vucub Hunahpu** were skilled ballplayers whose playing disturbed the lords of **Xibalba**. After failing the tests of Xibalba, both were sacrificed.\n\n### The Calabash Tree\n\nHun Hunahpu's head was placed in a calabash tree. The skull impregnated the maiden **Xquic** with the **Hero Twins**.\n\n### Resurrection by the Hero Twins\n\nYears later, the Hero Twins defeated the death lords and **resurrected** Hun Hunahpu, who rose from the earth as the maize plant sprouts.",
+    "originStory": "Hun Hunahpu was one of the first beings created by the gods. He and his brother were tricked by the lords of Xibalba, sacrificed, and buried beneath the ballcourt. Through his sons' defeat of death, he achieved resurrection.",
+    "importanceRank": 2,
+    "imageUrl": "/deities/hun-hunahpu.png",
+    "primarySources": [
+      {
+        "text": "And the skull of One Hunahpu was there in the fork of the tree.",
+        "source": "Popol Vuh",
+        "date": "c. 1550 CE (recording ancient traditions)"
+      }
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "egyptian-pantheon",
+        "deityId": "osiris",
+        "note": "Both are dying-and-rising gods associated with agricultural fertility"
+      },
+      {
+        "pantheonId": "greek-pantheon",
+        "deityId": "dionysus",
+        "note": "Both are gods of vegetation who undergo death and rebirth"
+      }
+    ],
+    "pronunciation": {
+      "ipa": "/ˈhuːn huːnɑːˈpuː/",
+      "phonetic": "HOON hoo-nah-POO"
+    }
+  },
+  {
+    "id": "hero-twins",
+    "pantheonId": "mesoamerican-pantheon",
+    "name": "Hunahpu and Xbalanque",
+    "slug": "hero-twins",
+    "alternateNames": [
+      "The Hero Twins",
+      "One Blowgunner and Jaguar Deer"
+    ],
+    "gender": "male",
+    "domain": [
+      "sun",
+      "moon",
+      "heroism",
+      "ballgame",
+      "victory over death"
+    ],
+    "symbols": [
+      "blowgun",
+      "jaguar spots",
+      "rubber ball",
+      "sun and moon"
+    ],
+    "description": "The Hero Twins of Maya mythology, sons of the maize god Hun Hunahpu. Through cleverness and sacrifice, they defeated the lords of death and became the sun and moon.",
+    "detailedBio": "## The Hero Twins\n\nHunahpu and Xbalanque are the central heroes of the **Popol Vuh**. Their adventures feature monster-slaying, underworld journeys, death and resurrection, and the establishment of cosmic order.\n\n### Miraculous Birth\n\nThe twins were conceived when **Hun Hunahpu's** skull impregnated the maiden **Xquic**.\n\n### Defeating Seven Macaw\n\nTheir first great deed was defeating **Vucub Caquix** (Seven Macaw), a boastful bird who falsely claimed to be the sun and moon.\n\n### Descent to Xibalba\n\nThe twins were summoned to **Xibalba** but succeeded through cleverness where their father failed. They survived the Houses of Darkness, Knives, Cold, Jaguars, Fire, and Bats.\n\n### Self-Sacrifice and Resurrection\n\nThe twins voluntarily died, were ground to powder and thrown in the river, then **resurrected** as fish and then as performers. They defeated the death lords by killing them but not reviving them.\n\n### Becoming Sun and Moon\n\nAfter defeating death, the twins resurrected their father and **ascended to become the Sun and Moon**.",
+    "originStory": "The Hero Twins were miraculously conceived from their father's skull. Born in the upper world, they became great heroes who defeated false gods, outwitted the lords of death, and became the sun and moon.",
+    "importanceRank": 1,
+    "imageUrl": "/deities/hero-twins.png",
+    "primarySources": [
+      {
+        "text": "And this is the great defeat of the rulers of Xibalba: only through a miracle did the boys accomplish it.",
+        "source": "Popol Vuh",
+        "date": "c. 1550 CE (recording ancient traditions)"
+      }
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "greek-pantheon",
+        "deityId": "castor-pollux",
+        "note": "Both are divine twin heroes"
+      },
+      {
+        "pantheonId": "hindu-pantheon",
+        "deityId": "ashvins",
+        "note": "Both are divine twins associated with cosmic functions"
+      }
+    ],
+    "pronunciation": {
+      "ipa": "/huːnɑːˈpuː ʃbɑːlɑːnˈkeɪ/",
+      "phonetic": "hoo-nah-POO shbah-lahn-KAY"
+    }
+  },
+  {
+    "id": "chalchiuhtlicue",
+    "pantheonId": "mesoamerican-pantheon",
+    "name": "Chalchiuhtlicue",
+    "slug": "chalchiuhtlicue",
+    "alternateNames": [
+      "She of the Jade Skirt",
+      "Matlalcueye"
+    ],
+    "gender": "female",
+    "domain": [
+      "water",
+      "rivers",
+      "lakes",
+      "fertility",
+      "childbirth"
+    ],
+    "symbols": [
+      "jade",
+      "flowing water",
+      "water lily",
+      "blue-green dress"
+    ],
+    "description": "The Aztec goddess of flowing water, rivers, and lakes. Consort of Tlaloc, Chalchiuhtlicue presided over the Fourth Sun before its destruction by flood. She is the patron of newborns and purification.",
+    "detailedBio": "## She of the Jade Skirt\n\nChalchiuhtlicue (\"She of the Jade Skirt\") is the Aztec goddess of **flowing water**: rivers, streams, lakes, and seas. While **Tlaloc** rules rain from the sky, Chalchiuhtlicue governs water upon the earth.\n\n### The Fourth Sun\n\nChalchiuhtlicue presided over the **Fourth Sun** (Nahui-Atl, the Water Sun) which ended in a catastrophic **flood**.\n\n### Goddess of Childbirth\n\nChalchiuhtlicue was patron of **newborn infants** and **midwives**. Babies were ritually **bathed** and dedicated to her.\n\n### Purification\n\nWater was the element of **purification** in Aztec religion. Warriors, priests, and all people sought spiritual cleansing through water.\n\n### The Whirlpool\n\nChalchiuhtlicue had a dangerous aspect as well. She could send **floods** and create **whirlpools**. Those who drowned went to **Tlalocan**, suggesting drowning could be a blessed fate.",
+    "originStory": "Chalchiuhtlicue was among the primordial deities who participated in the creation. She became consort of Tlaloc and ruled over the Fourth Sun until its destruction.",
+    "importanceRank": 2,
+    "imageUrl": "/deities/chalchiuhtlicue.png",
+    "primarySources": [
+      {
+        "text": "Chalchiuhtlicue was the goddess of water - of the seas, rivers, and lakes. She was the wife of Tlaloc.",
+        "source": "Florentine Codex",
+        "date": "16th Century"
+      }
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "greek-pantheon",
+        "deityId": "poseidon",
+        "note": "Both rule over waterways, though Chalchiuhtlicue focuses on freshwater"
+      },
+      {
+        "pantheonId": "hindu-pantheon",
+        "deityId": "ganga",
+        "note": "Both are river goddesses associated with purification"
+      }
+    ],
+    "pronunciation": {
+      "ipa": "/tʃɑːltʃiːuːˈtliːkweɪ/",
+      "phonetic": "chahl-chee-oot-LEE-kway"
+    }
+  },
+  {
+    "id": "maui",
+    "pantheonId": "polynesian-pantheon",
+    "name": "Maui",
+    "slug": "maui",
+    "alternateNames": [
+      "Maui-tikitiki-a-Taranga (Maori)",
+      "Maui Kupua (Hawaiian)"
+    ],
+    "gender": "male",
+    "domain": [
+      "trickery",
+      "culture hero",
+      "fishing",
+      "fire",
+      "sun"
+    ],
+    "symbols": [
+      "fishhook",
+      "jawbone",
+      "sun",
+      "fire"
+    ],
+    "description": "The legendary trickster demigod and culture hero of Polynesian mythology. Maui is credited with fishing up islands, slowing the sun, stealing fire for humanity, and attempting to conquer death itself.",
+    "detailedBio": "## The Great Trickster\n\nMaui is the most beloved figure in all of Polynesian mythology, a demigod whose cleverness and daring brought countless gifts to humanity. Unlike the remote high gods, Maui is intimately connected with human life, using his wits to make the world a better place for mortals.\n\n### Miraculous Birth\n\nMaui was born prematurely and cast into the sea by his mother Taranga, who thought him dead. Wrapped in a topknot of her hair, he was carried by the waves and tangled in seaweed until the god Tama-nui-ki-te-rangi (or in some versions, his ancestor Rangi) found and raised him. When he grew, he sought out his mother and brothers, who were initially reluctant to accept this strange child from the sea.\n\n### The Great Deeds\n\nMaui's exploits form the core of Polynesian mythology:\n\n**Fishing Up Islands**: Using a magical fishhook made from his grandmother's jawbone, Maui fished up the islands of Polynesia from the ocean floor. In Maori tradition, the North Island of New Zealand is Te Ika a Maui (the Fish of Maui).\n\n**Slowing the Sun**: When the sun raced too quickly across the sky, Maui captured it in ropes woven from his sister's hair and beat it until it agreed to move slowly, giving people enough daylight for their work.\n\n**Stealing Fire**: Maui tricked his ancestress Mahuika, goddess of fire, into giving him her flaming fingernails. When she tried to burn him, he called down rain, but preserved the secret of fire in the wood of certain trees.\n\n### Death and Immortality\n\nMaui's final and fatal quest was to conquer death by entering the body of Hine-nui-te-po, goddess of death, while she slept. Had he passed through her and emerged, death would have been defeated. But a small bird (the fantail, piwakawaka) laughed at the sight, waking the goddess, who crushed Maui between her thighs. Thus mortality remains the fate of all living things.\n\n### Pan-Polynesian Hero\n\nMaui appears in traditions from Hawaii to New Zealand to Tahiti, always recognizable yet adapted to local landscapes. He represents the power of human ingenuity to shape the world, and his failures remind us that some limits cannot be transcended.",
+    "originStory": "Maui was the youngest son of Taranga and Makea-tutara. Born prematurely, he was wrapped in his mother's hair and thrown into the sea. The ocean gods preserved him, and he was raised by divine ancestors. When grown, he rejoined his family and proceeded to reshape the world through his cunning exploits.",
+    "importanceRank": 1,
+    "imageUrl": "/deities/maui.png",
+    "primarySources": [
+      {
+        "text": "This is the story of Maui, the trickster, who pulled up islands from the sea with his magic fishhook.",
+        "source": "Maori Oral Tradition",
+        "date": "Traditional"
+      }
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "norse-pantheon",
+        "deityId": "loki",
+        "note": "Both are trickster figures who use cunning to achieve their goals, though Maui is more benevolent"
+      },
+      {
+        "pantheonId": "greek-pantheon",
+        "deityId": "prometheus",
+        "note": "Both stole fire to benefit humanity"
+      }
+    ],
+    "pronunciation": {
+      "ipa": "/ˈmaʊi/",
+      "phonetic": "MOW-ee"
+    }
+  },
+  {
+    "id": "pele",
+    "pantheonId": "polynesian-pantheon",
+    "name": "Pele",
+    "slug": "pele",
+    "alternateNames": [
+      "Pelehonuamea (She who shapes the sacred land)",
+      "Ka wahine ai honua (The woman who devours the land)"
+    ],
+    "gender": "female",
+    "domain": [
+      "volcanoes",
+      "fire",
+      "lightning",
+      "dance",
+      "creation"
+    ],
+    "symbols": [
+      "volcanic fire",
+      "ohia lehua flower",
+      "pahoehoe lava",
+      "lava rock"
+    ],
+    "description": "The Hawaiian goddess of volcanoes, fire, and lightning. Pele is a fierce and passionate deity who creates new land through volcanic eruptions and whose temper is as volatile as the lava she commands.",
+    "detailedBio": "## Goddess of the Living Earth\n\nPele is the most revered deity in Hawaiian mythology, an akua (goddess) whose power is visible in every eruption of Kilauea. She embodies both creation and destruction, as her lava destroys what exists while simultaneously creating new land. She represents the untameable forces of nature and the passionate spirit of Hawaii itself.\n\n### Journey to Hawaii\n\nPele was born in Kahiki (Tahiti) to Haumea, the earth mother, and Ku-waha-ilo, a man-eating deity. Driven from her homeland by her elder sister Namaka, goddess of the sea, Pele voyaged across the Pacific in her magical canoe, accompanied by her sister Hi'iaka and other siblings. At each island she dug a fire pit, only for Namaka's waves to extinguish it.\n\n### Finding Her Home\n\nPele finally found a home in the Halemaumau crater atop Kilauea on the Big Island, where she dwells to this day. Here her fire was strong enough to resist Namaka's waters. The two sisters battled one final time, and though Pele's physical body was broken, her spirit remained, becoming the eternal goddess of the volcano.\n\n### The Tempestuous Goddess\n\nPele is famous for her jealousy and quick temper. Many stories tell of mortals who angered her by taking lava rocks (which are part of her body) or by romantic betrayals. She has had many lovers, both mortal and divine, and her affairs often end in volcanic fury.\n\n### Pele and Hi'iaka\n\nThe greatest cycle of Pele myths involves her sister Hi'iaka, whom she sent to fetch a mortal lover named Lohiau. The journey took so long that Pele, in jealous rage, destroyed Hi'iaka's beloved ohia forests. The story of the sisters' conflict and reconciliation is one of the most elaborate in Hawaiian tradition.\n\n### Living Goddess\n\nUnlike many mythological figures, Pele is still actively worshipped and experienced. Hawaiians report seeing her as an old woman or a beautiful young one, often before eruptions. Her presence is felt in every lava flow, and offerings are still made to her at the crater's edge. She is not a figure of the past but a living power.",
+    "originStory": "Pele was born in Kahiki (Tahiti) to Haumea and Ku-waha-ilo. Her fiery nature and affairs angered her sister Namaka, the sea goddess, who drove her from her homeland. Pele traveled across the Pacific, seeking a home for her fires, finally settling in Kilauea volcano on Hawaii, where she remains the living goddess of volcanic creation.",
+    "importanceRank": 1,
+    "imageUrl": "/deities/pele.png",
+    "primarySources": [
+      {
+        "text": "Aia la o Pele i Hawai'i - Pele lives in Hawaii. The fire goddess dwells in Halemaumau.",
+        "source": "Hawaiian Chant",
+        "date": "Traditional"
+      }
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "greek-pantheon",
+        "deityId": "hephaestus",
+        "note": "Both are deities of volcanic fire and forges"
+      },
+      {
+        "pantheonId": "roman-pantheon",
+        "deityId": "vulcan",
+        "note": "Both are associated with volcanic fire and its creative-destructive power"
+      }
+    ],
+    "pronunciation": {
+      "ipa": "/ˈpɛleɪ/",
+      "phonetic": "PEH-lay"
+    }
+  },
+  {
+    "id": "tangaroa",
+    "pantheonId": "polynesian-pantheon",
+    "name": "Tangaroa",
+    "slug": "tangaroa",
+    "alternateNames": [
+      "Kanaloa (Hawaiian)",
+      "Ta'aroa (Tahitian)",
+      "Tagaloa (Samoan)"
+    ],
+    "gender": "male",
+    "domain": [
+      "sea",
+      "ocean",
+      "fish",
+      "marine life",
+      "navigation"
+    ],
+    "symbols": [
+      "octopus",
+      "whale",
+      "ocean waves",
+      "canoe"
+    ],
+    "description": "The great god of the sea and all that dwells within it. In some traditions, particularly Tahitian and Samoan, Tangaroa/Tagaloa is the supreme creator god who brought forth the world from primordial darkness.",
+    "detailedBio": "## Lord of the Ocean\n\nTangaroa is one of the great gods of Polynesia, revered across the Pacific as the deity of the ocean and all marine life. For peoples who lived by the sea and traveled across vast ocean distances, Tangaroa was one of the most important gods, protector of fishermen and navigators.\n\n### Regional Variations\n\nTangaroa's role varies significantly across Polynesia:\n\n**Tahitian Tradition**: As Ta'aroa, he is the supreme creator god who existed alone in darkness within an egg-like shell. Breaking free, he created the world from his own body, using his spine for mountains, his feathers for trees, and his tears for rain.\n\n**Samoan Tradition**: Tagaloa is the supreme god who dwelt in the expanse of space when there was no land. He created the islands and sent down his daughter to populate them.\n\n**Maori Tradition**: Tangaroa is one of the sons of Rangi and Papa, brother to Tane and Tu. He is the god of the sea and father of all fish and sea creatures. He is in eternal conflict with Tane, whose forests provide the wood for canoes that conquer Tangaroa's realm.\n\n**Hawaiian Tradition**: As Kanaloa, he is associated with the ocean and often paired with Kane (Tane). In later Hawaiian tradition, influenced by Christian missionaries, Kanaloa became associated with evil, but originally he was a beneficent god of the deep ocean.\n\n### The Primal Sea\n\nIn most Polynesian traditions, the ocean is primary, the original element from which all else emerged. Tangaroa thus represents both the physical ocean and the primordial chaos from which creation sprang. Fishermen prayed to him for good catches and safe returns.\n\n### Conflict with Tane\n\nIn Maori tradition, Tangaroa is perpetually at war with his brother Tane. When Tane's trees provide canoes that sail upon and fish from Tangaroa's ocean, the sea god sends storms and waves in revenge. When Tangaroa's creatures wash ashore, Tane's forests claim them. This conflict explains the eternal tension between land and sea.",
+    "originStory": "In Maori tradition, Tangaroa was born from the union of Rangi (Sky Father) and Papa (Earth Mother), emerging when his brothers separated their parents. In Tahitian tradition, he existed eternally in primordial darkness within a cosmic shell, eventually breaking free to create the universe from his own body.",
+    "importanceRank": 2,
+    "imageUrl": "/deities/tangaroa.png",
+    "primarySources": [
+      {
+        "text": "Ta'aroa was the ancestor of all the gods; he made everything. From time immemorial was the great Ta'aroa, Tahi-tumu (The-origin).",
+        "source": "Tahitian Creation Chant",
+        "date": "Traditional"
+      }
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "greek-pantheon",
+        "deityId": "poseidon",
+        "note": "Both are gods of the sea and its creatures"
+      },
+      {
+        "pantheonId": "norse-pantheon",
+        "deityId": "njord",
+        "note": "Both are sea gods important to seafaring peoples"
+      }
+    ],
+    "pronunciation": {
+      "ipa": "/tɑːŋɑːˈroʊə/",
+      "phonetic": "tahng-ah-ROH-ah"
+    }
+  },
+  {
+    "id": "tane",
+    "pantheonId": "polynesian-pantheon",
+    "name": "Tane",
+    "slug": "tane",
+    "alternateNames": [
+      "Kane (Hawaiian)",
+      "Tane Mahuta (Maori)",
+      "Tane-nui-a-Rangi"
+    ],
+    "gender": "male",
+    "domain": [
+      "forests",
+      "birds",
+      "light",
+      "life",
+      "beauty"
+    ],
+    "symbols": [
+      "trees",
+      "birds",
+      "sunlight through leaves",
+      "kiwi bird"
+    ],
+    "description": "The god of forests, birds, and light. Tane is credited with separating his parents Rangi and Papa, bringing light into the world, and creating the first woman, Hineahuone, from the earth.",
+    "detailedBio": "## God of the Forests\n\nTane is one of the most important gods in Polynesian mythology, particularly in Maori tradition. As the god of forests and birds, he represents the living green world that provides food, shelter, and the materials for canoes and tools. His is the realm of light and life, standing in contrast to the dark ocean of his brother Tangaroa.\n\n### The Separation of Earth and Sky\n\nIn the beginning, Rangi (Sky) and Papa (Earth) lay locked in a tight embrace, their children trapped in eternal darkness between them. It was Tane who found the strength to push them apart. Lying on his back with his shoulders against Papa and his feet against Rangi, he slowly, painfully forced them apart, bringing light into the world for the first time.\n\n### Creator of Humanity\n\nAfter separating his parents, Tane sought a wife. Finding no suitable partner among the gods, he shaped the first woman, Hineahuone (Earth-formed Maiden), from the red earth of Kurawaka. He breathed life into her, and she became his wife. Their daughter, Hinetitama, later became Hine-nui-te-po, the goddess of death, after discovering that Tane was both her father and husband.\n\n### The Forest Lord\n\nTane's domain is the ngahere (forest). Every tree, every bird, every insect of the forest is his child. The great kauri and rimu trees are sacred to him, as are all the birds that dwell among the branches. Woodworkers and carvers give thanks to Tane for the materials of their craft.\n\n### Kane in Hawaii\n\nIn Hawaiian tradition, Kane is one of the four great gods (with Ku, Lono, and Kanaloa). He is associated with sunlight, fresh water, and life-giving forces. Kane created the first man, Kumu-honua, and his wife Lalo-honua, paralleling the Maori creation of humanity.",
+    "originStory": "Tane was born in darkness, trapped between the bodies of his parents Rangi and Papa. He conceived the plan to separate them, and with his great strength pushed the sky from the earth, bringing light into the world. He then adorned his father with stars and his mother with trees and plants.",
+    "importanceRank": 2,
+    "imageUrl": "/deities/tane.png",
+    "primarySources": [
+      {
+        "text": "Then Tane-mahuta, the father of forests and of all things that inhabit them, arose and struggled. He strove with all his might to separate Rangi and Papa.",
+        "source": "Maori Creation Account",
+        "date": "Traditional"
+      }
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "greek-pantheon",
+        "deityId": "prometheus",
+        "note": "Both created humanity from earth"
+      },
+      {
+        "pantheonId": "norse-pantheon",
+        "deityId": "freyr",
+        "note": "Both are associated with fertility, light, and the natural world"
+      }
+    ],
+    "pronunciation": {
+      "ipa": "/ˈtɑːneɪ/",
+      "phonetic": "TAH-nay"
+    }
+  },
+  {
+    "id": "tu",
+    "pantheonId": "polynesian-pantheon",
+    "name": "Tu",
+    "slug": "tu",
+    "alternateNames": [
+      "Ku (Hawaiian)",
+      "Tu-matauenga (Maori)",
+      "Tu-of-the-angry-face"
+    ],
+    "gender": "male",
+    "domain": [
+      "war",
+      "hunting",
+      "fishing",
+      "agriculture",
+      "masculinity"
+    ],
+    "symbols": [
+      "spear",
+      "war club",
+      "feather cloak",
+      "red color"
+    ],
+    "description": "The fierce god of war and human endeavor. Tu represents the aggressive, active principle necessary for survival, from warfare to hunting to the cultivation of crops.",
+    "detailedBio": "## The War God\n\nTu-matauenga, whose name means 'Tu of the Angry Face,' is the god of war and all human activities that require conflict and struggle. Unlike war gods in some other traditions, Tu represents not just battle but all forms of human striving against nature, including hunting, fishing, and agriculture.\n\n### Advocate for Action\n\nWhen the children of Rangi and Papa debated how to escape their prison between earth and sky, it was Tu who first proposed a violent solution: to kill their parents. When the more peaceful suggestion of separation prevailed, Tu was the one who supported Tane's efforts and fought against Tawhirimatea's winds when the storm god attacked.\n\n### The Angry Brother\n\nAfter Tawhirimatea's assault, when the other gods fled or hid, only Tu stood firm. Furious at his brothers' cowardice, Tu turned on them in revenge. He trapped Tangaroa's fish children, Rongo's cultivated plants, Haumia's wild plants, and Tane's birds, making them all food for humanity. This is why humans eat fish, birds, and plants - because Tu conquered them.\n\n### Ku in Hawaii\n\nIn Hawaiian tradition, Ku is one of the four major gods, associated with war, politics, and male activities. Different forms of Ku governed different aspects of life: Ku-ka'ili-moku was the war god of King Kamehameha I, Ku-ula was the god of fishermen, and Ku-ka-o'o was the god of farmers. Temples dedicated to Ku required human sacrifice.\n\n### Patron of Warriors\n\nWarriors dedicated themselves to Tu before battle, performing rituals and making offerings. The first enemy killed in battle was offered to Tu. His worship was particularly important in Maori society, where the warrior class held great prestige and warfare was a common feature of life.",
+    "originStory": "Tu was born in darkness between Rangi and Papa. When the gods debated their fate, he advocated killing their parents but accepted the decision to separate them. After Tawhirimatea attacked, Tu alone stood firm and then conquered his brothers' children to be food for humanity, establishing himself as the ancestor and protector of humans.",
+    "importanceRank": 3,
+    "imageUrl": "/deities/tu.png",
+    "primarySources": [
+      {
+        "text": "Tu-matauenga alone stood firm. He became angry with his brothers for deserting him, and he took revenge on all of them.",
+        "source": "Maori Tradition",
+        "date": "Traditional"
+      }
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "greek-pantheon",
+        "deityId": "ares",
+        "note": "Both are war gods associated with the violent aspects of conflict"
+      },
+      {
+        "pantheonId": "norse-pantheon",
+        "deityId": "tyr",
+        "note": "Both are warrior gods, though Tyr is associated more with honor and law"
+      }
+    ],
+    "pronunciation": {
+      "ipa": "/tuː/",
+      "phonetic": "TOO"
+    }
+  },
+  {
+    "id": "rongo",
+    "pantheonId": "polynesian-pantheon",
+    "name": "Rongo",
+    "slug": "rongo",
+    "alternateNames": [
+      "Lono (Hawaiian)",
+      "Rongo-ma-tane (Maori)",
+      "Ro'o (Tahitian)"
+    ],
+    "gender": "male",
+    "domain": [
+      "agriculture",
+      "peace",
+      "fertility",
+      "rain",
+      "cultivated plants"
+    ],
+    "symbols": [
+      "sweet potato (kumara)",
+      "rainbow",
+      "drums",
+      "white tapa cloth"
+    ],
+    "description": "The god of cultivated plants, peace, and agriculture. Rongo represents the peaceful arts of cultivation that sustain life, standing in contrast to his brother Tu's warlike nature.",
+    "detailedBio": "## God of Cultivation\n\nRongo is the god of cultivated food plants, particularly the kumara (sweet potato), which was the staple crop of Polynesia. He represents the peaceful, nurturing side of existence - the patient work of planting, tending, and harvesting that sustains communities.\n\n### The Peaceful Brother\n\nIn the conflict between the children of Rangi and Papa, Rongo advocated for peaceful solutions. When Tawhirimatea attacked, Rongo fled to the protection of their mother Papa, hiding within the earth. For this, Tu conquered Rongo's children (the cultivated plants) and made them food for humanity.\n\n### Bringer of the Kumara\n\nIn Maori tradition, Rongo journeyed to the heavens and brought back the kumara, teaching humanity how to cultivate it. The kumara was so important to Maori life that elaborate rituals surrounded its planting and harvest, all dedicated to Rongo. The god ensured the fertility of the fields and the abundance of the harvest.\n\n### Lono in Hawaii\n\nIn Hawaiian tradition, Lono was one of the four great gods, associated with agriculture, rainfall, and peace. The Makahiki festival, lasting four months during the rainy season, was dedicated to Lono. During this time, warfare was forbidden (kapu), taxes were collected, and people engaged in games and celebrations. When Captain Cook arrived during Makahiki in 1778, some Hawaiians initially believed he was Lono returning.\n\n### Seasons and Cycles\n\nRongo/Lono represents the cyclical nature of agriculture and time itself. The wet season belongs to him, when crops grow and peace prevails. The dry season belongs to Ku, the war god, when conflicts were permitted. This divine balance reflects the agricultural calendar that governed Polynesian life.",
+    "originStory": "Rongo was born between Rangi and Papa in primordial darkness. Of gentler nature than some of his brothers, he fled from Tawhirimatea's assault and took refuge in the earth. He later ascended to the heavens to bring the kumara to humanity, becoming the patron of agriculture and peaceful pursuits.",
+    "importanceRank": 4,
+    "imageUrl": "/deities/rongo.png",
+    "primarySources": [
+      {
+        "text": "From Rongo came the kumara, and all cultivated foods belong to him.",
+        "source": "Maori Tradition",
+        "date": "Traditional"
+      }
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "greek-pantheon",
+        "deityId": "demeter",
+        "note": "Both are deities of cultivated crops and agricultural fertility"
+      }
+    ],
+    "pronunciation": {
+      "ipa": "/ˈrɒŋoʊ/",
+      "phonetic": "RONG-oh"
+    }
+  },
+  {
+    "id": "hina",
+    "pantheonId": "polynesian-pantheon",
+    "name": "Hina",
+    "slug": "hina",
+    "alternateNames": [
+      "Hina-i-ka-malama (Hawaiian)",
+      "Sina (Samoan)",
+      "Hine (Maori form)"
+    ],
+    "gender": "female",
+    "domain": [
+      "moon",
+      "tapa cloth",
+      "women's work",
+      "beauty",
+      "fertility"
+    ],
+    "symbols": [
+      "moon",
+      "tapa beater",
+      "coconut",
+      "white flowers"
+    ],
+    "description": "The goddess of the moon and women's arts, particularly the making of tapa cloth. Hina appears in many forms across Polynesia, sometimes as the mother of Maui, sometimes as a goddess who fled to the moon.",
+    "detailedBio": "## Goddess of the Moon\n\nHina is one of the most widely distributed goddess figures in Polynesian mythology, appearing in virtually every island group though with different specific stories. She represents femininity, the moon, and the domestic arts that sustain community life.\n\n### Many Hinas\n\nThe name 'Hina' appears attached to many different goddess figures across Polynesia, sometimes clearly the same figure, sometimes distinct:\n\n**Hina-i-ka-malama** (Hawaiian): The woman in the moon, visible as the dark patches. She fled to the moon to escape the demands of earthly life.\n\n**Hina-uri/Hinauri** (Maori): A beautiful woman whose husband was killed, leading to complex cycles of revenge.\n\n**Hina-te-iwaiwa**: A goddess of women's crafts and childbirth.\n\n**Taranga**: Maui's mother, sometimes identified with Hina.\n\n### The Tapa Maker\n\nIn many traditions, Hina is the original tapa maker, having invented the art of beating bark into cloth. The rhythmic sound of the tapa beater is associated with her, and women traditionally did this work by moonlight - Hina's light. In Hawaiian tradition, she can be seen in the moon, still beating her tapa.\n\n### Flight to the Moon\n\nSeveral traditions tell of Hina fleeing to the moon. In some versions, she escapes an abusive husband. In others, she simply seeks peace from the endless demands of earthly life. She tried first to live in the sun but found it too hot; the cool moon became her eternal home.\n\n### Mother of Heroes\n\nHina is often the mother of great heroes. As Taranga, she is Maui's mother who threw him into the sea. In other traditions, she is the mother of various demigods and chiefs, connecting the mortal and divine lines.",
+    "originStory": "Hina's origins vary by tradition. In some stories she was always a goddess; in others, she was a mortal woman who achieved divine status. Most commonly, she was a beautiful woman who fled to the moon to escape earthly troubles, where she can still be seen beating tapa cloth.",
+    "importanceRank": 4,
+    "imageUrl": "/deities/hina.png",
+    "primarySources": [
+      {
+        "text": "Look to the moon and see Hina, still beating her tapa in the sky.",
+        "source": "Hawaiian Tradition",
+        "date": "Traditional"
+      }
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "greek-pantheon",
+        "deityId": "artemis",
+        "note": "Both are moon goddesses associated with femininity"
+      }
+    ],
+    "pronunciation": {
+      "ipa": "/ˈhiːnə/",
+      "phonetic": "HEE-nah"
+    }
+  },
+  {
+    "id": "papa-polynesian",
+    "pantheonId": "polynesian-pantheon",
+    "name": "Papa",
+    "slug": "papa-polynesian",
+    "alternateNames": [
+      "Papatuanuku (Maori)",
+      "Papa-hanau-moku (Hawaiian)",
+      "Fa'ahotu (Tahitian)"
+    ],
+    "gender": "female",
+    "domain": [
+      "earth",
+      "fertility",
+      "motherhood",
+      "foundation"
+    ],
+    "symbols": [
+      "earth",
+      "soil",
+      "greenery",
+      "mountains"
+    ],
+    "description": "The Earth Mother, wife of Rangi the Sky Father. Papa lay in eternal embrace with Rangi until their children separated them, bringing light into the world. She remains the foundation upon which all life exists.",
+    "detailedBio": "## The Earth Mother\n\nPapatuanuku is the primordial earth goddess of Maori tradition, one half of the original divine couple whose embrace held the universe in darkness. She is the land itself, the soil from which all life grows, the mother of gods and ancestor of humanity.\n\n### The Eternal Embrace\n\nIn the beginning, Rangi (Sky) and Papa (Earth) lay locked together in a tight embrace. Between them, in complete darkness, their children were born and grew: Tane, Tangaroa, Tu, Rongo, and the others. For ages uncounted, the children lived in cramped darkness until they decided to separate their parents.\n\n### The Separation\n\nWhen Tane forced Rangi and Papa apart, the world was transformed. Light flooded in for the first time. Papa was laid bare, covered with her children's tears (rivers and lakes) and adorned by Tane with forests and plants. The mists that rise from the earth each morning are Papa's sighs, longing for her husband above.\n\n### Mother of All\n\nPapa is the mother not only of the gods but ultimately of all living things. Plants grow from her body, drawing nourishment from her soil. Animals walk upon her surface. Humans are called 'tangata whenua' (people of the land) because they belong to Papa. The first woman was shaped from the red earth at Kurawaka, taken from Papa's body.\n\n### Living Earth\n\nIn Maori thought, Papa is not an abstract concept but a living ancestor. The land is literally the body of the Earth Mother, and this shapes the relationship between people and environment. Caring for the land is caring for one's ancestor; damaging it is an act of violence against kin.",
+    "originStory": "Papa existed from the beginning, one half of the primordial pair. She lay in eternal embrace with Rangi until their children, desperate for light and space, forced them apart. She became the foundation of the world, the earth upon which all life depends.",
+    "importanceRank": 2,
+    "imageUrl": "/deities/papa-polynesian.png",
+    "primarySources": [
+      {
+        "text": "From the conception the increase, from the increase the thought, from the thought the remembrance, from the remembrance the consciousness, from the consciousness the desire... from Rangi the sky which floats above the earth, and Papa the earth which lies beneath.",
+        "source": "Maori Cosmological Chant",
+        "date": "Traditional"
+      }
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "greek-pantheon",
+        "deityId": "gaia",
+        "note": "Both are primordial earth goddesses and mothers of the gods"
+      }
+    ],
+    "pronunciation": {
+      "ipa": "/ˈpɑːpɑː/",
+      "phonetic": "PAH-pah"
+    }
+  },
+  {
+    "id": "rangi",
+    "pantheonId": "polynesian-pantheon",
+    "name": "Rangi",
+    "slug": "rangi",
+    "alternateNames": [
+      "Ranginui (Maori)",
+      "Langi (Tongan)",
+      "Wakea (Hawaiian)"
+    ],
+    "gender": "male",
+    "domain": [
+      "sky",
+      "fatherhood",
+      "rain",
+      "light"
+    ],
+    "symbols": [
+      "sky",
+      "stars",
+      "clouds",
+      "rain"
+    ],
+    "description": "The Sky Father, husband of Papa the Earth Mother. Rangi was forced apart from his wife by their children, and now weeps for her from above, his tears falling as rain upon her body.",
+    "detailedBio": "## The Sky Father\n\nRanginui, the Sky Father, is the primordial male deity of Maori tradition, eternally paired with Papatuanuku the Earth Mother. Together they represent the fundamental duality of existence, and their separation marks the beginning of the world as we know it.\n\n### The Beginning\n\nIn the beginning, there was only Te Kore, the void, and from the void emerged Rangi and Papa, locked in an embrace so tight that their children were trapped in darkness between them. For ages, the children of Rangi and Papa lived in this cramped, lightless space.\n\n### The Separation\n\nWhen the children decided to separate their parents, several attempted and failed before Tane succeeded. Lying on his back with his shoulders against Papa and his feet against Rangi, Tane slowly pushed the sky upward. Rangi clung desperately to Papa, but was finally wrenched away. The primal couple has been separated ever since.\n\n### Eternal Grief\n\nRangi has never stopped mourning his separation from Papa. His tears fall as rain upon her body. The mists that rise from the earth are Papa's sighs, reaching upward toward her husband. Dawn and dusk, when earth and sky seem closest, are particularly sacred times, moments when the primordial couple almost touch again.\n\n### The Stars\n\nAfter the separation, Tane adorned his father with the sun, moon, and stars. These celestial bodies are Rangi's children, placed on his body as ornaments. The Milky Way is Te Ika o Rangi, the fish of Rangi, swimming across the night sky.",
+    "originStory": "Rangi emerged from Te Kore, the void, inseparably united with Papa. Their eternal embrace held the universe in darkness until their children forced them apart, creating the space between earth and sky where life could flourish.",
+    "importanceRank": 2,
+    "imageUrl": "/deities/rangi.png",
+    "primarySources": [
+      {
+        "text": "These are the generations of the sky which is above us, of the earth which lies beneath us... From Rangi and Papa all things descend.",
+        "source": "Maori Genealogical Chant",
+        "date": "Traditional"
+      }
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "greek-pantheon",
+        "deityId": "ouranos",
+        "note": "Both are primordial sky fathers separated from earth mothers"
+      }
+    ],
+    "pronunciation": {
+      "ipa": "/ˈrɑːŋiː/",
+      "phonetic": "RAHNG-ee"
+    }
+  },
+  {
+    "id": "haumea",
+    "pantheonId": "polynesian-pantheon",
+    "name": "Haumea",
+    "slug": "haumea",
+    "alternateNames": [
+      "Haumia (Maori harvest god)"
+    ],
+    "gender": "female",
+    "domain": [
+      "fertility",
+      "childbirth",
+      "wild foods",
+      "regeneration"
+    ],
+    "symbols": [
+      "fern roots",
+      "gourd",
+      "childbirth",
+      "transformation"
+    ],
+    "description": "A powerful fertility goddess with the ability to regenerate herself and transform her age. In Hawaiian tradition, Haumea is the mother of Pele and many other deities, and taught humans the secrets of childbirth.",
+    "detailedBio": "## Goddess of Fertility and Transformation\n\nHaumea is a complex goddess figure, particularly prominent in Hawaiian mythology, where she is among the most powerful of female deities. She embodies fertility, regeneration, and the mysterious powers of women.\n\n### The Self-Renewing Goddess\n\nHaumea possesses the remarkable ability to regenerate herself, shedding her old form and becoming young again. In Hawaiian tradition, she lived through many generations of humans, each time aging until she performed rituals to restore her youth. She married many chiefs, always revealing herself eventually and moving on.\n\n### Mother of Pele\n\nHaumea is often identified as the mother of Pele and her siblings, including Namaka, Hi'iaka, and the other volcano and sea deities. Through this lineage, she is the ancestress of the most powerful forces shaping the Hawaiian landscape.\n\n### Teacher of Childbirth\n\nBefore Haumea, women died in childbirth because babies had to be cut from their mothers. Haumea taught the art of natural birth, saving countless lives. She is thus invoked by midwives and praying women, the patron of the mysterious processes of reproduction.",
+    "originStory": "Haumea's exact origins are mysterious, befitting a goddess of transformation. In some Hawaiian traditions, she emerged in Kahiki (Tahiti) in the earliest times. Her ability to shed her form and regenerate suggests she may be as old as creation itself, a primal force of fertility that takes different shapes across the ages.",
+    "importanceRank": 3,
+    "imageUrl": "/deities/haumea.png",
+    "primarySources": [
+      {
+        "text": "Haumea was a mysterious old woman who had the power to change from age to youth and to alter her form.",
+        "source": "Hawaiian Tradition",
+        "date": "Traditional"
+      }
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "greek-pantheon",
+        "deityId": "demeter",
+        "note": "Both are powerful fertility goddesses associated with the abundance of the earth"
+      }
+    ],
+    "pronunciation": {
+      "ipa": "/haʊˈmeɪə/",
+      "phonetic": "how-MAY-ah"
+    }
+  },
+  {
+    "id": "namaka",
+    "pantheonId": "polynesian-pantheon",
+    "name": "Namaka",
+    "slug": "namaka",
+    "alternateNames": [
+      "Namakaokaha'i",
+      "Na-maka-o-Kaha'i"
+    ],
+    "gender": "female",
+    "domain": [
+      "sea",
+      "water",
+      "waves",
+      "ocean creatures"
+    ],
+    "symbols": [
+      "ocean waves",
+      "sea foam",
+      "water",
+      "sea creatures"
+    ],
+    "description": "The Hawaiian goddess of the sea and elder sister of Pele. Namaka's eternal conflict with her volcanic sister shaped the Hawaiian islands, as sea and fire battle for dominance.",
+    "detailedBio": "## Goddess of the Sea\n\nNamaka is the Hawaiian goddess of the sea and the principal rival of her younger sister Pele. Their conflict is one of the great narratives of Hawaiian mythology, explaining both the creation of the islands and the eternal opposition between ocean and volcano.\n\n### The Conflict with Pele\n\nIn their homeland of Kahiki, Pele seduced Namaka's husband, igniting a feud that would reshape the Pacific. Namaka drove Pele from island to island, her waves extinguishing each volcanic fire pit Pele tried to establish. From Kauai to Oahu to Maui, Pele fled eastward, Namaka pursuing.\n\n### The Final Battle\n\nOn Maui, at Hana, the sisters fought their final battle. Namaka apparently killed Pele, breaking her body upon the shore. But Pele's spirit survived, freed from physical form to become the pure essence of volcanic fire. She found her permanent home in Kilauea on the Big Island, where her fires are too powerful for even Namaka's waters to extinguish.\n\n### Sea and Land\n\nThe conflict between Namaka and Pele represents the eternal geological battle between sea and land that shapes Hawaii. Each new lava flow that reaches the ocean is their combat renewed. The explosive steam clouds where lava meets water are the visible signs of their ongoing struggle.",
+    "originStory": "Namaka was born to Haumea in Kahiki, the eldest of the great sibling group that included Pele and Hi'iaka. She was a goddess of the sea from her birth, claiming the waters as her domain while her sister Pele would come to embody volcanic fire.",
+    "importanceRank": 5,
+    "imageUrl": "/deities/namaka.png",
+    "primarySources": [
+      {
+        "text": "Namaka pursued her sister across the islands, her waves battling Pele's fires, until Pele found a home too powerful to be quenched.",
+        "source": "Hawaiian Tradition",
+        "date": "Traditional"
+      }
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "greek-pantheon",
+        "deityId": "poseidon",
+        "note": "Both are powerful sea deities who can threaten other gods"
+      }
+    ],
+    "pronunciation": {
+      "ipa": "/nɑːˈmɑːkə/",
+      "phonetic": "nah-MAH-kah"
+    }
+  },
+  {
+    "id": "poliahu",
+    "pantheonId": "polynesian-pantheon",
+    "name": "Poliahu",
+    "slug": "poliahu",
+    "alternateNames": [
+      "Poli'ahu",
+      "Cloaked-in-beauty"
+    ],
+    "gender": "female",
+    "domain": [
+      "snow",
+      "ice",
+      "cold",
+      "Mauna Kea"
+    ],
+    "symbols": [
+      "snow",
+      "white kapa cloth",
+      "Mauna Kea",
+      "cold"
+    ],
+    "description": "The Hawaiian goddess of snow and ice, resident of Mauna Kea. Poliahu is Pele's rival, and their conflict represents the opposition of ice and fire on Hawaii's highest mountain.",
+    "detailedBio": "## Goddess of the Snow\n\nPoliahu is the goddess of snow and ice, making her home on Mauna Kea, the tallest mountain in Hawaii. She represents a different kind of power than her rival Pele - cool, serene, and majestic rather than fiery and tempestuous.\n\n### The Snow Maidens\n\nPoliahu is one of four snow goddesses (sometimes called snow maidens) who dwell on the high peaks of Hawaii: Poliahu herself, Lilinoe (goddess of mist), Waiau (goddess of Lake Waiau on Mauna Kea), and Kahoupokane (goddess of hupu flowers). Together they represent the alpine environment of Hawaii's highest mountains.\n\n### Rivalry with Pele\n\nPoliahu and Pele are eternal rivals. In many stories, they compete for the same lovers, with disastrous results. In one famous tale, they competed in holua sledding, with Pele's fires battling Poliahu's snow for dominance of the mountain slopes.\n\n### Cool Beauty\n\nPoliahu is described as beautiful beyond mortal description, dressed in shimmering white kapa cloth like snow. Unlike the tempestuous Pele, Poliahu is calm and regal.",
+    "originStory": "Poliahu has always been associated with Mauna Kea, making her home on its snowy summit since ancient times. She may have arrived in Hawaii before Pele, or may represent the island's original snow deity whom Pele's arrival placed in opposition.",
+    "importanceRank": 6,
+    "imageUrl": "/deities/poliahu.png",
+    "primarySources": [
+      {
+        "text": "On Mauna Kea dwells Poliahu, dressed in white, beautiful and cold as snow.",
+        "source": "Hawaiian Tradition",
+        "date": "Traditional"
+      }
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "norse-pantheon",
+        "deityId": "skadi",
+        "note": "Both are goddesses associated with snow and high mountains"
+      }
+    ],
+    "pronunciation": {
+      "ipa": "/poʊliˈɑːhuː/",
+      "phonetic": "poh-lee-AH-hoo"
+    }
+  },
+  {
+    "id": "hiiaka",
+    "pantheonId": "polynesian-pantheon",
+    "name": "Hi'iaka",
+    "slug": "hiiaka",
+    "alternateNames": [
+      "Hi'iaka-i-ka-poli-o-Pele",
+      "Hi'iaka-in-the-bosom-of-Pele"
+    ],
+    "gender": "female",
+    "domain": [
+      "hula",
+      "healing",
+      "sorcery",
+      "lightning",
+      "ohia trees"
+    ],
+    "symbols": [
+      "ohia lehua flower",
+      "fern skirt",
+      "pa'u (hula skirt)",
+      "lightning"
+    ],
+    "description": "The youngest and most beloved sister of Pele. Hi'iaka is the patron goddess of hula dancers and the protagonist of one of the longest epic narratives in Hawaiian mythology, her journey to fetch Pele's lover Lohiau.",
+    "detailedBio": "## Beloved Sister of Pele\n\nHi'iaka is Pele's favorite sister, born as an egg that Pele carried in her bosom during the great migration from Kahiki to Hawaii. She grew to become one of the most important goddesses in Hawaiian tradition, patroness of hula and protagonist of the greatest Hawaiian epic.\n\n### Birth and Childhood\n\nUnlike her older siblings, Hi'iaka was not born in Kahiki but hatched from an egg during the family's voyage across the Pacific. Pele kept the egg warm in her armpit (or bosom), and when Hi'iaka emerged, she was the baby of the family, beloved by all, especially Pele.\n\n### The Journey for Lohiau\n\nThe great saga of Hi'iaka begins when Pele, in a dream, falls in love with a mortal chief named Lohiau on Kauai. She sends Hi'iaka to fetch him, giving her magical powers and a deadline of forty days. The journey takes far longer, as Hi'iaka must battle monsters, help those in need, and overcome countless obstacles.\n\n### Patroness of Hula\n\nHi'iaka is the goddess most associated with hula, the sacred dance of Hawaii. Her journey provides much of the source material for hula performances, and dancers invoke her blessing.",
+    "originStory": "Hi'iaka was born as an egg during the great voyage from Kahiki to Hawaii. Pele carried the egg in her bosom, keeping it warm, and from it hatched the youngest of the family. Raised with special care by Pele, Hi'iaka grew into a powerful goddess in her own right.",
+    "importanceRank": 3,
+    "imageUrl": "/deities/hiiaka.png",
+    "primarySources": [
+      {
+        "text": "Hi'iaka, the sacred sister, born in the bosom of Pele, beloved of all the gods.",
+        "source": "Hawaiian Epic of Pele and Hi'iaka",
+        "date": "Traditional"
+      }
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "greek-pantheon",
+        "deityId": "apollo",
+        "note": "Both are associated with healing and the arts (music/dance)"
+      }
+    ],
+    "pronunciation": {
+      "ipa": "/hiːˈiːɑːkə/",
+      "phonetic": "hee-ee-AH-kah"
+    }
+  },
+  {
+    "id": "tawhirimatea",
+    "pantheonId": "polynesian-pantheon",
+    "name": "Tawhirimatea",
+    "slug": "tawhirimatea",
+    "alternateNames": [
+      "Tawhiri"
+    ],
+    "gender": "male",
+    "domain": [
+      "weather",
+      "wind",
+      "storms",
+      "thunder"
+    ],
+    "symbols": [
+      "storm clouds",
+      "wind",
+      "hurricane",
+      "lightning"
+    ],
+    "description": "The Maori god of weather, winds, and storms. Tawhirimatea was the only one of Rangi and Papa's children to oppose their separation, and he still attacks his brothers with storms in revenge.",
+    "detailedBio": "## God of Storms\n\nTawhirimatea is the god of weather and storms in Maori mythology, one of the sons of Rangi and Papa. Unlike his brothers, he did not support the separation of their parents and has waged war against them ever since, his fury manifesting in the storms that batter the earth.\n\n### The Loyal Son\n\nWhen the children of Rangi and Papa debated how to escape their dark prison, Tawhirimatea alone argued against separating their parents. He loved them as they were and could not bear the thought of their grief. When Tane succeeded in pushing them apart, Tawhirimatea ascended with his father Rangi to the sky.\n\n### War on His Brothers\n\nFrom the sky, Tawhirimatea launched a devastating attack on his brothers who had supported the separation. He sent his children - the winds, clouds, storms, and hurricanes - against them. Tangaroa's fish fled to the depths of the sea. Rongo and Haumia hid within Papa's body. Tane's trees were torn and battered. Only Tu stood firm against the assault.\n\n### Eternal Warfare\n\nThe conflict between Tawhirimatea and his brothers continues to this day. Every storm is Tawhirimatea attacking Tangaroa's ocean or Tane's forests. Sailors and travelers must contend with his wrath, and those caught in his fury understand the power of the god of storms.",
+    "originStory": "Tawhirimatea was born between Rangi and Papa like his brothers, but he alone remained loyal to his parents when the others chose to separate them. His grief and anger at their separation fuel the storms he sends against the earth to this day.",
+    "importanceRank": 5,
+    "imageUrl": "/deities/tawhirimatea.png",
+    "primarySources": [
+      {
+        "text": "Tawhirimatea alone opposed the separation, and when it was done, he ascended with his father to wage war on his brothers.",
+        "source": "Maori Tradition",
+        "date": "Traditional"
+      }
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "greek-pantheon",
+        "deityId": "zeus",
+        "note": "Both are associated with storms and control of the weather"
+      },
+      {
+        "pantheonId": "norse-pantheon",
+        "deityId": "thor",
+        "note": "Both command storms and thunder"
+      }
+    ],
+    "pronunciation": {
+      "ipa": "/tɑːˈfiːriːmɑːˈteɪə/",
+      "phonetic": "tah-fee-ree-mah-TAY-ah"
+    }
+  },
+  {
+    "id": "olodumare",
+    "pantheonId": "african-pantheon",
+    "name": "Olodumare",
+    "slug": "olodumare",
+    "alternateNames": ["Olorun", "Olofi", "Eledumare"],
+    "gender": "none",
+    "domain": ["creation", "supreme power", "cosmic order", "destiny"],
+    "symbols": ["sun", "white light", "heavens"],
+    "description": "The supreme creator deity in Yoruba religion, who exists beyond human comprehension. Olodumare created the universe and delegated specific powers to the Orishas, who serve as intermediaries between the supreme being and humanity.",
+    "detailedBio": "## The Owner of Eternal Heavens\n\nOlodumare is the supreme deity of Yoruba religion, whose name means 'Owner of Eternal Heavens' or 'Almighty.' Unlike the Orishas who actively intervene in human affairs, Olodumare is considered too transcendent for direct worship. Instead, prayers reach the supreme being through the Orishas.\n\n### The Source of Ashe\n\nOlodumare is the source of Ashe, the divine energy that permeates all things and makes magic, prayer, and transformation possible. Every Orisha possesses Ashe given by Olodumare, and humans seek to align themselves with this cosmic power through ritual and righteous living.\n\n### Creator of All\n\nIn Yoruba cosmology, Olodumare created the universe from the primordial void, then delegated the task of shaping the earth to Obatala and other Orishas. After creation, Olodumare withdrew to the highest heavens (Orun), observing but rarely intervening directly.\n\n### The Three Aspects\n\nSome traditions speak of three aspects: Olodumare (creator), Olorun (sun and heavens), and Olofi (communicator with Orishas). Whether these are three separate beings or three faces of one deity varies by tradition.",
+    "originStory": "Olodumare has always existed, before time and space, in the eternal heavens of Orun. From this supreme being emerged all creation: first the Orishas, then the primordial waters, then the earth and all living things.",
+    "importanceRank": 1,
+    "imageUrl": "/deities/olodumare.png",
+    "primarySources": [{"text": "Olodumare, the owner of all heads and destinies, without whom no leaf falls from the tree.", "source": "Ifa Oral Tradition", "date": "Traditional"}],
+    "crossPantheonParallels": [{"pantheonId": "hindu-pantheon", "deityId": "brahma", "note": "Both are supreme creator deities who delegate to lesser gods"}],
+    "pronunciation": {"ipa": "/oloˈdumare/", "phonetic": "oh-loh-doo-MAH-ray"}
+  },
+  {
+    "id": "obatala",
+    "pantheonId": "african-pantheon",
+    "name": "Obatala",
+    "slug": "obatala",
+    "alternateNames": ["Oxala", "Orishanla", "Oshala"],
+    "gender": "male",
+    "domain": ["creation", "purity", "wisdom", "clarity", "peace"],
+    "symbols": ["white cloth", "white beads", "ivory", "snail", "chalk"],
+    "description": "The Orisha of creation, purity, and wisdom. Obatala was tasked by Olodumare with creating land from the primordial waters and shaping human bodies from clay.",
+    "detailedBio": "## The King of the White Cloth\n\nObatala, whose name means 'King of the White Cloth,' is one of the most important Orishas. He was given the task of creating the physical world and shaping human bodies, making him the father of humanity.\n\n### The Creation Story\n\nOlodumare sent Obatala to create land from the primordial waters. He was given a chain, a snail shell filled with sand, a white hen, and a palm nut. Descending from heaven, he poured the sand on the water and set the hen loose to scatter it, forming the first land at Ile-Ife. However, Obatala became drunk on palm wine during the creation of humans, which is why some people are born with disabilities.\n\n### The White Orisha\n\nObatala is associated with all things white: white cloth, white beads, white animals, and cool, calm energy. His priests wear white exclusively, and offerings to him include white foods: coconut, white yam, snails, and rice.",
+    "originStory": "Obatala was one of the first Orishas created by Olodumare. He was given the sacred task of creating the earth and molding human forms from clay, into which Olodumare breathed life.",
+    "importanceRank": 2,
+    "imageUrl": "/deities/obatala.png",
+    "primarySources": [{"text": "Obatala, great king who speaks the truth, owner of the white cloth that covers the wise.", "source": "Oriki Obatala", "date": "Traditional"}],
+    "crossPantheonParallels": [{"pantheonId": "greek-pantheon", "deityId": "prometheus", "note": "Both created humanity and faced consequences for their actions"}],
+    "pronunciation": {"ipa": "/obaˈtala/", "phonetic": "oh-bah-TAH-lah"}
+  },
+  {
+    "id": "ogun",
+    "pantheonId": "african-pantheon",
+    "name": "Ogun",
+    "slug": "ogun",
+    "alternateNames": ["Ogum", "Ogoun", "Gu"],
+    "gender": "male",
+    "domain": ["iron", "war", "labor", "technology", "justice"],
+    "symbols": ["machete", "anvil", "iron chains", "palm fronds", "dog"],
+    "description": "The Orisha of iron, war, and labor. Ogun is the divine blacksmith who cleared the path for the other Orishas to descend to earth.",
+    "detailedBio": "## The Lord of Iron\n\nOgun is one of the most powerful Orishas, ruling over iron, war, and all forms of labor and technology. He is the divine blacksmith who forged the tools that built civilization.\n\n### The Pathmaker\n\nWhen the Orishas needed to descend from heaven to earth, they found the way blocked by impenetrable forest. Only Ogun, with his iron machete, could clear the path. For this service, he earned the title 'The Pathmaker.'\n\n### Oaths and Justice\n\nIn Yoruba culture, the most binding oaths are sworn on Ogun's iron. Breaking such an oath invites Ogun's terrible wrath. This tradition persists today in Nigerian courts.\n\n### Modern Relevance\n\nAs the lord of iron and technology, Ogun has grown in importance in the modern age. He is the patron of drivers, mechanics, surgeons, soldiers, and all who work with metal or machinery.",
+    "originStory": "Ogun emerged from Olodumare as the embodiment of iron's transformative power. He was among the first Orishas to descend to earth, using his iron machete to clear the path through the primordial forest.",
+    "importanceRank": 3,
+    "imageUrl": "/deities/ogun.png",
+    "primarySources": [{"text": "Ogun, the one who has water at home but bathes in blood. Owner of the road, opener of paths.", "source": "Oriki Ogun", "date": "Traditional"}],
+    "crossPantheonParallels": [{"pantheonId": "greek-pantheon", "deityId": "hephaestus", "note": "Both are divine blacksmiths who forge weapons and tools for the gods"}],
+    "pronunciation": {"ipa": "/oˈɡun/", "phonetic": "oh-GOON"}
+  },
+  {
+    "id": "shango",
+    "pantheonId": "african-pantheon",
+    "name": "Shango",
+    "slug": "shango",
+    "alternateNames": ["Sango", "Xango", "Chango"],
+    "gender": "male",
+    "domain": ["thunder", "lightning", "fire", "justice", "kingship"],
+    "symbols": ["double-headed axe", "thunderstones", "red and white colors", "ram", "crown"],
+    "description": "The Orisha of thunder, lightning, and fire. Shango was once a mortal king of Oyo who became deified after death.",
+    "detailedBio": "## The Fourth King of Oyo\n\nShango occupies a unique position among the Orishas as a deified human king. According to tradition, he was the fourth Alaafin (king) of the Oyo Empire, one of West Africa's most powerful states.\n\n### Ascension to Divinity\n\nAfter Shango's death, his followers refused to believe he was truly gone. When lightning struck those who mocked him, the people declared 'Oba koso!' ('The king did not hang!'). Shango had ascended to become the Orisha of thunder.\n\n### The Lightning Judge\n\nShango is called upon to deliver justice. Lightning strikes are believed to be Shango's punishment of thieves, liars, and evildoers. After a lightning strike, Shango's priests would search for thunderstones.\n\n### Diaspora Significance\n\nIn the Americas, Shango became one of the most prominent Orishas, often syncretized with Saint Barbara. His worship is central to Cuban Santeria and Brazilian Candomble.",
+    "originStory": "Shango began as a mortal man who became the fourth king of the Oyo Empire. A powerful ruler who could summon lightning, he was elevated to divine status by his devoted followers after his death.",
+    "importanceRank": 3,
+    "imageUrl": "/deities/shango.png",
+    "primarySources": [{"text": "Shango, the king who turns into fire, whose voice is the thunder.", "source": "Oriki Shango", "date": "Traditional"}],
+    "crossPantheonParallels": [{"pantheonId": "greek-pantheon", "deityId": "zeus", "note": "Both are thunder gods and kings associated with divine justice"}, {"pantheonId": "norse-pantheon", "deityId": "thor", "note": "Both wield thunder and lightning as weapons"}],
+    "pronunciation": {"ipa": "/ˈʃaŋɡo/", "phonetic": "SHAHN-goh"}
+  },
+  {
+    "id": "oshun",
+    "pantheonId": "african-pantheon",
+    "name": "Oshun",
+    "slug": "oshun",
+    "alternateNames": ["Oxum", "Ochun", "Osun"],
+    "gender": "female",
+    "domain": ["love", "beauty", "rivers", "fertility", "prosperity"],
+    "symbols": ["mirror", "honey", "gold", "peacock feathers", "river water"],
+    "description": "The Orisha of love, beauty, fresh water, and fertility. Oshun embodies feminine grace, sensuality, and the life-giving power of rivers.",
+    "detailedBio": "## The Sweet Water Goddess\n\nOshun is perhaps the most beloved of all Orishas, embodying beauty, love, fertility, and the life-giving power of fresh water. Her river, the Osun, flows through southwestern Nigeria and remains a site of pilgrimage.\n\n### The Savior of the World\n\nIn one of her most important myths, the world was dying and the Orishas could not fix it. They had ignored Oshun, considering her merely beautiful and frivolous. Oshun transformed herself into a peacock and flew to heaven to plead with Olodumare. Her feathers burned off during the journey, but she succeeded where all others had failed.\n\n### Lady of the Honey\n\nOshun is associated with honey, which represents both sweetness and seduction. Her worship involves honey offerings. However, Oshun when angered can be as dangerous as any warrior Orisha.\n\n### Modern Worship\n\nThe annual Osun-Osogbo Festival at her sacred grove in Nigeria draws hundreds of thousands of worshippers and was designated a UNESCO World Heritage Site.",
+    "originStory": "Oshun emerged from Olodumare as the embodiment of sweet water, love, and feminine power. She was given dominion over all fresh waters, particularly the river that bears her name in Nigeria.",
+    "importanceRank": 3,
+    "imageUrl": "/deities/oshun.png",
+    "primarySources": [{"text": "Oshun, owner of brass and coral, who dances in the river. The beautiful one who saved the world when the warriors could not.", "source": "Oriki Oshun", "date": "Traditional"}],
+    "crossPantheonParallels": [{"pantheonId": "greek-pantheon", "deityId": "aphrodite", "note": "Both are goddesses of love and beauty with transformative power"}],
+    "pronunciation": {"ipa": "/oˈʃun/", "phonetic": "oh-SHOON"}
+  },
+  {
+    "id": "yemoja",
+    "pantheonId": "african-pantheon",
+    "name": "Yemoja",
+    "slug": "yemoja",
+    "alternateNames": ["Yemaya", "Iemanja", "Yemanja"],
+    "gender": "female",
+    "domain": ["ocean", "motherhood", "fertility", "protection", "fish"],
+    "symbols": ["ocean waves", "seashells", "fish", "crescent moon", "blue and white beads"],
+    "description": "The Orisha of the ocean and motherhood. Yemoja is the great mother of many Orishas and all sea creatures.",
+    "detailedBio": "## Mother of the Ocean\n\nYemoja is the great mother Orisha, whose name means 'Mother whose children are fish.' Originally associated with the Ogun River in Nigeria, she became the goddess of the ocean during the Middle Passage, as enslaved Africans prayed to her during the horrific Atlantic crossing.\n\n### Mother of Many\n\nYemoja is considered the mother of numerous Orishas, including Shango, Ogun, and others. She is particularly protective of women, especially pregnant women and new mothers, and of children.\n\n### The Middle Passage\n\nYemoja's importance exploded during the transatlantic slave trade. As millions of Africans crossed the ocean in chains, they prayed to the river goddess for protection. She answered by becoming the ocean itself.\n\n### Festival and Worship\n\nIn Brazil, the Festival of Iemanja (February 2) sees millions of people offering flowers, perfume, and mirrors to the ocean. In Cuba, she is syncretized with Our Lady of Regla.",
+    "originStory": "Yemoja was created by Olodumare as the embodiment of maternal waters. Originally dwelling in the Ogun River in Nigeria, she accompanied her children across the Atlantic, becoming the goddess of the ocean itself.",
+    "importanceRank": 3,
+    "imageUrl": "/deities/yemoja.png",
+    "primarySources": [{"text": "Yemoja, whose children are the fish, who rocks the world in her waves. The mother who never abandons her children.", "source": "Oriki Yemoja", "date": "Traditional"}],
+    "crossPantheonParallels": [{"pantheonId": "greek-pantheon", "deityId": "tethys", "note": "Both are primordial mother goddesses of the sea"}],
+    "pronunciation": {"ipa": "/jeˈmodʒa/", "phonetic": "yeh-MOH-jah"}
+  },
+  {
+    "id": "eshu",
+    "pantheonId": "african-pantheon",
+    "name": "Eshu",
+    "slug": "eshu",
+    "alternateNames": ["Elegua", "Elegba", "Exu", "Legba"],
+    "gender": "male",
+    "domain": ["crossroads", "communication", "trickster", "fate", "beginnings"],
+    "symbols": ["crossroads", "cowrie shells", "red and black colors", "walking stick", "keys"],
+    "description": "The Orisha of crossroads, communication, and unpredictability. Eshu is the divine messenger who carries prayers to Olodumare and the Orishas.",
+    "detailedBio": "## The Keeper of the Crossroads\n\nEshu is one of the most important yet most misunderstood Orishas. As the guardian of the crossroads, he stands at every point of decision. Nothing reaches the Orishas without passing through Eshu first, and no ritual can begin without his blessing.\n\n### First and Last\n\nIn all Yoruba rituals, Eshu must be honored first, before any other Orisha. To neglect him is to ensure that one's prayers will not be heard.\n\n### The Trickster\n\nEshu is famous for his tricks. In one famous story, he walked between two friends wearing a hat that was red on one side and black on the other. Each friend saw only one color, and they fell into a violent argument about what color the hat was, destroying their friendship.\n\n### Colonial Misunderstanding\n\nWhen Europeans encountered Eshu, they mistook him for the devil because of his trickster nature and association with crossroads. This misinterpretation fundamentally misunderstands Eshu's role as a necessary divine force.",
+    "originStory": "Eshu was one of the first Orishas created by Olodumare, given the crucial task of mediating between heaven and earth. He was positioned at the crossroads of existence, where all decisions are made and all prayers must pass.",
+    "importanceRank": 2,
+    "imageUrl": "/deities/eshu.png",
+    "primarySources": [{"text": "Eshu, who turns right into wrong and wrong into right. The stone that trips the strong, the crumb that feeds the weak.", "source": "Oriki Eshu", "date": "Traditional"}],
+    "crossPantheonParallels": [{"pantheonId": "greek-pantheon", "deityId": "hermes", "note": "Both are divine messengers and tricksters associated with crossroads"}, {"pantheonId": "norse-pantheon", "deityId": "loki", "note": "Both are trickster figures who test the other gods"}],
+    "pronunciation": {"ipa": "/ˈeʃu/", "phonetic": "EH-shoo"}
+  },
+  {
+    "id": "oya",
+    "pantheonId": "african-pantheon",
+    "name": "Oya",
+    "slug": "oya",
+    "alternateNames": ["Iansa", "Oya-Iansa", "Oia"],
+    "gender": "female",
+    "domain": ["wind", "storms", "transformation", "death", "rebirth"],
+    "symbols": ["buffalo horns", "copper crown", "lightning", "nine colors", "cemetery gates"],
+    "description": "The Orisha of wind, storms, and transformation. Oya is a fierce warrior goddess who controls the forces of change and guards the cemetery gates.",
+    "detailedBio": "## The Warrior Queen of Wind\n\nOya is the fierce goddess of wind, storms, and transformation, often considered the most powerful female Orisha. She represents change in all its forms: the wind that precedes Shango's thunder, the breath between life and death.\n\n### Shango's Greatest Wife\n\nThough Shango had three wives, Oya was his equal in battle. Legend says she once stole the secret of making fire from Shango. When Shango goes to war, Oya rides beside him, her winds clearing the path for his thunder.\n\n### Guardian of the Cemetery\n\nOya is intimately connected with death and the ancestors. She guards the gates of the cemetery and escorts the dead to the afterlife.\n\n### The Buffalo Woman\n\nOne of Oya's origin myths tells that she was originally a buffalo who could transform into a beautiful woman. This myth connects her to wild, untameable feminine power.",
+    "originStory": "Oya emerged from Olodumare as the embodiment of wind and change. Originally associated with the Niger River, she rose to become the goddess of the air itself, riding the storms alongside Shango.",
+    "importanceRank": 4,
+    "imageUrl": "/deities/oya.png",
+    "primarySources": [{"text": "Oya, who changes from buffalo to woman, whose breath is the wind. Guardian of the cemetery gate, warrior who fears nothing.", "source": "Oriki Oya", "date": "Traditional"}],
+    "crossPantheonParallels": [{"pantheonId": "norse-pantheon", "deityId": "freya", "note": "Both are powerful warrior goddesses associated with death and transformation"}],
+    "pronunciation": {"ipa": "/ˈoja/", "phonetic": "OH-yah"}
+  },
+  {
+    "id": "orunmila",
+    "pantheonId": "african-pantheon",
+    "name": "Orunmila",
+    "slug": "orunmila",
+    "alternateNames": ["Orula", "Orunla", "Ifa"],
+    "gender": "male",
+    "domain": ["wisdom", "divination", "destiny", "knowledge"],
+    "symbols": ["palm nuts", "divination board", "green and yellow beads", "staff"],
+    "description": "The Orisha of wisdom and divination. Orunmila witnessed the creation of the universe and holds the secrets of destiny.",
+    "detailedBio": "## The Witness of Creation\n\nOrunmila holds a unique position among the Orishas: he was present when Olodumare created the universe and assigned each person their destiny. This makes him the keeper of all knowledge, past, present, and future.\n\n### The Ifa System\n\nOrunmila is inseparable from Ifa, the complex divination system that is central to Yoruba religion. The Ifa corpus consists of 256 odu, each containing hundreds of verses, stories, and prescriptions. Babalawo (fathers of secrets) dedicate their lives to mastering this wisdom.\n\n### UNESCO Recognition\n\nIn 2005, UNESCO proclaimed the Ifa Divination System a Masterpiece of the Oral and Intangible Heritage of Humanity.",
+    "originStory": "Orunmila was with Olodumare at the beginning of creation, witnessing the formation of the universe and the assignment of each soul's destiny. He was given the task of bringing this wisdom to humanity through the Ifa divination system.",
+    "importanceRank": 3,
+    "imageUrl": "/deities/orunmila.png",
+    "primarySources": [{"text": "Orunmila who was with Olodumare in the beginning, witness of creation, keeper of all destinies.", "source": "Oriki Orunmila", "date": "Traditional"}],
+    "crossPantheonParallels": [{"pantheonId": "greek-pantheon", "deityId": "apollo", "note": "Both are associated with prophecy and divine knowledge"}, {"pantheonId": "norse-pantheon", "deityId": "odin", "note": "Both sacrificed for wisdom and serve as oracles"}],
+    "pronunciation": {"ipa": "/orunˈmila/", "phonetic": "oh-roon-MEE-lah"}
+  },
+  {
+    "id": "osanyin",
+    "pantheonId": "african-pantheon",
+    "name": "Osanyin",
+    "slug": "osanyin",
+    "alternateNames": ["Ossaim", "Osain", "Ossanha"],
+    "gender": "male",
+    "domain": ["herbs", "healing", "medicine", "forest"],
+    "symbols": ["iron staff with birds", "herbs", "gourds", "one leg"],
+    "description": "The Orisha of herbs, healing, and the forest. Osanyin knows the secret properties of all plants and is essential to all Orisha worship.",
+    "detailedBio": "## The Master of Herbs\n\nOsanyin is the Orisha of herbs, healing, and the secrets of the forest. He knows the medicinal and magical properties of every plant, root, and leaf. No Orisha ritual is complete without the proper herbs, making Osanyin essential to all worship.\n\n### Kosi Ewe, Kosi Orisha\n\nThere is a Yoruba saying: 'Kosi ewe, kosi Orisha' (Without leaves, there are no Orishas). This emphasizes Osanyin's crucial role. Every Orisha has specific herbs associated with them.\n\n### The Singular Form\n\nOsanyin is depicted as having one leg, one arm, and one eye. Various myths explain this unique form.\n\n### The Iron Staff\n\nOsanyin's symbol is an iron staff crowned with birds, usually seven birds around a central figure. This staff is placed in the home or temple to provide protection.",
+    "originStory": "Osanyin was created by Olodumare to know the secrets of all plants. He dwells in the forest, where every herb, root, and leaf speaks to him of its properties.",
+    "importanceRank": 5,
+    "imageUrl": "/deities/osanyin.png",
+    "primarySources": [{"text": "Osanyin, owner of all leaves, whose single eye sees the secrets of the forest.", "source": "Oriki Osanyin", "date": "Traditional"}],
+    "crossPantheonParallels": [{"pantheonId": "greek-pantheon", "deityId": "asclepius", "note": "Both are gods of healing and medicine"}],
+    "pronunciation": {"ipa": "/oˈsaɲin/", "phonetic": "oh-SAHN-yin"}
+  },
+  {
+    "id": "nana-buruku",
+    "pantheonId": "african-pantheon",
+    "name": "Nana Buruku",
+    "slug": "nana-buruku",
+    "alternateNames": ["Nana Buluku", "Nana Bukuu", "Nananbouclou"],
+    "gender": "female",
+    "domain": ["swamps", "ancestors", "primordial mud", "death", "elder wisdom"],
+    "symbols": ["ibiri (palm rib bundle)", "mud", "purple and white colors", "swamp"],
+    "description": "The ancient grandmother Orisha of swamps and primordial mud. Nana Buruku is older than even Olodumare in some traditions.",
+    "detailedBio": "## The Primordial Grandmother\n\nNana Buruku is one of the most ancient Orishas, predating even some versions of the creation story. She represents the primordial mud from which humanity was formed and is considered the grandmother of all the Orishas.\n\n### Older Than Creation\n\nSome traditions hold that Nana Buruku existed before Olodumare, representing the primordial void from which even the supreme creator emerged.\n\n### The Mud of Creation\n\nWhen Obatala created humanity, he used clay or mud provided by Nana Buruku. This makes her the material source of human existence.\n\n### Enemy of Iron\n\nNana Buruku has an ancient enmity with Ogun and iron. Her worshippers may not use metal knives in her rituals, using only wooden or bamboo implements.",
+    "originStory": "Nana Buruku may predate creation itself, existing as primordial potential before Olodumare spoke the universe into being. She provided the mud from which humanity was shaped.",
+    "importanceRank": 5,
+    "imageUrl": "/deities/nana-buruku.png",
+    "primarySources": [{"text": "Nana Buruku, eldest of all, grandmother of the Orishas. She who gave the mud for humanity.", "source": "Oriki Nana", "date": "Traditional"}],
+    "crossPantheonParallels": [{"pantheonId": "greek-pantheon", "deityId": "gaia", "note": "Both are ancient earth mothers from whom later gods descended"}],
+    "pronunciation": {"ipa": "/ˈnana buˈruku/", "phonetic": "NAH-nah boo-ROO-koo"}
+  },
+  {
+    "id": "shopona",
+    "pantheonId": "african-pantheon",
+    "name": "Shopona",
+    "slug": "shopona",
+    "alternateNames": ["Sopona", "Sakpata", "Omolu", "Obaluaye"],
+    "gender": "male",
+    "domain": ["disease", "healing", "earth", "smallpox", "justice"],
+    "symbols": ["straw-covered face", "broom", "red and black beads", "cowries"],
+    "description": "The feared Orisha of disease, particularly smallpox. Shopona punishes wrongdoers with illness but also heals those who honor him.",
+    "detailedBio": "## The Lord of Infectious Disease\n\nShopona is the Orisha of disease, particularly smallpox, which was once the most feared killer in West Africa. He is both the bringer of epidemics and the healer of the sick.\n\n### The Hidden Face\n\nShopona is always depicted with his face covered, usually with straw or raffia. This represents both the disfiguring effects of smallpox and the belief that to see his true face would bring immediate death.\n\n### Divine Justice\n\nShopona does not strike randomly. He is an agent of divine justice, punishing thieves, liars, and those who violate sacred laws with disease.\n\n### The Healer\n\nParadoxically, Shopona is also a healer. His priests were among the first to practice a form of variolation (primitive vaccination).\n\n### The End of Smallpox\n\nWith the eradication of smallpox in 1980, Shopona's domain has shifted to include all infectious diseases.",
+    "originStory": "Shopona emerged from the earth itself, embodying the power of disease that lives in the soil and spreads through communities.",
+    "importanceRank": 6,
+    "imageUrl": "/deities/shopona.png",
+    "primarySources": [{"text": "Shopona, whose face none may see, who walks at night spreading red flowers on the skin.", "source": "Oriki Shopona", "date": "Traditional"}],
+    "crossPantheonParallels": [{"pantheonId": "greek-pantheon", "deityId": "apollo", "note": "Both can bring plague and also healing, representing divine justice"}],
+    "pronunciation": {"ipa": "/ʃoˈpona/", "phonetic": "shoh-POH-nah"}
   }
 ]

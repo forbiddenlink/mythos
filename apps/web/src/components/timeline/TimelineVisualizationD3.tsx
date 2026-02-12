@@ -60,6 +60,9 @@ const PANTHEON_COLORS: Record<string, string> = {
     'aztec-pantheon': '#14b8a6',   // teal-500
     'chinese-pantheon': '#e11d48', // rose-600
     'mesopotamian-pantheon': '#a16207', // yellow-700 (clay/bronze)
+    'african-pantheon': '#7c3aed', // violet-600
+    'polynesian-pantheon': '#06b6d4', // cyan-500
+    'mesoamerican-pantheon': '#65a30d', // lime-600
 }
 
 const ERA_MARKERS = [

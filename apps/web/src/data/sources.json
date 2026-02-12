@@ -1,0 +1,420 @@
+[
+  {
+    "id": "iliad",
+    "title": "Iliad",
+    "author": "Homer",
+    "year": "c. 750 BCE",
+    "type": "ancient-text",
+    "language": "Ancient Greek",
+    "description": "The foundational epic of Greek literature, depicting the wrath of Achilles during the final year of the Trojan War. Primary source for Greek gods' involvement in mortal affairs.",
+    "translators": [
+      { "name": "Richmond Lattimore", "year": 1951 },
+      { "name": "Robert Fagles", "year": 1990 },
+      { "name": "Caroline Alexander", "year": 2015 }
+    ],
+    "externalUrl": "https://www.perseus.tufts.edu/hopper/text?doc=Perseus:text:1999.01.0134"
+  },
+  {
+    "id": "odyssey",
+    "title": "Odyssey",
+    "author": "Homer",
+    "year": "c. 725 BCE",
+    "type": "ancient-text",
+    "language": "Ancient Greek",
+    "description": "The epic tale of Odysseus's ten-year journey home from Troy, featuring encounters with gods, monsters, and mortals. Essential source for Greek mythology and religious practices.",
+    "translators": [
+      { "name": "Richmond Lattimore", "year": 1965 },
+      { "name": "Robert Fagles", "year": 1996 },
+      { "name": "Emily Wilson", "year": 2017 }
+    ],
+    "externalUrl": "https://www.perseus.tufts.edu/hopper/text?doc=Perseus:text:1999.01.0136"
+  },
+  {
+    "id": "theogony",
+    "title": "Theogony",
+    "author": "Hesiod",
+    "year": "c. 700 BCE",
+    "type": "ancient-text",
+    "language": "Ancient Greek",
+    "description": "A systematic account of the origin and genealogy of the Greek gods, from primordial Chaos to the reign of Zeus. The definitive source for divine genealogy.",
+    "translators": [
+      { "name": "Hugh G. Evelyn-White", "year": 1914 },
+      { "name": "Richmond Lattimore", "year": 1959 },
+      { "name": "M.L. West", "year": 1966 }
+    ],
+    "externalUrl": "https://www.perseus.tufts.edu/hopper/text?doc=Perseus:text:1999.01.0130"
+  },
+  {
+    "id": "works-and-days",
+    "title": "Works and Days",
+    "author": "Hesiod",
+    "year": "c. 700 BCE",
+    "type": "ancient-text",
+    "language": "Ancient Greek",
+    "description": "A didactic poem containing the myth of Prometheus, Pandora, and the Five Ages of Man. Provides insight into Greek religious and moral philosophy.",
+    "translators": [
+      { "name": "Hugh G. Evelyn-White", "year": 1914 },
+      { "name": "M.L. West", "year": 1978 }
+    ],
+    "externalUrl": "https://www.perseus.tufts.edu/hopper/text?doc=Perseus:text:1999.01.0132"
+  },
+  {
+    "id": "homeric-hymns",
+    "title": "Homeric Hymns",
+    "author": "Various (attributed to Homer)",
+    "year": "c. 700-500 BCE",
+    "type": "ancient-text",
+    "language": "Ancient Greek",
+    "description": "A collection of thirty-three anonymous hymns celebrating individual Greek deities. Major source for myths of Demeter, Apollo, Hermes, and Aphrodite.",
+    "translators": [
+      { "name": "Hugh G. Evelyn-White", "year": 1914 },
+      { "name": "Michael Crudden", "year": 2001 }
+    ],
+    "externalUrl": "https://www.perseus.tufts.edu/hopper/text?doc=Perseus:text:1999.01.0138"
+  },
+  {
+    "id": "poetic-edda",
+    "title": "Poetic Edda",
+    "author": "Anonymous",
+    "year": "c. 1000-1300 CE (compiled)",
+    "type": "ancient-text",
+    "language": "Old Norse",
+    "description": "A collection of Old Norse poems from the medieval Icelandic manuscript Codex Regius. Primary source for Norse mythology including the Voluspa prophecy and Havamal.",
+    "translators": [
+      { "name": "Henry Adams Bellows", "year": 1936 },
+      { "name": "Lee M. Hollander", "year": 1962 },
+      { "name": "Carolyne Larrington", "year": 1996 },
+      { "name": "Jackson Crawford", "year": 2015 }
+    ],
+    "externalUrl": "https://www.sacred-texts.com/neu/poe/index.htm"
+  },
+  {
+    "id": "prose-edda",
+    "title": "Prose Edda",
+    "author": "Snorri Sturluson",
+    "year": "c. 1220 CE",
+    "type": "ancient-text",
+    "language": "Old Norse",
+    "description": "A manual of poetics that preserves Norse mythology through three sections: Gylfaginning (mythology), Skaldskaparmal (poetic diction), and Hattatal (verse forms).",
+    "translators": [
+      { "name": "Arthur Gilchrist Brodeur", "year": 1916 },
+      { "name": "Anthony Faulkes", "year": 1987 },
+      { "name": "Jesse Byock", "year": 2005 }
+    ],
+    "externalUrl": "https://www.sacred-texts.com/neu/pre/index.htm"
+  },
+  {
+    "id": "mahabharata",
+    "title": "Mahabharata",
+    "author": "Vyasa (traditional attribution)",
+    "year": "c. 400 BCE - 400 CE",
+    "type": "ancient-text",
+    "language": "Sanskrit",
+    "description": "The longest epic poem in existence, containing the Bhagavad Gita. Chronicles the Kurukshetra War and includes extensive Hindu mythology and philosophy.",
+    "translators": [
+      { "name": "Kisari Mohan Ganguli", "year": 1896 },
+      { "name": "J.A.B. van Buitenen", "year": 1973 },
+      { "name": "Bibek Debroy", "year": 2015 }
+    ],
+    "externalUrl": "https://www.sacred-texts.com/hin/maha/index.htm"
+  },
+  {
+    "id": "ramayana",
+    "title": "Ramayana",
+    "author": "Valmiki",
+    "year": "c. 500 BCE - 100 BCE",
+    "type": "ancient-text",
+    "language": "Sanskrit",
+    "description": "The epic tale of Prince Rama, his exile, the abduction of his wife Sita by demon king Ravana, and his alliance with the monkey god Hanuman.",
+    "translators": [
+      { "name": "Ralph T.H. Griffith", "year": 1870 },
+      { "name": "Robert P. Goldman", "year": 1984 }
+    ],
+    "externalUrl": "https://www.sacred-texts.com/hin/rama/index.htm"
+  },
+  {
+    "id": "rigveda",
+    "title": "Rigveda",
+    "author": "Various Vedic sages",
+    "year": "c. 1500-1200 BCE",
+    "type": "ancient-text",
+    "language": "Vedic Sanskrit",
+    "description": "The oldest of the four Vedas, containing 1,028 hymns to the Vedic deities including Indra, Agni, and Varuna. Foundation of Hindu religious tradition.",
+    "translators": [
+      { "name": "Ralph T.H. Griffith", "year": 1896 },
+      { "name": "Wendy Doniger", "year": 1981 },
+      { "name": "Stephanie W. Jamison & Joel P. Brereton", "year": 2014 }
+    ],
+    "externalUrl": "https://www.sacred-texts.com/hin/rigveda/index.htm"
+  },
+  {
+    "id": "kojiki",
+    "title": "Kojiki (Records of Ancient Matters)",
+    "author": "O no Yasumaro",
+    "year": "712 CE",
+    "type": "ancient-text",
+    "language": "Old Japanese",
+    "description": "The oldest surviving chronicle of Japan, containing myths of creation, the divine couple Izanagi and Izanami, and the sun goddess Amaterasu.",
+    "translators": [
+      { "name": "Basil Hall Chamberlain", "year": 1882 },
+      { "name": "Donald L. Philippi", "year": 1968 },
+      { "name": "Gustav Heldt", "year": 2014 }
+    ],
+    "externalUrl": "https://www.sacred-texts.com/shi/kj/index.htm"
+  },
+  {
+    "id": "nihon-shoki",
+    "title": "Nihon Shoki (Chronicles of Japan)",
+    "author": "Prince Toneri and O no Yasumaro",
+    "year": "720 CE",
+    "type": "ancient-text",
+    "language": "Classical Chinese",
+    "description": "The second-oldest book of classical Japanese history, providing alternative versions of myths found in the Kojiki and additional material.",
+    "translators": [
+      { "name": "W.G. Aston", "year": 1896 }
+    ],
+    "externalUrl": "https://www.sacred-texts.com/shi/nihon0.htm"
+  },
+  {
+    "id": "book-of-the-dead",
+    "title": "Book of the Dead",
+    "author": "Various Egyptian priests",
+    "year": "c. 1550-50 BCE",
+    "type": "ancient-text",
+    "language": "Ancient Egyptian (Hieroglyphic)",
+    "description": "A collection of funerary spells intended to assist the deceased in the afterlife. Major source for Egyptian underworld mythology and the weighing of the heart ceremony.",
+    "translators": [
+      { "name": "E.A. Wallis Budge", "year": 1895 },
+      { "name": "Raymond O. Faulkner", "year": 1972 },
+      { "name": "John L. Foster", "year": 1998 }
+    ],
+    "externalUrl": "https://www.sacred-texts.com/egy/ebod/index.htm"
+  },
+  {
+    "id": "pyramid-texts",
+    "title": "Pyramid Texts",
+    "author": "Anonymous Egyptian priests",
+    "year": "c. 2400-2300 BCE",
+    "type": "ancient-text",
+    "language": "Ancient Egyptian (Hieroglyphic)",
+    "description": "The oldest known religious texts in the world, carved on pyramid walls. Primary source for early Egyptian mythology and solar worship.",
+    "translators": [
+      { "name": "Samuel A.B. Mercer", "year": 1952 },
+      { "name": "R.O. Faulkner", "year": 1969 },
+      { "name": "James P. Allen", "year": 2005 }
+    ]
+  },
+  {
+    "id": "popol-vuh",
+    "title": "Popol Vuh",
+    "author": "Anonymous K'iche' Maya",
+    "year": "c. 1554-1558 CE (written; oral tradition much older)",
+    "type": "ancient-text",
+    "language": "K'iche' Maya",
+    "description": "The creation narrative of the K'iche' Maya, telling of the Hero Twins and multiple attempts by the gods to create humanity. The most important text of Mesoamerican mythology.",
+    "translators": [
+      { "name": "Delia Goetz & Sylvanus G. Morley", "year": 1950 },
+      { "name": "Dennis Tedlock", "year": 1985 },
+      { "name": "Allen J. Christenson", "year": 2007 }
+    ],
+    "externalUrl": "https://www.sacred-texts.com/nam/maya/pvgm/index.htm"
+  },
+  {
+    "id": "enuma-elish",
+    "title": "Enuma Elish",
+    "author": "Anonymous Babylonian priests",
+    "year": "c. 1100 BCE",
+    "type": "ancient-text",
+    "language": "Akkadian",
+    "description": "The Babylonian creation epic describing the rise of Marduk to supremacy among the gods and his creation of the world from the body of Tiamat.",
+    "translators": [
+      { "name": "L.W. King", "year": 1902 },
+      { "name": "Stephanie Dalley", "year": 1989 },
+      { "name": "Benjamin R. Foster", "year": 2005 }
+    ],
+    "externalUrl": "https://www.sacred-texts.com/ane/enuma.htm"
+  },
+  {
+    "id": "epic-of-gilgamesh",
+    "title": "Epic of Gilgamesh",
+    "author": "Sin-leqi-unninni (standard version)",
+    "year": "c. 2100 BCE (earliest versions)",
+    "type": "ancient-text",
+    "language": "Akkadian/Sumerian",
+    "description": "The oldest known epic literature, following the hero-king Gilgamesh and his companion Enkidu. Contains the earliest flood narrative and themes of mortality.",
+    "translators": [
+      { "name": "N.K. Sandars", "year": 1960 },
+      { "name": "Andrew George", "year": 1999 },
+      { "name": "Stephen Mitchell", "year": 2004 }
+    ],
+    "externalUrl": "https://www.sacred-texts.com/ane/gilgamesh/index.htm"
+  },
+  {
+    "id": "aeneid",
+    "title": "Aeneid",
+    "author": "Virgil",
+    "year": "19 BCE",
+    "type": "ancient-text",
+    "language": "Latin",
+    "description": "The Roman national epic following Trojan hero Aeneas from the fall of Troy to the founding of Rome. Primary source for Roman mythology and religious practice.",
+    "translators": [
+      { "name": "John Dryden", "year": 1697 },
+      { "name": "Robert Fitzgerald", "year": 1983 },
+      { "name": "Robert Fagles", "year": 2006 },
+      { "name": "Sarah Ruden", "year": 2021 }
+    ],
+    "externalUrl": "https://www.perseus.tufts.edu/hopper/text?doc=Perseus:text:1999.02.0054"
+  },
+  {
+    "id": "metamorphoses",
+    "title": "Metamorphoses",
+    "author": "Ovid",
+    "year": "8 CE",
+    "type": "ancient-text",
+    "language": "Latin",
+    "description": "A narrative poem of transformations spanning from the creation of the world to the deification of Julius Caesar. Contains over 250 Greek and Roman myths.",
+    "translators": [
+      { "name": "A.D. Melville", "year": 1986 },
+      { "name": "Charles Martin", "year": 2004 },
+      { "name": "Stephanie McCarter", "year": 2022 }
+    ],
+    "externalUrl": "https://www.perseus.tufts.edu/hopper/text?doc=Perseus:text:1999.02.0028"
+  },
+  {
+    "id": "library-apollodorus",
+    "title": "Bibliotheca (Library)",
+    "author": "Pseudo-Apollodorus",
+    "year": "c. 1st-2nd century CE",
+    "type": "ancient-text",
+    "language": "Ancient Greek",
+    "description": "A comprehensive handbook of Greek mythology organized by genealogy. Invaluable reference for many myths not preserved elsewhere.",
+    "translators": [
+      { "name": "James G. Frazer", "year": 1921 },
+      { "name": "Robin Hard", "year": 1997 }
+    ],
+    "externalUrl": "https://www.perseus.tufts.edu/hopper/text?doc=Perseus:text:1999.01.0022"
+  },
+  {
+    "id": "mythology-hamilton",
+    "title": "Mythology: Timeless Tales of Gods and Heroes",
+    "author": "Edith Hamilton",
+    "year": 1942,
+    "type": "academic",
+    "language": "English",
+    "description": "A widely influential introduction to Greek, Roman, and Norse mythology. Known for its accessible prose and emphasis on the human elements of ancient myths.",
+    "externalUrl": "https://www.goodreads.com/book/show/22034.Mythology"
+  },
+  {
+    "id": "hero-thousand-faces",
+    "title": "The Hero with a Thousand Faces",
+    "author": "Joseph Campbell",
+    "year": 1949,
+    "type": "academic",
+    "language": "English",
+    "description": "The foundational work of comparative mythology introducing the concept of the 'monomyth' or hero's journey. Analyzes mythological narratives from cultures worldwide.",
+    "externalUrl": "https://www.goodreads.com/book/show/588138.The_Hero_With_a_Thousand_Faces"
+  },
+  {
+    "id": "masks-of-god",
+    "title": "The Masks of God",
+    "author": "Joseph Campbell",
+    "year": "1959-1968",
+    "type": "academic",
+    "language": "English",
+    "description": "A four-volume comparative study of world mythology covering Primitive, Oriental, Occidental, and Creative aspects of human mythological expression."
+  },
+  {
+    "id": "golden-bough",
+    "title": "The Golden Bough",
+    "author": "James George Frazer",
+    "year": 1890,
+    "type": "academic",
+    "language": "English",
+    "description": "A pioneering work of comparative religion and mythology examining death-and-rebirth deities, sacred kingship, and ritual practices across cultures.",
+    "externalUrl": "https://www.sacred-texts.com/pag/frazer/index.htm"
+  },
+  {
+    "id": "greek-myths-graves",
+    "title": "The Greek Myths",
+    "author": "Robert Graves",
+    "year": 1955,
+    "type": "academic",
+    "language": "English",
+    "description": "A comprehensive retelling and analysis of Greek mythology with extensive commentary on sources and interpretations. Known for its matriarchal theory.",
+    "externalUrl": "https://www.goodreads.com/book/show/43451.The_Greek_Myths"
+  },
+  {
+    "id": "norse-mythology-crossley-holland",
+    "title": "The Norse Myths",
+    "author": "Kevin Crossley-Holland",
+    "year": 1980,
+    "type": "translation",
+    "language": "English",
+    "description": "An acclaimed retelling of the Norse myths from the Eddas, noted for its poetic prose and fidelity to the original spirit of the tales.",
+    "externalUrl": "https://www.goodreads.com/book/show/79883.The_Norse_Myths"
+  },
+  {
+    "id": "gods-pharaohs",
+    "title": "Gods and Pharaohs from Egyptian Mythology",
+    "author": "Geraldine Harris",
+    "year": 1982,
+    "type": "academic",
+    "language": "English",
+    "description": "An accessible introduction to Egyptian mythology with beautiful illustrations, covering creation myths, the Osiris cycle, and pharaonic religion."
+  },
+  {
+    "id": "hindu-myths-doniger",
+    "title": "Hindu Myths: A Sourcebook",
+    "author": "Wendy Doniger (O'Flaherty)",
+    "year": 1975,
+    "type": "translation",
+    "language": "English",
+    "description": "Translations of key texts from the Vedas, Brahmanas, Puranas, and epics, organized thematically around creation, destruction, and the lives of major deities.",
+    "externalUrl": "https://www.goodreads.com/book/show/243144.Hindu_Myths"
+  },
+  {
+    "id": "japanese-mythology-piggott",
+    "title": "Japanese Mythology",
+    "author": "Juliet Piggott",
+    "year": 1969,
+    "type": "academic",
+    "language": "English",
+    "description": "An introduction to Shinto mythology from the Kojiki and Nihon Shoki, covering the divine creation, the sun goddess Amaterasu, and legendary heroes."
+  },
+  {
+    "id": "maya-cosmos",
+    "title": "Maya Cosmos: Three Thousand Years on the Shaman's Path",
+    "author": "David Freidel, Linda Schele, & Joy Parker",
+    "year": 1993,
+    "type": "academic",
+    "language": "English",
+    "description": "A scholarly exploration of Maya mythology combining archaeological evidence, art history, and deciphered hieroglyphic texts."
+  },
+  {
+    "id": "ancient-iraq-roux",
+    "title": "Ancient Iraq",
+    "author": "Georges Roux",
+    "year": 1964,
+    "type": "academic",
+    "language": "English",
+    "description": "A comprehensive history of Mesopotamia from prehistory to the Hellenistic period, including detailed coverage of Sumerian, Babylonian, and Assyrian mythology."
+  },
+  {
+    "id": "dictionary-mythology",
+    "title": "The Oxford Dictionary of World Mythology",
+    "author": "Arthur Cotterell",
+    "year": 1986,
+    "type": "academic",
+    "language": "English",
+    "description": "A comprehensive reference work covering mythological figures, themes, and narratives from cultures across the globe."
+  },
+  {
+    "id": "complete-world-mythology",
+    "title": "The Complete World of Greek Mythology",
+    "author": "Richard Buxton",
+    "year": 2004,
+    "type": "academic",
+    "language": "English",
+    "description": "A beautifully illustrated scholarly overview of Greek mythology, examining myths in their cultural, religious, and artistic contexts."
+  }
+]
