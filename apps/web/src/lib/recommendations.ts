@@ -468,3 +468,322 @@ export function getDiscoveryRecommendations(
     reason: 'Start your mythological journey',
   };
 }
+
+// ============================================================================
+// Learning Paths
+// ============================================================================
+
+export type LearningGoal = 'pantheon-mastery' | 'domain-expert' | 'story-scholar' | 'completionist';
+
+export interface LearningPathStep {
+  type: 'deity' | 'story' | 'quiz';
+  itemId: string;
+  title: string;
+  completed: boolean;
+}
+
+export interface LearningPath {
+  id: string;
+  name: string;
+  description: string;
+  steps: LearningPathStep[];
+  progress: number; // 0-100
+  estimatedTime: string; // e.g., "2 hours"
+  goal: LearningGoal;
+  pantheonId?: string; // For pantheon-mastery paths
+  domain?: string; // For domain-expert paths
+}
+
+/**
+ * Generate a learning path based on user preferences and a specific goal
+ */
+export function generateLearningPath(
+  prefs: UserPreferences,
+  goal: LearningGoal,
+  allDeities: Deity[],
+  allStories: Story[],
+  options?: {
+    pantheonId?: string;
+    domain?: string;
+  }
+): LearningPath {
+  const steps: LearningPathStep[] = [];
+
+  switch (goal) {
+    case 'pantheon-mastery': {
+      const pantheonId = options?.pantheonId || prefs.favoritePantheons[0] || 'greek-pantheon';
+      const pantheonDeities = allDeities
+        .filter(d => d.pantheonId === pantheonId)
+        .sort((a, b) => (a.importanceRank || 99) - (b.importanceRank || 99));
+      const pantheonStories = allStories.filter(s => s.pantheonId === pantheonId);
+
+      // Add deities in order of importance
+      for (const deity of pantheonDeities.slice(0, 10)) {
+        steps.push({
+          type: 'deity',
+          itemId: deity.id,
+          title: `Learn about ${deity.name}`,
+          completed: prefs.viewedDeities.includes(deity.id),
+        });
+      }
+
+      // Add stories
+      for (const story of pantheonStories.slice(0, 5)) {
+        steps.push({
+          type: 'story',
+          itemId: story.id,
+          title: `Read: ${story.title}`,
+          completed: prefs.readStories.includes(story.id),
+        });
+      }
+
+      // Add quiz at the end
+      steps.push({
+        type: 'quiz',
+        itemId: `quiz-${pantheonId}`,
+        title: `${formatPantheonName(pantheonId)} Mythology Quiz`,
+        completed: false, // Quizzes are tracked separately
+      });
+
+      const completedCount = steps.filter(s => s.completed).length;
+      const progress = Math.round((completedCount / steps.length) * 100);
+
+      return {
+        id: `pantheon-mastery-${pantheonId}`,
+        name: `Master ${formatPantheonName(pantheonId)} Mythology`,
+        description: `Explore the major deities and stories of the ${formatPantheonName(pantheonId)} pantheon, from creation myths to epic tales.`,
+        steps,
+        progress,
+        estimatedTime: `${Math.ceil(steps.length * 5)} minutes`,
+        goal,
+        pantheonId,
+      };
+    }
+
+    case 'domain-expert': {
+      const domain = options?.domain || prefs.favoriteDomains[0] || 'war';
+      const domainDeities = allDeities
+        .filter(d => d.domain?.includes(domain))
+        .sort((a, b) => (a.importanceRank || 99) - (b.importanceRank || 99));
+
+      // Get deities from different pantheons for comparative study
+      const uniquePantheons = new Set<string>();
+      const selectedDeities: Deity[] = [];
+      for (const deity of domainDeities) {
+        if (selectedDeities.length >= 8) break;
+        if (!uniquePantheons.has(deity.pantheonId)) {
+          selectedDeities.push(deity);
+          uniquePantheons.add(deity.pantheonId);
+        }
+      }
+      // Fill remaining slots with more deities
+      for (const deity of domainDeities) {
+        if (selectedDeities.length >= 8) break;
+        if (!selectedDeities.includes(deity)) {
+          selectedDeities.push(deity);
+        }
+      }
+
+      for (const deity of selectedDeities) {
+        steps.push({
+          type: 'deity',
+          itemId: deity.id,
+          title: `Study ${deity.name} (${formatPantheonName(deity.pantheonId)})`,
+          completed: prefs.viewedDeities.includes(deity.id),
+        });
+      }
+
+      // Add quiz at the end
+      steps.push({
+        type: 'quiz',
+        itemId: `quiz-domain-${domain}`,
+        title: `${capitalizeFirst(domain)} Domain Quiz`,
+        completed: false,
+      });
+
+      const completedCount = steps.filter(s => s.completed).length;
+      const progress = Math.round((completedCount / steps.length) * 100);
+
+      return {
+        id: `domain-expert-${domain}`,
+        name: `${capitalizeFirst(domain)} Gods Across Cultures`,
+        description: `Discover how different cultures conceived of ${domain} deities, comparing their attributes and stories.`,
+        steps,
+        progress,
+        estimatedTime: `${Math.ceil(steps.length * 5)} minutes`,
+        goal,
+        domain,
+      };
+    }
+
+    case 'story-scholar': {
+      // Group stories by category and pick diverse ones
+      const categories = ['creation', 'war', 'epic', 'tragedy', 'heroic', 'transformation'];
+      const selectedStories: Story[] = [];
+
+      for (const category of categories) {
+        const categoryStories = allStories.filter(s => s.category === category);
+        if (categoryStories.length > 0) {
+          selectedStories.push(categoryStories[0]);
+          if (categoryStories.length > 1) {
+            selectedStories.push(categoryStories[1]);
+          }
+        }
+      }
+
+      // Ensure we have at least some stories
+      if (selectedStories.length < 6) {
+        for (const story of allStories) {
+          if (selectedStories.length >= 10) break;
+          if (!selectedStories.includes(story)) {
+            selectedStories.push(story);
+          }
+        }
+      }
+
+      for (const story of selectedStories.slice(0, 10)) {
+        steps.push({
+          type: 'story',
+          itemId: story.id,
+          title: story.title,
+          completed: prefs.readStories.includes(story.id),
+        });
+      }
+
+      // Add quiz at the end
+      steps.push({
+        type: 'quiz',
+        itemId: 'quiz-stories',
+        title: 'Mythology Stories Quiz',
+        completed: false,
+      });
+
+      const completedCount = steps.filter(s => s.completed).length;
+      const progress = Math.round((completedCount / steps.length) * 100);
+
+      return {
+        id: 'story-scholar',
+        name: 'Tales of the Divine',
+        description: 'Journey through the greatest stories of mythology, from creation myths to heroic epics.',
+        steps,
+        progress,
+        estimatedTime: `${Math.ceil(steps.length * 8)} minutes`,
+        goal,
+      };
+    }
+
+    case 'completionist': {
+      // Mix of everything, focusing on unviewed content first
+      const unviewedDeities = allDeities.filter(d => !prefs.viewedDeities.includes(d.id));
+      const unreadStories = allStories.filter(s => !prefs.readStories.includes(s.id));
+
+      // Sort by importance and take top deities
+      const sortedDeities = [...unviewedDeities]
+        .sort((a, b) => (a.importanceRank || 99) - (b.importanceRank || 99))
+        .slice(0, 12);
+
+      for (const deity of sortedDeities) {
+        steps.push({
+          type: 'deity',
+          itemId: deity.id,
+          title: `Discover ${deity.name}`,
+          completed: false,
+        });
+      }
+
+      for (const story of unreadStories.slice(0, 6)) {
+        steps.push({
+          type: 'story',
+          itemId: story.id,
+          title: story.title,
+          completed: false,
+        });
+      }
+
+      steps.push({
+        type: 'quiz',
+        itemId: 'quiz-comprehensive',
+        title: 'Comprehensive Mythology Quiz',
+        completed: false,
+      });
+
+      const totalContent = allDeities.length + allStories.length;
+      const viewedContent = prefs.viewedDeities.length + prefs.readStories.length;
+      const progress = Math.round((viewedContent / totalContent) * 100);
+
+      return {
+        id: 'completionist',
+        name: 'The Grand Journey',
+        description: `Complete your mythology collection! You've discovered ${viewedContent} of ${totalContent} items.`,
+        steps,
+        progress,
+        estimatedTime: `${Math.ceil(steps.length * 5)} minutes`,
+        goal,
+      };
+    }
+
+    default:
+      return {
+        id: 'default',
+        name: 'Explore Mythology',
+        description: 'Start your mythological journey.',
+        steps: [],
+        progress: 0,
+        estimatedTime: '0 minutes',
+        goal: 'completionist',
+      };
+  }
+}
+
+/**
+ * Generate multiple learning paths based on user preferences
+ */
+export function generatePersonalizedPaths(
+  prefs: UserPreferences,
+  allDeities: Deity[],
+  allStories: Story[]
+): LearningPath[] {
+  const paths: LearningPath[] = [];
+
+  // Pantheon mastery path - use favorite or least explored
+  const favoritePantheon = prefs.favoritePantheons[0];
+  if (favoritePantheon) {
+    paths.push(generateLearningPath(prefs, 'pantheon-mastery', allDeities, allStories, {
+      pantheonId: favoritePantheon,
+    }));
+  } else {
+    // Suggest Greek as a starting point for new users
+    paths.push(generateLearningPath(prefs, 'pantheon-mastery', allDeities, allStories, {
+      pantheonId: 'greek-pantheon',
+    }));
+  }
+
+  // Domain expert path
+  const favoriteDomain = prefs.favoriteDomains[0];
+  if (favoriteDomain) {
+    paths.push(generateLearningPath(prefs, 'domain-expert', allDeities, allStories, {
+      domain: favoriteDomain,
+    }));
+  } else {
+    paths.push(generateLearningPath(prefs, 'domain-expert', allDeities, allStories, {
+      domain: 'war',
+    }));
+  }
+
+  // Story scholar path
+  paths.push(generateLearningPath(prefs, 'story-scholar', allDeities, allStories));
+
+  // Completionist path (only if user has some progress)
+  if (prefs.viewedDeities.length > 0 || prefs.readStories.length > 0) {
+    paths.push(generateLearningPath(prefs, 'completionist', allDeities, allStories));
+  }
+
+  return paths;
+}
+
+/**
+ * Capitalize first letter
+ */
+function capitalizeFirst(str: string): string {
+  return str.charAt(0).toUpperCase() + str.slice(1);
+}

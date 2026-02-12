@@ -12,6 +12,7 @@ export interface UserProgress {
   dailyStreak: number;
   lastVisit: string; // ISO date
   totalXP: number;
+  streakFreezes: number;
 }
 
 export interface ProgressStats {
@@ -36,6 +37,8 @@ export interface ProgressContextValue {
   unlockAchievement: (achievementId: string, xp: number) => void;
   updateStreak: () => void;
   getStats: () => ProgressStats;
+  useStreakFreeze: () => boolean;
+  addStreakFreeze: (count: number) => void;
 }
 
 const PROGRESS_STORAGE_KEY = 'mythos-atlas-progress';
@@ -50,6 +53,7 @@ const DEFAULT_PROGRESS: UserProgress = {
   dailyStreak: 0,
   lastVisit: '',
   totalXP: 0,
+  streakFreezes: 2,
 };
 
 export const ProgressContext = createContext<ProgressContextValue | null>(null);
@@ -131,13 +135,46 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
         };
       }
 
-      // First visit or streak broken, reset to 1
+      // Streak would break - try to use a freeze if available and streak > 0
+      if (prev.streakFreezes > 0 && prev.dailyStreak > 0 && prev.lastVisit !== '') {
+        return {
+          ...prev,
+          streakFreezes: prev.streakFreezes - 1,
+          lastVisit: today,
+          // Keep the streak intact (don't increment, just preserve)
+        };
+      }
+
+      // First visit or streak broken (no freeze available), reset to 1
       return {
         ...prev,
         dailyStreak: 1,
         lastVisit: today,
       };
     });
+  }, []);
+
+  const useStreakFreeze = useCallback((): boolean => {
+    let freezeUsed = false;
+    setProgress((prev) => {
+      // Can only use freeze if we have one and streak would break
+      if (prev.streakFreezes > 0 && prev.dailyStreak > 0) {
+        freezeUsed = true;
+        return {
+          ...prev,
+          streakFreezes: prev.streakFreezes - 1,
+        };
+      }
+      return prev;
+    });
+    return freezeUsed;
+  }, []);
+
+  const addStreakFreeze = useCallback((count: number) => {
+    setProgress((prev) => ({
+      ...prev,
+      streakFreezes: prev.streakFreezes + count,
+    }));
   }, []);
 
   const trackDeityView = useCallback((deityId: string) => {
@@ -243,6 +280,8 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
         unlockAchievement,
         updateStreak,
         getStats,
+        useStreakFreeze,
+        addStreakFreeze,
       }}
     >
       {children}

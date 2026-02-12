@@ -4,18 +4,14 @@ import { useEffect, useState, useCallback, useMemo } from 'react';
 import { useRouter } from 'next/navigation';
 import {
   Search,
-  Home,
-  Users,
-  BookOpen,
-  Network,
-  Globe,
   Sparkles,
-  MapPin,
-  Map as MapIcon,
+  BookOpen,
   Skull,
   Gem,
+  MapPin,
   Clock,
   TrendingUp,
+  X,
 } from 'lucide-react';
 import { useDebounce } from '@/hooks/use-debounce';
 import {
@@ -25,7 +21,7 @@ import {
   saveRecentSearch,
   clearRecentSearches,
   getResultUrl,
-  type SearchResult as SearchResultType,
+  type SearchResult,
   type ContentType,
 } from '@/lib/search';
 import {
@@ -37,6 +33,11 @@ import {
   CommandItem,
   CommandSeparator,
 } from '@/components/ui/command';
+
+interface SmartSearchProps {
+  open: boolean;
+  onOpenChange: (open: boolean) => void;
+}
 
 // Icons for each content type
 const typeIcons: Record<ContentType, typeof Sparkles> = {
@@ -65,43 +66,28 @@ const typeLabels: Record<ContentType, string> = {
   location: 'Locations',
 };
 
-// Navigation items shown when no search query
-const navigationItems = [
-  { id: 'nav-home', title: 'Home', href: '/', icon: Home, iconColor: 'text-teal-600' },
-  { id: 'nav-deities', title: 'All Deities', href: '/deities', icon: Users, iconColor: 'text-amber-500' },
-  { id: 'nav-creatures', title: 'Creatures', href: '/creatures', icon: Skull, iconColor: 'text-red-500' },
-  { id: 'nav-artifacts', title: 'Artifacts', href: '/artifacts', icon: Gem, iconColor: 'text-purple-500' },
-  { id: 'nav-stories', title: 'Stories', href: '/stories', icon: BookOpen, iconColor: 'text-blue-500' },
-  { id: 'nav-family', title: 'Family Tree', href: '/family-tree', icon: Network, iconColor: 'text-emerald-600' },
-  { id: 'nav-map', title: 'Locations', href: '/locations', icon: MapIcon, iconColor: 'text-emerald-500' },
-  { id: 'nav-pantheons', title: 'Pantheons', href: '/pantheons', icon: Globe, iconColor: 'text-slate-600' },
-];
-
-export function GlobalSearch() {
-  const [open, setOpen] = useState(false);
+export function SmartSearch({ open, onOpenChange }: SmartSearchProps) {
   const router = useRouter();
-  const [searchQuery, setSearchQuery] = useState('');
+  const [query, setQuery] = useState('');
   const [recentSearches, setRecentSearches] = useState<string[]>([]);
-  const debouncedSearch = useDebounce(searchQuery, 300);
+  const debouncedQuery = useDebounce(query, 300);
 
-  // Load recent searches when dialog opens
+  // Load recent searches on mount
   useEffect(() => {
-    if (open) {
-      setRecentSearches(getRecentSearches());
-    }
+    setRecentSearches(getRecentSearches());
   }, [open]);
 
-  // Search results using local JSON search
+  // Search results
   const results = useMemo(() => {
-    if (!debouncedSearch || debouncedSearch.length < 2) {
+    if (!debouncedQuery || debouncedQuery.length < 2) {
       return [];
     }
-    return searchAll(debouncedSearch, 15);
-  }, [debouncedSearch]);
+    return searchAll(debouncedQuery, 15);
+  }, [debouncedQuery]);
 
   // Group results by type
   const groupedResults = useMemo(() => {
-    const groups: Record<ContentType, SearchResultType[]> = {
+    const groups: Record<ContentType, SearchResult[]> = {
       deity: [],
       story: [],
       creature: [],
@@ -116,46 +102,28 @@ export function GlobalSearch() {
     // Filter out empty groups and sort by number of results
     return Object.entries(groups)
       .filter(([, items]) => items.length > 0)
-      .sort((a, b) => b[1].length - a[1].length) as [ContentType, SearchResultType[]][];
+      .sort((a, b) => b[1].length - a[1].length) as [ContentType, SearchResult[]][];
   }, [results]);
 
   const popularSearches = useMemo(() => getPopularSearches().slice(0, 6), []);
 
-  // Handle keyboard shortcuts for opening the command palette
-  useEffect(() => {
-    const down = (e: KeyboardEvent) => {
-      if (e.key === 'k' && (e.metaKey || e.ctrlKey)) {
-        e.preventDefault();
-        setOpen((open) => !open);
-      }
-    };
-    document.addEventListener('keydown', down);
-    return () => document.removeEventListener('keydown', down);
-  }, []);
-
   const handleSelect = useCallback(
-    (result: SearchResultType) => {
+    (result: SearchResult) => {
       saveRecentSearch(result.title);
       setRecentSearches(getRecentSearches());
-      setOpen(false);
-      setSearchQuery('');
+      onOpenChange(false);
+      setQuery('');
       router.push(getResultUrl(result));
     },
-    [router]
+    [router, onOpenChange]
   );
 
-  const handleNavigationSelect = useCallback(
-    (href: string) => {
-      setOpen(false);
-      setSearchQuery('');
-      router.push(href);
+  const handleQuickSearch = useCallback(
+    (term: string) => {
+      setQuery(term);
     },
-    [router]
+    []
   );
-
-  const handleQuickSearch = useCallback((term: string) => {
-    setSearchQuery(term);
-  }, []);
 
   const handleClearRecent = useCallback(() => {
     clearRecentSearches();
@@ -165,18 +133,18 @@ export function GlobalSearch() {
   // Reset query when dialog closes
   useEffect(() => {
     if (!open) {
-      setSearchQuery('');
+      setQuery('');
     }
   }, [open]);
 
-  const showSuggestions = !debouncedSearch || debouncedSearch.length < 2;
+  const showSuggestions = !debouncedQuery || debouncedQuery.length < 2;
 
   return (
-    <CommandDialog open={open} onOpenChange={setOpen}>
+    <CommandDialog open={open} onOpenChange={onOpenChange}>
       <CommandInput
         placeholder="Search deities, stories, creatures..."
-        value={searchQuery}
-        onValueChange={setSearchQuery}
+        value={query}
+        onValueChange={setQuery}
       />
       <CommandList>
         {showSuggestions ? (
@@ -184,6 +152,15 @@ export function GlobalSearch() {
             {/* Recent Searches */}
             {recentSearches.length > 0 && (
               <CommandGroup heading="Recent Searches">
+                <div className="flex items-center justify-between px-2 pb-1">
+                  <span className="sr-only">Recent Searches</span>
+                  <button
+                    onClick={handleClearRecent}
+                    className="text-xs text-muted-foreground hover:text-foreground transition-colors"
+                  >
+                    Clear
+                  </button>
+                </div>
                 {recentSearches.slice(0, 5).map((term) => (
                   <CommandItem
                     key={`recent-${term}`}
@@ -195,13 +172,6 @@ export function GlobalSearch() {
                     <span>{term}</span>
                   </CommandItem>
                 ))}
-                <CommandItem
-                  value="clear-recent"
-                  onSelect={handleClearRecent}
-                  className="text-xs text-muted-foreground"
-                >
-                  Clear recent searches
-                </CommandItem>
               </CommandGroup>
             )}
 
@@ -221,33 +191,13 @@ export function GlobalSearch() {
                 </CommandItem>
               ))}
             </CommandGroup>
-
-            <CommandSeparator />
-
-            {/* Quick Navigation */}
-            <CommandGroup heading="Quick Navigation">
-              {navigationItems.map((item) => {
-                const Icon = item.icon;
-                return (
-                  <CommandItem
-                    key={item.id}
-                    value={item.id}
-                    onSelect={() => handleNavigationSelect(item.href)}
-                    className="flex items-center gap-2"
-                  >
-                    <Icon className={`h-4 w-4 ${item.iconColor}`} />
-                    <span>{item.title}</span>
-                  </CommandItem>
-                );
-              })}
-            </CommandGroup>
           </>
         ) : (
           <>
             {/* Search Results */}
             {groupedResults.length === 0 && (
               <CommandEmpty>
-                No results found for &quot;{debouncedSearch}&quot;
+                No results found for &quot;{debouncedQuery}&quot;
               </CommandEmpty>
             )}
 
