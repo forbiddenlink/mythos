@@ -402,5 +402,37 @@
         ],
         "dangerLevel": 9,
         "imageUrl": "/creatures/each-uisge.png"
+    },
+    {
+        "id": "humbaba",
+        "pantheonId": "mesopotamian-pantheon",
+        "name": "Humbaba",
+        "slug": "humbaba",
+        "description": "The terrifying guardian of the Cedar Forest, appointed by Enlil to protect the sacred trees. His face was formed from the intestines of gods, his roar was the flood, his breath was fire, and his mere glance was death. Gilgamesh and Enkidu slew him despite his pleas for mercy.",
+        "habitat": "The Cedar Forest",
+        "abilities": [
+            "Seven Auras of Terror",
+            "Fire Breath",
+            "Earthquake Voice",
+            "Death Gaze"
+        ],
+        "dangerLevel": 9,
+        "imageUrl": "/creatures/humbaba.png"
+    },
+    {
+        "id": "lamassu",
+        "pantheonId": "mesopotamian-pantheon",
+        "name": "Lamassu",
+        "slug": "lamassu",
+        "description": "A protective deity with the body of a bull or lion, the wings of an eagle, and the head of a human. These colossal guardian figures flanked the gates of Assyrian and Babylonian palaces, warding off evil spirits and enemies. They were carved with five legs so they appeared to be walking when viewed from the side.",
+        "habitat": "Palace Gates and Temple Entrances",
+        "abilities": [
+            "Divine Protection",
+            "Evil Spirit Repulsion",
+            "Eternal Vigilance",
+            "Blessing of Travelers"
+        ],
+        "dangerLevel": 2,
+        "imageUrl": "/creatures/lamassu.png"
     }
 ]

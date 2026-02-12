@@ -59,6 +59,7 @@ const PANTHEON_COLORS: Record<string, string> = {
     'celtic-pantheon': '#22c55e', // green-500
     'aztec-pantheon': '#14b8a6',   // teal-500
     'chinese-pantheon': '#e11d48', // rose-600
+    'mesopotamian-pantheon': '#a16207', // yellow-700 (clay/bronze)
 }
 
 const ERA_MARKERS = [

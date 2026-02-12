@@ -77,6 +77,7 @@ const PANTHEON_COLORS: Record<string, string> = {
   'celtic-pantheon': '#14b8a6',    // Teal
   'aztec-pantheon': '#f97316',     // Orange
   'chinese-pantheon': '#eab308',   // Yellow
+  'mesopotamian-pantheon': '#a16207', // Clay/Bronze
 };
 
 const getPantheonColor = (pantheonId: string): string => {

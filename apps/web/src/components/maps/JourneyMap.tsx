@@ -48,6 +48,9 @@ const PANTHEON_COLORS: Record<string, { primary: string; secondary: string }> = 
   'hindu-pantheon': { primary: '#f97316', secondary: '#ea580c' },
   'japanese-pantheon': { primary: '#ec4899', secondary: '#db2777' },
   'celtic-pantheon': { primary: '#22c55e', secondary: '#16a34a' },
+  'aztec-pantheon': { primary: '#14b8a6', secondary: '#0d9488' },
+  'chinese-pantheon': { primary: '#e11d48', secondary: '#be123c' },
+  'mesopotamian-pantheon': { primary: '#a16207', secondary: '#854d0e' },
 };
 
 // Create numbered marker icon

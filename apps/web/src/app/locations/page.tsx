@@ -80,6 +80,7 @@ const PANTHEON_COLORS: Record<string, { bg: string; label: string }> = {
   'celtic-pantheon': { bg: '#22c55e', label: 'Celtic' },
   'aztec-pantheon': { bg: '#14b8a6', label: 'Aztec' },
   'chinese-pantheon': { bg: '#e11d48', label: 'Chinese' },
+  'mesopotamian-pantheon': { bg: '#a16207', label: 'Mesopotamian' },
 };
 
 function getLocationTypeLabel(type: string): string {

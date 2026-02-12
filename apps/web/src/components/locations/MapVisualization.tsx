@@ -57,6 +57,7 @@ const PANTHEON_COLORS: Record<string, { bg: string; border: string; label: strin
   'celtic-pantheon': { bg: '#22c55e', border: '#16a34a', label: 'Celtic' },
   'aztec-pantheon': { bg: '#14b8a6', border: '#0d9488', label: 'Aztec' },
   'chinese-pantheon': { bg: '#e11d48', border: '#be123c', label: 'Chinese' },
+  'mesopotamian-pantheon': { bg: '#a16207', border: '#854d0e', label: 'Mesopotamian' },
 };
 
 // ─── Location type icons (SVG paths used in markers) ────────────────────

@@ -65,6 +65,9 @@ const PANTHEON_COLORS: Record<string, { bg: string; label: string }> = {
   'hindu-pantheon': { bg: '#f97316', label: 'Hindu' },
   'japanese-pantheon': { bg: '#ec4899', label: 'Japanese' },
   'celtic-pantheon': { bg: '#22c55e', label: 'Celtic' },
+  'aztec-pantheon': { bg: '#14b8a6', label: 'Aztec' },
+  'chinese-pantheon': { bg: '#e11d48', label: 'Chinese' },
+  'mesopotamian-pantheon': { bg: '#a16207', label: 'Mesopotamian' },
 };
 
 export default function JourneysPage() {

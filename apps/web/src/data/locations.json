@@ -548,5 +548,35 @@
     "latitude": null,
     "longitude": null,
     "imageUrl": "/locations/heavenly-palace.png"
+  },
+  {
+    "id": "babylon",
+    "name": "Babylon",
+    "locationType": "city",
+    "pantheonId": "mesopotamian-pantheon",
+    "description": "The great city of Marduk, center of the Babylonian Empire and home to the Esagila temple and the ziggurat Etemenanki. The name means 'Gate of the Gods' and the city was considered the axis mundi of the Mesopotamian cosmos.",
+    "latitude": 32.5422,
+    "longitude": 44.4211,
+    "imageUrl": "/locations/babylon.png"
+  },
+  {
+    "id": "uruk",
+    "name": "Uruk",
+    "locationType": "city",
+    "pantheonId": "mesopotamian-pantheon",
+    "description": "The city of Gilgamesh and Inanna, one of the first true cities in human history. Its mighty walls, said to be built by Gilgamesh himself, enclosed the great E-anna temple complex sacred to both Anu and Inanna.",
+    "latitude": 31.3242,
+    "longitude": 45.6367,
+    "imageUrl": "/locations/uruk.png"
+  },
+  {
+    "id": "cedar-forest",
+    "name": "The Cedar Forest",
+    "locationType": "mythical_realm",
+    "pantheonId": "mesopotamian-pantheon",
+    "description": "A vast primordial forest at the edge of civilization, guarded by the monster Humbaba appointed by Enlil. Gilgamesh and Enkidu ventured here to slay Humbaba and make their names immortal.",
+    "latitude": 34.0000,
+    "longitude": 36.0000,
+    "imageUrl": "/locations/cedar-forest.png"
   }
 ]

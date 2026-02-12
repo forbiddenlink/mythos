@@ -52,6 +52,7 @@ const PANTHEON_COLORS: Record<string, string> = {
   'celtic-pantheon': 'bg-green-500/20 text-green-400 border-green-500/30',
   'aztec-pantheon': 'bg-emerald-500/20 text-emerald-400 border-emerald-500/30',
   'chinese-pantheon': 'bg-yellow-500/20 text-yellow-400 border-yellow-500/30',
+  'mesopotamian-pantheon': 'bg-yellow-700/20 text-yellow-600 border-yellow-700/30',
 };
 
 function getPantheonColor(pantheonId: string): string {
