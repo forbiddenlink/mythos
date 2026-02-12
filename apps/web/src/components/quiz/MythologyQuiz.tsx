@@ -251,16 +251,36 @@ export function MythologyQuiz() {
     <div className="max-w-2xl mx-auto space-y-6">
       <div className="flex items-center justify-between">
         <div className="space-y-1">
-          <span className="text-sm font-medium text-muted-foreground uppercase tracking-wider">Question {currentQuestion + 1}/{questions.length}</span>
-          <Progress value={((currentQuestion) / questions.length) * 100} className="h-1.5 w-32" />
+          <span
+            id="quiz-progress-label"
+            className="text-sm font-medium text-muted-foreground uppercase tracking-wider"
+          >
+            Question {currentQuestion + 1} of {questions.length}
+          </span>
+          <Progress
+            value={((currentQuestion) / questions.length) * 100}
+            className="h-1.5 w-32"
+            aria-labelledby="quiz-progress-label"
+            aria-valuenow={currentQuestion + 1}
+            aria-valuemin={1}
+            aria-valuemax={questions.length}
+          />
         </div>
-        <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-gold/10 border border-gold/20 text-gold text-sm font-medium">
-          <Trophy className="h-3.5 w-3.5" />
+        <div
+          className="flex items-center gap-2 px-3 py-1 rounded-full bg-gold/10 border border-gold/20 text-gold text-sm font-medium"
+          role="status"
+          aria-label={`Current score: ${score} correct answers`}
+        >
+          <Trophy className="h-3.5 w-3.5" aria-hidden="true" />
           <span>{score}</span>
         </div>
       </div>
 
-      <Card className="border-t-4 border-t-gold shadow-lg overflow-hidden">
+      <Card
+        className="border-t-4 border-t-gold shadow-lg overflow-hidden"
+        role="region"
+        aria-label={`Quiz question ${currentQuestion + 1} of ${questions.length}`}
+      >
         <CardHeader className="pb-2">
           <div className="flex items-start gap-4">
             <div className="p-3 rounded-xl bg-muted border border-border shrink-0 mt-1">
@@ -273,7 +293,7 @@ export function MythologyQuiz() {
                 {question.type === 'visual' ? 'Visual ID' :
                   question.type === 'relationship' ? 'Relationship' : 'Knowledge'}
               </Badge>
-              <CardTitle className="text-xl md:text-2xl leading-tight font-serif">
+              <CardTitle id="quiz-question" className="text-xl md:text-2xl leading-tight font-serif">
                 {question.question}
               </CardTitle>
             </div>
@@ -292,7 +312,12 @@ export function MythologyQuiz() {
             </div>
           )}
 
-          <div className="grid gap-3">
+          <div
+            role="radiogroup"
+            aria-label="Select your answer"
+            aria-describedby="quiz-question"
+            className="grid gap-3"
+          >
             {question.options.map((option, index) => {
               const isSelected = selectedAnswer === option;
               const isCorrect = option === question.correctAnswer;
@@ -302,6 +327,9 @@ export function MythologyQuiz() {
               return (
                 <Button
                   key={index}
+                  role="radio"
+                  aria-checked={isSelected}
+                  aria-disabled={showResult}
                   variant={showCorrect ? 'default' : showIncorrect ? 'destructive' : 'outline'}
                   className={`w-full justify-between items-center h-auto py-4 px-5 text-lg group transition-all duration-200 ${showCorrect ? 'bg-green-600 hover:bg-green-700 border-green-600 text-white' : ''
                     } ${showIncorrect ? 'bg-red-600 hover:bg-red-700 border-red-600 text-white' : ''} ${!showResult && !isSelected ? 'hover:border-gold/50 hover:bg-gold/5' : ''
@@ -310,20 +338,30 @@ export function MythologyQuiz() {
                   disabled={showResult}
                 >
                   <span className="font-medium">{option}</span>
-                  {showCorrect && <Check className="h-5 w-5 shrink-0" />}
-                  {showIncorrect && <X className="h-5 w-5 shrink-0" />}
+                  {showCorrect && <Check className="h-5 w-5 shrink-0" aria-hidden="true" />}
+                  {showIncorrect && <X className="h-5 w-5 shrink-0" aria-hidden="true" />}
                 </Button>
               );
             })}
           </div>
 
           {showResult && (
-            <div className="mt-6 p-4 rounded-xl bg-muted/50 border border-border animate-in fade-in slide-in-from-top-2">
+            <div
+              role="status"
+              aria-live="polite"
+              aria-atomic="true"
+              className="mt-6 p-4 rounded-xl bg-muted/50 border border-border animate-in fade-in slide-in-from-top-2"
+            >
               <div className="flex items-start gap-3">
-                <div className="p-1 rounded-full bg-gold/20 mt-0.5">
+                <div className="p-1 rounded-full bg-gold/20 mt-0.5" aria-hidden="true">
                   <ArrowRight className="h-4 w-4 text-gold" />
                 </div>
-                <p className="text-secondary-foreground leading-relaxed">{question.explanation}</p>
+                <p className="text-secondary-foreground leading-relaxed">
+                  <span className="sr-only">
+                    {selectedAnswer === question.correctAnswer ? 'Correct! ' : 'Incorrect. '}
+                  </span>
+                  {question.explanation}
+                </p>
               </div>
             </div>
           )}

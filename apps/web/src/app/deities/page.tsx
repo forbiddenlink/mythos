@@ -151,8 +151,8 @@ export default function DeitiesPage() {
         ) : (
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {displayDeities.map((deity) => (
-              <Link key={deity.id} href={`/deities/${deity.slug}`}>
-                <Card className="group h-full cursor-pointer card-elevated bg-card hover:scale-[1.01]">
+              <Link key={deity.id} href={`/deities/${deity.slug}`} className="group">
+                <Card asArticle className="h-full cursor-pointer card-elevated bg-card hover:scale-[1.01]">
                   <CardHeader>
                     <div className="flex items-start justify-between">
                       {deity.imageUrl ? (

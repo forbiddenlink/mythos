@@ -2,15 +2,29 @@ import * as React from "react"
 
 import { cn } from "@/lib/utils"
 
-function Card({ className, ...props }: React.ComponentProps<"div">) {
+interface CardProps extends React.ComponentProps<"div"> {
+  /**
+   * When true, applies role="article" for self-contained content pieces.
+   * Use for cards representing distinct items (e.g., deity cards, story cards).
+   * Omit for container/section cards where native div semantics are sufficient.
+   */
+  asArticle?: boolean
+}
+
+function Card({ className, asArticle, ...props }: CardProps) {
   return (
     <div
       data-slot="card"
+      role={asArticle ? "article" : undefined}
       className={cn(
         "bg-card text-card-foreground flex flex-col gap-6 rounded-xl border border-border/60 py-6 shadow-sm transition-all duration-300",
         "glass-card",
         "hover:shadow-md hover:border-border",
         "dark:shadow-none dark:hover:shadow-lg dark:hover:shadow-black/20",
+        // Focus styles for when card is inside an interactive container (Link, button)
+        "group-focus-visible:ring-2 group-focus-visible:ring-ring group-focus-visible:ring-offset-2",
+        // Focus styles for directly interactive cards (with onClick + tabIndex)
+        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
         className
       )}
       {...props}

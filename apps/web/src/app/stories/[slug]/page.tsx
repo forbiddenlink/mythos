@@ -1,5 +1,6 @@
 'use client';
 
+import { useContext, useEffect } from 'react';
 import { useParams } from 'next/navigation';
 import { useQuery } from '@tanstack/react-query';
 import { graphqlClient } from '@/lib/graphql-client';
@@ -14,7 +15,34 @@ import ReactMarkdown from 'react-markdown';
 import { useTextToSpeech } from '@/hooks/useTextToSpeech';
 import { Volume2, Square } from 'lucide-react';
 import { ArtifactViewer } from '@/components/artifacts/ArtifactViewer';
+import { ProgressContext } from '@/providers/progress-provider';
+import { RelatedContent } from '@/components/related-content';
+import deitiesData from '@/data/deities.json';
+import locationsData from '@/data/locations.json';
 
+function useProgress() {
+  const context = useContext(ProgressContext);
+  if (!context) {
+    throw new Error('useProgress must be used within ProgressProvider');
+  }
+  return context;
+}
+
+// Component to track story reads - separated to avoid hook call issues with early returns
+function StoryProgressTracker({ storyId, pantheonId }: { storyId: string; pantheonId: string }) {
+  const { trackStoryRead, trackPantheonExplore } = useProgress();
+
+  useEffect(() => {
+    if (storyId) {
+      trackStoryRead(storyId);
+    }
+    if (pantheonId) {
+      trackPantheonExplore(pantheonId);
+    }
+  }, [storyId, pantheonId, trackStoryRead, trackPantheonExplore]);
+
+  return null;
+}
 
 interface Story {
   id: string;
@@ -27,6 +55,24 @@ interface Story {
   category: string;
   moralThemes?: string[];
   culturalSignificance?: string;
+  featuredDeities?: string[];
+  featuredLocations?: string[];
+  relatedStories?: string[];
+}
+
+interface Deity {
+  id: string;
+  name: string;
+  slug: string;
+  domain?: string[];
+  imageUrl?: string;
+}
+
+interface Location {
+  id: string;
+  name: string;
+  locationType?: string;
+  imageUrl?: string;
 }
 
 export default function StoryPage() {
@@ -83,8 +129,55 @@ export default function StoryPage() {
     return null;
   }
 
+  // Look up featured deities by ID
+  const featuredDeitiesData = (story.featuredDeities || [])
+    .map(deityId => {
+      const deity = (deitiesData as Deity[]).find(d => d.id === deityId);
+      if (!deity) return null;
+      return {
+        id: deity.id,
+        name: deity.name,
+        slug: deity.slug,
+        domain: deity.domain,
+        imageUrl: deity.imageUrl,
+      };
+    })
+    .filter((d): d is NonNullable<typeof d> => d !== null);
+
+  // Look up featured locations by ID
+  const featuredLocationsData = (story.featuredLocations || [])
+    .map(locationId => {
+      const location = (locationsData as Location[]).find(l => l.id === locationId);
+      if (!location) return null;
+      // Locations don't have a slug field, use id as slug
+      return {
+        id: location.id,
+        name: location.name,
+        slug: location.id,
+        imageUrl: location.imageUrl,
+      };
+    })
+    .filter((l): l is NonNullable<typeof l> => l !== null);
+
+  // Look up related stories by ID
+  const relatedStoriesData = (story.relatedStories || [])
+    .map(storyId => {
+      const relatedStory = data?.stories.find(s => s.id === storyId);
+      if (!relatedStory) return null;
+      return {
+        id: relatedStory.id,
+        title: relatedStory.title,
+        slug: relatedStory.slug,
+        summary: relatedStory.summary,
+      };
+    })
+    .filter((s): s is NonNullable<typeof s> => s !== null);
+
+  const hasRelatedContent = featuredDeitiesData.length > 0 || featuredLocationsData.length > 0 || relatedStoriesData.length > 0;
+
   return (
     <div className="min-h-screen bg-mythic">
+      <StoryProgressTracker storyId={story.id} pantheonId={story.pantheonId} />
       <ArticleJsonLd
         headline={story.title}
         description={story.summary}
@@ -228,6 +321,25 @@ export default function StoryPage() {
                 <p className="text-parchment/80 leading-relaxed text-lg whitespace-pre-line">
                   {story.culturalSignificance}
                 </p>
+              </CardContent>
+            </Card>
+          )}
+
+          {/* Related Content Section */}
+          {hasRelatedContent && (
+            <Card className="border-gold/20 bg-midnight-light/50">
+              <CardHeader>
+                <CardTitle className="text-parchment text-2xl font-serif">Explore Further</CardTitle>
+                <CardDescription>Characters, locations, and stories connected to this tale.</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <RelatedContent
+                  type="story"
+                  currentId={story.id}
+                  relatedDeities={featuredDeitiesData}
+                  relatedLocations={featuredLocationsData}
+                  relatedStories={relatedStoriesData}
+                />
               </CardContent>
             </Card>
           )}

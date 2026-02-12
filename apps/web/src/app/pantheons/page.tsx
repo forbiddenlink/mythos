@@ -97,8 +97,8 @@ export default function PantheonsPage() {
       <Breadcrumbs />
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 mt-6">
         {data?.pantheons.map((pantheon) => (
-          <Link key={pantheon.id} href={`/pantheons/${pantheon.slug}`}>
-            <Card className="group h-full cursor-pointer card-elevated bg-card hover:scale-[1.01]">
+          <Link key={pantheon.id} href={`/pantheons/${pantheon.slug}`} className="group">
+            <Card asArticle className="h-full cursor-pointer card-elevated bg-card hover:scale-[1.01]">
               <CardHeader>
                 <div className="flex items-center gap-3 mb-2">
                   <div className="p-2.5 rounded-xl bg-gold/10 border border-gold/20 group-hover:bg-gold/15 transition-colors duration-300">

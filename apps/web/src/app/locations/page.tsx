@@ -12,6 +12,8 @@ import { HoverCard, HoverCardContent, HoverCardTrigger } from '@/components/ui/h
 import { Breadcrumbs } from '@/components/navigation/Breadcrumbs';
 import locationsData from '@/data/locations.json';
 import pantheonsData from '@/data/pantheons.json';
+import deitiesData from '@/data/deities.json';
+import storiesData from '@/data/stories.json';
 
 // Dynamic import with SSR disabled - Leaflet requires the window object
 const MapVisualization = dynamic(
@@ -51,6 +53,22 @@ interface Pantheon {
   culture: string;
 }
 
+interface Deity {
+  id: string;
+  pantheonId: string;
+  name: string;
+  slug: string;
+  domain: string[];
+  imageUrl?: string;
+}
+
+interface Story {
+  id: string;
+  pantheonId: string;
+  title: string;
+  slug: string;
+}
+
 // ─── Constants ──────────────────────────────────────────────────────────
 const PANTHEON_COLORS: Record<string, { bg: string; label: string }> = {
   'greek-pantheon': { bg: '#3b82f6', label: 'Greek' },
@@ -83,6 +101,8 @@ function getLocationTypeLabel(type: string): string {
 export default function LocationsPage() {
   const locations = locationsData as Location[];
   const pantheons = pantheonsData as Pantheon[];
+  const deities = deitiesData as Deity[];
+  const stories = storiesData as Story[];
 
   const [viewMode, setViewMode] = useState<'map' | 'list'>('map');
   const [searchQuery, setSearchQuery] = useState('');
@@ -314,6 +334,10 @@ export default function LocationsPage() {
                 return (
                   <Card
                     key={location.id}
+                    asArticle
+                    tabIndex={hasCords ? 0 : undefined}
+                    role={hasCords ? "button" : undefined}
+                    aria-label={hasCords ? `View ${location.name} on map` : undefined}
                     className={`group cursor-pointer hover:border-gold/50 transition-all duration-300 ${!hasCords ? 'opacity-75 grayscale-[0.5]' : ''}`}
                     onClick={() => {
                       if (hasCords && location.latitude && location.longitude) {
@@ -322,6 +346,15 @@ export default function LocationsPage() {
                           detail: { lat: location.latitude, lng: location.longitude }
                         }));
                         // On mobile, switch to map view
+                        if (window.innerWidth < 1024) setViewMode('map');
+                      }
+                    }}
+                    onKeyDown={(e) => {
+                      if ((e.key === 'Enter' || e.key === ' ') && hasCords && location.latitude && location.longitude) {
+                        e.preventDefault();
+                        window.dispatchEvent(new CustomEvent('flyToLocation', {
+                          detail: { lat: location.latitude, lng: location.longitude }
+                        }));
                         if (window.innerWidth < 1024) setViewMode('map');
                       }
                     }}
@@ -345,7 +378,12 @@ export default function LocationsPage() {
 
           {/* Map Side (Right) - Always visible on desktop, toggled on mobile */}
           <div className={`flex-1 rounded-xl overflow-hidden border border-border shadow-lg relative ${viewMode === 'list' ? 'hidden lg:block' : 'block'}`}>
-            <MapVisualization locations={filteredLocations} pantheons={pantheons} />
+            <MapVisualization
+              locations={filteredLocations}
+              pantheons={pantheons}
+              deities={deities}
+              stories={stories}
+            />
           </div>
 
         </div>

@@ -484,6 +484,16 @@
     }
   }
 
+  /* Achievement toast shrink animation */
+  @keyframes achievement-toast-shrink {
+    from {
+      width: 100%;
+    }
+    to {
+      width: 0%;
+    }
+  }
+
   /* ═══════════════════════════════════════════════════════════════════
      SCROLLBAR STYLING
      ═══════════════════════════════════════════════════════════════════ */

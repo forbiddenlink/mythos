@@ -114,8 +114,8 @@ export default function CreaturesPage() {
                 ) : (
                     <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
                         {creatures.map((creature) => (
-                            <Link key={creature.id} href={`/creatures/${creature.slug}`}>
-                                <Card className="group h-full cursor-pointer card-elevated bg-card hover:scale-[1.01] hover:border-red-500/30 transition-all duration-300">
+                            <Link key={creature.id} href={`/creatures/${creature.slug}`} className="group">
+                                <Card asArticle className="h-full cursor-pointer card-elevated bg-card hover:scale-[1.01] hover:border-red-500/30 transition-all duration-300">
                                     <CardHeader>
                                         <div className="flex items-start justify-between">
                                             {creature.imageUrl ? (

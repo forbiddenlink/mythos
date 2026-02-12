@@ -141,8 +141,8 @@ export default function StoriesPage() {
         {displayStories.length > 0 ? (
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 mt-6">
             {displayStories.map((story, index) => (
-              <Link key={story.id} href={`/stories/${story.slug}`}>
-                <Card className="group h-full cursor-pointer card-elevated bg-card hover:scale-[1.01] overflow-hidden">
+              <Link key={story.id} href={`/stories/${story.slug}`} className="group">
+                <Card asArticle className="h-full cursor-pointer card-elevated bg-card hover:scale-[1.01] overflow-hidden">
                   {/* Subtle Top Border */}
                   <div className="h-0.5 bg-gradient-to-r from-gold-dark via-gold to-gold-dark"></div>
 
