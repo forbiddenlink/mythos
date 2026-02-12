@@ -2,6 +2,8 @@ import type { MetadataRoute } from 'next'
 import deities from '@/data/deities.json'
 import stories from '@/data/stories.json'
 import pantheons from '@/data/pantheons.json'
+import creatures from '@/data/creatures.json'
+import artifacts from '@/data/artifacts.json'
 
 const BASE_URL = 'https://mythos-web-seven.vercel.app'
 
@@ -35,16 +37,40 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
+      url: `${BASE_URL}/creatures`,
+      lastModified,
+      changeFrequency: 'weekly',
+      priority: 0.8,
+    },
+    {
+      url: `${BASE_URL}/artifacts`,
+      lastModified,
+      changeFrequency: 'weekly',
+      priority: 0.8,
+    },
+    {
       url: `${BASE_URL}/family-tree`,
       lastModified,
       changeFrequency: 'monthly',
       priority: 0.8,
     },
     {
+      url: `${BASE_URL}/timeline`,
+      lastModified,
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
       url: `${BASE_URL}/quiz`,
       lastModified,
       changeFrequency: 'monthly',
       priority: 0.7,
+    },
+    {
+      url: `${BASE_URL}/progress`,
+      lastModified,
+      changeFrequency: 'monthly',
+      priority: 0.6,
     },
     {
       url: `${BASE_URL}/about`,
@@ -90,5 +116,28 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }))
 
-  return [...staticPages, ...deityPages, ...storyPages, ...pantheonPages]
+  // Creature pages
+  const creaturePages: MetadataRoute.Sitemap = creatures.map((creature) => ({
+    url: `${BASE_URL}/creatures/${creature.slug}`,
+    lastModified,
+    changeFrequency: 'monthly' as const,
+    priority: 0.7,
+  }))
+
+  // Artifact pages
+  const artifactPages: MetadataRoute.Sitemap = artifacts.map((artifact) => ({
+    url: `${BASE_URL}/artifacts/${artifact.slug}`,
+    lastModified,
+    changeFrequency: 'monthly' as const,
+    priority: 0.7,
+  }))
+
+  return [
+    ...staticPages,
+    ...deityPages,
+    ...storyPages,
+    ...pantheonPages,
+    ...creaturePages,
+    ...artifactPages,
+  ]
 }

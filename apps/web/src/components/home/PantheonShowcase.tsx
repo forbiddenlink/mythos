@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import Link from 'next/link';
+import { TransitionLink } from '@/components/transitions';
 import { Columns, Compass, Pyramid, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
@@ -141,7 +141,7 @@ export function PantheonShowcase() {
                 ease: [0.22, 1, 0.36, 1]
               }}
             >
-              <Link href={`/pantheons/${pantheon.slug}`} className="block h-full group">
+              <TransitionLink href={`/pantheons/${pantheon.slug}`} className="block h-full group">
                 <div className={`relative h-full rounded-xl overflow-hidden bg-gradient-to-br ${pantheon.gradient} p-px`}>
                   {/* Inner card */}
                   <div className="relative h-full rounded-[11px] bg-gradient-to-br from-black/40 via-black/20 to-black/50 backdrop-blur-sm p-6 flex flex-col">
@@ -180,7 +180,7 @@ export function PantheonShowcase() {
                     <div className="absolute inset-0 bg-gradient-to-tr from-white/0 via-white/5 to-white/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none rounded-[11px]" />
                   </div>
                 </div>
-              </Link>
+              </TransitionLink>
             </motion.div>
           ))}
         </div>
@@ -199,10 +199,10 @@ export function PantheonShowcase() {
             variant="outline"
             className="border-border hover:border-gold/50 hover:bg-gold/5 px-8 transition-all duration-300"
           >
-            <Link href="/pantheons">
+            <TransitionLink href="/pantheons">
               View All Pantheons
               <ArrowRight className="ml-2 h-4 w-4" />
-            </Link>
+            </TransitionLink>
           </Button>
         </motion.div>
       </div>

@@ -215,5 +215,33 @@
         "type": "primary"
       }
     ]
+  },
+  {
+    "id": "mesopotamian-pantheon",
+    "name": "Mesopotamian Pantheon",
+    "slug": "mesopotamian",
+    "culture": "Sumerian, Akkadian, Babylonian",
+    "region": "Mesopotamia (modern Iraq)",
+    "timePeriodStart": -3500,
+    "timePeriodEnd": -500,
+    "description": "The gods of ancient Sumer, Akkad, and Babylon - humanity's oldest recorded mythology. These deities shaped the earliest written literature and influenced all subsequent Near Eastern religions.",
+    "detailedHistory": "## The Cradle of Civilization\n\nMesopotamian mythology represents humanity's oldest recorded religious tradition, emerging from the fertile crescent between the Tigris and Euphrates rivers. The Sumerians, who built the first cities around 3500 BCE, developed a complex pantheon that was later adopted and adapted by the Akkadians, Babylonians, and Assyrians.\n\n### The Great Gods\n\nThe highest triad consisted of Anu (sky), Enlil (wind/storms), and Enki (water/wisdom). Below them ruled a celestial council of great gods who determined the fates of humans and the cosmos. Unlike later monotheistic traditions, these gods were not morally perfect but displayed human emotions and conflicts.\n\n### The Temple Economy\n\nMesopotamian cities were theocracies centered on the ziggurat temple, considered the literal dwelling place of the city's patron deity. The entire economy was organized around temple offerings, and kings ruled as stewards of the gods. The earliest written texts (cuneiform) were temple records, hymns, and myths.",
+    "citationSources": [
+      {
+        "title": "Epic of Gilgamesh",
+        "date": "~2100 BCE",
+        "type": "primary"
+      },
+      {
+        "title": "Enuma Elish",
+        "date": "~1100 BCE",
+        "type": "primary"
+      },
+      {
+        "title": "Descent of Inanna",
+        "date": "~1900-1600 BCE",
+        "type": "primary"
+      }
+    ]
   }
 ]

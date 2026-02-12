@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { Compass } from 'lucide-react';
-import Link from 'next/link';
+import { TransitionLink } from '@/components/transitions';
 import { Button } from '@/components/ui/button';
 import { useState, useEffect } from 'react';
 
@@ -189,9 +189,9 @@ export function HeroSection() {
             size="lg"
             className="relative overflow-hidden bg-gradient-to-r from-gold-dark via-gold to-gold-dark hover:from-gold hover:via-gold-light hover:to-gold text-midnight font-semibold px-10 py-6 text-base tracking-wide transition-all duration-300 shadow-lg shadow-gold/20 hover:shadow-xl hover:shadow-gold/30"
           >
-            <Link href="/pantheons">
+            <TransitionLink href="/pantheons">
               Explore Mythologies
-            </Link>
+            </TransitionLink>
           </Button>
           <Button
             asChild
@@ -199,9 +199,9 @@ export function HeroSection() {
             variant="outline"
             className="border-gold/40 text-gold hover:bg-gold/10 hover:border-gold/60 px-10 py-6 text-base tracking-wide transition-all duration-300"
           >
-            <Link href="/deities">
+            <TransitionLink href="/deities">
               Meet the Gods
-            </Link>
+            </TransitionLink>
           </Button>
         </motion.div>
 

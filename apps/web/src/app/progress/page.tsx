@@ -46,7 +46,7 @@ function useProgress(): ProgressContextValue {
 }
 
 // Map icon names to Lucide components
-const iconMap: Record<string, React.ElementType> = {
+const iconMap: Record<string, typeof Eye> = {
   eye: Eye,
   'book-open': BookOpen,
   'map-pin': MapPin,
@@ -131,7 +131,7 @@ interface ProgressBarProps {
   label: string;
   current: number;
   total: number;
-  icon: React.ElementType;
+  icon: typeof Eye;
 }
 
 function ProgressBar({ label, current, total, icon: Icon }: ProgressBarProps) {

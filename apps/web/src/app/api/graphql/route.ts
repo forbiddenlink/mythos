@@ -21,6 +21,12 @@ interface Pantheon {
   detailedHistory?: string;
 }
 
+interface Pronunciation {
+  ipa: string;
+  phonetic: string;
+  audioUrl?: string;
+}
+
 interface Deity {
   id: string;
   pantheonId: string;
@@ -33,7 +39,7 @@ interface Deity {
   description: string;
   detailedBio?: string;
   originStory?: string;
-
+  pronunciation?: Pronunciation;
   importanceRank: number;
   imageUrl?: string;
 }

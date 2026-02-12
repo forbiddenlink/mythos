@@ -13,6 +13,7 @@ import { Breadcrumbs } from '@/components/navigation/Breadcrumbs';
 import { DeitiesTable } from '@/components/deities/DeitiesTable';
 import { DeityFilters } from '@/components/deities/DeityFilters';
 import { BookmarkButton } from '@/components/ui/bookmark-button';
+import { GridSkeleton, FiltersSkeleton } from '@/components/ui/skeleton-cards';
 
 // Note: Metadata export removed - use layout.tsx for client components
 // SEO is handled via dynamic title updates below
@@ -49,8 +50,22 @@ export default function DeitiesPage() {
 
   if (isLoading) {
     return (
-      <div className="container mx-auto max-w-6xl px-4 py-24 flex items-center justify-center">
-        <Loader2 className="h-8 w-8 animate-spin text-primary" />
+      <div className="min-h-screen">
+        {/* Hero placeholder */}
+        <div className="relative h-[50vh] min-h-[400px] flex items-center justify-center overflow-hidden bg-gradient-to-b from-midnight/70 via-midnight/60 to-midnight/80" />
+
+        {/* Content Section */}
+        <div className="container mx-auto max-w-6xl px-4 py-16 bg-mythic">
+          <div className="flex items-center justify-between mb-8">
+            <div className="h-5 w-32 bg-muted rounded animate-pulse" />
+            <div className="flex items-center gap-2">
+              <div className="h-8 w-16 bg-muted rounded animate-pulse" />
+              <div className="h-8 w-16 bg-muted rounded animate-pulse hidden sm:block" />
+            </div>
+          </div>
+          <FiltersSkeleton />
+          <GridSkeleton count={6} columns={3} type="deity" />
+        </div>
       </div>
     );
   }

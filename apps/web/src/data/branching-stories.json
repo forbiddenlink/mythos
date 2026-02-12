@@ -1,0 +1,469 @@
+[
+  {
+    "id": "judgment-of-paris",
+    "slug": "judgment-of-paris",
+    "title": "The Judgment of Paris",
+    "description": "Step into the sandals of Paris, prince of Troy. Three goddesses stand before you, each offering a gift beyond mortal dreams. But every choice carries consequences that will echo through eternity.",
+    "pantheonId": "greek-pantheon",
+    "protagonist": "Paris of Troy",
+    "coverImage": "/stories/judgment-of-paris.png",
+    "totalEndings": 3,
+    "estimatedTime": "5-8 min",
+    "startNodeId": "start",
+    "nodes": {
+      "start": {
+        "id": "start",
+        "content": "## The Divine Contest\n\nYou are Paris, a prince of Troy raised as a shepherd on Mount Ida. The gods have chosen you for an impossible task: to judge which of three goddesses is the most beautiful.\n\nBefore you stand Hera, queen of the gods, her eyes commanding and proud. Beside her is Athena, goddess of wisdom, her gray eyes sharp as her famous spear. And there is Aphrodite, goddess of love, whose smile makes your heart race.\n\nEach holds a golden apple, the prize for the fairest. Each promises you a gift beyond mortal reckoning if you award her the victory.\n\n> \"Choose wisely, mortal,\" Zeus's voice echoes from Olympus. \"Your choice shall shape the fate of nations.\"",
+        "choices": [
+          {
+            "text": "Approach Hera and hear her offer",
+            "nextNodeId": "hera-offer",
+            "consequence": "The Queen of Heaven beckons"
+          },
+          {
+            "text": "Speak first with Athena",
+            "nextNodeId": "athena-offer",
+            "consequence": "Wisdom calls to you"
+          },
+          {
+            "text": "Let Aphrodite speak her promise",
+            "nextNodeId": "aphrodite-offer",
+            "consequence": "Love draws you near"
+          }
+        ]
+      },
+      "hera-offer": {
+        "id": "hera-offer",
+        "content": "## The Queen's Promise\n\nHera steps forward, her presence filling the glade with an almost suffocating majesty. The peacocks at her feet spread their tails, creating a living throne of shimmering eyes.\n\n\"Paris of Troy,\" she speaks, her voice like thunder wrapped in silk. \"I am Hera, Queen of Olympus, wife of Zeus himself. I offer you what few mortals ever taste: **power**.\"\n\nShe gestures, and you see visions of vast armies, of kings bowing before you, of an empire stretching from Troy to the edges of the known world.\n\n\"Choose me as fairest, and I shall make you ruler of all Europe and Asia. Your name shall be spoken with reverence for a thousand generations. Kingdoms shall rise and fall at your command.\"\n\nHer eyes burn with intensity. \"What say you, shepherd-prince? Will you choose sovereignty over all the earth?\"",
+        "choices": [
+          {
+            "text": "Award the apple to Hera",
+            "nextNodeId": "hera-ending",
+            "consequence": "Empire awaits"
+          },
+          {
+            "text": "Thank her, but hear Athena's offer first",
+            "nextNodeId": "athena-offer",
+            "consequence": "Consider all options"
+          },
+          {
+            "text": "Thank her, but hear Aphrodite's offer first",
+            "nextNodeId": "aphrodite-offer",
+            "consequence": "Love still calls"
+          }
+        ]
+      },
+      "athena-offer": {
+        "id": "athena-offer",
+        "content": "## The Gift of Wisdom\n\nAthena approaches with the measured stride of a warrior. Her gray eyes seem to pierce through your very soul, reading the fears and hopes you thought hidden.\n\n\"Paris,\" she says, her voice clear as a mountain stream, \"I am Athena, daughter of Zeus, goddess of wisdom and strategic warfare. I do not offer you the fleeting glory of conquest or the madness of passion.\"\n\nShe touches your forehead, and suddenly you understand things you never knew before, mathematical principles, the movements of stars, the strategies that win wars without bloodshed.\n\n\"I offer you **wisdom and skill in battle**. Not mere brute strength, but the cunning to never lose a war, the knowledge to solve any problem, the insight to see truth where others see only shadows.\"\n\nThe visions fade, but the clarity remains. \"With my gift, you could lead Troy to greatness through intelligence, not violence. You would be remembered as the wisest king who ever lived. What is your choice?\"",
+        "choices": [
+          {
+            "text": "Award the apple to Athena",
+            "nextNodeId": "athena-ending",
+            "consequence": "Wisdom shall be your legacy"
+          },
+          {
+            "text": "Thank her, but hear Hera's offer",
+            "nextNodeId": "hera-offer",
+            "consequence": "Power still tempts"
+          },
+          {
+            "text": "Thank her, but hear Aphrodite's offer",
+            "nextNodeId": "aphrodite-offer",
+            "consequence": "The heart wants what it wants"
+          }
+        ]
+      },
+      "aphrodite-offer": {
+        "id": "aphrodite-offer",
+        "content": "## The Promise of Love\n\nAphrodite glides toward you, and the world seems to slow. Flowers bloom where she steps. The very air grows warm and sweet.\n\n\"Dear Paris,\" she whispers, and her voice is music itself. \"My sisters offer you power over lands and minds. But what good is an empire without love? What comfort is wisdom in an empty bed?\"\n\nShe shows you a vision: a woman of impossible beauty, with hair like gold and eyes that hold the depth of the sea. Helen of Sparta, the most beautiful mortal woman in the world.\n\n\"I offer you **Helen**. The love of the most beautiful woman ever born. She will leave her husband, her kingdom, everything, to be yours. You will know a passion that poets will sing of for eternity.\"\n\nHer smile is intoxicating. \"Of course, she is already married to King Menelaus of Sparta. Taking her would mean war. But love, true love, is worth any price, is it not?\"",
+        "choices": [
+          {
+            "text": "Award the apple to Aphrodite",
+            "nextNodeId": "aphrodite-ending",
+            "consequence": "Love conquers all... or does it?"
+          },
+          {
+            "text": "The cost is too high. Hear Hera's offer instead",
+            "nextNodeId": "hera-offer",
+            "consequence": "Step back from passion"
+          },
+          {
+            "text": "This seems unwise. Hear Athena's offer instead",
+            "nextNodeId": "athena-offer",
+            "consequence": "Seek wisdom's counsel"
+          }
+        ]
+      },
+      "hera-ending": {
+        "id": "hera-ending",
+        "content": "## The Throne of Ages\n\nYou extend the golden apple to Hera. Her smile is triumphant as she accepts it.\n\n\"You have chosen well, Paris of Troy.\"\n\nTrue to her word, Hera's blessing transforms your destiny. You return to Troy not as a shepherd, but as a prince reborn with purpose. Your father Priam, guided by Hera's whispers, names you his heir over your elder brothers.\n\nYears pass. Under your rule, Troy flourishes. You prove to be a skilled diplomat and administrator. Alliances form where once there was suspicion. Trade routes expand. The Trojan empire grows without a single war of aggression.\n\nWhen Menelaus visits Troy as an ambassador, you meet Helen briefly at a feast. She is beautiful, yes, but you feel no supernatural pull. She returns to Sparta with her husband. Greece and Troy maintain an uneasy peace.\n\nYou marry a Trojan noblewoman and have children. Your reign is prosperous, if not legendary. No poets compose epic ballads of your adventures.\n\n> But no mothers weep for sons lost in a needless war. No cities burn. No heroes die young on blood-soaked beaches.\n\nWhen you die, old and content, Troy stands stronger than ever. Perhaps that is its own kind of immortality.",
+        "ending": {
+          "type": "good",
+          "summary": "You chose power and built an empire of peace. Troy endures, though your name is forgotten by poets."
+        }
+      },
+      "athena-ending": {
+        "id": "athena-ending",
+        "content": "## The Philosopher King\n\nYou present the apple to Athena. Her gray eyes warm with something like respect.\n\n\"Wisdom is the rarest choice, Paris. Most mortals are blinded by passion or power.\"\n\nAthena's gift is subtle but profound. You begin to see patterns everywhere, in politics, in nature, in the hearts of men and women. When you return to Troy, you bring not just yourself but revolutionary ideas.\n\nYou study with the greatest minds of the age. You invent new systems of governance, of mathematics, of philosophy. When your father offers you the crown, you establish a council of wise advisors instead, checking your own power.\n\nHelen's beauty reaches your ears through travelers' tales, but you feel only intellectual curiosity. When the Greeks eventually threaten war over trade disputes (as nations always do), you negotiate a peace that leaves both sides better off.\n\nYou never marry, dedicating your life to learning and teaching. Students come from across the known world to study at the Academy of Troy. Your writings survive for millennia, inspiring philosophers and kings alike.\n\n> \"The unexamined life is not worth living,\" you write in your most famous dialogue.\n\nBut sometimes, in the quiet of night, you wonder what love might have felt like. Your wisdom tells you this is the human condition, to wonder about paths not taken.",
+        "ending": {
+          "type": "neutral",
+          "summary": "You chose wisdom and became a philosopher-king. Troy becomes a center of learning, but you never knew love."
+        }
+      },
+      "aphrodite-ending": {
+        "id": "aphrodite-ending",
+        "content": "## The Face That Launched a Thousand Ships\n\nYou offer the golden apple to Aphrodite. Her laughter rings like bells.\n\n\"Oh, Paris. You will not regret this. Love is the only gift worth having.\"\n\nMonths later, you sail to Sparta as a Trojan ambassador. The moment your eyes meet Helen's across Menelaus's great hall, you understand. This is not mere beauty. This is destiny.\n\nUnder cover of night, you flee together. Every rational thought screams that this is madness, but in her arms, you cannot hear reason. You love her. She loves you. Nothing else matters.\n\n> But things do matter.\n\nMenelaus raises an army. His brother Agamemnon, hungry for power, uses your love as his excuse. A thousand ships sail for Troy. Ten years of war follow.\n\nYou watch your brothers die. Hector, the best of you, falls to Achilles's rage. Your father's heart breaks as his sons' bodies pile up. The city that stood for generations crumbles.\n\nIn the final days, an arrow guided by Apollo strikes Achilles's heel. But it changes nothing. Troy burns. Helen is taken back to Greece. You die with the city, an arrow through your own heel, killed by the war your love started.\n\nPoets will sing of you forever. But in your final moments, watching flames consume everything you loved, you wonder if any song is worth this price.",
+        "ending": {
+          "type": "tragic",
+          "summary": "You chose love and sparked the Trojan War. Troy burns, heroes die, and your name lives forever in tragedy."
+        }
+      }
+    }
+  },
+  {
+    "id": "thor-jotunheim",
+    "slug": "thor-jotunheim",
+    "title": "Thor's Journey to Jotunheim",
+    "description": "Accompany Thor, god of thunder, on a perilous journey to the realm of giants. Will you rely on Mjolnir's might, or discover that sometimes wisdom serves better than strength?",
+    "pantheonId": "norse-pantheon",
+    "protagonist": "Thor Odinson",
+    "coverImage": "/stories/thor-jotunheim.png",
+    "totalEndings": 4,
+    "estimatedTime": "8-12 min",
+    "startNodeId": "start",
+    "nodes": {
+      "start": {
+        "id": "start",
+        "content": "## The Challenge\n\nYou are Thor, son of Odin, wielder of Mjolnir, god of thunder. Word has reached Asgard that the giant Thrym has stolen your hammer while you slept. Without Mjolnir, the giants grow bold. Frost creeps toward Midgard.\n\nThrym's messenger arrives with terms: the hammer in exchange for Freya's hand in marriage. Freya's rage shook the halls of Asgard at such an insult.\n\nNow you stand at the Bifrost with Loki at your side. The trickster has a gleam in his eye that usually means trouble, or cleverness, or both.\n\n\"Well, Thunder God,\" Loki says, \"we could storm Jotunheim and tear it apart until we find your hammer. Or...\" He grins. \"I have a more amusing idea.\"\n\nBehind you, your chariot awaits, pulled by the goats Tanngrisnir and Tanngnjostr. The path to Jotunheim stretches before you, cold and treacherous.",
+        "choices": [
+          {
+            "text": "\"We attack at once. My fists are enough for any giant.\"",
+            "nextNodeId": "direct-assault",
+            "consequence": "Thor's way has always been the direct way"
+          },
+          {
+            "text": "\"What is your plan, Loki?\"",
+            "nextNodeId": "loki-plan",
+            "consequence": "The trickster's schemes are dangerous but effective"
+          },
+          {
+            "text": "\"We should gather more allies first.\"",
+            "nextNodeId": "gather-allies",
+            "consequence": "Even gods need friends"
+          }
+        ]
+      },
+      "direct-assault": {
+        "id": "direct-assault",
+        "content": "## Thunder Without Lightning\n\nYou crack your knuckles. \"I need no schemes and no hammer to deal with giants.\"\n\nLoki sighs but follows as you charge your chariot across the Bifrost and into Jotunheim. The frozen realm greets you with howling winds and mountains of ice.\n\nYou find Thrym's hall easily enough, a fortress of frozen stone larger than any building in Asgard. Giants guard every entrance, each one twice your height.\n\nWithout Mjolnir, your lightning is weakened, your strength less than supreme. But you are still Thor. You charge the gates, bellowing a war cry that shakes icicles from the eaves.\n\nThe battle is fierce. You break giants' bones with your bare hands. But for every one you fell, three more take their place. And without your hammer, you cannot call the full storm.\n\nThree giants pin you to the ground. Thrym himself approaches, your hammer dangling from his belt, just out of reach.",
+        "choices": [
+          {
+            "text": "Rage against your bonds, calling upon every ounce of strength",
+            "nextNodeId": "rage-ending",
+            "consequence": "The thunder god does not surrender"
+          },
+          {
+            "text": "Call out to Loki for help",
+            "nextNodeId": "loki-rescue",
+            "consequence": "Sometimes even Thor needs help"
+          }
+        ]
+      },
+      "loki-plan": {
+        "id": "loki-plan",
+        "content": "## The Trickster's Scheme\n\nLoki's grin widens. \"Thrym wants a bride. Let us give him one.\"\n\nYou stare at him. \"Freya will never, \"\n\n\"Not Freya.\" Loki produces a bridal veil and dress from seemingly nowhere. \"You.\"\n\nThe next hour is the most humiliating of your immortal life. The dress barely fits. The veil hides your beard, mostly. Loki transforms himself into a bridesmaid, clearly enjoying this far too much.\n\n\"Remember,\" Loki whispers as you approach Thrym's hall, \"let me do the talking. You grunt like a blushing bride.\"\n\nThrym welcomes you, his massive face twisted in what he probably thinks is a smile. The wedding feast begins. You try to eat daintily, but devour eight salmon and an entire ox. Thrym looks concerned.\n\n\"My bride has... traveled far,\" Loki covers. \"She was too anxious to eat for eight days.\"\n\nThen Thrym lifts your veil to steal a kiss and sees your blazing eyes.",
+        "choices": [
+          {
+            "text": "Stay in character, let Loki keep talking",
+            "nextNodeId": "maintain-disguise",
+            "consequence": "Trust the trickster's silver tongue"
+          },
+          {
+            "text": "The ruse is over, demand Mjolnir for the blessing",
+            "nextNodeId": "demand-hammer",
+            "consequence": "Time to end this farce"
+          }
+        ]
+      },
+      "gather-allies": {
+        "id": "gather-allies",
+        "content": "## The Council of War\n\nYou return to Asgard to seek aid. In Odin's hall, you find your allies: Tyr, one-handed god of war; Heimdall, who sees all; and Freya, still furious at Thrym's presumption.\n\n\"I will come,\" Freya declares. \"Not as a bride, but as a warrior. My cats shall carry my chariot, and the giants will learn the fury of the Vanir.\"\n\nHeimdall nods slowly. \"I have watched Thrym. He keeps the hammer in a vault of enchanted ice, guarded by his mother, the witch Angrboda.\"\n\n\"His mother?\" Tyr laughs grimly. \"The mother of Fenrir, Hel, and Jormungandr? This grows more dangerous.\"\n\nOdin watches from his throne, his one eye gleaming. \"My son, I will not command you. But know this: Angrboda's magic is ancient. She cannot be defeated by strength alone.\"\n\nYou now have choices about how to proceed.",
+        "choices": [
+          {
+            "text": "Lead a direct assault with our combined might",
+            "nextNodeId": "allied-assault",
+            "consequence": "With allies, surely we can storm any fortress"
+          },
+          {
+            "text": "Ask Freya to distract Thrym while we infiltrate",
+            "nextNodeId": "freya-distraction",
+            "consequence": "Divide their attention"
+          },
+          {
+            "text": "Seek Odin's counsel on how to defeat Angrboda",
+            "nextNodeId": "odin-wisdom",
+            "consequence": "Father knows best?"
+          }
+        ]
+      },
+      "rage-ending": {
+        "id": "rage-ending",
+        "content": "## The Price of Pride\n\nYou roar with all the fury of a thunderstorm. Your muscles strain against the giants' grip. For a moment, a single glorious moment, you feel yourself breaking free...\n\nBut without Mjolnir, you cannot sustain it. Thrym laughs and drives you into the frozen ground.\n\n\"The mighty Thor,\" he sneers, \"brought low by his own arrogance. I think I shall keep you here, as a pet. Let the gods see their champion in chains.\"\n\nThey forge shackles of enchanted ice, cold that bites even divine flesh. Days pass. Weeks. In Asgard, they mourn you as dead. Loki escaped, but even his schemes cannot breach Thrym's defenses now.\n\nYou hang in the frost giant's hall, a trophy, a warning. Sometimes Thrym uses Mjolnir to shatter mountains, and you feel each blow like a wound to your soul.\n\n> Perhaps, you think in your endless frozen darkness, I should have tried wisdom instead of wrath.\n\nBut that thought comes too late. Far too late.",
+        "ending": {
+          "type": "tragic",
+          "summary": "Your pride led to defeat. You hang as a trophy in Thrym's hall, Mjolnir lost forever to the giants."
+        }
+      },
+      "loki-rescue": {
+        "id": "loki-rescue",
+        "content": "## The Trickster's Gambit\n\n\"LOKI!\" you bellow.\n\nThe trickster appears in a flash of green flame, right beside Thrym. Before anyone can react, Loki snatches Mjolnir from the giant's belt and hurls it toward you.\n\nThe hammer sings as it flies. The giants holding you freeze in terror. Your fingers close around the familiar grip, and lightning explodes from the sky.\n\n\"NOW,\" you roar, \"YOU FACE THE TRUE THUNDER GOD!\"\n\nWhat follows is glorious destruction. Lightning turns giants to ash. Mjolnir shatters the fortress's walls. Thrym falls with a thunderclap that echoes across all Nine Worlds.\n\nAs you stand amid the ruins, Loki brushes ice from his cloak. \"You know, my plan would have been funnier.\"\n\n\"Your plan?\"\n\n\"A dress. A wedding. You would have made a beautiful bride.\"\n\nYou consider hitting him with the hammer. Instead, you laugh, the sound rolling like thunder.\n\n> The victory is complete, though won only with the trickster's aid. Pride has taught you a lesson: even Thor cannot do everything alone.",
+        "ending": {
+          "type": "good",
+          "summary": "Humbled by near-defeat, you accepted help and emerged victorious. Thor learns that even gods need allies."
+        }
+      },
+      "maintain-disguise": {
+        "id": "maintain-disguise",
+        "content": "## The Bride's Fiery Eyes\n\n\"My bride's eyes burn with... passion,\" Loki says smoothly. \"She has waited so long for this moment, she has not slept in eight nights.\"\n\nThrym seems satisfied by this. He calls for the blessing.\n\n\"Bring forth the hammer!\" he commands. \"Let Mjolnir bless the bride!\"\n\nThis is your moment. As a servant places your hammer in your lap for the traditional blessing, your fingers close around its handle.\n\nLightning fills the hall.\n\nYou rise, the wedding dress tearing away, revealing your armor beneath. \"I AM THOR!\" you bellow, and the giants learn the price of their theft.\n\nThe battle is swift and terrible. Thrym falls first, then his kin. Loki dances through the chaos, tripping giants into each other, thoroughly enjoying himself.\n\nWhen it ends, you stand amid the ruins of Thrym's hall, Mjolnir crackling with power.\n\n\"That,\" Loki says, \"was the most entertaining wedding I've ever attended.\"\n\n> The tale of Thor's wedding becomes legend, told in every mead hall across the Nine Worlds. Even you eventually learn to laugh at it.",
+        "ending": {
+          "type": "good",
+          "summary": "Through cunning disguise and perfect timing, you recovered Mjolnir and created a legend that will be laughed about for ages."
+        }
+      },
+      "demand-hammer": {
+        "id": "demand-hammer",
+        "content": "## The Blessing\n\nYou tear off the veil. \"Enough games! I am Thor, and I demand my hammer!\"\n\nThrym's face cycles through confusion, recognition, and fury. \"SEIZE THEM!\"\n\nBut you expected this. \"Loki, NOW!\"\n\nThe trickster was prepared. He had already replaced the real Mjolnir on Thrym's belt with an illusion. The true hammer appears in his hand, and he throws it to you.\n\nThe moment your fingers close around Mjolnir, lightning answers. You let loose with everything you have, every ounce of thunder and fury.\n\nThe giants never stood a chance.\n\nAs you leave the smoking ruins of Thrym's hall, still wearing the torn remnants of a wedding dress, Loki can barely contain his laughter.\n\n\"You know they'll make songs about this,\" he says. \"Thor the Beautiful Bride.\"\n\n\"If you ever speak of the dress again,\" you growl, \"I'll use you as a lightning rod.\"\n\nBut secretly, even you have to admit: it was a good plan.",
+        "ending": {
+          "type": "good",
+          "summary": "The disguise bought you the opening you needed. Mjolnir returned, Thrym defeated, and only your pride was wounded."
+        }
+      },
+      "allied-assault": {
+        "id": "allied-assault",
+        "content": "## The Gods of War\n\nWith Tyr, Freya, and the blessings of Odin, you lead the charge on Jotunheim.\n\nThe battle is magnificent. Tyr fights with one hand but the skill of ten warriors. Freya's battle-frenzy makes even giants flee in terror. You lead the vanguard, calling lightning even without Mjolnir.\n\nBut Angrboda's magic is terrible. She summons ice storms that freeze warriors in their tracks. She transforms into a dragon of frost, breathing cold that would kill any mortal instantly.\n\nThe battle becomes a siege, then a stalemate. For every giant that falls, three more join from the frozen wastes. Without Mjolnir's full power, you cannot break Angrboda's wards.\n\nAfter seven days of fighting, Odin appears on the battlefield.\n\n\"Enough, my son. We must retreat and find another way.\"\n\nThe retreat is bitter, but not a defeat. You return to Asgard to plan anew, knowing that strength alone was not enough.",
+        "choices": [
+          {
+            "text": "Accept the lesson and seek a wiser approach",
+            "nextNodeId": "odin-wisdom",
+            "consequence": "Learn from failure"
+          },
+          {
+            "text": "This only proves we need MORE force",
+            "nextNodeId": "rage-ending-allied",
+            "consequence": "Double down on strength"
+          }
+        ]
+      },
+      "freya-distraction": {
+        "id": "freya-distraction",
+        "content": "## The Goddess's Wrath\n\nFreya agrees to draw Thrym's attention while you infiltrate the fortress. She approaches in her cat-drawn chariot, her beauty and fury equally blazing.\n\n\"THRYM!\" she calls. \"You dare demand me as a bride? Face me yourself, coward!\"\n\nWhile the giants rush to see the Vanir goddess, you slip through a servants' entrance. The halls are a maze of ice, but you follow the pull of your hammer.\n\nIn the vault, guarded by enchantments, Mjolnir waits. Between you and it stands Angrboda, ancient and terrible.\n\n\"Son of Odin,\" she hisses. \"Did you think I wouldn't know? I have seen every thread of fate for ten thousand years.\"",
+        "choices": [
+          {
+            "text": "Fight through her, whatever the cost",
+            "nextNodeId": "fight-angrboda",
+            "consequence": "One witch against a god"
+          },
+          {
+            "text": "Try to bargain with her",
+            "nextNodeId": "bargain-angrboda",
+            "consequence": "Perhaps even enemies can negotiate"
+          }
+        ]
+      },
+      "odin-wisdom": {
+        "id": "odin-wisdom",
+        "content": "## The All-Father's Counsel\n\nYou kneel before Odin's throne. \"Father, I cannot defeat Angrboda by strength. What wisdom can you offer?\"\n\nOdin is silent for a long moment. Then he speaks: \"Angrboda's power comes from grief, Thor. She is mother to Fenrir who is bound, Hel who is exiled, Jormungandr who is cast into the sea. All by our hands.\"\n\n\"You're saying we wronged her?\"\n\n\"I'm saying she fights not from evil, but from a mother's pain. Perhaps there is another way than war.\"\n\nYou consider this. Angrboda's children are monsters, true. But they are still her children. And the gods have never tried to understand, only to suppress.\n\n\"What would you have me do, Father?\"\n\n\"What I could not,\" Odin says quietly. \"Offer understanding instead of force.\"",
+        "choices": [
+          {
+            "text": "Go alone to Angrboda, unarmed, to talk",
+            "nextNodeId": "peace-ending",
+            "consequence": "An unexpected path"
+          },
+          {
+            "text": "This is foolishness. Monsters cannot be reasoned with.",
+            "nextNodeId": "rage-ending-allied",
+            "consequence": "Reject wisdom for wrath"
+          }
+        ]
+      },
+      "fight-angrboda": {
+        "id": "fight-angrboda",
+        "content": "## The Witch's Curse\n\nYou charge at Angrboda, fists blazing with what lightning you can summon without Mjolnir.\n\nThe witch is ancient and powerful, but you are Thor. Your blows crack her defenses. Your strength shatters her ice constructs. Inch by inch, you push toward the vault.\n\nBut then she speaks words in a tongue older than Asgard itself, and you feel your strength draining away.\n\n\"Fool god,\" she snarls. \"You took my children. Now feel a mother's curse.\"\n\nYou reach Mjolnir. Your fingers close around it. But the curse has taken root, cold spreading through your divine essence.\n\nWith Mjolnir, you shatter Angrboda and escape. But the cost... the cost is terrible. The cold never fully leaves you. Your thunderbolts are weaker. Your strength is diminished.\n\nYou won. But the victory came with a price you'll pay for eternity.",
+        "ending": {
+          "type": "neutral",
+          "summary": "You recovered Mjolnir but carry Angrboda's curse forever. Victory came at a price."
+        }
+      },
+      "bargain-angrboda": {
+        "id": "bargain-angrboda",
+        "content": "## The Mother's Terms\n\n\"Wait,\" you say, lowering your fists. \"I did not come here to fight you, witch.\"\n\n\"Then you came to die.\"\n\n\"I came for my hammer. Name your price.\"\n\nAngrboda pauses. In her ancient eyes, you see something unexpected: hope.\n\n\"You would bargain? The mighty Thor, reduced to haggling?\"\n\n\"I am not too proud to admit when strength is not enough.\"\n\nShe studies you for a long moment. \"My son Fenrir is bound in chains that cut his flesh eternally. Visit him. Speak to him. Let him know he is not forgotten.\"\n\n\"That is all?\"\n\n\"That is everything,\" she whispers. \"Take your hammer. And remember: even monsters can love their children.\"\n\nYou leave Jotunheim with Mjolnir and a new understanding. The visit to Fenrir is... difficult. But you keep your word. And somehow, the enmity between gods and giants lessens, just a little.",
+        "ending": {
+          "type": "good",
+          "summary": "Through understanding instead of force, you recovered Mjolnir and planted seeds of peace between gods and giants."
+        }
+      },
+      "peace-ending": {
+        "id": "peace-ending",
+        "content": "## The Thunder God's Heart\n\nYou go alone to Jotunheim, without weapon or armor. The giants mock you, but do not attack. Something about your bearing gives them pause.\n\nAngrboda receives you in her ice cave, suspicion warring with curiosity.\n\n\"I come to talk,\" you say. \"About your children. About what we have done.\"\n\nThe conversation lasts for days. You learn things that shame you: how Fenrir was bound without trial, how Hel was exiled for her appearance alone, how Jormungandr was cast into the sea as a baby.\n\n\"We feared prophecy,\" you admit. \"We were wrong.\"\n\n\"Words,\" Angrboda says bitterly. \"What are words?\"\n\n\"The beginning.\" You take a deep breath. \"I will speak to the Allfather. I cannot free Fenrir, the prophecies are too clear, but perhaps we can ease his bindings. Perhaps Hel can have visitors. Perhaps your grandchildren need not grow up as enemies.\"\n\nAngrboda returns Mjolnir to you. Not from defeat, but from hope.\n\n> The path to peace is long and uncertain. But on this day, in this frozen cave, a thunder god learned that sometimes the mightiest weapon is an open heart.",
+        "ending": {
+          "type": "good",
+          "summary": "Through compassion and understanding, you recovered Mjolnir and began healing ancient wounds between gods and giants."
+        }
+      },
+      "rage-ending-allied": {
+        "id": "rage-ending-allied",
+        "content": "## The Endless War\n\nYou refuse to accept failure. Again and again, you lead assaults on Jotunheim. Each time, you are driven back. Each time, more allies fall.\n\nTyr loses his other hand. Freya takes a wound that never fully heals. Even Odin's ravens stop bringing good news.\n\nThe war drags on for years. Mjolnir remains in Angrboda's vault, a symbol of your failure. The giants grow bolder, and frost creeps further into Midgard each winter.\n\nIn the end, it is not defeat that stops you, but exhaustion. You sit on the Bifrost, looking at the frozen wastes of Jotunheim, and realize you have forgotten why you started this war.\n\nThe hammer? You have not thought of it in months. Only the fighting remains.\n\n> Pride, you finally understand, is the cruelest prison. And you have built your own walls.",
+        "ending": {
+          "type": "tragic",
+          "summary": "Your pride led to endless, pointless war. Mjolnir remains lost, allies are broken, and you have become the monster you fought against."
+        }
+      }
+    }
+  },
+  {
+    "id": "orpheus-underworld",
+    "slug": "orpheus-underworld",
+    "title": "Orpheus in the Underworld",
+    "description": "Descend into the realm of the dead as Orpheus, the greatest musician who ever lived. Can your love for Eurydice triumph over death itself? The choice that awaits you has haunted lovers for millennia.",
+    "pantheonId": "greek-pantheon",
+    "protagonist": "Orpheus",
+    "coverImage": "/stories/orpheus-underworld.png",
+    "totalEndings": 4,
+    "estimatedTime": "6-10 min",
+    "startNodeId": "start",
+    "nodes": {
+      "start": {
+        "id": "start",
+        "content": "## The Serpent's Bite\n\nYou are Orpheus, son of the Muse Calliope, blessed by Apollo himself with the gift of music. Your lyre can make stones weep and rivers cease their flowing. But today, no music can ease your agony.\n\nEurydice is dead.\n\nYour bride, your heart, bitten by a serpent on your very wedding day. She died in your arms as you sang desperately to save her, but even your divine music could not hold back death.\n\nNow you stand at the entrance to the Underworld, the cave at Taenarum where mortals fear to tread. The path before you leads down into eternal darkness.\n\nNo mortal has ever entered the realm of Hades and returned. But you are not fully mortal, and your love is not mortal either.\n\n> Your mother's voice echoes in your memory: \"The dead do not return, my son. That is the one law even the gods cannot break.\"\n\nBut what if they could?",
+        "choices": [
+          {
+            "text": "Enter the Underworld, trusting in the power of your music",
+            "nextNodeId": "descent",
+            "consequence": "Love compels you forward"
+          },
+          {
+            "text": "First, pray to the gods for guidance",
+            "nextNodeId": "prayer",
+            "consequence": "Seek divine wisdom"
+          },
+          {
+            "text": "Accept your grief and turn back",
+            "nextNodeId": "acceptance-early",
+            "consequence": "Some things cannot be undone"
+          }
+        ]
+      },
+      "prayer": {
+        "id": "prayer",
+        "content": "## Apollo's Warning\n\nYou raise your eyes to the heavens and call upon Apollo, god of music, your divine patron.\n\nA warmth touches your face, a presence fills the air. Apollo does not appear, but his voice resonates in your mind:\n\n\"My gifted one. What you attempt has never been done. The lord of the dead does not easily release his subjects.\"\n\n\"Then it is impossible?\" you ask.\n\n\"I did not say that.\" The god's voice carries something, is it admiration? Concern? \"Your music can move even the hearts of gods. But the test you face will not be of skill. It will be of faith.\"\n\n\"Faith in what?\"\n\n\"That, you must discover yourself.\" The warmth fades. \"Remember: in the land of the dead, nothing is as it seems. Trust your love, not your eyes.\"",
+        "choices": [
+          {
+            "text": "Descend into the Underworld with Apollo's cryptic wisdom",
+            "nextNodeId": "descent",
+            "consequence": "Armed with divine warning"
+          },
+          {
+            "text": "The warning troubles you. Reconsider this journey.",
+            "nextNodeId": "acceptance-early",
+            "consequence": "Perhaps wisdom is knowing when to stop"
+          }
+        ]
+      },
+      "descent": {
+        "id": "descent",
+        "content": "## The River Styx\n\nYou descend into darkness so complete that even your own hands vanish before your eyes. But you play your lyre, and the notes create their own light, soft and golden, guiding your way.\n\nThe path spirals ever downward. You pass shades of the dead, pale wisps who reach toward your music with desperate longing. You do not stop. You cannot stop.\n\nAt last, you reach the River Styx. The ferryman Charon waits in his boat, ancient and terrible, his eyes like burning coals.\n\n\"No living soul may cross,\" he rasps. \"This is the law of the underworld.\"\n\nYou begin to play. The music speaks of love and loss, of journeys that must be made regardless of the cost. Charon's coal-eyes flicker.\n\nSlowly, impossibly, a tear rolls down his withered cheek.\n\n\"Get in,\" he says gruffly. \"But know this, musician: the way back is harder than the way down.\"",
+        "choices": [
+          {
+            "text": "Cross the Styx with Charon",
+            "nextNodeId": "throne-room",
+            "consequence": "The first barrier has fallen"
+          }
+        ]
+      },
+      "throne-room": {
+        "id": "throne-room",
+        "content": "## Before the Thrones of Death\n\nThe throne room of Hades is vast and terrible, carved from black stone that absorbs light. On twin thrones sit the rulers of the dead: Hades, lord of the underworld, his face carved from shadow; and Persephone, his queen, whose eyes hold both the coldness of death and the faint warmth of remembered spring.\n\nThe dead crowd the hall, thousands upon thousands, and all fall silent as you enter.\n\n\"A living man in my realm,\" Hades says, his voice like grinding stone. \"You dare much, son of the Muse.\"\n\nYou do not speak. Instead, you play.\n\nThe song pours from your lyre, telling the story of your love, of Eurydice, of the joy you shared and the agony of loss. You sing of how love makes cowards brave and wise men foolish, how it drives mortals to challenge the very gods.\n\nYou sing, and for the first time in eternity, the underworld weeps.\n\nEven Hades's stern face softens. Even the Furies pause in their torments. Persephone's hand reaches out to touch her husband's arm, and you see her lips move: \"Remember how we began. Remember Enna's fields.\"\n\nHades closes his eyes. When he opens them, something has changed.",
+        "choices": [
+          {
+            "text": "Continue playing, pour everything into the music",
+            "nextNodeId": "hades-terms",
+            "consequence": "Let the music speak for you"
+          }
+        ]
+      },
+      "hades-terms": {
+        "id": "hades-terms",
+        "content": "## The Condition\n\nHades raises his hand. \"Enough. I will grant what no mortal has ever been granted.\"\n\nYour heart soars, but his next words freeze it.\n\n\"Eurydice may follow you back to the world of the living. But there is one condition, and it is absolute: you must not look back at her until you both stand under the sun. Not once. Not for any reason.\"\n\n\"That is all?\" you ask, hardly daring to believe.\n\n\"That is everything.\" Hades's eyes bore into yours. \"The path is long and dark. You will hear her footsteps behind you, or perhaps you won't. You will doubt. You will fear. But you must not look.\"\n\nPersephone speaks, her voice gentler: \"Trust in your love, Orpheus. Trust that she follows. The eyes deceive, but the heart knows.\"\n\nBehind you, you hear a whisper, faint as distant wind: \"Orpheus...\" Eurydice's voice. Your beloved's voice.\n\nEvery fiber of your being wants to turn. But you remember Apollo's words. Trust your love, not your eyes.",
+        "choices": [
+          {
+            "text": "Accept the terms and begin the ascent",
+            "nextNodeId": "the-ascent",
+            "consequence": "The final test begins"
+          }
+        ]
+      },
+      "the-ascent": {
+        "id": "the-ascent",
+        "content": "## The Long Dark\n\nYou walk upward through endless darkness. Behind you, footsteps, soft and uncertain. Or is that just the echo of your own?\n\nYour lyre hangs silent at your side. You dare not play; you dare not do anything but walk and trust.\n\nHours pass. Days? Time has no meaning in the underworld. The path twists and turns. Sometimes you hear Eurydice's breathing, close behind you. Sometimes you hear nothing at all.\n\nThe doubts creep in.\n\n*What if Hades lied? What if there is no one behind you?*\n\n*What if this is the true punishment, to walk forever toward a hope that does not exist?*\n\n*What if she is there, but scared, reaching for you, wondering why you won't turn to comfort her?*\n\nYou pass the Styx. Charon says nothing, but you hear two sets of footsteps on his boat. Or do you?\n\nThe tunnel brightens. Far ahead, impossibly far, you see a point of light. The surface. Freedom. Life.\n\nBut the closer you get, the more the silence behind you seems to grow. Is she still there? Is she?",
+        "choices": [
+          {
+            "text": "Trust completely. Do not look back.",
+            "nextNodeId": "trust-ending",
+            "consequence": "Faith over fear"
+          },
+          {
+            "text": "Just a glance. Just to be sure she's there.",
+            "nextNodeId": "look-back",
+            "consequence": "One moment of doubt"
+          },
+          {
+            "text": "Call out to her without turning",
+            "nextNodeId": "call-out",
+            "consequence": "Seek reassurance through voice"
+          }
+        ]
+      },
+      "trust-ending": {
+        "id": "trust-ending",
+        "content": "## The Light of Love\n\nThe light grows brighter. Your legs ache. Your heart pounds. Every step is agony, not knowing, not seeing.\n\nBut you trust.\n\nYou remember Eurydice's face on your wedding day, her smile, her faith in you. You remember Apollo's words: trust your love. You remember Persephone's gentle counsel.\n\nThe light becomes blinding. You step into the sun, feel its warmth on your face, breathe the air of the living world.\n\nAnd then, from behind you: \"Orpheus.\"\n\nHer voice. Her real voice, warm and alive. You turn.\n\nEurydice stands in the sunlight, tears streaming down her face, more beautiful than you remembered. She throws herself into your arms.\n\n\"You didn't look,\" she whispers. \"I was so afraid you would look. I couldn't speak, couldn't touch you, I was still bound by death's laws until we emerged. But you trusted.\"\n\n> You hold her as the sun sets, alive, together, your faith rewarded. The tale of Orpheus becomes legend, not of tragedy, but of love that conquered death itself.",
+        "ending": {
+          "type": "good",
+          "summary": "Your faith never wavered. Eurydice returned to the living world, and your love story became legend."
+        }
+      },
+      "look-back": {
+        "id": "look-back",
+        "content": "## The Glance\n\nThe doubt is too much. Just one look. Just to know.\n\nYou turn your head.\n\nEurydice is there, reaching for you, her face transforming from joy to horror as your eyes meet. She is so close to the light, so close to freedom.\n\n\"No,\" she whispers. \"Oh, my love, no...\"\n\nShe begins to fade, her form dissolving like mist in the morning sun. Her hand passes through yours as you desperately grasp for her.\n\n\"Why?\" The word hangs in the air as she becomes shadow, becomes memory, becomes nothing.\n\nYou fall to your knees at the cave's mouth, sunlight warm on your back, and scream until your throat tears. The lyre drops from your nerveless fingers.\n\n> You wander for years, singing songs of loss so beautiful that the very rivers weep. You never marry again, never love again. The Maenads eventually tear you apart for refusing their advances, but by then, you welcome death.\n\nIn the underworld, you search for Eurydice. You find her. But the silence between you stretches forever, filled with the weight of one moment of doubt.",
+        "ending": {
+          "type": "tragic",
+          "summary": "One moment of doubt cost you everything. Eurydice was lost forever, and your grief became eternal."
+        }
+      },
+      "call-out": {
+        "id": "call-out",
+        "content": "## The Voice in the Dark\n\n\"Eurydice,\" you call, not turning, your voice trembling. \"Are you there?\"\n\nSilence. Then, barely audible: \"I am here, my love. I cannot speak louder, the bonds of death still hold my voice. But I am here. I follow. Trust me.\"\n\nThe relief nearly brings you to your knees. You walk on, faster now, hope renewed.\n\nBut as you climb, another voice comes, identical to the first: \"Orpheus, please look at me. I am so frightened. Just one glance to give me strength.\"\n\nYou hesitate. Which voice is real? Or are they both? Is Hades testing you with deceptions?\n\nYou remember: In the land of the dead, nothing is as it seems.\n\nThe light grows closer. The voice comes again, pleading, but you close your ears to it.",
+        "choices": [
+          {
+            "text": "Ignore the voices and trust your heart",
+            "nextNodeId": "trust-ending",
+            "consequence": "Hold to your faith"
+          },
+          {
+            "text": "The second voice seemed so real... look back",
+            "nextNodeId": "look-back",
+            "consequence": "Doubt wins"
+          }
+        ]
+      },
+      "acceptance-early": {
+        "id": "acceptance-early",
+        "content": "## The Grief That Heals\n\nYou stand at the cave's mouth for a long time. The darkness beckons, promises, tempts. But something holds you back.\n\n*She is dead*, you think. *And the dead do not return. Not even for love.*\n\nYou remember Eurydice, not as she was in death, but as she was in life, her laugh, her warmth, the way she listened to your music with her whole heart.\n\nShe would not want you to throw yourself into darkness for a fool's hope. She would want you to live. To sing. To keep her memory alive in your music rather than die seeking a ghost.\n\nYou turn away from the cave.\n\nThe grief does not leave, it never fully leaves, but it transforms. You compose songs about Eurydice that make all who hear them weep and then smile. You teach young musicians her favorite melodies.\n\nYears later, you marry again, a woman who knows she is not replacing Eurydice but walking beside her memory. You have children who grow up singing their mother's songs, and sometimes, their grandmother's too.\n\n> When death finally claims you, old and full of years, Eurydice waits for you in the Elysian Fields. \"You honored me better by living,\" she says, \"than you ever could by dying.\"",
+        "ending": {
+          "type": "neutral",
+          "summary": "You chose to honor Eurydice's memory through life rather than risk oblivion. Grief became music, and music became legacy."
+        }
+      }
+    }
+  }
+]

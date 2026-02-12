@@ -55,7 +55,11 @@
         "deityId": "indra",
         "note": "Both are thunder and sky gods who serve as kings of the gods in their respective traditions"
       }
-    ]
+    ],
+    "pronunciation": {
+      "ipa": "/zjuːs/",
+      "phonetic": "ZYOOS"
+    }
   },
   {
     "id": "hera",
@@ -82,7 +86,11 @@
     "detailedBio": "## Queen of the Gods\n\nHera is the majestic queen of Olympus and the goddess of marriage and childbirth. As the wife of Zeus, she holds immense power, but she is most famously known for her jealousy and vengeance against Zeus's lovers and illegitimate children.\n\n### The Divine Marriage\n\nHer marriage to Zeus is turbulent, reflecting the storms of the sky. Despite his infidelities, Hera remains the protector of lawful marriage and the sanctity of the family. She is often depicted holding a pomegranate (symbol of fertility) and accompanied by a peacock.",
     "originStory": "Hera was the eldest daughter of Cronus and Rhea, swallowed by Cronus at birth and later freed by Zeus. She became Zeus's wife after he courted her in the form of a cuckoo bird.",
     "importanceRank": 2,
-    "imageUrl": "/deities/hera.png"
+    "imageUrl": "/deities/hera.png",
+    "pronunciation": {
+      "ipa": "/ˈhɪərə/",
+      "phonetic": "HEER-uh"
+    }
   },
   {
     "id": "poseidon",
@@ -132,7 +140,11 @@
         "deityId": "njord",
         "note": "Both are sea gods, though Njord is a Vanir deity associated more with wealth from the sea and calm waters"
       }
-    ]
+    ],
+    "pronunciation": {
+      "ipa": "/pəˈsaɪdən/",
+      "phonetic": "puh-SY-dun"
+    }
   },
   {
     "id": "hades",
@@ -181,7 +193,11 @@
         "deityId": "hel",
         "note": "Both rule realms of the dead that receive those who did not die gloriously in battle"
       }
-    ]
+    ],
+    "pronunciation": {
+      "ipa": "/ˈheɪdiːz/",
+      "phonetic": "HAY-deez"
+    }
   },
   {
     "id": "athena",
@@ -227,7 +243,11 @@
         "deityId": "minerva",
         "note": "Minerva is the direct Roman equivalent, sharing the same domains of wisdom, strategic warfare, and crafts"
       }
-    ]
+    ],
+    "pronunciation": {
+      "ipa": "/əˈθiːnə/",
+      "phonetic": "uh-THEE-nuh"
+    }
   },
   {
     "id": "apollo",
@@ -281,7 +301,11 @@
         "deityId": "ra",
         "note": "Both are solar deities associated with light, truth, and cosmic order, though Ra is the supreme creator in Egyptian myth"
       }
-    ]
+    ],
+    "pronunciation": {
+      "ipa": "/əˈpɒloʊ/",
+      "phonetic": "uh-POL-oh"
+    }
   },
   {
     "id": "artemis",
@@ -320,7 +344,11 @@
         "deityId": "tsukuyomi",
         "note": "Both are lunar deities, though Tsukuyomi is male and rules the night rather than the hunt"
       }
-    ]
+    ],
+    "pronunciation": {
+      "ipa": "/ˈɑːrtɪmɪs/",
+      "phonetic": "AR-tuh-miss"
+    }
   },
   {
     "id": "ares",
@@ -358,7 +386,11 @@
         "deityId": "tyr",
         "note": "Both are war gods, though Tyr represents the legal and honorable aspects of war while Ares embodies its violence"
       }
-    ]
+    ],
+    "pronunciation": {
+      "ipa": "/ˈɛəriːz/",
+      "phonetic": "AIR-eez"
+    }
   },
   {
     "id": "aphrodite",
@@ -398,7 +430,11 @@
         "deityId": "freyja",
         "note": "Both are goddesses of love and beauty, though Freyja also has domains of war, death, and magic that Aphrodite lacks"
       }
-    ]
+    ],
+    "pronunciation": {
+      "ipa": "/ˌæfrəˈdaɪti/",
+      "phonetic": "af-ruh-DY-tee"
+    }
   },
   {
     "id": "hermes",
@@ -438,7 +474,11 @@
         "deityId": "thoth",
         "note": "Both serve as divine messengers and are associated with writing, knowledge, and guiding souls to the afterlife"
       }
-    ]
+    ],
+    "pronunciation": {
+      "ipa": "/ˈhɜːrmiːz/",
+      "phonetic": "HER-meez"
+    }
   },
   {
     "id": "dionysus",
@@ -467,7 +507,11 @@
     "description": "God of wine, festivity, and theater. Son of Zeus and the mortal Semele, the only Olympian born to a mortal parent.",
     "detailedBio": "## The God of Wine\n\nDionysus represents the liberating power of wine and religious ecstasy. He wanders the world spreading the culture of the vine, accompanied by satyrs and maenads (wild female followers).\n\n### Twice-Born\n\nHis mother Semele was consumed by Zeus's lightning. Zeus sewed the unborn Dionysus into his thigh until he was ready to be born, making him \"twice-born.\" He is the patron of theater, as Greek drama originated in festivals honoring him.",
     "importanceRank": 14,
-    "imageUrl": "/deities/dionysus.png"
+    "imageUrl": "/deities/dionysus.png",
+    "pronunciation": {
+      "ipa": "/ˌdaɪəˈnaɪsəs/",
+      "phonetic": "dy-uh-NY-sus"
+    }
   },
   {
     "id": "demeter",
@@ -493,7 +537,11 @@
     "description": "Goddess of agriculture, harvest, and fertility. Mother of Persephone, whose abduction by Hades explains the seasons.",
     "detailedBio": "## The Earth Mother\n\nDemeter acts as the provider of food and the protector of marriage. She presides over the cycle of life and death through the harvest.\n\n### The Seasons\n\nHer daughter Persephone was abducted by Hades. In her grief, Demeter neglected the earth, causing a great famine (winter). Zeus intervened, and it was decreed that Persephone would spend part of the year in the Underworld (winter) and part with her mother (spring/summer).",
     "importanceRank": 5,
-    "imageUrl": "/deities/demeter.png"
+    "imageUrl": "/deities/demeter.png",
+    "pronunciation": {
+      "ipa": "/dɪˈmiːtər/",
+      "phonetic": "dih-MEE-ter"
+    }
   },
   {
     "id": "hephaestus",
@@ -527,7 +575,11 @@
         "deityId": "vulcan",
         "note": "Vulcan is the direct Roman equivalent, sharing the same role as divine blacksmith and god of fire and the forge"
       }
-    ]
+    ],
+    "pronunciation": {
+      "ipa": "/hɪˈfestəs/",
+      "phonetic": "hih-FESS-tus"
+    }
   },
   {
     "id": "hestia",
@@ -552,7 +604,11 @@
     "description": "Goddess of the hearth, home, and family. The firstborn of Cronus and Rhea, she maintained eternal virginity and tended the sacred fire of Olympus.",
     "detailedBio": "## Keeper of the Hearth\n\nHestia is the gentle goddess of the hearth fire (*hestia*), which burned in the center of every Greek home and city. She received the first offering at every sacrifice.\n\n### First and Last\n\nShe was the first child swallowed by Cronus and the last regurgitated, making her both the oldest and youngest of the Olympians. She gave up her seat on Olympus to Dionysus to prevent conflict, tending instead to the sacred fire that could never go out.",
     "importanceRank": 6,
-    "imageUrl": "/deities/hestia.png"
+    "imageUrl": "/deities/hestia.png",
+    "pronunciation": {
+      "ipa": "/ˈhɛstiə/",
+      "phonetic": "HESS-tee-uh"
+    }
   },
   {
     "id": "odin",
@@ -585,7 +641,11 @@
     "detailedBio": "## The Allfather\n\nOdin is the chief of the Aesir, a relentless seeker of wisdom. He sacrificed his eye to Mimir's Well for knowledge and hung himself from Yggdrasil for nine nights to discover the runes.\n\n### God of War and Poetry\n\nParadoxically, he grants both the frenzy of battle (berserkers) and the inspiration of poetry (mead of poetry). He rules Valhalla, gathering slain warriors to prepare for Ragnarok.",
     "originStory": "Odin is the son of the primordial beings Borr and Bestla. Along with his brothers Vili and Ve, he slew the giant Ymir and created the world from his body.",
     "importanceRank": 1,
-    "imageUrl": "/deities/odin.png"
+    "imageUrl": "/deities/odin.png",
+    "pronunciation": {
+      "ipa": "/ˈoʊdɪn/",
+      "phonetic": "OH-din"
+    }
   },
   {
     "id": "thor",
@@ -615,7 +675,11 @@
     "detailedBio": "## The Thunderer\n\nThor is the defender of Asgard and Midgard, wielding the mighty hammer **Mjolnir**. Unlike the cunning Odin, Thor is straightforward, strong, and short-tempered, but fiercely loyal.\n\n### Battles with Giants\n\nMost of Thor's myths involve his expeditions into Jotunheim to slay giants who threaten the gods. His greatest enemy is Jormungandr, the World Serpent, whom he is destined to slay (and be slain by) at Ragnarok.",
     "originStory": "Thor was born to Odin, the Allfather, and Jord, the personification of the earth itself. This union of sky and earth made Thor one of the mightiest beings in existence. From birth, he displayed incredible strength - as an infant, he could lift ten loads of bearskins. He grew quickly into the powerful protector of both gods and mortals. He married Sif, the golden-haired goddess, and with her had a daughter named Thrud. With the giantess Jarnsaxa, he fathered Magni and Modi, who will inherit Mjolnir after Ragnarok.",
     "importanceRank": 3,
-    "imageUrl": "/deities/thor.png"
+    "imageUrl": "/deities/thor.png",
+    "pronunciation": {
+      "ipa": "/θɔːr/",
+      "phonetic": "THOR"
+    }
   },
   {
     "id": "loki",
@@ -645,7 +709,11 @@
     "detailedBio": "## The Trickster God\n\nLoki is a shape-shifter and the catalyst for most Norse myths. Sometimes a helpful ally, often a malicious nuisance, his actions drive the plot of the gods' lives.\n\n### The Architect of Doom\n\nWhile he helped the gods acquire their greatest treasures (Mjolnir, Gungnir), his jealousy led to the death of Baldur. His punishment—bound beneath a dripping serpent—sets the stage for his revenge at Ragnarok.",
     "originStory": "Loki is not one of the Aesir by birth but a giant, the son of the giant Farbauti and the giantess Laufey (or Nal). Despite his giant heritage, he was accepted among the Aesir after becoming blood brothers with Odin in ancient times. The details of this pact are lost, but it bound Odin to never drink unless Loki was also offered a cup. Loki married the goddess Sigyn, who bore him sons Narfi and Vali. With the giantess Angrboda, he fathered three monstrous children: Fenrir the wolf, Jormungandr the World Serpent, and Hel, ruler of the dead.",
     "importanceRank": 5,
-    "imageUrl": "/deities/loki.png"
+    "imageUrl": "/deities/loki.png",
+    "pronunciation": {
+      "ipa": "/ˈloʊki/",
+      "phonetic": "LOH-kee"
+    }
   },
   {
     "id": "frigg",
@@ -673,7 +741,11 @@
     "detailedBio": "## Queen of Asgard\n\nFrigg is the wife of Odin and the foremost goddess of the Aesir. She sits enthroned in Fensalir. She is the only one besides Odin allowed to sit on Hlidskjalf and look out over all the worlds.\n\n### The Silent Prophet\n\nWhile Odin wanders constantly seeking knowledge, Frigg already knows the fate of all things (\"*orlog*\") but chooses to remain silent. Her greatest tragedy is the death of her son Baldur, whom she tried to protect by extracting oaths from everything in creation—except the mistletoe.",
     "originStory": "Frigg is believed to be the daughter of the goddess Fjorgyn (Earth) and belongs to the Aesir, the ruling tribe of gods. Her origins stretch back to the earliest days of the cosmos. She became the wife of Odin and the Queen of Asgard, establishing her hall Fensalir in the realm of the gods. With Odin, she bore Baldur, the most beloved of gods, and Hodr, the blind god. Some scholars connect her to the Germanic goddess Frija, whose name gave us the word Friday. Her knowledge of fate and her role as cosmic mother made her one of the most revered goddesses in the Norse pantheon.",
     "importanceRank": 2,
-    "imageUrl": "/deities/frigg.png"
+    "imageUrl": "/deities/frigg.png",
+    "pronunciation": {
+      "ipa": "/frɪɡ/",
+      "phonetic": "FRIG"
+    }
   },
   {
     "id": "freyja",
@@ -704,7 +776,11 @@
     "detailedBio": "## Lady of the Vanir\n\nFreyja is the goddess of love, beauty, gold, and magic (*seidr*). She drives a chariot pulled by giant cats and wears the necklace Brisingamen.\n\n### Goddess of War\n\nUnlike Aphrodite, Freyja is not just a lover but a warrior. She rides into battle and has the first pick of the slain warriors (the Oskorei), taking half to her field Folkvangr, while Odin takes the rest to Valhalla.",
     "originStory": "Freyja is the daughter of the sea god Njord and an unnamed mother, possibly the earth goddess Nerthus or a sister of Njord from the Vanir. She came to Asgard as a hostage after the Aesir-Vanir War, along with her father and twin brother Freyr. In exchange, the Aesir sent Hoenir and Mimir to the Vanir. The Vanir, feeling cheated, beheaded Mimir, but the exchange brought lasting peace. Freyja taught the Aesir the magic of seidr, a form of shamanic sorcery previously unknown to them. She became so beloved among the gods that she was granted her own hall, Sessrumnir, in the field of Folkvangr.",
     "importanceRank": 6,
-    "imageUrl": "/deities/freyja.png"
+    "imageUrl": "/deities/freyja.png",
+    "pronunciation": {
+      "ipa": "/ˈfreɪə/",
+      "phonetic": "FRAY-uh"
+    }
   },
   {
     "id": "baldur",
@@ -734,7 +810,11 @@
     "detailedBio": "## The Shining One\n\nBaldur is the son of Odin and Frigg, so beautiful and bright that light shines from him. He is the wisest, most eloquent, and most gracious of the Aesir.\n\n### The Death of Baldur\n\nPlagued by dreams of his death, his mother Frigg made everything in creation swear not to harm him. The gods amused themselves by throwing weapons at him, as they bounced off harmlessly. But Loki discovered the mistletoe had not sworn. He tricked the blind god Hodr into throwing a mistletoe dart, which pierced Baldur's heart, killing him instantly and plunging the worlds into grief.",
     "originStory": "Baldur was born to Odin, the Allfather, and Frigg, the Queen of Asgard. From his earliest days, he radiated such beauty and light that all who beheld him loved him instantly. He grew to become the most beloved of all the Aesir, admired by gods and mortals alike. He married the goddess Nanna, and together they lived in his hall Breidablik, the most splendid dwelling in Asgard, where nothing unclean could enter. His twin brother was Hodr, the blind god, with whom his fate would become tragically intertwined.",
     "importanceRank": 8,
-    "imageUrl": "/deities/baldur.png"
+    "imageUrl": "/deities/baldur.png",
+    "pronunciation": {
+      "ipa": "/ˈbɔːldər/",
+      "phonetic": "BALL-der"
+    }
   },
   {
     "id": "tyr",
@@ -762,7 +842,11 @@
     "detailedBio": "## The One-Handed God\n\nTyr is the ancient god of war and the guarantor of justice and oaths (`thing`). While Thor represents the physical strength of a warrior, Tyr represents the legal and moral principles of war.\n\n### The Binding of Fenrir\n\nWhen the gods decided to bind the monstrous wolf Fenrir, the beast only agreed to be chained if one of them placed a hand in his mouth as a pledge of good faith. Tyr alone had the courage to do so. When Fenrir realized he was trapped, he bit off Tyr's hand.",
     "originStory": "Tyr's origins are mysterious and debated among scholars of the myths. Some accounts name him as a son of Odin, while others claim he is the son of the giant Hymir, making him older than the Aesir themselves. Indeed, linguistic evidence suggests Tyr may have once been the chief sky god of the Germanic peoples before Odin rose to prominence. The rune Tiwaz, which bears his name, is among the oldest of the runic alphabet. Regardless of his parentage, Tyr became the god whom warriors invoked before battle and to whom oaths were sworn, embodying the sacred bond between valor and honor.",
     "importanceRank": 9,
-    "imageUrl": "/deities/tyr.png"
+    "imageUrl": "/deities/tyr.png",
+    "pronunciation": {
+      "ipa": "/tɪr/",
+      "phonetic": "TEER"
+    }
   },
   {
     "id": "heimdall",
@@ -791,7 +875,11 @@
     "detailedBio": "## The Watchman of Asgard\n\nHeimdall is the ever-vigilant guardian of the **Bifrost**, the rainbow bridge. He requires less sleep than a bird and can hear the grass growing.\n\n### The Horn of Doom\n\nHe possesses the **Gjallarhorn**, which he will sound at the beginning of Ragnarok to summon the gods to battle. He is destined to kill and be killed by Loki during the final conflict.",
     "originStory": "Heimdall's birth is one of the most mysterious in Norse mythology. According to the Eddas, he was born of nine mothers simultaneously - the nine daughters of the sea giant Aegir, who are the waves of the ocean. These nine giantesses nourished the infant god with the strength of the earth, the moisture of the sea, and the heat of the sun. This unique origin gave Heimdall his extraordinary senses and his connection to all the realms. He is sometimes called the White God due to his shining appearance. Under the name Rig, he is credited with creating the three classes of Norse society - thralls, karls, and jarls - during a journey through Midgard.",
     "importanceRank": 10,
-    "imageUrl": "/deities/heimdall.png"
+    "imageUrl": "/deities/heimdall.png",
+    "pronunciation": {
+      "ipa": "/ˈheɪmdɑːl/",
+      "phonetic": "HAYM-dahl"
+    }
   },
   {
     "id": "freyr",
@@ -820,7 +908,11 @@
     "detailedBio": "## Lord of the Harvest\n\nFreyr is the noble brother of Freyja and ruler of Alfheim (realm of the Elves). He brings peace and prosperity to mortals.\n\n### The Price of Love\n\nHe fell in love with the giantess Gerdr and gave away his magical sword (which could fight on its own) to win her hand. This sacrifice will cost him his life at Ragnarok, where he will be defenseless against the fire giant Surtr.",
     "originStory": "Freyr is the son of Njord, the sea god, and twin brother to Freyja. Born among the Vanir, he came to live with the Aesir as part of the hostage exchange that ended the Aesir-Vanir War. Upon his arrival in Asgard, the gods were so impressed by his noble bearing that they gave him Alfheim, the realm of the Light Elves, as a teething gift. He received the magical ship Skidbladnir and the golden boar Gullinbursti as gifts from the dwarven craftsmen, the sons of Ivaldi. His worship was especially prominent in Sweden, where he was considered an ancestor of the Yngling dynasty.",
     "importanceRank": 7,
-    "imageUrl": "/deities/freyr.png"
+    "imageUrl": "/deities/freyr.png",
+    "pronunciation": {
+      "ipa": "/freɪr/",
+      "phonetic": "FRAYR"
+    }
   },
   {
     "id": "fenrir",
@@ -846,7 +938,11 @@
     "detailedBio": "## The World-Eater\n\nFenrir is the most infamous child of Loki. He grew so large and terrifying that the gods tricked him into being bound by the magical ribbon **Gleipnir** (costing Tyr his hand).\n\n### Ragnarok\n\nHe is destined to remain bound until Ragnarok, when he will break his chains and swallow Odin whole, ending the reign of the Aesir. He will eventually be slain by Odin's son Vidar.",
     "originStory": "Fenrir was born to the trickster god Loki and the giantess Angrboda in the dark forests of Jotunheim. He was one of three monstrous siblings - his brother Jormungandr became the World Serpent, and his sister Hel became ruler of the dead. When the gods learned of these children and the prophecies surrounding them, they brought them to Asgard. Fenrir alone was raised among the gods, but he grew so rapidly and so fierce that only Tyr dared to feed him. Fearing the prophecy that he would devour Odin, the gods bound him with the magical fetter Gleipnir on the island of Lyngvi, where he will remain until the twilight of the gods.",
     "importanceRank": 12,
-    "imageUrl": "/deities/fenrir.png"
+    "imageUrl": "/deities/fenrir.png",
+    "pronunciation": {
+      "ipa": "/ˈfenrɪr/",
+      "phonetic": "FEN-reer"
+    }
   },
   {
     "id": "hel",
@@ -870,7 +966,11 @@
     "detailedBio": "## Mistress of the Underworld\n\nHel is the ruler of **Helheim**, the realm of the dead (for those who did not die a warrior's death). She is half living flesh and half rotting corpse.\n\n### The Final Host\n\nWhen Baldur died, Hermod rode to Helheim to beg for his release. Hel agreed only if every living thing wept for him. Because one giantess (Loki in disguise) refused, Baldur remained in her domain.",
     "originStory": "Hel was born to Loki and the giantess Angrboda in the iron forests of Jotunheim, alongside her brothers Fenrir and Jormungandr. From birth, she was marked as different - half of her body was that of a beautiful woman, while the other half was black and decaying like a corpse. When the gods brought Loki's monstrous children to Asgard, Odin cast Hel down into the primordial realm of Niflheim and gave her authority over all those who die of sickness or old age. There she built her hall Eljudnir and awaits the dead with her plate Hunger and her knife Famine. Her realm, also called Hel, became the final destination for the inglorious dead.",
     "importanceRank": 11,
-    "imageUrl": "/deities/hel.png"
+    "imageUrl": "/deities/hel.png",
+    "pronunciation": {
+      "ipa": "/hɛl/",
+      "phonetic": "HEL"
+    }
   },
   {
     "id": "sif",
@@ -894,7 +994,11 @@
     "detailedBio": "## The Golden Harvest\n\nSif is the wife of Thor and a goddess of the earth. Her long golden hair represents the fields of wheat.\n\n### The Golden Hair\n\nLoki once cut off all her hair as a malicious prank. To escape Thor's wrath, Loki blackmailed the dwarves into forging new hair of pure gold that would grow like real hair, along with Mjolnir and other treasures.",
     "originStory": "Sif's origins are obscure in the surviving Norse sources, but she is counted among the Aesir goddesses. Before her marriage to Thor, she had a son named Ullr, the god of archery and skiing, whose father is unknown. She became Thor's wife and bore him a daughter, Thrud, whose name means 'strength.' Her most famous attribute is her magnificent golden hair, which some scholars believe symbolized fields of ripened grain, connecting her to agricultural fertility. The story of her hair being cut by Loki and replaced with magical gold hair forged by dwarves explains the origin of several divine treasures, including Thor's hammer Mjolnir.",
     "importanceRank": 4,
-    "imageUrl": "/deities/sif.png"
+    "imageUrl": "/deities/sif.png",
+    "pronunciation": {
+      "ipa": "/sɪf/",
+      "phonetic": "SIF"
+    }
   },
   {
     "id": "ra",
@@ -926,7 +1030,11 @@
     "detailedBio": "## The Sun God\n\nRa is the supreme creator and king of the gods. He travels across the sky in his solar barque by day and battles the chaos serpent Apophis in the underworld by night.\n\n### Aspects of Ra\n\nRa changes forms throughout the day: **Khepri** (scarab) at sunrise, **Ra-Horakhty** (falcon) at noon, and **Atum** (elder) at sunset. All life was believed to have been created from Ra's tears.",
     "originStory": "Ra emerged from the primordial waters of Nun at the dawn of creation, creating himself. He then created Shu (air) and Tefnut (moisture), establishing the cosmos.",
     "importanceRank": 1,
-    "imageUrl": "/deities/ra.png"
+    "imageUrl": "/deities/ra.png",
+    "pronunciation": {
+      "ipa": "/rɑː/",
+      "phonetic": "RAH"
+    }
   },
   {
     "id": "osiris",
@@ -955,7 +1063,11 @@
     "description": "God of the afterlife, resurrection, and fertility. First pharaoh and lawgiver who taught agriculture to humanity. Murdered by his brother Set and resurrected by Isis.",
     "detailedBio": "## Lord of the Dead\n\nOsiris was the first mythical pharaoh of Egypt, who brought civilization and agriculture. After being murdered and dismembered by his jealous brother Set, he was resurrected by Isis to rule the Underworld.\n\n### Judgement of the Dead\n\nAs ruler of the afterlife, Osiris presides over the weighing of the heart. He represents hope for eternal life and the cycle of vegetation and regeneration.",
     "importanceRank": 2,
-    "imageUrl": "/deities/osiris.png"
+    "imageUrl": "/deities/osiris.png",
+    "pronunciation": {
+      "ipa": "/oʊˈsaɪrɪs/",
+      "phonetic": "oh-SY-ris"
+    }
   },
   {
     "id": "isis",
@@ -985,7 +1097,11 @@
     "description": "The most powerful goddess in the Egyptian pantheon, wife of Osiris and mother of Horus. Goddess of magic, healing, and protection.",
     "detailedBio": "## The Great Enchantress\n\nIsis is the goddess of magic, healing, and motherhood. Her cleverness and magical power allowed her to learn the secret name of Ra, gaining dominion over the cosmos.\n\n### The Resurrection of Osiris\n\nHer greatest feat was finding the scattered pieces of her husband Osiris and restoring him to life long enough to conceive their son, Horus. She protected Horus from Set until he was old enough to claim the throne.",
     "importanceRank": 3,
-    "imageUrl": "/deities/isis.png"
+    "imageUrl": "/deities/isis.png",
+    "pronunciation": {
+      "ipa": "/ˈaɪsɪs/",
+      "phonetic": "EYE-sis"
+    }
   },
   {
     "id": "horus",
@@ -1014,7 +1130,11 @@
     "description": "Sky god whose eyes are the sun and moon. Son of Osiris and Isis, he avenged his father by defeating Set in battle, becoming the rightful king.",
     "detailedBio": "## The Living Pharaoh\n\nHorus is the falcon-headed god of the sky and kingship. Every pharaoh was believed to be the living incarnation of Horus.\n\n### The Eye of Horus\n\nIn his battles with his uncle Set to avenge his father Osiris, Horus lost his left eye. It was restored by Thoth and became the **Wedjat** eye, a powerful symbol of protection and healing.",
     "importanceRank": 4,
-    "imageUrl": "/deities/horus.png"
+    "imageUrl": "/deities/horus.png",
+    "pronunciation": {
+      "ipa": "/ˈhɔːrəs/",
+      "phonetic": "HOR-us"
+    }
   },
   {
     "id": "set",
@@ -1043,7 +1163,11 @@
     "description": "God of chaos, storms, and the desert. Brother and murderer of Osiris, enemy of Horus. Despite being a villain in myth, he also protects Ra's solar barque from Apophis each night.",
     "detailedBio": "## Lord of Chaos\n\nSet is the god of storms, deserts, and foreigners. He represents the necessary chaos (*Isfet*) that balances order.\n\n### The Protector of Ra\n\nThough he is the villain in the Osiris myth (murdering his brother), Set has a heroic role as the only god strong enough to stand on the prow of Ra's solar barge and spear the chaos serpent Apophis every night.",
     "importanceRank": 5,
-    "imageUrl": "/deities/set.png"
+    "imageUrl": "/deities/set.png",
+    "pronunciation": {
+      "ipa": "/sɛt/",
+      "phonetic": "SET"
+    }
   },
   {
     "id": "anubis",
@@ -1074,7 +1198,11 @@
     "detailedBio": "## Guardian of the Dead\n\nAnubis is the jackal-headed god who presided over mummification, embalming, and the passage of souls to the afterlife. In the earliest periods of Egyptian religion, he was the supreme lord of the underworld before Osiris rose to prominence.\n\n### The Sacred Embalmer\n\nAnubis invented the art of mummification when he helped Isis prepare the body of Osiris after his murder by Set. His priests wore jackal masks during embalming rituals, acting as earthly embodiments of the god. The black color associated with Anubis represents both the fertile Nile soil and the discoloration of mummified bodies.\n\n### Weighing of the Heart\n\nHis most crucial role is in the **Hall of Two Truths**, where he conducts the weighing of the heart ceremony. He places the deceased's heart on one side of the scales and the feather of Ma'at on the other. If the heart is heavy with sin, it is devoured by the demon **Ammit**, and the soul ceases to exist. If balanced, the soul proceeds to paradise.\n\n### Cult Centers\n\nAnubis was worshipped throughout Egypt, with his primary cult center at **Cynopolis** (\"City of Dogs\"). Jackals and wild dogs roaming cemeteries may have inspired his association with death.",
     "originStory": "Anubis's parentage varies across Egyptian traditions. In older myths, he was the son of Ra and Hesat, or of Ra alone. The most well-known version makes him the illegitimate son of Osiris and Nephthys. When Nephthys bore Anubis, she abandoned him in the desert, fearing Set's wrath. Isis discovered the infant and raised him as her own, and he became fiercely loyal to the Osirian family. This connection explains why Anubis assisted Isis in mummifying Osiris and why he serves as protector of the dead king.",
     "importanceRank": 7,
-    "imageUrl": "/deities/anubis.png"
+    "imageUrl": "/deities/anubis.png",
+    "pronunciation": {
+      "ipa": "/əˈnuːbɪs/",
+      "phonetic": "uh-NOO-bis"
+    }
   },
   {
     "id": "thoth",
@@ -1107,7 +1235,11 @@
     "detailedBio": "## Scribe of the Gods\n\nThoth is the ibis-headed god of wisdom, writing, magic, and the moon. He invented hieroglyphs and is credited with creating all branches of knowledge, including science, philosophy, mathematics, and religion. His precise calculations and record-keeping maintain cosmic order.\n\n### The Divine Arbiter\n\nThoth serves as the divine mediator and arbiter, ensuring balance between good and evil, order and chaos. During the great contest between Horus and Set for the throne of Egypt, Thoth presided over the proceedings and recorded the judgments. He restored the **Eye of Horus** after Set damaged it, making the Wedjat a symbol of wholeness and healing.\n\n### Lord of Time and the Moon\n\nAs a lunar deity, Thoth governs time, calendars, and the measurement of seasons. He added five extra days to the calendar through a clever wager with the moon god Khonsu, allowing Nut to give birth to her children (Osiris, Isis, Set, Nephthys, and Horus the Elder).\n\n### Sacred Animals and Cult Centers\n\nThoth appears as an **ibis** or a **baboon**, both sacred to him. His primary cult center was **Hermopolis** (Khemenu), where he was worshipped as a creator god. Greeks later identified him with Hermes, calling him **Hermes Trismegistus** (\"Thrice-Great\").",
     "originStory": "Thoth's origins are mysterious, befitting the god of hidden knowledge. In some traditions, he was self-created, emerging from the chaos at the beginning of time through the power of language itself. Other accounts describe him as born from the lips of Ra, created from the sun god's words. In Hermopolitan theology, Thoth was among the primordial eight deities (the Ogdoad) who existed before creation. His role in establishing cosmic order through writing and calculation made him essential to the functioning of the universe from its very beginning.",
     "importanceRank": 8,
-    "imageUrl": "/deities/thoth.png"
+    "imageUrl": "/deities/thoth.png",
+    "pronunciation": {
+      "ipa": "/θoʊθ/",
+      "phonetic": "THOHTH"
+    }
   },
   {
     "id": "bastet",
@@ -1138,7 +1270,11 @@
     "detailedBio": "## Lady of the East\n\nBastet is the feline goddess of the home, protection, pleasure, and good health. In the earliest periods, she was depicted as a fierce lioness warrior deity, but over time she transformed into the gentler domestic cat goddess beloved throughout Egypt.\n\n### The Duality of the Cat\n\nBastet embodies the dual nature of the cat: nurturing and protective of the home, yet fierce against threats. She guards women during childbirth, protects children, and wards off evil spirits and disease. As a war goddess, she defended the pharaoh and accompanied him into battle.\n\n### Goddess of Pleasure and Perfume\n\nBastet presided over joy, music, dance, and festivities. Her name may derive from *bas*, meaning \"ointment jar,\" connecting her to perfumes and cosmetics. Her annual festival at **Bubastis** was one of the largest and most joyous in Egypt, with music, dancing, and wine.\n\n### Sacred Cats and Cult Center\n\nCats were sacred to Bastet and killing one, even accidentally, was punishable by death. Thousands of mummified cats have been found at her cult center of **Bubastis** (Per-Bast) in the Nile Delta. Families would shave their eyebrows in mourning when a beloved cat died.",
     "originStory": "Bastet was originally a lioness goddess of war, daughter of the sun god Ra. In her fierce form, she was nearly identical to Sekhmet, representing the destructive power of the sun. Over millennia, as domestic cats became cherished in Egyptian households for protecting grain stores from vermin, Bastet's image softened. She became associated with the protective, nurturing aspects of the sun rather than its scorching heat. By the Late Period, she was depicted primarily as a graceful cat or a woman with a cat's head, embodying domesticity and maternal care.",
     "importanceRank": 9,
-    "imageUrl": "/deities/bastet.png"
+    "imageUrl": "/deities/bastet.png",
+    "pronunciation": {
+      "ipa": "/ˈbæstɛt/",
+      "phonetic": "BASS-tet"
+    }
   },
   {
     "id": "hathor",
@@ -1169,7 +1305,11 @@
     "detailedBio": "## Mistress of the West\n\nHathor, known as the **\"Golden One,\"** is one of the most important and popular goddesses in Egyptian mythology. She embodies love, beauty, music, motherhood, joy, and feminine sexuality. As \"Mistress of the West,\" she welcomed the dead into the afterlife, offering them food and drink.\n\n### Cosmic Mother\n\nHathor was considered a celestial cow goddess who gave birth to and nursed the pharaoh, making each king symbolically her son. The Milky Way was seen as milk flowing from her udders. She was the divine mother who nourished all of Egypt.\n\n### The Eye of Ra\n\nIn her fierce aspect, Hathor could become the **Eye of Ra**, a destructive force. In the famous myth, Ra sent her to punish rebellious humanity. As the lioness Sekhmet, she nearly destroyed all humankind until Ra flooded the fields with beer dyed red. Thinking it was blood, she drank it, became intoxicated, and transformed back into the gentle Hathor.\n\n### Music, Dance, and Sacred Animals\n\nHathor was the patroness of music and dance, with the **sistrum** rattle sacred to her worship. Cows were her sacred animals, and she was depicted either as a cow or as a woman with cow's ears and horns cradling the sun disk. Her main cult center was **Dendera**, which houses one of the best-preserved temples in Egypt.",
     "originStory": "Hathor's origins trace to the earliest periods of Egyptian religion, where she was worshipped as a sky goddess, with her body forming the heavens. In some traditions, she was the wife of Horus and thus connected to kingship. In others, she was the daughter of Ra, the sun god's eye given form. As one of the oldest Egyptian deities, her worship predates written records. Her association with the cow likely stemmed from the nurturing, life-giving qualities Egyptians observed in cattle, making her a natural embodiment of divine motherhood.",
     "importanceRank": 11,
-    "imageUrl": "/deities/hathor.png"
+    "imageUrl": "/deities/hathor.png",
+    "pronunciation": {
+      "ipa": "/ˈhæθɔːr/",
+      "phonetic": "HATH-or"
+    }
   },
   {
     "id": "maat",
@@ -1196,7 +1336,11 @@
     "description": "Goddess embodying truth, justice, and cosmic order. Her feather is weighed against the hearts of the dead in judgment.",
     "detailedBio": "## Cosmic Order\n\nMa'at is not just a goddess but the fundamental concept of truth, balance, order, law, morality, and justice. Without Ma'at, the universe would crumble into chaos.\n\n### The Feather of Truth\n\nShe is depicted with an ostrich feather on her head. This is the very feather against which the hearts of the dead are weighed in the afterlife.",
     "importanceRank": 13,
-    "imageUrl": "/deities/maat.png"
+    "imageUrl": "/deities/maat.png",
+    "pronunciation": {
+      "ipa": "/mɑːt/",
+      "phonetic": "MAHT"
+    }
   },
   {
     "id": "nephthys",
@@ -1222,7 +1366,11 @@
     ],
     "description": "Goddess of mourning and protector of the dead. Sister-wife of Set but loyal to Isis. She aided Isis in gathering Osiris's body and mourned him.",
     "importanceRank": 6,
-    "imageUrl": "/deities/nephthys.png"
+    "imageUrl": "/deities/nephthys.png",
+    "pronunciation": {
+      "ipa": "/ˈnɛfθɪs/",
+      "phonetic": "NEF-this"
+    }
   },
   {
     "id": "sekhmet",
@@ -1252,7 +1400,11 @@
     "detailedBio": "## The Powerful One\n\nSekhmet is the fearsome lioness-headed goddess whose name means \"She Who Is Powerful.\" She embodies the scorching, destructive heat of the sun and is one of the most formidable deities in the Egyptian pantheon. Warriors prayed to her before battle, and her breath was said to create the desert.\n\n### The Eye of Ra\n\nSekhmet is the wrathful form of the **Eye of Ra**, sent to punish humanity when they rebelled against the aging sun god. She slaughtered humans with such bloodthirsty fury that the Nile ran red. Ra, fearing she would destroy all life, ordered 7,000 jugs of beer dyed with pomegranate to be poured on the ground. Sekhmet, mistaking it for blood, drank until she passed out, and humanity was saved.\n\n### Goddess of Plagues and Healing\n\nSekhmet was believed to send **plagues and epidemics** as punishment, but her priests (**wab Sekhmet**) were also renowned physicians who could cure the diseases she sent. This duality made her both feared and revered as a healer.\n\n### Cult Center and Sacred Animals\n\nHer primary cult center was at **Memphis**, where she was worshipped as the consort of Ptah and mother of Nefertum. Lions were sacred to her, and hundreds of statues of Sekhmet lined the temple precincts at Karnak, one for each day of the year to appease her wrath.",
     "originStory": "Sekhmet was created by Ra from the fire of his eye to punish humanity for their rebellion and mockery of the aging sun god. She is the fierce, destructive aspect of the gentler Hathor, representing the burning heat of the midday sun. In essence, Sekhmet and Hathor are two faces of the same goddess: Sekhmet the destroyer and Hathor the nurturer. Her leonine form symbolizes the fierce power of the sun that can bring both life and death to the land of Egypt.",
     "importanceRank": 10,
-    "imageUrl": "/deities/sekhmet.png"
+    "imageUrl": "/deities/sekhmet.png",
+    "pronunciation": {
+      "ipa": "/ˈsɛkmet/",
+      "phonetic": "SEK-met"
+    }
   },
   {
     "id": "sobek",
@@ -1280,7 +1432,11 @@
     "detailedBio": "## Lord of the Waters\n\nSobek is the crocodile-headed god of the Nile, fertility, and military prowess. He embodies the power and danger of the Nile crocodile while also representing the life-giving properties of the river's waters and annual floods.\n\n### Protector and Predator\n\nSobek held a paradoxical role in Egyptian religion. Crocodiles were both **feared predators** that claimed many lives and **revered protectors**. Sobek could ward off the very danger he represented. Fishermen and those who worked the Nile prayed to him for protection, and he was believed to have created the Nile from his sweat.\n\n### Royal Power and Military Might\n\nSobek became associated with **pharaonic power** and **military strength** due to the crocodile's ferocity and dominance. Several pharaohs of the Twelfth and Thirteenth Dynasties took names honoring Sobek, and he was invoked to grant victory in battle. His aggressive nature made him a patron of the army.\n\n### Cult Centers and Sacred Crocodiles\n\nSobek's main cult centers were at **Crocodilopolis** (Shedet) in the Fayyum and at **Kom Ombo** in Upper Egypt. At these temples, sacred crocodiles were kept in pools, adorned with gold and jewels, fed choice meats, and mummified after death. Harming a sacred crocodile was punishable by death.",
     "originStory": "Sobek emerged from the primordial waters of Nun, the dark chaos that existed before creation. In some traditions, he is the son of the goddess Neith, the ancient creator deity of Sais. Other myths describe him as self-created from the primeval waters. As the Nile was the lifeblood of Egypt, Sobek's connection to the river made him essential to the land's fertility. The annual flooding of the Nile, which deposited rich silt for farming, was attributed to his power.",
     "importanceRank": 14,
-    "imageUrl": "/deities/sobek.png"
+    "imageUrl": "/deities/sobek.png",
+    "pronunciation": {
+      "ipa": "/ˈsoʊbɛk/",
+      "phonetic": "SOH-bek"
+    }
   },
   {
     "id": "jupiter",
@@ -1308,7 +1464,11 @@
     "description": "King of the gods and god of sky, lightning, and thunder. Supreme deity of the Roman state religion, protector of Rome and source of divine authority for Roman emperors.",
     "originStory": "Jupiter corresponds to the Greek Zeus, born to Saturn (Cronus) and Ops (Rhea). He overthrew his father to become king of the gods, establishing divine order and justice.",
     "importanceRank": 1,
-    "imageUrl": "/deities/jupiter.png"
+    "imageUrl": "/deities/jupiter.png",
+    "pronunciation": {
+      "ipa": "/ˈdʒuːpɪtər/",
+      "phonetic": "JOO-pih-ter"
+    }
   },
   {
     "id": "juno",
@@ -1334,7 +1494,11 @@
     "description": "Queen of the gods and protector of the Roman state. Goddess of marriage, women, and childbirth. Wife and sister of Jupiter, patron of married women and the Roman matrons.",
     "originStory": "Juno is the Roman equivalent of Hera, daughter of Saturn and Ops. She became Jupiter's consort and queen of heaven, fiercely protective of marriage and legitimate children.",
     "importanceRank": 2,
-    "imageUrl": "/deities/juno.png"
+    "imageUrl": "/deities/juno.png",
+    "pronunciation": {
+      "ipa": "/ˈdʒuːnoʊ/",
+      "phonetic": "JOO-noh"
+    }
   },
   {
     "id": "neptune",
@@ -1358,7 +1522,11 @@
     ],
     "description": "God of the sea, earthquakes, and horses. Brother of Jupiter and Pluto, ruler of all waters. Also associated with freshwater springs and patronage of horse racing.",
     "importanceRank": 3,
-    "imageUrl": "/deities/neptune.png"
+    "imageUrl": "/deities/neptune.png",
+    "pronunciation": {
+      "ipa": "/ˈnɛptjuːn/",
+      "phonetic": "NEP-tyoon"
+    }
   },
   {
     "id": "mars",
@@ -1385,7 +1553,11 @@
     "description": "God of war and guardian of Rome. More prominent in Roman religion than his Greek counterpart Ares, Mars was also a god of agriculture and fertility. Father of Romulus and Remus, legendary founders of Rome.",
     "originStory": "Mars was the son of Jupiter and Juno. He fathered Romulus and Remus with the Vestal Virgin Rhea Silvia, making him the divine ancestor of the Roman people.",
     "importanceRank": 2,
-    "imageUrl": "/deities/mars.png"
+    "imageUrl": "/deities/mars.png",
+    "pronunciation": {
+      "ipa": "/mɑːrz/",
+      "phonetic": "MARZ"
+    }
   },
   {
     "id": "venus",
@@ -1414,7 +1586,11 @@
     "description": "Goddess of love, beauty, desire, sex, and fertility. Mother of the Roman people through her son Aeneas, ancestor of Romulus. Patron goddess of the Julian family.",
     "originStory": "Venus corresponds to Greek Aphrodite. In Roman tradition, she was mother of Aeneas by the Trojan prince Anchises. Through Aeneas, she became the divine ancestress of the Roman people.",
     "importanceRank": 2,
-    "imageUrl": "/deities/venus.png"
+    "imageUrl": "/deities/venus.png",
+    "pronunciation": {
+      "ipa": "/ˈviːnəs/",
+      "phonetic": "VEE-nus"
+    }
   },
   {
     "id": "minerva",
@@ -1438,7 +1614,11 @@
     ],
     "description": "Goddess of wisdom, strategic warfare, and crafts. Part of the Capitoline Triad with Jupiter and Juno. Patron of artisans, teachers, and strategic warfare. Roman equivalent of Athena.",
     "importanceRank": 3,
-    "imageUrl": "/deities/minerva.png"
+    "imageUrl": "/deities/minerva.png",
+    "pronunciation": {
+      "ipa": "/mɪˈnɜːrvə/",
+      "phonetic": "mih-NER-vuh"
+    }
   },
   {
     "id": "apollo-roman",
@@ -1466,7 +1646,11 @@
     ],
     "description": "God of the sun, music, poetry, prophecy, healing, and archery. One of the few gods whose name remained unchanged from Greek to Roman. Patron of the Sibylline Books and protector of Augustus.",
     "importanceRank": 4,
-    "imageUrl": "/deities/apollo.png"
+    "imageUrl": "/deities/apollo.png",
+    "pronunciation": {
+      "ipa": "/əˈpɒloʊ/",
+      "phonetic": "uh-POL-oh"
+    }
   },
   {
     "id": "diana",
@@ -1492,7 +1676,11 @@
     ],
     "description": "Goddess of the hunt, wild animals, wilderness, and the moon. Protector of women in childbirth. Twin sister of Apollo. Roman equivalent of Artemis.",
     "importanceRank": 4,
-    "imageUrl": "/deities/artemis.png"
+    "imageUrl": "/deities/artemis.png",
+    "pronunciation": {
+      "ipa": "/daɪˈænə/",
+      "phonetic": "dy-AN-uh"
+    }
   },
   {
     "id": "mercury",
@@ -1519,7 +1707,11 @@
     ],
     "description": "Messenger of the gods and god of commerce, eloquence, messages, travelers, boundaries, luck, and thieves. Guide of souls to the underworld. Roman equivalent of Hermes.",
     "importanceRank": 5,
-    "imageUrl": "/deities/hermes.png"
+    "imageUrl": "/deities/hermes.png",
+    "pronunciation": {
+      "ipa": "/ˈmɜːrkjəri/",
+      "phonetic": "MER-kyuh-ree"
+    }
   },
   {
     "id": "bacchus",
@@ -1545,7 +1737,11 @@
     ],
     "description": "God of wine, festivity, fertility, and ritual madness. His cult included the Bacchanalia festivals. Roman equivalent of Dionysus, also identified with the Italian god Liber.",
     "importanceRank": 6,
-    "imageUrl": "/deities/dionysus.png"
+    "imageUrl": "/deities/dionysus.png",
+    "pronunciation": {
+      "ipa": "/ˈbækəs/",
+      "phonetic": "BAK-us"
+    }
   },
   {
     "id": "vulcan",
@@ -1570,7 +1766,11 @@
     ],
     "description": "God of fire, metalworking, and the forge. Craftsman of the gods who forged divine weapons and armor. Roman equivalent of Hephaestus. Associated with volcanic activity.",
     "importanceRank": 6,
-    "imageUrl": "/deities/hephaestus.png"
+    "imageUrl": "/deities/hephaestus.png",
+    "pronunciation": {
+      "ipa": "/ˈvʌlkən/",
+      "phonetic": "VUL-kun"
+    }
   },
   {
     "id": "ceres",
@@ -1594,7 +1794,11 @@
     ],
     "description": "Goddess of agriculture, grain crops, fertility, and motherhood. Her cult was central to Roman plebeian identity. Mother of Proserpina (Persephone). Roman equivalent of Demeter.",
     "importanceRank": 5,
-    "imageUrl": "/deities/demeter.png"
+    "imageUrl": "/deities/demeter.png",
+    "pronunciation": {
+      "ipa": "/ˈsɪəriːz/",
+      "phonetic": "SEER-eez"
+    }
   },
   {
     "id": "vesta",
@@ -1617,7 +1821,11 @@
     "description": "Goddess of the hearth, home, and family. Her sacred fire in the Forum Romanum symbolized Rome's eternal life. Served by the Vestal Virgins, priestesses who tended her sacred flame.",
     "originStory": "Vesta corresponds to Greek Hestia. Her worship was fundamental to Roman identity - the sacred fire in her temple represented Rome itself and could never be allowed to go out.",
     "importanceRank": 4,
-    "imageUrl": "/deities/hestia.png"
+    "imageUrl": "/deities/hestia.png",
+    "pronunciation": {
+      "ipa": "/ˈvɛstə/",
+      "phonetic": "VESS-tuh"
+    }
   },
   {
     "id": "janus",
@@ -1645,7 +1853,11 @@
     "description": "God of beginnings, gates, transitions, time, duality, doorways, passages, and endings. Uniquely Roman deity with no Greek equivalent. Depicted with two faces looking to past and future.",
     "originStory": "Janus is one of the oldest Roman gods, said to have no Greek counterpart. He presided over the beginning and end of conflicts, and hence war and peace. All ceremonies and rituals began with an invocation to Janus.",
     "importanceRank": 3,
-    "imageUrl": "/deities/janus.png"
+    "imageUrl": "/deities/janus.png",
+    "pronunciation": {
+      "ipa": "/ˈdʒeɪnəs/",
+      "phonetic": "JAY-nus"
+    }
   },
   {
     "id": "brahma",
@@ -1674,7 +1886,11 @@
     "detailedBio": "## The Creator of the Universe\n\nBrahma is the first god of the Hindu **Trimurti** (trinity), the cosmic creator who brings forth the universe at the beginning of each cycle of existence. He is depicted with four heads facing the cardinal directions, symbolizing his all-seeing nature and the four Vedas that emanated from his mouths.\n\n### The Four Vedas\n\nFrom Brahma's four heads came the **Rigveda**, **Yajurveda**, **Samaveda**, and **Atharvaveda**—the foundational scriptures of Hinduism. He holds prayer beads (*akshamala*), a water pot (*kamandalu*), the Vedas, and a lotus, representing his roles in creation and knowledge.\n\n### Brahma's Curse\n\nDespite being the creator, Brahma has few temples dedicated to him. Legend says that Shiva cursed him for lying about finding the end of a cosmic pillar of light. His consort **Saraswati** is the goddess of knowledge, arts, and music.\n\n### Cosmic Time\n\nA single day of Brahma (*Kalpa*) equals 4.32 billion human years. The universe is created at dawn and dissolved at dusk, to be recreated again. The mantra **\"Om Brahmane Namah\"** honors him.",
     "originStory": "Brahma emerged from a golden egg (Hiranyagarbha) or from a lotus growing from Vishnu's navel. He created the world and all beings, including the gods and sages.",
     "importanceRank": 1,
-    "imageUrl": "/deities/brahma.png"
+    "imageUrl": "/deities/brahma.png",
+    "pronunciation": {
+      "ipa": "/ˈbrɑːmə/",
+      "phonetic": "BRAH-muh"
+    }
   },
   {
     "id": "vishnu",
@@ -1704,7 +1920,11 @@
     "detailedBio": "## The Preserver of the Universe\n\nVishnu is the second god of the **Trimurti**, the supreme preserver who maintains cosmic order (*dharma*). He reclines on the thousand-headed serpent **Shesha** in the cosmic ocean of milk, dreaming the universe into existence.\n\n### The Ten Avatars (Dashavatara)\n\nWhenever evil threatens to overwhelm good, Vishnu descends to Earth in an avatar. His ten principal incarnations include **Matsya** (fish), **Kurma** (tortoise), **Varaha** (boar), **Narasimha** (man-lion), **Vamana** (dwarf), **Parashurama**, **Rama**, **Krishna**, **Buddha**, and **Kalki** (the future avatar).\n\n### Divine Attributes\n\nVishnu holds four items: the **Sudarshana Chakra** (discus of cosmic order), **Panchajanya** (conch of creation), **Kaumodaki** (mace of mental and physical strength), and a **lotus** (purity and creation). His mount is the eagle **Garuda**.\n\n### Festivals and Worship\n\nVaishnavism, centered on Vishnu worship, is one of Hinduism's largest denominations. Major festivals include **Vaikuntha Ekadashi** and **Rama Navami**. The mantra **\"Om Namo Narayanaya\"** is chanted by devotees worldwide.",
     "originStory": "Vishnu reclines on the cosmic serpent Shesha in the ocean of milk. He is eternal and omnipresent. When dharma declines and chaos increases, Vishnu descends to Earth in different incarnations (avatars) to restore order.",
     "importanceRank": 1,
-    "imageUrl": "/deities/vishnu.png"
+    "imageUrl": "/deities/vishnu.png",
+    "pronunciation": {
+      "ipa": "/ˈvɪʃnuː/",
+      "phonetic": "VISH-noo"
+    }
   },
   {
     "id": "shiva",
@@ -1736,7 +1956,11 @@
     "detailedBio": "## The Destroyer and Transformer\n\nShiva is the third god of the **Trimurti**, the cosmic destroyer who dissolves the universe at the end of each cycle to enable its recreation. Far from merely destructive, Shiva transforms and regenerates, making way for new creation.\n\n### Nataraja - The Cosmic Dancer\n\nAs **Nataraja**, Shiva performs the **Tandava**, the cosmic dance of creation, preservation, and destruction. His dance within a ring of fire represents the eternal cycle of the universe. One foot crushes the demon of ignorance (*Apasmara*).\n\n### The Third Eye and the Ganges\n\nShiva's **third eye** on his forehead represents wisdom and can emit flames to destroy evil. The holy river **Ganges** flows from his matted locks—he caught her in his hair when she descended from heaven to prevent Earth's destruction. The crescent moon adorns his head, and serpents coil around his neck.\n\n### Mount Kailash and Shaivism\n\nShiva resides on **Mount Kailash** with his consort **Parvati** and sons **Ganesha** and **Kartikeya**. Shaivism, devoted to Shiva worship, is a major Hindu denomination. The festival **Maha Shivaratri** honors him. His mantra **\"Om Namah Shivaya\"** is among the most sacred in Hinduism.",
     "originStory": "Shiva is eternal and was never born. He manifested in various forms throughout cosmic time. He lives on Mount Kailash with his consort Parvati. His meditation sustains the universe.",
     "importanceRank": 1,
-    "imageUrl": "/deities/shiva.png"
+    "imageUrl": "/deities/shiva.png",
+    "pronunciation": {
+      "ipa": "/ˈʃiːvə/",
+      "phonetic": "SHEE-vuh"
+    }
   },
   {
     "id": "lakshmi",
@@ -1764,7 +1988,11 @@
     "originStory": "Lakshmi emerged from the churning of the cosmic ocean (Samudra Manthan), standing on a lotus flower. The gods and demons churned the ocean to obtain the nectar of immortality, and Lakshmi arose as one of the treasures.",
     "importanceRank": 2,
     "imageUrl": "/deities/lakshmi.png",
-    "detailedBio": "## The Goddess of Prosperity\n\nLakshmi is the goddess of **wealth**, fortune, prosperity, and beauty. She is the divine consort of **Vishnu** and accompanies him in each of his avatars—as Sita with Rama, as Rukmini with Krishna. She embodies both material abundance and spiritual grace.\n\n### The Churning of the Ocean\n\nLakshmi emerged from the **Samudra Manthan** (churning of the cosmic ocean), rising from the waters seated on a fully-bloomed lotus. Gods and demons churned the ocean for the nectar of immortality, and she arose as one of the fourteen treasures (*ratnas*).\n\n### Eight Forms of Lakshmi (Ashta Lakshmi)\n\nShe manifests as eight forms representing different types of wealth: **Adi Lakshmi** (primeval), **Dhana Lakshmi** (monetary), **Dhanya Lakshmi** (grain), **Gaja Lakshmi** (elephants/power), **Santana Lakshmi** (progeny), **Veera Lakshmi** (courage), **Vijaya Lakshmi** (victory), and **Vidya Lakshmi** (knowledge).\n\n### Diwali and Worship\n\nThe festival of **Diwali** is dedicated to Lakshmi, when homes are lit with lamps to welcome her. Her symbols include the lotus, gold coins flowing from her hands, and elephants showering her with water."
+    "detailedBio": "## The Goddess of Prosperity\n\nLakshmi is the goddess of **wealth**, fortune, prosperity, and beauty. She is the divine consort of **Vishnu** and accompanies him in each of his avatars—as Sita with Rama, as Rukmini with Krishna. She embodies both material abundance and spiritual grace.\n\n### The Churning of the Ocean\n\nLakshmi emerged from the **Samudra Manthan** (churning of the cosmic ocean), rising from the waters seated on a fully-bloomed lotus. Gods and demons churned the ocean for the nectar of immortality, and she arose as one of the fourteen treasures (*ratnas*).\n\n### Eight Forms of Lakshmi (Ashta Lakshmi)\n\nShe manifests as eight forms representing different types of wealth: **Adi Lakshmi** (primeval), **Dhana Lakshmi** (monetary), **Dhanya Lakshmi** (grain), **Gaja Lakshmi** (elephants/power), **Santana Lakshmi** (progeny), **Veera Lakshmi** (courage), **Vijaya Lakshmi** (victory), and **Vidya Lakshmi** (knowledge).\n\n### Diwali and Worship\n\nThe festival of **Diwali** is dedicated to Lakshmi, when homes are lit with lamps to welcome her. Her symbols include the lotus, gold coins flowing from her hands, and elephants showering her with water.",
+    "pronunciation": {
+      "ipa": "/ˈlʌkʃmi/",
+      "phonetic": "LUHK-shmee"
+    }
   },
   {
     "id": "saraswati",
@@ -1793,7 +2021,11 @@
     "originStory": "Saraswati emerged from Brahma's mouth or was created by him. She represents the feminine creative power (shakti) of Brahma. Originally also a river goddess, she embodies the flow of knowledge and consciousness.",
     "importanceRank": 2,
     "imageUrl": "/deities/saraswati.png",
-    "detailedBio": "## The Goddess of Knowledge\n\nSaraswati is the goddess of **knowledge**, music, arts, wisdom, and learning. As the consort of **Brahma** the creator, she represents the creative power (*shakti*) that gives form to his thoughts. She is the mother of the Vedas and inventor of the Sanskrit language and Devanagari script.\n\n### The Veena and the Swan\n\nSaraswati is depicted in white, symbolizing purity and truth, playing the **veena** (a stringed instrument representing the harmony of all arts). Her mount is the **swan** (*hamsa*), which can separate milk from water—symbolizing the ability to discriminate between truth and illusion.\n\n### Patron of Learning\n\nShe holds the **Vedas** (sacred texts), a **mala** (prayer beads), and a **water pot** (*kamandalu*). Students, scholars, artists, and musicians invoke her blessings before study or performance. Books and instruments are placed before her image and not touched with feet.\n\n### Vasant Panchami\n\nThe festival **Vasant Panchami** (also called Saraswati Puja) celebrates her. Devotees wear yellow, representing the mustard fields of spring and the pursuit of knowledge. The mantra **\"Om Aim Saraswatyai Namah\"** is recited for wisdom."
+    "detailedBio": "## The Goddess of Knowledge\n\nSaraswati is the goddess of **knowledge**, music, arts, wisdom, and learning. As the consort of **Brahma** the creator, she represents the creative power (*shakti*) that gives form to his thoughts. She is the mother of the Vedas and inventor of the Sanskrit language and Devanagari script.\n\n### The Veena and the Swan\n\nSaraswati is depicted in white, symbolizing purity and truth, playing the **veena** (a stringed instrument representing the harmony of all arts). Her mount is the **swan** (*hamsa*), which can separate milk from water—symbolizing the ability to discriminate between truth and illusion.\n\n### Patron of Learning\n\nShe holds the **Vedas** (sacred texts), a **mala** (prayer beads), and a **water pot** (*kamandalu*). Students, scholars, artists, and musicians invoke her blessings before study or performance. Books and instruments are placed before her image and not touched with feet.\n\n### Vasant Panchami\n\nThe festival **Vasant Panchami** (also called Saraswati Puja) celebrates her. Devotees wear yellow, representing the mustard fields of spring and the pursuit of knowledge. The mantra **\"Om Aim Saraswatyai Namah\"** is recited for wisdom.",
+    "pronunciation": {
+      "ipa": "/ˌsærəsˈwɑːti/",
+      "phonetic": "sar-us-WAH-tee"
+    }
   },
   {
     "id": "parvati",
@@ -1822,7 +2054,11 @@
     "originStory": "Parvati is the reincarnation of Sati, who immolated herself when her father insulted Shiva. Born as the daughter of the mountain king Himavan, she performed severe penance to win Shiva's love.",
     "importanceRank": 2,
     "imageUrl": "/deities/parvati.png",
-    "detailedBio": "## The Divine Mother\n\nParvati is the goddess of **power**, fertility, love, and devotion. She is the consort of **Shiva** and mother of **Ganesha** and **Kartikeya**. As the embodiment of **Shakti** (divine feminine energy), she represents the active, creative power of the universe.\n\n### Daughter of the Mountains\n\nBorn as the daughter of **Himavan** (the personification of the Himalayas) and **Mena**, Parvati is called *Parvati* (\"she of the mountains\"). She is the reincarnation of **Sati**, Shiva's first wife, who immolated herself when her father insulted Shiva.\n\n### The Great Penance\n\nTo win Shiva's love after his grief over Sati's death, Parvati performed severe austerities (*tapas*) for years. Her devotion eventually awakened Shiva from his meditation, and they were married. Their union represents the perfect balance of consciousness (Shiva) and energy (Shakti).\n\n### Many Forms\n\nParvati manifests in both gentle and fierce forms. Her gentle aspects include **Uma** and **Gauri**. Her fierce warrior forms include **Durga** and **Kali**, who emerge when cosmic order is threatened by demons. The festival **Navratri** celebrates her nine forms."
+    "detailedBio": "## The Divine Mother\n\nParvati is the goddess of **power**, fertility, love, and devotion. She is the consort of **Shiva** and mother of **Ganesha** and **Kartikeya**. As the embodiment of **Shakti** (divine feminine energy), she represents the active, creative power of the universe.\n\n### Daughter of the Mountains\n\nBorn as the daughter of **Himavan** (the personification of the Himalayas) and **Mena**, Parvati is called *Parvati* (\"she of the mountains\"). She is the reincarnation of **Sati**, Shiva's first wife, who immolated herself when her father insulted Shiva.\n\n### The Great Penance\n\nTo win Shiva's love after his grief over Sati's death, Parvati performed severe austerities (*tapas*) for years. Her devotion eventually awakened Shiva from his meditation, and they were married. Their union represents the perfect balance of consciousness (Shiva) and energy (Shakti).\n\n### Many Forms\n\nParvati manifests in both gentle and fierce forms. Her gentle aspects include **Uma** and **Gauri**. Her fierce warrior forms include **Durga** and **Kali**, who emerge when cosmic order is threatened by demons. The festival **Navratri** celebrates her nine forms.",
+    "pronunciation": {
+      "ipa": "/ˈpɑːrvəti/",
+      "phonetic": "PAR-vuh-tee"
+    }
   },
   {
     "id": "durga",
@@ -1851,7 +2087,11 @@
     "originStory": "When the buffalo demon Mahishasura threatened the gods, they combined their powers to create Durga. Each god gave her a weapon - Shiva's trident, Vishnu's discus, Indra's thunderbolt. She fought Mahishasura for nine days before defeating him.",
     "importanceRank": 2,
     "imageUrl": "/deities/durga.png",
-    "detailedBio": "## The Invincible Warrior Goddess\n\nDurga is the fierce warrior goddess and protector of **dharma** (cosmic order). Her name means \"the invincible\" or \"she who is difficult to approach.\" She is a powerful manifestation of **Shakti**, the divine feminine energy, created to defeat evil that the gods alone could not overcome.\n\n### Birth from Divine Light\n\nWhen the buffalo demon **Mahishasura** threatened the universe, the gods combined their powers to create Durga. From their collective radiance, she emerged fully formed and armed. Each god contributed a weapon: Shiva's **trident**, Vishnu's **discus**, Indra's **thunderbolt**, and many more.\n\n### The Nine-Day Battle\n\nDurga battled Mahishasura and his demon armies for nine days and nights. On the tenth day (**Vijayadashami**), she slew the demon. She is depicted riding a **lion** or **tiger**, with multiple arms wielding divine weapons, symbolizing her unlimited power to protect the righteous.\n\n### Navratri and Durga Puja\n\nThe nine-night festival of **Navratri** celebrates her victory and her nine forms. **Durga Puja**, especially grand in Bengal, honors her annual visit to her parents' home. The mantra **\"Om Dum Durgayei Namah\"** invokes her protection."
+    "detailedBio": "## The Invincible Warrior Goddess\n\nDurga is the fierce warrior goddess and protector of **dharma** (cosmic order). Her name means \"the invincible\" or \"she who is difficult to approach.\" She is a powerful manifestation of **Shakti**, the divine feminine energy, created to defeat evil that the gods alone could not overcome.\n\n### Birth from Divine Light\n\nWhen the buffalo demon **Mahishasura** threatened the universe, the gods combined their powers to create Durga. From their collective radiance, she emerged fully formed and armed. Each god contributed a weapon: Shiva's **trident**, Vishnu's **discus**, Indra's **thunderbolt**, and many more.\n\n### The Nine-Day Battle\n\nDurga battled Mahishasura and his demon armies for nine days and nights. On the tenth day (**Vijayadashami**), she slew the demon. She is depicted riding a **lion** or **tiger**, with multiple arms wielding divine weapons, symbolizing her unlimited power to protect the righteous.\n\n### Navratri and Durga Puja\n\nThe nine-night festival of **Navratri** celebrates her victory and her nine forms. **Durga Puja**, especially grand in Bengal, honors her annual visit to her parents' home. The mantra **\"Om Dum Durgayei Namah\"** invokes her protection.",
+    "pronunciation": {
+      "ipa": "/ˈdʊərɡɑː/",
+      "phonetic": "DOOR-gah"
+    }
   },
   {
     "id": "kali",
@@ -1881,7 +2121,11 @@
     "originStory": "Kali emerged from Durga's forehead during battle with demons. Her rage was so fierce she began destroying everything. Shiva lay beneath her feet to calm her. Kali is black, representing the void.",
     "importanceRank": 3,
     "imageUrl": "/deities/kali.png",
-    "detailedBio": "## The Dark Mother\n\nKali is the fierce goddess of **time**, change, destruction, and ultimate reality. Her name derives from *kala* (time/black), representing the void from which all creation emerges and into which it dissolves. Despite her terrifying appearance, she liberates devotees from ego and illusion.\n\n### Emergence from Durga\n\nKali emerged from **Durga's** forehead during battle with the demons Chanda and Munda. Her rage was so fierce that she began destroying everything—demons and gods alike. To calm her, **Shiva** lay beneath her feet; when she realized she was trampling her husband, she stopped.\n\n### Iconography\n\nKali is depicted with **black** or **blue** skin, a garland of skulls, a skirt of severed arms, and a lolling tongue. She holds a sword and a severed head. These fearsome symbols represent the destruction of ego and ignorance, not physical violence.\n\n### Tantric Worship\n\nIn Tantric traditions, Kali is the supreme goddess. She is worshipped for liberation (*moksha*) and spiritual transformation. The **Kalighat** temple in Kolkata is one of her most sacred shrines. Her mantra **\"Om Krim Kalikayei Namah\"** is chanted for protection and transformation."
+    "detailedBio": "## The Dark Mother\n\nKali is the fierce goddess of **time**, change, destruction, and ultimate reality. Her name derives from *kala* (time/black), representing the void from which all creation emerges and into which it dissolves. Despite her terrifying appearance, she liberates devotees from ego and illusion.\n\n### Emergence from Durga\n\nKali emerged from **Durga's** forehead during battle with the demons Chanda and Munda. Her rage was so fierce that she began destroying everything—demons and gods alike. To calm her, **Shiva** lay beneath her feet; when she realized she was trampling her husband, she stopped.\n\n### Iconography\n\nKali is depicted with **black** or **blue** skin, a garland of skulls, a skirt of severed arms, and a lolling tongue. She holds a sword and a severed head. These fearsome symbols represent the destruction of ego and ignorance, not physical violence.\n\n### Tantric Worship\n\nIn Tantric traditions, Kali is the supreme goddess. She is worshipped for liberation (*moksha*) and spiritual transformation. The **Kalighat** temple in Kolkata is one of her most sacred shrines. Her mantra **\"Om Krim Kalikayei Namah\"** is chanted for protection and transformation.",
+    "pronunciation": {
+      "ipa": "/ˈkɑːli/",
+      "phonetic": "KAH-lee"
+    }
   },
   {
     "id": "ganesha",
@@ -1912,7 +2156,11 @@
     "originStory": "Parvati created Ganesha from sandalwood paste to guard her. When Shiva tried to enter, he beheaded the boy. To console Parvati, Shiva replaced Ganesha's head with that of an elephant.",
     "importanceRank": 2,
     "imageUrl": "/deities/ganesha.png",
-    "detailedBio": "## The Remover of Obstacles\n\nGanesha is the beloved elephant-headed god of **wisdom**, new beginnings, and the remover of obstacles. Son of **Shiva** and **Parvati**, he is worshipped before any new venture, journey, or undertaking. He is also the patron of arts, sciences, and learning.\n\n### The Elephant Head\n\nParvati created Ganesha from sandalwood paste and clay to guard her privacy. When Shiva returned and was blocked by the boy, not recognizing him, he beheaded him in anger. To console the grieving Parvati, Shiva replaced Ganesha's head with that of the first creature found—an elephant.\n\n### Divine Attributes\n\nGanesha's **large ears** hear all prayers; his **trunk** symbolizes adaptability and strength. His **big belly** contains infinite universes. He holds an **axe** (to cut attachments), a **rope** (to pull devotees closer), a **lotus** (spiritual awakening), and a **modak** (sweet of wisdom). His mount is a **mouse**, representing controlled desires.\n\n### Ganesh Chaturthi\n\nThe festival of **Ganesh Chaturthi** celebrates his birthday with elaborate clay idols, prayers, and processions ending in immersion. The mantra **\"Om Gam Ganapataye Namah\"** is recited to invoke his blessings for new beginnings."
+    "detailedBio": "## The Remover of Obstacles\n\nGanesha is the beloved elephant-headed god of **wisdom**, new beginnings, and the remover of obstacles. Son of **Shiva** and **Parvati**, he is worshipped before any new venture, journey, or undertaking. He is also the patron of arts, sciences, and learning.\n\n### The Elephant Head\n\nParvati created Ganesha from sandalwood paste and clay to guard her privacy. When Shiva returned and was blocked by the boy, not recognizing him, he beheaded him in anger. To console the grieving Parvati, Shiva replaced Ganesha's head with that of the first creature found—an elephant.\n\n### Divine Attributes\n\nGanesha's **large ears** hear all prayers; his **trunk** symbolizes adaptability and strength. His **big belly** contains infinite universes. He holds an **axe** (to cut attachments), a **rope** (to pull devotees closer), a **lotus** (spiritual awakening), and a **modak** (sweet of wisdom). His mount is a **mouse**, representing controlled desires.\n\n### Ganesh Chaturthi\n\nThe festival of **Ganesh Chaturthi** celebrates his birthday with elaborate clay idols, prayers, and processions ending in immersion. The mantra **\"Om Gam Ganapataye Namah\"** is recited to invoke his blessings for new beginnings.",
+    "pronunciation": {
+      "ipa": "/ɡəˈneɪʃə/",
+      "phonetic": "guh-NAY-shuh"
+    }
   },
   {
     "id": "hanuman",
@@ -1941,7 +2189,11 @@
     "originStory": "Son of Anjana and the wind god Vayu. As a child, he tried to eat the sun. Indra struck him with thunderbolt, but he was revived and blessed by the gods with immortality and great powers.",
     "importanceRank": 3,
     "imageUrl": "/deities/hanuman.png",
-    "detailedBio": "## The Devotee Supreme\n\nHanuman is the monkey deity who embodies **strength**, devotion, courage, and selfless service. He is the greatest devotee of **Rama** and a central hero of the **Ramayana** epic. Son of the wind god **Vayu**, he possesses supernatural powers and unwavering loyalty.\n\n### The Child Who Ate the Sun\n\nAs an infant, Hanuman saw the rising sun and, mistaking it for a ripe fruit, leaped into the sky to eat it. **Indra** struck him with his thunderbolt, injuring his jaw (hence *Hanuman*, \"one with a disfigured jaw\"). The gods revived him and granted him extraordinary boons.\n\n### Service to Rama\n\nDuring Rama's quest to rescue Sita from the demon king Ravana, Hanuman became his most devoted ally. He leaped across the ocean to Lanka to find Sita, carried an entire mountain of healing herbs to save Lakshmana, and burned Lanka with his flaming tail.\n\n### Immortal Protector\n\nHanuman was granted immortality (*chiranjeevi*) to serve Rama throughout the ages. He is worshipped for protection, strength, and success. The **Hanuman Chalisa**, a 40-verse hymn, is one of Hinduism's most popular prayers. His mantra **\"Om Han Hanumate Namah\"** grants courage and removes fear."
+    "detailedBio": "## The Devotee Supreme\n\nHanuman is the monkey deity who embodies **strength**, devotion, courage, and selfless service. He is the greatest devotee of **Rama** and a central hero of the **Ramayana** epic. Son of the wind god **Vayu**, he possesses supernatural powers and unwavering loyalty.\n\n### The Child Who Ate the Sun\n\nAs an infant, Hanuman saw the rising sun and, mistaking it for a ripe fruit, leaped into the sky to eat it. **Indra** struck him with his thunderbolt, injuring his jaw (hence *Hanuman*, \"one with a disfigured jaw\"). The gods revived him and granted him extraordinary boons.\n\n### Service to Rama\n\nDuring Rama's quest to rescue Sita from the demon king Ravana, Hanuman became his most devoted ally. He leaped across the ocean to Lanka to find Sita, carried an entire mountain of healing herbs to save Lakshmana, and burned Lanka with his flaming tail.\n\n### Immortal Protector\n\nHanuman was granted immortality (*chiranjeevi*) to serve Rama throughout the ages. He is worshipped for protection, strength, and success. The **Hanuman Chalisa**, a 40-verse hymn, is one of Hinduism's most popular prayers. His mantra **\"Om Han Hanumate Namah\"** grants courage and removes fear.",
+    "pronunciation": {
+      "ipa": "/ˈhʌnʊmɑːn/",
+      "phonetic": "HUN-oo-mahn"
+    }
   },
   {
     "id": "rama",
@@ -1968,7 +2220,11 @@
     "originStory": "Born as prince of Ayodhya. Exiled for 14 years, during which his wife Sita was kidnapped by Ravana. With the help of Hanuman, he defeated Ravana and returned to rule as ideal king.",
     "importanceRank": 2,
     "imageUrl": "/deities/rama.png",
-    "detailedBio": "## The Ideal Man\n\nRama is the seventh avatar of **Vishnu** and the hero of the **Ramayana** epic. Known as *Maryada Purushottama* (\"the perfect man who follows dharma\"), he embodies the ideals of virtue, duty, honor, and righteous conduct.\n\n### Prince of Ayodhya\n\nBorn as the eldest son of King Dasharatha of Ayodhya, Rama was exiled for fourteen years due to a palace intrigue. Accompanied by his wife **Sita** and brother **Lakshmana**, he lived in the forest, fulfilling his duty to honor his father's promise.\n\n### The Ramayana\n\nWhen Sita was kidnapped by the demon king **Ravana**, Rama allied with the monkey king Sugriva and the devoted **Hanuman** to rescue her. The war against Ravana in Lanka demonstrated Rama's prowess as a warrior and his commitment to defeating evil.\n\n### Rama Rajya\n\nAfter defeating Ravana and rescuing Sita, Rama returned to Ayodhya to rule. His reign, called **Rama Rajya**, represents the ideal kingdom of peace, prosperity, and justice. The festival **Diwali** celebrates his return, and **Ram Navami** marks his birthday. The mantra **\"Sri Ram Jai Ram Jai Jai Ram\"** is chanted by devotees."
+    "detailedBio": "## The Ideal Man\n\nRama is the seventh avatar of **Vishnu** and the hero of the **Ramayana** epic. Known as *Maryada Purushottama* (\"the perfect man who follows dharma\"), he embodies the ideals of virtue, duty, honor, and righteous conduct.\n\n### Prince of Ayodhya\n\nBorn as the eldest son of King Dasharatha of Ayodhya, Rama was exiled for fourteen years due to a palace intrigue. Accompanied by his wife **Sita** and brother **Lakshmana**, he lived in the forest, fulfilling his duty to honor his father's promise.\n\n### The Ramayana\n\nWhen Sita was kidnapped by the demon king **Ravana**, Rama allied with the monkey king Sugriva and the devoted **Hanuman** to rescue her. The war against Ravana in Lanka demonstrated Rama's prowess as a warrior and his commitment to defeating evil.\n\n### Rama Rajya\n\nAfter defeating Ravana and rescuing Sita, Rama returned to Ayodhya to rule. His reign, called **Rama Rajya**, represents the ideal kingdom of peace, prosperity, and justice. The festival **Diwali** celebrates his return, and **Ram Navami** marks his birthday. The mantra **\"Sri Ram Jai Ram Jai Jai Ram\"** is chanted by devotees.",
+    "pronunciation": {
+      "ipa": "/ˈrɑːmə/",
+      "phonetic": "RAH-muh"
+    }
   },
   {
     "id": "krishna",
@@ -1997,7 +2253,11 @@
     "originStory": "Born to Devaki and Vasudeva but raised by foster parents to protect him from his evil uncle Kamsa. In the Mahabharata war, he served as Arjuna's charioteer and revealed the Bhagavad Gita.",
     "importanceRank": 1,
     "imageUrl": "/deities/krishna.png",
-    "detailedBio": "## The Divine Player\n\nKrishna is the eighth avatar of **Vishnu** and one of Hinduism's most beloved deities. He is worshipped as the supreme god by many traditions. His life encompasses the playful child stealing butter, the romantic youth dancing with the gopis, and the wise prince delivering the **Bhagavad Gita**.\n\n### The Butter Thief\n\nBorn in Mathura to **Devaki** and **Vasudeva**, Krishna was secretly raised by foster parents **Yashoda** and **Nanda** in Vrindavan to protect him from his evil uncle **Kamsa**. His childhood is filled with miraculous and mischievous deeds—defeating demons, lifting Mount Govardhana, and stealing butter.\n\n### The Flute Player and Radha\n\nAs a youth, Krishna enchanted the cowherd girls (*gopis*) with his divine flute music. His relationship with **Radha** represents the highest form of devotional love (*prema*). The **Rasa Lila** (divine dance) symbolizes the soul's longing for union with the divine.\n\n### The Bhagavad Gita\n\nOn the battlefield of Kurukshetra, Krishna served as charioteer to the warrior **Arjuna**. When Arjuna hesitated to fight his own relatives, Krishna revealed the **Bhagavad Gita**, the supreme spiritual teaching on duty, devotion, and liberation. The festivals **Janmashtami** and **Holi** celebrate his life."
+    "detailedBio": "## The Divine Player\n\nKrishna is the eighth avatar of **Vishnu** and one of Hinduism's most beloved deities. He is worshipped as the supreme god by many traditions. His life encompasses the playful child stealing butter, the romantic youth dancing with the gopis, and the wise prince delivering the **Bhagavad Gita**.\n\n### The Butter Thief\n\nBorn in Mathura to **Devaki** and **Vasudeva**, Krishna was secretly raised by foster parents **Yashoda** and **Nanda** in Vrindavan to protect him from his evil uncle **Kamsa**. His childhood is filled with miraculous and mischievous deeds—defeating demons, lifting Mount Govardhana, and stealing butter.\n\n### The Flute Player and Radha\n\nAs a youth, Krishna enchanted the cowherd girls (*gopis*) with his divine flute music. His relationship with **Radha** represents the highest form of devotional love (*prema*). The **Rasa Lila** (divine dance) symbolizes the soul's longing for union with the divine.\n\n### The Bhagavad Gita\n\nOn the battlefield of Kurukshetra, Krishna served as charioteer to the warrior **Arjuna**. When Arjuna hesitated to fight his own relatives, Krishna revealed the **Bhagavad Gita**, the supreme spiritual teaching on duty, devotion, and liberation. The festivals **Janmashtami** and **Holi** celebrate his life.",
+    "pronunciation": {
+      "ipa": "/ˈkrɪʃnə/",
+      "phonetic": "KRISH-nuh"
+    }
   },
   {
     "id": "indra",
@@ -2025,7 +2285,11 @@
     "originStory": "Indra was born to the sky god Dyaus and earth goddess Prithvi. He became king of the gods by defeating the dragon Vritra. His weapon is the thunderbolt (Vajra).",
     "importanceRank": 3,
     "imageUrl": "/deities/indra.png",
-    "detailedBio": "## King of the Gods\n\nIndra is the king of the **Devas** (gods) and ruler of **Svarga** (heaven). God of **thunder**, **rain**, and **war**, he was the most important deity in the Vedic period. He wields the thunderbolt **Vajra** and rides the white elephant **Airavata**.\n\n### Slayer of Vritra\n\nIndra's greatest feat was slaying the dragon **Vritra**, who had held back all the waters of the world. With his thunderbolt, crafted by the divine artisan Tvashtr, Indra struck Vritra and released the rivers, bringing life to the parched earth.\n\n### Guardian of Order\n\nAs king of the gods, Indra maintains cosmic order from his throne in **Amaravati**, his celestial capital. He commands the **Maruts** (storm gods) and dispenses the life-giving monsoon rains that sustain agriculture. He rewards warriors who die bravely with residence in heaven.\n\n### Humbled by Krishna\n\nIn later Hindu mythology, Indra's pride is often checked. When the people of Vrindavan, guided by young **Krishna**, stopped worshipping him, Indra sent devastating storms. Krishna lifted **Mount Govardhana** to shelter the people, teaching Indra humility."
+    "detailedBio": "## King of the Gods\n\nIndra is the king of the **Devas** (gods) and ruler of **Svarga** (heaven). God of **thunder**, **rain**, and **war**, he was the most important deity in the Vedic period. He wields the thunderbolt **Vajra** and rides the white elephant **Airavata**.\n\n### Slayer of Vritra\n\nIndra's greatest feat was slaying the dragon **Vritra**, who had held back all the waters of the world. With his thunderbolt, crafted by the divine artisan Tvashtr, Indra struck Vritra and released the rivers, bringing life to the parched earth.\n\n### Guardian of Order\n\nAs king of the gods, Indra maintains cosmic order from his throne in **Amaravati**, his celestial capital. He commands the **Maruts** (storm gods) and dispenses the life-giving monsoon rains that sustain agriculture. He rewards warriors who die bravely with residence in heaven.\n\n### Humbled by Krishna\n\nIn later Hindu mythology, Indra's pride is often checked. When the people of Vrindavan, guided by young **Krishna**, stopped worshipping him, Indra sent devastating storms. Krishna lifted **Mount Govardhana** to shelter the people, teaching Indra humility.",
+    "pronunciation": {
+      "ipa": "/ˈɪndrə/",
+      "phonetic": "IN-druh"
+    }
   },
   {
     "id": "agni",
@@ -2052,7 +2316,11 @@
     "importanceRank": 4,
     "imageUrl": "/deities/agni.png",
     "detailedBio": "## The Sacred Fire\n\nAgni is the god of **fire** and the divine messenger between gods and humans. One of the most important Vedic deities, he is present in every sacrificial fire, carrying offerings to the gods. He represents the sacrificial fire, the digestive fire, and the cosmic fire of transformation.\n\n### The Mouth of the Gods\n\nAgni has **seven tongues** to lick up the sacrificial butter. He is called the \"mouth of the gods\" because offerings poured into fire reach the deities through him. Every Vedic ritual begins and ends with invocations to Agni.\n\n### Three Forms\n\nAgni manifests in three realms: as **fire** on earth, as **lightning** in the atmosphere, and as the **sun** in the sky. He is ever-present: in the sacred fire of the home (*garhyapatya*), in the friction of fire sticks, and in the flames of cremation.\n\n### The Immortal Guest\n\nAgni is called *Atithi* (guest) because he visits every home. He witnesses marriages (walking around the sacred fire), funeral rites, and daily worship. Though ancient, his worship continues in Hindu rituals today. The mantra **\"Om Agnaye Namah\"** invokes his purifying presence.",
-    "originStory": "Agni's origins are described variously in Vedic texts. He was born from the cosmic waters, from the friction of two fire sticks, or from the flash of lightning. He is said to be reborn every time fire is kindled, making him eternally young despite being one of the oldest gods."
+    "originStory": "Agni's origins are described variously in Vedic texts. He was born from the cosmic waters, from the friction of two fire sticks, or from the flash of lightning. He is said to be reborn every time fire is kindled, making him eternally young despite being one of the oldest gods.",
+    "pronunciation": {
+      "ipa": "/ˈʌɡni/",
+      "phonetic": "UG-nee"
+    }
   },
   {
     "id": "izanagi",
@@ -2075,7 +2343,11 @@
     "description": "Male primordial deity who, with Izanami, created the Japanese islands and many kami. After Izanami's death, he performed the first purification ritual.",
     "originStory": "Izanagi and Izanami were commanded to solidify and create land. Standing on the Floating Bridge of Heaven, Izanagi thrust his spear into the chaos. Drops fell and formed the first island.",
     "importanceRank": 1,
-    "imageUrl": "/deities/izanagi.png"
+    "imageUrl": "/deities/izanagi.png",
+    "pronunciation": {
+      "ipa": "/ˌiːzəˈnɑːɡi/",
+      "phonetic": "ee-zuh-NAH-gee"
+    }
   },
   {
     "id": "izanami",
@@ -2098,7 +2370,11 @@
     "description": "Female primordial deity who created the Japanese islands and kami with Izanagi. After dying in childbirth, she became goddess of death and ruler of Yomi.",
     "originStory": "Izanami died giving birth to the fire god Kagutsuchi. Grief-stricken, Izanagi followed her to Yomi but fled when he saw her decaying form. She swore to kill 1,000 people each day.",
     "importanceRank": 1,
-    "imageUrl": "/deities/izanami.png"
+    "imageUrl": "/deities/izanami.png",
+    "pronunciation": {
+      "ipa": "/ˌiːzəˈnɑːmi/",
+      "phonetic": "ee-zuh-NAH-mee"
+    }
   },
   {
     "id": "amaterasu",
@@ -2125,7 +2401,11 @@
     "originStory": "Born from Izanagi's left eye during his purification ritual. She was assigned to rule the heavens. Her grandson Ninigi descended to Earth, becoming ancestor of Japan's emperors.",
     "detailedBio": "## The Supreme Sun Goddess\n\n**Amaterasu-omikami** stands as the most important deity in Shinto, embodying the sun itself and serving as the divine ancestor of Japan's Imperial family. Her name translates to \"Great Divinity Illuminating Heaven,\" reflecting her role as the source of all light and life in the cosmos.\n\n## The Cave Myth\n\nThe most famous myth surrounding Amaterasu involves her retreat into the **Ama-no-Iwato** (Heavenly Rock Cave). After her brother Susanoo's destructive rampage through her rice fields and sacred weaving hall, a grieving Amaterasu hid herself away, plunging the world into darkness. The eight million kami gathered outside the cave, and the goddess **Ame-no-Uzume** performed a wild, ecstatic dance that provoked such laughter among the gods that Amaterasu's curiosity drew her out. As she emerged, a mirror was held before her, and she was captivated by her own radiant reflection.\n\n## Imperial Connection\n\nAmaterasu bestowed upon her grandson Ninigi the **Three Sacred Treasures**—the mirror Yata no Kagami, the sword Kusanagi, and the jewel Yasakani no Magatama—symbols still central to Japanese imperial regalia today. Through Ninigi's lineage, she is considered the direct ancestor of the Japanese emperors.\n\n## Worship and Shrines\n\nThe **Ise Grand Shrine** in Mie Prefecture is Amaterasu's holiest sanctuary, rebuilt every twenty years in an ancient tradition of renewal. Millions of pilgrims visit annually during festivals such as the **Kannamesai** harvest celebration. She represents not only agricultural fertility but also the spiritual purity and continuity of the Japanese nation.",
     "importanceRank": 1,
-    "imageUrl": "/deities/amaterasu.png"
+    "imageUrl": "/deities/amaterasu.png",
+    "pronunciation": {
+      "ipa": "/ˌɑːmɑːtəˈrɑːsuː/",
+      "phonetic": "ah-mah-teh-RAH-soo"
+    }
   },
   {
     "id": "tsukuyomi",
@@ -2149,7 +2429,11 @@
     "originStory": "Born from Izanagi's right eye during purification. Assigned to rule the night. His relationship with Amaterasu soured when he killed a goddess, causing sun and moon to separate.",
     "detailedBio": "## The Moon God of Night\n\n**Tsukuyomi-no-Mikoto** rules over the night sky and the lunar realm, embodying the beauty and mystery of moonlight. Born alongside Amaterasu and Susanoo from their father Izanagi's purification ritual, Tsukuyomi emerged from the washing of Izanagi's right eye and was entrusted with dominion over the nocturnal world.\n\n## The Eternal Separation\n\nThe defining myth of Tsukuyomi explains why the sun and moon never appear together. Amaterasu once sent Tsukuyomi to represent her at a feast hosted by **Uke Mochi**, the goddess of food. When Uke Mochi produced the feast by expelling food from her mouth and other orifices, Tsukuyomi was so disgusted that he killed her in fury. Amaterasu was horrified by her brother's violence and declared she would never look upon him again—thus the sun and moon were eternally separated, one ruling the day and one the night.\n\n## Role and Symbolism\n\nUnlike many moon deities in other traditions, Tsukuyomi is distinctly male in Shinto mythology. He represents the passage of time, the rhythm of tides, and the quiet contemplation of night. His domain complements rather than opposes his sister's, together creating the cycle of day and night that governs earthly life.\n\n## Worship\n\nThough less prominent than his siblings, Tsukuyomi is venerated at several shrines including the **Tsukiyomi Shrine** in Ise, located near his sister Amaterasu's grand sanctuary. He is honored during lunar festivals and by those who work under the night sky.",
     "importanceRank": 2,
-    "imageUrl": "/deities/tsukuyomi.png"
+    "imageUrl": "/deities/tsukuyomi.png",
+    "pronunciation": {
+      "ipa": "/tsuːkuːˈjoʊmi/",
+      "phonetic": "tsoo-koo-YOH-mee"
+    }
   },
   {
     "id": "susanoo",
@@ -2175,7 +2459,11 @@
     "originStory": "Born from Izanagi's nose during purification. Exiled from heaven for his violence, he descended to Earth where he became a hero, slaying the dragon Yamata no Orochi.",
     "detailedBio": "## The Storm God\n\n**Susanoo-no-Mikoto** embodies the raw, untamed power of storms and the sea. Born from Izanagi's nose during his purification ritual, Susanoo was assigned to rule the ocean realm. However, his nature was wild and tempestuous, and his refusal to accept his duties set in motion one of Shinto mythology's most dramatic sagas.\n\n## Exile from Heaven\n\nSusanoo's longing for his dead mother Izanami and his violent tantrums caused chaos in the heavens. He destroyed his sister Amaterasu's sacred rice paddies, defiled her weaving hall, and threw a flayed horse into her chambers—an act so terrible that Amaterasu retreated into the Heavenly Rock Cave, plunging the world into darkness. For these offenses, the assembled gods punished Susanoo with exile from **Takamagahara** (the High Celestial Plain).\n\n## Heroic Redemption\n\nDescending to the province of Izumo, Susanoo encountered an elderly couple weeping over their daughter Kushinadahime, the last of their eight daughters. Each year, the terrible eight-headed serpent **Yamata no Orochi** had devoured one daughter. Susanoo devised a cunning plan: he had eight vats of sake prepared, and when the dragon drank itself into stupor, Susanoo slew each head. From the serpent's tail, he discovered the legendary sword **Kusanagi-no-Tsurugi**, which he presented to Amaterasu as atonement.\n\n## Legacy\n\nSusanoo married Kushinadahime and became the ancestor of the Izumo clan. The **Izumo Taisha** shrine honors his lineage. He represents transformation—from destructive chaos to protective heroism—and remains one of Japan's most beloved mythological figures.",
     "importanceRank": 2,
-    "imageUrl": "/deities/susanoo.png"
+    "imageUrl": "/deities/susanoo.png",
+    "pronunciation": {
+      "ipa": "/suːsəˈnoʊ/",
+      "phonetic": "soo-sah-NOH"
+    }
   },
   {
     "id": "inari",
@@ -2203,7 +2491,11 @@
     "originStory": "Inari's origins are complex and layered with multiple traditions. One account holds that Inari descended from the heavens when rice was first cultivated in Japan. Another tradition identifies Inari with the kami Uka-no-Mitama, born from the union of Susanoo and a mountain goddess. Over centuries, Inari absorbed elements from Buddhism and folk belief, becoming a uniquely syncretic deity.",
     "detailedBio": "## The Kami of Abundance\n\n**Inari Okami** is one of the most widely worshipped kami in Japan, presiding over rice, fertility, tea, sake, agriculture, industry, and general prosperity. Inari's gender is fluid—appearing as male, female, or androgynous depending on the shrine and tradition—reflecting the deity's encompassing nature.\n\n## The Fox Messengers\n\nThe most distinctive feature of Inari worship is the association with **kitsune** (foxes), who serve as divine messengers. These are not ordinary foxes but spiritual beings capable of shape-shifting and possessing supernatural wisdom. Statues of foxes guard every Inari shrine, often depicted holding a key (to the rice granary), a jewel (representing the spirit), or a scroll (signifying wisdom) in their mouths.\n\n## Shrines and Torii\n\nThe **Fushimi Inari Taisha** in Kyoto is Inari's head shrine, famous for its thousands of vermillion **torii gates** winding up Mount Inari. These gates, donated by worshippers seeking blessings for their businesses, create an otherworldly tunnel through the forest. With over 30,000 Inari shrines across Japan—roughly one-third of all Shinto shrines—Inari's presence touches nearly every community.\n\n## Evolution of Worship\n\nOriginally an agricultural deity ensuring abundant rice harvests, Inari's domain expanded during the Edo period to include commerce, industry, and worldly success. Today, Inari is petitioned by students seeking academic success, entrepreneurs launching businesses, and families praying for general prosperity. The **Hatsu-uma** festival in early February marks the year's first day of the horse, celebrating Inari's descent to Mount Inari.",
     "importanceRank": 2,
-    "imageUrl": "/deities/inari.png"
+    "imageUrl": "/deities/inari.png",
+    "pronunciation": {
+      "ipa": "/ˈiːnɑːri/",
+      "phonetic": "EE-nah-ree"
+    }
   },
   {
     "id": "hachiman",
@@ -2229,7 +2521,11 @@
     "description": "Syncretic god of war, archery, and protector of Japan and warriors. Originally Emperor Ojin deified. Patron of the samurai clains.",
     "originStory": "Originally Emperor Ojin, deified as Hachiman. Over time, led to becoming protector of Buddhism in Japan and guardian deity of warriors.",
     "importanceRank": 3,
-    "imageUrl": "/deities/hachiman.png"
+    "imageUrl": "/deities/hachiman.png",
+    "pronunciation": {
+      "ipa": "/ˈhɑːtʃimɑːn/",
+      "phonetic": "HAH-chee-mahn"
+    }
   },
   {
     "id": "raijin",
@@ -2254,7 +2550,11 @@
     "originStory": "According to myth, Raijin was born during the primordial creation period, emerging alongside the forces of nature themselves. Some traditions connect him to the thunder kami born from Izanami's decaying body in Yomi, the land of the dead. Over time, Buddhist influences shaped his iconic demonic appearance, transforming him into the fierce drum-beating figure known today.",
     "detailedBio": "## The Thunder Kami\n\n**Raijin** (also called Raiden) is the fearsome god of thunder and lightning, one of the most visually striking figures in Japanese mythology. He is typically depicted as a muscular demon with wild hair, surrounded by a ring of drums that he beats with ferocious energy to create the rumbling of thunder.\n\n## Iconography\n\nRaijin's appearance reflects the Buddhist and folk influences that shaped his worship. He is shown with oni-like features—sharp fangs, horns, and red or blue skin—wearing only a loincloth of tiger skin. His drum circle, called **taiko**, produces both thunder and the sound that drives away evil spirits. The **tomoe** symbol, representing swirling thunderclouds, is closely associated with his worship.\n\n## Partnership with Fujin\n\nRaijin and his brother **Fujin** (the wind god) are almost always depicted together, representing the complementary forces of storm and wind. Their most famous artistic representation adorns the gates of **Sensoji Temple** in Tokyo's Asakusa district, where massive statues of both gods guard the **Kaminarimon** (Thunder Gate). Together, they embody the awesome power of nature that inspires both fear and reverence.\n\n## Cultural Significance\n\nIn Japanese folklore, children are warned to cover their navels during thunderstorms, lest Raijin steal them. This belief connects him to both fear and the fertility-bringing rains essential for rice cultivation. Farmers have long prayed to Raijin for life-giving storms while also seeking protection from lightning strikes. His image appears on temple decorations, festival floats, and as a popular subject in tattoo art.",
     "importanceRank": 3,
-    "imageUrl": "/deities/raijin.png"
+    "imageUrl": "/deities/raijin.png",
+    "pronunciation": {
+      "ipa": "/ˈraɪdʒɪn/",
+      "phonetic": "RY-jin"
+    }
   },
   {
     "id": "fujin",
@@ -2278,7 +2578,11 @@
     "originStory": "Fujin is among the oldest gods in the Shinto tradition, present at the creation of the world. According to legend, after the primordial chaos was separated into heaven and earth, Fujin released the first winds from his great bag, clearing the morning mists and allowing the sun to shine upon the newly formed land. His origins may trace back even further to ancient Greek-influenced Silk Road mythology.",
     "detailedBio": "## The Wind God\n\n**Fujin** (also known as Futen) commands the winds of Japan, from the gentlest spring breezes to the devastating typhoons that sweep the island nation. He is one of the oldest elemental kami and serves as the eternal companion to his brother Raijin, the thunder god.\n\n## Iconography\n\nFujin is depicted as a fearsome demon with greenish skin, wild hair, and bulging eyes. His most distinctive attribute is the enormous **bag of winds** (kazebukuro) that he carries across his shoulders. When he opens this bag, winds of varying strength are released upon the world. He typically wears a leopard-skin loincloth, a detail some scholars trace to Central Asian influences that traveled the Silk Road to Japan.\n\n## The Sensoji Guardians\n\nThe most famous artistic representation of Fujin stands alongside Raijin at the **Kaminarimon** (Thunder Gate) of Sensoji Temple in Asakusa, Tokyo. These statues, first created in the 12th century, have become iconic symbols of the temple and of Japanese religious art. The gate's very name honors Raijin, but Fujin's presence is equally essential—together they represent the balanced forces of nature.\n\n## Dual Nature\n\nLike wind itself, Fujin embodies contradiction. He can bring the cooling winds that make summer bearable and carry the seeds that ensure abundant harvests. Yet he can also unleash typhoons of terrifying destructive power. Japanese maritime culture particularly reveres and fears Fujin, as favorable winds mean safe voyages while storms can spell disaster. Fishermen and sailors have long offered prayers to Fujin for calm seas and steady winds.",
     "importanceRank": 3,
-    "imageUrl": "/deities/fujin.png"
+    "imageUrl": "/deities/fujin.png",
+    "pronunciation": {
+      "ipa": "/ˈfuːdʒɪn/",
+      "phonetic": "FOO-jin"
+    }
   },
   {
     "id": "benzaiten",
@@ -2304,7 +2608,11 @@
     "description": "Goddess of everything that flows: water, time, words, music, and knowledge. One of the Seven Lucky Gods. Originated from Hindu goddess Saraswati.",
     "originStory": "Originally the Hindu goddess Saraswati, introduced to Japan via Buddhism. Syncretized with native water and sea kami.",
     "importanceRank": 4,
-    "imageUrl": "/deities/benzaiten.png"
+    "imageUrl": "/deities/benzaiten.png",
+    "pronunciation": {
+      "ipa": "/bɛnˈzaɪtɛn/",
+      "phonetic": "ben-ZY-ten"
+    }
   },
   {
     "id": "dagda",
@@ -2334,7 +2642,11 @@
     "originStory": "The Dagda is one of the principal leaders of the **Tuatha Dé Danann**, the divine tribe who arrived in Ireland shrouded in magical mist or in cloud-ships from the northern islands of the world. His parents are sometimes given as Elatha of the Fomorians and Eithne, making him half-Fomorian himself, though other traditions name Danu as the mother of all the Tuatha Dé Danann. He is the father of many important deities, including Brigid, Aengus, Midir, and Bodb Derg. His primary consort is the Morrígan, the great goddess of war and sovereignty.",
     "importanceRank": 1,
     "imageUrl": "/deities/dagda.png",
-    "detailedBio": "## The Good God\n\nThe Dagda, whose name means **\"the Good God\"** (not morally good, but good at everything), is the father figure and High King of the **Tuatha Dé Danann**, the divine race of Irish mythology. He embodies abundance, fertility, and the life-giving power of the earth. Despite his immense power, he is often depicted with a comically short tunic and enormous appetite, lending him a more approachable, earthy quality than many other chief deities.\n\n### Sacred Treasures\n\nThe Dagda possesses three legendary items. His **club** (the lorg mór) is so heavy it must be dragged on wheels; one end kills the living, while the other end resurrects the dead. His **cauldron** (the coire ansic) is one of the Four Treasures of the Tuatha Dé Danann—it never empties and no one ever leaves it unsatisfied. His magical **harp**, Uaithne, can control the seasons and the emotions of all who hear it, playing the three noble strains: joy, sorrow, and sleep.\n\n### Role in the Mythological Cycle\n\nIn the **Second Battle of Mag Tuired**, the Dagda played a crucial role in the victory over the Fomorians. Before the battle, he used his harp to steal away the seasons from the enemy. He also mated with the Morrígan at the river Unius on Samhain, securing her magical aid for the coming conflict. After the defeat of the Tuatha Dé Danann by the Milesians, the Dagda divided the síd (fairy mounds) among the gods, though he himself eventually gave up his mound at Brú na Bóinne to his son Aengus."
+    "detailedBio": "## The Good God\n\nThe Dagda, whose name means **\"the Good God\"** (not morally good, but good at everything), is the father figure and High King of the **Tuatha Dé Danann**, the divine race of Irish mythology. He embodies abundance, fertility, and the life-giving power of the earth. Despite his immense power, he is often depicted with a comically short tunic and enormous appetite, lending him a more approachable, earthy quality than many other chief deities.\n\n### Sacred Treasures\n\nThe Dagda possesses three legendary items. His **club** (the lorg mór) is so heavy it must be dragged on wheels; one end kills the living, while the other end resurrects the dead. His **cauldron** (the coire ansic) is one of the Four Treasures of the Tuatha Dé Danann—it never empties and no one ever leaves it unsatisfied. His magical **harp**, Uaithne, can control the seasons and the emotions of all who hear it, playing the three noble strains: joy, sorrow, and sleep.\n\n### Role in the Mythological Cycle\n\nIn the **Second Battle of Mag Tuired**, the Dagda played a crucial role in the victory over the Fomorians. Before the battle, he used his harp to steal away the seasons from the enemy. He also mated with the Morrígan at the river Unius on Samhain, securing her magical aid for the coming conflict. After the defeat of the Tuatha Dé Danann by the Milesians, the Dagda divided the síd (fairy mounds) among the gods, though he himself eventually gave up his mound at Brú na Bóinne to his son Aengus.",
+    "pronunciation": {
+      "ipa": "/ˈdɑːɡdə/",
+      "phonetic": "DAHG-duh"
+    }
   },
   {
     "id": "morrigan",
@@ -2361,7 +2673,11 @@
     "originStory": "The Morrígan is a powerful member of the **Tuatha Dé Danann**, though her parentage is obscure in the sources. Some texts identify her as a daughter of Ernmas, making her a sister to other sovereignty goddesses like Ériu, Banba, and Fódla. She is intimately connected to the land of Ireland itself. Her union with the Dagda before the Second Battle of Mag Tuired establishes her as a goddess of both war and fertility, and her prophecies after the battle speak to the fate of the world itself.",
     "importanceRank": 1,
     "imageUrl": "/deities/morrigan.png",
-    "detailedBio": "## The Phantom Queen\n\nThe Morrígan, whose name means **\"Phantom Queen\"** or **\"Great Queen,\"** is one of the most fearsome deities of Irish mythology. She embodies the terrifying aspects of war—not glory or honor, but the chaos, carnage, and inevitability of death on the battlefield. She is strongly associated with sovereignty, fate, and the land itself.\n\n### Shapeshifting and Omens\n\nThe Morrígan is a shapeshifter par excellence. She most famously appears as a **crow** or **raven**, circling above battlefields and foretelling who will die. She can also take the form of an eel, a wolf, and a hornless red heifer—all forms she used against the hero Cú Chulainn when he spurned her advances. Her appearance, whether as a beautiful woman or a terrifying hag, often signals doom.\n\n### The Battle Goddess\n\nIn the **Second Battle of Mag Tuired**, the Morrígan played a decisive role. She mated with the Dagda on Samhain at the river Unius, promising her magical aid to the Tuatha Dé Danann. During the battle, she used incantations to weaken the Fomorians and encourage her own side. After the victory, she proclaimed the triumph to the mountains, rivers, and fairy hosts of Ireland.\n\n### The Triple Goddess\n\nThe Morrígan is sometimes described as three sisters—**Badb**, **Macha**, and **Nemain** (or the Morrígan herself as the third)—collectively known as the Morrígna. Together they represent different aspects of war and sovereignty."
+    "detailedBio": "## The Phantom Queen\n\nThe Morrígan, whose name means **\"Phantom Queen\"** or **\"Great Queen,\"** is one of the most fearsome deities of Irish mythology. She embodies the terrifying aspects of war—not glory or honor, but the chaos, carnage, and inevitability of death on the battlefield. She is strongly associated with sovereignty, fate, and the land itself.\n\n### Shapeshifting and Omens\n\nThe Morrígan is a shapeshifter par excellence. She most famously appears as a **crow** or **raven**, circling above battlefields and foretelling who will die. She can also take the form of an eel, a wolf, and a hornless red heifer—all forms she used against the hero Cú Chulainn when he spurned her advances. Her appearance, whether as a beautiful woman or a terrifying hag, often signals doom.\n\n### The Battle Goddess\n\nIn the **Second Battle of Mag Tuired**, the Morrígan played a decisive role. She mated with the Dagda on Samhain at the river Unius, promising her magical aid to the Tuatha Dé Danann. During the battle, she used incantations to weaken the Fomorians and encourage her own side. After the victory, she proclaimed the triumph to the mountains, rivers, and fairy hosts of Ireland.\n\n### The Triple Goddess\n\nThe Morrígan is sometimes described as three sisters—**Badb**, **Macha**, and **Nemain** (or the Morrígan herself as the third)—collectively known as the Morrígna. Together they represent different aspects of war and sovereignty.",
+    "pronunciation": {
+      "ipa": "/ˈmɒrɪɡən/",
+      "phonetic": "MOR-ih-gun"
+    }
   },
   {
     "id": "lug",
@@ -2388,7 +2704,11 @@
     "originStory": "Lugh is the son of Cian of the Tuatha Dé Danann and Ethniu, daughter of **Balor of the Evil Eye**, king of the Fomorians. A prophecy foretold that Balor would be killed by his own grandson, so he imprisoned Ethniu in a tower. Despite these precautions, Cian reached her with the help of the druidess Biróg, and Lugh was conceived. When Balor discovered the child, he ordered him drowned, but Lugh was rescued and raised by different foster-parents, including Tailtiu and Manannán mac Lir. He came to Tara as a young man and gained entry by demonstrating that he alone possessed every skill the court required.",
     "importanceRank": 1,
     "imageUrl": "/deities/lug.png",
-    "detailedBio": "## The Many-Skilled One\n\nLugh, known as **Lugh Lámhfhada** (\"Long-Armed Lugh\") and **Samildánach** (\"Equally Skilled in All Arts\"), is the radiant warrior-king of Irish mythology. He represents mastery, excellence, and the ideal of kingship. Unlike many deities who specialize in one domain, Lugh has perfected every skill—from warfare to poetry, from smithcraft to sorcery.\n\n### The Festival of Lughnasadh\n\nLugh established the festival of **Lughnasadh** (August 1st) in honor of his foster-mother Tailtiu, who died clearing the forests of Ireland for agriculture. This harvest festival, one of the four great Celtic festivals, includes games, athletic contests, and trading fairs—activities reflecting Lugh's own mastery of all skills.\n\n### The Spear of Victory\n\nLugh wields the **Spear of Lugh** (Gáe Assail), one of the Four Treasures of the Tuatha Dé Danann. This magical spear is so bloodthirsty it must be kept in a cauldron of water to prevent it from bursting into flame. When thrown, it never misses its target and returns to its wielder's hand.\n\n### Champion of the Tuatha Dé Danann\n\nIn the **Second Battle of Mag Tuired**, Lugh led the Tuatha Dé Danann to victory against the Fomorians. He fulfilled the prophecy by slaying his own grandfather, the tyrant Balor of the Evil Eye, with a sling-stone through his deadly eye. This act liberated the Tuatha Dé Danann from Fomorian oppression."
+    "detailedBio": "## The Many-Skilled One\n\nLugh, known as **Lugh Lámhfhada** (\"Long-Armed Lugh\") and **Samildánach** (\"Equally Skilled in All Arts\"), is the radiant warrior-king of Irish mythology. He represents mastery, excellence, and the ideal of kingship. Unlike many deities who specialize in one domain, Lugh has perfected every skill—from warfare to poetry, from smithcraft to sorcery.\n\n### The Festival of Lughnasadh\n\nLugh established the festival of **Lughnasadh** (August 1st) in honor of his foster-mother Tailtiu, who died clearing the forests of Ireland for agriculture. This harvest festival, one of the four great Celtic festivals, includes games, athletic contests, and trading fairs—activities reflecting Lugh's own mastery of all skills.\n\n### The Spear of Victory\n\nLugh wields the **Spear of Lugh** (Gáe Assail), one of the Four Treasures of the Tuatha Dé Danann. This magical spear is so bloodthirsty it must be kept in a cauldron of water to prevent it from bursting into flame. When thrown, it never misses its target and returns to its wielder's hand.\n\n### Champion of the Tuatha Dé Danann\n\nIn the **Second Battle of Mag Tuired**, Lugh led the Tuatha Dé Danann to victory against the Fomorians. He fulfilled the prophecy by slaying his own grandfather, the tyrant Balor of the Evil Eye, with a sling-stone through his deadly eye. This act liberated the Tuatha Dé Danann from Fomorian oppression.",
+    "pronunciation": {
+      "ipa": "/luːɡ/",
+      "phonetic": "LOOG"
+    }
   },
   {
     "id": "brigid",
@@ -2419,7 +2739,11 @@
     "detailedBio": "## The Exalted One\n\nBrigid, whose name means **\"the Exalted One,\"** is one of the most beloved deities of Irish mythology, a goddess whose influence transcended the coming of Christianity. She presides over three essential crafts: **poetry** (the fire of inspiration), **smithwork** (the fire of the forge), and **healing** (the fire of the hearth). In some traditions, she is described as three sisters, all named Brigid, each governing one of these domains.\n\n### The Festival of Imbolc\n\nBrigid's sacred festival is **Imbolc** (February 1st), marking the first stirrings of spring when ewes begin to lactate. On Imbolc eve, offerings of food and drink are left for Brigid, and her crosses—woven from rushes—are made and hung over doorways for protection. The lighting of fires and candles honors her connection to flame and the returning light.\n\n### Sacred Fire and Holy Wells\n\nAt **Kildare**, Brigid's perpetual flame was tended by nineteen priestesses (later nuns), with the twentieth night left for Brigid herself to tend. Her holy wells throughout Ireland are visited for healing and blessing. The intertwining of fire and water in her worship reflects her power over transformation.\n\n### From Goddess to Saint\n\nBrigid's veneration was so deep that she seamlessly transitioned into Christianity as **St. Brigid of Kildare**, one of Ireland's patron saints. Many of her attributes, symbols, and even her feast day (February 1st) were preserved. Her Brigid's cross remains a powerful symbol of protection in Irish homes to this day.",
     "originStory": "Brigid is the daughter of **the Dagda**, the father god of the Tuatha Dé Danann, making her one of the most important deities of the Irish pantheon. Her mother is sometimes given as the goddess Danu or one of the Dagda's other consorts. She was married to Bres, a half-Fomorian who briefly ruled the Tuatha Dé Danann. When her son Ruadán was killed in the Second Battle of Mag Tuired while fighting for the Fomorians, Brigid's keening became the first mourning cry heard in Ireland—connecting her to both creation (poetry, smithcraft) and grief.",
     "importanceRank": 1,
-    "imageUrl": "/deities/brigid.png"
+    "imageUrl": "/deities/brigid.png",
+    "pronunciation": {
+      "ipa": "/ˈbrɪdʒɪd/",
+      "phonetic": "BRIJ-id"
+    }
   },
   {
     "id": "quetzalcoatl",
@@ -2446,7 +2770,11 @@
     "detailedBio": "## The Feathered Serpent\n\nQuetzalcoatl stands as one of the most complex and revered deities in Mesoamerican religion, his worship spanning multiple civilizations over thousands of years. His name combines **quetzal** (the resplendent bird with iridescent green feathers) and **coatl** (serpent), embodying the union of earth and sky, matter and spirit.\n\n## Divine Roles and Domains\n\nAs a wind god (in his aspect of Ehecatl), Quetzalcoatl swept the path for the rain gods and brought life-giving breezes. He served as the **patron of priests, learning, and knowledge**, credited with inventing the Mesoamerican calendar, books, and the arts of civilization. Unlike many Aztec deities, Quetzalcoatl was notably associated with **opposition to human sacrifice**, preferring offerings of jade, butterflies, and one's own blood drawn through penitential piercing.\n\n## The Creation of Humanity\n\nQuetzalcoatl's greatest myth tells of his descent to **Mictlan**, the realm of the dead, to retrieve the bones of previous humanity. After tricking Mictlantecuhtli, the death god, he carried the bones in a bundle, but stumbled when quail startled him, scattering and breaking them (explaining why humans vary in size). He sprinkled his own blood on the bones to resurrect humanity for the Fifth Sun.\n\n## Worship and Temples\n\nThe great circular pyramid at **Cholula** remains the largest pyramid by volume in the world, dedicated to Quetzalcoatl. The Temple of the Feathered Serpent at Teotihuacan displays his image alongside Tlaloc. Priests of Quetzalcoatl wore elaborate feathered costumes and practiced ritual fasting and bloodletting.",
     "originStory": "One of the four sons of the creator couple Ometeotl. He journeyed to Mictlan to retrieve the bones of the ancestors to create the current race of humans.",
     "importanceRank": 1,
-    "imageUrl": "/deities/quetzalcoatl.png"
+    "imageUrl": "/deities/quetzalcoatl.png",
+    "pronunciation": {
+      "ipa": "/ˌkɛtsɑːlˈkoʊɑːtəl/",
+      "phonetic": "ket-sahl-koh-AH-tul"
+    }
   },
   {
     "id": "huitzilopochtli",
@@ -2471,7 +2799,11 @@
     "detailedBio": "## The Hummingbird of the South\n\nHuitzilopochtli was the **supreme deity of the Aztecs**, the divine patron of their empire, and the god who guided them from their mythical homeland of Aztlan to found the great city of **Tenochtitlan**. His name means \"Hummingbird of the Left (South)\" - the hummingbird symbolizing the souls of fallen warriors who accompanied the sun across the sky.\n\n## Solar Warrior and Blood Sacrifice\n\nAs the sun god, Huitzilopochtli fought an eternal battle each night against the forces of darkness, particularly his sister **Coyolxauhqui** (the moon) and the **Centzon Huitznahua** (the 400 stars). The Aztecs believed the sun would fail to rise without the nourishment of **human blood and hearts**, making sacrifice essential to cosmic survival. Warriors captured in the sacred **Flower Wars** were offered to sustain the sun's journey.\n\n## The Great Temple (Templo Mayor)\n\nThe twin pyramids of **Templo Mayor** in Tenochtitlan's center featured Huitzilopochtli's shrine at its summit alongside Tlaloc's. Annual festivals including **Panquetzaliztli** celebrated his birth with elaborate ceremonies, ritual combat, and human sacrifice. The great stone of Coyolxauhqui found at Templo Mayor's base depicts her dismembered body.\n\n## The Aztec Migration\n\nHuitzilopochtli spoke to his people through priests, directing their centuries-long migration from Aztlan. He promised they would find their destined home where an eagle perched on a cactus devoured a serpent - the image now central to Mexico's flag.",
     "originStory": "Born fully armed from his mother Coatlicue to defend her from his 400 siblings who plotted to kill her. He slew them and drove them away.",
     "importanceRank": 1,
-    "imageUrl": "/deities/huitzilopochtli.png"
+    "imageUrl": "/deities/huitzilopochtli.png",
+    "pronunciation": {
+      "ipa": "/ˌwiːtsiːloʊˈpoʊtʃtli/",
+      "phonetic": "weet-see-loh-POHCH-tlee"
+    }
   },
   {
     "id": "tezcatlipoca",
@@ -2497,7 +2829,11 @@
     "detailedBio": "## The Smoking Mirror\n\nTezcatlipoca, whose name means \"Smoking Mirror,\" was one of the most powerful and feared deities in the Aztec pantheon. He embodied **change through conflict**, the unpredictable nature of fate, and the darkness that balances light. His obsidian mirror could see into the hearts of men and reveal hidden truths - or deceive utterly.\n\n## The Four Tezcatlipocas\n\nIn some traditions, Tezcatlipoca was one of four brother gods born to **Ometecuhtli and Omecihuatl**, each associated with a cardinal direction and color. The **Black Tezcatlipoca** (north) was the most prominent, while his brothers included **Quetzalcoatl** (white, west), **Huitzilopochtli** (blue, south), and **Xipe Totec** (red, east). Their cosmic battles created and destroyed successive worlds.\n\n## Eternal Rival of Quetzalcoatl\n\nThe central drama of Aztec mythology was the conflict between Tezcatlipoca and Quetzalcoatl. Tezcatlipoca famously corrupted the priest-king Quetzalcoatl of Tula by tricking him into drunkenness and incest, causing him to flee in shame. Each successive world age saw one brother defeat the other, only to be overthrown in turn.\n\n## Patron of Warriors and Sorcerers\n\nTezcatlipoca was the patron of **jaguar warriors**, the elite Aztec military order. He was also the god of **sorcery and shamanism**, able to transform into a jaguar and roam the night. Young men selected as his living image were sacrificed after a year of being treated as a god on earth.",
     "originStory": "He sacrificed his foot to lure the earth monster Cipactli so the world could be made from her body.",
     "importanceRank": 1,
-    "imageUrl": "/deities/tezcatlipoca.png"
+    "imageUrl": "/deities/tezcatlipoca.png",
+    "pronunciation": {
+      "ipa": "/ˌtɛzkɑːtliˈpoʊkə/",
+      "phonetic": "tez-kaht-lee-POH-kah"
+    }
   },
   {
     "id": "coatlicue",
@@ -2524,7 +2860,11 @@
     "detailedBio": "## She of the Serpent Skirt\n\nCoatlicue, meaning \"She of the Serpent Skirt,\" was the primordial **earth mother goddess** of the Aztecs, embodying both the terror and the nurturing power of the earth itself. Her famous statue in the National Museum of Anthropology in Mexico City depicts her with a skirt of writhing serpents, a necklace of human hearts, hands, and skulls, clawed feet, and two serpent heads forming her face - representing the duality of life and death.\n\n## Mother of Gods\n\nCoatlicue was mother to the **Centzon Huitznahua** (the 400 stars of the southern sky), **Coyolxauhqui** (the moon goddess), and most importantly, **Huitzilopochtli** (the sun god). Her children represented the celestial bodies locked in eternal conflict, playing out the daily drama of sunrise as Huitzilopochtli defeated his siblings.\n\n## The Birth at Coatepec\n\nThe central myth of Coatlicue tells of her miraculous pregnancy on the sacred mountain **Coatepec** (Serpent Hill). While sweeping the temple as a penitent, a ball of feathers descended from the heavens and she became pregnant. Her 400 sons, led by Coyolxauhqui, viewed this as a disgrace and marched to kill her. At the moment of her death, Huitzilopochtli sprang fully armed from her womb and slaughtered his siblings.\n\n## Earth and Sacrifice\n\nAs an earth deity, Coatlicue required nourishment through sacrifice to remain fertile. The Aztecs believed the earth literally consumed the dead, recycling them into new life - hence her terrifying imagery of devoured hearts and severed limbs.",
     "originStory": "While sweeping a temple on Coatepec, a ball of feathers fell on her and she became miraculously pregnant with Huitzilopochtli. Her other children plotted to kill her, but Huitzilopochtli was born fully armed and defended her.",
     "importanceRank": 2,
-    "imageUrl": "/deities/coatlicue.png"
+    "imageUrl": "/deities/coatlicue.png",
+    "pronunciation": {
+      "ipa": "/koʊˌɑːtliˈkweɪ/",
+      "phonetic": "koh-aht-lee-KWAY"
+    }
   },
   {
     "id": "jade-emperor",
@@ -2549,7 +2889,11 @@
     "description": "The supreme ruler of Heaven and the first emperor of China in myth. He governs the cosmos and organizes the celestial bureaucracy.",
     "originStory": "After eons of cultivation and cultivation of Tao, he ascended to become the supreme sovereign of the universe.",
     "importanceRank": 1,
-    "imageUrl": "/deities/jade-emperor.png"
+    "imageUrl": "/deities/jade-emperor.png",
+    "pronunciation": {
+      "ipa": "/dʒeɪd ˈɛmpərər/",
+      "phonetic": "JAYD EM-per-ur"
+    }
   },
   {
     "id": "sun-wukong",
@@ -2574,7 +2918,11 @@
     "description": "A monkey born from stone who acquired supernatural powers through Taoist practices. He rebelled against heaven and later accompanied monk Tang Sanzang on a journey to the West.",
     "originStory": "Born from a magic stone on the Mountain of Flowers and Fruit. He learned the way of immortality and wreaked havoc in Heaven until subdued by Buddha.",
     "importanceRank": 1,
-    "imageUrl": "/deities/sun-wukong.png"
+    "imageUrl": "/deities/sun-wukong.png",
+    "pronunciation": {
+      "ipa": "/suːn wuːˈkɒŋ/",
+      "phonetic": "SOON woo-KONG"
+    }
   },
   {
     "id": "guanyin",
@@ -2599,6 +2947,612 @@
     "description": "The Bodhisattva of Compassion who hears the cries of the world. Revered as a goddess of mercy who helps all beings.",
     "originStory": "Originally a male Bodhisattva in India, transformed into a female figure in China representing the motherly aspect of compassion.",
     "importanceRank": 1,
-    "imageUrl": "/deities/guanyin.png"
+    "imageUrl": "/deities/guanyin.png",
+    "pronunciation": {
+      "ipa": "/ɡwɑːnˈjɪn/",
+      "phonetic": "gwahn-YIN"
+    }
+  },
+  {
+    "id": "anu",
+    "pantheonId": "mesopotamian-pantheon",
+    "name": "Anu",
+    "slug": "anu",
+    "alternateNames": [
+      "An",
+      "Anum"
+    ],
+    "gender": "male",
+    "domain": [
+      "sky",
+      "heavens",
+      "kingship",
+      "authority"
+    ],
+    "symbols": [
+      "horned crown",
+      "bull",
+      "throne of heaven"
+    ],
+    "description": "King of the gods and lord of the heavens. Anu is the supreme deity of the Mesopotamian pantheon, father of the gods, and source of all royal authority.",
+    "detailedBio": "## The Father of Heaven\n\nAnu stands at the apex of the Mesopotamian divine hierarchy as the god of the sky and the embodiment of supreme authority. His name literally means 'heaven' in Sumerian, and he personifies the distant, transcendent dome of the sky itself. From his throne in the highest heavens, Anu presides over the assembly of the gods, though he rarely intervenes directly in earthly affairs.\n\n### Cosmic Authority\n\nAnu's power is absolute but delegated. He grants the 'Tablet of Destinies' to other gods, the divine object that confers supreme authority over the cosmos. His kingship is not won through battle but exists as a primordial fact of the universe. All other gods derive their authority from his sanction, and earthly kings rule as his earthly representatives.\n\n### The Distant God\n\nUnlike more active deities such as Enlil or Marduk, Anu remains aloof from daily divine politics. His very remoteness emphasizes his supreme status. When the gods face a crisis they cannot resolve, they ascend to Anu's heavenly court for final judgment. His word, once spoken, cannot be undone.\n\n### Temple Worship\n\nAnu's primary cult center was the E-anna temple in Uruk, which he shared with Inanna. Despite his supreme status, his worship was less prominent than that of more active gods, reflecting his role as the distant, ultimate authority rather than an accessible patron deity.",
+    "originStory": "In the beginning, heaven and earth were joined as one. When they separated, Anu took the heavens as his domain while Enlil claimed the earth. Anu fathered the great gods and established the cosmic order, assigning each deity their domains and powers through divine decree.",
+    "importanceRank": 1,
+    "imageUrl": "/deities/anu.png",
+    "primarySources": [
+      {
+        "text": "Anu is king of the gods; he is their father. His word is the word of destiny.",
+        "source": "Babylonian Hymn to Anu",
+        "date": "c. 1800 BCE"
+      }
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "greek-pantheon",
+        "deityId": "zeus",
+        "note": "Both are sky fathers and kings of the gods, though Zeus is far more active in myths"
+      },
+      {
+        "pantheonId": "egyptian-pantheon",
+        "deityId": "ra",
+        "note": "Both represent ultimate divine authority, though Ra is a more active cosmic force"
+      }
+    ],
+    "pronunciation": {
+      "ipa": "/ˈɑːnuː/",
+      "phonetic": "AH-noo"
+    }
+  },
+  {
+    "id": "enlil",
+    "pantheonId": "mesopotamian-pantheon",
+    "name": "Enlil",
+    "slug": "enlil",
+    "alternateNames": [
+      "Ellil",
+      "Nunamnir"
+    ],
+    "gender": "male",
+    "domain": [
+      "wind",
+      "storms",
+      "earth",
+      "agriculture",
+      "destiny"
+    ],
+    "symbols": [
+      "seven stars",
+      "horned crown",
+      "royal scepter"
+    ],
+    "description": "Lord of wind, storms, and the breath of life. Enlil is the executive authority of the gods, wielding the Tablet of Destinies and determining the fates of gods and mortals.",
+    "detailedBio": "## Lord Wind and Storm\n\nEnlil is the most powerful of the active gods, second only to Anu in the cosmic hierarchy but first in practical authority. His name means 'Lord Wind' or 'Lord of the Command,' and he embodies both the life-giving breeze and the destructive storm. Where Anu reigns in distant majesty, Enlil governs the cosmos with an iron will.\n\n### The Holder of Destinies\n\nEnlil possesses the Tablet of Destinies, the divine object that grants supreme authority over the cosmos. With this tablet, he decrees the fates of gods, cities, and mortals. His word is irrevocable law. When he speaks, the other gods bow their heads in submission.\n\n### The Great Flood\n\nEnlil's most famous act was decreeing the Great Flood to destroy humanity, whose noise disturbed his sleep. Only through Enki's cunning intervention was Utnapishtim warned and able to build an ark, preserving human life. This myth reveals Enlil's harsh, sometimes capricious nature alongside his supreme power.\n\n### The King-Maker\n\nAll earthly kings derived their authority from Enlil. His temple at Nippur, the Ekur ('Mountain House'), was the spiritual center of Sumer, and no king's reign was legitimate without his blessing. Enlil did not merely sanction kings; he actively raised them up and cast them down according to his divine will.\n\n### Legacy\n\nEnlil's role as storm god and father of gods strongly influenced later concepts of supreme deities in the Near East, including aspects of the Hebrew God YHWH, particularly the image of the divine storm and irrevocable decree.",
+    "originStory": "When heaven and earth were separated, Enlil was born between them as the atmosphere itself. He carved out space for life to exist and received the Tablet of Destinies from Anu, becoming the active ruler of the cosmos. He established Nippur as the holy city and built the Ekur as his eternal temple.",
+    "importanceRank": 2,
+    "imageUrl": "/deities/enlil.png",
+    "primarySources": [
+      {
+        "text": "Enlil, whose command reaches far and wide, whose word is holy, the lord whose pronouncement is unchangeable, who decrees destinies into the far future.",
+        "source": "Hymn to Enlil",
+        "date": "c. 1900 BCE"
+      }
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "greek-pantheon",
+        "deityId": "zeus",
+        "note": "Both are storm gods who command through irrevocable decree"
+      },
+      {
+        "pantheonId": "norse-pantheon",
+        "deityId": "odin",
+        "note": "Both hold tablets or runes of destiny and determine the fates of mortals"
+      }
+    ],
+    "pronunciation": {
+      "ipa": "/ˈɛnlɪl/",
+      "phonetic": "EN-lil"
+    }
+  },
+  {
+    "id": "enki",
+    "pantheonId": "mesopotamian-pantheon",
+    "name": "Enki",
+    "slug": "enki",
+    "alternateNames": [
+      "Ea",
+      "Nudimmud"
+    ],
+    "gender": "male",
+    "domain": [
+      "wisdom",
+      "water",
+      "creation",
+      "magic",
+      "crafts"
+    ],
+    "symbols": [
+      "flowing waters",
+      "goat-fish",
+      "turtle"
+    ],
+    "description": "God of wisdom, fresh water, and creation. Enki is the cleverest of the gods, creator of humanity, and the cunning protector of mortals against divine wrath.",
+    "detailedBio": "## Lord of the Sweet Waters\n\nEnki is the god of the Abzu, the primordial freshwater ocean beneath the earth from which all springs, rivers, and groundwater flow. But more than water, Enki embodies the creative intelligence of the cosmos. He is the craftsman god, the divine trickster, the keeper of the me (divine decrees that govern civilization), and the friend of humanity.\n\n### Creator of Humanity\n\nIn the Atrahasis epic, Enki creates humanity from clay mixed with the blood of a slain god, fashioning beings to take over the labor of the lesser gods. Unlike other creator deities, Enki maintains an ongoing relationship with his creation, acting as humanity's advocate in the divine assembly.\n\n### The Great Trickster\n\nEnki's wisdom manifests as cunning. When Enlil decreed the Flood to destroy humanity, Enki circumvented the decree by speaking to a reed wall rather than directly to Utnapishtim, technically obeying while saving the human race. He frequently outwits other gods, including retrieving the me from Inanna when she stole them while he was drunk.\n\n### Keeper of Divine Knowledge\n\nEnki guards the me, the divine laws that govern everything from kingship to basket-weaving. From his temple in Eridu, the oldest city, he dispenses these civilizing arts to humanity. Priests, scribes, and craftsmen all worked under his patronage.\n\n### The Compassionate God\n\nUnique among the great gods, Enki consistently sides with humanity. When other gods threaten destruction, Enki finds loopholes. When mortals face impossible tasks, Enki provides solutions. He represents the beneficent aspect of divine wisdom applied to human welfare.",
+    "originStory": "Enki dwelt in the Abzu, the sweet underground waters, from before the creation of humanity. When the gods grew tired of labor, Enki conceived the plan to create humans as workers. He shaped the first humans from clay and the blood of Geshtu-e, a god sacrificed for the purpose, breathing life into them with divine water.",
+    "importanceRank": 2,
+    "imageUrl": "/deities/enki.png",
+    "primarySources": [
+      {
+        "text": "Enki, the lord of the deep, the wise one, who understands the heart of the gods, the expert of the gods, the lord of wisdom.",
+        "source": "Enki and the World Order",
+        "date": "c. 1900 BCE"
+      }
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "greek-pantheon",
+        "deityId": "athena",
+        "note": "Both are gods of wisdom and crafts who aid heroes"
+      },
+      {
+        "pantheonId": "egyptian-pantheon",
+        "deityId": "thoth",
+        "note": "Both are gods of wisdom, writing, and magic"
+      },
+      {
+        "pantheonId": "norse-pantheon",
+        "deityId": "loki",
+        "note": "Both are cunning trickster figures, though Enki is benevolent"
+      }
+    ],
+    "pronunciation": {
+      "ipa": "/ˈɛnki/",
+      "phonetic": "EN-kee"
+    }
+  },
+  {
+    "id": "inanna",
+    "pantheonId": "mesopotamian-pantheon",
+    "name": "Inanna",
+    "slug": "inanna",
+    "alternateNames": [
+      "Ishtar",
+      "Astarte"
+    ],
+    "gender": "female",
+    "domain": [
+      "love",
+      "war",
+      "fertility",
+      "sexuality",
+      "political power"
+    ],
+    "symbols": [
+      "eight-pointed star",
+      "lion",
+      "rosette",
+      "ring and rod"
+    ],
+    "description": "Queen of Heaven and goddess of love and war. Inanna is the most complex and dynamic deity of the Mesopotamian pantheon, embodying both desire and destruction.",
+    "detailedBio": "## Queen of Heaven\n\nInanna is the most celebrated and complex deity of ancient Mesopotamia. She embodies seemingly contradictory forces: passionate love and bloody war, fertility and destruction, order and chaos. As the personification of the planet Venus, she is both the morning and evening star, combining masculine and feminine energies in her divine nature.\n\n### Goddess of Love\n\nInanna presides over sexual desire, passionate love, and fertility. Her temples included sacred prostitutes, and her worship involved ecstatic rites celebrating sexuality and the life force. She is portrayed in hymns as irresistibly beautiful, seductive, and demanding. Her sacred marriage to the shepherd god Dumuzi (Tammuz) ensured the fertility of the land.\n\n### Goddess of War\n\nEqually central to Inanna's nature is her aspect as goddess of war. She delights in battle, going forth adorned for war as if for love. Kings invoked her before campaigns, and her blessing was essential for military victory. She could drive warriors into battle-frenzy and tip the scales of conflict.\n\n### The Descent to the Underworld\n\nInanna's most famous myth tells of her descent to the underworld to confront her sister Ereshkigal. She passed through seven gates, stripped of her power at each one, and was killed and hung on a hook. Through Enki's intervention she was revived, but had to provide a substitute: her husband Dumuzi, who spends half the year in the underworld.\n\n### The Ambitious Goddess\n\nUnlike passive fertility goddesses, Inanna actively acquires power. She tricks Enki while he is drunk to give her the me, the divine powers of civilization, and carries them triumphantly to her city of Uruk. She demands admission to the underworld as her right. She is the goddess of ambition itself.",
+    "originStory": "Inanna was born to the moon god Nanna/Sin and his wife Ningal. Unlike goddesses who received their powers passively, Inanna actively gathered the me (divine powers) from Enki, establishing herself as the goddess of civilization. She chose the shepherd Dumuzi as her consort in a sacred marriage that ensured the fertility of the land.",
+    "importanceRank": 1,
+    "imageUrl": "/deities/inanna.png",
+    "primarySources": [
+      {
+        "text": "She stirs confusion and chaos against those who are disobedient to her, speeding carnage and inciting the devastating flood, clothed in terrifying radiance.",
+        "source": "Hymn to Inanna (Enheduanna)",
+        "date": "c. 2300 BCE"
+      }
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "greek-pantheon",
+        "deityId": "aphrodite",
+        "note": "Both are love goddesses associated with the planet Venus"
+      },
+      {
+        "pantheonId": "egyptian-pantheon",
+        "deityId": "hathor",
+        "note": "Both combine love, sexuality, and destructive war aspects"
+      },
+      {
+        "pantheonId": "norse-pantheon",
+        "deityId": "freyja",
+        "note": "Both are goddesses of love and war who choose the battle-slain"
+      }
+    ],
+    "pronunciation": {
+      "ipa": "/ɪˈnɑːnə/",
+      "phonetic": "ih-NAH-nah"
+    }
+  },
+  {
+    "id": "marduk",
+    "pantheonId": "mesopotamian-pantheon",
+    "name": "Marduk",
+    "slug": "marduk",
+    "alternateNames": [
+      "Bel",
+      "Asalluhi"
+    ],
+    "gender": "male",
+    "domain": [
+      "creation",
+      "kingship",
+      "magic",
+      "judgment",
+      "order"
+    ],
+    "symbols": [
+      "spade",
+      "dragon (mushussu)",
+      "triangular-headed spear"
+    ],
+    "description": "Chief god of Babylon and slayer of Tiamat. Marduk rose from a minor deity to supreme god of the Babylonian pantheon after defeating the primordial chaos dragon and creating the world from her body.",
+    "detailedBio": "## King of the Gods\n\nMarduk represents one of the most dramatic theological shifts in ancient religion. Originally a minor god of thunderstorms in Babylon, he rose to supreme power when Babylon became the dominant Mesopotamian empire. The Enuma Elish, Babylon's creation epic, reframes cosmic history to place Marduk at its center, absorbing the powers and titles of older gods.\n\n### The Dragon Slayer\n\nMarduk's defining myth is his battle against Tiamat, the primordial goddess of salt water and chaos. When the older gods cowered before her, the young Marduk volunteered to fight in exchange for supreme authority. Armed with the winds and a net, he trapped Tiamat, shot an arrow through her heart, and split her body to create heaven and earth.\n\n### The Creator\n\nFrom Tiamat's corpse, Marduk fashioned the cosmos. Her eyes became the sources of the Tigris and Euphrates rivers, her tail was bent up to form the sky, and her body became the earth. He set the stars in their courses and established the calendar. From the blood of Tiamat's general Kingu, mixed with clay, he created humanity.\n\n### The Fifty Names\n\nAt the climax of the Enuma Elish, the gods bestow fifty names upon Marduk, each representing absorbed powers and domains. He becomes the god of magic, wisdom, kingship, and judgment. Every major divine function is subsumed into his identity, making him a quasi-monotheistic supreme god.\n\n### Babylon's Glory\n\nMarduk's cult centered on the Esagila temple in Babylon, site of the great ziggurat that may have inspired the Tower of Babel legend. The New Year's festival (Akitu) reenacted his creation victory, with the king symbolically deriving his authority from the god.",
+    "originStory": "Marduk was born to Enki/Ea and the goddess Damkina in the chambers of the Abzu. Born full-grown and radiant with divine fire, he was the most glorious of the gods from his first moment. When Tiamat raised an army of monsters to destroy the gods, young Marduk volunteered to be their champion on condition of receiving supreme authority if victorious.",
+    "importanceRank": 1,
+    "imageUrl": "/deities/marduk.png",
+    "primarySources": [
+      {
+        "text": "He split her like a shellfish into two parts: half of her he set up as a ceiling, the sky; he pulled down the bar and posted guards. He directed them not to let her waters escape.",
+        "source": "Enuma Elish, Tablet IV",
+        "date": "c. 1100 BCE"
+      }
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "greek-pantheon",
+        "deityId": "zeus",
+        "note": "Both become king of gods through victory over primordial chaos forces"
+      },
+      {
+        "pantheonId": "norse-pantheon",
+        "deityId": "odin",
+        "note": "Both slay primordial beings and create the world from their bodies"
+      }
+    ],
+    "pronunciation": {
+      "ipa": "/ˈmɑːrdʊk/",
+      "phonetic": "MAR-dook"
+    }
+  },
+  {
+    "id": "shamash",
+    "pantheonId": "mesopotamian-pantheon",
+    "name": "Shamash",
+    "slug": "shamash",
+    "alternateNames": [
+      "Utu",
+      "Babbar"
+    ],
+    "gender": "male",
+    "domain": [
+      "sun",
+      "justice",
+      "truth",
+      "divination"
+    ],
+    "symbols": [
+      "sun disk with rays",
+      "saw",
+      "measuring rod"
+    ],
+    "description": "The sun god and divine judge. Shamash sees all that occurs under the sun and is the god of justice, truth, and moral order.",
+    "detailedBio": "## The All-Seeing Sun\n\nShamash traverses the sky each day, seeing everything that occurs beneath his rays. This all-seeing nature makes him the natural god of justice and truth. Nothing can be hidden from his sight, no lie escapes his notice, no injustice occurs beyond his witness. He is the great equalizer who treats beggar and king alike.\n\n### God of Justice\n\nShamash is the patron of judges and lawgivers. The famous Code of Hammurabi depicts the king receiving the law from Shamash, symbolizing that just law derives from divine authority. Those who sought justice in legal disputes invoked Shamash, and oaths sworn in his name were considered especially binding.\n\n### The Divine Judge\n\nEvery dawn, Shamash passes judgment on souls. The gates of the underworld open to release him into the eastern mountains, and he passes through them again at sunset in the west. His journey across the sky is a daily act of cosmic justice, his light driving back chaos and affirming the moral order.\n\n### Lord of Divination\n\nBecause Shamash sees all, he is the god most commonly consulted through divination. Babylonian priests examined the entrails of sacrificed animals (extispicy) or observed oil patterns on water (lecanomancy) to discern his messages. Omens from the sun were particularly significant in determining the king's actions.\n\n### Champion of the Oppressed\n\nUnlike gods who favored the powerful, Shamash was specifically invoked as the protector of travelers, the poor, the orphan, and the widow. His justice extended especially to those who had no other advocate, making him a god of social ethics as much as cosmic order.",
+    "originStory": "Shamash is the son of the moon god Nanna/Sin, emerging from the underworld each dawn through the eastern mountains. Each night he descends through the western gates to travel through the underworld, bringing light even to the realm of the dead, before rising again at dawn.",
+    "importanceRank": 3,
+    "imageUrl": "/deities/shamash.png",
+    "primarySources": [
+      {
+        "text": "Shamash, you are the judge, you make decisions for the great gods. At the gods' command you judge lawsuits and give verdicts. You care for all creatures alike; you are not negligent of anyone.",
+        "source": "Great Hymn to Shamash",
+        "date": "c. 1700 BCE"
+      }
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "egyptian-pantheon",
+        "deityId": "ra",
+        "note": "Both are sun gods who journey through the underworld at night"
+      },
+      {
+        "pantheonId": "greek-pantheon",
+        "deityId": "apollo",
+        "note": "Both are sun gods associated with truth and prophecy"
+      }
+    ],
+    "pronunciation": {
+      "ipa": "/ˈʃɑːmɑːʃ/",
+      "phonetic": "SHAH-mahsh"
+    }
+  },
+  {
+    "id": "sin-nanna",
+    "pantheonId": "mesopotamian-pantheon",
+    "name": "Sin",
+    "slug": "sin-nanna",
+    "alternateNames": [
+      "Nanna",
+      "Nannar",
+      "Suen"
+    ],
+    "gender": "male",
+    "domain": [
+      "moon",
+      "time",
+      "wisdom",
+      "cattle"
+    ],
+    "symbols": [
+      "crescent moon",
+      "bull",
+      "lapis lazuli beard"
+    ],
+    "description": "The moon god and lord of the night sky. Sin is the father of the sun god Shamash and the goddess Inanna, and the keeper of time through the lunar calendar.",
+    "detailedBio": "## Lord of the Moon\n\nSin is the great moon god of Mesopotamia, father of the sun and stars. In Mesopotamian astral hierarchy, the moon held precedence over the sun, as the moon's phases provided the basis for the calendar and the measurement of time. Sin's waxing and waning represented the cosmic rhythm that governed agriculture, religion, and commerce.\n\n### Father of Light\n\nSin is the father of Shamash (the sun) and Inanna/Ishtar (Venus), making him the patriarch of the most visible celestial bodies. His light, though gentler than his son's, illuminates the night and guides travelers in darkness. His crescent shape became one of the most enduring symbols in Near Eastern religion.\n\n### Keeper of Time\n\nThe Mesopotamian calendar was lunar, and Sin's phases determined the months. The first sighting of the new crescent moon began each month, and religious festivals were timed to lunar phases. Priests carefully observed Sin's movements to maintain the calendar and determine auspicious days.\n\n### Wisdom of the Night\n\nSin possessed profound wisdom, which he dispensed during the quiet hours of darkness. Dreams were considered messages from him, and those seeking hidden knowledge prayed to the moon god. His temple at Ur, the Ekishnugal, was a major center of divination and astronomical study.\n\n### The Lapis Beard\n\nSin is portrayed as an old man with a flowing beard of lapis lazuli blue, riding across the sky in a crescent-shaped boat. This image emphasizes his wisdom and venerability as one of the oldest and most respected gods of the pantheon.",
+    "originStory": "Sin was born to Enlil and Ninlil in the underworld under unusual circumstances. After Enlil was banished to the underworld for ravishing Ninlil, she followed him and gave birth to Nanna/Sin there. Through clever deception, Sin was allowed to ascend to the sky, where he became the moon.",
+    "importanceRank": 3,
+    "imageUrl": "/deities/sin-nanna.png",
+    "primarySources": [
+      {
+        "text": "Father Nanna, lord, a great god, whose command is most exalted among the gods, whose terrifying name spreads across heaven and earth like a garment.",
+        "source": "Hymn to Nanna",
+        "date": "c. 2100 BCE"
+      }
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "egyptian-pantheon",
+        "deityId": "thoth",
+        "note": "Both are moon gods associated with wisdom and the measurement of time"
+      },
+      {
+        "pantheonId": "greek-pantheon",
+        "deityId": "apollo",
+        "note": "Both are associated with prophecy and divine knowledge"
+      }
+    ],
+    "pronunciation": {
+      "ipa": "/sɪn/",
+      "phonetic": "SIN"
+    }
+  },
+  {
+    "id": "tiamat",
+    "pantheonId": "mesopotamian-pantheon",
+    "name": "Tiamat",
+    "slug": "tiamat",
+    "alternateNames": [
+      "Tamtu",
+      "Thalassa"
+    ],
+    "gender": "female",
+    "domain": [
+      "primordial waters",
+      "salt sea",
+      "chaos",
+      "creation"
+    ],
+    "symbols": [
+      "dragon",
+      "salt water",
+      "eleven monsters"
+    ],
+    "description": "The primordial goddess of the salt sea and chaos dragon. Tiamat is the mother of the first gods and, after being slain by Marduk, became the raw material from which the universe was fashioned.",
+    "detailedBio": "## The Primordial Mother\n\nTiamat represents the salt water of the primeval ocean, complementing her consort Apsu who embodied fresh water. Their mingling produced the first generation of gods. She is both creative and destructive, nurturing mother and terrifying dragon, embodying the ambivalent power of the primordial chaos from which order emerged.\n\n### Mother of Gods\n\nFrom the union of Tiamat and Apsu came Lahmu and Lahamu, then Anshar and Kishar, and eventually the younger gods who would people the cosmos. Tiamat initially tolerated her noisy divine children, even when their clamor disturbed Apsu's rest. Only after Ea killed Apsu did Tiamat turn against her descendants.\n\n### The Chaos Dragon\n\nWhen Tiamat went to war against the younger gods, she transformed into a vast dragon and created eleven monster-types to serve as her army: the Viper, the Dragon, the Sphinx, the Great Lion, the Mad Dog, the Scorpion-man, Dragonflies, the Fish-man, the Bull-man, Kulullu, and the Centaur. Leading them was her new consort Kingu, to whom she gave the Tablet of Destinies.\n\n### World-Body\n\nTiamat's greatest significance comes in death. When Marduk slew her, he split her body like a shellfish. Half became the sky, half the earth. Her eyes became the sources of the Tigris and Euphrates, her tail was bent up to form the heavens, her crotch supported the sky. The ordered cosmos exists within and upon her carcass.\n\n### Legacy\n\nTiamat's image as the primordial chaos dragon influenced countless later traditions, from the Hebrew tehom (deep) in Genesis to the Greek Thalassa to the dragon combat myths found throughout the ancient Near East and Mediterranean. She represents the necessary chaos that must be conquered for creation to exist.",
+    "originStory": "In the beginning, there was only salt water (Tiamat) and sweet water (Apsu), mingling together in the primordial void. From their union emerged the first gods. When the younger gods grew noisy, Apsu sought to destroy them but was killed by Ea. Tiamat mourned but was eventually persuaded to avenge him, transforming into a chaos dragon and creating an army of monsters.",
+    "importanceRank": 2,
+    "imageUrl": "/deities/tiamat.png",
+    "primarySources": [
+      {
+        "text": "Mother Tiamat, who fashioned all things, made in addition eleven monsters. Among the gods her children she elevated Kingu and made him chief among them.",
+        "source": "Enuma Elish, Tablet I",
+        "date": "c. 1100 BCE"
+      }
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "norse-pantheon",
+        "deityId": "ymir",
+        "note": "Both are primordial beings from whose bodies the world is created"
+      },
+      {
+        "pantheonId": "greek-pantheon",
+        "deityId": "gaia",
+        "note": "Both are primordial mothers who turn against the younger gods"
+      }
+    ],
+    "pronunciation": {
+      "ipa": "/tiˈɑːmɑːt/",
+      "phonetic": "tee-AH-maht"
+    }
+  },
+  {
+    "id": "ereshkigal",
+    "pantheonId": "mesopotamian-pantheon",
+    "name": "Ereshkigal",
+    "slug": "ereshkigal",
+    "alternateNames": [
+      "Irkalla",
+      "Allatu"
+    ],
+    "gender": "female",
+    "domain": [
+      "underworld",
+      "death",
+      "darkness",
+      "judgment"
+    ],
+    "symbols": [
+      "lion-headed staff",
+      "tablets of the dead"
+    ],
+    "description": "Queen of the Underworld and sister of Inanna. Ereshkigal rules the land of no return with absolute authority, from which no one, god or mortal, escapes unchanged.",
+    "detailedBio": "## Queen of the Great Below\n\nEreshkigal is the absolute ruler of the underworld (Kur or Irkalla), a vast realm beneath the earth where the dead dwell in eternal twilight. Unlike later concepts of hell, the Mesopotamian underworld was not a place of punishment but simply the inevitable destination of all mortals. Ereshkigal reigns there with cold, implacable authority.\n\n### Sister and Rival of Inanna\n\nEreshkigal is the elder sister of Inanna, and the two represent complementary opposites: life and death, sky and earth, fertility and sterility. When Inanna descended to the underworld, Ereshkigal stripped her of power at each of the seven gates and killed her, hanging her corpse on a hook. Only through divine intervention was Inanna revived, and even then Ereshkigal demanded a substitute.\n\n### The Seven Gates\n\nTo reach Ereshkigal's throne room, one must pass through seven gates, at each of which an article of clothing or jewelry is removed. This stripping symbolizes the loss of earthly status and power in death. Even the Queen of Heaven entered naked before her sister's throne.\n\n### The Lonely Queen\n\nEreshkigal's existence is one of profound isolation. She is cut off from the upper world, unable to enjoy the pleasures of the living gods. Her lament at the death of her husband Gugalanna (the Bull of Heaven) reveals a capacity for grief and loss that humanizes this fearsome deity.\n\n### Consort of Nergal\n\nIn one myth, the war god Nergal offends Ereshkigal and is summoned to the underworld. There, after a violent confrontation, they become lovers and he becomes her co-ruler, bringing the violence of plague and war into death's domain.",
+    "originStory": "When the cosmos was divided among the gods, Ereshkigal received the underworld as her domain. Abducted to the underworld in her youth (or given it as a dowry), she became its eternal queen. She was wed to Gugalanna, the Bull of Heaven, and later to the war god Nergal.",
+    "importanceRank": 3,
+    "imageUrl": "/deities/ereshkigal.png",
+    "primarySources": [
+      {
+        "text": "When Inanna entered the throne room, holy Ereshkigal rose from her throne. Inanna began to sit on the throne. The Anunnaki, the seven judges, pronounced judgment before her. They looked at her with the eyes of death.",
+        "source": "Descent of Inanna",
+        "date": "c. 1900 BCE"
+      }
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "greek-pantheon",
+        "deityId": "hades",
+        "note": "Both rule the underworld with absolute authority"
+      },
+      {
+        "pantheonId": "norse-pantheon",
+        "deityId": "hel",
+        "note": "Both are female rulers of realms of the dead"
+      }
+    ],
+    "pronunciation": {
+      "ipa": "/ɛˈrɛʃkɪɡɑːl/",
+      "phonetic": "eh-RESH-kih-gahl"
+    }
+  },
+  {
+    "id": "nergal",
+    "pantheonId": "mesopotamian-pantheon",
+    "name": "Nergal",
+    "slug": "nergal",
+    "alternateNames": [
+      "Erra",
+      "Irra"
+    ],
+    "gender": "male",
+    "domain": [
+      "war",
+      "plague",
+      "underworld",
+      "the burning sun"
+    ],
+    "symbols": [
+      "mace",
+      "lion",
+      "scimitar"
+    ],
+    "description": "God of war, plague, and the destructive aspects of the sun. Nergal embodies death in its violent forms and co-rules the underworld with his wife Ereshkigal.",
+    "detailedBio": "## Lord of Destruction\n\nNergal is the god of war, plague, and the scorching summer sun. Where other war gods might represent heroic combat, Nergal embodies the horror of warfare: the screaming, the blood, the pestilence that follows in an army's wake. He is death in its most violent forms, the antithesis of civilization's protective order.\n\n### The Erra Epic\n\nIn the Erra Epic, Nergal (called Erra) grows restless and desires to unleash destruction upon the world. He tricks Marduk into leaving his throne, then rampages across the land, causing warfare, plague, and social collapse. Even Babylon, under Marduk's protection, suffers his wrath. Only after sating his bloodlust does he relent.\n\n### Consort of the Underworld Queen\n\nNergal became Ereshkigal's husband in a dramatic myth. Summoned to the underworld to answer for an insult, he fought his way to her throne room. There, after a fierce struggle, violence turned to passion, and he became her consort and co-ruler. His presence brought the violence of war and plague into death's domain.\n\n### The Scorching Sun\n\nNergal represents the sun at its most destructive: the blazing noon heat of summer that withers crops and strikes down laborers. While Shamash represents the sun's justice and life-giving warmth, Nergal embodies its deadly potential.\n\n### Patron of Cutha\n\nNergal's cult center was the city of Cutha, where the temple E-meslam housed his worship. The city was associated with the underworld entrance, appropriate for a god who brought death and ruled among the dead.",
+    "originStory": "Nergal was born a god of the burning sun and pestilence. When he offended Ereshkigal by not standing in her presence, he was summoned to the underworld to apologize. Instead, he fought his way to her throne, and their violent encounter transformed into passion. He became her consort and co-ruler of the dead.",
+    "importanceRank": 4,
+    "imageUrl": "/deities/nergal.png",
+    "primarySources": [
+      {
+        "text": "Erra, warrior of the gods, was restless in his dwelling. He addressed his weapons: 'You lie there like old men who cannot hear. When will you rise, when will you put on your splendor?'",
+        "source": "Erra Epic, Tablet I",
+        "date": "c. 800 BCE"
+      }
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "greek-pantheon",
+        "deityId": "ares",
+        "note": "Both are gods of war in its brutal, destructive aspect"
+      },
+      {
+        "pantheonId": "hindu-pantheon",
+        "deityId": "shiva",
+        "note": "Both are destroyers who balance creation and destruction"
+      }
+    ],
+    "pronunciation": {
+      "ipa": "/ˈnɜːrɡəl/",
+      "phonetic": "NER-gal"
+    }
+  },
+  {
+    "id": "gilgamesh",
+    "pantheonId": "mesopotamian-pantheon",
+    "name": "Gilgamesh",
+    "slug": "gilgamesh",
+    "alternateNames": [
+      "Bilgamesh"
+    ],
+    "gender": "male",
+    "domain": [
+      "heroism",
+      "kingship",
+      "mortality",
+      "the underworld"
+    ],
+    "symbols": [
+      "lion",
+      "axe",
+      "cedar"
+    ],
+    "description": "The legendary king of Uruk, two-thirds divine and one-third mortal. Gilgamesh is the protagonist of humanity's oldest epic and a deified hero who became a judge of the underworld.",
+    "detailedBio": "## The Hero-King of Uruk\n\nGilgamesh stands at the foundation of world literature as the protagonist of humanity's oldest known epic. While likely based on a historical king of Uruk around 2700 BCE, he became a legendary figure whose story explores the deepest questions of human existence: the meaning of friendship, the fear of death, and the nature of immortality.\n\n### Two-Thirds Divine\n\nGilgamesh was born of the goddess Ninsun and the mortal Lugalbanda, making him two-thirds divine and one-third human. This unique nature gave him superhuman strength and beauty but also mortality. His story is ultimately about the struggle to accept that even the greatest of heroes must die.\n\n### The Tyrant Transformed\n\nIn his early reign, Gilgamesh was a tyrannical king who exhausted his people with endless labor and exercised droit du seigneur over brides. The gods created Enkidu, a wild man of the steppe, to be his equal and counterbalance. Their friendship transformed Gilgamesh from tyrant to hero.\n\n### The Cedar Forest Quest\n\nGilgamesh and Enkidu ventured to the Cedar Forest to slay its guardian Humbaba and make their names eternal. This quest for glory would have far-reaching consequences, as killing Humbaba (and later the Bull of Heaven) brought divine retribution that claimed Enkidu's life.\n\n### The Search for Immortality\n\nDevestated by Enkidu's death and terrified by the reality of his own mortality, Gilgamesh set out to find Utnapishtim, the survivor of the Great Flood who had been granted eternal life. His journey took him to the ends of the earth, through the tunnel beneath the mountains, and across the Waters of Death.\n\n### Acceptance\n\nGilgamesh failed to gain immortality, losing both the plant of youth to a serpent and his chance at eternal wakefulness. But he returned to Uruk with wisdom, understanding that his immortality lay in the walls he had built and the story of his deeds. In death, he became a judge of the underworld, achieving the divine status he had sought in life.",
+    "originStory": "Gilgamesh was born to the goddess Ninsun and the mortal king Lugalbanda. Endowed with superhuman strength and beauty but not immortality, he ruled Uruk as a tyrant until the gods created Enkidu to be his match. Their friendship transformed him, and his subsequent adventures and quest for immortality made him the subject of the world's first great literary epic.",
+    "importanceRank": 2,
+    "imageUrl": "/deities/gilgamesh.png",
+    "primarySources": [
+      {
+        "text": "He who saw the Deep, the foundation of the country, who knew the seas, was wise in all matters. Gilgamesh, who saw the Deep, the foundation of the country, who knew the seas, was wise in all matters.",
+        "source": "Epic of Gilgamesh, Tablet I",
+        "date": "c. 2100 BCE"
+      }
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "greek-pantheon",
+        "deityId": "heracles",
+        "note": "Both are demigod heroes of superhuman strength who perform legendary feats"
+      }
+    ],
+    "pronunciation": {
+      "ipa": "/ˈɡɪlɡəmɛʃ/",
+      "phonetic": "GIL-gah-mesh"
+    }
+  },
+  {
+    "id": "enkidu",
+    "pantheonId": "mesopotamian-pantheon",
+    "name": "Enkidu",
+    "slug": "enkidu",
+    "alternateNames": [
+      "Eabani"
+    ],
+    "gender": "male",
+    "domain": [
+      "wilderness",
+      "friendship",
+      "humanity"
+    ],
+    "symbols": [
+      "wild animals",
+      "grass",
+      "strength"
+    ],
+    "description": "The wild man created by the gods to be Gilgamesh's equal. Enkidu embodies the natural world and, through his civilization and friendship with Gilgamesh, represents the journey from beast to human to divine consciousness.",
+    "detailedBio": "## The Wild Man of the Steppe\n\nEnkidu was created by the mother goddess Aruru from clay to be Gilgamesh's equal and counterbalance. Born fully grown, he lived among the wild animals, eating grass and drinking at the water-holes, not knowing he was human. His body was covered with hair, and he knew nothing of civilization.\n\n### The Transformation\n\nA hunter discovered Enkidu and, frightened by his strength, sought the advice of Gilgamesh. The king sent Shamhat, a temple priestess of Inanna, to civilize the wild man. After seven days and nights of lovemaking, Enkidu found himself changed: the animals fled from him, for he had become human. He could no longer run with the gazelles, but he had gained wisdom and understanding.\n\n### The Perfect Friend\n\nWhen Enkidu arrived in Uruk and challenged Gilgamesh, they fought evenly matched until neither could prevail. From this contest grew an unbreakable friendship. Enkidu became Gilgamesh's constant companion, advisor, and the moderating influence that transformed the tyrant king into a hero.\n\n### The Cedar Forest\n\nEnkidu accompanied Gilgamesh to the Cedar Forest to slay Humbaba. When Gilgamesh hesitated, it was Enkidu who urged him forward. Ironically, this victory would seal Enkidu's fate, as the gods later decreed that one of the heroes must die for their impiety.\n\n### The Omen of Death\n\nEnkidu dreamed of the assembly of gods decreeing his death. He fell ill and, over twelve days, wasted away. His death scenes are among the most moving in ancient literature, as he cursed his civilization (which had led to his death) before blessing it (which had given him friendship and meaning).\n\n### The Catalyst\n\nEnkidu's death became the catalyst for Gilgamesh's quest for immortality. In his grief, Gilgamesh confronted mortality for the first time, understanding that if mighty Enkidu could die, so could he. Enkidu's death thus becomes the beginning of Gilgamesh's true journey.",
+    "originStory": "When the people of Uruk complained to the gods about Gilgamesh's tyranny, the mother goddess Aruru created Enkidu from clay. She formed him in the image of Anu, father of the gods, and cast him down to live among the wild animals. He was created to be Gilgamesh's equal in strength and to be the companion who would transform him from tyrant to hero.",
+    "importanceRank": 4,
+    "imageUrl": "/deities/enkidu.png",
+    "primarySources": [
+      {
+        "text": "With the gazelles he feeds on grass, with the wild beasts he drinks at the water-hole. His heart delights with the wild creatures in the water.",
+        "source": "Epic of Gilgamesh, Tablet I",
+        "date": "c. 2100 BCE"
+      }
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "greek-pantheon",
+        "deityId": "prometheus",
+        "note": "Both represent the transition from nature to civilization and suffer for it"
+      }
+    ],
+    "pronunciation": {
+      "ipa": "/ˈɛnkɪduː/",
+      "phonetic": "EN-kih-doo"
+    }
   }
 ]

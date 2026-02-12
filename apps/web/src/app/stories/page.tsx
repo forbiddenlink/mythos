@@ -1,17 +1,107 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { graphqlClient } from '@/lib/graphql-client';
 import { GET_STORIES } from '@/lib/queries';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { ScrollText, BookOpen } from 'lucide-react';
+import { ScrollText, BookOpen, Gamepad2, Trophy, Clock } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Breadcrumbs } from '@/components/navigation/Breadcrumbs';
 import { StoryFilters } from '@/components/stories/StoryFilters';
 import { BookmarkButton } from '@/components/ui/bookmark-button';
+import { GridSkeleton, FiltersSkeleton } from '@/components/ui/skeleton-cards';
+import { BranchingStory, getDiscoveredEndings } from '@/lib/branching-story';
+import branchingStoriesData from '@/data/branching-stories.json';
+
+const branchingStories = branchingStoriesData as unknown as BranchingStory[];
+
+// Interactive Story Card Component
+function InteractiveStoryCard({ story }: { story: BranchingStory }) {
+  const [discoveredCount, setDiscoveredCount] = useState(0);
+
+  useEffect(() => {
+    const discovered = getDiscoveredEndings(story.id);
+    setDiscoveredCount(discovered.length);
+  }, [story.id]);
+
+  return (
+    <Link href={`/stories/interactive/${story.slug}`} className="group">
+      <Card asArticle className="h-full cursor-pointer card-elevated bg-card hover:scale-[1.01] overflow-hidden relative">
+        {/* Interactive badge */}
+        <div className="absolute top-3 right-3 z-10">
+          <Badge className="bg-gold/20 text-gold border-gold/30 gap-1">
+            <Gamepad2 className="h-3 w-3" />
+            Interactive
+          </Badge>
+        </div>
+
+        {/* Gradient top border */}
+        <div className="h-1 bg-gradient-to-r from-gold via-amber-400 to-gold"></div>
+
+        <CardHeader className="relative">
+          <div className="absolute top-4 right-4 opacity-[0.03] group-hover:opacity-[0.06] transition-opacity">
+            <Gamepad2 className="h-24 w-24 text-gold" />
+          </div>
+          <div className="flex items-start gap-3 relative z-10">
+            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-gold-dark via-gold to-amber-400 flex items-center justify-center shrink-0 shadow-md group-hover:scale-105 transition-transform duration-300">
+              <Gamepad2 className="h-6 w-6 text-midnight" strokeWidth={1.5} />
+            </div>
+            <div className="flex-1 min-w-0 pr-16">
+              <CardTitle className="text-lg group-hover:text-gold transition-colors duration-300 line-clamp-2">
+                {story.title}
+              </CardTitle>
+              <p className="text-sm text-muted-foreground mt-1">
+                Play as {story.protagonist}
+              </p>
+            </div>
+          </div>
+        </CardHeader>
+
+        <CardContent className="space-y-4">
+          <p className="text-muted-foreground text-sm line-clamp-2 leading-relaxed">
+            {story.description}
+          </p>
+
+          {/* Stats row */}
+          <div className="flex items-center gap-4 text-xs text-muted-foreground">
+            <span className="flex items-center gap-1">
+              <Clock className="h-3.5 w-3.5" />
+              {story.estimatedTime}
+            </span>
+            <span className="flex items-center gap-1">
+              <Trophy className="h-3.5 w-3.5" />
+              {discoveredCount > 0 ? (
+                <span className="text-gold">{discoveredCount}/{story.totalEndings}</span>
+              ) : (
+                <span>{story.totalEndings} endings</span>
+              )}
+            </span>
+          </div>
+
+          {/* Progress bar if started */}
+          {discoveredCount > 0 && (
+            <div className="space-y-1">
+              <div className="h-1.5 bg-midnight rounded-full overflow-hidden">
+                <div
+                  className="h-full bg-gradient-to-r from-gold-dark to-gold transition-all duration-300"
+                  style={{ width: `${(discoveredCount / story.totalEndings) * 100}%` }}
+                />
+              </div>
+              <p className="text-xs text-gold/70">
+                {discoveredCount === story.totalEndings
+                  ? 'All endings discovered!'
+                  : `${story.totalEndings - discoveredCount} ending${story.totalEndings - discoveredCount > 1 ? 's' : ''} remaining`}
+              </p>
+            </div>
+          )}
+        </CardContent>
+      </Card>
+    </Link>
+  );
+}
 
 interface Story {
   id: string;
@@ -46,23 +136,15 @@ export default function StoriesPage() {
 
   if (isLoading) {
     return (
-      <div className="container mx-auto max-w-7xl px-4 py-24">
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {[...Array(6)].map((_, i) => (
-            <Card key={i} className="h-full bg-white dark:bg-slate-900">
-              <CardHeader>
-                <div className="w-12 h-12 rounded-lg bg-slate-200 dark:bg-slate-700 mb-4"></div>
-                <div className="h-6 bg-slate-200 dark:bg-slate-700 rounded w-3/4 mb-2"></div>
-                <div className="h-4 bg-slate-200 dark:bg-slate-700 rounded w-full"></div>
-              </CardHeader>
-              <CardContent>
-                <div className="space-y-2">
-                  <div className="h-3 bg-slate-200 dark:bg-slate-700 rounded w-full"></div>
-                  <div className="h-3 bg-slate-200 dark:bg-slate-700 rounded w-5/6"></div>
-                </div>
-              </CardContent>
-            </Card>
-          ))}
+      <div className="min-h-screen">
+        {/* Hero placeholder */}
+        <div className="relative h-[50vh] min-h-[400px] flex items-center justify-center overflow-hidden bg-gradient-to-b from-midnight/70 via-midnight/60 to-midnight/80" />
+
+        {/* Content Section */}
+        <div className="container mx-auto max-w-7xl px-4 py-12 bg-mythic">
+          <div className="h-5 w-32 bg-muted rounded animate-pulse mb-6" />
+          <FiltersSkeleton />
+          <GridSkeleton count={6} columns={3} type="story" className="mt-6" />
         </div>
       </div>
     );
@@ -131,13 +213,44 @@ export default function StoriesPage() {
       {/* Stories Grid */}
       <div className="container mx-auto max-w-7xl px-4 py-12 bg-mythic">
         <Breadcrumbs />
-        
+
+        {/* Interactive Stories Section */}
+        {branchingStories.length > 0 && (
+          <div className="mb-12">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="p-2 rounded-lg bg-gold/10 border border-gold/20">
+                <Gamepad2 className="h-5 w-5 text-gold" />
+              </div>
+              <div>
+                <h2 className="text-xl font-serif font-semibold text-foreground">Interactive Stories</h2>
+                <p className="text-sm text-muted-foreground">Choose your own adventure through mythology</p>
+              </div>
+            </div>
+            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {branchingStories.map((story) => (
+                <InteractiveStoryCard key={story.id} story={story} />
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* Regular Stories */}
+        <div className="flex items-center gap-3 mb-6">
+          <div className="p-2 rounded-lg bg-gold/10 border border-gold/20">
+            <BookOpen className="h-5 w-5 text-gold" />
+          </div>
+          <div>
+            <h2 className="text-xl font-serif font-semibold text-foreground">Epic Tales</h2>
+            <p className="text-sm text-muted-foreground">Classic mythology narratives</p>
+          </div>
+        </div>
+
         {data?.stories && (
-          <div className="mt-6">
+          <div className="mb-6">
             <StoryFilters stories={data.stories} onFilteredChange={setFilteredStories} />
           </div>
         )}
-        
+
         {displayStories.length > 0 ? (
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 mt-6">
             {displayStories.map((story, index) => (

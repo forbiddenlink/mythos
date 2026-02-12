@@ -12,6 +12,7 @@ import { ProgressProvider } from "@/providers/progress-provider";
 import { generateBaseMetadata } from "@/lib/metadata";
 import { AudioProvider } from "@/components/audio/AudioContext";
 import { AudioControls } from "@/components/audio/AudioControls";
+import { InstallPrompt, OfflineIndicator } from "@/components/pwa";
 
 // Cinzel - Elegant classical display font inspired by Roman inscriptions
 const cinzel = Cinzel({
@@ -62,7 +63,11 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head>
         <link rel="manifest" href="/manifest.json" />
-        <meta name="theme-color" content="#1e293b" />
+        <meta name="theme-color" content="#d4af37" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <meta name="apple-mobile-web-app-title" content="Mythos Atlas" />
+        <link rel="apple-touch-icon" href="/apple-icon.png" />
       </head>
       <body className={`${sourceSans.variable} ${cinzel.variable} ${crimsonPro.variable} font-sans antialiased`}>
         <ThemeProvider
@@ -77,6 +82,7 @@ export default function RootLayout({
               <AudioProvider>
                 <CommandPaletteProvider>
                   <SkipToContent />
+                  <OfflineIndicator />
                   <div className="flex min-h-screen flex-col">
                     <Header />
                     <main id="main-content" className="flex-1" tabIndex={-1}>
@@ -85,6 +91,7 @@ export default function RootLayout({
                     <Footer />
                   </div>
                   <AudioControls />
+                  <InstallPrompt />
                 </CommandPaletteProvider>
               </AudioProvider>
               </ProgressProvider>

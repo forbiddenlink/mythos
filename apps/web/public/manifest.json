@@ -5,8 +5,8 @@
   "description": "Explore ancient mythology through interactive deity family trees, comparative analysis, and epic stories from civilizations around the world.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#0f172a",
-  "theme_color": "#1e293b",
+  "background_color": "#0a0a0a",
+  "theme_color": "#d4af37",
   "orientation": "portrait-primary",
   "icons": [
     {

@@ -484,6 +484,13 @@
     }
   }
 
+  /* Skeleton shimmer animation */
+  @keyframes shimmer {
+    100% {
+      transform: translateX(100%);
+    }
+  }
+
   /* Achievement toast shrink animation */
   @keyframes achievement-toast-shrink {
     from {
@@ -601,6 +608,229 @@
 
   .leaflet-control-attribution a {
     color: var(--gold) !important;
+  }
+
+  /* ═══════════════════════════════════════════════════════════════════
+     VIEW TRANSITIONS API
+     Smooth page-to-page navigation with shared element transitions
+     ═══════════════════════════════════════════════════════════════════ */
+
+  /* Enable view transitions for same-origin navigations */
+  @view-transition {
+    navigation: auto;
+  }
+
+  /* Default page transition - elegant fade */
+  ::view-transition-old(root) {
+    animation: vt-fade-out 0.25s ease-out forwards;
+  }
+
+  ::view-transition-new(root) {
+    animation: vt-fade-in 0.25s ease-in forwards;
+  }
+
+  @keyframes vt-fade-out {
+    from {
+      opacity: 1;
+      transform: scale(1);
+    }
+    to {
+      opacity: 0;
+      transform: scale(0.98);
+    }
+  }
+
+  @keyframes vt-fade-in {
+    from {
+      opacity: 0;
+      transform: scale(1.02);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  /* Shared element transitions for deity cards/images
+     Uses wildcard matching for dynamic deity-image-{slug} names */
+  [style*="view-transition-name: deity-image"] {
+    contain: layout;
+  }
+
+  ::view-transition-group(*) {
+    animation-duration: 0.3s;
+    animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  ::view-transition-old(deity-image),
+  [class*="deity-image"]::view-transition-old(*) {
+    animation: vt-morph-out 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+
+  ::view-transition-new(deity-image),
+  [class*="deity-image"]::view-transition-new(*) {
+    animation: vt-morph-in 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+
+  @keyframes vt-morph-out {
+    from {
+      opacity: 1;
+      transform: scale(1);
+    }
+    to {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+  }
+
+  @keyframes vt-morph-in {
+    from {
+      opacity: 0;
+      transform: scale(1.05);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  /* Story card transitions */
+  ::view-transition-old(story-card) {
+    animation: vt-slide-out 0.3s ease-out forwards;
+  }
+
+  ::view-transition-new(story-card) {
+    animation: vt-slide-in 0.3s ease-out forwards;
+  }
+
+  @keyframes vt-slide-out {
+    from {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    to {
+      opacity: 0;
+      transform: translateX(-20px);
+    }
+  }
+
+  @keyframes vt-slide-in {
+    from {
+      opacity: 0;
+      transform: translateX(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  /* Page header transitions - slide down effect */
+  ::view-transition-old(page-header) {
+    animation: vt-header-out 0.25s ease-out forwards;
+  }
+
+  ::view-transition-new(page-header) {
+    animation: vt-header-in 0.25s ease-out forwards;
+    animation-delay: 0.1s;
+  }
+
+  @keyframes vt-header-out {
+    from {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    to {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+  }
+
+  @keyframes vt-header-in {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Hero section transitions */
+  ::view-transition-old(hero-section) {
+    animation: vt-hero-out 0.35s ease-out forwards;
+  }
+
+  ::view-transition-new(hero-section) {
+    animation: vt-hero-in 0.35s ease-out forwards;
+  }
+
+  @keyframes vt-hero-out {
+    from {
+      opacity: 1;
+      transform: scale(1);
+      filter: blur(0);
+    }
+    to {
+      opacity: 0;
+      transform: scale(1.02);
+      filter: blur(4px);
+    }
+  }
+
+  @keyframes vt-hero-in {
+    from {
+      opacity: 0;
+      transform: scale(0.98);
+      filter: blur(4px);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+      filter: blur(0);
+    }
+  }
+
+  /* Pantheon badge transitions */
+  ::view-transition-old(pantheon-badge) {
+    animation: vt-badge-out 0.2s ease-out forwards;
+  }
+
+  ::view-transition-new(pantheon-badge) {
+    animation: vt-badge-in 0.2s ease-out forwards;
+    animation-delay: 0.15s;
+  }
+
+  @keyframes vt-badge-out {
+    from {
+      opacity: 1;
+      transform: scale(1);
+    }
+    to {
+      opacity: 0;
+      transform: scale(0.8);
+    }
+  }
+
+  @keyframes vt-badge-in {
+    from {
+      opacity: 0;
+      transform: scale(1.2);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  /* Reduce motion preference - disable view transitions */
+  @media (prefers-reduced-motion: reduce) {
+    ::view-transition-group(*),
+    ::view-transition-old(*),
+    ::view-transition-new(*) {
+      animation: none !important;
+    }
   }
 }
 

@@ -1,16 +1,27 @@
 import Link from 'next/link';
 import { Logo } from '@/components/ui/logo';
-import { Github, Twitter } from 'lucide-react';
+import { Github } from 'lucide-react';
 
 const footerLinks = {
   explore: [
-    { label: 'Pantheons', href: '/pantheons' },
+    { label: 'All Pantheons', href: '/pantheons' },
     { label: 'Deities', href: '/deities' },
     { label: 'Stories', href: '/stories' },
-    { label: 'Family Tree', href: '/family-tree' },
-    { label: 'Quiz', href: '/quiz' },
+    { label: 'Creatures', href: '/creatures' },
+    { label: 'Artifacts', href: '/artifacts' },
+    { label: 'Locations', href: '/locations' },
   ],
-  resources: [
+  discover: [
+    { label: 'Divine Domains', href: '/divine-domains' },
+    { label: 'Compare Deities', href: '/compare' },
+    { label: 'Knowledge Graph', href: '/knowledge-graph' },
+    { label: 'Family Tree', href: '/family-tree' },
+    { label: 'Timeline', href: '/timeline' },
+  ],
+  learn: [
+    { label: 'Quiz', href: '/quiz' },
+    { label: 'Daily Review', href: '/review' },
+    { label: 'Your Progress', href: '/progress' },
     { label: 'About', href: '/about' },
   ],
 };
@@ -22,9 +33,9 @@ export function Footer() {
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-px bg-gradient-to-r from-transparent via-gold/20 to-transparent" />
 
       <div className="container mx-auto max-w-7xl px-4 py-12 md:py-16">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-10 md:gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-8 md:gap-6">
           {/* Brand column */}
-          <div className="md:col-span-2">
+          <div className="col-span-2">
             <Link href="/" className="inline-flex items-center gap-3 group mb-4">
               <div className="text-foreground group-hover:text-gold transition-colors duration-300">
                 <Logo className="h-8 w-8" />
@@ -36,7 +47,7 @@ export function Footer() {
               </div>
             </Link>
             <p className="text-sm text-muted-foreground max-w-xs leading-relaxed mb-6">
-              An interactive encyclopedia of ancient mythology from civilizations around the world. Built by Elizabeth Stein with Next.js and modern web technologies.
+              An interactive encyclopedia of ancient mythology from civilizations around the world. Explore gods, heroes, creatures, and epic tales.
             </p>
             <div className="flex items-center gap-3">
               <a
@@ -51,7 +62,7 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Links columns */}
+          {/* Explore links */}
           <div>
             <h4 className="font-serif text-sm font-semibold text-foreground mb-4 tracking-wide">
               Explore
@@ -70,12 +81,32 @@ export function Footer() {
             </ul>
           </div>
 
+          {/* Discover links */}
           <div>
             <h4 className="font-serif text-sm font-semibold text-foreground mb-4 tracking-wide">
-              Resources
+              Discover
             </h4>
             <ul className="space-y-2.5">
-              {footerLinks.resources.map((link) => (
+              {footerLinks.discover.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="text-sm text-muted-foreground hover:text-gold transition-colors duration-200"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Learn links */}
+          <div>
+            <h4 className="font-serif text-sm font-semibold text-foreground mb-4 tracking-wide">
+              Learn
+            </h4>
+            <ul className="space-y-2.5">
+              {footerLinks.learn.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
@@ -93,7 +124,7 @@ export function Footer() {
         <div className="mt-12 pt-8 border-t border-border/50">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <p className="text-xs text-muted-foreground text-center md:text-left">
-              Built by Elizabeth Stein with Next.js, TypeScript, React Query, and GraphQL • February 2026
+              Built by Elizabeth Stein with Next.js, TypeScript, and React
             </p>
             <p className="text-xs text-muted-foreground">
               © {new Date().getFullYear()} Mythos Atlas

@@ -4,55 +4,403 @@
         "pantheonId": "norse-pantheon",
         "name": "Fenrir",
         "slug": "fenrir",
-        "description": "A monstrous wolf, son of Loki and Angrboda. Foretold to kill Odin during Ragnarök, he is bound by the magical ribbon Gleipnir.",
+        "description": "A monstrous wolf, son of Loki and Angrboda. Foretold to kill Odin during Ragnarok, he is bound by the magical ribbon Gleipnir until the end times.",
         "habitat": "Lyngvi (The Island of Heather)",
         "abilities": [
             "Boundless Growth",
             "God-slaying Strength"
         ],
         "dangerLevel": 10,
-        "imageUrl": "/stories/binding-of-fenrir.png"
+        "imageUrl": "/creatures/fenrir.png"
     },
     {
         "id": "cerberus",
         "pantheonId": "greek-pantheon",
         "name": "Cerberus",
         "slug": "cerberus",
-        "description": "The multi-headed hound of Hades who guards the gates of the Underworld to prevent the dead from leaving.",
+        "description": "The three-headed hound of Hades who guards the gates of the Underworld to prevent the dead from leaving. His mane consists of writhing serpents.",
         "habitat": "The Underworld (Gates)",
         "abilities": [
             "Multi-headed Awareness",
-            "Immortality"
+            "Immortality",
+            "Serpent Mane"
         ],
         "dangerLevel": 8,
-        "imageUrl": "/deities/hades.png"
+        "imageUrl": "/creatures/cerberus.png"
     },
     {
         "id": "yamata-no-orochi",
         "pantheonId": "japanese-pantheon",
         "name": "Yamata no Orochi",
         "slug": "yamata-no-orochi",
-        "description": "A legendary eight-headed and eight-tailed Japanese dragon/serpent. Slain by the storm god Susanoo.",
+        "description": "A legendary eight-headed and eight-tailed Japanese dragon serpent. Slain by the storm god Susanoo, who discovered the legendary sword Kusanagi within its body.",
         "habitat": "Koshi Province",
         "abilities": [
             "Eight Heads",
-            "Size Manipulation"
+            "Size Manipulation",
+            "Regeneration"
         ],
         "dangerLevel": 9,
-        "imageUrl": "/stories/yamata-no-orochi.png"
+        "imageUrl": "/creatures/yamata-no-orochi.png"
     },
     {
         "id": "apep",
         "pantheonId": "egyptian-pantheon",
         "name": "Apep",
         "slug": "apep",
-        "description": "The serpent of chaos and enemy of Ra. He attempts to swallow the sun barge every night in the Duat.",
+        "description": "The serpent of chaos and eternal enemy of Ra. He attempts to swallow the sun barge every night as it travels through the Duat, threatening to plunge the world into eternal darkness.",
         "habitat": "The Duat (Underworld)",
         "abilities": [
             "Hypnotic Gaze",
-            "Chaos Magic"
+            "Chaos Magic",
+            "Infinite Length"
         ],
         "dangerLevel": 10,
-        "imageUrl": "/stories/ra-journey.png"
+        "imageUrl": "/creatures/apep.png"
+    },
+    {
+        "id": "hydra",
+        "pantheonId": "greek-pantheon",
+        "name": "Hydra",
+        "slug": "hydra",
+        "description": "A gigantic water serpent with multiple heads that regenerate when severed. Slain by Heracles as his second labor, who discovered that two heads grow back for each one cut off.",
+        "habitat": "Lake Lerna",
+        "abilities": [
+            "Regeneration",
+            "Venomous Breath",
+            "Immortal Central Head"
+        ],
+        "dangerLevel": 9,
+        "imageUrl": "/creatures/hydra.png"
+    },
+    {
+        "id": "chimera",
+        "pantheonId": "greek-pantheon",
+        "name": "Chimera",
+        "slug": "chimera",
+        "description": "A fire-breathing hybrid monster with the head of a lion, body of a goat, and tail of a serpent. Slain by the hero Bellerophon while riding the winged horse Pegasus.",
+        "habitat": "Lycia",
+        "abilities": [
+            "Fire Breath",
+            "Triple Beast Strength",
+            "Venomous Tail"
+        ],
+        "dangerLevel": 8,
+        "imageUrl": "/creatures/chimera.png"
+    },
+    {
+        "id": "minotaur",
+        "pantheonId": "greek-pantheon",
+        "name": "Minotaur",
+        "slug": "minotaur",
+        "description": "A creature with the body of a man and head of a bull, born from Queen Pasiphae and the Cretan Bull. Imprisoned in the Labyrinth of Daedalus and fed Athenian youths until slain by Theseus.",
+        "habitat": "The Labyrinth of Crete",
+        "abilities": [
+            "Superhuman Strength",
+            "Labyrinth Navigation",
+            "Berserker Rage"
+        ],
+        "dangerLevel": 7,
+        "imageUrl": "/creatures/minotaur.png"
+    },
+    {
+        "id": "sphinx",
+        "pantheonId": "greek-pantheon",
+        "name": "Sphinx",
+        "slug": "sphinx",
+        "description": "A creature with the body of a lion, wings of an eagle, and head of a woman. She terrorized Thebes, devouring travelers who failed to answer her riddles until Oedipus solved her puzzle.",
+        "habitat": "Mount Phicium near Thebes",
+        "abilities": [
+            "Flight",
+            "Supernatural Intelligence",
+            "Prophetic Riddles"
+        ],
+        "dangerLevel": 7,
+        "imageUrl": "/creatures/sphinx.png"
+    },
+    {
+        "id": "cyclops",
+        "pantheonId": "greek-pantheon",
+        "name": "Cyclops",
+        "slug": "cyclops",
+        "description": "One-eyed giants of immense strength. The most famous, Polyphemus, trapped Odysseus and his men in his cave. They were master craftsmen who forged Zeus's thunderbolts.",
+        "habitat": "Sicily and Volcanic Islands",
+        "abilities": [
+            "Immense Strength",
+            "Master Craftsmanship",
+            "Stone Throwing"
+        ],
+        "dangerLevel": 8,
+        "imageUrl": "/creatures/cyclops.png"
+    },
+    {
+        "id": "medusa",
+        "pantheonId": "greek-pantheon",
+        "name": "Medusa",
+        "slug": "medusa",
+        "description": "The mortal Gorgon sister with living serpents for hair. Once beautiful, she was cursed by Athena and could turn anyone who looked upon her face to stone. Beheaded by the hero Perseus.",
+        "habitat": "Western Libya",
+        "abilities": [
+            "Petrifying Gaze",
+            "Serpent Hair",
+            "Immortal Blood"
+        ],
+        "dangerLevel": 9,
+        "imageUrl": "/creatures/medusa.png"
+    },
+    {
+        "id": "jormungandr",
+        "pantheonId": "norse-pantheon",
+        "name": "Jormungandr",
+        "slug": "jormungandr",
+        "description": "The World Serpent, child of Loki, so massive it encircles Midgard and grasps its own tail. Destined to battle Thor at Ragnarok, where they will slay each other.",
+        "habitat": "The Ocean Surrounding Midgard",
+        "abilities": [
+            "Venomous Breath",
+            "World-Encircling Size",
+            "Ocean Control"
+        ],
+        "dangerLevel": 10,
+        "imageUrl": "/creatures/jormungandr.png"
+    },
+    {
+        "id": "sleipnir",
+        "pantheonId": "norse-pantheon",
+        "name": "Sleipnir",
+        "slug": "sleipnir",
+        "description": "The eight-legged horse of Odin, born from Loki in mare form and the stallion Svadilfari. The fastest horse in existence, capable of traveling between the nine realms.",
+        "habitat": "Asgard",
+        "abilities": [
+            "Realm Travel",
+            "Supernatural Speed",
+            "Flight"
+        ],
+        "dangerLevel": 3,
+        "imageUrl": "/creatures/sleipnir.png"
+    },
+    {
+        "id": "nidhogg",
+        "pantheonId": "norse-pantheon",
+        "name": "Nidhogg",
+        "slug": "nidhogg",
+        "description": "A dragon that gnaws at the roots of Yggdrasil, the World Tree. It feeds on the corpses of the dishonorable dead and represents destruction and decay in the cosmic order.",
+        "habitat": "Nastrond (beneath Yggdrasil)",
+        "abilities": [
+            "Corpse Consumption",
+            "Root Gnawing",
+            "Decay Aura"
+        ],
+        "dangerLevel": 8,
+        "imageUrl": "/creatures/nidhogg.png"
+    },
+    {
+        "id": "draugr",
+        "pantheonId": "norse-pantheon",
+        "name": "Draugr",
+        "slug": "draugr",
+        "description": "Undead warriors who guard their burial mounds and treasure with supernatural strength. They possess dark magic and can increase their size, bringing death to any who disturb their rest.",
+        "habitat": "Burial Mounds",
+        "abilities": [
+            "Size Manipulation",
+            "Superhuman Strength",
+            "Dark Magic"
+        ],
+        "dangerLevel": 6,
+        "imageUrl": "/creatures/draugr.png"
+    },
+    {
+        "id": "kraken",
+        "pantheonId": "norse-pantheon",
+        "name": "Kraken",
+        "slug": "kraken",
+        "description": "A colossal sea monster capable of dragging entire ships to the ocean depths. Its body is so vast it was often mistaken for an island by unwary sailors.",
+        "habitat": "The Northern Seas",
+        "abilities": [
+            "Ship Destruction",
+            "Whirlpool Creation",
+            "Massive Tentacles"
+        ],
+        "dangerLevel": 9,
+        "imageUrl": "/creatures/kraken.png"
+    },
+    {
+        "id": "ammit",
+        "pantheonId": "egyptian-pantheon",
+        "name": "Ammit",
+        "slug": "ammit",
+        "description": "The Devourer of the Dead, a demon with the head of a crocodile, torso of a lion, and hindquarters of a hippopotamus. She consumes the hearts of those found unworthy in the Hall of Judgment.",
+        "habitat": "The Hall of Two Truths",
+        "abilities": [
+            "Soul Consumption",
+            "Heart Detection",
+            "Eternal Hunger"
+        ],
+        "dangerLevel": 9,
+        "imageUrl": "/creatures/ammit.png"
+    },
+    {
+        "id": "egyptian-sphinx",
+        "pantheonId": "egyptian-pantheon",
+        "name": "Egyptian Sphinx",
+        "slug": "egyptian-sphinx",
+        "description": "A benevolent guardian with the body of a lion and head of a pharaoh. Unlike its Greek counterpart, it protects sacred sites and represents royal power and divine wisdom.",
+        "habitat": "Giza Plateau",
+        "abilities": [
+            "Guardian Presence",
+            "Eternal Vigilance",
+            "Divine Protection"
+        ],
+        "dangerLevel": 4,
+        "imageUrl": "/creatures/egyptian-sphinx.png"
+    },
+    {
+        "id": "bennu",
+        "pantheonId": "egyptian-pantheon",
+        "name": "Bennu",
+        "slug": "bennu",
+        "description": "A sacred phoenix-like bird associated with the sun god Ra and rebirth. It created itself from the fires of a sacred tree in Heliopolis and inspired the Greek phoenix legend.",
+        "habitat": "Heliopolis",
+        "abilities": [
+            "Rebirth",
+            "Solar Connection",
+            "Creation Magic"
+        ],
+        "dangerLevel": 2,
+        "imageUrl": "/creatures/bennu.png"
+    },
+    {
+        "id": "serpopard",
+        "pantheonId": "egyptian-pantheon",
+        "name": "Serpopard",
+        "slug": "serpopard",
+        "description": "A mythical creature with the body of a leopard and an impossibly long serpentine neck. Depicted on the Narmer Palette, it represents the chaotic forces tamed by the pharaoh.",
+        "habitat": "The Chaos Lands",
+        "abilities": [
+            "Serpentine Flexibility",
+            "Predatory Stealth",
+            "Chaos Embodiment"
+        ],
+        "dangerLevel": 6,
+        "imageUrl": "/creatures/serpopard.png"
+    },
+    {
+        "id": "garuda",
+        "pantheonId": "hindu-pantheon",
+        "name": "Garuda",
+        "slug": "garuda",
+        "description": "The divine king of birds and mount of Lord Vishnu. Part eagle and part human, he is the eternal enemy of the Nagas and possesses speed that rivals thought itself.",
+        "habitat": "Vaikuntha (Vishnu's Realm)",
+        "abilities": [
+            "Divine Flight",
+            "Naga Slaying",
+            "Thought-Speed Travel"
+        ],
+        "dangerLevel": 7,
+        "imageUrl": "/creatures/garuda.png"
+    },
+    {
+        "id": "naga",
+        "pantheonId": "hindu-pantheon",
+        "name": "Naga",
+        "slug": "naga",
+        "description": "Divine serpent beings who rule the underworld kingdom of Patala. They guard treasures, control rain and rivers, and can take human or serpent form at will.",
+        "habitat": "Patala (Underworld)",
+        "abilities": [
+            "Shapeshifting",
+            "Water Control",
+            "Treasure Guardianship"
+        ],
+        "dangerLevel": 6,
+        "imageUrl": "/creatures/naga.png"
+    },
+    {
+        "id": "makara",
+        "pantheonId": "hindu-pantheon",
+        "name": "Makara",
+        "slug": "makara",
+        "description": "A legendary sea creature that serves as the mount of the river goddess Ganga and the god Varuna. It combines features of a crocodile, elephant, and fish in its hybrid form.",
+        "habitat": "Sacred Rivers and Oceans",
+        "abilities": [
+            "Water Mastery",
+            "Divine Transport",
+            "Aquatic Supremacy"
+        ],
+        "dangerLevel": 5,
+        "imageUrl": "/creatures/makara.png"
+    },
+    {
+        "id": "kitsune",
+        "pantheonId": "japanese-pantheon",
+        "name": "Kitsune",
+        "slug": "kitsune",
+        "description": "Intelligent fox spirits who grow additional tails as they age, up to nine. They can be benevolent guardians or mischievous tricksters, and possess powerful shapeshifting abilities.",
+        "habitat": "Forests and Inari Shrines",
+        "abilities": [
+            "Shapeshifting",
+            "Illusion Magic",
+            "Possession"
+        ],
+        "dangerLevel": 5,
+        "imageUrl": "/creatures/kitsune.png"
+    },
+    {
+        "id": "tengu",
+        "pantheonId": "japanese-pantheon",
+        "name": "Tengu",
+        "slug": "tengu",
+        "description": "Supernatural beings with both avian and human features, known for their red faces and long noses. Once considered harbingers of war, they became protectors of mountains and masters of martial arts.",
+        "habitat": "Mountain Forests",
+        "abilities": [
+            "Martial Mastery",
+            "Flight",
+            "Wind Control"
+        ],
+        "dangerLevel": 6,
+        "imageUrl": "/creatures/tengu.png"
+    },
+    {
+        "id": "kappa",
+        "pantheonId": "japanese-pantheon",
+        "name": "Kappa",
+        "slug": "kappa",
+        "description": "River imps with turtle shells, beaked faces, and a water-filled depression atop their heads. They are cunning tricksters who challenge travelers to sumo wrestling and can be defeated through politeness.",
+        "habitat": "Rivers and Ponds",
+        "abilities": [
+            "Superhuman Strength (in water)",
+            "Swimming Mastery",
+            "Bone Extraction"
+        ],
+        "dangerLevel": 4,
+        "imageUrl": "/creatures/kappa.png"
+    },
+    {
+        "id": "cu-sith",
+        "pantheonId": "celtic-pantheon",
+        "name": "Cu Sith",
+        "slug": "cu-sith",
+        "description": "A massive fairy hound the size of a bull, with shaggy dark green fur and braided tail. Its three barks summon death, and it roams the Scottish Highlands collecting souls of the dying.",
+        "habitat": "Scottish Highlands",
+        "abilities": [
+            "Death Howl",
+            "Soul Collection",
+            "Supernatural Tracking"
+        ],
+        "dangerLevel": 8,
+        "imageUrl": "/creatures/cu-sith.png"
+    },
+    {
+        "id": "each-uisge",
+        "pantheonId": "celtic-pantheon",
+        "name": "Each-uisge",
+        "slug": "each-uisge",
+        "description": "A malevolent water horse of Scottish lochs and seas, far more dangerous than the kelpie. It appears as a beautiful horse but carries victims into the water to devour them, leaving only the liver behind.",
+        "habitat": "Scottish Lochs and Coastal Waters",
+        "abilities": [
+            "Shapeshifting",
+            "Adhesive Skin",
+            "Underwater Speed"
+        ],
+        "dangerLevel": 9,
+        "imageUrl": "/creatures/each-uisge.png"
     }
 ]

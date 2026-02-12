@@ -1,4 +1,5 @@
 import { HeroSection } from '@/components/home/HeroSection';
+import { StreakWidget } from '@/components/home/StreakWidget';
 import { FeaturesGrid } from '@/components/home/FeaturesGrid';
 import { StatsSection } from '@/components/home/StatsSection';
 import { PantheonShowcase } from '@/components/home/PantheonShowcase';
@@ -21,6 +22,7 @@ export default function Home() {
         searchActionTarget="https://mythos-web-seven.vercel.app/?search={search_term_string}"
       />
       <HeroSection />
+      <StreakWidget />
       <FeaturesGrid />
       <StatsSection />
       <PantheonShowcase />

@@ -309,3 +309,158 @@ export function WebApplicationJsonLd({
 
   return <JsonLdScript id="webapp-jsonld" data={app} />
 }
+
+// ─── FAQPage ──────────────────────────────────────────────────────────
+interface FAQQuestion {
+  question: string
+  answer: string
+}
+
+interface FAQJsonLdProps {
+  questions: FAQQuestion[]
+}
+
+export function FAQJsonLd({ questions }: FAQJsonLdProps) {
+  const faqPage = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: questions.map((q) => ({
+      '@type': 'Question',
+      name: q.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: q.answer,
+      },
+    })),
+  }
+
+  return <JsonLdScript id="faq-jsonld" data={faqPage} />
+}
+
+// ─── Creature (using CreativeWork schema) ─────────────────────────────
+interface CreatureJsonLdProps {
+  name: string
+  description: string
+  url: string
+  image?: string
+  abilities?: string[]
+}
+
+export function CreatureJsonLd({
+  name,
+  description,
+  url,
+  image,
+  abilities,
+}: CreatureJsonLdProps) {
+  const creature: Record<string, unknown> = {
+    '@context': 'https://schema.org',
+    '@type': ['Thing', 'Article'],
+    name,
+    description,
+    url: `${siteConfig.url}${url}`,
+    headline: name,
+    author: {
+      '@type': 'Organization',
+      name: siteConfig.name,
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: siteConfig.name,
+      url: siteConfig.url,
+    },
+    datePublished: '2026-01-01T00:00:00Z',
+    dateModified: '2026-02-01T00:00:00Z',
+  }
+
+  if (abilities && abilities.length > 0) {
+    creature.keywords = abilities
+  }
+  if (image) {
+    creature.image = `${siteConfig.url}${image}`
+  }
+
+  return <JsonLdScript id="creature-jsonld" data={creature} />
+}
+
+// ─── Artifact (using Product-like schema) ─────────────────────────────
+interface ArtifactJsonLdProps {
+  name: string
+  description: string
+  url: string
+  image?: string
+  powers?: string[]
+}
+
+export function ArtifactJsonLd({
+  name,
+  description,
+  url,
+  image,
+  powers,
+}: ArtifactJsonLdProps) {
+  const artifact: Record<string, unknown> = {
+    '@context': 'https://schema.org',
+    '@type': ['Thing', 'Article'],
+    name,
+    description,
+    url: `${siteConfig.url}${url}`,
+    headline: name,
+    author: {
+      '@type': 'Organization',
+      name: siteConfig.name,
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: siteConfig.name,
+      url: siteConfig.url,
+    },
+    datePublished: '2026-01-01T00:00:00Z',
+    dateModified: '2026-02-01T00:00:00Z',
+  }
+
+  if (powers && powers.length > 0) {
+    artifact.keywords = powers
+  }
+  if (image) {
+    artifact.image = `${siteConfig.url}${image}`
+  }
+
+  return <JsonLdScript id="artifact-jsonld" data={artifact} />
+}
+
+// ─── ItemList (for listing pages) ─────────────────────────────────────
+interface ItemListJsonLdProps {
+  name: string
+  description: string
+  url: string
+  items: Array<{
+    name: string
+    url: string
+    position: number
+  }>
+}
+
+export function ItemListJsonLd({
+  name,
+  description,
+  url,
+  items,
+}: ItemListJsonLdProps) {
+  const itemList = {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name,
+    description,
+    url: `${siteConfig.url}${url}`,
+    numberOfItems: items.length,
+    itemListElement: items.map((item) => ({
+      '@type': 'ListItem',
+      position: item.position,
+      name: item.name,
+      url: `${siteConfig.url}${item.url}`,
+    })),
+  }
+
+  return <JsonLdScript id="itemlist-jsonld" data={itemList} />
+}

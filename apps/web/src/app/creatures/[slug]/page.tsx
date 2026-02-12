@@ -9,6 +9,8 @@ import { Badge } from '@/components/ui/badge';
 import { Loader2, ShieldAlert, Zap, MapPin } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { CreatureJsonLd, BreadcrumbJsonLd } from '@/components/seo/JsonLd';
+import { siteConfig } from '@/lib/metadata';
 
 interface Creature {
     id: string;
@@ -62,8 +64,22 @@ export default function CreaturePage() {
     const creature = data.creature;
     const dangerColor = creature.dangerLevel >= 9 ? 'text-red-600' : creature.dangerLevel >= 7 ? 'text-orange-500' : 'text-yellow-500';
 
+    const breadcrumbItems = [
+        { name: 'Home', item: siteConfig.url },
+        { name: 'Creatures', item: `${siteConfig.url}/creatures` },
+        { name: creature.name, item: `${siteConfig.url}/creatures/${creature.slug}` },
+    ];
+
     return (
         <div className="min-h-screen">
+            <CreatureJsonLd
+                name={creature.name}
+                description={creature.description}
+                url={`/creatures/${creature.slug}`}
+                image={creature.imageUrl || undefined}
+                abilities={creature.abilities}
+            />
+            <BreadcrumbJsonLd items={breadcrumbItems} />
             {/* Hero Section with Background Image */}
             <div className="relative overflow-hidden bg-slate-950">
                 <div className="absolute inset-0 z-0">

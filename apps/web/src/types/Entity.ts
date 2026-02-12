@@ -31,6 +31,12 @@ export interface Artifact extends BaseEntity {
     powers: string[];
 }
 
+export interface Pronunciation {
+    ipa: string;
+    phonetic: string;
+    audioUrl?: string;
+}
+
 export interface Deity extends BaseEntity {
     id: string;
     pantheonId: string;
@@ -45,6 +51,7 @@ export interface Deity extends BaseEntity {
     originStory?: string;
     importanceRank: number;
     imageUrl?: string;
+    pronunciation?: Pronunciation;
     crossPantheonParallels?: Array<{
         pantheonId: string;
         deityId: string;
@@ -60,6 +67,13 @@ export interface Deity extends BaseEntity {
         festivals?: string[];
         practices?: string;
     };
+}
+
+export interface MythVariant {
+    source: string;
+    date?: string;
+    difference: string;
+    note?: string;
 }
 
 export interface Story extends BaseEntity {
@@ -86,6 +100,7 @@ export interface Story extends BaseEntity {
     featuredDeities?: string[];
     featuredLocations?: string[];
     relatedStories?: string[];
+    variants?: MythVariant[];
 }
 
 export interface Achievement {

@@ -22,19 +22,159 @@
   {
     "id": "delphi",
     "name": "Delphi",
-    "locationType": "city",
+    "locationType": "sacred_site",
     "pantheonId": "greek-pantheon",
-    "description": "The site of the oracle of Apollo, considered the center of the world by the ancient Greeks.",
+    "description": "The site of the oracle of Apollo, considered the center of the world (omphalos) by the ancient Greeks.",
     "latitude": 38.48,
     "longitude": 22.5,
     "imageUrl": "/locations/delphi.png"
+  },
+  {
+    "id": "tartarus",
+    "name": "Tartarus",
+    "locationType": "underworld",
+    "pantheonId": "greek-pantheon",
+    "description": "The deepest abyss of the underworld, a dungeon of torment where the Titans were imprisoned and the wicked punished for eternity.",
+    "latitude": null,
+    "longitude": null,
+    "imageUrl": "/locations/tartarus.png"
+  },
+  {
+    "id": "elysian-fields",
+    "name": "Elysian Fields",
+    "locationType": "realm",
+    "pantheonId": "greek-pantheon",
+    "description": "A paradise at the end of the earth where heroes and the virtuous were sent after death to live in eternal bliss.",
+    "latitude": null,
+    "longitude": null,
+    "imageUrl": "/locations/elysian-fields.png"
+  },
+  {
+    "id": "river-styx",
+    "name": "River Styx",
+    "locationType": "body_of_water",
+    "pantheonId": "greek-pantheon",
+    "description": "The principal river of the underworld, upon which even the gods swore binding oaths. Charon ferried the dead across its dark waters.",
+    "latitude": null,
+    "longitude": null,
+    "imageUrl": "/locations/river-styx.png"
+  },
+  {
+    "id": "olympia",
+    "name": "Olympia",
+    "locationType": "sacred_site",
+    "pantheonId": "greek-pantheon",
+    "description": "The sanctuary of Zeus and site of the ancient Olympic Games, featuring a colossal statue of Zeus—one of the Seven Wonders.",
+    "latitude": 37.638,
+    "longitude": 21.63,
+    "imageUrl": "/locations/olympia.png"
+  },
+  {
+    "id": "thebes",
+    "name": "Thebes",
+    "locationType": "city",
+    "pantheonId": "greek-pantheon",
+    "description": "A powerful city-state and setting of many tragic myths including Oedipus, the Seven Against Thebes, and Dionysus's revenge.",
+    "latitude": 38.319,
+    "longitude": 23.318,
+    "imageUrl": "/locations/thebes.png"
+  },
+  {
+    "id": "colchis",
+    "name": "Colchis",
+    "locationType": "realm",
+    "pantheonId": "greek-pantheon",
+    "description": "The distant kingdom at the edge of the known world where the Golden Fleece was kept, guarded by an ever-watchful dragon.",
+    "latitude": 42.266,
+    "longitude": 42.718,
+    "imageUrl": "/locations/colchis.png"
+  },
+  {
+    "id": "crete",
+    "name": "Crete",
+    "locationType": "realm",
+    "pantheonId": "greek-pantheon",
+    "description": "The great island kingdom of King Minos, home to the Labyrinth where the Minotaur dwelt, and birthplace of Zeus.",
+    "latitude": 35.24,
+    "longitude": 24.91,
+    "imageUrl": "/locations/crete.png"
+  },
+  {
+    "id": "ithaca",
+    "name": "Ithaca",
+    "locationType": "realm",
+    "pantheonId": "greek-pantheon",
+    "description": "The island kingdom of Odysseus, whose twenty-year journey home from Troy is told in Homer's Odyssey.",
+    "latitude": 38.366,
+    "longitude": 20.718,
+    "imageUrl": "/locations/ithaca.png"
+  },
+  {
+    "id": "sparta",
+    "name": "Sparta",
+    "locationType": "city",
+    "pantheonId": "greek-pantheon",
+    "description": "The powerful warrior city-state, home of Helen whose abduction sparked the Trojan War, and Menelaus her husband.",
+    "latitude": 37.073,
+    "longitude": 22.43,
+    "imageUrl": "/locations/sparta.png"
+  },
+  {
+    "id": "troy",
+    "name": "Troy",
+    "locationType": "city",
+    "pantheonId": "greek-pantheon",
+    "description": "The legendary walled city besieged for ten years by the Greeks, eventually fallen to the cunning of the wooden horse.",
+    "latitude": 39.957,
+    "longitude": 26.239,
+    "imageUrl": "/locations/troy.png"
+  },
+  {
+    "id": "delos",
+    "name": "Delos",
+    "locationType": "sacred_site",
+    "pantheonId": "greek-pantheon",
+    "description": "The sacred island birthplace of Apollo and Artemis, where their mother Leto finally found refuge to give birth.",
+    "latitude": 37.396,
+    "longitude": 25.268,
+    "imageUrl": "/locations/delos.png"
+  },
+  {
+    "id": "lemnos",
+    "name": "Lemnos",
+    "locationType": "realm",
+    "pantheonId": "greek-pantheon",
+    "description": "The volcanic island where Hephaestus landed after being cast from Olympus, and where he established his forge.",
+    "latitude": 39.916,
+    "longitude": 25.236,
+    "imageUrl": "/locations/lemnos.png"
+  },
+  {
+    "id": "naxos",
+    "name": "Naxos",
+    "locationType": "sacred_site",
+    "pantheonId": "greek-pantheon",
+    "description": "The island where Theseus abandoned Ariadne, only for Dionysus to find and marry her, making it sacred to the wine god.",
+    "latitude": 37.103,
+    "longitude": 25.378,
+    "imageUrl": "/locations/naxos.png"
+  },
+  {
+    "id": "cape-sounion",
+    "name": "Cape Sounion",
+    "locationType": "temple",
+    "pantheonId": "greek-pantheon",
+    "description": "A dramatic clifftop promontory crowned by the Temple of Poseidon, where Aegeus leapt to his death upon seeing black sails.",
+    "latitude": 37.65,
+    "longitude": 24.026,
+    "imageUrl": "/locations/cape-sounion.png"
   },
   {
     "id": "asgard",
     "name": "Asgard",
     "locationType": "realm",
     "pantheonId": "norse-pantheon",
-    "description": "One of the Nine Worlds and home to the Aesir tribe of gods.",
+    "description": "One of the Nine Worlds and home to the Aesir tribe of gods, connected to Midgard by the rainbow bridge Bifrost.",
     "latitude": null,
     "longitude": null,
     "imageUrl": "/locations/asgard.png"
@@ -44,10 +184,90 @@
     "name": "Midgard",
     "locationType": "realm",
     "pantheonId": "norse-pantheon",
-    "description": "The realm of humanity (Earth), connected to Asgard by the Bifrost bridge.",
+    "description": "The realm of humanity (Earth), encircled by the world serpent Jormungandr and connected to Asgard by the Bifrost bridge.",
     "latitude": null,
     "longitude": null,
     "imageUrl": "/locations/midgard.png"
+  },
+  {
+    "id": "niflheim",
+    "name": "Niflheim",
+    "locationType": "realm",
+    "pantheonId": "norse-pantheon",
+    "description": "The primordial realm of ice, mist, and cold. Its frozen rivers combined with Muspelheim's fire to create the first life.",
+    "latitude": null,
+    "longitude": null,
+    "imageUrl": "/locations/niflheim.png"
+  },
+  {
+    "id": "muspelheim",
+    "name": "Muspelheim",
+    "locationType": "realm",
+    "pantheonId": "norse-pantheon",
+    "description": "The primordial realm of fire, ruled by the fire giant Surtr, whose flames will consume the world at Ragnarok.",
+    "latitude": null,
+    "longitude": null,
+    "imageUrl": "/locations/muspelheim.png"
+  },
+  {
+    "id": "jotunheim",
+    "name": "Jotunheim",
+    "locationType": "realm",
+    "pantheonId": "norse-pantheon",
+    "description": "The land of the frost giants and other jotnar, a harsh wilderness of mountains and forests bordering Asgard.",
+    "latitude": null,
+    "longitude": null,
+    "imageUrl": "/locations/jotunheim.png"
+  },
+  {
+    "id": "vanaheim",
+    "name": "Vanaheim",
+    "locationType": "realm",
+    "pantheonId": "norse-pantheon",
+    "description": "Home of the Vanir gods associated with fertility, wisdom, and nature—including Freya, Freyr, and Njord.",
+    "latitude": null,
+    "longitude": null,
+    "imageUrl": "/locations/vanaheim.png"
+  },
+  {
+    "id": "svartalfheim",
+    "name": "Svartalfheim",
+    "locationType": "realm",
+    "pantheonId": "norse-pantheon",
+    "description": "The underground realm of the dwarves (dark elves), master craftsmen who forged Mjolnir, Gungnir, and other legendary items.",
+    "latitude": null,
+    "longitude": null,
+    "imageUrl": "/locations/svartalfheim.png"
+  },
+  {
+    "id": "alfheim",
+    "name": "Alfheim",
+    "locationType": "realm",
+    "pantheonId": "norse-pantheon",
+    "description": "The radiant realm of the light elves, beautiful beings associated with fertility and given to Freyr as a tooth-gift.",
+    "latitude": null,
+    "longitude": null,
+    "imageUrl": "/locations/alfheim.png"
+  },
+  {
+    "id": "helheim",
+    "name": "Helheim",
+    "locationType": "underworld",
+    "pantheonId": "norse-pantheon",
+    "description": "The realm of the dead ruled by Hel, daughter of Loki. Those who died of illness or old age dwell here in cold monotony.",
+    "latitude": null,
+    "longitude": null,
+    "imageUrl": "/locations/helheim.png"
+  },
+  {
+    "id": "bifrost",
+    "name": "Bifrost",
+    "locationType": "sacred_site",
+    "pantheonId": "norse-pantheon",
+    "description": "The burning rainbow bridge connecting Asgard to Midgard, guarded by the vigilant god Heimdall with his Gjallarhorn.",
+    "latitude": null,
+    "longitude": null,
+    "imageUrl": "/locations/bifrost.png"
   },
   {
     "id": "giza-plateau",
@@ -68,6 +288,56 @@
     "latitude": 25.719,
     "longitude": 32.657,
     "imageUrl": "/locations/karnak.png"
+  },
+  {
+    "id": "duat",
+    "name": "Duat",
+    "locationType": "underworld",
+    "pantheonId": "egyptian-pantheon",
+    "description": "The Egyptian underworld through which Ra travels each night and the dead must journey, facing trials before Osiris's judgment.",
+    "latitude": null,
+    "longitude": null,
+    "imageUrl": "/locations/duat.png"
+  },
+  {
+    "id": "field-of-reeds",
+    "name": "Field of Reeds (Aaru)",
+    "locationType": "realm",
+    "pantheonId": "egyptian-pantheon",
+    "description": "The Egyptian paradise, a heavenly realm of abundance where the righteous dead lived eternally in peace and plenty.",
+    "latitude": null,
+    "longitude": null,
+    "imageUrl": "/locations/field-of-reeds.png"
+  },
+  {
+    "id": "heliopolis",
+    "name": "Heliopolis",
+    "locationType": "city",
+    "pantheonId": "egyptian-pantheon",
+    "description": "The ancient City of the Sun, center of Ra worship and home to the Ennead—the nine primordial creator gods.",
+    "latitude": 30.131,
+    "longitude": 31.308,
+    "imageUrl": "/locations/heliopolis.png"
+  },
+  {
+    "id": "memphis",
+    "name": "Memphis",
+    "locationType": "city",
+    "pantheonId": "egyptian-pantheon",
+    "description": "The ancient capital of Egypt, cult center of Ptah the creator god, and gateway between Upper and Lower Egypt.",
+    "latitude": 29.844,
+    "longitude": 31.254,
+    "imageUrl": "/locations/memphis.png"
+  },
+  {
+    "id": "abydos",
+    "name": "Abydos",
+    "locationType": "sacred_site",
+    "pantheonId": "egyptian-pantheon",
+    "description": "The cult center of Osiris and gateway to the underworld, where pharaohs built cenotaphs to be near the god of the dead.",
+    "latitude": 26.185,
+    "longitude": 31.919,
+    "imageUrl": "/locations/abydos.png"
   },
   {
     "id": "roman-forum",
@@ -94,7 +364,7 @@
     "name": "Mount Kailash",
     "locationType": "sacred_site",
     "pantheonId": "hindu-pantheon",
-    "description": "A peak in the Kailash Range, considered the abode of Lord Shiva and a place of eternal bliss.",
+    "description": "The sacred peak in Tibet considered the abode of Lord Shiva and Parvati, axis mundi of the cosmos.",
     "latitude": 31.0674,
     "longitude": 81.3119,
     "imageUrl": "/locations/mount-kailash.png"
@@ -104,7 +374,7 @@
     "name": "Varanasi",
     "locationType": "city",
     "pantheonId": "hindu-pantheon",
-    "description": "The spiritual capital of India, situated on the banks of the Ganges, dedicated to Lord Shiva.",
+    "description": "The spiritual capital of India, situated on the banks of the Ganges, one of the oldest continuously inhabited cities and sacred to Shiva.",
     "latitude": 25.3176,
     "longitude": 82.9739,
     "imageUrl": "/locations/varanasi.png"
@@ -114,18 +384,48 @@
     "name": "Ayodhya",
     "locationType": "city",
     "pantheonId": "hindu-pantheon",
-    "description": "The birthplace of Rama and setting of the Ramayana epic.",
+    "description": "The birthplace and capital of Lord Rama, setting of the great epic Ramayana and one of Hinduism's seven sacred cities.",
     "latitude": 26.7922,
     "longitude": 82.1961,
     "imageUrl": "/locations/ayodhya.png"
+  },
+  {
+    "id": "mount-meru",
+    "name": "Mount Meru",
+    "locationType": "mountain",
+    "pantheonId": "hindu-pantheon",
+    "description": "The cosmic mountain at the center of the universe, around which the sun, moon, and stars revolve. Home of the devas.",
+    "latitude": null,
+    "longitude": null,
+    "imageUrl": "/locations/mount-meru.png"
+  },
+  {
+    "id": "vaikuntha",
+    "name": "Vaikuntha",
+    "locationType": "realm",
+    "pantheonId": "hindu-pantheon",
+    "description": "The eternal abode of Lord Vishnu and Lakshmi, a celestial realm of infinite bliss beyond the material universe.",
+    "latitude": null,
+    "longitude": null,
+    "imageUrl": "/locations/vaikuntha.png"
+  },
+  {
+    "id": "lanka",
+    "name": "Lanka",
+    "locationType": "city",
+    "pantheonId": "hindu-pantheon",
+    "description": "The golden island kingdom of the demon king Ravana, who abducted Sita and was defeated by Rama's army.",
+    "latitude": 7.8731,
+    "longitude": 80.7718,
+    "imageUrl": "/locations/lanka.png"
   },
   {
     "id": "ise-grand-shrine",
     "name": "Ise Grand Shrine",
     "locationType": "temple",
     "pantheonId": "japanese-pantheon",
-    "description": "The most sacred Shinto shrine, dedicated to Amaterasu, rebuilt every 20 years.",
-    "latitude": 34.4550,
+    "description": "The most sacred Shinto shrine, dedicated to Amaterasu the sun goddess, ritually rebuilt every 20 years.",
+    "latitude": 34.455,
     "longitude": 136.7258,
     "imageUrl": "/locations/ise-grand-shrine.png"
   },
@@ -134,8 +434,8 @@
     "name": "Izumo Taisha",
     "locationType": "temple",
     "pantheonId": "japanese-pantheon",
-    "description": "One of the most ancient and important Shinto shrines, dedicated to Okuninushi (descendant of Susanoo).",
-    "latitude": 35.4020,
+    "description": "One of the most ancient and important Shinto shrines, dedicated to Okuninushi, lord of the unseen world.",
+    "latitude": 35.402,
     "longitude": 132.6855,
     "imageUrl": "/locations/izumo-taisha.png"
   },
@@ -144,7 +444,7 @@
     "name": "Mount Fuji",
     "locationType": "sacred_site",
     "pantheonId": "japanese-pantheon",
-    "description": "Japan's highest mountain, considered a sacred place and dwelling of kami.",
+    "description": "Japan's highest and most sacred mountain, believed to be the dwelling place of kami and a source of immortality.",
     "latitude": 35.3606,
     "longitude": 138.7274,
     "imageUrl": "/locations/mount-fuji.png"
@@ -152,9 +452,9 @@
   {
     "id": "floating-bridge",
     "name": "Floating Bridge of Heaven",
-    "locationType": "mythical_realm",
+    "locationType": "realm",
     "pantheonId": "japanese-pantheon",
-    "description": "The bridge from which Izanagi and Izanami stood to create the islands of Japan.",
+    "description": "The celestial bridge from which Izanagi and Izanami stirred the primordial ocean to create the islands of Japan.",
     "latitude": null,
     "longitude": null,
     "imageUrl": "/locations/floating-bridge.png"
@@ -164,10 +464,30 @@
     "name": "Yomi",
     "locationType": "underworld",
     "pantheonId": "japanese-pantheon",
-    "description": "The land of the dead in Japanese mythology, ruled by Izanami.",
+    "description": "The shadowy land of the dead ruled by Izanami, from which Izanagi barely escaped after seeing his wife's decayed form.",
     "latitude": null,
     "longitude": null,
     "imageUrl": "/locations/yomi.png"
+  },
+  {
+    "id": "takamagahara",
+    "name": "Takamagahara",
+    "locationType": "realm",
+    "pantheonId": "japanese-pantheon",
+    "description": "The High Plain of Heaven, dwelling place of the heavenly kami including Amaterasu and the celestial court.",
+    "latitude": null,
+    "longitude": null,
+    "imageUrl": "/locations/takamagahara.png"
+  },
+  {
+    "id": "izumo",
+    "name": "Izumo Province",
+    "locationType": "realm",
+    "pantheonId": "japanese-pantheon",
+    "description": "The earthly domain granted to Susanoo after his exile from heaven, where he slew the eight-headed serpent Yamata no Orochi.",
+    "latitude": 35.472,
+    "longitude": 132.759,
+    "imageUrl": "/locations/izumo.png"
   },
   {
     "id": "newgrange",
@@ -204,7 +524,7 @@
     "name": "Mictlan",
     "locationType": "underworld",
     "pantheonId": "aztec-pantheon",
-    "description": "The nine-level underworld of Aztec mythology, a dangerous journey for the souls of the dead.",
+    "description": "The nine-level underworld of Aztec mythology, a perilous four-year journey for the souls of the dead to reach Mictlantecuhtli.",
     "latitude": null,
     "longitude": null,
     "imageUrl": "/locations/mictlan.png"
@@ -214,9 +534,9 @@
     "name": "Mount Kunlun",
     "locationType": "mountain",
     "pantheonId": "chinese-pantheon",
-    "description": "A mythical mountain in the west, dwelling place of Xiwangmu (Queen Mother of the West) and source of the peaches of immortality.",
-    "latitude": 36.0000,
-    "longitude": 84.0000,
+    "description": "The mythical mountain paradise in the west, dwelling of Xiwangmu (Queen Mother of the West) and source of the peaches of immortality.",
+    "latitude": 36.0,
+    "longitude": 84.0,
     "imageUrl": "/locations/mount-kunlun.png"
   },
   {
@@ -224,7 +544,7 @@
     "name": "The Heavenly Palace",
     "locationType": "realm",
     "pantheonId": "chinese-pantheon",
-    "description": "The opulent abode of the Jade Emperor, located in the highest heavens, resembling the forbidden city.",
+    "description": "The opulent celestial court of the Jade Emperor, where the celestial bureaucracy governs all of heaven and earth.",
     "latitude": null,
     "longitude": null,
     "imageUrl": "/locations/heavenly-palace.png"

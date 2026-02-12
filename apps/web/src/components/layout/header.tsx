@@ -1,26 +1,55 @@
 'use client'
 
 import Link from 'next/link';
-import { Search, Command, Heart, Trophy } from 'lucide-react';
+import { Search, Command, Heart } from 'lucide-react';
 import { Logo } from '@/components/ui/logo';
 import { ThemeToggle } from '@/components/ui/theme-toggle';
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
 import { MobileNav } from '@/components/layout/mobile-nav';
+import { MegaMenu } from '@/components/layout/mega-menu';
+import { QuickActions } from '@/components/layout/quick-actions';
 
-const navLinks = [
-  { href: '/pantheons', label: 'Pantheons' },
-  { href: '/deities', label: 'Deities' },
-  { href: '/domains', label: 'Domains' },
-  { href: '/timeline', label: 'Timeline' },
-  { href: '/family-tree', label: 'Family Tree' },
-  { href: '/locations', label: 'Locations' },
-  { href: '/creatures', label: 'Creatures' },
-  { href: '/artifacts', label: 'Artifacts' },
-  { href: '/stories', label: 'Stories' },
-  { href: '/quiz', label: 'Quiz' },
-  { href: '/about', label: 'About' },
+// Navigation structure for mobile
+export const mobileNavSections = [
+  {
+    title: 'Explore',
+    links: [
+      { href: '/pantheons', label: 'Pantheons' },
+      { href: '/deities', label: 'Deities' },
+      { href: '/stories', label: 'Stories' },
+      { href: '/creatures', label: 'Creatures' },
+      { href: '/artifacts', label: 'Artifacts' },
+      { href: '/locations', label: 'Locations' },
+      { href: '/journeys', label: 'Hero Journeys' },
+    ],
+  },
+  {
+    title: 'Discover',
+    links: [
+      { href: '/divine-domains', label: 'Divine Domains' },
+      { href: '/compare', label: 'Compare Deities' },
+      { href: '/knowledge-graph', label: 'Knowledge Graph' },
+      { href: '/family-tree', label: 'Family Tree' },
+      { href: '/timeline', label: 'Timeline' },
+    ],
+  },
+  {
+    title: 'Learn',
+    links: [
+      { href: '/quiz', label: 'Quiz' },
+      { href: '/review', label: 'Daily Review' },
+      { href: '/progress', label: 'Progress' },
+    ],
+  },
+  {
+    title: 'More',
+    links: [
+      { href: '/bookmarks', label: 'Bookmarks' },
+      { href: '/about', label: 'About' },
+    ],
+  },
 ];
 
 export function Header() {
@@ -61,7 +90,7 @@ export function Header() {
       <div className="container mx-auto max-w-7xl flex h-16 items-center px-4">
         {/* Mobile Navigation Trigger */}
         <div className="lg:hidden mr-2">
-          <MobileNav navLinks={navLinks} />
+          <MobileNav sections={mobileNavSections} />
         </div>
 
         {/* Logo */}
@@ -86,24 +115,18 @@ export function Header() {
           </div>
         </Link>
 
-        {/* Desktop Navigation */}
-        <nav className="hidden lg:flex items-center gap-1 xl:gap-2 mx-auto">
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="relative px-3 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors duration-200 group"
-            >
-              <span className="relative z-10">{link.label}</span>
-              <span className="absolute inset-x-1 -bottom-px h-px bg-gradient-to-r from-transparent via-gold/60 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
-            </Link>
-          ))}
-        </nav>
+        {/* Desktop Navigation with Mega Menu */}
+        <div className="mx-auto">
+          <MegaMenu />
+        </div>
 
         {/* Right Actions */}
         <div className="flex items-center gap-2 ml-auto lg:ml-0">
           {/* Divider */}
           <div className="hidden lg:block w-px h-6 bg-border mx-2" />
+
+          {/* Quick Actions (Streak & Review Count) */}
+          <QuickActions />
 
           {/* Command Palette Trigger */}
           <button
@@ -120,15 +143,6 @@ export function Header() {
               <span>K</span>
             </kbd>
           </button>
-
-          {/* Progress */}
-          <Link
-            href="/progress"
-            className="flex items-center justify-center p-2 text-muted-foreground hover:text-amber-500 rounded-lg hover:bg-muted/50 transition-all duration-200"
-            aria-label="Your Progress"
-          >
-            <Trophy className="h-4 w-4" strokeWidth={1.5} />
-          </Link>
 
           {/* Bookmarks */}
           <Link

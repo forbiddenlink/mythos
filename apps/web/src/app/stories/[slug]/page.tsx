@@ -9,6 +9,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Loader2, BookOpen, Tag } from 'lucide-react';
 import { Breadcrumbs } from '@/components/navigation/Breadcrumbs';
 import { BookmarkButton } from '@/components/ui/bookmark-button';
+import { ExportIconButton } from '@/components/ui/export-button';
 import { ArticleJsonLd } from '@/components/seo/JsonLd';
 import Link from 'next/link';
 import ReactMarkdown from 'react-markdown';
@@ -17,8 +18,10 @@ import { Volume2, Square } from 'lucide-react';
 import { ArtifactViewer } from '@/components/artifacts/ArtifactViewer';
 import { ProgressContext } from '@/providers/progress-provider';
 import { RelatedContent } from '@/components/related-content';
+import { MythVariants } from '@/components/stories/MythVariants';
 import deitiesData from '@/data/deities.json';
 import locationsData from '@/data/locations.json';
+import { DetailPageSkeleton } from '@/components/ui/skeleton-cards';
 
 function useProgress() {
   const context = useContext(ProgressContext);
@@ -44,6 +47,13 @@ function StoryProgressTracker({ storyId, pantheonId }: { storyId: string; panthe
   return null;
 }
 
+interface MythVariant {
+  source: string;
+  date?: string;
+  difference: string;
+  note?: string;
+}
+
 interface Story {
   id: string;
   pantheonId: string;
@@ -58,6 +68,7 @@ interface Story {
   featuredDeities?: string[];
   featuredLocations?: string[];
   relatedStories?: string[];
+  variants?: MythVariant[];
 }
 
 interface Deity {
@@ -87,11 +98,7 @@ export default function StoryPage() {
   });
 
   if (isLoading) {
-    return (
-      <div className="container mx-auto max-w-6xl px-4 py-24 flex items-center justify-center">
-        <Loader2 className="h-8 w-8 animate-spin text-primary" />
-      </div>
-    );
+    return <DetailPageSkeleton />;
   }
 
   if (error) {
@@ -213,6 +220,24 @@ export default function StoryPage() {
             <BookmarkButton type="story" id={story?.id || ''} size="lg" variant="light" />
 
             {story && (
+              <ExportIconButton
+                type="story"
+                data={{
+                  title: story.title,
+                  summary: story.summary,
+                  fullNarrative: story.fullNarrative,
+                  category: story.category,
+                  moralThemes: story.moralThemes,
+                  culturalSignificance: story.culturalSignificance,
+                  pantheonId: story.pantheonId,
+                  featuredDeities: story.featuredDeities,
+                }}
+                variant="ghost"
+                className="text-gold hover:bg-gold/20"
+              />
+            )}
+
+            {story && (
               <button
                 onClick={() => {
                   if (isSpeaking) {
@@ -323,6 +348,11 @@ export default function StoryPage() {
                 </p>
               </CardContent>
             </Card>
+          )}
+
+          {/* Myth Variants */}
+          {story.variants && story.variants.length > 0 && (
+            <MythVariants variants={story.variants} />
           )}
 
           {/* Related Content Section */}

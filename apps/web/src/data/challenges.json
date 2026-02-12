@@ -1,0 +1,123 @@
+[
+  {
+    "id": "explore-greek-5",
+    "title": "Greek Explorer",
+    "description": "Learn about 5 Greek deities this week",
+    "type": "deity_view",
+    "pantheon": "greek-pantheon",
+    "target": 5,
+    "xpReward": 50,
+    "duration": "week"
+  },
+  {
+    "id": "explore-norse-5",
+    "title": "Norse Wanderer",
+    "description": "Discover 5 Norse deities this week",
+    "type": "deity_view",
+    "pantheon": "norse-pantheon",
+    "target": 5,
+    "xpReward": 50,
+    "duration": "week"
+  },
+  {
+    "id": "explore-egyptian-5",
+    "title": "Keeper of Secrets",
+    "description": "Meet 5 Egyptian deities this week",
+    "type": "deity_view",
+    "pantheon": "egyptian-pantheon",
+    "target": 5,
+    "xpReward": 50,
+    "duration": "week"
+  },
+  {
+    "id": "story-collector-3",
+    "title": "Tale Collector",
+    "description": "Read 3 mythology stories this week",
+    "type": "story_read",
+    "pantheon": null,
+    "target": 3,
+    "xpReward": 40,
+    "duration": "week"
+  },
+  {
+    "id": "quiz-champion",
+    "title": "Quiz Champion",
+    "description": "Complete 2 quizzes with 80%+ score",
+    "type": "quiz_score",
+    "pantheon": null,
+    "target": 2,
+    "minScore": 80,
+    "xpReward": 60,
+    "duration": "week"
+  },
+  {
+    "id": "daily-devotion",
+    "title": "Daily Devotion",
+    "description": "Visit 5 days in a row",
+    "type": "streak",
+    "pantheon": null,
+    "target": 5,
+    "xpReward": 75,
+    "duration": "week"
+  },
+  {
+    "id": "pantheon-hopper",
+    "title": "Pantheon Hopper",
+    "description": "Explore deities from 3 different pantheons",
+    "type": "pantheon_variety",
+    "pantheon": null,
+    "target": 3,
+    "xpReward": 45,
+    "duration": "week"
+  },
+  {
+    "id": "deep-reader",
+    "title": "Deep Reader",
+    "description": "Read 5 stories with full narratives",
+    "type": "story_read",
+    "pantheon": null,
+    "target": 5,
+    "xpReward": 55,
+    "duration": "week"
+  },
+  {
+    "id": "roman-expedition",
+    "title": "Roman Expedition",
+    "description": "Learn about 4 Roman deities this week",
+    "type": "deity_view",
+    "pantheon": "roman-pantheon",
+    "target": 4,
+    "xpReward": 45,
+    "duration": "week"
+  },
+  {
+    "id": "hindu-pilgrimage",
+    "title": "Hindu Pilgrimage",
+    "description": "Discover 4 Hindu deities this week",
+    "type": "deity_view",
+    "pantheon": "hindu-pantheon",
+    "target": 4,
+    "xpReward": 45,
+    "duration": "week"
+  },
+  {
+    "id": "celtic-journey",
+    "title": "Celtic Journey",
+    "description": "Meet 3 Celtic deities this week",
+    "type": "deity_view",
+    "pantheon": "celtic-pantheon",
+    "target": 3,
+    "xpReward": 40,
+    "duration": "week"
+  },
+  {
+    "id": "japanese-discovery",
+    "title": "Kami Seeker",
+    "description": "Learn about 3 Japanese kami this week",
+    "type": "deity_view",
+    "pantheon": "japanese-pantheon",
+    "target": 3,
+    "xpReward": 40,
+    "duration": "week"
+  }
+]

@@ -13,8 +13,11 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { FamilyTreeVisualization } from '@/components/family-tree/FamilyTreeVisualization';
 import { BookmarkButton } from '@/components/ui/bookmark-button';
+import { ExportIconButton } from '@/components/ui/export-button';
 import { DeityJsonLd } from '@/components/seo/JsonLd';
 import ReactMarkdown from 'react-markdown';
+import { DetailPageSkeleton } from '@/components/ui/skeleton-cards';
+import { PronunciationDisplay } from '@/components/ui/pronunciation';
 
 function useProgress() {
   const context = useContext(ProgressContext);
@@ -22,6 +25,12 @@ function useProgress() {
     throw new Error('useProgress must be used within ProgressProvider');
   }
   return context;
+}
+
+interface Pronunciation {
+  ipa: string;
+  phonetic: string;
+  audioUrl?: string;
 }
 
 interface Deity {
@@ -35,7 +44,7 @@ interface Deity {
   description: string | null;
   detailedBio?: string | null;
   originStory: string | null;
-
+  pronunciation?: Pronunciation;
   importanceRank: number | null;
   imageUrl: string | null;
   alternateNames: string[];
@@ -85,6 +94,11 @@ export default function DeityPage() {
             description
             detailedBio
             originStory
+            pronunciation {
+              ipa
+              phonetic
+              audioUrl
+            }
             importanceRank
             imageUrl
             alternateNames
@@ -161,11 +175,7 @@ export default function DeityPage() {
   });
 
   if (isLoading) {
-    return (
-      <div className="container mx-auto max-w-4xl px-4 py-24 flex items-center justify-center">
-        <Loader2 className="h-8 w-8 animate-spin text-primary" />
-      </div>
-    );
+    return <DetailPageSkeleton />;
   }
 
   if (error) {
@@ -237,9 +247,17 @@ export default function DeityPage() {
           <div className="space-y-8">
             {/* Header */}
             <div>
-              <div className="flex items-center gap-4 mb-4">
+              <div className="flex items-center gap-4 mb-4" style={{ viewTransitionName: 'page-header' }}>
                 <div className="flex-1">
-                  <h1 className="font-serif text-4xl font-bold tracking-tight text-white">{deity.name}</h1>
+                  <div className="flex items-baseline gap-3">
+                    <h1 className="font-serif text-4xl font-bold tracking-tight text-white">{deity.name}</h1>
+                    {deity.pronunciation && (
+                      <PronunciationDisplay
+                        pronunciation={deity.pronunciation}
+                        className="text-slate-200 hover:text-white"
+                      />
+                    )}
+                  </div>
                   {deity.alternateNames && deity.alternateNames.length > 0 && (
                     <p className="text-slate-200 mt-1 font-light">
                       Also known as: {deity.alternateNames.join(', ')}
@@ -247,6 +265,24 @@ export default function DeityPage() {
                   )}
                 </div>
                 <BookmarkButton type="deity" id={deity.id} size="lg" variant="light" />
+                <ExportIconButton
+                  type="deity"
+                  data={{
+                    name: deity.name,
+                    alternateNames: deity.alternateNames,
+                    description: deity.description,
+                    detailedBio: deity.detailedBio,
+                    originStory: deity.originStory,
+                    domain: deity.domain,
+                    symbols: deity.symbols,
+                    pantheonId: deity.pantheonId,
+                    imageUrl: deity.imageUrl,
+                    primarySources: deity.primarySources,
+                    worship: deity.worship,
+                  }}
+                  variant="ghost"
+                  className="text-white hover:bg-white/20"
+                />
               </div>
             </div>
           </div>
@@ -259,9 +295,12 @@ export default function DeityPage() {
 
 
           <div className="space-y-8">
-            {/* Centered Image */}
+            {/* Centered Image with shared element transition */}
             {deity.imageUrl && (
-              <div className="relative w-full max-w-sm mx-auto rounded-2xl overflow-hidden border-4 border-white dark:border-slate-800 shadow-2xl">
+              <div
+                className="relative w-full max-w-sm mx-auto rounded-2xl overflow-hidden border-4 border-white dark:border-slate-800 shadow-2xl"
+                style={{ viewTransitionName: `deity-image-${deity.slug}` }}
+              >
                 <div className="aspect-[3/4] relative">
                   <Image
                     src={deity.imageUrl}
