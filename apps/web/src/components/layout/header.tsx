@@ -42,6 +42,7 @@ export const mobileNavSections = [
       { href: '/quiz', label: 'Quiz' },
       { href: '/review', label: 'Daily Review' },
       { href: '/progress', label: 'Progress' },
+      { href: '/achievements', label: 'Achievements' },
     ],
   },
   {
