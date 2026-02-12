@@ -2942,6 +2942,325 @@
     }
   },
   {
+    "id": "danu",
+    "pantheonId": "celtic-pantheon",
+    "name": "Danu",
+    "slug": "danu",
+    "alternateNames": [
+      "Dana",
+      "Ana",
+      "Anu"
+    ],
+    "gender": "female",
+    "domain": [
+      "earth",
+      "fertility",
+      "motherhood",
+      "wisdom",
+      "rivers"
+    ],
+    "symbols": [
+      "rivers",
+      "earth",
+      "the moon"
+    ],
+    "description": "The primordial mother goddess whose name lives on in the Tuatha Dé Danann, the divine tribe of Ireland. Though rarely appearing in myths directly, her presence permeates the land itself.",
+    "originStory": "Danu is the ancestral mother of the **Tuatha Dé Danann**—literally \"the peoples of the goddess Danu.\" Her origins are shrouded in the oldest strata of Celtic belief, predating the written mythological texts. Some scholars connect her to an Indo-European river goddess, noting cognates in the Danube and Don rivers. In Irish tradition, she is sometimes conflated with **Anu**, a goddess of prosperity whose breasts are said to be the twin hills called the Paps of Anu in County Kerry. As the divine ancestress, she is mother to the Dagda and all the gods of Ireland.",
+    "importanceRank": 1,
+    "imageUrl": "/deities/danu.png",
+    "detailedBio": "## The Mother of Gods\n\nDanu occupies a paradoxical position in Irish mythology: she is everywhere and nowhere. Her name defines the entire divine race—the **Tuatha Dé Danann**—yet she rarely appears as an active character in the surviving myths. This absence may reflect her nature as a primordial deity, too fundamental and ancient to be contained in narrative. She is the land itself, the rivers that nourish it, and the generative power that sustains all life.\n\n### Etymology and Origins\n\nThe name Danu appears connected to an ancient Indo-European root meaning \"to flow\" or \"river.\" This connects her to major European rivers: the **Danube**, **Don**, **Dnieper**, and **Dniester** all bear names scholars trace to this divine source. The goddess Danu thus represents the life-giving waters that made civilization possible—a concept that traveled with Celtic peoples across the continent.\n\n### Danu and Anu\n\nMedieval Irish texts sometimes conflate Danu with **Anu** (or Ana), described in Cormac's Glossary as the mother of the Irish gods and a goddess of prosperity. The **Dá Chích Anann** (\"the Paps of Anu\"), twin breast-shaped hills in County Kerry, mark her presence on the landscape. This identification suggests Danu was understood as both the flowing waters and the nurturing earth.\n\n### Legacy\n\nThough Danu left no detailed myths, her influence is absolute. Every deed of the Tuatha Dé Danann—their arrival in Ireland, their battles with the Fir Bolg and Fomorians, their retreat into the síd mounds—happens under her name. She represents the ultimate source from which all divine power flows.",
+    "pronunciation": {
+      "ipa": "/ˈdɑːnuː/",
+      "phonetic": "DAH-noo"
+    }
+  },
+  {
+    "id": "nuada",
+    "pantheonId": "celtic-pantheon",
+    "name": "Nuada Airgetlám",
+    "slug": "nuada",
+    "alternateNames": [
+      "Nuada of the Silver Hand",
+      "Nuadu",
+      "Nodens"
+    ],
+    "gender": "male",
+    "domain": [
+      "kingship",
+      "war",
+      "justice",
+      "sovereignty"
+    ],
+    "symbols": [
+      "silver hand",
+      "sword",
+      "Claiomh Solais"
+    ],
+    "description": "The first king of the Tuatha Dé Danann, who lost his arm in battle and his throne with it—until Dian Cécht forged him a working hand of silver.",
+    "originStory": "Nuada led the **Tuatha Dé Danann** when they invaded Ireland and fought the First Battle of Mag Tuired against the **Fir Bolg**. Though his people won, Nuada lost his right arm to the Fir Bolg champion Sreng. Because a king must be physically perfect, Nuada was forced to abdicate in favor of **Bres**, a half-Fomorian whose reign proved tyrannical. The physician god **Dian Cécht** fashioned Nuada a working arm of silver, earning him the epithet Airgetlám (\"Silver Hand\"). Later, Dian Cécht's son Miach replaced the silver with one of flesh, and Nuada reclaimed his throne—only to fall in the Second Battle of Mag Tuired against **Balor of the Evil Eye**.",
+    "importanceRank": 1,
+    "imageUrl": "/deities/nuada.png",
+    "detailedBio": "## King of the Tuatha Dé Danann\n\nNuada Airgetlám is the archetypal king of Irish mythology, embodying both the glory and the limitations of sovereignty. His story illustrates the Celtic belief that a king's physical wholeness reflects the health of the land itself—a concept central to Irish sacral kingship.\n\n### The First Battle of Mag Tuired\n\nWhen the Tuatha Dé Danann arrived in Ireland, they faced the **Fir Bolg**, the previous inhabitants. In the great battle that followed, Nuada fought the Fir Bolg champion **Sreng**. Though the Tuatha Dé Danann won the war, Sreng severed Nuada's right arm at the shoulder. This wound would cost Nuada his crown.\n\n### The Law of Blemished Kings\n\nIrish tradition held that a king must be without physical flaw. A blemished king brought blight upon the land, causing crops to fail and cattle to sicken. Nuada, despite his valor and wisdom, could not rule with only one arm. The Tuatha Dé Danann chose **Bres the Beautiful**, whose Fomorian parentage would soon reveal itself in his cruel and miserly reign.\n\n### The Silver Hand\n\nThe god of healing, **Dian Cécht**, crafted for Nuada an arm of silver that could move and grip as well as one of flesh. This miraculous prosthetic restored Nuada's eligibility for kingship, though seven years of Bres's tyranny had to be endured first. Later, Dian Cécht's son **Miach** grew Nuada an arm of true flesh, a feat that so enraged his father that he killed his own son.\n\n### The Sword of Light\n\nNuada wielded **Claiomh Solais** (the Sword of Light), one of the Four Treasures brought to Ireland from the northern islands. This blade was irresistible in battle—once drawn, no enemy could escape it.\n\n### Death and Legacy\n\nIn the Second Battle of Mag Tuired, Nuada faced **Balor of the Evil Eye**, the Fomorian king whose single eye killed all it gazed upon. Balor slew Nuada with that terrible glance, but Lugh avenged him by putting out Balor's eye with a sling-stone.",
+    "pronunciation": {
+      "ipa": "/ˈnuːəðə arʲɪˈɟetʲlɑːmʲ/",
+      "phonetic": "NOO-uh-thuh AR-ih-get-lawm"
+    }
+  },
+  {
+    "id": "manannan-mac-lir",
+    "pantheonId": "celtic-pantheon",
+    "name": "Manannán mac Lir",
+    "slug": "manannan-mac-lir",
+    "alternateNames": [
+      "Manannán",
+      "Manannan",
+      "Barinthus"
+    ],
+    "gender": "male",
+    "domain": [
+      "sea",
+      "otherworld",
+      "weather",
+      "magic",
+      "trade"
+    ],
+    "symbols": [
+      "wave",
+      "crane bag",
+      "chariot",
+      "cloak of mist"
+    ],
+    "description": "Lord of the sea and guardian of Tír na nÓg, the Land of Youth. He rides the waves in his chariot and cloaks the Otherworld in mist.",
+    "originStory": "Manannán mac Lir is the son of **Lir**, a sea god whose name survives in the Irish Sea (Muir Meann). Though sometimes counted among the Tuatha Dé Danann, Manannán stands apart as ruler of his own realm: the **Otherworld** beyond the western sea. He was foster-father to many, including **Lugh Lámhfhada**, whom he raised and trained in the magical arts. His wife is **Fand**, a woman of the síd, though he also had dalliances with mortal women. After the Tuatha Dé Danann retreated into the fairy mounds, Manannán gave each of the gods their síd and taught them the féth fíada—the spell of invisibility that hides the Otherworld from mortal eyes.",
+    "importanceRank": 1,
+    "imageUrl": "/deities/manannan-mac-lir.png",
+    "detailedBio": "## Lord of the Sea\n\nManannán mac Lir commands the wild Atlantic, riding its waves in his chariot as easily as a mortal rides a road. His dominion extends beyond the physical ocean to encompass the **Otherworld** itself—those mystical islands beyond the sunset where the immortals feast and time moves strangely.\n\n### The Isle of Man\n\nThe **Isle of Man** takes its name from Manannán, who was revered there as a protective deity. The Manx people paid him rent in the form of rushes at Midsummer, and his three-legged symbol (the triskelion) remains the island's emblem. In Welsh tradition, he appears as **Manawydan fab Llŷr**, a more human figure but still connected to the sea.\n\n### Magical Treasures\n\nManannán possesses an array of enchanted objects. His **crane bag** contains the treasures of the sea—when the tide is full, it holds wonders; when the tide ebbs, it is empty. His **cloak of mist** (féth fíada) can render the wearer invisible and was given to the Tuatha Dé Danann to hide them from mortals. His chariot, **Wave Sweeper**, can travel over sea as over land, and his boat, **Ocean Sweeper**, needs no oars or sails.\n\n### Guardian of the Otherworld\n\nWhen the Milesians conquered Ireland and the Tuatha Dé Danann retreated into the síd mounds, Manannán organized their exile. He assigned each god their hollow hill and taught them the magic to conceal themselves. He is thus the architect of the division between the mortal world and the realm of Faerie.\n\n### Fosterage of Lugh\n\nManannán raised the young **Lugh** in Tír na nÓg after the child escaped Balor's attempts to drown him. Under Manannán's tutelage, Lugh learned magic, warfare, and all the arts that would later earn him the title Samildánach (\"Equally Skilled in All\"). When Lugh came of age, Manannán gave him magical weapons for his journey to Tara.",
+    "pronunciation": {
+      "ipa": "/ˈmænənɑːn mak ˈlɪər/",
+      "phonetic": "MAN-uh-nawn mak LEER"
+    }
+  },
+  {
+    "id": "aengus",
+    "pantheonId": "celtic-pantheon",
+    "name": "Aengus Óg",
+    "slug": "aengus",
+    "alternateNames": [
+      "Óengus",
+      "Aengus of the Brugh",
+      "Mac ind Óg"
+    ],
+    "gender": "male",
+    "domain": [
+      "love",
+      "youth",
+      "poetry",
+      "dreams"
+    ],
+    "symbols": [
+      "birds",
+      "kisses",
+      "harp"
+    ],
+    "description": "The ever-young god of love and poetic inspiration, whose kisses become birds that hover around young lovers' heads, whispering sweet nothings.",
+    "originStory": "Aengus is the son of **the Dagda** and **Boann**, goddess of the River Boyne. Their union was an affair: Boann was married to Elcmar (or Nechtan), so the Dagda sent Elcmar away on a journey and caused nine months to pass as a single day. Thus Aengus was conceived and born before Elcmar returned. Aengus was fostered by **Midir** at Brí Léith, unaware of his parentage. When he came of age, he learned his true heritage and cleverly won the **Brú na Bóinne** (Newgrange) from his father through a word-trick: he asked to stay \"a day and a night,\" but in Irish idiom this means \"forever.\"",
+    "importanceRank": 2,
+    "imageUrl": "/deities/aengus.png",
+    "detailedBio": "## The Young God\n\nAengus Óg—the \"Young Son\" or \"Youthful Strength\"—is the Irish god of love, youth, and poetic inspiration. Forever young and beautiful, he represents the eternal renewal of passion and creativity. His four magical birds, said to be kisses transformed, fly above lovers' heads, inspiring tender words.\n\n### The Dream of Caer Ibormeith\n\nThe most famous tale of Aengus tells of his lovesickness for a woman he saw only in dreams. For a year he languished, growing pale and weak, until his mother Boann and father the Dagda searched all Ireland for this dream-maiden. She was **Caer Ibormeith**, daughter of a king of Connacht, who spent alternate years as a woman and as a swan. Aengus found her at the Lake of the Dragon's Mouth on Samhain, when she was in swan form among 150 other swans. He called to her, and she agreed to come with him if he took swan shape himself. Together they flew to Brú na Bóinne, their singing so beautiful it put all who heard it to sleep for three days and nights.\n\n### Master of Brú na Bóinne\n\nAengus won the great passage tomb of **Newgrange** (Brú na Bóinne) from his father through clever wordplay. When the Dagda divided the síd mounds among the gods, Aengus was away and received nothing. He asked his father if he might stay at Brú na Bóinne \"a day and a night.\" The Dagda agreed—but in Irish, \"lá agus oidhche\" also means \"all days and nights,\" and Aengus claimed the mound forever.\n\n### Protector of Lovers\n\nAengus intervenes in the affairs of mortal lovers, most notably **Diarmuid and Gráinne**. When Diarmuid eloped with Gráinne (betrothed to Fionn mac Cumhaill), Aengus sheltered them and gave Diarmuid his cloak of invisibility. He remained Diarmuid's protector until the hero's death by boar, after which Aengus took his foster-son's body to Brú na Bóinne and breathed life into it each day so they could converse.",
+    "pronunciation": {
+      "ipa": "/ˈeɪŋɡəs oːɡ/",
+      "phonetic": "AYN-gus OHG"
+    }
+  },
+  {
+    "id": "cernunnos",
+    "pantheonId": "celtic-pantheon",
+    "name": "Cernunnos",
+    "slug": "cernunnos",
+    "alternateNames": [
+      "The Horned One",
+      "Lord of Wild Things"
+    ],
+    "gender": "male",
+    "domain": [
+      "animals",
+      "fertility",
+      "nature",
+      "wealth",
+      "underworld"
+    ],
+    "symbols": [
+      "antlers",
+      "torc",
+      "ram-headed serpent",
+      "stag"
+    ],
+    "description": "The horned god of wild places and untamed nature. He sits cross-legged, lord of beasts, holding a torc in one hand and a serpent in the other.",
+    "originStory": "Cernunnos is one of the most ancient Celtic deities, known primarily through Gaulish inscriptions and images rather than Irish or Welsh texts. His name appears only once, on the **Pillar of the Boatmen** in Paris, where he is depicted with antlers from which torcs hang. The famous image on the **Gundestrup Cauldron** shows him seated in a meditative pose, surrounded by animals, holding a torc and a ram-headed serpent. Though he has no surviving mythology, his widespread iconography from Britain to Romania suggests he was once a major god of the continental Celts, perhaps connected to shamanic practices, animal spirits, and the wealth of the forest.",
+    "importanceRank": 2,
+    "imageUrl": "/deities/cernunnos.png",
+    "detailedBio": "## The Horned God\n\nCernunnos remains one of the most evocative yet enigmatic figures in Celtic religion. His images appear across the Celtic world, from the forests of Gaul to the shores of Britain, yet almost nothing survives of his mythology. What we know comes from archaeology: he is antlered like a stag, seated cross-legged like a shaman, surrounded by animals, and associated with torcs—the twisted gold rings that symbolized divine and royal power.\n\n### The Gundestrup Cauldron\n\nThe most famous depiction of Cernunnos appears on the silver **Gundestrup Cauldron**, discovered in a Danish bog but of Celtic manufacture. He sits in a lotus position, wearing and holding torcs, accompanied by a stag, a bull, lions, and a ram-headed serpent. His expression is serene, his posture meditative—suggesting a deity of contemplation and communion with nature rather than martial power.\n\n### Lord of Animals\n\nCernunnos's consistent association with wild animals marks him as a god of the hunt, of fertility, and of the untamed forest. The stag whose antlers he wears is a creature of liminality—shedding and regrowing its horns annually, moving between the cultivated edges of human settlement and the deep woods. This may connect Cernunnos to themes of death and renewal.\n\n### The Ram-Headed Serpent\n\nThe strange creature often depicted with Cernunnos—a serpent with a ram's head—appears nowhere else in Celtic iconography. Serpents traditionally represent the underworld and regeneration (they shed their skins), while rams symbolize fertility and aggression. This hybrid beast may represent the fusion of chthonic power and life-force that Cernunnos embodies.\n\n### Survival and Revival\n\nThough Cernunnos left no medieval legends, his image may have influenced depictions of the Devil in later Christian art—horned, cross-legged, lord of beasts. In modern Paganism, he has been revived as a central deity, often paired with a goddess figure in a duotheistic framework.",
+    "pronunciation": {
+      "ipa": "/kɛrˈnuːnɒs/",
+      "phonetic": "ker-NOO-nos"
+    }
+  },
+  {
+    "id": "ogma",
+    "pantheonId": "celtic-pantheon",
+    "name": "Ogma",
+    "slug": "ogma",
+    "alternateNames": [
+      "Ogmios",
+      "Oghma",
+      "Ogma Grianainech"
+    ],
+    "gender": "male",
+    "domain": [
+      "eloquence",
+      "language",
+      "learning",
+      "strength"
+    ],
+    "symbols": [
+      "ogham script",
+      "chain",
+      "club"
+    ],
+    "description": "Inventor of the Ogham alphabet and champion of the Tuatha Dé Danann. His eloquence binds listeners with chains of gold that flow from his tongue.",
+    "originStory": "Ogma is the son of **Elatha**, a Fomorian king, and therefore half-brother to the Dagda, Lugh, and Bres. Despite his mixed heritage, he fought for the Tuatha Dé Danann as their champion. In the Second Battle of Mag Tuired, he slew **Indech**, king of the Fomorians, and retrieved the sword **Orna**, which could recount the deeds it had performed when drawn. Ogma is credited with inventing **Ogham**, the earliest Irish writing system, whose letters are named after trees. The Greek writer Lucian described **Ogmios**, the Gaulish equivalent, as an old man leading willing captives by gold chains attached to his tongue—a vivid image of persuasive speech.",
+    "importanceRank": 2,
+    "imageUrl": "/deities/ogma.png",
+    "detailedBio": "## The Binding Tongue\n\nOgma embodies the paradox of eloquence: words that are stronger than force, speech that binds more surely than chains. He is both warrior and poet, champion and scholar—reflecting the Celtic reverence for the power of language and the status of the filí (poet-seer) in early Irish society.\n\n### Inventor of Ogham\n\nOgham is the earliest form of writing in Ireland, consisting of strokes and notches carved along the edge of standing stones. Each letter is named for a tree (birch, rowan, ash, etc.), connecting language to the natural world. According to the medieval text **Auraicept na n-Éces** (\"The Scholar's Primer\"), Ogma invented this script as a proof of his ingenuity, designed so that only the learned could understand it.\n\n### Ogmios: The Eloquent Hercules\n\nThe Greek satirist **Lucian**, visiting Gaul in the 2nd century CE, described a local god named Ogmios who puzzled him. Unlike the youthful Greek Heracles, Ogmios was depicted as an old man—yet he led a band of happy followers by delicate gold chains attached to his tongue and their ears. A local explained: the Celts believed that true strength lay in eloquence, which increases with age rather than fading. The willing prisoners represent souls captivated by persuasive speech.\n\n### Champion of the Tuatha Dé Danann\n\nDuring the reign of Bres, when the Tuatha Dé Danann were oppressed, Ogma was reduced to carrying firewood—a humiliation for a god of his stature. In the Second Battle of Mag Tuired, he fought as champion, slaying the Fomorian king Indech and capturing his magical sword Orna. After the battle, this sword recounted all its deeds when unsheathed—a fitting trophy for the god of language.\n\n### The Face of the Sun\n\nOgma bears the epithet **Grianainech** (\"Sun-Faced\"), connecting him to light and clarity. This solar aspect links eloquence to illumination: the good speaker brings matters from darkness into understanding.",
+    "pronunciation": {
+      "ipa": "/ˈoɡmə/",
+      "phonetic": "OG-muh"
+    }
+  },
+  {
+    "id": "dian-cecht",
+    "pantheonId": "celtic-pantheon",
+    "name": "Dian Cécht",
+    "slug": "dian-cecht",
+    "alternateNames": [
+      "Dian Cecht",
+      "Cainte"
+    ],
+    "gender": "male",
+    "domain": [
+      "healing",
+      "medicine",
+      "health"
+    ],
+    "symbols": [
+      "silver hand",
+      "healing herbs",
+      "well"
+    ],
+    "description": "The physician of the Tuatha Dé Danann, whose healing well could restore the dead to life. His jealousy over his son's greater skill led to tragedy.",
+    "originStory": "Dian Cécht served as chief physician to the **Tuatha Dé Danann**. When **Nuada** lost his arm in the First Battle of Mag Tuired, Dian Cécht fashioned him a fully functional arm of silver—a feat of divine surgery that restored the king's eligibility to rule. However, Dian Cécht's son **Miach** later replaced the silver arm with one of true flesh and bone, surpassing his father's craft. Consumed by jealousy, Dian Cécht struck Miach three times on the head with his sword: Miach healed the first two wounds, but the third cut his brain, killing him. From Miach's grave grew 365 healing herbs, one for every joint and sinew. Dian Cécht's daughter **Airmed** gathered and organized these herbs, but her father scattered them, and their secrets were lost.",
+    "importanceRank": 2,
+    "imageUrl": "/deities/dian-cecht.png",
+    "detailedBio": "## Physician of the Gods\n\nDian Cécht is the divine healer of Irish mythology, whose skills preserved the Tuatha Dé Danann through their wars against the Fir Bolg and the Fomorians. His name may mean \"swift power\" or \"god of power,\" and his craft represents the ancient Irish respect for medical knowledge and its keepers.\n\n### The Silver Hand\n\nWhen King **Nuada** lost his arm to the Fir Bolg champion Sreng, his reign was imperiled: a blemished king could not rule. Dian Cécht crafted an arm of silver that moved as a living limb, with joints that flexed and a hand that gripped. This prosthesis, the finest work of divine medicine, earned Nuada the epithet Airgetlám (\"Silver Hand\"). The king was whole, and seven years of tyranny under Bres would end.\n\n### The Murder of Miach\n\nDian Cécht's son **Miach** achieved what his father could not: he replaced Nuada's silver arm with one of flesh, regenerated from the king's own body. \"Joint to joint and sinew to sinew,\" the medieval text says. Rather than celebrating this miracle, Dian Cécht was enraged that his son had exceeded him. He struck Miach three times; the first two wounds Miach healed, but the third killed him. This dark tale reveals the danger of jealousy, even among the gods.\n\n### The Healing Well of Sláine\n\nDuring the Second Battle of Mag Tuired, Dian Cécht and his surviving children—**Airmed**, **Octriuil**, and **Cian**—tended the **Well of Sláine**. Tuatha Dé Danann warriors killed in battle were immersed in this well while the healers chanted incantations; they emerged alive and whole the next day. The Fomorians discovered this secret and filled the well with stones, after which the Tuatha Dé Danann dead stayed dead.\n\n### The Lost Herbs\n\nFrom Miach's grave sprouted 365 healing herbs, one for each part of the body. Airmed gathered and classified them, laying them out on her cloak in their proper order. Dian Cécht, still bitter over his son, overturned the cloak and mixed the herbs together. For this reason, no one knows all the cures—though Airmed retained some knowledge and passed it on.",
+    "pronunciation": {
+      "ipa": "/ˈdʲiːən ˈceːxt/",
+      "phonetic": "DEE-un KAYKT"
+    }
+  },
+  {
+    "id": "goibniu",
+    "pantheonId": "celtic-pantheon",
+    "name": "Goibniu",
+    "slug": "goibniu",
+    "alternateNames": [
+      "Goibhniu",
+      "Govannon"
+    ],
+    "gender": "male",
+    "domain": [
+      "smithing",
+      "weapons",
+      "brewing",
+      "immortality"
+    ],
+    "symbols": [
+      "anvil",
+      "hammer",
+      "ale"
+    ],
+    "description": "The divine smith who forges weapons that never miss and brews the ale of immortality. His hammer falls three times, and the weapon is complete.",
+    "originStory": "Goibniu is one of the **Trí Dé Dána**—the three gods of skill—alongside his brothers **Creidhne** (the brazier) and **Luchta** (the carpenter). Together they crafted the weapons of the Tuatha Dé Danann for the Second Battle of Mag Tuired. Goibniu worked at legendary speed: three blows of his hammer completed any weapon, and every spear he forged struck true. He also brewed the **Fled Goibnenn** (Feast of Goibniu), an ale that granted those who drank it immunity to age and disease. In the Welsh tradition, he appears as **Gofannon**, brother of the goddess Arianrhod.",
+    "importanceRank": 3,
+    "imageUrl": "/deities/goibniu.png",
+    "detailedBio": "## The Divine Smith\n\nGoibniu stands at the forge of the gods, hammer in hand, crafting the weapons that defend the Tuatha Dé Danann against their enemies. He represents the sacred status of the smith in Celtic society—a figure who transforms raw earth into gleaming metal, who shapes the tools of war and agriculture alike.\n\n### The Three Brothers\n\nGoibniu works alongside his brothers in a divine workshop. **Creidhne** the brazier handles the rivets and fittings; **Luchta** (or Luchtaine) the carpenter shapes the spear-shafts. When Creidhne throws a rivet, it fixes itself in place. When Luchta cuts a shaft, it needs no further shaping. And when Goibniu strikes his hammer three times, the weapon is complete. This tripartite craftsmanship reflects the Celtic love of threefold patterns.\n\n### The Second Battle of Mag Tuired\n\nBefore the great battle against the Fomorians, the Tuatha Dé Danann prepared for war. The smith-trio worked day and night: every broken spear was replaced overnight, every shattered sword reforged. Goibniu's weapons never failed—a spear forged by his hand would find its mark, a sword would never break. This industrious immortality of manufacture gave the Tuatha Dé Danann an insurmountable advantage.\n\n### The Feast of Goibniu\n\nBeyond the forge, Goibniu is credited with brewing a magical ale called the **Fled Goibnenn**. Those who drink at this feast are preserved from age and sickness. The combination of smith and brewer may seem strange, but both crafts require mastery of fire and transformation—one turns ore to iron, the other grain to ale.\n\n### The Welsh Gofannon\n\nIn Welsh mythology, Goibniu appears as **Gofannon fab Dôn**, brother to Gwydion, Gilfaethwy, and Arianrhod. He slays his nephew Dylan Eil Ton, the sea-creature, with an accidental or fated blow—a deed considered one of the Three Unfortunate Blows of the Island of Britain.",
+    "pronunciation": {
+      "ipa": "/ˈɡovʲnʲuː/",
+      "phonetic": "GOV-nyoo"
+    }
+  },
+  {
+    "id": "aine",
+    "pantheonId": "celtic-pantheon",
+    "name": "Áine",
+    "slug": "aine",
+    "alternateNames": [
+      "Aine",
+      "Áine of Knockainey"
+    ],
+    "gender": "female",
+    "domain": [
+      "summer",
+      "love",
+      "sovereignty",
+      "fertility",
+      "cattle"
+    ],
+    "symbols": [
+      "sun",
+      "meadow",
+      "red mare"
+    ],
+    "description": "Radiant goddess of summer and love, associated with Knockainey in County Limerick. Her midsummer fires blessed the cattle and crops of Munster.",
+    "originStory": "Áine is the daughter of **Eogabail**, a member of the Tuatha Dé Danann, or in some accounts daughter of the sea god **Manannán mac Lir**. She is strongly associated with **Knockainey** (Cnoc Áine) in County Limerick, where midsummer fires were lit in her honor into modern times. According to local legend, **Ailill Aulom**, king of Munster, seized her as she bathed. Áine bit off his ear, marking him as unfit for kingship, and bore him a son, **Eógan Mór**, ancestor of the Eóganacht dynasties. Her stories intertwine the themes of sovereignty—the land as a woman who chooses her king—and the dangerous consequences of violating that sacred relationship.",
+    "importanceRank": 2,
+    "imageUrl": "/deities/aine.png",
+    "detailedBio": "## The Radiant One\n\nÁine, whose name likely means \"radiance\" or \"splendor,\" is a goddess of love, fertility, and sovereignty deeply rooted in the landscape of Munster. Her cult centered on **Knockainey** (Cnoc Áine, \"Áine's Hill\") in County Limerick, where traditions preserved into the 20th century speak of her continuing presence.\n\n### Midsummer Rites\n\nOn the eve of **Midsummer** (St. John's Eve), the people of the region would carry torches of burning straw (cliars) up Knockainey, then process through the fields and among the cattle to bless them with the goddess's protection. The fire at the hilltop was understood to be Áine's own, and she was said to appear among the revelers. These rites survived, thinly Christianized, into the 19th and 20th centuries.\n\n### The Violence of Ailill\n\nÁine's most dramatic myth tells of her rape by **Ailill Aulom**, the king of Munster. When he attacked her, she bit off his ear (aulom means \"one-eared\"), rendering him unfit to rule. Yet she also bore him a son, Eógan Mór, whose descendants—the Eóganachta—ruled Munster for centuries. This myth reflects the complex Celtic theology of sovereignty: the goddess of the land must choose her king freely, and violence against her brings consequences, yet her fertility blesses even her violator's line.\n\n### The Fairy Host\n\nÁine is counted among the sídhe, the fairy people who are the diminished Tuatha Dé Danann. She is queen of the fairies of south Munster. Her síd at Knockainey was a place of both reverence and dread: to see her was often an omen, to offend her brought madness or death. Stories tell of mortals glimpsing her at twilight, red-gold hair streaming, riding a red mare across the meadows.\n\n### Solar Associations\n\nÁine's connection to midsummer, fire, and radiance mark her as a solar goddess. Some scholars connect her to continental Celtic sun goddesses. Her power over fertility—of both cattle and humans—links the summer sun to abundance and increase.",
+    "pronunciation": {
+      "ipa": "/ˈɑːnʲə/",
+      "phonetic": "AWN-yuh"
+    }
+  },
+  {
+    "id": "midir",
+    "pantheonId": "celtic-pantheon",
+    "name": "Midir",
+    "slug": "midir",
+    "alternateNames": [
+      "Midhir",
+      "Midir of Brí Léith"
+    ],
+    "gender": "male",
+    "domain": [
+      "otherworld",
+      "pride",
+      "horses"
+    ],
+    "symbols": [
+      "crane",
+      "three cranes",
+      "chariot"
+    ],
+    "description": "Lord of the Otherworld at Brí Léith, whose love for the mortal woman Étaín sparked wars between the fairy realms and the High King of Ireland.",
+    "originStory": "Midir is a son of **the Dagda** and a lord of the Tuatha Dé Danann. He rules the síd of **Brí Léith** (near modern Ardagh in County Longford), one of the greatest fairy mounds of Ireland. He fostered **Aengus Óg** and helped him win Brú na Bóinne from the Dagda. Midir's own great tale is his love for **Étaín**: his first wife Fuamnach, jealous of Étaín's beauty, transformed her into a fly and drove her from the Otherworld. After a thousand years and several rebirths, Étaín became a mortal queen of Ireland. Midir found her, won her back through a game of fidchell, and carried her away to the síd—sparking war between the fairy realm and the High King.",
+    "importanceRank": 3,
+    "imageUrl": "/deities/midir.png",
+    "detailedBio": "## The Proud One\n\nMidir the Proud is one of the great lords of the Tuatha Dé Danann, master of the síd at **Brí Léith** and central figure in one of the most romantic tales in Irish mythology. His love for **Étaín** spans centuries and the boundaries between worlds.\n\n### The Wooing of Étaín\n\nThe tale of **Tochmarc Étaíne** (\"The Wooing of Étaín\") is one of the most beloved stories in the Irish mythological cycle. Midir fell in love with the beautiful Étaín and made her his wife. His first wife **Fuamnach**, consumed with jealousy, used magic to transform Étaín into a pool of water, then a worm, then a jewel-colored fly. The wind blew Étaín across Ireland for seven years, and she was eventually swallowed by a mortal woman, reborn as a human child.\n\n### The Loss and Recovery\n\nOne thousand and twelve years after her transformation, Étaín—now mortal and married to **Eochaid Airem**, High King of Ireland—had forgotten her former life. Midir came to Tara and challenged Eochaid to games of **fidchell** (a board game). After losing deliberately several times, Midir wagered one kiss from Étaín. Eochaid agreed, Midir won—and when he kissed Étaín, her memories returned. They rose through the skylight as two swans and fled to Brí Léith.\n\n### The War with Eochaid\n\nThe High King was not content to lose his queen. He raised an army and dug into the síd mounds of Ireland, violating the Otherworld, until Midir released Étaín—or so it seemed. Midir had sent fifty women who looked identical to Étaín. Eochaid chose, but chose his own daughter by Étaín rather than Étaín herself, leading to incestuous tragedy. The tale is a meditation on memory, identity, and the dangers of meddling with the fairy realm.\n\n### The Three Cranes\n\nMidir's síd is guarded by three malevolent cranes who sit at the entrance and discourage travelers: one cries \"Do not come!\", another \"Keep away!\", the third \"Go past!\" These birds of ill-omen may be transformed enemies or guardians of the Otherworld's secrets.",
+    "pronunciation": {
+      "ipa": "/ˈmɪðʲɪrʲ/",
+      "phonetic": "MIH-dhir"
+    }
+  },
+  {
     "id": "quetzalcoatl",
     "pantheonId": "aztec-pantheon",
     "name": "Quetzalcoatl",
@@ -3060,6 +3379,414 @@
     "pronunciation": {
       "ipa": "/koʊˌɑːtliˈkweɪ/",
       "phonetic": "koh-aht-lee-KWAY"
+    }
+  },
+  {
+    "id": "xochiquetzal",
+    "pantheonId": "aztec-pantheon",
+    "name": "Xochiquetzal",
+    "slug": "xochiquetzal",
+    "alternateNames": [
+      "Precious Feather Flower",
+      "Ichpochtli"
+    ],
+    "gender": "female",
+    "domain": [
+      "beauty",
+      "flowers",
+      "love",
+      "fertility",
+      "weaving",
+      "arts"
+    ],
+    "symbols": [
+      "marigolds",
+      "quetzal feathers",
+      "butterflies",
+      "spindle"
+    ],
+    "description": "The goddess of beauty, love, flowers, and female sexuality. Xochiquetzal was patron of artisans, weavers, and pregnant women, and dwelt in the paradise of Tamoanchan.",
+    "detailedBio": "## Precious Feather Flower\n\nXochiquetzal (\"Precious Feather Flower\") was the Aztec goddess of **beauty, love, pleasure, flowers, and female sexuality**. Unlike many Aztec deities associated with darkness or sacrifice, she represented joy, youth, and the pleasures of life. She was eternally young and beautiful, dwelling in **Tamoanchan**, the paradise above the heavens.\n\n### Patron of Artisans\n\nXochiquetzal was the divine patron of **weavers, embroiderers, painters, sculptors, and silversmiths**. All decorative arts fell under her protection. Women who excelled at weaving were considered blessed by her, and fine textiles were offerings worthy of the gods.\n\n### The First Woman\n\nIn some traditions, Xochiquetzal was the first woman created by the gods, companion to the first man **Piltzintecuhtli**. She later became consort of **Tlaloc** before being abducted by **Tezcatlipoca**, after which she became associated with illicit love.\n\n### The Festival of Flowers\n\nThe festival **Toxcatl** included ceremonies honoring Xochiquetzal with offerings of flowers, particularly **marigolds** (cempoalxochitl). Celebrants wore flower garlands and masks of her image.\n\n### Sexuality and Transgression\n\nXochiquetzal was also associated with **prostitutes and courtesans** (ahuianime), who accompanied warriors and were considered under her protection. She embodied both legitimate fertility and transgressive desire.",
+    "originStory": "Xochiquetzal was created in the paradise of Tamoanchan. She was initially consort of the rain god Tlaloc, but Tezcatlipoca abducted her to be his own. Her abduction introduced desire and longing into the world.",
+    "importanceRank": 2,
+    "imageUrl": "/deities/xochiquetzal.png",
+    "primarySources": [
+      {
+        "text": "Xochiquetzal, goddess of flowers and love, dwelt in the place above the heavens called Tamoanchan.",
+        "source": "Florentine Codex",
+        "date": "16th Century"
+      }
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "greek-pantheon",
+        "deityId": "aphrodite",
+        "note": "Both are goddesses of love, beauty, and sexuality"
+      },
+      {
+        "pantheonId": "norse-pantheon",
+        "deityId": "freya",
+        "note": "Both combine aspects of love, beauty, and fertility with patronage of arts and crafts"
+      }
+    ],
+    "pronunciation": {
+      "ipa": "/ʃoːtʃiˈketsɑːl/",
+      "phonetic": "shoh-chee-KET-sahl"
+    }
+  },
+  {
+    "id": "tlazolteotl",
+    "pantheonId": "aztec-pantheon",
+    "name": "Tlazolteotl",
+    "slug": "tlazolteotl",
+    "alternateNames": [
+      "Filth Eater",
+      "Tlaelquani",
+      "Ixcuina"
+    ],
+    "gender": "female",
+    "domain": [
+      "purification",
+      "filth",
+      "confession",
+      "lust",
+      "childbirth",
+      "cotton"
+    ],
+    "symbols": [
+      "blackened mouth",
+      "cotton headdress",
+      "broom",
+      "crescent moon"
+    ],
+    "description": "The goddess of purification, sin, and confession. Tlazolteotl consumed the moral filth of humanity, absorbing confessed sins and granting absolution before death.",
+    "detailedBio": "## The Filth Eater\n\nTlazolteotl (\"Filth Deity\") was the Aztec goddess of **sin, purification, and confession**. She embodied the paradox of moral impurity: she both incited lust and consumed its consequences. Her black-painted mouth symbolized her consumption of humanity's sins.\n\n### The Eater of Sins\n\nIn a ritual unique among world religions, Aztecs could confess their sins once in their lifetime to a priest of Tlazolteotl. She would then **devour the sins**, leaving the confessor spiritually clean. Most reserved this confession for their deathbed, as the absolution could only be granted once.\n\n### Four Aspects\n\nTlazolteotl had four manifestations representing different ages of womanhood: **Tiacapan** (the eldest, seductress), **Teicu** (the younger), **Tlaco** (the middle), and **Xocotzin** (the youngest). Together they were called the **Ixcuiname**, goddesses of desire and carnality.\n\n### Goddess of Childbirth\n\nDespite her association with sin, Tlazolteotl was a **patron of childbirth and midwives**. The Codex Borbonicus depicts her in the position of giving birth, representing purification through the pain of labor.\n\n### Cotton and Spinning\n\nTlazolteotl was also goddess of **cotton** and patron of weavers, connecting her to Xochiquetzal. She wears a distinctive cotton headdress with spindles, linking textile production to female sexuality and fertility.",
+    "originStory": "Tlazolteotl originated among the Huastec people of the Gulf Coast before being adopted into the Aztec pantheon. She was brought to the central highlands where her cult of confession and purification became central to Aztec religion.",
+    "importanceRank": 2,
+    "imageUrl": "/deities/tlazolteotl.png",
+    "primarySources": [
+      {
+        "text": "She was called the eater of filth. She ate the sins of men who confessed to her priest.",
+        "source": "Florentine Codex",
+        "date": "16th Century"
+      }
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "hindu-pantheon",
+        "deityId": "kali",
+        "note": "Both are goddesses who embody transgression while serving as agents of purification and transformation"
+      }
+    ],
+    "pronunciation": {
+      "ipa": "/tlɑːsolˈteotl/",
+      "phonetic": "tlah-sol-TEH-otl"
+    }
+  },
+  {
+    "id": "mayahuel",
+    "pantheonId": "aztec-pantheon",
+    "name": "Mayahuel",
+    "slug": "mayahuel",
+    "alternateNames": [
+      "She of the Maguey Plant",
+      "The Woman of 400 Breasts"
+    ],
+    "gender": "female",
+    "domain": [
+      "maguey",
+      "pulque",
+      "fertility",
+      "nourishment",
+      "intoxication"
+    ],
+    "symbols": [
+      "maguey plant",
+      "pulque vessel",
+      "400 breasts",
+      "rabbit"
+    ],
+    "description": "The goddess of the maguey plant and its fermented drink pulque. Mayahuel is depicted with 400 breasts to nurse her 400 children, the Centzon Totochtin (400 Rabbits) of intoxication.",
+    "detailedBio": "## Goddess of the Maguey\n\nMayahuel was the Aztec goddess of the **maguey (agave) plant**, from which pulque is fermented. The maguey was called \"metl\" and was sacred, providing fiber for rope and cloth, needles from its spines, food from its heart, and above all, **pulque**, the milky fermented beverage central to Aztec religious ceremonies.\n\n### The 400 Rabbits\n\nMayahuel was mother to the **Centzon Totochtin** (\"400 Rabbits\"), the gods of drunkenness. Each rabbit represented a different form or degree of intoxication. She is depicted with **400 breasts** to nurse her countless offspring. The phrase \"400 rabbits\" was an idiom meaning \"innumerable.\"\n\n### The Discovery of Pulque\n\nIn myth, Mayahuel discovered that the maguey plant, when its heart is pierced, produces sweet sap called **aguamiel**. When fermented, this becomes pulque. She taught this knowledge to humanity, making her a **culture hero** as well as a goddess.\n\n### Cosmic Tragedy\n\nOne myth tells how **Quetzalcoatl** fell in love with Mayahuel and brought her down from the heavens. Her grandmother, a **tzitzimime** (star demon), pursued them. When she caught them, she tore Mayahuel apart. Quetzalcoatl buried her bones, and from them grew the first maguey plant.\n\n### Sacred Intoxication\n\nPulque was not for casual consumption. It was sacred to the gods and used in religious ceremonies. Only priests, the elderly, and those participating in rituals were permitted to drink it freely. Unauthorized drunkenness was severely punished.",
+    "originStory": "Mayahuel lived in the sky with her grandmother, a tzitzimime. Quetzalcoatl ascended and convinced her to flee with him, but her grandmother pursued them. When caught, the tzitzimime tore Mayahuel apart. Quetzalcoatl buried her remains, and from them sprouted the first maguey plant.",
+    "importanceRank": 3,
+    "imageUrl": "/deities/mayahuel.png",
+    "primarySources": [
+      {
+        "text": "Mayahuel was the goddess of maguey. She was said to have four hundred breasts with which she nursed her four hundred children.",
+        "source": "Florentine Codex",
+        "date": "16th Century"
+      }
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "greek-pantheon",
+        "deityId": "dionysus",
+        "note": "Both are deities of intoxicating beverages with cults involving sacred drunkenness"
+      }
+    ],
+    "pronunciation": {
+      "ipa": "/mɑːjɑːˈwel/",
+      "phonetic": "mah-yah-WELL"
+    }
+  },
+  {
+    "id": "tonatiuh",
+    "pantheonId": "aztec-pantheon",
+    "name": "Tonatiuh",
+    "slug": "tonatiuh",
+    "alternateNames": [
+      "He Who Goes Forth Shining",
+      "Nahui Ollin"
+    ],
+    "gender": "male",
+    "domain": [
+      "sun",
+      "warriors",
+      "sacrifice",
+      "the Fifth Sun"
+    ],
+    "symbols": [
+      "sun disk",
+      "eagle",
+      "tongue protruding",
+      "flint knife"
+    ],
+    "description": "The sun god of the Fifth Sun (the current world age). Tonatiuh demanded human hearts and blood to fuel his daily journey across the sky, driving the Aztec system of ritual sacrifice.",
+    "detailedBio": "## The Fifth Sun\n\nTonatiuh (\"He Who Goes Forth Shining\") was the **sun of the current world age**, the Fifth Sun. In Aztec cosmology, four previous suns had been destroyed, each ending in cataclysm. Tonatiuh was the current sun, and the Aztecs believed he required **human blood and hearts** to maintain his journey across the sky.\n\n### The Sun Stone\n\nThe famous **Aztec Sun Stone** (often miscalled the \"calendar stone\") bears Tonatiuh's face at its center. His tongue protrudes as a sacrificial knife, demanding blood. The stone depicts the four previous suns that were destroyed and the current age that will end in earthquakes.\n\n### Birth at Teotihuacan\n\nIn the creation myth, the gods gathered at **Teotihuacan** to create a new sun. The proud god Tecciztecatl hesitated to throw himself into the sacred fire, but the humble **Nanahuatzin** leaped in without hesitation and became the sun. Shamed, Tecciztecatl followed and became the moon. Both were equally bright until a god threw a rabbit at the moon, dimming it.\n\n### The Need for Sacrifice\n\nThe newborn sun refused to move across the sky. Only when the other gods sacrificed themselves by having their hearts torn out did Tonatiuh begin his journey. This mythic precedent established that the sun requires hearts to continue moving, justifying the Aztec practice of **human sacrifice**.\n\n### The Warrior Sun\n\nSlain warriors were believed to accompany Tonatiuh across the sky for four years before being transformed into **hummingbirds** and **butterflies**. This honor was shared by women who died in childbirth, considered equivalent to dying in battle.",
+    "originStory": "After the destruction of the Fourth Sun, the gods gathered at Teotihuacan. Nanahuatzin threw himself into the sacrificial fire and rose as the Fifth Sun. The other gods sacrificed their hearts to make him move, establishing the cosmic debt that humans must repay through sacrifice.",
+    "importanceRank": 1,
+    "imageUrl": "/deities/tonatiuh.png",
+    "primarySources": [
+      {
+        "text": "Tonatiuh, the sun, demands hearts. Without chalchiuatl, the precious water, he will not move.",
+        "source": "Leyenda de los Soles",
+        "date": "16th Century"
+      }
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "egyptian-pantheon",
+        "deityId": "ra",
+        "note": "Both are sun gods who traverse the sky daily and require worship to sustain their journey"
+      },
+      {
+        "pantheonId": "greek-pantheon",
+        "deityId": "helios",
+        "note": "Both are personifications of the sun who travel across the sky"
+      }
+    ],
+    "pronunciation": {
+      "ipa": "/toːnɑːˈtiu/",
+      "phonetic": "toh-nah-TEE-oo"
+    }
+  },
+  {
+    "id": "xolotl",
+    "pantheonId": "aztec-pantheon",
+    "name": "Xolotl",
+    "slug": "xolotl",
+    "alternateNames": [
+      "The Animal",
+      "Lord of the Evening Star"
+    ],
+    "gender": "male",
+    "domain": [
+      "lightning",
+      "twins",
+      "monsters",
+      "death",
+      "evening star",
+      "sickness"
+    ],
+    "symbols": [
+      "dog",
+      "axolotl",
+      "deformity",
+      "Venus (evening star)"
+    ],
+    "description": "The dog-headed god of lightning, twins, and deformities. Xolotl was the twin brother of Quetzalcoatl and guided the dead through the underworld. His name is preserved in the axolotl salamander.",
+    "detailedBio": "## The Monstrous Twin\n\nXolotl was the **dog-headed god** of lightning, monsters, twins, and deformities. He was the twin brother of **Quetzalcoatl**, embodying the dark, monstrous aspect that complemented the Feathered Serpent's beauty and wisdom. Where Quetzalcoatl was the **morning star**, Xolotl was the **evening star** - both aspects of Venus.\n\n### Guide of the Dead\n\nXolotl's most important role was guiding the souls of the dead on their journey to **Mictlan**, the underworld. Like a loyal dog, he led them through the nine levels of the underworld. This is why dogs were often buried with the dead in Mesoamerica - to serve as guides in the afterlife.\n\n### The Sacrifice of the Gods\n\nWhen Tonatiuh, the Fifth Sun, refused to move across the sky, the gods decided to sacrifice themselves. Xolotl was tasked with **killing the other gods** to set the sun in motion. When it came his turn to die, Xolotl fled in terror, transforming first into a **maize plant**, then a **maguey**, and finally an **axolotl** (the salamander that bears his name). He was eventually caught and sacrificed.\n\n### Lord of Deformities\n\nXolotl was patron of those born with deformities, twins, and the physically unusual. In Aztec thought, such births were **omens** and the children were sacred to Xolotl. He himself was depicted with backwards feet, empty eye sockets, and other deformities.\n\n### The Xoloitzcuintli\n\nThe hairless Mexican dog, the **Xoloitzcuintli**, was sacred to Xolotl. These dogs were bred for sacrifice and as companions for the dead. They were believed to be Xolotl's representatives on earth.",
+    "originStory": "Xolotl was born as the twin of Quetzalcoatl. During the creation of the Fifth Sun, he was tasked with sacrificing the gods to make the sun move. When his own turn came, he fled through multiple transformations before being captured and sacrificed.",
+    "importanceRank": 2,
+    "imageUrl": "/deities/xolotl.png",
+    "primarySources": [
+      {
+        "text": "Xolotl, they said, was unwilling to die. He fled, transforming into maize, into maguey, and finally into the axolotl of the water.",
+        "source": "Florentine Codex",
+        "date": "16th Century"
+      }
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "greek-pantheon",
+        "deityId": "hermes",
+        "note": "Both serve as psychopomps, guiding souls to the underworld"
+      },
+      {
+        "pantheonId": "egyptian-pantheon",
+        "deityId": "anubis",
+        "note": "Both are canine-associated gods who guide and protect the dead"
+      }
+    ],
+    "pronunciation": {
+      "ipa": "/ˈʃolotl/",
+      "phonetic": "SHOH-lotl"
+    }
+  },
+  {
+    "id": "coyolxauhqui",
+    "pantheonId": "aztec-pantheon",
+    "name": "Coyolxauhqui",
+    "slug": "coyolxauhqui",
+    "alternateNames": [
+      "She of the Bells on Her Cheeks",
+      "Golden Bells"
+    ],
+    "gender": "female",
+    "domain": [
+      "moon",
+      "night",
+      "stars",
+      "warfare"
+    ],
+    "symbols": [
+      "copper bells",
+      "severed limbs",
+      "crescent moon",
+      "dismembered body"
+    ],
+    "description": "The moon goddess, daughter of Coatlicue and leader of the 400 stars. Coyolxauhqui was slain and dismembered by her brother Huitzilopochtli at his miraculous birth, her defeat reenacted at every sunrise.",
+    "detailedBio": "## She of the Bells\n\nCoyolxauhqui (\"She of the Bells on Her Cheeks\") was the Aztec **moon goddess** and daughter of the earth mother **Coatlicue**. Her name comes from the golden bells (coyolli) she wore on her face. Her violent dismemberment by her brother Huitzilopochtli is one of the central myths of Aztec religion.\n\n### The Attack on Coatepec\n\nWhen Coatlicue became miraculously pregnant with Huitzilopochtli, Coyolxauhqui rallied her **400 brothers** (the Centzon Huitznahua, the stars of the southern sky) to murder their mother for this disgrace. She led the army up the sacred mountain **Coatepec** (Serpent Hill) to kill Coatlicue before she could give birth.\n\n### The Birth of Huitzilopochtli\n\nAt the moment the attackers reached the summit, **Huitzilopochtli** sprang fully formed and armed from his mother's womb. Wielding **Xiuhcoatl**, the fire serpent, he struck off Coyolxauhqui's head and hurled her body down the mountainside, where it **shattered into pieces**.\n\n### The Coyolxauhqui Stone\n\nIn 1978, workers discovered the massive **Coyolxauhqui Stone** at the base of the Templo Mayor in Mexico City. The circular stone shows her dismembered body with severed limbs, bells on her cheeks, and skull at her belt. It lay at the foot of the pyramid exactly as her body lay at the foot of Coatepec.\n\n### Cosmic Significance\n\nCoyolxauhqui's defeat by Huitzilopochtli represents the **daily victory of the sun over the moon and stars**. Each sunrise reenacts the moment of her death. The Aztecs performed human sacrifices at the Templo Mayor and rolled the victims' bodies down the steps, ritually recreating Coyolxauhqui's fall.",
+    "originStory": "Coyolxauhqui was born to Coatlicue along with her 400 brothers, the stars. When her mother became pregnant through miraculous means, Coyolxauhqui led her brothers to kill her, but Huitzilopochtli was born at that moment and slew his sister, casting her dismembered body from the mountaintop.",
+    "importanceRank": 2,
+    "imageUrl": "/deities/coyolxauhqui.png",
+    "primarySources": [
+      {
+        "text": "He struck off her head and cast her down from Coatepec, and her body fell to pieces at the foot of the mountain.",
+        "source": "Florentine Codex",
+        "date": "16th Century"
+      }
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "greek-pantheon",
+        "deityId": "selene",
+        "note": "Both are lunar goddesses who traverse the night sky"
+      },
+      {
+        "pantheonId": "japanese-pantheon",
+        "deityId": "tsukuyomi",
+        "note": "Both are moon deities who stand in eternal opposition to their solar siblings"
+      }
+    ],
+    "pronunciation": {
+      "ipa": "/koːjolˈʃaʊki/",
+      "phonetic": "koh-yohl-SHAUW-kee"
+    }
+  },
+  {
+    "id": "xiuhtecuhtli",
+    "pantheonId": "aztec-pantheon",
+    "name": "Xiuhtecuhtli",
+    "slug": "xiuhtecuhtli",
+    "alternateNames": [
+      "Turquoise Lord",
+      "Lord of the Year",
+      "Huehueteotl"
+    ],
+    "gender": "male",
+    "domain": [
+      "fire",
+      "time",
+      "turquoise",
+      "the calendar",
+      "kingship"
+    ],
+    "symbols": [
+      "turquoise",
+      "fire",
+      "xiuhcoatl (fire serpent)",
+      "brazier"
+    ],
+    "description": "The god of fire, time, and the calendar. Xiuhtecuhtli was the oldest deity, dwelling at the center of the universe in the hearth fire that connected all realms. He presided over the New Fire ceremony every 52 years.",
+    "detailedBio": "## The Turquoise Lord\n\nXiuhtecuhtli (\"Turquoise Lord\") was the Aztec **god of fire and time**, one of the oldest deities in the Mesoamerican tradition. His other name, **Huehueteotl** (\"Old God\"), reflects his primordial nature. He dwelt in the **hearth fire** at the center of every home and at the center of the universe itself.\n\n### Lord of the Center\n\nIn Aztec cosmology, Xiuhtecuhtli occupied the **center** of the universe, the axis mundi connecting the heavens, earth, and underworld. The four cardinal directions radiated from his position. Every hearth fire was a manifestation of this cosmic center, making him present in every home.\n\n### The New Fire Ceremony\n\nEvery 52 years, when the two Aztec calendars (the 365-day solar calendar and the 260-day ritual calendar) aligned, all fires throughout the empire were **extinguished**. In a ceremony atop **Huixachtlan** hill, priests drilled new fire on the chest of a sacrificial victim. If the fire caught, the world would continue for another 52 years. Runners then carried the new fire to every temple and household.\n\n### Patron of Rulers\n\nXiuhtecuhtli was closely associated with **rulership and kingship**. New rulers were inaugurated before his shrine. The turquoise crown and throne were sacred to him. \"Xiuh-\" forms part of many royal names and titles.\n\n### The Fire Serpent\n\nXiuhtecuhtli wielded the **Xiuhcoatl**, the turquoise fire serpent, which Huitzilopochtli also carried as his weapon. The fire serpent represented the sun's rays, lightning, and the destructive power of fire. It appears on countless Aztec monuments.",
+    "originStory": "Xiuhtecuhtli existed from the beginning, the first spark that ignited creation. He placed himself at the center of the cosmos and from his fire came warmth, light, and the counting of time. He is the old god who was never born because he always was.",
+    "importanceRank": 2,
+    "imageUrl": "/deities/xiuhtecuhtli.png",
+    "primarySources": [
+      {
+        "text": "He is the old god, Huehueteotl. He dwells in the navel of the earth, in the enclosure of turquoise.",
+        "source": "Florentine Codex",
+        "date": "16th Century"
+      }
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "greek-pantheon",
+        "deityId": "hestia",
+        "note": "Both are deities of the sacred hearth fire at the center of home and cosmos"
+      },
+      {
+        "pantheonId": "hindu-pantheon",
+        "deityId": "agni",
+        "note": "Both are fire gods who serve as intermediaries between humans and other deities"
+      }
+    ],
+    "pronunciation": {
+      "ipa": "/ʃiuːtɛˈkuːtli/",
+      "phonetic": "shee-oo-te-KOOT-lee"
+    }
+  },
+  {
+    "id": "tlaltecuhtli",
+    "pantheonId": "aztec-pantheon",
+    "name": "Tlaltecuhtli",
+    "slug": "tlaltecuhtli",
+    "alternateNames": [
+      "Earth Lord",
+      "Cipactli"
+    ],
+    "gender": "female",
+    "domain": [
+      "earth",
+      "fertility",
+      "death",
+      "rebirth"
+    ],
+    "symbols": [
+      "crocodile",
+      "gaping jaws",
+      "claws",
+      "skulls"
+    ],
+    "description": "The monstrous earth deity from whose dismembered body the world was created. Tlaltecuhtli devours the dead and demands blood in return for crops, embodying the earth's duality as giver and taker of life.",
+    "detailedBio": "## The Earth Monster\n\nTlaltecuhtli (\"Earth Lord,\" though often depicted as female) was the primordial **earth monster** from whose body the world was made. Depicted as a massive creature with gaping jaws, clawed hands and feet, and skulls at her joints, she embodies the earth's **terrifying duality**: the nurturing soil that feeds humanity and the grave that consumes them.\n\n### The Creation of the World\n\nIn the beginning, only water existed. The gods **Quetzalcoatl** and **Tezcatlipoca** descended and saw Tlaltecuhtli swimming in the primal waters, mouths at every joint snapping hungrily. They transformed into serpents, seized her, and **tore her in half**. From her upper body they made the sky; from her lower body, the earth.\n\n### Tezcatlipoca's Foot\n\nDuring the battle with Tlaltecuhtli, the earth monster bit off **Tezcatlipoca's foot**. This wound never healed, and Tezcatlipoca's missing foot is one of his identifying characteristics in Aztec art. He wears a smoking mirror in its place.\n\n### The Hungry Earth\n\nThe other gods were displeased that Quetzalcoatl and Tezcatlipoca had dismembered Tlaltecuhtli. They decreed that **plants would grow from her body** to feed humanity, but in return, she must be fed human blood and hearts. She weeps at night, demanding her due. This myth justified agricultural sacrifice.\n\n### The Tlaltecuhtli Stone\n\nIn 2006, archaeologists discovered a massive **Tlaltecuhtli monolith** near the Templo Mayor - the largest Aztec stone sculpture ever found. The 12-ton stone depicts her in the birthing position, showing her role as earth mother who gives birth to all things and receives all things back in death.",
+    "originStory": "Tlaltecuhtli swam in the primordial waters before creation. Quetzalcoatl and Tezcatlipoca tore her body in half to create the earth and sky. The gods decreed that plants would grow from her flesh, but she would be fed with human blood in return.",
+    "importanceRank": 2,
+    "imageUrl": "/deities/tlaltecuhtli.png",
+    "primarySources": [
+      {
+        "text": "They made the earth from her. And this goddess cried out at night, demanding hearts. She would not give fruit unless she was watered with blood.",
+        "source": "Histoire du Mechique",
+        "date": "16th Century"
+      }
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "greek-pantheon",
+        "deityId": "gaia",
+        "note": "Both are primordial earth deities from whom the world emerged"
+      },
+      {
+        "pantheonId": "norse-pantheon",
+        "deityId": "ymir",
+        "note": "Both are primordial beings whose bodies were used to create the world"
+      }
+    ],
+    "pronunciation": {
+      "ipa": "/tlɑːltɛˈkuːtli/",
+      "phonetic": "tlahl-te-KOOT-lee"
     }
   },
   {
@@ -5848,5 +6575,359 @@
     "primarySources": [{"text": "Shopona, whose face none may see, who walks at night spreading red flowers on the skin.", "source": "Oriki Shopona", "date": "Traditional"}],
     "crossPantheonParallels": [{"pantheonId": "greek-pantheon", "deityId": "apollo", "note": "Both can bring plague and also healing, representing divine justice"}],
     "pronunciation": {"ipa": "/ʃoˈpona/", "phonetic": "shoh-POH-nah"}
+  },
+  {
+    "id": "ryujin",
+    "pantheonId": "japanese-pantheon",
+    "name": "Ryujin",
+    "slug": "ryujin",
+    "originalLanguageName": {
+      "text": "龍神",
+      "language": "Japanese",
+      "transliteration": "Ryujin",
+      "meaning": "Dragon God"
+    },
+    "alternateNames": [
+      "Watatsumi",
+      "Owatatsumi-no-kami",
+      "Dragon King of the Sea"
+    ],
+    "gender": "male",
+    "domain": [
+      "sea",
+      "ocean",
+      "dragons",
+      "storms",
+      "rain"
+    ],
+    "symbols": [
+      "dragon",
+      "tide jewels",
+      "coral palace",
+      "sea turtle"
+    ],
+    "description": "Dragon god of the sea who dwells in an underwater palace made of red and white coral. Ruler of all sea creatures and controller of the tides through his magical tide jewels.",
+    "originStory": "Ryujin emerged as a kami of the ocean depths in early Shinto belief. According to the **Kojiki**, he is the father of **Toyotama-hime**, who married the hunter Hoori and became grandmother to Japan's first emperor Jimmu. His coral palace **Ryugu-jo** lies beneath the waves, where time flows differently than on land.",
+    "detailedBio": "## The Dragon King of the Sea\n\n**Ryujin** (also called Watatsumi) is the dragon deity who rules the ocean from his magnificent coral palace **Ryugu-jo** beneath the waves. He commands all sea creatures—fish, turtles, jellyfish, and other marine life serve as his messengers and attendants. His kingdom exists in a realm where time moves differently; what seems like days underwater may be centuries on the surface.\n\n### The Tide Jewels\n\nRyujin possesses two powerful magical objects: the **Kanju** (tide-ebbing jewel) and **Manju** (tide-flowing jewel). These jewels control the ocean's tides and have featured prominently in Japanese legend. According to the **Nihon Shoki**, Empress Jingu used these jewels to defeat a Korean fleet by first drawing out the tide to strand enemy ships, then releasing a devastating tidal wave.\n\n### The Imperial Lineage\n\nRyujin's daughter **Toyotama-hime** (Jewel Princess) fell in love with the hunter **Hoori** (also called Yamasachi-hiko) when he visited the undersea palace searching for his brother's lost fishhook. They married, and Toyotama-hime traveled to land to give birth. However, Hoori broke his promise not to watch the birth and saw her transform into a dragon. Ashamed, she returned to the sea, leaving their son **Ugayafukiaezu**, who became the father of the legendary first emperor Jimmu.\n\n### Worship and Influence\n\nRyujin is venerated by fishermen, sailors, and coastal communities who depend on the sea's bounty and fear its wrath. Shrines to him dot the Japanese coastline, particularly at sites where underwater caves or unusual rock formations suggest gateways to his realm. The dragon imagery associated with Ryujin influenced Japanese art for centuries, appearing on temple decorations, festival floats, and royal regalia. His association with rain also made him important to agricultural communities praying for water during dry seasons.",
+    "importanceRank": 2,
+    "imageUrl": "/deities/ryujin.png",
+    "primarySources": [
+      {
+        "text": "The Sea-God's palace was made of fish-scales. Fishes great and small were the Sea-God's servants.",
+        "source": "Kojiki",
+        "date": "712 CE"
+      }
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "greek-pantheon",
+        "deityId": "poseidon",
+        "note": "Both are rulers of the sea with underwater palaces and control over storms and marine life"
+      },
+      {
+        "pantheonId": "chinese-pantheon",
+        "deityId": "longwang",
+        "note": "The Chinese Dragon Kings directly influenced Japanese Ryujin mythology through cultural exchange"
+      }
+    ],
+    "pronunciation": {
+      "ipa": "/ˈɾjuːdʒin/",
+      "phonetic": "RYOO-jin"
+    }
+  },
+  {
+    "id": "ebisu",
+    "pantheonId": "japanese-pantheon",
+    "name": "Ebisu",
+    "slug": "ebisu",
+    "originalLanguageName": {
+      "text": "恵比寿",
+      "language": "Japanese",
+      "transliteration": "Ebisu",
+      "meaning": "Bestower of Prosperity"
+    },
+    "alternateNames": [
+      "Yebisu",
+      "Hiruko",
+      "Kotoshironushi"
+    ],
+    "gender": "male",
+    "domain": [
+      "fishing",
+      "merchants",
+      "luck",
+      "prosperity",
+      "honest labor"
+    ],
+    "symbols": [
+      "sea bream (tai)",
+      "fishing rod",
+      "eboshi cap",
+      "laughing face"
+    ],
+    "description": "One of the Seven Lucky Gods (Shichifukujin). God of fishermen, merchants, and honest labor. The only purely Japanese deity among the Seven, known for his cheerful disposition.",
+    "originStory": "Ebisu's origins are debated. One tradition identifies him with **Hiruko**, the first child of Izanagi and Izanami who was born without bones and set adrift. Another links him to **Kotoshironushi**, son of Okuninushi. Regardless, he became associated with the bounty of the sea and the prosperity that comes from diligent work.",
+    "detailedBio": "## The Laughing God of Fortune\n\n**Ebisu** is the cheerful, rotund deity of fishermen, merchants, and prosperity through honest work. He is one of the beloved **Shichifukujin** (Seven Lucky Gods) and holds the distinction of being the only member of this group who originated entirely within Japan—the others derive from Chinese or Indian traditions.\n\n### The Leech Child\n\nOne origin story connects Ebisu to **Hiruko** (Leech Child), the malformed first child of Izanagi and Izanami who was set adrift on the primordial waters because he could not stand at age three. Rather than perishing, Hiruko drifted to the shores of Ezo (Hokkaido) where the Ainu people found and raised him. He eventually became Ebisu, transforming his early rejection into a symbol of perseverance and the unexpected blessings that can come from the sea.\n\n### Iconography\n\nEbisu is instantly recognizable in Japanese art: a plump, smiling figure wearing the tall **eboshi** cap of a nobleman, holding a fishing rod in one hand and clutching a large **tai** (sea bream) under his other arm. The sea bream, colored red and associated with celebrations, puns with the word *medetai* (auspicious). His ever-present grin reflects the contentment that comes from honest labor rewarded.\n\n### The Deaf God\n\nA curious tradition holds that Ebisu is slightly deaf. During the **Kannazuki** (Godless Month) of October, when all the kami travel to Izumo Grand Shrine for their annual assembly, Ebisu remains behind—he simply does not hear the summons. Communities hold special **Ebisu-ko** festivals during this time, honoring the one god who stays to watch over them.\n\n### Merchant's Patron\n\nBeyond fishing communities, Ebisu became the patron of merchants and commerce during the Edo period. Shopkeepers display his image for good fortune in business. The famous Japanese beer brand Yebisu takes his name, and January 10th—**Toka Ebisu**—sees merchants across Japan visiting his shrines to pray for a prosperous year.",
+    "importanceRank": 3,
+    "imageUrl": "/deities/ebisu.png",
+    "primarySources": [
+      {
+        "text": "The child which was born to them was Hiruko (the leech-child). They placed this child in a boat of reeds, and let it float away.",
+        "source": "Kojiki",
+        "date": "712 CE"
+      }
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "greek-pantheon",
+        "deityId": "hermes",
+        "note": "Both are patrons of merchants and commerce, though Hermes has broader trickster associations"
+      }
+    ],
+    "pronunciation": {
+      "ipa": "/eˈbisɯ/",
+      "phonetic": "eh-BEE-soo"
+    }
+  },
+  {
+    "id": "daikokuten",
+    "pantheonId": "japanese-pantheon",
+    "name": "Daikokuten",
+    "slug": "daikokuten",
+    "originalLanguageName": {
+      "text": "大黒天",
+      "language": "Japanese",
+      "transliteration": "Daikokuten",
+      "meaning": "Great Black Heavenly One"
+    },
+    "alternateNames": [
+      "Daikoku",
+      "Daikoku-sama",
+      "Okuninushi (syncretic)"
+    ],
+    "gender": "male",
+    "domain": [
+      "wealth",
+      "commerce",
+      "harvest",
+      "farmers",
+      "kitchen"
+    ],
+    "symbols": [
+      "magic mallet (uchide no kozuchi)",
+      "treasure sack",
+      "rice bales",
+      "rats"
+    ],
+    "description": "One of the Seven Lucky Gods. God of wealth, farmers, and the kitchen. Derived from the Hindu deity Mahakala but merged with the native kami Okuninushi in Japan.",
+    "originStory": "Daikokuten entered Japan through Buddhist transmission as **Mahakala**, a fierce protector deity. Over centuries, his character softened and merged with the Shinto kami **Okuninushi**, the earthly ruler of Izumo. This syncretism transformed him into a benevolent god of wealth and abundance.",
+    "detailedBio": "## The God of Wealth and the Household\n\n**Daikokuten** is a smiling, portly deity who brings wealth, good harvests, and prosperity to households. As one of the **Shichifukujin** (Seven Lucky Gods), he is often paired with Ebisu—the two are frequently depicted together as a duo bringing commercial success and domestic prosperity.\n\n### Syncretic Origins\n\nDaikokuten's history demonstrates the religious blending characteristic of Japanese spirituality. He originated as **Mahakala**, a wrathful Buddhist protector deity derived from the Hindu god Shiva. When Mahakala reached Japan, the kanji for his name (大黒) could also be read as *Okuninushi*, leading to his merger with the beloved Shinto kami **Okuninushi**, ruler of Izumo and god of nation-building. This fusion transformed the fearsome Mahakala into the jovial household deity worshipped today.\n\n### Iconography\n\nDaikokuten appears as a plump, smiling figure sitting atop two bales of rice. He wears a flat black cap and carries two essential objects: a bulging **treasure sack** slung over his shoulder containing all the wealth he bestows upon worshippers, and the **uchide no kozuchi** (magic mallet or lucky hammer). Each strike of this mallet produces gold coins or grants wishes. Mice or rats are often depicted near his rice bales—rather than being pests, they are considered his messengers.\n\n### The Kitchen God\n\nIn many Japanese households, Daikokuten's image is placed in the kitchen, particularly near the kamado (cooking stove). Here he guards the food supply and ensures the family never goes hungry. His association with rice—Japan's staple crop and once a form of currency—made him central to agricultural and economic prosperity.\n\n### New Year Traditions\n\nDaikokuten plays a prominent role in Japanese New Year celebrations. Images of him alongside Ebisu appear on **engimono** (lucky charms) sold at temples and shrines. The tradition of the **Takarabune** (treasure ship) depicts all Seven Lucky Gods sailing into port with their treasures—Daikokuten's mallet and sack prominently displayed—bringing good fortune for the coming year.",
+    "importanceRank": 3,
+    "imageUrl": "/deities/daikokuten.png",
+    "primarySources": [
+      {
+        "text": "The Great Lord of the Country, Okuninushi, ruled the Visible World and all its abundance.",
+        "source": "Kojiki",
+        "date": "712 CE"
+      }
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "hindu-pantheon",
+        "deityId": "shiva",
+        "note": "Daikokuten derives from Mahakala, an aspect of Shiva transmitted through Buddhism"
+      },
+      {
+        "pantheonId": "greek-pantheon",
+        "deityId": "plutus",
+        "note": "Both are deities of wealth and abundance"
+      }
+    ],
+    "pronunciation": {
+      "ipa": "/daikokɯten/",
+      "phonetic": "dy-KOH-koo-ten"
+    }
+  },
+  {
+    "id": "ame-no-uzume",
+    "pantheonId": "japanese-pantheon",
+    "name": "Ame-no-Uzume",
+    "slug": "ame-no-uzume",
+    "originalLanguageName": {
+      "text": "天宇受賣命",
+      "language": "Japanese",
+      "transliteration": "Ame-no-Uzume-no-Mikoto",
+      "meaning": "Heavenly Alarming Female"
+    },
+    "alternateNames": [
+      "Ame-no-Uzume-no-Mikoto",
+      "Uzume",
+      "Okame"
+    ],
+    "gender": "female",
+    "domain": [
+      "dawn",
+      "revelry",
+      "dance",
+      "performance",
+      "meditation"
+    ],
+    "symbols": [
+      "sacred dance",
+      "overturned tub",
+      "bamboo leaves",
+      "round smiling face"
+    ],
+    "description": "Goddess of dawn, mirth, and revelry. Her wild, comedic dance lured Amaterasu from the Heavenly Rock Cave, restoring light to the world. Ancestral deity of performing arts.",
+    "originStory": "When **Amaterasu** retreated into the Ama-no-Iwato cave and plunged the world into darkness, the eight million kami gathered in desperation. Ame-no-Uzume overturned a tub, stamped upon it, and performed an ecstatic, risque dance that provoked such uproarious laughter among the gods that Amaterasu's curiosity drew her forth.",
+    "detailedBio": "## The Goddess Who Restored the Sun\n\n**Ame-no-Uzume-no-Mikoto** holds one of the most pivotal roles in Japanese mythology. When Amaterasu withdrew into the Heavenly Rock Cave and darkness engulfed the world, it was Ame-no-Uzume's bold, outrageous performance that ultimately saved creation by drawing the sun goddess back into the light.\n\n### The Sacred Dance\n\nAccording to the **Kojiki** and **Nihon Shoki**, when all other attempts to coax Amaterasu from her cave failed, Ame-no-Uzume took action. She overturned a wooden tub before the cave entrance, mounted it as a stage, and began to dance. Her movements grew increasingly wild and ecstatic. She partially disrobed, exposing herself in a way that caused the assembled kami to burst into thunderous laughter. The sound puzzled Amaterasu—how could there be merriment when the world was in darkness? Her curiosity overcame her grief, and she peeked out to see what caused such joy. At that moment, the strong-armed god **Ame-no-Tajikarao** pulled her fully out, and light returned to the world.\n\n### The Entertainer's Ancestor\n\nAme-no-Uzume is considered the divine ancestor of the **Sarume** clan, traditional shrine performers, and by extension all performing artists in Japan. Her dance before the cave is regarded as the first theatrical performance—a sacred act that saved the world through the power of entertainment. This connects her to the origins of **kagura** (Shinto theatrical dance) and influenced the development of Noh and other traditional performing arts.\n\n### Confronting Sarutahiko\n\nWhen the gods sent Ninigi (Amaterasu's grandson) to rule the earth, they encountered **Sarutahiko-Okami**, a fearsome earthly kami blocking the path. While the other heavenly deities hesitated, Ame-no-Uzume boldly approached him. Some accounts say she bared herself again; others describe her simply showing fearless confidence. She convinced Sarutahiko to guide Ninigi's descent. Ame-no-Uzume and Sarutahiko later married, linking the heavenly and earthly realms.\n\n### The Okame Mask\n\nAme-no-Uzume's face is the basis for the **Okame** (or Otafuku) mask—the round, cheerful, smiling female face seen throughout Japanese folk art and at festivals. This mask represents good fortune, mirth, and fertility. Her image reminds worshippers that joy, laughter, and bold action can overcome even the darkest circumstances.",
+    "importanceRank": 2,
+    "imageUrl": "/deities/ame-no-uzume.png",
+    "primarySources": [
+      {
+        "text": "Ame-no-Uzume-no-Mikoto bound up her sleeves with a cord of heavenly hikage vine, tied around her head a head-band of the heavenly masaki vine, bound together bundles of sasa leaves to hold in her hands, and overturning a bucket before the heavenly rock-cave door, stamped resoundingly upon it.",
+        "source": "Kojiki",
+        "date": "712 CE"
+      }
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "greek-pantheon",
+        "deityId": "eos",
+        "note": "Both are dawn goddesses, though Ame-no-Uzume's role centers more on restoring light through action"
+      },
+      {
+        "pantheonId": "hindu-pantheon",
+        "deityId": "usha",
+        "note": "Both are goddesses of dawn in Indo-European influenced traditions"
+      }
+    ],
+    "pronunciation": {
+      "ipa": "/amenoɯzɯme/",
+      "phonetic": "ah-meh-noh-oo-ZOO-meh"
+    }
+  },
+  {
+    "id": "kagutsuchi",
+    "pantheonId": "japanese-pantheon",
+    "name": "Kagutsuchi",
+    "slug": "kagutsuchi",
+    "originalLanguageName": {
+      "text": "迦具土",
+      "language": "Japanese",
+      "transliteration": "Kagutsuchi",
+      "meaning": "Incarnation of Fire"
+    },
+    "alternateNames": [
+      "Kagutsuchi-no-kami",
+      "Homusubi",
+      "Hi-no-Kagutsuchi"
+    ],
+    "gender": "male",
+    "domain": [
+      "fire",
+      "volcanoes",
+      "smithing",
+      "destruction"
+    ],
+    "symbols": [
+      "flames",
+      "volcanic fire",
+      "forge",
+      "sword"
+    ],
+    "description": "The fire god whose birth killed his mother Izanami, triggering Izanagi's descent to Yomi and the eternal separation of life and death. From his death came many kami.",
+    "originStory": "Kagutsuchi was born last among the kami created by **Izanagi** and **Izanami**. His fiery body burned Izanami fatally during childbirth. Grief-stricken and enraged, Izanagi decapitated Kagutsuchi with his sword. From the fire god's blood and body sprang numerous deities, including mountain gods, thunder gods, and the sword Futsu-no-Mitama.",
+    "detailedBio": "## The Fateful Fire God\n\n**Kagutsuchi** (also called Homusubi, \"fire-starter\") occupies a tragic but pivotal position in Japanese creation mythology. His birth marked the end of the age of creation and set in motion the separation between the realms of life and death that defines Shinto cosmology.\n\n### The Death of Izanami\n\n**Izanagi** and **Izanami**, the divine couple who created the Japanese islands and gave birth to countless kami, faced tragedy when Izanami went into labor with Kagutsuchi. As the embodiment of fire itself, the infant's birth burned Izanami terribly. Despite giving birth to water and clay kami in her dying moments—her body desperately trying to quench the flames—Izanami succumbed to her wounds and descended to **Yomi**, the underworld.\n\n### The Wrathful Father\n\nIzanagi's grief transformed into rage. Seizing his sword **Ame-no-Ohabari**, he decapitated his newborn son. This violent act was generative rather than merely destructive: from Kagutsuchi's blood dripping down the blade sprang the gods **Kuraokami** (rain dragon) and **Takemikazuchi** (thunder deity). From his severed body emerged eight mountain kami, and the sword that killed him became a sacred object. Kagutsuchi's death multiplied the kami rather than diminishing them.\n\n### Cosmic Consequences\n\nKagutsuchi's birth and death set the fundamental structure of the cosmos. Izanagi's subsequent journey to Yomi to retrieve Izanami—and his horrified flight when he saw her decaying form—established the barrier between the living and the dead. From Izanagi's purification afterward came the three most important kami: Amaterasu, Tsukuyomi, and Susanoo. Without Kagutsuchi's tragic fire, these pivotal events would not have occurred.\n\n### Worship and Symbolism\n\nDespite his destructive associations, Kagutsuchi is venerated rather than feared. He represents fire's dual nature: the devastating power of conflagrations and volcanic eruptions, but also the transformative warmth of the hearth and forge. Blacksmiths and metalworkers honor him as patron of their craft. **Atago Shrine** in Kyoto and shrines at volcanic sites across Japan are dedicated to him. Annual fire festivals seek his blessing for protection against destructive fires while honoring fire's essential role in civilization.",
+    "importanceRank": 2,
+    "imageUrl": "/deities/kagutsuchi.png",
+    "primarySources": [
+      {
+        "text": "Through giving birth to this child, her august private parts were burned, and she sickened and lay down.",
+        "source": "Kojiki",
+        "date": "712 CE"
+      }
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "greek-pantheon",
+        "deityId": "hephaestus",
+        "note": "Both are fire and forge deities, though Kagutsuchi is more elemental while Hephaestus is a craftsman"
+      },
+      {
+        "pantheonId": "hindu-pantheon",
+        "deityId": "agni",
+        "note": "Both are embodiments of fire as a fundamental cosmic force"
+      }
+    ],
+    "pronunciation": {
+      "ipa": "/kagɯtsɯtɕi/",
+      "phonetic": "kah-goo-TSOO-chee"
+    }
+  },
+  {
+    "id": "okuninushi",
+    "pantheonId": "japanese-pantheon",
+    "name": "Okuninushi",
+    "slug": "okuninushi",
+    "originalLanguageName": {
+      "text": "大国主",
+      "language": "Japanese",
+      "transliteration": "Okuninushi",
+      "meaning": "Great Lord of the Country"
+    },
+    "alternateNames": [
+      "Okuninushi-no-Mikoto",
+      "Daikoku-sama",
+      "Onamuchi",
+      "Ashihara-no-Shikoo"
+    ],
+    "gender": "male",
+    "domain": [
+      "nation-building",
+      "medicine",
+      "magic",
+      "marriage",
+      "agriculture"
+    ],
+    "symbols": [
+      "hare of Inaba",
+      "medicine bag",
+      "jewel",
+      "giant bale of rice"
+    ],
+    "description": "The Great Land Master who built and ruled the earthly realm before ceding it to Amaterasu's descendants. God of nation-building, medicine, magic, and matchmaking. Principal deity of Izumo Grand Shrine.",
+    "originStory": "Okuninushi was the son of **Susanoo** and endured trials including being killed by his jealous brothers and revived by his mother. He descended to the underworld, married Susanoo's daughter **Suseri-hime**, and escaped with magical treasures. He then built the earthly nation with the help of the dwarf deity **Sukunabikona**.",
+    "detailedBio": "## The Great Lord Who Built Japan\n\n**Okuninushi-no-Mikoto** is one of the most beloved and complex figures in Japanese mythology. His lengthy saga, recorded primarily in the **Kojiki** and the **Izumo Fudoki**, tells of a persecuted youngest son who rises through trials to become ruler of the earthly realm—only to graciously surrender that realm to the heavenly gods.\n\n### The White Hare of Inaba\n\nOkuninushi's story begins with the famous tale of the **Hare of Inaba**. His eighty brothers, all seeking to marry the beautiful Princess Yakami, encountered a suffering hare that had been flayed by crocodiles (or sharks). The brothers cruelly advised it to bathe in salt water, worsening its pain. Okuninushi, trailing behind carrying their baggage, showed compassion and taught the hare to wash in fresh water and roll in cattail pollen. The grateful hare prophesied that Okuninushi, not his brothers, would win the princess.\n\n### Death and Resurrection\n\nEnraged by losing Yakami to their younger brother, Okuninushi's siblings killed him—first by crushing him with a heated boulder, then by trapping him in a split tree. Each time, his mother **Sashikuni-wakahime** traveled to the realm of the gods and obtained divine intervention to restore him to life. These deaths and resurrections established Okuninushi's connection to the forces of life, death, and healing.\n\n### Trials in the Underworld\n\nFleeing his murderous brothers, Okuninushi descended to the underworld and encountered **Susanoo**, now ruling there. Susanoo subjected him to trials—sleeping in chambers filled with snakes, then centipedes and wasps, then being sent into a field set ablaze. Susanoo's daughter **Suseri-hime** helped Okuninushi survive each test. Eventually, Okuninushi stole Susanoo's sword, bow, and koto (harp), and escaped with Suseri-hime. Susanoo, impressed by his boldness, blessed their union and prophesied Okuninushi's future greatness.\n\n### Building the Land\n\nOkuninushi partnered with **Sukunabikona**, a tiny deity who arrived from the sea on a floating seed pod, to develop the earthly realm. Together they taught humans agriculture, medicine, and the arts of civilization. They drove out malevolent spirits and established the foundations of society. When Sukunabikona departed for the eternal world, Okuninushi completed the work alone.\n\n### The Great Cession\n\nWhen Amaterasu sent emissaries demanding Okuninushi surrender the land to her grandson Ninigi, negotiations proved difficult. The warrior god **Takemikazuchi** finally convinced Okuninushi's son to submit through a wrestling match (considered the origin of sumo). Okuninushi agreed to cede the \"visible realm\" to the heavenly gods if they would build him a palace reaching to heaven and honor him as ruler of the \"hidden realm\"—the world of spirits, the dead, and the unseen forces of nature. This palace became **Izumo Taisha**, one of Japan's oldest and most sacred shrines.\n\n### The Matchmaker\n\nToday, Okuninushi is worshipped at Izumo Grand Shrine as the god of **en-musubi** (creating bonds)—particularly marriage ties. The tenth month, when all other kami gather at Izumo for their annual assembly, is called **Kamiarizuki** (month with gods) in Izumo while the rest of Japan calls it **Kannazuki** (month without gods). During this gathering, the kami are said to arrange the marriages and connections of the coming year.",
+    "importanceRank": 2,
+    "imageUrl": "/deities/okuninushi.png",
+    "primarySources": [
+      {
+        "text": "Then Oho-kuni-nushi-no-Kami appeared, and made and consolidated this land together with the Dwarf Deity Sukuna-biko-na.",
+        "source": "Kojiki",
+        "date": "712 CE"
+      },
+      {
+        "text": "If thou wilt rule the visible affairs, I will rule the unseen. If thou wilt build me a palace with columns broad and high, I will dwell there.",
+        "source": "Nihon Shoki",
+        "date": "720 CE"
+      }
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "greek-pantheon",
+        "deityId": "asclepius",
+        "note": "Both are gods of medicine and healing who underwent trials and death"
+      },
+      {
+        "pantheonId": "norse-pantheon",
+        "deityId": "freyr",
+        "note": "Both are deities of prosperity, fertility, and the earthly realm who exist in complex relationship with the ruling sky gods"
+      }
+    ],
+    "pronunciation": {
+      "ipa": "/okɯninɯɕi/",
+      "phonetic": "oh-koo-nee-NOO-shee"
+    }
   }
 ]

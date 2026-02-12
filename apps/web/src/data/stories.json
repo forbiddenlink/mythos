@@ -473,6 +473,68 @@
     ]
   },
   {
+    "id": "sabine-women",
+    "pantheonId": "roman-pantheon",
+    "title": "The Rape of the Sabine Women",
+    "slug": "sabine-women",
+    "summary": "After founding Rome, Romulus faced a shortage of women for his new city. The Romans abducted women from the neighboring Sabine tribe during a festival, provoking war. The Sabine women themselves ended the conflict by throwing themselves between their fathers and husbands.",
+    "fullNarrative": "## The Problem of Rome\n\nRome had been founded, but it faced extinction. Romulus had opened the city as a sanctuary for refugees, outlaws, and the dispossessed. Men streamed in from across Italy, but women did not. The neighboring peoples refused to intermarry with Rome's population of outcasts and fugitives. Without wives and children, the new city would die within a generation.\n\nRomulus sent envoys to the surrounding tribes seeking marriage alliances. All refused, some with mockery. The Sabines, a powerful neighboring people, were particularly dismissive. Rome's founder decided that if diplomacy failed, force would succeed.\n\n## The Festival Trap\n\nRomulus announced a great festival in honor of Consus, god of the granary, and invited the neighboring peoples to attend. Curiosity overcame suspicion. The Sabines came in great numbers, bringing their families to see the upstart city. They were impressed by Rome's walls and buildings. They relaxed, enjoying the games and spectacles.\n\nAt a prearranged signal, the young Roman men seized the unmarried Sabine women and carried them off. The Sabine men, unarmed and outnumbered at the festival, could only flee. Romulus assured the captured women that they would become honorable wives, not slaves, and that their children would be Roman citizens with full rights.\n\n## The Wars of Vengeance\n\nThe outraged Sabines and their allies prepared for war. Several smaller tribes attacked first and were defeated. Then the Sabine king Titus Tatius assembled a massive army and marched on Rome. Through the treachery of Tarpeia, a Roman maiden bribed to open a gate, the Sabines captured the Capitoline Hill. They threw Tarpeia from the cliff that still bears her name, despising her betrayal even though it served their cause.\n\nThe battle raged in the valley between the hills. Neither side could gain advantage. Blood soaked the ground that would become the Roman Forum.\n\n## The Women's Intervention\n\nAt the battle's height, the Sabine women rushed between the armies. Livy records their words: they implored their fathers not to stain themselves with the blood of their sons-in-law, nor their husbands with the blood of their fathers-in-law. \"If you regret the marriage bond between us,\" they cried, \"turn your anger against us. We are the cause of the war. Better that we should perish than live as widows or orphans.\"\n\nTheir plea moved both armies. The fighting stopped. Romulus and Titus Tatius negotiated a peace. The two peoples merged into one nation, with the Sabine king sharing rule of Rome until his death. The Sabine women had transformed an act of violence into a founding union.\n\n## Legacy\n\nThe Romans told this story as one of their defining myths. It explained the dual origins of Roman religion and custom, combining Latin and Sabine elements. It also established a Roman ideal: that women could be peacemakers and that integration of conquered peoples strengthened rather than weakened the state. The story was depicted in countless artworks through the centuries, from ancient coins to Baroque paintings.",
+    "keyExcerpts": "Rome lacked women after its founding. Romulus abducted Sabine women during a festival. The Sabine tribe waged war in revenge. The women threw themselves between the armies. Peace united the Romans and Sabines as one people.",
+    "category": "legend",
+    "moralThemes": [
+      "necessity and survival",
+      "violence and reconciliation",
+      "women as peacemakers",
+      "integration of peoples"
+    ],
+    "culturalSignificance": "This foundational legend explained Rome's composite origins, combining Latin and Sabine populations. It also established an early precedent for Rome's policy of absorbing conquered peoples rather than simply subjugating them, a practice that would define Roman expansion. The story was invoked to justify both Roman military pragmatism and the honored status of Roman matrons.",
+    "imageUrl": "/stories/sabine-women.png",
+    "citationSources": [
+      {
+        "title": "Ab Urbe Condita",
+        "author": "Livy",
+        "book": "1.9-13",
+        "type": "primary"
+      },
+      {
+        "title": "Lives of Romulus",
+        "author": "Plutarch",
+        "type": "primary"
+      }
+    ],
+    "featuredDeities": ["mars", "juno"],
+    "relatedStories": ["romulus-remus"]
+  },
+  {
+    "id": "cupid-psyche",
+    "pantheonId": "roman-pantheon",
+    "title": "Cupid and Psyche",
+    "slug": "cupid-psyche",
+    "summary": "A mortal princess so beautiful that Venus grew jealous sent her son Cupid to punish her. Instead, Cupid fell in love. After betraying his trust and losing him, Psyche undertook impossible tasks set by Venus to win back her divine husband and gain immortality.",
+    "fullNarrative": "## The Mortal Rival of Venus\n\nIn a certain kingdom lived a king with three daughters. The youngest, **Psyche**, possessed beauty so extraordinary that people began to worship her as a new Venus. They abandoned the goddess's temples to lay flowers at the mortal girl's feet. Venus, watching from Olympus, burned with jealousy. She summoned her son Cupid and commanded him to make Psyche fall in love with the most wretched creature alive.\n\nBut when Cupid saw Psyche sleeping, he pricked himself with his own arrow and fell helplessly in love. He could not carry out his mother's command.\n\n## The Invisible Husband\n\nPsyche's beauty brought her no suitors. Men worshipped her from afar but none dared marry her. Her father consulted the oracle of Apollo, which declared that Psyche must be dressed as a bride for death and left on a mountain crag, where a monster would claim her. Grieving, the family obeyed.\n\nBut instead of death, Zephyrus, the west wind, bore Psyche gently to a hidden valley. There stood a magnificent palace with invisible servants. Each night, a husband came to her in darkness, tender and loving, but he forbade her to ever look upon him. Psyche lived in luxury, wanting for nothing except knowledge of her husband's face.\n\n## The Fatal Lamp\n\nPsyche's jealous sisters visited and poisoned her mind. They convinced her that her husband must be a monster who would devour her. They gave her a lamp and a knife: light the lamp to see the beast, then kill it. That night, Psyche lit the lamp over her sleeping husband.\n\nShe saw not a monster but Cupid himself, the god of love, golden and beautiful. Trembling, she leaned closer—and a drop of hot oil fell on his shoulder. Cupid awoke, saw her betrayal, and fled. \"Love cannot dwell with suspicion,\" he said. The palace vanished. Psyche found herself alone.\n\n## The Tasks of Venus\n\nPsyche wandered the earth seeking Cupid. At last she surrendered herself to Venus, who had imprisoned her wounded son. Venus set her four impossible tasks: to sort a mountain of mixed grains by nightfall (ants helped her), to gather golden wool from man-killing sheep (a reed taught her to collect tufts from branches), to fill a crystal vessel with water from the Styx guarded by dragons (Jupiter's eagle did it for her), and finally to descend to the underworld and obtain a box of Proserpina's beauty.\n\nPsyche accomplished even this last task, but on her return, curiosity overcame her. She opened the box, hoping to take some beauty for herself. Instead, an infernal sleep overcame her.\n\n## Apotheosis\n\nCupid, healed and escaped from his mother's custody, found Psyche lying as one dead. He wiped the sleep from her eyes and restored her. Then he flew to Jupiter himself and begged the king of the gods to legitimize their union. Jupiter summoned the gods to assembly. He commanded Venus to accept Psyche, gave Psyche ambrosia to drink, and made her immortal.\n\nCupid and Psyche were married among the gods. In time, Psyche bore a daughter named Voluptas—Pleasure. And so the soul (for Psyche means \"soul\" in Greek), after trials and suffering, was united with Love forever.",
+    "keyExcerpts": "Venus envied mortal Psyche's beauty and sent Cupid to curse her. Cupid fell in love instead. Psyche's curiosity revealed her invisible husband. Venus set her impossible tasks. Jupiter made Psyche immortal to marry Cupid.",
+    "category": "romance",
+    "moralThemes": [
+      "love and trust",
+      "curiosity and consequence",
+      "trials and transformation",
+      "the soul's journey to divinity"
+    ],
+    "culturalSignificance": "Though embedded in Apuleius's comic novel, this tale became one of antiquity's most influential allegories. Renaissance and later thinkers interpreted it as the soul's journey toward divine love, with Psyche's trials representing spiritual purification. The story influenced countless works of art, from Raphael's frescoes to Keats's poetry, and established the Cupid-Psyche motif as a Western archetype of transformative love.",
+    "imageUrl": "/stories/cupid-psyche.png",
+    "citationSources": [
+      {
+        "title": "Metamorphoses (The Golden Ass)",
+        "author": "Apuleius",
+        "book": "4.28-6.24",
+        "date": "~170 CE",
+        "type": "primary"
+      }
+    ],
+    "featuredDeities": ["venus", "jupiter"],
+    "relatedStories": ["aeneid"]
+  },
+  {
     "id": "ramayana",
     "pantheonId": "hindu-pantheon",
     "title": "The Ramayana",
@@ -1474,6 +1536,166 @@
     "relatedStories": ["death-of-baldur", "trojan-war"]
   },
   {
+    "id": "wooing-of-etain",
+    "pantheonId": "celtic-pantheon",
+    "title": "The Wooing of Etain",
+    "slug": "wooing-of-etain",
+    "summary": "The god Midir pursues the beautiful Etain across lifetimes and incarnations, as jealousy transforms her into a fly, a pool of water, and finally a mortal woman who must choose between two worlds.",
+    "fullNarrative": "## The First Wooing\n\nMidir of Bri Leith, lord of one of the great sidhe mounds of Ireland, saw Etain, the most beautiful woman in all the land, and desired her above all things. He sent Aengus, god of love and his foster-son, to negotiate the bride-price with Etain's father, Ailill. For a year Aengus labored, clearing twelve plains and making twelve rivers flow to the sea, until at last Etain was won.\n\nMidir brought her to his home beneath the mound, and for a time they knew happiness. But Midir had a first wife, Fuamnach, a woman of great power who had been fostered by the druid Bresal Etarlam. Her jealousy burned colder than iron in winter.\n\n> \"I will not share his love,\" Fuamnach swore. \"If I cannot have him wholly, she shall have nothing at all.\"\n\nWith a rod of scarlet quicken-tree, Fuamnach struck Etain and transformed her into a pool of water upon the floor of the house.\n\n## The Transformations\n\nThe water became a worm, and the worm became a fly of surpassing beauty, the size of a man's head, with eyes like precious stones and wings that hummed with the sweetest music in Ireland. The fragrance of this fly banished hunger and thirst, and the dew that dropped from her wings healed the sick.\n\nMidir knew the fly was his beloved Etain, and he kept her always near him, soothed by her music and her presence. But Fuamnach would not rest. She raised a wind, a magical tempest that blew Etain from the sidhe and drove her across Ireland for seven years. She could not alight upon tree or cliff or earth, only upon the rocks of the sea and the ocean waves.\n\nAt last she found shelter in the house of Aengus at Brugh na Boinne, who built her a grianan, a sun-chamber of crystal, and carried it with him wherever he went. For seven years more she knew peace.\n\n## The Second Exile\n\nFuamnach learned where Etain sheltered and came to Brugh na Boinne with honeyed words of reconciliation. When Aengus left to summon Midir for the reunion, Fuamnach raised her wind again. This time Etain was blown through the roof-window of a house in Ulster, where she fell into a cup of wine held by the wife of Etar, a warrior of that province.\n\nThe woman swallowed the fly with her wine, and in time gave birth to a daughter whom they named Etain. This was Etain reborn into mortal flesh, with no memory of her divine existence. She grew to be the most beautiful woman of her generation, just as she had been before.\n\n> A thousand years passed in the Otherworld like a single night, but Etain walked now in the world of mortals, knowing nothing of the god who still loved her.\n\nAengus, discovering Fuamnach's treachery, tracked her down and took her head.\n\n## The High King's Bride\n\nEochaid Airem became High King of Ireland, and the nobles would not accept him until he took a wife. He sent messengers throughout the land to find the most beautiful woman in Ireland, and they found Etain at her father's home in Ulster, washing her hair at a spring. Her comb was of silver and gold, her basin of silver with four golden birds upon its rim.\n\nEochaid married her and loved her, and for a time there was peace. But his brother Ailill Anglonnach also fell sick with love for her, wasting away because he could not speak of it. When Eochaid left on a royal circuit, Etain discovered Ailill's illness and agreed to meet him at a house outside the fortress, believing she could cure him with her presence.\n\nThree times she went to the tryst, and three times she found not Ailill but a stranger who looked exactly like him. On the third meeting, the stranger revealed himself as Midir, who had enchanted Ailill to arrange these meetings. He begged Etain to come away with him to the Otherworld, but she refused, for she had no memory of their former love and would not leave her husband without his consent.\n\n## The Wager\n\nMidir came to Tara in his true form, shining with otherworldly beauty, and challenged the High King to a game of fidchell, the royal board game. They played many games, and at first Eochaid won, demanding impossible labors: causeways built across bogs, forests cleared, rushes spread over bare hills.\n\nThen Midir proposed one final game, with the stakes to be named by the winner. Eochaid agreed, and Midir won. His prize: to put his arms around Etain and take one kiss from her.\n\nEochaid granted him a month's delay. He ringed Tara with his warriors, every door barred, every window watched. But when Midir came, he appeared in the center of the hall, seized Etain, and rose through the smoke-hole as two swans linked by a golden chain.\n\n## The Siege of the Sidhe\n\nFor nine years Eochaid made war upon the fairy mounds of Ireland, digging into them with iron tools, demanding his wife's return. At last he breached Bri Leith itself, and Midir appeared with fifty women who all looked exactly like Etain.\n\n\"Choose,\" said Midir, \"and take her home.\"\n\nEochaid chose, and took her away. But when they had been home for some time, Midir came to him again.\n\n\"You did not choose Etain,\" the god said. \"You chose her daughter, whom she bore me in the Otherworld. And this daughter has borne you a daughter in turn. Your wife is your own granddaughter, and you have committed a great wrong.\"\n\nThe child born of this union was exposed to die, but survived to become Mess Buachalla, whose son Conaire Mor would be High King. And Etain, whether mother or daughter, passed from the stories of mortals, returning at last to the world beneath the mounds.",
+    "keyExcerpts": "Fuamnach transforms Etain into a fly out of jealousy. Etain is reborn as a mortal and marries the High King. Midir wins her back through a game of fidchell. Eochaid digs into the sidhe to reclaim her but chooses wrong.",
+    "category": "romance",
+    "moralThemes": [
+      "jealousy",
+      "identity and memory",
+      "the persistence of love",
+      "fairy bargains",
+      "transformation"
+    ],
+    "culturalSignificance": "Tochmarc Etaine is the great romance of Irish mythology, exploring themes of reincarnation and identity that recur throughout Celtic literature. The tale bridges the Mythological Cycle and the historical legends, showing how divine and mortal lineages intertwined. The motif of the fairy lover who reclaims a mortal spouse appears throughout Celtic folklore.",
+    "imageUrl": "/stories/wooing-of-etain.png",
+    "citationSources": [
+      {
+        "title": "Tochmarc Etaine",
+        "collection": "Mythological Cycle",
+        "type": "primary"
+      },
+      {
+        "title": "Book of the Dun Cow",
+        "type": "manuscript"
+      }
+    ],
+    "featuredDeities": ["midir", "aengus"],
+    "relatedStories": ["children-lir", "dream-of-aengus"]
+  },
+  {
+    "id": "dream-of-aengus",
+    "pantheonId": "celtic-pantheon",
+    "title": "The Dream of Aengus",
+    "slug": "dream-of-aengus",
+    "summary": "The god of love himself falls sick with longing for a woman who visits him only in dreams, and must search all Ireland to find her before he wastes away.",
+    "fullNarrative": "## The Vision in Sleep\n\nAengus Og, the Young Son, god of love and poetry, lord of Brugh na Boinne, fell asleep one night and saw a woman approaching his bed. She was the most beautiful he had ever seen, and he reached out to take her hand, but at that moment he woke and found himself alone.\n\nThe next night she came again, and this time she carried a timpan, a small harp, and played music of such sweetness that Aengus wept. Again he reached for her, and again he woke alone. For a full year she came to him every night, always vanishing at his touch, and Aengus fell into a wasting sickness from which the physicians of the Tuatha De Danann could find no cure.\n\n> \"I am sick for a woman I have seen in dreams,\" Aengus confessed to his mother Boann. \"Without her I will die, yet I do not know her name or where she dwells.\"\n\n## The Search Begins\n\nBoann, goddess of the river that bears her name, searched all Ireland for a year but could not find the woman from Aengus's dreams. Then the Dagda, Aengus's father, took up the search for another year, but he too failed.\n\nAt last they called upon Bodb Dearg, king of the sidhe of Munster and the wisest of the Tuatha De Danann in matters of finding lost things. For a year Bodb searched until he found her at Loch Bel Dracon, the Lake of the Dragon's Mouth.\n\n\"Her name is Caer Ibormeith,\" Bodb reported. \"She is the daughter of Ethal Anbual, a lord of the sidhe of Connacht. Go and see if she is the woman from your dreams.\"\n\n## The Lake of the Dragon's Mouth\n\nAengus traveled to the lake and saw one hundred fifty maidens walking in pairs, each pair linked by a silver chain. One maiden stood apart, taller than the rest, with a golden chain about her neck. At the sight of her, Aengus felt his heart would burst.\n\n\"That is she,\" he said. \"That is the woman of my dreams.\"\n\nBut when he tried to approach her, she vanished into the lake with all her companions.\n\n## The Father's Refusal\n\nAengus appealed to Ethal Anbual for his daughter's hand, but the fairy lord refused. \"I cannot give her to you,\" he said, \"for her power is greater than mine.\"\n\nThe Dagda and Ailill and Medb, the mortal king and queen of Connacht who held sovereignty over Ethal's territory, made war upon him and took him prisoner. Still he refused.\n\n\"I cannot give you what I do not control,\" Ethal insisted. \"Each year my daughter takes the form of a swan. At Samhain she will be at Loch Bel Dracon with one hundred fifty other swans. If Aengus can identify her among them and call her by name, she may choose whether to go with him.\"\n\n> The gods themselves are bound by laws deeper than their power. Even love must win the beloved's consent.\n\n## The Swan Maiden\n\nAt Samhain, when the veil between worlds grows thin, Aengus went to the Lake of the Dragon's Mouth. There he saw one hundred fifty swans, each more beautiful than mortal birds, their feathers gleaming like fresh snow.\n\nBut one swan outshone all the others, larger and more radiant, with a chain of gold about her neck where the others wore silver. Aengus called out to her: \"Caer Ibormeith! Come and speak with me!\"\n\nThe swan approached and spoke: \"Who calls my name?\"\n\n\"Aengus Og, who has loved you for three years though we have never met waking. Come with me to Brugh na Boinne.\"\n\n\"I will go with you,\" Caer replied, \"if you promise that I may return to the lake whenever I wish.\"\n\nAengus gave his promise and transformed himself into a swan. Together they flew three times around the lake, singing a song of such beauty that all who heard it fell into a sleep that lasted three days and three nights.\n\n## The Union of Gods\n\nAengus and Caer flew together to Brugh na Boinne, where they lived as husband and wife. Some say they spent half their time as swans and half as gods in human form. Their singing could heal the sick and ease the dying, and their love became a byword for devotion throughout Ireland.\n\nAnd ever after, the sight of two swans flying together reminded the Irish of Aengus and his hard-won bride, proof that even the god of love himself must search and suffer before finding his heart's desire.",
+    "keyExcerpts": "A mysterious woman visits Aengus in dreams for a year, leaving him lovesick. Bodb Dearg finds her at Loch Bel Dracon. Aengus transforms into a swan to win her at Samhain. They fly together to Brugh na Boinne singing a sleep-inducing song.",
+    "category": "romance",
+    "moralThemes": [
+      "the search for love",
+      "persistence",
+      "transformation",
+      "the power of names",
+      "consent"
+    ],
+    "culturalSignificance": "Aislinge Oengusso is one of the most beloved tales of the Mythological Cycle, showing that even gods must prove themselves worthy of love. The imagery of swan lovers permeates Celtic art and literature, from illuminated manuscripts to modern poetry. The tale emphasizes the Celtic belief in shapeshifting and the magical significance of Samhain as a time of transformation.",
+    "imageUrl": "/stories/dream-of-aengus.png",
+    "citationSources": [
+      {
+        "title": "Aislinge Oengusso",
+        "collection": "Mythological Cycle",
+        "type": "primary"
+      },
+      {
+        "title": "Egerton 1782 manuscript",
+        "type": "manuscript"
+      }
+    ],
+    "featuredDeities": ["aengus", "dagda"],
+    "relatedStories": ["wooing-of-etain", "children-lir"]
+  },
+  {
+    "id": "sons-of-tuireann",
+    "pantheonId": "celtic-pantheon",
+    "title": "The Fate of the Sons of Tuireann",
+    "slug": "sons-of-tuireann",
+    "summary": "When the sons of Tuireann murder Lugh's father Cian, the god of skills sets them an impossible eric-fine: eight quests that will take them to the ends of the earth and cost them their lives.",
+    "fullNarrative": "## The Murder\n\nBefore the Second Battle of Mag Tuired, the Tuatha De Danann prepared for war against the Fomorians. Lugh Lamfada sent his father Cian to summon the warriors of Ulster, and Cian traveled north across the plain of Muirthemne.\n\nThere he saw three warriors approaching: Brian, Iuchar, and Iucharba, the three sons of Tuireann. Between their family and Cian's ran a blood feud of many generations. Cian knew he could not defeat all three, so he struck himself with a druid's wand and transformed into a pig, joining a nearby herd.\n\nBut Brian had seen the transformation. \"One of those pigs is a man,\" he told his brothers. \"Let us hunt them all until we find him.\"\n\nThey drove the herd, and one pig ran apart from the others. Brian cast his spear and wounded it. Cian resumed his human form.\n\n> \"You have found me,\" Cian said. \"But know that if you kill me in my true shape, you must pay an eric-fine. And the weapons that kill a man pay a higher fine than those that kill a pig.\"\n\n\"Then we will kill you with stones,\" Brian replied, \"which have never paid eric for any man.\"\n\nThey stoned Cian until he was a mass of broken flesh, then buried him in the earth. The ground rejected his body seven times before it would accept him.\n\n## The Eric-Fine\n\nLugh knew the manner of his father's death through druidry, and when the sons of Tuireann returned to Tara, he demanded his eric-fine before the assembled Tuatha De Danann. He listed eight objects:\n\nThree apples from the Garden of the Hesperides. The pigskin of Tuis, King of Greece, which healed all wounds it touched. The poisoned spear of Pisear, King of Persia. The chariot and horses of Dobar, King of Sicily. The seven pigs of Easal, King of the Golden Pillars, which could be killed and eaten each night and found alive the next morning. The whelp of the King of Ioruaidhe. The cooking-spit of the women of the Island of Fianchuive. Three shouts on the Hill of Miochaoin in the north of Lochlann.\n\n\"Is that all?\" asked Brian, thinking the list lighter than expected.\n\n\"That is all,\" said Lugh. Then, when the sons of Tuireann had sworn to complete the eric, he described each item in full: how the Garden was guarded by champions who never slept, how the pigskin's owners would never part with it, how each king would die rather than surrender his treasure, how Miochaoin and his sons killed all who set foot on their hill.\n\n> \"You have murdered the father of the champion of the Tuatha De Danann,\" Lugh said. \"Did you think the eric would be easy?\"\n\n## The Quests\n\nThe sons of Tuireann set out in Manannan's magical boat, the Wave-Sweeper, which obeyed the thoughts of its sailors. They obtained the three apples through cunning, transforming into hawks to snatch them and into swans to escape. They won the pigskin by posing as poets, then fighting their way free when discovered.\n\nThey took the spear of Pisear by disguising themselves as soldiers and assassinating the king in his own hall. They won the chariot of Sicily through single combat, and the seven pigs through alliance with Easal, who admired their courage and gave the pigs freely in exchange for peace.\n\nThe whelp they won through battle, and they were sinking near death when they reached the Island of Fianchuive. The women there were warriors, but seeing the brothers so wounded, they gave the cooking-spit in pity rather than fight.\n\n## The Hill of Miochaoin\n\nOnly the final task remained: three shouts on the Hill of Miochaoin, where Cian had trained in his youth and whose lord had sworn that no son of Tuireann would ever survive crying out upon that ground.\n\nLugh, through his arts, had kept track of the brothers' progress. He sent a druidic forgetfulness upon them, so that they returned to Ireland with the other treasures, forgetting the final quest. But as they approached Tara, their memories returned, and they knew they must complete the eric or be forsworn.\n\nThey sailed north to Lochlann and climbed the Hill of Miochaoin. Miochaoin and his three sons met them there. The battle was terrible. Brian killed Miochaoin, and each brother killed one of Miochaoin's sons, but all three sons of Tuireann took mortal wounds in the fighting.\n\nWith his last strength, Brian gave three shouts upon the hill, completing the eric.\n\n## The Deaths\n\nThe brothers returned to Ireland, barely alive. Tuireann, their father, begged Lugh to lend them the pigskin that had been part of the eric, which could heal any wound. Lugh refused.\n\nBrian was carried before the god on a litter, too weak to stand. \"Have mercy,\" he begged. \"We have completed every quest. Surely we have paid enough for your father's blood.\"\n\n\"If you offered me the whole earth,\" Lugh replied, \"I would not heal you now.\"\n\nBrian was carried back to his father and brothers, and the three sons of Tuireann died in their father's arms. Tuireann died of grief above their bodies, and all four were buried in a single grave.\n\n> Thus ended the fate of the sons of Tuireann, one of the Three Sorrows of Storytelling. They achieved the impossible and died for their achievement, proving that some debts cannot be paid except in blood.",
+    "keyExcerpts": "The sons of Tuireann murder Cian with stones to avoid eric-fine. Lugh sets them eight impossible quests. They complete all eight but take mortal wounds on the last. Lugh refuses to heal them with their own pigskin, and all three die.",
+    "category": "tragedy",
+    "moralThemes": [
+      "vengeance",
+      "the weight of blood-debt",
+      "the cruelty of fate",
+      "heroism in hopeless causes",
+      "a father's grief"
+    ],
+    "culturalSignificance": "Oidheadh Chlainne Tuireann is one of the Three Sorrows of Irish Storytelling, alongside The Children of Lir and The Fate of the Sons of Uisneach. It presents a stark vision of justice without mercy, where even completing impossible tasks cannot earn forgiveness. The tale influenced later quest narratives throughout European literature.",
+    "imageUrl": "/stories/sons-of-tuireann.png",
+    "citationSources": [
+      {
+        "title": "Oidheadh Chlainne Tuireann",
+        "collection": "Mythological Cycle",
+        "type": "primary"
+      },
+      {
+        "title": "Book of Lecan",
+        "type": "manuscript"
+      }
+    ],
+    "featuredDeities": ["manannan-mac-lir"],
+    "relatedStories": ["cath-maige-tuired", "children-lir"]
+  },
+  {
+    "id": "death-of-cu-chulainn",
+    "pantheonId": "celtic-pantheon",
+    "title": "The Death of Cu Chulainn",
+    "slug": "death-of-cu-chulainn",
+    "summary": "The greatest hero of Ulster meets his end when his enemies use his own sacred geasa against him, forcing him to break taboo after taboo until he can be killed.",
+    "fullNarrative": "## The Gathering of Enemies\n\nQueen Medb never forgot her defeat in the Cattle Raid, nor forgave the man who had held the ford against all her armies. For years she gathered the children of those Cu Chulainn had slain, training them in war and magic, waiting for her vengeance.\n\nChief among these were Lugaid, son of Cu Roi whom Cu Chulainn had betrayed and killed, and Erc, son of Cairpre, and the three daughters of Calatin, whom Cu Chulainn had slain along with their father and twenty-seven brothers. The daughters had studied sorcery in Alba and Babylon, and they hated the Hound of Ulster with a hatred beyond death.\n\nWhen they were ready, they raised an army and marched on Ulster.\n\n## The Binding of Geasa\n\nCu Chulainn lived bound by sacred geasa, magical prohibitions that gave him power but demanded obedience. He could not eat dog meat, for the dog was his namesake animal. He could not pass a cooking-fire without eating what was offered. He could not refuse hospitality from a woman. He could not retreat from battle once begun.\n\nThe daughters of Calatin knew these geasa, and they wove illusions to trap him.\n\nKing Conchobar and the men of Ulster knew the danger. They tried to keep Cu Chulainn at Emain Macha, surrounded by women and poets who were to distract him while the army fought without him. But the daughters of Calatin raised visions of battles and burning, screams and slaughter, and Cu Chulainn's honor would not let him stay while others died.\n\n> \"Better to fall in battle than to live in shame,\" Cu Chulainn said. \"I will go out and meet them.\"\n\n## The Breaking of Taboos\n\nAs Cu Chulainn drove toward the enemy with his charioteer Laeg, they passed three old crones cooking at a fire by the roadside. The women called out to him, offering food.\n\n\"What do you cook?\" Cu Chulainn asked.\n\n\"Dog meat,\" they replied. \"Will you share our meal, champion?\"\n\nCu Chulainn's geasa trapped him. He could not eat dog meat, but he could not refuse hospitality from women, nor pass a cooking-fire without eating. Whatever he chose, he would break a taboo.\n\nHe took the meat with his left hand and ate it, and the strength went out of his left side forever.\n\n## The Battle\n\nThe army of Medb's vengeance met Cu Chulainn on the plain of Muirthemne. The first cast of Lugaid's spear killed Laeg, the charioteer who had served Cu Chulainn since boyhood. The second cast killed the Grey of Macha, one of the magical horses that had pulled Cu Chulainn's chariot.\n\nThe third cast struck Cu Chulainn in the belly, and his guts spilled out.\n\nCu Chulainn looked around the battlefield and saw a pillar-stone nearby. \"I would not die lying down,\" he said. \"Grant me leave to bind myself to that stone, that I might die standing.\"\n\nHis enemies granted it, fearing some trick but too proud to refuse a dying man's wish.\n\n## The Last Stand\n\nCu Chulainn bound himself to the stone with his own belt, holding his guts in with his shield. For three days he stood there, and none dared approach, for even in death the hero-light burned above his brow and the terror of his battle-rage kept them at bay.\n\nThe Grey of Macha, though dying, returned to defend his master's body, killing fifty men with his teeth and hooves.\n\nAt last the Morrigan, goddess of war, alighted on Cu Chulainn's shoulder in the form of a crow. This was the sign that his life had truly fled. Lugaid approached and cut off Cu Chulainn's head and right hand, the hand that had wielded the gae bolga and slain so many.\n\n> But as the blade fell, Cu Chulainn's sword dropped from his nerveless fingers and severed Lugaid's right hand in turn. The hero had his last revenge even in death.\n\n## The Aftermath\n\nConall Cernach, Cu Chulainn's foster-brother, had been away from Ulster during the battle. When he returned and found the body, he tracked down the killers one by one. Lugaid, one-handed, could not properly bind his shield and was cut down. The daughters of Calatin were hunted and killed. The vengeance of Ulster did not end for a generation.\n\nCu Chulainn's head was ransomed back and buried with honor. They say his ghost appeared to King Conchobar one last time, driving his phantom chariot across the sky, singing of the glory that would never fade.\n\n\"The heroes pass,\" the ghost sang, \"but their names endure. I was the Hound of Ulster, and I held the ford alone.\"",
+    "keyExcerpts": "Cu Chulainn's enemies use his geasa against him, forcing him to eat dog meat. Mortally wounded, he binds himself to a standing stone and dies on his feet. The Morrigan lands on his shoulder as a crow to signal his death.",
+    "category": "death",
+    "moralThemes": [
+      "the tragedy of heroism",
+      "fate and prophecy",
+      "the cost of glory",
+      "sacred obligations",
+      "death with honor"
+    ],
+    "culturalSignificance": "Aided Con Culainn marks the end of the Ulster Cycle's golden age. Cu Chulainn's death standing bound to a pillar-stone became one of the most iconic images in Irish culture, later adopted as a symbol by Irish revolutionaries. The tale explores how the same code of honor that creates heroes can also destroy them.",
+    "imageUrl": "/stories/death-of-cu-chulainn.png",
+    "citationSources": [
+      {
+        "title": "Aided Con Culainn",
+        "collection": "Ulster Cycle",
+        "type": "primary"
+      },
+      {
+        "title": "Book of Leinster",
+        "type": "manuscript"
+      }
+    ],
+    "featuredDeities": ["morrigan"],
+    "relatedStories": ["cattle-raid-cooley", "children-lir"]
+  },
+  {
+    "id": "voyage-of-bran",
+    "pantheonId": "celtic-pantheon",
+    "title": "The Voyage of Bran",
+    "slug": "voyage-of-bran",
+    "summary": "Bran mac Febal sails west to the Otherworld, visiting the Land of Women and the sea-realm of Manannan, only to discover that centuries have passed when he tries to return home.",
+    "fullNarrative": "## The Silver Branch\n\nBran mac Febal walked alone near his fortress when he heard music behind him. He turned, but the music was still behind him. He turned again and again, but always the music came from where he was not looking, until at last he fell asleep from the sweetness of it.\n\nWhen he woke, a silver branch lay beside him, covered with white apple blossoms that gave off fragrance sweeter than any in Ireland. He carried it back to his hall, and as he entered, a woman appeared before all the company, though no one had seen her arrive.\n\nShe sang of the Land of Women, the Island of Joy, the Plain of Delights, places across the western sea where there was no sickness, no age, no sorrow. As she sang, the silver branch leaped from Bran's hand to hers, and she vanished, taking it with her.\n\n> \"There is a distant isle,\" she had sung, \"around which sea-horses glisten. A fair course runs against the white-swelling surge. Four pillars of gold uphold it.\"\n\nBran could not rest. The next morning, he gathered twenty-seven companions and set sail west.\n\n## The Sea-God's Chariot\n\nThree days out, they saw a man approaching across the waves, driving a chariot as if the sea were solid ground. It was Manannan mac Lir, god of the sea and guardian of the Otherworld.\n\nManannan sang to them of what they could not see: that the sea beneath their boat was a flowering plain, that fish were calves and lambs, that the waves were bushes in bloom. What seemed water to mortals was land to the gods.\n\n\"You sail through my kingdom,\" Manannan told them. \"Continue west, and you will find the Land of Women. But remember this: do not let any man's feet touch the soil of Ireland when you return.\"\n\nHe drove his chariot onward, and they saw him no more.\n\n## The Island of Joy\n\nThey passed the Island of Joy, where all the people stood laughing. Bran sent a man ashore to learn why, but the moment he touched the sand, he began laughing too and could not stop nor explain nor return to the boat. They left him there, laughing forever.\n\n## The Land of Women\n\nAt last they reached the Land of Women, ruled by a queen of surpassing beauty. She threw a ball of thread at Bran's boat, and it stuck to his palm. She drew them to shore.\n\nIn that land, each of the twenty-seven men found a woman waiting for him. There was food without cooking, drink without pouring, pleasure without sorrow. Time itself seemed to stop in endless contentment.\n\n> They thought a year passed. It may have been a hundred. In the Otherworld, time is a river that does not flow straight.\n\n## The Longing for Home\n\nOne of Bran's men, Nechtan, grew homesick. He begged to return to Ireland, just to see it once more. The others, stirred by his words, began to remember their own homes, their families, the green hills they had left behind.\n\nThe Queen warned them: \"You will regret going, and most of all, do not set foot upon the land of Ireland.\"\n\nThey did not listen. They sailed east.\n\n## The Return\n\nWhen they reached Ireland, they found a crowd gathered on the shore, and Bran called out his name and lineage. The people stared.\n\n\"Bran mac Febal?\" an old man said. \"That is a name from our oldest stories. He sailed west many centuries ago and never returned.\"\n\nWhat had seemed a year in the Land of Women had been hundreds of years in Ireland. Everyone Bran had known was dust.\n\nNechtan, the homesick one, could not bear it. He leaped from the boat and touched the sand of Ireland. The moment his feet touched the shore, all the centuries fell upon him at once. He crumbled into ashes and was gone.\n\n## The Final Sailing\n\nBran told the people on the shore all that had happened to him, and they wrote it down. Then he turned his boat west again and sailed back toward the setting sun.\n\nNo one knows if he reached the Land of Women, or if he sails still, or if the sea swallowed him at last. But the story remained, a warning and a wonder: that the Otherworld exists just beyond the horizon, that its gifts come with prices, and that those who go there can never truly come home.\n\n> From that hour his wanderings are not known. Thus far the Voyage of Bran.",
+    "keyExcerpts": "A woman's song lures Bran to sail west. Manannan meets them on the waves. They spend what seems a year in the Land of Women. Centuries pass in Ireland. Nechtan touches Irish soil and crumbles to dust. Bran sails west again, never to return.",
+    "category": "quest",
+    "moralThemes": [
+      "the allure of the Otherworld",
+      "the passage of time",
+      "the impossibility of return",
+      "the cost of paradise",
+      "homesickness"
+    ],
+    "culturalSignificance": "Immram Brain is the earliest of the Irish voyage tales, inspiring later immrama such as the Voyage of Mael Duin and the Christian Voyage of Saint Brendan. It established the western sea as the realm of the supernatural in Celtic imagination, an idea that persisted into the Age of Exploration. The tale's meditation on time and eternity influenced medieval European literature.",
+    "imageUrl": "/stories/voyage-of-bran.png",
+    "citationSources": [
+      {
+        "title": "Immram Brain maic Febail",
+        "collection": "Mythological Cycle",
+        "type": "primary"
+      },
+      {
+        "title": "Book of the Dun Cow",
+        "type": "manuscript"
+      }
+    ],
+    "featuredDeities": ["manannan-mac-lir"],
+    "relatedStories": ["children-lir", "dream-of-aengus"]
+  },
+  {
     "id": "epic-of-gilgamesh",
     "pantheonId": "mesopotamian-pantheon",
     "title": "The Epic of Gilgamesh",
@@ -2011,5 +2233,82 @@
     "citationSources": [{"title": "Yoruba Oral Tradition", "type": "primary"}],
     "featuredDeities": ["ogun", "shango", "oshun"],
     "relatedStories": ["shango-becomes-orisha", "oshun-saves-world"]
+  },
+  {
+    "id": "birth-of-huitzilopochtli",
+    "pantheonId": "aztec-pantheon",
+    "title": "The Birth of Huitzilopochtli",
+    "slug": "birth-of-huitzilopochtli",
+    "summary": "Coatlicue, the earth mother, becomes mysteriously pregnant after a ball of feathers falls upon her. Her daughter Coyolxauhqui leads the Centzon Huitznahua in an attack, but Huitzilopochtli emerges fully armed to defend his mother.",
+    "fullNarrative": "## The Feathered Conception\n\nOn the sacred mountain of Coatepec, the serpent hill, lived **Coatlicue**, She of the Serpent Skirt. She was the earth mother, giver and taker of life, and she had already borne many children: the moon goddess **Coyolxauhqui** and the four hundred sons known as the **Centzon Huitznahua**, who became the stars of the southern sky.\n\nOne day, while Coatlicue swept the temple as an act of penance, a ball of fine feathers descended from the heavens. She tucked it into her waistband for safekeeping. When she later reached for it, the feathers had vanished, and she discovered she was with child.\n\n## The Conspiracy of the Stars\n\nWhen Coyolxauhqui learned of her mother's pregnancy, she was filled with rage and shame. How could Coatlicue, their venerable mother, dishonor the family in such a way? The moon goddess gathered her four hundred brothers and convinced them that their mother must die for this transgression.\n\nThey armed themselves as warriors and ascended Coatepec to murder Coatlicue. She wept in fear, for she did not understand her own pregnancy, but a voice spoke to her from her womb: \"Do not be afraid. I know what I must do.\"\n\n## The God of War Emerges\n\nAt the moment Coyolxauhqui reached the summit to strike the killing blow, **Huitzilopochtli** burst forth from his mother's body fully grown and dressed for war. He wore the blue-green hummingbird headdress and carried **Xiuhcoatl**, the fire serpent, as his weapon.\n\nWith a single strike of the fire serpent, he decapitated his sister. Her body tumbled down the mountainside, breaking apart as it fell until her limbs scattered at the base of Coatepec. He then turned on the Centzon Huitznahua, pursuing them across the sky and slaughtering most of them in his divine fury.\n\n## The Eternal Battle\n\nThe Aztecs understood this myth as the daily cosmic drama. Each morning, Huitzilopochtli is born from the earth (Coatlicue) and defeats the moon (Coyolxauhqui) and stars (Centzon Huitznahua), driving them from the sky. Each night, they return to threaten him again, and each dawn he must be reborn to repeat his victory.\n\nThis is why the Templo Mayor in Tenochtitlan was built as a recreation of Coatepec. The great stone disk of the dismembered Coyolxauhqui was placed at the base of the temple stairs. Sacrificial victims were cast down these stairs after their hearts were offered to Huitzilopochtli, reenacting his victory and ensuring the sun's continued triumph.",
+    "keyExcerpts": "Coatlicue conceives from a ball of feathers. Coyolxauhqui leads the stars against her. Huitzilopochtli emerges fully armed. He decapitates his sister and scatters her body. The daily battle of sun against moon and stars.",
+    "category": "creation",
+    "moralThemes": ["divine birth", "cosmic order", "sacrifice as necessity", "family conflict"],
+    "culturalSignificance": "This myth explained the daily solar cycle and served as the foundational charter for Aztec human sacrifice. The Templo Mayor was designed as an architectural recreation of this myth, with the Coyolxauhqui stone marking where victims' bodies would fall.",
+    "imageUrl": "/stories/birth-of-huitzilopochtli.png",
+    "citationSources": [
+      {
+        "title": "Florentine Codex, Book 3",
+        "type": "primary"
+      },
+      {
+        "title": "Historia de las Indias de Nueva Espana",
+        "author": "Diego Duran",
+        "type": "primary"
+      }
+    ],
+    "featuredDeities": ["huitzilopochtli", "coatlicue", "coyolxauhqui"],
+    "relatedStories": ["five-suns"]
+  },
+  {
+    "id": "quetzalcoatl-fall-exile",
+    "pantheonId": "aztec-pantheon",
+    "title": "Quetzalcoatl's Fall and Exile",
+    "slug": "quetzalcoatl-fall-exile",
+    "summary": "Through cunning tricks and dark sorcery, Tezcatlipoca causes the righteous priest-king Quetzalcoatl to break his sacred vows, leading to his shame, exile, and promise to return.",
+    "fullNarrative": "## The Righteous King of Tollan\n\nIn the legendary city of **Tollan**, there ruled a priest-king named **Ce Acatl Topiltzin Quetzalcoatl**. He was the earthly embodiment of the Feathered Serpent, and under his rule Tollan became a paradise. The maize grew so large that men could barely carry a single ear. Cotton grew in every color. The Toltecs wanted for nothing.\n\nQuetzalcoatl practiced strict penance and celibacy. He opposed human sacrifice, offering only jade, butterflies, and snakes to the gods. He was beloved by his people and despised by his rival **Tezcatlipoca**, the Smoking Mirror, who ruled through blood and chaos.\n\n## The Mirror and the Wine\n\nTezcatlipoca descended to Tollan in disguise, determined to destroy Quetzalcoatl. First, he appeared before the priest-king with a mirror wrapped in cloth. \"My lord, I have come to show you your body,\" he said.\n\nWhen Quetzalcoatl looked into the obsidian mirror, he saw himself as old and decrepit, his face covered with wrinkles and sores. He had never seen his own reflection before. He was horrified and hid himself away, believing he could no longer appear before his people.\n\nTezcatlipoca then sent sorcerers with **octli**, the fermented drink of the maguey plant. They convinced the distraught Quetzalcoatl to drink, claiming it would cure his distress. One cup led to another. Drunk for the first time in his life, the righteous king called for his sister **Quetzalpetlatl** and lay with her, breaking his sacred vows of celibacy.\n\n## The Morning After\n\nWhen Quetzalcoatl awoke, he understood what he had done. His penance had been broken. His celibacy destroyed. The sorcerer Tezcatlipoca had defeated him without lifting a weapon. The priest-king wept and ordered his servants to prepare a stone casket.\n\nHe lay in the casket for four days as a symbolic death. Then he rose and traveled east toward the sea, accompanied by his followers. Along the way, he established rituals and named places. Everything he touched was marked by his passage.\n\n## The Departure\n\nWhen Quetzalcoatl reached the shore of the divine sea, he dressed himself in his finest regalia: the feathered headdress, the turquoise mask, the jade ornaments. He set himself ablaze on a great pyre. His ashes rose into the sky, and his heart ascended to become the morning star, **Tlahuizcalpantecuhtli**.\n\nBefore his death, Quetzalcoatl made a prophecy: he would return in a **One Reed year** to reclaim his kingdom. When Cortes arrived in 1519, a One Reed year, the Aztec emperor Moctezuma feared the prophecy had come true. Some sources suggest this fear contributed to the Aztec hesitation that enabled the Spanish conquest, though modern scholars debate how much this tradition was shaped after the fact.",
+    "keyExcerpts": "Tezcatlipoca tricks Quetzalcoatl with a mirror showing his aged reflection. Sorcerers bring him octli and he breaks his vows. He departs Tollan in shame. He immolates himself and becomes the morning star. He prophesies his return.",
+    "category": "tragedy",
+    "moralThemes": ["pride before fall", "the corruption of virtue", "exile and return", "the morning star"],
+    "culturalSignificance": "This myth served multiple functions: it explained the fall of Tollan, established Venus as associated with Quetzalcoatl, and contained the prophecy of return that may have influenced Aztec response to Spanish contact. The rivalry between Quetzalcoatl and Tezcatlipoca represents the eternal conflict between order and chaos.",
+    "imageUrl": "/stories/quetzalcoatl-fall-exile.png",
+    "citationSources": [
+      {
+        "title": "Anales de Cuauhtitlan",
+        "type": "primary"
+      },
+      {
+        "title": "Florentine Codex, Book 3",
+        "type": "primary"
+      }
+    ],
+    "featuredDeities": ["quetzalcoatl", "tezcatlipoca"],
+    "relatedStories": ["five-suns", "birth-of-huitzilopochtli"]
+  },
+  {
+    "id": "journey-to-mictlan",
+    "pantheonId": "aztec-pantheon",
+    "title": "The Journey to Mictlan",
+    "slug": "journey-to-mictlan",
+    "summary": "The perilous four-year journey of the soul through the nine levels of the Aztec underworld, facing wind of obsidian knives, crushing mountains, and the final crossing to rest before Mictlantecuhtli.",
+    "fullNarrative": "## The Departure of the Soul\n\nWhen an Aztec died a common death (not in battle, sacrifice, childbirth, or drowning), their **tonalli** began the journey to **Mictlan**, the land of the dead. The body was wrapped in cloth and cremated with a yellow dog to serve as a guide, along with provisions of food, water, jade beads to pay the lords of death, and paper garments to protect against the trials ahead.\n\nThe journey would take four years. During this time, the living performed rituals on the anniversary of the death, burning offerings that would reach the traveling soul.\n\n## The Nine Levels\n\nThe path to Mictlan passed through nine challenging levels:\n\n1. **Itzcuintlan** - The Place of the Dog, where the yellow dog must recognize and help the soul cross a great river.\n2. **Tepetl Monamicyan** - Where two mountains clash together, and the soul must pass between them at exactly the right moment.\n3. **Itztepetl** - The Obsidian Mountain, where the soul must climb a peak covered in razor-sharp obsidian.\n4. **Itzehecayan** - The Place of the Obsidian Wind, where a freezing wind full of obsidian knives cuts through the soul.\n5. **Pancuecuetlacayan** - Where bodies hang like flags, flapping in an endless wind.\n6. **Temiminaloyan** - Where arrows are shot at the soul from all directions.\n7. **Teocoyohuehualoyan** - Where wild beasts devour hearts.\n8. **Izmictlan Apochcalocan** - The Place of Obsidian Fog, where the soul can see nothing and must navigate by feel.\n9. **Chicunamictlan** - The Place of the Dead, the final level where Mictlantecuhtli and Mictecacihuatl rule.\n\n## The Lord and Lady of Death\n\n**Mictlantecuhtli**, the skeletal lord of the dead, and his wife **Mictecacihuatl** awaited souls in the lowest level. They were not evil but simply ruled their domain of darkness. When the soul finally arrived, it offered the jade beads brought from the living world.\n\nThe soul then ceased to exist as an individual, dissolving into the collective realm of the dead. This was not punishment but the natural end of those who died ordinary deaths. It was simply the way of things.\n\n## Exceptions to the Journey\n\nNot all souls traveled to Mictlan. Warriors who died in battle and sacrificial victims went to accompany the sun across the sky. Women who died in childbirth joined the sun on its journey through the underworld. Those who drowned or were struck by lightning went to **Tlalocan**, the paradise of Tlaloc, the rain god.\n\nThese alternate destinations were considered honors. Mictlan was not a place of punishment but simply the destination of common mortality. The Aztecs accepted death as part of the cosmic order, a debt that all living things owed to the gods who had sacrificed themselves to create the world.",
+    "keyExcerpts": "The soul is cremated with a yellow dog as guide. It passes through nine levels of trials. Obsidian wind and crushing mountains test the dead. Mictlantecuhtli and Mictecacihuatl receive the soul. Warriors and sacrifices go elsewhere.",
+    "category": "death",
+    "moralThemes": ["mortality and acceptance", "preparation for death", "cosmic order", "the dissolution of self"],
+    "culturalSignificance": "This underworld geography shaped Aztec funerary practices. The emphasis on provisions for the dead, the four-year mourning cycle, and the importance of proper burial all derive from this belief system. The myth also justified different social deaths: warriors and mothers received special afterlives as reward for their sacrifices.",
+    "imageUrl": "/stories/journey-to-mictlan.png",
+    "citationSources": [
+      {
+        "title": "Florentine Codex, Book 3, Appendix",
+        "type": "primary"
+      },
+      {
+        "title": "Historia General de las Cosas de Nueva Espana",
+        "author": "Bernardino de Sahagun",
+        "type": "primary"
+      }
+    ],
+    "featuredDeities": ["mictlantecuhtli", "xolotl"],
+    "relatedStories": ["five-suns", "quetzalcoatl-fall-exile"]
   }
 ]

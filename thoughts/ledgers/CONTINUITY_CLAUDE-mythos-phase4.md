@@ -44,11 +44,52 @@ Continue enhancing the Mythos Atlas with new features and optimizations.
 - ~27 setState-in-effect warnings - mostly intentional hydration patterns in components
 - ~200 unused variable warnings - mostly in test files
 
+### Achievement Notifications ✓ COMPLETE (this session)
+- [x] Created AchievementNotificationProvider
+- [x] Shows toast when achievements unlock
+- [x] Sequential queue for multiple unlocks
+- [x] Auto-dismiss after 5 seconds
+
+### Shareable Quiz Results ✓ COMPLETE (this session)
+- [x] Share button on quiz completion screen
+- [x] Native share API on mobile, clipboard fallback
+- [x] URL params for shared results (?score=8&total=10&difficulty=medium)
+- [x] Shared results landing page with CTA to take quiz
+- [x] Dynamic OG image for shared results
+
+### Accessibility Audit (WCAG) ✓ COMPLETE (this session)
+- [x] Installed `@axe-core/playwright` for automated WCAG testing
+- [x] Created e2e accessibility test suite (`e2e/accessibility.spec.ts`)
+- [x] Fixed color contrast: Hero section outline button now uses `bg-transparent` to avoid light theme background conflict
+- [x] Fixed button-name: Added `aria-label` to all SelectTrigger components in DeityFilters and StoryFilters
+- [x] Fixed aria-progressbar-name: Added `aria-label` to Progress components in LearningPathCard and achievements page
+- [x] All 8 page accessibility tests pass (Homepage, Deities, Pantheons, Stories, Quiz Hub, Achievements, Compare, Learning Paths)
+
+### Content Expansion ✓ COMPLETE (this session)
+
+**Celtic:**
+- [x] Added 10 Celtic deities (Danu, Nuada, Manannán mac Lir, Aengus, Cernunnos, Ogma, Dian Cécht, Goibniu, Áine, Midir)
+- [x] Added 5 Celtic stories (Wooing of Étaín, Dream of Aengus, Sons of Tuireann, Death of Cú Chulainn, Voyage of Bran)
+- [x] Celtic: 4 → 14 deities, 3 → 8 stories
+
+**Aztec:**
+- [x] Added 8 Aztec deities (Xochiquetzal, Tlazolteotl, Mayahuel, Tonatiuh, Xolotl, Coyolxauhqui, Xiuhtecuhtli, Tlaltecuhtli)
+- [x] Added 3 Aztec stories (Birth of Huitzilopochtli, Quetzalcoatl's Fall, Journey to Mictlan)
+- [x] Aztec: 7 → 15 deities, 1 → 4 stories
+
+**Japanese:**
+- [x] Added 6 Japanese deities (Ryujin, Ebisu, Daikokuten, Ame-no-Uzume, Kagutsuchi, Okuninushi)
+- [x] Japanese: 12 → 19 deities (stories unchanged at 5)
+
+**Roman:**
+- [x] Added 2 Roman stories (Sabine Women, Cupid and Psyche)
+- [x] Roman: 2 → 4 stories (deities unchanged at 26)
+
+**Test updates:**
+- [x] Added 'death', 'quest', 'legend' to valid story categories
+
 ### Next Opportunities
-- [ ] Achievement unlock notifications (toast)
-- [ ] Shareable quiz results
-- [ ] Accessibility audit (WCAG)
-- [ ] Content expansion
+- [ ] Content expansion (African/Yoruba: 12 deities, Mesoamerican: 13 deities)
 - [ ] User accounts (backend required)
 
 ## Key Decisions
@@ -58,6 +99,7 @@ Continue enhancing the Mythos Atlas with new features and optimizations.
 3. **WebP**: Kept original PNGs as backups, updated CSS references only
 4. **Hydration Patterns**: setState-in-effect for localStorage loading is intentional for SSR safety, added eslint-disable comments
 5. **Error Styling**: Uses `text-destructive` design system color, not hardcoded red
+6. **Accessibility Testing**: Using `@axe-core/playwright` with WCAG 2 AA tags, filtering for critical/serious violations only. Tests run against localhost:3001.
 
 ## Files Modified (this session)
 
@@ -93,6 +135,19 @@ Continue enhancing the Mythos Atlas with new features and optimizations.
 - `apps/web/src/app/knowledge-graph/page.tsx` - removed console.log
 - `apps/web/src/lib/background-sync.ts` - removed console.log
 
+**Accessibility fixes (this session):**
+- `apps/web/e2e/accessibility.spec.ts` - NEW: Playwright accessibility test suite
+- `apps/web/src/components/home/HeroSection.tsx` - fixed outline button bg-transparent for contrast
+- `apps/web/src/components/deities/DeityFilters.tsx` - added aria-labels to SelectTriggers
+- `apps/web/src/components/stories/StoryFilters.tsx` - added aria-labels to SelectTriggers
+- `apps/web/src/components/learning/LearningPathCard.tsx` - added aria-label to Progress
+- `apps/web/src/app/achievements/page.tsx` - added aria-label to Progress
+
+**Content expansion (this session):**
+- `apps/web/src/data/deities.json` - added 24 deities (10 Celtic, 8 Aztec, 6 Japanese)
+- `apps/web/src/data/stories.json` - added 10 stories (5 Celtic, 3 Aztec, 2 Roman)
+- `apps/web/src/__tests__/data/stories.test.ts` - added 'death', 'quest', 'legend' to valid categories
+
 ## Working Set
 
 - **Branch**: main
@@ -101,9 +156,9 @@ Continue enhancing the Mythos Atlas with new features and optimizations.
 
 ## Content Totals
 
-- **12 pantheons**: Greek, Norse, Egyptian, Roman, Celtic, Hindu, Japanese, Mesopotamian, Chinese, Mesoamerican, African, Polynesian
-- **~150+ deities**
-- **~65+ stories**
+- **13 pantheons**: Greek, Norse, Egyptian, Roman, Celtic, Hindu, Japanese, Mesopotamian, Chinese, Aztec, Mesoamerican, African, Polynesian
+- **325 deities** (expanded Celtic +10, Aztec +8, Japanese +6)
+- **74 stories** (expanded Celtic +5, Aztec +3, Roman +2)
 - **~90+ locations**
 - **33 academic sources**
 - **24 achievements**
