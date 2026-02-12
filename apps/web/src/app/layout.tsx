@@ -11,6 +11,7 @@ import { CommandPaletteProvider } from "@/components/command-palette/CommandPale
 import { SkipToContent } from "@/components/accessibility/SkipToContent";
 import { BookmarksProvider } from "@/providers/bookmarks-provider";
 import { ProgressProvider } from "@/providers/progress-provider";
+import { AchievementNotificationProvider } from "@/providers/achievement-notification-provider";
 import { generateBaseMetadata } from "@/lib/metadata";
 import { AudioProvider } from "@/components/audio/AudioContext";
 import { AudioControls } from "@/components/audio/AudioControls";
@@ -85,6 +86,7 @@ export default async function RootLayout({
             <QueryProvider>
               <BookmarksProvider>
                 <ProgressProvider>
+                <AchievementNotificationProvider>
                 <AudioProvider>
                   <CommandPaletteProvider>
                     <SkipToContent />
@@ -100,6 +102,7 @@ export default async function RootLayout({
                     <InstallPrompt />
                   </CommandPaletteProvider>
                 </AudioProvider>
+                </AchievementNotificationProvider>
                 </ProgressProvider>
               </BookmarksProvider>
             </QueryProvider>
