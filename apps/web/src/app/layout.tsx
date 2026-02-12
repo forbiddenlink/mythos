@@ -19,7 +19,7 @@ import { InstallPrompt, OfflineIndicator } from "@/components/pwa";
 // Cinzel - Elegant classical display font inspired by Roman inscriptions
 const cinzel = Cinzel({
   variable: "--font-cinzel",
-  subsets: ["latin"],
+  subsets: ["latin", "latin-ext"],
   display: "swap",
   weight: ["400", "500", "600", "700", "800"],
 });
@@ -27,7 +27,7 @@ const cinzel = Cinzel({
 // Source Sans 3 - Clean, readable UI font
 const sourceSans = Source_Sans_3({
   variable: "--font-source-sans",
-  subsets: ["latin"],
+  subsets: ["latin", "latin-ext"],
   display: "swap",
   weight: ["400", "500"],
 });
@@ -35,7 +35,7 @@ const sourceSans = Source_Sans_3({
 // Crimson Pro - Elegant serif for body text and quotes
 const crimsonPro = Crimson_Pro({
   variable: "--font-crimson",
-  subsets: ["latin"],
+  subsets: ["latin", "latin-ext"],
   display: "swap",
   style: ["normal", "italic"],
 });
