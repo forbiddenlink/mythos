@@ -1,7 +1,11 @@
 import type { NextConfig } from 'next';
 import createNextIntlPlugin from 'next-intl/plugin';
+import bundleAnalyzer from '@next/bundle-analyzer';
 
 const withNextIntl = createNextIntlPlugin('./i18n.ts');
+const withBundleAnalyzer = bundleAnalyzer({
+  enabled: process.env.ANALYZE === 'true',
+});
 
 // PWA Configuration - Install: pnpm add next-pwa
 // eslint-disable-next-line @typescript-eslint/no-require-imports
@@ -148,4 +152,4 @@ const nextConfig: NextConfig = {
   },
 };
 
-export default withNextIntl(withPWA(nextConfig));
+export default withBundleAnalyzer(withNextIntl(withPWA(nextConfig)));
