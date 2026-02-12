@@ -28,7 +28,7 @@ export function CTASection() {
               I need to see where cta-ruins.jpg was used. It wasn't in the file content I read earlier!
               I will add it as a background.
            */}
-        <div className="absolute inset-0 bg-[url('/cta-ruins.png')] bg-cover bg-center opacity-30 mix-blend-overlay"></div>
+        <div className="absolute inset-0 bg-[url('/cta-ruins.webp')] bg-cover bg-center opacity-30 mix-blend-overlay"></div>
       </div>
 
       {/* Top border line */}
