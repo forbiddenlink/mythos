@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import { useQuery } from '@tanstack/react-query';
+import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { graphqlClient } from '@/lib/graphql-client';
 import { GET_DEITIES, GET_ALL_RELATIONSHIPS } from '@/lib/queries';
@@ -29,6 +30,8 @@ import {
   Target,
   Star,
   ChevronLeft,
+  Share2,
+  Check,
 } from 'lucide-react';
 import {
   generateRelationshipQuiz,
@@ -51,14 +54,22 @@ interface QuizState {
 }
 
 export default function RelationshipQuizPage() {
+  const searchParams = useSearchParams();
   const [difficulty, setDifficulty] = useState<Difficulty>('medium');
   const [questionCount, setQuestionCount] = useState(10);
   const [useTimer, setUseTimer] = useState(false);
   const [quizStarted, setQuizStarted] = useState(false);
   const [quizState, setQuizState] = useState<QuizState | null>(null);
   const [highScore, setHighScore] = useState(0);
+  const [copied, setCopied] = useState(false);
 
   const { recordQuizScore, unlockAchievement, progress } = useProgress();
+
+  // Check for shared results in URL
+  const sharedScore = searchParams.get('score');
+  const sharedTotal = searchParams.get('total');
+  const sharedDifficulty = searchParams.get('difficulty') as Difficulty | null;
+  const isSharedResult = sharedScore !== null && sharedTotal !== null;
 
   // Load high score
   useEffect(() => {
@@ -161,6 +172,118 @@ export default function RelationshipQuizPage() {
     setQuizStarted(false);
     setQuizState(null);
   }, []);
+
+  const handleShare = useCallback(async (score: number, total: number, diff: Difficulty) => {
+    const params = new URLSearchParams({
+      score: score.toString(),
+      total: total.toString(),
+      difficulty: diff,
+    });
+    const shareUrl = `${window.location.origin}/quiz/relationships?${params.toString()}`;
+
+    try {
+      // Try native share first on mobile
+      if (navigator.share) {
+        const percentage = Math.round((score / total) * 100);
+        await navigator.share({
+          title: 'My Quiz Results - Mythos Atlas',
+          text: `I scored ${percentage}% on the Divine Relationships Quiz! Can you beat my score?`,
+          url: shareUrl,
+        });
+      } else {
+        // Fall back to clipboard
+        await navigator.clipboard.writeText(shareUrl);
+        setCopied(true);
+        setTimeout(() => setCopied(false), 2000);
+      }
+    } catch {
+      // Fallback for older browsers
+      const input = document.createElement('input');
+      input.value = shareUrl;
+      document.body.appendChild(input);
+      input.select();
+      document.execCommand('copy');
+      document.body.removeChild(input);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    }
+  }, []);
+
+  // Shared Results View (from URL params)
+  if (isSharedResult) {
+    const score = parseInt(sharedScore);
+    const total = parseInt(sharedTotal);
+    const diff = sharedDifficulty || 'medium';
+    const percentage = Math.round((score / total) * 100);
+
+    return (
+      <div className="min-h-screen bg-gradient-to-b from-background to-mythic">
+        <div className="container mx-auto max-w-4xl px-4 py-12">
+          <Breadcrumbs />
+
+          <Card className="max-w-2xl mx-auto mt-6 border-gold/20 shadow-xl overflow-hidden relative">
+            <div className="absolute inset-0 bg-gradient-to-br from-gold/5 via-transparent to-transparent pointer-events-none" />
+            <CardHeader className="text-center pt-8">
+              <div className="mx-auto mb-4 p-2 rounded-full bg-gold/10 w-fit">
+                <Badge variant="secondary" className="text-xs uppercase tracking-wider">
+                  Shared Result
+                </Badge>
+              </div>
+              <div className="mx-auto mb-6 p-6 rounded-full bg-gradient-to-br from-gold/20 to-amber-500/10 w-fit ring-1 ring-gold/30 shadow-inner">
+                <Trophy className="h-16 w-16 text-gold drop-shadow-md" />
+              </div>
+              <CardTitle className="text-3xl font-serif">Quiz Results</CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-8 pb-8">
+              <div className="text-center">
+                <div className="text-6xl font-bold text-gold mb-2 tracking-tight">
+                  {score}/{total}
+                </div>
+                <p className="text-lg text-muted-foreground font-medium">
+                  {percentage}% Mastery
+                </p>
+              </div>
+
+              <div className="flex justify-center gap-4">
+                <div className="text-center p-4 rounded-lg bg-muted/50 min-w-[100px]">
+                  <div className="text-muted-foreground text-sm mb-1">Difficulty</div>
+                  <div className="font-bold text-lg capitalize">{diff}</div>
+                </div>
+              </div>
+
+              <div className="text-center max-w-sm mx-auto">
+                <p className="text-lg text-muted-foreground">
+                  Think you can beat this score? Take the quiz yourself!
+                </p>
+              </div>
+
+              <div className="flex flex-col sm:flex-row gap-3">
+                <Button
+                  asChild
+                  className="flex-1 h-12 text-lg gap-2 bg-gold hover:bg-gold/90 text-black"
+                >
+                  <Link href="/quiz/relationships">
+                    <Zap className="h-5 w-5" />
+                    Take the Quiz
+                  </Link>
+                </Button>
+                <Button
+                  variant="outline"
+                  asChild
+                  className="flex-1 h-12 text-lg gap-2"
+                >
+                  <Link href="/quiz">
+                    <ChevronLeft className="h-5 w-5" />
+                    All Quizzes
+                  </Link>
+                </Button>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </div>
+    );
+  }
 
   if (isLoading) {
     return (
@@ -272,14 +395,30 @@ export default function RelationshipQuizPage() {
                 </Button>
                 <Button
                   variant="outline"
-                  asChild
+                  onClick={() => handleShare(quizState.score, quizState.questions.length, difficulty)}
                   className="flex-1 h-12 text-lg gap-2"
                 >
-                  <Link href="/quiz">
-                    <ChevronLeft className="h-5 w-5" />
-                    All Quizzes
-                  </Link>
+                  {copied ? (
+                    <>
+                      <Check className="h-5 w-5" />
+                      Copied!
+                    </>
+                  ) : (
+                    <>
+                      <Share2 className="h-5 w-5" />
+                      Share Results
+                    </>
+                  )}
                 </Button>
+              </div>
+              <div className="text-center">
+                <Link
+                  href="/quiz"
+                  className="text-muted-foreground hover:text-primary transition-colors inline-flex items-center gap-1 text-sm"
+                >
+                  <ChevronLeft className="h-4 w-4" />
+                  Back to All Quizzes
+                </Link>
               </div>
             </CardContent>
           </Card>
