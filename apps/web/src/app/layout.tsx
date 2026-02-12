@@ -8,6 +8,7 @@ import { Footer } from "@/components/layout/footer";
 import { CommandPaletteProvider } from "@/components/command-palette/CommandPaletteProvider";
 import { SkipToContent } from "@/components/accessibility/SkipToContent";
 import { BookmarksProvider } from "@/providers/bookmarks-provider";
+import { ProgressProvider } from "@/providers/progress-provider";
 import { generateBaseMetadata } from "@/lib/metadata";
 import { AudioProvider } from "@/components/audio/AudioContext";
 import { AudioControls } from "@/components/audio/AudioControls";
@@ -72,6 +73,7 @@ export default function RootLayout({
         >
           <QueryProvider>
             <BookmarksProvider>
+              <ProgressProvider>
               <AudioProvider>
                 <CommandPaletteProvider>
                   <SkipToContent />
@@ -85,6 +87,7 @@ export default function RootLayout({
                   <AudioControls />
                 </CommandPaletteProvider>
               </AudioProvider>
+              </ProgressProvider>
             </BookmarksProvider>
           </QueryProvider>
         </ThemeProvider>

@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link';
-import { Search, Command, Heart } from 'lucide-react';
+import { Search, Command, Heart, Trophy } from 'lucide-react';
 import { Logo } from '@/components/ui/logo';
 import { ThemeToggle } from '@/components/ui/theme-toggle';
 import { useState, useEffect } from 'react';
@@ -12,6 +12,7 @@ import { MobileNav } from '@/components/layout/mobile-nav';
 const navLinks = [
   { href: '/pantheons', label: 'Pantheons' },
   { href: '/deities', label: 'Deities' },
+  { href: '/domains', label: 'Domains' },
   { href: '/timeline', label: 'Timeline' },
   { href: '/family-tree', label: 'Family Tree' },
   { href: '/locations', label: 'Locations' },
@@ -119,6 +120,15 @@ export function Header() {
               <span>K</span>
             </kbd>
           </button>
+
+          {/* Progress */}
+          <Link
+            href="/progress"
+            className="flex items-center justify-center p-2 text-muted-foreground hover:text-amber-500 rounded-lg hover:bg-muted/50 transition-all duration-200"
+            aria-label="Your Progress"
+          >
+            <Trophy className="h-4 w-4" strokeWidth={1.5} />
+          </Link>
 
           {/* Bookmarks */}
           <Link

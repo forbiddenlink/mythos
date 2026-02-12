@@ -1,0 +1,170 @@
+[
+  {
+    "id": "first-deity",
+    "name": "Divine Encounter",
+    "description": "View your first deity",
+    "xp": 10,
+    "icon": "eye",
+    "category": "discovery"
+  },
+  {
+    "id": "first-story",
+    "name": "Tale Seeker",
+    "description": "Read your first story",
+    "xp": 10,
+    "icon": "book-open",
+    "category": "discovery"
+  },
+  {
+    "id": "first-location",
+    "name": "Wanderer's Start",
+    "description": "Visit your first mythical location",
+    "xp": 10,
+    "icon": "map-pin",
+    "category": "discovery"
+  },
+  {
+    "id": "olympian-scholar",
+    "name": "Olympian Scholar",
+    "description": "View all Greek deities",
+    "xp": 100,
+    "icon": "crown",
+    "category": "exploration"
+  },
+  {
+    "id": "norse-explorer",
+    "name": "Ragnarok Researcher",
+    "description": "View all Norse deities",
+    "xp": 100,
+    "icon": "axe",
+    "category": "exploration"
+  },
+  {
+    "id": "egyptian-sage",
+    "name": "Keeper of Ma'at",
+    "description": "View all Egyptian deities",
+    "xp": 100,
+    "icon": "pyramid",
+    "category": "exploration"
+  },
+  {
+    "id": "pantheon-explorer",
+    "name": "Pantheon Explorer",
+    "description": "Explore all 8 pantheons",
+    "xp": 200,
+    "icon": "compass",
+    "category": "exploration"
+  },
+  {
+    "id": "story-collector",
+    "name": "Story Collector",
+    "description": "Read 10 stories",
+    "xp": 75,
+    "icon": "library",
+    "category": "exploration"
+  },
+  {
+    "id": "mythology-master",
+    "name": "Mythology Master",
+    "description": "Read all stories",
+    "xp": 300,
+    "icon": "book",
+    "category": "exploration"
+  },
+  {
+    "id": "world-traveler",
+    "name": "World Traveler",
+    "description": "Visit all mythical locations",
+    "xp": 150,
+    "icon": "globe",
+    "category": "exploration"
+  },
+  {
+    "id": "quiz-taker",
+    "name": "First Trial",
+    "description": "Complete your first quiz",
+    "xp": 15,
+    "icon": "pencil",
+    "category": "mastery"
+  },
+  {
+    "id": "quiz-master",
+    "name": "Quiz Master",
+    "description": "Score 100% on a quiz",
+    "xp": 75,
+    "icon": "trophy",
+    "category": "mastery"
+  },
+  {
+    "id": "knowledge-seeker",
+    "name": "Knowledge Seeker",
+    "description": "Complete 5 quizzes",
+    "xp": 50,
+    "icon": "graduation-cap",
+    "category": "mastery"
+  },
+  {
+    "id": "divine-devotion",
+    "name": "Divine Devotion",
+    "description": "7-day visit streak",
+    "xp": 100,
+    "icon": "flame",
+    "category": "streak"
+  },
+  {
+    "id": "mythic-dedication",
+    "name": "Mythic Dedication",
+    "description": "30-day visit streak",
+    "xp": 300,
+    "icon": "star",
+    "category": "streak"
+  },
+  {
+    "id": "weekly-explorer",
+    "name": "Weekly Explorer",
+    "description": "Visit 3 days in a week",
+    "xp": 30,
+    "icon": "calendar",
+    "category": "streak"
+  },
+  {
+    "id": "family-historian",
+    "name": "Family Historian",
+    "description": "Explore 5 family trees",
+    "xp": 50,
+    "icon": "git-branch",
+    "category": "special"
+  },
+  {
+    "id": "cross-cultural",
+    "name": "Cross-Cultural Scholar",
+    "description": "View parallels in 3+ pantheons",
+    "xp": 60,
+    "icon": "link",
+    "category": "special"
+  },
+  {
+    "id": "deep-diver",
+    "name": "Deep Diver",
+    "description": "Read 5 full story narratives",
+    "xp": 40,
+    "icon": "book-marked",
+    "category": "special"
+  },
+  {
+    "id": "artifact-hunter",
+    "name": "Artifact Hunter",
+    "description": "View 10 artifacts",
+    "xp": 45,
+    "icon": "sword",
+    "category": "special"
+  },
+  {
+    "id": "creature-seeker",
+    "name": "Creature Seeker",
+    "description": "View 10 creatures",
+    "xp": 45,
+    "icon": "paw-print",
+    "category": "special"
+  }
+]
