@@ -22,6 +22,7 @@ import { MythVariants } from '@/components/stories/MythVariants';
 import deitiesData from '@/data/deities.json';
 import locationsData from '@/data/locations.json';
 import { DetailPageSkeleton } from '@/components/ui/skeleton-cards';
+import { StoryNarrator } from '@/components/stories/StoryNarrator';
 
 function useProgress() {
   const context = useContext(ProgressContext);
@@ -271,6 +272,16 @@ export default function StoryPage() {
       {/* Content Section */}
       <div className="container mx-auto max-w-4xl px-4 py-16">
         <Breadcrumbs />
+
+        {/* Story Narrator */}
+        {(story.fullNarrative || story.summary) && (
+          <div className="mt-6">
+            <StoryNarrator
+              text={story.fullNarrative || story.summary}
+              defaultCompact={false}
+            />
+          </div>
+        )}
 
         <div className="mt-8 space-y-8">
 

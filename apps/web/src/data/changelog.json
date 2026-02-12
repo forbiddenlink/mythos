@@ -1,0 +1,93 @@
+[
+  {
+    "id": "v1.6.0",
+    "date": "2026-02-12",
+    "version": "1.6.0",
+    "title": "Learning Intelligence & Smart Search",
+    "description": "Major learning system update with streak freezes, background sync, personalized learning paths, and AI-powered smart search across all mythology content.",
+    "changes": [
+      "Added streak freeze system to protect daily learning streaks",
+      "Implemented background sync for offline progress tracking",
+      "Created personalized learning paths based on user interests",
+      "Added smart search with fuzzy matching and relevance ranking",
+      "Enhanced progress tracking with detailed analytics"
+    ],
+    "type": "feature"
+  },
+  {
+    "id": "v1.5.0",
+    "date": "2026-02-10",
+    "version": "1.5.0",
+    "title": "Mesopotamian Pantheon",
+    "description": "Expanded our mythology coverage with the complete Mesopotamian pantheon, featuring Sumerian, Babylonian, and Assyrian deities with rich biographical content.",
+    "changes": [
+      "Added 20+ Mesopotamian deities including Anu, Enlil, Enki, and Ishtar",
+      "Created 5 Mesopotamian mythology stories",
+      "Added cuneiform-inspired visual styling for Mesopotamian content",
+      "Included Epic of Gilgamesh as featured story",
+      "Cross-linked Mesopotamian influences on Greek and Egyptian myths"
+    ],
+    "type": "content"
+  },
+  {
+    "id": "v1.4.0",
+    "date": "2026-02-08",
+    "version": "1.4.0",
+    "title": "Mega Enhancement Release",
+    "description": "A comprehensive update with 22 features spanning content expansion, learning improvements, and visualization upgrades.",
+    "changes": [
+      "Added interactive knowledge graph with force-directed visualization",
+      "Implemented spaced repetition system for flashcard reviews",
+      "Created daily review sessions with optimized card scheduling",
+      "Added weekly challenges with XP rewards",
+      "Enhanced family tree with D3-powered interactive diagrams",
+      "Added audio narration support for stories"
+    ],
+    "type": "feature"
+  },
+  {
+    "id": "v1.3.0",
+    "date": "2026-02-05",
+    "version": "1.3.0",
+    "title": "Cross-Cultural Connections",
+    "description": "Major update focusing on comparative mythology, accessibility improvements, and interactive storytelling features.",
+    "changes": [
+      "Added cross-pantheon deity comparison tool",
+      "Implemented parallel myth detection and linking",
+      "Created accessible keyboard navigation throughout",
+      "Added screen reader optimizations with ARIA labels",
+      "Introduced branching interactive stories"
+    ],
+    "type": "feature"
+  },
+  {
+    "id": "v1.2.0",
+    "date": "2026-02-02",
+    "version": "1.2.0",
+    "title": "Content Expansion",
+    "description": "Massive content update with 15 new stories, 46 expanded deity biographies, and enhanced cross-pantheon linking.",
+    "changes": [
+      "Added 15 new mythology stories across all pantheons",
+      "Expanded 46 deity biographies with detailed lore",
+      "Enhanced cross-pantheon relationship links",
+      "Added myth variant sections showing regional differences",
+      "Improved source citations and scholarly references"
+    ],
+    "type": "content"
+  },
+  {
+    "id": "v1.1.0",
+    "date": "2026-01-28",
+    "version": "1.1.0",
+    "title": "Gamification System",
+    "description": "Introduced a complete gamification system with progress tracking, achievements, streaks, and XP rewards to make learning mythology more engaging.",
+    "changes": [
+      "Added XP and leveling system",
+      "Created 20+ achievements across discovery, exploration, and mastery",
+      "Implemented daily visit streaks with rewards",
+      "Added progress dashboard with statistics",
+      "Created weekly challenge system"
+    ],
+    "type": "feature"
+  }
+]

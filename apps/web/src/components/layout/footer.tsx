@@ -23,6 +23,7 @@ const footerLinks = {
     { label: 'Daily Review', href: '/review' },
     { label: 'Your Progress', href: '/progress' },
     { label: 'About', href: '/about' },
+    { label: 'Changelog', href: '/changelog' },
   ],
 };
 
