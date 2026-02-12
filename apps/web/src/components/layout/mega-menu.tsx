@@ -122,6 +122,12 @@ const learnMenu: MenuSection = {
       icon: <Gamepad2 className="h-4 w-4" />
     },
     {
+      label: 'Symbol Memory',
+      href: '/games/memory',
+      description: 'Match deities with their symbols',
+      icon: <Brain className="h-4 w-4" />
+    },
+    {
       label: 'Daily Review',
       href: '/review',
       description: 'Spaced repetition flashcards',

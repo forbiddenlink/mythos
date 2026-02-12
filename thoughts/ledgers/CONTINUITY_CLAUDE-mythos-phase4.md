@@ -88,8 +88,18 @@ Continue enhancing the Mythos Atlas with new features and optimizations.
 **Test updates:**
 - [x] Added 'death', 'quest', 'legend' to valid story categories
 
+### Bug Fixes ✓ COMPLETE (this session)
+- [x] Added missing deities: Prometheus, Perseus, Persephone (referenced in stories but didn't exist)
+
+### New Features ✓ COMPLETE (this session)
+- [x] Symbol Memory Game (`/games/memory`) - Match deity symbols to names
+- [x] "Which God Are You?" personality quiz (`/quiz/personality`) - Shareable BuzzFeed-style quiz
+- [x] Added games to navigation menu and sitemap
+
 ### Next Opportunities
 - [ ] Content expansion (African/Yoruba: 12 deities, Mesoamerican: 13 deities)
+- [ ] Daily Mythology Card feature
+- [ ] Quick Quiz 60-second mode
 - [ ] User accounts (backend required)
 
 ## Key Decisions

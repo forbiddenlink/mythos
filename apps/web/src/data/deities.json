@@ -6929,5 +6929,183 @@
       "ipa": "/okɯninɯɕi/",
       "phonetic": "oh-koo-nee-NOO-shee"
     }
+  },
+  {
+    "id": "prometheus",
+    "pantheonId": "greek-pantheon",
+    "name": "Prometheus",
+    "slug": "prometheus",
+    "originalLanguageName": {
+      "text": "Προμηθεύς",
+      "language": "Ancient Greek",
+      "transliteration": "Prometheus",
+      "meaning": "Forethought (from pro- 'before' + manthanein 'to learn')"
+    },
+    "alternateNames": [
+      "Forethinker",
+      "Fire-Bringer"
+    ],
+    "gender": "male",
+    "domain": [
+      "forethought",
+      "fire",
+      "crafts",
+      "humanity"
+    ],
+    "symbols": [
+      "fire",
+      "torch",
+      "fennel stalk",
+      "eagle"
+    ],
+    "description": "Titan who defied Zeus by stealing fire from the gods and giving it to humanity. For this transgression, Zeus chained him to a rock where an eagle devoured his liver daily.",
+    "originStory": "Prometheus was a Titan, son of **Iapetus** and the Oceanid **Clymene**. Unlike most Titans, he sided with Zeus during the Titanomachy. He later created humanity from clay, and when Zeus denied them fire, Prometheus stole it from Hephaestus's forge, hiding it in a fennel stalk. Zeus punished him with eternal torment on Mount Caucasus.",
+    "detailedBio": "## The Champion of Humanity\n\n**Prometheus** stands apart among the Titans as the great benefactor of humankind. His name means \"forethought,\" contrasting with his brother **Epimetheus** (\"afterthought\"), and his actions shaped the relationship between gods and mortals.\n\n### The Trick at Mecone\n\nAccording to Hesiod's *Theogony*, Prometheus first angered Zeus at Mecone during a sacrifice. He divided an ox into two portions: one containing the meat and entrails hidden beneath the stomach, the other containing only bones covered with glistening fat. Zeus chose the attractive portion and found only bones—a trick that established the custom of humans keeping the meat while burning bones and fat for the gods. In retaliation, Zeus withheld fire from humanity.\n\n### The Theft of Fire\n\nPrometheus refused to abandon the mortals he had shaped from clay. He climbed to Olympus and stole fire from **Hephaestus's** forge, concealing it in a hollow fennel stalk. He brought this fire to humanity, giving them the means to cook food, forge tools, and survive the darkness. This gift elevated humans above mere animals and laid the foundation for civilization.\n\n### The Punishment\n\nZeus's wrath was terrible. He ordered **Hephaestus** and **Kratos** (Strength) to chain Prometheus to a pillar in the Caucasus Mountains. There, each day, an eagle—or in some accounts the eagle-like daemon **Ethon**—descended to tear out his liver. Each night, his immortal body regenerated the organ, ensuring endless torment. Aeschylus's *Prometheus Bound* dramatizes his suffering and defiance.\n\n### Liberation by Heracles\n\nAfter thirteen generations (or thirty thousand years, in some accounts), **Heracles** arrived during his labors and shot the eagle with an arrow. With Zeus's eventual consent—secured through prophecy Prometheus possessed—the hero broke his chains. As a condition of release, Prometheus was required to wear a ring made from his chains and a piece of Caucasian rock, which some sources cite as the origin of ring-wearing among mortals.\n\n### The Creation of Pandora\n\nZeus punished humanity as well as Prometheus. He commanded Hephaestus to create **Pandora**, the first woman, endowed with gifts from all the gods—including curiosity. Zeus sent her to **Epimetheus**, who ignored his brother's warning to refuse gifts from the gods. Pandora opened her jar (often mistranslated as \"box\"), releasing all evils into the world but trapping Hope inside.\n\n### Legacy\n\nPrometheus represents human ambition, technological progress, and defiance of tyranny. The Athenians honored him with a torch race during the festival **Prometheia**. In the modern era, his myth has inspired countless works examining the costs of progress and the relationship between creators and their creations.",
+    "importanceRank": 1,
+    "imageUrl": "/deities/prometheus.png",
+    "primarySources": [
+      {
+        "text": "And ready-witted Prometheus he bound with inextricable bonds, cruel chains, and drove a shaft through his middle, and set on him a long-winged eagle, which used to eat his immortal liver.",
+        "source": "Hesiod, Theogony",
+        "date": "c. 700 BCE"
+      },
+      {
+        "text": "Such is the reward you reap of your man-loving disposition. For you, a God, feared not the anger of the Gods, but gave honors to mortals beyond what was just.",
+        "source": "Aeschylus, Prometheus Bound",
+        "date": "c. 450 BCE"
+      }
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "hindu-pantheon",
+        "deityId": "agni",
+        "note": "Both are associated with the gift of fire to humanity, though Agni is fire personified rather than a fire-bringer"
+      }
+    ],
+    "pronunciation": {
+      "ipa": "/prəˈmiːθiəs/",
+      "phonetic": "pruh-MEE-thee-us"
+    }
+  },
+  {
+    "id": "perseus",
+    "pantheonId": "greek-pantheon",
+    "name": "Perseus",
+    "slug": "perseus",
+    "originalLanguageName": {
+      "text": "Περσεύς",
+      "language": "Ancient Greek",
+      "transliteration": "Perseus",
+      "meaning": "Possibly 'destroyer' (from perthein 'to destroy')"
+    },
+    "alternateNames": [
+      "Slayer of Medusa",
+      "Son of the Golden Rain"
+    ],
+    "gender": "male",
+    "domain": [
+      "heroism",
+      "monster-slaying",
+      "divine favor"
+    ],
+    "symbols": [
+      "winged sandals",
+      "cap of invisibility",
+      "kibisis",
+      "Medusa's head"
+    ],
+    "description": "Hero who slew the Gorgon Medusa and rescued Andromeda from a sea monster. Son of Zeus and Danae, conceived when Zeus visited her as a shower of golden rain.",
+    "originStory": "**Danae** was imprisoned by her father **Acrisius**, king of Argos, after an oracle prophesied that her son would kill him. Zeus entered her bronze chamber as golden rain and fathered Perseus. Acrisius set mother and child adrift in a chest, but they survived and washed ashore on the island of Seriphos.",
+    "detailedBio": "## The Gorgon-Slayer\n\n**Perseus** is among the greatest of the Greek heroes, predating Heracles and representing the archetypal monster-slayer favored by the gods. His myths are preserved in Apollodorus's *Bibliotheca*, Ovid's *Metamorphoses*, and fragments of earlier traditions.\n\n### The Golden Rain\n\nKing **Acrisius** of Argos imprisoned his daughter **Danae** in a bronze chamber (or underground vault) after the Delphic oracle prophesied that her son would kill him. Zeus desired Danae and came to her as a shower of golden rain that streamed through the roof. She bore Perseus in secret, but Acrisius discovered the child and, unable to kill his own kin, cast both mother and son into the sea in a wooden chest. They washed ashore on **Seriphos**, where the fisherman **Dictys** rescued them.\n\n### The Quest for Medusa's Head\n\nYears later, King **Polydectes** of Seriphos desired Danae. To remove Perseus, he demanded the head of **Medusa**, the only mortal Gorgon, whose gaze turned men to stone. The gods aided Perseus: **Athena** gave him a polished bronze shield to view Medusa's reflection, **Hermes** provided winged sandals and the sickle-sword (*harpe*), and the **Graeae** (or Nymphs, in some versions) supplied the cap of invisibility and the *kibisis*, a magical bag to safely contain the severed head.\n\nPerseus flew to the western edge of the world where the Gorgons dwelt. Using his shield as a mirror, he approached the sleeping Medusa and beheaded her with a single stroke. From her neck sprang **Pegasus** and the warrior **Chrysaor**, children she had conceived with Poseidon. Perseus fled with the head as Medusa's immortal sisters pursued him.\n\n### The Rescue of Andromeda\n\nReturning home, Perseus saw **Andromeda** chained to a rock by the sea in Ethiopia. Her mother **Cassiopeia** had boasted of surpassing the Nereids in beauty, and Poseidon sent the sea monster **Cetus** to ravage the coast. The oracle demanded Andromeda as sacrifice. Perseus slew Cetus—either with his sword or by revealing Medusa's head—and claimed Andromeda as his bride. At their wedding feast, he turned her former suitor **Phineus** and his followers to stone with the Gorgon's gaze.\n\n### Return to Seriphos and Argos\n\nBack on Seriphos, Perseus found that Polydectes had been persecuting his mother. He entered the king's hall during a banquet and displayed Medusa's head, turning Polydectes and his courtiers to stone. He gave the head to Athena, who set it in her aegis.\n\nPerseus then returned to Argos to reconcile with Acrisius. His grandfather fled to Larissa, but fate could not be escaped. During funeral games, Perseus threw a discus that struck and killed Acrisius, fulfilling the prophecy. Ashamed to rule Argos, Perseus exchanged kingdoms with his cousin **Megapenthes**, becoming king of Tiryns instead. He founded **Mycenae** and became ancestor to **Heracles** through his son **Electryon**.\n\n### Legacy\n\nPerseus was honored as founder of Mycenae and was placed among the stars as the constellation that bears his name. His myth exemplifies the Greek hero's journey: divine parentage, exile, quest, monster-slaying, marriage, and the establishment of a royal line.",
+    "importanceRank": 2,
+    "imageUrl": "/deities/perseus.png",
+    "primarySources": [
+      {
+        "text": "Perseus, after leaving the daughters of Phorcys, made his way to the Gorgons. They were sleeping at that moment. Perseus cut off Medusa's head, and flew back.",
+        "source": "Apollodorus, Bibliotheca",
+        "date": "c. 100 CE"
+      },
+      {
+        "text": "Her the Deliverer slew, who on his feet had wings; and one eye, shared in turn, betrayed the Gorgons.",
+        "source": "Ovid, Metamorphoses",
+        "date": "c. 8 CE"
+      }
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "hindu-pantheon",
+        "deityId": "rama",
+        "note": "Both are heroes of divine parentage who defeat demons and rescue their brides, though their mythic contexts differ significantly"
+      }
+    ],
+    "pronunciation": {
+      "ipa": "/ˈpɜːrsiəs/",
+      "phonetic": "PUR-see-us"
+    }
+  },
+  {
+    "id": "persephone",
+    "pantheonId": "greek-pantheon",
+    "name": "Persephone",
+    "slug": "persephone",
+    "originalLanguageName": {
+      "text": "Περσεφόνη",
+      "language": "Ancient Greek",
+      "transliteration": "Persephone",
+      "meaning": "Uncertain; possibly 'bringer of destruction' or 'thresher of grain'"
+    },
+    "alternateNames": [
+      "Proserpina",
+      "Kore",
+      "The Maiden",
+      "Queen of the Underworld"
+    ],
+    "gender": "female",
+    "domain": [
+      "underworld",
+      "spring",
+      "vegetation",
+      "death"
+    ],
+    "symbols": [
+      "pomegranate",
+      "torch",
+      "seeds",
+      "flowers",
+      "deer"
+    ],
+    "description": "Queen of the Underworld and goddess of spring growth. Daughter of Zeus and Demeter, wife of Hades. Her annual return from the underworld brings spring; her descent brings winter.",
+    "originStory": "**Persephone** was gathering flowers in a meadow when the earth opened and **Hades** abducted her to be his queen. Her mother **Demeter** searched the earth in grief, causing famine. Zeus intervened, but because Persephone had eaten pomegranate seeds in the underworld, she was bound to return there for part of each year.",
+    "detailedBio": "## The Two-Fold Goddess\n\n**Persephone** embodies a fundamental duality: she is both the **Kore** (\"maiden\"), innocent goddess of spring flowers, and the dread **Queen of the Dead**, ruling beside Hades over the shades of the departed. Her myth, preserved most fully in the *Homeric Hymn to Demeter*, explains the cycle of seasons and was central to the **Eleusinian Mysteries**.\n\n### The Abduction\n\nPersephone, daughter of **Zeus** and **Demeter**, was gathering flowers—narcissus, crocus, violets, roses—in the meadow of Nysa with the daughters of Oceanus. Gaia, at Zeus's bidding, caused a wondrous narcissus to bloom, more beautiful than any other flower. As Persephone reached for it, the earth gaped open. **Hades** emerged in his golden chariot, seized her, and bore her down to the underworld. Her screams reached Demeter, but none of the gods dared tell the grieving mother what had occurred.\n\n### Demeter's Search\n\nFor nine days, Demeter wandered the earth carrying torches, neither eating nor bathing. On the tenth day, **Hecate** told her she had heard Persephone's cries but had not seen the abductor. Together they went to **Helios**, the all-seeing sun, who revealed that Hades had taken Persephone with Zeus's consent.\n\nIn her rage and grief, Demeter abandoned Olympus. Disguised as an old woman, she came to **Eleusis**, where she served as nurse to the king's son. She tried to make the child immortal by anointing him with ambrosia and holding him in fire, but the queen discovered her and screamed. Demeter revealed herself and demanded a temple be built in her honor.\n\n### The Famine\n\nDemeter withdrew to her temple and refused to let any crops grow. Humanity faced extinction by famine. The gods pleaded with her, but she would not relent until her daughter was returned. Finally, Zeus sent **Hermes** to the underworld to fetch Persephone.\n\nHades agreed to release her but first offered her pomegranate seeds. She ate six (or four, in some versions). Because she had consumed food in the realm of the dead, she could not fully return to the world above. Zeus decreed a compromise: Persephone would spend part of each year with Hades as his queen and part with Demeter. When she descends, Demeter mourns and the earth is barren (winter); when she returns, Demeter rejoices and plants flourish (spring).\n\n### Queen of the Underworld\n\nAs Hades' consort, Persephone holds sovereignty over the dead. She appears in myths as both merciful and terrible. She showed favor to **Orpheus** when he came to retrieve Eurydice and to **Psyche** during her trials. Yet she also kept **Adonis** against Aphrodite's wishes and turned the nymph **Minthe** into a mint plant when she boasted of seducing Hades.\n\n### The Eleusinian Mysteries\n\nPersephone's myth was central to the **Eleusinian Mysteries**, the most important secret religious rites in ancient Greece. Initiates were promised a blessed afterlife, having symbolically shared in Persephone's descent and return. The exact nature of the rites remains unknown, as initiates were sworn to secrecy on pain of death.\n\n### Symbolism\n\nPersephone represents the seed that descends into the dark earth and rises again as new growth. Her pomegranate symbolizes both death (its blood-red juice) and fertility (its many seeds). She embodies the Greek understanding that death and life are inseparable, that the underworld is not merely a place of punishment but the source from which new life emerges.",
+    "importanceRank": 1,
+    "imageUrl": "/deities/persephone.png",
+    "primarySources": [
+      {
+        "text": "But he secretly put in my mouth sweet food, a pomegranate seed, and forced me to taste against my will.",
+        "source": "Homeric Hymn to Demeter",
+        "date": "c. 650 BCE"
+      },
+      {
+        "text": "There queenly Persephone received me kindly, and gave me food and drink, and every day they come who dwell beneath and hold their sacrifices.",
+        "source": "Homer, Odyssey",
+        "date": "c. 750 BCE"
+      }
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "roman-pantheon",
+        "deityId": "proserpina",
+        "note": "Proserpina is the direct Roman equivalent, with essentially the same mythology"
+      },
+      {
+        "pantheonId": "sumerian-pantheon",
+        "deityId": "ereshkigal",
+        "note": "Both are queens of the underworld, though Ereshkigal was always a chthonic deity rather than an abducted goddess"
+      }
+    ],
+    "pronunciation": {
+      "ipa": "/pərˈsɛfəni/",
+      "phonetic": "per-SEF-uh-nee"
+    }
   }
 ]
