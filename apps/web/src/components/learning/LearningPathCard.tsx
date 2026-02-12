@@ -122,7 +122,7 @@ export function LearningPathCard({ path, className = '' }: LearningPathCardProps
             <span className="text-muted-foreground">Progress</span>
             <span className="font-medium">{path.progress}%</span>
           </div>
-          <Progress value={path.progress} className="h-2" />
+          <Progress value={path.progress} className="h-2" aria-label={`${path.name} progress: ${path.progress}%`} />
           <p className="text-xs text-muted-foreground">
             {path.steps.filter((s) => s.completed).length} of {path.steps.length} steps completed
           </p>

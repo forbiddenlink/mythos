@@ -54,6 +54,7 @@
     "three": "^0.182.0"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.11.1",
     "@next/bundle-analyzer": "^16.1.6",
     "@playwright/test": "^1.40.0",
     "@tailwindcss/postcss": "^4",

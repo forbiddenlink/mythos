@@ -61,7 +61,7 @@ function AchievementCard({ achievement }: { achievement: AchievementWithStatus }
           {/* Progress bar for locked achievements */}
           {!achievement.unlocked && achievement.progress && (
             <div className="space-y-1">
-              <Progress value={progressPercent} className="h-2" />
+              <Progress value={progressPercent} className="h-2" aria-label={`${achievement.name} progress: ${achievement.progress.current} of ${achievement.progress.target}`} />
               <p className="text-xs text-parchment/50">
                 {achievement.progress.current} / {achievement.progress.target}
               </p>

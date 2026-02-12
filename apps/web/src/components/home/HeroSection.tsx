@@ -197,7 +197,7 @@ export function HeroSection() {
             asChild
             size="lg"
             variant="outline"
-            className="border-gold/40 text-gold hover:bg-gold/10 hover:border-gold/60 px-10 py-6 text-base tracking-wide transition-all duration-300"
+            className="border-gold/40 bg-transparent text-gold hover:bg-gold/10 hover:border-gold/60 px-10 py-6 text-base tracking-wide transition-all duration-300"
           >
             <TransitionLink href="/deities">
               Meet the Gods

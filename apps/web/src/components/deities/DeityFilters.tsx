@@ -115,7 +115,7 @@ export function DeityFilters({ deities, onFilteredChange }: DeityFiltersProps) {
           setPantheonFilter(value);
           setTimeout(applyFilters, 0);
         }}>
-          <SelectTrigger className="w-[160px]">
+          <SelectTrigger className="w-[160px]" aria-label="Filter by pantheon">
             <SelectValue placeholder="Pantheon" />
           </SelectTrigger>
           <SelectContent>
@@ -132,7 +132,7 @@ export function DeityFilters({ deities, onFilteredChange }: DeityFiltersProps) {
           setGenderFilter(value);
           setTimeout(applyFilters, 0);
         }}>
-          <SelectTrigger className="w-[140px]">
+          <SelectTrigger className="w-[140px]" aria-label="Filter by gender">
             <SelectValue placeholder="Gender" />
           </SelectTrigger>
           <SelectContent>
@@ -146,7 +146,7 @@ export function DeityFilters({ deities, onFilteredChange }: DeityFiltersProps) {
           setDomainFilter(value);
           setTimeout(applyFilters, 0);
         }}>
-          <SelectTrigger className="w-[180px]">
+          <SelectTrigger className="w-[180px]" aria-label="Filter by domain">
             <SelectValue placeholder="Domain" />
           </SelectTrigger>
           <SelectContent>
@@ -165,7 +165,7 @@ export function DeityFilters({ deities, onFilteredChange }: DeityFiltersProps) {
           setSortBy(value);
           setTimeout(applyFilters, 0);
         }}>
-          <SelectTrigger className="w-[140px]">
+          <SelectTrigger className="w-[140px]" aria-label="Sort by">
             <SelectValue placeholder="Sort by" />
           </SelectTrigger>
           <SelectContent>
@@ -182,6 +182,7 @@ export function DeityFilters({ deities, onFilteredChange }: DeityFiltersProps) {
             setTimeout(applyFilters, 0);
           }}
           className="shrink-0"
+          aria-label={sortOrder === 'asc' ? 'Sort descending' : 'Sort ascending'}
         >
           {sortOrder === 'asc' ? (
             <SortAsc className="h-4 w-4" />
