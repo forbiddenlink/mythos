@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useMemo } from 'react';
+import dynamic from 'next/dynamic';
 import { useQuery } from '@tanstack/react-query';
 import { graphqlClient } from '@/lib/graphql-client';
 import { gql } from 'graphql-request';
@@ -8,9 +9,18 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Loader2, Network, GitBranch } from 'lucide-react';
 import Image from 'next/image';
-import { FamilyTreeVisualization } from '@/components/family-tree/FamilyTreeVisualization';
-import { EnhancedFamilyTree } from '@/components/family-tree/EnhancedFamilyTree';
 import { Breadcrumbs } from '@/components/navigation/Breadcrumbs';
+
+// Lazy load heavy ReactFlow-based components
+const FamilyTreeVisualization = dynamic(
+  () => import('@/components/family-tree/FamilyTreeVisualization').then(mod => ({ default: mod.FamilyTreeVisualization })),
+  { loading: () => <div className="h-[600px] flex items-center justify-center"><Loader2 className="h-8 w-8 animate-spin text-primary" /></div>, ssr: false }
+);
+
+const EnhancedFamilyTree = dynamic(
+  () => import('@/components/family-tree/EnhancedFamilyTree').then(mod => ({ default: mod.EnhancedFamilyTree })),
+  { loading: () => <div className="h-[600px] flex items-center justify-center"><Loader2 className="h-8 w-8 animate-spin text-primary" /></div>, ssr: false }
+);
 import pantheonsData from '@/data/pantheons.json';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 

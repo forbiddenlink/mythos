@@ -1,12 +1,9 @@
 'use client';
 
 import React, { createContext, useContext, useEffect, useState, useRef, useCallback } from 'react';
-import { Howl } from 'howler';
 import { usePathname } from 'next/navigation';
 
 // Placeholder tracks - in a real app these would be actual files
-// For now we'll use a silent track or a placeholder to avoid 404 console errors if files don't exist
-// Ideally, the user should add these files to public/audio/
 const PANTHEON_TRACKS: Record<string, string> = {
     'greek-pantheon': '/audio/greek_ambiance.mp3',
     'roman-pantheon': '/audio/roman_ambiance.mp3',
@@ -25,6 +22,7 @@ interface AudioContextType {
     isMuted: boolean;
     volume: number;
     currentTrack: string | undefined;
+    isLoading: boolean;
     togglePlay: () => void;
     toggleMute: () => void;
     setVolume: (val: number) => void;
@@ -33,16 +31,41 @@ interface AudioContextType {
 
 const AudioContext = createContext<AudioContextType | undefined>(undefined);
 
+// Lazy-loaded Howl type
+type HowlType = import('howler').Howl;
+
 export function AudioProvider({ children }: { children: React.ReactNode }) {
     const [isPlaying, setIsPlaying] = useState(false);
     const [isMuted, setIsMuted] = useState(true); // Start muted by default for UX
     const [volume, setVolume] = useState(0.5);
     const [currentTrack, setCurrentTrack] = useState<string>('default');
+    const [isLoading, setIsLoading] = useState(false);
+    const [howlerLoaded, setHowlerLoaded] = useState(false);
 
-    const howlRef = useRef<Howl | null>(null);
+    const howlRef = useRef<HowlType | null>(null);
+    const HowlClass = useRef<typeof import('howler').Howl | null>(null);
     const pathname = usePathname();
 
-    const playTrack = useCallback((trackKey: string) => {
+    // Lazy load Howler.js only when needed
+    const loadHowler = useCallback(async () => {
+        if (HowlClass.current) return HowlClass.current;
+
+        setIsLoading(true);
+        try {
+            const howlerModule = await import('howler');
+            HowlClass.current = howlerModule.Howl;
+            setHowlerLoaded(true);
+            return howlerModule.Howl;
+        } finally {
+            setIsLoading(false);
+        }
+    }, []);
+
+    const playTrack = useCallback(async (trackKey: string) => {
+        // Ensure Howler is loaded
+        const Howl = await loadHowler();
+        if (!Howl) return;
+
         // Determine file path
         const src = PANTHEON_TRACKS[trackKey] || PANTHEON_TRACKS['default'];
 
@@ -66,7 +89,7 @@ export function AudioProvider({ children }: { children: React.ReactNode }) {
             html5: true,
             loop: true,
             volume: 0, // Start at 0 for fade in
-            onloaderror: (id, err) => console.warn(`Audio load error for ${src}:`, err)
+            onloaderror: (id: number, err: unknown) => console.warn(`Audio load error for ${src}:`, err)
         });
 
         howlRef.current = newHowl;
@@ -77,13 +100,26 @@ export function AudioProvider({ children }: { children: React.ReactNode }) {
             newHowl.fade(0, volume, 1000);
             setIsPlaying(true);
         }
-    }, [currentTrack, isMuted, volume]);
+    }, [currentTrack, isMuted, volume, loadHowler]);
 
-    // Effect to handle navigation changes
+    // Effect to handle navigation changes - only switch tracks if audio is active
     useEffect(() => {
-        // Simple logic: check if pathname contains a pantheon slug
-        // This assumes URLs like /pantheons/greek-pantheon
-        // We can refine this logic later
+        // Only process track changes if Howler is loaded and audio is unmuted
+        if (!howlerLoaded || isMuted) {
+            // Track the current pantheon for when user unmutes
+            let foundPantheon = 'default';
+            for (const key of Object.keys(PANTHEON_TRACKS)) {
+                if (pathname?.includes(key)) {
+                    foundPantheon = key;
+                    break;
+                }
+            }
+            if (foundPantheon !== currentTrack) {
+                setCurrentTrack(foundPantheon);
+            }
+            return;
+        }
+
         let foundPantheon = 'default';
         for (const key of Object.keys(PANTHEON_TRACKS)) {
             if (pathname?.includes(key)) {
@@ -92,27 +128,23 @@ export function AudioProvider({ children }: { children: React.ReactNode }) {
             }
         }
 
-        // Only switch if different AND we are not just navigating sub-pages of same pantheon
-        // actually simpler: just switch if foundPantheon differs from current *context*
-        if (foundPantheon !== currentTrack && !isMuted) {
+        if (foundPantheon !== currentTrack) {
             playTrack(foundPantheon);
         }
-        // Update state tracker without playing if muted
-        else if (foundPantheon !== currentTrack && isMuted) {
-            setCurrentTrack(foundPantheon);
-        }
-
-    }, [pathname, playTrack, currentTrack, isMuted]);
+    }, [pathname, playTrack, currentTrack, isMuted, howlerLoaded]);
 
     // Handle controls
-    const togglePlay = () => {
+    const togglePlay = useCallback(async () => {
         if (isPlaying) {
             howlRef.current?.pause();
             setIsPlaying(false);
         } else {
+            // Load Howler if not already loaded
+            await loadHowler();
+
             // If we have a track loaded, play it. If not, load current.
             if (!howlRef.current || howlRef.current.state() === 'unloaded') {
-                playTrack(currentTrack || 'default');
+                await playTrack(currentTrack || 'default');
             } else {
                 howlRef.current.play();
                 howlRef.current.fade(0, volume, 500);
@@ -123,29 +155,35 @@ export function AudioProvider({ children }: { children: React.ReactNode }) {
                 howlRef.current?.mute(false);
             }
         }
-    };
+    }, [isPlaying, currentTrack, volume, isMuted, loadHowler, playTrack]);
 
-    const toggleMute = () => {
+    const toggleMute = useCallback(async () => {
         if (isMuted) {
             setIsMuted(false);
-            howlRef.current?.mute(false);
-            // If we were "playing" but muted, ensure volume is up
-            if (isPlaying && howlRef.current) {
-                howlRef.current.volume(volume);
-            } else if (!isPlaying) {
+            // Load Howler and start playing when user unmutes
+            await loadHowler();
+
+            if (howlRef.current) {
+                howlRef.current.mute(false);
+                if (isPlaying) {
+                    howlRef.current.volume(volume);
+                }
+            }
+
+            if (!isPlaying) {
                 // Auto-play on unmute if it was an initial "start"
-                togglePlay();
+                await togglePlay();
             }
         } else {
             setIsMuted(true);
             howlRef.current?.mute(true);
         }
-    };
+    }, [isMuted, isPlaying, volume, loadHowler, togglePlay]);
 
-    const updateVolume = (val: number) => {
+    const updateVolume = useCallback((val: number) => {
         setVolume(val);
         howlRef.current?.volume(val);
-    };
+    }, []);
 
     return (
         <AudioContext.Provider value={{
@@ -153,6 +191,7 @@ export function AudioProvider({ children }: { children: React.ReactNode }) {
             isMuted,
             volume,
             currentTrack,
+            isLoading,
             togglePlay,
             toggleMute,
             setVolume: updateVolume,

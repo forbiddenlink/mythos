@@ -1,6 +1,7 @@
 'use client';
 
 import { useContext, useEffect } from 'react';
+import dynamic from 'next/dynamic';
 import { useParams } from 'next/navigation';
 import { useQuery } from '@tanstack/react-query';
 import { graphqlClient } from '@/lib/graphql-client';
@@ -15,7 +16,12 @@ import Link from 'next/link';
 import ReactMarkdown from 'react-markdown';
 import { useTextToSpeech } from '@/hooks/useTextToSpeech';
 import { Volume2, Square } from 'lucide-react';
-import { ArtifactViewer } from '@/components/artifacts/ArtifactViewer';
+
+// Lazy load heavy Three.js-based artifact viewer
+const ArtifactViewer = dynamic(
+  () => import('@/components/artifacts/ArtifactViewer').then(mod => ({ default: mod.ArtifactViewer })),
+  { loading: () => <div className="h-[300px] flex items-center justify-center"><Loader2 className="h-8 w-8 animate-spin text-gold" /></div>, ssr: false }
+);
 import { ProgressContext } from '@/providers/progress-provider';
 import { RelatedContent } from '@/components/related-content';
 import { MythVariants } from '@/components/stories/MythVariants';

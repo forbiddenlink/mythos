@@ -1,6 +1,7 @@
 'use client';
 
 import { useContext, useEffect } from 'react';
+import dynamic from 'next/dynamic';
 import { useParams } from 'next/navigation';
 import { useQuery } from '@tanstack/react-query';
 import { ProgressContext } from '@/providers/progress-provider';
@@ -11,7 +12,12 @@ import { Badge } from '@/components/ui/badge';
 import { Loader2, Sparkles, Shield, Users, Network, Link2, BookOpen, Building, Calendar, ScrollText } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { FamilyTreeVisualization } from '@/components/family-tree/FamilyTreeVisualization';
+
+// Lazy load heavy ReactFlow-based family tree
+const FamilyTreeVisualization = dynamic(
+  () => import('@/components/family-tree/FamilyTreeVisualization').then(mod => ({ default: mod.FamilyTreeVisualization })),
+  { loading: () => <div className="h-[400px] flex items-center justify-center"><Loader2 className="h-8 w-8 animate-spin text-primary" /></div>, ssr: false }
+);
 import { BookmarkButton } from '@/components/ui/bookmark-button';
 import { ExportIconButton } from '@/components/ui/export-button';
 import { DeityJsonLd } from '@/components/seo/JsonLd';

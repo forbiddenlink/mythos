@@ -1,15 +1,24 @@
 'use client';
 
 import { useState, useMemo, useCallback } from 'react';
+import dynamic from 'next/dynamic';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
-import { Network, Maximize2, Minimize2 } from 'lucide-react';
+import { Network, Maximize2, Minimize2, Loader2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { KnowledgeGraph, PANTHEON_COLORS } from '@/components/graph/KnowledgeGraph';
 import { GraphControls } from '@/components/graph/GraphControls';
 import { GraphLegend } from '@/components/graph/GraphLegend';
 import { Breadcrumbs } from '@/components/navigation/Breadcrumbs';
+
+// Import colors statically (small)
+import { PANTHEON_COLORS } from '@/components/graph/KnowledgeGraph';
+
+// Lazy load heavy ReactFlow-based knowledge graph
+const KnowledgeGraph = dynamic(
+  () => import('@/components/graph/KnowledgeGraph').then(mod => ({ default: mod.KnowledgeGraph })),
+  { loading: () => <div className="h-[600px] flex items-center justify-center"><Loader2 className="h-8 w-8 animate-spin text-primary" /></div>, ssr: false }
+);
 
 // Import data directly
 import deitiesData from '@/data/deities.json';

@@ -1,11 +1,17 @@
 'use client'
 
+import dynamic from 'next/dynamic'
 import Image from 'next/image'
-import { Clock } from 'lucide-react'
+import { Clock, Loader2 } from 'lucide-react'
 import { Breadcrumbs } from '@/components/navigation/Breadcrumbs'
-import { TimelineVisualizationD3 } from '@/components/timeline/TimelineVisualizationD3'
 
 import pantheonsData from '@/data/pantheons.json'
+
+// Lazy load D3-based timeline visualization
+const TimelineVisualizationD3 = dynamic(
+  () => import('@/components/timeline/TimelineVisualizationD3').then(mod => ({ default: mod.TimelineVisualizationD3 })),
+  { loading: () => <div className="h-[400px] flex items-center justify-center"><Loader2 className="h-8 w-8 animate-spin text-primary" /></div>, ssr: false }
+)
 import storiesData from '@/data/stories.json'
 import deitiesData from '@/data/deities.json'
 import eventsData from '@/data/events.json'

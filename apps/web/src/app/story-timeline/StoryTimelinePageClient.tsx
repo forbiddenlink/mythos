@@ -1,9 +1,16 @@
 'use client'
 
+import dynamic from 'next/dynamic'
+import { Loader2 } from 'lucide-react'
 import { Breadcrumbs } from '@/components/navigation/Breadcrumbs'
-import { StoryTimelineView } from '@/components/timeline/StoryTimelineView'
 
 import pantheonsData from '@/data/pantheons.json'
+
+// Lazy load D3-based timeline visualization
+const StoryTimelineView = dynamic(
+  () => import('@/components/timeline/StoryTimelineView').then(mod => ({ default: mod.StoryTimelineView })),
+  { loading: () => <div className="h-[500px] flex items-center justify-center"><Loader2 className="h-8 w-8 animate-spin text-primary" /></div>, ssr: false }
+)
 import storiesData from '@/data/stories.json'
 
 interface Pantheon {
