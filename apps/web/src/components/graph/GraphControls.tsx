@@ -142,8 +142,10 @@ export function GraphControls({
       {/* Search Bar */}
       <div ref={searchRef} className="relative">
         <div className="relative">
-          <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
+          <label htmlFor="graph-deity-search" className="sr-only">Search deities in graph</label>
+          <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" aria-hidden="true" />
           <Input
+            id="graph-deity-search"
             type="text"
             placeholder="Search deities..."
             value={searchQuery}

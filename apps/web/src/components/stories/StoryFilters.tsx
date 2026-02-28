@@ -80,8 +80,10 @@ export function StoryFilters({ stories, onFilteredChange }: StoryFiltersProps) {
       <div className="flex flex-col md:flex-row gap-4">
         {/* Search Bar */}
         <div className="relative w-full md:w-72 md:mr-auto">
-          <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
+          <label htmlFor="story-search" className="sr-only">Search stories</label>
+          <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" aria-hidden="true" />
           <Input
+            id="story-search"
             placeholder="Search stories..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}

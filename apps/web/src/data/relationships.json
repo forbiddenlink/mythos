@@ -390,9 +390,9 @@
     "id": "r54",
     "fromDeityId": "rama",
     "toDeityId": "hanuman",
-    "relationshipType": "deity",
+    "relationshipType": "ally_of",
     "confidenceLevel": "high",
-    "description": "Rama is lord of Hanuman"
+    "description": "Hanuman is the devoted servant and ally of Rama"
   },
   {
     "id": "r55",

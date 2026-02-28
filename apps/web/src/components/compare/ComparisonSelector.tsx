@@ -120,8 +120,10 @@ export function ComparisonSelector({
 
           {/* Search Input */}
           <div className="relative">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+            <label htmlFor="compare-deity-search" className="sr-only">Search deities for comparison</label>
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" aria-hidden="true" />
             <Input
+              id="compare-deity-search"
               type="text"
               placeholder="Search deities by name or domain..."
               value={searchQuery}

@@ -190,6 +190,10 @@ function resolveLocation(id: string): Location | undefined {
   return (locations as Location[]).find(l => l.id === id);
 }
 
+// Constants for input validation
+const MAX_SEARCH_LIMIT = 100;
+const MIN_SEARCH_LIMIT = 1;
+
 function resolveSearch(queryStr: string, limit: number = 10) {
   const options = {
     includeScore: true,
@@ -332,9 +336,11 @@ export async function POST(request: NextRequest) {
 
     if (query.includes('Search') || query.includes('search(')) {
       const queryStr = variables.query as string;
-      const limit = (variables.limit as number) || 10;
-      if (queryStr) {
-        data.search = resolveSearch(queryStr, limit);
+      // Validate and cap the limit to prevent DoS
+      const rawLimit = Number(variables.limit) || 10;
+      const limit = Math.min(Math.max(rawLimit, MIN_SEARCH_LIMIT), MAX_SEARCH_LIMIT);
+      if (queryStr && typeof queryStr === 'string' && queryStr.length <= 500) {
+        data.search = resolveSearch(queryStr.trim(), limit);
       }
     }
 

@@ -749,8 +749,10 @@ export function FamilyTreeVisualization({
         {/* Search Input */}
         <div className="relative flex-1 max-w-sm">
           <div className="relative">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
+            <label htmlFor="family-tree-search" className="sr-only">Search deities in family tree</label>
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" aria-hidden="true" />
             <Input
+              id="family-tree-search"
               type="text"
               placeholder="Search deities..."
               value={searchQuery}

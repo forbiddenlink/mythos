@@ -186,8 +186,10 @@ export function DeitiesTable({ deities }: DeitiesTableProps) {
     <div className="space-y-4">
       {/* Search */}
       <div className="relative">
-        <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
+        <label htmlFor="deity-search" className="sr-only">Search deities</label>
+        <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" aria-hidden="true" />
         <Input
+          id="deity-search"
           placeholder="Search deities by name, domain, or symbols..."
           value={globalFilter ?? ''}
           onChange={(e: React.ChangeEvent<HTMLInputElement>) => setGlobalFilter(e.target.value)}

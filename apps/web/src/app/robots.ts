@@ -6,6 +6,7 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: '*',
         allow: '/',
+        disallow: ['/bookmarks', '/progress', '/review', '/api/'],
       },
     ],
     sitemap: 'https://mythos-web-seven.vercel.app/sitemap.xml',

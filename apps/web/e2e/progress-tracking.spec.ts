@@ -50,10 +50,11 @@ test.describe('Progress Tracking', () => {
     await page.goto('/deities/athena');
     await page.waitForLoadState('networkidle');
 
-    // Get initial progress
+    // Get initial progress and verify it exists
     const initialProgress = await page.evaluate(() => {
       return localStorage.getItem('mythos-atlas-progress');
     });
+    expect(initialProgress).toBeTruthy();
 
     // Reload page
     await page.reload();

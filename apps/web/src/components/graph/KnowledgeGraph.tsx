@@ -1,6 +1,6 @@
 'use client';
 
-import { useMemo, useState, useCallback, useEffect, useRef } from 'react';
+import { useMemo, useState, useCallback, useEffect, useRef, memo } from 'react';
 import ReactFlow, {
   Node,
   Edge,
@@ -124,8 +124,8 @@ const getEdgeStyle = (relationshipType: string, isCrossPantheon: boolean = false
   };
 };
 
-// Custom node component
-const DeityNode = ({
+// Custom node component - memoized to prevent unnecessary re-renders
+const DeityNode = memo(function DeityNode({
   data,
 }: {
   data: {
@@ -134,7 +134,7 @@ const DeityNode = ({
     isHighlighted: boolean;
     showImage: boolean;
   };
-}) => {
+}) {
   const { deity, pantheonColor, isHighlighted } = data;
   const nodeSize = deity.importanceRank && deity.importanceRank <= 5 ? 'large' : 'normal';
 
@@ -183,7 +183,7 @@ const DeityNode = ({
       </div>
     </Card>
   );
-};
+});
 
 const nodeTypes = {
   deityNode: DeityNode,

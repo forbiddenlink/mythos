@@ -4,13 +4,15 @@ import stories from '@/data/stories.json'
 import pantheons from '@/data/pantheons.json'
 import creatures from '@/data/creatures.json'
 import artifacts from '@/data/artifacts.json'
+import journeys from '@/data/journeys.json'
 
 const BASE_URL = 'https://mythos-web-seven.vercel.app'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const lastModified = new Date('2026-02-01')
+  // Use current date for dynamic content tracking
+  const lastModified = new Date()
 
-  // Static pages
+  // Static pages - core navigation
   const staticPages: MetadataRoute.Sitemap = [
     {
       url: BASE_URL,
@@ -67,16 +69,88 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.7,
     },
     {
+      url: `${BASE_URL}/quiz/personality`,
+      lastModified,
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: `${BASE_URL}/quiz/relationships`,
+      lastModified,
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
       url: `${BASE_URL}/games/memory`,
       lastModified,
       changeFrequency: 'monthly',
       priority: 0.7,
     },
     {
-      url: `${BASE_URL}/progress`,
+      url: `${BASE_URL}/locations`,
+      lastModified,
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${BASE_URL}/journeys`,
+      lastModified,
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: `${BASE_URL}/knowledge-graph`,
+      lastModified,
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: `${BASE_URL}/story-timeline`,
+      lastModified,
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: `${BASE_URL}/compare`,
+      lastModified,
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: `${BASE_URL}/compare/myths`,
       lastModified,
       changeFrequency: 'monthly',
       priority: 0.6,
+    },
+    {
+      url: `${BASE_URL}/divine-domains`,
+      lastModified,
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: `${BASE_URL}/domains`,
+      lastModified,
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: `${BASE_URL}/learning-paths`,
+      lastModified,
+      changeFrequency: 'monthly',
+      priority: 0.6,
+    },
+    {
+      url: `${BASE_URL}/achievements`,
+      lastModified,
+      changeFrequency: 'monthly',
+      priority: 0.5,
+    },
+    {
+      url: `${BASE_URL}/changelog`,
+      lastModified,
+      changeFrequency: 'monthly',
+      priority: 0.4,
     },
     {
       url: `${BASE_URL}/about`,
@@ -89,12 +163,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified,
       changeFrequency: 'monthly',
       priority: 0.4,
-    },
-    {
-      url: `${BASE_URL}/api`,
-      lastModified,
-      changeFrequency: 'monthly',
-      priority: 0.3,
     },
   ]
 
@@ -138,6 +206,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }))
 
+  // Journey pages
+  const journeyPages: MetadataRoute.Sitemap = journeys.map((journey) => ({
+    url: `${BASE_URL}/journeys/${journey.slug}`,
+    lastModified,
+    changeFrequency: 'monthly' as const,
+    priority: 0.7,
+  }))
+
   return [
     ...staticPages,
     ...deityPages,
@@ -145,5 +221,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...pantheonPages,
     ...creaturePages,
     ...artifactPages,
+    ...journeyPages,
   ]
 }

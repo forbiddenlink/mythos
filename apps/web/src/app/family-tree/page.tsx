@@ -84,21 +84,7 @@ export default function FamilyTreePage() {
 
   const isLoading = deitiesLoading || relationshipsLoading;
 
-  const filteredData = useState(() => {
-    // This is a derived state calculation that runs during render
-    if (!deitiesData?.deities || !relationshipsData?.allRelationships) return { deities: [], relationships: [] };
-
-    const filteredDeities = deitiesData.deities.filter(d => d.pantheonId === selectedPantheon);
-    const deityIds = new Set(filteredDeities.map(d => d.id));
-
-    const filteredRelationships = relationshipsData.allRelationships.filter(r =>
-      deityIds.has(r.fromDeityId) && deityIds.has(r.toDeityId)
-    );
-
-    return { deities: filteredDeities, relationships: filteredRelationships };
-  });
-
-  // Re-calculate when deps change (memoized)
+  // Calculate filtered data when deps change (memoized)
   const { deities: finalDeities, relationships: finalRelationships } = useMemo(() => {
     if (!deitiesData?.deities || !relationshipsData?.allRelationships) return { deities: [], relationships: [] };
 

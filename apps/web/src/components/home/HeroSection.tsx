@@ -241,7 +241,7 @@ export function HeroSection() {
             className="flex flex-col items-center gap-2"
           >
             <span className="text-gold/40 text-xs tracking-[0.2em] uppercase font-sans">Scroll</span>
-            <svg className="w-5 h-5 text-gold/40" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" stroke="currentColor">
+            <svg className="w-5 h-5 text-gold/40" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
               <path d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
             </svg>
           </motion.div>

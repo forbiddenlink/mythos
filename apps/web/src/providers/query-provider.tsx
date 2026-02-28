@@ -9,7 +9,8 @@ export function QueryProvider({ children }: { children: ReactNode }) {
       new QueryClient({
         defaultOptions: {
           queries: {
-            staleTime: 60 * 1000, // 1 minute
+            staleTime: 15 * 60 * 1000, // 15 minutes - static mythology content rarely changes
+            gcTime: 30 * 60 * 1000, // 30 minutes garbage collection time
             refetchOnWindowFocus: false,
           },
         },
