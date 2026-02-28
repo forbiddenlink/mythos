@@ -1,178 +1,83 @@
-'use client';
+import type { Metadata } from 'next';
+import { notFound } from 'next/navigation';
+import creatures from '@/data/creatures.json';
+import pantheons from '@/data/pantheons.json';
+import { generateBaseMetadata } from '@/lib/metadata';
+import { CreaturePageClient } from './CreaturePageClient';
 
-import { useParams } from 'next/navigation';
-import { useQuery } from '@tanstack/react-query';
-import { graphqlClient } from '@/lib/graphql-client';
-import { GET_CREATURE } from '@/lib/queries';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import { Loader2, ShieldAlert, Zap, MapPin } from 'lucide-react';
-import Link from 'next/link';
-import Image from 'next/image';
-import { CreatureJsonLd, BreadcrumbJsonLd } from '@/components/seo/JsonLd';
-import { siteConfig } from '@/lib/metadata';
-
-interface Creature {
-    id: string;
-    pantheonId: string;
-    name: string;
-    slug: string;
-    habitat: string;
-    abilities: string[];
-    dangerLevel: number;
-    description: string;
-    imageUrl: string | null;
+interface CreatureData {
+  id: string;
+  pantheonId: string;
+  name: string;
+  slug: string;
+  description: string;
+  habitat: string;
+  abilities: string[];
+  dangerLevel: number;
+  imageUrl?: string;
 }
 
-export default function CreaturePage() {
-    const params = useParams<{ slug: string }>();
-    const slug = params?.slug;
+interface PageProps {
+  params: Promise<{ slug: string }>;
+}
 
-    const { data, isLoading, error } = useQuery<{ creature: Creature | null }>({
-        queryKey: ['creature', slug],
-        queryFn: async () => {
-            // API uses ID for lookup, but supports slugs if they are unique/handled by resolver
-            // In our mock resolver, we check id || slug
-            return graphqlClient.request(GET_CREATURE, { id: slug });
-        },
+// Generate static params for all creatures
+export async function generateStaticParams() {
+  return creatures.map((creature) => ({
+    slug: creature.slug,
+  }));
+}
+
+// Generate metadata for each creature page
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const creature = creatures.find((c) => c.slug === slug) as CreatureData | undefined;
+
+  if (!creature) {
+    return generateBaseMetadata({
+      title: 'Creature Not Found',
+      description: 'The requested creature could not be found.',
     });
+  }
 
-    if (isLoading) {
-        return (
-            <div className="container mx-auto max-w-4xl px-4 py-24 flex items-center justify-center">
-                <Loader2 className="h-8 w-8 animate-spin text-primary" />
-            </div>
-        );
-    }
+  const pantheon = pantheons.find((p) => p.id === creature.pantheonId);
+  const pantheonName = pantheon?.name || 'Ancient';
 
-    if (error || !data?.creature) {
-        return (
-            <div className="container mx-auto max-w-6xl px-4 py-24">
-                <div className="text-center">
-                    <h2 className="text-2xl font-bold text-destructive">Creature Not Found</h2>
-                    <p className="text-muted-foreground mt-2">
-                        The beast you seek remains elusive.
-                    </p>
-                    <Link href="/creatures" className="text-red-500 hover:underline mt-4 inline-block">
-                        Return to the Bestiary
-                    </Link>
-                </div>
-            </div>
-        );
-    }
+  // Create a rich description
+  const abilities = creature.abilities?.slice(0, 3).join(', ') || '';
+  const description = creature.description?.slice(0, 160)
+    || `Learn about ${creature.name}, a mythological creature from ${pantheonName} mythology. Habitat: ${creature.habitat}. Abilities: ${abilities}.`;
 
-    const creature = data.creature;
-    const dangerColor = creature.dangerLevel >= 9 ? 'text-destructive' : creature.dangerLevel >= 7 ? 'text-orange-500' : 'text-yellow-500';
+  return generateBaseMetadata({
+    title: `${creature.name} - ${pantheonName} Creature`,
+    description: description,
+    url: `/creatures/${creature.slug}`,
+    image: creature.imageUrl || '/og-image.png',
+    type: 'article',
+    keywords: [
+      creature.name,
+      creature.habitat,
+      ...creature.abilities,
+      pantheonName,
+      'mythology',
+      'creature',
+      'monster',
+      'beast',
+      'bestiary',
+    ],
+    articleSection: 'Bestiary',
+    articleTags: creature.abilities,
+  });
+}
 
-    const breadcrumbItems = [
-        { name: 'Home', item: siteConfig.url },
-        { name: 'Creatures', item: `${siteConfig.url}/creatures` },
-        { name: creature.name, item: `${siteConfig.url}/creatures/${creature.slug}` },
-    ];
+export default async function CreaturePage({ params }: PageProps) {
+  const { slug } = await params;
 
-    return (
-        <div className="min-h-screen">
-            <CreatureJsonLd
-                name={creature.name}
-                description={creature.description}
-                url={`/creatures/${creature.slug}`}
-                image={creature.imageUrl || undefined}
-                abilities={creature.abilities}
-            />
-            <BreadcrumbJsonLd items={breadcrumbItems} />
-            {/* Hero Section with Background Image */}
-            <div className="relative overflow-hidden bg-slate-950">
-                <div className="absolute inset-0 z-0">
-                    <div className="absolute inset-0 bg-linear-to-b from-slate-900/80 via-slate-900/90 to-slate-950 z-10"></div>
-                    {/* Optional: Add a subtle texture or noise pattern here */}
-                </div>
+  // Check if creature exists (for 404)
+  const creature = creatures.find((c) => c.slug === slug);
+  if (!creature) {
+    notFound();
+  }
 
-                {/* Abstract Red Glow */}
-                <div className="absolute top-0 right-0 w-[50%] h-[100%] bg-radial-gradient from-red-900/10 to-transparent pointer-events-none z-0" />
-
-                <div className="container mx-auto max-w-4xl px-4 py-12 relative z-20">
-                    <Link
-                        href="/creatures"
-                        className="text-sm text-slate-400 hover:text-white mb-6 inline-block transition-colors"
-                    >
-                        ← Back to Bestiary
-                    </Link>
-
-                    <div className="space-y-4">
-                        <h1 className="font-serif text-4xl md:text-5xl font-bold tracking-tight text-white">{creature.name}</h1>
-                        <div className="flex items-center gap-4 text-slate-300">
-                            <div className="flex items-center gap-2">
-                                <MapPin className="h-4 w-4 text-red-500" />
-                                <span>{creature.habitat}</span>
-                            </div>
-                            <div className="flex items-center gap-2">
-                                <ShieldAlert className={`h-4 w-4 ${dangerColor}`} />
-                                <span className={`${dangerColor} font-medium`}>Danger Level: {creature.dangerLevel}/10</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            {/* Content Section */}
-            <div className="container mx-auto max-w-4xl px-4 py-12">
-                <div className="space-y-8">
-
-                    {/* Centered Image */}
-                    {creature.imageUrl && (
-                        <div className="relative w-full max-w-lg mx-auto rounded-xl overflow-hidden shadow-2xl border border-slate-800">
-                            <div className="aspect-video relative">
-                                <Image
-                                    src={creature.imageUrl}
-                                    alt={creature.name}
-                                    fill
-                                    className="object-cover"
-                                    priority
-                                />
-                                <div className="absolute inset-0 ring-1 ring-inset ring-white/10 rounded-xl"></div>
-                            </div>
-                        </div>
-                    )}
-
-                    <div className="grid gap-8 md:grid-cols-3">
-                        {/* Left Column: Stats */}
-                        <div className="md:col-span-1 space-y-6">
-                            <Card className="bg-slate-900/50 border-slate-800">
-                                <CardHeader>
-                                    <CardTitle className="text-lg font-serif flex items-center gap-2">
-                                        <Zap className="h-4 w-4 text-yellow-500" />
-                                        Abilities
-                                    </CardTitle>
-                                </CardHeader>
-                                <CardContent>
-                                    <div className="flex flex-wrap gap-2">
-                                        {creature.abilities.map((ability) => (
-                                            <Badge key={ability} variant="secondary" className="bg-slate-800 text-slate-300 hover:bg-slate-700">
-                                                {ability}
-                                            </Badge>
-                                        ))}
-                                    </div>
-                                </CardContent>
-                            </Card>
-                        </div>
-
-                        {/* Right Column: Lore */}
-                        <div className="md:col-span-2">
-                            <Card className="bg-white dark:bg-slate-900 border-l-4 border-l-red-500">
-                                <CardHeader>
-                                    <CardTitle className="font-serif text-2xl">Lore & Legend</CardTitle>
-                                </CardHeader>
-                                <CardContent>
-                                    <p className="text-muted-foreground leading-relaxed text-lg">
-                                        {creature.description}
-                                    </p>
-                                </CardContent>
-                            </Card>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    );
+  return <CreaturePageClient slug={slug} />;
 }
