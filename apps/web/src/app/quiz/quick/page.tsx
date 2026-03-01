@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useContext } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { graphqlClient } from '@/lib/graphql-client';
 import { GET_DEITIES } from '@/lib/queries';
@@ -8,8 +8,10 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Progress } from '@/components/ui/progress';
-import { Timer, Trophy, RefreshCw, Zap, Check, X } from 'lucide-react';
+import { Timer, Trophy, RefreshCw, Zap, Check, X, Share2 } from 'lucide-react';
 import Link from 'next/link';
+import { ProgressContext } from '@/providers/progress-provider';
+import { useAchievements } from '@/hooks/useAchievements';
 
 interface Deity {
   id: string;
@@ -50,17 +52,25 @@ export default function QuickQuizPage() {
   const [question, setQuestion] = useState<Question | null>(null);
   const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
   const [showResult, setShowResult] = useState(false);
+  const [isNewHighScore, setIsNewHighScore] = useState(false);
+
+  const progressContext = useContext(ProgressContext);
+  const { checkAchievements } = useAchievements();
 
   const { data, isLoading } = useQuery<{ deities: Deity[] }>({
     queryKey: ['quick-quiz-deities'],
     queryFn: async () => graphqlClient.request(GET_DEITIES),
   });
 
-  // Load high score
+  // Load high score from progress context or localStorage
   useEffect(() => {
-    const saved = localStorage.getItem('mythos_quick_quiz_highscore');
-    if (saved) setHighScore(parseInt(saved));
-  }, []);
+    if (progressContext?.progress.quickQuizHighScore) {
+      setHighScore(progressContext.progress.quickQuizHighScore);
+    } else {
+      const saved = localStorage.getItem('mythos_quick_quiz_highscore');
+      if (saved) setHighScore(parseInt(saved));
+    }
+  }, [progressContext?.progress.quickQuizHighScore]);
 
   const nextQuestion = useCallback(() => {
     if (data?.deities) {
@@ -84,7 +94,16 @@ export default function QuickQuizPage() {
       setGameState('finished');
       if (score > highScore) {
         setHighScore(score);
+        setIsNewHighScore(true);
         localStorage.setItem('mythos_quick_quiz_highscore', score.toString());
+        // Save to progress context for achievements
+        if (progressContext) {
+          progressContext.updateQuickQuizHighScore(score);
+          // Check achievements after a brief delay to ensure state is updated
+          setTimeout(() => checkAchievements(), 100);
+        }
+      } else {
+        setIsNewHighScore(false);
       }
       return;
     }
@@ -94,7 +113,7 @@ export default function QuickQuizPage() {
     }, 1000);
 
     return () => clearInterval(timer);
-  }, [gameState, timeLeft, score, highScore]);
+  }, [gameState, timeLeft, score, highScore, progressContext, checkAchievements]);
 
   const handleAnswer = (answer: string) => {
     if (showResult) return;
@@ -108,6 +127,28 @@ export default function QuickQuizPage() {
     setTimeout(() => {
       nextQuestion();
     }, 800);
+  };
+
+  const handleShare = async () => {
+    const shareText = `I scored ${score} in the Mythos Atlas Quick Quiz! Can you beat my score?`;
+    const shareUrl = `${window.location.origin}/quiz/quick`;
+
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: 'Mythos Atlas Quick Quiz',
+          text: shareText,
+          url: shareUrl,
+        });
+      } catch {
+        // User cancelled or share failed
+      }
+    } else {
+      // Fallback: copy to clipboard
+      const fullText = `${shareText}\n${shareUrl}`;
+      await navigator.clipboard.writeText(fullText);
+      alert('Score copied to clipboard!');
+    }
   };
 
   if (isLoading) {
@@ -230,14 +271,18 @@ export default function QuickQuizPage() {
                 <p className="text-muted-foreground">correct answers</p>
               </div>
 
-              {score > highScore - 1 && score > 0 && (
+              {isNewHighScore && score > 0 && (
                 <Badge className="bg-gold text-midnight">New High Score!</Badge>
               )}
 
-              <div className="flex gap-4 justify-center">
+              <div className="flex gap-4 justify-center flex-wrap">
                 <Button onClick={startGame} className="gap-2">
                   <RefreshCw className="h-4 w-4" />
                   Play Again
+                </Button>
+                <Button variant="outline" onClick={handleShare} className="gap-2">
+                  <Share2 className="h-4 w-4" />
+                  Share Score
                 </Button>
                 <Button variant="outline" asChild>
                   <Link href="/quiz">Back to Quizzes</Link>

@@ -19,7 +19,8 @@ export type AchievementRequirement =
   | { type: 'daily_streak'; count: number }
   | { type: 'total_xp'; count: number }
   | { type: 'all_pantheons' }
-  | { type: 'pantheon_complete'; pantheonId: string };
+  | { type: 'pantheon_complete'; pantheonId: string }
+  | { type: 'quick_quiz_score'; count: number };
 
 export const achievements: Achievement[] = [
   // Exploration - Deities
@@ -231,6 +232,38 @@ export const achievements: Achievement[] = [
     xp: 1000,
     category: 'dedication',
     requirement: { type: 'daily_streak', count: 100 },
+    tier: 'mythic',
+  },
+
+  // Quick Quiz
+  {
+    id: 'speed_demon',
+    name: 'Speed Demon',
+    description: 'Score 10+ in Quick Quiz',
+    icon: '⚡',
+    xp: 50,
+    category: 'mastery',
+    requirement: { type: 'quick_quiz_score', count: 10 },
+    tier: 'silver',
+  },
+  {
+    id: 'lightning_mind',
+    name: 'Lightning Mind',
+    description: 'Score 15+ in Quick Quiz',
+    icon: '🧠',
+    xp: 100,
+    category: 'mastery',
+    requirement: { type: 'quick_quiz_score', count: 15 },
+    tier: 'gold',
+  },
+  {
+    id: 'divine_speed',
+    name: 'Divine Speed',
+    description: 'Score 20+ in Quick Quiz',
+    icon: '🌟',
+    xp: 200,
+    category: 'mastery',
+    requirement: { type: 'quick_quiz_score', count: 20 },
     tier: 'mythic',
   },
 

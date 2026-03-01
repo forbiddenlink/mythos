@@ -13,6 +13,7 @@ export interface UserProgress {
   lastVisit: string; // ISO date
   totalXP: number;
   streakFreezes: number;
+  quickQuizHighScore: number;
 }
 
 export interface ProgressStats {
@@ -39,6 +40,7 @@ export interface ProgressContextValue {
   getStats: () => ProgressStats;
   useStreakFreeze: () => boolean;
   addStreakFreeze: (count: number) => void;
+  updateQuickQuizHighScore: (score: number) => void;
 }
 
 const PROGRESS_STORAGE_KEY = 'mythos-atlas-progress';
@@ -54,6 +56,7 @@ const DEFAULT_PROGRESS: UserProgress = {
   lastVisit: '',
   totalXP: 0,
   streakFreezes: 2,
+  quickQuizHighScore: 0,
 };
 
 export const ProgressContext = createContext<ProgressContextValue | null>(null);
@@ -178,6 +181,18 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
     }));
   }, []);
 
+  const updateQuickQuizHighScore = useCallback((score: number) => {
+    setProgress((prev) => {
+      if (score <= prev.quickQuizHighScore) {
+        return prev;
+      }
+      return {
+        ...prev,
+        quickQuizHighScore: score,
+      };
+    });
+  }, []);
+
   const trackDeityView = useCallback((deityId: string) => {
     setProgress((prev) => {
       if (prev.deitiesViewed.includes(deityId)) {
@@ -283,6 +298,7 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
         getStats,
         useStreakFreeze,
         addStreakFreeze,
+        updateQuickQuizHighScore,
       }}
     >
       {children}

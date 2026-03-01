@@ -34,6 +34,8 @@ function checkRequirement(requirement: AchievementRequirement, progress: UserPro
     case 'pantheon_complete':
       // Would need deity data to check - simplified for now
       return false;
+    case 'quick_quiz_score':
+      return progress.quickQuizHighScore >= requirement.count;
     default:
       return false;
   }
@@ -84,7 +86,7 @@ export function useAchievements() {
     checkAchievements();
   }, [progress.deitiesViewed.length, progress.storiesRead.length, progress.pantheonsExplored.length,
       progress.locationsVisited.length, Object.keys(progress.quizScores).length, progress.dailyStreak,
-      progress.totalXP, checkAchievements, progress.achievements.length]);
+      progress.totalXP, progress.quickQuizHighScore, checkAchievements, progress.achievements.length]);
 
   // Get progress toward an achievement
   const getProgress = useCallback((achievement: Achievement): { current: number; target: number } | undefined => {
@@ -108,6 +110,8 @@ export function useAchievements() {
         return { current: progress.totalXP, target: req.count };
       case 'all_pantheons':
         return { current: progress.pantheonsExplored.length, target: ALL_PANTHEON_IDS.length };
+      case 'quick_quiz_score':
+        return { current: progress.quickQuizHighScore, target: req.count };
       default:
         return undefined;
     }
