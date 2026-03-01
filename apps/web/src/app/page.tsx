@@ -1,5 +1,6 @@
 import { HeroSection } from '@/components/home/HeroSection';
 import { StreakWidget } from '@/components/home/StreakWidget';
+import { DailyCard } from '@/components/home/DailyCard';
 import { FeaturesGrid } from '@/components/home/FeaturesGrid';
 import { StatsSection } from '@/components/home/StatsSection';
 import { PantheonShowcase } from '@/components/home/PantheonShowcase';
@@ -23,6 +24,7 @@ export default function Home() {
       />
       <HeroSection />
       <StreakWidget />
+      <DailyCard />
       <FeaturesGrid />
       <StatsSection />
       <PantheonShowcase />

@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { MythologyQuiz } from '@/components/quiz/MythologyQuiz';
 import { Breadcrumbs } from '@/components/navigation/Breadcrumbs';
-import { Brain, BookOpen, Trophy, Users, Sparkles, ArrowRight } from 'lucide-react';
+import { Brain, BookOpen, Trophy, Users, Sparkles, ArrowRight, Zap } from 'lucide-react';
 import { QuizJsonLd } from '@/components/seo/JsonLd';
 import { generateBaseMetadata } from '@/lib/metadata';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
@@ -15,6 +15,14 @@ export const metadata = generateBaseMetadata({
 });
 
 const OTHER_QUIZZES = [
+  {
+    title: 'Quick Quiz',
+    description: '60 seconds on the clock. How many mythology questions can you answer? Race against time!',
+    href: '/quiz/quick',
+    icon: Zap,
+    badge: 'Speed',
+    color: 'text-amber-500',
+  },
   {
     title: 'Divine Relationships',
     description: 'Test your knowledge of divine family ties, marriages, and connections across pantheons.',

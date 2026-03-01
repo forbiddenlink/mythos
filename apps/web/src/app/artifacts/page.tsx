@@ -11,6 +11,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Breadcrumbs } from '@/components/navigation/Breadcrumbs';
 import { Badge } from '@/components/ui/badge';
+import { CollectionPageJsonLd } from '@/components/seo/JsonLd';
 
 interface Artifact {
     id: string;
@@ -57,6 +58,12 @@ export default function ArtifactsPage() {
 
     return (
         <div className="min-h-screen">
+            <CollectionPageJsonLd
+                name="Legendary Artifacts"
+                description="Weapons, shields, and mystical objects of power wielded by gods and heroes"
+                url="/artifacts"
+                numberOfItems={artifacts.length}
+            />
             {/* Hero Section */}
             <div className="relative h-[40vh] min-h-[300px] flex items-center justify-center overflow-hidden bg-slate-950">
                 {/* Abstract Background */}

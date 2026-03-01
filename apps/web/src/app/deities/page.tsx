@@ -14,6 +14,7 @@ import { DeitiesTable } from '@/components/deities/DeitiesTable';
 import { DeityFilters } from '@/components/deities/DeityFilters';
 import { BookmarkButton } from '@/components/ui/bookmark-button';
 import { GridSkeleton, FiltersSkeleton } from '@/components/ui/skeleton-cards';
+import { CollectionPageJsonLd } from '@/components/seo/JsonLd';
 
 // Note: Metadata export removed - use layout.tsx for client components
 // SEO is handled via dynamic title updates below
@@ -85,6 +86,12 @@ export default function DeitiesPage() {
 
   return (
     <div className="min-h-screen">
+      <CollectionPageJsonLd
+        name="Deities"
+        description="Gods and goddesses from 12 pantheons, with family trees, domains, and stories"
+        url="/deities"
+        numberOfItems={data?.deities?.length}
+      />
       {/* Hero Section */}
       <div className="relative h-[50vh] min-h-[400px] flex items-center justify-center overflow-hidden">
         {/* Background Image */}

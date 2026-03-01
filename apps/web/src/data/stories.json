@@ -502,8 +502,13 @@
         "type": "primary"
       }
     ],
-    "featuredDeities": ["mars", "juno"],
-    "relatedStories": ["romulus-remus"]
+    "featuredDeities": [
+      "mars",
+      "juno"
+    ],
+    "relatedStories": [
+      "romulus-remus"
+    ]
   },
   {
     "id": "cupid-psyche",
@@ -531,8 +536,13 @@
         "type": "primary"
       }
     ],
-    "featuredDeities": ["venus", "jupiter"],
-    "relatedStories": ["aeneid"]
+    "featuredDeities": [
+      "venus",
+      "jupiter"
+    ],
+    "relatedStories": [
+      "aeneid"
+    ]
   },
   {
     "id": "ramayana",
@@ -794,8 +804,13 @@
         "type": "primary"
       }
     ],
-    "featuredDeities": ["hou-yi", "chang-e"],
-    "relatedStories": ["chang-e-moon"]
+    "featuredDeities": [
+      "hou-yi",
+      "chang-e"
+    ],
+    "relatedStories": [
+      "chang-e-moon"
+    ]
   },
   {
     "id": "chang-e-moon",
@@ -825,8 +840,14 @@
         "type": "primary"
       }
     ],
-    "featuredDeities": ["chang-e", "hou-yi", "xi-wangmu"],
-    "relatedStories": ["archer-yi"],
+    "featuredDeities": [
+      "chang-e",
+      "hou-yi",
+      "xi-wangmu"
+    ],
+    "relatedStories": [
+      "archer-yi"
+    ],
     "variants": [
       {
         "source": "Folk tradition",
@@ -863,7 +884,9 @@
         "type": "primary"
       }
     ],
-    "featuredDeities": ["pangu"],
+    "featuredDeities": [
+      "pangu"
+    ],
     "variants": [
       {
         "source": "Southern Chinese traditions",
@@ -902,7 +925,10 @@
         "type": "secondary"
       }
     ],
-    "featuredDeities": ["nezha", "jade-emperor"],
+    "featuredDeities": [
+      "nezha",
+      "jade-emperor"
+    ],
     "variants": [
       {
         "source": "Buddhist tradition",
@@ -976,7 +1002,9 @@
         "type": "primary"
       }
     ],
-    "featuredDeities": ["nuwa"],
+    "featuredDeities": [
+      "nuwa"
+    ],
     "variants": [
       {
         "source": "Huainanzi",
@@ -1022,8 +1050,14 @@
         "type": "primary"
       }
     ],
-    "featuredDeities": ["prometheus", "zeus", "hephaestus"],
-    "relatedStories": ["titanomachy"],
+    "featuredDeities": [
+      "prometheus",
+      "zeus",
+      "hephaestus"
+    ],
+    "relatedStories": [
+      "titanomachy"
+    ],
     "variants": [
       {
         "source": "Hesiod's Works and Days",
@@ -1077,8 +1111,15 @@
         "type": "primary"
       }
     ],
-    "featuredDeities": ["perseus", "athena", "hermes", "poseidon"],
-    "relatedStories": ["titanomachy"],
+    "featuredDeities": [
+      "perseus",
+      "athena",
+      "hermes",
+      "poseidon"
+    ],
+    "relatedStories": [
+      "titanomachy"
+    ],
     "variants": [
       {
         "source": "Hesiod's Theogony",
@@ -1132,8 +1173,12 @@
       }
     ],
     "featuredDeities": [],
-    "featuredLocations": ["crete"],
-    "relatedStories": ["perseus-medusa"]
+    "featuredLocations": [
+      "crete"
+    ],
+    "relatedStories": [
+      "perseus-medusa"
+    ]
   },
   {
     "id": "orpheus-eurydice",
@@ -1167,8 +1212,13 @@
         "type": "primary"
       }
     ],
-    "featuredDeities": ["hades", "persephone"],
-    "relatedStories": ["death-of-baldur"],
+    "featuredDeities": [
+      "hades",
+      "persephone"
+    ],
+    "relatedStories": [
+      "death-of-baldur"
+    ],
     "variants": [
       {
         "source": "Virgil's Georgics",
@@ -1226,8 +1276,18 @@
         "type": "primary"
       }
     ],
-    "featuredDeities": ["athena", "apollo", "aphrodite", "ares", "zeus", "hera"],
-    "relatedStories": ["aeneid", "perseus-medusa"],
+    "featuredDeities": [
+      "athena",
+      "apollo",
+      "aphrodite",
+      "ares",
+      "zeus",
+      "hera"
+    ],
+    "relatedStories": [
+      "aeneid",
+      "perseus-medusa"
+    ],
     "variants": [
       {
         "source": "Stesichorus's Palinode",
@@ -1272,8 +1332,13 @@
         "type": "primary"
       }
     ],
-    "featuredDeities": ["odin"],
-    "relatedStories": ["odins-sacrifice", "creation-myth-norse"]
+    "featuredDeities": [
+      "odin"
+    ],
+    "relatedStories": [
+      "odins-sacrifice",
+      "creation-myth-norse"
+    ]
   },
   {
     "id": "thors-journey-utgard",
@@ -1299,8 +1364,14 @@
         "type": "primary"
       }
     ],
-    "featuredDeities": ["thor", "loki"],
-    "relatedStories": ["binding-of-fenrir", "ragnarok"]
+    "featuredDeities": [
+      "thor",
+      "loki"
+    ],
+    "relatedStories": [
+      "binding-of-fenrir",
+      "ragnarok"
+    ]
   },
   {
     "id": "odins-sacrifice",
@@ -1326,9 +1397,16 @@
         "type": "primary"
       }
     ],
-    "featuredDeities": ["odin"],
-    "featuredLocations": ["yggdrasil"],
-    "relatedStories": ["yggdrasil", "mead-of-poetry"]
+    "featuredDeities": [
+      "odin"
+    ],
+    "featuredLocations": [
+      "yggdrasil"
+    ],
+    "relatedStories": [
+      "yggdrasil",
+      "mead-of-poetry"
+    ]
   },
   {
     "id": "book-of-dead-journey",
@@ -1357,8 +1435,15 @@
         "type": "primary"
       }
     ],
-    "featuredDeities": ["osiris", "anubis", "thoth"],
-    "relatedStories": ["osiris-myth", "creation-heliopolis"]
+    "featuredDeities": [
+      "osiris",
+      "anubis",
+      "thoth"
+    ],
+    "relatedStories": [
+      "osiris-myth",
+      "creation-heliopolis"
+    ]
   },
   {
     "id": "sekhmet-rampage",
@@ -1382,8 +1467,15 @@
         "type": "primary"
       }
     ],
-    "featuredDeities": ["ra", "sekhmet", "hathor"],
-    "relatedStories": ["creation-heliopolis", "osiris-myth"]
+    "featuredDeities": [
+      "ra",
+      "sekhmet",
+      "hathor"
+    ],
+    "relatedStories": [
+      "creation-heliopolis",
+      "osiris-myth"
+    ]
   },
   {
     "id": "krishna-childhood",
@@ -1409,8 +1501,13 @@
         "type": "primary"
       }
     ],
-    "featuredDeities": ["krishna", "vishnu"],
-    "relatedStories": ["ganesha-creation"]
+    "featuredDeities": [
+      "krishna",
+      "vishnu"
+    ],
+    "relatedStories": [
+      "ganesha-creation"
+    ]
   },
   {
     "id": "ganesha-creation",
@@ -1439,8 +1536,14 @@
         "type": "primary"
       }
     ],
-    "featuredDeities": ["ganesha", "shiva", "parvati"],
-    "relatedStories": ["krishna-childhood"]
+    "featuredDeities": [
+      "ganesha",
+      "shiva",
+      "parvati"
+    ],
+    "relatedStories": [
+      "krishna-childhood"
+    ]
   },
   {
     "id": "izanagi-yomi",
@@ -1471,8 +1574,13 @@
         "type": "primary"
       }
     ],
-    "featuredDeities": ["izanagi", "izanami"],
-    "relatedStories": ["tale-of-hoori"]
+    "featuredDeities": [
+      "izanagi",
+      "izanami"
+    ],
+    "relatedStories": [
+      "tale-of-hoori"
+    ]
   },
   {
     "id": "tale-of-hoori",
@@ -1502,7 +1610,9 @@
       }
     ],
     "featuredDeities": [],
-    "relatedStories": ["izanagi-yomi"]
+    "relatedStories": [
+      "izanagi-yomi"
+    ]
   },
   {
     "id": "cattle-raid-cooley",
@@ -1532,8 +1642,13 @@
         "type": "manuscript"
       }
     ],
-    "featuredDeities": ["morrigan"],
-    "relatedStories": ["death-of-baldur", "trojan-war"]
+    "featuredDeities": [
+      "morrigan"
+    ],
+    "relatedStories": [
+      "death-of-baldur",
+      "trojan-war"
+    ]
   },
   {
     "id": "wooing-of-etain",
@@ -1564,8 +1679,14 @@
         "type": "manuscript"
       }
     ],
-    "featuredDeities": ["midir", "aengus"],
-    "relatedStories": ["children-lir", "dream-of-aengus"]
+    "featuredDeities": [
+      "midir",
+      "aengus"
+    ],
+    "relatedStories": [
+      "children-lir",
+      "dream-of-aengus"
+    ]
   },
   {
     "id": "dream-of-aengus",
@@ -1596,8 +1717,14 @@
         "type": "manuscript"
       }
     ],
-    "featuredDeities": ["aengus", "dagda"],
-    "relatedStories": ["wooing-of-etain", "children-lir"]
+    "featuredDeities": [
+      "aengus",
+      "dagda"
+    ],
+    "relatedStories": [
+      "wooing-of-etain",
+      "children-lir"
+    ]
   },
   {
     "id": "sons-of-tuireann",
@@ -1628,8 +1755,13 @@
         "type": "manuscript"
       }
     ],
-    "featuredDeities": ["manannan-mac-lir"],
-    "relatedStories": ["cath-maige-tuired", "children-lir"]
+    "featuredDeities": [
+      "manannan-mac-lir"
+    ],
+    "relatedStories": [
+      "cath-maige-tuired",
+      "children-lir"
+    ]
   },
   {
     "id": "death-of-cu-chulainn",
@@ -1660,8 +1792,13 @@
         "type": "manuscript"
       }
     ],
-    "featuredDeities": ["morrigan"],
-    "relatedStories": ["cattle-raid-cooley", "children-lir"]
+    "featuredDeities": [
+      "morrigan"
+    ],
+    "relatedStories": [
+      "cattle-raid-cooley",
+      "children-lir"
+    ]
   },
   {
     "id": "voyage-of-bran",
@@ -1692,8 +1829,13 @@
         "type": "manuscript"
       }
     ],
-    "featuredDeities": ["manannan-mac-lir"],
-    "relatedStories": ["children-lir", "dream-of-aengus"]
+    "featuredDeities": [
+      "manannan-mac-lir"
+    ],
+    "relatedStories": [
+      "children-lir",
+      "dream-of-aengus"
+    ]
   },
   {
     "id": "epic-of-gilgamesh",
@@ -1725,8 +1867,17 @@
         "type": "primary"
       }
     ],
-    "featuredDeities": ["gilgamesh", "enkidu", "inanna", "shamash"],
-    "relatedStories": ["inanna-descent", "flood-utnapishtim", "enuma-elish"]
+    "featuredDeities": [
+      "gilgamesh",
+      "enkidu",
+      "inanna",
+      "shamash"
+    ],
+    "relatedStories": [
+      "inanna-descent",
+      "flood-utnapishtim",
+      "enuma-elish"
+    ]
   },
   {
     "id": "inanna-descent",
@@ -1757,8 +1908,15 @@
         "type": "primary"
       }
     ],
-    "featuredDeities": ["inanna", "ereshkigal", "enki"],
-    "relatedStories": ["epic-of-gilgamesh", "enuma-elish"]
+    "featuredDeities": [
+      "inanna",
+      "ereshkigal",
+      "enki"
+    ],
+    "relatedStories": [
+      "epic-of-gilgamesh",
+      "enuma-elish"
+    ]
   },
   {
     "id": "enuma-elish",
@@ -1784,8 +1942,16 @@
         "type": "primary"
       }
     ],
-    "featuredDeities": ["marduk", "tiamat", "enki"],
-    "relatedStories": ["epic-of-gilgamesh", "flood-utnapishtim", "creation-myth-norse"]
+    "featuredDeities": [
+      "marduk",
+      "tiamat",
+      "enki"
+    ],
+    "relatedStories": [
+      "epic-of-gilgamesh",
+      "flood-utnapishtim",
+      "creation-myth-norse"
+    ]
   },
   {
     "id": "flood-utnapishtim",
@@ -1816,8 +1982,14 @@
         "type": "primary"
       }
     ],
-    "featuredDeities": ["enki", "enlil"],
-    "relatedStories": ["epic-of-gilgamesh", "enuma-elish"]
+    "featuredDeities": [
+      "enki",
+      "enlil"
+    ],
+    "relatedStories": [
+      "epic-of-gilgamesh",
+      "enuma-elish"
+    ]
   },
   {
     "id": "gilgamesh-enkidu-friendship",
@@ -1843,8 +2015,15 @@
         "type": "primary"
       }
     ],
-    "featuredDeities": ["gilgamesh", "enkidu", "inanna"],
-    "relatedStories": ["epic-of-gilgamesh", "inanna-descent"]
+    "featuredDeities": [
+      "gilgamesh",
+      "enkidu",
+      "inanna"
+    ],
+    "relatedStories": [
+      "epic-of-gilgamesh",
+      "inanna-descent"
+    ]
   },
   {
     "id": "five-suns-mesoamerican",
@@ -1876,8 +2055,15 @@
         "type": "primary"
       }
     ],
-    "featuredDeities": ["tezcatlipoca", "quetzalcoatl", "tlaloc", "chalchiuhtlicue"],
-    "relatedStories": ["quetzalcoatl-mictlan"]
+    "featuredDeities": [
+      "tezcatlipoca",
+      "quetzalcoatl",
+      "tlaloc",
+      "chalchiuhtlicue"
+    ],
+    "relatedStories": [
+      "quetzalcoatl-mictlan"
+    ]
   },
   {
     "id": "quetzalcoatl-mictlan",
@@ -1903,8 +2089,13 @@
         "type": "primary"
       }
     ],
-    "featuredDeities": ["quetzalcoatl", "mictlantecuhtli"],
-    "relatedStories": ["five-suns-mesoamerican"]
+    "featuredDeities": [
+      "quetzalcoatl",
+      "mictlantecuhtli"
+    ],
+    "relatedStories": [
+      "five-suns-mesoamerican"
+    ]
   },
   {
     "id": "hero-twins-popol-vuh",
@@ -1930,8 +2121,14 @@
         "type": "primary"
       }
     ],
-    "featuredDeities": ["hero-twins", "hun-hunahpu", "ah-puch"],
-    "relatedStories": ["maize-god-rebirth"]
+    "featuredDeities": [
+      "hero-twins",
+      "hun-hunahpu",
+      "ah-puch"
+    ],
+    "relatedStories": [
+      "maize-god-rebirth"
+    ]
   },
   {
     "id": "birth-huitzilopochtli",
@@ -1958,8 +2155,13 @@
         "type": "primary"
       }
     ],
-    "featuredDeities": ["huitzilopochtli", "coatlicue"],
-    "relatedStories": ["five-suns-mesoamerican"]
+    "featuredDeities": [
+      "huitzilopochtli",
+      "coatlicue"
+    ],
+    "relatedStories": [
+      "five-suns-mesoamerican"
+    ]
   },
   {
     "id": "maize-god-rebirth",
@@ -1990,8 +2192,13 @@
         "type": "primary"
       }
     ],
-    "featuredDeities": ["hun-hunahpu", "hero-twins"],
-    "relatedStories": ["hero-twins-popol-vuh"]
+    "featuredDeities": [
+      "hun-hunahpu",
+      "hero-twins"
+    ],
+    "relatedStories": [
+      "hero-twins-popol-vuh"
+    ]
   },
   {
     "id": "maui-fishes-up-islands",
@@ -2022,8 +2229,13 @@
         "type": "primary"
       }
     ],
-    "featuredDeities": ["maui"],
-    "relatedStories": ["maui-slows-the-sun", "maui-steals-fire"]
+    "featuredDeities": [
+      "maui"
+    ],
+    "relatedStories": [
+      "maui-slows-the-sun",
+      "maui-steals-fire"
+    ]
   },
   {
     "id": "maui-slows-the-sun",
@@ -2054,8 +2266,14 @@
         "type": "primary"
       }
     ],
-    "featuredDeities": ["maui", "hina"],
-    "relatedStories": ["maui-fishes-up-islands", "maui-steals-fire"]
+    "featuredDeities": [
+      "maui",
+      "hina"
+    ],
+    "relatedStories": [
+      "maui-fishes-up-islands",
+      "maui-steals-fire"
+    ]
   },
   {
     "id": "maui-steals-fire",
@@ -2086,8 +2304,13 @@
         "type": "primary"
       }
     ],
-    "featuredDeities": ["maui"],
-    "relatedStories": ["maui-fishes-up-islands", "maui-slows-the-sun"]
+    "featuredDeities": [
+      "maui"
+    ],
+    "relatedStories": [
+      "maui-fishes-up-islands",
+      "maui-slows-the-sun"
+    ]
   },
   {
     "id": "pele-and-hiiaka",
@@ -2119,8 +2342,13 @@
         "type": "secondary"
       }
     ],
-    "featuredDeities": ["pele", "hiiaka"],
-    "relatedStories": ["separation-of-rangi-and-papa"]
+    "featuredDeities": [
+      "pele",
+      "hiiaka"
+    ],
+    "relatedStories": [
+      "separation-of-rangi-and-papa"
+    ]
   },
   {
     "id": "separation-of-rangi-and-papa",
@@ -2151,8 +2379,17 @@
         "type": "secondary"
       }
     ],
-    "featuredDeities": ["rangi", "papa-polynesian", "tane", "tangaroa", "tu", "tawhirimatea"],
-    "relatedStories": ["maui-fishes-up-islands"]
+    "featuredDeities": [
+      "rangi",
+      "papa-polynesian",
+      "tane",
+      "tangaroa",
+      "tu",
+      "tawhirimatea"
+    ],
+    "relatedStories": [
+      "maui-fishes-up-islands"
+    ]
   },
   {
     "id": "yoruba-creation",
@@ -2163,12 +2400,34 @@
     "fullNarrative": "## In the Beginning\n\nBefore land existed, there was only water stretching endlessly in every direction. Above the waters lay **Orun**, the heavens, where **Olodumare** the supreme creator dwelt with the Orishas. Below was an infinite ocean with no shore, no land, no place for life to take root.\n\nOlodumare looked down at the waters and determined that creation must proceed. He summoned **Obatala**, the wisest of the Orishas, and gave him a sacred task: descend to the waters and create land where none existed.\n\n## The Descent from Heaven\n\nOlodumare provided Obatala with the tools of creation: a long golden chain to climb down from heaven, a snail shell filled with sacred sand, a white hen, a black cat, and a palm nut. Obatala gathered these items and began his descent.\n\nAs he climbed down the golden chain, Obatala passed through layer after layer of sky. The journey was long and arduous. Below him, the dark waters churned endlessly. At last, the chain ended, but Obatala was still far above the water's surface.\n\n> Obatala hung from the end of the chain, the primordial waters swirling beneath him. There was no land in sight, only endless ocean. This was the moment of creation.\n\n## The First Land\n\nObatala poured the sand from the snail shell onto the water. Then he released the white hen, who began to scratch and scatter the sand in all directions. Where the sand fell, land formed. The hen scratched and scattered, and the land spread wider and wider.\n\nObatala dropped onto the new land - the first solid ground in existence. The black cat followed, becoming his companion in this new world. Obatala planted the palm nut, and from it grew the first palm tree, providing food and shelter.\n\n## The Naming of Ile-Ife\n\nThe place where Obatala landed, where creation began, was called **Ile-Ife**, meaning 'the spreading of the earth.' It became the most sacred place in Yoruba cosmology, the center from which all other lands spread, the spiritual heart of the world.\n\nObatala looked upon his work and was pleased. Where there had been only water, now there was land. Where there had been nothing, now there was the foundation for all life to come.\n\n## The Creation of Humanity\n\nObatala's work was not finished. Olodumare instructed him to create human beings to populate the new land. Obatala gathered clay from the earth and began to mold human forms with his hands. He shaped heads and limbs, bodies and faces, working carefully to create the vessels for humanity.\n\nBut the work was hot and tedious. Obatala paused to drink palm wine to cool himself. One cup led to another, and soon Obatala was intoxicated. His hands became clumsy. Some of the figures he molded were bent or twisted. Some lacked limbs. Some had parts in the wrong places.\n\n## Olodumare Breathes Life\n\nWhen the figures were complete, Olodumare breathed life into each one, and they became living humans. Only then did Obatala see what his drunkenness had wrought. Some humans were perfect, but others bore the marks of his impaired craftsmanship - those with disabilities, albinism, and other conditions.\n\nObatala was filled with shame and remorse. He declared that he would forever be the special protector of those he had inadvertently harmed. He forbade his worshippers from ever drinking palm wine, so that none would repeat his error. To this day, those with disabilities are considered sacred to Obatala, under his special protection.\n\n## The Completion of Creation\n\nThe other Orishas descended from heaven to join Obatala in the new world. Each was given a domain: **Ogun** received iron and war, **Yemoja** received the waters, **Shango** received thunder, **Oshun** received the rivers. Together they established the world as it exists today.\n\nIle-Ife remains the most sacred city in Yoruba tradition, the navel of the world, the place where creation began. The kings of Ile-Ife are considered descendants of the Orishas themselves, guardians of the sacred site where Obatala first touched the earth.",
     "keyExcerpts": "Obatala poured sand from a snail shell onto the primordial waters and released a white hen to scatter it, creating land. He then molded humans from clay, but became drunk on palm wine and created some imperfectly, becoming their eternal protector.",
     "category": "creation",
-    "moralThemes": ["responsibility for mistakes", "imperfection in creation", "compassion for the disabled", "the origins of humanity"],
+    "moralThemes": [
+      "responsibility for mistakes",
+      "imperfection in creation",
+      "compassion for the disabled",
+      "the origins of humanity"
+    ],
     "culturalSignificance": "This is the central creation myth of Yoruba religion, establishing Ile-Ife as the sacred center of the world. It also provides an origin story for human disability that emphasizes protection and sacred status rather than punishment. The story spread throughout the African diaspora and remains central to Santeria, Candomble, and other diaspora traditions.",
     "imageUrl": "/stories/yoruba-creation.png",
-    "citationSources": [{"title": "Ifa Oral Tradition", "type": "primary"}, {"title": "Yoruba Myths", "author": "Ulli Beier", "date": "1980", "type": "secondary"}],
-    "featuredDeities": ["obatala", "olodumare"],
-    "relatedStories": ["shango-becomes-orisha", "oshun-saves-world"]
+    "citationSources": [
+      {
+        "title": "Ifa Oral Tradition",
+        "type": "primary"
+      },
+      {
+        "title": "Yoruba Myths",
+        "author": "Ulli Beier",
+        "date": "1980",
+        "type": "secondary"
+      }
+    ],
+    "featuredDeities": [
+      "obatala",
+      "olodumare"
+    ],
+    "relatedStories": [
+      "shango-becomes-orisha",
+      "oshun-saves-world"
+    ]
   },
   {
     "id": "shango-becomes-orisha",
@@ -2179,12 +2438,34 @@
     "fullNarrative": "## The Fourth King of Oyo\n\n**Shango** was the fourth Alaafin (king) of the great Oyo Empire. He was not born an Orisha but a mortal man, though no ordinary one. His presence commanded fear and respect in equal measure. His voice was like thunder, his anger like lightning. It was said he had learned the secret of summoning storms from the sky.\n\nShango ruled with power and passion. He was a great warrior who expanded the empire through conquest. He was a lover with three wives - **Oya**, **Oshun**, and **Oba** - each powerful in her own right. But his temperament was volatile, his pride immense.\n\n## The Secret of the Thunderstones\n\nShango possessed medicine that could call down lightning from the heavens. With a word and a gesture, he could destroy his enemies with fire from the sky. He kept this power secret, using it to terrify his subjects and devastate his opponents.\n\nBut his generals, Timi and Gbonka, grew jealous of his power and began to challenge his authority. The empire was divided between those loyal to Shango and those who whispered that the king's power was too dangerous, too unpredictable.\n\n## The Tragic Demonstration\n\nOne day, to demonstrate his power and cow his rivals, Shango decided to call lightning from his palace roof. But something went wrong. Whether his medicine failed or the storm escaped his control, the lightning struck his own palace instead of his enemies.\n\n> The fire consumed everything. The palace burned. Shango's own family members, including some of his children, perished in the flames. The king who controlled thunder had destroyed his own household.\n\nShango was devastated. The accident shattered his pride and his heart. His enemies mocked him. His supporters fell away. The king who had terrorized armies now wandered in shame.\n\n## The Ayan Tree\n\nShango traveled to a place called Koso, seeking solitude to mourn what he had lost. There, according to some versions of the story, he hanged himself from an ayan tree, unable to bear his grief and humiliation.\n\nBut his followers refused to accept his death. When they arrived at Koso, they declared that Shango had not died but had descended into the earth, becoming one with the storms he had once commanded.\n\n## Oba Koso - The King Did Not Hang\n\nThose who had mocked Shango's death soon learned their error. Lightning began to strike his detractors. Thunder rolled across clear skies when his name was spoken in mockery. Fire appeared where none should be.\n\nShango's followers proclaimed: **'Oba koso!'** - 'The king did not hang!' Shango had not died but had transformed. He had become something greater than a mortal king. He had become the Orisha of thunder and lightning.\n\n## The Thunder God\n\nShango's worship spread rapidly throughout Yorubaland and beyond. Where he had been a mortal king of one empire, he became a god worshipped across West Africa and, eventually, throughout the African diaspora.\n\nHis symbol became the double-headed axe, oshe, representing his power to strike in any direction. The thunderstones found after lightning strikes became his sacred objects. The ram became his animal, its forceful nature matching his own.\n\n## A Living God\n\nUnlike other Orishas who were created in the time before time, Shango walked the earth as a man within historical memory. His transformation demonstrates a profound Yoruba belief: divinity is not limited to ancient times. Mortals of sufficient power, passion, and destiny can become Orishas themselves.\n\nShango's story also teaches that tragedy can become transcendence. The king who destroyed his own palace in a moment of hubris became the god who brings justice through lightning. His worshippers call upon him to punish liars and evildoers, and they say that when lightning strikes, Shango has passed judgment on the wicked.",
     "keyExcerpts": "Shango was a mortal king of Oyo who mastered thunder but accidentally destroyed his own palace with lightning. After his death, lightning struck all who mocked him, and his followers declared 'Oba koso!' - 'The king did not hang!' - recognizing his transformation into the Orisha of thunder.",
     "category": "transformation",
-    "moralThemes": ["power and responsibility", "tragedy leading to transcendence", "hubris and redemption", "divine justice"],
+    "moralThemes": [
+      "power and responsibility",
+      "tragedy leading to transcendence",
+      "hubris and redemption",
+      "divine justice"
+    ],
     "culturalSignificance": "This is one of the most important stories in Yoruba religion, explaining how a historical figure became one of the most worshipped Orishas. It demonstrates the Yoruba belief that humans can achieve divine status and that tragedy can be the path to transcendence. Shango's story traveled across the Atlantic and remains central to diaspora traditions.",
     "imageUrl": "/stories/shango-becomes-orisha.png",
-    "citationSources": [{"title": "Yoruba Oral Tradition", "type": "primary"}, {"title": "Shango Cult", "author": "Pierre Verger", "type": "secondary"}],
-    "featuredDeities": ["shango", "oya", "oshun"],
-    "relatedStories": ["yoruba-creation", "ogun-shango-contest"]
+    "citationSources": [
+      {
+        "title": "Yoruba Oral Tradition",
+        "type": "primary"
+      },
+      {
+        "title": "Shango Cult",
+        "author": "Pierre Verger",
+        "type": "secondary"
+      }
+    ],
+    "featuredDeities": [
+      "shango",
+      "oya",
+      "oshun"
+    ],
+    "relatedStories": [
+      "yoruba-creation",
+      "ogun-shango-contest"
+    ]
   },
   {
     "id": "oshun-saves-world",
@@ -2195,12 +2476,35 @@
     "fullNarrative": "## The Dying World\n\nA time came when the world began to wither and die. The crops failed. The rivers ran dry. The rains did not come. Children were born sickly. The people cried out to the Orishas for help, but nothing improved.\n\nThe great Orishas gathered in council to address the crisis. **Ogun** was there with his iron machete. **Shango** brought his thunderbolts. **Obatala** came in his white robes of wisdom. All the mighty gods assembled to determine what had gone wrong and how to fix it.\n\n## The Ignored Goddess\n\nBut there was one who was not invited to the council: **Oshun**, the goddess of rivers and love. The other Orishas dismissed her as merely beautiful, concerned only with honey and mirrors and dancing. What could she possibly contribute to a matter this serious?\n\nOshun waited for an invitation that never came. She watched from the banks of her river as the great Orishas made their plans.\n\n## The Failure of the Warriors\n\nOne by one, the mighty Orishas attempted to reach Olodumare in the heavens to ask for the supreme being's intervention. But each one failed. Ogun could not cut a path to heaven with his machete. Shango's lightning could not reach high enough. Obatala's wisdom could not find the way.\n\nThe world continued to die. The Orishas were at a loss. Everything they tried failed.\n\n> At last, in desperation, they turned to Oshun. The goddess they had dismissed. The beautiful one they had considered frivolous. They asked for her help.\n\n## The Peacock's Flight\n\nOshun agreed to try what the warriors could not accomplish. She transformed herself into a peacock, the most beautiful of birds, and began to fly toward the heavens. Her magnificent feathers caught the light as she rose higher and higher, leaving the earth far behind.\n\nBut the journey was not easy. The higher Oshun flew, the hotter the sun became. Her beautiful feathers began to burn. One by one, they fell away, scorched by the celestial heat. Still she flew higher.\n\nBy the time Oshun reached Olodumare's realm, she was no longer a beautiful peacock. Her feathers were gone, burned to nothing. She arrived as a vulture, bald and dark, all her beauty sacrificed in the journey.\n\n## The Audience with Olodumare\n\nDespite her appearance, Olodumare recognized Oshun's courage and sacrifice. The supreme being listened to her plea for the world below. Moved by her devotion and the sacrifice of her beauty, Olodumare agreed to restore balance to the world.\n\nThe rains returned. The rivers flowed. The crops grew. The children were born healthy. The world was saved.\n\n## The Vulture's Honor\n\nOshun returned to earth, no longer the beautiful peacock but the bald vulture. But her sacrifice was honored. The vulture became sacred to Oshun, a reminder of what true beauty means - not appearance but action, not adornment but devotion.\n\nThis is why the vulture, though not beautiful to the eye, holds a place of honor in Yoruba tradition. It is one of Oshun's sacred animals, representing the goddess at the moment of her greatest sacrifice.\n\n## The Lesson of Oshun\n\nThe other Orishas learned that they had been wrong to dismiss Oshun. Her power was not less than theirs - it was different. Where strength and force had failed, love and sacrifice had succeeded.\n\nOshun's story teaches that true power comes in many forms. The gentle river carves through rock. The mother's love moves mountains. What appears soft or frivolous may hold the greatest strength of all.\n\nAnd never again did the Orishas fail to invite Oshun to their councils.",
     "keyExcerpts": "When all the mighty Orishas failed to save the dying world, Oshun transformed into a peacock and flew to heaven. Her beautiful feathers burned away in the journey, but she reached Olodumare and convinced the supreme being to restore the world. She returned as a vulture, her sacrifice honored forever.",
     "category": "heroic",
-    "moralThemes": ["underestimated power", "sacrifice for others", "true beauty is action", "feminine strength"],
+    "moralThemes": [
+      "underestimated power",
+      "sacrifice for others",
+      "true beauty is action",
+      "feminine strength"
+    ],
     "culturalSignificance": "This story is central to understanding Oshun's place in the Yoruba pantheon. It challenges the dismissal of feminine power and beauty as trivial, showing that what appears decorative may be essential. The story has particular resonance in diaspora traditions where Oshun represents the power of women to save what warriors cannot.",
     "imageUrl": "/stories/oshun-saves-world.png",
-    "citationSources": [{"title": "Ifa Oral Tradition", "type": "primary"}, {"title": "Osun Osogbo Festival Narratives", "type": "primary"}],
-    "featuredDeities": ["oshun", "olodumare", "ogun", "shango", "obatala"],
-    "relatedStories": ["yoruba-creation", "eshu-two-friends"]
+    "citationSources": [
+      {
+        "title": "Ifa Oral Tradition",
+        "type": "primary"
+      },
+      {
+        "title": "Osun Osogbo Festival Narratives",
+        "type": "primary"
+      }
+    ],
+    "featuredDeities": [
+      "oshun",
+      "olodumare",
+      "ogun",
+      "shango",
+      "obatala"
+    ],
+    "relatedStories": [
+      "yoruba-creation",
+      "eshu-two-friends"
+    ]
   },
   {
     "id": "eshu-two-friends",
@@ -2211,12 +2515,31 @@
     "fullNarrative": "## The Best of Friends\n\nThere were once two farmers who were the best of friends. They had been inseparable since childhood. Their farms lay side by side, with only a small path dividing their properties. Each day they would wave to each other across the path as they worked. Each evening they would share their meals and their stories.\n\nThe two friends boasted of their friendship everywhere they went. 'Nothing could ever come between us,' they would say. 'Our bond is unbreakable.'\n\n**Eshu**, the trickster Orisha, heard these boasts and smiled his knowing smile. He decided to test whether their friendship was as strong as they claimed.\n\n## The Two-Colored Hat\n\nEshu fashioned a hat of a most peculiar design. One side was bright red, the color of fire and passion. The other side was deep black, the color of night and mystery. He placed this hat upon his head and set out to walk down the path between the two farms.\n\nAs Eshu strolled down the path, both friends looked up from their work to see who was passing.\n\n> The farmer on the left side of the path saw a stranger in a striking red hat. The farmer on the right side of the path saw a stranger in a mysterious black hat. Neither could see the other side.\n\nEshu walked slowly, greeting each farmer with a wave, then continued on his way until he was out of sight.\n\n## The Argument\n\nThat evening, the two friends met as always to share their meal. The conversation soon turned to the stranger who had passed by that day.\n\n'Did you see the man in the red hat?' asked the first farmer. 'What a bold color!'\n\n'Red hat?' replied the second farmer. 'The man was wearing a black hat.'\n\n'No, no, it was definitely red. I have eyes, don't I?'\n\n'As do I, and I tell you the hat was black!'\n\nWhat began as friendly disagreement quickly escalated. Each man was certain of what he had seen. Each accused the other of being blind, then of being a liar. Their voices rose to shouts.\n\n'How can we be friends if you lie to my face?' demanded one.\n\n'I am not lying! You are trying to make me look foolish!' retorted the other.\n\nTheir lifelong friendship dissolved in minutes. They parted in anger, vowing never to speak to each other again.\n\n## Eshu's Return\n\nThe next day, as the two former friends worked their fields in bitter silence, Eshu came strolling down the path again. But this time he walked in the other direction, and this time each farmer saw the opposite color.\n\nThe first farmer, who had seen red before, now saw black.\n\nThe second farmer, who had seen black before, now saw red.\n\nBoth men were confused. They looked at each other across the path. For the first time, doubt crept in.\n\nEshu stopped in the middle of the path and removed his hat, revealing both colors to both men.\n\n'You see?' Eshu said, laughing. 'You were both right. And you were both wrong. The hat has two colors, and each of you could only see one. You destroyed your friendship over something that was true from both perspectives.'\n\n## The Lesson\n\nThe two farmers were ashamed. They begged each other's forgiveness and renewed their friendship, wiser than before. They had learned Eshu's lesson: that truth can look different from different perspectives, and that assuming your view is the only view leads to destruction.\n\n'Remember,' Eshu said before he departed, 'the crossroads I guard is not just where two paths meet. It is where two truths meet. The wise person understands that both paths are real.'\n\n## Eshu's Teaching\n\nThis story is told throughout Yorubaland and the diaspora as a warning against the arrogance of certainty. It teaches that Eshu's tricks are not merely mischief but profound lessons about the nature of reality.\n\nWhen we are certain that our perspective is the only truth, we risk losing everything that matters. The hat has two colors. The truth has many sides. Only those who can accept this wisdom can walk the crossroads without being lost.",
     "keyExcerpts": "Eshu wore a hat that was red on one side and black on the other. Walking between two best friends, each saw a different color. Their argument over who was right destroyed their friendship until Eshu revealed that both were right - and both were wrong.",
     "category": "trickster",
-    "moralThemes": ["perspective and truth", "dangers of certainty", "humility in perception", "the complexity of reality"],
+    "moralThemes": [
+      "perspective and truth",
+      "dangers of certainty",
+      "humility in perception",
+      "the complexity of reality"
+    ],
     "culturalSignificance": "This is one of the most widely told Eshu stories, used to teach the importance of humility and open-mindedness. It demonstrates Eshu's role not as a malicious trickster but as a teacher who uses chaos to reveal deeper truths. The story is particularly relevant in conflicts where both sides believe they possess the complete truth.",
     "imageUrl": "/stories/eshu-two-friends.png",
-    "citationSources": [{"title": "Ifa Oral Tradition", "type": "primary"}, {"title": "Eshu-Elegba: The Yoruba Trickster God", "type": "secondary"}],
-    "featuredDeities": ["eshu"],
-    "relatedStories": ["yoruba-creation", "ogun-shango-contest"]
+    "citationSources": [
+      {
+        "title": "Ifa Oral Tradition",
+        "type": "primary"
+      },
+      {
+        "title": "Eshu-Elegba: The Yoruba Trickster God",
+        "type": "secondary"
+      }
+    ],
+    "featuredDeities": [
+      "eshu"
+    ],
+    "relatedStories": [
+      "yoruba-creation",
+      "ogun-shango-contest"
+    ]
   },
   {
     "id": "ogun-shango-contest",
@@ -2227,12 +2550,29 @@
     "fullNarrative": "## Two Great Powers\n\nAmong all the Orishas, none were more powerful than **Ogun** and **Shango**. Ogun was the lord of iron, the divine blacksmith who had cleared the path from heaven to earth. Shango was the lord of thunder, the deified king who commanded lightning from the sky.\n\nFor a time, they respected each other's domains. Ogun ruled over metal and war on earth. Shango ruled over storms and justice from the sky. But pride, that old enemy of the mighty, began to whisper to both of them.\n\n'Who is the greater Orisha?' the question formed in both their minds.\n\n## The Challenge\n\nOne day, Shango could contain his pride no longer. He descended from the sky and found Ogun at his forge, hammering iron into weapons.\n\n'Ogun,' Shango declared, 'for too long you have claimed to be the greatest of warriors. But I am Shango. I wield lightning itself. No weapon you forge can match my power.'\n\nOgun set down his hammer and regarded Shango coolly. 'You mistake noise for power, king of thunder. Your lightning is impressive, but it is I who forged the tools that built civilization. I who cleared the path from heaven. Come, let us settle this.'\n\n## The Contest Begins\n\nThe two Orishas agreed to a series of contests to determine who was superior. All the other Orishas gathered to watch, along with the ancestors and the spirits of nature.\n\n> First, they competed in strength. They wrestled, they lifted great stones, they tore trees from the ground. But neither could overpower the other. They were equally matched.\n\nNext, they competed in destruction. Shango called down lightning bolts that shattered mountains. Ogun's iron weapons cut through stone like water. Again, neither proved superior.\n\nThey competed in speed, in endurance, in cunning. Every contest ended in a draw.\n\n## Oshun's Intervention\n\nAs the contest stretched on, it began to cause chaos in the world. The storms from Shango's lightning flooded the lands. The fires from Ogun's forge scorched the earth. The people below suffered while the great Orishas competed for glory.\n\n**Oshun**, who loved both Ogun and Shango (having been wife to each at different times), could not bear to see the destruction. She stepped between the two combatants, her beauty and power commanding their attention.\n\n'Stop this foolishness,' she said. 'Look at what your pride has wrought. The people below are suffering while you play games of ego.'\n\nOgun and Shango paused, looking down at the devastation they had caused. Shame touched their proud hearts.\n\n## The True Measure of Power\n\nOshun continued: 'You ask who is greater? Let me tell you the measure of true power. It is not in destruction but in creation. Not in domination but in service. The greatest Orisha is the one who brings the most good to the people who worship us.'\n\nShe gestured to Ogun. 'You gave humanity iron, which they use to farm and build. That is your greatness.'\n\nShe gestured to Shango. 'You bring rain for the crops and justice to the wicked. That is your greatness.'\n\n'You are both necessary. You are both powerful. But this contest has shown only that your pride can cause as much harm as your powers can cause good.'\n\n## The Resolution\n\nOgun and Shango stood in silence, considering Oshun's words. At last, Ogun spoke:\n\n'She is right. We have been fools.'\n\nShango nodded. 'Let there be no more contest between us. We serve different purposes, and both purposes are vital.'\n\nThey clasped hands in respect, if not friendship. The storm clouds parted. The fires died down. The world began to heal.\n\n## The Lesson\n\nFrom that day, while Ogun and Shango remained rivals in some ways, they no longer sought to prove one superior to the other. They understood that the Orishas, like all forces in nature, exist in balance. Iron and thunder, earth and sky, forge and storm - all are necessary.\n\nAnd when worshippers invoke both Ogun and Shango, they remember this story: that competition between the mighty can harm the world, and that true power lies not in domination but in fulfilling one's purpose in service to creation.",
     "keyExcerpts": "Ogun of iron and Shango of thunder competed to prove who was the greater Orisha, their contest devastating the world below. Oshun intervened, teaching them that true power lies in service, not domination, and that both were necessary to the world.",
     "category": "rivalry",
-    "moralThemes": ["pride and humility", "complementary powers", "service over domination", "balance in nature"],
+    "moralThemes": [
+      "pride and humility",
+      "complementary powers",
+      "service over domination",
+      "balance in nature"
+    ],
     "culturalSignificance": "This story illustrates the Yoruba understanding of balance between competing forces. Neither Ogun nor Shango is diminished by their draw - instead, both are revealed as essential. The story is often cited in discussions of healthy rivalry and the dangers of unchecked ego. Oshun's role as peacemaker highlights the feminine divine as a balancing force.",
     "imageUrl": "/stories/ogun-shango-contest.png",
-    "citationSources": [{"title": "Yoruba Oral Tradition", "type": "primary"}],
-    "featuredDeities": ["ogun", "shango", "oshun"],
-    "relatedStories": ["shango-becomes-orisha", "oshun-saves-world"]
+    "citationSources": [
+      {
+        "title": "Yoruba Oral Tradition",
+        "type": "primary"
+      }
+    ],
+    "featuredDeities": [
+      "ogun",
+      "shango",
+      "oshun"
+    ],
+    "relatedStories": [
+      "shango-becomes-orisha",
+      "oshun-saves-world"
+    ]
   },
   {
     "id": "birth-of-huitzilopochtli",
@@ -2243,7 +2583,12 @@
     "fullNarrative": "## The Feathered Conception\n\nOn the sacred mountain of Coatepec, the serpent hill, lived **Coatlicue**, She of the Serpent Skirt. She was the earth mother, giver and taker of life, and she had already borne many children: the moon goddess **Coyolxauhqui** and the four hundred sons known as the **Centzon Huitznahua**, who became the stars of the southern sky.\n\nOne day, while Coatlicue swept the temple as an act of penance, a ball of fine feathers descended from the heavens. She tucked it into her waistband for safekeeping. When she later reached for it, the feathers had vanished, and she discovered she was with child.\n\n## The Conspiracy of the Stars\n\nWhen Coyolxauhqui learned of her mother's pregnancy, she was filled with rage and shame. How could Coatlicue, their venerable mother, dishonor the family in such a way? The moon goddess gathered her four hundred brothers and convinced them that their mother must die for this transgression.\n\nThey armed themselves as warriors and ascended Coatepec to murder Coatlicue. She wept in fear, for she did not understand her own pregnancy, but a voice spoke to her from her womb: \"Do not be afraid. I know what I must do.\"\n\n## The God of War Emerges\n\nAt the moment Coyolxauhqui reached the summit to strike the killing blow, **Huitzilopochtli** burst forth from his mother's body fully grown and dressed for war. He wore the blue-green hummingbird headdress and carried **Xiuhcoatl**, the fire serpent, as his weapon.\n\nWith a single strike of the fire serpent, he decapitated his sister. Her body tumbled down the mountainside, breaking apart as it fell until her limbs scattered at the base of Coatepec. He then turned on the Centzon Huitznahua, pursuing them across the sky and slaughtering most of them in his divine fury.\n\n## The Eternal Battle\n\nThe Aztecs understood this myth as the daily cosmic drama. Each morning, Huitzilopochtli is born from the earth (Coatlicue) and defeats the moon (Coyolxauhqui) and stars (Centzon Huitznahua), driving them from the sky. Each night, they return to threaten him again, and each dawn he must be reborn to repeat his victory.\n\nThis is why the Templo Mayor in Tenochtitlan was built as a recreation of Coatepec. The great stone disk of the dismembered Coyolxauhqui was placed at the base of the temple stairs. Sacrificial victims were cast down these stairs after their hearts were offered to Huitzilopochtli, reenacting his victory and ensuring the sun's continued triumph.",
     "keyExcerpts": "Coatlicue conceives from a ball of feathers. Coyolxauhqui leads the stars against her. Huitzilopochtli emerges fully armed. He decapitates his sister and scatters her body. The daily battle of sun against moon and stars.",
     "category": "creation",
-    "moralThemes": ["divine birth", "cosmic order", "sacrifice as necessity", "family conflict"],
+    "moralThemes": [
+      "divine birth",
+      "cosmic order",
+      "sacrifice as necessity",
+      "family conflict"
+    ],
     "culturalSignificance": "This myth explained the daily solar cycle and served as the foundational charter for Aztec human sacrifice. The Templo Mayor was designed as an architectural recreation of this myth, with the Coyolxauhqui stone marking where victims' bodies would fall.",
     "imageUrl": "/stories/birth-of-huitzilopochtli.png",
     "citationSources": [
@@ -2257,8 +2602,14 @@
         "type": "primary"
       }
     ],
-    "featuredDeities": ["huitzilopochtli", "coatlicue", "coyolxauhqui"],
-    "relatedStories": ["five-suns"]
+    "featuredDeities": [
+      "huitzilopochtli",
+      "coatlicue",
+      "coyolxauhqui"
+    ],
+    "relatedStories": [
+      "five-suns"
+    ]
   },
   {
     "id": "quetzalcoatl-fall-exile",
@@ -2269,7 +2620,12 @@
     "fullNarrative": "## The Righteous King of Tollan\n\nIn the legendary city of **Tollan**, there ruled a priest-king named **Ce Acatl Topiltzin Quetzalcoatl**. He was the earthly embodiment of the Feathered Serpent, and under his rule Tollan became a paradise. The maize grew so large that men could barely carry a single ear. Cotton grew in every color. The Toltecs wanted for nothing.\n\nQuetzalcoatl practiced strict penance and celibacy. He opposed human sacrifice, offering only jade, butterflies, and snakes to the gods. He was beloved by his people and despised by his rival **Tezcatlipoca**, the Smoking Mirror, who ruled through blood and chaos.\n\n## The Mirror and the Wine\n\nTezcatlipoca descended to Tollan in disguise, determined to destroy Quetzalcoatl. First, he appeared before the priest-king with a mirror wrapped in cloth. \"My lord, I have come to show you your body,\" he said.\n\nWhen Quetzalcoatl looked into the obsidian mirror, he saw himself as old and decrepit, his face covered with wrinkles and sores. He had never seen his own reflection before. He was horrified and hid himself away, believing he could no longer appear before his people.\n\nTezcatlipoca then sent sorcerers with **octli**, the fermented drink of the maguey plant. They convinced the distraught Quetzalcoatl to drink, claiming it would cure his distress. One cup led to another. Drunk for the first time in his life, the righteous king called for his sister **Quetzalpetlatl** and lay with her, breaking his sacred vows of celibacy.\n\n## The Morning After\n\nWhen Quetzalcoatl awoke, he understood what he had done. His penance had been broken. His celibacy destroyed. The sorcerer Tezcatlipoca had defeated him without lifting a weapon. The priest-king wept and ordered his servants to prepare a stone casket.\n\nHe lay in the casket for four days as a symbolic death. Then he rose and traveled east toward the sea, accompanied by his followers. Along the way, he established rituals and named places. Everything he touched was marked by his passage.\n\n## The Departure\n\nWhen Quetzalcoatl reached the shore of the divine sea, he dressed himself in his finest regalia: the feathered headdress, the turquoise mask, the jade ornaments. He set himself ablaze on a great pyre. His ashes rose into the sky, and his heart ascended to become the morning star, **Tlahuizcalpantecuhtli**.\n\nBefore his death, Quetzalcoatl made a prophecy: he would return in a **One Reed year** to reclaim his kingdom. When Cortes arrived in 1519, a One Reed year, the Aztec emperor Moctezuma feared the prophecy had come true. Some sources suggest this fear contributed to the Aztec hesitation that enabled the Spanish conquest, though modern scholars debate how much this tradition was shaped after the fact.",
     "keyExcerpts": "Tezcatlipoca tricks Quetzalcoatl with a mirror showing his aged reflection. Sorcerers bring him octli and he breaks his vows. He departs Tollan in shame. He immolates himself and becomes the morning star. He prophesies his return.",
     "category": "tragedy",
-    "moralThemes": ["pride before fall", "the corruption of virtue", "exile and return", "the morning star"],
+    "moralThemes": [
+      "pride before fall",
+      "the corruption of virtue",
+      "exile and return",
+      "the morning star"
+    ],
     "culturalSignificance": "This myth served multiple functions: it explained the fall of Tollan, established Venus as associated with Quetzalcoatl, and contained the prophecy of return that may have influenced Aztec response to Spanish contact. The rivalry between Quetzalcoatl and Tezcatlipoca represents the eternal conflict between order and chaos.",
     "imageUrl": "/stories/quetzalcoatl-fall-exile.png",
     "citationSources": [
@@ -2282,8 +2638,14 @@
         "type": "primary"
       }
     ],
-    "featuredDeities": ["quetzalcoatl", "tezcatlipoca"],
-    "relatedStories": ["five-suns", "birth-of-huitzilopochtli"]
+    "featuredDeities": [
+      "quetzalcoatl",
+      "tezcatlipoca"
+    ],
+    "relatedStories": [
+      "five-suns",
+      "birth-of-huitzilopochtli"
+    ]
   },
   {
     "id": "journey-to-mictlan",
@@ -2294,7 +2656,12 @@
     "fullNarrative": "## The Departure of the Soul\n\nWhen an Aztec died a common death (not in battle, sacrifice, childbirth, or drowning), their **tonalli** began the journey to **Mictlan**, the land of the dead. The body was wrapped in cloth and cremated with a yellow dog to serve as a guide, along with provisions of food, water, jade beads to pay the lords of death, and paper garments to protect against the trials ahead.\n\nThe journey would take four years. During this time, the living performed rituals on the anniversary of the death, burning offerings that would reach the traveling soul.\n\n## The Nine Levels\n\nThe path to Mictlan passed through nine challenging levels:\n\n1. **Itzcuintlan** - The Place of the Dog, where the yellow dog must recognize and help the soul cross a great river.\n2. **Tepetl Monamicyan** - Where two mountains clash together, and the soul must pass between them at exactly the right moment.\n3. **Itztepetl** - The Obsidian Mountain, where the soul must climb a peak covered in razor-sharp obsidian.\n4. **Itzehecayan** - The Place of the Obsidian Wind, where a freezing wind full of obsidian knives cuts through the soul.\n5. **Pancuecuetlacayan** - Where bodies hang like flags, flapping in an endless wind.\n6. **Temiminaloyan** - Where arrows are shot at the soul from all directions.\n7. **Teocoyohuehualoyan** - Where wild beasts devour hearts.\n8. **Izmictlan Apochcalocan** - The Place of Obsidian Fog, where the soul can see nothing and must navigate by feel.\n9. **Chicunamictlan** - The Place of the Dead, the final level where Mictlantecuhtli and Mictecacihuatl rule.\n\n## The Lord and Lady of Death\n\n**Mictlantecuhtli**, the skeletal lord of the dead, and his wife **Mictecacihuatl** awaited souls in the lowest level. They were not evil but simply ruled their domain of darkness. When the soul finally arrived, it offered the jade beads brought from the living world.\n\nThe soul then ceased to exist as an individual, dissolving into the collective realm of the dead. This was not punishment but the natural end of those who died ordinary deaths. It was simply the way of things.\n\n## Exceptions to the Journey\n\nNot all souls traveled to Mictlan. Warriors who died in battle and sacrificial victims went to accompany the sun across the sky. Women who died in childbirth joined the sun on its journey through the underworld. Those who drowned or were struck by lightning went to **Tlalocan**, the paradise of Tlaloc, the rain god.\n\nThese alternate destinations were considered honors. Mictlan was not a place of punishment but simply the destination of common mortality. The Aztecs accepted death as part of the cosmic order, a debt that all living things owed to the gods who had sacrificed themselves to create the world.",
     "keyExcerpts": "The soul is cremated with a yellow dog as guide. It passes through nine levels of trials. Obsidian wind and crushing mountains test the dead. Mictlantecuhtli and Mictecacihuatl receive the soul. Warriors and sacrifices go elsewhere.",
     "category": "death",
-    "moralThemes": ["mortality and acceptance", "preparation for death", "cosmic order", "the dissolution of self"],
+    "moralThemes": [
+      "mortality and acceptance",
+      "preparation for death",
+      "cosmic order",
+      "the dissolution of self"
+    ],
     "culturalSignificance": "This underworld geography shaped Aztec funerary practices. The emphasis on provisions for the dead, the four-year mourning cycle, and the importance of proper burial all derive from this belief system. The myth also justified different social deaths: warriors and mothers received special afterlives as reward for their sacrifices.",
     "imageUrl": "/stories/journey-to-mictlan.png",
     "citationSources": [
@@ -2308,7 +2675,142 @@
         "type": "primary"
       }
     ],
-    "featuredDeities": ["mictlantecuhtli", "xolotl"],
-    "relatedStories": ["five-suns", "quetzalcoatl-fall-exile"]
+    "featuredDeities": [
+      "mictlantecuhtli",
+      "xolotl"
+    ],
+    "relatedStories": [
+      "five-suns",
+      "quetzalcoatl-fall-exile"
+    ]
+  },
+  {
+    "id": "anansi-bought-stories",
+    "pantheonId": "african-pantheon",
+    "title": "How Anansi Bought the World's Stories",
+    "slug": "anansi-bought-stories",
+    "summary": "The clever spider Anansi bargains with the sky god Nyame to purchase all the world's stories by completing four impossible tasks.",
+    "fullNarrative": "In the time before stories belonged to anyone, all tales were kept in a golden chest by Nyame, the sky god. Anansi the spider desired these stories more than anything.\n\n\"What will you pay?\" asked Nyame, amused that a small spider would dare such a request.\n\n\"Name your price,\" said Anansi.\n\nNyame demanded four impossible captures: Onini the python who swallows men whole, Osebo the leopard with teeth like spears, the Mmoboro hornets whose stings mean death, and Mmoatia the invisible fairy.\n\nAnansi's wife Aso helped him devise clever plans. He tricked Onini into stretching beside a pole to prove his length—then tied him fast. He dug a pit and covered it with brush, trapping Osebo. He filled a calabash with water and poured it on the Mmoboro nest, offering the calabash as shelter—then plugged the hole. He carved a wooden doll covered in sticky sap, and when Mmoatia slapped it in anger, she could not escape.\n\nNyame, astonished, declared: \"From this day, all stories belong to Anansi. They shall be called Spider Stories.\"\n\nAnd so Anansi became the keeper of all tales, which he shares with humanity to this day.",
+    "themes": [
+      "wisdom",
+      "trickery",
+      "perseverance",
+      "storytelling"
+    ],
+    "culturalSignificance": "This story explains the origin of oral storytelling in Akan culture and why tales are called 'Anansesem' (spider stories). It celebrates intelligence over physical strength and represents the cultural value of wit.",
+    "imageUrl": "/stories/anansi-stories.png",
+    "featuredDeityIds": [
+      "anansi",
+      "nyame"
+    ],
+    "category": "trickster"
+  },
+  {
+    "id": "oduduwa-creation-earth",
+    "pantheonId": "african-pantheon",
+    "title": "Oduduwa and the Creation of the Earth",
+    "slug": "oduduwa-creation-earth",
+    "summary": "After Obatala fails his divine mission, Oduduwa descends from heaven to create dry land and establish the sacred city of Ile-Ife.",
+    "fullNarrative": "In the beginning, there was only water—endless, dark, primordial waters stretching in all directions. Above sat Olodumare in the heavens with the Orishas.\n\nOlodumare summoned Obatala, the wisest Orisha, and gave him a golden chain, a calabash filled with soil, a five-toed chicken, and a palm nut. \"Descend,\" said Olodumare, \"and create dry land where humans may live.\"\n\nObatala began his descent, but along the way he stopped at a feast where palm wine flowed freely. He drank deeply and fell into a stupor, his sacred mission forgotten.\n\nSeeing this, Olodumare sent Oduduwa to complete the work. Oduduwa took the chain, the calabash, and the chicken from his sleeping brother and descended to the waters below. He poured out the soil onto the waters and set the chicken upon it. The bird scratched and spread the soil in all directions, creating vast expanses of dry land.\n\nWhere Oduduwa first touched the earth became Ile-Ife, the sacred city, the navel of the world. There he planted the palm nut, which grew into the tree of life. There he established the first kingdom, becoming the ancestor of all Yoruba rulers.\n\nWhen Obatala awoke and discovered what had happened, he was filled with shame. Olodumare, in mercy, gave him dominion over the creation of human bodies—though he must never drink palm wine while doing so.",
+    "themes": [
+      "creation",
+      "responsibility",
+      "second chances",
+      "divine mission"
+    ],
+    "culturalSignificance": "This creation myth establishes Ile-Ife as the sacred center of Yoruba civilization and explains why Yoruba kings trace their lineage to Oduduwa. It also explains Obatala's role in creating humans and why those born with disabilities are sacred to him.",
+    "imageUrl": "/stories/oduduwa-creation.png",
+    "featuredDeityIds": [
+      "oduduwa",
+      "obatala",
+      "olodumare"
+    ],
+    "category": "creation"
+  },
+  {
+    "id": "first-twins-ibeji",
+    "pantheonId": "african-pantheon",
+    "title": "The First Twins and the Ibeji",
+    "slug": "first-twins-ibeji",
+    "summary": "The story of how twins became sacred in Yoruba culture and how the Orisha Ibeji came to protect all twin children.",
+    "fullNarrative": "Long ago, twins were feared. When a woman gave birth to two children at once, the village elders said it was an evil omen. Twins were abandoned in the forest to die.\n\nOya, the fierce wind goddess and wife of Shango, gave birth to twins—the first divine twins. When the people demanded she abandon them, Oya refused. \"These children are blessed, not cursed,\" she declared.\n\nThe village tried to force her, but Oya summoned the winds. Lightning cracked across the sky—Shango's rage made manifest. The people fell back in terror.\n\nThe twins grew strong under their parents' protection. They performed miracles: ending droughts, healing the sick, bringing prosperity to those who honored them. When they finally departed to Orun (heaven), they became the Orisha Ibeji, protectors of all twins.\n\nFrom that day, twins were celebrated rather than feared. The Yoruba began to honor them with special ceremonies, feeding them their favorite foods of beans and palm oil. If one twin died, a carved figure (ere ibeji) would be made to house their spirit, so the living twin would never be alone.\n\nThe Ibeji taught humanity that what seems strange may be sacred, and what is feared may be a blessing in disguise.",
+    "themes": [
+      "protection",
+      "transformation",
+      "family",
+      "sacred duality"
+    ],
+    "culturalSignificance": "This story reflects the historical shift in Yoruba attitudes toward twins and explains the veneration of ibeji figures. It emphasizes the protective power of divine parents and the sacred nature of duality.",
+    "imageUrl": "/stories/first-twins.png",
+    "featuredDeityIds": [
+      "ibeji",
+      "oya",
+      "shango"
+    ],
+    "category": "legend"
+  },
+  {
+    "id": "fall-of-quetzalcoatl-tula",
+    "pantheonId": "mesoamerican-pantheon",
+    "title": "The Fall of Quetzalcoatl at Tula",
+    "slug": "fall-of-quetzalcoatl-tula",
+    "summary": "Tezcatlipoca tricks the virtuous priest-king Quetzalcoatl into drunkenness and shame, causing his exile from the great city of Tula.",
+    "fullNarrative": "In the golden age of Tula, Quetzalcoatl ruled as priest-king. Under his guidance, the Toltecs prospered. He taught them crafts, agriculture, and the worship of the gods through prayers rather than human sacrifice.\n\nBut Tezcatlipoca, the Smoking Mirror, grew jealous. He descended to Tula in disguise, carrying a mirror and a jar of pulque.\n\n\"Lord Quetzalcoatl,\" said the stranger, \"I bring you medicine for the ailment that troubles you.\"\n\nQuetzalcoatl was indeed weary from fasting and penance. He looked in the mirror and saw himself aged and worn. \"What is this medicine?\" he asked.\n\nTezcatlipoca offered the pulque. \"Just a sip will restore your strength.\"\n\nOne sip became many. Quetzalcoatl grew drunk for the first time in his life. In his stupor, he summoned his sister Quetzalpetlatl and committed the sin of incest.\n\nWhen dawn came and sobriety returned, Quetzalcoatl was consumed by shame. He could no longer face his people. He gathered his treasures, set them aflame, and departed toward the east.\n\nAt the shore of the divine sea, Quetzalcoatl dressed in his feathered finery and set himself ablaze. His heart rose into the sky and became the Morning Star. He vowed to return one day and reclaim his kingdom.\n\nThe Toltec golden age ended with his departure, and the darker gods held sway over the land.",
+    "themes": [
+      "temptation",
+      "fall from grace",
+      "shame",
+      "divine rivalry"
+    ],
+    "culturalSignificance": "This myth explains the end of the Toltec civilization and the expectation of Quetzalcoatl's return. When Spanish conquistadors arrived from the east, some believed the prophecy was being fulfilled.",
+    "imageUrl": "/stories/fall-quetzalcoatl.png",
+    "featuredDeityIds": [
+      "tezcatlipoca",
+      "quetzalcoatl"
+    ],
+    "category": "legend"
+  },
+  {
+    "id": "house-of-bats",
+    "pantheonId": "mesoamerican-pantheon",
+    "title": "The House of Bats",
+    "slug": "house-of-bats",
+    "summary": "The Hero Twins Hunahpu and Xbalanque face the terrifying Camazotz in one of Xibalba's deadly trial houses.",
+    "fullNarrative": "The Hero Twins had survived the House of Gloom, the House of Cold, the House of Jaguars, and the House of Fire. Now only the House of Bats remained.\n\nThey entered a cave filled with shrieking darkness. Giant bats with razor wings circled endlessly, and at the center sat Camazotz himself—the Death Bat with obsidian blade wings and an insatiable hunger for blood.\n\nHunahpu and Xbalanque crawled inside their blowguns for protection. All night the bats swooped and slashed, but the brothers remained hidden.\n\nAs dawn approached, the bats grew quiet. Hunahpu thought it safe to look out and see if morning had come. The instant his head emerged, Camazotz struck—and Hunahpu's head rolled across the floor.\n\nXbalanque was alone. The Lords of Xibalba took his brother's head and hung it in the ballcourt for the next day's game.\n\nBut Xbalanque was cunning. He called the animals to help. A coati found a squash the exact size of Hunahpu's head. A rabbit agreed to hide nearby. Xbalanque carved the squash into a face and placed it on his brother's body.\n\nWhen the ballgame began, the Lords threw Hunahpu's real head as the ball. But the rabbit leaped past, and the Lords chased it, thinking it was the ball. Xbalanque switched the squash for his brother's real head.\n\nHunahpu lived again. Together, the twins defeated the Lords of Death.",
+    "themes": [
+      "cleverness",
+      "resurrection",
+      "trials",
+      "brotherhood"
+    ],
+    "culturalSignificance": "This episode from the Popol Vuh shows how wit overcomes brute force. The Hero Twins' victory over death establishes the pattern of resurrection central to Maya cosmology.",
+    "imageUrl": "/stories/house-of-bats.png",
+    "featuredDeityIds": [
+      "camazotz",
+      "hunahpu-xbalanque"
+    ],
+    "category": "quest"
+  },
+  {
+    "id": "birth-huitzilopochtli-full",
+    "pantheonId": "mesoamerican-pantheon",
+    "title": "The Birth of Huitzilopochtli",
+    "slug": "birth-huitzilopochtli-full",
+    "summary": "When Coatlicue's children try to kill her for her mysterious pregnancy, her unborn son Huitzilopochtli bursts forth fully armed to defend her.",
+    "fullNarrative": "Coatlicue, the earth goddess with her skirt of serpents and necklace of skulls, swept the temple atop Coatepec—Serpent Mountain. As she worked, a ball of feathers drifted down from the sky. She tucked it into her waistband, and when she looked for it later, it was gone. She had become pregnant.\n\nHer daughter Coyolxauhqui, goddess of the moon, was outraged. \"Our mother has dishonored us!\" she cried to her four hundred brothers, the Centzon Huitznahua—the stars of the southern sky. \"We must kill her!\"\n\nThey armed themselves and marched up Coatepec. Coatlicue trembled in fear, but a voice spoke from her womb: \"Do not be afraid, Mother. I know what I must do.\"\n\nAs Coyolxauhqui reached the summit, ready to strike, Huitzilopochtli burst from Coatlicue's womb. He emerged fully grown, painted for war, wielding Xiuhcoatl—the fire serpent. In a single blow, he decapitated Coyolxauhqui. Her body tumbled down the mountain, breaking apart as it fell.\n\nHuitzilopochtli then pursued his four hundred brothers across the sky, slaying them until the survivors fled. Each day, he is reborn with the sun and defeats the stars and moon, ensuring light triumphs over darkness.\n\nThis is why the Aztecs fed Huitzilopochtli with the hearts of warriors—to strengthen him for his eternal battle.",
+    "themes": [
+      "divine birth",
+      "cosmic conflict",
+      "protection",
+      "sacrifice"
+    ],
+    "culturalSignificance": "This myth explains the daily solar cycle as Huitzilopochtli's triumph over night. It justified the Aztec practice of human sacrifice—feeding the sun god to ensure his victory.",
+    "imageUrl": "/stories/birth-huitzilopochtli.png",
+    "featuredDeityIds": [
+      "coatlicue",
+      "huitzilopochtli",
+      "coyolxauhqui"
+    ],
+    "category": "creation"
   }
 ]

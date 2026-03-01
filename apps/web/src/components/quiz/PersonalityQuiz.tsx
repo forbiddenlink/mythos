@@ -283,7 +283,7 @@ const DEITY_RESULTS: Record<DeityArchetype, DeityResult> = {
       'You possess a sharp mind and excel at planning. Like Athena, you approach challenges with logic and foresight, preferring to outthink rather than overpower your opponents.',
     whyMatch:
       'Your answers reveal a strategic thinker who values intellect, justice, and careful planning. You likely excel in situations requiring analysis and long-term thinking.',
-    imageUrl: '/deities/athena.webp',
+    imageUrl: '/deities/athena.png',
     slug: 'athena',
     pantheon: 'Greek',
     icon: <Eye className="h-8 w-8" />,
@@ -295,7 +295,7 @@ const DEITY_RESULTS: Record<DeityArchetype, DeityResult> = {
       'You are a natural leader with commanding presence. Like Zeus, you take charge of situations and inspire others to follow. Your ambition drives you toward greatness.',
     whyMatch:
       'Your answers show someone who values authority, achievement, and making an impact. You are drawn to positions of influence and responsibility.',
-    imageUrl: '/deities/zeus.webp',
+    imageUrl: '/deities/zeus.png',
     slug: 'zeus',
     pantheon: 'Greek',
     icon: <Zap className="h-8 w-8" />,
@@ -307,7 +307,7 @@ const DEITY_RESULTS: Record<DeityArchetype, DeityResult> = {
       'You are deeply emotional and adaptable, like the ever-changing ocean. Like Poseidon, you can be calm and nurturing or fierce and unstoppable when provoked.',
     whyMatch:
       'Your answers reveal someone who values emotional depth and flexibility. You adapt to circumstances while maintaining your core strength.',
-    imageUrl: '/deities/poseidon.webp',
+    imageUrl: '/deities/poseidon.png',
     slug: 'poseidon',
     pantheon: 'Greek',
     icon: <Waves className="h-8 w-8" />,
@@ -319,7 +319,7 @@ const DEITY_RESULTS: Record<DeityArchetype, DeityResult> = {
       'You are bold, courageous, and unafraid of confrontation. Like Ares, you face challenges directly and possess unwavering determination in pursuit of your goals.',
     whyMatch:
       'Your answers show someone with fighting spirit and courage. You do not shy away from conflict and prefer direct action over hesitation.',
-    imageUrl: '/deities/ares.webp',
+    imageUrl: '/deities/ares.png',
     slug: 'ares',
     pantheon: 'Greek',
     icon: <Sword className="h-8 w-8" />,
@@ -331,7 +331,7 @@ const DEITY_RESULTS: Record<DeityArchetype, DeityResult> = {
       'You have a gift for connecting with others and creating harmony. Like Aphrodite, you value relationships, beauty, and the power of emotional bonds.',
     whyMatch:
       'Your answers reveal someone who prioritizes connection and harmony. You understand the importance of love and use charm to navigate the world.',
-    imageUrl: '/deities/aphrodite.webp',
+    imageUrl: '/deities/aphrodite.png',
     slug: 'aphrodite',
     pantheon: 'Greek',
     icon: <Heart className="h-8 w-8" />,
@@ -343,7 +343,7 @@ const DEITY_RESULTS: Record<DeityArchetype, DeityResult> = {
       'You seek truth, beauty, and enlightenment. Like Apollo, you have artistic sensibilities and a desire to bring light and understanding to the world around you.',
     whyMatch:
       'Your answers show someone drawn to truth and artistic expression. You value knowledge not just for its own sake, but as a path to greater understanding.',
-    imageUrl: '/deities/apollo.webp',
+    imageUrl: '/deities/apollo.png',
     slug: 'apollo',
     pantheon: 'Greek',
     icon: <Sun className="h-8 w-8" />,
@@ -355,7 +355,7 @@ const DEITY_RESULTS: Record<DeityArchetype, DeityResult> = {
       'You value independence and have a deep connection to nature. Like Artemis, you are fiercely protective of those you care about while cherishing your freedom.',
     whyMatch:
       'Your answers reveal someone who values autonomy and the natural world. You are patient, focused, and prefer to forge your own path.',
-    imageUrl: '/deities/artemis.webp',
+    imageUrl: '/deities/artemis.png',
     slug: 'artemis',
     pantheon: 'Greek',
     icon: <Moon className="h-8 w-8" />,
@@ -367,7 +367,7 @@ const DEITY_RESULTS: Record<DeityArchetype, DeityResult> = {
       'You are a creator and maker, finding joy in building and crafting. Like Hephaestus, you have patience and skill to bring your visions to life through dedicated work.',
     whyMatch:
       'Your answers show someone who values creation and craftsmanship. You find fulfillment in making things and solving practical problems.',
-    imageUrl: '/deities/hephaestus.webp',
+    imageUrl: '/deities/hephaestus.png',
     slug: 'hephaestus',
     pantheon: 'Greek',
     icon: <Flame className="h-8 w-8" />,
@@ -379,7 +379,7 @@ const DEITY_RESULTS: Record<DeityArchetype, DeityResult> = {
       'You are quick-witted, adaptable, and excellent at communication. Like Hermes, you move easily between different worlds and can talk your way through any situation.',
     whyMatch:
       'Your answers reveal someone with versatility and cleverness. You are resourceful and know how to navigate complex social situations.',
-    imageUrl: '/deities/hermes.webp',
+    imageUrl: '/deities/hermes.png',
     slug: 'hermes',
     pantheon: 'Greek',
     icon: <Wind className="h-8 w-8" />,
@@ -391,7 +391,7 @@ const DEITY_RESULTS: Record<DeityArchetype, DeityResult> = {
       'You are patient, fair, and comfortable with life complexities. Like Hades, you understand that true wealth lies beneath the surface and value depth over appearances.',
     whyMatch:
       'Your answers show someone who is introspective and values justice. You are comfortable with solitude and understand the importance of patience.',
-    imageUrl: '/deities/hades.webp',
+    imageUrl: '/deities/hades.png',
     slug: 'hades',
     pantheon: 'Greek',
     icon: <Crown className="h-8 w-8" />,

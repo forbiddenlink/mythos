@@ -8,6 +8,7 @@ import { Loader2, Globe } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Breadcrumbs } from '@/components/navigation/Breadcrumbs';
+import { CollectionPageJsonLd } from '@/components/seo/JsonLd';
 
 interface Pantheon {
   id: string;
@@ -49,6 +50,12 @@ export default function PantheonsPage() {
 
   return (
     <div className="min-h-screen">
+      <CollectionPageJsonLd
+        name="Pantheons"
+        description="Explore mythological traditions from ancient civilizations around the world"
+        url="/pantheons"
+        numberOfItems={data?.pantheons?.length}
+      />
       {/* Hero Section */}
       <div className="relative h-[50vh] min-h-[400px] flex items-center justify-center overflow-hidden">
         {/* Background Image */}

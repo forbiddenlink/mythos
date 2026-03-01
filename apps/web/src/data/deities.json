@@ -6365,216 +6365,596 @@
     "pantheonId": "african-pantheon",
     "name": "Olodumare",
     "slug": "olodumare",
-    "alternateNames": ["Olorun", "Olofi", "Eledumare"],
+    "alternateNames": [
+      "Olorun",
+      "Olofi",
+      "Eledumare"
+    ],
     "gender": "none",
-    "domain": ["creation", "supreme power", "cosmic order", "destiny"],
-    "symbols": ["sun", "white light", "heavens"],
+    "domain": [
+      "creation",
+      "supreme power",
+      "cosmic order",
+      "destiny"
+    ],
+    "symbols": [
+      "sun",
+      "white light",
+      "heavens"
+    ],
     "description": "The supreme creator deity in Yoruba religion, who exists beyond human comprehension. Olodumare created the universe and delegated specific powers to the Orishas, who serve as intermediaries between the supreme being and humanity.",
     "detailedBio": "## The Owner of Eternal Heavens\n\nOlodumare is the supreme deity of Yoruba religion, whose name means 'Owner of Eternal Heavens' or 'Almighty.' Unlike the Orishas who actively intervene in human affairs, Olodumare is considered too transcendent for direct worship. Instead, prayers reach the supreme being through the Orishas.\n\n### The Source of Ashe\n\nOlodumare is the source of Ashe, the divine energy that permeates all things and makes magic, prayer, and transformation possible. Every Orisha possesses Ashe given by Olodumare, and humans seek to align themselves with this cosmic power through ritual and righteous living.\n\n### Creator of All\n\nIn Yoruba cosmology, Olodumare created the universe from the primordial void, then delegated the task of shaping the earth to Obatala and other Orishas. After creation, Olodumare withdrew to the highest heavens (Orun), observing but rarely intervening directly.\n\n### The Three Aspects\n\nSome traditions speak of three aspects: Olodumare (creator), Olorun (sun and heavens), and Olofi (communicator with Orishas). Whether these are three separate beings or three faces of one deity varies by tradition.",
     "originStory": "Olodumare has always existed, before time and space, in the eternal heavens of Orun. From this supreme being emerged all creation: first the Orishas, then the primordial waters, then the earth and all living things.",
     "importanceRank": 1,
     "imageUrl": "/deities/olodumare.png",
-    "primarySources": [{"text": "Olodumare, the owner of all heads and destinies, without whom no leaf falls from the tree.", "source": "Ifa Oral Tradition", "date": "Traditional"}],
-    "crossPantheonParallels": [{"pantheonId": "hindu-pantheon", "deityId": "brahma", "note": "Both are supreme creator deities who delegate to lesser gods"}],
-    "pronunciation": {"ipa": "/oloˈdumare/", "phonetic": "oh-loh-doo-MAH-ray"}
+    "primarySources": [
+      {
+        "text": "Olodumare, the owner of all heads and destinies, without whom no leaf falls from the tree.",
+        "source": "Ifa Oral Tradition",
+        "date": "Traditional"
+      }
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "hindu-pantheon",
+        "deityId": "brahma",
+        "note": "Both are supreme creator deities who delegate to lesser gods"
+      }
+    ],
+    "pronunciation": {
+      "ipa": "/oloˈdumare/",
+      "phonetic": "oh-loh-doo-MAH-ray"
+    }
   },
   {
     "id": "obatala",
     "pantheonId": "african-pantheon",
     "name": "Obatala",
     "slug": "obatala",
-    "alternateNames": ["Oxala", "Orishanla", "Oshala"],
+    "alternateNames": [
+      "Oxala",
+      "Orishanla",
+      "Oshala"
+    ],
     "gender": "male",
-    "domain": ["creation", "purity", "wisdom", "clarity", "peace"],
-    "symbols": ["white cloth", "white beads", "ivory", "snail", "chalk"],
+    "domain": [
+      "creation",
+      "purity",
+      "wisdom",
+      "clarity",
+      "peace"
+    ],
+    "symbols": [
+      "white cloth",
+      "white beads",
+      "ivory",
+      "snail",
+      "chalk"
+    ],
     "description": "The Orisha of creation, purity, and wisdom. Obatala was tasked by Olodumare with creating land from the primordial waters and shaping human bodies from clay.",
     "detailedBio": "## The King of the White Cloth\n\nObatala, whose name means 'King of the White Cloth,' is one of the most important Orishas. He was given the task of creating the physical world and shaping human bodies, making him the father of humanity.\n\n### The Creation Story\n\nOlodumare sent Obatala to create land from the primordial waters. He was given a chain, a snail shell filled with sand, a white hen, and a palm nut. Descending from heaven, he poured the sand on the water and set the hen loose to scatter it, forming the first land at Ile-Ife. However, Obatala became drunk on palm wine during the creation of humans, which is why some people are born with disabilities.\n\n### The White Orisha\n\nObatala is associated with all things white: white cloth, white beads, white animals, and cool, calm energy. His priests wear white exclusively, and offerings to him include white foods: coconut, white yam, snails, and rice.",
     "originStory": "Obatala was one of the first Orishas created by Olodumare. He was given the sacred task of creating the earth and molding human forms from clay, into which Olodumare breathed life.",
     "importanceRank": 2,
     "imageUrl": "/deities/obatala.png",
-    "primarySources": [{"text": "Obatala, great king who speaks the truth, owner of the white cloth that covers the wise.", "source": "Oriki Obatala", "date": "Traditional"}],
-    "crossPantheonParallels": [{"pantheonId": "greek-pantheon", "deityId": "prometheus", "note": "Both created humanity and faced consequences for their actions"}],
-    "pronunciation": {"ipa": "/obaˈtala/", "phonetic": "oh-bah-TAH-lah"}
+    "primarySources": [
+      {
+        "text": "Obatala, great king who speaks the truth, owner of the white cloth that covers the wise.",
+        "source": "Oriki Obatala",
+        "date": "Traditional"
+      }
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "greek-pantheon",
+        "deityId": "prometheus",
+        "note": "Both created humanity and faced consequences for their actions"
+      }
+    ],
+    "pronunciation": {
+      "ipa": "/obaˈtala/",
+      "phonetic": "oh-bah-TAH-lah"
+    }
   },
   {
     "id": "ogun",
     "pantheonId": "african-pantheon",
     "name": "Ogun",
     "slug": "ogun",
-    "alternateNames": ["Ogum", "Ogoun", "Gu"],
+    "alternateNames": [
+      "Ogum",
+      "Ogoun",
+      "Gu"
+    ],
     "gender": "male",
-    "domain": ["iron", "war", "labor", "technology", "justice"],
-    "symbols": ["machete", "anvil", "iron chains", "palm fronds", "dog"],
+    "domain": [
+      "iron",
+      "war",
+      "labor",
+      "technology",
+      "justice"
+    ],
+    "symbols": [
+      "machete",
+      "anvil",
+      "iron chains",
+      "palm fronds",
+      "dog"
+    ],
     "description": "The Orisha of iron, war, and labor. Ogun is the divine blacksmith who cleared the path for the other Orishas to descend to earth.",
     "detailedBio": "## The Lord of Iron\n\nOgun is one of the most powerful Orishas, ruling over iron, war, and all forms of labor and technology. He is the divine blacksmith who forged the tools that built civilization.\n\n### The Pathmaker\n\nWhen the Orishas needed to descend from heaven to earth, they found the way blocked by impenetrable forest. Only Ogun, with his iron machete, could clear the path. For this service, he earned the title 'The Pathmaker.'\n\n### Oaths and Justice\n\nIn Yoruba culture, the most binding oaths are sworn on Ogun's iron. Breaking such an oath invites Ogun's terrible wrath. This tradition persists today in Nigerian courts.\n\n### Modern Relevance\n\nAs the lord of iron and technology, Ogun has grown in importance in the modern age. He is the patron of drivers, mechanics, surgeons, soldiers, and all who work with metal or machinery.",
     "originStory": "Ogun emerged from Olodumare as the embodiment of iron's transformative power. He was among the first Orishas to descend to earth, using his iron machete to clear the path through the primordial forest.",
     "importanceRank": 3,
     "imageUrl": "/deities/ogun.png",
-    "primarySources": [{"text": "Ogun, the one who has water at home but bathes in blood. Owner of the road, opener of paths.", "source": "Oriki Ogun", "date": "Traditional"}],
-    "crossPantheonParallels": [{"pantheonId": "greek-pantheon", "deityId": "hephaestus", "note": "Both are divine blacksmiths who forge weapons and tools for the gods"}],
-    "pronunciation": {"ipa": "/oˈɡun/", "phonetic": "oh-GOON"}
+    "primarySources": [
+      {
+        "text": "Ogun, the one who has water at home but bathes in blood. Owner of the road, opener of paths.",
+        "source": "Oriki Ogun",
+        "date": "Traditional"
+      }
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "greek-pantheon",
+        "deityId": "hephaestus",
+        "note": "Both are divine blacksmiths who forge weapons and tools for the gods"
+      }
+    ],
+    "pronunciation": {
+      "ipa": "/oˈɡun/",
+      "phonetic": "oh-GOON"
+    }
   },
   {
     "id": "shango",
     "pantheonId": "african-pantheon",
     "name": "Shango",
     "slug": "shango",
-    "alternateNames": ["Sango", "Xango", "Chango"],
+    "alternateNames": [
+      "Sango",
+      "Xango",
+      "Chango"
+    ],
     "gender": "male",
-    "domain": ["thunder", "lightning", "fire", "justice", "kingship"],
-    "symbols": ["double-headed axe", "thunderstones", "red and white colors", "ram", "crown"],
+    "domain": [
+      "thunder",
+      "lightning",
+      "fire",
+      "justice",
+      "kingship"
+    ],
+    "symbols": [
+      "double-headed axe",
+      "thunderstones",
+      "red and white colors",
+      "ram",
+      "crown"
+    ],
     "description": "The Orisha of thunder, lightning, and fire. Shango was once a mortal king of Oyo who became deified after death.",
     "detailedBio": "## The Fourth King of Oyo\n\nShango occupies a unique position among the Orishas as a deified human king. According to tradition, he was the fourth Alaafin (king) of the Oyo Empire, one of West Africa's most powerful states.\n\n### Ascension to Divinity\n\nAfter Shango's death, his followers refused to believe he was truly gone. When lightning struck those who mocked him, the people declared 'Oba koso!' ('The king did not hang!'). Shango had ascended to become the Orisha of thunder.\n\n### The Lightning Judge\n\nShango is called upon to deliver justice. Lightning strikes are believed to be Shango's punishment of thieves, liars, and evildoers. After a lightning strike, Shango's priests would search for thunderstones.\n\n### Diaspora Significance\n\nIn the Americas, Shango became one of the most prominent Orishas, often syncretized with Saint Barbara. His worship is central to Cuban Santeria and Brazilian Candomble.",
     "originStory": "Shango began as a mortal man who became the fourth king of the Oyo Empire. A powerful ruler who could summon lightning, he was elevated to divine status by his devoted followers after his death.",
     "importanceRank": 3,
     "imageUrl": "/deities/shango.png",
-    "primarySources": [{"text": "Shango, the king who turns into fire, whose voice is the thunder.", "source": "Oriki Shango", "date": "Traditional"}],
-    "crossPantheonParallels": [{"pantheonId": "greek-pantheon", "deityId": "zeus", "note": "Both are thunder gods and kings associated with divine justice"}, {"pantheonId": "norse-pantheon", "deityId": "thor", "note": "Both wield thunder and lightning as weapons"}],
-    "pronunciation": {"ipa": "/ˈʃaŋɡo/", "phonetic": "SHAHN-goh"}
+    "primarySources": [
+      {
+        "text": "Shango, the king who turns into fire, whose voice is the thunder.",
+        "source": "Oriki Shango",
+        "date": "Traditional"
+      }
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "greek-pantheon",
+        "deityId": "zeus",
+        "note": "Both are thunder gods and kings associated with divine justice"
+      },
+      {
+        "pantheonId": "norse-pantheon",
+        "deityId": "thor",
+        "note": "Both wield thunder and lightning as weapons"
+      }
+    ],
+    "pronunciation": {
+      "ipa": "/ˈʃaŋɡo/",
+      "phonetic": "SHAHN-goh"
+    }
   },
   {
     "id": "oshun",
     "pantheonId": "african-pantheon",
     "name": "Oshun",
     "slug": "oshun",
-    "alternateNames": ["Oxum", "Ochun", "Osun"],
+    "alternateNames": [
+      "Oxum",
+      "Ochun",
+      "Osun"
+    ],
     "gender": "female",
-    "domain": ["love", "beauty", "rivers", "fertility", "prosperity"],
-    "symbols": ["mirror", "honey", "gold", "peacock feathers", "river water"],
+    "domain": [
+      "love",
+      "beauty",
+      "rivers",
+      "fertility",
+      "prosperity"
+    ],
+    "symbols": [
+      "mirror",
+      "honey",
+      "gold",
+      "peacock feathers",
+      "river water"
+    ],
     "description": "The Orisha of love, beauty, fresh water, and fertility. Oshun embodies feminine grace, sensuality, and the life-giving power of rivers.",
     "detailedBio": "## The Sweet Water Goddess\n\nOshun is perhaps the most beloved of all Orishas, embodying beauty, love, fertility, and the life-giving power of fresh water. Her river, the Osun, flows through southwestern Nigeria and remains a site of pilgrimage.\n\n### The Savior of the World\n\nIn one of her most important myths, the world was dying and the Orishas could not fix it. They had ignored Oshun, considering her merely beautiful and frivolous. Oshun transformed herself into a peacock and flew to heaven to plead with Olodumare. Her feathers burned off during the journey, but she succeeded where all others had failed.\n\n### Lady of the Honey\n\nOshun is associated with honey, which represents both sweetness and seduction. Her worship involves honey offerings. However, Oshun when angered can be as dangerous as any warrior Orisha.\n\n### Modern Worship\n\nThe annual Osun-Osogbo Festival at her sacred grove in Nigeria draws hundreds of thousands of worshippers and was designated a UNESCO World Heritage Site.",
     "originStory": "Oshun emerged from Olodumare as the embodiment of sweet water, love, and feminine power. She was given dominion over all fresh waters, particularly the river that bears her name in Nigeria.",
     "importanceRank": 3,
     "imageUrl": "/deities/oshun.png",
-    "primarySources": [{"text": "Oshun, owner of brass and coral, who dances in the river. The beautiful one who saved the world when the warriors could not.", "source": "Oriki Oshun", "date": "Traditional"}],
-    "crossPantheonParallels": [{"pantheonId": "greek-pantheon", "deityId": "aphrodite", "note": "Both are goddesses of love and beauty with transformative power"}],
-    "pronunciation": {"ipa": "/oˈʃun/", "phonetic": "oh-SHOON"}
+    "primarySources": [
+      {
+        "text": "Oshun, owner of brass and coral, who dances in the river. The beautiful one who saved the world when the warriors could not.",
+        "source": "Oriki Oshun",
+        "date": "Traditional"
+      }
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "greek-pantheon",
+        "deityId": "aphrodite",
+        "note": "Both are goddesses of love and beauty with transformative power"
+      }
+    ],
+    "pronunciation": {
+      "ipa": "/oˈʃun/",
+      "phonetic": "oh-SHOON"
+    }
   },
   {
     "id": "yemoja",
     "pantheonId": "african-pantheon",
     "name": "Yemoja",
     "slug": "yemoja",
-    "alternateNames": ["Yemaya", "Iemanja", "Yemanja"],
+    "alternateNames": [
+      "Yemaya",
+      "Iemanja",
+      "Yemanja"
+    ],
     "gender": "female",
-    "domain": ["ocean", "motherhood", "fertility", "protection", "fish"],
-    "symbols": ["ocean waves", "seashells", "fish", "crescent moon", "blue and white beads"],
+    "domain": [
+      "ocean",
+      "motherhood",
+      "fertility",
+      "protection",
+      "fish"
+    ],
+    "symbols": [
+      "ocean waves",
+      "seashells",
+      "fish",
+      "crescent moon",
+      "blue and white beads"
+    ],
     "description": "The Orisha of the ocean and motherhood. Yemoja is the great mother of many Orishas and all sea creatures.",
     "detailedBio": "## Mother of the Ocean\n\nYemoja is the great mother Orisha, whose name means 'Mother whose children are fish.' Originally associated with the Ogun River in Nigeria, she became the goddess of the ocean during the Middle Passage, as enslaved Africans prayed to her during the horrific Atlantic crossing.\n\n### Mother of Many\n\nYemoja is considered the mother of numerous Orishas, including Shango, Ogun, and others. She is particularly protective of women, especially pregnant women and new mothers, and of children.\n\n### The Middle Passage\n\nYemoja's importance exploded during the transatlantic slave trade. As millions of Africans crossed the ocean in chains, they prayed to the river goddess for protection. She answered by becoming the ocean itself.\n\n### Festival and Worship\n\nIn Brazil, the Festival of Iemanja (February 2) sees millions of people offering flowers, perfume, and mirrors to the ocean. In Cuba, she is syncretized with Our Lady of Regla.",
     "originStory": "Yemoja was created by Olodumare as the embodiment of maternal waters. Originally dwelling in the Ogun River in Nigeria, she accompanied her children across the Atlantic, becoming the goddess of the ocean itself.",
     "importanceRank": 3,
     "imageUrl": "/deities/yemoja.png",
-    "primarySources": [{"text": "Yemoja, whose children are the fish, who rocks the world in her waves. The mother who never abandons her children.", "source": "Oriki Yemoja", "date": "Traditional"}],
-    "crossPantheonParallels": [{"pantheonId": "greek-pantheon", "deityId": "tethys", "note": "Both are primordial mother goddesses of the sea"}],
-    "pronunciation": {"ipa": "/jeˈmodʒa/", "phonetic": "yeh-MOH-jah"}
+    "primarySources": [
+      {
+        "text": "Yemoja, whose children are the fish, who rocks the world in her waves. The mother who never abandons her children.",
+        "source": "Oriki Yemoja",
+        "date": "Traditional"
+      }
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "greek-pantheon",
+        "deityId": "tethys",
+        "note": "Both are primordial mother goddesses of the sea"
+      }
+    ],
+    "pronunciation": {
+      "ipa": "/jeˈmodʒa/",
+      "phonetic": "yeh-MOH-jah"
+    }
   },
   {
     "id": "eshu",
     "pantheonId": "african-pantheon",
     "name": "Eshu",
     "slug": "eshu",
-    "alternateNames": ["Elegua", "Elegba", "Exu", "Legba"],
+    "alternateNames": [
+      "Elegua",
+      "Elegba",
+      "Exu",
+      "Legba"
+    ],
     "gender": "male",
-    "domain": ["crossroads", "communication", "trickster", "fate", "beginnings"],
-    "symbols": ["crossroads", "cowrie shells", "red and black colors", "walking stick", "keys"],
+    "domain": [
+      "crossroads",
+      "communication",
+      "trickster",
+      "fate",
+      "beginnings"
+    ],
+    "symbols": [
+      "crossroads",
+      "cowrie shells",
+      "red and black colors",
+      "walking stick",
+      "keys"
+    ],
     "description": "The Orisha of crossroads, communication, and unpredictability. Eshu is the divine messenger who carries prayers to Olodumare and the Orishas.",
     "detailedBio": "## The Keeper of the Crossroads\n\nEshu is one of the most important yet most misunderstood Orishas. As the guardian of the crossroads, he stands at every point of decision. Nothing reaches the Orishas without passing through Eshu first, and no ritual can begin without his blessing.\n\n### First and Last\n\nIn all Yoruba rituals, Eshu must be honored first, before any other Orisha. To neglect him is to ensure that one's prayers will not be heard.\n\n### The Trickster\n\nEshu is famous for his tricks. In one famous story, he walked between two friends wearing a hat that was red on one side and black on the other. Each friend saw only one color, and they fell into a violent argument about what color the hat was, destroying their friendship.\n\n### Colonial Misunderstanding\n\nWhen Europeans encountered Eshu, they mistook him for the devil because of his trickster nature and association with crossroads. This misinterpretation fundamentally misunderstands Eshu's role as a necessary divine force.",
     "originStory": "Eshu was one of the first Orishas created by Olodumare, given the crucial task of mediating between heaven and earth. He was positioned at the crossroads of existence, where all decisions are made and all prayers must pass.",
     "importanceRank": 2,
     "imageUrl": "/deities/eshu.png",
-    "primarySources": [{"text": "Eshu, who turns right into wrong and wrong into right. The stone that trips the strong, the crumb that feeds the weak.", "source": "Oriki Eshu", "date": "Traditional"}],
-    "crossPantheonParallels": [{"pantheonId": "greek-pantheon", "deityId": "hermes", "note": "Both are divine messengers and tricksters associated with crossroads"}, {"pantheonId": "norse-pantheon", "deityId": "loki", "note": "Both are trickster figures who test the other gods"}],
-    "pronunciation": {"ipa": "/ˈeʃu/", "phonetic": "EH-shoo"}
+    "primarySources": [
+      {
+        "text": "Eshu, who turns right into wrong and wrong into right. The stone that trips the strong, the crumb that feeds the weak.",
+        "source": "Oriki Eshu",
+        "date": "Traditional"
+      }
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "greek-pantheon",
+        "deityId": "hermes",
+        "note": "Both are divine messengers and tricksters associated with crossroads"
+      },
+      {
+        "pantheonId": "norse-pantheon",
+        "deityId": "loki",
+        "note": "Both are trickster figures who test the other gods"
+      }
+    ],
+    "pronunciation": {
+      "ipa": "/ˈeʃu/",
+      "phonetic": "EH-shoo"
+    }
   },
   {
     "id": "oya",
     "pantheonId": "african-pantheon",
     "name": "Oya",
     "slug": "oya",
-    "alternateNames": ["Iansa", "Oya-Iansa", "Oia"],
+    "alternateNames": [
+      "Iansa",
+      "Oya-Iansa",
+      "Oia"
+    ],
     "gender": "female",
-    "domain": ["wind", "storms", "transformation", "death", "rebirth"],
-    "symbols": ["buffalo horns", "copper crown", "lightning", "nine colors", "cemetery gates"],
+    "domain": [
+      "wind",
+      "storms",
+      "transformation",
+      "death",
+      "rebirth"
+    ],
+    "symbols": [
+      "buffalo horns",
+      "copper crown",
+      "lightning",
+      "nine colors",
+      "cemetery gates"
+    ],
     "description": "The Orisha of wind, storms, and transformation. Oya is a fierce warrior goddess who controls the forces of change and guards the cemetery gates.",
     "detailedBio": "## The Warrior Queen of Wind\n\nOya is the fierce goddess of wind, storms, and transformation, often considered the most powerful female Orisha. She represents change in all its forms: the wind that precedes Shango's thunder, the breath between life and death.\n\n### Shango's Greatest Wife\n\nThough Shango had three wives, Oya was his equal in battle. Legend says she once stole the secret of making fire from Shango. When Shango goes to war, Oya rides beside him, her winds clearing the path for his thunder.\n\n### Guardian of the Cemetery\n\nOya is intimately connected with death and the ancestors. She guards the gates of the cemetery and escorts the dead to the afterlife.\n\n### The Buffalo Woman\n\nOne of Oya's origin myths tells that she was originally a buffalo who could transform into a beautiful woman. This myth connects her to wild, untameable feminine power.",
     "originStory": "Oya emerged from Olodumare as the embodiment of wind and change. Originally associated with the Niger River, she rose to become the goddess of the air itself, riding the storms alongside Shango.",
     "importanceRank": 4,
     "imageUrl": "/deities/oya.png",
-    "primarySources": [{"text": "Oya, who changes from buffalo to woman, whose breath is the wind. Guardian of the cemetery gate, warrior who fears nothing.", "source": "Oriki Oya", "date": "Traditional"}],
-    "crossPantheonParallels": [{"pantheonId": "norse-pantheon", "deityId": "freya", "note": "Both are powerful warrior goddesses associated with death and transformation"}],
-    "pronunciation": {"ipa": "/ˈoja/", "phonetic": "OH-yah"}
+    "primarySources": [
+      {
+        "text": "Oya, who changes from buffalo to woman, whose breath is the wind. Guardian of the cemetery gate, warrior who fears nothing.",
+        "source": "Oriki Oya",
+        "date": "Traditional"
+      }
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "norse-pantheon",
+        "deityId": "freya",
+        "note": "Both are powerful warrior goddesses associated with death and transformation"
+      }
+    ],
+    "pronunciation": {
+      "ipa": "/ˈoja/",
+      "phonetic": "OH-yah"
+    }
   },
   {
     "id": "orunmila",
     "pantheonId": "african-pantheon",
     "name": "Orunmila",
     "slug": "orunmila",
-    "alternateNames": ["Orula", "Orunla", "Ifa"],
+    "alternateNames": [
+      "Orula",
+      "Orunla",
+      "Ifa"
+    ],
     "gender": "male",
-    "domain": ["wisdom", "divination", "destiny", "knowledge"],
-    "symbols": ["palm nuts", "divination board", "green and yellow beads", "staff"],
+    "domain": [
+      "wisdom",
+      "divination",
+      "destiny",
+      "knowledge"
+    ],
+    "symbols": [
+      "palm nuts",
+      "divination board",
+      "green and yellow beads",
+      "staff"
+    ],
     "description": "The Orisha of wisdom and divination. Orunmila witnessed the creation of the universe and holds the secrets of destiny.",
     "detailedBio": "## The Witness of Creation\n\nOrunmila holds a unique position among the Orishas: he was present when Olodumare created the universe and assigned each person their destiny. This makes him the keeper of all knowledge, past, present, and future.\n\n### The Ifa System\n\nOrunmila is inseparable from Ifa, the complex divination system that is central to Yoruba religion. The Ifa corpus consists of 256 odu, each containing hundreds of verses, stories, and prescriptions. Babalawo (fathers of secrets) dedicate their lives to mastering this wisdom.\n\n### UNESCO Recognition\n\nIn 2005, UNESCO proclaimed the Ifa Divination System a Masterpiece of the Oral and Intangible Heritage of Humanity.",
     "originStory": "Orunmila was with Olodumare at the beginning of creation, witnessing the formation of the universe and the assignment of each soul's destiny. He was given the task of bringing this wisdom to humanity through the Ifa divination system.",
     "importanceRank": 3,
     "imageUrl": "/deities/orunmila.png",
-    "primarySources": [{"text": "Orunmila who was with Olodumare in the beginning, witness of creation, keeper of all destinies.", "source": "Oriki Orunmila", "date": "Traditional"}],
-    "crossPantheonParallels": [{"pantheonId": "greek-pantheon", "deityId": "apollo", "note": "Both are associated with prophecy and divine knowledge"}, {"pantheonId": "norse-pantheon", "deityId": "odin", "note": "Both sacrificed for wisdom and serve as oracles"}],
-    "pronunciation": {"ipa": "/orunˈmila/", "phonetic": "oh-roon-MEE-lah"}
+    "primarySources": [
+      {
+        "text": "Orunmila who was with Olodumare in the beginning, witness of creation, keeper of all destinies.",
+        "source": "Oriki Orunmila",
+        "date": "Traditional"
+      }
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "greek-pantheon",
+        "deityId": "apollo",
+        "note": "Both are associated with prophecy and divine knowledge"
+      },
+      {
+        "pantheonId": "norse-pantheon",
+        "deityId": "odin",
+        "note": "Both sacrificed for wisdom and serve as oracles"
+      }
+    ],
+    "pronunciation": {
+      "ipa": "/orunˈmila/",
+      "phonetic": "oh-roon-MEE-lah"
+    }
   },
   {
     "id": "osanyin",
     "pantheonId": "african-pantheon",
     "name": "Osanyin",
     "slug": "osanyin",
-    "alternateNames": ["Ossaim", "Osain", "Ossanha"],
+    "alternateNames": [
+      "Ossaim",
+      "Osain",
+      "Ossanha"
+    ],
     "gender": "male",
-    "domain": ["herbs", "healing", "medicine", "forest"],
-    "symbols": ["iron staff with birds", "herbs", "gourds", "one leg"],
+    "domain": [
+      "herbs",
+      "healing",
+      "medicine",
+      "forest"
+    ],
+    "symbols": [
+      "iron staff with birds",
+      "herbs",
+      "gourds",
+      "one leg"
+    ],
     "description": "The Orisha of herbs, healing, and the forest. Osanyin knows the secret properties of all plants and is essential to all Orisha worship.",
     "detailedBio": "## The Master of Herbs\n\nOsanyin is the Orisha of herbs, healing, and the secrets of the forest. He knows the medicinal and magical properties of every plant, root, and leaf. No Orisha ritual is complete without the proper herbs, making Osanyin essential to all worship.\n\n### Kosi Ewe, Kosi Orisha\n\nThere is a Yoruba saying: 'Kosi ewe, kosi Orisha' (Without leaves, there are no Orishas). This emphasizes Osanyin's crucial role. Every Orisha has specific herbs associated with them.\n\n### The Singular Form\n\nOsanyin is depicted as having one leg, one arm, and one eye. Various myths explain this unique form.\n\n### The Iron Staff\n\nOsanyin's symbol is an iron staff crowned with birds, usually seven birds around a central figure. This staff is placed in the home or temple to provide protection.",
     "originStory": "Osanyin was created by Olodumare to know the secrets of all plants. He dwells in the forest, where every herb, root, and leaf speaks to him of its properties.",
     "importanceRank": 5,
     "imageUrl": "/deities/osanyin.png",
-    "primarySources": [{"text": "Osanyin, owner of all leaves, whose single eye sees the secrets of the forest.", "source": "Oriki Osanyin", "date": "Traditional"}],
-    "crossPantheonParallels": [{"pantheonId": "greek-pantheon", "deityId": "asclepius", "note": "Both are gods of healing and medicine"}],
-    "pronunciation": {"ipa": "/oˈsaɲin/", "phonetic": "oh-SAHN-yin"}
+    "primarySources": [
+      {
+        "text": "Osanyin, owner of all leaves, whose single eye sees the secrets of the forest.",
+        "source": "Oriki Osanyin",
+        "date": "Traditional"
+      }
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "greek-pantheon",
+        "deityId": "asclepius",
+        "note": "Both are gods of healing and medicine"
+      }
+    ],
+    "pronunciation": {
+      "ipa": "/oˈsaɲin/",
+      "phonetic": "oh-SAHN-yin"
+    }
   },
   {
     "id": "nana-buruku",
     "pantheonId": "african-pantheon",
     "name": "Nana Buruku",
     "slug": "nana-buruku",
-    "alternateNames": ["Nana Buluku", "Nana Bukuu", "Nananbouclou"],
+    "alternateNames": [
+      "Nana Buluku",
+      "Nana Bukuu",
+      "Nananbouclou"
+    ],
     "gender": "female",
-    "domain": ["swamps", "ancestors", "primordial mud", "death", "elder wisdom"],
-    "symbols": ["ibiri (palm rib bundle)", "mud", "purple and white colors", "swamp"],
+    "domain": [
+      "swamps",
+      "ancestors",
+      "primordial mud",
+      "death",
+      "elder wisdom"
+    ],
+    "symbols": [
+      "ibiri (palm rib bundle)",
+      "mud",
+      "purple and white colors",
+      "swamp"
+    ],
     "description": "The ancient grandmother Orisha of swamps and primordial mud. Nana Buruku is older than even Olodumare in some traditions.",
     "detailedBio": "## The Primordial Grandmother\n\nNana Buruku is one of the most ancient Orishas, predating even some versions of the creation story. She represents the primordial mud from which humanity was formed and is considered the grandmother of all the Orishas.\n\n### Older Than Creation\n\nSome traditions hold that Nana Buruku existed before Olodumare, representing the primordial void from which even the supreme creator emerged.\n\n### The Mud of Creation\n\nWhen Obatala created humanity, he used clay or mud provided by Nana Buruku. This makes her the material source of human existence.\n\n### Enemy of Iron\n\nNana Buruku has an ancient enmity with Ogun and iron. Her worshippers may not use metal knives in her rituals, using only wooden or bamboo implements.",
     "originStory": "Nana Buruku may predate creation itself, existing as primordial potential before Olodumare spoke the universe into being. She provided the mud from which humanity was shaped.",
     "importanceRank": 5,
     "imageUrl": "/deities/nana-buruku.png",
-    "primarySources": [{"text": "Nana Buruku, eldest of all, grandmother of the Orishas. She who gave the mud for humanity.", "source": "Oriki Nana", "date": "Traditional"}],
-    "crossPantheonParallels": [{"pantheonId": "greek-pantheon", "deityId": "gaia", "note": "Both are ancient earth mothers from whom later gods descended"}],
-    "pronunciation": {"ipa": "/ˈnana buˈruku/", "phonetic": "NAH-nah boo-ROO-koo"}
+    "primarySources": [
+      {
+        "text": "Nana Buruku, eldest of all, grandmother of the Orishas. She who gave the mud for humanity.",
+        "source": "Oriki Nana",
+        "date": "Traditional"
+      }
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "greek-pantheon",
+        "deityId": "gaia",
+        "note": "Both are ancient earth mothers from whom later gods descended"
+      }
+    ],
+    "pronunciation": {
+      "ipa": "/ˈnana buˈruku/",
+      "phonetic": "NAH-nah boo-ROO-koo"
+    }
   },
   {
     "id": "shopona",
     "pantheonId": "african-pantheon",
     "name": "Shopona",
     "slug": "shopona",
-    "alternateNames": ["Sopona", "Sakpata", "Omolu", "Obaluaye"],
+    "alternateNames": [
+      "Sopona",
+      "Sakpata",
+      "Omolu",
+      "Obaluaye"
+    ],
     "gender": "male",
-    "domain": ["disease", "healing", "earth", "smallpox", "justice"],
-    "symbols": ["straw-covered face", "broom", "red and black beads", "cowries"],
+    "domain": [
+      "disease",
+      "healing",
+      "earth",
+      "smallpox",
+      "justice"
+    ],
+    "symbols": [
+      "straw-covered face",
+      "broom",
+      "red and black beads",
+      "cowries"
+    ],
     "description": "The feared Orisha of disease, particularly smallpox. Shopona punishes wrongdoers with illness but also heals those who honor him.",
     "detailedBio": "## The Lord of Infectious Disease\n\nShopona is the Orisha of disease, particularly smallpox, which was once the most feared killer in West Africa. He is both the bringer of epidemics and the healer of the sick.\n\n### The Hidden Face\n\nShopona is always depicted with his face covered, usually with straw or raffia. This represents both the disfiguring effects of smallpox and the belief that to see his true face would bring immediate death.\n\n### Divine Justice\n\nShopona does not strike randomly. He is an agent of divine justice, punishing thieves, liars, and those who violate sacred laws with disease.\n\n### The Healer\n\nParadoxically, Shopona is also a healer. His priests were among the first to practice a form of variolation (primitive vaccination).\n\n### The End of Smallpox\n\nWith the eradication of smallpox in 1980, Shopona's domain has shifted to include all infectious diseases.",
     "originStory": "Shopona emerged from the earth itself, embodying the power of disease that lives in the soil and spreads through communities.",
     "importanceRank": 6,
     "imageUrl": "/deities/shopona.png",
-    "primarySources": [{"text": "Shopona, whose face none may see, who walks at night spreading red flowers on the skin.", "source": "Oriki Shopona", "date": "Traditional"}],
-    "crossPantheonParallels": [{"pantheonId": "greek-pantheon", "deityId": "apollo", "note": "Both can bring plague and also healing, representing divine justice"}],
-    "pronunciation": {"ipa": "/ʃoˈpona/", "phonetic": "shoh-POH-nah"}
+    "primarySources": [
+      {
+        "text": "Shopona, whose face none may see, who walks at night spreading red flowers on the skin.",
+        "source": "Oriki Shopona",
+        "date": "Traditional"
+      }
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "greek-pantheon",
+        "deityId": "apollo",
+        "note": "Both can bring plague and also healing, representing divine justice"
+      }
+    ],
+    "pronunciation": {
+      "ipa": "/ʃoˈpona/",
+      "phonetic": "shoh-POH-nah"
+    }
   },
   {
     "id": "ryujin",
@@ -7107,5 +7487,509 @@
       "ipa": "/pərˈsɛfəni/",
       "phonetic": "per-SEF-uh-nee"
     }
+  },
+  {
+    "id": "oduduwa",
+    "pantheonId": "african-pantheon",
+    "name": "Oduduwa",
+    "slug": "oduduwa",
+    "alternateNames": [
+      "Odudua",
+      "Oduwa"
+    ],
+    "gender": "male",
+    "domain": [
+      "creation",
+      "earth",
+      "kingship",
+      "ancestry"
+    ],
+    "symbols": [
+      "crown",
+      "chain from heaven",
+      "black rooster",
+      "soil"
+    ],
+    "description": "The progenitor deity of the Yoruba people and legendary first king of Ife. Oduduwa descended from heaven to create the earth and establish human civilization.",
+    "detailedBio": "## The Father of the Yoruba\n\nOduduwa holds a unique position as both a primordial deity and a deified ancestor. According to tradition, he was sent by Olodumare to complete the creation of the earth after Obatala failed in his mission.\n\n### The Creation Account\n\nDescending on a golden chain with a rooster, palm nuts, and a calabash of soil, Oduduwa poured the earth onto the primordial waters. The rooster scratched and spread the soil, creating dry land. This first place became Ile-Ife, the sacred city.\n\n### Divine Kingship\n\nFrom Oduduwa descended all the ruling dynasties of Yorubaland. His sons and grandsons founded the great Yoruba kingdoms, and every Yoruba oba (king) traces lineage to him.",
+    "originStory": "When Obatala became intoxicated with palm wine and failed to create the earth, Olodumare sent Oduduwa to complete the task. He descended from heaven on a chain and poured soil on the waters, creating land.",
+    "importanceRank": 2,
+    "imageUrl": "/deities/oduduwa.png",
+    "pronunciation": {
+      "ipa": "/ˈodudùwà/",
+      "phonetic": "oh-doo-DOO-wah"
+    }
+  },
+  {
+    "id": "olokun",
+    "pantheonId": "african-pantheon",
+    "name": "Olokun",
+    "slug": "olokun",
+    "alternateNames": [
+      "Olokun-su",
+      "Lokun"
+    ],
+    "gender": "male",
+    "domain": [
+      "sea",
+      "ocean depths",
+      "wealth",
+      "secrets",
+      "mystery"
+    ],
+    "symbols": [
+      "ocean",
+      "coral beads",
+      "cowrie shells",
+      "mudfish",
+      "sea creatures"
+    ],
+    "description": "The Orisha of the deep ocean and unfathomable wealth. Olokun rules the mysterious depths of the sea and guards the treasures hidden beneath the waves.",
+    "detailedBio": "## Lord of the Depths\n\nOlokun personifies the vast, unknowable depths of the ocean. Unlike the surface waves ruled by Yemoja, Olokun commands the dark abyss where light never reaches and treasures accumulate undisturbed.\n\n### The Contest with Olodumare\n\nIn one famous myth, Olokun challenged Olodumare to a contest of splendor. Olodumare sent the chameleon Agemo as his representative. Each time Olokun changed into magnificent garments, Agemo instantly matched them, demonstrating that Olodumare's power was infinite.\n\n### Wealth and Fertility\n\nOlokun bestows material wealth but also represents the profound depths of human consciousness. The ocean's riches—pearls, coral, and sunken treasure—are all within Olokun's domain.",
+    "originStory": "Olokun was present at the creation of the world, ruling the primordial waters before dry land existed. After Oduduwa created the earth, Olokun remained master of the oceans.",
+    "importanceRank": 3,
+    "imageUrl": "/deities/olokun.png",
+    "pronunciation": {
+      "ipa": "/òlɔ́kũ/",
+      "phonetic": "oh-LOH-koon"
+    }
+  },
+  {
+    "id": "aje",
+    "pantheonId": "african-pantheon",
+    "name": "Aje",
+    "slug": "aje",
+    "alternateNames": [
+      "Aje Shaluga",
+      "Aje Olokun"
+    ],
+    "gender": "female",
+    "domain": [
+      "wealth",
+      "prosperity",
+      "commerce",
+      "abundance"
+    ],
+    "symbols": [
+      "cowrie shells",
+      "gold coins",
+      "money",
+      "market goods"
+    ],
+    "description": "The Orisha of prosperity and material wealth. Aje blesses commerce and brings financial abundance to her devotees.",
+    "detailedBio": "## Spirit of Prosperity\n\nAje embodies the spiritual force behind material wealth. In Yoruba thought, wealth is not merely physical but has a spiritual dimension that must be properly cultivated.\n\n### Market Power\n\nAje is particularly associated with marketplace success. Women traders invoke her blessings before trading, and her presence ensures fair dealing and profitable commerce.\n\n### Connection to Olokun\n\nSometimes considered an aspect or daughter of Olokun, Aje represents the accessible wealth that flows from the ocean depths into human hands through trade and industry.",
+    "originStory": "Aje emerged from the primordial waters alongside Olokun, carrying the essence of abundance into the world of humans.",
+    "importanceRank": 6,
+    "imageUrl": "/deities/aje.png",
+    "pronunciation": {
+      "ipa": "/àjé/",
+      "phonetic": "ah-JAY"
+    }
+  },
+  {
+    "id": "aganju",
+    "pantheonId": "african-pantheon",
+    "name": "Aganju",
+    "slug": "aganju",
+    "alternateNames": [
+      "Aganyu"
+    ],
+    "gender": "male",
+    "domain": [
+      "volcanoes",
+      "wilderness",
+      "earth",
+      "desert",
+      "fire"
+    ],
+    "symbols": [
+      "volcano",
+      "leopard",
+      "desert",
+      "mountains",
+      "fire"
+    ],
+    "description": "The Orisha of volcanoes, wilderness, and the untamed earth. Aganju represents the raw, primal power of the natural world.",
+    "detailedBio": "## The Wild One\n\nAganju personifies the untamed forces of nature—volcanic eruptions, earthquakes, and the vast wilderness beyond human settlement. He is the father of Shango by Yemoja.\n\n### The Ferryman\n\nIn some traditions, Aganju is the ferryman who transports souls across the river of death. He carries the deceased on his back across the waters separating the living from the ancestors.\n\n### Primal Power\n\nAs the deity of volcanoes, Aganju represents both destruction and creation. Volcanic soil is among the most fertile, and new land emerges from lava flows.",
+    "originStory": "Aganju was born from the union of earth and sky in the earliest days of creation. He embodies the primordial wilderness before human civilization.",
+    "importanceRank": 5,
+    "imageUrl": "/deities/aganju.png",
+    "pronunciation": {
+      "ipa": "/àɡànjú/",
+      "phonetic": "ah-GAHN-joo"
+    }
+  },
+  {
+    "id": "ibeji",
+    "pantheonId": "african-pantheon",
+    "name": "Ibeji",
+    "slug": "ibeji",
+    "alternateNames": [
+      "Ibeyi",
+      "Taiwo and Kehinde"
+    ],
+    "gender": "androgynous",
+    "domain": [
+      "twins",
+      "childhood",
+      "protection of children",
+      "duality"
+    ],
+    "symbols": [
+      "twin figures",
+      "red palm oil",
+      "beans",
+      "double imagery"
+    ],
+    "description": "The divine twins who protect all twins and children. Ibeji represent the sacred duality present throughout existence.",
+    "detailedBio": "## The Sacred Twins\n\nThe Yoruba have one of the highest rates of twin births in the world, and twins (ibeji) are considered sacred. The Orishas Ibeji protect all twins and embody the spiritual significance of duality.\n\n### Taiwo and Kehinde\n\nThe first-born twin is called Taiwo ('taste the world first'), while the second is Kehinde ('arrive last'). Despite being born first, Taiwo is considered the younger twin—Kehinde sent Taiwo ahead to test whether the world was good.\n\n### Ere Ibeji\n\nIf a twin dies, a carved wooden figure (ere ibeji) is made to house the departed twin's spirit. The surviving twin and parents care for this figure as if it were alive.",
+    "originStory": "The first twins were born to Oya and Shango, blessed with divine protection. From them descended the Orisha Ibeji, who guard all twins.",
+    "importanceRank": 6,
+    "imageUrl": "/deities/ibeji.png",
+    "pronunciation": {
+      "ipa": "/ìbéjì/",
+      "phonetic": "ee-BEH-jee"
+    }
+  },
+  {
+    "id": "ori",
+    "pantheonId": "african-pantheon",
+    "name": "Ori",
+    "slug": "ori",
+    "alternateNames": [
+      "Ori Inu"
+    ],
+    "gender": "none",
+    "domain": [
+      "destiny",
+      "consciousness",
+      "personal god",
+      "fate",
+      "intuition"
+    ],
+    "symbols": [
+      "head",
+      "cowrie shells",
+      "white cloth",
+      "coconut"
+    ],
+    "description": "The personal Orisha representing one's inner consciousness and chosen destiny. Ori is the first deity one must honor, for without Ori's support, no other Orisha can help.",
+    "detailedBio": "## The Inner Head\n\nOri ('head') represents each person's unique spiritual essence and chosen destiny. Before birth, each soul kneels before Olodumare and chooses an ori—a personal fate and divine self.\n\n### The Primary Orisha\n\nIn Yoruba spirituality, Ori is considered more important than any other Orisha for the individual. The saying goes: 'Ori is the most important god for a person.'\n\n### Alignment with Destiny\n\nMisfortune often indicates misalignment with one's ori. Through divination and ritual, one can realign with their chosen destiny and restore harmony.",
+    "originStory": "Before each soul enters the world, it kneels in heaven and chooses its ori—its head, fate, and personal deity. This choice is then sealed by Olodumare.",
+    "importanceRank": 2,
+    "imageUrl": "/deities/ori.png",
+    "pronunciation": {
+      "ipa": "/òrí/",
+      "phonetic": "oh-REE"
+    }
+  },
+  {
+    "id": "anansi",
+    "pantheonId": "african-pantheon",
+    "name": "Anansi",
+    "slug": "anansi",
+    "alternateNames": [
+      "Ananse",
+      "Kwaku Ananse",
+      "Aunt Nancy"
+    ],
+    "gender": "male",
+    "domain": [
+      "wisdom",
+      "stories",
+      "trickery",
+      "knowledge",
+      "creativity"
+    ],
+    "symbols": [
+      "spider",
+      "web",
+      "stories",
+      "calabash"
+    ],
+    "description": "The trickster spider god of the Akan people. Anansi is the keeper of all stories and uses wit and cunning to overcome larger, stronger opponents.",
+    "detailedBio": "## The Spider Trickster\n\nAnansi is one of Africa's most beloved figures, a cunning spider who uses intelligence and trickery to overcome impossible odds. He is the keeper of all stories, having purchased them from the sky god Nyame.\n\n### How Anansi Got the Stories\n\nNyame demanded four impossible tasks: capture Onini the python, Osebo the leopard, the Mmoboro hornets, and Mmoatia the invisible fairy. Through cleverness rather than strength, Anansi succeeded and earned ownership of all the world's stories.\n\n### Diaspora Legacy\n\nAnansi traveled with enslaved Africans to the Americas, where his tales became foundational to Caribbean and African-American folklore. He represents the triumph of wit over power.",
+    "originStory": "Anansi began as a humble spider but desired to own all the stories of the world. He bargained with the sky god Nyame, completing impossible tasks through cleverness.",
+    "importanceRank": 4,
+    "imageUrl": "/deities/anansi.png",
+    "pronunciation": {
+      "ipa": "/əˈnɑːnsi/",
+      "phonetic": "ah-NAHN-see"
+    },
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "norse-pantheon",
+        "deityId": "loki",
+        "note": "Both are trickster figures who use cunning over strength"
+      },
+      {
+        "pantheonId": "greek-pantheon",
+        "deityId": "hermes",
+        "note": "Both are clever, associated with communication and stories"
+      }
+    ]
+  },
+  {
+    "id": "nyame",
+    "pantheonId": "african-pantheon",
+    "name": "Nyame",
+    "slug": "nyame",
+    "alternateNames": [
+      "Nyankopon",
+      "Onyankopon",
+      "Nyamie"
+    ],
+    "gender": "male",
+    "domain": [
+      "sky",
+      "creation",
+      "supreme deity",
+      "rain",
+      "fertility"
+    ],
+    "symbols": [
+      "sky",
+      "sun",
+      "moon",
+      "adinkra symbols",
+      "ram"
+    ],
+    "description": "The supreme sky god of the Akan people. Nyame is the creator of all things and source of all life, though he withdrew from direct involvement with humanity.",
+    "detailedBio": "## The Creator Above\n\nNyame is the supreme deity of the Akan people of Ghana. He created the universe and everything in it but, like many African high gods, withdrew from daily human affairs.\n\n### The Distant God\n\nAccording to tradition, Nyame once lived close to earth but withdrew to the sky after being struck by a woman's pestle while she pounded fufu. Now he remains in the heavens, accessed through lesser spirits.\n\n### Adinkra Connection\n\nNyame is represented in Adinkra symbolism—the visual vocabulary of the Akan. The Gye Nyame symbol ('except for God') affirms Nyame's supreme power over all things.",
+    "originStory": "In the beginning, Nyame created the heavens and earth, filling them with life. He lived close to humanity until driven away by human actions.",
+    "importanceRank": 1,
+    "imageUrl": "/deities/nyame.png",
+    "pronunciation": {
+      "ipa": "/ˈɲame/",
+      "phonetic": "NYAH-meh"
+    },
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "african-pantheon",
+        "deityId": "olodumare",
+        "note": "Both are supreme creator deities who became remote from human affairs"
+      },
+      {
+        "pantheonId": "greek-pantheon",
+        "deityId": "zeus",
+        "note": "Both are sky gods and supreme rulers of their pantheons"
+      }
+    ]
+  },
+  {
+    "id": "kinich-ahau",
+    "pantheonId": "mesoamerican-pantheon",
+    "name": "Kinich Ahau",
+    "slug": "kinich-ahau",
+    "alternateNames": [
+      "Ah Kin",
+      "K'inich Ajaw",
+      "Sun-Faced Lord"
+    ],
+    "gender": "male",
+    "domain": [
+      "sun",
+      "kingship",
+      "time",
+      "war"
+    ],
+    "symbols": [
+      "sun disk",
+      "jaguar",
+      "large square eyes",
+      "filed teeth"
+    ],
+    "description": "The Maya sun god with large square eyes and jaguar features. Kinich Ahau rules the daytime sky and transforms into the Jaguar God when traveling through the underworld at night.",
+    "detailedBio": "## The Sun-Faced Lord\n\nKinich Ahau embodies the blazing sun at its zenith. His large square eyes represent the sun's power, and his filed, T-shaped front teeth mark him as a god of royalty.\n\n### The Night Journey\n\nEach evening, Kinich Ahau descends into Xibalba, becoming the Jaguar God of the Underworld. He battles the lords of death through the night, emerging victorious each dawn.\n\n### Divine Kingship\n\nMaya kings claimed descent from or identification with Kinich Ahau. Solar imagery pervaded royal iconography, and kings performed rituals to ensure the sun's daily rebirth.",
+    "originStory": "Kinich Ahau was placed in the sky during creation to provide light and mark the passage of time. Each night he dies and is reborn.",
+    "importanceRank": 3,
+    "imageUrl": "/deities/kinich-ahau.png",
+    "pronunciation": {
+      "ipa": "/kiˈnitʃ aˈhau/",
+      "phonetic": "kee-NEECH ah-HOW"
+    },
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "egyptian-pantheon",
+        "deityId": "ra",
+        "note": "Both are sun gods who journey through the underworld at night"
+      },
+      {
+        "pantheonId": "greek-pantheon",
+        "deityId": "apollo",
+        "note": "Both embody the sun and are associated with kingship"
+      }
+    ]
+  },
+  {
+    "id": "yum-kaax",
+    "pantheonId": "mesoamerican-pantheon",
+    "name": "Yum Kaax",
+    "slug": "yum-kaax",
+    "alternateNames": [
+      "Lord of the Forest",
+      "Yum K'aax"
+    ],
+    "gender": "male",
+    "domain": [
+      "maize",
+      "agriculture",
+      "forests",
+      "wild game",
+      "abundance"
+    ],
+    "symbols": [
+      "maize plant",
+      "cacao",
+      "forest",
+      "deer"
+    ],
+    "description": "The youthful Maya god of maize, agriculture, and wild nature. Yum Kaax represents the life-sustaining bounty of cultivated fields and untamed forests.",
+    "detailedBio": "## Lord of the Forest\n\nYum Kaax rules over both cultivated maize and wild forest bounty. He is depicted as a young, handsome god with maize foliation growing from his head.\n\n### Maize and Civilization\n\nMaize was the foundation of Mesoamerican civilization. Yum Kaax's blessing ensured successful harvests, while his anger brought famine. The Maya believed humans were created from maize dough.\n\n### Guardian of Game\n\nAs lord of the forest, Yum Kaax also protected wild animals. Hunters sought his permission before the hunt, offering the first catch in gratitude.",
+    "originStory": "When the Hero Twins defeated the lords of Xibalba, their father Hun Hunahpu was resurrected as the Maize God, becoming Yum Kaax who provides sustenance to humanity.",
+    "importanceRank": 4,
+    "imageUrl": "/deities/yum-kaax.png",
+    "pronunciation": {
+      "ipa": "/jum kaːʃ/",
+      "phonetic": "YOOM KAHSH"
+    }
+  },
+  {
+    "id": "camazotz",
+    "pantheonId": "mesoamerican-pantheon",
+    "name": "Camazotz",
+    "slug": "camazotz",
+    "alternateNames": [
+      "Death Bat",
+      "Zotz"
+    ],
+    "gender": "male",
+    "domain": [
+      "bats",
+      "death",
+      "sacrifice",
+      "night",
+      "caves"
+    ],
+    "symbols": [
+      "bat",
+      "obsidian blade",
+      "severed head",
+      "cave"
+    ],
+    "description": "The terrifying bat god of death and sacrifice. Camazotz dwells in the House of Bats in Xibalba, decapitating those who fail to survive the underworld's trials.",
+    "detailedBio": "## The Death Bat\n\nCamazotz rules the House of Bats (Zotzilaha), one of the deadly trial houses in Xibalba. His giant form, obsidian blade wings, and hunger for blood make him one of the most feared beings in Maya mythology.\n\n### The Hero Twins' Trial\n\nIn the Popol Vuh, Hunahpu and Xbalanque faced Camazotz in his house. Hunahpu peeked from their blowgun shelter and was instantly decapitated. Only through cleverness—replacing his head with a squash—could his brother resurrect him.\n\n### Sacred Terror\n\nCamazotz represents the genuine danger of caves, where ancient Maya encountered real bat colonies. His cult involved sacrifice, with offerings of blood to appease his hunger.",
+    "originStory": "Camazotz was created or summoned by the Lords of Xibalba to guard the House of Bats and test those who entered the underworld.",
+    "importanceRank": 6,
+    "imageUrl": "/deities/camazotz.png",
+    "pronunciation": {
+      "ipa": "/kamaˈsots/",
+      "phonetic": "kah-mah-SOTS"
+    }
+  },
+  {
+    "id": "ek-chuaj",
+    "pantheonId": "mesoamerican-pantheon",
+    "name": "Ek Chuaj",
+    "slug": "ek-chuaj",
+    "alternateNames": [
+      "Black Scorpion",
+      "God M",
+      "Ek Chuah"
+    ],
+    "gender": "male",
+    "domain": [
+      "merchants",
+      "cacao",
+      "war",
+      "trade routes"
+    ],
+    "symbols": [
+      "cacao pod",
+      "merchant's pack",
+      "black paint",
+      "scorpion"
+    ],
+    "description": "The black-faced Maya god of merchants, cacao, and traveling traders. Ek Chuaj protects those who journey along trade routes and blesses the cultivation of sacred cacao.",
+    "detailedBio": "## Patron of Merchants\n\nEk Chuaj appears with a black-painted face and a distinctive drooping lower lip. He carries a merchant's pack on his back and a staff, embodying the traveling traders who connected Maya cities.\n\n### Lord of Cacao\n\nCacao was currency in Mesoamerica, making Ek Chuaj both patron of merchants and lord of wealth. Cacao plantation owners held festivals in his honor, sacrificing dogs with cacao-colored markings.\n\n### Dual Nature\n\nDespite his association with peaceful trade, Ek Chuaj also had a warlike aspect. Merchants traveled through dangerous territories, requiring divine protection.",
+    "originStory": "Ek Chuaj emerged as the patron of trade when the first merchants traveled between the great Maya cities, carrying cacao and precious goods.",
+    "importanceRank": 5,
+    "imageUrl": "/deities/ek-chuaj.png",
+    "pronunciation": {
+      "ipa": "/ek tʃuˈah/",
+      "phonetic": "EK choo-AH"
+    }
+  },
+  {
+    "id": "xochipilli",
+    "pantheonId": "mesoamerican-pantheon",
+    "name": "Xochipilli",
+    "slug": "xochipilli",
+    "alternateNames": [
+      "Flower Prince",
+      "Macuilxochitl"
+    ],
+    "gender": "male",
+    "domain": [
+      "flowers",
+      "art",
+      "games",
+      "pleasure",
+      "creativity",
+      "homosexuality"
+    ],
+    "symbols": [
+      "flowers",
+      "butterflies",
+      "mushrooms",
+      "musical instruments"
+    ],
+    "description": "The Aztec prince of flowers, art, and pleasure. Xochipilli presides over creativity, games, beauty, and ecstatic states, representing life's joyful aspects.",
+    "detailedBio": "## The Flower Prince\n\nXochipilli embodies pleasure, beauty, and artistic inspiration. His name means 'Flower Prince,' and he is covered in flowers, butterflies, and psychoactive plants.\n\n### Patron of Artists\n\nPoets, musicians, dancers, and artists invoked Xochipilli for inspiration. He represents the creative ecstasy that produces great art and the pleasures that make life worth living.\n\n### Sacred Plants\n\nThe famous statue of Xochipilli shows him covered in entheogenic plants—morning glory, mushrooms, tobacco. He presided over the ritual use of sacred plants to achieve divine connection.",
+    "originStory": "Xochipilli emerged as the embodiment of life's pleasures, balancing the grim aspects of Aztec religion with celebrations of beauty and joy.",
+    "importanceRank": 5,
+    "imageUrl": "/deities/xochipilli.png",
+    "pronunciation": {
+      "ipa": "/ʃotʃiˈpili/",
+      "phonetic": "sho-chee-PEE-lee"
+    }
+  },
+  {
+    "id": "centeotl",
+    "pantheonId": "mesoamerican-pantheon",
+    "name": "Centeotl",
+    "slug": "centeotl",
+    "alternateNames": [
+      "Centéotl",
+      "Maize Lord"
+    ],
+    "gender": "male",
+    "domain": [
+      "maize",
+      "agriculture",
+      "sustenance",
+      "fertility"
+    ],
+    "symbols": [
+      "maize ears",
+      "young maize plant",
+      "jade"
+    ],
+    "description": "The Aztec god of maize and sustenance. Centeotl represents the sacred maize plant that sustained Mesoamerican civilization.",
+    "detailedBio": "## Lord of Maize\n\nCenteotl ('Maize Deity') was among the most important Aztec gods, as maize was the foundation of all life. Without his blessing, the people would starve.\n\n### Child of Tlazolteotl\n\nCenteotl was born to the earth goddess Tlazolteotl. After his birth, he descended into the earth and from his body grew the essential crops: maize from his hair, cotton from his ears, seeds from his nose.\n\n### Annual Renewal\n\nThe young maize god was celebrated in festivals marking planting and harvest. His death and rebirth paralleled the agricultural cycle.",
+    "originStory": "When Centeotl was born, the gods placed him in the earth. From his divine body grew all the plants that sustain humanity.",
+    "importanceRank": 4,
+    "imageUrl": "/deities/centeotl.png",
+    "pronunciation": {
+      "ipa": "/senˈteotɬ/",
+      "phonetic": "sen-TEH-ohtl"
+    },
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "greek-pantheon",
+        "deityId": "demeter",
+        "note": "Both are grain deities whose blessing ensures agricultural abundance"
+      }
+    ]
   }
 ]

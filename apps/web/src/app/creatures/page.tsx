@@ -11,6 +11,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Breadcrumbs } from '@/components/navigation/Breadcrumbs';
 import { Badge } from '@/components/ui/badge';
+import { CollectionPageJsonLd } from '@/components/seo/JsonLd';
 
 interface Creature {
     id: string;
@@ -57,6 +58,12 @@ export default function CreaturesPage() {
 
     return (
         <div className="min-h-screen">
+            <CollectionPageJsonLd
+                name="Creatures & Monsters"
+                description="Legendary beasts and mythological creatures from ancient mythology"
+                url="/creatures"
+                numberOfItems={creatures.length}
+            />
             {/* Hero Section */}
             <div className="relative h-[40vh] min-h-[300px] flex items-center justify-center overflow-hidden bg-slate-950">
                 {/* Abstract Background */}

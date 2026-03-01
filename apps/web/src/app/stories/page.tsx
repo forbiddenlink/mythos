@@ -15,6 +15,7 @@ import { BookmarkButton } from '@/components/ui/bookmark-button';
 import { GridSkeleton, FiltersSkeleton } from '@/components/ui/skeleton-cards';
 import { BranchingStory, getDiscoveredEndings } from '@/lib/branching-story';
 import branchingStoriesData from '@/data/branching-stories.json';
+import { CollectionPageJsonLd } from '@/components/seo/JsonLd';
 
 const branchingStories = branchingStoriesData as unknown as BranchingStory[];
 
@@ -165,6 +166,12 @@ export default function StoriesPage() {
 
   return (
     <div className="min-h-screen">
+      <CollectionPageJsonLd
+        name="Mythological Stories"
+        description="Epic tales and legends from ancient civilizations across 13 pantheons"
+        url="/stories"
+        numberOfItems={data?.stories?.length}
+      />
       {/* Hero Section with Background Image */}
       <div className="relative h-[50vh] min-h-[400px] flex items-center justify-center overflow-hidden">
         {/* Background Image */}
