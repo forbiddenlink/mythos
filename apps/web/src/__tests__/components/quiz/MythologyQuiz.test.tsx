@@ -11,13 +11,13 @@ import { describe, it, expect, vi, beforeEach } from 'vitest';
 
 // Mock localStorage
 const localStorageMock = {
-  getItem: vi.fn(() => null),
+  getItem: vi.fn((): string | null => null),
   setItem: vi.fn(),
   removeItem: vi.fn(),
   clear: vi.fn(),
 };
 
-Object.defineProperty(window, 'localStorage', {
+Object.defineProperty(globalThis, 'localStorage', {
   value: localStorageMock,
   writable: true,
 });
@@ -81,7 +81,7 @@ describe('MythologyQuiz', () => {
 
       const loadHighScore = () => {
         const saved = localStorage.getItem('mythos_quiz_highscore');
-        return saved ? parseInt(saved, 10) : 0;
+        return saved ? Number.parseInt(saved, 10) : 0;
       };
 
       expect(loadHighScore()).toBe(10);
@@ -93,7 +93,7 @@ describe('MythologyQuiz', () => {
 
       const loadHighScore = () => {
         const saved = localStorage.getItem('mythos_quiz_highscore');
-        return saved ? parseInt(saved, 10) : 0;
+        return saved ? Number.parseInt(saved, 10) : 0;
       };
 
       expect(loadHighScore()).toBe(0);

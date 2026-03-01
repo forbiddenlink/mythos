@@ -1,9 +1,9 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Card, CardContent, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import {
@@ -74,10 +74,18 @@ export function RelationshipQuizCard({
 
   // Reset state when question changes
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- reset quiz state when question changes
     setSelectedAnswer(null);
     setShowResult(false);
     setTimeRemaining(timeLimit);
   }, [question.id, timeLimit]);
+
+  const handleTimeUp = useCallback(() => {
+    if (!showResult) {
+      setShowResult(true);
+      onAnswer('', false);
+    }
+  }, [showResult, onAnswer]);
 
   // Timer logic
   useEffect(() => {
@@ -97,14 +105,7 @@ export function RelationshipQuizCard({
     }, 1000);
 
     return () => clearInterval(timer);
-  }, [showTimer, showResult, timeRemaining, onTimeUp]);
-
-  const handleTimeUp = () => {
-    if (!showResult) {
-      setShowResult(true);
-      onAnswer('', false);
-    }
-  };
+  }, [showTimer, showResult, timeRemaining, onTimeUp, handleTimeUp]);
 
   const handleAnswerSelect = (answer: string) => {
     if (showResult) return;
@@ -204,8 +205,7 @@ export function RelationshipQuizCard({
         </div>
 
         {showResult && (
-          <div
-            role="status"
+          <output
             aria-live="polite"
             aria-atomic="true"
             className={`mt-6 p-4 rounded-xl border animate-in fade-in slide-in-from-top-2 ${
@@ -244,7 +244,7 @@ export function RelationshipQuizCard({
                 )}
               </div>
             </div>
-          </div>
+          </output>
         )}
       </CardContent>
     </Card>

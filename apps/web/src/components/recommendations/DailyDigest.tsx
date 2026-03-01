@@ -27,7 +27,7 @@ export function DailyDigest({ className = '', compact = false }: DailyDigestProp
 
   if (compact) {
     return (
-      <Card className={`bg-gradient-to-br from-gold/5 to-amber-500/5 border-gold/20 ${className}`}>
+      <Card className={`bg-linear-to-br from-gold/5 to-amber-500/5 border-gold/20 ${className}`}>
         <CardContent className="pt-4">
           <div className="flex items-center gap-2 mb-3">
             <Calendar className="h-4 w-4 text-gold" />
@@ -37,7 +37,7 @@ export function DailyDigest({ className = '', compact = false }: DailyDigestProp
             <Link href={`/deities/${dailyDigest.deity.slug}`} className="group block">
               <div className="flex items-center gap-3">
                 {dailyDigest.deity.imageUrl && (
-                  <div className="relative w-12 h-12 rounded-full overflow-hidden flex-shrink-0 border-2 border-gold/30">
+                  <div className="relative w-12 h-12 rounded-full overflow-hidden shrink-0 border-2 border-gold/30">
                     <Image
                       src={dailyDigest.deity.imageUrl}
                       alt={dailyDigest.deity.name}
@@ -54,7 +54,7 @@ export function DailyDigest({ className = '', compact = false }: DailyDigestProp
                     {dailyDigest.deity.domain.slice(0, 2).join(', ')}
                   </p>
                 </div>
-                <ArrowRight className="h-4 w-4 text-slate-400 group-hover:text-gold group-hover:translate-x-1 transition-all flex-shrink-0" />
+                <ArrowRight className="h-4 w-4 text-slate-400 group-hover:text-gold group-hover:translate-x-1 transition-all shrink-0" />
               </div>
             </Link>
           )}
@@ -77,7 +77,7 @@ export function DailyDigest({ className = '', compact = false }: DailyDigestProp
         {/* Featured Deity */}
         {dailyDigest.deity && (
           <Link href={`/deities/${dailyDigest.deity.slug}`}>
-            <Card className="h-full hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group overflow-hidden bg-gradient-to-br from-gold/5 to-amber-500/5 border-gold/20">
+            <Card className="h-full hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group overflow-hidden bg-linear-to-br from-gold/5 to-amber-500/5 border-gold/20">
               <div className="relative">
                 {dailyDigest.deity.imageUrl && (
                   <div className="relative h-48 overflow-hidden">
@@ -87,7 +87,7 @@ export function DailyDigest({ className = '', compact = false }: DailyDigestProp
                       fill
                       className="object-cover group-hover:scale-105 transition-transform duration-700"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                    <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/20 to-transparent" />
                     <div className="absolute top-3 left-3">
                       <Badge className="bg-gold/90 text-white border-0">
                         <Sparkles className="h-3 w-3 mr-1" />
@@ -142,7 +142,7 @@ export function DailyDigest({ className = '', compact = false }: DailyDigestProp
         {/* Featured Story */}
         {dailyDigest.story && (
           <Link href={`/stories/${dailyDigest.story.slug}`}>
-            <Card className="h-full hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group overflow-hidden bg-gradient-to-br from-teal-500/5 to-cyan-500/5 border-teal-500/20">
+            <Card className="h-full hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group overflow-hidden bg-linear-to-br from-teal-500/5 to-cyan-500/5 border-teal-500/20">
               <div className="relative">
                 {dailyDigest.story.imageUrl && (
                   <div className="relative h-48 overflow-hidden">
@@ -152,7 +152,7 @@ export function DailyDigest({ className = '', compact = false }: DailyDigestProp
                       fill
                       className="object-cover group-hover:scale-105 transition-transform duration-700"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                    <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/20 to-transparent" />
                     <div className="absolute top-3 left-3">
                       <Badge className="bg-teal-600/90 text-white border-0">
                         <BookOpen className="h-3 w-3 mr-1" />

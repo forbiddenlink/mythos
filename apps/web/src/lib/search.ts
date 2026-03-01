@@ -61,6 +61,7 @@ interface ArtifactData {
 interface LocationData {
   id: string;
   name: string;
+  slug?: string;
   description: string;
   locationType?: string;
   pantheonId?: string;
@@ -111,6 +112,41 @@ function calculateMatchScore(query: string, fields: { value: string; weight: num
   return totalScore;
 }
 
+/** Build a pantheon-prefixed label like "Greek Deity" or just "Deity" */
+function getPantheonLabel(pantheonId: string | undefined, typeName: string): string {
+  const name = pantheonId ? pantheonNames[pantheonId] : '';
+  return name ? `${name} ${typeName}` : typeName;
+}
+
+/** Generic scored search over a typed collection */
+function searchItems<T extends { id: string }>(
+  items: T[],
+  query: string,
+  config: {
+    type: ContentType;
+    getTitle: (item: T) => string;
+    getSlug: (item: T) => string;
+    getSearchFields: (item: T) => { value: string; weight: number }[];
+    getSubtitle: (item: T) => string;
+  },
+): SearchResult[] {
+  const results: SearchResult[] = [];
+  for (const item of items) {
+    const score = calculateMatchScore(query, config.getSearchFields(item));
+    if (score > 0) {
+      results.push({
+        type: config.type,
+        id: item.id,
+        slug: config.getSlug(item),
+        title: config.getTitle(item),
+        subtitle: config.getSubtitle(item),
+        matchScore: score,
+      });
+    }
+  }
+  return results;
+}
+
 /**
  * Search across all content types
  */
@@ -119,127 +155,73 @@ export function searchAll(query: string, limit: number = 10): SearchResult[] {
     return [];
   }
 
-  const results: SearchResult[] = [];
   const normalizedQuery = query.toLowerCase().trim();
 
-  // Search deities
-  for (const deity of deities as DeityData[]) {
-    const alternateNamesStr = deity.alternateNames?.join(' ') || '';
-    const domainsStr = deity.domain?.join(' ') || '';
+  const results: SearchResult[] = [
+    ...searchItems(deities as DeityData[], normalizedQuery, {
+      type: 'deity',
+      getTitle: (d) => d.name,
+      getSlug: (d) => d.slug,
+      getSearchFields: (d) => [
+        { value: d.name, weight: 3 },
+        { value: d.alternateNames?.join(' ') || '', weight: 2.5 },
+        { value: d.domain?.join(' ') || '', weight: 1.5 },
+        { value: d.description, weight: 1 },
+      ],
+      getSubtitle: (d) => getPantheonLabel(d.pantheonId, 'Deity'),
+    }),
+    ...searchItems(stories as StoryData[], normalizedQuery, {
+      type: 'story',
+      getTitle: (s) => s.title,
+      getSlug: (s) => s.slug,
+      getSearchFields: (s) => [
+        { value: s.title, weight: 3 },
+        { value: s.summary, weight: 1.5 },
+        { value: s.category || '', weight: 1 },
+      ],
+      getSubtitle: (s) => getPantheonLabel(s.pantheonId, 'Story'),
+    }),
+    ...searchItems(creatures as CreatureData[], normalizedQuery, {
+      type: 'creature',
+      getTitle: (c) => c.name,
+      getSlug: (c) => c.slug,
+      getSearchFields: (c) => [
+        { value: c.name, weight: 3 },
+        { value: c.description, weight: 1.5 },
+        { value: c.habitat || '', weight: 1 },
+      ],
+      getSubtitle: (c) => c.habitat || getPantheonLabel(c.pantheonId, 'Creature'),
+    }),
+    ...searchItems(artifacts as ArtifactData[], normalizedQuery, {
+      type: 'artifact',
+      getTitle: (a) => a.name,
+      getSlug: (a) => a.slug,
+      getSearchFields: (a) => [
+        { value: a.name, weight: 3 },
+        { value: a.description, weight: 1.5 },
+        { value: a.type || '', weight: 1 },
+      ],
+      getSubtitle: (a) => a.type ? a.type.charAt(0).toUpperCase() + a.type.slice(1) : 'Artifact',
+    }),
+    ...searchItems(locations as LocationData[], normalizedQuery, {
+      type: 'location',
+      getTitle: (l) => l.name,
+      getSlug: (l) => l.slug || l.id,
+      getSearchFields: (l) => [
+        { value: l.name, weight: 3 },
+        { value: l.description, weight: 1.5 },
+        { value: l.locationType || '', weight: 1 },
+      ],
+      getSubtitle: (l) => {
+        const pantheonName = l.pantheonId ? pantheonNames[l.pantheonId] : '';
+        const locationType = l.locationType?.replace('_', ' ') || '';
+        const capitalizedType = locationType.charAt(0).toUpperCase() + locationType.slice(1);
+        return pantheonName ? `${pantheonName} ${capitalizedType}` : capitalizedType || 'Location';
+      },
+    }),
+  ];
 
-    const score = calculateMatchScore(normalizedQuery, [
-      { value: deity.name, weight: 3 },
-      { value: alternateNamesStr, weight: 2.5 },
-      { value: domainsStr, weight: 1.5 },
-      { value: deity.description, weight: 1 },
-    ]);
-
-    if (score > 0) {
-      const pantheonName = deity.pantheonId ? pantheonNames[deity.pantheonId] : '';
-      results.push({
-        type: 'deity',
-        id: deity.id,
-        slug: deity.slug,
-        title: deity.name,
-        subtitle: pantheonName ? `${pantheonName} Deity` : 'Deity',
-        matchScore: score,
-      });
-    }
-  }
-
-  // Search stories
-  for (const story of stories as StoryData[]) {
-    const score = calculateMatchScore(normalizedQuery, [
-      { value: story.title, weight: 3 },
-      { value: story.summary, weight: 1.5 },
-      { value: story.category || '', weight: 1 },
-    ]);
-
-    if (score > 0) {
-      const pantheonName = story.pantheonId ? pantheonNames[story.pantheonId] : '';
-      results.push({
-        type: 'story',
-        id: story.id,
-        slug: story.slug,
-        title: story.title,
-        subtitle: pantheonName ? `${pantheonName} Story` : 'Story',
-        matchScore: score,
-      });
-    }
-  }
-
-  // Search creatures
-  for (const creature of creatures as CreatureData[]) {
-    const score = calculateMatchScore(normalizedQuery, [
-      { value: creature.name, weight: 3 },
-      { value: creature.description, weight: 1.5 },
-      { value: creature.habitat || '', weight: 1 },
-    ]);
-
-    if (score > 0) {
-      const pantheonName = creature.pantheonId ? pantheonNames[creature.pantheonId] : '';
-      results.push({
-        type: 'creature',
-        id: creature.id,
-        slug: creature.slug,
-        title: creature.name,
-        subtitle: creature.habitat || (pantheonName ? `${pantheonName} Creature` : 'Creature'),
-        matchScore: score,
-      });
-    }
-  }
-
-  // Search artifacts
-  for (const artifact of artifacts as ArtifactData[]) {
-    const score = calculateMatchScore(normalizedQuery, [
-      { value: artifact.name, weight: 3 },
-      { value: artifact.description, weight: 1.5 },
-      { value: artifact.type || '', weight: 1 },
-    ]);
-
-    if (score > 0) {
-      results.push({
-        type: 'artifact',
-        id: artifact.id,
-        slug: artifact.slug,
-        title: artifact.name,
-        subtitle: artifact.type ? `${artifact.type.charAt(0).toUpperCase() + artifact.type.slice(1)}` : 'Artifact',
-        matchScore: score,
-      });
-    }
-  }
-
-  // Search locations
-  for (const location of locations as LocationData[]) {
-    // Locations might not have slugs - create from id
-    const slug = (location as any).slug || location.id;
-
-    const score = calculateMatchScore(normalizedQuery, [
-      { value: location.name, weight: 3 },
-      { value: location.description, weight: 1.5 },
-      { value: location.locationType || '', weight: 1 },
-    ]);
-
-    if (score > 0) {
-      const pantheonName = location.pantheonId ? pantheonNames[location.pantheonId] : '';
-      const locationType = location.locationType?.replace('_', ' ') || '';
-      results.push({
-        type: 'location',
-        id: location.id,
-        slug: slug,
-        title: location.name,
-        subtitle: pantheonName
-          ? `${pantheonName} ${locationType.charAt(0).toUpperCase() + locationType.slice(1)}`
-          : locationType.charAt(0).toUpperCase() + locationType.slice(1) || 'Location',
-        matchScore: score,
-      });
-    }
-  }
-
-  // Sort by score descending and limit results
-  return results
-    .sort((a, b) => b.matchScore - a.matchScore)
-    .slice(0, limit);
+  return results.toSorted((a, b) => b.matchScore - a.matchScore).slice(0, limit);
 }
 
 // Popular/trending searches - static list of common searches

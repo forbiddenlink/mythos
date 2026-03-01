@@ -7,7 +7,6 @@ import {
   ChevronDown,
   Sparkles,
   Compass,
-  BookOpen,
   Users,
   Scroll,
   Swords,
@@ -18,7 +17,12 @@ import {
   Route,
   Brain,
   CalendarCheck,
-  Gamepad2
+  Gamepad2,
+  Trophy,
+  Award,
+  GraduationCap,
+  Clock,
+  Scale
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
@@ -48,6 +52,12 @@ const exploreMenu: MenuSection = {
       href: '/stories',
       description: 'Myths, legends, and epic tales',
       icon: <Scroll className="h-4 w-4" />
+    },
+    {
+      label: 'Interactive Stories',
+      href: '/stories/interactive/the-underworld-descent',
+      description: 'Choose your own mythology adventure',
+      icon: <Gamepad2 className="h-4 w-4" />
     },
     {
       label: 'Creatures',
@@ -109,6 +119,18 @@ const discoverMenu: MenuSection = {
       description: 'Chronological myth events',
       icon: <Route className="h-4 w-4" />
     },
+    {
+      label: 'Compare Myths',
+      href: '/compare/myths',
+      description: 'Cross-pantheon myth parallels',
+      icon: <Scale className="h-4 w-4" />
+    },
+    {
+      label: 'Story Timeline',
+      href: '/story-timeline',
+      description: 'Visual story chronology',
+      icon: <Clock className="h-4 w-4" />
+    },
   ],
 };
 
@@ -134,10 +156,22 @@ const learnMenu: MenuSection = {
       icon: <CalendarCheck className="h-4 w-4" />
     },
     {
-      label: 'Stories',
-      href: '/stories',
-      description: 'Interactive myth narratives',
-      icon: <BookOpen className="h-4 w-4" />
+      label: 'Learning Paths',
+      href: '/learning-paths',
+      description: 'Guided mythology courses',
+      icon: <GraduationCap className="h-4 w-4" />
+    },
+    {
+      label: 'Achievements',
+      href: '/achievements',
+      description: 'Badges and milestones',
+      icon: <Award className="h-4 w-4" />
+    },
+    {
+      label: 'Leaderboard',
+      href: '/leaderboard',
+      description: 'Rankings and competition',
+      icon: <Trophy className="h-4 w-4" />
     },
   ],
 };
@@ -149,7 +183,7 @@ interface MegaMenuDropdownProps {
   onClose: () => void;
 }
 
-function MegaMenuDropdown({ section, isOpen, onOpen, onClose }: MegaMenuDropdownProps) {
+function MegaMenuDropdown({ section, isOpen, onOpen, onClose }: Readonly<MegaMenuDropdownProps>) {
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
   const menuRef = useRef<HTMLDivElement>(null);
 
@@ -186,7 +220,7 @@ function MegaMenuDropdown({ section, isOpen, onOpen, onClose }: MegaMenuDropdown
           "relative flex items-center gap-1 px-3 py-2 text-sm font-medium transition-colors duration-200 group",
           isOpen ? "text-foreground" : "text-muted-foreground hover:text-foreground"
         )}
-        aria-expanded={isOpen}
+        aria-expanded={isOpen ? "true" : "false"}
         aria-haspopup="true"
       >
         <span className="relative z-10">{section.label}</span>
@@ -195,7 +229,7 @@ function MegaMenuDropdown({ section, isOpen, onOpen, onClose }: MegaMenuDropdown
           isOpen && "rotate-180"
         )} />
         <span className={cn(
-          "absolute inset-x-1 -bottom-px h-px bg-gradient-to-r from-transparent via-gold/60 to-transparent transition-transform duration-300",
+          "absolute inset-x-1 -bottom-px h-px bg-linear-to-r from-transparent via-gold/60 to-transparent transition-transform duration-300",
           isOpen ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
         )} />
       </button>
@@ -218,7 +252,7 @@ function MegaMenuDropdown({ section, isOpen, onOpen, onClose }: MegaMenuDropdown
                     onClick={onClose}
                     className="flex items-start gap-3 rounded-lg px-3 py-2.5 text-sm transition-colors hover:bg-muted/50 group"
                   >
-                    <div className="flex-shrink-0 mt-0.5 text-muted-foreground group-hover:text-gold transition-colors">
+                    <div className="shrink-0 mt-0.5 text-muted-foreground group-hover:text-gold transition-colors">
                       {item.icon}
                     </div>
                     <div className="flex-1 min-w-0">
@@ -261,7 +295,7 @@ export function MegaMenu() {
         className="relative px-3 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors duration-200 group"
       >
         <span className="relative z-10">Pantheons</span>
-        <span className="absolute inset-x-1 -bottom-px h-px bg-gradient-to-r from-transparent via-gold/60 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
+        <span className="absolute inset-x-1 -bottom-px h-px bg-linear-to-r from-transparent via-gold/60 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
       </Link>
 
       {/* Explore dropdown */}
@@ -294,7 +328,7 @@ export function MegaMenu() {
         className="relative px-3 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors duration-200 group"
       >
         <span className="relative z-10">Progress</span>
-        <span className="absolute inset-x-1 -bottom-px h-px bg-gradient-to-r from-transparent via-gold/60 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
+        <span className="absolute inset-x-1 -bottom-px h-px bg-linear-to-r from-transparent via-gold/60 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
       </Link>
 
       {/* About - direct link */}
@@ -303,7 +337,7 @@ export function MegaMenu() {
         className="relative px-3 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors duration-200 group"
       >
         <span className="relative z-10">About</span>
-        <span className="absolute inset-x-1 -bottom-px h-px bg-gradient-to-r from-transparent via-gold/60 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
+        <span className="absolute inset-x-1 -bottom-px h-px bg-linear-to-r from-transparent via-gold/60 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
       </Link>
     </nav>
   );

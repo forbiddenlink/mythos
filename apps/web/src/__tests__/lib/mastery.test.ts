@@ -1,4 +1,4 @@
-import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
+import { describe, it, expect } from 'vitest';
 import {
   getMasteryLevel,
   getMasteryColor,
@@ -7,7 +7,6 @@ import {
   getOverallMasteryLevel,
   calculatePantheonMastery,
   getAllPantheonMasteries,
-  type MasteryLevel,
   type PantheonMastery,
 } from '@/lib/mastery';
 

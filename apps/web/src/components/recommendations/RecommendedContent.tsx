@@ -64,7 +64,7 @@ export function RecommendedContent({
                           fill
                           className="object-cover group-hover:scale-105 transition-transform duration-500"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                        <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent" />
                         <div className="absolute bottom-2 left-2 right-2">
                           <h4 className="font-serif font-bold text-white text-lg truncate">
                             {deity.name}
@@ -154,7 +154,7 @@ export function RecommendedContent({
                     </p>
                     <div className="h-2 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
                       <div
-                        className="h-full bg-gradient-to-r from-purple-500 to-purple-600 rounded-full transition-all duration-500"
+                        className="h-full bg-linear-to-r from-purple-500 to-purple-600 rounded-full transition-all duration-500"
                         style={{
                           width: `${((suggestion.totalCount - suggestion.unviewedCount) / suggestion.totalCount) * 100}%`,
                         }}
@@ -173,10 +173,10 @@ export function RecommendedContent({
 
       {/* Exploration Suggestion */}
       {explorationSuggestion && explorationSuggestion.unviewedCount === explorationSuggestion.totalCount && (
-        <Card className="bg-gradient-to-r from-amber-50 to-orange-50 dark:from-amber-950/30 dark:to-orange-950/30 border-amber-200 dark:border-amber-800">
+        <Card className="bg-linear-to-r from-amber-50 to-orange-50 dark:from-amber-950/30 dark:to-orange-950/30 border-amber-200 dark:border-amber-800">
           <CardContent className="pt-4">
             <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-full bg-amber-100 dark:bg-amber-900/50 flex items-center justify-center flex-shrink-0">
+              <div className="w-12 h-12 rounded-full bg-amber-100 dark:bg-amber-900/50 flex items-center justify-center shrink-0">
                 <Compass className="h-6 w-6 text-amber-600" />
               </div>
               <div className="flex-1">

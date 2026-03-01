@@ -20,7 +20,8 @@ export type AchievementRequirement =
   | { type: 'total_xp'; count: number }
   | { type: 'all_pantheons' }
   | { type: 'pantheon_complete'; pantheonId: string }
-  | { type: 'quick_quiz_score'; count: number };
+  | { type: 'quick_quiz_score'; count: number }
+  | { type: 'daily_challenge_streak'; count: number };
 
 export const achievements: Achievement[] = [
   // Exploration - Deities
@@ -264,6 +265,48 @@ export const achievements: Achievement[] = [
     xp: 200,
     category: 'mastery',
     requirement: { type: 'quick_quiz_score', count: 20 },
+    tier: 'mythic',
+  },
+
+  // Daily Challenge Streaks
+  {
+    id: 'daily_challenge_1',
+    name: 'Daily Devotee',
+    description: 'Complete a daily challenge',
+    icon: '📅',
+    xp: 25,
+    category: 'dedication',
+    requirement: { type: 'daily_challenge_streak', count: 1 },
+    tier: 'bronze',
+  },
+  {
+    id: 'daily_challenge_7',
+    name: 'Challenge Champion',
+    description: 'Complete daily challenges for 7 days',
+    icon: '🗓️',
+    xp: 100,
+    category: 'dedication',
+    requirement: { type: 'daily_challenge_streak', count: 7 },
+    tier: 'silver',
+  },
+  {
+    id: 'daily_challenge_30',
+    name: 'Monthly Master',
+    description: 'Complete daily challenges for 30 days',
+    icon: '📆',
+    xp: 400,
+    category: 'dedication',
+    requirement: { type: 'daily_challenge_streak', count: 30 },
+    tier: 'gold',
+  },
+  {
+    id: 'daily_challenge_100',
+    name: 'Centurion',
+    description: 'Complete daily challenges for 100 days',
+    icon: '🏛️',
+    xp: 1500,
+    category: 'dedication',
+    requirement: { type: 'daily_challenge_streak', count: 100 },
     tier: 'mythic',
   },
 

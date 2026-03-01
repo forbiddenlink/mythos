@@ -104,7 +104,7 @@ interface Location {
 }
 
 // Simple GraphQL query parser
-function parseGraphQLQuery(query: string): { operationName: string; variables: Record<string, unknown> } {
+function _parseGraphQLQuery(query: string): { operationName: string; variables: Record<string, unknown> } {
   // Extract query name
   const queryMatch = query.match(/query\s+(\w+)/);
   const operationName = queryMatch ? queryMatch[1] : '';

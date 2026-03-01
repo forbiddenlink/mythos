@@ -5,11 +5,13 @@ import { graphqlClient } from '@/lib/graphql-client';
 import { GET_CREATURE } from '@/lib/queries';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Loader2, ShieldAlert, Zap, MapPin } from 'lucide-react';
+import { Loader2, ShieldAlert, Zap, MapPin, Skull, Users } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { CreatureJsonLd, BreadcrumbJsonLd } from '@/components/seo/JsonLd';
 import { siteConfig } from '@/lib/metadata';
+import creaturesData from '@/data/creatures.json';
+import deitiesData from '@/data/deities.json';
 
 interface Creature {
     id: string;
@@ -62,7 +64,17 @@ export function CreaturePageClient({ slug }: CreaturePageClientProps) {
     }
 
     const creature = data.creature;
-    const dangerColor = creature.dangerLevel >= 9 ? 'text-destructive' : creature.dangerLevel >= 7 ? 'text-orange-500' : 'text-yellow-500';
+    let dangerColor = 'text-yellow-500';
+    if (creature.dangerLevel >= 9) dangerColor = 'text-destructive';
+    else if (creature.dangerLevel >= 7) dangerColor = 'text-orange-500';
+
+    const samePantheonCreatures = creaturesData
+        .filter((c) => c.pantheonId === creature.pantheonId && c.id !== creature.id)
+        .slice(0, 4);
+
+    const samePantheonDeities = deitiesData
+        .filter((d) => d.pantheonId === creature.pantheonId)
+        .slice(0, 4);
 
     const breadcrumbItems = [
         { name: 'Home', item: siteConfig.url },
@@ -88,7 +100,7 @@ export function CreaturePageClient({ slug }: CreaturePageClientProps) {
                 </div>
 
                 {/* Abstract Red Glow */}
-                <div className="absolute top-0 right-0 w-[50%] h-[100%] bg-radial-gradient from-red-900/10 to-transparent pointer-events-none z-0" />
+                <div className="absolute top-0 right-0 w-[50%] h-full bg-radial-gradient from-red-900/10 to-transparent pointer-events-none z-0" />
 
                 <div className="container mx-auto max-w-4xl px-4 py-12 relative z-20">
                     <Link
@@ -169,6 +181,52 @@ export function CreaturePageClient({ slug }: CreaturePageClientProps) {
                                 </CardContent>
                             </Card>
                         </div>
+                    </div>
+
+                    {/* Related Content */}
+                    <div className="mt-12 space-y-8">
+                        {/* More Creatures from this Pantheon */}
+                        {samePantheonCreatures.length > 0 && (
+                            <div>
+                                <h2 className="font-serif text-2xl font-bold text-white mb-4 flex items-center gap-2">
+                                    <Skull className="h-5 w-5 text-red-500" />
+                                    More from this Pantheon
+                                </h2>
+                                <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                                    {samePantheonCreatures.map((c) => (
+                                        <Link key={c.id} href={`/creatures/${c.slug}`}>
+                                            <Card className="bg-slate-900/50 border-slate-800 hover:border-red-500/50 transition-all group">
+                                                <CardContent className="p-4">
+                                                    <h3 className="font-semibold text-white group-hover:text-red-400 transition-colors">{c.name}</h3>
+                                                    <p className="text-xs text-slate-400 mt-1">{c.habitat}</p>
+                                                </CardContent>
+                                            </Card>
+                                        </Link>
+                                    ))}
+                                </div>
+                            </div>
+                        )}
+
+                        {/* Related Deities */}
+                        {samePantheonDeities.length > 0 && (
+                            <div>
+                                <h2 className="font-serif text-2xl font-bold text-white mb-4 flex items-center gap-2">
+                                    <Users className="h-5 w-5 text-gold" />
+                                    Deities of this Pantheon
+                                </h2>
+                                <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                                    {samePantheonDeities.map((d) => (
+                                        <Link key={d.id} href={`/deities/${d.slug}`}>
+                                            <Card className="bg-slate-900/50 border-slate-800 hover:border-gold/50 transition-all group">
+                                                <CardContent className="p-4">
+                                                    <h3 className="font-semibold text-white group-hover:text-gold transition-colors">{d.name}</h3>
+                                                </CardContent>
+                                            </Card>
+                                        </Link>
+                                    ))}
+                                </div>
+                            </div>
+                        )}
                     </div>
 
                 </div>

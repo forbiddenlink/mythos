@@ -43,6 +43,7 @@ export function LanguageSwitcher() {
 
   const handleLocaleChange = (locale: Locale) => {
     // Set cookie for server-side locale detection
+    // eslint-disable-next-line react-hooks/immutability -- document.cookie is a standard browser API
     document.cookie = `locale=${locale};path=/;max-age=31536000;SameSite=Lax`;
 
     // Store in localStorage as backup
@@ -69,7 +70,7 @@ export function LanguageSwitcher() {
         onClick={() => setIsOpen(!isOpen)}
         className="flex items-center gap-1.5 px-2 py-2 text-sm text-muted-foreground hover:text-foreground rounded-lg hover:bg-muted/50 transition-all duration-200"
         aria-label="Select language"
-        aria-expanded={isOpen}
+        aria-expanded={isOpen ? "true" : "false"}
         aria-haspopup="listbox"
       >
         <span className="text-base" aria-hidden="true">
@@ -100,7 +101,7 @@ export function LanguageSwitcher() {
                     : 'text-foreground hover:bg-muted'
                 }`}
                 role="option"
-                aria-selected={locale === currentLocale}
+                aria-selected={locale === currentLocale ? "true" : "false"}
               >
                 <span className="text-base" aria-hidden="true">
                   {localeFlags[locale]}

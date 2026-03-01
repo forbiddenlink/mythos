@@ -18,7 +18,6 @@ import {
 } from 'lucide-react';
 import {
   BranchingStory,
-  StoryNode,
   StoryProgress,
   saveStoryProgress,
   getStoryProgress,
@@ -48,6 +47,7 @@ export function InteractiveStory({ story }: InteractiveStoryProps) {
   useEffect(() => {
     const savedProgress = getStoryProgress(story.id);
     if (savedProgress) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect -- hydrate story progress from localStorage
       setCurrentNodeId(savedProgress.currentNodeId);
       setPathTaken(savedProgress.pathTaken);
     }
@@ -72,6 +72,7 @@ export function InteractiveStory({ story }: InteractiveStoryProps) {
   useEffect(() => {
     if (currentNode?.ending && !discoveredEndings.includes(currentNodeId)) {
       saveDiscoveredEnding(story.id, currentNodeId);
+      // eslint-disable-next-line react-hooks/set-state-in-effect -- update endings when new ending discovered
       setDiscoveredEndings((prev) => [...prev, currentNodeId]);
       setShowEndingScreen(true);
     }
@@ -146,7 +147,7 @@ export function InteractiveStory({ story }: InteractiveStoryProps) {
           </div>
           <div className="h-2 bg-midnight rounded-full overflow-hidden">
             <motion.div
-              className="h-full bg-gradient-to-r from-gold-dark to-gold"
+              className="h-full bg-linear-to-r from-gold-dark to-gold"
               initial={{ width: 0 }}
               animate={{
                 width: `${(discoveredEndings.length / story.totalEndings) * 100}%`,

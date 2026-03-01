@@ -12,6 +12,7 @@ export function useTextToSpeech() {
     useEffect(() => {
         if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
             synthesisRef.current = window.speechSynthesis;
+            // eslint-disable-next-line react-hooks/set-state-in-effect -- detect browser speech synthesis support on mount
             setHasBrowserSupport(true);
         }
     }, []);

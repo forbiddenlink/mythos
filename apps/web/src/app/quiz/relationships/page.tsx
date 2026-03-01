@@ -53,6 +53,13 @@ interface QuizState {
   isComplete: boolean;
 }
 
+function getCompletionMessage(percentage: number): string {
+  if (percentage === 100) return 'Perfect score! You have mastered the divine family tree!';
+  if (percentage >= 80) return 'Excellent! Your knowledge of divine relationships is impressive!';
+  if (percentage >= 60) return 'Well done! The gods recognize your dedication to learning.';
+  return 'Keep studying the divine lineages. The Muses will guide you.';
+}
+
 export default function RelationshipQuizPage() {
   const searchParams = useSearchParams();
   const [difficulty, setDifficulty] = useState<Difficulty>('medium');
@@ -74,7 +81,8 @@ export default function RelationshipQuizPage() {
   // Load high score
   useEffect(() => {
     const saved = localStorage.getItem('mythos_relationship_quiz_highscore');
-    if (saved) setHighScore(parseInt(saved));
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- hydrate high score from localStorage
+    if (saved) setHighScore(Number.parseInt(saved));
   }, []);
 
   const { data, isLoading, error } = useQuery<{ deities: Deity[]; relationships: Relationship[] }>({
@@ -179,7 +187,7 @@ export default function RelationshipQuizPage() {
       total: total.toString(),
       difficulty: diff,
     });
-    const shareUrl = `${window.location.origin}/quiz/relationships?${params.toString()}`;
+    const shareUrl = `${globalThis.location.origin}/quiz/relationships?${params.toString()}`;
 
     try {
       // Try native share first on mobile
@@ -197,13 +205,11 @@ export default function RelationshipQuizPage() {
         setTimeout(() => setCopied(false), 2000);
       }
     } catch {
-      // Fallback for older browsers
-      const input = document.createElement('input');
-      input.value = shareUrl;
-      document.body.appendChild(input);
-      input.select();
-      document.execCommand('copy');
-      document.body.removeChild(input);
+      try {
+        await navigator.clipboard.writeText(shareUrl);
+      } catch {
+        // Clipboard API unavailable
+      }
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     }
@@ -211,25 +217,25 @@ export default function RelationshipQuizPage() {
 
   // Shared Results View (from URL params)
   if (isSharedResult) {
-    const score = parseInt(sharedScore);
-    const total = parseInt(sharedTotal);
+    const score = Number.parseInt(sharedScore);
+    const total = Number.parseInt(sharedTotal);
     const diff = sharedDifficulty || 'medium';
     const percentage = Math.round((score / total) * 100);
 
     return (
-      <div className="min-h-screen bg-gradient-to-b from-background to-mythic">
+      <div className="min-h-screen bg-linear-to-b from-background to-mythic">
         <div className="container mx-auto max-w-4xl px-4 py-12">
           <Breadcrumbs />
 
           <Card className="max-w-2xl mx-auto mt-6 border-gold/20 shadow-xl overflow-hidden relative">
-            <div className="absolute inset-0 bg-gradient-to-br from-gold/5 via-transparent to-transparent pointer-events-none" />
+            <div className="absolute inset-0 bg-linear-to-br from-gold/5 via-transparent to-transparent pointer-events-none" />
             <CardHeader className="text-center pt-8">
               <div className="mx-auto mb-4 p-2 rounded-full bg-gold/10 w-fit">
                 <Badge variant="secondary" className="text-xs uppercase tracking-wider">
                   Shared Result
                 </Badge>
               </div>
-              <div className="mx-auto mb-6 p-6 rounded-full bg-gradient-to-br from-gold/20 to-amber-500/10 w-fit ring-1 ring-gold/30 shadow-inner">
+              <div className="mx-auto mb-6 p-6 rounded-full bg-linear-to-br from-gold/20 to-amber-500/10 w-fit ring-1 ring-gold/30 shadow-inner">
                 <Trophy className="h-16 w-16 text-gold drop-shadow-md" />
               </div>
               <CardTitle className="text-3xl font-serif">Quiz Results</CardTitle>
@@ -245,7 +251,7 @@ export default function RelationshipQuizPage() {
               </div>
 
               <div className="flex justify-center gap-4">
-                <div className="text-center p-4 rounded-lg bg-muted/50 min-w-[100px]">
+                <div className="text-center p-4 rounded-lg bg-muted/50 min-w-25">
                   <div className="text-muted-foreground text-sm mb-1">Difficulty</div>
                   <div className="font-bold text-lg capitalize">{diff}</div>
                 </div>
@@ -287,7 +293,7 @@ export default function RelationshipQuizPage() {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-gradient-to-b from-background to-mythic">
+      <div className="min-h-screen bg-linear-to-b from-background to-mythic">
         <div className="container mx-auto max-w-4xl px-4 py-12">
           <div className="flex items-center justify-center py-12">
             <div className="flex flex-col items-center gap-4">
@@ -302,12 +308,12 @@ export default function RelationshipQuizPage() {
 
   if (error || !data) {
     return (
-      <div className="min-h-screen bg-gradient-to-b from-background to-mythic">
+      <div className="min-h-screen bg-linear-to-b from-background to-mythic">
         <div className="container mx-auto max-w-4xl px-4 py-12">
           <Card className="border-red-200 dark:border-red-900">
             <CardContent className="p-6 text-center">
               <p className="text-destructive dark:text-red-400">Failed to load quiz data. Please try again.</p>
-              <Button onClick={() => window.location.reload()} className="mt-4">
+              <Button onClick={() => globalThis.location.reload()} className="mt-4">
                 <RefreshCw className="h-4 w-4 mr-2" />
                 Retry
               </Button>
@@ -324,14 +330,14 @@ export default function RelationshipQuizPage() {
     const totalXP = calculateQuizXP(quizState.score, quizState.questions.length, difficulty, useTimer);
 
     return (
-      <div className="min-h-screen bg-gradient-to-b from-background to-mythic">
+      <div className="min-h-screen bg-linear-to-b from-background to-mythic">
         <div className="container mx-auto max-w-4xl px-4 py-12">
           <Breadcrumbs />
 
           <Card className="max-w-2xl mx-auto mt-6 border-gold/20 shadow-xl overflow-hidden relative">
-            <div className="absolute inset-0 bg-gradient-to-br from-gold/5 via-transparent to-transparent pointer-events-none" />
+            <div className="absolute inset-0 bg-linear-to-br from-gold/5 via-transparent to-transparent pointer-events-none" />
             <CardHeader className="text-center pt-8">
-              <div className="mx-auto mb-6 p-6 rounded-full bg-gradient-to-br from-gold/20 to-amber-500/10 w-fit ring-1 ring-gold/30 shadow-inner">
+              <div className="mx-auto mb-6 p-6 rounded-full bg-linear-to-br from-gold/20 to-amber-500/10 w-fit ring-1 ring-gold/30 shadow-inner">
                 <Trophy className="h-16 w-16 text-gold drop-shadow-md" />
               </div>
               <CardTitle className="text-3xl font-serif">Quiz Complete!</CardTitle>
@@ -347,25 +353,25 @@ export default function RelationshipQuizPage() {
               </div>
 
               <div className="flex justify-center gap-4 flex-wrap">
-                <div className="text-center p-4 rounded-lg bg-muted/50 min-w-[100px]">
+                <div className="text-center p-4 rounded-lg bg-muted/50 min-w-25">
                   <div className="text-muted-foreground text-sm mb-1">Difficulty</div>
                   <div className="font-bold text-lg capitalize">{difficulty}</div>
                 </div>
-                <div className="text-center p-4 rounded-lg bg-gold/10 border border-gold/20 min-w-[100px]">
+                <div className="text-center p-4 rounded-lg bg-gold/10 border border-gold/20 min-w-25">
                   <div className="text-gold/80 text-sm mb-1 flex items-center justify-center gap-1">
                     <Zap className="h-3 w-3" /> XP Earned
                   </div>
                   <div className="font-bold text-lg text-gold">+{totalXP}</div>
                 </div>
                 {useTimer && (
-                  <div className="text-center p-4 rounded-lg bg-purple-500/10 border border-purple-500/20 min-w-[100px]">
+                  <div className="text-center p-4 rounded-lg bg-purple-500/10 border border-purple-500/20 min-w-25">
                     <div className="text-purple-500/80 text-sm mb-1 flex items-center justify-center gap-1">
                       <Timer className="h-3 w-3" /> Challenge
                     </div>
                     <div className="font-bold text-lg text-purple-500">+15%</div>
                   </div>
                 )}
-                <div className="text-center p-4 rounded-lg bg-muted/50 border border-gold/20 bg-gold/5 min-w-[100px]">
+                <div className="text-center p-4 rounded-lg border border-gold/20 bg-gold/5 min-w-25">
                   <div className="text-gold/80 text-sm mb-1 flex items-center justify-center gap-1">
                     <Crown className="h-3 w-3" /> Best
                   </div>
@@ -374,15 +380,7 @@ export default function RelationshipQuizPage() {
               </div>
 
               <div className="text-center max-w-sm mx-auto">
-                {percentage === 100 ? (
-                  <p className="text-lg">Perfect score! You have mastered the divine family tree!</p>
-                ) : percentage >= 80 ? (
-                  <p className="text-lg">Excellent! Your knowledge of divine relationships is impressive!</p>
-                ) : percentage >= 60 ? (
-                  <p className="text-lg">Well done! The gods recognize your dedication to learning.</p>
-                ) : (
-                  <p className="text-lg">Keep studying the divine lineages. The Muses will guide you.</p>
-                )}
+                <p className="text-lg">{getCompletionMessage(percentage)}</p>
               </div>
 
               <div className="flex flex-col sm:flex-row gap-3">
@@ -433,7 +431,7 @@ export default function RelationshipQuizPage() {
     const hasAnswered = quizState.answers.length > quizState.currentIndex;
 
     return (
-      <div className="min-h-screen bg-gradient-to-b from-background to-mythic">
+      <div className="min-h-screen bg-linear-to-b from-background to-mythic">
         <div className="container mx-auto max-w-4xl px-4 py-12">
           <Breadcrumbs />
 
@@ -457,14 +455,13 @@ export default function RelationshipQuizPage() {
                 <Badge variant="secondary" className="capitalize">
                   {difficulty}
                 </Badge>
-                <div
+                <output
                   className="flex items-center gap-2 px-3 py-1 rounded-full bg-gold/10 border border-gold/20 text-gold text-sm font-medium"
-                  role="status"
                   aria-label={`Current score: ${quizState.score} correct answers`}
                 >
                   <Trophy className="h-3.5 w-3.5" aria-hidden="true" />
                   <span>{quizState.score}</span>
-                </div>
+                </output>
               </div>
             </div>
 
@@ -503,7 +500,7 @@ export default function RelationshipQuizPage() {
 
   // Quiz Setup Screen
   return (
-    <div className="min-h-screen bg-gradient-to-b from-background to-mythic">
+    <div className="min-h-screen bg-linear-to-b from-background to-mythic">
       <div className="container mx-auto max-w-4xl px-4 py-12">
         <Breadcrumbs />
 
@@ -532,9 +529,9 @@ export default function RelationshipQuizPage() {
           <CardContent className="space-y-6">
             {/* Difficulty Selection */}
             <div className="space-y-2">
-              <label className="text-sm font-medium">Difficulty</label>
+              <label className="text-sm font-medium" htmlFor="difficulty-select">Difficulty</label>
               <Select value={difficulty} onValueChange={(v) => setDifficulty(v as Difficulty)}>
-                <SelectTrigger className="w-full">
+                <SelectTrigger id="difficulty-select" className="w-full">
                   <SelectValue placeholder="Select difficulty" />
                 </SelectTrigger>
                 <SelectContent>
@@ -558,9 +555,9 @@ export default function RelationshipQuizPage() {
 
             {/* Question Count */}
             <div className="space-y-2">
-              <label className="text-sm font-medium">Number of Questions</label>
-              <Select value={questionCount.toString()} onValueChange={(v) => setQuestionCount(parseInt(v))}>
-                <SelectTrigger className="w-full">
+              <label className="text-sm font-medium" htmlFor="question-count-select">Number of Questions</label>
+              <Select value={questionCount.toString()} onValueChange={(v) => setQuestionCount(Number.parseInt(v))}>
+                <SelectTrigger id="question-count-select" className="w-full">
                   <SelectValue placeholder="Select count" />
                 </SelectTrigger>
                 <SelectContent>

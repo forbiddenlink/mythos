@@ -90,7 +90,7 @@ export function LearningPathCard({ path, className = '' }: LearningPathCardProps
   return (
     <Card className={`group relative overflow-hidden transition-all duration-300 hover:shadow-lg hover:-translate-y-1 ${className}`}>
       {/* Gradient accent at top */}
-      <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${gradientColor}`} />
+      <div className={`absolute top-0 left-0 right-0 h-1 bg-linear-to-r ${gradientColor}`} />
 
       <CardHeader className="pb-3">
         <div className="flex items-start justify-between gap-3">
@@ -161,7 +161,7 @@ export function LearningPathCard({ path, className = '' }: LearningPathCardProps
           className={`w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg font-medium transition-all duration-200 ${
             isComplete
               ? 'bg-muted text-muted-foreground hover:bg-muted/80'
-              : `bg-gradient-to-r ${gradientColor} text-white hover:opacity-90`
+              : `bg-linear-to-r ${gradientColor} text-white hover:opacity-90`
           }`}
         >
           {isComplete ? (

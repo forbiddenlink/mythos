@@ -17,7 +17,7 @@ import { PANTHEON_COLORS } from '@/components/graph/KnowledgeGraph';
 // Lazy load heavy ReactFlow-based knowledge graph
 const KnowledgeGraph = dynamic(
   () => import('@/components/graph/KnowledgeGraph').then(mod => ({ default: mod.KnowledgeGraph })),
-  { loading: () => <div className="h-[600px] flex items-center justify-center"><Loader2 className="h-8 w-8 animate-spin text-primary" /></div>, ssr: false }
+  { loading: () => <div className="h-150 flex items-center justify-center"><Loader2 className="h-8 w-8 animate-spin text-primary" /></div>, ssr: false }
 );
 
 // Import data directly
@@ -141,7 +141,7 @@ export default function KnowledgeGraphPage() {
     return (
       <div className="fixed inset-0 z-50 bg-slate-950">
         {/* Fullscreen header */}
-        <div className="absolute top-0 left-0 right-0 z-10 p-4 bg-gradient-to-b from-slate-950 to-transparent">
+        <div className="absolute top-0 left-0 right-0 z-10 p-4 bg-linear-to-b from-slate-950 to-transparent">
           <div className="flex items-center justify-between">
             <h1 className="font-serif text-xl font-bold text-white flex items-center gap-2">
               <Network className="h-5 w-5 text-teal-400" />
@@ -210,12 +210,12 @@ export default function KnowledgeGraphPage() {
             className="object-cover"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-br from-slate-900/80 via-indigo-900/70 to-purple-900/80" />
+          <div className="absolute inset-0 bg-linear-to-br from-slate-900/80 via-indigo-900/70 to-purple-900/80" />
         </div>
 
         <div className="container mx-auto max-w-7xl px-4 py-16 relative z-10">
           <div className="flex items-center gap-3 mb-4">
-            <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-indigo-600 to-purple-700 flex items-center justify-center shadow-lg">
+            <div className="w-12 h-12 rounded-lg bg-linear-to-br from-indigo-600 to-purple-700 flex items-center justify-center shadow-lg">
               <Network className="h-6 w-6 text-white" />
             </div>
             <div>
@@ -291,7 +291,7 @@ export default function KnowledgeGraphPage() {
             </div>
           </CardHeader>
           <CardContent className="p-0">
-            <div className="w-full h-[600px] relative">
+            <div className="w-full h-150 relative">
               <KnowledgeGraph
                 deities={deities}
                 relationships={relationships}

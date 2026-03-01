@@ -15,8 +15,9 @@ export function SearchTrigger({ onClick, className = '', variant = 'default' }: 
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- track client hydration
     setMounted(true);
-    setIsMac(navigator.platform.toUpperCase().indexOf('MAC') >= 0);
+    setIsMac(/(Mac|iPhone|iPod|iPad)/i.test(navigator.userAgent));
   }, []);
 
   if (variant === 'compact') {

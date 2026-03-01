@@ -1,6 +1,6 @@
 'use client';
 
-import { useMemo, useState, useCallback, useEffect, useRef, memo } from 'react';
+import { useMemo, useState, useCallback, useEffect, memo } from 'react';
 import ReactFlow, {
   Node,
   Edge,
@@ -142,7 +142,7 @@ const DeityNode = memo(function DeityNode({
     <Card
       className={`
         transition-all duration-200 cursor-pointer
-        ${nodeSize === 'large' ? 'p-3 min-w-[140px]' : 'p-2 min-w-[100px]'}
+        ${nodeSize === 'large' ? 'p-3 min-w-35' : 'p-2 min-w-25'}
         ${isHighlighted ? 'ring-2 ring-amber-400 shadow-lg shadow-amber-400/30' : ''}
         bg-white dark:bg-slate-900 hover:shadow-lg hover:scale-105
       `}
@@ -214,16 +214,15 @@ function calculateLayout(
     const pantheonList = Array.from(pantheonGroups.entries());
     const numPantheons = pantheonList.length;
     const clusterRadius = 600;
-    const nodeSpacing = 180;
 
-    pantheonList.forEach(([pantheonId, deities], clusterIndex) => {
+    pantheonList.forEach(([_pantheonId, deities], clusterIndex) => {
       // Position cluster centers in a circle
       const clusterAngle = (clusterIndex / numPantheons) * 2 * Math.PI - Math.PI / 2;
       const clusterCenterX = Math.cos(clusterAngle) * clusterRadius;
       const clusterCenterY = Math.sin(clusterAngle) * clusterRadius;
 
       // Sort deities by importance within cluster
-      const sortedDeities = [...deities].sort((a, b) =>
+      const sortedDeities = deities.toSorted((a, b) =>
         (a.importanceRank || 999) - (b.importanceRank || 999)
       );
 
@@ -252,7 +251,7 @@ function calculateLayout(
     const spacing = 200;
 
     // Sort by importance first
-    const sortedDeities = [...filteredDeities].sort((a, b) =>
+    const sortedDeities = filteredDeities.toSorted((a, b) =>
       (a.importanceRank || 999) - (b.importanceRank || 999)
     );
 
@@ -273,7 +272,7 @@ function calculateLayout(
 function KnowledgeGraphInner({
   deities,
   relationships,
-  pantheons,
+  pantheons: _pantheons,
   selectedPantheons,
   relationshipFilters,
   clusterByPantheon,
@@ -284,10 +283,10 @@ function KnowledgeGraphInner({
   highlightedNodeId: string | null;
   setHighlightedNodeId: (id: string | null) => void;
 }) {
-  const { setCenter, zoomIn, zoomOut, fitView } = useReactFlow();
+  const { fitView } = useReactFlow();
 
   // Create deity map for quick lookups
-  const deityMap = useMemo(() => new Map(deities.map(d => [d.id, d])), [deities]);
+  const _deityMap = useMemo(() => new Map(deities.map(d => [d.id, d])), [deities]);
 
   // Calculate positions
   const positions = useMemo(

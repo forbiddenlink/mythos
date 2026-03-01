@@ -3,7 +3,7 @@
 import { useState, useMemo } from 'react';
 import Image from 'next/image';
 import { Compass, Sparkles, Users, ArrowRight } from 'lucide-react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import {
   Select,
@@ -173,9 +173,9 @@ export default function DivinDomainsPage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <div className="relative h-[50vh] min-h-[400px] flex items-center justify-center overflow-hidden">
+      <div className="relative h-[50vh] min-h-100 flex items-center justify-center overflow-hidden">
         {/* Background - gradient with subtle effects */}
-        <div className="absolute inset-0 z-0 bg-gradient-to-br from-midnight via-midnight/95 to-midnight">
+        <div className="absolute inset-0 z-0 bg-linear-to-br from-midnight via-midnight/95 to-midnight">
           <div className="absolute inset-0 opacity-20">
             <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-gold/20 rounded-full blur-3xl" />
             <div className="absolute bottom-1/3 right-1/4 w-96 h-96 bg-gold/10 rounded-full blur-3xl" />
@@ -183,7 +183,7 @@ export default function DivinDomainsPage() {
           </div>
         </div>
         {/* Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-midnight/50 via-midnight/40 to-midnight/80 z-10" />
+        <div className="absolute inset-0 bg-linear-to-b from-midnight/50 via-midnight/40 to-midnight/80 z-10" />
 
         {/* Radial gold glow */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[120%] h-[60%] bg-gradient-radial from-gold/10 via-transparent to-transparent z-10" />
@@ -192,7 +192,7 @@ export default function DivinDomainsPage() {
         <div className="relative z-20 text-center px-4 max-w-4xl mx-auto">
           <div className="flex items-center justify-center mb-6">
             <div className="relative p-4 rounded-xl border border-gold/20 bg-midnight/50 backdrop-blur-sm">
-              <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-gold/10 to-transparent" />
+              <div className="absolute inset-0 rounded-xl bg-linear-to-br from-gold/10 to-transparent" />
               <Compass className="relative h-10 w-10 text-gold" strokeWidth={1.5} />
             </div>
           </div>
@@ -203,9 +203,9 @@ export default function DivinDomainsPage() {
             Divine Domains
           </h1>
           <div className="flex items-center justify-center gap-4 mb-6">
-            <div className="w-12 h-px bg-gradient-to-r from-transparent to-gold/40" />
+            <div className="w-12 h-px bg-linear-to-r from-transparent to-gold/40" />
             <div className="w-1.5 h-1.5 rotate-45 bg-gold/50" />
-            <div className="w-12 h-px bg-gradient-to-l from-transparent to-gold/40" />
+            <div className="w-12 h-px bg-linear-to-l from-transparent to-gold/40" />
           </div>
           <p className="text-lg md:text-xl text-parchment/70 max-w-2xl mx-auto font-body leading-relaxed">
             Compare deities across all pantheons who share the same divine sphere of influence - from war and wisdom to love and death
@@ -258,7 +258,7 @@ export default function DivinDomainsPage() {
               {/* Pantheon Filter */}
               {availablePantheons.length > 1 && (
                 <Select value={pantheonFilter} onValueChange={setPantheonFilter}>
-                  <SelectTrigger className="w-[220px]">
+                  <SelectTrigger className="w-55">
                     <SelectValue placeholder="Filter by pantheon" />
                   </SelectTrigger>
                   <SelectContent>
@@ -297,7 +297,7 @@ export default function DivinDomainsPage() {
                       {/* From Deity */}
                       <div className="flex items-center gap-2 flex-1 min-w-0">
                         {connection.from.imageUrl ? (
-                          <div className="relative w-8 h-8 rounded-full overflow-hidden border border-gold/20 flex-shrink-0">
+                          <div className="relative w-8 h-8 rounded-full overflow-hidden border border-gold/20 shrink-0">
                             <Image
                               src={connection.from.imageUrl}
                               alt={connection.from.name}
@@ -306,7 +306,7 @@ export default function DivinDomainsPage() {
                             />
                           </div>
                         ) : (
-                          <div className="w-8 h-8 rounded-full bg-gold/10 border border-gold/20 flex items-center justify-center flex-shrink-0">
+                          <div className="w-8 h-8 rounded-full bg-gold/10 border border-gold/20 flex items-center justify-center shrink-0">
                             <Sparkles className="h-4 w-4 text-gold" />
                           </div>
                         )}
@@ -324,12 +324,12 @@ export default function DivinDomainsPage() {
                       </div>
 
                       {/* Arrow */}
-                      <ArrowRight className="h-4 w-4 text-gold/60 flex-shrink-0 mx-1" />
+                      <ArrowRight className="h-4 w-4 text-gold/60 shrink-0 mx-1" />
 
                       {/* To Deity */}
                       <div className="flex items-center gap-2 flex-1 min-w-0">
                         {connection.to.imageUrl ? (
-                          <div className="relative w-8 h-8 rounded-full overflow-hidden border border-gold/20 flex-shrink-0">
+                          <div className="relative w-8 h-8 rounded-full overflow-hidden border border-gold/20 shrink-0">
                             <Image
                               src={connection.to.imageUrl}
                               alt={connection.to.name}
@@ -338,7 +338,7 @@ export default function DivinDomainsPage() {
                             />
                           </div>
                         ) : (
-                          <div className="w-8 h-8 rounded-full bg-gold/10 border border-gold/20 flex items-center justify-center flex-shrink-0">
+                          <div className="w-8 h-8 rounded-full bg-gold/10 border border-gold/20 flex items-center justify-center shrink-0">
                             <Sparkles className="h-4 w-4 text-gold" />
                           </div>
                         )}
@@ -405,18 +405,20 @@ export default function DivinDomainsPage() {
                 const pantheonCount = stats.pantheons?.size || 0;
 
                 return (
-                  <Card
+                  <button
                     key={domain.id}
-                    className="group cursor-pointer card-elevated bg-card hover:scale-[1.02] transition-all duration-300"
+                    type="button"
+                    className="text-left w-full"
                     onClick={() => setSelectedDomain(domain.id)}
-                    tabIndex={0}
-                    role="button"
                     onKeyDown={e => {
                       if (e.key === 'Enter' || e.key === ' ') {
                         e.preventDefault();
                         setSelectedDomain(domain.id);
                       }
                     }}
+                  >
+                  <Card
+                    className="group cursor-pointer card-elevated bg-card hover:scale-[1.02] transition-all duration-300"
                   >
                     <CardContent className="p-6 flex flex-col items-center text-center">
                       <div className="p-3 rounded-xl bg-gold/10 border border-gold/20 group-hover:bg-gold/15 transition-colors duration-300 mb-4">
@@ -435,6 +437,7 @@ export default function DivinDomainsPage() {
                       )}
                     </CardContent>
                   </Card>
+                  </button>
                 );
               })}
             </div>

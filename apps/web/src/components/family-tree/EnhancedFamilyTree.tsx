@@ -1,10 +1,9 @@
 'use client';
 
 import { useState, useMemo, useCallback } from 'react';
-import Tree from 'react-d3-tree';
+import Tree, { type RawNodeDatum, type TreeNodeDatum } from 'react-d3-tree';
 import { Button } from '@/components/ui/button';
 import { Sparkles, ZoomIn, ZoomOut, Maximize2, Users } from 'lucide-react';
-import type { RawNodeDatum, TreeNodeDatum } from 'react-d3-tree';
 
 interface Deity {
   id: string;
@@ -47,18 +46,17 @@ const renderForeignObjectNode = ({
   if (!deity) return null;
 
   const hasChildren = nodeDatum.children && nodeDatum.children.length > 0;
-  const genderColor = deity.gender === 'male' 
-    ? 'from-blue-500 to-cyan-600' 
-    : deity.gender === 'female' 
-    ? 'from-pink-500 to-rose-600' 
-    : 'from-amber-500 to-orange-600';
+  let genderColor = 'from-amber-500 to-orange-600';
+  if (deity.gender === 'male') genderColor = 'from-blue-500 to-cyan-600';
+  else if (deity.gender === 'female') genderColor = 'from-pink-500 to-rose-600';
 
   return (
     <g>
       <foreignObject width={220} height={100} x={-110} y={-50}>
         <div className="flex flex-col items-center">
-          <div
-            className="bg-white dark:bg-slate-900 rounded-lg shadow-lg p-3 border-2 border-slate-200 dark:border-slate-700 hover:shadow-xl transition-all cursor-pointer w-50"
+          <button
+            type="button"
+            className="bg-white dark:bg-slate-900 rounded-lg shadow-lg p-3 border-2 border-slate-200 dark:border-slate-700 hover:shadow-xl transition-all cursor-pointer w-50 text-left appearance-none"
             onClick={toggleNode}
           >
             <div className="flex items-center gap-2 mb-2">
@@ -82,7 +80,7 @@ const renderForeignObjectNode = ({
                 </span>
               </div>
             )}
-          </div>
+          </button>
           {customNode.relationshipType && (
             <div className="mt-1 px-2 py-0.5 rounded-full bg-teal-100 dark:bg-teal-900/30 text-teal-700 dark:text-teal-300 text-xs">
               {customNode.relationshipType}
@@ -172,7 +170,7 @@ export function EnhancedFamilyTree({
   deities, 
   relationships, 
   focusDeityId 
-}: EnhancedFamilyTreeProps) {
+}: Readonly<EnhancedFamilyTreeProps>) {
   const [translate, setTranslate] = useState({ x: 0, y: 0 });
   const [zoom, setZoom] = useState(0.8);
 

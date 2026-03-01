@@ -30,6 +30,7 @@ function MobileQuickStats() {
     const [mounted, setMounted] = useState(false);
 
     useEffect(() => {
+        // eslint-disable-next-line react-hooks/set-state-in-effect -- track client hydration
         setMounted(true);
         generateCardsFromProgress();
     }, [generateCardsFromProgress]);

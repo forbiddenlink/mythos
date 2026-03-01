@@ -59,7 +59,7 @@ export function FeaturesGrid() {
   return (
     <section className="relative py-28 bg-muted/30 noise-overlay overflow-hidden">
       {/* Subtle background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-transparent to-background pointer-events-none" />
+      <div className="absolute inset-0 bg-linear-to-b from-background via-transparent to-background pointer-events-none" />
 
       <div className="container mx-auto px-4 relative z-10">
         {/* Section header */}
@@ -77,9 +77,9 @@ export function FeaturesGrid() {
             Discover Ancient Wisdom
           </h2>
           <div className="flex items-center justify-center gap-4 mb-6">
-            <div className="w-12 h-px bg-gradient-to-r from-transparent to-gold/40" />
+            <div className="w-12 h-px bg-linear-to-r from-transparent to-gold/40" />
             <div className="w-1.5 h-1.5 rotate-45 bg-gold/50" />
-            <div className="w-12 h-px bg-gradient-to-l from-transparent to-gold/40" />
+            <div className="w-12 h-px bg-linear-to-l from-transparent to-gold/40" />
           </div>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto font-body leading-relaxed">
             Explore the interconnected web of deities, stories, and sacred places through interactive visualizations
@@ -103,17 +103,17 @@ export function FeaturesGrid() {
               <Link href={feature.href} className="block h-full">
                 <div className="group relative h-full p-6 rounded-xl bg-card border border-border/60 card-elevated overflow-hidden">
                   {/* Hover gradient overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-gold/[0.03] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="absolute inset-0 bg-linear-to-br from-gold/[0.03] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
                   {/* Corner accent */}
                   <div className="absolute top-0 right-0 w-16 h-16 overflow-hidden">
-                    <div className="absolute top-0 right-0 w-px h-8 bg-gradient-to-b from-gold/30 to-transparent transform origin-top-right" />
-                    <div className="absolute top-0 right-0 h-px w-8 bg-gradient-to-l from-gold/30 to-transparent" />
+                    <div className="absolute top-0 right-0 w-px h-8 bg-linear-to-b from-gold/30 to-transparent transform origin-top-right" />
+                    <div className="absolute top-0 right-0 h-px w-8 bg-linear-to-l from-gold/30 to-transparent" />
                   </div>
 
                   {/* Icon */}
                   <div className="relative mb-5">
-                    <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${feature.iconBg} flex items-center justify-center shadow-lg group-hover:scale-105 group-hover:shadow-xl transition-all duration-300`}>
+                    <div className={`w-14 h-14 rounded-xl bg-linear-to-br ${feature.iconBg} flex items-center justify-center shadow-lg group-hover:scale-105 group-hover:shadow-xl transition-all duration-300`}>
                       <feature.icon className="h-7 w-7 text-white/90" strokeWidth={1.5} />
                     </div>
                   </div>

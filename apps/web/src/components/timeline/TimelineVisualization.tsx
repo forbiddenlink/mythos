@@ -123,7 +123,7 @@ function yearToPercent(year: number, start: number, end: number): number {
 // Component
 // ---------------------------------------------------------------------------
 
-export function TimelineVisualization({ pantheons, stories, deities }: TimelineVisualizationProps) {
+export function TimelineVisualization({ pantheons, stories, deities }: Readonly<TimelineVisualizationProps>) {
   const [expandedPantheon, setExpandedPantheon] = useState<string | null>(null)
   const [regionFilter, setRegionFilter] = useState<string>('All')
   const [showFilters, setShowFilters] = useState(false)
@@ -160,7 +160,7 @@ export function TimelineVisualization({ pantheons, stories, deities }: TimelineV
 
   // Sort pantheons by start date
   const sortedPantheons = useMemo(() => {
-    return [...filteredPantheons].sort((a, b) => (a.timePeriodStart ?? 0) - (b.timePeriodStart ?? 0))
+    return filteredPantheons.toSorted((a, b) => (a.timePeriodStart ?? 0) - (b.timePeriodStart ?? 0))
   }, [filteredPantheons])
 
   // Get deities and stories for a pantheon
@@ -244,7 +244,7 @@ export function TimelineVisualization({ pantheons, stories, deities }: TimelineV
           <Button variant="outline" size="icon-sm" onClick={handleZoomOut} disabled={zoomLevel <= 1} aria-label="Zoom out">
             <ZoomOut className="h-4 w-4" />
           </Button>
-          <span className="text-xs text-muted-foreground min-w-[3rem] text-center tabular-nums">
+          <span className="text-xs text-muted-foreground min-w-12 text-center tabular-nums">
             {zoomLevel.toFixed(1)}x
           </span>
           <Button variant="outline" size="icon-sm" onClick={handleZoomIn} disabled={zoomLevel >= 8} aria-label="Zoom in">
@@ -420,7 +420,7 @@ export function TimelineVisualization({ pantheons, stories, deities }: TimelineV
                     <motion.div
                       className={cn(
                         'absolute top-7 h-2.5 rounded-full cursor-pointer',
-                        `bg-gradient-to-r ${barGradient}`,
+                        `bg-linear-to-r ${barGradient}`,
                         'hover:h-3 transition-all duration-200',
                         isExpanded && 'h-3 ring-2 ring-white/20',
                       )}
@@ -605,7 +605,7 @@ export function TimelineVisualization({ pantheons, stories, deities }: TimelineV
                     <div className="absolute left-0 w-4 h-4 rounded-full border-2 border-gold/40 bg-background flex items-center justify-center">
                       <div className="w-1.5 h-1.5 rounded-full bg-gold/60" />
                     </div>
-                    <div className="absolute left-[7px] top-4 bottom-0 w-px bg-border/50" />
+                    <div className="absolute left-1.75 top-4 bottom-0 w-px bg-border/50" />
                     <div>
                       <h3 className="text-xs font-semibold text-foreground uppercase tracking-wider">
                         {era.label}
@@ -645,7 +645,7 @@ export function TimelineVisualization({ pantheons, stories, deities }: TimelineV
                           >
                             <div className="flex items-center justify-between">
                               <div className="flex items-center gap-2">
-                                <div className={cn('w-3 h-3 rounded-full bg-gradient-to-r', barGradient)} />
+                                <div className={cn('w-3 h-3 rounded-full bg-linear-to-r', barGradient)} />
                                 <span className={cn('font-serif text-sm font-medium', colors.text)}>
                                   {pantheon.name}
                                 </span>
@@ -755,7 +755,7 @@ export function TimelineVisualization({ pantheons, stories, deities }: TimelineV
                 expandedPantheon === p.id && 'bg-muted/80',
               )}
             >
-              <div className={cn('w-3 h-1.5 rounded-full bg-gradient-to-r', barGradient)} />
+              <div className={cn('w-3 h-1.5 rounded-full bg-linear-to-r', barGradient)} />
               <span className={cn('whitespace-nowrap', colors.text)}>{p.name.replace(' Pantheon', '')}</span>
             </button>
           )

@@ -1,6 +1,6 @@
 'use client';
 
-import { createContext, useCallback, useContext, useEffect, useState, type ReactNode } from 'react';
+import { createContext, useCallback, useContext, useEffect, useMemo, useState, type ReactNode } from 'react';
 import {
   type CardState,
   type ReviewCard,
@@ -112,7 +112,6 @@ export function ReviewProvider({ children }: { children: ReactNode }) {
   const progressContext = useContext(ProgressContext);
 
   // Hydration-safe: load from localStorage on client mount
-  // eslint-disable-next-line react-hooks/set-state-in-effect -- intentional hydration pattern
   useEffect(() => {
     const loaded = loadReviewState();
 
@@ -138,6 +137,7 @@ export function ReviewProvider({ children }: { children: ReactNode }) {
       }
     }
 
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- hydrate review state from localStorage (SSR-safe)
     setReviewState(loaded);
     setMounted(true);
   }, []);
@@ -300,19 +300,22 @@ export function ReviewProvider({ children }: { children: ReactNode }) {
     }));
   }, []);
 
+  const contextValue = useMemo(
+    () => ({
+      reviewState,
+      dueCards,
+      dueCount: dueCards.length,
+      generateCardsFromProgress,
+      reviewCard,
+      getCardState,
+      getTodayStats,
+      resetTodayProgress,
+    }),
+    [reviewState, dueCards, generateCardsFromProgress, reviewCard, getCardState, getTodayStats, resetTodayProgress]
+  );
+
   return (
-    <ReviewContext.Provider
-      value={{
-        reviewState,
-        dueCards,
-        dueCount: dueCards.length,
-        generateCardsFromProgress,
-        reviewCard,
-        getCardState,
-        getTodayStats,
-        resetTodayProgress,
-      }}
-    >
+    <ReviewContext.Provider value={contextValue}>
       {children}
     </ReviewContext.Provider>
   );

@@ -43,7 +43,7 @@ export function ComparisonCard({
   pantheonName,
 }: ComparisonCardProps) {
   const formatPantheonName = (id: string) => {
-    return pantheonName || id.replace('-pantheon', '').replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+    return pantheonName || id.replace('-pantheon', '').replaceAll('-', ' ').replaceAll(/\b\w/g, c => c.toUpperCase());
   };
 
   return (
@@ -167,13 +167,13 @@ export function ComparisonCard({
               Cross-Pantheon Parallels
             </h4>
             <ul className="space-y-2">
-              {deity.crossPantheonParallels.slice(0, 3).map((parallel, idx) => (
-                <li key={idx} className="text-sm">
+              {deity.crossPantheonParallels.slice(0, 3).map((parallel) => (
+                <li key={parallel.deityId} className="text-sm">
                   <Link
                     href={`/deities/${parallel.deityId}`}
                     className="text-gold hover:underline font-medium"
                   >
-                    {parallel.deityId.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase())}
+                    {parallel.deityId.replaceAll('-', ' ').replaceAll(/\b\w/g, c => c.toUpperCase())}
                   </Link>
                   <span className="text-muted-foreground"> ({formatPantheonName(parallel.pantheonId)})</span>
                 </li>

@@ -1,7 +1,7 @@
 // Simple GraphQL client using native fetch
 function getApiUrl() {
   // In browser, use relative URL
-  if (typeof window !== 'undefined') {
+  if (globalThis.window !== undefined) {
     return '/api/graphql';
   }
   

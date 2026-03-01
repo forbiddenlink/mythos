@@ -25,7 +25,7 @@ export const metadata = generateBaseMetadata({
 
 export default function PersonalityQuizPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-background to-mythic">
+    <div className="min-h-screen bg-linear-to-b from-background to-mythic">
       <QuizJsonLd
         name="Which God Are You? Personality Quiz"
         description="Discover your divine counterpart by answering personality questions that match you to a deity from ancient mythology."

@@ -59,7 +59,7 @@ export function TransitionSkeleton({
     return (
       <div
         className={cn(
-          'relative h-[50vh] bg-gradient-to-b from-muted/50 to-background animate-pulse',
+          'relative h-[50vh] bg-linear-to-b from-muted/50 to-background animate-pulse',
           className
         )}
       >
@@ -77,7 +77,7 @@ export function TransitionSkeleton({
   return (
     <div className={cn('min-h-screen', className)}>
       {/* Hero skeleton */}
-      <div className="relative h-[40vh] bg-gradient-to-b from-muted/30 to-background animate-pulse">
+      <div className="relative h-[40vh] bg-linear-to-b from-muted/30 to-background animate-pulse">
         <div className="absolute bottom-8 left-8">
           <div className="h-8 w-48 rounded bg-muted mb-4" />
           <div className="h-12 w-80 rounded bg-muted" />
@@ -87,7 +87,7 @@ export function TransitionSkeleton({
       {/* Content skeleton */}
       <div className="container mx-auto max-w-4xl px-4 py-12 space-y-8">
         {/* Image skeleton */}
-        <div className="w-full max-w-sm mx-auto aspect-[3/4] rounded-2xl bg-muted animate-pulse" />
+        <div className="w-full max-w-sm mx-auto aspect-3/4 rounded-2xl bg-muted animate-pulse" />
 
         {/* Card skeleton */}
         <div className="rounded-xl border border-border bg-card p-8 animate-pulse space-y-4">

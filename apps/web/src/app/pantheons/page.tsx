@@ -57,7 +57,7 @@ export default function PantheonsPage() {
         numberOfItems={data?.pantheons?.length}
       />
       {/* Hero Section */}
-      <div className="relative h-[50vh] min-h-[400px] flex items-center justify-center overflow-hidden">
+      <div className="relative h-[50vh] min-h-100 flex items-center justify-center overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <Image
@@ -69,7 +69,7 @@ export default function PantheonsPage() {
           />
         </div>
         {/* Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-midnight/70 via-midnight/60 to-midnight/80 z-10" />
+        <div className="absolute inset-0 bg-linear-to-b from-midnight/70 via-midnight/60 to-midnight/80 z-10" />
 
         {/* Radial gold glow */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[120%] h-[60%] bg-gradient-radial from-gold/10 via-transparent to-transparent z-10" />
@@ -78,7 +78,7 @@ export default function PantheonsPage() {
         <div className="relative z-20 text-center px-4 max-w-4xl mx-auto">
           <div className="flex items-center justify-center mb-6">
             <div className="relative p-4 rounded-xl border border-gold/20 bg-midnight/50 backdrop-blur-sm">
-              <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-gold/10 to-transparent" />
+              <div className="absolute inset-0 rounded-xl bg-linear-to-br from-gold/10 to-transparent" />
               <Globe className="relative h-10 w-10 text-gold" strokeWidth={1.5} />
             </div>
           </div>
@@ -89,9 +89,9 @@ export default function PantheonsPage() {
             Pantheons
           </h1>
           <div className="flex items-center justify-center gap-4 mb-6">
-            <div className="w-12 h-px bg-gradient-to-r from-transparent to-gold/40" />
+            <div className="w-12 h-px bg-linear-to-r from-transparent to-gold/40" />
             <div className="w-1.5 h-1.5 rotate-45 bg-gold/50" />
-            <div className="w-12 h-px bg-gradient-to-l from-transparent to-gold/40" />
+            <div className="w-12 h-px bg-linear-to-l from-transparent to-gold/40" />
           </div>
           <p className="text-lg md:text-xl text-parchment/70 max-w-2xl mx-auto font-body leading-relaxed">
             Explore mythological traditions from ancient civilizations around the world

@@ -25,7 +25,7 @@ function getDailyIndex(date: Date, arrayLength: number): number {
   const dateString = `${date.getFullYear()}-${date.getMonth()}-${date.getDate()}`;
   let hash = 0;
   for (let i = 0; i < dateString.length; i++) {
-    hash = ((hash << 5) - hash) + dateString.charCodeAt(i);
+    hash = ((hash << 5) - hash) + (dateString.codePointAt(i) ?? 0);
     hash = hash & hash;
   }
   return Math.abs(hash) % arrayLength;
@@ -48,7 +48,7 @@ function getDailyContent(): DailyContent {
       subtitle: deity.domain?.slice(0, 3).join(', ') || 'Divine Being',
       description: deity.description?.slice(0, 150) + '...' || 'A deity from ancient mythology.',
       href: `/deities/${deity.slug}`,
-      badge: deity.pantheonId.replace('-pantheon', '').replace(/-/g, ' '),
+      badge: deity.pantheonId.replace('-pantheon', '').replaceAll('-', ' '),
     };
   } else {
     const index = getDailyIndex(today, stories.length);
@@ -60,7 +60,7 @@ function getDailyContent(): DailyContent {
       subtitle: story.themes?.slice(0, 3).join(', ') || 'Epic Tale',
       description: story.summary?.slice(0, 150) + '...' || 'An ancient story.',
       href: `/stories/${story.slug}`,
-      badge: story.pantheonId.replace('-pantheon', '').replace(/-/g, ' '),
+      badge: story.pantheonId.replace('-pantheon', '').replaceAll('-', ' '),
     };
   }
 }
@@ -70,6 +70,7 @@ export function DailyCard() {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- track client hydration
     setMounted(true);
     setContent(getDailyContent());
   }, []);
@@ -92,7 +93,7 @@ export function DailyCard() {
       </div>
 
       <Link href={content.href} className="block group">
-        <Card className="card-elevated bg-gradient-to-br from-card via-card to-gold/5 border-gold/20 hover:border-gold/40 transition-all duration-300">
+        <Card className="card-elevated bg-linear-to-br from-card via-card to-gold/5 border-gold/20 hover:border-gold/40 transition-all duration-300">
           <CardHeader className="pb-2">
             <div className="flex items-start justify-between">
               <div className="flex items-center gap-3">

@@ -14,6 +14,7 @@ interface SelectContextValue {
   open: boolean;
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
   triggerRef: React.RefObject<HTMLButtonElement | null>;
+  contentId: string;
 }
 
 const SelectContext = React.createContext<SelectContextValue | null>(null);
@@ -34,9 +35,10 @@ interface SelectProps {
   children: React.ReactNode;
 }
 
-function Select({ value = '', onValueChange, children }: SelectProps) {
+function Select({ value = '', onValueChange, children }: Readonly<SelectProps>) {
   const [open, setOpen] = React.useState(false);
   const triggerRef = React.useRef<HTMLButtonElement | null>(null);
+  const contentId = React.useId();
 
   const handleValueChange = React.useCallback(
     (v: string) => {
@@ -46,8 +48,13 @@ function Select({ value = '', onValueChange, children }: SelectProps) {
     [onValueChange],
   );
 
+  const selectCtxValue = React.useMemo(
+    () => ({ value, onValueChange: handleValueChange, open, setOpen, triggerRef, contentId }),
+    [value, handleValueChange, open, setOpen, triggerRef, contentId],
+  );
+
   return (
-    <SelectContext.Provider value={{ value, onValueChange: handleValueChange, open, setOpen, triggerRef }}>
+    <SelectContext.Provider value={selectCtxValue}>
       <div data-slot="select" className="relative inline-block">
         {children}
       </div>
@@ -59,17 +66,18 @@ function Select({ value = '', onValueChange, children }: SelectProps) {
  * SelectTrigger
  * --------------------------------------------------------------------------*/
 
-interface SelectTriggerProps extends React.ComponentProps<'button'> { }
+type SelectTriggerProps = React.ComponentProps<'button'>
 
 function SelectTrigger({ className, children, ...props }: SelectTriggerProps) {
-  const { open, setOpen, triggerRef } = useSelectContext();
+  const { open, setOpen, triggerRef, contentId } = useSelectContext();
 
   return (
     <button
       ref={triggerRef}
       type="button"
       role="combobox"
-      aria-expanded={open}
+      aria-expanded={open ? "true" : "false"}
+      aria-controls={contentId}
       data-slot="select-trigger"
       className={cn(
         'flex h-10 items-center justify-between gap-2 rounded-lg border border-border bg-background px-3 py-2 text-sm',
@@ -114,7 +122,7 @@ interface SelectValueProps {
   placeholder?: string;
 }
 
-function SelectValue({ placeholder }: SelectValueProps) {
+function SelectValue({ placeholder }: Readonly<SelectValueProps>) {
   const { value } = useSelectContext();
 
   return (
@@ -159,10 +167,10 @@ function SelectDisplayValue() {
  * SelectContent
  * --------------------------------------------------------------------------*/
 
-interface SelectContentProps extends React.ComponentProps<'div'> { }
+type SelectContentProps = React.ComponentProps<'div'>
 
 function SelectContent({ className, children, ...props }: SelectContentProps) {
-  const { open, setOpen, triggerRef } = useSelectContext();
+  const { open, setOpen, triggerRef, contentId } = useSelectContext();
   const contentRef = React.useRef<HTMLDivElement>(null);
 
   // Item registry so SelectValue can display the label for the current value.
@@ -172,6 +180,11 @@ function SelectContent({ className, children, ...props }: SelectContentProps) {
       items.set(value, label);
     },
     [items],
+  );
+
+  const registryCtxValue = React.useMemo(
+    () => ({ items, register }),
+    [items, register],
   );
 
   // Close on outside click
@@ -203,24 +216,27 @@ function SelectContent({ className, children, ...props }: SelectContentProps) {
   }, [open, setOpen, triggerRef]);
 
   return (
-    <ItemRegistryContext.Provider value={{ items, register }}>
+    <ItemRegistryContext.Provider value={registryCtxValue}>
       {/* Hidden wrapper always renders so items can register labels */}
-      <div className="contents" aria-hidden={!open}>
+      <div className="contents" aria-hidden={open ? "false" : "true"}>
         {open && (
           <div
             ref={contentRef}
+            id={contentId}
             data-slot="select-content"
             role="listbox"
             className={cn(
-              'absolute z-50 mt-1 min-w-[var(--trigger-width,8rem)] overflow-hidden rounded-lg border border-border bg-popover text-popover-foreground shadow-lg',
+              'absolute z-50 mt-1 min-w-(--trigger-width,8rem) overflow-hidden rounded-lg border border-border bg-popover text-popover-foreground shadow-lg',
               'animate-in fade-in-0 zoom-in-95',
               'dark:border-border/60 dark:bg-card dark:shadow-black/30',
               className,
             )}
             style={{
+              /* eslint-disable react-hooks/refs -- ref read for CSS custom property sizing */
               '--trigger-width': triggerRef.current
                 ? `${triggerRef.current.offsetWidth}px`
                 : undefined,
+              /* eslint-enable react-hooks/refs */
             } as React.CSSProperties}
             {...props}
           >
@@ -242,7 +258,7 @@ interface SelectItemProps extends React.ComponentProps<'div'> {
   value: string;
 }
 
-function SelectItem({ className, value, children, ...props }: SelectItemProps) {
+function SelectItem({ className, value, children, ...props }: Readonly<SelectItemProps>) {
   const { value: selected, onValueChange } = useSelectContext();
   const registry = React.useContext(ItemRegistryContext);
   const isSelected = selected === value;
@@ -256,7 +272,8 @@ function SelectItem({ className, value, children, ...props }: SelectItemProps) {
   return (
     <div
       role="option"
-      aria-selected={isSelected}
+      aria-selected={isSelected ? "true" : "false"}
+      tabIndex={0}
       data-slot="select-item"
       className={cn(
         'relative flex cursor-pointer select-none items-center rounded-md px-3 py-2 text-sm outline-none transition-colors duration-150',
@@ -267,6 +284,12 @@ function SelectItem({ className, value, children, ...props }: SelectItemProps) {
         className,
       )}
       onClick={() => onValueChange(value)}
+      onKeyDown={(e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          onValueChange(value);
+        }
+      }}
       {...props}
     >
       {children}

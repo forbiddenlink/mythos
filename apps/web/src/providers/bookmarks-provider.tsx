@@ -1,6 +1,6 @@
 'use client';
 
-import { createContext, useCallback, useEffect, useState, type ReactNode } from 'react';
+import { createContext, useCallback, useEffect, useMemo, useState, type ReactNode } from 'react';
 
 export type BookmarkType = 'deity' | 'story' | 'pantheon';
 
@@ -73,8 +73,8 @@ export function BookmarksProvider({ children }: { children: ReactNode }) {
   const [mounted, setMounted] = useState(false);
 
   // Hydration-safe: load from localStorage on client mount
-  // eslint-disable-next-line react-hooks/set-state-in-effect -- intentional hydration pattern
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- hydrate bookmarks from localStorage (SSR-safe)
     setBookmarks(loadBookmarks());
     setReadingProgressState(loadReadingProgress());
     setMounted(true);
@@ -135,18 +135,21 @@ export function BookmarksProvider({ children }: { children: ReactNode }) {
     }));
   }, []);
 
+  const contextValue = useMemo(
+    () => ({
+      bookmarks,
+      readingProgress,
+      toggleBookmark,
+      isBookmarked,
+      getBookmarks,
+      getReadingProgress,
+      setReadingProgress,
+    }),
+    [bookmarks, readingProgress, toggleBookmark, isBookmarked, getBookmarks, getReadingProgress, setReadingProgress]
+  );
+
   return (
-    <BookmarksContext.Provider
-      value={{
-        bookmarks,
-        readingProgress,
-        toggleBookmark,
-        isBookmarked,
-        getBookmarks,
-        getReadingProgress,
-        setReadingProgress,
-      }}
-    >
+    <BookmarksContext.Provider value={contextValue}>
       {children}
     </BookmarksContext.Provider>
   );

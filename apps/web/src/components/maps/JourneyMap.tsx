@@ -119,7 +119,7 @@ export function JourneyMap({ journey, onWaypointSelect, selectedWaypointId }: Jo
   const [currentWaypointIndex, setCurrentWaypointIndex] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
   const [visitedWaypoints, setVisitedWaypoints] = useState<Set<number>>(new Set([0]));
-  const [pathProgress, setPathProgress] = useState(0);
+  const [_pathProgress, _setPathProgress] = useState(0);
 
   const containerRef = useRef<HTMLDivElement>(null);
   const mapInstanceRef = useRef<L.Map | null>(null);
@@ -129,7 +129,7 @@ export function JourneyMap({ journey, onWaypointSelect, selectedWaypointId }: Jo
   const animationFrameRef = useRef<number | null>(null);
 
   const sortedWaypoints = useMemo(
-    () => [...journey.waypoints].sort((a, b) => a.order - b.order),
+    () => journey.waypoints.toSorted((a, b) => a.order - b.order),
     [journey.waypoints]
   );
 
@@ -226,7 +226,7 @@ export function JourneyMap({ journey, onWaypointSelect, selectedWaypointId }: Jo
 
       // Add popup
       const popupContent = `
-        <div class="p-3 min-w-[200px]">
+        <div class="p-3 min-w-50">
           <div class="flex items-center gap-2 mb-2">
             <span class="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold text-white"
                   style="background-color: ${colors.primary}">
@@ -278,6 +278,7 @@ export function JourneyMap({ journey, onWaypointSelect, selectedWaypointId }: Jo
     if (selectedWaypointId) {
       const index = sortedWaypoints.findIndex((wp) => wp.id === selectedWaypointId);
       if (index !== -1 && index !== currentWaypointIndex) {
+        // eslint-disable-next-line react-hooks/set-state-in-effect -- sync waypoint index from external selection prop
         setCurrentWaypointIndex(index);
         setVisitedWaypoints((prev) => new Set([...prev, index]));
       }
@@ -333,7 +334,7 @@ export function JourneyMap({ journey, onWaypointSelect, selectedWaypointId }: Jo
   const currentWaypoint = sortedWaypoints[currentWaypointIndex];
 
   return (
-    <div className="relative w-full h-full min-h-[500px] bg-slate-950 rounded-xl overflow-hidden">
+    <div className="relative w-full h-full min-h-125 bg-slate-950 rounded-xl overflow-hidden">
       {/* Map Container */}
       <div
         ref={containerRef}
@@ -342,7 +343,7 @@ export function JourneyMap({ journey, onWaypointSelect, selectedWaypointId }: Jo
       />
 
       {/* Journey Progress Bar */}
-      <div className="absolute top-4 left-4 right-4 z-[1000]">
+      <div className="absolute top-4 left-4 right-4 z-1000">
         <div className="bg-card/95 backdrop-blur-sm rounded-xl border border-border p-4 shadow-lg">
           <div className="flex items-center justify-between mb-3">
             <div className="flex items-center gap-3">
@@ -419,7 +420,7 @@ export function JourneyMap({ journey, onWaypointSelect, selectedWaypointId }: Jo
                   setCurrentWaypointIndex(index);
                   setVisitedWaypoints((prev) => new Set([...prev, index]));
                 }}
-                className={`flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-bold transition-all duration-300 ${
+                className={`shrink-0 w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-bold transition-all duration-300 ${
                   index === currentWaypointIndex
                     ? 'ring-2 ring-gold ring-offset-2 ring-offset-background'
                     : ''
@@ -446,15 +447,16 @@ export function JourneyMap({ journey, onWaypointSelect, selectedWaypointId }: Jo
       </div>
 
       {/* Journey Timeline Slider */}
-      <div className="absolute bottom-4 left-4 right-4 z-[1000]">
+      <div className="absolute bottom-4 left-4 right-4 z-1000">
         <div className="bg-card/95 backdrop-blur-sm rounded-lg border border-border px-4 py-2">
           <input
             type="range"
             min={0}
             max={sortedWaypoints.length - 1}
             value={currentWaypointIndex}
+            aria-label="Journey progress"
             onChange={(e) => {
-              const index = parseInt(e.target.value);
+              const index = Number.parseInt(e.target.value);
               setCurrentWaypointIndex(index);
               setVisitedWaypoints((prev) => {
                 const newSet = new Set(prev);
@@ -481,7 +483,7 @@ export function JourneyMap({ journey, onWaypointSelect, selectedWaypointId }: Jo
       </div>
 
       {/* Legend */}
-      <div className="absolute bottom-20 right-4 z-[1000] bg-card/90 backdrop-blur-sm border border-border rounded-lg px-3 py-2 text-xs">
+      <div className="absolute bottom-20 right-4 z-1000 bg-card/90 backdrop-blur-sm border border-border rounded-lg px-3 py-2 text-xs">
         <div className="flex items-center gap-3">
           <div className="flex items-center gap-1.5">
             <div

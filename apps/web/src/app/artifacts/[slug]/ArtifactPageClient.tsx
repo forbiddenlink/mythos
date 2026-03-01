@@ -69,7 +69,7 @@ export function ArtifactPageClient({ slug }: ArtifactPageClientProps) {
                 </div>
 
                 {/* Abstract Purple Glow */}
-                <div className="absolute top-0 left-0 w-[50%] h-[100%] bg-radial-gradient from-purple-900/10 to-transparent pointer-events-none z-0" />
+                <div className="absolute top-0 left-0 w-[50%] h-full bg-radial-gradient from-purple-900/10 to-transparent pointer-events-none z-0" />
 
                 <div className="container mx-auto max-w-4xl px-4 py-12 relative z-20">
                     <Link
@@ -176,7 +176,7 @@ export function ArtifactPageClient({ slug }: ArtifactPageClientProps) {
                                     </CardHeader>
                                     <CardContent>
                                         <p className="text-slate-400 leading-relaxed italic">
-                                            "{artifact.originStory}"
+                                            &quot;{artifact.originStory}&quot;
                                         </p>
                                     </CardContent>
                                 </Card>

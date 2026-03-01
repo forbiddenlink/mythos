@@ -1,15 +1,10 @@
 'use client'
 
-import { useEffect, useState, useCallback } from 'react'
+import { useState, useCallback } from 'react'
 import { useRouter } from 'next/navigation'
 import { Command } from 'cmdk'
 import {
   Search,
-  Home,
-  Users,
-  BookOpen,
-  Network,
-  Globe,
   Sparkles
 } from 'lucide-react'
 
@@ -67,10 +62,10 @@ export function CommandPalette({
 
   const [internalSearch, setInternalSearch] = useState('')
   const search = searchQuery !== undefined ? searchQuery : internalSearch
-  const setSearch = (value: string) => {
+  const setSearch = useCallback((value: string) => {
     if (onSearchQueryChange) onSearchQueryChange(value)
     if (searchQuery === undefined) setInternalSearch(value)
-  }
+  }, [onSearchQueryChange, searchQuery])
 
   const router = useRouter()
 
@@ -78,7 +73,7 @@ export function CommandPalette({
     setOpen(false)
     setSearch('')
     router.push(href)
-  }, [router, setOpen])
+  }, [router, setOpen, setSearch])
 
   if (!open) return null
 

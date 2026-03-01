@@ -5,7 +5,6 @@ import { Search, Plus, X } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { cn } from '@/lib/utils';
 import type { Deity } from './ComparisonCard';
 
 interface ComparisonSelectorProps {
@@ -62,7 +61,7 @@ export function ComparisonSelector({
 
   const getPantheonName = (pantheonId: string) => {
     const pantheon = pantheons.find(p => p.id === pantheonId);
-    return pantheon?.name || pantheonId.replace('-pantheon', '').replace(/\b\w/g, c => c.toUpperCase());
+    return pantheon?.name || pantheonId.replace('-pantheon', '').replaceAll(/\b\w/g, c => c.toUpperCase());
   };
 
   return (

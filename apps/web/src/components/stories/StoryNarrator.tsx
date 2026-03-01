@@ -69,9 +69,6 @@ export function StoryNarrator({
     selectedVoice,
     availableVoices,
     isSupported,
-    play,
-    pause,
-    resume,
     stop,
     setSpeed,
     setVoice,
@@ -152,7 +149,7 @@ export function StoryNarrator({
           <div className="flex-1 space-y-1">
             <div className="h-2 bg-midnight/50 rounded-full overflow-hidden">
               <div
-                className="h-full bg-gradient-to-r from-gold/60 to-gold transition-all duration-150"
+                className="h-full bg-linear-to-r from-gold/60 to-gold transition-all duration-150"
                 style={{ width: `${progress}%` }}
               />
             </div>
@@ -183,7 +180,7 @@ export function StoryNarrator({
           <div className="space-y-4 pt-2 border-t border-gold/10">
             {/* Speed Control */}
             <div className="flex items-center gap-4">
-              <div className="flex items-center gap-2 text-parchment/70 min-w-[80px]">
+              <div className="flex items-center gap-2 text-parchment/70 min-w-20">
                 <Gauge className="h-4 w-4" />
                 <span className="text-sm">Speed</span>
               </div>
@@ -197,7 +194,7 @@ export function StoryNarrator({
                   className="w-full"
                 />
               </div>
-              <div className="flex gap-1 min-w-[120px] justify-end">
+              <div className="flex gap-1 min-w-30 justify-end">
                 {SPEED_OPTIONS.map((option) => (
                   <button
                     key={option.value}
@@ -218,7 +215,7 @@ export function StoryNarrator({
             {/* Voice Selection */}
             {availableVoices.length > 0 && (
               <div className="flex items-center gap-4">
-                <div className="flex items-center gap-2 text-parchment/70 min-w-[80px]">
+                <div className="flex items-center gap-2 text-parchment/70 min-w-20">
                   <Volume2 className="h-4 w-4" />
                   <span className="text-sm">Voice</span>
                 </div>
@@ -247,7 +244,7 @@ export function StoryNarrator({
             {/* Auto-scroll Toggle */}
             {onAutoScroll && (
               <div className="flex items-center gap-4">
-                <div className="flex items-center gap-2 text-parchment/70 min-w-[80px]">
+                <div className="flex items-center gap-2 text-parchment/70 min-w-20">
                   <ScrollText className="h-4 w-4" />
                   <span className="text-sm">Auto-scroll</span>
                 </div>

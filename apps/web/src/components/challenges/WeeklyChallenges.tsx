@@ -88,6 +88,7 @@ export function WeeklyChallenges({
   const [timeRemaining, setTimeRemaining] = useState('');
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- track client hydration
     setMounted(true);
     setTimeRemaining(getTimeRemaining());
 
@@ -173,7 +174,7 @@ export function WeeklyChallenges({
                   isClaimed
                     ? 'bg-green-500/5 border-green-500/30'
                     : isComplete
-                      ? 'bg-gradient-to-br from-purple-500/10 to-indigo-500/5 border-purple-500/30'
+                      ? 'bg-linear-to-br from-purple-500/10 to-indigo-500/5 border-purple-500/30'
                       : 'bg-card/50 border-border/40'
                 }`}
               >
@@ -211,8 +212,8 @@ export function WeeklyChallenges({
                           isClaimed
                             ? 'bg-green-500'
                             : isComplete
-                              ? 'bg-gradient-to-r from-purple-500 to-indigo-500'
-                              : 'bg-gradient-to-r from-purple-500/60 to-indigo-500/60'
+                              ? 'bg-linear-to-r from-purple-500 to-indigo-500'
+                              : 'bg-linear-to-r from-purple-500/60 to-indigo-500/60'
                         }`}
                       />
                     </div>
@@ -232,7 +233,7 @@ export function WeeklyChallenges({
                     <Button
                       size="sm"
                       onClick={() => onClaimReward(challenge.id, challenge.xpReward)}
-                      className="bg-gradient-to-r from-purple-500 to-indigo-500 hover:from-purple-600 hover:to-indigo-600 text-white shrink-0"
+                      className="bg-linear-to-r from-purple-500 to-indigo-500 hover:from-purple-600 hover:to-indigo-600 text-white shrink-0"
                     >
                       <Gift className="h-4 w-4 mr-1" />
                       Claim

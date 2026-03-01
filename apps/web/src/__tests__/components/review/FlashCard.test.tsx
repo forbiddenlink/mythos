@@ -1,20 +1,22 @@
-import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
+import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { render, screen, fireEvent } from '@testing-library/react';
+import type { ReactNode, ImgHTMLAttributes } from 'react';
 import { FlashCard } from '@/components/review/FlashCard';
-import type { ReviewCard, DifficultyRating } from '@/lib/spaced-repetition';
+import type { ReviewCard } from '@/lib/spaced-repetition';
 
 // Mock framer-motion to avoid animation issues in tests
 vi.mock('framer-motion', () => ({
   motion: {
-    div: ({ children, ...props }: any) => <div {...props}>{children}</div>,
-    p: ({ children, ...props }: any) => <p {...props}>{children}</p>,
+    div: ({ children, ...props }: { children?: ReactNode }) => <div {...props}>{children}</div>,
+    p: ({ children, ...props }: { children?: ReactNode }) => <p {...props}>{children}</p>,
   },
-  AnimatePresence: ({ children }: any) => <>{children}</>,
+  AnimatePresence: ({ children }: { children?: ReactNode }) => <>{children}</>,
 }));
 
 // Mock next/image
 vi.mock('next/image', () => ({
-  default: ({ src, alt, ...props }: any) => <img src={src} alt={alt} {...props} />,
+  // eslint-disable-next-line @next/next/no-img-element
+  default: ({ src, alt, ...props }: ImgHTMLAttributes<HTMLImageElement>) => <img src={src} alt={alt} {...props} />,
 }));
 
 describe('FlashCard', () => {

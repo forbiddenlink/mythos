@@ -1,7 +1,7 @@
 "use client"
 
 import * as React from "react"
-import { Volume2, VolumeX, Copy, Check } from "lucide-react"
+import { Volume2, VolumeX, Copy, Check, Loader2 } from "lucide-react"
 import { cn } from "@/lib/utils"
 import {
   HoverCard,
@@ -23,9 +23,14 @@ interface PronunciationDisplayProps {
 export function PronunciationDisplay({
   pronunciation,
   className,
-}: PronunciationDisplayProps) {
+}: Readonly<PronunciationDisplayProps>) {
   const [copied, setCopied] = React.useState(false)
-  const [audioSupported] = React.useState(false) // Future: check if audioUrl exists and is playable
+  const [audioSupported, setAudioSupported] = React.useState(false)
+  const [isPlaying, setIsPlaying] = React.useState(false)
+
+  React.useEffect(() => {
+    setAudioSupported(globalThis.window !== undefined && 'speechSynthesis' in globalThis)
+  }, [])
 
   const handleCopyIPA = async () => {
     try {
@@ -38,11 +43,48 @@ export function PronunciationDisplay({
   }
 
   const handlePlayAudio = () => {
-    // Future: implement audio playback
-    // if (pronunciation.audioUrl) {
-    //   const audio = new Audio(pronunciation.audioUrl)
-    //   audio.play()
-    // }
+    if (!audioSupported) return
+
+    // Cancel any ongoing speech
+    globalThis.speechSynthesis.cancel()
+
+    const utterance = new SpeechSynthesisUtterance(pronunciation.phonetic)
+    utterance.rate = 0.8
+    utterance.pitch = 1
+
+    utterance.onstart = () => setIsPlaying(true)
+    utterance.onend = () => setIsPlaying(false)
+    utterance.onerror = () => setIsPlaying(false)
+
+    globalThis.speechSynthesis.speak(utterance)
+  }
+
+  let audioAriaLabel = 'Audio not available';
+  if (isPlaying) audioAriaLabel = 'Speaking';
+  else if (audioSupported) audioAriaLabel = 'Play pronunciation';
+
+  let audioButtonContent: React.ReactNode;
+  if (isPlaying) {
+    audioButtonContent = (
+      <>
+        <Loader2 className="h-4 w-4 animate-spin" />
+        <span>Speaking...</span>
+      </>
+    );
+  } else if (audioSupported) {
+    audioButtonContent = (
+      <>
+        <Volume2 className="h-4 w-4" />
+        <span>Listen</span>
+      </>
+    );
+  } else {
+    audioButtonContent = (
+      <>
+        <VolumeX className="h-4 w-4" />
+        <span>Audio Coming Soon</span>
+      </>
+    );
   }
 
   return (
@@ -105,26 +147,16 @@ export function PronunciationDisplay({
           <div className="pt-2 border-t border-slate-200 dark:border-slate-700">
             <button
               onClick={handlePlayAudio}
-              disabled={!audioSupported}
+              disabled={!audioSupported || isPlaying}
               className={cn(
                 "w-full flex items-center justify-center gap-2 py-1.5 px-3 rounded text-sm transition-colors",
                 audioSupported
                   ? "bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300"
                   : "bg-slate-50 dark:bg-slate-900 text-slate-400 dark:text-slate-500 cursor-not-allowed"
               )}
-              aria-label={audioSupported ? "Play pronunciation" : "Audio not available"}
+              aria-label={audioAriaLabel}
             >
-              {audioSupported ? (
-                <>
-                  <Volume2 className="h-4 w-4" />
-                  <span>Play Audio</span>
-                </>
-              ) : (
-                <>
-                  <VolumeX className="h-4 w-4" />
-                  <span>Audio Coming Soon</span>
-                </>
-              )}
+              {audioButtonContent}
             </button>
           </div>
         </div>

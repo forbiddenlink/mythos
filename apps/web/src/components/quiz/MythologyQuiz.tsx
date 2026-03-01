@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, type ReactNode } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { graphqlClient } from '@/lib/graphql-client';
 import { GET_DEITIES, GET_ALL_RELATIONSHIPS } from '@/lib/queries';
@@ -50,7 +50,8 @@ export function MythologyQuiz() {
   // Load high score
   useEffect(() => {
     const saved = localStorage.getItem('mythos_quiz_highscore');
-    if (saved) setHighScore(parseInt(saved));
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- hydrate high score from localStorage
+    if (saved) setHighScore(Number.parseInt(saved));
   }, []);
 
   const { data, isLoading } = useQuery<{ deities: Deity[], relationships: Relationship[] }>({
@@ -95,8 +96,8 @@ export function MythologyQuiz() {
     }
 
     // 2. Relationship Questions
-    const validRelTypes = ['parent_of', 'sibling_of', 'spouse_of'];
-    const rels = relationships.filter(r => validRelTypes.includes(r.relationshipType));
+    const validRelTypes = new Set(['parent_of', 'sibling_of', 'spouse_of']);
+    const rels = relationships.filter(r => validRelTypes.has(r.relationshipType));
     if (rels.length > 0) {
       const rel = rels[Math.floor(Math.random() * rels.length)];
       const fromDeity = deities.find(d => d.id === rel.fromDeityId);
@@ -144,7 +145,9 @@ export function MythologyQuiz() {
       }
     }
 
-    setQuestions(newQuestions.sort(() => Math.random() - 0.5)); // Shuffle order
+    const shuffled = newQuestions.toSorted(() => Math.random() - 0.5); // Shuffle order
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- generate questions when data loads
+    setQuestions(shuffled);
   }, [data]);
 
   const handleAnswerSelect = (answer: string) => {
@@ -176,7 +179,7 @@ export function MythologyQuiz() {
     // For simplicity, just reset state. To get new questions we'd need to re-run the effect.
     // We can just refetch queries or manual logic.
     // Let's just reload the page or trigger state update.
-    window.location.reload();
+    globalThis.location.reload();
   };
 
   if (isLoading || !data?.deities) {
@@ -194,9 +197,19 @@ export function MythologyQuiz() {
 
   if (quizCompleted) {
     const percentage = Math.round((score / questions.length) * 100);
+
+    let resultMessage: ReactNode;
+    if (percentage >= 80) {
+      resultMessage = <p className="text-lg">🎉 divine wisdom! You rival Athena herself!</p>;
+    } else if (percentage >= 60) {
+      resultMessage = <p className="text-lg">👏 A worthy effort! Make an offering to the Muses and try again.</p>;
+    } else {
+      resultMessage = <p className="text-lg">📚 The library of Alexandria awaits your return.</p>;
+    }
+
     return (
       <Card className="max-w-2xl mx-auto border-gold/20 shadow-xl overflow-hidden relative">
-        <div className="absolute inset-0 bg-gradient-to-br from-gold/5 via-transparent to-transparent pointer-events-none" />
+        <div className="absolute inset-0 bg-linear-to-br from-gold/5 via-transparent to-transparent pointer-events-none" />
         <CardHeader className="text-center pt-8">
           <div className="mx-auto mb-6 p-6 rounded-full bg-linear-to-br from-gold/20 to-amber-500/10 w-fit ring-1 ring-gold/30 shadow-inner">
             <Trophy className="h-16 w-16 text-gold drop-shadow-md" />
@@ -218,7 +231,7 @@ export function MythologyQuiz() {
               <div className="text-muted-foreground mb-1">Score</div>
               <div className="font-bold text-lg">{score * 100}</div>
             </div>
-            <div className="text-center p-3 rounded-lg bg-muted/50 w-24 border border-gold/20 bg-gold/5">
+            <div className="text-center p-3 rounded-lg w-24 border border-gold/20 bg-gold/5">
               <div className="text-gold/80 mb-1 flex items-center justify-center gap-1">
                 <Crown className="h-3 w-3" /> Best
               </div>
@@ -227,13 +240,7 @@ export function MythologyQuiz() {
           </div>
 
           <div className="text-center max-w-sm mx-auto">
-            {percentage >= 80 ? (
-              <p className="text-lg">🎉 divine wisdom! You rival Athena herself!</p>
-            ) : percentage >= 60 ? (
-              <p className="text-lg">👏 A worthy effort! Make an offering to the Muses and try again.</p>
-            ) : (
-              <p className="text-lg">📚 The library of Alexandria awaits your return.</p>
-            )}
+            {resultMessage}
           </div>
 
           <Button onClick={restartQuiz} className="w-full h-12 text-lg gap-2 bg-gold hover:bg-gold/90 text-black">
@@ -246,6 +253,24 @@ export function MythologyQuiz() {
   }
 
   const question = questions[currentQuestion];
+
+  let questionIcon: ReactNode;
+  if (question.type === 'visual') {
+    questionIcon = <ImageIcon className="h-6 w-6 text-purple-500" />;
+  } else if (question.type === 'relationship') {
+    questionIcon = <Users className="h-6 w-6 text-blue-500" />;
+  } else {
+    questionIcon = <Sparkles className="h-6 w-6 text-gold" />;
+  }
+
+  let questionTypeLabel: string;
+  if (question.type === 'visual') {
+    questionTypeLabel = 'Visual ID';
+  } else if (question.type === 'relationship') {
+    questionTypeLabel = 'Relationship';
+  } else {
+    questionTypeLabel = 'Knowledge';
+  }
 
   return (
     <div className="max-w-2xl mx-auto space-y-6">
@@ -266,14 +291,13 @@ export function MythologyQuiz() {
             aria-valuemax={questions.length}
           />
         </div>
-        <div
+        <output
           className="flex items-center gap-2 px-3 py-1 rounded-full bg-gold/10 border border-gold/20 text-gold text-sm font-medium"
-          role="status"
           aria-label={`Current score: ${score} correct answers`}
         >
           <Trophy className="h-3.5 w-3.5" aria-hidden="true" />
           <span>{score}</span>
-        </div>
+        </output>
       </div>
 
       <Card
@@ -284,14 +308,11 @@ export function MythologyQuiz() {
         <CardHeader className="pb-2">
           <div className="flex items-start gap-4">
             <div className="p-3 rounded-xl bg-muted border border-border shrink-0 mt-1">
-              {question.type === 'visual' ? <ImageIcon className="h-6 w-6 text-purple-500" /> :
-                question.type === 'relationship' ? <Users className="h-6 w-6 text-blue-500" /> :
-                  <Sparkles className="h-6 w-6 text-gold" />}
+              {questionIcon}
             </div>
             <div>
               <Badge variant="secondary" className="mb-2 w-fit">
-                {question.type === 'visual' ? 'Visual ID' :
-                  question.type === 'relationship' ? 'Relationship' : 'Knowledge'}
+                {questionTypeLabel}
               </Badge>
               <CardTitle id="quiz-question" className="text-xl md:text-2xl leading-tight font-serif">
                 {question.question}
@@ -318,19 +339,23 @@ export function MythologyQuiz() {
             aria-describedby="quiz-question"
             className="grid gap-3"
           >
-            {question.options.map((option, index) => {
+            {question.options.map((option) => {
               const isSelected = selectedAnswer === option;
               const isCorrect = option === question.correctAnswer;
               const showCorrect = showResult && isCorrect;
               const showIncorrect = showResult && isSelected && !isCorrect;
 
+              let buttonVariant: 'default' | 'destructive' | 'outline' = 'outline';
+              if (showCorrect) buttonVariant = 'default';
+              else if (showIncorrect) buttonVariant = 'destructive';
+
               return (
                 <Button
-                  key={index}
+                  key={option}
                   role="radio"
                   aria-checked={isSelected}
                   aria-disabled={showResult}
-                  variant={showCorrect ? 'default' : showIncorrect ? 'destructive' : 'outline'}
+                  variant={buttonVariant}
                   className={`w-full justify-between items-center h-auto py-4 px-5 text-lg group transition-all duration-200 ${showCorrect ? 'bg-green-600 hover:bg-green-700 border-green-600 text-white' : ''
                     } ${showIncorrect ? 'bg-red-600 hover:bg-red-700 border-red-600 text-white' : ''} ${!showResult && !isSelected ? 'hover:border-gold/50 hover:bg-gold/5' : ''
                     }`}
@@ -346,11 +371,10 @@ export function MythologyQuiz() {
           </div>
 
           {showResult && (
-            <div
-              role="status"
+            <output
               aria-live="polite"
               aria-atomic="true"
-              className="mt-6 p-4 rounded-xl bg-muted/50 border border-border animate-in fade-in slide-in-from-top-2"
+              className="mt-6 p-4 rounded-xl bg-muted/50 border border-border animate-in fade-in slide-in-from-top-2 block"
             >
               <div className="flex items-start gap-3">
                 <div className="p-1 rounded-full bg-gold/20 mt-0.5" aria-hidden="true">
@@ -363,7 +387,7 @@ export function MythologyQuiz() {
                   {question.explanation}
                 </p>
               </div>
-            </div>
+            </output>
           )}
         </CardContent>
 

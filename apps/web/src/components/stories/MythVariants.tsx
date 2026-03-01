@@ -57,14 +57,14 @@ export function MythVariants({ variants }: MythVariantsProps) {
       <div
         id="myth-variants-content"
         className={`transition-all duration-300 ease-in-out overflow-hidden ${
-          isExpanded ? 'max-h-[2000px] opacity-100' : 'max-h-0 opacity-0'
+          isExpanded ? 'max-h-500 opacity-100' : 'max-h-0 opacity-0'
         }`}
       >
         <CardContent className="pt-6">
           <div className="space-y-4">
-            {variants.map((variant, index) => (
+            {variants.map((variant) => (
               <div
-                key={index}
+                key={variant.source}
                 className="relative p-5 rounded-lg border-l-4 border-amber-500/60 bg-midnight/40 hover:bg-midnight/60 transition-colors"
               >
                 {/* Source Header */}
@@ -90,7 +90,7 @@ export function MythVariants({ variants }: MythVariantsProps) {
                 {/* Scholar's Note */}
                 {variant.note && (
                   <div className="flex items-start gap-2 mt-3 p-3 rounded bg-midnight/30 border border-gold/10">
-                    <Info className="h-4 w-4 text-gold/60 mt-0.5 flex-shrink-0" />
+                    <Info className="h-4 w-4 text-gold/60 mt-0.5 shrink-0" />
                     <p className="text-sm text-parchment/60 italic leading-relaxed">
                       {variant.note}
                     </p>

@@ -6,15 +6,11 @@ import Link from 'next/link'
 import * as d3 from 'd3'
 import {
   ChevronRight,
-  ChevronDown,
   Filter,
   X,
   BookOpen,
   Sparkles,
   Clock,
-  ZoomIn,
-  ZoomOut,
-  RotateCcw,
   Layers,
 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
@@ -30,6 +26,17 @@ import {
   type Story,
   type Pantheon,
 } from '@/lib/story-timeline'
+
+// ---------------------------------------------------------------------------
+// Constants
+// ---------------------------------------------------------------------------
+
+const COLOR_TO_HUE: Record<string, number> = {
+  violet: 270,
+  amber: 45,
+  yellow: 50,
+  blue: 210,
+};
 
 // ---------------------------------------------------------------------------
 // Types
@@ -93,14 +100,14 @@ function TimelineEventCard({
       className="relative"
     >
       {/* Timeline connector line */}
-      <div className="absolute left-[11px] top-6 bottom-0 w-px bg-border/50 -z-10" />
+      <div className="absolute left-2.75 top-6 bottom-0 w-px bg-border/50 -z-10" />
 
       {/* Event node */}
       <div className="flex items-start gap-4">
         {/* Timeline dot */}
         <div
           className={cn(
-            'w-6 h-6 rounded-full border-2 flex-shrink-0 flex items-center justify-center',
+            'w-6 h-6 rounded-full border-2 shrink-0 flex items-center justify-center',
             'bg-background transition-all duration-300',
             colors.border,
             isExpanded && 'scale-110'
@@ -150,7 +157,7 @@ function TimelineEventCard({
                 animate={{ rotate: isExpanded ? 90 : 0 }}
                 transition={{ duration: 0.2 }}
               >
-                <ChevronRight className="w-4 h-4 text-muted-foreground flex-shrink-0" />
+                <ChevronRight className="w-4 h-4 text-muted-foreground shrink-0" />
               </motion.div>
             </div>
 
@@ -252,17 +259,9 @@ function D3TimelineVisualization({
       .attr('transform', `translate(${margin.left}, ${margin.top})`)
 
     // Draw era backgrounds
-    eras.forEach((era, i) => {
+    eras.forEach((era) => {
       const eraColor = ERA_METADATA[era].color.replace('text-', '')
-      const hue = eraColor.includes('violet')
-        ? 270
-        : eraColor.includes('amber')
-          ? 45
-          : eraColor.includes('yellow')
-            ? 50
-            : eraColor.includes('blue')
-              ? 210
-              : 0
+      const hue = Object.entries(COLOR_TO_HUE).find(([color]) => eraColor.includes(color))?.[1] ?? 0
 
       g.append('rect')
         .attr('x', xScale(era) || 0)

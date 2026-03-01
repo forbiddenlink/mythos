@@ -1,5 +1,4 @@
-import { NextResponse } from 'next/server';
-import type { NextRequest } from 'next/server';
+import { NextResponse, type NextRequest } from 'next/server';
 import { defaultLocale, isValidLocale } from '@/i18n/config';
 
 // Cookie-based locale middleware
@@ -24,7 +23,7 @@ export function middleware(request: NextRequest) {
           const [code, q = 'q=1'] = lang.trim().split(';');
           return {
             code: code.split('-')[0].toLowerCase(), // Get just the language part
-            quality: parseFloat(q.replace('q=', '')) || 1,
+            quality: Number.parseFloat(q.replace('q=', '')) || 1,
           };
         })
         .sort((a, b) => b.quality - a.quality);

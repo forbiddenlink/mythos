@@ -3,7 +3,6 @@
 import { useEffect, useState, useCallback, useMemo } from 'react';
 import { useRouter } from 'next/navigation';
 import {
-  Search,
   Home,
   Users,
   BookOpen,
@@ -87,6 +86,7 @@ export function GlobalSearch() {
   // Load recent searches when dialog opens
   useEffect(() => {
     if (open) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect -- hydrate recent searches from localStorage
       setRecentSearches(getRecentSearches());
     }
   }, [open]);
@@ -165,6 +165,7 @@ export function GlobalSearch() {
   // Reset query when dialog closes
   useEffect(() => {
     if (!open) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect -- reset search query when dialog closes
       setSearchQuery('');
     }
   }, [open]);
@@ -264,7 +265,7 @@ export function GlobalSearch() {
                       onSelect={() => handleSelect(result)}
                       className="flex items-center gap-3"
                     >
-                      <Icon className={`h-4 w-4 flex-shrink-0 ${colorClass}`} />
+                      <Icon className={`h-4 w-4 shrink-0 ${colorClass}`} />
                       <div className="flex flex-col min-w-0">
                         <span className="truncate font-medium">{result.title}</span>
                         <span className="text-xs text-muted-foreground truncate">

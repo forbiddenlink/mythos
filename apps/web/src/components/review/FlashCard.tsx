@@ -7,7 +7,6 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import {
   Eye,
-  EyeOff,
   Lightbulb,
   Image as ImageIcon,
   Users,
@@ -16,8 +15,7 @@ import {
   Hash,
 } from 'lucide-react';
 import Image from 'next/image';
-import type { ReviewCard, DifficultyRating, FlashcardType } from '@/lib/spaced-repetition';
-import { RATING_LABELS } from '@/lib/spaced-repetition';
+import { RATING_LABELS, type ReviewCard, type DifficultyRating, type FlashcardType } from '@/lib/spaced-repetition';
 
 interface FlashCardProps {
   card: ReviewCard;
@@ -82,7 +80,7 @@ export function FlashCard({ card, onRate, showAnswer: initialShowAnswer = false 
           transition={{ duration: 0.3, ease: 'easeOut' }}
           className="w-full"
         >
-          <Card className="border-2 border-border/60 shadow-xl overflow-hidden min-h-[320px] flex flex-col">
+          <Card className="border-2 border-border/60 shadow-xl overflow-hidden min-h-80 flex flex-col">
             {/* Card Header */}
             <div className="flex items-center justify-between px-6 py-4 border-b border-border/40 bg-muted/30">
               <Badge

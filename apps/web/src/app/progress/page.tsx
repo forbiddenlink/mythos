@@ -3,7 +3,6 @@
 import { useContext } from 'react';
 import { ProgressContext, type ProgressContextValue } from '@/providers/progress-provider';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Progress } from '@/components/ui/progress';
 import { Breadcrumbs } from '@/components/navigation/Breadcrumbs';
 import {
   Flame,
@@ -86,20 +85,20 @@ function AchievementCard({ achievement, unlocked }: { achievement: Achievement; 
     <div
       className={`relative p-4 rounded-xl border transition-all duration-300 ${
         unlocked
-          ? 'bg-gradient-to-br from-amber-500/10 to-amber-600/5 border-amber-500/30 shadow-lg shadow-amber-500/10'
+          ? 'bg-linear-to-br from-amber-500/10 to-amber-600/5 border-amber-500/30 shadow-lg shadow-amber-500/10'
           : 'bg-card/50 border-border/40 opacity-60'
       }`}
     >
       {/* Glow effect for unlocked achievements */}
       {unlocked && (
-        <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-amber-500/5 to-transparent pointer-events-none" />
+        <div className="absolute inset-0 rounded-xl bg-linear-to-br from-amber-500/5 to-transparent pointer-events-none" />
       )}
 
       <div className="relative flex items-start gap-3">
         <div
           className={`w-12 h-12 rounded-lg flex items-center justify-center shrink-0 ${
             unlocked
-              ? 'bg-gradient-to-br from-amber-500 to-amber-600 text-white shadow-md'
+              ? 'bg-linear-to-br from-amber-500 to-amber-600 text-white shadow-md'
               : 'bg-muted text-muted-foreground'
           }`}
         >
@@ -150,7 +149,7 @@ function ProgressBar({ label, current, total, icon: Icon }: ProgressBarProps) {
       </div>
       <div className="relative h-3 w-full overflow-hidden rounded-full bg-muted/50">
         <div
-          className="h-full bg-gradient-to-r from-amber-500 to-amber-400 transition-all duration-500 ease-out"
+          className="h-full bg-linear-to-r from-amber-500 to-amber-400 transition-all duration-500 ease-out"
           style={{ width: `${percentage}%` }}
         />
       </div>
@@ -192,7 +191,7 @@ export default function ProgressPage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <div className="relative overflow-hidden bg-gradient-to-b from-midnight via-midnight/95 to-mythic py-16 md:py-24">
+      <div className="relative overflow-hidden bg-linear-to-b from-midnight via-midnight/95 to-mythic py-16 md:py-24">
         {/* Background decorations */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute top-0 left-1/4 w-96 h-96 bg-amber-500/5 rounded-full blur-3xl" />
@@ -204,7 +203,7 @@ export default function ProgressPage() {
           <div className="text-center mb-12">
             <div className="flex items-center justify-center mb-6">
               <div className="relative p-4 rounded-xl border border-amber-500/20 bg-midnight/50 backdrop-blur-sm">
-                <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-amber-500/10 to-transparent" />
+                <div className="absolute inset-0 rounded-xl bg-linear-to-br from-amber-500/10 to-transparent" />
                 <Trophy className="relative h-10 w-10 text-amber-500" strokeWidth={1.5} />
               </div>
             </div>
@@ -215,9 +214,9 @@ export default function ProgressPage() {
               Your Journey
             </h1>
             <div className="flex items-center justify-center gap-4 mb-6">
-              <div className="w-12 h-px bg-gradient-to-r from-transparent to-amber-500/40" />
+              <div className="w-12 h-px bg-linear-to-r from-transparent to-amber-500/40" />
               <div className="w-1.5 h-1.5 rotate-45 bg-amber-500/50" />
-              <div className="w-12 h-px bg-gradient-to-l from-transparent to-amber-500/40" />
+              <div className="w-12 h-px bg-linear-to-l from-transparent to-amber-500/40" />
             </div>
           </div>
 
@@ -227,7 +226,7 @@ export default function ProgressPage() {
             <Card className="bg-card/80 backdrop-blur-sm border-amber-500/20">
               <CardContent className="pt-6">
                 <div className="flex items-center gap-4">
-                  <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-amber-500 to-amber-600 flex items-center justify-center shadow-lg shadow-amber-500/20">
+                  <div className="w-16 h-16 rounded-xl bg-linear-to-br from-amber-500 to-amber-600 flex items-center justify-center shadow-lg shadow-amber-500/20">
                     <span className="text-2xl font-bold text-white">{level}</span>
                   </div>
                   <div className="flex-1">
@@ -236,7 +235,7 @@ export default function ProgressPage() {
                     <div className="mt-2">
                       <div className="h-2 w-full rounded-full bg-muted/50 overflow-hidden">
                         <div
-                          className="h-full bg-gradient-to-r from-amber-500 to-amber-400 transition-all duration-500"
+                          className="h-full bg-linear-to-r from-amber-500 to-amber-400 transition-all duration-500"
                           style={{ width: `${(xpInCurrentLevel / xpToNextLevel) * 100}%` }}
                         />
                       </div>
@@ -253,7 +252,7 @@ export default function ProgressPage() {
             <Card className="bg-card/80 backdrop-blur-sm border-amber-500/20">
               <CardContent className="pt-6">
                 <div className="flex items-center gap-4">
-                  <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-orange-500 to-red-500 flex items-center justify-center shadow-lg shadow-orange-500/20">
+                  <div className="w-16 h-16 rounded-xl bg-linear-to-br from-orange-500 to-red-500 flex items-center justify-center shadow-lg shadow-orange-500/20">
                     <Flame className="h-8 w-8 text-white" strokeWidth={1.5} />
                   </div>
                   <div>
@@ -271,7 +270,7 @@ export default function ProgressPage() {
             <Card className="bg-card/80 backdrop-blur-sm border-amber-500/20">
               <CardContent className="pt-6">
                 <div className="flex items-center gap-4">
-                  <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-purple-500 to-indigo-500 flex items-center justify-center shadow-lg shadow-purple-500/20">
+                  <div className="w-16 h-16 rounded-xl bg-linear-to-br from-purple-500 to-indigo-500 flex items-center justify-center shadow-lg shadow-purple-500/20">
                     <Star className="h-8 w-8 text-white" strokeWidth={1.5} />
                   </div>
                   <div>

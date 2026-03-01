@@ -1,12 +1,12 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { graphqlClient } from '@/lib/graphql-client';
 import { GET_CREATURES } from '@/lib/queries';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Loader2, Sparkles, LayoutGrid, Table, Skull } from 'lucide-react';
+import { Loader2, LayoutGrid, Table, Skull } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Breadcrumbs } from '@/components/navigation/Breadcrumbs';
@@ -23,6 +23,12 @@ interface Creature {
     dangerLevel: number;
     description: string;
     imageUrl: string | null;
+}
+
+function getDangerBadgeClass(dangerLevel: number): string {
+    if (dangerLevel >= 9) return 'border-red-500 text-red-500 bg-red-500/10';
+    if (dangerLevel >= 7) return 'border-orange-500 text-orange-500 bg-orange-500/10';
+    return 'border-yellow-500 text-yellow-500 bg-yellow-500/10';
 }
 
 export default function CreaturesPage() {
@@ -65,9 +71,9 @@ export default function CreaturesPage() {
                 numberOfItems={creatures.length}
             />
             {/* Hero Section */}
-            <div className="relative h-[40vh] min-h-[300px] flex items-center justify-center overflow-hidden bg-slate-950">
+            <div className="relative h-[40vh] min-h-75 flex items-center justify-center overflow-hidden bg-slate-950">
                 {/* Abstract Background */}
-                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-red-900/20 via-slate-950 to-slate-950" />
+                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,var(--tw-gradient-stops))] from-red-900/20 via-slate-950 to-slate-950" />
 
                 <div className="relative z-20 text-center px-4 max-w-4xl mx-auto">
                     <div className="flex items-center justify-center mb-6">
@@ -114,9 +120,58 @@ export default function CreaturesPage() {
                 </div>
 
                 {viewMode === 'table' ? (
-                    <div className="rounded-md border">
-                        {/* Simple table fallback for now */}
-                        <div className="p-4 text-center text-muted-foreground">Table view coming soon</div>
+                    <div className="rounded-lg border border-slate-200 dark:border-slate-800 overflow-hidden">
+                        <div className="overflow-x-auto">
+                            <table className="w-full">
+                                <thead className="bg-slate-50 dark:bg-slate-900">
+                                    <tr>
+                                        <th className="px-4 py-3 text-left text-sm font-semibold text-slate-700 dark:text-slate-300">Name</th>
+                                        <th className="px-4 py-3 text-left text-sm font-semibold text-slate-700 dark:text-slate-300">Mythology</th>
+                                        <th className="px-4 py-3 text-left text-sm font-semibold text-slate-700 dark:text-slate-300">Habitat</th>
+                                        <th className="px-4 py-3 text-left text-sm font-semibold text-slate-700 dark:text-slate-300">Danger</th>
+                                        <th className="px-4 py-3 text-left text-sm font-semibold text-slate-700 dark:text-slate-300 min-w-50">Description</th>
+                                    </tr>
+                                </thead>
+                                <tbody className="divide-y divide-slate-200 dark:divide-slate-800">
+                                    {creatures.map((creature) => (
+                                        <tr key={creature.id} className="hover:bg-slate-50 dark:hover:bg-slate-900/50 transition-colors">
+                                            <td className="px-4 py-3 text-sm whitespace-nowrap">
+                                                {creature.slug ? (
+                                                    <Link href={`/creatures/${creature.slug}`} className="font-medium text-red-600 hover:text-red-700 dark:text-red-400 dark:hover:text-red-300 hover:underline">
+                                                        {creature.name}
+                                                    </Link>
+                                                ) : (
+                                                    <span className="font-medium">{creature.name}</span>
+                                                )}
+                                            </td>
+                                            <td className="px-4 py-3 text-sm">
+                                                <span className="px-2 py-0.5 text-xs rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 whitespace-nowrap">
+                                                    {{
+                                                        'greek-pantheon': 'Greek',
+                                                        'norse-pantheon': 'Norse',
+                                                        'egyptian-pantheon': 'Egyptian',
+                                                        'roman-pantheon': 'Roman',
+                                                        'hindu-pantheon': 'Hindu',
+                                                        'japanese-pantheon': 'Japanese',
+                                                        'celtic-pantheon': 'Celtic',
+                                                        'mesopotamian-pantheon': 'Mesopotamian',
+                                                    }[creature.pantheonId] || creature.pantheonId}
+                                                </span>
+                                            </td>
+                                            <td className="px-4 py-3 text-sm text-slate-600 dark:text-slate-400 whitespace-nowrap">{creature.habitat}</td>
+                                            <td className="px-4 py-3 text-sm">
+                                                <Badge variant="outline" className={getDangerBadgeClass(creature.dangerLevel)}>
+                                                    {creature.dangerLevel}/10
+                                                </Badge>
+                                            </td>
+                                            <td className="px-4 py-3 text-sm text-muted-foreground max-w-xs">
+                                                <span className="line-clamp-2">{creature.description}</span>
+                                            </td>
+                                        </tr>
+                                    ))}
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 ) : (
                     <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -140,11 +195,7 @@ export default function CreaturesPage() {
                                                 </div>
                                             )}
 
-                                            <Badge variant="outline" className={`
-                        ${creature.dangerLevel >= 9 ? 'border-red-500 text-red-500 bg-red-500/10' :
-                                                    creature.dangerLevel >= 7 ? 'border-orange-500 text-orange-500 bg-orange-500/10' :
-                                                        'border-yellow-500 text-yellow-500 bg-yellow-500/10'}
-                      `}>
+                                            <Badge variant="outline" className={getDangerBadgeClass(creature.dangerLevel)}>
                                                 Danger: {creature.dangerLevel}/10
                                             </Badge>
                                         </div>

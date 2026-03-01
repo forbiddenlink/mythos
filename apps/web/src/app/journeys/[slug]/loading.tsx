@@ -4,9 +4,9 @@ export default function JourneyDetailLoading() {
   return (
     <div className="min-h-screen">
       {/* Hero placeholder */}
-      <div className="relative h-[35vh] min-h-[280px] flex items-center justify-center overflow-hidden">
+      <div className="relative h-[35vh] min-h-70 flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0 bg-hero-gradient" />
-        <div className="absolute inset-0 bg-gradient-to-b from-midnight/70 via-midnight/60 to-midnight/80 z-10" />
+        <div className="absolute inset-0 bg-linear-to-b from-midnight/70 via-midnight/60 to-midnight/80 z-10" />
 
         <div className="relative z-20 text-center px-4 max-w-4xl mx-auto">
           <div className="h-6 w-32 bg-gold/20 rounded-full mx-auto mb-4 animate-pulse" />
@@ -20,7 +20,7 @@ export default function JourneyDetailLoading() {
         <div className="grid lg:grid-cols-3 gap-6">
           {/* Map placeholder */}
           <div className="lg:col-span-2">
-            <div className="h-[600px] rounded-xl border border-border bg-card flex items-center justify-center">
+            <div className="h-150 rounded-xl border border-border bg-card flex items-center justify-center">
               <Loader2 className="h-8 w-8 animate-spin text-gold" />
             </div>
           </div>

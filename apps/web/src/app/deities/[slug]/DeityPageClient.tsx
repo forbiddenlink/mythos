@@ -15,7 +15,7 @@ import Image from 'next/image';
 // Lazy load heavy ReactFlow-based family tree
 const FamilyTreeVisualization = dynamic(
   () => import('@/components/family-tree/FamilyTreeVisualization').then(mod => ({ default: mod.FamilyTreeVisualization })),
-  { loading: () => <div className="h-[400px] flex items-center justify-center"><Loader2 className="h-8 w-8 animate-spin text-primary" /></div>, ssr: false }
+  { loading: () => <div className="h-100 flex items-center justify-center"><Loader2 className="h-8 w-8 animate-spin text-primary" /></div>, ssr: false }
 );
 import { BookmarkButton } from '@/components/ui/bookmark-button';
 import { ExportIconButton } from '@/components/ui/export-button';
@@ -23,8 +23,9 @@ import { DeityJsonLd } from '@/components/seo/JsonLd';
 import ReactMarkdown from 'react-markdown';
 import { DetailPageSkeleton } from '@/components/ui/skeleton-cards';
 import { PronunciationDisplay } from '@/components/ui/pronunciation';
-import { SourceExcerptsList, ReferencesList, OriginalLanguageName } from '@/components/sources';
-import type { PrimarySourceExcerpt, FurtherReadingReference, OriginalLanguageNameData } from '@/components/sources';
+import { SourceExcerptsList, ReferencesList, OriginalLanguageName, type PrimarySourceExcerpt, type FurtherReadingReference, type OriginalLanguageNameData } from '@/components/sources';
+import { RelatedDeities } from '@/components/deities/RelatedDeities';
+import { DeityStoryRecommendations } from '@/components/deities/DeityStoryRecommendations';
 
 function useProgress() {
   const context = useContext(ProgressContext);
@@ -226,7 +227,7 @@ export function DeityPageClient({ slug }: DeityPageClientProps) {
         <div className="text-center">
           <h2 className="text-2xl font-bold">Deity Not Found</h2>
           <p className="text-muted-foreground mt-2">
-            The deity you're looking for doesn't exist.
+            The deity you&apos;re looking for doesn&apos;t exist.
           </p>
           <Link href="/deities" className="text-gold hover:underline mt-4 inline-block">
             View all deities
@@ -335,7 +336,7 @@ export function DeityPageClient({ slug }: DeityPageClientProps) {
                 className="relative w-full max-w-sm mx-auto rounded-2xl overflow-hidden border-4 border-white dark:border-slate-800 shadow-2xl"
                 style={{ viewTransitionName: `deity-image-${deity.slug}` }}
               >
-                <div className="aspect-[3/4] relative">
+                <div className="aspect-3/4 relative">
                   <Image
                     src={deity.imageUrl}
                     alt={deity.name}
@@ -396,8 +397,8 @@ export function DeityPageClient({ slug }: DeityPageClientProps) {
                   </CardHeader>
                   <CardContent>
                     <ul className="space-y-4">
-                      {deity.crossPantheonParallels.map((parallel, index) => (
-                        <li key={index} className="border-l-2 border-gold/30 pl-4">
+                      {deity.crossPantheonParallels.map((parallel) => (
+                        <li key={parallel.deityId} className="border-l-2 border-gold/30 pl-4">
                           <div className="flex items-baseline gap-2">
                             <Link
                               href={`/deities/${parallel.deityId}`}
@@ -453,7 +454,7 @@ export function DeityPageClient({ slug }: DeityPageClientProps) {
                     <div className="space-y-6">
                       {deity.primarySources.map((source, index) => (
                         <blockquote
-                          key={index}
+                          key={`${source.source}-${index}`}
                           className="border-l-4 border-teal-500/50 pl-4 py-2 bg-slate-50 dark:bg-slate-800/50 rounded-r-lg"
                         >
                           <p className="text-slate-700 dark:text-slate-300 italic leading-relaxed">
@@ -505,9 +506,9 @@ export function DeityPageClient({ slug }: DeityPageClientProps) {
                           Sacred Temples
                         </h4>
                         <ul className="space-y-2">
-                          {deity.worship.temples.map((temple, index) => (
+                          {deity.worship.temples.map((temple) => (
                             <li
-                              key={index}
+                              key={temple}
                               className="text-muted-foreground flex items-start gap-2"
                             >
                               <span className="text-gold mt-1">&#8226;</span>
@@ -525,9 +526,9 @@ export function DeityPageClient({ slug }: DeityPageClientProps) {
                           Festivals & Celebrations
                         </h4>
                         <div className="flex flex-wrap gap-2">
-                          {deity.worship.festivals.map((festival, index) => (
+                          {deity.worship.festivals.map((festival) => (
                             <Badge
-                              key={index}
+                              key={festival}
                               variant="outline"
                               className="border-amber-300 dark:border-amber-700 text-amber-700 dark:text-amber-300"
                             >
@@ -592,6 +593,12 @@ export function DeityPageClient({ slug }: DeityPageClientProps) {
               </div>
             </div>
           </div>
+
+          {/* Related Deities */}
+          <RelatedDeities deityId={deity.id} pantheonId={deity.pantheonId} />
+
+          {/* Interactive Stories featuring this deity */}
+          <DeityStoryRecommendations deityId={deity.id} deityName={deity.name} />
 
           {/* Family Tree */}
           {relationshipsData?.deityRelationships && relationshipsData.deityRelationships.length > 0 && (

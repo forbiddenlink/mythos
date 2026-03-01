@@ -3,7 +3,6 @@
 import { useEffect, useState, useCallback, useMemo } from 'react';
 import { useRouter } from 'next/navigation';
 import {
-  Search,
   Sparkles,
   BookOpen,
   Skull,
@@ -11,7 +10,6 @@ import {
   MapPin,
   Clock,
   TrendingUp,
-  X,
 } from 'lucide-react';
 import { useDebounce } from '@/hooks/use-debounce';
 import {
@@ -74,6 +72,7 @@ export function SmartSearch({ open, onOpenChange }: SmartSearchProps) {
 
   // Load recent searches on mount
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- hydrate recent searches from localStorage
     setRecentSearches(getRecentSearches());
   }, [open]);
 
@@ -133,6 +132,7 @@ export function SmartSearch({ open, onOpenChange }: SmartSearchProps) {
   // Reset query when dialog closes
   useEffect(() => {
     if (!open) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect -- reset search query when dialog closes
       setQuery('');
     }
   }, [open]);
@@ -214,7 +214,7 @@ export function SmartSearch({ open, onOpenChange }: SmartSearchProps) {
                       onSelect={() => handleSelect(result)}
                       className="flex items-center gap-3"
                     >
-                      <Icon className={`h-4 w-4 flex-shrink-0 ${colorClass}`} />
+                      <Icon className={`h-4 w-4 shrink-0 ${colorClass}`} />
                       <div className="flex flex-col min-w-0">
                         <span className="truncate font-medium">{result.title}</span>
                         <span className="text-xs text-muted-foreground truncate">

@@ -1,11 +1,11 @@
 'use client';
 
-import React, { useRef, useState } from 'react';
+import React, { useRef, type JSX } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { OrbitControls, Stage, Float, Environment } from '@react-three/drei';
 import * as THREE from 'three';
 
-function GoldenApple(props: any) {
+function GoldenApple(props: JSX.IntrinsicElements['mesh']) {
     const meshRef = useRef<THREE.Mesh>(null);
 
     useFrame((state, delta) => {
@@ -30,7 +30,7 @@ function GoldenApple(props: any) {
     );
 }
 
-function GreekShield(props: any) {
+function GreekShield(props: JSX.IntrinsicElements['group']) {
     const meshRef = useRef<THREE.Group>(null);
     useFrame((state, delta) => {
         if (meshRef.current) {
@@ -63,7 +63,7 @@ function GreekShield(props: any) {
 
 export function ArtifactViewer({ type = 'apple' }: { type?: 'apple' | 'shield' }) {
     return (
-        <div className="w-full h-[400px] rounded-xl overflow-hidden bg-gradient-to-b from-slate-900 to-slate-950 border border-gold/20 relative">
+        <div className="w-full h-100 rounded-xl overflow-hidden bg-linear-to-b from-slate-900 to-slate-950 border border-gold/20 relative">
             <div className="absolute top-4 left-4 z-10">
                 <h3 className="text-gold font-serif text-lg bg-black/50 backdrop-blur px-3 py-1 rounded-full border border-gold/10">
                     {type === 'apple' ? 'Golden Apple of Discord' : 'Shield of Achilles'}

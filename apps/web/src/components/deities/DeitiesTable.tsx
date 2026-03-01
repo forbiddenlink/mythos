@@ -74,9 +74,9 @@ export function DeitiesTable({ deities }: DeitiesTableProps) {
         header: 'Domain',
         cell: ({ row }) => (
           <div className="flex flex-wrap gap-1">
-            {row.original.domain.slice(0, 3).map((d, i) => (
+            {row.original.domain.slice(0, 3).map((d) => (
               <span
-                key={i}
+                key={d}
                 className="px-2 py-0.5 text-xs rounded-full bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-300"
               >
                 {d}
@@ -98,9 +98,9 @@ export function DeitiesTable({ deities }: DeitiesTableProps) {
         header: 'Symbols',
         cell: ({ row }) => (
           <div className="flex flex-wrap gap-1">
-            {row.original.symbols.slice(0, 2).map((s, i) => (
+            {row.original.symbols.slice(0, 2).map((s) => (
               <span
-                key={i}
+                key={s}
                 className="px-2 py-0.5 text-xs rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300"
               >
                 {s}
@@ -160,6 +160,7 @@ export function DeitiesTable({ deities }: DeitiesTableProps) {
     []
   )
 
+  // eslint-disable-next-line react-hooks/incompatible-library -- @tanstack/react-table returns non-memoizable values
   const table = useReactTable({
     data: deities,
     columns,

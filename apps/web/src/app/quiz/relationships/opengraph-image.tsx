@@ -18,8 +18,8 @@ export default async function Image(props: {
       params = props.searchParams as unknown as typeof params;
     }
   }
-  const score = params?.score ? parseInt(params.score) : null;
-  const total = params?.total ? parseInt(params.total) : null;
+  const score = params?.score ? Number.parseInt(params.score) : null;
+  const total = params?.total ? Number.parseInt(params.total) : null;
   const difficulty = params?.difficulty || 'medium';
 
   // Default OG image when not sharing results

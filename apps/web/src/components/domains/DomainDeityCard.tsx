@@ -103,7 +103,7 @@ export function DomainDeityCard({
             {/* Deity Image with shared element transition */}
             {deity.imageUrl ? (
               <div
-                className="relative w-20 h-20 rounded-xl overflow-hidden border border-gold/20 shadow-sm flex-shrink-0"
+                className="relative w-20 h-20 rounded-xl overflow-hidden border border-gold/20 shadow-sm shrink-0"
                 style={{ viewTransitionName: `deity-image-${deity.slug}` }}
               >
                 <Image
@@ -115,7 +115,7 @@ export function DomainDeityCard({
               </div>
             ) : (
               <div
-                className="p-4 rounded-xl bg-gold/10 border border-gold/20 group-hover:bg-gold/15 transition-colors duration-300 flex-shrink-0"
+                className="p-4 rounded-xl bg-gold/10 border border-gold/20 group-hover:bg-gold/15 transition-colors duration-300 shrink-0"
                 style={{ viewTransitionName: `deity-image-${deity.slug}` }}
               >
                 <Sparkles className="h-8 w-8 text-gold" strokeWidth={1.5} />

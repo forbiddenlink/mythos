@@ -1,4 +1,4 @@
-import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
+import { describe, it, expect, beforeEach, afterEach } from 'vitest';
 import {
   searchAll,
   getRecentSearches,
@@ -7,7 +7,6 @@ import {
   getResultUrl,
   getPopularSearches,
   type SearchResult,
-  type ContentType,
 } from '@/lib/search';
 import { installLocalStorageMock } from '../utils/mocks';
 
@@ -45,7 +44,7 @@ describe('search', () => {
     });
 
     it('should respect limit parameter', () => {
-      const results = searchAll('a', 5);
+      const _results = searchAll('a', 5);
       // 'a' by itself returns empty (< 2 chars)
       // Let's try a longer query
       const results2 = searchAll('god', 3);

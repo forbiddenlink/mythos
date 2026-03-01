@@ -118,9 +118,9 @@ export function PantheonShowcase() {
             Featured Pantheons
           </h2>
           <div className="flex items-center justify-center gap-4 mb-6">
-            <div className="w-12 h-px bg-gradient-to-r from-transparent to-gold/40" />
+            <div className="w-12 h-px bg-linear-to-r from-transparent to-gold/40" />
             <div className="w-1.5 h-1.5 rotate-45 bg-gold/50" />
-            <div className="w-12 h-px bg-gradient-to-l from-transparent to-gold/40" />
+            <div className="w-12 h-px bg-linear-to-l from-transparent to-gold/40" />
           </div>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto font-body leading-relaxed">
             Explore these foundational mythologies that shaped civilizations
@@ -142,9 +142,9 @@ export function PantheonShowcase() {
               }}
             >
               <TransitionLink href={`/pantheons/${pantheon.slug}`} className="block h-full group">
-                <div className={`relative h-full rounded-xl overflow-hidden bg-gradient-to-br ${pantheon.gradient} p-px`}>
+                <div className={`relative h-full rounded-xl overflow-hidden bg-linear-to-br ${pantheon.gradient} p-px`}>
                   {/* Inner card */}
-                  <div className="relative h-full rounded-[11px] bg-gradient-to-br from-black/40 via-black/20 to-black/50 backdrop-blur-sm p-6 flex flex-col">
+                  <div className="relative h-full rounded-[11px] bg-linear-to-br from-black/40 via-black/20 to-black/50 backdrop-blur-sm p-6 flex flex-col">
                     {/* Decorative corner */}
                     <div className="absolute top-3 right-3 w-8 h-8 border-t border-r border-white/10 rounded-tr-lg" />
 
@@ -166,7 +166,7 @@ export function PantheonShowcase() {
                     </div>
 
                     {/* Description */}
-                    <p className="text-white/70 text-sm leading-relaxed mb-6 flex-grow">
+                    <p className="text-white/70 text-sm leading-relaxed mb-6 grow">
                       {pantheon.description}
                     </p>
 
@@ -177,7 +177,7 @@ export function PantheonShowcase() {
                     </div>
 
                     {/* Hover shine effect */}
-                    <div className="absolute inset-0 bg-gradient-to-tr from-white/0 via-white/5 to-white/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none rounded-[11px]" />
+                    <div className="absolute inset-0 bg-linear-to-tr from-white/0 via-white/5 to-white/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none rounded-[11px]" />
                   </div>
                 </div>
               </TransitionLink>

@@ -44,7 +44,7 @@ export function SourceExcerpt({ excerpt, className, variant = 'default' }: Sourc
       className={cn(
         'relative',
         isCompact ? 'p-4' : 'p-6',
-        'bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-800/60 dark:to-slate-900/60',
+        'bg-linear-to-br from-slate-50 to-slate-100 dark:from-slate-800/60 dark:to-slate-900/60',
         'border-l-4 border-teal-500/70 dark:border-teal-400/70',
         'rounded-r-lg shadow-sm',
         className
@@ -99,7 +99,7 @@ export function SourceExcerpt({ excerpt, className, variant = 'default' }: Sourc
       {/* Citation Footer */}
       <figcaption className={cn('mt-4 flex flex-wrap items-center gap-x-3 gap-y-1', isCompact ? 'text-xs' : 'text-sm')}>
         <div className="flex items-center gap-1.5 text-slate-600 dark:text-slate-400">
-          <Book className="h-4 w-4 flex-shrink-0" aria-hidden="true" />
+          <Book className="h-4 w-4 shrink-0" aria-hidden="true" />
           <cite className="not-italic font-medium">
             {excerpt.source}
             {excerpt.lineNumbers && (

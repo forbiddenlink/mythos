@@ -109,7 +109,7 @@ export function TimelineVisualizationD3({ pantheons, events, viewRange }: Timeli
         // Default d3.zoomIdentity maps domain[0] to range[0]
 
         // Let's use d3.zoomIdentity props
-        const t = d3.zoomIdentity
+        const _t = d3.zoomIdentity
             .scale(k)
             .translate(-((viewRange[0] - TIMELINE_START) / totalSpan) * innerWidth, 0) // Approximation, usually better to use scale invert
 
@@ -260,7 +260,7 @@ export function TimelineVisualizationD3({ pantheons, events, viewRange }: Timeli
             axisLayer.select('.domain').remove() // Remove main axis line
 
             // 3. Pantheon Bars
-            const sortedPantheons = [...pantheons].sort((a, b) => (a.timePeriodStart ?? 0) - (b.timePeriodStart ?? 0))
+            const sortedPantheons = pantheons.toSorted((a, b) => (a.timePeriodStart ?? 0) - (b.timePeriodStart ?? 0))
             const barHeight = 24
             const barGap = 12
 
@@ -325,7 +325,7 @@ export function TimelineVisualizationD3({ pantheons, events, viewRange }: Timeli
                                             <div className="text-xs font-bold text-[#ffd700] uppercase tracking-wider">{ev.type}</div>
                                             <div className="font-serif font-semibold text-base">{ev.title}</div>
                                             <div className="text-xs text-muted-foreground">{formatYear(ev.year)}</div>
-                                            <p className="text-xs leading-relaxed max-w-[200px]">{ev.description}</p>
+                                            <p className="text-xs leading-relaxed max-w-50">{ev.description}</p>
                                         </div>
                                     )
                                 })
@@ -422,7 +422,7 @@ export function TimelineVisualizationD3({ pantheons, events, viewRange }: Timeli
                     // Logic to reset zoom would involve re-selecting svg and invoking zoom.transform
                     if (svgRef.current) {
                         const svg = d3.select(svgRef.current)
-                        // @ts-ignore
+                        // @ts-expect-error - d3.zoom().transform type mismatch with call signature
                         svg.transition().duration(750).call(d3.zoom().transform, d3.zoomIdentity)
                     }
                 }}>
@@ -430,7 +430,7 @@ export function TimelineVisualizationD3({ pantheons, events, viewRange }: Timeli
                 </Button>
             </div>
 
-            <div ref={containerRef} className="w-full h-[600px] relative">
+            <div ref={containerRef} className="w-full h-150 relative">
                 <svg
                     ref={svgRef}
                     width="100%"

@@ -10,6 +10,7 @@ export function OfflineIndicator() {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- track client hydration
     setMounted(true);
     setIsOnline(navigator.onLine);
 
@@ -25,12 +26,12 @@ export function OfflineIndicator() {
       setShowReconnected(false);
     };
 
-    window.addEventListener('online', handleOnline);
-    window.addEventListener('offline', handleOffline);
+    globalThis.addEventListener('online', handleOnline);
+    globalThis.addEventListener('offline', handleOffline);
 
     return () => {
-      window.removeEventListener('online', handleOnline);
-      window.removeEventListener('offline', handleOffline);
+      globalThis.removeEventListener('online', handleOnline);
+      globalThis.removeEventListener('offline', handleOffline);
     };
   }, []);
 
@@ -40,14 +41,13 @@ export function OfflineIndicator() {
   }
 
   return (
-    <div
+    <output
       className={cn(
-        'fixed top-0 left-0 right-0 z-[100] flex items-center justify-center gap-2 px-4 py-2 text-sm font-medium transition-all duration-300',
+        'fixed top-0 left-0 right-0 z-100 flex items-center justify-center gap-2 px-4 py-2 text-sm font-medium transition-all duration-300',
         isOnline
           ? 'bg-green-600 text-white animate-in slide-in-from-top-2'
           : 'bg-amber-600 text-white animate-in slide-in-from-top-2'
       )}
-      role="status"
       aria-live="polite"
     >
       {isOnline ? (
@@ -61,6 +61,6 @@ export function OfflineIndicator() {
           <span>You are offline. Cached content is available.</span>
         </>
       )}
-    </div>
+    </output>
   );
 }

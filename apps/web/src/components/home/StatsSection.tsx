@@ -13,28 +13,26 @@ interface StatsData {
   storyCount: number;
 }
 
-function AnimatedCounter({ value, suffix }: { value: number; suffix: string }) {
+function AnimatedCounter({ value, suffix }: Readonly<{ value: number; suffix: string }>) {
   const [displayValue, setDisplayValue] = useState(0);
   const ref = useRef<HTMLSpanElement>(null);
   const hasAnimated = useRef(false);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting && !hasAnimated.current) {
-            hasAnimated.current = true;
-            const controls = animate(0, value, {
-              duration: 2,
-              ease: [0.22, 1, 0.36, 1],
-              onUpdate: (v) => setDisplayValue(Math.round(v)),
-            });
-            return () => controls.stop();
-          }
-        });
-      },
-      { threshold: 0.5 }
-    );
+    const handleIntersect: IntersectionObserverCallback = (entries) => {
+      for (const entry of entries) {
+        if (entry.isIntersecting && !hasAnimated.current) {
+          hasAnimated.current = true;
+          animate(0, value, {
+            duration: 2,
+            ease: [0.22, 1, 0.36, 1],
+            onUpdate: (v) => setDisplayValue(Math.round(v)),
+          });
+        }
+      }
+    };
+
+    const observer = new IntersectionObserver(handleIntersect, { threshold: 0.5 });
 
     if (ref.current) {
       observer.observe(ref.current);
@@ -99,7 +97,7 @@ export function StatsSection() {
   return (
     <section className="relative py-28 overflow-hidden">
       {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-midnight via-midnight-light/95 to-midnight" />
+      <div className="absolute inset-0 bg-linear-to-b from-midnight via-midnight-light/95 to-midnight" />
 
       {/* Decorative elements */}
       <div className="absolute inset-0 opacity-[0.03]" style={{
@@ -107,8 +105,8 @@ export function StatsSection() {
       }} />
 
       {/* Radial glow */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-px bg-linear-to-r from-transparent via-gold/30 to-transparent" />
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-px bg-linear-to-r from-transparent via-gold/30 to-transparent" />
 
       <div className="container mx-auto px-4 relative z-10">
         {/* Header */}
@@ -126,9 +124,9 @@ export function StatsSection() {
             A Living Encyclopedia
           </h2>
           <div className="flex items-center justify-center gap-4 mb-6">
-            <div className="w-12 h-px bg-gradient-to-r from-transparent to-gold/40" />
+            <div className="w-12 h-px bg-linear-to-r from-transparent to-gold/40" />
             <div className="w-1.5 h-1.5 rotate-45 bg-gold/50" />
-            <div className="w-12 h-px bg-gradient-to-l from-transparent to-gold/40" />
+            <div className="w-12 h-px bg-linear-to-l from-transparent to-gold/40" />
           </div>
           <p className="text-lg text-parchment/60 max-w-2xl mx-auto font-body leading-relaxed">
             Carefully curated from historical texts and archaeological findings
@@ -151,7 +149,7 @@ export function StatsSection() {
               className="relative text-center group"
             >
               {/* Card background */}
-              <div className="absolute inset-0 rounded-2xl bg-gradient-to-b from-gold/[0.03] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="absolute inset-0 rounded-2xl bg-linear-to-b from-gold/3 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
               <div className="relative py-8 px-4">
                 {/* Icon */}

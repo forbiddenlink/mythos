@@ -7,7 +7,6 @@ import { GET_DEITIES } from '@/lib/queries';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
 import {
   Trophy,
   RefreshCw,
@@ -158,6 +157,31 @@ function shuffleArray<T>(array: T[]): T[] {
   return shuffled;
 }
 
+function formatTime(seconds: number): string {
+  const mins = Math.floor(seconds / 60);
+  const secs = seconds % 60;
+  return `${mins}:${secs.toString().padStart(2, '0')}`;
+}
+
+function getCardBorderClasses(card: MemoryCard): string {
+  if (card.isMatched) return 'border-green-500/50 bg-green-500/10 cursor-default';
+  if (card.isFlipped) return 'border-gold/50 bg-gold/10 cursor-default';
+  return 'border-border hover:border-gold/30 hover:bg-gold/5 cursor-pointer active:scale-95';
+}
+
+function getCardAriaLabel(card: MemoryCard): string {
+  const contentLabel = card.type === 'symbol' ? `Symbol: ${card.content}` : card.content;
+  if (card.isMatched) return `Matched: ${contentLabel}`;
+  if (card.isFlipped) return contentLabel;
+  return 'Face down card';
+}
+
+function getEfficiencyMessage(efficiency: number): string {
+  if (efficiency >= 80) return 'Remarkable memory! The gods themselves would be impressed.';
+  if (efficiency >= 60) return 'Well done! You honor the ancient symbols with your recall.';
+  return 'The symbols reveal themselves to those who practice. Try again!';
+}
+
 export function SymbolMemoryGame() {
   const [difficulty, setDifficulty] = useState<Difficulty>('medium');
   const [cards, setCards] = useState<MemoryCard[]>([]);
@@ -213,7 +237,7 @@ export function SymbolMemoryGame() {
 
     // Filter deities that have symbols
     const deitiesWithSymbols = data.deities.filter(
-      (deity) => deity.symbols && deity.symbols.length > 0
+      (deity) => (deity.symbols?.length ?? 0) > 0
     );
 
     // Shuffle and pick deities for the game
@@ -276,6 +300,7 @@ export function SymbolMemoryGame() {
     // Start game timer on first click
     if (!gameStarted) {
       setGameStarted(true);
+      // eslint-disable-next-line react-hooks/purity -- Date.now() is only called in event handler, not during render
       setStartTime(Date.now());
     }
 
@@ -311,6 +336,7 @@ export function SymbolMemoryGame() {
         const totalPairs = DIFFICULTY_CONFIG[difficulty].pairs;
         if (matches + 1 === totalPairs) {
           setGameCompleted(true);
+          // eslint-disable-next-line react-hooks/purity -- Date.now() is only called in event handler, not during render
           const finalTime = Math.floor((Date.now() - (startTime || Date.now())) / 1000);
           setElapsedTime(finalTime);
 
@@ -336,12 +362,6 @@ export function SymbolMemoryGame() {
     }
   };
 
-  const formatTime = (seconds: number): string => {
-    const mins = Math.floor(seconds / 60);
-    const secs = seconds % 60;
-    return `${mins}:${secs.toString().padStart(2, '0')}`;
-  };
-
   if (isLoading || !data?.deities) {
     return (
       <div className="flex items-center justify-center py-12">
@@ -361,9 +381,9 @@ export function SymbolMemoryGame() {
 
     return (
       <Card className="max-w-2xl mx-auto border-gold/20 shadow-xl overflow-hidden relative">
-        <div className="absolute inset-0 bg-gradient-to-br from-gold/5 via-transparent to-transparent pointer-events-none" />
+        <div className="absolute inset-0 bg-linear-to-br from-gold/5 via-transparent to-transparent pointer-events-none" />
         <CardHeader className="text-center pt-8">
-          <div className="mx-auto mb-6 p-6 rounded-full bg-gradient-to-br from-gold/20 to-amber-500/10 w-fit ring-1 ring-gold/30 shadow-inner">
+          <div className="mx-auto mb-6 p-6 rounded-full bg-linear-to-br from-gold/20 to-amber-500/10 w-fit ring-1 ring-gold/30 shadow-inner">
             <Trophy className="h-16 w-16 text-gold drop-shadow-md" />
           </div>
           <CardTitle className="text-3xl font-serif">Memory Complete!</CardTitle>
@@ -392,7 +412,7 @@ export function SymbolMemoryGame() {
               <div className="font-bold text-lg">{efficiency}%</div>
             </div>
             {bestTimes[difficulty] && (
-              <div className="text-center p-3 rounded-lg bg-muted/50 w-28 border border-gold/20 bg-gold/5">
+              <div className="text-center p-3 rounded-lg w-28 border border-gold/20 bg-gold/5">
                 <div className="text-gold/80 mb-1 flex items-center justify-center gap-1">
                   <Crown className="h-3 w-3" /> Best
                 </div>
@@ -402,13 +422,7 @@ export function SymbolMemoryGame() {
           </div>
 
           <div className="text-center max-w-sm mx-auto">
-            {efficiency >= 80 ? (
-              <p className="text-lg">Remarkable memory! The gods themselves would be impressed.</p>
-            ) : efficiency >= 60 ? (
-              <p className="text-lg">Well done! You honor the ancient symbols with your recall.</p>
-            ) : (
-              <p className="text-lg">The symbols reveal themselves to those who practice. Try again!</p>
-            )}
+            <p className="text-lg">{getEfficiencyMessage(efficiency)}</p>
           </div>
 
           <div className="flex flex-col sm:flex-row gap-3">
@@ -454,20 +468,19 @@ export function SymbolMemoryGame() {
               {moves} moves
             </span>
           </div>
-          <div
+          <output
             className="flex items-center gap-2 px-3 py-2 rounded-lg bg-gold/10 border border-gold/20 text-gold"
-            role="status"
             aria-label={`Matches: ${matches} of ${config.pairs}`}
           >
             <Trophy className="h-4 w-4" aria-hidden="true" />
             <span className="font-semibold">
               {matches}/{config.pairs}
             </span>
-          </div>
+          </output>
         </div>
 
         <div className="flex items-center gap-2">
-          {(['easy', 'medium', 'hard'] as Difficulty[]).map((diff) => (
+          {(['easy', 'medium', 'hard'] as const).map((diff) => (
             <Button
               key={diff}
               variant={difficulty === diff ? 'default' : 'outline'}
@@ -478,7 +491,7 @@ export function SymbolMemoryGame() {
               {DIFFICULTY_CONFIG[diff].label}
             </Button>
           ))}
-          <Button variant="outline" size="sm" onClick={initializeGame}>
+          <Button variant="outline" size="sm" onClick={initializeGame} aria-label="Reset game">
             <RefreshCw className="h-4 w-4" />
           </Button>
         </div>
@@ -487,7 +500,7 @@ export function SymbolMemoryGame() {
       {/* Game Grid */}
       <div
         className={`grid ${config.gridCols} gap-3 max-w-4xl mx-auto`}
-        role="grid"
+        role="group"
         aria-label="Memory game board"
       >
         <AnimatePresence mode="popLayout">
@@ -505,21 +518,10 @@ export function SymbolMemoryGame() {
                 className={`
                   aspect-square w-full rounded-xl border-2 transition-all duration-300
                   focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2
-                  ${card.isMatched
-                    ? 'border-green-500/50 bg-green-500/10 cursor-default'
-                    : card.isFlipped
-                      ? 'border-gold/50 bg-gold/10 cursor-default'
-                      : 'border-border hover:border-gold/30 hover:bg-gold/5 cursor-pointer active:scale-95'
-                  }
+                  ${getCardBorderClasses(card)}
                 `}
-                aria-label={
-                  card.isMatched
-                    ? `Matched: ${card.type === 'symbol' ? `Symbol for ${card.content}` : card.content}`
-                    : card.isFlipped
-                      ? `${card.type === 'symbol' ? `Symbol: ${card.content}` : card.content}`
-                      : 'Face down card'
-                }
-                aria-pressed={card.isFlipped}
+                aria-label={getCardAriaLabel(card)}
+                aria-pressed={card.isFlipped ? "true" : "false"}
               >
                 <AnimatePresence mode="wait">
                   {card.isFlipped || card.isMatched ? (
@@ -533,7 +535,7 @@ export function SymbolMemoryGame() {
                     >
                       {card.type === 'symbol' ? (
                         <>
-                          <span className="text-4xl sm:text-5xl" role="img" aria-label={card.content}>
+                          <span className="text-4xl sm:text-5xl" aria-hidden="true">
                             {card.displayContent}
                           </span>
                           <span className="text-xs text-muted-foreground mt-1 capitalize hidden sm:block">
@@ -555,7 +557,7 @@ export function SymbolMemoryGame() {
                       transition={{ duration: 0.2 }}
                       className="h-full flex items-center justify-center"
                     >
-                      <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-lg bg-gradient-to-br from-gold/20 to-amber-600/20 flex items-center justify-center border border-gold/30">
+                      <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-lg bg-linear-to-br from-gold/20 to-amber-600/20 flex items-center justify-center border border-gold/30">
                         <Sparkles className="h-6 w-6 sm:h-8 sm:w-8 text-gold/60" />
                       </div>
                     </motion.div>

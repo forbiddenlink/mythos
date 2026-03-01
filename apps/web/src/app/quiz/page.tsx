@@ -43,7 +43,7 @@ const OTHER_QUIZZES = [
 
 export default function QuizPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-background to-mythic">
+    <div className="min-h-screen bg-linear-to-b from-background to-mythic">
       <QuizJsonLd
         name="Mythology Quiz - Test Your Knowledge"
         description="Test your knowledge of Greek, Norse, Egyptian, and world mythology with interactive quizzes about deities, symbols, and domains."

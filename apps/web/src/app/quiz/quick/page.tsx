@@ -65,13 +65,15 @@ export default function QuickQuizPage() {
   // Load high score from progress context or localStorage
   useEffect(() => {
     if (progressContext?.progress.quickQuizHighScore) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect -- hydrate high score from progress context
       setHighScore(progressContext.progress.quickQuizHighScore);
     } else {
       const saved = localStorage.getItem('mythos_quick_quiz_highscore');
-      if (saved) setHighScore(parseInt(saved));
+      if (saved) setHighScore(Number.parseInt(saved));
     }
   }, [progressContext?.progress.quickQuizHighScore]);
 
+  // eslint-disable-next-line react-hooks/preserve-manual-memoization -- intentional memoization on data availability
   const nextQuestion = useCallback(() => {
     if (data?.deities) {
       setQuestion(generateQuestion(data.deities));
@@ -91,6 +93,7 @@ export default function QuickQuizPage() {
   useEffect(() => {
     if (gameState !== 'playing') return;
     if (timeLeft <= 0) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect -- game-over state transition in timer effect
       setGameState('finished');
       if (score > highScore) {
         setHighScore(score);
@@ -131,7 +134,7 @@ export default function QuickQuizPage() {
 
   const handleShare = async () => {
     const shareText = `I scored ${score} in the Mythos Atlas Quick Quiz! Can you beat my score?`;
-    const shareUrl = `${window.location.origin}/quiz/quick`;
+    const shareUrl = `${globalThis.location.origin}/quiz/quick`;
 
     if (navigator.share) {
       try {
@@ -160,7 +163,7 @@ export default function QuickQuizPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-background to-mythic">
+    <div className="min-h-screen bg-linear-to-b from-background to-mythic">
       <div className="container mx-auto max-w-2xl px-4 py-12">
         <div className="text-center mb-8">
           <div className="flex items-center justify-center mb-4">

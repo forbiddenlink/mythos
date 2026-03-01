@@ -1,8 +1,7 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import { renderHook, act } from '@testing-library/react';
-import { ReactNode } from 'react';
-import { ProgressProvider, ProgressContext, type UserProgress, type ProgressContextValue } from '@/providers/progress-provider';
-import { useContext } from 'react';
+import { ReactNode, useContext } from 'react';
+import { ProgressProvider, ProgressContext, type UserProgress } from '@/providers/progress-provider';
 
 // Helper hook to access context
 function useProgress() {
@@ -37,7 +36,7 @@ describe('ProgressProvider', () => {
   beforeEach(() => {
     localStorageData = {};
     vi.useFakeTimers();
-    Object.defineProperty(window, 'localStorage', {
+    Object.defineProperty(globalThis, 'localStorage', {
       value: localStorageMock,
       writable: true,
     });
@@ -62,6 +61,18 @@ describe('ProgressProvider', () => {
         lastVisit: '2024-01-15', // Today - no streak change
         totalXP: 500,
         streakFreezes: 2,
+        quickQuizHighScore: 0,
+        dailyChallengeStreak: 0,
+        lastDailyChallengeDate: '',
+        claimedDailyChallenges: [],
+        todayActivity: {
+          date: '',
+          deitiesViewed: [],
+          storiesRead: [],
+          pantheonsViewed: [],
+          quizCompleted: false,
+          quizScore: 0,
+        },
       };
       localStorageData['mythos-atlas-progress'] = JSON.stringify(savedProgress);
 
@@ -230,6 +241,18 @@ describe('ProgressProvider', () => {
         lastVisit: '2024-01-14', // Yesterday
         totalXP: 0,
         streakFreezes: 2,
+        quickQuizHighScore: 0,
+        dailyChallengeStreak: 0,
+        lastDailyChallengeDate: '',
+        claimedDailyChallenges: [],
+        todayActivity: {
+          date: '',
+          deitiesViewed: [],
+          storiesRead: [],
+          pantheonsViewed: [],
+          quizCompleted: false,
+          quizScore: 0,
+        },
       };
       localStorageData['mythos-atlas-progress'] = JSON.stringify(savedProgress);
 
@@ -258,6 +281,18 @@ describe('ProgressProvider', () => {
         lastVisit: '2024-01-10', // 5 days ago
         totalXP: 0,
         streakFreezes: 0, // No freezes available
+        quickQuizHighScore: 0,
+        dailyChallengeStreak: 0,
+        lastDailyChallengeDate: '',
+        claimedDailyChallenges: [],
+        todayActivity: {
+          date: '',
+          deitiesViewed: [],
+          storiesRead: [],
+          pantheonsViewed: [],
+          quizCompleted: false,
+          quizScore: 0,
+        },
       };
       localStorageData['mythos-atlas-progress'] = JSON.stringify(savedProgress);
 
@@ -285,6 +320,18 @@ describe('ProgressProvider', () => {
         lastVisit: '2024-01-10', // 5 days ago
         totalXP: 0,
         streakFreezes: 2, // Has freezes
+        quickQuizHighScore: 0,
+        dailyChallengeStreak: 0,
+        lastDailyChallengeDate: '',
+        claimedDailyChallenges: [],
+        todayActivity: {
+          date: '',
+          deitiesViewed: [],
+          storiesRead: [],
+          pantheonsViewed: [],
+          quizCompleted: false,
+          quizScore: 0,
+        },
       };
       localStorageData['mythos-atlas-progress'] = JSON.stringify(savedProgress);
 
@@ -314,6 +361,18 @@ describe('ProgressProvider', () => {
         lastVisit: '2024-01-15', // Today
         totalXP: 0,
         streakFreezes: 2,
+        quickQuizHighScore: 0,
+        dailyChallengeStreak: 0,
+        lastDailyChallengeDate: '',
+        claimedDailyChallenges: [],
+        todayActivity: {
+          date: '',
+          deitiesViewed: [],
+          storiesRead: [],
+          pantheonsViewed: [],
+          quizCompleted: false,
+          quizScore: 0,
+        },
       };
       localStorageData['mythos-atlas-progress'] = JSON.stringify(savedProgress);
 
@@ -342,6 +401,18 @@ describe('ProgressProvider', () => {
         lastVisit: '2024-01-15',
         totalXP: 0,
         streakFreezes: 2,
+        quickQuizHighScore: 0,
+        dailyChallengeStreak: 0,
+        lastDailyChallengeDate: '',
+        claimedDailyChallenges: [],
+        todayActivity: {
+          date: '',
+          deitiesViewed: [],
+          storiesRead: [],
+          pantheonsViewed: [],
+          quizCompleted: false,
+          quizScore: 0,
+        },
       };
       localStorageData['mythos-atlas-progress'] = JSON.stringify(savedProgress);
 
@@ -375,6 +446,18 @@ describe('ProgressProvider', () => {
         lastVisit: '2024-01-15',
         totalXP: 0,
         streakFreezes: 0,
+        quickQuizHighScore: 0,
+        dailyChallengeStreak: 0,
+        lastDailyChallengeDate: '',
+        claimedDailyChallenges: [],
+        todayActivity: {
+          date: '',
+          deitiesViewed: [],
+          storiesRead: [],
+          pantheonsViewed: [],
+          quizCompleted: false,
+          quizScore: 0,
+        },
       };
       localStorageData['mythos-atlas-progress'] = JSON.stringify(savedProgress);
 
@@ -407,6 +490,18 @@ describe('ProgressProvider', () => {
         lastVisit: '2024-01-15',
         totalXP: 0,
         streakFreezes: 5,
+        quickQuizHighScore: 0,
+        dailyChallengeStreak: 0,
+        lastDailyChallengeDate: '',
+        claimedDailyChallenges: [],
+        todayActivity: {
+          date: '',
+          deitiesViewed: [],
+          storiesRead: [],
+          pantheonsViewed: [],
+          quizCompleted: false,
+          quizScore: 0,
+        },
       };
       localStorageData['mythos-atlas-progress'] = JSON.stringify(savedProgress);
 
@@ -532,6 +627,18 @@ describe('ProgressProvider', () => {
         lastVisit: '2024-01-15',
         totalXP: 500,
         streakFreezes: 2,
+        quickQuizHighScore: 0,
+        dailyChallengeStreak: 0,
+        lastDailyChallengeDate: '',
+        claimedDailyChallenges: [],
+        todayActivity: {
+          date: '',
+          deitiesViewed: [],
+          storiesRead: [],
+          pantheonsViewed: [],
+          quizCompleted: false,
+          quizScore: 0,
+        },
       };
       localStorageData['mythos-atlas-progress'] = JSON.stringify(savedProgress);
 
@@ -585,7 +692,7 @@ describe('ProgressProvider', () => {
       });
 
       expect(localStorageMock.setItem).toHaveBeenCalled();
-      const lastCall = localStorageMock.setItem.mock.calls[localStorageMock.setItem.mock.calls.length - 1];
+      const lastCall = localStorageMock.setItem.mock.calls.at(-1)!;
       const saved = JSON.parse(lastCall[1]);
       expect(saved.deitiesViewed).toContain('zeus');
     });

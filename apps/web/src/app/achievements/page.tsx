@@ -40,7 +40,7 @@ function AchievementCard({ achievement }: { achievement: AchievementWithStatus }
       <div className="flex items-start gap-4">
         {/* Icon */}
         <div
-          className={`flex-shrink-0 w-14 h-14 rounded-lg ${colors.bg} border ${colors.border} flex items-center justify-center text-2xl`}
+          className={`shrink-0 w-14 h-14 rounded-lg ${colors.bg} border ${colors.border} flex items-center justify-center text-2xl`}
         >
           {achievement.icon}
         </div>
@@ -147,7 +147,7 @@ export default function AchievementsPage() {
     .reduce((sum, a) => sum + a.xp, 0);
 
   return (
-    <main className="min-h-screen bg-gradient-to-b from-midnight via-mythic to-midnight">
+    <main className="min-h-screen bg-linear-to-b from-midnight via-mythic to-midnight">
       {/* Hero Section */}
       <section className="relative py-20 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-radial from-gold/5 via-transparent to-transparent" />

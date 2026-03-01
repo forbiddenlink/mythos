@@ -8,7 +8,7 @@ export function CTASection() {
   return (
     <section className="relative py-28 overflow-hidden">
       {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-midnight via-[oklch(0.16_0.05_270)] to-midnight" />
+      <div className="absolute inset-0 bg-linear-to-br from-midnight via-[oklch(0.16_0.05_270)] to-midnight" />
 
       {/* Decorative radial gradient */}
       <div className="absolute inset-0">
@@ -32,7 +32,7 @@ export function CTASection() {
       </div>
 
       {/* Top border line */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-px bg-linear-to-r from-transparent via-gold/30 to-transparent" />
 
       <div className="container mx-auto px-4 relative z-10">
         <motion.div
@@ -55,9 +55,9 @@ export function CTASection() {
 
           {/* Divider */}
           <div className="flex items-center justify-center gap-4 mb-8">
-            <div className="w-16 h-px bg-gradient-to-r from-transparent to-gold/40" />
+            <div className="w-16 h-px bg-linear-to-r from-transparent to-gold/40" />
             <div className="w-2 h-2 rotate-45 bg-gold/50" />
-            <div className="w-16 h-px bg-gradient-to-l from-transparent to-gold/40" />
+            <div className="w-16 h-px bg-linear-to-l from-transparent to-gold/40" />
           </div>
 
           {/* Description */}
@@ -73,7 +73,7 @@ export function CTASection() {
             >
               <Link
                 href="/deities"
-                className="group inline-flex items-center justify-center gap-3 px-8 py-4 rounded-lg bg-gradient-to-r from-gold-dark via-gold to-gold-dark hover:from-gold hover:via-gold-light hover:to-gold text-midnight font-semibold transition-all duration-300 shadow-lg shadow-gold/20 hover:shadow-xl hover:shadow-gold/30"
+                className="group inline-flex items-center justify-center gap-3 px-8 py-4 rounded-lg bg-linear-to-r from-gold-dark via-gold to-gold-dark hover:from-gold hover:via-gold-light hover:to-gold text-midnight font-semibold transition-all duration-300 shadow-lg shadow-gold/20 hover:shadow-xl hover:shadow-gold/30"
               >
                 <Users className="h-5 w-5" strokeWidth={2} />
                 Browse Deities
@@ -99,7 +99,7 @@ export function CTASection() {
       </div>
 
       {/* Bottom decorative element */}
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-px bg-gradient-to-r from-transparent via-gold/20 to-transparent" />
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-px bg-linear-to-r from-transparent via-gold/20 to-transparent" />
     </section>
   );
 }

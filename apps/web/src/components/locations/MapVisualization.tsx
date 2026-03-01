@@ -154,7 +154,7 @@ function getLocationTypeLabel(type: string): string {
     underworld: 'Underworld',
     mythical_realm: 'Mythical Realm',
   };
-  return labels[type] || type.replace(/_/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase());
+  return labels[type] || type.replaceAll('_', ' ').replaceAll(/\b\w/g, (c) => c.toUpperCase());
 }
 
 
@@ -210,7 +210,7 @@ export function MapVisualization({ locations, pantheons, deities = [], stories =
     }
 
     // Double check if the element has internal Leaflet ID (strict mode safety)
-    const element = containerRef.current as any;
+    const element = containerRef.current as HTMLDivElement & { _leaflet_id?: number | null };
     if (element._leaflet_id) {
       element._leaflet_id = null;
     }
@@ -346,12 +346,12 @@ export function MapVisualization({ locations, pantheons, deities = [], stories =
               <img src="${location.imageUrl}" alt="${location.name}"
                    class="w-full h-full object-cover"
                    onerror="this.parentElement.style.display='none'" />
-              <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+              <div class="absolute inset-0 bg-linear-to-t from-black/40 to-transparent"></div>
             </div>
           ` : '';
 
           popupContent.innerHTML = `
-            <div class="min-w-[260px] max-w-[320px]" style="padding: ${location.imageUrl ? '12px 12px 12px' : '0'}">
+            <div class="min-w-65 max-w-80" style="padding: ${location.imageUrl ? '12px 12px 12px' : '0'}">
               ${imageHtml}
               <div class="flex items-start gap-2 mb-2">
                 <span class="mt-1 w-3 h-3 rounded-full shrink-0" style="background-color: ${colors.bg}"></span>
@@ -391,16 +391,16 @@ export function MapVisualization({ locations, pantheons, deities = [], stories =
           const clusterPopup = document.createElement('div');
           clusterPopup.className = 'mythic-cluster-popup';
           clusterPopup.innerHTML = `
-            <div class="min-w-[200px] max-w-[280px]">
+            <div class="min-w-50 max-w-70">
               <div class="text-[11px] font-semibold text-slate-400 uppercase tracking-wider mb-2">
                 ${cluster.locations.length} Locations
               </div>
-              <div class="space-y-1 max-h-[200px] overflow-y-auto">
+              <div class="space-y-1 max-h-50 overflow-y-auto">
                 ${cluster.locations.map((loc) => {
                   const colors = PANTHEON_COLORS[loc.pantheonId] || { bg: '#6b7280', label: loc.pantheonId };
                   return `
                     <div class="flex items-center gap-2 py-1 px-2 bg-slate-50 rounded text-xs cursor-pointer hover:bg-slate-100 transition-colors"
-                         onclick="window.dispatchEvent(new CustomEvent('flyToLocation', { detail: { lat: ${loc.latitude}, lng: ${loc.longitude} } }))">
+                         onclick="globalThis.dispatchEvent(new CustomEvent('flyToLocation', { detail: { lat: ${loc.latitude}, lng: ${loc.longitude} } }))">
                       <span class="w-2 h-2 rounded-full shrink-0" style="background-color: ${colors.bg}"></span>
                       <span class="text-slate-700 truncate">${loc.name}</span>
                     </div>
@@ -433,10 +433,10 @@ export function MapVisualization({ locations, pantheons, deities = [], stories =
       const { lat, lng } = customEvent.detail;
       map.flyTo([lat, lng], 8, { duration: 1.5 });
     };
-    window.addEventListener('flyToLocation', handleFlyTo);
+    globalThis.addEventListener('flyToLocation', handleFlyTo);
 
     return () => {
-      window.removeEventListener('flyToLocation', handleFlyTo);
+      globalThis.removeEventListener('flyToLocation', handleFlyTo);
       map.off('zoomend');
       if (mapInstanceRef.current) {
         mapInstanceRef.current.remove();
@@ -446,12 +446,13 @@ export function MapVisualization({ locations, pantheons, deities = [], stories =
         markersLayerRef.current = null;
       }
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- refs are stable and don't need to be in deps
   }, [mappableLocations, enableClustering, getDeitiesForLocation, getStoriesForLocation]); // Re-init if locations change or clustering toggle
 
   return (
-    <div className="relative w-full h-full min-h-[500px] bg-slate-950 rounded-xl overflow-hidden border border-slate-800">
+    <div className="relative w-full h-full min-h-125 bg-slate-950 rounded-xl overflow-hidden border border-slate-800">
       {/* Pantheon Filter Pills - Above Map */}
-      <div className="absolute top-4 left-4 right-4 z-[1000] flex flex-wrap items-center gap-2">
+      <div className="absolute top-4 left-4 right-4 z-1000 flex flex-wrap items-center gap-2">
         {/* All button */}
         <button
           onClick={() => setActivePantheonFilter(null)}
@@ -531,7 +532,7 @@ export function MapVisualization({ locations, pantheons, deities = [], stories =
       />
 
       {/* Map stats overlay */}
-      <div className="absolute bottom-4 left-4 z-[1000] bg-card/90 backdrop-blur-sm border border-border rounded-lg px-3 py-2 text-xs text-muted-foreground">
+      <div className="absolute bottom-4 left-4 z-1000 bg-card/90 backdrop-blur-sm border border-border rounded-lg px-3 py-2 text-xs text-muted-foreground">
         <span className="font-medium text-foreground">{mappableLocations.length}</span> location{mappableLocations.length !== 1 ? 's' : ''} shown
         {activePantheonFilter && (
           <span className="ml-1">
@@ -541,7 +542,7 @@ export function MapVisualization({ locations, pantheons, deities = [], stories =
       </div>
 
       {/* Legend */}
-      <div className="absolute bottom-4 right-4 z-[1000] bg-card/90 backdrop-blur-sm border border-border rounded-lg px-3 py-2">
+      <div className="absolute bottom-4 right-4 z-1000 bg-card/90 backdrop-blur-sm border border-border rounded-lg px-3 py-2">
         <div className="text-[10px] font-semibold text-muted-foreground uppercase tracking-wider mb-1.5">Legend</div>
         <div className="flex flex-wrap gap-x-3 gap-y-1 text-[10px]">
           {Object.entries(PANTHEON_COLORS).slice(0, 5).map(([id, colors]) => (

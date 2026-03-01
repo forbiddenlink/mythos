@@ -96,7 +96,7 @@ describe('useDebounce', () => {
   });
 
   it('should cancel timeout on unmount', () => {
-    const { result, rerender, unmount } = renderHook(
+    const { rerender, unmount } = renderHook(
       ({ value, delay }) => useDebounce(value, delay),
       { initialProps: { value: 'initial', delay: 500 } }
     );

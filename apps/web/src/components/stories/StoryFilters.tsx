@@ -32,18 +32,18 @@ interface StoryFiltersProps {
   onFilteredChange: (filtered: Story[]) => void;
 }
 
-export function StoryFilters({ stories, onFilteredChange }: StoryFiltersProps) {
+export function StoryFilters({ stories, onFilteredChange }: Readonly<StoryFiltersProps>) {
   const [categoryFilter, setCategoryFilter] = useState<string>('all');
   const [themeFilter, setThemeFilter] = useState<string>('all');
   const [searchQuery, setSearchQuery] = useState('');
 
   const allCategories = Array.from(
     new Set(stories.map(s => s.category).filter((c): c is string => Boolean(c)))
-  ).sort();
+  ).sort((a, b) => a.localeCompare(b));
 
   const allThemes = Array.from(
     new Set(stories.flatMap(s => s.moralThemes || []))
-  ).sort();
+  ).sort((a, b) => a.localeCompare(b));
 
   useEffect(() => {
     let filtered = [...stories];
@@ -98,7 +98,7 @@ export function StoryFilters({ stories, onFilteredChange }: StoryFiltersProps) {
           </div>
 
           <Select value={categoryFilter} onValueChange={setCategoryFilter}>
-            <SelectTrigger className="w-[160px]" aria-label="Filter by category">
+            <SelectTrigger className="w-40" aria-label="Filter by category">
               <SelectValue placeholder="Category" />
             </SelectTrigger>
             <SelectContent>
@@ -113,7 +113,7 @@ export function StoryFilters({ stories, onFilteredChange }: StoryFiltersProps) {
 
           {allThemes.length > 0 && (
             <Select value={themeFilter} onValueChange={setThemeFilter}>
-              <SelectTrigger className="w-[160px]" aria-label="Filter by theme">
+              <SelectTrigger className="w-40" aria-label="Filter by theme">
                 <SelectValue placeholder="Theme" />
               </SelectTrigger>
               <SelectContent>

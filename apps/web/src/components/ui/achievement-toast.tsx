@@ -1,7 +1,6 @@
 'use client';
 
 import { useEffect, useState, useCallback } from 'react';
-import { X, Trophy } from 'lucide-react';
 import * as Icons from 'lucide-react';
 import { cn } from '@/lib/utils';
 
@@ -34,7 +33,7 @@ function toPascalCase(str: string): string {
 function getIcon(iconName: string): React.ComponentType<{ className?: string }> {
   const icons = Icons as unknown as Record<string, React.ComponentType<{ className?: string }>>;
   const pascalName = toPascalCase(iconName);
-  return icons[pascalName] || Trophy;
+  return icons[pascalName] || Icons.Trophy;
 }
 
 export function AchievementToast({
@@ -91,11 +90,11 @@ export function AchievementToast({
           ? 'translate-x-0 opacity-100'
           : 'translate-x-full opacity-0',
         // Glow effect
-        'before:absolute before:inset-0 before:rounded-xl before:bg-gradient-to-r before:from-gold/5 before:via-gold/10 before:to-gold/5 before:animate-pulse-subtle'
+        'before:absolute before:inset-0 before:rounded-xl before:bg-linear-to-r before:from-gold/5 before:via-gold/10 before:to-gold/5 before:animate-pulse-subtle'
       )}
     >
       {/* Top accent bar */}
-      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-gold-dark via-gold to-gold-dark" />
+      <div className="absolute top-0 left-0 right-0 h-1 bg-linear-to-r from-gold-dark via-gold to-gold-dark" />
 
       {/* Content */}
       <div className="relative p-4">
@@ -110,20 +109,21 @@ export function AchievementToast({
           )}
           aria-label="Close notification"
         >
-          <X className="size-4" />
+          <Icons.X className="size-4" />
         </button>
 
         <div className="flex items-start gap-4 pr-6">
           {/* Icon container with glow */}
           <div
             className={cn(
-              'flex-shrink-0 flex items-center justify-center',
+              'shrink-0 flex items-center justify-center',
               'size-12 rounded-full',
-              'bg-gradient-to-br from-gold-dark via-gold to-gold-light',
+              'bg-linear-to-br from-gold-dark via-gold to-gold-light',
               'shadow-md shadow-gold/30',
               'animate-glow'
             )}
           >
+            {/* eslint-disable-next-line react-hooks/static-components -- dynamic icon from runtime prop */}
             <Icon className="size-6 text-midnight" />
           </div>
 
@@ -131,7 +131,7 @@ export function AchievementToast({
           <div className="flex-1 min-w-0 pt-0.5">
             {/* Header */}
             <div className="flex items-center gap-2 mb-1">
-              <Trophy className="size-3.5 text-gold" />
+              <Icons.Trophy className="size-3.5 text-gold" />
               <span className="text-xs font-medium uppercase tracking-wider text-gold">
                 Achievement Unlocked!
               </span>
@@ -165,7 +165,7 @@ export function AchievementToast({
       {/* Progress bar for auto-dismiss (optional visual indicator) */}
       <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gold/20 overflow-hidden">
         <div
-          className="h-full bg-gradient-to-r from-gold-dark via-gold to-gold-light transition-none"
+          className="h-full bg-linear-to-r from-gold-dark via-gold to-gold-light transition-none"
           style={{
             width: '100%',
             animation: `achievement-toast-shrink ${autoHideDuration}ms linear forwards`,

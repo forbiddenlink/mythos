@@ -33,7 +33,7 @@ export function ReviewPageClient() {
 
   if (isSessionActive) {
     return (
-      <div className="min-h-screen bg-gradient-to-b from-background via-muted/20 to-background">
+      <div className="min-h-screen bg-linear-to-b from-background via-muted/20 to-background">
         <div className="container mx-auto max-w-4xl px-4 py-8">
           {/* Back Button */}
           <div className="mb-6">
@@ -54,7 +54,7 @@ export function ReviewPageClient() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-background via-muted/20 to-background">
+    <div className="min-h-screen bg-linear-to-b from-background via-muted/20 to-background">
       <div className="container mx-auto max-w-4xl px-4 py-12">
         {/* Header */}
         <motion.div
@@ -63,7 +63,7 @@ export function ReviewPageClient() {
           transition={{ duration: 0.5 }}
           className="text-center mb-12"
         >
-          <div className="inline-flex items-center justify-center p-4 rounded-full bg-gradient-to-br from-gold/20 to-amber-500/10 ring-1 ring-gold/30 mb-6">
+          <div className="inline-flex items-center justify-center p-4 rounded-full bg-linear-to-br from-gold/20 to-amber-500/10 ring-1 ring-gold/30 mb-6">
             <Brain className="h-10 w-10 text-gold" />
           </div>
           <h1 className="text-4xl md:text-5xl font-serif font-bold tracking-tight mb-4">
@@ -138,7 +138,7 @@ export function ReviewPageClient() {
           transition={{ duration: 0.5, delay: 0.2 }}
         >
           <Card className="border-gold/20 shadow-xl overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-br from-gold/5 via-transparent to-transparent pointer-events-none" />
+            <div className="absolute inset-0 bg-linear-to-br from-gold/5 via-transparent to-transparent pointer-events-none" />
             <CardHeader className="text-center pt-8">
               <CardTitle className="text-2xl font-serif">
                 {dueCount > 0

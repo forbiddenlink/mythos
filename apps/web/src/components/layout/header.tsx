@@ -20,6 +20,7 @@ export const mobileNavSections = [
       { href: '/pantheons', label: 'Pantheons' },
       { href: '/deities', label: 'Deities' },
       { href: '/stories', label: 'Stories' },
+      { href: '/stories/interactive/the-underworld-descent', label: 'Interactive Stories' },
       { href: '/creatures', label: 'Creatures' },
       { href: '/artifacts', label: 'Artifacts' },
       { href: '/locations', label: 'Locations' },
@@ -31,24 +32,31 @@ export const mobileNavSections = [
     links: [
       { href: '/divine-domains', label: 'Divine Domains' },
       { href: '/compare', label: 'Compare Deities' },
+      { href: '/compare/myths', label: 'Compare Myths' },
       { href: '/knowledge-graph', label: 'Knowledge Graph' },
       { href: '/family-tree', label: 'Family Tree' },
       { href: '/timeline', label: 'Timeline' },
+      { href: '/story-timeline', label: 'Story Timeline' },
     ],
   },
   {
     title: 'Learn',
     links: [
       { href: '/quiz', label: 'Quiz' },
+      { href: '/games/memory', label: 'Symbol Memory' },
+      { href: '/learning-paths', label: 'Learning Paths' },
       { href: '/review', label: 'Daily Review' },
       { href: '/progress', label: 'Progress' },
       { href: '/achievements', label: 'Achievements' },
+      { href: '/leaderboard', label: 'Leaderboard' },
     ],
   },
   {
     title: 'More',
     links: [
       { href: '/bookmarks', label: 'Bookmarks' },
+      { href: '/sources', label: 'Sources' },
+      { href: '/changelog', label: 'Changelog' },
       { href: '/about', label: 'About' },
     ],
   },
@@ -62,14 +70,14 @@ export function Header() {
   useEffect(() => {
     // eslint-disable-next-line react-hooks/set-state-in-effect
     setMounted(true);
-    setIsMac(navigator.platform.toUpperCase().indexOf('MAC') >= 0);
+    setIsMac(/(Mac|iPhone|iPod|iPad)/i.test(navigator.userAgent));
 
     const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
+      setScrolled(globalThis.scrollY > 20);
     };
 
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
+    globalThis.addEventListener('scroll', handleScroll, { passive: true });
+    return () => globalThis.removeEventListener('scroll', handleScroll);
   }, []);
 
   const handleSearchClick = () => {
@@ -141,7 +149,7 @@ export function Header() {
             <kbd className="hidden md:inline-flex items-center gap-0.5 px-1.5 py-0.5 text-[10px] font-mono rounded bg-background border border-border/80 text-muted-foreground">
               {mounted && isMac ? <Command className="h-2.5 w-2.5" /> : null}
               {mounted && !isMac ? 'Ctrl' : null}
-              {!mounted ? <span className="w-3" /> : null}
+              {mounted ? null : <span className="w-3" />}
               <span>K</span>
             </kbd>
           </button>

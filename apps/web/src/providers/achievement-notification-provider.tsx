@@ -22,7 +22,6 @@ export function AchievementNotificationProvider({
   const isInitializedRef = useRef(false);
 
   // Track newly unlocked achievements
-  // eslint-disable-next-line react-hooks/set-state-in-effect -- intentional: detecting new unlocks
   useEffect(() => {
     const currentUnlocked = new Set(
       achievements.filter((a) => a.unlocked).map((a) => a.id)
@@ -48,6 +47,7 @@ export function AchievementNotificationProvider({
 
     // Add new achievements to toast queue
     if (newlyUnlocked.length > 0) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect -- queue toasts for newly unlocked achievements
       setToastQueue((prev) => [...prev, ...newlyUnlocked]);
     }
 

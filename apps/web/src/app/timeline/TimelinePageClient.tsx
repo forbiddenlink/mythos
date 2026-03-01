@@ -1,8 +1,7 @@
 'use client'
 
 import dynamic from 'next/dynamic'
-import Image from 'next/image'
-import { Clock, Loader2 } from 'lucide-react'
+import { Loader2 } from 'lucide-react'
 import { Breadcrumbs } from '@/components/navigation/Breadcrumbs'
 
 import pantheonsData from '@/data/pantheons.json'
@@ -10,7 +9,7 @@ import pantheonsData from '@/data/pantheons.json'
 // Lazy load D3-based timeline visualization
 const TimelineVisualizationD3 = dynamic(
   () => import('@/components/timeline/TimelineVisualizationD3').then(mod => ({ default: mod.TimelineVisualizationD3 })),
-  { loading: () => <div className="h-[400px] flex items-center justify-center"><Loader2 className="h-8 w-8 animate-spin text-primary" /></div>, ssr: false }
+  { loading: () => <div className="h-100 flex items-center justify-center"><Loader2 className="h-8 w-8 animate-spin text-primary" /></div>, ssr: false }
 )
 import storiesData from '@/data/stories.json'
 import deitiesData from '@/data/deities.json'
@@ -61,8 +60,8 @@ import { TimelineControls } from '@/components/timeline/TimelineControls'
 
 export function TimelinePageClient() {
   const pantheons = pantheonsData as unknown as Pantheon[]
-  const stories = storiesData as unknown as Story[]
-  const deities = deitiesData as unknown as Deity[]
+  const _stories = storiesData as unknown as Story[]
+  const _deities = deitiesData as unknown as Deity[]
   const events = eventsData as unknown as TimelineEvent[]
 
   const MIN_YEAR = -3500

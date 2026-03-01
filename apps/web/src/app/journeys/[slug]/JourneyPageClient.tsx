@@ -27,7 +27,7 @@ const JourneyMap = dynamic(
   {
     ssr: false,
     loading: () => (
-      <div className="flex items-center justify-center h-[500px] rounded-xl border border-border bg-card">
+      <div className="flex items-center justify-center h-125 rounded-xl border border-border bg-card">
         <div className="text-center">
           <Loader2 className="h-8 w-8 animate-spin text-gold mx-auto mb-3" />
           <p className="text-sm text-muted-foreground">Loading journey map...</p>
@@ -100,7 +100,7 @@ export function JourneyPageClient({ slug }: JourneyPageClientProps) {
   const [selectedWaypoint, setSelectedWaypoint] = useState<Waypoint | null>(null);
 
   const sortedWaypoints = useMemo(
-    () => (journey ? [...journey.waypoints].sort((a, b) => a.order - b.order) : []),
+    () => (journey ? journey.waypoints.toSorted((a, b) => a.order - b.order) : []),
     [journey]
   );
 
@@ -114,7 +114,7 @@ export function JourneyPageClient({ slug }: JourneyPageClientProps) {
         <div className="text-center">
           <h2 className="text-2xl font-bold">Journey Not Found</h2>
           <p className="text-slate-600 dark:text-slate-400 mt-2">
-            The journey you're looking for doesn't exist.
+            The journey you&apos;re looking for doesn&apos;t exist.
           </p>
           <Link href="/journeys" className="text-gold hover:underline mt-4 inline-block">
             View all journeys
@@ -133,10 +133,10 @@ export function JourneyPageClient({ slug }: JourneyPageClientProps) {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <div className="relative h-[35vh] min-h-[280px] flex items-center justify-center overflow-hidden">
+      <div className="relative h-[35vh] min-h-70 flex items-center justify-center overflow-hidden">
         {/* Background */}
         <div className="absolute inset-0 z-0 bg-hero-gradient" />
-        <div className="absolute inset-0 bg-gradient-to-b from-midnight/70 via-midnight/60 to-midnight/80 z-10" />
+        <div className="absolute inset-0 bg-linear-to-b from-midnight/70 via-midnight/60 to-midnight/80 z-10" />
         <div
           className="absolute top-0 left-1/2 -translate-x-1/2 w-[120%] h-[60%] bg-gradient-radial via-transparent to-transparent z-10"
           style={{ background: `radial-gradient(ellipse at center, ${colors.bg}20, transparent)` }}
@@ -182,7 +182,7 @@ export function JourneyPageClient({ slug }: JourneyPageClientProps) {
         <div className="grid lg:grid-cols-3 gap-6">
           {/* Map Section */}
           <div className="lg:col-span-2">
-            <div className="rounded-xl overflow-hidden border border-border shadow-lg h-[600px]">
+            <div className="rounded-xl overflow-hidden border border-border shadow-lg h-150">
               <JourneyMap
                 journey={journey}
                 onWaypointSelect={handleWaypointSelect}
@@ -254,7 +254,7 @@ export function JourneyPageClient({ slug }: JourneyPageClientProps) {
                       <ul className="space-y-1">
                         {currentWaypoint.events.map((event, index) => (
                           <li
-                            key={index}
+                            key={`${event}-${index}`}
                             className="text-sm text-foreground flex items-start gap-2"
                           >
                             <ChevronRight className="h-4 w-4 text-gold shrink-0 mt-0.5" />
@@ -317,7 +317,7 @@ export function JourneyPageClient({ slug }: JourneyPageClientProps) {
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="space-y-1 max-h-[400px] overflow-y-auto pr-2 scrollbar-thin">
+                <div className="space-y-1 max-h-100 overflow-y-auto pr-2 scrollbar-thin">
                   {sortedWaypoints.map((waypoint) => {
                     const isSelected = selectedWaypoint?.id === waypoint.id;
                     return (

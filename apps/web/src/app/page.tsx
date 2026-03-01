@@ -8,6 +8,9 @@ import { CTASection } from '@/components/home/CTASection';
 import { ComparativeMythology } from '@/components/mythology/ComparativeMythology';
 import { WebSiteJsonLd } from '@/components/seo/JsonLd';
 import { generateBaseMetadata } from '@/lib/metadata';
+import { InteractiveStoriesBanner } from '@/components/home/InteractiveStoriesBanner';
+import { DailyChallengeBanner } from '@/components/challenges/DailyChallengeBanner';
+import { LeaderboardWidget } from '@/components/leaderboard/LeaderboardWidget';
 
 export const metadata = generateBaseMetadata({
   title: 'Mythos Atlas - Explore World Mythology',
@@ -24,11 +27,14 @@ export default function Home() {
       />
       <HeroSection />
       <StreakWidget />
+      <DailyChallengeBanner />
       <DailyCard />
+      <InteractiveStoriesBanner />
+      <LeaderboardWidget />
       <FeaturesGrid />
       <StatsSection />
       <PantheonShowcase />
-      <section className="py-20 bg-gradient-to-b from-mythic to-background">
+      <section className="py-20 bg-linear-to-b from-mythic to-background">
         <div className="container mx-auto max-w-7xl px-4">
           <ComparativeMythology />
         </div>

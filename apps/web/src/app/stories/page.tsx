@@ -16,17 +16,26 @@ import { GridSkeleton, FiltersSkeleton } from '@/components/ui/skeleton-cards';
 import { BranchingStory, getDiscoveredEndings } from '@/lib/branching-story';
 import branchingStoriesData from '@/data/branching-stories.json';
 import { CollectionPageJsonLd } from '@/components/seo/JsonLd';
+import { usePagination } from '@/hooks/usePagination';
+import { PaginationControls } from '@/components/ui/pagination-controls';
 
 const branchingStories = branchingStoriesData as unknown as BranchingStory[];
 
 // Interactive Story Card Component
-function InteractiveStoryCard({ story }: { story: BranchingStory }) {
+function InteractiveStoryCard({ story }: Readonly<{ story: BranchingStory }>) {
   const [discoveredCount, setDiscoveredCount] = useState(0);
 
   useEffect(() => {
     const discovered = getDiscoveredEndings(story.id);
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- hydrate discovered count from localStorage
     setDiscoveredCount(discovered.length);
   }, [story.id]);
+
+  const remaining = story.totalEndings - discoveredCount;
+  const endingLabel = remaining > 1 ? 'endings' : 'ending';
+  const progressText = discoveredCount === story.totalEndings
+    ? 'All endings discovered!'
+    : `${remaining} ${endingLabel} remaining`;
 
   return (
     <Link href={`/stories/interactive/${story.slug}`} className="group">
@@ -40,14 +49,14 @@ function InteractiveStoryCard({ story }: { story: BranchingStory }) {
         </div>
 
         {/* Gradient top border */}
-        <div className="h-1 bg-gradient-to-r from-gold via-amber-400 to-gold"></div>
+        <div className="h-1 bg-linear-to-r from-gold via-amber-400 to-gold"></div>
 
         <CardHeader className="relative">
           <div className="absolute top-4 right-4 opacity-[0.03] group-hover:opacity-[0.06] transition-opacity">
             <Gamepad2 className="h-24 w-24 text-gold" />
           </div>
           <div className="flex items-start gap-3 relative z-10">
-            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-gold-dark via-gold to-amber-400 flex items-center justify-center shrink-0 shadow-md group-hover:scale-105 transition-transform duration-300">
+            <div className="w-12 h-12 rounded-xl bg-linear-to-br from-gold-dark via-gold to-amber-400 flex items-center justify-center shrink-0 shadow-md group-hover:scale-105 transition-transform duration-300">
               <Gamepad2 className="h-6 w-6 text-midnight" strokeWidth={1.5} />
             </div>
             <div className="flex-1 min-w-0 pr-16">
@@ -87,14 +96,12 @@ function InteractiveStoryCard({ story }: { story: BranchingStory }) {
             <div className="space-y-1">
               <div className="h-1.5 bg-midnight rounded-full overflow-hidden">
                 <div
-                  className="h-full bg-gradient-to-r from-gold-dark to-gold transition-all duration-300"
+                  className="h-full bg-linear-to-r from-gold-dark to-gold transition-all duration-300"
                   style={{ width: `${(discoveredCount / story.totalEndings) * 100}%` }}
                 />
               </div>
               <p className="text-xs text-gold/70">
-                {discoveredCount === story.totalEndings
-                  ? 'All endings discovered!'
-                  : `${story.totalEndings - discoveredCount} ending${story.totalEndings - discoveredCount > 1 ? 's' : ''} remaining`}
+                {progressText}
               </p>
             </div>
           )}
@@ -139,7 +146,7 @@ export default function StoriesPage() {
     return (
       <div className="min-h-screen">
         {/* Hero placeholder */}
-        <div className="relative h-[50vh] min-h-[400px] flex items-center justify-center overflow-hidden bg-gradient-to-b from-midnight/70 via-midnight/60 to-midnight/80" />
+        <div className="relative h-[50vh] min-h-100 flex items-center justify-center overflow-hidden bg-linear-to-b from-midnight/70 via-midnight/60 to-midnight/80" />
 
         {/* Content Section */}
         <div className="container mx-auto max-w-7xl px-4 py-12 bg-mythic">
@@ -173,7 +180,7 @@ export default function StoriesPage() {
         numberOfItems={data?.stories?.length}
       />
       {/* Hero Section with Background Image */}
-      <div className="relative h-[50vh] min-h-[400px] flex items-center justify-center overflow-hidden">
+      <div className="relative h-[50vh] min-h-100 flex items-center justify-center overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <Image
@@ -187,7 +194,7 @@ export default function StoriesPage() {
           />
         </div>
         {/* Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-midnight/70 via-midnight/60 to-midnight/80 z-10" />
+        <div className="absolute inset-0 bg-linear-to-b from-midnight/70 via-midnight/60 to-midnight/80 z-10" />
 
         {/* Radial gold glow */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[120%] h-[60%] bg-gradient-radial from-gold/10 via-transparent to-transparent z-10" />
@@ -196,7 +203,7 @@ export default function StoriesPage() {
         <div className="relative z-20 text-center px-4 max-w-4xl mx-auto">
           <div className="flex items-center justify-center mb-6">
             <div className="relative p-4 rounded-xl border border-gold/20 bg-midnight/50 backdrop-blur-sm">
-              <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-gold/10 to-transparent" />
+              <div className="absolute inset-0 rounded-xl bg-linear-to-br from-gold/10 to-transparent" />
               <ScrollText className="relative h-10 w-10 text-gold" strokeWidth={1.5} />
             </div>
           </div>
@@ -207,9 +214,9 @@ export default function StoriesPage() {
             Mythological Stories
           </h1>
           <div className="flex items-center justify-center gap-4 mb-6">
-            <div className="w-12 h-px bg-gradient-to-r from-transparent to-gold/40" />
+            <div className="w-12 h-px bg-linear-to-r from-transparent to-gold/40" />
             <div className="w-1.5 h-1.5 rotate-45 bg-gold/50" />
-            <div className="w-12 h-px bg-gradient-to-l from-transparent to-gold/40" />
+            <div className="w-12 h-px bg-linear-to-l from-transparent to-gold/40" />
           </div>
           <p className="text-lg md:text-xl text-parchment/70 max-w-2xl mx-auto font-body leading-relaxed">
             Epic tales and legends from ancient civilizations
@@ -259,57 +266,7 @@ export default function StoriesPage() {
         )}
 
         {displayStories.length > 0 ? (
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 mt-6">
-            {displayStories.map((story, index) => (
-              <Link key={story.id} href={`/stories/${story.slug}`} className="group">
-                <Card asArticle className="h-full cursor-pointer card-elevated bg-card hover:scale-[1.01] overflow-hidden">
-                  {/* Subtle Top Border */}
-                  <div className="h-0.5 bg-gradient-to-r from-gold-dark via-gold to-gold-dark"></div>
-
-                  <CardHeader className="relative">
-                    <div className="absolute top-4 right-4 opacity-[0.03] group-hover:opacity-[0.06] transition-opacity">
-                      <BookOpen className="h-24 w-24 text-gold" />
-                    </div>
-                    <div className="flex items-start gap-3 relative z-10">
-                      <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${index % 3 === 0 ? 'from-gold-dark to-bronze' :
-                          index % 3 === 1 ? 'from-midnight-light to-midnight' :
-                            'from-patina to-[oklch(0.45_0.10_170)]'
-                        } flex items-center justify-center shrink-0 shadow-md group-hover:scale-105 transition-transform duration-300`}>
-                        <ScrollText className="h-6 w-6 text-white/90" strokeWidth={1.5} />
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <CardTitle className="text-lg group-hover:text-gold transition-colors duration-300 line-clamp-2">
-                          {story.title}
-                        </CardTitle>
-                      </div>
-                      <BookmarkButton type="story" id={story.id} size="sm" />
-                    </div>
-                  </CardHeader>
-
-                  {story.summary && (
-                    <CardContent className="space-y-4">
-                      <p className="text-muted-foreground text-sm line-clamp-3 leading-relaxed">
-                        {story.summary}
-                      </p>
-                      {story.themes && story.themes.length > 0 && (
-                        <div className="flex flex-wrap gap-2">
-                          {story.themes.slice(0, 3).map((theme) => (
-                            <Badge
-                              key={theme}
-                              variant="secondary"
-                              className="text-xs bg-gold/10 text-gold border border-gold/20"
-                            >
-                              {theme}
-                            </Badge>
-                          ))}
-                        </div>
-                      )}
-                    </CardContent>
-                  )}
-                </Card>
-              </Link>
-            ))}
-          </div>
+          <PaginatedStoryGrid stories={displayStories} />
         ) : (
           <div className="text-center py-20">
             <div className="inline-flex items-center justify-center w-20 h-20 rounded-xl bg-muted border border-border mb-6">
@@ -323,5 +280,92 @@ export default function StoriesPage() {
         )}
       </div>
     </div>
+  );
+}
+
+function getStoryGradient(index: number): string {
+  if (index % 3 === 0) return 'from-gold-dark to-bronze';
+  if (index % 3 === 1) return 'from-midnight-light to-midnight';
+  return 'from-patina to-[oklch(0.45_0.10_170)]';
+}
+
+function PaginatedStoryGrid({ stories }: Readonly<{ stories: Story[] }>) {
+  const pagination = usePagination(stories, 24);
+
+  // Reset to first page when filtered data changes
+  useEffect(() => {
+    pagination.setPage(1);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [stories.length]);
+
+  return (
+    <>
+      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 mt-6">
+        {pagination.paginatedData.map((story, index) => (
+          <Link key={story.id} href={`/stories/${story.slug}`} className="group">
+            <Card asArticle className="h-full cursor-pointer card-elevated bg-card hover:scale-[1.01] overflow-hidden">
+              {/* Subtle Top Border */}
+              <div className="h-0.5 bg-linear-to-r from-gold-dark via-gold to-gold-dark"></div>
+
+              <CardHeader className="relative">
+                <div className="absolute top-4 right-4 opacity-[0.03] group-hover:opacity-[0.06] transition-opacity">
+                  <BookOpen className="h-24 w-24 text-gold" />
+                </div>
+                <div className="flex items-start gap-3 relative z-10">
+                  <div className={`w-12 h-12 rounded-xl bg-linear-to-br ${getStoryGradient(index)} flex items-center justify-center shrink-0 shadow-md group-hover:scale-105 transition-transform duration-300`}>
+                    <ScrollText className="h-6 w-6 text-white/90" strokeWidth={1.5} />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <CardTitle className="text-lg group-hover:text-gold transition-colors duration-300 line-clamp-2">
+                      {story.title}
+                    </CardTitle>
+                  </div>
+                  <BookmarkButton type="story" id={story.id} size="sm" />
+                </div>
+              </CardHeader>
+
+              {story.summary && (
+                <CardContent className="space-y-4">
+                  <p className="text-muted-foreground text-sm line-clamp-3 leading-relaxed">
+                    {story.summary}
+                  </p>
+                  {story.themes && story.themes.length > 0 && (
+                    <div className="flex flex-wrap gap-2">
+                      {story.themes.slice(0, 3).map((theme) => (
+                        <Badge
+                          key={theme}
+                          variant="secondary"
+                          className="text-xs bg-gold/10 text-gold border border-gold/20"
+                        >
+                          {theme}
+                        </Badge>
+                      ))}
+                    </div>
+                  )}
+                </CardContent>
+              )}
+            </Card>
+          </Link>
+        ))}
+      </div>
+
+      {pagination.totalPages > 1 && (
+        <PaginationControls
+          page={pagination.page}
+          totalPages={pagination.totalPages}
+          hasNextPage={pagination.hasNextPage}
+          hasPreviousPage={pagination.hasPreviousPage}
+          onPageChange={pagination.setPage}
+          onNextPage={pagination.nextPage}
+          onPreviousPage={pagination.previousPage}
+          onFirstPage={pagination.firstPage}
+          onLastPage={pagination.lastPage}
+          startIndex={pagination.startIndex}
+          endIndex={pagination.endIndex}
+          totalItems={pagination.totalItems}
+          className="mt-8"
+        />
+      )}
+    </>
   );
 }

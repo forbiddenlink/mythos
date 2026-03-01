@@ -24,7 +24,7 @@ import {
 // Cast data to proper types
 const allDeities = deitiesData as Deity[];
 const allStories = storiesData as Story[];
-const allPantheons = pantheonsData as { id: string; name: string }[];
+const _allPantheons = pantheonsData as { id: string; name: string }[];
 
 // Custom hook for using the progress context
 function useProgress(): ProgressContextValue | null {
@@ -70,7 +70,7 @@ export default function LearningPathsPage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <div className="relative overflow-hidden bg-gradient-to-b from-midnight via-midnight/95 to-mythic py-16 md:py-24">
+      <div className="relative overflow-hidden bg-linear-to-b from-midnight via-midnight/95 to-mythic py-16 md:py-24">
         {/* Background decorations */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute top-0 left-1/4 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl" />
@@ -82,7 +82,7 @@ export default function LearningPathsPage() {
           <div className="text-center mb-8">
             <div className="flex items-center justify-center mb-6">
               <div className="relative p-4 rounded-xl border border-purple-500/20 bg-midnight/50 backdrop-blur-sm">
-                <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-purple-500/10 to-transparent" />
+                <div className="absolute inset-0 rounded-xl bg-linear-to-br from-purple-500/10 to-transparent" />
                 <GraduationCap className="relative h-10 w-10 text-purple-400" strokeWidth={1.5} />
               </div>
             </div>
@@ -98,9 +98,9 @@ export default function LearningPathsPage() {
                 : 'Choose a focused path through mythology—from Greek heroes to Norse cosmology to Egyptian afterlife beliefs.'}
             </p>
             <div className="flex items-center justify-center gap-4 mt-6">
-              <div className="w-12 h-px bg-gradient-to-r from-transparent to-purple-500/40" />
+              <div className="w-12 h-px bg-linear-to-r from-transparent to-purple-500/40" />
               <div className="w-1.5 h-1.5 rotate-45 bg-purple-500/50" />
-              <div className="w-12 h-px bg-gradient-to-l from-transparent to-purple-500/40" />
+              <div className="w-12 h-px bg-linear-to-l from-transparent to-purple-500/40" />
             </div>
           </div>
 
@@ -192,7 +192,7 @@ export default function LearningPathsPage() {
                   Completed Paths
                 </h2>
                 <p className="text-sm text-muted-foreground">
-                  You've mastered these paths
+                  You&apos;ve mastered these paths
                 </p>
               </div>
             </div>

@@ -55,7 +55,7 @@ function getRandomItems<T>(array: T[], count: number): T[] {
 function generateQuestionText(
   questionType: QuestionType,
   deityName: string,
-  relationshipType?: string
+  _relationshipType?: string
 ): string {
   switch (questionType) {
     case 'parent':
@@ -90,6 +90,118 @@ function getInverseQuestionType(relType: string): QuestionType | null {
   return inverseMapping[relType] || null;
 }
 
+function generateWrongDeityOptions(
+  answerDeity: Deity,
+  subjectDeity: Deity,
+  allDeities: Deity[]
+): string[] {
+  const samePantheonDeities = allDeities.filter(
+    d => d.id !== answerDeity.id && d.pantheonId === subjectDeity.pantheonId
+  );
+  const wrongOptions = getRandomItems(samePantheonDeities, 3).map(d => d.name);
+
+  if (wrongOptions.length < 3) {
+    const otherDeities = allDeities.filter(
+      d => d.id !== answerDeity.id && !samePantheonDeities.includes(d)
+    );
+    wrongOptions.push(...getRandomItems(otherDeities, 3 - wrongOptions.length).map(d => d.name));
+  }
+
+  return wrongOptions;
+}
+
+interface RelQuestionParams {
+  rel: Relationship;
+  fromDeity: Deity;
+  toDeity: Deity;
+  askAboutTo: boolean;
+  usedCombinations: Set<string>;
+  allDeities: Deity[];
+  questionIndex: number;
+  difficulty: Difficulty;
+}
+
+function generateRelationshipQuestion({
+  rel, fromDeity, toDeity, askAboutTo,
+  usedCombinations, allDeities, questionIndex, difficulty,
+}: RelQuestionParams): RelationshipQuestion | null {
+  const questionType = askAboutTo
+    ? getInverseQuestionType(rel.relationshipType)
+    : mapRelationshipTypeToQuestionType(rel.relationshipType);
+  if (!questionType) return null;
+
+  const subject = askAboutTo ? toDeity : fromDeity;
+  const answer = askAboutTo ? fromDeity : toDeity;
+
+  const comboKey = askAboutTo
+    ? `${subject.id}-${questionType}`
+    : `${subject.id}-${questionType}-${answer.id}`;
+  if (usedCombinations.has(comboKey)) return null;
+  usedCombinations.add(comboKey);
+
+  const wrongOptions = generateWrongDeityOptions(answer, subject, allDeities);
+
+  return {
+    id: `rel-${questionIndex}-${Date.now()}`,
+    deityId: subject.id,
+    deityName: subject.name,
+    deityImageUrl: subject.imageUrl,
+    questionType,
+    questionText: generateQuestionText(questionType, subject.name, rel.relationshipType),
+    correctAnswer: answer.name,
+    correctDeityId: answer.id,
+    options: shuffleArray([answer.name, ...wrongOptions.slice(0, 3)]),
+    difficulty,
+  };
+}
+
+function generateDomainQuestion(
+  deity: Deity,
+  allDeities: Deity[],
+  usedCombinations: Set<string>,
+  questionIndex: number,
+  difficulty: Difficulty
+): RelationshipQuestion | null {
+  const comboKey = `${deity.id}-domain`;
+  if (usedCombinations.has(comboKey)) return null;
+  usedCombinations.add(comboKey);
+
+  const correctDomain = deity.domain[0];
+
+  const otherDomains = new Set<string>();
+  for (const d of allDeities) {
+    if (d.id !== deity.id && d.domain) {
+      d.domain.forEach(dom => {
+        if (dom !== correctDomain) otherDomains.add(dom);
+      });
+    }
+  }
+
+  const wrongOptions = getRandomItems([...otherDomains], 3);
+
+  return {
+    id: `domain-${questionIndex}-${Date.now()}`,
+    deityId: deity.id,
+    deityName: deity.name,
+    deityImageUrl: deity.imageUrl,
+    questionType: 'domain',
+    questionText: generateQuestionText('domain', deity.name),
+    correctAnswer: correctDomain,
+    correctDeityId: deity.id,
+    options: shuffleArray([correctDomain, ...wrongOptions]),
+    difficulty,
+  };
+}
+
+function getDomainQuestionCount(difficulty: Difficulty, remainingSlots: number): number {
+  const maxByDifficulty: Record<Difficulty, number> = {
+    hard: 2,
+    medium: 3,
+    easy: 4,
+  };
+  return Math.min(maxByDifficulty[difficulty], remainingSlots);
+}
+
 export function generateRelationshipQuiz(
   deities: Deity[],
   relationships: Relationship[],
@@ -100,9 +212,9 @@ export function generateRelationshipQuiz(
   const usedCombinations = new Set<string>();
 
   // Filter relationships to only include those with high/medium confidence
-  const validRelTypes = ['parent_of', 'sibling_of', 'spouse_of'];
+  const validRelTypes = new Set(['parent_of', 'sibling_of', 'spouse_of']);
   const validRelationships = relationships.filter(
-    r => validRelTypes.includes(r.relationshipType) &&
+    r => validRelTypes.has(r.relationshipType) &&
          (r.confidenceLevel === 'high' || r.confidenceLevel === 'medium')
   );
 
@@ -117,127 +229,30 @@ export function generateRelationshipQuiz(
 
     const fromDeity = deityMap.get(rel.fromDeityId);
     const toDeity = deityMap.get(rel.toDeityId);
-
     if (!fromDeity || !toDeity) continue;
 
-    // Randomly decide whether to ask about the "from" or "to" deity
     const askAboutTo = Math.random() > 0.5;
-
-    if (askAboutTo) {
-      // Ask: "Who is the parent of [toDeity]?" Answer: fromDeity
-      const questionType = getInverseQuestionType(rel.relationshipType);
-      if (!questionType) continue;
-
-      const comboKey = `${toDeity.id}-${questionType}`;
-      if (usedCombinations.has(comboKey)) continue;
-      usedCombinations.add(comboKey);
-
-      // Generate wrong answers from same pantheon if possible
-      const samePantheonDeities = deities.filter(
-        d => d.id !== fromDeity.id && d.pantheonId === toDeity.pantheonId
-      );
-      const wrongOptions = getRandomItems(samePantheonDeities, 3).map(d => d.name);
-
-      if (wrongOptions.length < 3) {
-        // Fill with deities from other pantheons
-        const otherDeities = deities.filter(
-          d => d.id !== fromDeity.id && !samePantheonDeities.includes(d)
-        );
-        wrongOptions.push(...getRandomItems(otherDeities, 3 - wrongOptions.length).map(d => d.name));
-      }
-
-      questions.push({
-        id: `rel-${questions.length}-${Date.now()}`,
-        deityId: toDeity.id,
-        deityName: toDeity.name,
-        deityImageUrl: toDeity.imageUrl,
-        questionType,
-        questionText: generateQuestionText(questionType, toDeity.name, rel.relationshipType),
-        correctAnswer: fromDeity.name,
-        correctDeityId: fromDeity.id,
-        options: shuffleArray([fromDeity.name, ...wrongOptions.slice(0, 3)]),
-        difficulty,
-      });
-    } else {
-      // Ask: "Who is a child of [fromDeity]?" Answer: toDeity
-      const questionType = mapRelationshipTypeToQuestionType(rel.relationshipType);
-      if (!questionType) continue;
-
-      const comboKey = `${fromDeity.id}-${questionType}-${toDeity.id}`;
-      if (usedCombinations.has(comboKey)) continue;
-      usedCombinations.add(comboKey);
-
-      // Generate wrong answers from same pantheon if possible
-      const samePantheonDeities = deities.filter(
-        d => d.id !== toDeity.id && d.pantheonId === fromDeity.pantheonId
-      );
-      const wrongOptions = getRandomItems(samePantheonDeities, 3).map(d => d.name);
-
-      if (wrongOptions.length < 3) {
-        const otherDeities = deities.filter(
-          d => d.id !== toDeity.id && !samePantheonDeities.includes(d)
-        );
-        wrongOptions.push(...getRandomItems(otherDeities, 3 - wrongOptions.length).map(d => d.name));
-      }
-
-      questions.push({
-        id: `rel-${questions.length}-${Date.now()}`,
-        deityId: fromDeity.id,
-        deityName: fromDeity.name,
-        deityImageUrl: fromDeity.imageUrl,
-        questionType,
-        questionText: generateQuestionText(questionType, fromDeity.name, rel.relationshipType),
-        correctAnswer: toDeity.name,
-        correctDeityId: toDeity.id,
-        options: shuffleArray([toDeity.name, ...wrongOptions.slice(0, 3)]),
-        difficulty,
-      });
-    }
+    const question = generateRelationshipQuestion({
+      rel, fromDeity, toDeity, askAboutTo,
+      usedCombinations, allDeities: deities, questionIndex: questions.length, difficulty,
+    });
+    if (question) questions.push(question);
   }
 
   // Add domain questions to fill remaining slots based on difficulty
-  const domainQuestionCount = difficulty === 'hard' ? Math.min(2, count - questions.length) :
-                              difficulty === 'medium' ? Math.min(3, count - questions.length) :
-                              Math.min(4, count - questions.length);
+  const domainQuestionCount = getDomainQuestionCount(difficulty, count - questions.length);
 
   const deitiesWithDomains = deities.filter(d => d.domain && d.domain.length > 0);
   const shuffledDeities = shuffleArray(deitiesWithDomains);
 
   for (const deity of shuffledDeities) {
     if (questions.length >= count) break;
+    if (questions.filter(q => q.questionType === 'domain').length >= domainQuestionCount) break;
 
-    const comboKey = `${deity.id}-domain`;
-    if (usedCombinations.has(comboKey)) continue;
-    if (questions.filter(q => q.questionType === 'domain').length >= domainQuestionCount) continue;
-
-    usedCombinations.add(comboKey);
-
-    const correctDomain = deity.domain[0];
-
-    // Get wrong domain options from other deities
-    const otherDomains = new Set<string>();
-    for (const d of deities) {
-      if (d.id !== deity.id && d.domain) {
-        d.domain.forEach(dom => {
-          if (dom !== correctDomain) otherDomains.add(dom);
-        });
-      }
-    }
-
-    const wrongOptions = getRandomItems([...otherDomains], 3);
-
-    questions.push({
-      id: `domain-${questions.length}-${Date.now()}`,
-      deityId: deity.id,
-      deityName: deity.name,
-      deityImageUrl: deity.imageUrl,
-      questionType: 'domain',
-      questionText: generateQuestionText('domain', deity.name),
-      correctAnswer: correctDomain,
-      correctDeityId: deity.id,
-      options: shuffleArray([correctDomain, ...wrongOptions]),
-      difficulty,
-    });
+    const question = generateDomainQuestion(
+      deity, deities, usedCombinations, questions.length, difficulty
+    );
+    if (question) questions.push(question);
   }
 
   return shuffleArray(questions).slice(0, count);

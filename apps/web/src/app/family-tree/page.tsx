@@ -14,12 +14,12 @@ import { Breadcrumbs } from '@/components/navigation/Breadcrumbs';
 // Lazy load heavy ReactFlow-based components
 const FamilyTreeVisualization = dynamic(
   () => import('@/components/family-tree/FamilyTreeVisualization').then(mod => ({ default: mod.FamilyTreeVisualization })),
-  { loading: () => <div className="h-[600px] flex items-center justify-center"><Loader2 className="h-8 w-8 animate-spin text-primary" /></div>, ssr: false }
+  { loading: () => <div className="h-150 flex items-center justify-center"><Loader2 className="h-8 w-8 animate-spin text-primary" /></div>, ssr: false }
 );
 
 const EnhancedFamilyTree = dynamic(
   () => import('@/components/family-tree/EnhancedFamilyTree').then(mod => ({ default: mod.EnhancedFamilyTree })),
-  { loading: () => <div className="h-[600px] flex items-center justify-center"><Loader2 className="h-8 w-8 animate-spin text-primary" /></div>, ssr: false }
+  { loading: () => <div className="h-150 flex items-center justify-center"><Loader2 className="h-8 w-8 animate-spin text-primary" /></div>, ssr: false }
 );
 import pantheonsData from '@/data/pantheons.json';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
@@ -148,7 +148,7 @@ export default function FamilyTreePage() {
               <span className="font-medium">Pantheon:</span>
             </div>
             <Select value={selectedPantheon} onValueChange={setSelectedPantheon}>
-              <SelectTrigger className="w-[200px]">
+              <SelectTrigger className="w-50">
                 <SelectValue placeholder="Select Pantheon" />
               </SelectTrigger>
               <SelectContent>
@@ -203,19 +203,19 @@ export default function FamilyTreePage() {
             </div>
           </CardHeader>
           <CardContent className="p-0">
-            {finalDeities.length > 0 ? (
-              viewMode === 'hierarchical' ? (
-                <EnhancedFamilyTree
-                  deities={finalDeities}
-                  relationships={finalRelationships}
-                />
-              ) : (
-                <FamilyTreeVisualization
-                  deities={finalDeities}
-                  relationships={finalRelationships}
-                />
-              )
-            ) : (
+            {finalDeities.length > 0 && viewMode === 'hierarchical' && (
+              <EnhancedFamilyTree
+                deities={finalDeities}
+                relationships={finalRelationships}
+              />
+            )}
+            {finalDeities.length > 0 && viewMode !== 'hierarchical' && (
+              <FamilyTreeVisualization
+                deities={finalDeities}
+                relationships={finalRelationships}
+              />
+            )}
+            {finalDeities.length === 0 && (
               <div className="text-center py-24 text-slate-600 dark:text-slate-400 bg-slate-50/30">
                 <Network className="h-12 w-12 mx-auto mb-4 opacity-50" />
                 <p>No family tree data available for this pantheon.</p>

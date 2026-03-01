@@ -1,6 +1,4 @@
-import { describe, it, expect, vi, beforeEach } from 'vitest';
-import { render, screen, fireEvent, waitFor } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
+import { describe, it, expect } from 'vitest';
 
 // The SmartSearch component uses cmdk (Command Menu) which is complex to test in jsdom
 // because it relies on DOM measurements and scroll behavior. We test the underlying
@@ -119,8 +117,8 @@ describe('SmartSearch (search library)', () => {
 // Test the SmartSearch component module exists and exports correctly
 describe('SmartSearch component', () => {
   it('should be importable', async () => {
-    const module = await import('@/components/search/SmartSearch');
-    expect(module.SmartSearch).toBeDefined();
-    expect(typeof module.SmartSearch).toBe('function');
+    const searchModule = await import('@/components/search/SmartSearch');
+    expect(searchModule.SmartSearch).toBeDefined();
+    expect(typeof searchModule.SmartSearch).toBe('function');
   });
 });

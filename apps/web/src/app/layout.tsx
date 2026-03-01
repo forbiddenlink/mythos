@@ -12,6 +12,7 @@ import { SkipToContent } from "@/components/accessibility/SkipToContent";
 import { BookmarksProvider } from "@/providers/bookmarks-provider";
 import { ProgressProvider } from "@/providers/progress-provider";
 import { AchievementNotificationProvider } from "@/providers/achievement-notification-provider";
+import { LeaderboardProvider } from "@/providers/leaderboard-provider";
 import { generateBaseMetadata } from "@/lib/metadata";
 import { AudioProvider } from "@/components/audio/AudioContext";
 import { AudioControls } from "@/components/audio/AudioControls";
@@ -86,6 +87,7 @@ export default async function RootLayout({
             <QueryProvider>
               <BookmarksProvider>
                 <ProgressProvider>
+                <LeaderboardProvider>
                 <AchievementNotificationProvider>
                 <AudioProvider>
                   <CommandPaletteProvider>
@@ -103,6 +105,7 @@ export default async function RootLayout({
                   </CommandPaletteProvider>
                 </AudioProvider>
                 </AchievementNotificationProvider>
+                </LeaderboardProvider>
                 </ProgressProvider>
               </BookmarksProvider>
             </QueryProvider>

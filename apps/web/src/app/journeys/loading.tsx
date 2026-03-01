@@ -4,9 +4,9 @@ export default function JourneysLoading() {
   return (
     <div className="min-h-screen">
       {/* Hero placeholder */}
-      <div className="relative h-[50vh] min-h-[400px] flex items-center justify-center overflow-hidden">
+      <div className="relative h-[50vh] min-h-100 flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0 bg-hero-gradient" />
-        <div className="absolute inset-0 bg-gradient-to-b from-midnight/70 via-midnight/60 to-midnight/80 z-10" />
+        <div className="absolute inset-0 bg-linear-to-b from-midnight/70 via-midnight/60 to-midnight/80 z-10" />
 
         <div className="relative z-20 text-center px-4 max-w-4xl mx-auto">
           <div className="flex items-center justify-center mb-6">

@@ -9,7 +9,6 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import type { Story, MythComparison } from '@/lib/myth-comparison';
-import { isSharedTheme } from '@/lib/myth-comparison';
 
 interface MythComparisonViewProps {
   stories: Story[];
@@ -288,8 +287,8 @@ function StoryCard({ story, onRemove, sharedThemes, pantheonName }: StoryCardPro
               Primary Sources
             </h4>
             <ul className="text-sm text-muted-foreground space-y-1">
-              {story.citationSources.slice(0, 2).map((source, idx) => (
-                <li key={idx}>
+              {story.citationSources.slice(0, 2).map((source) => (
+                <li key={source.title}>
                   {source.author ? `${source.author}, ` : ''}
                   <span className="italic">{source.title}</span>
                   {source.lines && ` (lines ${source.lines})`}

@@ -1,0 +1,133 @@
+{
+  "challenges": [
+    {
+      "id": "quick_thinker",
+      "name": "Quick Thinker",
+      "description": "Complete a Quick Quiz",
+      "xpReward": 25,
+      "icon": "zap",
+      "action": {
+        "type": "complete_quick_quiz"
+      }
+    },
+    {
+      "id": "story_time",
+      "name": "Story Time",
+      "description": "Read any mythology story",
+      "xpReward": 20,
+      "icon": "book-open",
+      "action": {
+        "type": "read_story"
+      }
+    },
+    {
+      "id": "divine_discovery",
+      "name": "Divine Discovery",
+      "description": "View a new deity you haven't seen before",
+      "xpReward": 15,
+      "icon": "sparkles",
+      "action": {
+        "type": "view_new_deity"
+      }
+    },
+    {
+      "id": "cultural_explorer_greek",
+      "name": "Greek Explorer",
+      "description": "View any Greek deity",
+      "xpReward": 20,
+      "icon": "globe",
+      "action": {
+        "type": "view_pantheon_deity",
+        "pantheonId": "greek"
+      }
+    },
+    {
+      "id": "cultural_explorer_norse",
+      "name": "Norse Explorer",
+      "description": "View any Norse deity",
+      "xpReward": 20,
+      "icon": "globe",
+      "action": {
+        "type": "view_pantheon_deity",
+        "pantheonId": "norse"
+      }
+    },
+    {
+      "id": "cultural_explorer_egyptian",
+      "name": "Egyptian Explorer",
+      "description": "View any Egyptian deity",
+      "xpReward": 20,
+      "icon": "globe",
+      "action": {
+        "type": "view_pantheon_deity",
+        "pantheonId": "egyptian"
+      }
+    },
+    {
+      "id": "cultural_explorer_roman",
+      "name": "Roman Explorer",
+      "description": "View any Roman deity",
+      "xpReward": 20,
+      "icon": "globe",
+      "action": {
+        "type": "view_pantheon_deity",
+        "pantheonId": "roman"
+      }
+    },
+    {
+      "id": "cultural_explorer_celtic",
+      "name": "Celtic Explorer",
+      "description": "View any Celtic deity",
+      "xpReward": 20,
+      "icon": "globe",
+      "action": {
+        "type": "view_pantheon_deity",
+        "pantheonId": "celtic"
+      }
+    },
+    {
+      "id": "cultural_explorer_hindu",
+      "name": "Hindu Explorer",
+      "description": "View any Hindu deity",
+      "xpReward": 20,
+      "icon": "globe",
+      "action": {
+        "type": "view_pantheon_deity",
+        "pantheonId": "hindu"
+      }
+    },
+    {
+      "id": "cultural_explorer_japanese",
+      "name": "Japanese Explorer",
+      "description": "View any Japanese deity",
+      "xpReward": 20,
+      "icon": "globe",
+      "action": {
+        "type": "view_pantheon_deity",
+        "pantheonId": "japanese"
+      }
+    },
+    {
+      "id": "quiz_ace",
+      "name": "Quiz Ace",
+      "description": "Score 80% or higher on any quiz",
+      "xpReward": 30,
+      "icon": "award",
+      "action": {
+        "type": "quiz_high_score",
+        "minScore": 80
+      }
+    },
+    {
+      "id": "pantheon_hopper",
+      "name": "Pantheon Hopper",
+      "description": "View deities from 3 different pantheons",
+      "xpReward": 25,
+      "icon": "compass",
+      "action": {
+        "type": "view_multiple_pantheons",
+        "count": 3
+      }
+    }
+  ]
+}

@@ -5,7 +5,7 @@ import { useSearchParams, useRouter } from 'next/navigation';
 import { useQuery } from '@tanstack/react-query';
 import { graphqlClient } from '@/lib/graphql-client';
 import { GET_PANTHEONS } from '@/lib/queries';
-import { Loader2, BookOpen, Sparkles, Share2, Check, ArrowLeft } from 'lucide-react';
+import { BookOpen, Sparkles, Share2, Check, ArrowLeft } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Breadcrumbs } from '@/components/navigation/Breadcrumbs';
@@ -47,7 +47,7 @@ export default function CompareMythsPage() {
     queryFn: async () => graphqlClient.request(GET_PANTHEONS),
   });
 
-  const pantheons = pantheonsData?.pantheons || [];
+  const pantheons = useMemo(() => pantheonsData?.pantheons ?? [], [pantheonsData?.pantheons]);
 
   // Create pantheon map for display
   const pantheonMap = useMemo(() => {
@@ -120,6 +120,7 @@ export default function CompareMythsPage() {
         .slice(0, 3);
 
       if (foundStories.length > 0) {
+        // eslint-disable-next-line react-hooks/set-state-in-effect -- hydrating selection from URL params on mount
         setSelectedStories(foundStories);
       }
     }
@@ -181,18 +182,13 @@ export default function CompareMythsPage() {
   );
 
   const handleShare = useCallback(async () => {
-    const url = window.location.href;
+    const url = globalThis.location.href;
     try {
       await navigator.clipboard.writeText(url);
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     } catch {
-      const input = document.createElement('input');
-      input.value = url;
-      document.body.appendChild(input);
-      input.select();
-      document.execCommand('copy');
-      document.body.removeChild(input);
+      // Clipboard API unavailable
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     }
@@ -212,7 +208,7 @@ export default function CompareMythsPage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <div className="relative h-[40vh] min-h-[320px] flex items-center justify-center overflow-hidden">
+      <div className="relative h-[40vh] min-h-80 flex items-center justify-center overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <Image
@@ -224,7 +220,7 @@ export default function CompareMythsPage() {
           />
         </div>
         {/* Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-midnight/70 via-midnight/60 to-midnight/80 z-10" />
+        <div className="absolute inset-0 bg-linear-to-b from-midnight/70 via-midnight/60 to-midnight/80 z-10" />
 
         {/* Radial gold glow */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[120%] h-[60%] bg-gradient-radial from-gold/10 via-transparent to-transparent z-10" />
@@ -233,7 +229,7 @@ export default function CompareMythsPage() {
         <div className="relative z-20 text-center px-4 max-w-4xl mx-auto">
           <div className="flex items-center justify-center mb-6">
             <div className="relative p-4 rounded-xl border border-gold/20 bg-midnight/50 backdrop-blur-sm">
-              <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-gold/10 to-transparent" />
+              <div className="absolute inset-0 rounded-xl bg-linear-to-br from-gold/10 to-transparent" />
               <BookOpen className="relative h-10 w-10 text-gold" strokeWidth={1.5} />
             </div>
           </div>
@@ -244,9 +240,9 @@ export default function CompareMythsPage() {
             Compare Myths
           </h1>
           <div className="flex items-center justify-center gap-4 mb-6">
-            <div className="w-12 h-px bg-gradient-to-r from-transparent to-gold/40" />
+            <div className="w-12 h-px bg-linear-to-r from-transparent to-gold/40" />
             <div className="w-1.5 h-1.5 rotate-45 bg-gold/50" />
-            <div className="w-12 h-px bg-gradient-to-l from-transparent to-gold/40" />
+            <div className="w-12 h-px bg-linear-to-l from-transparent to-gold/40" />
           </div>
           <p className="text-lg md:text-xl text-parchment/70 max-w-2xl mx-auto font-body leading-relaxed">
             See how flood myths, creation stories, and underworld journeys differ across cultures

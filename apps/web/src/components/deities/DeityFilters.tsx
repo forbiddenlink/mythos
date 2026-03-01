@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import {
@@ -31,7 +31,7 @@ interface DeityFiltersProps {
   onFilteredChange: (filtered: Deity[]) => void;
 }
 
-export function DeityFilters({ deities, onFilteredChange }: DeityFiltersProps) {
+export function DeityFilters({ deities, onFilteredChange }: Readonly<DeityFiltersProps>) {
   const [genderFilter, setGenderFilter] = useState<string>('all');
   const [domainFilter, setDomainFilter] = useState<string>('all');
   const [pantheonFilter, setPantheonFilter] = useState<string>('all');
@@ -40,13 +40,13 @@ export function DeityFilters({ deities, onFilteredChange }: DeityFiltersProps) {
 
   const allDomains = Array.from(
     new Set(deities.flatMap(d => d.domain || []))
-  ).sort();
+  ).sort((a, b) => a.localeCompare(b));
 
   const allPantheons = Array.from(
     new Set(deities.map(d => d.pantheonId).filter(Boolean) as string[])
-  ).sort();
+  ).sort((a, b) => a.localeCompare(b));
 
-  const applyFilters = () => {
+  const applyFilters = useCallback(() => {
     let filtered = [...deities];
 
     // Apply gender filter
@@ -72,25 +72,24 @@ export function DeityFilters({ deities, onFilteredChange }: DeityFiltersProps) {
         case 'name':
           comparison = a.name.localeCompare(b.name);
           break;
-        case 'importance':
+        case 'importance': {
           const rankA = a.importanceRank || 999;
           const rankB = b.importanceRank || 999;
           comparison = rankA - rankB;
           break;
-        default:
-          comparison = 0;
+        }
       }
 
       return sortOrder === 'asc' ? comparison : -comparison;
     });
 
     onFilteredChange(filtered);
-  };
+  }, [deities, genderFilter, domainFilter, pantheonFilter, sortBy, sortOrder, onFilteredChange]);
 
   // Apply filters whenever any filter changes
-  useState(() => {
+  useEffect(() => {
     applyFilters();
-  });
+  }, [applyFilters]);
 
   const resetFilters = () => {
     setGenderFilter('all');
@@ -115,7 +114,7 @@ export function DeityFilters({ deities, onFilteredChange }: DeityFiltersProps) {
           setPantheonFilter(value);
           setTimeout(applyFilters, 0);
         }}>
-          <SelectTrigger className="w-[160px]" aria-label="Filter by pantheon">
+          <SelectTrigger className="w-40" aria-label="Filter by pantheon">
             <SelectValue placeholder="Pantheon" />
           </SelectTrigger>
           <SelectContent>
@@ -132,7 +131,7 @@ export function DeityFilters({ deities, onFilteredChange }: DeityFiltersProps) {
           setGenderFilter(value);
           setTimeout(applyFilters, 0);
         }}>
-          <SelectTrigger className="w-[140px]" aria-label="Filter by gender">
+          <SelectTrigger className="w-35" aria-label="Filter by gender">
             <SelectValue placeholder="Gender" />
           </SelectTrigger>
           <SelectContent>
@@ -146,7 +145,7 @@ export function DeityFilters({ deities, onFilteredChange }: DeityFiltersProps) {
           setDomainFilter(value);
           setTimeout(applyFilters, 0);
         }}>
-          <SelectTrigger className="w-[180px]" aria-label="Filter by domain">
+          <SelectTrigger className="w-45" aria-label="Filter by domain">
             <SelectValue placeholder="Domain" />
           </SelectTrigger>
           <SelectContent>
@@ -165,7 +164,7 @@ export function DeityFilters({ deities, onFilteredChange }: DeityFiltersProps) {
           setSortBy(value);
           setTimeout(applyFilters, 0);
         }}>
-          <SelectTrigger className="w-[140px]" aria-label="Sort by">
+          <SelectTrigger className="w-35" aria-label="Sort by">
             <SelectValue placeholder="Sort by" />
           </SelectTrigger>
           <SelectContent>

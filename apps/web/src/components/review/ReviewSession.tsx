@@ -13,8 +13,6 @@ import {
   Target,
   CheckCircle2,
   XCircle,
-  Brain,
-  Sparkles,
 } from 'lucide-react';
 import { FlashCard } from './FlashCard';
 import { useReview } from '@/providers/review-provider';
@@ -27,7 +25,6 @@ interface ReviewSessionProps {
 export function ReviewSession({ onComplete }: ReviewSessionProps) {
   const {
     dueCards,
-    dueCount,
     reviewCard,
     generateCardsFromProgress,
     getTodayStats,
@@ -47,6 +44,7 @@ export function ReviewSession({ onComplete }: ReviewSessionProps) {
   // Set session cards when due cards are loaded
   useEffect(() => {
     if (dueCards.length > 0 && sessionCards.length === 0) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect -- initialize session cards from due cards
       setSessionCards([...dueCards]);
     }
   }, [dueCards, sessionCards.length]);
@@ -95,7 +93,7 @@ export function ReviewSession({ onComplete }: ReviewSessionProps) {
     return (
       <Card className="max-w-lg mx-auto border-gold/20 shadow-xl">
         <CardHeader className="text-center pt-8">
-          <div className="mx-auto mb-6 p-6 rounded-full bg-gradient-to-br from-emerald-500/20 to-emerald-600/10 w-fit ring-1 ring-emerald-500/30">
+          <div className="mx-auto mb-6 p-6 rounded-full bg-linear-to-br from-emerald-500/20 to-emerald-600/10 w-fit ring-1 ring-emerald-500/30">
             <CheckCircle2 className="h-12 w-12 text-emerald-500" />
           </div>
           <CardTitle className="text-2xl font-serif">All Caught Up!</CardTitle>
@@ -136,14 +134,14 @@ export function ReviewSession({ onComplete }: ReviewSessionProps) {
   if (sessionComplete) {
     return (
       <Card className="max-w-lg mx-auto border-gold/20 shadow-xl overflow-hidden relative">
-        <div className="absolute inset-0 bg-gradient-to-br from-gold/5 via-transparent to-transparent pointer-events-none" />
+        <div className="absolute inset-0 bg-linear-to-br from-gold/5 via-transparent to-transparent pointer-events-none" />
 
         <CardHeader className="text-center pt-8">
           <motion.div
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             transition={{ type: 'spring', stiffness: 200, damping: 15 }}
-            className="mx-auto mb-6 p-6 rounded-full bg-gradient-to-br from-gold/20 to-amber-500/10 w-fit ring-1 ring-gold/30 shadow-inner"
+            className="mx-auto mb-6 p-6 rounded-full bg-linear-to-br from-gold/20 to-amber-500/10 w-fit ring-1 ring-gold/30 shadow-inner"
           >
             <Trophy className="h-16 w-16 text-gold drop-shadow-md" />
           </motion.div>

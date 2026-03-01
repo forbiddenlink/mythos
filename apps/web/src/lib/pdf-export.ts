@@ -51,12 +51,12 @@ const CONTENT_WIDTH = 170; // A4 width (210) - 2 * margin (20)
 function sanitizeText(text: string): string {
   // Remove markdown formatting
   return text
-    .replace(/#{1,6}\s/g, '')
-    .replace(/\*\*/g, '')
-    .replace(/\*/g, '')
-    .replace(/`/g, '')
-    .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
-    .replace(/\n{3,}/g, '\n\n');
+    .replaceAll(/#{1,6}\s/g, '')
+    .replaceAll('**', '')
+    .replaceAll('*', '')
+    .replaceAll('`', '')
+    .replaceAll(/\[([^\]]+)\]\([^)]+\)/g, '$1')
+    .replaceAll(/\n{3,}/g, '\n\n');
 }
 
 function wrapText(doc: jsPDF, text: string, maxWidth: number): string[] {
@@ -169,7 +169,7 @@ function addBadges(doc: jsPDF, title: string, items: string[], yPos: number): nu
   doc.setFontSize(10);
   let xPos = PAGE_MARGIN;
 
-  items.forEach((item, index) => {
+  items.forEach((item) => {
     const textWidth = doc.getTextWidth(item) + 10;
 
     if (xPos + textWidth > PAGE_MARGIN + CONTENT_WIDTH) {
@@ -211,7 +211,7 @@ function addSources(doc: jsPDF, sources: Array<{ text: string; source: string; d
   doc.text('Primary Sources', PAGE_MARGIN, yPos);
   yPos += LINE_HEIGHT + 5;
 
-  sources.forEach((source, index) => {
+  sources.forEach((source) => {
     if (yPos > 265) {
       doc.addPage();
       yPos = PAGE_MARGIN;
@@ -247,7 +247,7 @@ function addSources(doc: jsPDF, sources: Array<{ text: string; source: string; d
   return yPos;
 }
 
-function addFooter(doc: jsPDF, pageCount: number): void {
+function addFooter(doc: jsPDF, _pageCount: number): void {
   const totalPages = doc.getNumberOfPages();
 
   for (let i = 1; i <= totalPages; i++) {
@@ -346,7 +346,7 @@ export async function exportDeityToPdf(deity: DeityExportData): Promise<void> {
   addFooter(doc, doc.getNumberOfPages());
 
   // Download
-  const filename = `${deity.name.toLowerCase().replace(/\s+/g, '-')}-mythos-atlas.pdf`;
+  const filename = `${deity.name.toLowerCase().replaceAll(/\s+/g, '-')}-mythos-atlas.pdf`;
   doc.save(filename);
 }
 
@@ -398,7 +398,7 @@ export async function exportStoryToPdf(story: StoryExportData): Promise<void> {
   addFooter(doc, doc.getNumberOfPages());
 
   // Download
-  const filename = `${story.title.toLowerCase().replace(/\s+/g, '-')}-mythos-atlas.pdf`;
+  const filename = `${story.title.toLowerCase().replaceAll(/\s+/g, '-')}-mythos-atlas.pdf`;
   doc.save(filename);
 }
 

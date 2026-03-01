@@ -67,10 +67,10 @@ interface CardProps {
 
 function RelatedCard({ href, imageUrl, title, subtitle, fallbackIcon }: CardProps) {
   return (
-    <Link href={href} className="block group flex-shrink-0 w-48 md:w-56">
+    <Link href={href} className="block group shrink-0 w-48 md:w-56">
       <div className="relative h-full rounded-xl bg-card border border-border/60 overflow-hidden transition-all duration-300 hover:border-gold/50 hover:shadow-lg hover:shadow-black/10">
         {/* Image container */}
-        <div className="relative aspect-[4/3] bg-muted overflow-hidden">
+        <div className="relative aspect-4/3 bg-muted overflow-hidden">
           {imageUrl ? (
             <Image
               src={imageUrl}
@@ -80,7 +80,7 @@ function RelatedCard({ href, imageUrl, title, subtitle, fallbackIcon }: CardProp
               sizes="(max-width: 768px) 192px, 224px"
             />
           ) : (
-            <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-muted to-muted-foreground/10">
+            <div className="absolute inset-0 flex items-center justify-center bg-linear-to-br from-muted to-muted-foreground/10">
               {fallbackIcon || (
                 <div className="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center">
                   <span className="text-gold/60 text-2xl font-serif">{title.charAt(0)}</span>
@@ -89,7 +89,7 @@ function RelatedCard({ href, imageUrl, title, subtitle, fallbackIcon }: CardProp
             </div>
           )}
           {/* Hover overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+          <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
         </div>
 
         {/* Content */}
@@ -127,7 +127,7 @@ function RelatedSection({ title, children }: SectionProps) {
         <h3 className="font-serif text-lg font-semibold text-foreground">
           {title}
         </h3>
-        <div className="flex-1 h-px bg-gradient-to-r from-border/60 to-transparent" />
+        <div className="flex-1 h-px bg-linear-to-r from-border/60 to-transparent" />
       </div>
 
       {/* Horizontal scroll container */}
@@ -136,8 +136,8 @@ function RelatedSection({ title, children }: SectionProps) {
           {children}
         </div>
         {/* Fade edges for scroll indication */}
-        <div className="absolute left-0 top-0 bottom-4 w-4 bg-gradient-to-r from-background to-transparent pointer-events-none" />
-        <div className="absolute right-0 top-0 bottom-4 w-4 bg-gradient-to-l from-background to-transparent pointer-events-none" />
+        <div className="absolute left-0 top-0 bottom-4 w-4 bg-linear-to-r from-background to-transparent pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-4 w-4 bg-linear-to-l from-background to-transparent pointer-events-none" />
       </div>
     </div>
   );
@@ -175,9 +175,9 @@ export function RelatedContent({
             {title}
           </h2>
           <div className="flex items-center justify-center gap-3 mt-3">
-            <div className="w-8 h-px bg-gradient-to-r from-transparent to-gold/40" />
+            <div className="w-8 h-px bg-linear-to-r from-transparent to-gold/40" />
             <div className="w-1 h-1 rotate-45 bg-gold/50" />
-            <div className="w-8 h-px bg-gradient-to-l from-transparent to-gold/40" />
+            <div className="w-8 h-px bg-linear-to-l from-transparent to-gold/40" />
           </div>
         </div>
       )}

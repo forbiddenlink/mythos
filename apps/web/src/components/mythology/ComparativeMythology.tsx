@@ -5,7 +5,7 @@ import { graphqlClient } from '@/lib/graphql-client';
 import { GET_DEITIES, GET_PANTHEONS } from '@/lib/queries';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Loader2, Sparkles, Crown, Zap } from 'lucide-react';
+import { Loader2, Sparkles, Zap } from 'lucide-react';
 import Link from 'next/link';
 
 interface Deity {
@@ -60,7 +60,7 @@ export function ComparativeMythology() {
 
   // Find interesting comparisons (deities from different pantheons with same domains)
   const comparisons = Object.entries(domainGroups)
-    .filter(([_, gods]) => {
+    .filter(([, gods]) => {
       const pantheonIds = new Set(gods.map(g => g.pantheonId));
       return pantheonIds.size >= 2; // At least 2 different pantheons
     })
@@ -83,7 +83,7 @@ export function ComparativeMythology() {
       <div className="grid gap-6 md:grid-cols-2">
         {comparisons.map(({ domain, deities: groupDeities }) => (
           <Card key={domain} className="overflow-hidden">
-            <CardHeader className="bg-gradient-to-r from-gold/10 to-transparent">
+            <CardHeader className="bg-linear-to-r from-gold/10 to-transparent">
               <div className="flex items-center gap-2 mb-2">
                 <Zap className="h-5 w-5 text-gold" />
                 <Badge variant="secondary">{domain.charAt(0).toUpperCase() + domain.slice(1)}</Badge>

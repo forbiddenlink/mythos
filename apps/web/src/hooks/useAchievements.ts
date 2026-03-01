@@ -36,6 +36,8 @@ function checkRequirement(requirement: AchievementRequirement, progress: UserPro
       return false;
     case 'quick_quiz_score':
       return progress.quickQuizHighScore >= requirement.count;
+    case 'daily_challenge_streak':
+      return progress.dailyChallengeStreak >= requirement.count;
     default:
       return false;
   }
@@ -75,6 +77,9 @@ export function useAchievements() {
     return newlyUnlocked;
   }, [progress, unlockAchievement]);
 
+  // Derive quiz count outside effect to avoid complex expressions in deps
+  const quizScoresCount = Object.keys(progress.quizScores).length;
+
   // Auto-check achievements when progress changes
   useEffect(() => {
     // Only check if achievements have changed (avoid infinite loop)
@@ -85,8 +90,8 @@ export function useAchievements() {
 
     checkAchievements();
   }, [progress.deitiesViewed.length, progress.storiesRead.length, progress.pantheonsExplored.length,
-      progress.locationsVisited.length, Object.keys(progress.quizScores).length, progress.dailyStreak,
-      progress.totalXP, progress.quickQuizHighScore, checkAchievements, progress.achievements.length]);
+      progress.locationsVisited.length, quizScoresCount, progress.dailyStreak,
+      progress.totalXP, progress.quickQuizHighScore, checkAchievements, progress.achievements]);
 
   // Get progress toward an achievement
   const getProgress = useCallback((achievement: Achievement): { current: number; target: number } | undefined => {
@@ -112,6 +117,8 @@ export function useAchievements() {
         return { current: progress.pantheonsExplored.length, target: ALL_PANTHEON_IDS.length };
       case 'quick_quiz_score':
         return { current: progress.quickQuizHighScore, target: req.count };
+      case 'daily_challenge_streak':
+        return { current: progress.dailyChallengeStreak, target: req.count };
       default:
         return undefined;
     }

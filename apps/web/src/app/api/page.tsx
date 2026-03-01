@@ -1,7 +1,6 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Code, Database, Zap } from 'lucide-react';
 import { Breadcrumbs } from '@/components/navigation/Breadcrumbs';
-import Link from 'next/link';
 import { generateBaseMetadata } from '@/lib/metadata';
 
 export const metadata = generateBaseMetadata({
@@ -82,8 +81,8 @@ export default function APIPage() {
   return (
     <div className="min-h-screen bg-mythic">
       {/* Hero Section */}
-      <div className="relative h-[40vh] min-h-[300px] flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-midnight/70 via-midnight/60 to-mythic z-10" />
+      <div className="relative h-[40vh] min-h-75 flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0 bg-linear-to-b from-midnight/70 via-midnight/60 to-mythic z-10" />
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[120%] h-[60%] bg-gradient-radial from-gold/10 via-transparent to-transparent z-10" />
 
         <div className="relative z-20 text-center px-4 max-w-4xl mx-auto">
@@ -96,9 +95,9 @@ export default function APIPage() {
             API Documentation
           </h1>
           <div className="flex items-center justify-center gap-4 mb-6">
-            <div className="w-12 h-px bg-gradient-to-r from-transparent to-gold/40" />
+            <div className="w-12 h-px bg-linear-to-r from-transparent to-gold/40" />
             <div className="w-1.5 h-1.5 rotate-45 bg-gold/50" />
-            <div className="w-12 h-px bg-gradient-to-l from-transparent to-gold/40" />
+            <div className="w-12 h-px bg-linear-to-l from-transparent to-gold/40" />
           </div>
           <p className="text-lg md:text-xl text-parchment/70 max-w-2xl mx-auto font-body leading-relaxed">
             Access mythology data programmatically via GraphQL
@@ -121,7 +120,7 @@ export default function APIPage() {
               </p>
               <div className="bg-midnight/50 p-4 rounded-lg border border-gold/10">
                 <p className="text-gold/80 font-mono text-sm">
-                  Endpoint: <span className="text-parchment">{typeof window !== 'undefined' ? window.location.origin : 'https://yourdomain.com'}/api/graphql</span>
+                  Endpoint: <span className="text-parchment">{globalThis.window === undefined ? 'https://yourdomain.com' : globalThis.location.origin}/api/graphql</span>
                 </p>
               </div>
             </CardContent>

@@ -51,6 +51,7 @@ export function StreakWidget() {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- track client hydration
     setMounted(true);
   }, []);
 
@@ -64,7 +65,7 @@ export function StreakWidget() {
 
     // Use today's date as seed for consistent daily selection
     const today = new Date().toISOString().split('T')[0];
-    const seed = today.split('-').reduce((acc, part) => acc + parseInt(part, 10), 0);
+    const seed = today.split('-').reduce((acc, part) => acc + Number.parseInt(part, 10), 0);
 
     // 50/50 chance of deity or story
     const isDeity = seed % 2 === 0;
@@ -99,10 +100,18 @@ export function StreakWidget() {
     }
   }, [mounted, progress.deitiesViewed, progress.storiesRead]);
 
+  // Pre-compute random sparkle positions to avoid Math.random() during render
+  const [sparklePositions] = useState(() =>
+    Array.from({ length: 12 }, () => ({
+      x: 20 + Math.random() * 60,
+      y: 20 + Math.random() * 60,
+    }))
+  );
+
   // Don't render anything during SSR to avoid hydration mismatch
   if (!mounted) {
     return (
-      <section className="py-12 bg-gradient-to-b from-background to-mythic/30">
+      <section className="py-12 bg-linear-to-b from-background to-mythic/30">
         <div className="container mx-auto max-w-4xl px-4">
           <Card className="relative overflow-hidden">
             <CardContent className="p-8">
@@ -115,11 +124,11 @@ export function StreakWidget() {
   }
 
   return (
-    <section className="py-12 bg-gradient-to-b from-background to-mythic/30">
+    <section className="py-12 bg-linear-to-b from-background to-mythic/30">
       <div className="container mx-auto max-w-4xl px-4">
         <Card className="relative overflow-hidden border-gold/20">
           {/* Background decoration */}
-          <div className="absolute inset-0 bg-gradient-to-br from-gold/5 via-transparent to-purple-500/5" />
+          <div className="absolute inset-0 bg-linear-to-br from-gold/5 via-transparent to-purple-500/5" />
 
           {/* Milestone celebration overlay */}
           {isMilestone && (
@@ -128,7 +137,7 @@ export function StreakWidget() {
               animate={{ opacity: 1 }}
               className="absolute inset-0 pointer-events-none"
             >
-              {[...Array(12)].map((_, i) => (
+              {Array.from({ length: 12 }).map((_, i) => (
                 <motion.div
                   key={i}
                   className="absolute"
@@ -139,8 +148,8 @@ export function StreakWidget() {
                     opacity: 1
                   }}
                   animate={{
-                    x: `${20 + Math.random() * 60}%`,
-                    y: `${20 + Math.random() * 60}%`,
+                    x: `${sparklePositions[i].x}%`,
+                    y: `${sparklePositions[i].y}%`,
                     scale: [0, 1, 0],
                     opacity: [0, 1, 0]
                   }}
@@ -228,8 +237,8 @@ export function StreakWidget() {
               </div>
 
               {/* Divider */}
-              <div className="hidden lg:block w-px h-32 bg-gradient-to-b from-transparent via-border to-transparent" />
-              <div className="lg:hidden w-32 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
+              <div className="hidden lg:block w-px h-32 bg-linear-to-b from-transparent via-border to-transparent" />
+              <div className="lg:hidden w-32 h-px bg-linear-to-r from-transparent via-border to-transparent" />
 
               {/* Mythology of the Day */}
               {dailySuggestion && (

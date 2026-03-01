@@ -25,7 +25,7 @@ export function HeroSection() {
   const randomQuote = mythologyQuotes[quoteIndex];
 
   return (
-    <section className="relative min-h-[100vh] flex items-center justify-center overflow-hidden bg-hero-gradient">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-hero-gradient">
       {/* Noise texture overlay */}
       <div className="absolute inset-0 opacity-[0.015] z-10" style={{
         backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`,
@@ -34,7 +34,7 @@ export function HeroSection() {
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-[url('/hero-columns.webp')] bg-cover bg-center opacity-40 mix-blend-overlay"></div>
-        <div className="absolute inset-0 bg-gradient-to-b from-midnight/60 via-midnight/40 to-midnight"></div>
+        <div className="absolute inset-0 bg-linear-to-b from-midnight/60 via-midnight/40 to-midnight"></div>
       </div>
 
       {/* Radial gradient light source - like candlelight */}
@@ -100,8 +100,8 @@ export function HeroSection() {
       />
 
       {/* Decorative lines - classical aesthetic */}
-      <div className="absolute top-8 left-8 right-8 h-px bg-gradient-to-r from-transparent via-gold/20 to-transparent" />
-      <div className="absolute bottom-8 left-8 right-8 h-px bg-gradient-to-r from-transparent via-gold/20 to-transparent" />
+      <div className="absolute top-8 left-8 right-8 h-px bg-linear-to-r from-transparent via-gold/20 to-transparent" />
+      <div className="absolute bottom-8 left-8 right-8 h-px bg-linear-to-r from-transparent via-gold/20 to-transparent" />
 
       <div className="relative z-10 container mx-auto px-4 text-center">
         {/* Decorative emblem */}
@@ -114,7 +114,7 @@ export function HeroSection() {
           <div className="relative">
             {/* Outer glow ring */}
             <motion.div
-              className="absolute inset-[-20px] rounded-full"
+              className="absolute -inset-5 rounded-full"
               style={{
                 background: 'radial-gradient(circle, rgba(178,143,86,0.2) 0%, transparent 70%)',
               }}
@@ -129,7 +129,7 @@ export function HeroSection() {
               }}
             />
             {/* Icon container with ornate border */}
-            <div className="relative p-5 rounded-full border border-gold/30 bg-gradient-to-br from-midnight-light/80 to-midnight/90 backdrop-blur-sm">
+            <div className="relative p-5 rounded-full border border-gold/30 bg-linear-to-br from-midnight-light/80 to-midnight/90 backdrop-blur-sm">
               <div className="absolute inset-1 rounded-full border border-gold/10" />
               <Compass className="h-10 w-10 text-gold animate-glow" strokeWidth={1.5} />
             </div>
@@ -163,9 +163,9 @@ export function HeroSection() {
           transition={{ duration: 0.8, delay: 0.4 }}
           className="flex items-center justify-center gap-4 mb-8"
         >
-          <div className="w-16 md:w-24 h-px bg-gradient-to-r from-transparent to-gold/40" />
+          <div className="w-16 md:w-24 h-px bg-linear-to-r from-transparent to-gold/40" />
           <div className="w-1.5 h-1.5 rotate-45 bg-gold/60" />
-          <div className="w-16 md:w-24 h-px bg-gradient-to-l from-transparent to-gold/40" />
+          <div className="w-16 md:w-24 h-px bg-linear-to-l from-transparent to-gold/40" />
         </motion.div>
 
         <motion.p
@@ -187,7 +187,7 @@ export function HeroSection() {
           <Button
             asChild
             size="lg"
-            className="relative overflow-hidden bg-gradient-to-r from-gold-dark via-gold to-gold-dark hover:from-gold hover:via-gold-light hover:to-gold text-midnight font-semibold px-10 py-6 text-base tracking-wide transition-all duration-300 shadow-lg shadow-gold/20 hover:shadow-xl hover:shadow-gold/30"
+            className="relative overflow-hidden bg-linear-to-r from-gold-dark via-gold to-gold-dark hover:from-gold hover:via-gold-light hover:to-gold text-midnight font-semibold px-10 py-6 text-base tracking-wide transition-all duration-300 shadow-lg shadow-gold/20 hover:shadow-xl hover:shadow-gold/30"
           >
             <TransitionLink href="/pantheons">
               Explore Mythologies

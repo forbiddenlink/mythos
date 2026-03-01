@@ -74,6 +74,18 @@ export function createMockProgress(overrides: Partial<UserProgress> = {}): UserP
     lastVisit: '',
     totalXP: 0,
     streakFreezes: 2,
+    quickQuizHighScore: 0,
+    dailyChallengeStreak: 0,
+    lastDailyChallengeDate: '',
+    claimedDailyChallenges: [],
+    todayActivity: {
+      date: '',
+      deitiesViewed: [],
+      storiesRead: [],
+      pantheonsViewed: [],
+      quizCompleted: false,
+      quizScore: 0,
+    },
     ...overrides,
   };
 }

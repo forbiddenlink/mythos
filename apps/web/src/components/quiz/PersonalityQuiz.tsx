@@ -474,7 +474,7 @@ export function PersonalityQuiz() {
 
   const handleShare = useCallback(async (archetype: DeityArchetype) => {
     const deity = DEITY_RESULTS[archetype];
-    const shareUrl = `${window.location.origin}/quiz/personality?result=${archetype}`;
+    const shareUrl = `${globalThis.location.origin}/quiz/personality?result=${archetype}`;
 
     try {
       if (navigator.share) {
@@ -489,12 +489,11 @@ export function PersonalityQuiz() {
         setTimeout(() => setCopied(false), 2000);
       }
     } catch {
-      const input = document.createElement('input');
-      input.value = shareUrl;
-      document.body.appendChild(input);
-      input.select();
-      document.execCommand('copy');
-      document.body.removeChild(input);
+      try {
+        await navigator.clipboard.writeText(shareUrl);
+      } catch {
+        // Clipboard API unavailable
+      }
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     }
@@ -506,14 +505,14 @@ export function PersonalityQuiz() {
 
     return (
       <Card className="max-w-2xl mx-auto border-gold/20 shadow-xl overflow-hidden relative">
-        <div className="absolute inset-0 bg-gradient-to-br from-gold/5 via-transparent to-transparent pointer-events-none" />
+        <div className="absolute inset-0 bg-linear-to-br from-gold/5 via-transparent to-transparent pointer-events-none" />
         <CardHeader className="text-center pt-8">
           <div className="mx-auto mb-4 p-2 rounded-full bg-gold/10 w-fit">
             <Badge variant="secondary" className="text-xs uppercase tracking-wider">
               Shared Result
             </Badge>
           </div>
-          <div className="mx-auto mb-6 p-6 rounded-full bg-gradient-to-br from-gold/20 to-amber-500/10 w-fit ring-1 ring-gold/30 shadow-inner text-gold">
+          <div className="mx-auto mb-6 p-6 rounded-full bg-linear-to-br from-gold/20 to-amber-500/10 w-fit ring-1 ring-gold/30 shadow-inner text-gold">
             {deity.icon}
           </div>
           <CardTitle className="text-3xl font-serif">Someone got {deity.name}!</CardTitle>
@@ -557,7 +556,7 @@ export function PersonalityQuiz() {
 
     return (
       <Card className="max-w-2xl mx-auto border-gold/20 shadow-xl overflow-hidden relative">
-        <div className="absolute inset-0 bg-gradient-to-br from-gold/5 via-transparent to-transparent pointer-events-none" />
+        <div className="absolute inset-0 bg-linear-to-br from-gold/5 via-transparent to-transparent pointer-events-none" />
         <CardHeader className="text-center pt-8">
           <div className="mx-auto mb-4 p-2 rounded-full bg-gold/10 w-fit">
             <Badge variant="secondary" className="text-xs uppercase tracking-wider">
@@ -575,7 +574,7 @@ export function PersonalityQuiz() {
               />
             </div>
           ) : (
-            <div className="mx-auto mb-6 p-6 rounded-full bg-gradient-to-br from-gold/20 to-amber-500/10 w-fit ring-1 ring-gold/30 shadow-inner text-gold">
+            <div className="mx-auto mb-6 p-6 rounded-full bg-linear-to-br from-gold/20 to-amber-500/10 w-fit ring-1 ring-gold/30 shadow-inner text-gold">
               {result.icon}
             </div>
           )}
@@ -670,14 +669,13 @@ export function PersonalityQuiz() {
             aria-valuemax={QUESTIONS.length}
           />
         </div>
-        <div
+        <output
           className="flex items-center gap-2 px-3 py-1 rounded-full bg-gold/10 border border-gold/20 text-gold text-sm font-medium"
-          role="status"
           aria-label="Personality quiz in progress"
         >
           <Sparkles className="h-3.5 w-3.5" aria-hidden="true" />
           <span>Personality</span>
-        </div>
+        </output>
       </div>
 
       <Card
@@ -708,9 +706,9 @@ export function PersonalityQuiz() {
             aria-describedby="quiz-question"
             className="grid gap-3"
           >
-            {question.options.map((option, index) => (
+            {question.options.map((option) => (
               <Button
-                key={index}
+                key={option.text}
                 role="radio"
                 aria-checked={false}
                 variant="outline"

@@ -6,6 +6,7 @@ const { describe, it, expect } = await import('vitest');
 const validPantheonIds = pantheons.map((p: { id: string }) => p.id);
 
 const validCategories = [
+  'adventure',
   'afterlife',
   'apocalypse',
   'cosmology',
@@ -16,6 +17,7 @@ const validCategories = [
   'heroic',
   'legend',
   'myth',
+  'origin',
   'quest',
   'rivalry',
   'romance',

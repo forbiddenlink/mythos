@@ -1,4 +1,4 @@
-import { describe, it, expect, vi, beforeEach } from 'vitest';
+import { describe, it, expect, beforeEach } from 'vitest';
 import {
   generateRelationshipQuiz,
   calculateQuizXP,
@@ -6,8 +6,6 @@ import {
   TIME_LIMITS,
   getQuestionTypeLabel,
   getQuestionTypeIcon,
-  type Difficulty,
-  type QuestionType,
 } from '@/lib/relationship-quiz';
 import { createMockDeity, createMockRelationship } from '../utils/fixtures';
 import type { Deity } from '@/types/Entity';
@@ -92,7 +90,7 @@ describe('relationship-quiz', () => {
       // Options shouldn't always be in the same order
       // (statistically very unlikely to be the same 10 times)
       if (results.length > 1) {
-        const allSame = results.every(r => r.join(',') === results[0].join(','));
+        const _allSame = results.every(r => r.join(',') === results[0].join(','));
         // Allow for possibility of same order (low probability)
         expect(results.length).toBeGreaterThan(0);
       }
@@ -101,7 +99,7 @@ describe('relationship-quiz', () => {
     it('should not generate duplicate questions', () => {
       const quiz = generateRelationshipQuiz(deities, relationships, 10);
       const ids = quiz.map(q => `${q.deityId}-${q.questionType}-${q.correctDeityId || ''}`);
-      const uniqueIds = new Set(ids);
+      const _uniqueIds = new Set(ids);
 
       // May have fewer unique due to the combo key generation
       expect(quiz.length).toBeGreaterThan(0);

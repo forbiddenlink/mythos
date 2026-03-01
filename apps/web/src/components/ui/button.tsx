@@ -19,7 +19,7 @@ const buttonVariants = cva(
         ghost:
           "hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50",
         link: "text-primary underline-offset-4 hover:underline",
-        gold: "bg-gradient-to-r from-gold-dark via-gold to-gold-dark text-midnight font-semibold shadow-md shadow-gold/20 hover:from-gold hover:via-gold-light hover:to-gold hover:shadow-lg hover:shadow-gold/30 active:scale-[0.98]",
+        gold: "bg-linear-to-r from-gold-dark via-gold to-gold-dark text-midnight font-semibold shadow-md shadow-gold/20 hover:from-gold hover:via-gold-light hover:to-gold hover:shadow-lg hover:shadow-gold/30 active:scale-[0.98]",
       },
       size: {
         default: "h-10 px-5 py-2.5 has-[>svg]:px-4",
@@ -55,7 +55,7 @@ function Button({
       data-variant={variant}
       data-size={size}
       className={cn(buttonVariants({ variant, size, className }))}
-      {...(props as any)}
+      {...(props as React.ButtonHTMLAttributes<HTMLButtonElement>)}
     />
   )
 }

@@ -6,7 +6,7 @@ import { useQuery } from '@tanstack/react-query';
 import { graphqlClient } from '@/lib/graphql-client';
 import { GET_STORIES } from '@/lib/queries';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Loader2, BookOpen, Tag, ScrollText } from 'lucide-react';
+import { Loader2, BookOpen, Tag, ScrollText, Volume2, Square } from 'lucide-react';
 import { Breadcrumbs } from '@/components/navigation/Breadcrumbs';
 import { BookmarkButton } from '@/components/ui/bookmark-button';
 import { ExportIconButton } from '@/components/ui/export-button';
@@ -14,12 +14,11 @@ import { ArticleJsonLd } from '@/components/seo/JsonLd';
 import Link from 'next/link';
 import ReactMarkdown from 'react-markdown';
 import { useTextToSpeech } from '@/hooks/useTextToSpeech';
-import { Volume2, Square } from 'lucide-react';
 
 // Lazy load heavy Three.js-based artifact viewer
 const ArtifactViewer = dynamic(
   () => import('@/components/artifacts/ArtifactViewer').then(mod => ({ default: mod.ArtifactViewer })),
-  { loading: () => <div className="h-[300px] flex items-center justify-center"><Loader2 className="h-8 w-8 animate-spin text-gold" /></div>, ssr: false }
+  { loading: () => <div className="h-75 flex items-center justify-center"><Loader2 className="h-8 w-8 animate-spin text-gold" /></div>, ssr: false }
 );
 import { ProgressContext } from '@/providers/progress-provider';
 import { RelatedContent } from '@/components/related-content';
@@ -28,8 +27,7 @@ import deitiesData from '@/data/deities.json';
 import locationsData from '@/data/locations.json';
 import { DetailPageSkeleton } from '@/components/ui/skeleton-cards';
 import { StoryNarrator } from '@/components/stories/StoryNarrator';
-import { SourceExcerptsList, ReferencesList } from '@/components/sources';
-import type { PrimarySourceExcerpt, FurtherReadingReference } from '@/components/sources';
+import { SourceExcerptsList, ReferencesList, type PrimarySourceExcerpt, type FurtherReadingReference } from '@/components/sources';
 
 function useProgress() {
   const context = useContext(ProgressContext);
@@ -134,7 +132,7 @@ export function StoryPageClient({ slug }: StoryPageClientProps) {
         <div className="text-center">
           <h2 className="text-2xl font-bold">Story Not Found</h2>
           <p className="text-slate-600 dark:text-slate-400 mt-2">
-            The story you're looking for doesn't exist.
+            The story you&apos;re looking for doesn&apos;t exist.
           </p>
           <Link href="/stories" className="text-gold hover:underline mt-4 inline-block">
             View all stories
@@ -205,8 +203,8 @@ export function StoryPageClient({ slug }: StoryPageClientProps) {
         url={`/stories/${story.slug}`}
       />
       {/* Hero Section */}
-      <div className="relative h-[40vh] min-h-[300px] flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-midnight/70 via-midnight/60 to-mythic z-10" />
+      <div className="relative h-[40vh] min-h-75 flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0 bg-linear-to-b from-midnight/70 via-midnight/60 to-mythic z-10" />
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[120%] h-[60%] bg-gradient-radial from-gold/10 via-transparent to-transparent z-10" />
 
         <div className="relative z-20 text-center px-4 max-w-4xl mx-auto">
@@ -219,9 +217,9 @@ export function StoryPageClient({ slug }: StoryPageClientProps) {
             {story.title}
           </h1>
           <div className="flex items-center justify-center gap-4 mb-6">
-            <div className="w-12 h-px bg-gradient-to-r from-transparent to-gold/40" />
+            <div className="w-12 h-px bg-linear-to-r from-transparent to-gold/40" />
             <div className="w-1.5 h-1.5 rotate-45 bg-gold/50" />
-            <div className="w-12 h-px bg-gradient-to-l from-transparent to-gold/40" />
+            <div className="w-12 h-px bg-linear-to-l from-transparent to-gold/40" />
           </div>
           <div className="flex items-center justify-center gap-2 mb-4">
             <Tag className="h-4 w-4 text-gold/80" />
@@ -345,9 +343,9 @@ export function StoryPageClient({ slug }: StoryPageClientProps) {
               </CardHeader>
               <CardContent>
                 <div className="flex flex-wrap gap-2">
-                  {story.moralThemes.map((theme, idx) => (
+                  {story.moralThemes.map((theme) => (
                     <span
-                      key={idx}
+                      key={theme}
                       className="px-3 py-1 bg-gold/10 border border-gold/20 rounded-full text-gold/80 text-sm"
                     >
                       {theme}
@@ -397,7 +395,7 @@ export function StoryPageClient({ slug }: StoryPageClientProps) {
 
           {/* Further Reading */}
           {story.furtherReading && story.furtherReading.length > 0 && (
-            <div className="[&_*]:!bg-midnight-light/50 [&_*]:!border-gold/20 [&_h3]:!text-parchment [&_h4]:!text-gold [&_p]:!text-parchment/80 [&_cite]:!text-parchment [&_span]:!text-parchment/60">
+            <div className="**:bg-midnight-light/50! **:border-gold/20! [&_h3]:text-parchment! [&_h4]:text-gold! [&_p]:text-parchment/80! [&_cite]:text-parchment! [&_span]:text-parchment/60!">
               <ReferencesList
                 references={story.furtherReading}
                 title="Further Reading"

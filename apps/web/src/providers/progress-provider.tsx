@@ -1,6 +1,6 @@
 'use client';
 
-import { createContext, useCallback, useEffect, useState, type ReactNode } from 'react';
+import { createContext, useCallback, useEffect, useMemo, useState, type ReactNode } from 'react';
 
 export interface UserProgress {
   deitiesViewed: string[];
@@ -14,6 +14,19 @@ export interface UserProgress {
   totalXP: number;
   streakFreezes: number;
   quickQuizHighScore: number;
+  // Daily challenges
+  dailyChallengeStreak: number;
+  lastDailyChallengeDate: string;
+  claimedDailyChallenges: string[]; // Format: "YYYY-MM-DD:challengeId"
+  // Today's activity tracking
+  todayActivity: {
+    date: string;
+    deitiesViewed: string[];
+    storiesRead: string[];
+    pantheonsViewed: string[];
+    quizCompleted: boolean;
+    quizScore: number;
+  };
 }
 
 export interface ProgressStats {
@@ -30,7 +43,7 @@ export interface ProgressStats {
 
 export interface ProgressContextValue {
   progress: UserProgress;
-  trackDeityView: (deityId: string) => void;
+  trackDeityView: (deityId: string, pantheonId?: string) => void;
   trackStoryRead: (storyId: string) => void;
   trackPantheonExplore: (pantheonId: string) => void;
   trackLocationVisit: (locationId: string) => void;
@@ -41,6 +54,10 @@ export interface ProgressContextValue {
   useStreakFreeze: () => boolean;
   addStreakFreeze: (count: number) => void;
   updateQuickQuizHighScore: (score: number) => void;
+  // Daily challenges
+  claimDailyChallenge: (challengeId: string, xpReward: number) => void;
+  isDailyChallengeClaimed: (challengeId: string) => boolean;
+  trackQuizCompletion: (score: number) => void;
 }
 
 const PROGRESS_STORAGE_KEY = 'mythos-atlas-progress';
@@ -57,6 +74,18 @@ const DEFAULT_PROGRESS: UserProgress = {
   totalXP: 0,
   streakFreezes: 2,
   quickQuizHighScore: 0,
+  // Daily challenges
+  dailyChallengeStreak: 0,
+  lastDailyChallengeDate: '',
+  claimedDailyChallenges: [],
+  todayActivity: {
+    date: '',
+    deitiesViewed: [],
+    storiesRead: [],
+    pantheonsViewed: [],
+    quizCompleted: false,
+    quizScore: 0,
+  },
 };
 
 export const ProgressContext = createContext<ProgressContextValue | null>(null);
@@ -99,7 +128,6 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
   const [mounted, setMounted] = useState(false);
 
   // Hydration-safe: load from localStorage on client mount
-  // eslint-disable-next-line react-hooks/set-state-in-effect -- intentional hydration pattern
   useEffect(() => {
     setProgress(loadProgress());
     setMounted(true);
@@ -193,26 +221,55 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
     });
   }, []);
 
-  const trackDeityView = useCallback((deityId: string) => {
+  const trackDeityView = useCallback((deityId: string, pantheonId?: string) => {
     setProgress((prev) => {
-      if (prev.deitiesViewed.includes(deityId)) {
-        return prev;
-      }
+      const today = getToday();
+      const isNewDeity = !prev.deitiesViewed.includes(deityId);
+
+      // Update today's activity
+      const todayActivity = prev.todayActivity.date === today
+        ? prev.todayActivity
+        : { date: today, deitiesViewed: [], storiesRead: [], pantheonsViewed: [], quizCompleted: false, quizScore: 0 };
+
+      const updatedTodayActivity = {
+        ...todayActivity,
+        deitiesViewed: todayActivity.deitiesViewed.includes(deityId)
+          ? todayActivity.deitiesViewed
+          : [...todayActivity.deitiesViewed, deityId],
+        pantheonsViewed: pantheonId && !todayActivity.pantheonsViewed.includes(pantheonId)
+          ? [...todayActivity.pantheonsViewed, pantheonId]
+          : todayActivity.pantheonsViewed,
+      };
+
       return {
         ...prev,
-        deitiesViewed: [...prev.deitiesViewed, deityId],
+        deitiesViewed: isNewDeity ? [...prev.deitiesViewed, deityId] : prev.deitiesViewed,
+        todayActivity: updatedTodayActivity,
       };
     });
   }, []);
 
   const trackStoryRead = useCallback((storyId: string) => {
     setProgress((prev) => {
-      if (prev.storiesRead.includes(storyId)) {
-        return prev;
-      }
+      const today = getToday();
+      const isNewStory = !prev.storiesRead.includes(storyId);
+
+      // Update today's activity
+      const todayActivity = prev.todayActivity.date === today
+        ? prev.todayActivity
+        : { date: today, deitiesViewed: [], storiesRead: [], pantheonsViewed: [], quizCompleted: false, quizScore: 0 };
+
+      const updatedTodayActivity = {
+        ...todayActivity,
+        storiesRead: todayActivity.storiesRead.includes(storyId)
+          ? todayActivity.storiesRead
+          : [...todayActivity.storiesRead, storyId],
+      };
+
       return {
         ...prev,
-        storiesRead: [...prev.storiesRead, storyId],
+        storiesRead: isNewStory ? [...prev.storiesRead, storyId] : prev.storiesRead,
+        todayActivity: updatedTodayActivity,
       };
     });
   }, []);
@@ -284,23 +341,85 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
     };
   }, [progress]);
 
+  // Daily challenge methods
+  const claimDailyChallenge = useCallback((challengeId: string, xpReward: number) => {
+    setProgress((prev) => {
+      const today = getToday();
+      const claimKey = `${today}:${challengeId}`;
+
+      // Already claimed today
+      if (prev.claimedDailyChallenges.includes(claimKey)) {
+        return prev;
+      }
+
+      // Calculate new streak
+      const yesterday = getYesterday();
+      const hadYesterdayClaim = prev.claimedDailyChallenges.some(c => c.startsWith(`${yesterday}:`));
+      const newStreak = prev.lastDailyChallengeDate === yesterday && hadYesterdayClaim
+        ? prev.dailyChallengeStreak + 1
+        : prev.lastDailyChallengeDate === today
+          ? prev.dailyChallengeStreak
+          : 1;
+
+      return {
+        ...prev,
+        claimedDailyChallenges: [...prev.claimedDailyChallenges, claimKey],
+        totalXP: prev.totalXP + xpReward,
+        dailyChallengeStreak: newStreak,
+        lastDailyChallengeDate: today,
+      };
+    });
+  }, []);
+
+  const isDailyChallengeClaimed = useCallback((challengeId: string): boolean => {
+    const today = getToday();
+    const claimKey = `${today}:${challengeId}`;
+    return progress.claimedDailyChallenges.includes(claimKey);
+  }, [progress.claimedDailyChallenges]);
+
+  const trackQuizCompletion = useCallback((score: number) => {
+    setProgress((prev) => {
+      const today = getToday();
+
+      // Update today's activity
+      const todayActivity = prev.todayActivity.date === today
+        ? prev.todayActivity
+        : { date: today, deitiesViewed: [], storiesRead: [], pantheonsViewed: [], quizCompleted: false, quizScore: 0 };
+
+      return {
+        ...prev,
+        todayActivity: {
+          ...todayActivity,
+          quizCompleted: true,
+          quizScore: Math.max(todayActivity.quizScore, score),
+        },
+      };
+    });
+  }, []);
+
+  const contextValue = useMemo(
+    () => ({
+      progress,
+      trackDeityView,
+      trackStoryRead,
+      trackPantheonExplore,
+      trackLocationVisit,
+      recordQuizScore,
+      unlockAchievement,
+      updateStreak,
+      getStats,
+      useStreakFreeze,
+      addStreakFreeze,
+      updateQuickQuizHighScore,
+      claimDailyChallenge,
+      isDailyChallengeClaimed,
+      trackQuizCompletion,
+    }),
+    [progress, trackDeityView, trackStoryRead, trackPantheonExplore, trackLocationVisit, recordQuizScore, unlockAchievement, updateStreak, getStats, useStreakFreeze, addStreakFreeze, updateQuickQuizHighScore, claimDailyChallenge, isDailyChallengeClaimed, trackQuizCompletion]
+  );
+
   return (
-    <ProgressContext.Provider
-      value={{
-        progress,
-        trackDeityView,
-        trackStoryRead,
-        trackPantheonExplore,
-        trackLocationVisit,
-        recordQuizScore,
-        unlockAchievement,
-        updateStreak,
-        getStats,
-        useStreakFreeze,
-        addStreakFreeze,
-        updateQuickQuizHighScore,
-      }}
-    >
+    <ProgressContext.Provider value={contextValue}>
       {children}
     </ProgressContext.Provider>
   );

@@ -44,7 +44,7 @@ export function ComparisonTable({ deities, onRemove, pantheons }: ComparisonTabl
 
   const getPantheonName = (pantheonId: string) => {
     const pantheon = pantheons.find(p => p.id === pantheonId);
-    return pantheon?.name || pantheonId.replace('-pantheon', '').replace(/\b\w/g, c => c.toUpperCase());
+    return pantheon?.name || pantheonId.replace('-pantheon', '').replaceAll(/\b\w/g, c => c.toUpperCase());
   };
 
   if (deities.length === 0) {

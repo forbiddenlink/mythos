@@ -47,7 +47,7 @@ const typeConfig = {
   },
 };
 
-export function ChangelogEntry({ entry, isLast = false }: ChangelogEntryProps) {
+export function ChangelogEntry({ entry, isLast = false }: Readonly<ChangelogEntryProps>) {
   const [isExpanded, setIsExpanded] = useState(true);
   const config = typeConfig[entry.type];
   const Icon = config.icon;
@@ -62,7 +62,7 @@ export function ChangelogEntry({ entry, isLast = false }: ChangelogEntryProps) {
     <div className="relative flex gap-4 md:gap-6">
       {/* Timeline line */}
       {!isLast && (
-        <div className="absolute left-[19px] md:left-[23px] top-12 bottom-0 w-px bg-gradient-to-b from-border to-transparent" />
+        <div className="absolute left-4.75 md:left-5.75 top-12 bottom-0 w-px bg-linear-to-b from-border to-transparent" />
       )}
 
       {/* Timeline dot */}
@@ -130,7 +130,7 @@ export function ChangelogEntry({ entry, isLast = false }: ChangelogEntryProps) {
             >
               {entry.changes.map((change, index) => (
                 <li
-                  key={index}
+                  key={`${change}-${index}`}
                   className="flex items-start gap-3 text-parchment/80"
                 >
                   <div

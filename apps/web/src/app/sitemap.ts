@@ -5,6 +5,7 @@ import pantheons from '@/data/pantheons.json'
 import creatures from '@/data/creatures.json'
 import artifacts from '@/data/artifacts.json'
 import journeys from '@/data/journeys.json'
+import locations from '@/data/locations.json'
 
 const BASE_URL = 'https://mythos-web-seven.vercel.app'
 
@@ -18,7 +19,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: BASE_URL,
       lastModified,
       changeFrequency: 'weekly',
-      priority: 1.0,
+      priority: 1,
     },
     {
       url: `${BASE_URL}/deities`,
@@ -129,12 +130,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.7,
     },
     {
-      url: `${BASE_URL}/domains`,
-      lastModified,
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
-    {
       url: `${BASE_URL}/learning-paths`,
       lastModified,
       changeFrequency: 'monthly',
@@ -163,6 +158,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified,
       changeFrequency: 'monthly',
       priority: 0.4,
+    },
+    {
+      url: `${BASE_URL}/leaderboard`,
+      lastModified,
+      changeFrequency: 'daily',
+      priority: 0.5,
+    },
+    {
+      url: `${BASE_URL}/review`,
+      lastModified,
+      changeFrequency: 'daily',
+      priority: 0.5,
+    },
+    {
+      url: `${BASE_URL}/progress`,
+      lastModified,
+      changeFrequency: 'daily',
+      priority: 0.5,
     },
   ]
 
@@ -214,6 +227,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }))
 
+  // Location pages
+  const locationPages: MetadataRoute.Sitemap = locations.map((location) => ({
+    url: `${BASE_URL}/locations/${location.id}`,
+    lastModified,
+    changeFrequency: 'monthly' as const,
+    priority: 0.7,
+  }))
+
   return [
     ...staticPages,
     ...deityPages,
@@ -222,5 +243,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...creaturePages,
     ...artifactPages,
     ...journeyPages,
+    ...locationPages,
   ]
 }

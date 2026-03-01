@@ -15,6 +15,8 @@ import { DeityFilters } from '@/components/deities/DeityFilters';
 import { BookmarkButton } from '@/components/ui/bookmark-button';
 import { GridSkeleton, FiltersSkeleton } from '@/components/ui/skeleton-cards';
 import { CollectionPageJsonLd } from '@/components/seo/JsonLd';
+import { usePagination } from '@/hooks/usePagination';
+import { PaginationControls } from '@/components/ui/pagination-controls';
 
 // Note: Metadata export removed - use layout.tsx for client components
 // SEO is handled via dynamic title updates below
@@ -43,6 +45,7 @@ export default function DeitiesPage() {
 
   useEffect(() => {
     if (data) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect -- sync filtered list when data loads
       setFilteredDeities(data.deities);
     }
   }, [data]);
@@ -53,7 +56,7 @@ export default function DeitiesPage() {
     return (
       <div className="min-h-screen">
         {/* Hero placeholder */}
-        <div className="relative h-[50vh] min-h-[400px] flex items-center justify-center overflow-hidden bg-gradient-to-b from-midnight/70 via-midnight/60 to-midnight/80" />
+        <div className="relative h-[50vh] min-h-100 flex items-center justify-center overflow-hidden bg-linear-to-b from-midnight/70 via-midnight/60 to-midnight/80" />
 
         {/* Content Section */}
         <div className="container mx-auto max-w-6xl px-4 py-16 bg-mythic">
@@ -93,7 +96,7 @@ export default function DeitiesPage() {
         numberOfItems={data?.deities?.length}
       />
       {/* Hero Section */}
-      <div className="relative h-[50vh] min-h-[400px] flex items-center justify-center overflow-hidden">
+      <div className="relative h-[50vh] min-h-100 flex items-center justify-center overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <Image
@@ -105,7 +108,7 @@ export default function DeitiesPage() {
           />
         </div>
         {/* Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-midnight/70 via-midnight/60 to-midnight/80 z-10" />
+        <div className="absolute inset-0 bg-linear-to-b from-midnight/70 via-midnight/60 to-midnight/80 z-10" />
 
         {/* Radial gold glow */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[120%] h-[60%] bg-gradient-radial from-gold/10 via-transparent to-transparent z-10" />
@@ -114,7 +117,7 @@ export default function DeitiesPage() {
         <div className="relative z-20 text-center px-4 max-w-4xl mx-auto">
           <div className="flex items-center justify-center mb-6">
             <div className="relative p-4 rounded-xl border border-gold/20 bg-midnight/50 backdrop-blur-sm">
-              <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-gold/10 to-transparent" />
+              <div className="absolute inset-0 rounded-xl bg-linear-to-br from-gold/10 to-transparent" />
               <Sparkles className="relative h-10 w-10 text-gold" strokeWidth={1.5} />
             </div>
           </div>
@@ -125,9 +128,9 @@ export default function DeitiesPage() {
             Deities
           </h1>
           <div className="flex items-center justify-center gap-4 mb-6">
-            <div className="w-12 h-px bg-gradient-to-r from-transparent to-gold/40" />
+            <div className="w-12 h-px bg-linear-to-r from-transparent to-gold/40" />
             <div className="w-1.5 h-1.5 rotate-45 bg-gold/50" />
-            <div className="w-12 h-px bg-gradient-to-l from-transparent to-gold/40" />
+            <div className="w-12 h-px bg-linear-to-l from-transparent to-gold/40" />
           </div>
           <p className="text-lg md:text-xl text-parchment/70 max-w-2xl mx-auto font-body leading-relaxed">
             Gods and goddesses from 12 pantheons, with family trees, domains, and stories
@@ -171,55 +174,89 @@ export default function DeitiesPage() {
         {viewMode === 'table' ? (
           <DeitiesTable deities={displayDeities} />
         ) : (
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {displayDeities.map((deity) => (
-              <Link key={deity.id} href={`/deities/${deity.slug}`} className="group">
-                <Card asArticle className="h-full cursor-pointer card-elevated bg-card hover:scale-[1.01]">
-                  <CardHeader>
-                    <div className="flex items-start justify-between">
-                      {deity.imageUrl ? (
-                        <div className="relative w-16 h-16 rounded-xl overflow-hidden border border-gold/20 shadow-sm">
-                          <Image
-                            src={deity.imageUrl}
-                            alt={deity.name}
-                            fill
-                            className="object-cover"
-                          />
-                        </div>
-                      ) : (
-                        <div className="p-2.5 rounded-xl bg-gold/10 border border-gold/20 group-hover:bg-gold/15 transition-colors duration-300">
-                          <Sparkles className="h-5 w-5 text-gold" strokeWidth={1.5} />
-                        </div>
-                      )}
-                      <div className="flex items-center gap-2">
-                        {deity.importanceRank && deity.importanceRank <= 5 && (
-                          <span className="text-xs font-medium px-2.5 py-1 rounded-full bg-gold/10 border border-gold/20 text-gold">
-                            Major Deity
-                          </span>
-                        )}
-                        <BookmarkButton type="deity" id={deity.id} size="sm" />
-                      </div>
-                    </div>
-                    <CardTitle className="text-foreground mt-4 group-hover:text-gold transition-colors duration-300">{deity.name}</CardTitle>
-                    {deity.domain && deity.domain.length > 0 && (
-                      <CardDescription>
-                        {deity.domain.slice(0, 3).join(', ')}
-                      </CardDescription>
-                    )}
-                  </CardHeader>
-                  {deity.description && (
-                    <CardContent>
-                      <p className="text-muted-foreground text-sm line-clamp-3 leading-relaxed">
-                        {deity.description}
-                      </p>
-                    </CardContent>
-                  )}
-                </Card>
-              </Link>
-            ))}
-          </div>
+          <PaginatedDeityGrid deities={displayDeities} />
         )}
       </div>
     </div>
+  );
+}
+
+function PaginatedDeityGrid({ deities }: Readonly<{ deities: Deity[] }>) {
+  const pagination = usePagination(deities, 24);
+
+  // Reset to first page when filtered data changes
+  useEffect(() => {
+    pagination.setPage(1);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [deities.length]);
+
+  return (
+    <>
+      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {pagination.paginatedData.map((deity) => (
+          <Link key={deity.id} href={`/deities/${deity.slug}`} className="group">
+            <Card asArticle className="h-full cursor-pointer card-elevated bg-card hover:scale-[1.01]">
+              <CardHeader>
+                <div className="flex items-start justify-between">
+                  {deity.imageUrl ? (
+                    <div className="relative w-16 h-16 rounded-xl overflow-hidden border border-gold/20 shadow-sm">
+                      <Image
+                        src={deity.imageUrl}
+                        alt={deity.name}
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                  ) : (
+                    <div className="p-2.5 rounded-xl bg-gold/10 border border-gold/20 group-hover:bg-gold/15 transition-colors duration-300">
+                      <Sparkles className="h-5 w-5 text-gold" strokeWidth={1.5} />
+                    </div>
+                  )}
+                  <div className="flex items-center gap-2">
+                    {deity.importanceRank && deity.importanceRank <= 5 && (
+                      <span className="text-xs font-medium px-2.5 py-1 rounded-full bg-gold/10 border border-gold/20 text-gold">
+                        Major Deity
+                      </span>
+                    )}
+                    <BookmarkButton type="deity" id={deity.id} size="sm" />
+                  </div>
+                </div>
+                <CardTitle className="text-foreground mt-4 group-hover:text-gold transition-colors duration-300">{deity.name}</CardTitle>
+                {deity.domain && deity.domain.length > 0 && (
+                  <CardDescription>
+                    {deity.domain.slice(0, 3).join(', ')}
+                  </CardDescription>
+                )}
+              </CardHeader>
+              {deity.description && (
+                <CardContent>
+                  <p className="text-muted-foreground text-sm line-clamp-3 leading-relaxed">
+                    {deity.description}
+                  </p>
+                </CardContent>
+              )}
+            </Card>
+          </Link>
+        ))}
+      </div>
+
+      {pagination.totalPages > 1 && (
+        <PaginationControls
+          page={pagination.page}
+          totalPages={pagination.totalPages}
+          hasNextPage={pagination.hasNextPage}
+          hasPreviousPage={pagination.hasPreviousPage}
+          onPageChange={pagination.setPage}
+          onNextPage={pagination.nextPage}
+          onPreviousPage={pagination.previousPage}
+          onFirstPage={pagination.firstPage}
+          onLastPage={pagination.lastPage}
+          startIndex={pagination.startIndex}
+          endIndex={pagination.endIndex}
+          totalItems={pagination.totalItems}
+          className="mt-8"
+        />
+      )}
+    </>
   );
 }

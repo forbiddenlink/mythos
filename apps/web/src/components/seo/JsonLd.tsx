@@ -4,7 +4,7 @@ import { siteConfig } from '@/lib/metadata'
 // ─── Helper ──────────────────────────────────────────────────────────
 // JSON-LD script injection is safe here: all data is constructed from
 // our own trusted data structures, never from user input.
-function JsonLdScript({ id, data }: { id: string; data: Record<string, unknown> }) {
+function JsonLdScript({ id, data }: Readonly<{ id: string; data: Record<string, unknown> }>) {
   return (
     <Script
       id={id}
@@ -24,7 +24,7 @@ interface BreadcrumbProps {
   items: BreadcrumbItem[]
 }
 
-export function BreadcrumbJsonLd({ items }: BreadcrumbProps) {
+export function BreadcrumbJsonLd({ items }: Readonly<BreadcrumbProps>) {
   const breadcrumbList = {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
@@ -44,7 +44,7 @@ interface WebSiteJsonLdProps {
   searchActionTarget?: string
 }
 
-export function WebSiteJsonLd({ searchActionTarget }: WebSiteJsonLdProps) {
+export function WebSiteJsonLd({ searchActionTarget }: Readonly<WebSiteJsonLdProps>) {
   const website: Record<string, unknown> = {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
@@ -94,7 +94,7 @@ export function ArticleJsonLd({
   section,
   tags,
   url,
-}: ArticleJsonLdProps) {
+}: Readonly<ArticleJsonLdProps>) {
   const article: Record<string, unknown> = {
     '@context': 'https://schema.org',
     '@type': 'Article',
@@ -138,7 +138,7 @@ export function DeityJsonLd({
   domains,
   url,
   image,
-}: DeityJsonLdProps) {
+}: Readonly<DeityJsonLdProps>) {
   const deity: Record<string, unknown> = {
     '@context': 'https://schema.org',
     '@type': ['Person', 'Article'],
@@ -186,7 +186,7 @@ export function CollectionPageJsonLd({
   description,
   url,
   numberOfItems,
-}: CollectionPageJsonLdProps) {
+}: Readonly<CollectionPageJsonLdProps>) {
   const collection: Record<string, unknown> = {
     '@context': 'https://schema.org',
     '@type': 'CollectionPage',
@@ -217,7 +217,7 @@ interface QuizJsonLdProps {
   url: string
 }
 
-export function QuizJsonLd({ name, description, url }: QuizJsonLdProps) {
+export function QuizJsonLd({ name, description, url }: Readonly<QuizJsonLdProps>) {
   const quiz = {
     '@context': 'https://schema.org',
     '@type': 'Quiz',
@@ -252,7 +252,7 @@ interface AboutPageJsonLdProps {
 export function AboutPageJsonLd({
   creatorName,
   creatorDescription,
-}: AboutPageJsonLdProps) {
+}: Readonly<AboutPageJsonLdProps>) {
   const aboutPage = {
     '@context': 'https://schema.org',
     '@type': 'AboutPage',
@@ -286,7 +286,7 @@ export function WebApplicationJsonLd({
   name,
   description,
   url,
-}: WebApplicationJsonLdProps) {
+}: Readonly<WebApplicationJsonLdProps>) {
   const app = {
     '@context': 'https://schema.org',
     '@type': 'WebApplication',
@@ -320,7 +320,7 @@ interface FAQJsonLdProps {
   questions: FAQQuestion[]
 }
 
-export function FAQJsonLd({ questions }: FAQJsonLdProps) {
+export function FAQJsonLd({ questions }: Readonly<FAQJsonLdProps>) {
   const faqPage = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
@@ -352,7 +352,7 @@ export function CreatureJsonLd({
   url,
   image,
   abilities,
-}: CreatureJsonLdProps) {
+}: Readonly<CreatureJsonLdProps>) {
   const creature: Record<string, unknown> = {
     '@context': 'https://schema.org',
     '@type': ['Thing', 'Article'],
@@ -398,7 +398,7 @@ export function ArtifactJsonLd({
   url,
   image,
   powers,
-}: ArtifactJsonLdProps) {
+}: Readonly<ArtifactJsonLdProps>) {
   const artifact: Record<string, unknown> = {
     '@context': 'https://schema.org',
     '@type': ['Thing', 'Article'],
@@ -429,6 +429,63 @@ export function ArtifactJsonLd({
   return <JsonLdScript id="artifact-jsonld" data={artifact} />
 }
 
+// ─── Place (for mythological locations) ───────────────────────────────
+interface PlaceJsonLdProps {
+  name: string
+  description: string
+  url: string
+  image?: string
+  latitude?: number | null
+  longitude?: number | null
+  locationType?: string
+}
+
+export function PlaceJsonLd({
+  name,
+  description,
+  url,
+  image,
+  latitude,
+  longitude,
+  locationType,
+}: Readonly<PlaceJsonLdProps>) {
+  const place: Record<string, unknown> = {
+    '@context': 'https://schema.org',
+    '@type': ['Place', 'Article'],
+    name,
+    description,
+    url: `${siteConfig.url}${url}`,
+    headline: name,
+    author: {
+      '@type': 'Organization',
+      name: siteConfig.name,
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: siteConfig.name,
+      url: siteConfig.url,
+    },
+    datePublished: '2026-01-01T00:00:00Z',
+    dateModified: '2026-02-01T00:00:00Z',
+  }
+
+  if (latitude != null && longitude != null) {
+    place.geo = {
+      '@type': 'GeoCoordinates',
+      latitude,
+      longitude,
+    }
+  }
+  if (locationType) {
+    place.additionalType = locationType
+  }
+  if (image) {
+    place.image = `${siteConfig.url}${image}`
+  }
+
+  return <JsonLdScript id="place-jsonld" data={place} />
+}
+
 // ─── ItemList (for listing pages) ─────────────────────────────────────
 interface ItemListJsonLdProps {
   name: string
@@ -446,7 +503,7 @@ export function ItemListJsonLd({
   description,
   url,
   items,
-}: ItemListJsonLdProps) {
+}: Readonly<ItemListJsonLdProps>) {
   const itemList = {
     '@context': 'https://schema.org',
     '@type': 'ItemList',

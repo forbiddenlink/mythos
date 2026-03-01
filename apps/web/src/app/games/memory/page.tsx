@@ -12,7 +12,7 @@ export const metadata = generateBaseMetadata({
 
 export default function MemoryGamePage() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-background to-mythic">
+    <div className="min-h-screen bg-linear-to-b from-background to-mythic">
       <div className="container mx-auto max-w-7xl px-4 py-12">
         <Breadcrumbs />
 

@@ -234,7 +234,7 @@ export function getDailyDigest(
   const date = dateString || new Date().toISOString().split('T')[0];
 
   // Create a simple hash from date for pseudo-random but consistent selection
-  const dateHash = date.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0);
+  const dateHash = date.split('').reduce((acc, char) => acc + (char.codePointAt(0) ?? 0), 0);
 
   // Select deity based on date
   const deityIndex = dateHash % allDeities.length;
@@ -421,7 +421,7 @@ function formatPantheonName(pantheonId: string): string {
     'celtic-pantheon': 'Celtic',
     'mesopotamian-pantheon': 'Mesopotamian',
   };
-  return names[pantheonId] || pantheonId.replace('-pantheon', '').replace(/-/g, ' ');
+  return names[pantheonId] || pantheonId.replace('-pantheon', '').replaceAll('-', ' ');
 }
 
 /**
@@ -446,7 +446,7 @@ export function getDiscoveryRecommendations(
   // Get top deity from each pantheon
   const recommendedDeities: Deity[] = [];
   for (const deities of Object.values(pantheonDeities)) {
-    const sorted = [...deities].sort((a, b) => (a.importanceRank || 99) - (b.importanceRank || 99));
+    const sorted = deities.toSorted((a, b) => (a.importanceRank || 99) - (b.importanceRank || 99));
     if (sorted[0]) {
       recommendedDeities.push(sorted[0]);
     }
@@ -494,6 +494,229 @@ export interface LearningPath {
   domain?: string; // For domain-expert paths
 }
 
+/** Result from a goal-specific step builder */
+interface StepBuilderResult {
+  id: string;
+  name: string;
+  description: string;
+  steps: LearningPathStep[];
+  minutesPerStep: number;
+  /** Override progress instead of computing from steps */
+  progressOverride?: number;
+  pantheonId?: string;
+  domain?: string;
+}
+
+/** Compute progress & estimated time, then assemble a LearningPath */
+function computeStepProgress(steps: LearningPathStep[]): number {
+  if (steps.length === 0) return 0;
+  return Math.round((steps.filter(s => s.completed).length / steps.length) * 100);
+}
+
+function finalizePath(result: StepBuilderResult, goal: LearningGoal): LearningPath {
+  const { steps, minutesPerStep, progressOverride, ...rest } = result;
+  const progress = progressOverride ?? computeStepProgress(steps);
+
+  return {
+    ...rest,
+    steps,
+    progress,
+    estimatedTime: `${Math.ceil(steps.length * minutesPerStep)} minutes`,
+    goal,
+  };
+}
+
+function buildPantheonMasterySteps(
+  prefs: UserPreferences,
+  allDeities: Deity[],
+  allStories: Story[],
+  pantheonId: string,
+): StepBuilderResult {
+  const pantheonDeities = allDeities
+    .filter(d => d.pantheonId === pantheonId)
+    .sort((a, b) => (a.importanceRank || 99) - (b.importanceRank || 99));
+  const pantheonStories = allStories.filter(s => s.pantheonId === pantheonId);
+
+  const steps: LearningPathStep[] = [
+    ...pantheonDeities.slice(0, 10).map(deity => ({
+      type: 'deity' as const,
+      itemId: deity.id,
+      title: `Learn about ${deity.name}`,
+      completed: prefs.viewedDeities.includes(deity.id),
+    })),
+    ...pantheonStories.slice(0, 5).map(story => ({
+      type: 'story' as const,
+      itemId: story.id,
+      title: `Read: ${story.title}`,
+      completed: prefs.readStories.includes(story.id),
+    })),
+    {
+      type: 'quiz',
+      itemId: `quiz-${pantheonId}`,
+      title: `${formatPantheonName(pantheonId)} Mythology Quiz`,
+      completed: false,
+    },
+  ];
+
+  return {
+    id: `pantheon-mastery-${pantheonId}`,
+    name: `Master ${formatPantheonName(pantheonId)} Mythology`,
+    description: `Explore the major deities and stories of the ${formatPantheonName(pantheonId)} pantheon, from creation myths to epic tales.`,
+    steps,
+    minutesPerStep: 5,
+    pantheonId,
+  };
+}
+
+function buildDomainExpertSteps(
+  prefs: UserPreferences,
+  allDeities: Deity[],
+  domain: string,
+): StepBuilderResult {
+  const domainDeities = allDeities
+    .filter(d => d.domain?.includes(domain))
+    .sort((a, b) => (a.importanceRank || 99) - (b.importanceRank || 99));
+
+  // Get deities from different pantheons for comparative study
+  const uniquePantheons = new Set<string>();
+  const selectedDeities: Deity[] = [];
+  for (const deity of domainDeities) {
+    if (selectedDeities.length >= 8) break;
+    if (!uniquePantheons.has(deity.pantheonId)) {
+      selectedDeities.push(deity);
+      uniquePantheons.add(deity.pantheonId);
+    }
+  }
+  // Fill remaining slots with more deities
+  for (const deity of domainDeities) {
+    if (selectedDeities.length >= 8) break;
+    if (!selectedDeities.includes(deity)) {
+      selectedDeities.push(deity);
+    }
+  }
+
+  const steps: LearningPathStep[] = [
+    ...selectedDeities.map(deity => ({
+      type: 'deity' as const,
+      itemId: deity.id,
+      title: `Study ${deity.name} (${formatPantheonName(deity.pantheonId)})`,
+      completed: prefs.viewedDeities.includes(deity.id),
+    })),
+    {
+      type: 'quiz',
+      itemId: `quiz-domain-${domain}`,
+      title: `${capitalizeFirst(domain)} Domain Quiz`,
+      completed: false,
+    },
+  ];
+
+  return {
+    id: `domain-expert-${domain}`,
+    name: `${capitalizeFirst(domain)} Gods Across Cultures`,
+    description: `Discover how different cultures conceived of ${domain} deities, comparing their attributes and stories.`,
+    steps,
+    minutesPerStep: 5,
+    domain,
+  };
+}
+
+function buildStoryScholarSteps(
+  prefs: UserPreferences,
+  allStories: Story[],
+): StepBuilderResult {
+  const categories = ['creation', 'war', 'epic', 'tragedy', 'heroic', 'transformation'];
+  const selectedStories: Story[] = [];
+
+  for (const category of categories) {
+    const categoryStories = allStories.filter(s => s.category === category);
+    if (categoryStories.length > 0) {
+      selectedStories.push(categoryStories[0]);
+      if (categoryStories.length > 1) {
+        selectedStories.push(categoryStories[1]);
+      }
+    }
+  }
+
+  // Ensure we have at least some stories
+  if (selectedStories.length < 6) {
+    for (const story of allStories) {
+      if (selectedStories.length >= 10) break;
+      if (!selectedStories.includes(story)) {
+        selectedStories.push(story);
+      }
+    }
+  }
+
+  const steps: LearningPathStep[] = [
+    ...selectedStories.slice(0, 10).map(story => ({
+      type: 'story' as const,
+      itemId: story.id,
+      title: story.title,
+      completed: prefs.readStories.includes(story.id),
+    })),
+    {
+      type: 'quiz',
+      itemId: 'quiz-stories',
+      title: 'Mythology Stories Quiz',
+      completed: false,
+    },
+  ];
+
+  return {
+    id: 'story-scholar',
+    name: 'Tales of the Divine',
+    description: 'Journey through the greatest stories of mythology, from creation myths to heroic epics.',
+    steps,
+    minutesPerStep: 8,
+  };
+}
+
+function buildCompletionistSteps(
+  prefs: UserPreferences,
+  allDeities: Deity[],
+  allStories: Story[],
+): StepBuilderResult {
+  const unviewedDeities = allDeities.filter(d => !prefs.viewedDeities.includes(d.id));
+  const unreadStories = allStories.filter(s => !prefs.readStories.includes(s.id));
+
+  const sortedDeities = [...unviewedDeities]
+    .sort((a, b) => (a.importanceRank || 99) - (b.importanceRank || 99))
+    .slice(0, 12);
+
+  const steps: LearningPathStep[] = [
+    ...sortedDeities.map(deity => ({
+      type: 'deity' as const,
+      itemId: deity.id,
+      title: `Discover ${deity.name}`,
+      completed: false,
+    })),
+    ...unreadStories.slice(0, 6).map(story => ({
+      type: 'story' as const,
+      itemId: story.id,
+      title: story.title,
+      completed: false,
+    })),
+    {
+      type: 'quiz',
+      itemId: 'quiz-comprehensive',
+      title: 'Comprehensive Mythology Quiz',
+      completed: false,
+    },
+  ];
+
+  const totalContent = allDeities.length + allStories.length;
+  const viewedContent = prefs.viewedDeities.length + prefs.readStories.length;
+
+  return {
+    id: 'completionist',
+    name: 'The Grand Journey',
+    description: `Complete your mythology collection! You've discovered ${viewedContent} of ${totalContent} items.`,
+    steps,
+    minutesPerStep: 5,
+    progressOverride: Math.round((viewedContent / totalContent) * 100),
+  };
+}
+
 /**
  * Generate a learning path based on user preferences and a specific goal
  */
@@ -507,221 +730,19 @@ export function generateLearningPath(
     domain?: string;
   }
 ): LearningPath {
-  const steps: LearningPathStep[] = [];
-
   switch (goal) {
     case 'pantheon-mastery': {
       const pantheonId = options?.pantheonId || prefs.favoritePantheons[0] || 'greek-pantheon';
-      const pantheonDeities = allDeities
-        .filter(d => d.pantheonId === pantheonId)
-        .sort((a, b) => (a.importanceRank || 99) - (b.importanceRank || 99));
-      const pantheonStories = allStories.filter(s => s.pantheonId === pantheonId);
-
-      // Add deities in order of importance
-      for (const deity of pantheonDeities.slice(0, 10)) {
-        steps.push({
-          type: 'deity',
-          itemId: deity.id,
-          title: `Learn about ${deity.name}`,
-          completed: prefs.viewedDeities.includes(deity.id),
-        });
-      }
-
-      // Add stories
-      for (const story of pantheonStories.slice(0, 5)) {
-        steps.push({
-          type: 'story',
-          itemId: story.id,
-          title: `Read: ${story.title}`,
-          completed: prefs.readStories.includes(story.id),
-        });
-      }
-
-      // Add quiz at the end
-      steps.push({
-        type: 'quiz',
-        itemId: `quiz-${pantheonId}`,
-        title: `${formatPantheonName(pantheonId)} Mythology Quiz`,
-        completed: false, // Quizzes are tracked separately
-      });
-
-      const completedCount = steps.filter(s => s.completed).length;
-      const progress = Math.round((completedCount / steps.length) * 100);
-
-      return {
-        id: `pantheon-mastery-${pantheonId}`,
-        name: `Master ${formatPantheonName(pantheonId)} Mythology`,
-        description: `Explore the major deities and stories of the ${formatPantheonName(pantheonId)} pantheon, from creation myths to epic tales.`,
-        steps,
-        progress,
-        estimatedTime: `${Math.ceil(steps.length * 5)} minutes`,
-        goal,
-        pantheonId,
-      };
+      return finalizePath(buildPantheonMasterySteps(prefs, allDeities, allStories, pantheonId), goal);
     }
-
     case 'domain-expert': {
       const domain = options?.domain || prefs.favoriteDomains[0] || 'war';
-      const domainDeities = allDeities
-        .filter(d => d.domain?.includes(domain))
-        .sort((a, b) => (a.importanceRank || 99) - (b.importanceRank || 99));
-
-      // Get deities from different pantheons for comparative study
-      const uniquePantheons = new Set<string>();
-      const selectedDeities: Deity[] = [];
-      for (const deity of domainDeities) {
-        if (selectedDeities.length >= 8) break;
-        if (!uniquePantheons.has(deity.pantheonId)) {
-          selectedDeities.push(deity);
-          uniquePantheons.add(deity.pantheonId);
-        }
-      }
-      // Fill remaining slots with more deities
-      for (const deity of domainDeities) {
-        if (selectedDeities.length >= 8) break;
-        if (!selectedDeities.includes(deity)) {
-          selectedDeities.push(deity);
-        }
-      }
-
-      for (const deity of selectedDeities) {
-        steps.push({
-          type: 'deity',
-          itemId: deity.id,
-          title: `Study ${deity.name} (${formatPantheonName(deity.pantheonId)})`,
-          completed: prefs.viewedDeities.includes(deity.id),
-        });
-      }
-
-      // Add quiz at the end
-      steps.push({
-        type: 'quiz',
-        itemId: `quiz-domain-${domain}`,
-        title: `${capitalizeFirst(domain)} Domain Quiz`,
-        completed: false,
-      });
-
-      const completedCount = steps.filter(s => s.completed).length;
-      const progress = Math.round((completedCount / steps.length) * 100);
-
-      return {
-        id: `domain-expert-${domain}`,
-        name: `${capitalizeFirst(domain)} Gods Across Cultures`,
-        description: `Discover how different cultures conceived of ${domain} deities, comparing their attributes and stories.`,
-        steps,
-        progress,
-        estimatedTime: `${Math.ceil(steps.length * 5)} minutes`,
-        goal,
-        domain,
-      };
+      return finalizePath(buildDomainExpertSteps(prefs, allDeities, domain), goal);
     }
-
-    case 'story-scholar': {
-      // Group stories by category and pick diverse ones
-      const categories = ['creation', 'war', 'epic', 'tragedy', 'heroic', 'transformation'];
-      const selectedStories: Story[] = [];
-
-      for (const category of categories) {
-        const categoryStories = allStories.filter(s => s.category === category);
-        if (categoryStories.length > 0) {
-          selectedStories.push(categoryStories[0]);
-          if (categoryStories.length > 1) {
-            selectedStories.push(categoryStories[1]);
-          }
-        }
-      }
-
-      // Ensure we have at least some stories
-      if (selectedStories.length < 6) {
-        for (const story of allStories) {
-          if (selectedStories.length >= 10) break;
-          if (!selectedStories.includes(story)) {
-            selectedStories.push(story);
-          }
-        }
-      }
-
-      for (const story of selectedStories.slice(0, 10)) {
-        steps.push({
-          type: 'story',
-          itemId: story.id,
-          title: story.title,
-          completed: prefs.readStories.includes(story.id),
-        });
-      }
-
-      // Add quiz at the end
-      steps.push({
-        type: 'quiz',
-        itemId: 'quiz-stories',
-        title: 'Mythology Stories Quiz',
-        completed: false,
-      });
-
-      const completedCount = steps.filter(s => s.completed).length;
-      const progress = Math.round((completedCount / steps.length) * 100);
-
-      return {
-        id: 'story-scholar',
-        name: 'Tales of the Divine',
-        description: 'Journey through the greatest stories of mythology, from creation myths to heroic epics.',
-        steps,
-        progress,
-        estimatedTime: `${Math.ceil(steps.length * 8)} minutes`,
-        goal,
-      };
-    }
-
-    case 'completionist': {
-      // Mix of everything, focusing on unviewed content first
-      const unviewedDeities = allDeities.filter(d => !prefs.viewedDeities.includes(d.id));
-      const unreadStories = allStories.filter(s => !prefs.readStories.includes(s.id));
-
-      // Sort by importance and take top deities
-      const sortedDeities = [...unviewedDeities]
-        .sort((a, b) => (a.importanceRank || 99) - (b.importanceRank || 99))
-        .slice(0, 12);
-
-      for (const deity of sortedDeities) {
-        steps.push({
-          type: 'deity',
-          itemId: deity.id,
-          title: `Discover ${deity.name}`,
-          completed: false,
-        });
-      }
-
-      for (const story of unreadStories.slice(0, 6)) {
-        steps.push({
-          type: 'story',
-          itemId: story.id,
-          title: story.title,
-          completed: false,
-        });
-      }
-
-      steps.push({
-        type: 'quiz',
-        itemId: 'quiz-comprehensive',
-        title: 'Comprehensive Mythology Quiz',
-        completed: false,
-      });
-
-      const totalContent = allDeities.length + allStories.length;
-      const viewedContent = prefs.viewedDeities.length + prefs.readStories.length;
-      const progress = Math.round((viewedContent / totalContent) * 100);
-
-      return {
-        id: 'completionist',
-        name: 'The Grand Journey',
-        description: `Complete your mythology collection! You've discovered ${viewedContent} of ${totalContent} items.`,
-        steps,
-        progress,
-        estimatedTime: `${Math.ceil(steps.length * 5)} minutes`,
-        goal,
-      };
-    }
-
+    case 'story-scholar':
+      return finalizePath(buildStoryScholarSteps(prefs, allStories), goal);
+    case 'completionist':
+      return finalizePath(buildCompletionistSteps(prefs, allDeities, allStories), goal);
     default:
       return {
         id: 'default',

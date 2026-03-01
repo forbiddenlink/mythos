@@ -2,13 +2,11 @@
 
 import { useState, useMemo } from 'react';
 import dynamic from 'next/dynamic';
+import Link from 'next/link';
 import { MapPin, List, Map, Loader2, Search } from 'lucide-react';
-import Image from 'next/image';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
+import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
-import { HoverCard, HoverCardContent, HoverCardTrigger } from '@/components/ui/hover-card';
 import { Breadcrumbs } from '@/components/navigation/Breadcrumbs';
 import locationsData from '@/data/locations.json';
 import pantheonsData from '@/data/pantheons.json';
@@ -24,7 +22,7 @@ const MapVisualization = dynamic(
   {
     ssr: false,
     loading: () => (
-      <div className="flex items-center justify-center h-[600px] rounded-xl border border-border bg-card">
+      <div className="flex items-center justify-center h-150 rounded-xl border border-border bg-card">
         <div className="text-center">
           <Loader2 className="h-8 w-8 animate-spin text-gold mx-auto mb-3" />
           <p className="text-sm text-muted-foreground">Loading map...</p>
@@ -98,7 +96,7 @@ function getLocationTypeLabel(type: string): string {
     underworld: 'Underworld',
     mythical_realm: 'Mythical Realm',
   };
-  return labels[type] || type.replace(/_/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase());
+  return labels[type] || type.replaceAll('_', ' ').replaceAll(/\b\w/g, (c) => c.toUpperCase());
 }
 
 // ─── Page Component ─────────────────────────────────────────────────────
@@ -119,7 +117,7 @@ export default function LocationsPage() {
 
   // Derived filters
   const allLocationTypes = useMemo(() =>
-    Array.from(new Set(locations.map(l => l.locationType))).sort(),
+    Array.from(new Set(locations.map(l => l.locationType))).sort((a, b) => a.localeCompare(b)),
     [locations]);
 
   const pantheonsWithLocations = useMemo(() => {
@@ -143,7 +141,11 @@ export default function LocationsPage() {
   const togglePantheon = (id: string) => {
     setActivePantheons(prev => {
       const next = new Set(prev);
-      next.has(id) ? next.delete(id) : next.add(id);
+      if (next.has(id)) {
+        next.delete(id);
+      } else {
+        next.add(id);
+      }
       return next;
     });
   };
@@ -151,7 +153,11 @@ export default function LocationsPage() {
   const toggleLocationType = (type: string) => {
     setActiveLocationTypes(prev => {
       const next = new Set(prev);
-      next.has(type) ? next.delete(type) : next.add(type);
+      if (next.has(type)) {
+        next.delete(type);
+      } else {
+        next.add(type);
+      }
       return next;
     });
   };
@@ -177,17 +183,17 @@ export default function LocationsPage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <div className="relative h-[45vh] min-h-[360px] flex items-center justify-center overflow-hidden">
+      <div className="relative h-[45vh] min-h-90 flex items-center justify-center overflow-hidden">
         {/* Background */}
         <div className="absolute inset-0 z-0 bg-hero-gradient" />
-        <div className="absolute inset-0 bg-gradient-to-b from-midnight/70 via-midnight/60 to-midnight/80 z-10" />
+        <div className="absolute inset-0 bg-linear-to-b from-midnight/70 via-midnight/60 to-midnight/80 z-10" />
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[120%] h-[60%] bg-gradient-radial from-gold/10 via-transparent to-transparent z-10" />
 
         {/* Hero Content */}
         <div className="relative z-20 text-center px-4 max-w-4xl mx-auto">
           <div className="flex items-center justify-center mb-6">
             <div className="relative p-4 rounded-xl border border-gold/20 bg-midnight/50 backdrop-blur-sm">
-              <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-gold/10 to-transparent" />
+              <div className="absolute inset-0 rounded-xl bg-linear-to-br from-gold/10 to-transparent" />
               <MapPin className="relative h-10 w-10 text-gold" strokeWidth={1.5} />
             </div>
           </div>
@@ -237,7 +243,7 @@ export default function LocationsPage() {
               {/* Pantheon Filter */}
               <div className="space-y-2">
                 <div className="flex items-center justify-between">
-                  <label className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">Pantheons</label>
+                  <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">Pantheons</span>
                   <button onClick={() => toggleAll('pantheons')} className="text-xs text-gold hover:text-gold/80 font-medium">
                     {activePantheons.size === pantheonsWithLocations.length ? 'Clear All' : 'Select All'}
                   </button>
@@ -266,7 +272,7 @@ export default function LocationsPage() {
               {/* Location Type Filter */}
               <div className="space-y-2">
                 <div className="flex items-center justify-between">
-                  <label className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">Types</label>
+                  <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">Types</span>
                   <button onClick={() => toggleAll('types')} className="text-xs text-gold hover:text-gold/80 font-medium">
                     {activeLocationTypes.size === allLocationTypes.length ? 'Clear All' : 'Select All'}
                   </button>
@@ -320,7 +326,7 @@ export default function LocationsPage() {
         </div>
 
         {/* Split View Content */}
-        <div className="flex flex-col-reverse lg:flex-row gap-6 h-[calc(100vh-200px)] min-h-[600px]">
+        <div className="flex flex-col-reverse lg:flex-row gap-6 h-[calc(100vh-200px)] min-h-150">
 
           {/* List Side (Left) - Always visible on desktop, toggled on mobile */}
           <div className={`lg:w-1/3 flex flex-col h-full bg-card/30 rounded-xl border border-border overflow-hidden ${viewMode === 'map' ? 'hidden lg:flex' : 'flex'}`}>
@@ -342,24 +348,24 @@ export default function LocationsPage() {
                     tabIndex={hasCords ? 0 : undefined}
                     role={hasCords ? "button" : undefined}
                     aria-label={hasCords ? `View ${location.name} on map` : undefined}
-                    className={`group cursor-pointer hover:border-gold/50 transition-all duration-300 ${!hasCords ? 'opacity-75 grayscale-[0.5]' : ''}`}
+                    className={`group cursor-pointer hover:border-gold/50 transition-all duration-300 ${hasCords ? '' : 'opacity-75 grayscale-[0.5]'}`}
                     onClick={() => {
                       if (hasCords && location.latitude && location.longitude) {
                         // Dispatch custom event for Map component to listen to
-                        window.dispatchEvent(new CustomEvent('flyToLocation', {
+                        globalThis.dispatchEvent(new CustomEvent('flyToLocation', {
                           detail: { lat: location.latitude, lng: location.longitude }
                         }));
                         // On mobile, switch to map view
-                        if (window.innerWidth < 1024) setViewMode('map');
+                        if (globalThis.innerWidth < 1024) setViewMode('map');
                       }
                     }}
                     onKeyDown={(e) => {
                       if ((e.key === 'Enter' || e.key === ' ') && hasCords && location.latitude && location.longitude) {
                         e.preventDefault();
-                        window.dispatchEvent(new CustomEvent('flyToLocation', {
+                        globalThis.dispatchEvent(new CustomEvent('flyToLocation', {
                           detail: { lat: location.latitude, lng: location.longitude }
                         }));
-                        if (window.innerWidth < 1024) setViewMode('map');
+                        if (globalThis.innerWidth < 1024) setViewMode('map');
                       }
                     }}
                   >
@@ -373,6 +379,13 @@ export default function LocationsPage() {
                     </CardHeader>
                     <CardContent className="p-4 pt-2">
                       <p className="text-xs text-muted-foreground line-clamp-2">{location.description}</p>
+                      <Link
+                        href={`/locations/${location.id}`}
+                        className="inline-flex items-center gap-1 text-xs text-gold hover:text-gold-light mt-2 transition-colors"
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        View details <span aria-hidden="true">→</span>
+                      </Link>
                     </CardContent>
                   </Card>
                 )

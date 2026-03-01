@@ -45,14 +45,14 @@ function getRandomSuggestions() {
   const seed = Math.floor(Date.now() / (1000 * 60 * 60));
 
   // Pick 3 random deities
-  const shuffledDeities = [...deities].sort(() => {
+  const shuffledDeities = deities.toSorted(() => {
     const x = Math.sin(seed * deities.length) * 10000;
     return x - Math.floor(x) - 0.5;
   });
   const suggestedDeities = shuffledDeities.slice(0, 3);
 
   // Pick 2 random stories
-  const shuffledStories = [...stories].sort(() => {
+  const shuffledStories = stories.toSorted(() => {
     const x = Math.sin(seed * stories.length + 1) * 10000;
     return x - Math.floor(x) - 0.5;
   });
@@ -65,7 +65,7 @@ export default function NotFound() {
   const { suggestedDeities, suggestedStories } = getRandomSuggestions();
 
   return (
-    <main className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-midnight via-midnight-light to-midnight px-4 py-16">
+    <main className="min-h-screen flex flex-col items-center justify-center bg-linear-to-b from-midnight via-midnight-light to-midnight px-4 py-16">
       {/* Background effects */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full bg-purple-500/5 blur-3xl" />
@@ -76,7 +76,7 @@ export default function NotFound() {
         {/* Lost traveler icon */}
         <div className="flex justify-center mb-8">
           <div className="relative">
-            <div className="absolute inset-[-20px] rounded-full bg-gradient-radial from-gold/20 to-transparent animate-pulse" />
+            <div className="absolute -inset-5 rounded-full bg-gradient-radial from-gold/20 to-transparent animate-pulse" />
             <div className="relative p-6 rounded-full border border-gold/30 bg-midnight-light/80 backdrop-blur-sm">
               <Compass className="w-12 h-12 text-gold animate-spin" style={{ animationDuration: '8s' }} />
             </div>
@@ -113,7 +113,7 @@ export default function NotFound() {
           <Button
             asChild
             size="lg"
-            className="bg-gradient-to-r from-gold-dark via-gold to-gold-dark hover:from-gold hover:via-gold-light hover:to-gold text-midnight font-semibold px-8"
+            className="bg-linear-to-r from-gold-dark via-gold to-gold-dark hover:from-gold hover:via-gold-light hover:to-gold text-midnight font-semibold px-8"
           >
             <Link href="/">
               <Home className="w-4 h-4 mr-2" />

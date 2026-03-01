@@ -3,8 +3,7 @@
 import { useState, useMemo } from 'react';
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
-import Image from 'next/image';
-import { Compass, MapPin, Clock, BookOpen, Loader2, ChevronRight, Users } from 'lucide-react';
+import { Compass, MapPin, BookOpen, Loader2, ChevronRight, Users } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -99,17 +98,17 @@ export default function JourneysPage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <div className="relative h-[50vh] min-h-[400px] flex items-center justify-center overflow-hidden">
+      <div className="relative h-[50vh] min-h-100 flex items-center justify-center overflow-hidden">
         {/* Background */}
         <div className="absolute inset-0 z-0 bg-hero-gradient" />
-        <div className="absolute inset-0 bg-gradient-to-b from-midnight/70 via-midnight/60 to-midnight/80 z-10" />
+        <div className="absolute inset-0 bg-linear-to-b from-midnight/70 via-midnight/60 to-midnight/80 z-10" />
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[120%] h-[60%] bg-gradient-radial from-gold/10 via-transparent to-transparent z-10" />
 
         {/* Hero Content */}
         <div className="relative z-20 text-center px-4 max-w-4xl mx-auto">
           <div className="flex items-center justify-center mb-6">
             <div className="relative p-4 rounded-xl border border-gold/20 bg-midnight/50 backdrop-blur-sm">
-              <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-gold/10 to-transparent" />
+              <div className="absolute inset-0 rounded-xl bg-linear-to-br from-gold/10 to-transparent" />
               <Compass className="relative h-10 w-10 text-gold" strokeWidth={1.5} />
             </div>
           </div>
@@ -120,9 +119,9 @@ export default function JourneysPage() {
             Hero Journeys
           </h1>
           <div className="flex items-center justify-center gap-4 mb-6">
-            <div className="w-12 h-px bg-gradient-to-r from-transparent to-gold/40" />
+            <div className="w-12 h-px bg-linear-to-r from-transparent to-gold/40" />
             <div className="w-1.5 h-1.5 rotate-45 bg-gold/50" />
-            <div className="w-12 h-px bg-gradient-to-l from-transparent to-gold/40" />
+            <div className="w-12 h-px bg-linear-to-l from-transparent to-gold/40" />
           </div>
           <p className="text-lg md:text-xl text-parchment/70 max-w-2xl mx-auto font-body leading-relaxed">
             Trace the legendary voyages of mythological heroes across the ancient world
@@ -157,9 +156,8 @@ export default function JourneysPage() {
 
         {/* Journey Cards */}
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {journeys.map((journey, index) => {
+          {journeys.map((journey) => {
             const colors = PANTHEON_COLORS[journey.pantheonId] || { bg: '#6b7280', label: 'Unknown' };
-            const pantheon = pantheons.find((p) => p.id === journey.pantheonId);
 
             return (
               <Link
@@ -183,7 +181,7 @@ export default function JourneysPage() {
                       pantheonId={journey.pantheonId}
                       isHovered={hoveredJourney === journey.id}
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent" />
+                    <div className="absolute inset-0 bg-linear-to-t from-card via-transparent to-transparent" />
 
                     {/* Overlay badges */}
                     <div className="absolute top-3 left-3 flex items-center gap-2">
@@ -264,13 +262,13 @@ export default function JourneysPage() {
 
         {/* CTA Section */}
         <div className="mt-16 text-center">
-          <div className="inline-flex items-center justify-center p-6 rounded-2xl bg-gradient-to-br from-gold/10 via-transparent to-gold/5 border border-gold/20">
+          <div className="inline-flex items-center justify-center p-6 rounded-2xl bg-linear-to-br from-gold/10 via-transparent to-gold/5 border border-gold/20">
             <div className="max-w-lg">
               <h2 className="font-serif text-2xl font-semibold text-foreground mb-2">
                 More Journeys Coming Soon
               </h2>
               <p className="text-muted-foreground text-sm mb-4">
-                We're mapping more legendary voyages from Norse, Egyptian, and other mythologies.
+                We&apos;re mapping more legendary voyages from Norse, Egyptian, and other mythologies.
                 Check back for new adventures!
               </p>
               <Link href="/stories">

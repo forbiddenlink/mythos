@@ -19,6 +19,7 @@ export function InstallPrompt() {
     // Check if user has dismissed the prompt before
     const dismissed = localStorage.getItem('mythos-pwa-dismissed');
     if (dismissed) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect -- hydrate dismissed state from localStorage
       setIsDismissed(true);
       return;
     }
@@ -38,12 +39,12 @@ export function InstallPrompt() {
       localStorage.setItem('mythos-pwa-installed', 'true');
     };
 
-    window.addEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
-    window.addEventListener('appinstalled', handleAppInstalled);
+    globalThis.addEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
+    globalThis.addEventListener('appinstalled', handleAppInstalled);
 
     return () => {
-      window.removeEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
-      window.removeEventListener('appinstalled', handleAppInstalled);
+      globalThis.removeEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
+      globalThis.removeEventListener('appinstalled', handleAppInstalled);
     };
   }, []);
 
@@ -95,7 +96,7 @@ export function InstallPrompt() {
       </button>
 
       <div className="flex items-start gap-4">
-        <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-gold/20 to-gold/5 dark:from-gold/30 dark:to-gold/10">
+        <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-linear-to-br from-gold/20 to-gold/5 dark:from-gold/30 dark:to-gold/10">
           <Download className="h-6 w-6 text-gold" />
         </div>
 

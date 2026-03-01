@@ -16,7 +16,7 @@ function Skeleton({
         'relative overflow-hidden rounded-md bg-muted',
         'before:absolute before:inset-0',
         'before:-translate-x-full before:animate-[shimmer_2s_infinite]',
-        'before:bg-gradient-to-r before:from-transparent before:via-white/10 before:to-transparent',
+        'before:bg-linear-to-r before:from-transparent before:via-white/10 before:to-transparent',
         'dark:before:via-white/5',
         className
       )}
@@ -67,7 +67,7 @@ export function StoryCardSkeleton() {
   return (
     <div className="glass-card rounded-xl border border-border/60 shadow-sm overflow-hidden">
       {/* Top gradient border */}
-      <div className="h-0.5 bg-gradient-to-r from-gold-dark via-gold to-gold-dark opacity-50" />
+      <div className="h-0.5 bg-linear-to-r from-gold-dark via-gold to-gold-dark opacity-50" />
 
       {/* CardHeader */}
       <div className="px-6 py-6 space-y-4">
@@ -111,7 +111,7 @@ export function DetailPageSkeleton() {
   return (
     <div className="min-h-screen">
       {/* Hero section placeholder */}
-      <div className="relative h-[40vh] min-h-[300px] bg-gradient-to-b from-midnight/70 via-midnight/60 to-background">
+      <div className="relative h-[40vh] min-h-75 bg-linear-to-b from-midnight/70 via-midnight/60 to-background">
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="text-center px-4 max-w-4xl mx-auto space-y-6">
             {/* Icon */}
@@ -303,8 +303,8 @@ export function FiltersSkeleton() {
  */
 export function PageHeaderSkeleton() {
   return (
-    <div className="relative h-[50vh] min-h-[400px] flex items-center justify-center overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-midnight/70 via-midnight/60 to-midnight/80" />
+    <div className="relative h-[50vh] min-h-100 flex items-center justify-center overflow-hidden">
+      <div className="absolute inset-0 bg-linear-to-b from-midnight/70 via-midnight/60 to-midnight/80" />
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[120%] h-[60%] bg-gradient-radial from-gold/10 via-transparent to-transparent" />
 
       <div className="relative z-20 text-center px-4 max-w-4xl mx-auto space-y-6">

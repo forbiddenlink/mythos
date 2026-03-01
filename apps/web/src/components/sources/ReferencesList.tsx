@@ -145,7 +145,7 @@ export function ReferencesList({
         id="references-content"
         className={cn(
           'transition-all duration-300 ease-in-out overflow-hidden',
-          isExpanded ? 'max-h-[2000px] opacity-100' : 'max-h-0 opacity-0'
+          isExpanded ? 'max-h-500 opacity-100' : 'max-h-0 opacity-0'
         )}
       >
         <div className="p-4 pt-0 space-y-6">
@@ -168,7 +168,7 @@ export function ReferencesList({
                   <Icon className="h-4 w-4" aria-hidden="true" />
                   {config.label}
                 </h4>
-                <ul className="space-y-3" role="list">
+                <ul className="space-y-3">
                   {refs.map(ref => (
                     <ReferenceItem
                       key={ref.id}
@@ -329,7 +329,7 @@ export function Bibliography({ sourceIds, className }: BibliographyProps) {
               <Icon className="h-5 w-5" aria-hidden="true" />
               {config.label}
             </h3>
-            <ul className="space-y-3" role="list">
+            <ul className="space-y-3">
               {typeSources.map(source => (
                 <li
                   key={source.id}

@@ -25,6 +25,7 @@ export default function InteractiveStoryPage() {
   useEffect(() => {
     if (story) {
       const discovered = getDiscoveredEndings(story.id);
+      // eslint-disable-next-line react-hooks/set-state-in-effect -- hydrate discovered endings from localStorage
       setDiscoveredCount(discovered.length);
       // Auto-start if there's saved progress
       if (discovered.length > 0) {
@@ -54,8 +55,8 @@ export default function InteractiveStoryPage() {
   return (
     <div className="min-h-screen bg-mythic">
       {/* Hero Section */}
-      <div className="relative h-[35vh] min-h-[280px] flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-midnight/70 via-midnight/60 to-mythic z-10" />
+      <div className="relative h-[35vh] min-h-70 flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0 bg-linear-to-b from-midnight/70 via-midnight/60 to-mythic z-10" />
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[120%] h-[60%] bg-gradient-radial from-gold/10 via-transparent to-transparent z-10" />
 
         <div className="relative z-20 text-center px-4 max-w-4xl mx-auto">
@@ -69,9 +70,9 @@ export default function InteractiveStoryPage() {
             {story.title}
           </h1>
           <div className="flex items-center justify-center gap-4 mb-4">
-            <div className="w-12 h-px bg-gradient-to-r from-transparent to-gold/40" />
+            <div className="w-12 h-px bg-linear-to-r from-transparent to-gold/40" />
             <div className="w-1.5 h-1.5 rotate-45 bg-gold/50" />
-            <div className="w-12 h-px bg-gradient-to-l from-transparent to-gold/40" />
+            <div className="w-12 h-px bg-linear-to-l from-transparent to-gold/40" />
           </div>
           <div className="flex items-center justify-center gap-4 text-sm text-parchment/60">
             <span className="flex items-center gap-1">
@@ -162,7 +163,7 @@ export default function InteractiveStoryPage() {
                     onClick={() => setIsStarted(true)}
                     variant="gold"
                     size="lg"
-                    className="gap-2 min-w-[200px]"
+                    className="gap-2 min-w-50"
                   >
                     <BookOpen className="h-5 w-5" />
                     {discoveredCount > 0 ? 'Continue Story' : 'Begin Story'}

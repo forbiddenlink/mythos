@@ -80,6 +80,116 @@ const getEdgeColor = (relationshipType: string) => {
   }
 };
 
+// --- Layout helper: adds nodes and edges for a group of related deities ---
+
+interface LayoutContext {
+  focusDeityId: string;
+  deityMap: Map<string, Deity>;
+  searchMatchIds: Set<string>;
+  keyboardFocusedId: string | null;
+  positioned: Set<string>;
+  nodes: Node[];
+  edges: Edge[];
+}
+
+interface AddRelatedNodesConfig {
+  relationships: Relationship[];
+  filterFn: (rel: Relationship) => boolean;
+  getRelatedId: (rel: Relationship) => string;
+  positionFn: (idx: number) => { x: number; y: number };
+  getEdgeSourceTarget: (focusId: string, relatedId: string) => { source: string; target: string };
+  includeMarkerEnd: boolean;
+}
+
+function addRelatedNodes(config: AddRelatedNodesConfig, ctx: LayoutContext): void {
+  const filtered = config.relationships.filter(config.filterFn);
+  filtered.forEach((rel, idx) => {
+    const relatedId = config.getRelatedId(rel);
+    const relatedDeity = ctx.deityMap.get(relatedId);
+    if (relatedDeity && !ctx.positioned.has(relatedDeity.id)) {
+      ctx.nodes.push({
+        id: relatedDeity.id,
+        type: 'deityNode',
+        data: {
+          deity: relatedDeity,
+          isFocused: false,
+          isSearchMatch: ctx.searchMatchIds.has(relatedDeity.id),
+          isKeyboardFocused: ctx.keyboardFocusedId === relatedDeity.id,
+        },
+        position: config.positionFn(idx),
+        sourcePosition: Position.Bottom,
+        targetPosition: Position.Top,
+      });
+      ctx.positioned.add(relatedDeity.id);
+
+      const { source, target } = config.getEdgeSourceTarget(ctx.focusDeityId, relatedDeity.id);
+      const edge: Edge = {
+        id: rel.id,
+        source,
+        target,
+        type: 'smoothstep',
+        animated: false,
+        label: rel.relationshipType,
+        style: { stroke: getEdgeColor(rel.relationshipType), strokeWidth: 2 },
+      };
+      if (config.includeMarkerEnd) {
+        edge.markerEnd = { type: MarkerType.ArrowClosed, color: getEdgeColor(rel.relationshipType) };
+      }
+      ctx.edges.push(edge);
+    }
+  });
+}
+
+// --- Keyboard navigation action map ---
+
+interface KeyActionContext {
+  currentNav: NavigationMap | null;
+  nodeIds: string[];
+  keyboardFocusedId: string | null;
+  focusDeityId?: string;
+  shiftKey: boolean;
+  deityMap: Map<string, Deity>;
+}
+
+const keyActionMap: Record<string, (ctx: KeyActionContext) => string | null> = {
+  ArrowUp: ({ currentNav }) => currentNav?.parents[0] ?? null,
+  ArrowDown: ({ currentNav }) => currentNav?.children[0] ?? null,
+  ArrowLeft: ({ currentNav, keyboardFocusedId }) => {
+    if (!currentNav) return null;
+    const laterals = [...currentNav.siblings, ...currentNav.spouses];
+    if (laterals.length === 0) return null;
+    const currentIndex = laterals.indexOf(keyboardFocusedId || '');
+    return laterals[Math.max(0, currentIndex - 1)] || laterals[0];
+  },
+  ArrowRight: ({ currentNav, keyboardFocusedId }) => {
+    if (!currentNav) return null;
+    const laterals = [...currentNav.siblings, ...currentNav.spouses];
+    if (laterals.length === 0) return null;
+    const currentIndex = laterals.indexOf(keyboardFocusedId || '');
+    return laterals[Math.min(laterals.length - 1, currentIndex + 1)] || laterals[0];
+  },
+  Enter: ({ keyboardFocusedId, deityMap, focusDeityId, nodeIds }) => {
+    if (keyboardFocusedId) {
+      const deity = deityMap.get(keyboardFocusedId);
+      if (deity?.slug) {
+        globalThis.location.href = `/deities/${deity.slug}`;
+      }
+      return null;
+    }
+    return focusDeityId || nodeIds[0] || null;
+  },
+  Tab: ({ keyboardFocusedId, nodeIds, shiftKey }) => {
+    if (shiftKey) {
+      const currentIndex = keyboardFocusedId ? nodeIds.indexOf(keyboardFocusedId) : nodeIds.length;
+      return nodeIds[(currentIndex - 1 + nodeIds.length) % nodeIds.length];
+    }
+    const currentIndex = keyboardFocusedId ? nodeIds.indexOf(keyboardFocusedId) : -1;
+    return nodeIds[(currentIndex + 1) % nodeIds.length];
+  },
+  Home: ({ nodeIds }) => nodeIds[0] ?? null,
+  End: ({ nodeIds }) => nodeIds.at(-1) ?? null,
+};
+
 const DeityNode = ({
   data,
 }: {
@@ -98,11 +208,13 @@ const DeityNode = ({
     ringClass = 'ring-2 ring-teal-500 shadow-lg';
   }
 
+  const domainLabel = deity.domain && deity.domain.length > 0 ? `, ${deity.domain[0]}` : '';
+
   return (
     <Card
       className={`p-4 min-w-50 bg-white dark:bg-slate-900 transition-shadow duration-150 ${ringClass}`}
       role="treeitem"
-      aria-label={`${deity.name}${deity.domain && deity.domain.length > 0 ? `, ${deity.domain[0]}` : ''}`}
+      aria-label={`${deity.name}${domainLabel}`}
       aria-selected={isKeyboardFocused || isFocused}
     >
       <div className="flex items-center gap-3">
@@ -134,12 +246,12 @@ function FilterButton({
   active,
   color,
   onClick,
-}: {
+}: Readonly<{
   label: string;
   active: boolean;
   color: string;
   onClick: () => void;
-}) {
+}>) {
   return (
     <Button
       variant={active ? 'default' : 'outline'}
@@ -159,10 +271,10 @@ function FilterButton({
 function SearchResults({
   results,
   onSelect,
-}: {
+}: Readonly<{
   results: Deity[];
   onSelect: (deity: Deity) => void;
-}) {
+}>) {
   if (results.length === 0) return null;
 
   return (
@@ -197,7 +309,7 @@ function FamilyTreeInner({
   setKeyboardFocusedId,
   deityMap,
   navigationMap,
-}: {
+}: Readonly<{
   deities: Deity[];
   relationships: Relationship[];
   focusDeityId?: string;
@@ -207,7 +319,7 @@ function FamilyTreeInner({
   setKeyboardFocusedId: (id: string | null) => void;
   deityMap: Map<string, Deity>;
   navigationMap: Map<string, NavigationMap>;
-}) {
+}>) {
   const { setCenter, getNodes } = useReactFlow();
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -241,158 +353,57 @@ function FamilyTreeInner({
       positioned.add(deity.id);
       yOffset += ySpacing;
 
-      // Add parents above (if filter enabled)
+      // Build shared layout context for helper calls
+      const layoutCtx: LayoutContext = {
+        focusDeityId, deityMap, searchMatchIds, keyboardFocusedId, positioned, nodes, edges,
+      };
+
+      // Add parents above
       if (filters.parent) {
-        const parents = relationships.filter(
-          (r) =>
-            r.toDeityId === focusDeityId && r.relationshipType.toLowerCase().includes('parent')
-        );
-        parents.forEach((rel, idx) => {
-          const parentDeity = deityMap.get(rel.fromDeityId);
-          if (parentDeity && !positioned.has(parentDeity.id)) {
-            nodes.push({
-              id: parentDeity.id,
-              type: 'deityNode',
-              data: {
-                deity: parentDeity,
-                isFocused: false,
-                isSearchMatch: searchMatchIds.has(parentDeity.id),
-                isKeyboardFocused: keyboardFocusedId === parentDeity.id,
-              },
-              position: { x: 200 + idx * xSpacing, y: yOffset - ySpacing * 2 },
-              sourcePosition: Position.Bottom,
-              targetPosition: Position.Top,
-            });
-            positioned.add(parentDeity.id);
-
-            edges.push({
-              id: rel.id,
-              source: parentDeity.id,
-              target: focusDeityId,
-              type: 'smoothstep',
-              animated: false,
-              label: rel.relationshipType,
-              style: { stroke: getEdgeColor(rel.relationshipType), strokeWidth: 2 },
-              markerEnd: { type: MarkerType.ArrowClosed, color: getEdgeColor(rel.relationshipType) },
-            });
-          }
-        });
+        addRelatedNodes({
+          relationships,
+          filterFn: (r) => r.toDeityId === focusDeityId && r.relationshipType.toLowerCase().includes('parent'),
+          getRelatedId: (r) => r.fromDeityId,
+          positionFn: (idx) => ({ x: 200 + idx * xSpacing, y: yOffset - ySpacing * 2 }),
+          getEdgeSourceTarget: (focusId, relatedId) => ({ source: relatedId, target: focusId }),
+          includeMarkerEnd: true,
+        }, layoutCtx);
       }
 
-      // Add children below (if filter enabled)
+      // Add children below
       if (filters.child) {
-        const children = relationships.filter(
-          (r) =>
-            r.fromDeityId === focusDeityId && r.relationshipType.toLowerCase().includes('parent')
-        );
-        children.forEach((rel, idx) => {
-          const childDeity = deityMap.get(rel.toDeityId);
-          if (childDeity && !positioned.has(childDeity.id)) {
-            nodes.push({
-              id: childDeity.id,
-              type: 'deityNode',
-              data: {
-                deity: childDeity,
-                isFocused: false,
-                isSearchMatch: searchMatchIds.has(childDeity.id),
-                isKeyboardFocused: keyboardFocusedId === childDeity.id,
-              },
-              position: { x: 200 + idx * xSpacing, y: yOffset },
-              sourcePosition: Position.Bottom,
-              targetPosition: Position.Top,
-            });
-            positioned.add(childDeity.id);
-
-            edges.push({
-              id: rel.id,
-              source: focusDeityId,
-              target: childDeity.id,
-              type: 'smoothstep',
-              animated: false,
-              label: rel.relationshipType,
-              style: { stroke: getEdgeColor(rel.relationshipType), strokeWidth: 2 },
-              markerEnd: { type: MarkerType.ArrowClosed, color: getEdgeColor(rel.relationshipType) },
-            });
-          }
-        });
+        addRelatedNodes({
+          relationships,
+          filterFn: (r) => r.fromDeityId === focusDeityId && r.relationshipType.toLowerCase().includes('parent'),
+          getRelatedId: (r) => r.toDeityId,
+          positionFn: (idx) => ({ x: 200 + idx * xSpacing, y: yOffset }),
+          getEdgeSourceTarget: (focusId, relatedId) => ({ source: focusId, target: relatedId }),
+          includeMarkerEnd: true,
+        }, layoutCtx);
       }
 
-      // Add spouses to the side (if filter enabled)
+      // Add spouses to the side
       if (filters.spouse) {
-        const spouses = relationships.filter(
-          (r) =>
-            (r.fromDeityId === focusDeityId || r.toDeityId === focusDeityId) &&
-            r.relationshipType.toLowerCase().includes('spouse')
-        );
-        spouses.forEach((rel, idx) => {
-          const spouseId = rel.fromDeityId === focusDeityId ? rel.toDeityId : rel.fromDeityId;
-          const spouseDeity = deityMap.get(spouseId);
-          if (spouseDeity && !positioned.has(spouseDeity.id)) {
-            nodes.push({
-              id: spouseDeity.id,
-              type: 'deityNode',
-              data: {
-                deity: spouseDeity,
-                isFocused: false,
-                isSearchMatch: searchMatchIds.has(spouseDeity.id),
-                isKeyboardFocused: keyboardFocusedId === spouseDeity.id,
-              },
-              position: { x: 700, y: yOffset - ySpacing + idx * 100 },
-              sourcePosition: Position.Bottom,
-              targetPosition: Position.Top,
-            });
-            positioned.add(spouseDeity.id);
-
-            edges.push({
-              id: rel.id,
-              source: focusDeityId,
-              target: spouseDeity.id,
-              type: 'smoothstep',
-              animated: false,
-              label: rel.relationshipType,
-              style: { stroke: getEdgeColor(rel.relationshipType), strokeWidth: 2 },
-            });
-          }
-        });
+        addRelatedNodes({
+          relationships,
+          filterFn: (r) => (r.fromDeityId === focusDeityId || r.toDeityId === focusDeityId) && r.relationshipType.toLowerCase().includes('spouse'),
+          getRelatedId: (r) => r.fromDeityId === focusDeityId ? r.toDeityId : r.fromDeityId,
+          positionFn: (idx) => ({ x: 700, y: yOffset - ySpacing + idx * 100 }),
+          getEdgeSourceTarget: (focusId, relatedId) => ({ source: focusId, target: relatedId }),
+          includeMarkerEnd: false,
+        }, layoutCtx);
       }
 
-      // Add siblings (if filter enabled)
+      // Add siblings
       if (filters.sibling) {
-        const siblings = relationships.filter(
-          (r) =>
-            (r.fromDeityId === focusDeityId || r.toDeityId === focusDeityId) &&
-            r.relationshipType.toLowerCase().includes('sibling')
-        );
-        siblings.forEach((rel, idx) => {
-          const siblingId = rel.fromDeityId === focusDeityId ? rel.toDeityId : rel.fromDeityId;
-          const siblingDeity = deityMap.get(siblingId);
-          if (siblingDeity && !positioned.has(siblingDeity.id)) {
-            nodes.push({
-              id: siblingDeity.id,
-              type: 'deityNode',
-              data: {
-                deity: siblingDeity,
-                isFocused: false,
-                isSearchMatch: searchMatchIds.has(siblingDeity.id),
-                isKeyboardFocused: keyboardFocusedId === siblingDeity.id,
-              },
-              position: { x: -100, y: yOffset - ySpacing + idx * 100 },
-              sourcePosition: Position.Bottom,
-              targetPosition: Position.Top,
-            });
-            positioned.add(siblingDeity.id);
-
-            edges.push({
-              id: rel.id,
-              source: focusDeityId,
-              target: siblingDeity.id,
-              type: 'smoothstep',
-              animated: false,
-              label: rel.relationshipType,
-              style: { stroke: getEdgeColor(rel.relationshipType), strokeWidth: 2 },
-            });
-          }
-        });
+        addRelatedNodes({
+          relationships,
+          filterFn: (r) => (r.fromDeityId === focusDeityId || r.toDeityId === focusDeityId) && r.relationshipType.toLowerCase().includes('sibling'),
+          getRelatedId: (r) => r.fromDeityId === focusDeityId ? r.toDeityId : r.fromDeityId,
+          positionFn: (idx) => ({ x: -100, y: yOffset - ySpacing + idx * 100 }),
+          getEdgeSourceTarget: (focusId, relatedId) => ({ source: focusId, target: relatedId }),
+          includeMarkerEnd: false,
+        }, layoutCtx);
       }
     } else {
       // If no focus deity, layout all deities in a grid
@@ -487,102 +498,30 @@ function FamilyTreeInner({
       // Don't handle if focus is in an input field
       if (event.target instanceof HTMLInputElement) return;
 
-      const currentNav = keyboardFocusedId ? navigationMap.get(keyboardFocusedId) : null;
-      const nodeIds = nodes.map((n) => n.id);
-      let nextNodeId: string | null = null;
-
-      switch (event.key) {
-        case 'ArrowUp':
-          // Move to parent
-          if (currentNav && currentNav.parents.length > 0) {
-            nextNodeId = currentNav.parents[0];
-          }
-          event.preventDefault();
-          break;
-
-        case 'ArrowDown':
-          // Move to child
-          if (currentNav && currentNav.children.length > 0) {
-            nextNodeId = currentNav.children[0];
-          }
-          event.preventDefault();
-          break;
-
-        case 'ArrowLeft':
-          // Move to sibling or spouse (left direction)
-          if (currentNav) {
-            const laterals = [...currentNav.siblings, ...currentNav.spouses];
-            if (laterals.length > 0) {
-              // Find current index in laterals or pick first
-              const currentIndex = laterals.indexOf(keyboardFocusedId || '');
-              nextNodeId = laterals[Math.max(0, currentIndex - 1)] || laterals[0];
-            }
-          }
-          event.preventDefault();
-          break;
-
-        case 'ArrowRight':
-          // Move to sibling or spouse (right direction)
-          if (currentNav) {
-            const laterals = [...currentNav.siblings, ...currentNav.spouses];
-            if (laterals.length > 0) {
-              const currentIndex = laterals.indexOf(keyboardFocusedId || '');
-              nextNodeId = laterals[Math.min(laterals.length - 1, currentIndex + 1)] || laterals[0];
-            }
-          }
-          event.preventDefault();
-          break;
-
-        case 'Enter':
-          // Navigate to deity page or select node
-          if (keyboardFocusedId) {
-            const deity = deityMap.get(keyboardFocusedId);
-            if (deity?.slug) {
-              window.location.href = `/deities/${deity.slug}`;
-            }
-          } else if (nodeIds.length > 0) {
-            // If no node focused, focus the first one
-            nextNodeId = focusDeityId || nodeIds[0];
-          }
-          event.preventDefault();
-          break;
-
-        case 'Escape':
-          // Deselect current node
-          setKeyboardFocusedId(null);
-          event.preventDefault();
-          break;
-
-        case 'Tab':
-          // Tab through nodes sequentially
-          if (!event.shiftKey) {
-            const currentIndex = keyboardFocusedId ? nodeIds.indexOf(keyboardFocusedId) : -1;
-            nextNodeId = nodeIds[(currentIndex + 1) % nodeIds.length];
-          } else {
-            const currentIndex = keyboardFocusedId ? nodeIds.indexOf(keyboardFocusedId) : nodeIds.length;
-            nextNodeId = nodeIds[(currentIndex - 1 + nodeIds.length) % nodeIds.length];
-          }
-          event.preventDefault();
-          break;
-
-        case 'Home':
-          // Jump to first node
-          if (nodeIds.length > 0) {
-            nextNodeId = nodeIds[0];
-          }
-          event.preventDefault();
-          break;
-
-        case 'End':
-          // Jump to last node
-          if (nodeIds.length > 0) {
-            nextNodeId = nodeIds[nodeIds.length - 1];
-          }
-          event.preventDefault();
-          break;
+      // Escape clears focus (special case — not in the action map)
+      if (event.key === 'Escape') {
+        setKeyboardFocusedId(null);
+        event.preventDefault();
+        return;
       }
 
-      // Update focus if we have a new target
+      const action = keyActionMap[event.key];
+      if (!action) return;
+
+      const currentNav = keyboardFocusedId ? navigationMap.get(keyboardFocusedId) ?? null : null;
+      const nodeIds = nodes.map((n) => n.id);
+
+      const nextNodeId = action({
+        currentNav,
+        nodeIds,
+        keyboardFocusedId,
+        focusDeityId,
+        shiftKey: event.shiftKey,
+        deityMap,
+      });
+
+      event.preventDefault();
+
       if (nextNodeId && nodeIds.includes(nextNodeId)) {
         setKeyboardFocusedId(nextNodeId);
       }
@@ -596,7 +535,7 @@ function FamilyTreeInner({
       // Set keyboard focus on click as well
       setKeyboardFocusedId(node.id);
       if (deity?.slug) {
-        window.location.href = `/deities/${deity.slug}`;
+        globalThis.location.href = `/deities/${deity.slug}`;
       }
     },
     [setKeyboardFocusedId]
@@ -640,7 +579,7 @@ export function FamilyTreeVisualization({
   deities,
   relationships,
   focusDeityId,
-}: FamilyTreeVisualizationProps) {
+}: Readonly<FamilyTreeVisualizationProps>) {
   // Track keyboard-focused node
   const [keyboardFocusedId, setKeyboardFocusedId] = useState<string | null>(null);
 
@@ -767,6 +706,8 @@ export function FamilyTreeVisualization({
             {searchQuery && (
               <button
                 onClick={clearSearch}
+                aria-label="Clear search"
+                title="Clear search"
                 className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-200"
               >
                 <X className="h-4 w-4" />

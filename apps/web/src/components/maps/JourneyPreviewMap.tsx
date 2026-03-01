@@ -40,7 +40,7 @@ export function JourneyPreviewMap({ waypoints, pantheonId, isHovered = false }: 
   const mapRef = useRef<L.Map | null>(null);
 
   const sortedWaypoints = useMemo(
-    () => [...waypoints].sort((a, b) => a.order - b.order),
+    () => waypoints.toSorted((a, b) => a.order - b.order),
     [waypoints]
   );
 
