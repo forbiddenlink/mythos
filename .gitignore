@@ -61,6 +61,7 @@ apps/api/target/
 
 # Claude cache and local settings
 .claude/cache/
+.claude/tsc-cache/
 .claude/settings.local.json
 
 # Duplicate agent skills directory
@@ -80,9 +81,11 @@ temp/
 verify_images.js
 audit_codebase_images.js
 
-# Test screenshots
+# Test screenshots and images
 *.test.png
+*-test.png
 shared-quiz-results.png
+apps/web/public/images/
 
 # TypeScript build info
 *.tsbuildinfo
