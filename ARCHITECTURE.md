@@ -1,10 +1,10 @@
 # Mythos Atlas Architecture
 
-> Comprehensive system architecture documentation
+> System architecture documentation
 
 ## System Overview
 
-Mythos Atlas is a modern, interactive web application built with Next.js 16 and React 19, featuring a GraphQL API layer for flexible data querying and real-time client-side data management.
+Mythos Atlas is an interactive mythology encyclopedia built with Next.js 16 and React 19. It serves structured mythology data (13 pantheons, 189 deities, 96 stories, 29 creatures, 34 artifacts, 85 locations) through a GraphQL API layer backed by JSON files, with client-side caching via React Query.
 
 ## Architecture Diagram
 
@@ -22,42 +22,39 @@ graph TB
         E --> G[Client Components]
         
         G --> H[UI Components<br/>shadcn/ui + Radix]
-        G --> I[Visualization<br/>ReactFlow + D3]
-        G --> J[State Management<br/>React Query]
+        G --> I[Visualizations<br/>ReactFlow + D3 + R3F]
+        G --> J[State Management<br/>React Query + Context]
     end
     
     subgraph "Data Layer"
         J --> K[GraphQL Client]
         K --> L[API Route Handler<br/>/api/graphql]
         L --> M[JSON Data Files]
-        M --> N[pantheons.json<br/>39 deities]
-        M --> O[deities.json<br/>3 pantheons]
-        M --> P[stories.json<br/>11+ tales]
-        M --> Q[relationships.json<br/>family trees]
+        M --> N[pantheons.json · 13]
+        M --> O[deities.json · 189]
+        M --> P[stories.json · 96]
+        M --> Q[creatures.json · 29]
+        M --> R2[artifacts.json · 34]
+        M --> S2[locations.json · 85]
+        M --> T2[relationships.json]
     end
     
     subgraph "Features"
-        R[Search ⌘K] --> K
+        R[Search ⌘K<br/>Fuse.js] --> K
         S[Filters & Sorting] --> G
-        T[Quiz System] --> J
-        U[Family Tree] --> I
-        V[Comparative View] --> G
+        T[Quiz & Games] --> J
+        U[Family Tree<br/>ReactFlow + D3] --> I
+        V[3D Artifacts<br/>React Three Fiber] --> I
+        W[i18n<br/>next-intl] --> E
     end
     
     subgraph "Deployment"
-        W[Vercel Platform] --> B
-        X[GitHub Repository] --> W
-        Y[CI/CD Pipeline] --> W
+        X[Vercel Platform] --> B
+        Y[GitHub Repository] --> X
     end
-    
-    style A fill:#e1f5ff
-    style B fill:#fff4e1
-    style K fill:#e8f5e9
-    style M fill:#f3e5f5
-    style W fill:#fce4ec
 ```
 
-## Data Flow Diagram
+## Data Flow
 
 ```mermaid
 sequenceDiagram
@@ -87,65 +84,17 @@ sequenceDiagram
     B->>U: Update display
 ```
 
-## Component Architecture
-
-```mermaid
-graph LR
-    subgraph "Pages (App Router)"
-        A1[page.tsx<br/>Homepage]
-        A2[pantheons/page.tsx]
-        A3[deities/page.tsx]
-        A4[stories/page.tsx]
-        A5[family-tree/page.tsx]
-        A6[quiz/page.tsx]
-        A7[about/page.tsx]
-    end
-    
-    subgraph "Layout Components"
-        B1[Header<br/>Navigation]
-        B2[Footer<br/>Attribution]
-        B3[CommandPalette<br/>Search]
-    end
-    
-    subgraph "Feature Components"
-        C1[DeityFilters<br/>Filter & Sort]
-        C2[StoryFilters<br/>Category Filter]
-        C3[FamilyTree<br/>ReactFlow]
-        C4[MythologyQuiz<br/>Interactive Quiz]
-        C5[ComparativeMythology<br/>Cross-pantheon]
-    end
-    
-    subgraph "UI Components"
-        D1[Card]
-        D2[Button]
-        D3[Select]
-        D4[Badge]
-        D5[Progress]
-    end
-    
-    A3 --> C1
-    A4 --> C2
-    A5 --> C3
-    A6 --> C4
-    A1 --> C5
-    
-    C1 --> D1
-    C1 --> D3
-    C2 --> D3
-    C3 --> D1
-    C4 --> D5
-    
-    B1 --> B3
-```
-
-## Database Schema (JSON)
+## Data Schema
 
 ```mermaid
 erDiagram
     PANTHEON ||--o{ DEITY : contains
+    PANTHEON ||--o{ STORY : belongs_to
+    PANTHEON ||--o{ CREATURE : belongs_to
+    PANTHEON ||--o{ ARTIFACT : belongs_to
+    PANTHEON ||--o{ LOCATION : belongs_to
     DEITY ||--o{ RELATIONSHIP : has
     DEITY ||--o{ STORY : features_in
-    PANTHEON ||--o{ STORY : belongs_to
     
     PANTHEON {
         string id PK
@@ -167,16 +116,7 @@ erDiagram
         string gender
         int importance
         string description
-        string origin
         string imageUrl
-    }
-    
-    RELATIONSHIP {
-        string id PK
-        string deityId FK
-        string relatedDeityId FK
-        string type "parent|child|spouse|sibling"
-        string description
     }
     
     STORY {
@@ -187,7 +127,41 @@ erDiagram
         string summary
         string[] themes
         string category
-        string culturalSignificance
+    }
+    
+    CREATURE {
+        string id PK
+        string name
+        string slug
+        string pantheonId FK
+        string type
+        string description
+    }
+    
+    ARTIFACT {
+        string id PK
+        string name
+        string slug
+        string pantheonId FK
+        string type
+        string description
+    }
+    
+    LOCATION {
+        string id PK
+        string name
+        string slug
+        string pantheonId FK
+        string type
+        string description
+        float latitude
+        float longitude
+    }
+    
+    RELATIONSHIP {
+        string deityId FK
+        string relatedDeityId FK
+        string type "parent|child|spouse|sibling"
     }
 ```
 
@@ -196,142 +170,87 @@ erDiagram
 ```mermaid
 graph TB
     subgraph "Frontend Framework"
-        A[Next.js 16.1.1<br/>App Router + RSC]
-        B[React 19.2.3<br/>UI Library]
-        C[TypeScript 5.9<br/>Type Safety]
+        A[Next.js 16.1.6<br/>App Router + SSG]
+        B[React 19.2.3]
+        C[TypeScript 5]
     end
     
     subgraph "Styling & Design"
-        D[Tailwind CSS 4<br/>Utility-first CSS]
-        E[shadcn/ui<br/>Component Library]
-        F[Radix UI<br/>Primitives]
-        G[Framer Motion<br/>Animations]
+        D[Tailwind CSS 4]
+        E[shadcn/ui + Radix]
+        F[Framer Motion 12]
     end
     
     subgraph "Data Management"
-        H[React Query 5<br/>Data Fetching]
-        I[GraphQL Request<br/>Client]
-        J[GraphQL API<br/>Route Handler]
+        G[React Query 5]
+        H[graphql-request 7]
+        I[Fuse.js 7<br/>Fuzzy Search]
     end
     
     subgraph "Visualization"
-        K[ReactFlow 11<br/>Network Graphs]
-        L[React D3 Tree<br/>Hierarchical Trees]
-        M[Lucide React<br/>Icons]
+        J[ReactFlow 11<br/>Network Graphs]
+        K[D3.js 7<br/>Hierarchical Trees]
+        L[React Three Fiber 9<br/>3D Artifacts]
+    end
+    
+    subgraph "Platform"
+        M[next-intl 4<br/>i18n: EN, ES, FR, DE]
+        N[Howler.js 2<br/>Audio]
+        O[PWA<br/>Service Worker]
+    end
+    
+    subgraph "Testing"
+        P[Vitest 3<br/>Unit Tests]
+        Q[Playwright 1.52<br/>E2E Tests]
     end
     
     subgraph "Deployment"
-        N[Vercel<br/>Hosting & CI/CD]
-        O[GitHub<br/>Source Control]
-        P[pnpm 10<br/>Package Manager]
+        R[Vercel<br/>Hosting & CI/CD]
+        S[Turborepo<br/>Monorepo Build]
     end
     
-    A --> B
-    B --> C
+    A --> B --> C
     A --> D
-    E --> F
-    B --> H
-    H --> I
-    I --> J
+    B --> G --> H
+    B --> J
     B --> K
     B --> L
-    A --> N
-    N --> O
+    A --> M
+    A --> R --> S
 ```
 
-## Feature Matrix
+## Feature Overview
 
-| Feature | Status | Technology | Performance |
-|---------|--------|------------|-------------|
-| Homepage | ✅ Live | Next.js SSR | A+ |
-| Pantheons Browser | ✅ Live | React Query | A+ |
-| Deity Filtering | ✅ Live | Client-side | A+ |
-| Story Filtering | ✅ Live | Client-side | A+ |
-| Family Tree (Network) | ✅ Live | ReactFlow | A |
-| Family Tree (Hierarchical) | ✅ Live | React D3 Tree | A |
-| Global Search | ✅ Live | Command Palette | A+ |
-| Interactive Quiz | ✅ Live | React State | A+ |
-| Comparative Mythology | ✅ Live | React Query | A+ |
-| Mobile Responsive | ✅ Live | Tailwind | A+ |
-| SEO Optimization | ✅ Live | Next.js Metadata | A+ |
-| Custom 404 | ✅ Live | Next.js | A+ |
+| Area | Features |
+|------|----------|
+| **Browse** | 13 pantheons, 189 deities, 96 stories, 29 creatures, 34 artifacts, 85 locations |
+| **Visualize** | Family trees (network + hierarchical), knowledge graph, story timeline, 3D artifacts, location map |
+| **Learn** | Relationship quiz, personality quiz, quick quiz, symbol memory game, spaced repetition review |
+| **Progress** | Achievements (24 badges), leaderboard, daily challenges, learning paths, streaks |
+| **Search** | ⌘K command palette, fuzzy search (Fuse.js), client-side filters & sorting |
+| **Media** | Text-to-speech, background audio per pantheon, PDF export |
+| **Platform** | i18n (4 languages), PWA with offline support, dynamic OG images, SEO metadata |
 
-## Performance Optimization
+## Performance
+
+- **React Query** — 5-minute stale time; client-side filter/sort avoids API round-trips
+- **Static Generation** — 486 pages pre-rendered at build time
+- **Code Splitting** — Dynamic imports for heavy visualization components (ReactFlow, D3, R3F)
+- **Image Optimization** — WebP hero images, Next.js `<Image>` with lazy loading
+- **Font Subsetting** — Latin-ext subset for i18n support
+
+## Deployment
 
 ```mermaid
 graph LR
-    subgraph "Optimization Strategies"
-        A[React Query Caching<br/>5min staleTime]
-        B[Client-side Filtering<br/>No API calls]
-        C[Code Splitting<br/>Dynamic imports]
-        D[Image Optimization<br/>Next.js Image]
-        E[Font Optimization<br/>next/font]
-    end
-    
-    subgraph "Results"
-        F[Fast Initial Load<br/><1s FCP]
-        G[Instant Filtering<br/><50ms response]
-        H[Smooth Animations<br/>60fps]
-        I[Low Bundle Size<br/>Optimized chunks]
-    end
-    
-    A --> F
-    B --> G
-    C --> I
-    E --> F
-    D --> F
-```
-
-## User Journey
-
-```mermaid
-journey
-    title User Experience Flow
-    section Discovery
-      Visit Homepage: 5: User
-      Read Hero Section: 4: User
-      View Stats: 5: User
-      See Pantheons: 5: User
-    section Exploration
-      Browse Deities: 5: User
-      Apply Filters: 5: User
-      View Family Tree: 4: User
-      Read Stories: 4: User
-    section Learning
-      Take Quiz: 5: User
-      Compare Deities: 5: User
-      Search Content: 5: User
-    section Engagement
-      Share on Social: 4: User
-      Visit About Page: 4: User
-      Return to Homepage: 5: User
-```
-
-## Deployment Pipeline
-
-```mermaid
-graph LR
-    A[Local Development] -->|git push| B[GitHub Repository]
+    A[Local Dev] -->|git push| B[GitHub]
     B -->|webhook| C[Vercel CI/CD]
-    C -->|build| D[Next.js Build]
+    C -->|build| D[Next.js Build<br/>486 static pages]
     D -->|deploy| E[Edge Network]
-    E -->|serve| F[Production Site]
-    
+    E -->|serve| F[Production<br/>mythos-web-seven.vercel.app]
     C -->|preview| G[Preview Deployment]
-    
-    style A fill:#e3f2fd
-    style B fill:#f3e5f5
-    style C fill:#fff3e0
-    style E fill:#e8f5e9
-    style F fill:#fce4ec
 ```
-
-## Creator
-
-**Built by Elizabeth Stein** - February 2026
-
-Combining modern web technologies with a passion for ancient mythology to create an immersive educational experience.
 
 ---
 
-*For more information, see [README.md](./README.md)*
+*See [README.md](./README.md) for setup instructions and full feature details.*

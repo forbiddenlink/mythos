@@ -1,36 +1,54 @@
-# Mythos Atlas - Web Application
+# Mythos Atlas — Web Application
 
-> Next.js 16 frontend application for exploring world mythology
+> Next.js 16 frontend for exploring world mythology
 
 ## Overview
 
-This is the web frontend for Mythos Atlas, an interactive encyclopedia of ancient mythology featuring Greek, Norse, and Egyptian pantheons with **80+ deities**, 11+ stories, and comprehensive educational features.
+Web frontend for Mythos Atlas, an interactive encyclopedia of ancient mythology featuring **13 pantheons**, **189 deities**, **96 stories**, **29 creatures**, **34 artifacts**, and **85 mythological locations** — plus quizzes, interactive family trees, 3D artifact viewers, branching stories, and spaced-repetition review.
 
-**Built by Elizabeth Stein** using Next.js 16, React 19, TypeScript, and modern web technologies.
+**Built by Elizabeth Stein** using Next.js 16, React 19, TypeScript 5, and modern web technologies.
 
 ## Features
 
-- 🏛️ **Interactive Pantheons** - Browse Greek, Norse, and Egyptian mythologies
-- 👑 **Deity Profiles** - **80+ gods and goddesses** with filtering and sorting
-- 📖 **Epic Stories** - 11+ mythological tales with theme filtering  
-- 🌳 **Family Trees** - Network and hierarchical relationship visualizations
-- 🧠 **Educational Quiz** - Interactive mythology quiz with progress tracking
-- 🔍 **Global Search** - Command palette (⌘K) for instant search
-- 📱 **Mobile Optimized** - Fully responsive across all devices
-- ⚡ **Performance** - Optimized with React Query caching and code splitting
+- 🏛️ **13 Pantheons** — Greek, Norse, Egyptian, Roman, Hindu, Japanese, Celtic, Aztec, Chinese, Mesopotamian, African (Yoruba), Polynesian, Mesoamerican
+- 👑 **189 Deity Profiles** — Filterable by gender, domain, and pantheon with smart sorting
+- 📖 **96 Epic Stories** — Including interactive branching narratives (choose-your-own-adventure)
+- 🐉 **29 Creatures** — Mythological beasts with detailed profiles
+- ⚔️ **34 Artifacts** — Legendary items with interactive 3D viewer (React Three Fiber)
+- 🗺️ **85 Locations** — Interactive mythological map with filters and 3 guided journeys
+- 🌳 **Family Trees** — Network graph (ReactFlow) and hierarchical (D3.js) visualizations
+- 🧠 **Quizzes & Games** — Relationship quiz, personality quiz, quick quiz, symbol memory game
+- 📚 **Spaced Repetition** — Flashcard review system with intelligent scheduling
+- 🏆 **Achievements & Leaderboard** — Track mastery and compete on the leaderboard
+- 🎯 **Daily Challenges** — Fresh mythology challenges every day
+- 📈 **Learning Paths** — Guided progression through mythology topics
+- 🔊 **Audio** — Text-to-speech narration and immersive background audio per pantheon
+- 🌐 **i18n** — English, Spanish, French, and German (via next-intl)
+- 📱 **PWA** — Installable progressive web app with offline support and background sync
+- 🔍 **Global Search** — Command palette (⌘K) with fuzzy search across all content
+- 📄 **PDF Export** — Export deity and story profiles
 
 ## Tech Stack
 
-- **Framework**: Next.js 16.1.1 (App Router)
-- **React**: 19.2.3
-- **TypeScript**: 5.9.3
-- **Styling**: Tailwind CSS 4.1
-- **Data Fetching**: React Query (TanStack Query) 5.90
-- **GraphQL**: graphql-request 7.4
-- **Visualizations**: ReactFlow 11.11 & react-d3-tree 3.6
-- **UI Components**: shadcn/ui with Radix primitives
-- **Animations**: Framer Motion 12.31
-- **Icons**: Lucide React
+| Category | Technology | Version |
+| -------- | --------- | ------- |
+| Framework | Next.js (App Router) | 16.1.6 |
+| UI | React | 19.2.3 |
+| Language | TypeScript | ^5 |
+| Styling | Tailwind CSS | ^4 |
+| Data Fetching | React Query (TanStack) | ^5.90 |
+| GraphQL | graphql-request | ^7.4 |
+| Graphs | ReactFlow | ^11.11 |
+| Visualizations | D3.js | ^7.9 |
+| 3D Rendering | React Three Fiber / Three.js | ^9.5 / ^0.182 |
+| Animations | Framer Motion | ^12.23 |
+| Audio | Howler.js | ^2.2 |
+| i18n | next-intl | ^4.8 |
+| Search | Fuse.js | ^7.1 |
+| Icons | Lucide React | ^0.562 |
+| UI Primitives | shadcn/ui + Radix | — |
+| Unit Tests | Vitest | ^3.2 |
+| E2E Tests | Playwright | ^1.52 |
 
 ## Getting Started
 
@@ -59,92 +77,104 @@ Open [http://localhost:3000](http://localhost:3000) to view the application.
 
 ## Project Structure
 
-```
+```text
 src/
-├── app/              # App Router pages and layouts
-│   ├── page.tsx      # Homepage
-│   ├── pantheons/    # Pantheons browser
-│   ├── deities/      # Deity catalog with filters
-│   ├── stories/      # Story collection
-│   ├── family-tree/  # Relationship visualizations
-│   ├── quiz/         # Interactive quiz
-│   ├── about/        # About page
-│   └── api/          # GraphQL API route
-├── components/       # React components
-│   ├── deities/      # Deity-specific components
-│   ├── stories/      # Story components
-│   ├── mythology/    # Comparative mythology
-│   ├── quiz/         # Quiz components
-│   ├── layout/       # Header, Footer
-│   ├── ui/           # shadcn/ui components
-│   └── ...
-├── data/            # JSON data files
-│   ├── pantheons.json
-│   ├── deities.json
-│   ├── stories.json
+├── app/                  # App Router pages and layouts
+│   ├── [locale]/         # i18n locale wrapper (en, es, fr, de)
+│   ├── achievements/     # Achievement tracking
+│   ├── artifacts/        # Artifact browser + 3D viewer
+│   ├── compare/          # Cross-pantheon deity comparisons
+│   ├── creatures/        # Creature encyclopedia
+│   ├── deities/          # Deity catalog with filters
+│   ├── family-tree/      # Relationship visualizations
+│   ├── games/            # Symbol memory game
+│   ├── journeys/         # Guided mythological journeys
+│   ├── knowledge-graph/  # Knowledge graph explorer
+│   ├── leaderboard/      # Competitive leaderboard
+│   ├── learning-paths/   # Structured learning paths
+│   ├── locations/        # Interactive location map
+│   ├── pantheons/        # Pantheon browser
+│   ├── quiz/             # Multiple quiz modes
+│   ├── review/           # Spaced repetition flashcards
+│   ├── stories/          # Story collection + branching stories
+│   ├── timeline/         # Mythological timeline
+│   └── api/graphql/      # GraphQL API route
+├── components/           # React components (~40 directories)
+│   ├── artifacts/        # 3D artifact viewer
+│   ├── challenges/       # Daily challenges
+│   ├── compare/          # Deity comparison
+│   ├── deities/          # Deity cards, filters, details
+│   ├── family-tree/      # Tree visualizations
+│   ├── games/            # Memory game
+│   ├── graph/            # Knowledge graph
+│   ├── leaderboard/      # Leaderboard display
+│   ├── learning/         # Learning path components
+│   ├── locations/        # Map and location cards
+│   ├── quiz/             # Quiz UI
+│   ├── review/           # Flashcard review
+│   ├── search/           # Search + command palette
+│   ├── stories/          # Story cards and reader
+│   ├── streaks/          # Streak tracking
+│   ├── timeline/         # Timeline visualization
+│   ├── layout/           # Header, Footer, Navigation
+│   ├── ui/               # shadcn/ui components
+│   └── ...               # animations, audio, i18n, pwa, seo, etc.
+├── data/                 # JSON data files
+│   ├── pantheons.json    # 13 pantheons
+│   ├── deities.json      # 189 deities
+│   ├── stories.json      # 96 stories
+│   ├── creatures.json    # 29 creatures
+│   ├── artifacts.json    # 34 artifacts
+│   ├── locations.json    # 85 locations
 │   └── relationships.json
-├── lib/             # Utilities
-│   ├── graphql-client.ts
-│   ├── queries.ts
+├── hooks/                # Custom React hooks
+│   ├── useAchievements, useBookmarks, usePagination
+│   ├── useTextToSpeech, use-progress, use-recommendations
+│   └── use-background-sync, use-debounce
+├── i18n/                 # Internationalization config
+├── lib/                  # Utilities and logic
+│   ├── graphql-client.ts # GraphQL setup
+│   ├── queries.ts        # GraphQL query definitions
+│   ├── recommendations.ts
+│   ├── search.ts         # Fuse.js search engine
+│   ├── branching-story.ts
+│   ├── daily-challenges.ts
+│   ├── spaced-repetition.ts
+│   ├── mastery.ts
+│   ├── pdf-export.ts
 │   └── utils.ts
-└── providers/       # React context providers
+├── providers/            # Context providers
+│   ├── achievement-notification, bookmarks, leaderboard
+│   ├── progress, query, review, theme
+│   └── ...
+├── types/                # TypeScript definitions
+└── middleware.ts         # i18n routing middleware
 ```
-
-## Key Features Implementation
-
-### Filtering & Sorting
-- Client-side filtering for instant response
-- Gender and domain filters for deities
-- Category and theme filters for stories
-- Ascending/descending sort options
-
-### Family Tree Visualizations
-- **Network Graph**: ReactFlow with draggable nodes
-- **Hierarchical Tree**: React D3 Tree with expand/collapse
-- Color-coded relationships (parent, child, spouse, sibling)
-- Mobile-responsive with touch controls
-- **Multi-Pantheon Support**: Handles complex lineages (e.g., Norse)
-
-### Search System
-- Global command palette (⌘K or Ctrl+K)
-- Full-text search across deities, pantheons, and stories
-- Debounced input for performance
-- Grouped results by type
-
-### Interactive Quiz
-- Dynamic question generation from deity data
-- Progress bar with visual feedback
-- Score tracking and percentage display
-- Explanations for correct answers
-- Restart functionality
-
-## Performance Optimizations
-
-- **React Query**: 5-minute cache for data fetching
-- **Code Splitting**: Dynamic imports for heavy components
-- **Font Optimization**: next/font for Google Fonts
-- **Client-side Filtering**: No API calls for filter operations
-- **Lazy Loading**: Images and components loaded on demand
-
-## Deployment
-
-Deployed on **Vercel**: https://mythos-web-seven.vercel.app
-
-Automatic deployments on push to `main` branch via GitHub integration.
 
 ## Available Scripts
 
 ```bash
-pnpm dev          # Start development server (Turbopack)
-pnpm build        # Build for production
-pnpm start        # Start production server  
-pnpm lint         # Run ESLint
-pnpm type-check   # Run TypeScript compiler check
+pnpm dev            # Start development server
+pnpm build          # Build for production
+pnpm start          # Start production server
+pnpm lint           # Run ESLint
+pnpm test           # Run unit tests (Vitest)
+pnpm test:watch     # Run tests in watch mode
+pnpm test:coverage  # Run tests with coverage
+pnpm e2e            # Run E2E tests (Playwright)
+pnpm e2e:ui         # Run E2E tests with UI
+pnpm analyze        # Analyze bundle size
 ```
+
+## Deployment
+
+Deployed on **Vercel**: <https://mythos-web-seven.vercel.app>
+
+Automatic deployments on push to `main` via GitHub integration.
 
 ## Environment Variables
 
-No environment variables required - the app uses static JSON data files.
+No environment variables required — the app uses static JSON data files served through a GraphQL layer.
 
 ## Learn More
 
@@ -155,13 +185,13 @@ No environment variables required - the app uses static JSON data files.
 
 ## Creator
 
-**Elizabeth Stein** - February 2026
+Built by **Elizabeth Stein** — passionate about mythology and modern web technologies.
 
-*"Built with passion for mythology and modern web technologies"*
+> "Built with passion for mythology and modern web technologies"
 
 ## License
 
-MIT License - See root LICENSE file
+MIT License — See root LICENSE file
 
 ---
 

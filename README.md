@@ -2,65 +2,85 @@
 
 > **Interactive encyclopedia of world mythology**
 
-An immersive web application exploring ancient mythologies through interactive visualizations, comprehensive deity profiles, epic stories, and educational features. Currently featuring Greek, Norse, and Egyptian pantheons with **80+ deities** and 11+ legendary tales.
+An immersive web application exploring ancient mythologies through interactive visualizations, comprehensive deity profiles, epic stories, and educational features. Featuring **13 pantheons**, **189 deities**, **96 stories**, **29 creatures**, **34 artifacts**, and **85 mythological locations** spanning cultures from Greek and Norse to Aztec and Polynesian.
 
 ## ✨ Features
 
 ### 🏛️ **Explore Pantheons**
-- Greek, Norse, and Egyptian mythologies (with Roman, Hindu, and Japanese planned)
-- Cultural context and historical background
-- Divine hierarchies and pantheon structures
+
+- **13 mythological traditions**: Greek, Norse, Egyptian, Roman, Hindu, Japanese, Celtic, Aztec, Chinese, Mesopotamian, African (Yoruba), Polynesian, and Mesoamerican
+- Cultural context, historical background, and divine hierarchies
+- Dedicated pantheon pages with deity rosters and associated stories
 
 ### 👑 **Discover Deities**
-- **80+ detailed deity profiles** with domains, symbols, and attributes
-- **Advanced Filtering**: Filter by gender, domain (war, love, wisdom, etc.)
+
+- **189 detailed deity profiles** with domains, symbols, and attributes
+- **Advanced Filtering**: Filter by gender, domain (war, love, wisdom, etc.), and pantheon
 - **Smart Sorting**: Sort by importance rank or alphabetical name
 - Interactive search with ⌘K keyboard shortcut
 
 ### 📖 **Read Epic Stories**
-- 11+ mythological tales and legends
-- **Story Filtering**: Browse by category and themes
+
+- **96 mythological tales** and legends across all pantheons
+- **Interactive Branching Stories**: Choose-your-own-adventure mythology narratives
 - Creation myths, heroic quests, and divine conflicts
-- Cultural significance and moral themes
+- Category and theme filtering
 
 ### 🌳 **Interactive Family Trees**
-- **Dual Visualizations**:
-    - **Network Graph**: ReactFlow-powered interactive nodes
-    - **Hierarchical Tree**: D3.js powered lineage views
-- **Multi-Pantheon Support**: Fully interactive trees for Greek, Norse, and Egyptian datasets
-- **Deep Exploration**: Zoom, pan, and clicking nodes to expand/collapse lineages
+
+- **Network Graph**: ReactFlow-powered interactive nodes with drag, zoom, and pan
+- **Hierarchical Tree**: D3.js-powered lineage views
+- **Multi-Pantheon Support**: Trees for all 13 pantheons
+- Color-coded relationships (parent, child, spouse, sibling)
 - Mobile-responsive with touch controls
 
-### 🛠️ **Recent Updates (February 2026)**
-- **Enhanced Family Tree**: Verified robust support for complex lineages beyond just Olympian gods (e.g., full Norse family tree).
-- **Mobile Experience**: Completely overhauled mobile navigation with slide-out drawers and horizontal scrolling filters.
-- **Deep Search**: Improved command palette (⌘K) to index all new content.
-- **Visual Polish**: Verified dark mode consistency and premium typography (`Cinzel`, `Crimson Pro`) across the entire app.
-
 ### 🔍 **Comparative Mythology**
+
 - Cross-pantheon deity comparisons
 - Discover parallels across cultures
-- See how different civilizations portrayed similar domains
+- Side-by-side domain and attribute analysis
+
+### 🗺️ **Locations & Journeys**
+
+- **85 mythological locations** on an interactive map
+- Filter by pantheon and location type (Temple, City, Underworld, etc.)
+- **3 guided journeys** through mythological landscapes
+
+### 🐉 **Creatures & Artifacts**
+
+- **29 mythological creatures** with detailed profiles
+- **34 legendary artifacts** with interactive 3D visualization (React Three Fiber)
+- Examine relics from all angles with procedurally generated meshes
+
+### 🧠 **Educational Features**
+
+- **Relationship Quiz**: Test knowledge of divine family connections
+- **Personality Quiz**: Discover which deity matches your personality
+- **Quick Quiz**: Timed mythology trivia
+- **Symbol Memory Game**: Match deity symbols to their owners
+- **Spaced Repetition Review**: Flashcard system with intelligent scheduling
+- **Daily Challenges**: New mythology challenges each day
+- **Learning Paths**: Guided progression through mythology topics
+- **Achievements & Leaderboard**: Track mastery and compete
 
 ### 🔊 **Audio & Ambiance**
+
+- **Text-to-Speech**: Listen to stories with one click
 - Immersive background audio for each pantheon
-- Global volume control with mute/unmute
-- Sound effects for interactive elements
+- Global volume control with sound effects
 
-### 🏛️ **3D Artifacts**
-- Interactive 3D visualization of legendary items
-- Examine relics like the Golden Apple or Shields from all angles
-- Procedurally generated 3D meshes using React Three Fiber
+### 🌐 **Internationalization & PWA**
 
-### 🗺️ **Locations Map**
-- Interactive map to explore mythical sites
-- Filter by Pantheon and Location Type (Temple, City, Underworld)
-- Visualizing sacred geography across the ancient world
+- **4 languages**: English, Spanish, French, and German (via next-intl)
+- **Progressive Web App**: Installable with offline support
+- Service worker with background sync
 
-### 🗣️ **Accessibility**
-- **Text-to-Speech**: Listen to long-form stories with one click
-- Keyboard navigable interface
-- **Fuzzy Search**: Find content even with typos (e.g., "Zues" -> "Zeus")
+### 🗣️ **Accessibility & Search**
+
+- Keyboard-navigable interface
+- **Fuzzy Search**: Find content even with typos (e.g., "Zues" → "Zeus")
+- Command palette (⌘K / Ctrl+K) for instant navigation
+- PDF export for deity and story profiles
 
 ## 🏗️ Architecture
 
@@ -68,32 +88,33 @@ An immersive web application exploring ancient mythologies through interactive v
 graph TD
     User[User Browser]
     
-    subgraph Frontend [Next.js App Router]
+    subgraph Frontend ["Next.js App Router"]
         Page[Pages / Layouts]
         Comp[UI Components]
         Hooks[Custom Hooks]
-        Audio[Audio Context]
+        Providers[Context Providers]
     end
     
-    subgraph API [Next.js API Routes]
+    subgraph API ["Next.js API Routes"]
         GraphQL[GraphQL Route Handler]
         Resolvers[Data Resolvers]
         Search[Fuse.js Search Engine]
     end
     
-    subgraph Data [JSON Data Layer]
-        Pantheons[pantheons.json]
-        Deities[deities.json]
-        Stories[stories.json]
-        Locations[locations.json]
+    subgraph Data ["JSON Data Layer"]
+        Pantheons["pantheons.json (13)"]
+        Deities["deities.json (189)"]
+        Stories["stories.json (96)"]
+        Creatures["creatures.json (29)"]
+        Artifacts["artifacts.json (34)"]
+        Locations["locations.json (85)"]
     end
     
     User --> Page
     Page --> Comp
     Comp --> Hooks
-    Hooks --> GraphQL
-    
-    Page --> Audio
+    Hooks --> Providers
+    Providers --> GraphQL
     
     GraphQL --> Resolvers
     Resolvers --> Search
@@ -101,32 +122,41 @@ graph TD
     Resolvers --> Pantheons
     Resolvers --> Deities
     Resolvers --> Stories
+    Resolvers --> Creatures
+    Resolvers --> Artifacts
     Resolvers --> Locations
 ```
 
 ## 🛠️ Tech Stack
 
 ### Frontend
-- **Next.js 16.1.1** - React framework with App Router
-- **React 19.2.3** - UI library
-- **TypeScript** - Type-safe development
-- **Tailwind CSS 4** - Modern styling
-- **React Query** - Data fetching and caching
-- **ReactFlow** - Network graph visualization
-- **D3.js & React-D3-Tree** - Data visualizations
-- **React Three Fiber** - 3D Rendering
-- **Howler.js** - Audio management
-- **Framer Motion** - Smooth animations
-- **shadcn/ui** - Beautiful UI components
+
+- **Next.js 16.1.6** — React framework with App Router
+- **React 19.2.3** — UI library
+- **TypeScript 5** — Type-safe development
+- **Tailwind CSS 4** — Utility-first styling
+- **React Query 5** — Data fetching, caching, and mutations
+- **ReactFlow 11** — Network graph visualization
+- **D3.js 7** — Custom data visualizations (family trees, timelines)
+- **React Three Fiber 9** / **Three.js** — 3D artifact rendering
+- **Framer Motion 12** — Page transitions and UI animations
+- **Howler.js 2** — Immersive background audio and SFX
+- **next-intl 4** — Internationalization (EN, ES, FR, DE)
+- **Lucide React** — Icon system
+- **shadcn/ui** — Accessible UI component primitives
 
 ### Backend & Data
-- **GraphQL API** - Flexible data querying
-- **Fuse.js** - Fuzzy search engine
-- **Next.js API Routes** - Serverless functions
+
+- **GraphQL API** — Flexible data querying via `graphql-request`
+- **Fuse.js** — Client-side fuzzy search engine
+- **Next.js API Routes** — Serverless functions
+- **Rust API** (planned) — High-performance backend with SQLx + Axum
 
 ### Deployment
-- **Vercel** - Hosting and CI/CD
-- **GitHub** - Source control
+
+- **Vercel** — Hosting and CI/CD
+- **GitHub** — Source control
+- **Turborepo** — Monorepo build orchestration
 
 ## 🚀 Getting Started
 
@@ -153,35 +183,67 @@ The application will be available at `http://localhost:3000`.
 
 ### Production Deployment
 
-The site is live at: **https://mythos-web-seven.vercel.app**
+The site is live at: <https://mythos-web-seven.vercel.app>
 
 ## 📁 Project Structure
 
-```
+```text
 mythos/
 ├── apps/
-│   ├── web/              # Next.js frontend application
+│   ├── web/                    # Next.js frontend application
 │   │   ├── src/
-│   │   │   ├── app/      # App Router pages and layouts
-│   │   │   ├── components/  # React components
-│   │   │   ├── data/     # JSON mythology data files
-│   │   │   ├── lib/      # Utilities and GraphQL client
-│   │   │   └── types/    # TypeScript definitions
-│   │   └── public/       # Static assets
-│   └── api/              # Rust backend (planned)
-├── packages/             # Shared packages
-├── tools/                # Build tools
-└── turbo.json           # Turborepo configuration
+│   │   │   ├── app/            # App Router pages and layouts
+│   │   │   │   ├── [locale]/   # i18n wrapper (en, es, fr, de)
+│   │   │   │   ├── achievements/
+│   │   │   │   ├── artifacts/
+│   │   │   │   ├── compare/
+│   │   │   │   ├── creatures/
+│   │   │   │   ├── deities/
+│   │   │   │   ├── family-tree/
+│   │   │   │   ├── games/
+│   │   │   │   ├── journeys/
+│   │   │   │   ├── knowledge-graph/
+│   │   │   │   ├── leaderboard/
+│   │   │   │   ├── learning-paths/
+│   │   │   │   ├── locations/
+│   │   │   │   ├── pantheons/
+│   │   │   │   ├── quiz/
+│   │   │   │   ├── review/
+│   │   │   │   ├── stories/
+│   │   │   │   ├── timeline/
+│   │   │   │   └── api/graphql/ # GraphQL API route
+│   │   │   ├── components/     # React components (~40 directories)
+│   │   │   ├── data/           # JSON mythology data files
+│   │   │   ├── hooks/          # Custom React hooks
+│   │   │   ├── i18n/           # Internationalization config
+│   │   │   ├── lib/            # Utilities, GraphQL, game logic
+│   │   │   ├── providers/      # Context providers
+│   │   │   └── types/          # TypeScript definitions
+│   │   ├── messages/           # Translation files (en, es, fr, de)
+│   │   └── public/             # Static assets and images
+│   └── api/                    # Rust backend (planned)
+│       ├── src/                # Axum + SQLx source
+│       ├── migrations/         # SQL migration files
+│       └── seeds/              # Seed data for 6 pantheons
+├── packages/                   # Shared packages
+├── tools/                      # Build tools
+├── thoughts/                   # Continuity ledgers and handoffs
+└── turbo.json                  # Turborepo configuration
 ```
 
 ## 🗄️ Data Structure
 
 The application uses JSON files for mythology data:
 
-- **pantheons.json** - 3 pantheons (Greek, Norse, Egyptian)
-- **deities.json** - **80+** detailed deity profiles
-- **stories.json** - 11+ epic tales and legends
-- **relationships.json** - Divine family connections
+| File | Count | Description |
+| ------ | ------- | ------------- |
+| `pantheons.json` | 13 | Greek, Norse, Egyptian, Roman, Hindu, Japanese, Celtic, Aztec, Chinese, Mesopotamian, African (Yoruba), Polynesian, Mesoamerican |
+| `deities.json` | 189 | Detailed profiles with domains, symbols, and importance rankings |
+| `stories.json` | 96 | Legends, creation myths, and heroic tales |
+| `creatures.json` | 29 | Mythological beasts and beings |
+| `artifacts.json` | 34 | Legendary weapons, relics, and objects |
+| `locations.json` | 85 | Sacred sites, realms, and mythological places |
+| `relationships.json` | — | Divine family connections across all pantheons |
 
 ## 🧪 Development Commands
 
@@ -198,35 +260,19 @@ pnpm start
 
 # Lint code
 pnpm lint
+
+# Run unit tests (Vitest)
+pnpm test
+
+# Run E2E tests (Playwright)
+pnpm test:e2e
 ```
-
-## 🎯 Current Status (February 2026)
-
-### ✅ Completed Features
-- Homepage with hero, features, stats, and CTA sections
-- Pantheons page with Greek, Norse, Egyptian cards
-- Deities page with filtering (gender, domain) and sorting
-- Stories page with category and theme filtering
-- Family tree with network graph and hierarchical views
-- Interactive quiz with progress tracking
-- Comparative mythology section
-- Global search with ⌘K command palette
-- **Full mobile responsiveness** (New navigation & touch controls)
-- SEO metadata and OpenGraph tags
-- Custom 404 page
-
-### 🚧 Planned Enhancements
-- Roman, Hindu, and Japanese pantheons
-- Expanded story illustrations
-- Additional quiz modes (Time Attack, Survival)
-- User favorites and bookmarks
-- Print/export functionality
 
 ## 👤 Creator
 
 **Built by Elizabeth Stein** - A passionate developer and mythology enthusiast combining technical expertise with a deep appreciation for ancient cultures and storytelling.
 
-*"This project was born from a fascination with how ancient myths connect cultures across time and space. By leveraging modern web technologies, I wanted to create an immersive experience that brings these timeless stories to life for a new generation."*
+> "This project was born from a fascination with how ancient myths connect cultures across time and space. By leveraging modern web technologies, I wanted to create an immersive experience that brings these timeless stories to life for a new generation."
 
 ## 📄 License
 
@@ -235,6 +281,7 @@ MIT License - See LICENSE file for details
 ## 🤝 Contributing
 
 Contributions welcome! Please:
+
 1. Fork the repository
 2. Create a feature branch (`git checkout -b feature/amazing-feature`)
 3. Commit your changes (`git commit -m 'Add amazing feature'`)
@@ -243,4 +290,4 @@ Contributions welcome! Please:
 
 ---
 
-**Mythos Atlas** • Built with ❤️ by Elizabeth Stein • February 2026
+**Mythos Atlas** • Built with ❤️ by Elizabeth Stein
