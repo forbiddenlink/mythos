@@ -19,6 +19,18 @@ pnpm-debug.log*
 # Vercel
 .vercel
 
+# TypeScript build info
+*.tsbuildinfo
+
+# Test outputs
+coverage/
+playwright-report/
+test-results/
+lint_output*.txt
+
+# One-off scripts
+audit_codebase_images.js
+
 # PWA - Generated service worker files
 /public/sw.js
 /public/sw.js.map

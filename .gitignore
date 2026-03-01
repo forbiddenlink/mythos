@@ -6,31 +6,87 @@ node_modules
 .next
 out
 build
+
+# Turborepo
 .turbo
 
-# Misc
-.DS_Store
-*.log
+# Environment variables
 .env
 .env.local
 .env.development.local
 .env.test.local
 .env.production.local
+
+# Vercel
 .vercel
 
-# Debug
+# OS files
+.DS_Store
+Thumbs.db
+
+# Debug logs
+*.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 
-# Editor
+# Editor / IDE
 .vscode/*
 !.vscode/extensions.json
+!.vscode/settings.json
 .idea
 *.swp
 *.swo
 
+# Test outputs
+coverage/
+playwright-report/
+test-results/
+
+# Local History (VS Code extension)
+.history/
+
+# Lint output files
+lint_output*.txt
+
+# Rust build artifacts
+apps/api/target/
+
+# Specter knowledge graph cache
+.specter/
+
+# Playwright MCP logs
+.playwright-mcp/
+
+# Claude cache and local settings
+.claude/cache/
+.claude/settings.local.json
+
+# Duplicate agent skills directory
+.agent/
+
+# Internal dev notes / continuity ledgers
+thoughts/
+
+# Codacy local files
+.codacy/
+
 # Temporary
 tmp/
 temp/
+
+# One-off utility/audit scripts
+verify_images.js
+audit_codebase_images.js
+
+# Test screenshots
+*.test.png
+shared-quiz-results.png
+
+# TypeScript build info
+*.tsbuildinfo
+
+# Stale sub-project lockfiles (monorepo uses root lockfile)
+apps/web/pnpm-lock.yaml
+apps/web/pnpm-workspace.yaml
