@@ -133,9 +133,12 @@ const withPWA = require('next-pwa')({
 });
 
 const nextConfig: NextConfig = {
-  experimental: {
-    viewTransition: true,
-  },
+  // NOTE: viewTransition is experimental and was causing navigation to fail
+  // (links would preventDefault but navigation wouldn't complete)
+  // Disabled until the feature is stable in Next.js
+  // experimental: {
+  //   viewTransition: true,
+  // },
   // Empty turbopack config to satisfy Next.js 16 when using webpack-based plugins (next-pwa)
   // Production builds use --webpack flag via package.json
   turbopack: {},

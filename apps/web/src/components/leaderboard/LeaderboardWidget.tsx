@@ -20,24 +20,23 @@ export function LeaderboardWidget() {
   }, []);
 
   // Sync progress to leaderboard
+  // Note: Only depend on the specific values we need, not the entire context objects
+  const totalXP = progressContext?.progress.totalXP ?? 0;
+  const quickQuizHighScore = progressContext?.progress.quickQuizHighScore ?? 0;
+  const achievementsCount = progressContext?.progress.achievements.length ?? 0;
+  const dailyStreak = progressContext?.progress.dailyStreak ?? 0;
+  const syncFromProgress = leaderboardContext?.syncFromProgress;
+
   useEffect(() => {
-    if (mounted && leaderboardContext && progressContext) {
-      leaderboardContext.syncFromProgress({
-        totalXP: progressContext.progress.totalXP,
-        quickQuizHighScore: progressContext.progress.quickQuizHighScore,
-        achievementsCount: progressContext.progress.achievements.length,
-        dailyStreak: progressContext.progress.dailyStreak,
+    if (mounted && syncFromProgress) {
+      syncFromProgress({
+        totalXP,
+        quickQuizHighScore,
+        achievementsCount,
+        dailyStreak,
       });
     }
-  }, [
-    mounted,
-    leaderboardContext,
-    progressContext,
-    progressContext?.progress.totalXP,
-    progressContext?.progress.quickQuizHighScore,
-    progressContext?.progress.achievements.length,
-    progressContext?.progress.dailyStreak,
-  ]);
+  }, [mounted, syncFromProgress, totalXP, quickQuizHighScore, achievementsCount, dailyStreak]);
 
   if (!mounted || !leaderboardContext || !progressContext) {
     return null;

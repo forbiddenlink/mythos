@@ -54,9 +54,16 @@ export function TransitionLink({
       if (typeof document !== 'undefined' && 'startViewTransition' in document) {
         e.preventDefault();
 
-        document.startViewTransition(() => {
+        // startViewTransition expects a callback that returns a Promise
+        // The callback must resolve when the DOM update is complete
+        try {
+          document.startViewTransition(async () => {
+            await router.push(href.toString());
+          });
+        } catch {
+          // Fallback if startViewTransition fails
           router.push(href.toString());
-        });
+        }
       }
       // If no support, fall back to normal Link behavior
     },
