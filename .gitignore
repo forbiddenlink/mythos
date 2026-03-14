@@ -12,10 +12,26 @@ build
 
 # Environment variables
 .env
+.env.*
 .env.local
 .env.development.local
 .env.test.local
 .env.production.local
+!.env.example
+
+# Secrets and credentials
+*.pem
+*.key
+*.p12
+*.pfx
+*.crt
+*.cer
+credentials.json
+service-account*.json
+*-credentials.json
+*.secret
+secrets.yaml
+secrets.yml
 
 # Vercel
 .vercel

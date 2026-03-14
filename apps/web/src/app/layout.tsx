@@ -19,6 +19,8 @@ import { AudioControls } from "@/components/audio/AudioControls";
 import { InstallPrompt, OfflineIndicator } from "@/components/pwa";
 import { LayoutEffects } from "@/components/effects/LayoutEffects";
 import { RandomDiscoveryButton } from "@/components/discovery/RandomDiscoveryButton";
+import { CookieConsent } from "@/components/privacy/CookieConsent";
+import { WebVitals } from "@/components/analytics/WebVitals";
 
 // Cinzel - Elegant classical display font inspired by Roman inscriptions
 const cinzel = Cinzel({
@@ -47,16 +49,13 @@ const crimsonPro = Crimson_Pro({
 export const metadata: Metadata = {
   ...generateBaseMetadata({
     title: "Mythos Atlas - Ancient Mythology Encyclopedia",
-    description: "Explore ancient mythology through interactive deity family trees, comparative analysis, and epic stories from Greek, Norse, Egyptian, and world civilizations. Built by Elizabeth Stein with Next.js and modern web technologies.",
+    description:
+      "Explore ancient mythology through interactive deity family trees, comparative analysis, and epic stories from Greek, Norse, Egyptian, and world civilizations. Built by Elizabeth Stein with Next.js and modern web technologies.",
     url: "/",
   }),
   icons: {
-    icon: [
-      { url: '/icon.png', type: 'image/png' },
-    ],
-    apple: [
-      { url: '/apple-icon.png', type: 'image/png' },
-    ],
+    icon: [{ url: "/icon.png", type: "image/png" }],
+    apple: [{ url: "/apple-icon.png", type: "image/png" }],
   },
 };
 
@@ -74,11 +73,16 @@ export default async function RootLayout({
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#d4af37" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <meta
+          name="apple-mobile-web-app-status-bar-style"
+          content="black-translucent"
+        />
         <meta name="apple-mobile-web-app-title" content="Mythos Atlas" />
         <link rel="apple-touch-icon" href="/apple-icon.png" />
       </head>
-      <body className={`${sourceSans.variable} ${cinzel.variable} ${crimsonPro.variable} font-sans antialiased`}>
+      <body
+        className={`${sourceSans.variable} ${cinzel.variable} ${crimsonPro.variable} font-sans antialiased`}
+      >
         <NextIntlClientProvider messages={messages} locale={locale}>
           <ThemeProvider
             attribute="class"
@@ -89,27 +93,33 @@ export default async function RootLayout({
             <QueryProvider>
               <BookmarksProvider>
                 <ProgressProvider>
-                <LeaderboardProvider>
-                <AchievementNotificationProvider>
-                <AudioProvider>
-                  <CommandPaletteProvider>
-                    <SkipToContent />
-                    <OfflineIndicator />
-                    <div className="flex min-h-screen flex-col">
-                      <Header />
-                      <main id="main-content" className="flex-1" tabIndex={-1}>
-                        {children}
-                      </main>
-                      <Footer />
-                    </div>
-                    <AudioControls />
-                    <InstallPrompt />
-                    <LayoutEffects />
-                    <RandomDiscoveryButton />
-                  </CommandPaletteProvider>
-                </AudioProvider>
-                </AchievementNotificationProvider>
-                </LeaderboardProvider>
+                  <LeaderboardProvider>
+                    <AchievementNotificationProvider>
+                      <AudioProvider>
+                        <CommandPaletteProvider>
+                          <SkipToContent />
+                          <OfflineIndicator />
+                          <div className="flex min-h-screen flex-col">
+                            <Header />
+                            <main
+                              id="main-content"
+                              className="flex-1"
+                              tabIndex={-1}
+                            >
+                              {children}
+                            </main>
+                            <Footer />
+                          </div>
+                          <AudioControls />
+                          <InstallPrompt />
+                          <LayoutEffects />
+                          <RandomDiscoveryButton />
+                          <CookieConsent />
+                          <WebVitals />
+                        </CommandPaletteProvider>
+                      </AudioProvider>
+                    </AchievementNotificationProvider>
+                  </LeaderboardProvider>
                 </ProgressProvider>
               </BookmarksProvider>
             </QueryProvider>

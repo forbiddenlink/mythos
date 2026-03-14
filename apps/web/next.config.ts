@@ -1,27 +1,28 @@
-import type { NextConfig } from 'next';
-import createNextIntlPlugin from 'next-intl/plugin';
-import bundleAnalyzer from '@next/bundle-analyzer';
+import type { NextConfig } from "next";
+import { withSentryConfig } from "@sentry/nextjs";
+import createNextIntlPlugin from "next-intl/plugin";
+import bundleAnalyzer from "@next/bundle-analyzer";
 
-const withNextIntl = createNextIntlPlugin('./i18n.ts');
+const withNextIntl = createNextIntlPlugin("./i18n.ts");
 const withBundleAnalyzer = bundleAnalyzer({
-  enabled: process.env.ANALYZE === 'true',
+  enabled: process.env.ANALYZE === "true",
 });
 
 // PWA Configuration - Install: pnpm add next-pwa
 // eslint-disable-next-line @typescript-eslint/no-require-imports
-const withPWA = require('next-pwa')({
-  dest: 'public',
-  disable: process.env.NODE_ENV === 'development',
+const withPWA = require("next-pwa")({
+  dest: "public",
+  disable: process.env.NODE_ENV === "development",
   register: true,
   skipWaiting: true,
   // Import custom worker scripts directly (no babel needed)
-  importScripts: ['/sw-sync.js'],
+  importScripts: ["/sw-sync.js"],
   runtimeCaching: [
     {
       urlPattern: /^https:\/\/fonts\.(?:gstatic|googleapis)\.com\/.*/i,
-      handler: 'CacheFirst',
+      handler: "CacheFirst",
       options: {
-        cacheName: 'google-fonts',
+        cacheName: "google-fonts",
         expiration: {
           maxEntries: 4,
           maxAgeSeconds: 365 * 24 * 60 * 60, // 1 year
@@ -30,9 +31,9 @@ const withPWA = require('next-pwa')({
     },
     {
       urlPattern: /\.(?:eot|otf|ttc|ttf|woff|woff2|font\.css)$/i,
-      handler: 'StaleWhileRevalidate',
+      handler: "StaleWhileRevalidate",
       options: {
-        cacheName: 'static-fonts',
+        cacheName: "static-fonts",
         expiration: {
           maxEntries: 4,
           maxAgeSeconds: 7 * 24 * 60 * 60, // 1 week
@@ -41,9 +42,9 @@ const withPWA = require('next-pwa')({
     },
     {
       urlPattern: /\.(?:jpg|jpeg|gif|png|svg|ico|webp)$/i,
-      handler: 'StaleWhileRevalidate',
+      handler: "StaleWhileRevalidate",
       options: {
-        cacheName: 'static-images',
+        cacheName: "static-images",
         expiration: {
           maxEntries: 64,
           maxAgeSeconds: 30 * 24 * 60 * 60, // 30 days
@@ -52,9 +53,9 @@ const withPWA = require('next-pwa')({
     },
     {
       urlPattern: /\/_next\/static.*/i,
-      handler: 'CacheFirst',
+      handler: "CacheFirst",
       options: {
-        cacheName: 'next-static',
+        cacheName: "next-static",
         expiration: {
           maxEntries: 64,
           maxAgeSeconds: 30 * 24 * 60 * 60, // 30 days
@@ -63,9 +64,9 @@ const withPWA = require('next-pwa')({
     },
     {
       urlPattern: /\/_next\/image\?url=.+$/i,
-      handler: 'StaleWhileRevalidate',
+      handler: "StaleWhileRevalidate",
       options: {
-        cacheName: 'next-images',
+        cacheName: "next-images",
         expiration: {
           maxEntries: 64,
           maxAgeSeconds: 24 * 60 * 60, // 1 day
@@ -74,9 +75,9 @@ const withPWA = require('next-pwa')({
     },
     {
       urlPattern: /\/api\/.*$/i,
-      handler: 'NetworkFirst',
+      handler: "NetworkFirst",
       options: {
-        cacheName: 'api-cache',
+        cacheName: "api-cache",
         expiration: {
           maxEntries: 32,
           maxAgeSeconds: 24 * 60 * 60, // 1 day
@@ -86,9 +87,9 @@ const withPWA = require('next-pwa')({
     },
     {
       urlPattern: /\/deities\/.*$/i,
-      handler: 'StaleWhileRevalidate',
+      handler: "StaleWhileRevalidate",
       options: {
-        cacheName: 'deity-pages',
+        cacheName: "deity-pages",
         expiration: {
           maxEntries: 100,
           maxAgeSeconds: 7 * 24 * 60 * 60, // 1 week
@@ -97,9 +98,9 @@ const withPWA = require('next-pwa')({
     },
     {
       urlPattern: /\/stories\/.*$/i,
-      handler: 'StaleWhileRevalidate',
+      handler: "StaleWhileRevalidate",
       options: {
-        cacheName: 'story-pages',
+        cacheName: "story-pages",
         expiration: {
           maxEntries: 50,
           maxAgeSeconds: 7 * 24 * 60 * 60, // 1 week
@@ -108,9 +109,9 @@ const withPWA = require('next-pwa')({
     },
     {
       urlPattern: /\/pantheons\/.*$/i,
-      handler: 'StaleWhileRevalidate',
+      handler: "StaleWhileRevalidate",
       options: {
-        cacheName: 'pantheon-pages',
+        cacheName: "pantheon-pages",
         expiration: {
           maxEntries: 20,
           maxAgeSeconds: 7 * 24 * 60 * 60, // 1 week
@@ -119,9 +120,9 @@ const withPWA = require('next-pwa')({
     },
     {
       urlPattern: /.*/i,
-      handler: 'NetworkFirst',
+      handler: "NetworkFirst",
       options: {
-        cacheName: 'others',
+        cacheName: "others",
         expiration: {
           maxEntries: 32,
           maxAgeSeconds: 24 * 60 * 60, // 1 day
@@ -145,25 +146,28 @@ const nextConfig: NextConfig = {
   images: {
     remotePatterns: [
       {
-        protocol: 'https',
-        hostname: 'images.unsplash.com',
-        pathname: '/**',
+        protocol: "https",
+        hostname: "images.unsplash.com",
+        pathname: "/**",
       },
     ],
-    formats: ['image/webp'],
+    formats: ["image/webp"],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920],
   },
   async headers() {
     return [
       {
-        source: '/:path*',
+        source: "/:path*",
         headers: [
-          { key: 'X-Frame-Options', value: 'DENY' },
-          { key: 'X-Content-Type-Options', value: 'nosniff' },
-          { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
-          { key: 'Permissions-Policy', value: 'camera=(), microphone=(), geolocation=()' },
+          { key: "X-Frame-Options", value: "DENY" },
+          { key: "X-Content-Type-Options", value: "nosniff" },
+          { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
           {
-            key: 'Content-Security-Policy',
+            key: "Permissions-Policy",
+            value: "camera=(), microphone=(), geolocation=()",
+          },
+          {
+            key: "Content-Security-Policy",
             value: [
               "default-src 'self'",
               "script-src 'self' 'unsafe-inline' 'unsafe-eval'",
@@ -173,7 +177,7 @@ const nextConfig: NextConfig = {
               "connect-src 'self' https:",
               "media-src 'self'",
               "frame-ancestors 'none'",
-            ].join('; '),
+            ].join("; "),
           },
         ],
       },
@@ -181,4 +185,27 @@ const nextConfig: NextConfig = {
   },
 };
 
-export default withBundleAnalyzer(withNextIntl(withPWA(nextConfig)));
+// Wrap with all plugins including Sentry
+const configWithPlugins = withBundleAnalyzer(withNextIntl(withPWA(nextConfig)));
+
+export default withSentryConfig(configWithPlugins, {
+  // For all available options, see:
+  // https://www.npmjs.com/package/@sentry/nextjs
+
+  org: process.env.SENTRY_ORG,
+  project: process.env.SENTRY_PROJECT,
+
+  // Upload a larger set of source maps for prettier stack traces (increases build time)
+  widenClientFileUpload: true,
+
+  // Routes browser requests to Sentry through a Next.js rewrite to circumvent ad-blockers
+  tunnelRoute: "/monitoring",
+
+  // Automatically tree-shake Sentry logger statements to reduce bundle size
+  disableLogger: true,
+
+  // Source maps configuration
+  sourcemaps: {
+    deleteSourcemapsAfterUpload: true,
+  },
+});

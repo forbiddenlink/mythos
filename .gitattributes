@@ -1,0 +1,63 @@
+# Auto detect text files and perform LF normalization
+* text=auto
+
+# Source code
+*.ts text eol=lf
+*.tsx text eol=lf
+*.js text eol=lf
+*.jsx text eol=lf
+*.json text eol=lf
+*.css text eol=lf
+*.scss text eol=lf
+*.html text eol=lf
+*.md text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+
+# Rust
+*.rs text eol=lf
+*.toml text eol=lf
+
+# SQL
+*.sql text eol=lf
+
+# Config files
+.gitignore text eol=lf
+.gitattributes text eol=lf
+.nvmrc text eol=lf
+.env.example text eol=lf
+
+# Shell scripts
+*.sh text eol=lf
+
+# Windows batch files
+*.bat text eol=crlf
+*.cmd text eol=crlf
+
+# Binary files
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.webp binary
+*.avif binary
+*.woff binary
+*.woff2 binary
+*.ttf binary
+*.eot binary
+*.mp3 binary
+*.mp4 binary
+*.webm binary
+*.ogg binary
+*.pdf binary
+
+# Lock files - don't diff
+pnpm-lock.yaml -diff
+package-lock.json -diff
+yarn.lock -diff
+Cargo.lock -diff
+
+# Generated files
+*.min.js -diff
+*.min.css -diff
