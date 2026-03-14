@@ -30,6 +30,7 @@ export const mobileNavSections = [
   {
     title: 'Discover',
     links: [
+      { href: '/collections', label: 'Collections' },
       { href: '/divine-domains', label: 'Divine Domains' },
       { href: '/compare', label: 'Compare Deities' },
       { href: '/compare/myths', label: 'Compare Myths' },
@@ -44,6 +45,7 @@ export const mobileNavSections = [
     links: [
       { href: '/quiz', label: 'Quiz' },
       { href: '/games/memory', label: 'Symbol Memory' },
+      { href: '/facts', label: 'Mythology Facts' },
       { href: '/learning-paths', label: 'Learning Paths' },
       { href: '/review', label: 'Daily Review' },
       { href: '/progress', label: 'Progress' },

@@ -18,6 +18,7 @@ import { AudioProvider } from "@/components/audio/AudioContext";
 import { AudioControls } from "@/components/audio/AudioControls";
 import { InstallPrompt, OfflineIndicator } from "@/components/pwa";
 import { LayoutEffects } from "@/components/effects/LayoutEffects";
+import { RandomDiscoveryButton } from "@/components/discovery/RandomDiscoveryButton";
 
 // Cinzel - Elegant classical display font inspired by Roman inscriptions
 const cinzel = Cinzel({
@@ -104,6 +105,7 @@ export default async function RootLayout({
                     <AudioControls />
                     <InstallPrompt />
                     <LayoutEffects />
+                    <RandomDiscoveryButton />
                   </CommandPaletteProvider>
                 </AudioProvider>
                 </AchievementNotificationProvider>

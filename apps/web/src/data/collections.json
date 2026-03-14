@@ -1,0 +1,122 @@
+[
+  {
+    "id": "trickster-gods",
+    "name": "Trickster Gods",
+    "slug": "trickster-gods",
+    "description": "Divine troublemakers and shapeshifters who use cunning over brute force. These deities blur the lines between chaos and creation.",
+    "theme": "chaos",
+    "deities": ["loki", "hermes", "anansi", "coyote", "maui", "eris", "set"],
+    "stories": [],
+    "icon": "sparkles"
+  },
+  {
+    "id": "underworld-rulers",
+    "name": "Rulers of the Dead",
+    "slug": "underworld-rulers",
+    "description": "Sovereigns of the afterlife who guide souls, judge the deceased, and guard the boundaries between life and death.",
+    "theme": "death",
+    "deities": ["hades", "hel", "osiris", "anubis", "mictlantecuhtli", "yama", "izanami"],
+    "stories": ["orpheus-and-eurydice", "descent-of-inanna", "journey-to-mictlan"],
+    "icon": "skull"
+  },
+  {
+    "id": "sky-fathers",
+    "name": "Sky Fathers",
+    "slug": "sky-fathers",
+    "description": "Supreme rulers who command thunder, lightning, and cosmic order. These father figures often head their pantheons.",
+    "theme": "sky",
+    "deities": ["zeus", "jupiter", "odin", "indra", "thor", "perun", "taranis"],
+    "stories": [],
+    "icon": "cloud-lightning"
+  },
+  {
+    "id": "love-deities",
+    "name": "Gods of Love",
+    "slug": "love-deities",
+    "description": "Deities who govern passion, desire, beauty, and the bonds between hearts. Their influence shapes mortal and divine relationships alike.",
+    "theme": "love",
+    "deities": ["aphrodite", "venus", "freyja", "eros", "cupid", "hathor", "rati", "xochiquetzal"],
+    "stories": ["cupid-and-psyche", "orpheus-and-eurydice"],
+    "icon": "heart"
+  },
+  {
+    "id": "war-gods",
+    "name": "Divine Warriors",
+    "slug": "war-gods",
+    "description": "Gods and goddesses of battle, strategy, and martial prowess. Some embody brutal warfare, others disciplined combat.",
+    "theme": "war",
+    "deities": ["ares", "mars", "athena", "odin", "tyr", "sekhmet", "huitzilopochtli", "durga"],
+    "stories": ["titanomachy", "ragnarok"],
+    "icon": "sword"
+  },
+  {
+    "id": "sun-deities",
+    "name": "Children of the Sun",
+    "slug": "sun-deities",
+    "description": "Radiant deities who drive the sun across the sky, bringing light, warmth, and the cycle of days.",
+    "theme": "sun",
+    "deities": ["ra", "apollo", "helios", "amaterasu", "surya", "tonatiuh", "inti"],
+    "stories": [],
+    "icon": "sun"
+  },
+  {
+    "id": "sea-gods",
+    "name": "Lords of the Deep",
+    "slug": "sea-gods",
+    "description": "Rulers of oceans, rivers, and all waters. They command storms at sea and the creatures of the deep.",
+    "theme": "water",
+    "deities": ["poseidon", "neptune", "aegir", "ryujin", "varuna", "tlaloc", "manannan-mac-lir"],
+    "stories": [],
+    "icon": "waves"
+  },
+  {
+    "id": "wisdom-keepers",
+    "name": "Keepers of Wisdom",
+    "slug": "wisdom-keepers",
+    "description": "Deities of knowledge, learning, arts, and civilization. They gift humanity with writing, medicine, and sacred mysteries.",
+    "theme": "wisdom",
+    "deities": ["athena", "thoth", "odin", "saraswati", "ogma", "quetzalcoatl", "ganesh"],
+    "stories": [],
+    "icon": "book-open"
+  },
+  {
+    "id": "creation-myths",
+    "name": "In the Beginning",
+    "slug": "creation-myths",
+    "description": "Stories of how the cosmos came to be - from primordial chaos to ordered creation, featuring the first gods and the birth of worlds.",
+    "theme": "creation",
+    "deities": ["gaia", "chaos", "brahma", "ra", "odin", "izanagi", "izanami"],
+    "stories": ["creation-of-the-world", "the-enuma-elish"],
+    "icon": "sparkles"
+  },
+  {
+    "id": "flood-myths",
+    "name": "The Great Floods",
+    "slug": "flood-myths",
+    "description": "Cataclysmic deluges that washed away the old world. These universal stories explore divine judgment and humanity's resilience.",
+    "theme": "flood",
+    "deities": ["zeus", "vishnu", "enlil", "tlaloc"],
+    "stories": ["the-great-flood"],
+    "icon": "droplets"
+  },
+  {
+    "id": "mother-goddesses",
+    "name": "Divine Mothers",
+    "slug": "mother-goddesses",
+    "description": "Nurturing earth mothers and protective maternal figures who embody fertility, nature, and the cycles of life.",
+    "theme": "earth",
+    "deities": ["gaia", "demeter", "isis", "frigg", "danu", "parvati", "coatlicue", "pachamama"],
+    "stories": ["persephone-and-demeter"],
+    "icon": "leaf"
+  },
+  {
+    "id": "divine-craftsmen",
+    "name": "The Forge Gods",
+    "slug": "divine-craftsmen",
+    "description": "Master smiths and artisans who create divine weapons, magical artifacts, and wonders of craftsmanship.",
+    "theme": "craft",
+    "deities": ["hephaestus", "vulcan", "ptah", "goibniu", "vishvakarma"],
+    "stories": [],
+    "icon": "hammer"
+  }
+]

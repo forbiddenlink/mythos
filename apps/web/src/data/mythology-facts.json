@@ -1,0 +1,182 @@
+[
+  {
+    "id": "zeus-jupiter-same",
+    "fact": "Zeus and Jupiter are essentially the same deity — when Rome conquered Greece, they merged their gods. Jupiter even kept Zeus's eagle and thunderbolt.",
+    "category": "connections",
+    "relatedDeities": ["zeus", "jupiter"]
+  },
+  {
+    "id": "odin-wednesday",
+    "fact": "Wednesday is named after Odin (Woden's Day). Thursday is Thor's Day, Tuesday is Tyr's Day, and Friday is Frigg's Day.",
+    "category": "language",
+    "relatedDeities": ["odin", "thor", "tyr", "frigg"]
+  },
+  {
+    "id": "prometheus-liver",
+    "fact": "The ancient Greeks knew the liver could regenerate. That's why Prometheus's punishment — having his liver eaten daily by an eagle — was eternal torment.",
+    "category": "science",
+    "relatedDeities": ["prometheus"]
+  },
+  {
+    "id": "aphrodite-foam",
+    "fact": "Aphrodite's name likely comes from 'aphros' (foam) — she was born from sea foam after Cronus threw Uranus's severed body parts into the ocean.",
+    "category": "origins",
+    "relatedDeities": ["aphrodite"]
+  },
+  {
+    "id": "anubis-embalming",
+    "fact": "Anubis was depicted with a jackal head because jackals were often seen near cemeteries — Egyptians associated them with protecting the dead.",
+    "category": "symbolism",
+    "relatedDeities": ["anubis"]
+  },
+  {
+    "id": "loki-mother",
+    "fact": "Loki is the mother of Sleipnir, Odin's eight-legged horse. He shapeshifted into a mare to distract a giant's stallion and ended up pregnant.",
+    "category": "stories",
+    "relatedDeities": ["loki", "odin"]
+  },
+  {
+    "id": "athena-birth",
+    "fact": "Athena was born fully armored from Zeus's forehead. Zeus had swallowed her pregnant mother Metis to prevent a prophecy about being overthrown.",
+    "category": "origins",
+    "relatedDeities": ["athena", "zeus"]
+  },
+  {
+    "id": "hades-not-evil",
+    "fact": "Hades wasn't evil — he was just the god who drew the short straw and got the underworld. He was actually one of the more fair and just Greek gods.",
+    "category": "misconceptions",
+    "relatedDeities": ["hades"]
+  },
+  {
+    "id": "ra-scarab",
+    "fact": "Egyptians believed the sun was pushed across the sky like a dung beetle rolls its ball. That's why the scarab beetle symbolized Ra and rebirth.",
+    "category": "symbolism",
+    "relatedDeities": ["ra"]
+  },
+  {
+    "id": "thor-cross-dress",
+    "fact": "Thor once dressed as a bride to retrieve his stolen hammer Mjolnir. Loki came along as his bridesmaid. The giant groom was crushed at the wedding feast.",
+    "category": "stories",
+    "relatedDeities": ["thor", "loki"]
+  },
+  {
+    "id": "dionysus-twice-born",
+    "fact": "Dionysus was 'twice-born' — after his mother Semele died, Zeus sewed the fetal Dionysus into his own thigh until he was ready to be born.",
+    "category": "origins",
+    "relatedDeities": ["dionysus", "zeus"]
+  },
+  {
+    "id": "medusa-punishment",
+    "fact": "Medusa wasn't always a monster. She was a beautiful priestess of Athena who was cursed after Poseidon violated her in Athena's temple.",
+    "category": "stories",
+    "relatedDeities": ["athena", "poseidon"]
+  },
+  {
+    "id": "cerberus-meaning",
+    "fact": "Cerberus may simply mean 'spotted' — the fearsome three-headed guardian of the underworld might just be named 'Spot.'",
+    "category": "language",
+    "relatedDeities": ["hades"]
+  },
+  {
+    "id": "fenrir-binding",
+    "fact": "The gods couldn't bind Fenrir with any chain, so dwarves made Gleipnir from impossible things: a cat's footsteps, a woman's beard, and the roots of mountains.",
+    "category": "stories",
+    "relatedDeities": ["fenrir", "tyr"]
+  },
+  {
+    "id": "apollo-sun",
+    "fact": "Apollo wasn't originally the sun god — that was Helios. Apollo was god of music, poetry, and prophecy. They merged over time in popular imagination.",
+    "category": "misconceptions",
+    "relatedDeities": ["apollo", "helios"]
+  },
+  {
+    "id": "isis-name",
+    "fact": "Isis gained power over Ra by tricking him into revealing his secret name. In Egyptian magic, knowing something's true name gave you power over it.",
+    "category": "stories",
+    "relatedDeities": ["isis", "ra"]
+  },
+  {
+    "id": "hermes-trickster",
+    "fact": "On the day he was born, Hermes invented the lyre, stole Apollo's cattle, and talked his way out of punishment. He was made a god by nightfall.",
+    "category": "stories",
+    "relatedDeities": ["hermes", "apollo"]
+  },
+  {
+    "id": "valkyries-choosers",
+    "fact": "Valkyrie means 'chooser of the slain.' They didn't just collect dead warriors — they decided who would die in battle in the first place.",
+    "category": "language",
+    "relatedDeities": ["odin", "freyja"]
+  },
+  {
+    "id": "amaterasu-cave",
+    "fact": "When Amaterasu hid in a cave (causing eternal night), the other gods lured her out with a wild party and a mirror. She was curious who was more radiant than her.",
+    "category": "stories",
+    "relatedDeities": ["amaterasu", "ame-no-uzume"]
+  },
+  {
+    "id": "quetzalcoatl-return",
+    "fact": "The Aztecs believed Quetzalcoatl would return from the east. When Cortés arrived from the east in 1519, some thought the prophecy was being fulfilled.",
+    "category": "history",
+    "relatedDeities": ["quetzalcoatl"]
+  },
+  {
+    "id": "pan-panic",
+    "fact": "The word 'panic' comes from the god Pan, who could cause sudden, irrational fear in humans and animals with his terrifying shout.",
+    "category": "language",
+    "relatedDeities": ["pan"]
+  },
+  {
+    "id": "seth-red-hair",
+    "fact": "Set (Seth) was associated with red — chaos, the desert, and foreigners. Ancient Egyptians with red hair were sometimes viewed with suspicion because of this.",
+    "category": "symbolism",
+    "relatedDeities": ["set"]
+  },
+  {
+    "id": "hephaestus-robots",
+    "fact": "Hephaestus created the first robots in mythology — golden maidens who could think and speak, and Talos, a giant bronze automaton that guarded Crete.",
+    "category": "stories",
+    "relatedDeities": ["hephaestus"]
+  },
+  {
+    "id": "ragnarok-survival",
+    "fact": "Ragnarok isn't the end — it's a cycle. After the gods die and the world burns, two humans survive to repopulate a fresh, green earth.",
+    "category": "stories",
+    "relatedDeities": ["odin", "thor"]
+  },
+  {
+    "id": "ganesh-head",
+    "fact": "Ganesh got his elephant head because Shiva beheaded him (not recognizing his own son), then replaced it with the first head he found — an elephant's.",
+    "category": "origins",
+    "relatedDeities": ["ganesh", "shiva"]
+  },
+  {
+    "id": "echo-narcissus",
+    "fact": "Echo could only repeat others' words because Hera cursed her. She fell in love with Narcissus but could only echo his words back to him.",
+    "category": "stories",
+    "relatedDeities": ["hera"]
+  },
+  {
+    "id": "morpheus-dreams",
+    "fact": "Morpheus shaped dreams into human forms. The word 'morphine' comes from his name because the drug brings dreamlike states.",
+    "category": "language",
+    "relatedDeities": []
+  },
+  {
+    "id": "bastet-cats",
+    "fact": "Killing a cat in ancient Egypt was punishable by death. When a household cat died, the family would shave their eyebrows in mourning.",
+    "category": "history",
+    "relatedDeities": ["bastet"]
+  },
+  {
+    "id": "midas-donkey",
+    "fact": "King Midas had donkey ears as punishment for judging Pan's music better than Apollo's. His barber knew the secret and whispered it to a hole in the ground.",
+    "category": "stories",
+    "relatedDeities": ["apollo", "pan"]
+  },
+  {
+    "id": "janus-doors",
+    "fact": "January is named after Janus, the two-faced god of doorways, beginnings, and endings. He looks both to the past and future.",
+    "category": "language",
+    "relatedDeities": ["janus"]
+  }
+]

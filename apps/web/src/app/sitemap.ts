@@ -6,6 +6,7 @@ import creatures from '@/data/creatures.json'
 import artifacts from '@/data/artifacts.json'
 import journeys from '@/data/journeys.json'
 import locations from '@/data/locations.json'
+import collections from '@/data/collections.json'
 
 const BASE_URL = 'https://mythos-web-seven.vercel.app'
 
@@ -177,6 +178,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'daily',
       priority: 0.5,
     },
+    {
+      url: `${BASE_URL}/collections`,
+      lastModified,
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: `${BASE_URL}/facts`,
+      lastModified,
+      changeFrequency: 'weekly',
+      priority: 0.6,
+    },
   ]
 
   // Deity pages
@@ -235,6 +248,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }))
 
+  // Collection pages
+  const collectionPages: MetadataRoute.Sitemap = collections.map((collection) => ({
+    url: `${BASE_URL}/collections/${collection.slug}`,
+    lastModified,
+    changeFrequency: 'monthly' as const,
+    priority: 0.6,
+  }))
+
   return [
     ...staticPages,
     ...deityPages,
@@ -244,5 +265,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...artifactPages,
     ...journeyPages,
     ...locationPages,
+    ...collectionPages,
   ]
 }

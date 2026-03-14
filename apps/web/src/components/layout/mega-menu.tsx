@@ -22,7 +22,9 @@ import {
   Award,
   GraduationCap,
   Clock,
-  Scale
+  Scale,
+  Library,
+  Lightbulb
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
@@ -90,6 +92,12 @@ const discoverMenu: MenuSection = {
   label: 'Discover',
   items: [
     {
+      label: 'Collections',
+      href: '/collections',
+      description: 'Themed deity and story groupings',
+      icon: <Library className="h-4 w-4" />
+    },
+    {
       label: 'Divine Domains',
       href: '/divine-domains',
       description: 'Powers and spheres of influence',
@@ -148,6 +156,12 @@ const learnMenu: MenuSection = {
       href: '/games/memory',
       description: 'Match deities with their symbols',
       icon: <Brain className="h-4 w-4" />
+    },
+    {
+      label: 'Mythology Facts',
+      href: '/facts',
+      description: 'Fascinating mythology tidbits',
+      icon: <Lightbulb className="h-4 w-4" />
     },
     {
       label: 'Daily Review',

@@ -11,6 +11,8 @@ import { generateBaseMetadata } from '@/lib/metadata';
 import { InteractiveStoriesBanner } from '@/components/home/InteractiveStoriesBanner';
 import { DailyChallengeBanner } from '@/components/challenges/DailyChallengeBanner';
 import { LeaderboardWidget } from '@/components/leaderboard/LeaderboardWidget';
+import { DidYouKnow } from '@/components/home/DidYouKnow';
+import { CollectionsShowcase } from '@/components/home/CollectionsShowcase';
 
 export const metadata = generateBaseMetadata({
   title: 'Mythos Atlas - Explore World Mythology',
@@ -29,6 +31,8 @@ export default function Home() {
       <StreakWidget />
       <DailyChallengeBanner />
       <DailyCard />
+      <DidYouKnow />
+      <CollectionsShowcase />
       <InteractiveStoriesBanner />
       <LeaderboardWidget />
       <FeaturesGrid />
