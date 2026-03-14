@@ -87,7 +87,7 @@
 
   /* Muted - warm gray */
   --muted: oklch(0.93 0.01 85);
-  --muted-foreground: oklch(0.40 0.02 260);
+  --muted-foreground: oklch(0.4 0.02 260);
 
   /* Accent - burnished gold */
   --accent: oklch(0.72 0.14 70);
@@ -98,19 +98,19 @@
 
   /* Borders and inputs */
   --border: oklch(0.88 0.015 85);
-  --input: oklch(0.90 0.01 85);
+  --input: oklch(0.9 0.01 85);
   --ring: oklch(0.65 0.12 70);
 
   /* Charts - rich classical palette */
-  --chart-1: oklch(0.65 0.16 70);  /* Burnished gold */
+  --chart-1: oklch(0.65 0.16 70); /* Burnished gold */
   --chart-2: oklch(0.55 0.12 265); /* Deep indigo */
-  --chart-3: oklch(0.55 0.10 160); /* Aged patina */
-  --chart-4: oklch(0.60 0.15 25);  /* Terracotta */
-  --chart-5: oklch(0.50 0.12 300); /* Royal purple */
+  --chart-3: oklch(0.55 0.1 160); /* Aged patina */
+  --chart-4: oklch(0.6 0.15 25); /* Terracotta */
+  --chart-5: oklch(0.5 0.12 300); /* Royal purple */
 
   /* Custom mythology colors */
   --gold: oklch(0.72 0.14 70);
-  --gold-light: oklch(0.85 0.10 75);
+  --gold-light: oklch(0.85 0.1 75);
   --gold-dark: oklch(0.55 0.14 65);
   --midnight: oklch(0.18 0.06 265);
   --midnight-light: oklch(0.28 0.06 265);
@@ -140,7 +140,7 @@
   --card-foreground: oklch(0.92 0.015 85);
 
   /* Popovers */
-  --popover: oklch(0.20 0.04 265);
+  --popover: oklch(0.2 0.04 265);
   --popover-foreground: oklch(0.92 0.015 85);
 
   /* Primary - bright gold on dark */
@@ -160,7 +160,7 @@
   --accent-foreground: oklch(0.14 0.03 70);
 
   /* Destructive */
-  --destructive: oklch(0.65 0.20 25);
+  --destructive: oklch(0.65 0.2 25);
 
   /* Borders and inputs */
   --border: oklch(0.28 0.04 265);
@@ -168,22 +168,22 @@
   --ring: oklch(0.72 0.14 70);
 
   /* Charts - luminous on dark */
-  --chart-1: oklch(0.78 0.14 70);  /* Bright gold */
+  --chart-1: oklch(0.78 0.14 70); /* Bright gold */
   --chart-2: oklch(0.65 0.12 265); /* Lighter indigo */
-  --chart-3: oklch(0.65 0.10 160); /* Bright patina */
-  --chart-4: oklch(0.70 0.15 25);  /* Warm terracotta */
+  --chart-3: oklch(0.65 0.1 160); /* Bright patina */
+  --chart-4: oklch(0.7 0.15 25); /* Warm terracotta */
   --chart-5: oklch(0.65 0.14 300); /* Bright purple */
 
   /* Custom mythology colors - luminous variants */
   --gold: oklch(0.78 0.14 70);
-  --gold-light: oklch(0.88 0.10 75);
+  --gold-light: oklch(0.88 0.1 75);
   --gold-dark: oklch(0.62 0.14 65);
   --midnight: oklch(0.14 0.03 265);
   --midnight-light: oklch(0.22 0.04 265);
   --parchment: oklch(0.92 0.015 85);
   --parchment-dark: oklch(0.75 0.02 80);
   --bronze: oklch(0.65 0.12 55);
-  --patina: oklch(0.60 0.08 175);
+  --patina: oklch(0.6 0.08 175);
 
   /* Sidebar */
   --sidebar: oklch(0.16 0.03 265);
@@ -318,7 +318,7 @@
   }
 
   .noise-overlay::before {
-    content: '';
+    content: "";
     position: absolute;
     inset: 0;
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
@@ -342,7 +342,7 @@
 
   .border-ornate::before,
   .border-ornate::after {
-    content: '';
+    content: "";
     position: absolute;
     width: 12px;
     height: 12px;
@@ -384,8 +384,13 @@
   }
 
   @keyframes shimmer {
-    0%, 100% { background-position: 200% center; }
-    50% { background-position: 0% center; }
+    0%,
+    100% {
+      background-position: 200% center;
+    }
+    50% {
+      background-position: 0% center;
+    }
   }
 
   /* ═══════════════════════════════════════════════════════════════════
@@ -420,24 +425,57 @@
      ═══════════════════════════════════════════════════════════════════ */
   .bg-mythic {
     background:
-      radial-gradient(ellipse 80% 50% at 50% -20%, rgba(178, 143, 86, 0.15) 0%, transparent 50%),
-      radial-gradient(ellipse 60% 40% at 80% 100%, rgba(98, 87, 130, 0.12) 0%, transparent 50%),
+      radial-gradient(
+        ellipse 80% 50% at 50% -20%,
+        rgba(178, 143, 86, 0.15) 0%,
+        transparent 50%
+      ),
+      radial-gradient(
+        ellipse 60% 40% at 80% 100%,
+        rgba(98, 87, 130, 0.12) 0%,
+        transparent 50%
+      ),
       linear-gradient(180deg, var(--background) 0%, var(--background) 100%);
   }
 
   .dark .bg-mythic {
     background:
-      radial-gradient(ellipse 80% 50% at 50% -20%, rgba(178, 143, 86, 0.08) 0%, transparent 50%),
-      radial-gradient(ellipse 60% 40% at 80% 100%, rgba(98, 87, 180, 0.08) 0%, transparent 50%),
+      radial-gradient(
+        ellipse 80% 50% at 50% -20%,
+        rgba(178, 143, 86, 0.08) 0%,
+        transparent 50%
+      ),
+      radial-gradient(
+        ellipse 60% 40% at 80% 100%,
+        rgba(98, 87, 180, 0.08) 0%,
+        transparent 50%
+      ),
       linear-gradient(180deg, var(--background) 0%, var(--background) 100%);
   }
 
   .bg-hero-gradient {
     background:
-      radial-gradient(ellipse 100% 70% at 50% 0%, rgba(178, 143, 86, 0.3) 0%, transparent 60%),
-      radial-gradient(ellipse 80% 60% at 20% 100%, rgba(75, 65, 130, 0.25) 0%, transparent 50%),
-      radial-gradient(ellipse 60% 50% at 90% 80%, rgba(140, 95, 60, 0.2) 0%, transparent 50%),
-      linear-gradient(180deg, oklch(0.14 0.04 265) 0%, oklch(0.12 0.03 270) 50%, oklch(0.10 0.025 275) 100%);
+      radial-gradient(
+        ellipse 100% 70% at 50% 0%,
+        rgba(178, 143, 86, 0.3) 0%,
+        transparent 60%
+      ),
+      radial-gradient(
+        ellipse 80% 60% at 20% 100%,
+        rgba(75, 65, 130, 0.25) 0%,
+        transparent 50%
+      ),
+      radial-gradient(
+        ellipse 60% 50% at 90% 80%,
+        rgba(140, 95, 60, 0.2) 0%,
+        transparent 50%
+      ),
+      linear-gradient(
+        180deg,
+        oklch(0.14 0.04 265) 0%,
+        oklch(0.12 0.03 270) 50%,
+        oklch(0.1 0.025 275) 100%
+      );
   }
 
   /* ═══════════════════════════════════════════════════════════════════
@@ -490,7 +528,7 @@
 
   .divider-ornate::before,
   .divider-ornate::after {
-    content: '';
+    content: "";
     flex: 1;
     height: 1px;
     background: linear-gradient(90deg, transparent, var(--gold), transparent);
@@ -510,8 +548,13 @@
   }
 
   @keyframes float {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-12px); }
+    0%,
+    100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-12px);
+    }
   }
 
   .animate-pulse-subtle {
@@ -519,8 +562,15 @@
   }
 
   @keyframes pulse-subtle {
-    0%, 100% { opacity: 0.6; transform: scale(1); }
-    50% { opacity: 1; transform: scale(1.02); }
+    0%,
+    100% {
+      opacity: 0.6;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.02);
+    }
   }
 
   .animate-glow {
@@ -528,7 +578,8 @@
   }
 
   @keyframes glow {
-    0%, 100% {
+    0%,
+    100% {
       filter: drop-shadow(0 0 8px rgba(178, 143, 86, 0.3));
     }
     50% {
@@ -543,12 +594,24 @@
     animation: stagger-in 0.6s ease-out forwards;
   }
 
-  .animate-stagger > *:nth-child(1) { animation-delay: 0.1s; }
-  .animate-stagger > *:nth-child(2) { animation-delay: 0.2s; }
-  .animate-stagger > *:nth-child(3) { animation-delay: 0.3s; }
-  .animate-stagger > *:nth-child(4) { animation-delay: 0.4s; }
-  .animate-stagger > *:nth-child(5) { animation-delay: 0.5s; }
-  .animate-stagger > *:nth-child(6) { animation-delay: 0.6s; }
+  .animate-stagger > *:nth-child(1) {
+    animation-delay: 0.1s;
+  }
+  .animate-stagger > *:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+  .animate-stagger > *:nth-child(3) {
+    animation-delay: 0.3s;
+  }
+  .animate-stagger > *:nth-child(4) {
+    animation-delay: 0.4s;
+  }
+  .animate-stagger > *:nth-child(5) {
+    animation-delay: 0.5s;
+  }
+  .animate-stagger > *:nth-child(6) {
+    animation-delay: 0.6s;
+  }
 
   @keyframes stagger-in {
     to {
@@ -621,12 +684,31 @@
   }
 
   /* ═══════════════════════════════════════════════════════════════════
+     ACCESSIBLE GOLD BADGES
+     High-contrast text for gold-tinted backgrounds (WCAG AA compliant)
+     ═══════════════════════════════════════════════════════════════════ */
+  .badge-gold {
+    background-color: oklch(0.72 0.14 70 / 0.15);
+    border: 1px solid oklch(0.72 0.14 70 / 0.3);
+    color: oklch(
+      0.92 0.08 75
+    ); /* Light cream/gold - high contrast on dark bg */
+  }
+
+  :root[data-theme="light"] .badge-gold,
+  .light .badge-gold {
+    color: oklch(0.35 0.1 60); /* Dark amber - high contrast on light bg */
+  }
+
+  /* ═══════════════════════════════════════════════════════════════════
      FOCUS STATES
      Gold-themed focus rings for brand consistency
      ═══════════════════════════════════════════════════════════════════ */
   .focus-gold:focus-visible {
     outline: none;
-    box-shadow: 0 0 0 2px var(--background), 0 0 0 4px var(--gold);
+    box-shadow:
+      0 0 0 2px var(--background),
+      0 0 0 4px var(--gold);
   }
 
   /* Global focus ring override - gold-themed */
@@ -906,4 +988,3 @@
     }
   }
 }
-

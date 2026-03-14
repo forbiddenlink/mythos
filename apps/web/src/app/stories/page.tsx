@@ -1,24 +1,24 @@
-'use client';
+"use client";
 
-import { useState, useEffect } from 'react';
-import { useQuery } from '@tanstack/react-query';
-import { graphqlClient } from '@/lib/graphql-client';
-import { GET_STORIES } from '@/lib/queries';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import { ScrollText, BookOpen, Gamepad2, Trophy, Clock } from 'lucide-react';
-import Link from 'next/link';
-import Image from 'next/image';
-import { Breadcrumbs } from '@/components/navigation/Breadcrumbs';
-import { StoryFilters } from '@/components/stories/StoryFilters';
-import { BookmarkButton } from '@/components/ui/bookmark-button';
-import { GridSkeleton, FiltersSkeleton } from '@/components/ui/skeleton-cards';
-import { BranchingStory, getDiscoveredEndings } from '@/lib/branching-story';
-import branchingStoriesData from '@/data/branching-stories.json';
-import { CollectionPageJsonLd } from '@/components/seo/JsonLd';
-import { usePagination } from '@/hooks/usePagination';
-import { PaginationControls } from '@/components/ui/pagination-controls';
-import { PageHero } from '@/components/layout/page-hero';
+import { useState, useEffect } from "react";
+import { useQuery } from "@tanstack/react-query";
+import { graphqlClient } from "@/lib/graphql-client";
+import { GET_STORIES } from "@/lib/queries";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { ScrollText, BookOpen, Gamepad2, Trophy, Clock } from "lucide-react";
+import Link from "next/link";
+import Image from "next/image";
+import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
+import { StoryFilters } from "@/components/stories/StoryFilters";
+import { BookmarkButton } from "@/components/ui/bookmark-button";
+import { GridSkeleton, FiltersSkeleton } from "@/components/ui/skeleton-cards";
+import { BranchingStory, getDiscoveredEndings } from "@/lib/branching-story";
+import branchingStoriesData from "@/data/branching-stories.json";
+import { CollectionPageJsonLd } from "@/components/seo/JsonLd";
+import { usePagination } from "@/hooks/usePagination";
+import { PaginationControls } from "@/components/ui/pagination-controls";
+import { PageHero } from "@/components/layout/page-hero";
 
 const branchingStories = branchingStoriesData as unknown as BranchingStory[];
 
@@ -33,17 +33,21 @@ function InteractiveStoryCard({ story }: Readonly<{ story: BranchingStory }>) {
   }, [story.id]);
 
   const remaining = story.totalEndings - discoveredCount;
-  const endingLabel = remaining > 1 ? 'endings' : 'ending';
-  const progressText = discoveredCount === story.totalEndings
-    ? 'All endings discovered!'
-    : `${remaining} ${endingLabel} remaining`;
+  const endingLabel = remaining > 1 ? "endings" : "ending";
+  const progressText =
+    discoveredCount === story.totalEndings
+      ? "All endings discovered!"
+      : `${remaining} ${endingLabel} remaining`;
 
   return (
     <Link href={`/stories/interactive/${story.slug}`} className="group">
-      <Card asArticle className="h-full cursor-pointer card-elevated bg-card hover:scale-[1.01] overflow-hidden relative">
+      <Card
+        asArticle
+        className="h-full cursor-pointer card-elevated bg-card hover:scale-[1.01] overflow-hidden relative"
+      >
         {/* Interactive badge */}
         <div className="absolute top-3 right-3 z-10">
-          <Badge className="bg-gold/20 text-gold border-gold/30 gap-1">
+          <Badge className="bg-gold/20 text-amber-900 dark:text-amber-100 border-gold/30 gap-1">
             <Gamepad2 className="h-3 w-3" />
             Interactive
           </Badge>
@@ -85,7 +89,9 @@ function InteractiveStoryCard({ story }: Readonly<{ story: BranchingStory }>) {
             <span className="flex items-center gap-1">
               <Trophy className="h-3.5 w-3.5" />
               {discoveredCount > 0 ? (
-                <span className="text-gold">{discoveredCount}/{story.totalEndings}</span>
+                <span className="text-gold">
+                  {discoveredCount}/{story.totalEndings}
+                </span>
               ) : (
                 <span>{story.totalEndings} endings</span>
               )}
@@ -98,12 +104,12 @@ function InteractiveStoryCard({ story }: Readonly<{ story: BranchingStory }>) {
               <div className="h-1.5 bg-midnight rounded-full overflow-hidden">
                 <div
                   className="h-full bg-linear-to-r from-gold-dark to-gold transition-all duration-300"
-                  style={{ width: `${(discoveredCount / story.totalEndings) * 100}%` }}
+                  style={{
+                    width: `${(discoveredCount / story.totalEndings) * 100}%`,
+                  }}
                 />
               </div>
-              <p className="text-xs text-gold/70">
-                {progressText}
-              </p>
+              <p className="text-xs text-gold/70">{progressText}</p>
             </div>
           )}
         </CardContent>
@@ -128,20 +134,21 @@ interface Story {
 
 export default function StoriesPage() {
   const [filteredStories, setFilteredStories] = useState<Story[]>([]);
-  
+
   const { data, isLoading, error } = useQuery<{ stories: Story[] }>({
-    queryKey: ['stories'],
+    queryKey: ["stories"],
     queryFn: async () => graphqlClient.request(GET_STORIES),
     select: (data) => ({
-      stories: data.stories.map(story => ({
+      stories: data.stories.map((story) => ({
         ...story,
-        category: story.themes?.[0] || 'other',
+        category: story.themes?.[0] || "other",
         moralThemes: story.themes || [],
       })),
     }),
   });
 
-  const displayStories = filteredStories.length > 0 ? filteredStories : (data?.stories || []);
+  const displayStories =
+    filteredStories.length > 0 ? filteredStories : data?.stories || [];
 
   if (isLoading) {
     return (
@@ -163,9 +170,11 @@ export default function StoriesPage() {
     return (
       <div className="container mx-auto max-w-6xl px-4 py-24">
         <div className="text-center">
-          <h2 className="text-2xl font-bold text-destructive">Error loading stories</h2>
+          <h2 className="text-2xl font-bold text-destructive">
+            Error loading stories
+          </h2>
           <p className="text-muted-foreground mt-2">
-            {error instanceof Error ? error.message : 'An error occurred'}
+            {error instanceof Error ? error.message : "An error occurred"}
           </p>
         </div>
       </div>
@@ -201,8 +210,12 @@ export default function StoriesPage() {
                 <Gamepad2 className="h-5 w-5 text-gold" />
               </div>
               <div>
-                <h2 className="text-xl font-serif font-semibold text-foreground">Interactive Stories</h2>
-                <p className="text-sm text-muted-foreground">Choose your own adventure through mythology</p>
+                <h2 className="text-xl font-serif font-semibold text-foreground">
+                  Interactive Stories
+                </h2>
+                <p className="text-sm text-muted-foreground">
+                  Choose your own adventure through mythology
+                </p>
               </div>
             </div>
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -219,14 +232,21 @@ export default function StoriesPage() {
             <BookOpen className="h-5 w-5 text-gold" />
           </div>
           <div>
-            <h2 className="text-xl font-serif font-semibold text-foreground">Epic Tales</h2>
-            <p className="text-sm text-muted-foreground">Classic mythology narratives</p>
+            <h2 className="text-xl font-serif font-semibold text-foreground">
+              Epic Tales
+            </h2>
+            <p className="text-sm text-muted-foreground">
+              Classic mythology narratives
+            </p>
           </div>
         </div>
 
         {data?.stories && (
           <div className="mb-6">
-            <StoryFilters stories={data.stories} onFilteredChange={setFilteredStories} />
+            <StoryFilters
+              stories={data.stories}
+              onFilteredChange={setFilteredStories}
+            />
           </div>
         )}
 
@@ -235,9 +255,14 @@ export default function StoriesPage() {
         ) : (
           <div className="text-center py-20">
             <div className="inline-flex items-center justify-center w-20 h-20 rounded-xl bg-muted border border-border mb-6">
-              <ScrollText className="h-10 w-10 text-muted-foreground" strokeWidth={1.5} />
+              <ScrollText
+                className="h-10 w-10 text-muted-foreground"
+                strokeWidth={1.5}
+              />
             </div>
-            <h2 className="text-2xl font-serif font-semibold mb-2 text-foreground">No stories yet</h2>
+            <h2 className="text-2xl font-serif font-semibold mb-2 text-foreground">
+              No stories yet
+            </h2>
             <p className="text-muted-foreground">
               Check back later for mythological tales and legends
             </p>
@@ -249,9 +274,9 @@ export default function StoriesPage() {
 }
 
 function getStoryGradient(index: number): string {
-  if (index % 3 === 0) return 'from-gold-dark to-bronze';
-  if (index % 3 === 1) return 'from-midnight-light to-midnight';
-  return 'from-patina to-[oklch(0.45_0.10_170)]';
+  if (index % 3 === 0) return "from-gold-dark to-bronze";
+  if (index % 3 === 1) return "from-midnight-light to-midnight";
+  return "from-patina to-[oklch(0.45_0.10_170)]";
 }
 
 function PaginatedStoryGrid({ stories }: Readonly<{ stories: Story[] }>) {
@@ -267,8 +292,15 @@ function PaginatedStoryGrid({ stories }: Readonly<{ stories: Story[] }>) {
     <>
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 mt-6">
         {pagination.paginatedData.map((story, index) => (
-          <Link key={story.id} href={`/stories/${story.slug}`} className="group">
-            <Card asArticle className="h-full cursor-pointer card-elevated bg-card hover:scale-[1.01] overflow-hidden">
+          <Link
+            key={story.id}
+            href={`/stories/${story.slug}`}
+            className="group"
+          >
+            <Card
+              asArticle
+              className="h-full cursor-pointer card-elevated bg-card hover:scale-[1.01] overflow-hidden"
+            >
               {/* Subtle Top Border */}
               <div className="h-0.5 bg-linear-to-r from-gold-dark via-gold to-gold-dark"></div>
 
@@ -277,8 +309,13 @@ function PaginatedStoryGrid({ stories }: Readonly<{ stories: Story[] }>) {
                   <BookOpen className="h-24 w-24 text-gold" />
                 </div>
                 <div className="flex items-start gap-3 relative z-10">
-                  <div className={`w-12 h-12 rounded-xl bg-linear-to-br ${getStoryGradient(index)} flex items-center justify-center shrink-0 shadow-md group-hover:scale-105 transition-transform duration-300`}>
-                    <ScrollText className="h-6 w-6 text-white/90" strokeWidth={1.5} />
+                  <div
+                    className={`w-12 h-12 rounded-xl bg-linear-to-br ${getStoryGradient(index)} flex items-center justify-center shrink-0 shadow-md group-hover:scale-105 transition-transform duration-300`}
+                  >
+                    <ScrollText
+                      className="h-6 w-6 text-white/90"
+                      strokeWidth={1.5}
+                    />
                   </div>
                   <div className="flex-1 min-w-0">
                     <CardTitle className="text-lg group-hover:text-gold transition-colors duration-300 line-clamp-2">
@@ -300,7 +337,7 @@ function PaginatedStoryGrid({ stories }: Readonly<{ stories: Story[] }>) {
                         <Badge
                           key={theme}
                           variant="secondary"
-                          className="text-xs bg-gold/10 text-gold border border-gold/20"
+                          className="text-xs bg-gold/20 text-amber-900 dark:text-amber-100 border border-gold/30"
                         >
                           {theme}
                         </Badge>

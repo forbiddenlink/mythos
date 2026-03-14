@@ -1,13 +1,13 @@
-'use client';
+"use client";
 
-import { useState, useEffect } from 'react';
-import Link from 'next/link';
-import Image from 'next/image';
-import { Gamepad2, Trophy, ChevronRight, Sparkles } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
-import { BranchingStory, getDiscoveredEndings } from '@/lib/branching-story';
-import branchingStoriesData from '@/data/branching-stories.json';
+import { useState, useEffect } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { Gamepad2, Trophy, ChevronRight, Sparkles } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { BranchingStory, getDiscoveredEndings } from "@/lib/branching-story";
+import branchingStoriesData from "@/data/branching-stories.json";
 
 const branchingStories = branchingStoriesData as unknown as BranchingStory[];
 
@@ -49,7 +49,7 @@ export function InteractiveStoriesBanner() {
                   <div className="p-2.5 rounded-xl bg-gold/20 border border-gold/30">
                     <Gamepad2 className="h-6 w-6 text-gold" />
                   </div>
-                  <Badge className="bg-gold/20 text-gold border-gold/30 px-3 py-1">
+                  <Badge className="bg-gold/20 text-amber-900 dark:text-amber-100 border-gold/30 px-3 py-1">
                     <Sparkles className="h-3 w-3 mr-1" />
                     Interactive
                   </Badge>
@@ -60,8 +60,9 @@ export function InteractiveStoriesBanner() {
                 </h2>
 
                 <p className="text-parchment/70 text-lg mb-6 max-w-xl">
-                  Step into the sandals of legendary heroes. Make choices that shape destiny.
-                  Discover multiple endings in immersive mythological adventures.
+                  Step into the sandals of legendary heroes. Make choices that
+                  shape destiny. Discover multiple endings in immersive
+                  mythological adventures.
                 </p>
 
                 {/* Stats */}
@@ -69,28 +70,39 @@ export function InteractiveStoriesBanner() {
                   <div className="flex items-center gap-2">
                     <Trophy className="h-5 w-5 text-gold" />
                     <span className="text-parchment">
-                      <span className="font-semibold text-gold">{branchingStories.length}</span>
-                      {' '}stories
+                      <span className="font-semibold text-gold">
+                        {branchingStories.length}
+                      </span>{" "}
+                      stories
                     </span>
                   </div>
                   <div className="w-px h-5 bg-gold/30" />
                   <span className="text-parchment">
                     <span className="font-semibold text-gold">
                       {totalDiscovered}/{totalEndings}
-                    </span>
-                    {' '}endings discovered
+                    </span>{" "}
+                    endings discovered
                   </span>
                 </div>
 
                 {/* CTA Buttons */}
                 <div className="flex flex-wrap gap-3">
-                  <Button asChild size="lg" className="bg-gold hover:bg-gold-dark text-midnight">
+                  <Button
+                    asChild
+                    size="lg"
+                    className="bg-gold hover:bg-gold-dark text-midnight"
+                  >
                     <Link href={`/stories/interactive/${featuredStory.slug}`}>
                       <Gamepad2 className="h-5 w-5 mr-2" />
                       Play Now
                     </Link>
                   </Button>
-                  <Button asChild variant="outline" size="lg" className="border-gold/30 text-parchment hover:bg-gold/10">
+                  <Button
+                    asChild
+                    variant="outline"
+                    size="lg"
+                    className="border-gold/30 text-parchment hover:bg-gold/10"
+                  >
                     <Link href="/stories">
                       View All Stories
                       <ChevronRight className="h-5 w-5 ml-1" />

@@ -1,17 +1,17 @@
-'use client';
+"use client";
 
-import { useQuery } from '@tanstack/react-query';
-import { graphqlClient } from '@/lib/graphql-client';
-import { GET_DEITIES, GET_STORIES } from '@/lib/queries';
-import { useBookmarks } from '@/hooks/useBookmarks';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import { BookmarkButton } from '@/components/ui/bookmark-button';
-import { Progress } from '@/components/ui/progress';
-import { Breadcrumbs } from '@/components/navigation/Breadcrumbs';
-import { Heart, Sparkles, ScrollText, BookOpen, Compass } from 'lucide-react';
-import Link from 'next/link';
-import type { BookmarkType } from '@/providers/bookmarks-provider';
+import { useQuery } from "@tanstack/react-query";
+import { graphqlClient } from "@/lib/graphql-client";
+import { GET_DEITIES, GET_STORIES } from "@/lib/queries";
+import { useBookmarks } from "@/hooks/useBookmarks";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { BookmarkButton } from "@/components/ui/bookmark-button";
+import { Progress } from "@/components/ui/progress";
+import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
+import { Heart, Sparkles, ScrollText, BookOpen, Compass } from "lucide-react";
+import Link from "next/link";
+import type { BookmarkType } from "@/providers/bookmarks-provider";
 
 interface Deity {
   id: string;
@@ -36,40 +36,46 @@ function formatTimestamp(timestamp: number): string {
   const diffMs = now.getTime() - date.getTime();
   const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
 
-  if (diffDays === 0) return 'Today';
-  if (diffDays === 1) return 'Yesterday';
+  if (diffDays === 0) return "Today";
+  if (diffDays === 1) return "Yesterday";
   if (diffDays < 7) return `${diffDays} days ago`;
   if (diffDays < 30) return `${Math.floor(diffDays / 7)} weeks ago`;
-  return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+  return date.toLocaleDateString("en-US", {
+    month: "short",
+    day: "numeric",
+    year: "numeric",
+  });
 }
 
 export default function BookmarksPage() {
   const { getBookmarks, getReadingProgress } = useBookmarks();
 
-  const deityBookmarks = getBookmarks('deity');
-  const storyBookmarks = getBookmarks('story');
-  const pantheonBookmarks = getBookmarks('pantheon');
+  const deityBookmarks = getBookmarks("deity");
+  const storyBookmarks = getBookmarks("story");
+  const pantheonBookmarks = getBookmarks("pantheon");
   const allBookmarks = getBookmarks();
 
   const { data: deitiesData } = useQuery<{ deities: Deity[] }>({
-    queryKey: ['deities'],
+    queryKey: ["deities"],
     queryFn: async () => graphqlClient.request(GET_DEITIES),
     enabled: deityBookmarks.length > 0,
   });
 
   const { data: storiesData } = useQuery<{ stories: Story[] }>({
-    queryKey: ['stories'],
+    queryKey: ["stories"],
     queryFn: async () => graphqlClient.request(GET_STORIES),
     enabled: storyBookmarks.length > 0,
   });
 
-  const bookmarkedDeities = deitiesData?.deities.filter((d) =>
-    deityBookmarks.some((b) => b.id === d.id)
-  ) ?? [];
+  const bookmarkedDeities =
+    deitiesData?.deities.filter((d) =>
+      deityBookmarks.some((b) => b.id === d.id),
+    ) ?? [];
 
-  const bookmarkedStories = storiesData?.stories.filter((s) =>
-    storyBookmarks.some((b) => b.id === s.id)
-  ) ?? [];
+  const bookmarkedStories =
+    storiesData?.stories.filter((s) =>
+      storyBookmarks.some((b) => b.id === s.id),
+    ) ?? [];
 
   const isEmpty = allBookmarks.length === 0;
 
@@ -84,7 +90,10 @@ export default function BookmarksPage() {
           <div className="flex items-center justify-center mb-6">
             <div className="relative p-4 rounded-xl border border-gold/20 bg-midnight/50 backdrop-blur-sm">
               <div className="absolute inset-0 rounded-xl bg-linear-to-br from-gold/10 to-transparent" />
-              <Heart className="relative h-10 w-10 text-gold" strokeWidth={1.5} />
+              <Heart
+                className="relative h-10 w-10 text-gold"
+                strokeWidth={1.5}
+              />
             </div>
           </div>
           <span className="inline-block text-gold/80 text-sm tracking-[0.25em] uppercase mb-4 font-medium">
@@ -100,8 +109,8 @@ export default function BookmarksPage() {
           </div>
           <p className="text-lg md:text-xl text-parchment/70 max-w-2xl mx-auto font-body leading-relaxed">
             {isEmpty
-              ? 'Save your favorite deities, stories, and pantheons'
-              : `${allBookmarks.length} saved item${allBookmarks.length !== 1 ? 's' : ''}`}
+              ? "Save your favorite deities, stories, and pantheons"
+              : `${allBookmarks.length} saved item${allBookmarks.length !== 1 ? "s" : ""}`}
           </p>
         </div>
       </div>
@@ -124,14 +133,19 @@ export default function BookmarksPage() {
                   <h2 className="font-serif text-2xl font-semibold text-foreground">
                     Deities
                   </h2>
-                  <Badge variant="secondary" className="bg-gold/10 text-gold border border-gold/20">
+                  <Badge
+                    variant="secondary"
+                    className="bg-gold/20 text-amber-900 dark:text-amber-100 border border-gold/30"
+                  >
                     {deityBookmarks.length}
                   </Badge>
                 </div>
 
                 <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
                   {bookmarkedDeities.map((deity) => {
-                    const bookmark = deityBookmarks.find((b) => b.id === deity.id);
+                    const bookmark = deityBookmarks.find(
+                      (b) => b.id === deity.id,
+                    );
                     return (
                       <BookmarkCard
                         key={deity.id}
@@ -142,7 +156,12 @@ export default function BookmarksPage() {
                         description={deity.description}
                         tags={deity.domain?.slice(0, 3)}
                         timestamp={bookmark?.timestamp ?? 0}
-                        icon={<Sparkles className="h-5 w-5 text-gold" strokeWidth={1.5} />}
+                        icon={
+                          <Sparkles
+                            className="h-5 w-5 text-gold"
+                            strokeWidth={1.5}
+                          />
+                        }
                       />
                     );
                   })}
@@ -155,19 +174,27 @@ export default function BookmarksPage() {
               <section>
                 <div className="flex items-center gap-3 mb-6">
                   <div className="p-2 rounded-lg bg-gold/10 border border-gold/20">
-                    <ScrollText className="h-5 w-5 text-gold" strokeWidth={1.5} />
+                    <ScrollText
+                      className="h-5 w-5 text-gold"
+                      strokeWidth={1.5}
+                    />
                   </div>
                   <h2 className="font-serif text-2xl font-semibold text-foreground">
                     Stories
                   </h2>
-                  <Badge variant="secondary" className="bg-gold/10 text-gold border border-gold/20">
+                  <Badge
+                    variant="secondary"
+                    className="bg-gold/20 text-amber-900 dark:text-amber-100 border border-gold/30"
+                  >
                     {storyBookmarks.length}
                   </Badge>
                 </div>
 
                 <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
                   {bookmarkedStories.map((story) => {
-                    const bookmark = storyBookmarks.find((b) => b.id === story.id);
+                    const bookmark = storyBookmarks.find(
+                      (b) => b.id === story.id,
+                    );
                     const progress = getReadingProgress(story.id);
                     return (
                       <BookmarkCard
@@ -180,7 +207,12 @@ export default function BookmarksPage() {
                         tags={story.themes?.slice(0, 3)}
                         timestamp={bookmark?.timestamp ?? 0}
                         readingProgress={progress}
-                        icon={<ScrollText className="h-5 w-5 text-gold" strokeWidth={1.5} />}
+                        icon={
+                          <ScrollText
+                            className="h-5 w-5 text-gold"
+                            strokeWidth={1.5}
+                          />
+                        }
                       />
                     );
                   })}
@@ -198,7 +230,10 @@ export default function BookmarksPage() {
                   <h2 className="font-serif text-2xl font-semibold text-foreground">
                     Pantheons
                   </h2>
-                  <Badge variant="secondary" className="bg-gold/10 text-gold border border-gold/20">
+                  <Badge
+                    variant="secondary"
+                    className="bg-gold/20 text-amber-900 dark:text-amber-100 border border-gold/30"
+                  >
                     {pantheonBookmarks.length}
                   </Badge>
                 </div>
@@ -210,10 +245,17 @@ export default function BookmarksPage() {
                       type="pantheon"
                       id={bookmark.id}
                       href={`/pantheons`}
-                      title={bookmark.id.replaceAll('-', ' ').replaceAll(/\b\w/g, (c) => c.toUpperCase())}
+                      title={bookmark.id
+                        .replaceAll("-", " ")
+                        .replaceAll(/\b\w/g, (c) => c.toUpperCase())}
                       description={null}
                       timestamp={bookmark.timestamp}
-                      icon={<BookOpen className="h-5 w-5 text-gold" strokeWidth={1.5} />}
+                      icon={
+                        <BookOpen
+                          className="h-5 w-5 text-gold"
+                          strokeWidth={1.5}
+                        />
+                      }
                     />
                   ))}
                 </div>
@@ -278,7 +320,7 @@ function BookmarkCard({
                 <Badge
                   key={tag}
                   variant="secondary"
-                  className="text-xs bg-gold/10 text-gold border border-gold/20"
+                  className="text-xs bg-gold/20 text-amber-900 dark:text-amber-100 border border-gold/30"
                 >
                   {tag}
                 </Badge>
@@ -316,21 +358,21 @@ function EmptyState() {
       <div className="flex flex-wrap items-center justify-center gap-4">
         <Link
           href="/deities"
-          className="inline-flex items-center gap-2 px-5 py-2.5 bg-gold/10 hover:bg-gold/20 border border-gold/30 hover:border-gold/50 rounded-lg text-gold transition-colors"
+          className="inline-flex items-center gap-2 px-5 py-2.5 bg-gold/20 hover:bg-gold/30 border border-gold/40 hover:border-gold/50 rounded-lg text-amber-900 dark:text-amber-100 transition-colors"
         >
           <Sparkles className="h-4 w-4" />
           Explore Deities
         </Link>
         <Link
           href="/stories"
-          className="inline-flex items-center gap-2 px-5 py-2.5 bg-gold/10 hover:bg-gold/20 border border-gold/30 hover:border-gold/50 rounded-lg text-gold transition-colors"
+          className="inline-flex items-center gap-2 px-5 py-2.5 bg-gold/20 hover:bg-gold/30 border border-gold/40 hover:border-gold/50 rounded-lg text-amber-900 dark:text-amber-100 transition-colors"
         >
           <ScrollText className="h-4 w-4" />
           Read Stories
         </Link>
         <Link
           href="/pantheons"
-          className="inline-flex items-center gap-2 px-5 py-2.5 bg-gold/10 hover:bg-gold/20 border border-gold/30 hover:border-gold/50 rounded-lg text-gold transition-colors"
+          className="inline-flex items-center gap-2 px-5 py-2.5 bg-gold/20 hover:bg-gold/30 border border-gold/40 hover:border-gold/50 rounded-lg text-amber-900 dark:text-amber-100 transition-colors"
         >
           <Compass className="h-4 w-4" />
           Browse Pantheons
