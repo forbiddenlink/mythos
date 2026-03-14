@@ -76,3 +76,45 @@ Micro-interaction sounds. All UI sounds should be:
 3. **Reduced Motion**: Respect `prefers-reduced-motion` for audio autoplay
 4. **Muted by Default**: Audio starts muted until user opts in
 5. **Volume Control**: Global volume affects all audio layers
+
+## Included Audio Files
+
+All audio files sourced from [OpenGameArt.org](https://opengameart.org) under CC0 license (public domain).
+
+### Sources
+
+**UI Sounds** - From "RPG Sound Pack" by Kenney (CC0)
+- interface sounds for click, hover, success, error, open, close
+- inventory sounds for achievement, page-turn
+
+**Deity Effects** - Various CC0 artists:
+- `thunder.mp3`, `lightning.mp3` - Rain/thunder ambient by p0ss (CC0)
+- `ocean-wave.mp3` - Beach waves by jasinski (CC0)
+- `fire-crackle.mp3` - Fire by p0ss (CC0)
+- `wind-howl.mp3` - Wind whoosh by SketchMan3 (CC0)
+- `war-drums.mp3` - Horde war drums by William Hector (CC0)
+- `harp-gliss.mp3` - "A New Town" by The Cynic Project (CC0)
+- `raven-call.mp3` - Crow caw by zeroisnotnull (CC0)
+- `owl-hoot.mp3` - Placeholder (using raven call)
+- `temple-bell.mp3` - Gong by rubberduck (CC0)
+- `divine-presence.mp3` - Magic spell by JaggedStone (CC0)
+- `desert-wind.mp3` - Wind variant
+
+**Ambient Tracks** - Various CC0 artists:
+- `base-drone.mp3` - "Monoliths" ambient track (CC0)
+- `greek-ambiance.mp3` - "A New Town" harp theme by The Cynic Project (CC0)
+- `norse-ambiance.mp3` - Rain loop by p0ss (CC0)
+- `egyptian-ambiance.mp3` - Desert/caravan theme by yd (CC0)
+- `japanese-ambiance.mp3` - Rain ambient by p0ss (CC0)
+- `celtic-ambiance.mp3` - Forest ambience by TinyWorlds (CC0)
+- `hindu-ambiance.mp3` - Ambient drone placeholder
+- `aztec-ambiance.mp3` - Jungle music (CC0)
+- `chinese-ambiance.mp3` - Ambient drone placeholder
+- `roman-ambiance.mp3` - Greek theme variant
+- `default.mp3` - Dungeon ambience by JaggedStone (CC0)
+
+### Notes
+
+- Hindu and Chinese ambient tracks use base-drone as placeholder - replace with culturally authentic music when available
+- Owl-hoot uses raven-call as placeholder - replace with actual owl sound when found
+- All tracks trimmed to 25-45 seconds for web-optimized looping
