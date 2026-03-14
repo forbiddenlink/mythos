@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 
-const BASE_URL = 'http://localhost:3001';
+// Uses baseURL from playwright.config.ts (http://localhost:3000)
 
 const pagesToTest = [
   { path: '/', name: 'Homepage' },
@@ -12,12 +12,14 @@ const pagesToTest = [
   { path: '/achievements', name: 'Achievements' },
   { path: '/compare', name: 'Compare' },
   { path: '/learning-paths', name: 'Learning Paths' },
+  { path: '/collections', name: 'Collections' },
+  { path: '/facts', name: 'Facts' },
 ];
 
 test.describe('Accessibility', () => {
   for (const page of pagesToTest) {
     test(`${page.name} page should not have critical accessibility violations`, async ({ page: playwrightPage }) => {
-      await playwrightPage.goto(`${BASE_URL}${page.path}`);
+      await playwrightPage.goto(page.path);
 
       // Wait for page to load
       await playwrightPage.waitForLoadState('networkidle');
