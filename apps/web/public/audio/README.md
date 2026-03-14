@@ -95,7 +95,7 @@ All audio files sourced from [OpenGameArt.org](https://opengameart.org) under CC
 - `war-drums.mp3` - Horde war drums by William Hector (CC0)
 - `harp-gliss.mp3` - "A New Town" by The Cynic Project (CC0)
 - `raven-call.mp3` - Crow caw by zeroisnotnull (CC0)
-- `owl-hoot.mp3` - Placeholder (using raven call)
+- `owl-hoot.mp3` - Tawny owl hoot by BigSoundBank (CC0)
 - `temple-bell.mp3` - Gong by rubberduck (CC0)
 - `divine-presence.mp3` - Magic spell by JaggedStone (CC0)
 - `desert-wind.mp3` - Wind variant
@@ -107,14 +107,13 @@ All audio files sourced from [OpenGameArt.org](https://opengameart.org) under CC
 - `egyptian-ambiance.mp3` - Desert/caravan theme by yd (CC0)
 - `japanese-ambiance.mp3` - Rain ambient by p0ss (CC0)
 - `celtic-ambiance.mp3` - Forest ambience by TinyWorlds (CC0)
-- `hindu-ambiance.mp3` - Ambient drone placeholder
+- `hindu-ambiance.mp3` - "Asian Oriental 2" by Shadowfire452 (CC0) from OpenGameArt
 - `aztec-ambiance.mp3` - Jungle music (CC0)
-- `chinese-ambiance.mp3` - Ambient drone placeholder
+- `chinese-ambiance.mp3` - "Asian Oriental 1" by Shadowfire452 (CC0) from OpenGameArt
 - `roman-ambiance.mp3` - Greek theme variant
 - `default.mp3` - Dungeon ambience by JaggedStone (CC0)
 
 ### Notes
 
-- Hindu and Chinese ambient tracks use base-drone as placeholder - replace with culturally authentic music when available
-- Owl-hoot uses raven-call as placeholder - replace with actual owl sound when found
-- All tracks trimmed to 25-45 seconds for web-optimized looping
+- All tracks trimmed to 25-60 seconds for web-optimized looping
+- All audio CC0 licensed (public domain) - no attribution required

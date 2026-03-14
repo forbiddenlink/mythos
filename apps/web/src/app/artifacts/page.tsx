@@ -12,6 +12,7 @@ import Image from 'next/image';
 import { Breadcrumbs } from '@/components/navigation/Breadcrumbs';
 import { Badge } from '@/components/ui/badge';
 import { CollectionPageJsonLd } from '@/components/seo/JsonLd';
+import { PageHero } from '@/components/layout/page-hero';
 
 interface Artifact {
     id: string;
@@ -64,28 +65,14 @@ export default function ArtifactsPage() {
                 url="/artifacts"
                 numberOfItems={artifacts.length}
             />
-            {/* Hero Section */}
-            <div className="relative h-[40vh] min-h-75 flex items-center justify-center overflow-hidden bg-slate-950">
-                {/* Abstract Background */}
-                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,var(--tw-gradient-stops))] from-purple-900/40 via-slate-950 to-slate-950" />
-
-                <div className="relative z-20 text-center px-4 max-w-4xl mx-auto">
-                    <div className="flex items-center justify-center mb-6">
-                        <div className="relative p-4 rounded-xl border border-purple-500/20 bg-slate-950/50 backdrop-blur-sm">
-                            <Gem className="relative h-10 w-10 text-purple-400" strokeWidth={1.5} />
-                        </div>
-                    </div>
-                    <span className="inline-block text-purple-400/80 text-sm tracking-[0.25em] uppercase mb-4 font-medium">
-                        The Arsenal
-                    </span>
-                    <h1 className="font-serif text-5xl md:text-6xl font-semibold tracking-tight mb-6 text-slate-100">
-                        Legendary Artifacts
-                    </h1>
-                    <p className="text-lg text-slate-400 max-w-2xl mx-auto font-body leading-relaxed">
-                        Weapons, shields, and mystical objects of power wielded by the gods and heroes of old.
-                    </p>
-                </div>
-            </div>
+            <PageHero
+                icon={<Gem />}
+                tagline="The Arsenal"
+                title="Legendary Artifacts"
+                description="Weapons, shields, and mystical objects of power wielded by the gods and heroes of old."
+                colorScheme="purple"
+                minHeight="min-h-[40vh]"
+            />
 
             {/* Content Section */}
             <div className="container mx-auto max-w-6xl px-4 py-16">

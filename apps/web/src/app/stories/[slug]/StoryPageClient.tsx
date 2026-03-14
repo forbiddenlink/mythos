@@ -6,7 +6,7 @@ import { useQuery } from '@tanstack/react-query';
 import { graphqlClient } from '@/lib/graphql-client';
 import { GET_STORIES } from '@/lib/queries';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Loader2, BookOpen, Tag, ScrollText, Volume2, Square } from 'lucide-react';
+import { Loader2, BookOpen, Tag, ScrollText, Volume2, Square, Play } from 'lucide-react';
 import { Breadcrumbs } from '@/components/navigation/Breadcrumbs';
 import { BookmarkButton } from '@/components/ui/bookmark-button';
 import { ExportIconButton } from '@/components/ui/export-button';
@@ -97,6 +97,9 @@ interface Location {
 interface StoryPageClientProps {
   slug: string;
 }
+
+// Stories that have cinematic versions available
+const CINEMATIC_STORIES = ['ragnarok', 'titanomachy'];
 
 export function StoryPageClient({ slug }: StoryPageClientProps) {
   const { speak, cancel, isSpeaking } = useTextToSpeech();
@@ -273,6 +276,16 @@ export function StoryPageClient({ slug }: StoryPageClientProps) {
                   </>
                 )}
               </button>
+            )}
+
+            {story && CINEMATIC_STORIES.includes(story.slug) && (
+              <Link
+                href={`/stories/${story.slug}/cinematic`}
+                className="flex items-center gap-2 px-4 py-2 rounded-lg border bg-purple-500/20 border-purple-500/40 text-purple-200 hover:bg-purple-500/30 transition-all"
+              >
+                <Play className="h-4 w-4" />
+                <span className="font-semibold">Cinematic Mode</span>
+              </Link>
             )}
           </div>
         </div>

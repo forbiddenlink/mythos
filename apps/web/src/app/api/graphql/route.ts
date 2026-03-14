@@ -8,6 +8,67 @@ import creatures from '@/data/creatures.json';
 import artifacts from '@/data/artifacts.json';
 import Fuse from 'fuse.js';
 
+// ═══════════════════════════════════════════════════════════════════
+// CACHED FUSE.JS INSTANCES
+// Created once at module load time for better performance
+// ═══════════════════════════════════════════════════════════════════
+
+const fuseOptions = {
+  includeScore: true,
+  threshold: 0.3, // 0.0 is perfect match, 1.0 is match anything
+};
+
+const deityFuse = new Fuse(deities as Deity[], {
+  ...fuseOptions,
+  keys: [
+    { name: 'name', weight: 0.7 },
+    { name: 'alternateNames', weight: 0.5 },
+    { name: 'domain', weight: 0.4 },
+    { name: 'description', weight: 0.2 },
+    { name: 'detailedBio', weight: 0.2 },
+  ],
+});
+
+const creatureFuse = new Fuse(creatures as Creature[], {
+  ...fuseOptions,
+  keys: [
+    { name: 'name', weight: 0.7 },
+    { name: 'habitat', weight: 0.5 },
+    { name: 'description', weight: 0.3 },
+    { name: 'abilities', weight: 0.3 },
+  ],
+});
+
+const artifactFuse = new Fuse(artifacts as Artifact[], {
+  ...fuseOptions,
+  keys: [
+    { name: 'name', weight: 0.7 },
+    { name: 'type', weight: 0.5 },
+    { name: 'description', weight: 0.3 },
+    { name: 'powers', weight: 0.3 },
+  ],
+});
+
+const pantheonFuse = new Fuse(pantheons as Pantheon[], {
+  ...fuseOptions,
+  keys: [
+    { name: 'name', weight: 0.7 },
+    { name: 'culture', weight: 0.5 },
+    { name: 'description', weight: 0.3 },
+    { name: 'detailedHistory', weight: 0.2 },
+  ],
+});
+
+const storyFuse = new Fuse(stories as Story[], {
+  ...fuseOptions,
+  keys: [
+    { name: 'title', weight: 0.7 },
+    { name: 'summary', weight: 0.3 },
+    { name: 'fullNarrative', weight: 0.2 },
+    { name: 'moralThemes', weight: 0.3 },
+  ],
+});
+
 // Type definitions
 interface Pantheon {
   id: string;
@@ -195,62 +256,7 @@ const MAX_SEARCH_LIMIT = 100;
 const MIN_SEARCH_LIMIT = 1;
 
 function resolveSearch(queryStr: string, limit: number = 10) {
-  const options = {
-    includeScore: true,
-    threshold: 0.3, // 0.0 is perfect match, 1.0 is match anything
-  };
-
-  const deityFuse = new Fuse(deities as Deity[], {
-    ...options,
-    keys: [
-      { name: 'name', weight: 0.7 },
-      { name: 'alternateNames', weight: 0.5 },
-      { name: 'domain', weight: 0.4 },
-      { name: 'description', weight: 0.2 },
-      { name: 'detailedBio', weight: 0.2 },
-    ],
-  });
-
-  const creatureFuse = new Fuse(creatures as Creature[], {
-    ...options,
-    keys: [
-      { name: 'name', weight: 0.7 },
-      { name: 'habitat', weight: 0.5 },
-      { name: 'description', weight: 0.3 },
-      { name: 'abilities', weight: 0.3 },
-    ],
-  });
-
-  const artifactFuse = new Fuse(artifacts as Artifact[], {
-    ...options,
-    keys: [
-      { name: 'name', weight: 0.7 },
-      { name: 'type', weight: 0.5 },
-      { name: 'description', weight: 0.3 },
-      { name: 'powers', weight: 0.3 },
-    ],
-  });
-
-  const pantheonFuse = new Fuse(pantheons as Pantheon[], {
-    ...options,
-    keys: [
-      { name: 'name', weight: 0.7 },
-      { name: 'culture', weight: 0.5 },
-      { name: 'description', weight: 0.3 },
-      { name: 'detailedHistory', weight: 0.2 },
-    ],
-  });
-
-  const storyFuse = new Fuse(stories as Story[], {
-    ...options,
-    keys: [
-      { name: 'title', weight: 0.7 },
-      { name: 'summary', weight: 0.3 },
-      { name: 'fullNarrative', weight: 0.2 },
-      { name: 'moralThemes', weight: 0.3 },
-    ],
-  });
-
+  // Use cached Fuse instances (created at module level)
   const matchedDeities = deityFuse.search(queryStr).map(result => result.item).slice(0, limit);
   const matchedCreatures = creatureFuse.search(queryStr).map(result => result.item).slice(0, limit);
   const matchedArtifacts = artifactFuse.search(queryStr).map(result => result.item).slice(0, limit);

@@ -12,6 +12,7 @@ import Image from 'next/image';
 import { Breadcrumbs } from '@/components/navigation/Breadcrumbs';
 import { Badge } from '@/components/ui/badge';
 import { CollectionPageJsonLd } from '@/components/seo/JsonLd';
+import { PageHero } from '@/components/layout/page-hero';
 
 interface Creature {
     id: string;
@@ -70,28 +71,14 @@ export default function CreaturesPage() {
                 url="/creatures"
                 numberOfItems={creatures.length}
             />
-            {/* Hero Section */}
-            <div className="relative h-[40vh] min-h-75 flex items-center justify-center overflow-hidden bg-slate-950">
-                {/* Abstract Background */}
-                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,var(--tw-gradient-stops))] from-red-900/20 via-slate-950 to-slate-950" />
-
-                <div className="relative z-20 text-center px-4 max-w-4xl mx-auto">
-                    <div className="flex items-center justify-center mb-6">
-                        <div className="relative p-4 rounded-xl border border-red-500/20 bg-slate-950/50 backdrop-blur-sm">
-                            <Skull className="relative h-10 w-10 text-red-500" strokeWidth={1.5} />
-                        </div>
-                    </div>
-                    <span className="inline-block text-red-500/80 text-sm tracking-[0.25em] uppercase mb-4 font-medium">
-                        The Bestiary
-                    </span>
-                    <h1 className="font-serif text-5xl md:text-6xl font-semibold tracking-tight mb-6 text-slate-100">
-                        Creatures & Monsters
-                    </h1>
-                    <p className="text-lg text-slate-400 max-w-2xl mx-auto font-body leading-relaxed">
-                        From the depths of the underworld to the peaks of mountains, discover the legendary beasts of ancient mythology.
-                    </p>
-                </div>
-            </div>
+            <PageHero
+                icon={<Skull />}
+                tagline="The Bestiary"
+                title="Creatures & Monsters"
+                description="From the depths of the underworld to the peaks of mountains, discover the legendary beasts of ancient mythology."
+                colorScheme="red"
+                minHeight="min-h-[40vh]"
+            />
 
             {/* Content Section */}
             <div className="container mx-auto max-w-6xl px-4 py-16">

@@ -17,6 +17,7 @@ import { GridSkeleton, FiltersSkeleton } from '@/components/ui/skeleton-cards';
 import { CollectionPageJsonLd } from '@/components/seo/JsonLd';
 import { usePagination } from '@/hooks/usePagination';
 import { PaginationControls } from '@/components/ui/pagination-controls';
+import { PageHero } from '@/components/layout/page-hero';
 
 // Note: Metadata export removed - use layout.tsx for client components
 // SEO is handled via dynamic title updates below
@@ -95,48 +96,14 @@ export default function DeitiesPage() {
         url="/deities"
         numberOfItems={data?.deities?.length}
       />
-      {/* Hero Section */}
-      <div className="relative h-[50vh] min-h-100 flex items-center justify-center overflow-hidden">
-        {/* Background Image */}
-        <div className="absolute inset-0 z-0">
-          <Image
-            src="/deities-list-hero.png"
-            alt="Divine Beings"
-            fill
-            className="object-cover"
-            priority
-          />
-        </div>
-        {/* Gradient Overlay */}
-        <div className="absolute inset-0 bg-linear-to-b from-midnight/70 via-midnight/60 to-midnight/80 z-10" />
-
-        {/* Radial gold glow */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[120%] h-[60%] bg-gradient-radial from-gold/10 via-transparent to-transparent z-10" />
-
-        {/* Hero Content */}
-        <div className="relative z-20 text-center px-4 max-w-4xl mx-auto">
-          <div className="flex items-center justify-center mb-6">
-            <div className="relative p-4 rounded-xl border border-gold/20 bg-midnight/50 backdrop-blur-sm">
-              <div className="absolute inset-0 rounded-xl bg-linear-to-br from-gold/10 to-transparent" />
-              <Sparkles className="relative h-10 w-10 text-gold" strokeWidth={1.5} />
-            </div>
-          </div>
-          <span className="inline-block text-gold/80 text-sm tracking-[0.25em] uppercase mb-4 font-medium">
-            Divine Beings
-          </span>
-          <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tight mb-6 text-parchment">
-            Deities
-          </h1>
-          <div className="flex items-center justify-center gap-4 mb-6">
-            <div className="w-12 h-px bg-linear-to-r from-transparent to-gold/40" />
-            <div className="w-1.5 h-1.5 rotate-45 bg-gold/50" />
-            <div className="w-12 h-px bg-linear-to-l from-transparent to-gold/40" />
-          </div>
-          <p className="text-lg md:text-xl text-parchment/70 max-w-2xl mx-auto font-body leading-relaxed">
-            Gods and goddesses from 12 pantheons, with family trees, domains, and stories
-          </p>
-        </div>
-      </div>
+      <PageHero
+        icon={<Sparkles />}
+        tagline="Divine Beings"
+        title="Deities"
+        description="Gods and goddesses from 12 pantheons, with family trees, domains, and stories"
+        backgroundImage="/deities-list-hero.png"
+        colorScheme="gold"
+      />
 
       {/* Content Section */}
       <div className="container mx-auto max-w-6xl px-4 py-16 bg-mythic">
