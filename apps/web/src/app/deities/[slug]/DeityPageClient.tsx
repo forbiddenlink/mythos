@@ -17,6 +17,12 @@ const FamilyTreeVisualization = dynamic(
   () => import('@/components/family-tree/FamilyTreeVisualization').then(mod => ({ default: mod.FamilyTreeVisualization })),
   { loading: () => <div className="h-100 flex items-center justify-center"><Loader2 className="h-8 w-8 animate-spin text-primary" /></div>, ssr: false }
 );
+
+// Lazy load 3D deity statue
+const DeityStatue = dynamic(
+  () => import('@/components/three/DeityStatue').then(mod => ({ default: mod.DeityStatue })),
+  { loading: () => <div className="h-80 flex items-center justify-center bg-gradient-to-b from-slate-900 to-slate-950 rounded-xl"><Loader2 className="h-8 w-8 animate-spin text-gold" /></div>, ssr: false }
+);
 import { BookmarkButton } from '@/components/ui/bookmark-button';
 import { ExportIconButton } from '@/components/ui/export-button';
 import { DeityJsonLd } from '@/components/seo/JsonLd';
@@ -330,24 +336,39 @@ export function DeityPageClient({ slug }: DeityPageClientProps) {
 
 
           <div className="space-y-8">
-            {/* Centered Image with shared element transition */}
-            {deity.imageUrl && (
-              <div
-                className="relative w-full max-w-sm mx-auto rounded-2xl overflow-hidden border-4 border-white dark:border-slate-800 shadow-2xl"
-                style={{ viewTransitionName: `deity-image-${deity.slug}` }}
-              >
-                <div className="aspect-3/4 relative">
-                  <Image
-                    src={deity.imageUrl}
-                    alt={deity.name}
-                    fill
-                    className="object-cover hover:scale-105 transition-transform duration-700"
-                    priority
-                  />
-                  <div className="absolute inset-0 ring-1 ring-inset ring-black/10 rounded-2xl"></div>
+            {/* Deity Visual Display - Image and 3D Statue */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
+              {/* Image with shared element transition */}
+              {deity.imageUrl && (
+                <div
+                  className="relative w-full max-w-sm mx-auto rounded-2xl overflow-hidden border-4 border-white dark:border-slate-800 shadow-2xl"
+                  style={{ viewTransitionName: `deity-image-${deity.slug}` }}
+                >
+                  <div className="aspect-3/4 relative">
+                    <Image
+                      src={deity.imageUrl}
+                      alt={deity.name}
+                      fill
+                      className="object-cover hover:scale-105 transition-transform duration-700"
+                      priority
+                    />
+                    <div className="absolute inset-0 ring-1 ring-inset ring-black/10 rounded-2xl"></div>
+                  </div>
                 </div>
+              )}
+
+              {/* 3D Interactive Statue */}
+              <div className={deity.imageUrl ? '' : 'md:col-span-2 max-w-sm mx-auto w-full'}>
+                <DeityStatue
+                  pantheon={deity.pantheonId}
+                  domains={deity.domain}
+                  showParticles={true}
+                />
+                <p className="text-center text-xs text-muted-foreground mt-2">
+                  Interactive 3D representation
+                </p>
               </div>
-            )}
+            </div>
 
             {/* Content Cards */}
             <div className="space-y-8">

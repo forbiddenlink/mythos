@@ -17,6 +17,7 @@ import { generateBaseMetadata } from "@/lib/metadata";
 import { AudioProvider } from "@/components/audio/AudioContext";
 import { AudioControls } from "@/components/audio/AudioControls";
 import { InstallPrompt, OfflineIndicator } from "@/components/pwa";
+import { LayoutEffects } from "@/components/effects/LayoutEffects";
 
 // Cinzel - Elegant classical display font inspired by Roman inscriptions
 const cinzel = Cinzel({
@@ -102,6 +103,7 @@ export default async function RootLayout({
                     </div>
                     <AudioControls />
                     <InstallPrompt />
+                    <LayoutEffects />
                   </CommandPaletteProvider>
                 </AudioProvider>
                 </AchievementNotificationProvider>
