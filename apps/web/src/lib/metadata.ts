@@ -1,57 +1,58 @@
-import type { Metadata } from 'next'
+import type { Metadata } from "next";
 
 export const siteConfig = {
-  name: 'Mythos Atlas',
-  description: 'Explore ancient mythology through interactive deity family trees, cultural maps, and epic story timelines from civilizations around the world.',
-  url: 'https://mythos-web-seven.vercel.app',
-  ogImage: '/og-image.png',
-  creator: 'Elizabeth Stein',
+  name: "Mythos Atlas",
+  description:
+    "Explore ancient mythology through interactive deity family trees, cultural maps, and epic story timelines from civilizations around the world.",
+  url: "https://mythos-atlas.vercel.app",
+  ogImage: "/og-image.png",
+  creator: "Elizabeth Stein",
   links: {
-    twitter: 'https://twitter.com/mythosatlas',
-    github: 'https://github.com/yourusername/mythos-atlas',
+    twitter: "https://twitter.com/mythosatlas",
+    github: "https://github.com/yourusername/mythos-atlas",
   },
-}
+};
 
 export function generateBaseMetadata({
   title,
   description,
   image,
-  type = 'website',
+  type = "website",
   url,
   keywords,
   articleSection,
   articleTags,
 }: {
-  title: string
-  description?: string
-  image?: string
-  type?: 'website' | 'article'
-  url?: string
-  keywords?: string[]
-  articleSection?: string
-  articleTags?: string[]
+  title: string;
+  description?: string;
+  image?: string;
+  type?: "website" | "article";
+  url?: string;
+  keywords?: string[];
+  articleSection?: string;
+  articleTags?: string[];
 }): Metadata {
-  const desc = description || siteConfig.description
-  const ogImage = image || siteConfig.ogImage
-  const pageUrl = url ? `${siteConfig.url}${url}` : siteConfig.url
+  const desc = description || siteConfig.description;
+  const ogImage = image || siteConfig.ogImage;
+  const pageUrl = url ? `${siteConfig.url}${url}` : siteConfig.url;
 
   const baseKeywords = [
-    'mythology',
-    'ancient gods',
-    'deities',
-    'greek mythology',
-    'norse mythology',
-    'egyptian mythology',
-    'family tree',
-    'pantheon',
-    'stories',
-    'legends',
-    'encyclopedia',
-  ]
+    "mythology",
+    "ancient gods",
+    "deities",
+    "greek mythology",
+    "norse mythology",
+    "egyptian mythology",
+    "family tree",
+    "pantheon",
+    "stories",
+    "legends",
+    "encyclopedia",
+  ];
 
   const allKeywords = keywords
     ? [...new Set([...keywords, ...baseKeywords])]
-    : baseKeywords
+    : baseKeywords;
 
   const ogImages = [
     {
@@ -60,13 +61,13 @@ export function generateBaseMetadata({
       height: 630,
       alt: title,
     },
-  ]
+  ];
 
-  const ogMetadata: Metadata['openGraph'] =
-    type === 'article'
+  const ogMetadata: Metadata["openGraph"] =
+    type === "article"
       ? {
-          type: 'article',
-          locale: 'en_US',
+          type: "article",
+          locale: "en_US",
           url: pageUrl,
           title,
           description: desc,
@@ -76,14 +77,14 @@ export function generateBaseMetadata({
           tags: articleTags,
         }
       : {
-          type: 'website',
-          locale: 'en_US',
+          type: "website",
+          locale: "en_US",
           url: pageUrl,
           title,
           description: desc,
           siteName: siteConfig.name,
           images: ogImages,
-        }
+        };
 
   return {
     title: {
@@ -101,11 +102,11 @@ export function generateBaseMetadata({
     publisher: siteConfig.name,
     openGraph: ogMetadata,
     twitter: {
-      card: 'summary_large_image',
+      card: "summary_large_image",
       title,
       description: desc,
       images: [ogImage],
-      creator: '@mythosatlas',
+      creator: "@mythosatlas",
     },
     metadataBase: new URL(siteConfig.url),
     alternates: {
@@ -117,10 +118,10 @@ export function generateBaseMetadata({
       googleBot: {
         index: true,
         follow: true,
-        'max-video-preview': -1,
-        'max-image-preview': 'large',
-        'max-snippet': -1,
+        "max-video-preview": -1,
+        "max-image-preview": "large",
+        "max-snippet": -1,
       },
     },
-  }
+  };
 }

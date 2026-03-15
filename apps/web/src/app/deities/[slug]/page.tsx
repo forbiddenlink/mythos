@@ -1,9 +1,12 @@
-import type { Metadata } from 'next';
-import { notFound } from 'next/navigation';
-import deities from '@/data/deities.json';
-import pantheons from '@/data/pantheons.json';
-import { generateBaseMetadata } from '@/lib/metadata';
-import { DeityPageClient } from './DeityPageClient';
+import type { Metadata } from "next";
+import { notFound } from "next/navigation";
+import deities from "@/data/deities.json";
+import pantheons from "@/data/pantheons.json";
+import { generateBaseMetadata } from "@/lib/metadata";
+import { DeityPageClient } from "./DeityPageClient";
+
+// ISR: Revalidate every week (604800 seconds)
+export const revalidate = 604800;
 
 interface DeityData {
   id: string;
@@ -28,42 +31,45 @@ export async function generateStaticParams() {
 }
 
 // Generate metadata for each deity page
-export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: PageProps): Promise<Metadata> {
   const { slug } = await params;
   const deity = deities.find((d) => d.slug === slug) as DeityData | undefined;
 
   if (!deity) {
     return generateBaseMetadata({
-      title: 'Deity Not Found',
-      description: 'The requested deity could not be found.',
+      title: "Deity Not Found",
+      description: "The requested deity could not be found.",
     });
   }
 
   const pantheon = pantheons.find((p) => p.id === deity.pantheonId);
-  const pantheonName = pantheon?.name || 'Ancient';
+  const pantheonName = pantheon?.name || "Ancient";
 
   // Create a rich description
-  const domains = deity.domain?.slice(0, 3).join(', ') || '';
-  const description = deity.description
-    || `Explore ${deity.name}, ${pantheonName} deity of ${domains}. Learn about their mythology, symbols, and divine family.`;
+  const domains = deity.domain?.slice(0, 3).join(", ") || "";
+  const description =
+    deity.description ||
+    `Explore ${deity.name}, ${pantheonName} deity of ${domains}. Learn about their mythology, symbols, and divine family.`;
 
   return generateBaseMetadata({
     title: `${deity.name} - ${pantheonName} Deity`,
     description: description.slice(0, 160),
     url: `/deities/${deity.slug}`,
-    image: deity.imageUrl || '/og-image.png',
-    type: 'article',
+    image: deity.imageUrl || "/og-image.png",
+    type: "article",
     keywords: [
       deity.name,
       ...(deity.alternateNames || []),
       ...(deity.domain || []),
       pantheonName,
-      'mythology',
-      'deity',
-      'god',
-      'goddess',
+      "mythology",
+      "deity",
+      "god",
+      "goddess",
     ],
-    articleSection: 'Deities',
+    articleSection: "Deities",
     articleTags: deity.domain,
   });
 }

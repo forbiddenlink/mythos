@@ -1,42 +1,87 @@
-'use client';
+"use client";
 
-import { useContext, useEffect } from 'react';
-import dynamic from 'next/dynamic';
-import { useQuery } from '@tanstack/react-query';
-import { ProgressContext } from '@/providers/progress-provider';
-import { graphqlClient } from '@/lib/graphql-client';
-import { gql } from 'graphql-request';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import { Loader2, Sparkles, Shield, Users, Network, Link2, BookOpen, Building, Calendar, ScrollText } from 'lucide-react';
-import Link from 'next/link';
-import Image from 'next/image';
+import { useContext, useEffect } from "react";
+import dynamic from "next/dynamic";
+import { useQuery } from "@tanstack/react-query";
+import { ProgressContext } from "@/providers/progress-provider";
+import { graphqlClient } from "@/lib/graphql-client";
+import { gql } from "graphql-request";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import {
+  Loader2,
+  Sparkles,
+  Shield,
+  Users,
+  Network,
+  Link2,
+  BookOpen,
+  Building,
+  Calendar,
+  ScrollText,
+} from "lucide-react";
+import Link from "next/link";
+import Image from "next/image";
 
 // Lazy load heavy ReactFlow-based family tree
 const FamilyTreeVisualization = dynamic(
-  () => import('@/components/family-tree/FamilyTreeVisualization').then(mod => ({ default: mod.FamilyTreeVisualization })),
-  { loading: () => <div className="h-100 flex items-center justify-center"><Loader2 className="h-8 w-8 animate-spin text-primary" /></div>, ssr: false }
+  () =>
+    import("@/components/family-tree/FamilyTreeVisualization").then((mod) => ({
+      default: mod.FamilyTreeVisualization,
+    })),
+  {
+    loading: () => (
+      <div className="h-100 flex items-center justify-center">
+        <Loader2 className="h-8 w-8 animate-spin text-primary" />
+      </div>
+    ),
+    ssr: false,
+  },
 );
 
 // Lazy load 3D deity statue
 const DeityStatue = dynamic(
-  () => import('@/components/three/DeityStatue').then(mod => ({ default: mod.DeityStatue })),
-  { loading: () => <div className="h-80 flex items-center justify-center bg-gradient-to-b from-slate-900 to-slate-950 rounded-xl"><Loader2 className="h-8 w-8 animate-spin text-gold" /></div>, ssr: false }
+  () =>
+    import("@/components/three/DeityStatue").then((mod) => ({
+      default: mod.DeityStatue,
+    })),
+  {
+    loading: () => (
+      <div className="h-80 flex items-center justify-center bg-gradient-to-b from-slate-900 to-slate-950 rounded-xl">
+        <Loader2 className="h-8 w-8 animate-spin text-gold" />
+      </div>
+    ),
+    ssr: false,
+  },
 );
-import { BookmarkButton } from '@/components/ui/bookmark-button';
-import { ExportIconButton } from '@/components/ui/export-button';
-import { DeityJsonLd } from '@/components/seo/JsonLd';
-import ReactMarkdown from 'react-markdown';
-import { DetailPageSkeleton } from '@/components/ui/skeleton-cards';
-import { PronunciationDisplay } from '@/components/ui/pronunciation';
-import { SourceExcerptsList, ReferencesList, OriginalLanguageName, type PrimarySourceExcerpt, type FurtherReadingReference, type OriginalLanguageNameData } from '@/components/sources';
-import { RelatedDeities } from '@/components/deities/RelatedDeities';
-import { DeityStoryRecommendations } from '@/components/deities/DeityStoryRecommendations';
+import { BookmarkButton } from "@/components/ui/bookmark-button";
+import { ExportIconButton } from "@/components/ui/export-button";
+import { ShareButton } from "@/components/sharing/ShareButton";
+import { DeityJsonLd } from "@/components/seo/JsonLd";
+import ReactMarkdown from "react-markdown";
+import { DetailPageSkeleton } from "@/components/ui/skeleton-cards";
+import { PronunciationDisplay } from "@/components/ui/pronunciation";
+import {
+  SourceExcerptsList,
+  ReferencesList,
+  OriginalLanguageName,
+  type PrimarySourceExcerpt,
+  type FurtherReadingReference,
+  type OriginalLanguageNameData,
+} from "@/components/sources";
+import { RelatedDeities } from "@/components/deities/RelatedDeities";
+import { DeityStoryRecommendations } from "@/components/deities/DeityStoryRecommendations";
 
 function useProgress() {
   const context = useContext(ProgressContext);
   if (!context) {
-    throw new Error('useProgress must be used within ProgressProvider');
+    throw new Error("useProgress must be used within ProgressProvider");
   }
   return context;
 }
@@ -96,86 +141,94 @@ interface DeityPageClientProps {
 
 export function DeityPageClient({ slug }: DeityPageClientProps) {
   const { data, isLoading, error } = useQuery<{ deity: Deity | null }>({
-    queryKey: ['deity', slug],
+    queryKey: ["deity", slug],
     queryFn: async () => {
-      const result = await graphqlClient.request<{ deity: Deity }>(gql`
-        query GetDeity($id: String!) {
-          deity(id: $id) {
-            id
-            pantheonId
-            name
-            slug
-            gender
-            domain
-            symbols
-            description
-            detailedBio
-            originStory
-            pronunciation {
-              ipa
-              phonetic
-              audioUrl
-            }
-            importanceRank
-            imageUrl
-            alternateNames
-            crossPantheonParallels {
+      const result = await graphqlClient.request<{ deity: Deity }>(
+        gql`
+          query GetDeity($id: String!) {
+            deity(id: $id) {
+              id
               pantheonId
-              deityId
-              note
-            }
-            primarySources {
-              text
-              source
-              date
-            }
-            primarySourceExcerpts {
-              text
-              translation
-              source
-              sourceId
-              lineNumbers
-              translator
-              originalLanguage
-            }
-            furtherReading {
-              sourceId
-              note
-            }
-            originalLanguageName {
-              text
-              language
-              transliteration
-              meaning
-            }
-            worship {
-              temples
-              festivals
-              practices
+              name
+              slug
+              gender
+              domain
+              symbols
+              description
+              detailedBio
+              originStory
+              pronunciation {
+                ipa
+                phonetic
+                audioUrl
+              }
+              importanceRank
+              imageUrl
+              alternateNames
+              crossPantheonParallels {
+                pantheonId
+                deityId
+                note
+              }
+              primarySources {
+                text
+                source
+                date
+              }
+              primarySourceExcerpts {
+                text
+                translation
+                source
+                sourceId
+                lineNumbers
+                translator
+                originalLanguage
+              }
+              furtherReading {
+                sourceId
+                note
+              }
+              originalLanguageName {
+                text
+                language
+                transliteration
+                meaning
+              }
+              worship {
+                temples
+                festivals
+                practices
+              }
             }
           }
-        }
-      `, { id: slug });
+        `,
+        { id: slug },
+      );
       return { deity: result.deity || null };
     },
   });
 
   // Fetch relationships for this deity
-  const { data: relationshipsData } = useQuery<{ deityRelationships: Relationship[] }>({
-    queryKey: ['deity-relationships', data?.deity?.id],
+  const { data: relationshipsData } = useQuery<{
+    deityRelationships: Relationship[];
+  }>({
+    queryKey: ["deity-relationships", data?.deity?.id],
     queryFn: async () => {
       if (!data?.deity?.id) return { deityRelationships: [] };
-      return graphqlClient.request(gql`
-        query GetDeityRelationships($deityId: String!) {
-          deityRelationships(deityId: $deityId) {
-            id
-            deityId
-            relatedDeityId
-            relationshipType
-            description
+      return graphqlClient.request(
+        gql`
+          query GetDeityRelationships($deityId: String!) {
+            deityRelationships(deityId: $deityId) {
+              id
+              deityId
+              relatedDeityId
+              relationshipType
+              description
+            }
           }
-        }
-      `, { deityId: data.deity.id });
+        `,
+        { deityId: data.deity.id },
+      );
     },
     enabled: !!data?.deity?.id,
   });
@@ -190,11 +243,16 @@ export function DeityPageClient({ slug }: DeityPageClientProps) {
     if (data?.deity?.pantheonId) {
       trackPantheonExplore(data.deity.pantheonId);
     }
-  }, [data?.deity?.id, data?.deity?.pantheonId, trackDeityView, trackPantheonExplore]);
+  }, [
+    data?.deity?.id,
+    data?.deity?.pantheonId,
+    trackDeityView,
+    trackPantheonExplore,
+  ]);
 
   // Fetch all deities for the family tree
   const { data: allDeitiesData } = useQuery<{ deities: Deity[] }>({
-    queryKey: ['all-deities'],
+    queryKey: ["all-deities"],
     queryFn: async () => {
       return graphqlClient.request(gql`
         query GetAllDeities {
@@ -218,9 +276,11 @@ export function DeityPageClient({ slug }: DeityPageClientProps) {
     return (
       <div className="container mx-auto max-w-6xl px-4 py-24">
         <div className="text-center">
-          <h2 className="text-2xl font-bold text-destructive">Error loading deity</h2>
+          <h2 className="text-2xl font-bold text-destructive">
+            Error loading deity
+          </h2>
           <p className="text-muted-foreground mt-2">
-            {error instanceof Error ? error.message : 'An error occurred'}
+            {error instanceof Error ? error.message : "An error occurred"}
           </p>
         </div>
       </div>
@@ -235,7 +295,10 @@ export function DeityPageClient({ slug }: DeityPageClientProps) {
           <p className="text-muted-foreground mt-2">
             The deity you&apos;re looking for doesn&apos;t exist.
           </p>
-          <Link href="/deities" className="text-gold hover:underline mt-4 inline-block">
+          <Link
+            href="/deities"
+            className="text-gold hover:underline mt-4 inline-block"
+          >
             View all deities
           </Link>
         </div>
@@ -253,7 +316,9 @@ export function DeityPageClient({ slug }: DeityPageClientProps) {
     <div className="min-h-screen">
       <DeityJsonLd
         name={deity.name}
-        description={deity.description || `${deity.name} - deity from ancient mythology`}
+        description={
+          deity.description || `${deity.name} - deity from ancient mythology`
+        }
         alternateNames={deity.alternateNames}
         domains={deity.domain}
         url={`/deities/${deity.slug}`}
@@ -283,10 +348,15 @@ export function DeityPageClient({ slug }: DeityPageClientProps) {
           <div className="space-y-8">
             {/* Header */}
             <div>
-              <div className="flex items-center gap-4 mb-4" style={{ viewTransitionName: 'page-header' }}>
+              <div
+                className="flex items-center gap-4 mb-4"
+                style={{ viewTransitionName: "page-header" }}
+              >
                 <div className="flex-1">
                   <div className="flex items-baseline gap-3">
-                    <h1 className="font-serif text-4xl font-bold tracking-tight text-white">{deity.name}</h1>
+                    <h1 className="font-serif text-4xl font-bold tracking-tight text-white">
+                      {deity.name}
+                    </h1>
                     {deity.pronunciation && (
                       <PronunciationDisplay
                         pronunciation={deity.pronunciation}
@@ -296,16 +366,31 @@ export function DeityPageClient({ slug }: DeityPageClientProps) {
                   </div>
                   {deity.originalLanguageName && (
                     <p className="text-slate-200 mt-1">
-                      <OriginalLanguageName data={deity.originalLanguageName} variant="inline" className="text-slate-100" />
+                      <OriginalLanguageName
+                        data={deity.originalLanguageName}
+                        variant="inline"
+                        className="text-slate-100"
+                      />
                     </p>
                   )}
                   {deity.alternateNames && deity.alternateNames.length > 0 && (
                     <p className="text-slate-200 mt-1 font-light">
-                      Also known as: {deity.alternateNames.join(', ')}
+                      Also known as: {deity.alternateNames.join(", ")}
                     </p>
                   )}
                 </div>
-                <BookmarkButton type="deity" id={deity.id} size="lg" variant="light" />
+                <BookmarkButton
+                  type="deity"
+                  id={deity.id}
+                  size="lg"
+                  variant="light"
+                />
+                <ShareButton
+                  title={`${deity.name} - Mythos Atlas`}
+                  text={`Discover ${deity.name}, ${deity.domain?.join(", ") || "deity"} from ancient mythology on Mythos Atlas`}
+                  url={`https://mythos-web-seven.vercel.app/deities/${deity.slug}`}
+                  className="[&_button]:text-white [&_button]:border-white/30 [&_button]:hover:bg-white/20"
+                />
                 <ExportIconButton
                   type="deity"
                   data={{
@@ -333,8 +418,6 @@ export function DeityPageClient({ slug }: DeityPageClientProps) {
       {/* Content Section */}
       <div className="container mx-auto max-w-4xl px-4 py-12">
         <div className="space-y-8">
-
-
           <div className="space-y-8">
             {/* Deity Visual Display - Image and 3D Statue */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
@@ -358,7 +441,11 @@ export function DeityPageClient({ slug }: DeityPageClientProps) {
               )}
 
               {/* 3D Interactive Statue */}
-              <div className={deity.imageUrl ? '' : 'md:col-span-2 max-w-sm mx-auto w-full'}>
+              <div
+                className={
+                  deity.imageUrl ? "" : "md:col-span-2 max-w-sm mx-auto w-full"
+                }
+              >
                 <DeityStatue
                   pantheon={deity.pantheonId}
                   domains={deity.domain}
@@ -375,7 +462,9 @@ export function DeityPageClient({ slug }: DeityPageClientProps) {
               {/* Detailed Bio (Markdown) or Description */}
               <Card className="bg-white dark:bg-slate-900 border-l-4 border-l-gold">
                 <CardHeader>
-                  <CardTitle className="font-serif text-2xl">About {deity.name}</CardTitle>
+                  <CardTitle className="font-serif text-2xl">
+                    About {deity.name}
+                  </CardTitle>
                 </CardHeader>
                 <CardContent>
                   {deity.detailedBio ? (
@@ -394,7 +483,9 @@ export function DeityPageClient({ slug }: DeityPageClientProps) {
               {deity.originStory && (
                 <Card className="bg-white dark:bg-slate-900">
                   <CardHeader>
-                    <CardTitle className="font-serif text-xl">Origin Story</CardTitle>
+                    <CardTitle className="font-serif text-xl">
+                      Origin Story
+                    </CardTitle>
                   </CardHeader>
                   <CardContent>
                     <p className="text-muted-foreground leading-relaxed whitespace-pre-line">
@@ -405,96 +496,108 @@ export function DeityPageClient({ slug }: DeityPageClientProps) {
               )}
 
               {/* Cross-Pantheon Parallels */}
-              {deity.crossPantheonParallels && deity.crossPantheonParallels.length > 0 && (
-                <Card className="bg-white dark:bg-slate-900">
-                  <CardHeader>
-                    <CardTitle className="font-serif flex items-center gap-2 text-xl">
-                      <Link2 className="h-5 w-5 text-gold" />
-                      Cross-Pantheon Parallels
-                    </CardTitle>
-                    <CardDescription>
-                      Similar deities across different mythologies
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <ul className="space-y-4">
-                      {deity.crossPantheonParallels.map((parallel) => (
-                        <li key={parallel.deityId} className="border-l-2 border-gold/30 pl-4">
-                          <div className="flex items-baseline gap-2">
-                            <Link
-                              href={`/deities/${parallel.deityId}`}
-                              className="text-gold hover:text-amber-600 dark:hover:text-amber-400 font-medium transition-colors"
-                            >
-                              {parallel.deityId}
-                            </Link>
-                            <span className="text-slate-500 dark:text-slate-400 text-sm">
-                              ({parallel.pantheonId})
-                            </span>
-                          </div>
-                          <p className="text-muted-foreground text-sm mt-1">
-                            {parallel.note}
-                          </p>
-                        </li>
-                      ))}
-                    </ul>
-                  </CardContent>
-                </Card>
-              )}
+              {deity.crossPantheonParallels &&
+                deity.crossPantheonParallels.length > 0 && (
+                  <Card className="bg-white dark:bg-slate-900">
+                    <CardHeader>
+                      <CardTitle className="font-serif flex items-center gap-2 text-xl">
+                        <Link2 className="h-5 w-5 text-gold" />
+                        Cross-Pantheon Parallels
+                      </CardTitle>
+                      <CardDescription>
+                        Similar deities across different mythologies
+                      </CardDescription>
+                    </CardHeader>
+                    <CardContent>
+                      <ul className="space-y-4">
+                        {deity.crossPantheonParallels.map((parallel) => (
+                          <li
+                            key={parallel.deityId}
+                            className="border-l-2 border-gold/30 pl-4"
+                          >
+                            <div className="flex items-baseline gap-2">
+                              <Link
+                                href={`/deities/${parallel.deityId}`}
+                                className="text-gold hover:text-amber-600 dark:hover:text-amber-400 font-medium transition-colors"
+                              >
+                                {parallel.deityId}
+                              </Link>
+                              <span className="text-slate-500 dark:text-slate-400 text-sm">
+                                ({parallel.pantheonId})
+                              </span>
+                            </div>
+                            <p className="text-muted-foreground text-sm mt-1">
+                              {parallel.note}
+                            </p>
+                          </li>
+                        ))}
+                      </ul>
+                    </CardContent>
+                  </Card>
+                )}
 
               {/* Primary Source Excerpts (with original language toggle) */}
-              {deity.primarySourceExcerpts && deity.primarySourceExcerpts.length > 0 && (
-                <Card className="bg-white dark:bg-slate-900">
-                  <CardHeader>
-                    <CardTitle className="font-serif flex items-center gap-2 text-xl">
-                      <ScrollText className="h-5 w-5 text-teal-600" />
-                      Ancient Sources
-                    </CardTitle>
-                    <CardDescription>
-                      Original texts with translations - toggle to see the original language
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <SourceExcerptsList excerpts={deity.primarySourceExcerpts} />
-                  </CardContent>
-                </Card>
-              )}
+              {deity.primarySourceExcerpts &&
+                deity.primarySourceExcerpts.length > 0 && (
+                  <Card className="bg-white dark:bg-slate-900">
+                    <CardHeader>
+                      <CardTitle className="font-serif flex items-center gap-2 text-xl">
+                        <ScrollText className="h-5 w-5 text-teal-600" />
+                        Ancient Sources
+                      </CardTitle>
+                      <CardDescription>
+                        Original texts with translations - toggle to see the
+                        original language
+                      </CardDescription>
+                    </CardHeader>
+                    <CardContent>
+                      <SourceExcerptsList
+                        excerpts={deity.primarySourceExcerpts}
+                      />
+                    </CardContent>
+                  </Card>
+                )}
 
               {/* Primary Sources (simple quotes) */}
-              {deity.primarySources && deity.primarySources.length > 0 && !deity.primarySourceExcerpts?.length && (
-                <Card className="bg-white dark:bg-slate-900">
-                  <CardHeader>
-                    <CardTitle className="font-serif flex items-center gap-2 text-xl">
-                      <BookOpen className="h-5 w-5 text-teal-600" />
-                      Primary Sources
-                    </CardTitle>
-                    <CardDescription>
-                      Historical texts and references
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="space-y-6">
-                      {deity.primarySources.map((source, index) => (
-                        <blockquote
-                          key={`${source.source}-${index}`}
-                          className="border-l-4 border-teal-500/50 pl-4 py-2 bg-slate-50 dark:bg-slate-800/50 rounded-r-lg"
-                        >
-                          <p className="text-slate-700 dark:text-slate-300 italic leading-relaxed">
-                            &ldquo;{source.text}&rdquo;
-                          </p>
-                          <footer className="mt-2 text-sm text-slate-500 dark:text-slate-400">
-                            <span className="font-medium">{source.source}</span>
-                            {source.date && (
-                              <span className="ml-2 text-slate-400 dark:text-slate-500">
-                                ({source.date})
+              {deity.primarySources &&
+                deity.primarySources.length > 0 &&
+                !deity.primarySourceExcerpts?.length && (
+                  <Card className="bg-white dark:bg-slate-900">
+                    <CardHeader>
+                      <CardTitle className="font-serif flex items-center gap-2 text-xl">
+                        <BookOpen className="h-5 w-5 text-teal-600" />
+                        Primary Sources
+                      </CardTitle>
+                      <CardDescription>
+                        Historical texts and references
+                      </CardDescription>
+                    </CardHeader>
+                    <CardContent>
+                      <div className="space-y-6">
+                        {deity.primarySources.map((source, index) => (
+                          <blockquote
+                            key={`${source.source}-${index}`}
+                            className="border-l-4 border-teal-500/50 pl-4 py-2 bg-slate-50 dark:bg-slate-800/50 rounded-r-lg"
+                          >
+                            <p className="text-slate-700 dark:text-slate-300 italic leading-relaxed">
+                              &ldquo;{source.text}&rdquo;
+                            </p>
+                            <footer className="mt-2 text-sm text-slate-500 dark:text-slate-400">
+                              <span className="font-medium">
+                                {source.source}
                               </span>
-                            )}
-                          </footer>
-                        </blockquote>
-                      ))}
-                    </div>
-                  </CardContent>
-                </Card>
-              )}
+                              {source.date && (
+                                <span className="ml-2 text-slate-400 dark:text-slate-500">
+                                  ({source.date})
+                                </span>
+                              )}
+                            </footer>
+                          </blockquote>
+                        ))}
+                      </div>
+                    </CardContent>
+                  </Card>
+                )}
 
               {/* Further Reading */}
               {deity.furtherReading && deity.furtherReading.length > 0 && (
@@ -508,71 +611,78 @@ export function DeityPageClient({ slug }: DeityPageClientProps) {
               )}
 
               {/* Worship & Cult */}
-              {deity.worship && (deity.worship.temples?.length || deity.worship.festivals?.length || deity.worship.practices) && (
-                <Card className="bg-white dark:bg-slate-900">
-                  <CardHeader>
-                    <CardTitle className="font-serif flex items-center gap-2 text-xl">
-                      <Sparkles className="h-5 w-5 text-amber-600" />
-                      Worship & Cult
-                    </CardTitle>
-                    <CardDescription>
-                      How {deity.name} was venerated in ancient times
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent className="space-y-6">
-                    {deity.worship.temples && deity.worship.temples.length > 0 && (
-                      <div>
-                        <h4 className="font-medium flex items-center gap-2 text-slate-800 dark:text-slate-200 mb-3">
-                          <Building className="h-4 w-4 text-slate-500" />
-                          Sacred Temples
-                        </h4>
-                        <ul className="space-y-2">
-                          {deity.worship.temples.map((temple) => (
-                            <li
-                              key={temple}
-                              className="text-muted-foreground flex items-start gap-2"
-                            >
-                              <span className="text-gold mt-1">&#8226;</span>
-                              {temple}
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    )}
+              {deity.worship &&
+                (deity.worship.temples?.length ||
+                  deity.worship.festivals?.length ||
+                  deity.worship.practices) && (
+                  <Card className="bg-white dark:bg-slate-900">
+                    <CardHeader>
+                      <CardTitle className="font-serif flex items-center gap-2 text-xl">
+                        <Sparkles className="h-5 w-5 text-amber-600" />
+                        Worship & Cult
+                      </CardTitle>
+                      <CardDescription>
+                        How {deity.name} was venerated in ancient times
+                      </CardDescription>
+                    </CardHeader>
+                    <CardContent className="space-y-6">
+                      {deity.worship.temples &&
+                        deity.worship.temples.length > 0 && (
+                          <div>
+                            <h4 className="font-medium flex items-center gap-2 text-slate-800 dark:text-slate-200 mb-3">
+                              <Building className="h-4 w-4 text-slate-500" />
+                              Sacred Temples
+                            </h4>
+                            <ul className="space-y-2">
+                              {deity.worship.temples.map((temple) => (
+                                <li
+                                  key={temple}
+                                  className="text-muted-foreground flex items-start gap-2"
+                                >
+                                  <span className="text-gold mt-1">
+                                    &#8226;
+                                  </span>
+                                  {temple}
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        )}
 
-                    {deity.worship.festivals && deity.worship.festivals.length > 0 && (
-                      <div>
-                        <h4 className="font-medium flex items-center gap-2 text-slate-800 dark:text-slate-200 mb-3">
-                          <Calendar className="h-4 w-4 text-slate-500" />
-                          Festivals & Celebrations
-                        </h4>
-                        <div className="flex flex-wrap gap-2">
-                          {deity.worship.festivals.map((festival) => (
-                            <Badge
-                              key={festival}
-                              variant="outline"
-                              className="border-amber-300 dark:border-amber-700 text-amber-700 dark:text-amber-300"
-                            >
-                              {festival}
-                            </Badge>
-                          ))}
+                      {deity.worship.festivals &&
+                        deity.worship.festivals.length > 0 && (
+                          <div>
+                            <h4 className="font-medium flex items-center gap-2 text-slate-800 dark:text-slate-200 mb-3">
+                              <Calendar className="h-4 w-4 text-slate-500" />
+                              Festivals & Celebrations
+                            </h4>
+                            <div className="flex flex-wrap gap-2">
+                              {deity.worship.festivals.map((festival) => (
+                                <Badge
+                                  key={festival}
+                                  variant="outline"
+                                  className="border-amber-300 dark:border-amber-700 text-amber-700 dark:text-amber-300"
+                                >
+                                  {festival}
+                                </Badge>
+                              ))}
+                            </div>
+                          </div>
+                        )}
+
+                      {deity.worship.practices && (
+                        <div>
+                          <h4 className="font-medium text-slate-800 dark:text-slate-200 mb-2">
+                            Worship Practices
+                          </h4>
+                          <p className="text-muted-foreground leading-relaxed">
+                            {deity.worship.practices}
+                          </p>
                         </div>
-                      </div>
-                    )}
-
-                    {deity.worship.practices && (
-                      <div>
-                        <h4 className="font-medium text-slate-800 dark:text-slate-200 mb-2">
-                          Worship Practices
-                        </h4>
-                        <p className="text-muted-foreground leading-relaxed">
-                          {deity.worship.practices}
-                        </p>
-                      </div>
-                    )}
-                  </CardContent>
-                </Card>
-              )}
+                      )}
+                    </CardContent>
+                  </Card>
+                )}
 
               {/* Quick Info Cards */}
               <div className="grid sm:grid-cols-2 gap-4">
@@ -587,7 +697,13 @@ export function DeityPageClient({ slug }: DeityPageClientProps) {
                     <CardContent>
                       <div className="flex flex-wrap gap-2">
                         {deity.domain.map((d) => (
-                          <Badge key={d} variant="secondary" className="bg-teal-100 dark:bg-teal-900/30 text-teal-700 dark:text-teal-300">{d}</Badge>
+                          <Badge
+                            key={d}
+                            variant="secondary"
+                            className="bg-teal-100 dark:bg-teal-900/30 text-teal-700 dark:text-teal-300"
+                          >
+                            {d}
+                          </Badge>
                         ))}
                       </div>
                     </CardContent>
@@ -605,7 +721,13 @@ export function DeityPageClient({ slug }: DeityPageClientProps) {
                     <CardContent>
                       <div className="flex flex-wrap gap-2">
                         {deity.symbols.map((s) => (
-                          <Badge key={s} variant="outline" className="border-amber-200 dark:border-amber-800">{s}</Badge>
+                          <Badge
+                            key={s}
+                            variant="outline"
+                            className="border-amber-200 dark:border-amber-800"
+                          >
+                            {s}
+                          </Badge>
                         ))}
                       </div>
                     </CardContent>
@@ -619,31 +741,35 @@ export function DeityPageClient({ slug }: DeityPageClientProps) {
           <RelatedDeities deityId={deity.id} pantheonId={deity.pantheonId} />
 
           {/* Interactive Stories featuring this deity */}
-          <DeityStoryRecommendations deityId={deity.id} deityName={deity.name} />
+          <DeityStoryRecommendations
+            deityId={deity.id}
+            deityName={deity.name}
+          />
 
           {/* Family Tree */}
-          {relationshipsData?.deityRelationships && relationshipsData.deityRelationships.length > 0 && (
-            <Card className="bg-white dark:bg-slate-900">
-              <CardHeader>
-                <CardTitle className="font-serif flex items-center gap-2">
-                  <Network className="h-5 w-5 text-teal-600" />
-                  Family Tree
-                </CardTitle>
-                <CardDescription>
-                  Explore {deity.name}&apos;s relationships with other deities
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                {allDeitiesData?.deities && (
-                  <FamilyTreeVisualization
-                    deities={allDeitiesData.deities}
-                    relationships={relationshipsData.deityRelationships}
-                    focusDeityId={deity.id}
-                  />
-                )}
-              </CardContent>
-            </Card>
-          )}
+          {relationshipsData?.deityRelationships &&
+            relationshipsData.deityRelationships.length > 0 && (
+              <Card className="bg-white dark:bg-slate-900">
+                <CardHeader>
+                  <CardTitle className="font-serif flex items-center gap-2">
+                    <Network className="h-5 w-5 text-teal-600" />
+                    Family Tree
+                  </CardTitle>
+                  <CardDescription>
+                    Explore {deity.name}&apos;s relationships with other deities
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  {allDeitiesData?.deities && (
+                    <FamilyTreeVisualization
+                      deities={allDeitiesData.deities}
+                      relationships={relationshipsData.deityRelationships}
+                      focusDeityId={deity.id}
+                    />
+                  )}
+                </CardContent>
+              </Card>
+            )}
         </div>
       </div>
     </div>

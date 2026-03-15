@@ -1,15 +1,32 @@
-'use client';
+"use client";
 
-import { useState, useEffect, type ReactNode } from 'react';
-import { useQuery } from '@tanstack/react-query';
-import { graphqlClient } from '@/lib/graphql-client';
-import { GET_DEITIES, GET_ALL_RELATIONSHIPS } from '@/lib/queries';
-import { Card, CardContent, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
-import { Progress } from '@/components/ui/progress';
-import { Trophy, RefreshCw, ArrowRight, Check, X, Sparkles, Image as ImageIcon, Users, Crown } from 'lucide-react';
-import Image from 'next/image';
+import { useState, useEffect, type ReactNode } from "react";
+import { useQuery } from "@tanstack/react-query";
+import { graphqlClient } from "@/lib/graphql-client";
+import { GET_DEITIES, GET_ALL_RELATIONSHIPS } from "@/lib/queries";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+  CardFooter,
+} from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { Progress } from "@/components/ui/progress";
+import {
+  Trophy,
+  RefreshCw,
+  ArrowRight,
+  Check,
+  X,
+  Sparkles,
+  Image as ImageIcon,
+  Users,
+  Crown,
+} from "lucide-react";
+import Image from "next/image";
+import { ShareButton } from "@/components/sharing/ShareButton";
 
 interface Deity {
   id: string;
@@ -30,7 +47,7 @@ interface Relationship {
 
 interface Question {
   id: number;
-  type: 'text' | 'visual' | 'relationship';
+  type: "text" | "visual" | "relationship";
   question: string;
   imageUrl?: string;
   options: string[];
@@ -49,21 +66,26 @@ export function MythologyQuiz() {
 
   // Load high score
   useEffect(() => {
-    const saved = localStorage.getItem('mythos_quiz_highscore');
+    const saved = localStorage.getItem("mythos_quiz_highscore");
     // eslint-disable-next-line react-hooks/set-state-in-effect -- hydrate high score from localStorage
     if (saved) setHighScore(Number.parseInt(saved));
   }, []);
 
-  const { data, isLoading } = useQuery<{ deities: Deity[], relationships: Relationship[] }>({
-    queryKey: ['quiz-data-v2'],
+  const { data, isLoading } = useQuery<{
+    deities: Deity[];
+    relationships: Relationship[];
+  }>({
+    queryKey: ["quiz-data-v2"],
     queryFn: async () => {
       const [deitiesRes, relationshipsRes] = await Promise.all([
         graphqlClient.request<{ deities: Deity[] }>(GET_DEITIES),
-        graphqlClient.request<{ allRelationships: Relationship[] }>(GET_ALL_RELATIONSHIPS)
+        graphqlClient.request<{ allRelationships: Relationship[] }>(
+          GET_ALL_RELATIONSHIPS,
+        ),
       ]);
       return {
         deities: deitiesRes.deities,
-        relationships: relationshipsRes.allRelationships
+        relationships: relationshipsRes.allRelationships,
       };
     },
   });
@@ -77,42 +99,56 @@ export function MythologyQuiz() {
     const usedIds = new Set<string>();
 
     const getRandomDeities = (count: number, excludeId: string) =>
-      deities.filter(d => d.id !== excludeId).sort(() => Math.random() - 0.5).slice(0, count);
+      deities
+        .filter((d) => d.id !== excludeId)
+        .sort(() => Math.random() - 0.5)
+        .slice(0, count);
 
     // 1. Visual Questions (Identify Deity)
-    const visualDeities = deities.filter(d => d.imageUrl && !d.imageUrl.includes('unsplash'));
+    const visualDeities = deities.filter(
+      (d) => d.imageUrl && !d.imageUrl.includes("unsplash"),
+    );
     if (visualDeities.length > 0) {
-      const target = visualDeities[Math.floor(Math.random() * visualDeities.length)];
-      usedIds.add(target.id + '_visual');
+      const target =
+        visualDeities[Math.floor(Math.random() * visualDeities.length)];
+      usedIds.add(target.id + "_visual");
       newQuestions.push({
         id: 1,
-        type: 'visual',
-        question: 'Which deity is depicted in this image?',
+        type: "visual",
+        question: "Which deity is depicted in this image?",
         imageUrl: target.imageUrl,
-        options: [target.name, ...getRandomDeities(3, target.id).map(d => d.name)].sort(() => Math.random() - 0.5),
+        options: [
+          target.name,
+          ...getRandomDeities(3, target.id).map((d) => d.name),
+        ].sort(() => Math.random() - 0.5),
         correctAnswer: target.name,
-        explanation: `This is ${target.name}, the deity of ${target.domain.join(', ')}.`
+        explanation: `This is ${target.name}, the deity of ${target.domain.join(", ")}.`,
       });
     }
 
     // 2. Relationship Questions
-    const validRelTypes = new Set(['parent_of', 'sibling_of', 'spouse_of']);
-    const rels = relationships.filter(r => validRelTypes.has(r.relationshipType));
+    const validRelTypes = new Set(["parent_of", "sibling_of", "spouse_of"]);
+    const rels = relationships.filter((r) =>
+      validRelTypes.has(r.relationshipType),
+    );
     if (rels.length > 0) {
       const rel = rels[Math.floor(Math.random() * rels.length)];
-      const fromDeity = deities.find(d => d.id === rel.fromDeityId);
-      const toDeity = deities.find(d => d.id === rel.toDeityId);
+      const fromDeity = deities.find((d) => d.id === rel.fromDeityId);
+      const toDeity = deities.find((d) => d.id === rel.toDeityId);
 
       if (fromDeity && toDeity) {
         usedIds.add(rel.id);
-        const relLabel = rel.relationshipType.replace('_', ' '); // "parent of"
+        const relLabel = rel.relationshipType.replace("_", " "); // "parent of"
         newQuestions.push({
           id: 2,
-          type: 'relationship',
-          question: `Who is the ${relLabel.split(' ')[0]} of ${toDeity.name}?`, // Who is the parent of Ares?
-          options: [fromDeity.name, ...getRandomDeities(3, fromDeity.id).map(d => d.name)].sort(() => Math.random() - 0.5),
+          type: "relationship",
+          question: `Who is the ${relLabel.split(" ")[0]} of ${toDeity.name}?`, // Who is the parent of Ares?
+          options: [
+            fromDeity.name,
+            ...getRandomDeities(3, fromDeity.id).map((d) => d.name),
+          ].sort(() => Math.random() - 0.5),
           correctAnswer: fromDeity.name,
-          explanation: `${fromDeity.name} is the ${relLabel} ${toDeity.name}.`
+          explanation: `${fromDeity.name} is the ${relLabel} ${toDeity.name}.`,
         });
       }
     }
@@ -120,27 +156,33 @@ export function MythologyQuiz() {
     // 3. Domain/Symbol Questions (Fill remaining slots to reach 5)
     while (newQuestions.length < 5) {
       const target = deities[Math.floor(Math.random() * deities.length)];
-      if (usedIds.has(target.id + '_domain')) continue;
+      if (usedIds.has(target.id + "_domain")) continue;
 
       if (Math.random() > 0.5 && target.domain.length > 0) {
-        usedIds.add(target.id + '_domain');
+        usedIds.add(target.id + "_domain");
         newQuestions.push({
           id: newQuestions.length + 1,
-          type: 'text',
+          type: "text",
           question: `Which deity is associated with ${target.domain[0]}?`,
-          options: [target.name, ...getRandomDeities(3, target.id).map(d => d.name)].sort(() => Math.random() - 0.5),
+          options: [
+            target.name,
+            ...getRandomDeities(3, target.id).map((d) => d.name),
+          ].sort(() => Math.random() - 0.5),
           correctAnswer: target.name,
-          explanation: `${target.name} is the deity of ${target.domain.join(', ')}.`
+          explanation: `${target.name} is the deity of ${target.domain.join(", ")}.`,
         });
       } else if (target.symbols.length > 0) {
-        usedIds.add(target.id + '_symbol');
+        usedIds.add(target.id + "_symbol");
         newQuestions.push({
           id: newQuestions.length + 1,
-          type: 'text',
+          type: "text",
           question: `Which deity is symbolized by ${target.symbols[0]}?`,
-          options: [target.name, ...getRandomDeities(3, target.id).map(d => d.name)].sort(() => Math.random() - 0.5),
+          options: [
+            target.name,
+            ...getRandomDeities(3, target.id).map((d) => d.name),
+          ].sort(() => Math.random() - 0.5),
           correctAnswer: target.name,
-          explanation: `${target.name}'s symbols include ${target.symbols.join(', ')}.`
+          explanation: `${target.name}'s symbols include ${target.symbols.join(", ")}.`,
         });
       }
     }
@@ -159,7 +201,7 @@ export function MythologyQuiz() {
       setScore(newScore);
       if (newScore > highScore) {
         setHighScore(newScore);
-        localStorage.setItem('mythos_quiz_highscore', newScore.toString());
+        localStorage.setItem("mythos_quiz_highscore", newScore.toString());
       }
     }
   };
@@ -175,7 +217,7 @@ export function MythologyQuiz() {
   };
 
   const restartQuiz = () => {
-    // Force re-generation of questions by invalidating query or just simple state reset? 
+    // Force re-generation of questions by invalidating query or just simple state reset?
     // For simplicity, just reset state. To get new questions we'd need to re-run the effect.
     // We can just refetch queries or manual logic.
     // Let's just reload the page or trigger state update.
@@ -200,11 +242,21 @@ export function MythologyQuiz() {
 
     let resultMessage: ReactNode;
     if (percentage >= 80) {
-      resultMessage = <p className="text-lg">🎉 divine wisdom! You rival Athena herself!</p>;
+      resultMessage = (
+        <p className="text-lg">🎉 divine wisdom! You rival Athena herself!</p>
+      );
     } else if (percentage >= 60) {
-      resultMessage = <p className="text-lg">👏 A worthy effort! Make an offering to the Muses and try again.</p>;
+      resultMessage = (
+        <p className="text-lg">
+          👏 A worthy effort! Make an offering to the Muses and try again.
+        </p>
+      );
     } else {
-      resultMessage = <p className="text-lg">📚 The library of Alexandria awaits your return.</p>;
+      resultMessage = (
+        <p className="text-lg">
+          📚 The library of Alexandria awaits your return.
+        </p>
+      );
     }
 
     return (
@@ -235,18 +287,29 @@ export function MythologyQuiz() {
               <div className="text-gold/80 mb-1 flex items-center justify-center gap-1">
                 <Crown className="h-3 w-3" /> Best
               </div>
-              <div className="font-bold text-lg text-gold">{highScore * 100}</div>
+              <div className="font-bold text-lg text-gold">
+                {highScore * 100}
+              </div>
             </div>
           </div>
 
-          <div className="text-center max-w-sm mx-auto">
-            {resultMessage}
-          </div>
+          <div className="text-center max-w-sm mx-auto">{resultMessage}</div>
 
-          <Button onClick={restartQuiz} className="w-full h-12 text-lg gap-2 bg-gold hover:bg-gold/90 text-black">
-            <RefreshCw className="h-5 w-5" />
-            Challenge Again
-          </Button>
+          <div className="flex flex-col sm:flex-row gap-3">
+            <ShareButton
+              title="Mythos Atlas Quiz Results"
+              text={`I scored ${score}/${questions.length} (${percentage}%) on the Mythos Atlas mythology quiz! Can you beat my score?`}
+              url="https://mythos-web-seven.vercel.app/quiz"
+              className="flex-1 [&_button]:w-full [&_button]:h-12 [&_button]:text-lg"
+            />
+            <Button
+              onClick={restartQuiz}
+              className="flex-1 h-12 text-lg gap-2 bg-gold hover:bg-gold/90 text-black"
+            >
+              <RefreshCw className="h-5 w-5" />
+              Challenge Again
+            </Button>
+          </div>
         </CardContent>
       </Card>
     );
@@ -255,21 +318,21 @@ export function MythologyQuiz() {
   const question = questions[currentQuestion];
 
   let questionIcon: ReactNode;
-  if (question.type === 'visual') {
+  if (question.type === "visual") {
     questionIcon = <ImageIcon className="h-6 w-6 text-purple-500" />;
-  } else if (question.type === 'relationship') {
+  } else if (question.type === "relationship") {
     questionIcon = <Users className="h-6 w-6 text-blue-500" />;
   } else {
     questionIcon = <Sparkles className="h-6 w-6 text-gold" />;
   }
 
   let questionTypeLabel: string;
-  if (question.type === 'visual') {
-    questionTypeLabel = 'Visual ID';
-  } else if (question.type === 'relationship') {
-    questionTypeLabel = 'Relationship';
+  if (question.type === "visual") {
+    questionTypeLabel = "Visual ID";
+  } else if (question.type === "relationship") {
+    questionTypeLabel = "Relationship";
   } else {
-    questionTypeLabel = 'Knowledge';
+    questionTypeLabel = "Knowledge";
   }
 
   return (
@@ -283,7 +346,7 @@ export function MythologyQuiz() {
             Question {currentQuestion + 1} of {questions.length}
           </span>
           <Progress
-            value={((currentQuestion) / questions.length) * 100}
+            value={(currentQuestion / questions.length) * 100}
             className="h-1.5 w-32"
             aria-labelledby="quiz-progress-label"
             aria-valuenow={currentQuestion + 1}
@@ -314,7 +377,10 @@ export function MythologyQuiz() {
               <Badge variant="secondary" className="mb-2 w-fit">
                 {questionTypeLabel}
               </Badge>
-              <CardTitle id="quiz-question" className="text-xl md:text-2xl leading-tight font-serif">
+              <CardTitle
+                id="quiz-question"
+                className="text-xl md:text-2xl leading-tight font-serif"
+              >
                 {question.question}
               </CardTitle>
             </div>
@@ -345,9 +411,10 @@ export function MythologyQuiz() {
               const showCorrect = showResult && isCorrect;
               const showIncorrect = showResult && isSelected && !isCorrect;
 
-              let buttonVariant: 'default' | 'destructive' | 'outline' = 'outline';
-              if (showCorrect) buttonVariant = 'default';
-              else if (showIncorrect) buttonVariant = 'destructive';
+              let buttonVariant: "default" | "destructive" | "outline" =
+                "outline";
+              if (showCorrect) buttonVariant = "default";
+              else if (showIncorrect) buttonVariant = "destructive";
 
               return (
                 <Button
@@ -356,15 +423,25 @@ export function MythologyQuiz() {
                   aria-checked={isSelected}
                   aria-disabled={showResult}
                   variant={buttonVariant}
-                  className={`w-full justify-between items-center h-auto py-4 px-5 text-lg group transition-all duration-200 ${showCorrect ? 'bg-green-600 hover:bg-green-700 border-green-600 text-white' : ''
-                    } ${showIncorrect ? 'bg-red-600 hover:bg-red-700 border-red-600 text-white' : ''} ${!showResult && !isSelected ? 'hover:border-gold/50 hover:bg-gold/5' : ''
-                    }`}
+                  className={`w-full justify-between items-center h-auto py-4 px-5 text-lg group transition-all duration-200 ${
+                    showCorrect
+                      ? "bg-green-600 hover:bg-green-700 border-green-600 text-white"
+                      : ""
+                  } ${showIncorrect ? "bg-red-600 hover:bg-red-700 border-red-600 text-white" : ""} ${
+                    !showResult && !isSelected
+                      ? "hover:border-gold/50 hover:bg-gold/5"
+                      : ""
+                  }`}
                   onClick={() => !showResult && handleAnswerSelect(option)}
                   disabled={showResult}
                 >
                   <span className="font-medium">{option}</span>
-                  {showCorrect && <Check className="h-5 w-5 shrink-0" aria-hidden="true" />}
-                  {showIncorrect && <X className="h-5 w-5 shrink-0" aria-hidden="true" />}
+                  {showCorrect && (
+                    <Check className="h-5 w-5 shrink-0" aria-hidden="true" />
+                  )}
+                  {showIncorrect && (
+                    <X className="h-5 w-5 shrink-0" aria-hidden="true" />
+                  )}
                 </Button>
               );
             })}
@@ -377,12 +454,17 @@ export function MythologyQuiz() {
               className="mt-6 p-4 rounded-xl bg-muted/50 border border-border animate-in fade-in slide-in-from-top-2 block"
             >
               <div className="flex items-start gap-3">
-                <div className="p-1 rounded-full bg-gold/20 mt-0.5" aria-hidden="true">
+                <div
+                  className="p-1 rounded-full bg-gold/20 mt-0.5"
+                  aria-hidden="true"
+                >
                   <ArrowRight className="h-4 w-4 text-gold" />
                 </div>
                 <p className="text-secondary-foreground leading-relaxed">
                   <span className="sr-only">
-                    {selectedAnswer === question.correctAnswer ? 'Correct! ' : 'Incorrect. '}
+                    {selectedAnswer === question.correctAnswer
+                      ? "Correct! "
+                      : "Incorrect. "}
                   </span>
                   {question.explanation}
                 </p>
@@ -393,11 +475,19 @@ export function MythologyQuiz() {
 
         {showResult && (
           <CardFooter className="bg-muted/30 pt-4 pb-6">
-            <Button onClick={handleNext} size="lg" className="w-full gap-2 text-lg font-semibold bg-primary hover:bg-primary/90">
+            <Button
+              onClick={handleNext}
+              size="lg"
+              className="w-full gap-2 text-lg font-semibold bg-primary hover:bg-primary/90"
+            >
               {currentQuestion < questions.length - 1 ? (
-                <>Next Question <ArrowRight className="h-5 w-5" /></>
+                <>
+                  Next Question <ArrowRight className="h-5 w-5" />
+                </>
               ) : (
-                <>See Results <Trophy className="h-5 w-5" /></>
+                <>
+                  See Results <Trophy className="h-5 w-5" />
+                </>
               )}
             </Button>
           </CardFooter>

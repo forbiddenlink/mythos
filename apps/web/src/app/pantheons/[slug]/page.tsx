@@ -1,8 +1,11 @@
-import type { Metadata } from 'next';
-import { notFound } from 'next/navigation';
-import pantheons from '@/data/pantheons.json';
-import { generateBaseMetadata } from '@/lib/metadata';
-import { PantheonPageClient } from './PantheonPageClient';
+import type { Metadata } from "next";
+import { notFound } from "next/navigation";
+import pantheons from "@/data/pantheons.json";
+import { generateBaseMetadata } from "@/lib/metadata";
+import { PantheonPageClient } from "./PantheonPageClient";
+
+// ISR: Revalidate every week (604800 seconds)
+export const revalidate = 604800;
 
 interface PantheonData {
   id: string;
@@ -25,37 +28,42 @@ export async function generateStaticParams() {
 }
 
 // Generate metadata for each pantheon page
-export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: PageProps): Promise<Metadata> {
   const { slug } = await params;
-  const pantheon = pantheons.find((p) => p.slug === slug) as PantheonData | undefined;
+  const pantheon = pantheons.find((p) => p.slug === slug) as
+    | PantheonData
+    | undefined;
 
   if (!pantheon) {
     return generateBaseMetadata({
-      title: 'Pantheon Not Found',
-      description: 'The requested pantheon could not be found.',
+      title: "Pantheon Not Found",
+      description: "The requested pantheon could not be found.",
     });
   }
 
   // Create a rich description
-  const description = pantheon.description?.slice(0, 160)
-    || `Explore the ${pantheon.name} from ${pantheon.culture} mythology. Discover the gods, goddesses, and myths of ${pantheon.region}.`;
+  const description =
+    pantheon.description?.slice(0, 160) ||
+    `Explore the ${pantheon.name} from ${pantheon.culture} mythology. Discover the gods, goddesses, and myths of ${pantheon.region}.`;
 
   return generateBaseMetadata({
     title: `${pantheon.name} - ${pantheon.culture} Mythology`,
     description: description,
     url: `/pantheons/${pantheon.slug}`,
-    image: '/og-image.png',
-    type: 'website',
+    image: "/og-image.png",
+    type: "website",
     keywords: [
       pantheon.name,
       pantheon.culture,
       pantheon.region,
-      'mythology',
-      'pantheon',
-      'gods',
-      'goddesses',
-      'ancient religion',
-      'mythology encyclopedia',
+      "mythology",
+      "pantheon",
+      "gods",
+      "goddesses",
+      "ancient religion",
+      "mythology encyclopedia",
     ],
   });
 }

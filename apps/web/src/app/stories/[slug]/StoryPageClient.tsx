@@ -1,44 +1,80 @@
-'use client';
+"use client";
 
-import { useContext, useEffect } from 'react';
-import dynamic from 'next/dynamic';
-import { useQuery } from '@tanstack/react-query';
-import { graphqlClient } from '@/lib/graphql-client';
-import { GET_STORIES } from '@/lib/queries';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Loader2, BookOpen, Tag, ScrollText, Volume2, Square, Play } from 'lucide-react';
-import { Breadcrumbs } from '@/components/navigation/Breadcrumbs';
-import { BookmarkButton } from '@/components/ui/bookmark-button';
-import { ExportIconButton } from '@/components/ui/export-button';
-import { ArticleJsonLd } from '@/components/seo/JsonLd';
-import Link from 'next/link';
-import ReactMarkdown from 'react-markdown';
-import { useTextToSpeech } from '@/hooks/useTextToSpeech';
+import { useContext, useEffect } from "react";
+import dynamic from "next/dynamic";
+import { useQuery } from "@tanstack/react-query";
+import { graphqlClient } from "@/lib/graphql-client";
+import { GET_STORIES } from "@/lib/queries";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import {
+  Loader2,
+  BookOpen,
+  Tag,
+  ScrollText,
+  Volume2,
+  Square,
+  Play,
+} from "lucide-react";
+import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
+import { BookmarkButton } from "@/components/ui/bookmark-button";
+import { ExportIconButton } from "@/components/ui/export-button";
+import { ShareButton } from "@/components/sharing/ShareButton";
+import { ArticleJsonLd } from "@/components/seo/JsonLd";
+import Link from "next/link";
+import ReactMarkdown from "react-markdown";
+import { useTextToSpeech } from "@/hooks/useTextToSpeech";
 
 // Lazy load heavy Three.js-based artifact viewer
 const ArtifactViewer = dynamic(
-  () => import('@/components/artifacts/ArtifactViewer').then(mod => ({ default: mod.ArtifactViewer })),
-  { loading: () => <div className="h-75 flex items-center justify-center"><Loader2 className="h-8 w-8 animate-spin text-gold" /></div>, ssr: false }
+  () =>
+    import("@/components/artifacts/ArtifactViewer").then((mod) => ({
+      default: mod.ArtifactViewer,
+    })),
+  {
+    loading: () => (
+      <div className="h-75 flex items-center justify-center">
+        <Loader2 className="h-8 w-8 animate-spin text-gold" />
+      </div>
+    ),
+    ssr: false,
+  },
 );
-import { ProgressContext } from '@/providers/progress-provider';
-import { RelatedContent } from '@/components/related-content';
-import { MythVariants } from '@/components/stories/MythVariants';
-import deitiesData from '@/data/deities.json';
-import locationsData from '@/data/locations.json';
-import { DetailPageSkeleton } from '@/components/ui/skeleton-cards';
-import { StoryNarrator } from '@/components/stories/StoryNarrator';
-import { SourceExcerptsList, ReferencesList, type PrimarySourceExcerpt, type FurtherReadingReference } from '@/components/sources';
+import { ProgressContext } from "@/providers/progress-provider";
+import { RelatedContent } from "@/components/related-content";
+import { MythVariants } from "@/components/stories/MythVariants";
+import deitiesData from "@/data/deities.json";
+import locationsData from "@/data/locations.json";
+import { DetailPageSkeleton } from "@/components/ui/skeleton-cards";
+import { StoryNarrator } from "@/components/stories/StoryNarrator";
+import {
+  SourceExcerptsList,
+  ReferencesList,
+  type PrimarySourceExcerpt,
+  type FurtherReadingReference,
+} from "@/components/sources";
 
 function useProgress() {
   const context = useContext(ProgressContext);
   if (!context) {
-    throw new Error('useProgress must be used within ProgressProvider');
+    throw new Error("useProgress must be used within ProgressProvider");
   }
   return context;
 }
 
 // Component to track story reads - separated to avoid hook call issues with early returns
-function StoryProgressTracker({ storyId, pantheonId }: { storyId: string; pantheonId: string }) {
+function StoryProgressTracker({
+  storyId,
+  pantheonId,
+}: {
+  storyId: string;
+  pantheonId: string;
+}) {
   const { trackStoryRead, trackPantheonExplore } = useProgress();
 
   useEffect(() => {
@@ -99,14 +135,13 @@ interface StoryPageClientProps {
 }
 
 // Stories that have cinematic versions available
-const CINEMATIC_STORIES = ['ragnarok', 'titanomachy'];
+const CINEMATIC_STORIES = ["ragnarok", "titanomachy"];
 
 export function StoryPageClient({ slug }: StoryPageClientProps) {
   const { speak, cancel, isSpeaking } = useTextToSpeech();
 
-
   const { data, isLoading, error } = useQuery<{ stories: Story[] }>({
-    queryKey: ['stories'],
+    queryKey: ["stories"],
     queryFn: async () => graphqlClient.request(GET_STORIES),
   });
 
@@ -118,16 +153,18 @@ export function StoryPageClient({ slug }: StoryPageClientProps) {
     return (
       <div className="container mx-auto max-w-6xl px-4 py-24">
         <div className="text-center">
-          <h2 className="text-2xl font-bold text-destructive">Error loading story</h2>
+          <h2 className="text-2xl font-bold text-destructive">
+            Error loading story
+          </h2>
           <p className="text-muted-foreground mt-2">
-            {error instanceof Error ? error.message : 'An error occurred'}
+            {error instanceof Error ? error.message : "An error occurred"}
           </p>
         </div>
       </div>
     );
   }
 
-  const story = data?.stories.find(s => s.slug === slug);
+  const story = data?.stories.find((s) => s.slug === slug);
 
   if (!story && !isLoading) {
     return (
@@ -137,7 +174,10 @@ export function StoryPageClient({ slug }: StoryPageClientProps) {
           <p className="text-slate-600 dark:text-slate-400 mt-2">
             The story you&apos;re looking for doesn&apos;t exist.
           </p>
-          <Link href="/stories" className="text-gold hover:underline mt-4 inline-block">
+          <Link
+            href="/stories"
+            className="text-gold hover:underline mt-4 inline-block"
+          >
             View all stories
           </Link>
         </div>
@@ -151,8 +191,8 @@ export function StoryPageClient({ slug }: StoryPageClientProps) {
 
   // Look up featured deities by ID
   const featuredDeitiesData = (story.featuredDeities || [])
-    .map(deityId => {
-      const deity = (deitiesData as Deity[]).find(d => d.id === deityId);
+    .map((deityId) => {
+      const deity = (deitiesData as Deity[]).find((d) => d.id === deityId);
       if (!deity) return null;
       return {
         id: deity.id,
@@ -166,8 +206,10 @@ export function StoryPageClient({ slug }: StoryPageClientProps) {
 
   // Look up featured locations by ID
   const featuredLocationsData = (story.featuredLocations || [])
-    .map(locationId => {
-      const location = (locationsData as Location[]).find(l => l.id === locationId);
+    .map((locationId) => {
+      const location = (locationsData as Location[]).find(
+        (l) => l.id === locationId,
+      );
       if (!location) return null;
       // Locations don't have a slug field, use id as slug
       return {
@@ -181,8 +223,8 @@ export function StoryPageClient({ slug }: StoryPageClientProps) {
 
   // Look up related stories by ID
   const relatedStoriesData = (story.relatedStories || [])
-    .map(storyId => {
-      const relatedStory = data?.stories.find(s => s.id === storyId);
+    .map((storyId) => {
+      const relatedStory = data?.stories.find((s) => s.id === storyId);
       if (!relatedStory) return null;
       return {
         id: relatedStory.id,
@@ -193,7 +235,10 @@ export function StoryPageClient({ slug }: StoryPageClientProps) {
     })
     .filter((s): s is NonNullable<typeof s> => s !== null);
 
-  const hasRelatedContent = featuredDeitiesData.length > 0 || featuredLocationsData.length > 0 || relatedStoriesData.length > 0;
+  const hasRelatedContent =
+    featuredDeitiesData.length > 0 ||
+    featuredLocationsData.length > 0 ||
+    relatedStoriesData.length > 0;
 
   return (
     <div className="min-h-screen bg-mythic">
@@ -230,7 +275,21 @@ export function StoryPageClient({ slug }: StoryPageClientProps) {
           </div>
 
           <div className="flex items-center justify-center gap-4">
-            <BookmarkButton type="story" id={story?.id || ''} size="lg" variant="light" />
+            <BookmarkButton
+              type="story"
+              id={story?.id || ""}
+              size="lg"
+              variant="light"
+            />
+
+            {story && (
+              <ShareButton
+                title={`${story.title} - Mythos Atlas`}
+                text={`Read "${story.title}" - ${story.summary?.slice(0, 100)}... on Mythos Atlas`}
+                url={`https://mythos-web-seven.vercel.app/stories/${story.slug}`}
+                className="[&_button]:text-gold [&_button]:border-gold/40 [&_button]:hover:bg-gold/20"
+              />
+            )}
 
             {story && (
               <ExportIconButton
@@ -259,10 +318,11 @@ export function StoryPageClient({ slug }: StoryPageClientProps) {
                     speak(story.fullNarrative || story.summary);
                   }
                 }}
-                className={`flex items-center gap-2 px-4 py-2 rounded-lg border transition-all ${isSpeaking
-                  ? 'bg-red-500/20 border-red-500/50 text-red-200 hover:bg-red-500/30'
-                  : 'bg-gold/20 border-gold/40 text-gold hover:bg-gold/30'
-                  }`}
+                className={`flex items-center gap-2 px-4 py-2 rounded-lg border transition-all ${
+                  isSpeaking
+                    ? "bg-red-500/20 border-red-500/50 text-red-200 hover:bg-red-500/30"
+                    : "bg-gold/20 border-gold/40 text-gold hover:bg-gold/30"
+                }`}
               >
                 {isSpeaking ? (
                   <>
@@ -306,12 +366,13 @@ export function StoryPageClient({ slug }: StoryPageClientProps) {
         )}
 
         <div className="mt-8 space-y-8">
-
           {/* Full Narrative */}
           {story.fullNarrative ? (
             <Card className="border-gold/20 bg-midnight-light/50 overflow-hidden">
               <CardHeader>
-                <CardTitle className="text-parchment text-2xl font-serif">The Tale</CardTitle>
+                <CardTitle className="text-parchment text-2xl font-serif">
+                  The Tale
+                </CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="prose prose-invert prose-gold max-w-none prose-p:leading-relaxed prose-headings:font-serif prose-headings:text-gold/90 prose-strong:text-gold/80 prose-blockquote:border-l-gold/40 prose-blockquote:text-parchment/70 prose-li:marker:text-gold/50">
@@ -322,7 +383,9 @@ export function StoryPageClient({ slug }: StoryPageClientProps) {
           ) : (
             <Card className="border-gold/20 bg-midnight-light/50">
               <CardHeader>
-                <CardTitle className="text-parchment text-2xl font-serif">Summary</CardTitle>
+                <CardTitle className="text-parchment text-2xl font-serif">
+                  Summary
+                </CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-parchment/80 leading-relaxed text-lg whitespace-pre-line">
@@ -336,7 +399,9 @@ export function StoryPageClient({ slug }: StoryPageClientProps) {
           {story.keyExcerpts && (
             <Card className="border-gold/20 bg-midnight-light/50">
               <CardHeader>
-                <CardTitle className="text-parchment text-2xl font-serif">Key Passages</CardTitle>
+                <CardTitle className="text-parchment text-2xl font-serif">
+                  Key Passages
+                </CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="bg-midnight/30 p-6 rounded-lg border border-gold/10">
@@ -352,7 +417,9 @@ export function StoryPageClient({ slug }: StoryPageClientProps) {
           {story.moralThemes && story.moralThemes.length > 0 && (
             <Card className="border-gold/20 bg-midnight-light/50">
               <CardHeader>
-                <CardTitle className="text-parchment text-2xl font-serif">Themes</CardTitle>
+                <CardTitle className="text-parchment text-2xl font-serif">
+                  Themes
+                </CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="flex flex-wrap gap-2">
@@ -373,7 +440,9 @@ export function StoryPageClient({ slug }: StoryPageClientProps) {
           {story.culturalSignificance && (
             <Card className="border-gold/20 bg-midnight-light/50">
               <CardHeader>
-                <CardTitle className="text-parchment text-2xl font-serif">Cultural Significance</CardTitle>
+                <CardTitle className="text-parchment text-2xl font-serif">
+                  Cultural Significance
+                </CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-parchment/80 leading-relaxed text-lg whitespace-pre-line">
@@ -389,22 +458,24 @@ export function StoryPageClient({ slug }: StoryPageClientProps) {
           )}
 
           {/* Primary Source Excerpts */}
-          {story.primarySourceExcerpts && story.primarySourceExcerpts.length > 0 && (
-            <Card className="border-gold/20 bg-midnight-light/50">
-              <CardHeader>
-                <CardTitle className="text-parchment text-2xl font-serif flex items-center gap-2">
-                  <ScrollText className="h-5 w-5 text-gold" />
-                  Ancient Sources
-                </CardTitle>
-                <CardDescription>
-                  Original texts with translations - toggle to see the original language
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <SourceExcerptsList excerpts={story.primarySourceExcerpts} />
-              </CardContent>
-            </Card>
-          )}
+          {story.primarySourceExcerpts &&
+            story.primarySourceExcerpts.length > 0 && (
+              <Card className="border-gold/20 bg-midnight-light/50">
+                <CardHeader>
+                  <CardTitle className="text-parchment text-2xl font-serif flex items-center gap-2">
+                    <ScrollText className="h-5 w-5 text-gold" />
+                    Ancient Sources
+                  </CardTitle>
+                  <CardDescription>
+                    Original texts with translations - toggle to see the
+                    original language
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <SourceExcerptsList excerpts={story.primarySourceExcerpts} />
+                </CardContent>
+              </Card>
+            )}
 
           {/* Further Reading */}
           {story.furtherReading && story.furtherReading.length > 0 && (
@@ -423,8 +494,12 @@ export function StoryPageClient({ slug }: StoryPageClientProps) {
           {hasRelatedContent && (
             <Card className="border-gold/20 bg-midnight-light/50">
               <CardHeader>
-                <CardTitle className="text-parchment text-2xl font-serif">Explore Further</CardTitle>
-                <CardDescription>Characters, locations, and stories connected to this tale.</CardDescription>
+                <CardTitle className="text-parchment text-2xl font-serif">
+                  Explore Further
+                </CardTitle>
+                <CardDescription>
+                  Characters, locations, and stories connected to this tale.
+                </CardDescription>
               </CardHeader>
               <CardContent>
                 <RelatedContent
@@ -441,11 +516,22 @@ export function StoryPageClient({ slug }: StoryPageClientProps) {
           {/* Museum Relics */}
           <Card className="border-gold/20 bg-midnight-light/50 overflow-hidden">
             <CardHeader>
-              <CardTitle className="text-parchment text-2xl font-serif">Museum Artifacts</CardTitle>
-              <CardDescription>Interactive 3D relics associated with this legend.</CardDescription>
+              <CardTitle className="text-parchment text-2xl font-serif">
+                Museum Artifacts
+              </CardTitle>
+              <CardDescription>
+                Interactive 3D relics associated with this legend.
+              </CardDescription>
             </CardHeader>
             <CardContent>
-              <ArtifactViewer type={story.title.toLowerCase().includes('war') || story.title.toLowerCase().includes('battle') ? 'shield' : 'apple'} />
+              <ArtifactViewer
+                type={
+                  story.title.toLowerCase().includes("war") ||
+                  story.title.toLowerCase().includes("battle")
+                    ? "shield"
+                    : "apple"
+                }
+              />
             </CardContent>
           </Card>
 

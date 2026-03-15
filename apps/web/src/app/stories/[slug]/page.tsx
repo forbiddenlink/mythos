@@ -1,9 +1,12 @@
-import type { Metadata } from 'next';
-import { notFound } from 'next/navigation';
-import stories from '@/data/stories.json';
-import pantheons from '@/data/pantheons.json';
-import { generateBaseMetadata } from '@/lib/metadata';
-import { StoryPageClient } from './StoryPageClient';
+import type { Metadata } from "next";
+import { notFound } from "next/navigation";
+import stories from "@/data/stories.json";
+import pantheons from "@/data/pantheons.json";
+import { generateBaseMetadata } from "@/lib/metadata";
+import { StoryPageClient } from "./StoryPageClient";
+
+// ISR: Revalidate every week (604800 seconds)
+export const revalidate = 604800;
 
 interface StoryData {
   id: string;
@@ -28,42 +31,45 @@ export async function generateStaticParams() {
 }
 
 // Generate metadata for each story page
-export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: PageProps): Promise<Metadata> {
   const { slug } = await params;
   const story = stories.find((s) => s.slug === slug) as StoryData | undefined;
 
   if (!story) {
     return generateBaseMetadata({
-      title: 'Story Not Found',
-      description: 'The requested story could not be found.',
+      title: "Story Not Found",
+      description: "The requested story could not be found.",
     });
   }
 
   const pantheon = pantheons.find((p) => p.id === story.pantheonId);
-  const pantheonName = pantheon?.name || 'Ancient';
+  const pantheonName = pantheon?.name || "Ancient";
 
   // Create a rich description
-  const themes = story.moralThemes?.slice(0, 3).join(', ') || '';
-  const description = story.summary?.slice(0, 160)
-    || `Read ${story.title}, a ${story.category} from ${pantheonName} mythology. Themes: ${themes}.`;
+  const themes = story.moralThemes?.slice(0, 3).join(", ") || "";
+  const description =
+    story.summary?.slice(0, 160) ||
+    `Read ${story.title}, a ${story.category} from ${pantheonName} mythology. Themes: ${themes}.`;
 
   return generateBaseMetadata({
     title: `${story.title} - ${pantheonName} Mythology`,
     description: description,
     url: `/stories/${story.slug}`,
-    image: story.imageUrl || '/og-image.png',
-    type: 'article',
+    image: story.imageUrl || "/og-image.png",
+    type: "article",
     keywords: [
       story.title,
       story.category,
       ...(story.moralThemes || []),
       pantheonName,
-      'mythology',
-      'myth',
-      'legend',
-      'ancient story',
+      "mythology",
+      "myth",
+      "legend",
+      "ancient story",
     ],
-    articleSection: 'Stories',
+    articleSection: "Stories",
     articleTags: story.moralThemes,
   });
 }
