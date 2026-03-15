@@ -87,20 +87,20 @@ An immersive web application exploring ancient mythologies through interactive v
 ```mermaid
 graph TD
     User[User Browser]
-    
+
     subgraph Frontend ["Next.js App Router"]
         Page[Pages / Layouts]
         Comp[UI Components]
         Hooks[Custom Hooks]
         Providers[Context Providers]
     end
-    
+
     subgraph API ["Next.js API Routes"]
         GraphQL[GraphQL Route Handler]
         Resolvers[Data Resolvers]
         Search[Fuse.js Search Engine]
     end
-    
+
     subgraph Data ["JSON Data Layer"]
         Pantheons["pantheons.json (13)"]
         Deities["deities.json (189)"]
@@ -109,16 +109,16 @@ graph TD
         Artifacts["artifacts.json (34)"]
         Locations["locations.json (85)"]
     end
-    
+
     User --> Page
     Page --> Comp
     Comp --> Hooks
     Hooks --> Providers
     Providers --> GraphQL
-    
+
     GraphQL --> Resolvers
     Resolvers --> Search
-    
+
     Resolvers --> Pantheons
     Resolvers --> Deities
     Resolvers --> Stories
@@ -183,7 +183,7 @@ The application will be available at `http://localhost:3000`.
 
 ### Production Deployment
 
-The site is live at: <https://mythos-web-seven.vercel.app>
+The site is live at: <https://mythosatlas.com>
 
 ## 📁 Project Structure
 
@@ -235,15 +235,15 @@ mythos/
 
 The application uses JSON files for mythology data:
 
-| File | Count | Description |
-| ------ | ------- | ------------- |
-| `pantheons.json` | 13 | Greek, Norse, Egyptian, Roman, Hindu, Japanese, Celtic, Aztec, Chinese, Mesopotamian, African (Yoruba), Polynesian, Mesoamerican |
-| `deities.json` | 189 | Detailed profiles with domains, symbols, and importance rankings |
-| `stories.json` | 96 | Legends, creation myths, and heroic tales |
-| `creatures.json` | 29 | Mythological beasts and beings |
-| `artifacts.json` | 34 | Legendary weapons, relics, and objects |
-| `locations.json` | 85 | Sacred sites, realms, and mythological places |
-| `relationships.json` | — | Divine family connections across all pantheons |
+| File                 | Count | Description                                                                                                                      |
+| -------------------- | ----- | -------------------------------------------------------------------------------------------------------------------------------- |
+| `pantheons.json`     | 13    | Greek, Norse, Egyptian, Roman, Hindu, Japanese, Celtic, Aztec, Chinese, Mesopotamian, African (Yoruba), Polynesian, Mesoamerican |
+| `deities.json`       | 189   | Detailed profiles with domains, symbols, and importance rankings                                                                 |
+| `stories.json`       | 96    | Legends, creation myths, and heroic tales                                                                                        |
+| `creatures.json`     | 29    | Mythological beasts and beings                                                                                                   |
+| `artifacts.json`     | 34    | Legendary weapons, relics, and objects                                                                                           |
+| `locations.json`     | 85    | Sacred sites, realms, and mythological places                                                                                    |
+| `relationships.json` | —     | Divine family connections across all pantheons                                                                                   |
 
 ## 🧪 Development Commands
 

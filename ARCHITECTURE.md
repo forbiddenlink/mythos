@@ -15,17 +15,17 @@ graph TB
         B --> C[React Components]
         C --> D[React Query Cache]
     end
-    
+
     subgraph "Application Layer"
         B --> E[App Router Pages]
         E --> F[Server Components]
         E --> G[Client Components]
-        
+
         G --> H[UI Components<br/>shadcn/ui + Radix]
         G --> I[Visualizations<br/>ReactFlow + D3 + R3F]
         G --> J[State Management<br/>React Query + Context]
     end
-    
+
     subgraph "Data Layer"
         J --> K[GraphQL Client]
         K --> L[API Route Handler<br/>/api/graphql]
@@ -38,7 +38,7 @@ graph TB
         M --> S2[locations.json · 85]
         M --> T2[relationships.json]
     end
-    
+
     subgraph "Features"
         R[Search ⌘K<br/>Fuse.js] --> K
         S[Filters & Sorting] --> G
@@ -47,7 +47,7 @@ graph TB
         V[3D Artifacts<br/>React Three Fiber] --> I
         W[i18n<br/>next-intl] --> E
     end
-    
+
     subgraph "Deployment"
         X[Vercel Platform] --> B
         Y[GitHub Repository] --> X
@@ -63,7 +63,7 @@ sequenceDiagram
     participant R as React Query
     participant G as GraphQL API
     participant D as JSON Data
-    
+
     U->>B: Visit /deities page
     B->>R: useQuery('deities')
     R->>R: Check cache
@@ -78,7 +78,7 @@ sequenceDiagram
         R->>B: Return fresh data
     end
     B->>U: Render deity cards
-    
+
     U->>B: Apply gender filter
     B->>B: Client-side filtering
     B->>U: Update display
@@ -95,7 +95,7 @@ erDiagram
     PANTHEON ||--o{ LOCATION : belongs_to
     DEITY ||--o{ RELATIONSHIP : has
     DEITY ||--o{ STORY : features_in
-    
+
     PANTHEON {
         string id PK
         string name
@@ -105,7 +105,7 @@ erDiagram
         string description
         string imageUrl
     }
-    
+
     DEITY {
         string id PK
         string name
@@ -118,7 +118,7 @@ erDiagram
         string description
         string imageUrl
     }
-    
+
     STORY {
         string id PK
         string title
@@ -128,7 +128,7 @@ erDiagram
         string[] themes
         string category
     }
-    
+
     CREATURE {
         string id PK
         string name
@@ -137,7 +137,7 @@ erDiagram
         string type
         string description
     }
-    
+
     ARTIFACT {
         string id PK
         string name
@@ -146,7 +146,7 @@ erDiagram
         string type
         string description
     }
-    
+
     LOCATION {
         string id PK
         string name
@@ -157,7 +157,7 @@ erDiagram
         float latitude
         float longitude
     }
-    
+
     RELATIONSHIP {
         string deityId FK
         string relatedDeityId FK
@@ -174,41 +174,41 @@ graph TB
         B[React 19.2.3]
         C[TypeScript 5]
     end
-    
+
     subgraph "Styling & Design"
         D[Tailwind CSS 4]
         E[shadcn/ui + Radix]
         F[Framer Motion 12]
     end
-    
+
     subgraph "Data Management"
         G[React Query 5]
         H[graphql-request 7]
         I[Fuse.js 7<br/>Fuzzy Search]
     end
-    
+
     subgraph "Visualization"
         J[ReactFlow 11<br/>Network Graphs]
         K[D3.js 7<br/>Hierarchical Trees]
         L[React Three Fiber 9<br/>3D Artifacts]
     end
-    
+
     subgraph "Platform"
         M[next-intl 4<br/>i18n: EN, ES, FR, DE]
         N[Howler.js 2<br/>Audio]
         O[PWA<br/>Service Worker]
     end
-    
+
     subgraph "Testing"
         P[Vitest 3<br/>Unit Tests]
         Q[Playwright 1.52<br/>E2E Tests]
     end
-    
+
     subgraph "Deployment"
         R[Vercel<br/>Hosting & CI/CD]
         S[Turborepo<br/>Monorepo Build]
     end
-    
+
     A --> B --> C
     A --> D
     B --> G --> H
@@ -221,15 +221,15 @@ graph TB
 
 ## Feature Overview
 
-| Area | Features |
-|------|----------|
-| **Browse** | 13 pantheons, 189 deities, 96 stories, 29 creatures, 34 artifacts, 85 locations |
+| Area          | Features                                                                                           |
+| ------------- | -------------------------------------------------------------------------------------------------- |
+| **Browse**    | 13 pantheons, 189 deities, 96 stories, 29 creatures, 34 artifacts, 85 locations                    |
 | **Visualize** | Family trees (network + hierarchical), knowledge graph, story timeline, 3D artifacts, location map |
-| **Learn** | Relationship quiz, personality quiz, quick quiz, symbol memory game, spaced repetition review |
-| **Progress** | Achievements (24 badges), leaderboard, daily challenges, learning paths, streaks |
-| **Search** | ⌘K command palette, fuzzy search (Fuse.js), client-side filters & sorting |
-| **Media** | Text-to-speech, background audio per pantheon, PDF export |
-| **Platform** | i18n (4 languages), PWA with offline support, dynamic OG images, SEO metadata |
+| **Learn**     | Relationship quiz, personality quiz, quick quiz, symbol memory game, spaced repetition review      |
+| **Progress**  | Achievements (24 badges), leaderboard, daily challenges, learning paths, streaks                   |
+| **Search**    | ⌘K command palette, fuzzy search (Fuse.js), client-side filters & sorting                          |
+| **Media**     | Text-to-speech, background audio per pantheon, PDF export                                          |
+| **Platform**  | i18n (4 languages), PWA with offline support, dynamic OG images, SEO metadata                      |
 
 ## Performance
 
@@ -247,10 +247,10 @@ graph LR
     B -->|webhook| C[Vercel CI/CD]
     C -->|build| D[Next.js Build<br/>486 static pages]
     D -->|deploy| E[Edge Network]
-    E -->|serve| F[Production<br/>mythos-web-seven.vercel.app]
+    E -->|serve| F[Production<br/>mythosatlas.com]
     C -->|preview| G[Preview Deployment]
 ```
 
 ---
 
-*See [README.md](./README.md) for setup instructions and full feature details.*
+_See [README.md](./README.md) for setup instructions and full feature details._

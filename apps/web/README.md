@@ -30,25 +30,25 @@ Web frontend for Mythos Atlas, an interactive encyclopedia of ancient mythology 
 
 ## Tech Stack
 
-| Category | Technology | Version |
-| -------- | --------- | ------- |
-| Framework | Next.js (App Router) | 16.1.6 |
-| UI | React | 19.2.3 |
-| Language | TypeScript | ^5 |
-| Styling | Tailwind CSS | ^4 |
-| Data Fetching | React Query (TanStack) | ^5.90 |
-| GraphQL | graphql-request | ^7.4 |
-| Graphs | ReactFlow | ^11.11 |
-| Visualizations | D3.js | ^7.9 |
-| 3D Rendering | React Three Fiber / Three.js | ^9.5 / ^0.182 |
-| Animations | Framer Motion | ^12.23 |
-| Audio | Howler.js | ^2.2 |
-| i18n | next-intl | ^4.8 |
-| Search | Fuse.js | ^7.1 |
-| Icons | Lucide React | ^0.562 |
-| UI Primitives | shadcn/ui + Radix | — |
-| Unit Tests | Vitest | ^3.2 |
-| E2E Tests | Playwright | ^1.52 |
+| Category       | Technology                   | Version       |
+| -------------- | ---------------------------- | ------------- |
+| Framework      | Next.js (App Router)         | 16.1.6        |
+| UI             | React                        | 19.2.3        |
+| Language       | TypeScript                   | ^5            |
+| Styling        | Tailwind CSS                 | ^4            |
+| Data Fetching  | React Query (TanStack)       | ^5.90         |
+| GraphQL        | graphql-request              | ^7.4          |
+| Graphs         | ReactFlow                    | ^11.11        |
+| Visualizations | D3.js                        | ^7.9          |
+| 3D Rendering   | React Three Fiber / Three.js | ^9.5 / ^0.182 |
+| Animations     | Framer Motion                | ^12.23        |
+| Audio          | Howler.js                    | ^2.2          |
+| i18n           | next-intl                    | ^4.8          |
+| Search         | Fuse.js                      | ^7.1          |
+| Icons          | Lucide React                 | ^0.562        |
+| UI Primitives  | shadcn/ui + Radix            | —             |
+| Unit Tests     | Vitest                       | ^3.2          |
+| E2E Tests      | Playwright                   | ^1.52         |
 
 ## Getting Started
 
@@ -168,7 +168,7 @@ pnpm analyze        # Analyze bundle size
 
 ## Deployment
 
-Deployed on **Vercel**: <https://mythos-web-seven.vercel.app>
+Deployed on **Vercel**: <https://mythosatlas.com>
 
 Automatic deployments on push to `main` via GitHub integration.
 
@@ -196,4 +196,3 @@ MIT License — See root LICENSE file
 ---
 
 Part of the [Mythos Atlas](https://github.com/forbiddenlink/mythos) project
-

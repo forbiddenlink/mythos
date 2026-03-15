@@ -1,11 +1,11 @@
 # Mythos Atlas - Mythology Encyclopedia
-# https://mythos-atlas.vercel.app
+# https://mythosatlas.com
 
 User-agent: *
 Allow: /
 
 # Sitemaps
-Sitemap: https://mythos-atlas.vercel.app/sitemap.xml
+Sitemap: https://mythosatlas.com/sitemap.xml
 
 # Crawl-delay for politeness
 Crawl-delay: 1
