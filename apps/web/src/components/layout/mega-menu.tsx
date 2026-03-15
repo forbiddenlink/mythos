@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import { useState, useRef, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import Link from "next/link";
+import { useState, useRef, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   ChevronDown,
   Sparkles,
@@ -24,9 +24,9 @@ import {
   Clock,
   Scale,
   Library,
-  Lightbulb
-} from 'lucide-react';
-import { cn } from '@/lib/utils';
+  Lightbulb,
+} from "lucide-react";
+import { cn } from "@/lib/utils";
 
 interface MenuItem {
   label: string;
@@ -41,151 +41,151 @@ interface MenuSection {
 }
 
 const exploreMenu: MenuSection = {
-  label: 'Explore',
+  label: "Explore",
   items: [
     {
-      label: 'Deities',
-      href: '/deities',
-      description: 'Gods and goddesses from all pantheons',
-      icon: <Crown className="h-4 w-4" />
+      label: "Deities",
+      href: "/deities",
+      description: "Gods and goddesses from all pantheons",
+      icon: <Crown className="h-4 w-4" />,
     },
     {
-      label: 'Stories',
-      href: '/stories',
-      description: 'Myths, legends, and epic tales',
-      icon: <Scroll className="h-4 w-4" />
+      label: "Stories",
+      href: "/stories",
+      description: "Myths, legends, and epic tales",
+      icon: <Scroll className="h-4 w-4" />,
     },
     {
-      label: 'Interactive Stories',
-      href: '/stories/interactive/the-underworld-descent',
-      description: 'Choose your own mythology adventure',
-      icon: <Gamepad2 className="h-4 w-4" />
+      label: "Interactive Stories",
+      href: "/stories/interactive/the-underworld-descent",
+      description: "Choose your own mythology adventure",
+      icon: <Gamepad2 className="h-4 w-4" />,
     },
     {
-      label: 'Creatures',
-      href: '/creatures',
-      description: 'Mythical beasts and monsters',
-      icon: <Swords className="h-4 w-4" />
+      label: "Creatures",
+      href: "/creatures",
+      description: "Mythical beasts and monsters",
+      icon: <Swords className="h-4 w-4" />,
     },
     {
-      label: 'Artifacts',
-      href: '/artifacts',
-      description: 'Legendary weapons and objects',
-      icon: <Sparkles className="h-4 w-4" />
+      label: "Artifacts",
+      href: "/artifacts",
+      description: "Legendary weapons and objects",
+      icon: <Sparkles className="h-4 w-4" />,
     },
     {
-      label: 'Locations',
-      href: '/locations',
-      description: 'Sacred places and mythical realms',
-      icon: <MapPin className="h-4 w-4" />
+      label: "Locations",
+      href: "/locations",
+      description: "Sacred places and mythical realms",
+      icon: <MapPin className="h-4 w-4" />,
     },
     {
-      label: 'Hero Journeys',
-      href: '/journeys',
-      description: 'Epic voyages across the ancient world',
-      icon: <Route className="h-4 w-4" />
+      label: "Hero Journeys",
+      href: "/journeys",
+      description: "Epic voyages across the ancient world",
+      icon: <Route className="h-4 w-4" />,
     },
   ],
 };
 
 const discoverMenu: MenuSection = {
-  label: 'Discover',
+  label: "Discover",
   items: [
     {
-      label: 'Collections',
-      href: '/collections',
-      description: 'Themed deity and story groupings',
-      icon: <Library className="h-4 w-4" />
+      label: "Collections",
+      href: "/collections",
+      description: "Themed deity and story groupings",
+      icon: <Library className="h-4 w-4" />,
     },
     {
-      label: 'Divine Domains',
-      href: '/divine-domains',
-      description: 'Powers and spheres of influence',
-      icon: <Compass className="h-4 w-4" />
+      label: "Divine Domains",
+      href: "/divine-domains",
+      description: "Powers and spheres of influence",
+      icon: <Compass className="h-4 w-4" />,
     },
     {
-      label: 'Compare Deities',
-      href: '/compare',
-      description: 'Side-by-side deity comparisons',
-      icon: <GitCompare className="h-4 w-4" />
+      label: "Compare Deities",
+      href: "/compare",
+      description: "Side-by-side deity comparisons",
+      icon: <GitCompare className="h-4 w-4" />,
     },
     {
-      label: 'Knowledge Graph',
-      href: '/knowledge-graph',
-      description: 'Visual mythology connections',
-      icon: <Network className="h-4 w-4" />
+      label: "Knowledge Graph",
+      href: "/knowledge-graph",
+      description: "Visual mythology connections",
+      icon: <Network className="h-4 w-4" />,
     },
     {
-      label: 'Family Tree',
-      href: '/family-tree',
-      description: 'Divine genealogies',
-      icon: <Users className="h-4 w-4" />
+      label: "Family Tree",
+      href: "/family-tree",
+      description: "Divine genealogies",
+      icon: <Users className="h-4 w-4" />,
     },
     {
-      label: 'Timeline',
-      href: '/timeline',
-      description: 'Chronological myth events',
-      icon: <Route className="h-4 w-4" />
+      label: "Timeline",
+      href: "/timeline",
+      description: "Chronological myth events",
+      icon: <Route className="h-4 w-4" />,
     },
     {
-      label: 'Compare Myths',
-      href: '/compare/myths',
-      description: 'Cross-pantheon myth parallels',
-      icon: <Scale className="h-4 w-4" />
+      label: "Compare Myths",
+      href: "/compare/myths",
+      description: "Cross-pantheon myth parallels",
+      icon: <Scale className="h-4 w-4" />,
     },
     {
-      label: 'Story Timeline',
-      href: '/story-timeline',
-      description: 'Visual story chronology',
-      icon: <Clock className="h-4 w-4" />
+      label: "Story Timeline",
+      href: "/story-timeline",
+      description: "Visual story chronology",
+      icon: <Clock className="h-4 w-4" />,
     },
   ],
 };
 
 const learnMenu: MenuSection = {
-  label: 'Learn',
+  label: "Learn",
   items: [
     {
-      label: 'Quiz',
-      href: '/quiz',
-      description: 'Test your mythology knowledge',
-      icon: <Gamepad2 className="h-4 w-4" />
+      label: "Quiz",
+      href: "/quiz",
+      description: "Test your mythology knowledge",
+      icon: <Gamepad2 className="h-4 w-4" />,
     },
     {
-      label: 'Symbol Memory',
-      href: '/games/memory',
-      description: 'Match deities with their symbols',
-      icon: <Brain className="h-4 w-4" />
+      label: "Symbol Memory",
+      href: "/games/memory",
+      description: "Match deities with their symbols",
+      icon: <Brain className="h-4 w-4" />,
     },
     {
-      label: 'Mythology Facts',
-      href: '/facts',
-      description: 'Fascinating mythology tidbits',
-      icon: <Lightbulb className="h-4 w-4" />
+      label: "Mythology Facts",
+      href: "/facts",
+      description: "Fascinating mythology tidbits",
+      icon: <Lightbulb className="h-4 w-4" />,
     },
     {
-      label: 'Daily Review',
-      href: '/review',
-      description: 'Spaced repetition flashcards',
-      icon: <CalendarCheck className="h-4 w-4" />
+      label: "Daily Review",
+      href: "/review",
+      description: "Spaced repetition flashcards",
+      icon: <CalendarCheck className="h-4 w-4" />,
     },
     {
-      label: 'Learning Paths',
-      href: '/learning-paths',
-      description: 'Guided mythology courses',
-      icon: <GraduationCap className="h-4 w-4" />
+      label: "Learning Paths",
+      href: "/learning-paths",
+      description: "Guided mythology courses",
+      icon: <GraduationCap className="h-4 w-4" />,
     },
     {
-      label: 'Achievements',
-      href: '/achievements',
-      description: 'Badges and milestones',
-      icon: <Award className="h-4 w-4" />
+      label: "Achievements",
+      href: "/achievements",
+      description: "Badges and milestones",
+      icon: <Award className="h-4 w-4" />,
     },
     {
-      label: 'Leaderboard',
-      href: '/leaderboard',
-      description: 'Rankings and competition',
-      icon: <Trophy className="h-4 w-4" />
+      label: "Leaderboard",
+      href: "/leaderboard",
+      description: "Rankings and competition",
+      icon: <Trophy className="h-4 w-4" />,
     },
   ],
 };
@@ -197,7 +197,12 @@ interface MegaMenuDropdownProps {
   onClose: () => void;
 }
 
-function MegaMenuDropdown({ section, isOpen, onOpen, onClose }: Readonly<MegaMenuDropdownProps>) {
+function MegaMenuDropdown({
+  section,
+  isOpen,
+  onOpen,
+  onClose,
+}: Readonly<MegaMenuDropdownProps>) {
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
   const menuRef = useRef<HTMLDivElement>(null);
 
@@ -211,7 +216,7 @@ function MegaMenuDropdown({ section, isOpen, onOpen, onClose }: Readonly<MegaMen
   const handleMouseLeave = () => {
     timeoutRef.current = setTimeout(() => {
       onClose();
-    }, 150);
+    }, 300);
   };
 
   useEffect(() => {
@@ -232,20 +237,26 @@ function MegaMenuDropdown({ section, isOpen, onOpen, onClose }: Readonly<MegaMen
       <button
         className={cn(
           "relative flex items-center gap-1 px-3 py-2 text-sm font-medium transition-colors duration-200 group",
-          isOpen ? "text-foreground" : "text-muted-foreground hover:text-foreground"
+          isOpen
+            ? "text-foreground"
+            : "text-muted-foreground hover:text-foreground",
         )}
         aria-expanded={isOpen ? "true" : "false"}
         aria-haspopup="true"
       >
         <span className="relative z-10">{section.label}</span>
-        <ChevronDown className={cn(
-          "h-3.5 w-3.5 transition-transform duration-200",
-          isOpen && "rotate-180"
-        )} />
-        <span className={cn(
-          "absolute inset-x-1 -bottom-px h-px bg-linear-to-r from-transparent via-gold/60 to-transparent transition-transform duration-300",
-          isOpen ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
-        )} />
+        <ChevronDown
+          className={cn(
+            "h-3.5 w-3.5 transition-transform duration-200",
+            isOpen && "rotate-180",
+          )}
+        />
+        <span
+          className={cn(
+            "absolute inset-x-1 -bottom-px h-px bg-linear-to-r from-transparent via-gold/60 to-transparent transition-transform duration-300",
+            isOpen ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100",
+          )}
+        />
       </button>
 
       <AnimatePresence>
@@ -255,8 +266,10 @@ function MegaMenuDropdown({ section, isOpen, onOpen, onClose }: Readonly<MegaMen
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 8 }}
             transition={{ duration: 0.15 }}
-            className="absolute left-1/2 -translate-x-1/2 top-full pt-2 z-50"
+            className="absolute left-1/2 -translate-x-1/2 top-full z-50"
           >
+            {/* Invisible bridge to prevent gap between trigger and dropdown */}
+            <div className="h-2" />
             <div className="w-72 rounded-xl border border-border/50 bg-background/95 backdrop-blur-md shadow-xl overflow-hidden">
               <div className="p-2">
                 {section.items.map((item) => (
@@ -315,24 +328,24 @@ export function MegaMenu() {
       {/* Explore dropdown */}
       <MegaMenuDropdown
         section={exploreMenu}
-        isOpen={openMenu === 'Explore'}
-        onOpen={() => handleOpen('Explore')}
+        isOpen={openMenu === "Explore"}
+        onOpen={() => handleOpen("Explore")}
         onClose={handleClose}
       />
 
       {/* Discover dropdown */}
       <MegaMenuDropdown
         section={discoverMenu}
-        isOpen={openMenu === 'Discover'}
-        onOpen={() => handleOpen('Discover')}
+        isOpen={openMenu === "Discover"}
+        onOpen={() => handleOpen("Discover")}
         onClose={handleClose}
       />
 
       {/* Learn dropdown */}
       <MegaMenuDropdown
         section={learnMenu}
-        isOpen={openMenu === 'Learn'}
-        onOpen={() => handleOpen('Learn')}
+        isOpen={openMenu === "Learn"}
+        onOpen={() => handleOpen("Learn")}
         onClose={handleClose}
       />
 

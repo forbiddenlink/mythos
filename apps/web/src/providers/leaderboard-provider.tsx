@@ -1,6 +1,13 @@
-'use client';
+"use client";
 
-import { createContext, useCallback, useEffect, useMemo, useState, type ReactNode } from 'react';
+import {
+  createContext,
+  useCallback,
+  useEffect,
+  useMemo,
+  useState,
+  type ReactNode,
+} from "react";
 
 export interface LeaderboardEntry {
   id: string;
@@ -27,10 +34,10 @@ export interface LeaderboardContextValue {
   getUserRank: (category: LeaderboardCategory) => number;
 }
 
-export type LeaderboardCategory = 'xp' | 'quiz' | 'achievements' | 'streak';
+export type LeaderboardCategory = "xp" | "quiz" | "achievements" | "streak";
 
-const LEADERBOARD_STORAGE_KEY = 'mythos-atlas-leaderboard';
-const USER_ID_STORAGE_KEY = 'mythos-atlas-user-id';
+const LEADERBOARD_STORAGE_KEY = "mythos-atlas-leaderboard";
+const USER_ID_STORAGE_KEY = "mythos-atlas-user-id";
 
 function generateUserId(): string {
   return `user_${Date.now()}_${Math.random().toString(36).slice(2, 11)}`;
@@ -42,7 +49,7 @@ function generateDefaultNickname(): string {
 }
 
 function loadLeaderboard(): LeaderboardEntry[] {
-  if (typeof window === 'undefined') return [];
+  if (typeof window === "undefined") return [];
   try {
     const stored = localStorage.getItem(LEADERBOARD_STORAGE_KEY);
     return stored ? JSON.parse(stored) : [];
@@ -60,7 +67,7 @@ function saveLeaderboard(entries: LeaderboardEntry[]) {
 }
 
 function loadUserId(): string {
-  if (typeof window === 'undefined') return '';
+  if (typeof window === "undefined") return "";
   try {
     let userId = localStorage.getItem(USER_ID_STORAGE_KEY);
     if (!userId) {
@@ -73,11 +80,13 @@ function loadUserId(): string {
   }
 }
 
-export const LeaderboardContext = createContext<LeaderboardContextValue | null>(null);
+export const LeaderboardContext = createContext<LeaderboardContextValue | null>(
+  null,
+);
 
 export function LeaderboardProvider({ children }: { children: ReactNode }) {
   const [entries, setEntries] = useState<LeaderboardEntry[]>([]);
-  const [currentUserId, setCurrentUserId] = useState('');
+  const [currentUserId, setCurrentUserId] = useState("");
   const [mounted, setMounted] = useState(false);
 
   // Load from localStorage on mount
@@ -97,29 +106,32 @@ export function LeaderboardProvider({ children }: { children: ReactNode }) {
 
   const currentEntry = entries.find((e) => e.id === currentUserId) || null;
 
-  const setNickname = useCallback((nickname: string) => {
-    setEntries((prev) => {
-      const existing = prev.find((e) => e.id === currentUserId);
-      if (existing) {
-        return prev.map((e) =>
-          e.id === currentUserId ? { ...e, nickname } : e
-        );
-      } else {
-        return [
-          ...prev,
-          {
-            id: currentUserId,
-            nickname,
-            totalXP: 0,
-            quickQuizHighScore: 0,
-            achievementsUnlocked: 0,
-            longestStreak: 0,
-            lastUpdated: new Date().toISOString(),
-          },
-        ];
-      }
-    });
-  }, [currentUserId]);
+  const setNickname = useCallback(
+    (nickname: string) => {
+      setEntries((prev) => {
+        const existing = prev.find((e) => e.id === currentUserId);
+        if (existing) {
+          return prev.map((e) =>
+            e.id === currentUserId ? { ...e, nickname } : e,
+          );
+        } else {
+          return [
+            ...prev,
+            {
+              id: currentUserId,
+              nickname,
+              totalXP: 0,
+              quickQuizHighScore: 0,
+              achievementsUnlocked: 0,
+              longestStreak: 0,
+              lastUpdated: new Date().toISOString(),
+            },
+          ];
+        }
+      });
+    },
+    [currentUserId],
+  );
 
   const syncFromProgress = useCallback(
     (progress: {
@@ -130,48 +142,66 @@ export function LeaderboardProvider({ children }: { children: ReactNode }) {
     }) => {
       setEntries((prev) => {
         const existing = prev.find((e) => e.id === currentUserId);
+        const newLongestStreak = Math.max(
+          existing?.longestStreak || 0,
+          progress.dailyStreak,
+        );
+
+        // Check if anything has actually changed to avoid infinite loops
+        if (existing) {
+          const hasChanged =
+            existing.totalXP !== progress.totalXP ||
+            existing.quickQuizHighScore !== progress.quickQuizHighScore ||
+            existing.achievementsUnlocked !== progress.achievementsCount ||
+            existing.longestStreak !== newLongestStreak;
+
+          if (!hasChanged) {
+            return prev; // No changes, return same array reference
+          }
+        }
+
         const newEntry: LeaderboardEntry = {
           id: currentUserId,
           nickname: existing?.nickname || generateDefaultNickname(),
           totalXP: progress.totalXP,
           quickQuizHighScore: progress.quickQuizHighScore,
           achievementsUnlocked: progress.achievementsCount,
-          longestStreak: Math.max(existing?.longestStreak || 0, progress.dailyStreak),
+          longestStreak: newLongestStreak,
           lastUpdated: new Date().toISOString(),
         };
 
         if (existing) {
-          return prev.map((e) =>
-            e.id === currentUserId ? newEntry : e
-          );
+          return prev.map((e) => (e.id === currentUserId ? newEntry : e));
         } else {
           return [...prev, newEntry];
         }
       });
     },
-    [currentUserId]
+    [currentUserId],
   );
 
   const getRankings = useCallback(
     (category: LeaderboardCategory): LeaderboardEntry[] => {
       const sorted = [...entries];
       switch (category) {
-        case 'xp':
+        case "xp":
           sorted.sort((a, b) => b.totalXP - a.totalXP);
           break;
-        case 'quiz':
+        case "quiz":
           sorted.sort((a, b) => b.quickQuizHighScore - a.quickQuizHighScore);
           break;
-        case 'achievements':
-          sorted.sort((a, b) => b.achievementsUnlocked - a.achievementsUnlocked);
+        case "achievements":
+          sorted.sort(
+            (a, b) => b.achievementsUnlocked - a.achievementsUnlocked,
+          );
           break;
-        case 'streak':
+        case "streak":
           sorted.sort((a, b) => b.longestStreak - a.longestStreak);
           break;
       }
       return sorted;
     },
-    [entries]
+    [entries],
   );
 
   const getUserRank = useCallback(
@@ -180,7 +210,7 @@ export function LeaderboardProvider({ children }: { children: ReactNode }) {
       const index = rankings.findIndex((e) => e.id === currentUserId);
       return index === -1 ? rankings.length + 1 : index + 1;
     },
-    [getRankings, currentUserId]
+    [getRankings, currentUserId],
   );
 
   const contextValue = useMemo(
@@ -193,7 +223,15 @@ export function LeaderboardProvider({ children }: { children: ReactNode }) {
       getRankings,
       getUserRank,
     }),
-    [entries, currentUserId, currentEntry, setNickname, syncFromProgress, getRankings, getUserRank]
+    [
+      entries,
+      currentUserId,
+      currentEntry,
+      setNickname,
+      syncFromProgress,
+      getRankings,
+      getUserRank,
+    ],
   );
 
   return (
