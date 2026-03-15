@@ -5,14 +5,15 @@
   "description": "Mythology & Folklore Encyclopedia - Research-backed interactive database",
   "packageManager": "pnpm@10.28.0",
   "engines": {
-    "node": ">=20"
+    "node": ">=20.0.0"
   },
   "scripts": {
     "dev": "turbo dev",
     "build": "turbo build",
     "lint": "turbo lint",
     "test": "turbo test",
-    "prepare": "husky"
+    "prepare": "husky",
+    "start": "turbo start"
   },
   "lint-staged": {
     "apps/web/**/*.{ts,tsx}": [
@@ -45,5 +46,6 @@
       "ajv@<6.14.0": "6.14.0",
       "ajv@>=7.0.0-alpha.0 <8.18.0": "8.18.0"
     }
-  }
+  },
+  "license": "UNLICENSED"
 }
