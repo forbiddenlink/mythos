@@ -60,5 +60,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Various accessibility improvements
 - Performance optimizations for large datasets
 
-[Unreleased]: https://github.com/mythos-atlas/mythos/compare/v1.0.0...HEAD
-[1.0.0]: https://github.com/mythos-atlas/mythos/releases/tag/v1.0.0
+[Unreleased]: https://github.com/forbiddenlink/mythos/compare/v1.0.0...HEAD
+[1.0.0]: https://github.com/forbiddenlink/mythos/releases/tag/v1.0.0

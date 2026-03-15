@@ -97,9 +97,11 @@ temp/
 verify_images.js
 audit_codebase_images.js
 
-# Test screenshots and images
-*.test.png
-*-test.png
+# Test screenshots and debug images (root level)
+*.png
+!apps/web/public/**/*.png
+
+# Specific test/debug files
 shared-quiz-results.png
 apps/web/public/images/
 

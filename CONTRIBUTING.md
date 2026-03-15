@@ -12,8 +12,6 @@ Please be respectful and constructive in all interactions. We welcome contributo
 
 - Node.js 20+
 - pnpm 10+
-- Rust (for API development)
-- PostgreSQL 15+ (for local database)
 
 ### Setup
 
@@ -30,14 +28,10 @@ Please be respectful and constructive in all interactions. We welcome contributo
    pnpm install
    ```
 
-3. Copy environment variables:
+3. Start the development server:
 
    ```bash
-   cp apps/web/.env.example apps/web/.env.local
-   ```
-
-4. Start the development server:
-   ```bash
+   cd apps/web
    pnpm dev
    ```
 
@@ -89,13 +83,12 @@ We follow [Conventional Commits](https://www.conventionalcommits.org/):
 
 ## Coding Standards
 
-### TypeScript/JavaScript
+### TypeScript
 
 - Use TypeScript for all new code
 - Follow ESLint configuration
 - Use Prettier for formatting
 - Prefer functional components with hooks
-- Add JSDoc comments for public APIs
 
 ### Styling
 
@@ -106,10 +99,8 @@ We follow [Conventional Commits](https://www.conventionalcommits.org/):
 
 ### Testing
 
-- Write unit tests for utilities and hooks
-- Write integration tests for components
-- Write E2E tests for critical user flows
-- Maintain test coverage above 80%
+- Write unit tests for utilities and hooks (Vitest)
+- Write E2E tests for critical user flows (Playwright)
 
 ## Pull Request Process
 
@@ -118,32 +109,10 @@ We follow [Conventional Commits](https://www.conventionalcommits.org/):
 3. Add changelog entry for significant changes
 4. Request review from maintainers
 5. Address review feedback
-6. Squash commits before merging
-
-## Reporting Issues
-
-### Bug Reports
-
-Include:
-
-- Clear description of the issue
-- Steps to reproduce
-- Expected vs actual behavior
-- Browser/environment info
-- Screenshots if applicable
-
-### Feature Requests
-
-Include:
-
-- Clear description of the feature
-- Use case and motivation
-- Proposed implementation (optional)
-- Mockups or examples (optional)
 
 ## Questions?
 
-- Open a [GitHub Discussion](https://github.com/mythos-atlas/mythos/discussions)
+- Open a [GitHub Issue](https://github.com/forbiddenlink/mythos/issues)
 - Check existing issues and documentation
 
 Thank you for contributing!
