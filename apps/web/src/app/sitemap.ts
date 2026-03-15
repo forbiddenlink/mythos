@@ -8,7 +8,7 @@ import journeys from "@/data/journeys.json";
 import locations from "@/data/locations.json";
 import collections from "@/data/collections.json";
 
-const BASE_URL = "https://mythos-atlas.vercel.app";
+const BASE_URL = "https://mythosatlas.com";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   // Use current date for dynamic content tracking

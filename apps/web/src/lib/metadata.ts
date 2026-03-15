@@ -4,7 +4,7 @@ export const siteConfig = {
   name: "Mythos Atlas",
   description:
     "Explore ancient mythology through interactive deity family trees, cultural maps, and epic story timelines from civilizations around the world.",
-  url: "https://mythos-atlas.vercel.app",
+  url: "https://mythosatlas.com",
   ogImage: "/og-image.png",
   creator: "Elizabeth Stein",
   links: {

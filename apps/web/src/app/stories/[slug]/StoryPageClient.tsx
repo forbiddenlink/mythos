@@ -286,7 +286,7 @@ export function StoryPageClient({ slug }: StoryPageClientProps) {
               <ShareButton
                 title={`${story.title} - Mythos Atlas`}
                 text={`Read "${story.title}" - ${story.summary?.slice(0, 100)}... on Mythos Atlas`}
-                url={`https://mythos-web-seven.vercel.app/stories/${story.slug}`}
+                url={`https://mythosatlas.com/stories/${story.slug}`}
                 className="[&_button]:text-gold [&_button]:border-gold/40 [&_button]:hover:bg-gold/20"
               />
             )}

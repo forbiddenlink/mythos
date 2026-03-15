@@ -388,7 +388,7 @@ export function DeityPageClient({ slug }: DeityPageClientProps) {
                 <ShareButton
                   title={`${deity.name} - Mythos Atlas`}
                   text={`Discover ${deity.name}, ${deity.domain?.join(", ") || "deity"} from ancient mythology on Mythos Atlas`}
-                  url={`https://mythos-web-seven.vercel.app/deities/${deity.slug}`}
+                  url={`https://mythosatlas.com/deities/${deity.slug}`}
                   className="[&_button]:text-white [&_button]:border-white/30 [&_button]:hover:bg-white/20"
                 />
                 <ExportIconButton

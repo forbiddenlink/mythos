@@ -299,7 +299,7 @@ export function MythologyQuiz() {
             <ShareButton
               title="Mythos Atlas Quiz Results"
               text={`I scored ${score}/${questions.length} (${percentage}%) on the Mythos Atlas mythology quiz! Can you beat my score?`}
-              url="https://mythos-web-seven.vercel.app/quiz"
+              url="https://mythosatlas.com/quiz"
               className="flex-1 [&_button]:w-full [&_button]:h-12 [&_button]:text-lg"
             />
             <Button
