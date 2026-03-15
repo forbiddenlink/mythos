@@ -1,9 +1,11 @@
-'use client';
+"use client";
 
-import { AlertTriangle, Home, RotateCcw } from 'lucide-react';
-import Link from 'next/link';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent } from '@/components/ui/card';
+import { useEffect } from "react";
+import * as Sentry from "@sentry/nextjs";
+import { AlertTriangle, Home, RotateCcw } from "lucide-react";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
 
 export default function ErrorPage({
   error,
@@ -12,6 +14,9 @@ export default function ErrorPage({
   error: Error & { digest?: string };
   reset: () => void;
 }>) {
+  useEffect(() => {
+    Sentry.captureException(error);
+  }, [error]);
   return (
     <main className="min-h-screen flex flex-col items-center justify-center bg-linear-to-b from-midnight via-midnight-light to-midnight px-4 py-16">
       {/* Background effects */}
@@ -44,8 +49,9 @@ export default function ErrorPage({
           <div className="absolute bottom-0 right-0 w-4 h-4 border-b border-r border-gold/30" />
 
           <p className="text-gold-light/80 italic font-body leading-relaxed">
-            &ldquo;An ancient curse has disrupted the sacred scrolls. Even the Oracle
-            of Delphi could not have foreseen this disturbance in the cosmic order.&rdquo;
+            &ldquo;An ancient curse has disrupted the sacred scrolls. Even the
+            Oracle of Delphi could not have foreseen this disturbance in the
+            cosmic order.&rdquo;
           </p>
           <p className="text-parchment/50 text-sm mt-3">
             Fear not — the gods are working to restore balance.
@@ -53,7 +59,7 @@ export default function ErrorPage({
         </div>
 
         {/* Error details in development */}
-        {process.env.NODE_ENV === 'development' && (
+        {process.env.NODE_ENV === "development" && (
           <Card className="border-red-500/20 bg-midnight-light/50 mb-8 text-left">
             <CardContent className="p-5">
               <p className="text-xs uppercase tracking-wide text-red-400/70 mb-2 font-semibold">
@@ -96,7 +102,10 @@ export default function ErrorPage({
 
         {/* Subtle footer hint */}
         <div className="mt-10 text-sm text-muted-foreground">
-          <p>If this issue persists, try clearing your browser cache or returning later.</p>
+          <p>
+            If this issue persists, try clearing your browser cache or returning
+            later.
+          </p>
         </div>
       </div>
     </main>

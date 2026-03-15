@@ -111,3 +111,14 @@ apps/web/public/images/
 # Stale sub-project lockfiles (monorepo uses root lockfile)
 apps/web/pnpm-lock.yaml
 apps/web/pnpm-workspace.yaml
+.claude
+.claude/
+.playwright-mcp
+.history
+playwright-report
+__pycache__
+__pycache__/
+.codacy
+test_run/
+supabase/.temp/
+dist/

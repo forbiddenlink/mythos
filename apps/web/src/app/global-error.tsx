@@ -1,20 +1,22 @@
-'use client';
+"use client";
 
-import { Cinzel, Source_Sans_3 } from 'next/font/google';
-import Link from 'next/link';
+import { useEffect } from "react";
+import * as Sentry from "@sentry/nextjs";
+import { Cinzel, Source_Sans_3 } from "next/font/google";
+import Link from "next/link";
 
 const cinzel = Cinzel({
-  variable: '--font-cinzel',
-  subsets: ['latin'],
-  display: 'swap',
-  weight: ['400', '700'],
+  variable: "--font-cinzel",
+  subsets: ["latin"],
+  display: "swap",
+  weight: ["400", "700"],
 });
 
 const sourceSans = Source_Sans_3({
-  variable: '--font-source-sans',
-  subsets: ['latin'],
-  display: 'swap',
-  weight: ['400', '500'],
+  variable: "--font-source-sans",
+  subsets: ["latin"],
+  display: "swap",
+  weight: ["400", "500"],
 });
 
 export default function GlobalError({
@@ -24,6 +26,10 @@ export default function GlobalError({
   error: Error & { digest?: string };
   reset: () => void;
 }>) {
+  useEffect(() => {
+    Sentry.captureException(error);
+  }, [error]);
+
   return (
     <html lang="en" className={`${cinzel.variable} ${sourceSans.variable}`}>
       <body className="min-h-screen flex flex-col items-center justify-center bg-linear-to-b from-slate-950 via-slate-900 to-slate-950 text-slate-200 font-sans antialiased">
@@ -51,17 +57,17 @@ export default function GlobalError({
           {/* Heading */}
           <h1
             className="text-4xl md:text-5xl font-bold mb-4 bg-linear-to-r from-amber-400 via-amber-300 to-amber-500 bg-clip-text text-transparent"
-            style={{ fontFamily: 'var(--font-cinzel), serif' }}
+            style={{ fontFamily: "var(--font-cinzel), serif" }}
           >
             Critical Error
           </h1>
 
           <p className="text-slate-400 mb-4 leading-relaxed">
-            A catastrophic disturbance has shattered the ancient wards protecting
-            this realm. The root layout itself has fallen.
+            A catastrophic disturbance has shattered the ancient wards
+            protecting this realm. The root layout itself has fallen.
           </p>
 
-          {process.env.NODE_ENV === 'development' && (
+          {process.env.NODE_ENV === "development" && (
             <div className="mb-6 rounded-lg border border-red-500/20 bg-slate-800/60 p-4 text-left">
               <p className="text-xs uppercase tracking-wide text-red-400/70 mb-2 font-semibold">
                 Error Details
@@ -122,7 +128,8 @@ export default function GlobalError({
           </div>
 
           <p className="mt-10 text-xs text-slate-500">
-            If this keeps happening, try clearing your browser cache or returning later.
+            If this keeps happening, try clearing your browser cache or
+            returning later.
           </p>
         </div>
       </body>
