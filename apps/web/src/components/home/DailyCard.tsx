@@ -128,7 +128,7 @@ export function DailyCard() {
             <p className="text-muted-foreground leading-relaxed">
               {content.description}
             </p>
-            <p className="text-sm text-gold mt-3 group-hover:underline">
+            <p className="text-sm text-gold-text mt-3 group-hover:underline">
               Read more &rarr;
             </p>
           </CardContent>

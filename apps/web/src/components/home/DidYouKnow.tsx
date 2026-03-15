@@ -162,7 +162,7 @@ export function DidYouKnow() {
             )}
             <Link
               href="/facts"
-              className="text-sm text-gold hover:underline flex items-center gap-1 ml-auto"
+              className="text-sm text-gold-text hover:underline flex items-center gap-1 ml-auto"
             >
               View all {facts.length} facts
               <ChevronRight className="h-3 w-3" />

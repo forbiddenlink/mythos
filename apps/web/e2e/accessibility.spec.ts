@@ -16,9 +16,8 @@ const pagesToTest = [
   { path: "/facts", name: "Facts" },
 ];
 
-// Most color contrast issues fixed. Homepage has remaining edge cases in complex components.
-// TODO: Complete Homepage color contrast audit
-const KNOWN_ISSUES = ["color-contrast"];
+// All color contrast issues fixed with WCAG AA compliant colors
+const KNOWN_ISSUES: string[] = [];
 
 test.describe("Accessibility", () => {
   for (const page of pagesToTest) {

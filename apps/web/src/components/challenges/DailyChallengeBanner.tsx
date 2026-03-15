@@ -1,13 +1,16 @@
-'use client';
+"use client";
 
-import { useContext, useState, useEffect, useMemo } from 'react';
-import Link from 'next/link';
-import { ProgressContext } from '@/providers/progress-provider';
-import { getTodayChallenges, type DailyChallenge } from '@/lib/daily-challenges';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
-import { Progress } from '@/components/ui/progress';
+import { useContext, useState, useEffect, useMemo } from "react";
+import Link from "next/link";
+import { ProgressContext } from "@/providers/progress-provider";
+import {
+  getTodayChallenges,
+  type DailyChallenge,
+} from "@/lib/daily-challenges";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { Progress } from "@/components/ui/progress";
 import {
   Zap,
   BookOpen,
@@ -19,11 +22,11 @@ import {
   Check,
   ChevronRight,
   Flame,
-} from 'lucide-react';
+} from "lucide-react";
 
 const iconMap: Record<string, React.ReactNode> = {
   zap: <Zap className="h-5 w-5" />,
-  'book-open': <BookOpen className="h-5 w-5" />,
+  "book-open": <BookOpen className="h-5 w-5" />,
   sparkles: <Sparkles className="h-5 w-5" />,
   globe: <Globe className="h-5 w-5" />,
   award: <Award className="h-5 w-5" />,
@@ -31,21 +34,24 @@ const iconMap: Record<string, React.ReactNode> = {
   star: <Star className="h-5 w-5" />,
 };
 
-function getChallengeAction(challenge: DailyChallenge): { href: string; label: string } {
+function getChallengeAction(challenge: DailyChallenge): {
+  href: string;
+  label: string;
+} {
   switch (challenge.action.type) {
-    case 'complete_quick_quiz':
-      return { href: '/quiz/quick', label: 'Start Quiz' };
-    case 'read_story':
-      return { href: '/stories', label: 'Read Story' };
-    case 'view_new_deity':
-    case 'view_pantheon_deity':
-      return { href: '/deities', label: 'View Deities' };
-    case 'quiz_high_score':
-      return { href: '/quiz', label: 'Take Quiz' };
-    case 'view_multiple_pantheons':
-      return { href: '/pantheons', label: 'View Pantheons' };
+    case "complete_quick_quiz":
+      return { href: "/quiz/quick", label: "Start Quiz" };
+    case "read_story":
+      return { href: "/stories", label: "Read Story" };
+    case "view_new_deity":
+    case "view_pantheon_deity":
+      return { href: "/deities", label: "View Deities" };
+    case "quiz_high_score":
+      return { href: "/quiz", label: "Take Quiz" };
+    case "view_multiple_pantheons":
+      return { href: "/pantheons", label: "View Pantheons" };
     default:
-      return { href: '/', label: 'Explore' };
+      return { href: "/", label: "Explore" };
   }
 }
 
@@ -56,7 +62,12 @@ interface ChallengeCardProps {
   isCompleted: boolean;
 }
 
-function ChallengeCard({ challenge, isClaimed, onClaim, isCompleted }: ChallengeCardProps) {
+function ChallengeCard({
+  challenge,
+  isClaimed,
+  onClaim,
+  isCompleted,
+}: ChallengeCardProps) {
   const action = getChallengeAction(challenge);
   const icon = iconMap[challenge.icon] || <Star className="h-5 w-5" />;
 
@@ -64,15 +75,15 @@ function ChallengeCard({ challenge, isClaimed, onClaim, isCompleted }: Challenge
     <div
       className={`relative p-4 rounded-xl border transition-all duration-200 ${
         isClaimed
-          ? 'bg-gold/10 border-gold/30'
+          ? "bg-gold/10 border-gold/30"
           : isCompleted
-            ? 'bg-green-500/10 border-green-500/30'
-            : 'bg-card border-border hover:border-gold/30'
+            ? "bg-green-500/10 border-green-500/30"
+            : "bg-card border-border hover:border-gold/30"
       }`}
     >
       {isClaimed && (
         <div className="absolute top-2 right-2">
-          <Badge className="bg-gold/20 text-gold border-gold/30 gap-1">
+          <Badge className="bg-gold/20 text-gold-text border-gold/30 gap-1">
             <Check className="h-3 w-3" />
             Claimed
           </Badge>
@@ -83,25 +94,29 @@ function ChallengeCard({ challenge, isClaimed, onClaim, isCompleted }: Challenge
         <div
           className={`p-2.5 rounded-xl ${
             isClaimed
-              ? 'bg-gold/20 text-gold'
+              ? "bg-gold/20 text-gold"
               : isCompleted
-                ? 'bg-green-500/20 text-green-500'
-                : 'bg-gold/10 text-gold'
+                ? "bg-green-500/20 text-green-500"
+                : "bg-gold/10 text-gold"
           }`}
         >
           {icon}
         </div>
         <div className="flex-1 min-w-0">
           <h3 className="font-medium text-foreground">{challenge.name}</h3>
-          <p className="text-sm text-muted-foreground mt-0.5">{challenge.description}</p>
+          <p className="text-sm text-muted-foreground mt-0.5">
+            {challenge.description}
+          </p>
 
           <div className="flex items-center justify-between mt-3">
-            <Badge variant="outline" className="border-gold/30 text-gold">
+            <Badge variant="outline" className="border-gold/30 text-gold-text">
               +{challenge.xpReward} XP
             </Badge>
 
             {isClaimed ? (
-              <span className="text-sm text-gold font-medium">Completed!</span>
+              <span className="text-sm text-gold-text font-medium">
+                Completed!
+              </span>
             ) : isCompleted ? (
               <Button
                 size="sm"
@@ -111,7 +126,12 @@ function ChallengeCard({ challenge, isClaimed, onClaim, isCompleted }: Challenge
                 Claim XP
               </Button>
             ) : (
-              <Button asChild size="sm" variant="outline" className="border-gold/30 hover:bg-gold/10">
+              <Button
+                asChild
+                size="sm"
+                variant="outline"
+                className="border-gold/30 hover:bg-gold/10"
+              >
                 <Link href={action.href}>
                   {action.label}
                   <ChevronRight className="h-4 w-4 ml-1" />
@@ -151,25 +171,29 @@ export function DailyChallengeBanner() {
     const todayActivity = progress.todayActivity;
 
     switch (challenge.action.type) {
-      case 'complete_quick_quiz':
+      case "complete_quick_quiz":
         completed = todayActivity.quizCompleted;
         break;
-      case 'read_story':
+      case "read_story":
         completed = todayActivity.storiesRead.length > 0;
         break;
-      case 'view_new_deity':
+      case "view_new_deity":
         completed = todayActivity.deitiesViewed.length > 0;
         break;
-      case 'view_pantheon_deity':
+      case "view_pantheon_deity":
         if (challenge.action.pantheonId) {
-          completed = todayActivity.pantheonsViewed.includes(challenge.action.pantheonId);
+          completed = todayActivity.pantheonsViewed.includes(
+            challenge.action.pantheonId,
+          );
         }
         break;
-      case 'quiz_high_score':
-        completed = todayActivity.quizScore >= (challenge.action.minScore || 80);
+      case "quiz_high_score":
+        completed =
+          todayActivity.quizScore >= (challenge.action.minScore || 80);
         break;
-      case 'view_multiple_pantheons':
-        completed = todayActivity.pantheonsViewed.length >= (challenge.action.count || 3);
+      case "view_multiple_pantheons":
+        completed =
+          todayActivity.pantheonsViewed.length >= (challenge.action.count || 3);
         break;
     }
 
@@ -190,7 +214,9 @@ export function DailyChallengeBanner() {
                   <Zap className="h-6 w-6 text-gold" />
                 </div>
                 <div>
-                  <CardTitle className="font-serif text-xl">Daily Challenges</CardTitle>
+                  <CardTitle className="font-serif text-xl">
+                    Daily Challenges
+                  </CardTitle>
                   <p className="text-sm text-muted-foreground">
                     Complete challenges to earn XP
                   </p>
@@ -214,15 +240,16 @@ export function DailyChallengeBanner() {
                 <span className="text-muted-foreground">
                   {completedCount}/{todayChallenges.length} completed
                 </span>
-                <span className="text-gold font-medium">
+                <span className="text-gold-text font-medium">
                   {todayChallenges.reduce(
                     (sum, c) =>
                       sum +
-                      (challengeStatuses.find((s) => s.challenge.id === c.id)?.claimed
+                      (challengeStatuses.find((s) => s.challenge.id === c.id)
+                        ?.claimed
                         ? c.xpReward
                         : 0),
-                    0
-                  )}{' '}
+                    0,
+                  )}{" "}
                   XP earned today
                 </span>
               </div>
@@ -241,7 +268,9 @@ export function DailyChallengeBanner() {
                 challenge={challenge}
                 isClaimed={claimed}
                 isCompleted={completed}
-                onClaim={() => claimDailyChallenge(challenge.id, challenge.xpReward)}
+                onClaim={() =>
+                  claimDailyChallenge(challenge.id, challenge.xpReward)
+                }
               />
             ))}
           </CardContent>

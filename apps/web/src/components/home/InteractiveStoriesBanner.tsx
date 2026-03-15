@@ -101,7 +101,7 @@ export function InteractiveStoriesBanner() {
                     asChild
                     variant="outline"
                     size="lg"
-                    className="border-gold/30 text-parchment hover:bg-gold/10"
+                    className="border-gold/30 text-gold-dark hover:bg-gold/10 hover:text-gold"
                   >
                     <Link href="/stories">
                       View All Stories
