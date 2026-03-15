@@ -106,26 +106,39 @@ test.describe("Progress Tracking", () => {
     await page.reload({ waitUntil: "domcontentloaded" });
     await expect(page.locator("h1").first()).toBeVisible({ timeout: 10000 });
 
-    // Check streak was incremented
-    const progress = await page.evaluate(() => {
-      const saved = localStorage.getItem("mythos-atlas-progress");
-      return saved ? JSON.parse(saved) : null;
-    });
-
-    // Streak should be 6 (incremented from 5)
-    expect(progress?.dailyStreak).toBe(6);
+    // Poll for streak to be updated (React effects run async after render)
+    await expect
+      .poll(
+        async () => {
+          const progress = await page.evaluate(() => {
+            const saved = localStorage.getItem("mythos-atlas-progress");
+            return saved ? JSON.parse(saved) : null;
+          });
+          return progress?.dailyStreak;
+        },
+        { timeout: 5000 },
+      )
+      .toBe(6);
   });
 
   test("should update last visit date", async ({ page }) => {
     await page.goto("/", { waitUntil: "domcontentloaded" });
     await expect(page.locator("h1").first()).toBeVisible({ timeout: 10000 });
 
-    const progress = await page.evaluate(() => {
-      const saved = localStorage.getItem("mythos-atlas-progress");
-      return saved ? JSON.parse(saved) : null;
-    });
-
     const today = new Date().toISOString().split("T")[0];
-    expect(progress?.lastVisit).toBe(today);
+
+    // Poll for lastVisit to be updated (React effects run async after render)
+    await expect
+      .poll(
+        async () => {
+          const progress = await page.evaluate(() => {
+            const saved = localStorage.getItem("mythos-atlas-progress");
+            return saved ? JSON.parse(saved) : null;
+          });
+          return progress?.lastVisit;
+        },
+        { timeout: 5000 },
+      )
+      .toBe(today);
   });
 });
