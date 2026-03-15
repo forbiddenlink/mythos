@@ -122,3 +122,4 @@ __pycache__/
 test_run/
 supabase/.temp/
 dist/
+.env*
