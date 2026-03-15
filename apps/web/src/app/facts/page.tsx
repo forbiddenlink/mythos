@@ -1,17 +1,17 @@
-'use client';
+"use client";
 
-import { useState, useMemo } from 'react';
-import Link from 'next/link';
-import { Lightbulb, Filter, ChevronRight, Shuffle } from 'lucide-react';
-import { motion } from 'framer-motion';
-import { Card, CardContent } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import { Button } from '@/components/ui/button';
-import { Breadcrumbs } from '@/components/navigation/Breadcrumbs';
-import facts from '@/data/mythology-facts.json';
-import deities from '@/data/deities.json';
+import { useState, useMemo } from "react";
+import Link from "next/link";
+import { Lightbulb, Filter, ChevronRight, Shuffle } from "lucide-react";
+import { motion } from "framer-motion";
+import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
+import facts from "@/data/mythology-facts.json";
+import deities from "@/data/deities.json";
 
-interface Fact {
+interface _Fact {
   id: string;
   fact: string;
   category: string;
@@ -19,25 +19,33 @@ interface Fact {
 }
 
 const categoryLabels: Record<string, string> = {
-  connections: 'Cross-Cultural',
-  language: 'Word Origins',
-  science: 'Hidden Knowledge',
-  origins: 'Origin Stories',
-  symbolism: 'Symbolism',
-  stories: 'Mythology',
-  misconceptions: 'Myth Busted',
-  history: 'Historical',
+  connections: "Cross-Cultural",
+  language: "Word Origins",
+  science: "Hidden Knowledge",
+  origins: "Origin Stories",
+  symbolism: "Symbolism",
+  stories: "Mythology",
+  misconceptions: "Myth Busted",
+  history: "Historical",
 };
 
 const categoryColors: Record<string, string> = {
-  connections: 'bg-purple-500/10 text-purple-400 border-purple-500/30 hover:bg-purple-500/20',
-  language: 'bg-blue-500/10 text-blue-400 border-blue-500/30 hover:bg-blue-500/20',
-  science: 'bg-green-500/10 text-green-400 border-green-500/30 hover:bg-green-500/20',
-  origins: 'bg-amber-500/10 text-amber-400 border-amber-500/30 hover:bg-amber-500/20',
-  symbolism: 'bg-pink-500/10 text-pink-400 border-pink-500/30 hover:bg-pink-500/20',
-  stories: 'bg-indigo-500/10 text-indigo-400 border-indigo-500/30 hover:bg-indigo-500/20',
-  misconceptions: 'bg-red-500/10 text-red-400 border-red-500/30 hover:bg-red-500/20',
-  history: 'bg-teal-500/10 text-teal-400 border-teal-500/30 hover:bg-teal-500/20',
+  connections:
+    "bg-purple-500/10 text-purple-400 border-purple-500/30 hover:bg-purple-500/20",
+  language:
+    "bg-blue-500/10 text-blue-400 border-blue-500/30 hover:bg-blue-500/20",
+  science:
+    "bg-green-500/10 text-green-400 border-green-500/30 hover:bg-green-500/20",
+  origins:
+    "bg-amber-500/10 text-amber-400 border-amber-500/30 hover:bg-amber-500/20",
+  symbolism:
+    "bg-pink-500/10 text-pink-400 border-pink-500/30 hover:bg-pink-500/20",
+  stories:
+    "bg-indigo-500/10 text-indigo-400 border-indigo-500/30 hover:bg-indigo-500/20",
+  misconceptions:
+    "bg-red-500/10 text-red-400 border-red-500/30 hover:bg-red-500/20",
+  history:
+    "bg-teal-500/10 text-teal-400 border-teal-500/30 hover:bg-teal-500/20",
 };
 
 // Get unique categories
@@ -60,7 +68,7 @@ export default function FactsPage() {
   const getDeityInfo = (ids: string[]) =>
     ids
       .map((id) => deities.find((d) => d.id === id || d.slug === id))
-      .filter((d): d is typeof deities[0] => d !== undefined);
+      .filter((d): d is (typeof deities)[0] => d !== undefined);
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-background to-mythic">
@@ -78,7 +86,8 @@ export default function FactsPage() {
             Mythology Facts
           </h1>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            {facts.length} fascinating facts about gods, myths, and ancient cultures
+            {facts.length} fascinating facts about gods, myths, and ancient
+            cultures
           </p>
         </div>
 
@@ -90,10 +99,14 @@ export default function FactsPage() {
           </div>
 
           <Button
-            variant={selectedCategory === null ? 'default' : 'outline'}
+            variant={selectedCategory === null ? "default" : "outline"}
             size="sm"
             onClick={() => setSelectedCategory(null)}
-            className={selectedCategory === null ? 'bg-gold hover:bg-gold/90 text-black' : ''}
+            className={
+              selectedCategory === null
+                ? "bg-gold hover:bg-gold/90 text-black"
+                : ""
+            }
           >
             All ({facts.length})
           </Button>
@@ -106,7 +119,9 @@ export default function FactsPage() {
                 variant="outline"
                 size="sm"
                 onClick={() => setSelectedCategory(category)}
-                className={selectedCategory === category ? categoryColors[category] : ''}
+                className={
+                  selectedCategory === category ? categoryColors[category] : ""
+                }
               >
                 {categoryLabels[category] || category} ({count})
               </Button>
@@ -140,7 +155,7 @@ export default function FactsPage() {
                   <CardContent className="p-6">
                     <Badge
                       variant="outline"
-                      className={`text-xs mb-3 ${categoryColors[fact.category] || ''}`}
+                      className={`text-xs mb-3 ${categoryColors[fact.category] || ""}`}
                     >
                       {categoryLabels[fact.category] || fact.category}
                     </Badge>

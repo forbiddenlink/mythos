@@ -8,7 +8,6 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { ScrollText, BookOpen, Gamepad2, Trophy, Clock } from "lucide-react";
 import Link from "next/link";
-import Image from "next/image";
 import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
 import { StoryFilters } from "@/components/stories/StoryFilters";
 import { BookmarkButton } from "@/components/ui/bookmark-button";

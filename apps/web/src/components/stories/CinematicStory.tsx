@@ -1,14 +1,14 @@
-'use client';
+"use client";
 
-import { useRef, useEffect, useState } from 'react';
-import { useGSAP } from '@gsap/react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import Image from 'next/image';
-import { motion } from 'framer-motion';
+import { useRef, useEffect, useState } from "react";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Image from "next/image";
+import { motion } from "framer-motion";
 
 // Register GSAP plugins
-if (typeof window !== 'undefined') {
+if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
 }
 
@@ -18,7 +18,7 @@ export interface StoryScene {
   text: string;
   imageUrl?: string;
   imageAlt?: string;
-  mood?: 'calm' | 'dramatic' | 'mysterious' | 'triumphant' | 'tragic';
+  mood?: "calm" | "dramatic" | "mysterious" | "triumphant" | "tragic";
   backgroundColor?: string;
 }
 
@@ -30,12 +30,12 @@ interface CinematicStoryProps {
 
 // Mood to gradient mapping
 const moodGradients: Record<string, string> = {
-  calm: 'from-blue-950 via-slate-900 to-indigo-950',
-  dramatic: 'from-red-950 via-slate-900 to-orange-950',
-  mysterious: 'from-purple-950 via-slate-900 to-violet-950',
-  triumphant: 'from-amber-950 via-slate-900 to-yellow-950',
-  tragic: 'from-gray-950 via-slate-900 to-zinc-950',
-  default: 'from-midnight via-slate-900 to-midnight-light',
+  calm: "from-blue-950 via-slate-900 to-indigo-950",
+  dramatic: "from-red-950 via-slate-900 to-orange-950",
+  mysterious: "from-purple-950 via-slate-900 to-violet-950",
+  triumphant: "from-amber-950 via-slate-900 to-yellow-950",
+  tragic: "from-gray-950 via-slate-900 to-zinc-950",
+  default: "from-midnight via-slate-900 to-midnight-light",
 };
 
 function Scene({ scene, index }: { scene: StoryScene; index: number }) {
@@ -43,40 +43,43 @@ function Scene({ scene, index }: { scene: StoryScene; index: number }) {
   const textRef = useRef<HTMLDivElement>(null);
   const imageRef = useRef<HTMLDivElement>(null);
 
-  const gradient = moodGradients[scene.mood || 'default'];
+  const gradient = moodGradients[scene.mood || "default"];
 
-  useGSAP(() => {
-    if (!sceneRef.current) return;
+  useGSAP(
+    () => {
+      if (!sceneRef.current) return;
 
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: sceneRef.current,
-        start: 'top 80%',
-        end: 'center center',
-        scrub: 1,
-      },
-    });
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: sceneRef.current,
+          start: "top 80%",
+          end: "center center",
+          scrub: 1,
+        },
+      });
 
-    // Animate text
-    if (textRef.current) {
-      tl.fromTo(
-        textRef.current,
-        { opacity: 0, y: 50 },
-        { opacity: 1, y: 0, duration: 1 },
-        0
-      );
-    }
+      // Animate text
+      if (textRef.current) {
+        tl.fromTo(
+          textRef.current,
+          { opacity: 0, y: 50 },
+          { opacity: 1, y: 0, duration: 1 },
+          0,
+        );
+      }
 
-    // Animate image with parallax
-    if (imageRef.current) {
-      tl.fromTo(
-        imageRef.current,
-        { scale: 1.1, opacity: 0.5 },
-        { scale: 1, opacity: 1, duration: 1.2 },
-        0
-      );
-    }
-  }, { scope: sceneRef });
+      // Animate image with parallax
+      if (imageRef.current) {
+        tl.fromTo(
+          imageRef.current,
+          { scale: 1.1, opacity: 0.5 },
+          { scale: 1, opacity: 1, duration: 1.2 },
+          0,
+        );
+      }
+    },
+    { scope: sceneRef },
+  );
 
   return (
     <section
@@ -86,13 +89,10 @@ function Scene({ scene, index }: { scene: StoryScene; index: number }) {
     >
       {/* Background image with parallax */}
       {scene.imageUrl && (
-        <div
-          ref={imageRef}
-          className="absolute inset-0 z-0"
-        >
+        <div ref={imageRef} className="absolute inset-0 z-0">
           <Image
             src={scene.imageUrl}
-            alt={scene.imageAlt || scene.title || 'Story scene'}
+            alt={scene.imageAlt || scene.title || "Story scene"}
             fill
             className="object-cover opacity-30"
           />
@@ -135,18 +135,23 @@ function Scene({ scene, index }: { scene: StoryScene; index: number }) {
   );
 }
 
-export function CinematicStory({ title, scenes, className = '' }: CinematicStoryProps) {
+export function CinematicStory({
+  title,
+  scenes,
+  className = "",
+}: CinematicStoryProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- hydration: detect client-side mount
     setMounted(true);
   }, []);
 
   // Cleanup ScrollTrigger on unmount
   useEffect(() => {
     return () => {
-      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
   }, []);
 
@@ -168,7 +173,7 @@ export function CinematicStory({ title, scenes, className = '' }: CinematicStory
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1, ease: 'easeOut' }}
+            transition={{ duration: 1, ease: "easeOut" }}
           >
             <span className="text-gold/60 text-sm tracking-[0.3em] uppercase font-sans mb-6 block">
               An Ancient Tale
@@ -223,9 +228,7 @@ export function CinematicStory({ title, scenes, className = '' }: CinematicStory
             <span className="text-gold font-serif text-xl">Finis</span>
             <div className="w-24 h-px bg-gold/40" />
           </div>
-          <p className="text-parchment/60 text-sm">
-            Thus concludes the tale
-          </p>
+          <p className="text-parchment/60 text-sm">Thus concludes the tale</p>
         </motion.div>
       </section>
     </div>

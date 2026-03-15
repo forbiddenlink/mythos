@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import { useEffect, useState, useRef } from 'react';
-import { motion, useMotionValue, useSpring } from 'framer-motion';
-import { Compass } from 'lucide-react';
+import { useEffect, useState, useRef } from "react";
+import { motion, useMotionValue, useSpring } from "framer-motion";
+import { Compass } from "lucide-react";
 
 export function CustomCursor() {
   const [mounted, setMounted] = useState(false);
@@ -24,18 +24,19 @@ export function CustomCursor() {
   const rotate = useSpring(rotation, { damping: 20, stiffness: 300 });
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- hydration: detect client-side mount and browser capabilities
     setMounted(true);
 
     // Check for touch device
-    setIsTouchDevice('ontouchstart' in window || navigator.maxTouchPoints > 0);
+    setIsTouchDevice("ontouchstart" in window || navigator.maxTouchPoints > 0);
 
     // Check for reduced motion preference
-    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
     setReducedMotion(mediaQuery.matches);
 
     const handler = (e: MediaQueryListEvent) => setReducedMotion(e.matches);
-    mediaQuery.addEventListener('change', handler);
-    return () => mediaQuery.removeEventListener('change', handler);
+    mediaQuery.addEventListener("change", handler);
+    return () => mediaQuery.removeEventListener("change", handler);
   }, []);
 
   useEffect(() => {
@@ -67,13 +68,13 @@ export function CustomCursor() {
     const handleMouseOver = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
       const isInteractive =
-        target.tagName === 'A' ||
-        target.tagName === 'BUTTON' ||
-        !!target.closest('a') ||
-        !!target.closest('button') ||
+        target.tagName === "A" ||
+        target.tagName === "BUTTON" ||
+        !!target.closest("a") ||
+        !!target.closest("button") ||
         !!target.closest('[role="button"]') ||
-        !!target.closest('[data-interactive]') ||
-        target.classList.contains('cursor-pointer');
+        !!target.closest("[data-interactive]") ||
+        target.classList.contains("cursor-pointer");
 
       setIsHovering(isInteractive);
     };
@@ -81,20 +82,20 @@ export function CustomCursor() {
     const handleMouseDown = () => setIsClicking(true);
     const handleMouseUp = () => setIsClicking(false);
 
-    window.addEventListener('mousemove', moveCursor);
-    window.addEventListener('mouseover', handleMouseOver);
-    window.addEventListener('mousedown', handleMouseDown);
-    window.addEventListener('mouseup', handleMouseUp);
+    window.addEventListener("mousemove", moveCursor);
+    window.addEventListener("mouseover", handleMouseOver);
+    window.addEventListener("mousedown", handleMouseDown);
+    window.addEventListener("mouseup", handleMouseUp);
 
     // Hide default cursor
-    document.body.style.cursor = 'none';
+    document.body.style.cursor = "none";
 
     return () => {
-      window.removeEventListener('mousemove', moveCursor);
-      window.removeEventListener('mouseover', handleMouseOver);
-      window.removeEventListener('mousedown', handleMouseDown);
-      window.removeEventListener('mouseup', handleMouseUp);
-      document.body.style.cursor = 'auto';
+      window.removeEventListener("mousemove", moveCursor);
+      window.removeEventListener("mouseover", handleMouseOver);
+      window.removeEventListener("mousedown", handleMouseDown);
+      window.removeEventListener("mouseup", handleMouseUp);
+      document.body.style.cursor = "auto";
     };
   }, [mounted, reducedMotion, isTouchDevice, cursorX, cursorY, rotation]);
 
@@ -122,7 +123,7 @@ export function CustomCursor() {
         >
           <Compass
             className={`w-full h-full transition-colors duration-200 ${
-              isHovering ? 'text-gold' : 'text-gold/70'
+              isHovering ? "text-gold" : "text-gold/70"
             }`}
             strokeWidth={1.5}
           />
@@ -135,8 +136,9 @@ export function CustomCursor() {
         style={{
           x,
           y,
-          background: 'radial-gradient(circle, rgba(178,143,86,0.2) 0%, transparent 70%)',
-          filter: 'blur(8px)',
+          background:
+            "radial-gradient(circle, rgba(178,143,86,0.2) 0%, transparent 70%)",
+          filter: "blur(8px)",
         }}
         animate={{
           scale: isHovering ? 1.5 : 1,
@@ -158,7 +160,7 @@ export function CustomCursor() {
           }}
           initial={{ scale: 0.5, opacity: 0.8 }}
           animate={{ scale: 2.5, opacity: 0 }}
-          transition={{ duration: 0.4, ease: 'easeOut' }}
+          transition={{ duration: 0.4, ease: "easeOut" }}
           aria-hidden="true"
         >
           <div className="w-full h-full rounded-full border-2 border-gold" />
@@ -167,7 +169,11 @@ export function CustomCursor() {
 
       {/* Global style to hide cursor on interactive elements */}
       <style jsx global>{`
-        a, button, [role="button"], [data-interactive], .cursor-pointer {
+        a,
+        button,
+        [role="button"],
+        [data-interactive],
+        .cursor-pointer {
           cursor: none !important;
         }
       `}</style>

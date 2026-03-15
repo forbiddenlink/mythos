@@ -1,13 +1,13 @@
-'use client';
+"use client";
 
-import { useState, useEffect, useCallback } from 'react';
-import Link from 'next/link';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Lightbulb, RefreshCw, ChevronRight } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
-import facts from '@/data/mythology-facts.json';
-import deities from '@/data/deities.json';
+import { useState, useEffect, useCallback } from "react";
+import Link from "next/link";
+import { motion, AnimatePresence } from "framer-motion";
+import { Lightbulb, RefreshCw, ChevronRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import facts from "@/data/mythology-facts.json";
+import deities from "@/data/deities.json";
 
 interface Fact {
   id: string;
@@ -17,25 +17,25 @@ interface Fact {
 }
 
 const categoryLabels: Record<string, string> = {
-  connections: 'Cross-Cultural',
-  language: 'Word Origins',
-  science: 'Hidden Knowledge',
-  origins: 'Origin Stories',
-  symbolism: 'Symbolism',
-  stories: 'Mythology',
-  misconceptions: 'Myth Busted',
-  history: 'Historical',
+  connections: "Cross-Cultural",
+  language: "Word Origins",
+  science: "Hidden Knowledge",
+  origins: "Origin Stories",
+  symbolism: "Symbolism",
+  stories: "Mythology",
+  misconceptions: "Myth Busted",
+  history: "Historical",
 };
 
 const categoryColors: Record<string, string> = {
-  connections: 'bg-purple-500/10 text-purple-400 border-purple-500/30',
-  language: 'bg-blue-500/10 text-blue-400 border-blue-500/30',
-  science: 'bg-green-500/10 text-green-400 border-green-500/30',
-  origins: 'bg-amber-500/10 text-amber-400 border-amber-500/30',
-  symbolism: 'bg-pink-500/10 text-pink-400 border-pink-500/30',
-  stories: 'bg-indigo-500/10 text-indigo-400 border-indigo-500/30',
-  misconceptions: 'bg-red-500/10 text-red-400 border-red-500/30',
-  history: 'bg-teal-500/10 text-teal-400 border-teal-500/30',
+  connections: "bg-purple-500/10 text-purple-400 border-purple-500/30",
+  language: "bg-blue-500/10 text-blue-400 border-blue-500/30",
+  science: "bg-green-500/10 text-green-400 border-green-500/30",
+  origins: "bg-amber-500/10 text-amber-400 border-amber-500/30",
+  symbolism: "bg-pink-500/10 text-pink-400 border-pink-500/30",
+  stories: "bg-indigo-500/10 text-indigo-400 border-indigo-500/30",
+  misconceptions: "bg-red-500/10 text-red-400 border-red-500/30",
+  history: "bg-teal-500/10 text-teal-400 border-teal-500/30",
 };
 
 // Deterministic daily fact based on date
@@ -43,7 +43,7 @@ function getDailyFactIndex(date: Date): number {
   const dateString = `${date.getFullYear()}-${date.getMonth()}-${date.getDate()}`;
   let hash = 0;
   for (let i = 0; i < dateString.length; i++) {
-    hash = ((hash << 5) - hash) + (dateString.codePointAt(i) ?? 0);
+    hash = (hash << 5) - hash + (dateString.codePointAt(i) ?? 0);
     hash = hash & hash;
   }
   return Math.abs(hash) % facts.length;
@@ -55,6 +55,7 @@ export function DidYouKnow() {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- hydration: detect client-side mount
     setMounted(true);
     const dailyIndex = getDailyFactIndex(new Date());
     setCurrentFact(facts[dailyIndex] as Fact);
@@ -70,10 +71,11 @@ export function DidYouKnow() {
   }, []);
 
   // Get related deity info
-  const relatedDeityInfo = currentFact?.relatedDeities
-    .map((id) => deities.find((d) => d.id === id || d.slug === id))
-    .filter((d): d is typeof deities[0] => d !== undefined)
-    .slice(0, 3) || [];
+  const relatedDeityInfo =
+    currentFact?.relatedDeities
+      .map((id) => deities.find((d) => d.id === id || d.slug === id))
+      .filter((d): d is (typeof deities)[0] => d !== undefined)
+      .slice(0, 3) || [];
 
   if (!mounted || !currentFact) {
     return (
@@ -97,10 +99,12 @@ export function DidYouKnow() {
                 <Lightbulb className="h-5 w-5 text-gold" />
               </div>
               <div>
-                <h2 className="font-serif text-lg font-semibold">Did You Know?</h2>
+                <h2 className="font-serif text-lg font-semibold">
+                  Did You Know?
+                </h2>
                 <Badge
                   variant="outline"
-                  className={`text-xs mt-1 ${categoryColors[currentFact.category] || ''}`}
+                  className={`text-xs mt-1 ${categoryColors[currentFact.category] || ""}`}
                 >
                   {categoryLabels[currentFact.category] || currentFact.category}
                 </Badge>
