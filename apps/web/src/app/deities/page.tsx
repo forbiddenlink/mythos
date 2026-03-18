@@ -1,9 +1,12 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { useQuery } from "@tanstack/react-query";
-import { graphqlClient } from "@/lib/graphql-client";
-import { GET_DEITIES } from "@/lib/queries";
+import { DeitiesTable } from "@/components/deities/DeitiesTable";
+import { DeityFilters } from "@/components/deities/DeityFilters";
+import { PageHero } from "@/components/layout/page-hero";
+import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
+import { CollectionPageJsonLd } from "@/components/seo/JsonLd";
+import { BookmarkButton } from "@/components/ui/bookmark-button";
+import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
@@ -11,19 +14,16 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Sparkles, LayoutGrid, Table } from "lucide-react";
-import Link from "next/link";
-import Image from "next/image";
-import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
-import { DeitiesTable } from "@/components/deities/DeitiesTable";
-import { DeityFilters } from "@/components/deities/DeityFilters";
-import { BookmarkButton } from "@/components/ui/bookmark-button";
-import { GridSkeleton, FiltersSkeleton } from "@/components/ui/skeleton-cards";
-import { CollectionPageJsonLd } from "@/components/seo/JsonLd";
-import { usePagination } from "@/hooks/usePagination";
 import { PaginationControls } from "@/components/ui/pagination-controls";
-import { PageHero } from "@/components/layout/page-hero";
+import { FiltersSkeleton, GridSkeleton } from "@/components/ui/skeleton-cards";
+import { usePagination } from "@/hooks/usePagination";
+import { graphqlClient } from "@/lib/graphql-client";
+import { GET_DEITIES } from "@/lib/queries";
+import { useQuery } from "@tanstack/react-query";
+import { LayoutGrid, Sparkles, Table } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import { useEffect, useState } from "react";
 
 // Note: Metadata export removed - use layout.tsx for client components
 // SEO is handled via dynamic title updates below
@@ -101,7 +101,7 @@ export default function DeitiesPage() {
     <div className="min-h-screen">
       <CollectionPageJsonLd
         name="Deities"
-        description="Gods and goddesses from 12 pantheons, with family trees, domains, and stories"
+        description="Gods and goddesses from 13 pantheons, with family trees, domains, and stories"
         url="/deities"
         numberOfItems={data?.deities?.length}
       />
@@ -109,7 +109,7 @@ export default function DeitiesPage() {
         icon={<Sparkles />}
         tagline="Divine Beings"
         title="Deities"
-        description="Gods and goddesses from 12 pantheons, with family trees, domains, and stories"
+        description="Gods and goddesses from 13 pantheons, with family trees, domains, and stories"
         backgroundImage="/deities-list-hero.png"
         colorScheme="gold"
       />

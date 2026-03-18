@@ -1,65 +1,65 @@
-'use client'
+"use client";
 
-import Link from 'next/link';
-import { Search, Command, Heart } from 'lucide-react';
-import { Logo } from '@/components/ui/logo';
-import { ThemeToggle } from '@/components/ui/theme-toggle';
-import { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { Logo } from "@/components/ui/logo";
+import { ThemeToggle } from "@/components/ui/theme-toggle";
+import { motion } from "framer-motion";
+import { Command, Heart, Search } from "lucide-react";
+import Link from "next/link";
+import { useEffect, useState } from "react";
 
-import { MobileNav } from '@/components/layout/mobile-nav';
-import { MegaMenu } from '@/components/layout/mega-menu';
-import { QuickActions } from '@/components/layout/quick-actions';
-import { LanguageSwitcher } from '@/components/i18n/LanguageSwitcher';
+import { LanguageSwitcher } from "@/components/i18n/LanguageSwitcher";
+import { MegaMenu } from "@/components/layout/mega-menu";
+import { MobileNav } from "@/components/layout/mobile-nav";
+import { QuickActions } from "@/components/layout/quick-actions";
 
 // Navigation structure for mobile
 export const mobileNavSections = [
   {
-    title: 'Explore',
+    title: "Explore",
     links: [
-      { href: '/pantheons', label: 'Pantheons' },
-      { href: '/deities', label: 'Deities' },
-      { href: '/stories', label: 'Stories' },
-      { href: '/stories/interactive/the-underworld-descent', label: 'Interactive Stories' },
-      { href: '/creatures', label: 'Creatures' },
-      { href: '/artifacts', label: 'Artifacts' },
-      { href: '/locations', label: 'Locations' },
-      { href: '/journeys', label: 'Hero Journeys' },
+      { href: "/pantheons", label: "Pantheons" },
+      { href: "/deities", label: "Deities" },
+      { href: "/stories", label: "Stories" },
+      { href: "/stories", label: "Interactive Stories" },
+      { href: "/creatures", label: "Creatures" },
+      { href: "/artifacts", label: "Artifacts" },
+      { href: "/locations", label: "Locations" },
+      { href: "/journeys", label: "Hero Journeys" },
     ],
   },
   {
-    title: 'Discover',
+    title: "Discover",
     links: [
-      { href: '/collections', label: 'Collections' },
-      { href: '/divine-domains', label: 'Divine Domains' },
-      { href: '/compare', label: 'Compare Deities' },
-      { href: '/compare/myths', label: 'Compare Myths' },
-      { href: '/knowledge-graph', label: 'Knowledge Graph' },
-      { href: '/family-tree', label: 'Family Tree' },
-      { href: '/timeline', label: 'Timeline' },
-      { href: '/story-timeline', label: 'Story Timeline' },
+      { href: "/collections", label: "Collections" },
+      { href: "/divine-domains", label: "Divine Domains" },
+      { href: "/compare", label: "Compare Deities" },
+      { href: "/compare/myths", label: "Compare Myths" },
+      { href: "/knowledge-graph", label: "Knowledge Graph" },
+      { href: "/family-tree", label: "Family Tree" },
+      { href: "/timeline", label: "Timeline" },
+      { href: "/story-timeline", label: "Story Timeline" },
     ],
   },
   {
-    title: 'Learn',
+    title: "Learn",
     links: [
-      { href: '/quiz', label: 'Quiz' },
-      { href: '/games/memory', label: 'Symbol Memory' },
-      { href: '/facts', label: 'Mythology Facts' },
-      { href: '/learning-paths', label: 'Learning Paths' },
-      { href: '/review', label: 'Daily Review' },
-      { href: '/progress', label: 'Progress' },
-      { href: '/achievements', label: 'Achievements' },
-      { href: '/leaderboard', label: 'Leaderboard' },
+      { href: "/quiz", label: "Quiz" },
+      { href: "/games/memory", label: "Symbol Memory" },
+      { href: "/facts", label: "Mythology Facts" },
+      { href: "/learning-paths", label: "Learning Paths" },
+      { href: "/review", label: "Daily Review" },
+      { href: "/progress", label: "Progress" },
+      { href: "/achievements", label: "Achievements" },
+      { href: "/leaderboard", label: "Leaderboard" },
     ],
   },
   {
-    title: 'More',
+    title: "More",
     links: [
-      { href: '/bookmarks', label: 'Bookmarks' },
-      { href: '/sources', label: 'Sources' },
-      { href: '/changelog', label: 'Changelog' },
-      { href: '/about', label: 'About' },
+      { href: "/bookmarks", label: "Bookmarks" },
+      { href: "/sources", label: "Sources" },
+      { href: "/changelog", label: "Changelog" },
+      { href: "/about", label: "About" },
     ],
   },
 ];
@@ -78,26 +78,27 @@ export function Header() {
       setScrolled(globalThis.scrollY > 20);
     };
 
-    globalThis.addEventListener('scroll', handleScroll, { passive: true });
-    return () => globalThis.removeEventListener('scroll', handleScroll);
+    globalThis.addEventListener("scroll", handleScroll, { passive: true });
+    return () => globalThis.removeEventListener("scroll", handleScroll);
   }, []);
 
   const handleSearchClick = () => {
-    const event = new KeyboardEvent('keydown', {
-      key: 'k',
+    const event = new KeyboardEvent("keydown", {
+      key: "k",
       metaKey: isMac,
       ctrlKey: !isMac,
-      bubbles: true
+      bubbles: true,
     });
     document.dispatchEvent(event);
   };
 
   return (
     <header
-      className={`sticky top-0 z-50 w-full transition-all duration-300 ${scrolled
-        ? 'bg-background/95 backdrop-blur-md border-b border-border/50 shadow-sm'
-        : 'bg-transparent border-b border-transparent'
-        }`}
+      className={`sticky top-0 z-50 w-full transition-all duration-300 ${
+        scrolled
+          ? "bg-background/95 backdrop-blur-md border-b border-border/50 shadow-sm"
+          : "bg-transparent border-b border-transparent"
+      }`}
     >
       <div className="container mx-auto max-w-7xl flex h-16 items-center px-4">
         {/* Mobile Navigation Trigger */}
@@ -106,10 +107,13 @@ export function Header() {
         </div>
 
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-3 group mr-auto lg:mr-0">
+        <Link
+          href="/"
+          className="flex items-center gap-3 group mr-auto lg:mr-0"
+        >
           <motion.div
             whileHover={{ scale: 1.05 }}
-            transition={{ type: 'spring', stiffness: 400, damping: 17 }}
+            transition={{ type: "spring", stiffness: 400, damping: 17 }}
             className="relative"
           >
             <div className="absolute inset-0 bg-gold/20 rounded-lg blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -150,7 +154,7 @@ export function Header() {
             <span className="hidden lg:inline">Search</span>
             <kbd className="hidden md:inline-flex items-center gap-0.5 px-1.5 py-0.5 text-[10px] font-mono rounded bg-background border border-border/80 text-muted-foreground">
               {mounted && isMac ? <Command className="h-2.5 w-2.5" /> : null}
-              {mounted && !isMac ? 'Ctrl' : null}
+              {mounted && !isMac ? "Ctrl" : null}
               {mounted ? null : <span className="w-3" />}
               <span>K</span>
             </kbd>

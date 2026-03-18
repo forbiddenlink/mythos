@@ -1,13 +1,13 @@
-'use client';
+"use client";
 
-import { useContext, useEffect, useState } from 'react';
-import Link from 'next/link';
-import { LeaderboardContext } from '@/providers/leaderboard-provider';
-import { ProgressContext } from '@/providers/progress-provider';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
-import { Trophy, Star, ChevronRight, Crown, TrendingUp } from 'lucide-react';
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { LeaderboardContext } from "@/providers/leaderboard-provider";
+import { ProgressContext } from "@/providers/progress-provider";
+import { ChevronRight, Crown, Star, TrendingUp, Trophy } from "lucide-react";
+import Link from "next/link";
+import { useContext, useEffect, useState } from "react";
 
 export function LeaderboardWidget() {
   const leaderboardContext = useContext(LeaderboardContext);
@@ -36,15 +36,23 @@ export function LeaderboardWidget() {
         dailyStreak,
       });
     }
-  }, [mounted, syncFromProgress, totalXP, quickQuizHighScore, achievementsCount, dailyStreak]);
+  }, [
+    mounted,
+    syncFromProgress,
+    totalXP,
+    quickQuizHighScore,
+    achievementsCount,
+    dailyStreak,
+  ]);
 
   if (!mounted || !leaderboardContext || !progressContext) {
     return null;
   }
 
-  const { getRankings, getUserRank, currentEntry, entries } = leaderboardContext;
-  const xpRank = getUserRank('xp');
-  const topThree = getRankings('xp').slice(0, 3);
+  const { getRankings, getUserRank, currentEntry, entries } =
+    leaderboardContext;
+  const xpRank = getUserRank("xp");
+  const topThree = getRankings("xp").slice(0, 3);
 
   // Don't show if no entries
   if (entries.length === 0) {
@@ -65,14 +73,20 @@ export function LeaderboardWidget() {
                   <Trophy className="h-6 w-6 text-gold" />
                 </div>
                 <div>
-                  <CardTitle className="font-serif text-xl">Leaderboard</CardTitle>
+                  <CardTitle className="font-serif text-xl">
+                    Leaderboard
+                  </CardTitle>
                   <p className="text-sm text-muted-foreground">
-                    Compete with other explorers
+                    Your personal progress ranking
                   </p>
                 </div>
               </div>
 
-              <Button asChild variant="outline" className="border-gold/30 hover:bg-gold/10">
+              <Button
+                asChild
+                variant="outline"
+                className="border-gold/30 hover:bg-gold/10"
+              >
                 <Link href="/leaderboard">
                   View All
                   <ChevronRight className="h-4 w-4 ml-1" />
@@ -110,45 +124,57 @@ export function LeaderboardWidget() {
 
             {/* Top 3 */}
             <div className="space-y-2">
-              <h3 className="text-sm font-medium text-muted-foreground px-1">Top Explorers</h3>
+              <h3 className="text-sm font-medium text-muted-foreground px-1">
+                Top Explorers
+              </h3>
               {topThree.map((entry, index) => {
                 const rank = index + 1;
-                const isCurrentUser = entry.id === leaderboardContext.currentUserId;
+                const isCurrentUser =
+                  entry.id === leaderboardContext.currentUserId;
 
                 return (
                   <div
                     key={entry.id}
                     className={`flex items-center justify-between p-3 rounded-lg border ${
                       isCurrentUser
-                        ? 'bg-gold/10 border-gold/30'
-                        : 'bg-card border-border'
+                        ? "bg-gold/10 border-gold/30"
+                        : "bg-card border-border"
                     }`}
                   >
                     <div className="flex items-center gap-3">
                       <div
                         className={`w-8 h-8 rounded-full flex items-center justify-center ${
                           rank === 1
-                            ? 'bg-yellow-500/20'
+                            ? "bg-yellow-500/20"
                             : rank === 2
-                              ? 'bg-slate-400/20'
-                              : 'bg-amber-600/20'
+                              ? "bg-slate-400/20"
+                              : "bg-amber-600/20"
                         }`}
                       >
                         <Crown
                           className={`h-4 w-4 ${
                             rank === 1
-                              ? 'text-yellow-500'
+                              ? "text-yellow-500"
                               : rank === 2
-                                ? 'text-slate-400'
-                                : 'text-amber-600'
+                                ? "text-slate-400"
+                                : "text-amber-600"
                           }`}
                         />
                       </div>
-                      <span className={isCurrentUser ? 'text-gold font-medium' : 'font-medium'}>
+                      <span
+                        className={
+                          isCurrentUser
+                            ? "text-gold font-medium"
+                            : "font-medium"
+                        }
+                      >
                         {entry.nickname}
                       </span>
                       {isCurrentUser && (
-                        <Badge variant="outline" className="text-xs border-gold/30 text-gold">
+                        <Badge
+                          variant="outline"
+                          className="text-xs border-gold/30 text-gold"
+                        >
                           You
                         </Badge>
                       )}

@@ -1,18 +1,18 @@
-import { HeroSection } from "@/components/home/HeroSection";
-import { StreakWidget } from "@/components/home/StreakWidget";
-import { DailyCard } from "@/components/home/DailyCard";
-import { FeaturesGrid } from "@/components/home/FeaturesGrid";
-import { StatsSection } from "@/components/home/StatsSection";
-import { PantheonShowcase } from "@/components/home/PantheonShowcase";
+import { DailyChallengeBanner } from "@/components/challenges/DailyChallengeBanner";
+import { CollectionsShowcase } from "@/components/home/CollectionsShowcase";
 import { CTASection } from "@/components/home/CTASection";
+import { DailyCard } from "@/components/home/DailyCard";
+import { DidYouKnow } from "@/components/home/DidYouKnow";
+import { FeaturesGrid } from "@/components/home/FeaturesGrid";
+import { HeroSection } from "@/components/home/HeroSection";
+import { InteractiveStoriesBanner } from "@/components/home/InteractiveStoriesBanner";
+import { PantheonShowcase } from "@/components/home/PantheonShowcase";
+import { StatsSection } from "@/components/home/StatsSection";
+import { StreakWidget } from "@/components/home/StreakWidget";
+import { LeaderboardWidget } from "@/components/leaderboard/LeaderboardWidget";
 import { ComparativeMythology } from "@/components/mythology/ComparativeMythology";
 import { WebSiteJsonLd } from "@/components/seo/JsonLd";
 import { generateBaseMetadata } from "@/lib/metadata";
-import { InteractiveStoriesBanner } from "@/components/home/InteractiveStoriesBanner";
-import { DailyChallengeBanner } from "@/components/challenges/DailyChallengeBanner";
-import { LeaderboardWidget } from "@/components/leaderboard/LeaderboardWidget";
-import { DidYouKnow } from "@/components/home/DidYouKnow";
-import { CollectionsShowcase } from "@/components/home/CollectionsShowcase";
 
 export const metadata = generateBaseMetadata({
   title: "Mythos Atlas - Explore World Mythology",
@@ -33,7 +33,7 @@ export const metadata = generateBaseMetadata({
 
 export default function Home() {
   return (
-    <main className="min-h-screen">
+    <div className="min-h-screen">
       <WebSiteJsonLd searchActionTarget="https://mythosatlas.com/?search={search_term_string}" />
       <HeroSection />
       <StreakWidget />
@@ -52,6 +52,6 @@ export default function Home() {
         </div>
       </section>
       <CTASection />
-    </main>
+    </div>
   );
 }

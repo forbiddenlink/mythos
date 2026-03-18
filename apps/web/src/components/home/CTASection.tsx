@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
-import Link from 'next/link';
-import { ArrowRight, BookOpen, Users } from 'lucide-react';
+import { motion } from "framer-motion";
+import { ArrowRight, BookOpen, Users } from "lucide-react";
+import Link from "next/link";
 
 export function CTASection() {
   return (
@@ -16,18 +16,15 @@ export function CTASection() {
       </div>
 
       {/* Noise texture */}
-      <div className="absolute inset-0 opacity-[0.02]" style={{
-        backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`,
-      }} />
+      <div
+        className="absolute inset-0 opacity-[0.02]"
+        style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`,
+        }}
+      />
 
-      {/* Background Image - Absolute positioned behind everything */}
+      {/* Background Image */}
       <div className="absolute inset-0 z-0">
-        {/* Note: Using img tag here for absolute positioning behind gradients if next/image acts up with z-index, 
-              but next/image is preferred. The previous implementation used CSS background or just colors. 
-              The task is to replace images. The CTA section in the plan mentioned cta-ruins.jpg.
-              I need to see where cta-ruins.jpg was used. It wasn't in the file content I read earlier!
-              I will add it as a background.
-           */}
         <div className="absolute inset-0 bg-[url('/cta-ruins.webp')] bg-cover bg-center opacity-30 mix-blend-overlay"></div>
       </div>
 
@@ -50,7 +47,9 @@ export function CTASection() {
           {/* Heading */}
           <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight mb-6 text-parchment">
             Begin Your Journey Into
-            <span className="block text-gradient-gold mt-2">Ancient Mythology</span>
+            <span className="block text-gradient-gold mt-2">
+              Ancient Mythology
+            </span>
           </h2>
 
           {/* Divider */}
@@ -62,15 +61,13 @@ export function CTASection() {
 
           {/* Description */}
           <p className="text-lg md:text-xl text-parchment/70 max-w-2xl mx-auto mb-12 font-body leading-relaxed">
-            Explore the divine stories, legendary heroes, and timeless wisdom that shaped ancient civilizations across the world
+            Explore the divine stories, legendary heroes, and timeless wisdom
+            that shaped ancient civilizations across the world
           </p>
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <motion.div
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-            >
+            <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
               <Link
                 href="/deities"
                 className="group inline-flex items-center justify-center gap-3 px-8 py-4 rounded-lg bg-linear-to-r from-gold-dark via-gold to-gold-dark hover:from-gold hover:via-gold-light hover:to-gold text-midnight font-semibold transition-all duration-300 shadow-lg shadow-gold/20 hover:shadow-xl hover:shadow-gold/30"
@@ -81,10 +78,7 @@ export function CTASection() {
               </Link>
             </motion.div>
 
-            <motion.div
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-            >
+            <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
               <Link
                 href="/stories"
                 className="group inline-flex items-center justify-center gap-3 px-8 py-4 rounded-lg border border-gold/40 text-gold hover:bg-gold/10 hover:border-gold/60 font-semibold transition-all duration-300"

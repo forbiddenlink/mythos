@@ -1,31 +1,42 @@
-'use client';
+"use client";
 
-import { useContext, useState, useEffect } from 'react';
-import { LeaderboardContext, type LeaderboardCategory } from '@/providers/leaderboard-provider';
-import { ProgressContext } from '@/providers/progress-provider';
-import { LeaderboardTable } from '@/components/leaderboard/LeaderboardTable';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Badge } from '@/components/ui/badge';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { LeaderboardTable } from "@/components/leaderboard/LeaderboardTable";
+import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
-  Trophy,
-  Star,
+  LeaderboardContext,
+  type LeaderboardCategory,
+} from "@/providers/leaderboard-provider";
+import { ProgressContext } from "@/providers/progress-provider";
+import {
   Award,
-  Flame,
-  Edit2,
   Check,
-  X,
+  Edit2,
+  Flame,
+  Star,
   TrendingUp,
-} from 'lucide-react';
-import { Breadcrumbs } from '@/components/navigation/Breadcrumbs';
+  Trophy,
+  X,
+} from "lucide-react";
+import { useContext, useEffect, useState } from "react";
 
-const categories: { id: LeaderboardCategory; label: string; icon: React.ReactNode }[] = [
-  { id: 'xp', label: 'XP', icon: <Star className="h-4 w-4" /> },
-  { id: 'quiz', label: 'Quiz', icon: <Trophy className="h-4 w-4" /> },
-  { id: 'achievements', label: 'Achievements', icon: <Award className="h-4 w-4" /> },
-  { id: 'streak', label: 'Streak', icon: <Flame className="h-4 w-4" /> },
+const categories: {
+  id: LeaderboardCategory;
+  label: string;
+  icon: React.ReactNode;
+}[] = [
+  { id: "xp", label: "XP", icon: <Star className="h-4 w-4" /> },
+  { id: "quiz", label: "Quiz", icon: <Trophy className="h-4 w-4" /> },
+  {
+    id: "achievements",
+    label: "Achievements",
+    icon: <Award className="h-4 w-4" />,
+  },
+  { id: "streak", label: "Streak", icon: <Flame className="h-4 w-4" /> },
 ];
 
 export default function LeaderboardPage() {
@@ -33,8 +44,8 @@ export default function LeaderboardPage() {
   const progressContext = useContext(ProgressContext);
   const [mounted, setMounted] = useState(false);
   const [isEditingNickname, setIsEditingNickname] = useState(false);
-  const [nicknameInput, setNicknameInput] = useState('');
-  const [activeTab, setActiveTab] = useState<LeaderboardCategory>('xp');
+  const [nicknameInput, setNicknameInput] = useState("");
+  const [activeTab, setActiveTab] = useState<LeaderboardCategory>("xp");
 
   useEffect(() => {
     // eslint-disable-next-line react-hooks/set-state-in-effect -- track client hydration
@@ -80,7 +91,8 @@ export default function LeaderboardPage() {
     );
   }
 
-  const { currentEntry, setNickname, getUserRank, entries } = leaderboardContext;
+  const { currentEntry, setNickname, getUserRank, entries } =
+    leaderboardContext;
 
   const handleSaveNickname = () => {
     if (nicknameInput.trim()) {
@@ -90,7 +102,7 @@ export default function LeaderboardPage() {
   };
 
   const handleCancelEdit = () => {
-    setNicknameInput(currentEntry?.nickname || '');
+    setNicknameInput(currentEntry?.nickname || "");
     setIsEditingNickname(false);
   };
 
@@ -106,9 +118,11 @@ export default function LeaderboardPage() {
               <Trophy className="h-8 w-8 text-gold" />
             </div>
             <div>
-              <h1 className="font-serif text-4xl font-semibold text-foreground">Leaderboard</h1>
+              <h1 className="font-serif text-4xl font-semibold text-foreground">
+                Leaderboard
+              </h1>
               <p className="text-muted-foreground mt-1">
-                Compete with other mythology explorers
+                Track your personal mythology exploration progress
               </p>
             </div>
           </div>
@@ -130,7 +144,9 @@ export default function LeaderboardPage() {
               {/* Nickname */}
               <div className="flex items-center justify-between p-4 rounded-xl bg-card border border-border">
                 <div>
-                  <p className="text-sm text-muted-foreground mb-1">Display Name</p>
+                  <p className="text-sm text-muted-foreground mb-1">
+                    Display Name
+                  </p>
                   {isEditingNickname ? (
                     <div className="flex items-center gap-2">
                       <Input
@@ -141,27 +157,40 @@ export default function LeaderboardPage() {
                         maxLength={30}
                         autoFocus
                         onKeyDown={(e) => {
-                          if (e.key === 'Enter') handleSaveNickname();
-                          if (e.key === 'Escape') handleCancelEdit();
+                          if (e.key === "Enter") handleSaveNickname();
+                          if (e.key === "Escape") handleCancelEdit();
                         }}
                       />
-                      <Button size="icon" variant="ghost" className="h-8 w-8" onClick={handleSaveNickname}>
+                      <Button
+                        size="icon"
+                        variant="ghost"
+                        className="h-8 w-8"
+                        onClick={handleSaveNickname}
+                        aria-label="Save nickname"
+                      >
                         <Check className="h-4 w-4 text-green-500" />
                       </Button>
-                      <Button size="icon" variant="ghost" className="h-8 w-8" onClick={handleCancelEdit}>
+                      <Button
+                        size="icon"
+                        variant="ghost"
+                        className="h-8 w-8"
+                        onClick={handleCancelEdit}
+                        aria-label="Cancel editing"
+                      >
                         <X className="h-4 w-4 text-destructive" />
                       </Button>
                     </div>
                   ) : (
                     <div className="flex items-center gap-2">
                       <span className="font-semibold text-foreground">
-                        {currentEntry?.nickname || 'Set your nickname'}
+                        {currentEntry?.nickname || "Set your nickname"}
                       </span>
                       <Button
                         size="icon"
                         variant="ghost"
                         className="h-6 w-6"
                         onClick={() => setIsEditingNickname(true)}
+                        aria-label="Edit nickname"
                       >
                         <Edit2 className="h-3.5 w-3.5" />
                       </Button>
@@ -177,16 +206,16 @@ export default function LeaderboardPage() {
                   let value = 0;
                   if (currentEntry) {
                     switch (cat.id) {
-                      case 'xp':
+                      case "xp":
                         value = currentEntry.totalXP;
                         break;
-                      case 'quiz':
+                      case "quiz":
                         value = currentEntry.quickQuizHighScore;
                         break;
-                      case 'achievements':
+                      case "achievements":
                         value = currentEntry.achievementsUnlocked;
                         break;
-                      case 'streak':
+                      case "streak":
                         value = currentEntry.longestStreak;
                         break;
                     }
@@ -222,11 +251,15 @@ export default function LeaderboardPage() {
             <CardHeader>
               <CardTitle className="font-serif">Rankings</CardTitle>
               <p className="text-sm text-muted-foreground">
-                {entries.length} explorer{entries.length !== 1 ? 's' : ''} competing
+                {entries.length} explorer{entries.length !== 1 ? "s" : ""}{" "}
+                competing
               </p>
             </CardHeader>
             <CardContent>
-              <Tabs value={activeTab} onValueChange={(v) => setActiveTab(v as LeaderboardCategory)}>
+              <Tabs
+                value={activeTab}
+                onValueChange={(v) => setActiveTab(v as LeaderboardCategory)}
+              >
                 <TabsList className="grid w-full grid-cols-4 mb-6">
                   {categories.map((cat) => (
                     <TabsTrigger

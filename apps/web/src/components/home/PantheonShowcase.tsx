@@ -1,101 +1,121 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
-import { TransitionLink } from '@/components/transitions';
-import { Columns, Compass, Pyramid, ArrowRight } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { TransitionLink } from "@/components/transitions";
+import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
+import {
+  ArrowRight,
+  Columns,
+  Compass,
+  Crown,
+  Landmark,
+  Pyramid,
+  Sun,
+  Wind,
+} from "lucide-react";
 
 // Hardcoded for now to match the "Featured" style, but updated to include more
 const pantheons = [
   {
-    name: 'Greek',
-    fullName: 'Greek Pantheon',
-    slug: 'greek',
-    culture: 'Ancient Greek',
-    description: 'The Olympian gods who ruled from Mount Olympus, shaping the fate of mortals and heroes alike.',
+    name: "Greek",
+    fullName: "Greek Pantheon",
+    slug: "greek",
+    culture: "Ancient Greek",
+    description:
+      "The Olympian gods who ruled from Mount Olympus, shaping the fate of mortals and heroes alike.",
     icon: Columns,
-    gradient: 'from-[oklch(0.45_0.12_265)] via-[oklch(0.50_0.10_255)] to-[oklch(0.40_0.14_275)]',
-    accentColor: 'bg-[oklch(0.60_0.12_265)]',
+    gradient:
+      "from-[oklch(0.45_0.12_265)] via-[oklch(0.50_0.10_255)] to-[oklch(0.40_0.14_275)]",
+    accentColor: "bg-[oklch(0.60_0.12_265)]",
   },
   {
-    name: 'Norse',
-    fullName: 'Norse Pantheon',
-    slug: 'norse',
-    culture: 'Norse/Germanic',
-    description: 'The Æsir and Vanir of Asgard, warriors and seers across the Nine Worlds.',
+    name: "Norse",
+    fullName: "Norse Pantheon",
+    slug: "norse",
+    culture: "Norse/Germanic",
+    description:
+      "The Æsir and Vanir of Asgard, warriors and seers across the Nine Worlds.",
     icon: Compass,
-    gradient: 'from-[oklch(0.28_0.04_265)] via-[oklch(0.32_0.03_260)] to-[oklch(0.25_0.05_270)]',
-    accentColor: 'bg-[oklch(0.50_0.04_265)]',
+    gradient:
+      "from-[oklch(0.28_0.04_265)] via-[oklch(0.32_0.03_260)] to-[oklch(0.25_0.05_270)]",
+    accentColor: "bg-[oklch(0.50_0.04_265)]",
   },
   {
-    name: 'Egyptian',
-    fullName: 'Egyptian Pantheon',
-    slug: 'egyptian',
-    culture: 'Ancient Egyptian',
-    description: 'The divine rulers of the Nile Valley, guardians of life, death, and rebirth.',
+    name: "Egyptian",
+    fullName: "Egyptian Pantheon",
+    slug: "egyptian",
+    culture: "Ancient Egyptian",
+    description:
+      "The divine rulers of the Nile Valley, guardians of life, death, and rebirth.",
     icon: Pyramid,
-    gradient: 'from-gold-dark via-gold to-bronze',
-    accentColor: 'bg-gold',
+    gradient: "from-gold-dark via-gold to-bronze",
+    accentColor: "bg-gold",
   },
   {
-    name: 'Roman',
-    fullName: 'Roman Pantheon',
-    slug: 'roman',
-    culture: 'Ancient Roman',
-    description: 'The deities of the Roman state, emphasizing duty, discipline, and the glory of the Empire.',
-    icon: Columns,
-    gradient: 'from-red-900 via-red-800 to-orange-900',
-    accentColor: 'bg-red-700',
+    name: "Roman",
+    fullName: "Roman Pantheon",
+    slug: "roman",
+    culture: "Ancient Roman",
+    description:
+      "The deities of the Roman state, emphasizing duty, discipline, and the glory of the Empire.",
+    icon: Landmark,
+    gradient: "from-red-900 via-red-800 to-orange-900",
+    accentColor: "bg-red-700",
   },
   {
-    name: 'Hindu',
-    fullName: 'Hindu Pantheon',
-    slug: 'hindu',
-    culture: 'Vedic/Hindu',
-    description: 'The diverse family of gods centered on the Trimurti, governing dharma and karma.',
-    icon: Columns, // Using generic icon
-    gradient: 'from-orange-600 via-amber-500 to-yellow-600',
-    accentColor: 'bg-orange-500',
+    name: "Hindu",
+    fullName: "Hindu Pantheon",
+    slug: "hindu",
+    culture: "Vedic/Hindu",
+    description:
+      "The diverse family of gods centered on the Trimurti, governing dharma and karma.",
+    icon: Sun,
+    gradient: "from-orange-600 via-amber-500 to-yellow-600",
+    accentColor: "bg-orange-500",
   },
   {
-    name: 'Japanese',
-    fullName: 'Japanese Pantheon',
-    slug: 'japanese',
-    culture: 'Shinto',
-    description: 'The Kami of nature and ancestors, inhabiting the islands and shrines of Japan.',
-    icon: Columns, // Using generic icon
-    gradient: 'from-red-600 via-pink-600 to-white',
-    accentColor: 'bg-red-600',
+    name: "Japanese",
+    fullName: "Japanese Pantheon",
+    slug: "japanese",
+    culture: "Shinto",
+    description:
+      "The Kami of nature and ancestors, inhabiting the islands and shrines of Japan.",
+    icon: Wind,
+    gradient: "from-red-600 via-pink-600 to-white",
+    accentColor: "bg-red-600",
   },
   {
-    name: 'Celtic',
-    fullName: 'Celtic Pantheon',
-    slug: 'celtic',
-    culture: 'Celtic',
-    description: 'The gods of nature, magic, and sovereignty from Ireland, Wales, and Gaul.',
+    name: "Celtic",
+    fullName: "Celtic Pantheon",
+    slug: "celtic",
+    culture: "Celtic",
+    description:
+      "The gods of nature, magic, and sovereignty from Ireland, Wales, and Gaul.",
     icon: Compass,
-    gradient: 'from-green-700 via-emerald-600 to-lime-600',
-    accentColor: 'bg-green-600',
+    gradient: "from-green-700 via-emerald-600 to-lime-600",
+    accentColor: "bg-green-600",
   },
   {
-    name: 'Aztec',
-    fullName: 'Aztec Pantheon',
-    slug: 'aztec',
-    culture: 'Aztec/Nahua',
-    description: 'The sun-soaked, blood-nourished gods of the Mexica, maintaining the cosmic cycle.',
+    name: "Aztec",
+    fullName: "Aztec Pantheon",
+    slug: "aztec",
+    culture: "Aztec/Nahua",
+    description:
+      "The sun-soaked, blood-nourished gods of the Mexica, maintaining the cosmic cycle.",
     icon: Pyramid,
-    gradient: 'from-red-600 via-orange-600 to-yellow-500',
-    accentColor: 'bg-red-600',
+    gradient: "from-red-600 via-orange-600 to-yellow-500",
+    accentColor: "bg-red-600",
   },
   {
-    name: 'Chinese',
-    fullName: 'Chinese Pantheon',
-    slug: 'chinese',
-    culture: 'Chinese',
-    description: 'The celestial bureaucracy of gods, immortals, and spirits governing heaven and earth.',
-    icon: Columns,
-    gradient: 'from-red-800 via-yellow-700 to-red-900',
-    accentColor: 'bg-red-800',
+    name: "Chinese",
+    fullName: "Chinese Pantheon",
+    slug: "chinese",
+    culture: "Chinese",
+    description:
+      "The celestial bureaucracy of gods, immortals, and spirits governing heaven and earth.",
+    icon: Crown,
+    gradient: "from-red-800 via-yellow-700 to-red-900",
+    accentColor: "bg-red-800",
   },
 ];
 
@@ -138,11 +158,16 @@ export function PantheonShowcase() {
               transition={{
                 duration: 0.6,
                 delay: index * 0.12,
-                ease: [0.22, 1, 0.36, 1]
+                ease: [0.22, 1, 0.36, 1],
               }}
             >
-              <TransitionLink href={`/pantheons/${pantheon.slug}`} className="block h-full group">
-                <div className={`relative h-full rounded-xl overflow-hidden bg-linear-to-br ${pantheon.gradient} p-px`}>
+              <TransitionLink
+                href={`/pantheons/${pantheon.slug}`}
+                className="block h-full group"
+              >
+                <div
+                  className={`relative h-full rounded-xl overflow-hidden bg-linear-to-br ${pantheon.gradient} p-px`}
+                >
                   {/* Inner card */}
                   <div className="relative h-full rounded-[11px] bg-linear-to-br from-black/40 via-black/20 to-black/50 backdrop-blur-sm p-6 flex flex-col">
                     {/* Decorative corner */}
@@ -150,8 +175,13 @@ export function PantheonShowcase() {
 
                     {/* Icon */}
                     <div className="mb-5">
-                      <div className={`inline-flex items-center justify-center w-12 h-12 rounded-lg ${pantheon.accentColor}/20 border border-white/10`}>
-                        <pantheon.icon className="h-6 w-6 text-white/80" strokeWidth={1.5} />
+                      <div
+                        className={`inline-flex items-center justify-center w-12 h-12 rounded-lg ${pantheon.accentColor}/20 border border-white/10`}
+                      >
+                        <pantheon.icon
+                          className="h-6 w-6 text-white/80"
+                          strokeWidth={1.5}
+                        />
                       </div>
                     </div>
 
@@ -172,7 +202,9 @@ export function PantheonShowcase() {
 
                     {/* CTA */}
                     <div className="flex items-center gap-2 text-white/60 group-hover:text-white transition-colors duration-300">
-                      <span className="text-sm font-medium tracking-wide">Explore Pantheon</span>
+                      <span className="text-sm font-medium tracking-wide">
+                        Explore Pantheon
+                      </span>
                       <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform duration-300" />
                     </div>
 

@@ -1,14 +1,14 @@
-'use client';
+"use client";
 
-import locations from '@/data/locations.json';
-import pantheons from '@/data/pantheons.json';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import { MapPin, Compass, Mountain, Globe, ChevronRight } from 'lucide-react';
-import Link from 'next/link';
-import Image from 'next/image';
-import { BreadcrumbJsonLd, PlaceJsonLd } from '@/components/seo/JsonLd';
-import { siteConfig } from '@/lib/metadata';
+import { BreadcrumbJsonLd, PlaceJsonLd } from "@/components/seo/JsonLd";
+import { Badge } from "@/components/ui/badge";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import locations from "@/data/locations.json";
+import pantheons from "@/data/pantheons.json";
+import { siteConfig } from "@/lib/metadata";
+import { ChevronRight, Compass, Globe, MapPin, Mountain } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
 
 // ─── Types ──────────────────────────────────────────────────────────────
 interface Location {
@@ -28,25 +28,26 @@ interface LocationPageClientProps {
 
 // ─── Helpers ────────────────────────────────────────────────────────────
 function formatLocationType(type: string): string {
-  return type
-    .replaceAll('_', ' ')
-    .replaceAll(/\b\w/g, (c) => c.toUpperCase());
+  return type.replaceAll("_", " ").replaceAll(/\b\w/g, (c) => c.toUpperCase());
 }
 
 const LOCATION_TYPE_COLORS: Record<string, string> = {
-  mountain: 'bg-emerald-900/30 text-emerald-300 border-emerald-500/30',
-  realm: 'bg-purple-900/30 text-purple-300 border-purple-500/30',
-  sacred_site: 'bg-amber-900/30 text-amber-300 border-amber-500/30',
-  city: 'bg-blue-900/30 text-blue-300 border-blue-500/30',
-  underworld: 'bg-red-900/30 text-red-300 border-red-500/30',
-  body_of_water: 'bg-cyan-900/30 text-cyan-300 border-cyan-500/30',
-  temple: 'bg-yellow-900/30 text-yellow-300 border-yellow-500/30',
-  forest: 'bg-green-900/30 text-green-300 border-green-500/30',
-  cosmic: 'bg-indigo-900/30 text-indigo-300 border-indigo-500/30',
+  mountain: "bg-emerald-900/30 text-emerald-300 border-emerald-500/30",
+  realm: "bg-purple-900/30 text-purple-300 border-purple-500/30",
+  sacred_site: "bg-amber-900/30 text-amber-300 border-amber-500/30",
+  city: "bg-blue-900/30 text-blue-300 border-blue-500/30",
+  underworld: "bg-red-900/30 text-red-300 border-red-500/30",
+  body_of_water: "bg-cyan-900/30 text-cyan-300 border-cyan-500/30",
+  temple: "bg-yellow-900/30 text-yellow-300 border-yellow-500/30",
+  forest: "bg-green-900/30 text-green-300 border-green-500/30",
+  cosmic: "bg-indigo-900/30 text-indigo-300 border-indigo-500/30",
 };
 
 function getTypeColor(type: string): string {
-  return LOCATION_TYPE_COLORS[type] || 'bg-slate-800/50 text-slate-300 border-slate-600/30';
+  return (
+    LOCATION_TYPE_COLORS[type] ||
+    "bg-slate-800/50 text-slate-300 border-slate-600/30"
+  );
 }
 
 const LOCATION_TYPE_ICONS: Record<string, typeof MapPin> = {
@@ -67,11 +68,16 @@ export function LocationPageClient({ slug }: LocationPageClientProps) {
     return (
       <div className="container mx-auto max-w-6xl px-4 py-24">
         <div className="text-center">
-          <h2 className="text-2xl font-bold text-destructive">Location Not Found</h2>
+          <h2 className="text-2xl font-bold text-destructive">
+            Location Not Found
+          </h2>
           <p className="text-muted-foreground mt-2">
             The mythical place you seek is lost to the ages.
           </p>
-          <Link href="/locations" className="text-emerald-500 hover:underline mt-4 inline-block">
+          <Link
+            href="/locations"
+            className="text-emerald-500 hover:underline mt-4 inline-block"
+          >
             Return to Locations
           </Link>
         </div>
@@ -79,10 +85,11 @@ export function LocationPageClient({ slug }: LocationPageClientProps) {
     );
   }
 
-  const pantheonName = pantheon?.name || 'Ancient';
+  const pantheonName = pantheon?.name || "Ancient";
   const TypeIcon = getTypeIcon(location.locationType);
   const typeLabel = formatLocationType(location.locationType);
-  const hasCoordinates = location.latitude != null && location.longitude != null;
+  const hasCoordinates =
+    location.latitude != null && location.longitude != null;
 
   // Find related locations from same pantheon (excluding current)
   const relatedLocations = (locations as Location[])
@@ -90,9 +97,12 @@ export function LocationPageClient({ slug }: LocationPageClientProps) {
     .slice(0, 6);
 
   const breadcrumbItems = [
-    { name: 'Home', item: siteConfig.url },
-    { name: 'Locations', item: `${siteConfig.url}/locations` },
-    { name: pantheonName, item: `${siteConfig.url}/pantheons/${pantheon?.slug || ''}` },
+    { name: "Home", item: siteConfig.url },
+    { name: "Locations", item: `${siteConfig.url}/locations` },
+    {
+      name: pantheonName,
+      item: `${siteConfig.url}/pantheons/${pantheon?.slug || ""}`,
+    },
     { name: location.name, item: `${siteConfig.url}/locations/${location.id}` },
   ];
 
@@ -128,12 +138,18 @@ export function LocationPageClient({ slug }: LocationPageClientProps) {
 
           <div className="space-y-4">
             <div className="flex flex-wrap items-center gap-3">
-              <Badge variant="outline" className={`${getTypeColor(location.locationType)} border text-sm font-medium px-3 py-1`}>
+              <Badge
+                variant="outline"
+                className={`${getTypeColor(location.locationType)} border text-sm font-medium px-3 py-1`}
+              >
                 {/* eslint-disable-next-line react-hooks/static-components -- dynamic icon from module-scope lookup */}
                 <TypeIcon className="h-3.5 w-3.5 mr-1.5" />
                 {typeLabel}
               </Badge>
-              <Badge variant="outline" className="bg-slate-800/50 text-slate-300 border-slate-600/30 text-sm px-3 py-1">
+              <Badge
+                variant="outline"
+                className="bg-slate-800/50 text-slate-300 border-slate-600/30 text-sm px-3 py-1"
+              >
                 <Globe className="h-3.5 w-3.5 mr-1.5" />
                 {pantheonName}
               </Badge>
@@ -146,7 +162,12 @@ export function LocationPageClient({ slug }: LocationPageClientProps) {
             {hasCoordinates && (
               <div className="flex items-center gap-2 text-slate-400 text-sm">
                 <Compass className="h-4 w-4" />
-                <span>{location.latitude}°N, {location.longitude}°E</span>
+                <span>
+                  {Math.abs(location.latitude!)}°
+                  {location.latitude! >= 0 ? "N" : "S"},{" "}
+                  {Math.abs(location.longitude!)}°
+                  {location.longitude! >= 0 ? "E" : "W"}
+                </span>
               </div>
             )}
           </div>
@@ -156,7 +177,6 @@ export function LocationPageClient({ slug }: LocationPageClientProps) {
       {/* ── Content Section ─────────────────────────────────────────── */}
       <div className="container mx-auto max-w-4xl px-4 py-12">
         <div className="space-y-8">
-
           {/* Hero Image */}
           {location.imageUrl && (
             <div className="relative w-full max-w-lg mx-auto rounded-xl overflow-hidden shadow-2xl border border-slate-800">
@@ -185,27 +205,43 @@ export function LocationPageClient({ slug }: LocationPageClientProps) {
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <div>
-                    <p className="text-xs text-slate-500 uppercase tracking-wider mb-1">Type</p>
-                    <Badge variant="secondary" className={`${getTypeColor(location.locationType)} border`}>
+                    <p className="text-xs text-slate-500 uppercase tracking-wider mb-1">
+                      Type
+                    </p>
+                    <Badge
+                      variant="secondary"
+                      className={`${getTypeColor(location.locationType)} border`}
+                    >
                       {typeLabel}
                     </Badge>
                   </div>
                   <div>
-                    <p className="text-xs text-slate-500 uppercase tracking-wider mb-1">Mythology</p>
+                    <p className="text-xs text-slate-500 uppercase tracking-wider mb-1">
+                      Mythology
+                    </p>
                     <p className="text-slate-300 font-medium">{pantheonName}</p>
                   </div>
                   {hasCoordinates && (
                     <div>
-                      <p className="text-xs text-slate-500 uppercase tracking-wider mb-1">Coordinates</p>
+                      <p className="text-xs text-slate-500 uppercase tracking-wider mb-1">
+                        Coordinates
+                      </p>
                       <p className="text-slate-300 text-sm font-mono">
-                        {location.latitude}°N, {location.longitude}°E
+                        {Math.abs(location.latitude!)}°
+                        {location.latitude! >= 0 ? "N" : "S"},{" "}
+                        {Math.abs(location.longitude!)}°
+                        {location.longitude! >= 0 ? "E" : "W"}
                       </p>
                     </div>
                   )}
                   {!hasCoordinates && (
                     <div>
-                      <p className="text-xs text-slate-500 uppercase tracking-wider mb-1">Realm</p>
-                      <p className="text-sm text-slate-400 italic">Mythological / Non-physical</p>
+                      <p className="text-xs text-slate-500 uppercase tracking-wider mb-1">
+                        Realm
+                      </p>
+                      <p className="text-sm text-slate-400 italic">
+                        Mythological / Non-physical
+                      </p>
                     </div>
                   )}
                 </CardContent>
@@ -216,7 +252,9 @@ export function LocationPageClient({ slug }: LocationPageClientProps) {
             <div className="md:col-span-2">
               <Card className="bg-white dark:bg-slate-900 border-l-4 border-l-emerald-500">
                 <CardHeader>
-                  <CardTitle className="font-serif text-2xl">About This Location</CardTitle>
+                  <CardTitle className="font-serif text-2xl">
+                    About This Location
+                  </CardTitle>
                 </CardHeader>
                 <CardContent>
                   <p className="text-muted-foreground leading-relaxed text-lg">
@@ -276,7 +314,6 @@ export function LocationPageClient({ slug }: LocationPageClientProps) {
               </div>
             </div>
           )}
-
         </div>
       </div>
     </div>

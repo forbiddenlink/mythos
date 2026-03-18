@@ -1,10 +1,16 @@
-'use client';
+"use client";
 
-import { useState, useMemo, useEffect, useCallback, useRef } from 'react';
-import L from 'leaflet';
-import 'leaflet/dist/leaflet.css';
-import { Play, Pause, RotateCcw, ChevronLeft, ChevronRight } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { Button } from "@/components/ui/button";
+import L from "leaflet";
+import "leaflet/dist/leaflet.css";
+import {
+  ChevronLeft,
+  ChevronRight,
+  Pause,
+  Play,
+  RotateCcw,
+} from "lucide-react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 // Types
 interface Waypoint {
@@ -40,42 +46,50 @@ interface JourneyMapProps {
 }
 
 // Pantheon colors for markers
-const PANTHEON_COLORS: Record<string, { primary: string; secondary: string }> = {
-  'greek-pantheon': { primary: '#3b82f6', secondary: '#2563eb' },
-  'norse-pantheon': { primary: '#8b5cf6', secondary: '#7c3aed' },
-  'egyptian-pantheon': { primary: '#f59e0b', secondary: '#d97706' },
-  'roman-pantheon': { primary: '#ef4444', secondary: '#dc2626' },
-  'hindu-pantheon': { primary: '#f97316', secondary: '#ea580c' },
-  'japanese-pantheon': { primary: '#ec4899', secondary: '#db2777' },
-  'celtic-pantheon': { primary: '#22c55e', secondary: '#16a34a' },
-  'aztec-pantheon': { primary: '#14b8a6', secondary: '#0d9488' },
-  'chinese-pantheon': { primary: '#e11d48', secondary: '#be123c' },
-  'mesopotamian-pantheon': { primary: '#a16207', secondary: '#854d0e' },
-  'african-pantheon': { primary: '#7c3aed', secondary: '#6d28d9' },
-  'polynesian-pantheon': { primary: '#06b6d4', secondary: '#0891b2' },
-  'mesoamerican-pantheon': { primary: '#65a30d', secondary: '#4d7c0f' },
-};
+const PANTHEON_COLORS: Record<string, { primary: string; secondary: string }> =
+  {
+    "greek-pantheon": { primary: "#3b82f6", secondary: "#2563eb" },
+    "norse-pantheon": { primary: "#8b5cf6", secondary: "#7c3aed" },
+    "egyptian-pantheon": { primary: "#f59e0b", secondary: "#d97706" },
+    "roman-pantheon": { primary: "#ef4444", secondary: "#dc2626" },
+    "hindu-pantheon": { primary: "#f97316", secondary: "#ea580c" },
+    "japanese-pantheon": { primary: "#ec4899", secondary: "#db2777" },
+    "celtic-pantheon": { primary: "#22c55e", secondary: "#16a34a" },
+    "aztec-pantheon": { primary: "#14b8a6", secondary: "#0d9488" },
+    "chinese-pantheon": { primary: "#e11d48", secondary: "#be123c" },
+    "mesopotamian-pantheon": { primary: "#a16207", secondary: "#854d0e" },
+    "african-pantheon": { primary: "#7c3aed", secondary: "#6d28d9" },
+    "polynesian-pantheon": { primary: "#06b6d4", secondary: "#0891b2" },
+    "mesoamerican-pantheon": { primary: "#65a30d", secondary: "#4d7c0f" },
+  };
 
 // Create numbered marker icon
 function createNumberedMarkerIcon(
   number: number,
   isActive: boolean,
   isVisited: boolean,
-  pantheonId: string
+  pantheonId: string,
 ): L.DivIcon {
-  const colors = PANTHEON_COLORS[pantheonId] || { primary: '#D4AF37', secondary: '#B8860B' };
+  const colors = PANTHEON_COLORS[pantheonId] || {
+    primary: "#D4AF37",
+    secondary: "#B8860B",
+  };
   const size = isActive ? 44 : 36;
   const fontSize = isActive ? 16 : 14;
 
   const bgColor = isActive
     ? colors.primary
     : isVisited
-    ? colors.primary
-    : 'rgba(30, 30, 46, 0.9)';
-  const borderColor = isActive ? '#D4AF37' : isVisited ? colors.secondary : '#4b5563';
-  const textColor = isActive || isVisited ? '#ffffff' : '#9ca3af';
+      ? colors.primary
+      : "rgba(30, 30, 46, 0.9)";
+  const borderColor = isActive
+    ? "#D4AF37"
+    : isVisited
+      ? colors.secondary
+      : "#4b5563";
+  const textColor = isActive || isVisited ? "#ffffff" : "#9ca3af";
   const borderWidth = isActive ? 3 : 2;
-  const shadow = isActive ? '0 0 20px rgba(212, 175, 55, 0.5)' : 'none';
+  const shadow = isActive ? "0 0 20px rgba(212, 175, 55, 0.5)" : "none";
 
   const svgHtml = `
     <div style="
@@ -93,7 +107,7 @@ function createNumberedMarkerIcon(
               fill="${bgColor}"
               stroke="${borderColor}"
               stroke-width="${borderWidth}"
-              style="filter: ${shadow ? `drop-shadow(${shadow})` : 'none'}"/>
+              style="filter: ${shadow ? `drop-shadow(${shadow})` : "none"}"/>
         <circle cx="${size / 2}" cy="${size * 0.4}" r="${size * 0.3}"
                 fill="rgba(255,255,255,0.1)"/>
         <text x="${size / 2}" y="${size * 0.48}"
@@ -108,17 +122,23 @@ function createNumberedMarkerIcon(
 
   return L.divIcon({
     html: svgHtml,
-    className: 'custom-journey-marker',
+    className: "custom-journey-marker",
     iconSize: [size, size + 8],
     iconAnchor: [size / 2, size + 8],
     popupAnchor: [0, -(size + 8)],
   });
 }
 
-export function JourneyMap({ journey, onWaypointSelect, selectedWaypointId }: JourneyMapProps) {
+export function JourneyMap({
+  journey,
+  onWaypointSelect,
+  selectedWaypointId,
+}: JourneyMapProps) {
   const [currentWaypointIndex, setCurrentWaypointIndex] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
-  const [visitedWaypoints, setVisitedWaypoints] = useState<Set<number>>(new Set([0]));
+  const [visitedWaypoints, setVisitedWaypoints] = useState<Set<number>>(
+    new Set([0]),
+  );
   const [_pathProgress, _setPathProgress] = useState(0);
 
   const containerRef = useRef<HTMLDivElement>(null);
@@ -130,10 +150,13 @@ export function JourneyMap({ journey, onWaypointSelect, selectedWaypointId }: Jo
 
   const sortedWaypoints = useMemo(
     () => journey.waypoints.toSorted((a, b) => a.order - b.order),
-    [journey.waypoints]
+    [journey.waypoints],
   );
 
-  const colors = PANTHEON_COLORS[journey.pantheonId] || { primary: '#D4AF37', secondary: '#B8860B' };
+  const colors = PANTHEON_COLORS[journey.pantheonId] || {
+    primary: "#D4AF37",
+    secondary: "#B8860B",
+  };
 
   // Initialize map
   useEffect(() => {
@@ -145,7 +168,9 @@ export function JourneyMap({ journey, onWaypointSelect, selectedWaypointId }: Jo
       mapInstanceRef.current = null;
     }
 
-    const element = containerRef.current as HTMLDivElement & { _leaflet_id?: number | null };
+    const element = containerRef.current as HTMLDivElement & {
+      _leaflet_id?: number | null;
+    };
     if (element._leaflet_id) {
       element._leaflet_id = null;
     }
@@ -157,25 +182,30 @@ export function JourneyMap({ journey, onWaypointSelect, selectedWaypointId }: Jo
     mapInstanceRef.current = map;
 
     // Add zoom control to bottom right
-    L.control.zoom({ position: 'bottomright' }).addTo(map);
+    L.control.zoom({ position: "bottomright" }).addTo(map);
 
     // Dark tile layer
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-      attribution: '&copy; OpenStreetMap',
-    }).addTo(map);
+    L.tileLayer(
+      "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",
+      {
+        attribution: "&copy; OpenStreetMap",
+      },
+    ).addTo(map);
 
     // Fit to waypoints
     if (sortedWaypoints.length > 0) {
-      const bounds = L.latLngBounds(sortedWaypoints.map((wp) => wp.coordinates));
+      const bounds = L.latLngBounds(
+        sortedWaypoints.map((wp) => wp.coordinates),
+      );
       map.fitBounds(bounds, { padding: [60, 60], maxZoom: 6 });
     }
 
     // Draw the full path (faded)
     const pathCoords = sortedWaypoints.map((wp) => wp.coordinates);
     const fullPath = L.polyline(pathCoords, {
-      color: 'rgba(75, 85, 99, 0.4)',
+      color: "rgba(75, 85, 99, 0.4)",
       weight: 3,
-      dashArray: '10, 10',
+      dashArray: "10, 10",
     }).addTo(map);
     pathRef.current = fullPath;
 
@@ -213,12 +243,12 @@ export function JourneyMap({ journey, onWaypointSelect, selectedWaypointId }: Jo
         waypoint.order,
         isActive,
         isVisited,
-        journey.pantheonId
+        journey.pantheonId,
       );
 
       const marker = L.marker(waypoint.coordinates, { icon })
         .addTo(map)
-        .on('click', () => {
+        .on("click", () => {
           setCurrentWaypointIndex(index);
           setVisitedWaypoints((prev) => new Set([...prev, index]));
           onWaypointSelect?.(waypoint);
@@ -235,14 +265,21 @@ export function JourneyMap({ journey, onWaypointSelect, selectedWaypointId }: Jo
             <h3 class="font-serif font-semibold text-slate-900">${waypoint.name}</h3>
           </div>
           <p class="text-sm text-slate-600 line-clamp-3">${waypoint.description}</p>
-          ${waypoint.duration ? `<p class="text-xs text-slate-400 mt-2">Duration: ${waypoint.duration}</p>` : ''}
+          ${waypoint.duration ? `<p class="text-xs text-slate-400 mt-2">Duration: ${waypoint.duration}</p>` : ""}
         </div>
       `;
       marker.bindPopup(popupContent, { maxWidth: 300 });
 
       markersRef.current.push(marker);
     });
-  }, [sortedWaypoints, currentWaypointIndex, visitedWaypoints, journey.pantheonId, colors.primary, onWaypointSelect]);
+  }, [
+    sortedWaypoints,
+    currentWaypointIndex,
+    visitedWaypoints,
+    journey.pantheonId,
+    colors.primary,
+    onWaypointSelect,
+  ]);
 
   // Update animated path
   const updateAnimatedPath = useCallback(() => {
@@ -276,7 +313,9 @@ export function JourneyMap({ journey, onWaypointSelect, selectedWaypointId }: Jo
   // Handle external waypoint selection
   useEffect(() => {
     if (selectedWaypointId) {
-      const index = sortedWaypoints.findIndex((wp) => wp.id === selectedWaypointId);
+      const index = sortedWaypoints.findIndex(
+        (wp) => wp.id === selectedWaypointId,
+      );
       if (index !== -1 && index !== currentWaypointIndex) {
         // eslint-disable-next-line react-hooks/set-state-in-effect -- sync waypoint index from external selection prop
         setCurrentWaypointIndex(index);
@@ -339,7 +378,7 @@ export function JourneyMap({ journey, onWaypointSelect, selectedWaypointId }: Jo
       <div
         ref={containerRef}
         className="w-full h-full"
-        style={{ minHeight: '500px' }}
+        style={{ minHeight: "500px" }}
       />
 
       {/* Journey Progress Bar */}
@@ -355,7 +394,7 @@ export function JourneyMap({ journey, onWaypointSelect, selectedWaypointId }: Jo
               </div>
               <div>
                 <h3 className="font-serif font-semibold text-foreground">
-                  {currentWaypoint?.name || 'Start'}
+                  {currentWaypoint?.name || "Start"}
                 </h3>
                 <p className="text-xs text-muted-foreground">
                   Stop {currentWaypointIndex + 1} of {sortedWaypoints.length}
@@ -370,7 +409,7 @@ export function JourneyMap({ journey, onWaypointSelect, selectedWaypointId }: Jo
                 size="icon"
                 onClick={handleReset}
                 className="h-8 w-8"
-                title="Reset journey"
+                aria-label="Reset journey"
               >
                 <RotateCcw className="h-4 w-4" />
               </Button>
@@ -380,7 +419,7 @@ export function JourneyMap({ journey, onWaypointSelect, selectedWaypointId }: Jo
                 onClick={handlePrev}
                 disabled={currentWaypointIndex === 0}
                 className="h-8 w-8"
-                title="Previous stop"
+                aria-label="Previous stop"
               >
                 <ChevronLeft className="h-4 w-4" />
               </Button>
@@ -390,7 +429,7 @@ export function JourneyMap({ journey, onWaypointSelect, selectedWaypointId }: Jo
                 onClick={isPlaying ? handlePause : handlePlay}
                 className="h-8 w-8"
                 style={{ backgroundColor: colors.primary }}
-                title={isPlaying ? 'Pause' : 'Play journey'}
+                aria-label={isPlaying ? "Pause" : "Play journey"}
               >
                 {isPlaying ? (
                   <Pause className="h-4 w-4" />
@@ -404,7 +443,7 @@ export function JourneyMap({ journey, onWaypointSelect, selectedWaypointId }: Jo
                 onClick={handleNext}
                 disabled={currentWaypointIndex === sortedWaypoints.length - 1}
                 className="h-8 w-8"
-                title="Next stop"
+                aria-label="Next stop"
               >
                 <ChevronRight className="h-4 w-4" />
               </Button>
@@ -422,20 +461,21 @@ export function JourneyMap({ journey, onWaypointSelect, selectedWaypointId }: Jo
                 }}
                 className={`shrink-0 w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-bold transition-all duration-300 ${
                   index === currentWaypointIndex
-                    ? 'ring-2 ring-gold ring-offset-2 ring-offset-background'
-                    : ''
+                    ? "ring-2 ring-gold ring-offset-2 ring-offset-background"
+                    : ""
                 }`}
                 style={{
                   backgroundColor:
                     index === currentWaypointIndex
                       ? colors.primary
                       : visitedWaypoints.has(index)
-                      ? colors.primary + '80'
-                      : 'rgba(75, 85, 99, 0.5)',
+                        ? colors.primary + "80"
+                        : "rgba(75, 85, 99, 0.5)",
                   color:
-                    index === currentWaypointIndex || visitedWaypoints.has(index)
-                      ? '#ffffff'
-                      : '#9ca3af',
+                    index === currentWaypointIndex ||
+                    visitedWaypoints.has(index)
+                      ? "#ffffff"
+                      : "#9ca3af",
                 }}
                 title={wp.name}
               >

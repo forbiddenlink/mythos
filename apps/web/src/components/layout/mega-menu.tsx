@@ -1,32 +1,32 @@
 "use client";
 
-import Link from "next/link";
-import { useState, useRef, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { cn } from "@/lib/utils";
+import { AnimatePresence, motion } from "framer-motion";
 import {
-  ChevronDown,
-  Sparkles,
-  Compass,
-  Users,
-  Scroll,
-  Swords,
-  Crown,
-  MapPin,
-  Network,
-  GitCompare,
-  Route,
+  Award,
   Brain,
   CalendarCheck,
-  Gamepad2,
-  Trophy,
-  Award,
-  GraduationCap,
+  ChevronDown,
   Clock,
-  Scale,
+  Compass,
+  Crown,
+  Gamepad2,
+  GitCompare,
+  GraduationCap,
   Library,
   Lightbulb,
+  MapPin,
+  Network,
+  Route,
+  Scale,
+  Scroll,
+  Sparkles,
+  Swords,
+  Trophy,
+  Users,
 } from "lucide-react";
-import { cn } from "@/lib/utils";
+import Link from "next/link";
+import { useEffect, useRef, useState } from "react";
 
 interface MenuItem {
   label: string;
@@ -57,7 +57,7 @@ const exploreMenu: MenuSection = {
     },
     {
       label: "Interactive Stories",
-      href: "/stories/interactive/the-underworld-descent",
+      href: "/stories",
       description: "Choose your own mythology adventure",
       icon: <Gamepad2 className="h-4 w-4" />,
     },

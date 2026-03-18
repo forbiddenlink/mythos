@@ -1,19 +1,23 @@
-'use client';
+"use client";
 
-import { animate, motion } from 'framer-motion';
-import { Users, BookOpen, Globe2 } from 'lucide-react';
-import { useEffect, useRef, useState } from 'react';
-import { useQuery } from '@tanstack/react-query';
-import { graphqlClient } from '@/lib/graphql-client';
-import { gql } from 'graphql-request';
+import deitiesData from "@/data/deities.json";
+import pantheonData from "@/data/pantheons.json";
+import storiesData from "@/data/stories.json";
+import { animate, motion } from "framer-motion";
+import { BookOpen, Globe2, Users } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
 
-interface StatsData {
-  pantheonCount: number;
-  deityCount: number;
-  storyCount: number;
-}
+// Counts derived directly from source data — no network requests needed.
+const STAT_COUNTS = {
+  pantheons: (pantheonData as unknown[]).length,
+  deities: (deitiesData as unknown[]).length,
+  stories: (storiesData as unknown[]).length,
+} as const;
 
-function AnimatedCounter({ value, suffix }: Readonly<{ value: number; suffix: string }>) {
+function AnimatedCounter({
+  value,
+  suffix,
+}: Readonly<{ value: number; suffix: string }>) {
   const [displayValue, setDisplayValue] = useState(0);
   const ref = useRef<HTMLSpanElement>(null);
   const hasAnimated = useRef(false);
@@ -32,7 +36,9 @@ function AnimatedCounter({ value, suffix }: Readonly<{ value: number; suffix: st
       }
     };
 
-    const observer = new IntersectionObserver(handleIntersect, { threshold: 0.5 });
+    const observer = new IntersectionObserver(handleIntersect, {
+      threshold: 0.5,
+    });
 
     if (ref.current) {
       observer.observe(ref.current);
@@ -43,54 +49,34 @@ function AnimatedCounter({ value, suffix }: Readonly<{ value: number; suffix: st
 
   return (
     <span ref={ref}>
-      {displayValue}{suffix}
+      {displayValue}
+      {suffix}
     </span>
   );
 }
 
 export function StatsSection() {
-  const { data: statsData } = useQuery<StatsData>({
-    queryKey: ['homepage-stats'],
-    queryFn: async () => {
-      const pantheons = await graphqlClient.request<{ pantheons: unknown[] }>(gql`
-        query GetPantheons { pantheons { id } }
-      `);
-      const deities = await graphqlClient.request<{ deities: unknown[] }>(gql`
-        query GetDeities { deities(pantheonId: null) { id } }
-      `);
-      const stories = await graphqlClient.request<{ stories: unknown[] }>(gql`
-        query GetStories { stories { id } }
-      `);
-      return {
-        pantheonCount: pantheons.pantheons.length,
-        deityCount: deities.deities.length,
-        storyCount: stories.stories.length,
-      };
-    },
-    staleTime: 1000 * 60 * 5, // Cache for 5 minutes
-  });
-
   const stats = [
     {
       icon: Globe2,
-      value: statsData?.pantheonCount || 9,
-      suffix: '',
-      label: 'Pantheons',
-      description: 'From Greek to Norse to Egyptian',
+      value: STAT_COUNTS.pantheons,
+      suffix: "",
+      label: "Pantheons",
+      description: "From Greek to Norse to Egyptian",
     },
     {
       icon: Users,
-      value: statsData?.deityCount || 86,
-      suffix: '+',
-      label: 'Deities',
-      description: 'Gods and goddesses across cultures',
+      value: STAT_COUNTS.deities,
+      suffix: "+",
+      label: "Deities",
+      description: "Gods and goddesses across cultures",
     },
     {
       icon: BookOpen,
-      value: statsData?.storyCount || 24,
-      suffix: '+',
-      label: 'Stories',
-      description: 'Epic myths and legends',
+      value: STAT_COUNTS.stories,
+      suffix: "+",
+      label: "Stories",
+      description: "Epic myths and legends",
     },
   ];
 
@@ -100,9 +86,12 @@ export function StatsSection() {
       <div className="absolute inset-0 bg-linear-to-b from-midnight via-midnight-light/95 to-midnight" />
 
       {/* Decorative elements */}
-      <div className="absolute inset-0 opacity-[0.03]" style={{
-        backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23B28F56' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-      }} />
+      <div
+        className="absolute inset-0 opacity-[0.03]"
+        style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23B28F56' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+        }}
+      />
 
       {/* Radial glow */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-px bg-linear-to-r from-transparent via-gold/30 to-transparent" />
@@ -144,7 +133,7 @@ export function StatsSection() {
               transition={{
                 duration: 0.6,
                 delay: index * 0.15,
-                ease: [0.22, 1, 0.36, 1]
+                ease: [0.22, 1, 0.36, 1],
               }}
               className="relative text-center group"
             >

@@ -1,9 +1,9 @@
-import { Compass, Home, BookOpen, Users, Sparkles } from 'lucide-react';
-import Link from 'next/link';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent } from '@/components/ui/card';
-import deitiesData from '@/data/deities.json';
-import storiesData from '@/data/stories.json';
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import deitiesData from "@/data/deities.json";
+import storiesData from "@/data/stories.json";
+import { BookOpen, Compass, Home, Sparkles, Users } from "lucide-react";
+import Link from "next/link";
 
 interface Deity {
   id: string;
@@ -22,18 +22,18 @@ interface Story {
 
 function getPantheonLabel(pantheonId: string): string {
   const labels: Record<string, string> = {
-    'greek-pantheon': 'Greek',
-    'norse-pantheon': 'Norse',
-    'egyptian-pantheon': 'Egyptian',
-    'roman-pantheon': 'Roman',
-    'celtic-pantheon': 'Celtic',
-    'hindu-pantheon': 'Hindu',
-    'japanese-pantheon': 'Japanese',
-    'chinese-pantheon': 'Chinese',
-    'mesoamerican-pantheon': 'Mesoamerican',
-    'mesopotamian-pantheon': 'Mesopotamian',
+    "greek-pantheon": "Greek",
+    "norse-pantheon": "Norse",
+    "egyptian-pantheon": "Egyptian",
+    "roman-pantheon": "Roman",
+    "celtic-pantheon": "Celtic",
+    "hindu-pantheon": "Hindu",
+    "japanese-pantheon": "Japanese",
+    "chinese-pantheon": "Chinese",
+    "mesoamerican-pantheon": "Mesoamerican",
+    "mesopotamian-pantheon": "Mesopotamian",
   };
-  return labels[pantheonId] || 'Ancient';
+  return labels[pantheonId] || "Ancient";
 }
 
 // Get random suggestions - seeded by current hour for some consistency
@@ -65,7 +65,7 @@ export default function NotFound() {
   const { suggestedDeities, suggestedStories } = getRandomSuggestions();
 
   return (
-    <main className="min-h-screen flex flex-col items-center justify-center bg-linear-to-b from-midnight via-midnight-light to-midnight px-4 py-16">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-linear-to-b from-midnight via-midnight-light to-midnight px-4 py-16">
       {/* Background effects */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full bg-purple-500/5 blur-3xl" />
@@ -78,7 +78,10 @@ export default function NotFound() {
           <div className="relative">
             <div className="absolute -inset-5 rounded-full bg-gradient-radial from-gold/20 to-transparent animate-pulse" />
             <div className="relative p-6 rounded-full border border-gold/30 bg-midnight-light/80 backdrop-blur-sm">
-              <Compass className="w-12 h-12 text-gold animate-spin" style={{ animationDuration: '8s' }} />
+              <Compass
+                className="w-12 h-12 text-gold animate-spin"
+                style={{ animationDuration: "8s" }}
+              />
             </div>
           </div>
         </div>
@@ -100,8 +103,9 @@ export default function NotFound() {
           <div className="absolute bottom-0 right-0 w-4 h-4 border-b border-r border-gold/30" />
 
           <p className="text-gold-light/80 italic font-body leading-relaxed">
-            &ldquo;Like Odysseus blown off course by Poseidon&apos;s wrath, or Orpheus wandering
-            the shadowy paths of the Underworld, you have strayed beyond the known realms.&rdquo;
+            &ldquo;Like Odysseus blown off course by Poseidon&apos;s wrath, or
+            Orpheus wandering the shadowy paths of the Underworld, you have
+            strayed beyond the known realms.&rdquo;
           </p>
           <p className="text-parchment/50 text-sm mt-3">
             The page you seek does not exist in this realm.
@@ -126,9 +130,7 @@ export default function NotFound() {
             variant="outline"
             className="border-gold/40 text-gold hover:bg-gold/10 hover:border-gold/60"
           >
-            <Link href="/pantheons">
-              Explore Pantheons
-            </Link>
+            <Link href="/pantheons">Explore Pantheons</Link>
           </Button>
         </div>
 
@@ -148,7 +150,9 @@ export default function NotFound() {
               <CardContent className="p-5">
                 <div className="flex items-center gap-2 mb-4">
                   <Users className="w-4 h-4 text-gold" />
-                  <span className="font-serif font-semibold text-parchment">Deities to Discover</span>
+                  <span className="font-serif font-semibold text-parchment">
+                    Deities to Discover
+                  </span>
                 </div>
                 <ul className="space-y-2">
                   {suggestedDeities.map((deity) => (
@@ -174,7 +178,9 @@ export default function NotFound() {
               <CardContent className="p-5">
                 <div className="flex items-center gap-2 mb-4">
                   <BookOpen className="w-4 h-4 text-gold" />
-                  <span className="font-serif font-semibold text-parchment">Tales to Explore</span>
+                  <span className="font-serif font-semibold text-parchment">
+                    Tales to Explore
+                  </span>
                 </div>
                 <ul className="space-y-2">
                   {suggestedStories.map((story) => (
@@ -196,9 +202,11 @@ export default function NotFound() {
 
         {/* Search hint */}
         <div className="mt-8 text-sm text-muted-foreground">
-          <p>Try using the search (Cmd+K) to find what you&apos;re looking for</p>
+          <p>
+            Try using the search (Cmd+K) to find what you&apos;re looking for
+          </p>
         </div>
       </div>
-    </main>
+    </div>
   );
 }

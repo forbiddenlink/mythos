@@ -1,45 +1,52 @@
-'use client';
+"use client";
 
-import { useContext } from 'react';
-import { ProgressContext, type ProgressContextValue } from '@/providers/progress-provider';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Breadcrumbs } from '@/components/navigation/Breadcrumbs';
+import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import achievements from "@/data/achievements.json";
+import deities from "@/data/deities.json";
+import locations from "@/data/locations.json";
+import pantheons from "@/data/pantheons.json";
+import stories from "@/data/stories.json";
 import {
-  Flame,
-  Trophy,
-  Star,
-  Eye,
+  ProgressContext,
+  type ProgressContextValue,
+} from "@/providers/progress-provider";
+import {
+  Axe,
+  BookMarked,
   BookOpen,
-  Map,
+  Calendar,
   Compass,
   Crown,
-  Axe,
-  MapPin,
-  Pencil,
-  GraduationCap,
-  Calendar,
+  Eye,
+  Flame,
   GitBranch,
+  GraduationCap,
   Link,
-  BookMarked,
-  Sword,
-  PawPrint,
   Lock,
+  Map,
+  MapPin,
+  PawPrint,
+  Pencil,
   Sparkles,
+  Star,
+  Sword,
   Target,
-} from 'lucide-react';
-import achievements from '@/data/achievements.json';
+  Trophy,
+} from "lucide-react";
+import { useContext } from "react";
 
-// Total counts from data files
-const TOTAL_DEITIES = 87;
-const TOTAL_STORIES = 24;
-const TOTAL_LOCATIONS = 23;
-const TOTAL_PANTHEONS = 8;
+// Total counts derived from data files
+const TOTAL_DEITIES = deities.length;
+const TOTAL_STORIES = stories.length;
+const TOTAL_LOCATIONS = locations.length;
+const TOTAL_PANTHEONS = pantheons.length;
 
 // Custom hook for using the progress context
 function useProgress(): ProgressContextValue {
   const context = useContext(ProgressContext);
   if (!context) {
-    throw new Error('useProgress must be used within a ProgressProvider');
+    throw new Error("useProgress must be used within a ProgressProvider");
   }
   return context;
 }
@@ -47,8 +54,8 @@ function useProgress(): ProgressContextValue {
 // Map icon names to Lucide components
 const iconMap: Record<string, typeof Eye> = {
   eye: Eye,
-  'book-open': BookOpen,
-  'map-pin': MapPin,
+  "book-open": BookOpen,
+  "map-pin": MapPin,
   crown: Crown,
   axe: Axe,
   pyramid: Target, // Using Target as placeholder for pyramid
@@ -58,15 +65,15 @@ const iconMap: Record<string, typeof Eye> = {
   globe: Map,
   pencil: Pencil,
   trophy: Trophy,
-  'graduation-cap': GraduationCap,
+  "graduation-cap": GraduationCap,
   flame: Flame,
   star: Star,
   calendar: Calendar,
-  'git-branch': GitBranch,
+  "git-branch": GitBranch,
   link: Link,
-  'book-marked': BookMarked,
+  "book-marked": BookMarked,
   sword: Sword,
-  'paw-print': PawPrint,
+  "paw-print": PawPrint,
 };
 
 interface Achievement {
@@ -78,15 +85,21 @@ interface Achievement {
   category: string;
 }
 
-function AchievementCard({ achievement, unlocked }: { achievement: Achievement; unlocked: boolean }) {
+function AchievementCard({
+  achievement,
+  unlocked,
+}: {
+  achievement: Achievement;
+  unlocked: boolean;
+}) {
   const IconComponent = iconMap[achievement.icon] || Trophy;
 
   return (
     <div
       className={`relative p-4 rounded-xl border transition-all duration-300 ${
         unlocked
-          ? 'bg-linear-to-br from-amber-500/10 to-amber-600/5 border-amber-500/30 shadow-lg shadow-amber-500/10'
-          : 'bg-card/50 border-border/40 opacity-60'
+          ? "bg-linear-to-br from-amber-500/10 to-amber-600/5 border-amber-500/30 shadow-lg shadow-amber-500/10"
+          : "bg-card/50 border-border/40 opacity-60"
       }`}
     >
       {/* Glow effect for unlocked achievements */}
@@ -98,8 +111,8 @@ function AchievementCard({ achievement, unlocked }: { achievement: Achievement; 
         <div
           className={`w-12 h-12 rounded-lg flex items-center justify-center shrink-0 ${
             unlocked
-              ? 'bg-linear-to-br from-amber-500 to-amber-600 text-white shadow-md'
-              : 'bg-muted text-muted-foreground'
+              ? "bg-linear-to-br from-amber-500 to-amber-600 text-white shadow-md"
+              : "bg-muted text-muted-foreground"
           }`}
         >
           {unlocked ? (
@@ -110,13 +123,17 @@ function AchievementCard({ achievement, unlocked }: { achievement: Achievement; 
         </div>
 
         <div className="flex-1 min-w-0">
-          <h3 className={`font-semibold text-sm ${unlocked ? 'text-amber-500' : 'text-muted-foreground'}`}>
+          <h3
+            className={`font-semibold text-sm ${unlocked ? "text-amber-500" : "text-muted-foreground"}`}
+          >
             {achievement.name}
           </h3>
           <p className="text-xs text-muted-foreground mt-0.5 line-clamp-2">
             {achievement.description}
           </p>
-          <div className={`flex items-center gap-1 mt-2 text-xs ${unlocked ? 'text-amber-500/80' : 'text-muted-foreground/60'}`}>
+          <div
+            className={`flex items-center gap-1 mt-2 text-xs ${unlocked ? "text-amber-500/80" : "text-muted-foreground/60"}`}
+          >
             <Sparkles className="h-3 w-3" />
             <span>{achievement.xp} XP</span>
           </div>
@@ -170,23 +187,32 @@ export default function ProgressPage() {
   const unlockedAchievements = new Set(progress.achievements);
 
   // Group achievements by category
-  const achievementsByCategory = (achievements as Achievement[]).reduce((acc, achievement) => {
-    if (!acc[achievement.category]) {
-      acc[achievement.category] = [];
-    }
-    acc[achievement.category].push(achievement);
-    return acc;
-  }, {} as Record<string, Achievement[]>);
+  const achievementsByCategory = (achievements as Achievement[]).reduce(
+    (acc, achievement) => {
+      if (!acc[achievement.category]) {
+        acc[achievement.category] = [];
+      }
+      acc[achievement.category].push(achievement);
+      return acc;
+    },
+    {} as Record<string, Achievement[]>,
+  );
 
   const categoryLabels: Record<string, string> = {
-    discovery: 'Discovery',
-    exploration: 'Exploration',
-    mastery: 'Mastery',
-    streak: 'Dedication',
-    special: 'Special',
+    discovery: "Discovery",
+    exploration: "Exploration",
+    mastery: "Mastery",
+    streak: "Dedication",
+    special: "Special",
   };
 
-  const categoryOrder = ['discovery', 'exploration', 'mastery', 'streak', 'special'];
+  const categoryOrder = [
+    "discovery",
+    "exploration",
+    "mastery",
+    "streak",
+    "special",
+  ];
 
   return (
     <div className="min-h-screen">
@@ -204,7 +230,10 @@ export default function ProgressPage() {
             <div className="flex items-center justify-center mb-6">
               <div className="relative p-4 rounded-xl border border-amber-500/20 bg-midnight/50 backdrop-blur-sm">
                 <div className="absolute inset-0 rounded-xl bg-linear-to-br from-amber-500/10 to-transparent" />
-                <Trophy className="relative h-10 w-10 text-amber-500" strokeWidth={1.5} />
+                <Trophy
+                  className="relative h-10 w-10 text-amber-500"
+                  strokeWidth={1.5}
+                />
               </div>
             </div>
             <span className="inline-block text-amber-500/80 text-sm tracking-[0.25em] uppercase mb-4 font-medium">
@@ -227,16 +256,22 @@ export default function ProgressPage() {
               <CardContent className="pt-6">
                 <div className="flex items-center gap-4">
                   <div className="w-16 h-16 rounded-xl bg-linear-to-br from-amber-500 to-amber-600 flex items-center justify-center shadow-lg shadow-amber-500/20">
-                    <span className="text-2xl font-bold text-white">{level}</span>
+                    <span className="text-2xl font-bold text-white">
+                      {level}
+                    </span>
                   </div>
                   <div className="flex-1">
                     <p className="text-sm text-muted-foreground">Level</p>
-                    <p className="text-lg font-semibold text-foreground">{stats.totalXP} XP Total</p>
+                    <p className="text-lg font-semibold text-foreground">
+                      {stats.totalXP} XP Total
+                    </p>
                     <div className="mt-2">
                       <div className="h-2 w-full rounded-full bg-muted/50 overflow-hidden">
                         <div
                           className="h-full bg-linear-to-r from-amber-500 to-amber-400 transition-all duration-500"
-                          style={{ width: `${(xpInCurrentLevel / xpToNextLevel) * 100}%` }}
+                          style={{
+                            width: `${(xpInCurrentLevel / xpToNextLevel) * 100}%`,
+                          }}
                         />
                       </div>
                       <p className="text-xs text-muted-foreground mt-1">
@@ -256,10 +291,14 @@ export default function ProgressPage() {
                     <Flame className="h-8 w-8 text-white" strokeWidth={1.5} />
                   </div>
                   <div>
-                    <p className="text-sm text-muted-foreground">Daily Streak</p>
-                    <p className="text-3xl font-bold text-foreground">{stats.dailyStreak}</p>
+                    <p className="text-sm text-muted-foreground">
+                      Daily Streak
+                    </p>
+                    <p className="text-3xl font-bold text-foreground">
+                      {stats.dailyStreak}
+                    </p>
                     <p className="text-xs text-muted-foreground">
-                      {stats.dailyStreak === 1 ? 'day' : 'days'} in a row
+                      {stats.dailyStreak === 1 ? "day" : "days"} in a row
                     </p>
                   </div>
                 </div>
@@ -274,8 +313,12 @@ export default function ProgressPage() {
                     <Star className="h-8 w-8 text-white" strokeWidth={1.5} />
                   </div>
                   <div>
-                    <p className="text-sm text-muted-foreground">Achievements</p>
-                    <p className="text-3xl font-bold text-foreground">{stats.totalAchievements}</p>
+                    <p className="text-sm text-muted-foreground">
+                      Achievements
+                    </p>
+                    <p className="text-3xl font-bold text-foreground">
+                      {stats.totalAchievements}
+                    </p>
                     <p className="text-xs text-muted-foreground">
                       of {achievements.length} unlocked
                     </p>
@@ -366,19 +409,30 @@ export default function ProgressPage() {
             <Card className="bg-card/80 backdrop-blur-sm">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
-                  <GraduationCap className="h-5 w-5 text-amber-500" strokeWidth={1.5} />
+                  <GraduationCap
+                    className="h-5 w-5 text-amber-500"
+                    strokeWidth={1.5}
+                  />
                   Quiz Performance
                 </CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="grid grid-cols-2 gap-6">
                   <div>
-                    <p className="text-sm text-muted-foreground">Quizzes Completed</p>
-                    <p className="text-2xl font-bold text-foreground">{stats.totalQuizzesTaken}</p>
+                    <p className="text-sm text-muted-foreground">
+                      Quizzes Completed
+                    </p>
+                    <p className="text-2xl font-bold text-foreground">
+                      {stats.totalQuizzesTaken}
+                    </p>
                   </div>
                   <div>
-                    <p className="text-sm text-muted-foreground">Average Score</p>
-                    <p className="text-2xl font-bold text-foreground">{stats.averageQuizScore}%</p>
+                    <p className="text-sm text-muted-foreground">
+                      Average Score
+                    </p>
+                    <p className="text-2xl font-bold text-foreground">
+                      {stats.averageQuizScore}%
+                    </p>
                   </div>
                 </div>
               </CardContent>

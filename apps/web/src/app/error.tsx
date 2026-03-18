@@ -1,11 +1,11 @@
 "use client";
 
-import { useEffect } from "react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
 import * as Sentry from "@sentry/nextjs";
 import { AlertTriangle, Home, RotateCcw } from "lucide-react";
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
+import { useEffect } from "react";
 
 export default function ErrorPage({
   error,
@@ -18,7 +18,7 @@ export default function ErrorPage({
     Sentry.captureException(error);
   }, [error]);
   return (
-    <main className="min-h-screen flex flex-col items-center justify-center bg-linear-to-b from-midnight via-midnight-light to-midnight px-4 py-16">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-linear-to-b from-midnight via-midnight-light to-midnight px-4 py-16">
       {/* Background effects */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full bg-red-500/5 blur-3xl" />
@@ -108,6 +108,6 @@ export default function ErrorPage({
           </p>
         </div>
       </div>
-    </main>
+    </div>
   );
 }

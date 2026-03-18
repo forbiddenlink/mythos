@@ -9,6 +9,7 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-source-sans);
   --font-serif: var(--font-cinzel);
+  --font-display: var(--font-cinzel);
   --font-body: var(--font-crimson);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);

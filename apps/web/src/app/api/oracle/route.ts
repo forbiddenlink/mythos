@@ -1,6 +1,6 @@
-import { anthropic } from '@ai-sdk/anthropic';
-import { streamText } from 'ai';
-import { NextRequest } from 'next/server';
+import { anthropic } from "@ai-sdk/anthropic";
+import { streamText } from "ai";
+import { NextRequest } from "next/server";
 
 // Oracle system prompt
 const SYSTEM_PROMPT = `You are the Oracle of Delphi, ancient keeper of divine wisdom and mysteries.
@@ -31,7 +31,10 @@ function checkRateLimit(identifier: string): boolean {
   const record = rateLimitStore.get(identifier);
 
   if (!record || now > record.resetTime) {
-    rateLimitStore.set(identifier, { count: 1, resetTime: now + RATE_LIMIT_WINDOW });
+    rateLimitStore.set(identifier, {
+      count: 1,
+      resetTime: now + RATE_LIMIT_WINDOW,
+    });
     return true;
   }
 
@@ -45,37 +48,58 @@ function checkRateLimit(identifier: string): boolean {
 
 export async function POST(req: NextRequest) {
   try {
+    // Restrict to same-origin requests to prevent unauthorized API cost abuse.
+    // The Origin header is browser-enforced; programmatic abuse is further
+    // limited by the rate limiter below.
+    const origin = req.headers.get("origin");
+    const host = req.headers.get("host");
+    if (origin) {
+      const originHost = new URL(origin).host;
+      if (originHost !== host) {
+        return new Response(JSON.stringify({ error: "Forbidden" }), {
+          status: 403,
+          headers: { "Content-Type": "application/json" },
+        });
+      }
+    }
+
     const { messages } = await req.json();
 
     // Simple rate limiting by IP (in production, use proper auth)
-    const ip = req.headers.get('x-forwarded-for') || 'anonymous';
+    const ip = req.headers.get("x-forwarded-for") || "anonymous";
     if (!checkRateLimit(ip)) {
       return new Response(
-        JSON.stringify({ error: 'The Oracle must rest. Please return in an hour.' }),
-        { status: 429, headers: { 'Content-Type': 'application/json' } }
+        JSON.stringify({
+          error: "The Oracle must rest. Please return in an hour.",
+        }),
+        { status: 429, headers: { "Content-Type": "application/json" } },
       );
     }
 
     // Check if Anthropic API key is configured
     if (!process.env.ANTHROPIC_API_KEY) {
       return new Response(
-        JSON.stringify({ error: 'The Oracle is not yet awakened. API key required.' }),
-        { status: 503, headers: { 'Content-Type': 'application/json' } }
+        JSON.stringify({
+          error: "The Oracle is not yet awakened. API key required.",
+        }),
+        { status: 503, headers: { "Content-Type": "application/json" } },
       );
     }
 
     const result = streamText({
-      model: anthropic('claude-3-5-sonnet-20241022'),
+      model: anthropic("claude-3-5-sonnet-20241022"),
       system: SYSTEM_PROMPT,
       messages,
     });
 
     return result.toTextStreamResponse();
   } catch (error) {
-    console.error('Oracle error:', error);
+    console.error("Oracle error:", error);
     return new Response(
-      JSON.stringify({ error: 'The mists cloud the Oracle\'s vision. Try again.' }),
-      { status: 500, headers: { 'Content-Type': 'application/json' } }
+      JSON.stringify({
+        error: "The mists cloud the Oracle's vision. Try again.",
+      }),
+      { status: 500, headers: { "Content-Type": "application/json" } },
     );
   }
 }

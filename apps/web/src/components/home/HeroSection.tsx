@@ -1,26 +1,38 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
-import { Compass } from 'lucide-react';
-import dynamic from 'next/dynamic';
-import { TransitionLink } from '@/components/transitions';
-import { Button } from '@/components/ui/button';
-import { useState, useEffect } from 'react';
+import { TransitionLink } from "@/components/transitions";
+import { Button } from "@/components/ui/button";
+import { motion, useReducedMotion } from "framer-motion";
+import { Compass } from "lucide-react";
+import dynamic from "next/dynamic";
+import { useEffect, useState } from "react";
 
 // Dynamic imports for heavy 3D/particle components
 const ConstellationBackground = dynamic(
-  () => import('@/components/three/ConstellationBackground').then((mod) => mod.ConstellationBackground),
-  { ssr: false }
+  () =>
+    import("@/components/three/ConstellationBackground").then(
+      (mod) => mod.ConstellationBackground,
+    ),
+  { ssr: false },
 );
 
 const GoldenDustParticles = dynamic(
-  () => import('@/components/effects/DomainParticles').then((mod) => mod.GoldenDustParticles),
-  { ssr: false }
+  () =>
+    import("@/components/effects/DomainParticles").then(
+      (mod) => mod.GoldenDustParticles,
+    ),
+  { ssr: false },
 );
 
 const mythologyQuotes = [
-  { text: "In the beginning was the Word, and the Word was with God...", source: "Various Mythologies" },
-  { text: "The gods envy us. They envy us because we're mortal.", source: "Achilles, Greek Mythology" },
+  {
+    text: "In the beginning was the Word, and the Word was with God...",
+    source: "Various Mythologies",
+  },
+  {
+    text: "The gods envy us. They envy us because we're mortal.",
+    source: "Achilles, Greek Mythology",
+  },
   { text: "Know thyself.", source: "Temple of Apollo, Delphi" },
   { text: "Even the gods cannot change the past.", source: "Agathon" },
 ];
@@ -28,6 +40,7 @@ const mythologyQuotes = [
 export function HeroSection() {
   // Use deterministic quote on server, then randomize on client
   const [quoteIndex, setQuoteIndex] = useState(0);
+  const shouldReduceMotion = useReducedMotion();
 
   useEffect(() => {
     // eslint-disable-next-line react-hooks/set-state-in-effect
@@ -42,12 +55,15 @@ export function HeroSection() {
       <ConstellationBackground />
 
       {/* Golden dust particles */}
-      <GoldenDustParticles className="z-[5]" />
+      <GoldenDustParticles className="z-5" />
 
       {/* Noise texture overlay */}
-      <div className="absolute inset-0 opacity-[0.015] z-10" style={{
-        backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`,
-      }} />
+      <div
+        className="absolute inset-0 opacity-[0.015] z-10"
+        style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`,
+        }}
+      />
 
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
@@ -61,61 +77,68 @@ export function HeroSection() {
       {/* Vignette effect */}
       <div className="absolute inset-0 bg-gradient-radial from-transparent via-transparent to-[rgba(10,10,25,0.5)]" />
 
-      {/* Floating orbs - more subtle and elegant */}
-      <motion.div
-        className="absolute top-[15%] left-[10%] w-80 h-80 rounded-full"
-        style={{
-          background: 'radial-gradient(circle, rgba(178,143,86,0.12) 0%, transparent 70%)',
-          filter: 'blur(40px)',
-        }}
-        animate={{
-          scale: [1, 1.15, 1],
-          opacity: [0.4, 0.6, 0.4],
-          x: [0, 20, 0],
-          y: [0, -15, 0],
-        }}
-        transition={{
-          duration: 12,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
-      />
-      <motion.div
-        className="absolute bottom-[20%] right-[8%] w-96 h-96 rounded-full"
-        style={{
-          background: 'radial-gradient(circle, rgba(98,87,150,0.1) 0%, transparent 70%)',
-          filter: 'blur(50px)',
-        }}
-        animate={{
-          scale: [1, 1.2, 1],
-          opacity: [0.3, 0.5, 0.3],
-          x: [0, -25, 0],
-          y: [0, 20, 0],
-        }}
-        transition={{
-          duration: 15,
-          repeat: Infinity,
-          ease: "easeInOut",
-          delay: 2,
-        }}
-      />
-      <motion.div
-        className="absolute top-[50%] right-[25%] w-64 h-64 rounded-full"
-        style={{
-          background: 'radial-gradient(circle, rgba(140,95,60,0.08) 0%, transparent 70%)',
-          filter: 'blur(35px)',
-        }}
-        animate={{
-          scale: [1, 1.1, 1],
-          opacity: [0.25, 0.4, 0.25],
-        }}
-        transition={{
-          duration: 10,
-          repeat: Infinity,
-          ease: "easeInOut",
-          delay: 4,
-        }}
-      />
+      {/* Floating orbs - disabled for users who prefer reduced motion */}
+      {!shouldReduceMotion && (
+        <>
+          <motion.div
+            className="absolute top-[15%] left-[10%] w-80 h-80 rounded-full"
+            style={{
+              background:
+                "radial-gradient(circle, rgba(178,143,86,0.12) 0%, transparent 70%)",
+              filter: "blur(40px)",
+            }}
+            animate={{
+              scale: [1, 1.15, 1],
+              opacity: [0.4, 0.6, 0.4],
+              x: [0, 20, 0],
+              y: [0, -15, 0],
+            }}
+            transition={{
+              duration: 12,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+          />
+          <motion.div
+            className="absolute bottom-[20%] right-[8%] w-96 h-96 rounded-full"
+            style={{
+              background:
+                "radial-gradient(circle, rgba(98,87,150,0.1) 0%, transparent 70%)",
+              filter: "blur(50px)",
+            }}
+            animate={{
+              scale: [1, 1.2, 1],
+              opacity: [0.3, 0.5, 0.3],
+              x: [0, -25, 0],
+              y: [0, 20, 0],
+            }}
+            transition={{
+              duration: 15,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: 2,
+            }}
+          />
+          <motion.div
+            className="absolute top-[50%] right-[25%] w-64 h-64 rounded-full"
+            style={{
+              background:
+                "radial-gradient(circle, rgba(140,95,60,0.08) 0%, transparent 70%)",
+              filter: "blur(35px)",
+            }}
+            animate={{
+              scale: [1, 1.1, 1],
+              opacity: [0.25, 0.4, 0.25],
+            }}
+            transition={{
+              duration: 10,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: 4,
+            }}
+          />
+        </>
+      )}
 
       {/* Decorative lines - classical aesthetic */}
       <div className="absolute top-8 left-8 right-8 h-px bg-linear-to-r from-transparent via-gold/20 to-transparent" />
@@ -134,7 +157,8 @@ export function HeroSection() {
             <motion.div
               className="absolute -inset-5 rounded-full"
               style={{
-                background: 'radial-gradient(circle, rgba(178,143,86,0.2) 0%, transparent 70%)',
+                background:
+                  "radial-gradient(circle, rgba(178,143,86,0.2) 0%, transparent 70%)",
               }}
               animate={{
                 scale: [1, 1.1, 1],
@@ -149,7 +173,10 @@ export function HeroSection() {
             {/* Icon container with ornate border */}
             <div className="relative p-5 rounded-full border border-gold/30 bg-linear-to-br from-midnight-light/80 to-midnight/90 backdrop-blur-sm">
               <div className="absolute inset-1 rounded-full border border-gold/10" />
-              <Compass className="h-10 w-10 text-gold animate-glow" strokeWidth={1.5} />
+              <Compass
+                className="h-10 w-10 text-gold animate-glow"
+                strokeWidth={1.5}
+              />
             </div>
           </div>
         </motion.div>
@@ -192,7 +219,8 @@ export function HeroSection() {
           transition={{ duration: 0.8, delay: 0.5 }}
           className="text-lg md:text-xl lg:text-2xl text-parchment/80 max-w-2xl mx-auto mb-12 font-body leading-relaxed tracking-wide"
         >
-          Journey through the ancient stories, divine beings, and sacred wisdom that shaped civilizations across the ages
+          Journey through the ancient stories, divine beings, and sacred wisdom
+          that shaped civilizations across the ages
         </motion.p>
 
         {/* CTA Buttons */}
@@ -217,9 +245,7 @@ export function HeroSection() {
             variant="outline"
             className="border-gold/40 bg-transparent text-gold hover:bg-gold/10 hover:border-gold/60 px-10 py-6 text-base tracking-wide transition-all duration-300"
           >
-            <TransitionLink href="/deities">
-              Meet the Gods
-            </TransitionLink>
+            <TransitionLink href="/deities">Meet the Gods</TransitionLink>
           </Button>
         </motion.div>
 
@@ -258,8 +284,19 @@ export function HeroSection() {
             transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
             className="flex flex-col items-center gap-2"
           >
-            <span className="text-gold/40 text-xs tracking-[0.2em] uppercase font-sans">Scroll</span>
-            <svg className="w-5 h-5 text-gold/40" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <span className="text-gold/40 text-xs tracking-[0.2em] uppercase font-sans">
+              Scroll
+            </span>
+            <svg
+              className="w-5 h-5 text-gold/40"
+              fill="none"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="1.5"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              aria-hidden="true"
+            >
               <path d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
             </svg>
           </motion.div>

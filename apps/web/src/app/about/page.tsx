@@ -1,14 +1,20 @@
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { BookOpen, Users, Globe, Code } from 'lucide-react';
-import { Breadcrumbs } from '@/components/navigation/Breadcrumbs';
-import { AboutPageJsonLd } from '@/components/seo/JsonLd';
-import { generateBaseMetadata } from '@/lib/metadata';
+import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
+import { AboutPageJsonLd } from "@/components/seo/JsonLd";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { generateBaseMetadata } from "@/lib/metadata";
+import { BookOpen, Code, Globe, Users } from "lucide-react";
 
 export const metadata = generateBaseMetadata({
-  title: 'About Mythos Atlas',
-  description: 'Learn about Mythos Atlas, an interactive encyclopedia exploring ancient mythology from civilizations around the world. Created by Elizabeth Stein.',
-  url: '/about',
-  keywords: ['about', 'mythology encyclopedia', 'Elizabeth Stein', 'ancient mythology project'],
+  title: "About Mythos Atlas",
+  description:
+    "Learn about Mythos Atlas, an interactive encyclopedia exploring ancient mythology from civilizations around the world. Created by Elizabeth Stein.",
+  url: "/about",
+  keywords: [
+    "about",
+    "mythology encyclopedia",
+    "Elizabeth Stein",
+    "ancient mythology project",
+  ],
 });
 
 export default function AboutPage() {
@@ -45,14 +51,23 @@ export default function AboutPage() {
         <div className="mt-8 space-y-8">
           <Card className="border-gold/20 bg-midnight-light/50">
             <CardHeader>
-              <CardTitle className="text-parchment text-2xl font-serif">Our Mission</CardTitle>
+              <CardTitle className="text-parchment text-2xl font-serif">
+                Our Mission
+              </CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
               <p className="text-parchment/80 leading-relaxed text-lg">
-                Mythos Atlas preserves the interconnected mythology of ancient civilizations, revealing how different cultures understood creation, divinity, and human purpose. These stories offer genuine insight into how our ancestors explained the world and their place in it.
+                Mythos Atlas preserves the interconnected mythology of ancient
+                civilizations, revealing how different cultures understood
+                creation, divinity, and human purpose. These stories offer
+                genuine insight into how our ancestors explained the world and
+                their place in it.
               </p>
               <p className="text-parchment/80 leading-relaxed text-lg">
-                Through interactive visualizations, comprehensive deity profiles, and carefully curated stories, we aim to make mythology accessible and engaging for everyone—from students and researchers to mythology enthusiasts and casual learners.
+                Through interactive visualizations, comprehensive deity
+                profiles, and carefully curated stories, we aim to make
+                mythology accessible and engaging for everyone—from students and
+                researchers to mythology enthusiasts and casual learners.
               </p>
             </CardContent>
           </Card>
@@ -62,12 +77,15 @@ export default function AboutPage() {
               <CardHeader>
                 <div className="flex items-center gap-3 mb-2">
                   <Globe className="h-6 w-6 text-gold" />
-                  <CardTitle className="text-parchment">Global Coverage</CardTitle>
+                  <CardTitle className="text-parchment">
+                    Global Coverage
+                  </CardTitle>
                 </div>
               </CardHeader>
               <CardContent>
                 <p className="text-parchment/70">
-                  Browse 12 pantheons from Greek to Yoruba, with 150+ deities, 65+ stories, and 90+ sacred locations documented.
+                  Browse 13 pantheons from Greek to Yoruba, with 189+ deities,
+                  96+ stories, and 85+ sacred locations documented.
                 </p>
               </CardContent>
             </Card>
@@ -76,12 +94,15 @@ export default function AboutPage() {
               <CardHeader>
                 <div className="flex items-center gap-3 mb-2">
                   <Users className="h-6 w-6 text-gold" />
-                  <CardTitle className="text-parchment">Deity Relationships</CardTitle>
+                  <CardTitle className="text-parchment">
+                    Deity Relationships
+                  </CardTitle>
                 </div>
               </CardHeader>
               <CardContent>
                 <p className="text-parchment/70">
-                  Visualize complex family trees and relationships between gods and goddesses through interactive diagrams.
+                  Visualize complex family trees and relationships between gods
+                  and goddesses through interactive diagrams.
                 </p>
               </CardContent>
             </Card>
@@ -95,7 +116,9 @@ export default function AboutPage() {
               </CardHeader>
               <CardContent>
                 <p className="text-parchment/70">
-                  Read original myths from primary sources—the Eddas, Theogony, Popol Vuh, and more—with modern context and academic citations.
+                  Read original myths from primary sources—the Eddas, Theogony,
+                  Popol Vuh, and more—with modern context and academic
+                  citations.
                 </p>
               </CardContent>
             </Card>
@@ -104,12 +127,15 @@ export default function AboutPage() {
               <CardHeader>
                 <div className="flex items-center gap-3 mb-2">
                   <Code className="h-6 w-6 text-gold" />
-                  <CardTitle className="text-parchment">Open Platform</CardTitle>
+                  <CardTitle className="text-parchment">
+                    Open Platform
+                  </CardTitle>
                 </div>
               </CardHeader>
               <CardContent>
                 <p className="text-parchment/70">
-                  Built with modern web technologies and designed to be accessible, fast, and user-friendly across all devices.
+                  Built with modern web technologies and designed to be
+                  accessible, fast, and user-friendly across all devices.
                 </p>
               </CardContent>
             </Card>
@@ -117,7 +143,9 @@ export default function AboutPage() {
 
           <Card className="border-gold/20 bg-midnight-light/50">
             <CardHeader>
-              <CardTitle className="text-parchment text-2xl font-serif">Creator</CardTitle>
+              <CardTitle className="text-parchment text-2xl font-serif">
+                Creator
+              </CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
               <div className="flex items-start gap-4">
@@ -125,27 +153,39 @@ export default function AboutPage() {
                   <Code className="h-6 w-6 text-gold" />
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-parchment font-semibold text-xl mb-2">Elizabeth Stein</h3>
+                  <h3 className="text-parchment font-semibold text-xl mb-2">
+                    Elizabeth Stein
+                  </h3>
                   <p className="text-parchment/80 leading-relaxed">
-                    Mythos Atlas was built by Elizabeth Stein, a passionate developer and mythology enthusiast who combines technical expertise with a deep appreciation for ancient cultures and storytelling.
+                    Mythos Atlas was built by Elizabeth Stein, a passionate
+                    developer and mythology enthusiast who combines technical
+                    expertise with a deep appreciation for ancient cultures and
+                    storytelling.
                   </p>
                 </div>
               </div>
               <p className="text-parchment/70 text-sm italic border-l-2 border-gold/30 pl-4">
-                &quot;I built Mythos Atlas because I couldn&apos;t find a mythology resource that combined scholarly accuracy with good design. These stories deserve better than dusty encyclopedias or clickbait listicles.&quot;
+                &quot;I built Mythos Atlas because I couldn&apos;t find a
+                mythology resource that combined scholarly accuracy with good
+                design. These stories deserve better than dusty encyclopedias or
+                clickbait listicles.&quot;
               </p>
             </CardContent>
           </Card>
 
           <Card className="border-gold/20 bg-midnight-light/50">
             <CardHeader>
-              <CardTitle className="text-parchment text-2xl font-serif">Technology Stack</CardTitle>
+              <CardTitle className="text-parchment text-2xl font-serif">
+                Technology Stack
+              </CardTitle>
             </CardHeader>
             <CardContent className="space-y-3">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 rounded-full bg-gold"></div>
-                  <span className="text-parchment/80">Next.js 16 (App Router)</span>
+                  <span className="text-parchment/80">
+                    Next.js 16 (App Router)
+                  </span>
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 rounded-full bg-gold"></div>
@@ -181,18 +221,26 @@ export default function AboutPage() {
 
           <Card className="border-gold/20 bg-midnight-light/50">
             <CardHeader>
-              <CardTitle className="text-parchment text-2xl font-serif">Project Status</CardTitle>
+              <CardTitle className="text-parchment text-2xl font-serif">
+                Project Status
+              </CardTitle>
             </CardHeader>
             <CardContent className="space-y-3">
               <p className="text-parchment/80 leading-relaxed">
-                <strong className="text-gold">Last Updated:</strong> February 2026
+                <strong className="text-gold">Last Updated:</strong> February
+                2026
               </p>
               <p className="text-parchment/80 leading-relaxed">
-                Mythos Atlas is an ongoing project with regular updates. Currently featuring Greek, Norse, and Egyptian pantheons, with plans to expand to Roman, Hindu, Japanese, Celtic, and other mythological traditions.
+                Mythos Atlas is an ongoing project with regular updates.
+                Currently featuring Greek, Norse, and Egyptian pantheons, with
+                plans to expand to Roman, Hindu, Japanese, Celtic, and other
+                mythological traditions.
               </p>
               <div className="pt-2 border-t border-gold/20">
                 <p className="text-parchment/70 text-sm">
-                  Have suggestions or found an error? We&apos;re continuously improving accuracy and coverage based on scholarly sources and community feedback.
+                  Have suggestions or found an error? We&apos;re continuously
+                  improving accuracy and coverage based on scholarly sources and
+                  community feedback.
                 </p>
               </div>
             </CardContent>
