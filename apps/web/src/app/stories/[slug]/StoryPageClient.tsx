@@ -171,7 +171,7 @@ export function StoryPageClient({ slug }: StoryPageClientProps) {
       <div className="container mx-auto max-w-6xl px-4 py-24">
         <div className="text-center">
           <h2 className="text-2xl font-bold">Story Not Found</h2>
-          <p className="text-slate-600 dark:text-slate-400 mt-2">
+          <p className="text-muted-foreground mt-2">
             The story you&apos;re looking for doesn&apos;t exist.
           </p>
           <Link

@@ -36,6 +36,8 @@ export function CookieConsent() {
   }, []);
 
   const handleDismiss = useCallback(() => {
+    localStorage.setItem(COOKIE_CONSENT_KEY, "rejected");
+    hasConsentedRef.current = true;
     setIsVisible(false);
   }, []);
 
@@ -48,7 +50,7 @@ export function CookieConsent() {
       role="dialog"
       aria-labelledby="cookie-consent-title"
       aria-describedby="cookie-consent-description"
-      className="fixed bottom-0 left-0 right-0 z-50 p-4 md:p-6"
+      className="fixed bottom-0 left-0 right-0 z-[60] p-4 md:p-6"
     >
       <div className="mx-auto max-w-4xl rounded-lg border border-gold/20 bg-background/95 p-4 shadow-xl backdrop-blur-sm md:p-6">
         <div className="flex items-start justify-between gap-4">
@@ -63,9 +65,9 @@ export function CookieConsent() {
               id="cookie-consent-description"
               className="mt-2 text-sm text-muted-foreground"
             >
-              We use cookies to enhance your experience, analyze site traffic,
-              and for marketing purposes. By clicking &quot;Accept All&quot;,
-              you consent to our use of cookies.{" "}
+              We use cookies to improve your browsing experience and understand
+              how visitors use the site. By clicking &quot;Accept All&quot;, you
+              consent to our use of cookies.{" "}
               <Link
                 href="/privacy"
                 className="text-gold underline hover:text-gold/80"

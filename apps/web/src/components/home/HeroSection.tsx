@@ -2,10 +2,12 @@
 
 import { TransitionLink } from "@/components/transitions";
 import { Button } from "@/components/ui/button";
+import deitiesData from "@/data/deities.json";
+import pantheonData from "@/data/pantheons.json";
+import storiesData from "@/data/stories.json";
 import { motion, useReducedMotion } from "framer-motion";
-import { Compass } from "lucide-react";
+import { BookOpen, Compass, Globe2, Sparkles, Users } from "lucide-react";
 import dynamic from "next/dynamic";
-import { useEffect, useState } from "react";
 
 // Dynamic imports for heavy 3D/particle components
 const ConstellationBackground = dynamic(
@@ -24,46 +26,40 @@ const GoldenDustParticles = dynamic(
   { ssr: false },
 );
 
-const mythologyQuotes = [
+const STATS = {
+  pantheons: (pantheonData as unknown[]).length,
+  deities: (deitiesData as unknown[]).length,
+  stories: (storiesData as unknown[]).length,
+} as const;
+
+const startPaths = [
   {
-    text: "In the beginning was the Word, and the Word was with God...",
-    source: "Various Mythologies",
+    title: "Start with a pantheon",
+    description: "Learn the major gods and story world first.",
+    href: "/pantheons",
   },
   {
-    text: "The gods envy us. They envy us because we're mortal.",
-    source: "Achilles, Greek Mythology",
+    title: "Read a first myth",
+    description: "Jump into the stories before the reference material.",
+    href: "/stories",
   },
-  { text: "Know thyself.", source: "Temple of Apollo, Delphi" },
-  { text: "Even the gods cannot change the past.", source: "Agathon" },
-];
+  {
+    title: "Test yourself",
+    description: "Use quizzes and review to make what you learn stick.",
+    href: "/quiz",
+  },
+] as const;
 
 export function HeroSection() {
-  // Use deterministic quote on server, then randomize on client
-  const [quoteIndex, setQuoteIndex] = useState(0);
   const shouldReduceMotion = useReducedMotion();
 
-  useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect
-    setQuoteIndex(Math.floor(Math.random() * mythologyQuotes.length));
-  }, []);
-
-  const randomQuote = mythologyQuotes[quoteIndex];
-
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-hero-gradient">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-hero-gradient noise-overlay">
       {/* Interactive 3D constellation background */}
       <ConstellationBackground />
 
       {/* Golden dust particles */}
       <GoldenDustParticles className="z-5" />
-
-      {/* Noise texture overlay */}
-      <div
-        className="absolute inset-0 opacity-[0.015] z-10"
-        style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`,
-        }}
-      />
 
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
@@ -217,10 +213,11 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.5 }}
-          className="text-lg md:text-xl lg:text-2xl text-parchment/80 max-w-2xl mx-auto mb-12 font-body leading-relaxed tracking-wide"
+          className="text-lg md:text-xl lg:text-2xl text-parchment/80 max-w-2xl mx-auto mb-6 font-body leading-relaxed tracking-wide"
         >
-          Journey through the ancient stories, divine beings, and sacred wisdom
-          that shaped civilizations across the ages
+          A free interactive encyclopedia of mythology from {STATS.pantheons}{" "}
+          civilizations &mdash; with family trees, quizzes, and AI&#8209;powered
+          exploration.
         </motion.p>
 
         {/* CTA Buttons */}
@@ -245,31 +242,67 @@ export function HeroSection() {
             variant="outline"
             className="border-gold/40 bg-transparent text-gold hover:bg-gold/10 hover:border-gold/60 px-10 py-6 text-base tracking-wide transition-all duration-300"
           >
-            <TransitionLink href="/deities">Meet the Gods</TransitionLink>
+            <TransitionLink href="/stories">Read a First Myth</TransitionLink>
           </Button>
         </motion.div>
 
-        {/* Quote block with refined styling */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.72 }}
+          className="max-w-4xl mx-auto mb-14"
+        >
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-gold/15 bg-midnight-light/20 text-gold/80 text-xs uppercase tracking-[0.24em] mb-5">
+            <Sparkles className="h-3.5 w-3.5" />
+            Choose your first path
+          </div>
+          <div className="grid gap-3 md:grid-cols-3 text-left">
+            {startPaths.map((path) => (
+              <TransitionLink
+                key={path.href}
+                href={path.href}
+                className="group rounded-2xl border border-gold/15 bg-midnight-light/25 backdrop-blur-sm px-5 py-4 hover:border-gold/35 hover:bg-midnight-light/35 transition-all duration-300"
+              >
+                <div className="text-parchment font-semibold mb-1 group-hover:text-gold transition-colors duration-300">
+                  {path.title}
+                </div>
+                <p className="text-sm text-parchment/60 leading-relaxed">
+                  {path.description}
+                </p>
+              </TransitionLink>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* Proof strip — stats + credibility */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.8 }}
-          className="max-w-xl mx-auto mb-24"
+          className="max-w-2xl mx-auto mb-24"
         >
-          <div className="relative p-8 rounded-lg border border-gold/10 bg-midnight-light/30 backdrop-blur-sm">
-            {/* Corner decorations */}
-            <div className="absolute top-0 left-0 w-4 h-4 border-t border-l border-gold/30" />
-            <div className="absolute top-0 right-0 w-4 h-4 border-t border-r border-gold/30" />
-            <div className="absolute bottom-0 left-0 w-4 h-4 border-b border-l border-gold/30" />
-            <div className="absolute bottom-0 right-0 w-4 h-4 border-b border-r border-gold/30" />
-
-            <p className="text-gold-light/90 italic text-lg font-body leading-relaxed mb-3">
-              &ldquo;{randomQuote.text}&rdquo;
-            </p>
-            <p className="text-parchment/50 text-sm font-sans tracking-wide">
-              — {randomQuote.source}
-            </p>
+          <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 mb-5">
+            {[
+              { icon: Globe2, value: STATS.pantheons, label: "Pantheons" },
+              { icon: Users, value: `${STATS.deities}+`, label: "Deities" },
+              { icon: BookOpen, value: `${STATS.stories}+`, label: "Stories" },
+            ].map((stat) => (
+              <div
+                key={stat.label}
+                className="flex items-center gap-2 px-4 py-2 rounded-lg border border-gold/15 bg-midnight-light/30 backdrop-blur-sm"
+              >
+                <stat.icon className="h-4 w-4 text-gold/70" strokeWidth={1.5} />
+                <span className="text-gold font-semibold font-serif tabular-nums">
+                  {stat.value}
+                </span>
+                <span className="text-parchment/60 text-sm">{stat.label}</span>
+              </div>
+            ))}
           </div>
+          <p className="text-parchment/40 text-xs tracking-wide">
+            Based on the Eddas, Theogony, Popol Vuh, and other primary sources
+            &middot; Always free
+          </p>
         </motion.div>
 
         {/* Scroll indicator */}

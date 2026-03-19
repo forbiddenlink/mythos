@@ -1,5 +1,5 @@
-import Link from 'next/link';
-import { Logo } from '@/components/ui/logo';
+import Link from "next/link";
+import { Logo } from "@/components/ui/logo";
 
 function GithubIcon({ className }: Readonly<{ className?: string }>) {
   return (
@@ -21,33 +21,37 @@ function GithubIcon({ className }: Readonly<{ className?: string }>) {
 
 const footerLinks = {
   explore: [
-    { label: 'All Pantheons', href: '/pantheons' },
-    { label: 'Deities', href: '/deities' },
-    { label: 'Stories', href: '/stories' },
-    { label: 'Creatures', href: '/creatures' },
-    { label: 'Artifacts', href: '/artifacts' },
-    { label: 'Locations', href: '/locations' },
+    { label: "All Pantheons", href: "/pantheons" },
+    { label: "Deities", href: "/deities" },
+    { label: "Stories", href: "/stories" },
+    { label: "Creatures", href: "/creatures" },
+    { label: "Artifacts", href: "/artifacts" },
+    { label: "Locations", href: "/locations" },
   ],
   discover: [
-    { label: 'Divine Domains', href: '/divine-domains' },
-    { label: 'Compare Deities', href: '/compare' },
-    { label: 'Compare Myths', href: '/compare/myths' },
-    { label: 'Knowledge Graph', href: '/knowledge-graph' },
-    { label: 'Family Tree', href: '/family-tree' },
-    { label: 'Timeline', href: '/timeline' },
-    { label: 'Story Timeline', href: '/story-timeline' },
+    { label: "Divine Domains", href: "/divine-domains" },
+    { label: "Compare Deities", href: "/compare" },
+    { label: "Compare Myths", href: "/compare/myths" },
+    { label: "Knowledge Graph", href: "/knowledge-graph" },
+    { label: "Family Tree", href: "/family-tree" },
+    { label: "Timeline", href: "/timeline" },
+    { label: "Story Timeline", href: "/story-timeline" },
   ],
   learn: [
-    { label: 'Quiz', href: '/quiz' },
-    { label: 'Symbol Memory', href: '/games/memory' },
-    { label: 'Learning Paths', href: '/learning-paths' },
-    { label: 'Daily Review', href: '/review' },
-    { label: 'Achievements', href: '/achievements' },
-    { label: 'Leaderboard', href: '/leaderboard' },
-    { label: 'Your Progress', href: '/progress' },
-    { label: 'Sources', href: '/sources' },
-    { label: 'About', href: '/about' },
-    { label: 'Changelog', href: '/changelog' },
+    { label: "Quiz", href: "/quiz" },
+    { label: "Symbol Memory", href: "/games/memory" },
+    { label: "Learning Paths", href: "/learning-paths" },
+    { label: "Daily Review", href: "/review" },
+    { label: "Achievements", href: "/achievements" },
+    { label: "Your Stats", href: "/leaderboard" },
+    { label: "Your Progress", href: "/progress" },
+  ],
+  info: [
+    { label: "About", href: "/about" },
+    { label: "Sources", href: "/sources" },
+    { label: "Changelog", href: "/changelog" },
+    { label: "Privacy", href: "/privacy" },
+    { label: "Terms", href: "/terms" },
   ],
 };
 
@@ -58,10 +62,13 @@ export function Footer() {
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-px bg-linear-to-r from-transparent via-gold/20 to-transparent" />
 
       <div className="container mx-auto max-w-7xl px-4 py-12 md:py-16">
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-8 md:gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-6 gap-8 md:gap-6">
           {/* Brand column */}
           <div className="col-span-2">
-            <Link href="/" className="inline-flex items-center gap-3 group mb-4">
+            <Link
+              href="/"
+              className="inline-flex items-center gap-3 group mb-4"
+            >
               <div className="text-foreground group-hover:text-gold transition-colors duration-300">
                 <Logo className="h-8 w-8" />
               </div>
@@ -72,7 +79,9 @@ export function Footer() {
               </div>
             </Link>
             <p className="text-sm text-muted-foreground max-w-xs leading-relaxed mb-6">
-              An interactive encyclopedia of ancient mythology from civilizations around the world. Explore gods, heroes, creatures, and epic tales.
+              An interactive encyclopedia of ancient mythology from
+              civilizations around the world. Explore gods, heroes, creatures,
+              and epic tales.
             </p>
             <div className="flex items-center gap-3">
               <a
@@ -132,6 +141,25 @@ export function Footer() {
             </h4>
             <ul className="space-y-2.5">
               {footerLinks.learn.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="text-sm text-muted-foreground hover:text-gold transition-colors duration-200"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Info links */}
+          <div>
+            <h4 className="font-serif text-sm font-semibold text-foreground mb-4 tracking-wide">
+              Info
+            </h4>
+            <ul className="space-y-2.5">
+              {footerLinks.info.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}

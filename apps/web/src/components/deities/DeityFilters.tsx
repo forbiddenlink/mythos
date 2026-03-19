@@ -9,7 +9,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Filter, SortAsc, SortDesc, X } from "lucide-react";
+import { Filter, Search, SortAsc, SortDesc, X } from "lucide-react";
 import { useCallback, useEffect, useState } from "react";
 
 interface Deity {
@@ -35,6 +35,7 @@ export function DeityFilters({
   deities,
   onFilteredChange,
 }: Readonly<DeityFiltersProps>) {
+  const [nameSearch, setNameSearch] = useState<string>("");
   const [genderFilter, setGenderFilter] = useState<string>("all");
   const [domainFilter, setDomainFilter] = useState<string>("all");
   const [pantheonFilter, setPantheonFilter] = useState<string>("all");
@@ -51,6 +52,16 @@ export function DeityFilters({
 
   const applyFilters = useCallback(() => {
     let filtered = [...deities];
+
+    // Apply name search
+    if (nameSearch.trim()) {
+      const query = nameSearch.trim().toLowerCase();
+      filtered = filtered.filter(
+        (d) =>
+          d.name.toLowerCase().includes(query) ||
+          d.alternateNames?.some((n) => n.toLowerCase().includes(query)),
+      );
+    }
 
     // Apply gender filter
     if (genderFilter !== "all") {
@@ -89,6 +100,7 @@ export function DeityFilters({
     onFilteredChange(filtered);
   }, [
     deities,
+    nameSearch,
     genderFilter,
     domainFilter,
     pantheonFilter,
@@ -103,6 +115,7 @@ export function DeityFilters({
   }, [applyFilters]);
 
   const resetFilters = () => {
+    setNameSearch("");
     setGenderFilter("all");
     setDomainFilter("all");
     setPantheonFilter("all");
@@ -112,6 +125,7 @@ export function DeityFilters({
   };
 
   const hasActiveFilters =
+    nameSearch.trim() !== "" ||
     genderFilter !== "all" ||
     domainFilter !== "all" ||
     pantheonFilter !== "all";
@@ -119,6 +133,21 @@ export function DeityFilters({
   return (
     <Card className="p-4 mb-6 bg-card overflow-hidden">
       <div className="flex items-center gap-4 overflow-x-auto pb-2 -mb-2 scrollbar-thin">
+        {/* Name search */}
+        <div className="relative shrink-0">
+          <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+          <input
+            type="text"
+            value={nameSearch}
+            onChange={(e) => setNameSearch(e.target.value)}
+            placeholder="Search by name…"
+            aria-label="Search deities by name"
+            className="h-9 w-44 rounded-md border border-border bg-background pl-8 pr-3 text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-gold/50 focus:border-gold/50"
+          />
+        </div>
+
+        <div className="h-6 w-px bg-border shrink-0" />
+
         <div className="flex items-center gap-2 shrink-0">
           <Filter className="h-4 w-4 text-muted-foreground" />
           <span className="text-sm font-medium">Filters:</span>

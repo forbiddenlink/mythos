@@ -1,19 +1,35 @@
-'use client';
+"use client";
 
-import { useState, useMemo } from 'react';
-import dynamic from 'next/dynamic';
-import Link from 'next/link';
-import { Compass, MapPin, BookOpen, Loader2, ChevronRight, Users } from 'lucide-react';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import { Button } from '@/components/ui/button';
-import { Breadcrumbs } from '@/components/navigation/Breadcrumbs';
-import journeysData from '@/data/journeys.json';
-import pantheonsData from '@/data/pantheons.json';
+import { useState, useMemo } from "react";
+import dynamic from "next/dynamic";
+import Link from "next/link";
+import {
+  Compass,
+  MapPin,
+  BookOpen,
+  Loader2,
+  ChevronRight,
+  Users,
+} from "lucide-react";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+} from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
+import journeysData from "@/data/journeys.json";
+import pantheonsData from "@/data/pantheons.json";
 
 // Dynamic import for mini-map preview
 const JourneyPreviewMap = dynamic(
-  () => import('@/components/maps/JourneyPreviewMap').then((mod) => mod.JourneyPreviewMap),
+  () =>
+    import("@/components/maps/JourneyPreviewMap").then(
+      (mod) => mod.JourneyPreviewMap,
+    ),
   {
     ssr: false,
     loading: () => (
@@ -21,7 +37,7 @@ const JourneyPreviewMap = dynamic(
         <Loader2 className="h-6 w-6 animate-spin text-gold" />
       </div>
     ),
-  }
+  },
 );
 
 // Types
@@ -57,19 +73,19 @@ interface Pantheon {
 
 // Pantheon colors
 const PANTHEON_COLORS: Record<string, { bg: string; label: string }> = {
-  'greek-pantheon': { bg: '#3b82f6', label: 'Greek' },
-  'norse-pantheon': { bg: '#8b5cf6', label: 'Norse' },
-  'egyptian-pantheon': { bg: '#f59e0b', label: 'Egyptian' },
-  'roman-pantheon': { bg: '#ef4444', label: 'Roman' },
-  'hindu-pantheon': { bg: '#f97316', label: 'Hindu' },
-  'japanese-pantheon': { bg: '#ec4899', label: 'Japanese' },
-  'celtic-pantheon': { bg: '#22c55e', label: 'Celtic' },
-  'aztec-pantheon': { bg: '#14b8a6', label: 'Aztec' },
-  'chinese-pantheon': { bg: '#e11d48', label: 'Chinese' },
-  'mesopotamian-pantheon': { bg: '#a16207', label: 'Mesopotamian' },
-  'african-pantheon': { bg: '#7c3aed', label: 'African' },
-  'polynesian-pantheon': { bg: '#06b6d4', label: 'Polynesian' },
-  'mesoamerican-pantheon': { bg: '#65a30d', label: 'Mesoamerican' },
+  "greek-pantheon": { bg: "#3b82f6", label: "Greek" },
+  "norse-pantheon": { bg: "#8b5cf6", label: "Norse" },
+  "egyptian-pantheon": { bg: "#f59e0b", label: "Egyptian" },
+  "roman-pantheon": { bg: "#ef4444", label: "Roman" },
+  "hindu-pantheon": { bg: "#f97316", label: "Hindu" },
+  "japanese-pantheon": { bg: "#ec4899", label: "Japanese" },
+  "celtic-pantheon": { bg: "#22c55e", label: "Celtic" },
+  "aztec-pantheon": { bg: "#14b8a6", label: "Aztec" },
+  "chinese-pantheon": { bg: "#e11d48", label: "Chinese" },
+  "mesopotamian-pantheon": { bg: "#a16207", label: "Mesopotamian" },
+  "african-pantheon": { bg: "#7c3aed", label: "African" },
+  "polynesian-pantheon": { bg: "#06b6d4", label: "Polynesian" },
+  "mesoamerican-pantheon": { bg: "#65a30d", label: "Mesoamerican" },
 };
 
 export default function JourneysPage() {
@@ -85,7 +101,10 @@ export default function JourneysPage() {
 
   // Stats
   const stats = useMemo(() => {
-    const totalWaypoints = journeys.reduce((acc, j) => acc + j.waypoints.length, 0);
+    const totalWaypoints = journeys.reduce(
+      (acc, j) => acc + j.waypoints.length,
+      0,
+    );
     const heroes = new Set(journeys.map((j) => j.heroName)).size;
     return {
       journeys: journeys.length,
@@ -109,7 +128,10 @@ export default function JourneysPage() {
           <div className="flex items-center justify-center mb-6">
             <div className="relative p-4 rounded-xl border border-gold/20 bg-midnight/50 backdrop-blur-sm">
               <div className="absolute inset-0 rounded-xl bg-linear-to-br from-gold/10 to-transparent" />
-              <Compass className="relative h-10 w-10 text-gold" strokeWidth={1.5} />
+              <Compass
+                className="relative h-10 w-10 text-gold"
+                strokeWidth={1.5}
+              />
             </div>
           </div>
           <span className="inline-block text-gold/80 text-sm tracking-[0.25em] uppercase mb-4 font-medium">
@@ -124,7 +146,8 @@ export default function JourneysPage() {
             <div className="w-12 h-px bg-linear-to-l from-transparent to-gold/40" />
           </div>
           <p className="text-lg md:text-xl text-parchment/70 max-w-2xl mx-auto font-body leading-relaxed">
-            Trace the legendary voyages of mythological heroes across the ancient world
+            Trace the legendary voyages of mythological heroes across the
+            ancient world
           </p>
         </div>
       </div>
@@ -136,17 +159,19 @@ export default function JourneysPage() {
         {/* Stats */}
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-8 mb-12">
           {[
-            { label: 'Epic Journeys', value: stats.journeys, icon: Compass },
-            { label: 'Waypoints', value: stats.waypoints, icon: MapPin },
-            { label: 'Heroes', value: stats.heroes, icon: Users },
-            { label: 'Pantheons', value: stats.pantheons, icon: BookOpen },
+            { label: "Epic Journeys", value: stats.journeys, icon: Compass },
+            { label: "Waypoints", value: stats.waypoints, icon: MapPin },
+            { label: "Heroes", value: stats.heroes, icon: Users },
+            { label: "Pantheons", value: stats.pantheons, icon: BookOpen },
           ].map((stat) => (
             <div
               key={stat.label}
               className="rounded-lg border border-border bg-card px-4 py-3 text-center"
             >
               <stat.icon className="h-5 w-5 mx-auto mb-2 text-gold" />
-              <div className="text-2xl font-serif font-semibold text-gold">{stat.value}</div>
+              <div className="text-2xl font-serif font-semibold text-gold">
+                {stat.value}
+              </div>
               <div className="text-xs text-muted-foreground uppercase tracking-wide mt-0.5">
                 {stat.label}
               </div>
@@ -157,7 +182,10 @@ export default function JourneysPage() {
         {/* Journey Cards */}
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {journeys.map((journey) => {
-            const colors = PANTHEON_COLORS[journey.pantheonId] || { bg: '#6b7280', label: 'Unknown' };
+            const colors = PANTHEON_COLORS[journey.pantheonId] || {
+              bg: "#6b7280",
+              label: "Unknown",
+            };
 
             return (
               <Link
@@ -175,7 +203,7 @@ export default function JourneysPage() {
                   <div className="h-1" style={{ backgroundColor: colors.bg }} />
 
                   {/* Mini Map Preview */}
-                  <div className="relative h-48 bg-slate-900 overflow-hidden">
+                  <div className="relative h-48 bg-midnight overflow-hidden">
                     <JourneyPreviewMap
                       waypoints={journey.waypoints}
                       pantheonId={journey.pantheonId}
@@ -193,7 +221,10 @@ export default function JourneysPage() {
                       </Badge>
                     </div>
                     <div className="absolute top-3 right-3">
-                      <Badge variant="secondary" className="text-xs bg-background/80 backdrop-blur-sm">
+                      <Badge
+                        variant="secondary"
+                        className="text-xs bg-background/80 backdrop-blur-sm"
+                      >
                         {journey.waypoints.length} stops
                       </Badge>
                     </div>
@@ -206,9 +237,10 @@ export default function JourneysPage() {
                           {journey.title}
                         </CardTitle>
                         <CardDescription className="text-sm mt-1">
-                          <span className="font-medium text-foreground">{journey.heroName}</span>
-                          {' '}&bull;{' '}
-                          <span>{journey.duration}</span>
+                          <span className="font-medium text-foreground">
+                            {journey.heroName}
+                          </span>{" "}
+                          &bull; <span>{journey.duration}</span>
                         </CardDescription>
                       </div>
                       <div className="w-10 h-10 rounded-full flex items-center justify-center bg-muted shrink-0 group-hover:bg-gold/20 transition-colors">
@@ -268,11 +300,14 @@ export default function JourneysPage() {
                 More Journeys Coming Soon
               </h2>
               <p className="text-muted-foreground text-sm mb-4">
-                We&apos;re mapping more legendary voyages from Norse, Egyptian, and other mythologies.
-                Check back for new adventures!
+                We&apos;re mapping more legendary voyages from Norse, Egyptian,
+                and other mythologies. Check back for new adventures!
               </p>
               <Link href="/stories">
-                <Button variant="outline" className="border-gold/30 hover:bg-gold/10 hover:text-gold">
+                <Button
+                  variant="outline"
+                  className="border-gold/30 hover:bg-gold/10 hover:text-gold"
+                >
                   Explore Stories
                 </Button>
               </Link>

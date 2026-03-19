@@ -1,18 +1,26 @@
-'use client';
+"use client";
 
-import { useRouter } from 'next/navigation';
-import { motion } from 'framer-motion';
-import { Brain, Flame, Target, Calendar, TrendingUp, ArrowLeft } from 'lucide-react';
-import Link from 'next/link';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { ReviewSession } from '@/components/review/ReviewSession';
-import { useReview } from '@/providers/review-provider';
-import { useEffect, useState } from 'react';
+import { ReviewSession } from "@/components/review/ReviewSession";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { useReview } from "@/providers/review-provider";
+import { motion } from "framer-motion";
+import {
+  ArrowLeft,
+  Brain,
+  Calendar,
+  Flame,
+  Target,
+  TrendingUp,
+} from "lucide-react";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 
 export function ReviewPageClient() {
   const router = useRouter();
-  const { reviewState, dueCount, generateCardsFromProgress, getTodayStats } = useReview();
+  const { reviewState, dueCount, generateCardsFromProgress, getTodayStats } =
+    useReview();
   const [isSessionActive, setIsSessionActive] = useState(false);
 
   useEffect(() => {
@@ -28,7 +36,7 @@ export function ReviewPageClient() {
 
   const handleSessionComplete = () => {
     setIsSessionActive(false);
-    router.push('/');
+    router.push("/");
   };
 
   if (isSessionActive) {
@@ -70,8 +78,11 @@ export function ReviewPageClient() {
             Daily Review
           </h1>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Strengthen your mythology knowledge with spaced repetition. Review what you have learned
-            to commit it to long-term memory.
+            Strengthen your mythology knowledge with spaced repetition. Review
+            what you have learned to commit it to long-term memory.
+          </p>
+          <p className="text-sm text-muted-foreground mt-3">
+            Review history is saved locally on this device.
           </p>
         </motion.div>
 
@@ -102,7 +113,9 @@ export function ReviewPageClient() {
                 </div>
               </div>
               <div className="text-2xl font-bold">{todayStats.reviewed}</div>
-              <div className="text-xs text-muted-foreground">Reviewed Today</div>
+              <div className="text-xs text-muted-foreground">
+                Reviewed Today
+              </div>
             </CardContent>
           </Card>
 
@@ -143,15 +156,16 @@ export function ReviewPageClient() {
               <CardTitle className="text-2xl font-serif">
                 {dueCount > 0
                   ? `You have ${dueCount} cards ready for review`
-                  : 'All caught up!'}
+                  : "All caught up!"}
               </CardTitle>
             </CardHeader>
             <CardContent className="text-center pb-8 space-y-6">
               {dueCount > 0 ? (
                 <>
                   <p className="text-muted-foreground max-w-md mx-auto">
-                    Review these cards now to strengthen your memory. The spaced repetition
-                    algorithm will show you cards at optimal intervals for learning.
+                    Review these cards now to strengthen your memory. The spaced
+                    repetition algorithm will show you cards at optimal
+                    intervals for learning.
                   </p>
                   <Button
                     size="lg"
@@ -165,19 +179,25 @@ export function ReviewPageClient() {
               ) : (
                 <>
                   <p className="text-muted-foreground max-w-md mx-auto">
-                    Great job! You have reviewed all your due cards. Explore more content to
-                    generate new review cards.
+                    Great job! You have reviewed all your due cards. Explore
+                    more content to generate new review cards.
                   </p>
                   <div className="flex flex-col sm:flex-row gap-3 justify-center">
-                    <Button asChild size="lg" variant="outline" className="gap-2">
-                      <Link href="/deities">
-                        Explore Deities
-                      </Link>
+                    <Button
+                      asChild
+                      size="lg"
+                      variant="outline"
+                      className="gap-2"
+                    >
+                      <Link href="/deities">Explore Deities</Link>
                     </Button>
-                    <Button asChild size="lg" variant="outline" className="gap-2">
-                      <Link href="/stories">
-                        Read Stories
-                      </Link>
+                    <Button
+                      asChild
+                      size="lg"
+                      variant="outline"
+                      className="gap-2"
+                    >
+                      <Link href="/stories">Read Stories</Link>
                     </Button>
                   </div>
                 </>
@@ -204,7 +224,8 @@ export function ReviewPageClient() {
                 </div>
                 <h3 className="font-semibold mb-2">Learn Content</h3>
                 <p className="text-sm text-muted-foreground">
-                  Explore deities, read stories, and discover mythology across pantheons.
+                  Explore deities, read stories, and discover mythology across
+                  pantheons.
                 </p>
               </CardContent>
             </Card>
@@ -216,7 +237,8 @@ export function ReviewPageClient() {
                 </div>
                 <h3 className="font-semibold mb-2">Review Cards</h3>
                 <p className="text-sm text-muted-foreground">
-                  Test your memory with flashcards generated from content you have viewed.
+                  Test your memory with flashcards generated from content you
+                  have viewed.
                 </p>
               </CardContent>
             </Card>
@@ -228,7 +250,8 @@ export function ReviewPageClient() {
                 </div>
                 <h3 className="font-semibold mb-2">Strengthen Memory</h3>
                 <p className="text-sm text-muted-foreground">
-                  Cards you struggle with appear more often. Easy cards are spaced further apart.
+                  Cards you struggle with appear more often. Easy cards are
+                  spaced further apart.
                 </p>
               </CardContent>
             </Card>
@@ -245,27 +268,43 @@ export function ReviewPageClient() {
           >
             <Card className="border-border/60 bg-muted/30">
               <CardHeader>
-                <CardTitle className="text-lg font-serif">Your Learning Journey</CardTitle>
+                <CardTitle className="text-lg font-serif">
+                  Your Learning Journey
+                </CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
                   <div>
-                    <div className="text-3xl font-bold text-gold">{stats.totalReviewed}</div>
-                    <div className="text-sm text-muted-foreground">Total Reviews</div>
+                    <div className="text-3xl font-bold text-gold">
+                      {stats.totalReviewed}
+                    </div>
+                    <div className="text-sm text-muted-foreground">
+                      Total Reviews
+                    </div>
                   </div>
                   <div>
-                    <div className="text-3xl font-bold text-emerald-500">{stats.averageAccuracy}%</div>
-                    <div className="text-sm text-muted-foreground">Overall Accuracy</div>
+                    <div className="text-3xl font-bold text-emerald-500">
+                      {stats.averageAccuracy}%
+                    </div>
+                    <div className="text-sm text-muted-foreground">
+                      Overall Accuracy
+                    </div>
                   </div>
                   <div>
-                    <div className="text-3xl font-bold text-orange-500">{stats.longestStreak}</div>
-                    <div className="text-sm text-muted-foreground">Longest Streak</div>
+                    <div className="text-3xl font-bold text-orange-500">
+                      {stats.longestStreak}
+                    </div>
+                    <div className="text-sm text-muted-foreground">
+                      Longest Streak
+                    </div>
                   </div>
                   <div>
                     <div className="text-3xl font-bold text-blue-500">
                       {Object.keys(reviewState.cards).length}
                     </div>
-                    <div className="text-sm text-muted-foreground">Cards in Library</div>
+                    <div className="text-sm text-muted-foreground">
+                      Cards in Library
+                    </div>
                   </div>
                 </div>
               </CardContent>

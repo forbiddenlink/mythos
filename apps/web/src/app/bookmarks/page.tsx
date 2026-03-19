@@ -239,25 +239,28 @@ export default function BookmarksPage() {
                 </div>
 
                 <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                  {pantheonBookmarks.map((bookmark) => (
-                    <BookmarkCard
-                      key={bookmark.id}
-                      type="pantheon"
-                      id={bookmark.id}
-                      href={`/pantheons`}
-                      title={bookmark.id
-                        .replaceAll("-", " ")
-                        .replaceAll(/\b\w/g, (c) => c.toUpperCase())}
-                      description={null}
-                      timestamp={bookmark.timestamp}
-                      icon={
-                        <BookOpen
-                          className="h-5 w-5 text-gold"
-                          strokeWidth={1.5}
-                        />
-                      }
-                    />
-                  ))}
+                  {pantheonBookmarks.map((bookmark) => {
+                    const slug = bookmark.id.replace("-pantheon", "");
+                    return (
+                      <BookmarkCard
+                        key={bookmark.id}
+                        type="pantheon"
+                        id={bookmark.id}
+                        href={`/pantheons/${slug}`}
+                        title={bookmark.id
+                          .replaceAll("-", " ")
+                          .replaceAll(/\b\w/g, (c) => c.toUpperCase())}
+                        description={null}
+                        timestamp={bookmark.timestamp}
+                        icon={
+                          <BookOpen
+                            className="h-5 w-5 text-gold"
+                            strokeWidth={1.5}
+                          />
+                        }
+                      />
+                    );
+                  })}
                 </div>
               </section>
             )}

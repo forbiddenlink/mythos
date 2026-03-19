@@ -1,43 +1,68 @@
-import Link from 'next/link';
-import { MythologyQuiz } from '@/components/quiz/MythologyQuiz';
-import { Breadcrumbs } from '@/components/navigation/Breadcrumbs';
-import { Brain, BookOpen, Trophy, Users, Sparkles, ArrowRight, Zap } from 'lucide-react';
-import { QuizJsonLd } from '@/components/seo/JsonLd';
-import { generateBaseMetadata } from '@/lib/metadata';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
+import Link from "next/link";
+import { MythologyQuiz } from "@/components/quiz/MythologyQuiz";
+import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
+import {
+  Brain,
+  BookOpen,
+  Trophy,
+  Users,
+  Sparkles,
+  ArrowRight,
+  Zap,
+} from "lucide-react";
+import { QuizJsonLd } from "@/components/seo/JsonLd";
+import { generateBaseMetadata } from "@/lib/metadata";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+} from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 
 export const metadata = generateBaseMetadata({
-  title: 'Mythology Quiz - Test Your Knowledge',
-  description: 'Test your knowledge of Greek, Norse, Egyptian, and world mythology. Learn about deities, symbols, and domains through interactive quizzes.',
-  url: '/quiz',
-  keywords: ['mythology quiz', 'Greek mythology quiz', 'Norse mythology quiz', 'test knowledge', 'trivia', 'educational quiz'],
+  title: "Mythology Quiz - Test Your Knowledge",
+  description:
+    "Test your knowledge of Greek, Norse, Egyptian, and world mythology. Learn about deities, symbols, and domains through interactive quizzes.",
+  url: "/quiz",
+  keywords: [
+    "mythology quiz",
+    "Greek mythology quiz",
+    "Norse mythology quiz",
+    "test knowledge",
+    "trivia",
+    "educational quiz",
+  ],
 });
 
 const OTHER_QUIZZES = [
   {
-    title: 'Quick Quiz',
-    description: '60 seconds on the clock. How many mythology questions can you answer? Race against time!',
-    href: '/quiz/quick',
+    title: "Quick Quiz",
+    description:
+      "60 seconds on the clock. How many mythology questions can you answer? Race against time!",
+    href: "/quiz/quick",
     icon: Zap,
-    badge: 'Speed',
-    color: 'text-amber-500',
+    badge: "Speed",
+    color: "text-amber-500",
   },
   {
-    title: 'Divine Relationships',
-    description: 'Test your knowledge of divine family ties, marriages, and connections across pantheons.',
-    href: '/quiz/relationships',
+    title: "Divine Relationships",
+    description:
+      "Test your knowledge of divine family ties, marriages, and connections across pantheons.",
+    href: "/quiz/relationships",
     icon: Users,
-    badge: 'Challenge',
-    color: 'text-blue-500',
+    badge: "Challenge",
+    color: "text-blue-500",
   },
   {
-    title: 'Which God Are You?',
-    description: 'Discover your divine counterpart with our personality quiz. Find out which deity matches your soul.',
-    href: '/quiz/personality',
+    title: "Which God Are You?",
+    description:
+      "Discover your divine counterpart with our personality quiz. Find out which deity matches your soul.",
+    href: "/quiz/personality",
     icon: Sparkles,
-    badge: 'Personality',
-    color: 'text-gold',
+    badge: "Personality",
+    color: "text-gold",
   },
 ];
 
@@ -59,11 +84,12 @@ export default function QuizPage() {
             </div>
           </div>
 
-          <h1 className="font-serif text-4xl md:text-5xl font-bold mb-4">
+          <h1 className="font-serif text-display font-bold mb-4">
             Mythology Quiz
           </h1>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
-            Test your knowledge of ancient deities, symbols, and domains from various pantheons
+            Test your knowledge of ancient deities, symbols, and domains from
+            various pantheons
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-3xl mx-auto mb-12">
@@ -73,7 +99,9 @@ export default function QuizPage() {
               </div>
               <div className="text-left">
                 <div className="font-semibold text-sm">Learn</div>
-                <div className="text-xs text-muted-foreground">Expand your knowledge</div>
+                <div className="text-xs text-muted-foreground">
+                  Expand your knowledge
+                </div>
               </div>
             </div>
 
@@ -83,7 +111,9 @@ export default function QuizPage() {
               </div>
               <div className="text-left">
                 <div className="font-semibold text-sm">Challenge</div>
-                <div className="text-xs text-muted-foreground">Test yourself</div>
+                <div className="text-xs text-muted-foreground">
+                  Test yourself
+                </div>
               </div>
             </div>
 
@@ -93,7 +123,9 @@ export default function QuizPage() {
               </div>
               <div className="text-left">
                 <div className="font-semibold text-sm">Achieve</div>
-                <div className="text-xs text-muted-foreground">Track progress</div>
+                <div className="text-xs text-muted-foreground">
+                  Track progress
+                </div>
               </div>
             </div>
           </div>
@@ -101,7 +133,9 @@ export default function QuizPage() {
 
         {/* Other Quiz Types */}
         <div className="mb-12">
-          <h2 className="font-serif text-2xl font-bold mb-6 text-center">More Quizzes</h2>
+          <h2 className="font-serif text-2xl font-bold mb-6 text-center">
+            More Quizzes
+          </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
             {OTHER_QUIZZES.map((quiz) => {
               const Icon = quiz.icon;
@@ -110,7 +144,9 @@ export default function QuizPage() {
                   <Card className="h-full border-border hover:border-gold/50 transition-all duration-200 hover:shadow-lg group cursor-pointer">
                     <CardHeader className="pb-2">
                       <div className="flex items-start justify-between">
-                        <div className={`p-3 rounded-xl bg-muted border border-border group-hover:bg-gold/10 transition-colors ${quiz.color}`}>
+                        <div
+                          className={`p-3 rounded-xl bg-muted border border-border group-hover:bg-gold/10 transition-colors ${quiz.color}`}
+                        >
                           <Icon className="h-6 w-6" />
                         </div>
                         <Badge variant="secondary">{quiz.badge}</Badge>
@@ -134,7 +170,9 @@ export default function QuizPage() {
 
         {/* Main Knowledge Quiz */}
         <div className="mb-8">
-          <h2 className="font-serif text-2xl font-bold mb-6 text-center">Knowledge Quiz</h2>
+          <h2 className="font-serif text-2xl font-bold mb-6 text-center">
+            Knowledge Quiz
+          </h2>
         </div>
         <MythologyQuiz />
       </div>

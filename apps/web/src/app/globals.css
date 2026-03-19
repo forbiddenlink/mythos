@@ -115,6 +115,9 @@
   --gold-light: oklch(0.85 0.1 75);
   --gold-dark: oklch(0.55 0.14 65);
   --gold-text: oklch(0.48 0.12 60); /* WCAG AA compliant on light backgrounds */
+  --text-soft: oklch(0.36 0.018 255);
+  --text-soft-strong: oklch(0.3 0.02 255);
+  --text-on-tint: oklch(0.22 0.025 255);
   --midnight: oklch(0.18 0.06 265);
   --midnight-light: oklch(0.28 0.06 265);
   --parchment: oklch(0.95 0.015 85);
@@ -184,6 +187,9 @@
   --gold-text: oklch(
     0.78 0.14 70
   ); /* Same as gold in dark mode - high contrast on dark */
+  --text-soft: oklch(0.74 0.012 85);
+  --text-soft-strong: oklch(0.84 0.014 85);
+  --text-on-tint: oklch(0.9 0.014 85);
   --midnight: oklch(0.14 0.03 265);
   --midnight-light: oklch(0.22 0.04 265);
   --parchment: oklch(0.92 0.015 85);
@@ -241,6 +247,18 @@
   .text-body-lg {
     font-size: 1.125rem;
     line-height: 1.6;
+  }
+
+  .text-safe-muted {
+    color: var(--text-soft);
+  }
+
+  .text-safe-subtle {
+    color: var(--text-soft-strong);
+  }
+
+  .text-safe-tint {
+    color: var(--text-on-tint);
   }
 
   /* ═══════════════════════════════════════════════════════════════════
@@ -639,11 +657,6 @@
   /* ═══════════════════════════════════════════════════════════════════
      SCROLLBAR STYLING
      ═══════════════════════════════════════════════════════════════════ */
-  .scrollbar-custom {
-    scrollbar-width: thin;
-    scrollbar-color: var(--gold) transparent;
-  }
-
   .scrollbar-custom::-webkit-scrollbar {
     width: 8px;
   }
@@ -694,16 +707,13 @@
      High-contrast text for gold-tinted backgrounds (WCAG AA compliant)
      ═══════════════════════════════════════════════════════════════════ */
   .badge-gold {
-    background-color: oklch(0.72 0.14 70 / 0.15);
-    border: 1px solid oklch(0.72 0.14 70 / 0.3);
-    color: oklch(
-      0.92 0.08 75
-    ); /* Light cream/gold - high contrast on dark bg */
+    background-color: rgba(201, 159, 73, 0.15);
+    border: 1px solid rgba(201, 159, 73, 0.3);
+    color: #4a3200;
   }
 
-  :root[data-theme="light"] .badge-gold,
-  .light .badge-gold {
-    color: oklch(0.35 0.1 60); /* Dark amber - high contrast on light bg */
+  .dark .badge-gold {
+    color: #f6e7b8;
   }
 
   /* ═══════════════════════════════════════════════════════════════════
@@ -720,7 +730,9 @@
   /* Global focus ring override - gold-themed */
   .focus-ring-gold:focus-visible {
     outline: none;
-    ring-color: oklch(0.72 0.14 70 / 0.5);
+    box-shadow:
+      0 0 0 2px var(--background),
+      0 0 0 4px rgba(201, 159, 73, 0.5);
   }
 
   /* ═══════════════════════════════════════════════════════════════════

@@ -91,8 +91,12 @@ export default function LeaderboardPage() {
     );
   }
 
-  const { currentEntry, setNickname, getUserRank, entries } =
-    leaderboardContext;
+  const {
+    currentEntry,
+    setNickname,
+    getUserRank,
+    entries: _entries,
+  } = leaderboardContext;
 
   const handleSaveNickname = () => {
     if (nicknameInput.trim()) {
@@ -119,7 +123,7 @@ export default function LeaderboardPage() {
             </div>
             <div>
               <h1 className="font-serif text-4xl font-semibold text-foreground">
-                Leaderboard
+                Your Stats
               </h1>
               <p className="text-muted-foreground mt-1">
                 Track your personal mythology exploration progress
@@ -249,10 +253,9 @@ export default function LeaderboardPage() {
           {/* Leaderboard Tabs */}
           <Card className="border-gold/20">
             <CardHeader>
-              <CardTitle className="font-serif">Rankings</CardTitle>
+              <CardTitle className="font-serif">Personal History</CardTitle>
               <p className="text-sm text-muted-foreground">
-                {entries.length} explorer{entries.length !== 1 ? "s" : ""}{" "}
-                competing
+                Your progress across categories
               </p>
             </CardHeader>
             <CardContent>
@@ -279,6 +282,9 @@ export default function LeaderboardPage() {
                   </TabsContent>
                 ))}
               </Tabs>
+              <p className="text-xs text-muted-foreground mt-4 text-center">
+                Stats are stored locally on your device.
+              </p>
             </CardContent>
           </Card>
         </div>

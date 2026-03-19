@@ -49,9 +49,9 @@ function getDailyContent(): DailyContent {
       id: deity.id,
       title: deity.name,
       subtitle: deity.domain?.slice(0, 3).join(", ") || "Divine Being",
-      description:
-        deity.description?.slice(0, 150) + "..." ||
-        "A deity from ancient mythology.",
+      description: deity.description
+        ? deity.description.slice(0, 150) + "..."
+        : "A deity from ancient mythology.",
       href: `/deities/${deity.slug}`,
       badge: deity.pantheonId.replace("-pantheon", "").replaceAll("-", " "),
     };
@@ -63,7 +63,9 @@ function getDailyContent(): DailyContent {
       id: story.id,
       title: story.title,
       subtitle: story.themes?.slice(0, 3).join(", ") || "Epic Tale",
-      description: story.summary?.slice(0, 150) + "..." || "An ancient story.",
+      description: story.summary
+        ? story.summary.slice(0, 150) + "..."
+        : "An ancient story.",
       href: `/stories/${story.slug}`,
       badge: story.pantheonId.replace("-pantheon", "").replaceAll("-", " "),
     };

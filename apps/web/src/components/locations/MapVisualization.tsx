@@ -514,9 +514,10 @@ export function MapVisualization({
               bg: "#6b7280",
               label: loc.pantheonId,
             };
-            const item = document.createElement("div");
+            const item = document.createElement("button");
+            item.type = "button";
             item.style.cssText =
-              "display:flex; align-items:center; gap:8px; padding:4px 8px; background:#f8fafc; border-radius:4px; font-size:12px; cursor:pointer;";
+              "display:flex; align-items:center; gap:8px; width:100%; text-align:left; padding:4px 8px; background:#f8fafc; border:0; border-radius:4px; font-size:12px; cursor:pointer;";
             item.addEventListener("mouseenter", () => {
               item.style.background = "#f1f5f9";
             });

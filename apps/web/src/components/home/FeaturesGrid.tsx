@@ -1,57 +1,71 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
-import { Globe, Network, ScrollText, Map as MapIcon, ArrowRight, Skull, Gem } from 'lucide-react';
-import Link from 'next/link';
+import { motion } from "framer-motion";
+import {
+  ArrowRight,
+  Gem,
+  Globe,
+  Map as MapIcon,
+  Network,
+  ScrollText,
+  Skull,
+} from "lucide-react";
+import Link from "next/link";
 
 const features = [
   {
     icon: Globe,
-    title: 'Explore Pantheons',
-    description: 'Discover mythological traditions from ancient civilizations around the world',
-    href: '/pantheons',
-    iconBg: 'from-[oklch(0.55_0.12_265)] to-[oklch(0.45_0.15_275)]',
-    accent: 'group-hover:text-[oklch(0.65_0.12_265)]',
+    title: "Start with Pantheons",
+    description:
+      "Get oriented fast by exploring the major myth traditions side by side",
+    href: "/pantheons",
+    iconBg: "from-[oklch(0.55_0.12_265)] to-[oklch(0.45_0.15_275)]",
+    accent: "group-hover:text-[oklch(0.65_0.12_265)]",
   },
   {
     icon: Network,
-    title: 'Divine Family Trees',
-    description: 'Visualize complex relationships between gods and goddesses across generations',
-    href: '/family-tree',
-    iconBg: 'from-[oklch(0.55_0.14_300)] to-[oklch(0.45_0.16_310)]',
-    accent: 'group-hover:text-[oklch(0.65_0.14_300)]',
+    title: "Divine Family Trees",
+    description:
+      "Visualize complex relationships between gods and goddesses across generations",
+    href: "/family-tree",
+    iconBg: "from-[oklch(0.55_0.14_300)] to-[oklch(0.45_0.16_310)]",
+    accent: "group-hover:text-[oklch(0.65_0.14_300)]",
   },
   {
     icon: ScrollText,
-    title: 'Epic Stories',
-    description: 'Read the myths and legends that defined cultures and inspired countless retellings',
-    href: '/stories',
-    iconBg: 'from-gold-dark to-bronze',
-    accent: 'group-hover:text-gold',
+    title: "Read Core Stories",
+    description:
+      "Follow the myths and legends that make the gods, creatures, and places meaningful",
+    href: "/stories",
+    iconBg: "from-gold-dark to-bronze",
+    accent: "group-hover:text-gold",
   },
   {
     icon: MapIcon,
-    title: 'Sacred Geography',
-    description: 'Explore the real and mythical locations where these stories unfolded',
-    href: '/locations',
-    iconBg: 'from-patina to-[oklch(0.45_0.10_170)]',
-    accent: 'group-hover:text-patina',
+    title: "Mythical Places",
+    description:
+      "Explore the real and mythical locations where these stories unfolded",
+    href: "/locations",
+    iconBg: "from-patina to-[oklch(0.45_0.10_170)]",
+    accent: "group-hover:text-patina",
   },
   {
     icon: Skull,
-    title: 'The Bestiary',
-    description: 'Face the legendary beasts and monsters that roam the mythological world',
-    href: '/creatures',
-    iconBg: 'from-red-600 to-red-800',
-    accent: 'group-hover:text-red-600',
+    title: "Creatures & Monsters",
+    description:
+      "Face the legendary beasts and monsters that roam the mythological world",
+    href: "/creatures",
+    iconBg: "from-bronze to-[oklch(0.42_0.12_35)]",
+    accent: "group-hover:text-bronze",
   },
   {
     icon: Gem,
-    title: 'The Arsenal',
-    description: 'Wield the powerful weapons and artifacts forged by the gods',
-    href: '/artifacts',
-    iconBg: 'from-purple-600 to-purple-800',
-    accent: 'group-hover:text-purple-500',
+    title: "Weapons & Artifacts",
+    description:
+      "Discover the powerful weapons and legendary objects forged by the gods",
+    href: "/artifacts",
+    iconBg: "from-midnight-light to-midnight",
+    accent: "group-hover:text-midnight-light dark:group-hover:text-gold",
   },
 ];
 
@@ -82,7 +96,8 @@ export function FeaturesGrid() {
             <div className="w-12 h-px bg-linear-to-l from-transparent to-gold/40" />
           </div>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto font-body leading-relaxed">
-            Explore the interconnected web of deities, stories, and sacred places through interactive visualizations
+            Start with the clearest entry points, then branch into deeper tools
+            and interactive mythology features
           </p>
         </motion.div>
 
@@ -97,13 +112,13 @@ export function FeaturesGrid() {
               transition={{
                 duration: 0.6,
                 delay: index * 0.1,
-                ease: [0.22, 1, 0.36, 1]
+                ease: [0.22, 1, 0.36, 1],
               }}
             >
               <Link href={feature.href} className="block h-full">
                 <div className="group relative h-full p-6 rounded-xl bg-card border border-border/60 card-elevated overflow-hidden">
                   {/* Hover gradient overlay */}
-                  <div className="absolute inset-0 bg-linear-to-br from-gold/[0.03] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="absolute inset-0 bg-linear-to-br from-gold/3 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
                   {/* Corner accent */}
                   <div className="absolute top-0 right-0 w-16 h-16 overflow-hidden">
@@ -113,13 +128,20 @@ export function FeaturesGrid() {
 
                   {/* Icon */}
                   <div className="relative mb-5">
-                    <div className={`w-14 h-14 rounded-xl bg-linear-to-br ${feature.iconBg} flex items-center justify-center shadow-lg group-hover:scale-105 group-hover:shadow-xl transition-all duration-300`}>
-                      <feature.icon className="h-7 w-7 text-white/90" strokeWidth={1.5} />
+                    <div
+                      className={`w-14 h-14 rounded-xl bg-linear-to-br ${feature.iconBg} flex items-center justify-center shadow-lg group-hover:scale-105 group-hover:shadow-xl transition-all duration-300`}
+                    >
+                      <feature.icon
+                        className="h-7 w-7 text-white/90"
+                        strokeWidth={1.5}
+                      />
                     </div>
                   </div>
 
                   {/* Content */}
-                  <h3 className={`font-serif text-xl font-semibold mb-3 text-foreground transition-colors duration-300 ${feature.accent}`}>
+                  <h3
+                    className={`font-serif text-xl font-semibold mb-3 text-foreground transition-colors duration-300 ${feature.accent}`}
+                  >
                     {feature.title}
                   </h3>
                   <p className="text-muted-foreground text-sm leading-relaxed mb-4">

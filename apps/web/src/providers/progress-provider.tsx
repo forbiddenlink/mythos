@@ -1,6 +1,14 @@
-'use client';
+"use client";
 
-import { createContext, useCallback, useEffect, useMemo, useState, type ReactNode } from 'react';
+import { getLocalToday, getLocalYesterday } from "@/lib/date";
+import {
+  createContext,
+  useCallback,
+  useEffect,
+  useMemo,
+  useState,
+  type ReactNode,
+} from "react";
 
 export interface UserProgress {
   deitiesViewed: string[];
@@ -60,7 +68,7 @@ export interface ProgressContextValue {
   trackQuizCompletion: (score: number) => void;
 }
 
-const PROGRESS_STORAGE_KEY = 'mythos-atlas-progress';
+const PROGRESS_STORAGE_KEY = "mythos-atlas-progress";
 
 const DEFAULT_PROGRESS: UserProgress = {
   deitiesViewed: [],
@@ -70,16 +78,16 @@ const DEFAULT_PROGRESS: UserProgress = {
   quizScores: {},
   achievements: [],
   dailyStreak: 0,
-  lastVisit: '',
+  lastVisit: "",
   totalXP: 0,
   streakFreezes: 2,
   quickQuizHighScore: 0,
   // Daily challenges
   dailyChallengeStreak: 0,
-  lastDailyChallengeDate: '',
+  lastDailyChallengeDate: "",
   claimedDailyChallenges: [],
   todayActivity: {
-    date: '',
+    date: "",
     deitiesViewed: [],
     storiesRead: [],
     pantheonsViewed: [],
@@ -91,17 +99,15 @@ const DEFAULT_PROGRESS: UserProgress = {
 export const ProgressContext = createContext<ProgressContextValue | null>(null);
 
 function getToday(): string {
-  return new Date().toISOString().split('T')[0];
+  return getLocalToday();
 }
 
 function getYesterday(): string {
-  const date = new Date();
-  date.setDate(date.getDate() - 1);
-  return date.toISOString().split('T')[0];
+  return getLocalYesterday();
 }
 
 function loadProgress(): UserProgress {
-  if (typeof window === 'undefined') return DEFAULT_PROGRESS;
+  if (globalThis.window === undefined) return DEFAULT_PROGRESS;
   try {
     const stored = localStorage.getItem(PROGRESS_STORAGE_KEY);
     if (stored) {
@@ -123,7 +129,9 @@ function saveProgress(progress: UserProgress) {
   }
 }
 
-export function ProgressProvider({ children }: { children: ReactNode }) {
+export function ProgressProvider({
+  children,
+}: Readonly<{ children: ReactNode }>) {
   const [progress, setProgress] = useState<UserProgress>(DEFAULT_PROGRESS);
   const [mounted, setMounted] = useState(false);
 
@@ -168,7 +176,11 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
       }
 
       // Streak would break - try to use a freeze if available and streak > 0
-      if (prev.streakFreezes > 0 && prev.dailyStreak > 0 && prev.lastVisit !== '') {
+      if (
+        prev.streakFreezes > 0 &&
+        prev.dailyStreak > 0 &&
+        prev.lastVisit !== ""
+      ) {
         return {
           ...prev,
           streakFreezes: prev.streakFreezes - 1,
@@ -227,23 +239,34 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
       const isNewDeity = !prev.deitiesViewed.includes(deityId);
 
       // Update today's activity
-      const todayActivity = prev.todayActivity.date === today
-        ? prev.todayActivity
-        : { date: today, deitiesViewed: [], storiesRead: [], pantheonsViewed: [], quizCompleted: false, quizScore: 0 };
+      const todayActivity =
+        prev.todayActivity.date === today
+          ? prev.todayActivity
+          : {
+              date: today,
+              deitiesViewed: [],
+              storiesRead: [],
+              pantheonsViewed: [],
+              quizCompleted: false,
+              quizScore: 0,
+            };
 
       const updatedTodayActivity = {
         ...todayActivity,
         deitiesViewed: todayActivity.deitiesViewed.includes(deityId)
           ? todayActivity.deitiesViewed
           : [...todayActivity.deitiesViewed, deityId],
-        pantheonsViewed: pantheonId && !todayActivity.pantheonsViewed.includes(pantheonId)
-          ? [...todayActivity.pantheonsViewed, pantheonId]
-          : todayActivity.pantheonsViewed,
+        pantheonsViewed:
+          pantheonId && !todayActivity.pantheonsViewed.includes(pantheonId)
+            ? [...todayActivity.pantheonsViewed, pantheonId]
+            : todayActivity.pantheonsViewed,
       };
 
       return {
         ...prev,
-        deitiesViewed: isNewDeity ? [...prev.deitiesViewed, deityId] : prev.deitiesViewed,
+        deitiesViewed: isNewDeity
+          ? [...prev.deitiesViewed, deityId]
+          : prev.deitiesViewed,
         todayActivity: updatedTodayActivity,
       };
     });
@@ -255,9 +278,17 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
       const isNewStory = !prev.storiesRead.includes(storyId);
 
       // Update today's activity
-      const todayActivity = prev.todayActivity.date === today
-        ? prev.todayActivity
-        : { date: today, deitiesViewed: [], storiesRead: [], pantheonsViewed: [], quizCompleted: false, quizScore: 0 };
+      const todayActivity =
+        prev.todayActivity.date === today
+          ? prev.todayActivity
+          : {
+              date: today,
+              deitiesViewed: [],
+              storiesRead: [],
+              pantheonsViewed: [],
+              quizCompleted: false,
+              quizScore: 0,
+            };
 
       const updatedTodayActivity = {
         ...todayActivity,
@@ -268,7 +299,9 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
 
       return {
         ...prev,
-        storiesRead: isNewStory ? [...prev.storiesRead, storyId] : prev.storiesRead,
+        storiesRead: isNewStory
+          ? [...prev.storiesRead, storyId]
+          : prev.storiesRead,
         todayActivity: updatedTodayActivity,
       };
     });
@@ -325,7 +358,8 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
     const quizScoresArray = Object.values(progress.quizScores);
     const averageQuizScore =
       quizScoresArray.length > 0
-        ? quizScoresArray.reduce((sum, score) => sum + score, 0) / quizScoresArray.length
+        ? quizScoresArray.reduce((sum, score) => sum + score, 0) /
+          quizScoresArray.length
         : 0;
 
     return {
@@ -342,49 +376,70 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
   }, [progress]);
 
   // Daily challenge methods
-  const claimDailyChallenge = useCallback((challengeId: string, xpReward: number) => {
-    setProgress((prev) => {
+  const claimDailyChallenge = useCallback(
+    (challengeId: string, xpReward: number) => {
+      setProgress((prev) => {
+        const today = getToday();
+        const claimKey = `${today}:${challengeId}`;
+
+        // Already claimed today
+        if (prev.claimedDailyChallenges.includes(claimKey)) {
+          return prev;
+        }
+
+        // Calculate new streak
+        const yesterday = getYesterday();
+        const hadYesterdayClaim = prev.claimedDailyChallenges.some((c) =>
+          c.startsWith(`${yesterday}:`),
+        );
+
+        let newStreak = 1;
+        if (prev.lastDailyChallengeDate === today) {
+          newStreak = prev.dailyChallengeStreak;
+        } else if (
+          prev.lastDailyChallengeDate === yesterday &&
+          hadYesterdayClaim
+        ) {
+          newStreak = prev.dailyChallengeStreak + 1;
+        }
+
+        return {
+          ...prev,
+          claimedDailyChallenges: [...prev.claimedDailyChallenges, claimKey],
+          totalXP: prev.totalXP + xpReward,
+          dailyChallengeStreak: newStreak,
+          lastDailyChallengeDate: today,
+        };
+      });
+    },
+    [],
+  );
+
+  const isDailyChallengeClaimed = useCallback(
+    (challengeId: string): boolean => {
       const today = getToday();
       const claimKey = `${today}:${challengeId}`;
-
-      // Already claimed today
-      if (prev.claimedDailyChallenges.includes(claimKey)) {
-        return prev;
-      }
-
-      // Calculate new streak
-      const yesterday = getYesterday();
-      const hadYesterdayClaim = prev.claimedDailyChallenges.some(c => c.startsWith(`${yesterday}:`));
-      const newStreak = prev.lastDailyChallengeDate === yesterday && hadYesterdayClaim
-        ? prev.dailyChallengeStreak + 1
-        : prev.lastDailyChallengeDate === today
-          ? prev.dailyChallengeStreak
-          : 1;
-
-      return {
-        ...prev,
-        claimedDailyChallenges: [...prev.claimedDailyChallenges, claimKey],
-        totalXP: prev.totalXP + xpReward,
-        dailyChallengeStreak: newStreak,
-        lastDailyChallengeDate: today,
-      };
-    });
-  }, []);
-
-  const isDailyChallengeClaimed = useCallback((challengeId: string): boolean => {
-    const today = getToday();
-    const claimKey = `${today}:${challengeId}`;
-    return progress.claimedDailyChallenges.includes(claimKey);
-  }, [progress.claimedDailyChallenges]);
+      return progress.claimedDailyChallenges.includes(claimKey);
+    },
+    [progress.claimedDailyChallenges],
+  );
 
   const trackQuizCompletion = useCallback((score: number) => {
     setProgress((prev) => {
       const today = getToday();
 
       // Update today's activity
-      const todayActivity = prev.todayActivity.date === today
-        ? prev.todayActivity
-        : { date: today, deitiesViewed: [], storiesRead: [], pantheonsViewed: [], quizCompleted: false, quizScore: 0 };
+      const todayActivity =
+        prev.todayActivity.date === today
+          ? prev.todayActivity
+          : {
+              date: today,
+              deitiesViewed: [],
+              storiesRead: [],
+              pantheonsViewed: [],
+              quizCompleted: false,
+              quizScore: 0,
+            };
 
       return {
         ...prev,
@@ -415,7 +470,23 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
       isDailyChallengeClaimed,
       trackQuizCompletion,
     }),
-    [progress, trackDeityView, trackStoryRead, trackPantheonExplore, trackLocationVisit, recordQuizScore, unlockAchievement, updateStreak, getStats, useStreakFreeze, addStreakFreeze, updateQuickQuizHighScore, claimDailyChallenge, isDailyChallengeClaimed, trackQuizCompletion]
+    [
+      progress,
+      trackDeityView,
+      trackStoryRead,
+      trackPantheonExplore,
+      trackLocationVisit,
+      recordQuizScore,
+      unlockAchievement,
+      updateStreak,
+      getStats,
+      useStreakFreeze,
+      addStreakFreeze,
+      updateQuickQuizHighScore,
+      claimDailyChallenge,
+      isDailyChallengeClaimed,
+      trackQuizCompletion,
+    ],
   );
 
   return (

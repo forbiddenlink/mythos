@@ -2,12 +2,7 @@ import { NextResponse } from "next/server";
 
 export async function POST(request: Request) {
   try {
-    const metric = await request.json();
-
-    // Log metrics in development
-    if (process.env.NODE_ENV === "development") {
-      console.log("[Web Vitals API]", metric);
-    }
+    const _metric = await request.json();
 
     // In production, you could forward to:
     // - Google Analytics

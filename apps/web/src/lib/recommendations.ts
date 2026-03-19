@@ -1,11 +1,13 @@
 // Local interfaces matching the data structure
+import { getLocalToday } from "@/lib/date";
+
 export interface Deity {
   id: string;
   pantheonId: string;
   name: string;
   slug: string;
   alternateNames?: string[];
-  gender?: 'male' | 'female' | 'other';
+  gender?: "male" | "female" | "other";
   domain: string[];
   symbols?: string[];
   description?: string;
@@ -78,7 +80,7 @@ export function extractUserPreferences(
   viewedDeities: string[],
   readStories: string[],
   allDeities: Deity[],
-  allStories: Story[]
+  allStories: Story[],
 ): UserPreferences {
   // Count domain occurrences from viewed deities
   const domainCounts: Record<string, number> = {};
@@ -86,7 +88,7 @@ export function extractUserPreferences(
 
   // Analyze viewed deities
   for (const deityId of viewedDeities) {
-    const deity = allDeities.find(d => d.id === deityId);
+    const deity = allDeities.find((d) => d.id === deityId);
     if (deity) {
       // Count domains
       for (const domain of deity.domain || []) {
@@ -94,16 +96,18 @@ export function extractUserPreferences(
       }
       // Count pantheons
       if (deity.pantheonId) {
-        pantheonCounts[deity.pantheonId] = (pantheonCounts[deity.pantheonId] || 0) + 1;
+        pantheonCounts[deity.pantheonId] =
+          (pantheonCounts[deity.pantheonId] || 0) + 1;
       }
     }
   }
 
   // Analyze read stories
   for (const storyId of readStories) {
-    const story = allStories.find(s => s.id === storyId);
+    const story = allStories.find((s) => s.id === storyId);
     if (story?.pantheonId) {
-      pantheonCounts[story.pantheonId] = (pantheonCounts[story.pantheonId] || 0) + 1;
+      pantheonCounts[story.pantheonId] =
+        (pantheonCounts[story.pantheonId] || 0) + 1;
     }
   }
 
@@ -167,7 +171,7 @@ function scoreStory(story: Story, prefs: UserPreferences): number {
   }
 
   // Boost for popular categories
-  const popularCategories = ['creation', 'war', 'epic', 'tragedy'];
+  const popularCategories = ["creation", "war", "epic", "tragedy"];
   if (popularCategories.includes(story.category)) {
     score += 1;
   }
@@ -181,30 +185,34 @@ function scoreStory(story: Story, prefs: UserPreferences): number {
 export function generateRecommendations(
   prefs: UserPreferences,
   allDeities: Deity[],
-  allStories: Story[]
+  allStories: Story[],
 ): RecommendationResult {
   // Filter out already viewed content
-  const unviewedDeities = allDeities.filter(d => !prefs.viewedDeities.includes(d.id));
-  const unreadStories = allStories.filter(s => !prefs.readStories.includes(s.id));
+  const unviewedDeities = allDeities.filter(
+    (d) => !prefs.viewedDeities.includes(d.id),
+  );
+  const unreadStories = allStories.filter(
+    (s) => !prefs.readStories.includes(s.id),
+  );
 
   // Score and sort deities
   const scoredDeities = unviewedDeities
-    .map(deity => ({ deity, score: scoreDeity(deity, prefs) }))
+    .map((deity) => ({ deity, score: scoreDeity(deity, prefs) }))
     .sort((a, b) => b.score - a.score);
 
   // Score and sort stories
   const scoredStories = unreadStories
-    .map(story => ({ story, score: scoreStory(story, prefs) }))
+    .map((story) => ({ story, score: scoreStory(story, prefs) }))
     .sort((a, b) => b.score - a.score);
 
   // Get top 5 deities and top 3 stories
-  const recommendedDeities = scoredDeities.slice(0, 5).map(s => s.deity);
-  const recommendedStories = scoredStories.slice(0, 3).map(s => s.story);
+  const recommendedDeities = scoredDeities.slice(0, 5).map((s) => s.deity);
+  const recommendedStories = scoredStories.slice(0, 3).map((s) => s.story);
 
   // Generate reason based on preferences
-  let reason = '';
+  let reason = "";
   if (prefs.favoriteDomains.length > 0 && prefs.favoritePantheons.length > 0) {
-    const domainStr = prefs.favoriteDomains.slice(0, 2).join(' and ');
+    const domainStr = prefs.favoriteDomains.slice(0, 2).join(" and ");
     reason = `Based on your interest in ${domainStr} deities`;
   } else if (prefs.favoritePantheons.length > 0) {
     const pantheonName = formatPantheonName(prefs.favoritePantheons[0]);
@@ -212,7 +220,7 @@ export function generateRecommendations(
   } else if (prefs.favoriteDomains.length > 0) {
     reason = `Based on your interest in ${prefs.favoriteDomains[0]} deities`;
   } else {
-    reason = 'Discover these fascinating myths';
+    reason = "Discover these fascinating myths";
   }
 
   return {
@@ -229,12 +237,14 @@ export function generateRecommendations(
 export function getDailyDigest(
   allDeities: Deity[],
   allStories: Story[],
-  dateString?: string
+  dateString?: string,
 ): DailyDigest {
-  const date = dateString || new Date().toISOString().split('T')[0];
+  const date = dateString || getLocalToday();
 
   // Create a simple hash from date for pseudo-random but consistent selection
-  const dateHash = date.split('').reduce((acc, char) => acc + (char.codePointAt(0) ?? 0), 0);
+  const dateHash = date
+    .split("")
+    .reduce((acc, char) => acc + (char.codePointAt(0) ?? 0), 0);
 
   // Select deity based on date
   const deityIndex = dateHash % allDeities.length;
@@ -257,16 +267,16 @@ export function getDailyDigest(
 export function findSimilarDeities(
   currentDeity: Deity,
   allDeities: Deity[],
-  limit: number = 4
+  limit: number = 4,
 ): Deity[] {
-  const otherDeities = allDeities.filter(d => d.id !== currentDeity.id);
+  const otherDeities = allDeities.filter((d) => d.id !== currentDeity.id);
 
-  const scored = otherDeities.map(deity => {
+  const scored = otherDeities.map((deity) => {
     let score = 0;
 
     // Domain overlap
-    const domainOverlap = (deity.domain || []).filter(
-      d => (currentDeity.domain || []).includes(d)
+    const domainOverlap = (deity.domain || []).filter((d) =>
+      (currentDeity.domain || []).includes(d),
     ).length;
     score += domainOverlap * 3;
 
@@ -276,7 +286,9 @@ export function findSimilarDeities(
     }
 
     // Cross-pantheon parallel bonus
-    if (currentDeity.crossPantheonParallels?.some(p => p.deityId === deity.id)) {
+    if (
+      currentDeity.crossPantheonParallels?.some((p) => p.deityId === deity.id)
+    ) {
       score += 5;
     }
 
@@ -284,10 +296,10 @@ export function findSimilarDeities(
   });
 
   return scored
-    .filter(s => s.score > 0)
+    .filter((s) => s.score > 0)
     .sort((a, b) => b.score - a.score)
     .slice(0, limit)
-    .map(s => s.deity);
+    .map((s) => s.deity);
 }
 
 /**
@@ -296,11 +308,11 @@ export function findSimilarDeities(
 export function findRelatedStories(
   currentStory: Story,
   allStories: Story[],
-  limit: number = 3
+  limit: number = 3,
 ): Story[] {
-  const otherStories = allStories.filter(s => s.id !== currentStory.id);
+  const otherStories = allStories.filter((s) => s.id !== currentStory.id);
 
-  const scored = otherStories.map(story => {
+  const scored = otherStories.map((story) => {
     let score = 0;
 
     // Same pantheon bonus
@@ -314,8 +326,8 @@ export function findRelatedStories(
     }
 
     // Theme overlap
-    const themeOverlap = (story.moralThemes || []).filter(
-      t => (currentStory.moralThemes || []).includes(t)
+    const themeOverlap = (story.moralThemes || []).filter((t) =>
+      (currentStory.moralThemes || []).includes(t),
     ).length;
     score += themeOverlap * 1;
 
@@ -323,10 +335,10 @@ export function findRelatedStories(
   });
 
   return scored
-    .filter(s => s.score > 0)
+    .filter((s) => s.score > 0)
     .sort((a, b) => b.score - a.score)
     .slice(0, limit)
-    .map(s => s.story);
+    .map((s) => s.story);
 }
 
 /**
@@ -334,7 +346,7 @@ export function findRelatedStories(
  */
 export function getPantheonSuggestions(
   viewedDeities: string[],
-  allDeities: Deity[]
+  allDeities: Deity[],
 ): PantheonSuggestion[] {
   // Group deities by pantheon
   const pantheonGroups: Record<string, Deity[]> = {};
@@ -350,19 +362,24 @@ export function getPantheonSuggestions(
   const suggestions: PantheonSuggestion[] = [];
 
   for (const [pantheonId, deities] of Object.entries(pantheonGroups)) {
-    const viewedInPantheon = deities.filter(d => viewedDeities.includes(d.id));
+    const viewedInPantheon = deities.filter((d) =>
+      viewedDeities.includes(d.id),
+    );
     const unviewedCount = deities.length - viewedInPantheon.length;
 
     if (unviewedCount > 0 && viewedInPantheon.length > 0) {
-      const percentage = Math.round((viewedInPantheon.length / deities.length) * 100);
+      const percentage = Math.round(
+        (viewedInPantheon.length / deities.length) * 100,
+      );
       suggestions.push({
         pantheonId,
         pantheonName: formatPantheonName(pantheonId),
         unviewedCount,
         totalCount: deities.length,
-        suggestion: percentage >= 50
-          ? `Complete your ${formatPantheonName(pantheonId)} knowledge (${percentage}% explored)`
-          : `Continue exploring ${formatPantheonName(pantheonId)} mythology`,
+        suggestion:
+          percentage >= 50
+            ? `Complete your ${formatPantheonName(pantheonId)} knowledge (${percentage}% explored)`
+            : `Continue exploring ${formatPantheonName(pantheonId)} mythology`,
       });
     } else if (unviewedCount === deities.length) {
       suggestions.push({
@@ -391,13 +408,13 @@ export function getPantheonSuggestions(
  */
 export function getExplorationSuggestion(
   viewedDeities: string[],
-  allDeities: Deity[]
+  allDeities: Deity[],
 ): PantheonSuggestion | null {
   const suggestions = getPantheonSuggestions(viewedDeities, allDeities);
 
   // Find pantheon with least exploration (but some content)
   const leastExplored = suggestions
-    .filter(s => s.unviewedCount > 0)
+    .filter((s) => s.unviewedCount > 0)
     .sort((a, b) => {
       const aExplored = (a.totalCount - a.unviewedCount) / a.totalCount;
       const bExplored = (b.totalCount - b.unviewedCount) / b.totalCount;
@@ -412,16 +429,19 @@ export function getExplorationSuggestion(
  */
 function formatPantheonName(pantheonId: string): string {
   const names: Record<string, string> = {
-    'greek-pantheon': 'Greek',
-    'norse-pantheon': 'Norse',
-    'egyptian-pantheon': 'Egyptian',
-    'roman-pantheon': 'Roman',
-    'hindu-pantheon': 'Hindu',
-    'japanese-pantheon': 'Japanese',
-    'celtic-pantheon': 'Celtic',
-    'mesopotamian-pantheon': 'Mesopotamian',
+    "greek-pantheon": "Greek",
+    "norse-pantheon": "Norse",
+    "egyptian-pantheon": "Egyptian",
+    "roman-pantheon": "Roman",
+    "hindu-pantheon": "Hindu",
+    "japanese-pantheon": "Japanese",
+    "celtic-pantheon": "Celtic",
+    "mesopotamian-pantheon": "Mesopotamian",
   };
-  return names[pantheonId] || pantheonId.replace('-pantheon', '').replaceAll('-', ' ');
+  return (
+    names[pantheonId] ||
+    pantheonId.replace("-pantheon", "").replaceAll("-", " ")
+  );
 }
 
 /**
@@ -429,7 +449,7 @@ function formatPantheonName(pantheonId: string): string {
  */
 export function getDiscoveryRecommendations(
   allDeities: Deity[],
-  allStories: Story[]
+  allStories: Story[],
 ): RecommendationResult {
   // For new users, recommend high-importance deities from different pantheons
   const pantheonDeities: Record<string, Deity[]> = {};
@@ -446,17 +466,19 @@ export function getDiscoveryRecommendations(
   // Get top deity from each pantheon
   const recommendedDeities: Deity[] = [];
   for (const deities of Object.values(pantheonDeities)) {
-    const sorted = deities.toSorted((a, b) => (a.importanceRank || 99) - (b.importanceRank || 99));
+    const sorted = deities.toSorted(
+      (a, b) => (a.importanceRank || 99) - (b.importanceRank || 99),
+    );
     if (sorted[0]) {
       recommendedDeities.push(sorted[0]);
     }
   }
 
   // Get diverse stories
-  const storyCategories = ['creation', 'war', 'epic'];
+  const storyCategories = ["creation", "war", "epic"];
   const recommendedStories: Story[] = [];
   for (const category of storyCategories) {
-    const story = allStories.find(s => s.category === category);
+    const story = allStories.find((s) => s.category === category);
     if (story) {
       recommendedStories.push(story);
     }
@@ -465,7 +487,7 @@ export function getDiscoveryRecommendations(
   return {
     deities: recommendedDeities.slice(0, 5),
     stories: recommendedStories.slice(0, 3),
-    reason: 'Start your mythological journey',
+    reason: "Start your mythological journey",
   };
 }
 
@@ -473,10 +495,14 @@ export function getDiscoveryRecommendations(
 // Learning Paths
 // ============================================================================
 
-export type LearningGoal = 'pantheon-mastery' | 'domain-expert' | 'story-scholar' | 'completionist';
+export type LearningGoal =
+  | "pantheon-mastery"
+  | "domain-expert"
+  | "story-scholar"
+  | "completionist";
 
 export interface LearningPathStep {
-  type: 'deity' | 'story' | 'quiz';
+  type: "deity" | "story" | "quiz";
   itemId: string;
   title: string;
   completed: boolean;
@@ -510,10 +536,15 @@ interface StepBuilderResult {
 /** Compute progress & estimated time, then assemble a LearningPath */
 function computeStepProgress(steps: LearningPathStep[]): number {
   if (steps.length === 0) return 0;
-  return Math.round((steps.filter(s => s.completed).length / steps.length) * 100);
+  return Math.round(
+    (steps.filter((s) => s.completed).length / steps.length) * 100,
+  );
 }
 
-function finalizePath(result: StepBuilderResult, goal: LearningGoal): LearningPath {
+function finalizePath(
+  result: StepBuilderResult,
+  goal: LearningGoal,
+): LearningPath {
   const { steps, minutesPerStep, progressOverride, ...rest } = result;
   const progress = progressOverride ?? computeStepProgress(steps);
 
@@ -533,25 +564,25 @@ function buildPantheonMasterySteps(
   pantheonId: string,
 ): StepBuilderResult {
   const pantheonDeities = allDeities
-    .filter(d => d.pantheonId === pantheonId)
+    .filter((d) => d.pantheonId === pantheonId)
     .sort((a, b) => (a.importanceRank || 99) - (b.importanceRank || 99));
-  const pantheonStories = allStories.filter(s => s.pantheonId === pantheonId);
+  const pantheonStories = allStories.filter((s) => s.pantheonId === pantheonId);
 
   const steps: LearningPathStep[] = [
-    ...pantheonDeities.slice(0, 10).map(deity => ({
-      type: 'deity' as const,
+    ...pantheonDeities.slice(0, 10).map((deity) => ({
+      type: "deity" as const,
       itemId: deity.id,
       title: `Learn about ${deity.name}`,
       completed: prefs.viewedDeities.includes(deity.id),
     })),
-    ...pantheonStories.slice(0, 5).map(story => ({
-      type: 'story' as const,
+    ...pantheonStories.slice(0, 5).map((story) => ({
+      type: "story" as const,
       itemId: story.id,
       title: `Read: ${story.title}`,
       completed: prefs.readStories.includes(story.id),
     })),
     {
-      type: 'quiz',
+      type: "quiz",
       itemId: `quiz-${pantheonId}`,
       title: `${formatPantheonName(pantheonId)} Mythology Quiz`,
       completed: false,
@@ -574,7 +605,7 @@ function buildDomainExpertSteps(
   domain: string,
 ): StepBuilderResult {
   const domainDeities = allDeities
-    .filter(d => d.domain?.includes(domain))
+    .filter((d) => d.domain?.includes(domain))
     .sort((a, b) => (a.importanceRank || 99) - (b.importanceRank || 99));
 
   // Get deities from different pantheons for comparative study
@@ -596,14 +627,14 @@ function buildDomainExpertSteps(
   }
 
   const steps: LearningPathStep[] = [
-    ...selectedDeities.map(deity => ({
-      type: 'deity' as const,
+    ...selectedDeities.map((deity) => ({
+      type: "deity" as const,
       itemId: deity.id,
       title: `Study ${deity.name} (${formatPantheonName(deity.pantheonId)})`,
       completed: prefs.viewedDeities.includes(deity.id),
     })),
     {
-      type: 'quiz',
+      type: "quiz",
       itemId: `quiz-domain-${domain}`,
       title: `${capitalizeFirst(domain)} Domain Quiz`,
       completed: false,
@@ -624,11 +655,18 @@ function buildStoryScholarSteps(
   prefs: UserPreferences,
   allStories: Story[],
 ): StepBuilderResult {
-  const categories = ['creation', 'war', 'epic', 'tragedy', 'heroic', 'transformation'];
+  const categories = [
+    "creation",
+    "war",
+    "epic",
+    "tragedy",
+    "heroic",
+    "transformation",
+  ];
   const selectedStories: Story[] = [];
 
   for (const category of categories) {
-    const categoryStories = allStories.filter(s => s.category === category);
+    const categoryStories = allStories.filter((s) => s.category === category);
     if (categoryStories.length > 0) {
       selectedStories.push(categoryStories[0]);
       if (categoryStories.length > 1) {
@@ -648,24 +686,25 @@ function buildStoryScholarSteps(
   }
 
   const steps: LearningPathStep[] = [
-    ...selectedStories.slice(0, 10).map(story => ({
-      type: 'story' as const,
+    ...selectedStories.slice(0, 10).map((story) => ({
+      type: "story" as const,
       itemId: story.id,
       title: story.title,
       completed: prefs.readStories.includes(story.id),
     })),
     {
-      type: 'quiz',
-      itemId: 'quiz-stories',
-      title: 'Mythology Stories Quiz',
+      type: "quiz",
+      itemId: "quiz-stories",
+      title: "Mythology Stories Quiz",
       completed: false,
     },
   ];
 
   return {
-    id: 'story-scholar',
-    name: 'Tales of the Divine',
-    description: 'Journey through the greatest stories of mythology, from creation myths to heroic epics.',
+    id: "story-scholar",
+    name: "Tales of the Divine",
+    description:
+      "Journey through the greatest stories of mythology, from creation myths to heroic epics.",
     steps,
     minutesPerStep: 8,
   };
@@ -676,30 +715,34 @@ function buildCompletionistSteps(
   allDeities: Deity[],
   allStories: Story[],
 ): StepBuilderResult {
-  const unviewedDeities = allDeities.filter(d => !prefs.viewedDeities.includes(d.id));
-  const unreadStories = allStories.filter(s => !prefs.readStories.includes(s.id));
+  const unviewedDeities = allDeities.filter(
+    (d) => !prefs.viewedDeities.includes(d.id),
+  );
+  const unreadStories = allStories.filter(
+    (s) => !prefs.readStories.includes(s.id),
+  );
 
   const sortedDeities = [...unviewedDeities]
     .sort((a, b) => (a.importanceRank || 99) - (b.importanceRank || 99))
     .slice(0, 12);
 
   const steps: LearningPathStep[] = [
-    ...sortedDeities.map(deity => ({
-      type: 'deity' as const,
+    ...sortedDeities.map((deity) => ({
+      type: "deity" as const,
       itemId: deity.id,
       title: `Discover ${deity.name}`,
       completed: false,
     })),
-    ...unreadStories.slice(0, 6).map(story => ({
-      type: 'story' as const,
+    ...unreadStories.slice(0, 6).map((story) => ({
+      type: "story" as const,
       itemId: story.id,
       title: story.title,
       completed: false,
     })),
     {
-      type: 'quiz',
-      itemId: 'quiz-comprehensive',
-      title: 'Comprehensive Mythology Quiz',
+      type: "quiz",
+      itemId: "quiz-comprehensive",
+      title: "Comprehensive Mythology Quiz",
       completed: false,
     },
   ];
@@ -708,8 +751,8 @@ function buildCompletionistSteps(
   const viewedContent = prefs.viewedDeities.length + prefs.readStories.length;
 
   return {
-    id: 'completionist',
-    name: 'The Grand Journey',
+    id: "completionist",
+    name: "The Grand Journey",
     description: `Complete your mythology collection! You've discovered ${viewedContent} of ${totalContent} items.`,
     steps,
     minutesPerStep: 5,
@@ -728,30 +771,40 @@ export function generateLearningPath(
   options?: {
     pantheonId?: string;
     domain?: string;
-  }
+  },
 ): LearningPath {
   switch (goal) {
-    case 'pantheon-mastery': {
-      const pantheonId = options?.pantheonId || prefs.favoritePantheons[0] || 'greek-pantheon';
-      return finalizePath(buildPantheonMasterySteps(prefs, allDeities, allStories, pantheonId), goal);
+    case "pantheon-mastery": {
+      const pantheonId =
+        options?.pantheonId || prefs.favoritePantheons[0] || "greek-pantheon";
+      return finalizePath(
+        buildPantheonMasterySteps(prefs, allDeities, allStories, pantheonId),
+        goal,
+      );
     }
-    case 'domain-expert': {
-      const domain = options?.domain || prefs.favoriteDomains[0] || 'war';
-      return finalizePath(buildDomainExpertSteps(prefs, allDeities, domain), goal);
+    case "domain-expert": {
+      const domain = options?.domain || prefs.favoriteDomains[0] || "war";
+      return finalizePath(
+        buildDomainExpertSteps(prefs, allDeities, domain),
+        goal,
+      );
     }
-    case 'story-scholar':
+    case "story-scholar":
       return finalizePath(buildStoryScholarSteps(prefs, allStories), goal);
-    case 'completionist':
-      return finalizePath(buildCompletionistSteps(prefs, allDeities, allStories), goal);
+    case "completionist":
+      return finalizePath(
+        buildCompletionistSteps(prefs, allDeities, allStories),
+        goal,
+      );
     default:
       return {
-        id: 'default',
-        name: 'Explore Mythology',
-        description: 'Start your mythological journey.',
+        id: "default",
+        name: "Explore Mythology",
+        description: "Start your mythological journey.",
         steps: [],
         progress: 0,
-        estimatedTime: '0 minutes',
-        goal: 'completionist',
+        estimatedTime: "0 minutes",
+        goal: "completionist",
       };
   }
 }
@@ -762,41 +815,53 @@ export function generateLearningPath(
 export function generatePersonalizedPaths(
   prefs: UserPreferences,
   allDeities: Deity[],
-  allStories: Story[]
+  allStories: Story[],
 ): LearningPath[] {
   const paths: LearningPath[] = [];
 
   // Pantheon mastery path - use favorite or least explored
   const favoritePantheon = prefs.favoritePantheons[0];
   if (favoritePantheon) {
-    paths.push(generateLearningPath(prefs, 'pantheon-mastery', allDeities, allStories, {
-      pantheonId: favoritePantheon,
-    }));
+    paths.push(
+      generateLearningPath(prefs, "pantheon-mastery", allDeities, allStories, {
+        pantheonId: favoritePantheon,
+      }),
+    );
   } else {
     // Suggest Greek as a starting point for new users
-    paths.push(generateLearningPath(prefs, 'pantheon-mastery', allDeities, allStories, {
-      pantheonId: 'greek-pantheon',
-    }));
+    paths.push(
+      generateLearningPath(prefs, "pantheon-mastery", allDeities, allStories, {
+        pantheonId: "greek-pantheon",
+      }),
+    );
   }
 
   // Domain expert path
   const favoriteDomain = prefs.favoriteDomains[0];
   if (favoriteDomain) {
-    paths.push(generateLearningPath(prefs, 'domain-expert', allDeities, allStories, {
-      domain: favoriteDomain,
-    }));
+    paths.push(
+      generateLearningPath(prefs, "domain-expert", allDeities, allStories, {
+        domain: favoriteDomain,
+      }),
+    );
   } else {
-    paths.push(generateLearningPath(prefs, 'domain-expert', allDeities, allStories, {
-      domain: 'war',
-    }));
+    paths.push(
+      generateLearningPath(prefs, "domain-expert", allDeities, allStories, {
+        domain: "war",
+      }),
+    );
   }
 
   // Story scholar path
-  paths.push(generateLearningPath(prefs, 'story-scholar', allDeities, allStories));
+  paths.push(
+    generateLearningPath(prefs, "story-scholar", allDeities, allStories),
+  );
 
   // Completionist path (only if user has some progress)
   if (prefs.viewedDeities.length > 0 || prefs.readStories.length > 0) {
-    paths.push(generateLearningPath(prefs, 'completionist', allDeities, allStories));
+    paths.push(
+      generateLearningPath(prefs, "completionist", allDeities, allStories),
+    );
   }
 
   return paths;

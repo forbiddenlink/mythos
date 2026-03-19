@@ -41,20 +41,19 @@ export default function ErrorPage({
           Something Went Wrong
         </h1>
 
-        {/* Mythological flavor text */}
+        {/* Clear guidance first, themed flavor second */}
         <div className="relative max-w-xl mx-auto mb-8 p-6 rounded-lg border border-gold/10 bg-midnight-light/30 backdrop-blur-sm">
           <div className="absolute top-0 left-0 w-4 h-4 border-t border-l border-gold/30" />
           <div className="absolute top-0 right-0 w-4 h-4 border-t border-r border-gold/30" />
           <div className="absolute bottom-0 left-0 w-4 h-4 border-b border-l border-gold/30" />
           <div className="absolute bottom-0 right-0 w-4 h-4 border-b border-r border-gold/30" />
 
-          <p className="text-gold-light/80 italic font-body leading-relaxed">
-            &ldquo;An ancient curse has disrupted the sacred scrolls. Even the
-            Oracle of Delphi could not have foreseen this disturbance in the
-            cosmic order.&rdquo;
+          <p className="text-gold-light/90 font-body leading-relaxed">
+            We hit an unexpected problem while loading this page. Try again, or
+            return home and continue exploring.
           </p>
           <p className="text-parchment/50 text-sm mt-3">
-            Fear not — the gods are working to restore balance.
+            If it keeps happening, your device or network may have stale data.
           </p>
         </div>
 

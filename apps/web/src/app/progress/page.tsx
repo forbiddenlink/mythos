@@ -2,6 +2,7 @@
 
 import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Progress } from "@/components/ui/progress";
 import achievements from "@/data/achievements.json";
 import deities from "@/data/deities.json";
 import locations from "@/data/locations.json";
@@ -83,23 +84,45 @@ interface Achievement {
   xp: number;
   icon: string;
   category: string;
+  tier?: "bronze" | "silver" | "gold" | "mythic";
+}
+
+const progressTierBadgeClasses: Record<string, string> = {
+  mythic: "bg-violet-100 text-violet-950 border-violet-300",
+  gold: "bg-amber-100 text-amber-950 border-amber-300",
+  silver: "bg-slate-200 text-slate-950 border-slate-300",
+  bronze: "bg-orange-100 text-orange-950 border-orange-300",
+};
+
+function inferAchievementTier(
+  achievement: Achievement,
+): keyof typeof progressTierBadgeClasses {
+  if (achievement.tier) return achievement.tier;
+  if (achievement.xp >= 200) return "mythic";
+  if (achievement.xp >= 100) return "gold";
+  if (achievement.xp >= 50) return "silver";
+  return "bronze";
+}
+
+interface AchievementCardProps {
+  achievement: Achievement;
+  unlocked: boolean;
 }
 
 function AchievementCard({
   achievement,
   unlocked,
-}: {
-  achievement: Achievement;
-  unlocked: boolean;
-}) {
+}: Readonly<AchievementCardProps>) {
   const IconComponent = iconMap[achievement.icon] || Trophy;
+  const tier = inferAchievementTier(achievement);
+  const tierBadgeClass = progressTierBadgeClasses[tier];
 
   return (
     <div
       className={`relative p-4 rounded-xl border transition-all duration-300 ${
         unlocked
-          ? "bg-linear-to-br from-amber-500/10 to-amber-600/5 border-amber-500/30 shadow-lg shadow-amber-500/10"
-          : "bg-card/50 border-border/40 opacity-60"
+          ? "bg-linear-to-br from-gold/12 via-card to-card border-gold/30 shadow-lg shadow-gold/10"
+          : "bg-card/70 border-border/60"
       }`}
     >
       {/* Glow effect for unlocked achievements */}
@@ -111,8 +134,8 @@ function AchievementCard({
         <div
           className={`w-12 h-12 rounded-lg flex items-center justify-center shrink-0 ${
             unlocked
-              ? "bg-linear-to-br from-amber-500 to-amber-600 text-white shadow-md"
-              : "bg-muted text-muted-foreground"
+              ? "bg-linear-to-br from-gold-dark via-gold to-gold-light text-midnight shadow-md"
+              : "bg-muted text-foreground/70 border border-border/60"
           }`}
         >
           {unlocked ? (
@@ -123,16 +146,21 @@ function AchievementCard({
         </div>
 
         <div className="flex-1 min-w-0">
-          <h3
-            className={`font-semibold text-sm ${unlocked ? "text-amber-500" : "text-muted-foreground"}`}
-          >
-            {achievement.name}
-          </h3>
-          <p className="text-xs text-muted-foreground mt-0.5 line-clamp-2">
+          <div className="flex items-center gap-2 mb-1.5 flex-wrap">
+            <h3 className="font-semibold text-sm text-foreground">
+              {achievement.name}
+            </h3>
+            <span
+              className={`text-[10px] px-2 py-0.5 rounded-full border ${tierBadgeClass}`}
+            >
+              {tier}
+            </span>
+          </div>
+          <p className="text-xs text-safe-muted mt-0.5 line-clamp-2">
             {achievement.description}
           </p>
           <div
-            className={`flex items-center gap-1 mt-2 text-xs ${unlocked ? "text-amber-500/80" : "text-muted-foreground/60"}`}
+            className={`flex items-center gap-1 mt-2 text-xs ${unlocked ? "text-amber-700" : "text-safe-subtle"}`}
           >
             <Sparkles className="h-3 w-3" />
             <span>{achievement.xp} XP</span>
@@ -150,7 +178,12 @@ interface ProgressBarProps {
   icon: typeof Eye;
 }
 
-function ProgressBar({ label, current, total, icon: Icon }: ProgressBarProps) {
+function ProgressBar({
+  label,
+  current,
+  total,
+  icon: Icon,
+}: Readonly<ProgressBarProps>) {
   const percentage = total > 0 ? Math.round((current / total) * 100) : 0;
 
   return (
@@ -165,10 +198,7 @@ function ProgressBar({ label, current, total, icon: Icon }: ProgressBarProps) {
         </span>
       </div>
       <div className="relative h-3 w-full overflow-hidden rounded-full bg-muted/50">
-        <div
-          className="h-full bg-linear-to-r from-amber-500 to-amber-400 transition-all duration-500 ease-out"
-          style={{ width: `${percentage}%` }}
-        />
+        <Progress value={percentage} className="h-3 bg-muted/50" />
       </div>
     </div>
   );
@@ -266,14 +296,10 @@ export default function ProgressPage() {
                       {stats.totalXP} XP Total
                     </p>
                     <div className="mt-2">
-                      <div className="h-2 w-full rounded-full bg-muted/50 overflow-hidden">
-                        <div
-                          className="h-full bg-linear-to-r from-amber-500 to-amber-400 transition-all duration-500"
-                          style={{
-                            width: `${(xpInCurrentLevel / xpToNextLevel) * 100}%`,
-                          }}
-                        />
-                      </div>
+                      <Progress
+                        value={(xpInCurrentLevel / xpToNextLevel) * 100}
+                        className="h-2 bg-muted/50"
+                      />
                       <p className="text-xs text-muted-foreground mt-1">
                         {xpInCurrentLevel} / {xpToNextLevel} XP to next level
                       </p>
@@ -334,6 +360,13 @@ export default function ProgressPage() {
       <div className="container mx-auto max-w-7xl px-4 py-12 bg-mythic">
         <Breadcrumbs />
 
+        <div className="mt-6 rounded-lg border border-border/60 bg-card/60 p-4">
+          <p className="text-sm text-muted-foreground">
+            Your progress and stats are currently stored on this device and
+            browser.
+          </p>
+        </div>
+
         {/* Discovery Progress Section */}
         <section className="mt-8">
           <Card className="bg-card/80 backdrop-blur-sm">
@@ -373,11 +406,15 @@ export default function ProgressPage() {
         </section>
 
         {/* Achievements Gallery */}
-        <section className="mt-12">
+        <section className="mt-12 rounded-3xl border border-gold/15 bg-linear-to-br from-card via-card to-gold/5 p-6 md:p-8">
           <h2 className="font-serif text-2xl font-semibold text-foreground mb-6 flex items-center gap-2">
             <Trophy className="h-6 w-6 text-amber-500" strokeWidth={1.5} />
             Achievements Gallery
           </h2>
+          <p className="text-safe-muted mb-8 max-w-2xl">
+            Milestones, streaks, and mastery rewards are shown here using the
+            same tier language as the full achievements experience.
+          </p>
 
           {categoryOrder.map((category) => {
             const categoryAchievements = achievementsByCategory[category];

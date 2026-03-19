@@ -68,11 +68,13 @@ function MobileQuickStats() {
 function CollapsibleSection({
   section,
   onLinkClick,
-}: {
+  defaultOpen = false,
+}: Readonly<{
   section: NavSection;
   onLinkClick: () => void;
-}) {
-  const [isOpen, setIsOpen] = useState(false);
+  defaultOpen?: boolean;
+}>) {
+  const [isOpen, setIsOpen] = useState(defaultOpen);
 
   return (
     <div className="mb-4">
@@ -111,7 +113,7 @@ function CollapsibleSection({
   );
 }
 
-export function MobileNav({ sections }: MobileNavProps) {
+export function MobileNav({ sections }: Readonly<MobileNavProps>) {
   const [open, setOpen] = useState(false);
 
   return (
@@ -155,18 +157,19 @@ export function MobileNav({ sections }: MobileNavProps) {
 
           {/* Navigation Sections */}
           <nav className="flex-1 overflow-y-auto">
-            {sections.map((section) => (
+            {sections.map((section, index) => (
               <CollapsibleSection
                 key={section.title}
                 section={section}
                 onLinkClick={() => setOpen(false)}
+                defaultOpen={index === 0}
               />
             ))}
           </nav>
 
           <div className="mt-auto pt-6 border-t border-border">
             <p className="text-xs text-muted-foreground">
-              Built with Next.js and love for mythology
+              Tip: Use search to jump to any deity, story, or feature
             </p>
           </div>
         </div>

@@ -28,6 +28,16 @@ const RATE_LIMIT_WINDOW = 60 * 60 * 1000; // 1 hour in ms
 
 function checkRateLimit(identifier: string): boolean {
   const now = Date.now();
+
+  // Prune expired entries to prevent unbounded memory growth
+  if (rateLimitStore.size > 1000) {
+    for (const [key, val] of rateLimitStore) {
+      if (now > val.resetTime) {
+        rateLimitStore.delete(key);
+      }
+    }
+  }
+
   const record = rateLimitStore.get(identifier);
 
   if (!record || now > record.resetTime) {

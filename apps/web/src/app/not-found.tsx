@@ -45,16 +45,22 @@ function getRandomSuggestions() {
   const seed = Math.floor(Date.now() / (1000 * 60 * 60));
 
   // Pick 3 random deities
-  const shuffledDeities = deities.toSorted(() => {
-    const x = Math.sin(seed * deities.length) * 10000;
-    return x - Math.floor(x) - 0.5;
+  const shuffledDeities = deities.toSorted((a, b) => {
+    const xa =
+      Math.sin(seed + a.id.length * 7 + (a.id.codePointAt(0) ?? 0)) * 10000;
+    const xb =
+      Math.sin(seed + b.id.length * 7 + (b.id.codePointAt(0) ?? 0)) * 10000;
+    return xa - Math.floor(xa) - (xb - Math.floor(xb));
   });
   const suggestedDeities = shuffledDeities.slice(0, 3);
 
   // Pick 2 random stories
-  const shuffledStories = stories.toSorted(() => {
-    const x = Math.sin(seed * stories.length + 1) * 10000;
-    return x - Math.floor(x) - 0.5;
+  const shuffledStories = stories.toSorted((a, b) => {
+    const xa =
+      Math.sin(seed + a.id.length * 13 + (a.id.codePointAt(0) ?? 0)) * 10000;
+    const xb =
+      Math.sin(seed + b.id.length * 13 + (b.id.codePointAt(0) ?? 0)) * 10000;
+    return xa - Math.floor(xa) - (xb - Math.floor(xb));
   });
   const suggestedStories = shuffledStories.slice(0, 2);
 
@@ -92,7 +98,7 @@ export default function NotFound() {
         </h1>
 
         <h2 className="font-serif text-2xl md:text-3xl text-parchment mb-4">
-          Lost in the Mists of the Unknown
+          Page Not Found
         </h2>
 
         {/* Mythological flavor text */}
@@ -102,13 +108,11 @@ export default function NotFound() {
           <div className="absolute bottom-0 left-0 w-4 h-4 border-b border-l border-gold/30" />
           <div className="absolute bottom-0 right-0 w-4 h-4 border-b border-r border-gold/30" />
 
-          <p className="text-gold-light/80 italic font-body leading-relaxed">
-            &ldquo;Like Odysseus blown off course by Poseidon&apos;s wrath, or
-            Orpheus wandering the shadowy paths of the Underworld, you have
-            strayed beyond the known realms.&rdquo;
+          <p className="text-gold-light/90 font-body leading-relaxed">
+            The page you requested does not exist or may have moved.
           </p>
           <p className="text-parchment/50 text-sm mt-3">
-            The page you seek does not exist in this realm.
+            Use the links below to continue exploring Mythos Atlas.
           </p>
         </div>
 
@@ -121,7 +125,7 @@ export default function NotFound() {
           >
             <Link href="/">
               <Home className="w-4 h-4 mr-2" />
-              Return to Olympus
+              Return Home
             </Link>
           </Button>
           <Button
@@ -203,7 +207,8 @@ export default function NotFound() {
         {/* Search hint */}
         <div className="mt-8 text-sm text-muted-foreground">
           <p>
-            Try using the search (Cmd+K) to find what you&apos;re looking for
+            Try using the search (⌘K / Ctrl+K) to find what you&apos;re looking
+            for
           </p>
         </div>
       </div>

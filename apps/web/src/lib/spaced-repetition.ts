@@ -1,3 +1,9 @@
+import {
+  addDaysToLocalDate,
+  getLocalToday,
+  getLocalYesterday,
+} from "@/lib/date";
+
 /**
  * FSRS (Free Spaced Repetition Scheduler) - Simplified Implementation
  *
@@ -8,11 +14,11 @@
 export type DifficultyRating = 1 | 2 | 3 | 4;
 
 export interface CardState {
-  interval: number;      // days until next review
-  nextReview: string;    // ISO date
-  easeFactor: number;    // multiplier for good answers
-  reviews: number;       // total review count
-  lapses: number;        // number of "forgot" ratings
+  interval: number; // days until next review
+  nextReview: string; // ISO date
+  easeFactor: number; // multiplier for good answers
+  reviews: number; // total review count
+  lapses: number; // number of "forgot" ratings
 }
 
 export interface ReviewCard {
@@ -32,11 +38,11 @@ export interface ReviewCard {
 }
 
 export type FlashcardType =
-  | 'deity-recognition'   // Show image, guess name
-  | 'domain-match'        // Show domains, guess deity
-  | 'symbol-match'        // Show symbols, guess deity
-  | 'pantheon-match'      // Show deity name, guess pantheon
-  | 'story-character';    // "Who appears in [story]?"
+  | "deity-recognition" // Show image, guess name
+  | "domain-match" // Show domains, guess deity
+  | "symbol-match" // Show symbols, guess deity
+  | "pantheon-match" // Show deity name, guess pantheon
+  | "story-character"; // "Who appears in [story]?"
 
 export interface ReviewState {
   cards: Record<string, CardState>;
@@ -72,7 +78,7 @@ const GOOD_MODIFIER = 2.5;
 export function calculateNextReview(
   currentInterval: number,
   rating: DifficultyRating,
-  easeFactor: number = DEFAULT_EASE_FACTOR
+  easeFactor: number = DEFAULT_EASE_FACTOR,
 ): { interval: number; easeFactor: number } {
   let newInterval: number;
   let newEaseFactor = easeFactor;
@@ -89,12 +95,19 @@ export function calculateNextReview(
       break;
 
     case 3: // Good - standard increase
-      newInterval = Math.round(currentInterval * GOOD_MODIFIER * (easeFactor / DEFAULT_EASE_FACTOR));
+      newInterval = Math.round(
+        currentInterval * GOOD_MODIFIER * (easeFactor / DEFAULT_EASE_FACTOR),
+      );
       break;
 
     case 4: // Easy - large increase with bonus
-      newInterval = Math.round(currentInterval * GOOD_MODIFIER * EASY_BONUS * (easeFactor / DEFAULT_EASE_FACTOR));
-      newEaseFactor = Math.min(3.0, easeFactor + 0.1);
+      newInterval = Math.round(
+        currentInterval *
+          GOOD_MODIFIER *
+          EASY_BONUS *
+          (easeFactor / DEFAULT_EASE_FACTOR),
+      );
+      newEaseFactor = Math.min(3, easeFactor + 0.1);
       break;
 
     default:
@@ -111,16 +124,14 @@ export function calculateNextReview(
  * Get the next review date based on interval in days
  */
 export function getNextReviewDate(interval: number): string {
-  const date = new Date();
-  date.setDate(date.getDate() + interval);
-  return date.toISOString().split('T')[0];
+  return addDaysToLocalDate(interval);
 }
 
 /**
  * Check if a card is due for review
  */
 export function isCardDue(cardState: CardState): boolean {
-  const today = new Date().toISOString().split('T')[0];
+  const today = getLocalToday();
   return cardState.nextReview <= today;
 }
 
@@ -128,16 +139,14 @@ export function isCardDue(cardState: CardState): boolean {
  * Get today's date as ISO string (YYYY-MM-DD)
  */
 export function getToday(): string {
-  return new Date().toISOString().split('T')[0];
+  return getLocalToday();
 }
 
 /**
  * Get yesterday's date as ISO string
  */
 export function getYesterday(): string {
-  const date = new Date();
-  date.setDate(date.getDate() - 1);
-  return date.toISOString().split('T')[0];
+  return getLocalYesterday();
 }
 
 /**
@@ -158,12 +167,12 @@ export function createInitialCardState(): CardState {
  */
 export function updateCardState(
   cardState: CardState,
-  rating: DifficultyRating
+  rating: DifficultyRating,
 ): CardState {
   const { interval, easeFactor } = calculateNextReview(
     cardState.interval,
     rating,
-    cardState.easeFactor
+    cardState.easeFactor,
   );
 
   return {
@@ -178,33 +187,39 @@ export function updateCardState(
 /**
  * Rating labels for UI
  */
-export const RATING_LABELS: Record<DifficultyRating, { label: string; color: string; description: string }> = {
+export const RATING_LABELS: Record<
+  DifficultyRating,
+  { label: string; color: string; description: string }
+> = {
   1: {
-    label: 'Forgot',
-    color: 'bg-red-600 hover:bg-red-700',
-    description: 'Could not remember'
+    label: "Forgot",
+    color: "bg-red-600 hover:bg-red-700",
+    description: "Could not remember",
   },
   2: {
-    label: 'Hard',
-    color: 'bg-orange-600 hover:bg-orange-700',
-    description: 'Remembered with difficulty'
+    label: "Hard",
+    color: "bg-orange-600 hover:bg-orange-700",
+    description: "Remembered with difficulty",
   },
   3: {
-    label: 'Good',
-    color: 'bg-green-600 hover:bg-green-700',
-    description: 'Remembered correctly'
+    label: "Good",
+    color: "bg-green-600 hover:bg-green-700",
+    description: "Remembered correctly",
   },
   4: {
-    label: 'Easy',
-    color: 'bg-blue-600 hover:bg-blue-700',
-    description: 'Remembered easily'
+    label: "Easy",
+    color: "bg-blue-600 hover:bg-blue-700",
+    description: "Remembered easily",
   },
 };
 
 /**
  * Generate a unique card ID based on type and content
  */
-export function generateCardId(type: FlashcardType, identifier: string): string {
+export function generateCardId(
+  type: FlashcardType,
+  identifier: string,
+): string {
   return `${type}:${identifier}`;
 }
 

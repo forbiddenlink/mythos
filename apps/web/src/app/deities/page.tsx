@@ -4,7 +4,6 @@ import { DeitiesTable } from "@/components/deities/DeitiesTable";
 import { DeityFilters } from "@/components/deities/DeityFilters";
 import { PageHero } from "@/components/layout/page-hero";
 import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
-import { CollectionPageJsonLd } from "@/components/seo/JsonLd";
 import { BookmarkButton } from "@/components/ui/bookmark-button";
 import { Button } from "@/components/ui/button";
 import {
@@ -44,6 +43,7 @@ interface Deity {
 export default function DeitiesPage() {
   const [viewMode, setViewMode] = useState<"grid" | "table">("grid");
   const [filteredDeities, setFilteredDeities] = useState<Deity[]>([]);
+  const [filtersVersion, setFiltersVersion] = useState(0);
 
   const { data, isLoading, error } = useQuery<{ deities: Deity[] }>({
     queryKey: ["deities"],
@@ -57,8 +57,45 @@ export default function DeitiesPage() {
     }
   }, [data]);
 
-  const displayDeities =
-    filteredDeities.length > 0 ? filteredDeities : data?.deities || [];
+  const hasActiveFilters = filteredDeities !== data?.deities;
+  const displayDeities = hasActiveFilters
+    ? filteredDeities
+    : data?.deities || [];
+
+  let deitiesContent;
+  if (displayDeities.length === 0 && hasActiveFilters) {
+    deitiesContent = (
+      <div className="text-center py-20">
+        <div className="inline-flex items-center justify-center w-20 h-20 rounded-xl bg-muted border border-border mb-6">
+          <Sparkles
+            className="h-10 w-10 text-muted-foreground"
+            strokeWidth={1.5}
+          />
+        </div>
+        <h2 className="text-2xl font-serif font-semibold mb-2 text-foreground">
+          No deities found
+        </h2>
+        <p className="text-muted-foreground">
+          Try adjusting your filters to find what you&apos;re looking for
+        </p>
+        <Button
+          variant="outline"
+          size="sm"
+          className="mt-4"
+          onClick={() => {
+            setFilteredDeities(data?.deities ?? []);
+            setFiltersVersion((prev) => prev + 1);
+          }}
+        >
+          Clear filters
+        </Button>
+      </div>
+    );
+  } else if (viewMode === "table") {
+    deitiesContent = <DeitiesTable deities={displayDeities} />;
+  } else {
+    deitiesContent = <PaginatedDeityGrid deities={displayDeities} />;
+  }
 
   if (isLoading) {
     return (
@@ -99,12 +136,6 @@ export default function DeitiesPage() {
 
   return (
     <div className="min-h-screen">
-      <CollectionPageJsonLd
-        name="Deities"
-        description="Gods and goddesses from 13 pantheons, with family trees, domains, and stories"
-        url="/deities"
-        numberOfItems={data?.deities?.length}
-      />
       <PageHero
         icon={<Sparkles />}
         tagline="Divine Beings"
@@ -142,16 +173,13 @@ export default function DeitiesPage() {
 
         {data?.deities && (
           <DeityFilters
+            key={filtersVersion}
             deities={data.deities}
             onFilteredChange={setFilteredDeities}
           />
         )}
 
-        {viewMode === "table" ? (
-          <DeitiesTable deities={displayDeities} />
-        ) : (
-          <PaginatedDeityGrid deities={displayDeities} />
-        )}
+        {deitiesContent}
       </div>
     </div>
   );

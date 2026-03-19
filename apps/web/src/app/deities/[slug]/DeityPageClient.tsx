@@ -424,7 +424,7 @@ export function DeityPageClient({ slug }: DeityPageClientProps) {
               {/* Image with shared element transition */}
               {deity.imageUrl && (
                 <div
-                  className="relative w-full max-w-sm mx-auto rounded-2xl overflow-hidden border-4 border-white dark:border-slate-800 shadow-2xl"
+                  className="relative w-full max-w-sm mx-auto rounded-2xl overflow-hidden border-2 border-border shadow-2xl"
                   style={{ viewTransitionName: `deity-image-${deity.slug}` }}
                 >
                   <div className="aspect-3/4 relative">
@@ -460,7 +460,7 @@ export function DeityPageClient({ slug }: DeityPageClientProps) {
             {/* Content Cards */}
             <div className="space-y-8">
               {/* Detailed Bio (Markdown) or Description */}
-              <Card className="bg-white dark:bg-slate-900 border-l-4 border-l-gold">
+              <Card className="border-l-4 border-l-gold">
                 <CardHeader>
                   <CardTitle className="font-serif text-2xl">
                     About {deity.name}
@@ -468,7 +468,7 @@ export function DeityPageClient({ slug }: DeityPageClientProps) {
                 </CardHeader>
                 <CardContent>
                   {deity.detailedBio ? (
-                    <div className="prose prose-slate dark:prose-invert prose-headings:font-serif prose-headings:text-amber-700 dark:prose-headings:text-amber-500 prose-a:text-teal-600 dark:prose-a:text-teal-400 max-w-none">
+                    <div className="prose prose-slate dark:prose-invert prose-headings:font-serif prose-headings:text-amber-700 dark:prose-headings:text-amber-500 prose-a:text-gold dark:prose-a:text-gold-light max-w-none">
                       <ReactMarkdown>{deity.detailedBio}</ReactMarkdown>
                     </div>
                   ) : (
@@ -481,7 +481,7 @@ export function DeityPageClient({ slug }: DeityPageClientProps) {
 
               {/* Origin Story */}
               {deity.originStory && (
-                <Card className="bg-white dark:bg-slate-900">
+                <Card className="">
                   <CardHeader>
                     <CardTitle className="font-serif text-xl">
                       Origin Story
@@ -498,7 +498,7 @@ export function DeityPageClient({ slug }: DeityPageClientProps) {
               {/* Cross-Pantheon Parallels */}
               {deity.crossPantheonParallels &&
                 deity.crossPantheonParallels.length > 0 && (
-                  <Card className="bg-white dark:bg-slate-900">
+                  <Card className="">
                     <CardHeader>
                       <CardTitle className="font-serif flex items-center gap-2 text-xl">
                         <Link2 className="h-5 w-5 text-gold" />
@@ -522,7 +522,7 @@ export function DeityPageClient({ slug }: DeityPageClientProps) {
                               >
                                 {parallel.deityId}
                               </Link>
-                              <span className="text-slate-500 dark:text-slate-400 text-sm">
+                              <span className="text-muted-foreground text-sm">
                                 ({parallel.pantheonId})
                               </span>
                             </div>
@@ -539,10 +539,10 @@ export function DeityPageClient({ slug }: DeityPageClientProps) {
               {/* Primary Source Excerpts (with original language toggle) */}
               {deity.primarySourceExcerpts &&
                 deity.primarySourceExcerpts.length > 0 && (
-                  <Card className="bg-white dark:bg-slate-900">
+                  <Card className="">
                     <CardHeader>
                       <CardTitle className="font-serif flex items-center gap-2 text-xl">
-                        <ScrollText className="h-5 w-5 text-teal-600" />
+                        <ScrollText className="h-5 w-5 text-gold" />
                         Ancient Sources
                       </CardTitle>
                       <CardDescription>
@@ -562,10 +562,10 @@ export function DeityPageClient({ slug }: DeityPageClientProps) {
               {deity.primarySources &&
                 deity.primarySources.length > 0 &&
                 !deity.primarySourceExcerpts?.length && (
-                  <Card className="bg-white dark:bg-slate-900">
+                  <Card className="">
                     <CardHeader>
                       <CardTitle className="font-serif flex items-center gap-2 text-xl">
-                        <BookOpen className="h-5 w-5 text-teal-600" />
+                        <BookOpen className="h-5 w-5 text-gold" />
                         Primary Sources
                       </CardTitle>
                       <CardDescription>
@@ -577,17 +577,17 @@ export function DeityPageClient({ slug }: DeityPageClientProps) {
                         {deity.primarySources.map((source, index) => (
                           <blockquote
                             key={`${source.source}-${index}`}
-                            className="border-l-4 border-teal-500/50 pl-4 py-2 bg-slate-50 dark:bg-slate-800/50 rounded-r-lg"
+                            className="border-l-4 border-gold/30 pl-4 py-2 bg-muted/50 rounded-r-lg"
                           >
-                            <p className="text-slate-700 dark:text-slate-300 italic leading-relaxed">
+                            <p className="text-foreground/80 italic leading-relaxed">
                               &ldquo;{source.text}&rdquo;
                             </p>
-                            <footer className="mt-2 text-sm text-slate-500 dark:text-slate-400">
+                            <footer className="mt-2 text-sm text-muted-foreground">
                               <span className="font-medium">
                                 {source.source}
                               </span>
                               {source.date && (
-                                <span className="ml-2 text-slate-400 dark:text-slate-500">
+                                <span className="ml-2 text-muted-foreground/70">
                                   ({source.date})
                                 </span>
                               )}
@@ -615,10 +615,10 @@ export function DeityPageClient({ slug }: DeityPageClientProps) {
                 (deity.worship.temples?.length ||
                   deity.worship.festivals?.length ||
                   deity.worship.practices) && (
-                  <Card className="bg-white dark:bg-slate-900">
+                  <Card className="">
                     <CardHeader>
                       <CardTitle className="font-serif flex items-center gap-2 text-xl">
-                        <Sparkles className="h-5 w-5 text-amber-600" />
+                        <Sparkles className="h-5 w-5 text-gold" />
                         Worship & Cult
                       </CardTitle>
                       <CardDescription>
@@ -629,8 +629,8 @@ export function DeityPageClient({ slug }: DeityPageClientProps) {
                       {deity.worship.temples &&
                         deity.worship.temples.length > 0 && (
                           <div>
-                            <h4 className="font-medium flex items-center gap-2 text-slate-800 dark:text-slate-200 mb-3">
-                              <Building className="h-4 w-4 text-slate-500" />
+                            <h4 className="font-medium flex items-center gap-2 text-foreground mb-3">
+                              <Building className="h-4 w-4 text-muted-foreground" />
                               Sacred Temples
                             </h4>
                             <ul className="space-y-2">
@@ -652,8 +652,8 @@ export function DeityPageClient({ slug }: DeityPageClientProps) {
                       {deity.worship.festivals &&
                         deity.worship.festivals.length > 0 && (
                           <div>
-                            <h4 className="font-medium flex items-center gap-2 text-slate-800 dark:text-slate-200 mb-3">
-                              <Calendar className="h-4 w-4 text-slate-500" />
+                            <h4 className="font-medium flex items-center gap-2 text-foreground mb-3">
+                              <Calendar className="h-4 w-4 text-muted-foreground" />
                               Festivals & Celebrations
                             </h4>
                             <div className="flex flex-wrap gap-2">
@@ -661,7 +661,7 @@ export function DeityPageClient({ slug }: DeityPageClientProps) {
                                 <Badge
                                   key={festival}
                                   variant="outline"
-                                  className="border-amber-300 dark:border-amber-700 text-amber-700 dark:text-amber-300"
+                                  className="border-gold/30 text-gold"
                                 >
                                   {festival}
                                 </Badge>
@@ -672,7 +672,7 @@ export function DeityPageClient({ slug }: DeityPageClientProps) {
 
                       {deity.worship.practices && (
                         <div>
-                          <h4 className="font-medium text-slate-800 dark:text-slate-200 mb-2">
+                          <h4 className="font-medium text-foreground mb-2">
                             Worship Practices
                           </h4>
                           <p className="text-muted-foreground leading-relaxed">
@@ -687,10 +687,10 @@ export function DeityPageClient({ slug }: DeityPageClientProps) {
               {/* Quick Info Cards */}
               <div className="grid sm:grid-cols-2 gap-4">
                 {deity.domain && deity.domain.length > 0 && (
-                  <Card className="bg-white dark:bg-slate-900">
+                  <Card className="">
                     <CardHeader className="pb-3">
                       <CardTitle className="font-serif flex items-center gap-2 text-lg">
-                        <Shield className="h-5 w-5 text-teal-600" />
+                        <Shield className="h-5 w-5 text-gold" />
                         Domains
                       </CardTitle>
                     </CardHeader>
@@ -700,7 +700,7 @@ export function DeityPageClient({ slug }: DeityPageClientProps) {
                           <Badge
                             key={d}
                             variant="secondary"
-                            className="bg-teal-100 dark:bg-teal-900/30 text-teal-700 dark:text-teal-300"
+                            className="bg-gold/10 text-gold"
                           >
                             {d}
                           </Badge>
@@ -711,10 +711,10 @@ export function DeityPageClient({ slug }: DeityPageClientProps) {
                 )}
 
                 {deity.symbols && deity.symbols.length > 0 && (
-                  <Card className="bg-white dark:bg-slate-900">
+                  <Card className="">
                     <CardHeader className="pb-3">
                       <CardTitle className="font-serif flex items-center gap-2 text-lg">
-                        <Users className="h-5 w-5 text-amber-600" />
+                        <Users className="h-5 w-5 text-gold" />
                         Symbols
                       </CardTitle>
                     </CardHeader>
@@ -724,7 +724,7 @@ export function DeityPageClient({ slug }: DeityPageClientProps) {
                           <Badge
                             key={s}
                             variant="outline"
-                            className="border-amber-200 dark:border-amber-800"
+                            className="border-gold/30"
                           >
                             {s}
                           </Badge>
@@ -749,10 +749,10 @@ export function DeityPageClient({ slug }: DeityPageClientProps) {
           {/* Family Tree */}
           {relationshipsData?.deityRelationships &&
             relationshipsData.deityRelationships.length > 0 && (
-              <Card className="bg-white dark:bg-slate-900">
+              <Card className="">
                 <CardHeader>
                   <CardTitle className="font-serif flex items-center gap-2">
-                    <Network className="h-5 w-5 text-teal-600" />
+                    <Network className="h-5 w-5 text-gold" />
                     Family Tree
                   </CardTitle>
                   <CardDescription>

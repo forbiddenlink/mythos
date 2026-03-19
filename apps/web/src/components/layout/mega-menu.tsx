@@ -4,24 +4,16 @@ import { cn } from "@/lib/utils";
 import { AnimatePresence, motion } from "framer-motion";
 import {
   Award,
-  Brain,
   CalendarCheck,
   ChevronDown,
-  Clock,
-  Compass,
   Crown,
   Gamepad2,
   GitCompare,
   GraduationCap,
   Library,
-  Lightbulb,
   MapPin,
-  Network,
   Route,
-  Scale,
   Scroll,
-  Sparkles,
-  Swords,
   Trophy,
   Users,
 } from "lucide-react";
@@ -41,8 +33,14 @@ interface MenuSection {
 }
 
 const exploreMenu: MenuSection = {
-  label: "Explore",
+  label: "Browse",
   items: [
+    {
+      label: "Pantheons",
+      href: "/pantheons",
+      description: "Start with the major myth traditions",
+      icon: <Library className="h-4 w-4" />,
+    },
     {
       label: "Deities",
       href: "/deities",
@@ -56,34 +54,10 @@ const exploreMenu: MenuSection = {
       icon: <Scroll className="h-4 w-4" />,
     },
     {
-      label: "Interactive Stories",
-      href: "/stories",
-      description: "Choose your own mythology adventure",
-      icon: <Gamepad2 className="h-4 w-4" />,
-    },
-    {
-      label: "Creatures",
-      href: "/creatures",
-      description: "Mythical beasts and monsters",
-      icon: <Swords className="h-4 w-4" />,
-    },
-    {
-      label: "Artifacts",
-      href: "/artifacts",
-      description: "Legendary weapons and objects",
-      icon: <Sparkles className="h-4 w-4" />,
-    },
-    {
       label: "Locations",
       href: "/locations",
       description: "Sacred places and mythical realms",
       icon: <MapPin className="h-4 w-4" />,
-    },
-    {
-      label: "Hero Journeys",
-      href: "/journeys",
-      description: "Epic voyages across the ancient world",
-      icon: <Route className="h-4 w-4" />,
     },
   ],
 };
@@ -94,14 +68,14 @@ const discoverMenu: MenuSection = {
     {
       label: "Collections",
       href: "/collections",
-      description: "Themed deity and story groupings",
+      description: "Curated groupings for faster exploration",
       icon: <Library className="h-4 w-4" />,
     },
     {
-      label: "Divine Domains",
-      href: "/divine-domains",
-      description: "Powers and spheres of influence",
-      icon: <Compass className="h-4 w-4" />,
+      label: "Hero Journeys",
+      href: "/journeys",
+      description: "Epic voyages across the ancient world",
+      icon: <Route className="h-4 w-4" />,
     },
     {
       label: "Compare Deities",
@@ -110,34 +84,10 @@ const discoverMenu: MenuSection = {
       icon: <GitCompare className="h-4 w-4" />,
     },
     {
-      label: "Knowledge Graph",
-      href: "/knowledge-graph",
-      description: "Visual mythology connections",
-      icon: <Network className="h-4 w-4" />,
-    },
-    {
       label: "Family Tree",
       href: "/family-tree",
       description: "Divine genealogies",
       icon: <Users className="h-4 w-4" />,
-    },
-    {
-      label: "Timeline",
-      href: "/timeline",
-      description: "Chronological myth events",
-      icon: <Route className="h-4 w-4" />,
-    },
-    {
-      label: "Compare Myths",
-      href: "/compare/myths",
-      description: "Cross-pantheon myth parallels",
-      icon: <Scale className="h-4 w-4" />,
-    },
-    {
-      label: "Story Timeline",
-      href: "/story-timeline",
-      description: "Visual story chronology",
-      icon: <Clock className="h-4 w-4" />,
     },
   ],
 };
@@ -150,18 +100,6 @@ const learnMenu: MenuSection = {
       href: "/quiz",
       description: "Test your mythology knowledge",
       icon: <Gamepad2 className="h-4 w-4" />,
-    },
-    {
-      label: "Symbol Memory",
-      href: "/games/memory",
-      description: "Match deities with their symbols",
-      icon: <Brain className="h-4 w-4" />,
-    },
-    {
-      label: "Mythology Facts",
-      href: "/facts",
-      description: "Fascinating mythology tidbits",
-      icon: <Lightbulb className="h-4 w-4" />,
     },
     {
       label: "Daily Review",
@@ -182,9 +120,9 @@ const learnMenu: MenuSection = {
       icon: <Award className="h-4 w-4" />,
     },
     {
-      label: "Leaderboard",
-      href: "/leaderboard",
-      description: "Rankings and competition",
+      label: "Your Stats",
+      href: "/progress",
+      description: "Track streaks, XP, and milestones",
       icon: <Trophy className="h-4 w-4" />,
     },
   ],
@@ -228,21 +166,23 @@ function MegaMenuDropdown({
   }, []);
 
   return (
-    <div
-      ref={menuRef}
-      className="relative"
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-    >
+    <div ref={menuRef} className="relative">
       <button
+        type="button"
         className={cn(
           "relative flex items-center gap-1 px-3 py-2 text-sm font-medium transition-colors duration-200 group",
           isOpen
             ? "text-foreground"
             : "text-muted-foreground hover:text-foreground",
         )}
-        aria-expanded={isOpen ? "true" : "false"}
-        aria-haspopup="true"
+        aria-haspopup="menu"
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+        onFocus={handleMouseEnter}
+        onBlur={(event) => {
+          if (menuRef.current?.contains(event.relatedTarget as Node)) return;
+          handleMouseLeave();
+        }}
       >
         <span className="relative z-10">{section.label}</span>
         <ChevronDown
@@ -267,6 +207,8 @@ function MegaMenuDropdown({
             exit={{ opacity: 0, y: 8 }}
             transition={{ duration: 0.15 }}
             className="absolute left-1/2 -translate-x-1/2 top-full z-50"
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
           >
             {/* Invisible bridge to prevent gap between trigger and dropdown */}
             <div className="h-2" />
@@ -316,20 +258,11 @@ export function MegaMenu() {
 
   return (
     <nav className="hidden lg:flex items-center gap-1 xl:gap-2">
-      {/* Pantheons - direct link */}
-      <Link
-        href="/pantheons"
-        className="relative px-3 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors duration-200 group"
-      >
-        <span className="relative z-10">Pantheons</span>
-        <span className="absolute inset-x-1 -bottom-px h-px bg-linear-to-r from-transparent via-gold/60 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
-      </Link>
-
-      {/* Explore dropdown */}
+      {/* Browse dropdown */}
       <MegaMenuDropdown
         section={exploreMenu}
-        isOpen={openMenu === "Explore"}
-        onOpen={() => handleOpen("Explore")}
+        isOpen={openMenu === "Browse"}
+        onOpen={() => handleOpen("Browse")}
         onClose={handleClose}
       />
 
@@ -348,6 +281,15 @@ export function MegaMenu() {
         onOpen={() => handleOpen("Learn")}
         onClose={handleClose}
       />
+
+      {/* Quiz - direct link */}
+      <Link
+        href="/quiz"
+        className="relative px-3 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors duration-200 group"
+      >
+        <span className="relative z-10">Quiz</span>
+        <span className="absolute inset-x-1 -bottom-px h-px bg-linear-to-r from-transparent via-gold/60 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
+      </Link>
 
       {/* Progress - direct link */}
       <Link

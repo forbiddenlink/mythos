@@ -3,10 +3,17 @@
  * Provides rotating daily challenges with streak tracking
  */
 
-import dailyChallengesData from '@/data/daily-challenges.json';
+import dailyChallengesData from "@/data/daily-challenges.json";
+import { toLocalDateString } from "@/lib/date";
 
 export interface DailyChallengeAction {
-  type: 'complete_quick_quiz' | 'read_story' | 'view_new_deity' | 'view_pantheon_deity' | 'quiz_high_score' | 'view_multiple_pantheons';
+  type:
+    | "complete_quick_quiz"
+    | "read_story"
+    | "view_new_deity"
+    | "view_pantheon_deity"
+    | "quiz_high_score"
+    | "view_multiple_pantheons";
   pantheonId?: string;
   minScore?: number;
   count?: number;
@@ -27,11 +34,11 @@ const allChallenges = dailyChallengesData.challenges as DailyChallenge[];
  * Get a deterministic seed for a given date
  */
 function getDateSeed(date: Date): number {
-  const dateStr = date.toISOString().split('T')[0];
+  const dateStr = toLocalDateString(date);
   let hash = 0;
   for (let i = 0; i < dateStr.length; i++) {
     const char = dateStr.codePointAt(i) ?? 0;
-    hash = ((hash << 5) - hash) + char;
+    hash = (hash << 5) - hash + char;
     hash = hash & hash;
   }
   return Math.abs(hash);
@@ -58,7 +65,7 @@ function seededShuffle<T>(array: T[], seed: number): T[] {
  * Get today's date string (YYYY-MM-DD)
  */
 export function getTodayString(): string {
-  return new Date().toISOString().split('T')[0];
+  return toLocalDateString(new Date());
 }
 
 /**
@@ -101,38 +108,39 @@ export function isChallengeCompleted(
     pantheonsViewedToday: string[];
     quizCompletedToday: boolean;
     quizScoreToday: number;
-  }
+  },
 ): boolean {
   const { action } = challenge;
 
   switch (action.type) {
-    case 'complete_quick_quiz':
+    case "complete_quick_quiz":
       return todayProgress.quizCompletedToday;
 
-    case 'read_story':
+    case "read_story":
       return todayProgress.storiesReadToday.length > 0;
 
-    case 'view_new_deity':
+    case "view_new_deity": {
       // Check if any deity viewed today was new (not in previous progress)
       const previouslyViewed = new Set(
         progress.deitiesViewed.filter(
-          (d) => !todayProgress.deitiesViewedToday.includes(d)
-        )
+          (d) => !todayProgress.deitiesViewedToday.includes(d),
+        ),
       );
       return todayProgress.deitiesViewedToday.some(
-        (d) => !previouslyViewed.has(d)
+        (d) => !previouslyViewed.has(d),
       );
+    }
 
-    case 'view_pantheon_deity':
+    case "view_pantheon_deity":
       if (!action.pantheonId) return false;
       return todayProgress.deitiesViewedToday.some(
-        (deityId) => deityPantheonMap.get(deityId) === action.pantheonId
+        (deityId) => deityPantheonMap.get(deityId) === action.pantheonId,
       );
 
-    case 'quiz_high_score':
+    case "quiz_high_score":
       return todayProgress.quizScoreToday >= (action.minScore || 80);
 
-    case 'view_multiple_pantheons':
+    case "view_multiple_pantheons":
       return todayProgress.pantheonsViewedToday.length >= (action.count || 3);
 
     default:
@@ -143,18 +151,17 @@ export function isChallengeCompleted(
 /**
  * Calculate daily challenge streak
  */
-export function calculateStreak(
-  claimedDates: string[],
-  today: string
-): number {
+export function calculateStreak(claimedDates: string[], today: string): number {
   if (claimedDates.length === 0) return 0;
 
-  const sortedDates = claimedDates.toSorted().toReversed();
+  const sortedDates = claimedDates
+    .toSorted((a, b) => a.localeCompare(b))
+    .toReversed();
   let streak = 0;
   const currentDate = new Date(today);
 
   for (const dateStr of sortedDates) {
-    const checkDate = currentDate.toISOString().split('T')[0];
+    const checkDate = toLocalDateString(currentDate);
 
     if (dateStr === checkDate) {
       streak++;
@@ -173,12 +180,12 @@ export function calculateStreak(
  */
 export function getChallengeIcon(iconName: string): string {
   const iconMap: Record<string, string> = {
-    'zap': 'Zap',
-    'book-open': 'BookOpen',
-    'sparkles': 'Sparkles',
-    'globe': 'Globe',
-    'award': 'Award',
-    'compass': 'Compass',
+    zap: "Zap",
+    "book-open": "BookOpen",
+    sparkles: "Sparkles",
+    globe: "Globe",
+    award: "Award",
+    compass: "Compass",
   };
-  return iconMap[iconName] || 'Star';
+  return iconMap[iconName] || "Star";
 }

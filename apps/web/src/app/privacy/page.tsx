@@ -1,5 +1,5 @@
-import type { Metadata } from "next";
 import { generateBaseMetadata } from "@/lib/metadata";
+import type { Metadata } from "next";
 
 export const metadata: Metadata = generateBaseMetadata({
   title: "Privacy Policy - Mythos Atlas",
@@ -91,7 +91,8 @@ export default function PrivacyPolicyPage() {
           </ul>
           <p className="mt-4 text-muted-foreground">
             You can control cookie preferences through our cookie consent banner
-            or your browser settings.
+            or your browser settings. Analytics and performance metrics are only
+            sent after you explicitly accept non-essential cookies.
           </p>
         </section>
 

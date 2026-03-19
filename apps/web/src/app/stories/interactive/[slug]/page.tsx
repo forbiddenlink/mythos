@@ -1,16 +1,22 @@
-'use client';
+"use client";
 
-import { useParams } from 'next/navigation';
-import Link from 'next/link';
-import { BookOpen, ArrowLeft, Clock, Trophy, User } from 'lucide-react';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
-import { Breadcrumbs } from '@/components/navigation/Breadcrumbs';
-import { InteractiveStory } from '@/components/stories/InteractiveStory';
-import { BranchingStory, getDiscoveredEndings } from '@/lib/branching-story';
-import branchingStoriesData from '@/data/branching-stories.json';
-import { useState, useEffect } from 'react';
+import { useParams } from "next/navigation";
+import Link from "next/link";
+import { BookOpen, ArrowLeft, Clock, Trophy, User } from "lucide-react";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+} from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
+import { InteractiveStory } from "@/components/stories/InteractiveStory";
+import { BranchingStory, getDiscoveredEndings } from "@/lib/branching-story";
+import branchingStoriesData from "@/data/branching-stories.json";
+import { useState, useEffect } from "react";
 
 const branchingStories = branchingStoriesData as unknown as BranchingStory[];
 
@@ -39,11 +45,16 @@ export default function InteractiveStoryPage() {
       <div className="min-h-screen bg-mythic">
         <div className="container mx-auto max-w-4xl px-4 py-24">
           <div className="text-center">
-            <h2 className="text-2xl font-bold text-parchment">Story Not Found</h2>
-            <p className="text-parchment/60 mt-2">
+            <h2 className="text-2xl font-bold text-foreground">
+              Story Not Found
+            </h2>
+            <p className="text-muted-foreground mt-2">
               The interactive story you&apos;re looking for doesn&apos;t exist.
             </p>
-            <Link href="/stories" className="text-gold hover:underline mt-4 inline-block">
+            <Link
+              href="/stories"
+              className="text-gold hover:underline mt-4 inline-block"
+            >
               View all stories
             </Link>
           </div>
@@ -112,12 +123,16 @@ export default function InteractiveStoryPage() {
                   <div className="p-4 bg-midnight/50 rounded-lg border border-gold/10 text-center">
                     <User className="h-6 w-6 text-gold mx-auto mb-2" />
                     <p className="text-sm text-parchment/60">Playing As</p>
-                    <p className="text-parchment font-medium">{story.protagonist}</p>
+                    <p className="text-parchment font-medium">
+                      {story.protagonist}
+                    </p>
                   </div>
                   <div className="p-4 bg-midnight/50 rounded-lg border border-gold/10 text-center">
                     <Clock className="h-6 w-6 text-gold mx-auto mb-2" />
                     <p className="text-sm text-parchment/60">Estimated Time</p>
-                    <p className="text-parchment font-medium">{story.estimatedTime}</p>
+                    <p className="text-parchment font-medium">
+                      {story.estimatedTime}
+                    </p>
                   </div>
                   <div className="p-4 bg-midnight/50 rounded-lg border border-gold/10 text-center">
                     <Trophy className="h-6 w-6 text-gold mx-auto mb-2" />
@@ -125,7 +140,8 @@ export default function InteractiveStoryPage() {
                     <p className="text-parchment font-medium">
                       {discoveredCount > 0 ? (
                         <>
-                          <span className="text-gold">{discoveredCount}</span> / {story.totalEndings} discovered
+                          <span className="text-gold">{discoveredCount}</span> /{" "}
+                          {story.totalEndings} discovered
                         </>
                       ) : (
                         <>{story.totalEndings} to discover</>
@@ -166,10 +182,14 @@ export default function InteractiveStoryPage() {
                     className="gap-2 min-w-50"
                   >
                     <BookOpen className="h-5 w-5" />
-                    {discoveredCount > 0 ? 'Continue Story' : 'Begin Story'}
+                    {discoveredCount > 0 ? "Continue Story" : "Begin Story"}
                   </Button>
                   <Link href="/stories">
-                    <Button variant="outline" size="lg" className="gap-2 border-gold/30 text-gold hover:bg-gold/10">
+                    <Button
+                      variant="outline"
+                      size="lg"
+                      className="gap-2 border-gold/30 text-gold hover:bg-gold/10"
+                    >
                       <ArrowLeft className="h-4 w-4" />
                       Back to Stories
                     </Button>
@@ -186,7 +206,10 @@ export default function InteractiveStoryPage() {
         {isStarted && (
           <div className="flex justify-center pt-8">
             <Link href="/stories">
-              <Button variant="outline" className="gap-2 border-gold/30 text-gold hover:bg-gold/10">
+              <Button
+                variant="outline"
+                className="gap-2 border-gold/30 text-gold hover:bg-gold/10"
+              >
                 <ArrowLeft className="h-4 w-4" />
                 Back to All Stories
               </Button>

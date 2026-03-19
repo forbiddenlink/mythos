@@ -25,12 +25,20 @@ const categoryIcons = {
   special: Star,
 };
 
+const tierBadgeClasses: Record<string, string> = {
+  mythic: "bg-violet-100 text-violet-950 border-violet-300",
+  gold: "bg-amber-100 text-amber-950 border-amber-300",
+  silver: "bg-slate-200 text-slate-950 border-slate-300",
+  bronze: "bg-orange-100 text-orange-950 border-orange-300",
+};
+
 function AchievementCard({
   achievement,
-}: {
+}: Readonly<{
   achievement: AchievementWithStatus;
-}) {
+}>) {
   const colors = tierColors[achievement.tier];
+  const isUnlocked = achievement.unlocked;
   const progressPercent = achievement.progress
     ? Math.min(
         100,
@@ -42,23 +50,29 @@ function AchievementCard({
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      className={`relative rounded-xl border ${colors.border} ${colors.bg} p-5 transition-all duration-300 ${
-        achievement.unlocked
+      className={`relative rounded-xl border p-5 transition-all duration-300 bg-card ${
+        isUnlocked ? `${colors.border} ${colors.bg} shadow-lg` : "border-border"
+      } ${
+        isUnlocked
           ? "shadow-lg"
-          : "opacity-60 grayscale hover:opacity-80 hover:grayscale-0"
+          : "grayscale hover:grayscale-0 border-border/80"
       }`}
     >
       {/* Lock overlay for locked achievements */}
       {!achievement.unlocked && (
         <div className="absolute top-3 right-3">
-          <Lock className="h-4 w-4 text-parchment/40" />
+          <Lock className="h-4 w-4 text-muted-foreground" />
         </div>
       )}
 
       <div className="flex items-start gap-4">
         {/* Icon */}
         <div
-          className={`shrink-0 w-14 h-14 rounded-lg ${colors.bg} border ${colors.border} flex items-center justify-center text-2xl`}
+          className={`shrink-0 w-14 h-14 rounded-lg border flex items-center justify-center text-2xl ${
+            isUnlocked
+              ? `${colors.bg} ${colors.border}`
+              : "bg-muted border-border"
+          }`}
         >
           {achievement.icon}
         </div>
@@ -66,19 +80,21 @@ function AchievementCard({
         {/* Content */}
         <div className="flex-1 min-w-0">
           <div className="flex items-center gap-2 mb-1">
-            <h3
-              className={`font-semibold ${achievement.unlocked ? colors.text : "text-parchment/70"}`}
-            >
+            <h3 className="font-semibold text-foreground">
               {achievement.name}
             </h3>
             <span
-              className={`text-xs px-2 py-0.5 rounded-full ${colors.bg} ${colors.text} border ${colors.border}`}
+              className={`text-xs px-2 py-0.5 rounded-full border ${
+                isUnlocked
+                  ? tierBadgeClasses[achievement.tier]
+                  : "bg-muted text-foreground border-border"
+              }`}
             >
               {achievement.tier}
             </span>
           </div>
 
-          <p className="text-sm text-parchment/60 mb-3">
+          <p className="text-sm text-foreground/85 mb-3">
             {achievement.description}
           </p>
 
@@ -90,7 +106,7 @@ function AchievementCard({
                 className="h-2"
                 aria-label={`${achievement.name} progress: ${achievement.progress.current} of ${achievement.progress.target}`}
               />
-              <p className="text-xs text-parchment/50">
+              <p className="text-xs text-foreground/80">
                 {achievement.progress.current} / {achievement.progress.target}
               </p>
             </div>
@@ -99,10 +115,10 @@ function AchievementCard({
           {/* XP reward */}
           <div className="flex items-center gap-1 mt-2">
             <Star
-              className={`h-3.5 w-3.5 ${achievement.unlocked ? "text-gold" : "text-parchment/40"}`}
+              className={`h-3.5 w-3.5 ${achievement.unlocked ? "text-amber-700" : "text-foreground/70"}`}
             />
             <span
-              className={`text-xs ${achievement.unlocked ? "text-gold" : "text-parchment/40"}`}
+              className={`text-xs ${achievement.unlocked ? "text-amber-700" : "text-foreground/80"}`}
             >
               {achievement.xp} XP
             </span>
@@ -116,10 +132,10 @@ function AchievementCard({
 function CategorySection({
   category,
   achievements,
-}: {
+}: Readonly<{
   category: keyof typeof categoryLabels;
   achievements: AchievementWithStatus[];
-}) {
+}>) {
   const Icon = categoryIcons[category];
   const unlockedCount = achievements.filter((a) => a.unlocked).length;
 
@@ -130,10 +146,10 @@ function CategorySection({
           <Icon className="h-5 w-5 text-gold" />
         </div>
         <div>
-          <h2 className="text-xl font-serif text-parchment">
+          <h2 className="text-xl font-serif text-foreground">
             {categoryLabels[category]}
           </h2>
-          <p className="text-sm text-parchment/50">
+          <p className="text-sm text-muted-foreground">
             {unlockedCount} / {achievements.length} unlocked
           </p>
         </div>
@@ -184,7 +200,7 @@ export default function AchievementsPage() {
     .reduce((sum, a) => sum + a.xp, 0);
 
   return (
-    <div className="min-h-screen bg-linear-to-b from-midnight via-mythic to-midnight">
+    <div className="min-h-screen bg-linear-to-b from-background via-muted/30 to-background dark:from-midnight dark:via-mythic dark:to-midnight">
       {/* Hero Section */}
       <section className="relative py-20 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-radial from-gold/5 via-transparent to-transparent" />
@@ -200,11 +216,11 @@ export default function AchievementsPage() {
               <span className="text-sm text-gold">Your Achievements</span>
             </div>
 
-            <h1 className="text-4xl md:text-5xl font-serif font-semibold text-parchment mb-4">
+            <h1 className="text-4xl md:text-5xl font-serif font-semibold text-foreground mb-4">
               Hall of <span className="text-gradient-gold">Glory</span>
             </h1>
 
-            <p className="text-lg text-parchment/70 mb-8">
+            <p className="text-lg text-muted-foreground mb-8">
               Earn badges as you read stories, study deities, and test your
               knowledge across all 13 pantheons.
             </p>
@@ -215,21 +231,21 @@ export default function AchievementsPage() {
                 <div className="text-3xl font-bold text-gold">
                   {unlockedCount}
                 </div>
-                <div className="text-sm text-parchment/50">Unlocked</div>
+                <div className="text-sm text-muted-foreground">Unlocked</div>
               </div>
               <div className="w-px h-12 bg-gold/20" />
               <div className="text-center">
-                <div className="text-3xl font-bold text-parchment/70">
+                <div className="text-3xl font-bold text-foreground/70">
                   {totalCount}
                 </div>
-                <div className="text-sm text-parchment/50">Total</div>
+                <div className="text-sm text-muted-foreground">Total</div>
               </div>
               <div className="w-px h-12 bg-gold/20" />
               <div className="text-center">
                 <div className="text-3xl font-bold text-purple-400">
                   {totalXP}
                 </div>
-                <div className="text-sm text-parchment/50">XP Earned</div>
+                <div className="text-sm text-muted-foreground">XP Earned</div>
               </div>
             </div>
           </motion.div>

@@ -1,7 +1,7 @@
-import type { NextConfig } from "next";
-import { withSentryConfig } from "@sentry/nextjs";
-import createNextIntlPlugin from "next-intl/plugin";
 import bundleAnalyzer from "@next/bundle-analyzer";
+import { withSentryConfig } from "@sentry/nextjs";
+import type { NextConfig } from "next";
+import createNextIntlPlugin from "next-intl/plugin";
 
 const withNextIntl = createNextIntlPlugin("./i18n.ts");
 const withBundleAnalyzer = bundleAnalyzer({
@@ -134,6 +134,7 @@ const withPWA = require("next-pwa")({
 });
 
 const nextConfig: NextConfig = {
+  devIndicators: false,
   // NOTE: viewTransition is experimental and was causing navigation to fail
   // (links would preventDefault but navigation wouldn't complete)
   // Disabled until the feature is stable in Next.js

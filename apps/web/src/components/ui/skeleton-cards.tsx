@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import { cn } from '@/lib/utils';
+import { cn } from "@/lib/utils";
 
 /**
  * Base Skeleton component with shimmer animation
@@ -13,12 +13,12 @@ function Skeleton({
   return (
     <div
       className={cn(
-        'relative overflow-hidden rounded-md bg-muted',
-        'before:absolute before:inset-0',
-        'before:-translate-x-full before:animate-[shimmer_2s_infinite]',
-        'before:bg-linear-to-r before:from-transparent before:via-white/10 before:to-transparent',
-        'dark:before:via-white/5',
-        className
+        "relative overflow-hidden rounded-md bg-muted",
+        "before:absolute before:inset-0",
+        "before:-translate-x-full before:animate-[shimmer_2s_infinite]",
+        "before:bg-linear-to-r before:from-transparent before:via-white/10 before:to-transparent",
+        "dark:before:via-white/5",
+        className,
       )}
       {...props}
     />
@@ -170,7 +170,7 @@ export function DetailPageSkeleton() {
  */
 export function TableRowSkeleton() {
   return (
-    <tr className="border-b border-slate-200 dark:border-slate-800">
+    <tr className="border-b border-border">
       {/* Name */}
       <td className="px-4 py-3">
         <Skeleton className="h-5 w-24" />
@@ -210,9 +210,9 @@ export function TableSkeleton({ rows = 10 }: { rows?: number }) {
       <Skeleton className="h-10 w-full rounded-md" />
 
       {/* Table */}
-      <div className="rounded-lg border border-slate-200 dark:border-slate-800 overflow-hidden">
+      <div className="rounded-lg border border-border overflow-hidden">
         <table className="w-full">
-          <thead className="bg-slate-50 dark:bg-slate-900">
+          <thead className="bg-muted">
             <tr>
               <th className="px-4 py-3 text-left">
                 <Skeleton className="h-4 w-12" />
@@ -231,7 +231,7 @@ export function TableSkeleton({ rows = 10 }: { rows?: number }) {
               </th>
             </tr>
           </thead>
-          <tbody className="divide-y divide-slate-200 dark:divide-slate-800">
+          <tbody className="divide-y divide-border">
             {Array.from({ length: rows }).map((_, i) => (
               <TableRowSkeleton key={i} />
             ))}
@@ -257,27 +257,27 @@ export function TableSkeleton({ rows = 10 }: { rows?: number }) {
 interface GridSkeletonProps {
   count?: number;
   columns?: 1 | 2 | 3 | 4;
-  type?: 'deity' | 'story';
+  type?: "deity" | "story";
   className?: string;
 }
 
 export function GridSkeleton({
   count = 6,
   columns = 3,
-  type = 'deity',
+  type = "deity",
   className,
 }: GridSkeletonProps) {
   const columnClasses = {
-    1: 'grid-cols-1',
-    2: 'sm:grid-cols-2',
-    3: 'sm:grid-cols-2 lg:grid-cols-3',
-    4: 'sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4',
+    1: "grid-cols-1",
+    2: "sm:grid-cols-2",
+    3: "sm:grid-cols-2 lg:grid-cols-3",
+    4: "sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4",
   };
 
-  const SkeletonCard = type === 'story' ? StoryCardSkeleton : DeityCardSkeleton;
+  const SkeletonCard = type === "story" ? StoryCardSkeleton : DeityCardSkeleton;
 
   return (
-    <div className={cn('grid gap-6', columnClasses[columns], className)}>
+    <div className={cn("grid gap-6", columnClasses[columns], className)}>
       {Array.from({ length: count }).map((_, i) => (
         <SkeletonCard key={i} />
       ))}

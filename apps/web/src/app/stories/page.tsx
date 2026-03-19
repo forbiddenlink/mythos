@@ -1,23 +1,24 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { useQuery } from "@tanstack/react-query";
+import { PageHero } from "@/components/layout/page-hero";
+import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
+import { CollectionPageJsonLd } from "@/components/seo/JsonLd";
+import { StoryFilters } from "@/components/stories/StoryFilters";
+import { Badge } from "@/components/ui/badge";
+import { BookmarkButton } from "@/components/ui/bookmark-button";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { PaginationControls } from "@/components/ui/pagination-controls";
+import { FiltersSkeleton, GridSkeleton } from "@/components/ui/skeleton-cards";
+import branchingStoriesData from "@/data/branching-stories.json";
+import { usePagination } from "@/hooks/usePagination";
+import { BranchingStory, getDiscoveredEndings } from "@/lib/branching-story";
 import { graphqlClient } from "@/lib/graphql-client";
 import { GET_STORIES } from "@/lib/queries";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { ScrollText, BookOpen, Gamepad2, Trophy, Clock } from "lucide-react";
+import { useQuery } from "@tanstack/react-query";
+import { BookOpen, Clock, Gamepad2, ScrollText, Trophy } from "lucide-react";
 import Link from "next/link";
-import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
-import { StoryFilters } from "@/components/stories/StoryFilters";
-import { BookmarkButton } from "@/components/ui/bookmark-button";
-import { GridSkeleton, FiltersSkeleton } from "@/components/ui/skeleton-cards";
-import { BranchingStory, getDiscoveredEndings } from "@/lib/branching-story";
-import branchingStoriesData from "@/data/branching-stories.json";
-import { CollectionPageJsonLd } from "@/components/seo/JsonLd";
-import { usePagination } from "@/hooks/usePagination";
-import { PaginationControls } from "@/components/ui/pagination-controls";
-import { PageHero } from "@/components/layout/page-hero";
+import { useEffect, useState } from "react";
 
 const branchingStories = branchingStoriesData as unknown as BranchingStory[];
 
@@ -133,6 +134,7 @@ interface Story {
 
 export default function StoriesPage() {
   const [filteredStories, setFilteredStories] = useState<Story[]>([]);
+  const [filtersVersion, setFiltersVersion] = useState(0);
 
   const { data, isLoading, error } = useQuery<{ stories: Story[] }>({
     queryKey: ["stories"],
@@ -146,8 +148,60 @@ export default function StoriesPage() {
     }),
   });
 
-  const displayStories =
-    filteredStories.length > 0 ? filteredStories : data?.stories || [];
+  const hasActiveFilters = filteredStories !== data?.stories;
+  const displayStories = hasActiveFilters
+    ? filteredStories
+    : data?.stories || [];
+
+  let storiesContent;
+  if (displayStories.length > 0) {
+    storiesContent = <PaginatedStoryGrid stories={displayStories} />;
+  } else if (hasActiveFilters) {
+    storiesContent = (
+      <div className="text-center py-20">
+        <div className="inline-flex items-center justify-center w-20 h-20 rounded-xl bg-muted border border-border mb-6">
+          <ScrollText
+            className="h-10 w-10 text-muted-foreground"
+            strokeWidth={1.5}
+          />
+        </div>
+        <h2 className="text-2xl font-serif font-semibold mb-2 text-foreground">
+          No stories found
+        </h2>
+        <p className="text-muted-foreground">
+          Try adjusting your filters to find what you&apos;re looking for
+        </p>
+        <Button
+          variant="outline"
+          size="sm"
+          className="mt-4"
+          onClick={() => {
+            setFilteredStories(data?.stories ?? []);
+            setFiltersVersion((prev) => prev + 1);
+          }}
+        >
+          Clear filters
+        </Button>
+      </div>
+    );
+  } else {
+    storiesContent = (
+      <div className="text-center py-20">
+        <div className="inline-flex items-center justify-center w-20 h-20 rounded-xl bg-muted border border-border mb-6">
+          <ScrollText
+            className="h-10 w-10 text-muted-foreground"
+            strokeWidth={1.5}
+          />
+        </div>
+        <h2 className="text-2xl font-serif font-semibold mb-2 text-foreground">
+          No stories yet
+        </h2>
+        <p className="text-muted-foreground">
+          Check back later for mythological tales and legends
+        </p>
+      </div>
+    );
+  }
 
   if (isLoading) {
     return (
@@ -203,7 +257,7 @@ export default function StoriesPage() {
 
         {/* Interactive Stories Section */}
         {branchingStories.length > 0 && (
-          <div className="mb-12">
+          <div id="interactive" className="mb-12 scroll-mt-24">
             <div className="flex items-center gap-3 mb-6">
               <div className="p-2 rounded-lg bg-gold/10 border border-gold/20">
                 <Gamepad2 className="h-5 w-5 text-gold" />
@@ -243,30 +297,14 @@ export default function StoriesPage() {
         {data?.stories && (
           <div className="mb-6">
             <StoryFilters
+              key={filtersVersion}
               stories={data.stories}
               onFilteredChange={setFilteredStories}
             />
           </div>
         )}
 
-        {displayStories.length > 0 ? (
-          <PaginatedStoryGrid stories={displayStories} />
-        ) : (
-          <div className="text-center py-20">
-            <div className="inline-flex items-center justify-center w-20 h-20 rounded-xl bg-muted border border-border mb-6">
-              <ScrollText
-                className="h-10 w-10 text-muted-foreground"
-                strokeWidth={1.5}
-              />
-            </div>
-            <h2 className="text-2xl font-serif font-semibold mb-2 text-foreground">
-              No stories yet
-            </h2>
-            <p className="text-muted-foreground">
-              Check back later for mythological tales and legends
-            </p>
-          </div>
-        )}
+        {storiesContent}
       </div>
     </div>
   );

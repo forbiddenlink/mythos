@@ -26,11 +26,11 @@ export default function AboutPage() {
       />
       {/* Hero Section */}
       <div className="relative h-[40vh] min-h-75 flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 bg-linear-to-b from-midnight/70 via-midnight/60 to-mythic z-10" />
+        <div className="absolute inset-0 bg-linear-to-b from-primary/70 via-primary/60 to-background z-10" />
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[120%] h-[60%] bg-gradient-radial from-gold/10 via-transparent to-transparent z-10" />
 
         <div className="relative z-20 text-center px-4 max-w-4xl mx-auto">
-          <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tight mb-6 text-parchment">
+          <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tight mb-6 text-foreground">
             About Mythos Atlas
           </h1>
           <div className="flex items-center justify-center gap-4 mb-6">
@@ -38,7 +38,7 @@ export default function AboutPage() {
             <div className="w-1.5 h-1.5 rotate-45 bg-gold/50" />
             <div className="w-12 h-px bg-linear-to-l from-transparent to-gold/40" />
           </div>
-          <p className="text-lg md:text-xl text-parchment/70 max-w-2xl mx-auto font-body leading-relaxed">
+          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto font-body leading-relaxed">
             An interactive encyclopedia of ancient mythology
           </p>
         </div>
@@ -49,21 +49,21 @@ export default function AboutPage() {
         <Breadcrumbs />
 
         <div className="mt-8 space-y-8">
-          <Card className="border-gold/20 bg-midnight-light/50">
+          <Card className="border-gold/20 bg-card">
             <CardHeader>
-              <CardTitle className="text-parchment text-2xl font-serif">
+              <CardTitle className="text-foreground text-2xl font-serif">
                 Our Mission
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
-              <p className="text-parchment/80 leading-relaxed text-lg">
+              <p className="text-foreground/80 leading-relaxed text-lg">
                 Mythos Atlas preserves the interconnected mythology of ancient
                 civilizations, revealing how different cultures understood
                 creation, divinity, and human purpose. These stories offer
                 genuine insight into how our ancestors explained the world and
                 their place in it.
               </p>
-              <p className="text-parchment/80 leading-relaxed text-lg">
+              <p className="text-foreground/80 leading-relaxed text-lg">
                 Through interactive visualizations, comprehensive deity
                 profiles, and carefully curated stories, we aim to make
                 mythology accessible and engaging for everyone—from students and
@@ -73,49 +73,51 @@ export default function AboutPage() {
           </Card>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <Card className="border-gold/20 bg-midnight-light/50">
+            <Card className="border-gold/20 bg-card">
               <CardHeader>
                 <div className="flex items-center gap-3 mb-2">
                   <Globe className="h-6 w-6 text-gold" />
-                  <CardTitle className="text-parchment">
+                  <CardTitle className="text-foreground">
                     Global Coverage
                   </CardTitle>
                 </div>
               </CardHeader>
               <CardContent>
-                <p className="text-parchment/70">
+                <p className="text-muted-foreground">
                   Browse 13 pantheons from Greek to Yoruba, with 189+ deities,
                   96+ stories, and 85+ sacred locations documented.
                 </p>
               </CardContent>
             </Card>
 
-            <Card className="border-gold/20 bg-midnight-light/50">
+            <Card className="border-gold/20 bg-card">
               <CardHeader>
                 <div className="flex items-center gap-3 mb-2">
                   <Users className="h-6 w-6 text-gold" />
-                  <CardTitle className="text-parchment">
+                  <CardTitle className="text-foreground">
                     Deity Relationships
                   </CardTitle>
                 </div>
               </CardHeader>
               <CardContent>
-                <p className="text-parchment/70">
+                <p className="text-muted-foreground">
                   Visualize complex family trees and relationships between gods
                   and goddesses through interactive diagrams.
                 </p>
               </CardContent>
             </Card>
 
-            <Card className="border-gold/20 bg-midnight-light/50">
+            <Card className="border-gold/20 bg-card">
               <CardHeader>
                 <div className="flex items-center gap-3 mb-2">
                   <BookOpen className="h-6 w-6 text-gold" />
-                  <CardTitle className="text-parchment">Epic Stories</CardTitle>
+                  <CardTitle className="text-foreground">
+                    Epic Stories
+                  </CardTitle>
                 </div>
               </CardHeader>
               <CardContent>
-                <p className="text-parchment/70">
+                <p className="text-muted-foreground">
                   Read original myths from primary sources—the Eddas, Theogony,
                   Popol Vuh, and more—with modern context and academic
                   citations.
@@ -123,17 +125,17 @@ export default function AboutPage() {
               </CardContent>
             </Card>
 
-            <Card className="border-gold/20 bg-midnight-light/50">
+            <Card className="border-gold/20 bg-card">
               <CardHeader>
                 <div className="flex items-center gap-3 mb-2">
                   <Code className="h-6 w-6 text-gold" />
-                  <CardTitle className="text-parchment">
+                  <CardTitle className="text-foreground">
                     Open Platform
                   </CardTitle>
                 </div>
               </CardHeader>
               <CardContent>
-                <p className="text-parchment/70">
+                <p className="text-muted-foreground">
                   Built with modern web technologies and designed to be
                   accessible, fast, and user-friendly across all devices.
                 </p>
@@ -141,9 +143,9 @@ export default function AboutPage() {
             </Card>
           </div>
 
-          <Card className="border-gold/20 bg-midnight-light/50">
+          <Card className="border-gold/20 bg-card">
             <CardHeader>
-              <CardTitle className="text-parchment text-2xl font-serif">
+              <CardTitle className="text-foreground text-2xl font-serif">
                 Creator
               </CardTitle>
             </CardHeader>
@@ -153,10 +155,10 @@ export default function AboutPage() {
                   <Code className="h-6 w-6 text-gold" />
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-parchment font-semibold text-xl mb-2">
+                  <h3 className="text-foreground font-semibold text-xl mb-2">
                     Elizabeth Stein
                   </h3>
-                  <p className="text-parchment/80 leading-relaxed">
+                  <p className="text-foreground/80 leading-relaxed">
                     Mythos Atlas was built by Elizabeth Stein, a passionate
                     developer and mythology enthusiast who combines technical
                     expertise with a deep appreciation for ancient cultures and
@@ -164,7 +166,7 @@ export default function AboutPage() {
                   </p>
                 </div>
               </div>
-              <p className="text-parchment/70 text-sm italic border-l-2 border-gold/30 pl-4">
+              <p className="text-muted-foreground text-sm italic border-l-2 border-gold/30 pl-4">
                 &quot;I built Mythos Atlas because I couldn&apos;t find a
                 mythology resource that combined scholarly accuracy with good
                 design. These stories deserve better than dusty encyclopedias or
@@ -173,9 +175,9 @@ export default function AboutPage() {
             </CardContent>
           </Card>
 
-          <Card className="border-gold/20 bg-midnight-light/50">
+          <Card className="border-gold/20 bg-card">
             <CardHeader>
-              <CardTitle className="text-parchment text-2xl font-serif">
+              <CardTitle className="text-foreground text-2xl font-serif">
                 Technology Stack
               </CardTitle>
             </CardHeader>
@@ -183,61 +185,61 @@ export default function AboutPage() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 rounded-full bg-gold"></div>
-                  <span className="text-parchment/80">
+                  <span className="text-foreground/80">
                     Next.js 16 (App Router)
                   </span>
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 rounded-full bg-gold"></div>
-                  <span className="text-parchment/80">React 19</span>
+                  <span className="text-foreground/80">React 19</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 rounded-full bg-gold"></div>
-                  <span className="text-parchment/80">TypeScript</span>
+                  <span className="text-foreground/80">TypeScript</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 rounded-full bg-gold"></div>
-                  <span className="text-parchment/80">GraphQL API</span>
+                  <span className="text-foreground/80">GraphQL API</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 rounded-full bg-gold"></div>
-                  <span className="text-parchment/80">Tailwind CSS</span>
+                  <span className="text-foreground/80">Tailwind CSS</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 rounded-full bg-gold"></div>
-                  <span className="text-parchment/80">React Query</span>
+                  <span className="text-foreground/80">React Query</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 rounded-full bg-gold"></div>
-                  <span className="text-parchment/80">ReactFlow & D3</span>
+                  <span className="text-foreground/80">ReactFlow & D3</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 rounded-full bg-gold"></div>
-                  <span className="text-parchment/80">Vercel Hosting</span>
+                  <span className="text-foreground/80">Vercel Hosting</span>
                 </div>
               </div>
             </CardContent>
           </Card>
 
-          <Card className="border-gold/20 bg-midnight-light/50">
+          <Card className="border-gold/20 bg-card">
             <CardHeader>
-              <CardTitle className="text-parchment text-2xl font-serif">
+              <CardTitle className="text-foreground text-2xl font-serif">
                 Project Status
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-3">
-              <p className="text-parchment/80 leading-relaxed">
+              <p className="text-foreground/80 leading-relaxed">
                 <strong className="text-gold">Last Updated:</strong> February
                 2026
               </p>
-              <p className="text-parchment/80 leading-relaxed">
-                Mythos Atlas is an ongoing project with regular updates.
-                Currently featuring Greek, Norse, and Egyptian pantheons, with
-                plans to expand to Roman, Hindu, Japanese, Celtic, and other
-                mythological traditions.
+              <p className="text-foreground/80 leading-relaxed">
+                Mythos Atlas is an ongoing project with regular updates. The
+                encyclopedia currently spans 13 pantheons, and we continuously
+                expand depth, source coverage, and cross-cultural links across
+                traditions.
               </p>
               <div className="pt-2 border-t border-gold/20">
-                <p className="text-parchment/70 text-sm">
+                <p className="text-muted-foreground text-sm">
                   Have suggestions or found an error? We&apos;re continuously
                   improving accuracy and coverage based on scholarly sources and
                   community feedback.

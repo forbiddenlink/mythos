@@ -15,37 +15,27 @@ import { QuickActions } from "@/components/layout/quick-actions";
 // Navigation structure for mobile
 export const mobileNavSections = [
   {
-    title: "Explore",
+    title: "Start Here",
     links: [
       { href: "/pantheons", label: "Pantheons" },
       { href: "/deities", label: "Deities" },
       { href: "/stories", label: "Stories" },
-      { href: "/stories", label: "Interactive Stories" },
-      { href: "/creatures", label: "Creatures" },
-      { href: "/artifacts", label: "Artifacts" },
-      { href: "/locations", label: "Locations" },
-      { href: "/journeys", label: "Hero Journeys" },
+      { href: "/quiz", label: "Quiz" },
     ],
   },
   {
     title: "Discover",
     links: [
       { href: "/collections", label: "Collections" },
-      { href: "/divine-domains", label: "Divine Domains" },
       { href: "/compare", label: "Compare Deities" },
-      { href: "/compare/myths", label: "Compare Myths" },
       { href: "/knowledge-graph", label: "Knowledge Graph" },
       { href: "/family-tree", label: "Family Tree" },
-      { href: "/timeline", label: "Timeline" },
-      { href: "/story-timeline", label: "Story Timeline" },
+      { href: "/journeys", label: "Hero Journeys" },
     ],
   },
   {
     title: "Learn",
     links: [
-      { href: "/quiz", label: "Quiz" },
-      { href: "/games/memory", label: "Symbol Memory" },
-      { href: "/facts", label: "Mythology Facts" },
       { href: "/learning-paths", label: "Learning Paths" },
       { href: "/review", label: "Daily Review" },
       { href: "/progress", label: "Progress" },
@@ -83,13 +73,7 @@ export function Header() {
   }, []);
 
   const handleSearchClick = () => {
-    const event = new KeyboardEvent("keydown", {
-      key: "k",
-      metaKey: isMac,
-      ctrlKey: !isMac,
-      bubbles: true,
-    });
-    document.dispatchEvent(event);
+    document.dispatchEvent(new CustomEvent("open-command-palette"));
   };
 
   return (
@@ -155,7 +139,7 @@ export function Header() {
             <kbd className="hidden md:inline-flex items-center gap-0.5 px-1.5 py-0.5 text-[10px] font-mono rounded bg-background border border-border/80 text-muted-foreground">
               {mounted && isMac ? <Command className="h-2.5 w-2.5" /> : null}
               {mounted && !isMac ? "Ctrl" : null}
-              {mounted ? null : <span className="w-3" />}
+              {!mounted && <span className="w-6" aria-hidden="true" />}
               <span>K</span>
             </kbd>
           </button>
@@ -163,7 +147,7 @@ export function Header() {
           {/* Bookmarks */}
           <Link
             href="/bookmarks"
-            className="flex items-center justify-center p-2 text-muted-foreground hover:text-gold rounded-lg hover:bg-muted/50 transition-all duration-200"
+            className="hidden xl:flex items-center justify-center p-2 text-muted-foreground hover:text-gold rounded-lg hover:bg-muted/50 transition-all duration-200"
             aria-label="Bookmarks"
           >
             <Heart className="h-4 w-4" strokeWidth={1.5} />

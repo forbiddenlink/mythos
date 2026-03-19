@@ -1,8 +1,8 @@
-'use client';
+"use client";
 // Force reload
 
-import * as React from 'react';
-import { cn } from '@/lib/utils';
+import * as React from "react";
+import { cn } from "@/lib/utils";
 
 /* ---------------------------------------------------------------------------
  * Context – wires the compound components together
@@ -21,7 +21,8 @@ const SelectContext = React.createContext<SelectContextValue | null>(null);
 
 function useSelectContext() {
   const ctx = React.useContext(SelectContext);
-  if (!ctx) throw new Error('Select compound components must be used within <Select>');
+  if (!ctx)
+    throw new Error("Select compound components must be used within <Select>");
   return ctx;
 }
 
@@ -35,7 +36,11 @@ interface SelectProps {
   children: React.ReactNode;
 }
 
-function Select({ value = '', onValueChange, children }: Readonly<SelectProps>) {
+function Select({
+  value = "",
+  onValueChange,
+  children,
+}: Readonly<SelectProps>) {
   const [open, setOpen] = React.useState(false);
   const triggerRef = React.useRef<HTMLButtonElement | null>(null);
   const contentId = React.useId();
@@ -49,7 +54,14 @@ function Select({ value = '', onValueChange, children }: Readonly<SelectProps>) 
   );
 
   const selectCtxValue = React.useMemo(
-    () => ({ value, onValueChange: handleValueChange, open, setOpen, triggerRef, contentId }),
+    () => ({
+      value,
+      onValueChange: handleValueChange,
+      open,
+      setOpen,
+      triggerRef,
+      contentId,
+    }),
     [value, handleValueChange, open, setOpen, triggerRef, contentId],
   );
 
@@ -66,7 +78,7 @@ function Select({ value = '', onValueChange, children }: Readonly<SelectProps>) 
  * SelectTrigger
  * --------------------------------------------------------------------------*/
 
-type SelectTriggerProps = React.ComponentProps<'button'>
+type SelectTriggerProps = React.ComponentProps<"button">;
 
 function SelectTrigger({ className, children, ...props }: SelectTriggerProps) {
   const { open, setOpen, triggerRef, contentId } = useSelectContext();
@@ -80,13 +92,13 @@ function SelectTrigger({ className, children, ...props }: SelectTriggerProps) {
       aria-controls={contentId}
       data-slot="select-trigger"
       className={cn(
-        'flex h-10 items-center justify-between gap-2 rounded-lg border border-border bg-background px-3 py-2 text-sm',
-        'shadow-sm transition-all duration-200',
-        'placeholder:text-muted-foreground',
-        'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background',
-        'disabled:cursor-not-allowed disabled:opacity-50',
-        'dark:border-border/60 dark:bg-card/50',
-        'hover:border-primary/50 dark:hover:border-primary/60',
+        "flex h-10 items-center justify-between gap-2 rounded-lg border border-border bg-background px-3 py-2 text-sm",
+        "shadow-sm transition-all duration-200",
+        "placeholder:text-muted-foreground",
+        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background",
+        "disabled:cursor-not-allowed disabled:opacity-50",
+        "dark:border-border/60 dark:bg-card/50",
+        "hover:border-primary/50 dark:hover:border-primary/60",
         className,
       )}
       onClick={() => setOpen((prev) => !prev)}
@@ -104,8 +116,8 @@ function SelectTrigger({ className, children, ...props }: SelectTriggerProps) {
         strokeLinecap="round"
         strokeLinejoin="round"
         className={cn(
-          'shrink-0 opacity-50 transition-transform duration-200',
-          open && 'rotate-180',
+          "shrink-0 opacity-50 transition-transform duration-200",
+          open && "rotate-180",
         )}
       >
         <path d="m6 9 6 6 6-6" />
@@ -128,7 +140,7 @@ function SelectValue({ placeholder }: Readonly<SelectValueProps>) {
   return (
     <span
       data-slot="select-value"
-      className={cn('truncate', !value && 'text-muted-foreground')}
+      className={cn("truncate", !value && "text-muted-foreground")}
     >
       {value ? <SelectDisplayValue /> : placeholder}
     </span>
@@ -167,7 +179,7 @@ function SelectDisplayValue() {
  * SelectContent
  * --------------------------------------------------------------------------*/
 
-type SelectContentProps = React.ComponentProps<'div'>
+type SelectContentProps = React.ComponentProps<"div">;
 
 function SelectContent({ className, children, ...props }: SelectContentProps) {
   const { open, setOpen, triggerRef, contentId } = useSelectContext();
@@ -204,14 +216,14 @@ function SelectContent({ className, children, ...props }: SelectContentProps) {
     }
 
     function handleEscape(e: KeyboardEvent) {
-      if (e.key === 'Escape') setOpen(false);
+      if (e.key === "Escape") setOpen(false);
     }
 
-    document.addEventListener('mousedown', handleClickOutside);
-    document.addEventListener('keydown', handleEscape);
+    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener("keydown", handleEscape);
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-      document.removeEventListener('keydown', handleEscape);
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("keydown", handleEscape);
     };
   }, [open, setOpen, triggerRef]);
 
@@ -226,18 +238,20 @@ function SelectContent({ className, children, ...props }: SelectContentProps) {
             data-slot="select-content"
             role="listbox"
             className={cn(
-              'absolute z-50 mt-1 min-w-(--trigger-width,8rem) overflow-hidden rounded-lg border border-border bg-popover text-popover-foreground shadow-lg',
-              'animate-in fade-in-0 zoom-in-95',
-              'dark:border-border/60 dark:bg-card dark:shadow-black/30',
+              "absolute z-50 mt-1 min-w-(--trigger-width,8rem) overflow-hidden rounded-lg border border-border bg-popover text-popover-foreground shadow-lg",
+              "animate-in fade-in-0 zoom-in-95",
+              "dark:border-border/60 dark:bg-card dark:shadow-black/30",
               className,
             )}
-            style={{
-              /* eslint-disable react-hooks/refs -- ref read for CSS custom property sizing */
-              '--trigger-width': triggerRef.current
-                ? `${triggerRef.current.offsetWidth}px`
-                : undefined,
-              /* eslint-enable react-hooks/refs */
-            } as React.CSSProperties}
+            style={
+              {
+                /* eslint-disable react-hooks/refs -- ref read for CSS custom property sizing */
+                "--trigger-width": triggerRef.current
+                  ? `${triggerRef.current.offsetWidth}px`
+                  : undefined,
+                /* eslint-enable react-hooks/refs */
+              } as React.CSSProperties
+            }
             {...props}
           >
             <div className="max-h-60 overflow-y-auto p-1">{children}</div>
@@ -254,17 +268,22 @@ function SelectContent({ className, children, ...props }: SelectContentProps) {
  * SelectItem
  * --------------------------------------------------------------------------*/
 
-interface SelectItemProps extends React.ComponentProps<'div'> {
+interface SelectItemProps extends React.ComponentProps<"div"> {
   value: string;
 }
 
-function SelectItem({ className, value, children, ...props }: Readonly<SelectItemProps>) {
+function SelectItem({
+  className,
+  value,
+  children,
+  ...props
+}: Readonly<SelectItemProps>) {
   const { value: selected, onValueChange } = useSelectContext();
   const registry = React.useContext(ItemRegistryContext);
   const isSelected = selected === value;
 
   // Register label text on mount and when children change
-  const label = typeof children === 'string' ? children : value;
+  const label = typeof children === "string" ? children : value;
   React.useEffect(() => {
     registry?.register(value, label);
   }, [registry, value, label]);
@@ -276,16 +295,16 @@ function SelectItem({ className, value, children, ...props }: Readonly<SelectIte
       tabIndex={0}
       data-slot="select-item"
       className={cn(
-        'relative flex cursor-pointer select-none items-center rounded-md px-3 py-2 text-sm outline-none transition-colors duration-150',
-        'hover:bg-accent hover:text-accent-foreground',
-        'focus:bg-accent focus:text-accent-foreground',
-        isSelected && 'bg-primary/10 text-primary font-medium',
-        'dark:hover:bg-accent/50',
+        "relative flex cursor-pointer select-none items-center rounded-lg px-3 py-2 text-sm outline-none transition-colors duration-150",
+        "hover:bg-accent hover:text-accent-foreground",
+        "focus:bg-accent focus:text-accent-foreground",
+        isSelected && "bg-primary/10 text-primary font-medium",
+        "dark:hover:bg-accent/50",
         className,
       )}
       onClick={() => onValueChange(value)}
       onKeyDown={(e) => {
-        if (e.key === 'Enter' || e.key === ' ') {
+        if (e.key === "Enter" || e.key === " ") {
           e.preventDefault();
           onValueChange(value);
         }

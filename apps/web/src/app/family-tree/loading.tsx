@@ -1,12 +1,15 @@
-import { Loader2 } from 'lucide-react'
+import {
+  PageHeaderSkeleton,
+  GridSkeleton,
+} from "@/components/ui/skeleton-cards";
 
 export default function Loading() {
   return (
-    <div className="min-h-screen flex items-center justify-center">
-      <div className="text-center">
-        <Loader2 className="h-12 w-12 animate-spin text-emerald-600 mx-auto mb-4" />
-        <p className="text-slate-600 dark:text-slate-400">Loading family tree...</p>
+    <div className="min-h-screen">
+      <PageHeaderSkeleton />
+      <div className="container mx-auto max-w-7xl px-4 py-12">
+        <GridSkeleton count={4} columns={4} />
       </div>
     </div>
-  )
+  );
 }

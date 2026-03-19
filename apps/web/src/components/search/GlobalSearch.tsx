@@ -1,41 +1,41 @@
-'use client';
+"use client";
 
-import { useEffect, useState, useCallback, useMemo } from 'react';
-import { useRouter } from 'next/navigation';
-import {
-  Home,
-  Users,
-  BookOpen,
-  Network,
-  Globe,
-  Sparkles,
-  MapPin,
-  Map as MapIcon,
-  Skull,
-  Gem,
-  Clock,
-  TrendingUp,
-} from 'lucide-react';
-import { useDebounce } from '@/hooks/use-debounce';
-import {
-  searchAll,
-  getPopularSearches,
-  getRecentSearches,
-  saveRecentSearch,
-  clearRecentSearches,
-  getResultUrl,
-  type SearchResult as SearchResultType,
-  type ContentType,
-} from '@/lib/search';
 import {
   CommandDialog,
-  CommandInput,
-  CommandList,
   CommandEmpty,
   CommandGroup,
+  CommandInput,
   CommandItem,
+  CommandList,
   CommandSeparator,
-} from '@/components/ui/command';
+} from "@/components/ui/command";
+import { useDebounce } from "@/hooks/use-debounce";
+import {
+  clearRecentSearches,
+  getPopularSearches,
+  getRecentSearches,
+  getResultUrl,
+  saveRecentSearch,
+  searchAll,
+  type ContentType,
+  type SearchResult as SearchResultType,
+} from "@/lib/search";
+import {
+  BookOpen,
+  Clock,
+  Gem,
+  Globe,
+  Home,
+  Map as MapIcon,
+  MapPin,
+  Network,
+  Skull,
+  Sparkles,
+  TrendingUp,
+  Users,
+} from "lucide-react";
+import { useRouter } from "next/navigation";
+import { useCallback, useEffect, useMemo, useState } from "react";
 
 // Icons for each content type
 const typeIcons: Record<ContentType, typeof Sparkles> = {
@@ -48,38 +48,86 @@ const typeIcons: Record<ContentType, typeof Sparkles> = {
 
 // Colors for each content type
 const typeColors: Record<ContentType, string> = {
-  deity: 'text-amber-500',
-  story: 'text-blue-500',
-  creature: 'text-red-500',
-  artifact: 'text-purple-500',
-  location: 'text-emerald-500',
+  deity: "text-amber-500",
+  story: "text-blue-500",
+  creature: "text-red-500",
+  artifact: "text-purple-500",
+  location: "text-emerald-500",
 };
 
 // Group labels for each content type
 const typeLabels: Record<ContentType, string> = {
-  deity: 'Deities',
-  story: 'Stories',
-  creature: 'Creatures',
-  artifact: 'Artifacts',
-  location: 'Locations',
+  deity: "Deities",
+  story: "Stories",
+  creature: "Creatures",
+  artifact: "Artifacts",
+  location: "Locations",
 };
 
 // Navigation items shown when no search query
 const navigationItems = [
-  { id: 'nav-home', title: 'Home', href: '/', icon: Home, iconColor: 'text-teal-600' },
-  { id: 'nav-deities', title: 'All Deities', href: '/deities', icon: Users, iconColor: 'text-amber-500' },
-  { id: 'nav-creatures', title: 'Creatures', href: '/creatures', icon: Skull, iconColor: 'text-red-500' },
-  { id: 'nav-artifacts', title: 'Artifacts', href: '/artifacts', icon: Gem, iconColor: 'text-purple-500' },
-  { id: 'nav-stories', title: 'Stories', href: '/stories', icon: BookOpen, iconColor: 'text-blue-500' },
-  { id: 'nav-family', title: 'Family Tree', href: '/family-tree', icon: Network, iconColor: 'text-emerald-600' },
-  { id: 'nav-map', title: 'Locations', href: '/locations', icon: MapIcon, iconColor: 'text-emerald-500' },
-  { id: 'nav-pantheons', title: 'Pantheons', href: '/pantheons', icon: Globe, iconColor: 'text-slate-600' },
+  {
+    id: "nav-home",
+    title: "Home",
+    href: "/",
+    icon: Home,
+    iconColor: "text-teal-600",
+  },
+  {
+    id: "nav-deities",
+    title: "All Deities",
+    href: "/deities",
+    icon: Users,
+    iconColor: "text-amber-500",
+  },
+  {
+    id: "nav-creatures",
+    title: "Creatures",
+    href: "/creatures",
+    icon: Skull,
+    iconColor: "text-red-500",
+  },
+  {
+    id: "nav-artifacts",
+    title: "Artifacts",
+    href: "/artifacts",
+    icon: Gem,
+    iconColor: "text-purple-500",
+  },
+  {
+    id: "nav-stories",
+    title: "Stories",
+    href: "/stories",
+    icon: BookOpen,
+    iconColor: "text-blue-500",
+  },
+  {
+    id: "nav-family",
+    title: "Family Tree",
+    href: "/family-tree",
+    icon: Network,
+    iconColor: "text-emerald-600",
+  },
+  {
+    id: "nav-map",
+    title: "Locations",
+    href: "/locations",
+    icon: MapIcon,
+    iconColor: "text-emerald-500",
+  },
+  {
+    id: "nav-pantheons",
+    title: "Pantheons",
+    href: "/pantheons",
+    icon: Globe,
+    iconColor: "text-slate-600",
+  },
 ];
 
 export function GlobalSearch() {
   const [open, setOpen] = useState(false);
   const router = useRouter();
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchQuery, setSearchQuery] = useState("");
   const [recentSearches, setRecentSearches] = useState<string[]>([]);
   const debouncedSearch = useDebounce(searchQuery, 300);
 
@@ -116,7 +164,10 @@ export function GlobalSearch() {
     // Filter out empty groups and sort by number of results
     return Object.entries(groups)
       .filter(([, items]) => items.length > 0)
-      .sort((a, b) => b[1].length - a[1].length) as [ContentType, SearchResultType[]][];
+      .sort((a, b) => b[1].length - a[1].length) as [
+      ContentType,
+      SearchResultType[],
+    ][];
   }, [results]);
 
   const popularSearches = useMemo(() => getPopularSearches().slice(0, 6), []);
@@ -124,13 +175,28 @@ export function GlobalSearch() {
   // Handle keyboard shortcuts for opening the command palette
   useEffect(() => {
     const down = (e: KeyboardEvent) => {
-      if (e.key === 'k' && (e.metaKey || e.ctrlKey)) {
+      if (e.key === "k" && (e.metaKey || e.ctrlKey)) {
         e.preventDefault();
         setOpen((open) => !open);
       }
     };
-    document.addEventListener('keydown', down);
-    return () => document.removeEventListener('keydown', down);
+
+    const openPalette = () => {
+      setOpen(true);
+    };
+
+    document.addEventListener("keydown", down);
+    document.addEventListener(
+      "open-command-palette",
+      openPalette as EventListener,
+    );
+    return () => {
+      document.removeEventListener("keydown", down);
+      document.removeEventListener(
+        "open-command-palette",
+        openPalette as EventListener,
+      );
+    };
   }, []);
 
   const handleSelect = useCallback(
@@ -138,19 +204,19 @@ export function GlobalSearch() {
       saveRecentSearch(result.title);
       setRecentSearches(getRecentSearches());
       setOpen(false);
-      setSearchQuery('');
+      setSearchQuery("");
       router.push(getResultUrl(result));
     },
-    [router]
+    [router],
   );
 
   const handleNavigationSelect = useCallback(
     (href: string) => {
       setOpen(false);
-      setSearchQuery('');
+      setSearchQuery("");
       router.push(href);
     },
-    [router]
+    [router],
   );
 
   const handleQuickSearch = useCallback((term: string) => {
@@ -166,7 +232,7 @@ export function GlobalSearch() {
   useEffect(() => {
     if (!open) {
       // eslint-disable-next-line react-hooks/set-state-in-effect -- reset search query when dialog closes
-      setSearchQuery('');
+      setSearchQuery("");
     }
   }, [open]);
 
@@ -267,7 +333,9 @@ export function GlobalSearch() {
                     >
                       <Icon className={`h-4 w-4 shrink-0 ${colorClass}`} />
                       <div className="flex flex-col min-w-0">
-                        <span className="truncate font-medium">{result.title}</span>
+                        <span className="truncate font-medium">
+                          {result.title}
+                        </span>
                         <span className="text-xs text-muted-foreground truncate">
                           {result.subtitle}
                         </span>

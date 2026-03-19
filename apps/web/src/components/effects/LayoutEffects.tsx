@@ -15,9 +15,9 @@ const OracleChat = dynamic(
   { ssr: false },
 );
 
-// Oracle is only rendered when the feature is explicitly enabled via env var.
-// Without NEXT_PUBLIC_ORACLE_ENABLED=true the button and API cost are suppressed.
-const oracleEnabled = process.env.NEXT_PUBLIC_ORACLE_ENABLED === "true";
+// Keep Oracle on by default for local dev and E2E tests.
+// Set NEXT_PUBLIC_ORACLE_ENABLED="false" to explicitly disable it.
+const oracleEnabled = process.env.NEXT_PUBLIC_ORACLE_ENABLED !== "false";
 
 /**
  * Client-side layout effects wrapper

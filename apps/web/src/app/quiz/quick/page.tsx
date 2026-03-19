@@ -1,17 +1,26 @@
-'use client';
+"use client";
 
-import { useState, useEffect, useCallback, useContext } from 'react';
-import { useQuery } from '@tanstack/react-query';
-import { graphqlClient } from '@/lib/graphql-client';
-import { GET_DEITIES } from '@/lib/queries';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
-import { Progress } from '@/components/ui/progress';
-import { Timer, Trophy, RefreshCw, Zap, Check, X, Share2 } from 'lucide-react';
-import Link from 'next/link';
-import { ProgressContext } from '@/providers/progress-provider';
-import { useAchievements } from '@/hooks/useAchievements';
+import { useState, useEffect, useCallback, useContext } from "react";
+import { useQuery } from "@tanstack/react-query";
+import { graphqlClient } from "@/lib/graphql-client";
+import { GET_DEITIES } from "@/lib/queries";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { Progress } from "@/components/ui/progress";
+import {
+  Timer,
+  Trophy,
+  RefreshCw,
+  Zap,
+  Check,
+  X,
+  Share2,
+  ClipboardCheck,
+} from "lucide-react";
+import Link from "next/link";
+import { ProgressContext } from "@/providers/progress-provider";
+import { useAchievements } from "@/hooks/useAchievements";
 
 interface Deity {
   id: string;
@@ -29,12 +38,13 @@ interface Question {
 
 function generateQuestion(deities: Deity[]): Question {
   const target = deities[Math.floor(Math.random() * deities.length)];
-  const domain = target.domain[Math.floor(Math.random() * target.domain.length)];
+  const domain =
+    target.domain[Math.floor(Math.random() * target.domain.length)];
   const wrongAnswers = deities
-    .filter(d => d.id !== target.id)
+    .filter((d) => d.id !== target.id)
     .sort(() => Math.random() - 0.5)
     .slice(0, 3)
-    .map(d => d.name);
+    .map((d) => d.name);
 
   return {
     question: `Which deity is associated with "${domain}"?`,
@@ -45,7 +55,9 @@ function generateQuestion(deities: Deity[]): Question {
 }
 
 export default function QuickQuizPage() {
-  const [gameState, setGameState] = useState<'ready' | 'playing' | 'finished'>('ready');
+  const [gameState, setGameState] = useState<"ready" | "playing" | "finished">(
+    "ready",
+  );
   const [timeLeft, setTimeLeft] = useState(60);
   const [score, setScore] = useState(0);
   const [highScore, setHighScore] = useState(0);
@@ -53,12 +65,13 @@ export default function QuickQuizPage() {
   const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
   const [showResult, setShowResult] = useState(false);
   const [isNewHighScore, setIsNewHighScore] = useState(false);
+  const [showCopiedToast, setShowCopiedToast] = useState(false);
 
   const progressContext = useContext(ProgressContext);
   const { checkAchievements } = useAchievements();
 
   const { data, isLoading } = useQuery<{ deities: Deity[] }>({
-    queryKey: ['quick-quiz-deities'],
+    queryKey: ["quick-quiz-deities"],
     queryFn: async () => graphqlClient.request(GET_DEITIES),
   });
 
@@ -68,7 +81,7 @@ export default function QuickQuizPage() {
       // eslint-disable-next-line react-hooks/set-state-in-effect -- hydrate high score from progress context
       setHighScore(progressContext.progress.quickQuizHighScore);
     } else {
-      const saved = localStorage.getItem('mythos_quick_quiz_highscore');
+      const saved = localStorage.getItem("mythos_quick_quiz_highscore");
       if (saved) setHighScore(Number.parseInt(saved));
     }
   }, [progressContext?.progress.quickQuizHighScore]);
@@ -83,7 +96,7 @@ export default function QuickQuizPage() {
   }, [data?.deities]);
 
   const startGame = useCallback(() => {
-    setGameState('playing');
+    setGameState("playing");
     setTimeLeft(60);
     setScore(0);
     nextQuestion();
@@ -91,14 +104,14 @@ export default function QuickQuizPage() {
 
   // Timer
   useEffect(() => {
-    if (gameState !== 'playing') return;
+    if (gameState !== "playing") return;
     if (timeLeft <= 0) {
       // eslint-disable-next-line react-hooks/set-state-in-effect -- game-over state transition in timer effect
-      setGameState('finished');
+      setGameState("finished");
       if (score > highScore) {
         setHighScore(score);
         setIsNewHighScore(true);
-        localStorage.setItem('mythos_quick_quiz_highscore', score.toString());
+        localStorage.setItem("mythos_quick_quiz_highscore", score.toString());
         // Save to progress context for achievements
         if (progressContext) {
           progressContext.updateQuickQuizHighScore(score);
@@ -112,11 +125,18 @@ export default function QuickQuizPage() {
     }
 
     const timer = setInterval(() => {
-      setTimeLeft(t => t - 1);
+      setTimeLeft((t) => t - 1);
     }, 1000);
 
     return () => clearInterval(timer);
-  }, [gameState, timeLeft, score, highScore, progressContext, checkAchievements]);
+  }, [
+    gameState,
+    timeLeft,
+    score,
+    highScore,
+    progressContext,
+    checkAchievements,
+  ]);
 
   const handleAnswer = (answer: string) => {
     if (showResult) return;
@@ -124,7 +144,7 @@ export default function QuickQuizPage() {
     setShowResult(true);
 
     if (answer === question?.correctAnswer) {
-      setScore(s => s + 1);
+      setScore((s) => s + 1);
     }
 
     setTimeout(() => {
@@ -139,7 +159,7 @@ export default function QuickQuizPage() {
     if (navigator.share) {
       try {
         await navigator.share({
-          title: 'Mythos Atlas Quick Quiz',
+          title: "Mythos Atlas Quick Quiz",
           text: shareText,
           url: shareUrl,
         });
@@ -148,9 +168,14 @@ export default function QuickQuizPage() {
       }
     } else {
       // Fallback: copy to clipboard
-      const fullText = `${shareText}\n${shareUrl}`;
-      await navigator.clipboard.writeText(fullText);
-      alert('Score copied to clipboard!');
+      try {
+        const fullText = `${shareText}\n${shareUrl}`;
+        await navigator.clipboard.writeText(fullText);
+        setShowCopiedToast(true);
+        setTimeout(() => setShowCopiedToast(false), 3000);
+      } catch {
+        // Clipboard API unavailable (insecure context / WebView)
+      }
     }
   };
 
@@ -163,7 +188,7 @@ export default function QuickQuizPage() {
   }
 
   return (
-    <div className="min-h-screen bg-linear-to-b from-background to-mythic">
+    <div className="min-h-screen bg-linear-to-b from-background to-mythic relative">
       <div className="container mx-auto max-w-2xl px-4 py-12">
         <div className="text-center mb-8">
           <div className="flex items-center justify-center mb-4">
@@ -172,13 +197,17 @@ export default function QuickQuizPage() {
             </div>
           </div>
           <h1 className="font-serif text-4xl font-bold mb-2">Quick Quiz</h1>
-          <p className="text-muted-foreground">60 seconds. How many can you get?</p>
+          <p className="text-muted-foreground">
+            60 seconds. How many can you get?
+          </p>
         </div>
 
-        {gameState === 'ready' && (
+        {gameState === "ready" && (
           <Card className="text-center">
             <CardHeader>
-              <CardTitle className="font-serif text-2xl">Ready to Race?</CardTitle>
+              <CardTitle className="font-serif text-2xl">
+                Ready to Race?
+              </CardTitle>
             </CardHeader>
             <CardContent className="space-y-6">
               <p className="text-muted-foreground">
@@ -202,11 +231,14 @@ export default function QuickQuizPage() {
           </Card>
         )}
 
-        {gameState === 'playing' && question && (
+        {gameState === "playing" && question && (
           <div className="space-y-6">
             {/* Timer and Score */}
             <div className="flex items-center justify-between">
-              <Badge variant="outline" className={`text-lg px-4 py-2 ${timeLeft <= 10 ? 'border-destructive text-destructive animate-pulse' : 'border-gold text-gold'}`}>
+              <Badge
+                variant="outline"
+                className={`text-lg px-4 py-2 ${timeLeft <= 10 ? "border-destructive text-destructive animate-pulse" : "border-gold text-gold"}`}
+              >
                 <Timer className="h-4 w-4 mr-2" />
                 {timeLeft}s
               </Badge>
@@ -230,7 +262,8 @@ export default function QuickQuizPage() {
                   {question.options.map((option) => {
                     const isSelected = selectedAnswer === option;
                     const isCorrect = option === question.correctAnswer;
-                    const showFeedback = showResult && (isSelected || isCorrect);
+                    const showFeedback =
+                      showResult && (isSelected || isCorrect);
 
                     return (
                       <Button
@@ -239,18 +272,22 @@ export default function QuickQuizPage() {
                         className={`h-auto py-4 px-4 text-left justify-start ${
                           showFeedback
                             ? isCorrect
-                              ? 'border-green-500 bg-green-500/10 text-green-700'
+                              ? "border-green-500 bg-green-500/10 text-green-700"
                               : isSelected
-                              ? 'border-destructive bg-destructive/10 text-destructive'
-                              : ''
-                            : 'hover:border-gold/50'
+                                ? "border-destructive bg-destructive/10 text-destructive"
+                                : ""
+                            : "hover:border-gold/50"
                         }`}
                         onClick={() => handleAnswer(option)}
                         disabled={showResult}
                       >
                         {showFeedback && (
                           <span className="mr-2">
-                            {isCorrect ? <Check className="h-4 w-4" /> : isSelected ? <X className="h-4 w-4" /> : null}
+                            {isCorrect ? (
+                              <Check className="h-4 w-4" />
+                            ) : isSelected ? (
+                              <X className="h-4 w-4" />
+                            ) : null}
                           </span>
                         )}
                         {option}
@@ -263,10 +300,12 @@ export default function QuickQuizPage() {
           </div>
         )}
 
-        {gameState === 'finished' && (
+        {gameState === "finished" && (
           <Card className="text-center">
             <CardHeader>
-              <CardTitle className="font-serif text-3xl">Time&apos;s Up!</CardTitle>
+              <CardTitle className="font-serif text-3xl">
+                Time&apos;s Up!
+              </CardTitle>
             </CardHeader>
             <CardContent className="space-y-6">
               <div className="py-8">
@@ -283,7 +322,11 @@ export default function QuickQuizPage() {
                   <RefreshCw className="h-4 w-4" />
                   Play Again
                 </Button>
-                <Button variant="outline" onClick={handleShare} className="gap-2">
+                <Button
+                  variant="outline"
+                  onClick={handleShare}
+                  className="gap-2"
+                >
                   <Share2 className="h-4 w-4" />
                   Share Score
                 </Button>
@@ -295,6 +338,16 @@ export default function QuickQuizPage() {
           </Card>
         )}
       </div>
+
+      {/* Copied toast */}
+      {showCopiedToast && (
+        <div className="fixed bottom-4 right-4 z-50 flex items-center gap-2 bg-card/95 backdrop-blur-md border border-gold/30 shadow-lg shadow-gold/10 rounded-xl px-4 py-3 animate-in slide-in-from-right-5 fade-in duration-300">
+          <ClipboardCheck className="h-4 w-4 text-gold" />
+          <span className="text-sm font-medium text-foreground">
+            Score copied to clipboard!
+          </span>
+        </div>
+      )}
     </div>
   );
 }

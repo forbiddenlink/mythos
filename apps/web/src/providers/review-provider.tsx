@@ -1,20 +1,30 @@
-'use client';
+"use client";
 
-import { createContext, useCallback, useContext, useEffect, useMemo, useState, type ReactNode } from 'react';
+import deitiesData from "@/data/deities.json";
+import storiesData from "@/data/stories.json";
 import {
-  type CardState,
-  type ReviewCard,
-  type ReviewState,
-  type DifficultyRating,
+  calculateAccuracy,
   createInitialCardState,
-  updateCardState,
-  isCardDue,
+  generateCardId,
   getToday,
   getYesterday,
-  generateCardId,
-  calculateAccuracy,
-} from '@/lib/spaced-repetition';
-import { ProgressContext } from '@/providers/progress-provider';
+  isCardDue,
+  updateCardState,
+  type CardState,
+  type DifficultyRating,
+  type ReviewCard,
+  type ReviewState,
+} from "@/lib/spaced-repetition";
+import { ProgressContext } from "@/providers/progress-provider";
+import {
+  createContext,
+  useCallback,
+  useContext,
+  useEffect,
+  useMemo,
+  useState,
+  type ReactNode,
+} from "react";
 
 export interface ReviewContextValue {
   reviewState: ReviewState;
@@ -27,12 +37,27 @@ export interface ReviewContextValue {
   resetTodayProgress: () => void;
 }
 
-const REVIEW_STORAGE_KEY = 'mythos-atlas-review';
+const REVIEW_STORAGE_KEY = "mythos-atlas-review";
+
+interface ReviewDeityData {
+  id: string;
+  name: string;
+  domain?: string[];
+  symbols?: string[];
+  pantheonId: string;
+}
+
+interface ReviewStoryData {
+  id: string;
+  title: string;
+  pantheonId: string;
+  category?: string;
+}
 
 const DEFAULT_REVIEW_STATE: ReviewState = {
   cards: {},
   todayReviewed: [],
-  lastReviewDate: '',
+  lastReviewDate: "",
   stats: {
     totalReviewed: 0,
     currentStreak: 0,
@@ -46,7 +71,7 @@ const DEFAULT_REVIEW_STATE: ReviewState = {
 export const ReviewContext = createContext<ReviewContextValue | null>(null);
 
 function loadReviewState(): ReviewState {
-  if (typeof window === 'undefined') return DEFAULT_REVIEW_STATE;
+  if (globalThis.window === undefined) return DEFAULT_REVIEW_STATE;
   try {
     const stored = localStorage.getItem(REVIEW_STORAGE_KEY);
     if (stored) {
@@ -67,45 +92,51 @@ function saveReviewState(state: ReviewState) {
   }
 }
 
-// Deity and story data for card generation
+// Pantheon labels for card prompts
 const PANTHEON_NAMES: Record<string, string> = {
-  greek: 'Greek',
-  norse: 'Norse',
-  egyptian: 'Egyptian',
-  celtic: 'Celtic',
-  japanese: 'Japanese',
-  hindu: 'Hindu',
-  mesopotamian: 'Mesopotamian',
-  chinese: 'Chinese',
+  "greek-pantheon": "Greek",
+  "norse-pantheon": "Norse",
+  "egyptian-pantheon": "Egyptian",
+  "roman-pantheon": "Roman",
+  "hindu-pantheon": "Hindu",
+  "japanese-pantheon": "Japanese",
+  "celtic-pantheon": "Celtic",
+  "mesopotamian-pantheon": "Mesopotamian",
+  "chinese-pantheon": "Chinese",
+  "mesoamerican-pantheon": "Mesoamerican",
+  "yoruba-pantheon": "Yoruba",
+  "polynesian-pantheon": "Polynesian",
+  "mayan-pantheon": "Mayan",
+  "akan-pantheon": "Akan",
 };
 
-// Sample deity data for card generation (will be expanded from progress)
-const DEITY_DATA: Record<string, { name: string; domains: string[]; symbols: string[]; pantheonId: string; imageUrl?: string }> = {
-  zeus: { name: 'Zeus', domains: ['Sky', 'Thunder', 'Lightning'], symbols: ['Thunderbolt', 'Eagle', 'Oak'], pantheonId: 'greek' },
-  poseidon: { name: 'Poseidon', domains: ['Sea', 'Earthquakes', 'Horses'], symbols: ['Trident', 'Horse', 'Dolphin'], pantheonId: 'greek' },
-  hades: { name: 'Hades', domains: ['Underworld', 'Death', 'Wealth'], symbols: ['Helm of Darkness', 'Cerberus'], pantheonId: 'greek' },
-  athena: { name: 'Athena', domains: ['Wisdom', 'War', 'Crafts'], symbols: ['Owl', 'Olive Tree', 'Aegis'], pantheonId: 'greek' },
-  apollo: { name: 'Apollo', domains: ['Sun', 'Music', 'Prophecy'], symbols: ['Lyre', 'Laurel Wreath', 'Sun Chariot'], pantheonId: 'greek' },
-  artemis: { name: 'Artemis', domains: ['Hunt', 'Moon', 'Wilderness'], symbols: ['Bow and Arrow', 'Deer', 'Crescent Moon'], pantheonId: 'greek' },
-  odin: { name: 'Odin', domains: ['Wisdom', 'War', 'Death'], symbols: ['Spear Gungnir', 'Ravens', 'Eye Patch'], pantheonId: 'norse' },
-  thor: { name: 'Thor', domains: ['Thunder', 'Lightning', 'Storms'], symbols: ['Mjolnir', 'Goats', 'Belt of Strength'], pantheonId: 'norse' },
-  freya: { name: 'Freya', domains: ['Love', 'Beauty', 'Fertility'], symbols: ['Cats', 'Falcon Cloak', 'Brisingamen'], pantheonId: 'norse' },
-  loki: { name: 'Loki', domains: ['Mischief', 'Trickery', 'Fire'], symbols: ['Flames', 'Serpent', 'Net'], pantheonId: 'norse' },
-  ra: { name: 'Ra', domains: ['Sun', 'Creation', 'Order'], symbols: ['Sun Disk', 'Falcon', 'Ankh'], pantheonId: 'egyptian' },
-  osiris: { name: 'Osiris', domains: ['Afterlife', 'Agriculture', 'Resurrection'], symbols: ['Crook', 'Flail', 'Green Skin'], pantheonId: 'egyptian' },
-  isis: { name: 'Isis', domains: ['Magic', 'Wisdom', 'Motherhood'], symbols: ['Throne', 'Wings', 'Ankh'], pantheonId: 'egyptian' },
-  anubis: { name: 'Anubis', domains: ['Mummification', 'Afterlife', 'Protection'], symbols: ['Jackal', 'Scales', 'Black Color'], pantheonId: 'egyptian' },
-};
+function formatPantheonLabel(pantheonId: string): string {
+  const mapped = PANTHEON_NAMES[pantheonId];
+  if (mapped) return mapped;
 
-const STORY_DATA: Record<string, { title: string; characters: string[] }> = {
-  'trojan-war': { title: 'The Trojan War', characters: ['Zeus', 'Athena', 'Apollo', 'Aphrodite', 'Hera'] },
-  'odyssey': { title: 'The Odyssey', characters: ['Poseidon', 'Athena', 'Zeus', 'Hermes'] },
-  'ragnarok': { title: 'Ragnarok', characters: ['Odin', 'Thor', 'Loki', 'Freya', 'Heimdall'] },
-  'osiris-myth': { title: 'The Myth of Osiris', characters: ['Osiris', 'Isis', 'Set', 'Horus', 'Anubis'] },
-};
+  return pantheonId
+    .replace("-pantheon", "")
+    .split("-")
+    .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
+    .join(" ");
+}
 
-export function ReviewProvider({ children }: { children: ReactNode }) {
-  const [reviewState, setReviewState] = useState<ReviewState>(DEFAULT_REVIEW_STATE);
+const ALL_DEITIES = deitiesData as ReviewDeityData[];
+const ALL_STORIES = storiesData as ReviewStoryData[];
+
+const DEITY_INDEX = new Map<string, ReviewDeityData>(
+  ALL_DEITIES.map((deity) => [deity.id.toLowerCase(), deity]),
+);
+
+const STORY_INDEX = new Map<string, ReviewStoryData>(
+  ALL_STORIES.map((story) => [story.id.toLowerCase(), story]),
+);
+
+export function ReviewProvider({
+  children,
+}: Readonly<{ children: ReactNode }>) {
+  const [reviewState, setReviewState] =
+    useState<ReviewState>(DEFAULT_REVIEW_STATE);
   const [dueCards, setDueCards] = useState<ReviewCard[]>([]);
   const [mounted, setMounted] = useState(false);
 
@@ -157,60 +188,65 @@ export function ReviewProvider({ children }: { children: ReactNode }) {
 
     // Generate deity-based cards
     viewedDeities.forEach((deityId) => {
-      const deity = DEITY_DATA[deityId.toLowerCase()];
+      const deity = DEITY_INDEX.get(deityId.toLowerCase());
       if (!deity) return;
 
+      const domains = deity.domain ?? [];
+      const symbols = deity.symbols ?? [];
+
       // Domain match card
-      if (deity.domains.length > 0) {
-        const domainCardId = generateCardId('domain-match', deityId);
+      if (domains.length > 0) {
+        const domainCardId = generateCardId("domain-match", deityId);
         generatedCards.push({
           id: domainCardId,
-          type: 'domain-match',
-          question: `Which deity is the god/goddess of ${deity.domains.slice(0, 2).join(' and ')}?`,
+          type: "domain-match",
+          question: `Which deity is associated with ${domains.slice(0, 2).join(" and ")}?`,
           answer: deity.name,
-          hint: `Hint: This deity belongs to the ${PANTHEON_NAMES[deity.pantheonId] || deity.pantheonId} pantheon`,
-          metadata: { deityId, domains: deity.domains, pantheonId: deity.pantheonId },
+          hint: `Hint: This deity belongs to the ${formatPantheonLabel(deity.pantheonId)} pantheon`,
+          metadata: { deityId, domains, pantheonId: deity.pantheonId },
         });
       }
 
       // Symbol match card
-      if (deity.symbols.length > 0) {
-        const symbolCardId = generateCardId('symbol-match', deityId);
+      if (symbols.length > 0) {
+        const symbolCardId = generateCardId("symbol-match", deityId);
         generatedCards.push({
           id: symbolCardId,
-          type: 'symbol-match',
-          question: `Which deity is symbolized by the ${deity.symbols[0]}?`,
+          type: "symbol-match",
+          question: `Which deity is symbolized by ${symbols[0]}?`,
           answer: deity.name,
-          hint: `Hint: Other symbols include ${deity.symbols.slice(1).join(', ')}`,
-          metadata: { deityId, symbols: deity.symbols, pantheonId: deity.pantheonId },
+          hint:
+            symbols.length > 1
+              ? `Hint: Other symbols include ${symbols.slice(1).join(", ")}`
+              : undefined,
+          metadata: { deityId, symbols, pantheonId: deity.pantheonId },
         });
       }
 
       // Pantheon match card
-      const pantheonCardId = generateCardId('pantheon-match', deityId);
+      const pantheonCardId = generateCardId("pantheon-match", deityId);
       generatedCards.push({
         id: pantheonCardId,
-        type: 'pantheon-match',
+        type: "pantheon-match",
         question: `Which pantheon does ${deity.name} belong to?`,
-        answer: PANTHEON_NAMES[deity.pantheonId] || deity.pantheonId,
+        answer: formatPantheonLabel(deity.pantheonId),
         metadata: { deityId, pantheonId: deity.pantheonId },
       });
     });
 
     // Generate story-based cards
     readStories.forEach((storyId) => {
-      const story = STORY_DATA[storyId.toLowerCase()];
+      const story = STORY_INDEX.get(storyId.toLowerCase());
       if (!story) return;
 
-      story.characters.forEach((character) => {
-        const storyCardId = generateCardId('story-character', `${storyId}-${character}`);
-        generatedCards.push({
-          id: storyCardId,
-          type: 'story-character',
-          question: `Does ${character} appear in "${story.title}"?`,
-          answer: 'Yes',
-          metadata: { storyId },
-        });
+      const storyCardId = generateCardId("story-character", storyId);
+      generatedCards.push({
+        id: storyCardId,
+        type: "story-character",
+        question: `Which pantheon does the story "${story.title}" belong to?`,
+        answer: formatPantheonLabel(story.pantheonId),
+        hint: story.category ? `Hint: Category - ${story.category}` : undefined,
+        metadata: { storyId, pantheonId: story.pantheonId },
       });
     });
 
@@ -233,11 +269,16 @@ export function ReviewProvider({ children }: { children: ReactNode }) {
 
     // Also exclude already reviewed today
     const notReviewedToday = due.filter(
-      (card) => !reviewState.todayReviewed.includes(card.id)
+      (card) => !reviewState.todayReviewed.includes(card.id),
     );
 
     setDueCards(notReviewedToday);
-  }, [progressContext?.progress.deitiesViewed, progressContext?.progress.storiesRead, reviewState.cards, reviewState.todayReviewed]);
+  }, [
+    progressContext?.progress.deitiesViewed,
+    progressContext?.progress.storiesRead,
+    reviewState.cards,
+    reviewState.todayReviewed,
+  ]);
 
   // Review a card with a rating
   const reviewCard = useCallback((cardId: string, rating: DifficultyRating) => {
@@ -251,7 +292,10 @@ export function ReviewProvider({ children }: { children: ReactNode }) {
       const incorrectToday = prev.stats.incorrectToday + (isCorrect ? 0 : 1);
 
       // Calculate running average accuracy
-      const totalCorrect = Math.round((prev.stats.averageAccuracy / 100) * prev.stats.totalReviewed) + (isCorrect ? 1 : 0);
+      const totalCorrect =
+        Math.round(
+          (prev.stats.averageAccuracy / 100) * prev.stats.totalReviewed,
+        ) + (isCorrect ? 1 : 0);
       const averageAccuracy = calculateAccuracy(totalCorrect, totalReviewed);
 
       return {
@@ -278,7 +322,7 @@ export function ReviewProvider({ children }: { children: ReactNode }) {
 
   const getCardState = useCallback(
     (cardId: string) => reviewState.cards[cardId],
-    [reviewState.cards]
+    [reviewState.cards],
   );
 
   const getTodayStats = useCallback(() => {
@@ -311,7 +355,15 @@ export function ReviewProvider({ children }: { children: ReactNode }) {
       getTodayStats,
       resetTodayProgress,
     }),
-    [reviewState, dueCards, generateCardsFromProgress, reviewCard, getCardState, getTodayStats, resetTodayProgress]
+    [
+      reviewState,
+      dueCards,
+      generateCardsFromProgress,
+      reviewCard,
+      getCardState,
+      getTodayStats,
+      resetTodayProgress,
+    ],
   );
 
   return (

@@ -7,7 +7,6 @@ import {
   ArrowRight,
   Columns,
   Compass,
-  Crown,
   Landmark,
   Pyramid,
   Sun,
@@ -84,40 +83,10 @@ const pantheons = [
     gradient: "from-red-600 via-pink-600 to-white",
     accentColor: "bg-red-600",
   },
-  {
-    name: "Celtic",
-    fullName: "Celtic Pantheon",
-    slug: "celtic",
-    culture: "Celtic",
-    description:
-      "The gods of nature, magic, and sovereignty from Ireland, Wales, and Gaul.",
-    icon: Compass,
-    gradient: "from-green-700 via-emerald-600 to-lime-600",
-    accentColor: "bg-green-600",
-  },
-  {
-    name: "Aztec",
-    fullName: "Aztec Pantheon",
-    slug: "aztec",
-    culture: "Aztec/Nahua",
-    description:
-      "The sun-soaked, blood-nourished gods of the Mexica, maintaining the cosmic cycle.",
-    icon: Pyramid,
-    gradient: "from-red-600 via-orange-600 to-yellow-500",
-    accentColor: "bg-red-600",
-  },
-  {
-    name: "Chinese",
-    fullName: "Chinese Pantheon",
-    slug: "chinese",
-    culture: "Chinese",
-    description:
-      "The celestial bureaucracy of gods, immortals, and spirits governing heaven and earth.",
-    icon: Crown,
-    gradient: "from-red-800 via-yellow-700 to-red-900",
-    accentColor: "bg-red-800",
-  },
 ];
+
+// Show a focused set on the homepage — full list is on /pantheons
+const HOMEPAGE_PANTHEON_COUNT = 6;
 
 export function PantheonShowcase() {
   return (
@@ -149,72 +118,74 @@ export function PantheonShowcase() {
 
         {/* Pantheon cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 mb-14 max-w-6xl mx-auto">
-          {pantheons.map((pantheon, index) => (
-            <motion.div
-              key={pantheon.slug}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{
-                duration: 0.6,
-                delay: index * 0.12,
-                ease: [0.22, 1, 0.36, 1],
-              }}
-            >
-              <TransitionLink
-                href={`/pantheons/${pantheon.slug}`}
-                className="block h-full group"
+          {pantheons
+            .slice(0, HOMEPAGE_PANTHEON_COUNT)
+            .map((pantheon, index) => (
+              <motion.div
+                key={pantheon.slug}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{
+                  duration: 0.6,
+                  delay: index * 0.12,
+                  ease: [0.22, 1, 0.36, 1],
+                }}
               >
-                <div
-                  className={`relative h-full rounded-xl overflow-hidden bg-linear-to-br ${pantheon.gradient} p-px`}
+                <TransitionLink
+                  href={`/pantheons/${pantheon.slug}`}
+                  className="block h-full group"
                 >
-                  {/* Inner card */}
-                  <div className="relative h-full rounded-[11px] bg-linear-to-br from-black/40 via-black/20 to-black/50 backdrop-blur-sm p-6 flex flex-col">
-                    {/* Decorative corner */}
-                    <div className="absolute top-3 right-3 w-8 h-8 border-t border-r border-white/10 rounded-tr-lg" />
+                  <div
+                    className={`relative h-full rounded-xl overflow-hidden bg-linear-to-br ${pantheon.gradient} p-px`}
+                  >
+                    {/* Inner card */}
+                    <div className="relative h-full rounded-[11px] bg-linear-to-br from-black/40 via-black/20 to-black/50 backdrop-blur-sm p-6 flex flex-col">
+                      {/* Decorative corner */}
+                      <div className="absolute top-3 right-3 w-8 h-8 border-t border-r border-white/10 rounded-tr-lg" />
 
-                    {/* Icon */}
-                    <div className="mb-5">
-                      <div
-                        className={`inline-flex items-center justify-center w-12 h-12 rounded-lg ${pantheon.accentColor}/20 border border-white/10`}
-                      >
-                        <pantheon.icon
-                          className="h-6 w-6 text-white/80"
-                          strokeWidth={1.5}
-                        />
+                      {/* Icon */}
+                      <div className="mb-5">
+                        <div
+                          className={`inline-flex items-center justify-center w-12 h-12 rounded-lg ${pantheon.accentColor}/20 border border-white/10`}
+                        >
+                          <pantheon.icon
+                            className="h-6 w-6 text-white/80"
+                            strokeWidth={1.5}
+                          />
+                        </div>
                       </div>
+
+                      {/* Title */}
+                      <div className="mb-4">
+                        <span className="text-xs text-white/50 tracking-widest uppercase block mb-1">
+                          {pantheon.culture}
+                        </span>
+                        <h3 className="font-serif text-2xl font-semibold text-white tracking-wide">
+                          {pantheon.fullName}
+                        </h3>
+                      </div>
+
+                      {/* Description */}
+                      <p className="text-white/70 text-sm leading-relaxed mb-6 grow">
+                        {pantheon.description}
+                      </p>
+
+                      {/* CTA */}
+                      <div className="flex items-center gap-2 text-white/60 group-hover:text-white transition-colors duration-300">
+                        <span className="text-sm font-medium tracking-wide">
+                          Explore Pantheon
+                        </span>
+                        <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform duration-300" />
+                      </div>
+
+                      {/* Hover shine effect */}
+                      <div className="absolute inset-0 bg-linear-to-tr from-white/0 via-white/5 to-white/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none rounded-[11px]" />
                     </div>
-
-                    {/* Title */}
-                    <div className="mb-4">
-                      <span className="text-xs text-white/50 tracking-widest uppercase block mb-1">
-                        {pantheon.culture}
-                      </span>
-                      <h3 className="font-serif text-2xl font-semibold text-white tracking-wide">
-                        {pantheon.fullName}
-                      </h3>
-                    </div>
-
-                    {/* Description */}
-                    <p className="text-white/70 text-sm leading-relaxed mb-6 grow">
-                      {pantheon.description}
-                    </p>
-
-                    {/* CTA */}
-                    <div className="flex items-center gap-2 text-white/60 group-hover:text-white transition-colors duration-300">
-                      <span className="text-sm font-medium tracking-wide">
-                        Explore Pantheon
-                      </span>
-                      <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform duration-300" />
-                    </div>
-
-                    {/* Hover shine effect */}
-                    <div className="absolute inset-0 bg-linear-to-tr from-white/0 via-white/5 to-white/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none rounded-[11px]" />
                   </div>
-                </div>
-              </TransitionLink>
-            </motion.div>
-          ))}
+                </TransitionLink>
+              </motion.div>
+            ))}
         </div>
 
         {/* View all button */}

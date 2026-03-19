@@ -1,9 +1,15 @@
 "use client";
 
+import { hasAnalyticsConsent } from "@/lib/privacy-consent";
 import { useEffect } from "react";
-import { onCLS, onINP, onLCP, onFCP, onTTFB, type Metric } from "web-vitals";
+import { onCLS, onFCP, onINP, onLCP, onTTFB, type Metric } from "web-vitals";
 
 function sendToAnalytics(metric: Metric) {
+  // Respect explicit cookie choice. If not accepted, do not transmit metrics.
+  if (!hasAnalyticsConsent()) {
+    return;
+  }
+
   // Log to console in development
   if (process.env.NODE_ENV === "development") {
     console.log("[Web Vitals]", metric.name, metric.value);
