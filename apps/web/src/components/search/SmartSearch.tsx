@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import { useEffect, useState, useCallback, useMemo } from 'react';
-import { useRouter } from 'next/navigation';
+import { useEffect, useState, useCallback, useMemo } from "react";
+import { useRouter } from "next/navigation";
 import {
   Sparkles,
   BookOpen,
@@ -10,8 +10,8 @@ import {
   MapPin,
   Clock,
   TrendingUp,
-} from 'lucide-react';
-import { useDebounce } from '@/hooks/use-debounce';
+} from "lucide-react";
+import { useDebounce } from "@/hooks/use-debounce";
 import {
   searchAll,
   getPopularSearches,
@@ -21,7 +21,7 @@ import {
   getResultUrl,
   type SearchResult,
   type ContentType,
-} from '@/lib/search';
+} from "@/lib/search";
 import {
   CommandDialog,
   CommandInput,
@@ -30,7 +30,7 @@ import {
   CommandGroup,
   CommandItem,
   CommandSeparator,
-} from '@/components/ui/command';
+} from "@/components/ui/command";
 
 interface SmartSearchProps {
   open: boolean;
@@ -48,25 +48,25 @@ const typeIcons: Record<ContentType, typeof Sparkles> = {
 
 // Colors for each content type
 const typeColors: Record<ContentType, string> = {
-  deity: 'text-amber-500',
-  story: 'text-blue-500',
-  creature: 'text-red-500',
-  artifact: 'text-purple-500',
-  location: 'text-emerald-500',
+  deity: "text-amber-500",
+  story: "text-blue-500",
+  creature: "text-red-500",
+  artifact: "text-purple-500",
+  location: "text-emerald-500",
 };
 
 // Group labels for each content type
 const typeLabels: Record<ContentType, string> = {
-  deity: 'Deities',
-  story: 'Stories',
-  creature: 'Creatures',
-  artifact: 'Artifacts',
-  location: 'Locations',
+  deity: "Deities",
+  story: "Stories",
+  creature: "Creatures",
+  artifact: "Artifacts",
+  location: "Locations",
 };
 
 export function SmartSearch({ open, onOpenChange }: SmartSearchProps) {
   const router = useRouter();
-  const [query, setQuery] = useState('');
+  const [query, setQuery] = useState("");
   const [recentSearches, setRecentSearches] = useState<string[]>([]);
   const debouncedQuery = useDebounce(query, 300);
 
@@ -101,7 +101,10 @@ export function SmartSearch({ open, onOpenChange }: SmartSearchProps) {
     // Filter out empty groups and sort by number of results
     return Object.entries(groups)
       .filter(([, items]) => items.length > 0)
-      .sort((a, b) => b[1].length - a[1].length) as [ContentType, SearchResult[]][];
+      .sort((a, b) => b[1].length - a[1].length) as [
+      ContentType,
+      SearchResult[],
+    ][];
   }, [results]);
 
   const popularSearches = useMemo(() => getPopularSearches().slice(0, 6), []);
@@ -111,18 +114,15 @@ export function SmartSearch({ open, onOpenChange }: SmartSearchProps) {
       saveRecentSearch(result.title);
       setRecentSearches(getRecentSearches());
       onOpenChange(false);
-      setQuery('');
+      setQuery("");
       router.push(getResultUrl(result));
     },
-    [router, onOpenChange]
+    [router, onOpenChange],
   );
 
-  const handleQuickSearch = useCallback(
-    (term: string) => {
-      setQuery(term);
-    },
-    []
-  );
+  const handleQuickSearch = useCallback((term: string) => {
+    setQuery(term);
+  }, []);
 
   const handleClearRecent = useCallback(() => {
     clearRecentSearches();
@@ -133,14 +133,19 @@ export function SmartSearch({ open, onOpenChange }: SmartSearchProps) {
   useEffect(() => {
     if (!open) {
       // eslint-disable-next-line react-hooks/set-state-in-effect -- reset search query when dialog closes
-      setQuery('');
+      setQuery("");
     }
   }, [open]);
 
   const showSuggestions = !debouncedQuery || debouncedQuery.length < 2;
 
   return (
-    <CommandDialog open={open} onOpenChange={onOpenChange}>
+    <CommandDialog
+      open={open}
+      onOpenChange={onOpenChange}
+      title="Search Mythos Atlas"
+      description="Search mythology entries and quick navigation links."
+    >
       <CommandInput
         placeholder="Search deities, stories, creatures..."
         value={query}
@@ -216,7 +221,9 @@ export function SmartSearch({ open, onOpenChange }: SmartSearchProps) {
                     >
                       <Icon className={`h-4 w-4 shrink-0 ${colorClass}`} />
                       <div className="flex flex-col min-w-0">
-                        <span className="truncate font-medium">{result.title}</span>
+                        <span className="truncate font-medium">
+                          {result.title}
+                        </span>
                         <span className="text-xs text-muted-foreground truncate">
                           {result.subtitle}
                         </span>

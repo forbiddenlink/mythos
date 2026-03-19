@@ -1,9 +1,24 @@
-import { test, expect } from "@playwright/test";
+import { expect, test } from "@playwright/test";
 
 // Helper to wait for page load
 const waitForPage = async (page: import("@playwright/test").Page) => {
   await page.waitForLoadState("domcontentloaded");
 };
+
+const getBrowserLocalDate = async (
+  page: import("@playwright/test").Page,
+  offsetDays = 0,
+) =>
+  page.evaluate((offset) => {
+    const date = new Date();
+    date.setDate(date.getDate() + offset);
+
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, "0");
+    const day = String(date.getDate()).padStart(2, "0");
+
+    return `${year}-${month}-${day}`;
+  }, offsetDays);
 
 test.describe("Progress Tracking", () => {
   test.beforeEach(async ({ page }) => {
@@ -56,22 +71,27 @@ test.describe("Progress Tracking", () => {
     await page.goto("/deities/athena", { waitUntil: "domcontentloaded" });
     await expect(page.locator("h1")).toBeVisible({ timeout: 10000 });
 
-    // Get initial progress and verify it exists
-    const initialProgress = await page.evaluate(() => {
-      return localStorage.getItem("mythos-atlas-progress");
-    });
-    expect(initialProgress).toBeTruthy();
+    // Wait for provider effects to persist progress to localStorage
+    await expect
+      .poll(
+        async () =>
+          page.evaluate(() => localStorage.getItem("mythos-atlas-progress")),
+        { timeout: 5000 },
+      )
+      .toBeTruthy();
 
     // Reload page
     await page.reload({ waitUntil: "domcontentloaded" });
     await expect(page.locator("h1")).toBeVisible({ timeout: 10000 });
 
     // Progress should still be there
-    const afterReload = await page.evaluate(() => {
-      return localStorage.getItem("mythos-atlas-progress");
-    });
-
-    expect(afterReload).toBeDefined();
+    await expect
+      .poll(
+        async () =>
+          page.evaluate(() => localStorage.getItem("mythos-atlas-progress")),
+        { timeout: 5000 },
+      )
+      .toBeTruthy();
   });
 
   test("should maintain streak on consecutive days", async ({ page }) => {
@@ -80,9 +100,7 @@ test.describe("Progress Tracking", () => {
     await expect(page.locator("h1").first()).toBeVisible({ timeout: 10000 });
 
     // Set up initial progress with yesterday's visit
-    const yesterday = new Date();
-    yesterday.setDate(yesterday.getDate() - 1);
-    const yesterdayStr = yesterday.toISOString().split("T")[0];
+    const yesterdayStr = await getBrowserLocalDate(page, -1);
 
     await page.evaluate((lastVisit) => {
       localStorage.setItem(
@@ -125,7 +143,7 @@ test.describe("Progress Tracking", () => {
     await page.goto("/", { waitUntil: "domcontentloaded" });
     await expect(page.locator("h1").first()).toBeVisible({ timeout: 10000 });
 
-    const today = new Date().toISOString().split("T")[0];
+    const today = await getBrowserLocalDate(page);
 
     // Poll for lastVisit to be updated (React effects run async after render)
     await expect

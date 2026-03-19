@@ -109,7 +109,7 @@ export function Header() {
             <span className="font-serif text-lg font-semibold text-foreground tracking-wide leading-tight">
               Mythos Atlas
             </span>
-            <span className="text-[10px] text-muted-foreground tracking-[0.15em] uppercase hidden sm:block">
+            <span className="text-[10px] text-foreground/75 tracking-[0.15em] uppercase hidden sm:block">
               Ancient Mythology
             </span>
           </div>
@@ -132,11 +132,14 @@ export function Header() {
           <button
             onClick={handleSearchClick}
             className="flex items-center gap-2 px-3 py-2 text-sm text-muted-foreground hover:text-foreground bg-muted/50 hover:bg-muted rounded-lg border border-border/50 hover:border-border transition-all duration-200 group"
-            aria-label="Open command palette"
+            aria-label="Search"
           >
             <Search className="h-4 w-4 group-hover:text-gold transition-colors duration-200" />
             <span className="hidden lg:inline">Search</span>
-            <kbd className="hidden md:inline-flex items-center gap-0.5 px-1.5 py-0.5 text-[10px] font-mono rounded bg-background border border-border/80 text-muted-foreground">
+            <kbd
+              aria-hidden="true"
+              className="hidden md:inline-flex items-center gap-0.5 px-1.5 py-0.5 text-[10px] font-mono rounded bg-background border border-border/80 text-muted-foreground"
+            >
               {mounted && isMac ? <Command className="h-2.5 w-2.5" /> : null}
               {mounted && !isMac ? "Ctrl" : null}
               {!mounted && <span className="w-6" aria-hidden="true" />}

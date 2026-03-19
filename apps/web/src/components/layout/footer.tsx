@@ -1,5 +1,5 @@
-import Link from "next/link";
 import { Logo } from "@/components/ui/logo";
+import Link from "next/link";
 
 function GithubIcon({ className }: Readonly<{ className?: string }>) {
   return (
@@ -98,15 +98,15 @@ export function Footer() {
 
           {/* Explore links */}
           <div>
-            <h4 className="font-serif text-sm font-semibold text-foreground mb-4 tracking-wide">
+            <h2 className="font-serif text-sm font-semibold text-foreground mb-4 tracking-wide">
               Explore
-            </h4>
+            </h2>
             <ul className="space-y-2.5">
               {footerLinks.explore.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-muted-foreground hover:text-gold transition-colors duration-200"
+                    className="flex min-h-11 w-full items-center py-1 text-sm text-muted-foreground hover:text-gold transition-colors duration-200"
                   >
                     {link.label}
                   </Link>
@@ -117,15 +117,15 @@ export function Footer() {
 
           {/* Discover links */}
           <div>
-            <h4 className="font-serif text-sm font-semibold text-foreground mb-4 tracking-wide">
+            <h2 className="font-serif text-sm font-semibold text-foreground mb-4 tracking-wide">
               Discover
-            </h4>
+            </h2>
             <ul className="space-y-2.5">
               {footerLinks.discover.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-muted-foreground hover:text-gold transition-colors duration-200"
+                    className="flex min-h-11 w-full items-center py-1 text-sm text-muted-foreground hover:text-gold transition-colors duration-200"
                   >
                     {link.label}
                   </Link>
@@ -136,15 +136,15 @@ export function Footer() {
 
           {/* Learn links */}
           <div>
-            <h4 className="font-serif text-sm font-semibold text-foreground mb-4 tracking-wide">
+            <h2 className="font-serif text-sm font-semibold text-foreground mb-4 tracking-wide">
               Learn
-            </h4>
+            </h2>
             <ul className="space-y-2.5">
               {footerLinks.learn.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-muted-foreground hover:text-gold transition-colors duration-200"
+                    className="flex min-h-11 w-full items-center py-1 text-sm text-muted-foreground hover:text-gold transition-colors duration-200"
                   >
                     {link.label}
                   </Link>
@@ -155,15 +155,15 @@ export function Footer() {
 
           {/* Info links */}
           <div>
-            <h4 className="font-serif text-sm font-semibold text-foreground mb-4 tracking-wide">
+            <h2 className="font-serif text-sm font-semibold text-foreground mb-4 tracking-wide">
               Info
-            </h4>
+            </h2>
             <ul className="space-y-2.5">
               {footerLinks.info.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-muted-foreground hover:text-gold transition-colors duration-200"
+                    className="flex min-h-11 w-full items-center py-1 text-sm text-muted-foreground hover:text-gold transition-colors duration-200"
                   >
                     {link.label}
                   </Link>

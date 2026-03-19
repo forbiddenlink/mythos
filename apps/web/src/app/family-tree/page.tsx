@@ -147,6 +147,7 @@ export default function FamilyTreePage() {
   if (isLoading) {
     return (
       <div className="min-h-screen">
+        <h1 className="sr-only">Family Tree</h1>
         <PageHeaderSkeleton />
         <div className="container mx-auto max-w-7xl px-4 py-12">
           <GridSkeleton count={4} columns={4} />
@@ -158,6 +159,7 @@ export default function FamilyTreePage() {
   if (error) {
     return (
       <div className="container mx-auto max-w-7xl px-4 py-24">
+        <h1 className="sr-only">Family Tree</h1>
         <div className="text-center">
           <AlertCircle className="h-12 w-12 text-destructive mx-auto mb-4" />
           <h2 className="text-2xl font-bold text-destructive">

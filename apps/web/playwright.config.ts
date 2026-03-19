@@ -56,6 +56,9 @@ export default defineConfig({
   /* Run your local dev server before starting the tests */
   webServer: {
     command: "pnpm build && pnpm start",
+    env: {
+      NEXT_PUBLIC_ORACLE_ENABLED: "true",
+    },
     url: "http://localhost:3000",
     reuseExistingServer: !process.env.CI,
     timeout: 240000,

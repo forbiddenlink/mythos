@@ -47,6 +47,7 @@ export default function ArtifactsPage() {
   if (isLoading) {
     return (
       <div className="min-h-screen">
+        <h1 className="sr-only">Legendary Artifacts</h1>
         <PageHeaderSkeleton />
         <div className="container mx-auto max-w-6xl px-4 py-16">
           <GridSkeleton count={6} columns={3} />
@@ -58,6 +59,7 @@ export default function ArtifactsPage() {
   if (error) {
     return (
       <div className="container mx-auto max-w-6xl px-4 py-24">
+        <h1 className="sr-only">Legendary Artifacts</h1>
         <div className="text-center">
           <h2 className="text-2xl font-bold text-destructive">
             Error loading artifacts

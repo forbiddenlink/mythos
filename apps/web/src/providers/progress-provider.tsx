@@ -5,6 +5,7 @@ import {
   createContext,
   useCallback,
   useEffect,
+  useLayoutEffect,
   useMemo,
   useState,
   type ReactNode,
@@ -136,13 +137,15 @@ export function ProgressProvider({
   const [mounted, setMounted] = useState(false);
 
   // Hydration-safe: load from localStorage on client mount
-  useEffect(() => {
-    setProgress(loadProgress());
+  useLayoutEffect(() => {
+    const initialProgress = loadProgress();
+    setProgress(initialProgress);
+    saveProgress(initialProgress);
     setMounted(true);
   }, []);
 
   // Save progress to localStorage when it changes
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (mounted) {
       saveProgress(progress);
     }

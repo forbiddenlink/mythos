@@ -1,18 +1,26 @@
-import type { Metadata } from 'next'
-import { generateBaseMetadata } from '@/lib/metadata'
-import { WebApplicationJsonLd } from '@/components/seo/JsonLd'
+import type { Metadata } from "next";
+import { generateBaseMetadata } from "@/lib/metadata";
+import { WebApplicationJsonLd } from "@/components/seo/JsonLd";
 
 export const metadata: Metadata = generateBaseMetadata({
-  title: 'Family Tree',
-  description: 'Explore interactive family trees of gods and goddesses. Discover divine relationships, genealogies, and mythological lineages across Greek, Norse, and Egyptian pantheons.',
-  url: '/family-tree',
-  keywords: ['family tree', 'deity relationships', 'genealogy', 'god family tree', 'divine lineage', 'mythology visualization'],
-})
+  title: "Deity Family Trees and Genealogies",
+  description:
+    "Explore interactive family trees of gods and goddesses, with divine relationships, genealogies, and mythological lineages across Greek, Norse, and Egyptian pantheons.",
+  url: "/family-tree",
+  keywords: [
+    "family tree",
+    "deity relationships",
+    "genealogy",
+    "god family tree",
+    "divine lineage",
+    "mythology visualization",
+  ],
+});
 
 export default function FamilyTreeLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <>
@@ -23,5 +31,5 @@ export default function FamilyTreeLayout({
       />
       {children}
     </>
-  )
+  );
 }

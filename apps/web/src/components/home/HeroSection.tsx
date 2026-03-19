@@ -213,7 +213,7 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.5 }}
-          className="text-lg md:text-xl lg:text-2xl text-parchment/80 max-w-2xl mx-auto mb-6 font-body leading-relaxed tracking-wide"
+          className="text-lg md:text-xl lg:text-2xl text-parchment/90 max-w-2xl mx-auto mb-6 font-body leading-relaxed tracking-wide"
         >
           A free interactive encyclopedia of mythology from {STATS.pantheons}{" "}
           civilizations &mdash; with family trees, quizzes, and AI&#8209;powered
@@ -240,7 +240,7 @@ export function HeroSection() {
             asChild
             size="lg"
             variant="outline"
-            className="border-gold/40 bg-transparent text-gold hover:bg-gold/10 hover:border-gold/60 px-10 py-6 text-base tracking-wide transition-all duration-300"
+            className="border-gold/50 bg-midnight-light/30 text-parchment hover:bg-gold/12 hover:border-gold/70 px-10 py-6 text-base tracking-wide transition-all duration-300"
           >
             <TransitionLink href="/stories">Read a First Myth</TransitionLink>
           </Button>
@@ -266,7 +266,7 @@ export function HeroSection() {
                 <div className="text-parchment font-semibold mb-1 group-hover:text-gold transition-colors duration-300">
                   {path.title}
                 </div>
-                <p className="text-sm text-parchment/60 leading-relaxed">
+                <p className="text-sm text-parchment/78 leading-relaxed">
                   {path.description}
                 </p>
               </TransitionLink>

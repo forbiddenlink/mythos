@@ -2,7 +2,6 @@
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import * as Sentry from "@sentry/nextjs";
 import { AlertTriangle, Home, RotateCcw } from "lucide-react";
 import Link from "next/link";
 import { useEffect } from "react";
@@ -15,7 +14,20 @@ export default function ErrorPage({
   reset: () => void;
 }>) {
   useEffect(() => {
-    Sentry.captureException(error);
+    if (
+      process.env.NODE_ENV !== "production" ||
+      !process.env.NEXT_PUBLIC_SENTRY_DSN
+    ) {
+      return;
+    }
+
+    void import("@sentry/nextjs")
+      .then((Sentry) => {
+        Sentry.captureException(error);
+      })
+      .catch(() => {
+        // Ignore Sentry load errors on the error page.
+      });
   }, [error]);
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-linear-to-b from-midnight via-midnight-light to-midnight px-4 py-16">

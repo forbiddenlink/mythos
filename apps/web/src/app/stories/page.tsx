@@ -206,6 +206,7 @@ export default function StoriesPage() {
   if (isLoading) {
     return (
       <div className="min-h-screen">
+        <h1 className="sr-only">Stories</h1>
         {/* Hero placeholder */}
         <div className="relative h-[50vh] min-h-100 flex items-center justify-center overflow-hidden bg-linear-to-b from-midnight/70 via-midnight/60 to-midnight/80" />
 
@@ -222,6 +223,7 @@ export default function StoriesPage() {
   if (error) {
     return (
       <div className="container mx-auto max-w-6xl px-4 py-24">
+        <h1 className="sr-only">Stories</h1>
         <div className="text-center">
           <h2 className="text-2xl font-bold text-destructive">
             Error loading stories

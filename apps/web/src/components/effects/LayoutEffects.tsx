@@ -15,9 +15,12 @@ const OracleChat = dynamic(
   { ssr: false },
 );
 
-// Keep Oracle on by default for local dev and E2E tests.
-// Set NEXT_PUBLIC_ORACLE_ENABLED="false" to explicitly disable it.
-const oracleEnabled = process.env.NEXT_PUBLIC_ORACLE_ENABLED !== "false";
+// Keep Oracle on by default outside production. In production, require an
+// explicit public opt-in so the UI doesn't expose a broken feature when the
+// backend key hasn't been configured.
+const oracleEnabled =
+  process.env.NODE_ENV !== "production" ||
+  process.env.NEXT_PUBLIC_ORACLE_ENABLED === "true";
 
 /**
  * Client-side layout effects wrapper

@@ -1,13 +1,13 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import Link from "next/link";
-import Image from "next/image";
-import { Gamepad2, Trophy, ChevronRight, Sparkles } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { BranchingStory, getDiscoveredEndings } from "@/lib/branching-story";
+import { Button } from "@/components/ui/button";
 import branchingStoriesData from "@/data/branching-stories.json";
+import { BranchingStory, getDiscoveredEndings } from "@/lib/branching-story";
+import { ChevronRight, Gamepad2, Sparkles, Trophy } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import { useEffect, useState } from "react";
 
 const branchingStories = branchingStoriesData as unknown as BranchingStory[];
 
@@ -112,18 +112,19 @@ export function InteractiveStoriesBanner() {
               </div>
 
               {/* Featured Story Preview */}
-              <div className="w-full lg:w-80 shrink-0">
+              <div className="w-full max-w-sm lg:w-80 shrink-0 mx-auto lg:mx-0">
                 <Link
                   href={`/stories/interactive/${featuredStory.slug}`}
                   className="group block"
                 >
                   <div className="relative rounded-xl overflow-hidden border border-gold/30 hover:border-gold/50 transition-colors">
                     {featuredStory.coverImage && (
-                      <div className="relative aspect-4/3">
+                      <div className="relative aspect-square">
                         <Image
                           src={featuredStory.coverImage}
                           alt={featuredStory.title}
                           fill
+                          sizes="(max-width: 1024px) 22rem, 20rem"
                           className="object-cover group-hover:scale-105 transition-transform duration-500"
                         />
                         <div className="absolute inset-0 bg-linear-to-t from-midnight via-midnight/20 to-transparent" />

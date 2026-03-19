@@ -1,9 +1,8 @@
 "use client";
 
-import { useEffect } from "react";
-import * as Sentry from "@sentry/nextjs";
 import { Cinzel, Source_Sans_3 } from "next/font/google";
 import Link from "next/link";
+import { useEffect } from "react";
 
 const cinzel = Cinzel({
   variable: "--font-cinzel",
@@ -27,7 +26,20 @@ export default function GlobalError({
   reset: () => void;
 }>) {
   useEffect(() => {
-    Sentry.captureException(error);
+    if (
+      process.env.NODE_ENV !== "production" ||
+      !process.env.NEXT_PUBLIC_SENTRY_DSN
+    ) {
+      return;
+    }
+
+    void import("@sentry/nextjs")
+      .then((Sentry) => {
+        Sentry.captureException(error);
+      })
+      .catch(() => {
+        // Ignore Sentry load errors on the global error page.
+      });
   }, [error]);
 
   return (

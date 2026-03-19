@@ -1,18 +1,27 @@
-import type { Metadata } from 'next'
-import { generateBaseMetadata } from '@/lib/metadata'
-import { CollectionPageJsonLd } from '@/components/seo/JsonLd'
+import type { Metadata } from "next";
+import { generateBaseMetadata } from "@/lib/metadata";
+import { CollectionPageJsonLd } from "@/components/seo/JsonLd";
 
 export const metadata: Metadata = generateBaseMetadata({
-  title: 'Pantheons',
-  description: 'Explore the pantheons of ancient civilizations. Discover Greek, Norse, Egyptian, Roman, Hindu, Japanese, Celtic, Aztec, and Chinese mythological traditions.',
-  url: '/pantheons',
-  keywords: ['pantheons', 'Greek pantheon', 'Norse pantheon', 'Egyptian pantheon', 'Roman pantheon', 'Hindu pantheon', 'mythological traditions'],
-})
+  title: "Pantheons of Ancient Civilizations",
+  description:
+    "Explore the pantheons of ancient civilizations, including Greek, Norse, Egyptian, Roman, Hindu, Japanese, Celtic, Aztec, and Chinese mythological traditions.",
+  url: "/pantheons",
+  keywords: [
+    "pantheons",
+    "Greek pantheon",
+    "Norse pantheon",
+    "Egyptian pantheon",
+    "Roman pantheon",
+    "Hindu pantheon",
+    "mythological traditions",
+  ],
+});
 
 export default function PantheonsLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <>
@@ -23,5 +32,5 @@ export default function PantheonsLayout({
       />
       {children}
     </>
-  )
+  );
 }

@@ -1,16 +1,8 @@
-# Mythos Atlas - Mythology Encyclopedia
-# https://mythosatlas.com
-
 User-agent: *
 Allow: /
 
-# Sitemaps
 Sitemap: https://mythosatlas.com/sitemap.xml
 
-# Crawl-delay for politeness
-Crawl-delay: 1
-
-# Disallow API routes and internal pages
 Disallow: /api/
 Disallow: /_next/
 Disallow: /admin/

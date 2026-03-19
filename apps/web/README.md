@@ -148,7 +148,7 @@ src/
 │   ├── progress, query, review, theme
 │   └── ...
 ├── types/                # TypeScript definitions
-└── middleware.ts         # i18n routing middleware
+└── proxy.ts              # i18n routing proxy
 ```
 
 ## Available Scripts

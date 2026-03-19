@@ -48,15 +48,12 @@ function AchievementCard({
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
+      initial={{ y: 16 }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.25, ease: "easeOut" }}
       className={`relative rounded-xl border p-5 transition-all duration-300 bg-card ${
         isUnlocked ? `${colors.border} ${colors.bg} shadow-lg` : "border-border"
-      } ${
-        isUnlocked
-          ? "shadow-lg"
-          : "grayscale hover:grayscale-0 border-border/80"
-      }`}
+      } ${isUnlocked ? "shadow-lg" : "border-border/80 bg-muted/20"}`}
     >
       {/* Lock overlay for locked achievements */}
       {!achievement.unlocked && (
@@ -87,7 +84,7 @@ function AchievementCard({
               className={`text-xs px-2 py-0.5 rounded-full border ${
                 isUnlocked
                   ? tierBadgeClasses[achievement.tier]
-                  : "bg-muted text-foreground border-border"
+                  : "bg-slate-900 text-white border-slate-700 dark:bg-slate-100 dark:text-slate-950 dark:border-slate-300"
               }`}
             >
               {achievement.tier}
@@ -159,8 +156,8 @@ function CategorySection({
         {achievements.map((achievement, index) => (
           <motion.div
             key={achievement.id}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ y: 16 }}
+            animate={{ y: 0 }}
             transition={{ delay: index * 0.05 }}
           >
             <AchievementCard achievement={achievement} />
@@ -207,8 +204,9 @@ export default function AchievementsPage() {
 
         <div className="container mx-auto px-4 relative z-10">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ y: 20 }}
+            animate={{ y: 0 }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
             className="text-center max-w-3xl mx-auto"
           >
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gold/10 border border-gold/20 mb-6">

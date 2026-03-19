@@ -1,10 +1,10 @@
-'use client';
+"use client";
 
-import { useState, useEffect, useRef } from 'react';
-import { useRouter } from 'next/navigation';
-import { useLocale } from 'next-intl';
-import { ChevronDown, Globe } from 'lucide-react';
-import { locales, localeNames, localeFlags, type Locale } from '@/i18n/config';
+import { localeFlags, localeNames, locales, type Locale } from "@/i18n/config";
+import { ChevronDown, Globe } from "lucide-react";
+import { useLocale } from "next-intl";
+import { useRouter } from "next/navigation";
+import { useEffect, useRef, useState } from "react";
 
 export function LanguageSwitcher() {
   const [isOpen, setIsOpen] = useState(false);
@@ -20,25 +20,28 @@ export function LanguageSwitcher() {
   // Close dropdown when clicking outside
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
         setIsOpen(false);
       }
     }
 
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
   // Close dropdown on escape key
   useEffect(() => {
     function handleEscape(event: KeyboardEvent) {
-      if (event.key === 'Escape') {
+      if (event.key === "Escape") {
         setIsOpen(false);
       }
     }
 
-    document.addEventListener('keydown', handleEscape);
-    return () => document.removeEventListener('keydown', handleEscape);
+    document.addEventListener("keydown", handleEscape);
+    return () => document.removeEventListener("keydown", handleEscape);
   }, []);
 
   const handleLocaleChange = (locale: Locale) => {
@@ -47,7 +50,7 @@ export function LanguageSwitcher() {
     document.cookie = `locale=${locale};path=/;max-age=31536000;SameSite=Lax`;
 
     // Store in localStorage as backup
-    localStorage.setItem('locale', locale);
+    localStorage.setItem("locale", locale);
 
     setIsOpen(false);
 
@@ -68,8 +71,8 @@ export function LanguageSwitcher() {
     <div className="relative" ref={dropdownRef}>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center gap-1.5 px-2 py-2 text-sm text-muted-foreground hover:text-foreground rounded-lg hover:bg-muted/50 transition-all duration-200"
-        aria-label="Select language"
+        className="flex min-h-11 items-center gap-1.5 px-3 py-2 text-sm text-foreground/80 hover:text-foreground rounded-lg hover:bg-muted/50 transition-all duration-200"
+        aria-label={`Language: ${currentLocale.toUpperCase()}`}
         aria-expanded={isOpen ? "true" : "false"}
         aria-haspopup="listbox"
       >
@@ -80,7 +83,7 @@ export function LanguageSwitcher() {
           {currentLocale}
         </span>
         <ChevronDown
-          className={`h-3 w-3 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}
+          className={`h-3 w-3 transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`}
         />
       </button>
 
@@ -97,8 +100,8 @@ export function LanguageSwitcher() {
                 onClick={() => handleLocaleChange(locale)}
                 className={`w-full flex items-center gap-3 px-3 py-2 text-sm transition-colors duration-150 ${
                   locale === currentLocale
-                    ? 'bg-gold/10 text-gold'
-                    : 'text-foreground hover:bg-muted'
+                    ? "bg-gold/10 text-gold"
+                    : "text-foreground hover:bg-muted"
                 }`}
                 role="option"
                 aria-selected={locale === currentLocale ? "true" : "false"}
@@ -106,9 +109,7 @@ export function LanguageSwitcher() {
                 <span className="text-base" aria-hidden="true">
                   {localeFlags[locale]}
                 </span>
-                <span className="flex-1 text-left">
-                  {localeNames[locale]}
-                </span>
+                <span className="flex-1 text-left">{localeNames[locale]}</span>
                 {locale === currentLocale && (
                   <span className="text-gold" aria-hidden="true">
                     ✓

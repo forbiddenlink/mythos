@@ -144,14 +144,14 @@ function MegaMenuDropdown({
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
   const menuRef = useRef<HTMLDivElement>(null);
 
-  const handleMouseEnter = () => {
+  const handlePointerEnter = () => {
     if (timeoutRef.current) {
       clearTimeout(timeoutRef.current);
     }
     onOpen();
   };
 
-  const handleMouseLeave = () => {
+  const handlePointerLeave = () => {
     timeoutRef.current = setTimeout(() => {
       onClose();
     }, 300);
@@ -166,7 +166,17 @@ function MegaMenuDropdown({
   }, []);
 
   return (
-    <div ref={menuRef} className="relative">
+    <div
+      ref={menuRef}
+      className="relative -mb-2 pb-2"
+      onMouseEnter={handlePointerEnter}
+      onMouseLeave={handlePointerLeave}
+      onFocus={handlePointerEnter}
+      onBlur={(event) => {
+        if (menuRef.current?.contains(event.relatedTarget as Node)) return;
+        handlePointerLeave();
+      }}
+    >
       <button
         type="button"
         className={cn(
@@ -176,12 +186,13 @@ function MegaMenuDropdown({
             : "text-muted-foreground hover:text-foreground",
         )}
         aria-haspopup="menu"
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
-        onFocus={handleMouseEnter}
-        onBlur={(event) => {
-          if (menuRef.current?.contains(event.relatedTarget as Node)) return;
-          handleMouseLeave();
+        aria-expanded={isOpen}
+        onClick={() => {
+          if (isOpen) {
+            onClose();
+            return;
+          }
+          handlePointerEnter();
         }}
       >
         <span className="relative z-10">{section.label}</span>
@@ -206,12 +217,8 @@ function MegaMenuDropdown({
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 8 }}
             transition={{ duration: 0.15 }}
-            className="absolute left-1/2 -translate-x-1/2 top-full z-50"
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
+            className="absolute left-1/2 top-full z-50 -translate-x-1/2 pt-2"
           >
-            {/* Invisible bridge to prevent gap between trigger and dropdown */}
-            <div className="h-2" />
             <div className="w-72 rounded-xl border border-border/50 bg-background/95 backdrop-blur-md shadow-xl overflow-hidden">
               <div className="p-2">
                 {section.items.map((item) => (
@@ -285,7 +292,7 @@ export function MegaMenu() {
       {/* Quiz - direct link */}
       <Link
         href="/quiz"
-        className="relative px-3 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors duration-200 group"
+        className="relative inline-flex min-h-12 items-center px-4 py-2.5 text-sm font-medium text-foreground hover:text-gold transition-colors duration-200 group"
       >
         <span className="relative z-10">Quiz</span>
         <span className="absolute inset-x-1 -bottom-px h-px bg-linear-to-r from-transparent via-gold/60 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
@@ -294,7 +301,7 @@ export function MegaMenu() {
       {/* Progress - direct link */}
       <Link
         href="/progress"
-        className="relative px-3 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors duration-200 group"
+        className="relative inline-flex min-h-12 items-center px-4 py-2.5 text-sm font-medium text-foreground hover:text-gold transition-colors duration-200 group"
       >
         <span className="relative z-10">Progress</span>
         <span className="absolute inset-x-1 -bottom-px h-px bg-linear-to-r from-transparent via-gold/60 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
@@ -303,7 +310,7 @@ export function MegaMenu() {
       {/* About - direct link */}
       <Link
         href="/about"
-        className="relative px-3 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors duration-200 group"
+        className="relative inline-flex min-h-12 items-center px-4 py-2.5 text-sm font-medium text-foreground hover:text-gold transition-colors duration-200 group"
       >
         <span className="relative z-10">About</span>
         <span className="absolute inset-x-1 -bottom-px h-px bg-linear-to-r from-transparent via-gold/60 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />

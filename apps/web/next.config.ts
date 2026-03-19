@@ -2,136 +2,17 @@ import bundleAnalyzer from "@next/bundle-analyzer";
 import { withSentryConfig } from "@sentry/nextjs";
 import type { NextConfig } from "next";
 import createNextIntlPlugin from "next-intl/plugin";
+import path from "node:path";
 
 const withNextIntl = createNextIntlPlugin("./i18n.ts");
 const withBundleAnalyzer = bundleAnalyzer({
   enabled: process.env.ANALYZE === "true",
 });
 
-// PWA Configuration - Install: pnpm add next-pwa
-// eslint-disable-next-line @typescript-eslint/no-require-imports
-const withPWA = require("next-pwa")({
-  dest: "public",
-  disable: process.env.NODE_ENV === "development",
-  register: true,
-  skipWaiting: true,
-  // Import custom worker scripts directly (no babel needed)
-  importScripts: ["/sw-sync.js"],
-  runtimeCaching: [
-    {
-      urlPattern: /^https:\/\/fonts\.(?:gstatic|googleapis)\.com\/.*/i,
-      handler: "CacheFirst",
-      options: {
-        cacheName: "google-fonts",
-        expiration: {
-          maxEntries: 4,
-          maxAgeSeconds: 365 * 24 * 60 * 60, // 1 year
-        },
-      },
-    },
-    {
-      urlPattern: /\.(?:eot|otf|ttc|ttf|woff|woff2|font\.css)$/i,
-      handler: "StaleWhileRevalidate",
-      options: {
-        cacheName: "static-fonts",
-        expiration: {
-          maxEntries: 4,
-          maxAgeSeconds: 7 * 24 * 60 * 60, // 1 week
-        },
-      },
-    },
-    {
-      urlPattern: /\.(?:jpg|jpeg|gif|png|svg|ico|webp)$/i,
-      handler: "StaleWhileRevalidate",
-      options: {
-        cacheName: "static-images",
-        expiration: {
-          maxEntries: 64,
-          maxAgeSeconds: 30 * 24 * 60 * 60, // 30 days
-        },
-      },
-    },
-    {
-      urlPattern: /\/_next\/static.*/i,
-      handler: "CacheFirst",
-      options: {
-        cacheName: "next-static",
-        expiration: {
-          maxEntries: 64,
-          maxAgeSeconds: 30 * 24 * 60 * 60, // 30 days
-        },
-      },
-    },
-    {
-      urlPattern: /\/_next\/image\?url=.+$/i,
-      handler: "StaleWhileRevalidate",
-      options: {
-        cacheName: "next-images",
-        expiration: {
-          maxEntries: 64,
-          maxAgeSeconds: 24 * 60 * 60, // 1 day
-        },
-      },
-    },
-    {
-      urlPattern: /\/api\/.*$/i,
-      handler: "NetworkFirst",
-      options: {
-        cacheName: "api-cache",
-        expiration: {
-          maxEntries: 32,
-          maxAgeSeconds: 24 * 60 * 60, // 1 day
-        },
-        networkTimeoutSeconds: 10,
-      },
-    },
-    {
-      urlPattern: /\/deities\/.*$/i,
-      handler: "StaleWhileRevalidate",
-      options: {
-        cacheName: "deity-pages",
-        expiration: {
-          maxEntries: 100,
-          maxAgeSeconds: 7 * 24 * 60 * 60, // 1 week
-        },
-      },
-    },
-    {
-      urlPattern: /\/stories\/.*$/i,
-      handler: "StaleWhileRevalidate",
-      options: {
-        cacheName: "story-pages",
-        expiration: {
-          maxEntries: 50,
-          maxAgeSeconds: 7 * 24 * 60 * 60, // 1 week
-        },
-      },
-    },
-    {
-      urlPattern: /\/pantheons\/.*$/i,
-      handler: "StaleWhileRevalidate",
-      options: {
-        cacheName: "pantheon-pages",
-        expiration: {
-          maxEntries: 20,
-          maxAgeSeconds: 7 * 24 * 60 * 60, // 1 week
-        },
-      },
-    },
-    {
-      urlPattern: /.*/i,
-      handler: "NetworkFirst",
-      options: {
-        cacheName: "others",
-        expiration: {
-          maxEntries: 32,
-          maxAgeSeconds: 24 * 60 * 60, // 1 day
-        },
-        networkTimeoutSeconds: 10,
-      },
-    },
-  ],
-});
+// PWA is disabled - next-pwa can cause service worker initialization errors
+// If PWA is needed in the future, requires careful service worker configuration
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const withPWA = (config: NextConfig) => config;
 
 const nextConfig: NextConfig = {
   devIndicators: false,
@@ -143,7 +24,26 @@ const nextConfig: NextConfig = {
   // },
   // Empty turbopack config to satisfy Next.js 16 when using webpack-based plugins (next-pwa)
   // Production builds use --webpack flag via package.json
-  turbopack: {},
+  turbopack: {
+    root: path.join(__dirname, "../../"),
+  },
+  outputFileTracingRoot: path.join(__dirname, "../../"),
+  webpack: (config) => {
+    config.ignoreWarnings = [
+      ...(config.ignoreWarnings ?? []),
+      {
+        module: /@opentelemetry\/instrumentation|require-in-the-middle/,
+        message:
+          /Critical dependency: the request of a dependency is an expression/,
+      },
+      {
+        module: /require-in-the-middle/,
+        message:
+          /require function is used in a way in which dependencies cannot be statically extracted/,
+      },
+    ];
+    return config;
+  },
   images: {
     remotePatterns: [
       {
@@ -176,6 +76,7 @@ const nextConfig: NextConfig = {
               "img-src 'self' data: https: blob:",
               "font-src 'self' data:",
               "connect-src 'self' https:",
+              "worker-src 'self' blob:",
               "media-src 'self'",
               "frame-ancestors 'none'",
             ].join("; "),
@@ -186,27 +87,26 @@ const nextConfig: NextConfig = {
   },
 };
 
-// Wrap with all plugins including Sentry
-const configWithPlugins = withBundleAnalyzer(withNextIntl(withPWA(nextConfig)));
+// Wrap with all plugins (PWA disabled entirely to prevent service worker initialization errors)
+const configWithPlugins = withBundleAnalyzer(withNextIntl(nextConfig));
 
-export default withSentryConfig(configWithPlugins, {
-  // For all available options, see:
-  // https://www.npmjs.com/package/@sentry/nextjs
+const hasSentryAuthToken = Boolean(process.env.SENTRY_AUTH_TOKEN);
 
+const sentryOptions = {
   org: process.env.SENTRY_ORG,
   project: process.env.SENTRY_PROJECT,
-
+  authToken: process.env.SENTRY_AUTH_TOKEN,
   // Upload a larger set of source maps for prettier stack traces (increases build time)
   widenClientFileUpload: true,
-
-  // Routes browser requests to Sentry through a Next.js rewrite to circumvent ad-blockers
-  tunnelRoute: "/monitoring",
-
-  // Automatically tree-shake Sentry logger statements to reduce bundle size
-  disableLogger: true,
-
   // Source maps configuration
   sourcemaps: {
     deleteSourcemapsAfterUpload: true,
   },
-});
+  // Routes browser requests to Sentry through a Next.js rewrite to circumvent ad-blockers
+  tunnelRoute: "/monitoring",
+  telemetry: false,
+};
+
+export default hasSentryAuthToken
+  ? withSentryConfig(configWithPlugins, sentryOptions)
+  : configWithPlugins;

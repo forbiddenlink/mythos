@@ -139,6 +139,14 @@ interface DeityPageClientProps {
   slug: string;
 }
 
+function formatSlugAsTitle(slug: string) {
+  return slug
+    .split("-")
+    .filter(Boolean)
+    .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
+    .join(" ");
+}
+
 export function DeityPageClient({ slug }: DeityPageClientProps) {
   const { data, isLoading, error } = useQuery<{ deity: Deity | null }>({
     queryKey: ["deity", slug],
@@ -269,12 +277,18 @@ export function DeityPageClient({ slug }: DeityPageClientProps) {
   });
 
   if (isLoading) {
-    return <DetailPageSkeleton />;
+    return (
+      <>
+        <h1 className="sr-only">{formatSlugAsTitle(slug)}</h1>
+        <DetailPageSkeleton />
+      </>
+    );
   }
 
   if (error) {
     return (
       <div className="container mx-auto max-w-6xl px-4 py-24">
+        <h1 className="sr-only">{formatSlugAsTitle(slug)}</h1>
         <div className="text-center">
           <h2 className="text-2xl font-bold text-destructive">
             Error loading deity
@@ -290,6 +304,7 @@ export function DeityPageClient({ slug }: DeityPageClientProps) {
   if (!data?.deity && !isLoading) {
     return (
       <div className="container mx-auto max-w-6xl px-4 py-24">
+        <h1 className="sr-only">{formatSlugAsTitle(slug)}</h1>
         <div className="text-center">
           <h2 className="text-2xl font-bold">Deity Not Found</h2>
           <p className="text-muted-foreground mt-2">
