@@ -52,8 +52,10 @@ const nextConfig: NextConfig = {
         pathname: "/**",
       },
     ],
-    formats: ["image/webp"],
+    formats: ["image/avif", "image/webp"],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920],
+    imageSizes: [16, 32, 48, 64, 128, 256, 384],
+    minimumCacheTTL: 60 * 60 * 24 * 365, // 1 year for static images
   },
   async headers() {
     return [
@@ -71,7 +73,10 @@ const nextConfig: NextConfig = {
             key: "Content-Security-Policy",
             value: [
               "default-src 'self'",
-              "script-src 'self' 'unsafe-inline' 'unsafe-eval'",
+              // Some production-only analytics/vitals dependencies bootstrap via
+              // blob-backed worker scripts. Keep worker support explicit rather
+              // than broadening other resource directives.
+              "script-src 'self' 'unsafe-inline' 'unsafe-eval' blob:",
               "style-src 'self' 'unsafe-inline'",
               "img-src 'self' data: https: blob:",
               "font-src 'self' data:",
