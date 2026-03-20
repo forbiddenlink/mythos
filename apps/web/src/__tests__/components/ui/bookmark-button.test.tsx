@@ -6,7 +6,6 @@ import {
   BookmarksProvider,
   BookmarksContext,
   type BookmarksContextValue,
-  type BookmarkType,
 } from "@/providers/bookmarks-provider";
 
 // Mock framer-motion to avoid animation issues in tests
@@ -14,7 +13,7 @@ vi.mock("framer-motion", () => ({
   motion: {
     button: ({
       children,
-      whileTap,
+      whileTap: _whileTap,
       ...props
     }: {
       children?: ReactNode;
