@@ -20,7 +20,11 @@
     "slug": "thunderbolt-of-zeus",
     "description": "The supreme weapon of the king of the gods, capable of striking down titans and mortals alike. These divine bolts of lightning represent Zeus's absolute authority over the heavens and earth.",
     "type": "weapon",
-    "powers": ["Lightning Summoning", "Absolute Destruction", "Weather Control"],
+    "powers": [
+      "Lightning Summoning",
+      "Absolute Destruction",
+      "Weather Control"
+    ],
     "owner": "zeus",
     "origin": "Forged by the Cyclopes during the Titanomachy as a gift to Zeus in exchange for their freedom from Tartarus.",
     "currentLocation": "Wielded by Zeus on Mount Olympus",
@@ -62,11 +66,16 @@
     "slug": "caduceus",
     "description": "The winged staff entwined by two serpents, carried by Hermes as messenger of the gods. It grants safe passage between realms and the power to guide souls to the underworld.",
     "type": "tool",
-    "powers": ["Realm Traversal", "Soul Guidance", "Peace Inducement", "Sleep Inducement"],
+    "powers": [
+      "Realm Traversal",
+      "Soul Guidance",
+      "Peace Inducement",
+      "Sleep Inducement"
+    ],
     "owner": "hermes",
     "origin": "Given to Hermes by Apollo in exchange for the lyre. The serpents were added when Hermes separated two fighting snakes with the staff.",
     "currentLocation": "Carried by Hermes throughout all realms",
-    "imageUrl": "/artifacts/caduceus.png",
+    "imageUrl": "/artifacts/caduceus.jpg",
     "relatedStories": ["orpheus-eurydice"]
   },
   {
@@ -76,7 +85,12 @@
     "slug": "bow-of-apollo",
     "description": "The silver bow of the god of archery, light, and plague. Its arrows never miss their target and can bring both death through plague or healing through purification.",
     "type": "weapon",
-    "powers": ["Perfect Accuracy", "Plague Arrows", "Healing Light", "Long-range Destruction"],
+    "powers": [
+      "Perfect Accuracy",
+      "Plague Arrows",
+      "Healing Light",
+      "Long-range Destruction"
+    ],
     "owner": "apollo",
     "origin": "Forged by Hephaestus with silver taken from the moon, matching the golden bow he created for Artemis.",
     "currentLocation": "Carried by Apollo on Mount Olympus",
@@ -136,7 +150,7 @@
     "owner": "achilles",
     "origin": "Forged by Hephaestus at the request of Thetis after Achilles's original armor was lost when Hector killed Patroclus.",
     "currentLocation": "Lost after the fall of Troy",
-    "imageUrl": "/artifacts/shield-of-achilles.png",
+    "imageUrl": "/artifacts/shield-of-achilles.jpg",
     "relatedStories": ["trojan-war"]
   },
   {
@@ -146,11 +160,16 @@
     "slug": "mjolnir",
     "description": "The legendary hammer of Thor, god of thunder. Capable of leveling mountains with a single blow, it always returns to its wielder's hand and summons devastating lightning storms.",
     "type": "weapon",
-    "powers": ["Lightning Summoning", "Unbreakable", "Returning", "Mountain Shattering"],
+    "powers": [
+      "Lightning Summoning",
+      "Unbreakable",
+      "Returning",
+      "Mountain Shattering"
+    ],
     "owner": "thor",
     "origin": "Forged by the dwarf brothers Sindri and Brokkr as part of a wager with Loki, who sabotaged its creation resulting in its short handle.",
     "currentLocation": "Wielded by Thor in Asgard",
-    "imageUrl": "/artifacts/mjolnir.png",
+    "imageUrl": "/artifacts/mjolnir.jpg",
     "relatedStories": ["thors-journey-utgard", "ragnarok"]
   },
   {
@@ -174,7 +193,11 @@
     "slug": "draupnir",
     "description": "Odin's magical gold ring that multiplies itself every ninth night, producing eight identical rings of equal weight and beauty. It represents endless wealth and regeneration.",
     "type": "jewelry",
-    "powers": ["Gold Multiplication", "Wealth Generation", "Symbolic Authority"],
+    "powers": [
+      "Gold Multiplication",
+      "Wealth Generation",
+      "Symbolic Authority"
+    ],
     "owner": "odin",
     "origin": "Forged by the dwarf brothers Sindri and Brokkr alongside Mjolnir and Gullinbursti.",
     "currentLocation": "Placed on Baldur's funeral pyre, later retrieved from Hel",
@@ -188,7 +211,11 @@
     "slug": "gleipnir",
     "description": "The magical fetter that binds the monstrous wolf Fenrir. Though thin as a silk ribbon, it is stronger than any iron chain, forged from impossible ingredients by the dwarves.",
     "type": "tool",
-    "powers": ["Unbreakable Binding", "Monster Restraint", "Magical Durability"],
+    "powers": [
+      "Unbreakable Binding",
+      "Monster Restraint",
+      "Magical Durability"
+    ],
     "owner": "The Aesir",
     "origin": "Forged by the dwarves from six impossible things: the sound of a cat's footsteps, the beard of a woman, the roots of a mountain, the sinews of a bear, the breath of a fish, and the spittle of a bird.",
     "currentLocation": "Binding Fenrir on the island Lyngvi until Ragnarok",
@@ -202,7 +229,12 @@
     "slug": "skidbladnir",
     "description": "The greatest ship ever built, capable of sailing on any sea or flying through the air. It always has favorable wind and can fold up small enough to fit in a pocket.",
     "type": "vehicle",
-    "powers": ["Favorable Winds", "Flight", "Size Manipulation", "All-terrain Travel"],
+    "powers": [
+      "Favorable Winds",
+      "Flight",
+      "Size Manipulation",
+      "All-terrain Travel"
+    ],
     "owner": "freyr",
     "origin": "Built by the Sons of Ivaldi as a gift to the gods, part of the treasures created after Loki cut off Sif's hair.",
     "currentLocation": "Possessed by Freyr in Asgard",
@@ -234,7 +266,7 @@
     "owner": "thor",
     "origin": "One of Thor's essential items alongside Mjolnir and his iron gloves Jarngreipr, its origin is attributed to divine craftsmanship.",
     "currentLocation": "Worn by Thor in Asgard",
-    "imageUrl": "/artifacts/megingjord.png",
+    "imageUrl": "/artifacts/megingjord.jpg",
     "relatedStories": ["thors-journey-utgard"]
   },
   {
@@ -258,11 +290,16 @@
     "slug": "crook-and-flail",
     "description": "The twin symbols of pharaonic authority and divine kingship. The crook represents the ruler as shepherd of the people, while the flail symbolizes the power to provide sustenance.",
     "type": "tool",
-    "powers": ["Royal Authority", "Divine Kingship", "Agricultural Blessing", "Leadership"],
+    "powers": [
+      "Royal Authority",
+      "Divine Kingship",
+      "Agricultural Blessing",
+      "Leadership"
+    ],
     "owner": "osiris",
     "origin": "Originally the symbols of Osiris as god-king of Egypt, passed down to all pharaohs as emblems of their divine right to rule.",
     "currentLocation": "Held by Osiris in the Duat (underworld)",
-    "imageUrl": "/artifacts/crook-and-flail.png",
+    "imageUrl": "/artifacts/crook-and-flail.jpg",
     "relatedStories": ["osiris-myth"]
   },
   {
@@ -272,11 +309,16 @@
     "slug": "eye-of-ra",
     "description": "A powerful solar disk that embodies the destructive aspect of the sun god. It can be sent forth as a weapon of divine wrath, often taking the form of the goddess Sekhmet to punish humanity.",
     "type": "weapon",
-    "powers": ["Solar Fire", "Divine Wrath", "Mass Destruction", "Goddess Manifestation"],
+    "powers": [
+      "Solar Fire",
+      "Divine Wrath",
+      "Mass Destruction",
+      "Goddess Manifestation"
+    ],
     "owner": "ra",
     "origin": "An extension of Ra's own power, the Eye can separate from him and act independently as an avenging force.",
     "currentLocation": "Part of Ra's essence, traveling with the sun barque",
-    "imageUrl": "/artifacts/eye-of-ra.png",
+    "imageUrl": "/artifacts/eye-of-ra.jpg",
     "relatedStories": ["sekhmet-rampage", "ra-journey"]
   },
   {
@@ -290,7 +332,7 @@
     "owner": "Multiple Egyptian deities",
     "origin": "An ancient symbol whose true origin is debated, representing the union of masculine and feminine principles in creating life.",
     "currentLocation": "Carried by various gods throughout the Egyptian pantheon",
-    "imageUrl": "/artifacts/ankh.png",
+    "imageUrl": "/artifacts/ankh.jpg",
     "relatedStories": ["creation-heliopolis", "osiris-myth"]
   },
   {
@@ -314,11 +356,16 @@
     "slug": "sudarshana-chakra",
     "description": "Vishnu's divine spinning discus with 108 serrated edges, blazing with the fire of the sun. It destroys evil, protects devotees, and can pursue enemies across any distance.",
     "type": "weapon",
-    "powers": ["Perfect Tracking", "Evil Destruction", "Solar Fire", "Infinite Range"],
+    "powers": [
+      "Perfect Tracking",
+      "Evil Destruction",
+      "Solar Fire",
+      "Infinite Range"
+    ],
     "owner": "vishnu",
     "origin": "Created by Vishwakarma, the divine architect, from the dust of the sun and scraps from Shiva's trident.",
     "currentLocation": "Spinning eternally on Vishnu's finger",
-    "imageUrl": "/artifacts/sudarshana-chakra.png",
+    "imageUrl": "/artifacts/sudarshana-chakra.jpg",
     "relatedStories": ["churning-ocean"]
   },
   {
@@ -328,7 +375,12 @@
     "slug": "trishula",
     "description": "Shiva's three-pronged trident representing the three aspects of consciousness, the three gunas, and the power to destroy, preserve, and create. It is the symbol of Shiva's supreme authority.",
     "type": "weapon",
-    "powers": ["Cosmic Destruction", "Triple Aspect", "Reality Manipulation", "Third Eye Activation"],
+    "powers": [
+      "Cosmic Destruction",
+      "Triple Aspect",
+      "Reality Manipulation",
+      "Third Eye Activation"
+    ],
     "owner": "shiva",
     "origin": "Emerged from the primordial essence during the creation of the universe, an extension of Shiva's own cosmic power.",
     "currentLocation": "Wielded by Shiva on Mount Kailash",
@@ -342,7 +394,12 @@
     "slug": "vajra",
     "description": "Indra's thunderbolt, the weapon of the king of gods. Indestructible and irresistible, it represents both the hardness of diamond and the unstoppable force of lightning.",
     "type": "weapon",
-    "powers": ["Lightning Control", "Indestructibility", "Demon Slaying", "Weather Command"],
+    "powers": [
+      "Lightning Control",
+      "Indestructibility",
+      "Demon Slaying",
+      "Weather Command"
+    ],
     "owner": "indra",
     "origin": "Forged by Vishwakarma from the bones of the sage Dadhichi, who sacrificed himself so the gods could defeat the demon Vritra.",
     "currentLocation": "Wielded by Indra in Svarga (heaven)",
@@ -356,11 +413,16 @@
     "slug": "pashupatastra",
     "description": "The most destructive weapon in Hindu mythology, capable of annihilating all of creation. It can destroy any target and cannot be countered by any other divine weapon.",
     "type": "weapon",
-    "powers": ["Universal Destruction", "Unstoppable Force", "Target Annihilation", "Counter-Immunity"],
+    "powers": [
+      "Universal Destruction",
+      "Unstoppable Force",
+      "Target Annihilation",
+      "Counter-Immunity"
+    ],
     "owner": "shiva",
     "origin": "Bestowed by Shiva only to the most worthy devotees, including Arjuna who received it through intense penance.",
     "currentLocation": "Held by Shiva, rarely granted to mortals",
-    "imageUrl": "/artifacts/pashupatastra.png",
+    "imageUrl": "/artifacts/pashupatastra.jpg",
     "relatedStories": ["mahabharata"]
   },
   {
@@ -370,11 +432,16 @@
     "slug": "kusanagi",
     "description": "The Grass-Cutting Sword, one of the three Imperial Regalia of Japan. It represents the virtue of valor and was discovered within the body of the eight-headed serpent Yamata no Orochi.",
     "type": "weapon",
-    "powers": ["Wind Control", "Grass Cutting", "Imperial Authority", "Serpent-Slaying"],
+    "powers": [
+      "Wind Control",
+      "Grass Cutting",
+      "Imperial Authority",
+      "Serpent-Slaying"
+    ],
     "owner": "Japanese Imperial Family",
     "origin": "Found by Susanoo within the tail of Yamata no Orochi after he slew the monster. Originally named Ama-no-Murakumo-no-Tsurugi (Sword of the Gathering Clouds of Heaven).",
     "currentLocation": "Enshrined at Atsuta Shrine in Nagoya",
-    "imageUrl": "/artifacts/kusanagi.png",
+    "imageUrl": "/artifacts/kusanagi.jpg",
     "relatedStories": ["yamata-no-orochi"]
   },
   {
@@ -384,11 +451,16 @@
     "slug": "yata-no-kagami",
     "description": "The Eight-Span Mirror, one of the three Imperial Regalia representing the virtue of wisdom. It was used to lure Amaterasu from the cave where she hid, restoring light to the world.",
     "type": "tool",
-    "powers": ["Truth Reflection", "Light Attraction", "Divine Wisdom", "Soul Revelation"],
+    "powers": [
+      "Truth Reflection",
+      "Light Attraction",
+      "Divine Wisdom",
+      "Soul Revelation"
+    ],
     "owner": "Japanese Imperial Family",
     "origin": "Forged by the god Ishikoridome and hung on a sacred tree to capture Amaterasu's attention during her self-imposed exile.",
     "currentLocation": "Enshrined at Ise Grand Shrine",
-    "imageUrl": "/artifacts/yata-no-kagami.png",
+    "imageUrl": "/artifacts/yata-no-kagami.jpg",
     "relatedStories": ["amaterasu-cave"]
   },
   {
@@ -398,7 +470,12 @@
     "slug": "yasakani-no-magatama",
     "description": "The Grand Jewel, one of the three Imperial Regalia representing the virtue of benevolence. This comma-shaped jewel holds the spiritual essence of imperial authority.",
     "type": "jewelry",
-    "powers": ["Benevolent Blessing", "Imperial Authority", "Spiritual Protection", "Divine Connection"],
+    "powers": [
+      "Benevolent Blessing",
+      "Imperial Authority",
+      "Spiritual Protection",
+      "Divine Connection"
+    ],
     "owner": "Japanese Imperial Family",
     "origin": "Created by the god Tamanooya and offered to Amaterasu along with the mirror to entice her from her cave.",
     "currentLocation": "Kept in the Imperial Palace in Tokyo",
@@ -412,11 +489,16 @@
     "slug": "excalibur",
     "description": "The legendary sword of King Arthur, symbol of rightful sovereignty over Britain. Its blade could cut through anything, and its scabbard protected the bearer from all wounds.",
     "type": "weapon",
-    "powers": ["Sovereign Authority", "Unbreakable Edge", "Wound Prevention (scabbard)", "Blinding Light"],
+    "powers": [
+      "Sovereign Authority",
+      "Unbreakable Edge",
+      "Wound Prevention (scabbard)",
+      "Blinding Light"
+    ],
     "owner": "King Arthur",
     "origin": "Given to Arthur by the Lady of the Lake, or in some tellings, drawn from a stone proving his rightful claim to the throne.",
     "currentLocation": "Returned to the Lady of the Lake after Arthur's death, resting beneath the waters",
-    "imageUrl": "/artifacts/excalibur.png",
+    "imageUrl": "/artifacts/excalibur.jpg",
     "relatedStories": []
   },
   {
@@ -426,7 +508,12 @@
     "slug": "holy-grail",
     "description": "The sacred cup of the Last Supper, said to possess miraculous powers of healing and eternal life. The quest for the Grail became the ultimate spiritual journey for the Knights of the Round Table.",
     "type": "vessel",
-    "powers": ["Healing", "Eternal Life", "Spiritual Purity", "Divine Sustenance"],
+    "powers": [
+      "Healing",
+      "Eternal Life",
+      "Spiritual Purity",
+      "Divine Sustenance"
+    ],
     "owner": "Unknown/Spiritual",
     "origin": "Used by Christ at the Last Supper and later by Joseph of Arimathea to catch Christ's blood. It was brought to Britain and hidden.",
     "currentLocation": "Hidden in the Castle of Corbenic, awaiting a worthy knight",
@@ -440,11 +527,16 @@
     "slug": "spear-of-lugh",
     "description": "One of the Four Treasures of the Tuatha De Danann, this fiery spear never misses its target and guarantees victory in battle. It must be kept in a cauldron of water to prevent it from igniting.",
     "type": "weapon",
-    "powers": ["Perfect Accuracy", "Victory Assurance", "Fire Generation", "Returning"],
+    "powers": [
+      "Perfect Accuracy",
+      "Victory Assurance",
+      "Fire Generation",
+      "Returning"
+    ],
     "owner": "lugh",
     "origin": "Brought from the city of Gorias by the Tuatha De Danann when they came to Ireland from the otherworld.",
     "currentLocation": "Kept in the otherworld realms of the Tuatha De Danann",
-    "imageUrl": "/artifacts/spear-of-lugh.png",
+    "imageUrl": "/artifacts/spear-of-lugh.jpg",
     "relatedStories": ["cath-maige-tuired"]
   },
   {
@@ -454,7 +546,12 @@
     "slug": "ruyi-jingu-bang",
     "description": "The magical golden-hooped staff of the Monkey King, Sun Wukong. It can change size from a massive pillar to a needle small enough to hide behind an ear, weighing 17,550 pounds.",
     "type": "weapon",
-    "powers": ["Size Manipulation", "Infinite Weight", "Indestructibility", "Owner Recognition"],
+    "powers": [
+      "Size Manipulation",
+      "Infinite Weight",
+      "Indestructibility",
+      "Owner Recognition"
+    ],
     "owner": "sun-wukong",
     "origin": "Originally a pillar used by Yu the Great to measure the depths of the ocean during his legendary flood control efforts.",
     "currentLocation": "Wielded by Sun Wukong on his journey westward",
@@ -468,11 +565,92 @@
     "slug": "ame-no-nuboko",
     "description": "The Heavenly Jeweled Spear used by Izanagi and Izanami to churn the primordial sea and create the first Japanese islands. It is the divine tool of creation itself.",
     "type": "weapon",
-    "powers": ["Land Creation", "Chaos Ordering", "Divine Authority", "Primordial Power"],
+    "powers": [
+      "Land Creation",
+      "Chaos Ordering",
+      "Divine Authority",
+      "Primordial Power"
+    ],
     "owner": "izanagi",
     "origin": "Given to the primal divine couple by the older heavenly gods to bring order to the chaos below the heavens.",
     "currentLocation": "Returned to the heavenly realm after creation was complete",
-    "imageUrl": "/artifacts/ame-no-nuboko.png",
+    "imageUrl": "/artifacts/ame-no-nuboko.jpg",
     "relatedStories": ["creation-japan", "izanagi-yomi"]
+  },
+  {
+    "id": "aegis-of-jupiter",
+    "pantheonId": "roman-pantheon",
+    "name": "Aegis of Jupiter",
+    "slug": "aegis-of-jupiter",
+    "description": "The divine shield of Jupiter, king of the Roman gods, adorned with the Gorgon's head. Like its Greek counterpart, it served as both protection and weapon, striking fear into the hearts of enemies and symbolizing supreme divine authority.",
+    "type": "armor",
+    "powers": [
+      "Invulnerability",
+      "Fear Inducement",
+      "Divine Authority",
+      "Storm Summoning"
+    ],
+    "owner": "jupiter",
+    "origin": "Forged by Vulcan for the king of the gods, representing the protective power of the Roman state.",
+    "currentLocation": "Wielded by Jupiter in the heavens",
+    "imageUrl": "/placeholder.png",
+    "relatedStories": []
+  },
+  {
+    "id": "fasces",
+    "pantheonId": "roman-pantheon",
+    "name": "Fasces",
+    "slug": "fasces",
+    "description": "A bundle of wooden rods bound together around an axe, symbolizing the power and jurisdiction of Roman magistrates. The rods represented the authority to punish, while the axe signified the power over life and death.",
+    "type": "tool",
+    "powers": [
+      "Magisterial Authority",
+      "Unity Through Strength",
+      "Legal Power",
+      "Imperium"
+    ],
+    "owner": "Roman Magistrates and Lictors",
+    "origin": "Adopted from the Etruscans, the fasces became the supreme symbol of Roman governmental authority and the power of the state.",
+    "currentLocation": "Carried ceremonially throughout Roman history, now a symbol in modern heraldry",
+    "imageUrl": "/placeholder.png",
+    "relatedStories": ["romulus-remus"]
+  },
+  {
+    "id": "cornucopia",
+    "pantheonId": "roman-pantheon",
+    "name": "Cornucopia",
+    "slug": "cornucopia",
+    "description": "The Horn of Plenty, a magical horn that produces endless food and drink. Associated with the goddess Abundantia and the infant Jupiter, who was nursed by the goat Amalthea whose horn became the cornucopia.",
+    "type": "vessel",
+    "powers": [
+      "Infinite Abundance",
+      "Prosperity Blessing",
+      "Hunger Banishment",
+      "Wealth Generation"
+    ],
+    "owner": "Abundantia / Fortuna",
+    "origin": "One of the horns of the goat Amalthea, who nursed the infant Jupiter in hiding from Saturn. When the horn broke off, Jupiter blessed it with the power of endless abundance.",
+    "currentLocation": "Held by various goddesses of fortune and plenty",
+    "imageUrl": "/placeholder.png",
+    "relatedStories": []
+  },
+  {
+    "id": "palladium",
+    "pantheonId": "roman-pantheon",
+    "name": "Palladium",
+    "slug": "palladium",
+    "description": "A sacred wooden statue of Minerva that fell from the heavens and guaranteed the safety of the city that possessed it. As long as Rome held the Palladium, the city could never fall to its enemies.",
+    "type": "other",
+    "powers": [
+      "City Protection",
+      "Divine Favor",
+      "Invincibility Blessing",
+      "Sacred Authority"
+    ],
+    "owner": "The Roman State",
+    "origin": "According to legend, the statue fell from the sky and was first kept in Troy. Aeneas rescued it during Troy's fall and brought it to Italy, where it became Rome's most sacred treasure.",
+    "currentLocation": "Hidden in the Temple of Vesta, guarded by the Vestal Virgins",
+    "imageUrl": "/placeholder.png",
+    "relatedStories": ["aeneid", "trojan-war"]
   }
 ]
