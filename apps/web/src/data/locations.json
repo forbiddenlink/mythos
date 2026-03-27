@@ -64,7 +64,7 @@
     "name": "Olympia",
     "locationType": "sacred_site",
     "pantheonId": "greek-pantheon",
-    "description": "The sanctuary of Zeus and site of the ancient Olympic Games, featuring a colossal statue of Zeus—one of the Seven Wonders.",
+    "description": "The sanctuary of Zeus and site of the ancient Olympic Games, featuring a colossal statue of Zeus\u2014one of the Seven Wonders.",
     "latitude": 37.638,
     "longitude": 21.63,
     "imageUrl": "/locations/olympia.png"
@@ -224,7 +224,7 @@
     "name": "Vanaheim",
     "locationType": "realm",
     "pantheonId": "norse-pantheon",
-    "description": "Home of the Vanir gods associated with fertility, wisdom, and nature—including Freya, Freyr, and Njord.",
+    "description": "Home of the Vanir gods associated with fertility, wisdom, and nature\u2014including Freya, Freyr, and Njord.",
     "latitude": null,
     "longitude": null,
     "imageUrl": "/locations/vanaheim.png"
@@ -314,7 +314,7 @@
     "name": "Heliopolis",
     "locationType": "city",
     "pantheonId": "egyptian-pantheon",
-    "description": "The ancient City of the Sun, center of Ra worship and home to the Ennead—the nine primordial creator gods.",
+    "description": "The ancient City of the Sun, center of Ra worship and home to the Ennead\u2014the nine primordial creator gods.",
     "latitude": 30.131,
     "longitude": 31.308,
     "imageUrl": "/locations/heliopolis.png"
@@ -491,7 +491,7 @@
   },
   {
     "id": "newgrange",
-    "name": "Newgrange (Sí an Bhrú)",
+    "name": "Newgrange (S\u00ed an Bhr\u00fa)",
     "locationType": "tomb",
     "pantheonId": "celtic-pantheon",
     "description": "A grand prehistoric passage tomb and the home of the Dagda (and later Aengus). Associated with the winter solstice.",
@@ -607,7 +607,7 @@
     "description": "The underwater palace of Ao Guang, the Dragon King of the Eastern Sea. It was here that Sun Wukong obtained his famous weapon, the Ruyi Jingu Bang, originally a pillar used to measure sea depths.",
     "latitude": null,
     "longitude": null,
-    "imageUrl": "/locations/dragon-palace.png"
+    "imageUrl": "/locations/eastern-sea-dragon-palace.png"
   },
   {
     "id": "babylon",
@@ -635,8 +635,8 @@
     "locationType": "mythical_realm",
     "pantheonId": "mesopotamian-pantheon",
     "description": "A vast primordial forest at the edge of civilization, guarded by the monster Humbaba appointed by Enlil. Gilgamesh and Enkidu ventured here to slay Humbaba and make their names immortal.",
-    "latitude": 34.0000,
-    "longitude": 36.0000,
+    "latitude": 34.0,
+    "longitude": 36.0,
     "imageUrl": "/locations/cedar-forest.png"
   },
   {
@@ -665,8 +665,8 @@
     "locationType": "city",
     "pantheonId": "mesoamerican-pantheon",
     "description": "The legendary Toltec capital associated with Quetzalcoatl as priest-king. A place of artistic and cultural perfection where corn grew in brilliant colors and cotton grew already dyed. Quetzalcoatl was tricked into disgrace here by Tezcatlipoca.",
-    "latitude": 20.0650,
-    "longitude": -99.3410,
+    "latitude": 20.065,
+    "longitude": -99.341,
     "imageUrl": "/locations/tollan.png"
   },
   {
@@ -756,7 +756,7 @@
     "pantheonId": "polynesian-pantheon",
     "description": "The tallest mountain in Hawaii and home of Poliahu, the snow goddess. Its summit, often covered with snow, is considered sacred and represents the realm of ice that opposes Pele's volcanic fire. The name means 'White Mountain.'",
     "latitude": 19.8207,
-    "longitude": -155.4680,
+    "longitude": -155.468,
     "imageUrl": "/locations/mauna-kea.png"
   },
   {
