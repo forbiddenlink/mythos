@@ -1,0 +1,149 @@
+# Story/Myth GraphQL Queries for Hygraph CMS
+
+query GetStories($first: Int, $skip: Int, $where: StoryWhereInput) {
+  stories(first: $first, skip: $skip, where: $where, orderBy: title_ASC) {
+    id
+    title
+    slug
+    summary
+    category
+    moralThemes
+    culturalSignificance
+    imageUrl
+    pantheon {
+      id
+      slug
+      name
+    }
+  }
+  storiesConnection(where: $where) {
+    aggregate {
+      count
+    }
+  }
+}
+
+query GetStoryBySlug($slug: String!) {
+  story(where: { slug: $slug }) {
+    id
+    title
+    slug
+    summary
+    fullNarrative
+    keyExcerpts
+    category
+    moralThemes
+    culturalSignificance
+    imageUrl
+    citationSources {
+      title
+      author
+      lines
+      book
+      chapters
+      type
+    }
+    featuredDeities {
+      id
+      name
+      slug
+    }
+    featuredLocations {
+      id
+      name
+      slug
+    }
+    relatedStories {
+      id
+      title
+      slug
+    }
+    variants {
+      source
+      date
+      difference
+      note
+    }
+    pantheon {
+      id
+      slug
+      name
+    }
+  }
+}
+
+query GetStoriesByPantheon($pantheonSlug: String!, $first: Int, $skip: Int) {
+  stories(
+    where: { pantheon: { slug: $pantheonSlug } }
+    first: $first
+    skip: $skip
+    orderBy: title_ASC
+  ) {
+    id
+    title
+    slug
+    summary
+    category
+    moralThemes
+    imageUrl
+  }
+}
+
+query GetStoriesByCategory($category: String!, $first: Int, $skip: Int) {
+  stories(
+    where: { category: $category }
+    first: $first
+    skip: $skip
+    orderBy: title_ASC
+  ) {
+    id
+    title
+    slug
+    summary
+    category
+    moralThemes
+    imageUrl
+    pantheon {
+      id
+      slug
+      name
+    }
+  }
+  storiesConnection(where: { category: $category }) {
+    aggregate {
+      count
+    }
+  }
+}
+
+query GetFeaturedStories($first: Int = 5) {
+  stories(first: $first, orderBy: createdAt_DESC) {
+    id
+    title
+    slug
+    summary
+    category
+    imageUrl
+    pantheon {
+      id
+      slug
+      name
+    }
+  }
+}
+
+query GetRelatedStories($storyId: ID!, $pantheonSlug: String, $first: Int = 5) {
+  stories(
+    where: {
+      id_not: $storyId
+      pantheon: { slug: $pantheonSlug }
+    }
+    first: $first
+  ) {
+    id
+    title
+    slug
+    summary
+    imageUrl
+  }
+}

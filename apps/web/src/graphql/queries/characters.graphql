@@ -1,0 +1,184 @@
+# Character (Deity) GraphQL Queries for Hygraph CMS
+
+query GetDeities($first: Int, $skip: Int, $where: DeityWhereInput) {
+  deities(first: $first, skip: $skip, where: $where, orderBy: importanceRank_ASC) {
+    id
+    name
+    slug
+    gender
+    domain
+    symbols
+    description
+    importanceRank
+    alternateNames
+    imageUrl
+    pantheon {
+      id
+      slug
+      name
+    }
+  }
+  deitiesConnection(where: $where) {
+    aggregate {
+      count
+    }
+  }
+}
+
+query GetDeityBySlug($slug: String!) {
+  deity(where: { slug: $slug }) {
+    id
+    name
+    slug
+    gender
+    domain
+    symbols
+    description
+    detailedBio
+    originStory
+    importanceRank
+    alternateNames
+    imageUrl
+    pronunciation {
+      ipa
+      phonetic
+      audioUrl
+    }
+    crossPantheonParallels {
+      pantheonId
+      deityId
+      note
+    }
+    primarySources {
+      text
+      source
+      date
+    }
+    worship {
+      temples
+      festivals
+      practices
+    }
+    pantheon {
+      id
+      slug
+      name
+      culture
+    }
+  }
+}
+
+query GetDeitiesByPantheon($pantheonSlug: String!, $first: Int, $skip: Int) {
+  deities(
+    where: { pantheon: { slug: $pantheonSlug } }
+    first: $first
+    skip: $skip
+    orderBy: importanceRank_ASC
+  ) {
+    id
+    name
+    slug
+    gender
+    domain
+    symbols
+    description
+    importanceRank
+    alternateNames
+    imageUrl
+  }
+}
+
+query GetDeitiesByDomain($domain: String!, $first: Int, $skip: Int) {
+  deities(
+    where: { domain_contains_some: [$domain] }
+    first: $first
+    skip: $skip
+    orderBy: importanceRank_ASC
+  ) {
+    id
+    name
+    slug
+    gender
+    domain
+    description
+    importanceRank
+    imageUrl
+    pantheon {
+      id
+      slug
+      name
+    }
+  }
+  deitiesConnection(where: { domain_contains_some: [$domain] }) {
+    aggregate {
+      count
+    }
+  }
+}
+
+query GetDeityRelationships($deityId: ID!) {
+  deityRelationships(
+    where: {
+      OR: [
+        { fromDeity: { id: $deityId } }
+        { toDeity: { id: $deityId } }
+      ]
+    }
+  ) {
+    id
+    relationshipType
+    description
+    storyContext
+    confidenceLevel
+    isDisputed
+    fromDeity {
+      id
+      name
+      slug
+    }
+    toDeity {
+      id
+      name
+      slug
+    }
+  }
+}
+
+query GetFeaturedDeities($first: Int = 10) {
+  deities(
+    first: $first
+    orderBy: importanceRank_ASC
+  ) {
+    id
+    name
+    slug
+    domain
+    description
+    importanceRank
+    imageUrl
+    pantheon {
+      id
+      slug
+      name
+    }
+  }
+}
+
+query SearchDeities($query: String!, $limit: Int = 20) {
+  deities(
+    where: { _search: $query }
+    first: $limit
+  ) {
+    id
+    name
+    slug
+    domain
+    description
+    imageUrl
+    pantheon {
+      id
+      slug
+      name
+    }
+  }
+}
