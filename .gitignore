@@ -1,22 +1,18 @@
 # Dependencies
-node_modules
-.pnpm-store
+node_modules/
+.pnpm-store/
 
 # Next.js
-.next
-out
-build
+.next/
+out/
+build/
 
 # Turborepo
-.turbo
+.turbo/
 
 # Environment variables
 .env
 .env.*
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
 !.env.example
 
 # Secrets and credentials
@@ -34,7 +30,7 @@ secrets.yaml
 secrets.yml
 
 # Vercel
-.vercel
+.vercel/
 
 # OS files
 .DS_Store
@@ -51,7 +47,7 @@ pnpm-debug.log*
 .vscode/*
 !.vscode/extensions.json
 !.vscode/settings.json
-.idea
+.idea/
 *.swp
 *.swo
 
@@ -63,47 +59,31 @@ test-results/
 # Local History (VS Code extension)
 .history/
 
-# Lint output files
-lint_output*.txt
-
 # Rust build artifacts
 apps/api/target/
 
 # Specter knowledge graph cache
 .specter/
 
-# Playwright MCP logs
+# Playwright MCP
 .playwright-mcp/
 
-# Claude cache and local settings
-.claude/cache/
-.claude/tsc-cache/
-.claude/settings.local.json
+# Claude Code
+.claude/
 
-# Duplicate agent skills directory
-.agent/
-
-# Internal dev notes / continuity ledgers
-thoughts/
-
-# Codacy local files
+# Codacy
 .codacy/
+
+# Internal dev notes
+thoughts/
 
 # Temporary
 tmp/
 temp/
 
-# One-off utility/audit scripts
-verify_images.js
-audit_codebase_images.js
-
-# Test screenshots and debug images (root level)
-*.png
-!apps/web/public/**/*.png
-
-# Specific test/debug files
-shared-quiz-results.png
-apps/web/public/images/
+# Test screenshots (root level only)
+/*.png
+/*.jpg
 
 # TypeScript build info
 *.tsbuildinfo
@@ -111,15 +91,12 @@ apps/web/public/images/
 # Stale sub-project lockfiles (monorepo uses root lockfile)
 apps/web/pnpm-lock.yaml
 apps/web/pnpm-workspace.yaml
-.claude
-.claude/
-.playwright-mcp
-.history
-playwright-report
-__pycache__
+
+# Python
 __pycache__/
-.codacy
-test_run/
+
+# Supabase
 supabase/.temp/
+
+# Build output
 dist/
-.env*

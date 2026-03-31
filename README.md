@@ -1,38 +1,79 @@
-# 📖 Mythos
+# Mythos
 
-> An AI-powered mythology and folklore explorer — dive into ancient stories from around the world.
+An interactive mythology and folklore explorer built with Next.js.
 
 [![Live Demo](https://img.shields.io/badge/Live_Demo-000?style=for-the-badge&logo=vercel&logoColor=white)](https://mythos.vercel.app)
-![Next.js](https://img.shields.io/badge/Next.js-000?style=flat-square&logo=nextdotjs&logoColor=white)
+![Next.js](https://img.shields.io/badge/Next.js_16-000?style=flat-square&logo=nextdotjs&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white)
-![OpenAI](https://img.shields.io/badge/OpenAI-412991?style=flat-square&logo=openai&logoColor=white)
-![Tailwind CSS](https://img.shields.io/badge/Tailwind-06B6D4?style=flat-square&logo=tailwindcss&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_v4-06B6D4?style=flat-square&logo=tailwindcss&logoColor=white)
 
-## 🌟 What It Does
+## Features
 
-Mythos lets you explore mythology and folklore from every culture — Greek, Norse, Egyptian, Japanese, and more. Ask questions, discover characters, and uncover stories with AI-assisted exploration.
+- Browse mythology from 13 world cultures (Greek, Norse, Egyptian, Japanese, Celtic, and more)
+- Explore 189 deities, 96 stories, 29 creatures, 34 artifacts, and 85 locations
+- Interactive family trees and relationship visualizations
+- AI-powered mythology Q&A via the Oracle feature
+- Quiz games and achievement tracking
+- Full-text search with command palette (Cmd+K)
+- PWA with offline support
+- Internationalization (EN, ES, FR, DE)
 
-## ✨ Features
-
-- 🌍 Mythology from 20+ world cultures
-- 🔍 Search and explore gods, creatures, and legends
-- 🤖 AI-powered Q&A about mythological topics
-- 🕸️ Related stories and cross-cultural connections
-
-## �� Getting Started
+## Getting Started
 
 ```bash
 git clone https://github.com/forbiddenlink/mythos
 cd mythos
-npm install
+pnpm install
 cp .env.example .env.local
-# Add your OPENAI_API_KEY to .env.local
-npm run dev
+# Add ANTHROPIC_API_KEY to .env.local for Oracle feature
+pnpm dev
 ```
 
-## 🛠️ Tech Stack
+Open [http://localhost:3000](http://localhost:3000) to view the app.
 
-- **Framework:** Next.js (App Router)
+## Tech Stack
+
+- **Framework:** Next.js 16 (App Router) + React 19
 - **Language:** TypeScript
-- **AI:** OpenAI API
-- **Styling:** Tailwind CSS
+- **Styling:** Tailwind CSS v4 + shadcn/ui
+- **Data:** GraphQL API backed by JSON files
+- **Visualizations:** ReactFlow, D3.js, React Three Fiber
+- **Testing:** Vitest (unit), Playwright (E2E)
+- **Deployment:** Vercel
+
+## Project Structure
+
+```
+mythos/
+├── apps/
+│   └── web/          # Next.js frontend
+│       ├── src/
+│       │   ├── app/          # App Router pages
+│       │   ├── components/   # React components
+│       │   ├── data/         # JSON data files
+│       │   └── lib/          # Utilities and helpers
+│       └── public/           # Static assets
+├── docs/             # Documentation
+└── package.json      # Monorepo root
+```
+
+## Scripts
+
+```bash
+pnpm dev              # Start development server
+pnpm build            # Production build
+pnpm lint             # Run ESLint
+pnpm test             # Run unit tests
+pnpm e2e              # Run E2E tests
+```
+
+## Documentation
+
+- [ARCHITECTURE.md](./ARCHITECTURE.md) - System architecture and data flow
+- [CONTRIBUTING.md](./CONTRIBUTING.md) - Contribution guidelines
+- [CHANGELOG.md](./CHANGELOG.md) - Version history
+- [AGENTS.md](./AGENTS.md) - AI assistant context
+
+## License
+
+MIT
