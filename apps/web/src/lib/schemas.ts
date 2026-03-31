@@ -5,7 +5,27 @@
  * catching malformed data early and providing type safety.
  */
 
-import { z } from 'zod';
+import { z } from "zod";
+
+const JsonObjectSchema = z.record(z.string(), z.unknown());
+
+const CitationSourceSchema = z.looseObject({
+  title: z.string(),
+  author: z.string().optional(),
+  date: z.string().optional(),
+  type: z.string().optional(),
+  lines: z.string().optional(),
+  book: z.string().optional(),
+  chapter: z.string().optional(),
+  chapters: z.string().optional(),
+});
+
+const MythVariantSchema = z.looseObject({
+  source: z.string(),
+  date: z.string().optional(),
+  difference: z.string(),
+  note: z.string().optional(),
+});
 
 // ═══════════════════════════════════════════════════════════════════
 // PRONUNCIATION
@@ -23,17 +43,17 @@ export type Pronunciation = z.infer<typeof PronunciationSchema>;
 // PANTHEON
 // ═══════════════════════════════════════════════════════════════════
 
-export const PantheonSchema = z.object({
+export const PantheonSchema = z.looseObject({
   id: z.string(),
   name: z.string(),
   slug: z.string(),
   culture: z.string(),
   region: z.string(),
   timePeriodStart: z.number(),
-  timePeriodEnd: z.number(),
+  timePeriodEnd: z.number().nullable(),
   description: z.string(),
   detailedHistory: z.string().optional(),
-  citationSources: z.array(z.string()).optional(),
+  citationSources: z.array(CitationSourceSchema).optional(),
 });
 
 export type Pantheon = z.infer<typeof PantheonSchema>;
@@ -42,7 +62,7 @@ export type Pantheon = z.infer<typeof PantheonSchema>;
 // DEITY
 // ═══════════════════════════════════════════════════════════════════
 
-export const DeitySchema = z.object({
+export const DeitySchema = z.looseObject({
   id: z.string(),
   pantheonId: z.string(),
   name: z.string(),
@@ -57,13 +77,39 @@ export const DeitySchema = z.object({
   pronunciation: PronunciationSchema.optional(),
   importanceRank: z.number(),
   imageUrl: z.string().optional(),
-  crossPantheonParallels: z.array(z.string()).optional(),
-  primarySources: z.array(z.string()).optional(),
+  originalLanguageName: z
+    .looseObject({
+      text: z.string(),
+      language: z.string(),
+      transliteration: z.string().optional(),
+      meaning: z.string().optional(),
+    })
+    .optional(),
+  crossPantheonParallels: z
+    .array(
+      z.looseObject({
+        pantheonId: z.string(),
+        deityId: z.string(),
+        note: z.string(),
+      }),
+    )
+    .optional(),
+  primarySources: z
+    .array(
+      z.looseObject({
+        text: z.string(),
+        source: z.string(),
+        date: z.string().optional(),
+      }),
+    )
+    .optional(),
+  primarySourceExcerpts: z.array(JsonObjectSchema).optional(),
+  furtherReading: z.array(JsonObjectSchema).optional(),
   worship: z
-    .object({
+    .looseObject({
       temples: z.array(z.string()).optional(),
       festivals: z.array(z.string()).optional(),
-      practices: z.array(z.string()).optional(),
+      practices: z.union([z.string(), z.array(z.string())]).optional(),
     })
     .optional(),
 });
@@ -74,7 +120,7 @@ export type Deity = z.infer<typeof DeitySchema>;
 // STORY
 // ═══════════════════════════════════════════════════════════════════
 
-export const StorySchema = z.object({
+export const StorySchema = z.looseObject({
   id: z.string(),
   pantheonId: z.string(),
   title: z.string(),
@@ -85,11 +131,13 @@ export const StorySchema = z.object({
   category: z.string(),
   moralThemes: z.array(z.string()).optional(),
   culturalSignificance: z.string().optional(),
-  citationSources: z.array(z.string()).optional(),
+  citationSources: z.array(CitationSourceSchema).optional(),
   featuredDeities: z.array(z.string()).optional(),
   featuredLocations: z.array(z.string()).optional(),
   relatedStories: z.array(z.string()).optional(),
-  variants: z.array(z.string()).optional(),
+  variants: z.array(MythVariantSchema).optional(),
+  primarySourceExcerpts: z.array(JsonObjectSchema).optional(),
+  furtherReading: z.array(JsonObjectSchema).optional(),
   imageUrl: z.string().optional(),
 });
 
@@ -99,7 +147,7 @@ export type Story = z.infer<typeof StorySchema>;
 // CREATURE
 // ═══════════════════════════════════════════════════════════════════
 
-export const CreatureSchema = z.object({
+export const CreatureSchema = z.looseObject({
   id: z.string(),
   pantheonId: z.string(),
   name: z.string(),
@@ -117,7 +165,7 @@ export type Creature = z.infer<typeof CreatureSchema>;
 // ARTIFACT
 // ═══════════════════════════════════════════════════════════════════
 
-export const ArtifactSchema = z.object({
+export const ArtifactSchema = z.looseObject({
   id: z.string(),
   pantheonId: z.string(),
   name: z.string(),
@@ -136,15 +184,15 @@ export type Artifact = z.infer<typeof ArtifactSchema>;
 // LOCATION
 // ═══════════════════════════════════════════════════════════════════
 
-export const LocationSchema = z.object({
+export const LocationSchema = z.looseObject({
   id: z.string(),
   name: z.string(),
   slug: z.string().optional(),
   locationType: z.string(),
   pantheonId: z.string(),
   description: z.string(),
-  latitude: z.number().optional(),
-  longitude: z.number().optional(),
+  latitude: z.number().nullable().optional(),
+  longitude: z.number().nullable().optional(),
   imageUrl: z.string().optional(),
 });
 
@@ -154,21 +202,12 @@ export type Location = z.infer<typeof LocationSchema>;
 // RELATIONSHIP
 // ═══════════════════════════════════════════════════════════════════
 
-export const RelationshipSchema = z.object({
+export const RelationshipSchema = z.looseObject({
   id: z.string(),
   fromDeityId: z.string(),
   toDeityId: z.string(),
-  relationshipType: z.enum([
-    'parent',
-    'child',
-    'spouse',
-    'sibling',
-    'lover',
-    'enemy',
-    'ally',
-    'offspring',
-  ]),
-  confidenceLevel: z.enum(['high', 'medium', 'low']),
+  relationshipType: z.string(),
+  confidenceLevel: z.string(),
   description: z.string().optional(),
   storyContext: z.string().optional(),
   isDisputed: z.boolean().optional(),
@@ -199,13 +238,13 @@ export const RelationshipsArraySchema = z.array(RelationshipSchema);
 export function validateData<T>(
   schema: z.ZodSchema<T>,
   data: unknown,
-  entityName: string
+  entityName: string,
 ): T {
   const result = schema.safeParse(data);
   if (!result.success) {
     const errors = result.error.issues
-      .map((e: z.ZodIssue) => `  - ${e.path.join('.')}: ${e.message}`)
-      .join('\n');
+      .map((e) => `  - ${e.path.join(".")}: ${e.message}`)
+      .join("\n");
     throw new Error(`Invalid ${entityName} data:\n${errors}`);
   }
   return result.data;
@@ -216,7 +255,7 @@ export function validateData<T>(
  */
 export function safeValidateData<T>(
   schema: z.ZodSchema<T>,
-  data: unknown
+  data: unknown,
 ): { success: true; data: T } | { success: false; errors: z.ZodError } {
   const result = schema.safeParse(data);
   if (result.success) {
