@@ -5,7 +5,7 @@ import { generateBaseMetadata } from "@/lib/metadata";
 export const metadata: Metadata = generateBaseMetadata({
   title: "Mythological Locations and Sacred Places",
   description:
-    "Explore temples, sacred sites, cities, and mythical realms across ancient civilizations and world mythology.",
+    "Explore temples, sacred sites, cities, rivers, mountains, and mythical realms across ancient civilizations and world mythology.",
   url: "/locations",
   keywords: [
     "mythological locations",
@@ -23,7 +23,7 @@ export default function LocationsLayout({
     <>
       <CollectionPageJsonLd
         name="Mythological Locations and Sacred Places"
-        description="Explore sacred sites, temples, cities, and mythical realms from ancient civilizations."
+        description="Explore sacred sites, temples, cities, rivers, mountains, and mythical realms from ancient civilizations."
         url="/locations"
       />
       {children}

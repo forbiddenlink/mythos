@@ -1,26 +1,19 @@
-import type { Metadata } from "next";
-import { Source_Sans_3, Cinzel, Crimson_Pro } from "next/font/google";
-import "./globals.css";
-import { NextIntlClientProvider } from "next-intl";
-import { getLocale, getMessages } from "next-intl/server";
+import { SkipToContent } from "@/components/accessibility/SkipToContent";
+import { Footer } from "@/components/layout/footer";
+import { GlobalClientAddons } from "@/components/layout/GlobalClientAddons";
+import { Header } from "@/components/layout/header";
+import { generateBaseMetadata } from "@/lib/metadata";
+import { AchievementNotificationProvider } from "@/providers/achievement-notification-provider";
+import { BookmarksProvider } from "@/providers/bookmarks-provider";
+import { LeaderboardProvider } from "@/providers/leaderboard-provider";
+import { ProgressProvider } from "@/providers/progress-provider";
 import { QueryProvider } from "@/providers/query-provider";
 import { ThemeProvider } from "@/providers/theme-provider";
-import { Header } from "@/components/layout/header";
-import { Footer } from "@/components/layout/footer";
-import { CommandPaletteProvider } from "@/components/command-palette/CommandPaletteProvider";
-import { SkipToContent } from "@/components/accessibility/SkipToContent";
-import { BookmarksProvider } from "@/providers/bookmarks-provider";
-import { ProgressProvider } from "@/providers/progress-provider";
-import { AchievementNotificationProvider } from "@/providers/achievement-notification-provider";
-import { LeaderboardProvider } from "@/providers/leaderboard-provider";
-import { generateBaseMetadata } from "@/lib/metadata";
-import { AudioProvider } from "@/components/audio/AudioContext";
-import { AudioControls } from "@/components/audio/AudioControls";
-import { InstallPrompt, OfflineIndicator } from "@/components/pwa";
-import { LayoutEffects } from "@/components/effects/LayoutEffects";
-import { RandomDiscoveryButton } from "@/components/discovery/RandomDiscoveryButton";
-import { CookieConsent } from "@/components/privacy/CookieConsent";
-import { WebVitals } from "@/components/analytics/WebVitals";
+import type { Metadata, Viewport } from "next";
+import { NextIntlClientProvider } from "next-intl";
+import { getLocale, getMessages } from "next-intl/server";
+import { Cinzel, Crimson_Pro, Source_Sans_3 } from "next/font/google";
+import "./globals.css";
 
 // Cinzel - Elegant classical display font inspired by Roman inscriptions
 const cinzel = Cinzel({
@@ -56,7 +49,12 @@ export const metadata: Metadata = {
   icons: {
     icon: [{ url: "/icon.png", type: "image/png" }],
     apple: [{ url: "/apple-icon.png", type: "image/png" }],
+    other: [{ rel: "apple-touch-icon", url: "/apple-icon.png" }],
   },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#d4af37",
 };
 
 export default async function RootLayout({
@@ -70,15 +68,6 @@ export default async function RootLayout({
   return (
     <html lang={locale} suppressHydrationWarning>
       <head>
-        <link rel="manifest" href="/manifest.json" />
-        <meta name="theme-color" content="#d4af37" />
-        <meta name="mobile-web-app-capable" content="yes" />
-        <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta
-          name="apple-mobile-web-app-status-bar-style"
-          content="black-translucent"
-        />
-        <meta name="apple-mobile-web-app-title" content="Mythos Atlas" />
         <link rel="apple-touch-icon" href="/apple-icon.png" />
       </head>
       <body
@@ -96,29 +85,19 @@ export default async function RootLayout({
                 <ProgressProvider>
                   <LeaderboardProvider>
                     <AchievementNotificationProvider>
-                      <AudioProvider>
-                        <CommandPaletteProvider>
-                          <SkipToContent />
-                          <OfflineIndicator />
-                          <div className="flex min-h-screen flex-col">
-                            <Header />
-                            <main
-                              id="main-content"
-                              className="flex-1"
-                              tabIndex={-1}
-                            >
-                              {children}
-                            </main>
-                            <Footer />
-                          </div>
-                          <AudioControls />
-                          <InstallPrompt />
-                          <LayoutEffects />
-                          <RandomDiscoveryButton />
-                          <CookieConsent />
-                          <WebVitals />
-                        </CommandPaletteProvider>
-                      </AudioProvider>
+                      <SkipToContent />
+                      <div className="flex min-h-screen flex-col">
+                        <Header />
+                        <main
+                          id="main-content"
+                          className="flex-1"
+                          tabIndex={-1}
+                        >
+                          {children}
+                        </main>
+                        <Footer />
+                      </div>
+                      <GlobalClientAddons />
                     </AchievementNotificationProvider>
                   </LeaderboardProvider>
                 </ProgressProvider>

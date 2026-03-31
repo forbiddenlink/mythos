@@ -5,7 +5,7 @@ import { generateBaseMetadata } from "@/lib/metadata";
 export const metadata: Metadata = generateBaseMetadata({
   title: "Legendary Artifacts of Mythology",
   description:
-    "Explore weapons, relics, shields, and mystical objects of power wielded by gods and heroes across ancient mythologies.",
+    "Discover legendary weapons, relics, shields, and sacred objects wielded by gods and heroes across the world’s mythological traditions.",
   url: "/artifacts",
   keywords: [
     "legendary artifacts",

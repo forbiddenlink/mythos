@@ -160,7 +160,7 @@ export function DeityFilters({
             setTimeout(applyFilters, 0);
           }}
         >
-          <SelectTrigger className="w-40" aria-label="Filter by pantheon">
+          <SelectTrigger className="w-40">
             <SelectValue placeholder="Pantheon" />
           </SelectTrigger>
           <SelectContent>
@@ -182,7 +182,7 @@ export function DeityFilters({
             setTimeout(applyFilters, 0);
           }}
         >
-          <SelectTrigger className="w-35" aria-label="Filter by gender">
+          <SelectTrigger className="w-35">
             <SelectValue placeholder="Gender" />
           </SelectTrigger>
           <SelectContent>
@@ -199,7 +199,7 @@ export function DeityFilters({
             setTimeout(applyFilters, 0);
           }}
         >
-          <SelectTrigger className="w-45" aria-label="Filter by domain">
+          <SelectTrigger className="w-45">
             <SelectValue placeholder="Domain" />
           </SelectTrigger>
           <SelectContent>
@@ -221,7 +221,7 @@ export function DeityFilters({
             setTimeout(applyFilters, 0);
           }}
         >
-          <SelectTrigger className="w-35" aria-label="Sort by">
+          <SelectTrigger className="w-35">
             <SelectValue placeholder="Sort by" />
           </SelectTrigger>
           <SelectContent>

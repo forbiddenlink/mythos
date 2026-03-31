@@ -1,11 +1,12 @@
-'use client';
+"use client";
 
-import Image from 'next/image';
-import { TransitionLink } from '@/components/transitions';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import { Sparkles, ArrowRight } from 'lucide-react';
-import { cn } from '@/lib/utils';
+import Image from "next/image";
+import { TransitionLink } from "@/components/transitions";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { normalizeDeityReference } from "@/lib/deities";
+import { Sparkles, ArrowRight } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 interface CrossPantheonParallel {
   pantheonId: string;
@@ -36,30 +37,31 @@ interface DomainDeityCardProps {
 // Capitalize first letter of each word
 function capitalize(str: string): string {
   return str
-    .split(' ')
-    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-    .join(' ');
+    .split(" ")
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(" ");
 }
 
 // Pantheon color mapping for badges
 const PANTHEON_COLORS: Record<string, string> = {
-  'greek-pantheon': 'bg-blue-500/20 text-blue-400 border-blue-500/30',
-  'roman-pantheon': 'bg-red-500/20 text-red-400 border-red-500/30',
-  'norse-pantheon': 'bg-cyan-500/20 text-cyan-400 border-cyan-500/30',
-  'egyptian-pantheon': 'bg-amber-500/20 text-amber-400 border-amber-500/30',
-  'hindu-pantheon': 'bg-orange-500/20 text-orange-400 border-orange-500/30',
-  'japanese-pantheon': 'bg-pink-500/20 text-pink-400 border-pink-500/30',
-  'celtic-pantheon': 'bg-green-500/20 text-green-400 border-green-500/30',
-  'aztec-pantheon': 'bg-emerald-500/20 text-emerald-400 border-emerald-500/30',
-  'chinese-pantheon': 'bg-yellow-500/20 text-yellow-400 border-yellow-500/30',
-  'mesopotamian-pantheon': 'bg-yellow-700/20 text-yellow-600 border-yellow-700/30',
-  'african-pantheon': 'bg-violet-500/20 text-violet-400 border-violet-500/30',
-  'polynesian-pantheon': 'bg-cyan-500/20 text-cyan-400 border-cyan-500/30',
-  'mesoamerican-pantheon': 'bg-lime-500/20 text-lime-400 border-lime-500/30',
+  "greek-pantheon": "bg-blue-500/20 text-blue-400 border-blue-500/30",
+  "roman-pantheon": "bg-red-500/20 text-red-400 border-red-500/30",
+  "norse-pantheon": "bg-cyan-500/20 text-cyan-400 border-cyan-500/30",
+  "egyptian-pantheon": "bg-amber-500/20 text-amber-400 border-amber-500/30",
+  "hindu-pantheon": "bg-orange-500/20 text-orange-400 border-orange-500/30",
+  "japanese-pantheon": "bg-pink-500/20 text-pink-400 border-pink-500/30",
+  "celtic-pantheon": "bg-green-500/20 text-green-400 border-green-500/30",
+  "aztec-pantheon": "bg-emerald-500/20 text-emerald-400 border-emerald-500/30",
+  "chinese-pantheon": "bg-yellow-500/20 text-yellow-400 border-yellow-500/30",
+  "mesopotamian-pantheon":
+    "bg-yellow-700/20 text-yellow-600 border-yellow-700/30",
+  "african-pantheon": "bg-violet-500/20 text-violet-400 border-violet-500/30",
+  "polynesian-pantheon": "bg-cyan-500/20 text-cyan-400 border-cyan-500/30",
+  "mesoamerican-pantheon": "bg-lime-500/20 text-lime-400 border-lime-500/30",
 };
 
 function getPantheonColor(pantheonId: string): string {
-  return PANTHEON_COLORS[pantheonId] || 'bg-gold/20 text-gold border-gold/30';
+  return PANTHEON_COLORS[pantheonId] || "bg-gold/20 text-gold border-gold/30";
 }
 
 export function DomainDeityCard({
@@ -69,24 +71,40 @@ export function DomainDeityCard({
   allDeities = [],
   className,
 }: DomainDeityCardProps) {
+  const deityReferenceMap = new Map<string, Deity>();
+  allDeities.forEach((item) => {
+    deityReferenceMap.set(normalizeDeityReference(item.id), item);
+    deityReferenceMap.set(normalizeDeityReference(item.slug), item);
+
+    item.alternateNames?.forEach((alternateName) => {
+      deityReferenceMap.set(normalizeDeityReference(alternateName), item);
+    });
+  });
+
   // Find cross-pantheon connections that share the selected domain
   const connections = deity.crossPantheonParallels
-    ?.map(parallel => {
-      const connectedDeity = allDeities.find(d => d.id === parallel.deityId);
+    ?.map((parallel) => {
+      const connectedDeity = deityReferenceMap.get(
+        normalizeDeityReference(parallel.deityId),
+      );
       if (!connectedDeity) return null;
       // Check if connected deity also has the selected domain
       if (
         selectedDomain &&
-        !connectedDeity.domain.some(d => d.toLowerCase() === selectedDomain.toLowerCase())
+        !connectedDeity.domain.some(
+          (d) => d.toLowerCase() === selectedDomain.toLowerCase(),
+        )
       ) {
         return null;
       }
       return { parallel, deity: connectedDeity };
     })
-    .filter(Boolean) as Array<{ parallel: CrossPantheonParallel; deity: Deity }> | undefined;
+    .filter(Boolean) as
+    | Array<{ parallel: CrossPantheonParallel; deity: Deity }>
+    | undefined;
 
   const otherDomains = deity.domain
-    .filter(d => d.toLowerCase() !== selectedDomain?.toLowerCase())
+    .filter((d) => d.toLowerCase() !== selectedDomain?.toLowerCase())
     .slice(0, 3);
 
   return (
@@ -94,8 +112,8 @@ export function DomainDeityCard({
       <Card
         asArticle
         className={cn(
-          'h-full cursor-pointer card-elevated bg-card hover:scale-[1.01] transition-all duration-300',
-          className
+          "h-full cursor-pointer card-elevated bg-card hover:scale-[1.01] transition-all duration-300",
+          className,
         )}
       >
         <CardHeader className="pb-4">
@@ -129,13 +147,16 @@ export function DomainDeityCard({
               </CardTitle>
               <Badge
                 variant="outline"
-                className={cn('mt-2 text-xs', getPantheonColor(deity.pantheonId))}
+                className={cn(
+                  "mt-2 text-xs",
+                  getPantheonColor(deity.pantheonId),
+                )}
               >
                 {pantheonName}
               </Badge>
               {deity.alternateNames && deity.alternateNames.length > 0 && (
                 <p className="text-xs text-muted-foreground/70 mt-2">
-                  Also known as: {deity.alternateNames.slice(0, 2).join(', ')}
+                  Also known as: {deity.alternateNames.slice(0, 2).join(", ")}
                 </p>
               )}
             </div>
@@ -153,7 +174,7 @@ export function DomainDeityCard({
           {/* Other Domains */}
           {otherDomains.length > 0 && (
             <div className="flex flex-wrap gap-1.5">
-              {otherDomains.map(domain => (
+              {otherDomains.map((domain) => (
                 <Badge
                   key={domain}
                   variant="secondary"
@@ -172,24 +193,30 @@ export function DomainDeityCard({
                 Cross-Pantheon Parallels:
               </p>
               <div className="space-y-1.5">
-                {connections.slice(0, 2).map(({ parallel, deity: connectedDeity }) => (
-                  <div
-                    key={parallel.deityId}
-                    className="flex items-center gap-2 text-xs text-muted-foreground/80"
-                  >
-                    <ArrowRight className="h-3 w-3 text-gold/60" />
-                    <span className="font-medium text-foreground/80">{connectedDeity.name}</span>
-                    <Badge
-                      variant="outline"
-                      className={cn(
-                        'text-[10px] px-1.5 py-0',
-                        getPantheonColor(parallel.pantheonId)
-                      )}
+                {connections
+                  .slice(0, 2)
+                  .map(({ parallel, deity: connectedDeity }) => (
+                    <div
+                      key={parallel.deityId}
+                      className="flex items-center gap-2 text-xs text-muted-foreground/80"
                     >
-                      {parallel.pantheonId.replace('-pantheon', '').replace(/^\w/, c => c.toUpperCase())}
-                    </Badge>
-                  </div>
-                ))}
+                      <ArrowRight className="h-3 w-3 text-gold/60" />
+                      <span className="font-medium text-foreground/80">
+                        {connectedDeity.name}
+                      </span>
+                      <Badge
+                        variant="outline"
+                        className={cn(
+                          "text-[10px] px-1.5 py-0",
+                          getPantheonColor(parallel.pantheonId),
+                        )}
+                      >
+                        {parallel.pantheonId
+                          .replace("-pantheon", "")
+                          .replace(/^\w/, (c) => c.toUpperCase())}
+                      </Badge>
+                    </div>
+                  ))}
               </div>
             </div>
           )}

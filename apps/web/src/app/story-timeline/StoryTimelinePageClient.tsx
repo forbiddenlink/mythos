@@ -1,36 +1,46 @@
-'use client'
+"use client";
 
-import dynamic from 'next/dynamic'
-import { Loader2 } from 'lucide-react'
-import { Breadcrumbs } from '@/components/navigation/Breadcrumbs'
+import dynamic from "next/dynamic";
+import { Loader2 } from "lucide-react";
+import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
 
-import pantheonsData from '@/data/pantheons.json'
+import pantheonsData from "@/data/pantheons.json";
 
 // Lazy load D3-based timeline visualization
 const StoryTimelineView = dynamic(
-  () => import('@/components/timeline/StoryTimelineView').then(mod => ({ default: mod.StoryTimelineView })),
-  { loading: () => <div className="h-125 flex items-center justify-center"><Loader2 className="h-8 w-8 animate-spin text-primary" /></div>, ssr: false }
-)
-import storiesData from '@/data/stories.json'
+  () =>
+    import("@/components/timeline/StoryTimelineView").then((mod) => ({
+      default: mod.StoryTimelineView,
+    })),
+  {
+    loading: () => (
+      <div className="h-125 flex items-center justify-center">
+        <Loader2 className="h-8 w-8 animate-spin text-primary" />
+      </div>
+    ),
+    ssr: false,
+  },
+);
+import storiesData from "@/data/stories.json";
 
 interface Pantheon {
-  id: string
-  name: string
-  slug: string
+  id: string;
+  name: string;
+  slug: string;
 }
 
 interface Story {
-  id: string
-  pantheonId: string
-  title: string
-  slug: string
-  summary: string
-  category?: string
+  id: string;
+  pantheonId: string;
+  title: string;
+  slug: string;
+  summary: string;
+  category?: string;
 }
 
 export function StoryTimelinePageClient() {
-  const pantheons = pantheonsData as unknown as Pantheon[]
-  const stories = storiesData as unknown as Story[]
+  const pantheons = pantheonsData as unknown as Pantheon[];
+  const stories = storiesData as unknown as Story[];
 
   return (
     <div className="min-h-screen">
@@ -41,13 +51,13 @@ export function StoryTimelinePageClient() {
 
         <div className="container relative mx-auto max-w-7xl px-4 py-16 md:py-24">
           <div className="max-w-3xl">
-            <h1 className="font-serif text-4xl md:text-5xl font-bold tracking-tight text-foreground mb-4">
+            <h2 className="font-serif text-4xl md:text-5xl font-bold tracking-tight text-foreground mb-4">
               Story Timeline
-            </h1>
+            </h2>
             <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
-              Journey through mythological time - from the primordial chaos before creation,
-              through the birth of gods and the golden age, to the heroic sagas and the
-              twilight of divine powers.
+              Journey through mythological time - from the primordial chaos
+              before creation, through the birth of gods and the golden age, to
+              the heroic sagas and the twilight of divine powers.
             </p>
           </div>
         </div>
@@ -70,25 +80,29 @@ export function StoryTimelinePageClient() {
             <div>
               <h3 className="font-medium text-foreground mb-1">Cosmic Eras</h3>
               <p>
-                Myths unfold across five cosmic eras: the <strong>Primordial</strong> void before
-                existence, the <strong>Creation</strong> of worlds and gods, the{' '}
-                <strong>Golden Age</strong> of divine rule, the <strong>Heroic Age</strong> of
-                mortal champions, and the <strong>Decline</strong> or twilight of the gods.
+                Myths unfold across five cosmic eras: the{" "}
+                <strong>Primordial</strong> void before existence, the{" "}
+                <strong>Creation</strong> of worlds and gods, the{" "}
+                <strong>Golden Age</strong> of divine rule, the{" "}
+                <strong>Heroic Age</strong> of mortal champions, and the{" "}
+                <strong>Decline</strong> or twilight of the gods.
               </p>
             </div>
             <div>
-              <h3 className="font-medium text-foreground mb-1">Cross-Cultural Patterns</h3>
+              <h3 className="font-medium text-foreground mb-1">
+                Cross-Cultural Patterns
+              </h3>
               <p>
-                Every culture tells stories of creation, golden ages, and endings.
-                Compare how different pantheons conceptualize the same cosmic moments
-                and see where their stories align.
+                Every culture tells stories of creation, golden ages, and
+                endings. Compare how different pantheons conceptualize the same
+                cosmic moments and see where their stories align.
               </p>
             </div>
             <div>
               <h3 className="font-medium text-foreground mb-1">Navigation</h3>
               <p>
-                Filter by pantheon to focus on a single tradition. Switch between{' '}
-                <strong>Timeline</strong> view for detailed reading or{' '}
+                Filter by pantheon to focus on a single tradition. Switch
+                between <strong>Timeline</strong> view for detailed reading or{" "}
                 <strong>Visual</strong> mode to see the cosmic flow of events.
               </p>
             </div>
@@ -96,5 +110,5 @@ export function StoryTimelinePageClient() {
         </div>
       </div>
     </div>
-  )
+  );
 }

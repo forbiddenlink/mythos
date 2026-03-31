@@ -2,11 +2,7 @@ import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
 import { renderHook, act } from "@testing-library/react";
 import { type ReactNode } from "react";
 import { useAchievements } from "@/hooks/useAchievements";
-import {
-  ProgressProvider,
-  ProgressContext,
-  type UserProgress,
-} from "@/providers/progress-provider";
+import { ProgressProvider } from "@/providers/progress-provider";
 import { achievements, type Achievement } from "@/data/achievements";
 
 // Mock localStorage

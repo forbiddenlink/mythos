@@ -1,8 +1,5 @@
 "use client";
 
-import { useQuery } from "@tanstack/react-query";
-import { graphqlClient } from "@/lib/graphql-client";
-import { GET_DEITIES, GET_STORIES } from "@/lib/queries";
 import { useBookmarks } from "@/hooks/useBookmarks";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -12,6 +9,9 @@ import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
 import { Heart, Sparkles, ScrollText, BookOpen, Compass } from "lucide-react";
 import Link from "next/link";
 import type { BookmarkType } from "@/providers/bookmarks-provider";
+import deitiesData from "@/data/deities.json";
+import storiesData from "@/data/stories.json";
+import pantheonsData from "@/data/pantheons.json";
 
 interface Deity {
   id: string;
@@ -28,6 +28,13 @@ interface Story {
   slug: string;
   summary: string | null;
   themes: string[];
+}
+
+interface Pantheon {
+  id: string;
+  name: string;
+  slug: string;
+  description?: string | null;
 }
 
 function formatTimestamp(timestamp: number): string {
@@ -54,28 +61,15 @@ export default function BookmarksPage() {
   const storyBookmarks = getBookmarks("story");
   const pantheonBookmarks = getBookmarks("pantheon");
   const allBookmarks = getBookmarks();
-
-  const { data: deitiesData } = useQuery<{ deities: Deity[] }>({
-    queryKey: ["deities"],
-    queryFn: async () => graphqlClient.request(GET_DEITIES),
-    enabled: deityBookmarks.length > 0,
-  });
-
-  const { data: storiesData } = useQuery<{ stories: Story[] }>({
-    queryKey: ["stories"],
-    queryFn: async () => graphqlClient.request(GET_STORIES),
-    enabled: storyBookmarks.length > 0,
-  });
+  const deities = deitiesData as Deity[];
+  const stories = storiesData as Story[];
+  const pantheons = pantheonsData as Pantheon[];
 
   const bookmarkedDeities =
-    deitiesData?.deities.filter((d) =>
-      deityBookmarks.some((b) => b.id === d.id),
-    ) ?? [];
+    deities.filter((d) => deityBookmarks.some((b) => b.id === d.id)) ?? [];
 
   const bookmarkedStories =
-    storiesData?.stories.filter((s) =>
-      storyBookmarks.some((b) => b.id === s.id),
-    ) ?? [];
+    stories.filter((s) => storyBookmarks.some((b) => b.id === s.id)) ?? [];
 
   const isEmpty = allBookmarks.length === 0;
 
@@ -118,6 +112,60 @@ export default function BookmarksPage() {
       {/* Content Section */}
       <div className="container mx-auto max-w-6xl px-4 py-16">
         <Breadcrumbs />
+
+        <section className="mt-6 rounded-2xl border border-border/60 bg-card/60 p-6">
+          <h2 className="font-serif text-2xl font-semibold mb-3">
+            Build a Personal Mythology Reading List
+          </h2>
+          <p className="text-muted-foreground leading-relaxed">
+            Bookmarks turn Mythos Atlas into a working study shelf. Save deity
+            profiles you want to compare later, keep long stories in progress,
+            and collect pantheons that deserve a deeper read once you finish a
+            first pass through the encyclopedia.
+          </p>
+          <p className="mt-3 text-muted-foreground leading-relaxed">
+            This page is especially useful when you are moving between quizzes,
+            stories, and reference entries. Instead of losing track of the
+            threads you want to follow, you can return here and pick up where
+            you left off across multiple traditions.
+          </p>
+          <p className="mt-3 text-muted-foreground leading-relaxed">
+            A good workflow is to bookmark one deity, one story, and one
+            pantheon at the same time. That creates a compact study cluster you
+            can revisit later when you want a quick refresher or a deeper
+            comparative reading session.
+          </p>
+          <p className="mt-3 text-muted-foreground leading-relaxed">
+            Over time this page becomes a record of what you are actively
+            studying. Instead of scrolling the whole encyclopedia to relocate a
+            thread, you can use bookmarks as a curated shortlist of unfinished
+            myths, reference targets, and cross-cultural comparisons.
+          </p>
+          <p className="mt-3 text-muted-foreground leading-relaxed">
+            The saved list is also useful for deliberate review. Revisit older
+            bookmarks after a quiz or reading session and you can see which
+            names, symbols, and stories still need reinforcement before they
+            become part of your long-term mythology map.
+          </p>
+          <p className="mt-3 text-muted-foreground leading-relaxed">
+            If you are building a cross-cultural reading plan, this page works
+            best when you mix one reference page with one narrative page. That
+            pairing keeps your saved list balanced between fast factual review
+            and the longer story context that gives those facts meaning.
+          </p>
+          <p className="mt-3 text-muted-foreground leading-relaxed">
+            Bookmarks also work well as a revision queue. Save entries after a
+            quiz or comparison session, then return here to review the exact
+            deities, symbols, or stories that caused hesitation. That turns a
+            generic save feature into a deliberate study workflow.
+          </p>
+          <p className="mt-3 text-muted-foreground leading-relaxed">
+            If you are exploring a new pantheon, start by saving a few anchor
+            entries rather than everything at once. A compact list is easier to
+            revisit, and it gives you a clearer sense of what still needs
+            context, source checking, or deeper narrative reading.
+          </p>
+        </section>
 
         {isEmpty ? (
           <EmptyState />
@@ -240,17 +288,24 @@ export default function BookmarksPage() {
 
                 <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
                   {pantheonBookmarks.map((bookmark) => {
-                    const slug = bookmark.id.replace("-pantheon", "");
+                    const pantheon = pantheons.find(
+                      (item) => item.id === bookmark.id,
+                    );
+                    const slug =
+                      pantheon?.slug ?? bookmark.id.replace("-pantheon", "");
                     return (
                       <BookmarkCard
                         key={bookmark.id}
                         type="pantheon"
                         id={bookmark.id}
                         href={`/pantheons/${slug}`}
-                        title={bookmark.id
-                          .replaceAll("-", " ")
-                          .replaceAll(/\b\w/g, (c) => c.toUpperCase())}
-                        description={null}
+                        title={
+                          pantheon?.name ??
+                          bookmark.id
+                            .replaceAll("-", " ")
+                            .replaceAll(/\b\w/g, (c) => c.toUpperCase())
+                        }
+                        description={pantheon?.description ?? null}
                         timestamp={bookmark.timestamp}
                         icon={
                           <BookOpen

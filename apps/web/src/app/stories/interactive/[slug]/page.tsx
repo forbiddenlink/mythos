@@ -107,6 +107,30 @@ export default function InteractiveStoryPage() {
         <Breadcrumbs />
 
         <div className="mt-8">
+          <section className="mb-8 rounded-2xl border border-gold/10 bg-midnight-light/40 p-6">
+            <h2 className="font-serif text-2xl font-semibold text-parchment">
+              Read The Myth By Making Choices
+            </h2>
+            <p className="mt-3 leading-relaxed text-parchment/70">
+              Interactive stories turn a familiar myth into a branching reading
+              experience. Instead of staying outside the narrative, you move
+              through it decision by decision and see how different choices
+              reshape the ending, the lesson, or the character’s fate.
+            </p>
+            <p className="mt-3 leading-relaxed text-parchment/70">
+              That makes this format useful for more than novelty. It helps you
+              notice where a myth’s tension really lives, which values are being
+              tested, and why the original story structure pushes toward one
+              outcome rather than another.
+            </p>
+            <p className="mt-3 leading-relaxed text-parchment/70">
+              Use the replay value deliberately. Try one path, compare the next,
+              then return to the standard story page or related deity entries so
+              the choices feel anchored in the wider mythology rather than
+              detached from it.
+            </p>
+          </section>
+
           {!isStarted ? (
             <Card className="border-gold/20 bg-midnight-light/50 overflow-hidden">
               <CardHeader className="text-center">
@@ -152,7 +176,7 @@ export default function InteractiveStoryPage() {
 
                 {/* How to play */}
                 <div className="p-4 bg-midnight/30 rounded-lg border border-gold/10">
-                  <h3 className="text-gold font-semibold mb-2">How to Play</h3>
+                  <h2 className="text-gold font-semibold mb-2">How to Play</h2>
                   <ul className="space-y-2 text-sm text-parchment/70">
                     <li className="flex items-start gap-2">
                       <span className="text-gold">1.</span>

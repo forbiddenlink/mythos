@@ -1,26 +1,57 @@
-import { Breadcrumbs } from '@/components/navigation/Breadcrumbs';
-import { generateBaseMetadata } from '@/lib/metadata';
-import { ChangelogEntry, type ChangelogEntryData, type ChangelogType } from '@/components/changelog/ChangelogEntry';
-import { ChangelogFilters } from './ChangelogFilters';
-import changelogData from '@/data/changelog.json';
-
-export const metadata = generateBaseMetadata({
-  title: 'Changelog',
-  description: 'Stay up to date with the latest features, fixes, and content updates to Mythos Atlas - your interactive mythology encyclopedia.',
-  url: '/changelog',
-  keywords: ['changelog', 'updates', 'release notes', 'new features', 'mythology app updates'],
-});
+import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
+import { generateBaseMetadata } from "@/lib/metadata";
+import {
+  ChangelogEntry,
+  type ChangelogEntryData,
+  type ChangelogType,
+} from "@/components/changelog/ChangelogEntry";
+import { ChangelogFilters } from "./ChangelogFilters";
+import changelogData from "@/data/changelog.json";
 
 interface ChangelogPageProps {
   searchParams: Promise<{ type?: string }>;
 }
 
-export default async function ChangelogPage({ searchParams }: ChangelogPageProps) {
+export async function generateMetadata({ searchParams }: ChangelogPageProps) {
+  const { type } = await searchParams;
+  const suffix =
+    type === "feature"
+      ? "Feature Updates"
+      : type === "fix"
+        ? "Fixes"
+        : type === "content"
+          ? "Content Updates"
+          : "Release Notes";
+
+  return generateBaseMetadata({
+    title: `Mythos Atlas Changelog: ${suffix}`,
+    description:
+      type === "feature"
+        ? "Follow Mythos Atlas feature releases with new tools, product improvements, and major updates across the mythology encyclopedia."
+        : type === "fix"
+          ? "Review Mythos Atlas fixes, stability work, and quality improvements across the mythology encyclopedia and learning tools."
+          : type === "content"
+            ? "Track new Mythos Atlas content releases including deities, stories, locations, and expanded mythology reference material."
+            : "Follow Mythos Atlas releases with new features, content updates, bug fixes, release notes, product improvements, and reference-library expansions.",
+    url: type ? `/changelog?type=${type}` : "/changelog",
+    keywords: [
+      "changelog",
+      "updates",
+      "release notes",
+      "new features",
+      "mythology app updates",
+    ],
+  });
+}
+
+export default async function ChangelogPage({
+  searchParams,
+}: ChangelogPageProps) {
   const { type } = await searchParams;
   const filterType = type as ChangelogType | undefined;
 
   const entries = (changelogData as ChangelogEntryData[]).filter(
-    (entry) => !filterType || entry.type === filterType
+    (entry) => !filterType || entry.type === filterType,
   );
 
   return (
@@ -40,7 +71,8 @@ export default async function ChangelogPage({ searchParams }: ChangelogPageProps
             <div className="w-12 h-px bg-linear-to-l from-transparent to-gold/40" />
           </div>
           <p className="text-lg md:text-xl text-parchment/70 max-w-2xl mx-auto font-body leading-relaxed">
-            Track the evolution of Mythos Atlas with every new feature, fix, and content update
+            Track the evolution of Mythos Atlas with every new feature, fix, and
+            content update
           </p>
         </div>
       </div>

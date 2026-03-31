@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { generateBaseMetadata } from "@/lib/metadata";
 
 export const metadata: Metadata = generateBaseMetadata({
-  title: "Bookmarks",
+  title: "Mythology Bookmarks and Saved Reading",
   description:
-    "Your saved deities, stories, and pantheons from Mythos Atlas. Revisit your favorite mythology content.",
+    "Save deities, stories, and pantheons so you can return to favorite mythology entries, study lists, and unfinished reading sessions.",
   url: "/bookmarks",
 });
 

@@ -5,7 +5,7 @@ import { CollectionPageJsonLd } from "@/components/seo/JsonLd";
 export const metadata: Metadata = generateBaseMetadata({
   title: "Pantheons of Ancient Civilizations",
   description:
-    "Explore the pantheons of ancient civilizations, including Greek, Norse, Egyptian, Roman, Hindu, Japanese, Celtic, Aztec, and Chinese mythological traditions.",
+    "Compare Greek, Norse, Egyptian, Roman, Hindu, Japanese, Celtic, Aztec, Chinese, and other major mythological pantheons in one reference hub.",
   url: "/pantheons",
   keywords: [
     "pantheons",
@@ -27,7 +27,7 @@ export default function PantheonsLayout({
     <>
       <CollectionPageJsonLd
         name="Pantheons - Mythological Traditions of Ancient Civilizations"
-        description="Explore the divine hierarchies and mythological traditions of Greek, Norse, Egyptian, Roman, Hindu, Japanese, Celtic, Aztec, and Chinese civilizations."
+        description="Explore the divine hierarchies and mythological traditions of Greek, Norse, Egyptian, Roman, Hindu, Japanese, Celtic, Aztec, Chinese, and other ancient civilizations."
         url="/pantheons"
       />
       {children}

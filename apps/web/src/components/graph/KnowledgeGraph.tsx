@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import { useMemo, useState, useCallback, useEffect, memo } from 'react';
+import { useMemo, useState, useCallback, useEffect, memo } from "react";
 import ReactFlow, {
   Node,
   Edge,
@@ -14,11 +14,12 @@ import ReactFlow, {
   MarkerType,
   Position,
   BackgroundVariant,
-} from 'reactflow';
-import 'reactflow/dist/style.css';
-import { Card } from '@/components/ui/card';
-import { Sparkles } from 'lucide-react';
-import Image from 'next/image';
+} from "reactflow";
+import "reactflow/dist/style.css";
+import { Card } from "@/components/ui/card";
+import { normalizeDeityReference } from "@/lib/deities";
+import { Sparkles } from "lucide-react";
+import Image from "next/image";
 
 // Types
 interface Deity {
@@ -26,6 +27,7 @@ interface Deity {
   name: string;
   slug: string;
   pantheonId: string;
+  alternateNames?: string[];
   domain?: string[];
   gender?: string | null;
   importanceRank?: number;
@@ -68,57 +70,60 @@ interface KnowledgeGraphProps {
 
 // Pantheon color mapping
 const PANTHEON_COLORS: Record<string, string> = {
-  'greek-pantheon': '#3b82f6',     // Blue
-  'norse-pantheon': '#10b981',     // Emerald
-  'egyptian-pantheon': '#f59e0b',  // Amber
-  'roman-pantheon': '#ef4444',     // Red
-  'hindu-pantheon': '#8b5cf6',     // Purple
-  'japanese-pantheon': '#ec4899',  // Pink
-  'celtic-pantheon': '#14b8a6',    // Teal
-  'aztec-pantheon': '#f97316',     // Orange
-  'chinese-pantheon': '#eab308',   // Yellow
-  'mesopotamian-pantheon': '#a16207', // Clay/Bronze
-  'african-pantheon': '#7c3aed',   // Violet
-  'polynesian-pantheon': '#06b6d4', // Cyan
-  'mesoamerican-pantheon': '#65a30d', // Lime
+  "greek-pantheon": "#3b82f6", // Blue
+  "norse-pantheon": "#10b981", // Emerald
+  "egyptian-pantheon": "#f59e0b", // Amber
+  "roman-pantheon": "#ef4444", // Red
+  "hindu-pantheon": "#8b5cf6", // Purple
+  "japanese-pantheon": "#ec4899", // Pink
+  "celtic-pantheon": "#14b8a6", // Teal
+  "aztec-pantheon": "#f97316", // Orange
+  "chinese-pantheon": "#eab308", // Yellow
+  "mesopotamian-pantheon": "#a16207", // Clay/Bronze
+  "african-pantheon": "#7c3aed", // Violet
+  "polynesian-pantheon": "#06b6d4", // Cyan
+  "mesoamerican-pantheon": "#65a30d", // Lime
 };
 
 const getPantheonColor = (pantheonId: string): string => {
-  return PANTHEON_COLORS[pantheonId] || '#6b7280';
+  return PANTHEON_COLORS[pantheonId] || "#6b7280";
 };
 
 // Get edge style based on relationship type
-const getEdgeStyle = (relationshipType: string, isCrossPantheon: boolean = false) => {
+const getEdgeStyle = (
+  relationshipType: string,
+  isCrossPantheon: boolean = false,
+) => {
   const type = relationshipType.toLowerCase();
 
   if (isCrossPantheon) {
     return {
-      stroke: '#fbbf24',
+      stroke: "#fbbf24",
       strokeWidth: 3,
       strokeDasharray: undefined,
-      filter: 'drop-shadow(0 0 6px #fbbf24)',
+      filter: "drop-shadow(0 0 6px #fbbf24)",
     };
   }
 
-  if (type.includes('spouse') || type.includes('lover') || type === 'ally_of') {
+  if (type.includes("spouse") || type.includes("lover") || type === "ally_of") {
     return {
-      stroke: '#ec4899',
+      stroke: "#ec4899",
       strokeWidth: 2,
-      strokeDasharray: '8 4',
+      strokeDasharray: "8 4",
     };
   }
 
-  if (type.includes('sibling')) {
+  if (type.includes("sibling")) {
     return {
-      stroke: '#3b82f6',
+      stroke: "#3b82f6",
       strokeWidth: 2,
-      strokeDasharray: '4 2',
+      strokeDasharray: "4 2",
     };
   }
 
   // Parent/child - solid line
   return {
-    stroke: '#64748b',
+    stroke: "#64748b",
     strokeWidth: 2,
     strokeDasharray: undefined,
   };
@@ -136,14 +141,15 @@ const DeityNode = memo(function DeityNode({
   };
 }) {
   const { deity, pantheonColor, isHighlighted } = data;
-  const nodeSize = deity.importanceRank && deity.importanceRank <= 5 ? 'large' : 'normal';
+  const nodeSize =
+    deity.importanceRank && deity.importanceRank <= 5 ? "large" : "normal";
 
   return (
     <Card
       className={`
         transition-all duration-200 cursor-pointer
-        ${nodeSize === 'large' ? 'p-3 min-w-35' : 'p-2 min-w-25'}
-        ${isHighlighted ? 'ring-2 ring-amber-400 shadow-lg shadow-amber-400/30' : ''}
+        ${nodeSize === "large" ? "p-3 min-w-35" : "p-2 min-w-25"}
+        ${isHighlighted ? "ring-2 ring-amber-400 shadow-lg shadow-amber-400/30" : ""}
         bg-white dark:bg-slate-900 hover:shadow-lg hover:scale-105
       `}
       style={{
@@ -154,7 +160,7 @@ const DeityNode = memo(function DeityNode({
         <div
           className={`
             rounded-full flex items-center justify-center shrink-0
-            ${nodeSize === 'large' ? 'w-10 h-10' : 'w-7 h-7'}
+            ${nodeSize === "large" ? "w-10 h-10" : "w-7 h-7"}
           `}
           style={{ backgroundColor: pantheonColor }}
         >
@@ -162,18 +168,22 @@ const DeityNode = memo(function DeityNode({
             <Image
               src={deity.imageUrl}
               alt={deity.name}
-              width={nodeSize === 'large' ? 40 : 28}
-              height={nodeSize === 'large' ? 40 : 28}
+              width={nodeSize === "large" ? 40 : 28}
+              height={nodeSize === "large" ? 40 : 28}
               className="rounded-full object-cover"
             />
           ) : (
-            <Sparkles className={`text-white ${nodeSize === 'large' ? 'h-5 w-5' : 'h-3.5 w-3.5'}`} />
+            <Sparkles
+              className={`text-white ${nodeSize === "large" ? "h-5 w-5" : "h-3.5 w-3.5"}`}
+            />
           )}
         </div>
         <div className="flex-1 min-w-0">
-          <h3 className={`font-semibold truncate text-slate-900 dark:text-slate-100 ${nodeSize === 'large' ? 'text-sm' : 'text-xs'}`}>
+          <div
+            className={`font-semibold truncate text-slate-900 dark:text-slate-100 ${nodeSize === "large" ? "text-sm" : "text-xs"}`}
+          >
             {deity.name}
-          </h3>
+          </div>
           {deity.domain && deity.domain.length > 0 && (
             <p className="text-[10px] text-slate-500 dark:text-slate-400 truncate">
               {deity.domain[0]}
@@ -194,18 +204,20 @@ function calculateLayout(
   deities: Deity[],
   relationships: Relationship[],
   clusterByPantheon: boolean,
-  selectedPantheons: Set<string>
+  selectedPantheons: Set<string>,
 ): Map<string, { x: number; y: number }> {
   const positions = new Map<string, { x: number; y: number }>();
 
   // Filter deities by selected pantheons
-  const filteredDeities = deities.filter(d => selectedPantheons.has(d.pantheonId));
+  const filteredDeities = deities.filter((d) =>
+    selectedPantheons.has(d.pantheonId),
+  );
 
   if (clusterByPantheon) {
     // Group by pantheon and arrange in clusters
     const pantheonGroups = new Map<string, Deity[]>();
 
-    filteredDeities.forEach(deity => {
+    filteredDeities.forEach((deity) => {
       const group = pantheonGroups.get(deity.pantheonId) || [];
       group.push(deity);
       pantheonGroups.set(deity.pantheonId, group);
@@ -217,13 +229,14 @@ function calculateLayout(
 
     pantheonList.forEach(([_pantheonId, deities], clusterIndex) => {
       // Position cluster centers in a circle
-      const clusterAngle = (clusterIndex / numPantheons) * 2 * Math.PI - Math.PI / 2;
+      const clusterAngle =
+        (clusterIndex / numPantheons) * 2 * Math.PI - Math.PI / 2;
       const clusterCenterX = Math.cos(clusterAngle) * clusterRadius;
       const clusterCenterY = Math.sin(clusterAngle) * clusterRadius;
 
       // Sort deities by importance within cluster
-      const sortedDeities = deities.toSorted((a, b) =>
-        (a.importanceRank || 999) - (b.importanceRank || 999)
+      const sortedDeities = deities.toSorted(
+        (a, b) => (a.importanceRank || 999) - (b.importanceRank || 999),
       );
 
       // Arrange deities in a smaller circle around cluster center
@@ -237,7 +250,8 @@ function calculateLayout(
             y: clusterCenterY,
           });
         } else {
-          const angle = ((index - 1) / Math.max(1, sortedDeities.length - 1)) * 2 * Math.PI;
+          const angle =
+            ((index - 1) / Math.max(1, sortedDeities.length - 1)) * 2 * Math.PI;
           positions.set(deity.id, {
             x: clusterCenterX + Math.cos(angle) * innerRadius,
             y: clusterCenterY + Math.sin(angle) * innerRadius,
@@ -251,8 +265,8 @@ function calculateLayout(
     const spacing = 200;
 
     // Sort by importance first
-    const sortedDeities = filteredDeities.toSorted((a, b) =>
-      (a.importanceRank || 999) - (b.importanceRank || 999)
+    const sortedDeities = filteredDeities.toSorted(
+      (a, b) => (a.importanceRank || 999) - (b.importanceRank || 999),
     );
 
     sortedDeities.forEach((deity, index) => {
@@ -286,12 +300,21 @@ function KnowledgeGraphInner({
   const { fitView } = useReactFlow();
 
   // Create deity map for quick lookups
-  const _deityMap = useMemo(() => new Map(deities.map(d => [d.id, d])), [deities]);
+  const _deityMap = useMemo(
+    () => new Map(deities.map((d) => [d.id, d])),
+    [deities],
+  );
 
   // Calculate positions
   const positions = useMemo(
-    () => calculateLayout(deities, relationships, clusterByPantheon, selectedPantheons),
-    [deities, relationships, clusterByPantheon, selectedPantheons]
+    () =>
+      calculateLayout(
+        deities,
+        relationships,
+        clusterByPantheon,
+        selectedPantheons,
+      ),
+    [deities, relationships, clusterByPantheon, selectedPantheons],
   );
 
   // Build nodes and edges
@@ -301,16 +324,27 @@ function KnowledgeGraphInner({
     const addedEdges = new Set<string>();
 
     // Filter deities by selected pantheons
-    const filteredDeities = deities.filter(d => selectedPantheons.has(d.pantheonId));
-    const filteredDeityIds = new Set(filteredDeities.map(d => d.id));
+    const filteredDeities = deities.filter((d) =>
+      selectedPantheons.has(d.pantheonId),
+    );
+    const filteredDeityIds = new Set(filteredDeities.map((d) => d.id));
+    const deityReferenceMap = new Map<string, Deity>();
+    filteredDeities.forEach((deity) => {
+      deityReferenceMap.set(normalizeDeityReference(deity.id), deity);
+      deityReferenceMap.set(normalizeDeityReference(deity.slug), deity);
+
+      deity.alternateNames?.forEach((alternateName) => {
+        deityReferenceMap.set(normalizeDeityReference(alternateName), deity);
+      });
+    });
 
     // Create nodes
-    filteredDeities.forEach(deity => {
+    filteredDeities.forEach((deity) => {
       const position = positions.get(deity.id) || { x: 0, y: 0 };
 
       nodes.push({
         id: deity.id,
-        type: 'deityNode',
+        type: "deityNode",
         position,
         data: {
           deity,
@@ -324,23 +358,29 @@ function KnowledgeGraphInner({
     });
 
     // Create edges from relationships
-    relationships.forEach(rel => {
-      if (!filteredDeityIds.has(rel.fromDeityId) || !filteredDeityIds.has(rel.toDeityId)) {
+    relationships.forEach((rel) => {
+      if (
+        !filteredDeityIds.has(rel.fromDeityId) ||
+        !filteredDeityIds.has(rel.toDeityId)
+      ) {
         return;
       }
 
       const relType = rel.relationshipType.toLowerCase();
 
       // Check filters
-      const isParentChild = relType.includes('parent');
-      const isSpouse = relType.includes('spouse') || relType.includes('lover') || relType === 'ally_of';
-      const isSibling = relType.includes('sibling');
+      const isParentChild = relType.includes("parent");
+      const isSpouse =
+        relType.includes("spouse") ||
+        relType.includes("lover") ||
+        relType === "ally_of";
+      const isSibling = relType.includes("sibling");
 
       if (isParentChild && !relationshipFilters.parent) return;
       if (isSpouse && !relationshipFilters.spouse) return;
       if (isSibling && !relationshipFilters.sibling) return;
 
-      const edgeKey = [rel.fromDeityId, rel.toDeityId].sort().join('-');
+      const edgeKey = [rel.fromDeityId, rel.toDeityId].sort().join("-");
       if (addedEdges.has(edgeKey)) return;
       addedEdges.add(edgeKey);
 
@@ -350,47 +390,59 @@ function KnowledgeGraphInner({
         id: rel.id,
         source: rel.fromDeityId,
         target: rel.toDeityId,
-        type: 'smoothstep',
+        type: "smoothstep",
         animated: false,
         style,
-        markerEnd: isParentChild ? {
-          type: MarkerType.ArrowClosed,
-          color: style.stroke,
-        } : undefined,
+        markerEnd: isParentChild
+          ? {
+              type: MarkerType.ArrowClosed,
+              color: style.stroke,
+            }
+          : undefined,
       });
     });
 
     // Add cross-pantheon parallel edges
     if (relationshipFilters.crossPantheon) {
-      filteredDeities.forEach(deity => {
+      filteredDeities.forEach((deity) => {
         if (!deity.crossPantheonParallels) return;
 
-        deity.crossPantheonParallels.forEach(parallel => {
-          if (!filteredDeityIds.has(parallel.deityId)) return;
+        deity.crossPantheonParallels.forEach((parallel) => {
+          const targetDeity = deityReferenceMap.get(
+            normalizeDeityReference(parallel.deityId),
+          );
+          if (!targetDeity || !filteredDeityIds.has(targetDeity.id)) return;
 
-          const edgeKey = [deity.id, parallel.deityId].sort().join('-cross-');
+          const edgeKey = [deity.id, targetDeity.id].sort().join("-cross-");
           if (addedEdges.has(edgeKey)) return;
           addedEdges.add(edgeKey);
 
-          const style = getEdgeStyle('cross', true);
+          const style = getEdgeStyle("cross", true);
 
           edges.push({
-            id: `cross-${deity.id}-${parallel.deityId}`,
+            id: `cross-${deity.id}-${targetDeity.id}`,
             source: deity.id,
-            target: parallel.deityId,
-            type: 'smoothstep',
+            target: targetDeity.id,
+            type: "smoothstep",
             animated: true,
             style,
-            label: 'Parallel',
-            labelStyle: { fill: '#fbbf24', fontSize: 10 },
-            labelBgStyle: { fill: 'transparent' },
+            label: "Parallel",
+            labelStyle: { fill: "#fbbf24", fontSize: 10 },
+            labelBgStyle: { fill: "transparent" },
           });
         });
       });
     }
 
     return { nodes, edges };
-  }, [deities, relationships, selectedPantheons, relationshipFilters, positions, highlightedNodeId]);
+  }, [
+    deities,
+    relationships,
+    selectedPantheons,
+    relationshipFilters,
+    positions,
+    highlightedNodeId,
+  ]);
 
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
   const [edges, , onEdgesChange] = useEdgesState(initialEdges);
@@ -408,7 +460,7 @@ function KnowledgeGraphInner({
         onNodeClick(deity.id, deity.slug);
       }
     },
-    [onNodeClick]
+    [onNodeClick],
   );
 
   // Handle node hover
@@ -416,7 +468,7 @@ function KnowledgeGraphInner({
     (_: React.MouseEvent, node: Node) => {
       setHighlightedNodeId(node.id);
     },
-    [setHighlightedNodeId]
+    [setHighlightedNodeId],
   );
 
   const handleNodeMouseLeave = useCallback(() => {
@@ -464,7 +516,9 @@ function KnowledgeGraphInner({
 
 // Wrapper component with provider
 export function KnowledgeGraph(props: KnowledgeGraphProps) {
-  const [highlightedNodeId, setHighlightedNodeId] = useState<string | null>(null);
+  const [highlightedNodeId, setHighlightedNodeId] = useState<string | null>(
+    null,
+  );
 
   return (
     <div className="w-full h-full">

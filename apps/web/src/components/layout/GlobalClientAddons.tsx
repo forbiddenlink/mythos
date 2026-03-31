@@ -1,8 +1,9 @@
 "use client";
 
-import dynamic from "next/dynamic";
+import { LayoutEffects } from "@/components/effects/LayoutEffects";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import dynamic from "next/dynamic";
 
 const GlobalSearch = dynamic(
   () =>
@@ -19,13 +20,6 @@ const OfflineIndicator = dynamic(
 const InstallPrompt = dynamic(
   () =>
     import("@/components/pwa/InstallPrompt").then((mod) => mod.InstallPrompt),
-  { ssr: false },
-);
-const LayoutEffects = dynamic(
-  () =>
-    import("@/components/effects/LayoutEffects").then(
-      (mod) => mod.LayoutEffects,
-    ),
   { ssr: false },
 );
 const RandomDiscoveryButton = dynamic(

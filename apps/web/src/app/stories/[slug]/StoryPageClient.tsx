@@ -2,9 +2,6 @@
 
 import { useContext, useEffect } from "react";
 import dynamic from "next/dynamic";
-import { useQuery } from "@tanstack/react-query";
-import { graphqlClient } from "@/lib/graphql-client";
-import { GET_STORIES } from "@/lib/queries";
 import {
   Card,
   CardContent,
@@ -48,9 +45,10 @@ const ArtifactViewer = dynamic(
 import { ProgressContext } from "@/providers/progress-provider";
 import { RelatedContent } from "@/components/related-content";
 import { MythVariants } from "@/components/stories/MythVariants";
+import { EditorialByline } from "@/components/content/EditorialByline";
 import deitiesData from "@/data/deities.json";
 import locationsData from "@/data/locations.json";
-import { DetailPageSkeleton } from "@/components/ui/skeleton-cards";
+import storiesData from "@/data/stories.json";
 import { StoryNarrator } from "@/components/stories/StoryNarrator";
 import {
   SourceExcerptsList,
@@ -139,34 +137,10 @@ const CINEMATIC_STORIES = ["ragnarok", "titanomachy"];
 
 export function StoryPageClient({ slug }: StoryPageClientProps) {
   const { speak, cancel, isSpeaking } = useTextToSpeech();
+  const allStories = storiesData as Story[];
+  const story = allStories.find((s) => s.slug === slug);
 
-  const { data, isLoading, error } = useQuery<{ stories: Story[] }>({
-    queryKey: ["stories"],
-    queryFn: async () => graphqlClient.request(GET_STORIES),
-  });
-
-  if (isLoading) {
-    return <DetailPageSkeleton />;
-  }
-
-  if (error) {
-    return (
-      <div className="container mx-auto max-w-6xl px-4 py-24">
-        <div className="text-center">
-          <h2 className="text-2xl font-bold text-destructive">
-            Error loading story
-          </h2>
-          <p className="text-muted-foreground mt-2">
-            {error instanceof Error ? error.message : "An error occurred"}
-          </p>
-        </div>
-      </div>
-    );
-  }
-
-  const story = data?.stories.find((s) => s.slug === slug);
-
-  if (!story && !isLoading) {
+  if (!story) {
     return (
       <div className="container mx-auto max-w-6xl px-4 py-24">
         <div className="text-center">
@@ -183,10 +157,6 @@ export function StoryPageClient({ slug }: StoryPageClientProps) {
         </div>
       </div>
     );
-  }
-
-  if (!story) {
-    return null;
   }
 
   // Look up featured deities by ID
@@ -224,7 +194,7 @@ export function StoryPageClient({ slug }: StoryPageClientProps) {
   // Look up related stories by ID
   const relatedStoriesData = (story.relatedStories || [])
     .map((storyId) => {
-      const relatedStory = data?.stories.find((s) => s.id === storyId);
+      const relatedStory = allStories.find((s) => s.id === storyId);
       if (!relatedStory) return null;
       return {
         id: relatedStory.id,
@@ -273,6 +243,10 @@ export function StoryPageClient({ slug }: StoryPageClientProps) {
             <Tag className="h-4 w-4 text-gold/80" />
             <p className="text-gold/80 font-body">{story?.category}</p>
           </div>
+          <EditorialByline
+            className="mx-auto max-w-2xl text-center"
+            tone="light"
+          />
 
           <div className="flex items-center justify-center gap-4">
             <BookmarkButton

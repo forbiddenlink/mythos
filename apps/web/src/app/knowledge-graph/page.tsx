@@ -1,29 +1,43 @@
-'use client';
+"use client";
 
-import { useState, useMemo, useCallback } from 'react';
-import dynamic from 'next/dynamic';
-import { useRouter } from 'next/navigation';
-import Image from 'next/image';
-import { Network, Maximize2, Minimize2, Loader2 } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { GraphControls } from '@/components/graph/GraphControls';
-import { GraphLegend } from '@/components/graph/GraphLegend';
-import { Breadcrumbs } from '@/components/navigation/Breadcrumbs';
+import { useState, useMemo, useCallback } from "react";
+import dynamic from "next/dynamic";
+import { useRouter } from "next/navigation";
+import Image from "next/image";
+import { Network, Maximize2, Minimize2, Loader2 } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { GraphControls } from "@/components/graph/GraphControls";
+import { GraphLegend } from "@/components/graph/GraphLegend";
+import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
+import { normalizeDeityReference } from "@/lib/deities";
+
+const HERO_IMAGE_WIDTH = 1920;
+const HERO_IMAGE_HEIGHT = 1080;
 
 // Import colors statically (small)
-import { PANTHEON_COLORS } from '@/components/graph/KnowledgeGraph';
+import { PANTHEON_COLORS } from "@/components/graph/KnowledgeGraph";
 
 // Lazy load heavy ReactFlow-based knowledge graph
 const KnowledgeGraph = dynamic(
-  () => import('@/components/graph/KnowledgeGraph').then(mod => ({ default: mod.KnowledgeGraph })),
-  { loading: () => <div className="h-150 flex items-center justify-center"><Loader2 className="h-8 w-8 animate-spin text-primary" /></div>, ssr: false }
+  () =>
+    import("@/components/graph/KnowledgeGraph").then((mod) => ({
+      default: mod.KnowledgeGraph,
+    })),
+  {
+    loading: () => (
+      <div className="h-150 flex items-center justify-center">
+        <Loader2 className="h-8 w-8 animate-spin text-primary" />
+      </div>
+    ),
+    ssr: false,
+  },
 );
 
 // Import data directly
-import deitiesData from '@/data/deities.json';
-import relationshipsData from '@/data/relationships.json';
-import pantheonsData from '@/data/pantheons.json';
+import deitiesData from "@/data/deities.json";
+import relationshipsData from "@/data/relationships.json";
+import pantheonsData from "@/data/pantheons.json";
 
 // Types
 interface Deity {
@@ -31,6 +45,7 @@ interface Deity {
   name: string;
   slug: string;
   pantheonId: string;
+  alternateNames?: string[];
   domain?: string[];
   gender?: string | null;
   importanceRank?: number;
@@ -63,7 +78,7 @@ export default function KnowledgeGraphPage() {
 
   // Initialize with all pantheons selected
   const [selectedPantheons, setSelectedPantheons] = useState<Set<string>>(
-    () => new Set((pantheonsData as Pantheon[]).map(p => p.id))
+    () => new Set((pantheonsData as Pantheon[]).map((p) => p.id)),
   );
 
   // Relationship filters
@@ -81,10 +96,10 @@ export default function KnowledgeGraphPage() {
 
   // Prepare pantheon colors for legend
   const pantheonColors = useMemo(() => {
-    return pantheons.map(p => ({
+    return pantheons.map((p) => ({
       id: p.id,
-      name: p.name.replace(' Pantheon', ''),
-      color: PANTHEON_COLORS[p.id] || '#6b7280',
+      name: p.name.replace(" Pantheon", ""),
+      color: PANTHEON_COLORS[p.id] || "#6b7280",
     }));
   }, [pantheons]);
 
@@ -93,7 +108,7 @@ export default function KnowledgeGraphPage() {
     (deityId: string, slug: string) => {
       router.push(`/deities/${slug}`);
     },
-    [router]
+    [router],
   );
 
   const handleZoomIn = useCallback(() => {
@@ -113,21 +128,42 @@ export default function KnowledgeGraphPage() {
   }, []);
 
   const toggleFullscreen = useCallback(() => {
-    setIsFullscreen(prev => !prev);
+    setIsFullscreen((prev) => !prev);
   }, []);
 
   // Stats
   const stats = useMemo(() => {
-    const filteredDeities = deities.filter(d => selectedPantheons.has(d.pantheonId));
-    const filteredDeityIds = new Set(filteredDeities.map(d => d.id));
+    const filteredDeities = deities.filter((d) =>
+      selectedPantheons.has(d.pantheonId),
+    );
+    const filteredDeityIds = new Set(filteredDeities.map((d) => d.id));
+    const deityReferenceMap = new Map<string, Deity>();
+    filteredDeities.forEach((deity) => {
+      deityReferenceMap.set(normalizeDeityReference(deity.id), deity);
+      deityReferenceMap.set(normalizeDeityReference(deity.slug), deity);
+
+      deity.alternateNames?.forEach((alternateName) => {
+        deityReferenceMap.set(normalizeDeityReference(alternateName), deity);
+      });
+    });
 
     const filteredRelationships = relationships.filter(
-      r => filteredDeityIds.has(r.fromDeityId) && filteredDeityIds.has(r.toDeityId)
+      (r) =>
+        filteredDeityIds.has(r.fromDeityId) &&
+        filteredDeityIds.has(r.toDeityId),
     );
 
     const crossPantheonCount = filteredDeities.reduce((count, d) => {
       if (!d.crossPantheonParallels) return count;
-      return count + d.crossPantheonParallels.filter(p => filteredDeityIds.has(p.deityId)).length;
+      return (
+        count +
+        d.crossPantheonParallels.filter((parallel) => {
+          const targetDeity = deityReferenceMap.get(
+            normalizeDeityReference(parallel.deityId),
+          );
+          return Boolean(targetDeity && filteredDeityIds.has(targetDeity.id));
+        }).length
+      );
     }, 0);
 
     return {
@@ -204,10 +240,12 @@ export default function KnowledgeGraphPage() {
       <div className="relative overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
-            src="/family-tree-hero.png"
+            src="/family-tree-hero.jpg"
             alt="Knowledge Graph"
-            fill
-            className="object-cover"
+            width={HERO_IMAGE_WIDTH}
+            height={HERO_IMAGE_HEIGHT}
+            sizes="100vw"
+            className="h-full w-full object-cover"
             priority
           />
           <div className="absolute inset-0 bg-linear-to-br from-slate-900/80 via-indigo-900/70 to-purple-900/80" />
@@ -231,17 +269,57 @@ export default function KnowledgeGraphPage() {
           {/* Quick Stats */}
           <div className="flex flex-wrap gap-6 mt-6">
             <div className="text-center">
-              <div className="text-3xl font-bold text-white">{stats.deities}</div>
+              <div className="text-3xl font-bold text-white">
+                {stats.deities}
+              </div>
               <div className="text-sm text-slate-300">Deities</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-white">{stats.relationships}</div>
+              <div className="text-3xl font-bold text-white">
+                {stats.relationships}
+              </div>
               <div className="text-sm text-slate-300">Connections</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-amber-400">{Math.floor(stats.crossPantheon)}</div>
+              <div className="text-3xl font-bold text-amber-400">
+                {Math.floor(stats.crossPantheon)}
+              </div>
               <div className="text-sm text-slate-300">Cross-Pantheon Links</div>
             </div>
+          </div>
+
+          <div className="mt-8 max-w-3xl text-slate-200/90">
+            <p className="leading-relaxed">
+              The knowledge graph maps parentage, marriage, rivalry, and
+              cross-pantheon parallels in one interactive view. Instead of
+              reading mythological figures one at a time, you can trace how
+              whole divine networks connect across traditions and across time.
+            </p>
+            <p className="mt-3 leading-relaxed">
+              Use the controls to isolate a single culture or keep multiple
+              pantheons visible when you want to compare recurring archetypes,
+              contested lineages, or equivalent gods that appear under different
+              names in different civilizations.
+            </p>
+            <p className="mt-3 leading-relaxed">
+              The graph is most useful when you alternate between overview and
+              detail: scan the network to see which figures cluster together,
+              then open individual deity pages to confirm why a connection
+              exists and what makes it mythologically significant.
+            </p>
+            <p className="mt-3 leading-relaxed">
+              For comparative work, start narrow with one pantheon, then widen
+              the filter to watch parallel figures appear. That shift reveals
+              which relationships are internal to one tradition and which ones
+              reflect a larger pattern that repeats across cultures.
+            </p>
+            <p className="mt-3 leading-relaxed">
+              If you are using the graph for research or teaching, treat it as a
+              navigation layer rather than a final answer. The strongest use
+              case is spotting a connection here, then opening the relevant
+              deity pages and source notes to confirm what kind of relationship
+              the graph is actually showing.
+            </p>
           </div>
         </div>
       </div>
@@ -251,7 +329,8 @@ export default function KnowledgeGraphPage() {
         <Breadcrumbs />
 
         {/* Controls Bar */}
-        <div className="mb-6">
+        <section className="mb-6">
+          <h2 className="sr-only">Graph Controls</h2>
           <GraphControls
             pantheons={pantheons}
             deities={deities}
@@ -266,7 +345,7 @@ export default function KnowledgeGraphPage() {
             clusterByPantheon={clusterByPantheon}
             onClusterChange={setClusterByPantheon}
           />
-        </div>
+        </section>
 
         {/* Main Graph Card */}
         <Card className="bg-white dark:bg-slate-900 overflow-hidden">
@@ -276,7 +355,8 @@ export default function KnowledgeGraphPage() {
                 <Network className="h-5 w-5 text-indigo-500" />
                 Interactive Graph
                 <span className="text-muted-foreground font-sans font-normal text-sm opacity-60">
-                  {selectedPantheons.size} pantheon{selectedPantheons.size !== 1 ? 's' : ''} selected
+                  {selectedPantheons.size} pantheon
+                  {selectedPantheons.size !== 1 ? "s" : ""} selected
                 </span>
               </CardTitle>
               <Button
@@ -304,45 +384,56 @@ export default function KnowledgeGraphPage() {
 
               {/* Floating Legend */}
               <div className="absolute bottom-4 left-4">
-                <GraphLegend pantheonColors={pantheonColors} className="max-w-xs" />
+                <GraphLegend
+                  pantheonColors={pantheonColors}
+                  className="max-w-xs"
+                />
               </div>
             </div>
           </CardContent>
         </Card>
 
         {/* Tips Card */}
-        <div className="mt-8 grid gap-4 md:grid-cols-2">
-          <Card className="bg-white dark:bg-slate-900">
-            <CardHeader>
-              <CardTitle className="text-sm font-medium font-serif">How to Use</CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-2 text-sm text-slate-600 dark:text-slate-400">
-              <p>- Drag to pan around the graph</p>
-              <p>- Scroll to zoom in/out</p>
-              <p>- Click on a deity node to view their profile</p>
-              <p>- Use filters to show/hide relationship types</p>
-              <p>- Toggle clustering to group by pantheon</p>
-              <p>- Use the minimap for quick navigation</p>
-            </CardContent>
-          </Card>
+        <section className="mt-8">
+          <h2 className="sr-only">Graph Tips and Legend</h2>
+          <div className="grid gap-4 md:grid-cols-2">
+            <Card className="bg-white dark:bg-slate-900">
+              <CardHeader>
+                <CardTitle className="text-sm font-medium font-serif">
+                  How to Use
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-2 text-sm text-slate-600 dark:text-slate-400">
+                <p>- Drag to pan around the graph</p>
+                <p>- Scroll to zoom in/out</p>
+                <p>- Click on a deity node to view their profile</p>
+                <p>- Use filters to show/hide relationship types</p>
+                <p>- Toggle clustering to group by pantheon</p>
+                <p>- Use the minimap for quick navigation</p>
+              </CardContent>
+            </Card>
 
-          <Card className="bg-white dark:bg-slate-900">
-            <CardHeader>
-              <CardTitle className="text-sm font-medium font-serif">About Cross-Pantheon Links</CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-2 text-sm text-slate-600 dark:text-slate-400">
-              <p>
-                The golden glowing connections show parallel deities across different mythologies.
-                These represent similar gods with shared attributes or roles:
-              </p>
-              <ul className="list-disc list-inside space-y-1 mt-2">
-                <li>Zeus (Greek) = Jupiter (Roman) = Odin (Norse)</li>
-                <li>Aphrodite (Greek) = Venus (Roman) = Freyja (Norse)</li>
-                <li>Hades (Greek) = Pluto (Roman) = Osiris (Egyptian)</li>
-              </ul>
-            </CardContent>
-          </Card>
-        </div>
+            <Card className="bg-white dark:bg-slate-900">
+              <CardHeader>
+                <CardTitle className="text-sm font-medium font-serif">
+                  About Cross-Pantheon Links
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-2 text-sm text-slate-600 dark:text-slate-400">
+                <p>
+                  The golden glowing connections show parallel deities across
+                  different mythologies. These represent similar gods with
+                  shared attributes or roles:
+                </p>
+                <ul className="list-disc list-inside space-y-1 mt-2">
+                  <li>Zeus (Greek) = Jupiter (Roman) = Odin (Norse)</li>
+                  <li>Aphrodite (Greek) = Venus (Roman) = Freyja (Norse)</li>
+                  <li>Hades (Greek) = Pluto (Roman) = Osiris (Egyptian)</li>
+                </ul>
+              </CardContent>
+            </Card>
+          </div>
+        </section>
       </div>
     </div>
   );

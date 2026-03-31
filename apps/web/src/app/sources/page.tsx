@@ -1,64 +1,80 @@
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { BookOpen, ExternalLink } from 'lucide-react';
-import { Breadcrumbs } from '@/components/navigation/Breadcrumbs';
-import { generateBaseMetadata } from '@/lib/metadata';
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { BookOpen, ExternalLink } from "lucide-react";
+import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
+import { generateBaseMetadata } from "@/lib/metadata";
 
 export const metadata = generateBaseMetadata({
-  title: 'Sources & References',
-  description: 'Academic sources, primary texts, and scholarly references used in compiling the Mythos Atlas mythology encyclopedia.',
-  url: '/sources',
-  keywords: ['mythology sources', 'academic references', 'primary texts', 'Hesiod', 'Homer', 'Prose Edda', 'Book of the Dead'],
+  title: "Sources & References",
+  description:
+    "Academic sources, primary texts, translations, and scholarly references used in compiling the Mythos Atlas mythology encyclopedia.",
+  url: "/sources",
+  keywords: [
+    "mythology sources",
+    "academic references",
+    "primary texts",
+    "Hesiod",
+    "Homer",
+    "Prose Edda",
+    "Book of the Dead",
+  ],
 });
 
 export default function SourcesPage() {
   const sources = [
     {
-      category: 'Greek Mythology',
+      category: "Greek Mythology",
       references: [
         {
-          title: 'Theogony',
-          author: 'Hesiod',
-          description: 'Ancient Greek poem describing the origins and genealogies of the gods.',
+          title: "Theogony",
+          author: "Hesiod",
+          description:
+            "Ancient Greek poem describing the origins and genealogies of the gods.",
         },
         {
-          title: 'The Iliad & The Odyssey',
-          author: 'Homer',
-          description: 'Epic poems central to understanding Greek mythology and heroic tradition.',
+          title: "The Iliad & The Odyssey",
+          author: "Homer",
+          description:
+            "Epic poems central to understanding Greek mythology and heroic tradition.",
         },
         {
-          title: 'Metamorphoses',
-          author: 'Ovid',
-          description: 'Latin narrative poem chronicling the history of the world from creation to the deification of Julius Caesar.',
+          title: "Metamorphoses",
+          author: "Ovid",
+          description:
+            "Latin narrative poem chronicling the history of the world from creation to the deification of Julius Caesar.",
         },
       ],
     },
     {
-      category: 'Norse Mythology',
+      category: "Norse Mythology",
       references: [
         {
-          title: 'Prose Edda',
-          author: 'Snorri Sturluson',
-          description: 'Old Norse textbook written in Iceland during the early 13th century, a major source for Norse mythology.',
+          title: "Prose Edda",
+          author: "Snorri Sturluson",
+          description:
+            "Old Norse textbook written in Iceland during the early 13th century, a major source for Norse mythology.",
         },
         {
-          title: 'Poetic Edda',
-          author: 'Various',
-          description: 'Collection of Old Norse poems from the Icelandic medieval manuscript Codex Regius.',
+          title: "Poetic Edda",
+          author: "Various",
+          description:
+            "Collection of Old Norse poems from the Icelandic medieval manuscript Codex Regius.",
         },
       ],
     },
     {
-      category: 'Egyptian Mythology',
+      category: "Egyptian Mythology",
       references: [
         {
-          title: 'The Book of the Dead',
-          author: 'Ancient Egyptian Funerary Texts',
-          description: 'Collection of spells and instructions to help the deceased navigate the afterlife.',
+          title: "The Book of the Dead",
+          author: "Ancient Egyptian Funerary Texts",
+          description:
+            "Collection of spells and instructions to help the deceased navigate the afterlife.",
         },
         {
-          title: 'Pyramid Texts',
-          author: 'Ancient Egyptian',
-          description: 'Oldest known religious texts in the world, carved into pyramids at Saqqara.',
+          title: "Pyramid Texts",
+          author: "Ancient Egyptian",
+          description:
+            "Oldest known religious texts in the world, carved into pyramids at Saqqara.",
         },
       ],
     },
@@ -98,11 +114,25 @@ export default function SourcesPage() {
         <div className="mt-8">
           <Card className="border-gold/20 bg-midnight-light/50 mb-8">
             <CardHeader>
-              <CardTitle className="text-parchment text-2xl font-serif">Our Approach</CardTitle>
+              <CardTitle className="text-parchment text-2xl font-serif">
+                Our Approach
+              </CardTitle>
             </CardHeader>
             <CardContent>
               <p className="text-parchment/80 leading-relaxed text-lg">
-                Mythos Atlas draws from primary ancient texts, scholarly translations, and modern academic research to provide accurate and comprehensive information about world mythologies. We prioritize sources that are widely recognized by scholars and institutions.
+                Mythos Atlas draws from primary ancient texts, scholarly
+                translations, and modern academic research to provide accurate
+                and comprehensive information about world mythologies. We
+                prioritize sources that are widely recognized by scholars and
+                institutions.
+              </p>
+              <p className="text-parchment/70 leading-relaxed text-base mt-4">
+                Source work here is meant to show the editorial footing of the
+                encyclopedia rather than pretend that mythology has one final,
+                uncontested version. Many traditions survive in variant
+                retellings, fragmentary texts, and later interpretations, so the
+                most reliable summaries usually come from comparing primary
+                material with careful modern scholarship.
               </p>
             </CardContent>
           </Card>
@@ -116,7 +146,10 @@ export default function SourcesPage() {
                 </h2>
                 <div className="grid gap-6">
                   {section.references.map((ref) => (
-                    <Card key={ref.title} className="border-gold/20 bg-midnight-light/50">
+                    <Card
+                      key={ref.title}
+                      className="border-gold/20 bg-midnight-light/50"
+                    >
                       <CardHeader>
                         <CardTitle className="text-parchment flex items-center gap-2">
                           {ref.title}
@@ -136,14 +169,28 @@ export default function SourcesPage() {
 
           <Card className="border-gold/20 bg-midnight-light/50 mt-12">
             <CardHeader>
-              <CardTitle className="text-parchment text-2xl font-serif">Additional Resources</CardTitle>
+              <CardTitle className="text-parchment text-2xl font-serif">
+                Additional Resources
+              </CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
               <p className="text-parchment/80 leading-relaxed">
-                We also reference modern scholarly works from universities and research institutions worldwide. Our team continuously updates and verifies information to maintain accuracy and scholarly integrity.
+                We also reference modern scholarly works from universities and
+                research institutions worldwide. Our team continuously updates
+                and verifies information to maintain accuracy and scholarly
+                integrity.
+              </p>
+              <p className="text-parchment/80 leading-relaxed">
+                As the encyclopedia expands, this page will keep growing to
+                reflect the texts, translations, and academic reference works
+                used in newer pantheons and features. If a page needs a source
+                check or a better citation trail, the contact route is the right
+                place to challenge it.
               </p>
               <p className="text-parchment/70 text-sm italic">
-                Note: This is a living document. Sources are continuously being added and updated as we expand our coverage of world mythologies.
+                Note: This is a living document. Sources are continuously being
+                added and updated as we expand our coverage of world
+                mythologies.
               </p>
             </CardContent>
           </Card>

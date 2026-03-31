@@ -1,21 +1,21 @@
-'use client';
+"use client";
 
-import { useQuery } from '@tanstack/react-query';
-import { graphqlClient } from '@/lib/graphql-client';
-import { GET_DEITIES, GET_STORIES } from '@/lib/queries';
-// Note: We need to ensure the query actually fetches the new field.
-
-// Since GET_PANTHEONS is imported, we might need to modify it in queries.ts OR override it here.
-// Checking queries.ts first would be wise, but I can just use a local query like in DeityPage.
-import { gql } from 'graphql-request';
-
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Loader2, MapPin, Calendar, Users, BookOpen } from 'lucide-react';
-import Link from 'next/link';
-import { Breadcrumbs } from '@/components/navigation/Breadcrumbs';
-import { CollectionPageJsonLd } from '@/components/seo/JsonLd';
-import ReactMarkdown from 'react-markdown';
-
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { MapPin, Calendar, Users, BookOpen } from "lucide-react";
+import Link from "next/link";
+import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
+import { CollectionPageJsonLd } from "@/components/seo/JsonLd";
+import { EditorialByline } from "@/components/content/EditorialByline";
+import ReactMarkdown from "react-markdown";
+import pantheonsData from "@/data/pantheons.json";
+import deitiesData from "@/data/deities.json";
+import storiesData from "@/data/stories.json";
 
 interface Pantheon {
   id: string;
@@ -27,13 +27,13 @@ interface Pantheon {
   detailedHistory?: string | null;
   timePeriodStart: number | null;
   timePeriodEnd: number | null;
-
 }
 
 interface Deity {
   id: string;
   name: string;
   slug: string;
+  pantheonId: string;
   gender: string | null;
   domain: string[];
   symbols: string[];
@@ -46,6 +46,7 @@ interface Story {
   id: string;
   title: string;
   slug: string;
+  pantheonId: string;
   summary: string;
   category: string;
 }
@@ -55,64 +56,12 @@ interface PantheonPageClientProps {
 }
 
 export function PantheonPageClient({ slug }: PantheonPageClientProps) {
-  const { data: pantheonsData, isLoading: pantheonsLoading, error: pantheonsError } = useQuery<{ pantheons: Pantheon[] }>({
-    queryKey: ['pantheons'],
-    queryFn: async () => graphqlClient.request(gql`
-      query GetPantheons {
-        pantheons {
-          id
-          name
-          slug
-          culture
-          region
-          description
-          detailedHistory
-          timePeriodStart
-          timePeriodEnd
-        }
-      }
-    `),
-    retry: false,
-    staleTime: 0,
-  });
+  const pantheons = pantheonsData as Pantheon[];
+  const allDeities = deitiesData as Deity[];
+  const allStories = storiesData as Story[];
+  const pantheon = pantheons.find((p) => p.slug === slug);
 
-
-  const pantheon = pantheonsData?.pantheons.find(p => p.slug === slug);
-
-  const { data: deitiesData, isLoading: deitiesLoading } = useQuery<{ deities: Deity[] }>({
-    queryKey: ['deities', pantheon?.id],
-    queryFn: async () => graphqlClient.request(GET_DEITIES, { pantheonId: pantheon?.id }),
-    enabled: !!pantheon?.id,
-  });
-
-  const { data: storiesData, isLoading: storiesLoading } = useQuery<{ stories: Story[] }>({
-    queryKey: ['stories', pantheon?.id],
-    queryFn: async () => graphqlClient.request(GET_STORIES, { pantheonId: pantheon?.id }),
-    enabled: !!pantheon?.id,
-  });
-
-  if (pantheonsLoading) {
-    return (
-      <div className="container mx-auto max-w-6xl px-4 py-24 flex items-center justify-center">
-        <Loader2 className="h-8 w-8 animate-spin text-primary" />
-      </div>
-    );
-  }
-
-  if (pantheonsError) {
-    return (
-      <div className="container mx-auto max-w-6xl px-4 py-24">
-        <div className="text-center">
-          <h2 className="text-2xl font-bold text-destructive">Error loading pantheons</h2>
-          <p className="text-muted-foreground mt-2">
-            {pantheonsError instanceof Error ? pantheonsError.message : 'An error occurred'}
-          </p>
-        </div>
-      </div>
-    );
-  }
-
-  if (!pantheon && !pantheonsLoading) {
+  if (!pantheon) {
     return (
       <div className="container mx-auto max-w-6xl px-4 py-24">
         <div className="text-center">
@@ -120,7 +69,10 @@ export function PantheonPageClient({ slug }: PantheonPageClientProps) {
           <p className="text-muted-foreground mt-2">
             The pantheon you&apos;re looking for doesn&apos;t exist.
           </p>
-          <Link href="/pantheons" className="text-gold hover:underline mt-4 inline-block">
+          <Link
+            href="/pantheons"
+            className="text-gold hover:underline mt-4 inline-block"
+          >
             View all pantheons
           </Link>
         </div>
@@ -128,19 +80,23 @@ export function PantheonPageClient({ slug }: PantheonPageClientProps) {
     );
   }
 
-  if (!pantheon) {
-    return null;
-  }
-
-  const isLoading = deitiesLoading || storiesLoading;
+  const pantheonDeities = allDeities.filter(
+    (deity) => deity.pantheonId === pantheon.id,
+  );
+  const pantheonStories = allStories.filter(
+    (story) => story.pantheonId === pantheon.id,
+  );
 
   return (
     <div className="min-h-screen bg-mythic">
       <CollectionPageJsonLd
         name={`${pantheon.name} - ${pantheon.culture} Mythology`}
-        description={pantheon.description || `Explore the ${pantheon.name} from ${pantheon.culture} mythology.`}
+        description={
+          pantheon.description ||
+          `Explore the ${pantheon.name} from ${pantheon.culture} mythology.`
+        }
         url={`/pantheons/${pantheon.slug}`}
-        numberOfItems={deitiesData?.deities?.length}
+        numberOfItems={pantheonDeities.length}
       />
       {/* Hero Section */}
       <div className="relative h-[40vh] min-h-75 flex items-center justify-center overflow-hidden">
@@ -159,6 +115,10 @@ export function PantheonPageClient({ slug }: PantheonPageClientProps) {
           <p className="text-lg md:text-xl text-parchment/70 max-w-2xl mx-auto font-body leading-relaxed">
             {pantheon.culture}
           </p>
+          <EditorialByline
+            className="mx-auto mt-4 max-w-2xl text-center text-parchment/80"
+            tone="light"
+          />
         </div>
       </div>
 
@@ -190,8 +150,8 @@ export function PantheonPageClient({ slug }: PantheonPageClientProps) {
             <CardContent>
               <p className="text-parchment/80">
                 {pantheon.timePeriodStart && pantheon.timePeriodEnd
-                  ? `${Math.abs(pantheon.timePeriodStart)} BCE - ${Math.abs(pantheon.timePeriodEnd)} ${pantheon.timePeriodEnd < 0 ? 'BCE' : 'CE'}`
-                  : 'Ancient Times'}
+                  ? `${Math.abs(pantheon.timePeriodStart)} BCE - ${Math.abs(pantheon.timePeriodEnd)} ${pantheon.timePeriodEnd < 0 ? "BCE" : "CE"}`
+                  : "Ancient Times"}
               </p>
             </CardContent>
           </Card>
@@ -204,7 +164,9 @@ export function PantheonPageClient({ slug }: PantheonPageClientProps) {
               </div>
             </CardHeader>
             <CardContent>
-              <p className="text-parchment/80">{deitiesData?.deities.length || 0} gods and goddesses</p>
+              <p className="text-parchment/80">
+                {pantheonDeities.length} gods and goddesses
+              </p>
             </CardContent>
           </Card>
         </div>
@@ -212,7 +174,9 @@ export function PantheonPageClient({ slug }: PantheonPageClientProps) {
         {/* Detailed History (Markdown) or Description */}
         <Card className="border-gold/20 bg-midnight-light/50 mb-12">
           <CardHeader>
-            <CardTitle className="text-parchment text-2xl font-serif">About</CardTitle>
+            <CardTitle className="text-parchment text-2xl font-serif">
+              About
+            </CardTitle>
           </CardHeader>
           <CardContent>
             {pantheon.detailedHistory ? (
@@ -220,37 +184,38 @@ export function PantheonPageClient({ slug }: PantheonPageClientProps) {
                 <ReactMarkdown>{pantheon.detailedHistory}</ReactMarkdown>
               </div>
             ) : (
-              <p className="text-parchment/80 leading-relaxed text-lg">{pantheon.description}</p>
+              <p className="text-parchment/80 leading-relaxed text-lg">
+                {pantheon.description}
+              </p>
             )}
           </CardContent>
         </Card>
-
 
         {/* Deities Section */}
         <section className="mb-12">
           <div className="flex items-center gap-3 mb-6">
             <Users className="h-6 w-6 text-gold" />
-            <h2 className="text-3xl font-serif font-semibold text-parchment">Deities</h2>
+            <h2 className="text-3xl font-serif font-semibold text-parchment">
+              Deities
+            </h2>
           </div>
 
-          {isLoading ? (
-            <div className="flex items-center justify-center py-12">
-              <Loader2 className="h-8 w-8 animate-spin text-gold" />
-            </div>
-          ) : deitiesData?.deities && deitiesData.deities.length > 0 ? (
+          {pantheonDeities.length > 0 ? (
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-              {deitiesData.deities.map((deity) => (
+              {pantheonDeities.map((deity) => (
                 <Link key={deity.id} href={`/deities/${deity.slug}`}>
                   <Card className="h-full border-gold/20 bg-midnight-light/50 hover:border-gold/40 transition-colors">
                     <CardHeader>
-                      <CardTitle className="text-parchment">{deity.name}</CardTitle>
+                      <CardTitle className="text-parchment">
+                        {deity.name}
+                      </CardTitle>
                       <CardDescription className="text-gold/80">
-                        {deity.domain.join(', ')}
+                        {deity.domain.join(", ")}
                       </CardDescription>
                     </CardHeader>
                     <CardContent>
                       <p className="text-parchment/70 line-clamp-3">
-                        {deity.description || 'No description available.'}
+                        {deity.description || "No description available."}
                       </p>
                     </CardContent>
                   </Card>
@@ -260,7 +225,9 @@ export function PantheonPageClient({ slug }: PantheonPageClientProps) {
           ) : (
             <Card className="border-gold/20 bg-midnight-light/50">
               <CardContent className="py-12 text-center">
-                <p className="text-parchment/60">No deities found for this pantheon.</p>
+                <p className="text-parchment/60">
+                  No deities found for this pantheon.
+                </p>
               </CardContent>
             </Card>
           )}
@@ -270,23 +237,30 @@ export function PantheonPageClient({ slug }: PantheonPageClientProps) {
         <section>
           <div className="flex items-center gap-3 mb-6">
             <BookOpen className="h-6 w-6 text-gold" />
-            <h2 className="text-3xl font-serif font-semibold text-parchment">Stories & Myths</h2>
+            <h2 className="text-3xl font-serif font-semibold text-parchment">
+              Stories & Myths
+            </h2>
           </div>
 
-          {isLoading ? (
-            <div className="flex items-center justify-center py-12">
-              <Loader2 className="h-8 w-8 animate-spin text-gold" />
-            </div>
-          ) : storiesData?.stories && storiesData.stories.length > 0 ? (
+          {pantheonStories.length > 0 ? (
             <div className="grid gap-6 md:grid-cols-2">
-              {storiesData.stories.map((story) => (
-                <Card key={story.id} className="border-gold/20 bg-midnight-light/50 hover:border-gold/40 transition-colors">
+              {pantheonStories.map((story) => (
+                <Card
+                  key={story.id}
+                  className="border-gold/20 bg-midnight-light/50 hover:border-gold/40 transition-colors"
+                >
                   <CardHeader>
-                    <CardTitle className="text-parchment">{story.title}</CardTitle>
-                    <CardDescription className="text-gold/80">{story.category}</CardDescription>
+                    <CardTitle className="text-parchment">
+                      {story.title}
+                    </CardTitle>
+                    <CardDescription className="text-gold/80">
+                      {story.category}
+                    </CardDescription>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-parchment/70 line-clamp-3">{story.summary}</p>
+                    <p className="text-parchment/70 line-clamp-3">
+                      {story.summary}
+                    </p>
                   </CardContent>
                 </Card>
               ))}
@@ -294,7 +268,9 @@ export function PantheonPageClient({ slug }: PantheonPageClientProps) {
           ) : (
             <Card className="border-gold/20 bg-midnight-light/50">
               <CardContent className="py-12 text-center">
-                <p className="text-parchment/60">No stories found for this pantheon.</p>
+                <p className="text-parchment/60">
+                  No stories found for this pantheon.
+                </p>
               </CardContent>
             </Card>
           )}

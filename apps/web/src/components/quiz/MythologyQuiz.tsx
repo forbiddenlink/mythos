@@ -1,9 +1,6 @@
 "use client";
 
 import { useState, useEffect, type ReactNode } from "react";
-import { useQuery } from "@tanstack/react-query";
-import { graphqlClient } from "@/lib/graphql-client";
-import { GET_DEITIES, GET_ALL_RELATIONSHIPS } from "@/lib/queries";
 import {
   Card,
   CardContent,
@@ -27,6 +24,8 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import { ShareButton } from "@/components/sharing/ShareButton";
+import deitiesData from "@/data/deities.json";
+import relationshipsData from "@/data/relationships.json";
 
 interface Deity {
   id: string;
@@ -71,30 +70,11 @@ export function MythologyQuiz() {
     if (saved) setHighScore(Number.parseInt(saved));
   }, []);
 
-  const { data, isLoading } = useQuery<{
-    deities: Deity[];
-    relationships: Relationship[];
-  }>({
-    queryKey: ["quiz-data-v2"],
-    queryFn: async () => {
-      const [deitiesRes, relationshipsRes] = await Promise.all([
-        graphqlClient.request<{ deities: Deity[] }>(GET_DEITIES),
-        graphqlClient.request<{ allRelationships: Relationship[] }>(
-          GET_ALL_RELATIONSHIPS,
-        ),
-      ]);
-      return {
-        deities: deitiesRes.deities,
-        relationships: relationshipsRes.allRelationships,
-      };
-    },
-  });
+  const deities = deitiesData as Deity[];
+  const relationships = relationshipsData as Relationship[];
 
   // Generate Questions
   useEffect(() => {
-    if (!data?.deities || !data?.relationships) return;
-
-    const { deities, relationships } = data;
     const newQuestions: Question[] = [];
     const usedIds = new Set<string>();
 
@@ -190,7 +170,7 @@ export function MythologyQuiz() {
     const shuffled = newQuestions.toSorted(() => Math.random() - 0.5); // Shuffle order
     // eslint-disable-next-line react-hooks/set-state-in-effect -- generate questions when data loads
     setQuestions(shuffled);
-  }, [data]);
+  }, [deities, relationships]);
 
   const handleAnswerSelect = (answer: string) => {
     setSelectedAnswer(answer);
@@ -223,17 +203,6 @@ export function MythologyQuiz() {
     // Let's just reload the page or trigger state update.
     globalThis.location.reload();
   };
-
-  if (isLoading || !data?.deities) {
-    return (
-      <div className="flex items-center justify-center py-12">
-        <div className="flex flex-col items-center gap-4">
-          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-gold"></div>
-          <p className="text-muted-foreground">Summoning the Muses...</p>
-        </div>
-      </div>
-    );
-  }
 
   if (questions.length === 0) return null;
 

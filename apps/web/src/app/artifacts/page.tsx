@@ -1,9 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { useQuery } from "@tanstack/react-query";
-import { graphqlClient } from "@/lib/graphql-client";
-import { GET_ARTIFACTS } from "@/lib/queries";
 import {
   Card,
   CardContent,
@@ -19,10 +16,7 @@ import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
 import { Badge } from "@/components/ui/badge";
 import { CollectionPageJsonLd } from "@/components/seo/JsonLd";
 import { PageHero } from "@/components/layout/page-hero";
-import {
-  PageHeaderSkeleton,
-  GridSkeleton,
-} from "@/components/ui/skeleton-cards";
+import artifactsData from "@/data/artifacts.json";
 
 interface Artifact {
   id: string;
@@ -30,6 +24,7 @@ interface Artifact {
   name: string;
   slug: string;
   ownerId?: string;
+  owner?: string;
   type: string;
   description: string;
   powers: string[];
@@ -38,41 +33,7 @@ interface Artifact {
 
 export default function ArtifactsPage() {
   const [viewMode, setViewMode] = useState<"grid" | "table">("grid");
-
-  const { data, isLoading, error } = useQuery<{ artifacts: Artifact[] }>({
-    queryKey: ["artifacts"],
-    queryFn: async () => graphqlClient.request(GET_ARTIFACTS),
-  });
-
-  if (isLoading) {
-    return (
-      <div className="min-h-screen">
-        <h1 className="sr-only">Legendary Artifacts</h1>
-        <PageHeaderSkeleton />
-        <div className="container mx-auto max-w-6xl px-4 py-16">
-          <GridSkeleton count={6} columns={3} />
-        </div>
-      </div>
-    );
-  }
-
-  if (error) {
-    return (
-      <div className="container mx-auto max-w-6xl px-4 py-24">
-        <h1 className="sr-only">Legendary Artifacts</h1>
-        <div className="text-center">
-          <h2 className="text-2xl font-bold text-destructive">
-            Error loading artifacts
-          </h2>
-          <p className="text-muted-foreground mt-2">
-            {error instanceof Error ? error.message : "An error occurred"}
-          </p>
-        </div>
-      </div>
-    );
-  }
-
-  const artifacts = data?.artifacts || [];
+  const artifacts = artifactsData as Artifact[];
 
   return (
     <div className="min-h-screen">
@@ -93,8 +54,22 @@ export default function ArtifactsPage() {
 
       {/* Content Section */}
       <div className="container mx-auto max-w-6xl px-4 py-16">
-        <div className="flex items-center justify-between mb-8">
-          <Breadcrumbs />
+        <Breadcrumbs />
+        <section className="mt-6 rounded-2xl border border-border/60 bg-card/60 p-6 shadow-sm">
+          <h2 className="font-serif text-2xl text-foreground">
+            Follow Objects Through Their Stories
+          </h2>
+          <p className="mt-3 max-w-4xl text-sm leading-7 text-muted-foreground">
+            Mythic artifacts matter because they carry ownership, symbolism, and
+            narrative consequences. Use this catalog to compare how different
+            traditions imagine divine power through weapons, relics, armor, and
+            sacred tools. The table view is best for scanning object types and
+            owners, while the card view is better for browsing. Open an artifact
+            entry when you want its origin, powers, and the heroes or gods most
+            closely tied to it.
+          </p>
+        </section>
+        <div className="mt-8 flex items-center justify-between">
           <div className="flex items-center gap-2">
             <Button
               variant={viewMode === "grid" ? "default" : "outline"}
@@ -181,7 +156,7 @@ export default function ArtifactsPage() {
                         </Badge>
                       </td>
                       <td className="px-4 py-3 text-sm text-muted-foreground whitespace-nowrap capitalize">
-                        {artifact.ownerId || "—"}
+                        {artifact.ownerId || artifact.owner || "—"}
                       </td>
                       <td className="px-4 py-3 text-sm text-muted-foreground max-w-xs">
                         <span className="line-clamp-2">
@@ -196,7 +171,7 @@ export default function ArtifactsPage() {
           </div>
         ) : (
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {artifacts.map((artifact) => (
+            {artifacts.map((artifact, index) => (
               <Link
                 key={artifact.id}
                 href={`/artifacts/${artifact.slug}`}
@@ -209,12 +184,15 @@ export default function ArtifactsPage() {
                   <CardHeader>
                     <div className="flex items-start justify-between">
                       {artifact.imageUrl ? (
-                        <div className="relative w-16 h-16 rounded-xl overflow-hidden border border-purple-500/20 shadow-sm">
+                        <div className="rounded-xl overflow-hidden border border-purple-500/20 shadow-sm">
                           <Image
                             src={artifact.imageUrl}
                             alt={artifact.name}
-                            fill
-                            className="object-cover"
+                            width={64}
+                            height={64}
+                            sizes="64px"
+                            priority={index < 3}
+                            className="h-16 w-16 object-cover"
                           />
                         </div>
                       ) : (

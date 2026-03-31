@@ -5,7 +5,7 @@ import { WebApplicationJsonLd } from "@/components/seo/JsonLd";
 export const metadata: Metadata = generateBaseMetadata({
   title: "Deity Family Trees and Genealogies",
   description:
-    "Explore interactive family trees of gods and goddesses, with divine relationships, genealogies, and mythological lineages across Greek, Norse, and Egyptian pantheons.",
+    "Explore interactive deity family trees with divine relationships, genealogies, and lineages across Greek, Norse, and Egyptian mythology.",
   url: "/family-tree",
   keywords: [
     "family tree",

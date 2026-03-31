@@ -1,12 +1,17 @@
-'use client';
+"use client";
 
-import Image from 'next/image';
-import Link from 'next/link';
-import { Sparkles, X } from 'lucide-react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import { Button } from '@/components/ui/button';
-import { cn } from '@/lib/utils';
+import Image from "next/image";
+import Link from "next/link";
+import { Sparkles, X } from "lucide-react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import {
+  findDeityByReference,
+  getDeityName,
+  getDeityPath,
+} from "@/lib/deities";
+import { cn } from "@/lib/utils";
 
 export interface Deity {
   id: string;
@@ -43,7 +48,13 @@ export function ComparisonCard({
   pantheonName,
 }: ComparisonCardProps) {
   const formatPantheonName = (id: string) => {
-    return pantheonName || id.replace('-pantheon', '').replaceAll('-', ' ').replaceAll(/\b\w/g, c => c.toUpperCase());
+    return (
+      pantheonName ||
+      id
+        .replace("-pantheon", "")
+        .replaceAll("-", " ")
+        .replaceAll(/\b\w/g, (c) => c.toUpperCase())
+    );
   };
 
   return (
@@ -67,7 +78,9 @@ export function ComparisonCard({
               <Image
                 src={deity.imageUrl}
                 alt={deity.name}
-                fill
+                width={80}
+                height={80}
+                sizes="80px"
                 className="object-cover"
               />
             </div>
@@ -89,7 +102,10 @@ export function ComparisonCard({
               {formatPantheonName(deity.pantheonId)}
             </p>
             {deity.importanceRank && deity.importanceRank <= 5 && (
-              <Badge variant="secondary" className="mt-2 bg-gold/10 text-gold border-gold/20">
+              <Badge
+                variant="secondary"
+                className="mt-2 bg-gold/10 text-gold border-gold/20"
+              >
                 Major Deity
               </Badge>
             )}
@@ -99,8 +115,8 @@ export function ComparisonCard({
         {/* Alternate Names */}
         {deity.alternateNames && deity.alternateNames.length > 0 && (
           <p className="text-sm text-muted-foreground">
-            <span className="font-medium">Also known as:</span>{' '}
-            {deity.alternateNames.join(', ')}
+            <span className="font-medium">Also known as:</span>{" "}
+            {deity.alternateNames.join(", ")}
           </p>
         )}
       </CardHeader>
@@ -115,10 +131,15 @@ export function ComparisonCard({
             {deity.domain.map((d) => (
               <Badge
                 key={d}
-                variant={highlightedDomains.includes(d.toLowerCase()) ? 'default' : 'outline'}
+                variant={
+                  highlightedDomains.includes(d.toLowerCase())
+                    ? "default"
+                    : "outline"
+                }
                 className={cn(
-                  'capitalize',
-                  highlightedDomains.includes(d.toLowerCase()) && 'bg-gold text-midnight border-gold'
+                  "capitalize",
+                  highlightedDomains.includes(d.toLowerCase()) &&
+                    "bg-gold text-midnight border-gold",
                 )}
               >
                 {d}
@@ -136,10 +157,15 @@ export function ComparisonCard({
             {deity.symbols.map((s) => (
               <Badge
                 key={s}
-                variant={highlightedSymbols.includes(s.toLowerCase()) ? 'default' : 'outline'}
+                variant={
+                  highlightedSymbols.includes(s.toLowerCase())
+                    ? "default"
+                    : "outline"
+                }
                 className={cn(
-                  'capitalize',
-                  highlightedSymbols.includes(s.toLowerCase()) && 'bg-emerald-600 text-white border-emerald-600'
+                  "capitalize",
+                  highlightedSymbols.includes(s.toLowerCase()) &&
+                    "bg-emerald-600 text-white border-emerald-600",
                 )}
               >
                 {s}
@@ -161,26 +187,36 @@ export function ComparisonCard({
         )}
 
         {/* Cross-Pantheon Parallels */}
-        {deity.crossPantheonParallels && deity.crossPantheonParallels.length > 0 && (
-          <div>
-            <h4 className="text-sm font-semibold mb-2 text-muted-foreground uppercase tracking-wide">
-              Cross-Pantheon Parallels
-            </h4>
-            <ul className="space-y-2">
-              {deity.crossPantheonParallels.slice(0, 3).map((parallel) => (
-                <li key={parallel.deityId} className="text-sm">
-                  <Link
-                    href={`/deities/${parallel.deityId}`}
-                    className="text-gold hover:underline font-medium"
-                  >
-                    {parallel.deityId.replaceAll('-', ' ').replaceAll(/\b\w/g, c => c.toUpperCase())}
-                  </Link>
-                  <span className="text-muted-foreground"> ({formatPantheonName(parallel.pantheonId)})</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        )}
+        {deity.crossPantheonParallels &&
+          deity.crossPantheonParallels.length > 0 && (
+            <div>
+              <h4 className="text-sm font-semibold mb-2 text-muted-foreground uppercase tracking-wide">
+                Cross-Pantheon Parallels
+              </h4>
+              <ul className="space-y-2">
+                {deity.crossPantheonParallels.slice(0, 3).map((parallel) => (
+                  <li key={parallel.deityId} className="text-sm">
+                    {findDeityByReference(parallel.deityId) ? (
+                      <Link
+                        href={getDeityPath(parallel.deityId)}
+                        className="text-gold hover:underline font-medium"
+                      >
+                        {getDeityName(parallel.deityId)}
+                      </Link>
+                    ) : (
+                      <span className="font-medium text-foreground">
+                        {getDeityName(parallel.deityId)}
+                      </span>
+                    )}
+                    <span className="text-muted-foreground">
+                      {" "}
+                      ({formatPantheonName(parallel.pantheonId)})
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
       </CardContent>
     </Card>
   );

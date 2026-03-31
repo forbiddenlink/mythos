@@ -1,25 +1,23 @@
-'use client';
+"use client";
 
-import { useContext, useMemo } from 'react';
-import { ProgressContext, type ProgressContextValue } from '@/providers/progress-provider';
-import { Breadcrumbs } from '@/components/navigation/Breadcrumbs';
-import { LearningPathCard } from '@/components/learning/LearningPathCard';
+import { useContext, useMemo } from "react";
+import {
+  ProgressContext,
+  type ProgressContextValue,
+} from "@/providers/progress-provider";
+import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
+import { LearningPathCard } from "@/components/learning/LearningPathCard";
 import {
   extractUserPreferences,
   generatePersonalizedPaths,
   generateLearningPath,
   type Deity,
   type Story,
-} from '@/lib/recommendations';
-import deitiesData from '@/data/deities.json';
-import storiesData from '@/data/stories.json';
-import pantheonsData from '@/data/pantheons.json';
-import {
-  GraduationCap,
-  Compass,
-  Sparkles,
-  Target,
-} from 'lucide-react';
+} from "@/lib/recommendations";
+import deitiesData from "@/data/deities.json";
+import storiesData from "@/data/stories.json";
+import pantheonsData from "@/data/pantheons.json";
+import { GraduationCap, Compass, Sparkles, Target } from "lucide-react";
 
 // Cast data to proper types
 const allDeities = deitiesData as Deity[];
@@ -41,18 +39,31 @@ export default function LearningPathsPage() {
       progress?.deitiesViewed || [],
       progress?.storiesRead || [],
       allDeities,
-      allStories
+      allStories,
     );
 
-    const personalizedPaths = generatePersonalizedPaths(prefs, allDeities, allStories);
+    const personalizedPaths = generatePersonalizedPaths(
+      prefs,
+      allDeities,
+      allStories,
+    );
 
     // If user hasn't explored much, suggest a Norse path as alternative
-    if (personalizedPaths.length < 4 && !prefs.favoritePantheons.includes('norse-pantheon')) {
-      const norsePath = generateLearningPath(prefs, 'pantheon-mastery', allDeities, allStories, {
-        pantheonId: 'norse-pantheon',
-      });
+    if (
+      personalizedPaths.length < 4 &&
+      !prefs.favoritePantheons.includes("norse-pantheon")
+    ) {
+      const norsePath = generateLearningPath(
+        prefs,
+        "pantheon-mastery",
+        allDeities,
+        allStories,
+        {
+          pantheonId: "norse-pantheon",
+        },
+      );
       // Only add if different from existing paths
-      if (!personalizedPaths.some(p => p.id === norsePath.id)) {
+      if (!personalizedPaths.some((p) => p.id === norsePath.id)) {
         personalizedPaths.push(norsePath);
       }
     }
@@ -65,7 +76,9 @@ export default function LearningPathsPage() {
   const completedPaths = paths.filter((p) => p.progress === 100);
   const availablePaths = paths.filter((p) => p.progress === 0);
 
-  const hasProgress = (progress?.deitiesViewed?.length || 0) > 0 || (progress?.storiesRead?.length || 0) > 0;
+  const hasProgress =
+    (progress?.deitiesViewed?.length || 0) > 0 ||
+    (progress?.storiesRead?.length || 0) > 0;
 
   return (
     <div className="min-h-screen">
@@ -83,7 +96,10 @@ export default function LearningPathsPage() {
             <div className="flex items-center justify-center mb-6">
               <div className="relative p-4 rounded-xl border border-purple-500/20 bg-midnight/50 backdrop-blur-sm">
                 <div className="absolute inset-0 rounded-xl bg-linear-to-br from-purple-500/10 to-transparent" />
-                <GraduationCap className="relative h-10 w-10 text-purple-400" strokeWidth={1.5} />
+                <GraduationCap
+                  className="relative h-10 w-10 text-purple-400"
+                  strokeWidth={1.5}
+                />
               </div>
             </div>
             <span className="inline-block text-purple-400/80 text-sm tracking-[0.25em] uppercase mb-4 font-medium">
@@ -94,8 +110,8 @@ export default function LearningPathsPage() {
             </h1>
             <p className="text-lg text-slate-400 max-w-2xl mx-auto">
               {hasProgress
-                ? 'Continue where you left off with paths tailored to your interests and progress.'
-                : 'Choose a focused path through mythology—from Greek heroes to Norse cosmology to Egyptian afterlife beliefs.'}
+                ? "Continue where you left off with paths tailored to your interests and progress."
+                : "Choose a focused path through mythology—from Greek heroes to Norse cosmology to Egyptian afterlife beliefs."}
             </p>
             <div className="flex items-center justify-center gap-4 mt-6">
               <div className="w-12 h-px bg-linear-to-r from-transparent to-purple-500/40" />
@@ -108,17 +124,23 @@ export default function LearningPathsPage() {
           {hasProgress && (
             <div className="flex items-center justify-center gap-8 text-center">
               <div>
-                <p className="text-2xl font-bold text-parchment">{activePaths.length}</p>
+                <p className="text-2xl font-bold text-parchment">
+                  {activePaths.length}
+                </p>
                 <p className="text-sm text-slate-400">Active Paths</p>
               </div>
               <div className="w-px h-10 bg-slate-700" />
               <div>
-                <p className="text-2xl font-bold text-parchment">{completedPaths.length}</p>
+                <p className="text-2xl font-bold text-parchment">
+                  {completedPaths.length}
+                </p>
                 <p className="text-sm text-slate-400">Completed</p>
               </div>
               <div className="w-px h-10 bg-slate-700" />
               <div>
-                <p className="text-2xl font-bold text-parchment">{availablePaths.length}</p>
+                <p className="text-2xl font-bold text-parchment">
+                  {availablePaths.length}
+                </p>
                 <p className="text-sm text-slate-400">Available</p>
               </div>
             </div>
@@ -129,6 +151,24 @@ export default function LearningPathsPage() {
       {/* Main Content */}
       <div className="container mx-auto max-w-7xl px-4 py-12 bg-mythic">
         <Breadcrumbs />
+
+        <section className="mt-6 rounded-2xl border border-border/60 bg-card/60 p-6">
+          <h2 className="font-serif text-2xl font-semibold text-foreground">
+            Follow A Structured Reading Route
+          </h2>
+          <p className="mt-3 leading-relaxed text-muted-foreground">
+            Learning paths turn a very large mythology archive into a deliberate
+            sequence. Instead of jumping randomly between pantheons, you can
+            follow a route built around one tradition, one domain, or one story
+            type and build context in a stable order.
+          </p>
+          <p className="mt-3 leading-relaxed text-muted-foreground">
+            The paths are most useful when you want momentum. Each one points
+            you toward the next deity, story, or quiz that makes sense after the
+            last stop, which reduces the friction of deciding what to read next
+            and helps your study sessions feel cumulative rather than scattered.
+          </p>
+        </section>
 
         {/* Active Paths */}
         {activePaths.length > 0 && (
@@ -163,12 +203,12 @@ export default function LearningPathsPage() {
               </div>
               <div>
                 <h2 className="font-serif text-2xl font-semibold text-foreground">
-                  {hasProgress ? 'Explore New Paths' : 'Choose Your Path'}
+                  {hasProgress ? "Explore New Paths" : "Choose Your Path"}
                 </h2>
                 <p className="text-sm text-muted-foreground">
                   {hasProgress
-                    ? 'Based on your interests, we recommend these paths'
-                    : 'Each path offers a unique journey through mythology'}
+                    ? "Based on your interests, we recommend these paths"
+                    : "Each path offers a unique journey through mythology"}
                 </p>
               </div>
             </div>
@@ -217,7 +257,8 @@ export default function LearningPathsPage() {
                 </div>
                 <h3 className="font-semibold mb-2">Choose a Path</h3>
                 <p className="text-sm text-muted-foreground">
-                  Select from pantheon mastery, domain expertise, or story-focused paths
+                  Select from pantheon mastery, domain expertise, or
+                  story-focused paths
                 </p>
               </div>
               <div className="text-center p-6 rounded-xl border border-border bg-card/50">

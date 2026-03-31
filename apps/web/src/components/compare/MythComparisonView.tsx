@@ -1,14 +1,14 @@
-'use client';
+"use client";
 
-import { useMemo } from 'react';
-import Link from 'next/link';
-import Image from 'next/image';
-import { BookOpen, X, Sparkles, BookText, Globe } from 'lucide-react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import { Button } from '@/components/ui/button';
-import { cn } from '@/lib/utils';
-import type { Story, MythComparison } from '@/lib/myth-comparison';
+import { useMemo } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { BookOpen, X, Sparkles, BookText, Globe } from "lucide-react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
+import type { Story, MythComparison } from "@/lib/myth-comparison";
 
 interface MythComparisonViewProps {
   stories: Story[];
@@ -24,11 +24,14 @@ export function MythComparisonView({
   pantheonMap,
 }: MythComparisonViewProps) {
   const getPantheonName = (pantheonId: string) => {
-    return pantheonMap.get(pantheonId) ||
-      pantheonId.replace('-pantheon', '')
-        .split('-')
-        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-        .join(' ');
+    return (
+      pantheonMap.get(pantheonId) ||
+      pantheonId
+        .replace("-pantheon", "")
+        .split("-")
+        .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(" ")
+    );
   };
 
   // Identify shared themes for highlighting
@@ -36,8 +39,8 @@ export function MythComparisonView({
     if (stories.length < 2) return new Set<string>();
 
     const themeCounts = new Map<string, number>();
-    stories.forEach(story => {
-      story.moralThemes.forEach(theme => {
+    stories.forEach((story) => {
+      story.moralThemes.forEach((theme) => {
         const key = theme.toLowerCase();
         themeCounts.set(key, (themeCounts.get(key) || 0) + 1);
       });
@@ -46,7 +49,7 @@ export function MythComparisonView({
     return new Set(
       Array.from(themeCounts.entries())
         .filter(([, count]) => count >= 2)
-        .map(([theme]) => theme)
+        .map(([theme]) => theme),
     );
   }, [stories]);
 
@@ -74,7 +77,7 @@ export function MythComparisonView({
             Common Themes Across Stories
           </h3>
           <div className="flex flex-wrap gap-2">
-            {comparison.commonThemes.map(theme => (
+            {comparison.commonThemes.map((theme) => (
               <Badge
                 key={theme}
                 className="bg-gold text-midnight border-gold capitalize"
@@ -94,13 +97,13 @@ export function MythComparisonView({
       {/* Story Cards Grid */}
       <div
         className={cn(
-          'grid gap-6',
-          stories.length === 1 && 'grid-cols-1 max-w-2xl mx-auto',
-          stories.length === 2 && 'grid-cols-1 lg:grid-cols-2',
-          stories.length >= 3 && 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3'
+          "grid gap-6",
+          stories.length === 1 && "grid-cols-1 max-w-2xl mx-auto",
+          stories.length === 2 && "grid-cols-1 lg:grid-cols-2",
+          stories.length >= 3 && "grid-cols-1 md:grid-cols-2 lg:grid-cols-3",
         )}
       >
-        {stories.map(story => (
+        {stories.map((story) => (
           <StoryCard
             key={story.id}
             story={story}
@@ -119,7 +122,7 @@ export function MythComparisonView({
             Key Differences
           </h3>
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-            {comparison.differences.map(diff => (
+            {comparison.differences.map((diff) => (
               <Card key={diff.aspect} className="bg-card/50">
                 <CardHeader className="pb-2">
                   <CardTitle className="text-sm font-semibold uppercase tracking-wide text-muted-foreground">
@@ -128,11 +131,11 @@ export function MythComparisonView({
                 </CardHeader>
                 <CardContent>
                   <ul className="space-y-2">
-                    {diff.descriptions.map(desc => (
+                    {diff.descriptions.map((desc) => (
                       <li key={desc.storyId} className="text-sm">
                         <span className="font-medium text-gold">
                           {desc.storyTitle}:
-                        </span>{' '}
+                        </span>{" "}
                         <span className="text-muted-foreground line-clamp-2">
                           {desc.description}
                         </span>
@@ -154,7 +157,7 @@ export function MythComparisonView({
             Cultural Significance
           </h3>
           <div className="space-y-4">
-            {comparison.culturalContext.map(context => (
+            {comparison.culturalContext.map((context) => (
               <Card key={context.storyId} className="bg-card/50">
                 <CardHeader className="pb-2">
                   <CardTitle className="text-lg flex items-center gap-2">
@@ -185,7 +188,12 @@ interface StoryCardProps {
   pantheonName: string;
 }
 
-function StoryCard({ story, onRemove, sharedThemes, pantheonName }: StoryCardProps) {
+function StoryCard({
+  story,
+  onRemove,
+  sharedThemes,
+  pantheonName,
+}: StoryCardProps) {
   return (
     <Card className="h-full flex flex-col relative group">
       {/* Remove Button */}
@@ -206,7 +214,9 @@ function StoryCard({ story, onRemove, sharedThemes, pantheonName }: StoryCardPro
             <Image
               src={story.imageUrl}
               alt={story.title}
-              fill
+              width={1280}
+              height={720}
+              sizes="(min-width: 1024px) 30rem, (min-width: 768px) 45vw, 90vw"
               className="object-cover"
             />
           </div>
@@ -223,7 +233,10 @@ function StoryCard({ story, onRemove, sharedThemes, pantheonName }: StoryCardPro
             </Link>
           </CardTitle>
           <div className="flex items-center gap-2 mt-2">
-            <Badge variant="secondary" className="bg-primary/10 border-primary/20">
+            <Badge
+              variant="secondary"
+              className="bg-primary/10 border-primary/20"
+            >
               {pantheonName}
             </Badge>
             <Badge variant="outline" className="capitalize">
@@ -262,15 +275,15 @@ function StoryCard({ story, onRemove, sharedThemes, pantheonName }: StoryCardPro
             Themes
           </h4>
           <div className="flex flex-wrap gap-1.5">
-            {story.moralThemes.map(theme => {
+            {story.moralThemes.map((theme) => {
               const isShared = sharedThemes.has(theme.toLowerCase());
               return (
                 <Badge
                   key={theme}
-                  variant={isShared ? 'default' : 'outline'}
+                  variant={isShared ? "default" : "outline"}
                   className={cn(
-                    'capitalize',
-                    isShared && 'bg-gold text-midnight border-gold'
+                    "capitalize",
+                    isShared && "bg-gold text-midnight border-gold",
                   )}
                 >
                   {theme}
@@ -289,7 +302,7 @@ function StoryCard({ story, onRemove, sharedThemes, pantheonName }: StoryCardPro
             <ul className="text-sm text-muted-foreground space-y-1">
               {story.citationSources.slice(0, 2).map((source) => (
                 <li key={source.title}>
-                  {source.author ? `${source.author}, ` : ''}
+                  {source.author ? `${source.author}, ` : ""}
                   <span className="italic">{source.title}</span>
                   {source.lines && ` (lines ${source.lines})`}
                   {source.chapters && ` (ch. ${source.chapters})`}

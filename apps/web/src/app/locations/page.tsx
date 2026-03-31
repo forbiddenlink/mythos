@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 import dynamic from "next/dynamic";
 import Link from "next/link";
 import { MapPin, List, Map, Loader2, Search } from "lucide-react";
@@ -8,10 +8,12 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
+import { PaginationControls } from "@/components/ui/pagination-controls";
 import locationsData from "@/data/locations.json";
 import pantheonsData from "@/data/pantheons.json";
 import deitiesData from "@/data/deities.json";
 import storiesData from "@/data/stories.json";
+import { usePagination } from "@/hooks/usePagination";
 
 // Dynamic import with SSR disabled - Leaflet requires the window object
 const MapVisualization = dynamic(
@@ -145,6 +147,12 @@ export default function LocationsPage() {
       return matchesPantheon && matchesType && matchesSearch;
     });
   }, [locations, activePantheons, activeLocationTypes, searchQuery]);
+  const locationPagination = usePagination(filteredLocations, 24);
+  const { setPage } = locationPagination;
+
+  useEffect(() => {
+    setPage(1);
+  }, [filteredLocations.length, setPage]);
 
   const togglePantheon = (id: string) => {
     setActivePantheons((prev) => {
@@ -406,13 +414,13 @@ export default function LocationsPage() {
             className={`lg:w-1/3 flex flex-col h-full bg-card/30 rounded-xl border border-border overflow-hidden ${viewMode === "map" ? "hidden lg:flex" : "flex"}`}
           >
             <div className="p-4 border-b border-border bg-card/50 backdrop-blur-sm">
-              <h3 className="font-serif text-lg font-semibold flex items-center gap-2">
+              <h2 className="font-serif text-lg font-semibold flex items-center gap-2">
                 <List className="h-4 w-4 text-gold" /> Locations (
                 {filteredLocations.length})
-              </h3>
+              </h2>
             </div>
             <div className="flex-1 overflow-y-auto p-4 space-y-4 scrollbar-thin">
-              {filteredLocations.map((location) => {
+              {locationPagination.paginatedData.map((location) => {
                 const pantheon = pantheons.find(
                   (p) => p.id === location.pantheonId,
                 );
@@ -468,9 +476,9 @@ export default function LocationsPage() {
                     <div className="h-1" style={{ background: colors.bg }} />
                     <CardHeader className="p-4 pb-2">
                       <div className="flex justify-between items-start">
-                        <h4 className="font-semibold text-foreground group-hover:text-gold transition-colors">
+                        <h3 className="font-semibold text-foreground group-hover:text-gold transition-colors">
                           {location.name}
-                        </h4>
+                        </h3>
                         {hasCords ? (
                           <MapPin className="h-3 w-3 text-muted-foreground" />
                         ) : (
@@ -490,14 +498,33 @@ export default function LocationsPage() {
                       <Link
                         href={`/locations/${location.id}`}
                         className="inline-flex items-center gap-1 text-xs text-gold hover:text-gold-light mt-2 transition-colors"
+                        aria-label={`Explore ${location.name}`}
                         onClick={(e) => e.stopPropagation()}
                       >
-                        View details <span aria-hidden="true">→</span>
+                        Explore {location.name}{" "}
+                        <span aria-hidden="true">→</span>
                       </Link>
                     </CardContent>
                   </Card>
                 );
               })}
+            </div>
+            <div className="border-t border-border bg-card/50 p-4">
+              <PaginationControls
+                page={locationPagination.page}
+                totalPages={locationPagination.totalPages}
+                hasNextPage={locationPagination.hasNextPage}
+                hasPreviousPage={locationPagination.hasPreviousPage}
+                onPageChange={locationPagination.setPage}
+                onNextPage={locationPagination.nextPage}
+                onPreviousPage={locationPagination.previousPage}
+                onFirstPage={locationPagination.firstPage}
+                onLastPage={locationPagination.lastPage}
+                startIndex={locationPagination.startIndex}
+                endIndex={locationPagination.endIndex}
+                totalItems={locationPagination.totalItems}
+                showItemCount
+              />
             </div>
           </div>
 

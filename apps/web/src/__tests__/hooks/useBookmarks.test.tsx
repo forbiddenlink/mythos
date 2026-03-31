@@ -2,13 +2,7 @@ import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
 import { renderHook, act } from "@testing-library/react";
 import { type ReactNode } from "react";
 import { useBookmarks } from "@/hooks/useBookmarks";
-import {
-  BookmarksProvider,
-  BookmarksContext,
-  type BookmarksContextValue,
-  type Bookmark,
-  type BookmarkType,
-} from "@/providers/bookmarks-provider";
+import { BookmarksProvider } from "@/providers/bookmarks-provider";
 
 // Mock localStorage
 const localStorageMock = (() => {

@@ -1,8 +1,5 @@
 "use client";
 
-import { useQuery } from "@tanstack/react-query";
-import { graphqlClient } from "@/lib/graphql-client";
-import { GET_PANTHEONS } from "@/lib/queries";
 import {
   Card,
   CardContent,
@@ -15,10 +12,7 @@ import Link from "next/link";
 import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
 import { CollectionPageJsonLd } from "@/components/seo/JsonLd";
 import { PageHero } from "@/components/layout/page-hero";
-import {
-  PageHeaderSkeleton,
-  GridSkeleton,
-} from "@/components/ui/skeleton-cards";
+import pantheonsData from "@/data/pantheons.json";
 
 interface Pantheon {
   id: string;
@@ -32,38 +26,7 @@ interface Pantheon {
 }
 
 export default function PantheonsPage() {
-  const { data, isLoading, error } = useQuery<{ pantheons: Pantheon[] }>({
-    queryKey: ["pantheons"],
-    queryFn: async () => graphqlClient.request(GET_PANTHEONS),
-  });
-
-  if (isLoading) {
-    return (
-      <div className="min-h-screen">
-        <h1 className="sr-only">Pantheons</h1>
-        <PageHeaderSkeleton />
-        <div className="container mx-auto max-w-6xl px-4 py-16">
-          <GridSkeleton count={6} columns={3} />
-        </div>
-      </div>
-    );
-  }
-
-  if (error) {
-    return (
-      <div className="container mx-auto max-w-6xl px-4 py-24">
-        <h1 className="sr-only">Pantheons</h1>
-        <div className="text-center">
-          <h2 className="text-2xl font-bold text-destructive">
-            Error loading pantheons
-          </h2>
-          <p className="text-muted-foreground mt-2">
-            {error instanceof Error ? error.message : "An error occurred"}
-          </p>
-        </div>
-      </div>
-    );
-  }
+  const pantheons = pantheonsData as Pantheon[];
 
   return (
     <div className="min-h-screen">
@@ -71,22 +34,49 @@ export default function PantheonsPage() {
         name="Pantheons"
         description="Explore mythological traditions from ancient civilizations around the world"
         url="/pantheons"
-        numberOfItems={data?.pantheons?.length}
+        numberOfItems={pantheons.length}
       />
       <PageHero
         icon={<Globe />}
         tagline="Mythological Traditions"
         title="Pantheons"
         description="Explore mythological traditions from ancient civilizations around the world"
-        backgroundImage="/pantheons-hero.png"
+        backgroundImage="/pantheons-hero.jpg"
+        backgroundAlt="A panoramic scene inspired by the major pantheons of world mythology"
         colorScheme="gold"
       />
 
       {/* Content Section */}
       <div className="container mx-auto max-w-6xl px-4 py-16 bg-mythic">
         <Breadcrumbs />
+        <section className="mt-6 rounded-2xl border border-border/60 bg-card/60 p-6 shadow-sm">
+          <h2 className="font-serif text-2xl text-foreground">
+            How To Use The Pantheon Guide
+          </h2>
+          <p className="mt-3 max-w-4xl text-sm leading-7 text-muted-foreground">
+            Each pantheon page is meant to be a fast orientation layer before
+            you dive into individual gods, stories, creatures, and places. Start
+            by comparing culture and region, then open a tradition to see how
+            its major deities relate to one another, which themes dominate its
+            myths, and where it connects to the rest of the atlas. If
+            you&apos;re new to mythology, this is the best place to understand
+            the larger story world before drilling into specific figures.
+          </p>
+          <p className="mt-3 max-w-4xl text-sm leading-7 text-muted-foreground">
+            If you want a strong first stop, try the{" "}
+            <Link
+              href="/pantheons/celtic"
+              className="text-gold underline hover:text-gold/80"
+            >
+              Celtic pantheon
+            </Link>
+            . It is a good route for readers who want a compact divine family,
+            vivid symbolic roles, and stories that connect cleanly to deity and
+            artifact pages across the site.
+          </p>
+        </section>
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 mt-6">
-          {data?.pantheons.map((pantheon) => (
+          {pantheons.map((pantheon) => (
             <Link
               key={pantheon.id}
               href={`/pantheons/${pantheon.slug}`}

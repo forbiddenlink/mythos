@@ -2,11 +2,7 @@ import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
 import { renderHook, act } from "@testing-library/react";
 import { type ReactNode } from "react";
 import { useProgress } from "@/hooks/use-progress";
-import {
-  ProgressProvider,
-  type UserProgress,
-  type ProgressStats,
-} from "@/providers/progress-provider";
+import { ProgressProvider } from "@/providers/progress-provider";
 
 // Mock localStorage
 const localStorageMock = (() => {

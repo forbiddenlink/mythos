@@ -5,7 +5,7 @@ import { CollectionPageJsonLd } from "@/components/seo/JsonLd";
 export const metadata: Metadata = generateBaseMetadata({
   title: "Mythological Stories and Legends",
   description:
-    "Read epic myths and legends from ancient civilizations, including creation stories, heroic quests, divine interventions, and epic battles from Greek, Norse, and Egyptian mythology.",
+    "Read creation stories, heroic quests, divine conflicts, and foundational legends from Greek, Norse, Egyptian, and other ancient mythologies.",
   url: "/stories",
   keywords: [
     "mythology stories",
@@ -28,7 +28,7 @@ export default function StoriesLayout({
     <>
       <CollectionPageJsonLd
         name="Mythological Stories - Epic Tales and Legends"
-        description="Read epic myths and legends from ancient civilizations including Greek, Norse, and Egyptian mythology."
+        description="Read epic myths and legends from ancient civilizations including Greek, Norse, Egyptian, and other world mythologies."
         url="/stories"
       />
       {children}

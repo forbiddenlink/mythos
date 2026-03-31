@@ -198,7 +198,11 @@ function ProgressBar({
         </span>
       </div>
       <div className="relative h-3 w-full overflow-hidden rounded-full bg-muted/50">
-        <Progress value={percentage} className="h-3 bg-muted/50" />
+        <Progress
+          value={percentage}
+          className="h-3 bg-muted/50"
+          aria-label={`${label} progress: ${current} of ${total}`}
+        />
       </div>
     </div>
   );
@@ -299,6 +303,7 @@ export default function ProgressPage() {
                       <Progress
                         value={(xpInCurrentLevel / xpToNextLevel) * 100}
                         className="h-2 bg-muted/50"
+                        aria-label={`Level progress: ${xpInCurrentLevel} of ${xpToNextLevel} XP`}
                       />
                       <p className="text-xs text-muted-foreground mt-1">
                         {xpInCurrentLevel} / {xpToNextLevel} XP to next level
@@ -366,6 +371,29 @@ export default function ProgressPage() {
             browser.
           </p>
         </div>
+
+        <section className="mt-6 rounded-2xl border border-border/60 bg-card/60 p-6">
+          <h2 className="font-serif text-2xl font-semibold mb-3">
+            Measure Breadth, Depth, and Consistency
+          </h2>
+          <p className="text-muted-foreground leading-relaxed">
+            The progress page tracks more than simple page views. It shows how
+            broadly you are exploring across pantheons, how consistently you
+            return to study, and where your strongest momentum is building
+            through stories, quizzes, milestones, and unlocked achievements.
+          </p>
+          <p className="mt-3 text-muted-foreground leading-relaxed">
+            Use these totals to spot gaps in your learning path. If one
+            tradition dominates your history, the progress charts make that
+            obvious and give you a reason to branch into unfamiliar cultures,
+            themes, and connected myths on the next session.
+          </p>
+          <p className="mt-3 text-muted-foreground leading-relaxed">
+            Because achievements, quiz results, and reading activity are shown
+            together, this page also works as a weekly review dashboard for
+            deciding what to revisit and what to study next.
+          </p>
+        </section>
 
         {/* Discovery Progress Section */}
         <section className="mt-8">

@@ -5,7 +5,7 @@ import { generateBaseMetadata } from "@/lib/metadata";
 export const metadata: Metadata = generateBaseMetadata({
   title: "Mythological Creatures and Monsters",
   description:
-    "Explore legendary beasts, monsters, and supernatural creatures from Greek, Norse, Egyptian, and world mythology.",
+    "Explore legendary beasts, dragons, monsters, and supernatural creatures from Greek, Norse, Egyptian, and world mythology.",
   url: "/creatures",
   keywords: [
     "mythological creatures",

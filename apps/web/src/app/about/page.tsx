@@ -69,6 +69,12 @@ export default function AboutPage() {
                 mythology accessible and engaging for everyone—from students and
                 researchers to mythology enthusiasts and casual learners.
               </p>
+              <p className="text-foreground/80 leading-relaxed text-lg">
+                The atlas is designed to help readers move from quick
+                orientation into deeper study, so every major section connects
+                reference material, stories, places, and visual context instead
+                of treating myths as isolated entries.
+              </p>
             </CardContent>
           </Card>
 
@@ -155,9 +161,9 @@ export default function AboutPage() {
                   <Code className="h-6 w-6 text-gold" />
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-foreground font-semibold text-xl mb-2">
+                  <p className="text-foreground font-semibold text-xl mb-2">
                     Elizabeth Stein
-                  </h3>
+                  </p>
                   <p className="text-foreground/80 leading-relaxed">
                     Mythos Atlas was built by Elizabeth Stein, a passionate
                     developer and mythology enthusiast who combines technical
@@ -199,7 +205,7 @@ export default function AboutPage() {
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 rounded-full bg-gold"></div>
-                  <span className="text-foreground/80">GraphQL API</span>
+                  <span className="text-foreground/80">Built-in data API</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 rounded-full bg-gold"></div>
@@ -207,7 +213,9 @@ export default function AboutPage() {
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 rounded-full bg-gold"></div>
-                  <span className="text-foreground/80">React Query</span>
+                  <span className="text-foreground/80">
+                    Static JSON content layer
+                  </span>
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 rounded-full bg-gold"></div>

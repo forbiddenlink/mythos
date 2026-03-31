@@ -223,6 +223,13 @@ export default function AchievementsPage() {
               knowledge across all 13 pantheons.
             </p>
 
+            <p className="mx-auto max-w-2xl text-sm leading-7 text-muted-foreground">
+              Achievements give longer-term shape to the site. Instead of
+              treating each visit as a disconnected page view, they turn
+              reading, review, quizzes, and exploration into a visible record of
+              what you have actually covered and reinforced.
+            </p>
+
             {/* Stats */}
             <div className="flex items-center justify-center gap-8">
               <div className="text-center">

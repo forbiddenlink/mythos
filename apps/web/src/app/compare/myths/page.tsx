@@ -5,8 +5,8 @@ import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import pantheonsData from "@/data/pantheons.json";
 import storiesData from "@/data/stories.json";
-import { graphqlClient } from "@/lib/graphql-client";
 import {
   type MythComparison,
   PRESET_MYTH_COMPARISONS,
@@ -14,14 +14,15 @@ import {
   compareMythVersions,
   getAvailableCategories,
 } from "@/lib/myth-comparison";
-import { GET_PANTHEONS } from "@/lib/queries";
-import { useQuery } from "@tanstack/react-query";
 import { ArrowLeft, BookOpen, Check, Share2, Sparkles } from "lucide-react";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useCallback, useEffect, useMemo, useState } from "react";
+
+const HERO_IMAGE_WIDTH = 1920;
+const HERO_IMAGE_HEIGHT = 1080;
 
 interface Pantheon {
   id: string;
@@ -45,16 +46,7 @@ export default function CompareMythsPage() {
   // Cast stories data
   const allStories = storiesData as Story[];
 
-  // Fetch pantheons
-  const { data: pantheonsData } = useQuery<{ pantheons: Pantheon[] }>({
-    queryKey: ["pantheons"],
-    queryFn: async () => graphqlClient.request(GET_PANTHEONS),
-  });
-
-  const pantheons = useMemo(
-    () => pantheonsData?.pantheons ?? [],
-    [pantheonsData?.pantheons],
-  );
+  const pantheons = pantheonsData as Pantheon[];
 
   // Create pantheon map for display
   const pantheonMap = useMemo(() => {
@@ -249,10 +241,12 @@ export default function CompareMythsPage() {
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <Image
-            src="/deities-list-hero.png"
+            src="/deities-list-hero.jpg"
             alt="Compare Myths"
-            fill
-            className="object-cover"
+            width={HERO_IMAGE_WIDTH}
+            height={HERO_IMAGE_HEIGHT}
+            sizes="100vw"
+            className="h-full w-full object-cover"
             priority
           />
         </div>
@@ -425,7 +419,11 @@ export default function CompareMythsPage() {
 
               {/* Search Input */}
               <div className="relative">
+                <label htmlFor="compare-myth-search" className="sr-only">
+                  Search myths by title, theme, or summary
+                </label>
                 <Input
+                  id="compare-myth-search"
                   type="text"
                   placeholder={t("searchPlaceholder")}
                   value={searchQuery}

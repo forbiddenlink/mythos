@@ -49,7 +49,9 @@ export const mobileNavSections = [
       { href: "/bookmarks", label: "Bookmarks" },
       { href: "/sources", label: "Sources" },
       { href: "/changelog", label: "Changelog" },
-      { href: "/about", label: "About" },
+      { href: "/about", label: "About Mythos Atlas" },
+      { href: "/contact", label: "Contact Mythos Atlas" },
+      { href: "/privacy", label: "Privacy Policy" },
     ],
   },
 ];
@@ -118,6 +120,27 @@ export function Header() {
         {/* Desktop Navigation with Mega Menu */}
         <div className="mx-auto">
           <MegaMenu />
+        </div>
+
+        <div className="hidden 2xl:flex items-center gap-4 mr-4">
+          <Link
+            href="/about"
+            className="text-xs font-medium text-muted-foreground transition-colors hover:text-foreground"
+          >
+            About Mythos Atlas
+          </Link>
+          <Link
+            href="/contact"
+            className="text-xs font-medium text-muted-foreground transition-colors hover:text-foreground"
+          >
+            Contact Mythos Atlas
+          </Link>
+          <Link
+            href="/privacy"
+            className="text-xs font-medium text-muted-foreground transition-colors hover:text-foreground"
+          >
+            Privacy Policy
+          </Link>
         </div>
 
         {/* Right Actions */}

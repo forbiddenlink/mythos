@@ -141,7 +141,6 @@ function DeitySymbol({
           color={hovered ? "#FFFFFF" : color}
           anchorX="center"
           anchorY="middle"
-          font="/fonts/NotoSansSymbols2-Regular.ttf"
         >
           {symbol}
         </Text>
@@ -261,6 +260,7 @@ function Scene() {
 export function ConstellationBackground() {
   const [mounted, setMounted] = useState(false);
   const [reducedMotion, setReducedMotion] = useState(false);
+  const [webGLSupported, setWebGLSupported] = useState(true);
 
   useEffect(() => {
     // eslint-disable-next-line react-hooks/set-state-in-effect -- hydration: detect client-side mount
@@ -269,13 +269,23 @@ export function ConstellationBackground() {
     const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
     setReducedMotion(mediaQuery.matches);
 
+    // Check WebGL support
+    try {
+      const canvas = document.createElement("canvas");
+      const gl =
+        canvas.getContext("webgl") || canvas.getContext("experimental-webgl");
+      setWebGLSupported(!!gl);
+    } catch {
+      setWebGLSupported(false);
+    }
+
     const handler = (e: MediaQueryListEvent) => setReducedMotion(e.matches);
     mediaQuery.addEventListener("change", handler);
     return () => mediaQuery.removeEventListener("change", handler);
   }, []);
 
-  // Don't render on server or if user prefers reduced motion
-  if (!mounted || reducedMotion) {
+  // Don't render on server, if user prefers reduced motion, or WebGL not supported
+  if (!mounted || reducedMotion || !webGLSupported) {
     return null;
   }
 

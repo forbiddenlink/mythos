@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { generateBaseMetadata } from "@/lib/metadata";
 
 export const metadata: Metadata = generateBaseMetadata({
-  title: "Your Stats",
+  title: "Mythology Leaderboard and Personal Stats",
   description:
-    "Track your personal mythology exploration progress. View XP, quiz scores, achievements, and daily streak.",
+    "Review mythology study stats including XP, quiz scores, achievement milestones, rankings, streaks, and recent personal progress.",
   url: "/leaderboard",
 });
 

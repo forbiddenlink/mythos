@@ -1,11 +1,8 @@
 "use client";
 
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useMemo } from "react";
 import dynamic from "next/dynamic";
-import { useQuery } from "@tanstack/react-query";
 import { ProgressContext } from "@/providers/progress-provider";
-import { graphqlClient } from "@/lib/graphql-client";
-import { gql } from "graphql-request";
 import {
   Card,
   CardContent,
@@ -28,6 +25,11 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+
+const HERO_IMAGE_WIDTH = 1920;
+const HERO_IMAGE_HEIGHT = 1080;
+const DEITY_IMAGE_WIDTH = 768;
+const DEITY_IMAGE_HEIGHT = 1024;
 
 // Lazy load heavy ReactFlow-based family tree
 const FamilyTreeVisualization = dynamic(
@@ -65,8 +67,9 @@ import { ExportIconButton } from "@/components/ui/export-button";
 import { ShareButton } from "@/components/sharing/ShareButton";
 import { DeityJsonLd } from "@/components/seo/JsonLd";
 import ReactMarkdown from "react-markdown";
-import { DetailPageSkeleton } from "@/components/ui/skeleton-cards";
 import { PronunciationDisplay } from "@/components/ui/pronunciation";
+import { EditorialByline } from "@/components/content/EditorialByline";
+import { normalizeDeityReference } from "@/lib/deities";
 import {
   SourceExcerptsList,
   ReferencesList,
@@ -77,6 +80,8 @@ import {
 } from "@/components/sources";
 import { RelatedDeities } from "@/components/deities/RelatedDeities";
 import { DeityStoryRecommendations } from "@/components/deities/DeityStoryRecommendations";
+import deitiesData from "@/data/deities.json";
+import relationshipsData from "@/data/relationships.json";
 
 function useProgress() {
   const context = useContext(ProgressContext);
@@ -148,160 +153,46 @@ function formatSlugAsTitle(slug: string) {
 }
 
 export function DeityPageClient({ slug }: DeityPageClientProps) {
-  const { data, isLoading, error } = useQuery<{ deity: Deity | null }>({
-    queryKey: ["deity", slug],
-    queryFn: async () => {
-      const result = await graphqlClient.request<{ deity: Deity }>(
-        gql`
-          query GetDeity($id: String!) {
-            deity(id: $id) {
-              id
-              pantheonId
-              name
-              slug
-              gender
-              domain
-              symbols
-              description
-              detailedBio
-              originStory
-              pronunciation {
-                ipa
-                phonetic
-                audioUrl
-              }
-              importanceRank
-              imageUrl
-              alternateNames
-              crossPantheonParallels {
-                pantheonId
-                deityId
-                note
-              }
-              primarySources {
-                text
-                source
-                date
-              }
-              primarySourceExcerpts {
-                text
-                translation
-                source
-                sourceId
-                lineNumbers
-                translator
-                originalLanguage
-              }
-              furtherReading {
-                sourceId
-                note
-              }
-              originalLanguageName {
-                text
-                language
-                transliteration
-                meaning
-              }
-              worship {
-                temples
-                festivals
-                practices
-              }
-            }
-          }
-        `,
-        { id: slug },
-      );
-      return { deity: result.deity || null };
-    },
-  });
-
-  // Fetch relationships for this deity
-  const { data: relationshipsData } = useQuery<{
-    deityRelationships: Relationship[];
-  }>({
-    queryKey: ["deity-relationships", data?.deity?.id],
-    queryFn: async () => {
-      if (!data?.deity?.id) return { deityRelationships: [] };
-      return graphqlClient.request(
-        gql`
-          query GetDeityRelationships($deityId: String!) {
-            deityRelationships(deityId: $deityId) {
-              id
-              deityId
-              relatedDeityId
-              relationshipType
-              description
-            }
-          }
-        `,
-        { deityId: data.deity.id },
-      );
-    },
-    enabled: !!data?.deity?.id,
-  });
-
   // Track progress when deity is viewed
   const { trackDeityView, trackPantheonExplore } = useProgress();
+  const allDeities = deitiesData as Deity[];
+  const relationshipList = relationshipsData as Relationship[];
+  const deity =
+    allDeities.find((item) => item.id === slug || item.slug === slug) ?? null;
+  const deityRelationships = useMemo(
+    () =>
+      deity
+        ? relationshipList.filter(
+            (relationship) =>
+              relationship.fromDeityId === deity.id ||
+              relationship.toDeityId === deity.id,
+          )
+        : [],
+    [deity, relationshipList],
+  );
+  const deityReferenceMap = useMemo(() => {
+    const map = new Map<string, Deity>();
+    allDeities.forEach((item) => {
+      map.set(normalizeDeityReference(item.id), item);
+      map.set(normalizeDeityReference(item.slug), item);
+
+      item.alternateNames?.forEach((alternateName) => {
+        map.set(normalizeDeityReference(alternateName), item);
+      });
+    });
+    return map;
+  }, [allDeities]);
 
   useEffect(() => {
-    if (data?.deity?.id) {
-      trackDeityView(data.deity.id);
+    if (deity?.id) {
+      trackDeityView(deity.id);
     }
-    if (data?.deity?.pantheonId) {
-      trackPantheonExplore(data.deity.pantheonId);
+    if (deity?.pantheonId) {
+      trackPantheonExplore(deity.pantheonId);
     }
-  }, [
-    data?.deity?.id,
-    data?.deity?.pantheonId,
-    trackDeityView,
-    trackPantheonExplore,
-  ]);
+  }, [deity?.id, deity?.pantheonId, trackDeityView, trackPantheonExplore]);
 
-  // Fetch all deities for the family tree
-  const { data: allDeitiesData } = useQuery<{ deities: Deity[] }>({
-    queryKey: ["all-deities"],
-    queryFn: async () => {
-      return graphqlClient.request(gql`
-        query GetAllDeities {
-          deities(pantheonId: null) {
-            id
-            name
-            slug
-            gender
-            domain
-          }
-        }
-      `);
-    },
-  });
-
-  if (isLoading) {
-    return (
-      <>
-        <h1 className="sr-only">{formatSlugAsTitle(slug)}</h1>
-        <DetailPageSkeleton />
-      </>
-    );
-  }
-
-  if (error) {
-    return (
-      <div className="container mx-auto max-w-6xl px-4 py-24">
-        <h1 className="sr-only">{formatSlugAsTitle(slug)}</h1>
-        <div className="text-center">
-          <h2 className="text-2xl font-bold text-destructive">
-            Error loading deity
-          </h2>
-          <p className="text-muted-foreground mt-2">
-            {error instanceof Error ? error.message : "An error occurred"}
-          </p>
-        </div>
-      </div>
-    );
-  }
-
-  if (!data?.deity && !isLoading) {
+  if (!deity) {
     return (
       <div className="container mx-auto max-w-6xl px-4 py-24">
         <h1 className="sr-only">{formatSlugAsTitle(slug)}</h1>
@@ -321,12 +212,6 @@ export function DeityPageClient({ slug }: DeityPageClientProps) {
     );
   }
 
-  if (!data?.deity) {
-    return null;
-  }
-
-  const deity = data.deity;
-
   return (
     <div className="min-h-screen">
       <DeityJsonLd
@@ -343,10 +228,12 @@ export function DeityPageClient({ slug }: DeityPageClientProps) {
       <div className="relative overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
-            src="/deity-hero.png"
-            alt=""
-            fill
-            className="object-cover"
+            src="/deity-hero.jpg"
+            alt={`${deity.name} hero background`}
+            width={HERO_IMAGE_WIDTH}
+            height={HERO_IMAGE_HEIGHT}
+            sizes="100vw"
+            className="h-full w-full object-cover"
             priority
           />
           <div className="absolute inset-0 bg-linear-to-br from-slate-900/70 via-slate-800/65 to-amber-900/70"></div>
@@ -393,6 +280,7 @@ export function DeityPageClient({ slug }: DeityPageClientProps) {
                       Also known as: {deity.alternateNames.join(", ")}
                     </p>
                   )}
+                  <EditorialByline className="mt-3 max-w-2xl" tone="light" />
                 </div>
                 <BookmarkButton
                   type="deity"
@@ -446,8 +334,10 @@ export function DeityPageClient({ slug }: DeityPageClientProps) {
                     <Image
                       src={deity.imageUrl}
                       alt={deity.name}
-                      fill
-                      className="object-cover hover:scale-105 transition-transform duration-700"
+                      width={DEITY_IMAGE_WIDTH}
+                      height={DEITY_IMAGE_HEIGHT}
+                      sizes="(min-width: 768px) 24rem, 90vw"
+                      className="h-full w-full object-cover hover:scale-105 transition-transform duration-700"
                       priority
                     />
                     <div className="absolute inset-0 ring-1 ring-inset ring-black/10 rounded-2xl"></div>
@@ -530,20 +420,40 @@ export function DeityPageClient({ slug }: DeityPageClientProps) {
                             key={parallel.deityId}
                             className="border-l-2 border-gold/30 pl-4"
                           >
-                            <div className="flex items-baseline gap-2">
-                              <Link
-                                href={`/deities/${parallel.deityId}`}
-                                className="text-gold hover:text-amber-600 dark:hover:text-amber-400 font-medium transition-colors"
-                              >
-                                {parallel.deityId}
-                              </Link>
-                              <span className="text-muted-foreground text-sm">
-                                ({parallel.pantheonId})
-                              </span>
-                            </div>
-                            <p className="text-muted-foreground text-sm mt-1">
-                              {parallel.note}
-                            </p>
+                            {(() => {
+                              const relatedDeity = deityReferenceMap.get(
+                                normalizeDeityReference(parallel.deityId),
+                              );
+
+                              return (
+                                <>
+                                  <div className="flex items-baseline gap-2">
+                                    {relatedDeity ? (
+                                      <Link
+                                        href={`/deities/${relatedDeity.slug}`}
+                                        className="text-gold hover:text-amber-600 dark:hover:text-amber-400 font-medium transition-colors"
+                                      >
+                                        {relatedDeity.name}
+                                      </Link>
+                                    ) : (
+                                      <span className="font-medium text-foreground">
+                                        {formatSlugAsTitle(
+                                          normalizeDeityReference(
+                                            parallel.deityId,
+                                          ),
+                                        )}
+                                      </span>
+                                    )}
+                                    <span className="text-muted-foreground text-sm">
+                                      ({parallel.pantheonId})
+                                    </span>
+                                  </div>
+                                  <p className="text-muted-foreground text-sm mt-1">
+                                    {parallel.note}
+                                  </p>
+                                </>
+                              );
+                            })()}
                           </li>
                         ))}
                       </ul>
@@ -762,29 +672,26 @@ export function DeityPageClient({ slug }: DeityPageClientProps) {
           />
 
           {/* Family Tree */}
-          {relationshipsData?.deityRelationships &&
-            relationshipsData.deityRelationships.length > 0 && (
-              <Card className="">
-                <CardHeader>
-                  <CardTitle className="font-serif flex items-center gap-2">
-                    <Network className="h-5 w-5 text-gold" />
-                    Family Tree
-                  </CardTitle>
-                  <CardDescription>
-                    Explore {deity.name}&apos;s relationships with other deities
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  {allDeitiesData?.deities && (
-                    <FamilyTreeVisualization
-                      deities={allDeitiesData.deities}
-                      relationships={relationshipsData.deityRelationships}
-                      focusDeityId={deity.id}
-                    />
-                  )}
-                </CardContent>
-              </Card>
-            )}
+          {deityRelationships.length > 0 && (
+            <Card className="">
+              <CardHeader>
+                <CardTitle className="font-serif flex items-center gap-2">
+                  <Network className="h-5 w-5 text-gold" />
+                  Family Tree
+                </CardTitle>
+                <CardDescription>
+                  Explore {deity.name}&apos;s relationships with other deities
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <FamilyTreeVisualization
+                  deities={allDeities}
+                  relationships={deityRelationships}
+                  focusDeityId={deity.id}
+                />
+              </CardContent>
+            </Card>
+          )}
         </div>
       </div>
     </div>

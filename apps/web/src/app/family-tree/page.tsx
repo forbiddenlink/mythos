@@ -1,19 +1,12 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useMemo, useState } from "react";
 import dynamic from "next/dynamic";
-import { useQuery } from "@tanstack/react-query";
-import { graphqlClient } from "@/lib/graphql-client";
-import { gql } from "graphql-request";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Loader2, Network, GitBranch, AlertCircle } from "lucide-react";
+import { Loader2, Network, GitBranch } from "lucide-react";
 import Image from "next/image";
 import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
-import {
-  PageHeaderSkeleton,
-  GridSkeleton,
-} from "@/components/ui/skeleton-cards";
 
 // Lazy load heavy ReactFlow-based components
 const FamilyTreeVisualization = dynamic(
@@ -46,6 +39,8 @@ const EnhancedFamilyTree = dynamic(
   },
 );
 import pantheonsData from "@/data/pantheons.json";
+import deitiesData from "@/data/deities.json";
+import relationshipsData from "@/data/relationships.json";
 import {
   Select,
   SelectContent,
@@ -53,6 +48,9 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+
+const HERO_IMAGE_WIDTH = 1920;
+const HERO_IMAGE_HEIGHT = 1080;
 
 interface Deity {
   id: string;
@@ -77,101 +75,23 @@ export default function FamilyTreePage() {
   );
   const [selectedPantheon, setSelectedPantheon] =
     useState<string>("greek-pantheon");
-
-  const {
-    data: deitiesData,
-    isLoading: deitiesLoading,
-    error: deitiesError,
-  } = useQuery<{ deities: Deity[] }>({
-    queryKey: ["all-deities-family-tree"],
-    queryFn: async () => {
-      return graphqlClient.request(gql`
-        query GetAllDeities {
-          deities(pantheonId: null) {
-            id
-            name
-            slug
-            gender
-            domain
-            pantheonId
-          }
-        }
-      `);
-    },
-  });
-
-  const {
-    data: relationshipsData,
-    isLoading: relationshipsLoading,
-    error: relationshipsError,
-  } = useQuery<{
-    allRelationships: Relationship[];
-  }>({
-    queryKey: ["all-relationships"],
-    queryFn: async () => {
-      return graphqlClient.request(gql`
-        query GetAllRelationships {
-          allRelationships {
-            id
-            fromDeityId
-            toDeityId
-            relationshipType
-            description
-          }
-        }
-      `);
-    },
-  });
-
-  const isLoading = deitiesLoading || relationshipsLoading;
-  const error = deitiesError || relationshipsError;
+  const allDeities = deitiesData as Deity[];
+  const allRelationships = relationshipsData as Relationship[];
 
   // Calculate filtered data when deps change (memoized)
   const { deities: finalDeities, relationships: finalRelationships } =
     useMemo(() => {
-      if (!deitiesData?.deities || !relationshipsData?.allRelationships)
-        return { deities: [], relationships: [] };
-
-      const filteredDeities = deitiesData.deities.filter(
+      const filteredDeities = allDeities.filter(
         (d) => d.pantheonId === selectedPantheon,
       );
       const deityIds = new Set(filteredDeities.map((d) => d.id));
 
-      const filteredRelationships = relationshipsData.allRelationships.filter(
+      const filteredRelationships = allRelationships.filter(
         (r) => deityIds.has(r.fromDeityId) && deityIds.has(r.toDeityId),
       );
 
       return { deities: filteredDeities, relationships: filteredRelationships };
-    }, [deitiesData, relationshipsData, selectedPantheon]);
-
-  if (isLoading) {
-    return (
-      <div className="min-h-screen">
-        <h1 className="sr-only">Family Tree</h1>
-        <PageHeaderSkeleton />
-        <div className="container mx-auto max-w-7xl px-4 py-12">
-          <GridSkeleton count={4} columns={4} />
-        </div>
-      </div>
-    );
-  }
-
-  if (error) {
-    return (
-      <div className="container mx-auto max-w-7xl px-4 py-24">
-        <h1 className="sr-only">Family Tree</h1>
-        <div className="text-center">
-          <AlertCircle className="h-12 w-12 text-destructive mx-auto mb-4" />
-          <h2 className="text-2xl font-bold text-destructive">
-            Error loading family tree
-          </h2>
-          <p className="text-muted-foreground mt-2">
-            {error instanceof Error ? error.message : "An error occurred"}
-          </p>
-        </div>
-      </div>
-    );
-  }
+    }, [allDeities, allRelationships, selectedPantheon]);
 
   return (
     <div className="min-h-screen">
@@ -179,10 +99,12 @@ export default function FamilyTreePage() {
       <div className="relative overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
-            src="/family-tree-hero.png"
+            src="/family-tree-hero.jpg"
             alt="Ancient Genealogy"
-            fill
-            className="object-cover"
+            width={HERO_IMAGE_WIDTH}
+            height={HERO_IMAGE_HEIGHT}
+            sizes="100vw"
+            className="h-full w-full object-cover"
             priority
           />
           <div className="absolute inset-0 bg-linear-to-br from-midnight/70 via-midnight/65 to-midnight/70"></div>
@@ -208,9 +130,62 @@ export default function FamilyTreePage() {
       {/* Content Section */}
       <div className="container mx-auto max-w-7xl px-4 py-12">
         <Breadcrumbs />
+        <section className="mt-6 rounded-2xl border border-border/60 bg-card/60 p-6 shadow-sm">
+          <h2 className="font-serif text-2xl text-foreground">
+            See Mythology As A Network
+          </h2>
+          <p className="mt-3 max-w-4xl text-sm leading-7 text-muted-foreground">
+            Family trees are one of the fastest ways to understand why myths
+            branch the way they do. Switch pantheons to compare divine
+            succession, marriage alliances, rival sibling lines, and the way
+            heroic figures sit inside larger cosmic families. The hierarchical
+            view works best for ancestry, while the network view makes it easier
+            to spot clusters, loops, and cross-generational relationships at a
+            glance.
+          </p>
+          <p className="mt-3 max-w-4xl text-sm leading-7 text-muted-foreground">
+            Use the tree when you want to answer concrete questions such as who
+            descends from whom, which marriages bind different divine houses,
+            and how power passes from primordial beings to later gods. The
+            visual structure makes long mythological genealogies easier to read
+            than plain prose lists.
+          </p>
+          <p className="mt-3 max-w-4xl text-sm leading-7 text-muted-foreground">
+            It also helps surface narrative context. Feuds, inheritances,
+            rivalries, and alliances tend to make more sense once you can see
+            the full shape of a family rather than reading each character in
+            isolation from the surrounding lineage.
+          </p>
+          <p className="mt-3 max-w-4xl text-sm leading-7 text-muted-foreground">
+            Use the pantheon switcher to compare how different traditions
+            organize divine authority. Some families center succession and
+            inheritance, while others reveal looser networks of marriage,
+            rivalry, and alliance that shape myth in a very different way.
+          </p>
+          <p className="mt-3 max-w-4xl text-sm leading-7 text-muted-foreground">
+            It is also a practical reference when a story assumes prior family
+            knowledge. Before reading a complex myth, open the relevant pantheon
+            here to see parents, siblings, spouses, and descendants in one pass,
+            then carry that structure back into the narrative.
+          </p>
+          <p className="mt-3 max-w-4xl text-sm leading-7 text-muted-foreground">
+            The view is especially helpful for comparative reading because it
+            exposes repeated structures: sky fathers replacing earlier powers,
+            sibling rivalries shaping succession, and marriages acting as
+            political links between divine houses. Those patterns are difficult
+            to spot when the same information is scattered across separate deity
+            pages.
+          </p>
+          <p className="mt-3 max-w-4xl text-sm leading-7 text-muted-foreground">
+            Use this page as a map before and after deeper reading. Open the
+            tree first to orient yourself, read a story or deity profile with
+            that structure in mind, then return to the visualization to confirm
+            how the narrative changed your understanding of the wider family.
+          </p>
+        </section>
 
         {/* Controls Bar */}
-        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 mb-6 bg-card p-4 rounded-xl border border-border shadow-xs">
+        <div className="mt-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 mb-6 bg-card p-4 rounded-xl border border-border shadow-xs">
           <div className="flex items-center gap-4 w-full md:w-auto">
             <div className="flex items-center gap-2 text-sm text-muted-foreground shrink-0">
               <span className="font-medium">Pantheon:</span>

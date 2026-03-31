@@ -1,9 +1,11 @@
+import Link from "next/link";
 import type { Metadata } from "next";
 import { generateBaseMetadata } from "@/lib/metadata";
 
 export const metadata: Metadata = generateBaseMetadata({
   title: "Terms of Service - Mythos Atlas",
-  description: "Terms of service for Mythos Atlas mythology encyclopedia.",
+  description:
+    "Review the Mythos Atlas terms of service covering acceptable use, mythology content, AI features, open-source licensing, and platform disclaimers.",
   url: "/terms",
 });
 
@@ -120,8 +122,15 @@ export default function TermsOfServicePage() {
             Contact
           </h2>
           <p className="mt-4 text-muted-foreground">
-            Questions about these Terms of Service should be directed to us
-            through our GitHub repository.
+            Questions about these Terms of Service, licensing, or permitted use
+            can be sent through the links listed on our{" "}
+            <Link
+              href="/contact"
+              className="text-gold underline hover:text-gold/80"
+            >
+              contact page
+            </Link>
+            .
           </p>
         </section>
       </div>

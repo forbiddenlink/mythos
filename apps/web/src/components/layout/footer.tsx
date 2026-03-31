@@ -47,10 +47,11 @@ const footerLinks = {
     { label: "Your Progress", href: "/progress" },
   ],
   info: [
-    { label: "About", href: "/about" },
+    { label: "About Mythos Atlas", href: "/about" },
+    { label: "Contact Mythos Atlas", href: "/contact" },
     { label: "Sources", href: "/sources" },
     { label: "Changelog", href: "/changelog" },
-    { label: "Privacy", href: "/privacy" },
+    { label: "Privacy Policy", href: "/privacy" },
     { label: "Terms", href: "/terms" },
   ],
 };

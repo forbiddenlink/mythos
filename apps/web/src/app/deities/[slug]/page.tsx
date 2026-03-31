@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import deities from "@/data/deities.json";
 import pantheons from "@/data/pantheons.json";
+import { findDeityByReference } from "@/lib/deities";
 import { generateBaseMetadata } from "@/lib/metadata";
 import { DeityPageClient } from "./DeityPageClient";
 
@@ -23,6 +24,10 @@ interface PageProps {
   params: Promise<{ slug: string }>;
 }
 
+function resolveDeityBySlug(slug: string) {
+  return findDeityByReference(slug) as DeityData | undefined;
+}
+
 // Generate static params for all deities
 export async function generateStaticParams() {
   return deities.map((deity) => ({
@@ -35,7 +40,7 @@ export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
   const { slug } = await params;
-  const deity = deities.find((d) => d.slug === slug) as DeityData | undefined;
+  const deity = resolveDeityBySlug(slug);
 
   if (!deity) {
     return generateBaseMetadata({
@@ -49,9 +54,13 @@ export async function generateMetadata({
 
   // Create a rich description
   const domains = deity.domain?.slice(0, 3).join(", ") || "";
-  const description =
+  const baseDescription =
     deity.description ||
     `Explore ${deity.name}, ${pantheonName} deity of ${domains}. Learn about their mythology, symbols, and divine family.`;
+  const description =
+    baseDescription.length < 140
+      ? `${baseDescription} Explore mythology, symbols, and related stories in Mythos Atlas.`
+      : baseDescription;
 
   return generateBaseMetadata({
     title: `${deity.name} - ${pantheonName} Deity`,
@@ -78,9 +87,13 @@ export default async function DeityPage({ params }: PageProps) {
   const { slug } = await params;
 
   // Check if deity exists (for 404)
-  const deity = deities.find((d) => d.slug === slug);
+  const deity = resolveDeityBySlug(slug);
   if (!deity) {
     notFound();
+  }
+
+  if (deity.slug !== slug) {
+    redirect(`/deities/${deity.slug}`);
   }
 
   return <DeityPageClient slug={slug} />;

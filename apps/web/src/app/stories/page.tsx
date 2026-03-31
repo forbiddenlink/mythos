@@ -9,13 +9,10 @@ import { BookmarkButton } from "@/components/ui/bookmark-button";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { PaginationControls } from "@/components/ui/pagination-controls";
-import { FiltersSkeleton, GridSkeleton } from "@/components/ui/skeleton-cards";
 import branchingStoriesData from "@/data/branching-stories.json";
+import storiesData from "@/data/stories.json";
 import { usePagination } from "@/hooks/usePagination";
 import { BranchingStory, getDiscoveredEndings } from "@/lib/branching-story";
-import { graphqlClient } from "@/lib/graphql-client";
-import { GET_STORIES } from "@/lib/queries";
-import { useQuery } from "@tanstack/react-query";
 import { BookOpen, Clock, Gamepad2, ScrollText, Trophy } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -133,25 +130,15 @@ interface Story {
 }
 
 export default function StoriesPage() {
-  const [filteredStories, setFilteredStories] = useState<Story[]>([]);
+  const allStories = (storiesData as Story[]).map((story) => ({
+    ...story,
+    category: story.themes?.[0] || "other",
+    moralThemes: story.themes || [],
+  }));
+  const [filteredStories, setFilteredStories] = useState<Story[]>(allStories);
   const [filtersVersion, setFiltersVersion] = useState(0);
-
-  const { data, isLoading, error } = useQuery<{ stories: Story[] }>({
-    queryKey: ["stories"],
-    queryFn: async () => graphqlClient.request(GET_STORIES),
-    select: (data) => ({
-      stories: data.stories.map((story) => ({
-        ...story,
-        category: story.themes?.[0] || "other",
-        moralThemes: story.themes || [],
-      })),
-    }),
-  });
-
-  const hasActiveFilters = filteredStories !== data?.stories;
-  const displayStories = hasActiveFilters
-    ? filteredStories
-    : data?.stories || [];
+  const hasActiveFilters = filteredStories !== allStories;
+  const displayStories = hasActiveFilters ? filteredStories : allStories;
 
   let storiesContent;
   if (displayStories.length > 0) {
@@ -176,7 +163,7 @@ export default function StoriesPage() {
           size="sm"
           className="mt-4"
           onClick={() => {
-            setFilteredStories(data?.stories ?? []);
+            setFilteredStories(allStories);
             setFiltersVersion((prev) => prev + 1);
           }}
         >
@@ -203,63 +190,45 @@ export default function StoriesPage() {
     );
   }
 
-  if (isLoading) {
-    return (
-      <div className="min-h-screen">
-        <h1 className="sr-only">Stories</h1>
-        {/* Hero placeholder */}
-        <div className="relative h-[50vh] min-h-100 flex items-center justify-center overflow-hidden bg-linear-to-b from-midnight/70 via-midnight/60 to-midnight/80" />
-
-        {/* Content Section */}
-        <div className="container mx-auto max-w-7xl px-4 py-12 bg-mythic">
-          <div className="h-5 w-32 bg-muted rounded animate-pulse mb-6" />
-          <FiltersSkeleton />
-          <GridSkeleton count={6} columns={3} type="story" className="mt-6" />
-        </div>
-      </div>
-    );
-  }
-
-  if (error) {
-    return (
-      <div className="container mx-auto max-w-6xl px-4 py-24">
-        <h1 className="sr-only">Stories</h1>
-        <div className="text-center">
-          <h2 className="text-2xl font-bold text-destructive">
-            Error loading stories
-          </h2>
-          <p className="text-muted-foreground mt-2">
-            {error instanceof Error ? error.message : "An error occurred"}
-          </p>
-        </div>
-      </div>
-    );
-  }
-
   return (
     <div className="min-h-screen">
       <CollectionPageJsonLd
         name="Mythological Stories"
         description="Epic tales and legends from ancient civilizations across 13 pantheons"
         url="/stories"
-        numberOfItems={data?.stories?.length}
+        numberOfItems={allStories.length}
       />
       <PageHero
         icon={<ScrollText />}
         tagline="Epic Tales"
         title="Mythological Stories"
         description="Epic tales and legends from ancient civilizations"
-        backgroundImage="/stories-hero.png"
+        backgroundImage="/stories-hero.jpg"
+        backgroundAlt="Ancient storytellers and heroes gathered in a mythic landscape"
         colorScheme="gold"
       />
 
       {/* Stories Grid */}
       <div className="container mx-auto max-w-7xl px-4 py-12 bg-mythic">
         <Breadcrumbs />
+        <section className="mt-6 rounded-2xl border border-border/60 bg-card/60 p-6 shadow-sm">
+          <h2 className="font-serif text-2xl text-foreground">
+            Read The Core Myths First
+          </h2>
+          <p className="mt-3 max-w-4xl text-sm leading-7 text-muted-foreground">
+            The story index is organized to help you move from foundational
+            myths into more specialized tales. Start with creation stories,
+            succession struggles, and culture-defining journeys, then use the
+            filters to narrow by theme or tradition. Interactive stories are
+            collected separately so returning readers can switch between
+            reference reading and choice-driven exploration without losing the
+            main narrative canon.
+          </p>
+        </section>
 
         {/* Interactive Stories Section */}
         {branchingStories.length > 0 && (
-          <div id="interactive" className="mb-12 scroll-mt-24">
+          <div id="interactive" className="mb-12 mt-10 scroll-mt-24">
             <div className="flex items-center gap-3 mb-6">
               <div className="p-2 rounded-lg bg-gold/10 border border-gold/20">
                 <Gamepad2 className="h-5 w-5 text-gold" />
@@ -296,15 +265,13 @@ export default function StoriesPage() {
           </div>
         </div>
 
-        {data?.stories && (
-          <div className="mb-6">
-            <StoryFilters
-              key={filtersVersion}
-              stories={data.stories}
-              onFilteredChange={setFilteredStories}
-            />
-          </div>
-        )}
+        <div className="mb-6">
+          <StoryFilters
+            key={filtersVersion}
+            stories={allStories}
+            onFilteredChange={setFilteredStories}
+          />
+        </div>
 
         {storiesContent}
       </div>

@@ -56,6 +56,9 @@ const colorSchemes = {
   },
 };
 
+const HERO_IMAGE_WIDTH = 1920;
+const HERO_IMAGE_HEIGHT = 1080;
+
 interface PageHeroProps extends VariantProps<typeof _heroVariants> {
   /**
    * Icon component to display above the tagline
@@ -77,6 +80,10 @@ interface PageHeroProps extends VariantProps<typeof _heroVariants> {
    * Optional background image path
    */
   backgroundImage?: string;
+  /**
+   * Accessible background image description when the image is meaningful
+   */
+  backgroundAlt?: string;
   /**
    * Optional className for the section
    */
@@ -104,6 +111,7 @@ export function PageHero({
   title,
   description,
   backgroundImage,
+  backgroundAlt = "",
   className,
   viewTransitionName,
   colorScheme = "gold",
@@ -126,9 +134,11 @@ export function PageHero({
         <div className="absolute inset-0 z-0">
           <Image
             src={backgroundImage}
-            alt=""
-            fill
-            className="object-cover"
+            alt={backgroundAlt}
+            width={HERO_IMAGE_WIDTH}
+            height={HERO_IMAGE_HEIGHT}
+            sizes="100vw"
+            className="h-full w-full object-cover"
             priority
           />
         </div>

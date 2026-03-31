@@ -1,9 +1,11 @@
+import Link from "next/link";
 import { generateBaseMetadata } from "@/lib/metadata";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = generateBaseMetadata({
   title: "Privacy Policy - Mythos Atlas",
-  description: "Privacy policy for Mythos Atlas mythology encyclopedia.",
+  description:
+    "Read how Mythos Atlas handles privacy, local browser data, analytics consent, cookies, and third-party services across the mythology encyclopedia.",
   url: "/privacy",
 });
 
@@ -165,8 +167,15 @@ export default function PrivacyPolicyPage() {
             Contact Us
           </h2>
           <p className="mt-4 text-muted-foreground">
-            If you have questions about this Privacy Policy, please contact us
-            through our GitHub repository.
+            If you have questions about this Privacy Policy, want to report a
+            data concern, or need a correction to our policy text, visit our{" "}
+            <Link
+              href="/contact"
+              className="text-gold underline hover:text-gold/80"
+            >
+              contact page
+            </Link>{" "}
+            for the current support and repository links.
           </p>
         </section>
       </div>

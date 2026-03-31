@@ -2,7 +2,6 @@
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Slider } from "@/components/ui/slider";
 import { RotateCcw } from "lucide-react";
 
 interface TimelineControlsProps {
@@ -30,16 +29,32 @@ export function TimelineControls({
   maxYear,
   onRangeChange,
 }: TimelineControlsProps) {
+  const updateBoundary = (index: 0 | 1, nextValue: number) => {
+    const clamped = Math.min(maxYear, Math.max(minYear, nextValue));
+    const nextRange: [number, number] = [...currentRange] as [number, number];
+    nextRange[index] = clamped;
+
+    if (index === 0 && nextRange[0] > nextRange[1]) {
+      nextRange[1] = clamped;
+    }
+
+    if (index === 1 && nextRange[1] < nextRange[0]) {
+      nextRange[0] = clamped;
+    }
+
+    onRangeChange(nextRange);
+  };
+
   return (
     <div className="w-full bg-card/50 backdrop-blur-sm border border-border rounded-xl p-6 space-y-6 mb-8">
       {/* Header & Stats */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
-          <h3 className="font-serif text-lg font-semibold text-foreground">
+          <h2 className="font-serif text-lg font-semibold text-foreground">
             Timeline Filters
-          </h3>
+          </h2>
           <p className="text-sm text-muted-foreground">
-            Adjust the slider to focus on specific eras.
+            Set a custom year range or jump to a named era.
           </p>
         </div>
         <div className="flex items-center gap-2">
@@ -60,20 +75,56 @@ export function TimelineControls({
         </div>
       </div>
 
-      {/* Slider */}
-      <div className="px-2">
-        <Slider
-          defaultValue={[minYear, maxYear]}
-          value={currentRange}
-          min={minYear}
-          max={maxYear}
-          step={50}
-          onValueChange={(val) => onRangeChange(val as [number, number])}
-          className="py-4"
-        />
-        <div className="flex justify-between text-xs text-muted-foreground font-mono mt-1">
-          <span>{formatYear(minYear)}</span>
-          <span>{formatYear(maxYear)}</span>
+      {/* Range Inputs */}
+      <div className="grid gap-4 md:grid-cols-2">
+        <div className="space-y-2">
+          <label
+            htmlFor="timeline-start-year"
+            className="text-sm font-medium text-foreground"
+          >
+            Start year
+          </label>
+          <input
+            id="timeline-start-year"
+            type="number"
+            inputMode="numeric"
+            min={minYear}
+            max={maxYear}
+            step={50}
+            value={currentRange[0]}
+            onChange={(event) =>
+              updateBoundary(0, Number.parseInt(event.target.value, 10))
+            }
+            className="flex h-10 w-full rounded-lg border border-border bg-background px-3 py-2 text-sm text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+          />
+          <p className="text-xs font-mono text-muted-foreground">
+            {formatYear(currentRange[0])}
+          </p>
+        </div>
+
+        <div className="space-y-2">
+          <label
+            htmlFor="timeline-end-year"
+            className="text-sm font-medium text-foreground"
+          >
+            End year
+          </label>
+          <input
+            id="timeline-end-year"
+            type="number"
+            inputMode="numeric"
+            min={minYear}
+            max={maxYear}
+            step={50}
+            value={currentRange[1]}
+            onChange={(event) =>
+              updateBoundary(1, Number.parseInt(event.target.value, 10))
+            }
+            className="flex h-10 w-full rounded-lg border border-border bg-background px-3 py-2 text-sm text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+          />
+          <p className="text-xs font-mono text-muted-foreground">
+            {formatYear(currentRange[1])}
+          </p>
         </div>
       </div>
 

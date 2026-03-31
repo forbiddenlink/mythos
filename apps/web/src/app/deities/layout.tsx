@@ -5,7 +5,7 @@ import { CollectionPageJsonLd } from "@/components/seo/JsonLd";
 export const metadata: Metadata = generateBaseMetadata({
   title: "Deities of World Mythology",
   description:
-    "Explore gods and goddesses from Greek, Norse, Egyptian, Roman, Hindu, Japanese, Celtic, and Aztec mythologies, with domains, symbols, stories, and relationships.",
+    "Browse gods and goddesses from Greek, Norse, Egyptian, Roman, Hindu, Japanese, Celtic, and Aztec mythology, with domains and stories.",
   url: "/deities",
   keywords: [
     "deities",

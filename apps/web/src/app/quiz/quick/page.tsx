@@ -1,13 +1,11 @@
 "use client";
 
 import { useState, useEffect, useCallback, useContext } from "react";
-import { useQuery } from "@tanstack/react-query";
-import { graphqlClient } from "@/lib/graphql-client";
-import { GET_DEITIES } from "@/lib/queries";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
+import deitiesData from "@/data/deities.json";
 import {
   Timer,
   Trophy,
@@ -70,10 +68,7 @@ export default function QuickQuizPage() {
   const progressContext = useContext(ProgressContext);
   const { checkAchievements } = useAchievements();
 
-  const { data, isLoading } = useQuery<{ deities: Deity[] }>({
-    queryKey: ["quick-quiz-deities"],
-    queryFn: async () => graphqlClient.request(GET_DEITIES),
-  });
+  const deities = deitiesData as Deity[];
 
   // Load high score from progress context or localStorage
   useEffect(() => {
@@ -86,14 +81,13 @@ export default function QuickQuizPage() {
     }
   }, [progressContext?.progress.quickQuizHighScore]);
 
-  // eslint-disable-next-line react-hooks/preserve-manual-memoization -- intentional memoization on data availability
   const nextQuestion = useCallback(() => {
-    if (data?.deities) {
-      setQuestion(generateQuestion(data.deities));
+    if (deities.length > 0) {
+      setQuestion(generateQuestion(deities));
       setSelectedAnswer(null);
       setShowResult(false);
     }
-  }, [data?.deities]);
+  }, [deities]);
 
   const startGame = useCallback(() => {
     setGameState("playing");
@@ -179,14 +173,6 @@ export default function QuickQuizPage() {
     }
   };
 
-  if (isLoading) {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="animate-spin h-8 w-8 border-2 border-gold border-t-transparent rounded-full" />
-      </div>
-    );
-  }
-
   return (
     <div className="min-h-screen bg-linear-to-b from-background to-mythic relative">
       <div className="container mx-auto max-w-2xl px-4 py-12">
@@ -201,6 +187,60 @@ export default function QuickQuizPage() {
             60 seconds. How many can you get?
           </p>
         </div>
+
+        <section className="mb-8 rounded-2xl border border-border/60 bg-card/60 p-6">
+          <h2 className="font-serif text-2xl font-semibold text-foreground">
+            Use The Quick Quiz For Fast Recall
+          </h2>
+          <p className="mt-3 leading-relaxed text-muted-foreground">
+            This mode is built for speed rather than long explanation. It works
+            best when you want to check whether deity domains and names are
+            becoming automatic, especially after reading reference pages or
+            finishing a deeper story session.
+          </p>
+          <p className="mt-3 leading-relaxed text-muted-foreground">
+            Short bursts are the point. Play a round, note which questions slow
+            you down, then branch into the full{" "}
+            <Link
+              href="/quiz"
+              className="text-gold underline hover:text-gold/80"
+            >
+              quiz hub
+            </Link>
+            , the{" "}
+            <Link
+              href="/games"
+              className="text-gold underline hover:text-gold/80"
+            >
+              games section
+            </Link>
+            , or the relevant deity pages before coming back for another timed
+            run.
+          </p>
+          <p className="mt-3 leading-relaxed text-muted-foreground">
+            Because every question is compressed into a few seconds of recall,
+            the quick quiz is useful as a warm-up, a checkpoint, or a daily
+            habit when you do not have time for a longer mythology session.
+          </p>
+          <p className="mt-3 leading-relaxed text-muted-foreground">
+            It also helps expose clusters of weak recall. If several questions
+            around war, sun, or underworld figures keep slowing you down, that
+            is usually a sign to revisit those deity pages before moving into a
+            longer review or relationship quiz session.
+          </p>
+          <p className="mt-3 leading-relaxed text-muted-foreground">
+            Because the quiz is timed, it measures confidence as much as raw
+            correctness. A right answer that takes too long usually means the
+            concept is still fragile, which makes this mode a useful checkpoint
+            before you assume a page or pantheon has really stuck.
+          </p>
+          <p className="mt-3 leading-relaxed text-muted-foreground">
+            The best results usually come from repetition across days. One fast
+            round in the morning or after a reading session creates a small but
+            reliable habit, and those habits tend to improve recognition faster
+            than occasional long cram sessions.
+          </p>
+        </section>
 
         {gameState === "ready" && (
           <Card className="text-center">

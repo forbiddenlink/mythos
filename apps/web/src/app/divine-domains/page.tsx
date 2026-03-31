@@ -1,23 +1,28 @@
-'use client';
+"use client";
 
-import { useState, useMemo } from 'react';
-import Image from 'next/image';
-import { Compass, Sparkles, Users, ArrowRight } from 'lucide-react';
-import { Card, CardContent } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
+import { useState, useMemo } from "react";
+import Image from "next/image";
+import { Compass, Sparkles, Users, ArrowRight } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@/components/ui/select';
-import { Breadcrumbs } from '@/components/navigation/Breadcrumbs';
-import { DomainSelector, getDomainIcon, PRIMARY_DOMAINS } from '@/components/domains/DomainSelector';
-import { DomainDeityCard } from '@/components/domains/DomainDeityCard';
-import deitiesData from '@/data/deities.json';
-import pantheonsData from '@/data/pantheons.json';
-import { cn } from '@/lib/utils';
+} from "@/components/ui/select";
+import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
+import {
+  DomainSelector,
+  getDomainIcon,
+  PRIMARY_DOMAINS,
+} from "@/components/domains/DomainSelector";
+import { DomainDeityCard } from "@/components/domains/DomainDeityCard";
+import deitiesData from "@/data/deities.json";
+import pantheonsData from "@/data/pantheons.json";
+import { normalizeDeityReference } from "@/lib/deities";
+import { cn } from "@/lib/utils";
 
 interface CrossPantheonParallel {
   pantheonId: string;
@@ -46,8 +51,10 @@ interface Pantheon {
 
 // Get pantheon name by ID
 function getPantheonName(pantheonId: string): string {
-  const pantheon = (pantheonsData as Pantheon[]).find(p => p.id === pantheonId);
-  return pantheon?.name.replace(' Pantheon', '') || pantheonId;
+  const pantheon = (pantheonsData as Pantheon[]).find(
+    (p) => p.id === pantheonId,
+  );
+  return pantheon?.name.replace(" Pantheon", "") || pantheonId;
 }
 
 // Capitalize first letter
@@ -57,36 +64,49 @@ function capitalize(str: string): string {
 
 // Pantheon color mapping
 const PANTHEON_COLORS: Record<string, string> = {
-  'greek-pantheon': 'bg-blue-500/20 text-blue-400 border-blue-500/30',
-  'roman-pantheon': 'bg-red-500/20 text-red-400 border-red-500/30',
-  'norse-pantheon': 'bg-cyan-500/20 text-cyan-400 border-cyan-500/30',
-  'egyptian-pantheon': 'bg-amber-500/20 text-amber-400 border-amber-500/30',
-  'hindu-pantheon': 'bg-orange-500/20 text-orange-400 border-orange-500/30',
-  'japanese-pantheon': 'bg-pink-500/20 text-pink-400 border-pink-500/30',
-  'celtic-pantheon': 'bg-green-500/20 text-green-400 border-green-500/30',
-  'aztec-pantheon': 'bg-emerald-500/20 text-emerald-400 border-emerald-500/30',
-  'chinese-pantheon': 'bg-yellow-500/20 text-yellow-400 border-yellow-500/30',
-  'mesopotamian-pantheon': 'bg-yellow-700/20 text-yellow-600 border-yellow-700/30',
-  'african-pantheon': 'bg-violet-500/20 text-violet-400 border-violet-500/30',
-  'polynesian-pantheon': 'bg-cyan-500/20 text-cyan-400 border-cyan-500/30',
-  'mesoamerican-pantheon': 'bg-lime-500/20 text-lime-400 border-lime-500/30',
+  "greek-pantheon": "bg-blue-500/20 text-blue-400 border-blue-500/30",
+  "roman-pantheon": "bg-red-500/20 text-red-400 border-red-500/30",
+  "norse-pantheon": "bg-cyan-500/20 text-cyan-400 border-cyan-500/30",
+  "egyptian-pantheon": "bg-amber-500/20 text-amber-400 border-amber-500/30",
+  "hindu-pantheon": "bg-orange-500/20 text-orange-400 border-orange-500/30",
+  "japanese-pantheon": "bg-pink-500/20 text-pink-400 border-pink-500/30",
+  "celtic-pantheon": "bg-green-500/20 text-green-400 border-green-500/30",
+  "aztec-pantheon": "bg-emerald-500/20 text-emerald-400 border-emerald-500/30",
+  "chinese-pantheon": "bg-yellow-500/20 text-yellow-400 border-yellow-500/30",
+  "mesopotamian-pantheon":
+    "bg-yellow-700/20 text-yellow-600 border-yellow-700/30",
+  "african-pantheon": "bg-violet-500/20 text-violet-400 border-violet-500/30",
+  "polynesian-pantheon": "bg-cyan-500/20 text-cyan-400 border-cyan-500/30",
+  "mesoamerican-pantheon": "bg-lime-500/20 text-lime-400 border-lime-500/30",
 };
 
 function getPantheonColor(pantheonId: string): string {
-  return PANTHEON_COLORS[pantheonId] || 'bg-gold/20 text-gold border-gold/30';
+  return PANTHEON_COLORS[pantheonId] || "bg-gold/20 text-gold border-gold/30";
 }
 
 export default function DivinDomainsPage() {
   const [selectedDomain, setSelectedDomain] = useState<string | null>(null);
-  const [pantheonFilter, setPantheonFilter] = useState<string>('all');
+  const [pantheonFilter, setPantheonFilter] = useState<string>("all");
 
   const deities = deitiesData as Deity[];
+  const deityReferenceMap = useMemo(() => {
+    const map = new Map<string, Deity>();
+    deities.forEach((deity) => {
+      map.set(normalizeDeityReference(deity.id), deity);
+      map.set(normalizeDeityReference(deity.slug), deity);
+
+      deity.alternateNames?.forEach((alternateName) => {
+        map.set(normalizeDeityReference(alternateName), deity);
+      });
+    });
+    return map;
+  }, [deities]);
 
   // Get all unique domains from deities
   const allDomains = useMemo(() => {
     const domainSet = new Set<string>();
-    deities.forEach(deity => {
-      deity.domain?.forEach(d => domainSet.add(d.toLowerCase()));
+    deities.forEach((deity) => {
+      deity.domain?.forEach((d) => domainSet.add(d.toLowerCase()));
     });
     return Array.from(domainSet).sort();
   }, [deities]);
@@ -94,23 +114,25 @@ export default function DivinDomainsPage() {
   // Filter deities by selected domain
   const filteredDeities = useMemo(() => {
     if (!selectedDomain) return [];
-    return deities.filter(deity =>
-      deity.domain?.some(d => d.toLowerCase() === selectedDomain.toLowerCase())
+    return deities.filter((deity) =>
+      deity.domain?.some(
+        (d) => d.toLowerCase() === selectedDomain.toLowerCase(),
+      ),
     );
   }, [deities, selectedDomain]);
 
   // Further filter by pantheon
   const displayDeities = useMemo(() => {
-    if (pantheonFilter === 'all') return filteredDeities;
-    return filteredDeities.filter(d => d.pantheonId === pantheonFilter);
+    if (pantheonFilter === "all") return filteredDeities;
+    return filteredDeities.filter((d) => d.pantheonId === pantheonFilter);
   }, [filteredDeities, pantheonFilter]);
 
   // Get available pantheons for the selected domain
   const availablePantheons = useMemo(() => {
     if (!selectedDomain) return [];
-    const pantheonIds = [...new Set(filteredDeities.map(d => d.pantheonId))];
+    const pantheonIds = [...new Set(filteredDeities.map((d) => d.pantheonId))];
     return pantheonIds
-      .map(id => ({
+      .map((id) => ({
         id,
         name: getPantheonName(id),
       }))
@@ -127,24 +149,28 @@ export default function DivinDomainsPage() {
       note: string;
     }> = [];
 
-    filteredDeities.forEach(deity => {
-      deity.crossPantheonParallels?.forEach(parallel => {
-        const connectedDeity = deities.find(d => d.id === parallel.deityId);
+    filteredDeities.forEach((deity) => {
+      deity.crossPantheonParallels?.forEach((parallel) => {
+        const connectedDeity = deityReferenceMap.get(
+          normalizeDeityReference(parallel.deityId),
+        );
         if (
           connectedDeity &&
-          connectedDeity.domain?.some(d => d.toLowerCase() === selectedDomain.toLowerCase())
+          connectedDeity.domain?.some(
+            (d) => d.toLowerCase() === selectedDomain.toLowerCase(),
+          )
         ) {
           // Avoid duplicates (A->B and B->A)
           const exists = connections.some(
-            c =>
+            (c) =>
               (c.from.id === deity.id && c.to.id === connectedDeity.id) ||
-              (c.from.id === connectedDeity.id && c.to.id === deity.id)
+              (c.from.id === connectedDeity.id && c.to.id === deity.id),
           );
           if (!exists) {
             connections.push({
               from: deity,
               to: connectedDeity,
-              note: parallel.note || '',
+              note: parallel.note || "",
             });
           }
         }
@@ -152,13 +178,13 @@ export default function DivinDomainsPage() {
     });
 
     return connections;
-  }, [selectedDomain, filteredDeities, deities]);
+  }, [selectedDomain, filteredDeities, deityReferenceMap]);
 
   // Calculate domain statistics
   const domainStats = useMemo(() => {
     const stats: Record<string, { count: number; pantheons: Set<string> }> = {};
-    deities.forEach(deity => {
-      deity.domain?.forEach(domain => {
+    deities.forEach((deity) => {
+      deity.domain?.forEach((domain) => {
         const key = domain.toLowerCase();
         if (!stats[key]) {
           stats[key] = { count: 0, pantheons: new Set() };
@@ -193,7 +219,10 @@ export default function DivinDomainsPage() {
           <div className="flex items-center justify-center mb-6">
             <div className="relative p-4 rounded-xl border border-gold/20 bg-midnight/50 backdrop-blur-sm">
               <div className="absolute inset-0 rounded-xl bg-linear-to-br from-gold/10 to-transparent" />
-              <Compass className="relative h-10 w-10 text-gold" strokeWidth={1.5} />
+              <Compass
+                className="relative h-10 w-10 text-gold"
+                strokeWidth={1.5}
+              />
             </div>
           </div>
           <span className="inline-block text-gold/80 text-sm tracking-[0.25em] uppercase mb-4 font-medium">
@@ -208,7 +237,8 @@ export default function DivinDomainsPage() {
             <div className="w-12 h-px bg-linear-to-l from-transparent to-gold/40" />
           </div>
           <p className="text-lg md:text-xl text-parchment/70 max-w-2xl mx-auto font-body leading-relaxed">
-            Compare deities across all pantheons who share the same divine sphere of influence - from war and wisdom to love and death
+            Compare deities across all pantheons who share the same divine
+            sphere of influence - from war and wisdom to love and death
           </p>
         </div>
       </div>
@@ -224,9 +254,9 @@ export default function DivinDomainsPage() {
           </h2>
           <DomainSelector
             selectedDomain={selectedDomain}
-            onDomainSelect={domain => {
+            onDomainSelect={(domain) => {
               setSelectedDomain(domain);
-              setPantheonFilter('all');
+              setPantheonFilter("all");
             }}
             availableDomains={allDomains}
           />
@@ -250,21 +280,29 @@ export default function DivinDomainsPage() {
                     {capitalize(selectedDomain)}
                   </h2>
                   <p className="text-muted-foreground mt-1">
-                    {filteredDeities.length} deities across {availablePantheons.length} pantheons
+                    {filteredDeities.length} deities across{" "}
+                    {availablePantheons.length} pantheons
                   </p>
                 </div>
               </div>
 
               {/* Pantheon Filter */}
               {availablePantheons.length > 1 && (
-                <Select value={pantheonFilter} onValueChange={setPantheonFilter}>
+                <Select
+                  value={pantheonFilter}
+                  onValueChange={setPantheonFilter}
+                >
                   <SelectTrigger className="w-55">
                     <SelectValue placeholder="Filter by pantheon" />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="all">All Pantheons ({filteredDeities.length})</SelectItem>
-                    {availablePantheons.map(pantheon => {
-                      const count = filteredDeities.filter(d => d.pantheonId === pantheon.id).length;
+                    <SelectItem value="all">
+                      All Pantheons ({filteredDeities.length})
+                    </SelectItem>
+                    {availablePantheons.map((pantheon) => {
+                      const count = filteredDeities.filter(
+                        (d) => d.pantheonId === pantheon.id,
+                      ).length;
                       return (
                         <SelectItem key={pantheon.id} value={pantheon.id}>
                           {pantheon.name} ({count})
@@ -277,97 +315,108 @@ export default function DivinDomainsPage() {
             </div>
 
             {/* Cross-Pantheon Connections */}
-            {crossPantheonConnections.length > 0 && pantheonFilter === 'all' && (
-              <div className="mb-10 p-6 rounded-xl bg-card/50 border border-gold/10">
-                <div className="flex items-center gap-3 mb-4">
-                  <Users className="h-5 w-5 text-gold" />
-                  <h3 className="font-serif text-lg font-medium text-foreground">
-                    Cross-Pantheon Parallels
-                  </h3>
-                </div>
-                <p className="text-sm text-muted-foreground mb-4">
-                  These deities share similar roles across different mythological traditions
-                </p>
-                <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-                  {crossPantheonConnections.slice(0, 6).map((connection, index) => (
-                    <div
-                      key={`${connection.from.id}-${connection.to.id}-${index}`}
-                      className="flex items-center gap-3 p-3 rounded-lg bg-background/50 border border-border/50"
-                    >
-                      {/* From Deity */}
-                      <div className="flex items-center gap-2 flex-1 min-w-0">
-                        {connection.from.imageUrl ? (
-                          <div className="relative w-8 h-8 rounded-full overflow-hidden border border-gold/20 shrink-0">
-                            <Image
-                              src={connection.from.imageUrl}
-                              alt={connection.from.name}
-                              fill
-                              className="object-cover"
-                            />
-                          </div>
-                        ) : (
-                          <div className="w-8 h-8 rounded-full bg-gold/10 border border-gold/20 flex items-center justify-center shrink-0">
-                            <Sparkles className="h-4 w-4 text-gold" />
-                          </div>
-                        )}
-                        <div className="min-w-0">
-                          <p className="text-sm font-medium text-foreground truncate">
-                            {connection.from.name}
-                          </p>
-                          <Badge
-                            variant="outline"
-                            className={cn('text-[10px] px-1.5 py-0', getPantheonColor(connection.from.pantheonId))}
-                          >
-                            {getPantheonName(connection.from.pantheonId)}
-                          </Badge>
-                        </div>
-                      </div>
-
-                      {/* Arrow */}
-                      <ArrowRight className="h-4 w-4 text-gold/60 shrink-0 mx-1" />
-
-                      {/* To Deity */}
-                      <div className="flex items-center gap-2 flex-1 min-w-0">
-                        {connection.to.imageUrl ? (
-                          <div className="relative w-8 h-8 rounded-full overflow-hidden border border-gold/20 shrink-0">
-                            <Image
-                              src={connection.to.imageUrl}
-                              alt={connection.to.name}
-                              fill
-                              className="object-cover"
-                            />
-                          </div>
-                        ) : (
-                          <div className="w-8 h-8 rounded-full bg-gold/10 border border-gold/20 flex items-center justify-center shrink-0">
-                            <Sparkles className="h-4 w-4 text-gold" />
-                          </div>
-                        )}
-                        <div className="min-w-0">
-                          <p className="text-sm font-medium text-foreground truncate">
-                            {connection.to.name}
-                          </p>
-                          <Badge
-                            variant="outline"
-                            className={cn('text-[10px] px-1.5 py-0', getPantheonColor(connection.to.pantheonId))}
-                          >
-                            {getPantheonName(connection.to.pantheonId)}
-                          </Badge>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-                {crossPantheonConnections.length > 6 && (
-                  <p className="text-sm text-muted-foreground mt-4 text-center">
-                    And {crossPantheonConnections.length - 6} more connections...
+            {crossPantheonConnections.length > 0 &&
+              pantheonFilter === "all" && (
+                <div className="mb-10 p-6 rounded-xl bg-card/50 border border-gold/10">
+                  <div className="flex items-center gap-3 mb-4">
+                    <Users className="h-5 w-5 text-gold" />
+                    <h3 className="font-serif text-lg font-medium text-foreground">
+                      Cross-Pantheon Parallels
+                    </h3>
+                  </div>
+                  <p className="text-sm text-muted-foreground mb-4">
+                    These deities share similar roles across different
+                    mythological traditions
                   </p>
-                )}
-              </div>
-            )}
+                  <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+                    {crossPantheonConnections
+                      .slice(0, 6)
+                      .map((connection, index) => (
+                        <div
+                          key={`${connection.from.id}-${connection.to.id}-${index}`}
+                          className="flex items-center gap-3 p-3 rounded-lg bg-background/50 border border-border/50"
+                        >
+                          {/* From Deity */}
+                          <div className="flex items-center gap-2 flex-1 min-w-0">
+                            {connection.from.imageUrl ? (
+                              <div className="relative w-8 h-8 rounded-full overflow-hidden border border-gold/20 shrink-0">
+                                <Image
+                                  src={connection.from.imageUrl}
+                                  alt={connection.from.name}
+                                  fill
+                                  className="object-cover"
+                                />
+                              </div>
+                            ) : (
+                              <div className="w-8 h-8 rounded-full bg-gold/10 border border-gold/20 flex items-center justify-center shrink-0">
+                                <Sparkles className="h-4 w-4 text-gold" />
+                              </div>
+                            )}
+                            <div className="min-w-0">
+                              <p className="text-sm font-medium text-foreground truncate">
+                                {connection.from.name}
+                              </p>
+                              <Badge
+                                variant="outline"
+                                className={cn(
+                                  "text-[10px] px-1.5 py-0",
+                                  getPantheonColor(connection.from.pantheonId),
+                                )}
+                              >
+                                {getPantheonName(connection.from.pantheonId)}
+                              </Badge>
+                            </div>
+                          </div>
+
+                          {/* Arrow */}
+                          <ArrowRight className="h-4 w-4 text-gold/60 shrink-0 mx-1" />
+
+                          {/* To Deity */}
+                          <div className="flex items-center gap-2 flex-1 min-w-0">
+                            {connection.to.imageUrl ? (
+                              <div className="relative w-8 h-8 rounded-full overflow-hidden border border-gold/20 shrink-0">
+                                <Image
+                                  src={connection.to.imageUrl}
+                                  alt={connection.to.name}
+                                  fill
+                                  className="object-cover"
+                                />
+                              </div>
+                            ) : (
+                              <div className="w-8 h-8 rounded-full bg-gold/10 border border-gold/20 flex items-center justify-center shrink-0">
+                                <Sparkles className="h-4 w-4 text-gold" />
+                              </div>
+                            )}
+                            <div className="min-w-0">
+                              <p className="text-sm font-medium text-foreground truncate">
+                                {connection.to.name}
+                              </p>
+                              <Badge
+                                variant="outline"
+                                className={cn(
+                                  "text-[10px] px-1.5 py-0",
+                                  getPantheonColor(connection.to.pantheonId),
+                                )}
+                              >
+                                {getPantheonName(connection.to.pantheonId)}
+                              </Badge>
+                            </div>
+                          </div>
+                        </div>
+                      ))}
+                  </div>
+                  {crossPantheonConnections.length > 6 && (
+                    <p className="text-sm text-muted-foreground mt-4 text-center">
+                      And {crossPantheonConnections.length - 6} more
+                      connections...
+                    </p>
+                  )}
+                </div>
+              )}
 
             {/* Deity Grid */}
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {displayDeities.map(deity => (
+              {displayDeities.map((deity) => (
                 <DomainDeityCard
                   key={deity.id}
                   deity={deity}
@@ -394,14 +443,18 @@ export default function DivinDomainsPage() {
                 Browse Domains
               </h2>
               <p className="text-muted-foreground">
-                Select a domain above or click on a domain card below to see all deities who share that sphere of influence
+                Select a domain above or click on a domain card below to see all
+                deities who share that sphere of influence
               </p>
             </div>
 
             <div className="grid gap-6 grid-cols-2 sm:grid-cols-3 lg:grid-cols-4">
-              {PRIMARY_DOMAINS.map(domain => {
+              {PRIMARY_DOMAINS.map((domain) => {
                 const Icon = domain.icon;
-                const stats = domainStats[domain.id] || { count: 0, pantheons: new Set() };
+                const stats = domainStats[domain.id] || {
+                  count: 0,
+                  pantheons: new Set(),
+                };
                 const pantheonCount = stats.pantheons?.size || 0;
 
                 return (
@@ -410,33 +463,35 @@ export default function DivinDomainsPage() {
                     type="button"
                     className="text-left w-full"
                     onClick={() => setSelectedDomain(domain.id)}
-                    onKeyDown={e => {
-                      if (e.key === 'Enter' || e.key === ' ') {
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter" || e.key === " ") {
                         e.preventDefault();
                         setSelectedDomain(domain.id);
                       }
                     }}
                   >
-                  <Card
-                    className="group cursor-pointer card-elevated bg-card hover:scale-[1.02] transition-all duration-300"
-                  >
-                    <CardContent className="p-6 flex flex-col items-center text-center">
-                      <div className="p-3 rounded-xl bg-gold/10 border border-gold/20 group-hover:bg-gold/15 transition-colors duration-300 mb-4">
-                        <Icon className="h-6 w-6 text-gold" strokeWidth={1.5} />
-                      </div>
-                      <h3 className="font-serif text-lg font-medium text-foreground group-hover:text-gold transition-colors duration-300">
-                        {domain.label}
-                      </h3>
-                      <p className="text-sm text-muted-foreground mt-1">
-                        {stats.count} {stats.count === 1 ? 'deity' : 'deities'}
-                      </p>
-                      {pantheonCount > 1 && (
-                        <p className="text-xs text-muted-foreground/70 mt-1">
-                          {pantheonCount} pantheons
+                    <Card className="group cursor-pointer card-elevated bg-card hover:scale-[1.02] transition-all duration-300">
+                      <CardContent className="p-6 flex flex-col items-center text-center">
+                        <div className="p-3 rounded-xl bg-gold/10 border border-gold/20 group-hover:bg-gold/15 transition-colors duration-300 mb-4">
+                          <Icon
+                            className="h-6 w-6 text-gold"
+                            strokeWidth={1.5}
+                          />
+                        </div>
+                        <h3 className="font-serif text-lg font-medium text-foreground group-hover:text-gold transition-colors duration-300">
+                          {domain.label}
+                        </h3>
+                        <p className="text-sm text-muted-foreground mt-1">
+                          {stats.count}{" "}
+                          {stats.count === 1 ? "deity" : "deities"}
                         </p>
-                      )}
-                    </CardContent>
-                  </Card>
+                        {pantheonCount > 1 && (
+                          <p className="text-xs text-muted-foreground/70 mt-1">
+                            {pantheonCount} pantheons
+                          </p>
+                        )}
+                      </CardContent>
+                    </Card>
                   </button>
                 );
               })}
@@ -449,8 +504,8 @@ export default function DivinDomainsPage() {
               </h3>
               <div className="flex flex-wrap gap-2">
                 {allDomains
-                  .filter(d => !PRIMARY_DOMAINS.some(pd => pd.id === d))
-                  .map(domain => {
+                  .filter((d) => !PRIMARY_DOMAINS.some((pd) => pd.id === d))
+                  .map((domain) => {
                     const stats = domainStats[domain] || { count: 0 };
                     return (
                       <button

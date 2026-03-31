@@ -5,22 +5,17 @@ import { ComparisonSelector } from "@/components/compare/ComparisonSelector";
 import { ComparisonTable } from "@/components/compare/ComparisonTable";
 import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
 import { Button } from "@/components/ui/button";
-import { graphqlClient } from "@/lib/graphql-client";
-import { GET_PANTHEONS } from "@/lib/queries";
-import { useQuery } from "@tanstack/react-query";
-import {
-  BookOpen,
-  Check,
-  Loader2,
-  Scale,
-  Share2,
-  Sparkles,
-} from "lucide-react";
+import deitiesData from "@/data/deities.json";
+import pantheonsData from "@/data/pantheons.json";
+import { BookOpen, Check, Scale, Share2, Sparkles } from "lucide-react";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useCallback, useEffect, useMemo, useState } from "react";
+
+const HERO_IMAGE_WIDTH = 1920;
+const HERO_IMAGE_HEIGHT = 1080;
 
 interface Pantheon {
   id: string;
@@ -71,54 +66,8 @@ export default function ComparePage() {
     "idle",
   );
 
-  // Fetch deities
-  const {
-    data: deitiesData,
-    isLoading: deitiesLoading,
-    error: deitiesError,
-  } = useQuery<{ deities: Deity[] }>({
-    queryKey: ["deities-compare"],
-    queryFn: async () => {
-      const query = `
-        query GetDeitiesForCompare {
-          deities {
-            id
-            name
-            slug
-            pantheonId
-            gender
-            domain
-            symbols
-            description
-            importanceRank
-            imageUrl
-            alternateNames
-            crossPantheonParallels {
-              pantheonId
-              deityId
-              note
-            }
-          }
-        }
-      `;
-      return graphqlClient.request(query);
-    },
-  });
-
-  // Fetch pantheons
-  const { data: pantheonsData } = useQuery<{ pantheons: Pantheon[] }>({
-    queryKey: ["pantheons"],
-    queryFn: async () => graphqlClient.request(GET_PANTHEONS),
-  });
-
-  const allDeities = useMemo(
-    () => deitiesData?.deities ?? [],
-    [deitiesData?.deities],
-  );
-  const pantheons = useMemo(
-    () => pantheonsData?.pantheons ?? [],
-    [pantheonsData?.pantheons],
-  );
+  const allDeities = deitiesData as Deity[];
+  const pantheons = pantheonsData as Pantheon[];
 
   // Create a map for quick deity lookup
   const deityMap = useMemo(() => {
@@ -221,31 +170,6 @@ export default function ComparePage() {
     shareLabel = t("copyFailed");
   }
 
-  if (deitiesLoading) {
-    return (
-      <div className="container mx-auto max-w-6xl px-4 py-24 flex items-center justify-center">
-        <Loader2 className="h-8 w-8 animate-spin text-primary" />
-      </div>
-    );
-  }
-
-  if (deitiesError) {
-    return (
-      <div className="container mx-auto max-w-6xl px-4 py-24">
-        <div className="text-center">
-          <h2 className="text-2xl font-bold text-destructive">
-            {t("errorLoadingDeities")}
-          </h2>
-          <p className="text-muted-foreground mt-2">
-            {deitiesError instanceof Error
-              ? deitiesError.message
-              : t("errorOccurred")}
-          </p>
-        </div>
-      </div>
-    );
-  }
-
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
@@ -253,10 +177,12 @@ export default function ComparePage() {
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <Image
-            src="/deities-list-hero.png"
+            src="/deities-list-hero.jpg"
             alt="Compare Deities"
-            fill
-            className="object-cover"
+            width={HERO_IMAGE_WIDTH}
+            height={HERO_IMAGE_HEIGHT}
+            sizes="100vw"
+            className="h-full w-full object-cover"
             priority
           />
         </div>
@@ -339,6 +265,43 @@ export default function ComparePage() {
             </Button>
           </div>
         </div>
+
+        <section className="mb-10 rounded-2xl border border-border/60 bg-card/50 p-6">
+          <h2 className="font-serif text-2xl font-semibold mb-3">
+            Compare Roles, Symbols, and Overlaps
+          </h2>
+          <p className="text-muted-foreground leading-relaxed">
+            This comparison view is designed for cross-reading. Pick deities
+            from one culture or mix figures across multiple pantheons to see
+            where their roles align, where their symbols diverge, and which
+            attributes were shared across ancient traditions.
+          </p>
+          <p className="mt-3 text-muted-foreground leading-relaxed">
+            The most useful comparisons often pair a well-known deity with a
+            less familiar counterpart. That makes it easier to spot patterns in
+            rulership, war, love, fertility, the underworld, and celestial
+            authority without flattening the myths into one generic archetype.
+          </p>
+          <p className="mt-3 text-muted-foreground leading-relaxed">
+            Once you have a comparison on screen, use it as a launch point into
+            stories, source excerpts, and pantheon pages. The strongest matches
+            are often the ones that look similar at first glance but diverge in
+            mythic function once you read the surrounding narratives.
+          </p>
+          <p className="mt-3 text-muted-foreground leading-relaxed">
+            You can also use this tool as a reading guide. Compare first to
+            frame the question, then move outward into the original myths and
+            supporting pages to see how each culture defines sovereignty,
+            kinship, justice, fate, or divine power on its own terms.
+          </p>
+          <p className="mt-3 text-muted-foreground leading-relaxed">
+            When a comparison feels especially close, check the linked pantheon
+            context before calling two figures equivalents. Shared domains often
+            hide major differences in ritual role, moral character, or place in
+            the larger cosmology, and those differences are usually where the
+            most interesting reading begins.
+          </p>
+        </section>
 
         {/* Deity Selector */}
         <div className="mb-12">

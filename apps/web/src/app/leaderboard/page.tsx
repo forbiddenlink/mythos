@@ -80,12 +80,88 @@ export default function LeaderboardPage() {
     }
   }, [leaderboardContext?.currentEntry]);
 
+  const introSection = (
+    <section className="rounded-2xl border border-border/60 bg-card/60 p-6">
+      <h2 className="font-serif text-2xl font-semibold text-foreground">
+        Track Progress Beyond One Session
+      </h2>
+      <p className="mt-3 leading-relaxed text-muted-foreground">
+        The stats page is less about competition than continuity. It gives you a
+        compact record of how often you return, how much mythology material you
+        have retained, and where your strongest progress is building across
+        quizzes, streaks, and achievements.
+      </p>
+      <p className="mt-3 leading-relaxed text-muted-foreground">
+        Use it as a personal dashboard after reading or review sessions. A
+        rising streak, improving quiz score, or steady XP total makes it easier
+        to see whether your study habits are broad, consistent, and actually
+        compounding over time.
+      </p>
+      <p className="mt-3 leading-relaxed text-muted-foreground">
+        If you want to move those numbers deliberately, rotate between the{" "}
+        <a href="/review" className="text-gold underline hover:text-gold/80">
+          daily review
+        </a>
+        ,{" "}
+        <a href="/quiz" className="text-gold underline hover:text-gold/80">
+          quiz hub
+        </a>
+        , and{" "}
+        <a href="/games" className="text-gold underline hover:text-gold/80">
+          practice games
+        </a>
+        . The profile becomes more meaningful when it reflects a repeatable
+        study pattern rather than isolated visits.
+      </p>
+      <p className="mt-3 leading-relaxed text-muted-foreground">
+        Rankings are only one lens. The more practical use is trend spotting:
+        whether you are returning consistently, whether quiz performance is
+        improving, and whether new achievements reflect broader exploration
+        instead of the same narrow loop.
+      </p>
+      <p className="mt-3 leading-relaxed text-muted-foreground">
+        Seen over time, those signals can tell you whether your mythology study
+        is balanced. Someone may have a large XP total but weak quiz accuracy,
+        or a strong streak but shallow exploration. Looking at the categories
+        together gives a more honest picture than any single number.
+      </p>
+      <p className="mt-3 leading-relaxed text-muted-foreground">
+        That is why this page works best when paired with regular reading,
+        review, and short recall sessions. It does not just celebrate progress;
+        it helps you decide what kind of session to do next if you want your
+        profile to reflect deeper knowledge instead of surface activity.
+      </p>
+      <p className="mt-3 leading-relaxed text-muted-foreground">
+        In practice, the most valuable pattern is consistency. A modest but
+        steady rhythm of reading, review, and quizzes usually produces a better
+        profile than occasional bursts of activity, and the dashboard makes that
+        difference visible over time.
+      </p>
+    </section>
+  );
+
   if (!mounted || !leaderboardContext || !progressContext) {
     return (
-      <div className="container mx-auto max-w-4xl px-4 py-16">
-        <div className="animate-pulse space-y-8">
-          <div className="h-8 bg-muted rounded w-48" />
-          <div className="h-64 bg-muted rounded" />
+      <div className="min-h-screen">
+        <div className="relative py-16 bg-linear-to-b from-midnight/30 to-background">
+          <div className="container mx-auto max-w-4xl px-4">
+            <Breadcrumbs />
+            <div className="mt-6 mb-4">
+              <h1 className="font-serif text-4xl font-semibold text-foreground">
+                Your Stats
+              </h1>
+              <p className="text-muted-foreground mt-1">
+                Track your personal mythology exploration progress
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div className="container mx-auto max-w-4xl px-4 py-8">
+          <div className="animate-pulse space-y-8">
+            {introSection}
+            <div className="h-64 bg-muted rounded" />
+          </div>
         </div>
       </div>
     );
@@ -136,6 +212,8 @@ export default function LeaderboardPage() {
       {/* Content */}
       <div className="container mx-auto max-w-4xl px-4 py-8">
         <div className="space-y-8">
+          {introSection}
+
           {/* Your Stats Card */}
           <Card className="border-gold/20">
             <CardHeader>

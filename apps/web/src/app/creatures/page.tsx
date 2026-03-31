@@ -1,9 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { useQuery } from "@tanstack/react-query";
-import { graphqlClient } from "@/lib/graphql-client";
-import { GET_CREATURES } from "@/lib/queries";
 import {
   Card,
   CardContent,
@@ -19,10 +16,7 @@ import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
 import { Badge } from "@/components/ui/badge";
 import { CollectionPageJsonLd } from "@/components/seo/JsonLd";
 import { PageHero } from "@/components/layout/page-hero";
-import {
-  PageHeaderSkeleton,
-  GridSkeleton,
-} from "@/components/ui/skeleton-cards";
+import creaturesData from "@/data/creatures.json";
 
 interface Creature {
   id: string;
@@ -45,41 +39,7 @@ function getDangerBadgeClass(dangerLevel: number): string {
 
 export default function CreaturesPage() {
   const [viewMode, setViewMode] = useState<"grid" | "table">("grid");
-
-  const { data, isLoading, error } = useQuery<{ creatures: Creature[] }>({
-    queryKey: ["creatures"],
-    queryFn: async () => graphqlClient.request(GET_CREATURES),
-  });
-
-  if (isLoading) {
-    return (
-      <div className="min-h-screen">
-        <h1 className="sr-only">Creatures and Monsters</h1>
-        <PageHeaderSkeleton />
-        <div className="container mx-auto max-w-6xl px-4 py-16">
-          <GridSkeleton count={6} columns={3} />
-        </div>
-      </div>
-    );
-  }
-
-  if (error) {
-    return (
-      <div className="container mx-auto max-w-6xl px-4 py-24">
-        <h1 className="sr-only">Creatures and Monsters</h1>
-        <div className="text-center">
-          <h2 className="text-2xl font-bold text-destructive">
-            Error loading creatures
-          </h2>
-          <p className="text-muted-foreground mt-2">
-            {error instanceof Error ? error.message : "An error occurred"}
-          </p>
-        </div>
-      </div>
-    );
-  }
-
-  const creatures = data?.creatures || [];
+  const creatures = creaturesData as Creature[];
 
   return (
     <div className="min-h-screen">
@@ -100,8 +60,22 @@ export default function CreaturesPage() {
 
       {/* Content Section */}
       <div className="container mx-auto max-w-6xl px-4 py-16">
-        <div className="flex items-center justify-between mb-8">
-          <Breadcrumbs />
+        <Breadcrumbs />
+        <section className="mt-6 rounded-2xl border border-border/60 bg-card/60 p-6 shadow-sm">
+          <h2 className="font-serif text-2xl text-foreground">
+            Track Habitat, Threat, And Motif
+          </h2>
+          <p className="mt-3 max-w-4xl text-sm leading-7 text-muted-foreground">
+            Mythological creatures often repeat the same narrative jobs across
+            cultures: guarding thresholds, testing heroes, embodying chaos, or
+            enforcing divine punishment. Use the grid view when you want quick
+            visual recognition, then switch to the table when you want to scan
+            habitats, danger levels, and recurring creature types side by side.
+            The detailed entries connect each beast back to the myths and
+            deities that give it meaning.
+          </p>
+        </section>
+        <div className="mt-8 flex items-center justify-between">
           <div className="flex items-center gap-2">
             <Button
               variant={viewMode === "grid" ? "default" : "outline"}
@@ -203,7 +177,7 @@ export default function CreaturesPage() {
           </div>
         ) : (
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {creatures.map((creature) => (
+            {creatures.map((creature, index) => (
               <Link
                 key={creature.id}
                 href={`/creatures/${creature.slug}`}
@@ -216,12 +190,15 @@ export default function CreaturesPage() {
                   <CardHeader>
                     <div className="flex items-start justify-between">
                       {creature.imageUrl ? (
-                        <div className="relative w-16 h-16 rounded-xl overflow-hidden border border-red-500/20 shadow-sm">
+                        <div className="rounded-xl overflow-hidden border border-red-500/20 shadow-sm">
                           <Image
                             src={creature.imageUrl}
                             alt={creature.name}
-                            fill
-                            className="object-cover"
+                            width={64}
+                            height={64}
+                            sizes="64px"
+                            priority={index < 3}
+                            className="h-16 w-16 object-cover"
                           />
                         </div>
                       ) : (

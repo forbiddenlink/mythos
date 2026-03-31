@@ -1,13 +1,13 @@
-'use client';
+"use client";
 
-import { useState, useCallback } from 'react';
-import { useSearchParams } from 'next/navigation';
-import Link from 'next/link';
-import Image from 'next/image';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
-import { Progress } from '@/components/ui/progress';
+import { useState, useCallback } from "react";
+import { useSearchParams } from "next/navigation";
+import Link from "next/link";
+import Image from "next/image";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { Progress } from "@/components/ui/progress";
 import {
   Sparkles,
   RefreshCw,
@@ -28,20 +28,20 @@ import {
   Eye,
   Shield,
   Wind,
-} from 'lucide-react';
+} from "lucide-react";
 
 // Deity archetypes with scoring categories
 type DeityArchetype =
-  | 'wisdom'
-  | 'power'
-  | 'sea'
-  | 'war'
-  | 'love'
-  | 'knowledge'
-  | 'hunt'
-  | 'craft'
-  | 'trickery'
-  | 'underworld';
+  | "wisdom"
+  | "power"
+  | "sea"
+  | "war"
+  | "love"
+  | "knowledge"
+  | "hunt"
+  | "craft"
+  | "trickery"
+  | "underworld";
 
 interface DeityResult {
   name: string;
@@ -67,25 +67,25 @@ interface Question {
 const QUESTIONS: Question[] = [
   {
     id: 1,
-    question: 'How do you prefer to solve problems?',
+    question: "How do you prefer to solve problems?",
     options: [
       {
-        text: 'Through careful planning and strategy',
+        text: "Through careful planning and strategy",
         scores: { wisdom: 3, knowledge: 1 },
         icon: <Eye className="h-5 w-5" />,
       },
       {
-        text: 'With decisive action and strength',
+        text: "With decisive action and strength",
         scores: { power: 3, war: 1 },
         icon: <Zap className="h-5 w-5" />,
       },
       {
-        text: 'By adapting and going with the flow',
+        text: "By adapting and going with the flow",
         scores: { sea: 2, trickery: 2 },
         icon: <Waves className="h-5 w-5" />,
       },
       {
-        text: 'Through charm and persuasion',
+        text: "Through charm and persuasion",
         scores: { love: 3, trickery: 1 },
         icon: <Heart className="h-5 w-5" />,
       },
@@ -96,22 +96,22 @@ const QUESTIONS: Question[] = [
     question: "What's your ideal environment?",
     options: [
       {
-        text: 'High places with commanding views',
+        text: "High places with commanding views",
         scores: { power: 3, knowledge: 1 },
         icon: <Mountain className="h-5 w-5" />,
       },
       {
-        text: 'Near water - oceans, rivers, or lakes',
+        text: "Near water - oceans, rivers, or lakes",
         scores: { sea: 3, hunt: 1 },
         icon: <Waves className="h-5 w-5" />,
       },
       {
-        text: 'Wild forests and untamed nature',
+        text: "Wild forests and untamed nature",
         scores: { hunt: 3, wisdom: 1 },
         icon: <Feather className="h-5 w-5" />,
       },
       {
-        text: 'A workshop or creative space',
+        text: "A workshop or creative space",
         scores: { craft: 3, knowledge: 1 },
         icon: <Flame className="h-5 w-5" />,
       },
@@ -119,25 +119,25 @@ const QUESTIONS: Question[] = [
   },
   {
     id: 3,
-    question: 'How do you handle conflict?',
+    question: "How do you handle conflict?",
     options: [
       {
-        text: 'Face it head-on with courage',
+        text: "Face it head-on with courage",
         scores: { war: 3, power: 1 },
         icon: <Sword className="h-5 w-5" />,
       },
       {
-        text: 'Outthink and outmaneuver opponents',
+        text: "Outthink and outmaneuver opponents",
         scores: { wisdom: 2, trickery: 2 },
         icon: <Eye className="h-5 w-5" />,
       },
       {
-        text: 'Find common ground and harmony',
+        text: "Find common ground and harmony",
         scores: { love: 3, sea: 1 },
         icon: <Heart className="h-5 w-5" />,
       },
       {
-        text: 'Wait patiently for the right moment',
+        text: "Wait patiently for the right moment",
         scores: { underworld: 3, hunt: 1 },
         icon: <Moon className="h-5 w-5" />,
       },
@@ -145,25 +145,25 @@ const QUESTIONS: Question[] = [
   },
   {
     id: 4,
-    question: 'What matters most to you?',
+    question: "What matters most to you?",
     options: [
       {
-        text: 'Justice and fairness',
+        text: "Justice and fairness",
         scores: { wisdom: 2, underworld: 2 },
         icon: <Shield className="h-5 w-5" />,
       },
       {
-        text: 'Love and connection',
+        text: "Love and connection",
         scores: { love: 3, sea: 1 },
         icon: <Heart className="h-5 w-5" />,
       },
       {
-        text: 'Knowledge and truth',
+        text: "Knowledge and truth",
         scores: { knowledge: 3, wisdom: 1 },
         icon: <Sun className="h-5 w-5" />,
       },
       {
-        text: 'Power and influence',
+        text: "Power and influence",
         scores: { power: 3, war: 1 },
         icon: <Crown className="h-5 w-5" />,
       },
@@ -171,25 +171,25 @@ const QUESTIONS: Question[] = [
   },
   {
     id: 5,
-    question: 'Pick a symbol that resonates with you.',
+    question: "Pick a symbol that resonates with you.",
     options: [
       {
-        text: 'Lightning bolt',
+        text: "Lightning bolt",
         scores: { power: 3, war: 1 },
         icon: <Zap className="h-5 w-5" />,
       },
       {
-        text: 'Owl',
+        text: "Owl",
         scores: { wisdom: 3, hunt: 1 },
         icon: <Eye className="h-5 w-5" />,
       },
       {
-        text: 'Rose',
+        text: "Rose",
         scores: { love: 3, craft: 1 },
         icon: <Heart className="h-5 w-5" />,
       },
       {
-        text: 'Lyre',
+        text: "Lyre",
         scores: { knowledge: 3, love: 1 },
         icon: <Sun className="h-5 w-5" />,
       },
@@ -200,22 +200,22 @@ const QUESTIONS: Question[] = [
     question: "What's your greatest strength?",
     options: [
       {
-        text: 'My intellect and strategic mind',
+        text: "My intellect and strategic mind",
         scores: { wisdom: 3, knowledge: 1 },
         icon: <Eye className="h-5 w-5" />,
       },
       {
-        text: 'My creativity and artistic vision',
+        text: "My creativity and artistic vision",
         scores: { craft: 2, knowledge: 2 },
         icon: <Sparkles className="h-5 w-5" />,
       },
       {
-        text: 'My determination and willpower',
+        text: "My determination and willpower",
         scores: { war: 2, hunt: 2 },
         icon: <Flame className="h-5 w-5" />,
       },
       {
-        text: 'My ability to connect with others',
+        text: "My ability to connect with others",
         scores: { love: 2, trickery: 2 },
         icon: <Heart className="h-5 w-5" />,
       },
@@ -226,22 +226,22 @@ const QUESTIONS: Question[] = [
     question: "What's your biggest weakness?",
     options: [
       {
-        text: 'I can be too proud or stubborn',
+        text: "I can be too proud or stubborn",
         scores: { power: 2, war: 2 },
         icon: <Crown className="h-5 w-5" />,
       },
       {
-        text: 'I sometimes overthink things',
+        text: "I sometimes overthink things",
         scores: { wisdom: 2, knowledge: 2 },
         icon: <Eye className="h-5 w-5" />,
       },
       {
-        text: 'I can be impulsive or emotional',
+        text: "I can be impulsive or emotional",
         scores: { sea: 2, love: 2 },
         icon: <Waves className="h-5 w-5" />,
       },
       {
-        text: 'I prefer solitude over company',
+        text: "I prefer solitude over company",
         scores: { hunt: 2, underworld: 2 },
         icon: <Moon className="h-5 w-5" />,
       },
@@ -249,25 +249,25 @@ const QUESTIONS: Question[] = [
   },
   {
     id: 8,
-    question: 'How do you want to be remembered?',
+    question: "How do you want to be remembered?",
     options: [
       {
-        text: 'As someone who achieved greatness',
+        text: "As someone who achieved greatness",
         scores: { power: 3, war: 1 },
         icon: <Crown className="h-5 w-5" />,
       },
       {
-        text: 'As someone who helped others',
+        text: "As someone who helped others",
         scores: { love: 2, craft: 2 },
         icon: <Heart className="h-5 w-5" />,
       },
       {
-        text: 'As someone who sought truth',
+        text: "As someone who sought truth",
         scores: { knowledge: 2, wisdom: 2 },
         icon: <Sun className="h-5 w-5" />,
       },
       {
-        text: 'As someone who lived freely',
+        text: "As someone who lived freely",
         scores: { hunt: 2, trickery: 2 },
         icon: <Wind className="h-5 w-5" />,
       },
@@ -277,123 +277,123 @@ const QUESTIONS: Question[] = [
 
 const DEITY_RESULTS: Record<DeityArchetype, DeityResult> = {
   wisdom: {
-    name: 'Athena',
-    title: 'Goddess of Wisdom and Strategy',
+    name: "Athena",
+    title: "Goddess of Wisdom and Strategy",
     description:
-      'You possess a sharp mind and excel at planning. Like Athena, you approach challenges with logic and foresight, preferring to outthink rather than overpower your opponents.',
+      "You possess a sharp mind and excel at planning. Like Athena, you approach challenges with logic and foresight, preferring to outthink rather than overpower your opponents.",
     whyMatch:
-      'Your answers reveal a strategic thinker who values intellect, justice, and careful planning. You likely excel in situations requiring analysis and long-term thinking.',
-    imageUrl: '/deities/athena.png',
-    slug: 'athena',
-    pantheon: 'Greek',
+      "Your answers reveal a strategic thinker who values intellect, justice, and careful planning. You likely excel in situations requiring analysis and long-term thinking.",
+    imageUrl: "/deities/athena.png",
+    slug: "athena",
+    pantheon: "Greek",
     icon: <Eye className="h-8 w-8" />,
   },
   power: {
-    name: 'Zeus',
-    title: 'King of the Gods',
+    name: "Zeus",
+    title: "King of the Gods",
     description:
-      'You are a natural leader with commanding presence. Like Zeus, you take charge of situations and inspire others to follow. Your ambition drives you toward greatness.',
+      "You are a natural leader with commanding presence. Like Zeus, you take charge of situations and inspire others to follow. Your ambition drives you toward greatness.",
     whyMatch:
-      'Your answers show someone who values authority, achievement, and making an impact. You are drawn to positions of influence and responsibility.',
-    imageUrl: '/deities/zeus.png',
-    slug: 'zeus',
-    pantheon: 'Greek',
+      "Your answers show someone who values authority, achievement, and making an impact. You are drawn to positions of influence and responsibility.",
+    imageUrl: "/deities/zeus.png",
+    slug: "zeus",
+    pantheon: "Greek",
     icon: <Zap className="h-8 w-8" />,
   },
   sea: {
-    name: 'Poseidon',
-    title: 'God of the Sea',
+    name: "Poseidon",
+    title: "God of the Sea",
     description:
-      'You are deeply emotional and adaptable, like the ever-changing ocean. Like Poseidon, you can be calm and nurturing or fierce and unstoppable when provoked.',
+      "You are deeply emotional and adaptable, like the ever-changing ocean. Like Poseidon, you can be calm and nurturing or fierce and unstoppable when provoked.",
     whyMatch:
-      'Your answers reveal someone who values emotional depth and flexibility. You adapt to circumstances while maintaining your core strength.',
-    imageUrl: '/deities/poseidon.png',
-    slug: 'poseidon',
-    pantheon: 'Greek',
+      "Your answers reveal someone who values emotional depth and flexibility. You adapt to circumstances while maintaining your core strength.",
+    imageUrl: "/deities/poseidon.png",
+    slug: "poseidon",
+    pantheon: "Greek",
     icon: <Waves className="h-8 w-8" />,
   },
   war: {
-    name: 'Ares',
-    title: 'God of War',
+    name: "Ares",
+    title: "God of War",
     description:
-      'You are bold, courageous, and unafraid of confrontation. Like Ares, you face challenges directly and possess unwavering determination in pursuit of your goals.',
+      "You are bold, courageous, and unafraid of confrontation. Like Ares, you face challenges directly and possess unwavering determination in pursuit of your goals.",
     whyMatch:
-      'Your answers show someone with fighting spirit and courage. You do not shy away from conflict and prefer direct action over hesitation.',
-    imageUrl: '/deities/ares.png',
-    slug: 'ares',
-    pantheon: 'Greek',
+      "Your answers show someone with fighting spirit and courage. You do not shy away from conflict and prefer direct action over hesitation.",
+    imageUrl: "/deities/ares.png",
+    slug: "ares",
+    pantheon: "Greek",
     icon: <Sword className="h-8 w-8" />,
   },
   love: {
-    name: 'Aphrodite',
-    title: 'Goddess of Love and Beauty',
+    name: "Aphrodite",
+    title: "Goddess of Love and Beauty",
     description:
-      'You have a gift for connecting with others and creating harmony. Like Aphrodite, you value relationships, beauty, and the power of emotional bonds.',
+      "You have a gift for connecting with others and creating harmony. Like Aphrodite, you value relationships, beauty, and the power of emotional bonds.",
     whyMatch:
-      'Your answers reveal someone who prioritizes connection and harmony. You understand the importance of love and use charm to navigate the world.',
-    imageUrl: '/deities/aphrodite.png',
-    slug: 'aphrodite',
-    pantheon: 'Greek',
+      "Your answers reveal someone who prioritizes connection and harmony. You understand the importance of love and use charm to navigate the world.",
+    imageUrl: "/deities/aphrodite.png",
+    slug: "aphrodite",
+    pantheon: "Greek",
     icon: <Heart className="h-8 w-8" />,
   },
   knowledge: {
-    name: 'Apollo',
-    title: 'God of Light and Knowledge',
+    name: "Apollo",
+    title: "God of Light and Knowledge",
     description:
-      'You seek truth, beauty, and enlightenment. Like Apollo, you have artistic sensibilities and a desire to bring light and understanding to the world around you.',
+      "You seek truth, beauty, and enlightenment. Like Apollo, you have artistic sensibilities and a desire to bring light and understanding to the world around you.",
     whyMatch:
-      'Your answers show someone drawn to truth and artistic expression. You value knowledge not just for its own sake, but as a path to greater understanding.',
-    imageUrl: '/deities/apollo.png',
-    slug: 'apollo',
-    pantheon: 'Greek',
+      "Your answers show someone drawn to truth and artistic expression. You value knowledge not just for its own sake, but as a path to greater understanding.",
+    imageUrl: "/deities/apollo.png",
+    slug: "apollo",
+    pantheon: "Greek",
     icon: <Sun className="h-8 w-8" />,
   },
   hunt: {
-    name: 'Artemis',
-    title: 'Goddess of the Hunt',
+    name: "Artemis",
+    title: "Goddess of the Hunt",
     description:
-      'You value independence and have a deep connection to nature. Like Artemis, you are fiercely protective of those you care about while cherishing your freedom.',
+      "You value independence and have a deep connection to nature. Like Artemis, you are fiercely protective of those you care about while cherishing your freedom.",
     whyMatch:
-      'Your answers reveal someone who values autonomy and the natural world. You are patient, focused, and prefer to forge your own path.',
-    imageUrl: '/deities/artemis.png',
-    slug: 'artemis',
-    pantheon: 'Greek',
+      "Your answers reveal someone who values autonomy and the natural world. You are patient, focused, and prefer to forge your own path.",
+    imageUrl: "/deities/artemis.png",
+    slug: "artemis",
+    pantheon: "Greek",
     icon: <Moon className="h-8 w-8" />,
   },
   craft: {
-    name: 'Hephaestus',
-    title: 'God of the Forge',
+    name: "Hephaestus",
+    title: "God of the Forge",
     description:
-      'You are a creator and maker, finding joy in building and crafting. Like Hephaestus, you have patience and skill to bring your visions to life through dedicated work.',
+      "You are a creator and maker, finding joy in building and crafting. Like Hephaestus, you have patience and skill to bring your visions to life through dedicated work.",
     whyMatch:
-      'Your answers show someone who values creation and craftsmanship. You find fulfillment in making things and solving practical problems.',
-    imageUrl: '/deities/hephaestus.png',
-    slug: 'hephaestus',
-    pantheon: 'Greek',
+      "Your answers show someone who values creation and craftsmanship. You find fulfillment in making things and solving practical problems.",
+    imageUrl: "/deities/hephaestus.png",
+    slug: "hephaestus",
+    pantheon: "Greek",
     icon: <Flame className="h-8 w-8" />,
   },
   trickery: {
-    name: 'Hermes',
-    title: 'Messenger of the Gods',
+    name: "Hermes",
+    title: "Messenger of the Gods",
     description:
-      'You are quick-witted, adaptable, and excellent at communication. Like Hermes, you move easily between different worlds and can talk your way through any situation.',
+      "You are quick-witted, adaptable, and excellent at communication. Like Hermes, you move easily between different worlds and can talk your way through any situation.",
     whyMatch:
-      'Your answers reveal someone with versatility and cleverness. You are resourceful and know how to navigate complex social situations.',
-    imageUrl: '/deities/hermes.png',
-    slug: 'hermes',
-    pantheon: 'Greek',
+      "Your answers reveal someone with versatility and cleverness. You are resourceful and know how to navigate complex social situations.",
+    imageUrl: "/deities/hermes.png",
+    slug: "hermes",
+    pantheon: "Greek",
     icon: <Wind className="h-8 w-8" />,
   },
   underworld: {
-    name: 'Hades',
-    title: 'Lord of the Underworld',
+    name: "Hades",
+    title: "Lord of the Underworld",
     description:
-      'You are patient, fair, and comfortable with life complexities. Like Hades, you understand that true wealth lies beneath the surface and value depth over appearances.',
+      "You are patient, fair, and comfortable with life complexities. Like Hades, you understand that true wealth lies beneath the surface and value depth over appearances.",
     whyMatch:
-      'Your answers show someone who is introspective and values justice. You are comfortable with solitude and understand the importance of patience.',
-    imageUrl: '/deities/hades.png',
-    slug: 'hades',
-    pantheon: 'Greek',
+      "Your answers show someone who is introspective and values justice. You are comfortable with solitude and understand the importance of patience.",
+    imageUrl: "/deities/hades.png",
+    slug: "hades",
+    pantheon: "Greek",
     icon: <Crown className="h-8 w-8" />,
   },
 };
@@ -417,7 +417,7 @@ export function PersonalityQuiz() {
   const [copied, setCopied] = useState(false);
 
   // Check for shared results in URL
-  const sharedDeity = searchParams.get('result') as DeityArchetype | null;
+  const sharedDeity = searchParams.get("result") as DeityArchetype | null;
   const isSharedResult = sharedDeity !== null && DEITY_RESULTS[sharedDeity];
 
   const handleAnswerSelect = useCallback(
@@ -436,21 +436,29 @@ export function PersonalityQuiz() {
         setQuizCompleted(true);
       }
     },
-    [currentQuestion]
+    [currentQuestion],
   );
 
   const getResult = useCallback((): DeityResult => {
-    const maxArchetype = Object.entries(scores).reduce((max, [archetype, score]) =>
-      score > max.score ? { archetype: archetype as DeityArchetype, score } : max
-    , { archetype: 'wisdom' as DeityArchetype, score: -1 });
+    const maxArchetype = Object.entries(scores).reduce(
+      (max, [archetype, score]) =>
+        score > max.score
+          ? { archetype: archetype as DeityArchetype, score }
+          : max,
+      { archetype: "wisdom" as DeityArchetype, score: -1 },
+    );
 
     return DEITY_RESULTS[maxArchetype.archetype];
   }, [scores]);
 
   const getResultArchetype = useCallback((): DeityArchetype => {
-    const maxArchetype = Object.entries(scores).reduce((max, [archetype, score]) =>
-      score > max.score ? { archetype: archetype as DeityArchetype, score } : max
-    , { archetype: 'wisdom' as DeityArchetype, score: -1 });
+    const maxArchetype = Object.entries(scores).reduce(
+      (max, [archetype, score]) =>
+        score > max.score
+          ? { archetype: archetype as DeityArchetype, score }
+          : max,
+      { archetype: "wisdom" as DeityArchetype, score: -1 },
+    );
 
     return maxArchetype.archetype;
   }, [scores]);
@@ -508,14 +516,19 @@ export function PersonalityQuiz() {
         <div className="absolute inset-0 bg-linear-to-br from-gold/5 via-transparent to-transparent pointer-events-none" />
         <CardHeader className="text-center pt-8">
           <div className="mx-auto mb-4 p-2 rounded-full bg-gold/10 w-fit">
-            <Badge variant="secondary" className="text-xs uppercase tracking-wider">
+            <Badge
+              variant="secondary"
+              className="text-xs uppercase tracking-wider"
+            >
               Shared Result
             </Badge>
           </div>
           <div className="mx-auto mb-6 p-6 rounded-full bg-linear-to-br from-gold/20 to-amber-500/10 w-fit ring-1 ring-gold/30 shadow-inner text-gold">
             {deity.icon}
           </div>
-          <CardTitle className="text-3xl font-serif">Someone got {deity.name}!</CardTitle>
+          <CardTitle className="text-3xl font-serif">
+            Someone got {deity.name}!
+          </CardTitle>
         </CardHeader>
         <CardContent className="space-y-6 pb-8">
           <div className="text-center">
@@ -523,10 +536,14 @@ export function PersonalityQuiz() {
             <p className="text-lg text-muted-foreground">{deity.title}</p>
           </div>
 
-          <p className="text-center text-muted-foreground">{deity.description}</p>
+          <p className="text-center text-muted-foreground">
+            {deity.description}
+          </p>
 
           <div className="text-center max-w-sm mx-auto">
-            <p className="text-lg">Think you will get the same result? Take the quiz yourself!</p>
+            <p className="text-lg">
+              Think you will get the same result? Take the quiz yourself!
+            </p>
           </div>
 
           <div className="flex flex-col sm:flex-row gap-3">
@@ -537,7 +554,11 @@ export function PersonalityQuiz() {
               <Sparkles className="h-5 w-5" />
               Take the Quiz
             </Button>
-            <Button variant="outline" asChild className="flex-1 h-12 text-lg gap-2">
+            <Button
+              variant="outline"
+              asChild
+              className="flex-1 h-12 text-lg gap-2"
+            >
               <Link href="/quiz">
                 <ChevronLeft className="h-5 w-5" />
                 All Quizzes
@@ -559,7 +580,10 @@ export function PersonalityQuiz() {
         <div className="absolute inset-0 bg-linear-to-br from-gold/5 via-transparent to-transparent pointer-events-none" />
         <CardHeader className="text-center pt-8">
           <div className="mx-auto mb-4 p-2 rounded-full bg-gold/10 w-fit">
-            <Badge variant="secondary" className="text-xs uppercase tracking-wider">
+            <Badge
+              variant="secondary"
+              className="text-xs uppercase tracking-wider"
+            >
               Your Result
             </Badge>
           </div>
@@ -579,14 +603,18 @@ export function PersonalityQuiz() {
             </div>
           )}
 
-          <CardTitle className="text-3xl font-serif">You are {result.name}!</CardTitle>
+          <CardTitle className="text-3xl font-serif">
+            You are {result.name}!
+          </CardTitle>
           <p className="text-lg text-muted-foreground mt-2">{result.title}</p>
           <Badge className="mt-2">{result.pantheon} Pantheon</Badge>
         </CardHeader>
 
         <CardContent className="space-y-6 pb-8">
           <div className="p-4 rounded-lg bg-muted/50 border border-border">
-            <p className="text-secondary-foreground leading-relaxed">{result.description}</p>
+            <p className="text-secondary-foreground leading-relaxed">
+              {result.description}
+            </p>
           </div>
 
           <div className="p-4 rounded-lg bg-gold/5 border border-gold/20">
@@ -594,7 +622,9 @@ export function PersonalityQuiz() {
               <Sparkles className="h-4 w-4" />
               Why You Matched
             </h4>
-            <p className="text-sm text-muted-foreground leading-relaxed">{result.whyMatch}</p>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              {result.whyMatch}
+            </p>
           </div>
 
           <div className="flex flex-col sm:flex-row gap-3">
@@ -692,7 +722,10 @@ export function PersonalityQuiz() {
               <Badge variant="secondary" className="mb-2 w-fit">
                 Personality
               </Badge>
-              <CardTitle id="quiz-question" className="text-xl md:text-2xl leading-tight font-serif">
+              <CardTitle
+                id="quiz-question"
+                className="text-xl md:text-2xl leading-tight font-serif"
+              >
                 {question.question}
               </CardTitle>
             </div>
@@ -711,6 +744,7 @@ export function PersonalityQuiz() {
                 key={option.text}
                 role="radio"
                 aria-checked={false}
+                aria-label={option.text}
                 variant="outline"
                 className="w-full justify-start items-center h-auto py-4 px-5 text-left group transition-all duration-200 hover:border-gold/50 hover:bg-gold/5"
                 onClick={() => handleAnswerSelect(option.scores)}

@@ -73,6 +73,7 @@ const ragnarokScenes: StoryScene[] = [
 export default function RagnarokCinematicPage() {
   return (
     <div className="min-h-screen bg-midnight">
+      <h1 className="sr-only">Ragnarok Cinematic Story</h1>
       {/* Navigation Header */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-b from-midnight via-midnight/80 to-transparent">
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
@@ -112,7 +113,7 @@ export default function RagnarokCinematicPage() {
                 Read the Full Narrative
               </Button>
             </Link>
-            <Link href="/pantheons/norse-pantheon">
+            <Link href="/pantheons/norse">
               <Button
                 variant="outline"
                 className="border-gold/30 text-parchment hover:bg-gold/10"

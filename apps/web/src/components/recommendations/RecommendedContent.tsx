@@ -1,11 +1,17 @@
-'use client';
+"use client";
 
-import { useRecommendations } from '@/hooks/use-recommendations';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import { Sparkles, BookOpen, Compass, ArrowRight } from 'lucide-react';
-import Link from 'next/link';
-import Image from 'next/image';
+import { useRecommendations } from "@/hooks/use-recommendations";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Sparkles, BookOpen, Compass, ArrowRight } from "lucide-react";
+import Link from "next/link";
+import Image from "next/image";
 
 interface RecommendedContentProps {
   showPantheonSuggestions?: boolean;
@@ -18,9 +24,14 @@ export function RecommendedContent({
   showPantheonSuggestions = true,
   maxDeities = 5,
   maxStories = 3,
-  className = '',
+  className = "",
 }: RecommendedContentProps) {
-  const { recommendations, pantheonSuggestions, explorationSuggestion, hasHistory } = useRecommendations();
+  const {
+    recommendations,
+    pantheonSuggestions,
+    explorationSuggestion,
+    hasHistory,
+  } = useRecommendations();
 
   const displayedDeities = recommendations.deities.slice(0, maxDeities);
   const displayedStories = recommendations.stories.slice(0, maxStories);
@@ -36,7 +47,7 @@ export function RecommendedContent({
         <div className="flex items-center gap-2 mb-4">
           <Sparkles className="h-5 w-5 text-gold" />
           <h2 className="font-serif text-2xl font-bold">
-            {hasHistory ? 'Recommended For You' : 'Start Your Journey'}
+            {hasHistory ? "Recommended For You" : "Start Your Journey"}
           </h2>
         </div>
         <p className="text-slate-600 dark:text-slate-400 mb-6">
@@ -61,7 +72,9 @@ export function RecommendedContent({
                         <Image
                           src={deity.imageUrl}
                           alt={deity.name}
-                          fill
+                          width={512}
+                          height={384}
+                          sizes="(min-width: 1280px) 16rem, (min-width: 1024px) 20vw, (min-width: 640px) 45vw, 90vw"
                           className="object-cover group-hover:scale-105 transition-transform duration-500"
                         />
                         <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent" />
@@ -72,7 +85,7 @@ export function RecommendedContent({
                         </div>
                       </div>
                     )}
-                    <CardContent className={deity.imageUrl ? 'pt-3' : 'pt-4'}>
+                    <CardContent className={deity.imageUrl ? "pt-3" : "pt-4"}>
                       {!deity.imageUrl && (
                         <h4 className="font-serif font-bold text-lg mb-2 group-hover:text-gold transition-colors">
                           {deity.name}
@@ -80,7 +93,11 @@ export function RecommendedContent({
                       )}
                       <div className="flex flex-wrap gap-1">
                         {deity.domain.slice(0, 2).map((d) => (
-                          <Badge key={d} variant="secondary" className="text-xs">
+                          <Badge
+                            key={d}
+                            variant="secondary"
+                            className="text-xs"
+                          >
                             {d}
                           </Badge>
                         ))}
@@ -140,7 +157,10 @@ export function RecommendedContent({
           </h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {pantheonSuggestions.slice(0, 3).map((suggestion) => (
-              <Link key={suggestion.pantheonId} href={`/pantheons/${suggestion.pantheonId.replace('-pantheon', '')}`}>
+              <Link
+                key={suggestion.pantheonId}
+                href={`/pantheons/${suggestion.pantheonId.replace("-pantheon", "")}`}
+              >
                 <Card className="h-full hover:shadow-lg transition-all duration-300 hover:-translate-y-1 group">
                   <CardContent className="pt-4">
                     <div className="flex items-center justify-between mb-2">
@@ -161,7 +181,8 @@ export function RecommendedContent({
                       />
                     </div>
                     <p className="text-xs text-slate-500 mt-1">
-                      {suggestion.totalCount - suggestion.unviewedCount} of {suggestion.totalCount} explored
+                      {suggestion.totalCount - suggestion.unviewedCount} of{" "}
+                      {suggestion.totalCount} explored
                     </p>
                   </CardContent>
                 </Card>
@@ -172,32 +193,35 @@ export function RecommendedContent({
       )}
 
       {/* Exploration Suggestion */}
-      {explorationSuggestion && explorationSuggestion.unviewedCount === explorationSuggestion.totalCount && (
-        <Card className="bg-linear-to-r from-amber-50 to-orange-50 dark:from-amber-950/30 dark:to-orange-950/30 border-amber-200 dark:border-amber-800">
-          <CardContent className="pt-4">
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-full bg-amber-100 dark:bg-amber-900/50 flex items-center justify-center shrink-0">
-                <Compass className="h-6 w-6 text-amber-600" />
+      {explorationSuggestion &&
+        explorationSuggestion.unviewedCount ===
+          explorationSuggestion.totalCount && (
+          <Card className="bg-linear-to-r from-amber-50 to-orange-50 dark:from-amber-950/30 dark:to-orange-950/30 border-amber-200 dark:border-amber-800">
+            <CardContent className="pt-4">
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 rounded-full bg-amber-100 dark:bg-amber-900/50 flex items-center justify-center shrink-0">
+                  <Compass className="h-6 w-6 text-amber-600" />
+                </div>
+                <div className="flex-1">
+                  <h4 className="font-semibold text-amber-800 dark:text-amber-200">
+                    Explore a New Pantheon
+                  </h4>
+                  <p className="text-sm text-amber-700 dark:text-amber-300">
+                    Discover the {explorationSuggestion.pantheonName} gods and
+                    their fascinating stories
+                  </p>
+                </div>
+                <Link
+                  href={`/pantheons/${explorationSuggestion.pantheonId.replace("-pantheon", "")}`}
+                  className="px-4 py-2 bg-amber-600 hover:bg-amber-700 text-white rounded-lg transition-colors flex items-center gap-2"
+                >
+                  Explore
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
               </div>
-              <div className="flex-1">
-                <h4 className="font-semibold text-amber-800 dark:text-amber-200">
-                  Explore a New Pantheon
-                </h4>
-                <p className="text-sm text-amber-700 dark:text-amber-300">
-                  Discover the {explorationSuggestion.pantheonName} gods and their fascinating stories
-                </p>
-              </div>
-              <Link
-                href={`/pantheons/${explorationSuggestion.pantheonId.replace('-pantheon', '')}`}
-                className="px-4 py-2 bg-amber-600 hover:bg-amber-700 text-white rounded-lg transition-colors flex items-center gap-2"
-              >
-                Explore
-                <ArrowRight className="h-4 w-4" />
-              </Link>
-            </div>
-          </CardContent>
-        </Card>
-      )}
+            </CardContent>
+          </Card>
+        )}
     </section>
   );
 }

@@ -1,14 +1,12 @@
-'use client';
+"use client";
 
-import { useQuery } from '@tanstack/react-query';
-import { graphqlClient } from '@/lib/graphql-client';
-import { gql } from 'graphql-request';
-import Link from 'next/link';
-import Image from 'next/image';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import { Sparkles, Users } from 'lucide-react';
-import { getTopRelatedDeities, type RelatedDeity } from '@/lib/relationships';
+import Link from "next/link";
+import Image from "next/image";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Sparkles, Users } from "lucide-react";
+import { getTopRelatedDeities, type RelatedDeity } from "@/lib/relationships";
+import deitiesData from "@/data/deities.json";
 
 interface DeityBasic {
   id: string;
@@ -25,35 +23,22 @@ interface RelatedDeitiesProps {
   maxItems?: number;
 }
 
-export function RelatedDeities({ deityId, pantheonId, maxItems = 6 }: RelatedDeitiesProps) {
+export function RelatedDeities({
+  deityId,
+  pantheonId,
+  maxItems = 6,
+}: RelatedDeitiesProps) {
   // Get related deities from relationships data
   const relatedDeities = getTopRelatedDeities(deityId, maxItems);
+  const deities = deitiesData as DeityBasic[];
 
-  // Fetch deity details for the related deities
-  const { data, isLoading } = useQuery<{ deities: DeityBasic[] }>({
-    queryKey: ['deities-basic'],
-    queryFn: async () => graphqlClient.request(gql`
-      query GetDeitiesBasic {
-        deities(pantheonId: null) {
-          id
-          name
-          slug
-          pantheonId
-          domain
-          imageUrl
-        }
-      }
-    `),
-    staleTime: 1000 * 60 * 10, // Cache for 10 minutes
-  });
-
-  if (isLoading || relatedDeities.length === 0) {
+  if (relatedDeities.length === 0) {
     return null;
   }
 
   // Create a map for quick lookup
   const deityMap = new Map<string, DeityBasic>();
-  data?.deities.forEach((d) => deityMap.set(d.id, d));
+  deities.forEach((d) => deityMap.set(d.id, d));
 
   // Get full deity data for related deities
   const relatedWithData = relatedDeities
@@ -69,16 +54,16 @@ export function RelatedDeities({ deityId, pantheonId, maxItems = 6 }: RelatedDei
     const existingIds = new Set(filledRelated.map((r) => r.deity.id));
     existingIds.add(deityId); // Don't include self
 
-    const samePantheon = data?.deities
+    const samePantheon = deities
       .filter((d) => d.pantheonId === pantheonId && !existingIds.has(d.id))
       .slice(0, 4 - filledRelated.length)
       .map((d) => ({
         deityId: d.id,
-        relationshipType: 'same_pantheon',
-        label: 'Same Pantheon',
-        direction: 'to' as const,
+        relationshipType: "same_pantheon",
+        label: "Same Pantheon",
+        direction: "to" as const,
         deity: d,
-      })) || [];
+      }));
 
     filledRelated = [...filledRelated, ...samePantheon];
   }
@@ -97,7 +82,7 @@ export function RelatedDeities({ deityId, pantheonId, maxItems = 6 }: RelatedDei
       </CardHeader>
       <CardContent>
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
-          {filledRelated.map(({ deity, label }) => (
+          {filledRelated.map(({ deity, label }, index) => (
             <Link
               key={deity.id}
               href={`/deities/${deity.slug}`}
@@ -109,7 +94,10 @@ export function RelatedDeities({ deityId, pantheonId, maxItems = 6 }: RelatedDei
                     <Image
                       src={deity.imageUrl}
                       alt={deity.name}
-                      fill
+                      width={64}
+                      height={64}
+                      sizes="64px"
+                      priority={index < 2}
                       className="object-cover"
                     />
                   </div>

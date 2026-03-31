@@ -19,6 +19,52 @@ interface SelectContextValue {
 
 const SelectContext = React.createContext<SelectContextValue | null>(null);
 
+interface ItemRegistryValue {
+  items: Map<string, string>;
+}
+
+const ItemRegistryContext = React.createContext<ItemRegistryValue | null>(null);
+
+function getNodeText(node: React.ReactNode): string {
+  if (typeof node === "string" || typeof node === "number") {
+    return String(node);
+  }
+
+  let text = "";
+
+  React.Children.forEach(node, (child) => {
+    if (!React.isValidElement(child)) return;
+    text += getNodeText(
+      (child.props as { children?: React.ReactNode }).children,
+    );
+  });
+
+  return text;
+}
+
+function collectItemLabels(
+  children: React.ReactNode,
+  items: Map<string, string>,
+): void {
+  React.Children.forEach(children, (child) => {
+    if (!React.isValidElement(child)) return;
+
+    const props = child.props as {
+      value?: unknown;
+      children?: React.ReactNode;
+    };
+
+    if (typeof props.value === "string") {
+      const label = getNodeText(props.children).trim();
+      items.set(props.value, label || props.value);
+    }
+
+    if (props.children) {
+      collectItemLabels(props.children, items);
+    }
+  });
+}
+
 function useSelectContext() {
   const ctx = React.useContext(SelectContext);
   if (!ctx)
@@ -65,11 +111,19 @@ function Select({
     [value, handleValueChange, open, setOpen, triggerRef, contentId],
   );
 
+  const itemRegistryValue = React.useMemo(() => {
+    const items = new Map<string, string>();
+    collectItemLabels(children, items);
+    return { items };
+  }, [children]);
+
   return (
     <SelectContext.Provider value={selectCtxValue}>
-      <div data-slot="select" className="relative inline-block">
-        {children}
-      </div>
+      <ItemRegistryContext.Provider value={itemRegistryValue}>
+        <div data-slot="select" className="relative inline-block">
+          {children}
+        </div>
+      </ItemRegistryContext.Provider>
     </SelectContext.Provider>
   );
 }
@@ -82,6 +136,15 @@ type SelectTriggerProps = React.ComponentProps<"button">;
 
 function SelectTrigger({ className, children, ...props }: SelectTriggerProps) {
   const { open, setOpen, triggerRef, contentId } = useSelectContext();
+  const registry = React.useContext(ItemRegistryContext);
+  const { value } = useSelectContext();
+  const derivedLabel = value
+    ? (registry?.items.get(value) ?? value)
+    : undefined;
+  const accessibleLabel =
+    typeof props["aria-label"] === "string"
+      ? props["aria-label"]
+      : derivedLabel;
 
   return (
     <button
@@ -89,7 +152,8 @@ function SelectTrigger({ className, children, ...props }: SelectTriggerProps) {
       type="button"
       role="combobox"
       aria-expanded={open ? "true" : "false"}
-      aria-controls={contentId}
+      aria-controls={open ? contentId : undefined}
+      aria-label={accessibleLabel}
       data-slot="select-trigger"
       className={cn(
         "flex h-10 items-center justify-between gap-2 rounded-lg border border-border bg-background px-3 py-2 text-sm",
@@ -160,14 +224,6 @@ function SelectValue({ placeholder }: Readonly<SelectValueProps>) {
  * register. We keep this simple: render from a collected map.
  */
 
-// We'll use a secondary context so items can register their labels.
-interface ItemRegistryValue {
-  items: Map<string, string>;
-  register: (value: string, label: string) => void;
-}
-
-const ItemRegistryContext = React.createContext<ItemRegistryValue | null>(null);
-
 function SelectDisplayValue() {
   const { value } = useSelectContext();
   const registry = React.useContext(ItemRegistryContext);
@@ -184,20 +240,6 @@ type SelectContentProps = React.ComponentProps<"div">;
 function SelectContent({ className, children, ...props }: SelectContentProps) {
   const { open, setOpen, triggerRef, contentId } = useSelectContext();
   const contentRef = React.useRef<HTMLDivElement>(null);
-
-  // Item registry so SelectValue can display the label for the current value.
-  const [items] = React.useState(() => new Map<string, string>());
-  const register = React.useCallback(
-    (value: string, label: string) => {
-      items.set(value, label);
-    },
-    [items],
-  );
-
-  const registryCtxValue = React.useMemo(
-    () => ({ items, register }),
-    [items, register],
-  );
 
   // Close on outside click
   React.useEffect(() => {
@@ -227,40 +269,33 @@ function SelectContent({ className, children, ...props }: SelectContentProps) {
     };
   }, [open, setOpen, triggerRef]);
 
+  if (!open) return null;
+
   return (
-    <ItemRegistryContext.Provider value={registryCtxValue}>
-      {/* Hidden wrapper always renders so items can register labels */}
-      <div className="contents" aria-hidden={open ? "false" : "true"}>
-        {open && (
-          <div
-            ref={contentRef}
-            id={contentId}
-            data-slot="select-content"
-            role="listbox"
-            className={cn(
-              "absolute z-50 mt-1 min-w-(--trigger-width,8rem) overflow-hidden rounded-lg border border-border bg-popover text-popover-foreground shadow-lg",
-              "animate-in fade-in-0 zoom-in-95",
-              "dark:border-border/60 dark:bg-card dark:shadow-black/30",
-              className,
-            )}
-            style={
-              {
-                /* eslint-disable react-hooks/refs -- ref read for CSS custom property sizing */
-                "--trigger-width": triggerRef.current
-                  ? `${triggerRef.current.offsetWidth}px`
-                  : undefined,
-                /* eslint-enable react-hooks/refs */
-              } as React.CSSProperties
-            }
-            {...props}
-          >
-            <div className="max-h-60 overflow-y-auto p-1">{children}</div>
-          </div>
-        )}
-        {/* Render children in a hidden span so items always register */}
-        {!open && <span className="hidden">{children}</span>}
-      </div>
-    </ItemRegistryContext.Provider>
+    <div
+      ref={contentRef}
+      id={contentId}
+      data-slot="select-content"
+      role="listbox"
+      className={cn(
+        "absolute z-50 mt-1 min-w-(--trigger-width,8rem) overflow-hidden rounded-lg border border-border bg-popover text-popover-foreground shadow-lg",
+        "animate-in fade-in-0 zoom-in-95",
+        "dark:border-border/60 dark:bg-card dark:shadow-black/30",
+        className,
+      )}
+      style={
+        {
+          /* eslint-disable react-hooks/refs -- ref read for CSS custom property sizing */
+          "--trigger-width": triggerRef.current
+            ? `${triggerRef.current.offsetWidth}px`
+            : undefined,
+          /* eslint-enable react-hooks/refs */
+        } as React.CSSProperties
+      }
+      {...props}
+    >
+      <div className="max-h-60 overflow-y-auto p-1">{children}</div>
+    </div>
   );
 }
 
@@ -279,14 +314,7 @@ function SelectItem({
   ...props
 }: Readonly<SelectItemProps>) {
   const { value: selected, onValueChange } = useSelectContext();
-  const registry = React.useContext(ItemRegistryContext);
   const isSelected = selected === value;
-
-  // Register label text on mount and when children change
-  const label = typeof children === "string" ? children : value;
-  React.useEffect(() => {
-    registry?.register(value, label);
-  }, [registry, value, label]);
 
   return (
     <div

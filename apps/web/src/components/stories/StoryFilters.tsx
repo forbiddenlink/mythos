@@ -112,7 +112,7 @@ export function StoryFilters({
           </div>
 
           <Select value={categoryFilter} onValueChange={setCategoryFilter}>
-            <SelectTrigger className="w-40" aria-label="Filter by category">
+            <SelectTrigger className="w-40">
               <SelectValue placeholder="Category" />
             </SelectTrigger>
             <SelectContent>
@@ -127,7 +127,7 @@ export function StoryFilters({
 
           {allThemes.length > 0 && (
             <Select value={themeFilter} onValueChange={setThemeFilter}>
-              <SelectTrigger className="w-40" aria-label="Filter by theme">
+              <SelectTrigger className="w-40">
                 <SelectValue placeholder="Theme" />
               </SelectTrigger>
               <SelectContent>

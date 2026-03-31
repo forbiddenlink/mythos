@@ -123,9 +123,11 @@ export function InteractiveStoriesBanner() {
                         <Image
                           src={featuredStory.coverImage}
                           alt={featuredStory.title}
-                          fill
+                          width={640}
+                          height={640}
+                          priority
                           sizes="(max-width: 1024px) 22rem, 20rem"
-                          className="object-cover group-hover:scale-105 transition-transform duration-500"
+                          className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500"
                         />
                         <div className="absolute inset-0 bg-linear-to-t from-midnight via-midnight/20 to-transparent" />
                       </div>

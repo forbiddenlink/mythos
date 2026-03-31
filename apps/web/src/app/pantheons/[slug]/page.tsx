@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import pantheons from "@/data/pantheons.json";
 import { generateBaseMetadata } from "@/lib/metadata";
 import { PantheonPageClient } from "./PantheonPageClient";
@@ -32,7 +32,7 @@ export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
   const { slug } = await params;
-  const pantheon = pantheons.find((p) => p.slug === slug) as
+  const pantheon = pantheons.find((p) => p.slug === slug || p.id === slug) as
     | PantheonData
     | undefined;
 
@@ -44,12 +44,17 @@ export async function generateMetadata({
   }
 
   // Create a rich description
-  const description =
-    pantheon.description?.slice(0, 160) ||
+  const baseDescription =
+    pantheon.description ||
     `Explore the ${pantheon.name} from ${pantheon.culture} mythology. Discover the gods, goddesses, and myths of ${pantheon.region}.`;
+  const description =
+    `${baseDescription} See major deities, stories, and cultural context in Mythos Atlas.`.slice(
+      0,
+      158,
+    );
 
   return generateBaseMetadata({
-    title: `${pantheon.name} - ${pantheon.culture} Mythology`,
+    title: `${pantheon.name} Guide`,
     description: description,
     url: `/pantheons/${pantheon.slug}`,
     image: "/og-image.png",
@@ -72,10 +77,14 @@ export default async function PantheonPage({ params }: PageProps) {
   const { slug } = await params;
 
   // Check if pantheon exists (for 404)
-  const pantheon = pantheons.find((p) => p.slug === slug);
+  const pantheon = pantheons.find((p) => p.slug === slug || p.id === slug);
   if (!pantheon) {
     notFound();
   }
 
-  return <PantheonPageClient slug={slug} />;
+  if (pantheon.slug !== slug) {
+    redirect(`/pantheons/${pantheon.slug}`);
+  }
+
+  return <PantheonPageClient slug={pantheon.slug} />;
 }
