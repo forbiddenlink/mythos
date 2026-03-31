@@ -340,10 +340,9 @@ export function SymbolMemoryGame() {
         const totalPairs = DIFFICULTY_CONFIG[difficulty].pairs;
         if (matches + 1 === totalPairs) {
           setGameCompleted(true);
-          // eslint-disable-next-line react-hooks/purity -- Date.now() is only called in event handler, not during render
-          const finalTime = Math.floor(
-            (Date.now() - (startTime || Date.now())) / 1000,
-          );
+          // eslint-disable-next-line react-hooks/purity -- Called in event handler, not during render
+          const now = Date.now();
+          const finalTime = Math.floor((now - (startTime || now)) / 1000);
           setElapsedTime(finalTime);
 
           // Update best time
