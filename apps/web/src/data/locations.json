@@ -817,7 +817,7 @@
     "description": "A UNESCO World Heritage Site and the most important shrine to the goddess Oshun. Located along the Osun River in Nigeria, the grove contains ancient sculptures, shrines, and sanctuaries. The annual Osun-Osogbo Festival draws hundreds of thousands of worshippers from around the world.",
     "latitude": 7.7556,
     "longitude": 4.5361,
-    "imageUrl": "/locations/osun-osogbo.png"
+    "imageUrl": "/locations/osun-osogbo-grove.png"
   },
   {
     "id": "oyo",
@@ -847,6 +847,6 @@
     "description": "Not a single location but every place where paths meet. The crossroads is the domain of Eshu, where decisions are made and fates are determined. Offerings to Eshu are placed at crossroads, and all Yoruba rituals must honor Eshu at the crossroads before proceeding to other Orishas.",
     "latitude": null,
     "longitude": null,
-    "imageUrl": "/locations/crossroads.png"
+    "imageUrl": "/locations/crossroads-eshu.png"
   }
 ]

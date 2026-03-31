@@ -18,7 +18,7 @@
     "detailedBio": "## The King of Olympus\n\nZeus is the supreme ruler of the gods, the lord of the sky, and the wielder of the thunderbolt. His power is greater than that of all the other gods combined. He presides over the oaths of men and the laws of the universe, ensuring justice and order.\n\n### Rise to Power\n\nBorn to the Titans Cronus and Rhea in a secret cave on Crete, Zeus was hidden from his father's voracious appetite. When he came of age, he tricked Cronus into regurgitating his swallowed siblings. Together, they waged the **Titanomachy**, a ten-year war against the Titans, eventually imprisoning them in Tartarus.\n\n### The Loves of Zeus\n\nFamous for his many affairs, Zeus fathered countless heroes (Heracles, Perseus) and gods (Apollo, Artemis, Dionysus) with both mortals and goddesses, often incurring the wrath of his wife, Hera.",
     "originStory": "Zeus was the youngest son of the Titans Cronus and Rhea. Cronus, fearing a prophecy that he would be overthrown by his children, swallowed each child at birth. Rhea hid Zeus and gave Cronus a stone wrapped in swaddling clothes instead. Zeus was raised in secret and later forced Cronus to regurgitate his siblings, leading the rebellion against the Titans.",
     "importanceRank": 1,
-    "imageUrl": "/deities/zeus.png",
+    "imageUrl": "/deities/zeus.jpg",
     "primarySources": [
       {
         "text": "And when the blessed gods had finished their toil, and settled by force their struggle for honours with the Titans, they pressed far-seeing Olympian Zeus to reign and to rule over them. And he divided their dignities amongst them.",
@@ -106,7 +106,7 @@
     "detailedBio": "## Queen of the Gods\n\nHera is the majestic queen of Olympus and the goddess of marriage and childbirth. As the wife of Zeus, she holds immense power, but she is most famously known for her jealousy and vengeance against Zeus's lovers and illegitimate children.\n\n### The Divine Marriage\n\nHer marriage to Zeus is turbulent, reflecting the storms of the sky. Despite his infidelities, Hera remains the protector of lawful marriage and the sanctity of the family. She is often depicted holding a pomegranate (symbol of fertility) and accompanied by a peacock.",
     "originStory": "Hera was the eldest daughter of Cronus and Rhea, swallowed by Cronus at birth and later freed by Zeus. She became Zeus's wife after he courted her in the form of a cuckoo bird.",
     "importanceRank": 2,
-    "imageUrl": "/deities/hera.png",
+    "imageUrl": "/deities/hera.jpg",
     "primarySources": [
       {
         "text": "Hera, golden-throned queen, whom Rhea bare, immortal queen, the wife of Zeus who holds the aegis, sister and bedmate of loud-thundering Zeus.",
@@ -156,9 +156,9 @@
     "domain": ["sea", "earthquakes", "horses", "storms"],
     "symbols": ["trident", "horse", "dolphin", "bull"],
     "description": "God of the sea, earthquakes, and horses. Brother of Zeus and Hades, ruler of the oceans and all waters.",
-    "detailedBio": "## Lord of the Seas\n\nPoseidon rules the vast oceans, earthquakes (\"Earth-Shaker\"), and horses. He is a moody and tempestuous god, much like the sea itself. Sailors prayed to him for safe passage, often sacrificing horses or bulls to appease his wrath.\n\n### Contest for Athens\n\nPoseidon competed with Athena for the patronage of Athens. He struck the Acropolis with his trident, creating a salt spring. Athena planted an olive tree. The people chose the olive tree, and Poseidon, enraged, flooded the Thriasian plain.",
+    "detailedBio": "## Lord of the Seas\n\nPoseidon rules the vast oceans, earthquakes (\"Earth-Shaker\"), and horses. He is a moody and tempestuous god, much like the sea itself. Sailors prayed to him for safe passage, often sacrificing horses or bulls to appease his wrath.\n\n### Contest for Athens\n\nPoseidon competed with Athena for the patronage of Athens. He struck the Acropolis with his trident, creating a salt spring. Athena planted an olive tree. The people chose the olive tree, and Poseidon, enraged, flooded the Thriasian plain.\n\n### A God Of Boundaries And Storms\n\nGreek myth uses Poseidon whenever a story crosses unstable ground or dangerous water. He breaks ships, sends monsters, fathers island dynasties, and reminds mortals that civilization depends on forces it cannot fully control. That wider role makes him more than a sea god: he is a divine power behind coastal trade, colonization, horses, and sudden catastrophe.",
     "importanceRank": 3,
-    "imageUrl": "/deities/poseidon.png",
+    "imageUrl": "/deities/poseidon.jpg",
     "primarySources": [
       {
         "text": "I am Poseidon, and my lot was the grey sea to be my habitation for ever, when we cast lots and divided all things into three portions.",
@@ -198,8 +198,9 @@
     "domain": ["underworld", "death", "wealth"],
     "symbols": ["helm of darkness", "bident", "Cerberus", "cornucopia"],
     "description": "God of the underworld and the dead. Ruler of the realm of Hades, rarely leaving his kingdom.",
+    "detailedBio": "## King Below The Earth\n\nHades rules the underworld not as a devil figure but as a stern, lawful monarch of the dead. Greek religion treats him as unavoidable, distant, and powerful rather than chaotic. He governs the wealth hidden in the earth as well as the souls that descend beneath it, which is why later traditions also call him Plouton, \"the wealthy one.\"\n\n### The Realm Of The Dead\n\nHis kingdom includes not only punishment but order: judges, boundaries, rivers, and the careful separation of living and dead. The Greeks feared naming him directly and often preferred euphemisms, which shows how closely his cult was tied to reverence, taboo, and funerary practice.\n\n### Persephone And Seasonal Myth\n\nHades is central to the myth of Persephone, whose abduction connects death with agricultural renewal. Through that story he becomes part of a larger cycle rather than a purely destructive force, anchoring one of the most influential explanations of seasonality and mystery cult religion in the ancient Mediterranean.",
     "importanceRank": 4,
-    "imageUrl": "/deities/hades.png",
+    "imageUrl": "/deities/hades.jpg",
     "primarySources": [
       {
         "text": "He caught her up reluctant on his golden car and bare her away lamenting. Then she cried out shrilly with her voice, calling upon her father, the Son of Cronos, who is most high and excellent. But no one heard her voice, neither of the deathless gods nor of mortal men.",
@@ -247,7 +248,7 @@
     "description": "Goddess of wisdom, warfare, and crafts. Born fully armed from Zeus's forehead after he swallowed her mother Metis.",
     "detailedBio": "## The Grey-Eyed Goddess\n\nAthena is the goddess of wisdom, courage, and **strategic warfare**. Unlike Ares, who embodies bloodlust, Athena represents the intellectual and civilized side of war.\n\n### Birth from the Head\n\nProphecy warned Zeus that a child of Metis would overthrow him. He swallowed Metis whole, but later suffered a splitting headache. Hephaestus (or Prometheus) struck his head with an axe, and Athena sprang forth, fully grown and armored.\n\n### Patron of Heroes\n\nShe is the great helper of heroes, aiding Odysseus, Perseus, and Heracles in their quests. She is the patron deity of Athens, having won the city in a contest against Poseidon by gifting the olive tree.",
     "importanceRank": 7,
-    "imageUrl": "/deities/athena.png",
+    "imageUrl": "/deities/athena.jpg",
     "primarySources": [
       {
         "text": "From his own head he bore her, the grey-eyed Tritogeneia, the unwearying queen who delights in tumults and wars and battles.",
@@ -284,7 +285,7 @@
     "description": "God of sun, music, poetry, prophecy, and healing. Twin brother of Artemis, patron of the Muses and leader of the nine sisters.",
     "detailedBio": "## The Golden God\n\nApollo is the ideal of the *kouros* (beardless youth), representing light, harmony, and reason. He is the master of the lyre and the leader of the Muses.\n\n### The Oracle of Delphi\n\nApollo slew the serpent Python to seize the oracle at Delphi, which became the most important religious site in Greece. His prophecies were delivered through the Pythia.\n\n### Healer and Plague-Bringer\n\nHe has a dual nature: he can bring deadly plague with his silver arrows (as seen in the *Iliad*) but also heal the sick. He is the father of Asclepius, the god of medicine.",
     "importanceRank": 8,
-    "imageUrl": "/deities/apollo.png",
+    "imageUrl": "/deities/apollo.jpg",
     "primarySources": [
       {
         "text": "Phoebus Apollo, as soon as he was born, sprang forth from the immortal limbs, and all the goddesses cried aloud. Then you, O Far-Shooter, went over the mountain ridges to rocky Pytho, and there slew the bloated serpent with your bow.",
@@ -324,9 +325,9 @@
     "domain": ["hunt", "wilderness", "moon", "childbirth", "virginity"],
     "symbols": ["bow and arrow", "deer", "moon", "cypress"],
     "description": "Goddess of the hunt, wilderness, and the moon. Twin sister of Apollo, protector of young women and animals.",
-    "detailedBio": "## Mistress of Beasts\n\nArtemis is the fierce virgin goddess of the hunt and the wilderness (\"*Potnia Theron*\"). She roams the forests with her band of nymphs, protecting the natural world and punishing those who disrespect it.\n\n### The Virgin Huntress\n\nShe swore an oath of eternal maidenhood to Zeus. Actaeon, a hunter who accidentally saw her bathing, was transformed into a stag and devoured by his own hounds. She also punished Niobe for boasting that she was superior to Leto (Artemis's mother).",
+    "detailedBio": "## Mistress of Beasts\n\nArtemis is the fierce virgin goddess of the hunt and the wilderness (\"*Potnia Theron*\"). She roams the forests with her band of nymphs, protecting the natural world and punishing those who disrespect it.\n\n### The Virgin Huntress\n\nShe swore an oath of eternal maidenhood to Zeus. Actaeon, a hunter who accidentally saw her bathing, was transformed into a stag and devoured by his own hounds. She also punished Niobe for boasting that she was superior to Leto (Artemis's mother).\n\n### Protector Of Threshold Lives\n\nArtemis also governs transitions that seem far removed from the hunt: childbirth, adolescence, and the dangerous boundary between girlhood and adulthood. Greek communities honored her in rites that prepared the young for civic and family life, so her myths join wilderness freedom with social discipline in a way that is easy to miss if she is reduced to a moon-and-bow archetype.",
     "importanceRank": 9,
-    "imageUrl": "/deities/artemis.png",
+    "imageUrl": "/deities/artemis.jpg",
     "crossPantheonParallels": [
       {
         "pantheonId": "roman-pantheon",
@@ -354,9 +355,9 @@
     "domain": ["war", "violence", "bloodshed"],
     "symbols": ["sword", "spear", "shield", "helmet", "vulture"],
     "description": "God of war, violence, and bloodshed. Son of Zeus and Hera, representing the brutal and chaotic aspects of warfare.",
-    "detailedBio": "## The God of War\n\nAres embodies the physical valor and untamed violence of war. While Athena represents strategy, Ares is the chaotic frenzy of battle. He was not well-liked by the Greeks, who found him dangerous and overwhelming.\n\n### Affair with Aphrodite\n\nHis most famous myth involves his affair with Aphrodite. Her husband, Hephaestus, crafted an unbreakable golden net and trapped the lovers in bed, inviting all the other gods to laugh at them.",
+    "detailedBio": "## The God of War\n\nAres embodies the physical valor and untamed violence of war. While Athena represents strategy, Ares is the chaotic frenzy of battle. He was not well-liked by the Greeks, who found him dangerous and overwhelming.\n\n### Affair with Aphrodite\n\nHis most famous myth involves his affair with Aphrodite. Her husband, Hephaestus, crafted an unbreakable golden net and trapped the lovers in bed, inviting all the other gods to laugh at them.\n\n### A Greek Contrast To Roman Mars\n\nAres matters partly because Greek myth often uses him as a warning about war without restraint. He appears powerful, but not admirable. That contrast becomes especially clear beside Roman Mars, who absorbs military honor, civic order, and ancestral prestige in a way Ares rarely does in Greek storytelling.",
     "importanceRank": 10,
-    "imageUrl": "/deities/ares.png",
+    "imageUrl": "/deities/ares.jpg",
     "crossPantheonParallels": [
       {
         "pantheonId": "roman-pantheon",
@@ -384,9 +385,9 @@
     "domain": ["love", "beauty", "desire", "sexuality"],
     "symbols": ["dove", "swan", "rose", "myrtle", "sparrow"],
     "description": "Goddess of love, beauty, and desire. Born from the sea foam after Cronus castrated Uranus and threw his genitals into the sea.",
-    "detailedBio": "## The Cyprian\n\nAphrodite is the irresistible goddess of love and beauty. Though married to Hephaestus, she had many lovers, most notably Ares. She has the power to make anyone fall in love, a power that even Zeus cannot resist.\n\n### Birth from Foam\n\nShe was born from the white foam (*aphros*) produced by the severed genitals of Uranus when they were thrown into the sea. She washed ashore on Cyprus (or Cythera), where she was attended by the Seasons.",
+    "detailedBio": "## The Cyprian\n\nAphrodite is the irresistible goddess of love and beauty. Though married to Hephaestus, she had many lovers, most notably Ares. She has the power to make anyone fall in love, a power that even Zeus cannot resist.\n\n### Birth from Foam\n\nShe was born from the white foam (*aphros*) produced by the severed genitals of Uranus when they were thrown into the sea. She washed ashore on Cyprus (or Cythera), where she was attended by the Seasons.\n\n### Desire As Social Force\n\nGreek myth uses Aphrodite to explain far more than romance. She drives political alliances, humiliations, marriages, rivalries, and catastrophic choices, which is why she stands near the center of stories like the Judgment of Paris and the Trojan cycle. Her sphere is desire as a civilizing and destabilizing power at the same time.",
     "importanceRank": 11,
-    "imageUrl": "/deities/aphrodite.png",
+    "imageUrl": "/deities/aphrodite.jpg",
     "crossPantheonParallels": [
       {
         "pantheonId": "roman-pantheon",
@@ -416,7 +417,7 @@
     "description": "God of messengers, commerce, thieves, and travelers. Son of Zeus and the nymph Maia, known for his cunning and speed.",
     "detailedBio": "## The Divine Messenger\n\nHermes is the swift messenger of the gods, wearing winged sandals and carrying the caduceus. He is the patron of boundaries and travelers, and the only god (besides Hades and Persephone) who can freely travel to the Underworld.\n\n### The Infant Thief\n\nOn the very day he was born, Hermes stole Apollo's sacred cattle. To reconcile, he invented the lyre from a tortoise shell and gifted it to Apollo. This established his role as a trickster and patron of thieves and merchants.",
     "importanceRank": 13,
-    "imageUrl": "/deities/hermes.png",
+    "imageUrl": "/deities/hermes.jpg",
     "crossPantheonParallels": [
       {
         "pantheonId": "roman-pantheon",
@@ -446,7 +447,7 @@
     "description": "God of wine, festivity, and theater. Son of Zeus and the mortal Semele, the only Olympian born to a mortal parent.",
     "detailedBio": "## The God of Wine\n\nDionysus represents the liberating power of wine and religious ecstasy. He wanders the world spreading the culture of the vine, accompanied by satyrs and maenads (wild female followers).\n\n### Twice-Born\n\nHis mother Semele was consumed by Zeus's lightning. Zeus sewed the unborn Dionysus into his thigh until he was ready to be born, making him \"twice-born.\" He is the patron of theater, as Greek drama originated in festivals honoring him.",
     "importanceRank": 14,
-    "imageUrl": "/deities/dionysus.png",
+    "imageUrl": "/deities/dionysus.jpg",
     "pronunciation": {
       "ipa": "/\u02ccda\u026a\u0259\u02c8na\u026as\u0259s/",
       "phonetic": "dy-uh-NY-sus"
@@ -464,7 +465,7 @@
     "description": "Goddess of agriculture, harvest, and fertility. Mother of Persephone, whose abduction by Hades explains the seasons.",
     "detailedBio": "## The Earth Mother\n\nDemeter acts as the provider of food and the protector of marriage. She presides over the cycle of life and death through the harvest.\n\n### The Seasons\n\nHer daughter Persephone was abducted by Hades. In her grief, Demeter neglected the earth, causing a great famine (winter). Zeus intervened, and it was decreed that Persephone would spend part of the year in the Underworld (winter) and part with her mother (spring/summer).",
     "importanceRank": 5,
-    "imageUrl": "/deities/demeter.png",
+    "imageUrl": "/deities/demeter.jpg",
     "pronunciation": {
       "ipa": "/d\u026a\u02c8mi\u02d0t\u0259r/",
       "phonetic": "dih-MEE-ter"
@@ -482,7 +483,7 @@
     "description": "God of fire, metalworking, and crafts. Son of Hera (and possibly Zeus), cast from Olympus due to his lameness but later readmitted.",
     "detailedBio": "## The Smith God\n\nHephaestus is the master blacksmith of the gods, controlling fire and the forge. He is the patron of all craftsmen. Unlike the other beautiful immortals, he was born lame and was cast off Olympus by his mother Hera (or Zeus).\n\n### The Divine Artificer\n\nHe returned to Olympus and built the golden palaces of the gods. He crafted Achilles' armor, Zeus's thunderbolts, and Pandora (the first woman). He is married to Aphrodite, though she is unfaithful to him.",
     "importanceRank": 12,
-    "imageUrl": "/deities/hephaestus.png",
+    "imageUrl": "/deities/hephaestus.jpg",
     "crossPantheonParallels": [
       {
         "pantheonId": "roman-pantheon",
@@ -507,7 +508,7 @@
     "description": "Goddess of the hearth, home, and family. The firstborn of Cronus and Rhea, she maintained eternal virginity and tended the sacred fire of Olympus.",
     "detailedBio": "## Keeper of the Hearth\n\nHestia is the gentle goddess of the hearth fire (*hestia*), which burned in the center of every Greek home and city. She received the first offering at every sacrifice.\n\n### First and Last\n\nShe was the first child swallowed by Cronus and the last regurgitated, making her both the oldest and youngest of the Olympians. She gave up her seat on Olympus to Dionysus to prevent conflict, tending instead to the sacred fire that could never go out.",
     "importanceRank": 6,
-    "imageUrl": "/deities/hestia.png",
+    "imageUrl": "/deities/hestia.jpg",
     "pronunciation": {
       "ipa": "/\u02c8h\u025bsti\u0259/",
       "phonetic": "HESS-tee-uh"
@@ -538,7 +539,7 @@
     "detailedBio": "## The Allfather\n\nOdin is the chief of the Aesir, a relentless seeker of wisdom. He sacrificed his eye to Mimir's Well for knowledge and hung himself from Yggdrasil for nine nights to discover the runes.\n\n### God of War and Poetry\n\nParadoxically, he grants both the frenzy of battle (berserkers) and the inspiration of poetry (mead of poetry). He rules Valhalla, gathering slain warriors to prepare for Ragnarok.",
     "originStory": "Odin is the son of the primordial beings Borr and Bestla. Along with his brothers Vili and Ve, he slew the giant Ymir and created the world from his body.",
     "importanceRank": 1,
-    "imageUrl": "/deities/odin.png",
+    "imageUrl": "/deities/odin.jpg",
     "primarySources": [
       {
         "text": "I know that I hung on a windy tree nine long nights, wounded with a spear, dedicated to Odin, myself to myself, on that tree of which no man knows from where its roots run.",
@@ -610,7 +611,7 @@
     "detailedBio": "## The Thunderer\n\nThor is the defender of Asgard and Midgard, wielding the mighty hammer **Mjolnir**. Unlike the cunning Odin, Thor is straightforward, strong, and short-tempered, but fiercely loyal.\n\n### Battles with Giants\n\nMost of Thor's myths involve his expeditions into Jotunheim to slay giants who threaten the gods. His greatest enemy is Jormungandr, the World Serpent, whom he is destined to slay (and be slain by) at Ragnarok.",
     "originStory": "Thor was born to Odin, the Allfather, and Jord, the personification of the earth itself. This union of sky and earth made Thor one of the mightiest beings in existence. From birth, he displayed incredible strength - as an infant, he could lift ten loads of bearskins. He grew quickly into the powerful protector of both gods and mortals. He married Sif, the golden-haired goddess, and with her had a daughter named Thrud. With the giantess Jarnsaxa, he fathered Magni and Modi, who will inherit Mjolnir after Ragnarok.",
     "importanceRank": 3,
-    "imageUrl": "/deities/thor.png",
+    "imageUrl": "/deities/thor.jpg",
     "pronunciation": {
       "ipa": "/\u03b8\u0254\u02d0r/",
       "phonetic": "THOR"
@@ -629,7 +630,7 @@
     "detailedBio": "## The Trickster God\n\nLoki is a shape-shifter and the catalyst for most Norse myths. Sometimes a helpful ally, often a malicious nuisance, his actions drive the plot of the gods' lives.\n\n### The Architect of Doom\n\nWhile he helped the gods acquire their greatest treasures (Mjolnir, Gungnir), his jealousy led to the death of Baldur. His punishment\u2014bound beneath a dripping serpent\u2014sets the stage for his revenge at Ragnarok.",
     "originStory": "Loki is not one of the Aesir by birth but a giant, the son of the giant Farbauti and the giantess Laufey (or Nal). Despite his giant heritage, he was accepted among the Aesir after becoming blood brothers with Odin in ancient times. The details of this pact are lost, but it bound Odin to never drink unless Loki was also offered a cup. Loki married the goddess Sigyn, who bore him sons Narfi and Vali. With the giantess Angrboda, he fathered three monstrous children: Fenrir the wolf, Jormungandr the World Serpent, and Hel, ruler of the dead.",
     "importanceRank": 5,
-    "imageUrl": "/deities/loki.png",
+    "imageUrl": "/deities/loki.jpg",
     "pronunciation": {
       "ipa": "/\u02c8lo\u028aki/",
       "phonetic": "LOH-kee"
@@ -648,7 +649,7 @@
     "detailedBio": "## Queen of Asgard\n\nFrigg is the wife of Odin and the foremost goddess of the Aesir. She sits enthroned in Fensalir. She is the only one besides Odin allowed to sit on Hlidskjalf and look out over all the worlds.\n\n### The Silent Prophet\n\nWhile Odin wanders constantly seeking knowledge, Frigg already knows the fate of all things (\"*orlog*\") but chooses to remain silent. Her greatest tragedy is the death of her son Baldur, whom she tried to protect by extracting oaths from everything in creation\u2014except the mistletoe.",
     "originStory": "Frigg is believed to be the daughter of the goddess Fjorgyn (Earth) and belongs to the Aesir, the ruling tribe of gods. Her origins stretch back to the earliest days of the cosmos. She became the wife of Odin and the Queen of Asgard, establishing her hall Fensalir in the realm of the gods. With Odin, she bore Baldur, the most beloved of gods, and Hodr, the blind god. Some scholars connect her to the Germanic goddess Frija, whose name gave us the word Friday. Her knowledge of fate and her role as cosmic mother made her one of the most revered goddesses in the Norse pantheon.",
     "importanceRank": 2,
-    "imageUrl": "/deities/frigg.png",
+    "imageUrl": "/deities/frigg.jpg",
     "pronunciation": {
       "ipa": "/fr\u026a\u0261/",
       "phonetic": "FRIG"
@@ -672,7 +673,7 @@
     "detailedBio": "## Lady of the Vanir\n\nFreyja is the goddess of love, beauty, gold, and magic (*seidr*). She drives a chariot pulled by giant cats and wears the necklace Brisingamen.\n\n### Goddess of War\n\nUnlike Aphrodite, Freyja is not just a lover but a warrior. She rides into battle and has the first pick of the slain warriors (the Oskorei), taking half to her field Folkvangr, while Odin takes the rest to Valhalla.",
     "originStory": "Freyja is the daughter of the sea god Njord and an unnamed mother, possibly the earth goddess Nerthus or a sister of Njord from the Vanir. She came to Asgard as a hostage after the Aesir-Vanir War, along with her father and twin brother Freyr. In exchange, the Aesir sent Hoenir and Mimir to the Vanir. The Vanir, feeling cheated, beheaded Mimir, but the exchange brought lasting peace. Freyja taught the Aesir the magic of seidr, a form of shamanic sorcery previously unknown to them. She became so beloved among the gods that she was granted her own hall, Sessrumnir, in the field of Folkvangr.",
     "importanceRank": 6,
-    "imageUrl": "/deities/freyja.png",
+    "imageUrl": "/deities/freyja.jpg",
     "pronunciation": {
       "ipa": "/\u02c8fre\u026a\u0259/",
       "phonetic": "FRAY-uh"
@@ -691,7 +692,7 @@
     "detailedBio": "## The Shining One\n\nBaldur is the son of Odin and Frigg, so beautiful and bright that light shines from him. He is the wisest, most eloquent, and most gracious of the Aesir.\n\n### The Death of Baldur\n\nPlagued by dreams of his death, his mother Frigg made everything in creation swear not to harm him. The gods amused themselves by throwing weapons at him, as they bounced off harmlessly. But Loki discovered the mistletoe had not sworn. He tricked the blind god Hodr into throwing a mistletoe dart, which pierced Baldur's heart, killing him instantly and plunging the worlds into grief.",
     "originStory": "Baldur was born to Odin, the Allfather, and Frigg, the Queen of Asgard. From his earliest days, he radiated such beauty and light that all who beheld him loved him instantly. He grew to become the most beloved of all the Aesir, admired by gods and mortals alike. He married the goddess Nanna, and together they lived in his hall Breidablik, the most splendid dwelling in Asgard, where nothing unclean could enter. His twin brother was Hodr, the blind god, with whom his fate would become tragically intertwined.",
     "importanceRank": 8,
-    "imageUrl": "/deities/baldur.png",
+    "imageUrl": "/deities/baldur.jpg",
     "pronunciation": {
       "ipa": "/\u02c8b\u0254\u02d0ld\u0259r/",
       "phonetic": "BALL-der"
@@ -710,7 +711,7 @@
     "detailedBio": "## The One-Handed God\n\nTyr is the ancient god of war and the guarantor of justice and oaths (`thing`). While Thor represents the physical strength of a warrior, Tyr represents the legal and moral principles of war.\n\n### The Binding of Fenrir\n\nWhen the gods decided to bind the monstrous wolf Fenrir, the beast only agreed to be chained if one of them placed a hand in his mouth as a pledge of good faith. Tyr alone had the courage to do so. When Fenrir realized he was trapped, he bit off Tyr's hand.",
     "originStory": "Tyr's origins are mysterious and debated among scholars of the myths. Some accounts name him as a son of Odin, while others claim he is the son of the giant Hymir, making him older than the Aesir themselves. Indeed, linguistic evidence suggests Tyr may have once been the chief sky god of the Germanic peoples before Odin rose to prominence. The rune Tiwaz, which bears his name, is among the oldest of the runic alphabet. Regardless of his parentage, Tyr became the god whom warriors invoked before battle and to whom oaths were sworn, embodying the sacred bond between valor and honor.",
     "importanceRank": 9,
-    "imageUrl": "/deities/tyr.png",
+    "imageUrl": "/deities/tyr.jpg",
     "pronunciation": {
       "ipa": "/t\u026ar/",
       "phonetic": "TEER"
@@ -734,10 +735,28 @@
     "detailedBio": "## The Watchman of Asgard\n\nHeimdall is the ever-vigilant guardian of the **Bifrost**, the rainbow bridge. He requires less sleep than a bird and can hear the grass growing.\n\n### The Horn of Doom\n\nHe possesses the **Gjallarhorn**, which he will sound at the beginning of Ragnarok to summon the gods to battle. He is destined to kill and be killed by Loki during the final conflict.",
     "originStory": "Heimdall's birth is one of the most mysterious in Norse mythology. According to the Eddas, he was born of nine mothers simultaneously - the nine daughters of the sea giant Aegir, who are the waves of the ocean. These nine giantesses nourished the infant god with the strength of the earth, the moisture of the sea, and the heat of the sun. This unique origin gave Heimdall his extraordinary senses and his connection to all the realms. He is sometimes called the White God due to his shining appearance. Under the name Rig, he is credited with creating the three classes of Norse society - thralls, karls, and jarls - during a journey through Midgard.",
     "importanceRank": 10,
-    "imageUrl": "/deities/heimdall.png",
+    "imageUrl": "/deities/heimdall.jpg",
     "pronunciation": {
       "ipa": "/\u02c8he\u026amd\u0251\u02d0l/",
       "phonetic": "HAYM-dahl"
+    }
+  },
+  {
+    "id": "njord",
+    "pantheonId": "norse-pantheon",
+    "name": "Njord",
+    "slug": "njord",
+    "alternateNames": ["Njordr", "Nj\u00f6r\u00f0r"],
+    "gender": "male",
+    "domain": ["sea", "wealth", "prosperity", "seafaring", "trade"],
+    "symbols": ["ship", "sea", "wind", "harbor"],
+    "description": "Vanir god of the sea, seafaring wealth, trade, and calm waters. Father of Freyja and Freyr.",
+    "originStory": "Njord is one of the Vanir, the divine clan associated with prosperity, fertility, and the wealth that comes from land and sea. After the Aesir-Vanir War, he came to live among the Aesir as part of the hostage exchange that secured peace between the two groups of gods. In later Norse tradition he is remembered as a patron of sailors, merchants, fishermen, and all who rely on favorable winds and safe coasts.",
+    "importanceRank": 8,
+    "imageUrl": "/deities/njord.png",
+    "pronunciation": {
+      "ipa": "/nj\u0254r\u00f0/",
+      "phonetic": "NYORD"
     }
   },
   {
@@ -753,7 +772,7 @@
     "detailedBio": "## Lord of the Harvest\n\nFreyr is the noble brother of Freyja and ruler of Alfheim (realm of the Elves). He brings peace and prosperity to mortals.\n\n### The Price of Love\n\nHe fell in love with the giantess Gerdr and gave away his magical sword (which could fight on its own) to win her hand. This sacrifice will cost him his life at Ragnarok, where he will be defenseless against the fire giant Surtr.",
     "originStory": "Freyr is the son of Njord, the sea god, and twin brother to Freyja. Born among the Vanir, he came to live with the Aesir as part of the hostage exchange that ended the Aesir-Vanir War. Upon his arrival in Asgard, the gods were so impressed by his noble bearing that they gave him Alfheim, the realm of the Light Elves, as a teething gift. He received the magical ship Skidbladnir and the golden boar Gullinbursti as gifts from the dwarven craftsmen, the sons of Ivaldi. His worship was especially prominent in Sweden, where he was considered an ancestor of the Yngling dynasty.",
     "importanceRank": 7,
-    "imageUrl": "/deities/freyr.png",
+    "imageUrl": "/deities/freyr.jpg",
     "pronunciation": {
       "ipa": "/fre\u026ar/",
       "phonetic": "FRAYR"
@@ -772,7 +791,7 @@
     "detailedBio": "## The World-Eater\n\nFenrir is the most infamous child of Loki. He grew so large and terrifying that the gods tricked him into being bound by the magical ribbon **Gleipnir** (costing Tyr his hand).\n\n### Ragnarok\n\nHe is destined to remain bound until Ragnarok, when he will break his chains and swallow Odin whole, ending the reign of the Aesir. He will eventually be slain by Odin's son Vidar.",
     "originStory": "Fenrir was born to the trickster god Loki and the giantess Angrboda in the dark forests of Jotunheim. He was one of three monstrous siblings - his brother Jormungandr became the World Serpent, and his sister Hel became ruler of the dead. When the gods learned of these children and the prophecies surrounding them, they brought them to Asgard. Fenrir alone was raised among the gods, but he grew so rapidly and so fierce that only Tyr dared to feed him. Fearing the prophecy that he would devour Odin, the gods bound him with the magical fetter Gleipnir on the island of Lyngvi, where he will remain until the twilight of the gods.",
     "importanceRank": 12,
-    "imageUrl": "/deities/fenrir.png",
+    "imageUrl": "/deities/fenrir.jpg",
     "pronunciation": {
       "ipa": "/\u02c8fenr\u026ar/",
       "phonetic": "FEN-reer"
@@ -791,7 +810,7 @@
     "detailedBio": "## Mistress of the Underworld\n\nHel is the ruler of **Helheim**, the realm of the dead (for those who did not die a warrior's death). She is half living flesh and half rotting corpse.\n\n### The Final Host\n\nWhen Baldur died, Hermod rode to Helheim to beg for his release. Hel agreed only if every living thing wept for him. Because one giantess (Loki in disguise) refused, Baldur remained in her domain.",
     "originStory": "Hel was born to Loki and the giantess Angrboda in the iron forests of Jotunheim, alongside her brothers Fenrir and Jormungandr. From birth, she was marked as different - half of her body was that of a beautiful woman, while the other half was black and decaying like a corpse. When the gods brought Loki's monstrous children to Asgard, Odin cast Hel down into the primordial realm of Niflheim and gave her authority over all those who die of sickness or old age. There she built her hall Eljudnir and awaits the dead with her plate Hunger and her knife Famine. Her realm, also called Hel, became the final destination for the inglorious dead.",
     "importanceRank": 11,
-    "imageUrl": "/deities/hel.png",
+    "imageUrl": "/deities/hel.jpg",
     "pronunciation": {
       "ipa": "/h\u025bl/",
       "phonetic": "HEL"
@@ -810,7 +829,7 @@
     "detailedBio": "## The Golden Harvest\n\nSif is the wife of Thor and a goddess of the earth. Her long golden hair represents the fields of wheat.\n\n### The Golden Hair\n\nLoki once cut off all her hair as a malicious prank. To escape Thor's wrath, Loki blackmailed the dwarves into forging new hair of pure gold that would grow like real hair, along with Mjolnir and other treasures.",
     "originStory": "Sif's origins are obscure in the surviving Norse sources, but she is counted among the Aesir goddesses. Before her marriage to Thor, she had a son named Ullr, the god of archery and skiing, whose father is unknown. She became Thor's wife and bore him a daughter, Thrud, whose name means 'strength.' Her most famous attribute is her magnificent golden hair, which some scholars believe symbolized fields of ripened grain, connecting her to agricultural fertility. The story of her hair being cut by Loki and replaced with magical gold hair forged by dwarves explains the origin of several divine treasures, including Thor's hammer Mjolnir.",
     "importanceRank": 4,
-    "imageUrl": "/deities/sif.png",
+    "imageUrl": "/deities/sif.jpg",
     "pronunciation": {
       "ipa": "/s\u026af/",
       "phonetic": "SIF"
@@ -835,7 +854,7 @@
     "detailedBio": "## The Sun God\n\nRa is the supreme creator and king of the gods. He travels across the sky in his solar barque by day and battles the chaos serpent Apophis in the underworld by night.\n\n### Aspects of Ra\n\nRa changes forms throughout the day: **Khepri** (scarab) at sunrise, **Ra-Horakhty** (falcon) at noon, and **Atum** (elder) at sunset. All life was believed to have been created from Ra's tears.",
     "originStory": "Ra emerged from the primordial waters of Nun at the dawn of creation, creating himself. He then created Shu (air) and Tefnut (moisture), establishing the cosmos.",
     "importanceRank": 1,
-    "imageUrl": "/deities/ra.png",
+    "imageUrl": "/deities/ra.jpg",
     "primarySources": [
       {
         "text": "Homage to thee, O Ra, at thy tremendous rising! Thou risest! Thou shinest! The heavens are rolled aside! Thou art the King of Gods, thou art the All-comprising.",
@@ -898,7 +917,7 @@
     "description": "God of the afterlife, resurrection, and fertility. First pharaoh and lawgiver who taught agriculture to humanity. Murdered by his brother Set and resurrected by Isis.",
     "detailedBio": "## Lord of the Dead\n\nOsiris was the first mythical pharaoh of Egypt, who brought civilization and agriculture. After being murdered and dismembered by his jealous brother Set, he was resurrected by Isis to rule the Underworld.\n\n### Judgement of the Dead\n\nAs ruler of the afterlife, Osiris presides over the weighing of the heart. He represents hope for eternal life and the cycle of vegetation and regeneration.",
     "importanceRank": 2,
-    "imageUrl": "/deities/osiris.png",
+    "imageUrl": "/deities/osiris.jpg",
     "pronunciation": {
       "ipa": "/o\u028a\u02c8sa\u026ar\u026as/",
       "phonetic": "oh-SY-ris"
@@ -916,7 +935,7 @@
     "description": "The most powerful goddess in the Egyptian pantheon, wife of Osiris and mother of Horus. Goddess of magic, healing, and protection.",
     "detailedBio": "## The Great Enchantress\n\nIsis is the goddess of magic, healing, and motherhood. Her cleverness and magical power allowed her to learn the secret name of Ra, gaining dominion over the cosmos.\n\n### The Resurrection of Osiris\n\nHer greatest feat was finding the scattered pieces of her husband Osiris and restoring him to life long enough to conceive their son, Horus. She protected Horus from Set until he was old enough to claim the throne.",
     "importanceRank": 3,
-    "imageUrl": "/deities/isis.png",
+    "imageUrl": "/deities/isis.jpg",
     "pronunciation": {
       "ipa": "/\u02c8a\u026as\u026as/",
       "phonetic": "EYE-sis"
@@ -939,7 +958,7 @@
     "description": "Sky god whose eyes are the sun and moon. Son of Osiris and Isis, he avenged his father by defeating Set in battle, becoming the rightful king.",
     "detailedBio": "## The Living Pharaoh\n\nHorus is the falcon-headed god of the sky and kingship. Every pharaoh was believed to be the living incarnation of Horus.\n\n### The Eye of Horus\n\nIn his battles with his uncle Set to avenge his father Osiris, Horus lost his left eye. It was restored by Thoth and became the **Wedjat** eye, a powerful symbol of protection and healing.",
     "importanceRank": 4,
-    "imageUrl": "/deities/horus.png",
+    "imageUrl": "/deities/horus.jpg",
     "pronunciation": {
       "ipa": "/\u02c8h\u0254\u02d0r\u0259s/",
       "phonetic": "HOR-us"
@@ -964,7 +983,7 @@
     "description": "God of chaos, storms, and the desert. Brother and murderer of Osiris, enemy of Horus. Despite being a villain in myth, he also protects Ra's solar barque from Apophis each night.",
     "detailedBio": "## Lord of Chaos\n\nSet is the god of storms, deserts, and foreigners. He represents the necessary chaos (*Isfet*) that balances order.\n\n### The Protector of Ra\n\nThough he is the villain in the Osiris myth (murdering his brother), Set has a heroic role as the only god strong enough to stand on the prow of Ra's solar barge and spear the chaos serpent Apophis every night.",
     "importanceRank": 5,
-    "imageUrl": "/deities/set.png",
+    "imageUrl": "/deities/set.jpg",
     "pronunciation": {
       "ipa": "/s\u025bt/",
       "phonetic": "SET"
@@ -983,7 +1002,7 @@
     "detailedBio": "## Guardian of the Dead\n\nAnubis is the jackal-headed god who presided over mummification, embalming, and the passage of souls to the afterlife. In the earliest periods of Egyptian religion, he was the supreme lord of the underworld before Osiris rose to prominence.\n\n### The Sacred Embalmer\n\nAnubis invented the art of mummification when he helped Isis prepare the body of Osiris after his murder by Set. His priests wore jackal masks during embalming rituals, acting as earthly embodiments of the god. The black color associated with Anubis represents both the fertile Nile soil and the discoloration of mummified bodies.\n\n### Weighing of the Heart\n\nHis most crucial role is in the **Hall of Two Truths**, where he conducts the weighing of the heart ceremony. He places the deceased's heart on one side of the scales and the feather of Ma'at on the other. If the heart is heavy with sin, it is devoured by the demon **Ammit**, and the soul ceases to exist. If balanced, the soul proceeds to paradise.\n\n### Cult Centers\n\nAnubis was worshipped throughout Egypt, with his primary cult center at **Cynopolis** (\"City of Dogs\"). Jackals and wild dogs roaming cemeteries may have inspired his association with death.",
     "originStory": "Anubis's parentage varies across Egyptian traditions. In older myths, he was the son of Ra and Hesat, or of Ra alone. The most well-known version makes him the illegitimate son of Osiris and Nephthys. When Nephthys bore Anubis, she abandoned him in the desert, fearing Set's wrath. Isis discovered the infant and raised him as her own, and he became fiercely loyal to the Osirian family. This connection explains why Anubis assisted Isis in mummifying Osiris and why he serves as protector of the dead king.",
     "importanceRank": 7,
-    "imageUrl": "/deities/anubis.png",
+    "imageUrl": "/deities/anubis.jpg",
     "pronunciation": {
       "ipa": "/\u0259\u02c8nu\u02d0b\u026as/",
       "phonetic": "uh-NOO-bis"
@@ -1016,7 +1035,7 @@
     "detailedBio": "## Scribe of the Gods\n\nThoth is the ibis-headed god of wisdom, writing, magic, and the moon. He invented hieroglyphs and is credited with creating all branches of knowledge, including science, philosophy, mathematics, and religion. His precise calculations and record-keeping maintain cosmic order.\n\n### The Divine Arbiter\n\nThoth serves as the divine mediator and arbiter, ensuring balance between good and evil, order and chaos. During the great contest between Horus and Set for the throne of Egypt, Thoth presided over the proceedings and recorded the judgments. He restored the **Eye of Horus** after Set damaged it, making the Wedjat a symbol of wholeness and healing.\n\n### Lord of Time and the Moon\n\nAs a lunar deity, Thoth governs time, calendars, and the measurement of seasons. He added five extra days to the calendar through a clever wager with the moon god Khonsu, allowing Nut to give birth to her children (Osiris, Isis, Set, Nephthys, and Horus the Elder).\n\n### Sacred Animals and Cult Centers\n\nThoth appears as an **ibis** or a **baboon**, both sacred to him. His primary cult center was **Hermopolis** (Khemenu), where he was worshipped as a creator god. Greeks later identified him with Hermes, calling him **Hermes Trismegistus** (\"Thrice-Great\").",
     "originStory": "Thoth's origins are mysterious, befitting the god of hidden knowledge. In some traditions, he was self-created, emerging from the chaos at the beginning of time through the power of language itself. Other accounts describe him as born from the lips of Ra, created from the sun god's words. In Hermopolitan theology, Thoth was among the primordial eight deities (the Ogdoad) who existed before creation. His role in establishing cosmic order through writing and calculation made him essential to the functioning of the universe from its very beginning.",
     "importanceRank": 8,
-    "imageUrl": "/deities/thoth.png",
+    "imageUrl": "/deities/thoth.jpg",
     "pronunciation": {
       "ipa": "/\u03b8o\u028a\u03b8/",
       "phonetic": "THOHTH"
@@ -1035,7 +1054,7 @@
     "detailedBio": "## Lady of the East\n\nBastet is the feline goddess of the home, protection, pleasure, and good health. In the earliest periods, she was depicted as a fierce lioness warrior deity, but over time she transformed into the gentler domestic cat goddess beloved throughout Egypt.\n\n### The Duality of the Cat\n\nBastet embodies the dual nature of the cat: nurturing and protective of the home, yet fierce against threats. She guards women during childbirth, protects children, and wards off evil spirits and disease. As a war goddess, she defended the pharaoh and accompanied him into battle.\n\n### Goddess of Pleasure and Perfume\n\nBastet presided over joy, music, dance, and festivities. Her name may derive from *bas*, meaning \"ointment jar,\" connecting her to perfumes and cosmetics. Her annual festival at **Bubastis** was one of the largest and most joyous in Egypt, with music, dancing, and wine.\n\n### Sacred Cats and Cult Center\n\nCats were sacred to Bastet and killing one, even accidentally, was punishable by death. Thousands of mummified cats have been found at her cult center of **Bubastis** (Per-Bast) in the Nile Delta. Families would shave their eyebrows in mourning when a beloved cat died.",
     "originStory": "Bastet was originally a lioness goddess of war, daughter of the sun god Ra. In her fierce form, she was nearly identical to Sekhmet, representing the destructive power of the sun. Over millennia, as domestic cats became cherished in Egyptian households for protecting grain stores from vermin, Bastet's image softened. She became associated with the protective, nurturing aspects of the sun rather than its scorching heat. By the Late Period, she was depicted primarily as a graceful cat or a woman with a cat's head, embodying domesticity and maternal care.",
     "importanceRank": 9,
-    "imageUrl": "/deities/bastet.png",
+    "imageUrl": "/deities/bastet.jpg",
     "pronunciation": {
       "ipa": "/\u02c8b\u00e6st\u025bt/",
       "phonetic": "BASS-tet"
@@ -1060,7 +1079,7 @@
     "detailedBio": "## Mistress of the West\n\nHathor, known as the **\"Golden One,\"** is one of the most important and popular goddesses in Egyptian mythology. She embodies love, beauty, music, motherhood, joy, and feminine sexuality. As \"Mistress of the West,\" she welcomed the dead into the afterlife, offering them food and drink.\n\n### Cosmic Mother\n\nHathor was considered a celestial cow goddess who gave birth to and nursed the pharaoh, making each king symbolically her son. The Milky Way was seen as milk flowing from her udders. She was the divine mother who nourished all of Egypt.\n\n### The Eye of Ra\n\nIn her fierce aspect, Hathor could become the **Eye of Ra**, a destructive force. In the famous myth, Ra sent her to punish rebellious humanity. As the lioness Sekhmet, she nearly destroyed all humankind until Ra flooded the fields with beer dyed red. Thinking it was blood, she drank it, became intoxicated, and transformed back into the gentle Hathor.\n\n### Music, Dance, and Sacred Animals\n\nHathor was the patroness of music and dance, with the **sistrum** rattle sacred to her worship. Cows were her sacred animals, and she was depicted either as a cow or as a woman with cow's ears and horns cradling the sun disk. Her main cult center was **Dendera**, which houses one of the best-preserved temples in Egypt.",
     "originStory": "Hathor's origins trace to the earliest periods of Egyptian religion, where she was worshipped as a sky goddess, with her body forming the heavens. In some traditions, she was the wife of Horus and thus connected to kingship. In others, she was the daughter of Ra, the sun god's eye given form. As one of the oldest Egyptian deities, her worship predates written records. Her association with the cow likely stemmed from the nurturing, life-giving qualities Egyptians observed in cattle, making her a natural embodiment of divine motherhood.",
     "importanceRank": 11,
-    "imageUrl": "/deities/hathor.png",
+    "imageUrl": "/deities/hathor.jpg",
     "pronunciation": {
       "ipa": "/\u02c8h\u00e6\u03b8\u0254\u02d0r/",
       "phonetic": "HATH-or"
@@ -1078,7 +1097,7 @@
     "description": "Goddess embodying truth, justice, and cosmic order. Her feather is weighed against the hearts of the dead in judgment.",
     "detailedBio": "## Cosmic Order\n\nMa'at is not just a goddess but the fundamental concept of truth, balance, order, law, morality, and justice. Without Ma'at, the universe would crumble into chaos.\n\n### The Feather of Truth\n\nShe is depicted with an ostrich feather on her head. This is the very feather against which the hearts of the dead are weighed in the afterlife.",
     "importanceRank": 13,
-    "imageUrl": "/deities/maat.png",
+    "imageUrl": "/deities/maat.jpg",
     "pronunciation": {
       "ipa": "/m\u0251\u02d0t/",
       "phonetic": "MAHT"
@@ -1095,7 +1114,7 @@
     "symbols": ["house on head", "wings", "kite bird"],
     "description": "Goddess of mourning and protector of the dead. Sister-wife of Set but loyal to Isis. She aided Isis in gathering Osiris's body and mourned him.",
     "importanceRank": 6,
-    "imageUrl": "/deities/nephthys.png",
+    "imageUrl": "/deities/nephthys.jpg",
     "pronunciation": {
       "ipa": "/\u02c8n\u025bf\u03b8\u026as/",
       "phonetic": "NEF-this"
@@ -1114,7 +1133,7 @@
     "detailedBio": "## The Powerful One\n\nSekhmet is the fearsome lioness-headed goddess whose name means \"She Who Is Powerful.\" She embodies the scorching, destructive heat of the sun and is one of the most formidable deities in the Egyptian pantheon. Warriors prayed to her before battle, and her breath was said to create the desert.\n\n### The Eye of Ra\n\nSekhmet is the wrathful form of the **Eye of Ra**, sent to punish humanity when they rebelled against the aging sun god. She slaughtered humans with such bloodthirsty fury that the Nile ran red. Ra, fearing she would destroy all life, ordered 7,000 jugs of beer dyed with pomegranate to be poured on the ground. Sekhmet, mistaking it for blood, drank until she passed out, and humanity was saved.\n\n### Goddess of Plagues and Healing\n\nSekhmet was believed to send **plagues and epidemics** as punishment, but her priests (**wab Sekhmet**) were also renowned physicians who could cure the diseases she sent. This duality made her both feared and revered as a healer.\n\n### Cult Center and Sacred Animals\n\nHer primary cult center was at **Memphis**, where she was worshipped as the consort of Ptah and mother of Nefertum. Lions were sacred to her, and hundreds of statues of Sekhmet lined the temple precincts at Karnak, one for each day of the year to appease her wrath.",
     "originStory": "Sekhmet was created by Ra from the fire of his eye to punish humanity for their rebellion and mockery of the aging sun god. She is the fierce, destructive aspect of the gentler Hathor, representing the burning heat of the midday sun. In essence, Sekhmet and Hathor are two faces of the same goddess: Sekhmet the destroyer and Hathor the nurturer. Her leonine form symbolizes the fierce power of the sun that can bring both life and death to the land of Egypt.",
     "importanceRank": 10,
-    "imageUrl": "/deities/sekhmet.png",
+    "imageUrl": "/deities/sekhmet.jpg",
     "pronunciation": {
       "ipa": "/\u02c8s\u025bkmet/",
       "phonetic": "SEK-met"
@@ -1139,7 +1158,7 @@
     "detailedBio": "## Lord of the Waters\n\nSobek is the crocodile-headed god of the Nile, fertility, and military prowess. He embodies the power and danger of the Nile crocodile while also representing the life-giving properties of the river's waters and annual floods.\n\n### Protector and Predator\n\nSobek held a paradoxical role in Egyptian religion. Crocodiles were both **feared predators** that claimed many lives and **revered protectors**. Sobek could ward off the very danger he represented. Fishermen and those who worked the Nile prayed to him for protection, and he was believed to have created the Nile from his sweat.\n\n### Royal Power and Military Might\n\nSobek became associated with **pharaonic power** and **military strength** due to the crocodile's ferocity and dominance. Several pharaohs of the Twelfth and Thirteenth Dynasties took names honoring Sobek, and he was invoked to grant victory in battle. His aggressive nature made him a patron of the army.\n\n### Cult Centers and Sacred Crocodiles\n\nSobek's main cult centers were at **Crocodilopolis** (Shedet) in the Fayyum and at **Kom Ombo** in Upper Egypt. At these temples, sacred crocodiles were kept in pools, adorned with gold and jewels, fed choice meats, and mummified after death. Harming a sacred crocodile was punishable by death.",
     "originStory": "Sobek emerged from the primordial waters of Nun, the dark chaos that existed before creation. In some traditions, he is the son of the goddess Neith, the ancient creator deity of Sais. Other myths describe him as self-created from the primeval waters. As the Nile was the lifeblood of Egypt, Sobek's connection to the river made him essential to the land's fertility. The annual flooding of the Nile, which deposited rich silt for farming, was attributed to his power.",
     "importanceRank": 14,
-    "imageUrl": "/deities/sobek.png",
+    "imageUrl": "/deities/sobek.jpg",
     "pronunciation": {
       "ipa": "/\u02c8so\u028ab\u025bk/",
       "phonetic": "SOH-bek"
@@ -1157,7 +1176,7 @@
     "description": "King of the gods and god of sky, lightning, and thunder. Supreme deity of the Roman state religion, protector of Rome and source of divine authority for Roman emperors.",
     "originStory": "Jupiter corresponds to the Greek Zeus, born to Saturn (Cronus) and Ops (Rhea). He overthrew his father to become king of the gods, establishing divine order and justice.",
     "importanceRank": 1,
-    "imageUrl": "/deities/jupiter.png",
+    "imageUrl": "/deities/jupiter.jpg",
     "pronunciation": {
       "ipa": "/\u02c8d\u0292u\u02d0p\u026at\u0259r/",
       "phonetic": "JOO-pih-ter"
@@ -1175,7 +1194,7 @@
     "description": "Queen of the gods and protector of the Roman state. Goddess of marriage, women, and childbirth. Wife and sister of Jupiter, patron of married women and the Roman matrons.",
     "originStory": "Juno is the Roman equivalent of Hera, daughter of Saturn and Ops. She became Jupiter's consort and queen of heaven, fiercely protective of marriage and legitimate children.",
     "importanceRank": 2,
-    "imageUrl": "/deities/juno.png",
+    "imageUrl": "/deities/juno.jpg",
     "pronunciation": {
       "ipa": "/\u02c8d\u0292u\u02d0no\u028a/",
       "phonetic": "JOO-noh"
@@ -1192,7 +1211,7 @@
     "symbols": ["trident", "horse", "dolphin"],
     "description": "God of the sea, earthquakes, and horses. Brother of Jupiter and Pluto, ruler of all waters. Also associated with freshwater springs and patronage of horse racing.",
     "importanceRank": 3,
-    "imageUrl": "/deities/neptune.png",
+    "imageUrl": "/deities/neptune.jpg",
     "pronunciation": {
       "ipa": "/\u02c8n\u025bptju\u02d0n/",
       "phonetic": "NEP-tyoon"
@@ -1210,7 +1229,7 @@
     "description": "God of war and guardian of Rome. More prominent in Roman religion than his Greek counterpart Ares, Mars was also a god of agriculture and fertility. Father of Romulus and Remus, legendary founders of Rome.",
     "originStory": "Mars was the son of Jupiter and Juno. He fathered Romulus and Remus with the Vestal Virgin Rhea Silvia, making him the divine ancestor of the Roman people.",
     "importanceRank": 2,
-    "imageUrl": "/deities/mars.png",
+    "imageUrl": "/deities/mars.jpg",
     "pronunciation": {
       "ipa": "/m\u0251\u02d0rz/",
       "phonetic": "MARZ"
@@ -1228,7 +1247,7 @@
     "description": "Goddess of love, beauty, desire, sex, and fertility. Mother of the Roman people through her son Aeneas, ancestor of Romulus. Patron goddess of the Julian family.",
     "originStory": "Venus corresponds to Greek Aphrodite. In Roman tradition, she was mother of Aeneas by the Trojan prince Anchises. Through Aeneas, she became the divine ancestress of the Roman people.",
     "importanceRank": 2,
-    "imageUrl": "/deities/venus.png",
+    "imageUrl": "/deities/venus.jpg",
     "pronunciation": {
       "ipa": "/\u02c8vi\u02d0n\u0259s/",
       "phonetic": "VEE-nus"
@@ -1245,7 +1264,7 @@
     "symbols": ["owl", "olive tree", "aegis", "spear"],
     "description": "Goddess of wisdom, strategic warfare, and crafts. Part of the Capitoline Triad with Jupiter and Juno. Patron of artisans, teachers, and strategic warfare. Roman equivalent of Athena.",
     "importanceRank": 3,
-    "imageUrl": "/deities/minerva.png",
+    "imageUrl": "/deities/minerva.jpg",
     "pronunciation": {
       "ipa": "/m\u026a\u02c8n\u025c\u02d0rv\u0259/",
       "phonetic": "mih-NER-vuh"
@@ -1397,7 +1416,7 @@
     "description": "God of beginnings, gates, transitions, time, duality, doorways, passages, and endings. Uniquely Roman deity with no Greek equivalent. Depicted with two faces looking to past and future.",
     "originStory": "Janus is one of the oldest Roman gods, said to have no Greek counterpart. He presided over the beginning and end of conflicts, and hence war and peace. All ceremonies and rituals began with an invocation to Janus.",
     "importanceRank": 3,
-    "imageUrl": "/deities/janus.png",
+    "imageUrl": "/deities/janus.jpg",
     "pronunciation": {
       "ipa": "/\u02c8d\u0292e\u026an\u0259s/",
       "phonetic": "JAY-nus"
@@ -1422,7 +1441,7 @@
     "detailedBio": "## The Creator of the Universe\n\nBrahma is the first god of the Hindu **Trimurti** (trinity), the cosmic creator who brings forth the universe at the beginning of each cycle of existence. He is depicted with four heads facing the cardinal directions, symbolizing his all-seeing nature and the four Vedas that emanated from his mouths.\n\n### The Four Vedas\n\nFrom Brahma's four heads came the **Rigveda**, **Yajurveda**, **Samaveda**, and **Atharvaveda**\u2014the foundational scriptures of Hinduism. He holds prayer beads (*akshamala*), a water pot (*kamandalu*), the Vedas, and a lotus, representing his roles in creation and knowledge.\n\n### Brahma's Curse\n\nDespite being the creator, Brahma has few temples dedicated to him. Legend says that Shiva cursed him for lying about finding the end of a cosmic pillar of light. His consort **Saraswati** is the goddess of knowledge, arts, and music.\n\n### Cosmic Time\n\nA single day of Brahma (*Kalpa*) equals 4.32 billion human years. The universe is created at dawn and dissolved at dusk, to be recreated again. The mantra **\"Om Brahmane Namah\"** honors him.",
     "originStory": "Brahma emerged from a golden egg (Hiranyagarbha) or from a lotus growing from Vishnu's navel. He created the world and all beings, including the gods and sages.",
     "importanceRank": 1,
-    "imageUrl": "/deities/brahma.png",
+    "imageUrl": "/deities/brahma.jpg",
     "pronunciation": {
       "ipa": "/\u02c8br\u0251\u02d0m\u0259/",
       "phonetic": "BRAH-muh"
@@ -1447,7 +1466,7 @@
     "detailedBio": "## The Preserver of the Universe\n\nVishnu is the second god of the **Trimurti**, the supreme preserver who maintains cosmic order (*dharma*). He reclines on the thousand-headed serpent **Shesha** in the cosmic ocean of milk, dreaming the universe into existence.\n\n### The Ten Avatars (Dashavatara)\n\nWhenever evil threatens to overwhelm good, Vishnu descends to Earth in an avatar. His ten principal incarnations include **Matsya** (fish), **Kurma** (tortoise), **Varaha** (boar), **Narasimha** (man-lion), **Vamana** (dwarf), **Parashurama**, **Rama**, **Krishna**, **Buddha**, and **Kalki** (the future avatar).\n\n### Divine Attributes\n\nVishnu holds four items: the **Sudarshana Chakra** (discus of cosmic order), **Panchajanya** (conch of creation), **Kaumodaki** (mace of mental and physical strength), and a **lotus** (purity and creation). His mount is the eagle **Garuda**.\n\n### Festivals and Worship\n\nVaishnavism, centered on Vishnu worship, is one of Hinduism's largest denominations. Major festivals include **Vaikuntha Ekadashi** and **Rama Navami**. The mantra **\"Om Namo Narayanaya\"** is chanted by devotees worldwide.",
     "originStory": "Vishnu reclines on the cosmic serpent Shesha in the ocean of milk. He is eternal and omnipresent. When dharma declines and chaos increases, Vishnu descends to Earth in different incarnations (avatars) to restore order.",
     "importanceRank": 1,
-    "imageUrl": "/deities/vishnu.png",
+    "imageUrl": "/deities/vishnu.jpg",
     "pronunciation": {
       "ipa": "/\u02c8v\u026a\u0283nu\u02d0/",
       "phonetic": "VISH-noo"
@@ -1472,7 +1491,7 @@
     "detailedBio": "## The Destroyer and Transformer\n\nShiva is the third god of the **Trimurti**, the cosmic destroyer who dissolves the universe at the end of each cycle to enable its recreation. Far from merely destructive, Shiva transforms and regenerates, making way for new creation.\n\n### Nataraja - The Cosmic Dancer\n\nAs **Nataraja**, Shiva performs the **Tandava**, the cosmic dance of creation, preservation, and destruction. His dance within a ring of fire represents the eternal cycle of the universe. One foot crushes the demon of ignorance (*Apasmara*).\n\n### The Third Eye and the Ganges\n\nShiva's **third eye** on his forehead represents wisdom and can emit flames to destroy evil. The holy river **Ganges** flows from his matted locks\u2014he caught her in his hair when she descended from heaven to prevent Earth's destruction. The crescent moon adorns his head, and serpents coil around his neck.\n\n### Mount Kailash and Shaivism\n\nShiva resides on **Mount Kailash** with his consort **Parvati** and sons **Ganesha** and **Kartikeya**. Shaivism, devoted to Shiva worship, is a major Hindu denomination. The festival **Maha Shivaratri** honors him. His mantra **\"Om Namah Shivaya\"** is among the most sacred in Hinduism.",
     "originStory": "Shiva is eternal and was never born. He manifested in various forms throughout cosmic time. He lives on Mount Kailash with his consort Parvati. His meditation sustains the universe.",
     "importanceRank": 1,
-    "imageUrl": "/deities/shiva.png",
+    "imageUrl": "/deities/shiva.jpg",
     "pronunciation": {
       "ipa": "/\u02c8\u0283i\u02d0v\u0259/",
       "phonetic": "SHEE-vuh"
@@ -1490,7 +1509,7 @@
     "description": "Goddess of wealth, fortune, prosperity, and beauty. Consort of Vishnu, she incarnates alongside him in his avatars. She represents both material and spiritual prosperity.",
     "originStory": "Lakshmi emerged from the churning of the cosmic ocean (Samudra Manthan), standing on a lotus flower. The gods and demons churned the ocean to obtain the nectar of immortality, and Lakshmi arose as one of the treasures.",
     "importanceRank": 2,
-    "imageUrl": "/deities/lakshmi.png",
+    "imageUrl": "/deities/lakshmi.jpg",
     "detailedBio": "## The Goddess of Prosperity\n\nLakshmi is the goddess of **wealth**, fortune, prosperity, and beauty. She is the divine consort of **Vishnu** and accompanies him in each of his avatars\u2014as Sita with Rama, as Rukmini with Krishna. She embodies both material abundance and spiritual grace.\n\n### The Churning of the Ocean\n\nLakshmi emerged from the **Samudra Manthan** (churning of the cosmic ocean), rising from the waters seated on a fully-bloomed lotus. Gods and demons churned the ocean for the nectar of immortality, and she arose as one of the fourteen treasures (*ratnas*).\n\n### Eight Forms of Lakshmi (Ashta Lakshmi)\n\nShe manifests as eight forms representing different types of wealth: **Adi Lakshmi** (primeval), **Dhana Lakshmi** (monetary), **Dhanya Lakshmi** (grain), **Gaja Lakshmi** (elephants/power), **Santana Lakshmi** (progeny), **Veera Lakshmi** (courage), **Vijaya Lakshmi** (victory), and **Vidya Lakshmi** (knowledge).\n\n### Diwali and Worship\n\nThe festival of **Diwali** is dedicated to Lakshmi, when homes are lit with lamps to welcome her. Her symbols include the lotus, gold coins flowing from her hands, and elephants showering her with water.",
     "pronunciation": {
       "ipa": "/\u02c8l\u028ck\u0283mi/",
@@ -1509,7 +1528,7 @@
     "description": "Goddess of knowledge, music, arts, wisdom, and learning. Consort of Brahma. She invented Sanskrit and the Devanagari script. Patron of students, artists, and scholars.",
     "originStory": "Saraswati emerged from Brahma's mouth or was created by him. She represents the feminine creative power (shakti) of Brahma. Originally also a river goddess, she embodies the flow of knowledge and consciousness.",
     "importanceRank": 2,
-    "imageUrl": "/deities/saraswati.png",
+    "imageUrl": "/deities/saraswati.jpg",
     "detailedBio": "## The Goddess of Knowledge\n\nSaraswati is the goddess of **knowledge**, music, arts, wisdom, and learning. As the consort of **Brahma** the creator, she represents the creative power (*shakti*) that gives form to his thoughts. She is the mother of the Vedas and inventor of the Sanskrit language and Devanagari script.\n\n### The Veena and the Swan\n\nSaraswati is depicted in white, symbolizing purity and truth, playing the **veena** (a stringed instrument representing the harmony of all arts). Her mount is the **swan** (*hamsa*), which can separate milk from water\u2014symbolizing the ability to discriminate between truth and illusion.\n\n### Patron of Learning\n\nShe holds the **Vedas** (sacred texts), a **mala** (prayer beads), and a **water pot** (*kamandalu*). Students, scholars, artists, and musicians invoke her blessings before study or performance. Books and instruments are placed before her image and not touched with feet.\n\n### Vasant Panchami\n\nThe festival **Vasant Panchami** (also called Saraswati Puja) celebrates her. Devotees wear yellow, representing the mustard fields of spring and the pursuit of knowledge. The mantra **\"Om Aim Saraswatyai Namah\"** is recited for wisdom.",
     "pronunciation": {
       "ipa": "/\u02ccs\u00e6r\u0259s\u02c8w\u0251\u02d0ti/",
@@ -1528,7 +1547,7 @@
     "description": "Goddess of power, fertility, love, and devotion. Consort of Shiva and mother of Ganesha and Kartikeya. Represents Shakti, the divine feminine creative power.",
     "originStory": "Parvati is the reincarnation of Sati, who immolated herself when her father insulted Shiva. Born as the daughter of the mountain king Himavan, she performed severe penance to win Shiva's love.",
     "importanceRank": 2,
-    "imageUrl": "/deities/parvati.png",
+    "imageUrl": "/deities/parvati.jpg",
     "detailedBio": "## The Divine Mother\n\nParvati is the goddess of **power**, fertility, love, and devotion. She is the consort of **Shiva** and mother of **Ganesha** and **Kartikeya**. As the embodiment of **Shakti** (divine feminine energy), she represents the active, creative power of the universe.\n\n### Daughter of the Mountains\n\nBorn as the daughter of **Himavan** (the personification of the Himalayas) and **Mena**, Parvati is called *Parvati* (\"she of the mountains\"). She is the reincarnation of **Sati**, Shiva's first wife, who immolated herself when her father insulted Shiva.\n\n### The Great Penance\n\nTo win Shiva's love after his grief over Sati's death, Parvati performed severe austerities (*tapas*) for years. Her devotion eventually awakened Shiva from his meditation, and they were married. Their union represents the perfect balance of consciousness (Shiva) and energy (Shakti).\n\n### Many Forms\n\nParvati manifests in both gentle and fierce forms. Her gentle aspects include **Uma** and **Gauri**. Her fierce warrior forms include **Durga** and **Kali**, who emerge when cosmic order is threatened by demons. The festival **Navratri** celebrates her nine forms.",
     "pronunciation": {
       "ipa": "/\u02c8p\u0251\u02d0rv\u0259ti/",
@@ -1585,7 +1604,7 @@
     "description": "Elephant-headed god of wisdom, new beginnings, and remover of obstacles. Son of Shiva and Parvati. Worshipped before any new venture. Patron of arts and sciences.",
     "originStory": "Parvati created Ganesha from sandalwood paste to guard her. When Shiva tried to enter, he beheaded the boy. To console Parvati, Shiva replaced Ganesha's head with that of an elephant.",
     "importanceRank": 2,
-    "imageUrl": "/deities/ganesha.png",
+    "imageUrl": "/deities/ganesha.jpg",
     "detailedBio": "## The Remover of Obstacles\n\nGanesha is the beloved elephant-headed god of **wisdom**, new beginnings, and the remover of obstacles. Son of **Shiva** and **Parvati**, he is worshipped before any new venture, journey, or undertaking. He is also the patron of arts, sciences, and learning.\n\n### The Elephant Head\n\nParvati created Ganesha from sandalwood paste and clay to guard her privacy. When Shiva returned and was blocked by the boy, not recognizing him, he beheaded him in anger. To console the grieving Parvati, Shiva replaced Ganesha's head with that of the first creature found\u2014an elephant.\n\n### Divine Attributes\n\nGanesha's **large ears** hear all prayers; his **trunk** symbolizes adaptability and strength. His **big belly** contains infinite universes. He holds an **axe** (to cut attachments), a **rope** (to pull devotees closer), a **lotus** (spiritual awakening), and a **modak** (sweet of wisdom). His mount is a **mouse**, representing controlled desires.\n\n### Ganesh Chaturthi\n\nThe festival of **Ganesh Chaturthi** celebrates his birthday with elaborate clay idols, prayers, and processions ending in immersion. The mantra **\"Om Gam Ganapataye Namah\"** is recited to invoke his blessings for new beginnings.",
     "pronunciation": {
       "ipa": "/\u0261\u0259\u02c8ne\u026a\u0283\u0259/",
@@ -1623,7 +1642,7 @@
     "description": "Seventh avatar of Vishnu and hero of the Ramayana epic. Ideal man, son, husband, and king. His life demonstrates perfect adherence to dharma (duty).",
     "originStory": "Born as prince of Ayodhya. Exiled for 14 years, during which his wife Sita was kidnapped by Ravana. With the help of Hanuman, he defeated Ravana and returned to rule as ideal king.",
     "importanceRank": 2,
-    "imageUrl": "/deities/rama.png",
+    "imageUrl": "/deities/rama.jpg",
     "detailedBio": "## The Ideal Man\n\nRama is the seventh avatar of **Vishnu** and the hero of the **Ramayana** epic. Known as *Maryada Purushottama* (\"the perfect man who follows dharma\"), he embodies the ideals of virtue, duty, honor, and righteous conduct.\n\n### Prince of Ayodhya\n\nBorn as the eldest son of King Dasharatha of Ayodhya, Rama was exiled for fourteen years due to a palace intrigue. Accompanied by his wife **Sita** and brother **Lakshmana**, he lived in the forest, fulfilling his duty to honor his father's promise.\n\n### The Ramayana\n\nWhen Sita was kidnapped by the demon king **Ravana**, Rama allied with the monkey king Sugriva and the devoted **Hanuman** to rescue her. The war against Ravana in Lanka demonstrated Rama's prowess as a warrior and his commitment to defeating evil.\n\n### Rama Rajya\n\nAfter defeating Ravana and rescuing Sita, Rama returned to Ayodhya to rule. His reign, called **Rama Rajya**, represents the ideal kingdom of peace, prosperity, and justice. The festival **Diwali** celebrates his return, and **Ram Navami** marks his birthday. The mantra **\"Sri Ram Jai Ram Jai Jai Ram\"** is chanted by devotees.",
     "pronunciation": {
       "ipa": "/\u02c8r\u0251\u02d0m\u0259/",
@@ -1817,7 +1836,7 @@
     "description": "Syncretic god of war, archery, and protector of Japan and warriors. Originally Emperor Ojin deified. Patron of the samurai clains.",
     "originStory": "Originally Emperor Ojin, deified as Hachiman. Over time, led to becoming protector of Buddhism in Japan and guardian deity of warriors.",
     "importanceRank": 3,
-    "imageUrl": "/deities/hachiman.png",
+    "imageUrl": "/deities/hachiman.jpg",
     "pronunciation": {
       "ipa": "/\u02c8h\u0251\u02d0t\u0283im\u0251\u02d0n/",
       "phonetic": "HAH-chee-mahn"
@@ -1899,7 +1918,7 @@
     "description": "The father figure and king of the Tuatha D\u00e9 Danann. A giant, bearded powerhouse with a magic club that can kill with one end and heal with the other, and a cauldron that never runs empty.",
     "originStory": "The Dagda is one of the principal leaders of the **Tuatha D\u00e9 Danann**, the divine tribe who arrived in Ireland shrouded in magical mist or in cloud-ships from the northern islands of the world. His parents are sometimes given as Elatha of the Fomorians and Eithne, making him half-Fomorian himself, though other traditions name Danu as the mother of all the Tuatha D\u00e9 Danann. He is the father of many important deities, including Brigid, Aengus, Midir, and Bodb Derg. His primary consort is the Morr\u00edgan, the great goddess of war and sovereignty.",
     "importanceRank": 1,
-    "imageUrl": "/deities/dagda.png",
+    "imageUrl": "/deities/dagda.jpg",
     "detailedBio": "## The Good God\n\nThe Dagda, whose name means **\"the Good God\"** (not morally good, but good at everything), is the father figure and High King of the **Tuatha D\u00e9 Danann**, the divine race of Irish mythology. He embodies abundance, fertility, and the life-giving power of the earth. Despite his immense power, he is often depicted with a comically short tunic and enormous appetite, lending him a more approachable, earthy quality than many other chief deities.\n\n### Sacred Treasures\n\nThe Dagda possesses three legendary items. His **club** (the lorg m\u00f3r) is so heavy it must be dragged on wheels; one end kills the living, while the other end resurrects the dead. His **cauldron** (the coire ansic) is one of the Four Treasures of the Tuatha D\u00e9 Danann\u2014it never empties and no one ever leaves it unsatisfied. His magical **harp**, Uaithne, can control the seasons and the emotions of all who hear it, playing the three noble strains: joy, sorrow, and sleep.\n\n### Role in the Mythological Cycle\n\nIn the **Second Battle of Mag Tuired**, the Dagda played a crucial role in the victory over the Fomorians. Before the battle, he used his harp to steal away the seasons from the enemy. He also mated with the Morr\u00edgan at the river Unius on Samhain, securing her magical aid for the coming conflict. After the defeat of the Tuatha D\u00e9 Danann by the Milesians, the Dagda divided the s\u00edd (fairy mounds) among the gods, though he himself eventually gave up his mound at Br\u00fa na B\u00f3inne to his son Aengus.",
     "pronunciation": {
       "ipa": "/\u02c8d\u0251\u02d0\u0261d\u0259/",
@@ -1964,7 +1983,7 @@
     "detailedBio": "## The Exalted One\n\nBrigid, whose name means **\"the Exalted One,\"** is one of the most beloved deities of Irish mythology, a goddess whose influence transcended the coming of Christianity. She presides over three essential crafts: **poetry** (the fire of inspiration), **smithwork** (the fire of the forge), and **healing** (the fire of the hearth). In some traditions, she is described as three sisters, all named Brigid, each governing one of these domains.\n\n### The Festival of Imbolc\n\nBrigid's sacred festival is **Imbolc** (February 1st), marking the first stirrings of spring when ewes begin to lactate. On Imbolc eve, offerings of food and drink are left for Brigid, and her crosses\u2014woven from rushes\u2014are made and hung over doorways for protection. The lighting of fires and candles honors her connection to flame and the returning light.\n\n### Sacred Fire and Holy Wells\n\nAt **Kildare**, Brigid's perpetual flame was tended by nineteen priestesses (later nuns), with the twentieth night left for Brigid herself to tend. Her holy wells throughout Ireland are visited for healing and blessing. The intertwining of fire and water in her worship reflects her power over transformation.\n\n### From Goddess to Saint\n\nBrigid's veneration was so deep that she seamlessly transitioned into Christianity as **St. Brigid of Kildare**, one of Ireland's patron saints. Many of her attributes, symbols, and even her feast day (February 1st) were preserved. Her Brigid's cross remains a powerful symbol of protection in Irish homes to this day.",
     "originStory": "Brigid is the daughter of **the Dagda**, the father god of the Tuatha D\u00e9 Danann, making her one of the most important deities of the Irish pantheon. Her mother is sometimes given as the goddess Danu or one of the Dagda's other consorts. She was married to Bres, a half-Fomorian who briefly ruled the Tuatha D\u00e9 Danann. When her son Ruad\u00e1n was killed in the Second Battle of Mag Tuired while fighting for the Fomorians, Brigid's keening became the first mourning cry heard in Ireland\u2014connecting her to both creation (poetry, smithcraft) and grief.",
     "importanceRank": 1,
-    "imageUrl": "/deities/brigid.png",
+    "imageUrl": "/deities/brigid.jpg",
     "pronunciation": {
       "ipa": "/\u02c8br\u026ad\u0292\u026ad/",
       "phonetic": "BRIJ-id"
@@ -1982,7 +2001,7 @@
     "description": "The primordial mother goddess whose name lives on in the Tuatha D\u00e9 Danann, the divine tribe of Ireland. Though rarely appearing in myths directly, her presence permeates the land itself.",
     "originStory": "Danu is the ancestral mother of the **Tuatha D\u00e9 Danann**\u2014literally \"the peoples of the goddess Danu.\" Her origins are shrouded in the oldest strata of Celtic belief, predating the written mythological texts. Some scholars connect her to an Indo-European river goddess, noting cognates in the Danube and Don rivers. In Irish tradition, she is sometimes conflated with **Anu**, a goddess of prosperity whose breasts are said to be the twin hills called the Paps of Anu in County Kerry. As the divine ancestress, she is mother to the Dagda and all the gods of Ireland.",
     "importanceRank": 1,
-    "imageUrl": "/deities/danu.png",
+    "imageUrl": "/deities/danu.jpg",
     "detailedBio": "## The Mother of Gods\n\nDanu occupies a paradoxical position in Irish mythology: she is everywhere and nowhere. Her name defines the entire divine race\u2014the **Tuatha D\u00e9 Danann**\u2014yet she rarely appears as an active character in the surviving myths. This absence may reflect her nature as a primordial deity, too fundamental and ancient to be contained in narrative. She is the land itself, the rivers that nourish it, and the generative power that sustains all life.\n\n### Etymology and Origins\n\nThe name Danu appears connected to an ancient Indo-European root meaning \"to flow\" or \"river.\" This connects her to major European rivers: the **Danube**, **Don**, **Dnieper**, and **Dniester** all bear names scholars trace to this divine source. The goddess Danu thus represents the life-giving waters that made civilization possible\u2014a concept that traveled with Celtic peoples across the continent.\n\n### Danu and Anu\n\nMedieval Irish texts sometimes conflate Danu with **Anu** (or Ana), described in Cormac's Glossary as the mother of the Irish gods and a goddess of prosperity. The **D\u00e1 Ch\u00edch Anann** (\"the Paps of Anu\"), twin breast-shaped hills in County Kerry, mark her presence on the landscape. This identification suggests Danu was understood as both the flowing waters and the nurturing earth.\n\n### Legacy\n\nThough Danu left no detailed myths, her influence is absolute. Every deed of the Tuatha D\u00e9 Danann\u2014their arrival in Ireland, their battles with the Fir Bolg and Fomorians, their retreat into the s\u00edd mounds\u2014happens under her name. She represents the ultimate source from which all divine power flows.",
     "pronunciation": {
       "ipa": "/\u02c8d\u0251\u02d0nu\u02d0/",
@@ -2020,7 +2039,7 @@
     "description": "Lord of the sea and guardian of T\u00edr na n\u00d3g, the Land of Youth. He rides the waves in his chariot and cloaks the Otherworld in mist.",
     "originStory": "Manann\u00e1n mac Lir is the son of **Lir**, a sea god whose name survives in the Irish Sea (Muir Meann). Though sometimes counted among the Tuatha D\u00e9 Danann, Manann\u00e1n stands apart as ruler of his own realm: the **Otherworld** beyond the western sea. He was foster-father to many, including **Lugh L\u00e1mhfhada**, whom he raised and trained in the magical arts. His wife is **Fand**, a woman of the s\u00edd, though he also had dalliances with mortal women. After the Tuatha D\u00e9 Danann retreated into the fairy mounds, Manann\u00e1n gave each of the gods their s\u00edd and taught them the f\u00e9th f\u00edada\u2014the spell of invisibility that hides the Otherworld from mortal eyes.",
     "importanceRank": 1,
-    "imageUrl": "/deities/manannan-mac-lir.png",
+    "imageUrl": "/deities/manannan-mac-lir.jpg",
     "detailedBio": "## Lord of the Sea\n\nManann\u00e1n mac Lir commands the wild Atlantic, riding its waves in his chariot as easily as a mortal rides a road. His dominion extends beyond the physical ocean to encompass the **Otherworld** itself\u2014those mystical islands beyond the sunset where the immortals feast and time moves strangely.\n\n### The Isle of Man\n\nThe **Isle of Man** takes its name from Manann\u00e1n, who was revered there as a protective deity. The Manx people paid him rent in the form of rushes at Midsummer, and his three-legged symbol (the triskelion) remains the island's emblem. In Welsh tradition, he appears as **Manawydan fab Ll\u0177r**, a more human figure but still connected to the sea.\n\n### Magical Treasures\n\nManann\u00e1n possesses an array of enchanted objects. His **crane bag** contains the treasures of the sea\u2014when the tide is full, it holds wonders; when the tide ebbs, it is empty. His **cloak of mist** (f\u00e9th f\u00edada) can render the wearer invisible and was given to the Tuatha D\u00e9 Danann to hide them from mortals. His chariot, **Wave Sweeper**, can travel over sea as over land, and his boat, **Ocean Sweeper**, needs no oars or sails.\n\n### Guardian of the Otherworld\n\nWhen the Milesians conquered Ireland and the Tuatha D\u00e9 Danann retreated into the s\u00edd mounds, Manann\u00e1n organized their exile. He assigned each god their hollow hill and taught them the magic to conceal themselves. He is thus the architect of the division between the mortal world and the realm of Faerie.\n\n### Fosterage of Lugh\n\nManann\u00e1n raised the young **Lugh** in T\u00edr na n\u00d3g after the child escaped Balor's attempts to drown him. Under Manann\u00e1n's tutelage, Lugh learned magic, warfare, and all the arts that would later earn him the title Samild\u00e1nach (\"Equally Skilled in All\"). When Lugh came of age, Manann\u00e1n gave him magical weapons for his journey to Tara.",
     "pronunciation": {
       "ipa": "/\u02c8m\u00e6n\u0259n\u0251\u02d0n mak \u02c8l\u026a\u0259r/",
@@ -2058,7 +2077,7 @@
     "description": "The horned god of wild places and untamed nature. He sits cross-legged, lord of beasts, holding a torc in one hand and a serpent in the other.",
     "originStory": "Cernunnos is one of the most ancient Celtic deities, known primarily through Gaulish inscriptions and images rather than Irish or Welsh texts. His name appears only once, on the **Pillar of the Boatmen** in Paris, where he is depicted with antlers from which torcs hang. The famous image on the **Gundestrup Cauldron** shows him seated in a meditative pose, surrounded by animals, holding a torc and a ram-headed serpent. Though he has no surviving mythology, his widespread iconography from Britain to Romania suggests he was once a major god of the continental Celts, perhaps connected to shamanic practices, animal spirits, and the wealth of the forest.",
     "importanceRank": 2,
-    "imageUrl": "/deities/cernunnos.png",
+    "imageUrl": "/deities/cernunnos.jpg",
     "detailedBio": "## The Horned God\n\nCernunnos remains one of the most evocative yet enigmatic figures in Celtic religion. His images appear across the Celtic world, from the forests of Gaul to the shores of Britain, yet almost nothing survives of his mythology. What we know comes from archaeology: he is antlered like a stag, seated cross-legged like a shaman, surrounded by animals, and associated with torcs\u2014the twisted gold rings that symbolized divine and royal power.\n\n### The Gundestrup Cauldron\n\nThe most famous depiction of Cernunnos appears on the silver **Gundestrup Cauldron**, discovered in a Danish bog but of Celtic manufacture. He sits in a lotus position, wearing and holding torcs, accompanied by a stag, a bull, lions, and a ram-headed serpent. His expression is serene, his posture meditative\u2014suggesting a deity of contemplation and communion with nature rather than martial power.\n\n### Lord of Animals\n\nCernunnos's consistent association with wild animals marks him as a god of the hunt, of fertility, and of the untamed forest. The stag whose antlers he wears is a creature of liminality\u2014shedding and regrowing its horns annually, moving between the cultivated edges of human settlement and the deep woods. This may connect Cernunnos to themes of death and renewal.\n\n### The Ram-Headed Serpent\n\nThe strange creature often depicted with Cernunnos\u2014a serpent with a ram's head\u2014appears nowhere else in Celtic iconography. Serpents traditionally represent the underworld and regeneration (they shed their skins), while rams symbolize fertility and aggression. This hybrid beast may represent the fusion of chthonic power and life-force that Cernunnos embodies.\n\n### Survival and Revival\n\nThough Cernunnos left no medieval legends, his image may have influenced depictions of the Devil in later Christian art\u2014horned, cross-legged, lord of beasts. In modern Paganism, he has been revived as a central deity, often paired with a goddess figure in a duotheistic framework.",
     "pronunciation": {
       "ipa": "/k\u025br\u02c8nu\u02d0n\u0252s/",
@@ -2173,7 +2192,7 @@
     "detailedBio": "## The Feathered Serpent\n\nQuetzalcoatl stands as one of the most complex and revered deities in Mesoamerican religion, his worship spanning multiple civilizations over thousands of years. His name combines **quetzal** (the resplendent bird with iridescent green feathers) and **coatl** (serpent), embodying the union of earth and sky, matter and spirit.\n\n## Divine Roles and Domains\n\nAs a wind god (in his aspect of Ehecatl), Quetzalcoatl swept the path for the rain gods and brought life-giving breezes. He served as the **patron of priests, learning, and knowledge**, credited with inventing the Mesoamerican calendar, books, and the arts of civilization. Unlike many Aztec deities, Quetzalcoatl was notably associated with **opposition to human sacrifice**, preferring offerings of jade, butterflies, and one's own blood drawn through penitential piercing.\n\n## The Creation of Humanity\n\nQuetzalcoatl's greatest myth tells of his descent to **Mictlan**, the realm of the dead, to retrieve the bones of previous humanity. After tricking Mictlantecuhtli, the death god, he carried the bones in a bundle, but stumbled when quail startled him, scattering and breaking them (explaining why humans vary in size). He sprinkled his own blood on the bones to resurrect humanity for the Fifth Sun.\n\n## Worship and Temples\n\nThe great circular pyramid at **Cholula** remains the largest pyramid by volume in the world, dedicated to Quetzalcoatl. The Temple of the Feathered Serpent at Teotihuacan displays his image alongside Tlaloc. Priests of Quetzalcoatl wore elaborate feathered costumes and practiced ritual fasting and bloodletting.",
     "originStory": "One of the four sons of the creator couple Ometeotl. He journeyed to Mictlan to retrieve the bones of the ancestors to create the current race of humans.",
     "importanceRank": 1,
-    "imageUrl": "/deities/quetzalcoatl.png",
+    "imageUrl": "/deities/quetzalcoatl.jpg",
     "pronunciation": {
       "ipa": "/\u02cck\u025bts\u0251\u02d0l\u02c8ko\u028a\u0251\u02d0t\u0259l/",
       "phonetic": "ket-sahl-koh-AH-tul"
@@ -2230,7 +2249,7 @@
     "detailedBio": "## She of the Serpent Skirt\n\nCoatlicue, meaning \"She of the Serpent Skirt,\" was the primordial **earth mother goddess** of the Aztecs, embodying both the terror and the nurturing power of the earth itself. Her famous statue in the National Museum of Anthropology in Mexico City depicts her with a skirt of writhing serpents, a necklace of human hearts, hands, and skulls, clawed feet, and two serpent heads forming her face - representing the duality of life and death.\n\n## Mother of Gods\n\nCoatlicue was mother to the **Centzon Huitznahua** (the 400 stars of the southern sky), **Coyolxauhqui** (the moon goddess), and most importantly, **Huitzilopochtli** (the sun god). Her children represented the celestial bodies locked in eternal conflict, playing out the daily drama of sunrise as Huitzilopochtli defeated his siblings.\n\n## The Birth at Coatepec\n\nThe central myth of Coatlicue tells of her miraculous pregnancy on the sacred mountain **Coatepec** (Serpent Hill). While sweeping the temple as a penitent, a ball of feathers descended from the heavens and she became pregnant. Her 400 sons, led by Coyolxauhqui, viewed this as a disgrace and marched to kill her. At the moment of her death, Huitzilopochtli sprang fully armed from her womb and slaughtered his siblings.\n\n## Earth and Sacrifice\n\nAs an earth deity, Coatlicue required nourishment through sacrifice to remain fertile. The Aztecs believed the earth literally consumed the dead, recycling them into new life - hence her terrifying imagery of devoured hearts and severed limbs.",
     "originStory": "While sweeping a temple on Coatepec, a ball of feathers fell on her and she became miraculously pregnant with Huitzilopochtli. Her other children plotted to kill her, but Huitzilopochtli was born fully armed and defended her.",
     "importanceRank": 2,
-    "imageUrl": "/deities/coatlicue.png",
+    "imageUrl": "/deities/coatlicue.jpg",
     "pronunciation": {
       "ipa": "/ko\u028a\u02cc\u0251\u02d0tli\u02c8kwe\u026a/",
       "phonetic": "koh-aht-lee-KWAY"
