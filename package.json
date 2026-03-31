@@ -13,7 +13,10 @@
     "lint": "turbo lint",
     "test": "turbo test",
     "prepare": "[ -d .git ] && husky || true",
-    "start": "turbo start"
+    "start": "turbo start",
+    "biome:check": "biome check .",
+    "biome:fix": "biome check . --write",
+    "biome:format": "biome format . --write"
   },
   "lint-staged": {
     "apps/web/**/*.{ts,tsx}": [
@@ -28,6 +31,7 @@
     ]
   },
   "devDependencies": {
+    "@biomejs/biome": "^2.4.9",
     "@tailwindcss/postcss": "^4.1.18",
     "@tailwindcss/typography": "^0.5.19",
     "eslint": "^9.39.4",
@@ -53,5 +57,9 @@
       "dompurify@<3.3.2": "3.3.2"
     }
   },
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "@gsap/react": "^2.1.2",
+    "gsap": "^3.14.2"
+  }
 }

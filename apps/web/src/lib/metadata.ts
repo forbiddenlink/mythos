@@ -9,7 +9,7 @@ export const siteConfig = {
   creator: "Elizabeth Stein",
   links: {
     twitter: "https://twitter.com/mythosatlas",
-    github: "https://github.com/yourusername/mythos-atlas",
+    github: "https://github.com/forbiddenlink/mythos",
   },
 };
 
