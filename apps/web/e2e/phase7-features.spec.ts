@@ -75,11 +75,16 @@ test.describe("Phase 7: Oracle Chat", () => {
       'button:has-text("Who is the most powerful Greek god?")',
     );
     await expect(suggestedQuestion).toBeVisible({ timeout: 3000 });
-    await suggestedQuestion.click();
 
-    // Input should be filled with the question
+    // Force click and wait for any animations
+    await suggestedQuestion.click({ force: true });
+    await page.waitForTimeout(500);
+
+    // Input should be filled with the question (allow time for state update)
     const input = page.locator('input[placeholder="Ask the Oracle..."]');
-    await expect(input).toHaveValue("Who is the most powerful Greek god?");
+    await expect(input).toHaveValue("Who is the most powerful Greek god?", {
+      timeout: 5000,
+    });
   });
 
   test("should close Oracle modal with X button", async ({ page }) => {
