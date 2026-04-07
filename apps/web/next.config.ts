@@ -16,6 +16,12 @@ const withPWA = (config: NextConfig) => config;
 
 const nextConfig: NextConfig = {
   devIndicators: false,
+  // Pass through NEXT_PUBLIC_ORACLE_ENABLED from environment, defaulting to "true" in CI
+  env: {
+    NEXT_PUBLIC_ORACLE_ENABLED:
+      process.env.NEXT_PUBLIC_ORACLE_ENABLED ||
+      (process.env.CI === "true" ? "true" : "false"),
+  },
   // NOTE: viewTransition is experimental and was causing navigation to fail
   // (links would preventDefault but navigation wouldn't complete)
   // Disabled until the feature is stable in Next.js
