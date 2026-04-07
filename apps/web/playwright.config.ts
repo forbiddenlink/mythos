@@ -55,10 +55,8 @@ export default defineConfig({
 
   /* Run your local dev server before starting the tests */
   webServer: {
-    command: "pnpm build && pnpm start",
-    env: {
-      NEXT_PUBLIC_ORACLE_ENABLED: "true",
-    },
+    // NEXT_PUBLIC_* vars must be set at build time (inlined by Next.js)
+    command: "NEXT_PUBLIC_ORACLE_ENABLED=true pnpm build && pnpm start",
     url: "http://localhost:3000",
     reuseExistingServer: !process.env.CI,
     timeout: 240000,
