@@ -65,6 +65,10 @@
         "note": "Comprehensive catalog of Zeus's myths and offspring"
       }
     ],
+    "sources": [
+      "Burkert, Walter. *Greek Religion* (Harvard University Press, 1985) — authoritative survey of Greek cult practice and Olympian theology.",
+      "West, M. L. (ed. & trans.). *Hesiod: Theogony* (Oxford World’s Classics). Handy edition for the succession myth and Zeus’s rise."
+    ],
     "crossPantheonParallels": [
       {
         "pantheonId": "roman-pantheon",

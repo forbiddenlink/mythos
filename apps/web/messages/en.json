@@ -253,6 +253,33 @@
     "muteAudio": "Mute audio",
     "unmuteAudio": "Unmute audio"
   },
+  "oracle": {
+    "fabOpen": "Ask the Oracle",
+    "title": "Oracle of Delphi",
+    "subtitle": "Grounded in the Atlas when your topic matches our catalog",
+    "close": "Close Oracle chat",
+    "greeting": "Greetings, seeker of wisdom. What mysteries of the ancient world do you wish to unravel?",
+    "tryAsking": "Try asking:",
+    "loading": "The Oracle speaks...",
+    "placeholder": "Ask the Oracle...",
+    "inputLabel": "Ask the Oracle",
+    "sendLabel": "Send message",
+    "sourcesAria": "Atlas sources",
+    "groundingAria": "Answer grounded in {count} encyclopedia entries",
+    "groundingLine": "{count, plural, one {Grounded in Mythos Atlas · # entry} other {Grounded in Mythos Atlas · # entries}}",
+    "errors": {
+      "generic": "An error occurred",
+      "consultFailed": "Failed to consult the Oracle",
+      "noStream": "No response stream"
+    },
+    "suggestedQuestions": [
+      "Who is the most powerful Greek god?",
+      "Tell me about Norse creation mythology",
+      "What are the similarities between Zeus and Jupiter?",
+      "Who guards the underworld in Egyptian mythology?",
+      "What is the story of Ragnarok?"
+    ]
+  },
   "footer": {
     "madeWith": "Made with",
     "by": "by",

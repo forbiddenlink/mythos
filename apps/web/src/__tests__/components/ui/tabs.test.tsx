@@ -1,4 +1,12 @@
-import { describe, it, expect, vi, beforeEach } from "vitest";
+import {
+  describe,
+  it,
+  expect,
+  vi,
+  beforeEach,
+  beforeAll,
+  afterAll,
+} from "vitest";
 import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
@@ -192,6 +200,22 @@ describe("Tabs", () => {
   });
 
   describe("Keyboard navigation", () => {
+    // Radix Tabs schedules roving focus asynchronously; React logs act() noise in jsdom.
+    let consoleErrorSpy: ReturnType<typeof vi.spyOn>;
+    beforeAll(() => {
+      const original = console.error;
+      consoleErrorSpy = vi
+        .spyOn(console, "error")
+        .mockImplementation((...args) => {
+          const m = args[0];
+          if (typeof m === "string" && m.includes("not wrapped in act")) return;
+          original.apply(console, args);
+        });
+    });
+    afterAll(() => {
+      consoleErrorSpy.mockRestore();
+    });
+
     it("should navigate between tabs with arrow keys", async () => {
       const user = userEvent.setup();
 
@@ -215,15 +239,19 @@ describe("Tabs", () => {
 
       // Press ArrowRight to move to Tab 2
       await user.keyboard("{ArrowRight}");
-      expect(document.activeElement).toBe(
-        screen.getByRole("tab", { name: "Tab 2" }),
-      );
+      await waitFor(() => {
+        expect(document.activeElement).toBe(
+          screen.getByRole("tab", { name: "Tab 2" }),
+        );
+      });
 
       // Press ArrowRight to move to Tab 3
       await user.keyboard("{ArrowRight}");
-      expect(document.activeElement).toBe(
-        screen.getByRole("tab", { name: "Tab 3" }),
-      );
+      await waitFor(() => {
+        expect(document.activeElement).toBe(
+          screen.getByRole("tab", { name: "Tab 3" }),
+        );
+      });
     });
 
     it("should navigate backwards with ArrowLeft", async () => {
@@ -248,15 +276,19 @@ describe("Tabs", () => {
 
       // Press ArrowLeft to move to Tab 2
       await user.keyboard("{ArrowLeft}");
-      expect(document.activeElement).toBe(
-        screen.getByRole("tab", { name: "Tab 2" }),
-      );
+      await waitFor(() => {
+        expect(document.activeElement).toBe(
+          screen.getByRole("tab", { name: "Tab 2" }),
+        );
+      });
 
       // Press ArrowLeft to move to Tab 1
       await user.keyboard("{ArrowLeft}");
-      expect(document.activeElement).toBe(
-        screen.getByRole("tab", { name: "Tab 1" }),
-      );
+      await waitFor(() => {
+        expect(document.activeElement).toBe(
+          screen.getByRole("tab", { name: "Tab 1" }),
+        );
+      });
     });
 
     it("should wrap around when navigating past last tab", async () => {
@@ -281,9 +313,11 @@ describe("Tabs", () => {
 
       // Press ArrowRight to wrap to Tab 1
       await user.keyboard("{ArrowRight}");
-      expect(document.activeElement).toBe(
-        screen.getByRole("tab", { name: "Tab 1" }),
-      );
+      await waitFor(() => {
+        expect(document.activeElement).toBe(
+          screen.getByRole("tab", { name: "Tab 1" }),
+        );
+      });
     });
 
     it("should wrap around when navigating before first tab", async () => {
@@ -308,9 +342,11 @@ describe("Tabs", () => {
 
       // Press ArrowLeft to wrap to Tab 3
       await user.keyboard("{ArrowLeft}");
-      expect(document.activeElement).toBe(
-        screen.getByRole("tab", { name: "Tab 3" }),
-      );
+      await waitFor(() => {
+        expect(document.activeElement).toBe(
+          screen.getByRole("tab", { name: "Tab 3" }),
+        );
+      });
     });
 
     it("should activate tab with Enter or Space key", async () => {
@@ -335,10 +371,12 @@ describe("Tabs", () => {
       await user.keyboard("{ArrowRight}");
       await user.keyboard("{Enter}");
 
-      expect(screen.getByRole("tab", { name: "Tab 2" })).toHaveAttribute(
-        "aria-selected",
-        "true",
-      );
+      await waitFor(() => {
+        expect(screen.getByRole("tab", { name: "Tab 2" })).toHaveAttribute(
+          "aria-selected",
+          "true",
+        );
+      });
     });
 
     it("should navigate with Home and End keys", async () => {
@@ -363,15 +401,19 @@ describe("Tabs", () => {
 
       // Press Home to go to first tab
       await user.keyboard("{Home}");
-      expect(document.activeElement).toBe(
-        screen.getByRole("tab", { name: "Tab 1" }),
-      );
+      await waitFor(() => {
+        expect(document.activeElement).toBe(
+          screen.getByRole("tab", { name: "Tab 1" }),
+        );
+      });
 
       // Press End to go to last tab
       await user.keyboard("{End}");
-      expect(document.activeElement).toBe(
-        screen.getByRole("tab", { name: "Tab 3" }),
-      );
+      await waitFor(() => {
+        expect(document.activeElement).toBe(
+          screen.getByRole("tab", { name: "Tab 3" }),
+        );
+      });
     });
   });
 
@@ -670,6 +712,21 @@ describe("Tabs", () => {
   });
 
   describe("Disabled tabs", () => {
+    let consoleErrorSpy: ReturnType<typeof vi.spyOn>;
+    beforeAll(() => {
+      const original = console.error;
+      consoleErrorSpy = vi
+        .spyOn(console, "error")
+        .mockImplementation((...args) => {
+          const m = args[0];
+          if (typeof m === "string" && m.includes("not wrapped in act")) return;
+          original.apply(console, args);
+        });
+    });
+    afterAll(() => {
+      consoleErrorSpy.mockRestore();
+    });
+
     it("should not allow clicking disabled tab", async () => {
       const user = userEvent.setup();
       const handleValueChange = vi.fn();
@@ -736,9 +793,11 @@ describe("Tabs", () => {
 
       // Press ArrowRight - should skip Tab 2 and go to Tab 3
       await user.keyboard("{ArrowRight}");
-      expect(document.activeElement).toBe(
-        screen.getByRole("tab", { name: "Tab 3" }),
-      );
+      await waitFor(() => {
+        expect(document.activeElement).toBe(
+          screen.getByRole("tab", { name: "Tab 3" }),
+        );
+      });
     });
   });
 

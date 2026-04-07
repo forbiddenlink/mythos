@@ -73,6 +73,7 @@ import { normalizeDeityReference } from "@/lib/deities";
 import {
   SourceExcerptsList,
   ReferencesList,
+  EntityPlainSourcesList,
   OriginalLanguageName,
   type PrimarySourceExcerpt,
   type FurtherReadingReference,
@@ -124,6 +125,8 @@ interface Deity {
   }>;
   primarySourceExcerpts?: PrimarySourceExcerpt[];
   furtherReading?: FurtherReadingReference[];
+  /** Optional editorial bibliography lines (plain text). */
+  sources?: string[];
   originalLanguageName?: OriginalLanguageNameData;
   worship?: {
     temples?: string[];
@@ -533,6 +536,10 @@ export function DeityPageClient({ slug }: DeityPageClientProps) {
                   collapsible={true}
                   defaultExpanded={false}
                 />
+              )}
+
+              {deity.sources && deity.sources.length > 0 && (
+                <EntityPlainSourcesList lines={deity.sources} variant="deity" />
               )}
 
               {/* Worship & Cult */}

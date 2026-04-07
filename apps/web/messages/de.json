@@ -253,6 +253,33 @@
     "muteAudio": "Ton aus",
     "unmuteAudio": "Ton an"
   },
+  "oracle": {
+    "fabOpen": "Das Orakel befragen",
+    "title": "Orakel von Delphi",
+    "subtitle": "Verankert im Atlas, wenn Ihr Thema zu unserem Katalog passt",
+    "close": "Orakel schließen",
+    "greeting": "Seid gegrüßt, Sucher der Weisheit. Welche Geheimnisse der alten Welt wollt ihr ergründen?",
+    "tryAsking": "Versucht zu fragen:",
+    "loading": "Das Orakel spricht...",
+    "placeholder": "Fragt das Orakel...",
+    "inputLabel": "Fragt das Orakel",
+    "sendLabel": "Nachricht senden",
+    "sourcesAria": "Atlas-Quellen",
+    "groundingAria": "Antwort gestützt auf {count} Enzyklopädie-Einträge",
+    "groundingLine": "{count, plural, one {Verankert in Mythos Atlas · # Eintrag} other {Verankert in Mythos Atlas · # Einträge}}",
+    "errors": {
+      "generic": "Ein Fehler ist aufgetreten",
+      "consultFailed": "Das Orakel konnte nicht befragt werden",
+      "noStream": "Keine Antwortdaten"
+    },
+    "suggestedQuestions": [
+      "Wer ist der mächtigste griechische Gott?",
+      "Erzähl mir von der nordischen Schöpfungsmythologie",
+      "Was sind die Gemeinsamkeiten zwischen Zeus und Jupiter?",
+      "Wer bewacht die Unterwelt in der ägyptischen Mythologie?",
+      "Was ist die Geschichte von Ragnarök?"
+    ]
+  },
   "footer": {
     "madeWith": "Erstellt mit",
     "by": "von",

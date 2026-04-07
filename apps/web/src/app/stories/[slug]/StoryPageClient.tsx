@@ -53,8 +53,11 @@ import { StoryNarrator } from "@/components/stories/StoryNarrator";
 import {
   SourceExcerptsList,
   ReferencesList,
+  CitationSourcesList,
+  EntityPlainSourcesList,
   type PrimarySourceExcerpt,
   type FurtherReadingReference,
+  type CitationSourceItem,
 } from "@/components/sources";
 
 function useProgress() {
@@ -109,8 +112,11 @@ interface Story {
   featuredLocations?: string[];
   relatedStories?: string[];
   variants?: MythVariant[];
+  citationSources?: CitationSourceItem[];
   primarySourceExcerpts?: PrimarySourceExcerpt[];
   furtherReading?: FurtherReadingReference[];
+  /** Optional editorial bibliography lines (plain text). */
+  sources?: string[];
 }
 
 interface Deity {
@@ -426,6 +432,14 @@ export function StoryPageClient({ slug }: StoryPageClientProps) {
             </Card>
           )}
 
+          {/* Structured citation references (from JSON citationSources) */}
+          {story.citationSources && story.citationSources.length > 0 && (
+            <CitationSourcesList
+              sources={story.citationSources}
+              variant="story"
+            />
+          )}
+
           {/* Myth Variants */}
           {story.variants && story.variants.length > 0 && (
             <MythVariants variants={story.variants} />
@@ -462,6 +476,10 @@ export function StoryPageClient({ slug }: StoryPageClientProps) {
                 defaultExpanded={false}
               />
             </div>
+          )}
+
+          {story.sources && story.sources.length > 0 && (
+            <EntityPlainSourcesList lines={story.sources} variant="story" />
           )}
 
           {/* Related Content Section */}

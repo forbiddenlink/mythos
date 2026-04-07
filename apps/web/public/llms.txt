@@ -1,0 +1,48 @@
+# Mythos Atlas
+
+> https://mythosatlas.com — Interactive world mythology encyclopedia (deities, stories, pantheons, creatures, artifacts, locations, quizzes, timelines, family trees).
+
+## Summary
+
+Mythos Atlas is a research-oriented reference and learning site for ancient and world mythology. Content is curated into structured entries with cross-links, maps, knowledge graphs, and study tools (quizzes, spaced repetition, learning paths). The site is built with Next.js; static JSON is the primary data source, with optional Hygraph CMS for editorial workflows when configured.
+
+## URL aliases
+
+- `/domains` redirects to `/divine-domains` (canonical hub for domains of influence).
+
+## Primary entry points
+
+- Home: https://mythosatlas.com/
+- Browse deities: https://mythosatlas.com/deities
+- Browse stories: https://mythosatlas.com/stories
+- Pantheons: https://mythosatlas.com/pantheons
+- Compare tools: https://mythosatlas.com/compare
+- Knowledge graph: https://mythosatlas.com/knowledge-graph
+- Family tree explorer: https://mythosatlas.com/family-tree
+- Quizzes: https://mythosatlas.com/quiz
+- Sources & policies: https://mythosatlas.com/sources — https://mythosatlas.com/about
+
+## Machine-readable sitemap
+
+- https://mythosatlas.com/sitemap.xml
+- https://mythosatlas.com/robots.txt
+
+## API routes (not for general crawling)
+
+`/api/*` routes are application APIs (GraphQL facade, previews, webhooks, Oracle AI). They are disallowed in robots.txt. Do not rely on them as stable public content APIs without maintainer agreement.
+
+## Oracle (AI assistant)
+
+The Oracle answers mythology questions using Anthropic Claude. When your question matches catalog entries, the API attaches snippets from the static encyclopedia (and key deity relationship edges), returns `X-Mythos-Grounding-Hits`, and may return `X-Mythos-Citations` (base64url JSON of `{ type, slug, title, path }[]`). Semantic similarity uses optional precomputed vectors in `src/data/oracle-embeddings.json` (generate via `pnpm --filter web run generate:embeddings` with `OPENAI_API_KEY`). The client sends UI `locale` (`en` | `es` | `fr` | `de`) for stopwords and answer language hints. Requires `ANTHROPIC_API_KEY`; optional Upstash Redis for rate limits — see `.env.example`.
+
+## Editorial & trust signals
+
+Structured entries are curated for consistency and cross-linking. The Sources page lists representative primary texts and references; About describes mission, scope, and how the project is maintained. Use Contact for corrections or substantive feedback.
+
+## Maintainer
+
+Elizabeth Stein — project background and contact via https://mythosatlas.com/about and https://mythosatlas.com/contact
+
+## License / usage
+
+Respect the site’s Terms and Privacy pages. For automated access, prefer sitemap and public HTML; avoid aggressive scraping of interactive or authenticated routes.

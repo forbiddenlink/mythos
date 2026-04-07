@@ -110,8 +110,8 @@ Entity types are defined in `src/types/Entity.ts` (`Deity`, `Creature`, `Artifac
 
 ### Provider Stack
 
-The root layout (`src/app/layout.tsx`) nests many providers in a specific order:
-`NextIntlClientProvider > ThemeProvider > QueryProvider > BookmarksProvider > ProgressProvider > LeaderboardProvider > AchievementNotificationProvider > AudioProvider > CommandPaletteProvider`
+The root layout (`src/app/layout.tsx`) nests providers in this order:
+`NextIntlClientProvider > ThemeProvider > QueryProvider > BookmarksProvider > ProgressProvider > LeaderboardProvider > AchievementNotificationProvider`, then `GlobalClientAddons` (command palette search via `GlobalSearch`, PWA/analytics hooks, optional install prompt, `LayoutEffects` for cursor + optional Oracle when `NEXT_PUBLIC_ORACLE_ENABLED` or non-production).
 
 Progress, bookmarks, and achievements persist to localStorage via their respective providers.
 

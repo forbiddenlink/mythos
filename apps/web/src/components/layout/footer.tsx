@@ -49,6 +49,7 @@ const footerLinks = {
   info: [
     { label: "About Mythos Atlas", href: "/about" },
     { label: "Contact Mythos Atlas", href: "/contact" },
+    { label: "AI / llms.txt", href: "/llms.txt" },
     { label: "Sources", href: "/sources" },
     { label: "Changelog", href: "/changelog" },
     { label: "Privacy Policy", href: "/privacy" },

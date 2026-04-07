@@ -22,6 +22,8 @@ const InstallPrompt = dynamic(
     import("@/components/pwa/InstallPrompt").then((mod) => mod.InstallPrompt),
   { ssr: false },
 );
+
+const pwaInstallEnabled = process.env.NEXT_PUBLIC_PWA_INSTALL_PROMPT === "true";
 const RandomDiscoveryButton = dynamic(
   () =>
     import("@/components/discovery/RandomDiscoveryButton").then(
@@ -56,7 +58,7 @@ export function GlobalClientAddons() {
       <OfflineIndicator />
       <GlobalSearch />
       <AudioEnhancements />
-      <InstallPrompt />
+      {pwaInstallEnabled ? <InstallPrompt /> : null}
       <LayoutEffects />
       <RandomDiscoveryButton />
       <CookieConsent />

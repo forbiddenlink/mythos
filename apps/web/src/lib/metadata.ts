@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import type { Locale } from "@/i18n/config";
 
 export const siteConfig = {
   name: "Mythos Atlas",
@@ -13,6 +14,31 @@ export const siteConfig = {
   },
 };
 
+/** Map UI locale to Open Graph locale (cookie-based locale; URLs are not locale-prefixed). */
+export function localeToOpenGraphLocale(locale: string): string {
+  const map: Record<Locale, string> = {
+    en: "en_US",
+    es: "es_ES",
+    fr: "fr_FR",
+    de: "de_DE",
+  };
+  return (map as Record<string, string>)[locale] ?? "en_US";
+}
+
+/** Same canonical URL for all languages (locale chosen via cookie / UI). */
+export function buildHreflangAlternates(path: string): Record<string, string> {
+  const base = siteConfig.url;
+  const normalized = path.startsWith("/") ? path : `/${path}`;
+  const full = `${base}${normalized}`;
+  return {
+    en: full,
+    es: full,
+    fr: full,
+    de: full,
+    "x-default": full,
+  };
+}
+
 export function generateBaseMetadata({
   title,
   description,
@@ -22,6 +48,7 @@ export function generateBaseMetadata({
   keywords,
   articleSection,
   articleTags,
+  locale = "en",
 }: {
   title: string;
   description?: string;
@@ -31,10 +58,14 @@ export function generateBaseMetadata({
   keywords?: string[];
   articleSection?: string;
   articleTags?: string[];
+  /** UI locale for og:locale (hreflang still lists all locales for the same URL). */
+  locale?: string;
 }): Metadata {
   const desc = description || siteConfig.description;
   const ogImage = image || siteConfig.ogImage;
   const pageUrl = url ? `${siteConfig.url}${url}` : siteConfig.url;
+  const pathForAlternates = url || "/";
+  const ogLocale = localeToOpenGraphLocale(locale);
 
   const baseKeywords = [
     "mythology",
@@ -67,7 +98,7 @@ export function generateBaseMetadata({
     type === "article"
       ? {
           type: "article",
-          locale: "en_US",
+          locale: ogLocale,
           url: pageUrl,
           title,
           description: desc,
@@ -78,7 +109,7 @@ export function generateBaseMetadata({
         }
       : {
           type: "website",
-          locale: "en_US",
+          locale: ogLocale,
           url: pageUrl,
           title,
           description: desc,
@@ -111,6 +142,7 @@ export function generateBaseMetadata({
     metadataBase: new URL(siteConfig.url),
     alternates: {
       canonical: pageUrl,
+      languages: buildHreflangAlternates(pathForAlternates),
     },
     robots: {
       index: true,

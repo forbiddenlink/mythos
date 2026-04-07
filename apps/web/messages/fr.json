@@ -253,6 +253,33 @@
     "muteAudio": "Couper le son",
     "unmuteAudio": "Activer le son"
   },
+  "oracle": {
+    "fabOpen": "Interroger l'Oracle",
+    "title": "Oracle de Delphes",
+    "subtitle": "Ancré dans l'Atlas lorsque votre sujet correspond à notre catalogue",
+    "close": "Fermer l'Oracle",
+    "greeting": "Salutations, chercheur de sagesse. Quels mystères du monde antique souhaitez-vous éclaircir ?",
+    "tryAsking": "Essayez par exemple :",
+    "loading": "L'Oracle parle...",
+    "placeholder": "Posez votre question à l'Oracle...",
+    "inputLabel": "Posez votre question à l'Oracle",
+    "sendLabel": "Envoyer le message",
+    "sourcesAria": "Sources de l'Atlas",
+    "groundingAria": "Réponse fondée sur {count} entrées de l'encyclopédie",
+    "groundingLine": "{count, plural, one {Ancré dans Mythos Atlas · # entrée} other {Ancré dans Mythos Atlas · # entrées}}",
+    "errors": {
+      "generic": "Une erreur s'est produite",
+      "consultFailed": "Impossible de consulter l'Oracle",
+      "noStream": "Aucun flux de réponse"
+    },
+    "suggestedQuestions": [
+      "Qui est le dieu grec le plus puissant ?",
+      "Parle-moi de la mythologie nordique de la création",
+      "Quelles sont les similitudes entre Zeus et Jupiter ?",
+      "Qui garde les enfers dans la mythologie égyptienne ?",
+      "Quelle est l'histoire du Ragnarök ?"
+    ]
+  },
   "footer": {
     "madeWith": "Fait avec",
     "by": "par",

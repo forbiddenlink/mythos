@@ -72,10 +72,5 @@
       "jsonwebtoken": ">=9.0.2"
     }
   },
-  "license": "MIT",
-  "dependencies": {
-    "@gsap/react": "^2.1.2",
-    "gsap": "^3.14.2",
-    "next-safe-action": "^8.3.0"
-  }
+  "license": "MIT"
 }

@@ -1,25 +1,41 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
+import { useFocusTrap } from "@/hooks/use-focus-trap";
+import {
+  ORACLE_CITATIONS_HEADER,
+  ORACLE_GROUNDING_HITS_HEADER,
+} from "@/lib/oracle/constants";
+import type { OracleCitation } from "@/lib/oracle/citations";
+import { decodeCitationsHeader } from "@/lib/oracle/citations";
 import { AnimatePresence, motion } from "framer-motion";
 import { Eye, Loader2, Send, Sparkles, X } from "lucide-react";
+import Link from "next/link";
+import { useLocale, useMessages, useTranslations } from "next-intl";
 import { useCallback, useEffect, useRef, useState } from "react";
 
 interface Message {
   id: string;
   role: "user" | "assistant";
   content: string;
+  /** Atlas encyclopedia snippets attached to this reply (from API). */
+  groundingHits?: number;
+  /** Structured sources from the same Atlas retrieval pass. */
+  citations?: OracleCitation[];
 }
 
-const SUGGESTED_QUESTIONS = [
-  "Who is the most powerful Greek god?",
-  "Tell me about Norse creation mythology",
-  "What are the similarities between Zeus and Jupiter?",
-  "Who guards the underworld in Egyptian mythology?",
-  "What is the story of Ragnarok?",
-];
-
 export function OracleChat() {
+  const locale = useLocale();
+  const t = useTranslations("oracle");
+  const allMessages = useMessages();
+  const suggestedQuestions = (
+    allMessages.oracle as { suggestedQuestions?: string[] }
+  ).suggestedQuestions ?? [
+    "Who is the most powerful Greek god?",
+    "Tell me about Norse creation mythology",
+    "What are the similarities between Zeus and Jupiter?",
+  ];
+
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState("");
@@ -27,6 +43,11 @@ export function OracleChat() {
   const [error, setError] = useState<string | null>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+  const openerRef = useRef<HTMLButtonElement>(null);
+  const panelRef = useRef<HTMLDivElement>(null);
+  const wasOpenRef = useRef(false);
+
+  useFocusTrap(isOpen, panelRef);
 
   // Scroll to bottom when new messages arrive
   useEffect(() => {
@@ -37,6 +58,31 @@ export function OracleChat() {
   useEffect(() => {
     if (isOpen && inputRef.current) {
       inputRef.current.focus();
+    }
+  }, [isOpen]);
+
+  // Close on Escape
+  useEffect(() => {
+    if (!isOpen) return;
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        e.preventDefault();
+        setIsOpen(false);
+      }
+    };
+    document.addEventListener("keydown", onKeyDown);
+    return () => document.removeEventListener("keydown", onKeyDown);
+  }, [isOpen]);
+
+  // Return focus to the floating opener when the dialog closes
+  useEffect(() => {
+    if (isOpen) {
+      wasOpenRef.current = true;
+      return;
+    }
+    if (wasOpenRef.current) {
+      wasOpenRef.current = false;
+      openerRef.current?.focus();
     }
   }, [isOpen]);
 
@@ -61,6 +107,7 @@ export function OracleChat() {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
+            locale,
             messages: [...messages, userMessage].map((m) => ({
               role: m.role,
               content: m.content,
@@ -69,13 +116,28 @@ export function OracleChat() {
         });
 
         if (!response.ok) {
-          const errorData = await response.json().catch(() => ({}));
-          throw new Error(errorData.error || "Failed to consult the Oracle");
+          const errorData = (await response.json().catch(() => ({}))) as {
+            error?: string;
+          };
+          throw new Error(errorData.error || t("errors.consultFailed"));
         }
+
+        const groundingHitsRaw = response.headers.get(
+          ORACLE_GROUNDING_HITS_HEADER,
+        );
+        const groundingHits = Math.max(
+          0,
+          parseInt(groundingHitsRaw ?? "0", 10) || 0,
+        );
+
+        const citationsRaw = response.headers.get(ORACLE_CITATIONS_HEADER);
+        const citations = citationsRaw
+          ? decodeCitationsHeader(citationsRaw)
+          : [];
 
         // Handle streaming response
         const reader = response.body?.getReader();
-        if (!reader) throw new Error("No response stream");
+        if (!reader) throw new Error(t("errors.noStream"));
 
         const assistantMessage: Message = {
           id: (Date.now() + 1).toString(),
@@ -100,13 +162,21 @@ export function OracleChat() {
             ),
           );
         }
+
+        setMessages((prev) =>
+          prev.map((m) =>
+            m.id === assistantMessage.id
+              ? { ...m, content: fullContent, groundingHits, citations }
+              : m,
+          ),
+        );
       } catch (err) {
-        setError(err instanceof Error ? err.message : "An error occurred");
+        setError(err instanceof Error ? err.message : t("errors.generic"));
       } finally {
         setIsLoading(false);
       }
     },
-    [messages, isLoading],
+    [messages, isLoading, locale, t],
   );
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -115,7 +185,7 @@ export function OracleChat() {
   };
 
   const handleSuggestedQuestion = (question: string) => {
-    setInput(question);
+    void sendMessage(question);
   };
 
   return (
@@ -128,9 +198,10 @@ export function OracleChat() {
         transition={{ delay: 1, type: "spring", stiffness: 200 }}
       >
         <Button
+          ref={openerRef}
           onClick={() => setIsOpen(true)}
           className="w-14 h-14 rounded-full bg-gradient-to-br from-gold-dark via-gold to-gold-light hover:from-gold hover:via-gold-light hover:to-gold text-midnight shadow-lg shadow-gold/30 hover:shadow-xl hover:shadow-gold/40 transition-all duration-300"
-          aria-label="Ask the Oracle"
+          aria-label={t("fabOpen")}
         >
           <Eye className="w-6 h-6" />
         </Button>
@@ -151,6 +222,10 @@ export function OracleChat() {
 
             {/* Modal */}
             <motion.div
+              ref={panelRef}
+              role="dialog"
+              aria-modal="true"
+              aria-labelledby="oracle-dialog-title"
               initial={{ opacity: 0, scale: 0.9, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.9, y: 20 }}
@@ -164,12 +239,13 @@ export function OracleChat() {
                     <Eye className="w-5 h-5 text-midnight" />
                   </div>
                   <div>
-                    <h2 className="font-serif text-lg text-parchment">
-                      Oracle of Delphi
+                    <h2
+                      id="oracle-dialog-title"
+                      className="font-serif text-lg text-parchment"
+                    >
+                      {t("title")}
                     </h2>
-                    <p className="text-xs text-parchment/60">
-                      Ask about ancient mythology
-                    </p>
+                    <p className="text-xs text-parchment/60">{t("subtitle")}</p>
                   </div>
                 </div>
                 <Button
@@ -177,7 +253,7 @@ export function OracleChat() {
                   size="icon"
                   onClick={() => setIsOpen(false)}
                   className="text-parchment/60 hover:text-parchment hover:bg-gold/10"
-                  aria-label="Close Oracle chat"
+                  aria-label={t("close")}
                 >
                   <X className="w-5 h-5" />
                 </Button>
@@ -188,15 +264,12 @@ export function OracleChat() {
                 {messages.length === 0 ? (
                   <div className="text-center py-8">
                     <Sparkles className="w-12 h-12 text-gold/40 mx-auto mb-4" />
-                    <p className="text-parchment/80 mb-6">
-                      Greetings, seeker of wisdom. What mysteries of the ancient
-                      world do you wish to unravel?
-                    </p>
+                    <p className="text-parchment/80 mb-6">{t("greeting")}</p>
                     <div className="space-y-2">
                       <p className="text-xs text-parchment/40 mb-3">
-                        Try asking:
+                        {t("tryAsking")}
                       </p>
-                      {SUGGESTED_QUESTIONS.slice(0, 3).map((question) => (
+                      {suggestedQuestions.slice(0, 3).map((question) => (
                         <button
                           key={question}
                           onClick={() => handleSuggestedQuestion(question)}
@@ -221,24 +294,61 @@ export function OracleChat() {
                         }`}
                       >
                         <p className="text-sm leading-relaxed whitespace-pre-wrap">
-                          {message.content}
+                          {message.role === "assistant" &&
+                          !message.content.trim() &&
+                          isLoading ? (
+                            <span className="inline-flex items-center gap-2 text-gold/60">
+                              <Loader2 className="h-4 w-4 shrink-0 animate-spin" />
+                              {t("loading")}
+                            </span>
+                          ) : (
+                            message.content
+                          )}
                         </p>
+                        {message.role === "assistant" &&
+                          message.groundingHits != null &&
+                          message.groundingHits > 0 && (
+                            <p
+                              className="mt-2 flex items-center gap-1.5 text-[10px] leading-tight text-parchment/50"
+                              aria-label={t("groundingAria", {
+                                count: message.groundingHits,
+                              })}
+                            >
+                              <Sparkles className="size-3 shrink-0 text-gold/60" />
+                              <span>
+                                {t("groundingLine", {
+                                  count: message.groundingHits,
+                                })}
+                              </span>
+                            </p>
+                          )}
+                        {message.role === "assistant" &&
+                          message.citations &&
+                          message.citations.length > 0 && (
+                            <ul
+                              className="mt-2 space-y-1 border-t border-gold/15 pt-2"
+                              aria-label={t("sourcesAria")}
+                            >
+                              {message.citations.slice(0, 10).map((c) => (
+                                <li key={`${c.type}-${c.slug}`}>
+                                  <Link
+                                    href={c.path}
+                                    className="text-[11px] text-gold/80 underline-offset-2 hover:text-gold hover:underline"
+                                  >
+                                    {c.title}
+                                  </Link>
+                                  <span className="text-[10px] text-parchment/45">
+                                    {" "}
+                                    · {c.type}
+                                  </span>
+                                </li>
+                              ))}
+                            </ul>
+                          )}
                       </div>
                     </div>
                   ))
                 )}
-
-                {isLoading &&
-                  messages[messages.length - 1]?.role === "user" && (
-                    <div className="flex justify-start">
-                      <div className="bg-slate-800/80 rounded-2xl rounded-bl-sm px-4 py-3 border border-gold/10">
-                        <div className="flex items-center gap-2 text-gold/60">
-                          <Loader2 className="w-4 h-4 animate-spin" />
-                          <span className="text-sm">The Oracle speaks...</span>
-                        </div>
-                      </div>
-                    </div>
-                  )}
 
                 {error && (
                   <div className="bg-red-900/20 border border-red-500/30 rounded-lg p-3 text-red-300 text-sm">
@@ -259,16 +369,16 @@ export function OracleChat() {
                     ref={inputRef}
                     value={input}
                     onChange={(e) => setInput(e.target.value)}
-                    placeholder="Ask the Oracle..."
+                    placeholder={t("placeholder")}
                     disabled={isLoading}
-                    aria-label="Ask the Oracle"
+                    aria-label={t("inputLabel")}
                     className="flex-1 bg-slate-800/50 border border-gold/20 rounded-xl px-4 py-3 text-parchment placeholder:text-parchment/40 focus:outline-none focus:border-gold/50 focus:ring-1 focus:ring-gold/30 transition-colors disabled:opacity-50"
                   />
                   <Button
                     type="submit"
                     disabled={isLoading || !input.trim()}
                     className="bg-gold hover:bg-gold-light text-midnight rounded-xl px-4 disabled:opacity-50"
-                    aria-label="Send message"
+                    aria-label={t("sendLabel")}
                   >
                     <Send className="w-5 h-5" />
                   </Button>

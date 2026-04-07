@@ -1,0 +1,6 @@
+{
+  "model": "text-embedding-3-small",
+  "dim": 1536,
+  "generatedAt": null,
+  "vectors": []
+}

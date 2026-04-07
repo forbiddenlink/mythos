@@ -253,6 +253,33 @@
     "muteAudio": "Silenciar audio",
     "unmuteAudio": "Activar audio"
   },
+  "oracle": {
+    "fabOpen": "Consulta al Oráculo",
+    "title": "Oráculo de Delfos",
+    "subtitle": "Basado en el Atlas cuando tu tema coincide con nuestro catálogo",
+    "close": "Cerrar el Oráculo",
+    "greeting": "Saludos, buscador de sabiduría. ¿Qué misterios del mundo antiguo deseas desentrañar?",
+    "tryAsking": "Prueba a preguntar:",
+    "loading": "El Oráculo habla...",
+    "placeholder": "Pregunta al Oráculo...",
+    "inputLabel": "Pregunta al Oráculo",
+    "sendLabel": "Enviar mensaje",
+    "sourcesAria": "Fuentes del Atlas",
+    "groundingAria": "Respuesta basada en {count} entradas de la enciclopedia",
+    "groundingLine": "{count, plural, one {Basado en Mythos Atlas · # entrada} other {Basado en Mythos Atlas · # entradas}}",
+    "errors": {
+      "generic": "Ha ocurrido un error",
+      "consultFailed": "No se pudo consultar al Oráculo",
+      "noStream": "Sin flujo de respuesta"
+    },
+    "suggestedQuestions": [
+      "¿Quién es el dios griego más poderoso?",
+      "Háblame de la mitología de la creación nórdica",
+      "¿Qué similitudes hay entre Zeus y Júpiter?",
+      "¿Quién guarda el inframundo en la mitología egipcia?",
+      "¿Cuál es la historia del Ragnarök?"
+    ]
+  },
   "footer": {
     "madeWith": "Hecho con",
     "by": "por",

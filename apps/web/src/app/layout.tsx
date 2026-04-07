@@ -39,19 +39,23 @@ const crimsonPro = Crimson_Pro({
   style: ["normal", "italic"],
 });
 
-export const metadata: Metadata = {
-  ...generateBaseMetadata({
-    title: "Mythos Atlas - Ancient Mythology Encyclopedia",
-    description:
-      "Explore ancient mythology through interactive deity family trees, comparative analysis, and epic stories from Greek, Norse, Egyptian, and world civilizations. Built by Elizabeth Stein with Next.js and modern web technologies.",
-    url: "/",
-  }),
-  icons: {
-    icon: [{ url: "/icon.png", type: "image/png" }],
-    apple: [{ url: "/apple-icon.png", type: "image/png" }],
-    other: [{ rel: "apple-touch-icon", url: "/apple-icon.png" }],
-  },
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const locale = await getLocale();
+  return {
+    ...generateBaseMetadata({
+      title: "Mythos Atlas - Ancient Mythology Encyclopedia",
+      description:
+        "Explore ancient mythology through interactive deity family trees, comparative analysis, and epic stories from Greek, Norse, Egyptian, and world civilizations. Built by Elizabeth Stein with Next.js and modern web technologies.",
+      url: "/",
+      locale,
+    }),
+    icons: {
+      icon: [{ url: "/icon.png", type: "image/png" }],
+      apple: [{ url: "/apple-icon.png", type: "image/png" }],
+      other: [{ rel: "apple-touch-icon", url: "/apple-icon.png" }],
+    },
+  };
+}
 
 export const viewport: Viewport = {
   themeColor: "#d4af37",

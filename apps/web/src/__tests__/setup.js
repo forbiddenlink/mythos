@@ -1,4 +1,7 @@
-import '@testing-library/jest-dom/vitest';
+import "@testing-library/jest-dom/vitest";
+
+// React 18+ / 19: enable act() in test env (quiets Radix/async focus updates in jsdom)
+globalThis.IS_REACT_ACT_ENVIRONMENT = true;
 
 // Mock ResizeObserver
 global.ResizeObserver = class ResizeObserver {
@@ -11,7 +14,7 @@ global.ResizeObserver = class ResizeObserver {
 };
 
 // Mock matchMedia
-Object.defineProperty(window, 'matchMedia', {
+Object.defineProperty(window, "matchMedia", {
   writable: true,
   value: (query) => ({
     matches: false,
@@ -39,7 +42,7 @@ global.IntersectionObserver = class IntersectionObserver {
 window.scrollTo = () => {};
 
 // Mock window.location
-Object.defineProperty(window, 'location', {
+Object.defineProperty(window, "location", {
   writable: true,
   value: {
     ...window.location,

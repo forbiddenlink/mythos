@@ -65,6 +65,9 @@
         "note": "Accessible modern retelling for general readers"
       }
     ],
+    "sources": [
+      "Gantz, Timothy. *Early Greek Myth* (Johns Hopkins, 1993) \u2014 reconstructs early epic cycles and fragments bearing on the Titanomachy."
+    ],
     "variants": [
       {
         "source": "Apollodorus's Library",
@@ -1829,7 +1832,7 @@
       "cosmic order through heroic deeds"
     ],
     "culturalSignificance": "The Hero Twins saga is the central narrative of Maya mythology, preserved in the Popol Vuh of the K'iche' Maya. It explains the origin of the sun and moon, the defeat of death's power, and the resurrection of the Maize God that enables agriculture. The story's themes of sacrifice, transformation, and rebirth permeate Maya religious thought. The ball game, so prominent in the story, was a sacred ritual reenacting this cosmic drama throughout the Maya world.",
-    "imageUrl": "/stories/hero-twins.png",
+    "imageUrl": "/stories/hero-twins-popol-vuh.png",
     "citationSources": [
       {
         "title": "Popol Vuh",
@@ -2318,7 +2321,7 @@
     "fullNarrative": "In the time before stories belonged to anyone, all tales were kept in a golden chest by Nyame, the sky god. Anansi the spider desired these stories more than anything.\n\n\"What will you pay?\" asked Nyame, amused that a small spider would dare such a request.\n\n\"Name your price,\" said Anansi.\n\nNyame demanded four impossible captures: Onini the python who swallows men whole, Osebo the leopard with teeth like spears, the Mmoboro hornets whose stings mean death, and Mmoatia the invisible fairy.\n\nAnansi's wife Aso helped him devise clever plans. He tricked Onini into stretching beside a pole to prove his length\u2014then tied him fast. He dug a pit and covered it with brush, trapping Osebo. He filled a calabash with water and poured it on the Mmoboro nest, offering the calabash as shelter\u2014then plugged the hole. He carved a wooden doll covered in sticky sap, and when Mmoatia slapped it in anger, she could not escape.\n\nNyame, astonished, declared: \"From this day, all stories belong to Anansi. They shall be called Spider Stories.\"\n\nAnd so Anansi became the keeper of all tales, which he shares with humanity to this day.",
     "themes": ["wisdom", "trickery", "perseverance", "storytelling"],
     "culturalSignificance": "This story explains the origin of oral storytelling in Akan culture and why tales are called 'Anansesem' (spider stories). It celebrates intelligence over physical strength and represents the cultural value of wit.",
-    "imageUrl": "/stories/anansi-stories.png",
+    "imageUrl": "/stories/anansi-bought-stories.png",
     "featuredDeityIds": ["anansi", "nyame"],
     "category": "trickster"
   },
@@ -2336,7 +2339,7 @@
       "divine mission"
     ],
     "culturalSignificance": "This creation myth establishes Ile-Ife as the sacred center of Yoruba civilization and explains why Yoruba kings trace their lineage to Oduduwa. It also explains Obatala's role in creating humans and why those born with disabilities are sacred to him.",
-    "imageUrl": "/stories/oduduwa-creation.png",
+    "imageUrl": "/stories/oduduwa-creation-earth.png",
     "featuredDeityIds": ["oduduwa", "obatala", "olodumare"],
     "category": "creation"
   },
@@ -2349,7 +2352,7 @@
     "fullNarrative": "Long ago, twins were feared. When a woman gave birth to two children at once, the village elders said it was an evil omen. Twins were abandoned in the forest to die.\n\nOya, the fierce wind goddess and wife of Shango, gave birth to twins\u2014the first divine twins. When the people demanded she abandon them, Oya refused. \"These children are blessed, not cursed,\" she declared.\n\nThe village tried to force her, but Oya summoned the winds. Lightning cracked across the sky\u2014Shango's rage made manifest. The people fell back in terror.\n\nThe twins grew strong under their parents' protection. They performed miracles: ending droughts, healing the sick, bringing prosperity to those who honored them. When they finally departed to Orun (heaven), they became the Orisha Ibeji, protectors of all twins.\n\nFrom that day, twins were celebrated rather than feared. The Yoruba began to honor them with special ceremonies, feeding them their favorite foods of beans and palm oil. If one twin died, a carved figure (ere ibeji) would be made to house their spirit, so the living twin would never be alone.\n\nThe Ibeji taught humanity that what seems strange may be sacred, and what is feared may be a blessing in disguise.",
     "themes": ["protection", "transformation", "family", "sacred duality"],
     "culturalSignificance": "This story reflects the historical shift in Yoruba attitudes toward twins and explains the veneration of ibeji figures. It emphasizes the protective power of divine parents and the sacred nature of duality.",
-    "imageUrl": "/stories/first-twins.png",
+    "imageUrl": "/stories/first-twins-ibeji.png",
     "featuredDeityIds": ["ibeji", "oya", "shango"],
     "category": "legend"
   },
@@ -2362,7 +2365,7 @@
     "fullNarrative": "In the golden age of Tula, Quetzalcoatl ruled as priest-king. Under his guidance, the Toltecs prospered. He taught them crafts, agriculture, and the worship of the gods through prayers rather than human sacrifice.\n\nBut Tezcatlipoca, the Smoking Mirror, grew jealous. He descended to Tula in disguise, carrying a mirror and a jar of pulque.\n\n\"Lord Quetzalcoatl,\" said the stranger, \"I bring you medicine for the ailment that troubles you.\"\n\nQuetzalcoatl was indeed weary from fasting and penance. He looked in the mirror and saw himself aged and worn. \"What is this medicine?\" he asked.\n\nTezcatlipoca offered the pulque. \"Just a sip will restore your strength.\"\n\nOne sip became many. Quetzalcoatl grew drunk for the first time in his life. In his stupor, he summoned his sister Quetzalpetlatl and committed the sin of incest.\n\nWhen dawn came and sobriety returned, Quetzalcoatl was consumed by shame. He could no longer face his people. He gathered his treasures, set them aflame, and departed toward the east.\n\nAt the shore of the divine sea, Quetzalcoatl dressed in his feathered finery and set himself ablaze. His heart rose into the sky and became the Morning Star. He vowed to return one day and reclaim his kingdom.\n\nThe Toltec golden age ended with his departure, and the darker gods held sway over the land.",
     "themes": ["temptation", "fall from grace", "shame", "divine rivalry"],
     "culturalSignificance": "This myth explains the end of the Toltec civilization and the expectation of Quetzalcoatl's return. When Spanish conquistadors arrived from the east, some believed the prophecy was being fulfilled.",
-    "imageUrl": "/stories/fall-quetzalcoatl.png",
+    "imageUrl": "/stories/fall-of-quetzalcoatl-tula.png",
     "featuredDeityIds": ["tezcatlipoca", "quetzalcoatl"],
     "category": "legend"
   },
@@ -2388,7 +2391,7 @@
     "fullNarrative": "Coatlicue, the earth goddess with her skirt of serpents and necklace of skulls, swept the temple atop Coatepec\u2014Serpent Mountain. As she worked, a ball of feathers drifted down from the sky. She tucked it into her waistband, and when she looked for it later, it was gone. She had become pregnant.\n\nHer daughter Coyolxauhqui, goddess of the moon, was outraged. \"Our mother has dishonored us!\" she cried to her four hundred brothers, the Centzon Huitznahua\u2014the stars of the southern sky. \"We must kill her!\"\n\nThey armed themselves and marched up Coatepec. Coatlicue trembled in fear, but a voice spoke from her womb: \"Do not be afraid, Mother. I know what I must do.\"\n\nAs Coyolxauhqui reached the summit, ready to strike, Huitzilopochtli burst from Coatlicue's womb. He emerged fully grown, painted for war, wielding Xiuhcoatl\u2014the fire serpent. In a single blow, he decapitated Coyolxauhqui. Her body tumbled down the mountain, breaking apart as it fell.\n\nHuitzilopochtli then pursued his four hundred brothers across the sky, slaying them until the survivors fled. Each day, he is reborn with the sun and defeats the stars and moon, ensuring light triumphs over darkness.\n\nThis is why the Aztecs fed Huitzilopochtli with the hearts of warriors\u2014to strengthen him for his eternal battle.",
     "themes": ["divine birth", "cosmic conflict", "protection", "sacrifice"],
     "culturalSignificance": "This myth explains the daily solar cycle as Huitzilopochtli's triumph over night. It justified the Aztec practice of human sacrifice\u2014feeding the sun god to ensure his victory.",
-    "imageUrl": "/stories/birth-huitzilopochtli.png",
+    "imageUrl": "/stories/birth-huitzilopochtli-full.png",
     "featuredDeityIds": ["coatlicue", "huitzilopochtli", "coyolxauhqui"],
     "category": "creation"
   },

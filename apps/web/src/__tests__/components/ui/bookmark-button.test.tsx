@@ -8,7 +8,7 @@ import {
   type BookmarksContextValue,
 } from "@/providers/bookmarks-provider";
 
-// Mock framer-motion to avoid animation issues in tests
+// Mock framer-motion to avoid animation issues in tests (strip animation props so they are not passed to the DOM)
 vi.mock("framer-motion", () => ({
   motion: {
     button: ({
@@ -19,9 +19,18 @@ vi.mock("framer-motion", () => ({
       children?: ReactNode;
       whileTap?: object;
     }) => <button {...props}>{children}</button>,
-    div: ({ children, ...props }: { children?: ReactNode }) => (
-      <div {...props}>{children}</div>
-    ),
+    div: ({
+      children,
+      initial: _initial,
+      animate: _animate,
+      transition: _transition,
+      exit: _exit,
+      whileTap: _whileTap2,
+      whileHover: _whileHover,
+      ...props
+    }: {
+      children?: ReactNode;
+    } & Record<string, unknown>) => <div {...props}>{children}</div>,
   },
   AnimatePresence: ({ children }: { children?: ReactNode }) => <>{children}</>,
 }));
