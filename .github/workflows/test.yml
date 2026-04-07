@@ -100,6 +100,7 @@ jobs:
         run: pnpm --filter web e2e
         env:
           CI: true
+          NEXT_PUBLIC_ORACLE_ENABLED: "true"
 
       - name: Upload test artifacts on failure
         uses: actions/upload-artifact@v4

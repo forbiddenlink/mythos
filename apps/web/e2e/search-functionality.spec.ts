@@ -9,8 +9,8 @@ test.describe("Search Functionality", () => {
   });
 
   test("should open search with keyboard shortcut", async ({ page }) => {
-    // Press Cmd+K (Mac) or Ctrl+K (Windows/Linux) to open search
-    await page.keyboard.press("Meta+k");
+    // Press Ctrl+K to open search (works on all platforms)
+    await page.keyboard.press("Control+k");
 
     // Search dialog should be visible
     await expect(page.getByPlaceholder(/search/i)).toBeVisible({
@@ -36,7 +36,7 @@ test.describe("Search Functionality", () => {
 
   test("should show popular searches when opened", async ({ page }) => {
     // Open search
-    await page.keyboard.press("Meta+k");
+    await page.keyboard.press("Control+k");
 
     // Wait for dialog
     await page.waitForSelector('[role="dialog"]', { timeout: 5000 });
@@ -47,7 +47,7 @@ test.describe("Search Functionality", () => {
 
   test("should search and show results", async ({ page }) => {
     // Open search
-    await page.keyboard.press("Meta+k");
+    await page.keyboard.press("Control+k");
 
     // Type a search query
     const searchInput = page.getByPlaceholder(/search/i);
@@ -64,7 +64,7 @@ test.describe("Search Functionality", () => {
 
   test("should navigate to result on selection", async ({ page }) => {
     // Open search
-    await page.keyboard.press("Meta+k");
+    await page.keyboard.press("Control+k");
 
     // Type search query
     const searchInput = page.getByPlaceholder(/search/i);
@@ -88,7 +88,7 @@ test.describe("Search Functionality", () => {
 
   test("should close search with Escape", async ({ page }) => {
     // Open search
-    await page.keyboard.press("Meta+k");
+    await page.keyboard.press("Control+k");
 
     // Verify it's open
     await expect(page.getByPlaceholder(/search/i)).toBeVisible();
@@ -104,7 +104,7 @@ test.describe("Search Functionality", () => {
 
   test('should show "no results" for unmatched queries', async ({ page }) => {
     // Open search
-    await page.keyboard.press("Meta+k");
+    await page.keyboard.press("Control+k");
 
     // Type a query that won't match anything
     const searchInput = page.getByPlaceholder(/search/i);
@@ -119,7 +119,7 @@ test.describe("Search Functionality", () => {
 
   test("should support keyboard navigation", async ({ page }) => {
     // Open search
-    await page.keyboard.press("Meta+k");
+    await page.keyboard.press("Control+k");
 
     // Type search query
     const searchInput = page.getByPlaceholder(/search/i);
