@@ -99,11 +99,16 @@ jobs:
       - name: Install Playwright browsers
         run: pnpm --filter web exec playwright install --with-deps chromium
 
-      - name: Run E2E tests
-        run: pnpm --filter web e2e
+      - name: Build for E2E tests
+        run: pnpm --filter web build
         env:
           CI: true
           NEXT_PUBLIC_ORACLE_ENABLED: "true"
+
+      - name: Run E2E tests
+        run: pnpm --filter web e2e:start-only
+        env:
+          CI: true
 
       - name: Upload test artifacts on failure
         uses: actions/upload-artifact@v4

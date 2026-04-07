@@ -55,10 +55,13 @@ export default defineConfig({
 
   /* Run your local dev server before starting the tests */
   webServer: {
-    // Use build:ci in CI to enable Oracle (NEXT_PUBLIC_* vars must be set at build time)
-    command: process.env.CI
-      ? "pnpm build:ci && pnpm start"
-      : "pnpm build && pnpm start",
+    // SKIP_BUILD: CI builds separately to set NEXT_PUBLIC_* env vars at build time
+    // Otherwise: Use build:ci in CI to enable Oracle, regular build locally
+    command: process.env.SKIP_BUILD
+      ? "pnpm start"
+      : process.env.CI
+        ? "pnpm build:ci && pnpm start"
+        : "pnpm build && pnpm start",
     url: "http://localhost:3000",
     reuseExistingServer: !process.env.CI,
     timeout: 240000,
