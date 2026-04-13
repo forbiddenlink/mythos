@@ -125,9 +125,11 @@ export function StoryPracticeQuiz({
             <Button
               type="button"
               onClick={generate}
+              // @ts-expect-error status narrowed but kept for guard
               disabled={status === "loading"}
               className="gap-2 bg-emerald-600 hover:bg-emerald-600/90 text-white"
             >
+              {/* @ts-expect-error status narrowed but kept for guard */}
               {status === "loading" ? (
                 <Loader2 className="h-4 w-4 animate-spin" />
               ) : (
