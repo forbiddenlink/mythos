@@ -1,6 +1,10 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["config:base", "schedule:weekly"],
+  "extends": [
+    "config:base",
+    "schedule:weekly",
+    "helpers:pinGitHubActionDigestsToSemver"
+  ],
   "packageRules": [
     {
       "matchUpdateTypes": ["patch", "minor"],
