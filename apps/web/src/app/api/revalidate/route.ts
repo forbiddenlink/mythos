@@ -13,10 +13,18 @@ import { NextRequest, NextResponse } from "next/server";
  *   Body: { "operation": "publish", "data": { "__typename": "Story", "slug": "..." } }
  */
 export async function POST(request: NextRequest) {
-  // Verify the webhook secret
-  const signature = request.headers.get("x-hygraph-signature");
   const webhookSecret = process.env.HYGRAPH_WEBHOOK_SECRET;
 
+  // In production, refuse to accept webhooks without a configured secret.
+  // Outside production (local/dev), allow unsigned requests to ease testing.
+  if (process.env.NODE_ENV === "production" && !webhookSecret) {
+    return NextResponse.json(
+      { error: "Webhook not configured" },
+      { status: 503 },
+    );
+  }
+
+  const signature = request.headers.get("x-hygraph-signature");
   if (webhookSecret && signature !== webhookSecret) {
     return NextResponse.json({ error: "Invalid signature" }, { status: 401 });
   }
@@ -106,14 +114,20 @@ export async function POST(request: NextRequest) {
 
 // Also support GET for manual revalidation
 export async function GET(request: NextRequest) {
-  const searchParams = request.nextUrl.searchParams;
+  const revalidateSecret = process.env.REVALIDATE_SECRET;
 
+  // In production, refuse manual revalidation without a configured secret.
+  if (process.env.NODE_ENV === "production" && !revalidateSecret) {
+    return NextResponse.json(
+      { error: "Manual revalidation not configured" },
+      { status: 503 },
+    );
+  }
+
+  const searchParams = request.nextUrl.searchParams;
   const secret = searchParams.get("secret");
   const tag = searchParams.get("tag");
   const path = searchParams.get("path");
-
-  // Verify secret for manual revalidation
-  const revalidateSecret = process.env.REVALIDATE_SECRET;
 
   if (revalidateSecret && secret !== revalidateSecret) {
     return NextResponse.json({ error: "Invalid secret" }, { status: 401 });
