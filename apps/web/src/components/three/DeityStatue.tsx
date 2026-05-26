@@ -579,8 +579,8 @@ export function DeityStatue({
             minPolarAngle={Math.PI / 3}
             maxPolarAngle={Math.PI / 1.8}
           />
-          <Environment preset="sunset" />
-          <Stage environment="sunset" intensity={0.5}>
+          <Environment files="/environments/venice_sunset_1k.hdr" />
+          <Stage environment={null} intensity={0.5}>
             <StatueBust
               material={materialType}
               variant={statueVariant}

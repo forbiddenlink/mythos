@@ -119,8 +119,8 @@ export function ArtifactViewer({
 
       <Canvas shadows camera={{ position: [0, 0, 4], fov: 50 }}>
         <OrbitControls autoRotate autoRotateSpeed={0.5} enableZoom={false} />
-        <Environment preset="sunset" />
-        <Stage environment="sunset" intensity={0.5}>
+        <Environment files="/environments/venice_sunset_1k.hdr" />
+        <Stage environment={null} intensity={0.5}>
           {type === "apple" ? (
             <GoldenApple />
           ) : (
