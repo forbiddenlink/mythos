@@ -16,6 +16,7 @@ const eslintConfig = defineConfig([
       'react-hooks/immutability': 'warn',
       'react-hooks/purity': 'warn',
       'react-hooks/preserve-manual-memoization': 'warn',
+      'react-hooks/exhaustive-deps': 'warn',
     },
   },
   // Override default ignores of eslint-config-next.
