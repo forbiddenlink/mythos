@@ -1,0 +1,67 @@
+language: en-US
+
+tone_instructions: |
+  Liz strictly forbids em dashes (— and --) in any external-facing content.
+  Use hyphens or sentence breaks. Be direct, terse, no filler.
+  Skip pleasantries. Never include "Generated with Claude Code" or AI co-author lines.
+
+early_access: false
+
+reviews:
+  profile: chill
+  request_changes_workflow: false
+  high_level_summary: true
+  poem: false
+  review_status: true
+  collapse_walkthrough: false
+  auto_review:
+    enabled: true
+    drafts: false
+    ignore_title_keywords:
+      - WIP
+      - DO NOT REVIEW
+      - "[skip-review]"
+  path_filters:
+    - "!.next/**"
+    - "!node_modules/**"
+    - "!vendor/**"
+    - "!**/*.snap"
+    - "!pnpm-lock.yaml"
+    - "!package-lock.json"
+    - "!yarn.lock"
+    - "!**/dist/**"
+    - "!**/build/**"
+  path_instructions:
+    - path: "**/.env*"
+      instructions: |
+        Environment files should not contain real secrets in committed form. Encrypted (.env.enc)
+        or example (.env.example) only. Flag plaintext secrets immediately as a security issue.
+    - path: "**/package.json"
+      instructions: |
+        Verify "scripts" changes are intentional. Flag prepublishOnly, postinstall, preinstall additions
+        as potential supply-chain risk.
+    - path: "**/next.config.*"
+      instructions: |
+        Flag any loosening of CSP, headers, or image-domain allowlists without justification.
+    - path: "**/*.test.*"
+      instructions: |
+        Tests should match the project's pattern (vitest, jest, playwright). Flag mocked database
+        tests in projects that have integration test patterns.
+
+  tools:
+    languagetool:
+      enabled: true
+    markdownlint:
+      enabled: true
+    eslint:
+      enabled: true
+    gitleaks:
+      enabled: true
+    semgrep:
+      enabled: true
+
+chat:
+  auto_reply: true
+
+knowledge_base:
+  opt_out: false
