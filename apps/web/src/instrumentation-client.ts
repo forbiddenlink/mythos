@@ -33,6 +33,10 @@ if (isProduction && dsn) {
         dsn,
         tracesSampleRate: 1,
         debug: false,
+        // Third-party/extension noise: ".closest is not a function" originates
+        // from a minified vendor chunk reacting to a non-Element event target,
+        // not first-party code. Not actionable. (Fixes MYTHOS-E)
+        ignoreErrors: ["closest is not a function"],
         replaysOnErrorSampleRate: replayEnabled ? 1 : 0,
         replaysSessionSampleRate: replayEnabled ? 0.1 : 0,
         integrations: replayEnabled
