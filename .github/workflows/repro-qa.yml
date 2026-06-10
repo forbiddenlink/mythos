@@ -1,0 +1,40 @@
+# Automated QA scan of production via repro-in-a-box (own QA bug-finder tool).
+# Scans the live site for bugs/a11y/console errors and uploads a reproducible bundle.
+# Non-blocking: informational artifact, does not gate merges.
+name: Repro QA Scan
+
+on:
+  schedule:
+    - cron: "0 8 * * 1" # Mondays 08:00 UTC
+  workflow_dispatch:
+    inputs:
+      url:
+        description: "URL to scan"
+        required: false
+        default: "https://mythosatlas.com"
+
+permissions:
+  contents: read
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Run repro-in-a-box scan
+        env:
+          SCAN_URL: ${{ github.event.inputs.url || 'https://mythosatlas.com' }}
+        run: |
+          npx -y -p repro-in-a-box repro scan "$SCAN_URL" --bundle || true
+      - name: Upload scan bundle
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: repro-qa-bundle
+          path: |
+            repro-*.zip
+            scan-results*.json
+          if-no-files-found: warn
+          retention-days: 30
