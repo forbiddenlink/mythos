@@ -576,6 +576,11 @@ export function MapVisualization({
     return () => {
       globalThis.removeEventListener("flyToLocation", handleFlyTo);
       map.off("zoomend");
+      // Cancel any in-flight pan/zoom/flyTo animation before teardown. A filter
+      // pill click changes mappableLocations and re-runs this effect; without
+      // stop(), a queued animation frame calls _move() on the removed map whose
+      // _mapPane no longer has _leaflet_pos, throwing TypeError (Sentry MYTHOS-G).
+      map.stop();
       if (mapInstanceRef.current) {
         mapInstanceRef.current.remove();
         mapInstanceRef.current = null;
