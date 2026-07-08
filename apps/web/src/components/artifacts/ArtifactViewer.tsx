@@ -3,8 +3,9 @@
 import { Environment, Float, OrbitControls, Stage } from "@react-three/drei";
 import type { ThreeElements } from "@react-three/fiber";
 import { Canvas, useFrame } from "@react-three/fiber";
-import { useMemo, useRef, useSyncExternalStore } from "react";
+import { Suspense, useMemo, useRef, useSyncExternalStore } from "react";
 import * as THREE from "three";
+import { ErrorBoundary } from "@/components/errors/ErrorBoundary";
 
 function GoldenApple(props: Readonly<ThreeElements["mesh"]>) {
   const meshRef = useRef<THREE.Mesh>(null);
@@ -119,7 +120,11 @@ export function ArtifactViewer({
 
       <Canvas shadows camera={{ position: [0, 0, 4], fov: 50 }}>
         <OrbitControls autoRotate autoRotateSpeed={0.5} enableZoom={false} />
-        <Environment files="/environments/venice_sunset_1k.hdr" />
+        <ErrorBoundary fallback={null}>
+          <Suspense fallback={null}>
+            <Environment files="/environments/venice_sunset_1k.hdr" />
+          </Suspense>
+        </ErrorBoundary>
         <Stage environment={null} intensity={0.5}>
           {type === "apple" ? (
             <GoldenApple />

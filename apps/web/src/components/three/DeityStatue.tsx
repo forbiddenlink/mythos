@@ -10,6 +10,7 @@ import {
   Sparkles,
 } from "@react-three/drei";
 import * as THREE from "three";
+import { ErrorBoundary } from "@/components/errors/ErrorBoundary";
 
 // Material configurations based on pantheon/culture
 const MATERIALS = {
@@ -579,7 +580,11 @@ export function DeityStatue({
             minPolarAngle={Math.PI / 3}
             maxPolarAngle={Math.PI / 1.8}
           />
-          <Environment files="/environments/venice_sunset_1k.hdr" />
+          <ErrorBoundary fallback={null}>
+            <Suspense fallback={null}>
+              <Environment files="/environments/venice_sunset_1k.hdr" />
+            </Suspense>
+          </ErrorBoundary>
           <Stage environment={null} intensity={0.5}>
             <StatueBust
               material={materialType}
