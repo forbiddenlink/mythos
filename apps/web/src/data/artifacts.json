@@ -593,7 +593,7 @@
     "owner": "jupiter",
     "origin": "Forged by Vulcan for the king of the gods, representing the protective power of the Roman state.",
     "currentLocation": "Wielded by Jupiter in the heavens",
-    "imageUrl": "/placeholder.png",
+    "imageUrl": "/artifacts/aegis-of-jupiter.png",
     "relatedStories": []
   },
   {
@@ -612,7 +612,7 @@
     "owner": "Roman Magistrates and Lictors",
     "origin": "Adopted from the Etruscans, the fasces became the supreme symbol of Roman governmental authority and the power of the state.",
     "currentLocation": "Carried ceremonially throughout Roman history, now a symbol in modern heraldry",
-    "imageUrl": "/placeholder.png",
+    "imageUrl": "/artifacts/fasces.png",
     "relatedStories": ["romulus-remus"]
   },
   {
@@ -631,7 +631,7 @@
     "owner": "Abundantia / Fortuna",
     "origin": "One of the horns of the goat Amalthea, who nursed the infant Jupiter in hiding from Saturn. When the horn broke off, Jupiter blessed it with the power of endless abundance.",
     "currentLocation": "Held by various goddesses of fortune and plenty",
-    "imageUrl": "/placeholder.png",
+    "imageUrl": "/artifacts/cornucopia.png",
     "relatedStories": []
   },
   {
@@ -650,7 +650,7 @@
     "owner": "The Roman State",
     "origin": "According to legend, the statue fell from the sky and was first kept in Troy. Aeneas rescued it during Troy's fall and brought it to Italy, where it became Rome's most sacred treasure.",
     "currentLocation": "Hidden in the Temple of Vesta, guarded by the Vestal Virgins",
-    "imageUrl": "/placeholder.png",
+    "imageUrl": "/artifacts/palladium.png",
     "relatedStories": ["aeneid", "trojan-war"]
   }
 ]

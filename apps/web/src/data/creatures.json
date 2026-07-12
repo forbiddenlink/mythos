@@ -362,7 +362,7 @@
       "Shapeshifting"
     ],
     "dangerLevel": 7,
-    "imageUrl": "/placeholder.png"
+    "imageUrl": "/creatures/mami-wata.png"
   },
   {
     "id": "tikoloshe",
@@ -378,7 +378,7 @@
       "Curse Carrying"
     ],
     "dangerLevel": 6,
-    "imageUrl": "/placeholder.png"
+    "imageUrl": "/creatures/tikoloshe.png"
   },
   {
     "id": "popobawa",
@@ -394,7 +394,7 @@
       "Supernatural Strength"
     ],
     "dangerLevel": 8,
-    "imageUrl": "/placeholder.png"
+    "imageUrl": "/creatures/popobawa.png"
   },
   {
     "id": "ninki-nanka",
@@ -410,7 +410,7 @@
       "Amphibious Movement"
     ],
     "dangerLevel": 10,
-    "imageUrl": "/placeholder.png"
+    "imageUrl": "/creatures/ninki-nanka.png"
   },
   {
     "id": "adze",
@@ -426,7 +426,7 @@
       "Possession"
     ],
     "dangerLevel": 7,
-    "imageUrl": "/placeholder.png"
+    "imageUrl": "/creatures/adze.png"
   },
   {
     "id": "asanbosam",
@@ -442,7 +442,7 @@
       "Silent Movement"
     ],
     "dangerLevel": 8,
-    "imageUrl": "/placeholder.png"
+    "imageUrl": "/creatures/asanbosam.png"
   },
   {
     "id": "eloko",
@@ -458,7 +458,7 @@
       "Treasure Guarding"
     ],
     "dangerLevel": 8,
-    "imageUrl": "/placeholder.png"
+    "imageUrl": "/creatures/eloko.png"
   },
   {
     "id": "lares",
@@ -469,7 +469,7 @@
     "habitat": "Roman Households and Crossroads",
     "abilities": ["Home Protection", "Family Blessing", "Travel Guidance"],
     "dangerLevel": 1,
-    "imageUrl": "/placeholder.png"
+    "imageUrl": "/creatures/lares.png"
   },
   {
     "id": "lemures",
@@ -480,7 +480,7 @@
     "habitat": "The Mortal Realm (wandering)",
     "abilities": ["Intangibility", "Fear Inducement", "Haunting Presence"],
     "dangerLevel": 5,
-    "imageUrl": "/placeholder.png"
+    "imageUrl": "/creatures/lemures.png"
   },
   {
     "id": "manes",
@@ -495,7 +495,7 @@
       "Dream Visitation"
     ],
     "dangerLevel": 2,
-    "imageUrl": "/placeholder.png"
+    "imageUrl": "/creatures/manes.png"
   },
   {
     "id": "strix",
@@ -506,7 +506,7 @@
     "habitat": "Night Skies and Shadowed Places",
     "abilities": ["Flight", "Blood Draining", "Shapeshifting", "Death Omen"],
     "dangerLevel": 7,
-    "imageUrl": "/placeholder.png"
+    "imageUrl": "/creatures/strix.png"
   },
   {
     "id": "ahuizotl",
@@ -522,7 +522,7 @@
       "Tlaloc's Servant"
     ],
     "dangerLevel": 8,
-    "imageUrl": "/placeholder.png"
+    "imageUrl": "/creatures/ahuizotl.png"
   },
   {
     "id": "cipactli",
@@ -538,7 +538,7 @@
       "Earth Foundation"
     ],
     "dangerLevel": 10,
-    "imageUrl": "/placeholder.png"
+    "imageUrl": "/creatures/cipactli.png"
   },
   {
     "id": "nagual",
@@ -554,7 +554,7 @@
       "Animal Communication"
     ],
     "dangerLevel": 6,
-    "imageUrl": "/placeholder.png"
+    "imageUrl": "/creatures/nagual.png"
   },
   {
     "id": "xiuhcoatl",
@@ -570,7 +570,7 @@
       "Divine Destruction"
     ],
     "dangerLevel": 9,
-    "imageUrl": "/placeholder.png"
+    "imageUrl": "/creatures/xiuhcoatl.png"
   },
   {
     "id": "tzitzimime",
@@ -586,7 +586,7 @@
       "Darkness Spreading"
     ],
     "dangerLevel": 10,
-    "imageUrl": "/placeholder.png"
+    "imageUrl": "/creatures/tzitzimime.png"
   },
   {
     "id": "camazotz",
