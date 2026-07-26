@@ -23,8 +23,8 @@ design _and_ engineering taste.
   perf ≥ 90 on desktop, no CLS from the pinned hero).
 - **Depth proof:** the deity detail page — one template that renders 189 pages —
   is elevated from generic shared-hero to an editorial, art-directed layout.
-- **No broken windows:** the live `cta-ruins.webp` 404 is fixed; deity image
-  resolution (`.jpg` vs `.png`) is verified and correct.
+- **No broken windows:** the live `cta-ruins.webp` 404 is fixed. (Deity image
+  resolution verified 2026-07-25 — NOT broken; see findings.)
 - **Shareable artifact:** one short Remotion-rendered "sizzle" clip exists for a
   case study / social card — NOT embedded as page weight.
 - **Accessibility preserved:** `prefers-reduced-motion` fully collapses the
@@ -62,10 +62,10 @@ care about.
 - **`cta-ruins.webp` 404 (live).** `src/components/home/CTASection.tsx:28`
   references `bg-[url('/cta-ruins.webp')]` but only `public/cta-ruins.png`
   exists. CTA background is currently missing in production.
-- **Deity image format discrepancy (must verify).** `src/data/deities.json`
-  references `imageUrl: /deities/<slug>.jpg`, but files on disk in
-  `public/deities/` are `.png`. Either there is silent resolution somewhere or
-  189 deity images are broken. Verify before relying on the asset path.
+- **Deity images — VERIFIED OK (2026-07-25).** Initial read suggested a
+  `.jpg`/`.png` mismatch; verified false. `deities.json` references are mixed
+  (62 `.jpg` + 128 `.png`); all 190 referenced files exist on disk; `zeus.jpg`
+  serves `200` live. No action needed. Only `cta-ruins` is actually broken.
 
 ### Performance debt (the #1 problem)
 
@@ -115,8 +115,7 @@ care about.
 
 1. Fix `cta-ruins` 404: generate an optimized `public/cta-ruins.webp` from the
    existing `.png` (smaller) OR repoint L28 to `.png`. Prefer `.webp`.
-2. Verify + fix deity image resolution (`.jpg` vs `.png`). If broken, correct the
-   data or add correct assets.
+2. ~~Verify deity image resolution~~ — DONE 2026-07-25, images OK, no action.
 3. Perf pass on the hero:
    - Gate ALL hero motion (not just orbs) behind reduced-motion via
      `gsap.matchMedia()` / a single guard.
@@ -238,8 +237,7 @@ client'` wrapper (ssr:false is disallowed in Server Components — Next 16).
 
 ## Risks / open questions
 
-- **Deity image `.jpg`/`.png` discrepancy** — could be a live site-wide breakage;
-  resolve in Phase 0 before Phase 2 depends on per-deity art.
+- ~~Deity image `.jpg`/`.png` discrepancy~~ — RESOLVED 2026-07-25, not broken.
 - **Existing Lenis usage** — confirm whether an app-level smooth-scroll provider
   already exists to avoid a second instance / scroll conflict.
 - **three revision** for the Clock warning (verify, above).
