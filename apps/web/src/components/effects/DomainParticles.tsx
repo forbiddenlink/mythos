@@ -350,6 +350,11 @@ export function GoldenDustParticles({
 
   const options: ISourceOptions = {
     fullScreen: { enable: false },
+    // Pause the animation loop when the hero is scrolled out of view or the
+    // tab is blurred (tsparticles' own IntersectionObserver) — keeps particles
+    // off the main thread while the user reads the rest of the page.
+    pauseOnOutsideViewport: true,
+    pauseOnBlur: true,
     background: { color: { value: "transparent" } },
     particles: {
       number: { value: 40, density: { enable: true } },
