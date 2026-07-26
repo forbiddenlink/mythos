@@ -1,11 +1,11 @@
 "use client";
 
 import { TransitionLink } from "@/components/transitions";
-import { Button } from "@/components/ui/button";
 import deitiesData from "@/data/deities.json";
 import pantheonData from "@/data/pantheons.json";
 import storiesData from "@/data/stories.json";
 import { motion, useReducedMotion } from "framer-motion";
+import { heroEntrance, heroLoop } from "./heroMotion";
 import { BookOpen, Compass, Globe2, Sparkles, Users } from "lucide-react";
 import dynamic from "next/dynamic";
 
@@ -52,6 +52,7 @@ const startPaths = [
 
 export function HeroSection() {
   const shouldReduceMotion = useReducedMotion();
+  const reduce = !!shouldReduceMotion;
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-hero-gradient noise-overlay">
@@ -73,67 +74,28 @@ export function HeroSection() {
       {/* Vignette effect */}
       <div className="absolute inset-0 bg-gradient-radial from-transparent via-transparent to-[rgba(10,10,25,0.5)]" />
 
-      {/* Floating orbs - disabled for users who prefer reduced motion */}
+      {/* Floating orb - single ambient light, disabled for reduced motion.
+          One orb (was three) to cut GPU fill/composite cost on the LCP screen. */}
       {!shouldReduceMotion && (
-        <>
-          <motion.div
-            className="absolute top-[15%] left-[10%] w-80 h-80 rounded-full"
-            style={{
-              background:
-                "radial-gradient(circle, rgba(178,143,86,0.12) 0%, transparent 70%)",
-              filter: "blur(40px)",
-            }}
-            animate={{
-              scale: [1, 1.15, 1],
-              opacity: [0.4, 0.6, 0.4],
-              x: [0, 20, 0],
-              y: [0, -15, 0],
-            }}
-            transition={{
-              duration: 12,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-          />
-          <motion.div
-            className="absolute bottom-[20%] right-[8%] w-96 h-96 rounded-full"
-            style={{
-              background:
-                "radial-gradient(circle, rgba(98,87,150,0.1) 0%, transparent 70%)",
-              filter: "blur(50px)",
-            }}
-            animate={{
-              scale: [1, 1.2, 1],
-              opacity: [0.3, 0.5, 0.3],
-              x: [0, -25, 0],
-              y: [0, 20, 0],
-            }}
-            transition={{
-              duration: 15,
-              repeat: Infinity,
-              ease: "easeInOut",
-              delay: 2,
-            }}
-          />
-          <motion.div
-            className="absolute top-[50%] right-[25%] w-64 h-64 rounded-full"
-            style={{
-              background:
-                "radial-gradient(circle, rgba(140,95,60,0.08) 0%, transparent 70%)",
-              filter: "blur(35px)",
-            }}
-            animate={{
-              scale: [1, 1.1, 1],
-              opacity: [0.25, 0.4, 0.25],
-            }}
-            transition={{
-              duration: 10,
-              repeat: Infinity,
-              ease: "easeInOut",
-              delay: 4,
-            }}
-          />
-        </>
+        <motion.div
+          className="absolute top-[18%] left-[12%] w-96 h-96 rounded-full"
+          style={{
+            background:
+              "radial-gradient(circle, rgba(178,143,86,0.12) 0%, transparent 70%)",
+            filter: "blur(28px)",
+          }}
+          animate={{
+            scale: [1, 1.15, 1],
+            opacity: [0.4, 0.6, 0.4],
+            x: [0, 20, 0],
+            y: [0, -15, 0],
+          }}
+          transition={{
+            duration: 14,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        />
       )}
 
       {/* Decorative lines - classical aesthetic */}
@@ -143,9 +105,11 @@ export function HeroSection() {
       <div className="relative z-10 container mx-auto px-4 text-center">
         {/* Decorative emblem */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+          {...heroEntrance(reduce, {
+            initial: { opacity: 0, scale: 0.8 },
+            animate: { opacity: 1, scale: 1 },
+            transition: { duration: 1, ease: [0.22, 1, 0.36, 1] },
+          })}
           className="flex justify-center mb-10"
         >
           <div className="relative">
@@ -156,15 +120,14 @@ export function HeroSection() {
                 background:
                   "radial-gradient(circle, rgba(178,143,86,0.2) 0%, transparent 70%)",
               }}
-              animate={{
-                scale: [1, 1.1, 1],
-                opacity: [0.5, 0.8, 0.5],
-              }}
-              transition={{
-                duration: 4,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
+              {...heroLoop(reduce, {
+                animate: { scale: [1, 1.1, 1], opacity: [0.5, 0.8, 0.5] },
+                transition: {
+                  duration: 4,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                },
+              })}
             />
             {/* Icon container with ornate border */}
             <div className="relative p-5 rounded-full border border-gold/30 bg-linear-to-br from-midnight-light/80 to-midnight/90 backdrop-blur-sm">
@@ -177,31 +140,24 @@ export function HeroSection() {
           </div>
         </motion.div>
 
-        {/* Main title with refined typography */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-        >
+        {/* Main title — visible immediately for LCP (no opacity:0 initial) */}
+        <div>
           <span className="block text-gold/80 text-sm tracking-[0.4em] uppercase mb-4 font-sans font-medium">
             Encyclopedia of Ancient Mythology
           </span>
-        </motion.div>
+        </div>
 
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
-          className="font-serif text-6xl md:text-7xl lg:text-[5.5rem] xl:text-[6.5rem] font-semibold tracking-tight mb-6"
-        >
+        <h1 className="font-serif text-6xl md:text-7xl lg:text-[5.5rem] xl:text-[6.5rem] font-semibold tracking-tight mb-6">
           <span className="text-gradient-hero">Mythos Atlas</span>
-        </motion.h1>
+        </h1>
 
         {/* Decorative divider */}
         <motion.div
-          initial={{ opacity: 0, scaleX: 0 }}
-          animate={{ opacity: 1, scaleX: 1 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
+          {...heroEntrance(reduce, {
+            initial: { opacity: 0, scaleX: 0 },
+            animate: { opacity: 1, scaleX: 1 },
+            transition: { duration: 0.8, delay: 0.4 },
+          })}
           className="flex items-center justify-center gap-4 mb-8"
         >
           <div className="w-16 md:w-24 h-px bg-linear-to-r from-transparent to-gold/40" />
@@ -210,46 +166,25 @@ export function HeroSection() {
         </motion.div>
 
         <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.5 }}
+          {...heroEntrance(reduce, {
+            initial: { opacity: 0, y: 20 },
+            animate: { opacity: 1, y: 0 },
+            transition: { duration: 0.8, delay: 0.5 },
+          })}
           className="text-lg md:text-xl lg:text-2xl text-parchment/90 max-w-2xl mx-auto mb-6 font-body leading-relaxed tracking-wide"
         >
-          A free interactive encyclopedia of mythology from {STATS.pantheons}{" "}
-          civilizations &mdash; with family trees, quizzes, and AI&#8209;powered
-          exploration.
+          A free study atlas of mythology from {STATS.pantheons} civilizations
+          &mdash; family trees, quizzes, and connected reference pages that help
+          what you learn stick.
         </motion.p>
 
-        {/* CTA Buttons */}
+        {/* First-path CTAs */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.65 }}
-          className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16"
-        >
-          <Button
-            asChild
-            size="lg"
-            className="relative overflow-hidden bg-linear-to-r from-gold-dark via-gold to-gold-dark hover:from-gold hover:via-gold-light hover:to-gold text-midnight font-semibold px-10 py-6 text-base tracking-wide transition-all duration-300 shadow-lg shadow-gold/20 hover:shadow-xl hover:shadow-gold/30"
-          >
-            <TransitionLink href="/pantheons">
-              Explore Mythologies
-            </TransitionLink>
-          </Button>
-          <Button
-            asChild
-            size="lg"
-            variant="outline"
-            className="border-gold/50 bg-midnight-light/30 text-parchment hover:bg-gold/12 hover:border-gold/70 px-10 py-6 text-base tracking-wide transition-all duration-300"
-          >
-            <TransitionLink href="/stories">Read a First Myth</TransitionLink>
-          </Button>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.72 }}
+          {...heroEntrance(reduce, {
+            initial: { opacity: 0, y: 20 },
+            animate: { opacity: 1, y: 0 },
+            transition: { duration: 0.8, delay: 0.65 },
+          })}
           className="max-w-4xl mx-auto mb-14"
         >
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-gold/15 bg-midnight-light/20 text-gold/80 text-xs uppercase tracking-[0.24em] mb-5">
@@ -276,9 +211,11 @@ export function HeroSection() {
 
         {/* Proof strip — stats + credibility */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.8 }}
+          {...heroEntrance(reduce, {
+            initial: { opacity: 0, y: 20 },
+            animate: { opacity: 1, y: 0 },
+            transition: { duration: 0.8, delay: 0.8 },
+          })}
           className="max-w-2xl mx-auto mb-24"
         >
           <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 mb-5">
@@ -307,14 +244,22 @@ export function HeroSection() {
 
         {/* Scroll indicator */}
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 1.2 }}
+          {...heroEntrance(reduce, {
+            initial: { opacity: 0 },
+            animate: { opacity: 1 },
+            transition: { duration: 0.8, delay: 1.2 },
+          })}
           className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
         >
           <motion.div
-            animate={{ y: [0, 8, 0] }}
-            transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
+            {...heroLoop(reduce, {
+              animate: { y: [0, 8, 0] },
+              transition: {
+                duration: 2.5,
+                repeat: Infinity,
+                ease: "easeInOut",
+              },
+            })}
             className="flex flex-col items-center gap-2"
           >
             <span className="text-gold/40 text-xs tracking-[0.2em] uppercase font-sans">
