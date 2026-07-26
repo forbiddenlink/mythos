@@ -4,6 +4,7 @@ import { useRef, useEffect, useState } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { Stars, Line, Text, Float } from "@react-three/drei";
 import * as THREE from "three";
+import { rafThrottle } from "@/lib/rafThrottle";
 
 // Constellation data - deity symbols connected by stars
 const constellations = [
@@ -211,22 +212,29 @@ function Constellations() {
 }
 
 function ScrollParallax() {
-  const { camera } = useThree();
+  const camera = useThree((s) => s.camera);
+  const invalidate = useThree((s) => s.invalidate);
 
   useEffect(() => {
-    const handleScroll = () => {
-      const scrollY = window.scrollY;
+    const update = () => {
       const maxScroll =
         document.documentElement.scrollHeight - window.innerHeight;
-      const scrollProgress = scrollY / maxScroll;
-
-      // Parallax effect on camera position
+      const scrollProgress = maxScroll > 0 ? window.scrollY / maxScroll : 0;
+      // eslint-disable-next-line react-hooks/immutability -- mutating the three.js camera directly is the intended R3F pattern
       camera.position.y = -scrollProgress * 2;
+      // frameloop="demand": request one render for the new camera position.
+      // Idle (no scroll) => zero renders.
+      invalidate();
     };
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [camera]);
+    const onScroll = rafThrottle(update);
+    update(); // set initial position + first render
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      onScroll.cancel();
+    };
+  }, [camera, invalidate]);
 
   return null;
 }
@@ -238,7 +246,7 @@ function Scene() {
       <Stars
         radius={100}
         depth={50}
-        count={3000}
+        count={1500}
         factor={4}
         saturation={0}
         fade

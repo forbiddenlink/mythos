@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { TransitionLink } from "@/components/transitions";
 import deitiesData from "@/data/deities.json";
 import pantheonData from "@/data/pantheons.json";
@@ -54,13 +55,26 @@ export function HeroSection() {
   const shouldReduceMotion = useReducedMotion();
   const reduce = !!shouldReduceMotion;
 
+  // Defer the heavy 3D + particle decor until the browser is idle so the LCP
+  // hero text paints first instead of waiting on WebGL/particle init.
+  const [showDecor, setShowDecor] = useState(false);
+  useEffect(() => {
+    const ric = window.requestIdleCallback;
+    if (typeof ric === "function") {
+      const id = ric(() => setShowDecor(true), { timeout: 1500 });
+      return () => window.cancelIdleCallback(id);
+    }
+    const id = window.setTimeout(() => setShowDecor(true), 300);
+    return () => window.clearTimeout(id);
+  }, []);
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-hero-gradient noise-overlay">
-      {/* Interactive 3D constellation background */}
-      <ConstellationBackground />
+      {/* Interactive 3D constellation background — deferred to idle (post-LCP) */}
+      {showDecor && <ConstellationBackground />}
 
-      {/* Golden dust particles */}
-      <GoldenDustParticles className="z-5" />
+      {/* Golden dust particles — deferred to idle (post-LCP) */}
+      {showDecor && <GoldenDustParticles className="z-5" />}
 
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
