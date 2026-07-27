@@ -54,6 +54,7 @@ import { DeityJsonLd } from "@/components/seo/JsonLd";
 import ReactMarkdown from "react-markdown";
 import { PronunciationDisplay } from "@/components/ui/pronunciation";
 import { EditorialByline } from "@/components/content/EditorialByline";
+import { BloodlineTapestry } from "@/components/deities/BloodlineTapestry";
 import { normalizeDeityReference } from "@/lib/deities";
 import { getPantheonColor } from "@/lib/pantheon-colors";
 import {
@@ -671,6 +672,13 @@ export function DeityPageClient({ slug }: DeityPageClientProps) {
           <DeityStoryRecommendations
             deityId={deity.id}
             deityName={deity.name}
+          />
+
+          {/* Bloodline tapestry — at-a-glance genealogy plate */}
+          <BloodlineTapestry
+            deityId={deity.id}
+            deityName={deity.name}
+            pantheonId={deity.pantheonId}
           />
 
           {/* Family Tree */}
