@@ -25,17 +25,22 @@ export function localeToOpenGraphLocale(locale: string): string {
   return (map as Record<string, string>)[locale] ?? "en_US";
 }
 
-/** Same canonical URL for all languages (locale chosen via cookie / UI). */
-export function buildHreflangAlternates(path: string): Record<string, string> {
-  const base = siteConfig.url;
-  const normalized = path.startsWith("/") ? path : `/${path}`;
-  const full = `${base}${normalized}`;
+/** Same canonical URL for all languages (locale chosen via cookie / UI).
+ *  Do not emit hreflang for identical URLs — that confuses crawlers when
+ *  locale content is not URL-segmented.
+ */
+export function buildHreflangAlternates(_path: string): Record<string, string> {
+  return {};
+}
+
+/** Metadata for soft-missing entity pages — always noindex. */
+export function generateNotFoundMetadata(
+  title: string,
+  description: string,
+): Metadata {
   return {
-    en: full,
-    es: full,
-    fr: full,
-    de: full,
-    "x-default": full,
+    ...generateBaseMetadata({ title, description }),
+    robots: { index: false, follow: false },
   };
 }
 
@@ -58,7 +63,7 @@ export function generateBaseMetadata({
   keywords?: string[];
   articleSection?: string;
   articleTags?: string[];
-  /** UI locale for og:locale (hreflang still lists all locales for the same URL). */
+  /** UI locale for og:locale (cookie-based; URLs are not locale-prefixed). */
   locale?: string;
 }): Metadata {
   const desc = description || siteConfig.description;
@@ -142,7 +147,9 @@ export function generateBaseMetadata({
     metadataBase: new URL(siteConfig.url),
     alternates: {
       canonical: pageUrl,
-      languages: buildHreflangAlternates(pathForAlternates),
+      ...(Object.keys(buildHreflangAlternates(pathForAlternates)).length > 0
+        ? { languages: buildHreflangAlternates(pathForAlternates) }
+        : {}),
     },
     robots: {
       index: true,

@@ -15,8 +15,7 @@ import { normalizeDeityReference } from "@/lib/deities";
 const HERO_IMAGE_WIDTH = 1920;
 const HERO_IMAGE_HEIGHT = 1080;
 
-// Import colors statically (small)
-import { PANTHEON_COLORS } from "@/components/graph/KnowledgeGraph";
+import { PANTHEON_COLORS } from "@/lib/pantheon-colors";
 
 // Lazy load heavy ReactFlow-based knowledge graph
 const KnowledgeGraph = dynamic(

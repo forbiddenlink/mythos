@@ -15,7 +15,7 @@ export default function PrivacyPolicyPage() {
       <h1 className="font-display text-4xl font-bold text-gold">
         Privacy Policy
       </h1>
-      <p className="mt-2 text-muted-foreground">Last updated: March 14, 2026</p>
+      <p className="mt-2 text-muted-foreground">Last updated: July 23, 2026</p>
 
       <div className="prose prose-invert mt-8 max-w-none">
         <section className="mb-8">
@@ -92,9 +92,12 @@ export default function PrivacyPolicyPage() {
             </li>
           </ul>
           <p className="mt-4 text-muted-foreground">
-            You can control cookie preferences through our cookie consent banner
-            or your browser settings. Analytics and performance metrics are only
-            sent after you explicitly accept non-essential cookies.
+            You can control cookie preferences through our cookie consent
+            banner, the Cookie Settings link in the footer, or your browser
+            settings. Analytics and performance metrics are only sent after you
+            explicitly accept non-essential cookies. If your browser sends a
+            Global Privacy Control (GPC) signal, we treat it as an analytics
+            opt-out and do not load Vercel Analytics or Speed Insights.
           </p>
         </section>
 
@@ -109,8 +112,24 @@ export default function PrivacyPolicyPage() {
           </p>
           <p className="mt-4 text-muted-foreground">
             Analytics data is processed by third-party services (Vercel
-            Analytics, Sentry) in accordance with their respective privacy
-            policies.
+            Analytics) only after you accept non-essential cookies (or never,
+            when Global Privacy Control is on). Browser error monitoring via
+            Sentry is likewise gated behind that consent. Server-side error logs
+            for API routes may still be recorded without browser cookies for
+            reliability.
+          </p>
+        </section>
+
+        <section className="mb-8">
+          <h2 className="font-display text-2xl font-semibold text-foreground">
+            AI features (Oracle)
+          </h2>
+          <p className="mt-4 text-muted-foreground">
+            When you use the Oracle chat, your prompts and relevant encyclopedia
+            excerpts are sent to Anthropic (Claude) to generate answers. We also
+            use your IP address for rate limiting. Do not paste sensitive
+            personal data into the Oracle. Answers are AI-generated and may be
+            wrong.
           </p>
         </section>
 
@@ -118,13 +137,30 @@ export default function PrivacyPolicyPage() {
           <h2 className="font-display text-2xl font-semibold text-foreground">
             Your Rights
           </h2>
-          <p className="mt-4 text-muted-foreground">You have the right to:</p>
+          <p className="mt-4 text-muted-foreground">
+            Mythos Atlas stores progress and preferences in your browser
+            (localStorage). Depending on where you live, you may have rights
+            under laws such as the GDPR (EEA/UK) or CCPA/CPRA (California),
+            including the right to access, delete, or opt out of certain
+            analytics.
+          </p>
           <ul className="mt-2 list-disc pl-6 text-muted-foreground">
-            <li>Access your personal data</li>
-            <li>Delete your data (clear browser localStorage)</li>
-            <li>Opt out of analytics tracking</li>
-            <li>Export your data</li>
+            <li>Access data stored locally in your browser</li>
+            <li>Delete local data by clearing site storage</li>
+            <li>Opt out of non-essential analytics via the cookie banner</li>
+            <li>Request help exporting or clarifying what we process</li>
           </ul>
+          <p className="mt-4 text-muted-foreground">
+            Data controller: Elizabeth Stein (Mythos Atlas). For privacy
+            requests, prefer a private channel via the{" "}
+            <Link
+              href="/contact"
+              className="text-gold underline hover:text-gold/80"
+            >
+              contact page
+            </Link>{" "}
+            rather than posting personal details in a public GitHub issue.
+          </p>
         </section>
 
         <section className="mb-8">

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound, redirect } from "next/navigation";
 import pantheons from "@/data/pantheons.json";
-import { generateBaseMetadata } from "@/lib/metadata";
+import { generateBaseMetadata, generateNotFoundMetadata } from "@/lib/metadata";
 import { PantheonPageClient } from "./PantheonPageClient";
 
 // ISR: Revalidate every week (604800 seconds)
@@ -37,10 +37,10 @@ export async function generateMetadata({
     | undefined;
 
   if (!pantheon) {
-    return generateBaseMetadata({
-      title: "Pantheon Not Found",
-      description: "The requested pantheon could not be found.",
-    });
+    return generateNotFoundMetadata(
+      "Pantheon Not Found",
+      "The requested pantheon could not be found.",
+    );
   }
 
   // Create a rich description

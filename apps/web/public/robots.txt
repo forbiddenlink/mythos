@@ -1,8 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://mythosatlas.com/sitemap.xml
-
-Disallow: /api/
-Disallow: /_next/
-Disallow: /admin/

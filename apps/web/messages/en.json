@@ -59,12 +59,9 @@
       "title": "Mythos Atlas",
       "subtitle": "Ancient Mythology Encyclopedia",
       "description": "Explore ancient mythology through interactive deity family trees, comparative analysis, and epic stories from Greek, Norse, Egyptian, and world civilizations.",
-      "heroTitle": "Journey Through Ancient Mythology",
-      "heroSubtitle": "Discover gods, heroes, and legends from cultures around the world",
-      "featuredPantheons": "Featured Pantheons",
       "popularDeities": "Popular Deities",
       "recentStories": "Recent Stories",
-      "startExploring": "Start Exploring"
+      "localeNote": "Navigation and Oracle follow your language. Encyclopedia pages are English-first for now."
     },
     "pantheons": {
       "title": "Pantheons",
@@ -256,7 +253,8 @@
   "oracle": {
     "fabOpen": "Ask the Oracle",
     "title": "Oracle of Delphi",
-    "subtitle": "Grounded in the Atlas when your topic matches our catalog",
+    "subtitle": "AI assistant grounded in the Atlas when your topic matches our catalog",
+    "aiDisclosure": "Powered by Anthropic Claude. Answers are AI-generated and may be incomplete or wrong — verify important facts in the encyclopedia.",
     "close": "Close Oracle chat",
     "greeting": "Greetings, seeker of wisdom. What mysteries of the ancient world do you wish to unravel?",
     "tryAsking": "Try asking:",

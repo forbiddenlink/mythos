@@ -1,8 +1,10 @@
-const replayEnabled = process.env.NEXT_PUBLIC_SENTRY_REPLAY_ENABLED === "true";
-
 const isProduction = process.env.NODE_ENV === "production";
 const dsn = process.env.NEXT_PUBLIC_SENTRY_DSN;
 
+/**
+ * Router transition hook — only forwards if Sentry was already initialized
+ * after cookie consent (see ConsentGatedSentry).
+ */
 export const onRouterTransitionStart = (...args: unknown[]) => {
   if (!isProduction || !dsn) {
     return;
@@ -24,33 +26,4 @@ export const onRouterTransitionStart = (...args: unknown[]) => {
     });
 };
 
-if (isProduction && dsn) {
-  void (async () => {
-    try {
-      const Sentry = await import("@sentry/nextjs");
-
-      Sentry.init({
-        dsn,
-        tracesSampleRate: 1,
-        debug: false,
-        // Third-party/extension noise: ".closest is not a function" originates
-        // from a minified vendor chunk reacting to a non-Element event target,
-        // not first-party code. Not actionable. (Fixes MYTHOS-E)
-        ignoreErrors: ["closest is not a function"],
-        replaysOnErrorSampleRate: replayEnabled ? 1 : 0,
-        replaysSessionSampleRate: replayEnabled ? 0.1 : 0,
-        integrations: replayEnabled
-          ? [
-              Sentry.replayIntegration({
-                maskAllText: true,
-                blockAllMedia: true,
-              }),
-            ]
-          : [],
-        enabled: true,
-      });
-    } catch {
-      // Ignore Sentry load errors when observability is not available.
-    }
-  })();
-}
+// Client Sentry.init is deferred to ConsentGatedSentry (consent + GPC).

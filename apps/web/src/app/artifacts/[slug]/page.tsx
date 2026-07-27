@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import artifacts from "@/data/artifacts.json";
 import pantheons from "@/data/pantheons.json";
-import { generateBaseMetadata } from "@/lib/metadata";
+import { generateBaseMetadata, generateNotFoundMetadata } from "@/lib/metadata";
 import { ArtifactPageClient } from "./ArtifactPageClient";
 
 // ISR: Revalidate every week (604800 seconds)
@@ -41,10 +41,10 @@ export async function generateMetadata({
     | undefined;
 
   if (!artifact) {
-    return generateBaseMetadata({
-      title: "Artifact Not Found",
-      description: "The requested artifact could not be found.",
-    });
+    return generateNotFoundMetadata(
+      "Artifact Not Found",
+      "The requested artifact could not be found.",
+    );
   }
 
   const pantheon = pantheons.find((p) => p.id === artifact.pantheonId);

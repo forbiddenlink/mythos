@@ -72,7 +72,8 @@ export function LanguageSwitcher() {
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="flex min-h-11 items-center gap-1.5 px-3 py-2 text-sm text-foreground/80 hover:text-foreground rounded-lg hover:bg-muted/50 transition-all duration-200"
-        aria-label={`Language: ${currentLocale.toUpperCase()}`}
+        aria-label={`Interface language: ${currentLocale.toUpperCase()}. Navigation and Oracle chat follow this locale; most encyclopedia pages remain in English.`}
+        title="Navigation and Oracle language"
         aria-expanded={isOpen ? "true" : "false"}
         aria-haspopup="listbox"
       >
@@ -89,22 +90,27 @@ export function LanguageSwitcher() {
 
       {isOpen && (
         <div
-          className="absolute right-0 top-full mt-1 w-40 rounded-lg border border-border bg-background shadow-lg overflow-hidden z-50"
-          role="listbox"
-          aria-label="Available languages"
+          className="absolute right-0 top-full mt-1 w-52 rounded-lg border border-border bg-background shadow-lg overflow-hidden z-50"
+          role="menu"
+          aria-label="Interface languages"
         >
+          <p className="px-3 py-2 text-[11px] leading-snug text-muted-foreground border-b border-border">
+            Affects navigation and Oracle replies. Encyclopedia articles stay in
+            English for now.
+          </p>
           <div className="py-1">
             {locales.map((locale) => (
               <button
                 key={locale}
+                type="button"
+                role="menuitemradio"
+                aria-checked={locale === currentLocale}
                 onClick={() => handleLocaleChange(locale)}
                 className={`w-full flex items-center gap-3 px-3 py-2 text-sm transition-colors duration-150 ${
                   locale === currentLocale
                     ? "bg-gold/10 text-gold"
                     : "text-foreground hover:bg-muted"
                 }`}
-                role="option"
-                aria-selected={locale === currentLocale ? "true" : "false"}
               >
                 <span className="text-base" aria-hidden="true">
                   {localeFlags[locale]}

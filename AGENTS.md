@@ -19,7 +19,7 @@ All commands are run from the **monorepo root** unless noted otherwise.
 
 ```
 pnpm install
-cp .env.example .env.local  # then add ANTHROPIC_API_KEY for Oracle feature
+cp apps/web/.env.example apps/web/.env.local  # then add ANTHROPIC_API_KEY / Upstash for Oracle
 ```
 
 ### Development

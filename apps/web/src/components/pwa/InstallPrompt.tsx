@@ -1,23 +1,24 @@
-'use client';
+"use client";
 
-import { useCallback, useEffect, useState } from 'react';
-import { Download, X } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { cn } from '@/lib/utils';
+import { useCallback, useEffect, useState } from "react";
+import { Download, X } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 interface BeforeInstallPromptEvent extends Event {
   prompt: () => Promise<void>;
-  userChoice: Promise<{ outcome: 'accepted' | 'dismissed' }>;
+  userChoice: Promise<{ outcome: "accepted" | "dismissed" }>;
 }
 
 export function InstallPrompt() {
-  const [deferredPrompt, setDeferredPrompt] = useState<BeforeInstallPromptEvent | null>(null);
+  const [deferredPrompt, setDeferredPrompt] =
+    useState<BeforeInstallPromptEvent | null>(null);
   const [isVisible, setIsVisible] = useState(false);
   const [isDismissed, setIsDismissed] = useState(false);
 
   useEffect(() => {
     // Check if user has dismissed the prompt before
-    const dismissed = localStorage.getItem('mythos-pwa-dismissed');
+    const dismissed = localStorage.getItem("mythos-pwa-dismissed");
     if (dismissed) {
       // eslint-disable-next-line react-hooks/set-state-in-effect -- hydrate dismissed state from localStorage
       setIsDismissed(true);
@@ -36,15 +37,21 @@ export function InstallPrompt() {
     const handleAppInstalled = () => {
       setDeferredPrompt(null);
       setIsVisible(false);
-      localStorage.setItem('mythos-pwa-installed', 'true');
+      localStorage.setItem("mythos-pwa-installed", "true");
     };
 
-    globalThis.addEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
-    globalThis.addEventListener('appinstalled', handleAppInstalled);
+    globalThis.addEventListener(
+      "beforeinstallprompt",
+      handleBeforeInstallPrompt,
+    );
+    globalThis.addEventListener("appinstalled", handleAppInstalled);
 
     return () => {
-      globalThis.removeEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
-      globalThis.removeEventListener('appinstalled', handleAppInstalled);
+      globalThis.removeEventListener(
+        "beforeinstallprompt",
+        handleBeforeInstallPrompt,
+      );
+      globalThis.removeEventListener("appinstalled", handleAppInstalled);
     };
   }, []);
 
@@ -57,7 +64,7 @@ export function InstallPrompt() {
     // Wait for the user to respond to the prompt
     const { outcome } = await deferredPrompt.userChoice;
 
-    if (outcome === 'accepted') {
+    if (outcome === "accepted") {
       setIsVisible(false);
     }
 
@@ -68,7 +75,7 @@ export function InstallPrompt() {
   const handleDismiss = useCallback(() => {
     setIsVisible(false);
     setIsDismissed(true);
-    localStorage.setItem('mythos-pwa-dismissed', 'true');
+    localStorage.setItem("mythos-pwa-dismissed", "true");
   }, []);
 
   if (!isVisible || isDismissed || !deferredPrompt) {
@@ -78,10 +85,10 @@ export function InstallPrompt() {
   return (
     <div
       className={cn(
-        'fixed bottom-4 left-4 right-4 z-50 mx-auto max-w-md',
-        'rounded-xl border border-border/50 bg-card/95 p-4 shadow-2xl backdrop-blur-sm',
-        'animate-in slide-in-from-bottom-4 duration-300',
-        'dark:border-gold/20 dark:bg-midnight/95'
+        "fixed bottom-4 left-4 right-4 z-50 mx-auto max-w-md",
+        "rounded-xl border border-border/50 bg-card/95 p-4 shadow-2xl backdrop-blur-sm",
+        "animate-in slide-in-from-bottom-4 duration-300",
+        "dark:border-gold/20 dark:bg-midnight/95",
       )}
       role="dialog"
       aria-labelledby="install-prompt-title"
@@ -101,11 +108,18 @@ export function InstallPrompt() {
         </div>
 
         <div className="flex-1 space-y-1">
-          <h3 id="install-prompt-title" className="font-semibold text-foreground">
+          <h3
+            id="install-prompt-title"
+            className="font-semibold text-foreground"
+          >
             Install Mythos Atlas
           </h3>
-          <p id="install-prompt-description" className="text-sm text-muted-foreground">
-            Add to your home screen for quick access and offline reading of mythology content.
+          <p
+            id="install-prompt-description"
+            className="text-sm text-muted-foreground"
+          >
+            Add Mythos Atlas to your home screen for faster access from your
+            device.
           </p>
         </div>
       </div>

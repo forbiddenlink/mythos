@@ -86,7 +86,7 @@ export function PronunciationDisplay({
     audioButtonContent = (
       <>
         <VolumeX className="h-4 w-4" />
-        <span>Audio Coming Soon</span>
+        <span>Audio unavailable</span>
         <span className="sr-only"> for this pronunciation</span>
       </>
     );

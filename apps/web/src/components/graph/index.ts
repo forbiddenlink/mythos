@@ -1,3 +1,4 @@
-export { KnowledgeGraph, PANTHEON_COLORS, getPantheonColor } from './KnowledgeGraph';
-export { GraphControls } from './GraphControls';
-export { GraphLegend } from './GraphLegend';
+export { KnowledgeGraph } from "./KnowledgeGraph";
+export { PANTHEON_COLORS, getPantheonColor } from "@/lib/pantheon-colors";
+export { GraphControls } from "./GraphControls";
+export { GraphLegend } from "./GraphLegend";

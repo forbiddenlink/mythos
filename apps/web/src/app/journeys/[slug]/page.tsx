@@ -1,9 +1,9 @@
-import type { Metadata } from 'next';
-import { notFound } from 'next/navigation';
-import journeys from '@/data/journeys.json';
-import pantheons from '@/data/pantheons.json';
-import { generateBaseMetadata } from '@/lib/metadata';
-import { JourneyPageClient } from './JourneyPageClient';
+import type { Metadata } from "next";
+import { notFound } from "next/navigation";
+import journeys from "@/data/journeys.json";
+import pantheons from "@/data/pantheons.json";
+import { generateBaseMetadata, generateNotFoundMetadata } from "@/lib/metadata";
+import { JourneyPageClient } from "./JourneyPageClient";
 
 interface JourneyData {
   id: string;
@@ -31,44 +31,49 @@ export async function generateStaticParams() {
 }
 
 // Generate metadata for each journey page
-export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: PageProps): Promise<Metadata> {
   const { slug } = await params;
-  const journey = journeys.find((j) => j.slug === slug) as JourneyData | undefined;
+  const journey = journeys.find((j) => j.slug === slug) as
+    | JourneyData
+    | undefined;
 
   if (!journey) {
-    return generateBaseMetadata({
-      title: 'Journey Not Found',
-      description: 'The requested journey could not be found.',
-    });
+    return generateNotFoundMetadata(
+      "Journey Not Found",
+      "The requested journey could not be found.",
+    );
   }
 
   const pantheon = pantheons.find((p) => p.id === journey.pantheonId);
-  const pantheonName = pantheon?.name || 'Ancient';
+  const pantheonName = pantheon?.name || "Ancient";
 
   // Create a rich description
   const waypointCount = journey.waypoints?.length || 0;
-  const description = journey.description?.slice(0, 160)
-    || `Follow ${journey.heroName}'s epic ${journey.duration} journey through ${waypointCount} legendary locations in ${pantheonName} mythology.`;
+  const description =
+    journey.description?.slice(0, 160) ||
+    `Follow ${journey.heroName}'s epic ${journey.duration} journey through ${waypointCount} legendary locations in ${pantheonName} mythology.`;
 
   return generateBaseMetadata({
     title: `${journey.title} - ${journey.heroName}'s Journey`,
     description: description,
     url: `/journeys/${journey.slug}`,
-    image: journey.imageUrl || '/og-image.png',
-    type: 'article',
+    image: journey.imageUrl || "/og-image.png",
+    type: "article",
     keywords: [
       journey.title,
       journey.heroName,
       pantheonName,
-      'mythology',
-      'epic journey',
-      'hero quest',
-      'adventure',
-      'ancient voyage',
-      journey.source.split(',')[0], // e.g., "Homer"
+      "mythology",
+      "epic journey",
+      "hero quest",
+      "adventure",
+      "ancient voyage",
+      journey.source.split(",")[0], // e.g., "Homer"
     ],
-    articleSection: 'Journeys',
-    articleTags: journey.waypoints?.slice(0, 5).map(w => w.name),
+    articleSection: "Journeys",
+    articleTags: journey.waypoints?.slice(0, 5).map((w) => w.name),
   });
 }
 

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import stories from "@/data/stories.json";
 import pantheons from "@/data/pantheons.json";
-import { generateBaseMetadata } from "@/lib/metadata";
+import { generateBaseMetadata, generateNotFoundMetadata } from "@/lib/metadata";
 import { StoryPageClient } from "./StoryPageClient";
 
 // ISR: Revalidate every week (604800 seconds)
@@ -38,10 +38,10 @@ export async function generateMetadata({
   const story = stories.find((s) => s.slug === slug) as StoryData | undefined;
 
   if (!story) {
-    return generateBaseMetadata({
-      title: "Story Not Found",
-      description: "The requested story could not be found.",
-    });
+    return generateNotFoundMetadata(
+      "Story Not Found",
+      "The requested story could not be found.",
+    );
   }
 
   const pantheon = pantheons.find((p) => p.id === story.pantheonId);

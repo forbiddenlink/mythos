@@ -128,27 +128,27 @@ export function PantheonPageClient({ slug }: PantheonPageClientProps) {
 
         {/* Overview Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12 mt-8">
-          <Card className="border-gold/20 bg-midnight-light/50">
+          <Card className="border-border bg-card">
             <CardHeader>
               <div className="flex items-center gap-2">
                 <MapPin className="h-5 w-5 text-gold" />
-                <CardTitle className="text-parchment">Region</CardTitle>
+                <CardTitle className="text-foreground">Region</CardTitle>
               </div>
             </CardHeader>
             <CardContent>
-              <p className="text-parchment/80">{pantheon.region}</p>
+              <p className="text-muted-foreground">{pantheon.region}</p>
             </CardContent>
           </Card>
 
-          <Card className="border-gold/20 bg-midnight-light/50">
+          <Card className="border-border bg-card">
             <CardHeader>
               <div className="flex items-center gap-2">
                 <Calendar className="h-5 w-5 text-gold" />
-                <CardTitle className="text-parchment">Time Period</CardTitle>
+                <CardTitle className="text-foreground">Time Period</CardTitle>
               </div>
             </CardHeader>
             <CardContent>
-              <p className="text-parchment/80">
+              <p className="text-muted-foreground">
                 {pantheon.timePeriodStart && pantheon.timePeriodEnd
                   ? `${Math.abs(pantheon.timePeriodStart)} BCE - ${Math.abs(pantheon.timePeriodEnd)} ${pantheon.timePeriodEnd < 0 ? "BCE" : "CE"}`
                   : "Ancient Times"}
@@ -156,15 +156,15 @@ export function PantheonPageClient({ slug }: PantheonPageClientProps) {
             </CardContent>
           </Card>
 
-          <Card className="border-gold/20 bg-midnight-light/50">
+          <Card className="border-border bg-card">
             <CardHeader>
               <div className="flex items-center gap-2">
                 <Users className="h-5 w-5 text-gold" />
-                <CardTitle className="text-parchment">Deities</CardTitle>
+                <CardTitle className="text-foreground">Deities</CardTitle>
               </div>
             </CardHeader>
             <CardContent>
-              <p className="text-parchment/80">
+              <p className="text-muted-foreground">
                 {pantheonDeities.length} gods and goddesses
               </p>
             </CardContent>
@@ -172,19 +172,19 @@ export function PantheonPageClient({ slug }: PantheonPageClientProps) {
         </div>
 
         {/* Detailed History (Markdown) or Description */}
-        <Card className="border-gold/20 bg-midnight-light/50 mb-12">
+        <Card className="border-border bg-card mb-12">
           <CardHeader>
-            <CardTitle className="text-parchment text-2xl font-serif">
+            <CardTitle className="text-foreground text-2xl font-serif">
               About
             </CardTitle>
           </CardHeader>
           <CardContent>
             {pantheon.detailedHistory ? (
-              <div className="prose prose-invert prose-gold max-w-none">
+              <div className="prose dark:prose-invert prose-gold max-w-none">
                 <ReactMarkdown>{pantheon.detailedHistory}</ReactMarkdown>
               </div>
             ) : (
-              <p className="text-parchment/80 leading-relaxed text-lg">
+              <p className="text-muted-foreground leading-relaxed text-lg">
                 {pantheon.description}
               </p>
             )}
@@ -195,7 +195,7 @@ export function PantheonPageClient({ slug }: PantheonPageClientProps) {
         <section className="mb-12">
           <div className="flex items-center gap-3 mb-6">
             <Users className="h-6 w-6 text-gold" />
-            <h2 className="text-3xl font-serif font-semibold text-parchment">
+            <h2 className="text-3xl font-serif font-semibold text-foreground">
               Deities
             </h2>
           </div>
@@ -204,9 +204,9 @@ export function PantheonPageClient({ slug }: PantheonPageClientProps) {
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
               {pantheonDeities.map((deity) => (
                 <Link key={deity.id} href={`/deities/${deity.slug}`}>
-                  <Card className="h-full border-gold/20 bg-midnight-light/50 hover:border-gold/40 transition-colors">
+                  <Card className="h-full border-border bg-card hover:border-gold/40 transition-colors">
                     <CardHeader>
-                      <CardTitle className="text-parchment">
+                      <CardTitle className="text-foreground">
                         {deity.name}
                       </CardTitle>
                       <CardDescription className="text-gold/80">
@@ -214,7 +214,7 @@ export function PantheonPageClient({ slug }: PantheonPageClientProps) {
                       </CardDescription>
                     </CardHeader>
                     <CardContent>
-                      <p className="text-parchment/70 line-clamp-3">
+                      <p className="text-muted-foreground line-clamp-3">
                         {deity.description || "No description available."}
                       </p>
                     </CardContent>
@@ -223,9 +223,9 @@ export function PantheonPageClient({ slug }: PantheonPageClientProps) {
               ))}
             </div>
           ) : (
-            <Card className="border-gold/20 bg-midnight-light/50">
+            <Card className="border-border bg-card">
               <CardContent className="py-12 text-center">
-                <p className="text-parchment/60">
+                <p className="text-muted-foreground">
                   No deities found for this pantheon.
                 </p>
               </CardContent>
@@ -237,7 +237,7 @@ export function PantheonPageClient({ slug }: PantheonPageClientProps) {
         <section>
           <div className="flex items-center gap-3 mb-6">
             <BookOpen className="h-6 w-6 text-gold" />
-            <h2 className="text-3xl font-serif font-semibold text-parchment">
+            <h2 className="text-3xl font-serif font-semibold text-foreground">
               Stories & Myths
             </h2>
           </div>
@@ -247,10 +247,10 @@ export function PantheonPageClient({ slug }: PantheonPageClientProps) {
               {pantheonStories.map((story) => (
                 <Card
                   key={story.id}
-                  className="border-gold/20 bg-midnight-light/50 hover:border-gold/40 transition-colors"
+                  className="border-border bg-card hover:border-gold/40 transition-colors"
                 >
                   <CardHeader>
-                    <CardTitle className="text-parchment">
+                    <CardTitle className="text-foreground">
                       {story.title}
                     </CardTitle>
                     <CardDescription className="text-gold/80">
@@ -258,7 +258,7 @@ export function PantheonPageClient({ slug }: PantheonPageClientProps) {
                     </CardDescription>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-parchment/70 line-clamp-3">
+                    <p className="text-muted-foreground line-clamp-3">
                       {story.summary}
                     </p>
                   </CardContent>
@@ -266,9 +266,9 @@ export function PantheonPageClient({ slug }: PantheonPageClientProps) {
               ))}
             </div>
           ) : (
-            <Card className="border-gold/20 bg-midnight-light/50">
+            <Card className="border-border bg-card">
               <CardContent className="py-12 text-center">
-                <p className="text-parchment/60">
+                <p className="text-muted-foreground">
                   No stories found for this pantheon.
                 </p>
               </CardContent>

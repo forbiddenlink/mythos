@@ -113,60 +113,6 @@ export default function BookmarksPage() {
       <div className="container mx-auto max-w-6xl px-4 py-16">
         <Breadcrumbs />
 
-        <section className="mt-6 rounded-2xl border border-border/60 bg-card/60 p-6">
-          <h2 className="font-serif text-2xl font-semibold mb-3">
-            Build a Personal Mythology Reading List
-          </h2>
-          <p className="text-muted-foreground leading-relaxed">
-            Bookmarks turn Mythos Atlas into a working study shelf. Save deity
-            profiles you want to compare later, keep long stories in progress,
-            and collect pantheons that deserve a deeper read once you finish a
-            first pass through the encyclopedia.
-          </p>
-          <p className="mt-3 text-muted-foreground leading-relaxed">
-            This page is especially useful when you are moving between quizzes,
-            stories, and reference entries. Instead of losing track of the
-            threads you want to follow, you can return here and pick up where
-            you left off across multiple traditions.
-          </p>
-          <p className="mt-3 text-muted-foreground leading-relaxed">
-            A good workflow is to bookmark one deity, one story, and one
-            pantheon at the same time. That creates a compact study cluster you
-            can revisit later when you want a quick refresher or a deeper
-            comparative reading session.
-          </p>
-          <p className="mt-3 text-muted-foreground leading-relaxed">
-            Over time this page becomes a record of what you are actively
-            studying. Instead of scrolling the whole encyclopedia to relocate a
-            thread, you can use bookmarks as a curated shortlist of unfinished
-            myths, reference targets, and cross-cultural comparisons.
-          </p>
-          <p className="mt-3 text-muted-foreground leading-relaxed">
-            The saved list is also useful for deliberate review. Revisit older
-            bookmarks after a quiz or reading session and you can see which
-            names, symbols, and stories still need reinforcement before they
-            become part of your long-term mythology map.
-          </p>
-          <p className="mt-3 text-muted-foreground leading-relaxed">
-            If you are building a cross-cultural reading plan, this page works
-            best when you mix one reference page with one narrative page. That
-            pairing keeps your saved list balanced between fast factual review
-            and the longer story context that gives those facts meaning.
-          </p>
-          <p className="mt-3 text-muted-foreground leading-relaxed">
-            Bookmarks also work well as a revision queue. Save entries after a
-            quiz or comparison session, then return here to review the exact
-            deities, symbols, or stories that caused hesitation. That turns a
-            generic save feature into a deliberate study workflow.
-          </p>
-          <p className="mt-3 text-muted-foreground leading-relaxed">
-            If you are exploring a new pantheon, start by saving a few anchor
-            entries rather than everything at once. A compact list is easier to
-            revisit, and it gives you a clearer sense of what still needs
-            context, source checking, or deeper narrative reading.
-          </p>
-        </section>
-
         {isEmpty ? (
           <EmptyState />
         ) : (

@@ -21,14 +21,14 @@ jobs:
       - uses: actions/checkout@v7.0.1
       - name: Ally accessibility scan
         continue-on-error: true
-        uses: forbiddenlink/ally@main
+        uses: forbiddenlink/ally@69b68b76e6fa45ac66a0ec32f4db5d652086e580 # main @ 2026-07-23
         with:
           url: ${{ github.event.inputs.url || 'https://mythosatlas.com' }}
           threshold: "9999"
           output: ".ally"
       - name: Upload report
         if: always()
-        uses: actions/upload-artifact@v7
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
           name: ally-a11y-report
           path: ".ally/**"

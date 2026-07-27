@@ -197,25 +197,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.4,
     },
     {
-      url: `${BASE_URL}/llms.txt`,
-      lastModified,
-      changeFrequency: "monthly",
-      priority: 0.35,
-    },
-    {
       url: `${BASE_URL}/leaderboard`,
-      lastModified,
-      changeFrequency: "daily",
-      priority: 0.5,
-    },
-    {
-      url: `${BASE_URL}/review`,
-      lastModified,
-      changeFrequency: "daily",
-      priority: 0.5,
-    },
-    {
-      url: `${BASE_URL}/progress`,
       lastModified,
       changeFrequency: "daily",
       priority: 0.5,

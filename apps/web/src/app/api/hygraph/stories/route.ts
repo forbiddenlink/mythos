@@ -1,30 +1,23 @@
-import { NextRequest, NextResponse } from "next/server";
-import { fetchStories } from "@/lib/content/stories";
+import { NextResponse } from "next/server";
 
-export const dynamic = "force-dynamic";
+/**
+ * Hygraph CMS routes are disabled — Mythos Atlas serves static JSON from
+ * apps/web/src/data. Kept as stubs so old bookmarks/clients get a clear 410.
+ */
+function gone() {
+  return NextResponse.json(
+    {
+      error:
+        "Hygraph API routes are disabled. Content is served from static JSON.",
+    },
+    { status: 410 },
+  );
+}
 
-export async function GET(request: NextRequest) {
-  const searchParams = request.nextUrl.searchParams;
+export async function GET() {
+  return gone();
+}
 
-  const pantheonSlug = searchParams.get("pantheonSlug") ?? undefined;
-  const category = searchParams.get("category") ?? undefined;
-  const limit = parseInt(searchParams.get("limit") ?? "20", 10);
-  const offset = parseInt(searchParams.get("offset") ?? "0", 10);
-
-  try {
-    const result = await fetchStories({
-      pantheonSlug,
-      category,
-      limit,
-      offset,
-    });
-
-    return NextResponse.json(result);
-  } catch (error) {
-    console.error("Error fetching stories:", error);
-    return NextResponse.json(
-      { error: "Failed to fetch stories" },
-      { status: 500 },
-    );
-  }
+export async function POST() {
+  return gone();
 }

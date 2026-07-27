@@ -1,4 +1,5 @@
 import { Logo } from "@/components/ui/logo";
+import { CookieSettingsButton } from "@/components/privacy/CookieSettingsButton";
 import Link from "next/link";
 
 function GithubIcon({ className }: Readonly<{ className?: string }>) {
@@ -49,6 +50,7 @@ const footerLinks = {
   info: [
     { label: "About Mythos Atlas", href: "/about" },
     { label: "Contact Mythos Atlas", href: "/contact" },
+    { label: "Accessibility", href: "/accessibility" },
     { label: "AI / llms.txt", href: "/llms.txt" },
     { label: "Sources", href: "/sources" },
     { label: "Changelog", href: "/changelog" },
@@ -59,7 +61,7 @@ const footerLinks = {
 
 export function Footer() {
   return (
-    <footer className="relative border-t border-border/50 bg-muted/30 backdrop-blur-sm">
+    <footer className="relative border-t border-border/50 bg-muted/30 backdrop-blur-sm pb-[max(env(safe-area-inset-bottom),var(--cookie-banner-offset))]">
       {/* Subtle top gradient line */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-px bg-linear-to-r from-transparent via-gold/20 to-transparent" />
 
@@ -171,6 +173,9 @@ export function Footer() {
                   </Link>
                 </li>
               ))}
+              <li>
+                <CookieSettingsButton className="flex min-h-11 w-full items-center py-1 text-sm text-muted-foreground hover:text-gold transition-colors duration-200 text-left" />
+              </li>
             </ul>
           </div>
         </div>

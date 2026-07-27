@@ -21,12 +21,15 @@ export default defineConfig({
     },
     coverage: {
       provider: 'v8',
+      // Honest gate: only files with dedicated unit tests. Do not claim
+      // repo-wide 80% coverage — expand this list as tests are added.
       include: [
         'src/lib/spaced-repetition.ts',
         'src/lib/mastery.ts',
         'src/lib/search.ts',
         'src/lib/relationship-quiz.ts',
         'src/lib/utils.ts',
+        'src/lib/safe-redirect.ts',
         'src/hooks/use-debounce.ts',
         'src/providers/progress-provider.tsx',
       ],

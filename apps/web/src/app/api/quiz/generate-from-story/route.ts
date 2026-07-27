@@ -1,9 +1,16 @@
 import { anthropic } from "@ai-sdk/anthropic";
 import { generateObject } from "ai";
 import stories from "@/data/stories.json";
-import { checkOracleRateLimit } from "@/lib/oracle/rate-limit";
+import { checkGlobalOracleBudget } from "@/lib/oracle/global-budget";
+import { checkQuizRateLimit } from "@/lib/oracle/rate-limit";
+import {
+  forbiddenUnlessSameOrigin,
+  isOracleKillSwitchOn,
+} from "@/lib/oracle/request-guards";
 import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
+
+const MAX_OUTPUT_TOKENS = 2_000;
 
 const BodySchema = z.object({
   storySlug: z.string().min(1).max(200),
@@ -31,7 +38,7 @@ function stripMarkdownLite(s: string): string {
     .replace(/#{1,6}\s+/g, "")
     .replace(/\*\*([^*]+)\*\*/g, "$1")
     .replace(/\*([^*]+)\*/g, "$1")
-    .slice(0, 14_000);
+    .slice(0, 8_000);
 }
 
 /**
@@ -40,6 +47,16 @@ function stripMarkdownLite(s: string): string {
  */
 export async function POST(req: NextRequest) {
   try {
+    if (isOracleKillSwitchOn()) {
+      return NextResponse.json(
+        { error: "Quiz generation is temporarily offline." },
+        { status: 503 },
+      );
+    }
+
+    const originBlock = forbiddenUnlessSameOrigin(req);
+    if (originBlock) return originBlock;
+
     const json: unknown = await req.json();
     const parsed = BodySchema.safeParse(json);
     if (!parsed.success) {
@@ -60,13 +77,43 @@ export async function POST(req: NextRequest) {
     }
 
     const ip =
-      req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ||
+      req.headers.get("x-vercel-forwarded-for")?.split(",")[0]?.trim() ||
       req.headers.get("x-real-ip") ||
+      req.headers.get("x-forwarded-for")?.split(",").at(-1)?.trim() ||
       "anonymous";
 
-    if (!(await checkOracleRateLimit(ip))) {
+    const rateLimit = await checkQuizRateLimit(ip);
+    if (!rateLimit.allowed) {
+      if (rateLimit.reason === "misconfigured") {
+        return NextResponse.json(
+          {
+            error:
+              "Quiz generation unavailable. Rate limiting is not configured.",
+          },
+          { status: 503 },
+        );
+      }
       return NextResponse.json(
         { error: "Rate limit exceeded. Try again later." },
+        { status: 429 },
+      );
+    }
+
+    const budget = await checkGlobalOracleBudget();
+    if (!budget.allowed) {
+      if (budget.reason === "misconfigured") {
+        return NextResponse.json(
+          {
+            error:
+              "Quiz generation unavailable. Rate limiting is not configured.",
+          },
+          { status: 503 },
+        );
+      }
+      return NextResponse.json(
+        {
+          error: "Daily quiz generation capacity reached. Try again tomorrow.",
+        },
         { status: 429 },
       );
     }
@@ -89,12 +136,12 @@ export async function POST(req: NextRequest) {
       .filter(Boolean)
       .join("\n\n");
 
-    const modelId =
-      process.env.ANTHROPIC_ORACLE_MODEL?.trim() || DEFAULT_MODEL;
+    const modelId = process.env.ANTHROPIC_ORACLE_MODEL?.trim() || DEFAULT_MODEL;
 
     const { object } = await generateObject({
       model: anthropic(modelId),
       schema: QuizOutSchema,
+      maxOutputTokens: MAX_OUTPUT_TOKENS,
       prompt: `You write study questions for Mythos Atlas, a mythology encyclopedia.
 
 Rules:

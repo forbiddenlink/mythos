@@ -22,7 +22,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
-import { generateBaseMetadata } from "@/lib/metadata";
+import { generateBaseMetadata, generateNotFoundMetadata } from "@/lib/metadata";
 import collections from "@/data/collections.json";
 import deities from "@/data/deities.json";
 import stories from "@/data/stories.json";
@@ -126,11 +126,10 @@ export async function generateMetadata({
   const collection = collections.find((c) => c.slug === slug);
 
   if (!collection) {
-    return generateBaseMetadata({
-      title: "Collection Not Found",
-      description: "The requested collection could not be found.",
-      url: `/collections/${slug}`,
-    });
+    return generateNotFoundMetadata(
+      "Collection Not Found",
+      "The requested collection could not be found.",
+    );
   }
 
   return generateBaseMetadata({

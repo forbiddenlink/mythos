@@ -15,12 +15,9 @@ const OracleChat = dynamic(
   { ssr: false },
 );
 
-// Keep Oracle on by default outside production. In production, require an
-// explicit public opt-in so the UI doesn't expose a broken feature when the
-// backend key hasn't been configured.
-const oracleEnabled =
-  process.env.NODE_ENV !== "production" ||
-  process.env.NEXT_PUBLIC_ORACLE_ENABLED === "true";
+// Require an explicit public opt-in so the UI is never shown when the
+// Anthropic-backed API is not configured for that deployment.
+const oracleEnabled = process.env.NEXT_PUBLIC_ORACLE_ENABLED === "true";
 
 /**
  * Client-side layout effects wrapper

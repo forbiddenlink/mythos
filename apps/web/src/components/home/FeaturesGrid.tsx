@@ -17,147 +17,159 @@ const features = [
     icon: Globe,
     title: "Start with Pantheons",
     description:
-      "Get oriented fast by exploring the major myth traditions side by side",
+      "Orient yourself in a tradition before diving into individual gods and myths.",
     href: "/pantheons",
-    iconBg: "from-[oklch(0.55_0.12_265)] to-[oklch(0.45_0.15_275)]",
-    accent: "group-hover:text-[oklch(0.65_0.12_265)]",
-  },
-  {
-    icon: Network,
-    title: "Divine Family Trees",
-    description:
-      "Visualize complex relationships between gods and goddesses across generations",
-    href: "/family-tree",
-    iconBg: "from-[oklch(0.55_0.14_300)] to-[oklch(0.45_0.16_310)]",
-    accent: "group-hover:text-[oklch(0.65_0.14_300)]",
+    number: "I",
   },
   {
     icon: ScrollText,
     title: "Read Core Stories",
     description:
-      "Follow the myths and legends that make the gods, creatures, and places meaningful",
+      "Follow the narratives that give deities, creatures, and places their meaning.",
     href: "/stories",
-    iconBg: "from-gold-dark to-bronze",
-    accent: "group-hover:text-gold",
+    number: "II",
+  },
+  {
+    icon: Network,
+    title: "Divine Family Trees",
+    description:
+      "Trace parentage, rivals, and consorts across generations in one view.",
+    href: "/family-tree",
+    number: "III",
   },
   {
     icon: MapIcon,
     title: "Mythical Places",
     description:
-      "Explore the real and mythical locations where these stories unfolded",
+      "Map sacred geography — from Olympus to the Nine Realms and beyond.",
     href: "/locations",
-    iconBg: "from-patina to-[oklch(0.45_0.10_170)]",
-    accent: "group-hover:text-patina",
+    number: "IV",
   },
   {
     icon: Skull,
     title: "Creatures & Monsters",
     description:
-      "Face the legendary beasts and monsters that roam the mythological world",
+      "Study the beasts that test heroes and define each culture’s dangers.",
     href: "/creatures",
-    iconBg: "from-bronze to-[oklch(0.42_0.12_35)]",
-    accent: "group-hover:text-bronze",
+    number: "V",
   },
   {
     icon: Gem,
     title: "Weapons & Artifacts",
     description:
-      "Discover the powerful weapons and legendary objects forged by the gods",
+      "Inspect legendary objects forged by gods and carried through myth.",
     href: "/artifacts",
-    iconBg: "from-midnight-light to-midnight",
-    accent: "group-hover:text-midnight-light dark:group-hover:text-gold",
+    number: "VI",
   },
-];
+] as const;
 
 export function FeaturesGrid() {
+  const [featured, ...rest] = features;
+
   return (
     <section className="relative py-28 bg-muted/30 noise-overlay overflow-hidden">
-      {/* Subtle background gradient */}
       <div className="absolute inset-0 bg-linear-to-b from-background via-transparent to-background pointer-events-none" />
 
-      <div className="container mx-auto px-4 relative z-10">
-        {/* Section header */}
+      <div className="container mx-auto px-4 relative z-10 max-w-5xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-          className="text-center mb-16"
+          className="mb-14 md:mb-16"
         >
           <span className="inline-block text-gold text-sm tracking-[0.25em] uppercase mb-4 font-medium">
-            Explore
+            Ways in
           </span>
-          <h2 className="font-serif text-4xl md:text-5xl font-semibold tracking-tight mb-5 text-foreground">
-            Discover Ancient Wisdom
+          <h2 className="font-serif text-4xl md:text-5xl font-semibold tracking-tight mb-5 text-foreground max-w-xl">
+            Six clear paths through the atlas
           </h2>
-          <div className="flex items-center justify-center gap-4 mb-6">
-            <div className="w-12 h-px bg-linear-to-r from-transparent to-gold/40" />
+          <div className="flex items-center gap-4 mb-6">
+            <div className="w-12 h-px bg-linear-to-r from-gold/40 to-transparent" />
             <div className="w-1.5 h-1.5 rotate-45 bg-gold/50" />
-            <div className="w-12 h-px bg-linear-to-l from-transparent to-gold/40" />
           </div>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto font-body leading-relaxed">
-            Start with the clearest entry points, then branch into deeper tools
-            and interactive mythology features
+          <p className="text-lg text-muted-foreground max-w-2xl font-body leading-relaxed">
+            Begin with a culture or a story, then branch into trees, places, and
+            artifacts when you want more depth.
           </p>
         </motion.div>
 
-        {/* Feature cards grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-          {features.map((feature, index) => (
-            <motion.div
+        {/* Featured manuscript lead-in */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
+          className="mb-10"
+        >
+          <Link
+            href={featured.href}
+            className="group block border-y border-gold/25 py-8 md:py-10"
+          >
+            <div className="flex flex-col md:flex-row md:items-end gap-6 md:gap-12">
+              <span className="font-serif text-5xl md:text-6xl text-gold/40 leading-none tabular-nums">
+                {featured.number}
+              </span>
+              <div className="flex-1">
+                <div className="flex items-center gap-3 mb-3 text-gold/80">
+                  <featured.icon className="h-5 w-5" strokeWidth={1.5} />
+                  <span className="text-xs uppercase tracking-[0.2em]">
+                    Recommended first
+                  </span>
+                </div>
+                <h3 className="font-serif text-3xl md:text-4xl font-semibold text-foreground group-hover:text-gold transition-colors duration-300">
+                  {featured.title}
+                </h3>
+                <p className="mt-3 text-muted-foreground leading-relaxed max-w-xl">
+                  {featured.description}
+                </p>
+              </div>
+              <span className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground group-hover:text-gold transition-colors">
+                Open
+                <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+              </span>
+            </div>
+          </Link>
+        </motion.div>
+
+        {/* Remaining entries as a manuscript list */}
+        <ol className="divide-y divide-border/70 border-b border-border/70">
+          {rest.map((feature, index) => (
+            <motion.li
               key={feature.title}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
+              viewport={{ once: true, margin: "-40px" }}
               transition={{
-                duration: 0.6,
-                delay: index * 0.1,
+                duration: 0.5,
+                delay: index * 0.06,
                 ease: [0.22, 1, 0.36, 1],
               }}
             >
-              <Link href={feature.href} className="block h-full">
-                <div className="group relative h-full p-6 rounded-xl bg-card border border-border/60 card-elevated overflow-hidden">
-                  {/* Hover gradient overlay */}
-                  <div className="absolute inset-0 bg-linear-to-br from-gold/3 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-
-                  {/* Corner accent */}
-                  <div className="absolute top-0 right-0 w-16 h-16 overflow-hidden">
-                    <div className="absolute top-0 right-0 w-px h-8 bg-linear-to-b from-gold/30 to-transparent transform origin-top-right" />
-                    <div className="absolute top-0 right-0 h-px w-8 bg-linear-to-l from-gold/30 to-transparent" />
-                  </div>
-
-                  {/* Icon */}
-                  <div className="relative mb-5">
-                    <div
-                      className={`w-14 h-14 rounded-xl bg-linear-to-br ${feature.iconBg} flex items-center justify-center shadow-lg group-hover:scale-105 group-hover:shadow-xl transition-all duration-300`}
-                    >
-                      <feature.icon
-                        className="h-7 w-7 text-white/90"
-                        strokeWidth={1.5}
-                      />
-                    </div>
-                  </div>
-
-                  {/* Content */}
-                  <h3
-                    className={`font-serif text-xl font-semibold mb-3 text-foreground transition-colors duration-300 ${feature.accent}`}
-                  >
+              <Link
+                href={feature.href}
+                className="group flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-8 py-5 md:py-6"
+              >
+                <span className="w-10 shrink-0 font-serif text-xl text-gold/50">
+                  {feature.number}
+                </span>
+                <feature.icon
+                  className="hidden sm:block h-5 w-5 shrink-0 text-muted-foreground group-hover:text-gold transition-colors"
+                  strokeWidth={1.5}
+                />
+                <div className="flex-1 min-w-0">
+                  <h3 className="font-serif text-xl font-semibold text-foreground group-hover:text-gold transition-colors">
                     {feature.title}
                   </h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed mb-4">
+                  <p className="mt-1 text-sm text-muted-foreground leading-relaxed">
                     {feature.description}
                   </p>
-
-                  {/* Link indicator */}
-                  <div className="flex items-center gap-2 text-sm font-medium text-muted-foreground/70 group-hover:text-gold transition-colors duration-300">
-                    <span>Explore</span>
-                    <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform duration-300" />
-                  </div>
                 </div>
+                <ArrowRight className="h-4 w-4 shrink-0 text-muted-foreground/50 group-hover:text-gold group-hover:translate-x-1 transition-all" />
               </Link>
-            </motion.div>
+            </motion.li>
           ))}
-        </div>
+        </ol>
       </div>
     </section>
   );

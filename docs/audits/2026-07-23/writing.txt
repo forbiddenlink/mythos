@@ -1,0 +1,106 @@
+```json
+[
+  {
+    "area": "writing",
+    "severity": "high",
+    "confidence": "high",
+    "exploitability": "n/a",
+    "location": "apps/web/src/app/about/page.tsx:59-77, apps/web/src/app/privacy/page.tsx:1-184, apps/web/src/app/contact/page.tsx:1-188, apps/web/src/components/home/HeroSection.tsx:212-306",
+    "problem": "Hero, About, Privacy, Terms, Contact, Quiz, and Bookmarks pages contain zero useTranslations/next-intl calls — all copy is hardcoded English literals despite a full es/fr/de i18n setup.",
+    "impact": "Spanish/French/German users get an all-English homepage, mission statement, and legal pages; the i18n system only covers nav chrome and Oracle strings, making the 4-locale claim misleading for ~90% of visible content.",
+    "fix": "Wire these pages/components to next-intl (useTranslations/getTranslations) and move copy into messages/*.json, or drop the unused locale infrastructure for content that will stay English-only."
+  },
+  {
+    "area": "writing",
+    "severity": "medium",
+    "confidence": "high",
+    "exploitability": "n/a",
+    "location": "apps/web/messages/en.json:62-67 (pages.home.heroTitle/heroSubtitle/featuredPantheons/startExploring)",
+    "problem": "These translation keys are fully translated in en/es/fr/de.json but grep confirms zero usages in src/ — the real hero (HeroSection.tsx) uses entirely different hardcoded copy (\"Mythos Atlas\", \"A free interactive encyclopedia...\").",
+    "impact": "Dead i18n keys signal an abandoned rewrite; translators/maintainers editing messages/en.json will have no effect on the actual homepage, wasting effort and creating false confidence in translation coverage.",
+    "fix": "Delete the unused keys or reconnect HeroSection.tsx to consume them, and audit the rest of messages/*.json for similar orphaned strings."
+  },
+  {
+    "area": "writing",
+    "severity": "medium",
+    "confidence": "high",
+    "exploitability": "n/a",
+    "location": "apps/web/src/app/about/page.tsx:68-71",
+    "problem": "\"we aim to make mythology accessible and engaging for everyone—from students and researchers to mythology enthusiasts and casual learners\" is a textbook everyone-ICP claim with no real segmentation.",
+    "impact": "Reads as generic filler rather than a positioning statement; doesn't help a visitor decide if the site is for deep scholarly reference vs. casual trivia/gamification, which the site's own quiz/achievement features suggest is actually a differentiator worth naming.",
+    "fix": "Replace with a concrete claim, e.g. \"built for anyone who wants primary-source myths (Eddas, Theogony, Popol Vuh) with citations, not summarized trivia\" — name the actual differentiator (sourcing + interactivity)."
+  },
+  {
+    "area": "writing",
+    "severity": "high",
+    "confidence": "high",
+    "exploitability": "n/a",
+    "location": "apps/web/src/app/quiz/page.tsx:134-169, apps/web/src/app/quiz/quick/page.tsx:191-243, apps/web/src/app/bookmarks/page.tsx:116-168",
+    "problem": "Each page has 5-8 near-duplicate paragraphs restating the same point in slightly different words (e.g. bookmarks: \"working study shelf\" → \"compact study cluster\" → \"curated shortlist\" → \"revision queue\" → \"deliberate study workflow\" all describe the same save-and-revisit idea).",
+    "impact": "Classic AI-slop SEO padding — low information density, circular restatement, and generic hedge phrasing (\"is especially useful,\" \"works best when,\" \"tends to\") that reads as machine-generated filler rather than genuine editorial voice; hurts credibility of a site whose whole pitch is scholarly care.",
+    "fix": "Cut each block to 1-2 concrete paragraphs with a single actionable idea; if word count is for SEO, use structured FAQ/definition content instead of repetitive prose."
+  },
+  {
+    "area": "writing",
+    "severity": "medium",
+    "confidence": "medium",
+    "exploitability": "n/a",
+    "location": "apps/web/src/app/about/page.tsx:58-77 vs apps/web/src/app/about/page.tsx:175-179; apps/web/src/app/privacy/page.tsx:26-30",
+    "problem": "Mission section and legal pages use plural corporate voice (\"we\", \"our commitment\") while the Creator section and site itself establish this is a solo-developer project (\"I built Mythos Atlas because...\").",
+    "impact": "The \"we\" voice in Privacy/Terms/Mission reads as inflated/impersonal for a project that elsewhere leans into an authentic solo-creator story; inconsistent pronoun use undercuts the personal-credibility angle the About page is trying to build.",
+    "fix": "Pick one voice: either consistent first-person singular (\"I collect...\", \"I built this because...\") to match the Creator section, or justify \"we\" if there are contributors — don't mix both within one page set."
+  },
+  {
+    "area": "writing",
+    "severity": "high",
+    "confidence": "medium",
+    "exploitability": "n/a",
+    "location": "apps/web/src/app/privacy/page.tsx:117-128, 165-180",
+    "problem": "\"Your Rights\" lists generic rights (access/delete/opt-out/export) with no named regulation (GDPR/CCPA), no data controller identity/address, and directs privacy/legal requests to public GitHub issues rather than an email or form.",
+    "impact": "Site ships es/fr/de locales implying an EU/international audience, but the privacy page has no GDPR-specific language (legal basis, right to lodge a complaint with a supervisory authority, retention periods) and routes sensitive personal-data requests through a public bug tracker — a real gap if any EU traffic exists.",
+    "fix": "Add explicit GDPR/CCPA framing if serving EU/CA users, name a controller contact, and offer a private channel (email) for privacy requests instead of public GitHub issues."
+  },
+  {
+    "area": "writing",
+    "severity": "medium",
+    "confidence": "medium",
+    "exploitability": "n/a",
+    "location": "apps/web/src/app/terms/page.tsx:99-108",
+    "problem": "Terms has no governing-law/jurisdiction clause and the \"Modifications\" section says terms can be revised \"at any time without notice,\" with no versioning/changelog link for terms themselves.",
+    "impact": "Without a jurisdiction clause, any dispute has no stated venue; \"without notice\" changes to a binding agreement is weak from a user-trust standpoint, especially paired with an AI-features disclaimer that already invites scrutiny.",
+    "fix": "Add a governing-law/jurisdiction line and either commit to advance notice for material changes or link a terms changelog (the site already has /changelog for product updates)."
+  },
+  {
+    "area": "writing",
+    "severity": "low",
+    "confidence": "high",
+    "exploitability": "n/a",
+    "location": "apps/web/src/app/journeys/page.tsx:300, apps/web/src/components/ui/pronunciation.tsx:89",
+    "problem": "\"More Journeys Coming Soon\" and \"Audio Coming Soon\" are placeholder microcopy for unbuilt features, shipped directly into production UI.",
+    "impact": "Undated \"coming soon\" labels erode trust over time (visitors can't tell if it's been \"soon\" for a week or a year) and read as unfinished product surface area next to otherwise polished, content-rich pages.",
+    "fix": "Either remove the teaser UI until the feature ships, or replace with a dated/roadmap-linked statement (e.g. link to /changelog or a public roadmap issue)."
+  },
+  {
+    "area": "writing",
+    "severity": "medium",
+    "confidence": "medium",
+    "exploitability": "n/a",
+    "location": "apps/web/src/app/about/page.tsx:59-65",
+    "problem": "\"Mythos Atlas preserves the interconnected mythology of ancient civilizations, revealing how different cultures understood creation, divinity, and human purpose... genuine insight into how our ancestors explained the world and their place in it\" is abstract mission-speak with no concrete claim.",
+    "impact": "Two full sentences convey no differentiated information (any mythology site could claim this); it delays the reader from the actually specific and credible facts two paragraphs later (13 pantheons, 189+ deities, primary-source citations).",
+    "fix": "Lead with the concrete, verifiable claim (source coverage + interactivity) and cut the abstract preamble, or fold it into one sentence of framing."
+  },
+  {
+    "area": "writing",
+    "severity": "low",
+    "confidence": "medium",
+    "exploitability": "n/a",
+    "location": "apps/web/src/app/api/oracle/route.ts:32-49 vs apps/web/src/app/quiz/quick/page.tsx:246-269",
+    "problem": "The Oracle system prompt establishes a deliberate mystical, archaic persona (\"The ancients knew...\", \"wise and ancient\") while sibling features use flat modern app copy (\"Ready to Race?\", \"Score copied to clipboard!\", \"New High Score!\").",
+    "impact": "The site oscillates between two unreconciled brand voices — scholarly/mystical encyclopedia vs. generic gamified quiz app — without a shared style guide bridging them, so the Oracle feels like a bolted-on persona rather than a consistent site voice.",
+    "fix": "Define a lightweight voice guide (e.g. \"reverent but plain\" for reference content, mystical only for Oracle dialogue) and lightly re-skin quiz/game microcopy to nod at the mythological framing instead of generic gamification language."
+  }
+]
+```
+
+**Writing verdict:** The reference content (deity bios, myths) is genuinely strong, but the site's own marketing/legal/UX copy is the weak layer — a real i18n system is installed but barely used (most pages are English-only with dead translation keys), and several pages (quiz, quick quiz, bookmarks) are padded with repetitive, low-information paragraphs that read as AI-generated SEO filler rather than deliberate writing. Voice is also inconsistent (corporate "we" vs. solo-creator "I," mystical Oracle vs. flat gamer-app copy), and the legal pages have real gaps (no named regulation, no private contact channel, no jurisdiction clause) that should be tightened before this reads as a professionally maintained reference project.

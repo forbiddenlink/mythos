@@ -59,12 +59,9 @@
       "title": "Mythos Atlas",
       "subtitle": "Enzyklopädie der Alten Mythologie",
       "description": "Erkunden Sie die antike Mythologie durch interaktive Stammbäume, vergleichende Analysen und epische Geschichten aus griechischen, nordischen, ägyptischen und weltweiten Zivilisationen.",
-      "heroTitle": "Reise durch die Antike Mythologie",
-      "heroSubtitle": "Entdecken Sie Götter, Helden und Legenden aus Kulturen der ganzen Welt",
-      "featuredPantheons": "Ausgewählte Pantheons",
       "popularDeities": "Beliebte Gottheiten",
       "recentStories": "Neueste Geschichten",
-      "startExploring": "Erkunden Starten"
+      "localeNote": "Navigation und Orakel folgen Ihrer Sprache. Enzyklopädie-Seiten sind vorerst auf Englisch."
     },
     "pantheons": {
       "title": "Pantheons",
@@ -257,6 +254,7 @@
     "fabOpen": "Das Orakel befragen",
     "title": "Orakel von Delphi",
     "subtitle": "Verankert im Atlas, wenn Ihr Thema zu unserem Katalog passt",
+    "aiDisclosure": "Betrieben von Anthropic Claude. Antworten sind KI-generiert und können unvollständig oder falsch sein — prüfen Sie wichtige Fakten in der Enzyklopädie.",
     "close": "Orakel schließen",
     "greeting": "Seid gegrüßt, Sucher der Weisheit. Welche Geheimnisse der alten Welt wollt ihr ergründen?",
     "tryAsking": "Versucht zu fragen:",

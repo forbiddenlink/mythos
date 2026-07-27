@@ -1,0 +1,52 @@
+[
+  {
+    "area": "sec",
+    "severity": "High",
+    "confidence": "High",
+    "exploitability": "Medium",
+    "location": "apps/web/package.json:78 (next \">=16.2.6\"); pnpm-lock.yaml:9648 resolved next@16.2.9",
+    "problem": "Resolved next@16.2.9 predates the 2026-07-21 security release (16.2.11), missing 4 High + 5 Moderate CVEs (CVE-2026-64641..64649): App Router Server Action DoS, Turbopack+single-locale middleware bypass, SSRF in Server Actions/rewrites, SVG image-opt DoS, internal Server Function disclosure.",
+    "impact": "App ships with publicly-disclosed High-severity CVEs (advisory is 2 days old). No middleware.ts or 'use server' found in src/, which blunts the middleware-bypass and Server-Action-DoS CVEs, but the rewrite-SSRF and image-opt-DoS advisories apply regardless of app code.",
+    "fix": "pnpm add next@16.2.11 --filter web (react/react-dom 19.2.7 already compatible); re-run pnpm audit."
+  },
+  {
+    "area": "sec",
+    "severity": "High",
+    "confidence": "High",
+    "exploitability": "High",
+    "location": "apps/web/src/app/api/preview/exit/route.ts:12-24 (unauthenticated); apps/web/src/app/api/preview/route.ts:18,52 (secret-gated, same flaw)",
+    "problem": "`redirect`/`slug` query params go straight into `new URL(x, request.url)` \u2192 `NextResponse.redirect()`. An absolute URL wins over the base, so `GET /api/preview/exit?redirect=https://evil.example` 302s to an attacker domain with zero auth.",
+    "impact": "Open redirect on a trusted mythosatlas.com link \u2014 usable for phishing/credential harvesting, or chained with future OAuth/consent flows.",
+    "fix": "Validate target is same-origin/relative before redirecting: reject if `new URL(input, base).origin !== base.origin`."
+  },
+  {
+    "area": "sec",
+    "severity": "Medium",
+    "confidence": "High",
+    "exploitability": "Low-Medium",
+    "location": "apps/web/src/lib/hygraph/client.ts:4-8; apps/web/src/app/api/revalidate/route.ts:16,28,132; apps/web/src/app/api/hygraph/{search,stories,story/[slug]}/route.ts",
+    "problem": "Leftover Hygraph CMS integration (6 live routes) reads HYGRAPH_CONTENT_API_TOKEN/HYGRAPH_WEBHOOK_SECRET/REVALIDATE_SECRET/HYGRAPH_PREVIEW_SECRET \u2014 none documented in .env.example alongside the supported vars. Secret checks use non-constant-time `!==`; once any secret is set, GET /api/revalidate lets the holder revalidate any tag/path via query string.",
+    "impact": "Unreviewed dead code path; per AGENTS.md the app's real data path is static JSON, so this is pure unnecessary attack surface (cache-stampede DoS / draft-content toggling if a secret ever leaks or is left at a weak test value).",
+    "fix": "Delete the 6 unused Hygraph routes + client, or finish/document the integration properly with crypto.timingSafeEqual and .env.example entries."
+  },
+  {
+    "area": "sec",
+    "severity": "Medium",
+    "confidence": "High",
+    "exploitability": "N/A (hardening gap)",
+    "location": "apps/web/next.config.ts:60-85 (headers())",
+    "problem": "headers() sets X-Frame-Options, X-Content-Type-Options, Referrer-Policy, Permissions-Policy, CSP \u2014 but omits Strict-Transport-Security and Cross-Origin-Opener-Policy/Cross-Origin-Resource-Policy.",
+    "impact": "No HSTS lets a MITM strip TLS on the first HTTP hit; missing COOP allows cross-origin window.opener references (tab-napping / side-channel risk).",
+    "fix": "Add Strict-Transport-Security: max-age=63072000; includeSubDomains; preload and Cross-Origin-Opener-Policy: same-origin."
+  },
+  {
+    "area": "sec",
+    "severity": "Low",
+    "confidence": "Medium",
+    "exploitability": "Low",
+    "location": "apps/web/src/components/seo/JsonLd.tsx:9-13",
+    "problem": "dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }} \u2014 JSON.stringify doesn't escape <, >, / so a value containing </script><script> breaks out of the JSON-LD tag.",
+    "impact": "Low today since `data` is static curated JSON, but no defense-in-depth exists if a field is later sourced from Hygraph drafts, Oracle output, or user input.",
+    "fix": "Escape < before embedding (.replace(/</g, \"\\\\u003c\")) or use a vetted JSON-LD escaping helper."
+  }
+]

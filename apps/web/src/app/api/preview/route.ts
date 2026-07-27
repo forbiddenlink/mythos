@@ -1,5 +1,14 @@
 import { NextRequest, NextResponse } from "next/server";
 import { draftMode, cookies } from "next/headers";
+import { timingSafeEqual } from "node:crypto";
+import { safeSameOriginRedirect } from "@/lib/safe-redirect";
+
+function secretsEqual(a: string, b: string): boolean {
+  const aBuf = Buffer.from(a);
+  const bBuf = Buffer.from(b);
+  if (aBuf.length !== bBuf.length) return false;
+  return timingSafeEqual(aBuf, bBuf);
+}
 
 /**
  * Preview mode API route
@@ -18,7 +27,6 @@ export async function GET(request: NextRequest) {
   const slug = searchParams.get("slug") ?? "/";
   const type = searchParams.get("type") ?? "story"; // story, deity, location, etc.
 
-  // Validate the secret
   const previewSecret = process.env.HYGRAPH_PREVIEW_SECRET;
 
   if (!previewSecret) {
@@ -28,7 +36,7 @@ export async function GET(request: NextRequest) {
     );
   }
 
-  if (secret !== previewSecret) {
+  if (!secret || !secretsEqual(secret, previewSecret)) {
     return NextResponse.json(
       { error: "Invalid preview token" },
       { status: 401 },
@@ -48,7 +56,6 @@ export async function GET(request: NextRequest) {
     path: "/",
   });
 
-  // Redirect to the slug
-  const redirectUrl = new URL(slug, request.url);
+  const redirectUrl = safeSameOriginRedirect(slug, request.url);
   return NextResponse.redirect(redirectUrl);
 }

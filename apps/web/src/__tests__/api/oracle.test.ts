@@ -7,7 +7,7 @@ vi.mock("@/lib/logger", () => ({
 }));
 
 vi.mock("@/lib/oracle/rate-limit", () => ({
-  checkOracleRateLimit: vi.fn(() => Promise.resolve(true)),
+  checkOracleRateLimit: vi.fn(() => Promise.resolve({ allowed: true })),
 }));
 
 vi.mock("@/lib/oracle/grounding", async (importOriginal) => {
@@ -49,7 +49,7 @@ describe("Oracle API route", () => {
     vi.stubEnv("ANTHROPIC_API_KEY", "test-key");
     toTextStreamResponse.mockClear();
     streamText.mockClear();
-    vi.mocked(checkOracleRateLimit).mockResolvedValue(true);
+    vi.mocked(checkOracleRateLimit).mockResolvedValue({ allowed: true });
   });
 
   afterEach(() => {
@@ -58,11 +58,14 @@ describe("Oracle API route", () => {
 
   function oracleRequest(
     body: unknown,
-    init?: { origin?: string; host?: string },
+    init?: { origin?: string | null; host?: string },
   ): NextRequest {
     const headers = new Headers({ "Content-Type": "application/json" });
-    if (init?.origin) headers.set("origin", init.origin);
-    if (init?.host) headers.set("host", init.host);
+    const origin =
+      init && "origin" in init ? init.origin : "http://localhost:3000";
+    const host = init?.host ?? "localhost:3000";
+    if (origin) headers.set("origin", origin);
+    if (host) headers.set("host", host);
     return new NextRequest("http://localhost:3000/api/oracle", {
       method: "POST",
       headers,
@@ -78,6 +81,15 @@ describe("Oracle API route", () => {
     expect(json.error).toBe("Invalid request body");
   });
 
+  it("returns 403 when Origin header is missing", async () => {
+    const req = oracleRequest(
+      { messages: [{ role: "user", content: "Hello" }] },
+      { origin: null },
+    );
+    const res = await POST(req);
+    expect(res.status).toBe(403);
+  });
+
   it("returns 403 when Origin host does not match Host", async () => {
     const req = oracleRequest(
       { messages: [{ role: "user", content: "Hello" }] },
@@ -88,7 +100,10 @@ describe("Oracle API route", () => {
   });
 
   it("returns 429 when rate limited", async () => {
-    vi.mocked(checkOracleRateLimit).mockResolvedValueOnce(false);
+    vi.mocked(checkOracleRateLimit).mockResolvedValueOnce({
+      allowed: false,
+      reason: "rate_limited",
+    });
     const req = oracleRequest({
       messages: [{ role: "user", content: "Hello" }],
     });
@@ -96,6 +111,20 @@ describe("Oracle API route", () => {
     expect(res.status).toBe(429);
     const json = (await res.json()) as { error?: string };
     expect(json.error).toMatch(/rest/i);
+  });
+
+  it("returns 503 when rate limiting is misconfigured in production", async () => {
+    vi.mocked(checkOracleRateLimit).mockResolvedValueOnce({
+      allowed: false,
+      reason: "misconfigured",
+    });
+    const req = oracleRequest({
+      messages: [{ role: "user", content: "Hello" }],
+    });
+    const res = await POST(req);
+    expect(res.status).toBe(503);
+    const json = (await res.json()) as { error?: string };
+    expect(json.error).toMatch(/rate limiting/i);
   });
 
   it("returns 503 when ANTHROPIC_API_KEY is missing", async () => {

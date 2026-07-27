@@ -420,94 +420,124 @@ export default function LocationsPage() {
               </h2>
             </div>
             <div className="flex-1 overflow-y-auto p-4 space-y-4 scrollbar-thin">
-              {locationPagination.paginatedData.map((location) => {
-                const pantheon = pantheons.find(
-                  (p) => p.id === location.pantheonId,
-                );
-                const colors = PANTHEON_COLORS[location.pantheonId] || {
-                  bg: "#6b7280",
-                  label: location.pantheonId,
-                };
-                const hasCords =
-                  location.latitude !== null && location.longitude !== null;
-
-                return (
-                  <Card
-                    key={location.id}
-                    asArticle
-                    tabIndex={hasCords ? 0 : undefined}
-                    role={hasCords ? "button" : undefined}
-                    className={`group cursor-pointer hover:border-gold/50 transition-all duration-300 ${hasCords ? "" : "opacity-75 grayscale-[0.5]"}`}
+              {filteredLocations.length === 0 ? (
+                <div className="flex flex-col items-center justify-center gap-3 py-16 text-center px-4">
+                  <MapPin className="h-10 w-10 text-muted-foreground/50" />
+                  <p className="font-serif text-lg text-foreground">
+                    No locations match these filters
+                  </p>
+                  <p className="text-sm text-muted-foreground">
+                    Try another pantheon, type, or clear filters to see the full
+                    map again.
+                  </p>
+                  <Button
+                    variant="outline"
+                    size="sm"
                     onClick={() => {
-                      if (hasCords && location.latitude && location.longitude) {
-                        // Dispatch custom event for Map component to listen to
-                        globalThis.dispatchEvent(
-                          new CustomEvent("flyToLocation", {
-                            detail: {
-                              lat: location.latitude,
-                              lng: location.longitude,
-                            },
-                          }),
-                        );
-                        // On mobile, switch to map view
-                        if (globalThis.innerWidth < 1024) setViewMode("map");
-                      }
-                    }}
-                    onKeyDown={(e) => {
-                      if (
-                        (e.key === "Enter" || e.key === " ") &&
-                        hasCords &&
-                        location.latitude &&
-                        location.longitude
-                      ) {
-                        e.preventDefault();
-                        globalThis.dispatchEvent(
-                          new CustomEvent("flyToLocation", {
-                            detail: {
-                              lat: location.latitude,
-                              lng: location.longitude,
-                            },
-                          }),
-                        );
-                        if (globalThis.innerWidth < 1024) setViewMode("map");
-                      }
+                      setSearchQuery("");
+                      setActivePantheons(
+                        new Set(pantheonsWithLocations.map((p) => p.id)),
+                      );
+                      setActiveLocationTypes(new Set(allLocationTypes));
                     }}
                   >
-                    <div className="h-1" style={{ background: colors.bg }} />
-                    <CardHeader className="p-4 pb-2">
-                      <div className="flex justify-between items-start">
-                        <h3 className="font-semibold text-foreground group-hover:text-gold transition-colors">
-                          {location.name}
-                        </h3>
-                        {hasCords ? (
-                          <MapPin className="h-3 w-3 text-muted-foreground" />
-                        ) : (
-                          <span className="text-[10px] border border-border px-1 rounded">
-                            Myth
-                          </span>
-                        )}
-                      </div>
-                      <p className="text-xs text-muted-foreground uppercase">
-                        {pantheon?.name}
-                      </p>
-                    </CardHeader>
-                    <CardContent className="p-4 pt-2">
-                      <p className="text-xs text-muted-foreground line-clamp-2">
-                        {location.description}
-                      </p>
-                      <Link
-                        href={`/locations/${location.id}`}
-                        className="inline-flex items-center gap-1 text-xs text-gold hover:text-gold-light mt-2 transition-colors"
-                        aria-label={`Explore ${location.name}`}
-                        onClick={(e) => e.stopPropagation()}
-                      >
-                        Explore {location.name}{" "}
-                        <span aria-hidden="true">→</span>
-                      </Link>
-                    </CardContent>
-                  </Card>
-                );
-              })}
+                    Clear filters
+                  </Button>
+                </div>
+              ) : (
+                locationPagination.paginatedData.map((location) => {
+                  const pantheon = pantheons.find(
+                    (p) => p.id === location.pantheonId,
+                  );
+                  const colors = PANTHEON_COLORS[location.pantheonId] || {
+                    bg: "#6b7280",
+                    label: location.pantheonId,
+                  };
+                  const hasCords =
+                    location.latitude !== null && location.longitude !== null;
+
+                  return (
+                    <Card
+                      key={location.id}
+                      asArticle
+                      tabIndex={hasCords ? 0 : undefined}
+                      role={hasCords ? "button" : undefined}
+                      className={`group cursor-pointer hover:border-gold/50 transition-all duration-300 ${hasCords ? "" : "opacity-75 grayscale-[0.5]"}`}
+                      onClick={() => {
+                        if (
+                          hasCords &&
+                          location.latitude &&
+                          location.longitude
+                        ) {
+                          // Dispatch custom event for Map component to listen to
+                          globalThis.dispatchEvent(
+                            new CustomEvent("flyToLocation", {
+                              detail: {
+                                lat: location.latitude,
+                                lng: location.longitude,
+                              },
+                            }),
+                          );
+                          // On mobile, switch to map view
+                          if (globalThis.innerWidth < 1024) setViewMode("map");
+                        }
+                      }}
+                      onKeyDown={(e) => {
+                        if (
+                          (e.key === "Enter" || e.key === " ") &&
+                          hasCords &&
+                          location.latitude &&
+                          location.longitude
+                        ) {
+                          e.preventDefault();
+                          globalThis.dispatchEvent(
+                            new CustomEvent("flyToLocation", {
+                              detail: {
+                                lat: location.latitude,
+                                lng: location.longitude,
+                              },
+                            }),
+                          );
+                          if (globalThis.innerWidth < 1024) setViewMode("map");
+                        }
+                      }}
+                    >
+                      <div className="h-1" style={{ background: colors.bg }} />
+                      <CardHeader className="p-4 pb-2">
+                        <div className="flex justify-between items-start">
+                          <h3 className="font-semibold text-foreground group-hover:text-gold transition-colors">
+                            {location.name}
+                          </h3>
+                          {hasCords ? (
+                            <MapPin className="h-3 w-3 text-muted-foreground" />
+                          ) : (
+                            <span className="text-[10px] border border-border px-1 rounded">
+                              Myth
+                            </span>
+                          )}
+                        </div>
+                        <p className="text-xs text-muted-foreground uppercase">
+                          {pantheon?.name}
+                        </p>
+                      </CardHeader>
+                      <CardContent className="p-4 pt-2">
+                        <p className="text-xs text-muted-foreground line-clamp-2">
+                          {location.description}
+                        </p>
+                        <Link
+                          href={`/locations/${location.id}`}
+                          className="inline-flex items-center gap-1 text-xs text-gold hover:text-gold-light mt-2 transition-colors"
+                          aria-label={`Explore ${location.name}`}
+                          onClick={(e) => e.stopPropagation()}
+                        >
+                          Explore {location.name}{" "}
+                          <span aria-hidden="true">→</span>
+                        </Link>
+                      </CardContent>
+                    </Card>
+                  );
+                })
+              )}
             </div>
             <div className="border-t border-border bg-card/50 p-4">
               <PaginationControls

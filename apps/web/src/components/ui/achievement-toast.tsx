@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import { useEffect, useState, useCallback } from 'react';
-import * as Icons from 'lucide-react';
-import { cn } from '@/lib/utils';
+import { useEffect, useState, useCallback } from "react";
+import * as Icons from "lucide-react";
+import { cn } from "@/lib/utils";
 
 export interface AchievementToastProps {
   achievement: {
@@ -24,14 +24,19 @@ function toPascalCase(str: string): string {
   return str
     .split(/[-_\s]+/)
     .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
-    .join('');
+    .join("");
 }
 
 /**
  * Get a lucide-react icon component by name
  */
-function getIcon(iconName: string): React.ComponentType<{ className?: string }> {
-  const icons = Icons as unknown as Record<string, React.ComponentType<{ className?: string }>>;
+function getIcon(
+  iconName: string,
+): React.ComponentType<{ className?: string }> {
+  const icons = Icons as unknown as Record<
+    string,
+    React.ComponentType<{ className?: string }>
+  >;
   const pascalName = toPascalCase(iconName);
   return icons[pascalName] || Icons.Trophy;
 }
@@ -78,19 +83,18 @@ export function AchievementToast({
       role="alert"
       aria-live="polite"
       className={cn(
-        // Base styles
-        'fixed bottom-4 right-4 z-50 max-w-sm overflow-hidden rounded-xl',
-        // Glass card effect with gold accents
-        'bg-card/95 backdrop-blur-md border border-gold/30',
-        'shadow-lg shadow-gold/10',
+        // Base styles — full-width on mobile (never covers central content),
+        // compact bottom-right on larger screens
+        "fixed z-50 overflow-hidden rounded-xl",
+        "bottom-4 left-4 right-4 max-w-none sm:left-auto sm:right-4 sm:max-w-sm",
+        // Solid on-brand card (no glassmorphism / glow — matches editorial tone)
+        "bg-card border border-gold/25 shadow-lg shadow-black/20",
         // Animation transitions
-        'transform transition-all duration-300 ease-out',
+        "transform transition-all duration-300 ease-out",
         // Entrance/exit states
         isVisible && !isExiting
-          ? 'translate-x-0 opacity-100'
-          : 'translate-x-full opacity-0',
-        // Glow effect
-        'before:absolute before:inset-0 before:rounded-xl before:bg-linear-to-r before:from-gold/5 before:via-gold/10 before:to-gold/5 before:animate-pulse-subtle'
+          ? "translate-x-0 opacity-100"
+          : "translate-x-full opacity-0",
       )}
     >
       {/* Top accent bar */}
@@ -102,10 +106,10 @@ export function AchievementToast({
         <button
           onClick={handleClose}
           className={cn(
-            'absolute top-2 right-2 p-1 rounded-full',
-            'text-muted-foreground hover:text-foreground',
-            'hover:bg-accent/50 transition-colors duration-200',
-            'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold'
+            "absolute top-2 right-2 p-1 rounded-full",
+            "text-muted-foreground hover:text-foreground",
+            "hover:bg-accent/50 transition-colors duration-200",
+            "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold",
           )}
           aria-label="Close notification"
         >
@@ -116,11 +120,10 @@ export function AchievementToast({
           {/* Icon container with glow */}
           <div
             className={cn(
-              'shrink-0 flex items-center justify-center',
-              'size-12 rounded-full',
-              'bg-linear-to-br from-gold-dark via-gold to-gold-light',
-              'shadow-md shadow-gold/30',
-              'animate-glow'
+              "shrink-0 flex items-center justify-center",
+              "size-12 rounded-full",
+              "bg-linear-to-br from-gold-dark via-gold to-gold-light",
+              "shadow-sm",
             )}
           >
             {/* eslint-disable-next-line react-hooks/static-components -- dynamic icon from runtime prop */}
@@ -150,9 +153,9 @@ export function AchievementToast({
             {/* XP badge */}
             <div
               className={cn(
-                'inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full',
-                'bg-gold/15 border border-gold/30',
-                'text-xs font-semibold text-gold'
+                "inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full",
+                "bg-gold/15 border border-gold/30",
+                "text-xs font-semibold text-gold",
               )}
             >
               <span className="text-gold-light">+{achievement.xp}</span>
@@ -167,7 +170,7 @@ export function AchievementToast({
         <div
           className="h-full bg-linear-to-r from-gold-dark via-gold to-gold-light transition-none"
           style={{
-            width: '100%',
+            width: "100%",
             animation: `achievement-toast-shrink ${autoHideDuration}ms linear forwards`,
           }}
         />

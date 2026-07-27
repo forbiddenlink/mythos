@@ -1,0 +1,82 @@
+[
+  {
+    "area": "ux",
+    "severity": "P1",
+    "confidence": "high",
+    "exploitability": "n/a",
+    "location": "apps/web/src/components/quiz/MythologyQuiz.tsx:57-187",
+    "problem": "The featured 'Knowledge Quiz' on /quiz never calls ProgressContext (no useProgress/recordQuizScore/trackQuizCompletion); it only writes a private localStorage key 'mythos_quiz_highscore'. Compare to apps/web/src/app/quiz/quick/page.tsx:111 which correctly calls progressContext.updateQuickQuizHighScore(score).",
+    "impact": "Completing the main quiz (the one most users land on first) doesn't update XP, achievements, streak, or the /progress and /leaderboard pages. Users who grind the flagship quiz see zero reflected progress elsewhere, making the gamification feel broken/untrustworthy.",
+    "fix": "Wire MythologyQuiz's completion handler to progress-provider (recordQuizScore + trackQuizCompletion), same pattern as quiz/quick."
+  },
+  {
+    "area": "ux",
+    "severity": "P1",
+    "confidence": "high",
+    "exploitability": "n/a",
+    "location": "apps/web/src/app/quiz/page.tsx:134-169 and apps/web/src/app/bookmarks/page.tsx:116-168",
+    "problem": "A 5-8 paragraph SEO/filler text block ('Study With Every Quiz Mode', 'Build a Personal Mythology Reading List') is placed between the page header and the actual interactive content (MythologyQuiz at line 214; the bookmark grid/EmptyState at line 170).",
+    "impact": "Users must scroll past a wall of marketing prose before reaching the quiz or their saved bookmarks \u2014 the core task of each page. On mobile this pushes the primary interaction well below the fold, hurting task completion speed for a 'quick browse/quiz' flow.",
+    "fix": "Move the long-form SEO copy below the interactive widget/empty-state, or collapse it into a short intro + 'Learn more' disclosure."
+  },
+  {
+    "area": "ux",
+    "severity": "P2",
+    "confidence": "high",
+    "exploitability": "n/a",
+    "location": "apps/web/src/components/privacy/CookieConsent.tsx:38-42",
+    "problem": "handleDismiss (triggered by the X close button, line 80-86) silently sets localStorage 'mythos-cookie-consent' = 'rejected', identical to explicitly clicking 'Reject Non-Essential'.",
+    "impact": "Users who dismiss the banner expecting to just close/postpone it are recorded as having made an explicit consent choice without ever seeing/clicking a labeled consent button. This conflates 'dismiss' with 'reject' and can misrepresent actual user intent for cookie compliance.",
+    "fix": "Make the X button only hide the banner for the session (no localStorage write) so it reappears later, or clearly label it as equivalent to reject."
+  },
+  {
+    "area": "ux",
+    "severity": "P2",
+    "confidence": "high",
+    "exploitability": "n/a",
+    "location": "apps/web/src/components/home/HeroSection.tsx:230-274",
+    "problem": "The hero presents two primary CTA buttons ('Explore Mythologies' \u2192 /pantheons, 'Read a First Myth' \u2192 /stories) immediately followed by a 3-card 'Choose your first path' section (lines 259-274) with 'Start with a pantheon' \u2192 /pantheons and 'Read a first myth' \u2192 /stories, duplicating the two buttons above plus adding a third quiz option.",
+    "impact": "Five competing links to essentially the same 3 destinations, right at the top of the funnel, dilutes the decision and adds visual/cognitive load before the user has seen any actual content.",
+    "fix": "Collapse to one CTA set: keep the 2 hero buttons OR the 3 path cards, not both."
+  },
+  {
+    "area": "ux",
+    "severity": "P2",
+    "confidence": "medium",
+    "exploitability": "n/a",
+    "location": "apps/web/src/providers/progress-provider.tsx:125-131 and bookmarks-provider.tsx:54-68",
+    "problem": "saveProgress/saveBookmarks/saveReadingProgress wrap localStorage.setItem in try/catch with empty catch blocks (comment 'localStorage might be full or unavailable') and no user-facing fallback or notification.",
+    "impact": "In Safari private mode, storage-full scenarios, or third-party-cookie-blocking configs, a user can complete quizzes/bookmark items and see success UI, but the write silently fails \u2014 progress/bookmarks vanish on next visit with no warning, which is especially damaging since this is the only persistence mechanism (no accounts).",
+    "fix": "Surface a toast/banner when a localStorage write fails, and/or detect storage availability on load and warn once per session."
+  },
+  {
+    "area": "ux",
+    "severity": "P2",
+    "confidence": "medium",
+    "exploitability": "n/a",
+    "location": "apps/web/src/app/page.tsx:38-115",
+    "problem": "A large 'Editorial Standards And Policies' + 'Start With A Study Route' text/link block is inserted mid-homepage between PantheonShowcase/FeaturesGrid and InteractiveStoriesBanner/CollectionsShowcase (lines 116-121).",
+    "impact": "Breaks the visual showcase rhythm of the homepage with a dense SEO/policy text section, creating a jarring content-type switch (rich visuals \u2192 plain link grid \u2192 rich visuals again) mid-scroll.",
+    "fix": "Relocate this SEO/policy block to the footer or a dedicated /about-linked section rather than sandwiching it between showcase components."
+  },
+  {
+    "area": "ux",
+    "severity": "P3",
+    "confidence": "high",
+    "exploitability": "n/a",
+    "location": "apps/web/src/components/layout/header.tsx:160-171",
+    "problem": "The header search trigger shows the 'Search' label only at `lg:` and above (`hidden lg:inline`, line 161), and the \u2318K/Ctrl+K kbd hint only at `md:` and above (line 164), leaving just a bare search icon button on small/medium screens with only an aria-label, no visible affordance text.",
+    "impact": "On tablet-width viewports (below lg but above md) users see an icon-only button with a keyboard shortcut hint but no 'Search' text, which is a minor but avoidable clarity gap for a core discovery flow (Cmd+K).",
+    "fix": "Show at least the 'Search' text label down to `sm:` breakpoint, reserving only the kbd hint for larger screens."
+  },
+  {
+    "area": "ux",
+    "severity": "P3",
+    "confidence": "medium",
+    "exploitability": "n/a",
+    "location": "apps/web/src/components/search/GlobalSearch.tsx:315-319",
+    "problem": "The no-results state only renders a plain CommandEmpty text line ('No results found for \"x\"') with no fallback action (e.g., link to browse all deities/stories, or a 'did you mean' suggestion).",
+    "impact": "Users who mistype or search for something outside the dataset hit a dead end in the command palette with no next step, increasing bounce risk right inside the primary search flow.",
+    "fix": "Add quick links (e.g., 'Browse all Deities', 'Browse all Stories') under the empty state, reusing the existing navigationItems list."
+  }
+]

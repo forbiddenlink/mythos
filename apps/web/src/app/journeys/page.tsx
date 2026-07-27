@@ -297,11 +297,11 @@ export default function JourneysPage() {
           <div className="inline-flex items-center justify-center p-6 rounded-2xl bg-linear-to-br from-gold/10 via-transparent to-gold/5 border border-gold/20">
             <div className="max-w-lg">
               <h2 className="font-serif text-2xl font-semibold text-foreground mb-2">
-                More Journeys Coming Soon
+                Want another voyage?
               </h2>
               <p className="text-muted-foreground text-sm mb-4">
-                We&apos;re mapping more legendary voyages from Norse, Egyptian,
-                and other mythologies. Check back for new adventures!
+                Explore story pages for Norse, Egyptian, and other traditions
+                while more guided journeys are mapped.
               </p>
               <Link href="/stories">
                 <Button

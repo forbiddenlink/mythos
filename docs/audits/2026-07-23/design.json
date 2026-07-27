@@ -1,0 +1,102 @@
+[
+  {
+    "area": "design",
+    "severity": "high",
+    "confidence": "high",
+    "exploitability": "n/a",
+    "location": "apps/web/src/app/pantheons/[slug]/PantheonPageClient.tsx:131,143,159,175,207,226,248,250,269",
+    "problem": "Every Card on the pantheon detail page is hardcoded with `bg-midnight-light/50 text-parchment border-gold/20` instead of semantic tokens (`bg-card`, `text-foreground`) used elsewhere (e.g. DeityPageClient body).",
+    "impact": "The entire page body (not just the hero) is permanently locked into a dark 'midnight' look regardless of the user's light/dark theme choice, so toggling to light mode produces a jarring, inconsistent page compared to every other detail page in the app.",
+    "fix": "Replace hardcoded midnight/parchment classes with theme-aware tokens (`bg-card`, `text-card-foreground`, `text-muted-foreground`) so the page respects the ThemeProvider like the rest of the site."
+  },
+  {
+    "area": "design",
+    "severity": "medium",
+    "confidence": "high",
+    "exploitability": "n/a",
+    "location": "apps/web/src/app/deities/[slug]/DeityPageClient.tsx:242",
+    "problem": "Deity hero overlay uses generic Tailwind stock colors `from-slate-900/70 via-slate-800/65 to-amber-900/70` instead of the brand's `--midnight`/`--gold` tokens used everywhere else.",
+    "impact": "Breaks brand color consistency at one of the most visible touchpoints (every deity page hero); slate/amber reads as default-Tailwind-template rather than the custom mythology palette.",
+    "fix": "Swap to brand gradient e.g. `from-midnight/80 via-midnight-light/65 to-bronze/60` to match hero/pantheon treatments."
+  },
+  {
+    "area": "design",
+    "severity": "medium",
+    "confidence": "high",
+    "exploitability": "n/a",
+    "location": "apps/web/src/components/home/FeaturesGrid.tsx:105-160",
+    "problem": "Six identical cards \u2014 rounded gradient icon square, serif title, muted description, 'Explore \u2192' link \u2014 is the canonical generic SaaS/AI-template features grid, only re-skinned with gold accents.",
+    "impact": "Undercuts the otherwise distinctive classical-antiquity art direction; visually this section could be lifted from any shadcn marketing template.",
+    "fix": "Vary the layout (mixed sizes, asymmetric grid, illustrated icons/engravings instead of Lucide-in-gradient-square, or a manuscript-style list) to break the repeated card rhythm."
+  },
+  {
+    "area": "design",
+    "severity": "medium",
+    "confidence": "medium",
+    "exploitability": "n/a",
+    "location": "apps/web/src/app/deities/[slug]/DeityPageClient.tsx:371-701",
+    "problem": "Up to 8 stacked `Card` blocks (About, Origin Story, Cross-Pantheon Parallels, Sources, Worship & Cult, Domains, Symbols, Family Tree) render sequentially with identical styling and no hierarchy differentiation.",
+    "impact": "Classic 'card soup' \u2014 every content type gets the same rounded-border-shadow container, flattening visual hierarchy and making a content-rich mythology page feel like a generic dashboard feed.",
+    "fix": "Differentiate treatment by content type (e.g. borderless prose sections for narrative bio/origin story, cards reserved for structured data like domains/symbols/sources) to restore hierarchy."
+  },
+  {
+    "area": "design",
+    "severity": "low",
+    "confidence": "high",
+    "exploitability": "n/a",
+    "location": "apps/web/src/app/pantheons/[slug]/PantheonPageClient.tsx:130-172",
+    "problem": "Region / Time Period / Deity-count rendered as three identical icon+label+value cards in a row \u2014 the generic 'stat card trio' template pattern.",
+    "impact": "Reinforces the templated feel flagged above; adds three more near-identical Card instances before the reader reaches any actual mythology content.",
+    "fix": "Collapse into a single inline metadata strip (icon+label pairs, no card chrome) instead of three separate bordered boxes."
+  },
+  {
+    "area": "design",
+    "severity": "low",
+    "confidence": "medium",
+    "exploitability": "n/a",
+    "location": "apps/web/src/app/globals.css:225-263",
+    "problem": "A deliberate 8-step fluid typography scale (`.text-display`, `.text-h1`, `.text-h2`, `.text-h3`, `.text-body-lg`) is defined but used in only 2 of ~45+ page/heading files (page-hero.tsx, quiz/page.tsx).",
+    "impact": "Most headings across the app use ad hoc inline sizes (e.g. `text-4xl md:text-5xl`) instead of the defined scale, so the 'designed' typography system isn't actually enforced \u2014 inconsistent heading rhythm site-wide.",
+    "fix": "Migrate hero/section headings (HeroSection, FeaturesGrid, pantheon/deity heroes) onto the `.text-display`/`.text-h1`/`.text-h2` utilities so the scale is actually the source of truth."
+  },
+  {
+    "area": "design",
+    "severity": "low",
+    "confidence": "medium",
+    "exploitability": "n/a",
+    "location": "apps/web/src/components/home/FeaturesGrid.tsx:22,31,40,49,58,67",
+    "problem": "`iconBg` gradients hardcode raw literal `oklch(...)` values inline (e.g. `from-[oklch(0.55_0.12_265)]`) rather than reusing the existing `--chart-1..5` tokens already defined for exactly this purpose in globals.css.",
+    "impact": "Creates an untracked, parallel color system that won't stay in sync with theme/token updates and can't be retuned centrally.",
+    "fix": "Reference `chart-1`..`chart-5` (or new named tokens) instead of inline oklch literals."
+  },
+  {
+    "area": "design",
+    "severity": "low",
+    "confidence": "medium",
+    "exploitability": "n/a",
+    "location": "apps/web/src/app/globals.css:709-717",
+    "problem": "`.badge-gold` hardcodes raw hex (`#4a3200`, `#f6e7b8`) while the rest of the entire token system is OKLCH-based CSS variables.",
+    "impact": "Breaks the single-source-of-truth color system; these two values can't be adjusted via the existing gold/dark palette variables and will drift out of sync during any rebrand/contrast tuning.",
+    "fix": "Derive from `--gold-text`/`--gold` variables (already documented as WCAG-tuned) instead of separate hex constants."
+  },
+  {
+    "area": "design",
+    "severity": "medium",
+    "confidence": "medium",
+    "exploitability": "n/a",
+    "location": "apps/web/src/components/home/HeroSection.tsx:77-137",
+    "problem": "Hero simultaneously runs 3 infinite blurred motion 'orbs' (12s/15s/10s loops), a glowing Compass icon animation, ConstellationBackground (3D), GoldenDustParticles, and staggered entrance motions \u2014 five+ concurrent ambient effects stacked on first paint.",
+    "impact": "High cumulative motion/GPU cost for a single above-the-fold hero; risk of visual noise competing with the actual headline/CTA rather than reinforcing it.",
+    "fix": "Consolidate to 1-2 signature ambient effects (e.g. particles + one orb) and drop redundant overlapping glow/orb layers."
+  },
+  {
+    "area": "design",
+    "severity": "low",
+    "confidence": "low",
+    "exploitability": "n/a",
+    "location": "apps/web/src/components/home/HeroSection.tsx:151-198",
+    "problem": "Hero pattern of icon-in-glowing-circle emblem + gradient-clipped (`text-gradient-hero`) large headline is a widely recognizable AI/SaaS landing-page trope, even though the palette is on-brand.",
+    "impact": "Slightly undercuts distinctiveness at the single most important brand moment on the site, despite otherwise strong classical-antiquity art direction (columns image, ornate dividers, Cinzel serif).",
+    "fix": "Consider a more period-specific emblem treatment (e.g. an engraved/etched mark, not a generic glow-ring icon badge) and a solid-gold or textured headline rather than a smooth CSS gradient clip."
+  }
+]

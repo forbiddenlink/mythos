@@ -47,21 +47,6 @@ const FamilyTreeVisualization = dynamic(
   },
 );
 
-// Lazy load 3D deity statue
-const DeityStatue = dynamic(
-  () =>
-    import("@/components/three/DeityStatue").then((mod) => ({
-      default: mod.DeityStatue,
-    })),
-  {
-    loading: () => (
-      <div className="h-80 flex items-center justify-center bg-gradient-to-b from-slate-900 to-slate-950 rounded-xl">
-        <Loader2 className="h-8 w-8 animate-spin text-gold" />
-      </div>
-    ),
-    ssr: false,
-  },
-);
 import { BookmarkButton } from "@/components/ui/bookmark-button";
 import { ExportIconButton } from "@/components/ui/export-button";
 import { ShareButton } from "@/components/sharing/ShareButton";
@@ -237,9 +222,8 @@ export function DeityPageClient({ slug }: DeityPageClientProps) {
             height={HERO_IMAGE_HEIGHT}
             sizes="100vw"
             className="h-full w-full object-cover"
-            priority
           />
-          <div className="absolute inset-0 bg-linear-to-br from-slate-900/70 via-slate-800/65 to-amber-900/70"></div>
+          <div className="absolute inset-0 bg-linear-to-br from-midnight/80 via-midnight-light/65 to-bronze/60"></div>
         </div>
 
         <div className="container mx-auto max-w-4xl px-4 py-12 relative z-10">
@@ -325,50 +309,39 @@ export function DeityPageClient({ slug }: DeityPageClientProps) {
       <div className="container mx-auto max-w-4xl px-4 py-12">
         <div className="space-y-8">
           <div className="space-y-8">
-            {/* Deity Visual Display - Image and 3D Statue */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
-              {/* Image with shared element transition */}
-              {deity.imageUrl && (
-                <div
-                  className="relative w-full max-w-sm mx-auto rounded-2xl overflow-hidden border-2 border-border shadow-2xl"
-                  style={{ viewTransitionName: `deity-image-${deity.slug}` }}
-                >
-                  <div className="aspect-3/4 relative">
-                    <Image
-                      src={deity.imageUrl}
-                      alt={deity.name}
-                      width={DEITY_IMAGE_WIDTH}
-                      height={DEITY_IMAGE_HEIGHT}
-                      sizes="(min-width: 768px) 24rem, 90vw"
-                      className="h-full w-full object-cover hover:scale-105 transition-transform duration-700"
-                      priority
-                    />
-                    <div className="absolute inset-0 ring-1 ring-inset ring-black/10 rounded-2xl"></div>
-                  </div>
-                </div>
-              )}
-
-              {/* 3D Interactive Statue */}
-              <div
-                className={
-                  deity.imageUrl ? "" : "md:col-span-2 max-w-sm mx-auto w-full"
-                }
+            {/* Deity portrait */}
+            {deity.imageUrl ? (
+              <figure
+                className="relative mx-auto w-full max-w-md rounded-2xl overflow-hidden border-2 border-border shadow-2xl"
+                style={{ viewTransitionName: `deity-image-${deity.slug}` }}
               >
-                <DeityStatue
-                  pantheon={deity.pantheonId}
-                  domains={deity.domain}
-                  showParticles={true}
-                />
-                <p className="text-center text-xs text-muted-foreground mt-2">
-                  Interactive 3D representation
-                </p>
+                <div className="aspect-3/4 relative">
+                  <Image
+                    src={deity.imageUrl}
+                    alt={deity.name}
+                    width={DEITY_IMAGE_WIDTH}
+                    height={DEITY_IMAGE_HEIGHT}
+                    sizes="(min-width: 768px) 28rem, 90vw"
+                    className="h-full w-full object-cover hover:scale-[1.03] transition-transform duration-700"
+                    priority
+                  />
+                  <div className="absolute inset-0 ring-1 ring-inset ring-black/10 rounded-2xl"></div>
+                </div>
+              </figure>
+            ) : (
+              <div className="mx-auto w-full max-w-md">
+                <div className="aspect-3/4 relative flex items-center justify-center rounded-2xl border-2 border-border bg-gradient-to-b from-midnight to-midnight-light">
+                  <span className="font-serif text-7xl text-gold/70">
+                    {deity.name.charAt(0)}
+                  </span>
+                </div>
               </div>
-            </div>
+            )}
 
             {/* Content Cards */}
             <div className="space-y-8">
               {/* Detailed Bio (Markdown) or Description */}
-              <Card className="border-l-4 border-l-gold">
+              <Card className="border-l-4 border-l-gold shadow-none bg-card/50">
                 <CardHeader>
                   <CardTitle className="font-serif text-2xl">
                     About {deity.name}
@@ -376,11 +349,11 @@ export function DeityPageClient({ slug }: DeityPageClientProps) {
                 </CardHeader>
                 <CardContent>
                   {deity.detailedBio ? (
-                    <div className="prose prose-slate dark:prose-invert prose-headings:font-serif prose-headings:text-amber-700 dark:prose-headings:text-amber-500 prose-a:text-gold dark:prose-a:text-gold-light max-w-none">
+                    <div className="prose prose-lg prose-slate dark:prose-invert prose-headings:font-serif prose-headings:text-amber-700 dark:prose-headings:text-amber-500 prose-a:text-gold dark:prose-a:text-gold-light max-w-[68ch] leading-relaxed [&>p:first-of-type]:first-letter:float-left [&>p:first-of-type]:first-letter:mr-3 [&>p:first-of-type]:first-letter:mt-1 [&>p:first-of-type]:first-letter:font-serif [&>p:first-of-type]:first-letter:text-6xl [&>p:first-of-type]:first-letter:leading-[0.8] [&>p:first-of-type]:first-letter:text-gold">
                       <ReactMarkdown>{deity.detailedBio}</ReactMarkdown>
                     </div>
                   ) : (
-                    <p className="text-muted-foreground leading-relaxed text-lg">
+                    <p className="max-w-[68ch] text-muted-foreground leading-relaxed text-lg">
                       {deity.description}
                     </p>
                   )}
@@ -389,14 +362,14 @@ export function DeityPageClient({ slug }: DeityPageClientProps) {
 
               {/* Origin Story */}
               {deity.originStory && (
-                <Card className="">
+                <Card className="shadow-none bg-card/50">
                   <CardHeader>
                     <CardTitle className="font-serif text-xl">
                       Origin Story
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-muted-foreground leading-relaxed whitespace-pre-line">
+                    <p className="max-w-[68ch] text-lg text-muted-foreground leading-relaxed whitespace-pre-line">
                       {deity.originStory}
                     </p>
                   </CardContent>
@@ -406,7 +379,7 @@ export function DeityPageClient({ slug }: DeityPageClientProps) {
               {/* Cross-Pantheon Parallels */}
               {deity.crossPantheonParallels &&
                 deity.crossPantheonParallels.length > 0 && (
-                  <Card className="">
+                  <Card className="shadow-none bg-card/50">
                     <CardHeader>
                       <CardTitle className="font-serif flex items-center gap-2 text-xl">
                         <Link2 className="h-5 w-5 text-gold" />

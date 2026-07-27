@@ -16,19 +16,51 @@ import {
   oracleLocaleInstruction,
   parseOracleLocale,
 } from "@/lib/oracle/oracle-locale";
+import { checkGlobalOracleBudget } from "@/lib/oracle/global-budget";
 import { checkOracleRateLimit } from "@/lib/oracle/rate-limit";
+import {
+  forbiddenUnlessSameOrigin,
+  isOracleKillSwitchOn,
+} from "@/lib/oracle/request-guards";
 import { logger } from "@/lib/logger";
+
+const MAX_OUTPUT_TOKENS = 800;
+
+const MAX_MESSAGE_CONTENT_CHARS = 4_000;
+const MAX_MESSAGES = 20;
 
 const MessageSchema = z.object({
   role: z.enum(["user", "assistant", "system"]),
-  content: z.string(),
+  content: z.string().max(MAX_MESSAGE_CONTENT_CHARS),
 });
 
 const BodySchema = z.object({
-  messages: z.array(MessageSchema).min(1),
+  messages: z.array(MessageSchema).min(1).max(MAX_MESSAGES),
   locale: z.enum(["en", "es", "fr", "de"]).optional(),
 });
 
+function getClientIp(req: NextRequest): string {
+  const vercelForwarded = req.headers
+    .get("x-vercel-forwarded-for")
+    ?.split(",")[0]
+    ?.trim();
+  if (vercelForwarded) return vercelForwarded;
+
+  const realIp = req.headers.get("x-real-ip")?.trim();
+  if (realIp) return realIp;
+
+  const forwarded = req.headers.get("x-forwarded-for");
+  if (forwarded) {
+    const hops = forwarded
+      .split(",")
+      .map((part) => part.trim())
+      .filter(Boolean);
+    // Prefer the last hop (proxy-appended) when a chain is present.
+    if (hops.length > 0) return hops[hops.length - 1]!;
+  }
+
+  return "anonymous";
+}
 const BASE_SYSTEM_PROMPT = `You are the Oracle of Delphi, ancient keeper of divine wisdom and mysteries.
 
 Your role:
@@ -65,17 +97,15 @@ const DEFAULT_MODEL = "claude-sonnet-4-6";
 
 export async function POST(req: NextRequest) {
   try {
-    const origin = req.headers.get("origin");
-    const host = req.headers.get("host");
-    if (origin) {
-      const originHost = new URL(origin).host;
-      if (originHost !== host) {
-        return new Response(JSON.stringify({ error: "Forbidden" }), {
-          status: 403,
-          headers: { "Content-Type": "application/json" },
-        });
-      }
+    if (isOracleKillSwitchOn()) {
+      return new Response(
+        JSON.stringify({ error: "The Oracle is temporarily offline." }),
+        { status: 503, headers: { "Content-Type": "application/json" } },
+      );
     }
+
+    const originBlock = forbiddenUnlessSameOrigin(req);
+    if (originBlock) return originBlock;
 
     const json: unknown = await req.json();
     const parsed = BodySchema.safeParse(json);
@@ -89,15 +119,40 @@ export async function POST(req: NextRequest) {
     const { messages, locale: localeRaw } = parsed.data;
     const locale = parseOracleLocale(localeRaw);
 
-    const ip =
-      req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ||
-      req.headers.get("x-real-ip") ||
-      "anonymous";
-
-    if (!(await checkOracleRateLimit(ip))) {
+    const rateLimit = await checkOracleRateLimit(getClientIp(req));
+    if (!rateLimit.allowed) {
+      if (rateLimit.reason === "misconfigured") {
+        return new Response(
+          JSON.stringify({
+            error:
+              "The Oracle is unavailable. Rate limiting is not configured.",
+          }),
+          { status: 503, headers: { "Content-Type": "application/json" } },
+        );
+      }
       return new Response(
         JSON.stringify({
           error: "The Oracle must rest. Please return in an hour.",
+        }),
+        { status: 429, headers: { "Content-Type": "application/json" } },
+      );
+    }
+
+    const budget = await checkGlobalOracleBudget();
+    if (!budget.allowed) {
+      if (budget.reason === "misconfigured") {
+        return new Response(
+          JSON.stringify({
+            error:
+              "The Oracle is unavailable. Rate limiting is not configured.",
+          }),
+          { status: 503, headers: { "Content-Type": "application/json" } },
+        );
+      }
+      return new Response(
+        JSON.stringify({
+          error:
+            "The Oracle has reached today's capacity. Please return tomorrow.",
         }),
         { status: 429, headers: { "Content-Type": "application/json" } },
       );
@@ -126,6 +181,7 @@ export async function POST(req: NextRequest) {
       model: anthropic(modelId),
       system,
       messages,
+      maxOutputTokens: MAX_OUTPUT_TOKENS,
     });
 
     const citationHeader =

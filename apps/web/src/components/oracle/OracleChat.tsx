@@ -246,6 +246,9 @@ export function OracleChat() {
                       {t("title")}
                     </h2>
                     <p className="text-xs text-parchment/60">{t("subtitle")}</p>
+                    <p className="text-[10px] text-parchment/50 mt-0.5 max-w-[14rem] leading-snug">
+                      {t("aiDisclosure")}
+                    </p>
                   </div>
                 </div>
                 <Button

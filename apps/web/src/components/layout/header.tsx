@@ -122,27 +122,6 @@ export function Header() {
           <MegaMenu />
         </div>
 
-        <div className="hidden 2xl:flex items-center gap-4 mr-4">
-          <Link
-            href="/about"
-            className="text-xs font-medium text-muted-foreground transition-colors hover:text-foreground"
-          >
-            About Mythos Atlas
-          </Link>
-          <Link
-            href="/contact"
-            className="text-xs font-medium text-muted-foreground transition-colors hover:text-foreground"
-          >
-            Contact Mythos Atlas
-          </Link>
-          <Link
-            href="/privacy"
-            className="text-xs font-medium text-muted-foreground transition-colors hover:text-foreground"
-          >
-            Privacy Policy
-          </Link>
-        </div>
-
         {/* Right Actions */}
         <div className="flex items-center gap-2 ml-auto lg:ml-0">
           {/* Divider */}

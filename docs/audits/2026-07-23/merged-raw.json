@@ -1,0 +1,482 @@
+[
+  {
+    "area": "ux",
+    "severity": "P1",
+    "confidence": "high",
+    "exploitability": "n/a",
+    "location": "apps/web/src/components/quiz/MythologyQuiz.tsx:57-187",
+    "problem": "The featured 'Knowledge Quiz' on /quiz never calls ProgressContext (no useProgress/recordQuizScore/trackQuizCompletion); it only writes a private localStorage key 'mythos_quiz_highscore'. Compare to apps/web/src/app/quiz/quick/page.tsx:111 which correctly calls progressContext.updateQuickQuizHighScore(score).",
+    "impact": "Completing the main quiz (the one most users land on first) doesn't update XP, achievements, streak, or the /progress and /leaderboard pages. Users who grind the flagship quiz see zero reflected progress elsewhere, making the gamification feel broken/untrustworthy.",
+    "fix": "Wire MythologyQuiz's completion handler to progress-provider (recordQuizScore + trackQuizCompletion), same pattern as quiz/quick."
+  },
+  {
+    "area": "ux",
+    "severity": "P1",
+    "confidence": "high",
+    "exploitability": "n/a",
+    "location": "apps/web/src/app/quiz/page.tsx:134-169 and apps/web/src/app/bookmarks/page.tsx:116-168",
+    "problem": "A 5-8 paragraph SEO/filler text block ('Study With Every Quiz Mode', 'Build a Personal Mythology Reading List') is placed between the page header and the actual interactive content (MythologyQuiz at line 214; the bookmark grid/EmptyState at line 170).",
+    "impact": "Users must scroll past a wall of marketing prose before reaching the quiz or their saved bookmarks \u2014 the core task of each page. On mobile this pushes the primary interaction well below the fold, hurting task completion speed for a 'quick browse/quiz' flow.",
+    "fix": "Move the long-form SEO copy below the interactive widget/empty-state, or collapse it into a short intro + 'Learn more' disclosure."
+  },
+  {
+    "area": "ux",
+    "severity": "P2",
+    "confidence": "high",
+    "exploitability": "n/a",
+    "location": "apps/web/src/components/privacy/CookieConsent.tsx:38-42",
+    "problem": "handleDismiss (triggered by the X close button, line 80-86) silently sets localStorage 'mythos-cookie-consent' = 'rejected', identical to explicitly clicking 'Reject Non-Essential'.",
+    "impact": "Users who dismiss the banner expecting to just close/postpone it are recorded as having made an explicit consent choice without ever seeing/clicking a labeled consent button. This conflates 'dismiss' with 'reject' and can misrepresent actual user intent for cookie compliance.",
+    "fix": "Make the X button only hide the banner for the session (no localStorage write) so it reappears later, or clearly label it as equivalent to reject."
+  },
+  {
+    "area": "ux",
+    "severity": "P2",
+    "confidence": "high",
+    "exploitability": "n/a",
+    "location": "apps/web/src/components/home/HeroSection.tsx:230-274",
+    "problem": "The hero presents two primary CTA buttons ('Explore Mythologies' \u2192 /pantheons, 'Read a First Myth' \u2192 /stories) immediately followed by a 3-card 'Choose your first path' section (lines 259-274) with 'Start with a pantheon' \u2192 /pantheons and 'Read a first myth' \u2192 /stories, duplicating the two buttons above plus adding a third quiz option.",
+    "impact": "Five competing links to essentially the same 3 destinations, right at the top of the funnel, dilutes the decision and adds visual/cognitive load before the user has seen any actual content.",
+    "fix": "Collapse to one CTA set: keep the 2 hero buttons OR the 3 path cards, not both."
+  },
+  {
+    "area": "ux",
+    "severity": "P2",
+    "confidence": "medium",
+    "exploitability": "n/a",
+    "location": "apps/web/src/providers/progress-provider.tsx:125-131 and bookmarks-provider.tsx:54-68",
+    "problem": "saveProgress/saveBookmarks/saveReadingProgress wrap localStorage.setItem in try/catch with empty catch blocks (comment 'localStorage might be full or unavailable') and no user-facing fallback or notification.",
+    "impact": "In Safari private mode, storage-full scenarios, or third-party-cookie-blocking configs, a user can complete quizzes/bookmark items and see success UI, but the write silently fails \u2014 progress/bookmarks vanish on next visit with no warning, which is especially damaging since this is the only persistence mechanism (no accounts).",
+    "fix": "Surface a toast/banner when a localStorage write fails, and/or detect storage availability on load and warn once per session."
+  },
+  {
+    "area": "ux",
+    "severity": "P2",
+    "confidence": "medium",
+    "exploitability": "n/a",
+    "location": "apps/web/src/app/page.tsx:38-115",
+    "problem": "A large 'Editorial Standards And Policies' + 'Start With A Study Route' text/link block is inserted mid-homepage between PantheonShowcase/FeaturesGrid and InteractiveStoriesBanner/CollectionsShowcase (lines 116-121).",
+    "impact": "Breaks the visual showcase rhythm of the homepage with a dense SEO/policy text section, creating a jarring content-type switch (rich visuals \u2192 plain link grid \u2192 rich visuals again) mid-scroll.",
+    "fix": "Relocate this SEO/policy block to the footer or a dedicated /about-linked section rather than sandwiching it between showcase components."
+  },
+  {
+    "area": "ux",
+    "severity": "P3",
+    "confidence": "high",
+    "exploitability": "n/a",
+    "location": "apps/web/src/components/layout/header.tsx:160-171",
+    "problem": "The header search trigger shows the 'Search' label only at `lg:` and above (`hidden lg:inline`, line 161), and the \u2318K/Ctrl+K kbd hint only at `md:` and above (line 164), leaving just a bare search icon button on small/medium screens with only an aria-label, no visible affordance text.",
+    "impact": "On tablet-width viewports (below lg but above md) users see an icon-only button with a keyboard shortcut hint but no 'Search' text, which is a minor but avoidable clarity gap for a core discovery flow (Cmd+K).",
+    "fix": "Show at least the 'Search' text label down to `sm:` breakpoint, reserving only the kbd hint for larger screens."
+  },
+  {
+    "area": "ux",
+    "severity": "P3",
+    "confidence": "medium",
+    "exploitability": "n/a",
+    "location": "apps/web/src/components/search/GlobalSearch.tsx:315-319",
+    "problem": "The no-results state only renders a plain CommandEmpty text line ('No results found for \"x\"') with no fallback action (e.g., link to browse all deities/stories, or a 'did you mean' suggestion).",
+    "impact": "Users who mistype or search for something outside the dataset hit a dead end in the command palette with no next step, increasing bounce risk right inside the primary search flow.",
+    "fix": "Add quick links (e.g., 'Browse all Deities', 'Browse all Stories') under the empty state, reusing the existing navigationItems list."
+  },
+  {
+    "area": "design",
+    "severity": "high",
+    "confidence": "high",
+    "exploitability": "n/a",
+    "location": "apps/web/src/app/pantheons/[slug]/PantheonPageClient.tsx:131,143,159,175,207,226,248,250,269",
+    "problem": "Every Card on the pantheon detail page is hardcoded with `bg-midnight-light/50 text-parchment border-gold/20` instead of semantic tokens (`bg-card`, `text-foreground`) used elsewhere (e.g. DeityPageClient body).",
+    "impact": "The entire page body (not just the hero) is permanently locked into a dark 'midnight' look regardless of the user's light/dark theme choice, so toggling to light mode produces a jarring, inconsistent page compared to every other detail page in the app.",
+    "fix": "Replace hardcoded midnight/parchment classes with theme-aware tokens (`bg-card`, `text-card-foreground`, `text-muted-foreground`) so the page respects the ThemeProvider like the rest of the site."
+  },
+  {
+    "area": "design",
+    "severity": "medium",
+    "confidence": "high",
+    "exploitability": "n/a",
+    "location": "apps/web/src/app/deities/[slug]/DeityPageClient.tsx:242",
+    "problem": "Deity hero overlay uses generic Tailwind stock colors `from-slate-900/70 via-slate-800/65 to-amber-900/70` instead of the brand's `--midnight`/`--gold` tokens used everywhere else.",
+    "impact": "Breaks brand color consistency at one of the most visible touchpoints (every deity page hero); slate/amber reads as default-Tailwind-template rather than the custom mythology palette.",
+    "fix": "Swap to brand gradient e.g. `from-midnight/80 via-midnight-light/65 to-bronze/60` to match hero/pantheon treatments."
+  },
+  {
+    "area": "design",
+    "severity": "medium",
+    "confidence": "high",
+    "exploitability": "n/a",
+    "location": "apps/web/src/components/home/FeaturesGrid.tsx:105-160",
+    "problem": "Six identical cards \u2014 rounded gradient icon square, serif title, muted description, 'Explore \u2192' link \u2014 is the canonical generic SaaS/AI-template features grid, only re-skinned with gold accents.",
+    "impact": "Undercuts the otherwise distinctive classical-antiquity art direction; visually this section could be lifted from any shadcn marketing template.",
+    "fix": "Vary the layout (mixed sizes, asymmetric grid, illustrated icons/engravings instead of Lucide-in-gradient-square, or a manuscript-style list) to break the repeated card rhythm."
+  },
+  {
+    "area": "design",
+    "severity": "medium",
+    "confidence": "medium",
+    "exploitability": "n/a",
+    "location": "apps/web/src/app/deities/[slug]/DeityPageClient.tsx:371-701",
+    "problem": "Up to 8 stacked `Card` blocks (About, Origin Story, Cross-Pantheon Parallels, Sources, Worship & Cult, Domains, Symbols, Family Tree) render sequentially with identical styling and no hierarchy differentiation.",
+    "impact": "Classic 'card soup' \u2014 every content type gets the same rounded-border-shadow container, flattening visual hierarchy and making a content-rich mythology page feel like a generic dashboard feed.",
+    "fix": "Differentiate treatment by content type (e.g. borderless prose sections for narrative bio/origin story, cards reserved for structured data like domains/symbols/sources) to restore hierarchy."
+  },
+  {
+    "area": "design",
+    "severity": "low",
+    "confidence": "high",
+    "exploitability": "n/a",
+    "location": "apps/web/src/app/pantheons/[slug]/PantheonPageClient.tsx:130-172",
+    "problem": "Region / Time Period / Deity-count rendered as three identical icon+label+value cards in a row \u2014 the generic 'stat card trio' template pattern.",
+    "impact": "Reinforces the templated feel flagged above; adds three more near-identical Card instances before the reader reaches any actual mythology content.",
+    "fix": "Collapse into a single inline metadata strip (icon+label pairs, no card chrome) instead of three separate bordered boxes."
+  },
+  {
+    "area": "design",
+    "severity": "low",
+    "confidence": "medium",
+    "exploitability": "n/a",
+    "location": "apps/web/src/app/globals.css:225-263",
+    "problem": "A deliberate 8-step fluid typography scale (`.text-display`, `.text-h1`, `.text-h2`, `.text-h3`, `.text-body-lg`) is defined but used in only 2 of ~45+ page/heading files (page-hero.tsx, quiz/page.tsx).",
+    "impact": "Most headings across the app use ad hoc inline sizes (e.g. `text-4xl md:text-5xl`) instead of the defined scale, so the 'designed' typography system isn't actually enforced \u2014 inconsistent heading rhythm site-wide.",
+    "fix": "Migrate hero/section headings (HeroSection, FeaturesGrid, pantheon/deity heroes) onto the `.text-display`/`.text-h1`/`.text-h2` utilities so the scale is actually the source of truth."
+  },
+  {
+    "area": "design",
+    "severity": "low",
+    "confidence": "medium",
+    "exploitability": "n/a",
+    "location": "apps/web/src/components/home/FeaturesGrid.tsx:22,31,40,49,58,67",
+    "problem": "`iconBg` gradients hardcode raw literal `oklch(...)` values inline (e.g. `from-[oklch(0.55_0.12_265)]`) rather than reusing the existing `--chart-1..5` tokens already defined for exactly this purpose in globals.css.",
+    "impact": "Creates an untracked, parallel color system that won't stay in sync with theme/token updates and can't be retuned centrally.",
+    "fix": "Reference `chart-1`..`chart-5` (or new named tokens) instead of inline oklch literals."
+  },
+  {
+    "area": "design",
+    "severity": "low",
+    "confidence": "medium",
+    "exploitability": "n/a",
+    "location": "apps/web/src/app/globals.css:709-717",
+    "problem": "`.badge-gold` hardcodes raw hex (`#4a3200`, `#f6e7b8`) while the rest of the entire token system is OKLCH-based CSS variables.",
+    "impact": "Breaks the single-source-of-truth color system; these two values can't be adjusted via the existing gold/dark palette variables and will drift out of sync during any rebrand/contrast tuning.",
+    "fix": "Derive from `--gold-text`/`--gold` variables (already documented as WCAG-tuned) instead of separate hex constants."
+  },
+  {
+    "area": "design",
+    "severity": "medium",
+    "confidence": "medium",
+    "exploitability": "n/a",
+    "location": "apps/web/src/components/home/HeroSection.tsx:77-137",
+    "problem": "Hero simultaneously runs 3 infinite blurred motion 'orbs' (12s/15s/10s loops), a glowing Compass icon animation, ConstellationBackground (3D), GoldenDustParticles, and staggered entrance motions \u2014 five+ concurrent ambient effects stacked on first paint.",
+    "impact": "High cumulative motion/GPU cost for a single above-the-fold hero; risk of visual noise competing with the actual headline/CTA rather than reinforcing it.",
+    "fix": "Consolidate to 1-2 signature ambient effects (e.g. particles + one orb) and drop redundant overlapping glow/orb layers."
+  },
+  {
+    "area": "design",
+    "severity": "low",
+    "confidence": "low",
+    "exploitability": "n/a",
+    "location": "apps/web/src/components/home/HeroSection.tsx:151-198",
+    "problem": "Hero pattern of icon-in-glowing-circle emblem + gradient-clipped (`text-gradient-hero`) large headline is a widely recognizable AI/SaaS landing-page trope, even though the palette is on-brand.",
+    "impact": "Slightly undercuts distinctiveness at the single most important brand moment on the site, despite otherwise strong classical-antiquity art direction (columns image, ornate dividers, Cinzel serif).",
+    "fix": "Consider a more period-specific emblem treatment (e.g. an engraved/etched mark, not a generic glow-ring icon badge) and a solid-gold or textured headline rather than a smooth CSS gradient clip."
+  },
+  {
+    "area": "writing",
+    "severity": "high",
+    "confidence": "high",
+    "exploitability": "n/a",
+    "location": "apps/web/src/app/about/page.tsx:59-77, apps/web/src/app/privacy/page.tsx:1-184, apps/web/src/app/contact/page.tsx:1-188, apps/web/src/components/home/HeroSection.tsx:212-306",
+    "problem": "Hero, About, Privacy, Terms, Contact, Quiz, and Bookmarks pages contain zero useTranslations/next-intl calls \u2014 all copy is hardcoded English literals despite a full es/fr/de i18n setup.",
+    "impact": "Spanish/French/German users get an all-English homepage, mission statement, and legal pages; the i18n system only covers nav chrome and Oracle strings, making the 4-locale claim misleading for ~90% of visible content.",
+    "fix": "Wire these pages/components to next-intl (useTranslations/getTranslations) and move copy into messages/*.json, or drop the unused locale infrastructure for content that will stay English-only."
+  },
+  {
+    "area": "writing",
+    "severity": "medium",
+    "confidence": "high",
+    "exploitability": "n/a",
+    "location": "apps/web/messages/en.json:62-67 (pages.home.heroTitle/heroSubtitle/featuredPantheons/startExploring)",
+    "problem": "These translation keys are fully translated in en/es/fr/de.json but grep confirms zero usages in src/ \u2014 the real hero (HeroSection.tsx) uses entirely different hardcoded copy (\"Mythos Atlas\", \"A free interactive encyclopedia...\").",
+    "impact": "Dead i18n keys signal an abandoned rewrite; translators/maintainers editing messages/en.json will have no effect on the actual homepage, wasting effort and creating false confidence in translation coverage.",
+    "fix": "Delete the unused keys or reconnect HeroSection.tsx to consume them, and audit the rest of messages/*.json for similar orphaned strings."
+  },
+  {
+    "area": "writing",
+    "severity": "medium",
+    "confidence": "high",
+    "exploitability": "n/a",
+    "location": "apps/web/src/app/about/page.tsx:68-71",
+    "problem": "\"we aim to make mythology accessible and engaging for everyone\u2014from students and researchers to mythology enthusiasts and casual learners\" is a textbook everyone-ICP claim with no real segmentation.",
+    "impact": "Reads as generic filler rather than a positioning statement; doesn't help a visitor decide if the site is for deep scholarly reference vs. casual trivia/gamification, which the site's own quiz/achievement features suggest is actually a differentiator worth naming.",
+    "fix": "Replace with a concrete claim, e.g. \"built for anyone who wants primary-source myths (Eddas, Theogony, Popol Vuh) with citations, not summarized trivia\" \u2014 name the actual differentiator (sourcing + interactivity)."
+  },
+  {
+    "area": "writing",
+    "severity": "high",
+    "confidence": "high",
+    "exploitability": "n/a",
+    "location": "apps/web/src/app/quiz/page.tsx:134-169, apps/web/src/app/quiz/quick/page.tsx:191-243, apps/web/src/app/bookmarks/page.tsx:116-168",
+    "problem": "Each page has 5-8 near-duplicate paragraphs restating the same point in slightly different words (e.g. bookmarks: \"working study shelf\" \u2192 \"compact study cluster\" \u2192 \"curated shortlist\" \u2192 \"revision queue\" \u2192 \"deliberate study workflow\" all describe the same save-and-revisit idea).",
+    "impact": "Classic AI-slop SEO padding \u2014 low information density, circular restatement, and generic hedge phrasing (\"is especially useful,\" \"works best when,\" \"tends to\") that reads as machine-generated filler rather than genuine editorial voice; hurts credibility of a site whose whole pitch is scholarly care.",
+    "fix": "Cut each block to 1-2 concrete paragraphs with a single actionable idea; if word count is for SEO, use structured FAQ/definition content instead of repetitive prose."
+  },
+  {
+    "area": "writing",
+    "severity": "medium",
+    "confidence": "medium",
+    "exploitability": "n/a",
+    "location": "apps/web/src/app/about/page.tsx:58-77 vs apps/web/src/app/about/page.tsx:175-179; apps/web/src/app/privacy/page.tsx:26-30",
+    "problem": "Mission section and legal pages use plural corporate voice (\"we\", \"our commitment\") while the Creator section and site itself establish this is a solo-developer project (\"I built Mythos Atlas because...\").",
+    "impact": "The \"we\" voice in Privacy/Terms/Mission reads as inflated/impersonal for a project that elsewhere leans into an authentic solo-creator story; inconsistent pronoun use undercuts the personal-credibility angle the About page is trying to build.",
+    "fix": "Pick one voice: either consistent first-person singular (\"I collect...\", \"I built this because...\") to match the Creator section, or justify \"we\" if there are contributors \u2014 don't mix both within one page set."
+  },
+  {
+    "area": "writing",
+    "severity": "high",
+    "confidence": "medium",
+    "exploitability": "n/a",
+    "location": "apps/web/src/app/privacy/page.tsx:117-128, 165-180",
+    "problem": "\"Your Rights\" lists generic rights (access/delete/opt-out/export) with no named regulation (GDPR/CCPA), no data controller identity/address, and directs privacy/legal requests to public GitHub issues rather than an email or form.",
+    "impact": "Site ships es/fr/de locales implying an EU/international audience, but the privacy page has no GDPR-specific language (legal basis, right to lodge a complaint with a supervisory authority, retention periods) and routes sensitive personal-data requests through a public bug tracker \u2014 a real gap if any EU traffic exists.",
+    "fix": "Add explicit GDPR/CCPA framing if serving EU/CA users, name a controller contact, and offer a private channel (email) for privacy requests instead of public GitHub issues."
+  },
+  {
+    "area": "writing",
+    "severity": "medium",
+    "confidence": "medium",
+    "exploitability": "n/a",
+    "location": "apps/web/src/app/terms/page.tsx:99-108",
+    "problem": "Terms has no governing-law/jurisdiction clause and the \"Modifications\" section says terms can be revised \"at any time without notice,\" with no versioning/changelog link for terms themselves.",
+    "impact": "Without a jurisdiction clause, any dispute has no stated venue; \"without notice\" changes to a binding agreement is weak from a user-trust standpoint, especially paired with an AI-features disclaimer that already invites scrutiny.",
+    "fix": "Add a governing-law/jurisdiction line and either commit to advance notice for material changes or link a terms changelog (the site already has /changelog for product updates)."
+  },
+  {
+    "area": "writing",
+    "severity": "low",
+    "confidence": "high",
+    "exploitability": "n/a",
+    "location": "apps/web/src/app/journeys/page.tsx:300, apps/web/src/components/ui/pronunciation.tsx:89",
+    "problem": "\"More Journeys Coming Soon\" and \"Audio Coming Soon\" are placeholder microcopy for unbuilt features, shipped directly into production UI.",
+    "impact": "Undated \"coming soon\" labels erode trust over time (visitors can't tell if it's been \"soon\" for a week or a year) and read as unfinished product surface area next to otherwise polished, content-rich pages.",
+    "fix": "Either remove the teaser UI until the feature ships, or replace with a dated/roadmap-linked statement (e.g. link to /changelog or a public roadmap issue)."
+  },
+  {
+    "area": "writing",
+    "severity": "medium",
+    "confidence": "medium",
+    "exploitability": "n/a",
+    "location": "apps/web/src/app/about/page.tsx:59-65",
+    "problem": "\"Mythos Atlas preserves the interconnected mythology of ancient civilizations, revealing how different cultures understood creation, divinity, and human purpose... genuine insight into how our ancestors explained the world and their place in it\" is abstract mission-speak with no concrete claim.",
+    "impact": "Two full sentences convey no differentiated information (any mythology site could claim this); it delays the reader from the actually specific and credible facts two paragraphs later (13 pantheons, 189+ deities, primary-source citations).",
+    "fix": "Lead with the concrete, verifiable claim (source coverage + interactivity) and cut the abstract preamble, or fold it into one sentence of framing."
+  },
+  {
+    "area": "writing",
+    "severity": "low",
+    "confidence": "medium",
+    "exploitability": "n/a",
+    "location": "apps/web/src/app/api/oracle/route.ts:32-49 vs apps/web/src/app/quiz/quick/page.tsx:246-269",
+    "problem": "The Oracle system prompt establishes a deliberate mystical, archaic persona (\"The ancients knew...\", \"wise and ancient\") while sibling features use flat modern app copy (\"Ready to Race?\", \"Score copied to clipboard!\", \"New High Score!\").",
+    "impact": "The site oscillates between two unreconciled brand voices \u2014 scholarly/mystical encyclopedia vs. generic gamified quiz app \u2014 without a shared style guide bridging them, so the Oracle feels like a bolted-on persona rather than a consistent site voice.",
+    "fix": "Define a lightweight voice guide (e.g. \"reverent but plain\" for reference content, mystical only for Oracle dialogue) and lightly re-skin quiz/game microcopy to nod at the mythological framing instead of generic gamification language."
+  },
+  {
+    "area": "func",
+    "severity": "high",
+    "confidence": "high",
+    "exploitability": "n/a",
+    "location": "apps/web/src/app/api/graphql/route.ts:249-251",
+    "problem": "resolveLocation() only matches location.id, unlike resolveDeity/Creature/Artifact/Story which match id OR slug.",
+    "impact": "Any location lookup by slug (the pattern used everywhere else) silently returns undefined -> client gets {data:{}} with 200 OK, no error, looks like 'not found' when it's actually a resolver bug.",
+    "fix": "Add `|| location.slug === id` to resolveLocation, matching the other resolvers."
+  },
+  {
+    "area": "func",
+    "severity": "medium",
+    "confidence": "high",
+    "exploitability": "n/a",
+    "location": "apps/web/src/app/api/graphql/route.ts:397-410",
+    "problem": "Search silently no-ops (returns {} with 200 OK) when query is empty or >500 chars, with no error field.",
+    "impact": "Callers can't distinguish 'no matches' from 'request rejected'; a legitimate long query fails invisibly.",
+    "fix": "Return an explicit GraphQL error entry when query is missing/too long instead of omitting `data.search`."
+  },
+  {
+    "area": "func",
+    "severity": "medium",
+    "confidence": "medium",
+    "exploitability": "n/a",
+    "location": "apps/web/src/components/effects/LayoutEffects.tsx:21-23 vs apps/web/src/app/api/oracle/route.ts:106-113",
+    "problem": "Oracle button visibility is gated only by NODE_ENV/NEXT_PUBLIC_ORACLE_ENABLED; the actual backend gate is ANTHROPIC_API_KEY presence, checked separately server-side.",
+    "impact": "Every non-production build (dev, previews, local) shows a fully interactive Oracle button even when ANTHROPIC_API_KEY isn't set, and it always fails with a 503 on first message \u2014 looks broken to anyone testing preview deploys without the key.",
+    "fix": "Gate client-side visibility on a build-time flag that reflects actual key availability, or surface a disabled/greyed state instead of a working-looking button that 503s."
+  },
+  {
+    "area": "test",
+    "severity": "medium",
+    "confidence": "high",
+    "exploitability": "n/a",
+    "location": "apps/web/e2e/phase7-features.spec.ts:174,193",
+    "problem": "Two Oracle-visibility e2e suites (all-pages + mobile viewport) are permanently test.skip'd due to an unresolved 'env var not inlined at build time in CI' TODO, even though .github/workflows/test.yml:75,100 already sets NEXT_PUBLIC_ORACLE_ENABLED=true at both job and build-step level.",
+    "impact": "CI would not catch a real regression where the Oracle button silently disappears in production builds \u2014 exactly the scenario finding #3 above describes.",
+    "fix": "Re-investigate now that CI sets the var at both levels (may already be fixed); un-skip and confirm, or replace with a build-log assertion that the env var was inlined."
+  },
+  {
+    "area": "pwa",
+    "severity": "medium",
+    "confidence": "high",
+    "exploitability": "n/a",
+    "location": "apps/web/next.config.ts:12-15 vs apps/web/src/lib/background-sync.ts:85",
+    "problem": "next-pwa/service worker is fully disabled (`withPWA` is a no-op) but registerBackgroundSync() still does `await navigator.serviceWorker.ready`, a promise that never resolves or rejects because no SW is ever registered.",
+    "impact": "syncProgress() fire-and-forget calls this and hangs forever (silent, non-crashing but permanently pending); background sync/offline queue never actually functions, contradicting the offline-sync feature it implements.",
+    "fix": "Short-circuit registerBackgroundSync with a feature-detection check for an actual active registration (not just serviceWorker-in-navigator), or remove the dead background-sync code path until PWA is re-enabled."
+  },
+  {
+    "area": "pwa",
+    "severity": "low",
+    "confidence": "high",
+    "exploitability": "n/a",
+    "location": "apps/web/src/components/pwa/InstallPrompt.tsx:108-109; next.config.ts:12-15",
+    "problem": "Install prompt copy promises 'offline reading of mythology content' but no service worker/cache exists to make any content available offline.",
+    "impact": "Users who install the PWA based on this copy get no offline capability \u2014 false feature advertising that could surface as user complaints/support load post-release.",
+    "fix": "Remove the offline claim from the copy until PWA/SW is re-enabled, or re-enable next-pwa per the documented plan in next.config.ts comments."
+  },
+  {
+    "area": "func",
+    "severity": "low",
+    "confidence": "high",
+    "exploitability": "n/a",
+    "location": "apps/web/src/app/artifacts/page.tsx:34-38, pantheons/page.tsx:28-31, creatures/page.tsx:40-44, locations/page.tsx:108",
+    "problem": "These 4 list pages render `data.map(...)` directly with no empty/zero-result state, unlike deities/page.tsx:82-109 and stories/page.tsx which have dedicated 'No results found' UI.",
+    "impact": "Inconsistent UX; if a data JSON file is ever empty/malformed post-build (bad content pipeline run), these pages render a silent blank grid with zero user feedback instead of a clear message.",
+    "fix": "Reuse the empty-state pattern from deities/page.tsx across artifacts/pantheons/creatures/locations for consistency."
+  },
+  {
+    "area": "func",
+    "severity": "low",
+    "confidence": "medium",
+    "exploitability": "n/a",
+    "location": "apps/web/src/components/oracle/OracleChat.tsx:187-189; e2e/phase7-features.spec.ts:59-89",
+    "problem": "handleSuggestedQuestion() calls sendMessage(question) directly without ever populating the `input` state \u2014 the associated e2e test (skipped) still asserts the old expected behavior (input should show the question text).",
+    "impact": "Real behavior (immediate send) vs. documented/tested intent (populate then let user edit/confirm) have diverged with no one auditing which is correct; skipped test masks the discrepancy from CI indefinitely.",
+    "fix": "Decide the intended UX, then either fix handleSuggestedQuestion to setInput() first or delete/update the stale skipped test to match intended behavior."
+  },
+  {
+    "area": "arch",
+    "severity": "low",
+    "confidence": "high",
+    "exploitability": "n/a",
+    "location": "apps/web/src/lib/graphql-client.ts, apps/web/src/lib/queries.ts (flagged unused by knip, .audit-report.md:55-56)",
+    "problem": "The entire GraphQL client layer plus its only consumer (ComparativeMythology.tsx) are dead code \u2014 real pages import JSON directly and Oracle/search use src/lib/search.ts, bypassing /api/graphql entirely.",
+    "impact": "The GraphQL route (an unauthenticated public POST endpoint) has no real internal caller exercising it, so edge-case bugs (like the resolveLocation issue above) go unnoticed by normal usage; re-wiring it later risks reintroducing untested paths.",
+    "fix": "Either wire a real feature to the GraphQL route to keep it exercised, or remove the unused client/query files and document the route as intentionally standalone/for the optional Rust API parity."
+  },
+  {
+    "area": "security",
+    "severity": "medium",
+    "confidence": "high",
+    "exploitability": "n/a",
+    "location": ".audit-report.md:9-13 (pnpm audit, 2026-07-23)",
+    "problem": "18 known vulnerabilities in the dependency tree, 11 rated high (next x5+, brace-expansion, js-yaml, fast-uri, sharp), none patched.",
+    "impact": "Shipping with 11 unresolved high-severity CVEs is a standard release-gate blocker regardless of exploitability in this specific app's usage.",
+    "fix": "Run `pnpm audit --fix` / bump `next` and the flagged transitive deps before release; re-run CVE scan to confirm zero high/critical remain."
+  },
+  {
+    "area": "sec",
+    "severity": "High",
+    "confidence": "High",
+    "exploitability": "Medium",
+    "location": "apps/web/package.json:78 (next \">=16.2.6\"); pnpm-lock.yaml:9648 resolved next@16.2.9",
+    "problem": "Resolved next@16.2.9 predates the 2026-07-21 security release (16.2.11), missing 4 High + 5 Moderate CVEs (CVE-2026-64641..64649): App Router Server Action DoS, Turbopack+single-locale middleware bypass, SSRF in Server Actions/rewrites, SVG image-opt DoS, internal Server Function disclosure.",
+    "impact": "App ships with publicly-disclosed High-severity CVEs (advisory is 2 days old). No middleware.ts or 'use server' found in src/, which blunts the middleware-bypass and Server-Action-DoS CVEs, but the rewrite-SSRF and image-opt-DoS advisories apply regardless of app code.",
+    "fix": "pnpm add next@16.2.11 --filter web (react/react-dom 19.2.7 already compatible); re-run pnpm audit."
+  },
+  {
+    "area": "sec",
+    "severity": "High",
+    "confidence": "High",
+    "exploitability": "High",
+    "location": "apps/web/src/app/api/preview/exit/route.ts:12-24 (unauthenticated); apps/web/src/app/api/preview/route.ts:18,52 (secret-gated, same flaw)",
+    "problem": "`redirect`/`slug` query params go straight into `new URL(x, request.url)` \u2192 `NextResponse.redirect()`. An absolute URL wins over the base, so `GET /api/preview/exit?redirect=https://evil.example` 302s to an attacker domain with zero auth.",
+    "impact": "Open redirect on a trusted mythosatlas.com link \u2014 usable for phishing/credential harvesting, or chained with future OAuth/consent flows.",
+    "fix": "Validate target is same-origin/relative before redirecting: reject if `new URL(input, base).origin !== base.origin`."
+  },
+  {
+    "area": "sec",
+    "severity": "Medium",
+    "confidence": "High",
+    "exploitability": "Low-Medium",
+    "location": "apps/web/src/lib/hygraph/client.ts:4-8; apps/web/src/app/api/revalidate/route.ts:16,28,132; apps/web/src/app/api/hygraph/{search,stories,story/[slug]}/route.ts",
+    "problem": "Leftover Hygraph CMS integration (6 live routes) reads HYGRAPH_CONTENT_API_TOKEN/HYGRAPH_WEBHOOK_SECRET/REVALIDATE_SECRET/HYGRAPH_PREVIEW_SECRET \u2014 none documented in .env.example alongside the supported vars. Secret checks use non-constant-time `!==`; once any secret is set, GET /api/revalidate lets the holder revalidate any tag/path via query string.",
+    "impact": "Unreviewed dead code path; per AGENTS.md the app's real data path is static JSON, so this is pure unnecessary attack surface (cache-stampede DoS / draft-content toggling if a secret ever leaks or is left at a weak test value).",
+    "fix": "Delete the 6 unused Hygraph routes + client, or finish/document the integration properly with crypto.timingSafeEqual and .env.example entries."
+  },
+  {
+    "area": "sec",
+    "severity": "Medium",
+    "confidence": "High",
+    "exploitability": "N/A (hardening gap)",
+    "location": "apps/web/next.config.ts:60-85 (headers())",
+    "problem": "headers() sets X-Frame-Options, X-Content-Type-Options, Referrer-Policy, Permissions-Policy, CSP \u2014 but omits Strict-Transport-Security and Cross-Origin-Opener-Policy/Cross-Origin-Resource-Policy.",
+    "impact": "No HSTS lets a MITM strip TLS on the first HTTP hit; missing COOP allows cross-origin window.opener references (tab-napping / side-channel risk).",
+    "fix": "Add Strict-Transport-Security: max-age=63072000; includeSubDomains; preload and Cross-Origin-Opener-Policy: same-origin."
+  },
+  {
+    "area": "sec",
+    "severity": "Low",
+    "confidence": "Medium",
+    "exploitability": "Low",
+    "location": "apps/web/src/components/seo/JsonLd.tsx:9-13",
+    "problem": "dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }} \u2014 JSON.stringify doesn't escape <, >, / so a value containing </script><script> breaks out of the JSON-LD tag.",
+    "impact": "Low today since `data` is static curated JSON, but no defense-in-depth exists if a field is later sourced from Hygraph drafts, Oracle output, or user input.",
+    "fix": "Escape < before embedding (.replace(/</g, \"\\\\u003c\")) or use a vetted JSON-LD escaping helper."
+  },
+  {
+    "area": "sec",
+    "severity": "High",
+    "confidence": "High",
+    "exploitability": "Trivial",
+    "location": "apps/web/src/app/api/oracle/route.ts:92-95; apps/web/src/lib/oracle/rate-limit.ts:11,35-62",
+    "problem": "Rate-limit key uses client-controllable x-forwarded-for first hop",
+    "impact": "Bypass 10/hr Oracle cap; burn ANTHROPIC_API_KEY",
+    "fix": "Use trusted platform IP; require Upstash in prod"
+  },
+  {
+    "area": "sec",
+    "severity": "Medium",
+    "confidence": "High",
+    "exploitability": "Trivial",
+    "location": "apps/web/src/app/api/oracle/route.ts:68-78",
+    "problem": "Origin check skipped when Origin header absent",
+    "impact": "Scripted abuse of paid endpoint",
+    "fix": "Reject missing Origin on costly POSTs"
+  },
+  {
+    "area": "sec",
+    "severity": "Medium",
+    "confidence": "High",
+    "exploitability": "Trivial",
+    "location": "apps/web/src/app/api/oracle/route.ts:22-30",
+    "problem": "Message content/array unbounded in zod schema",
+    "impact": "Token-cost bomb per allowed request",
+    "fix": "Add .max() on content and messages length"
+  },
+  {
+    "area": "sec",
+    "severity": "Medium",
+    "confidence": "Medium",
+    "exploitability": "Env-dependent",
+    "location": "apps/web/src/lib/oracle/rate-limit.ts:15-33,67-75",
+    "problem": "Silent in-memory rate-limit fallback without Upstash",
+    "impact": "Limit multiplies per serverless instance",
+    "fix": "Fail closed in production if Upstash unset"
+  },
+  {
+    "area": "sec",
+    "severity": "High",
+    "confidence": "High",
+    "exploitability": "n/a install",
+    "location": "apps/web/package.json next 16.2.9",
+    "problem": "next < 16.2.11 missing Jul 2026 GHSA patches",
+    "impact": "Known High CVEs in framework",
+    "fix": "Upgrade to next@16.2.11"
+  }
+]

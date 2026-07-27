@@ -3,7 +3,7 @@ import { notFound, redirect } from "next/navigation";
 import deities from "@/data/deities.json";
 import pantheons from "@/data/pantheons.json";
 import { findDeityByReference } from "@/lib/deities";
-import { generateBaseMetadata } from "@/lib/metadata";
+import { generateBaseMetadata, generateNotFoundMetadata } from "@/lib/metadata";
 import { DeityPageClient } from "./DeityPageClient";
 
 // ISR: Revalidate every week (604800 seconds)
@@ -43,10 +43,10 @@ export async function generateMetadata({
   const deity = resolveDeityBySlug(slug);
 
   if (!deity) {
-    return generateBaseMetadata({
-      title: "Deity Not Found",
-      description: "The requested deity could not be found.",
-    });
+    return generateNotFoundMetadata(
+      "Deity Not Found",
+      "The requested deity could not be found.",
+    );
   }
 
   const pantheon = pantheons.find((p) => p.id === deity.pantheonId);

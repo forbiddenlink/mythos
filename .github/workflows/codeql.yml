@@ -12,4 +12,5 @@ permissions:
   security-events: write
 jobs:
   call:
-    uses: forbiddenlink/.github/.github/workflows/codeql.yml@main
+    # Pin to commit SHA (not @main) for supply-chain safety
+    uses: forbiddenlink/.github/.github/workflows/codeql.yml@2606e52c5ea220c9cf669715ca91e18da20f9eaa

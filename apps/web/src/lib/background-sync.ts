@@ -5,18 +5,18 @@
  * Uses IndexedDB for persistent storage of queued items.
  */
 
-import type { UserProgress } from '@/providers/progress-provider';
+import type { UserProgress } from "@/providers/progress-provider";
 
 // IndexedDB Configuration
-const DB_NAME = 'mythos-atlas-sync';
+const DB_NAME = "mythos-atlas-sync";
 const DB_VERSION = 1;
-const STORE_NAME = 'sync-queue';
-const PROGRESS_STORE = 'progress-snapshots';
+const STORE_NAME = "sync-queue";
+const PROGRESS_STORE = "progress-snapshots";
 
 export interface SyncQueueItem {
   id: string;
   timestamp: number;
-  type: 'progress-update';
+  type: "progress-update";
   data: Partial<UserProgress>;
   attempts: number;
   lastAttempt?: number;
@@ -34,8 +34,8 @@ export interface ProgressSnapshot {
  */
 function openDatabase(): Promise<IDBDatabase> {
   return new Promise((resolve, reject) => {
-    if (typeof indexedDB === 'undefined') {
-      reject(new Error('IndexedDB not available'));
+    if (typeof indexedDB === "undefined") {
+      reject(new Error("IndexedDB not available"));
       return;
     }
 
@@ -49,16 +49,18 @@ function openDatabase(): Promise<IDBDatabase> {
 
       // Create sync queue store
       if (!db.objectStoreNames.contains(STORE_NAME)) {
-        const syncStore = db.createObjectStore(STORE_NAME, { keyPath: 'id' });
-        syncStore.createIndex('timestamp', 'timestamp', { unique: false });
-        syncStore.createIndex('type', 'type', { unique: false });
+        const syncStore = db.createObjectStore(STORE_NAME, { keyPath: "id" });
+        syncStore.createIndex("timestamp", "timestamp", { unique: false });
+        syncStore.createIndex("type", "type", { unique: false });
       }
 
       // Create progress snapshots store
       if (!db.objectStoreNames.contains(PROGRESS_STORE)) {
-        const progressStore = db.createObjectStore(PROGRESS_STORE, { keyPath: 'id' });
-        progressStore.createIndex('timestamp', 'timestamp', { unique: false });
-        progressStore.createIndex('synced', 'synced', { unique: false });
+        const progressStore = db.createObjectStore(PROGRESS_STORE, {
+          keyPath: "id",
+        });
+        progressStore.createIndex("timestamp", "timestamp", { unique: false });
+        progressStore.createIndex("synced", "synced", { unique: false });
       }
     };
   });
@@ -75,25 +77,37 @@ function generateId(): string {
  * Register for background sync when online
  * Registers a sync event with the service worker
  */
-export async function registerBackgroundSync(tag: string = 'progress-sync'): Promise<boolean> {
-  if (typeof navigator === 'undefined' || !('serviceWorker' in navigator)) {
-    console.warn('Service Worker not supported');
+export async function registerBackgroundSync(
+  tag: string = "progress-sync",
+): Promise<boolean> {
+  if (typeof navigator === "undefined" || !("serviceWorker" in navigator)) {
+    console.warn("Service Worker not supported");
     return false;
   }
 
   try {
+    const existing = await navigator.serviceWorker.getRegistration();
+    if (!existing?.active) {
+      // PWA/service worker is disabled in next.config — nothing to await.
+      return false;
+    }
+
     const registration = await navigator.serviceWorker.ready;
 
     // Check if Background Sync API is available
-    if ('sync' in registration) {
-      await (registration as ServiceWorkerRegistration & { sync: { register: (tag: string) => Promise<void> } }).sync.register(tag);
+    if ("sync" in registration) {
+      await (
+        registration as ServiceWorkerRegistration & {
+          sync: { register: (tag: string) => Promise<void> };
+        }
+      ).sync.register(tag);
       return true;
     } else {
-      console.warn('Background Sync API not supported');
+      console.warn("Background Sync API not supported");
       return false;
     }
   } catch (error) {
-    console.error('Failed to register background sync:', error);
+    console.error("Failed to register background sync:", error);
     return false;
   }
 }
@@ -102,17 +116,19 @@ export async function registerBackgroundSync(tag: string = 'progress-sync'): Pro
  * Queue progress for sync when offline
  * Stores the progress update in IndexedDB for later syncing
  */
-export async function syncProgress(progressUpdate: Partial<UserProgress>): Promise<string> {
+export async function syncProgress(
+  progressUpdate: Partial<UserProgress>,
+): Promise<string> {
   const db = await openDatabase();
 
   return new Promise((resolve, reject) => {
-    const transaction = db.transaction([STORE_NAME], 'readwrite');
+    const transaction = db.transaction([STORE_NAME], "readwrite");
     const store = transaction.objectStore(STORE_NAME);
 
     const item: SyncQueueItem = {
       id: generateId(),
       timestamp: Date.now(),
-      type: 'progress-update',
+      type: "progress-update",
       data: progressUpdate,
       attempts: 0,
     };
@@ -140,9 +156,9 @@ export async function getQueuedProgress(): Promise<SyncQueueItem[]> {
   const db = await openDatabase();
 
   return new Promise((resolve, reject) => {
-    const transaction = db.transaction([STORE_NAME], 'readonly');
+    const transaction = db.transaction([STORE_NAME], "readonly");
     const store = transaction.objectStore(STORE_NAME);
-    const index = store.index('timestamp');
+    const index = store.index("timestamp");
     const request = index.getAll();
 
     request.onsuccess = () => resolve(request.result || []);
@@ -159,7 +175,7 @@ export async function removeQueuedItem(id: string): Promise<void> {
   const db = await openDatabase();
 
   return new Promise((resolve, reject) => {
-    const transaction = db.transaction([STORE_NAME], 'readwrite');
+    const transaction = db.transaction([STORE_NAME], "readwrite");
     const store = transaction.objectStore(STORE_NAME);
     const request = store.delete(id);
 
@@ -177,7 +193,7 @@ export async function updateQueuedItem(item: SyncQueueItem): Promise<void> {
   const db = await openDatabase();
 
   return new Promise((resolve, reject) => {
-    const transaction = db.transaction([STORE_NAME], 'readwrite');
+    const transaction = db.transaction([STORE_NAME], "readwrite");
     const store = transaction.objectStore(STORE_NAME);
     const request = store.put(item);
 
@@ -195,7 +211,7 @@ export async function clearSyncQueue(): Promise<void> {
   const db = await openDatabase();
 
   return new Promise((resolve, reject) => {
-    const transaction = db.transaction([STORE_NAME], 'readwrite');
+    const transaction = db.transaction([STORE_NAME], "readwrite");
     const store = transaction.objectStore(STORE_NAME);
     const request = store.clear();
 
@@ -209,11 +225,13 @@ export async function clearSyncQueue(): Promise<void> {
 /**
  * Save a progress snapshot for offline recovery
  */
-export async function saveProgressSnapshot(progress: UserProgress): Promise<string> {
+export async function saveProgressSnapshot(
+  progress: UserProgress,
+): Promise<string> {
   const db = await openDatabase();
 
   return new Promise((resolve, reject) => {
-    const transaction = db.transaction([PROGRESS_STORE], 'readwrite');
+    const transaction = db.transaction([PROGRESS_STORE], "readwrite");
     const store = transaction.objectStore(PROGRESS_STORE);
 
     const snapshot: ProgressSnapshot = {
@@ -239,10 +257,10 @@ export async function getLatestProgressSnapshot(): Promise<ProgressSnapshot | nu
   const db = await openDatabase();
 
   return new Promise((resolve, reject) => {
-    const transaction = db.transaction([PROGRESS_STORE], 'readonly');
+    const transaction = db.transaction([PROGRESS_STORE], "readonly");
     const store = transaction.objectStore(PROGRESS_STORE);
-    const index = store.index('timestamp');
-    const request = index.openCursor(null, 'prev');
+    const index = store.index("timestamp");
+    const request = index.openCursor(null, "prev");
 
     request.onsuccess = () => {
       const cursor = request.result;
@@ -262,7 +280,7 @@ export async function getPendingSyncCount(): Promise<number> {
   const db = await openDatabase();
 
   return new Promise((resolve, reject) => {
-    const transaction = db.transaction([STORE_NAME], 'readonly');
+    const transaction = db.transaction([STORE_NAME], "readonly");
     const store = transaction.objectStore(STORE_NAME);
     const request = store.count();
 
@@ -277,7 +295,10 @@ export async function getPendingSyncCount(): Promise<number> {
  * Process sync queue (for use in service worker or when coming back online)
  * Since there's no backend, this just marks items as processed
  */
-export async function processSyncQueue(): Promise<{ processed: number; failed: number }> {
+export async function processSyncQueue(): Promise<{
+  processed: number;
+  failed: number;
+}> {
   const queuedItems = await getQueuedProgress();
   let processed = 0;
   let failed = 0;
@@ -288,11 +309,14 @@ export async function processSyncQueue(): Promise<{ processed: number; failed: n
       // For now, we just merge with localStorage and remove from queue
 
       // Get current progress from localStorage
-      const stored = localStorage.getItem('mythos-atlas-progress');
+      const stored = localStorage.getItem("mythos-atlas-progress");
       if (stored) {
         const currentProgress = JSON.parse(stored);
         const mergedProgress = mergeProgress(currentProgress, item.data);
-        localStorage.setItem('mythos-atlas-progress', JSON.stringify(mergedProgress));
+        localStorage.setItem(
+          "mythos-atlas-progress",
+          JSON.stringify(mergedProgress),
+        );
       }
 
       await removeQueuedItem(item.id);
@@ -313,31 +337,47 @@ export async function processSyncQueue(): Promise<{ processed: number; failed: n
 /**
  * Merge two progress objects, keeping the most recent/complete data
  */
-function mergeProgress(current: UserProgress, update: Partial<UserProgress>): UserProgress {
+function mergeProgress(
+  current: UserProgress,
+  update: Partial<UserProgress>,
+): UserProgress {
   const merged: UserProgress = { ...current };
 
   // Merge arrays by union
   if (update.deitiesViewed) {
-    merged.deitiesViewed = [...new Set([...current.deitiesViewed, ...update.deitiesViewed])];
+    merged.deitiesViewed = [
+      ...new Set([...current.deitiesViewed, ...update.deitiesViewed]),
+    ];
   }
   if (update.storiesRead) {
-    merged.storiesRead = [...new Set([...current.storiesRead, ...update.storiesRead])];
+    merged.storiesRead = [
+      ...new Set([...current.storiesRead, ...update.storiesRead]),
+    ];
   }
   if (update.pantheonsExplored) {
-    merged.pantheonsExplored = [...new Set([...current.pantheonsExplored, ...update.pantheonsExplored])];
+    merged.pantheonsExplored = [
+      ...new Set([...current.pantheonsExplored, ...update.pantheonsExplored]),
+    ];
   }
   if (update.locationsVisited) {
-    merged.locationsVisited = [...new Set([...current.locationsVisited, ...update.locationsVisited])];
+    merged.locationsVisited = [
+      ...new Set([...current.locationsVisited, ...update.locationsVisited]),
+    ];
   }
   if (update.achievements) {
-    merged.achievements = [...new Set([...current.achievements, ...update.achievements])];
+    merged.achievements = [
+      ...new Set([...current.achievements, ...update.achievements]),
+    ];
   }
 
   // Merge quiz scores, keeping highest
   if (update.quizScores) {
     merged.quizScores = { ...current.quizScores };
     for (const [quizId, score] of Object.entries(update.quizScores)) {
-      merged.quizScores[quizId] = Math.max(merged.quizScores[quizId] ?? 0, score);
+      merged.quizScores[quizId] = Math.max(
+        merged.quizScores[quizId] ?? 0,
+        score,
+      );
     }
   }
 

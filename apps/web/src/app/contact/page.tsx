@@ -45,12 +45,10 @@ export default function ContactPage() {
             triggered the bug.
           </p>
           <p className="mt-3 text-base leading-relaxed text-muted-foreground">
-            Requests tied to source accuracy, licensing, accessibility, privacy
-            concerns, and broken functionality are the highest-signal reports
-            because they directly affect trust in the encyclopedia. Clear
-            reports make it much easier to compare cited material, reproduce UI
-            issues, and decide whether a fix belongs in content, design, or the
-            data layer.
+            For privacy or personal-data requests, do not paste sensitive
+            details into a public GitHub issue. Open an issue titled
+            &quot;Privacy request&quot; with a contact method only, and we will
+            follow up privately.
           </p>
         </div>
 

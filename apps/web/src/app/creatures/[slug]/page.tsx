@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import creatures from "@/data/creatures.json";
 import pantheons from "@/data/pantheons.json";
-import { generateBaseMetadata } from "@/lib/metadata";
+import { generateBaseMetadata, generateNotFoundMetadata } from "@/lib/metadata";
 import { CreaturePageClient } from "./CreaturePageClient";
 
 // ISR: Revalidate every week (604800 seconds)
@@ -41,10 +41,10 @@ export async function generateMetadata({
     | undefined;
 
   if (!creature) {
-    return generateBaseMetadata({
-      title: "Creature Not Found",
-      description: "The requested creature could not be found.",
-    });
+    return generateNotFoundMetadata(
+      "Creature Not Found",
+      "The requested creature could not be found.",
+    );
   }
 
   const pantheon = pantheons.find((p) => p.id === creature.pantheonId);

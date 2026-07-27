@@ -131,45 +131,16 @@ export default function QuizPage() {
           </div>
         </div>
 
-        <section className="mx-auto mb-12 max-w-4xl rounded-2xl border border-border/60 bg-card/60 p-6">
-          <h2 className="font-serif text-2xl font-semibold mb-3">
-            Study With Every Quiz Mode
+        {/* Main Knowledge Quiz */}
+        <div className="mb-8">
+          <h2 className="font-serif text-2xl font-bold mb-6 text-center">
+            Knowledge Quiz
           </h2>
-          <p className="text-muted-foreground leading-relaxed">
-            Mythos Atlas includes several quiz styles so you can move between
-            fast recall, deeper comparison, and personality-driven discovery.
-            The main knowledge quiz is built for steady review of names,
-            domains, symbols, and pantheon context, while the other modes focus
-            on speed, relationships, and playful exploration.
-          </p>
-          <p className="mt-3 text-muted-foreground leading-relaxed">
-            Use the quiz hub as a study starting point, then jump into stories,
-            deity pages, and collections when you want more context behind a
-            question you missed. Progress and achievements update as you go, so
-            the quiz section doubles as both practice mode and revision tool.
-          </p>
-          <p className="mt-3 text-muted-foreground leading-relaxed">
-            If you want a fast warm-up, start with the quick quiz. If you want a
-            more thematic session, switch to relationship or personality modes,
-            then return to the main quiz once you have refreshed the broader
-            landscape of names, symbols, and divine domains.
-          </p>
-          <p className="mt-3 text-muted-foreground leading-relaxed">
-            Treat the quiz hub like a loop instead of a dead end: test what you
-            know, open the linked reference material, and come back for another
-            round once the context is clearer. That cycle makes the quiz pages
-            useful for both revision and structured discovery.
-          </p>
-          <p className="mt-3 text-muted-foreground leading-relaxed">
-            Because each mode emphasizes a different kind of recall, the quiz
-            area works well as a recurring study habit. A short session here can
-            surface weak spots quickly, then point you back toward the deity,
-            story, and source pages that need a closer read.
-          </p>
-        </section>
+        </div>
+        <MythologyQuiz />
 
         {/* Other Quiz Types */}
-        <div className="mb-12">
+        <div className="mb-12 mt-16">
           <h2 className="font-serif text-2xl font-bold mb-6 text-center">
             More Quizzes
           </h2>
@@ -205,13 +176,17 @@ export default function QuizPage() {
           </div>
         </div>
 
-        {/* Main Knowledge Quiz */}
-        <div className="mb-8">
-          <h2 className="font-serif text-2xl font-bold mb-6 text-center">
-            Knowledge Quiz
+        <section className="mx-auto mb-12 max-w-4xl rounded-2xl border border-border/60 bg-card/60 p-6">
+          <h2 className="font-serif text-2xl font-semibold mb-3">
+            Study With Every Quiz Mode
           </h2>
-        </div>
-        <MythologyQuiz />
+          <p className="text-muted-foreground leading-relaxed">
+            Use the knowledge quiz for steady review of names, domains, and
+            symbols. Switch to quick mode for a timed warm-up, relationships for
+            family ties, or the personality quiz for a lighter discovery path —
+            then return here once you have refreshed the broader landscape.
+          </p>
+        </section>
       </div>
     </div>
   );

@@ -1,8 +1,8 @@
 "use client";
 
 import { LayoutEffects } from "@/components/effects/LayoutEffects";
-import { Analytics } from "@vercel/analytics/react";
-import { SpeedInsights } from "@vercel/speed-insights/next";
+import { ConsentGatedAnalytics } from "@/components/analytics/ConsentGatedAnalytics";
+import { ConsentGatedSentry } from "@/components/analytics/ConsentGatedSentry";
 import dynamic from "next/dynamic";
 
 const GlobalSearch = dynamic(
@@ -53,8 +53,8 @@ const AudioEnhancements = dynamic(
 export function GlobalClientAddons() {
   return (
     <>
-      <Analytics />
-      <SpeedInsights />
+      <ConsentGatedAnalytics />
+      <ConsentGatedSentry />
       <OfflineIndicator />
       <GlobalSearch />
       <AudioEnhancements />

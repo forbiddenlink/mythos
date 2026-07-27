@@ -59,12 +59,9 @@
       "title": "Mythos Atlas",
       "subtitle": "Enciclopedia de Mitología Antigua",
       "description": "Explora la mitología antigua a través de árboles genealógicos interactivos, análisis comparativo e historias épicas de civilizaciones griegas, nórdicas, egipcias y de todo el mundo.",
-      "heroTitle": "Viaja por la Mitología Antigua",
-      "heroSubtitle": "Descubre dioses, héroes y leyendas de culturas de todo el mundo",
-      "featuredPantheons": "Panteones Destacados",
       "popularDeities": "Deidades Populares",
       "recentStories": "Historias Recientes",
-      "startExploring": "Comenzar a Explorar"
+      "localeNote": "La navegación y el Oráculo siguen tu idioma. Las páginas de la enciclopedia siguen en inglés por ahora."
     },
     "pantheons": {
       "title": "Panteones",
@@ -257,6 +254,7 @@
     "fabOpen": "Consulta al Oráculo",
     "title": "Oráculo de Delfos",
     "subtitle": "Basado en el Atlas cuando tu tema coincide con nuestro catálogo",
+    "aiDisclosure": "Impulsado por Anthropic Claude. Las respuestas son generadas por IA y pueden ser incompletas o incorrectas: verifica los hechos importantes en la enciclopedia.",
     "close": "Cerrar el Oráculo",
     "greeting": "Saludos, buscador de sabiduría. ¿Qué misterios del mundo antiguo deseas desentrañar?",
     "tryAsking": "Prueba a preguntar:",

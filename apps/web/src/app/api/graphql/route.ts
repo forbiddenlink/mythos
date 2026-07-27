@@ -247,7 +247,9 @@ function resolveLocations(pantheonId?: string): Location[] {
 }
 
 function resolveLocation(id: string): Location | undefined {
-  return locationData.find((location) => location.id === id);
+  return locationData.find(
+    (location) => location.id === id || location.slug === id,
+  );
 }
 
 const MAX_SEARCH_LIMIT = 100;
@@ -450,7 +452,24 @@ function resolveQueryData(
 
 export async function POST(request: NextRequest) {
   try {
-    const body = await request.json();
+    const raw = await request.text();
+    if (raw.length > 8_000) {
+      return NextResponse.json(
+        { errors: [{ message: "Query too large" }] },
+        { status: 413 },
+      );
+    }
+
+    let body: { query?: unknown; variables?: unknown };
+    try {
+      body = JSON.parse(raw) as { query?: unknown; variables?: unknown };
+    } catch {
+      return NextResponse.json(
+        { errors: [{ message: "Invalid JSON body" }] },
+        { status: 400 },
+      );
+    }
+
     const query = typeof body?.query === "string" ? body.query : "";
 
     if (!query) {
@@ -459,10 +478,24 @@ export async function POST(request: NextRequest) {
       });
     }
 
+    if (query.length > 4_000) {
+      return NextResponse.json(
+        { errors: [{ message: "Query too large" }] },
+        { status: 413 },
+      );
+    }
+
     const variables = normalizeVariables(body?.variables);
     const data = resolveQueryData(query, variables);
 
-    return NextResponse.json({ data });
+    return NextResponse.json(
+      { data },
+      {
+        headers: {
+          "Cache-Control": "public, s-maxage=300, stale-while-revalidate=3600",
+        },
+      },
+    );
   } catch (error) {
     console.error("GraphQL API error:", error);
     return NextResponse.json(

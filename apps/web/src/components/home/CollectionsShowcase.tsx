@@ -27,11 +27,14 @@ const iconMap: Record<string, React.ReactNode> = {
   "war-gods": <Swords className="h-5 w-5" />,
 };
 
+// Rich, archetypal jewel-tones that rhyme with the pantheon cards — no pastels.
 const colorMap: Record<string, string> = {
-  "trickster-gods": "from-purple-500/20 to-violet-600/20 border-purple-500/30",
-  "underworld-rulers": "from-slate-500/20 to-gray-600/20 border-slate-500/30",
-  "love-deities": "from-pink-500/20 to-rose-600/20 border-pink-500/30",
-  "war-gods": "from-red-500/20 to-orange-600/20 border-red-500/30",
+  "trickster-gods":
+    "from-violet-900 via-indigo-950 to-midnight border-violet-700/40",
+  "underworld-rulers":
+    "from-slate-800 via-slate-950 to-midnight border-slate-600/40",
+  "love-deities": "from-rose-900 via-red-950 to-midnight border-rose-700/40",
+  "war-gods": "from-red-900 via-orange-950 to-midnight border-red-800/40",
 };
 
 function getDeityCount(deityIds: string[]): number {
@@ -80,25 +83,25 @@ export function CollectionsShowcase() {
           return (
             <Link key={collection.id} href={`/collections/${collection.slug}`}>
               <Card
-                className={`h-full bg-gradient-to-br ${colorMap[collection.id] || ""} hover:scale-[1.02] transition-transform cursor-pointer group`}
+                className={`h-full overflow-hidden border shadow-none bg-gradient-to-br ${colorMap[collection.id] || ""} transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-black/20 cursor-pointer group`}
               >
                 <CardContent className="p-5">
                   <div className="flex items-center gap-3 mb-3">
-                    <div className="p-2 rounded-lg bg-background/50 border border-border/50 group-hover:bg-background/70 transition-colors">
+                    <div className="flex size-9 items-center justify-center rounded-full bg-gold/15 ring-1 ring-gold/40 text-gold group-hover:bg-gold/25 transition-colors">
                       {iconMap[collection.id] || (
                         <Sparkles className="h-5 w-5" />
                       )}
                     </div>
                     <div>
-                      <h3 className="font-serif font-semibold group-hover:text-gold transition-colors">
+                      <h3 className="font-serif font-semibold text-parchment group-hover:text-gold transition-colors">
                         {collection.name}
                       </h3>
-                      <p className="text-xs text-muted-foreground">
+                      <p className="text-xs uppercase tracking-wider text-parchment/60">
                         {deityCount} {deityCount === 1 ? "deity" : "deities"}
                       </p>
                     </div>
                   </div>
-                  <p className="text-sm text-muted-foreground line-clamp-2">
+                  <p className="text-sm text-parchment/75 line-clamp-2">
                     {collection.description}
                   </p>
                 </CardContent>

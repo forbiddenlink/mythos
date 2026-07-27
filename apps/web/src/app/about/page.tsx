@@ -51,29 +51,28 @@ export default function AboutPage() {
         <div className="mt-8 space-y-8">
           <Card className="border-gold/20 bg-card">
             <CardHeader>
-              <CardTitle className="text-foreground text-2xl font-serif">
+              <CardTitle
+                as="h2"
+                className="text-foreground text-2xl font-serif"
+              >
                 Our Mission
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
               <p className="text-foreground/80 leading-relaxed text-lg">
-                Mythos Atlas preserves the interconnected mythology of ancient
-                civilizations, revealing how different cultures understood
-                creation, divinity, and human purpose. These stories offer
-                genuine insight into how our ancestors explained the world and
-                their place in it.
+                Mythos Atlas is built for learners who want mythology to stick —
+                students, self-taught readers, and curious explorers who need
+                more than isolated encyclopedia entries.
               </p>
               <p className="text-foreground/80 leading-relaxed text-lg">
-                Through interactive visualizations, comprehensive deity
-                profiles, and carefully curated stories, we aim to make
-                mythology accessible and engaging for everyone—from students and
-                researchers to mythology enthusiasts and casual learners.
+                I connect pantheons, deities, stories, places, and family trees
+                so you can move from quick orientation into deeper study, then
+                reinforce what you learn with quizzes and review.
               </p>
               <p className="text-foreground/80 leading-relaxed text-lg">
-                The atlas is designed to help readers move from quick
-                orientation into deeper study, so every major section connects
-                reference material, stories, places, and visual context instead
-                of treating myths as isolated entries.
+                The atlas treats myths as an interconnected map: open a deity,
+                follow their stories and relations, test yourself, and return
+                with a clearer sense of the culture that shaped them.
               </p>
             </CardContent>
           </Card>
@@ -83,7 +82,7 @@ export default function AboutPage() {
               <CardHeader>
                 <div className="flex items-center gap-3 mb-2">
                   <Globe className="h-6 w-6 text-gold" />
-                  <CardTitle className="text-foreground">
+                  <CardTitle as="h2" className="text-foreground">
                     Global Coverage
                   </CardTitle>
                 </div>
@@ -100,7 +99,7 @@ export default function AboutPage() {
               <CardHeader>
                 <div className="flex items-center gap-3 mb-2">
                   <Users className="h-6 w-6 text-gold" />
-                  <CardTitle className="text-foreground">
+                  <CardTitle as="h2" className="text-foreground">
                     Deity Relationships
                   </CardTitle>
                 </div>
@@ -117,7 +116,7 @@ export default function AboutPage() {
               <CardHeader>
                 <div className="flex items-center gap-3 mb-2">
                   <BookOpen className="h-6 w-6 text-gold" />
-                  <CardTitle className="text-foreground">
+                  <CardTitle as="h2" className="text-foreground">
                     Epic Stories
                   </CardTitle>
                 </div>
@@ -135,7 +134,7 @@ export default function AboutPage() {
               <CardHeader>
                 <div className="flex items-center gap-3 mb-2">
                   <Code className="h-6 w-6 text-gold" />
-                  <CardTitle className="text-foreground">
+                  <CardTitle as="h2" className="text-foreground">
                     Open Platform
                   </CardTitle>
                 </div>
@@ -151,7 +150,10 @@ export default function AboutPage() {
 
           <Card className="border-gold/20 bg-card">
             <CardHeader>
-              <CardTitle className="text-foreground text-2xl font-serif">
+              <CardTitle
+                as="h2"
+                className="text-foreground text-2xl font-serif"
+              >
                 Creator
               </CardTitle>
             </CardHeader>
@@ -183,7 +185,10 @@ export default function AboutPage() {
 
           <Card className="border-gold/20 bg-card">
             <CardHeader>
-              <CardTitle className="text-foreground text-2xl font-serif">
+              <CardTitle
+                as="h2"
+                className="text-foreground text-2xl font-serif"
+              >
                 Technology Stack
               </CardTitle>
             </CardHeader>
@@ -231,7 +236,10 @@ export default function AboutPage() {
 
           <Card className="border-gold/20 bg-card">
             <CardHeader>
-              <CardTitle className="text-foreground text-2xl font-serif">
+              <CardTitle
+                as="h2"
+                className="text-foreground text-2xl font-serif"
+              >
                 Project Status
               </CardTitle>
             </CardHeader>

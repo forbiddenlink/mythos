@@ -687,6 +687,8 @@ export function MapVisualization({
 
       <div
         ref={containerRef}
+        role="region"
+        aria-label="Mythology locations map"
         className="z-0 w-full h-full"
         style={{ width: "100%", height: "100%", minHeight: "500px" }}
       />

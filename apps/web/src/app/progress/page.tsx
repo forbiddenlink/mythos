@@ -35,6 +35,7 @@ import {
   Target,
   Trophy,
 } from "lucide-react";
+import NextLink from "next/link";
 import { useContext } from "react";
 
 // Total counts derived from data files
@@ -281,6 +282,31 @@ export default function ProgressPage() {
               <div className="w-1.5 h-1.5 rotate-45 bg-amber-500/50" />
               <div className="w-12 h-px bg-linear-to-l from-transparent to-amber-500/40" />
             </div>
+            {stats.totalXP === 0 ? (
+              <div className="mx-auto max-w-lg rounded-xl border border-amber-500/20 bg-midnight/40 px-6 py-5 text-left backdrop-blur-sm">
+                <p className="font-serif text-lg text-parchment">
+                  Start earning XP
+                </p>
+                <p className="mt-2 text-sm text-parchment/70">
+                  Explore deities, read a story, or take a quiz — progress
+                  unlocks here as you go.
+                </p>
+                <div className="mt-4 flex flex-wrap gap-3">
+                  <NextLink
+                    href="/quiz"
+                    className="inline-flex min-h-11 items-center rounded-md bg-amber-500 px-4 text-sm font-medium text-midnight hover:bg-amber-400"
+                  >
+                    Take a quiz
+                  </NextLink>
+                  <NextLink
+                    href="/deities"
+                    className="inline-flex min-h-11 items-center rounded-md border border-amber-500/30 px-4 text-sm font-medium text-parchment hover:bg-amber-500/10"
+                  >
+                    Browse deities
+                  </NextLink>
+                </div>
+              </div>
+            ) : null}
           </div>
 
           {/* Stats Cards */}

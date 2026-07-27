@@ -19,9 +19,10 @@ const nextConfig: NextConfig = {
   // NOTE: viewTransition is experimental and was causing navigation to fail
   // (links would preventDefault but navigation wouldn't complete)
   // Disabled until the feature is stable in Next.js
-  // experimental: {
-  //   viewTransition: true,
-  // },
+  experimental: {
+    // viewTransition: true,
+    optimizePackageImports: ["lucide-react", "framer-motion"],
+  },
   // Empty turbopack config to satisfy Next.js 16 when using webpack-based plugins (next-pwa)
   // Production builds use --webpack flag via package.json
   turbopack: {
@@ -68,6 +69,14 @@ const nextConfig: NextConfig = {
           {
             key: "Permissions-Policy",
             value: "camera=(), microphone=(), geolocation=()",
+          },
+          {
+            key: "Strict-Transport-Security",
+            value: "max-age=63072000; includeSubDomains; preload",
+          },
+          {
+            key: "Cross-Origin-Opener-Policy",
+            value: "same-origin",
           },
           {
             key: "Content-Security-Policy",

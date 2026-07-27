@@ -1,0 +1,21 @@
+title = "mythos"
+
+[extend]
+# Use default gitleaks rules
+
+[allowlist]
+description = "Noise paths that produce false positives in local scans"
+paths = [
+  '''(^|/)\.git/''',
+  '''(^|/)node_modules/''',
+  '''(^|/)\.pnpm-store/''',
+  '''(^|/)\.history/''',
+  '''(^|/)\.next/''',
+  '''(^|/)coverage/''',
+  '''(^|/)dist/''',
+  '''(^|/)apps/api/target/''',
+  '''(^|/)pnpm-lock\.yaml$''',
+  '''(^|/)package-lock\.json$''',
+  '''(^|/)docs/audits/''',
+  '''(^|/)\.audit-report\.md$''',
+]

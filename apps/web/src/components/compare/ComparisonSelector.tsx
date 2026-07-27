@@ -1,11 +1,11 @@
-'use client';
+"use client";
 
-import { useState, useMemo } from 'react';
-import { Search, Plus, X } from 'lucide-react';
-import { Input } from '@/components/ui/input';
-import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
-import type { Deity } from './ComparisonCard';
+import { useState, useMemo } from "react";
+import { Search, Plus, X } from "lucide-react";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import type { Deity } from "./ComparisonCard";
 
 interface ComparisonSelectorProps {
   deities: Deity[];
@@ -24,11 +24,14 @@ export function ComparisonSelector({
   maxSelection = 4,
   pantheons,
 }: ComparisonSelectorProps) {
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchQuery, setSearchQuery] = useState("");
   const [selectedPantheon, setSelectedPantheon] = useState<string | null>(null);
   const [isOpen, setIsOpen] = useState(false);
 
-  const selectedIds = useMemo(() => new Set(selectedDeities.map(d => d.id)), [selectedDeities]);
+  const selectedIds = useMemo(
+    () => new Set(selectedDeities.map((d) => d.id)),
+    [selectedDeities],
+  );
 
   const filteredDeities = useMemo(() => {
     return deities.filter((deity) => {
@@ -36,14 +39,19 @@ export function ComparisonSelector({
       if (selectedIds.has(deity.id)) return false;
 
       // Filter by pantheon
-      if (selectedPantheon && deity.pantheonId !== selectedPantheon) return false;
+      if (selectedPantheon && deity.pantheonId !== selectedPantheon)
+        return false;
 
       // Filter by search query
       if (searchQuery) {
         const query = searchQuery.toLowerCase();
         const matchesName = deity.name.toLowerCase().includes(query);
-        const matchesAltNames = deity.alternateNames?.some(n => n.toLowerCase().includes(query));
-        const matchesDomain = deity.domain.some(d => d.toLowerCase().includes(query));
+        const matchesAltNames = deity.alternateNames?.some((n) =>
+          n.toLowerCase().includes(query),
+        );
+        const matchesDomain = deity.domain.some((d) =>
+          d.toLowerCase().includes(query),
+        );
         return matchesName || matchesAltNames || matchesDomain;
       }
 
@@ -54,14 +62,19 @@ export function ComparisonSelector({
   const handleSelect = (deity: Deity) => {
     if (selectedDeities.length < maxSelection) {
       onSelect(deity);
-      setSearchQuery('');
+      setSearchQuery("");
       setIsOpen(false);
     }
   };
 
   const getPantheonName = (pantheonId: string) => {
-    const pantheon = pantheons.find(p => p.id === pantheonId);
-    return pantheon?.name || pantheonId.replace('-pantheon', '').replaceAll(/\b\w/g, c => c.toUpperCase());
+    const pantheon = pantheons.find((p) => p.id === pantheonId);
+    return (
+      pantheon?.name ||
+      pantheonId
+        .replace("-pantheon", "")
+        .replaceAll(/\b\w/g, (c) => c.toUpperCase())
+    );
   };
 
   return (
@@ -78,7 +91,7 @@ export function ComparisonSelector({
               {deity.name}
               <button
                 onClick={() => onRemove(deity.id)}
-                className="hover:text-destructive transition-colors"
+                className="inline-flex min-h-6 min-w-6 items-center justify-center rounded-sm hover:text-destructive transition-colors"
                 aria-label={`Remove ${deity.name}`}
               >
                 <X className="h-3.5 w-3.5" />
@@ -99,7 +112,7 @@ export function ComparisonSelector({
           {/* Pantheon Filter */}
           <div className="flex flex-wrap gap-2">
             <Button
-              variant={selectedPantheon === null ? 'default' : 'outline'}
+              variant={selectedPantheon === null ? "default" : "outline"}
               size="sm"
               onClick={() => setSelectedPantheon(null)}
             >
@@ -108,19 +121,26 @@ export function ComparisonSelector({
             {pantheons.map((pantheon) => (
               <Button
                 key={pantheon.id}
-                variant={selectedPantheon === pantheon.id ? 'default' : 'outline'}
+                variant={
+                  selectedPantheon === pantheon.id ? "default" : "outline"
+                }
                 size="sm"
                 onClick={() => setSelectedPantheon(pantheon.id)}
               >
-                {pantheon.name.replace(' Pantheon', '')}
+                {pantheon.name.replace(" Pantheon", "")}
               </Button>
             ))}
           </div>
 
           {/* Search Input */}
           <div className="relative">
-            <label htmlFor="compare-deity-search" className="sr-only">Search deities for comparison</label>
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" aria-hidden="true" />
+            <label htmlFor="compare-deity-search" className="sr-only">
+              Search deities for comparison
+            </label>
+            <Search
+              className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground"
+              aria-hidden="true"
+            />
             <Input
               id="compare-deity-search"
               type="text"
@@ -157,7 +177,7 @@ export function ComparisonSelector({
                           </span>
                           {deity.domain.length > 0 && (
                             <p className="text-sm text-muted-foreground mt-0.5">
-                              {deity.domain.slice(0, 3).join(', ')}
+                              {deity.domain.slice(0, 3).join(", ")}
                             </p>
                           )}
                         </div>

@@ -68,26 +68,10 @@ interface KnowledgeGraphProps {
   onNodeClick?: (deityId: string, slug: string) => void;
 }
 
-// Pantheon color mapping
-const PANTHEON_COLORS: Record<string, string> = {
-  "greek-pantheon": "#3b82f6", // Blue
-  "norse-pantheon": "#10b981", // Emerald
-  "egyptian-pantheon": "#f59e0b", // Amber
-  "roman-pantheon": "#ef4444", // Red
-  "hindu-pantheon": "#8b5cf6", // Purple
-  "japanese-pantheon": "#ec4899", // Pink
-  "celtic-pantheon": "#14b8a6", // Teal
-  "aztec-pantheon": "#f97316", // Orange
-  "chinese-pantheon": "#eab308", // Yellow
-  "mesopotamian-pantheon": "#a16207", // Clay/Bronze
-  "african-pantheon": "#7c3aed", // Violet
-  "polynesian-pantheon": "#06b6d4", // Cyan
-  "mesoamerican-pantheon": "#65a30d", // Lime
-};
+import { PANTHEON_COLORS, getPantheonColor } from "@/lib/pantheon-colors";
 
-const getPantheonColor = (pantheonId: string): string => {
-  return PANTHEON_COLORS[pantheonId] || "#6b7280";
-};
+// Re-export for callers that import colors from this module
+export { PANTHEON_COLORS, getPantheonColor };
 
 // Get edge style based on relationship type
 const getEdgeStyle = (
@@ -520,18 +504,51 @@ export function KnowledgeGraph(props: KnowledgeGraphProps) {
     null,
   );
 
+  const listDeities = useMemo(() => {
+    return props.deities
+      .filter((d) => props.selectedPantheons.has(d.pantheonId))
+      .slice()
+      .sort((a, b) => a.name.localeCompare(b.name));
+  }, [props.deities, props.selectedPantheons]);
+
   return (
-    <div className="w-full h-full">
-      <ReactFlowProvider>
-        <KnowledgeGraphInner
-          {...props}
-          highlightedNodeId={highlightedNodeId}
-          setHighlightedNodeId={setHighlightedNodeId}
-        />
-      </ReactFlowProvider>
+    <div
+      className="flex h-full w-full flex-col gap-3 lg:flex-row"
+      role="region"
+      aria-label="Knowledge graph of deity relationships"
+    >
+      <nav
+        aria-label="Deities in this graph"
+        className="max-h-40 shrink-0 overflow-y-auto rounded-lg border border-border bg-card/80 p-3 lg:max-h-none lg:w-56"
+      >
+        <p className="mb-2 text-xs font-medium text-muted-foreground">
+          Keyboard list ({listDeities.length})
+        </p>
+        <ul className="space-y-1">
+          {listDeities.map((deity) => (
+            <li key={deity.id}>
+              <button
+                type="button"
+                className="w-full rounded-md px-2 py-1.5 text-left text-sm text-foreground hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold/50"
+                onClick={() => props.onNodeClick?.(deity.id, deity.slug)}
+                onFocus={() => setHighlightedNodeId(deity.id)}
+                onBlur={() => setHighlightedNodeId(null)}
+              >
+                {deity.name}
+              </button>
+            </li>
+          ))}
+        </ul>
+      </nav>
+      <div className="min-h-0 min-w-0 flex-1">
+        <ReactFlowProvider>
+          <KnowledgeGraphInner
+            {...props}
+            highlightedNodeId={highlightedNodeId}
+            setHighlightedNodeId={setHighlightedNodeId}
+          />
+        </ReactFlowProvider>
+      </div>
     </div>
   );
 }
-
-// Export pantheon colors for legend
-export { PANTHEON_COLORS, getPantheonColor };

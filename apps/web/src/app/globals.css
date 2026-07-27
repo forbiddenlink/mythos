@@ -65,7 +65,9 @@
    ═══════════════════════════════════════════════════════════════════ */
 
 :root {
+  color-scheme: light;
   --radius: 0.5rem;
+  --cookie-banner-offset: 0px;
 
   /* Core palette - warm parchment light theme */
   --background: oklch(0.97 0.008 85);
@@ -136,7 +138,13 @@
   --sidebar-ring: oklch(0.65 0.12 70);
 }
 
+html.cookie-banner-open {
+  --cookie-banner-offset: 7.5rem;
+  scroll-padding-bottom: var(--cookie-banner-offset);
+}
+
 .dark {
+  color-scheme: dark;
   /* Core palette - deep midnight theme */
   --background: oklch(0.14 0.03 265);
   --foreground: oklch(0.92 0.015 85);

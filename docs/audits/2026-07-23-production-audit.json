@@ -1,0 +1,38 @@
+{
+  "timestamp": "2026-07-23T13:32:07Z",
+  "stack": ["node", "pnpm", "github-actions", "vercel"],
+  "summary": {
+    "passed": 56,
+    "failed": 15,
+    "skipped": 2,
+    "critical": 2,
+    "high": 2,
+    "medium": 6,
+    "low": 5
+  },
+  "findings": {
+    "critical": [
+      "[security] no-hardcoded-secrets: Hardcoded API keys/tokens found in source code",
+      "[git] no-conflict-markers: Unresolved merge conflict markers found"
+    ],
+    "high": [
+      "[security] no-sensitive-logs: Sensitive data potentially logged",
+      "[privacy] pii-protection: Potentially unencrypted PII storage detected"
+    ],
+    "medium": [
+      "[testing] e2e-tests-exist: No E2E test directory found",
+      "[testing] e2e-config: No E2E test framework configured",
+      "[performance] no-large-media: 147 media files over 500KB",
+      "[seo] robots-txt: No robots.txt found",
+      "[errors] error-tracking: No error tracking service configured",
+      "[observability] structured-logging: No structured logging library found"
+    ],
+    "low": [
+      "[quality] todo-count: 11748 TODO/FIXME comments found",
+      "[performance] no-heavy-deps: Heavy dependencies detected (moment, lodash, material-ui) - consider alternatives",
+      "[a11y] a11y-linting: eslint-plugin-jsx-a11y not installed",
+      "[runtime] circuit-breaker: No circuit breaker pattern for external services",
+      "[observability] perf-monitoring: No performance monitoring"
+    ]
+  }
+}

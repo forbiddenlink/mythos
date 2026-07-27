@@ -100,3 +100,5 @@ supabase/.temp/
 
 # Build output
 dist/
+.vercel
+.audit-report.md

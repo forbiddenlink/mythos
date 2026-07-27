@@ -1,9 +1,9 @@
-import type { Metadata } from 'next';
-import { notFound } from 'next/navigation';
-import locations from '@/data/locations.json';
-import pantheons from '@/data/pantheons.json';
-import { generateBaseMetadata } from '@/lib/metadata';
-import { LocationPageClient } from './LocationPageClient';
+import type { Metadata } from "next";
+import { notFound } from "next/navigation";
+import locations from "@/data/locations.json";
+import pantheons from "@/data/pantheons.json";
+import { generateBaseMetadata, generateNotFoundMetadata } from "@/lib/metadata";
+import { LocationPageClient } from "./LocationPageClient";
 
 interface LocationData {
   id: string;
@@ -28,40 +28,46 @@ export async function generateStaticParams() {
 }
 
 // Generate metadata for each location page
-export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: PageProps): Promise<Metadata> {
   const { slug } = await params;
-  const location = locations.find((l) => l.id === slug) as LocationData | undefined;
+  const location = locations.find((l) => l.id === slug) as
+    | LocationData
+    | undefined;
 
   if (!location) {
-    return generateBaseMetadata({
-      title: 'Location Not Found',
-      description: 'The requested location could not be found.',
-    });
+    return generateNotFoundMetadata(
+      "Location Not Found",
+      "The requested location could not be found.",
+    );
   }
 
   const pantheon = pantheons.find((p) => p.id === location.pantheonId);
-  const pantheonName = pantheon?.name || 'Ancient';
-  const locationType = location.locationType?.replaceAll('_', ' ') || 'location';
+  const pantheonName = pantheon?.name || "Ancient";
+  const locationType =
+    location.locationType?.replaceAll("_", " ") || "location";
 
-  const description = location.description?.slice(0, 160)
-    || `Explore ${location.name}, a mythological ${locationType} from ${pantheonName} traditions.`;
+  const description =
+    location.description?.slice(0, 160) ||
+    `Explore ${location.name}, a mythological ${locationType} from ${pantheonName} traditions.`;
 
   return generateBaseMetadata({
     title: `${location.name} - ${pantheonName} Location`,
     description,
     url: `/locations/${location.id}`,
-    image: location.imageUrl || '/og-image.png',
-    type: 'article',
+    image: location.imageUrl || "/og-image.png",
+    type: "article",
     keywords: [
       location.name,
       locationType,
       pantheonName,
-      'mythology',
-      'mythological location',
-      'sacred place',
-      'ancient world',
+      "mythology",
+      "mythological location",
+      "sacred place",
+      "ancient world",
     ],
-    articleSection: 'Locations',
+    articleSection: "Locations",
     articleTags: [locationType, pantheonName],
   });
 }

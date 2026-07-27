@@ -101,9 +101,36 @@ export default function TermsOfServicePage() {
             Modifications
           </h2>
           <p className="mt-4 text-muted-foreground">
-            We may revise these terms of service at any time without notice. By
-            using this website you are agreeing to be bound by the current
-            version of these terms of service.
+            We may revise these terms as the project evolves. Material changes
+            will be noted on the{" "}
+            <Link
+              href="/changelog"
+              className="text-gold underline hover:text-gold/80"
+            >
+              changelog
+            </Link>{" "}
+            and by updating the &quot;Last updated&quot; date on this page.
+            Continued use of the site after changes constitutes acceptance of
+            the revised terms.
+          </p>
+        </section>
+
+        <section className="mb-8">
+          <h2 className="font-display text-2xl font-semibold text-foreground">
+            Governing Law
+          </h2>
+          <p className="mt-4 text-muted-foreground">
+            These terms are governed by the laws of the United States, excluding
+            conflict-of-law rules. If a dispute arises, the parties will first
+            attempt to resolve it informally via the{" "}
+            <Link
+              href="/contact"
+              className="text-gold underline hover:text-gold/80"
+            >
+              contact page
+            </Link>
+            . Nothing in these terms limits rights you may have under mandatory
+            consumer protection laws in your jurisdiction.
           </p>
         </section>
 

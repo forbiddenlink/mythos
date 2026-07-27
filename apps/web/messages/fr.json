@@ -59,12 +59,9 @@
       "title": "Mythos Atlas",
       "subtitle": "Encyclopédie de Mythologie Ancienne",
       "description": "Explorez la mythologie ancienne à travers des arbres généalogiques interactifs, des analyses comparatives et des récits épiques des civilisations grecque, nordique, égyptienne et du monde entier.",
-      "heroTitle": "Voyagez à travers la Mythologie Ancienne",
-      "heroSubtitle": "Découvrez dieux, héros et légendes de cultures du monde entier",
-      "featuredPantheons": "Panthéons en Vedette",
       "popularDeities": "Divinités Populaires",
       "recentStories": "Histoires Récentes",
-      "startExploring": "Commencer l'Exploration"
+      "localeNote": "La navigation et l’Oracle suivent votre langue. Les pages encyclopédiques restent en anglais pour le moment."
     },
     "pantheons": {
       "title": "Panthéons",
@@ -257,6 +254,7 @@
     "fabOpen": "Interroger l'Oracle",
     "title": "Oracle de Delphes",
     "subtitle": "Ancré dans l'Atlas lorsque votre sujet correspond à notre catalogue",
+    "aiDisclosure": "Propulsé par Anthropic Claude. Les réponses sont générées par l'IA et peuvent être incomplètes ou incorrectes — vérifiez les faits importants dans l'encyclopédie.",
     "close": "Fermer l'Oracle",
     "greeting": "Salutations, chercheur de sagesse. Quels mystères du monde antique souhaitez-vous éclaircir ?",
     "tryAsking": "Essayez par exemple :",

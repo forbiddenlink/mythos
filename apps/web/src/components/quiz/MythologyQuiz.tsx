@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, type ReactNode } from "react";
+import { useState, useEffect, useRef, type ReactNode } from "react";
 import {
   Card,
   CardContent,
@@ -24,6 +24,7 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import { ShareButton } from "@/components/sharing/ShareButton";
+import { useProgress } from "@/hooks/use-progress";
 import deitiesData from "@/data/deities.json";
 import relationshipsData from "@/data/relationships.json";
 
@@ -55,6 +56,8 @@ interface Question {
 }
 
 export function MythologyQuiz() {
+  const { recordQuizScore, trackQuizCompletion } = useProgress();
+  const recordedCompletion = useRef(false);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [score, setScore] = useState(0);
   const [highScore, setHighScore] = useState(0);
@@ -69,6 +72,13 @@ export function MythologyQuiz() {
     // eslint-disable-next-line react-hooks/set-state-in-effect -- hydrate high score from localStorage
     if (saved) setHighScore(Number.parseInt(saved));
   }, []);
+
+  useEffect(() => {
+    if (!quizCompleted || recordedCompletion.current) return;
+    recordedCompletion.current = true;
+    recordQuizScore("mythology-quiz", score);
+    trackQuizCompletion(score);
+  }, [quizCompleted, score, recordQuizScore, trackQuizCompletion]);
 
   const deities = deitiesData as Deity[];
   const relationships = relationshipsData as Relationship[];
@@ -369,7 +379,7 @@ export function MythologyQuiz() {
           )}
 
           <div
-            role="radiogroup"
+            role="group"
             aria-label="Select your answer"
             aria-describedby="quiz-question"
             className="grid gap-3"
@@ -388,8 +398,8 @@ export function MythologyQuiz() {
               return (
                 <Button
                   key={option}
-                  role="radio"
-                  aria-checked={isSelected}
+                  type="button"
+                  aria-pressed={isSelected}
                   aria-disabled={showResult}
                   variant={buttonVariant}
                   className={`w-full justify-between items-center h-auto py-4 px-5 text-lg group transition-all duration-200 ${
