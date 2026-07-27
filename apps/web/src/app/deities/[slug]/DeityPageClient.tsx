@@ -268,6 +268,21 @@ export function DeityPageClient({ slug }: DeityPageClientProps) {
                       Also known as: {deity.alternateNames.join(", ")}
                     </p>
                   )}
+                  {deity.domain && deity.domain.length > 0 && (
+                    <ul
+                      className="mt-3 flex flex-wrap gap-2"
+                      aria-label="Domains"
+                    >
+                      {deity.domain.map((d) => (
+                        <li
+                          key={d}
+                          className="rounded-full border border-gold/40 bg-gold/10 px-3 py-1 text-xs font-medium uppercase tracking-wider text-gold-light backdrop-blur-sm"
+                        >
+                          {d}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
                   <EditorialByline className="mt-3 max-w-2xl" tone="light" />
                 </div>
                 <BookmarkButton
