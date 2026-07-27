@@ -12,6 +12,7 @@ import {
   GraduationCap,
   Library,
   MapPin,
+  Orbit,
   Route,
   Scroll,
   Trophy,
@@ -65,6 +66,12 @@ const exploreMenu: MenuSection = {
 const discoverMenu: MenuSection = {
   label: "Discover",
   items: [
+    {
+      label: "Aether Map",
+      href: "/atlas",
+      description: "Every deity as a star in one navigable sky",
+      icon: <Orbit className="h-4 w-4" />,
+    },
     {
       label: "Collections",
       href: "/collections",
