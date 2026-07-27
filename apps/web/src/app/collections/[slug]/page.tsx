@@ -23,6 +23,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
 import { generateBaseMetadata, generateNotFoundMetadata } from "@/lib/metadata";
+import { RosettaWheel } from "@/components/collections/RosettaWheel";
 import collections from "@/data/collections.json";
 import deities from "@/data/deities.json";
 import stories from "@/data/stories.json";
@@ -250,6 +251,16 @@ export default async function CollectionPage({ params }: PageProps) {
             read once the broad shape of the theme is clear.
           </p>
         </section>
+
+        {/* Cross-pantheon archetype wheel */}
+        <RosettaWheel
+          archetype={collection.name}
+          deities={collectionDeities.map((d) => ({
+            name: d.name,
+            slug: d.slug,
+            pantheonId: d.pantheonId,
+          }))}
+        />
 
         {/* Deities Section */}
         {collectionDeities.length > 0 && (
