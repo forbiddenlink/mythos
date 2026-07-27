@@ -18,7 +18,12 @@ export function InstallPrompt() {
 
   useEffect(() => {
     // Check if user has dismissed the prompt before
-    const dismissed = localStorage.getItem("mythos-pwa-dismissed");
+    let dismissed: string | null = null;
+    try {
+      dismissed = localStorage.getItem("mythos-pwa-dismissed");
+    } catch {
+      /* blocked */
+    }
     if (dismissed) {
       // eslint-disable-next-line react-hooks/set-state-in-effect -- hydrate dismissed state from localStorage
       setIsDismissed(true);
@@ -37,7 +42,11 @@ export function InstallPrompt() {
     const handleAppInstalled = () => {
       setDeferredPrompt(null);
       setIsVisible(false);
-      localStorage.setItem("mythos-pwa-installed", "true");
+      try {
+        localStorage.setItem("mythos-pwa-installed", "true");
+      } catch {
+        /* blocked */
+      }
     };
 
     globalThis.addEventListener(
@@ -75,7 +84,11 @@ export function InstallPrompt() {
   const handleDismiss = useCallback(() => {
     setIsVisible(false);
     setIsDismissed(true);
-    localStorage.setItem("mythos-pwa-dismissed", "true");
+    try {
+      localStorage.setItem("mythos-pwa-dismissed", "true");
+    } catch {
+      /* blocked */
+    }
   }, []);
 
   if (!isVisible || isDismissed || !deferredPrompt) {

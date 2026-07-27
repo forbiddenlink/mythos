@@ -27,7 +27,12 @@ export function CookieConsent() {
     };
     window.addEventListener("mythos-cookie-consent-open", openHandler);
 
-    const stored = localStorage.getItem(COOKIE_CONSENT_KEY);
+    let stored: string | null = null;
+    try {
+      stored = localStorage.getItem(COOKIE_CONSENT_KEY);
+    } catch {
+      // localStorage blocked (SecurityError in strict browsers/iframes)
+    }
     if (stored === "accepted" || stored === "rejected") {
       hasConsentedRef.current = true;
       return () =>
@@ -49,14 +54,22 @@ export function CookieConsent() {
   }, [isVisible]);
 
   const handleAccept = useCallback(() => {
-    localStorage.setItem(COOKIE_CONSENT_KEY, "accepted");
+    try {
+      localStorage.setItem(COOKIE_CONSENT_KEY, "accepted");
+    } catch {
+      /* blocked */
+    }
     hasConsentedRef.current = true;
     setIsVisible(false);
     notifyCookieConsentChanged();
   }, []);
 
   const handleReject = useCallback(() => {
-    localStorage.setItem(COOKIE_CONSENT_KEY, "rejected");
+    try {
+      localStorage.setItem(COOKIE_CONSENT_KEY, "rejected");
+    } catch {
+      /* blocked */
+    }
     hasConsentedRef.current = true;
     setIsVisible(false);
     notifyCookieConsentChanged();

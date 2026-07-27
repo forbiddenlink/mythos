@@ -50,7 +50,11 @@ export function LanguageSwitcher() {
     document.cookie = `locale=${locale};path=/;max-age=31536000;SameSite=Lax`;
 
     // Store in localStorage as backup
-    localStorage.setItem("locale", locale);
+    try {
+      localStorage.setItem("locale", locale);
+    } catch {
+      /* blocked */
+    }
 
     setIsOpen(false);
 
