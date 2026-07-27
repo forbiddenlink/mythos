@@ -55,6 +55,7 @@ import ReactMarkdown from "react-markdown";
 import { PronunciationDisplay } from "@/components/ui/pronunciation";
 import { EditorialByline } from "@/components/content/EditorialByline";
 import { normalizeDeityReference } from "@/lib/deities";
+import { getPantheonColor } from "@/lib/pantheon-colors";
 import {
   SourceExcerptsList,
   ReferencesList,
@@ -391,47 +392,53 @@ export function DeityPageClient({ slug }: DeityPageClientProps) {
                     </CardHeader>
                     <CardContent>
                       <ul className="space-y-4">
-                        {deity.crossPantheonParallels.map((parallel) => (
-                          <li
-                            key={parallel.deityId}
-                            className="border-l-2 border-gold/30 pl-4"
-                          >
-                            {(() => {
-                              const relatedDeity = deityReferenceMap.get(
-                                normalizeDeityReference(parallel.deityId),
-                              );
+                        {deity.crossPantheonParallels.map((parallel) => {
+                          const relatedDeity = deityReferenceMap.get(
+                            normalizeDeityReference(parallel.deityId),
+                          );
+                          const pantheonColor = getPantheonColor(
+                            parallel.pantheonId,
+                          );
+                          const pantheonLabel = formatSlugAsTitle(
+                            parallel.pantheonId.replace(/-pantheon$/, ""),
+                          );
 
-                              return (
-                                <>
-                                  <div className="flex items-baseline gap-2">
-                                    {relatedDeity ? (
-                                      <Link
-                                        href={`/deities/${relatedDeity.slug}`}
-                                        className="text-gold hover:text-amber-600 dark:hover:text-amber-400 font-medium transition-colors"
-                                      >
-                                        {relatedDeity.name}
-                                      </Link>
-                                    ) : (
-                                      <span className="font-medium text-foreground">
-                                        {formatSlugAsTitle(
-                                          normalizeDeityReference(
-                                            parallel.deityId,
-                                          ),
-                                        )}
-                                      </span>
+                          return (
+                            <li
+                              key={parallel.deityId}
+                              className="border-l-2 pl-4"
+                              style={{ borderColor: pantheonColor }}
+                            >
+                              <div className="flex flex-wrap items-baseline gap-x-2 gap-y-1">
+                                {relatedDeity ? (
+                                  <Link
+                                    href={`/deities/${relatedDeity.slug}`}
+                                    className="font-medium text-foreground hover:text-gold transition-colors"
+                                  >
+                                    {relatedDeity.name}
+                                  </Link>
+                                ) : (
+                                  <span className="font-medium text-foreground">
+                                    {formatSlugAsTitle(
+                                      normalizeDeityReference(parallel.deityId),
                                     )}
-                                    <span className="text-muted-foreground text-sm">
-                                      ({parallel.pantheonId})
-                                    </span>
-                                  </div>
-                                  <p className="text-muted-foreground text-sm mt-1">
-                                    {parallel.note}
-                                  </p>
-                                </>
-                              );
-                            })()}
-                          </li>
-                        ))}
+                                  </span>
+                                )}
+                                <span className="inline-flex items-center gap-1.5 text-xs uppercase tracking-wide text-muted-foreground">
+                                  <span
+                                    className="inline-block size-2 rounded-full"
+                                    style={{ backgroundColor: pantheonColor }}
+                                    aria-hidden
+                                  />
+                                  {pantheonLabel}
+                                </span>
+                              </div>
+                              <p className="text-muted-foreground text-sm mt-1">
+                                {parallel.note}
+                              </p>
+                            </li>
+                          );
+                        })}
                       </ul>
                     </CardContent>
                   </Card>

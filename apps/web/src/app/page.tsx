@@ -28,6 +28,14 @@ export const metadata = generateBaseMetadata({
 export default function Home() {
   return (
     <div className="min-h-screen">
+      {/* Preload the hero background so it stops being a ~8s LCP (CSS bg images
+          are discovered late + fetched at low priority otherwise). */}
+      <link
+        rel="preload"
+        as="image"
+        href="/hero-columns.webp"
+        fetchPriority="high"
+      />
       <WebSiteJsonLd searchActionTarget="https://mythosatlas.com/?search={search_term_string}" />
       <HeroSection />
       <PantheonShowcase />
