@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { generateBaseMetadata } from "@/lib/metadata";
 import { OracleConsult } from "@/components/oracle/OracleConsult";
+import { ParchmentShaderBackground } from "@/components/effects/ParchmentShaderBackground";
 
 export const metadata: Metadata = generateBaseMetadata({
   title: "The Oracle of Delphi",
@@ -23,15 +24,9 @@ const oracleEnabled = process.env.NEXT_PUBLIC_ORACLE_ENABLED === "true";
 export default function OraclePage() {
   return (
     <div className="relative min-h-screen overflow-hidden bg-midnight text-parchment">
-      {/* Atmospheric temple glow */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 -z-10"
-        style={{
-          background:
-            "radial-gradient(900px 500px at 50% -5%, rgba(212,175,55,0.16), transparent 60%), linear-gradient(to bottom, #0b0c14, #0b0c14)",
-        }}
-      />
+      {/* Atmospheric temple background — GLSL parchment/candlelight, with a
+          matching static gradient fallback baked in for SSR and low-power. */}
+      <ParchmentShaderBackground />
 
       <div className="container mx-auto max-w-4xl px-6 py-20 sm:py-28">
         {/* Invocation */}
