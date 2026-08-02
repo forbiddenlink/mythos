@@ -18,6 +18,29 @@ interface _Fact {
   relatedDeities: string[];
 }
 
+/**
+ * Deterministic Fisher-Yates shuffle seeded by a number. Same seed always
+ * yields the same order, so it is safe to call during render (pure, SSR-stable)
+ * — unlike Math.random, which would desync server and client output.
+ */
+function seededShuffle<T>(items: readonly T[], seed: number): T[] {
+  const out = [...items];
+  let state = (seed + 1) * 0x9e3779b1;
+  const next = () => {
+    // mulberry32 PRNG
+    state |= 0;
+    state = (state + 0x6d2b79f5) | 0;
+    let t = Math.imul(state ^ (state >>> 15), 1 | state);
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+  for (let i = out.length - 1; i > 0; i--) {
+    const j = Math.floor(next() * (i + 1));
+    [out[i], out[j]] = [out[j], out[i]];
+  }
+  return out;
+}
+
 const categoryLabels: Record<string, string> = {
   connections: "Cross-Cultural",
   language: "Word Origins",
@@ -60,9 +83,10 @@ export function FactsPageClient() {
       ? facts.filter((f) => f.category === selectedCategory)
       : facts;
 
-    // Shuffle based on shuffleKey
-    return [...filtered].sort(() => Math.random() - 0.5);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    // Deterministic shuffle seeded by shuffleKey: keeps render pure (no
+    // Math.random during render → no SSR/hydration mismatch) while each
+    // shuffle press still reorders the list.
+    return seededShuffle(filtered, shuffleKey);
   }, [selectedCategory, shuffleKey]);
 
   const getDeityInfo = (ids: string[]) =>

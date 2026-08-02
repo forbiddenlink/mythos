@@ -29,6 +29,7 @@ export function PronunciationDisplay({
   const [isPlaying, setIsPlaying] = React.useState(false);
 
   React.useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- feature-detect speechSynthesis on client mount
     setAudioSupported(
       globalThis.window !== undefined && "speechSynthesis" in globalThis,
     );

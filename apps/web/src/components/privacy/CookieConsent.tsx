@@ -20,6 +20,7 @@ export function CookieConsent() {
   }, []);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- read the browser GPC signal once on client mount
     setGpcActive(hasGlobalPrivacyControl());
 
     const openHandler = () => {

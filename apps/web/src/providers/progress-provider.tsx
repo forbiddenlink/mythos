@@ -139,6 +139,7 @@ export function ProgressProvider({
   // Hydration-safe: load from localStorage on client mount
   useLayoutEffect(() => {
     const initialProgress = loadProgress();
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- hydration-safe: seed state from localStorage on client mount
     setProgress(initialProgress);
     saveProgress(initialProgress);
     setMounted(true);
@@ -154,6 +155,7 @@ export function ProgressProvider({
   // Update streak on mount
   useEffect(() => {
     if (mounted) {
+      // eslint-disable-next-line react-hooks/immutability -- updateStreak runs once after mount; the compiler's ordering check is a false positive
       updateStreak();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps

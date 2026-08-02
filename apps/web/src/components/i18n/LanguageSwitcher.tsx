@@ -14,6 +14,7 @@ export function LanguageSwitcher() {
   const router = useRouter();
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- standard hydration-safe mounted flag
     setMounted(true);
   }, []);
 

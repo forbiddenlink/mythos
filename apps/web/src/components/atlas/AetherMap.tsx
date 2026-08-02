@@ -212,6 +212,7 @@ export function AetherMap() {
   const [useCanvas, setUseCanvas] = useState(false);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- client-only gate: mount the WebGL scene after hydration
     setReady(true);
     const reduced = window.matchMedia(
       "(prefers-reduced-motion: reduce)",

@@ -215,6 +215,7 @@ export function SymbolMemoryGame() {
     const saved = localStorage.getItem("mythos_memory_best_times");
     if (saved) {
       try {
+        // eslint-disable-next-line react-hooks/set-state-in-effect -- hydration: load persisted best times from localStorage on client mount
         setBestTimes(JSON.parse(saved));
       } catch {
         // Ignore parse errors
@@ -290,6 +291,7 @@ export function SymbolMemoryGame() {
 
   // Initialize game when data loads or difficulty changes
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- deal a fresh board when data loads or difficulty changes
     initializeGame();
   }, [difficulty, initializeGame]);
 
