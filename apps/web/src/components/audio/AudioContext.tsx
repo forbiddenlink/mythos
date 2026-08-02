@@ -29,6 +29,27 @@ const PANTHEON_TRACKS: Record<string, string> = {
   default: "/audio/ambient/default.mp3",
 };
 
+/**
+ * Resolve the ambient track key for a route. Pantheon hub pages use slugs in
+ * the URL (/pantheons/greek) while the track keys are ids (greek-pantheon), so
+ * the two never matched — the ambience always fell back to the default track.
+ * Map the slug to its id, then fall back to a direct key-in-path check.
+ */
+function resolvePantheonTrackKey(pathname: string | null): string | null {
+  if (!pathname) return null;
+  const hub = pathname.match(/^\/pantheons\/([a-z0-9-]+)/);
+  if (hub) {
+    const key = `${hub[1]}-pantheon`;
+    if (key in PANTHEON_TRACKS) return key;
+  }
+  for (const key of Object.keys(PANTHEON_TRACKS)) {
+    if (key !== "default" && pathname.includes(key)) return key;
+  }
+  // Unrecognized route (a deity, story, or generic page): don't switch —
+  // let whatever pantheon ambience is playing carry over for continuity.
+  return null;
+}
+
 // Deity domain to sound effect mapping
 const DOMAIN_EFFECTS: Record<string, string> = {
   sky: "/audio/effects/thunder.mp3",
@@ -172,28 +193,16 @@ export function AudioProvider({ children }: { children: React.ReactNode }) {
     // Only process track changes if Howler is loaded and audio is unmuted
     if (!howlerLoaded || isMuted) {
       // Track the current pantheon for when user unmutes
-      let foundPantheon = "default";
-      for (const key of Object.keys(PANTHEON_TRACKS)) {
-        if (pathname?.includes(key)) {
-          foundPantheon = key;
-          break;
-        }
-      }
-      if (foundPantheon !== currentTrack) {
+      const foundPantheon = resolvePantheonTrackKey(pathname);
+      if (foundPantheon && foundPantheon !== currentTrack) {
+        // eslint-disable-next-line react-hooks/set-state-in-effect -- remember the route's pantheon so it plays when the user unmutes
         setCurrentTrack(foundPantheon);
       }
       return;
     }
 
-    let foundPantheon = "default";
-    for (const key of Object.keys(PANTHEON_TRACKS)) {
-      if (pathname?.includes(key)) {
-        foundPantheon = key;
-        break;
-      }
-    }
-
-    if (foundPantheon !== currentTrack) {
+    const foundPantheon = resolvePantheonTrackKey(pathname);
+    if (foundPantheon && foundPantheon !== currentTrack) {
       playTrack(foundPantheon);
     }
   }, [pathname, playTrack, currentTrack, isMuted, howlerLoaded]);
