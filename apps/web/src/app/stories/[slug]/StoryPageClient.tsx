@@ -327,6 +327,16 @@ export function StoryPageClient({ slug }: StoryPageClientProps) {
                 <span className="font-semibold">Cinematic Mode</span>
               </Link>
             )}
+
+            {story?.fullNarrative && (
+              <Link
+                href={`/stories/${story.slug}/read`}
+                className="flex items-center gap-2 px-4 py-2 rounded-lg border bg-gold/15 border-gold/40 text-gold hover:bg-gold/25 transition-all"
+              >
+                <ScrollText className="h-4 w-4" />
+                <span className="font-semibold">Read Cinematically</span>
+              </Link>
+            )}
           </div>
         </div>
       </div>
