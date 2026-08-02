@@ -683,7 +683,7 @@ export function DeityPageClient({ slug }: DeityPageClientProps) {
 
           {/* Family Tree */}
           {deityRelationships.length > 0 && (
-            <Card className="">
+            <Card className="reveal-on-scroll">
               <CardHeader>
                 <CardTitle className="font-serif flex items-center gap-2">
                   <Network className="h-5 w-5 text-gold" />

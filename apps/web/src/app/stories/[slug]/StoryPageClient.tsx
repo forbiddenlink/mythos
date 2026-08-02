@@ -358,7 +358,7 @@ export function StoryPageClient({ slug }: StoryPageClientProps) {
         <div className="mt-8 space-y-8">
           {/* Full Narrative */}
           {story.fullNarrative ? (
-            <Card className="border-gold/20 bg-midnight-light/50 overflow-hidden">
+            <Card className="reveal-on-scroll border-gold/20 bg-midnight-light/50 overflow-hidden">
               <CardHeader>
                 <CardTitle className="text-parchment text-2xl font-serif">
                   The Tale

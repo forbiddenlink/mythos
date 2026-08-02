@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState, useRef } from "react";
-import { motion, useMotionValue, useSpring } from "framer-motion";
+import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { Compass } from "lucide-react";
 
 export function CustomCursor() {
@@ -22,6 +22,11 @@ export function CustomCursor() {
   const x = useSpring(cursorX, springConfig);
   const y = useSpring(cursorY, springConfig);
   const rotate = useSpring(rotation, { damping: 20, stiffness: 300 });
+
+  // Torchlight vignette — a large soft glow centered on the pointer (cursor is
+  // offset -16 in moveCursor, so shift by -(size/2 - 16) to center a 720px pool).
+  const torchX = useTransform(x, (v) => v - 344);
+  const torchY = useTransform(y, (v) => v - 344);
 
   useEffect(() => {
     // eslint-disable-next-line react-hooks/set-state-in-effect -- hydration: detect client-side mount and browser capabilities
@@ -106,6 +111,19 @@ export function CustomCursor() {
 
   return (
     <>
+      {/* Torchlight vignette — reading by candlelight */}
+      <motion.div
+        className="fixed top-0 left-0 h-[720px] w-[720px] pointer-events-none z-[9996]"
+        style={{
+          x: torchX,
+          y: torchY,
+          background:
+            "radial-gradient(circle, rgba(212,175,55,0.10) 0%, rgba(212,175,55,0.05) 32%, transparent 66%)",
+          mixBlendMode: "screen",
+        }}
+        aria-hidden="true"
+      />
+
       {/* Main cursor */}
       <motion.div
         ref={cursorRef}
