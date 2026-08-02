@@ -1,7 +1,7 @@
 "use client";
 
-import Link from "next/link";
 import Image from "next/image";
+import { ViewTransitionLink } from "@/components/transitions/ViewTransitionLink";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Sparkles, Users } from "lucide-react";
@@ -83,14 +83,17 @@ export function RelatedDeities({
       <CardContent>
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
           {filledRelated.map(({ deity, label }, index) => (
-            <Link
+            <ViewTransitionLink
               key={deity.id}
               href={`/deities/${deity.slug}`}
               className="group"
             >
               <div className="flex flex-col items-center p-3 rounded-xl border border-border hover:border-gold/50 hover:bg-gold/5 transition-all duration-200">
                 {deity.imageUrl ? (
-                  <div className="relative w-16 h-16 rounded-full overflow-hidden border-2 border-gold/20 group-hover:border-gold/40 transition-colors mb-2">
+                  <div
+                    className="relative w-16 h-16 rounded-full overflow-hidden border-2 border-gold/20 group-hover:border-gold/40 transition-colors mb-2"
+                    style={{ viewTransitionName: `deity-image-${deity.slug}` }}
+                  >
                     <Image
                       src={deity.imageUrl}
                       alt={deity.name}
@@ -116,7 +119,7 @@ export function RelatedDeities({
                   {label}
                 </Badge>
               </div>
-            </Link>
+            </ViewTransitionLink>
           ))}
         </div>
       </CardContent>
