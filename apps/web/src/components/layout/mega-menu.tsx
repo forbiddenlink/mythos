@@ -15,6 +15,7 @@ import {
   Orbit,
   Route,
   Scroll,
+  Sparkles,
   Trophy,
   Users,
 } from "lucide-react";
@@ -71,6 +72,12 @@ const discoverMenu: MenuSection = {
       href: "/atlas",
       description: "Every deity as a star in one navigable sky",
       icon: <Orbit className="h-4 w-4" />,
+    },
+    {
+      label: "The Oracle",
+      href: "/oracle",
+      description: "Ask an AI seer grounded in the Atlas's sources",
+      icon: <Sparkles className="h-4 w-4" />,
     },
     {
       label: "Collections",

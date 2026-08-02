@@ -26,6 +26,8 @@ export const mobileNavSections = [
   {
     title: "Discover",
     links: [
+      { href: "/atlas", label: "Aether Map" },
+      { href: "/oracle", label: "The Oracle" },
       { href: "/collections", label: "Collections" },
       { href: "/compare", label: "Compare Deities" },
       { href: "/knowledge-graph", label: "Knowledge Graph" },
