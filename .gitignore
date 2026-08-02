@@ -84,6 +84,7 @@ temp/
 # Test screenshots (root level only)
 /*.png
 /*.jpg
+/*.jpeg
 
 # TypeScript build info
 *.tsbuildinfo
