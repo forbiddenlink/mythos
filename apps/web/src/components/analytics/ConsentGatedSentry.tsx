@@ -31,7 +31,13 @@ export function ConsentGatedSentry() {
                 process.env.NEXT_PUBLIC_SENTRY_TRACES_SAMPLE_RATE ?? "0.15",
               ) || 0.15,
             debug: false,
-            ignoreErrors: ["closest is not a function"],
+            ignoreErrors: [
+              "closest is not a function",
+              // Blocked storage in in-app webviews / privacy mode. Every app
+              // localStorage access is already try/catch-guarded; this throw
+              // comes from third-party/SDK code and is not actionable.
+              /Failed to read the 'localStorage' property from 'Window'/,
+            ],
             replaysOnErrorSampleRate: replayEnabled ? 1 : 0,
             replaysSessionSampleRate: replayEnabled ? 0.1 : 0,
             integrations: replayEnabled
