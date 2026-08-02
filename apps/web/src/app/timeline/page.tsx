@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Clock3 } from "lucide-react";
 import { PageHero } from "@/components/layout/page-hero";
 import { generateBaseMetadata } from "@/lib/metadata";
+import { AttestationTimeline } from "@/components/timeline/AttestationTimeline";
 import { TimelinePageClient } from "./TimelinePageClient";
 
 export const metadata: Metadata = generateBaseMetadata({
@@ -77,6 +78,9 @@ export default function TimelinePage() {
         </div>
       </section>
       <TimelinePageClient />
+      <section className="container mx-auto max-w-5xl px-4 pb-20">
+        <AttestationTimeline />
+      </section>
     </>
   );
 }

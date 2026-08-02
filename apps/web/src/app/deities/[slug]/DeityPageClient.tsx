@@ -55,6 +55,7 @@ import ReactMarkdown from "react-markdown";
 import { PronunciationDisplay } from "@/components/ui/pronunciation";
 import { EditorialByline } from "@/components/content/EditorialByline";
 import { BloodlineTapestry } from "@/components/deities/BloodlineTapestry";
+import { SourceProvenance } from "@/components/deities/SourceProvenance";
 import { normalizeDeityReference } from "@/lib/deities";
 import { getPantheonColor } from "@/lib/pantheon-colors";
 import {
@@ -459,6 +460,11 @@ export function DeityPageClient({ slug }: DeityPageClientProps) {
                     </CardContent>
                   </Card>
                 )}
+
+              {/* Attestation provenance — confidence derived from corroboration */}
+              <div className="reveal-on-scroll">
+                <SourceProvenance sources={deity.primarySources} />
+              </div>
 
               {/* Primary Source Excerpts (with original language toggle) */}
               {deity.primarySourceExcerpts &&
