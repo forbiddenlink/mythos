@@ -1,4 +1,3 @@
-import { anthropic } from "@ai-sdk/anthropic";
 import { streamText } from "ai";
 import { NextRequest } from "next/server";
 import { z } from "zod";
@@ -17,6 +16,7 @@ import {
   parseOracleLocale,
 } from "@/lib/oracle/oracle-locale";
 import { checkGlobalOracleBudget } from "@/lib/oracle/global-budget";
+import { getOracleModel } from "@/lib/oracle/provider";
 import { checkOracleRateLimit } from "@/lib/oracle/rate-limit";
 import {
   forbiddenUnlessSameOrigin,
@@ -92,15 +92,15 @@ function buildSystemPrompt(grounding: string, locale: Locale): string {
 ${grounding}`;
 }
 
-/** Default: Claude Sonnet 4 (verify in Anthropic docs; override with ANTHROPIC_ORACLE_MODEL). */
-const DEFAULT_MODEL = "claude-sonnet-4-6";
-
 export async function POST(req: NextRequest) {
   try {
     if (isOracleKillSwitchOn()) {
       return new Response(
         JSON.stringify({ error: "The Oracle is temporarily offline." }),
-        { status: 503, headers: { "Content-Type": "application/json" } },
+        {
+          status: 503,
+          headers: { "Content-Type": "application/json" },
+        },
       );
     }
 
@@ -158,10 +158,12 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    if (!process.env.ANTHROPIC_API_KEY) {
+    const model = getOracleModel();
+    if (!model) {
       return new Response(
         JSON.stringify({
-          error: "The Oracle is not yet awakened. API key required.",
+          error:
+            "The Oracle is not yet awakened. No model provider is configured.",
         }),
         { status: 503, headers: { "Content-Type": "application/json" } },
       );
@@ -175,10 +177,8 @@ export async function POST(req: NextRequest) {
     } = await getOracleGrounding(latestUser, { locale });
     const system = buildSystemPrompt(grounding, locale);
 
-    const modelId = process.env.ANTHROPIC_ORACLE_MODEL?.trim() || DEFAULT_MODEL;
-
     const result = streamText({
-      model: anthropic(modelId),
+      model,
       system,
       messages,
       maxOutputTokens: MAX_OUTPUT_TOKENS,
@@ -198,7 +198,9 @@ export async function POST(req: NextRequest) {
   } catch (error) {
     logger.exception(
       error instanceof Error ? error : new Error("Oracle route error"),
-      { route: "/api/oracle" },
+      {
+        route: "/api/oracle",
+      },
     );
     return new Response(
       JSON.stringify({

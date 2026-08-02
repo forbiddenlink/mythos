@@ -5,6 +5,7 @@
 
 import { Ratelimit } from "@upstash/ratelimit";
 import { Redis } from "@upstash/redis";
+import { isPaidOracleProvider } from "./provider";
 
 const RATE_LIMIT = 10;
 const RATE_LIMIT_WINDOW_MS = 60 * 60 * 1000;
@@ -87,7 +88,11 @@ async function checkBucketRateLimit(
       : { allowed: false, reason: "rate_limited" };
   }
 
-  if (isProductionRuntime()) {
+  // Fail closed in prod only when the bucket bills real money. The quiz bucket
+  // always runs on paid Anthropic; the oracle bucket may run free on Groq, in
+  // which case an in-memory limiter is acceptable (no spend to protect).
+  const requiresSharedLimiter = bucket === "quiz" || isPaidOracleProvider();
+  if (isProductionRuntime() && requiresSharedLimiter) {
     return { allowed: false, reason: "misconfigured" };
   }
 

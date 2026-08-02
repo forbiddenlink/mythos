@@ -4,6 +4,7 @@
  */
 
 import { Redis } from "@upstash/redis";
+import { isPaidOracleProvider } from "./provider";
 
 const DEFAULT_DAILY_CAP = 500;
 
@@ -37,7 +38,10 @@ export async function checkGlobalOracleBudget(): Promise<GlobalOracleBudgetResul
   const url = process.env.UPSTASH_REDIS_REST_URL;
   const token = process.env.UPSTASH_REDIS_REST_TOKEN;
   if (!url || !token) {
-    if (isProductionRuntime()) {
+    // The daily cap exists to bound spend. Enforce the "must be configured"
+    // guard only for a paid provider; a free Groq Oracle can run without the
+    // shared counter (per-IP in-memory limits still curb abuse).
+    if (isProductionRuntime() && isPaidOracleProvider()) {
       return { allowed: false, reason: "misconfigured" };
     }
     return { allowed: true };

@@ -106,6 +106,9 @@ importers:
       "@ai-sdk/anthropic":
         specifier: ^3.0.83
         version: 3.0.83(zod@4.4.3)
+      "@ai-sdk/groq":
+        specifier: 3.0.40
+        version: 3.0.40(zod@4.4.3)
       "@gsap/react":
         specifier: ^2.1.2
         version: 2.1.2(gsap@3.15.0)(react@19.2.7)
@@ -347,6 +350,15 @@ packages:
     resolution:
       {
         integrity: sha512-t9Dyqk5thSmIzsNvVTQtZZiO3xqKGkk1hX3+GNpYmro+GuEdW+E6mKFHihb9Y1vCEt3rEyd4pbGUcin4D57FfQ==,
+      }
+    engines: { node: ">=18" }
+    peerDependencies:
+      zod: ^3.25.76 || ^4.1.8
+
+  "@ai-sdk/groq@3.0.40":
+    resolution:
+      {
+        integrity: sha512-OOv9/J0POtWcFAWk4hYGj9pSKzPj72JqLeE08hy1u4c2mhRTemggIkaI0ogTa3dlXKeJ0eJP1Mq6yYMqPp2LaQ==,
       }
     engines: { node: ">=18" }
     peerDependencies:
@@ -10389,6 +10401,12 @@ snapshots:
       "@ai-sdk/provider": 3.0.10
       "@ai-sdk/provider-utils": 4.0.28(zod@4.4.3)
       "@vercel/oidc": 3.2.0
+      zod: 4.4.3
+
+  "@ai-sdk/groq@3.0.40(zod@4.4.3)":
+    dependencies:
+      "@ai-sdk/provider": 3.0.10
+      "@ai-sdk/provider-utils": 4.0.28(zod@4.4.3)
       zod: 4.4.3
 
   "@ai-sdk/provider-utils@4.0.28(zod@4.4.3)":
