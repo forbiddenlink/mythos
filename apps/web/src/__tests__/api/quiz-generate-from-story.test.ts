@@ -9,14 +9,16 @@ describe("POST /api/quiz/generate-from-story", () => {
 
   it("returns 503 when Anthropic key is missing", async () => {
     vi.stubEnv("ANTHROPIC_API_KEY", "");
-    const { POST } = await import(
-      "@/app/api/quiz/generate-from-story/route"
-    );
+    const { POST } = await import("@/app/api/quiz/generate-from-story/route");
     const req = new NextRequest(
       "http://localhost:3000/api/quiz/generate-from-story",
       {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          origin: "http://localhost:3000",
+          host: "localhost:3000",
+        },
         body: JSON.stringify({ storySlug: "aeneid", count: 2 }),
       },
     );
@@ -25,14 +27,16 @@ describe("POST /api/quiz/generate-from-story", () => {
   });
 
   it("returns 404 for unknown story slug", async () => {
-    const { POST } = await import(
-      "@/app/api/quiz/generate-from-story/route"
-    );
+    const { POST } = await import("@/app/api/quiz/generate-from-story/route");
     const req = new NextRequest(
       "http://localhost:3000/api/quiz/generate-from-story",
       {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          origin: "http://localhost:3000",
+          host: "localhost:3000",
+        },
         body: JSON.stringify({ storySlug: "no-such-story-xyz", count: 1 }),
       },
     );
