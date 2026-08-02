@@ -245,7 +245,7 @@ export function DeityPageClient({ slug }: DeityPageClientProps) {
               >
                 <div className="flex-1">
                   <div className="flex items-baseline gap-3">
-                    <h1 className="font-serif text-4xl font-bold tracking-tight text-white">
+                    <h1 className="shimmer-gold font-serif text-4xl font-bold tracking-tight drop-shadow-[0_2px_8px_rgba(0,0,0,0.55)]">
                       {deity.name}
                     </h1>
                     {deity.pronunciation && (
