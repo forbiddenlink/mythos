@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useCallback } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { Shuffle, X, ArrowRight, Sparkles } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
@@ -117,6 +117,7 @@ export function RandomDiscoveryButton() {
   const [isOpen, setIsOpen] = useState(false);
   const [deity, setDeity] = useState<Deity | null>(null);
   const [isSpinning, setIsSpinning] = useState(false);
+  const shouldReduceMotion = useReducedMotion();
 
   const discover = useCallback(() => {
     setIsSpinning(true);
@@ -202,12 +203,12 @@ export function RandomDiscoveryButton() {
               {isSpinning ? (
                 <div className="h-80 flex items-center justify-center">
                   <motion.div
-                    animate={{ rotate: 360 }}
-                    transition={{
-                      duration: 0.6,
-                      ease: "linear",
-                      repeat: Infinity,
-                    }}
+                    animate={shouldReduceMotion ? undefined : { rotate: 360 }}
+                    transition={
+                      shouldReduceMotion
+                        ? undefined
+                        : { duration: 0.6, ease: "linear", repeat: Infinity }
+                    }
                   >
                     <Sparkles className="h-16 w-16 text-gold" />
                   </motion.div>

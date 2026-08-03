@@ -23,6 +23,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
 import { generateBaseMetadata, generateNotFoundMetadata } from "@/lib/metadata";
+import { ItemListJsonLd } from "@/components/seo/JsonLd";
 import { RosettaWheel } from "@/components/collections/RosettaWheel";
 import collections from "@/data/collections.json";
 import deities from "@/data/deities.json";
@@ -171,8 +172,27 @@ export default async function CollectionPage({ params }: PageProps) {
     .map((id) => stories.find((s) => s.id === id || s.slug === id))
     .filter((s): s is (typeof stories)[0] => s !== undefined);
 
+  const listItems = [
+    ...collectionDeities.map((deity, index) => ({
+      name: deity.name,
+      url: `/deities/${deity.slug}`,
+      position: index + 1,
+    })),
+    ...collectionStories.map((story, index) => ({
+      name: story.title,
+      url: `/stories/${story.slug}`,
+      position: collectionDeities.length + index + 1,
+    })),
+  ];
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-background to-mythic">
+      <ItemListJsonLd
+        name={`${collection.name} Collection`}
+        description={collection.description}
+        url={`/collections/${slug}`}
+        items={listItems}
+      />
       {/* Hero Section */}
       <div className={`relative py-16 bg-gradient-to-br ${colors.bg}`}>
         <div className="container mx-auto max-w-7xl px-4">

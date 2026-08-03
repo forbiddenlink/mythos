@@ -137,7 +137,7 @@ export function ProgressProvider({
   const [mounted, setMounted] = useState(false);
 
   // Hydration-safe: load from localStorage on client mount
-  useLayoutEffect(() => {
+  useEffect(() => {
     const initialProgress = loadProgress();
     // eslint-disable-next-line react-hooks/set-state-in-effect -- hydration-safe: seed state from localStorage on client mount
     setProgress(initialProgress);
@@ -160,6 +160,17 @@ export function ProgressProvider({
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [mounted]);
+
+  // Cross-tab sync: re-read from localStorage when another tab updates it
+  useEffect(() => {
+    const handleStorage = (event: StorageEvent) => {
+      if (event.key === PROGRESS_STORAGE_KEY) {
+        setProgress(loadProgress());
+      }
+    };
+    window.addEventListener("storage", handleStorage);
+    return () => window.removeEventListener("storage", handleStorage);
+  }, []);
 
   const updateStreak = useCallback(() => {
     setProgress((prev) => {

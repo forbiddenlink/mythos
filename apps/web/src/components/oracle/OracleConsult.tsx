@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useRef, useState } from "react";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { Loader2, Sparkles } from "lucide-react";
 import Link from "next/link";
@@ -36,6 +36,7 @@ interface Prophecy {
  */
 export function OracleConsult() {
   const locale = useLocale();
+  const t = useTranslations("oracle");
   const reduce = useReducedMotion();
   const [input, setInput] = useState("");
   const [isConsulting, setIsConsulting] = useState(false);
@@ -134,6 +135,7 @@ export function OracleConsult() {
             onChange={(e) => setInput(e.target.value)}
             disabled={isConsulting}
             placeholder="Ask the Oracle of the gods and their myths…"
+            maxLength={4000}
             className="flex-1 rounded-lg border border-gold/25 bg-midnight/40 px-4 py-3 text-parchment placeholder:text-parchment/40 focus:border-gold/60 focus:outline-none focus:ring-1 focus:ring-gold/40 disabled:opacity-60"
           />
           <button
@@ -149,6 +151,15 @@ export function OracleConsult() {
             Consult
           </button>
         </div>
+        <p
+          className="mt-1 text-right text-[10px] text-parchment/40"
+          aria-live="polite"
+        >
+          {input.length}/4000
+        </p>
+        <p className="mt-2 text-[10px] leading-snug text-parchment/40">
+          {t("aiDisclosure")}
+        </p>
 
         {/* Suggested petitions */}
         {!prophecy && !isConsulting && (
@@ -171,7 +182,13 @@ export function OracleConsult() {
       </form>
 
       {/* Live region: streaming + settled prophecy */}
-      <div ref={liveRef} aria-live="polite" className="mt-6">
+      <div
+        ref={liveRef}
+        role="log"
+        aria-live="polite"
+        aria-relevant="additions"
+        className="mt-6"
+      >
         {error && (
           <p
             role="alert"

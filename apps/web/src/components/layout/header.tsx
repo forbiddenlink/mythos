@@ -4,64 +4,69 @@ import { Logo } from "@/components/ui/logo";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
 import { motion } from "framer-motion";
 import { Command, Heart, Search } from "lucide-react";
+import { useTranslations } from "next-intl";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 import { LanguageSwitcher } from "@/components/i18n/LanguageSwitcher";
 import { MegaMenu } from "@/components/layout/mega-menu";
 import { MobileNav } from "@/components/layout/mobile-nav";
 import { QuickActions } from "@/components/layout/quick-actions";
 
-// Navigation structure for mobile
-export const mobileNavSections = [
-  {
-    title: "Start Here",
-    links: [
-      { href: "/pantheons", label: "Pantheons" },
-      { href: "/deities", label: "Deities" },
-      { href: "/stories", label: "Stories" },
-      { href: "/quiz", label: "Quiz" },
-    ],
-  },
-  {
-    title: "Discover",
-    links: [
-      { href: "/atlas", label: "Aether Map" },
-      { href: "/oracle", label: "The Oracle" },
-      { href: "/collections", label: "Collections" },
-      { href: "/compare", label: "Compare Deities" },
-      { href: "/knowledge-graph", label: "Knowledge Graph" },
-      { href: "/family-tree", label: "Family Tree" },
-      { href: "/journeys", label: "Hero Journeys" },
-    ],
-  },
-  {
-    title: "Learn",
-    links: [
-      { href: "/learning-paths", label: "Learning Paths" },
-      { href: "/review", label: "Daily Review" },
-      { href: "/progress", label: "Progress" },
-      { href: "/achievements", label: "Achievements" },
-      { href: "/leaderboard", label: "Leaderboard" },
-    ],
-  },
-  {
-    title: "More",
-    links: [
-      { href: "/bookmarks", label: "Bookmarks" },
-      { href: "/sources", label: "Sources" },
-      { href: "/changelog", label: "Changelog" },
-      { href: "/about", label: "About Mythos Atlas" },
-      { href: "/contact", label: "Contact Mythos Atlas" },
-      { href: "/privacy", label: "Privacy Policy" },
-    ],
-  },
-];
-
 export function Header() {
+  const t = useTranslations();
   const [isMac, setIsMac] = useState(false);
   const [mounted, setMounted] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+
+  // Navigation structure for mobile
+  const mobileNavSections = useMemo(
+    () => [
+      {
+        title: t("navigation.startHere"),
+        links: [
+          { href: "/pantheons", label: t("navigation.pantheons") },
+          { href: "/deities", label: t("navigation.deities") },
+          { href: "/stories", label: t("navigation.stories") },
+          { href: "/quiz", label: t("navigation.quiz") },
+        ],
+      },
+      {
+        title: t("navigation.discover"),
+        links: [
+          { href: "/atlas", label: t("navigation.atlas") },
+          { href: "/oracle", label: t("navigation.oracle") },
+          { href: "/collections", label: t("navigation.collections") },
+          { href: "/compare", label: t("navigation.compareDeities") },
+          { href: "/knowledge-graph", label: t("navigation.knowledgeGraph") },
+          { href: "/family-tree", label: t("navigation.familyTree") },
+          { href: "/journeys", label: t("navigation.heroJourneys") },
+        ],
+      },
+      {
+        title: t("navigation.learn"),
+        links: [
+          { href: "/learning-paths", label: t("navigation.learningPaths") },
+          { href: "/review", label: t("navigation.dailyReview") },
+          { href: "/progress", label: t("navigation.progress") },
+          { href: "/achievements", label: t("navigation.achievements") },
+          { href: "/leaderboard", label: t("navigation.leaderboard") },
+        ],
+      },
+      {
+        title: t("navigation.more"),
+        links: [
+          { href: "/bookmarks", label: t("navigation.bookmarks") },
+          { href: "/sources", label: t("navigation.sources") },
+          { href: "/changelog", label: t("navigation.changelog") },
+          { href: "/about", label: t("pages.about.title") },
+          { href: "/contact", label: t("navigation.contactMythosAtlas") },
+          { href: "/privacy", label: t("navigation.privacyPolicy") },
+        ],
+      },
+    ],
+    [t],
+  );
 
   useEffect(() => {
     // eslint-disable-next-line react-hooks/set-state-in-effect
@@ -136,10 +141,10 @@ export function Header() {
           <button
             onClick={handleSearchClick}
             className="flex items-center gap-2 px-3 py-2 text-sm text-muted-foreground hover:text-foreground bg-muted/50 hover:bg-muted rounded-lg border border-border/50 hover:border-border transition-all duration-200 group"
-            aria-label="Search"
+            aria-label={t("actions.search")}
           >
             <Search className="h-4 w-4 group-hover:text-gold transition-colors duration-200" />
-            <span className="hidden lg:inline">Search</span>
+            <span className="hidden lg:inline">{t("actions.search")}</span>
             <kbd
               aria-hidden="true"
               className="hidden md:inline-flex items-center gap-0.5 px-1.5 py-0.5 text-[10px] font-mono rounded bg-background border border-border/80 text-muted-foreground"
@@ -155,7 +160,7 @@ export function Header() {
           <Link
             href="/bookmarks"
             className="hidden xl:flex items-center justify-center p-2 text-muted-foreground hover:text-gold rounded-lg hover:bg-muted/50 transition-all duration-200"
-            aria-label="Bookmarks"
+            aria-label={t("navigation.bookmarks")}
           >
             <Heart className="h-4 w-4" strokeWidth={1.5} />
           </Link>

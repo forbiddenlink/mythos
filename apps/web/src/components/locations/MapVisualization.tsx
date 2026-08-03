@@ -3,6 +3,7 @@
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import { useCallback, useEffect, useMemo, useState } from "react";
+import { PANTHEON_BG_BORDER_LABEL as PANTHEON_COLORS } from "@/lib/pantheon-colors";
 
 // ─── Types ──────────────────────────────────────────────────────────────
 interface Location {
@@ -45,38 +46,6 @@ interface MapVisualizationProps {
   deities?: Deity[];
   stories?: Story[];
 }
-
-// ─── Pantheon color mapping ─────────────────────────────────────────────
-const PANTHEON_COLORS: Record<
-  string,
-  { bg: string; border: string; label: string }
-> = {
-  "greek-pantheon": { bg: "#3b82f6", border: "#2563eb", label: "Greek" },
-  "norse-pantheon": { bg: "#8b5cf6", border: "#7c3aed", label: "Norse" },
-  "egyptian-pantheon": { bg: "#f59e0b", border: "#d97706", label: "Egyptian" },
-  "roman-pantheon": { bg: "#ef4444", border: "#dc2626", label: "Roman" },
-  "hindu-pantheon": { bg: "#f97316", border: "#ea580c", label: "Hindu" },
-  "japanese-pantheon": { bg: "#ec4899", border: "#db2777", label: "Japanese" },
-  "celtic-pantheon": { bg: "#22c55e", border: "#16a34a", label: "Celtic" },
-  "aztec-pantheon": { bg: "#14b8a6", border: "#0d9488", label: "Aztec" },
-  "chinese-pantheon": { bg: "#e11d48", border: "#be123c", label: "Chinese" },
-  "mesopotamian-pantheon": {
-    bg: "#a16207",
-    border: "#854d0e",
-    label: "Mesopotamian",
-  },
-  "african-pantheon": { bg: "#7c3aed", border: "#6d28d9", label: "African" },
-  "polynesian-pantheon": {
-    bg: "#06b6d4",
-    border: "#0891b2",
-    label: "Polynesian",
-  },
-  "mesoamerican-pantheon": {
-    bg: "#65a30d",
-    border: "#4d7c0f",
-    label: "Mesoamerican",
-  },
-};
 
 // ─── Location type icons (SVG paths used in markers) ────────────────────
 const LOCATION_ICONS: Record<string, string> = {
@@ -700,7 +669,8 @@ export function MapVisualization({
         <span className="font-medium text-foreground">
           {mappableLocations.length}
         </span>{" "}
-        location{mappableLocations.length !== 1 ? "s" : ""} shown
+        location
+        {mappableLocations.length !== 1 ? "s" : ""} shown
         {activePantheonFilter && (
           <span className="ml-1">
             in{" "}

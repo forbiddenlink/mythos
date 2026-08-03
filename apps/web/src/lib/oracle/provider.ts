@@ -38,16 +38,27 @@ export function isPaidOracleProvider(): boolean {
   return resolveOracleProvider() === "anthropic";
 }
 
+function groqFallbackModel(): LanguageModel | null {
+  if (!process.env.GROQ_API_KEY) return null;
+  return groq(process.env.GROQ_ORACLE_MODEL?.trim() || DEFAULT_GROQ_MODEL);
+}
+
 /** Resolve the language model for the Oracle, or null if unconfigured. */
 export function getOracleModel(): LanguageModel | null {
   const provider = resolveOracleProvider();
   if (provider === "anthropic") {
-    return anthropic(
-      process.env.ANTHROPIC_ORACLE_MODEL?.trim() || DEFAULT_ANTHROPIC_MODEL,
-    );
+    try {
+      return anthropic(
+        process.env.ANTHROPIC_ORACLE_MODEL?.trim() || DEFAULT_ANTHROPIC_MODEL,
+      );
+    } catch {
+      // Anthropic client construction failed (e.g. bad key format) — fall
+      // back to Groq if it's configured, so the Oracle stays available.
+      return groqFallbackModel();
+    }
   }
   if (provider === "groq") {
-    return groq(process.env.GROQ_ORACLE_MODEL?.trim() || DEFAULT_GROQ_MODEL);
+    return groqFallbackModel();
   }
   return null;
 }

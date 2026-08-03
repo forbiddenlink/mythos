@@ -11,6 +11,7 @@ import {
   RotateCcw,
 } from "lucide-react";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { PANTHEON_PRIMARY_SECONDARY as PANTHEON_COLORS } from "@/lib/pantheon-colors";
 
 // Types
 interface Waypoint {
@@ -44,24 +45,6 @@ interface JourneyMapProps {
   onWaypointSelect?: (waypoint: Waypoint | null) => void;
   selectedWaypointId?: string | null;
 }
-
-// Pantheon colors for markers
-const PANTHEON_COLORS: Record<string, { primary: string; secondary: string }> =
-  {
-    "greek-pantheon": { primary: "#3b82f6", secondary: "#2563eb" },
-    "norse-pantheon": { primary: "#8b5cf6", secondary: "#7c3aed" },
-    "egyptian-pantheon": { primary: "#f59e0b", secondary: "#d97706" },
-    "roman-pantheon": { primary: "#ef4444", secondary: "#dc2626" },
-    "hindu-pantheon": { primary: "#f97316", secondary: "#ea580c" },
-    "japanese-pantheon": { primary: "#ec4899", secondary: "#db2777" },
-    "celtic-pantheon": { primary: "#22c55e", secondary: "#16a34a" },
-    "aztec-pantheon": { primary: "#14b8a6", secondary: "#0d9488" },
-    "chinese-pantheon": { primary: "#e11d48", secondary: "#be123c" },
-    "mesopotamian-pantheon": { primary: "#a16207", secondary: "#854d0e" },
-    "african-pantheon": { primary: "#7c3aed", secondary: "#6d28d9" },
-    "polynesian-pantheon": { primary: "#06b6d4", secondary: "#0891b2" },
-    "mesoamerican-pantheon": { primary: "#65a30d", secondary: "#4d7c0f" },
-  };
 
 // Create numbered marker icon
 function createNumberedMarkerIcon(

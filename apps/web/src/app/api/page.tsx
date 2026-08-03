@@ -1,20 +1,34 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Code, Database, Zap } from 'lucide-react';
-import { Breadcrumbs } from '@/components/navigation/Breadcrumbs';
-import { generateBaseMetadata } from '@/lib/metadata';
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Code, Database, Zap } from "lucide-react";
+import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
+import { generateBaseMetadata } from "@/lib/metadata";
+import { RouteHero } from "@/components/layout/route-hero";
 
 export const metadata = generateBaseMetadata({
-  title: 'API Documentation',
-  description: 'GraphQL API documentation for accessing Mythos Atlas mythology data programmatically. Query pantheons, deities, stories, and relationships.',
-  url: '/api',
-  keywords: ['GraphQL API', 'mythology API', 'developer documentation', 'REST API', 'deities data'],
+  title: "API Documentation",
+  description:
+    "GraphQL API documentation for accessing Mythos Atlas mythology data programmatically. Query pantheons, deities, stories, and relationships.",
+  url: "/api",
+  keywords: [
+    "GraphQL API",
+    "mythology API",
+    "developer documentation",
+    "REST API",
+    "deities data",
+  ],
 });
 
 export default function APIPage() {
   const endpoints = [
     {
-      name: 'pantheons',
-      description: 'Query all pantheons or filter by specific criteria',
+      name: "pantheons",
+      description: "Query all pantheons or filter by specific criteria",
       example: `query GetPantheons {
   pantheons {
     id
@@ -27,8 +41,8 @@ export default function APIPage() {
 }`,
     },
     {
-      name: 'deities',
-      description: 'Query deities, optionally filtered by pantheonId',
+      name: "deities",
+      description: "Query deities, optionally filtered by pantheonId",
       example: `query GetDeities($pantheonId: String) {
   deities(pantheonId: $pantheonId) {
     id
@@ -41,8 +55,8 @@ export default function APIPage() {
 }`,
     },
     {
-      name: 'deity',
-      description: 'Query a single deity by id or slug',
+      name: "deity",
+      description: "Query a single deity by id or slug",
       example: `query GetDeity($id: String!) {
   deity(id: $id) {
     id
@@ -53,8 +67,8 @@ export default function APIPage() {
 }`,
     },
     {
-      name: 'stories',
-      description: 'Query stories, optionally filtered by pantheonId',
+      name: "stories",
+      description: "Query stories, optionally filtered by pantheonId",
       example: `query GetStories($pantheonId: String) {
   stories(pantheonId: $pantheonId) {
     id
@@ -66,8 +80,8 @@ export default function APIPage() {
 }`,
     },
     {
-      name: 'search',
-      description: 'Search across deities, pantheons, and stories',
+      name: "search",
+      description: "Search across deities, pantheons, and stories",
       example: `query Search($query: String!, $limit: Int) {
   search(query: $query, limit: $limit) {
     deities { id name }
@@ -81,29 +95,24 @@ export default function APIPage() {
   return (
     <div className="min-h-screen bg-mythic">
       {/* Hero Section */}
-      <div className="relative h-[40vh] min-h-75 flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 bg-linear-to-b from-midnight/70 via-midnight/60 to-mythic z-10" />
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[120%] h-[60%] bg-gradient-radial from-gold/10 via-transparent to-transparent z-10" />
-
-        <div className="relative z-20 text-center px-4 max-w-4xl mx-auto">
-          <div className="flex items-center justify-center mb-6">
-            <div className="relative p-4 rounded-xl border border-gold/20 bg-midnight/50 backdrop-blur-sm">
-              <Code className="h-10 w-10 text-gold" strokeWidth={1.5} />
-            </div>
+      <RouteHero>
+        <div className="flex items-center justify-center mb-6">
+          <div className="relative p-4 rounded-xl border border-gold/20 bg-midnight/50 backdrop-blur-sm">
+            <Code className="h-10 w-10 text-gold" strokeWidth={1.5} />
           </div>
-          <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tight mb-6 text-parchment">
-            API Documentation
-          </h1>
-          <div className="flex items-center justify-center gap-4 mb-6">
-            <div className="w-12 h-px bg-linear-to-r from-transparent to-gold/40" />
-            <div className="w-1.5 h-1.5 rotate-45 bg-gold/50" />
-            <div className="w-12 h-px bg-linear-to-l from-transparent to-gold/40" />
-          </div>
-          <p className="text-lg md:text-xl text-parchment/70 max-w-2xl mx-auto font-body leading-relaxed">
-            Access mythology data programmatically via GraphQL
-          </p>
         </div>
-      </div>
+        <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tight mb-6 text-parchment">
+          API Documentation
+        </h1>
+        <div className="flex items-center justify-center gap-4 mb-6">
+          <div className="w-12 h-px bg-linear-to-r from-transparent to-gold/40" />
+          <div className="w-1.5 h-1.5 rotate-45 bg-gold/50" />
+          <div className="w-12 h-px bg-linear-to-l from-transparent to-gold/40" />
+        </div>
+        <p className="text-lg md:text-xl text-parchment/70 max-w-2xl mx-auto font-body leading-relaxed">
+          Access mythology data programmatically via GraphQL
+        </p>
+      </RouteHero>
 
       {/* Content Section */}
       <div className="container mx-auto max-w-5xl px-4 py-16">
@@ -112,15 +121,25 @@ export default function APIPage() {
         <div className="mt-8 space-y-8">
           <Card className="border-gold/20 bg-midnight-light/50">
             <CardHeader>
-              <CardTitle className="text-parchment text-2xl font-serif">GraphQL API</CardTitle>
+              <CardTitle className="text-parchment text-2xl font-serif">
+                GraphQL API
+              </CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
               <p className="text-parchment/80 leading-relaxed text-lg">
-                Mythos Atlas provides a GraphQL API for accessing our mythology database. The API is free to use for personal and educational purposes.
+                Mythos Atlas provides a GraphQL API for accessing our mythology
+                database. The API is free to use for personal and educational
+                purposes.
               </p>
               <div className="bg-midnight/50 p-4 rounded-lg border border-gold/10">
                 <p className="text-gold/80 font-mono text-sm">
-                  Endpoint: <span className="text-parchment">{globalThis.window === undefined ? 'https://yourdomain.com' : globalThis.location.origin}/api/graphql</span>
+                  Endpoint:{" "}
+                  <span className="text-parchment">
+                    {globalThis.window === undefined
+                      ? "https://yourdomain.com"
+                      : globalThis.location.origin}
+                    /api/graphql
+                  </span>
                 </p>
               </div>
             </CardContent>
@@ -131,7 +150,9 @@ export default function APIPage() {
               <CardHeader>
                 <div className="flex items-center gap-3 mb-2">
                   <Zap className="h-6 w-6 text-gold" />
-                  <CardTitle className="text-parchment">Fast & Reliable</CardTitle>
+                  <CardTitle className="text-parchment">
+                    Fast & Reliable
+                  </CardTitle>
                 </div>
               </CardHeader>
               <CardContent>
@@ -145,7 +166,9 @@ export default function APIPage() {
               <CardHeader>
                 <div className="flex items-center gap-3 mb-2">
                   <Database className="h-6 w-6 text-gold" />
-                  <CardTitle className="text-parchment">Comprehensive Data</CardTitle>
+                  <CardTitle className="text-parchment">
+                    Comprehensive Data
+                  </CardTitle>
                 </div>
               </CardHeader>
               <CardContent>
@@ -177,10 +200,17 @@ export default function APIPage() {
             </h2>
             <div className="space-y-6">
               {endpoints.map((endpoint) => (
-                <Card key={endpoint.name} className="border-gold/20 bg-midnight-light/50">
+                <Card
+                  key={endpoint.name}
+                  className="border-gold/20 bg-midnight-light/50"
+                >
                   <CardHeader>
-                    <CardTitle className="text-parchment font-mono">{endpoint.name}</CardTitle>
-                    <CardDescription className="text-parchment/70">{endpoint.description}</CardDescription>
+                    <CardTitle className="text-parchment font-mono">
+                      {endpoint.name}
+                    </CardTitle>
+                    <CardDescription className="text-parchment/70">
+                      {endpoint.description}
+                    </CardDescription>
                   </CardHeader>
                   <CardContent>
                     <div className="bg-midnight/70 p-4 rounded-lg border border-gold/10 overflow-x-auto">
@@ -196,14 +226,19 @@ export default function APIPage() {
 
           <Card className="border-gold/20 bg-midnight-light/50">
             <CardHeader>
-              <CardTitle className="text-parchment text-2xl font-serif">Rate Limits & Usage</CardTitle>
+              <CardTitle className="text-parchment text-2xl font-serif">
+                Rate Limits & Usage
+              </CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
               <p className="text-parchment/80 leading-relaxed">
-                The API is currently open for use without authentication. Please be respectful with your usage to ensure the service remains available for everyone.
+                The API is currently open for use without authentication. Please
+                be respectful with your usage to ensure the service remains
+                available for everyone.
               </p>
               <p className="text-parchment/70 text-sm">
-                For high-volume use cases or commercial applications, please contact us to discuss rate limits and API keys.
+                For high-volume use cases or commercial applications, please
+                contact us to discuss rate limits and API keys.
               </p>
             </CardContent>
           </Card>

@@ -82,6 +82,9 @@ const nextConfig: NextConfig = {
             key: "Content-Security-Policy",
             value: [
               "default-src 'self'",
+              // Known follow-up: 'unsafe-inline'/'unsafe-eval' should be replaced
+              // with nonce-based script loading (requires middleware to mint and
+              // thread a per-request nonce). Out of scope for this pass.
               // Some production-only analytics/vitals dependencies bootstrap via
               // blob-backed worker scripts. Keep worker support explicit rather
               // than broadening other resource directives.
@@ -89,11 +92,24 @@ const nextConfig: NextConfig = {
               "style-src 'self' 'unsafe-inline'",
               "img-src 'self' data: https: blob:",
               "font-src 'self' data:",
-              "connect-src 'self' https:",
+              // Vercel Analytics / Speed Insights beacon to same-origin
+              // /_vercel/... paths, and Sentry is tunneled through /monitoring
+              // (see sentryOptions.tunnelRoute below) — so 'self' covers all
+              // client-side network calls without widening to a host wildcard.
+              // Upstash is server-only (rate limiting) and never called from
+              // the browser, so it is intentionally excluded here.
+              "connect-src 'self'",
               "worker-src 'self' blob:",
               "media-src 'self'",
               "frame-ancestors 'none'",
+              "base-uri 'self'",
+              "object-src 'none'",
+              "report-to csp-endpoint",
             ].join("; "),
+          },
+          {
+            key: "Reporting-Endpoints",
+            value: 'csp-endpoint="/api/csp-report"',
           },
         ],
       },

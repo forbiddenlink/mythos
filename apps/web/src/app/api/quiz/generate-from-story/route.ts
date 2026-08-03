@@ -2,6 +2,7 @@ import { anthropic } from "@ai-sdk/anthropic";
 import { generateObject } from "ai";
 import stories from "@/data/stories.json";
 import { checkGlobalOracleBudget } from "@/lib/oracle/global-budget";
+import { logger } from "@/lib/logger";
 import { checkQuizRateLimit } from "@/lib/oracle/rate-limit";
 import {
   forbiddenUnlessSameOrigin,
@@ -162,7 +163,7 @@ ${sourceText}`,
       questions: object.questions,
     });
   } catch (e) {
-    console.error("[api/quiz/generate-from-story]", e);
+    logger.error("[api/quiz/generate-from-story]", { error: e });
     return NextResponse.json(
       { error: "Quiz generation failed" },
       { status: 500 },

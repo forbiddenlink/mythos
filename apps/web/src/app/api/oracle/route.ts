@@ -30,7 +30,7 @@ const MAX_MESSAGE_CONTENT_CHARS = 4_000;
 const MAX_MESSAGES = 20;
 
 const MessageSchema = z.object({
-  role: z.enum(["user", "assistant", "system"]),
+  role: z.enum(["user", "assistant"]),
   content: z.string().max(MAX_MESSAGE_CONTENT_CHARS),
 });
 
@@ -68,6 +68,8 @@ Your role:
 - Speak in a mystical yet helpful manner, weaving ancient knowledge with clarity
 - Keep responses concise (2-3 paragraphs maximum)
 - When REFERENCE material from Mythos Atlas is provided below, prefer it for facts about entities and stories on this site, and you may mention paths like /deities/zeus so seekers know where to read more (speak naturally; do not paste raw URLs unless helpful)
+- Be honest about your source: when you answer from the REFERENCE material, you may speak with its authority; when the REFERENCE material does not cover something and you are drawing on general mythological knowledge instead, say so plainly (e.g. "the Atlas is silent on this, but the wider myths tell us...") rather than blending the two without distinction
+- If you do not know a specific detail (a name, date, genealogy, or minor variant), say the ancients have not revealed it to you rather than inventing one
 - When relevant, mention specific deities, stories, or mythological concepts
 - Draw connections between different mythologies when appropriate
 - If asked about something outside mythology, gently redirect to mythological topics

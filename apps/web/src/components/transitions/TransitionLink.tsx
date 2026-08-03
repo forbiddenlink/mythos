@@ -1,12 +1,12 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import { useRouter } from 'next/navigation';
-import { ComponentProps, MouseEvent, useCallback, ReactNode } from 'react';
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { ComponentProps, MouseEvent, useCallback, ReactNode } from "react";
 
 type LinkProps = ComponentProps<typeof Link>;
 
-interface TransitionLinkProps extends Omit<LinkProps, 'children'> {
+interface TransitionLinkProps extends Omit<LinkProps, "children"> {
   children: ReactNode;
   /**
    * View transition name for shared element transitions
@@ -51,7 +51,17 @@ export function TransitionLink({
       }
 
       // Check for View Transitions API support
-      if (typeof document !== 'undefined' && 'startViewTransition' in document) {
+      if (
+        typeof document !== "undefined" &&
+        "startViewTransition" in document
+      ) {
+        const reduce = window.matchMedia(
+          "(prefers-reduced-motion: reduce)",
+        ).matches;
+        if (reduce) {
+          return;
+        }
+
         e.preventDefault();
 
         // startViewTransition expects a callback that returns a Promise
@@ -67,7 +77,7 @@ export function TransitionLink({
       }
       // If no support, fall back to normal Link behavior
     },
-    [href, onClick, router]
+    [href, onClick, router],
   );
 
   return (

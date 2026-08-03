@@ -156,7 +156,9 @@ export function ReviewPageClient() {
               <CardTitle className="text-2xl font-serif">
                 {dueCount > 0
                   ? `You have ${dueCount} cards ready for review`
-                  : "All caught up!"}
+                  : stats.totalReviewed === 0
+                    ? "Start your first review"
+                    : "All caught up!"}
               </CardTitle>
             </CardHeader>
             <CardContent className="text-center pb-8 space-y-6">
@@ -179,8 +181,9 @@ export function ReviewPageClient() {
               ) : (
                 <>
                   <p className="text-muted-foreground max-w-md mx-auto">
-                    Great job! You have reviewed all your due cards. Explore
-                    more content to generate new review cards.
+                    {stats.totalReviewed === 0
+                      ? "You have not built up any review cards yet. Explore deities and stories to generate your first cards."
+                      : "Great job! You have reviewed all your due cards. Explore more content to generate new review cards."}
                   </p>
                   <div className="flex flex-col sm:flex-row gap-3 justify-center">
                     <Button

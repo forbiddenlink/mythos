@@ -1,8 +1,15 @@
-'use client';
+"use client";
 
-import { createContext, useCallback, useEffect, useMemo, useState, type ReactNode } from 'react';
+import {
+  createContext,
+  useCallback,
+  useEffect,
+  useMemo,
+  useState,
+  type ReactNode,
+} from "react";
 
-export type BookmarkType = 'deity' | 'story' | 'pantheon';
+export type BookmarkType = "deity" | "story" | "pantheon";
 
 export interface Bookmark {
   type: BookmarkType;
@@ -26,13 +33,15 @@ export interface BookmarksContextValue {
   setReadingProgress: (storyId: string, percentage: number) => void;
 }
 
-const BOOKMARKS_STORAGE_KEY = 'mythos-atlas-bookmarks';
-const READING_PROGRESS_STORAGE_KEY = 'mythos-atlas-reading-progress';
+const BOOKMARKS_STORAGE_KEY = "mythos-atlas-bookmarks";
+const READING_PROGRESS_STORAGE_KEY = "mythos-atlas-reading-progress";
 
-export const BookmarksContext = createContext<BookmarksContextValue | null>(null);
+export const BookmarksContext = createContext<BookmarksContextValue | null>(
+  null,
+);
 
 function loadBookmarks(): Bookmark[] {
-  if (typeof window === 'undefined') return [];
+  if (typeof window === "undefined") return [];
   try {
     const stored = localStorage.getItem(BOOKMARKS_STORAGE_KEY);
     return stored ? JSON.parse(stored) : [];
@@ -42,7 +51,7 @@ function loadBookmarks(): Bookmark[] {
 }
 
 function loadReadingProgress(): Record<string, ReadingProgress> {
-  if (typeof window === 'undefined') return {};
+  if (typeof window === "undefined") return {};
   try {
     const stored = localStorage.getItem(READING_PROGRESS_STORAGE_KEY);
     return stored ? JSON.parse(stored) : {};
@@ -61,7 +70,10 @@ function saveBookmarks(bookmarks: Bookmark[]) {
 
 function saveReadingProgress(progress: Record<string, ReadingProgress>) {
   try {
-    localStorage.setItem(READING_PROGRESS_STORAGE_KEY, JSON.stringify(progress));
+    localStorage.setItem(
+      READING_PROGRESS_STORAGE_KEY,
+      JSON.stringify(progress),
+    );
   } catch {
     // localStorage might be full or unavailable
   }
@@ -69,7 +81,9 @@ function saveReadingProgress(progress: Record<string, ReadingProgress>) {
 
 export function BookmarksProvider({ children }: { children: ReactNode }) {
   const [bookmarks, setBookmarks] = useState<Bookmark[]>([]);
-  const [readingProgress, setReadingProgressState] = useState<Record<string, ReadingProgress>>({});
+  const [readingProgress, setReadingProgressState] = useState<
+    Record<string, ReadingProgress>
+  >({});
   const [mounted, setMounted] = useState(false);
 
   // Hydration-safe: load from localStorage on client mount
@@ -92,6 +106,20 @@ export function BookmarksProvider({ children }: { children: ReactNode }) {
     }
   }, [readingProgress, mounted]);
 
+  // Cross-tab sync: re-read from localStorage when another tab updates it
+  useEffect(() => {
+    const handleStorage = (event: StorageEvent) => {
+      if (event.key === BOOKMARKS_STORAGE_KEY) {
+        setBookmarks(loadBookmarks());
+      }
+      if (event.key === READING_PROGRESS_STORAGE_KEY) {
+        setReadingProgressState(loadReadingProgress());
+      }
+    };
+    window.addEventListener("storage", handleStorage);
+    return () => window.removeEventListener("storage", handleStorage);
+  }, []);
+
   const toggleBookmark = useCallback((type: BookmarkType, id: string) => {
     setBookmarks((prev) => {
       const exists = prev.some((b) => b.type === type && b.id === id);
@@ -106,7 +134,7 @@ export function BookmarksProvider({ children }: { children: ReactNode }) {
     (type: BookmarkType, id: string) => {
       return bookmarks.some((b) => b.type === type && b.id === id);
     },
-    [bookmarks]
+    [bookmarks],
   );
 
   const getBookmarks = useCallback(
@@ -114,26 +142,29 @@ export function BookmarksProvider({ children }: { children: ReactNode }) {
       if (!type) return bookmarks;
       return bookmarks.filter((b) => b.type === type);
     },
-    [bookmarks]
+    [bookmarks],
   );
 
   const getReadingProgress = useCallback(
     (storyId: string) => {
       return readingProgress[storyId]?.percentage ?? 0;
     },
-    [readingProgress]
+    [readingProgress],
   );
 
-  const setReadingProgress = useCallback((storyId: string, percentage: number) => {
-    setReadingProgressState((prev) => ({
-      ...prev,
-      [storyId]: {
-        storyId,
-        percentage: Math.min(100, Math.max(0, percentage)),
-        updatedAt: Date.now(),
-      },
-    }));
-  }, []);
+  const setReadingProgress = useCallback(
+    (storyId: string, percentage: number) => {
+      setReadingProgressState((prev) => ({
+        ...prev,
+        [storyId]: {
+          storyId,
+          percentage: Math.min(100, Math.max(0, percentage)),
+          updatedAt: Date.now(),
+        },
+      }));
+    },
+    [],
+  );
 
   const contextValue = useMemo(
     () => ({
@@ -145,7 +176,15 @@ export function BookmarksProvider({ children }: { children: ReactNode }) {
       getReadingProgress,
       setReadingProgress,
     }),
-    [bookmarks, readingProgress, toggleBookmark, isBookmarked, getBookmarks, getReadingProgress, setReadingProgress]
+    [
+      bookmarks,
+      readingProgress,
+      toggleBookmark,
+      isBookmarked,
+      getBookmarks,
+      getReadingProgress,
+      setReadingProgress,
+    ],
   );
 
   return (

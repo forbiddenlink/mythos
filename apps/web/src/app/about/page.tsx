@@ -2,6 +2,7 @@ import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
 import { AboutPageJsonLd } from "@/components/seo/JsonLd";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { generateBaseMetadata } from "@/lib/metadata";
+import { RouteHero } from "@/components/layout/route-hero";
 import { BookOpen, Code, Globe, Users } from "lucide-react";
 
 export const metadata = generateBaseMetadata({
@@ -25,24 +26,19 @@ export default function AboutPage() {
         creatorDescription="A passionate developer and mythology enthusiast who combines technical expertise with a deep appreciation for ancient cultures and storytelling."
       />
       {/* Hero Section */}
-      <div className="relative h-[40vh] min-h-75 flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 bg-linear-to-b from-primary/70 via-primary/60 to-background z-10" />
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[120%] h-[60%] bg-gradient-radial from-gold/10 via-transparent to-transparent z-10" />
-
-        <div className="relative z-20 text-center px-4 max-w-4xl mx-auto">
-          <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tight mb-6 text-foreground">
-            About Mythos Atlas
-          </h1>
-          <div className="flex items-center justify-center gap-4 mb-6">
-            <div className="w-12 h-px bg-linear-to-r from-transparent to-gold/40" />
-            <div className="w-1.5 h-1.5 rotate-45 bg-gold/50" />
-            <div className="w-12 h-px bg-linear-to-l from-transparent to-gold/40" />
-          </div>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto font-body leading-relaxed">
-            An interactive encyclopedia of ancient mythology
-          </p>
+      <RouteHero overlayClassName="bg-linear-to-b from-primary/70 via-primary/60 to-background z-10">
+        <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tight mb-6 text-foreground">
+          About Mythos Atlas
+        </h1>
+        <div className="flex items-center justify-center gap-4 mb-6">
+          <div className="w-12 h-px bg-linear-to-r from-transparent to-gold/40" />
+          <div className="w-1.5 h-1.5 rotate-45 bg-gold/50" />
+          <div className="w-12 h-px bg-linear-to-l from-transparent to-gold/40" />
         </div>
-      </div>
+        <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto font-body leading-relaxed">
+          An interactive encyclopedia of ancient mythology
+        </p>
+      </RouteHero>
 
       {/* Content Section */}
       <div className="container mx-auto max-w-4xl px-4 py-16">

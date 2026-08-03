@@ -28,6 +28,9 @@
   --color-input: var(--input);
   --color-border: var(--border);
   --color-destructive: var(--destructive);
+  --color-warning: var(--warning);
+  --color-success: var(--success);
+  --color-info: var(--info);
   --color-accent-foreground: var(--accent-foreground);
   --color-accent: var(--accent);
   --color-muted-foreground: var(--muted-foreground);
@@ -57,6 +60,16 @@
   --radius-2xl: calc(var(--radius) + 8px);
   --radius-3xl: calc(var(--radius) + 12px);
   --radius-4xl: calc(var(--radius) + 16px);
+
+  /* Z-index scale - coordinated stacking order (generates z-base/z-dropdown/etc.
+     Tailwind utilities). Establishing the scale only; existing components still
+     hand-pick raw z-[n] values and are not migrated here. */
+  --z-base: 0;
+  --z-dropdown: 20;
+  --z-sticky: 30;
+  --z-modal: 50;
+  --z-toast: 60;
+  --z-cursor: 9999;
 }
 
 /* ═══════════════════════════════════════════════════════════════════
@@ -99,6 +112,11 @@
 
   /* Destructive */
   --destructive: oklch(0.55 0.22 25);
+
+  /* Semantic status colors - warm amber warning, patina-adjacent success, cool indigo-leaning info */
+  --warning: oklch(0.62 0.19 50);
+  --success: oklch(0.55 0.14 145);
+  --info: oklch(0.55 0.15 240);
 
   /* Borders and inputs */
   --border: oklch(0.88 0.015 85);
@@ -175,6 +193,11 @@ html.cookie-banner-open {
 
   /* Destructive */
   --destructive: oklch(0.65 0.2 25);
+
+  /* Semantic status colors - luminous variants for dark mode */
+  --warning: oklch(0.72 0.17 50);
+  --success: oklch(0.68 0.15 145);
+  --info: oklch(0.68 0.15 240);
 
   /* Borders and inputs */
   --border: oklch(0.28 0.04 265);
@@ -730,6 +753,20 @@ html.cookie-banner-open {
       animation: none;
       opacity: 1;
       transform: none;
+    }
+
+    .animate-float {
+      animation: none;
+    }
+
+    .animate-pulse-subtle {
+      animation: none;
+      opacity: 1;
+      transform: none;
+    }
+
+    .animate-glow {
+      animation: none;
     }
   }
 

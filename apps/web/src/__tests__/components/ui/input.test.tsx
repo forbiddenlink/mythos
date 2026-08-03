@@ -17,7 +17,7 @@ describe("Input", () => {
 
       const input = screen.getByRole("textbox");
       expect(input.className).toContain("flex");
-      expect(input.className).toContain("h-10");
+      expect(input.className).toContain("h-11");
       expect(input.className).toContain("w-full");
       expect(input.className).toContain("rounded-lg");
       expect(input.className).toContain("border");
@@ -143,7 +143,7 @@ describe("Input", () => {
       const input = screen.getByRole("textbox");
       expect(input).toHaveClass("my-custom-input");
       expect(input.className).toContain("flex");
-      expect(input.className).toContain("h-10");
+      expect(input.className).toContain("h-11");
     });
 
     it("should allow custom className to override default styles", () => {

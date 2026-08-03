@@ -7,6 +7,7 @@ import {
 } from "@/components/changelog/ChangelogEntry";
 import { ChangelogFilters } from "./ChangelogFilters";
 import changelogData from "@/data/changelog.json";
+import { RouteHero } from "@/components/layout/route-hero";
 
 interface ChangelogPageProps {
   searchParams: Promise<{ type?: string }>;
@@ -57,25 +58,20 @@ export default async function ChangelogPage({
   return (
     <div className="min-h-screen bg-mythic">
       {/* Hero Section */}
-      <div className="relative h-[35vh] min-h-70 flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 bg-linear-to-b from-midnight/70 via-midnight/60 to-mythic z-10" />
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[120%] h-[60%] bg-gradient-radial from-gold/10 via-transparent to-transparent z-10" />
-
-        <div className="relative z-20 text-center px-4 max-w-4xl mx-auto">
-          <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tight mb-6 text-parchment">
-            Changelog
-          </h1>
-          <div className="flex items-center justify-center gap-4 mb-6">
-            <div className="w-12 h-px bg-linear-to-r from-transparent to-gold/40" />
-            <div className="w-1.5 h-1.5 rotate-45 bg-gold/50" />
-            <div className="w-12 h-px bg-linear-to-l from-transparent to-gold/40" />
-          </div>
-          <p className="text-lg md:text-xl text-parchment/70 max-w-2xl mx-auto font-body leading-relaxed">
-            Track the evolution of Mythos Atlas with every new feature, fix, and
-            content update
-          </p>
+      <RouteHero heightClassName="h-[35vh] min-h-70">
+        <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tight mb-6 text-parchment">
+          Changelog
+        </h1>
+        <div className="flex items-center justify-center gap-4 mb-6">
+          <div className="w-12 h-px bg-linear-to-r from-transparent to-gold/40" />
+          <div className="w-1.5 h-1.5 rotate-45 bg-gold/50" />
+          <div className="w-12 h-px bg-linear-to-l from-transparent to-gold/40" />
         </div>
-      </div>
+        <p className="text-lg md:text-xl text-parchment/70 max-w-2xl mx-auto font-body leading-relaxed">
+          Track the evolution of Mythos Atlas with every new feature, fix, and
+          content update
+        </p>
+      </RouteHero>
 
       {/* Content Section */}
       <div className="container mx-auto max-w-4xl px-4 py-16">

@@ -6,6 +6,7 @@ import pantheons from "@/data/pantheons.json";
 import relationships from "@/data/relationships.json";
 import stories from "@/data/stories.json";
 import Fuse from "fuse.js";
+import { logger } from "@/lib/logger";
 import { NextRequest, NextResponse } from "next/server";
 import type { ZodType } from "zod";
 import {
@@ -57,7 +58,7 @@ function getValidatedDataOrFallback<T>(
     .slice(0, 3)
     .map((issue) => `${issue.path.join(".")}: ${issue.message}`)
     .join(" | ");
-  console.warn(
+  logger.warn(
     `[graphql-route] Invalid ${label} JSON schema, using raw fallback: ${issueSummary}`,
   );
   return source as T;
@@ -497,7 +498,7 @@ export async function POST(request: NextRequest) {
       },
     );
   } catch (error) {
-    console.error("GraphQL API error:", error);
+    logger.error("GraphQL API error", { error });
     return NextResponse.json(
       { errors: [{ message: "Internal server error" }] },
       { status: 500 },

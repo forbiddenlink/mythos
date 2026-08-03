@@ -1,16 +1,17 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import { Flame, Brain } from 'lucide-react';
-import { useProgress } from '@/hooks/use-progress';
-import { useReview } from '@/providers/review-provider';
-import { useEffect, useState } from 'react';
-import { motion } from 'framer-motion';
-import { cn } from '@/lib/utils';
+import Link from "next/link";
+import { Flame, Brain } from "lucide-react";
+import { useProgress } from "@/hooks/use-progress";
+import { useReview } from "@/providers/review-provider";
+import { useEffect, useState } from "react";
+import { motion, useReducedMotion } from "framer-motion";
+import { cn } from "@/lib/utils";
 
 export function StreakBadge() {
   const { progress } = useProgress();
   const [mounted, setMounted] = useState(false);
+  const shouldReduceMotion = useReducedMotion();
 
   useEffect(() => {
     // eslint-disable-next-line react-hooks/set-state-in-effect -- track client hydration
@@ -30,8 +31,12 @@ export function StreakBadge() {
     >
       <motion.div
         initial={{ scale: 1 }}
-        animate={{ scale: [1, 1.2, 1] }}
-        transition={{ duration: 0.5, repeat: Infinity, repeatDelay: 2 }}
+        animate={shouldReduceMotion ? undefined : { scale: [1, 1.2, 1] }}
+        transition={
+          shouldReduceMotion
+            ? undefined
+            : { duration: 0.5, repeat: Infinity, repeatDelay: 2 }
+        }
       >
         <Flame className="h-4 w-4" />
       </motion.div>
@@ -63,7 +68,7 @@ export function ReviewCountBadge() {
         "flex items-center gap-1.5 px-2.5 py-1.5 text-sm font-medium rounded-lg transition-colors duration-200",
         dueCount > 0
           ? "bg-blue-500/10 text-blue-500 hover:bg-blue-500/20"
-          : "bg-muted/50 text-muted-foreground hover:bg-muted"
+          : "bg-muted/50 text-muted-foreground hover:bg-muted",
       )}
       aria-label={`${dueCount} cards due for review`}
     >

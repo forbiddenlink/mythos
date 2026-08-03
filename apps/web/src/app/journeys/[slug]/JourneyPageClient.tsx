@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import { useState, useMemo, useCallback } from 'react';
-import dynamic from 'next/dynamic';
-import Link from 'next/link';
+import { useState, useMemo, useCallback } from "react";
+import dynamic from "next/dynamic";
+import Link from "next/link";
 import {
   MapPin,
   Clock,
@@ -14,27 +14,37 @@ import {
   Sparkles,
   Skull,
   ArrowLeft,
-} from 'lucide-react';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import { Breadcrumbs } from '@/components/navigation/Breadcrumbs';
-import journeysData from '@/data/journeys.json';
-import pantheonsData from '@/data/pantheons.json';
+} from "lucide-react";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+} from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
+import { ItemListJsonLd } from "@/components/seo/JsonLd";
+import journeysData from "@/data/journeys.json";
+import pantheonsData from "@/data/pantheons.json";
+import { PANTHEON_BG_LABEL as PANTHEON_COLORS } from "@/lib/pantheon-colors";
 
 // Dynamic import for the journey map
 const JourneyMap = dynamic(
-  () => import('@/components/maps/JourneyMap').then((mod) => mod.JourneyMap),
+  () => import("@/components/maps/JourneyMap").then((mod) => mod.JourneyMap),
   {
     ssr: false,
     loading: () => (
       <div className="flex items-center justify-center h-125 rounded-xl border border-border bg-card">
         <div className="text-center">
           <Loader2 className="h-8 w-8 animate-spin text-gold mx-auto mb-3" />
-          <p className="text-sm text-muted-foreground">Loading journey map...</p>
+          <p className="text-sm text-muted-foreground">
+            Loading journey map...
+          </p>
         </div>
       </div>
     ),
-  }
+  },
 );
 
 // Types
@@ -71,23 +81,6 @@ interface Pantheon {
   culture: string;
 }
 
-// Pantheon colors
-const PANTHEON_COLORS: Record<string, { bg: string; label: string }> = {
-  'greek-pantheon': { bg: '#3b82f6', label: 'Greek' },
-  'norse-pantheon': { bg: '#8b5cf6', label: 'Norse' },
-  'egyptian-pantheon': { bg: '#f59e0b', label: 'Egyptian' },
-  'roman-pantheon': { bg: '#ef4444', label: 'Roman' },
-  'hindu-pantheon': { bg: '#f97316', label: 'Hindu' },
-  'japanese-pantheon': { bg: '#ec4899', label: 'Japanese' },
-  'celtic-pantheon': { bg: '#22c55e', label: 'Celtic' },
-  'aztec-pantheon': { bg: '#14b8a6', label: 'Aztec' },
-  'chinese-pantheon': { bg: '#e11d48', label: 'Chinese' },
-  'mesopotamian-pantheon': { bg: '#a16207', label: 'Mesopotamian' },
-  'african-pantheon': { bg: '#7c3aed', label: 'African' },
-  'polynesian-pantheon': { bg: '#06b6d4', label: 'Polynesian' },
-  'mesoamerican-pantheon': { bg: '#65a30d', label: 'Mesoamerican' },
-};
-
 interface JourneyPageClientProps {
   slug: string;
 }
@@ -97,11 +90,14 @@ export function JourneyPageClient({ slug }: JourneyPageClientProps) {
   const pantheons = pantheonsData as Pantheon[];
 
   const journey = journeys.find((j) => j.slug === slug);
-  const [selectedWaypoint, setSelectedWaypoint] = useState<Waypoint | null>(null);
+  const [selectedWaypoint, setSelectedWaypoint] = useState<Waypoint | null>(
+    null,
+  );
 
   const sortedWaypoints = useMemo(
-    () => (journey ? journey.waypoints.toSorted((a, b) => a.order - b.order) : []),
-    [journey]
+    () =>
+      journey ? journey.waypoints.toSorted((a, b) => a.order - b.order) : [],
+    [journey],
   );
 
   const handleWaypointSelect = useCallback((waypoint: Waypoint | null) => {
@@ -116,7 +112,10 @@ export function JourneyPageClient({ slug }: JourneyPageClientProps) {
           <p className="text-slate-600 dark:text-slate-400 mt-2">
             The journey you&apos;re looking for doesn&apos;t exist.
           </p>
-          <Link href="/journeys" className="text-gold hover:underline mt-4 inline-block">
+          <Link
+            href="/journeys"
+            className="text-gold hover:underline mt-4 inline-block"
+          >
             View all journeys
           </Link>
         </div>
@@ -125,13 +124,26 @@ export function JourneyPageClient({ slug }: JourneyPageClientProps) {
   }
 
   const pantheon = pantheons.find((p) => p.id === journey.pantheonId);
-  const colors = PANTHEON_COLORS[journey.pantheonId] || { bg: '#6b7280', label: 'Unknown' };
+  const colors = PANTHEON_COLORS[journey.pantheonId] || {
+    bg: "#6b7280",
+    label: "Unknown",
+  };
 
   // Current waypoint (default to first if none selected)
   const currentWaypoint = selectedWaypoint || sortedWaypoints[0];
 
   return (
     <div className="min-h-screen">
+      <ItemListJsonLd
+        name={journey.title}
+        description={journey.description}
+        url={`/journeys/${journey.slug}`}
+        items={sortedWaypoints.map((waypoint, index) => ({
+          name: waypoint.name,
+          url: `/journeys/${journey.slug}`,
+          position: index + 1,
+        }))}
+      />
       {/* Hero Section */}
       <div className="relative h-[35vh] min-h-70 flex items-center justify-center overflow-hidden">
         {/* Background */}
@@ -139,7 +151,9 @@ export function JourneyPageClient({ slug }: JourneyPageClientProps) {
         <div className="absolute inset-0 bg-linear-to-b from-midnight/70 via-midnight/60 to-midnight/80 z-10" />
         <div
           className="absolute top-0 left-1/2 -translate-x-1/2 w-[120%] h-[60%] bg-gradient-radial via-transparent to-transparent z-10"
-          style={{ background: `radial-gradient(ellipse at center, ${colors.bg}20, transparent)` }}
+          style={{
+            background: `radial-gradient(ellipse at center, ${colors.bg}20, transparent)`,
+          }}
         />
 
         {/* Hero Content */}
@@ -159,7 +173,8 @@ export function JourneyPageClient({ slug }: JourneyPageClientProps) {
             {journey.title}
           </h1>
           <p className="text-lg text-parchment/70 max-w-2xl mx-auto font-body">
-            The epic voyage of <span className="text-gold font-medium">{journey.heroName}</span>
+            The epic voyage of{" "}
+            <span className="text-gold font-medium">{journey.heroName}</span>
           </p>
         </div>
       </div>
@@ -199,7 +214,9 @@ export function JourneyPageClient({ slug }: JourneyPageClientProps) {
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
-                <p className="text-muted-foreground leading-relaxed">{journey.description}</p>
+                <p className="text-muted-foreground leading-relaxed">
+                  {journey.description}
+                </p>
                 <div className="flex items-center gap-4 pt-2 border-t border-border">
                   <div className="flex items-center gap-2 text-sm">
                     <MapPin className="h-4 w-4 text-gold" />
@@ -222,7 +239,10 @@ export function JourneyPageClient({ slug }: JourneyPageClientProps) {
           <div className="space-y-6">
             {/* Current Waypoint Details */}
             {currentWaypoint && (
-              <Card className="border-2" style={{ borderColor: colors.bg + '40' }}>
+              <Card
+                className="border-2"
+                style={{ borderColor: colors.bg + "40" }}
+              >
                 <div className="h-1" style={{ backgroundColor: colors.bg }} />
                 <CardHeader>
                   <div className="flex items-center gap-3">
@@ -235,7 +255,9 @@ export function JourneyPageClient({ slug }: JourneyPageClientProps) {
                     <div>
                       <CardTitle>{currentWaypoint.name}</CardTitle>
                       {currentWaypoint.duration && (
-                        <CardDescription>{currentWaypoint.duration}</CardDescription>
+                        <CardDescription>
+                          {currentWaypoint.duration}
+                        </CardDescription>
                       )}
                     </div>
                   </div>
@@ -246,64 +268,67 @@ export function JourneyPageClient({ slug }: JourneyPageClientProps) {
                   </p>
 
                   {/* Events */}
-                  {currentWaypoint.events && currentWaypoint.events.length > 0 && (
-                    <div>
-                      <h4 className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-2 flex items-center gap-1">
-                        <Sparkles className="h-3 w-3" /> Key Events
-                      </h4>
-                      <ul className="space-y-1">
-                        {currentWaypoint.events.map((event, index) => (
-                          <li
-                            key={`${event}-${index}`}
-                            className="text-sm text-foreground flex items-start gap-2"
-                          >
-                            <ChevronRight className="h-4 w-4 text-gold shrink-0 mt-0.5" />
-                            {event}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  )}
+                  {currentWaypoint.events &&
+                    currentWaypoint.events.length > 0 && (
+                      <div>
+                        <h4 className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-2 flex items-center gap-1">
+                          <Sparkles className="h-3 w-3" /> Key Events
+                        </h4>
+                        <ul className="space-y-1">
+                          {currentWaypoint.events.map((event, index) => (
+                            <li
+                              key={`${event}-${index}`}
+                              className="text-sm text-foreground flex items-start gap-2"
+                            >
+                              <ChevronRight className="h-4 w-4 text-gold shrink-0 mt-0.5" />
+                              {event}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
 
                   {/* Creatures */}
-                  {currentWaypoint.creatures && currentWaypoint.creatures.length > 0 && (
-                    <div>
-                      <h4 className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-2 flex items-center gap-1">
-                        <Skull className="h-3 w-3" /> Creatures Encountered
-                      </h4>
-                      <div className="flex flex-wrap gap-1.5">
-                        {currentWaypoint.creatures.map((creature) => (
-                          <Badge
-                            key={creature}
-                            variant="outline"
-                            className="text-xs border-red-500/30 text-red-400"
-                          >
-                            {creature}
-                          </Badge>
-                        ))}
+                  {currentWaypoint.creatures &&
+                    currentWaypoint.creatures.length > 0 && (
+                      <div>
+                        <h4 className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-2 flex items-center gap-1">
+                          <Skull className="h-3 w-3" /> Creatures Encountered
+                        </h4>
+                        <div className="flex flex-wrap gap-1.5">
+                          {currentWaypoint.creatures.map((creature) => (
+                            <Badge
+                              key={creature}
+                              variant="outline"
+                              className="text-xs border-red-500/30 text-red-400"
+                            >
+                              {creature}
+                            </Badge>
+                          ))}
+                        </div>
                       </div>
-                    </div>
-                  )}
+                    )}
 
                   {/* Deities */}
-                  {currentWaypoint.deities && currentWaypoint.deities.length > 0 && (
-                    <div>
-                      <h4 className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-2 flex items-center gap-1">
-                        <Users className="h-3 w-3" /> Divine Involvement
-                      </h4>
-                      <div className="flex flex-wrap gap-1.5">
-                        {currentWaypoint.deities.map((deity) => (
-                          <Badge
-                            key={deity}
-                            variant="outline"
-                            className="text-xs border-gold/30 text-gold"
-                          >
-                            {deity}
-                          </Badge>
-                        ))}
+                  {currentWaypoint.deities &&
+                    currentWaypoint.deities.length > 0 && (
+                      <div>
+                        <h4 className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-2 flex items-center gap-1">
+                          <Users className="h-3 w-3" /> Divine Involvement
+                        </h4>
+                        <div className="flex flex-wrap gap-1.5">
+                          {currentWaypoint.deities.map((deity) => (
+                            <Badge
+                              key={deity}
+                              variant="outline"
+                              className="text-xs border-gold/30 text-gold"
+                            >
+                              {deity}
+                            </Badge>
+                          ))}
+                        </div>
                       </div>
-                    </div>
-                  )}
+                    )}
                 </CardContent>
               </Card>
             )}
@@ -326,16 +351,18 @@ export function JourneyPageClient({ slug }: JourneyPageClientProps) {
                         onClick={() => setSelectedWaypoint(waypoint)}
                         className={`w-full flex items-center gap-3 p-2 rounded-lg text-left transition-all ${
                           isSelected
-                            ? 'bg-gold/20 border border-gold/30'
-                            : 'hover:bg-muted border border-transparent'
+                            ? "bg-gold/20 border border-gold/30"
+                            : "hover:bg-muted border border-transparent"
                         }`}
                       >
                         <div
                           className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold ${
-                            isSelected ? 'text-white' : 'text-white/80'
+                            isSelected ? "text-white" : "text-white/80"
                           }`}
                           style={{
-                            backgroundColor: isSelected ? colors.bg : colors.bg + '80',
+                            backgroundColor: isSelected
+                              ? colors.bg
+                              : colors.bg + "80",
                           }}
                         >
                           {waypoint.order}
@@ -343,7 +370,7 @@ export function JourneyPageClient({ slug }: JourneyPageClientProps) {
                         <div className="flex-1 min-w-0">
                           <div
                             className={`text-sm font-medium truncate ${
-                              isSelected ? 'text-gold' : 'text-foreground'
+                              isSelected ? "text-gold" : "text-foreground"
                             }`}
                           >
                             {waypoint.name}
@@ -356,7 +383,7 @@ export function JourneyPageClient({ slug }: JourneyPageClientProps) {
                         </div>
                         <ChevronRight
                           className={`h-4 w-4 shrink-0 ${
-                            isSelected ? 'text-gold' : 'text-muted-foreground'
+                            isSelected ? "text-gold" : "text-muted-foreground"
                           }`}
                         />
                       </button>
@@ -370,19 +397,26 @@ export function JourneyPageClient({ slug }: JourneyPageClientProps) {
 
         {/* Related Content */}
         <div className="mt-12 pt-8 border-t border-border">
-          <h2 className="font-serif text-2xl font-semibold mb-6">Explore More</h2>
+          <h2 className="font-serif text-2xl font-semibold mb-6">
+            Explore More
+          </h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            <Link href={`/pantheons/${pantheon?.slug || 'greek'}`}>
+            <Link href={`/pantheons/${pantheon?.slug || "greek"}`}>
               <Card className="h-full hover:border-gold/50 transition-colors cursor-pointer">
                 <CardContent className="flex items-center gap-4 p-4">
                   <div
                     className="w-12 h-12 rounded-lg flex items-center justify-center"
-                    style={{ backgroundColor: colors.bg + '20' }}
+                    style={{ backgroundColor: colors.bg + "20" }}
                   >
-                    <BookOpen className="h-6 w-6" style={{ color: colors.bg }} />
+                    <BookOpen
+                      className="h-6 w-6"
+                      style={{ color: colors.bg }}
+                    />
                   </div>
                   <div>
-                    <h3 className="font-medium">{pantheon?.name || 'Greek Pantheon'}</h3>
+                    <h3 className="font-medium">
+                      {pantheon?.name || "Greek Pantheon"}
+                    </h3>
                     <p className="text-sm text-muted-foreground">
                       Explore the {colors.label} gods
                     </p>
@@ -398,7 +432,9 @@ export function JourneyPageClient({ slug }: JourneyPageClientProps) {
                   </div>
                   <div>
                     <h3 className="font-medium">Related Stories</h3>
-                    <p className="text-sm text-muted-foreground">More epic tales</p>
+                    <p className="text-sm text-muted-foreground">
+                      More epic tales
+                    </p>
                   </div>
                 </CardContent>
               </Card>
@@ -411,7 +447,9 @@ export function JourneyPageClient({ slug }: JourneyPageClientProps) {
                   </div>
                   <div>
                     <h3 className="font-medium">Sacred Locations</h3>
-                    <p className="text-sm text-muted-foreground">Explore the ancient world</p>
+                    <p className="text-sm text-muted-foreground">
+                      Explore the ancient world
+                    </p>
                   </div>
                 </CardContent>
               </Card>

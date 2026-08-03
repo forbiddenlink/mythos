@@ -14,6 +14,7 @@ import pantheonsData from "@/data/pantheons.json";
 import deitiesData from "@/data/deities.json";
 import storiesData from "@/data/stories.json";
 import { usePagination } from "@/hooks/usePagination";
+import { PANTHEON_BG_LABEL as PANTHEON_COLORS } from "@/lib/pantheon-colors";
 
 // Dynamic import with SSR disabled - Leaflet requires the window object
 const MapVisualization = dynamic(
@@ -68,23 +69,6 @@ interface Story {
   title: string;
   slug: string;
 }
-
-// ─── Constants ──────────────────────────────────────────────────────────
-const PANTHEON_COLORS: Record<string, { bg: string; label: string }> = {
-  "greek-pantheon": { bg: "#3b82f6", label: "Greek" },
-  "norse-pantheon": { bg: "#8b5cf6", label: "Norse" },
-  "egyptian-pantheon": { bg: "#f59e0b", label: "Egyptian" },
-  "roman-pantheon": { bg: "#ef4444", label: "Roman" },
-  "hindu-pantheon": { bg: "#f97316", label: "Hindu" },
-  "japanese-pantheon": { bg: "#ec4899", label: "Japanese" },
-  "celtic-pantheon": { bg: "#22c55e", label: "Celtic" },
-  "aztec-pantheon": { bg: "#14b8a6", label: "Aztec" },
-  "chinese-pantheon": { bg: "#e11d48", label: "Chinese" },
-  "mesopotamian-pantheon": { bg: "#a16207", label: "Mesopotamian" },
-  "african-pantheon": { bg: "#7c3aed", label: "African" },
-  "polynesian-pantheon": { bg: "#06b6d4", label: "Polynesian" },
-  "mesoamerican-pantheon": { bg: "#65a30d", label: "Mesoamerican" },
-};
 
 function getLocationTypeLabel(type: string): string {
   const labels: Record<string, string> = {

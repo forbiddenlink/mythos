@@ -12,6 +12,7 @@ import type { BookmarkType } from "@/providers/bookmarks-provider";
 import deitiesData from "@/data/deities.json";
 import storiesData from "@/data/stories.json";
 import pantheonsData from "@/data/pantheons.json";
+import { RouteHero } from "@/components/layout/route-hero";
 
 interface Deity {
   id: string;
@@ -76,38 +77,30 @@ export default function BookmarksPage() {
   return (
     <div className="min-h-screen bg-mythic">
       {/* Hero Section */}
-      <div className="relative h-[40vh] min-h-75 flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 bg-linear-to-b from-midnight/70 via-midnight/60 to-mythic z-10" />
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[120%] h-[60%] bg-gradient-radial from-gold/10 via-transparent to-transparent z-10" />
-
-        <div className="relative z-20 text-center px-4 max-w-4xl mx-auto">
-          <div className="flex items-center justify-center mb-6">
-            <div className="relative p-4 rounded-xl border border-gold/20 bg-midnight/50 backdrop-blur-sm">
-              <div className="absolute inset-0 rounded-xl bg-linear-to-br from-gold/10 to-transparent" />
-              <Heart
-                className="relative h-10 w-10 text-gold"
-                strokeWidth={1.5}
-              />
-            </div>
+      <RouteHero>
+        <div className="flex items-center justify-center mb-6">
+          <div className="relative p-4 rounded-xl border border-gold/20 bg-midnight/50 backdrop-blur-sm">
+            <div className="absolute inset-0 rounded-xl bg-linear-to-br from-gold/10 to-transparent" />
+            <Heart className="relative h-10 w-10 text-gold" strokeWidth={1.5} />
           </div>
-          <span className="inline-block text-gold/80 text-sm tracking-[0.25em] uppercase mb-4 font-medium">
-            Your Collection
-          </span>
-          <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tight mb-6 text-parchment">
-            Bookmarks
-          </h1>
-          <div className="flex items-center justify-center gap-4 mb-6">
-            <div className="w-12 h-px bg-linear-to-r from-transparent to-gold/40" />
-            <div className="w-1.5 h-1.5 rotate-45 bg-gold/50" />
-            <div className="w-12 h-px bg-linear-to-l from-transparent to-gold/40" />
-          </div>
-          <p className="text-lg md:text-xl text-parchment/70 max-w-2xl mx-auto font-body leading-relaxed">
-            {isEmpty
-              ? "Save your favorite deities, stories, and pantheons"
-              : `${allBookmarks.length} saved item${allBookmarks.length !== 1 ? "s" : ""}`}
-          </p>
         </div>
-      </div>
+        <span className="inline-block text-gold/80 text-sm tracking-[0.25em] uppercase mb-4 font-medium">
+          Your Collection
+        </span>
+        <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tight mb-6 text-parchment">
+          Bookmarks
+        </h1>
+        <div className="flex items-center justify-center gap-4 mb-6">
+          <div className="w-12 h-px bg-linear-to-r from-transparent to-gold/40" />
+          <div className="w-1.5 h-1.5 rotate-45 bg-gold/50" />
+          <div className="w-12 h-px bg-linear-to-l from-transparent to-gold/40" />
+        </div>
+        <p className="text-lg md:text-xl text-parchment/70 max-w-2xl mx-auto font-body leading-relaxed">
+          {isEmpty
+            ? "Save your favorite deities, stories, and pantheons"
+            : `${allBookmarks.length} saved item${allBookmarks.length !== 1 ? "s" : ""}`}
+        </p>
+      </RouteHero>
 
       {/* Content Section */}
       <div className="container mx-auto max-w-6xl px-4 py-16">

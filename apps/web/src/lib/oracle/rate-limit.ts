@@ -10,7 +10,17 @@ import { isPaidOracleProvider } from "./provider";
 const RATE_LIMIT = 10;
 const RATE_LIMIT_WINDOW_MS = 60 * 60 * 1000;
 
-type Bucket = "oracle" | "quiz";
+// Search is typed/debounced traffic, so it gets a looser per-IP ceiling than
+// the chat buckets while still bounding the billed-embeddings cost.
+const SEARCH_RATE_LIMIT = 60;
+
+type Bucket = "oracle" | "quiz" | "search";
+
+const BUCKET_LIMITS: Record<Bucket, number> = {
+  oracle: RATE_LIMIT,
+  quiz: RATE_LIMIT,
+  search: SEARCH_RATE_LIMIT,
+};
 
 const memoryStores: Record<
   Bucket,
@@ -18,11 +28,13 @@ const memoryStores: Record<
 > = {
   oracle: new Map(),
   quiz: new Map(),
+  search: new Map(),
 };
 
 const edgeLimiters: Record<Bucket, Ratelimit | null | undefined> = {
   oracle: undefined,
   quiz: undefined,
+  search: undefined,
 };
 
 function isProductionRuntime(): boolean {
@@ -45,7 +57,7 @@ function getEdgeRatelimit(bucket: Bucket): Ratelimit | null {
   const redis = new Redis({ url, token });
   edgeLimiters[bucket] = new Ratelimit({
     redis,
-    limiter: Ratelimit.slidingWindow(RATE_LIMIT, "1 h"),
+    limiter: Ratelimit.slidingWindow(BUCKET_LIMITS[bucket], "1 h"),
     prefix: `mythos:${bucket}`,
     analytics: false,
   });
@@ -67,7 +79,7 @@ function checkInMemoryRateLimit(bucket: Bucket, identifier: string): boolean {
     store.set(identifier, { count: 1, resetTime: now + RATE_LIMIT_WINDOW_MS });
     return true;
   }
-  if (record.count >= RATE_LIMIT) return false;
+  if (record.count >= BUCKET_LIMITS[bucket]) return false;
   record.count++;
   return true;
 }
@@ -88,10 +100,12 @@ async function checkBucketRateLimit(
       : { allowed: false, reason: "rate_limited" };
   }
 
-  // Fail closed in prod only when the bucket bills real money. The quiz bucket
-  // always runs on paid Anthropic; the oracle bucket may run free on Groq, in
-  // which case an in-memory limiter is acceptable (no spend to protect).
-  const requiresSharedLimiter = bucket === "quiz" || isPaidOracleProvider();
+  // Fail closed in prod only when the bucket bills real money. The quiz and
+  // search buckets always trigger paid API calls (Anthropic / OpenAI
+  // embeddings); the oracle bucket may run free on Groq, in which case an
+  // in-memory limiter is acceptable (no spend to protect).
+  const requiresSharedLimiter =
+    bucket === "quiz" || bucket === "search" || isPaidOracleProvider();
   if (isProductionRuntime() && requiresSharedLimiter) {
     return { allowed: false, reason: "misconfigured" };
   }
@@ -113,4 +127,11 @@ export async function checkQuizRateLimit(
   identifier: string,
 ): Promise<OracleRateLimitResult> {
   return checkBucketRateLimit("quiz", identifier);
+}
+
+/** Search rate limit (60/hr per IP) — guards billed embedding lookups. */
+export async function checkSearchRateLimit(
+  identifier: string,
+): Promise<OracleRateLimitResult> {
+  return checkBucketRateLimit("search", identifier);
 }

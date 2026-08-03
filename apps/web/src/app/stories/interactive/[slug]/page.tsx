@@ -17,6 +17,7 @@ import { InteractiveStory } from "@/components/stories/InteractiveStory";
 import { BranchingStory, getDiscoveredEndings } from "@/lib/branching-story";
 import branchingStoriesData from "@/data/branching-stories.json";
 import { useState, useEffect } from "react";
+import { RouteHero } from "@/components/layout/route-hero";
 
 const branchingStories = branchingStoriesData as unknown as BranchingStory[];
 
@@ -66,41 +67,36 @@ export default function InteractiveStoryPage() {
   return (
     <div className="min-h-screen bg-mythic">
       {/* Hero Section */}
-      <div className="relative h-[35vh] min-h-70 flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 bg-linear-to-b from-midnight/70 via-midnight/60 to-mythic z-10" />
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[120%] h-[60%] bg-gradient-radial from-gold/10 via-transparent to-transparent z-10" />
-
-        <div className="relative z-20 text-center px-4 max-w-4xl mx-auto">
-          <div className="flex items-center justify-center mb-4">
-            <Badge className="bg-gold/20 text-gold border-gold/30 gap-1">
-              <BookOpen className="h-3 w-3" />
-              Interactive Story
-            </Badge>
-          </div>
-          <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight mb-4 text-parchment">
-            {story.title}
-          </h1>
-          <div className="flex items-center justify-center gap-4 mb-4">
-            <div className="w-12 h-px bg-linear-to-r from-transparent to-gold/40" />
-            <div className="w-1.5 h-1.5 rotate-45 bg-gold/50" />
-            <div className="w-12 h-px bg-linear-to-l from-transparent to-gold/40" />
-          </div>
-          <div className="flex items-center justify-center gap-4 text-sm text-parchment/60">
-            <span className="flex items-center gap-1">
-              <User className="h-4 w-4" />
-              {story.protagonist}
-            </span>
-            <span className="flex items-center gap-1">
-              <Clock className="h-4 w-4" />
-              {story.estimatedTime}
-            </span>
-            <span className="flex items-center gap-1">
-              <Trophy className="h-4 w-4" />
-              {story.totalEndings} endings
-            </span>
-          </div>
+      <RouteHero heightClassName="h-[35vh] min-h-70">
+        <div className="flex items-center justify-center mb-4">
+          <Badge className="bg-gold/20 text-gold border-gold/30 gap-1">
+            <BookOpen className="h-3 w-3" />
+            Interactive Story
+          </Badge>
         </div>
-      </div>
+        <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight mb-4 text-parchment">
+          {story.title}
+        </h1>
+        <div className="flex items-center justify-center gap-4 mb-4">
+          <div className="w-12 h-px bg-linear-to-r from-transparent to-gold/40" />
+          <div className="w-1.5 h-1.5 rotate-45 bg-gold/50" />
+          <div className="w-12 h-px bg-linear-to-l from-transparent to-gold/40" />
+        </div>
+        <div className="flex items-center justify-center gap-4 text-sm text-parchment/60">
+          <span className="flex items-center gap-1">
+            <User className="h-4 w-4" />
+            {story.protagonist}
+          </span>
+          <span className="flex items-center gap-1">
+            <Clock className="h-4 w-4" />
+            {story.estimatedTime}
+          </span>
+          <span className="flex items-center gap-1">
+            <Trophy className="h-4 w-4" />
+            {story.totalEndings} endings
+          </span>
+        </div>
+      </RouteHero>
 
       {/* Content Section */}
       <div className="container mx-auto max-w-4xl px-4 py-8">

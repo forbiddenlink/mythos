@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { getTranslations } from "next-intl/server";
 import { MythologyQuiz } from "@/components/quiz/MythologyQuiz";
 import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
 import {
@@ -38,35 +39,34 @@ export const metadata = generateBaseMetadata({
 
 const OTHER_QUIZZES = [
   {
-    title: "Quick Quiz",
-    description:
-      "60 seconds on the clock. How many mythology questions can you answer? Race against time!",
+    titleKey: "quickQuizTitle",
+    descriptionKey: "quickQuizDescription",
     href: "/quiz/quick",
     icon: Zap,
-    badge: "Speed",
+    badgeKey: "speedBadge",
     color: "text-amber-500",
   },
   {
-    title: "Divine Relationships",
-    description:
-      "Test your knowledge of divine family ties, marriages, and connections across pantheons.",
+    titleKey: "relationshipsTitle",
+    descriptionKey: "relationshipsDescription",
     href: "/quiz/relationships",
     icon: Users,
-    badge: "Challenge",
+    badgeKey: "challengeTitle",
     color: "text-blue-500",
   },
   {
-    title: "Which God Are You?",
-    description:
-      "Discover your divine counterpart with our personality quiz. Find out which deity matches your soul.",
+    titleKey: "personalityTitle",
+    descriptionKey: "personalityDescription",
     href: "/quiz/personality",
     icon: Sparkles,
-    badge: "Personality",
+    badgeKey: "personalityBadge",
     color: "text-gold",
   },
-];
+] as const;
 
-export default function QuizPage() {
+export default async function QuizPage() {
+  const t = await getTranslations("pages.quiz");
+
   return (
     <div className="min-h-screen bg-linear-to-b from-background to-mythic">
       <QuizJsonLd
@@ -85,11 +85,10 @@ export default function QuizPage() {
           </div>
 
           <h1 className="font-serif text-display font-bold mb-4">
-            Mythology Quiz
+            {t("title")}
           </h1>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
-            Test your knowledge of ancient deities, symbols, and domains from
-            various pantheons
+            {t("subtitle")}
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-3xl mx-auto mb-12">
@@ -98,9 +97,9 @@ export default function QuizPage() {
                 <BookOpen className="h-5 w-5 text-gold" />
               </div>
               <div className="text-left">
-                <div className="font-semibold text-sm">Learn</div>
+                <div className="font-semibold text-sm">{t("learn")}</div>
                 <div className="text-xs text-muted-foreground">
-                  Expand your knowledge
+                  {t("learnDescription")}
                 </div>
               </div>
             </div>
@@ -110,9 +109,11 @@ export default function QuizPage() {
                 <Brain className="h-5 w-5 text-gold" />
               </div>
               <div className="text-left">
-                <div className="font-semibold text-sm">Challenge</div>
+                <div className="font-semibold text-sm">
+                  {t("challengeTitle")}
+                </div>
                 <div className="text-xs text-muted-foreground">
-                  Test yourself
+                  {t("challengeDescription")}
                 </div>
               </div>
             </div>
@@ -122,9 +123,9 @@ export default function QuizPage() {
                 <Trophy className="h-5 w-5 text-gold" />
               </div>
               <div className="text-left">
-                <div className="font-semibold text-sm">Achieve</div>
+                <div className="font-semibold text-sm">{t("achieveTitle")}</div>
                 <div className="text-xs text-muted-foreground">
-                  Track progress
+                  {t("achieveDescription")}
                 </div>
               </div>
             </div>
@@ -134,7 +135,7 @@ export default function QuizPage() {
         {/* Main Knowledge Quiz */}
         <div className="mb-8">
           <h2 className="font-serif text-2xl font-bold mb-6 text-center">
-            Knowledge Quiz
+            {t("knowledgeQuizTitle")}
           </h2>
         </div>
         <MythologyQuiz />
@@ -142,7 +143,7 @@ export default function QuizPage() {
         {/* Other Quiz Types */}
         <div className="mb-12 mt-16">
           <h2 className="font-serif text-2xl font-bold mb-6 text-center">
-            More Quizzes
+            {t("moreQuizzesTitle")}
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
             {OTHER_QUIZZES.map((quiz) => {
@@ -157,16 +158,16 @@ export default function QuizPage() {
                         >
                           <Icon className="h-6 w-6" />
                         </div>
-                        <Badge variant="secondary">{quiz.badge}</Badge>
+                        <Badge variant="secondary">{t(quiz.badgeKey)}</Badge>
                       </div>
                       <CardTitle className="text-xl font-serif mt-4 group-hover:text-gold transition-colors flex items-center gap-2">
-                        {quiz.title}
+                        {t(quiz.titleKey)}
                         <ArrowRight className="h-4 w-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
                       </CardTitle>
                     </CardHeader>
                     <CardContent>
                       <CardDescription className="text-sm">
-                        {quiz.description}
+                        {t(quiz.descriptionKey)}
                       </CardDescription>
                     </CardContent>
                   </Card>
@@ -178,13 +179,10 @@ export default function QuizPage() {
 
         <section className="mx-auto mb-12 max-w-4xl rounded-2xl border border-border/60 bg-card/60 p-6">
           <h2 className="font-serif text-2xl font-semibold mb-3">
-            Study With Every Quiz Mode
+            {t("studySectionTitle")}
           </h2>
           <p className="text-muted-foreground leading-relaxed">
-            Use the knowledge quiz for steady review of names, domains, and
-            symbols. Switch to quick mode for a timed warm-up, relationships for
-            family ties, or the personality quiz for a lighter discovery path —
-            then return here once you have refreshed the broader landscape.
+            {t("studySectionDescription")}
           </p>
         </section>
       </div>

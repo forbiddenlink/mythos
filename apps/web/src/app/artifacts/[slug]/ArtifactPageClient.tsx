@@ -6,6 +6,7 @@ import { Zap, User, Gem, History } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { EditorialByline } from "@/components/content/EditorialByline";
+import { ArtifactJsonLd } from "@/components/seo/JsonLd";
 import artifactsData from "@/data/artifacts.json";
 import deitiesData from "@/data/deities.json";
 
@@ -60,6 +61,13 @@ export function ArtifactPageClient({ slug }: ArtifactPageClientProps) {
 
   return (
     <div className="min-h-screen">
+      <ArtifactJsonLd
+        name={artifact.name}
+        description={artifact.description}
+        url={`/artifacts/${artifact.slug}`}
+        image={artifact.imageUrl || undefined}
+        powers={artifact.powers}
+      />
       {/* Hero Section */}
       <div className="relative overflow-hidden bg-slate-950">
         <div className="absolute inset-0 z-0">

@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { Flame, Sparkles, BookOpen, Users } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState, useMemo } from "react";
@@ -49,6 +49,7 @@ export function StreakWidget() {
   const { progress, getStats } = useProgress();
   const stats = getStats();
   const [mounted, setMounted] = useState(false);
+  const shouldReduceMotion = useReducedMotion();
 
   useEffect(() => {
     // eslint-disable-next-line react-hooks/set-state-in-effect -- track client hydration
@@ -137,8 +138,8 @@ export function StreakWidget() {
           {/* Background decoration */}
           <div className="absolute inset-0 bg-linear-to-br from-gold/5 via-transparent to-purple-500/5" />
 
-          {/* Milestone celebration overlay */}
-          {isMilestone && (
+          {/* Milestone celebration overlay — skipped entirely under reduced motion */}
+          {isMilestone && !shouldReduceMotion && (
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}

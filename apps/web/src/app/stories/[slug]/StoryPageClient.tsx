@@ -26,6 +26,7 @@ import { ArticleJsonLd } from "@/components/seo/JsonLd";
 import Link from "next/link";
 import ReactMarkdown from "react-markdown";
 import { useTextToSpeech } from "@/hooks/useTextToSpeech";
+import { RouteHero } from "@/components/layout/route-hero";
 
 // Lazy load heavy Three.js-based artifact viewer
 const ArtifactViewer = dynamic(
@@ -227,119 +228,114 @@ export function StoryPageClient({ slug }: StoryPageClientProps) {
         url={`/stories/${story.slug}`}
       />
       {/* Hero Section */}
-      <div className="relative h-[40vh] min-h-75 flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 bg-linear-to-b from-midnight/70 via-midnight/60 to-mythic z-10" />
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[120%] h-[60%] bg-gradient-radial from-gold/10 via-transparent to-transparent z-10" />
-
-        <div className="relative z-20 text-center px-4 max-w-4xl mx-auto">
-          <div className="flex items-center justify-center mb-6">
-            <div className="relative p-4 rounded-xl border border-gold/20 bg-midnight/50 backdrop-blur-sm">
-              <BookOpen className="h-10 w-10 text-gold" strokeWidth={1.5} />
-            </div>
-          </div>
-          <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight mb-6 text-parchment">
-            {story.title}
-          </h1>
-          <div className="flex items-center justify-center gap-4 mb-6">
-            <div className="w-12 h-px bg-linear-to-r from-transparent to-gold/40" />
-            <div className="w-1.5 h-1.5 rotate-45 bg-gold/50" />
-            <div className="w-12 h-px bg-linear-to-l from-transparent to-gold/40" />
-          </div>
-          <div className="flex items-center justify-center gap-2 mb-4">
-            <Tag className="h-4 w-4 text-gold/80" />
-            <p className="text-gold/80 font-body">{story?.category}</p>
-          </div>
-          <EditorialByline
-            className="mx-auto max-w-2xl text-center"
-            tone="light"
-          />
-
-          <div className="flex items-center justify-center gap-4">
-            <BookmarkButton
-              type="story"
-              id={story?.id || ""}
-              size="lg"
-              variant="light"
-            />
-
-            {story && (
-              <ShareButton
-                title={`${story.title} - Mythos Atlas`}
-                text={`Read "${story.title}" - ${story.summary?.slice(0, 100)}... on Mythos Atlas`}
-                url={`https://mythosatlas.com/stories/${story.slug}`}
-                className="[&_button]:text-gold [&_button]:border-gold/40 [&_button]:hover:bg-gold/20"
-              />
-            )}
-
-            {story && (
-              <ExportIconButton
-                type="story"
-                data={{
-                  title: story.title,
-                  summary: story.summary,
-                  fullNarrative: story.fullNarrative,
-                  category: story.category,
-                  moralThemes: story.moralThemes,
-                  culturalSignificance: story.culturalSignificance,
-                  pantheonId: story.pantheonId,
-                  featuredDeities: story.featuredDeities,
-                }}
-                variant="ghost"
-                className="text-gold hover:bg-gold/20"
-              />
-            )}
-
-            {story && (
-              <button
-                onClick={() => {
-                  if (isSpeaking) {
-                    cancel();
-                  } else {
-                    speak(story.fullNarrative || story.summary);
-                  }
-                }}
-                className={`flex items-center gap-2 px-4 py-2 rounded-lg border transition-all ${
-                  isSpeaking
-                    ? "bg-red-500/20 border-red-500/50 text-red-200 hover:bg-red-500/30"
-                    : "bg-gold/20 border-gold/40 text-gold hover:bg-gold/30"
-                }`}
-              >
-                {isSpeaking ? (
-                  <>
-                    <Square className="h-4 w-4 fill-current" />
-                    <span className="font-semibold">Stop Reading</span>
-                  </>
-                ) : (
-                  <>
-                    <Volume2 className="h-4 w-4" />
-                    <span className="font-semibold">Read Aloud</span>
-                  </>
-                )}
-              </button>
-            )}
-
-            {story && CINEMATIC_STORIES.includes(story.slug) && (
-              <Link
-                href={`/stories/${story.slug}/cinematic`}
-                className="flex items-center gap-2 px-4 py-2 rounded-lg border bg-purple-500/20 border-purple-500/40 text-purple-200 hover:bg-purple-500/30 transition-all"
-              >
-                <Play className="h-4 w-4" />
-                <span className="font-semibold">Cinematic Mode</span>
-              </Link>
-            )}
-
-            {story?.fullNarrative && (
-              <Link
-                href={`/stories/${story.slug}/read`}
-                className="flex items-center gap-2 px-4 py-2 rounded-lg border bg-gold/15 border-gold/40 text-gold hover:bg-gold/25 transition-all"
-              >
-                <ScrollText className="h-4 w-4" />
-                <span className="font-semibold">Read Cinematically</span>
-              </Link>
-            )}
+      <RouteHero>
+        <div className="flex items-center justify-center mb-6">
+          <div className="relative p-4 rounded-xl border border-gold/20 bg-midnight/50 backdrop-blur-sm">
+            <BookOpen className="h-10 w-10 text-gold" strokeWidth={1.5} />
           </div>
         </div>
-      </div>
+        <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight mb-6 text-parchment">
+          {story.title}
+        </h1>
+        <div className="flex items-center justify-center gap-4 mb-6">
+          <div className="w-12 h-px bg-linear-to-r from-transparent to-gold/40" />
+          <div className="w-1.5 h-1.5 rotate-45 bg-gold/50" />
+          <div className="w-12 h-px bg-linear-to-l from-transparent to-gold/40" />
+        </div>
+        <div className="flex items-center justify-center gap-2 mb-4">
+          <Tag className="h-4 w-4 text-gold/80" />
+          <p className="text-gold/80 font-body">{story?.category}</p>
+        </div>
+        <EditorialByline
+          className="mx-auto max-w-2xl text-center"
+          tone="light"
+        />
+
+        <div className="flex items-center justify-center gap-4">
+          <BookmarkButton
+            type="story"
+            id={story?.id || ""}
+            size="lg"
+            variant="light"
+          />
+
+          {story && (
+            <ShareButton
+              title={`${story.title} - Mythos Atlas`}
+              text={`Read "${story.title}" - ${story.summary?.slice(0, 100)}... on Mythos Atlas`}
+              url={`https://mythosatlas.com/stories/${story.slug}`}
+              className="[&_button]:text-gold [&_button]:border-gold/40 [&_button]:hover:bg-gold/20"
+            />
+          )}
+
+          {story && (
+            <ExportIconButton
+              type="story"
+              data={{
+                title: story.title,
+                summary: story.summary,
+                fullNarrative: story.fullNarrative,
+                category: story.category,
+                moralThemes: story.moralThemes,
+                culturalSignificance: story.culturalSignificance,
+                pantheonId: story.pantheonId,
+                featuredDeities: story.featuredDeities,
+              }}
+              variant="ghost"
+              className="text-gold hover:bg-gold/20"
+            />
+          )}
+
+          {story && (
+            <button
+              onClick={() => {
+                if (isSpeaking) {
+                  cancel();
+                } else {
+                  speak(story.fullNarrative || story.summary);
+                }
+              }}
+              className={`flex items-center gap-2 px-4 py-2 rounded-lg border transition-all ${
+                isSpeaking
+                  ? "bg-red-500/20 border-red-500/50 text-red-200 hover:bg-red-500/30"
+                  : "bg-gold/20 border-gold/40 text-gold hover:bg-gold/30"
+              }`}
+            >
+              {isSpeaking ? (
+                <>
+                  <Square className="h-4 w-4 fill-current" />
+                  <span className="font-semibold">Stop Reading</span>
+                </>
+              ) : (
+                <>
+                  <Volume2 className="h-4 w-4" />
+                  <span className="font-semibold">Read Aloud</span>
+                </>
+              )}
+            </button>
+          )}
+
+          {story && CINEMATIC_STORIES.includes(story.slug) && (
+            <Link
+              href={`/stories/${story.slug}/cinematic`}
+              className="flex items-center gap-2 px-4 py-2 rounded-lg border bg-purple-500/20 border-purple-500/40 text-purple-200 hover:bg-purple-500/30 transition-all"
+            >
+              <Play className="h-4 w-4" />
+              <span className="font-semibold">Cinematic Mode</span>
+            </Link>
+          )}
+
+          {story?.fullNarrative && (
+            <Link
+              href={`/stories/${story.slug}/read`}
+              className="flex items-center gap-2 px-4 py-2 rounded-lg border bg-gold/15 border-gold/40 text-gold hover:bg-gold/25 transition-all"
+            >
+              <ScrollText className="h-4 w-4" />
+              <span className="font-semibold">Read Cinematically</span>
+            </Link>
+          )}
+        </div>
+      </RouteHero>
 
       {/* Content Section */}
       <div className="container mx-auto max-w-4xl px-4 py-16">

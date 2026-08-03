@@ -1,8 +1,9 @@
-'use client';
+"use client";
 
-import { useEffect, useRef, useMemo } from 'react';
-import L from 'leaflet';
-import 'leaflet/dist/leaflet.css';
+import { useEffect, useRef, useMemo } from "react";
+import L from "leaflet";
+import "leaflet/dist/leaflet.css";
+import { PANTHEON_PRIMARY_SECONDARY as PANTHEON_COLORS } from "@/lib/pantheon-colors";
 
 // Types
 interface Waypoint {
@@ -18,33 +19,23 @@ interface JourneyPreviewMapProps {
   isHovered?: boolean;
 }
 
-// Pantheon colors
-const PANTHEON_COLORS: Record<string, { primary: string; secondary: string }> = {
-  'greek-pantheon': { primary: '#3b82f6', secondary: '#2563eb' },
-  'norse-pantheon': { primary: '#8b5cf6', secondary: '#7c3aed' },
-  'egyptian-pantheon': { primary: '#f59e0b', secondary: '#d97706' },
-  'roman-pantheon': { primary: '#ef4444', secondary: '#dc2626' },
-  'hindu-pantheon': { primary: '#f97316', secondary: '#ea580c' },
-  'japanese-pantheon': { primary: '#ec4899', secondary: '#db2777' },
-  'celtic-pantheon': { primary: '#22c55e', secondary: '#16a34a' },
-  'aztec-pantheon': { primary: '#14b8a6', secondary: '#0d9488' },
-  'chinese-pantheon': { primary: '#e11d48', secondary: '#be123c' },
-  'mesopotamian-pantheon': { primary: '#a16207', secondary: '#854d0e' },
-  'african-pantheon': { primary: '#7c3aed', secondary: '#6d28d9' },
-  'polynesian-pantheon': { primary: '#06b6d4', secondary: '#0891b2' },
-  'mesoamerican-pantheon': { primary: '#65a30d', secondary: '#4d7c0f' },
-};
-
-export function JourneyPreviewMap({ waypoints, pantheonId, isHovered = false }: JourneyPreviewMapProps) {
+export function JourneyPreviewMap({
+  waypoints,
+  pantheonId,
+  isHovered = false,
+}: JourneyPreviewMapProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const mapRef = useRef<L.Map | null>(null);
 
   const sortedWaypoints = useMemo(
     () => waypoints.toSorted((a, b) => a.order - b.order),
-    [waypoints]
+    [waypoints],
   );
 
-  const colors = PANTHEON_COLORS[pantheonId] || { primary: '#D4AF37', secondary: '#B8860B' };
+  const colors = PANTHEON_COLORS[pantheonId] || {
+    primary: "#D4AF37",
+    secondary: "#B8860B",
+  };
 
   useEffect(() => {
     if (!containerRef.current) return;
@@ -55,7 +46,9 @@ export function JourneyPreviewMap({ waypoints, pantheonId, isHovered = false }: 
       mapRef.current = null;
     }
 
-    const element = containerRef.current as HTMLDivElement & { _leaflet_id?: number | null };
+    const element = containerRef.current as HTMLDivElement & {
+      _leaflet_id?: number | null;
+    };
     if (element._leaflet_id) {
       element._leaflet_id = null;
     }
@@ -73,11 +66,15 @@ export function JourneyPreviewMap({ waypoints, pantheonId, isHovered = false }: 
     mapRef.current = map;
 
     // Dark tile layer
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png').addTo(map);
+    L.tileLayer(
+      "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",
+    ).addTo(map);
 
     // Fit to waypoints
     if (sortedWaypoints.length > 0) {
-      const bounds = L.latLngBounds(sortedWaypoints.map((wp) => wp.coordinates));
+      const bounds = L.latLngBounds(
+        sortedWaypoints.map((wp) => wp.coordinates),
+      );
       map.fitBounds(bounds, { padding: [20, 20], maxZoom: 5 });
     }
 
@@ -87,7 +84,7 @@ export function JourneyPreviewMap({ waypoints, pantheonId, isHovered = false }: 
       color: colors.primary,
       weight: 2,
       opacity: 0.7,
-      dashArray: '5, 5',
+      dashArray: "5, 5",
     }).addTo(map);
 
     // Add start and end markers
@@ -102,7 +99,7 @@ export function JourneyPreviewMap({ waypoints, pantheonId, isHovered = false }: 
           border-radius: 50%;
           box-shadow: 0 2px 4px rgba(0,0,0,0.3);
         "></div>`,
-        className: 'custom-preview-marker',
+        className: "custom-preview-marker",
         iconSize: [12, 12],
         iconAnchor: [6, 6],
       });
@@ -119,11 +116,13 @@ export function JourneyPreviewMap({ waypoints, pantheonId, isHovered = false }: 
             border-radius: 50%;
             box-shadow: 0 2px 4px rgba(0,0,0,0.3);
           "></div>`,
-          className: 'custom-preview-marker',
+          className: "custom-preview-marker",
           iconSize: [16, 16],
           iconAnchor: [8, 8],
         });
-        L.marker(sortedWaypoints[sortedWaypoints.length - 1].coordinates, { icon: endIcon }).addTo(map);
+        L.marker(sortedWaypoints[sortedWaypoints.length - 1].coordinates, {
+          icon: endIcon,
+        }).addTo(map);
       }
 
       // Intermediate markers (small dots)
@@ -136,7 +135,7 @@ export function JourneyPreviewMap({ waypoints, pantheonId, isHovered = false }: 
             border-radius: 50%;
             opacity: 0.6;
           "></div>`,
-          className: 'custom-preview-marker',
+          className: "custom-preview-marker",
           iconSize: [6, 6],
           iconAnchor: [3, 3],
         });
@@ -158,7 +157,9 @@ export function JourneyPreviewMap({ waypoints, pantheonId, isHovered = false }: 
 
     if (isHovered) {
       // Slight zoom in on hover
-      const bounds = L.latLngBounds(sortedWaypoints.map((wp) => wp.coordinates));
+      const bounds = L.latLngBounds(
+        sortedWaypoints.map((wp) => wp.coordinates),
+      );
       mapRef.current.flyToBounds(bounds, {
         padding: [30, 30],
         maxZoom: 6,
@@ -171,7 +172,7 @@ export function JourneyPreviewMap({ waypoints, pantheonId, isHovered = false }: 
     <div
       ref={containerRef}
       className="w-full h-full"
-      style={{ minHeight: '192px' }}
+      style={{ minHeight: "192px" }}
     />
   );
 }

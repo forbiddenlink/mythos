@@ -10,11 +10,17 @@ describe("POST /api/search", () => {
     vi.resetModules();
   });
 
+  const sameOriginHeaders = {
+    "Content-Type": "application/json",
+    origin: "http://localhost:3000",
+    host: "localhost:3000",
+  };
+
   it("returns merged lexical results for a deity name", async () => {
     const { POST } = await import("@/app/api/search/route");
     const req = new NextRequest("http://localhost:3000/api/search", {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: sameOriginHeaders,
       body: JSON.stringify({ query: "Zeus", limit: 10 }),
     });
     const res = await POST(req);
@@ -29,10 +35,24 @@ describe("POST /api/search", () => {
     const { POST } = await import("@/app/api/search/route");
     const req = new NextRequest("http://localhost:3000/api/search", {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: sameOriginHeaders,
       body: JSON.stringify({ query: "" }),
     });
     const res = await POST(req);
     expect(res.status).toBe(400);
+  });
+
+  it("returns 403 for a cross-origin request", async () => {
+    const { POST } = await import("@/app/api/search/route");
+    const req = new NextRequest("http://localhost:3000/api/search", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        host: "localhost:3000",
+      },
+      body: JSON.stringify({ query: "Zeus", limit: 10 }),
+    });
+    const res = await POST(req);
+    expect(res.status).toBe(403);
   });
 });

@@ -263,7 +263,12 @@ export function OracleChat() {
               </div>
 
               {/* Messages */}
-              <div className="flex-1 overflow-y-auto p-4 space-y-4">
+              <div
+                className="flex-1 overflow-y-auto p-4 space-y-4"
+                role="log"
+                aria-live="polite"
+                aria-relevant="additions"
+              >
                 {messages.length === 0 ? (
                   <div className="text-center py-8">
                     <Sparkles className="w-12 h-12 text-gold/40 mx-auto mb-4" />
@@ -354,7 +359,10 @@ export function OracleChat() {
                 )}
 
                 {error && (
-                  <div className="bg-red-900/20 border border-red-500/30 rounded-lg p-3 text-red-300 text-sm">
+                  <div
+                    role="alert"
+                    className="bg-red-900/20 border border-red-500/30 rounded-lg p-3 text-red-300 text-sm"
+                  >
                     {error}
                   </div>
                 )}
@@ -375,6 +383,7 @@ export function OracleChat() {
                     placeholder={t("placeholder")}
                     disabled={isLoading}
                     aria-label={t("inputLabel")}
+                    maxLength={4000}
                     className="flex-1 bg-slate-800/50 border border-gold/20 rounded-xl px-4 py-3 text-parchment placeholder:text-parchment/40 focus:outline-none focus:border-gold/50 focus:ring-1 focus:ring-gold/30 transition-colors disabled:opacity-50"
                   />
                   <Button
@@ -386,6 +395,12 @@ export function OracleChat() {
                     <Send className="w-5 h-5" />
                   </Button>
                 </div>
+                <p
+                  className="mt-1 text-right text-[10px] text-parchment/40"
+                  aria-live="polite"
+                >
+                  {input.length}/4000
+                </p>
               </form>
             </motion.div>
           </>

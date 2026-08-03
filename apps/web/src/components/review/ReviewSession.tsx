@@ -1,10 +1,10 @@
-'use client';
+"use client";
 
-import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Progress } from '@/components/ui/progress';
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Progress } from "@/components/ui/progress";
 import {
   Trophy,
   RefreshCw,
@@ -13,10 +13,10 @@ import {
   Target,
   CheckCircle2,
   XCircle,
-} from 'lucide-react';
-import { FlashCard } from './FlashCard';
-import { useReview } from '@/providers/review-provider';
-import type { DifficultyRating, ReviewCard } from '@/lib/spaced-repetition';
+} from "lucide-react";
+import { FlashCard } from "./FlashCard";
+import { useReview } from "@/providers/review-provider";
+import type { DifficultyRating, ReviewCard } from "@/lib/spaced-repetition";
 
 interface ReviewSessionProps {
   onComplete?: () => void;
@@ -34,7 +34,10 @@ export function ReviewSession({ onComplete }: ReviewSessionProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [sessionCards, setSessionCards] = useState<ReviewCard[]>([]);
   const [sessionComplete, setSessionComplete] = useState(false);
-  const [sessionStats, setSessionStats] = useState({ correct: 0, incorrect: 0 });
+  const [sessionStats, setSessionStats] = useState({
+    correct: 0,
+    incorrect: 0,
+  });
 
   // Initialize session with due cards
   useEffect(() => {
@@ -50,9 +53,8 @@ export function ReviewSession({ onComplete }: ReviewSessionProps) {
   }, [dueCards, sessionCards.length]);
 
   const currentCard = sessionCards[currentIndex];
-  const progress = sessionCards.length > 0
-    ? ((currentIndex) / sessionCards.length) * 100
-    : 0;
+  const progress =
+    sessionCards.length > 0 ? (currentIndex / sessionCards.length) * 100 : 0;
 
   const handleRate = (rating: DifficultyRating) => {
     if (!currentCard) return;
@@ -84,37 +86,45 @@ export function ReviewSession({ onComplete }: ReviewSessionProps) {
   };
 
   const todayStats = getTodayStats();
-  const accuracy = sessionStats.correct + sessionStats.incorrect > 0
-    ? Math.round((sessionStats.correct / (sessionStats.correct + sessionStats.incorrect)) * 100)
-    : 0;
+  const accuracy =
+    sessionStats.correct + sessionStats.incorrect > 0
+      ? Math.round(
+          (sessionStats.correct /
+            (sessionStats.correct + sessionStats.incorrect)) *
+            100,
+        )
+      : 0;
 
   // No cards to review
   if (sessionCards.length === 0 && !sessionComplete) {
+    const isFirstTimeUser = reviewState.stats.totalReviewed === 0;
+
     return (
       <Card className="max-w-lg mx-auto border-gold/20 shadow-xl">
         <CardHeader className="text-center pt-8">
           <div className="mx-auto mb-6 p-6 rounded-full bg-linear-to-br from-emerald-500/20 to-emerald-600/10 w-fit ring-1 ring-emerald-500/30">
             <CheckCircle2 className="h-12 w-12 text-emerald-500" />
           </div>
-          <CardTitle className="text-2xl font-serif">All Caught Up!</CardTitle>
+          <CardTitle className="text-2xl font-serif">
+            {isFirstTimeUser ? "No Reviews Yet" : "All Caught Up!"}
+          </CardTitle>
         </CardHeader>
         <CardContent className="text-center pb-8 space-y-6">
           <p className="text-muted-foreground">
-            You have no cards due for review right now. Great job staying on top of your learning!
+            {isFirstTimeUser
+              ? "You have not built up any review cards yet. Explore deities and stories on Mythos Atlas to generate your first cards."
+              : "You have no cards due for review right now. Great job staying on top of your learning!"}
           </p>
 
           <div className="bg-muted/50 rounded-lg p-4 space-y-2">
             <p className="text-sm text-muted-foreground">
-              To get more review cards, explore more deities and read more stories on Mythos Atlas.
+              To get more review cards, explore more deities and read more
+              stories on Mythos Atlas.
             </p>
           </div>
 
           <div className="flex flex-col gap-3">
-            <Button
-              variant="outline"
-              onClick={handleRestart}
-              className="gap-2"
-            >
+            <Button variant="outline" onClick={handleRestart} className="gap-2">
               <RefreshCw className="h-4 w-4" />
               Check Again
             </Button>
@@ -140,12 +150,14 @@ export function ReviewSession({ onComplete }: ReviewSessionProps) {
           <motion.div
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
-            transition={{ type: 'spring', stiffness: 200, damping: 15 }}
+            transition={{ type: "spring", stiffness: 200, damping: 15 }}
             className="mx-auto mb-6 p-6 rounded-full bg-linear-to-br from-gold/20 to-amber-500/10 w-fit ring-1 ring-gold/30 shadow-inner"
           >
             <Trophy className="h-16 w-16 text-gold drop-shadow-md" />
           </motion.div>
-          <CardTitle className="text-3xl font-serif">Session Complete!</CardTitle>
+          <CardTitle className="text-3xl font-serif">
+            Session Complete!
+          </CardTitle>
         </CardHeader>
 
         <CardContent className="space-y-8 pb-8">
@@ -163,17 +175,23 @@ export function ReviewSession({ onComplete }: ReviewSessionProps) {
           <div className="grid grid-cols-3 gap-4 text-center">
             <div className="p-3 rounded-lg bg-emerald-500/10 border border-emerald-500/20">
               <CheckCircle2 className="h-5 w-5 text-emerald-500 mx-auto mb-1" />
-              <div className="font-bold text-lg text-emerald-400">{sessionStats.correct}</div>
+              <div className="font-bold text-lg text-emerald-400">
+                {sessionStats.correct}
+              </div>
               <div className="text-xs text-muted-foreground">Correct</div>
             </div>
             <div className="p-3 rounded-lg bg-red-500/10 border border-red-500/20">
               <XCircle className="h-5 w-5 text-red-500 mx-auto mb-1" />
-              <div className="font-bold text-lg text-red-400">{sessionStats.incorrect}</div>
+              <div className="font-bold text-lg text-red-400">
+                {sessionStats.incorrect}
+              </div>
               <div className="text-xs text-muted-foreground">To Review</div>
             </div>
             <div className="p-3 rounded-lg bg-gold/10 border border-gold/20">
               <Flame className="h-5 w-5 text-gold mx-auto mb-1" />
-              <div className="font-bold text-lg text-gold">{reviewState.stats.currentStreak}</div>
+              <div className="font-bold text-lg text-gold">
+                {reviewState.stats.currentStreak}
+              </div>
               <div className="text-xs text-muted-foreground">Day Streak</div>
             </div>
           </div>
@@ -265,10 +283,7 @@ export function ReviewSession({ onComplete }: ReviewSessionProps) {
             exit={{ opacity: 0, x: -50 }}
             transition={{ duration: 0.2 }}
           >
-            <FlashCard
-              card={currentCard}
-              onRate={handleRate}
-            />
+            <FlashCard card={currentCard} onRate={handleRate} />
           </motion.div>
         )}
       </AnimatePresence>

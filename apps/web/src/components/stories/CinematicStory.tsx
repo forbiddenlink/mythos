@@ -5,7 +5,7 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 
 // Register GSAP plugins
 if (typeof window !== "undefined") {
@@ -48,6 +48,15 @@ function Scene({ scene, index }: { scene: StoryScene; index: number }) {
   useGSAP(
     () => {
       if (!sceneRef.current) return;
+
+      // Skip the scroll-scrubbed reveal entirely under reduced motion — leave
+      // text/image at their natural (visible) state instead of animating in.
+      if (
+        typeof window !== "undefined" &&
+        window.matchMedia("(prefers-reduced-motion: reduce)").matches
+      ) {
+        return;
+      }
 
       const tl = gsap.timeline({
         scrollTrigger: {
@@ -142,6 +151,7 @@ export function CinematicStory({
 }: CinematicStoryProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const [mounted, setMounted] = useState(false);
+  const shouldReduceMotion = useReducedMotion();
 
   useEffect(() => {
     // eslint-disable-next-line react-hooks/set-state-in-effect -- hydration: detect client-side mount
@@ -190,8 +200,12 @@ export function CinematicStory({
               Scroll to begin the journey
             </p>
             <motion.div
-              animate={{ y: [0, 10, 0] }}
-              transition={{ duration: 2, repeat: Infinity }}
+              animate={shouldReduceMotion ? undefined : { y: [0, 10, 0] }}
+              transition={
+                shouldReduceMotion
+                  ? undefined
+                  : { duration: 2, repeat: Infinity }
+              }
               className="mt-8"
             >
               <svg
