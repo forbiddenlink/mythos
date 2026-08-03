@@ -1,9 +1,54 @@
 import { defaultLocale, isValidLocale } from "@/i18n/config";
 import { NextResponse, type NextRequest } from "next/server";
 
-// Cookie-based locale proxy.
+/**
+ * Build the per-request Content-Security-Policy.
+ *
+ * Production locks scripts to a per-request nonce plus 'strict-dynamic'
+ * (browsers then ignore 'unsafe-inline' and the host allowlist, trusting
+ * only nonced scripts and what they load). 'unsafe-eval' is kept for now
+ * (see note below). Development stays permissive because Next's HMR /
+ * react-refresh need inline + eval.
+ */
+function buildCsp(nonce: string): string {
+  const isDev = process.env.NODE_ENV === "development";
+  // Production: nonce + 'strict-dynamic' removes 'unsafe-inline' (the primary
+  // XSS lever). 'unsafe-eval' is kept for now because some third-party libs
+  // (Sentry, particle/animation engines) may use eval internally; dropping it
+  // needs a browser check first. Dev keeps inline for HMR.
+  const scriptSrc = isDev
+    ? "'self' 'unsafe-inline' 'unsafe-eval' blob:"
+    : `'self' 'nonce-${nonce}' 'strict-dynamic' 'unsafe-eval' blob:`;
+
+  return [
+    "default-src 'self'",
+    `script-src ${scriptSrc}`,
+    "style-src 'self' 'unsafe-inline'",
+    "img-src 'self' data: https: blob:",
+    "font-src 'self' data:",
+    "connect-src 'self'",
+    "worker-src 'self' blob:",
+    "media-src 'self'",
+    "frame-ancestors 'none'",
+    "base-uri 'self'",
+    "object-src 'none'",
+    "report-to csp-endpoint",
+  ].join("; ");
+}
+
+// Cookie-based locale detection + per-request nonce CSP.
 export function proxy(request: NextRequest) {
-  const response = NextResponse.next();
+  const nonce = Buffer.from(crypto.randomUUID()).toString("base64");
+  const csp = buildCsp(nonce);
+
+  // Thread the nonce + CSP through the request headers so Next applies the
+  // nonce to its own framework scripts, then also set the CSP on the response.
+  const requestHeaders = new Headers(request.headers);
+  requestHeaders.set("x-nonce", nonce);
+  requestHeaders.set("Content-Security-Policy", csp);
+
+  const response = NextResponse.next({ request: { headers: requestHeaders } });
+  response.headers.set("Content-Security-Policy", csp);
 
   const localeCookie = request.cookies.get("locale")?.value;
 
@@ -43,6 +88,6 @@ export function proxy(request: NextRequest) {
 
 export const config = {
   matcher: [
-    "/((?!api|_next/static|_next/image|favicon.ico|icon.png|apple-icon.png|manifest.json|sw.js|workbox-.*|robots.txt|sitemap.xml).*)",
+    "/((?!api|monitoring|_next/static|_next/image|favicon.ico|icon.png|apple-icon.png|manifest.json|sw.js|workbox-.*|robots.txt|sitemap.xml).*)",
   ],
 };

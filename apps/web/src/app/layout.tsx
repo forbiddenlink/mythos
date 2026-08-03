@@ -12,6 +12,7 @@ import { ThemeProvider } from "@/providers/theme-provider";
 import type { Metadata, Viewport } from "next";
 import { NextIntlClientProvider } from "next-intl";
 import { getLocale, getMessages } from "next-intl/server";
+import { headers } from "next/headers";
 import { Cinzel, Crimson_Pro, Source_Sans_3 } from "next/font/google";
 import "./globals.css";
 
@@ -68,6 +69,7 @@ export default async function RootLayout({
 }>) {
   const locale = await getLocale();
   const messages = await getMessages();
+  const nonce = (await headers()).get("x-nonce") ?? undefined;
 
   return (
     <html lang={locale} suppressHydrationWarning>
@@ -83,6 +85,7 @@ export default async function RootLayout({
             defaultTheme="system"
             enableSystem
             disableTransitionOnChange
+            nonce={nonce}
           >
             <QueryProvider>
               <BookmarksProvider>
