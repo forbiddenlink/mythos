@@ -2,15 +2,10 @@ import Link from "next/link";
 import { getTranslations } from "next-intl/server";
 import { MythologyQuiz } from "@/components/quiz/MythologyQuiz";
 import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
-import {
-  Brain,
-  BookOpen,
-  Trophy,
-  Users,
-  Sparkles,
-  ArrowRight,
-  Zap,
-} from "lucide-react";
+import { SimplePageHeader } from "@/components/layout/simple-page-header";
+import { pageSectionTitleClass } from "@/components/layout/page-typography";
+import { ArrowRight } from "lucide-react";
+import { MythosMark, type MythosMarkId } from "@/components/icons/mythos-marks";
 import { QuizJsonLd } from "@/components/seo/JsonLd";
 import { generateBaseMetadata } from "@/lib/metadata";
 import {
@@ -21,6 +16,7 @@ import {
   CardDescription,
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { cn } from "@/lib/utils";
 
 export const metadata = generateBaseMetadata({
   title: "Mythology Quiz - Test Your Knowledge",
@@ -42,23 +38,23 @@ const OTHER_QUIZZES = [
     titleKey: "quickQuizTitle",
     descriptionKey: "quickQuizDescription",
     href: "/quiz/quick",
-    icon: Zap,
+    mark: "bolt" as MythosMarkId,
     badgeKey: "speedBadge",
-    color: "text-amber-500",
+    color: "text-gold",
   },
   {
     titleKey: "relationshipsTitle",
     descriptionKey: "relationshipsDescription",
     href: "/quiz/relationships",
-    icon: Users,
+    mark: "tree" as MythosMarkId,
     badgeKey: "challengeTitle",
-    color: "text-blue-500",
+    color: "text-patina",
   },
   {
     titleKey: "personalityTitle",
     descriptionKey: "personalityDescription",
     href: "/quiz/personality",
-    icon: Sparkles,
+    mark: "lyre" as MythosMarkId,
     badgeKey: "personalityBadge",
     color: "text-gold",
   },
@@ -74,28 +70,18 @@ export default async function QuizPage() {
         description="Test your knowledge of Greek, Norse, Egyptian, and world mythology with interactive quizzes about deities, symbols, and domains."
         url="/quiz"
       />
-      <div className="container mx-auto max-w-7xl px-4 py-12">
+      <div className="page-shell">
         <Breadcrumbs />
 
-        <div className="text-center mb-12 mt-6">
-          <div className="flex items-center justify-center mb-6">
-            <div className="p-4 rounded-xl border border-gold/20 bg-gold/5 backdrop-blur-sm">
-              <Brain className="h-10 w-10 text-gold" />
-            </div>
-          </div>
-
-          <h1 className="font-serif text-display font-bold mb-4">
-            {t("title")}
-          </h1>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
-            {t("subtitle")}
-          </p>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-3xl mx-auto mb-12">
-            <div className="flex items-center gap-3 p-4 rounded-lg bg-card border border-border">
-              <div className="p-2 rounded-lg bg-gold/10">
-                <BookOpen className="h-5 w-5 text-gold" />
-              </div>
+        <SimplePageHeader
+          mark="lyre"
+          tagline="Test yourself"
+          title={t("title")}
+          description={t("subtitle")}
+        >
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-3xl mx-auto">
+            <div className="flex items-center gap-3 p-4 bg-card border border-border">
+              <MythosMark id="scroll" className="h-5 w-5 text-gold" />
               <div className="text-left">
                 <div className="font-semibold text-sm">{t("learn")}</div>
                 <div className="text-xs text-muted-foreground">
@@ -104,10 +90,8 @@ export default async function QuizPage() {
               </div>
             </div>
 
-            <div className="flex items-center gap-3 p-4 rounded-lg bg-card border border-border">
-              <div className="p-2 rounded-lg bg-gold/10">
-                <Brain className="h-5 w-5 text-gold" />
-              </div>
+            <div className="flex items-center gap-3 p-4 bg-card border border-border">
+              <MythosMark id="owl" className="h-5 w-5 text-gold" />
               <div className="text-left">
                 <div className="font-semibold text-sm">
                   {t("challengeTitle")}
@@ -118,10 +102,8 @@ export default async function QuizPage() {
               </div>
             </div>
 
-            <div className="flex items-center gap-3 p-4 rounded-lg bg-card border border-border">
-              <div className="p-2 rounded-lg bg-gold/10">
-                <Trophy className="h-5 w-5 text-gold" />
-              </div>
+            <div className="flex items-center gap-3 p-4 bg-card border border-border">
+              <MythosMark id="laurel" className="h-5 w-5 text-gold" />
               <div className="text-left">
                 <div className="font-semibold text-sm">{t("achieveTitle")}</div>
                 <div className="text-xs text-muted-foreground">
@@ -130,11 +112,11 @@ export default async function QuizPage() {
               </div>
             </div>
           </div>
-        </div>
+        </SimplePageHeader>
 
         {/* Main Knowledge Quiz */}
         <div className="mb-8">
-          <h2 className="font-serif text-2xl font-bold mb-6 text-center">
+          <h2 className={cn(pageSectionTitleClass, "mb-6 text-center")}>
             {t("knowledgeQuizTitle")}
           </h2>
         </div>
@@ -142,21 +124,20 @@ export default async function QuizPage() {
 
         {/* Other Quiz Types */}
         <div className="mb-12 mt-16">
-          <h2 className="font-serif text-2xl font-bold mb-6 text-center">
+          <h2 className={cn(pageSectionTitleClass, "mb-6 text-center")}>
             {t("moreQuizzesTitle")}
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
             {OTHER_QUIZZES.map((quiz) => {
-              const Icon = quiz.icon;
               return (
                 <Link key={quiz.href} href={quiz.href}>
                   <Card className="h-full border-border hover:border-gold/50 transition-all duration-200 hover:shadow-lg group cursor-pointer">
                     <CardHeader className="pb-2">
                       <div className="flex items-start justify-between">
                         <div
-                          className={`p-3 rounded-xl bg-muted border border-border group-hover:bg-gold/10 transition-colors ${quiz.color}`}
+                          className={`border border-border bg-muted p-3 transition-colors group-hover:bg-gold/10 ${quiz.color}`}
                         >
-                          <Icon className="h-6 w-6" />
+                          <MythosMark id={quiz.mark} className="h-6 w-6" />
                         </div>
                         <Badge variant="secondary">{t(quiz.badgeKey)}</Badge>
                       </div>
@@ -177,8 +158,8 @@ export default async function QuizPage() {
           </div>
         </div>
 
-        <section className="mx-auto mb-12 max-w-4xl rounded-2xl border border-border/60 bg-card/60 p-6">
-          <h2 className="font-serif text-2xl font-semibold mb-3">
+        <section className="mx-auto mb-12 max-w-4xl rounded-xl border border-border/60 bg-card/60 p-6">
+          <h2 className={cn(pageSectionTitleClass, "mb-3")}>
             {t("studySectionTitle")}
           </h2>
           <p className="text-muted-foreground leading-relaxed">

@@ -74,9 +74,7 @@ export default function InteractiveStoryPage() {
             Interactive Story
           </Badge>
         </div>
-        <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight mb-4 text-parchment">
-          {story.title}
-        </h1>
+        <h1 className="page-title text-parchment mb-4">{story.title}</h1>
         <div className="flex items-center justify-center gap-4 mb-4">
           <div className="w-12 h-px bg-linear-to-r from-transparent to-gold/40" />
           <div className="w-1.5 h-1.5 rotate-45 bg-gold/50" />

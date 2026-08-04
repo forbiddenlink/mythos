@@ -3,7 +3,8 @@
 import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { Lightbulb, RefreshCw, ChevronRight } from "lucide-react";
+import { RefreshCw, ChevronRight } from "lucide-react";
+import { MythosMark } from "@/components/icons/mythos-marks";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import facts from "@/data/mythology-facts.json";
@@ -27,15 +28,18 @@ const categoryLabels: Record<string, string> = {
   history: "Historical",
 };
 
+/* Stay inside the classical palette — gold, bronze, patina, parchment, wine */
 const categoryColors: Record<string, string> = {
-  connections: "bg-purple-500/10 text-purple-400 border-purple-500/30",
-  language: "bg-blue-500/10 text-blue-400 border-blue-500/30",
-  science: "bg-green-500/10 text-green-400 border-green-500/30",
-  origins: "bg-amber-500/10 text-amber-400 border-amber-500/30",
-  symbolism: "bg-pink-500/10 text-pink-400 border-pink-500/30",
-  stories: "bg-indigo-500/10 text-indigo-400 border-indigo-500/30",
-  misconceptions: "bg-red-500/10 text-red-400 border-red-500/30",
-  history: "bg-teal-500/10 text-teal-400 border-teal-500/30",
+  connections: "bg-bronze/10 text-bronze border-bronze/30",
+  language: "bg-patina/10 text-patina border-patina/30",
+  science: "bg-gold/10 text-gold-text border-gold/30",
+  origins: "bg-gold/15 text-gold-dark dark:text-gold border-gold/35",
+  symbolism:
+    "bg-midnight/10 text-midnight dark:text-parchment/80 border-midnight/25 dark:border-parchment/25",
+  stories:
+    "bg-amber-900/10 text-amber-900 dark:text-amber-200 border-amber-800/30",
+  misconceptions: "bg-destructive/10 text-destructive border-destructive/30",
+  history: "bg-muted text-muted-foreground border-border",
 };
 
 // Deterministic daily fact based on date
@@ -79,15 +83,15 @@ export function DidYouKnow() {
 
   if (!mounted || !currentFact) {
     return (
-      <section className="container mx-auto max-w-7xl px-4 py-8">
+      <section className="container mx-auto max-w-7xl px-4 py-16 md:py-20">
         <div className="h-40 bg-muted/50 rounded-xl animate-pulse" />
       </section>
     );
   }
 
   return (
-    <section className="container mx-auto max-w-7xl px-4 py-8">
-      <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-gold/5 via-card to-amber-500/5 border border-gold/20">
+    <section className="container mx-auto max-w-7xl px-4 py-16 md:py-20">
+      <div className="relative overflow-hidden rounded-xl bg-gradient-to-br from-gold/5 via-card to-bronze/5 border border-gold/20">
         {/* Background decoration */}
         <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-radial from-gold/10 to-transparent opacity-50" />
 
@@ -95,9 +99,7 @@ export function DidYouKnow() {
           {/* Header */}
           <div className="flex items-start justify-between mb-4">
             <div className="flex items-center gap-3">
-              <div className="p-2.5 rounded-xl bg-gold/10 border border-gold/20">
-                <Lightbulb className="h-5 w-5 text-gold" />
-              </div>
+              <MythosMark id="torch" className="h-5 w-5 text-gold" />
               <div>
                 <h2 className="font-serif text-lg font-semibold">
                   Did You Know?

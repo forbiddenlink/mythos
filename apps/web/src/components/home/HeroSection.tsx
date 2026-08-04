@@ -7,7 +7,8 @@ import pantheonData from "@/data/pantheons.json";
 import storiesData from "@/data/stories.json";
 import { motion, useReducedMotion } from "framer-motion";
 import { heroEntrance, heroLoop } from "./heroMotion";
-import { BookOpen, Compass, Globe2, Sparkles, Users } from "lucide-react";
+import { MythosMark, type MythosMarkId } from "@/components/icons/mythos-marks";
+import { HeroMark } from "@/components/icons/hero-mark";
 import dynamic from "next/dynamic";
 
 // Dynamic imports for heavy 3D/particle components
@@ -143,14 +144,8 @@ export function HeroSection() {
                 },
               })}
             />
-            {/* Icon container with ornate border */}
-            <div className="relative p-5 rounded-full border border-gold/30 bg-linear-to-br from-midnight-light/80 to-midnight/90 backdrop-blur-sm">
-              <div className="absolute inset-1 rounded-full border border-gold/10" />
-              <Compass
-                className="h-10 w-10 text-gold animate-glow"
-                strokeWidth={1.5}
-              />
-            </div>
+            {/* Classical mark frame */}
+            <HeroMark mark="compass" tone="gold" size="lg" />
           </div>
         </motion.div>
 
@@ -201,8 +196,8 @@ export function HeroSection() {
           })}
           className="max-w-4xl mx-auto mb-14"
         >
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-gold/15 bg-midnight-light/20 text-gold/80 text-xs uppercase tracking-[0.24em] mb-5">
-            <Sparkles className="h-3.5 w-3.5" />
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-sm border border-gold/25 bg-midnight/50 text-gold/90 text-xs uppercase tracking-[0.24em] mb-5">
+            <MythosMark id="constellation" className="h-3.5 w-3.5" />
             Choose your first path
           </div>
           <div className="grid gap-3 md:grid-cols-3 text-left">
@@ -210,12 +205,12 @@ export function HeroSection() {
               <TransitionLink
                 key={path.href}
                 href={path.href}
-                className="group rounded-2xl border border-gold/15 bg-midnight-light/25 backdrop-blur-sm px-5 py-4 hover:border-gold/35 hover:bg-midnight-light/35 transition-all duration-300"
+                className="group rounded-lg border border-gold/30 bg-midnight/55 backdrop-blur-md px-5 py-4 shadow-[inset_0_1px_0_rgba(178,143,86,0.12)] hover:border-gold/55 hover:bg-midnight/70 transition-[border-color,background-color] duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold/60"
               >
                 <div className="text-parchment font-semibold mb-1 group-hover:text-gold transition-colors duration-300">
                   {path.title}
                 </div>
-                <p className="text-sm text-parchment/78 leading-relaxed">
+                <p className="text-sm text-parchment/85 leading-relaxed">
                   {path.description}
                 </p>
               </TransitionLink>
@@ -234,15 +229,27 @@ export function HeroSection() {
         >
           <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 mb-5">
             {[
-              { icon: Globe2, value: STATS.pantheons, label: "Pantheons" },
-              { icon: Users, value: `${STATS.deities}+`, label: "Deities" },
-              { icon: BookOpen, value: `${STATS.stories}+`, label: "Stories" },
+              {
+                mark: "temple" as MythosMarkId,
+                value: STATS.pantheons,
+                label: "Pantheons",
+              },
+              {
+                mark: "laurel" as MythosMarkId,
+                value: `${STATS.deities}+`,
+                label: "Deities",
+              },
+              {
+                mark: "scroll" as MythosMarkId,
+                value: `${STATS.stories}+`,
+                label: "Stories",
+              },
             ].map((stat) => (
               <div
                 key={stat.label}
-                className="flex items-center gap-2 px-4 py-2 rounded-lg border border-gold/15 bg-midnight-light/30 backdrop-blur-sm"
+                className="flex items-center gap-2 px-4 py-2 border border-gold/15 bg-midnight-light/30 backdrop-blur-sm"
               >
-                <stat.icon className="h-4 w-4 text-gold/70" strokeWidth={1.5} />
+                <MythosMark id={stat.mark} className="h-4 w-4 text-gold/70" />
                 <span className="text-gold font-semibold font-serif tabular-nums">
                   {stat.value}
                 </span>

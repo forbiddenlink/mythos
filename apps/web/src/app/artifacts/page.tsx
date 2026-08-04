@@ -44,7 +44,7 @@ export default function ArtifactsPage() {
         numberOfItems={artifacts.length}
       />
       <PageHero
-        icon={<Gem />}
+        mark="relic"
         tagline="The Arsenal"
         title="Legendary Artifacts"
         description="Weapons, shields, and mystical objects of power wielded by the gods and heroes of old."
@@ -125,7 +125,7 @@ export default function ArtifactsPage() {
                         {artifact.slug ? (
                           <Link
                             href={`/artifacts/${artifact.slug}`}
-                            className="font-medium text-purple-600 hover:text-purple-700 dark:text-purple-400 dark:hover:text-purple-300 hover:underline"
+                            className="font-medium text-gold-text hover:text-gold dark:text-gold dark:hover:text-gold-light hover:underline"
                           >
                             {artifact.name}
                           </Link>
@@ -150,7 +150,7 @@ export default function ArtifactsPage() {
                       <td className="px-4 py-3 text-sm">
                         <Badge
                           variant="outline"
-                          className="border-purple-500/50 text-purple-500 bg-purple-500/5 capitalize"
+                          className="border-bronze/50 text-bronze bg-bronze/5 capitalize"
                         >
                           {artifact.type}
                         </Badge>
@@ -179,12 +179,12 @@ export default function ArtifactsPage() {
               >
                 <Card
                   asArticle
-                  className="h-full cursor-pointer card-elevated bg-card hover:scale-[1.01] hover:border-purple-500/30 transition-all duration-300"
+                  className="h-full cursor-pointer card-elevated bg-card hover:scale-[1.01] hover:border-bronze/40 transition-all duration-300"
                 >
                   <CardHeader>
                     <div className="flex items-start justify-between">
                       {artifact.imageUrl ? (
-                        <div className="rounded-xl overflow-hidden border border-purple-500/20 shadow-sm">
+                        <div className="rounded-xl overflow-hidden border border-bronze/25 shadow-sm">
                           <Image
                             src={artifact.imageUrl}
                             alt={artifact.name}
@@ -196,9 +196,9 @@ export default function ArtifactsPage() {
                           />
                         </div>
                       ) : (
-                        <div className="p-2.5 rounded-xl bg-purple-500/10 border border-purple-500/20 group-hover:bg-purple-500/15 transition-colors duration-300">
+                        <div className="p-2.5 rounded-xl bg-bronze/10 border border-bronze/25 group-hover:bg-bronze/15 transition-colors duration-300">
                           <Gem
-                            className="h-5 w-5 text-purple-500"
+                            className="h-5 w-5 text-bronze"
                             strokeWidth={1.5}
                           />
                         </div>
@@ -206,12 +206,12 @@ export default function ArtifactsPage() {
 
                       <Badge
                         variant="outline"
-                        className="border-purple-500/50 text-purple-500 bg-purple-500/5"
+                        className="border-bronze/50 text-bronze bg-bronze/5"
                       >
                         {artifact.type}
                       </Badge>
                     </div>
-                    <CardTitle className="text-foreground mt-4 group-hover:text-purple-400 transition-colors duration-300">
+                    <CardTitle className="text-foreground mt-4 group-hover:text-gold transition-colors duration-300">
                       {artifact.name}
                     </CardTitle>
                     <CardDescription>

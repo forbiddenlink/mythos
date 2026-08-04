@@ -1,13 +1,15 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState, Suspense } from "react";
 import dynamic from "next/dynamic";
 import Link from "next/link";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { MapPin, List, Map, Loader2, Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
+import { PageHero } from "@/components/layout/page-hero";
 import { PaginationControls } from "@/components/ui/pagination-controls";
 import locationsData from "@/data/locations.json";
 import pantheonsData from "@/data/pantheons.json";
@@ -15,6 +17,7 @@ import deitiesData from "@/data/deities.json";
 import storiesData from "@/data/stories.json";
 import { usePagination } from "@/hooks/usePagination";
 import { PANTHEON_BG_LABEL as PANTHEON_COLORS } from "@/lib/pantheon-colors";
+import { MYTHIC_ERAS, erasOverlap } from "@/lib/mythic-eras";
 
 // Dynamic import with SSR disabled - Leaflet requires the window object
 const MapVisualization = dynamic(
@@ -52,6 +55,8 @@ interface Pantheon {
   name: string;
   slug: string;
   culture: string;
+  timePeriodStart?: number | null;
+  timePeriodEnd?: number | null;
 }
 
 interface Deity {
@@ -90,15 +95,38 @@ function getLocationTypeLabel(type: string): string {
 
 // ─── Page Component ─────────────────────────────────────────────────────
 export default function LocationsPage() {
+  return (
+    <Suspense
+      fallback={
+        <div className="min-h-screen bg-mythic">
+          <div className="page-shell flex items-center justify-center py-24">
+            <Loader2 className="h-8 w-8 animate-spin text-gold" />
+          </div>
+        </div>
+      }
+    >
+      <LocationsPageInner />
+    </Suspense>
+  );
+}
+
+function LocationsPageInner() {
   const locations = locationsData as Location[];
   const pantheons = pantheonsData as Pantheon[];
   const deities = deitiesData as Deity[];
   const stories = storiesData as Story[];
+  const searchParams = useSearchParams();
+  const router = useRouter();
+  const pathname = usePathname();
+
+  const eraFromUrl = searchParams.get("era");
+  const initialEra = MYTHIC_ERAS.find((e) => e.id === eraFromUrl)?.id ?? null;
 
   const [viewMode, setViewMode] = useState<"map" | "list">("map");
   const [searchQuery, setSearchQuery] = useState("");
+  const [activeEra, setActiveEra] = useState<string | null>(initialEra);
   const [activePantheons, setActivePantheons] = useState<Set<string>>(
-    new Set(pantheons.map((p) => p.id)),
+    () => new Set(pantheons.map((p) => p.id)),
   );
   const [activeLocationTypes, setActiveLocationTypes] = useState<Set<string>>(
     new Set(locations.map((l) => l.locationType)),
@@ -117,6 +145,38 @@ export default function LocationsPage() {
     const ids = new Set(locations.map((loc) => loc.pantheonId));
     return pantheons.filter((p) => ids.has(p.id));
   }, [locations, pantheons]);
+
+  const pantheonIdsForEra = useMemo(() => {
+    if (!activeEra) return null;
+    const era = MYTHIC_ERAS.find((e) => e.id === activeEra);
+    if (!era) return null;
+    return new Set(
+      pantheons
+        .filter((p) =>
+          erasOverlap(era.start, era.end, p.timePeriodStart, p.timePeriodEnd),
+        )
+        .map((p) => p.id),
+    );
+  }, [activeEra, pantheons]);
+
+  // Apply era → pantheon selection when era changes
+  useEffect(() => {
+    if (!pantheonIdsForEra) return;
+    const next = new Set(
+      pantheonsWithLocations
+        .filter((p) => pantheonIdsForEra.has(p.id))
+        .map((p) => p.id),
+    );
+    setActivePantheons(next);
+  }, [pantheonIdsForEra, pantheonsWithLocations]);
+
+  const writeEraParam = (eraId: string | null) => {
+    const params = new URLSearchParams(searchParams.toString());
+    if (eraId) params.set("era", eraId);
+    else params.delete("era");
+    const qs = params.toString();
+    router.replace(qs ? `${pathname}?${qs}` : pathname, { scroll: false });
+  };
 
   // Filtering Logic
   const filteredLocations = useMemo(() => {
@@ -138,7 +198,19 @@ export default function LocationsPage() {
     setPage(1);
   }, [filteredLocations.length, setPage]);
 
+  const selectEra = (eraId: string | null) => {
+    setActiveEra(eraId);
+    writeEraParam(eraId);
+    if (eraId === null) {
+      setActivePantheons(new Set(pantheonsWithLocations.map((p) => p.id)));
+    }
+  };
+
   const togglePantheon = (id: string) => {
+    if (activeEra) {
+      setActiveEra(null);
+      writeEraParam(null);
+    }
     setActivePantheons((prev) => {
       const next = new Set(prev);
       if (next.has(id)) {
@@ -164,6 +236,10 @@ export default function LocationsPage() {
 
   const toggleAll = (type: "pantheons" | "types") => {
     if (type === "pantheons") {
+      if (activeEra) {
+        setActiveEra(null);
+        writeEraParam(null);
+      }
       setActivePantheons((prev) =>
         prev.size === pantheonsWithLocations.length
           ? new Set()
@@ -192,39 +268,16 @@ export default function LocationsPage() {
 
   return (
     <div className="min-h-screen">
-      {/* Hero Section */}
-      <div className="relative h-[45vh] min-h-90 flex items-center justify-center overflow-hidden">
-        {/* Background */}
-        <div className="absolute inset-0 z-0 bg-hero-gradient" />
-        <div className="absolute inset-0 bg-linear-to-b from-midnight/70 via-midnight/60 to-midnight/80 z-10" />
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[120%] h-[60%] bg-gradient-radial from-gold/10 via-transparent to-transparent z-10" />
-
-        {/* Hero Content */}
-        <div className="relative z-20 text-center px-4 max-w-4xl mx-auto">
-          <div className="flex items-center justify-center mb-6">
-            <div className="relative p-4 rounded-xl border border-gold/20 bg-midnight/50 backdrop-blur-sm">
-              <div className="absolute inset-0 rounded-xl bg-linear-to-br from-gold/10 to-transparent" />
-              <MapPin
-                className="relative h-10 w-10 text-gold"
-                strokeWidth={1.5}
-              />
-            </div>
-          </div>
-          <span className="inline-block text-gold/80 text-sm tracking-[0.25em] uppercase mb-4 font-medium">
-            Sacred Geography
-          </span>
-          <h1 className="font-serif text-5xl md:text-6xl font-semibold tracking-tight mb-6 text-parchment">
-            Locations
-          </h1>
-          <p className="text-lg md:text-xl text-parchment/70 max-w-2xl mx-auto font-body leading-relaxed">
-            Explore temples, sacred sites, and mythical realms across ancient
-            civilizations
-          </p>
-        </div>
-      </div>
+      <PageHero
+        mark="peak"
+        tagline="Sacred Geography"
+        title="Locations"
+        description="Browse temples, realms, and sacred sites by pantheon, place type, or historical era"
+        minHeight="min-h-[45vh]"
+      />
 
       {/* Content Section */}
-      <div className="container mx-auto max-w-7xl px-4 py-12 bg-mythic">
+      <div className="page-shell bg-mythic">
         {/* Controls Bar */}
         <div className="sticky top-20 z-30 mb-8 bg-background/95 backdrop-blur-md rounded-xl border border-border p-4 shadow-sm transition-all">
           <div className="flex flex-col gap-6">
@@ -268,6 +321,50 @@ export default function LocationsPage() {
                   </Button>
                 </div>
               </div>
+            </div>
+
+            {/* Era × place */}
+            <div className="space-y-2 border-b border-border/40 pb-4">
+              <div className="flex items-center justify-between gap-2">
+                <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">
+                  Era
+                </span>
+                <button
+                  type="button"
+                  onClick={() => selectEra(null)}
+                  className="text-xs text-gold hover:text-gold/80 font-medium"
+                >
+                  {activeEra ? "Clear era" : "All eras"}
+                </button>
+              </div>
+              <div className="flex flex-wrap gap-1.5">
+                {MYTHIC_ERAS.map((era) => {
+                  const isActive = activeEra === era.id;
+                  return (
+                    <button
+                      key={era.id}
+                      type="button"
+                      title={era.blurb}
+                      onClick={() => selectEra(isActive ? null : era.id)}
+                      className={`text-xs px-3 py-1.5 border transition-all ${
+                        isActive
+                          ? "border-gold/50 bg-gold/15 text-gold font-medium"
+                          : "border-border text-muted-foreground bg-muted/30 hover:bg-muted"
+                      }`}
+                    >
+                      {era.label}
+                    </button>
+                  );
+                })}
+              </div>
+              {activeEra && (
+                <p className="text-xs text-muted-foreground">
+                  {MYTHIC_ERAS.find((e) => e.id === activeEra)?.blurb} —
+                  pantheon chips below sync to cultures that overlap this
+                  window. Shareable as{" "}
+                  <code className="text-gold/90">?era={activeEra}</code>
+                </p>
+              )}
             </div>
 
             {/* Filters Row */}

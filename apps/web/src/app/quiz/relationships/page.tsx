@@ -4,6 +4,7 @@ import { useState, useEffect, useCallback } from "react";
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
+import { SimplePageHeader } from "@/components/layout/simple-page-header";
 import { RelationshipQuizCard } from "@/components/quiz/RelationshipQuizCard";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -373,13 +374,11 @@ export default function RelationshipQuizPage() {
                   <div className="font-bold text-lg text-gold">+{totalXP}</div>
                 </div>
                 {useTimer && (
-                  <div className="text-center p-4 rounded-lg bg-purple-500/10 border border-purple-500/20 min-w-25">
-                    <div className="text-purple-500/80 text-sm mb-1 flex items-center justify-center gap-1">
+                  <div className="text-center p-4 rounded-lg bg-bronze/10 border border-bronze/20 min-w-25">
+                    <div className="text-bronze/80 text-sm mb-1 flex items-center justify-center gap-1">
                       <Timer className="h-3 w-3" /> Challenge
                     </div>
-                    <div className="font-bold text-lg text-purple-500">
-                      +15%
-                    </div>
+                    <div className="font-bold text-lg text-bronze">+15%</div>
                   </div>
                 )}
                 <div className="text-center p-4 rounded-lg border border-gold/20 bg-gold/5 min-w-25">
@@ -429,7 +428,7 @@ export default function RelationshipQuizPage() {
               <div className="text-center">
                 <Link
                   href="/quiz"
-                  className="text-muted-foreground hover:text-primary transition-colors inline-flex items-center gap-1 text-sm"
+                  className="text-muted-foreground hover:text-gold transition-colors inline-flex items-center gap-1 text-sm"
                 >
                   <ChevronLeft className="h-4 w-4" />
                   Back to All Quizzes
@@ -525,27 +524,18 @@ export default function RelationshipQuizPage() {
   // Quiz Setup Screen
   return (
     <div className="min-h-screen bg-linear-to-b from-background to-mythic">
-      <div className="container mx-auto max-w-4xl px-4 py-12">
+      <div className="page-shell max-w-4xl">
         <Breadcrumbs />
 
-        <div className="text-center mb-12 mt-6">
-          <div className="flex items-center justify-center mb-6">
-            <div className="p-4 rounded-xl border border-gold/20 bg-gold/5 backdrop-blur-sm">
-              <Users className="h-10 w-10 text-gold" />
-            </div>
-          </div>
+        <SimplePageHeader
+          mark="tree"
+          tagline="Family ties"
+          title="Divine Relationships Quiz"
+          description="Test your knowledge of divine family ties, marriages, and connections across pantheons"
+        />
 
-          <h1 className="font-serif text-4xl md:text-5xl font-bold mb-4">
-            Divine Relationships Quiz
-          </h1>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
-            Test your knowledge of divine family ties, marriages, and
-            connections across pantheons
-          </p>
-        </div>
-
-        <section className="mx-auto mb-8 max-w-3xl rounded-2xl border border-border/60 bg-card/60 p-6">
-          <h2 className="font-serif text-2xl font-semibold text-foreground">
+        <section className="mx-auto mb-8 max-w-3xl rounded-xl border border-border/60 bg-card/60 p-6">
+          <h2 className="page-section-title text-foreground">
             Study Mythology As A Web Of Relationships
           </h2>
           <p className="mt-3 leading-relaxed text-muted-foreground">
@@ -675,7 +665,7 @@ export default function RelationshipQuizPage() {
             {/* Timer Toggle */}
             <div className="flex items-center justify-between p-4 rounded-lg bg-muted/50 border border-border">
               <div className="flex items-center gap-3">
-                <Timer className="h-5 w-5 text-purple-500" />
+                <Timer className="h-5 w-5 text-bronze" />
                 <div>
                   <p className="font-medium">Challenge Mode</p>
                   <p className="text-xs text-muted-foreground">
@@ -687,7 +677,9 @@ export default function RelationshipQuizPage() {
                 variant={useTimer ? "default" : "outline"}
                 size="sm"
                 onClick={() => setUseTimer(!useTimer)}
-                className={useTimer ? "bg-purple-600 hover:bg-purple-700" : ""}
+                className={
+                  useTimer ? "bg-bronze hover:bg-bronze/90 text-parchment" : ""
+                }
               >
                 {useTimer ? "On" : "Off"}
               </Button>
@@ -729,7 +721,7 @@ export default function RelationshipQuizPage() {
         <div className="text-center mt-6">
           <Link
             href="/quiz"
-            className="text-muted-foreground hover:text-primary transition-colors inline-flex items-center gap-1"
+            className="text-muted-foreground hover:text-gold transition-colors inline-flex items-center gap-1"
           >
             <ChevronLeft className="h-4 w-4" />
             Back to All Quizzes

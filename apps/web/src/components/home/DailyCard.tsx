@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Sparkles, ScrollText, Calendar } from "lucide-react";
+import { MythosMark } from "@/components/icons/mythos-marks";
 import deities from "@/data/deities.json";
 import stories from "@/data/stories.json";
 
@@ -90,12 +90,12 @@ export function DailyCard() {
     );
   }
 
-  const Icon = content.type === "deity" ? Sparkles : ScrollText;
+  const mark = content.type === "deity" ? "laurel" : "scroll";
 
   return (
     <section className="container mx-auto max-w-7xl px-4 py-8">
       <div className="flex items-center gap-2 mb-4">
-        <Calendar className="h-5 w-5 text-gold" />
+        <MythosMark id="chronos" className="h-5 w-5 text-gold" />
         <h2 className="text-lg font-serif font-semibold text-foreground">
           Today&apos;s Mythology
         </h2>
@@ -106,8 +106,8 @@ export function DailyCard() {
           <CardHeader className="pb-2">
             <div className="flex items-start justify-between">
               <div className="flex items-center gap-3">
-                <div className="p-2.5 rounded-xl bg-gold/10 border border-gold/20 group-hover:bg-gold/20 transition-colors">
-                  <Icon className="h-5 w-5 text-gold" strokeWidth={1.5} />
+                <div className="border border-gold/20 bg-gold/10 p-2.5 transition-colors group-hover:bg-gold/20">
+                  <MythosMark id={mark} className="h-5 w-5 text-gold" />
                 </div>
                 <div>
                   <Badge

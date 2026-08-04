@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Brain, Grid2x2, Sparkles } from "lucide-react";
 import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
 import { PageHero } from "@/components/layout/page-hero";
+import { MythosMark, type MythosMarkId } from "@/components/icons/mythos-marks";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { generateBaseMetadata } from "@/lib/metadata";
@@ -20,21 +20,21 @@ const games = [
     title: "Symbol Memory",
     description:
       "Match mythological symbols to sharpen recall for gods, creatures, and artifacts.",
-    icon: Grid2x2,
+    mark: "labyrinth" as MythosMarkId,
   },
   {
     href: "/quiz",
     title: "Quiz Hub",
     description:
       "Switch from games into quizzes when you want faster recall practice and score tracking.",
-    icon: Brain,
+    mark: "owl" as MythosMarkId,
   },
   {
     href: "/quiz/quick",
     title: "Quick Quiz",
     description:
       "Use a 60-second sprint when you want rapid mythology recall instead of card matching.",
-    icon: Sparkles,
+    mark: "bolt" as MythosMarkId,
   },
 ];
 
@@ -42,7 +42,7 @@ export default function GamesPage() {
   return (
     <div className="min-h-screen">
       <PageHero
-        icon={<Sparkles />}
+        mark="labyrinth"
         tagline="Practice"
         title="Mythology Games"
         description="Use lightweight study games and challenge modes to turn browsing into active recall."
@@ -107,13 +107,15 @@ export default function GamesPage() {
 
         <div className="mt-8 grid gap-6 md:grid-cols-2">
           {games.map((game) => {
-            const Icon = game.icon;
             return (
               <Card key={game.href} className="bg-card">
                 <CardHeader>
                   <div className="flex items-center gap-3">
-                    <div className="rounded-xl border border-gold/20 bg-gold/10 p-3">
-                      <Icon className="h-5 w-5 text-gold" />
+                    <div className="border border-gold/20 bg-gold/10 p-3">
+                      <MythosMark
+                        id={game.mark}
+                        className="h-5 w-5 text-gold"
+                      />
                     </div>
                     <CardTitle className="font-serif text-2xl">
                       {game.title}

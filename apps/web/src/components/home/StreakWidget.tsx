@@ -1,7 +1,8 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
-import { Flame, Sparkles, BookOpen, Users } from "lucide-react";
+import { MythosMark } from "@/components/icons/mythos-marks";
+import { BookOpen, Users } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState, useMemo } from "react";
 import { useProgress } from "@/hooks/use-progress";
@@ -136,7 +137,7 @@ export function StreakWidget() {
       <div className="container mx-auto max-w-4xl px-4">
         <Card className="relative overflow-hidden border-gold/20">
           {/* Background decoration */}
-          <div className="absolute inset-0 bg-linear-to-br from-gold/5 via-transparent to-purple-500/5" />
+          <div className="absolute inset-0 bg-linear-to-br from-gold/5 via-transparent to-bronze/5" />
 
           {/* Milestone celebration overlay — skipped entirely under reduced motion */}
           {isMilestone && !shouldReduceMotion && (
@@ -168,7 +169,10 @@ export function StreakWidget() {
                     repeatDelay: 3,
                   }}
                 >
-                  <Sparkles className="w-4 h-4 text-gold" />
+                  <MythosMark
+                    id="constellation"
+                    className="w-4 h-4 text-gold"
+                  />
                 </motion.div>
               ))}
             </motion.div>
@@ -194,15 +198,15 @@ export function StreakWidget() {
                       repeatDelay: 2,
                     }}
                   >
-                    <Flame
+                    <MythosMark
+                      id="torch"
                       className={`w-10 h-10 ${
                         stats.dailyStreak >= 30
-                          ? "text-orange-500"
+                          ? "text-bronze"
                           : stats.dailyStreak >= 7
-                            ? "text-amber-500"
+                            ? "text-gold"
                             : "text-gold"
                       }`}
-                      fill="currentColor"
                     />
                   </motion.div>
                   <div>
@@ -237,11 +241,11 @@ export function StreakWidget() {
                 {/* Quick stats */}
                 <div className="flex gap-4 mt-4 text-sm text-muted-foreground">
                   <div className="flex items-center gap-1">
-                    <Users className="w-4 h-4" />
+                    <MythosMark id="laurel" className="h-4 w-4" />
                     <span>{stats.totalDeitiesViewed} deities</span>
                   </div>
                   <div className="flex items-center gap-1">
-                    <BookOpen className="w-4 h-4" />
+                    <MythosMark id="scroll" className="h-4 w-4" />
                     <span>{stats.totalStoriesRead} stories</span>
                   </div>
                 </div>
@@ -255,7 +259,10 @@ export function StreakWidget() {
               {dailySuggestion && (
                 <div className="flex-1">
                   <div className="flex items-center gap-2 mb-3">
-                    <Sparkles className="w-4 h-4 text-gold" />
+                    <MythosMark
+                      id="constellation"
+                      className="w-4 h-4 text-gold"
+                    />
                     <span className="text-sm font-medium text-gold-text uppercase tracking-wide">
                       Mythology of the Day
                     </span>

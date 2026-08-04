@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { Clock3 } from "lucide-react";
 import { PageHero } from "@/components/layout/page-hero";
 import { generateBaseMetadata } from "@/lib/metadata";
 import { AttestationTimeline } from "@/components/timeline/AttestationTimeline";
@@ -16,7 +15,7 @@ export default function TimelinePage() {
   return (
     <>
       <PageHero
-        icon={<Clock3 />}
+        mark="chronos"
         tagline="Chronology"
         title="Mythology Timeline"
         description="Trace major mythological traditions across eras, compare their active periods, and explore when stories and civilizations overlapped."

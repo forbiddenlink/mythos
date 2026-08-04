@@ -3,7 +3,13 @@ import { AboutPageJsonLd } from "@/components/seo/JsonLd";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { generateBaseMetadata } from "@/lib/metadata";
 import { RouteHero } from "@/components/layout/route-hero";
-import { BookOpen, Code, Globe, Users } from "lucide-react";
+import {
+  pageLedeOnDarkClass,
+  pageTitleOnDarkClass,
+} from "@/components/layout/page-typography";
+import { MythosMark } from "@/components/icons/mythos-marks";
+import { HeroMark } from "@/components/icons/hero-mark";
+import { cn } from "@/lib/utils";
 
 export const metadata = generateBaseMetadata({
   title: "About Mythos Atlas",
@@ -26,16 +32,17 @@ export default function AboutPage() {
         creatorDescription="A passionate developer and mythology enthusiast who combines technical expertise with a deep appreciation for ancient cultures and storytelling."
       />
       {/* Hero Section */}
-      <RouteHero overlayClassName="bg-linear-to-b from-primary/70 via-primary/60 to-background z-10">
-        <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tight mb-6 text-foreground">
-          About Mythos Atlas
-        </h1>
+      <RouteHero>
+        <div className="flex items-center justify-center mb-6">
+          <HeroMark mark="temple" tone="gold" size="lg" />
+        </div>
+        <h1 className={cn(pageTitleOnDarkClass, "mb-6")}>About Mythos Atlas</h1>
         <div className="flex items-center justify-center gap-4 mb-6">
           <div className="w-12 h-px bg-linear-to-r from-transparent to-gold/40" />
           <div className="w-1.5 h-1.5 rotate-45 bg-gold/50" />
           <div className="w-12 h-px bg-linear-to-l from-transparent to-gold/40" />
         </div>
-        <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto font-body leading-relaxed">
+        <p className={pageLedeOnDarkClass}>
           An interactive encyclopedia of ancient mythology
         </p>
       </RouteHero>
@@ -77,7 +84,7 @@ export default function AboutPage() {
             <Card className="border-gold/20 bg-card">
               <CardHeader>
                 <div className="flex items-center gap-3 mb-2">
-                  <Globe className="h-6 w-6 text-gold" />
+                  <MythosMark id="temple" className="h-6 w-6 text-gold" />
                   <CardTitle as="h2" className="text-foreground">
                     Global Coverage
                   </CardTitle>
@@ -94,7 +101,7 @@ export default function AboutPage() {
             <Card className="border-gold/20 bg-card">
               <CardHeader>
                 <div className="flex items-center gap-3 mb-2">
-                  <Users className="h-6 w-6 text-gold" />
+                  <MythosMark id="tree" className="h-6 w-6 text-gold" />
                   <CardTitle as="h2" className="text-foreground">
                     Deity Relationships
                   </CardTitle>
@@ -111,7 +118,7 @@ export default function AboutPage() {
             <Card className="border-gold/20 bg-card">
               <CardHeader>
                 <div className="flex items-center gap-3 mb-2">
-                  <BookOpen className="h-6 w-6 text-gold" />
+                  <MythosMark id="scroll" className="h-6 w-6 text-gold" />
                   <CardTitle as="h2" className="text-foreground">
                     Epic Stories
                   </CardTitle>
@@ -129,7 +136,7 @@ export default function AboutPage() {
             <Card className="border-gold/20 bg-card">
               <CardHeader>
                 <div className="flex items-center gap-3 mb-2">
-                  <Code className="h-6 w-6 text-gold" />
+                  <MythosMark id="codex" className="h-6 w-6 text-gold" />
                   <CardTitle as="h2" className="text-foreground">
                     Open Platform
                   </CardTitle>
@@ -156,7 +163,7 @@ export default function AboutPage() {
             <CardContent className="space-y-4">
               <div className="flex items-start gap-4">
                 <div className="p-3 rounded-lg bg-gold/10 border border-gold/20 shrink-0">
-                  <Code className="h-6 w-6 text-gold" />
+                  <MythosMark id="codex" className="h-6 w-6 text-gold" />
                 </div>
                 <div className="flex-1">
                   <p className="text-foreground font-semibold text-xl mb-2">

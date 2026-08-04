@@ -15,6 +15,7 @@ import {
   getAvailableCategories,
 } from "@/lib/myth-comparison";
 import { ArrowLeft, BookOpen, Check, Share2, Sparkles } from "lucide-react";
+import { HeroMark } from "@/components/icons/hero-mark";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import Link from "next/link";
@@ -259,20 +260,12 @@ export default function CompareMythsPage() {
         {/* Hero Content */}
         <div className="relative z-20 text-center px-4 max-w-4xl mx-auto">
           <div className="flex items-center justify-center mb-6">
-            <div className="relative p-4 rounded-xl border border-gold/20 bg-midnight/50 backdrop-blur-sm">
-              <div className="absolute inset-0 rounded-xl bg-linear-to-br from-gold/10 to-transparent" />
-              <BookOpen
-                className="relative h-10 w-10 text-gold"
-                strokeWidth={1.5}
-              />
-            </div>
+            <HeroMark mark="scales" tone="gold" size="lg" />
           </div>
           <span className="inline-block text-gold/80 text-sm tracking-[0.25em] uppercase mb-4 font-medium">
             {t("heroTagline")}
           </span>
-          <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tight mb-6 text-parchment">
-            {t("title")}
-          </h1>
+          <h1 className="page-title text-parchment mb-6">{t("title")}</h1>
           <div className="flex items-center justify-center gap-4 mb-6">
             <div className="w-12 h-px bg-linear-to-r from-transparent to-gold/40" />
             <div className="w-1.5 h-1.5 rotate-45 bg-gold/50" />

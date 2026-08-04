@@ -4,7 +4,9 @@ import { useMemo, useState } from "react";
 import dynamic from "next/dynamic";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Loader2, Network, GitBranch } from "lucide-react";
+import { Loader2, GitBranch } from "lucide-react";
+import { HeroMark } from "@/components/icons/hero-mark";
+import { MythosMark } from "@/components/icons/mythos-marks";
 import Image from "next/image";
 import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
 
@@ -17,7 +19,7 @@ const FamilyTreeVisualization = dynamic(
   {
     loading: () => (
       <div className="h-150 flex items-center justify-center">
-        <Loader2 className="h-8 w-8 animate-spin text-primary" />
+        <Loader2 className="h-8 w-8 animate-spin text-gold" />
       </div>
     ),
     ssr: false,
@@ -32,7 +34,7 @@ const EnhancedFamilyTree = dynamic(
   {
     loading: () => (
       <div className="h-150 flex items-center justify-center">
-        <Loader2 className="h-8 w-8 animate-spin text-primary" />
+        <Loader2 className="h-8 w-8 animate-spin text-gold" />
       </div>
     ),
     ssr: false,
@@ -112,13 +114,9 @@ export default function FamilyTreePage() {
 
         <div className="container mx-auto max-w-7xl px-4 py-16 relative z-10">
           <div className="flex items-center gap-3 mb-4">
-            <div className="w-12 h-12 rounded-lg bg-linear-to-br from-gold-dark to-gold flex items-center justify-center shadow-lg">
-              <Network className="h-6 w-6 text-midnight" />
-            </div>
+            <HeroMark mark="tree" tone="gold" size="md" />
             <div>
-              <h1 className="font-serif text-4xl font-bold tracking-tight text-parchment">
-                Family Tree
-              </h1>
+              <h1 className="page-title text-parchment">Family Tree</h1>
               <p className="text-lg text-parchment/70 mt-1 font-light">
                 Explore the intricate relationships between deities
               </p>
@@ -131,7 +129,7 @@ export default function FamilyTreePage() {
       <div className="container mx-auto max-w-7xl px-4 py-12">
         <Breadcrumbs />
         <section className="mt-6 rounded-2xl border border-border/60 bg-card/60 p-6 shadow-sm">
-          <h2 className="font-serif text-2xl text-foreground">
+          <h2 className="page-section-title text-foreground">
             See Mythology As A Network
           </h2>
           <p className="mt-3 max-w-4xl text-sm leading-7 text-muted-foreground">
@@ -227,7 +225,7 @@ export default function FamilyTreePage() {
                 onClick={() => setViewMode("network")}
                 className="gap-2 h-8"
               >
-                <Network className="h-3.5 w-3.5" />
+                <MythosMark id="constellation" className="h-3.5 w-3.5" />
                 <span className="hidden sm:inline">Network</span>
               </Button>
             </div>
@@ -267,7 +265,10 @@ export default function FamilyTreePage() {
             )}
             {finalDeities.length === 0 && (
               <div className="text-center py-24 text-muted-foreground bg-muted/30">
-                <Network className="h-12 w-12 mx-auto mb-4 opacity-50" />
+                <MythosMark
+                  id="tree"
+                  className="h-12 w-12 mx-auto mb-4 opacity-50 text-muted-foreground"
+                />
                 <p>No family tree data available for this pantheon.</p>
               </div>
             )}
@@ -293,7 +294,7 @@ export default function FamilyTreePage() {
                 <span className="text-xs sm:text-sm">Spouse</span>
               </div>
               <div className="flex items-center gap-2">
-                <div className="w-4 h-0.5 bg-purple-500"></div>
+                <div className="w-4 h-0.5 bg-bronze"></div>
                 <span className="text-xs sm:text-sm">Sibling</span>
               </div>
             </CardContent>

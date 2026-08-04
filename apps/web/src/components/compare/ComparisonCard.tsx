@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Sparkles, X } from "lucide-react";
+import { MythosMark } from "@/components/icons/mythos-marks";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -85,8 +86,12 @@ export function ComparisonCard({
               />
             </div>
           ) : (
-            <div className="p-4 rounded-xl bg-gold/10 border border-gold/20 shrink-0">
-              <Sparkles className="h-8 w-8 text-gold" strokeWidth={1.5} />
+            <div className="relative flex h-16 w-16 shrink-0 items-center justify-center border border-gold/30 bg-gold/5">
+              <span className="absolute left-0 top-0 h-2.5 w-2.5 border-l border-t border-gold/40" />
+              <span className="absolute right-0 top-0 h-2.5 w-2.5 border-r border-t border-gold/40" />
+              <span className="absolute bottom-0 left-0 h-2.5 w-2.5 border-b border-l border-gold/40" />
+              <span className="absolute bottom-0 right-0 h-2.5 w-2.5 border-b border-r border-gold/40" />
+              <MythosMark id="laurel" className="relative h-8 w-8 text-gold" />
             </div>
           )}
           <div>

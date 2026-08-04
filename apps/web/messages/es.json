@@ -203,7 +203,8 @@
       "personalityDescription": "Descubre tu contraparte divina con nuestro cuestionario de personalidad. Averigua qué deidad coincide con tu alma.",
       "personalityBadge": "Personalidad",
       "studySectionTitle": "Estudia con Cada Modo de Cuestionario",
-      "studySectionDescription": "Usa el cuestionario de conocimiento para un repaso constante de nombres, dominios y símbolos. Cambia al modo rápido para un calentamiento cronometrado, a relaciones para lazos familiares, o al cuestionario de personalidad para un descubrimiento más ligero, y luego vuelve aquí una vez que hayas repasado el panorama general."
+      "studySectionDescription": "Usa el cuestionario de conocimiento para un repaso constante de nombres, dominios y símbolos. Cambia al modo rápido para un calentamiento cronometrado, a relaciones para lazos familiares, o al cuestionario de personalidad para un descubrimiento más ligero, y luego vuelve aquí una vez que hayas repasado el panorama general.",
+      "learn": "Aprender"
     },
     "progress": {
       "title": "Tu Progreso",

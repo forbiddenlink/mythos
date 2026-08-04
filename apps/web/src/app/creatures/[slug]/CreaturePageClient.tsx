@@ -85,9 +85,9 @@ export function CreaturePageClient({ slug }: CreaturePageClientProps) {
       />
       <BreadcrumbJsonLd items={breadcrumbItems} />
       {/* Hero Section with Background Image */}
-      <div className="relative overflow-hidden bg-slate-950">
+      <div className="relative overflow-hidden bg-midnight">
         <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-linear-to-b from-slate-900/80 via-slate-900/90 to-slate-950 z-10"></div>
+          <div className="absolute inset-0 bg-linear-to-b from-midnight/80 via-midnight/90 to-midnight z-10"></div>
           {/* Optional: Add a subtle texture or noise pattern here */}
         </div>
 
@@ -97,16 +97,14 @@ export function CreaturePageClient({ slug }: CreaturePageClientProps) {
         <div className="container mx-auto max-w-4xl px-4 py-12 relative z-20">
           <Link
             href="/creatures"
-            className="text-sm text-slate-400 hover:text-white mb-6 inline-block transition-colors"
+            className="text-sm text-parchment/60 hover:text-parchment mb-6 inline-block transition-colors"
           >
             ← Back to Bestiary
           </Link>
 
           <div className="space-y-4">
-            <h1 className="font-serif text-4xl md:text-5xl font-bold tracking-tight text-white">
-              {creature.name}
-            </h1>
-            <div className="flex items-center gap-4 text-slate-300">
+            <h1 className="page-title text-parchment">{creature.name}</h1>
+            <div className="flex items-center gap-4 text-parchment/75">
               <div className="flex items-center gap-2">
                 <MapPin className="h-4 w-4 text-red-500" />
                 <span>{creature.habitat}</span>
@@ -128,7 +126,7 @@ export function CreaturePageClient({ slug }: CreaturePageClientProps) {
         <div className="space-y-8">
           {/* Centered Image */}
           {creature.imageUrl && (
-            <div className="relative w-full max-w-lg mx-auto rounded-xl overflow-hidden shadow-2xl border border-slate-800">
+            <div className="relative w-full max-w-lg mx-auto rounded-xl overflow-hidden shadow-2xl border border-border">
               <div className="aspect-video relative">
                 <Image
                   src={creature.imageUrl}
@@ -146,7 +144,7 @@ export function CreaturePageClient({ slug }: CreaturePageClientProps) {
           <div className="grid gap-8 md:grid-cols-3">
             {/* Left Column: Stats */}
             <div className="md:col-span-1 space-y-6">
-              <Card className="bg-slate-900/50 border-slate-800">
+              <Card className="bg-card/50 border-border">
                 <CardHeader>
                   <CardTitle className="text-lg font-serif flex items-center gap-2">
                     <Zap className="h-4 w-4 text-yellow-500" />
@@ -159,7 +157,7 @@ export function CreaturePageClient({ slug }: CreaturePageClientProps) {
                       <Badge
                         key={ability}
                         variant="secondary"
-                        className="bg-slate-800 text-slate-300 hover:bg-slate-700"
+                        className="bg-midnight-light text-parchment/75 hover:bg-midnight"
                       >
                         {ability}
                       </Badge>
@@ -171,7 +169,7 @@ export function CreaturePageClient({ slug }: CreaturePageClientProps) {
 
             {/* Right Column: Lore */}
             <div className="md:col-span-2">
-              <Card className="bg-white dark:bg-slate-900 border-l-4 border-l-red-500">
+              <Card className="bg-card border-l-4 border-l-red-500">
                 <CardHeader>
                   <CardTitle className="font-serif text-2xl">
                     Lore & Legend
@@ -198,12 +196,12 @@ export function CreaturePageClient({ slug }: CreaturePageClientProps) {
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                   {samePantheonCreatures.map((c) => (
                     <Link key={c.id} href={`/creatures/${c.slug}`}>
-                      <Card className="bg-slate-900/50 border-slate-800 hover:border-red-500/50 transition-all group">
+                      <Card className="bg-card/50 border-border hover:border-red-500/50 transition-all group">
                         <CardContent className="p-4">
                           <h3 className="font-semibold text-white group-hover:text-red-400 transition-colors">
                             {c.name}
                           </h3>
-                          <p className="text-xs text-slate-400 mt-1">
+                          <p className="text-xs text-muted-foreground mt-1">
                             {c.habitat}
                           </p>
                         </CardContent>
@@ -224,7 +222,7 @@ export function CreaturePageClient({ slug }: CreaturePageClientProps) {
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                   {samePantheonDeities.map((d) => (
                     <Link key={d.id} href={`/deities/${d.slug}`}>
-                      <Card className="bg-slate-900/50 border-slate-800 hover:border-gold/50 transition-all group">
+                      <Card className="bg-card/50 border-border hover:border-gold/50 transition-all group">
                         <CardContent className="p-4">
                           <h3 className="font-semibold text-white group-hover:text-gold transition-colors">
                             {d.name}

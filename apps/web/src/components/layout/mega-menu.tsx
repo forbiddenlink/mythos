@@ -2,23 +2,8 @@
 
 import { cn } from "@/lib/utils";
 import { AnimatePresence, motion } from "framer-motion";
-import {
-  Award,
-  CalendarCheck,
-  ChevronDown,
-  Crown,
-  Gamepad2,
-  GitCompare,
-  GraduationCap,
-  Library,
-  MapPin,
-  Orbit,
-  Route,
-  Scroll,
-  Sparkles,
-  Trophy,
-  Users,
-} from "lucide-react";
+import { ChevronDown } from "lucide-react";
+import { MythosMark, type MythosMarkId } from "@/components/icons/mythos-marks";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 
@@ -26,7 +11,7 @@ interface MenuItem {
   label: string;
   href: string;
   description?: string;
-  icon?: React.ReactNode;
+  mark?: MythosMarkId;
 }
 
 interface MenuSection {
@@ -41,25 +26,25 @@ const exploreMenu: MenuSection = {
       label: "Pantheons",
       href: "/pantheons",
       description: "Start with the major myth traditions",
-      icon: <Library className="h-4 w-4" />,
+      mark: "temple",
     },
     {
       label: "Deities",
       href: "/deities",
       description: "Gods and goddesses from all pantheons",
-      icon: <Crown className="h-4 w-4" />,
+      mark: "laurel",
     },
     {
       label: "Stories",
       href: "/stories",
       description: "Myths, legends, and epic tales",
-      icon: <Scroll className="h-4 w-4" />,
+      mark: "scroll",
     },
     {
       label: "Locations",
       href: "/locations",
       description: "Sacred places and mythical realms",
-      icon: <MapPin className="h-4 w-4" />,
+      mark: "peak",
     },
   ],
 };
@@ -71,37 +56,37 @@ const discoverMenu: MenuSection = {
       label: "Aether Map",
       href: "/atlas",
       description: "Every deity as a star in one navigable sky",
-      icon: <Orbit className="h-4 w-4" />,
+      mark: "constellation",
     },
     {
       label: "The Oracle",
       href: "/oracle",
       description: "Ask an AI seer grounded in the Atlas's sources",
-      icon: <Sparkles className="h-4 w-4" />,
+      mark: "owl",
     },
     {
       label: "Collections",
       href: "/collections",
       description: "Curated groupings for faster exploration",
-      icon: <Library className="h-4 w-4" />,
+      mark: "codex",
     },
     {
       label: "Hero Journeys",
       href: "/journeys",
       description: "Epic voyages across the ancient world",
-      icon: <Route className="h-4 w-4" />,
+      mark: "compass",
     },
     {
       label: "Compare Deities",
       href: "/compare",
       description: "Side-by-side deity comparisons",
-      icon: <GitCompare className="h-4 w-4" />,
+      mark: "scales",
     },
     {
       label: "Family Tree",
       href: "/family-tree",
       description: "Divine genealogies",
-      icon: <Users className="h-4 w-4" />,
+      mark: "tree",
     },
   ],
 };
@@ -113,31 +98,31 @@ const learnMenu: MenuSection = {
       label: "Quiz",
       href: "/quiz",
       description: "Test your mythology knowledge",
-      icon: <Gamepad2 className="h-4 w-4" />,
+      mark: "lyre",
     },
     {
       label: "Daily Review",
       href: "/review",
       description: "Spaced repetition flashcards",
-      icon: <CalendarCheck className="h-4 w-4" />,
+      mark: "chronos",
     },
     {
       label: "Learning Paths",
       href: "/learning-paths",
       description: "Guided mythology courses",
-      icon: <GraduationCap className="h-4 w-4" />,
+      mark: "torch",
     },
     {
       label: "Achievements",
       href: "/achievements",
       description: "Badges and milestones",
-      icon: <Award className="h-4 w-4" />,
+      mark: "laurel",
     },
     {
       label: "Your Stats",
       href: "/progress",
       description: "Track streaks, XP, and milestones",
-      icon: <Trophy className="h-4 w-4" />,
+      mark: "favor",
     },
   ],
 };
@@ -243,7 +228,9 @@ function MegaMenuDropdown({
                     className="flex items-start gap-3 rounded-lg px-3 py-2.5 text-sm transition-colors hover:bg-muted/50 group"
                   >
                     <div className="shrink-0 mt-0.5 text-muted-foreground group-hover:text-gold transition-colors">
-                      {item.icon}
+                      {item.mark ? (
+                        <MythosMark id={item.mark} className="h-4 w-4" />
+                      ) : null}
                     </div>
                     <div className="flex-1 min-w-0">
                       <div className="font-medium text-foreground group-hover:text-gold transition-colors">

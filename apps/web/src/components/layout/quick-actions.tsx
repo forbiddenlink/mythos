@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Flame, Brain } from "lucide-react";
+import { MythosMark } from "@/components/icons/mythos-marks";
 import { useProgress } from "@/hooks/use-progress";
 import { useReview } from "@/providers/review-provider";
 import { useEffect, useState } from "react";
@@ -26,7 +26,7 @@ export function StreakBadge() {
   return (
     <Link
       href="/progress"
-      className="flex items-center gap-1.5 px-2.5 py-1.5 text-sm font-medium rounded-lg bg-orange-500/10 text-orange-500 hover:bg-orange-500/20 transition-colors duration-200"
+      className="flex items-center gap-1.5 px-2.5 py-1.5 text-sm font-medium rounded-lg bg-gold/10 text-gold-text border border-gold/20 hover:bg-gold/20 transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold/60"
       aria-label={`${progress.dailyStreak} day streak`}
     >
       <motion.div
@@ -38,7 +38,7 @@ export function StreakBadge() {
             : { duration: 0.5, repeat: Infinity, repeatDelay: 2 }
         }
       >
-        <Flame className="h-4 w-4" />
+        <MythosMark id="torch" className="h-4 w-4" />
       </motion.div>
       <span className="font-semibold tabular-nums">{progress.dailyStreak}</span>
     </Link>
@@ -67,12 +67,12 @@ export function ReviewCountBadge() {
       className={cn(
         "flex items-center gap-1.5 px-2.5 py-1.5 text-sm font-medium rounded-lg transition-colors duration-200",
         dueCount > 0
-          ? "bg-blue-500/10 text-blue-500 hover:bg-blue-500/20"
+          ? "bg-patina/10 text-patina border border-patina/25 hover:bg-patina/20"
           : "bg-muted/50 text-muted-foreground hover:bg-muted",
       )}
       aria-label={`${dueCount} cards due for review`}
     >
-      <Brain className="h-4 w-4" />
+      <MythosMark id="owl" className="h-4 w-4" />
       <span className="font-semibold tabular-nums">{dueCount}</span>
     </Link>
   );

@@ -8,6 +8,11 @@ import {
 import { ChangelogFilters } from "./ChangelogFilters";
 import changelogData from "@/data/changelog.json";
 import { RouteHero } from "@/components/layout/route-hero";
+import {
+  pageLedeOnDarkClass,
+  pageTitleOnDarkClass,
+} from "@/components/layout/page-typography";
+import { cn } from "@/lib/utils";
 
 interface ChangelogPageProps {
   searchParams: Promise<{ type?: string }>;
@@ -58,23 +63,21 @@ export default async function ChangelogPage({
   return (
     <div className="min-h-screen bg-mythic">
       {/* Hero Section */}
-      <RouteHero heightClassName="h-[35vh] min-h-70">
-        <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tight mb-6 text-parchment">
-          Changelog
-        </h1>
+      <RouteHero heightClassName="min-h-[35vh]">
+        <h1 className={cn(pageTitleOnDarkClass, "mb-6")}>Changelog</h1>
         <div className="flex items-center justify-center gap-4 mb-6">
           <div className="w-12 h-px bg-linear-to-r from-transparent to-gold/40" />
           <div className="w-1.5 h-1.5 rotate-45 bg-gold/50" />
           <div className="w-12 h-px bg-linear-to-l from-transparent to-gold/40" />
         </div>
-        <p className="text-lg md:text-xl text-parchment/70 max-w-2xl mx-auto font-body leading-relaxed">
+        <p className={pageLedeOnDarkClass}>
           Track the evolution of Mythos Atlas with every new feature, fix, and
           content update
         </p>
       </RouteHero>
 
       {/* Content Section */}
-      <div className="container mx-auto max-w-4xl px-4 py-16">
+      <div className="page-shell max-w-4xl">
         <Breadcrumbs />
 
         <div className="mt-8 mb-12">

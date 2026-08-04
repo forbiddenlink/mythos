@@ -42,23 +42,23 @@ const typeConfig = {
   "ancient-text": {
     label: "Ancient Texts",
     icon: Scroll,
-    color: "text-amber-600 dark:text-amber-400",
-    bgColor: "bg-amber-50 dark:bg-amber-900/20",
-    borderColor: "border-amber-200 dark:border-amber-800",
+    color: "text-bronze",
+    bgColor: "bg-bronze/10",
+    borderColor: "border-bronze/30",
   },
   academic: {
     label: "Academic References",
     icon: Book,
-    color: "text-teal-600 dark:text-teal-400",
-    bgColor: "bg-teal-50 dark:bg-teal-900/20",
-    borderColor: "border-teal-200 dark:border-teal-800",
+    color: "text-patina",
+    bgColor: "bg-patina/10",
+    borderColor: "border-patina/30",
   },
   translation: {
     label: "Translations & Retellings",
     icon: Pen,
-    color: "text-purple-600 dark:text-purple-400",
-    bgColor: "bg-purple-50 dark:bg-purple-900/20",
-    borderColor: "border-purple-200 dark:border-purple-800",
+    color: "text-gold",
+    bgColor: "bg-gold/10",
+    borderColor: "border-gold/30",
   },
 };
 

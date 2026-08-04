@@ -1,11 +1,13 @@
 "use client";
 
-import { useState, useCallback } from "react";
+import { useState, useCallback, useContext } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
-import { Shuffle, X, ArrowRight, Sparkles } from "lucide-react";
+import { X, ArrowRight } from "lucide-react";
+import { MythosMark } from "@/components/icons/mythos-marks";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { ProgressContext } from "@/providers/progress-provider";
 import deities from "@/data/deities.json";
 
 interface Deity {
@@ -18,9 +20,34 @@ interface Deity {
   description?: string;
 }
 
-function getRandomDeity(exclude?: string): Deity {
-  const available = exclude ? deities.filter((d) => d.id !== exclude) : deities;
-  return available[Math.floor(Math.random() * available.length)] as Deity;
+/** Prefer unvisited deities and cold pantheons (skill-mapper decay pattern). */
+function pickDiscoveryDeity(
+  exclude: string | undefined,
+  viewedIds: string[],
+  exploredPantheons: string[],
+): Deity {
+  const viewed = new Set(viewedIds);
+  const coldPantheons = new Set(
+    [...new Set((deities as Deity[]).map((d) => d.pantheonId))].filter(
+      (p) => !exploredPantheons.includes(p),
+    ),
+  );
+
+  const pool = (deities as Deity[]).filter((d) => d.id !== exclude);
+
+  const unvisitedCold = pool.filter(
+    (d) => !viewed.has(d.id) && coldPantheons.has(d.pantheonId),
+  );
+  if (unvisitedCold.length > 0) {
+    return unvisitedCold[Math.floor(Math.random() * unvisitedCold.length)];
+  }
+
+  const unvisited = pool.filter((d) => !viewed.has(d.id));
+  if (unvisited.length > 0 && Math.random() < 0.7) {
+    return unvisited[Math.floor(Math.random() * unvisited.length)];
+  }
+
+  return pool[Math.floor(Math.random() * pool.length)];
 }
 
 // Map common symbols to emoji for visual flair
@@ -104,9 +131,7 @@ const symbolEmoji: Record<string, string> = {
 
 function getSymbolEmoji(symbol: string): string | null {
   const lower = symbol.toLowerCase();
-  // Direct match
   if (symbolEmoji[lower]) return symbolEmoji[lower];
-  // Partial match
   for (const [key, emoji] of Object.entries(symbolEmoji)) {
     if (lower.includes(key) || key.includes(lower)) return emoji;
   }
@@ -114,6 +139,7 @@ function getSymbolEmoji(symbol: string): string | null {
 }
 
 export function RandomDiscoveryButton() {
+  const progress = useContext(ProgressContext);
   const [isOpen, setIsOpen] = useState(false);
   const [deity, setDeity] = useState<Deity | null>(null);
   const [isSpinning, setIsSpinning] = useState(false);
@@ -121,12 +147,20 @@ export function RandomDiscoveryButton() {
 
   const discover = useCallback(() => {
     setIsSpinning(true);
-    // Spin animation for 600ms, then reveal
     setTimeout(() => {
-      setDeity(getRandomDeity(deity?.id));
+      const next = pickDiscoveryDeity(
+        deity?.id,
+        progress?.progress.deitiesViewed ?? [],
+        progress?.progress.pantheonsExplored ?? [],
+      );
+      setDeity(next);
       setIsSpinning(false);
     }, 600);
-  }, [deity?.id]);
+  }, [
+    deity?.id,
+    progress?.progress.deitiesViewed,
+    progress?.progress.pantheonsExplored,
+  ]);
 
   const handleOpen = () => {
     setIsOpen(true);
@@ -154,13 +188,13 @@ export function RandomDiscoveryButton() {
       {/* Floating Button — hidden on small screens to avoid crowding with cookie banner */}
       <motion.button
         onClick={handleOpen}
-        className="fixed bottom-6 left-6 z-40 hidden sm:flex items-center gap-2 px-4 py-3 rounded-full bg-gradient-to-r from-gold to-amber-500 text-black font-semibold shadow-lg hover:shadow-xl transition-shadow"
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
+        className="fixed bottom-6 left-6 z-40 hidden sm:flex items-center gap-2 px-4 py-3 rounded-lg border border-gold/40 bg-midnight/90 text-gold font-semibold shadow-lg shadow-midnight/40 backdrop-blur-sm hover:border-gold hover:bg-midnight transition-[border-color,background-color,box-shadow] duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold/60"
+        whileHover={{ y: -2 }}
+        whileTap={{ scale: 0.98 }}
         aria-label="Discover a random deity"
       >
-        <Shuffle className="h-5 w-5" />
-        <span className="hidden sm:inline">Discover</span>
+        <MythosMark id="lot" className="h-5 w-5" />
+        <span className="hidden sm:inline tracking-wide">Discover</span>
       </motion.button>
 
       {/* Modal Overlay */}
@@ -193,7 +227,7 @@ export function RandomDiscoveryButton() {
               {/* Close Button */}
               <button
                 onClick={handleClose}
-                className="absolute top-4 right-4 p-2 rounded-full bg-background/50 hover:bg-background/80 transition-colors z-10"
+                className="absolute top-4 right-4 p-2 rounded-sm bg-background/50 hover:bg-background/80 transition-colors z-10"
                 aria-label="Close"
               >
                 <X className="h-5 w-5" />
@@ -210,7 +244,10 @@ export function RandomDiscoveryButton() {
                         : { duration: 0.6, ease: "linear", repeat: Infinity }
                     }
                   >
-                    <Sparkles className="h-16 w-16 text-gold" />
+                    <MythosMark
+                      id="constellation"
+                      className="h-16 w-16 text-gold"
+                    />
                   </motion.div>
                 </div>
               ) : deity ? (
@@ -240,7 +277,7 @@ export function RandomDiscoveryButton() {
                         {symbols.map((s, i) => (
                           <span
                             key={i}
-                            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-gold/10 text-sm border border-gold/20"
+                            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-sm bg-gold/10 text-sm border border-gold/20"
                           >
                             {s.emoji && <span>{s.emoji}</span>}
                             <span className="capitalize">{s.text}</span>
@@ -264,7 +301,7 @@ export function RandomDiscoveryButton() {
                       className="flex-1 border-gold/30 hover:bg-gold/10"
                       onClick={discover}
                     >
-                      <Shuffle className="h-4 w-4 mr-2" />
+                      <MythosMark id="lot" className="h-4 w-4 mr-2" />
                       Another
                     </Button>
                     <Button

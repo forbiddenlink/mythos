@@ -22,7 +22,8 @@
         "date": "1st or 2nd century CE",
         "type": "primary"
       }
-    ]
+    ],
+    "imageUrl": "/pantheons/greek.png"
   },
   {
     "id": "norse-pantheon",
@@ -47,7 +48,8 @@
         "date": "~1220 CE",
         "type": "primary"
       }
-    ]
+    ],
+    "imageUrl": "/pantheons/norse.png"
   },
   {
     "id": "egyptian-pantheon",
@@ -70,7 +72,8 @@
         "date": "~1550 BCE onwards",
         "type": "primary"
       }
-    ]
+    ],
+    "imageUrl": "/pantheons/egyptian.png"
   },
   {
     "id": "roman-pantheon",
@@ -100,7 +103,8 @@
         "date": "~8 CE",
         "type": "primary"
       }
-    ]
+    ],
+    "imageUrl": "/pantheons/roman.png"
   },
   {
     "id": "hindu-pantheon",
@@ -129,7 +133,8 @@
         "date": "~500-100 BCE",
         "type": "primary"
       }
-    ]
+    ],
+    "imageUrl": "/pantheons/hindu.png"
   },
   {
     "id": "japanese-pantheon",
@@ -152,7 +157,8 @@
         "date": "720 CE",
         "type": "primary"
       }
-    ]
+    ],
+    "imageUrl": "/pantheons/japanese.png"
   },
   {
     "id": "celtic-pantheon",
@@ -172,7 +178,8 @@
         "title": "The Mabinogion",
         "type": "primary"
       }
-    ]
+    ],
+    "imageUrl": "/pantheons/celtic.png"
   },
   {
     "id": "aztec-pantheon",
@@ -193,7 +200,8 @@
         "title": "Codex Borgia",
         "type": "primary"
       }
-    ]
+    ],
+    "imageUrl": "/pantheons/aztec.png"
   },
   {
     "id": "chinese-pantheon",
@@ -227,7 +235,8 @@
         "date": "~139 BCE",
         "type": "primary"
       }
-    ]
+    ],
+    "imageUrl": "/pantheons/chinese.png"
   },
   {
     "id": "mesopotamian-pantheon",
@@ -255,7 +264,8 @@
         "date": "~1900-1600 BCE",
         "type": "primary"
       }
-    ]
+    ],
+    "imageUrl": "/pantheons/mesopotamian.png"
   },
   {
     "id": "african-pantheon",
@@ -284,7 +294,8 @@
         "author": "Afolabi Epega",
         "type": "secondary"
       }
-    ]
+    ],
+    "imageUrl": "/pantheons/african.png"
   },
   {
     "id": "polynesian-pantheon",
@@ -318,7 +329,8 @@
         "date": "1940",
         "type": "secondary"
       }
-    ]
+    ],
+    "imageUrl": "/pantheons/polynesian.png"
   },
   {
     "id": "mesoamerican-pantheon",
@@ -351,6 +363,7 @@
         "title": "Dresden Codex",
         "type": "primary"
       }
-    ]
+    ],
+    "imageUrl": "/pantheons/mesoamerican.png"
   }
 ]

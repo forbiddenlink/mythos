@@ -41,14 +41,14 @@ export function CTASection() {
         >
           {/* Badge */}
           <span className="inline-block text-gold/80 text-sm tracking-[0.25em] uppercase mb-6 font-medium">
-            Start Exploring
+            Open the Atlas
           </span>
 
           {/* Heading */}
-          <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight mb-6 text-parchment">
-            Begin Your Journey Into
+          <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight text-pretty mb-6 text-parchment">
+            Pick a god, a myth,
             <span className="block text-gradient-gold mt-2">
-              Ancient Mythology
+              or a whole pantheon
             </span>
           </h2>
 
@@ -61,8 +61,8 @@ export function CTASection() {
 
           {/* Description */}
           <p className="text-lg md:text-xl text-parchment/70 max-w-2xl mx-auto mb-12 font-body leading-relaxed">
-            Explore the divine stories, legendary heroes, and timeless wisdom
-            that shaped ancient civilizations across the world
+            Cross-linked reference pages, family trees, and quizzes — built for
+            studying mythology, not scrolling past it.
           </p>
 
           {/* CTA Buttons */}

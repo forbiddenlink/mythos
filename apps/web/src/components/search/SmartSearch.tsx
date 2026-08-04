@@ -51,7 +51,7 @@ const typeColors: Record<ContentType, string> = {
   deity: "text-amber-500",
   story: "text-blue-500",
   creature: "text-red-500",
-  artifact: "text-purple-500",
+  artifact: "text-bronze",
   location: "text-emerald-500",
 };
 

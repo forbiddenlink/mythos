@@ -17,7 +17,11 @@
         "coordinates": [39.9574, 26.2389],
         "order": 1,
         "description": "The legendary city where Odysseus fought for 10 years in the Trojan War. His cunning strategy of the Wooden Horse finally brought victory to the Greeks.",
-        "events": ["Construction of the Wooden Horse", "Fall of Troy", "Departure for home"],
+        "events": [
+          "Construction of the Wooden Horse",
+          "Fall of Troy",
+          "Departure for home"
+        ],
         "deities": ["Athena"],
         "duration": "10 years of war"
       },
@@ -27,26 +31,39 @@
         "coordinates": [40.85, 25.87],
         "order": 2,
         "description": "First stop after leaving Troy. Odysseus and his men raided the city of Ismarus, but stayed too long celebrating their victory.",
-        "events": ["Raid on Ismarus", "Counterattack by Ciconian reinforcements", "Loss of 72 men"],
+        "events": [
+          "Raid on Ismarus",
+          "Counterattack by Ciconian reinforcements",
+          "Loss of 72 men"
+        ],
         "duration": "Several days"
       },
       {
         "id": "lotus-eaters",
         "name": "Land of the Lotus Eaters",
-        "coordinates": [33.88, 10.10],
+        "coordinates": [33.88, 10.1],
         "order": 3,
         "description": "A land where the inhabitants ate the lotus flower, which caused forgetfulness. Some of Odysseus's men ate the lotus and forgot their desire to return home.",
-        "events": ["Discovery of the lotus eaters", "Rescue of affected crew members", "Forced departure"],
+        "events": [
+          "Discovery of the lotus eaters",
+          "Rescue of affected crew members",
+          "Forced departure"
+        ],
         "creatures": ["Lotus Eaters"],
         "duration": "Brief stop"
       },
       {
         "id": "cyclops",
         "name": "Island of the Cyclopes",
-        "coordinates": [37.75, 15.00],
+        "coordinates": [37.75, 15.0],
         "order": 4,
         "description": "Home of Polyphemus, the one-eyed giant son of Poseidon. Odysseus blinded him to escape, earning Poseidon's eternal wrath.",
-        "events": ["Trapped in Polyphemus's cave", "Blinding of the Cyclops", "Escape under the sheep", "Odysseus reveals his name"],
+        "events": [
+          "Trapped in Polyphemus's cave",
+          "Blinding of the Cyclops",
+          "Escape under the sheep",
+          "Odysseus reveals his name"
+        ],
         "creatures": ["Polyphemus"],
         "deities": ["Poseidon"],
         "duration": "Several days"
@@ -57,17 +74,28 @@
         "coordinates": [38.56, 14.95],
         "order": 5,
         "description": "The floating island of Aeolus, keeper of the winds. He gave Odysseus a bag containing all unfavorable winds, but curious crew members opened it near Ithaca.",
-        "events": ["Hospitality of Aeolus", "Gift of the wind bag", "Sight of Ithaca", "Crew opens the bag", "Blown back to Aeolia"],
+        "events": [
+          "Hospitality of Aeolus",
+          "Gift of the wind bag",
+          "Sight of Ithaca",
+          "Crew opens the bag",
+          "Blown back to Aeolia"
+        ],
         "deities": ["Aeolus"],
         "duration": "One month"
       },
       {
         "id": "laestrygonians",
         "name": "Land of the Laestrygonians",
-        "coordinates": [41.50, 12.50],
+        "coordinates": [41.5, 12.5],
         "order": 6,
         "description": "Home of the giant cannibals who destroyed 11 of Odysseus's 12 ships by hurling boulders from the cliffs.",
-        "events": ["Arrival at the harbor", "Attack by giant cannibals", "Destruction of the fleet", "Only Odysseus's ship escapes"],
+        "events": [
+          "Arrival at the harbor",
+          "Attack by giant cannibals",
+          "Destruction of the fleet",
+          "Only Odysseus's ship escapes"
+        ],
         "creatures": ["Laestrygonians"],
         "duration": "Brief, disastrous stop"
       },
@@ -77,7 +105,13 @@
         "coordinates": [41.23, 13.05],
         "order": 7,
         "description": "Island of the enchantress Circe, who turned Odysseus's men into pigs. With Hermes's help, Odysseus resisted her magic and became her lover for a year.",
-        "events": ["Men transformed into pigs", "Hermes provides moly herb", "Odysseus resists Circe's magic", "Year-long stay", "Instructions for the Underworld"],
+        "events": [
+          "Men transformed into pigs",
+          "Hermes provides moly herb",
+          "Odysseus resists Circe's magic",
+          "Year-long stay",
+          "Instructions for the Underworld"
+        ],
         "deities": ["Circe", "Hermes"],
         "duration": "One year"
       },
@@ -87,7 +121,12 @@
         "coordinates": [36.38, 22.48],
         "order": 8,
         "description": "Following Circe's instructions, Odysseus sailed to the edge of the world to consult the prophet Tiresias in the realm of the dead.",
-        "events": ["Blood sacrifice to summon spirits", "Meeting with Tiresias", "Encounter with his mother Anticlea", "Seeing fallen heroes"],
+        "events": [
+          "Blood sacrifice to summon spirits",
+          "Meeting with Tiresias",
+          "Encounter with his mother Anticlea",
+          "Seeing fallen heroes"
+        ],
         "deities": ["Tiresias", "Hades"],
         "duration": "One day"
       },
@@ -97,7 +136,12 @@
         "coordinates": [40.55, 14.35],
         "order": 9,
         "description": "Home of the Sirens, whose enchanting song lured sailors to their deaths. Odysseus had his men plug their ears with wax while he listened tied to the mast.",
-        "events": ["Crew's ears filled with wax", "Odysseus bound to the mast", "Hearing the Sirens' song", "Successful passage"],
+        "events": [
+          "Crew's ears filled with wax",
+          "Odysseus bound to the mast",
+          "Hearing the Sirens' song",
+          "Successful passage"
+        ],
         "creatures": ["Sirens"],
         "duration": "Brief passage"
       },
@@ -107,27 +151,43 @@
         "coordinates": [38.26, 15.65],
         "order": 10,
         "description": "The narrow strait between the six-headed monster Scylla and the deadly whirlpool Charybdis. Odysseus chose to pass closer to Scylla, losing six men.",
-        "events": ["Navigation of the deadly strait", "Six men devoured by Scylla", "Avoidance of Charybdis"],
+        "events": [
+          "Navigation of the deadly strait",
+          "Six men devoured by Scylla",
+          "Avoidance of Charybdis"
+        ],
         "creatures": ["Scylla", "Charybdis"],
         "duration": "Brief passage"
       },
       {
         "id": "thrinacia",
         "name": "Thrinacia (Island of the Sun)",
-        "coordinates": [37.50, 15.10],
+        "coordinates": [37.5, 15.1],
         "order": 11,
         "description": "Sacred island where the cattle of the sun god Helios grazed. Despite warnings, the starving crew slaughtered the cattle, bringing divine punishment.",
-        "events": ["Warnings about the sacred cattle", "Trapped by storms for a month", "Crew slaughters the cattle", "Zeus destroys the ship", "All crew perish except Odysseus"],
+        "events": [
+          "Warnings about the sacred cattle",
+          "Trapped by storms for a month",
+          "Crew slaughters the cattle",
+          "Zeus destroys the ship",
+          "All crew perish except Odysseus"
+        ],
         "deities": ["Helios", "Zeus"],
         "duration": "One month"
       },
       {
         "id": "ogygia",
         "name": "Ogygia (Calypso's Island)",
-        "coordinates": [35.90, -5.50],
+        "coordinates": [35.9, -5.5],
         "order": 12,
         "description": "The remote island of the nymph Calypso, who kept Odysseus as her lover for seven years, offering him immortality if he would stay.",
-        "events": ["Shipwrecked and alone", "Calypso's offer of immortality", "Seven years of captivity", "Zeus orders his release", "Building of the raft"],
+        "events": [
+          "Shipwrecked and alone",
+          "Calypso's offer of immortality",
+          "Seven years of captivity",
+          "Zeus orders his release",
+          "Building of the raft"
+        ],
         "deities": ["Calypso", "Hermes", "Zeus"],
         "duration": "Seven years"
       },
@@ -137,17 +197,29 @@
         "coordinates": [39.62, 19.92],
         "order": 13,
         "description": "Island of the seafaring Phaeacians, where Odysseus was washed ashore and found by Princess Nausicaa. King Alcinous heard his story and provided passage home.",
-        "events": ["Shipwreck in the storm", "Discovery by Nausicaa", "Hospitality of King Alcinous", "Telling of his adventures", "Gifts and safe passage home"],
+        "events": [
+          "Shipwreck in the storm",
+          "Discovery by Nausicaa",
+          "Hospitality of King Alcinous",
+          "Telling of his adventures",
+          "Gifts and safe passage home"
+        ],
         "deities": ["Athena"],
         "duration": "Several days"
       },
       {
         "id": "ithaca",
         "name": "Ithaca",
-        "coordinates": [38.37, 20.50],
+        "coordinates": [38.37, 20.5],
         "order": 14,
         "description": "Odysseus's homeland, where Penelope had waited faithfully for 20 years, fending off the suitors who sought her hand and Odysseus's throne.",
-        "events": ["Return in disguise", "Reunion with Telemachus", "The test of the bow", "Slaughter of the suitors", "Reunion with Penelope"],
+        "events": [
+          "Return in disguise",
+          "Reunion with Telemachus",
+          "The test of the bow",
+          "Slaughter of the suitors",
+          "Reunion with Penelope"
+        ],
         "deities": ["Athena"],
         "duration": "Final destination"
       }
@@ -171,7 +243,12 @@
         "coordinates": [39.36, 22.94],
         "order": 1,
         "description": "Starting point of the quest. King Pelias sent Jason to retrieve the Golden Fleece, believing it to be an impossible task that would kill his rival.",
-        "events": ["Pelias's challenge", "Assembly of the Argonauts", "Building of the Argo", "Departure"],
+        "events": [
+          "Pelias's challenge",
+          "Assembly of the Argonauts",
+          "Building of the Argo",
+          "Departure"
+        ],
         "duration": "Preparation period"
       },
       {
@@ -180,7 +257,11 @@
         "coordinates": [39.92, 25.25],
         "order": 2,
         "description": "Island inhabited only by women who had killed their husbands. Queen Hypsipyle welcomed the Argonauts, and they stayed for some time.",
-        "events": ["Discovery of the women-only island", "Romance with Queen Hypsipyle", "Heracles urges departure"],
+        "events": [
+          "Discovery of the women-only island",
+          "Romance with Queen Hypsipyle",
+          "Heracles urges departure"
+        ],
         "duration": "Extended stay"
       },
       {
@@ -189,16 +270,25 @@
         "coordinates": [40.38, 27.83],
         "order": 3,
         "description": "Island where King Cyzicus welcomed them, but after they departed, winds blew them back at night. In the darkness, they fought their hosts, killing the king.",
-        "events": ["Warm welcome from King Cyzicus", "Battle with six-armed giants", "Tragic night battle", "Death of King Cyzicus"],
+        "events": [
+          "Warm welcome from King Cyzicus",
+          "Battle with six-armed giants",
+          "Tragic night battle",
+          "Death of King Cyzicus"
+        ],
         "duration": "Several days"
       },
       {
         "id": "mysia",
         "name": "Mysia",
-        "coordinates": [40.20, 28.95],
+        "coordinates": [40.2, 28.95],
         "order": 4,
         "description": "Where Heracles's companion Hylas was pulled into a spring by water nymphs. Heracles searched so long for him that the Argonauts left without him.",
-        "events": ["Hylas abducted by nymphs", "Heracles's desperate search", "Departure without Heracles"],
+        "events": [
+          "Hylas abducted by nymphs",
+          "Heracles's desperate search",
+          "Departure without Heracles"
+        ],
         "creatures": ["Water Nymphs"],
         "duration": "Brief stop"
       },
@@ -208,7 +298,11 @@
         "coordinates": [40.75, 29.35],
         "order": 5,
         "description": "Kingdom of the brutal King Amycus, who challenged all visitors to a boxing match. Polydeuces (Pollux) defeated and killed him.",
-        "events": ["Challenge from King Amycus", "Boxing match with Polydeuces", "Death of Amycus"],
+        "events": [
+          "Challenge from King Amycus",
+          "Boxing match with Polydeuces",
+          "Death of Amycus"
+        ],
         "duration": "Brief stop"
       },
       {
@@ -217,7 +311,11 @@
         "coordinates": [41.58, 27.95],
         "order": 6,
         "description": "Home of the blind prophet Phineus, tormented by Harpies who stole or fouled his food. The Boreads (sons of the North Wind) drove them away.",
-        "events": ["Meeting the blind prophet", "Driving away the Harpies", "Receiving guidance for the Clashing Rocks"],
+        "events": [
+          "Meeting the blind prophet",
+          "Driving away the Harpies",
+          "Receiving guidance for the Clashing Rocks"
+        ],
         "creatures": ["Harpies"],
         "deities": ["Phineus"],
         "duration": "Several days"
@@ -228,16 +326,25 @@
         "coordinates": [41.22, 29.12],
         "order": 7,
         "description": "The Clashing Rocks at the entrance to the Black Sea that crushed ships between them. Following Phineus's advice, they released a dove first.",
-        "events": ["Release of the dove", "Navigation through the rocks", "Loss of the stern ornament", "Rocks forever fixed in place"],
+        "events": [
+          "Release of the dove",
+          "Navigation through the rocks",
+          "Loss of the stern ornament",
+          "Rocks forever fixed in place"
+        ],
         "duration": "Brief but perilous passage"
       },
       {
         "id": "island-of-ares",
         "name": "Island of Ares",
-        "coordinates": [41.95, 34.50],
+        "coordinates": [41.95, 34.5],
         "order": 8,
         "description": "Island sacred to Ares, inhabited by birds that shot their feathers like arrows. The Argonauts drove them off by clashing their shields.",
-        "events": ["Attack by the Stymphalian birds", "Defense with clashing shields", "Meeting the sons of Phrixus"],
+        "events": [
+          "Attack by the Stymphalian birds",
+          "Defense with clashing shields",
+          "Meeting the sons of Phrixus"
+        ],
         "creatures": ["Stymphalian Birds"],
         "deities": ["Ares"],
         "duration": "Brief stop"
@@ -248,8 +355,21 @@
         "coordinates": [42.15, 41.65],
         "order": 9,
         "description": "Kingdom of King Aeetes, where the Golden Fleece hung in a grove sacred to Ares, guarded by a sleepless dragon. Here Jason met Medea.",
-        "events": ["Meeting King Aeetes", "Aeetes's impossible tasks", "Medea falls in love with Jason", "Yoking the fire-breathing bulls", "Sowing the dragon teeth", "Defeating the earth-born warriors", "Medea drugs the dragon", "Stealing the Golden Fleece"],
-        "creatures": ["Sleepless Dragon", "Fire-breathing Bulls", "Earth-born Warriors"],
+        "events": [
+          "Meeting King Aeetes",
+          "Aeetes's impossible tasks",
+          "Medea falls in love with Jason",
+          "Yoking the fire-breathing bulls",
+          "Sowing the dragon teeth",
+          "Defeating the earth-born warriors",
+          "Medea drugs the dragon",
+          "Stealing the Golden Fleece"
+        ],
+        "creatures": [
+          "Sleepless Dragon",
+          "Fire-breathing Bulls",
+          "Earth-born Warriors"
+        ],
         "deities": ["Ares", "Aphrodite"],
         "duration": "Several days"
       },
@@ -259,7 +379,11 @@
         "coordinates": [45.32, 14.45],
         "order": 10,
         "description": "Medea's brother Apsyrtus pursued the Argonauts. In some versions, Medea killed and dismembered him to delay her father's pursuit.",
-        "events": ["Pursuit by Colchian fleet", "Death of Apsyrtus", "Divine anger requires purification"],
+        "events": [
+          "Pursuit by Colchian fleet",
+          "Death of Apsyrtus",
+          "Divine anger requires purification"
+        ],
         "duration": "During return voyage"
       },
       {
@@ -296,10 +420,14 @@
       {
         "id": "crete",
         "name": "Crete",
-        "coordinates": [35.24, 24.90],
+        "coordinates": [35.24, 24.9],
         "order": 14,
         "description": "The Argonauts encountered Talos, the bronze giant who guarded Crete. Medea used her magic to defeat him by removing the plug in his ankle.",
-        "events": ["Confrontation with Talos", "Medea's magic defeats Talos", "Death of the bronze giant"],
+        "events": [
+          "Confrontation with Talos",
+          "Medea's magic defeats Talos",
+          "Death of the bronze giant"
+        ],
         "creatures": ["Talos"],
         "duration": "Brief stop"
       },
@@ -309,7 +437,12 @@
         "coordinates": [39.36, 22.94],
         "order": 15,
         "description": "Jason returned triumphant with the Golden Fleece and Medea as his bride, only to find that Pelias had killed his father. Medea tricked Pelias's daughters into killing him.",
-        "events": ["Triumphant return", "Presentation of the Golden Fleece", "Revenge on Pelias", "Exile to Corinth"],
+        "events": [
+          "Triumphant return",
+          "Presentation of the Golden Fleece",
+          "Revenge on Pelias",
+          "Exile to Corinth"
+        ],
         "duration": "Final destination"
       }
     ]
@@ -332,7 +465,13 @@
         "coordinates": [37.81, 22.71],
         "order": 1,
         "description": "Labor 1: The Nemean Lion. A monstrous lion with impenetrable golden fur terrorized the valley of Nemea. Heracles strangled it and wore its pelt as armor.",
-        "events": ["Tracking the lion", "Weapons prove useless", "Strangling the beast", "Skinning it with its own claws", "Wearing the lion's pelt"],
+        "events": [
+          "Tracking the lion",
+          "Weapons prove useless",
+          "Strangling the beast",
+          "Skinning it with its own claws",
+          "Wearing the lion's pelt"
+        ],
         "creatures": ["Nemean Lion"],
         "duration": "30 days"
       },
@@ -342,7 +481,12 @@
         "coordinates": [37.53, 22.75],
         "order": 2,
         "description": "Labor 2: The Lernaean Hydra. A many-headed serpent that grew two heads for every one cut off. With his nephew Iolaus, Heracles burned each neck stump to prevent regrowth.",
-        "events": ["Battle with the Hydra", "Iolaus cauterizes the neck stumps", "Burial of the immortal head", "Dipping arrows in Hydra's blood"],
+        "events": [
+          "Battle with the Hydra",
+          "Iolaus cauterizes the neck stumps",
+          "Burial of the immortal head",
+          "Dipping arrows in Hydra's blood"
+        ],
         "creatures": ["Lernaean Hydra"],
         "duration": "Several days"
       },
@@ -352,7 +496,12 @@
         "coordinates": [38.06, 22.13],
         "order": 3,
         "description": "Labor 3: The Ceryneian Hind. A sacred deer with golden antlers and bronze hooves, sacred to Artemis. Heracles chased it for a full year before capturing it alive.",
-        "events": ["Year-long chase", "Capture at the river Ladon", "Encounter with Artemis", "Safe delivery to Eurystheus"],
+        "events": [
+          "Year-long chase",
+          "Capture at the river Ladon",
+          "Encounter with Artemis",
+          "Safe delivery to Eurystheus"
+        ],
         "creatures": ["Ceryneian Hind"],
         "deities": ["Artemis"],
         "duration": "One year"
@@ -363,7 +512,12 @@
         "coordinates": [37.95, 21.83],
         "order": 4,
         "description": "Labor 4: The Erymanthian Boar. A giant boar that ravaged the countryside. Heracles drove it into deep snow and captured it alive in a net.",
-        "events": ["Visit to the centaur Pholus", "Battle with centaurs", "Death of Chiron", "Capture of the boar in snow"],
+        "events": [
+          "Visit to the centaur Pholus",
+          "Battle with centaurs",
+          "Death of Chiron",
+          "Capture of the boar in snow"
+        ],
         "creatures": ["Erymanthian Boar", "Centaurs"],
         "duration": "Several weeks"
       },
@@ -373,7 +527,12 @@
         "coordinates": [37.89, 21.38],
         "order": 5,
         "description": "Labor 5: The Augean Stables. King Augeas's stables held thousands of cattle and hadn't been cleaned in 30 years. Heracles diverted two rivers to wash them clean in a single day.",
-        "events": ["Bargaining with Augeas", "Diversion of the Alpheus and Peneus rivers", "Cleaning in one day", "Augeas refuses payment"],
+        "events": [
+          "Bargaining with Augeas",
+          "Diversion of the Alpheus and Peneus rivers",
+          "Cleaning in one day",
+          "Augeas refuses payment"
+        ],
         "duration": "One day"
       },
       {
@@ -382,7 +541,11 @@
         "coordinates": [37.86, 22.47],
         "order": 6,
         "description": "Labor 6: The Stymphalian Birds. Man-eating birds with bronze beaks and metallic feathers they could launch like arrows. Heracles used a rattle from Athena to flush them out.",
-        "events": ["Receiving the rattle from Athena", "Frightening the birds into flight", "Shooting them with arrows"],
+        "events": [
+          "Receiving the rattle from Athena",
+          "Frightening the birds into flight",
+          "Shooting them with arrows"
+        ],
         "creatures": ["Stymphalian Birds"],
         "deities": ["Athena"],
         "duration": "Several days"
@@ -390,30 +553,45 @@
       {
         "id": "crete-bull",
         "name": "Crete",
-        "coordinates": [35.24, 24.90],
+        "coordinates": [35.24, 24.9],
         "order": 7,
         "description": "Labor 7: The Cretan Bull. The bull that fathered the Minotaur. Heracles wrestled it into submission and brought it back to Eurystheus alive.",
-        "events": ["Wrestling the bull", "Swimming back to the mainland", "Release of the bull at Marathon"],
+        "events": [
+          "Wrestling the bull",
+          "Swimming back to the mainland",
+          "Release of the bull at Marathon"
+        ],
         "creatures": ["Cretan Bull"],
         "duration": "Several weeks"
       },
       {
         "id": "thrace",
         "name": "Thrace",
-        "coordinates": [41.15, 25.00],
+        "coordinates": [41.15, 25.0],
         "order": 8,
         "description": "Labor 8: The Mares of Diomedes. King Diomedes fed his horses human flesh. Heracles fed Diomedes to his own horses, which then became tame.",
-        "events": ["Confrontation with Diomedes", "Feeding Diomedes to the mares", "Taming the horses", "Founding of the city of Abdera"],
+        "events": [
+          "Confrontation with Diomedes",
+          "Feeding Diomedes to the mares",
+          "Taming the horses",
+          "Founding of the city of Abdera"
+        ],
         "creatures": ["Man-eating Mares"],
         "duration": "Several days"
       },
       {
         "id": "themiscyra",
         "name": "Themiscyra",
-        "coordinates": [41.30, 36.45],
+        "coordinates": [41.3, 36.45],
         "order": 9,
         "description": "Labor 9: The Belt of Hippolyta. Queen Hippolyta offered her belt willingly, but Hera spread rumors that caused the Amazons to attack.",
-        "events": ["Meeting Queen Hippolyta", "Hera's deception", "Battle with the Amazons", "Death of Hippolyta", "Obtaining the belt"],
+        "events": [
+          "Meeting Queen Hippolyta",
+          "Hera's deception",
+          "Battle with the Amazons",
+          "Death of Hippolyta",
+          "Obtaining the belt"
+        ],
         "creatures": ["Amazons"],
         "deities": ["Hera"],
         "duration": "Several weeks"
@@ -424,7 +602,12 @@
         "coordinates": [36.13, -5.45],
         "order": 10,
         "description": "Labor 10: The Cattle of Geryon. A three-bodied giant who lived on the island of Erytheia at the edge of the world. Heracles killed him and drove his cattle back to Greece.",
-        "events": ["Setting up the Pillars of Hercules", "Borrowing the Cup of the Sun", "Killing Geryon and his herdsman", "Long journey home with the cattle"],
+        "events": [
+          "Setting up the Pillars of Hercules",
+          "Borrowing the Cup of the Sun",
+          "Killing Geryon and his herdsman",
+          "Long journey home with the cattle"
+        ],
         "creatures": ["Geryon", "Orthrus"],
         "deities": ["Helios"],
         "duration": "Several months"
@@ -432,10 +615,15 @@
       {
         "id": "hesperides",
         "name": "Garden of the Hesperides",
-        "coordinates": [35.85, -5.90],
+        "coordinates": [35.85, -5.9],
         "order": 11,
         "description": "Labor 11: The Apples of the Hesperides. Golden apples guarded by a dragon and the nymphs at the edge of the world. Heracles held up the sky while Atlas fetched them.",
-        "events": ["Freeing Prometheus for information", "Holding up the sky for Atlas", "Tricking Atlas into taking it back", "Obtaining the golden apples"],
+        "events": [
+          "Freeing Prometheus for information",
+          "Holding up the sky for Atlas",
+          "Tricking Atlas into taking it back",
+          "Obtaining the golden apples"
+        ],
         "creatures": ["Ladon"],
         "deities": ["Atlas", "Prometheus"],
         "duration": "Several months"
@@ -446,10 +634,262 @@
         "coordinates": [36.38, 22.48],
         "order": 12,
         "description": "Labor 12: Cerberus. The three-headed hound that guarded the gates of the Underworld. Heracles wrestled it with his bare hands and brought it to Eurystheus.",
-        "events": ["Initiation into the Eleusinian Mysteries", "Descent through Cape Tainaron", "Freeing Theseus from the Chair of Forgetfulness", "Wrestling Cerberus", "Presenting him to Eurystheus", "Returning Cerberus to Hades"],
+        "events": [
+          "Initiation into the Eleusinian Mysteries",
+          "Descent through Cape Tainaron",
+          "Freeing Theseus from the Chair of Forgetfulness",
+          "Wrestling Cerberus",
+          "Presenting him to Eurystheus",
+          "Returning Cerberus to Hades"
+        ],
         "creatures": ["Cerberus"],
         "deities": ["Hades", "Persephone"],
         "duration": "Several weeks"
+      }
+    ]
+  },
+  {
+    "id": "gilgamesh-quest",
+    "heroId": "gilgamesh",
+    "heroName": "Gilgamesh",
+    "title": "The Quest for Immortality",
+    "slug": "gilgamesh-quest",
+    "description": "Gilgamesh, king of Uruk, loses his beloved friend Enkidu and journeys to the ends of the earth seeking the secret of eternal life from Utnapishtim, the flood survivor.",
+    "pantheonId": "mesopotamian-pantheon",
+    "duration": "Many months of wandering",
+    "imageUrl": null,
+    "source": "Epic of Gilgamesh (Standard Babylonian version)",
+    "waypoints": [
+      {
+        "id": "uruk",
+        "name": "Uruk",
+        "coordinates": [31.3222, 45.6361],
+        "order": 1,
+        "description": "Gilgamesh's great city of walls and temples. After Enkidu's death, grief drives the king beyond civilization.",
+        "events": [
+          "Death of Enkidu",
+          "Gilgamesh's despair",
+          "Departure from Uruk"
+        ],
+        "deities": ["Inanna"],
+        "duration": "Beginning"
+      },
+      {
+        "id": "cedar-forest",
+        "name": "Cedar Forest",
+        "coordinates": [34.0, 36.0],
+        "order": 2,
+        "description": "The sacred forest of Humbaba, guardian appointed by Enlil. Gilgamesh and Enkidu had earlier slain the monster here — the victory that sealed Enkidu's fate.",
+        "events": ["Memory of Humbaba", "Sacred cedars", "Divine warning"],
+        "creatures": ["Humbaba"],
+        "deities": ["Enlil"],
+        "duration": "Remembered past"
+      },
+      {
+        "id": "mashu",
+        "name": "Mount Mashu",
+        "coordinates": [36.5, 43.0],
+        "order": 3,
+        "description": "Twin-peaked mountain guarded by scorpion-beings, where the sun rises and sets. Gilgamesh passes into the darkness beyond.",
+        "events": [
+          "Scorpion-guardians",
+          "Tunnel of darkness",
+          "Emergence at the garden"
+        ],
+        "creatures": ["Scorpion-men"],
+        "duration": "Twelve leagues of darkness"
+      },
+      {
+        "id": "siduri",
+        "name": "Siduri's Tavern",
+        "coordinates": [30.0, 48.0],
+        "order": 4,
+        "description": "The wise alewife at the edge of the waters advises Gilgamesh to cherish mortal joys rather than chase immortality — advice he cannot yet accept.",
+        "events": [
+          "Counsel of Siduri",
+          "Directions to Urshanabi",
+          "Refusal of simple joys"
+        ],
+        "duration": "Brief rest"
+      },
+      {
+        "id": "waters-of-death",
+        "name": "Waters of Death",
+        "coordinates": [28.0, 50.0],
+        "order": 5,
+        "description": "With the ferryman Urshanabi, Gilgamesh crosses the lethal waters to the distant shore of Utnapishtim.",
+        "events": ["Pole-cut crossing", "Waters of Death", "Arrival at Dilmun"],
+        "deities": ["Ea"],
+        "duration": "Perilous crossing"
+      },
+      {
+        "id": "utnapishtim",
+        "name": "Utnapishtim's Shore",
+        "coordinates": [26.0, 52.0],
+        "order": 6,
+        "description": "The flood survivor tells Gilgamesh how the gods granted him eternal life — a gift not meant for other mortals. Gilgamesh fails the test of staying awake and loses the plant of youth to a serpent.",
+        "events": [
+          "Flood tale",
+          "Sleep test failed",
+          "Plant of youth stolen by serpent",
+          "Return to Uruk"
+        ],
+        "deities": ["Ea", "Enlil"],
+        "creatures": ["Serpent"],
+        "duration": "Culmination"
+      }
+    ]
+  },
+  {
+    "id": "xibalba-hero-twins",
+    "heroId": "hero-twins",
+    "heroName": "Hunahpu and Xbalanque",
+    "title": "Descent into Xibalba",
+    "slug": "xibalba-hero-twins",
+    "description": "The Hero Twins descend into the Maya underworld of Xibalba, surviving deadly houses and ballcourt trials to avenge their father and defeat the lords of death.",
+    "pantheonId": "mesoamerican-pantheon",
+    "duration": "Many nights in Xibalba",
+    "imageUrl": "/journeys/xibalba-hero-twins.png",
+    "source": "Popol Vuh (Kʼicheʼ Maya)",
+    "waypoints": [
+      {
+        "id": "ballcourt-earth",
+        "name": "Earthly Ballcourt",
+        "coordinates": [15.5, -90.3],
+        "order": 1,
+        "description": "The twins play ball loudly enough to disturb the lords of Xibalba, who summon them below.",
+        "events": ["Challenge from Xibalba", "Farewell to grandmother"],
+        "deities": ["Hun Hunahpu"],
+        "duration": "Beginning"
+      },
+      {
+        "id": "crossroads",
+        "name": "Crossroads of Xibalba",
+        "coordinates": [15.2, -90.5],
+        "order": 2,
+        "description": "Four roads — red, white, yellow, black — try to deceive travelers. The twins send a mosquito ahead to learn the lords’ names.",
+        "events": ["False greetings", "Naming the death lords"],
+        "duration": "First trial"
+      },
+      {
+        "id": "dark-house",
+        "name": "Dark House",
+        "coordinates": [15.0, -90.7],
+        "order": 3,
+        "description": "A house of absolute darkness where the twins keep a torch and cigar lit only by fireflies — returning them unburned at dawn.",
+        "events": ["Firefly ruse", "Surviving darkness"],
+        "duration": "One night"
+      },
+      {
+        "id": "razor-house",
+        "name": "Razor House",
+        "coordinates": [14.9, -90.8],
+        "order": 4,
+        "description": "Blades move of their own accord. The twins speak kindly to the razors and pass unharmed.",
+        "events": ["Pacifying the blades"],
+        "duration": "One night"
+      },
+      {
+        "id": "cold-house",
+        "name": "Cold House",
+        "coordinates": [14.8, -90.9],
+        "order": 5,
+        "description": "Ice and hail fill the chamber. The twins endure until morning.",
+        "events": ["Enduring frost"],
+        "duration": "One night"
+      },
+      {
+        "id": "jaguar-house",
+        "name": "Jaguar House",
+        "coordinates": [14.7, -91.0],
+        "order": 6,
+        "description": "Hungry jaguars wait. The twins throw bones to sate them and walk out at dawn.",
+        "events": ["Feeding the jaguars"],
+        "creatures": ["Jaguars of Xibalba"],
+        "duration": "One night"
+      },
+      {
+        "id": "bat-house",
+        "name": "Bat House",
+        "coordinates": [14.6, -91.1],
+        "order": 7,
+        "description": "Camazotz bats fill the dark. Hunahpu’s head is severed; Xbalanque replaces it with a squash until the ballgame restores him.",
+        "events": ["Camazotz attack", "Squash-head ruse"],
+        "creatures": ["Camazotz"],
+        "duration": "Crisis"
+      },
+      {
+        "id": "ballcourt-xibalba",
+        "name": "Ballcourt of Xibalba",
+        "coordinates": [14.5, -91.2],
+        "order": 8,
+        "description": "The twins defeat the death lords at their own game, refuse false sacrifices, and rise as sun and moon — light over death.",
+        "events": [
+          "Final ballgame",
+          "Defeat of death lords",
+          "Apotheosis as sun and moon"
+        ],
+        "duration": "Culmination"
+      }
+    ]
+  },
+  {
+    "id": "maui-island-fishing",
+    "heroId": "maui",
+    "heroName": "Maui",
+    "title": "Fishing Up the Islands",
+    "slug": "maui-island-fishing",
+    "description": "Maui sails with his brothers, baits his ancestral hook Manaiakalani, and hauls a great fish from the deep — land that becomes islands when the brothers carve it too soon.",
+    "pantheonId": "polynesian-pantheon",
+    "duration": "One legendary voyage",
+    "imageUrl": "/journeys/maui-island-fishing.png",
+    "source": "Māori and wider Polynesian Maui cycles",
+    "waypoints": [
+      {
+        "id": "home-shore",
+        "name": "Home Shore",
+        "coordinates": [-41.0, 174.0],
+        "order": 1,
+        "description": "Maui hides in his brothers’ canoe with the magical hook made from an ancestor’s jawbone.",
+        "events": ["Stowing away", "Revealing Manaiakalani"],
+        "deities": ["Maui"],
+        "duration": "Departure"
+      },
+      {
+        "id": "deep-ocean",
+        "name": "Open Ocean",
+        "coordinates": [-40.0, 175.5],
+        "order": 2,
+        "description": "Far from land, Maui forces the canoe onward while his brothers grow uneasy.",
+        "events": ["Brothers protest", "Maui takes command"],
+        "duration": "Voyage"
+      },
+      {
+        "id": "strike",
+        "name": "The Great Strike",
+        "coordinates": [-39.0, 177.0],
+        "order": 3,
+        "description": "Baited with his own blood in some tellings, the hook catches something immense beneath the waves.",
+        "events": ["Hook takes hold", "Strain on the canoe"],
+        "duration": "Crisis"
+      },
+      {
+        "id": "raised-fish",
+        "name": "The Raised Fish",
+        "coordinates": [-38.5, 178.0],
+        "order": 4,
+        "description": "A vast fish — Te Ika-a-Māui — breaks the surface as new land. Maui warns his brothers not to cut it yet.",
+        "events": ["Land appears", "Warning ignored"],
+        "duration": "Revelation"
+      },
+      {
+        "id": "carved-islands",
+        "name": "Carved Islands",
+        "coordinates": [-38.0, 176.5],
+        "order": 5,
+        "description": "The brothers carve and beat the fish; mountains, valleys, and coastlines form. Geography remembers their impatience.",
+        "events": ["Brothers carve the fish", "Landscape takes shape"],
+        "duration": "Aftermath"
       }
     ]
   }

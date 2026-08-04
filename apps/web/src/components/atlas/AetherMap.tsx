@@ -87,15 +87,16 @@ function Scene({ onSelect }: { onSelect: (slug: string) => void }) {
         speed={0.4}
       />
 
-      {/* relationship threads */}
+      {/* relationship + syncretism threads */}
       {edges.map((e) => (
         <Line
           key={e.id}
           points={[e.from, e.to]}
-          color="#b28f56"
-          lineWidth={1}
+          color={e.type === "syncretism" ? "#d4af37" : "#b28f56"}
+          lineWidth={e.type === "syncretism" ? 1.5 : 1}
           transparent
           opacity={e.opacity}
+          dashed={e.type === "syncretism"}
         />
       ))}
 

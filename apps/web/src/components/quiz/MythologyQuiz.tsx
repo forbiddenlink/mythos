@@ -24,6 +24,7 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import { ShareButton } from "@/components/sharing/ShareButton";
+import { QuizRetentionSurvey } from "@/components/quiz/QuizRetentionSurvey";
 import { useProgress } from "@/hooks/use-progress";
 import deitiesData from "@/data/deities.json";
 import relationshipsData from "@/data/relationships.json";
@@ -274,6 +275,8 @@ export function MythologyQuiz() {
 
           <div className="text-center max-w-sm mx-auto">{resultMessage}</div>
 
+          <QuizRetentionSurvey score={score} total={questions.length} />
+
           <div className="flex flex-col sm:flex-row gap-3">
             <ShareButton
               title="Mythos Atlas Quiz Results"
@@ -298,7 +301,7 @@ export function MythologyQuiz() {
 
   let questionIcon: ReactNode;
   if (question.type === "visual") {
-    questionIcon = <ImageIcon className="h-6 w-6 text-purple-500" />;
+    questionIcon = <ImageIcon className="h-6 w-6 text-bronze" />;
   } else if (question.type === "relationship") {
     questionIcon = <Users className="h-6 w-6 text-blue-500" />;
   } else {

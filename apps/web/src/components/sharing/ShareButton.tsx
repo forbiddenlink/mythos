@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import {
   Share2,
@@ -26,10 +26,23 @@ interface ShareButtonProps {
 export function ShareButton({ title, text, url, className }: ShareButtonProps) {
   const [copied, setCopied] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const [shareUrl, setShareUrl] = useState(url ?? "");
+  // Defer native-share detection until mount so SSR and client HTML match
+  const [hasNativeShare, setHasNativeShare] = useState(false);
 
-  // Use current page URL if not provided
-  const shareUrl =
-    url || (typeof window !== "undefined" ? window.location.href : "");
+  useEffect(() => {
+    if (!url && typeof window !== "undefined") {
+      setShareUrl(window.location.href);
+    }
+    // Prefer the in-page menu on fine-pointer (desktop) devices even when
+    // navigator.share exists — the native sheet is mainly useful on mobile.
+    const canNativeShare =
+      typeof navigator !== "undefined" &&
+      Boolean(navigator.share) &&
+      typeof window.matchMedia === "function" &&
+      window.matchMedia("(pointer: coarse)").matches;
+    setHasNativeShare(canNativeShare);
+  }, [url]);
 
   const handleNativeShare = useCallback(async () => {
     if (navigator.share) {
@@ -94,9 +107,6 @@ export function ShareButton({ title, text, url, className }: ShareButtonProps) {
       "noopener,noreferrer,width=550,height=420",
     );
   }, [shareUrl]);
-
-  // Check if native share is available (mobile devices)
-  const hasNativeShare = typeof navigator !== "undefined" && navigator.share;
 
   // On mobile with native share support, show simple share button
   if (hasNativeShare && !isOpen) {

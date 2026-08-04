@@ -75,15 +75,15 @@ interface RelationshipFilters {
 const getEdgeColor = (relationshipType: string) => {
   switch (relationshipType.toLowerCase()) {
     case "parent":
-      return "#3b82f6";
+      return "#b28f56"; // gold
     case "child":
-      return "#10b981";
+      return "#6b8f71"; // patina
     case "spouse":
-      return "#ec4899";
+      return "#a67c52"; // bronze
     case "sibling":
-      return "#a855f7";
+      return "#8a8578"; // muted parchment-ink
     default:
-      return "#f59e0b";
+      return "#b28f56";
   }
 };
 
@@ -676,9 +676,9 @@ function FamilyTreeInner({
         <Controls />
         <MiniMap
           nodeColor={(node) => {
-            if (node.data.isKeyboardFocused) return "#22d3ee"; // cyan-400
-            if (node.data.isSearchMatch) return "#fbbf24"; // amber-400
-            return node.data.isFocused ? "#8b5cf6" : "#f59e0b";
+            if (node.data.isKeyboardFocused) return "#b28f56"; // gold
+            if (node.data.isSearchMatch) return "#c4a35a"; // gold-light
+            return node.data.isFocused ? "#a67c52" : "#b28f56";
           }}
           maskColor="rgba(0, 0, 0, 0.2)"
         />
@@ -852,25 +852,25 @@ export function FamilyTreeVisualization({
           <FilterButton
             label="Parents"
             active={filters.parent}
-            color="#3b82f6"
+            color="#b28f56"
             onClick={() => toggleFilter("parent")}
           />
           <FilterButton
             label="Children"
             active={filters.child}
-            color="#10b981"
+            color="#6b8f71"
             onClick={() => toggleFilter("child")}
           />
           <FilterButton
             label="Spouses"
             active={filters.spouse}
-            color="#ec4899"
+            color="#a67c52"
             onClick={() => toggleFilter("spouse")}
           />
           <FilterButton
             label="Siblings"
             active={filters.sibling}
-            color="#a855f7"
+            color="#8a8578"
             onClick={() => toggleFilter("sibling")}
           />
         </div>
@@ -894,21 +894,21 @@ export function FamilyTreeVisualization({
       </div>
 
       {/* Relationship Type Legend */}
-      <div className="flex flex-wrap gap-4 text-xs text-slate-400 justify-center">
+      <div className="flex flex-wrap gap-4 text-xs text-muted-foreground justify-center">
         <div className="flex items-center gap-1.5">
-          <div className="w-4 h-0.5 bg-blue-500 rounded"></div>
+          <div className="w-4 h-0.5 bg-gold rounded"></div>
           <span>Parent</span>
         </div>
         <div className="flex items-center gap-1.5">
-          <div className="w-4 h-0.5 bg-emerald-500 rounded"></div>
+          <div className="w-4 h-0.5 bg-patina rounded"></div>
           <span>Child</span>
         </div>
         <div className="flex items-center gap-1.5">
-          <div className="w-4 h-0.5 bg-pink-500 rounded"></div>
+          <div className="w-4 h-0.5 bg-bronze rounded"></div>
           <span>Spouse</span>
         </div>
         <div className="flex items-center gap-1.5">
-          <div className="w-4 h-0.5 bg-purple-500 rounded"></div>
+          <div className="w-4 h-0.5 bg-muted-foreground/60 rounded"></div>
           <span>Sibling</span>
         </div>
       </div>

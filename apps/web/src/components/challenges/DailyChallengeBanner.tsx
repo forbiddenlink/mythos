@@ -11,27 +11,17 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
-import {
-  Zap,
-  BookOpen,
-  Sparkles,
-  Globe,
-  Award,
-  Compass,
-  Star,
-  Check,
-  ChevronRight,
-  Flame,
-} from "lucide-react";
+import { Check, ChevronRight } from "lucide-react";
+import { MythosMark } from "@/components/icons/mythos-marks";
 
 const iconMap: Record<string, React.ReactNode> = {
-  zap: <Zap className="h-5 w-5" />,
-  "book-open": <BookOpen className="h-5 w-5" />,
-  sparkles: <Sparkles className="h-5 w-5" />,
-  globe: <Globe className="h-5 w-5" />,
-  award: <Award className="h-5 w-5" />,
-  compass: <Compass className="h-5 w-5" />,
-  star: <Star className="h-5 w-5" />,
+  zap: <MythosMark id="bolt" className="h-5 w-5" />,
+  "book-open": <MythosMark id="scroll" className="h-5 w-5" />,
+  sparkles: <MythosMark id="constellation" className="h-5 w-5" />,
+  globe: <MythosMark id="temple" className="h-5 w-5" />,
+  award: <MythosMark id="laurel" className="h-5 w-5" />,
+  compass: <MythosMark id="compass" className="h-5 w-5" />,
+  star: <MythosMark id="chronos" className="h-5 w-5" />,
 };
 
 function getChallengeAction(challenge: DailyChallenge): {
@@ -69,7 +59,9 @@ function ChallengeCard({
   isCompleted,
 }: ChallengeCardProps) {
   const action = getChallengeAction(challenge);
-  const icon = iconMap[challenge.icon] || <Star className="h-5 w-5" />;
+  const icon = iconMap[challenge.icon] || (
+    <MythosMark id="chronos" className="h-5 w-5" />
+  );
 
   return (
     <div
@@ -210,8 +202,8 @@ export function DailyChallengeBanner() {
           <CardHeader className="pb-4">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-3">
-                <div className="p-2.5 rounded-xl bg-gold/20 border border-gold/30">
-                  <Zap className="h-6 w-6 text-gold" />
+                <div className="relative flex items-center justify-center border border-gold/35 bg-gold/10 p-2.5">
+                  <MythosMark id="bolt" className="h-6 w-6 text-gold" />
                 </div>
                 <div>
                   <CardTitle className="font-serif text-xl">
@@ -226,7 +218,7 @@ export function DailyChallengeBanner() {
               {/* Streak indicator */}
               {progress.dailyChallengeStreak > 0 && (
                 <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-orange-500/10 border border-orange-500/30">
-                  <Flame className="h-4 w-4 text-orange-500" />
+                  <MythosMark id="torch" className="h-4 w-4 text-bronze" />
                   <span className="text-sm font-medium text-orange-500">
                     {progress.dailyChallengeStreak} day streak
                   </span>

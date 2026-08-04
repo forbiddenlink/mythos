@@ -15,7 +15,7 @@ const StoryTimelineView = dynamic(
   {
     loading: () => (
       <div className="h-125 flex items-center justify-center">
-        <Loader2 className="h-8 w-8 animate-spin text-primary" />
+        <Loader2 className="h-8 w-8 animate-spin text-gold" />
       </div>
     ),
     ssr: false,
@@ -45,17 +45,16 @@ export function StoryTimelinePageClient() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <div className="relative overflow-hidden border-b border-border/50">
-        <div className="absolute inset-0 bg-linear-to-b from-violet-950/20 via-background to-background" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-violet-500/10 via-transparent to-transparent" />
+      <div className="relative overflow-hidden border-b border-border/50 bg-midnight">
+        <div className="absolute inset-0 bg-linear-to-b from-midnight via-midnight/95 to-mythic" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-gold/10 via-transparent to-transparent" />
 
         <div className="container relative mx-auto max-w-7xl px-4 py-16 md:py-24">
           <div className="max-w-3xl">
-            <h2 className="font-serif text-4xl md:text-5xl font-bold tracking-tight text-foreground mb-4">
-              Story Timeline
-            </h2>
-            <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
-              Journey through mythological time - from the primordial chaos
+            <span className="page-eyebrow text-gold/80">Chronology</span>
+            <h1 className="page-title text-parchment mb-4">Story Timeline</h1>
+            <p className="page-lede text-parchment/70">
+              Journey through mythological time — from the primordial chaos
               before creation, through the birth of gods and the golden age, to
               the heroic sagas and the twilight of divine powers.
             </p>

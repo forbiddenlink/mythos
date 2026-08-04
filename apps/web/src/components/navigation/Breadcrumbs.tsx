@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { ChevronRight, Home } from "lucide-react";
+import { ChevronRight } from "lucide-react";
+import { MythosMark } from "@/components/icons/mythos-marks";
 import { usePathname } from "next/navigation";
 import { BreadcrumbJsonLd } from "@/components/seo/JsonLd";
 import { siteConfig } from "@/lib/metadata";
@@ -50,17 +51,19 @@ export function Breadcrumbs() {
     <>
       <BreadcrumbJsonLd items={jsonLdItems} />
       <nav aria-label="Breadcrumb" className="mb-6">
-        <ol className="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400">
+        <ol className="flex items-center gap-2 text-sm text-muted-foreground">
           {breadcrumbs.map((crumb, index) => {
             const isLast = index === breadcrumbs.length - 1;
 
             return (
               <li key={crumb.href} className="flex items-center gap-2">
-                {index === 0 && <Home className="h-4 w-4" />}
+                {index === 0 && (
+                  <MythosMark id="temple" className="h-4 w-4 text-gold/80" />
+                )}
 
                 {isLast ? (
                   <span
-                    className="font-medium text-slate-900 dark:text-slate-100"
+                    className="font-medium text-foreground"
                     aria-current="page"
                   >
                     {crumb.label}
@@ -73,7 +76,7 @@ export function Breadcrumbs() {
                     >
                       {crumb.label}
                     </Link>
-                    <ChevronRight className="h-4 w-4 text-slate-400" />
+                    <ChevronRight className="h-4 w-4 text-muted-foreground/70" />
                   </>
                 )}
               </li>

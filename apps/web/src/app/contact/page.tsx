@@ -1,8 +1,11 @@
 import Link from "next/link";
 import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
+import { SimplePageHeader } from "@/components/layout/simple-page-header";
+import { pageSectionTitleClass } from "@/components/layout/page-typography";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { generateBaseMetadata } from "@/lib/metadata";
 import { ExternalLink, Github, ShieldCheck, ScrollText } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 export const metadata = generateBaseMetadata({
   title: "Contact Mythos Atlas",
@@ -17,26 +20,25 @@ const issuesUrl = `${repoUrl}/issues`;
 export default function ContactPage() {
   return (
     <div className="min-h-screen bg-mythic">
-      <div className="container mx-auto max-w-5xl px-4 py-12">
+      <div className="page-shell max-w-5xl">
         <Breadcrumbs />
 
-        <div className="mt-8 max-w-3xl">
-          <h1 className="font-serif text-5xl font-semibold tracking-tight text-foreground">
-            Contact Mythos Atlas
-          </h1>
-          <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
-            Mythos Atlas is maintained by Elizabeth Stein. If you need to report
-            a factual issue, ask about sources, raise a privacy request, or
-            discuss licensing and project feedback, use the official project
-            links below.
-          </p>
-          <p className="mt-3 text-base leading-relaxed text-muted-foreground">
+        <SimplePageHeader
+          align="left"
+          mark="scroll"
+          tagline="Get in touch"
+          title="Contact Mythos Atlas"
+          description="Mythos Atlas is maintained by Elizabeth Stein. Report factual issues, ask about sources, raise privacy requests, or discuss licensing through the official project links below."
+        />
+
+        <div className="max-w-3xl space-y-3 mb-10 font-body text-base leading-relaxed text-muted-foreground">
+          <p>
             The fastest path is usually a repository issue with the page URL,
             the problem you found, and the change you want reviewed. That makes
             it easier to verify mythology details against cited material and to
             track technical fixes in one visible place.
           </p>
-          <p className="mt-3 text-base leading-relaxed text-muted-foreground">
+          <p>
             Mythos Atlas is an editorial and technical project at the same time,
             so the most useful requests tend to be specific. If you are
             reporting a factual issue, include the exact statement that looks
@@ -44,7 +46,7 @@ export default function ContactPage() {
             product issue, include the route, browser, and the user action that
             triggered the bug.
           </p>
-          <p className="mt-3 text-base leading-relaxed text-muted-foreground">
+          <p>
             For privacy or personal-data requests, do not paste sensitive
             details into a public GitHub issue. Open an issue titled
             &quot;Privacy request&quot; with a contact method only, and we will
@@ -55,7 +57,9 @@ export default function ContactPage() {
         <div className="mt-10 grid gap-6 md:grid-cols-2">
           <Card className="bg-card">
             <CardHeader>
-              <CardTitle className="flex items-center gap-2 font-serif text-2xl">
+              <CardTitle
+                className={cn("flex items-center gap-2", pageSectionTitleClass)}
+              >
                 <Github className="h-5 w-5 text-gold" />
                 Project Repository
               </CardTitle>
@@ -77,7 +81,9 @@ export default function ContactPage() {
 
           <Card className="bg-card">
             <CardHeader>
-              <CardTitle className="flex items-center gap-2 font-serif text-2xl">
+              <CardTitle
+                className={cn("flex items-center gap-2", pageSectionTitleClass)}
+              >
                 <ScrollText className="h-5 w-5 text-gold" />
                 Corrections and Source Questions
               </CardTitle>
@@ -100,7 +106,9 @@ export default function ContactPage() {
 
           <Card className="bg-card">
             <CardHeader>
-              <CardTitle className="flex items-center gap-2 font-serif text-2xl">
+              <CardTitle
+                className={cn("flex items-center gap-2", pageSectionTitleClass)}
+              >
                 <ShieldCheck className="h-5 w-5 text-gold" />
                 Privacy and Legal Requests
               </CardTitle>
@@ -134,7 +142,9 @@ export default function ContactPage() {
 
           <Card className="bg-card">
             <CardHeader>
-              <CardTitle className="flex items-center gap-2 font-serif text-2xl">
+              <CardTitle
+                className={cn("flex items-center gap-2", pageSectionTitleClass)}
+              >
                 <Github className="h-5 w-5 text-gold" />
                 What To Include
               </CardTitle>
@@ -161,7 +171,7 @@ export default function ContactPage() {
         </div>
 
         <section className="mt-10 rounded-2xl border border-border/60 bg-card/60 p-6">
-          <h2 className="font-serif text-2xl font-semibold text-foreground">
+          <h2 className={cn(pageSectionTitleClass, "text-foreground")}>
             Response Expectations
           </h2>
           <p className="mt-3 leading-relaxed text-muted-foreground">

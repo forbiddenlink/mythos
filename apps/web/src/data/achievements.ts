@@ -360,9 +360,9 @@ export const tierColors = {
     text: "text-yellow-400",
   },
   mythic: {
-    bg: "bg-purple-500/20",
-    border: "border-purple-500/50",
-    text: "text-purple-400",
+    bg: "bg-bronze/20",
+    border: "border-bronze/50",
+    text: "text-bronze",
   },
 };
 

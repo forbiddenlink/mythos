@@ -31,18 +31,16 @@ export default function OraclePage() {
       <div className="container mx-auto max-w-4xl px-6 py-20 sm:py-28">
         {/* Invocation */}
         <header className="text-center">
-          <span className="mb-6 block text-xs uppercase tracking-[0.35em] text-gold/60">
+          <span className="page-eyebrow text-gold/60 tracking-[0.35em]">
             The Sanctuary at Delphi
           </span>
-          <h1 className="font-serif text-4xl leading-tight text-parchment sm:text-6xl">
-            The Oracle
-          </h1>
+          <h1 className="page-title text-parchment">The Oracle</h1>
           <div className="mt-6 flex items-center justify-center gap-4">
             <span className="h-px w-16 bg-gold/40" />
             <span className="h-2 w-2 rotate-45 bg-gold/60" />
             <span className="h-px w-16 bg-gold/40" />
           </div>
-          <p className="mx-auto mt-8 max-w-2xl font-body text-lg leading-relaxed text-parchment/80">
+          <p className="page-lede mt-8 text-parchment/80">
             In the old world, seekers climbed to Delphi to put their questions
             to the Pythia and left with a prophecy to puzzle over. Put yours to
             this Oracle: a seer that answers from the Atlas&rsquo;s own gods,

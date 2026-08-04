@@ -6,6 +6,7 @@ import {
   type ProgressContextValue,
 } from "@/providers/progress-provider";
 import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
+import { PageHero } from "@/components/layout/page-hero";
 import { LearningPathCard } from "@/components/learning/LearningPathCard";
 import {
   extractUserPreferences,
@@ -82,78 +83,49 @@ export default function LearningPathsPage() {
 
   return (
     <div className="min-h-screen">
-      {/* Hero Section */}
-      <div className="relative overflow-hidden bg-linear-to-b from-midnight via-midnight/95 to-mythic py-16 md:py-24">
-        {/* Background decorations */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-0 left-1/4 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl" />
-          <div className="absolute bottom-0 right-1/4 w-64 h-64 bg-indigo-500/5 rounded-full blur-3xl" />
-        </div>
-
-        <div className="container mx-auto max-w-7xl px-4 relative z-10">
-          {/* Title */}
-          <div className="text-center mb-8">
-            <div className="flex items-center justify-center mb-6">
-              <div className="relative p-4 rounded-xl border border-purple-500/20 bg-midnight/50 backdrop-blur-sm">
-                <div className="absolute inset-0 rounded-xl bg-linear-to-br from-purple-500/10 to-transparent" />
-                <GraduationCap
-                  className="relative h-10 w-10 text-purple-400"
-                  strokeWidth={1.5}
-                />
-              </div>
+      <PageHero
+        mark="torch"
+        tagline="Personalized Learning"
+        title="Learning Paths"
+        description={
+          hasProgress
+            ? "Continue where you left off with paths tailored to your interests and progress."
+            : "Choose a focused path through mythology—from Greek heroes to Norse cosmology to Egyptian afterlife beliefs."
+        }
+        minHeight="min-h-[40vh]"
+      >
+        {hasProgress ? (
+          <div className="flex items-center justify-center gap-8 text-center">
+            <div>
+              <p className="text-2xl font-bold text-parchment">
+                {activePaths.length}
+              </p>
+              <p className="text-sm text-parchment/50">Active Paths</p>
             </div>
-            <span className="inline-block text-purple-400/80 text-sm tracking-[0.25em] uppercase mb-4 font-medium">
-              Personalized Learning
-            </span>
-            <h1 className="font-serif text-5xl md:text-6xl font-semibold tracking-tight mb-6 text-parchment">
-              Learning Paths
-            </h1>
-            <p className="text-lg text-slate-400 max-w-2xl mx-auto">
-              {hasProgress
-                ? "Continue where you left off with paths tailored to your interests and progress."
-                : "Choose a focused path through mythology—from Greek heroes to Norse cosmology to Egyptian afterlife beliefs."}
-            </p>
-            <div className="flex items-center justify-center gap-4 mt-6">
-              <div className="w-12 h-px bg-linear-to-r from-transparent to-purple-500/40" />
-              <div className="w-1.5 h-1.5 rotate-45 bg-purple-500/50" />
-              <div className="w-12 h-px bg-linear-to-l from-transparent to-purple-500/40" />
+            <div className="w-px h-10 bg-gold/20" />
+            <div>
+              <p className="text-2xl font-bold text-parchment">
+                {completedPaths.length}
+              </p>
+              <p className="text-sm text-parchment/50">Completed</p>
+            </div>
+            <div className="w-px h-10 bg-gold/20" />
+            <div>
+              <p className="text-2xl font-bold text-parchment">
+                {availablePaths.length}
+              </p>
+              <p className="text-sm text-parchment/50">Available</p>
             </div>
           </div>
-
-          {/* Quick stats */}
-          {hasProgress && (
-            <div className="flex items-center justify-center gap-8 text-center">
-              <div>
-                <p className="text-2xl font-bold text-parchment">
-                  {activePaths.length}
-                </p>
-                <p className="text-sm text-slate-400">Active Paths</p>
-              </div>
-              <div className="w-px h-10 bg-slate-700" />
-              <div>
-                <p className="text-2xl font-bold text-parchment">
-                  {completedPaths.length}
-                </p>
-                <p className="text-sm text-slate-400">Completed</p>
-              </div>
-              <div className="w-px h-10 bg-slate-700" />
-              <div>
-                <p className="text-2xl font-bold text-parchment">
-                  {availablePaths.length}
-                </p>
-                <p className="text-sm text-slate-400">Available</p>
-              </div>
-            </div>
-          )}
-        </div>
-      </div>
+        ) : null}
+      </PageHero>
 
       {/* Main Content */}
-      <div className="container mx-auto max-w-7xl px-4 py-12 bg-mythic">
+      <div className="page-shell bg-mythic">
         <Breadcrumbs />
 
-        <section className="mt-6 rounded-2xl border border-border/60 bg-card/60 p-6">
-          <h2 className="font-serif text-2xl font-semibold text-foreground">
+        <section className="mt-6 rounded-xl border border-border/60 bg-card/60 p-6">
+          <h2 className="page-section-title text-foreground">
             Follow A Structured Reading Route
           </h2>
           <p className="mt-3 leading-relaxed text-muted-foreground">
@@ -178,7 +150,7 @@ export default function LearningPathsPage() {
                 <Target className="h-5 w-5 text-green-500" />
               </div>
               <div>
-                <h2 className="font-serif text-2xl font-semibold text-foreground">
+                <h2 className="page-section-title text-foreground">
                   Continue Learning
                 </h2>
                 <p className="text-sm text-muted-foreground">
@@ -198,11 +170,11 @@ export default function LearningPathsPage() {
         {availablePaths.length > 0 && (
           <section className="mb-12">
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-10 h-10 rounded-lg bg-purple-500/10 flex items-center justify-center">
-                <Compass className="h-5 w-5 text-purple-500" />
+              <div className="w-10 h-10 rounded-lg bg-gold/10 flex items-center justify-center">
+                <Compass className="h-5 w-5 text-gold" />
               </div>
               <div>
-                <h2 className="font-serif text-2xl font-semibold text-foreground">
+                <h2 className="page-section-title text-foreground">
                   {hasProgress ? "Explore New Paths" : "Choose Your Path"}
                 </h2>
                 <p className="text-sm text-muted-foreground">
@@ -224,11 +196,11 @@ export default function LearningPathsPage() {
         {completedPaths.length > 0 && (
           <section className="mb-12">
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-10 h-10 rounded-lg bg-amber-500/10 flex items-center justify-center">
-                <Sparkles className="h-5 w-5 text-amber-500" />
+              <div className="w-10 h-10 rounded-lg bg-gold/10 flex items-center justify-center">
+                <Sparkles className="h-5 w-5 text-gold" />
               </div>
               <div>
-                <h2 className="font-serif text-2xl font-semibold text-foreground">
+                <h2 className="page-section-title text-foreground">
                   Completed Paths
                 </h2>
                 <p className="text-sm text-muted-foreground">
@@ -247,13 +219,13 @@ export default function LearningPathsPage() {
         {/* Path type descriptions for new users */}
         {!hasProgress && (
           <section className="mt-12 pt-12 border-t border-border">
-            <h2 className="font-serif text-2xl font-semibold text-foreground mb-6 text-center">
+            <h2 className="page-section-title text-foreground mb-6 text-center">
               How Learning Paths Work
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               <div className="text-center p-6 rounded-xl border border-border bg-card/50">
-                <div className="w-12 h-12 rounded-full bg-purple-500/10 flex items-center justify-center mx-auto mb-4">
-                  <span className="text-2xl">1</span>
+                <div className="relative mx-auto mb-4 flex h-12 w-12 items-center justify-center border border-gold/30 bg-gold/5">
+                  <span className="text-2xl font-serif text-gold">1</span>
                 </div>
                 <h3 className="font-semibold mb-2">Choose a Path</h3>
                 <p className="text-sm text-muted-foreground">
@@ -262,8 +234,8 @@ export default function LearningPathsPage() {
                 </p>
               </div>
               <div className="text-center p-6 rounded-xl border border-border bg-card/50">
-                <div className="w-12 h-12 rounded-full bg-purple-500/10 flex items-center justify-center mx-auto mb-4">
-                  <span className="text-2xl">2</span>
+                <div className="relative mx-auto mb-4 flex h-12 w-12 items-center justify-center border border-gold/30 bg-gold/5">
+                  <span className="text-2xl font-serif text-gold">2</span>
                 </div>
                 <h3 className="font-semibold mb-2">Follow the Steps</h3>
                 <p className="text-sm text-muted-foreground">
@@ -271,8 +243,8 @@ export default function LearningPathsPage() {
                 </p>
               </div>
               <div className="text-center p-6 rounded-xl border border-border bg-card/50">
-                <div className="w-12 h-12 rounded-full bg-purple-500/10 flex items-center justify-center mx-auto mb-4">
-                  <span className="text-2xl">3</span>
+                <div className="relative mx-auto mb-4 flex h-12 w-12 items-center justify-center border border-gold/30 bg-gold/5">
+                  <span className="text-2xl font-serif text-gold">3</span>
                 </div>
                 <h3 className="font-semibold mb-2">Track Progress</h3>
                 <p className="text-sm text-muted-foreground">
@@ -280,8 +252,8 @@ export default function LearningPathsPage() {
                 </p>
               </div>
               <div className="text-center p-6 rounded-xl border border-border bg-card/50">
-                <div className="w-12 h-12 rounded-full bg-purple-500/10 flex items-center justify-center mx-auto mb-4">
-                  <span className="text-2xl">4</span>
+                <div className="relative mx-auto mb-4 flex h-12 w-12 items-center justify-center border border-gold/30 bg-gold/5">
+                  <span className="text-2xl font-serif text-gold">4</span>
                 </div>
                 <h3 className="font-semibold mb-2">Unlock Achievements</h3>
                 <p className="text-sm text-muted-foreground">

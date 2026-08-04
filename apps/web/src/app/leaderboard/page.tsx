@@ -12,31 +12,24 @@ import {
   type LeaderboardCategory,
 } from "@/providers/leaderboard-provider";
 import { ProgressContext } from "@/providers/progress-provider";
-import {
-  Award,
-  Check,
-  Edit2,
-  Flame,
-  Star,
-  TrendingUp,
-  Trophy,
-  X,
-} from "lucide-react";
+import { Check, Edit2, X } from "lucide-react";
+import { HeroMark } from "@/components/icons/hero-mark";
+import { MythosMark } from "@/components/icons/mythos-marks";
 import { useContext, useEffect, useState } from "react";
 
 const categories: {
   id: LeaderboardCategory;
   label: string;
-  icon: React.ReactNode;
+  mark: "constellation" | "lyre" | "laurel" | "torch";
 }[] = [
-  { id: "xp", label: "XP", icon: <Star className="h-4 w-4" /> },
-  { id: "quiz", label: "Quiz", icon: <Trophy className="h-4 w-4" /> },
+  { id: "xp", label: "XP", mark: "constellation" },
+  { id: "quiz", label: "Quiz", mark: "lyre" },
   {
     id: "achievements",
     label: "Achievements",
-    icon: <Award className="h-4 w-4" />,
+    mark: "laurel",
   },
-  { id: "streak", label: "Streak", icon: <Flame className="h-4 w-4" /> },
+  { id: "streak", label: "Streak", mark: "torch" },
 ];
 
 export default function LeaderboardPage() {
@@ -82,7 +75,7 @@ export default function LeaderboardPage() {
 
   const introSection = (
     <section className="rounded-2xl border border-border/60 bg-card/60 p-6">
-      <h2 className="font-serif text-2xl font-semibold text-foreground">
+      <h2 className="page-section-title text-foreground">
         Track Progress Beyond One Session
       </h2>
       <p className="mt-3 leading-relaxed text-muted-foreground">
@@ -147,9 +140,7 @@ export default function LeaderboardPage() {
           <div className="container mx-auto max-w-4xl px-4">
             <Breadcrumbs />
             <div className="mt-6 mb-4">
-              <h1 className="font-serif text-4xl font-semibold text-foreground">
-                Your Stats
-              </h1>
+              <h1 className="page-title text-foreground">Your Stats</h1>
               <p className="text-muted-foreground mt-1">
                 Track your personal mythology exploration progress
               </p>
@@ -194,13 +185,9 @@ export default function LeaderboardPage() {
           <Breadcrumbs />
 
           <div className="flex items-center gap-4 mt-6 mb-4">
-            <div className="p-3 rounded-xl bg-gold/20 border border-gold/30">
-              <Trophy className="h-8 w-8 text-gold" />
-            </div>
+            <HeroMark mark="laurel" tone="light" size="md" />
             <div>
-              <h1 className="font-serif text-4xl font-semibold text-foreground">
-                Your Stats
-              </h1>
+              <h1 className="page-title text-foreground">Your Stats</h1>
               <p className="text-muted-foreground mt-1">
                 Track your personal mythology exploration progress
               </p>
@@ -218,7 +205,7 @@ export default function LeaderboardPage() {
           <Card className="border-gold/20">
             <CardHeader>
               <CardTitle className="font-serif flex items-center gap-2">
-                <TrendingUp className="h-5 w-5 text-gold" />
+                <MythosMark id="torch" className="h-5 w-5 text-gold" />
                 Your Profile
               </CardTitle>
             </CardHeader>
@@ -309,7 +296,7 @@ export default function LeaderboardPage() {
                       className="p-4 rounded-xl bg-card border border-border text-center"
                     >
                       <div className="flex items-center justify-center gap-1.5 text-muted-foreground mb-2">
-                        {cat.icon}
+                        <MythosMark id={cat.mark} className="h-4 w-4" />
                         <span className="text-sm">{cat.label}</span>
                       </div>
                       <p className="font-semibold text-xl text-foreground">
@@ -348,7 +335,7 @@ export default function LeaderboardPage() {
                       value={cat.id}
                       className="flex items-center gap-1.5"
                     >
-                      {cat.icon}
+                      <MythosMark id={cat.mark} className="h-4 w-4" />
                       <span className="hidden sm:inline">{cat.label}</span>
                     </TabsTrigger>
                   ))}

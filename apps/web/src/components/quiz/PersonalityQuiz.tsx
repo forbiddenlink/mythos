@@ -666,7 +666,7 @@ export function PersonalityQuiz() {
           <div className="text-center">
             <Link
               href="/quiz"
-              className="text-muted-foreground hover:text-primary transition-colors inline-flex items-center gap-1 text-sm"
+              className="text-muted-foreground hover:text-gold transition-colors inline-flex items-center gap-1 text-sm"
             >
               <ChevronLeft className="h-4 w-4" />
               Back to All Quizzes
@@ -734,7 +734,7 @@ export function PersonalityQuiz() {
 
         <CardContent className="space-y-3 pt-4">
           <div
-            role="radiogroup"
+            role="group"
             aria-label="Select your answer"
             aria-describedby="quiz-question"
             className="grid gap-3"
@@ -742,8 +742,7 @@ export function PersonalityQuiz() {
             {question.options.map((option) => (
               <Button
                 key={option.text}
-                role="radio"
-                aria-checked={false}
+                type="button"
                 aria-label={option.text}
                 variant="outline"
                 className="w-full justify-start items-center h-auto py-4 px-5 text-left group transition-all duration-200 hover:border-gold/50 hover:bg-gold/5"

@@ -9,6 +9,7 @@ import {
 } from "@/components/ui/card";
 import { MapPin, Calendar, Users, BookOpen } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
 import { CollectionPageJsonLd } from "@/components/seo/JsonLd";
 import { EditorialByline } from "@/components/content/EditorialByline";
@@ -17,6 +18,8 @@ import pantheonsData from "@/data/pantheons.json";
 import deitiesData from "@/data/deities.json";
 import storiesData from "@/data/stories.json";
 import { RouteHero } from "@/components/layout/route-hero";
+import { MythosMark } from "@/components/icons/mythos-marks";
+import { getPantheonColor } from "@/lib/pantheon-colors";
 
 interface Pantheon {
   id: string;
@@ -28,6 +31,7 @@ interface Pantheon {
   detailedHistory?: string | null;
   timePeriodStart: number | null;
   timePeriodEnd: number | null;
+  imageUrl?: string | null;
 }
 
 interface Deity {
@@ -100,23 +104,45 @@ export function PantheonPageClient({ slug }: PantheonPageClientProps) {
         numberOfItems={pantheonDeities.length}
       />
       {/* Hero Section */}
-      <RouteHero>
-        <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tight mb-6 text-parchment">
-          {pantheon.name}
-        </h1>
-        <div className="flex items-center justify-center gap-4 mb-6">
-          <div className="w-12 h-px bg-linear-to-r from-transparent to-gold/40" />
-          <div className="w-1.5 h-1.5 rotate-45 bg-gold/50" />
-          <div className="w-12 h-px bg-linear-to-l from-transparent to-gold/40" />
-        </div>
-        <p className="text-lg md:text-xl text-parchment/70 max-w-2xl mx-auto font-body leading-relaxed">
-          {pantheon.culture}
-        </p>
-        <EditorialByline
-          className="mx-auto mt-4 max-w-2xl text-center text-parchment/80"
-          tone="light"
-        />
-      </RouteHero>
+      <div className="relative overflow-hidden bg-midnight">
+        {pantheon.imageUrl && (
+          <div className="absolute inset-0 z-0">
+            <Image
+              src={pantheon.imageUrl}
+              alt=""
+              fill
+              sizes="100vw"
+              priority
+              className="object-cover opacity-35"
+              aria-hidden
+            />
+            <div
+              className="absolute inset-0"
+              style={{
+                background: `linear-gradient(135deg, rgba(10,10,25,0.92) 0%, ${getPantheonColor(pantheon.id)}40 50%, rgba(10,10,25,0.9) 100%)`,
+              }}
+            />
+          </div>
+        )}
+        <RouteHero overlayClassName="bg-transparent">
+          <div className="mb-6 flex justify-center">
+            <MythosMark id="temple" className="h-8 w-8 text-gold" />
+          </div>
+          <h1 className="page-title text-parchment mb-6">{pantheon.name}</h1>
+          <div className="flex items-center justify-center gap-4 mb-6">
+            <div className="w-12 h-px bg-linear-to-r from-transparent to-gold/40" />
+            <div className="w-1.5 h-1.5 rotate-45 bg-gold/50" />
+            <div className="w-12 h-px bg-linear-to-l from-transparent to-gold/40" />
+          </div>
+          <p className="text-lg md:text-xl text-parchment/70 max-w-2xl mx-auto font-body leading-relaxed">
+            {pantheon.culture}
+          </p>
+          <EditorialByline
+            className="mx-auto mt-4 max-w-2xl text-center text-parchment/80"
+            tone="light"
+          />
+        </RouteHero>
+      </div>
 
       {/* Content Section */}
       <div className="container mx-auto max-w-6xl px-4 py-16">

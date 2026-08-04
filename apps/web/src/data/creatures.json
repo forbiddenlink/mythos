@@ -603,5 +603,141 @@
     ],
     "dangerLevel": 9,
     "imageUrl": "/creatures/camazotz.png"
+  },
+  {
+    "id": "fenghuang",
+    "pantheonId": "chinese-pantheon",
+    "name": "Fenghuang",
+    "slug": "fenghuang",
+    "description": "The Chinese phoenix — an auspicious bird embodying yin-yang harmony, virtue, and the union of heaven and earth. Its appearance heralds a peaceful, just age.",
+    "habitat": "Paulownia groves and high celestial peaks",
+    "abilities": ["Auspicious Presence", "Harmonic Song", "Foresight"],
+    "dangerLevel": 2,
+    "imageUrl": "/creatures/fenghuang.png"
+  },
+  {
+    "id": "qinglong",
+    "pantheonId": "chinese-pantheon",
+    "name": "Qinglong",
+    "slug": "qinglong",
+    "description": "The Azure Dragon of the East, one of the Four Symbols guarding the cardinal directions. Associated with spring, wood, and the rising sun.",
+    "habitat": "Eastern skies and dragon wells",
+    "abilities": [
+      "Weather Command",
+      "Directional Guardianship",
+      "Wood Element"
+    ],
+    "dangerLevel": 7,
+    "imageUrl": "/creatures/qinglong.png"
+  },
+  {
+    "id": "bai-ze",
+    "pantheonId": "chinese-pantheon",
+    "name": "Bai Ze",
+    "slug": "bai-ze",
+    "description": "A wise white beast that taught the Yellow Emperor the names and natures of all supernatural creatures — knowledge used to protect humanity from spirits.",
+    "habitat": "Holy mountains and imperial courts of legend",
+    "abilities": ["Omniscient Lore", "Spirit Identification", "Counsel"],
+    "dangerLevel": 1,
+    "imageUrl": "/creatures/bai-ze.png"
+  },
+  {
+    "id": "moo",
+    "pantheonId": "polynesian-pantheon",
+    "name": "Moʻo",
+    "slug": "moo",
+    "description": "Hawaiian lizard or dragon spirits that guard freshwater ponds and fishponds. They can appear as beautiful women or as great reptiles — dangerous if disrespected.",
+    "habitat": "Fishponds, springs, and mountain pools of Hawaiʻi",
+    "abilities": ["Shapeshifting", "Water Guardianship", "Illusion"],
+    "dangerLevel": 6,
+    "imageUrl": "/creatures/moo.png"
+  },
+  {
+    "id": "taniwha",
+    "pantheonId": "polynesian-pantheon",
+    "name": "Taniwha",
+    "slug": "taniwha",
+    "description": "Māori water beings that dwell in rivers, caves, and the sea. Some protect tribes as guardians; others devour travelers who ignore sacred restrictions.",
+    "habitat": "Deep rivers, coastal caves, and whirlpools",
+    "abilities": ["Water Mastery", "Guardianship", "Devouring"],
+    "dangerLevel": 8,
+    "imageUrl": "/creatures/taniwha.png"
+  },
+  {
+    "id": "nian",
+    "pantheonId": "chinese-pantheon",
+    "name": "Nian",
+    "slug": "nian",
+    "description": "A mountain and sea beast that once terrorized villages at the turn of the year. Driven off by loud noise, fire, and the color red — the origin of Lunar New Year customs.",
+    "habitat": "Mountains and coastal depths",
+    "abilities": ["Seasonal Raid", "Fear Aura", "Great Strength"],
+    "dangerLevel": 7,
+    "imageUrl": "/creatures/nian.png"
+  },
+  {
+    "id": "ahuizotl-aztec",
+    "pantheonId": "aztec-pantheon",
+    "name": "Ahuizotl",
+    "slug": "ahuizotl-aztec",
+    "description": "A dog-like water creature with a hand at the tip of its tail, said to drown people near lakes to claim their eyes, nails, and teeth for the water gods.",
+    "habitat": "Lakes and canals of the Valley of Mexico",
+    "abilities": ["Tail-Hand Grasp", "Drowning", "Water Ambush"],
+    "dangerLevel": 8,
+    "imageUrl": "/creatures/ahuizotl-aztec.png"
+  },
+  {
+    "id": "anzu",
+    "pantheonId": "mesopotamian-pantheon",
+    "name": "Anzu",
+    "slug": "anzu",
+    "description": "A monstrous lion-headed eagle who stole the Tablet of Destinies from Enlil, throwing the cosmos into chaos until defeated by Ninurta.",
+    "habitat": "Mountain peaks and storm clouds",
+    "abilities": ["Flight", "Destiny Theft", "Storm Wings"],
+    "dangerLevel": 9,
+    "imageUrl": "/creatures/anzu.png"
+  },
+  {
+    "id": "cipactli-aztec",
+    "pantheonId": "aztec-pantheon",
+    "name": "Cipactli",
+    "slug": "cipactli-aztec",
+    "description": "The primordial crocodilian earth-monster from whose body the gods formed the world — hungry, toothy, and older than the suns.",
+    "habitat": "Primordial waters",
+    "abilities": ["World-Body", "Endless Hunger", "Earth Flesh"],
+    "dangerLevel": "mythic",
+    "imageUrl": "/creatures/cipactli-aztec.png"
+  },
+  {
+    "id": "itzpapalotl-obsidian",
+    "pantheonId": "aztec-pantheon",
+    "name": "Itzpapalotl's Obsidian Host",
+    "slug": "itzpapalotl-obsidian-host",
+    "description": "Obsidian-butterfly warriors of the paradise Tamoanchan — beautiful, jagged, and lethal to the uninitiated.",
+    "habitat": "Tamoanchan",
+    "abilities": ["Obsidian Wings", "Star Terror", "Paradise Gate"],
+    "dangerLevel": "high",
+    "imageUrl": "/creatures/itzpapalotl-obsidian-host.png"
+  },
+  {
+    "id": "mushussu",
+    "pantheonId": "mesopotamian-pantheon",
+    "name": "Mušḫuššu",
+    "slug": "mushussu",
+    "description": "The snaked-headed dragon of Marduk, later emblem of Babylon — horns, lion forelegs, and bird hind talons.",
+    "habitat": "Babylon / sacred precincts",
+    "abilities": ["Sacred Terror", "Royal Emblem", "Venom Strike"],
+    "dangerLevel": "high",
+    "imageUrl": "/creatures/mushussu.png"
+  },
+  {
+    "id": "ugallu",
+    "pantheonId": "mesopotamian-pantheon",
+    "name": "Ugallu",
+    "slug": "ugallu",
+    "description": "Lion-demon storm spirits of Mesopotamian ritual art — fierce guardians who also threaten the unprotected.",
+    "habitat": "Storm fronts / temple thresholds",
+    "abilities": ["Storm Roar", "Threshold Guard", "Demon Strength"],
+    "dangerLevel": "high",
+    "imageUrl": "/creatures/ugallu.png"
   }
 ]

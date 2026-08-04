@@ -5,7 +5,9 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Code, Database, Zap } from "lucide-react";
+
+import { HeroMark } from "@/components/icons/hero-mark";
+import { MythosMark } from "@/components/icons/mythos-marks";
 import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
 import { generateBaseMetadata } from "@/lib/metadata";
 import { RouteHero } from "@/components/layout/route-hero";
@@ -97,13 +99,9 @@ export default function APIPage() {
       {/* Hero Section */}
       <RouteHero>
         <div className="flex items-center justify-center mb-6">
-          <div className="relative p-4 rounded-xl border border-gold/20 bg-midnight/50 backdrop-blur-sm">
-            <Code className="h-10 w-10 text-gold" strokeWidth={1.5} />
-          </div>
+          <HeroMark mark="codex" tone="gold" size="lg" />
         </div>
-        <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tight mb-6 text-parchment">
-          API Documentation
-        </h1>
+        <h1 className="page-title text-parchment mb-6">API Documentation</h1>
         <div className="flex items-center justify-center gap-4 mb-6">
           <div className="w-12 h-px bg-linear-to-r from-transparent to-gold/40" />
           <div className="w-1.5 h-1.5 rotate-45 bg-gold/50" />
@@ -149,7 +147,7 @@ export default function APIPage() {
             <Card className="border-gold/20 bg-midnight-light/50">
               <CardHeader>
                 <div className="flex items-center gap-3 mb-2">
-                  <Zap className="h-6 w-6 text-gold" />
+                  <MythosMark id="torch" className="h-6 w-6 text-gold" />
                   <CardTitle className="text-parchment">
                     Fast & Reliable
                   </CardTitle>
@@ -165,7 +163,7 @@ export default function APIPage() {
             <Card className="border-gold/20 bg-midnight-light/50">
               <CardHeader>
                 <div className="flex items-center gap-3 mb-2">
-                  <Database className="h-6 w-6 text-gold" />
+                  <MythosMark id="codex" className="h-6 w-6 text-gold" />
                   <CardTitle className="text-parchment">
                     Comprehensive Data
                   </CardTitle>
@@ -181,7 +179,7 @@ export default function APIPage() {
             <Card className="border-gold/20 bg-midnight-light/50">
               <CardHeader>
                 <div className="flex items-center gap-3 mb-2">
-                  <Code className="h-6 w-6 text-gold" />
+                  <MythosMark id="scroll" className="h-6 w-6 text-gold" />
                   <CardTitle className="text-parchment">Easy to Use</CardTitle>
                 </div>
               </CardHeader>

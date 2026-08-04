@@ -10,6 +10,12 @@ import collections from "@/data/collections.json";
 
 const BASE_URL = "https://mythosatlas.com";
 
+const STUDY_GUIDES = [
+  "greek-gods",
+  "norse-mythology",
+  "comparative-mythology",
+] as const;
+
 export default function sitemap(): MetadataRoute.Sitemap {
   // Use current date for dynamic content tracking
   const lastModified = new Date();
@@ -173,6 +179,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.6,
     },
     {
+      url: `${BASE_URL}/study`,
+      lastModified,
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: `${BASE_URL}/tours`,
+      lastModified,
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
+    {
       url: `${BASE_URL}/achievements`,
       lastModified,
       changeFrequency: "monthly",
@@ -282,8 +300,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }),
   );
 
+  const studyPages: MetadataRoute.Sitemap = STUDY_GUIDES.map((slug) => ({
+    url: `${BASE_URL}/study/${slug}`,
+    lastModified,
+    changeFrequency: "monthly" as const,
+    priority: 0.85,
+  }));
+
   return [
     ...staticPages,
+    ...studyPages,
     ...deityPages,
     ...storyPages,
     ...pantheonPages,

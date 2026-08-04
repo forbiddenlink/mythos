@@ -2,13 +2,15 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Zap, User, Gem, History } from "lucide-react";
+import { Zap, Gem } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { EditorialByline } from "@/components/content/EditorialByline";
 import { ArtifactJsonLd } from "@/components/seo/JsonLd";
+import { ArtifactProvenance } from "@/components/artifacts/ArtifactProvenance";
 import artifactsData from "@/data/artifacts.json";
 import deitiesData from "@/data/deities.json";
+import storiesData from "@/data/stories.json";
 
 interface Artifact {
   id: string;
@@ -20,6 +22,8 @@ interface Artifact {
   description: string;
   powers: string[];
   origin?: string | null;
+  currentLocation?: string | null;
+  relatedStories?: string[];
   imageUrl: string | null;
 }
 
@@ -45,7 +49,7 @@ export function ArtifactPageClient({ slug }: ArtifactPageClientProps) {
           </p>
           <Link
             href="/artifacts"
-            className="text-purple-500 hover:underline mt-4 inline-block"
+            className="text-gold-text hover:underline mt-4 inline-block"
           >
             Return to the Arsenal
           </Link>
@@ -59,6 +63,19 @@ export function ArtifactPageClient({ slug }: ArtifactPageClientProps) {
       ) ?? null)
     : null;
 
+  const relatedStories = (artifact.relatedStories ?? [])
+    .map((id) => {
+      const story = (
+        storiesData as Array<{ id: string; slug: string; title: string }>
+      ).find((s) => s.id === id);
+      return story
+        ? { id: story.id, slug: story.slug, title: story.title }
+        : null;
+    })
+    .filter(
+      (s): s is { id: string; slug: string; title: string } => s !== null,
+    );
+
   return (
     <div className="min-h-screen">
       <ArtifactJsonLd
@@ -68,44 +85,37 @@ export function ArtifactPageClient({ slug }: ArtifactPageClientProps) {
         image={artifact.imageUrl || undefined}
         powers={artifact.powers}
       />
-      {/* Hero Section */}
-      <div className="relative overflow-hidden bg-slate-950">
+      <div className="relative overflow-hidden bg-midnight">
         <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-linear-to-b from-purple-950/20 via-slate-900/90 to-slate-950 z-10"></div>
+          <div className="absolute inset-0 bg-linear-to-b from-bronze/20 via-midnight/90 to-midnight z-10"></div>
         </div>
 
-        {/* Abstract Purple Glow */}
-        <div className="absolute top-0 left-0 w-[50%] h-full bg-radial-gradient from-purple-900/10 to-transparent pointer-events-none z-0" />
+        <div className="absolute top-0 left-0 w-[50%] h-full bg-radial-gradient from-bronze/15 to-transparent pointer-events-none z-0" />
 
         <div className="container mx-auto max-w-4xl px-4 py-12 relative z-20">
           <Link
             href="/artifacts"
-            className="text-sm text-slate-400 hover:text-white mb-6 inline-block transition-colors"
+            className="text-sm text-parchment/60 hover:text-parchment mb-6 inline-block transition-colors"
           >
             ← Back to Arsenal
           </Link>
 
           <div className="space-y-4">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-purple-500/30 bg-purple-500/10 text-purple-400 text-sm font-medium">
+            <div className="inline-flex items-center gap-2 px-3 py-1 border border-bronze/35 bg-bronze/10 text-bronze text-sm font-medium">
               <Gem className="h-3.5 w-3.5" />
               {artifact.type}
             </div>
-            <h1 className="font-serif text-4xl md:text-5xl font-bold tracking-tight text-white">
-              {artifact.name}
-            </h1>
+            <h1 className="page-title text-parchment">{artifact.name}</h1>
             <EditorialByline className="max-w-2xl" tone="light" />
           </div>
         </div>
       </div>
 
-      {/* Content Section */}
       <div className="container mx-auto max-w-4xl px-4 py-12">
         <div className="space-y-8">
           <div className="grid gap-8 md:grid-cols-3">
-            {/* Left Column: Image & Owner */}
             <div className="md:col-span-1 space-y-6">
-              {/* Image Card */}
-              <div className="relative w-full aspect-square rounded-xl overflow-hidden shadow-2xl border border-purple-500/20 bg-slate-900/50">
+              <div className="relative w-full aspect-square overflow-hidden shadow-2xl border border-bronze/25 bg-midnight/50">
                 {artifact.imageUrl ? (
                   <Image
                     src={artifact.imageUrl}
@@ -117,35 +127,23 @@ export function ArtifactPageClient({ slug }: ArtifactPageClientProps) {
                   />
                 ) : (
                   <div className="w-full h-full flex items-center justify-center">
-                    <Gem className="h-16 w-16 text-purple-500/20" />
+                    <Gem className="h-16 w-16 text-gold-text/20" />
                   </div>
                 )}
               </div>
 
-              {/* Owner Card */}
-              {owner && (
-                <Card className="bg-slate-900/50 border-slate-800">
-                  <CardHeader className="pb-2">
-                    <CardTitle className="text-sm font-medium text-slate-400 uppercase tracking-wider flex items-center gap-2">
-                      <User className="h-4 w-4" />
-                      Wielded By
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <Link
-                      href={`/deities/${owner.slug}`}
-                      className="text-lg font-serif font-bold text-purple-400 hover:text-purple-300 hover:underline"
-                    >
-                      {owner.name}
-                    </Link>
-                  </CardContent>
-                </Card>
-              )}
+              <ArtifactProvenance
+                pantheonId={artifact.pantheonId}
+                type={artifact.type}
+                owner={owner}
+                currentLocation={artifact.currentLocation}
+                origin={artifact.origin}
+                relatedStories={relatedStories}
+              />
             </div>
 
-            {/* Right Column: Details */}
             <div className="md:col-span-2 space-y-6">
-              <Card className="bg-white dark:bg-slate-900 border-l-4 border-l-purple-500">
+              <Card className="bg-card border-l-4 border-l-bronze">
                 <CardHeader>
                   <CardTitle className="font-serif text-2xl">
                     Description
@@ -159,7 +157,7 @@ export function ArtifactPageClient({ slug }: ArtifactPageClientProps) {
               </Card>
 
               {artifact.powers && artifact.powers.length > 0 && (
-                <Card className="bg-slate-900/30 border-slate-800">
+                <Card className="bg-midnight/30 border-border/40">
                   <CardHeader>
                     <CardTitle className="font-serif flex items-center gap-2 text-lg">
                       <Zap className="h-5 w-5 text-amber-400" />
@@ -172,28 +170,12 @@ export function ArtifactPageClient({ slug }: ArtifactPageClientProps) {
                         <Badge
                           key={power}
                           variant="secondary"
-                          className="bg-purple-900/30 text-purple-300 border border-purple-500/30 py-1.5 px-3"
+                          className="bg-bronze/20 text-bronze border border-bronze/35 py-1.5 px-3"
                         >
                           {power}
                         </Badge>
                       ))}
                     </div>
-                  </CardContent>
-                </Card>
-              )}
-
-              {artifact.origin && (
-                <Card className="bg-slate-900/30 border-slate-800">
-                  <CardHeader>
-                    <CardTitle className="font-serif flex items-center gap-2 text-lg">
-                      <History className="h-5 w-5 text-slate-400" />
-                      Origin
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-slate-400 leading-relaxed italic">
-                      &quot;{artifact.origin}&quot;
-                    </p>
                   </CardContent>
                 </Card>
               )}

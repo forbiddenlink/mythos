@@ -2,13 +2,22 @@ import * as React from "react";
 import Image from "next/image";
 import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
+import {
+  pageEyebrowClass,
+  pageLedeClass,
+  pageTitleClass,
+} from "@/components/layout/page-typography";
+import { HeroMark } from "@/components/icons/hero-mark";
+import type { MythosMarkId } from "@/components/icons/mythos-marks";
 
 const _heroVariants = cva("", {
   variants: {
     colorScheme: {
       gold: "",
       red: "",
+      /** @deprecated prefer "bronze" — kept for existing callers */
       purple: "",
+      bronze: "",
     },
   },
   defaultVariants: {
@@ -16,96 +25,73 @@ const _heroVariants = cva("", {
   },
 });
 
-// Color scheme mappings
 const colorSchemes = {
   gold: {
-    iconBorder: "border-gold/20",
-    iconBg: "bg-midnight/50",
-    iconGradient: "from-gold/10",
-    iconColor: "text-gold",
     taglineColor: "text-gold/80",
     titleColor: "text-parchment",
     descriptionColor: "text-parchment/70",
     dividerColor: "bg-gold/50",
     dividerGradient: "to-gold/40",
     glowColor: "oklch(0.72_0.14_70_/_0.1)",
+    overlay: "bg-gradient-to-b from-midnight/70 via-midnight/60 to-midnight/80",
+    markTone: "gold" as const,
   },
   red: {
-    iconBorder: "border-red-500/20",
-    iconBg: "bg-slate-950/50",
-    iconGradient: "from-red-500/10",
-    iconColor: "text-red-500",
-    taglineColor: "text-red-500/80",
-    titleColor: "text-slate-100",
-    descriptionColor: "text-slate-400",
-    dividerColor: "bg-red-500/50",
-    dividerGradient: "to-red-500/40",
+    taglineColor: "text-destructive/80",
+    titleColor: "text-parchment",
+    descriptionColor: "text-parchment/70",
+    dividerColor: "bg-destructive/50",
+    dividerGradient: "to-destructive/40",
     glowColor: "oklch(0.55_0.22_25_/_0.15)",
+    overlay: "bg-gradient-to-b from-midnight/80 via-midnight/70 to-midnight/90",
+    markTone: "destructive" as const,
   },
-  purple: {
-    iconBorder: "border-purple-500/20",
-    iconBg: "bg-slate-950/50",
-    iconGradient: "from-purple-500/10",
-    iconColor: "text-purple-400",
-    taglineColor: "text-purple-400/80",
-    titleColor: "text-slate-100",
-    descriptionColor: "text-slate-400",
-    dividerColor: "bg-purple-400/50",
-    dividerGradient: "to-purple-400/40",
-    glowColor: "oklch(0.55_0.15_300_/_0.15)",
+  bronze: {
+    taglineColor: "text-bronze",
+    titleColor: "text-parchment",
+    descriptionColor: "text-parchment/70",
+    dividerColor: "bg-bronze/50",
+    dividerGradient: "to-bronze/40",
+    glowColor: "oklch(0.55_0.1_55_/_0.12)",
+    overlay: "bg-gradient-to-b from-midnight/75 via-midnight/65 to-midnight/85",
+    markTone: "bronze" as const,
   },
+};
+
+/** Map legacy "purple" callers onto bronze scheme */
+const resolveScheme = (
+  scheme: "gold" | "red" | "purple" | "bronze" | null | undefined,
+) => {
+  if (scheme === "purple") return colorSchemes.bronze;
+  return colorSchemes[scheme || "gold"];
 };
 
 const HERO_IMAGE_WIDTH = 1920;
 const HERO_IMAGE_HEIGHT = 1080;
 
 interface PageHeroProps extends VariantProps<typeof _heroVariants> {
-  /**
-   * Icon component to display above the tagline
-   */
-  icon: React.ReactNode;
-  /**
-   * Small uppercase tagline above the title
-   */
+  /** Preferred: Mythos classical mark id */
+  mark?: MythosMarkId;
+  /** @deprecated Prefer `mark` — still accepted for gradual migration */
+  icon?: React.ReactNode;
   tagline: string;
-  /**
-   * Main heading text
-   */
   title: string;
-  /**
-   * Description paragraph below the title
-   */
   description: string;
-  /**
-   * Optional background image path
-   */
   backgroundImage?: string;
-  /**
-   * Accessible background image description when the image is meaningful
-   */
   backgroundAlt?: string;
-  /**
-   * Optional className for the section
-   */
   className?: string;
-  /**
-   * Optional view transition name for the hero section
-   */
   viewTransitionName?: string;
-  /**
-   * Minimum height class (default: min-h-[50vh])
-   */
   minHeight?: string;
+  /** Optional content below the lede (stats, CTAs) */
+  children?: React.ReactNode;
 }
 
 /**
- * PageHero - Reusable hero section for listing pages
- *
- * Provides consistent styling across deities, stories, creatures, etc.
- * with proper gradient overlays, typography, and spacing.
- * Supports gold (default), red (creatures), and purple (artifacts) color schemes.
+ * PageHero — canonical dark hero for listing / hub pages.
+ * Typography comes from page-typography tokens so every route matches.
  */
 export function PageHero({
+  mark = "temple",
   icon,
   tagline,
   title,
@@ -116,20 +102,19 @@ export function PageHero({
   viewTransitionName,
   colorScheme = "gold",
   minHeight = "min-h-[50vh]",
+  children,
 }: PageHeroProps) {
-  const colors = colorSchemes[colorScheme || "gold"];
+  const colors = resolveScheme(colorScheme);
 
   return (
     <section
       className={cn(
-        "relative flex items-center justify-center overflow-hidden",
+        "relative flex items-center justify-center overflow-hidden bg-midnight",
         minHeight,
-        colorScheme !== "gold" && "bg-slate-950",
         className,
       )}
       style={viewTransitionName ? { viewTransitionName } : undefined}
     >
-      {/* Background Image */}
       {backgroundImage && (
         <div className="absolute inset-0 z-0">
           <Image
@@ -144,20 +129,8 @@ export function PageHero({
         </div>
       )}
 
-      {/* Gradient Overlay */}
-      <div
-        className={cn(
-          "absolute inset-0 z-10",
-          colorScheme === "gold" &&
-            "bg-gradient-to-b from-midnight/70 via-midnight/60 to-midnight/80",
-          colorScheme === "red" &&
-            "bg-[radial-gradient(ellipse_at_center,_oklch(0.4_0.15_25_/_0.2)_0%,_transparent_70%)]",
-          colorScheme === "purple" &&
-            "bg-[radial-gradient(ellipse_at_top,_oklch(0.4_0.15_300_/_0.3)_0%,_transparent_60%)]",
-        )}
-      />
+      <div className={cn("absolute inset-0 z-10", colors.overlay)} />
 
-      {/* Radial glow */}
       <div
         className="absolute top-0 left-1/2 -translate-x-1/2 w-[120%] h-[60%] z-10"
         style={{
@@ -165,55 +138,25 @@ export function PageHero({
         }}
       />
 
-      {/* Hero Content */}
       <div className="relative z-20 text-center px-4 max-w-3xl mx-auto py-16">
-        {/* Icon Container */}
         <div className="flex items-center justify-center mb-6">
-          <div
-            className={cn(
-              "relative p-4 rounded-xl border backdrop-blur-sm",
-              colors.iconBorder,
-              colors.iconBg,
-            )}
-          >
-            <div
-              className={cn(
-                "absolute inset-0 rounded-xl bg-gradient-to-br to-transparent",
-                colors.iconGradient,
-              )}
-            />
-            <div
-              className={cn(
-                "relative [&_svg]:h-10 [&_svg]:w-10 [&_svg]:stroke-[1.5]",
-                colors.iconColor,
-              )}
-            >
+          {icon ? (
+            <HeroMark mark={mark} tone={colors.markTone} size="lg">
               {icon}
-            </div>
-          </div>
+            </HeroMark>
+          ) : (
+            <HeroMark mark={mark} tone={colors.markTone} size="lg" />
+          )}
         </div>
 
-        {/* Tagline */}
-        <span
-          className={cn(
-            "inline-block text-sm tracking-[0.25em] uppercase mb-4 font-medium",
-            colors.taglineColor,
-          )}
-        >
+        <span className={cn(pageEyebrowClass, colors.taglineColor)}>
           {tagline}
         </span>
 
-        {/* Title */}
-        <h1
-          className={cn(
-            "font-serif text-display font-semibold tracking-tight mb-6",
-            colors.titleColor,
-          )}
-        >
+        <h1 className={cn(pageTitleClass, "mb-6", colors.titleColor)}>
           {title}
         </h1>
 
-        {/* Decorative Divider */}
         <div className="flex items-center justify-center gap-4 mb-6">
           <div
             className={cn(
@@ -230,15 +173,11 @@ export function PageHero({
           />
         </div>
 
-        {/* Description */}
-        <p
-          className={cn(
-            "text-body-lg max-w-2xl mx-auto font-body leading-relaxed",
-            colors.descriptionColor,
-          )}
-        >
+        <p className={cn(pageLedeClass, colors.descriptionColor)}>
           {description}
         </p>
+
+        {children ? <div className="mt-10">{children}</div> : null}
       </div>
     </section>
   );

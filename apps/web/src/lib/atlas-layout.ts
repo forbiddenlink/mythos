@@ -48,6 +48,11 @@ interface RawDeity {
   name: string;
   pantheonId: string;
   importanceRank?: number;
+  crossPantheonParallels?: Array<{
+    pantheonId: string;
+    deityId: string;
+    note?: string;
+  }>;
 }
 
 interface RawRelationship {
@@ -137,6 +142,8 @@ export function computeAtlasLayout(): AtlasLayout {
 
   const rels = relationshipsData as unknown as RawRelationship[];
   const edges: AtlasEdge[] = [];
+  const seenParallel = new Set<string>();
+
   for (const r of rels) {
     const from = posById.get(r.fromDeityId);
     const to = posById.get(r.toDeityId);
@@ -148,6 +155,25 @@ export function computeAtlasLayout(): AtlasLayout {
           ? 0.3
           : 0.16;
     edges.push({ id: r.id, from, to, type: r.relationshipType, opacity });
+  }
+
+  // Transmission / syncretism arcs (Mythologis-style) from cross-pantheon parallels
+  for (const d of deities) {
+    for (const parallel of d.crossPantheonParallels ?? []) {
+      const from = posById.get(d.id);
+      const to = posById.get(parallel.deityId);
+      if (!from || !to) continue;
+      const a = [d.id, parallel.deityId].sort().join("::");
+      if (seenParallel.has(a)) continue;
+      seenParallel.add(a);
+      edges.push({
+        id: `parallel-${a}`,
+        from,
+        to,
+        type: "syncretism",
+        opacity: 0.42,
+      });
+    }
   }
 
   return { nodes, edges, pantheons };

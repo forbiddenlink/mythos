@@ -33,20 +33,20 @@ function formatLocationType(type: string): string {
 
 const LOCATION_TYPE_COLORS: Record<string, string> = {
   mountain: "bg-emerald-900/30 text-emerald-300 border-emerald-500/30",
-  realm: "bg-purple-900/30 text-purple-300 border-purple-500/30",
+  realm: "bg-bronze/20 text-bronze border-bronze/35",
   sacred_site: "bg-amber-900/30 text-amber-300 border-amber-500/30",
   city: "bg-blue-900/30 text-blue-300 border-blue-500/30",
   underworld: "bg-red-900/30 text-red-300 border-red-500/30",
   body_of_water: "bg-cyan-900/30 text-cyan-300 border-cyan-500/30",
   temple: "bg-yellow-900/30 text-yellow-300 border-yellow-500/30",
   forest: "bg-green-900/30 text-green-300 border-green-500/30",
-  cosmic: "bg-indigo-900/30 text-indigo-300 border-indigo-500/30",
+  cosmic: "bg-patina/20 text-patina border-patina/35",
 };
 
 function getTypeColor(type: string): string {
   return (
     LOCATION_TYPE_COLORS[type] ||
-    "bg-slate-800/50 text-slate-300 border-slate-600/30"
+    "bg-midnight-light/50 text-parchment/75 border-border/40"
   );
 }
 
@@ -120,9 +120,9 @@ export function LocationPageClient({ slug }: LocationPageClientProps) {
       <BreadcrumbJsonLd items={breadcrumbItems} />
 
       {/* ── Hero Section ────────────────────────────────────────────── */}
-      <div className="relative overflow-hidden bg-slate-950">
+      <div className="relative overflow-hidden bg-midnight">
         <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-linear-to-b from-slate-900/80 via-slate-900/90 to-slate-950 z-10" />
+          <div className="absolute inset-0 bg-linear-to-b from-midnight/80 via-midnight/90 to-midnight z-10" />
         </div>
 
         {/* Abstract Emerald Glow */}
@@ -131,7 +131,7 @@ export function LocationPageClient({ slug }: LocationPageClientProps) {
         <div className="container mx-auto max-w-4xl px-4 py-12 relative z-20">
           <Link
             href="/locations"
-            className="text-sm text-slate-400 hover:text-white mb-6 inline-block transition-colors"
+            className="text-sm text-parchment/60 hover:text-parchment mb-6 inline-block transition-colors"
           >
             ← Back to Locations
           </Link>
@@ -148,19 +148,17 @@ export function LocationPageClient({ slug }: LocationPageClientProps) {
               </Badge>
               <Badge
                 variant="outline"
-                className="bg-slate-800/50 text-slate-300 border-slate-600/30 text-sm px-3 py-1"
+                className="bg-midnight-light/50 text-parchment/75 border-border/40 text-sm px-3 py-1"
               >
                 <Globe className="h-3.5 w-3.5 mr-1.5" />
                 {pantheonName}
               </Badge>
             </div>
 
-            <h1 className="font-serif text-4xl md:text-5xl font-bold tracking-tight text-white">
-              {location.name}
-            </h1>
+            <h1 className="page-title text-parchment">{location.name}</h1>
 
             {hasCoordinates && (
-              <div className="flex items-center gap-2 text-slate-400 text-sm">
+              <div className="flex items-center gap-2 text-parchment/60 text-sm">
                 <Compass className="h-4 w-4" />
                 <span>
                   {Math.abs(location.latitude!)}°
@@ -179,7 +177,7 @@ export function LocationPageClient({ slug }: LocationPageClientProps) {
         <div className="space-y-8">
           {/* Hero Image */}
           {location.imageUrl && (
-            <div className="relative w-full max-w-lg mx-auto rounded-xl overflow-hidden shadow-2xl border border-slate-800">
+            <div className="relative w-full max-w-lg mx-auto rounded-xl overflow-hidden shadow-2xl border border-border">
               <div className="aspect-video relative">
                 <Image
                   src={location.imageUrl}
@@ -196,7 +194,7 @@ export function LocationPageClient({ slug }: LocationPageClientProps) {
           <div className="grid gap-8 md:grid-cols-3">
             {/* ── Left Column: Details ──────────────────────────────── */}
             <div className="md:col-span-1 space-y-6">
-              <Card className="bg-slate-900/50 border-slate-800">
+              <Card className="bg-card/50 border-border">
                 <CardHeader>
                   <CardTitle className="text-lg font-serif flex items-center gap-2">
                     <MapPin className="h-4 w-4 text-emerald-500" />
@@ -205,7 +203,7 @@ export function LocationPageClient({ slug }: LocationPageClientProps) {
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <div>
-                    <p className="text-xs text-slate-500 uppercase tracking-wider mb-1">
+                    <p className="text-xs text-muted-foreground uppercase tracking-wider mb-1">
                       Type
                     </p>
                     <Badge
@@ -216,17 +214,19 @@ export function LocationPageClient({ slug }: LocationPageClientProps) {
                     </Badge>
                   </div>
                   <div>
-                    <p className="text-xs text-slate-500 uppercase tracking-wider mb-1">
+                    <p className="text-xs text-muted-foreground uppercase tracking-wider mb-1">
                       Mythology
                     </p>
-                    <p className="text-slate-300 font-medium">{pantheonName}</p>
+                    <p className="text-parchment/80 font-medium">
+                      {pantheonName}
+                    </p>
                   </div>
                   {hasCoordinates && (
                     <div>
-                      <p className="text-xs text-slate-500 uppercase tracking-wider mb-1">
+                      <p className="text-xs text-muted-foreground uppercase tracking-wider mb-1">
                         Coordinates
                       </p>
-                      <p className="text-slate-300 text-sm font-mono">
+                      <p className="text-parchment/80 text-sm font-mono">
                         {Math.abs(location.latitude!)}°
                         {location.latitude! >= 0 ? "N" : "S"},{" "}
                         {Math.abs(location.longitude!)}°
@@ -236,10 +236,10 @@ export function LocationPageClient({ slug }: LocationPageClientProps) {
                   )}
                   {!hasCoordinates && (
                     <div>
-                      <p className="text-xs text-slate-500 uppercase tracking-wider mb-1">
+                      <p className="text-xs text-muted-foreground uppercase tracking-wider mb-1">
                         Realm
                       </p>
-                      <p className="text-sm text-slate-400 italic">
+                      <p className="text-sm text-parchment/60 italic">
                         Mythological / Non-physical
                       </p>
                     </div>
@@ -250,7 +250,7 @@ export function LocationPageClient({ slug }: LocationPageClientProps) {
 
             {/* ── Right Column: Description ─────────────────────────── */}
             <div className="md:col-span-2">
-              <Card className="bg-white dark:bg-slate-900 border-l-4 border-l-emerald-500">
+              <Card className="bg-card border-l-4 border-l-emerald-500">
                 <CardHeader>
                   <CardTitle className="font-serif text-2xl">
                     About This Location
@@ -277,7 +277,7 @@ export function LocationPageClient({ slug }: LocationPageClientProps) {
                   const relatedType = formatLocationType(related.locationType);
                   return (
                     <Link key={related.id} href={`/locations/${related.id}`}>
-                      <Card className="group h-full bg-slate-900/30 border-slate-800 hover:border-emerald-500/50 transition-all duration-300 cursor-pointer">
+                      <Card className="group h-full bg-card/30 border-border hover:border-emerald-500/50 transition-all duration-300 cursor-pointer">
                         {related.imageUrl && (
                           <div className="relative w-full aspect-video overflow-hidden rounded-t-lg">
                             <Image
@@ -286,7 +286,7 @@ export function LocationPageClient({ slug }: LocationPageClientProps) {
                               fill
                               className="object-cover group-hover:scale-105 transition-transform duration-500"
                             />
-                            <div className="absolute inset-0 bg-linear-to-t from-slate-950/80 to-transparent" />
+                            <div className="absolute inset-0 bg-linear-to-t from-midnight/80 to-transparent" />
                           </div>
                         )}
                         <CardHeader className="p-4 pb-2">

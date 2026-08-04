@@ -169,9 +169,7 @@ export function JourneyPageClient({ slug }: JourneyPageClientProps) {
               {journey.duration}
             </Badge>
           </div>
-          <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight mb-4 text-parchment">
-            {journey.title}
-          </h1>
+          <h1 className="page-title text-parchment mb-4">{journey.title}</h1>
           <p className="text-lg text-parchment/70 max-w-2xl mx-auto font-body">
             The epic voyage of{" "}
             <span className="text-gold font-medium">{journey.heroName}</span>

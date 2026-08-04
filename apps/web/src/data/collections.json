@@ -6,7 +6,12 @@
     "description": "Divine troublemakers and shapeshifters who use cunning over brute force. These deities blur the lines between chaos and creation.",
     "theme": "chaos",
     "deities": ["loki", "hermes", "anansi", "coyote", "maui", "eris", "set"],
-    "stories": [],
+    "stories": [
+      "maui-steals-fire",
+      "maui-fishes-up-islands",
+      "anansi-bought-stories",
+      "susanoo-banishment"
+    ],
     "icon": "sparkles"
   },
   {
@@ -15,8 +20,21 @@
     "slug": "underworld-rulers",
     "description": "Sovereigns of the afterlife who guide souls, judge the deceased, and guard the boundaries between life and death.",
     "theme": "death",
-    "deities": ["hades", "hel", "osiris", "anubis", "mictlantecuhtli", "yama", "izanami"],
-    "stories": ["orpheus-and-eurydice", "descent-of-inanna", "journey-to-mictlan"],
+    "deities": [
+      "hades",
+      "hel",
+      "osiris",
+      "anubis",
+      "mictlantecuhtli",
+      "yama",
+      "izanami"
+    ],
+    "stories": [
+      "orpheus-eurydice",
+      "inanna-descent",
+      "journey-to-mictlan",
+      "maui-and-hina-death"
+    ],
     "icon": "skull"
   },
   {
@@ -26,7 +44,12 @@
     "description": "Supreme rulers who command thunder, lightning, and cosmic order. These father figures often head their pantheons.",
     "theme": "sky",
     "deities": ["zeus", "jupiter", "odin", "indra", "thor", "perun", "taranis"],
-    "stories": [],
+    "stories": [
+      "titanomachy",
+      "thors-journey-utgard",
+      "amaterasu-cave",
+      "enuma-elish"
+    ],
     "icon": "cloud-lightning"
   },
   {
@@ -35,8 +58,17 @@
     "slug": "love-deities",
     "description": "Deities who govern passion, desire, beauty, and the bonds between hearts. Their influence shapes mortal and divine relationships alike.",
     "theme": "love",
-    "deities": ["aphrodite", "venus", "freyja", "eros", "cupid", "hathor", "rati", "xochiquetzal"],
-    "stories": ["cupid-and-psyche", "orpheus-and-eurydice"],
+    "deities": [
+      "aphrodite",
+      "venus",
+      "freyja",
+      "eros",
+      "cupid",
+      "hathor",
+      "rati",
+      "xochiquetzal"
+    ],
+    "stories": ["cupid-psyche", "orpheus-eurydice"],
     "icon": "heart"
   },
   {
@@ -45,8 +77,22 @@
     "slug": "war-gods",
     "description": "Gods and goddesses of battle, strategy, and martial prowess. Some embody brutal warfare, others disciplined combat.",
     "theme": "war",
-    "deities": ["ares", "mars", "athena", "odin", "tyr", "sekhmet", "huitzilopochtli", "durga"],
-    "stories": ["titanomachy", "ragnarok"],
+    "deities": [
+      "ares",
+      "mars",
+      "athena",
+      "odin",
+      "tyr",
+      "sekhmet",
+      "huitzilopochtli",
+      "durga"
+    ],
+    "stories": [
+      "titanomachy",
+      "ragnarok",
+      "ogun-shango-contest",
+      "birth-huitzilopochtli-full"
+    ],
     "icon": "sword"
   },
   {
@@ -55,8 +101,21 @@
     "slug": "sun-deities",
     "description": "Radiant deities who drive the sun across the sky, bringing light, warmth, and the cycle of days.",
     "theme": "sun",
-    "deities": ["ra", "apollo", "helios", "amaterasu", "surya", "tonatiuh", "inti"],
-    "stories": [],
+    "deities": [
+      "ra",
+      "apollo",
+      "helios",
+      "amaterasu",
+      "surya",
+      "tonatiuh",
+      "inti"
+    ],
+    "stories": [
+      "amaterasu-cave",
+      "maui-slows-the-sun",
+      "creation-heliopolis",
+      "maui-snaring-sun-expanded"
+    ],
     "icon": "sun"
   },
   {
@@ -65,8 +124,16 @@
     "slug": "sea-gods",
     "description": "Rulers of oceans, rivers, and all waters. They command storms at sea and the creatures of the deep.",
     "theme": "water",
-    "deities": ["poseidon", "neptune", "aegir", "ryujin", "varuna", "tlaloc", "manannan-mac-lir"],
-    "stories": [],
+    "deities": [
+      "poseidon",
+      "neptune",
+      "aegir",
+      "ryujin",
+      "varuna",
+      "tlaloc",
+      "manannan-mac-lir"
+    ],
+    "stories": ["maui-fishes-up-islands", "flood-utnapishtim"],
     "icon": "waves"
   },
   {
@@ -75,8 +142,16 @@
     "slug": "wisdom-keepers",
     "description": "Deities of knowledge, learning, arts, and civilization. They gift humanity with writing, medicine, and sacred mysteries.",
     "theme": "wisdom",
-    "deities": ["athena", "thoth", "odin", "saraswati", "ogma", "quetzalcoatl", "ganesh"],
-    "stories": [],
+    "deities": [
+      "athena",
+      "thoth",
+      "odin",
+      "saraswati",
+      "ogma",
+      "quetzalcoatl",
+      "ganesh"
+    ],
+    "stories": ["odins-sacrifice", "etana-and-the-eagle", "okuninushi-trials"],
     "icon": "book-open"
   },
   {
@@ -86,7 +161,13 @@
     "description": "Stories of how the cosmos came to be - from primordial chaos to ordered creation, featuring the first gods and the birth of worlds.",
     "theme": "creation",
     "deities": ["gaia", "chaos", "brahma", "ra", "odin", "izanagi", "izanami"],
-    "stories": ["creation-of-the-world", "the-enuma-elish"],
+    "stories": [
+      "creation-myth-norse",
+      "enuma-elish",
+      "creation-japan",
+      "creation-heliopolis",
+      "oduduwa-creation-earth"
+    ],
     "icon": "sparkles"
   },
   {
@@ -96,7 +177,7 @@
     "description": "Cataclysmic deluges that washed away the old world. These universal stories explore divine judgment and humanity's resilience.",
     "theme": "flood",
     "deities": ["zeus", "vishnu", "enlil", "tlaloc"],
-    "stories": ["the-great-flood"],
+    "stories": ["flood-utnapishtim", "atrahasis-flood"],
     "icon": "droplets"
   },
   {
@@ -105,8 +186,17 @@
     "slug": "mother-goddesses",
     "description": "Nurturing earth mothers and protective maternal figures who embody fertility, nature, and the cycles of life.",
     "theme": "earth",
-    "deities": ["gaia", "demeter", "isis", "frigg", "danu", "parvati", "coatlicue", "pachamama"],
-    "stories": ["persephone-and-demeter"],
+    "deities": [
+      "gaia",
+      "demeter",
+      "isis",
+      "frigg",
+      "danu",
+      "parvati",
+      "coatlicue",
+      "pachamama"
+    ],
+    "stories": ["inanna-descent", "creation-japan"],
     "icon": "leaf"
   },
   {
@@ -116,7 +206,7 @@
     "description": "Master smiths and artisans who create divine weapons, magical artifacts, and wonders of craftsmanship.",
     "theme": "craft",
     "deities": ["hephaestus", "vulcan", "ptah", "goibniu", "vishvakarma"],
-    "stories": [],
+    "stories": ["prometheus-fire", "maui-steals-fire"],
     "icon": "hammer"
   }
 ]

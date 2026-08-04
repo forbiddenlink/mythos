@@ -2,9 +2,10 @@ import { CollectionsShowcase } from "@/components/home/CollectionsShowcase";
 import { CTASection } from "@/components/home/CTASection";
 import { DidYouKnow } from "@/components/home/DidYouKnow";
 import { FeaturesGrid } from "@/components/home/FeaturesGrid";
-import { HeroSection } from "@/components/home/HeroSection";
+import { AtlasOpensHero } from "@/components/home/AtlasOpensHero";
 import { InteractiveStoriesBanner } from "@/components/home/InteractiveStoriesBanner";
 import { PantheonShowcase } from "@/components/home/PantheonShowcase";
+import { SyncretismStrip } from "@/components/mythology/SyncretismStrip";
 import { WebSiteJsonLd } from "@/components/seo/JsonLd";
 import { generateBaseMetadata } from "@/lib/metadata";
 
@@ -37,8 +38,9 @@ export default function Home() {
         fetchPriority="high"
       />
       <WebSiteJsonLd searchActionTarget="https://mythosatlas.com/?search={search_term_string}" />
-      <HeroSection />
+      <AtlasOpensHero />
       <PantheonShowcase />
+      <SyncretismStrip />
       <FeaturesGrid />
       <InteractiveStoriesBanner />
       <CollectionsShowcase />

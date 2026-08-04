@@ -17,10 +17,13 @@ import {
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
+import { SimplePageHeader } from "@/components/layout/simple-page-header";
+import { pageSectionTitleClass } from "@/components/layout/page-typography";
 import { generateBaseMetadata } from "@/lib/metadata";
 import collections from "@/data/collections.json";
 import deities from "@/data/deities.json";
 import stories from "@/data/stories.json";
+import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = generateBaseMetadata({
   title: "Mythology Collections",
@@ -54,18 +57,18 @@ const iconMap: Record<string, IconComponent> = {
 };
 
 const themeColors: Record<string, string> = {
-  chaos: "from-purple-500/20 to-violet-600/20 border-purple-500/30",
-  death: "from-slate-500/20 to-gray-600/20 border-slate-500/30",
-  sky: "from-blue-500/20 to-cyan-600/20 border-blue-500/30",
-  love: "from-pink-500/20 to-rose-600/20 border-pink-500/30",
-  war: "from-red-500/20 to-orange-600/20 border-red-500/30",
-  sun: "from-yellow-500/20 to-amber-600/20 border-yellow-500/30",
-  water: "from-cyan-500/20 to-blue-600/20 border-cyan-500/30",
-  wisdom: "from-indigo-500/20 to-blue-600/20 border-indigo-500/30",
-  creation: "from-gold/20 to-amber-600/20 border-gold/30",
-  flood: "from-teal-500/20 to-cyan-600/20 border-teal-500/30",
-  earth: "from-green-500/20 to-emerald-600/20 border-green-500/30",
-  craft: "from-orange-500/20 to-amber-600/20 border-orange-500/30",
+  chaos: "from-bronze/20 to-gold/10 border-bronze/35",
+  death: "from-midnight/20 to-muted/30 border-foreground/20",
+  sky: "from-patina/20 to-midnight/10 border-patina/35",
+  love: "from-bronze/20 to-destructive/10 border-bronze/35",
+  war: "from-destructive/15 to-bronze/15 border-destructive/30",
+  sun: "from-gold/20 to-bronze/15 border-gold/35",
+  water: "from-patina/20 to-patina/5 border-patina/30",
+  wisdom: "from-midnight/15 to-gold/10 border-gold/25",
+  creation: "from-gold/20 to-bronze/15 border-gold/30",
+  flood: "from-patina/15 to-midnight/10 border-patina/30",
+  earth: "from-bronze/20 to-patina/10 border-bronze/30",
+  craft: "from-bronze/20 to-gold/10 border-bronze/35",
 };
 
 function getCollectionStats(collection: (typeof collections)[0]) {
@@ -81,27 +84,18 @@ function getCollectionStats(collection: (typeof collections)[0]) {
 export default function CollectionsPage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-background to-mythic">
-      <div className="container mx-auto max-w-7xl px-4 py-12">
+      <div className="page-shell">
         <Breadcrumbs />
 
-        <div className="text-center mb-12 mt-6">
-          <div className="flex items-center justify-center mb-6">
-            <div className="p-4 rounded-xl border border-gold/20 bg-gold/5 backdrop-blur-sm">
-              <Library className="h-10 w-10 text-gold" />
-            </div>
-          </div>
+        <SimplePageHeader
+          mark="codex"
+          tagline="Across pantheons"
+          title="Mythological Collections"
+          description="Curated groupings of deities and stories that span cultures and reveal universal themes in human mythology"
+        />
 
-          <h1 className="font-serif text-4xl md:text-5xl font-bold mb-4">
-            Mythological Collections
-          </h1>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Curated groupings of deities and stories that span cultures and
-            reveal universal themes in human mythology
-          </p>
-        </div>
-
-        <section className="mb-10 rounded-2xl border border-border/60 bg-card/60 p-6">
-          <h2 className="font-serif text-2xl font-semibold text-foreground">
+        <section className="mb-10 rounded-xl border border-border/60 bg-card/60 p-6">
+          <h2 className={cn(pageSectionTitleClass, "text-foreground")}>
             Use Collections To Compare Motifs Quickly
           </h2>
           <p className="mt-3 leading-relaxed text-muted-foreground">

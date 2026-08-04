@@ -113,7 +113,7 @@ export function DeitiesPageClient() {
   return (
     <div className="min-h-screen">
       <PageHero
-        icon={<Sparkles />}
+        mark="laurel"
         tagline="Divine Beings"
         title="Deities"
         description="Gods and goddesses from 13 pantheons, with family trees, domains, and stories"

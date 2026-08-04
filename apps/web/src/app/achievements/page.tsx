@@ -7,29 +7,23 @@ import {
   type AchievementWithStatus,
 } from "@/hooks/useAchievements";
 import { motion } from "framer-motion";
-import {
-  BookOpen,
-  Compass,
-  Crown,
-  Flame,
-  Lock,
-  Star,
-  Trophy,
-} from "lucide-react";
+import { Lock } from "lucide-react";
+import { HeroMark } from "@/components/icons/hero-mark";
+import { MythosMark, type MythosMarkId } from "@/components/icons/mythos-marks";
 
-const categoryIcons = {
-  exploration: Compass,
-  learning: BookOpen,
-  mastery: Crown,
-  dedication: Flame,
-  special: Star,
+const categoryMarks: Record<string, MythosMarkId> = {
+  exploration: "compass",
+  learning: "scroll",
+  mastery: "laurel",
+  dedication: "torch",
+  special: "constellation",
 };
 
 const tierBadgeClasses: Record<string, string> = {
-  mythic: "bg-violet-100 text-violet-950 border-violet-300",
-  gold: "bg-amber-100 text-amber-950 border-amber-300",
-  silver: "bg-slate-200 text-slate-950 border-slate-300",
-  bronze: "bg-orange-100 text-orange-950 border-orange-300",
+  mythic: "bg-bronze/15 text-bronze border-bronze/40",
+  gold: "bg-gold/15 text-gold border-gold/40",
+  silver: "bg-muted text-foreground border-border",
+  bronze: "bg-bronze/10 text-bronze border-bronze/30",
 };
 
 function AchievementCard({
@@ -65,13 +59,17 @@ function AchievementCard({
       <div className="flex items-start gap-4">
         {/* Icon */}
         <div
-          className={`shrink-0 w-14 h-14 rounded-lg border flex items-center justify-center text-2xl ${
+          className={`relative shrink-0 flex h-14 w-14 items-center justify-center border text-2xl ${
             isUnlocked
               ? `${colors.bg} ${colors.border}`
               : "bg-muted border-border"
           }`}
         >
-          {achievement.icon}
+          <span className="absolute left-0 top-0 h-2 w-2 border-l border-t border-current opacity-40" />
+          <span className="absolute right-0 top-0 h-2 w-2 border-r border-t border-current opacity-40" />
+          <span className="absolute bottom-0 left-0 h-2 w-2 border-b border-l border-current opacity-40" />
+          <span className="absolute bottom-0 right-0 h-2 w-2 border-b border-r border-current opacity-40" />
+          <span className="relative">{achievement.icon}</span>
         </div>
 
         {/* Content */}
@@ -111,11 +109,12 @@ function AchievementCard({
 
           {/* XP reward */}
           <div className="flex items-center gap-1 mt-2">
-            <Star
-              className={`h-3.5 w-3.5 ${achievement.unlocked ? "text-amber-700" : "text-foreground/70"}`}
+            <MythosMark
+              id="laurel"
+              className={`h-3.5 w-3.5 ${achievement.unlocked ? "text-gold" : "text-foreground/70"}`}
             />
             <span
-              className={`text-xs ${achievement.unlocked ? "text-amber-700" : "text-foreground/80"}`}
+              className={`text-xs ${achievement.unlocked ? "text-gold" : "text-foreground/80"}`}
             >
               {achievement.xp} XP
             </span>
@@ -133,15 +132,13 @@ function CategorySection({
   category: keyof typeof categoryLabels;
   achievements: AchievementWithStatus[];
 }>) {
-  const Icon = categoryIcons[category];
+  const markId = categoryMarks[category] ?? "laurel";
   const unlockedCount = achievements.filter((a) => a.unlocked).length;
 
   return (
     <section className="mb-12">
       <div className="flex items-center gap-3 mb-6">
-        <div className="p-2 rounded-lg bg-gold/10 border border-gold/20">
-          <Icon className="h-5 w-5 text-gold" />
-        </div>
+        <MythosMark id={markId} className="h-5 w-5 text-gold" />
         <div>
           <h2 className="text-xl font-serif text-foreground">
             {categoryLabels[category]}
@@ -209,12 +206,14 @@ export default function AchievementsPage() {
             transition={{ duration: 0.3, ease: "easeOut" }}
             className="text-center max-w-3xl mx-auto"
           >
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gold/10 border border-gold/20 mb-6">
-              <Trophy className="h-4 w-4 text-gold" />
-              <span className="text-sm text-gold">Your Achievements</span>
+            <div className="mb-6 flex justify-center">
+              <HeroMark mark="laurel" tone="light" size="lg" />
             </div>
+            <span className="page-eyebrow mb-4 block text-gold">
+              Your Achievements
+            </span>
 
-            <h1 className="text-4xl md:text-5xl font-serif font-semibold text-foreground mb-4">
+            <h1 className="page-title text-foreground mb-4">
               Hall of <span className="text-gradient-gold">Glory</span>
             </h1>
 
@@ -247,9 +246,7 @@ export default function AchievementsPage() {
               </div>
               <div className="w-px h-12 bg-gold/20" />
               <div className="text-center">
-                <div className="text-3xl font-bold text-purple-400">
-                  {totalXP}
-                </div>
+                <div className="text-3xl font-bold text-gold">{totalXP}</div>
                 <div className="text-sm text-muted-foreground">XP Earned</div>
               </div>
             </div>

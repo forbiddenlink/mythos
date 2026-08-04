@@ -4,18 +4,15 @@ import type { Deity } from "@/components/compare/ComparisonCard";
 import { ComparisonSelector } from "@/components/compare/ComparisonSelector";
 import { ComparisonTable } from "@/components/compare/ComparisonTable";
 import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
+import { PageHero } from "@/components/layout/page-hero";
 import { Button } from "@/components/ui/button";
 import deitiesData from "@/data/deities.json";
 import pantheonsData from "@/data/pantheons.json";
 import { BookOpen, Check, Scale, Share2, Sparkles } from "lucide-react";
 import { useTranslations } from "next-intl";
-import Image from "next/image";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useCallback, useEffect, useMemo, useState } from "react";
-
-const HERO_IMAGE_WIDTH = 1920;
-const HERO_IMAGE_HEIGHT = 1080;
 
 interface Pantheon {
   id: string;
@@ -172,56 +169,18 @@ export default function ComparePage() {
 
   return (
     <div className="min-h-screen">
-      {/* Hero Section */}
-      <div className="relative h-[40vh] min-h-80 flex items-center justify-center overflow-hidden">
-        {/* Background Image */}
-        <div className="absolute inset-0 z-0">
-          <Image
-            src="/deities-list-hero.jpg"
-            alt="Compare Deities"
-            width={HERO_IMAGE_WIDTH}
-            height={HERO_IMAGE_HEIGHT}
-            sizes="100vw"
-            className="h-full w-full object-cover"
-            priority
-          />
-        </div>
-        {/* Gradient Overlay */}
-        <div className="absolute inset-0 bg-linear-to-b from-midnight/70 via-midnight/60 to-midnight/80 z-10" />
-
-        {/* Radial gold glow */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[120%] h-[60%] bg-gradient-radial from-gold/10 via-transparent to-transparent z-10" />
-
-        {/* Hero Content */}
-        <div className="relative z-20 text-center px-4 max-w-4xl mx-auto">
-          <div className="flex items-center justify-center mb-6">
-            <div className="relative p-4 rounded-xl border border-gold/20 bg-midnight/50 backdrop-blur-sm">
-              <div className="absolute inset-0 rounded-xl bg-linear-to-br from-gold/10 to-transparent" />
-              <Scale
-                className="relative h-10 w-10 text-gold"
-                strokeWidth={1.5}
-              />
-            </div>
-          </div>
-          <span className="inline-block text-gold/80 text-sm tracking-[0.25em] uppercase mb-4 font-medium">
-            {t("heroTagline")}
-          </span>
-          <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tight mb-6 text-parchment">
-            {t("title")}
-          </h1>
-          <div className="flex items-center justify-center gap-4 mb-6">
-            <div className="w-12 h-px bg-linear-to-r from-transparent to-gold/40" />
-            <div className="w-1.5 h-1.5 rotate-45 bg-gold/50" />
-            <div className="w-12 h-px bg-linear-to-l from-transparent to-gold/40" />
-          </div>
-          <p className="text-lg md:text-xl text-parchment/70 max-w-2xl mx-auto font-body leading-relaxed">
-            {t("description")}
-          </p>
-        </div>
-      </div>
+      <PageHero
+        mark="scales"
+        tagline={t("heroTagline")}
+        title={t("title")}
+        description={t("description")}
+        backgroundImage="/deities-list-hero.jpg"
+        backgroundAlt="Compare deities across pantheons"
+        minHeight="min-h-[40vh]"
+      />
 
       {/* Content Section */}
-      <div className="container mx-auto max-w-7xl px-4 py-16 bg-mythic">
+      <div className="page-shell bg-mythic">
         <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between mb-8">
           <div className="flex flex-wrap items-center gap-2 sm:gap-4">
             <Breadcrumbs />

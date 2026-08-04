@@ -182,14 +182,14 @@ export default function QuickQuizPage() {
               <Zap className="h-10 w-10 text-gold" />
             </div>
           </div>
-          <h1 className="font-serif text-4xl font-bold mb-2">Quick Quiz</h1>
+          <h1 className="page-title text-foreground mb-2">Quick Quiz</h1>
           <p className="text-muted-foreground">
             60 seconds. How many can you get?
           </p>
         </div>
 
         <section className="mb-8 rounded-2xl border border-border/60 bg-card/60 p-6">
-          <h2 className="font-serif text-2xl font-semibold text-foreground">
+          <h2 className="page-section-title text-foreground">
             Use The Quick Quiz For Fast Recall
           </h2>
           <p className="mt-3 leading-relaxed text-muted-foreground">

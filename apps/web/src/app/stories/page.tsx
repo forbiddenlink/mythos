@@ -14,8 +14,9 @@ import storiesData from "@/data/stories.json";
 import { usePagination } from "@/hooks/usePagination";
 import { BranchingStory, getDiscoveredEndings } from "@/lib/branching-story";
 import { BookOpen, Clock, Gamepad2, ScrollText, Trophy } from "lucide-react";
+import { MythosMark } from "@/components/icons/mythos-marks";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 
 const branchingStories = branchingStoriesData as unknown as BranchingStory[];
 
@@ -58,8 +59,15 @@ function InteractiveStoryCard({ story }: Readonly<{ story: BranchingStory }>) {
             <Gamepad2 className="h-24 w-24 text-gold" />
           </div>
           <div className="flex items-start gap-3 relative z-10">
-            <div className="w-12 h-12 rounded-xl bg-linear-to-br from-gold-dark via-gold to-amber-400 flex items-center justify-center shrink-0 shadow-md group-hover:scale-105 transition-transform duration-300">
-              <Gamepad2 className="h-6 w-6 text-midnight" strokeWidth={1.5} />
+            <div className="relative flex h-12 w-12 shrink-0 items-center justify-center border border-gold/35 bg-midnight/30 group-hover:border-gold/55 transition-colors">
+              <span className="absolute left-0 top-0 h-2 w-2 border-l border-t border-gold/40" />
+              <span className="absolute right-0 top-0 h-2 w-2 border-r border-t border-gold/40" />
+              <span className="absolute bottom-0 left-0 h-2 w-2 border-b border-l border-gold/40" />
+              <span className="absolute bottom-0 right-0 h-2 w-2 border-b border-r border-gold/40" />
+              <MythosMark
+                id="labyrinth"
+                className="relative h-6 w-6 text-gold"
+              />
             </div>
             <div className="flex-1 min-w-0 pr-16">
               <CardTitle className="text-lg group-hover:text-gold transition-colors duration-300 line-clamp-2">
@@ -130,14 +138,25 @@ interface Story {
 }
 
 export default function StoriesPage() {
-  const allStories = (storiesData as Story[]).map((story) => ({
-    ...story,
-    category: story.themes?.[0] || "other",
-    moralThemes: story.themes || [],
-  }));
+  const allStories = useMemo(
+    () =>
+      (storiesData as Story[]).map((story) => ({
+        ...story,
+        category: story.themes?.[0] || "other",
+        moralThemes: story.themes || [],
+      })),
+    [],
+  );
   const [filteredStories, setFilteredStories] = useState<Story[]>(allStories);
   const [filtersVersion, setFiltersVersion] = useState(0);
-  const hasActiveFilters = filteredStories !== allStories;
+
+  const handleFilteredChange = useCallback((filtered: Story[]) => {
+    setFilteredStories(filtered);
+  }, []);
+
+  const hasActiveFilters =
+    filteredStories.length !== allStories.length ||
+    filteredStories.some((story, index) => story.id !== allStories[index]?.id);
   const displayStories = hasActiveFilters ? filteredStories : allStories;
 
   let storiesContent;
@@ -199,7 +218,7 @@ export default function StoriesPage() {
         numberOfItems={allStories.length}
       />
       <PageHero
-        icon={<ScrollText />}
+        mark="scroll"
         tagline="Epic Tales"
         title="Mythological Stories"
         description="Epic tales and legends from ancient civilizations"
@@ -269,7 +288,7 @@ export default function StoriesPage() {
           <StoryFilters
             key={filtersVersion}
             stories={allStories}
-            onFilteredChange={setFilteredStories}
+            onFilteredChange={handleFilteredChange}
           />
         </div>
 
@@ -290,7 +309,9 @@ function PaginatedStoryGrid({ stories }: Readonly<{ stories: Story[] }>) {
 
   // Reset to first page when filtered data changes
   useEffect(() => {
-    pagination.setPage(1);
+    if (pagination.page !== 1) {
+      pagination.setPage(1);
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [stories.length]);
 
@@ -315,12 +336,14 @@ function PaginatedStoryGrid({ stories }: Readonly<{ stories: Story[] }>) {
                   <BookOpen className="h-24 w-24 text-gold" />
                 </div>
                 <div className="flex items-start gap-3 relative z-10">
-                  <div
-                    className={`w-12 h-12 rounded-xl bg-linear-to-br ${getStoryGradient(index)} flex items-center justify-center shrink-0 shadow-md group-hover:scale-105 transition-transform duration-300`}
-                  >
-                    <ScrollText
-                      className="h-6 w-6 text-white/90"
-                      strokeWidth={1.5}
+                  <div className="relative flex h-12 w-12 shrink-0 items-center justify-center border border-gold/30 bg-gold/5 group-hover:border-gold/50 transition-colors">
+                    <span className="absolute left-0 top-0 h-2 w-2 border-l border-t border-gold/35" />
+                    <span className="absolute right-0 top-0 h-2 w-2 border-r border-t border-gold/35" />
+                    <span className="absolute bottom-0 left-0 h-2 w-2 border-b border-l border-gold/35" />
+                    <span className="absolute bottom-0 right-0 h-2 w-2 border-b border-r border-gold/35" />
+                    <MythosMark
+                      id="scroll"
+                      className="relative h-6 w-6 text-gold"
                     />
                   </div>
                   <div className="flex-1 min-w-0">

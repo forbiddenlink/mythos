@@ -2,7 +2,7 @@
 
 import { useState, useMemo } from "react";
 import Image from "next/image";
-import { Compass, Sparkles, Users, ArrowRight } from "lucide-react";
+import { Sparkles, Users, ArrowRight } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import {
@@ -15,9 +15,11 @@ import {
 import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
 import {
   DomainSelector,
-  getDomainIcon,
+  getDomainMarkId,
   PRIMARY_DOMAINS,
 } from "@/components/domains/DomainSelector";
+import { HeroMark } from "@/components/icons/hero-mark";
+import { MythosMark } from "@/components/icons/mythos-marks";
 import { DomainDeityCard } from "@/components/domains/DomainDeityCard";
 import deitiesData from "@/data/deities.json";
 import pantheonsData from "@/data/pantheons.json";
@@ -75,7 +77,7 @@ const PANTHEON_COLORS: Record<string, string> = {
   "chinese-pantheon": "bg-yellow-500/20 text-yellow-400 border-yellow-500/30",
   "mesopotamian-pantheon":
     "bg-yellow-700/20 text-yellow-600 border-yellow-700/30",
-  "african-pantheon": "bg-violet-500/20 text-violet-400 border-violet-500/30",
+  "african-pantheon": "bg-bronze/20 text-bronze border-bronze/30",
   "polynesian-pantheon": "bg-cyan-500/20 text-cyan-400 border-cyan-500/30",
   "mesoamerican-pantheon": "bg-lime-500/20 text-lime-400 border-lime-500/30",
 };
@@ -217,20 +219,12 @@ export default function DivinDomainsPage() {
         {/* Hero Content */}
         <div className="relative z-20 text-center px-4 max-w-4xl mx-auto">
           <div className="flex items-center justify-center mb-6">
-            <div className="relative p-4 rounded-xl border border-gold/20 bg-midnight/50 backdrop-blur-sm">
-              <div className="absolute inset-0 rounded-xl bg-linear-to-br from-gold/10 to-transparent" />
-              <Compass
-                className="relative h-10 w-10 text-gold"
-                strokeWidth={1.5}
-              />
-            </div>
+            <HeroMark mark="compass" tone="gold" size="lg" />
           </div>
           <span className="inline-block text-gold/80 text-sm tracking-[0.25em] uppercase mb-4 font-medium">
             Cross-Pantheon Comparison
           </span>
-          <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tight mb-6 text-parchment">
-            Divine Domains
-          </h1>
+          <h1 className="page-title text-parchment mb-6">Divine Domains</h1>
           <div className="flex items-center justify-center gap-4 mb-6">
             <div className="w-12 h-px bg-linear-to-r from-transparent to-gold/40" />
             <div className="w-1.5 h-1.5 rotate-45 bg-gold/50" />
@@ -267,14 +261,11 @@ export default function DivinDomainsPage() {
             {/* Domain Header with Stats */}
             <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 mb-8 pb-6 border-b border-border/50">
               <div className="flex items-center gap-4">
-                {(() => {
-                  const Icon = getDomainIcon(selectedDomain);
-                  return (
-                    <div className="p-3 rounded-xl bg-gold/10 border border-gold/20">
-                      <Icon className="h-8 w-8 text-gold" strokeWidth={1.5} />
-                    </div>
-                  );
-                })()}
+                <HeroMark
+                  mark={getDomainMarkId(selectedDomain)}
+                  tone="light"
+                  size="md"
+                />
                 <div>
                   <h2 className="font-serif text-3xl font-semibold text-parchment">
                     {capitalize(selectedDomain)}
@@ -450,7 +441,6 @@ export default function DivinDomainsPage() {
 
             <div className="grid gap-6 grid-cols-2 sm:grid-cols-3 lg:grid-cols-4">
               {PRIMARY_DOMAINS.map((domain) => {
-                const Icon = domain.icon;
                 const stats = domainStats[domain.id] || {
                   count: 0,
                   pantheons: new Set(),
@@ -472,10 +462,14 @@ export default function DivinDomainsPage() {
                   >
                     <Card className="group cursor-pointer card-elevated bg-card hover:scale-[1.02] transition-all duration-300">
                       <CardContent className="p-6 flex flex-col items-center text-center">
-                        <div className="p-3 rounded-xl bg-gold/10 border border-gold/20 group-hover:bg-gold/15 transition-colors duration-300 mb-4">
-                          <Icon
-                            className="h-6 w-6 text-gold"
-                            strokeWidth={1.5}
+                        <div className="relative mb-4 flex h-12 w-12 items-center justify-center border border-gold/30 bg-gold/5 group-hover:border-gold/50 transition-colors">
+                          <span className="absolute left-0 top-0 h-2 w-2 border-l border-t border-gold/40" />
+                          <span className="absolute right-0 top-0 h-2 w-2 border-r border-t border-gold/40" />
+                          <span className="absolute bottom-0 left-0 h-2 w-2 border-b border-l border-gold/40" />
+                          <span className="absolute bottom-0 right-0 h-2 w-2 border-b border-r border-gold/40" />
+                          <MythosMark
+                            id={domain.mark}
+                            className="relative h-6 w-6 text-gold"
                           />
                         </div>
                         <h3 className="font-serif text-lg font-medium text-foreground group-hover:text-gold transition-colors duration-300">

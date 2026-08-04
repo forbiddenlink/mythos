@@ -64,7 +64,7 @@
     "name": "Olympia",
     "locationType": "sacred_site",
     "pantheonId": "greek-pantheon",
-    "description": "The sanctuary of Zeus and site of the ancient Olympic Games, featuring a colossal statue of Zeus\u2014one of the Seven Wonders.",
+    "description": "The sanctuary of Zeus and site of the ancient Olympic Games, featuring a colossal statue of Zeus—one of the Seven Wonders.",
     "latitude": 37.638,
     "longitude": 21.63,
     "imageUrl": "/locations/olympia.png"
@@ -224,7 +224,7 @@
     "name": "Vanaheim",
     "locationType": "realm",
     "pantheonId": "norse-pantheon",
-    "description": "Home of the Vanir gods associated with fertility, wisdom, and nature\u2014including Freya, Freyr, and Njord.",
+    "description": "Home of the Vanir gods associated with fertility, wisdom, and nature—including Freya, Freyr, and Njord.",
     "latitude": null,
     "longitude": null,
     "imageUrl": "/locations/vanaheim.png"
@@ -314,7 +314,7 @@
     "name": "Heliopolis",
     "locationType": "city",
     "pantheonId": "egyptian-pantheon",
-    "description": "The ancient City of the Sun, center of Ra worship and home to the Ennead\u2014the nine primordial creator gods.",
+    "description": "The ancient City of the Sun, center of Ra worship and home to the Ennead—the nine primordial creator gods.",
     "latitude": 30.131,
     "longitude": 31.308,
     "imageUrl": "/locations/heliopolis.png"
@@ -491,7 +491,7 @@
   },
   {
     "id": "newgrange",
-    "name": "Newgrange (S\u00ed an Bhr\u00fa)",
+    "name": "Newgrange (Sí an Bhrú)",
     "locationType": "tomb",
     "pantheonId": "celtic-pantheon",
     "description": "A grand prehistoric passage tomb and the home of the Dagda (and later Aengus). Associated with the winter solstice.",
@@ -848,5 +848,385 @@
     "latitude": null,
     "longitude": null,
     "imageUrl": "/locations/crossroads-eshu.png"
+  },
+  {
+    "id": "cicones-coast",
+    "name": "Cicones Coast",
+    "locationType": "coast",
+    "pantheonId": "greek-pantheon",
+    "description": "Coastal land of the Cicones where Odysseus first raided after leaving Troy.",
+    "latitude": 40.85,
+    "longitude": 25.9,
+    "imageUrl": null
+  },
+  {
+    "id": "lotus-eaters-island",
+    "name": "Land of the Lotus-Eaters",
+    "locationType": "island",
+    "pantheonId": "greek-pantheon",
+    "description": "A shore of forgetful hospitality where lotus fruit dulled the will to return home.",
+    "latitude": 33.0,
+    "longitude": 13.2,
+    "imageUrl": null
+  },
+  {
+    "id": "cyclops-cave",
+    "name": "Cave of Polyphemus",
+    "locationType": "cave",
+    "pantheonId": "greek-pantheon",
+    "description": "The cavern of the Cyclops Polyphemus on Sicily's mythic shore.",
+    "latitude": 37.75,
+    "longitude": 15.0,
+    "imageUrl": null
+  },
+  {
+    "id": "aeolus-island",
+    "name": "Island of Aeolus",
+    "locationType": "island",
+    "pantheonId": "greek-pantheon",
+    "description": "Floating isle of the wind-king Aeolus, keeper of the bag of winds.",
+    "latitude": 38.8,
+    "longitude": 15.2,
+    "imageUrl": null
+  },
+  {
+    "id": "laestrygonians-harbor",
+    "name": "Laestrygonian Harbor",
+    "locationType": "harbor",
+    "pantheonId": "greek-pantheon",
+    "description": "A false harbor where giant Laestrygonians smashed Odysseus's fleet.",
+    "latitude": 41.2,
+    "longitude": 13.5,
+    "imageUrl": null
+  },
+  {
+    "id": "circe-island",
+    "name": "Aeaea (Circe's Island)",
+    "locationType": "island",
+    "pantheonId": "greek-pantheon",
+    "description": "The enchanted island of Circe, goddess of transformation and herbs.",
+    "latitude": 41.2,
+    "longitude": 13.0,
+    "imageUrl": null
+  },
+  {
+    "id": "sirens-strait",
+    "name": "Sirens' Strait",
+    "locationType": "strait",
+    "pantheonId": "greek-pantheon",
+    "description": "The deadly channel where Sirens sang sailors onto the rocks.",
+    "latitude": 38.2,
+    "longitude": 15.6,
+    "imageUrl": null
+  },
+  {
+    "id": "scylla-charybdis",
+    "name": "Scylla and Charybdis",
+    "locationType": "strait",
+    "pantheonId": "greek-pantheon",
+    "description": "The twin perils of the Messina strait — six-headed Scylla and the whirlpool Charybdis.",
+    "latitude": 38.25,
+    "longitude": 15.65,
+    "imageUrl": null
+  },
+  {
+    "id": "thrinacia",
+    "name": "Thrinacia",
+    "locationType": "island",
+    "pantheonId": "greek-pantheon",
+    "description": "Sacred island of Helios where Odysseus's crew slaughtered the sun-god's cattle.",
+    "latitude": 37.5,
+    "longitude": 14.5,
+    "imageUrl": null
+  },
+  {
+    "id": "calypso-island",
+    "name": "Ogygia (Calypso's Isle)",
+    "locationType": "island",
+    "pantheonId": "greek-pantheon",
+    "description": "The remote island where the nymph Calypso held Odysseus for seven years.",
+    "latitude": 35.9,
+    "longitude": 14.4,
+    "imageUrl": null
+  },
+  {
+    "id": "phaeacia",
+    "name": "Phaeacia (Scheria)",
+    "locationType": "island",
+    "pantheonId": "greek-pantheon",
+    "description": "The hospitable kingdom of the Phaeacians who finally carried Odysseus home.",
+    "latitude": 39.6,
+    "longitude": 19.9,
+    "imageUrl": null
+  },
+  {
+    "id": "iolcos",
+    "name": "Iolcos",
+    "locationType": "city",
+    "pantheonId": "greek-pantheon",
+    "description": "Thessalian port from which Jason sailed the Argo for the Golden Fleece.",
+    "latitude": 39.37,
+    "longitude": 22.93,
+    "imageUrl": null
+  },
+  {
+    "id": "samothrace",
+    "name": "Samothrace",
+    "locationType": "island",
+    "pantheonId": "greek-pantheon",
+    "description": "Sacred island of the Mysteries where the Argonauts sought divine favor.",
+    "latitude": 40.48,
+    "longitude": 25.52,
+    "imageUrl": null
+  },
+  {
+    "id": "cyzicus",
+    "name": "Cyzicus",
+    "locationType": "city",
+    "pantheonId": "greek-pantheon",
+    "description": "Propontis city where the Argonauts fought a tragic night battle with allies.",
+    "latitude": 40.39,
+    "longitude": 27.88,
+    "imageUrl": null
+  },
+  {
+    "id": "bebryces",
+    "name": "Land of the Bebryces",
+    "locationType": "region",
+    "pantheonId": "greek-pantheon",
+    "description": "Kingdom of King Amycus, where Polydeuces boxed for the Argonauts' passage.",
+    "latitude": 41.2,
+    "longitude": 29.5,
+    "imageUrl": null
+  },
+  {
+    "id": "symplegades",
+    "name": "Symplegades (Clashing Rocks)",
+    "locationType": "strait",
+    "pantheonId": "greek-pantheon",
+    "description": "The clashing rocks at the Bosporus that crushed ships until the Argo passed.",
+    "latitude": 41.2,
+    "longitude": 29.1,
+    "imageUrl": null
+  },
+  {
+    "id": "libya",
+    "name": "Libyan Desert Shore",
+    "locationType": "desert",
+    "pantheonId": "greek-pantheon",
+    "description": "The barren North African shore where the Argonauts hauled the Argo inland.",
+    "latitude": 32.0,
+    "longitude": 20.0,
+    "imageUrl": null
+  },
+  {
+    "id": "nidavellir",
+    "name": "Nidavellir",
+    "locationType": "realm",
+    "pantheonId": "norse-pantheon",
+    "description": "The dark home of the dwarves and their legendary forges — sometimes identified with Svartalfheim.",
+    "latitude": null,
+    "longitude": null,
+    "imageUrl": null
+  },
+  {
+    "id": "western-horizon",
+    "name": "Western Horizon",
+    "locationType": "horizon",
+    "pantheonId": "egyptian-pantheon",
+    "description": "The sun's descent into the Duat — the threshold of night and the dead.",
+    "latitude": 25.7,
+    "longitude": 32.6,
+    "imageUrl": null
+  },
+  {
+    "id": "first-gate",
+    "name": "First Gate of the Duat",
+    "locationType": "gate",
+    "pantheonId": "egyptian-pantheon",
+    "description": "The first of the underworld gates the night-bark must pass.",
+    "latitude": 25.7,
+    "longitude": 32.6,
+    "imageUrl": null
+  },
+  {
+    "id": "hall-of-maat",
+    "name": "Hall of Ma'at",
+    "locationType": "hall",
+    "pantheonId": "egyptian-pantheon",
+    "description": "The judgment hall where the heart is weighed against the feather of truth.",
+    "latitude": 25.7,
+    "longitude": 32.6,
+    "imageUrl": null
+  },
+  {
+    "id": "lake-of-fire",
+    "name": "Lake of Fire",
+    "locationType": "lake",
+    "pantheonId": "egyptian-pantheon",
+    "description": "A devouring lake that destroys the unjust in the Egyptian underworld.",
+    "latitude": 25.7,
+    "longitude": 32.6,
+    "imageUrl": null
+  },
+  {
+    "id": "osiris-throne",
+    "name": "Throne of Osiris",
+    "locationType": "palace",
+    "pantheonId": "egyptian-pantheon",
+    "description": "The seat of Osiris where the justified dead find eternal kingship of the west.",
+    "latitude": 26.18,
+    "longitude": 31.91,
+    "imageUrl": null
+  },
+  {
+    "id": "nemea",
+    "name": "Nemea",
+    "locationType": "grove",
+    "pantheonId": "greek-pantheon",
+    "description": "Site of Heracles's first labor — the Nemean Lion.",
+    "latitude": 37.81,
+    "longitude": 22.71,
+    "imageUrl": null
+  },
+  {
+    "id": "lerna",
+    "name": "Lerna",
+    "locationType": "marsh",
+    "pantheonId": "greek-pantheon",
+    "description": "Marsh of the Hydra, second labor of Heracles.",
+    "latitude": 37.55,
+    "longitude": 22.72,
+    "imageUrl": null
+  },
+  {
+    "id": "ceryneia",
+    "name": "Ceryneia",
+    "locationType": "region",
+    "pantheonId": "greek-pantheon",
+    "description": "Hills of the Ceryneian Hind sacred to Artemis.",
+    "latitude": 38.2,
+    "longitude": 22.1,
+    "imageUrl": null
+  },
+  {
+    "id": "erymanthus",
+    "name": "Mount Erymanthos",
+    "locationType": "mountain",
+    "pantheonId": "greek-pantheon",
+    "description": "Mountain of the Erymanthian Boar.",
+    "latitude": 37.95,
+    "longitude": 21.85,
+    "imageUrl": null
+  },
+  {
+    "id": "augean-stables",
+    "name": "Augean Stables",
+    "locationType": "palace",
+    "pantheonId": "greek-pantheon",
+    "description": "The filthy stables of King Augeas, cleansed by diverting rivers.",
+    "latitude": 37.65,
+    "longitude": 21.5,
+    "imageUrl": null
+  },
+  {
+    "id": "lake-stymphalus",
+    "name": "Lake Stymphalus",
+    "locationType": "lake",
+    "pantheonId": "greek-pantheon",
+    "description": "Lake of the man-eating Stymphalian birds.",
+    "latitude": 37.85,
+    "longitude": 22.46,
+    "imageUrl": null
+  },
+  {
+    "id": "thrace",
+    "name": "Thrace",
+    "locationType": "region",
+    "pantheonId": "greek-pantheon",
+    "description": "Northern lands of the man-eating mares of Diomedes.",
+    "latitude": 41.1,
+    "longitude": 25.0,
+    "imageUrl": null
+  },
+  {
+    "id": "themiscyra",
+    "name": "Themiscyra",
+    "locationType": "city",
+    "pantheonId": "greek-pantheon",
+    "description": "Amazon capital where Heracles sought Hippolyta's girdle.",
+    "latitude": 41.2,
+    "longitude": 36.7,
+    "imageUrl": null
+  },
+  {
+    "id": "erytheia",
+    "name": "Erytheia",
+    "locationType": "island",
+    "pantheonId": "greek-pantheon",
+    "description": "Western island of Geryon and his cattle.",
+    "latitude": 36.1,
+    "longitude": -5.5,
+    "imageUrl": null
+  },
+  {
+    "id": "garden-of-hesperides",
+    "name": "Garden of the Hesperides",
+    "locationType": "garden",
+    "pantheonId": "greek-pantheon",
+    "description": "Far-western orchard of golden apples guarded by Ladon.",
+    "latitude": 35.0,
+    "longitude": -5.0,
+    "imageUrl": null
+  },
+  {
+    "id": "coatepec-aztec",
+    "name": "Coatepec (Serpent Mountain)",
+    "locationType": "mountain",
+    "pantheonId": "aztec-pantheon",
+    "description": "The mythic mountain where Coatlicue gave birth to Huitzilopochtli and Coyolxauhqui was cast down — prototype of the Templo Mayor.",
+    "latitude": 19.43,
+    "longitude": -99.13,
+    "imageUrl": null
+  },
+  {
+    "id": "tamoanchan-aztec",
+    "name": "Tamoanchan",
+    "locationType": "paradise",
+    "pantheonId": "aztec-pantheon",
+    "description": "A paradisal origin-place of gods and humans, associated with flowering trees and dangerous beauty.",
+    "latitude": 19.5,
+    "longitude": -99.0,
+    "imageUrl": null
+  },
+  {
+    "id": "eridu",
+    "name": "Eridu",
+    "locationType": "city",
+    "pantheonId": "mesopotamian-pantheon",
+    "description": "The first city in Sumerian tradition, home of Enki's temple and the Abzu — the freshwater deep.",
+    "latitude": 30.82,
+    "longitude": 45.99,
+    "imageUrl": null
+  },
+  {
+    "id": "nippur",
+    "name": "Nippur",
+    "locationType": "city",
+    "pantheonId": "mesopotamian-pantheon",
+    "description": "Sacred city of Enlil, where kingship was authorized and the cosmic order of the land was ratified.",
+    "latitude": 32.13,
+    "longitude": 45.23,
+    "imageUrl": null
+  },
+  {
+    "id": "palenque",
+    "name": "Palenque",
+    "locationType": "city",
+    "pantheonId": "mesoamerican-pantheon",
+    "description": "Maya city of Pakal's dynasty — temples of the sun, cross, and inscriptions that map royal myth onto stone.",
+    "latitude": 17.48,
+    "longitude": -92.05,
+    "imageUrl": null
   }
 ]

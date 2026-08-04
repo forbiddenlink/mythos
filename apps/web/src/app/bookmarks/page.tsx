@@ -6,13 +6,21 @@ import { Badge } from "@/components/ui/badge";
 import { BookmarkButton } from "@/components/ui/bookmark-button";
 import { Progress } from "@/components/ui/progress";
 import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
-import { Heart, Sparkles, ScrollText, BookOpen, Compass } from "lucide-react";
+import { Sparkles, ScrollText, BookOpen, Compass } from "lucide-react";
+import { HeroMark } from "@/components/icons/hero-mark";
+import { MythosMark } from "@/components/icons/mythos-marks";
 import Link from "next/link";
 import type { BookmarkType } from "@/providers/bookmarks-provider";
 import deitiesData from "@/data/deities.json";
 import storiesData from "@/data/stories.json";
 import pantheonsData from "@/data/pantheons.json";
 import { RouteHero } from "@/components/layout/route-hero";
+import {
+  pageEyebrowClass,
+  pageLedeOnDarkClass,
+  pageTitleOnDarkClass,
+} from "@/components/layout/page-typography";
+import { cn } from "@/lib/utils";
 
 interface Deity {
   id: string;
@@ -79,23 +87,16 @@ export default function BookmarksPage() {
       {/* Hero Section */}
       <RouteHero>
         <div className="flex items-center justify-center mb-6">
-          <div className="relative p-4 rounded-xl border border-gold/20 bg-midnight/50 backdrop-blur-sm">
-            <div className="absolute inset-0 rounded-xl bg-linear-to-br from-gold/10 to-transparent" />
-            <Heart className="relative h-10 w-10 text-gold" strokeWidth={1.5} />
-          </div>
+          <HeroMark mark="favor" tone="gold" size="lg" />
         </div>
-        <span className="inline-block text-gold/80 text-sm tracking-[0.25em] uppercase mb-4 font-medium">
-          Your Collection
-        </span>
-        <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tight mb-6 text-parchment">
-          Bookmarks
-        </h1>
+        <span className={pageEyebrowClass}>Your Collection</span>
+        <h1 className={cn(pageTitleOnDarkClass, "mb-6")}>Bookmarks</h1>
         <div className="flex items-center justify-center gap-4 mb-6">
           <div className="w-12 h-px bg-linear-to-r from-transparent to-gold/40" />
           <div className="w-1.5 h-1.5 rotate-45 bg-gold/50" />
           <div className="w-12 h-px bg-linear-to-l from-transparent to-gold/40" />
         </div>
-        <p className="text-lg md:text-xl text-parchment/70 max-w-2xl mx-auto font-body leading-relaxed">
+        <p className={pageLedeOnDarkClass}>
           {isEmpty
             ? "Save your favorite deities, stories, and pantheons"
             : `${allBookmarks.length} saved item${allBookmarks.length !== 1 ? "s" : ""}`}
@@ -103,7 +104,7 @@ export default function BookmarksPage() {
       </RouteHero>
 
       {/* Content Section */}
-      <div className="container mx-auto max-w-6xl px-4 py-16">
+      <div className="page-shell max-w-6xl">
         <Breadcrumbs />
 
         {isEmpty ? (
@@ -114,9 +115,7 @@ export default function BookmarksPage() {
             {deityBookmarks.length > 0 && (
               <section>
                 <div className="flex items-center gap-3 mb-6">
-                  <div className="p-2 rounded-lg bg-gold/10 border border-gold/20">
-                    <Sparkles className="h-5 w-5 text-gold" strokeWidth={1.5} />
-                  </div>
+                  <MythosMark id="laurel" className="h-5 w-5 text-gold" />
                   <h2 className="font-serif text-2xl font-semibold text-foreground">
                     Deities
                   </h2>
@@ -160,12 +159,7 @@ export default function BookmarksPage() {
             {storyBookmarks.length > 0 && (
               <section>
                 <div className="flex items-center gap-3 mb-6">
-                  <div className="p-2 rounded-lg bg-gold/10 border border-gold/20">
-                    <ScrollText
-                      className="h-5 w-5 text-gold"
-                      strokeWidth={1.5}
-                    />
-                  </div>
+                  <MythosMark id="scroll" className="h-5 w-5 text-gold" />
                   <h2 className="font-serif text-2xl font-semibold text-foreground">
                     Stories
                   </h2>
@@ -211,9 +205,7 @@ export default function BookmarksPage() {
             {pantheonBookmarks.length > 0 && (
               <section>
                 <div className="flex items-center gap-3 mb-6">
-                  <div className="p-2 rounded-lg bg-gold/10 border border-gold/20">
-                    <BookOpen className="h-5 w-5 text-gold" strokeWidth={1.5} />
-                  </div>
+                  <MythosMark id="codex" className="h-5 w-5 text-gold" />
                   <h2 className="font-serif text-2xl font-semibold text-foreground">
                     Pantheons
                   </h2>
@@ -342,8 +334,8 @@ function BookmarkCard({
 function EmptyState() {
   return (
     <div className="mt-8 flex flex-col items-center justify-center py-20">
-      <div className="inline-flex items-center justify-center w-20 h-20 rounded-xl bg-muted border border-border mb-6">
-        <Heart className="h-10 w-10 text-muted-foreground" strokeWidth={1.5} />
+      <div className="mb-6">
+        <HeroMark mark="favor" tone="light" size="lg" />
       </div>
       <h2 className="text-2xl font-serif font-semibold mb-3 text-foreground">
         No bookmarks yet

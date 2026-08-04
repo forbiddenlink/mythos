@@ -2,8 +2,19 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import deitiesData from "@/data/deities.json";
 import storiesData from "@/data/stories.json";
-import { BookOpen, Compass, Home, Sparkles, Users } from "lucide-react";
+import { generateBaseMetadata } from "@/lib/metadata";
+import { MythosMark } from "@/components/icons/mythos-marks";
 import Link from "next/link";
+
+export const metadata = {
+  ...generateBaseMetadata({
+    title: "Page Not Found",
+    description:
+      "The page you requested does not exist. Continue exploring Mythos Atlas through pantheons, deities, and stories.",
+    url: "/404",
+  }),
+  robots: { index: false, follow: true },
+};
 
 interface Deity {
   id: string;
@@ -74,7 +85,7 @@ export default function NotFound() {
     <div className="min-h-screen flex flex-col items-center justify-center bg-linear-to-b from-midnight via-midnight-light to-midnight px-4 py-16">
       {/* Background effects */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full bg-purple-500/5 blur-3xl" />
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full bg-gold/5 blur-3xl" />
         <div className="absolute bottom-1/4 right-1/4 w-96 h-96 rounded-full bg-gold/5 blur-3xl" />
       </div>
 
@@ -84,18 +95,13 @@ export default function NotFound() {
           <div className="relative">
             <div className="absolute -inset-5 rounded-full bg-gradient-radial from-gold/20 to-transparent animate-pulse" />
             <div className="relative p-6 rounded-full border border-gold/30 bg-midnight-light/80 backdrop-blur-sm">
-              <Compass
-                className="w-12 h-12 text-gold animate-spin"
-                style={{ animationDuration: "8s" }}
-              />
+              <MythosMark id="compass" className="w-10 h-10 text-gold" />
             </div>
           </div>
         </div>
 
         {/* Error title */}
-        <h1 className="font-serif text-6xl md:text-7xl font-bold text-gradient-hero mb-4">
-          404
-        </h1>
+        <h1 className="page-title text-parchment mb-4">404</h1>
 
         <h2 className="font-serif text-2xl md:text-3xl text-parchment mb-4">
           Page Not Found
@@ -124,7 +130,7 @@ export default function NotFound() {
             className="bg-linear-to-r from-gold-dark via-gold to-gold-dark hover:from-gold hover:via-gold-light hover:to-gold text-midnight font-semibold px-8"
           >
             <Link href="/">
-              <Home className="w-4 h-4 mr-2" />
+              <MythosMark id="temple" className="w-4 h-4 mr-2" />
               Return Home
             </Link>
           </Button>
@@ -141,11 +147,11 @@ export default function NotFound() {
         {/* Suggestions section */}
         <div className="text-left">
           <div className="flex items-center justify-center gap-2 mb-6">
-            <Sparkles className="w-4 h-4 text-gold" />
+            <MythosMark id="constellation" className="w-4 h-4 text-gold" />
             <span className="text-sm font-medium text-gold uppercase tracking-wide">
               Perhaps you were seeking...
             </span>
-            <Sparkles className="w-4 h-4 text-gold" />
+            <MythosMark id="constellation" className="w-4 h-4 text-gold" />
           </div>
 
           <div className="grid md:grid-cols-2 gap-4">
@@ -153,7 +159,7 @@ export default function NotFound() {
             <Card className="border-gold/20 bg-midnight-light/50">
               <CardContent className="p-5">
                 <div className="flex items-center gap-2 mb-4">
-                  <Users className="w-4 h-4 text-gold" />
+                  <MythosMark id="laurel" className="w-4 h-4 text-gold" />
                   <span className="font-serif font-semibold text-parchment">
                     Deities to Discover
                   </span>
@@ -181,7 +187,7 @@ export default function NotFound() {
             <Card className="border-gold/20 bg-midnight-light/50">
               <CardContent className="p-5">
                 <div className="flex items-center gap-2 mb-4">
-                  <BookOpen className="w-4 h-4 text-gold" />
+                  <MythosMark id="scroll" className="w-4 h-4 text-gold" />
                   <span className="font-serif font-semibold text-parchment">
                     Tales to Explore
                   </span>

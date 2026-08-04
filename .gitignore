@@ -68,6 +68,9 @@ apps/api/target/
 # Playwright MCP
 .playwright-mcp/
 
+# Local visual QA screenshots
+apps/web/.qa-shots/
+
 # Claude Code
 .claude/
 

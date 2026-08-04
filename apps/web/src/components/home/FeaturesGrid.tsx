@@ -1,20 +1,22 @@
 "use client";
 
 import { motion } from "framer-motion";
-import {
-  ArrowRight,
-  Gem,
-  Globe,
-  Map as MapIcon,
-  Network,
-  ScrollText,
-  Skull,
-} from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import Link from "next/link";
+import {
+  type MythosMarkId,
+  mythosMarks,
+} from "@/components/icons/mythos-marks";
 
-const features = [
+const features: {
+  mark: MythosMarkId;
+  title: string;
+  description: string;
+  href: string;
+  number: string;
+}[] = [
   {
-    icon: Globe,
+    mark: "temple",
     title: "Start with Pantheons",
     description:
       "Orient yourself in a tradition before diving into individual gods and myths.",
@@ -22,7 +24,7 @@ const features = [
     number: "I",
   },
   {
-    icon: ScrollText,
+    mark: "scroll",
     title: "Read Core Stories",
     description:
       "Follow the narratives that give deities, creatures, and places their meaning.",
@@ -30,7 +32,7 @@ const features = [
     number: "II",
   },
   {
-    icon: Network,
+    mark: "tree",
     title: "Divine Family Trees",
     description:
       "Trace parentage, rivals, and consorts across generations in one view.",
@@ -38,7 +40,7 @@ const features = [
     number: "III",
   },
   {
-    icon: MapIcon,
+    mark: "peak",
     title: "Mythical Places",
     description:
       "Map sacred geography — from Olympus to the Nine Realms and beyond.",
@@ -46,7 +48,7 @@ const features = [
     number: "IV",
   },
   {
-    icon: Skull,
+    mark: "serpent",
     title: "Creatures & Monsters",
     description:
       "Study the beasts that test heroes and define each culture’s dangers.",
@@ -54,17 +56,18 @@ const features = [
     number: "V",
   },
   {
-    icon: Gem,
+    mark: "relic",
     title: "Weapons & Artifacts",
     description:
       "Inspect legendary objects forged by gods and carried through myth.",
     href: "/artifacts",
     number: "VI",
   },
-] as const;
+];
 
 export function FeaturesGrid() {
   const [featured, ...rest] = features;
+  const FeaturedMark = mythosMarks[featured.mark];
 
   return (
     <section className="relative py-28 bg-muted/30 noise-overlay overflow-hidden">
@@ -94,7 +97,6 @@ export function FeaturesGrid() {
           </p>
         </motion.div>
 
-        {/* Featured manuscript lead-in */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -111,9 +113,9 @@ export function FeaturesGrid() {
                 {featured.number}
               </span>
               <div className="flex-1">
-                <div className="flex items-center gap-3 mb-3 text-gold/80">
-                  <featured.icon className="h-5 w-5" strokeWidth={1.5} />
-                  <span className="text-xs uppercase tracking-[0.2em]">
+                <div className="flex items-center gap-3 mb-3 text-gold">
+                  <FeaturedMark className="h-6 w-6" />
+                  <span className="text-xs uppercase tracking-[0.2em] text-gold/80">
                     Recommended first
                   </span>
                 </div>
@@ -132,43 +134,42 @@ export function FeaturesGrid() {
           </Link>
         </motion.div>
 
-        {/* Remaining entries as a manuscript list */}
         <ol className="divide-y divide-border/70 border-b border-border/70">
-          {rest.map((feature, index) => (
-            <motion.li
-              key={feature.title}
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-40px" }}
-              transition={{
-                duration: 0.5,
-                delay: index * 0.06,
-                ease: [0.22, 1, 0.36, 1],
-              }}
-            >
-              <Link
-                href={feature.href}
-                className="group flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-8 py-5 md:py-6"
+          {rest.map((feature, index) => {
+            const Mark = mythosMarks[feature.mark];
+            return (
+              <motion.li
+                key={feature.title}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-40px" }}
+                transition={{
+                  duration: 0.5,
+                  delay: index * 0.06,
+                  ease: [0.22, 1, 0.36, 1],
+                }}
               >
-                <span className="w-10 shrink-0 font-serif text-xl text-gold/50">
-                  {feature.number}
-                </span>
-                <feature.icon
-                  className="hidden sm:block h-5 w-5 shrink-0 text-muted-foreground group-hover:text-gold transition-colors"
-                  strokeWidth={1.5}
-                />
-                <div className="flex-1 min-w-0">
-                  <h3 className="font-serif text-xl font-semibold text-foreground group-hover:text-gold transition-colors">
-                    {feature.title}
-                  </h3>
-                  <p className="mt-1 text-sm text-muted-foreground leading-relaxed">
-                    {feature.description}
-                  </p>
-                </div>
-                <ArrowRight className="h-4 w-4 shrink-0 text-muted-foreground/50 group-hover:text-gold group-hover:translate-x-1 transition-all" />
-              </Link>
-            </motion.li>
-          ))}
+                <Link
+                  href={feature.href}
+                  className="group flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-8 py-5 md:py-6"
+                >
+                  <span className="w-10 shrink-0 font-serif text-xl text-gold/50">
+                    {feature.number}
+                  </span>
+                  <Mark className="hidden sm:block h-5 w-5 shrink-0 text-muted-foreground group-hover:text-gold transition-colors" />
+                  <div className="flex-1 min-w-0">
+                    <h3 className="font-serif text-xl font-semibold text-foreground group-hover:text-gold transition-colors">
+                      {feature.title}
+                    </h3>
+                    <p className="mt-1 text-sm text-muted-foreground leading-relaxed">
+                      {feature.description}
+                    </p>
+                  </div>
+                  <ArrowRight className="h-4 w-4 shrink-0 text-muted-foreground/50 group-hover:text-gold group-hover:translate-x-1 transition-all" />
+                </Link>
+              </motion.li>
+            );
+          })}
         </ol>
       </div>
     </section>

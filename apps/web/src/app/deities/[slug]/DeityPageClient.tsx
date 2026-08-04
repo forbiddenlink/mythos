@@ -17,7 +17,6 @@ import {
   Shield,
   Users,
   Network,
-  Link2,
   BookOpen,
   Building,
   Calendar,
@@ -69,6 +68,9 @@ import {
 } from "@/components/sources";
 import { RelatedDeities } from "@/components/deities/RelatedDeities";
 import { DeityStoryRecommendations } from "@/components/deities/DeityStoryRecommendations";
+import { LinkedMentions } from "@/components/mythology/LinkedMentions";
+import { RosettaWheel } from "@/components/collections/RosettaWheel";
+import { MythosMark } from "@/components/icons/mythos-marks";
 import deitiesData from "@/data/deities.json";
 import relationshipsData from "@/data/relationships.json";
 
@@ -215,108 +217,162 @@ export function DeityPageClient({ slug }: DeityPageClientProps) {
         url={`/deities/${deity.slug}`}
         image={deity.imageUrl || undefined}
       />
-      {/* Hero Section with Background Image */}
-      <div className="relative overflow-hidden">
+      {/* Hero — per-deity art (portfolio Phase 2), not the shared deity-hero.jpg */}
+      <div className="relative overflow-hidden bg-midnight">
         <div className="absolute inset-0 z-0">
-          <Image
-            src="/deity-hero.jpg"
-            alt={`${deity.name} hero background`}
-            width={HERO_IMAGE_WIDTH}
-            height={HERO_IMAGE_HEIGHT}
-            sizes="100vw"
-            className="h-full w-full object-cover"
+          {deity.imageUrl ? (
+            <Image
+              src={deity.imageUrl}
+              alt=""
+              fill
+              sizes="100vw"
+              priority
+              className="object-cover object-top scale-105 opacity-50 blur-[2px] motion-safe:animate-none"
+              aria-hidden
+            />
+          ) : (
+            <Image
+              src="/deity-hero.jpg"
+              alt=""
+              width={HERO_IMAGE_WIDTH}
+              height={HERO_IMAGE_HEIGHT}
+              sizes="100vw"
+              className="h-full w-full object-cover"
+              aria-hidden
+            />
+          )}
+          <div
+            className="absolute inset-0 bg-linear-to-br from-midnight/90 via-midnight/75 to-midnight/55"
+            style={{
+              backgroundImage: `linear-gradient(135deg, rgba(10,10,25,0.92) 0%, ${getPantheonColor(deity.pantheonId)}33 55%, rgba(10,10,25,0.85) 100%)`,
+            }}
           />
-          <div className="absolute inset-0 bg-linear-to-br from-midnight/80 via-midnight-light/65 to-bronze/60"></div>
+          <div className="absolute inset-0 bg-linear-to-t from-midnight via-transparent to-midnight/40" />
         </div>
 
-        <div className="container mx-auto max-w-4xl px-4 py-12 relative z-10">
+        <div className="container mx-auto max-w-5xl px-4 py-12 md:py-16 relative z-10">
           <Link
             href="/deities"
-            className="text-sm text-slate-200 hover:text-white mb-6 inline-block"
+            className="text-sm text-parchment/70 hover:text-parchment mb-8 inline-block"
           >
             ← Back to Deities
           </Link>
 
-          <div className="space-y-8">
-            {/* Header */}
+          <div className="grid gap-10 md:grid-cols-[minmax(0,14rem)_1fr] md:items-end">
+            <figure
+              className="relative mx-auto w-full max-w-[14rem] overflow-hidden border border-gold/30 shadow-2xl"
+              style={{ viewTransitionName: `deity-image-${deity.slug}` }}
+            >
+              <div className="aspect-3/4 relative bg-midnight">
+                {deity.imageUrl ? (
+                  <Image
+                    src={deity.imageUrl}
+                    alt={deity.name}
+                    width={DEITY_IMAGE_WIDTH}
+                    height={DEITY_IMAGE_HEIGHT}
+                    sizes="14rem"
+                    className="h-full w-full object-cover"
+                    priority
+                  />
+                ) : (
+                  <div className="flex h-full items-center justify-center">
+                    <span className="font-serif text-7xl text-gold/70">
+                      {deity.name.charAt(0)}
+                    </span>
+                  </div>
+                )}
+              </div>
+            </figure>
+
             <div>
+              <p className="mb-3 text-xs uppercase tracking-[0.28em] text-gold/80">
+                {formatSlugAsTitle(deity.pantheonId.replace(/-pantheon$/, ""))}{" "}
+                pantheon
+              </p>
               <div
-                className="flex items-center gap-4 mb-4"
+                className="flex flex-wrap items-start gap-4"
                 style={{ viewTransitionName: "page-header" }}
               >
-                <div className="flex-1">
-                  <div className="flex items-baseline gap-3">
-                    <h1 className="shimmer-gold font-serif text-4xl font-bold tracking-tight drop-shadow-[0_2px_8px_rgba(0,0,0,0.55)]">
+                <div className="min-w-0 flex-1">
+                  <div className="flex flex-wrap items-baseline gap-3">
+                    <h1 className="shimmer-gold page-title drop-shadow-[0_2px_8px_rgba(0,0,0,0.55)]">
                       {deity.name}
                     </h1>
                     {deity.pronunciation && (
                       <PronunciationDisplay
                         pronunciation={deity.pronunciation}
-                        className="text-slate-200 hover:text-white"
+                        className="text-parchment/75 hover:text-parchment"
                       />
                     )}
                   </div>
                   {deity.originalLanguageName && (
-                    <p className="text-slate-200 mt-1">
+                    <p className="mt-2 font-serif text-xl text-parchment/80 md:text-2xl">
                       <OriginalLanguageName
                         data={deity.originalLanguageName}
                         variant="inline"
-                        className="text-slate-100"
+                        className="text-parchment/90"
                       />
                     </p>
                   )}
                   {deity.alternateNames && deity.alternateNames.length > 0 && (
-                    <p className="text-slate-200 mt-1 font-light">
+                    <p className="mt-2 text-sm font-light text-parchment/70">
                       Also known as: {deity.alternateNames.join(", ")}
                     </p>
                   )}
                   {deity.domain && deity.domain.length > 0 && (
                     <ul
-                      className="mt-3 flex flex-wrap gap-2"
+                      className="mt-4 flex flex-wrap gap-2"
                       aria-label="Domains"
                     >
                       {deity.domain.map((d) => (
                         <li
                           key={d}
-                          className="rounded-full border border-gold/40 bg-gold/10 px-3 py-1 text-xs font-medium uppercase tracking-wider text-gold-light backdrop-blur-sm"
+                          className="border border-gold/40 bg-gold/10 px-3 py-1 text-xs font-medium uppercase tracking-wider text-gold-light backdrop-blur-sm"
                         >
                           {d}
                         </li>
                       ))}
                     </ul>
                   )}
-                  <EditorialByline className="mt-3 max-w-2xl" tone="light" />
+                  {deity.description && (
+                    <p className="mt-5 max-w-[42ch] text-base leading-relaxed text-parchment/85 md:text-lg">
+                      {deity.description}
+                    </p>
+                  )}
+                  <EditorialByline className="mt-4 max-w-2xl" tone="light" />
                 </div>
-                <BookmarkButton
-                  type="deity"
-                  id={deity.id}
-                  size="lg"
-                  variant="light"
-                />
-                <ShareButton
-                  title={`${deity.name} - Mythos Atlas`}
-                  text={`Discover ${deity.name}, ${deity.domain?.join(", ") || "deity"} from ancient mythology on Mythos Atlas`}
-                  url={`https://mythosatlas.com/deities/${deity.slug}`}
-                  className="[&_button]:text-white [&_button]:border-white/30 [&_button]:hover:bg-white/20"
-                />
-                <ExportIconButton
-                  type="deity"
-                  data={{
-                    name: deity.name,
-                    alternateNames: deity.alternateNames,
-                    description: deity.description,
-                    detailedBio: deity.detailedBio,
-                    originStory: deity.originStory,
-                    domain: deity.domain,
-                    symbols: deity.symbols,
-                    pantheonId: deity.pantheonId,
-                    imageUrl: deity.imageUrl,
-                    primarySources: deity.primarySources,
-                    worship: deity.worship,
-                  }}
-                  variant="ghost"
-                  className="text-white hover:bg-white/20"
-                />
+                <div className="flex shrink-0 gap-2">
+                  <BookmarkButton
+                    type="deity"
+                    id={deity.id}
+                    size="lg"
+                    variant="light"
+                  />
+                  <ShareButton
+                    title={`${deity.name} - Mythos Atlas`}
+                    text={`Discover ${deity.name}, ${deity.domain?.join(", ") || "deity"} from ancient mythology on Mythos Atlas`}
+                    url={`https://mythosatlas.com/deities/${deity.slug}`}
+                    className="[&_button]:text-white [&_button]:border-white/30 [&_button]:hover:bg-white/20"
+                  />
+                  <ExportIconButton
+                    type="deity"
+                    data={{
+                      name: deity.name,
+                      alternateNames: deity.alternateNames,
+                      description: deity.description,
+                      detailedBio: deity.detailedBio,
+                      originStory: deity.originStory,
+                      domain: deity.domain,
+                      symbols: deity.symbols,
+                      pantheonId: deity.pantheonId,
+                      imageUrl: deity.imageUrl,
+                      primarySources: deity.primarySources,
+                      worship: deity.worship,
+                    }}
+                    variant="ghost"
+                    className="text-white hover:bg-white/20"
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -327,34 +383,7 @@ export function DeityPageClient({ slug }: DeityPageClientProps) {
       <div className="container mx-auto max-w-4xl px-4 py-12">
         <div className="space-y-8">
           <div className="space-y-8">
-            {/* Deity portrait */}
-            {deity.imageUrl ? (
-              <figure
-                className="relative mx-auto w-full max-w-md rounded-2xl overflow-hidden border-2 border-border shadow-2xl"
-                style={{ viewTransitionName: `deity-image-${deity.slug}` }}
-              >
-                <div className="aspect-3/4 relative">
-                  <Image
-                    src={deity.imageUrl}
-                    alt={deity.name}
-                    width={DEITY_IMAGE_WIDTH}
-                    height={DEITY_IMAGE_HEIGHT}
-                    sizes="(min-width: 768px) 28rem, 90vw"
-                    className="h-full w-full object-cover hover:scale-[1.03] transition-transform duration-700"
-                    priority
-                  />
-                  <div className="absolute inset-0 ring-1 ring-inset ring-black/10 rounded-2xl"></div>
-                </div>
-              </figure>
-            ) : (
-              <div className="mx-auto w-full max-w-md">
-                <div className="aspect-3/4 relative flex items-center justify-center rounded-2xl border-2 border-border bg-gradient-to-b from-midnight to-midnight-light">
-                  <span className="font-serif text-7xl text-gold/70">
-                    {deity.name.charAt(0)}
-                  </span>
-                </div>
-              </div>
-            )}
+            <LinkedMentions deityId={deity.id} deityName={deity.name} />
 
             {/* Content Cards */}
             <div className="space-y-8">
@@ -397,68 +426,111 @@ export function DeityPageClient({ slug }: DeityPageClientProps) {
               {/* Cross-Pantheon Parallels */}
               {deity.crossPantheonParallels &&
                 deity.crossPantheonParallels.length > 0 && (
-                  <Card className="shadow-none bg-card/50">
-                    <CardHeader>
-                      <CardTitle className="font-serif flex items-center gap-2 text-xl">
-                        <Link2 className="h-5 w-5 text-gold" />
-                        Cross-Pantheon Parallels
-                      </CardTitle>
-                      <CardDescription>
-                        Similar deities across different mythologies
-                      </CardDescription>
-                    </CardHeader>
-                    <CardContent>
-                      <ul className="space-y-4">
-                        {deity.crossPantheonParallels.map((parallel) => {
-                          const relatedDeity = deityReferenceMap.get(
-                            normalizeDeityReference(parallel.deityId),
-                          );
-                          const pantheonColor = getPantheonColor(
-                            parallel.pantheonId,
-                          );
-                          const pantheonLabel = formatSlugAsTitle(
-                            parallel.pantheonId.replace(/-pantheon$/, ""),
-                          );
+                  <>
+                    <RosettaWheel
+                      archetype={
+                        deity.domain?.[0] ??
+                        formatSlugAsTitle(
+                          deity.pantheonId.replace(/-pantheon$/, ""),
+                        )
+                      }
+                      deities={[
+                        {
+                          name: deity.name,
+                          slug: deity.slug,
+                          pantheonId: deity.pantheonId,
+                        },
+                        ...deity.crossPantheonParallels
+                          .map((parallel) => {
+                            const relatedDeity = deityReferenceMap.get(
+                              normalizeDeityReference(parallel.deityId),
+                            );
+                            if (!relatedDeity) return null;
+                            return {
+                              name: relatedDeity.name,
+                              slug: relatedDeity.slug,
+                              pantheonId: parallel.pantheonId,
+                            };
+                          })
+                          .filter(
+                            (
+                              d,
+                            ): d is {
+                              name: string;
+                              slug: string;
+                              pantheonId: string;
+                            } => d !== null,
+                          ),
+                      ]}
+                    />
+                    <Card className="shadow-none bg-card/50">
+                      <CardHeader>
+                        <CardTitle className="font-serif flex items-center gap-2 text-xl">
+                          <MythosMark
+                            id="scales"
+                            className="h-5 w-5 text-gold"
+                          />
+                          Cross-Pantheon Parallels
+                        </CardTitle>
+                        <CardDescription>
+                          Similar deities across different mythologies
+                        </CardDescription>
+                      </CardHeader>
+                      <CardContent>
+                        <ul className="space-y-4">
+                          {deity.crossPantheonParallels.map((parallel) => {
+                            const relatedDeity = deityReferenceMap.get(
+                              normalizeDeityReference(parallel.deityId),
+                            );
+                            const pantheonColor = getPantheonColor(
+                              parallel.pantheonId,
+                            );
+                            const pantheonLabel = formatSlugAsTitle(
+                              parallel.pantheonId.replace(/-pantheon$/, ""),
+                            );
 
-                          return (
-                            <li
-                              key={parallel.deityId}
-                              className="border-l-2 pl-4"
-                              style={{ borderColor: pantheonColor }}
-                            >
-                              <div className="flex flex-wrap items-baseline gap-x-2 gap-y-1">
-                                {relatedDeity ? (
-                                  <Link
-                                    href={`/deities/${relatedDeity.slug}`}
-                                    className="font-medium text-foreground hover:text-gold transition-colors"
-                                  >
-                                    {relatedDeity.name}
-                                  </Link>
-                                ) : (
-                                  <span className="font-medium text-foreground">
-                                    {formatSlugAsTitle(
-                                      normalizeDeityReference(parallel.deityId),
-                                    )}
+                            return (
+                              <li
+                                key={parallel.deityId}
+                                className="border-l-2 pl-4"
+                                style={{ borderColor: pantheonColor }}
+                              >
+                                <div className="flex flex-wrap items-baseline gap-x-2 gap-y-1">
+                                  {relatedDeity ? (
+                                    <Link
+                                      href={`/deities/${relatedDeity.slug}`}
+                                      className="font-medium text-foreground hover:text-gold transition-colors"
+                                    >
+                                      {relatedDeity.name}
+                                    </Link>
+                                  ) : (
+                                    <span className="font-medium text-foreground">
+                                      {formatSlugAsTitle(
+                                        normalizeDeityReference(
+                                          parallel.deityId,
+                                        ),
+                                      )}
+                                    </span>
+                                  )}
+                                  <span className="inline-flex items-center gap-1.5 text-xs uppercase tracking-wide text-muted-foreground">
+                                    <span
+                                      className="inline-block size-2 rounded-full"
+                                      style={{ backgroundColor: pantheonColor }}
+                                      aria-hidden
+                                    />
+                                    {pantheonLabel}
                                   </span>
-                                )}
-                                <span className="inline-flex items-center gap-1.5 text-xs uppercase tracking-wide text-muted-foreground">
-                                  <span
-                                    className="inline-block size-2 rounded-full"
-                                    style={{ backgroundColor: pantheonColor }}
-                                    aria-hidden
-                                  />
-                                  {pantheonLabel}
-                                </span>
-                              </div>
-                              <p className="text-muted-foreground text-sm mt-1">
-                                {parallel.note}
-                              </p>
-                            </li>
-                          );
-                        })}
-                      </ul>
-                    </CardContent>
-                  </Card>
+                                </div>
+                                <p className="text-muted-foreground text-sm mt-1">
+                                  {parallel.note}
+                                </p>
+                              </li>
+                            );
+                          })}
+                        </ul>
+                      </CardContent>
+                    </Card>
+                  </>
                 )}
 
               {/* Attestation provenance — confidence derived from corroboration */}

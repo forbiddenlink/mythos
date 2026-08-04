@@ -23,7 +23,7 @@ export default function ReviewPage() {
       <section className="bg-mythic">
         <div className="container mx-auto max-w-5xl px-4 pt-10">
           <div className="rounded-2xl border border-border/60 bg-card/60 p-6">
-            <h2 className="font-serif text-2xl font-semibold text-foreground">
+            <h2 className="page-section-title text-foreground">
               Use Daily Review To Retain What You Read
             </h2>
             <p className="mt-3 leading-relaxed text-muted-foreground">

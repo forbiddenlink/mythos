@@ -178,5 +178,65 @@
     "fact": "January is named after Janus, the two-faced god of doorways, beginnings, and endings. He looks both to the past and future.",
     "category": "language",
     "relatedDeities": ["janus"]
+  },
+  {
+    "id": "eshu-crossroads",
+    "fact": "In Yoruba tradition, Eshu (Elegba) is the divine messenger who opens the road between humans and the orisha — offerings at the crossroads honor him before any other deity is addressed.",
+    "category": "symbolism",
+    "relatedDeities": ["eshu"]
+  },
+  {
+    "id": "oshun-brass",
+    "fact": "Oshun, the Yoruba orisha of rivers and sweet waters, is closely associated with brass and gold. Devotees wear yellow and offer honey — never salt — at her shrines.",
+    "category": "symbolism",
+    "relatedDeities": ["oshun"]
+  },
+  {
+    "id": "dagda-cauldron",
+    "fact": "The Dagda of the Tuatha Dé Danann carried an enormous cauldron that never ran empty — one of the Four Treasures of Ireland, a symbol of endless hospitality and abundance.",
+    "category": "stories",
+    "relatedDeities": ["dagda"]
+  },
+  {
+    "id": "morrigan-crow",
+    "fact": "The Morrígan often appears as a crow or raven over Irish battlefields. Seeing her foretold victory or doom — she was not merely a war goddess but a sovereignty figure who could make or unmake kings.",
+    "category": "symbolism",
+    "relatedDeities": ["morrigan"]
+  },
+  {
+    "id": "change-moon",
+    "fact": "Chang'e, the Chinese moon goddess, flew to the lunar palace after drinking the elixir of immortality. The Mid-Autumn Festival still honors her with mooncakes and lanterns.",
+    "category": "origins",
+    "relatedDeities": ["hou-yi", "chang-e"]
+  },
+  {
+    "id": "ishtar-gate-blue",
+    "fact": "The Ishtar Gate of Babylon was covered in deep blue glazed bricks and golden dragons (mušḫuššu) and aurochs — a monumental hymn in clay to the goddess of love and war.",
+    "category": "history",
+    "relatedDeities": ["inanna"]
+  },
+  {
+    "id": "maui-fishhook",
+    "fact": "In Māori tradition, Maui's fishhook Manaiakalani hauled up Te Ika-a-Māui — the North Island of New Zealand — from the ocean floor. The South Island is his canoe.",
+    "category": "stories",
+    "relatedDeities": ["maui"]
+  },
+  {
+    "id": "pele-sisters",
+    "fact": "Pele, Hawaiian goddess of volcanoes, fled her sister Nāmaka the sea goddess across the Pacific. Each island she tried to settle was drowned until she reached Hawaiʻi, where her fires still burn.",
+    "category": "stories",
+    "relatedDeities": ["pele"]
+  },
+  {
+    "id": "journey-west-allegory",
+    "fact": "Journey to the West is not only adventure — Sun Wukong's pilgrimage with the monk Xuanzang allegorizes the Buddhist path from ego and chaos toward enlightenment.",
+    "category": "connections",
+    "relatedDeities": ["sun-wukong"]
+  },
+  {
+    "id": "gilgamesh-flood",
+    "fact": "The Epic of Gilgamesh contains a flood story that predates the biblical Noah account by centuries — Utnapishtim survives a world-drowning storm in a sealed boat, guided by the god Ea.",
+    "category": "connections",
+    "relatedDeities": ["gilgamesh"]
   }
 ]

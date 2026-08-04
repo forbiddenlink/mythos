@@ -1,12 +1,13 @@
 "use client";
 
-import { useRef, useEffect, useState } from "react";
+import { createContext, useContext, useRef, useEffect, useState } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { Stars, Line, Text, Float } from "@react-three/drei";
 import * as THREE from "three";
 import { rafThrottle } from "@/lib/rafThrottle";
 
-// Constellation data - deity symbols connected by stars
+const ActiveCtx = createContext(true);
+
 const constellations = [
   {
     name: "Zeus",
@@ -92,24 +93,14 @@ function ConstellationStar({
   position: [number, number, number];
   color: string;
 }) {
-  const meshRef = useRef<THREE.Mesh>(null);
   const [hovered, setHovered] = useState(false);
-
-  useFrame((state) => {
-    if (meshRef.current) {
-      // Subtle twinkle effect
-      const scale =
-        1 + Math.sin(state.clock.elapsedTime * 2 + position[0]) * 0.1;
-      meshRef.current.scale.setScalar(hovered ? scale * 1.5 : scale);
-    }
-  });
 
   return (
     <mesh
-      ref={meshRef}
       position={position}
       onPointerOver={() => setHovered(true)}
       onPointerOut={() => setHovered(false)}
+      scale={hovered ? 1.5 : 1}
     >
       <sphereGeometry args={[0.03, 8, 8]} />
       <meshBasicMaterial color={hovered ? "#FFFFFF" : color} />
@@ -129,9 +120,14 @@ function DeitySymbol({
   color: string;
 }) {
   const [hovered, setHovered] = useState(false);
+  const active = useContext(ActiveCtx);
 
   return (
-    <Float speed={2} rotationIntensity={0.2} floatIntensity={0.3}>
+    <Float
+      speed={active ? 2 : 0}
+      rotationIntensity={active ? 0.2 : 0}
+      floatIntensity={active ? 0.3 : 0}
+    >
       <group
         position={position}
         onPointerOver={() => setHovered(true)}
@@ -156,7 +152,6 @@ function DeitySymbol({
             {name}
           </Text>
         )}
-        {/* Glow effect */}
         <mesh>
           <circleGeometry args={[0.25, 32]} />
           <meshBasicMaterial
@@ -172,12 +167,13 @@ function DeitySymbol({
 
 function Constellations() {
   const groupRef = useRef<THREE.Group>(null);
+  const active = useContext(ActiveCtx);
+  const invalidate = useThree((s) => s.invalidate);
 
   useFrame((state) => {
-    if (groupRef.current) {
-      // Very slow rotation
-      groupRef.current.rotation.z = state.clock.elapsedTime * 0.02;
-    }
+    if (!active || !groupRef.current) return;
+    groupRef.current.rotation.z = state.clock.elapsedTime * 0.02;
+    invalidate();
   });
 
   return (
@@ -214,27 +210,27 @@ function Constellations() {
 function ScrollParallax() {
   const camera = useThree((s) => s.camera);
   const invalidate = useThree((s) => s.invalidate);
+  const active = useContext(ActiveCtx);
 
   useEffect(() => {
+    if (!active) return;
     const update = () => {
       const maxScroll =
         document.documentElement.scrollHeight - window.innerHeight;
       const scrollProgress = maxScroll > 0 ? window.scrollY / maxScroll : 0;
-      // eslint-disable-next-line react-hooks/immutability -- mutating the three.js camera directly is the intended R3F pattern
+      // eslint-disable-next-line react-hooks/immutability -- three.js camera mutation
       camera.position.y = -scrollProgress * 2;
-      // frameloop="demand": request one render for the new camera position.
-      // Idle (no scroll) => zero renders.
       invalidate();
     };
 
     const onScroll = rafThrottle(update);
-    update(); // set initial position + first render
+    update();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => {
       window.removeEventListener("scroll", onScroll);
       onScroll.cancel();
     };
-  }, [camera, invalidate]);
+  }, [camera, invalidate, active]);
 
   return null;
 }
@@ -242,7 +238,6 @@ function ScrollParallax() {
 function Scene() {
   return (
     <>
-      {/* Background stars - using drei's optimized Stars component */}
       <Stars
         radius={100}
         depth={50}
@@ -252,32 +247,33 @@ function Scene() {
         fade
         speed={0.5}
       />
-
-      {/* Constellation overlays */}
       <Constellations />
-
-      {/* Scroll-based parallax */}
       <ScrollParallax />
-
-      {/* Ambient lighting for symbols */}
       <ambientLight intensity={0.5} />
     </>
   );
 }
 
-export function ConstellationBackground() {
+export function ConstellationBackground({
+  active = true,
+  contained = false,
+  className,
+}: {
+  /** When false, Canvas uses frameloop="never" and animation loops no-op. */
+  active?: boolean;
+  /** Scope to parent (absolute inset-0) instead of fixed full-page. */
+  contained?: boolean;
+  className?: string;
+}) {
   const [mounted, setMounted] = useState(false);
   const [reducedMotion, setReducedMotion] = useState(false);
   const [webGLSupported, setWebGLSupported] = useState(true);
 
   useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect -- hydration: detect client-side mount
     setMounted(true);
-    // Check for reduced motion preference
     const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
     setReducedMotion(mediaQuery.matches);
 
-    // Check WebGL support
     try {
       const canvas = document.createElement("canvas");
       const gl =
@@ -292,25 +288,32 @@ export function ConstellationBackground() {
     return () => mediaQuery.removeEventListener("change", handler);
   }, []);
 
-  // Don't render on server, if user prefers reduced motion, or WebGL not supported
   if (!mounted || reducedMotion || !webGLSupported) {
     return null;
   }
 
+  const shellClass =
+    className ??
+    (contained
+      ? "absolute inset-0 -z-10 pointer-events-none"
+      : "fixed inset-0 -z-10 pointer-events-none");
+
   return (
-    <div className="fixed inset-0 -z-10 pointer-events-none" aria-hidden="true">
-      <Canvas
-        frameloop="demand"
-        camera={{ position: [0, 0, 5], fov: 60 }}
-        dpr={[1, 1.5]}
-        gl={{
-          antialias: false,
-          alpha: true,
-          powerPreference: "low-power",
-        }}
-      >
-        <Scene />
-      </Canvas>
+    <div className={shellClass} aria-hidden="true">
+      <ActiveCtx.Provider value={active}>
+        <Canvas
+          frameloop={active ? "demand" : "never"}
+          camera={{ position: [0, 0, 5], fov: 60 }}
+          dpr={[1, 1.5]}
+          gl={{
+            antialias: false,
+            alpha: true,
+            powerPreference: "low-power",
+          }}
+        >
+          <Scene />
+        </Canvas>
+      </ActiveCtx.Provider>
     </div>
   );
 }

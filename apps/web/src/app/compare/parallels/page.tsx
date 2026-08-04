@@ -7,7 +7,6 @@ import { Badge } from "@/components/ui/badge";
 import { PageHero } from "@/components/layout/page-hero";
 import deitiesData from "@/data/deities.json";
 import pantheonsData from "@/data/pantheons.json";
-import { GitCompareArrows } from "lucide-react";
 
 interface ParallelEdge {
   fromDeityId: string;
@@ -86,7 +85,7 @@ export default function CrossPantheonParallelsPage() {
   return (
     <div className="min-h-screen">
       <PageHero
-        icon={<GitCompareArrows />}
+        mark="scales"
         tagline="Comparative mythology"
         title="Cross-pantheon parallels"
         description="Analogies and equivalences drawn in Mythos Atlas data between figures from different traditions — useful for comparative study, not proof of historical origin."

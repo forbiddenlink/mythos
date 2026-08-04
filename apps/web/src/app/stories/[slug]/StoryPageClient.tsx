@@ -18,6 +18,7 @@ import {
   Square,
   Play,
 } from "lucide-react";
+import { HeroMark } from "@/components/icons/hero-mark";
 import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
 import { BookmarkButton } from "@/components/ui/bookmark-button";
 import { ExportIconButton } from "@/components/ui/export-button";
@@ -230,13 +231,9 @@ export function StoryPageClient({ slug }: StoryPageClientProps) {
       {/* Hero Section */}
       <RouteHero>
         <div className="flex items-center justify-center mb-6">
-          <div className="relative p-4 rounded-xl border border-gold/20 bg-midnight/50 backdrop-blur-sm">
-            <BookOpen className="h-10 w-10 text-gold" strokeWidth={1.5} />
-          </div>
+          <HeroMark mark="scroll" tone="gold" size="lg" />
         </div>
-        <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight mb-6 text-parchment">
-          {story.title}
-        </h1>
+        <h1 className="page-title text-parchment mb-6">{story.title}</h1>
         <div className="flex items-center justify-center gap-4 mb-6">
           <div className="w-12 h-px bg-linear-to-r from-transparent to-gold/40" />
           <div className="w-1.5 h-1.5 rotate-45 bg-gold/50" />
@@ -318,7 +315,7 @@ export function StoryPageClient({ slug }: StoryPageClientProps) {
           {story && CINEMATIC_STORIES.includes(story.slug) && (
             <Link
               href={`/stories/${story.slug}/cinematic`}
-              className="flex items-center gap-2 px-4 py-2 rounded-lg border bg-purple-500/20 border-purple-500/40 text-purple-200 hover:bg-purple-500/30 transition-all"
+              className="flex items-center gap-2 px-4 py-2 rounded-lg border bg-bronze/20 border-bronze/40 text-bronze hover:bg-bronze/30 transition-all"
             >
               <Play className="h-4 w-4" />
               <span className="font-semibold">Cinematic Mode</span>

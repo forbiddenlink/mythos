@@ -11,7 +11,8 @@ import { Logo } from "@/components/ui/logo";
 import { useProgress } from "@/hooks/use-progress";
 import { cn } from "@/lib/utils";
 import { useReview } from "@/providers/review-provider";
-import { Brain, ChevronDown, Flame, Menu } from "lucide-react";
+import { ChevronDown, Menu } from "lucide-react";
+import { MythosMark } from "@/components/icons/mythos-marks";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
@@ -45,8 +46,8 @@ function MobileQuickStats() {
   return (
     <div className="flex items-center gap-3 mb-6 px-1">
       {progress.dailyStreak > 0 && (
-        <div className="flex items-center gap-1.5 px-2.5 py-1.5 text-sm font-medium rounded-lg bg-orange-500/10 text-orange-500">
-          <Flame className="h-4 w-4" />
+        <div className="flex items-center gap-1.5 px-2.5 py-1.5 text-sm font-medium rounded-lg bg-gold/10 text-gold-text border border-gold/20">
+          <MythosMark id="torch" className="h-4 w-4" />
           <span className="font-semibold tabular-nums">
             {progress.dailyStreak}
           </span>
@@ -54,8 +55,8 @@ function MobileQuickStats() {
         </div>
       )}
       {dueCount > 0 && (
-        <div className="flex items-center gap-1.5 px-2.5 py-1.5 text-sm font-medium rounded-lg bg-blue-500/10 text-blue-500">
-          <Brain className="h-4 w-4" />
+        <div className="flex items-center gap-1.5 px-2.5 py-1.5 text-sm font-medium rounded-lg bg-patina/10 text-patina border border-patina/25">
+          <MythosMark id="owl" className="h-4 w-4" />
           <span className="font-semibold tabular-nums">{dueCount}</span>
           <span className="text-xs opacity-80">cards due</span>
         </div>
@@ -74,15 +75,20 @@ function CollapsibleSection({
   defaultOpen?: boolean;
 }>) {
   const [isOpen, setIsOpen] = useState(defaultOpen);
+  const panelId = `mobile-nav-${section.title.toLowerCase().replaceAll(/\s+/g, "-")}`;
 
   return (
     <div className="mb-4">
       <button
+        type="button"
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center justify-between w-full py-2 text-sm font-semibold text-foreground/70 uppercase tracking-wider"
+        aria-expanded={isOpen}
+        aria-controls={panelId}
+        className="flex items-center justify-between w-full min-h-11 py-2 text-sm font-semibold text-foreground/70 uppercase tracking-wider focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold/60 focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded-sm"
       >
         {section.title}
         <ChevronDown
+          aria-hidden="true"
           className={cn(
             "h-4 w-4 transition-transform duration-200",
             isOpen && "rotate-180",
@@ -90,18 +96,22 @@ function CollapsibleSection({
         />
       </button>
       <div
+        id={panelId}
+        role="region"
+        aria-label={section.title}
+        hidden={!isOpen}
         className={cn(
-          "overflow-hidden transition-all duration-200",
-          isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0",
+          "overflow-hidden transition-[max-height,opacity] duration-200",
+          isOpen ? "max-h-[32rem] opacity-100" : "max-h-0 opacity-0",
         )}
       >
-        <div className="flex flex-col gap-1 pl-2 border-l-2 border-border/50">
+        <div className="flex flex-col gap-1 pl-2 border-l-2 border-gold/20">
           {section.links.map((link) => (
             <Link
               key={link.href}
               href={link.href}
               onClick={onLinkClick}
-              className="py-2 px-3 text-base text-muted-foreground hover:text-foreground hover:bg-muted/50 rounded-r-lg transition-all duration-200"
+              className="py-2.5 px-3 text-base text-muted-foreground hover:text-foreground hover:bg-muted/50 rounded-r-lg transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold/60"
             >
               {link.label}
             </Link>
@@ -167,7 +177,7 @@ export function MobileNav({ sections }: Readonly<MobileNavProps>) {
 
           <div className="mt-auto pt-6 border-t border-border">
             <p className="text-xs text-muted-foreground">
-              Tip: Use search to jump to any deity, story, or feature
+              Tip: Use the search icon to jump to any deity, story, or place
             </p>
           </div>
         </div>

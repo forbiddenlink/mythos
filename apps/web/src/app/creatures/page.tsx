@@ -50,7 +50,7 @@ export default function CreaturesPage() {
         numberOfItems={creatures.length}
       />
       <PageHero
-        icon={<Skull />}
+        mark="serpent"
         tagline="The Bestiary"
         title="Creatures & Monsters"
         description="From the depths of the underworld to the peaks of mountains, discover the legendary beasts of ancient mythology."

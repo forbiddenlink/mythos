@@ -2,7 +2,9 @@
 
 import { useState, useMemo } from "react";
 import Link from "next/link";
-import { Lightbulb, Filter, ChevronRight, Shuffle } from "lucide-react";
+import { Filter, ChevronRight } from "lucide-react";
+import { MythosMark } from "@/components/icons/mythos-marks";
+import { HeroMark } from "@/components/icons/hero-mark";
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -53,22 +55,15 @@ const categoryLabels: Record<string, string> = {
 };
 
 const categoryColors: Record<string, string> = {
-  connections:
-    "bg-purple-500/10 text-purple-400 border-purple-500/30 hover:bg-purple-500/20",
-  language:
-    "bg-blue-500/10 text-blue-400 border-blue-500/30 hover:bg-blue-500/20",
-  science:
-    "bg-green-500/10 text-green-400 border-green-500/30 hover:bg-green-500/20",
-  origins:
-    "bg-amber-500/10 text-amber-400 border-amber-500/30 hover:bg-amber-500/20",
-  symbolism:
-    "bg-pink-500/10 text-pink-400 border-pink-500/30 hover:bg-pink-500/20",
-  stories:
-    "bg-indigo-500/10 text-indigo-400 border-indigo-500/30 hover:bg-indigo-500/20",
+  connections: "bg-gold/10 text-gold border-gold/30 hover:bg-gold/20",
+  language: "bg-patina/10 text-patina border-patina/30 hover:bg-patina/20",
+  science: "bg-bronze/10 text-bronze border-bronze/30 hover:bg-bronze/20",
+  origins: "bg-gold/10 text-gold border-gold/30 hover:bg-gold/20",
+  symbolism: "bg-bronze/10 text-bronze border-bronze/30 hover:bg-bronze/20",
+  stories: "bg-patina/10 text-patina border-patina/30 hover:bg-patina/20",
   misconceptions:
-    "bg-red-500/10 text-red-400 border-red-500/30 hover:bg-red-500/20",
-  history:
-    "bg-teal-500/10 text-teal-400 border-teal-500/30 hover:bg-teal-500/20",
+    "bg-destructive/10 text-destructive border-destructive/30 hover:bg-destructive/20",
+  history: "bg-muted text-muted-foreground border-border hover:bg-muted/80",
 };
 
 // Get unique categories
@@ -101,14 +96,10 @@ export function FactsPageClient() {
 
         <div className="text-center mb-12 mt-6">
           <div className="flex items-center justify-center mb-6">
-            <div className="p-4 rounded-xl border border-gold/20 bg-gold/5 backdrop-blur-sm">
-              <Lightbulb className="h-10 w-10 text-gold" />
-            </div>
+            <HeroMark mark="torch" tone="light" size="lg" />
           </div>
 
-          <h1 className="font-serif text-4xl md:text-5xl font-bold mb-4">
-            Mythology Facts
-          </h1>
+          <h1 className="page-title text-foreground mb-4">Mythology Facts</h1>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             {facts.length} fascinating facts about gods, myths, and ancient
             cultures
@@ -158,7 +149,7 @@ export function FactsPageClient() {
             onClick={() => setShuffleKey((k) => k + 1)}
             className="ml-2"
           >
-            <Shuffle className="h-4 w-4 mr-1" />
+            <MythosMark id="lot" className="h-4 w-4 mr-1" />
             Shuffle
           </Button>
         </div>

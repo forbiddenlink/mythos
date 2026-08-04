@@ -2,16 +2,13 @@
 
 import { TransitionLink } from "@/components/transitions";
 import { Button } from "@/components/ui/button";
-import { motion } from "framer-motion";
 import {
-  ArrowRight,
-  Columns,
-  Compass,
-  Landmark,
-  Pyramid,
-  Sun,
-  Wind,
-} from "lucide-react";
+  mythosMarks,
+  type MythosMarkId,
+} from "@/components/icons/mythos-marks";
+import { motion } from "framer-motion";
+import { ArrowRight } from "lucide-react";
+import Image from "next/image";
 
 // Hardcoded for now to match the "Featured" style, but updated to include more
 const pantheons = [
@@ -22,7 +19,7 @@ const pantheons = [
     culture: "Ancient Greek",
     description:
       "The Olympian gods who ruled from Mount Olympus, shaping the fate of mortals and heroes alike.",
-    icon: Columns,
+    mark: "temple" as MythosMarkId,
     gradient:
       "from-[oklch(0.45_0.12_265)] via-[oklch(0.50_0.10_255)] to-[oklch(0.40_0.14_275)]",
     accentColor: "bg-[oklch(0.60_0.12_265)]",
@@ -34,7 +31,7 @@ const pantheons = [
     culture: "Norse/Germanic",
     description:
       "The Æsir and Vanir of Asgard, warriors and seers across the Nine Worlds.",
-    icon: Compass,
+    mark: "tree" as MythosMarkId,
     gradient:
       "from-[oklch(0.28_0.04_265)] via-[oklch(0.32_0.03_260)] to-[oklch(0.25_0.05_270)]",
     accentColor: "bg-[oklch(0.50_0.04_265)]",
@@ -46,8 +43,9 @@ const pantheons = [
     culture: "Ancient Egyptian",
     description:
       "The divine rulers of the Nile Valley, guardians of life, death, and rebirth.",
-    icon: Pyramid,
-    gradient: "from-gold-dark via-gold to-bronze",
+    mark: "chronos" as MythosMarkId,
+    gradient:
+      "from-[oklch(0.32_0.08_70)] via-[oklch(0.24_0.06_65)] to-[oklch(0.16_0.04_55)]",
     accentColor: "bg-gold",
   },
   {
@@ -57,9 +55,10 @@ const pantheons = [
     culture: "Ancient Roman",
     description:
       "The deities of the Roman state, emphasizing duty, discipline, and the glory of the Empire.",
-    icon: Landmark,
-    gradient: "from-red-900 via-red-800 to-orange-900",
-    accentColor: "bg-red-700",
+    mark: "temple" as MythosMarkId,
+    gradient:
+      "from-[oklch(0.35_0.1_30)] via-[oklch(0.28_0.08_35)] to-[oklch(0.22_0.05_40)]",
+    accentColor: "bg-[oklch(0.5_0.12_35)]",
   },
   {
     name: "Hindu",
@@ -68,9 +67,10 @@ const pantheons = [
     culture: "Vedic/Hindu",
     description:
       "The diverse family of gods centered on the Trimurti, governing dharma and karma.",
-    icon: Sun,
-    gradient: "from-orange-600 via-amber-500 to-yellow-600",
-    accentColor: "bg-orange-500",
+    mark: "torch" as MythosMarkId,
+    gradient:
+      "from-[oklch(0.38_0.1_55)] via-[oklch(0.3_0.08_70)] to-[oklch(0.22_0.06_45)]",
+    accentColor: "bg-[oklch(0.62_0.14_70)]",
   },
   {
     name: "Japanese",
@@ -79,9 +79,10 @@ const pantheons = [
     culture: "Shinto",
     description:
       "The Kami of nature and ancestors, inhabiting the islands and shrines of Japan.",
-    icon: Wind,
-    gradient: "from-red-600 via-pink-600 to-white",
-    accentColor: "bg-red-600",
+    mark: "peak" as MythosMarkId,
+    gradient:
+      "from-[oklch(0.32_0.1_25)] via-[oklch(0.24_0.06_30)] to-[oklch(0.16_0.03_50)]",
+    accentColor: "bg-[oklch(0.55_0.14_30)]",
   },
 ];
 
@@ -140,24 +141,32 @@ export function PantheonShowcase() {
                     className={`relative h-full rounded-xl overflow-hidden bg-linear-to-br ${pantheon.gradient} p-px`}
                   >
                     {/* Inner card */}
-                    <div className="relative h-full rounded-[11px] bg-linear-to-br from-black/40 via-black/20 to-black/50 backdrop-blur-sm p-6 flex flex-col">
+                    <div className="relative h-full rounded-[11px] bg-linear-to-br from-black/55 via-black/45 to-black/65 backdrop-blur-sm p-6 flex flex-col overflow-hidden">
+                      <Image
+                        src={`/pantheons/${pantheon.slug}.png`}
+                        alt=""
+                        fill
+                        sizes="(max-width: 768px) 100vw, 33vw"
+                        className="object-cover opacity-25 mix-blend-luminosity pointer-events-none"
+                        aria-hidden
+                      />
                       {/* Decorative corner */}
-                      <div className="absolute top-3 right-3 w-8 h-8 border-t border-r border-white/10 rounded-tr-lg" />
+                      <div className="absolute top-3 right-3 z-10 w-8 h-8 border-t border-r border-white/10 rounded-tr-lg" />
 
-                      {/* Icon */}
-                      <div className="mb-5">
-                        <div
-                          className={`inline-flex items-center justify-center w-12 h-12 rounded-lg ${pantheon.accentColor}/20 border border-white/10`}
-                        >
-                          <pantheon.icon
-                            className="h-6 w-6 text-white/80"
-                            strokeWidth={1.5}
-                          />
-                        </div>
+                      {/* Classical mark */}
+                      <div className="relative z-10 mb-5">
+                        {(() => {
+                          const Mark = mythosMarks[pantheon.mark];
+                          return (
+                            <div className="inline-flex items-center justify-center w-12 h-12 border border-white/15 bg-black/25">
+                              <Mark className="h-7 w-7 text-gold" />
+                            </div>
+                          );
+                        })()}
                       </div>
 
                       {/* Title */}
-                      <div className="mb-4">
+                      <div className="relative z-10 mb-4">
                         <span className="text-xs text-white/50 tracking-widest uppercase block mb-1">
                           {pantheon.culture}
                         </span>
@@ -167,12 +176,12 @@ export function PantheonShowcase() {
                       </div>
 
                       {/* Description */}
-                      <p className="text-white/70 text-sm leading-relaxed mb-6 grow">
+                      <p className="relative z-10 text-white/85 text-sm leading-relaxed mb-6 grow">
                         {pantheon.description}
                       </p>
 
                       {/* CTA */}
-                      <div className="flex items-center gap-2 text-white/60 group-hover:text-white transition-colors duration-300">
+                      <div className="relative z-10 flex items-center gap-2 text-white/80 group-hover:text-white transition-colors duration-300">
                         <span className="text-sm font-medium tracking-wide">
                           Explore Pantheon
                         </span>
@@ -180,7 +189,7 @@ export function PantheonShowcase() {
                       </div>
 
                       {/* Hover shine effect */}
-                      <div className="absolute inset-0 bg-linear-to-tr from-white/0 via-white/5 to-white/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none rounded-[11px]" />
+                      <div className="absolute inset-0 z-10 bg-linear-to-tr from-white/0 via-white/5 to-white/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none rounded-[11px]" />
                     </div>
                   </div>
                 </TransitionLink>

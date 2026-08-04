@@ -30,10 +30,10 @@ interface CinematicStoryProps {
 
 // Mood to gradient mapping
 const moodGradients: Record<string, string> = {
-  calm: "from-blue-950 via-slate-900 to-indigo-950",
+  calm: "from-midnight via-midnight-light to-midnight",
   dramatic: "from-red-950 via-slate-900 to-orange-950",
-  mysterious: "from-purple-950 via-slate-900 to-violet-950",
-  triumphant: "from-amber-950 via-slate-900 to-yellow-950",
+  mysterious: "from-midnight via-bronze/30 to-midnight",
+  triumphant: "from-midnight via-gold/20 to-midnight",
   tragic: "from-gray-950 via-slate-900 to-zinc-950",
   default: "from-midnight via-slate-900 to-midnight-light",
 };
@@ -154,7 +154,6 @@ export function CinematicStory({
   const shouldReduceMotion = useReducedMotion();
 
   useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect -- hydration: detect client-side mount
     setMounted(true);
   }, []);
 
@@ -176,7 +175,7 @@ export function CinematicStory({
         {/* Atmospheric background */}
         <div className="absolute inset-0 opacity-20">
           <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gold/10 rounded-full blur-3xl" />
-          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-900/20 rounded-full blur-3xl" />
+          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-bronze/20 rounded-full blur-3xl" />
         </div>
 
         <div className="text-center relative z-10 px-6">

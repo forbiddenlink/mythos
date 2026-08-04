@@ -42,17 +42,24 @@ const goalIcons: Record<LearningGoal, typeof Crown> = {
 };
 
 const goalColors: Record<LearningGoal, string> = {
-  "pantheon-mastery": "from-purple-500 to-indigo-500",
-  "domain-expert": "from-amber-500 to-orange-500",
-  "story-scholar": "from-teal-500 to-cyan-500",
-  completionist: "from-rose-500 to-pink-500",
+  "pantheon-mastery": "from-gold-dark to-gold",
+  "domain-expert": "from-bronze to-gold",
+  "story-scholar": "from-patina to-gold",
+  completionist: "from-bronze to-patina",
 };
 
 const goalBgColors: Record<LearningGoal, string> = {
-  "pantheon-mastery": "bg-purple-500/10",
-  "domain-expert": "bg-amber-500/10",
-  "story-scholar": "bg-teal-500/10",
-  completionist: "bg-rose-500/10",
+  "pantheon-mastery": "bg-gold/10",
+  "domain-expert": "bg-bronze/10",
+  "story-scholar": "bg-patina/10",
+  completionist: "bg-bronze/10",
+};
+
+const goalIconColors: Record<LearningGoal, string> = {
+  "pantheon-mastery": "text-gold",
+  "domain-expert": "text-bronze",
+  "story-scholar": "text-patina",
+  completionist: "text-bronze",
 };
 
 function getStepLink(step: LearningPathStep): string {
@@ -82,6 +89,7 @@ export function LearningPathCard({
   const Icon = goalIcons[path.goal];
   const gradientColor = goalColors[path.goal];
   const bgColor = goalBgColors[path.goal];
+  const iconColor = goalIconColors[path.goal];
 
   // Get the next 3 incomplete steps
   const incompleteSteps = path.steps.filter((s) => !s.completed);
@@ -110,9 +118,7 @@ export function LearningPathCard({
             <div
               className={`w-10 h-10 rounded-lg ${bgColor} flex items-center justify-center`}
             >
-              <Icon
-                className={`h-5 w-5 text-${path.goal === "domain-expert" ? "amber" : path.goal === "story-scholar" ? "teal" : path.goal === "completionist" ? "rose" : "purple"}-500`}
-              />
+              <Icon className={`h-5 w-5 ${iconColor}`} />
             </div>
             <div>
               <CardTitle className="text-lg">{path.name}</CardTitle>

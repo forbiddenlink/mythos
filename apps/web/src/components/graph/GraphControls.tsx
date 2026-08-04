@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import { useState, useCallback, useRef, useEffect } from 'react';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
+import { useState, useCallback, useRef, useEffect } from "react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import {
   ZoomIn,
   ZoomOut,
@@ -11,8 +11,8 @@ import {
   X,
   Filter,
   Layers,
-} from 'lucide-react';
-import { cn } from '@/lib/utils';
+} from "lucide-react";
+import { cn } from "@/lib/utils";
 
 interface Pantheon {
   id: string;
@@ -49,6 +49,8 @@ interface GraphControlsProps {
   onCenterNode: (nodeId: string) => void;
   clusterByPantheon: boolean;
   onClusterChange: (cluster: boolean) => void;
+  layoutMode?: "cluster" | "grid" | "radial";
+  onLayoutModeChange?: (mode: "cluster" | "grid" | "radial") => void;
   className?: string;
 }
 
@@ -65,9 +67,11 @@ export function GraphControls({
   onCenterNode,
   clusterByPantheon,
   onClusterChange,
+  layoutMode,
+  onLayoutModeChange,
   className,
 }: GraphControlsProps) {
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchQuery, setSearchQuery] = useState("");
   const [showSearchResults, setShowSearchResults] = useState(false);
   const [showFilters, setShowFilters] = useState(false);
   const searchRef = useRef<HTMLDivElement>(null);
@@ -75,13 +79,16 @@ export function GraphControls({
   // Close search results when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (searchRef.current && !searchRef.current.contains(event.target as Node)) {
+      if (
+        searchRef.current &&
+        !searchRef.current.contains(event.target as Node)
+      ) {
         setShowSearchResults(false);
       }
     };
 
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
   // Filter deities based on search query
@@ -100,10 +107,10 @@ export function GraphControls({
   const handleSearchSelect = useCallback(
     (deity: DeitySearchResult) => {
       onCenterNode(deity.id);
-      setSearchQuery('');
+      setSearchQuery("");
       setShowSearchResults(false);
     },
-    [onCenterNode]
+    [onCenterNode],
   );
 
   const handlePantheonToggle = useCallback(
@@ -116,7 +123,7 @@ export function GraphControls({
       }
       onPantheonsChange(newSelected);
     },
-    [selectedPantheons, onPantheonsChange]
+    [selectedPantheons, onPantheonsChange],
   );
 
   const toggleAllPantheons = useCallback(() => {
@@ -134,16 +141,21 @@ export function GraphControls({
         [key]: !relationshipFilters[key],
       });
     },
-    [relationshipFilters, onRelationshipFiltersChange]
+    [relationshipFilters, onRelationshipFiltersChange],
   );
 
   return (
-    <div className={cn('flex flex-col gap-3', className)}>
+    <div className={cn("flex flex-col gap-3", className)}>
       {/* Search Bar */}
       <div ref={searchRef} className="relative">
         <div className="relative">
-          <label htmlFor="graph-deity-search" className="sr-only">Search deities in graph</label>
-          <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" aria-hidden="true" />
+          <label htmlFor="graph-deity-search" className="sr-only">
+            Search deities in graph
+          </label>
+          <Search
+            className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400"
+            aria-hidden="true"
+          />
           <Input
             id="graph-deity-search"
             type="text"
@@ -158,7 +170,7 @@ export function GraphControls({
           />
           {searchQuery && (
             <button
-              onClick={() => setSearchQuery('')}
+              onClick={() => setSearchQuery("")}
               className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200"
             >
               <X className="h-4 w-4" />
@@ -178,7 +190,7 @@ export function GraphControls({
                 <span className="font-medium">{deity.name}</span>
                 {deity.domain && deity.domain.length > 0 && (
                   <span className="text-xs text-slate-500 dark:text-slate-400">
-                    {deity.domain.slice(0, 2).join(', ')}
+                    {deity.domain.slice(0, 2).join(", ")}
                   </span>
                 )}
               </button>
@@ -222,7 +234,7 @@ export function GraphControls({
 
         {/* Filter Toggle */}
         <Button
-          variant={showFilters ? 'default' : 'outline'}
+          variant={showFilters ? "default" : "outline"}
           size="sm"
           onClick={() => setShowFilters(!showFilters)}
           className="gap-2"
@@ -231,15 +243,24 @@ export function GraphControls({
           <span className="hidden sm:inline">Filters</span>
         </Button>
 
-        {/* Cluster Toggle */}
+        {/* Layout cycle: cluster → radial → grid */}
         <Button
-          variant={clusterByPantheon ? 'default' : 'outline'}
+          variant="outline"
           size="sm"
-          onClick={() => onClusterChange(!clusterByPantheon)}
+          onClick={() => {
+            const order = ["cluster", "radial", "grid"] as const;
+            const current =
+              layoutMode ?? (clusterByPantheon ? "cluster" : "grid");
+            const next = order[(order.indexOf(current) + 1) % order.length];
+            onLayoutModeChange?.(next);
+            onClusterChange(next === "cluster");
+          }}
           className="gap-2"
         >
           <Layers className="h-4 w-4" />
-          <span className="hidden sm:inline">Cluster</span>
+          <span className="hidden sm:inline capitalize">
+            {layoutMode ?? (clusterByPantheon ? "cluster" : "grid")}
+          </span>
         </Button>
       </div>
 
@@ -256,19 +277,23 @@ export function GraphControls({
                 onClick={toggleAllPantheons}
                 className="text-xs text-teal-600 dark:text-teal-400 hover:underline"
               >
-                {selectedPantheons.size === pantheons.length ? 'Deselect All' : 'Select All'}
+                {selectedPantheons.size === pantheons.length
+                  ? "Deselect All"
+                  : "Select All"}
               </button>
             </div>
             <div className="flex flex-wrap gap-2">
               {pantheons.map((pantheon) => (
                 <Button
                   key={pantheon.id}
-                  variant={selectedPantheons.has(pantheon.id) ? 'default' : 'outline'}
+                  variant={
+                    selectedPantheons.has(pantheon.id) ? "default" : "outline"
+                  }
                   size="sm"
                   onClick={() => handlePantheonToggle(pantheon.id)}
                   className="text-xs h-7"
                 >
-                  {pantheon.name.replace(' Pantheon', '')}
+                  {pantheon.name.replace(" Pantheon", "")}
                 </Button>
               ))}
             </div>
@@ -281,39 +306,49 @@ export function GraphControls({
             </h4>
             <div className="flex flex-wrap gap-2">
               <Button
-                variant={relationshipFilters.parent ? 'default' : 'outline'}
+                variant={relationshipFilters.parent ? "default" : "outline"}
                 size="sm"
-                onClick={() => toggleRelationshipFilter('parent')}
+                onClick={() => toggleRelationshipFilter("parent")}
                 className="text-xs h-7"
               >
                 Parent/Child
               </Button>
               <Button
-                variant={relationshipFilters.spouse ? 'default' : 'outline'}
+                variant={relationshipFilters.spouse ? "default" : "outline"}
                 size="sm"
-                onClick={() => toggleRelationshipFilter('spouse')}
+                onClick={() => toggleRelationshipFilter("spouse")}
                 className="text-xs h-7"
-                style={relationshipFilters.spouse ? { backgroundColor: '#ec4899' } : {}}
+                style={
+                  relationshipFilters.spouse
+                    ? { backgroundColor: "#ec4899" }
+                    : {}
+                }
               >
                 Spouse/Lover
               </Button>
               <Button
-                variant={relationshipFilters.sibling ? 'default' : 'outline'}
+                variant={relationshipFilters.sibling ? "default" : "outline"}
                 size="sm"
-                onClick={() => toggleRelationshipFilter('sibling')}
+                onClick={() => toggleRelationshipFilter("sibling")}
                 className="text-xs h-7"
-                style={relationshipFilters.sibling ? { backgroundColor: '#3b82f6' } : {}}
+                style={
+                  relationshipFilters.sibling
+                    ? { backgroundColor: "#3b82f6" }
+                    : {}
+                }
               >
                 Sibling
               </Button>
               <Button
-                variant={relationshipFilters.crossPantheon ? 'default' : 'outline'}
+                variant={
+                  relationshipFilters.crossPantheon ? "default" : "outline"
+                }
                 size="sm"
-                onClick={() => toggleRelationshipFilter('crossPantheon')}
+                onClick={() => toggleRelationshipFilter("crossPantheon")}
                 className="text-xs h-7"
                 style={
                   relationshipFilters.crossPantheon
-                    ? { background: 'linear-gradient(90deg, #fbbf24, #f59e0b)' }
+                    ? { background: "linear-gradient(90deg, #fbbf24, #f59e0b)" }
                     : {}
                 }
               >

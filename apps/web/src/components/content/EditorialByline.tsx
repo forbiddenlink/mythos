@@ -11,9 +11,9 @@ export function EditorialByline({
   tone = "dark",
 }: Readonly<EditorialBylineProps>) {
   const mutedClass =
-    tone === "light" ? "text-slate-200/85" : "text-muted-foreground";
+    tone === "light" ? "text-parchment/75" : "text-muted-foreground";
   const accentClass =
-    tone === "light" ? "text-white underline" : "text-gold underline";
+    tone === "light" ? "text-parchment underline" : "text-gold underline";
 
   return (
     <p className={cn("text-sm leading-6", mutedClass, className)}>

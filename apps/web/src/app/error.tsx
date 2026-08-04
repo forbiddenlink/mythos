@@ -2,7 +2,8 @@
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { AlertTriangle, Home, RotateCcw } from "lucide-react";
+import { AlertTriangle, RotateCcw } from "lucide-react";
+import { MythosMark } from "@/components/icons/mythos-marks";
 import Link from "next/link";
 import { useEffect } from "react";
 
@@ -49,9 +50,7 @@ export default function ErrorPage({
         </div>
 
         {/* Error title */}
-        <h1 className="font-serif text-4xl md:text-5xl font-bold text-gradient-hero mb-4">
-          Something Went Wrong
-        </h1>
+        <h1 className="page-title text-parchment mb-4">Something Went Wrong</h1>
 
         {/* Clear guidance first, themed flavor second */}
         <div className="relative max-w-xl mx-auto mb-8 p-6 rounded-lg border border-gold/10 bg-midnight-light/30 backdrop-blur-sm">
@@ -105,7 +104,7 @@ export default function ErrorPage({
             className="border-gold/40 text-gold hover:bg-gold/10 hover:border-gold/60"
           >
             <Link href="/">
-              <Home className="w-4 h-4 mr-2" />
+              <MythosMark id="temple" className="w-4 h-4 mr-2" />
               Return Home
             </Link>
           </Button>

@@ -4,8 +4,11 @@ import deitiesData from "@/data/deities.json";
 import pantheonData from "@/data/pantheons.json";
 import storiesData from "@/data/stories.json";
 import { animate, motion } from "framer-motion";
-import { BookOpen, Globe2, Users } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
+import {
+  type MythosMarkId,
+  mythosMarks,
+} from "@/components/icons/mythos-marks";
 
 // Counts derived directly from source data — no network requests needed.
 const STAT_COUNTS = {
@@ -56,23 +59,29 @@ function AnimatedCounter({
 }
 
 export function StatsSection() {
-  const stats = [
+  const stats: {
+    mark: MythosMarkId;
+    value: number;
+    suffix: string;
+    label: string;
+    description: string;
+  }[] = [
     {
-      icon: Globe2,
+      mark: "temple",
       value: STAT_COUNTS.pantheons,
       suffix: "",
       label: "Pantheons",
       description: "From Greek to Norse to Egyptian",
     },
     {
-      icon: Users,
+      mark: "laurel",
       value: STAT_COUNTS.deities,
       suffix: "+",
       label: "Deities",
       description: "Gods and goddesses across cultures",
     },
     {
-      icon: BookOpen,
+      mark: "scroll",
       value: STAT_COUNTS.stories,
       suffix: "+",
       label: "Stories",
@@ -124,45 +133,47 @@ export function StatsSection() {
 
         {/* Stats grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-16 max-w-5xl mx-auto">
-          {stats.map((stat, index) => (
-            <motion.div
-              key={stat.label}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{
-                duration: 0.6,
-                delay: index * 0.15,
-                ease: [0.22, 1, 0.36, 1],
-              }}
-              className="relative text-center group"
-            >
-              {/* Card background */}
-              <div className="absolute inset-0 rounded-2xl bg-linear-to-b from-gold/3 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+          {stats.map((stat, index) => {
+            const Mark = mythosMarks[stat.mark];
+            return (
+              <motion.div
+                key={stat.label}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{
+                  duration: 0.6,
+                  delay: index * 0.15,
+                  ease: [0.22, 1, 0.36, 1],
+                }}
+                className="relative text-center group"
+              >
+                <div className="absolute inset-0 bg-linear-to-b from-gold/3 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-              <div className="relative py-8 px-4">
-                {/* Icon */}
-                <div className="inline-flex items-center justify-center w-16 h-16 rounded-xl bg-gold/10 border border-gold/20 mb-6 group-hover:bg-gold/15 group-hover:border-gold/30 transition-all duration-300">
-                  <stat.icon className="h-8 w-8 text-gold" strokeWidth={1.5} />
-                </div>
+                <div className="relative py-8 px-4">
+                  <div className="relative mx-auto mb-6 flex h-16 w-16 items-center justify-center border border-gold/25 bg-midnight/30 group-hover:border-gold/40 transition-colors duration-300">
+                    <span className="absolute left-0 top-0 h-2.5 w-2.5 border-l border-t border-gold/40" />
+                    <span className="absolute right-0 top-0 h-2.5 w-2.5 border-r border-t border-gold/40" />
+                    <span className="absolute bottom-0 left-0 h-2.5 w-2.5 border-b border-l border-gold/40" />
+                    <span className="absolute bottom-0 right-0 h-2.5 w-2.5 border-b border-r border-gold/40" />
+                    <Mark className="relative h-8 w-8 text-gold" />
+                  </div>
 
-                {/* Value */}
-                <div className="text-5xl md:text-6xl lg:text-7xl font-serif font-semibold mb-3 text-gradient-gold">
-                  <AnimatedCounter value={stat.value} suffix={stat.suffix} />
-                </div>
+                  <div className="text-5xl md:text-6xl lg:text-7xl font-serif font-semibold mb-3 text-gradient-gold">
+                    <AnimatedCounter value={stat.value} suffix={stat.suffix} />
+                  </div>
 
-                {/* Label */}
-                <div className="text-xl font-serif font-medium mb-2 text-parchment/90 tracking-wide">
-                  {stat.label}
-                </div>
+                  <div className="text-xl font-serif font-medium mb-2 text-parchment/90 tracking-wide">
+                    {stat.label}
+                  </div>
 
-                {/* Description */}
-                <div className="text-sm text-parchment/50 font-body">
-                  {stat.description}
+                  <div className="text-sm text-parchment/50 font-body">
+                    {stat.description}
+                  </div>
                 </div>
-              </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>

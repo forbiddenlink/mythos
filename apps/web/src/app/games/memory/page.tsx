@@ -1,5 +1,6 @@
 import { SymbolMemoryGame } from "@/components/games/SymbolMemoryGame";
 import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
+import { SimplePageHeader } from "@/components/layout/simple-page-header";
 import { Sparkles, Brain, Timer } from "lucide-react";
 import { generateBaseMetadata } from "@/lib/metadata";
 import Link from "next/link";
@@ -23,28 +24,19 @@ export const metadata = generateBaseMetadata({
 export default function MemoryGamePage() {
   return (
     <div className="min-h-screen bg-linear-to-b from-background to-mythic">
-      <div className="container mx-auto max-w-7xl px-4 py-12">
+      <div className="page-shell">
         <Breadcrumbs />
 
-        <div className="text-center mb-12 mt-6">
-          <div className="flex items-center justify-center mb-6">
-            <div className="p-4 rounded-xl border border-gold/20 bg-gold/5 backdrop-blur-sm">
-              <Sparkles className="h-10 w-10 text-gold" />
-            </div>
-          </div>
-
-          <h1 className="font-serif text-4xl md:text-5xl font-bold mb-4">
-            Symbol Memory
-          </h1>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
-            Match ancient deities with their sacred symbols in this classic
-            memory game
-          </p>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-3xl mx-auto mb-12">
+        <SimplePageHeader
+          mark="labyrinth"
+          tagline="Match & remember"
+          title="Symbol Memory"
+          description="Match ancient deities with their sacred symbols in this classic memory game"
+        >
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-3xl mx-auto">
             <div className="flex items-center gap-3 p-4 rounded-lg bg-card border border-border">
               <div className="p-2 rounded-lg bg-gold/10">
-                <Sparkles className="h-5 w-5 text-gold" />
+                <Sparkles className="h-5 w-5 text-gold" aria-hidden="true" />
               </div>
               <div className="text-left">
                 <div className="font-semibold text-sm">Match</div>
@@ -56,7 +48,7 @@ export default function MemoryGamePage() {
 
             <div className="flex items-center gap-3 p-4 rounded-lg bg-card border border-border">
               <div className="p-2 rounded-lg bg-gold/10">
-                <Brain className="h-5 w-5 text-gold" />
+                <Brain className="h-5 w-5 text-gold" aria-hidden="true" />
               </div>
               <div className="text-left">
                 <div className="font-semibold text-sm">Remember</div>
@@ -68,7 +60,7 @@ export default function MemoryGamePage() {
 
             <div className="flex items-center gap-3 p-4 rounded-lg bg-card border border-border">
               <div className="p-2 rounded-lg bg-gold/10">
-                <Timer className="h-5 w-5 text-gold" />
+                <Timer className="h-5 w-5 text-gold" aria-hidden="true" />
               </div>
               <div className="text-left">
                 <div className="font-semibold text-sm">Beat the Clock</div>
@@ -78,10 +70,10 @@ export default function MemoryGamePage() {
               </div>
             </div>
           </div>
-        </div>
+        </SimplePageHeader>
 
-        <section className="mx-auto mb-12 max-w-4xl rounded-2xl border border-border/60 bg-card/60 p-6">
-          <h2 className="font-serif text-2xl font-semibold mb-3">
+        <section className="mx-auto mb-12 max-w-4xl rounded-xl border border-border/60 bg-card/60 p-6">
+          <h2 className="page-section-title mb-3">
             Turn Symbol Recognition Into Recall
           </h2>
           <p className="text-muted-foreground leading-relaxed">

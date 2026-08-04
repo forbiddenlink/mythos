@@ -53,6 +53,8 @@ interface Pantheon {
   slug: string;
 }
 
+export type GraphLayoutMode = "cluster" | "grid" | "radial";
+
 interface KnowledgeGraphProps {
   deities: Deity[];
   relationships: Relationship[];
@@ -65,7 +67,11 @@ interface KnowledgeGraphProps {
     crossPantheon: boolean;
   };
   clusterByPantheon: boolean;
+  exploreMode?: boolean;
+  exploredDeityIds?: Set<string>;
   onNodeClick?: (deityId: string, slug: string) => void;
+  /** Prefer layoutMode; clusterByPantheon kept for callers mid-migration. */
+  layoutMode?: GraphLayoutMode;
 }
 
 import { PANTHEON_COLORS, getPantheonColor } from "@/lib/pantheon-colors";
@@ -122,9 +128,10 @@ const DeityNode = memo(function DeityNode({
     pantheonColor: string;
     isHighlighted: boolean;
     showImage: boolean;
+    explored?: boolean;
   };
 }) {
-  const { deity, pantheonColor, isHighlighted } = data;
+  const { deity, pantheonColor, isHighlighted, explored } = data;
   const nodeSize =
     deity.importanceRank && deity.importanceRank <= 5 ? "large" : "normal";
 
@@ -134,6 +141,7 @@ const DeityNode = memo(function DeityNode({
         transition-all duration-200 cursor-pointer
         ${nodeSize === "large" ? "p-3 min-w-35" : "p-2 min-w-25"}
         ${isHighlighted ? "ring-2 ring-amber-400 shadow-lg shadow-amber-400/30" : ""}
+        ${explored ? "ring-1 ring-patina/50" : ""}
         bg-white dark:bg-slate-900 hover:shadow-lg hover:scale-105
       `}
       style={{
@@ -183,22 +191,20 @@ const nodeTypes = {
   deityNode: DeityNode,
 };
 
-// Calculate layout positions using force-directed-like algorithm
+// Calculate layout positions
 function calculateLayout(
   deities: Deity[],
-  relationships: Relationship[],
-  clusterByPantheon: boolean,
+  _relationships: Relationship[],
+  layoutMode: GraphLayoutMode,
   selectedPantheons: Set<string>,
 ): Map<string, { x: number; y: number }> {
   const positions = new Map<string, { x: number; y: number }>();
 
-  // Filter deities by selected pantheons
   const filteredDeities = deities.filter((d) =>
     selectedPantheons.has(d.pantheonId),
   );
 
-  if (clusterByPantheon) {
-    // Group by pantheon and arrange in clusters
+  if (layoutMode === "cluster") {
     const pantheonGroups = new Map<string, Deity[]>();
 
     filteredDeities.forEach((deity) => {
@@ -212,23 +218,19 @@ function calculateLayout(
     const clusterRadius = 600;
 
     pantheonList.forEach(([_pantheonId, deities], clusterIndex) => {
-      // Position cluster centers in a circle
       const clusterAngle =
         (clusterIndex / numPantheons) * 2 * Math.PI - Math.PI / 2;
       const clusterCenterX = Math.cos(clusterAngle) * clusterRadius;
       const clusterCenterY = Math.sin(clusterAngle) * clusterRadius;
 
-      // Sort deities by importance within cluster
       const sortedDeities = deities.toSorted(
         (a, b) => (a.importanceRank || 999) - (b.importanceRank || 999),
       );
 
-      // Arrange deities in a smaller circle around cluster center
       const innerRadius = Math.max(100, sortedDeities.length * 30);
 
       sortedDeities.forEach((deity, index) => {
         if (index === 0 && deity.importanceRank === 1) {
-          // Put the most important deity at center
           positions.set(deity.id, {
             x: clusterCenterX,
             y: clusterCenterY,
@@ -243,12 +245,28 @@ function calculateLayout(
         }
       });
     });
+  } else if (layoutMode === "radial") {
+    // Single ring ordered by pantheon then importance (Obsidian radial feel)
+    const sorted = filteredDeities.toSorted((a, b) => {
+      const pantheonCmp = a.pantheonId.localeCompare(b.pantheonId);
+      if (pantheonCmp !== 0) return pantheonCmp;
+      return (a.importanceRank || 999) - (b.importanceRank || 999);
+    });
+    const n = sorted.length;
+    const radius = Math.max(280, n * 18);
+    sorted.forEach((deity, index) => {
+      const angle = (index / Math.max(1, n)) * 2 * Math.PI - Math.PI / 2;
+      const rank = deity.importanceRank || 999;
+      const r = rank <= 3 ? radius * 0.55 : radius;
+      positions.set(deity.id, {
+        x: Math.cos(angle) * r,
+        y: Math.sin(angle) * r,
+      });
+    });
   } else {
-    // Simple grid layout
     const cols = Math.ceil(Math.sqrt(filteredDeities.length));
     const spacing = 200;
 
-    // Sort by importance first
     const sortedDeities = filteredDeities.toSorted(
       (a, b) => (a.importanceRank || 999) - (b.importanceRank || 999),
     );
@@ -274,14 +292,23 @@ function KnowledgeGraphInner({
   selectedPantheons,
   relationshipFilters,
   clusterByPantheon,
+  exploreMode = false,
+  exploredDeityIds,
   onNodeClick,
+  layoutMode,
   highlightedNodeId,
   setHighlightedNodeId,
+  exploreFocusId,
+  setExploreFocusId,
 }: KnowledgeGraphProps & {
   highlightedNodeId: string | null;
   setHighlightedNodeId: (id: string | null) => void;
+  exploreFocusId: string | null;
+  setExploreFocusId: (id: string | null) => void;
 }) {
   const { fitView } = useReactFlow();
+  const resolvedLayout: GraphLayoutMode =
+    layoutMode ?? (clusterByPantheon ? "cluster" : "grid");
 
   // Create deity map for quick lookups
   const _deityMap = useMemo(
@@ -295,10 +322,10 @@ function KnowledgeGraphInner({
       calculateLayout(
         deities,
         relationships,
-        clusterByPantheon,
+        resolvedLayout,
         selectedPantheons,
       ),
-    [deities, relationships, clusterByPantheon, selectedPantheons],
+    [deities, relationships, resolvedLayout, selectedPantheons],
   );
 
   // Build nodes and edges
@@ -322,9 +349,31 @@ function KnowledgeGraphInner({
       });
     });
 
+    // Neighborhood for explore mode (Obsidian Explore pattern)
+    const focusId = exploreMode ? exploreFocusId : null;
+    const neighborIds = new Set<string>();
+    if (focusId) {
+      neighborIds.add(focusId);
+      relationships.forEach((rel) => {
+        if (rel.fromDeityId === focusId) neighborIds.add(rel.toDeityId);
+        if (rel.toDeityId === focusId) neighborIds.add(rel.fromDeityId);
+      });
+      filteredDeities.forEach((deity) => {
+        if (deity.id !== focusId) return;
+        deity.crossPantheonParallels?.forEach((p) => {
+          const target = deityReferenceMap.get(
+            normalizeDeityReference(p.deityId),
+          );
+          if (target) neighborIds.add(target.id);
+        });
+      });
+    }
+
     // Create nodes
     filteredDeities.forEach((deity) => {
       const position = positions.get(deity.id) || { x: 0, y: 0 };
+      const inNeighborhood = !focusId || neighborIds.has(deity.id);
+      const visited = exploredDeityIds?.has(deity.id);
 
       nodes.push({
         id: deity.id,
@@ -333,8 +382,14 @@ function KnowledgeGraphInner({
         data: {
           deity,
           pantheonColor: getPantheonColor(deity.pantheonId),
-          isHighlighted: highlightedNodeId === deity.id,
+          isHighlighted:
+            highlightedNodeId === deity.id || exploreFocusId === deity.id,
           showImage: true,
+          explored: visited,
+        },
+        style: {
+          opacity: inNeighborhood ? 1 : 0.18,
+          transition: "opacity 200ms ease",
         },
         sourcePosition: Position.Right,
         targetPosition: Position.Left,
@@ -426,6 +481,9 @@ function KnowledgeGraphInner({
     relationshipFilters,
     positions,
     highlightedNodeId,
+    exploreMode,
+    exploreFocusId,
+    exploredDeityIds,
   ]);
 
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
@@ -440,11 +498,16 @@ function KnowledgeGraphInner({
   const handleNodeClick = useCallback(
     (_: React.MouseEvent, node: Node) => {
       const deity = (node.data as { deity: Deity }).deity;
+      if (exploreMode) {
+        setExploreFocusId(deity.id);
+        setHighlightedNodeId(deity.id);
+        return;
+      }
       if (onNodeClick) {
         onNodeClick(deity.id, deity.slug);
       }
     },
-    [onNodeClick],
+    [onNodeClick, exploreMode, setExploreFocusId, setHighlightedNodeId],
   );
 
   // Handle node hover
@@ -466,7 +529,7 @@ function KnowledgeGraphInner({
       fitView({ padding: 0.2, duration: 500 });
     }, 100);
     return () => clearTimeout(timer);
-  }, [fitView, selectedPantheons, clusterByPantheon]);
+  }, [fitView, selectedPantheons, resolvedLayout]);
 
   return (
     <ReactFlow
@@ -503,6 +566,7 @@ export function KnowledgeGraph(props: KnowledgeGraphProps) {
   const [highlightedNodeId, setHighlightedNodeId] = useState<string | null>(
     null,
   );
+  const [exploreFocusId, setExploreFocusId] = useState<string | null>(null);
 
   const listDeities = useMemo(() => {
     return props.deities
@@ -523,14 +587,31 @@ export function KnowledgeGraph(props: KnowledgeGraphProps) {
       >
         <p className="mb-2 text-xs font-medium text-muted-foreground">
           Keyboard list ({listDeities.length})
+          {props.exploreMode && exploreFocusId ? " · explore focus" : ""}
         </p>
+        {props.exploreMode && exploreFocusId && (
+          <button
+            type="button"
+            className="mb-2 text-xs text-gold underline-offset-2 hover:underline"
+            onClick={() => setExploreFocusId(null)}
+          >
+            Clear explore focus
+          </button>
+        )}
         <ul className="space-y-1">
           {listDeities.map((deity) => (
             <li key={deity.id}>
               <button
                 type="button"
                 className="w-full rounded-md px-2 py-1.5 text-left text-sm text-foreground hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold/50"
-                onClick={() => props.onNodeClick?.(deity.id, deity.slug)}
+                onClick={() => {
+                  if (props.exploreMode) {
+                    setExploreFocusId(deity.id);
+                    setHighlightedNodeId(deity.id);
+                    return;
+                  }
+                  props.onNodeClick?.(deity.id, deity.slug);
+                }}
                 onFocus={() => setHighlightedNodeId(deity.id)}
                 onBlur={() => setHighlightedNodeId(null)}
               >
@@ -546,6 +627,8 @@ export function KnowledgeGraph(props: KnowledgeGraphProps) {
             {...props}
             highlightedNodeId={highlightedNodeId}
             setHighlightedNodeId={setHighlightedNodeId}
+            exploreFocusId={exploreFocusId}
+            setExploreFocusId={setExploreFocusId}
           />
         </ReactFlowProvider>
       </div>

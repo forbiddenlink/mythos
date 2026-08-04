@@ -4,36 +4,41 @@ import { cn } from "@/lib/utils";
 interface RouteHeroProps {
   /** Outer wrapper height, e.g. "h-[40vh] min-h-75" */
   heightClassName?: string;
-  /** Background gradient overlay classes, e.g. "bg-linear-to-b from-midnight/70 via-midnight/60 to-mythic z-10" */
+  /** Background gradient overlay classes */
   overlayClassName?: string;
+  /** Widen content for complex heroes (default max-w-3xl to match PageHero) */
+  contentClassName?: string;
   children: React.ReactNode;
 }
 
 /**
- * RouteHero - shared background chrome (gradient overlay + radial gold glow)
- * for simple page-level hero sections. Content is passed as children so each
- * page keeps its own icon/tagline/title/description markup untouched.
+ * RouteHero — background chrome only for pages whose content doesn't fit
+ * PageHero's fixed icon/tagline/title/description shape.
  *
- * Note: distinct from components/layout/page-hero.tsx's `PageHero`, which
- * owns a fixed icon+tagline+title+description shape for listing pages.
- * This primitive only dedupes the background chrome for pages whose hero
- * content doesn't fit that fixed shape.
+ * Children should use `pageTitleClass` / `pageEyebrowClass` / `pageLedeOnDarkClass`
+ * from `@/components/layout/page-typography` so typography matches PageHero.
  */
 export function RouteHero({
-  heightClassName = "h-[40vh] min-h-75",
-  overlayClassName = "bg-linear-to-b from-midnight/70 via-midnight/60 to-mythic z-10",
+  heightClassName = "min-h-[40vh]",
+  overlayClassName = "bg-linear-to-b from-midnight/70 via-midnight/60 to-midnight/80 z-10",
+  contentClassName,
   children,
 }: RouteHeroProps) {
   return (
     <div
       className={cn(
-        "relative flex items-center justify-center overflow-hidden",
+        "relative flex items-center justify-center overflow-hidden bg-midnight",
         heightClassName,
       )}
     >
       <div className={cn("absolute inset-0", overlayClassName)} />
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[120%] h-[60%] bg-gradient-radial from-gold/10 via-transparent to-transparent z-10" />
-      <div className="relative z-20 text-center px-4 max-w-4xl mx-auto">
+      <div
+        className={cn(
+          "relative z-20 text-center px-4 max-w-3xl mx-auto py-16",
+          contentClassName,
+        )}
+      >
         {children}
       </div>
     </div>

@@ -280,6 +280,56 @@ html.cookie-banner-open {
     line-height: 1.6;
   }
 
+  /* Canonical page chrome — prefer these over ad-hoc text-4xl/5xl/6xl recipes */
+  .page-title {
+    font-family: var(--font-cinzel), ui-serif, Georgia, serif;
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    font-weight: 600;
+    text-wrap: pretty;
+  }
+
+  .page-section-title {
+    font-family: var(--font-cinzel), ui-serif, Georgia, serif;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    line-height: 1.25;
+    font-weight: 600;
+    text-wrap: pretty;
+  }
+
+  .page-eyebrow {
+    display: inline-block;
+    font-size: 0.875rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    font-weight: 500;
+    color: color-mix(in oklch, var(--gold) 80%, transparent);
+  }
+
+  .page-lede {
+    font-size: 1.125rem;
+    line-height: 1.6;
+    max-width: 42rem;
+    margin-inline: auto;
+    font-family: var(--font-crimson), ui-serif, Georgia, serif;
+  }
+
+  .page-shell {
+    width: 100%;
+    max-width: 80rem;
+    margin-inline: auto;
+    padding-inline: 1rem;
+    padding-block: 2.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .page-shell {
+      padding-block: 3rem;
+    }
+  }
+
   .text-safe-muted {
     color: var(--text-soft);
   }

@@ -46,7 +46,7 @@ function getQuestionTypeIcon(type: QuestionType) {
     case "spouse":
       return <Heart className={`${iconClass} text-pink-500`} />;
     case "domain":
-      return <Sparkles className={`${iconClass} text-purple-500`} />;
+      return <Sparkles className={`${iconClass} text-gold`} />;
     default:
       return <Users className={iconClass} />;
   }
@@ -78,7 +78,6 @@ export function RelationshipQuizCard({
 
   // Reset state when question changes
   useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect -- reset quiz state when question changes
     setSelectedAnswer(null);
     setShowResult(false);
     setTimeRemaining(timeLimit);

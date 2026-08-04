@@ -1,12 +1,19 @@
-'use client';
+"use client";
 
-import { useEffect, useMemo, useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Target, Clock, Sparkles, CheckCircle2, Gift, ChevronRight } from 'lucide-react';
-import challengesData from '@/data/challenges.json';
-import deitiesData from '@/data/deities.json';
+import { useEffect, useMemo, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import {
+  Target,
+  Clock,
+  Sparkles,
+  CheckCircle2,
+  Gift,
+  ChevronRight,
+} from "lucide-react";
+import challengesData from "@/data/challenges.json";
+import deitiesData from "@/data/deities.json";
 
 interface Challenge {
   id: string;
@@ -85,7 +92,7 @@ export function WeeklyChallenges({
   onClaimReward,
 }: WeeklyChallengesProps) {
   const [mounted, setMounted] = useState(false);
-  const [timeRemaining, setTimeRemaining] = useState('');
+  const [timeRemaining, setTimeRemaining] = useState("");
 
   useEffect(() => {
     // eslint-disable-next-line react-hooks/set-state-in-effect -- track client hydration
@@ -104,26 +111,34 @@ export function WeeklyChallenges({
 
   const calculateProgress = (challenge: Challenge): number => {
     switch (challenge.type) {
-      case 'deity_view': {
+      case "deity_view": {
         if (challenge.pantheon) {
-          const pantheonDeities = deities.filter(d => d.pantheonId === challenge.pantheon);
-          const viewed = pantheonDeities.filter(d => deitiesViewed.includes(d.id)).length;
+          const pantheonDeities = deities.filter(
+            (d) => d.pantheonId === challenge.pantheon,
+          );
+          const viewed = pantheonDeities.filter((d) =>
+            deitiesViewed.includes(d.id),
+          ).length;
           return Math.min(viewed, challenge.target);
         }
         return Math.min(deitiesViewed.length, challenge.target);
       }
-      case 'story_read':
+      case "story_read":
         return Math.min(storiesRead.length, challenge.target);
-      case 'quiz_score': {
+      case "quiz_score": {
         const minScore = challenge.minScore || 80;
-        const qualifyingScores = Object.values(quizScores).filter(s => s >= minScore);
+        const qualifyingScores = Object.values(quizScores).filter(
+          (s) => s >= minScore,
+        );
         return Math.min(qualifyingScores.length, challenge.target);
       }
-      case 'streak':
+      case "streak":
         return Math.min(dailyStreak, challenge.target);
-      case 'pantheon_variety': {
+      case "pantheon_variety": {
         const viewedPantheons = new Set(
-          deities.filter(d => deitiesViewed.includes(d.id)).map(d => d.pantheonId)
+          deities
+            .filter((d) => deitiesViewed.includes(d.id))
+            .map((d) => d.pantheonId),
         );
         return Math.min(viewedPantheons.size, challenge.target);
       }
@@ -143,11 +158,11 @@ export function WeeklyChallenges({
   }
 
   return (
-    <Card className="bg-card/80 backdrop-blur-sm border-purple-500/20">
+    <Card className="bg-card/80 backdrop-blur-sm border-gold/20">
       <CardHeader className="pb-2">
         <div className="flex items-center justify-between">
           <CardTitle className="flex items-center gap-2">
-            <Target className="h-5 w-5 text-purple-500" strokeWidth={1.5} />
+            <Target className="h-5 w-5 text-gold" strokeWidth={1.5} />
             Weekly Challenges
           </CardTitle>
           <div className="flex items-center gap-1.5 text-sm text-muted-foreground">
@@ -172,10 +187,10 @@ export function WeeklyChallenges({
                 transition={{ delay: index * 0.1 }}
                 className={`relative p-4 rounded-xl border transition-all duration-300 ${
                   isClaimed
-                    ? 'bg-green-500/5 border-green-500/30'
+                    ? "bg-green-500/5 border-green-500/30"
                     : isComplete
-                      ? 'bg-linear-to-br from-purple-500/10 to-indigo-500/5 border-purple-500/30'
-                      : 'bg-card/50 border-border/40'
+                      ? "bg-linear-to-br from-gold/10 to-bronze/5 border-gold/30"
+                      : "bg-card/50 border-border/40"
                 }`}
               >
                 <div className="flex items-start justify-between gap-4">
@@ -184,17 +199,19 @@ export function WeeklyChallenges({
                       {isClaimed ? (
                         <CheckCircle2 className="h-4 w-4 text-green-500" />
                       ) : isComplete ? (
-                        <Gift className="h-4 w-4 text-purple-500" />
+                        <Gift className="h-4 w-4 text-gold" />
                       ) : (
                         <ChevronRight className="h-4 w-4 text-muted-foreground" />
                       )}
-                      <h4 className={`font-semibold text-sm ${
-                        isClaimed
-                          ? 'text-green-500'
-                          : isComplete
-                            ? 'text-purple-500'
-                            : 'text-foreground'
-                      }`}>
+                      <h4
+                        className={`font-semibold text-sm ${
+                          isClaimed
+                            ? "text-green-500"
+                            : isComplete
+                              ? "text-gold"
+                              : "text-foreground"
+                        }`}
+                      >
                         {challenge.title}
                       </h4>
                     </div>
@@ -207,13 +224,13 @@ export function WeeklyChallenges({
                       <motion.div
                         initial={{ width: 0 }}
                         animate={{ width: `${percentage}%` }}
-                        transition={{ duration: 0.5, ease: 'easeOut' }}
+                        transition={{ duration: 0.5, ease: "easeOut" }}
                         className={`h-full ${
                           isClaimed
-                            ? 'bg-green-500'
+                            ? "bg-green-500"
                             : isComplete
-                              ? 'bg-linear-to-r from-purple-500 to-indigo-500'
-                              : 'bg-linear-to-r from-purple-500/60 to-indigo-500/60'
+                              ? "bg-linear-to-r from-gold to-bronze"
+                              : "bg-linear-to-r from-gold/60 to-bronze/60"
                         }`}
                       />
                     </div>
@@ -221,7 +238,7 @@ export function WeeklyChallenges({
                       <span className="text-xs text-muted-foreground">
                         {progress} / {challenge.target}
                       </span>
-                      <span className="text-xs text-purple-500/80 flex items-center gap-1">
+                      <span className="text-xs text-gold/80 flex items-center gap-1">
                         <Sparkles className="h-3 w-3" />
                         {challenge.xpReward} XP
                       </span>
@@ -232,8 +249,10 @@ export function WeeklyChallenges({
                   {isComplete && !isClaimed && (
                     <Button
                       size="sm"
-                      onClick={() => onClaimReward(challenge.id, challenge.xpReward)}
-                      className="bg-linear-to-r from-purple-500 to-indigo-500 hover:from-purple-600 hover:to-indigo-600 text-white shrink-0"
+                      onClick={() =>
+                        onClaimReward(challenge.id, challenge.xpReward)
+                      }
+                      className="bg-gold hover:bg-gold/90 text-midnight shrink-0"
                     >
                       <Gift className="h-4 w-4 mr-1" />
                       Claim
@@ -249,7 +268,8 @@ export function WeeklyChallenges({
                     animate={{ opacity: [0.3, 0.5, 0.3] }}
                     transition={{ duration: 2, repeat: Infinity }}
                     style={{
-                      background: 'linear-gradient(135deg, rgba(168, 85, 247, 0.1), transparent)',
+                      background:
+                        "linear-gradient(135deg, oklch(0.72 0.14 70 / 0.12), transparent)",
                     }}
                   />
                 )}

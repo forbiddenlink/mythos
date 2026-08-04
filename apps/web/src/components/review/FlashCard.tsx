@@ -1,10 +1,10 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Card, CardContent } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 import {
   Eye,
   Lightbulb,
@@ -13,9 +13,14 @@ import {
   Globe,
   Sparkles,
   Hash,
-} from 'lucide-react';
-import Image from 'next/image';
-import { RATING_LABELS, type ReviewCard, type DifficultyRating, type FlashcardType } from '@/lib/spaced-repetition';
+} from "lucide-react";
+import Image from "next/image";
+import {
+  RATING_LABELS,
+  type ReviewCard,
+  type DifficultyRating,
+  type FlashcardType,
+} from "@/lib/spaced-repetition";
 
 interface FlashCardProps {
   card: ReviewCard;
@@ -23,35 +28,42 @@ interface FlashCardProps {
   showAnswer?: boolean;
 }
 
-const TYPE_CONFIG: Record<FlashcardType, { icon: typeof Eye; label: string; color: string }> = {
-  'deity-recognition': {
+const TYPE_CONFIG: Record<
+  FlashcardType,
+  { icon: typeof Eye; label: string; color: string }
+> = {
+  "deity-recognition": {
     icon: ImageIcon,
-    label: 'Visual ID',
-    color: 'bg-purple-500/20 text-purple-400 border-purple-500/30',
+    label: "Visual ID",
+    color: "bg-bronze/20 text-bronze border-bronze/30",
   },
-  'domain-match': {
+  "domain-match": {
     icon: Sparkles,
-    label: 'Domain',
-    color: 'bg-gold/20 text-gold border-gold/30',
+    label: "Domain",
+    color: "bg-gold/20 text-gold border-gold/30",
   },
-  'symbol-match': {
+  "symbol-match": {
     icon: Hash,
-    label: 'Symbol',
-    color: 'bg-emerald-500/20 text-emerald-400 border-emerald-500/30',
+    label: "Symbol",
+    color: "bg-patina/20 text-patina border-patina/30",
   },
-  'pantheon-match': {
+  "pantheon-match": {
     icon: Globe,
-    label: 'Pantheon',
-    color: 'bg-blue-500/20 text-blue-400 border-blue-500/30',
+    label: "Pantheon",
+    color: "bg-gold/15 text-gold border-gold/25",
   },
-  'story-character': {
+  "story-character": {
     icon: Users,
-    label: 'Story',
-    color: 'bg-orange-500/20 text-orange-400 border-orange-500/30',
+    label: "Story",
+    color: "bg-bronze/15 text-bronze border-bronze/25",
   },
 };
 
-export function FlashCard({ card, onRate, showAnswer: initialShowAnswer = false }: FlashCardProps) {
+export function FlashCard({
+  card,
+  onRate,
+  showAnswer: initialShowAnswer = false,
+}: FlashCardProps) {
   const [isFlipped, setIsFlipped] = useState(initialShowAnswer);
   const [showHint, setShowHint] = useState(false);
 
@@ -73,20 +85,17 @@ export function FlashCard({ card, onRate, showAnswer: initialShowAnswer = false 
     <div className="w-full max-w-lg mx-auto perspective-1000">
       <AnimatePresence mode="wait">
         <motion.div
-          key={isFlipped ? 'back' : 'front'}
+          key={isFlipped ? "back" : "front"}
           initial={{ rotateY: isFlipped ? -90 : 90, opacity: 0 }}
           animate={{ rotateY: 0, opacity: 1 }}
           exit={{ rotateY: isFlipped ? 90 : -90, opacity: 0 }}
-          transition={{ duration: 0.3, ease: 'easeOut' }}
+          transition={{ duration: 0.3, ease: "easeOut" }}
           className="w-full"
         >
           <Card className="border-2 border-border/60 shadow-xl overflow-hidden min-h-80 flex flex-col">
             {/* Card Header */}
             <div className="flex items-center justify-between px-6 py-4 border-b border-border/40 bg-muted/30">
-              <Badge
-                variant="outline"
-                className={`${typeConfig.color} border`}
-              >
+              <Badge variant="outline" className={`${typeConfig.color} border`}>
                 <TypeIcon className="h-3 w-3 mr-1.5" />
                 {typeConfig.label}
               </Badge>
@@ -98,7 +107,7 @@ export function FlashCard({ card, onRate, showAnswer: initialShowAnswer = false 
                   className="text-muted-foreground hover:text-gold"
                 >
                   <Lightbulb className="h-4 w-4 mr-1.5" />
-                  {showHint ? 'Hide Hint' : 'Show Hint'}
+                  {showHint ? "Hide Hint" : "Show Hint"}
                 </Button>
               )}
             </div>
@@ -168,7 +177,9 @@ export function FlashCard({ card, onRate, showAnswer: initialShowAnswer = false 
                             onClick={() => handleRate(rating)}
                             className={`${config.color} text-white h-auto py-3 flex flex-col gap-1`}
                           >
-                            <span className="font-semibold">{config.label}</span>
+                            <span className="font-semibold">
+                              {config.label}
+                            </span>
                             <span className="text-xs opacity-80">
                               {config.description}
                             </span>

@@ -4,7 +4,8 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import branchingStoriesData from "@/data/branching-stories.json";
 import { BranchingStory, getDiscoveredEndings } from "@/lib/branching-story";
-import { ChevronRight, Gamepad2, Sparkles, Trophy } from "lucide-react";
+import { ChevronRight } from "lucide-react";
+import { MythosMark } from "@/components/icons/mythos-marks";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -34,9 +35,9 @@ export function InteractiveStoriesBanner() {
   const featuredStory = branchingStories[0];
 
   return (
-    <section className="py-12 bg-linear-to-b from-background to-midnight/5">
+    <section className="py-20 md:py-24 bg-linear-to-b from-background to-midnight/5">
       <div className="container mx-auto max-w-6xl px-4">
-        <div className="relative overflow-hidden rounded-2xl border border-gold/20 bg-linear-to-br from-midnight/80 via-midnight/90 to-midnight shadow-xl">
+        <div className="relative overflow-hidden rounded-xl border border-gold/20 bg-linear-to-br from-midnight/85 via-midnight/92 to-midnight">
           {/* Decorative elements */}
           <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-radial from-gold/10 to-transparent opacity-50" />
           <div className="absolute bottom-0 left-0 w-64 h-64 bg-gradient-radial from-gold/5 to-transparent" />
@@ -46,29 +47,32 @@ export function InteractiveStoriesBanner() {
               {/* Content */}
               <div className="flex-1">
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="p-2.5 rounded-xl bg-gold/20 border border-gold/30">
-                    <Gamepad2 className="h-6 w-6 text-gold" />
+                  <div className="relative flex h-11 w-11 items-center justify-center border border-gold/35 bg-gold/15">
+                    <MythosMark id="labyrinth" className="h-6 w-6 text-gold" />
                   </div>
-                  <Badge className="bg-gold/20 text-amber-900 dark:text-amber-100 border-gold/30 px-3 py-1">
-                    <Sparkles className="h-3 w-3 mr-1" />
-                    Interactive
+                  <Badge className="rounded-sm bg-gold/20 text-gold border-gold/30 px-3 py-1">
+                    <MythosMark
+                      id="constellation"
+                      className="h-3 w-3 mr-1 inline"
+                    />
+                    Branching myth
                   </Badge>
                 </div>
 
-                <h2 className="font-serif text-3xl md:text-4xl font-semibold text-parchment mb-3">
-                  Choose Your Own Mythology
+                <h2 className="font-serif text-3xl md:text-4xl font-semibold text-parchment text-pretty mb-3">
+                  Branching myths you can play
                 </h2>
 
-                <p className="text-parchment/70 text-lg mb-6 max-w-xl">
-                  Step into the sandals of legendary heroes. Make choices that
-                  shape destiny. Discover multiple endings in immersive
-                  mythological adventures.
+                <p className="text-parchment/70 text-lg mb-6 max-w-xl font-body">
+                  Stand in Paris&rsquo;s place before Hera, Athena, and
+                  Aphrodite — each gift a different war. Choices rewrite the
+                  ending.
                 </p>
 
                 {/* Stats */}
                 <div className="flex items-center gap-6 mb-6">
                   <div className="flex items-center gap-2">
-                    <Trophy className="h-5 w-5 text-gold" />
+                    <MythosMark id="laurel" className="h-5 w-5 text-gold" />
                     <span className="text-parchment">
                       <span className="font-semibold text-gold">
                         {branchingStories.length}
@@ -93,7 +97,7 @@ export function InteractiveStoriesBanner() {
                     className="bg-gold hover:bg-gold-dark text-midnight"
                   >
                     <Link href={`/stories/interactive/${featuredStory.slug}`}>
-                      <Gamepad2 className="h-5 w-5 mr-2" />
+                      <MythosMark id="labyrinth" className="h-5 w-5 mr-2" />
                       Play Now
                     </Link>
                   </Button>

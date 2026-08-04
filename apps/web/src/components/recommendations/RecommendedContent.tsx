@@ -9,7 +9,8 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Sparkles, BookOpen, Compass, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
+import { MythosMark } from "@/components/icons/mythos-marks";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -45,7 +46,7 @@ export function RecommendedContent({
       {/* Main Recommendations */}
       <div>
         <div className="flex items-center gap-2 mb-4">
-          <Sparkles className="h-5 w-5 text-gold" />
+          <MythosMark id="compass" className="h-5 w-5 text-gold" />
           <h2 className="font-serif text-2xl font-bold">
             {hasHistory ? "Recommended For You" : "Start Your Journey"}
           </h2>
@@ -58,9 +59,7 @@ export function RecommendedContent({
         {displayedDeities.length > 0 && (
           <div className="mb-8">
             <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
-              <span className="w-8 h-8 rounded-full bg-gold/10 flex items-center justify-center">
-                <Sparkles className="h-4 w-4 text-gold" />
-              </span>
+              <MythosMark id="laurel" className="h-5 w-5 text-gold" />
               Deities to Discover
             </h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
@@ -115,7 +114,7 @@ export function RecommendedContent({
           <div>
             <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
               <span className="w-8 h-8 rounded-full bg-teal-500/10 flex items-center justify-center">
-                <BookOpen className="h-4 w-4 text-teal-600" />
+                <MythosMark id="scroll" className="h-4 w-4 text-gold" />
               </span>
               Stories to Read
             </h3>
@@ -150,8 +149,8 @@ export function RecommendedContent({
       {showPantheonSuggestions && pantheonSuggestions.length > 0 && (
         <div>
           <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
-            <span className="w-8 h-8 rounded-full bg-purple-500/10 flex items-center justify-center">
-              <Compass className="h-4 w-4 text-purple-600" />
+            <span className="relative inline-flex h-8 w-8 items-center justify-center border border-gold/30 bg-gold/5">
+              <MythosMark id="compass" className="h-4 w-4 text-gold" />
             </span>
             Continue Exploring
           </h3>
@@ -164,17 +163,17 @@ export function RecommendedContent({
                 <Card className="h-full hover:shadow-lg transition-all duration-300 hover:-translate-y-1 group">
                   <CardContent className="pt-4">
                     <div className="flex items-center justify-between mb-2">
-                      <h4 className="font-semibold group-hover:text-purple-600 transition-colors">
+                      <h4 className="font-semibold group-hover:text-gold transition-colors">
                         {suggestion.pantheonName} Pantheon
                       </h4>
-                      <ArrowRight className="h-4 w-4 text-slate-400 group-hover:text-purple-600 group-hover:translate-x-1 transition-all" />
+                      <ArrowRight className="h-4 w-4 text-muted-foreground group-hover:text-gold group-hover:translate-x-1 transition-all" />
                     </div>
-                    <p className="text-sm text-slate-600 dark:text-slate-400 mb-3">
+                    <p className="text-sm text-muted-foreground mb-3">
                       {suggestion.suggestion}
                     </p>
-                    <div className="h-2 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
+                    <div className="h-2 bg-muted rounded-full overflow-hidden">
                       <div
-                        className="h-full bg-linear-to-r from-purple-500 to-purple-600 rounded-full transition-all duration-500"
+                        className="h-full bg-linear-to-r from-gold to-bronze rounded-full transition-all duration-500"
                         style={{
                           width: `${((suggestion.totalCount - suggestion.unviewedCount) / suggestion.totalCount) * 100}%`,
                         }}
@@ -199,8 +198,8 @@ export function RecommendedContent({
           <Card className="bg-linear-to-r from-amber-50 to-orange-50 dark:from-amber-950/30 dark:to-orange-950/30 border-amber-200 dark:border-amber-800">
             <CardContent className="pt-4">
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full bg-amber-100 dark:bg-amber-900/50 flex items-center justify-center shrink-0">
-                  <Compass className="h-6 w-6 text-amber-600" />
+                <div className="relative flex h-12 w-12 shrink-0 items-center justify-center border border-gold/30 bg-gold/5">
+                  <MythosMark id="compass" className="h-6 w-6 text-gold" />
                 </div>
                 <div className="flex-1">
                   <h4 className="font-semibold text-amber-800 dark:text-amber-200">

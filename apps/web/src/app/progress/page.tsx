@@ -12,29 +12,11 @@ import {
   ProgressContext,
   type ProgressContextValue,
 } from "@/providers/progress-provider";
-import {
-  Axe,
-  BookMarked,
-  BookOpen,
-  Calendar,
-  Compass,
-  Crown,
-  Eye,
-  Flame,
-  GitBranch,
-  GraduationCap,
-  Link,
-  Lock,
-  Map,
-  MapPin,
-  PawPrint,
-  Pencil,
-  Sparkles,
-  Star,
-  Sword,
-  Target,
-  Trophy,
-} from "lucide-react";
+import { Lock } from "lucide-react";
+import { HeroMark } from "@/components/icons/hero-mark";
+import { MythosMark, type MythosMarkId } from "@/components/icons/mythos-marks";
+import { ExplorationWrapped } from "@/components/progress/ExplorationWrapped";
+import { RetentionPulse } from "@/components/progress/RetentionPulse";
 import NextLink from "next/link";
 import { useContext } from "react";
 
@@ -53,29 +35,31 @@ function useProgress(): ProgressContextValue {
   return context;
 }
 
-// Map icon names to Lucide components
-const iconMap: Record<string, typeof Eye> = {
-  eye: Eye,
-  "book-open": BookOpen,
-  "map-pin": MapPin,
-  crown: Crown,
-  axe: Axe,
-  pyramid: Target, // Using Target as placeholder for pyramid
-  compass: Compass,
-  library: BookOpen,
-  book: BookOpen,
-  globe: Map,
-  pencil: Pencil,
-  trophy: Trophy,
-  "graduation-cap": GraduationCap,
-  flame: Flame,
-  star: Star,
-  calendar: Calendar,
-  "git-branch": GitBranch,
-  link: Link,
-  "book-marked": BookMarked,
-  sword: Sword,
-  "paw-print": PawPrint,
+// Map achievement icon keys → Mythos marks
+const iconMap: Record<string, MythosMarkId> = {
+  eye: "owl",
+  "book-open": "scroll",
+  "map-pin": "peak",
+  crown: "scepter",
+  axe: "blade",
+  pyramid: "chronos",
+  compass: "compass",
+  library: "codex",
+  book: "scroll",
+  globe: "temple",
+  pencil: "scroll",
+  trophy: "laurel",
+  "graduation-cap": "torch",
+  flame: "torch",
+  sword: "blade",
+  star: "constellation",
+  sparkles: "constellation",
+  "git-branch": "tree",
+  calendar: "chronos",
+  "book-marked": "favor",
+  "paw-print": "serpent",
+  link: "scales",
+  target: "lyre",
 };
 
 interface Achievement {
@@ -89,10 +73,11 @@ interface Achievement {
 }
 
 const progressTierBadgeClasses: Record<string, string> = {
-  mythic: "bg-violet-100 text-violet-950 border-violet-300",
-  gold: "bg-amber-100 text-amber-950 border-amber-300",
-  silver: "bg-slate-200 text-slate-950 border-slate-300",
-  bronze: "bg-orange-100 text-orange-950 border-orange-300",
+  mythic:
+    "bg-midnight/10 text-midnight dark:bg-gold/15 dark:text-gold border-gold/40",
+  gold: "bg-gold/15 text-gold-dark dark:text-gold border-gold/35",
+  silver: "bg-muted text-foreground border-border",
+  bronze: "bg-bronze/15 text-bronze border-bronze/35",
 };
 
 function inferAchievementTier(
@@ -114,7 +99,7 @@ function AchievementCard({
   achievement,
   unlocked,
 }: Readonly<AchievementCardProps>) {
-  const IconComponent = iconMap[achievement.icon] || Trophy;
+  const markId = iconMap[achievement.icon] ?? "laurel";
   const tier = inferAchievementTier(achievement);
   const tierBadgeClass = progressTierBadgeClasses[tier];
 
@@ -128,21 +113,25 @@ function AchievementCard({
     >
       {/* Glow effect for unlocked achievements */}
       {unlocked && (
-        <div className="absolute inset-0 rounded-xl bg-linear-to-br from-amber-500/5 to-transparent pointer-events-none" />
+        <div className="absolute inset-0 rounded-xl bg-linear-to-br from-gold/5 to-transparent pointer-events-none" />
       )}
 
       <div className="relative flex items-start gap-3">
         <div
-          className={`w-12 h-12 rounded-lg flex items-center justify-center shrink-0 ${
+          className={`relative flex h-12 w-12 shrink-0 items-center justify-center border ${
             unlocked
-              ? "bg-linear-to-br from-gold-dark via-gold to-gold-light text-midnight shadow-md"
-              : "bg-muted text-foreground/70 border border-border/60"
+              ? "border-gold/40 bg-gold/10 text-gold"
+              : "border-border/60 bg-muted text-foreground/70"
           }`}
         >
+          <span className="absolute left-0 top-0 h-2 w-2 border-l border-t border-current opacity-40" />
+          <span className="absolute right-0 top-0 h-2 w-2 border-r border-t border-current opacity-40" />
+          <span className="absolute bottom-0 left-0 h-2 w-2 border-b border-l border-current opacity-40" />
+          <span className="absolute bottom-0 right-0 h-2 w-2 border-b border-r border-current opacity-40" />
           {unlocked ? (
-            <IconComponent className="h-6 w-6" strokeWidth={1.5} />
+            <MythosMark id={markId} className="relative h-6 w-6" />
           ) : (
-            <Lock className="h-5 w-5" />
+            <Lock className="relative h-5 w-5" />
           )}
         </div>
 
@@ -161,9 +150,9 @@ function AchievementCard({
             {achievement.description}
           </p>
           <div
-            className={`flex items-center gap-1 mt-2 text-xs ${unlocked ? "text-amber-700" : "text-safe-subtle"}`}
+            className={`flex items-center gap-1 mt-2 text-xs ${unlocked ? "text-gold" : "text-safe-subtle"}`}
           >
-            <Sparkles className="h-3 w-3" />
+            <MythosMark id="constellation" className="h-3 w-3" />
             <span>{achievement.xp} XP</span>
           </div>
         </div>
@@ -176,14 +165,14 @@ interface ProgressBarProps {
   label: string;
   current: number;
   total: number;
-  icon: typeof Eye;
+  mark: MythosMarkId;
 }
 
 function ProgressBar({
   label,
   current,
   total,
-  icon: Icon,
+  mark,
 }: Readonly<ProgressBarProps>) {
   const percentage = total > 0 ? Math.round((current / total) * 100) : 0;
 
@@ -191,7 +180,7 @@ function ProgressBar({
     <div className="space-y-2">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
-          <Icon className="h-4 w-4 text-amber-500" strokeWidth={1.5} />
+          <MythosMark id={mark} className="h-4 w-4 text-gold" />
           <span className="text-sm font-medium text-foreground">{label}</span>
         </div>
         <span className="text-sm text-muted-foreground">
@@ -255,35 +244,27 @@ export default function ProgressPage() {
       <div className="relative overflow-hidden bg-linear-to-b from-midnight via-midnight/95 to-mythic py-16 md:py-24">
         {/* Background decorations */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-0 left-1/4 w-96 h-96 bg-amber-500/5 rounded-full blur-3xl" />
-          <div className="absolute bottom-0 right-1/4 w-64 h-64 bg-amber-600/5 rounded-full blur-3xl" />
+          <div className="absolute top-0 left-1/4 w-96 h-96 bg-gold/5 rounded-full blur-3xl" />
+          <div className="absolute bottom-0 right-1/4 w-64 h-64 bg-bronze/5 rounded-full blur-3xl" />
         </div>
 
         <div className="container mx-auto max-w-7xl px-4 relative z-10">
           {/* Title */}
           <div className="text-center mb-12">
             <div className="flex items-center justify-center mb-6">
-              <div className="relative p-4 rounded-xl border border-amber-500/20 bg-midnight/50 backdrop-blur-sm">
-                <div className="absolute inset-0 rounded-xl bg-linear-to-br from-amber-500/10 to-transparent" />
-                <Trophy
-                  className="relative h-10 w-10 text-amber-500"
-                  strokeWidth={1.5}
-                />
-              </div>
+              <HeroMark mark="laurel" tone="gold" size="lg" />
             </div>
-            <span className="inline-block text-amber-500/80 text-sm tracking-[0.25em] uppercase mb-4 font-medium">
+            <span className="inline-block text-gold/80 text-sm tracking-[0.25em] uppercase mb-4 font-medium">
               Your Progress
             </span>
-            <h1 className="font-serif text-5xl md:text-6xl font-semibold tracking-tight mb-6 text-parchment">
-              Your Journey
-            </h1>
+            <h1 className="page-title text-parchment mb-6">Your Journey</h1>
             <div className="flex items-center justify-center gap-4 mb-6">
-              <div className="w-12 h-px bg-linear-to-r from-transparent to-amber-500/40" />
-              <div className="w-1.5 h-1.5 rotate-45 bg-amber-500/50" />
-              <div className="w-12 h-px bg-linear-to-l from-transparent to-amber-500/40" />
+              <div className="w-12 h-px bg-linear-to-r from-transparent to-gold/40" />
+              <div className="w-1.5 h-1.5 rotate-45 bg-gold/50" />
+              <div className="w-12 h-px bg-linear-to-l from-transparent to-gold/40" />
             </div>
             {stats.totalXP === 0 ? (
-              <div className="mx-auto max-w-lg rounded-xl border border-amber-500/20 bg-midnight/40 px-6 py-5 text-left backdrop-blur-sm">
+              <div className="mx-auto max-w-lg rounded-xl border border-gold/20 bg-midnight/40 px-6 py-5 text-left backdrop-blur-sm">
                 <p className="font-serif text-lg text-parchment">
                   Start earning XP
                 </p>
@@ -294,13 +275,13 @@ export default function ProgressPage() {
                 <div className="mt-4 flex flex-wrap gap-3">
                   <NextLink
                     href="/quiz"
-                    className="inline-flex min-h-11 items-center rounded-md bg-amber-500 px-4 text-sm font-medium text-midnight hover:bg-amber-400"
+                    className="inline-flex min-h-11 items-center rounded-md bg-gold px-4 text-sm font-medium text-midnight hover:bg-gold-light"
                   >
                     Take a quiz
                   </NextLink>
                   <NextLink
                     href="/deities"
-                    className="inline-flex min-h-11 items-center rounded-md border border-amber-500/30 px-4 text-sm font-medium text-parchment hover:bg-amber-500/10"
+                    className="inline-flex min-h-11 items-center rounded-md border border-gold/30 px-4 text-sm font-medium text-parchment hover:bg-gold/10"
                   >
                     Browse deities
                   </NextLink>
@@ -312,11 +293,15 @@ export default function ProgressPage() {
           {/* Stats Cards */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
             {/* Level & XP Card */}
-            <Card className="bg-card/80 backdrop-blur-sm border-amber-500/20">
+            <Card className="bg-card/80 backdrop-blur-sm border-gold/20">
               <CardContent className="pt-6">
                 <div className="flex items-center gap-4">
-                  <div className="w-16 h-16 rounded-xl bg-linear-to-br from-amber-500 to-amber-600 flex items-center justify-center shadow-lg shadow-amber-500/20">
-                    <span className="text-2xl font-bold text-white">
+                  <div className="relative flex h-16 w-16 shrink-0 items-center justify-center border border-gold/35 bg-midnight/40">
+                    <span className="absolute left-0 top-0 h-2.5 w-2.5 border-l border-t border-gold/40" />
+                    <span className="absolute right-0 top-0 h-2.5 w-2.5 border-r border-t border-gold/40" />
+                    <span className="absolute bottom-0 left-0 h-2.5 w-2.5 border-b border-l border-gold/40" />
+                    <span className="absolute bottom-0 right-0 h-2.5 w-2.5 border-b border-r border-gold/40" />
+                    <span className="relative text-2xl font-serif font-semibold text-gold">
                       {level}
                     </span>
                   </div>
@@ -341,12 +326,10 @@ export default function ProgressPage() {
             </Card>
 
             {/* Daily Streak Card */}
-            <Card className="bg-card/80 backdrop-blur-sm border-amber-500/20">
+            <Card className="bg-card/80 backdrop-blur-sm border-gold/20">
               <CardContent className="pt-6">
                 <div className="flex items-center gap-4">
-                  <div className="w-16 h-16 rounded-xl bg-linear-to-br from-orange-500 to-red-500 flex items-center justify-center shadow-lg shadow-orange-500/20">
-                    <Flame className="h-8 w-8 text-white" strokeWidth={1.5} />
-                  </div>
+                  <HeroMark mark="torch" tone="bronze" size="lg" />
                   <div>
                     <p className="text-sm text-muted-foreground">
                       Daily Streak
@@ -363,12 +346,10 @@ export default function ProgressPage() {
             </Card>
 
             {/* Achievements Card */}
-            <Card className="bg-card/80 backdrop-blur-sm border-amber-500/20">
+            <Card className="bg-card/80 backdrop-blur-sm border-gold/20">
               <CardContent className="pt-6">
                 <div className="flex items-center gap-4">
-                  <div className="w-16 h-16 rounded-xl bg-linear-to-br from-purple-500 to-indigo-500 flex items-center justify-center shadow-lg shadow-purple-500/20">
-                    <Star className="h-8 w-8 text-white" strokeWidth={1.5} />
-                  </div>
+                  <HeroMark mark="laurel" tone="gold" size="lg" />
                   <div>
                     <p className="text-sm text-muted-foreground">
                       Achievements
@@ -390,6 +371,11 @@ export default function ProgressPage() {
       {/* Main Content */}
       <div className="container mx-auto max-w-7xl px-4 py-12 bg-mythic">
         <Breadcrumbs />
+
+        <div className="mt-8 mb-10 space-y-6">
+          <ExplorationWrapped />
+          <RetentionPulse />
+        </div>
 
         <div className="mt-6 rounded-lg border border-border/60 bg-card/60 p-4">
           <p className="text-sm text-muted-foreground">
@@ -426,7 +412,7 @@ export default function ProgressPage() {
           <Card className="bg-card/80 backdrop-blur-sm">
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
-                <Compass className="h-5 w-5 text-amber-500" strokeWidth={1.5} />
+                <MythosMark id="compass" className="h-5 w-5 text-gold" />
                 Discovery Progress
               </CardTitle>
             </CardHeader>
@@ -435,25 +421,25 @@ export default function ProgressPage() {
                 label="Deities Viewed"
                 current={stats.totalDeitiesViewed}
                 total={TOTAL_DEITIES}
-                icon={Eye}
+                mark="owl"
               />
               <ProgressBar
                 label="Stories Read"
                 current={stats.totalStoriesRead}
                 total={TOTAL_STORIES}
-                icon={BookOpen}
+                mark="scroll"
               />
               <ProgressBar
                 label="Locations Visited"
                 current={stats.totalLocationsVisited}
                 total={TOTAL_LOCATIONS}
-                icon={MapPin}
+                mark="peak"
               />
               <ProgressBar
                 label="Pantheons Explored"
                 current={stats.totalPantheonsExplored}
                 total={TOTAL_PANTHEONS}
-                icon={Map}
+                mark="temple"
               />
             </CardContent>
           </Card>
@@ -462,7 +448,7 @@ export default function ProgressPage() {
         {/* Achievements Gallery */}
         <section className="mt-12 rounded-3xl border border-gold/15 bg-linear-to-br from-card via-card to-gold/5 p-6 md:p-8">
           <h2 className="font-serif text-2xl font-semibold text-foreground mb-6 flex items-center gap-2">
-            <Trophy className="h-6 w-6 text-amber-500" strokeWidth={1.5} />
+            <MythosMark id="laurel" className="h-6 w-6 text-gold" />
             Achievements Gallery
           </h2>
           <p className="text-safe-muted mb-8 max-w-2xl">
@@ -477,7 +463,7 @@ export default function ProgressPage() {
             return (
               <div key={category} className="mb-8">
                 <h3 className="text-lg font-medium text-muted-foreground mb-4 flex items-center gap-2">
-                  <div className="w-1.5 h-1.5 rounded-full bg-amber-500" />
+                  <div className="w-1.5 h-1.5 rounded-full bg-gold" />
                   {categoryLabels[category]}
                 </h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
@@ -500,10 +486,7 @@ export default function ProgressPage() {
             <Card className="bg-card/80 backdrop-blur-sm">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
-                  <GraduationCap
-                    className="h-5 w-5 text-amber-500"
-                    strokeWidth={1.5}
-                  />
+                  <MythosMark id="lyre" className="h-5 w-5 text-gold" />
                   Quiz Performance
                 </CardTitle>
               </CardHeader>

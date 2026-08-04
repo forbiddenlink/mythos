@@ -45,69 +45,70 @@ const iconMap: Record<string, IconComponent> = {
   hammer: Hammer,
 };
 
+/* Classical atlas palette — gold, bronze, patina, parchment, wine — not rainbow SaaS chips */
 const themeColors: Record<
   string,
   { bg: string; border: string; text: string }
 > = {
   chaos: {
-    bg: "from-purple-500/10 to-violet-600/10",
-    border: "border-purple-500/30",
-    text: "text-purple-400",
+    bg: "from-bronze/15 to-gold/5",
+    border: "border-bronze/35",
+    text: "text-bronze",
   },
   death: {
-    bg: "from-slate-500/10 to-gray-600/10",
-    border: "border-slate-500/30",
-    text: "text-slate-400",
+    bg: "from-midnight/20 to-muted/40",
+    border: "border-foreground/20",
+    text: "text-muted-foreground",
   },
   sky: {
-    bg: "from-blue-500/10 to-cyan-600/10",
-    border: "border-blue-500/30",
-    text: "text-blue-400",
+    bg: "from-patina/15 to-midnight/10",
+    border: "border-patina/35",
+    text: "text-patina",
   },
   love: {
-    bg: "from-pink-500/10 to-rose-600/10",
-    border: "border-pink-500/30",
-    text: "text-pink-400",
+    bg: "from-[oklch(0.45_0.1_25)]/15 to-bronze/10",
+    border: "border-bronze/35",
+    text: "text-bronze",
   },
   war: {
-    bg: "from-red-500/10 to-orange-600/10",
-    border: "border-red-500/30",
-    text: "text-red-400",
+    bg: "from-destructive/10 to-bronze/10",
+    border: "border-destructive/30",
+    text: "text-destructive",
   },
   sun: {
-    bg: "from-yellow-500/10 to-amber-600/10",
-    border: "border-yellow-500/30",
-    text: "text-yellow-400",
+    bg: "from-gold/15 to-bronze/10",
+    border: "border-gold/35",
+    text: "text-gold-text",
   },
   water: {
-    bg: "from-cyan-500/10 to-blue-600/10",
-    border: "border-cyan-500/30",
-    text: "text-cyan-400",
+    bg: "from-patina/15 to-patina/5",
+    border: "border-patina/30",
+    text: "text-patina",
   },
   wisdom: {
-    bg: "from-indigo-500/10 to-blue-600/10",
-    border: "border-indigo-500/30",
-    text: "text-indigo-400",
+    bg: "from-midnight/15 to-gold/5",
+    border: "border-gold/25",
+    text: "text-gold-text",
   },
   creation: {
-    bg: "from-gold/10 to-amber-600/10",
+    bg: "from-gold/10 to-bronze/10",
     border: "border-gold/30",
-    text: "text-gold",
+    text: "text-gold-text",
   },
   flood: {
-    bg: "from-teal-500/10 to-cyan-600/10",
-    border: "border-teal-500/30",
-    text: "text-teal-400",
+    bg: "from-patina/12 to-midnight/10",
+    border: "border-patina/30",
+    text: "text-patina",
   },
   earth: {
-    bg: "from-green-500/10 to-emerald-600/10",
-    border: "border-green-500/30",
-    text: "text-green-400",
+    bg: "from-bronze/15 to-patina/10",
+    border: "border-bronze/30",
+    text: "text-bronze",
   },
   craft: {
-    bg: "from-orange-500/10 to-amber-600/10",
-    border: "border-orange-500/30",
-    text: "text-orange-400",
+    bg: "from-bronze/15 to-gold/10",
+    border: "border-bronze/35",
+    text: "text-bronze",
   },
 };
 
@@ -206,7 +207,7 @@ export default async function CollectionPage({ params }: PageProps) {
             </div>
 
             <div className="flex-1">
-              <h1 className="font-serif text-4xl md:text-5xl font-bold mb-4">
+              <h1 className="page-title text-foreground mb-4">
                 {collection.name}
               </h1>
               <p className="text-lg text-muted-foreground max-w-3xl leading-relaxed">
@@ -250,7 +251,7 @@ export default async function CollectionPage({ params }: PageProps) {
         </Link>
 
         <section className="mb-10 rounded-2xl border border-border/60 bg-card/60 p-6">
-          <h2 className="font-serif text-2xl font-semibold text-foreground">
+          <h2 className="page-section-title text-foreground">
             Why This Theme Is Useful
           </h2>
           <p className="mt-3 leading-relaxed text-muted-foreground">

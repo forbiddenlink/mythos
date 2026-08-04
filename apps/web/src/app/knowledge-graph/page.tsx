@@ -4,13 +4,16 @@ import { useState, useMemo, useCallback } from "react";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
-import { Network, Maximize2, Minimize2, Loader2 } from "lucide-react";
+import { Maximize2, Minimize2, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { GraphControls } from "@/components/graph/GraphControls";
 import { GraphLegend } from "@/components/graph/GraphLegend";
 import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
+import { HeroMark } from "@/components/icons/hero-mark";
+import { MythosMark } from "@/components/icons/mythos-marks";
 import { normalizeDeityReference } from "@/lib/deities";
+import { useProgress } from "@/hooks/use-progress";
 
 const HERO_IMAGE_WIDTH = 1920;
 const HERO_IMAGE_HEIGHT = 1080;
@@ -72,8 +75,18 @@ interface Pantheon {
 
 export default function KnowledgeGraphPage() {
   const router = useRouter();
+  const { progress } = useProgress();
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [clusterByPantheon, setClusterByPantheon] = useState(true);
+  const [layoutMode, setLayoutMode] = useState<"cluster" | "grid" | "radial">(
+    "cluster",
+  );
+  const [exploreMode, setExploreMode] = useState(false);
+
+  const exploredDeityIds = useMemo(
+    () => new Set(progress.deitiesViewed ?? []),
+    [progress.deitiesViewed],
+  );
 
   // Initialize with all pantheons selected
   const [selectedPantheons, setSelectedPantheons] = useState<Set<string>>(
@@ -179,7 +192,7 @@ export default function KnowledgeGraphPage() {
         <div className="absolute top-0 left-0 right-0 z-10 p-4 bg-linear-to-b from-slate-950 to-transparent">
           <div className="flex items-center justify-between">
             <h1 className="font-serif text-xl font-bold text-white flex items-center gap-2">
-              <Network className="h-5 w-5 text-teal-400" />
+              <MythosMark id="constellation" className="h-5 w-5 text-gold" />
               Knowledge Graph
             </h1>
             <Button
@@ -209,6 +222,8 @@ export default function KnowledgeGraphPage() {
             onCenterNode={handleCenterNode}
             clusterByPantheon={clusterByPantheon}
             onClusterChange={setClusterByPantheon}
+            layoutMode={layoutMode}
+            onLayoutModeChange={setLayoutMode}
           />
         </div>
 
@@ -226,6 +241,9 @@ export default function KnowledgeGraphPage() {
             selectedPantheons={selectedPantheons}
             relationshipFilters={relationshipFilters}
             clusterByPantheon={clusterByPantheon}
+            layoutMode={layoutMode}
+            exploreMode={exploreMode}
+            exploredDeityIds={exploredDeityIds}
             onNodeClick={handleNodeClick}
           />
         </div>
@@ -253,7 +271,7 @@ export default function KnowledgeGraphPage() {
         <div className="container mx-auto max-w-7xl px-4 py-16 relative z-10">
           <div className="flex items-center gap-3 mb-4">
             <div className="w-12 h-12 rounded-lg bg-linear-to-br from-indigo-600 to-purple-700 flex items-center justify-center shadow-lg">
-              <Network className="h-6 w-6 text-white" />
+              <HeroMark mark="constellation" tone="gold" size="md" />
             </div>
             <div>
               <h1 className="font-serif text-4xl font-bold tracking-tight text-white">
@@ -327,6 +345,25 @@ export default function KnowledgeGraphPage() {
       <div className="container mx-auto max-w-7xl px-4 py-12">
         <Breadcrumbs />
 
+        <div className="mb-4 flex flex-wrap items-center gap-3">
+          <Button
+            type="button"
+            variant={exploreMode ? "default" : "outline"}
+            size="sm"
+            onClick={() => setExploreMode((v) => !v)}
+            className={
+              exploreMode ? "bg-gold text-midnight hover:bg-gold/90" : ""
+            }
+          >
+            <MythosMark id="constellation" className="mr-2 h-4 w-4" />
+            {exploreMode ? "Explore mode on" : "Explore mode"}
+          </Button>
+          <p className="text-sm text-muted-foreground">
+            Click a deity to focus its neighborhood; visited nodes keep a patina
+            ring.
+          </p>
+        </div>
+
         {/* Controls Bar */}
         <section className="mb-6">
           <h2 className="sr-only">Graph Controls</h2>
@@ -343,6 +380,8 @@ export default function KnowledgeGraphPage() {
             onCenterNode={handleCenterNode}
             clusterByPantheon={clusterByPantheon}
             onClusterChange={setClusterByPantheon}
+            layoutMode={layoutMode}
+            onLayoutModeChange={setLayoutMode}
           />
         </section>
 
@@ -351,7 +390,7 @@ export default function KnowledgeGraphPage() {
           <CardHeader className="border-b border-border/50 bg-slate-50/50 dark:bg-slate-900/50">
             <div className="flex items-center justify-between">
               <CardTitle className="font-serif flex items-center gap-2">
-                <Network className="h-5 w-5 text-indigo-500" />
+                <MythosMark id="constellation" className="h-5 w-5 text-gold" />
                 Interactive Graph
                 <span className="text-muted-foreground font-sans font-normal text-sm opacity-60">
                   {selectedPantheons.size} pantheon
@@ -378,6 +417,9 @@ export default function KnowledgeGraphPage() {
                 selectedPantheons={selectedPantheons}
                 relationshipFilters={relationshipFilters}
                 clusterByPantheon={clusterByPantheon}
+                layoutMode={layoutMode}
+                exploreMode={exploreMode}
+                exploredDeityIds={exploredDeityIds}
                 onNodeClick={handleNodeClick}
               />
 

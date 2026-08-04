@@ -1,8 +1,14 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { BookOpen, ExternalLink } from "lucide-react";
+import { ExternalLink } from "lucide-react";
+import { HeroMark } from "@/components/icons/hero-mark";
 import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
 import { generateBaseMetadata } from "@/lib/metadata";
 import { RouteHero } from "@/components/layout/route-hero";
+import {
+  pageLedeOnDarkClass,
+  pageTitleOnDarkClass,
+} from "@/components/layout/page-typography";
+import { cn } from "@/lib/utils";
 
 export const metadata = generateBaseMetadata({
   title: "Sources & References",
@@ -86,25 +92,23 @@ export default function SourcesPage() {
       {/* Hero Section */}
       <RouteHero>
         <div className="flex items-center justify-center mb-6">
-          <div className="relative p-4 rounded-xl border border-gold/20 bg-midnight/50 backdrop-blur-sm">
-            <BookOpen className="h-10 w-10 text-gold" strokeWidth={1.5} />
-          </div>
+          <HeroMark mark="codex" tone="gold" size="lg" />
         </div>
-        <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tight mb-6 text-parchment">
-          Sources & References
+        <h1 className={cn(pageTitleOnDarkClass, "mb-6")}>
+          Sources &amp; References
         </h1>
         <div className="flex items-center justify-center gap-4 mb-6">
           <div className="w-12 h-px bg-linear-to-r from-transparent to-gold/40" />
           <div className="w-1.5 h-1.5 rotate-45 bg-gold/50" />
           <div className="w-12 h-px bg-linear-to-l from-transparent to-gold/40" />
         </div>
-        <p className="text-lg md:text-xl text-parchment/70 max-w-2xl mx-auto font-body leading-relaxed">
+        <p className={pageLedeOnDarkClass}>
           Academic sources and primary texts used in our research
         </p>
       </RouteHero>
 
       {/* Content Section */}
-      <div className="container mx-auto max-w-4xl px-4 py-16">
+      <div className="page-shell max-w-4xl">
         <Breadcrumbs />
 
         <div className="mt-8">
