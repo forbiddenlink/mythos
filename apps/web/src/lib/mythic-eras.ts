@@ -1,11 +1,16 @@
-/** Historical eras used to browse places × culture timeframe (MythosJourney pattern). */
+/** Historical eras used to browse places × culture (MythosJourney pattern).
+ * Pantheon membership is curated — raw year-overlap is too loose because
+ * many traditions span millennia and would all match "classical".
+ */
 export type MythicEra = {
   id: string;
   label: string;
   blurb: string;
-  /** Inclusive year bounds; BCE negative */
+  /** Inclusive year bounds for display; BCE negative */
   start: number;
   end: number;
+  /** Pantheon ids that belong in this browse window */
+  pantheonIds: string[];
 };
 
 export const MYTHIC_ERAS: MythicEra[] = [
@@ -15,6 +20,7 @@ export const MYTHIC_ERAS: MythicEra[] = [
     blurb: "Mesopotamia & pharaonic Egypt",
     start: -3500,
     end: -500,
+    pantheonIds: ["mesopotamian-pantheon", "egyptian-pantheon"],
   },
   {
     id: "classical-mediterranean",
@@ -22,6 +28,7 @@ export const MYTHIC_ERAS: MythicEra[] = [
     blurb: "Greek & Roman heartland",
     start: -800,
     end: 500,
+    pantheonIds: ["greek-pantheon", "roman-pantheon"],
   },
   {
     id: "celtic-norse",
@@ -29,6 +36,7 @@ export const MYTHIC_ERAS: MythicEra[] = [
     blurb: "Iron Age Atlantic to Viking Age",
     start: -1200,
     end: 1100,
+    pantheonIds: ["celtic-pantheon", "norse-pantheon"],
   },
   {
     id: "precolumbian",
@@ -36,6 +44,7 @@ export const MYTHIC_ERAS: MythicEra[] = [
     blurb: "Mesoamerica through contact",
     start: -2000,
     end: 1521,
+    pantheonIds: ["aztec-pantheon", "mesoamerican-pantheon"],
   },
   {
     id: "asia-pacific",
@@ -43,6 +52,12 @@ export const MYTHIC_ERAS: MythicEra[] = [
     blurb: "Hindu, Chinese, Japanese, Polynesian",
     start: -1600,
     end: 1900,
+    pantheonIds: [
+      "hindu-pantheon",
+      "chinese-pantheon",
+      "japanese-pantheon",
+      "polynesian-pantheon",
+    ],
   },
   {
     id: "west-africa",
@@ -50,17 +65,12 @@ export const MYTHIC_ERAS: MythicEra[] = [
     blurb: "Yoruba and related traditions",
     start: -500,
     end: 1900,
+    pantheonIds: ["african-pantheon"],
   },
 ];
 
-export function erasOverlap(
-  eraStart: number,
-  eraEnd: number,
-  pantheonStart: number | null | undefined,
-  pantheonEnd: number | null | undefined,
-): boolean {
-  if (pantheonStart == null && pantheonEnd == null) return false;
-  const pStart = pantheonStart ?? -4000;
-  const pEnd = pantheonEnd ?? 2000;
-  return pStart <= eraEnd && pEnd >= eraStart;
+export function pantheonIdsForEraId(eraId: string): Set<string> | null {
+  const era = MYTHIC_ERAS.find((e) => e.id === eraId);
+  if (!era) return null;
+  return new Set(era.pantheonIds);
 }

@@ -95,6 +95,12 @@ const learnMenu: MenuSection = {
   label: "Learn",
   items: [
     {
+      label: "Study Guides",
+      href: "/study",
+      description: "Short ICP routes for undergrads",
+      mark: "torch",
+    },
+    {
       label: "Quiz",
       href: "/quiz",
       description: "Test your mythology knowledge",
@@ -110,7 +116,13 @@ const learnMenu: MenuSection = {
       label: "Learning Paths",
       href: "/learning-paths",
       description: "Guided mythology courses",
-      mark: "torch",
+      mark: "scroll",
+    },
+    {
+      label: "Guided Tours",
+      href: "/tours",
+      description: "Walk mythic routes stop by stop",
+      mark: "compass",
     },
     {
       label: "Achievements",

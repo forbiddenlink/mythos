@@ -17,7 +17,7 @@ import deitiesData from "@/data/deities.json";
 import storiesData from "@/data/stories.json";
 import { usePagination } from "@/hooks/usePagination";
 import { PANTHEON_BG_LABEL as PANTHEON_COLORS } from "@/lib/pantheon-colors";
-import { MYTHIC_ERAS, erasOverlap } from "@/lib/mythic-eras";
+import { MYTHIC_ERAS, pantheonIdsForEraId } from "@/lib/mythic-eras";
 
 // Dynamic import with SSR disabled - Leaflet requires the window object
 const MapVisualization = dynamic(
@@ -148,16 +148,8 @@ function LocationsPageInner() {
 
   const pantheonIdsForEra = useMemo(() => {
     if (!activeEra) return null;
-    const era = MYTHIC_ERAS.find((e) => e.id === activeEra);
-    if (!era) return null;
-    return new Set(
-      pantheons
-        .filter((p) =>
-          erasOverlap(era.start, era.end, p.timePeriodStart, p.timePeriodEnd),
-        )
-        .map((p) => p.id),
-    );
-  }, [activeEra, pantheons]);
+    return pantheonIdsForEraId(activeEra);
+  }, [activeEra]);
 
   // Apply era → pantheon selection when era changes
   useEffect(() => {

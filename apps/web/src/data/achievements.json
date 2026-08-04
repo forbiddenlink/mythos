@@ -50,7 +50,7 @@
   {
     "id": "pantheon-explorer",
     "name": "Pantheon Explorer",
-    "description": "Explore all 8 pantheons",
+    "description": "Explore all 13 pantheons",
     "xp": 200,
     "icon": "compass",
     "category": "exploration"

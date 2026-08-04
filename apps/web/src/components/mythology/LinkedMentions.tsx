@@ -10,25 +10,29 @@ import {
 
 const KIND_META: Record<
   MentionKind,
-  { label: string; mark: MythosMarkId; emptyHint: string }
+  { label: string; singular: string; mark: MythosMarkId; emptyHint: string }
 > = {
   story: {
     label: "Stories",
+    singular: "story",
     mark: "scroll",
     emptyHint: "No stories linked yet",
   },
   artifact: {
     label: "Artifacts",
+    singular: "artifact",
     mark: "relic",
     emptyHint: "No artifacts linked yet",
   },
   journey: {
     label: "Journeys",
+    singular: "journey",
     mark: "compass",
     emptyHint: "No journeys linked yet",
   },
   parallel: {
     label: "Parallels",
+    singular: "parallel",
     mark: "scales",
     emptyHint: "No cross-pantheon parallels",
   },
@@ -80,7 +84,13 @@ export function LinkedMentions({
         </div>
         <p className="text-sm text-muted-foreground">
           {counts
-            .map((c) => `${c.count} ${KIND_META[c.kind].label.toLowerCase()}`)
+            .map((c) => {
+              const word =
+                c.count === 1
+                  ? KIND_META[c.kind].singular
+                  : KIND_META[c.kind].label.toLowerCase();
+              return `${c.count} ${word}`;
+            })
             .join(" · ")}
         </p>
       </div>
