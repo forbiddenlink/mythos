@@ -129,12 +129,12 @@ export function InteractiveStory({ story }: InteractiveStoryProps) {
   return (
     <div className="space-y-6">
       {/* Progress Bar */}
-      <Card className="border-gold/20 bg-midnight-light/50 overflow-hidden">
+      <Card className="border-border bg-card/50 shadow-none overflow-hidden">
         <CardContent className="py-4">
           <div className="flex items-center justify-between mb-2">
             <div className="flex items-center gap-2">
               <Sparkles className="h-4 w-4 text-gold" />
-              <span className="text-sm text-parchment/70">
+              <span className="text-sm text-muted-foreground">
                 Endings Discovered
               </span>
             </div>
@@ -142,7 +142,7 @@ export function InteractiveStory({ story }: InteractiveStoryProps) {
               {discoveredEndings.length} / {story.totalEndings}
             </span>
           </div>
-          <div className="h-2 bg-midnight rounded-full overflow-hidden">
+          <div className="h-2 bg-muted rounded-full overflow-hidden">
             <motion.div
               className="h-full bg-linear-to-r from-gold-dark to-gold"
               initial={{ width: 0 }}
@@ -328,23 +328,23 @@ export function InteractiveStory({ story }: InteractiveStoryProps) {
             exit={{ opacity: 0, x: -20 }}
             transition={{ duration: 0.3, ease: [0.25, 0.4, 0.25, 1] }}
           >
-            <Card className="border-gold/20 bg-midnight-light/50 overflow-hidden">
+            <Card className="border-border bg-card/50 shadow-none overflow-hidden">
               <CardHeader className="flex flex-row items-center gap-3">
                 <div className="p-2 rounded-lg bg-gold/10 border border-gold/20">
                   <BookOpen className="h-5 w-5 text-gold" />
                 </div>
                 <div>
-                  <CardTitle className="text-xl font-serif text-parchment">
+                  <CardTitle className="text-xl font-serif text-foreground">
                     {story.title}
                   </CardTitle>
-                  <p className="text-sm text-parchment/60">
+                  <p className="text-sm text-muted-foreground">
                     Playing as {story.protagonist}
                   </p>
                 </div>
               </CardHeader>
               <CardContent className="space-y-6">
                 {/* Story content */}
-                <div className="prose prose-invert prose-gold max-w-none prose-p:leading-relaxed prose-headings:font-serif prose-headings:text-gold/90 prose-strong:text-gold/80 prose-blockquote:border-l-gold/40 prose-blockquote:text-parchment/70">
+                <div className="prose dark:prose-invert prose-gold max-w-none prose-p:leading-relaxed prose-headings:font-serif prose-headings:text-gold-text prose-strong:text-foreground prose-blockquote:border-l-gold/40">
                   <ReactMarkdown>{currentNode.content}</ReactMarkdown>
                 </div>
 
@@ -368,7 +368,7 @@ export function InteractiveStory({ story }: InteractiveStoryProps) {
                           }
                           className={cn(
                             "w-full text-left p-4 rounded-lg border transition-all",
-                            "bg-midnight/50 border-gold/20 hover:border-gold/50 hover:bg-gold/5",
+                            "bg-muted/40 border-gold/20 hover:border-gold/50 hover:bg-gold/5",
                             "disabled:opacity-50 disabled:cursor-not-allowed",
                             "group",
                           )}
@@ -382,11 +382,11 @@ export function InteractiveStory({ story }: InteractiveStoryProps) {
                               aria-hidden="true"
                             />
                             <div className="flex-1" aria-hidden="true">
-                              <p className="text-parchment group-hover:text-gold transition-colors">
+                              <p className="text-foreground group-hover:text-gold transition-colors">
                                 {choice.text}
                               </p>
                               {choice.consequence && (
-                                <p className="text-xs text-parchment/50 mt-1 italic">
+                                <p className="text-xs text-muted-foreground mt-1 italic">
                                   {choice.consequence}
                                 </p>
                               )}
@@ -399,12 +399,12 @@ export function InteractiveStory({ story }: InteractiveStoryProps) {
                 )}
 
                 {/* Restart button (always visible during story) */}
-                <div className="pt-4 border-t border-gold/10">
+                <div className="pt-4 border-t border-border">
                   <Button
                     onClick={handleRestart}
                     variant="ghost"
                     size="sm"
-                    className="text-parchment/50 hover:text-parchment"
+                    className="text-muted-foreground hover:text-foreground"
                   >
                     <RotateCcw className="h-4 w-4 mr-2" />
                     Start Over

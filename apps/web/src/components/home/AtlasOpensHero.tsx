@@ -123,8 +123,8 @@ export function AtlasOpensHero() {
         scrollTrigger: {
           trigger: rootRef.current,
           start: "top top",
-          end: "+=280%",
-          scrub: 1,
+          end: "+=360%",
+          scrub: 1.15,
           pin: pinRef.current,
           anticipatePin: 1,
           onUpdate: (self) => {
@@ -143,10 +143,16 @@ export function AtlasOpensHero() {
       scenes.forEach((scene, i) => {
         if (i === 0) return;
         const prev = scenes[i - 1];
-        tl.to(prev, { autoAlpha: 0, duration: 0.35 }, i - 0.15).to(
+        const at = (i - 1) * 1.05;
+        tl.to(
+          prev,
+          { autoAlpha: 0, y: -12, duration: 0.55, ease: "power1.inOut" },
+          at,
+        ).fromTo(
           scene,
-          { autoAlpha: 1, duration: 0.45 },
-          i - 0.1,
+          { autoAlpha: 0, y: 18 },
+          { autoAlpha: 1, y: 0, duration: 0.65, ease: "power2.out" },
+          at + 0.12,
         );
       });
 
@@ -154,17 +160,18 @@ export function AtlasOpensHero() {
       if (sigils.length) {
         gsap.fromTo(
           sigils,
-          { y: 24, opacity: 0 },
+          { y: 20, opacity: 0, scale: 0.96 },
           {
             y: 0,
             opacity: 1,
-            stagger: 0.04,
-            duration: 0.5,
+            scale: 1,
+            stagger: 0.035,
+            duration: 0.55,
             ease: "power2.out",
             scrollTrigger: {
               trigger: rootRef.current,
-              start: "top+=40% top",
-              end: "top+=70% top",
+              start: "top+=28% top",
+              end: "top+=55% top",
               scrub: 1,
             },
           },

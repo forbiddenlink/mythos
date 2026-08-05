@@ -40,7 +40,8 @@ export function CookieConsent() {
         window.removeEventListener("mythos-cookie-consent-open", openHandler);
     }
     hasConsentedRef.current = false;
-    const timer = setTimeout(() => setIsVisible(true), 1000);
+    // Defer past first paint / LCP so the hero isn't crushed by consent chrome
+    const timer = setTimeout(() => setIsVisible(true), 2800);
     return () => {
       clearTimeout(timer);
       window.removeEventListener("mythos-cookie-consent-open", openHandler);
@@ -89,67 +90,67 @@ export function CookieConsent() {
       role="dialog"
       aria-labelledby="cookie-consent-title"
       aria-describedby="cookie-consent-description"
-      className="fixed bottom-0 left-0 right-0 z-[60] p-4 md:p-6 pb-[max(1rem,env(safe-area-inset-bottom))]"
+      className="fixed bottom-0 left-0 right-0 z-[60] p-3 md:p-4 pb-[max(0.75rem,env(safe-area-inset-bottom))] pointer-events-none"
     >
-      <div className="mx-auto max-w-4xl rounded-lg border border-gold/20 bg-background/95 p-4 shadow-xl backdrop-blur-sm md:p-6">
-        <div className="flex items-start justify-between gap-4">
-          <div className="flex-1">
-            <h2
-              id="cookie-consent-title"
-              className="font-display text-lg font-semibold text-foreground"
-            >
-              Cookie Preferences
-            </h2>
+      <div className="pointer-events-auto mx-auto max-w-3xl rounded-md border border-border/80 bg-background/92 px-3 py-3 shadow-lg backdrop-blur-md md:px-4 md:py-3">
+        <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between sm:gap-4">
+          <div className="min-w-0 flex-1">
+            <div className="flex items-start justify-between gap-2">
+              <h2
+                id="cookie-consent-title"
+                className="font-serif text-sm font-semibold text-foreground"
+              >
+                Cookie Preferences
+              </h2>
+              <button
+                onClick={handleDismiss}
+                className="shrink-0 rounded-full p-1 text-muted-foreground hover:bg-muted hover:text-foreground sm:hidden"
+                aria-label="Dismiss cookie banner"
+              >
+                <X className="h-4 w-4" />
+              </button>
+            </div>
             <p
               id="cookie-consent-description"
-              className="mt-2 text-sm text-muted-foreground"
+              className="mt-1 text-xs leading-relaxed text-muted-foreground"
             >
-              We use cookies to improve your browsing experience and understand
-              how visitors use the site. By clicking &quot;Accept All&quot;, you
-              consent to our use of cookies.{" "}
+              Cookies help improve Mythos Atlas.{" "}
               <Link
                 href="/privacy"
                 className="text-gold underline hover:text-gold/80"
               >
-                Learn more in our Privacy Policy
+                Privacy Policy
               </Link>
-              .
+              {gpcActive ? " · GPC detected — analytics stay off." : null}
             </p>
-            {gpcActive ? (
-              <p className="mt-2 text-sm text-muted-foreground">
-                Your browser sent a Global Privacy Control (GPC) signal.
-                Analytics stay off even if you accept — we honor that signal.
-              </p>
-            ) : null}
           </div>
-          <button
-            onClick={handleDismiss}
-            className="rounded-full p-1 text-muted-foreground hover:bg-muted hover:text-foreground"
-            aria-label="Dismiss cookie banner"
-          >
-            <X className="h-5 w-5" />
-          </button>
-        </div>
-
-        <div className="mt-4 flex flex-col gap-2 sm:flex-row sm:justify-end">
-          <button
-            onClick={handleReject}
-            className="rounded-md border border-gold/30 px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-muted"
-          >
-            Reject Non-Essential
-          </button>
-          <button
-            onClick={handleAccept}
-            className="rounded-md border border-gold/30 bg-gold px-4 py-2 text-sm font-medium text-background transition-colors hover:bg-gold/90 disabled:cursor-not-allowed disabled:opacity-60"
-            disabled={gpcActive}
-            title={
-              gpcActive
-                ? "Analytics remain off while Global Privacy Control is enabled"
-                : undefined
-            }
-          >
-            {gpcActive ? "Accept (analytics blocked by GPC)" : "Accept All"}
-          </button>
+          <div className="flex shrink-0 items-center gap-2">
+            <button
+              onClick={handleDismiss}
+              className="hidden rounded-full p-1.5 text-muted-foreground hover:bg-muted hover:text-foreground sm:inline-flex"
+              aria-label="Dismiss cookie banner"
+            >
+              <X className="h-4 w-4" />
+            </button>
+            <button
+              onClick={handleReject}
+              className="rounded-md border border-border px-3 py-1.5 text-xs font-medium text-foreground transition-colors hover:bg-muted"
+            >
+              Reject
+            </button>
+            <button
+              onClick={handleAccept}
+              className="rounded-md border border-gold/40 bg-gold px-3 py-1.5 text-xs font-medium text-background transition-colors hover:bg-gold/90 disabled:cursor-not-allowed disabled:opacity-60"
+              disabled={gpcActive}
+              title={
+                gpcActive
+                  ? "Analytics remain off while Global Privacy Control is enabled"
+                  : undefined
+              }
+            >
+              {gpcActive ? "Accept (GPC)" : "Accept"}
+            </button>
+          </div>
         </div>
       </div>
     </div>

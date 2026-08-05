@@ -682,56 +682,48 @@ export function DeityPageClient({ slug }: DeityPageClientProps) {
                   </Card>
                 )}
 
-              {/* Quick Info Cards */}
-              <div className="grid sm:grid-cols-2 gap-4">
-                {deity.domain && deity.domain.length > 0 && (
-                  <Card className="">
-                    <CardHeader className="pb-3">
-                      <CardTitle className="font-serif flex items-center gap-2 text-lg">
-                        <Shield className="h-5 w-5 text-gold" />
+              {/* Domains & symbols — compact metadata, not twin cards */}
+              {(deity.domain?.length || deity.symbols?.length) && (
+                <div className="grid gap-8 sm:grid-cols-2 border-y border-border/70 py-6">
+                  {deity.domain && deity.domain.length > 0 && (
+                    <section>
+                      <h3 className="font-serif text-lg font-semibold text-foreground mb-3 flex items-center gap-2">
+                        <Shield className="h-4 w-4 text-gold" aria-hidden />
                         Domains
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <div className="flex flex-wrap gap-2">
+                      </h3>
+                      <ul className="flex flex-wrap gap-2" aria-label="Domains">
                         {deity.domain.map((d) => (
-                          <Badge
+                          <li
                             key={d}
-                            variant="secondary"
-                            className="bg-gold/10 text-gold"
+                            className="border border-gold/30 bg-gold/10 px-3 py-1 text-xs font-medium uppercase tracking-wider text-gold-text"
                           >
                             {d}
-                          </Badge>
+                          </li>
                         ))}
-                      </div>
-                    </CardContent>
-                  </Card>
-                )}
+                      </ul>
+                    </section>
+                  )}
 
-                {deity.symbols && deity.symbols.length > 0 && (
-                  <Card className="">
-                    <CardHeader className="pb-3">
-                      <CardTitle className="font-serif flex items-center gap-2 text-lg">
-                        <Users className="h-5 w-5 text-gold" />
+                  {deity.symbols && deity.symbols.length > 0 && (
+                    <section>
+                      <h3 className="font-serif text-lg font-semibold text-foreground mb-3 flex items-center gap-2">
+                        <Users className="h-4 w-4 text-gold" aria-hidden />
                         Symbols
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <div className="flex flex-wrap gap-2">
+                      </h3>
+                      <ul className="flex flex-wrap gap-2" aria-label="Symbols">
                         {deity.symbols.map((s) => (
-                          <Badge
+                          <li
                             key={s}
-                            variant="outline"
-                            className="border-gold/30"
+                            className="border border-border px-3 py-1 text-xs text-muted-foreground"
                           >
                             {s}
-                          </Badge>
+                          </li>
                         ))}
-                      </div>
-                    </CardContent>
-                  </Card>
-                )}
-              </div>
+                      </ul>
+                    </section>
+                  )}
+                </div>
+              )}
             </div>
           </div>
 

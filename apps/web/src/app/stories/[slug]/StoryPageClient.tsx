@@ -9,15 +9,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import {
-  Loader2,
-  BookOpen,
-  Tag,
-  ScrollText,
-  Volume2,
-  Square,
-  Play,
-} from "lucide-react";
+import { Loader2, Tag, ScrollText, Volume2, Square, Play } from "lucide-react";
 import { HeroMark } from "@/components/icons/hero-mark";
 import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
 import { BookmarkButton } from "@/components/ui/bookmark-button";
@@ -348,91 +340,69 @@ export function StoryPageClient({ slug }: StoryPageClientProps) {
           </div>
         )}
 
-        <div className="mt-8 space-y-8">
-          {/* Full Narrative */}
+        <div className="mt-8 space-y-12">
+          {/* Full Narrative — borderless editorial */}
           {story.fullNarrative ? (
-            <Card className="reveal-on-scroll border-gold/20 bg-midnight-light/50 overflow-hidden">
-              <CardHeader>
-                <CardTitle className="text-parchment text-2xl font-serif">
-                  The Tale
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="prose prose-invert prose-gold max-w-none prose-p:leading-relaxed prose-headings:font-serif prose-headings:text-gold/90 prose-strong:text-gold/80 prose-blockquote:border-l-gold/40 prose-blockquote:text-parchment/70 prose-li:marker:text-gold/50">
-                  <ReactMarkdown>{story.fullNarrative}</ReactMarkdown>
-                </div>
-              </CardContent>
-            </Card>
+            <section className="reveal-on-scroll max-w-[68ch]">
+              <h2 className="font-serif text-2xl font-semibold text-foreground mb-5 border-l-4 border-gold pl-4">
+                The Tale
+              </h2>
+              <div className="prose dark:prose-invert prose-gold max-w-none prose-p:leading-relaxed prose-headings:font-serif prose-headings:text-gold-text prose-strong:text-foreground prose-blockquote:border-l-gold/40 prose-li:marker:text-gold/50">
+                <ReactMarkdown>{story.fullNarrative}</ReactMarkdown>
+              </div>
+            </section>
           ) : (
-            <Card className="border-gold/20 bg-midnight-light/50">
-              <CardHeader>
-                <CardTitle className="text-parchment text-2xl font-serif">
-                  Summary
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-parchment/80 leading-relaxed text-lg whitespace-pre-line">
-                  {story.summary}
-                </p>
-              </CardContent>
-            </Card>
+            <section className="max-w-[68ch]">
+              <h2 className="font-serif text-2xl font-semibold text-foreground mb-5 border-l-4 border-gold pl-4">
+                Summary
+              </h2>
+              <p className="text-muted-foreground leading-relaxed text-lg whitespace-pre-line">
+                {story.summary}
+              </p>
+            </section>
           )}
 
-          {/* Key Excerpts - Only show if we have a full narrative (as a summary) or if specific excerpts exist */}
+          {/* Key Excerpts */}
           {story.keyExcerpts && (
-            <Card className="border-gold/20 bg-midnight-light/50">
-              <CardHeader>
-                <CardTitle className="text-parchment text-2xl font-serif">
-                  Key Passages
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="bg-midnight/30 p-6 rounded-lg border border-gold/10">
-                  <p className="text-parchment/70 italic leading-relaxed whitespace-pre-line">
-                    {story.keyExcerpts}
-                  </p>
-                </div>
-              </CardContent>
-            </Card>
+            <section className="max-w-[68ch]">
+              <h2 className="font-serif text-xl font-semibold text-foreground mb-4">
+                Key Passages
+              </h2>
+              <blockquote className="border-l-2 border-gold/40 bg-muted/40 px-5 py-4 text-muted-foreground italic leading-relaxed whitespace-pre-line">
+                {story.keyExcerpts}
+              </blockquote>
+            </section>
           )}
 
           {/* Moral Themes */}
           {story.moralThemes && story.moralThemes.length > 0 && (
-            <Card className="border-gold/20 bg-midnight-light/50">
-              <CardHeader>
-                <CardTitle className="text-parchment text-2xl font-serif">
-                  Themes
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="flex flex-wrap gap-2">
-                  {story.moralThemes.map((theme) => (
-                    <span
-                      key={theme}
-                      className="px-3 py-1 bg-gold/10 border border-gold/20 rounded-full text-gold/80 text-sm"
-                    >
-                      {theme}
-                    </span>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
+            <section>
+              <h2 className="font-serif text-xl font-semibold text-foreground mb-4">
+                Themes
+              </h2>
+              <ul className="flex flex-wrap gap-2" aria-label="Moral themes">
+                {story.moralThemes.map((theme) => (
+                  <li
+                    key={theme}
+                    className="border border-gold/30 bg-gold/10 px-3 py-1 text-sm text-gold-text"
+                  >
+                    {theme}
+                  </li>
+                ))}
+              </ul>
+            </section>
           )}
 
           {/* Cultural Significance */}
           {story.culturalSignificance && (
-            <Card className="border-gold/20 bg-midnight-light/50">
-              <CardHeader>
-                <CardTitle className="text-parchment text-2xl font-serif">
-                  Cultural Significance
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-parchment/80 leading-relaxed text-lg whitespace-pre-line">
-                  {story.culturalSignificance}
-                </p>
-              </CardContent>
-            </Card>
+            <section className="max-w-[68ch]">
+              <h2 className="font-serif text-xl font-semibold text-foreground mb-4">
+                Cultural Significance
+              </h2>
+              <p className="text-muted-foreground leading-relaxed text-lg whitespace-pre-line">
+                {story.culturalSignificance}
+              </p>
+            </section>
           )}
 
           {/* Structured citation references (from JSON citationSources) */}
@@ -451,14 +421,14 @@ export function StoryPageClient({ slug }: StoryPageClientProps) {
           {/* Primary Source Excerpts */}
           {story.primarySourceExcerpts &&
             story.primarySourceExcerpts.length > 0 && (
-              <Card className="border-gold/20 bg-midnight-light/50">
+              <Card className="border-border bg-card/50 shadow-none">
                 <CardHeader>
-                  <CardTitle className="text-parchment text-2xl font-serif flex items-center gap-2">
+                  <CardTitle className="text-foreground text-2xl font-serif flex items-center gap-2">
                     <ScrollText className="h-5 w-5 text-gold" />
                     Ancient Sources
                   </CardTitle>
                   <CardDescription>
-                    Original texts with translations - toggle to see the
+                    Original texts with translations — toggle to see the
                     original language
                   </CardDescription>
                 </CardHeader>
@@ -470,15 +440,13 @@ export function StoryPageClient({ slug }: StoryPageClientProps) {
 
           {/* Further Reading */}
           {story.furtherReading && story.furtherReading.length > 0 && (
-            <div className="**:bg-midnight-light/50! **:border-gold/20! [&_h3]:text-parchment! [&_h4]:text-gold! [&_p]:text-parchment/80! [&_cite]:text-parchment! [&_span]:text-parchment/60!">
-              <ReferencesList
-                references={story.furtherReading}
-                title="Further Reading"
-                showDescriptions={false}
-                collapsible={true}
-                defaultExpanded={false}
-              />
-            </div>
+            <ReferencesList
+              references={story.furtherReading}
+              title="Further Reading"
+              showDescriptions={false}
+              collapsible={true}
+              defaultExpanded={false}
+            />
           )}
 
           {story.sources && story.sources.length > 0 && (
@@ -487,9 +455,9 @@ export function StoryPageClient({ slug }: StoryPageClientProps) {
 
           {/* Related Content Section */}
           {hasRelatedContent && (
-            <Card className="border-gold/20 bg-midnight-light/50">
+            <Card className="border-border bg-card/50 shadow-none">
               <CardHeader>
-                <CardTitle className="text-parchment text-2xl font-serif">
+                <CardTitle className="text-foreground text-2xl font-serif">
                   Explore Further
                 </CardTitle>
                 <CardDescription>
@@ -509,9 +477,9 @@ export function StoryPageClient({ slug }: StoryPageClientProps) {
           )}
 
           {/* Museum Relics */}
-          <Card className="border-gold/20 bg-midnight-light/50 overflow-hidden">
+          <Card className="border-border bg-card/50 shadow-none overflow-hidden">
             <CardHeader>
-              <CardTitle className="text-parchment text-2xl font-serif">
+              <CardTitle className="text-foreground text-2xl font-serif">
                 Museum Artifacts
               </CardTitle>
               <CardDescription>
@@ -533,7 +501,7 @@ export function StoryPageClient({ slug }: StoryPageClientProps) {
           {/* Navigation */}
           <div className="flex justify-center pt-8">
             <Link href="/stories">
-              <button className="px-6 py-3 bg-gold/10 hover:bg-gold/20 border border-gold/30 hover:border-gold/50 rounded-lg text-gold transition-colors">
+              <button className="px-6 py-3 bg-gold/10 hover:bg-gold/20 border border-gold/30 hover:border-gold/50 rounded-lg text-gold-text transition-colors">
                 ← Back to All Stories
               </button>
             </Link>

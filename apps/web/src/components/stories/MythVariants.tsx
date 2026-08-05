@@ -1,8 +1,14 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { ChevronDown, ChevronUp, BookMarked, ScrollText, Info } from 'lucide-react';
+import { useState } from "react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  ChevronDown,
+  ChevronUp,
+  BookMarked,
+  ScrollText,
+  Info,
+} from "lucide-react";
 
 export interface MythVariant {
   source: string;
@@ -23,7 +29,7 @@ export function MythVariants({ variants }: MythVariantsProps) {
   }
 
   return (
-    <Card className="border-gold/20 bg-midnight-light/50 overflow-hidden">
+    <Card className="border-border bg-card/50 shadow-none overflow-hidden">
       <CardHeader className="pb-0">
         <button
           onClick={() => setIsExpanded(!isExpanded)}
@@ -32,15 +38,17 @@ export function MythVariants({ variants }: MythVariantsProps) {
           aria-controls="myth-variants-content"
         >
           <div className="flex items-center gap-3">
-            <div className="p-2 rounded-lg bg-amber-500/10 border border-amber-500/20">
-              <BookMarked className="h-5 w-5 text-amber-500" />
+            <div className="p-2 rounded-lg bg-gold/10 border border-gold/25">
+              <BookMarked className="h-5 w-5 text-gold" />
             </div>
             <div className="text-left">
-              <CardTitle className="text-parchment text-xl font-serif">
+              <CardTitle className="text-foreground text-xl font-serif">
                 In Other Versions...
               </CardTitle>
-              <p className="text-sm text-parchment/60 mt-1">
-                {variants.length} alternate {variants.length === 1 ? 'account' : 'accounts'} from ancient sources
+              <p className="text-sm text-muted-foreground mt-1">
+                {variants.length} alternate{" "}
+                {variants.length === 1 ? "account" : "accounts"} from ancient
+                sources
               </p>
             </div>
           </div>
@@ -57,7 +65,7 @@ export function MythVariants({ variants }: MythVariantsProps) {
       <div
         id="myth-variants-content"
         className={`transition-all duration-300 ease-in-out overflow-hidden ${
-          isExpanded ? 'max-h-500 opacity-100' : 'max-h-0 opacity-0'
+          isExpanded ? "max-h-500 opacity-100" : "max-h-0 opacity-0"
         }`}
       >
         <CardContent className="pt-6">
@@ -65,17 +73,17 @@ export function MythVariants({ variants }: MythVariantsProps) {
             {variants.map((variant) => (
               <div
                 key={variant.source}
-                className="relative p-5 rounded-lg border-l-4 border-amber-500/60 bg-midnight/40 hover:bg-midnight/60 transition-colors"
+                className="relative p-5 rounded-lg border-l-4 border-gold/50 bg-muted/40 hover:bg-muted/60 transition-colors"
               >
                 {/* Source Header */}
                 <div className="flex items-start justify-between mb-3">
                   <div className="flex items-center gap-2">
-                    <ScrollText className="h-4 w-4 text-amber-500/80" />
-                    <span className="font-serif text-amber-400 font-medium">
+                    <ScrollText className="h-4 w-4 text-gold/80" />
+                    <span className="font-serif text-gold-text font-medium">
                       {variant.source}
                     </span>
                     {variant.date && (
-                      <span className="text-xs text-parchment/40 px-2 py-0.5 bg-midnight/50 rounded">
+                      <span className="text-xs text-muted-foreground px-2 py-0.5 bg-muted rounded">
                         {variant.date}
                       </span>
                     )}
@@ -83,15 +91,15 @@ export function MythVariants({ variants }: MythVariantsProps) {
                 </div>
 
                 {/* Difference */}
-                <p className="text-parchment/85 leading-relaxed mb-3">
+                <p className="text-foreground/85 leading-relaxed mb-3">
                   {variant.difference}
                 </p>
 
                 {/* Scholar's Note */}
                 {variant.note && (
-                  <div className="flex items-start gap-2 mt-3 p-3 rounded bg-midnight/30 border border-gold/10">
+                  <div className="flex items-start gap-2 mt-3 p-3 rounded bg-muted/50 border border-border">
                     <Info className="h-4 w-4 text-gold/60 mt-0.5 shrink-0" />
-                    <p className="text-sm text-parchment/60 italic leading-relaxed">
+                    <p className="text-sm text-muted-foreground italic leading-relaxed">
                       {variant.note}
                     </p>
                   </div>
@@ -101,9 +109,11 @@ export function MythVariants({ variants }: MythVariantsProps) {
           </div>
 
           {/* Footer Note */}
-          <div className="mt-6 pt-4 border-t border-gold/10">
-            <p className="text-xs text-parchment/40 text-center">
-              Ancient myths evolved across centuries and cultures. These variations reflect the rich oral and written traditions that preserved these stories.
+          <div className="mt-6 pt-4 border-t border-border">
+            <p className="text-xs text-muted-foreground text-center">
+              Ancient myths evolved across centuries and cultures. These
+              variations reflect the rich oral and written traditions that
+              preserved these stories.
             </p>
           </div>
         </CardContent>

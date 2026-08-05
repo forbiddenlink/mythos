@@ -1,18 +1,18 @@
-'use client';
+"use client";
 
-import { useState, useEffect, useRef } from 'react';
-import { useNarration } from '@/lib/narration';
-import { Card, CardContent } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Slider } from '@/components/ui/slider';
+import { useState, useEffect, useRef } from "react";
+import { useNarration } from "@/lib/narration";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Slider } from "@/components/ui/slider";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@/components/ui/select';
-import { cn } from '@/lib/utils';
+} from "@/components/ui/select";
+import { cn } from "@/lib/utils";
 import {
   Play,
   Pause,
@@ -23,7 +23,7 @@ import {
   ScrollText,
   ChevronDown,
   ChevronUp,
-} from 'lucide-react';
+} from "lucide-react";
 
 interface StoryNarratorProps {
   /** The text to narrate */
@@ -37,12 +37,12 @@ interface StoryNarratorProps {
 }
 
 const SPEED_OPTIONS = [
-  { value: 0.5, label: '0.5x' },
-  { value: 0.75, label: '0.75x' },
-  { value: 1, label: '1x' },
-  { value: 1.25, label: '1.25x' },
-  { value: 1.5, label: '1.5x' },
-  { value: 2, label: '2x' },
+  { value: 0.5, label: "0.5x" },
+  { value: 0.75, label: "0.75x" },
+  { value: 1, label: "1x" },
+  { value: 1.25, label: "1.25x" },
+  { value: 1.5, label: "1.5x" },
+  { value: 2, label: "2x" },
 ];
 
 /**
@@ -77,7 +77,11 @@ export function StoryNarrator({
 
   // Handle auto-scroll callback
   useEffect(() => {
-    if (autoScrollEnabled && onAutoScroll && currentPosition !== lastScrollPositionRef.current) {
+    if (
+      autoScrollEnabled &&
+      onAutoScroll &&
+      currentPosition !== lastScrollPositionRef.current
+    ) {
       lastScrollPositionRef.current = currentPosition;
       onAutoScroll(currentPosition, totalLength);
     }
@@ -86,9 +90,9 @@ export function StoryNarrator({
   // Don't render if browser doesn't support speech synthesis
   if (!isSupported) {
     return (
-      <Card className={cn('border-gold/20 bg-midnight-light/30', className)}>
+      <Card className={cn("border-border bg-card/50", className)}>
         <CardContent className="py-4">
-          <div className="flex items-center gap-3 text-parchment/60">
+          <div className="flex items-center gap-3 text-muted-foreground">
             <VolumeX className="h-5 w-5" />
             <span className="text-sm">
               Text-to-speech is not supported in your browser.
@@ -108,7 +112,12 @@ export function StoryNarrator({
   };
 
   return (
-    <Card className={cn('border-gold/20 bg-midnight-light/30 overflow-hidden', className)}>
+    <Card
+      className={cn(
+        "border-border bg-card/50 shadow-none overflow-hidden",
+        className,
+      )}
+    >
       <CardContent className="py-4 space-y-4">
         {/* Main Controls Row */}
         <div className="flex items-center gap-4">
@@ -118,12 +127,14 @@ export function StoryNarrator({
             size="icon"
             onClick={togglePlayPause}
             className={cn(
-              'h-12 w-12 rounded-full border transition-all',
+              "h-12 w-12 rounded-full border transition-all",
               isPlaying && !isPaused
-                ? 'bg-gold/20 border-gold/50 text-gold hover:bg-gold/30'
-                : 'bg-midnight/50 border-gold/30 text-gold/80 hover:bg-gold/20 hover:border-gold/50 hover:text-gold'
+                ? "bg-gold/20 border-gold/50 text-gold hover:bg-gold/30"
+                : "bg-muted/50 border-gold/30 text-gold/80 hover:bg-gold/20 hover:border-gold/50 hover:text-gold",
             )}
-            aria-label={isPlaying && !isPaused ? 'Pause narration' : 'Play narration'}
+            aria-label={
+              isPlaying && !isPaused ? "Pause narration" : "Play narration"
+            }
           >
             {isPlaying && !isPaused ? (
               <Pause className="h-5 w-5" />
@@ -165,7 +176,7 @@ export function StoryNarrator({
             size="icon"
             onClick={() => setIsExpanded(!isExpanded)}
             className="h-8 w-8 text-parchment/60 hover:text-parchment hover:bg-midnight/50"
-            aria-label={isExpanded ? 'Collapse controls' : 'Expand controls'}
+            aria-label={isExpanded ? "Collapse controls" : "Expand controls"}
           >
             {isExpanded ? (
               <ChevronUp className="h-4 w-4" />
@@ -200,10 +211,10 @@ export function StoryNarrator({
                     key={option.value}
                     onClick={() => setSpeed(option.value)}
                     className={cn(
-                      'px-2 py-1 text-xs rounded transition-colors',
+                      "px-2 py-1 text-xs rounded transition-colors",
                       speed === option.value
-                        ? 'bg-gold/20 text-gold border border-gold/30'
-                        : 'text-parchment/50 hover:text-parchment/80 hover:bg-midnight/50'
+                        ? "bg-gold/20 text-gold border border-gold/30"
+                        : "text-parchment/50 hover:text-parchment/80 hover:bg-midnight/50",
                     )}
                   >
                     {option.label}
@@ -220,7 +231,7 @@ export function StoryNarrator({
                   <span className="text-sm">Voice</span>
                 </div>
                 <Select
-                  value={selectedVoice?.name || ''}
+                  value={selectedVoice?.name || ""}
                   onValueChange={(name) => setVoice(name)}
                 >
                   <SelectTrigger className="flex-1 h-9 bg-midnight/50 border-gold/20 text-parchment hover:border-gold/40">
@@ -251,13 +262,13 @@ export function StoryNarrator({
                 <button
                   onClick={() => setAutoScrollEnabled(!autoScrollEnabled)}
                   className={cn(
-                    'px-3 py-1.5 text-sm rounded-lg border transition-all',
+                    "px-3 py-1.5 text-sm rounded-lg border transition-all",
                     autoScrollEnabled
-                      ? 'bg-gold/20 border-gold/50 text-gold'
-                      : 'bg-midnight/50 border-gold/20 text-parchment/60 hover:border-gold/40 hover:text-parchment/80'
+                      ? "bg-gold/20 border-gold/50 text-gold"
+                      : "bg-midnight/50 border-gold/20 text-parchment/60 hover:border-gold/40 hover:text-parchment/80",
                   )}
                 >
-                  {autoScrollEnabled ? 'Enabled' : 'Disabled'}
+                  {autoScrollEnabled ? "Enabled" : "Disabled"}
                 </button>
                 <span className="text-xs text-parchment/40">
                   Automatically scroll to follow the narration
@@ -272,8 +283,9 @@ export function StoryNarrator({
           <div className="flex items-center gap-2 text-xs text-parchment/60">
             <Volume2 className="h-3 w-3" />
             <span>
-              {isPaused ? 'Paused' : 'Playing'} at {speed}x
-              {selectedVoice && ` - ${selectedVoice.name.split(' ').slice(0, 2).join(' ')}`}
+              {isPaused ? "Paused" : "Playing"} at {speed}x
+              {selectedVoice &&
+                ` - ${selectedVoice.name.split(" ").slice(0, 2).join(" ")}`}
             </span>
           </div>
         )}

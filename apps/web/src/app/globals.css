@@ -157,7 +157,7 @@
 }
 
 html.cookie-banner-open {
-  --cookie-banner-offset: 7.5rem;
+  --cookie-banner-offset: 4.5rem;
   scroll-padding-bottom: var(--cookie-banner-offset);
 }
 

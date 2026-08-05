@@ -1,12 +1,10 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { MythosMark, type MythosMarkId } from "@/components/icons/mythos-marks";
-import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import collections from "@/data/collections.json";
 import deities from "@/data/deities.json";
 
-// Show 4 featured collections
 const featuredIds = [
   "trickster-gods",
   "underworld-rulers",
@@ -21,18 +19,6 @@ const markMap: Record<string, MythosMarkId> = {
   "war-gods": "blade",
 };
 
-/* Archetypal jewel tones from the classical system — no violet/SaaS purple */
-const colorMap: Record<string, string> = {
-  "trickster-gods":
-    "from-[oklch(0.32_0.06_85)] via-[oklch(0.22_0.04_70)] to-midnight border-gold/35",
-  "underworld-rulers":
-    "from-[oklch(0.28_0.03_260)] via-[oklch(0.18_0.02_260)] to-midnight border-parchment/20",
-  "love-deities":
-    "from-[oklch(0.35_0.08_25)] via-[oklch(0.22_0.06_20)] to-midnight border-bronze/40",
-  "war-gods":
-    "from-[oklch(0.32_0.1_40)] via-[oklch(0.2_0.06_35)] to-midnight border-bronze/45",
-};
-
 function getDeityCount(deityIds: string[]): number {
   return deityIds.filter((id) =>
     deities.some((d) => d.id === id || d.slug === id),
@@ -45,65 +31,67 @@ export function CollectionsShowcase() {
     .filter((c): c is (typeof collections)[0] => c !== undefined);
 
   return (
-    <section className="container mx-auto max-w-7xl px-4 py-20 md:py-24">
-      <div className="flex items-center justify-between mb-10">
-        <div className="flex items-center gap-3">
-          <MythosMark id="codex" className="h-5 w-5 text-gold" />
+    <section className="relative py-20 md:py-24 noise-overlay">
+      <div className="container mx-auto max-w-5xl px-4">
+        <div className="mb-10 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <h2 className="font-serif text-2xl md:text-3xl font-semibold tracking-tight text-pretty">
+            <span className="inline-block text-gold text-sm tracking-[0.25em] uppercase mb-3 font-medium">
+              Across pantheons
+            </span>
+            <h2 className="font-serif text-3xl md:text-4xl font-semibold tracking-tight text-foreground">
               Themed Collections
             </h2>
-            <p className="text-sm text-muted-foreground mt-0.5">
-              Deities grouped by role and archetype across pantheons
+            <p className="mt-2 text-muted-foreground max-w-xl">
+              Archetypes that travel — tricksters, underworld rulers, love, and
+              war — grouped for comparative reading.
             </p>
           </div>
+          <Link href="/collections">
+            <Button
+              variant="ghost"
+              size="sm"
+              className="text-gold-text hover:text-gold-text/80"
+            >
+              View all {collections.length}
+              <ArrowRight className="h-4 w-4 ml-1" />
+            </Button>
+          </Link>
         </div>
-        <Link href="/collections">
-          <Button
-            variant="ghost"
-            size="sm"
-            className="text-gold-text hover:text-gold-text/80"
-          >
-            View all {collections.length}
-            <ArrowRight className="h-4 w-4 ml-1" />
-          </Button>
-        </Link>
-      </div>
 
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        {featured.map((collection) => {
-          const deityCount = getDeityCount(collection.deities);
-
-          return (
-            <Link key={collection.id} href={`/collections/${collection.slug}`}>
-              <Card
-                className={`h-full overflow-hidden border shadow-none bg-gradient-to-br ${colorMap[collection.id] || ""} transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-black/20 cursor-pointer group`}
-              >
-                <CardContent className="p-5">
-                  <div className="flex items-center gap-3 mb-3">
-                    <div className="relative flex size-9 items-center justify-center border border-gold/40 bg-gold/10 text-gold group-hover:bg-gold/20 transition-colors">
-                      <MythosMark
-                        id={markMap[collection.id] ?? "codex"}
-                        className="h-5 w-5"
-                      />
-                    </div>
-                    <div>
-                      <h3 className="font-serif font-semibold text-parchment group-hover:text-gold transition-colors">
+        <ol className="divide-y divide-border/70 border-y border-border/70">
+          {featured.map((collection) => {
+            const deityCount = getDeityCount(collection.deities);
+            return (
+              <li key={collection.id}>
+                <Link
+                  href={`/collections/${collection.slug}`}
+                  className="group flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6 py-5 md:py-6"
+                >
+                  <div className="relative flex size-10 shrink-0 items-center justify-center border border-gold/35 bg-gold/10 text-gold group-hover:border-gold/55 transition-colors">
+                    <MythosMark
+                      id={markMap[collection.id] ?? "codex"}
+                      className="h-5 w-5"
+                    />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+                      <h3 className="font-serif text-xl font-semibold text-foreground group-hover:text-gold transition-colors">
                         {collection.name}
                       </h3>
-                      <p className="text-xs uppercase tracking-wider text-parchment/60">
+                      <span className="text-xs uppercase tracking-wider text-muted-foreground">
                         {deityCount} {deityCount === 1 ? "deity" : "deities"}
-                      </p>
+                      </span>
                     </div>
+                    <p className="mt-1 text-sm text-muted-foreground leading-relaxed line-clamp-2">
+                      {collection.description}
+                    </p>
                   </div>
-                  <p className="text-sm text-parchment/75 line-clamp-2">
-                    {collection.description}
-                  </p>
-                </CardContent>
-              </Card>
-            </Link>
-          );
-        })}
+                  <ArrowRight className="h-4 w-4 shrink-0 text-muted-foreground/50 group-hover:text-gold group-hover:translate-x-1 transition-all" />
+                </Link>
+              </li>
+            );
+          })}
+        </ol>
       </div>
     </section>
   );

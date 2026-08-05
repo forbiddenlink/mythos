@@ -6,203 +6,201 @@ import {
   mythosMarks,
   type MythosMarkId,
 } from "@/components/icons/mythos-marks";
+import { getPantheonColor } from "@/lib/pantheon-colors";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 
-// Hardcoded for now to match the "Featured" style, but updated to include more
-const pantheons = [
+const pantheons: {
+  name: string;
+  fullName: string;
+  slug: string;
+  pantheonId: string;
+  culture: string;
+  description: string;
+  mark: MythosMarkId;
+}[] = [
   {
     name: "Greek",
     fullName: "Greek Pantheon",
     slug: "greek",
+    pantheonId: "greek-pantheon",
     culture: "Ancient Greek",
     description:
       "The Olympian gods who ruled from Mount Olympus, shaping the fate of mortals and heroes alike.",
-    mark: "temple" as MythosMarkId,
-    gradient:
-      "from-[oklch(0.45_0.12_265)] via-[oklch(0.50_0.10_255)] to-[oklch(0.40_0.14_275)]",
-    accentColor: "bg-[oklch(0.60_0.12_265)]",
+    mark: "temple",
   },
   {
     name: "Norse",
     fullName: "Norse Pantheon",
     slug: "norse",
+    pantheonId: "norse-pantheon",
     culture: "Norse/Germanic",
     description:
       "The Æsir and Vanir of Asgard, warriors and seers across the Nine Worlds.",
-    mark: "tree" as MythosMarkId,
-    gradient:
-      "from-[oklch(0.28_0.04_265)] via-[oklch(0.32_0.03_260)] to-[oklch(0.25_0.05_270)]",
-    accentColor: "bg-[oklch(0.50_0.04_265)]",
+    mark: "tree",
   },
   {
     name: "Egyptian",
     fullName: "Egyptian Pantheon",
     slug: "egyptian",
+    pantheonId: "egyptian-pantheon",
     culture: "Ancient Egyptian",
     description:
       "The divine rulers of the Nile Valley, guardians of life, death, and rebirth.",
-    mark: "chronos" as MythosMarkId,
-    gradient:
-      "from-[oklch(0.32_0.08_70)] via-[oklch(0.24_0.06_65)] to-[oklch(0.16_0.04_55)]",
-    accentColor: "bg-gold",
+    mark: "chronos",
   },
   {
     name: "Roman",
     fullName: "Roman Pantheon",
     slug: "roman",
+    pantheonId: "roman-pantheon",
     culture: "Ancient Roman",
     description:
       "The deities of the Roman state, emphasizing duty, discipline, and the glory of the Empire.",
-    mark: "temple" as MythosMarkId,
-    gradient:
-      "from-[oklch(0.35_0.1_30)] via-[oklch(0.28_0.08_35)] to-[oklch(0.22_0.05_40)]",
-    accentColor: "bg-[oklch(0.5_0.12_35)]",
+    mark: "temple",
   },
   {
     name: "Hindu",
     fullName: "Hindu Pantheon",
     slug: "hindu",
+    pantheonId: "hindu-pantheon",
     culture: "Vedic/Hindu",
     description:
       "The diverse family of gods centered on the Trimurti, governing dharma and karma.",
-    mark: "torch" as MythosMarkId,
-    gradient:
-      "from-[oklch(0.38_0.1_55)] via-[oklch(0.3_0.08_70)] to-[oklch(0.22_0.06_45)]",
-    accentColor: "bg-[oklch(0.62_0.14_70)]",
+    mark: "torch",
   },
   {
     name: "Japanese",
     fullName: "Japanese Pantheon",
     slug: "japanese",
+    pantheonId: "japanese-pantheon",
     culture: "Shinto",
     description:
       "The Kami of nature and ancestors, inhabiting the islands and shrines of Japan.",
-    mark: "peak" as MythosMarkId,
-    gradient:
-      "from-[oklch(0.32_0.1_25)] via-[oklch(0.24_0.06_30)] to-[oklch(0.16_0.03_50)]",
-    accentColor: "bg-[oklch(0.55_0.14_30)]",
+    mark: "peak",
   },
 ];
 
-// Show a focused set on the homepage — full list is on /pantheons
 const HOMEPAGE_PANTHEON_COUNT = 6;
 
 export function PantheonShowcase() {
+  const featured = pantheons.slice(0, HOMEPAGE_PANTHEON_COUNT);
+  const [lead, ...rest] = featured;
+
   return (
     <section className="relative py-28 bg-background noise-overlay">
-      <div className="container mx-auto px-4 relative z-10">
-        {/* Header */}
+      <div className="container mx-auto px-4 relative z-10 max-w-5xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-          className="text-center mb-16"
+          className="mb-14 md:mb-16"
         >
           <span className="inline-block text-gold text-sm tracking-[0.25em] uppercase mb-4 font-medium">
-            Begin Your Journey
+            Begin your journey
           </span>
-          <h2 className="font-serif text-4xl md:text-5xl font-semibold tracking-tight mb-5 text-foreground">
+          <h2 className="font-serif text-4xl md:text-5xl font-semibold tracking-tight mb-5 text-foreground max-w-xl">
             Featured Pantheons
           </h2>
-          <div className="flex items-center justify-center gap-4 mb-6">
-            <div className="w-12 h-px bg-linear-to-r from-transparent to-gold/40" />
+          <div className="flex items-center gap-4 mb-6">
+            <div className="w-12 h-px bg-linear-to-r from-gold/40 to-transparent" />
             <div className="w-1.5 h-1.5 rotate-45 bg-gold/50" />
-            <div className="w-12 h-px bg-linear-to-l from-transparent to-gold/40" />
           </div>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto font-body leading-relaxed">
-            Explore these foundational mythologies that shaped civilizations
+          <p className="text-lg text-muted-foreground max-w-2xl font-body leading-relaxed">
+            Orient in a tradition first — then branch into gods, myths, and
+            sacred geography.
           </p>
         </motion.div>
 
-        {/* Pantheon cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 mb-14 max-w-6xl mx-auto">
-          {pantheons
-            .slice(0, HOMEPAGE_PANTHEON_COUNT)
-            .map((pantheon, index) => (
-              <motion.div
+        {lead && (
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
+            className="mb-4"
+          >
+            <TransitionLink
+              href={`/pantheons/${lead.slug}`}
+              className="group block border-y border-gold/25 py-8 md:py-10"
+            >
+              <div className="flex flex-col md:flex-row md:items-end gap-6 md:gap-12">
+                <span
+                  className="size-3 shrink-0 rounded-full md:mb-2"
+                  style={{ backgroundColor: getPantheonColor(lead.pantheonId) }}
+                  aria-hidden
+                />
+                <div className="flex-1 min-w-0">
+                  <span className="text-xs uppercase tracking-[0.2em] text-muted-foreground">
+                    {lead.culture}
+                  </span>
+                  <h3 className="mt-2 font-serif text-3xl md:text-4xl font-semibold text-foreground group-hover:text-gold transition-colors duration-300">
+                    {lead.fullName}
+                  </h3>
+                  <p className="mt-3 text-muted-foreground leading-relaxed max-w-xl">
+                    {lead.description}
+                  </p>
+                </div>
+                <span className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground group-hover:text-gold transition-colors">
+                  Explore
+                  <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                </span>
+              </div>
+            </TransitionLink>
+          </motion.div>
+        )}
+
+        <ol className="divide-y divide-border/70 border-b border-border/70 mb-14">
+          {rest.map((pantheon, index) => {
+            const Mark = mythosMarks[pantheon.mark];
+            return (
+              <motion.li
                 key={pantheon.slug}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
+                viewport={{ once: true, margin: "-40px" }}
                 transition={{
-                  duration: 0.6,
-                  delay: index * 0.12,
+                  duration: 0.5,
+                  delay: index * 0.05,
                   ease: [0.22, 1, 0.36, 1],
                 }}
               >
                 <TransitionLink
                   href={`/pantheons/${pantheon.slug}`}
-                  className="block h-full group"
+                  className="group flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6 py-5 md:py-6"
                 >
-                  <div
-                    className={`relative h-full rounded-xl overflow-hidden bg-linear-to-br ${pantheon.gradient} p-px`}
-                  >
-                    {/* Inner card */}
-                    <div className="relative h-full rounded-[11px] bg-linear-to-br from-black/55 via-black/45 to-black/65 backdrop-blur-sm p-6 flex flex-col overflow-hidden">
-                      {/* Soft atmospheric wash — avoids flat placeholder PNGs */}
-                      <div
-                        className={`pointer-events-none absolute inset-0 bg-linear-to-br ${pantheon.gradient} opacity-40`}
-                        aria-hidden
-                      />
-                      <div
-                        className="pointer-events-none absolute -right-8 -top-10 h-40 w-40 rounded-full bg-gold/10 blur-3xl"
-                        aria-hidden
-                      />
-                      {/* Decorative corner */}
-                      <div className="absolute top-3 right-3 z-10 w-8 h-8 border-t border-r border-white/10 rounded-tr-lg" />
-
-                      {/* Classical mark */}
-                      <div className="relative z-10 mb-5">
-                        {(() => {
-                          const Mark = mythosMarks[pantheon.mark];
-                          return (
-                            <div className="inline-flex items-center justify-center w-12 h-12 border border-white/15 bg-black/25">
-                              <Mark className="h-7 w-7 text-gold" />
-                            </div>
-                          );
-                        })()}
-                      </div>
-
-                      {/* Title */}
-                      <div className="relative z-10 mb-4">
-                        <span className="text-xs text-white/50 tracking-widest uppercase block mb-1">
-                          {pantheon.culture}
-                        </span>
-                        <h3 className="font-serif text-2xl font-semibold text-white tracking-wide">
-                          {pantheon.fullName}
-                        </h3>
-                      </div>
-
-                      {/* Description */}
-                      <p className="relative z-10 text-white/85 text-sm leading-relaxed mb-6 grow">
-                        {pantheon.description}
-                      </p>
-
-                      {/* CTA */}
-                      <div className="relative z-10 flex items-center gap-2 text-white/80 group-hover:text-white transition-colors duration-300">
-                        <span className="text-sm font-medium tracking-wide">
-                          Explore Pantheon
-                        </span>
-                        <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform duration-300" />
-                      </div>
-
-                      {/* Hover shine effect */}
-                      <div className="absolute inset-0 z-10 bg-linear-to-tr from-white/0 via-white/5 to-white/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none rounded-[11px]" />
-                    </div>
+                  <span
+                    className="size-2.5 shrink-0 rounded-full"
+                    style={{
+                      backgroundColor: getPantheonColor(pantheon.pantheonId),
+                    }}
+                    aria-hidden
+                  />
+                  <Mark className="hidden sm:block h-5 w-5 shrink-0 text-muted-foreground group-hover:text-gold transition-colors" />
+                  <div className="flex-1 min-w-0">
+                    <p className="text-[0.65rem] uppercase tracking-[0.18em] text-muted-foreground">
+                      {pantheon.culture}
+                    </p>
+                    <h3 className="font-serif text-xl font-semibold text-foreground group-hover:text-gold transition-colors">
+                      {pantheon.fullName}
+                    </h3>
+                    <p className="mt-1 text-sm text-muted-foreground leading-relaxed line-clamp-2">
+                      {pantheon.description}
+                    </p>
                   </div>
+                  <ArrowRight className="h-4 w-4 shrink-0 text-muted-foreground/50 group-hover:text-gold group-hover:translate-x-1 transition-all" />
                 </TransitionLink>
-              </motion.div>
-            ))}
-        </div>
+              </motion.li>
+            );
+          })}
+        </ol>
 
-        {/* View all button */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.4 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
           className="text-center"
         >
           <Button
