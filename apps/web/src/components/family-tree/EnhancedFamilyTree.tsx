@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import { useState, useMemo, useCallback } from 'react';
-import Tree, { type RawNodeDatum, type TreeNodeDatum } from 'react-d3-tree';
-import { Button } from '@/components/ui/button';
-import { Sparkles, ZoomIn, ZoomOut, Maximize2, Users } from 'lucide-react';
+import { useState, useMemo, useCallback } from "react";
+import Tree, { type RawNodeDatum, type TreeNodeDatum } from "react-d3-tree";
+import { Button } from "@/components/ui/button";
+import { Sparkles, ZoomIn, ZoomOut, Maximize2, Users } from "lucide-react";
 
 interface Deity {
   id: string;
@@ -40,15 +40,30 @@ const renderForeignObjectNode = ({
   nodeDatum: TreeNodeDatum;
   toggleNode: () => void;
 }) => {
-  const customNode = nodeDatum as TreeNodeDatum & { deity?: Deity; relationshipType?: string };
+  const customNode = nodeDatum as TreeNodeDatum & {
+    deity?: Deity;
+    relationshipType?: string;
+  };
   const deity = customNode.deity;
-  
+
   if (!deity) return null;
 
   const hasChildren = nodeDatum.children && nodeDatum.children.length > 0;
-  let genderColor = 'from-amber-500 to-orange-600';
-  if (deity.gender === 'male') genderColor = 'from-blue-500 to-cyan-600';
-  else if (deity.gender === 'female') genderColor = 'from-pink-500 to-rose-600';
+  const childCount = nodeDatum.children?.length ?? 0;
+  const domains = deity.domain?.slice(0, 2).join(", ") ?? "";
+  const childLabel = childCount === 1 ? "1 child" : `${childCount} children`;
+  const ariaLabel = [
+    deity.name,
+    domains && `domains: ${domains}`,
+    hasChildren && childLabel,
+    customNode.relationshipType && `relation: ${customNode.relationshipType}`,
+  ]
+    .filter(Boolean)
+    .join(". ");
+
+  let genderColor = "from-amber-500 to-orange-600";
+  if (deity.gender === "male") genderColor = "from-blue-500 to-cyan-600";
+  else if (deity.gender === "female") genderColor = "from-pink-500 to-rose-600";
 
   return (
     <g>
@@ -56,27 +71,30 @@ const renderForeignObjectNode = ({
         <div className="flex flex-col items-center">
           <button
             type="button"
+            aria-label={ariaLabel}
             className="bg-white dark:bg-slate-900 rounded-lg shadow-lg p-3 border-2 border-slate-200 dark:border-slate-700 hover:shadow-xl transition-all cursor-pointer w-50 text-left appearance-none"
             onClick={toggleNode}
           >
             <div className="flex items-center gap-2 mb-2">
-              <div className={`w-8 h-8 rounded-lg bg-linear-to-br ${genderColor} flex items-center justify-center shrink-0`}>
-                <Sparkles className="h-4 w-4 text-white" />
+              <div
+                className={`w-8 h-8 rounded-lg bg-linear-to-br ${genderColor} flex items-center justify-center shrink-0`}
+              >
+                <Sparkles className="h-4 w-4 text-white" aria-hidden />
               </div>
               <h3 className="font-semibold text-sm truncate text-slate-900 dark:text-slate-100">
                 {deity.name}
               </h3>
             </div>
-            {deity.domain && deity.domain.length > 0 && (
+            {domains && (
               <p className="text-xs text-slate-600 dark:text-slate-400 truncate">
-                {deity.domain.slice(0, 2).join(', ')}
+                {domains}
               </p>
             )}
             {hasChildren && (
               <div className="mt-2 text-center">
                 <span className="text-xs text-teal-600 dark:text-teal-400 flex items-center justify-center gap-1">
-                  <Users className="h-3 w-3" />
-                  {nodeDatum.children?.length} {nodeDatum.children?.length === 1 ? 'child' : 'children'}
+                  <Users className="h-3 w-3" aria-hidden />
+                  {childLabel}
                 </span>
               </div>
             )}
@@ -96,24 +114,27 @@ const renderForeignObjectNode = ({
 function buildTreeData(
   deities: Deity[],
   relationships: Relationship[],
-  rootDeityId?: string
+  rootDeityId?: string,
 ): CustomNodeDatum | null {
-  const deityMap = new Map(deities.map(d => [d.id, d]));
-  
+  const deityMap = new Map(deities.map((d) => [d.id, d]));
+
   // Find root deity (one without parents or the focused deity)
   let rootId = rootDeityId;
   if (!rootId) {
     const childIds = new Set(
       relationships
-        .filter(r => r.relationshipType.toLowerCase().includes('parent'))
-        .map(r => r.toDeityId)
+        .filter((r) => r.relationshipType.toLowerCase().includes("parent"))
+        .map((r) => r.toDeityId),
     );
-    rootId = deities.find(d => !childIds.has(d.id))?.id || deities[0]?.id;
+    rootId = deities.find((d) => !childIds.has(d.id))?.id || deities[0]?.id;
   }
 
   if (!rootId || !deityMap.has(rootId)) return null;
 
-  const buildNode = (deityId: string, visited = new Set<string>()): CustomNodeDatum | null => {
+  const buildNode = (
+    deityId: string,
+    visited = new Set<string>(),
+  ): CustomNodeDatum | null => {
     if (visited.has(deityId)) return null;
     visited.add(deityId);
 
@@ -121,35 +142,39 @@ function buildTreeData(
     if (!deity) return null;
 
     const children: CustomNodeDatum[] = [];
-    
+
     // Add children
     const childRelationships = relationships.filter(
-      r => r.fromDeityId === deityId && r.relationshipType.toLowerCase().includes('parent')
+      (r) =>
+        r.fromDeityId === deityId &&
+        r.relationshipType.toLowerCase().includes("parent"),
     );
-    
+
     for (const rel of childRelationships) {
       const childNode = buildNode(rel.toDeityId, new Set(visited));
       if (childNode) {
-        childNode.relationshipType = 'Child';
+        childNode.relationshipType = "Child";
         children.push(childNode);
       }
     }
 
     // Add spouses as children (shown side by side)
     const spouseRelationships = relationships.filter(
-      r => (r.fromDeityId === deityId || r.toDeityId === deityId) && 
-           r.relationshipType.toLowerCase().includes('spouse')
+      (r) =>
+        (r.fromDeityId === deityId || r.toDeityId === deityId) &&
+        r.relationshipType.toLowerCase().includes("spouse"),
     );
-    
+
     for (const rel of spouseRelationships) {
-      const spouseId = rel.fromDeityId === deityId ? rel.toDeityId : rel.fromDeityId;
+      const spouseId =
+        rel.fromDeityId === deityId ? rel.toDeityId : rel.fromDeityId;
       if (!visited.has(spouseId)) {
         const spouseDeity = deityMap.get(spouseId);
         if (spouseDeity) {
           children.push({
             name: spouseDeity.name,
             deity: spouseDeity,
-            relationshipType: 'Spouse',
+            relationshipType: "Spouse",
             children: [],
           });
         }
@@ -166,10 +191,10 @@ function buildTreeData(
   return buildNode(rootId);
 }
 
-export function EnhancedFamilyTree({ 
-  deities, 
-  relationships, 
-  focusDeityId 
+export function EnhancedFamilyTree({
+  deities,
+  relationships,
+  focusDeityId,
 }: Readonly<EnhancedFamilyTreeProps>) {
   const [translate, setTranslate] = useState({ x: 0, y: 0 });
   const [zoom, setZoom] = useState(0.8);
@@ -180,11 +205,11 @@ export function EnhancedFamilyTree({
   }, [deities, relationships, focusDeityId]);
 
   const handleZoomIn = useCallback(() => {
-    setZoom(prev => Math.min(prev + 0.2, 2));
+    setZoom((prev) => Math.min(prev + 0.2, 2));
   }, []);
 
   const handleZoomOut = useCallback(() => {
-    setZoom(prev => Math.max(prev - 0.2, 0.2));
+    setZoom((prev) => Math.max(prev - 0.2, 0.2));
   }, []);
 
   const handleReset = useCallback(() => {
@@ -253,7 +278,7 @@ export function EnhancedFamilyTree({
           enableLegacyTransitions={true}
           transitionDuration={500}
           depthFactor={200}
-          pathClassFunc={() => 'custom-link'}
+          pathClassFunc={() => "custom-link"}
         />
       </div>
 

@@ -42,11 +42,9 @@ function Star({
       onPointerOver={(e) => {
         e.stopPropagation();
         onHover(node.id);
-        document.body.style.cursor = "pointer";
       }}
       onPointerOut={() => {
         onHover(null);
-        document.body.style.cursor = "auto";
       }}
       onClick={(e) => {
         e.stopPropagation();
@@ -237,7 +235,11 @@ export function AetherMap() {
   if (!ready || !useCanvas) return <AtlasFallback />;
 
   return (
-    <div className="relative h-[calc(100vh-4rem)] w-full">
+    <div
+      className="relative h-[calc(100vh-4rem)] w-full"
+      data-interactive
+      aria-label="Interactive Aether Map of deities"
+    >
       <Canvas
         camera={{ position: [0, 6, 46], fov: 55 }}
         dpr={[1, 1.5]}
