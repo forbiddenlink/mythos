@@ -158,13 +158,13 @@ export function StoryNarrator({
 
           {/* Progress Bar */}
           <div className="flex-1 space-y-1">
-            <div className="h-2 bg-midnight/50 rounded-full overflow-hidden">
+            <div className="h-2 bg-muted rounded-full overflow-hidden">
               <div
                 className="h-full bg-linear-to-r from-gold/60 to-gold transition-all duration-150"
                 style={{ width: `${progress}%` }}
               />
             </div>
-            <div className="flex justify-between text-xs text-parchment/50">
+            <div className="flex justify-between text-xs text-muted-foreground">
               <span>{Math.round(progress)}%</span>
               <span>~{formatTime(estimatedDuration)} total</span>
             </div>
@@ -175,7 +175,7 @@ export function StoryNarrator({
             variant="ghost"
             size="icon"
             onClick={() => setIsExpanded(!isExpanded)}
-            className="h-8 w-8 text-parchment/60 hover:text-parchment hover:bg-midnight/50"
+            className="h-8 w-8 text-muted-foreground hover:text-foreground hover:bg-muted/60"
             aria-label={isExpanded ? "Collapse controls" : "Expand controls"}
           >
             {isExpanded ? (
@@ -188,10 +188,10 @@ export function StoryNarrator({
 
         {/* Expanded Controls */}
         {isExpanded && (
-          <div className="space-y-4 pt-2 border-t border-gold/10">
+          <div className="space-y-4 pt-2 border-t border-border">
             {/* Speed Control */}
             <div className="flex items-center gap-4">
-              <div className="flex items-center gap-2 text-parchment/70 min-w-20">
+              <div className="flex items-center gap-2 text-muted-foreground min-w-20">
                 <Gauge className="h-4 w-4" />
                 <span className="text-sm">Speed</span>
               </div>
@@ -214,7 +214,7 @@ export function StoryNarrator({
                       "px-2 py-1 text-xs rounded transition-colors",
                       speed === option.value
                         ? "bg-gold/20 text-gold border border-gold/30"
-                        : "text-parchment/50 hover:text-parchment/80 hover:bg-midnight/50",
+                        : "text-muted-foreground hover:text-foreground hover:bg-muted/60",
                     )}
                   >
                     {option.label}
@@ -226,7 +226,7 @@ export function StoryNarrator({
             {/* Voice Selection */}
             {availableVoices.length > 0 && (
               <div className="flex items-center gap-4">
-                <div className="flex items-center gap-2 text-parchment/70 min-w-20">
+                <div className="flex items-center gap-2 text-muted-foreground min-w-20">
                   <Volume2 className="h-4 w-4" />
                   <span className="text-sm">Voice</span>
                 </div>
@@ -234,15 +234,15 @@ export function StoryNarrator({
                   value={selectedVoice?.name || ""}
                   onValueChange={(name) => setVoice(name)}
                 >
-                  <SelectTrigger className="flex-1 h-9 bg-midnight/50 border-gold/20 text-parchment hover:border-gold/40">
+                  <SelectTrigger className="flex-1 h-9 bg-muted/50 border-border text-foreground hover:border-gold/40">
                     <SelectValue placeholder="Select a voice" />
                   </SelectTrigger>
-                  <SelectContent className="bg-midnight border-gold/30 max-h-60">
+                  <SelectContent className="bg-popover border-border max-h-60">
                     {availableVoices.map((voice) => (
                       <SelectItem
                         key={voice.voiceURI}
                         value={voice.name}
-                        className="text-parchment hover:bg-gold/10"
+                        className="text-foreground hover:bg-gold/10"
                       >
                         {voice.name} ({voice.lang})
                       </SelectItem>
@@ -255,7 +255,7 @@ export function StoryNarrator({
             {/* Auto-scroll Toggle */}
             {onAutoScroll && (
               <div className="flex items-center gap-4">
-                <div className="flex items-center gap-2 text-parchment/70 min-w-20">
+                <div className="flex items-center gap-2 text-muted-foreground min-w-20">
                   <ScrollText className="h-4 w-4" />
                   <span className="text-sm">Auto-scroll</span>
                 </div>
@@ -265,12 +265,12 @@ export function StoryNarrator({
                     "px-3 py-1.5 text-sm rounded-lg border transition-all",
                     autoScrollEnabled
                       ? "bg-gold/20 border-gold/50 text-gold"
-                      : "bg-midnight/50 border-gold/20 text-parchment/60 hover:border-gold/40 hover:text-parchment/80",
+                      : "bg-muted/50 border-border text-muted-foreground hover:border-gold/40 hover:text-foreground",
                   )}
                 >
                   {autoScrollEnabled ? "Enabled" : "Disabled"}
                 </button>
-                <span className="text-xs text-parchment/40">
+                <span className="text-xs text-muted-foreground/70">
                   Automatically scroll to follow the narration
                 </span>
               </div>
@@ -280,7 +280,7 @@ export function StoryNarrator({
 
         {/* Compact Status Indicator */}
         {!isExpanded && (isPlaying || isPaused) && (
-          <div className="flex items-center gap-2 text-xs text-parchment/60">
+          <div className="flex items-center gap-2 text-xs text-muted-foreground">
             <Volume2 className="h-3 w-3" />
             <span>
               {isPaused ? "Paused" : "Playing"} at {speed}x

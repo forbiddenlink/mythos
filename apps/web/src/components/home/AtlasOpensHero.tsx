@@ -123,10 +123,13 @@ export function AtlasOpensHero() {
         scrollTrigger: {
           trigger: rootRef.current,
           start: "top top",
-          end: "+=360%",
-          scrub: 1.15,
+          // Longer scrub distance = less sticky scene-to-scene jumps
+          end: "+=420%",
+          scrub: 1.35,
           pin: pinRef.current,
+          pinSpacing: true,
           anticipatePin: 1,
+          invalidateOnRefresh: true,
           onUpdate: (self) => {
             const idx = Math.min(
               scenes.length - 1,
@@ -143,16 +146,16 @@ export function AtlasOpensHero() {
       scenes.forEach((scene, i) => {
         if (i === 0) return;
         const prev = scenes[i - 1];
-        const at = (i - 1) * 1.05;
+        const at = (i - 1) * 1.15;
         tl.to(
           prev,
-          { autoAlpha: 0, y: -12, duration: 0.55, ease: "power1.inOut" },
+          { autoAlpha: 0, y: -8, duration: 0.6, ease: "power1.inOut" },
           at,
         ).fromTo(
           scene,
-          { autoAlpha: 0, y: 18 },
-          { autoAlpha: 1, y: 0, duration: 0.65, ease: "power2.out" },
-          at + 0.12,
+          { autoAlpha: 0, y: 12 },
+          { autoAlpha: 1, y: 0, duration: 0.7, ease: "power2.out" },
+          at + 0.15,
         );
       });
 
@@ -160,19 +163,19 @@ export function AtlasOpensHero() {
       if (sigils.length) {
         gsap.fromTo(
           sigils,
-          { y: 20, opacity: 0, scale: 0.96 },
+          { y: 14, opacity: 0, scale: 0.97 },
           {
             y: 0,
             opacity: 1,
             scale: 1,
-            stagger: 0.035,
-            duration: 0.55,
+            stagger: 0.03,
+            duration: 0.6,
             ease: "power2.out",
             scrollTrigger: {
               trigger: rootRef.current,
-              start: "top+=28% top",
-              end: "top+=55% top",
-              scrub: 1,
+              start: "top+=30% top",
+              end: "top+=58% top",
+              scrub: 1.2,
             },
           },
         );
@@ -355,7 +358,7 @@ export function AtlasOpensHero() {
         {/* Scene 4 — Rest / CTAs */}
         <div
           data-atlas-scene
-          className="absolute inset-0 z-10 overflow-y-auto opacity-0 invisible pointer-events-none"
+          className="absolute inset-0 z-10 overflow-y-auto overscroll-contain opacity-0 invisible pointer-events-none"
           aria-hidden
         >
           {restContent}

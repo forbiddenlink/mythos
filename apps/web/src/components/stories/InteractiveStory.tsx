@@ -166,7 +166,7 @@ export function InteractiveStory({ story }: InteractiveStoryProps) {
                     "transition-all",
                     isDiscovered
                       ? getEndingTypeColor(ending.type)
-                      : "text-parchment/30 border-parchment/20 bg-transparent",
+                      : "text-muted-foreground/40 border-border bg-transparent",
                   )}
                 >
                   {isDiscovered ? (
@@ -219,13 +219,13 @@ export function InteractiveStory({ story }: InteractiveStoryProps) {
                     {getEndingIcon(currentNode.ending.type)}
                   </div>
                 </div>
-                <CardTitle className="text-2xl font-serif text-parchment">
+                <CardTitle className="text-2xl font-serif text-foreground">
                   {getEndingTypeLabel(currentNode.ending.type)}
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-6">
                 {/* Final narrative */}
-                <div className="prose prose-invert prose-gold max-w-none prose-p:text-parchment/80 prose-headings:text-gold/90">
+                <div className="prose dark:prose-invert prose-gold max-w-none prose-p:leading-relaxed prose-headings:font-serif prose-headings:text-gold-text prose-strong:text-foreground prose-blockquote:border-l-gold/40">
                   <ReactMarkdown>{currentNode.content}</ReactMarkdown>
                 </div>
 
@@ -243,17 +243,21 @@ export function InteractiveStory({ story }: InteractiveStoryProps) {
 
                 {/* Stats */}
                 <div className="grid grid-cols-2 gap-4 text-center">
-                  <div className="p-4 bg-midnight/50 rounded-lg">
+                  <div className="p-4 bg-muted/50 rounded-lg border border-border">
                     <p className="text-2xl font-bold text-gold">
                       {pathTaken.length}
                     </p>
-                    <p className="text-sm text-parchment/60">Choices Made</p>
+                    <p className="text-sm text-muted-foreground">
+                      Choices Made
+                    </p>
                   </div>
-                  <div className="p-4 bg-midnight/50 rounded-lg">
+                  <div className="p-4 bg-muted/50 rounded-lg border border-border">
                     <p className="text-2xl font-bold text-gold">
                       {discoveredEndings.length} / {story.totalEndings}
                     </p>
-                    <p className="text-sm text-parchment/60">Endings Found</p>
+                    <p className="text-sm text-muted-foreground">
+                      Endings Found
+                    </p>
                   </div>
                 </div>
 
@@ -286,8 +290,8 @@ export function InteractiveStory({ story }: InteractiveStoryProps) {
                       exit={{ opacity: 0, height: 0 }}
                       className="overflow-hidden"
                     >
-                      <div className="p-4 bg-midnight/50 rounded-lg border border-gold/20">
-                        <h4 className="text-sm font-semibold text-gold mb-3">
+                      <div className="p-4 bg-muted/40 rounded-lg border border-border">
+                        <h4 className="text-sm font-semibold text-gold-text mb-3">
                           Your Journey
                         </h4>
                         <div className="space-y-2">
@@ -305,7 +309,7 @@ export function InteractiveStory({ story }: InteractiveStoryProps) {
                                 <span className="text-gold/60">
                                   {index + 1}.
                                 </span>
-                                <span className="text-parchment/70 truncate">
+                                <span className="text-muted-foreground truncate">
                                   {title.slice(0, 50)}
                                   {title.length > 50 ? "..." : ""}
                                 </span>

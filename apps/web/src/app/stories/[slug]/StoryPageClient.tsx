@@ -211,7 +211,7 @@ export function StoryPageClient({ slug }: StoryPageClientProps) {
     relatedStoriesData.length > 0;
 
   return (
-    <div className="min-h-screen bg-mythic">
+    <div className="min-h-screen bg-background">
       <StoryProgressTracker storyId={story.id} pantheonId={story.pantheonId} />
       <ArticleJsonLd
         headline={story.title}
@@ -221,39 +221,33 @@ export function StoryPageClient({ slug }: StoryPageClientProps) {
         url={`/stories/${story.slug}`}
       />
       {/* Hero Section */}
-      <RouteHero>
+      <RouteHero tone="surface">
         <div className="flex items-center justify-center mb-6">
           <HeroMark mark="scroll" tone="gold" size="lg" />
         </div>
-        <h1 className="page-title text-parchment mb-6">{story.title}</h1>
+        <h1 className="page-title text-foreground mb-6">{story.title}</h1>
         <div className="flex items-center justify-center gap-4 mb-6">
           <div className="w-12 h-px bg-linear-to-r from-transparent to-gold/40" />
           <div className="w-1.5 h-1.5 rotate-45 bg-gold/50" />
           <div className="w-12 h-px bg-linear-to-l from-transparent to-gold/40" />
         </div>
         <div className="flex items-center justify-center gap-2 mb-4">
-          <Tag className="h-4 w-4 text-gold/80" />
-          <p className="text-gold/80 font-body">{story?.category}</p>
+          <Tag className="h-4 w-4 text-gold" />
+          <p className="text-gold-text font-body">{story?.category}</p>
         </div>
         <EditorialByline
           className="mx-auto max-w-2xl text-center"
-          tone="light"
+          tone="dark"
         />
 
-        <div className="flex items-center justify-center gap-4">
-          <BookmarkButton
-            type="story"
-            id={story?.id || ""}
-            size="lg"
-            variant="light"
-          />
+        <div className="flex flex-wrap items-center justify-center gap-3 mt-2">
+          <BookmarkButton type="story" id={story?.id || ""} size="lg" />
 
           {story && (
             <ShareButton
               title={`${story.title} - Mythos Atlas`}
               text={`Read "${story.title}" - ${story.summary?.slice(0, 100)}... on Mythos Atlas`}
               url={`https://mythosatlas.com/stories/${story.slug}`}
-              className="[&_button]:text-gold [&_button]:border-gold/40 [&_button]:hover:bg-gold/20"
             />
           )}
 
@@ -271,7 +265,6 @@ export function StoryPageClient({ slug }: StoryPageClientProps) {
                 featuredDeities: story.featuredDeities,
               }}
               variant="ghost"
-              className="text-gold hover:bg-gold/20"
             />
           )}
 
@@ -286,8 +279,8 @@ export function StoryPageClient({ slug }: StoryPageClientProps) {
               }}
               className={`flex items-center gap-2 px-4 py-2 rounded-lg border transition-all ${
                 isSpeaking
-                  ? "bg-red-500/20 border-red-500/50 text-red-200 hover:bg-red-500/30"
-                  : "bg-gold/20 border-gold/40 text-gold hover:bg-gold/30"
+                  ? "bg-destructive/15 border-destructive/40 text-destructive hover:bg-destructive/25"
+                  : "bg-gold/15 border-gold/40 text-gold-text hover:bg-gold/25"
               }`}
             >
               {isSpeaking ? (
@@ -307,7 +300,7 @@ export function StoryPageClient({ slug }: StoryPageClientProps) {
           {story && CINEMATIC_STORIES.includes(story.slug) && (
             <Link
               href={`/stories/${story.slug}/cinematic`}
-              className="flex items-center gap-2 px-4 py-2 rounded-lg border bg-bronze/20 border-bronze/40 text-bronze hover:bg-bronze/30 transition-all"
+              className="flex items-center gap-2 px-4 py-2 rounded-lg border bg-bronze/15 border-bronze/40 text-bronze hover:bg-bronze/25 transition-all"
             >
               <Play className="h-4 w-4" />
               <span className="font-semibold">Cinematic Mode</span>
@@ -317,7 +310,7 @@ export function StoryPageClient({ slug }: StoryPageClientProps) {
           {story?.fullNarrative && (
             <Link
               href={`/stories/${story.slug}/read`}
-              className="flex items-center gap-2 px-4 py-2 rounded-lg border bg-gold/15 border-gold/40 text-gold hover:bg-gold/25 transition-all"
+              className="flex items-center gap-2 px-4 py-2 rounded-lg border bg-gold/10 border-gold/40 text-gold-text hover:bg-gold/20 transition-all"
             >
               <ScrollText className="h-4 w-4" />
               <span className="font-semibold">Read Cinematically</span>
