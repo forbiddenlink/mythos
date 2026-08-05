@@ -1,11 +1,11 @@
-'use client';
+"use client";
 
-import { useState, useEffect, useCallback } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import ReactMarkdown from 'react-markdown';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
+import { useState, useEffect, useCallback } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import ReactMarkdown from "react-markdown";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 import {
   BookOpen,
   RotateCcw,
@@ -15,7 +15,7 @@ import {
   ChevronRight,
   History,
   Sparkles,
-} from 'lucide-react';
+} from "lucide-react";
 import {
   BranchingStory,
   StoryProgress,
@@ -26,8 +26,8 @@ import {
   getDiscoveredEndings,
   getEndingTypeColor,
   getEndingTypeLabel,
-} from '@/lib/branching-story';
-import { cn } from '@/lib/utils';
+} from "@/lib/branching-story";
+import { cn } from "@/lib/utils";
 
 interface InteractiveStoryProps {
   story: BranchingStory;
@@ -78,17 +78,14 @@ export function InteractiveStory({ story }: InteractiveStoryProps) {
     }
   }, [currentNode, currentNodeId, story.id, discoveredEndings]);
 
-  const handleChoice = useCallback(
-    (nextNodeId: string) => {
-      setIsTransitioning(true);
-      setTimeout(() => {
-        setCurrentNodeId(nextNodeId);
-        setPathTaken((prev) => [...prev, nextNodeId]);
-        setIsTransitioning(false);
-      }, 300);
-    },
-    []
-  );
+  const handleChoice = useCallback((nextNodeId: string) => {
+    setIsTransitioning(true);
+    setTimeout(() => {
+      setCurrentNodeId(nextNodeId);
+      setPathTaken((prev) => [...prev, nextNodeId]);
+      setIsTransitioning(false);
+    }, 300);
+  }, []);
 
   const handleRestart = useCallback(() => {
     setIsTransitioning(true);
@@ -101,19 +98,19 @@ export function InteractiveStory({ story }: InteractiveStoryProps) {
     }, 300);
   }, [story.id, story.startNodeId]);
 
-  const getEndingIcon = (type: 'good' | 'neutral' | 'tragic') => {
+  const getEndingIcon = (type: "good" | "neutral" | "tragic") => {
     switch (type) {
-      case 'good':
+      case "good":
         return <Trophy className="h-8 w-8" />;
-      case 'neutral':
+      case "neutral":
         return <Scale className="h-8 w-8" />;
-      case 'tragic':
+      case "tragic":
         return <Skull className="h-8 w-8" />;
     }
   };
 
   const endingNodes = Object.entries(story.nodes).filter(
-    ([, node]) => node.ending
+    ([, node]) => node.ending,
   );
 
   if (!currentNode) {
@@ -152,7 +149,7 @@ export function InteractiveStory({ story }: InteractiveStoryProps) {
               animate={{
                 width: `${(discoveredEndings.length / story.totalEndings) * 100}%`,
               }}
-              transition={{ duration: 0.5, ease: 'easeOut' }}
+              transition={{ duration: 0.5, ease: "easeOut" }}
             />
           </div>
 
@@ -166,21 +163,27 @@ export function InteractiveStory({ story }: InteractiveStoryProps) {
                   key={nodeId}
                   variant="outline"
                   className={cn(
-                    'transition-all',
+                    "transition-all",
                     isDiscovered
                       ? getEndingTypeColor(ending.type)
-                      : 'text-parchment/30 border-parchment/20 bg-transparent'
+                      : "text-parchment/30 border-parchment/20 bg-transparent",
                   )}
                 >
                   {isDiscovered ? (
                     <>
-                      {ending.type === 'good' && <Trophy className="h-3 w-3 mr-1" />}
-                      {ending.type === 'neutral' && <Scale className="h-3 w-3 mr-1" />}
-                      {ending.type === 'tragic' && <Skull className="h-3 w-3 mr-1" />}
-                      {ending.summary.split(' ').slice(0, 3).join(' ')}...
+                      {ending.type === "good" && (
+                        <Trophy className="h-3 w-3 mr-1" />
+                      )}
+                      {ending.type === "neutral" && (
+                        <Scale className="h-3 w-3 mr-1" />
+                      )}
+                      {ending.type === "tragic" && (
+                        <Skull className="h-3 w-3 mr-1" />
+                      )}
+                      {ending.summary.split(" ").slice(0, 3).join(" ")}...
                     </>
                   ) : (
-                    '???'
+                    "???"
                   )}
                 </Badge>
               );
@@ -201,16 +204,16 @@ export function InteractiveStory({ story }: InteractiveStoryProps) {
           >
             <Card
               className={cn(
-                'border-2 overflow-hidden',
-                getEndingTypeColor(currentNode.ending.type)
+                "border-2 overflow-hidden",
+                getEndingTypeColor(currentNode.ending.type),
               )}
             >
               <CardHeader className="text-center pb-2">
                 <div className="flex justify-center mb-4">
                   <div
                     className={cn(
-                      'p-4 rounded-full',
-                      getEndingTypeColor(currentNode.ending.type)
+                      "p-4 rounded-full",
+                      getEndingTypeColor(currentNode.ending.type),
                     )}
                   >
                     {getEndingIcon(currentNode.ending.type)}
@@ -229,8 +232,8 @@ export function InteractiveStory({ story }: InteractiveStoryProps) {
                 {/* Ending summary */}
                 <div
                   className={cn(
-                    'p-4 rounded-lg border',
-                    getEndingTypeColor(currentNode.ending.type)
+                    "p-4 rounded-lg border",
+                    getEndingTypeColor(currentNode.ending.type),
                   )}
                 >
                   <p className="text-center text-lg italic">
@@ -279,7 +282,7 @@ export function InteractiveStory({ story }: InteractiveStoryProps) {
                   {showPathHistory && (
                     <motion.div
                       initial={{ opacity: 0, height: 0 }}
-                      animate={{ opacity: 1, height: 'auto' }}
+                      animate={{ opacity: 1, height: "auto" }}
                       exit={{ opacity: 0, height: 0 }}
                       className="overflow-hidden"
                     >
@@ -291,8 +294,9 @@ export function InteractiveStory({ story }: InteractiveStoryProps) {
                           {pathTaken.map((nodeId, index) => {
                             const node = story.nodes[nodeId];
                             const title =
-                              node?.content.split('\n')[0].replace(/^#+\s*/, '') ||
-                              nodeId;
+                              node?.content
+                                .split("\n")[0]
+                                .replace(/^#+\s*/, "") || nodeId;
                             return (
                               <div
                                 key={`${nodeId}-${index}`}
@@ -303,7 +307,7 @@ export function InteractiveStory({ story }: InteractiveStoryProps) {
                                 </span>
                                 <span className="text-parchment/70 truncate">
                                   {title.slice(0, 50)}
-                                  {title.length > 50 ? '...' : ''}
+                                  {title.length > 50 ? "..." : ""}
                                 </span>
                               </div>
                             );
@@ -354,21 +358,30 @@ export function InteractiveStory({ story }: InteractiveStoryProps) {
                       {currentNode.choices.map((choice, index) => (
                         <motion.button
                           key={choice.nextNodeId}
+                          type="button"
                           onClick={() => handleChoice(choice.nextNodeId)}
                           disabled={isTransitioning}
+                          aria-label={
+                            choice.consequence
+                              ? `${choice.text}. ${choice.consequence}`
+                              : choice.text
+                          }
                           className={cn(
-                            'w-full text-left p-4 rounded-lg border transition-all',
-                            'bg-midnight/50 border-gold/20 hover:border-gold/50 hover:bg-gold/5',
-                            'disabled:opacity-50 disabled:cursor-not-allowed',
-                            'group'
+                            "w-full text-left p-4 rounded-lg border transition-all",
+                            "bg-midnight/50 border-gold/20 hover:border-gold/50 hover:bg-gold/5",
+                            "disabled:opacity-50 disabled:cursor-not-allowed",
+                            "group",
                           )}
                           initial={{ opacity: 0, y: 10 }}
                           animate={{ opacity: 1, y: 0 }}
                           transition={{ delay: index * 0.1 }}
                         >
                           <div className="flex items-center gap-3">
-                            <ChevronRight className="h-5 w-5 text-gold/50 group-hover:text-gold transition-colors" />
-                            <div className="flex-1">
+                            <ChevronRight
+                              className="h-5 w-5 text-gold/50 group-hover:text-gold transition-colors"
+                              aria-hidden="true"
+                            />
+                            <div className="flex-1" aria-hidden="true">
                               <p className="text-parchment group-hover:text-gold transition-colors">
                                 {choice.text}
                               </p>

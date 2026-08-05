@@ -14,7 +14,7 @@ const titanomachyScenes: StoryScene[] = [
     title: "The Reign of Cronus",
     text: "In the age before the Olympians, the Titan Cronus ruled supreme over the cosmos. He had seized power from his own father, Ouranos, castrating him with an adamantine sickle at the urging of his mother Gaia. But power won through violence carries with it a terrible curse: the prophecy that Cronus himself would be overthrown by his own offspring.",
     mood: "mysterious",
-    imageUrl: "/pantheons/greek-pantheon.webp",
+    imageUrl: "/stories/titanomachy.png",
   },
   {
     id: "devouring",
@@ -27,7 +27,7 @@ const titanomachyScenes: StoryScene[] = [
     title: "The Birth of Zeus",
     text: "When Rhea was pregnant with her sixth child, she could bear no more grief. She traveled to Crete, to the hidden cave of Dicte on Mount Ida, where she gave birth to Zeus in secret. In place of the infant, she wrapped a great stone in swaddling clothes and presented it to Cronus, who swallowed it without suspicion.",
     mood: "mysterious",
-    imageUrl: "/deities/zeus.webp",
+    imageUrl: "/deities/zeus.jpg",
   },
   {
     id: "hidden-king",
@@ -52,7 +52,7 @@ const titanomachyScenes: StoryScene[] = [
     title: "The Divine Weapons",
     text: "Zeus descended to Tartarus and freed the Hundred-Handed Ones and the Cyclopes. The Cyclopes forged terrible weapons for the Olympians: the thunderbolt for Zeus, the trident for Poseidon, and the helm of invisibility for Hades.",
     mood: "triumphant",
-    imageUrl: "/deities/hephaestus.webp",
+    imageUrl: "/deities/hephaestus.jpg",
   },
   {
     id: "final-battle",
