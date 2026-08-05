@@ -2,6 +2,8 @@
 
 This file provides guidance to WARP (warp.dev) when working with code in this repository.
 
+**Design system:** before generating any UI, read `apps/web/public/design-system.txt` (machine-readable token + component contract). Token SoT = `apps/web/src/app/globals.css`; philosophy = `.impeccable.md`.
+
 ## Project Overview
 
 Mythos Atlas is an interactive mythology encyclopedia. It's a **pnpm + Turborepo monorepo** with two apps:

@@ -1,0 +1,42 @@
+# Mythos (mythosatlas.com) — Design System (AI-readable index)
+
+> Machine-readable token + component contract for AI coding agents (Claude, Cursor, v0).
+> Brand: "Classical · scholarly · luminous — dark-academia atlas of antiquity." Calm authority, never neon AI-product energy.
+> When generating UI: pick ONLY from the named tokens below. Never emit ad-hoc hex/px.
+> Token SoT = apps/web/src/app/globals.css. Philosophy = .impeccable.md (repo root).
+
+Site: https://mythosatlas.com
+Stack: Next.js 16.2, React 19.2, Tailwind CSS v4 (@theme inline), shadcn/ui (new-york, base neutral, lucide), cva. Monorepo (pnpm workspace) — app at apps/web/, source apps/web/src/.
+Colors = OKLCH in :root (light) + .dark.
+
+## Fonts (next/font/google)
+- Display / serif headings: Cinzel — --font-cinzel (→ --font-display / --font-serif), weights 400-800
+- Body serif: Crimson Pro — --font-crimson (→ --font-body), normal + italic
+- UI / sans: Source Sans 3 — --font-source-sans (→ --font-sans), weights 400-500
+
+## Color tokens (closed set — apps/web/src/app/globals.css, OKLCH)
+Standard shadcn semantic set: --color-background --color-primary --color-card --color-sidebar-* --color-chart-1..5
+Mythos brand colors: --gold, --gold-light, --gold-dark, --gold-text, --midnight, --midnight-light, --parchment, --parchment-dark, --bronze, --patina
+Text-safety helpers: --text-soft, --text-soft-strong, --text-on-tint
+- Radius: --radius 0.5rem base → --radius-sm … --radius-4xl
+- Z-index scale: --z-base/dropdown/sticky/modal/toast/cursor
+
+## Typography + surface utility classes (use these, not raw values)
+.text-display, .text-h1/h2/h3, .page-title, .page-section-title, .page-eyebrow, .page-lede, .page-shell,
+.glass-card (glassmorphism), gold shimmer/gradient text, .bg-mythic / .bg-hero-gradient (atmospheric), ornate borders, noise overlay
+
+## Components — apps/web/src/components/ui/ (shadcn, cva, 18 files)
+button, card, badge, dialog, select, tabs, command, input, progress, slider, hover-card, pagination-controls,
+skeleton-cards, achievement-toast, bookmark-button, export-button, logo, pronunciation, theme-toggle
+- Button (cva): variants default/destructive/outline/secondary/ghost/link/gold (custom: bg-gold text-midnight); sizes default/sm/lg/icon/icon-sm/icon-lg
+- Card (cva): variants default/glass (.glass-card)/elevated (.card-elevated)
+
+## Hard rules (.impeccable.md — 5 principles)
+- Named theme tokens over hardcoded skins. Brand-first. Depth on FEW surfaces (prefer manuscript lists/prose over card-soup; cards only for interactive/structured data). Atlas-like interactivity. Non-negotiable accessibility.
+- Hero: one cinematic hero ("The Atlas Opens"); brand name IS the hero signal; ≤2 ambient motion systems; scroll-scrub GSAP not idle GPU spam.
+- Motion: purposeful only; prefers-reduced-motion collapses to static; transform/opacity only.
+- Anti-references (banned): purple/indigo SaaS gradients, Lucide-in-gradient-square feature grids, slate/amber stock heroes, stacked identical cards, glow-ring icon badges as brand mark, flat single-color backgrounds without atmosphere.
+
+## Deep references
+- apps/web/src/app/globals.css — canonical OKLCH tokens
+- .impeccable.md — philosophy + 5 principles + anti-patterns
