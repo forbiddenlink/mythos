@@ -146,70 +146,46 @@ export function PantheonPageClient({ slug }: PantheonPageClientProps) {
       <div className="container mx-auto max-w-6xl px-4 py-16">
         <Breadcrumbs />
 
-        {/* Overview Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12 mt-8">
-          <Card className="border-border bg-card">
-            <CardHeader>
-              <div className="flex items-center gap-2">
-                <MapPin className="h-5 w-5 text-gold" />
-                <CardTitle className="text-foreground">Region</CardTitle>
-              </div>
-            </CardHeader>
-            <CardContent>
-              <p className="text-muted-foreground">{pantheon.region}</p>
-            </CardContent>
-          </Card>
+        {/* Metadata strip — not a stat-card trio */}
+        <dl className="mt-8 mb-12 flex flex-wrap items-center gap-x-8 gap-y-3 border-y border-border/70 py-5 text-sm">
+          <div className="flex items-center gap-2">
+            <MapPin className="h-4 w-4 text-gold" aria-hidden />
+            <dt className="text-muted-foreground">Region</dt>
+            <dd className="font-medium text-foreground">{pantheon.region}</dd>
+          </div>
+          <div className="flex items-center gap-2">
+            <Calendar className="h-4 w-4 text-gold" aria-hidden />
+            <dt className="text-muted-foreground">Era</dt>
+            <dd className="font-medium text-foreground">
+              {pantheon.timePeriodStart && pantheon.timePeriodEnd
+                ? `${Math.abs(pantheon.timePeriodStart)} BCE – ${Math.abs(pantheon.timePeriodEnd)} ${pantheon.timePeriodEnd < 0 ? "BCE" : "CE"}`
+                : "Ancient times"}
+            </dd>
+          </div>
+          <div className="flex items-center gap-2">
+            <Users className="h-4 w-4 text-gold" aria-hidden />
+            <dt className="text-muted-foreground">Deities</dt>
+            <dd className="font-medium text-foreground">
+              {pantheonDeities.length}
+            </dd>
+          </div>
+        </dl>
 
-          <Card className="border-border bg-card">
-            <CardHeader>
-              <div className="flex items-center gap-2">
-                <Calendar className="h-5 w-5 text-gold" />
-                <CardTitle className="text-foreground">Time Period</CardTitle>
-              </div>
-            </CardHeader>
-            <CardContent>
-              <p className="text-muted-foreground">
-                {pantheon.timePeriodStart && pantheon.timePeriodEnd
-                  ? `${Math.abs(pantheon.timePeriodStart)} BCE - ${Math.abs(pantheon.timePeriodEnd)} ${pantheon.timePeriodEnd < 0 ? "BCE" : "CE"}`
-                  : "Ancient Times"}
-              </p>
-            </CardContent>
-          </Card>
-
-          <Card className="border-border bg-card">
-            <CardHeader>
-              <div className="flex items-center gap-2">
-                <Users className="h-5 w-5 text-gold" />
-                <CardTitle className="text-foreground">Deities</CardTitle>
-              </div>
-            </CardHeader>
-            <CardContent>
-              <p className="text-muted-foreground">
-                {pantheonDeities.length} gods and goddesses
-              </p>
-            </CardContent>
-          </Card>
-        </div>
-
-        {/* Detailed History (Markdown) or Description */}
-        <Card className="border-border bg-card mb-12">
-          <CardHeader>
-            <CardTitle className="text-foreground text-2xl font-serif">
-              About
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            {pantheon.detailedHistory ? (
-              <div className="prose dark:prose-invert prose-gold max-w-none">
-                <ReactMarkdown>{pantheon.detailedHistory}</ReactMarkdown>
-              </div>
-            ) : (
-              <p className="text-muted-foreground leading-relaxed text-lg">
-                {pantheon.description}
-              </p>
-            )}
-          </CardContent>
-        </Card>
+        {/* About — borderless editorial prose */}
+        <section className="mb-14 max-w-[68ch]">
+          <h2 className="font-serif text-2xl font-semibold text-foreground mb-4">
+            About
+          </h2>
+          {pantheon.detailedHistory ? (
+            <div className="prose dark:prose-invert prose-gold max-w-none">
+              <ReactMarkdown>{pantheon.detailedHistory}</ReactMarkdown>
+            </div>
+          ) : (
+            <p className="text-muted-foreground leading-relaxed text-lg">
+              {pantheon.description}
+            </p>
+          )}
+        </section>
 
         {/* Deities Section */}
         <section className="mb-12">

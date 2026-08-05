@@ -109,6 +109,15 @@ export function AtlasOpensHero() {
 
       gsap.set(scenes, { autoAlpha: 0 });
       gsap.set(scenes[0], { autoAlpha: 1 });
+      // Drop FOUC-only utilities; GSAP autoAlpha owns visibility afterward
+      scenes.forEach((scene) => {
+        scene.classList.remove("pointer-events-none", "invisible", "opacity-0");
+        scene.removeAttribute("aria-hidden");
+      });
+      scenes[0]?.removeAttribute("aria-hidden");
+      scenes
+        .slice(1)
+        .forEach((scene) => scene.setAttribute("aria-hidden", "true"));
 
       const tl = gsap.timeline({
         scrollTrigger: {
@@ -118,6 +127,16 @@ export function AtlasOpensHero() {
           scrub: 1,
           pin: pinRef.current,
           anticipatePin: 1,
+          onUpdate: (self) => {
+            const idx = Math.min(
+              scenes.length - 1,
+              Math.floor(self.progress * scenes.length),
+            );
+            scenes.forEach((scene, i) => {
+              if (i === idx) scene.removeAttribute("aria-hidden");
+              else scene.setAttribute("aria-hidden", "true");
+            });
+          },
         },
       });
 
@@ -164,7 +183,9 @@ export function AtlasOpensHero() {
         Encyclopedia of Ancient Mythology
       </span>
       <h1 className="font-serif text-6xl md:text-7xl lg:text-[5.5rem] font-semibold tracking-tight mb-6">
-        <span className="text-gradient-hero">Mythos Atlas</span>
+        <span className="text-gold-text drop-shadow-[0_2px_20px_rgba(0,0,0,0.45)]">
+          Mythos Atlas
+        </span>
       </h1>
       <div className="flex items-center justify-center gap-4 mb-8">
         <div className="w-16 md:w-24 h-px bg-linear-to-r from-transparent to-gold/40" />
@@ -186,7 +207,7 @@ export function AtlasOpensHero() {
             <TransitionLink
               key={path.href}
               href={path.href}
-              className="group border border-gold/30 bg-midnight/55 backdrop-blur-md px-5 py-4 hover:border-gold/55 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold/60"
+              className="group border border-gold/30 bg-midnight/55 backdrop-blur-md px-5 py-4 hover:border-gold/55 hover:-translate-y-0.5 hover:bg-midnight/70 transition-[colors,transform,background-color] duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold/60"
             >
               <div className="text-parchment font-semibold mb-1 group-hover:text-gold">
                 {path.title}
@@ -245,7 +266,7 @@ export function AtlasOpensHero() {
           <div className="absolute inset-0 bg-linear-to-b from-midnight/70 via-midnight/45 to-midnight" />
         </div>
 
-        {/* Scene 1 — Cosmos / wordmark */}
+        {/* Scene 1 — Cosmos / wordmark (visible before GSAP hydrates) */}
         <div
           data-atlas-scene
           className="absolute inset-0 z-10 flex items-center justify-center px-4"
@@ -258,7 +279,9 @@ export function AtlasOpensHero() {
               The atlas opens
             </span>
             <h1 className="font-serif text-6xl md:text-7xl lg:text-[5.5rem] font-semibold tracking-tight">
-              <span className="text-gradient-hero">Mythos Atlas</span>
+              <span className="text-gold-text drop-shadow-[0_2px_20px_rgba(0,0,0,0.45)]">
+                Mythos Atlas
+              </span>
             </h1>
             <p className="mt-6 text-parchment/70 text-sm tracking-[0.2em] uppercase">
               Scroll to descend through the cultures
@@ -266,10 +289,11 @@ export function AtlasOpensHero() {
           </div>
         </div>
 
-        {/* Scene 2 — Culture sigils */}
+        {/* Scene 2 — Culture sigils (hidden until scrub; avoids stacked FOUC) */}
         <div
           data-atlas-scene
-          className="absolute inset-0 z-10 flex items-center justify-center px-4"
+          className="absolute inset-0 z-10 flex items-center justify-center px-4 opacity-0 invisible pointer-events-none"
+          aria-hidden
         >
           <div className="w-full max-w-5xl text-center">
             <p className="mb-8 text-xs uppercase tracking-[0.3em] text-gold/80">
@@ -298,7 +322,8 @@ export function AtlasOpensHero() {
         {/* Scene 3 — Featured myth pull-quote */}
         <div
           data-atlas-scene
-          className="absolute inset-0 z-10 flex items-center justify-center px-4"
+          className="absolute inset-0 z-10 flex items-center justify-center px-4 opacity-0 invisible pointer-events-none"
+          aria-hidden
         >
           <blockquote className="max-w-3xl text-center">
             <MythosMark
@@ -321,7 +346,11 @@ export function AtlasOpensHero() {
         </div>
 
         {/* Scene 4 — Rest / CTAs */}
-        <div data-atlas-scene className="absolute inset-0 z-10 overflow-y-auto">
+        <div
+          data-atlas-scene
+          className="absolute inset-0 z-10 overflow-y-auto opacity-0 invisible pointer-events-none"
+          aria-hidden
+        >
           {restContent}
         </div>
       </div>

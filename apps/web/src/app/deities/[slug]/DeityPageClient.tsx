@@ -295,7 +295,7 @@ export function DeityPageClient({ slug }: DeityPageClientProps) {
               >
                 <div className="min-w-0 flex-1">
                   <div className="flex flex-wrap items-baseline gap-3">
-                    <h1 className="shimmer-gold page-title drop-shadow-[0_2px_8px_rgba(0,0,0,0.55)]">
+                    <h1 className="page-title text-gold-text drop-shadow-[0_2px_8px_rgba(0,0,0,0.55)]">
                       {deity.name}
                     </h1>
                     {deity.pronunciation && (
@@ -385,42 +385,34 @@ export function DeityPageClient({ slug }: DeityPageClientProps) {
           <div className="space-y-8">
             <LinkedMentions deityId={deity.id} deityName={deity.name} />
 
-            {/* Content Cards */}
-            <div className="space-y-8">
-              {/* Detailed Bio (Markdown) or Description */}
-              <Card className="border-l-4 border-l-gold shadow-none bg-card/50">
-                <CardHeader>
-                  <CardTitle className="font-serif text-2xl">
-                    About {deity.name}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  {deity.detailedBio ? (
-                    <div className="prose prose-lg prose-slate dark:prose-invert prose-headings:font-serif prose-headings:text-amber-700 dark:prose-headings:text-amber-500 prose-a:text-gold dark:prose-a:text-gold-light max-w-[68ch] leading-relaxed [&>p:first-of-type]:first-letter:float-left [&>p:first-of-type]:first-letter:mr-3 [&>p:first-of-type]:first-letter:mt-1 [&>p:first-of-type]:first-letter:font-serif [&>p:first-of-type]:first-letter:text-6xl [&>p:first-of-type]:first-letter:leading-[0.8] [&>p:first-of-type]:first-letter:text-gold">
-                      <ReactMarkdown>{deity.detailedBio}</ReactMarkdown>
-                    </div>
-                  ) : (
-                    <p className="max-w-[68ch] text-muted-foreground leading-relaxed text-lg">
-                      {deity.description}
-                    </p>
-                  )}
-                </CardContent>
-              </Card>
+            {/* Narrative + structured sections */}
+            <div className="space-y-12">
+              {/* Detailed Bio — borderless editorial */}
+              <section className="max-w-[68ch]">
+                <h2 className="font-serif text-2xl font-semibold text-foreground mb-5 border-l-4 border-gold pl-4">
+                  About {deity.name}
+                </h2>
+                {deity.detailedBio ? (
+                  <div className="prose prose-lg dark:prose-invert prose-headings:font-serif prose-headings:text-gold-text prose-a:text-gold dark:prose-a:text-gold-light max-w-none leading-relaxed [&>p:first-of-type]:first-letter:float-left [&>p:first-of-type]:first-letter:mr-3 [&>p:first-of-type]:first-letter:mt-1 [&>p:first-of-type]:first-letter:font-serif [&>p:first-of-type]:first-letter:text-6xl [&>p:first-of-type]:first-letter:leading-[0.8] [&>p:first-of-type]:first-letter:text-gold">
+                    <ReactMarkdown>{deity.detailedBio}</ReactMarkdown>
+                  </div>
+                ) : (
+                  <p className="text-muted-foreground leading-relaxed text-lg">
+                    {deity.description}
+                  </p>
+                )}
+              </section>
 
               {/* Origin Story */}
               {deity.originStory && (
-                <Card className="shadow-none bg-card/50">
-                  <CardHeader>
-                    <CardTitle className="font-serif text-xl">
-                      Origin Story
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="max-w-[68ch] text-lg text-muted-foreground leading-relaxed whitespace-pre-line">
-                      {deity.originStory}
-                    </p>
-                  </CardContent>
-                </Card>
+                <section className="max-w-[68ch]">
+                  <h2 className="font-serif text-xl font-semibold text-foreground mb-4">
+                    Origin Story
+                  </h2>
+                  <p className="text-lg text-muted-foreground leading-relaxed whitespace-pre-line">
+                    {deity.originStory}
+                  </p>
+                </section>
               )}
 
               {/* Cross-Pantheon Parallels */}

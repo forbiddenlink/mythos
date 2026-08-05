@@ -196,11 +196,11 @@ export default function KnowledgeGraphPage() {
 
   if (isFullscreen) {
     return (
-      <div className="fixed inset-0 z-50 bg-slate-950">
+      <div className="fixed inset-0 z-50 bg-midnight">
         {/* Fullscreen header */}
-        <div className="absolute top-0 left-0 right-0 z-10 p-4 bg-linear-to-b from-slate-950 to-transparent">
+        <div className="absolute top-0 left-0 right-0 z-10 p-4 bg-linear-to-b from-midnight to-transparent">
           <div className="flex items-center justify-between">
-            <h1 className="font-serif text-xl font-bold text-white flex items-center gap-2">
+            <h1 className="font-serif text-xl font-bold text-parchment flex items-center gap-2">
               <MythosMark id="constellation" className="h-5 w-5 text-gold" />
               Knowledge Graph
             </h1>
@@ -208,7 +208,7 @@ export default function KnowledgeGraphPage() {
               variant="outline"
               size="sm"
               onClick={toggleFullscreen}
-              className="bg-slate-900/80 border-slate-700 text-white hover:bg-slate-800"
+              className="bg-midnight/80 border-gold/30 text-parchment hover:bg-midnight-light hover:border-gold/50"
             >
               <Minimize2 className="h-4 w-4 mr-2" />
               Exit Fullscreen
@@ -275,19 +275,20 @@ export default function KnowledgeGraphPage() {
             className="h-full w-full object-cover"
             priority
           />
-          <div className="absolute inset-0 bg-linear-to-br from-slate-900/80 via-indigo-900/70 to-purple-900/80" />
+          <div className="absolute inset-0 bg-linear-to-br from-midnight/90 via-midnight/75 to-bronze/40" />
+          <div className="absolute inset-0 bg-linear-to-t from-midnight via-transparent to-midnight/50" />
         </div>
 
         <div className="container mx-auto max-w-7xl px-4 py-16 relative z-10">
           <div className="flex items-center gap-3 mb-4">
-            <div className="w-12 h-12 rounded-lg bg-linear-to-br from-indigo-600 to-purple-700 flex items-center justify-center shadow-lg">
+            <div className="flex h-12 w-12 items-center justify-center border border-gold/40 bg-midnight/60 shadow-lg">
               <HeroMark mark="constellation" tone="gold" size="md" />
             </div>
             <div>
-              <h1 className="font-serif text-4xl font-bold tracking-tight text-white">
+              <h1 className="font-serif text-4xl font-bold tracking-tight text-parchment">
                 Knowledge Graph
               </h1>
-              <p className="text-lg text-slate-200 mt-1 font-light">
+              <p className="text-lg text-parchment/80 mt-1 font-light">
                 Explore deity relationships across all mythologies
               </p>
             </div>
@@ -296,26 +297,28 @@ export default function KnowledgeGraphPage() {
           {/* Quick Stats */}
           <div className="flex flex-wrap gap-6 mt-6">
             <div className="text-center">
-              <div className="text-3xl font-bold text-white">
+              <div className="text-3xl font-bold text-parchment">
                 {stats.deities}
               </div>
-              <div className="text-sm text-slate-300">Deities</div>
+              <div className="text-sm text-parchment/70">Deities</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-white">
+              <div className="text-3xl font-bold text-parchment">
                 {stats.relationships}
               </div>
-              <div className="text-sm text-slate-300">Connections</div>
+              <div className="text-sm text-parchment/70">Connections</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-amber-400">
+              <div className="text-3xl font-bold text-gold">
                 {Math.floor(stats.crossPantheon)}
               </div>
-              <div className="text-sm text-slate-300">Cross-Pantheon Links</div>
+              <div className="text-sm text-parchment/70">
+                Cross-Pantheon Links
+              </div>
             </div>
           </div>
 
-          <div className="mt-8 max-w-3xl text-slate-200/90">
+          <div className="mt-8 max-w-3xl text-parchment/85">
             <p className="leading-relaxed">
               The knowledge graph maps parentage, marriage, rivalry, and
               cross-pantheon parallels in one interactive view. Instead of
@@ -396,8 +399,8 @@ export default function KnowledgeGraphPage() {
         </section>
 
         {/* Main Graph Card */}
-        <Card className="bg-white dark:bg-slate-900 overflow-hidden">
-          <CardHeader className="border-b border-border/50 bg-slate-50/50 dark:bg-slate-900/50">
+        <Card className="bg-card overflow-hidden border-border">
+          <CardHeader className="border-b border-border/50 bg-muted/30">
             <div className="flex items-center justify-between">
               <CardTitle className="font-serif flex items-center gap-2">
                 <MythosMark id="constellation" className="h-5 w-5 text-gold" />
@@ -449,13 +452,13 @@ export default function KnowledgeGraphPage() {
         <section className="mt-8">
           <h2 className="sr-only">Graph Tips and Legend</h2>
           <div className="grid gap-4 md:grid-cols-2">
-            <Card className="bg-white dark:bg-slate-900">
+            <Card className="bg-card border-border">
               <CardHeader>
                 <CardTitle className="text-sm font-medium font-serif">
                   How to Use
                 </CardTitle>
               </CardHeader>
-              <CardContent className="space-y-2 text-sm text-slate-600 dark:text-slate-400">
+              <CardContent className="space-y-2 text-sm text-muted-foreground">
                 <p>- Drag to pan around the graph</p>
                 <p>- Scroll to zoom in/out</p>
                 <p>- Click on a deity node to view their profile</p>
@@ -465,13 +468,13 @@ export default function KnowledgeGraphPage() {
               </CardContent>
             </Card>
 
-            <Card className="bg-white dark:bg-slate-900">
+            <Card className="bg-card border-border">
               <CardHeader>
                 <CardTitle className="text-sm font-medium font-serif">
                   About Cross-Pantheon Links
                 </CardTitle>
               </CardHeader>
-              <CardContent className="space-y-2 text-sm text-slate-600 dark:text-slate-400">
+              <CardContent className="space-y-2 text-sm text-muted-foreground">
                 <p>
                   The golden glowing connections show parallel deities across
                   different mythologies. These represent similar gods with
