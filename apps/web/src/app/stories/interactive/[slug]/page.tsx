@@ -14,7 +14,11 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
 import { InteractiveStory } from "@/components/stories/InteractiveStory";
-import { BranchingStory, getDiscoveredEndings } from "@/lib/branching-story";
+import {
+  BranchingStory,
+  getDiscoveredEndings,
+  getStoryProgress,
+} from "@/lib/branching-story";
 import branchingStoriesData from "@/data/branching-stories.json";
 import { useState, useEffect } from "react";
 import { RouteHero } from "@/components/layout/route-hero";
@@ -26,16 +30,19 @@ export default function InteractiveStoryPage() {
   const slug = params?.slug;
   const [isStarted, setIsStarted] = useState(false);
   const [discoveredCount, setDiscoveredCount] = useState(0);
+  const [hasSavedProgress, setHasSavedProgress] = useState(false);
 
   const story = branchingStories.find((s) => s.slug === slug);
 
   useEffect(() => {
     if (story) {
       const discovered = getDiscoveredEndings(story.id);
-      // eslint-disable-next-line react-hooks/set-state-in-effect -- hydrate discovered endings from localStorage
+      const saved = getStoryProgress(story.id);
+      // eslint-disable-next-line react-hooks/set-state-in-effect -- hydrate progress from localStorage
       setDiscoveredCount(discovered.length);
-      // Auto-start if there's saved progress
-      if (discovered.length > 0) {
+      setHasSavedProgress(Boolean(saved));
+      // Resume mid-story or when endings were already found
+      if (discovered.length > 0 || saved) {
         setIsStarted(true);
       }
     }
@@ -200,7 +207,9 @@ export default function InteractiveStoryPage() {
                     className="gap-2 min-w-50"
                   >
                     <BookOpen className="h-5 w-5" />
-                    {discoveredCount > 0 ? "Continue Story" : "Begin Story"}
+                    {hasSavedProgress || discoveredCount > 0
+                      ? "Continue Story"
+                      : "Begin Story"}
                   </Button>
                   <Link href="/stories">
                     <Button
