@@ -20,6 +20,7 @@ import ReactFlow, {
   ReactFlowProvider,
   MarkerType,
   Position,
+  Handle,
 } from "reactflow";
 import "reactflow/dist/style.css";
 import { Card } from "@/components/ui/card";
@@ -245,11 +246,23 @@ const DeityNode = ({
   return (
     <Card
       id={deity.id}
-      className={`p-4 min-w-50 bg-white dark:bg-slate-900 transition-shadow duration-150 ${ringClass}`}
+      className={`relative p-4 min-w-50 bg-white dark:bg-slate-900 transition-shadow duration-150 ${ringClass}`}
       role="treeitem"
       aria-label={`${deity.name}${domainLabel}`}
       aria-selected={isKeyboardFocused || isFocused}
     >
+      <Handle
+        type="target"
+        position={Position.Top}
+        className="!h-2 !w-2 !border-0 !bg-transparent"
+        aria-hidden="true"
+      />
+      <Handle
+        type="source"
+        position={Position.Bottom}
+        className="!h-2 !w-2 !border-0 !bg-transparent"
+        aria-hidden="true"
+      />
       <div className="flex items-center gap-3">
         <div
           className={`w-10 h-10 rounded-lg bg-linear-to-br from-amber-500 to-orange-600 flex items-center justify-center shrink-0`}

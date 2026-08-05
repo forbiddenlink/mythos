@@ -134,13 +134,13 @@ export function CookieConsent() {
         <div className="mt-4 flex flex-col gap-2 sm:flex-row sm:justify-end">
           <button
             onClick={handleReject}
-            className="rounded-md border border-gold/30 bg-gold px-4 py-2 text-sm font-medium text-background transition-colors hover:bg-gold/90"
+            className="rounded-md border border-gold/30 px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-muted"
           >
             Reject Non-Essential
           </button>
           <button
             onClick={handleAccept}
-            className="rounded-md border border-gold/30 px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-muted"
+            className="rounded-md border border-gold/30 bg-gold px-4 py-2 text-sm font-medium text-background transition-colors hover:bg-gold/90 disabled:cursor-not-allowed disabled:opacity-60"
             disabled={gpcActive}
             title={
               gpcActive

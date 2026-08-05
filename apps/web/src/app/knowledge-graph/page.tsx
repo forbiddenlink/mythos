@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo, useCallback } from "react";
+import { useState, useMemo, useCallback, useRef } from "react";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { GraphControls } from "@/components/graph/GraphControls";
 import { GraphLegend } from "@/components/graph/GraphLegend";
+import type { KnowledgeGraphControls } from "@/components/graph/KnowledgeGraph";
 import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
 import { HeroMark } from "@/components/icons/hero-mark";
 import { MythosMark } from "@/components/icons/mythos-marks";
@@ -82,6 +83,7 @@ export default function KnowledgeGraphPage() {
     "cluster",
   );
   const [exploreMode, setExploreMode] = useState(false);
+  const graphControlsRef = useRef<KnowledgeGraphControls | null>(null);
 
   const exploredDeityIds = useMemo(
     () => new Set(progress.deitiesViewed ?? []),
@@ -124,20 +126,27 @@ export default function KnowledgeGraphPage() {
   );
 
   const handleZoomIn = useCallback(() => {
-    // ReactFlow controls handle this internally
+    graphControlsRef.current?.zoomIn();
   }, []);
 
   const handleZoomOut = useCallback(() => {
-    // ReactFlow controls handle this internally
+    graphControlsRef.current?.zoomOut();
   }, []);
 
   const handleFitView = useCallback(() => {
-    // ReactFlow controls handle this internally
+    graphControlsRef.current?.fitView();
   }, []);
 
-  const handleCenterNode = useCallback((_nodeId: string) => {
-    // This would be handled by ReactFlow - currently just placeholder
+  const handleCenterNode = useCallback((nodeId: string) => {
+    graphControlsRef.current?.centerNode(nodeId);
   }, []);
+
+  const handleControlsReady = useCallback(
+    (controls: KnowledgeGraphControls) => {
+      graphControlsRef.current = controls;
+    },
+    [],
+  );
 
   const toggleFullscreen = useCallback(() => {
     setIsFullscreen((prev) => !prev);
@@ -245,6 +254,7 @@ export default function KnowledgeGraphPage() {
             exploreMode={exploreMode}
             exploredDeityIds={exploredDeityIds}
             onNodeClick={handleNodeClick}
+            onControlsReady={handleControlsReady}
           />
         </div>
       </div>
@@ -421,6 +431,7 @@ export default function KnowledgeGraphPage() {
                 exploreMode={exploreMode}
                 exploredDeityIds={exploredDeityIds}
                 onNodeClick={handleNodeClick}
+                onControlsReady={handleControlsReady}
               />
 
               {/* Floating Legend */}

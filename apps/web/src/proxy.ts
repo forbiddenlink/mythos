@@ -16,9 +16,22 @@ function buildCsp(nonce: string): string {
   // XSS lever). 'unsafe-eval' is kept for now because some third-party libs
   // (Sentry, particle/animation engines) may use eval internally; dropping it
   // needs a browser check first. Dev keeps inline for HMR.
+  //
+  // Allow Vercel Analytics / Speed Insights script hosts in both envs so the
+  // injected <Script> tags are not blocked by CSP (seen as console errors).
+  const vercelScripts = "https://va.vercel-scripts.com";
   const scriptSrc = isDev
-    ? "'self' 'unsafe-inline' 'unsafe-eval' blob:"
-    : `'self' 'nonce-${nonce}' 'strict-dynamic' 'unsafe-eval' blob:`;
+    ? `'self' 'unsafe-inline' 'unsafe-eval' blob: ${vercelScripts}`
+    : `'self' 'nonce-${nonce}' 'strict-dynamic' 'unsafe-eval' blob: ${vercelScripts}`;
+
+  // Analytics beacons + Anthropic/Oracle + optional Sentry/Upstash in prod.
+  const connectSrc = [
+    "'self'",
+    "https://va.vercel-scripts.com",
+    "https://vitals.vercel-insights.com",
+    "https://*.ingest.sentry.io",
+    "https://*.upstash.io",
+  ].join(" ");
 
   return [
     "default-src 'self'",
@@ -26,7 +39,7 @@ function buildCsp(nonce: string): string {
     "style-src 'self' 'unsafe-inline'",
     "img-src 'self' data: https: blob:",
     "font-src 'self' data:",
-    "connect-src 'self'",
+    `connect-src ${connectSrc}`,
     "worker-src 'self' blob:",
     "media-src 'self'",
     "frame-ancestors 'none'",

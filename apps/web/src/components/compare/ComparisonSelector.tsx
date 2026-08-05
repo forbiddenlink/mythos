@@ -49,7 +49,7 @@ export function ComparisonSelector({
         const matchesAltNames = deity.alternateNames?.some((n) =>
           n.toLowerCase().includes(query),
         );
-        const matchesDomain = deity.domain.some((d) =>
+        const matchesDomain = deity.domain?.some((d) =>
           d.toLowerCase().includes(query),
         );
         return matchesName || matchesAltNames || matchesDomain;
@@ -175,7 +175,7 @@ export function ComparisonSelector({
                           <span className="text-muted-foreground text-sm ml-2">
                             ({getPantheonName(deity.pantheonId)})
                           </span>
-                          {deity.domain.length > 0 && (
+                          {deity.domain && deity.domain.length > 0 && (
                             <p className="text-sm text-muted-foreground mt-0.5">
                               {deity.domain.slice(0, 3).join(", ")}
                             </p>

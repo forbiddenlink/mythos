@@ -9,10 +9,10 @@ import {
 } from "@/components/ui/card";
 import { MythosMark } from "@/components/icons/mythos-marks";
 import Link from "next/link";
-import Image from "next/image";
 import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
 import { CollectionPageJsonLd } from "@/components/seo/JsonLd";
 import { PageHero } from "@/components/layout/page-hero";
+import { getPantheonColor } from "@/lib/pantheon-colors";
 import pantheonsData from "@/data/pantheons.json";
 
 interface Pantheon {
@@ -82,50 +82,54 @@ export default function PantheonsPage() {
           </p>
         </section>
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 mt-6">
-          {pantheons.map((pantheon) => (
-            <Link
-              key={pantheon.id}
-              href={`/pantheons/${pantheon.slug}`}
-              className="group"
-            >
-              <Card
-                asArticle
-                className="h-full cursor-pointer card-elevated bg-card hover:scale-[1.01] overflow-hidden"
+          {pantheons.map((pantheon) => {
+            const accent = getPantheonColor(pantheon.id);
+            return (
+              <Link
+                key={pantheon.id}
+                href={`/pantheons/${pantheon.slug}`}
+                className="group"
               >
-                {pantheon.imageUrl && (
-                  <div className="relative aspect-[16/10] border-b border-border/60 bg-midnight">
-                    <Image
-                      src={pantheon.imageUrl}
-                      alt=""
-                      fill
-                      sizes="(min-width: 1024px) 20rem, 50vw"
-                      className="object-cover opacity-90 transition-opacity group-hover:opacity-100"
-                    />
-                  </div>
-                )}
-                <CardHeader>
-                  <div className="mb-2 flex items-center gap-3">
-                    <div className="border border-gold/20 bg-gold/10 p-2.5 transition-colors duration-300 group-hover:bg-gold/15">
+                <Card
+                  asArticle
+                  className="h-full cursor-pointer card-elevated bg-card hover:scale-[1.01] overflow-hidden"
+                >
+                  <div
+                    className="relative aspect-[16/10] border-b border-border/60 overflow-hidden"
+                    style={{
+                      background: `linear-gradient(135deg, #0a0a19 0%, ${accent}55 48%, #0a0a19 100%)`,
+                    }}
+                    aria-hidden
+                  >
+                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(212,175,55,0.18),transparent_55%)]" />
+                    <div className="absolute bottom-4 left-4 flex h-10 w-10 items-center justify-center rounded-lg border border-gold/25 bg-midnight/40 backdrop-blur-sm">
                       <MythosMark id="temple" className="h-5 w-5 text-gold" />
                     </div>
-                    <CardTitle className="text-foreground transition-colors duration-300 group-hover:text-gold">
-                      {pantheon.name}
-                    </CardTitle>
                   </div>
-                  <CardDescription>
-                    {pantheon.culture} • {pantheon.region}
-                  </CardDescription>
-                </CardHeader>
-                {pantheon.description && (
-                  <CardContent>
-                    <p className="line-clamp-3 text-sm leading-relaxed text-muted-foreground">
-                      {pantheon.description}
-                    </p>
-                  </CardContent>
-                )}
-              </Card>
-            </Link>
-          ))}
+                  <CardHeader>
+                    <div className="mb-2 flex items-center gap-3">
+                      <div className="border border-gold/20 bg-gold/10 p-2.5 transition-colors duration-300 group-hover:bg-gold/15">
+                        <MythosMark id="temple" className="h-5 w-5 text-gold" />
+                      </div>
+                      <CardTitle className="text-foreground transition-colors duration-300 group-hover:text-gold">
+                        {pantheon.name}
+                      </CardTitle>
+                    </div>
+                    <CardDescription>
+                      {pantheon.culture} • {pantheon.region}
+                    </CardDescription>
+                  </CardHeader>
+                  {pantheon.description && (
+                    <CardContent>
+                      <p className="line-clamp-3 text-sm leading-relaxed text-muted-foreground">
+                        {pantheon.description}
+                      </p>
+                    </CardContent>
+                  )}
+                </Card>
+              </Link>
+            );
+          })}
         </div>
       </div>
     </div>

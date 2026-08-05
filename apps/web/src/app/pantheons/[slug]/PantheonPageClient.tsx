@@ -105,25 +105,23 @@ export function PantheonPageClient({ slug }: PantheonPageClientProps) {
       />
       {/* Hero Section */}
       <div className="relative overflow-hidden bg-midnight">
-        {pantheon.imageUrl && (
-          <div className="absolute inset-0 z-0">
-            <Image
-              src={pantheon.imageUrl}
-              alt=""
-              fill
-              sizes="100vw"
-              priority
-              className="object-cover opacity-35"
-              aria-hidden
-            />
-            <div
-              className="absolute inset-0"
-              style={{
-                background: `linear-gradient(135deg, rgba(10,10,25,0.92) 0%, ${getPantheonColor(pantheon.id)}40 50%, rgba(10,10,25,0.9) 100%)`,
-              }}
-            />
-          </div>
-        )}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/pantheons-hero.jpg"
+            alt=""
+            fill
+            sizes="100vw"
+            priority
+            className="object-cover opacity-40"
+            aria-hidden
+          />
+          <div
+            className="absolute inset-0"
+            style={{
+              background: `linear-gradient(135deg, rgba(10,10,25,0.92) 0%, ${getPantheonColor(pantheon.id)}40 50%, rgba(10,10,25,0.9) 100%)`,
+            }}
+          />
+        </div>
         <RouteHero overlayClassName="bg-transparent">
           <div className="mb-6 flex justify-center">
             <MythosMark id="temple" className="h-8 w-8 text-gold" />

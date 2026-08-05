@@ -236,7 +236,13 @@ export function GlobalSearch() {
     }
   }, [open]);
 
-  const showSuggestions = !debouncedSearch || debouncedSearch.length < 2;
+  const showSuggestions = searchQuery.trim().length < 2;
+  // While the query has 2+ chars but debounce hasn't caught up, show a pending
+  // state instead of popular/recent suggestions — otherwise Enter selects the
+  // wrong item (Home / popular terms) mid-type.
+  const showPendingResults =
+    searchQuery.trim().length >= 2 &&
+    debouncedSearch.trim() !== searchQuery.trim();
 
   return (
     <CommandDialog open={open} onOpenChange={setOpen}>
@@ -309,6 +315,8 @@ export function GlobalSearch() {
               })}
             </CommandGroup>
           </>
+        ) : showPendingResults ? (
+          <CommandEmpty>Searching…</CommandEmpty>
         ) : (
           <>
             {/* Search Results */}

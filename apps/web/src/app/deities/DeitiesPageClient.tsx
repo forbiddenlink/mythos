@@ -214,22 +214,31 @@ function PaginatedDeityGrid({ deities }: Readonly<{ deities: Deity[] }>) {
     <>
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {pagination.paginatedData.map((deity, index) => (
-          <Link
+          <Card
             key={deity.id}
-            href={`/deities/${deity.slug}`}
-            className="group"
+            asArticle
+            className="group relative h-full card-elevated bg-card transition-transform hover:scale-[1.01]"
           >
-            <Card
-              asArticle
-              className="h-full cursor-pointer card-elevated bg-card hover:scale-[1.01]"
+            <div className="absolute top-4 right-4 z-10 flex items-center gap-2">
+              {deity.importanceRank && deity.importanceRank <= 5 && (
+                <span className="text-xs font-medium px-2.5 py-1 rounded-full bg-gold/20 border border-gold/30 text-amber-900 dark:text-amber-100">
+                  Major Deity
+                </span>
+              )}
+              <BookmarkButton type="deity" id={deity.id} size="sm" />
+            </div>
+            <Link
+              href={`/deities/${deity.slug}`}
+              className="block h-full rounded-[inherit] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold/50"
+              aria-label={`View ${deity.name}`}
             >
               <CardHeader>
-                <div className="flex items-start justify-between">
+                <div className="flex items-start justify-between pr-24">
                   {deity.imageUrl ? (
                     <div className="rounded-xl overflow-hidden border border-gold/20 shadow-sm">
                       <Image
                         src={deity.imageUrl}
-                        alt={deity.name}
+                        alt=""
                         width={64}
                         height={64}
                         sizes="64px"
@@ -242,17 +251,10 @@ function PaginatedDeityGrid({ deities }: Readonly<{ deities: Deity[] }>) {
                       <Sparkles
                         className="h-5 w-5 text-gold"
                         strokeWidth={1.5}
+                        aria-hidden="true"
                       />
                     </div>
                   )}
-                  <div className="flex items-center gap-2">
-                    {deity.importanceRank && deity.importanceRank <= 5 && (
-                      <span className="text-xs font-medium px-2.5 py-1 rounded-full bg-gold/20 border border-gold/30 text-amber-900 dark:text-amber-100">
-                        Major Deity
-                      </span>
-                    )}
-                    <BookmarkButton type="deity" id={deity.id} size="sm" />
-                  </div>
                 </div>
                 <CardTitle className="text-foreground mt-4 group-hover:text-gold transition-colors duration-300">
                   {deity.name}
@@ -270,8 +272,8 @@ function PaginatedDeityGrid({ deities }: Readonly<{ deities: Deity[] }>) {
                   </p>
                 </CardContent>
               )}
-            </Card>
-          </Link>
+            </Link>
+          </Card>
         ))}
       </div>
 

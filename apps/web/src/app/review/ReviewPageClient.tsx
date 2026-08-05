@@ -142,7 +142,7 @@ export function ReviewPageClient() {
                 {dueCount > 0
                   ? `You have ${dueCount} cards ready for review`
                   : stats.totalReviewed === 0
-                    ? "Start your first review"
+                    ? "Build your first review deck"
                     : "All caught up!"}
               </CardTitle>
             </CardHeader>

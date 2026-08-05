@@ -429,8 +429,9 @@ export function TimelineVisualization({
                   variant="ghost"
                   size="icon-sm"
                   onClick={() => setShowFilters(false)}
+                  aria-label="Close region filters"
                 >
-                  <X className="h-4 w-4" />
+                  <X className="h-4 w-4" aria-hidden="true" />
                 </Button>
               </div>
               <div className="flex flex-wrap gap-2">

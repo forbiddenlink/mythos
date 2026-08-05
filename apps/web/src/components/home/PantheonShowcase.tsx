@@ -8,7 +8,6 @@ import {
 } from "@/components/icons/mythos-marks";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import Image from "next/image";
 
 // Hardcoded for now to match the "Featured" style, but updated to include more
 const pantheons = [
@@ -142,12 +141,13 @@ export function PantheonShowcase() {
                   >
                     {/* Inner card */}
                     <div className="relative h-full rounded-[11px] bg-linear-to-br from-black/55 via-black/45 to-black/65 backdrop-blur-sm p-6 flex flex-col overflow-hidden">
-                      <Image
-                        src={`/pantheons/${pantheon.slug}.png`}
-                        alt=""
-                        fill
-                        sizes="(max-width: 768px) 100vw, 33vw"
-                        className="object-cover opacity-25 mix-blend-luminosity pointer-events-none"
+                      {/* Soft atmospheric wash — avoids flat placeholder PNGs */}
+                      <div
+                        className={`pointer-events-none absolute inset-0 bg-linear-to-br ${pantheon.gradient} opacity-40`}
+                        aria-hidden
+                      />
+                      <div
+                        className="pointer-events-none absolute -right-8 -top-10 h-40 w-40 rounded-full bg-gold/10 blur-3xl"
                         aria-hidden
                       />
                       {/* Decorative corner */}

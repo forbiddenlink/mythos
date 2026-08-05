@@ -5,7 +5,6 @@ import ReactFlow, {
   Node,
   Edge,
   Background,
-  Controls,
   MiniMap,
   useNodesState,
   useEdgesState,
@@ -14,6 +13,7 @@ import ReactFlow, {
   MarkerType,
   Position,
   BackgroundVariant,
+  Handle,
 } from "reactflow";
 import "reactflow/dist/style.css";
 import { Card } from "@/components/ui/card";
@@ -55,6 +55,13 @@ interface Pantheon {
 
 export type GraphLayoutMode = "cluster" | "grid" | "radial";
 
+export type KnowledgeGraphControls = {
+  zoomIn: () => void;
+  zoomOut: () => void;
+  fitView: () => void;
+  centerNode: (nodeId: string) => void;
+};
+
 interface KnowledgeGraphProps {
   deities: Deity[];
   relationships: Relationship[];
@@ -72,6 +79,8 @@ interface KnowledgeGraphProps {
   onNodeClick?: (deityId: string, slug: string) => void;
   /** Prefer layoutMode; clusterByPantheon kept for callers mid-migration. */
   layoutMode?: GraphLayoutMode;
+  /** Registers React Flow zoom/fit/center so page-level GraphControls work. */
+  onControlsReady?: (controls: KnowledgeGraphControls) => void;
 }
 
 import { PANTHEON_COLORS, getPantheonColor } from "@/lib/pantheon-colors";
@@ -138,7 +147,7 @@ const DeityNode = memo(function DeityNode({
   return (
     <Card
       className={`
-        transition-all duration-200 cursor-pointer
+        relative transition-all duration-200 cursor-pointer
         ${nodeSize === "large" ? "p-3 min-w-35" : "p-2 min-w-25"}
         ${isHighlighted ? "ring-2 ring-amber-400 shadow-lg shadow-amber-400/30" : ""}
         ${explored ? "ring-1 ring-patina/50" : ""}
@@ -148,6 +157,19 @@ const DeityNode = memo(function DeityNode({
         borderLeft: `4px solid ${pantheonColor}`,
       }}
     >
+      {/* Invisible handles so relationship + cross-pantheon edges can connect */}
+      <Handle
+        type="target"
+        position={Position.Left}
+        className="!h-2 !w-2 !border-0 !bg-transparent"
+        aria-hidden="true"
+      />
+      <Handle
+        type="source"
+        position={Position.Right}
+        className="!h-2 !w-2 !border-0 !bg-transparent"
+        aria-hidden="true"
+      />
       <div className="flex items-center gap-2">
         <div
           className={`
@@ -296,6 +318,7 @@ function KnowledgeGraphInner({
   exploredDeityIds,
   onNodeClick,
   layoutMode,
+  onControlsReady,
   highlightedNodeId,
   setHighlightedNodeId,
   exploreFocusId,
@@ -306,9 +329,46 @@ function KnowledgeGraphInner({
   exploreFocusId: string | null;
   setExploreFocusId: (id: string | null) => void;
 }) {
-  const { fitView } = useReactFlow();
+  const { fitView, zoomIn, zoomOut, setCenter, getNode } = useReactFlow();
   const resolvedLayout: GraphLayoutMode =
     layoutMode ?? (clusterByPantheon ? "cluster" : "grid");
+
+  useEffect(() => {
+    if (!onControlsReady) return;
+
+    const controls: KnowledgeGraphControls = {
+      zoomIn: () => {
+        zoomIn({ duration: 200 });
+      },
+      zoomOut: () => {
+        zoomOut({ duration: 200 });
+      },
+      fitView: () => {
+        fitView({ padding: 0.2, duration: 400 });
+      },
+      centerNode: (nodeId: string) => {
+        const node = getNode(nodeId);
+        if (!node) return;
+        const width = node.width ?? 160;
+        const height = node.height ?? 80;
+        setCenter(node.position.x + width / 2, node.position.y + height / 2, {
+          zoom: 1.2,
+          duration: 500,
+        });
+        setHighlightedNodeId(nodeId);
+      },
+    };
+
+    onControlsReady(controls);
+  }, [
+    onControlsReady,
+    zoomIn,
+    zoomOut,
+    fitView,
+    setCenter,
+    getNode,
+    setHighlightedNodeId,
+  ]);
 
   // Create deity map for quick lookups
   const _deityMap = useMemo(
@@ -548,7 +608,6 @@ function KnowledgeGraphInner({
       defaultViewport={{ x: 0, y: 0, zoom: 0.5 }}
     >
       <Background variant={BackgroundVariant.Dots} gap={20} size={1} />
-      <Controls position="bottom-left" />
       <MiniMap
         nodeColor={(node) => {
           const deity = (node.data as { deity: Deity }).deity;
