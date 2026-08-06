@@ -14,13 +14,11 @@ import ReactFlow, {
   Position,
   BackgroundVariant,
   Handle,
-  BaseEdge,
-  EdgeLabelRenderer,
-  getBezierPath,
-  type EdgeProps,
 } from "reactflow";
 import "reactflow/dist/style.css";
+import { Card } from "@/components/ui/card";
 import { normalizeDeityReference } from "@/lib/deities";
+import { Sparkles } from "lucide-react";
 import Image from "next/image";
 
 // Types
@@ -100,15 +98,16 @@ const getEdgeStyle = (
   if (isCrossPantheon) {
     return {
       stroke: "#fbbf24",
-      strokeWidth: 2,
+      strokeWidth: 3,
       strokeDasharray: undefined,
+      filter: "drop-shadow(0 0 6px #fbbf24)",
     };
   }
 
   if (type.includes("spouse") || type.includes("lover") || type === "ally_of") {
     return {
       stroke: "#ec4899",
-      strokeWidth: 1.5,
+      strokeWidth: 2,
       strokeDasharray: "8 4",
     };
   }
@@ -116,79 +115,17 @@ const getEdgeStyle = (
   if (type.includes("sibling")) {
     return {
       stroke: "#3b82f6",
-      strokeWidth: 1.5,
+      strokeWidth: 2,
       strokeDasharray: "4 2",
     };
   }
 
   // Parent/child - solid line
   return {
-    stroke: "#94a3b8",
-    strokeWidth: 1.5,
+    stroke: "#64748b",
+    strokeWidth: 2,
     strokeDasharray: undefined,
   };
-};
-
-// Custom glowing bezier edge — thin curve with a soft glow that reads as a
-// constellation link on the midnight canvas (replaces the boxy smoothstep).
-function GlowEdge({
-  id,
-  sourceX,
-  sourceY,
-  targetX,
-  targetY,
-  sourcePosition,
-  targetPosition,
-  style,
-  markerEnd,
-  label,
-}: EdgeProps) {
-  const [edgePath, labelX, labelY] = getBezierPath({
-    sourceX,
-    sourceY,
-    sourcePosition,
-    targetX,
-    targetY,
-    targetPosition,
-  });
-
-  const stroke = (style?.stroke as string) ?? "#d4af37";
-
-  return (
-    <>
-      <BaseEdge
-        id={id}
-        path={edgePath}
-        markerEnd={markerEnd}
-        style={{
-          ...style,
-          filter: `drop-shadow(0 0 4px ${stroke})`,
-          opacity: 0.85,
-        }}
-      />
-      {label && (
-        <EdgeLabelRenderer>
-          <div
-            style={{
-              position: "absolute",
-              transform: `translate(-50%, -50%) translate(${labelX}px, ${labelY}px)`,
-              pointerEvents: "none",
-              fontSize: 10,
-              color: "#fbbf24",
-              textShadow: "0 0 6px rgba(11,12,20,0.9)",
-            }}
-            className="nodrag nopan"
-          >
-            {label}
-          </div>
-        </EdgeLabelRenderer>
-      )}
-    </>
-  );
-}
-
-const edgeTypes = {
-  glow: GlowEdge,
 };
 
 // Custom node component - memoized to prevent unnecessary re-renders
@@ -204,70 +141,71 @@ const DeityNode = memo(function DeityNode({
   };
 }) {
   const { deity, pantheonColor, isHighlighted, explored } = data;
-  const isMajor = !!deity.importanceRank && deity.importanceRank <= 5;
-  const dot = isMajor ? 18 : 12;
-  const glow = isHighlighted ? 18 : isMajor ? 12 : 7;
+  const nodeSize =
+    deity.importanceRank && deity.importanceRank <= 5 ? "large" : "normal";
 
   return (
-    <div className="group relative flex cursor-pointer items-center gap-2">
+    <Card
+      className={`
+        relative transition-all duration-200 cursor-pointer
+        ${nodeSize === "large" ? "p-3 min-w-35" : "p-2 min-w-25"}
+        ${isHighlighted ? "ring-2 ring-amber-400 shadow-lg shadow-amber-400/30" : ""}
+        ${explored ? "ring-1 ring-patina/50" : ""}
+        bg-white dark:bg-slate-900 hover:shadow-lg hover:scale-105
+      `}
+      style={{
+        borderLeft: `4px solid ${pantheonColor}`,
+      }}
+    >
       {/* Invisible handles so relationship + cross-pantheon edges can connect */}
       <Handle
         type="target"
         position={Position.Left}
-        className="!h-1.5 !w-1.5 !border-0 !bg-transparent"
+        className="!h-2 !w-2 !border-0 !bg-transparent"
         aria-hidden="true"
       />
       <Handle
         type="source"
         position={Position.Right}
-        className="!h-1.5 !w-1.5 !border-0 !bg-transparent"
+        className="!h-2 !w-2 !border-0 !bg-transparent"
         aria-hidden="true"
       />
-      {/* Glowing star — the pantheon-hued core with a gold-leaning halo */}
-      <span
-        className="relative flex shrink-0 items-center justify-center rounded-full transition-transform duration-200 group-hover:scale-125"
-        style={{
-          width: dot,
-          height: dot,
-          backgroundColor: pantheonColor,
-          boxShadow: `0 0 ${glow}px ${Math.round(glow / 2)}px ${pantheonColor}, 0 0 2px 1px rgba(255,255,255,0.85) inset`,
-          outline: isHighlighted
-            ? "2px solid #fbbf24"
-            : explored
-              ? "1.5px solid rgba(120,200,180,0.6)"
-              : "none",
-          outlineOffset: 2,
-        }}
-      >
-        {deity.imageUrl && isMajor && (
-          <Image
-            src={deity.imageUrl}
-            alt=""
-            width={dot}
-            height={dot}
-            className="h-full w-full rounded-full object-cover opacity-90"
-          />
-        )}
-      </span>
-      <span className="pointer-events-none flex flex-col leading-tight">
-        <span
-          className={`whitespace-nowrap font-serif ${isMajor ? "text-[13px]" : "text-[11px]"} ${
-            isHighlighted ? "text-gold" : "text-slate-100"
-          }`}
-          style={{ textShadow: "0 1px 4px rgba(11,12,20,0.95)" }}
+      <div className="flex items-center gap-2">
+        <div
+          className={`
+            rounded-full flex items-center justify-center shrink-0
+            ${nodeSize === "large" ? "w-10 h-10" : "w-7 h-7"}
+          `}
+          style={{ backgroundColor: pantheonColor }}
         >
-          {deity.name}
-        </span>
-        {isMajor && deity.domain && deity.domain.length > 0 && (
-          <span
-            className="whitespace-nowrap text-[9px] text-slate-400"
-            style={{ textShadow: "0 1px 3px rgba(11,12,20,0.95)" }}
+          {deity.imageUrl ? (
+            <Image
+              src={deity.imageUrl}
+              alt={deity.name}
+              width={nodeSize === "large" ? 40 : 28}
+              height={nodeSize === "large" ? 40 : 28}
+              className="rounded-full object-cover"
+            />
+          ) : (
+            <Sparkles
+              className={`text-white ${nodeSize === "large" ? "h-5 w-5" : "h-3.5 w-3.5"}`}
+            />
+          )}
+        </div>
+        <div className="flex-1 min-w-0">
+          <div
+            className={`font-semibold truncate text-slate-900 dark:text-slate-100 ${nodeSize === "large" ? "text-sm" : "text-xs"}`}
           >
-            {deity.domain[0]}
-          </span>
-        )}
-      </span>
-    </div>
+            {deity.name}
+          </div>
+          {deity.domain && deity.domain.length > 0 && (
+            <p className="text-[10px] text-slate-500 dark:text-slate-400 truncate">
+              {deity.domain[0]}
+            </p>
+          )}
+        </div>
+      </div>
+    </Card>
   );
 });
 
@@ -551,7 +489,7 @@ function KnowledgeGraphInner({
         id: rel.id,
         source: rel.fromDeityId,
         target: rel.toDeityId,
-        type: "glow",
+        type: "smoothstep",
         animated: false,
         style,
         markerEnd: isParentChild
@@ -584,7 +522,7 @@ function KnowledgeGraphInner({
             id: `cross-${deity.id}-${targetDeity.id}`,
             source: deity.id,
             target: targetDeity.id,
-            type: "glow",
+            type: "smoothstep",
             animated: true,
             style,
             label: "Parallel",
@@ -663,30 +601,19 @@ function KnowledgeGraphInner({
       onNodeMouseEnter={handleNodeMouseEnter}
       onNodeMouseLeave={handleNodeMouseLeave}
       nodeTypes={nodeTypes}
-      edgeTypes={edgeTypes}
       fitView
       attributionPosition="bottom-left"
       minZoom={0.1}
       maxZoom={2}
       defaultViewport={{ x: 0, y: 0, zoom: 0.5 }}
-      style={{
-        background:
-          "radial-gradient(1200px 700px at 50% -10%, rgba(212,175,55,0.10), transparent 60%), #0b0c14",
-      }}
     >
-      <Background
-        variant={BackgroundVariant.Dots}
-        gap={26}
-        size={1}
-        color="rgba(212,175,55,0.14)"
-      />
+      <Background variant={BackgroundVariant.Dots} gap={20} size={1} />
       <MiniMap
         nodeColor={(node) => {
           const deity = (node.data as { deity: Deity }).deity;
           return getPantheonColor(deity.pantheonId);
         }}
-        maskColor="rgba(11, 12, 20, 0.6)"
-        style={{ background: "#0b0c14" }}
+        maskColor="rgba(0, 0, 0, 0.2)"
         position="bottom-right"
       />
     </ReactFlow>

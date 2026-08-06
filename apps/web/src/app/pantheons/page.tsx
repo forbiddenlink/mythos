@@ -8,17 +8,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { MythosMark } from "@/components/icons/mythos-marks";
-import dynamic from "next/dynamic";
 import Link from "next/link";
-
-// Interactive star-map: the decorative constellation, wired for navigation.
-const ConstellationBackground = dynamic(
-  () =>
-    import("@/components/three/ConstellationBackground").then(
-      (mod) => mod.ConstellationBackground,
-    ),
-  { ssr: false },
-);
 import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
 import { CollectionPageJsonLd } from "@/components/seo/JsonLd";
 import { PageHero } from "@/components/layout/page-hero";
@@ -91,25 +81,6 @@ export default function PantheonsPage() {
             .
           </p>
         </section>
-
-        {/* Constellation-as-navigation — click a deity's star to open its page. */}
-        <section
-          aria-label="Featured deities star map"
-          className="relative mt-6 overflow-hidden rounded-2xl border border-gold/20 bg-midnight"
-        >
-          <div className="relative h-72 w-full sm:h-80">
-            <ConstellationBackground navigable className="absolute inset-0" />
-            <div className="pointer-events-none absolute left-6 top-5 z-10 max-w-xs">
-              <h2 className="font-serif text-lg text-gold">
-                Chart the Heavens
-              </h2>
-              <p className="mt-1 text-xs leading-5 text-parchment/70">
-                Hover a deity&apos;s star, then select it to open their page.
-              </p>
-            </div>
-          </div>
-        </section>
-
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 mt-6">
           {pantheons.map((pantheon) => {
             const accent = getPantheonColor(pantheon.id);

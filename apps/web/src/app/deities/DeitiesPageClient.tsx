@@ -217,7 +217,7 @@ function PaginatedDeityGrid({ deities }: Readonly<{ deities: Deity[] }>) {
           <Card
             key={deity.id}
             asArticle
-            className="parchment-card group relative h-full card-elevated bg-card transition-transform hover:scale-[1.01]"
+            className="group relative h-full card-elevated bg-card transition-transform hover:scale-[1.01]"
           >
             <div className="absolute top-4 right-4 z-10 flex items-center gap-2">
               {deity.importanceRank && deity.importanceRank <= 5 && (

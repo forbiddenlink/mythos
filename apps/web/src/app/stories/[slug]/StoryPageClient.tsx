@@ -337,10 +337,10 @@ export function StoryPageClient({ slug }: StoryPageClientProps) {
           {/* Full Narrative — borderless editorial */}
           {story.fullNarrative ? (
             <section className="reveal-on-scroll max-w-[68ch]">
-              <h2 className="chapter-mark font-serif text-2xl font-semibold text-foreground mb-5 border-l-4 border-gold pl-4">
+              <h2 className="font-serif text-2xl font-semibold text-foreground mb-5 border-l-4 border-gold pl-4">
                 The Tale
               </h2>
-              <div className="illuminated-tale prose dark:prose-invert prose-gold max-w-none prose-p:leading-relaxed prose-headings:font-serif prose-headings:text-gold-text prose-strong:text-foreground prose-blockquote:border-l-gold/40 prose-li:marker:text-gold/50">
+              <div className="prose dark:prose-invert prose-gold max-w-none prose-p:leading-relaxed prose-headings:font-serif prose-headings:text-gold-text prose-strong:text-foreground prose-blockquote:border-l-gold/40 prose-li:marker:text-gold/50">
                 <ReactMarkdown>{story.fullNarrative}</ReactMarkdown>
               </div>
             </section>
