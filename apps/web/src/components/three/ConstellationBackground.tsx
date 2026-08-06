@@ -1,16 +1,24 @@
 "use client";
 
 import { createContext, useContext, useRef, useEffect, useState } from "react";
-import { Canvas, useFrame, useThree } from "@react-three/fiber";
+import {
+  Canvas,
+  useFrame,
+  useThree,
+  type ThreeEvent,
+} from "@react-three/fiber";
 import { Stars, Line, Text, Float } from "@react-three/drei";
 import * as THREE from "three";
+import { useRouter } from "next/navigation";
 import { rafThrottle } from "@/lib/rafThrottle";
 
 const ActiveCtx = createContext(true);
+const NavigateCtx = createContext<((slug: string) => void) | null>(null);
 
 const constellations = [
   {
     name: "Zeus",
+    slug: "zeus",
     symbol: "♃",
     points: [
       [-2, 2, 0],
@@ -23,6 +31,7 @@ const constellations = [
   },
   {
     name: "Odin",
+    slug: "odin",
     symbol: "⚡",
     points: [
       [3, 1, 0],
@@ -34,6 +43,7 @@ const constellations = [
   },
   {
     name: "Ra",
+    slug: "ra",
     symbol: "☀",
     points: [
       [-3, -1, 0],
@@ -46,6 +56,7 @@ const constellations = [
   },
   {
     name: "Athena",
+    slug: "athena",
     symbol: "⚔",
     points: [
       [1, -2, 0],
@@ -57,6 +68,7 @@ const constellations = [
   },
   {
     name: "Thor",
+    slug: "thor",
     symbol: "⚡",
     points: [
       [-1, -2.5, 0],
@@ -89,17 +101,36 @@ function ConstellationLine({
 function ConstellationStar({
   position,
   color,
+  slug,
 }: {
   position: [number, number, number];
   color: string;
+  /** When set, the star is a navigation target for the deity. */
+  slug?: string;
 }) {
   const [hovered, setHovered] = useState(false);
+  const navigate = useContext(NavigateCtx);
+  const interactive = !!slug && !!navigate;
+
+  const enter = () => {
+    setHovered(true);
+    if (interactive) document.body.style.cursor = "pointer";
+  };
+  const leave = () => {
+    setHovered(false);
+    if (interactive) document.body.style.cursor = "";
+  };
 
   return (
     <mesh
       position={position}
-      onPointerOver={() => setHovered(true)}
-      onPointerOut={() => setHovered(false)}
+      onPointerOver={enter}
+      onPointerOut={leave}
+      onClick={(e: ThreeEvent<MouseEvent>) => {
+        if (!interactive) return;
+        e.stopPropagation();
+        navigate?.(slug!);
+      }}
       scale={hovered ? 1.5 : 1}
     >
       <sphereGeometry args={[0.03, 8, 8]} />
@@ -113,14 +144,28 @@ function DeitySymbol({
   symbol,
   name,
   color,
+  slug,
 }: {
   position: [number, number, number];
   symbol: string;
   name: string;
   color: string;
+  /** When set, the symbol navigates to the deity page on click. */
+  slug?: string;
 }) {
   const [hovered, setHovered] = useState(false);
   const active = useContext(ActiveCtx);
+  const navigate = useContext(NavigateCtx);
+  const interactive = !!slug && !!navigate;
+
+  const enter = () => {
+    setHovered(true);
+    if (interactive) document.body.style.cursor = "pointer";
+  };
+  const leave = () => {
+    setHovered(false);
+    if (interactive) document.body.style.cursor = "";
+  };
 
   return (
     <Float
@@ -130,8 +175,13 @@ function DeitySymbol({
     >
       <group
         position={position}
-        onPointerOver={() => setHovered(true)}
-        onPointerOut={() => setHovered(false)}
+        onPointerOver={enter}
+        onPointerOut={leave}
+        onClick={(e: ThreeEvent<MouseEvent>) => {
+          if (!interactive) return;
+          e.stopPropagation();
+          navigate?.(slug!);
+        }}
       >
         <Text
           fontSize={0.3}
@@ -157,7 +207,7 @@ function DeitySymbol({
           <meshBasicMaterial
             color={color}
             transparent
-            opacity={hovered ? 0.3 : 0.1}
+            opacity={hovered ? (interactive ? 0.45 : 0.3) : 0.1}
           />
         </mesh>
       </group>
@@ -165,7 +215,7 @@ function DeitySymbol({
   );
 }
 
-function Constellations() {
+function Constellations({ navigable = false }: { navigable?: boolean }) {
   const groupRef = useRef<THREE.Group>(null);
   const active = useContext(ActiveCtx);
   const invalidate = useThree((s) => s.invalidate);
@@ -189,6 +239,7 @@ function Constellations() {
               key={i}
               position={point}
               color={constellation.color}
+              slug={navigable ? constellation.slug : undefined}
             />
           ))}
           <DeitySymbol
@@ -200,6 +251,7 @@ function Constellations() {
             symbol={constellation.symbol}
             name={constellation.name}
             color={constellation.color}
+            slug={navigable ? constellation.slug : undefined}
           />
         </group>
       ))}
@@ -235,7 +287,13 @@ function ScrollParallax() {
   return null;
 }
 
-function Scene() {
+function Scene({
+  navigable = false,
+  parallax = true,
+}: {
+  navigable?: boolean;
+  parallax?: boolean;
+}) {
   return (
     <>
       <Stars
@@ -247,8 +305,8 @@ function Scene() {
         fade
         speed={0.5}
       />
-      <Constellations />
-      <ScrollParallax />
+      <Constellations navigable={navigable} />
+      {parallax && <ScrollParallax />}
       <ambientLight intensity={0.5} />
     </>
   );
@@ -257,14 +315,23 @@ function Scene() {
 export function ConstellationBackground({
   active = true,
   contained = false,
+  navigable = false,
   className,
 }: {
   /** When false, Canvas uses frameloop="never" and animation loops no-op. */
   active?: boolean;
   /** Scope to parent (absolute inset-0) instead of fixed full-page. */
   contained?: boolean;
+  /**
+   * Turn the decorative star-map into navigation: deity stars/symbols become
+   * clickable (route to /deities/<slug>) and a keyboard-accessible link list is
+   * rendered alongside the canvas. Reduced-motion / no-WebGL falls back to the
+   * link list only, so navigation never depends on the 3D scene.
+   */
+  navigable?: boolean;
   className?: string;
 }) {
+  const router = useRouter();
   const [mounted, setMounted] = useState(false);
   const [reducedMotion, setReducedMotion] = useState(false);
   const [webGLSupported, setWebGLSupported] = useState(true);
@@ -288,32 +355,77 @@ export function ConstellationBackground({
     return () => mediaQuery.removeEventListener("change", handler);
   }, []);
 
-  if (!mounted || reducedMotion || !webGLSupported) {
+  const canvasShown = mounted && !reducedMotion && webGLSupported;
+
+  // Accessible link list — always present in navigable mode so keyboard users
+  // and reduced-motion / no-WebGL visitors can reach every deity.
+  const deityLinks = navigable ? (
+    <nav
+      aria-label="Featured deities"
+      className={
+        canvasShown
+          ? "sr-only"
+          : "flex flex-wrap items-center justify-center gap-3"
+      }
+    >
+      <ul className={canvasShown ? "" : "flex flex-wrap justify-center gap-3"}>
+        {constellations.map((c) => (
+          <li key={c.slug}>
+            <a
+              href={`/deities/${c.slug}`}
+              className={
+                canvasShown
+                  ? ""
+                  : "inline-flex items-center gap-2 rounded-full border border-gold/30 bg-midnight/40 px-4 py-2 font-serif text-gold transition-colors hover:border-gold/60 hover:bg-gold/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold/50"
+              }
+            >
+              <span aria-hidden="true">{c.symbol}</span>
+              {c.name}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  ) : null;
+
+  // Decorative-only mode with no canvas available: render nothing (unchanged).
+  if (!navigable && !canvasShown) {
     return null;
   }
 
   const shellClass =
     className ??
     (contained
-      ? "absolute inset-0 -z-10 pointer-events-none"
-      : "fixed inset-0 -z-10 pointer-events-none");
+      ? navigable
+        ? "absolute inset-0 -z-10"
+        : "absolute inset-0 -z-10 pointer-events-none"
+      : navigable
+        ? "absolute inset-0 -z-10"
+        : "fixed inset-0 -z-10 pointer-events-none");
 
   return (
-    <div className={shellClass} aria-hidden="true">
-      <ActiveCtx.Provider value={active}>
-        <Canvas
-          frameloop={active ? "demand" : "never"}
-          camera={{ position: [0, 0, 5], fov: 60 }}
-          dpr={[1, 1.5]}
-          gl={{
-            antialias: false,
-            alpha: true,
-            powerPreference: "low-power",
-          }}
-        >
-          <Scene />
-        </Canvas>
-      </ActiveCtx.Provider>
+    <div className={shellClass} aria-hidden={navigable ? undefined : "true"}>
+      {deityLinks}
+      {canvasShown && (
+        <ActiveCtx.Provider value={active}>
+          <NavigateCtx.Provider
+            value={navigable ? (slug) => router.push(`/deities/${slug}`) : null}
+          >
+            <Canvas
+              frameloop={active ? "demand" : "never"}
+              camera={{ position: [0, 0, 5], fov: 60 }}
+              dpr={[1, 1.5]}
+              gl={{
+                antialias: false,
+                alpha: true,
+                powerPreference: "low-power",
+              }}
+            >
+              <Scene navigable={navigable} parallax={!navigable} />
+            </Canvas>
+          </NavigateCtx.Provider>
+        </ActiveCtx.Provider>
+      )}
     </div>
   );
 }

@@ -185,7 +185,7 @@ export default function CreaturesPage() {
               >
                 <Card
                   asArticle
-                  className="h-full cursor-pointer card-elevated bg-card hover:scale-[1.01] hover:border-red-500/30 transition-all duration-300"
+                  className="parchment-card group h-full cursor-pointer card-elevated bg-card hover:scale-[1.01] hover:border-red-500/30 transition-all duration-300"
                 >
                   <CardHeader>
                     <div className="flex items-start justify-between">
