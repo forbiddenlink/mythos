@@ -123,9 +123,10 @@ export function AtlasOpensHero() {
         scrollTrigger: {
           trigger: rootRef.current,
           start: "top top",
-          // Longer scrub distance = less sticky scene-to-scene jumps
-          end: "+=420%",
-          scrub: 1.35,
+          // Keep the pinned reveal tasteful: one extra viewport, not four.
+          // Long pin + high scrub-lag read as a scroll hijack; this stays snappy.
+          end: "+=100%",
+          scrub: 0.8,
           pin: pinRef.current,
           pinSpacing: true,
           anticipatePin: 1,
