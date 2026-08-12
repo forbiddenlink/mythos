@@ -10,9 +10,6 @@ import { TransitionLink } from "@/components/transitions";
 import { MythosMark } from "@/components/icons/mythos-marks";
 import { HeroMark } from "@/components/icons/hero-mark";
 import { getPantheonColor } from "@/lib/pantheon-colors";
-import pantheonData from "@/data/pantheons.json";
-import deitiesData from "@/data/deities.json";
-import storiesData from "@/data/stories.json";
 import dynamic from "next/dynamic";
 
 if (typeof window !== "undefined") {
@@ -26,12 +23,6 @@ const ConstellationBackground = dynamic(
     ),
   { ssr: false },
 );
-
-const STATS = {
-  pantheons: (pantheonData as unknown[]).length,
-  deities: (deitiesData as unknown[]).length,
-  stories: (storiesData as unknown[]).length,
-} as const;
 
 const PULL_QUOTE = {
   text: "And Zeus, when he had stilled the wrath of gods and men, the high-throned Son of Cronos dwelling in the heavens…",
@@ -63,28 +54,50 @@ interface PantheonRow {
   slug: string;
 }
 
+interface AtlasCounts {
+  pantheons: number;
+  deities: number;
+  stories: number;
+}
+
+interface AtlasOpensHeroProps {
+  /** Pantheon rows (id/name/slug) computed server-side — kept off the client bundle. */
+  pantheons: PantheonRow[];
+  /** Entity counts computed server-side so the ~1 MB source JSON never ships to the browser. */
+  counts: AtlasCounts;
+}
+
 /**
  * "The Atlas Opens" — pinned scroll-scrubbed homepage signature
  * (portfolio elevation Phase 1). Falls back to a static rest state
  * under prefers-reduced-motion.
  */
-export function AtlasOpensHero() {
+export function AtlasOpensHero({ pantheons, counts }: AtlasOpensHeroProps) {
   const reduce = !!useReducedMotion();
   const rootRef = useRef<HTMLDivElement>(null);
   const pinRef = useRef<HTMLDivElement>(null);
   const [showDecor, setShowDecor] = useState(false);
   const [heroInView, setHeroInView] = useState(true);
-  const pantheons = pantheonData as PantheonRow[];
+  const STATS = counts;
 
   useEffect(() => {
     if (reduce) return;
-    const ric = window.requestIdleCallback;
-    if (typeof ric === "function") {
-      const id = ric(() => setShowDecor(true), { timeout: 1800 });
-      return () => window.cancelIdleCallback(id);
-    }
-    const id = window.setTimeout(() => setShowDecor(true), 400);
-    return () => window.clearTimeout(id);
+    // Mount the decorative WebGL canvas only AFTER the first user interaction, so
+    // it can never become the LCP element on the initial (no-interaction) load —
+    // that late full-viewport <canvas> was the 11.7s mobile LCP. The pinned hero
+    // requires a scroll to progress, so engaged users still get the constellation.
+    const reveal = () => setShowDecor(true);
+    const opts = { once: true, passive: true } as const;
+    window.addEventListener("scroll", reveal, opts);
+    window.addEventListener("pointerdown", reveal, opts);
+    window.addEventListener("keydown", reveal, opts);
+    window.addEventListener("touchstart", reveal, opts);
+    return () => {
+      window.removeEventListener("scroll", reveal);
+      window.removeEventListener("pointerdown", reveal);
+      window.removeEventListener("keydown", reveal);
+      window.removeEventListener("touchstart", reveal);
+    };
   }, [reduce]);
 
   useEffect(() => {

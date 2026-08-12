@@ -8,13 +8,20 @@ import { MythosMark } from "@/components/icons/mythos-marks";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import facts from "@/data/mythology-facts.json";
-import deities from "@/data/deities.json";
 
 interface Fact {
   id: string;
   fact: string;
   category: string;
   relatedDeities: string[];
+}
+
+interface DidYouKnowProps {
+  /**
+   * Slim id/slug -> {name, slug} map built server-side in page.tsx, so the full
+   * 492 KB deities.json no longer ships to the client just to render 3 chips.
+   */
+  deityLookup: Record<string, { name: string; slug: string }>;
 }
 
 const categoryLabels: Record<string, string> = {
@@ -53,7 +60,7 @@ function getDailyFactIndex(date: Date): number {
   return Math.abs(hash) % facts.length;
 }
 
-export function DidYouKnow() {
+export function DidYouKnow({ deityLookup }: DidYouKnowProps) {
   const [currentFact, setCurrentFact] = useState<Fact | null>(null);
   const [isSpinning, setIsSpinning] = useState(false);
   const [mounted, setMounted] = useState(false);
@@ -74,11 +81,11 @@ export function DidYouKnow() {
     }, 300);
   }, []);
 
-  // Get related deity info
+  // Resolve related deities via the server-provided slim lookup (id or slug).
   const relatedDeityInfo =
     currentFact?.relatedDeities
-      .map((id) => deities.find((d) => d.id === id || d.slug === id))
-      .filter((d): d is (typeof deities)[0] => d !== undefined)
+      .map((id) => deityLookup[id])
+      .filter((d): d is { name: string; slug: string } => d !== undefined)
       .slice(0, 3) || [];
 
   if (!mounted || !currentFact) {
@@ -152,7 +159,7 @@ export function DidYouKnow() {
                 <span className="text-sm text-muted-foreground">Related:</span>
                 {relatedDeityInfo.map((deity) => (
                   <Link
-                    key={deity.id}
+                    key={deity.slug}
                     href={`/deities/${deity.slug}`}
                     className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-background/50 border border-border/50 text-sm hover:border-gold/50 hover:bg-gold/5 transition-colors"
                   >

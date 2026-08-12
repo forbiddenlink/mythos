@@ -129,7 +129,7 @@ export function InteractiveStoriesBanner() {
                           alt={featuredStory.title}
                           width={640}
                           height={640}
-                          priority
+                          loading="lazy"
                           sizes="(max-width: 1024px) 22rem, 20rem"
                           className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500"
                         />

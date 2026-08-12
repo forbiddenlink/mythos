@@ -167,13 +167,13 @@ function Scene({ onSelect }: { onSelect: (slug: string) => void }) {
 
 /* --------------------- accessible / no-WebGL fallback -------------------- */
 
-function AtlasFallback() {
+function AtlasFallback({ intro }: { intro?: string }) {
   const { pantheons, nodes } = useMemo(() => computeAtlasLayout(), []);
   return (
     <div className="mx-auto max-w-5xl px-4 py-16">
       <p className="mb-8 text-muted-foreground">
-        An interactive star map of every deity, grouped by pantheon. (A text
-        list is shown here because motion is reduced or 3D is unavailable.)
+        {intro ??
+          "An interactive star map of every deity, grouped by pantheon. (A text list is shown here because motion is reduced or 3D is unavailable.)"}
       </p>
       <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
         {pantheons.map((p) => (
@@ -264,6 +264,17 @@ export function AetherMap() {
           drag to orbit · scroll to zoom · click a star
         </span>
       </div>
+
+      {/* Keyboard- and screen-reader-navigable equivalent of the star map.
+          The <canvas> above is not keyboard-operable, so every deity is reachable
+          here too (WCAG 2.1.1). Visually hidden until a keyboard user tabs into
+          it, then shown as a scrollable overlay panel. */}
+      <nav
+        aria-label="Aether Map deities, list view"
+        className="sr-only focus-within:not-sr-only focus-within:absolute focus-within:inset-0 focus-within:z-20 focus-within:overflow-y-auto focus-within:bg-midnight/95"
+      >
+        <AtlasFallback intro="Every deity, grouped by pantheon — a keyboard- and screen-reader-navigable list of the star map above." />
+      </nav>
     </div>
   );
 }
