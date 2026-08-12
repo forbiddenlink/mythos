@@ -455,73 +455,64 @@ export function DeityPageClient({ slug }: DeityPageClientProps) {
                           ),
                       ]}
                     />
-                    <Card className="shadow-none bg-card/50">
-                      <CardHeader>
-                        <CardTitle className="font-serif flex items-center gap-2 text-xl">
-                          <MythosMark
-                            id="scales"
-                            className="h-5 w-5 text-gold"
-                          />
-                          Cross-Pantheon Parallels
-                        </CardTitle>
-                        <CardDescription>
-                          Similar deities across different mythologies
-                        </CardDescription>
-                      </CardHeader>
-                      <CardContent>
-                        <ul className="space-y-4">
-                          {deity.crossPantheonParallels.map((parallel) => {
-                            const relatedDeity = deityReferenceMap.get(
-                              normalizeDeityReference(parallel.deityId),
-                            );
-                            const pantheonColor = getPantheonColor(
-                              parallel.pantheonId,
-                            );
-                            const pantheonLabel = formatSlugAsTitle(
-                              parallel.pantheonId.replace(/-pantheon$/, ""),
-                            );
+                    <section className="max-w-[68ch]">
+                      <h2 className="font-serif text-2xl font-semibold text-foreground mb-1 border-l-4 border-gold pl-4 flex items-center gap-2">
+                        <MythosMark id="scales" className="h-5 w-5 text-gold" />
+                        Cross-Pantheon Parallels
+                      </h2>
+                      <p className="text-muted-foreground text-sm mb-5 pl-5">
+                        Similar deities across different mythologies
+                      </p>
+                      <ul className="space-y-4">
+                        {deity.crossPantheonParallels.map((parallel) => {
+                          const relatedDeity = deityReferenceMap.get(
+                            normalizeDeityReference(parallel.deityId),
+                          );
+                          const pantheonColor = getPantheonColor(
+                            parallel.pantheonId,
+                          );
+                          const pantheonLabel = formatSlugAsTitle(
+                            parallel.pantheonId.replace(/-pantheon$/, ""),
+                          );
 
-                            return (
-                              <li
-                                key={parallel.deityId}
-                                className="border-l-2 pl-4"
-                                style={{ borderColor: pantheonColor }}
-                              >
-                                <div className="flex flex-wrap items-baseline gap-x-2 gap-y-1">
-                                  {relatedDeity ? (
-                                    <Link
-                                      href={`/deities/${relatedDeity.slug}`}
-                                      className="font-medium text-foreground hover:text-gold transition-colors"
-                                    >
-                                      {relatedDeity.name}
-                                    </Link>
-                                  ) : (
-                                    <span className="font-medium text-foreground">
-                                      {formatSlugAsTitle(
-                                        normalizeDeityReference(
-                                          parallel.deityId,
-                                        ),
-                                      )}
-                                    </span>
-                                  )}
-                                  <span className="inline-flex items-center gap-1.5 text-xs uppercase tracking-wide text-muted-foreground">
-                                    <span
-                                      className="inline-block size-2 rounded-full"
-                                      style={{ backgroundColor: pantheonColor }}
-                                      aria-hidden
-                                    />
-                                    {pantheonLabel}
+                          return (
+                            <li
+                              key={parallel.deityId}
+                              className="border-l-2 pl-4"
+                              style={{ borderColor: pantheonColor }}
+                            >
+                              <div className="flex flex-wrap items-baseline gap-x-2 gap-y-1">
+                                {relatedDeity ? (
+                                  <Link
+                                    href={`/deities/${relatedDeity.slug}`}
+                                    className="font-medium text-foreground hover:text-gold transition-colors"
+                                  >
+                                    {relatedDeity.name}
+                                  </Link>
+                                ) : (
+                                  <span className="font-medium text-foreground">
+                                    {formatSlugAsTitle(
+                                      normalizeDeityReference(parallel.deityId),
+                                    )}
                                   </span>
-                                </div>
-                                <p className="text-muted-foreground text-sm mt-1">
-                                  {parallel.note}
-                                </p>
-                              </li>
-                            );
-                          })}
-                        </ul>
-                      </CardContent>
-                    </Card>
+                                )}
+                                <span className="inline-flex items-center gap-1.5 text-xs uppercase tracking-wide text-muted-foreground">
+                                  <span
+                                    className="inline-block size-2 rounded-full"
+                                    style={{ backgroundColor: pantheonColor }}
+                                    aria-hidden
+                                  />
+                                  {pantheonLabel}
+                                </span>
+                              </div>
+                              <p className="text-muted-foreground text-sm mt-1">
+                                {parallel.note}
+                              </p>
+                            </li>
+                          );
+                        })}
+                      </ul>
+                    </section>
                   </>
                 )}
 
@@ -533,64 +524,54 @@ export function DeityPageClient({ slug }: DeityPageClientProps) {
               {/* Primary Source Excerpts (with original language toggle) */}
               {deity.primarySourceExcerpts &&
                 deity.primarySourceExcerpts.length > 0 && (
-                  <Card className="">
-                    <CardHeader>
-                      <CardTitle className="font-serif flex items-center gap-2 text-xl">
-                        <ScrollText className="h-5 w-5 text-gold" />
-                        Ancient Sources
-                      </CardTitle>
-                      <CardDescription>
-                        Original texts with translations - toggle to see the
-                        original language
-                      </CardDescription>
-                    </CardHeader>
-                    <CardContent>
-                      <SourceExcerptsList
-                        excerpts={deity.primarySourceExcerpts}
-                      />
-                    </CardContent>
-                  </Card>
+                  <section className="max-w-[68ch]">
+                    <h2 className="font-serif text-2xl font-semibold text-foreground mb-1 border-l-4 border-gold pl-4 flex items-center gap-2">
+                      <ScrollText className="h-5 w-5 text-gold" />
+                      Ancient Sources
+                    </h2>
+                    <p className="text-muted-foreground text-sm mb-5 pl-5">
+                      Original texts with translations - toggle to see the
+                      original language
+                    </p>
+                    <SourceExcerptsList
+                      excerpts={deity.primarySourceExcerpts}
+                    />
+                  </section>
                 )}
 
               {/* Primary Sources (simple quotes) */}
               {deity.primarySources &&
                 deity.primarySources.length > 0 &&
                 !deity.primarySourceExcerpts?.length && (
-                  <Card className="">
-                    <CardHeader>
-                      <CardTitle className="font-serif flex items-center gap-2 text-xl">
-                        <BookOpen className="h-5 w-5 text-gold" />
-                        Primary Sources
-                      </CardTitle>
-                      <CardDescription>
-                        Historical texts and references
-                      </CardDescription>
-                    </CardHeader>
-                    <CardContent>
-                      <div className="space-y-6">
-                        {deity.primarySources.map((source, index) => (
-                          <blockquote
-                            key={`${source.source}-${index}`}
-                            className="border-l-4 border-gold/30 pl-4 py-2 bg-muted/50 rounded-r-lg"
-                          >
-                            <p className="text-foreground/80 italic leading-relaxed">
-                              &ldquo;{source.text}&rdquo;
-                            </p>
-                            <footer className="mt-2 text-sm text-muted-foreground">
-                              <span className="font-medium">
-                                {source.source}
+                  <section className="max-w-[68ch]">
+                    <h2 className="font-serif text-2xl font-semibold text-foreground mb-1 border-l-4 border-gold pl-4 flex items-center gap-2">
+                      <BookOpen className="h-5 w-5 text-gold" />
+                      Primary Sources
+                    </h2>
+                    <p className="text-muted-foreground text-sm mb-5 pl-5">
+                      Historical texts and references
+                    </p>
+                    <div className="space-y-6">
+                      {deity.primarySources.map((source, index) => (
+                        <blockquote
+                          key={`${source.source}-${index}`}
+                          className="border-l-4 border-gold/30 pl-4 py-2 bg-muted/50 rounded-r-lg"
+                        >
+                          <p className="text-foreground/80 italic leading-relaxed">
+                            &ldquo;{source.text}&rdquo;
+                          </p>
+                          <footer className="mt-2 text-sm text-muted-foreground">
+                            <span className="font-medium">{source.source}</span>
+                            {source.date && (
+                              <span className="ml-2 text-muted-foreground/70">
+                                ({source.date})
                               </span>
-                              {source.date && (
-                                <span className="ml-2 text-muted-foreground/70">
-                                  ({source.date})
-                                </span>
-                              )}
-                            </footer>
-                          </blockquote>
-                        ))}
-                      </div>
-                    </CardContent>
-                  </Card>
+                            )}
+                          </footer>
+                        </blockquote>
+                      ))}
+                    </div>
+                  </section>
                 )}
 
               {/* Further Reading */}
@@ -613,17 +594,15 @@ export function DeityPageClient({ slug }: DeityPageClientProps) {
                 (deity.worship.temples?.length ||
                   deity.worship.festivals?.length ||
                   deity.worship.practices) && (
-                  <Card className="">
-                    <CardHeader>
-                      <CardTitle className="font-serif flex items-center gap-2 text-xl">
-                        <Sparkles className="h-5 w-5 text-gold" />
-                        Worship & Cult
-                      </CardTitle>
-                      <CardDescription>
-                        How {deity.name} was venerated in ancient times
-                      </CardDescription>
-                    </CardHeader>
-                    <CardContent className="space-y-6">
+                  <section className="max-w-[68ch]">
+                    <h2 className="font-serif text-2xl font-semibold text-foreground mb-1 border-l-4 border-gold pl-4 flex items-center gap-2">
+                      <Sparkles className="h-5 w-5 text-gold" />
+                      Worship & Cult
+                    </h2>
+                    <p className="text-muted-foreground text-sm mb-5 pl-5">
+                      How {deity.name} was venerated in ancient times
+                    </p>
+                    <div className="space-y-6">
                       {deity.worship.temples &&
                         deity.worship.temples.length > 0 && (
                           <div>
@@ -678,8 +657,8 @@ export function DeityPageClient({ slug }: DeityPageClientProps) {
                           </p>
                         </div>
                       )}
-                    </CardContent>
-                  </Card>
+                    </div>
+                  </section>
                 )}
 
               {/* Domains & symbols — compact metadata, not twin cards */}
