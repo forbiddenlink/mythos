@@ -41,7 +41,7 @@ function InteractiveStoryCard({ story }: Readonly<{ story: BranchingStory }>) {
     <Link href={`/stories/interactive/${story.slug}`} className="group">
       <Card
         asArticle
-        className="h-full cursor-pointer card-elevated bg-card hover:scale-[1.01] overflow-hidden relative"
+        className="h-full cursor-pointer parchment-card bg-card transition-transform duration-300 hover:-translate-y-1 overflow-hidden relative"
       >
         {/* Interactive badge */}
         <div className="absolute top-3 right-3 z-10">
@@ -326,7 +326,7 @@ function PaginatedStoryGrid({ stories }: Readonly<{ stories: Story[] }>) {
           >
             <Card
               asArticle
-              className="h-full cursor-pointer card-elevated bg-card hover:scale-[1.01] overflow-hidden"
+              className="h-full cursor-pointer parchment-card bg-card transition-transform duration-300 hover:-translate-y-1 overflow-hidden"
             >
               {/* Subtle Top Border */}
               <div className="h-0.5 bg-linear-to-r from-gold-dark via-gold to-gold-dark"></div>

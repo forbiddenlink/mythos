@@ -121,7 +121,7 @@ export default function PantheonsPage() {
               >
                 <Card
                   asArticle
-                  className="h-full cursor-pointer card-elevated bg-card hover:scale-[1.01] overflow-hidden"
+                  className="h-full cursor-pointer parchment-card bg-card transition-transform duration-300 hover:-translate-y-1 overflow-hidden"
                 >
                   <div
                     className="relative aspect-[16/10] border-b border-border/60 overflow-hidden"

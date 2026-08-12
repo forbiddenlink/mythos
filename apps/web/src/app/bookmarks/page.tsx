@@ -280,7 +280,7 @@ function BookmarkCard({
 }) {
   return (
     <Link href={href}>
-      <Card className="group h-full cursor-pointer card-elevated bg-card hover:scale-[1.01]">
+      <Card className="group h-full cursor-pointer parchment-card bg-card transition-transform duration-300 hover:-translate-y-1">
         <CardHeader>
           <div className="flex items-start justify-between">
             <div className="p-2.5 rounded-xl bg-gold/10 border border-gold/20 group-hover:bg-gold/15 transition-colors duration-300">

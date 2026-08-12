@@ -33,7 +33,7 @@ function InteractiveStoryCard({ story }: Readonly<{ story: BranchingStory }>) {
     <Link href={`/stories/interactive/${story.slug}`} className="group">
       <Card
         asArticle
-        className="h-full cursor-pointer card-elevated bg-card hover:scale-[1.01] overflow-hidden relative"
+        className="h-full cursor-pointer parchment-card bg-card transition-transform duration-300 hover:-translate-y-1 overflow-hidden relative"
       >
         <div className="absolute top-3 right-3 z-10">
           <Badge className="bg-gold/20 text-amber-900 dark:text-amber-100 border-gold/30 gap-1">

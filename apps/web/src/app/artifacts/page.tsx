@@ -179,7 +179,7 @@ export default function ArtifactsPage() {
               >
                 <Card
                   asArticle
-                  className="h-full cursor-pointer card-elevated bg-card hover:scale-[1.01] hover:border-bronze/40 transition-all duration-300"
+                  className="h-full cursor-pointer parchment-card bg-card transition-transform duration-300 hover:-translate-y-1 hover:border-bronze/40 transition-all duration-300"
                 >
                   <CardHeader>
                     <div className="flex items-start justify-between">

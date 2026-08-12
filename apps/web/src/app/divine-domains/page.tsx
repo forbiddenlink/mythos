@@ -460,7 +460,7 @@ export default function DivinDomainsPage() {
                       }
                     }}
                   >
-                    <Card className="group cursor-pointer card-elevated bg-card hover:scale-[1.02] transition-all duration-300">
+                    <Card className="group cursor-pointer parchment-card bg-card transition-transform duration-300 hover:-translate-y-1">
                       <CardContent className="p-6 flex flex-col items-center text-center">
                         <div className="relative mb-4 flex h-12 w-12 items-center justify-center border border-gold/30 bg-gold/5 group-hover:border-gold/50 transition-colors">
                           <span className="absolute left-0 top-0 h-2 w-2 border-l border-t border-gold/40" />
