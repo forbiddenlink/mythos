@@ -82,22 +82,18 @@ export function AtlasOpensHero({ pantheons, counts }: AtlasOpensHeroProps) {
 
   useEffect(() => {
     if (reduce) return;
-    // Mount the decorative WebGL canvas only AFTER the first user interaction, so
-    // it can never become the LCP element on the initial (no-interaction) load —
-    // that late full-viewport <canvas> was the 11.7s mobile LCP. The pinned hero
-    // requires a scroll to progress, so engaged users still get the constellation.
-    const reveal = () => setShowDecor(true);
-    const opts = { once: true, passive: true } as const;
-    window.addEventListener("scroll", reveal, opts);
-    window.addEventListener("pointerdown", reveal, opts);
-    window.addEventListener("keydown", reveal, opts);
-    window.addEventListener("touchstart", reveal, opts);
-    return () => {
-      window.removeEventListener("scroll", reveal);
-      window.removeEventListener("pointerdown", reveal);
-      window.removeEventListener("keydown", reveal);
-      window.removeEventListener("touchstart", reveal);
-    };
+    // Mount the decorative WebGL canvas after load via requestIdleCallback — off the
+    // critical path, but BEFORE the user scrolls. Do NOT gate this on the first scroll:
+    // mounting a heavy R3F canvas into the GSAP-pinned hero mid-scroll thrashes the pin
+    // (visible scroll glitch). The canvas is not the LCP element, so an idle post-load
+    // mount costs nothing on LCP.
+    const ric = window.requestIdleCallback;
+    if (typeof ric === "function") {
+      const id = ric(() => setShowDecor(true), { timeout: 1800 });
+      return () => window.cancelIdleCallback(id);
+    }
+    const id = window.setTimeout(() => setShowDecor(true), 400);
+    return () => window.clearTimeout(id);
   }, [reduce]);
 
   useEffect(() => {
@@ -105,7 +101,10 @@ export function AtlasOpensHero({ pantheons, counts }: AtlasOpensHeroProps) {
     const el = pinRef.current;
     const io = new IntersectionObserver(
       ([entry]) => setHeroInView(entry.isIntersecting),
-      { rootMargin: "10% 0px", threshold: 0.05 },
+      {
+        rootMargin: "10% 0px",
+        threshold: 0.05,
+      },
     );
     io.observe(el);
     return () => io.disconnect();
