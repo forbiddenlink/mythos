@@ -16,9 +16,7 @@
     "start": "turbo start",
     "biome:check": "biome check .",
     "biome:fix": "biome check . --write",
-    "biome:format": "biome format . --write",
-    "test:watch": "vitest",
-    "test:coverage": "vitest run --coverage"
+    "biome:format": "biome format . --write"
   },
   "lint-staged": {
     "apps/web/**/*.{ts,tsx}": [
@@ -44,6 +42,7 @@
     "eslint": "^9.39.4",
     "husky": "^9.1.7",
     "jsdom": "^29.1.1",
+    "knip": "^6.32.2",
     "lint-staged": "^16.4.0",
     "msw": "^2.15.0",
     "prettier": "^3.9.6",
@@ -67,7 +66,7 @@
       "dompurify": ">=3.4.13",
       "nanoid": ">=3.3.17",
       "picomatch": ">=4.0.4",
-      "brace-expansion@<1.1.17": "1.1.17",
+      "brace-expansion@<1.1.18": "1.1.18",
       "brace-expansion@>=2.0.0 <2.1.2": "2.1.2",
       "brace-expansion@>=3.0.0 <=5.0.7": "5.0.8",
       "js-yaml": ">=5.2.2",

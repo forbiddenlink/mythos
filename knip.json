@@ -1,0 +1,26 @@
+{
+  "$schema": "https://unpkg.com/knip@6/schema.json",
+  "workspaces": {
+    ".": {
+      "ignoreDependencies": [
+        "@tailwindcss/postcss",
+        "@tailwindcss/typography",
+        "@testing-library/jest-dom",
+        "@testing-library/react",
+        "@vitejs/plugin-react",
+        "@vitest/coverage-v8",
+        "eslint",
+        "jsdom",
+        "msw",
+        "tailwindcss",
+        "tw-animate-css",
+        "vitest"
+      ]
+    },
+    "apps/web": {
+      "entry": ["i18n.ts"],
+      "ignoreDependencies": ["eslint-plugin-jsx-a11y", "husky", "lint-staged"]
+    }
+  },
+  "ignore": [".agents/**", ".history/**", ".specter/**", "thoughts/**"]
+}
