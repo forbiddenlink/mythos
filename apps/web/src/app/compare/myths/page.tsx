@@ -14,7 +14,7 @@ import {
   compareMythVersions,
   getAvailableCategories,
 } from "@/lib/myth-comparison";
-import { ArrowLeft, BookOpen, Check, Share2, Sparkles } from "lucide-react";
+import { ArrowLeft, Check, Share2, Sparkles } from "lucide-react";
 import { HeroMark } from "@/components/icons/hero-mark";
 import { useTranslations } from "next-intl";
 import Image from "next/image";

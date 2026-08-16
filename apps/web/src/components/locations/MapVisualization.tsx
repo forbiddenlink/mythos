@@ -222,7 +222,7 @@ export function MapVisualization({
     // Cleanup existing map if it exists
     if (mapInstanceRef.current) {
       mapInstanceRef.current.remove();
-      // eslint-disable-next-line react-hooks/immutability -- ref cleanup in an effect is the canonical Leaflet teardown
+
       mapInstanceRef.current = null;
     }
 
@@ -257,7 +257,7 @@ export function MapVisualization({
 
     // Create markers layer group
     const markersLayer = L.layerGroup();
-    // eslint-disable-next-line react-hooks/immutability -- storing the Leaflet layer on a ref for later cleanup
+
     markersLayerRef.current = markersLayer;
 
     // Simple clustering implementation

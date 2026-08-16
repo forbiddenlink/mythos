@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import { useState, useEffect, useCallback, useRef, useMemo } from 'react';
+import { useState, useEffect, useCallback, useRef, useMemo } from "react";
 
 /**
  * Represents the current state of the narration.
@@ -56,7 +56,7 @@ export interface UseNarrationReturn extends NarrationState {
  */
 export function useNarration(
   text: string,
-  options: UseNarrationOptions = {}
+  options: UseNarrationOptions = {},
 ): UseNarrationReturn {
   const { initialSpeed = 1, preferredVoice } = options;
 
@@ -65,8 +65,11 @@ export function useNarration(
   const [isPaused, setIsPaused] = useState(false);
   const [currentPosition, setCurrentPosition] = useState(0);
   const [speed, setSpeedState] = useState(initialSpeed);
-  const [selectedVoice, setSelectedVoiceState] = useState<SpeechSynthesisVoice | null>(null);
-  const [availableVoices, setAvailableVoices] = useState<SpeechSynthesisVoice[]>([]);
+  const [selectedVoice, setSelectedVoiceState] =
+    useState<SpeechSynthesisVoice | null>(null);
+  const [availableVoices, setAvailableVoices] = useState<
+    SpeechSynthesisVoice[]
+  >([]);
   const [isSupported, setIsSupported] = useState(false);
 
   // Refs
@@ -81,9 +84,9 @@ export function useNarration(
 
   // Initialize speech synthesis
   useEffect(() => {
-    if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
+    if (typeof window !== "undefined" && "speechSynthesis" in window) {
       synthesisRef.current = window.speechSynthesis;
-      // eslint-disable-next-line react-hooks/set-state-in-effect -- detect browser speech synthesis support on mount
+
       setIsSupported(true);
 
       // Load voices (may be async on some browsers)
@@ -98,7 +101,7 @@ export function useNarration(
 
           if (preferredVoice) {
             voice = voices.find((v) =>
-              v.name.toLowerCase().includes(preferredVoice.toLowerCase())
+              v.name.toLowerCase().includes(preferredVoice.toLowerCase()),
             );
           }
 
@@ -107,11 +110,11 @@ export function useNarration(
             voice =
               voices.find(
                 (v) =>
-                  v.name.includes('Google UK English Male') ||
-                  v.name.includes('Daniel') ||
-                  v.lang === 'en-GB'
+                  v.name.includes("Google UK English Male") ||
+                  v.name.includes("Daniel") ||
+                  v.lang === "en-GB",
               ) ||
-              voices.find((v) => v.lang.startsWith('en')) ||
+              voices.find((v) => v.lang.startsWith("en")) ||
               voices[0];
           }
 
@@ -163,7 +166,7 @@ export function useNarration(
 
     // Track progress via boundary events
     utterance.onboundary = (event) => {
-      if (event.name === 'word' || event.name === 'sentence') {
+      if (event.name === "word" || event.name === "sentence") {
         setCurrentPosition(event.charIndex);
       }
     };
@@ -181,8 +184,8 @@ export function useNarration(
 
     utterance.onerror = (event) => {
       // Ignore 'interrupted' errors which happen on normal stop/cancel
-      if (event.error !== 'interrupted') {
-        console.error('Speech synthesis error:', event.error);
+      if (event.error !== "interrupted") {
+        console.error("Speech synthesis error:", event.error);
       }
       setIsPlaying(false);
       setIsPaused(false);
@@ -267,7 +270,7 @@ export function useNarration(
         }
       }
     },
-    [createUtterance, isPlaying, isPaused]
+    [createUtterance, isPlaying, isPaused],
   );
 
   // Set voice
@@ -275,9 +278,11 @@ export function useNarration(
     (voice: SpeechSynthesisVoice | string) => {
       let newVoice: SpeechSynthesisVoice | null = null;
 
-      if (typeof voice === 'string') {
+      if (typeof voice === "string") {
         newVoice =
-          availableVoices.find((v) => v.name === voice || v.voiceURI === voice) || null;
+          availableVoices.find(
+            (v) => v.name === voice || v.voiceURI === voice,
+          ) || null;
       } else {
         newVoice = voice;
       }
@@ -299,7 +304,7 @@ export function useNarration(
                 utterance.pitch = 0.95;
 
                 utterance.onboundary = (event) => {
-                  if (event.name === 'word' || event.name === 'sentence') {
+                  if (event.name === "word" || event.name === "sentence") {
                     setCurrentPosition(event.charIndex);
                   }
                 };
@@ -316,8 +321,8 @@ export function useNarration(
                 };
 
                 utterance.onerror = (event) => {
-                  if (event.error !== 'interrupted') {
-                    console.error('Speech synthesis error:', event.error);
+                  if (event.error !== "interrupted") {
+                    console.error("Speech synthesis error:", event.error);
                   }
                   setIsPlaying(false);
                   setIsPaused(false);
@@ -331,7 +336,7 @@ export function useNarration(
         }
       }
     },
-    [availableVoices, isPlaying, isPaused, speed, totalLength]
+    [availableVoices, isPlaying, isPaused, speed, totalLength],
   );
 
   // Memoize return value
@@ -373,6 +378,6 @@ export function useNarration(
       setSpeed,
       setVoice,
       togglePlayPause,
-    ]
+    ],
   );
 }

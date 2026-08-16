@@ -18,7 +18,7 @@ import {
 import deitiesData from "@/data/deities.json";
 import storiesData from "@/data/stories.json";
 import pantheonsData from "@/data/pantheons.json";
-import { GraduationCap, Compass, Sparkles, Target } from "lucide-react";
+import { Compass, Sparkles, Target } from "lucide-react";
 
 // Cast data to proper types
 const allDeities = deitiesData as Deity[];

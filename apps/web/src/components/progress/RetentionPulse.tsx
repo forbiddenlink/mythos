@@ -28,6 +28,7 @@ export function RetentionPulse() {
     try {
       const raw = localStorage.getItem(STORAGE_KEY);
       if (!raw) {
+        // eslint-disable-next-line react-hooks/set-state-in-effect -- hydrate pulse state from localStorage on mount
         setPulse(null);
         return;
       }

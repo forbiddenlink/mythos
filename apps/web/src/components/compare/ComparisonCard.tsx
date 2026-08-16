@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { Sparkles, X } from "lucide-react";
+import { X } from "lucide-react";
 import { MythosMark } from "@/components/icons/mythos-marks";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";

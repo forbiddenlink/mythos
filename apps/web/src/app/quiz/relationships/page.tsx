@@ -18,7 +18,6 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import {
-  Users,
   Trophy,
   RefreshCw,
   ArrowRight,

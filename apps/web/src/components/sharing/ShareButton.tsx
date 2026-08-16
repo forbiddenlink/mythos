@@ -32,6 +32,7 @@ export function ShareButton({ title, text, url, className }: ShareButtonProps) {
 
   useEffect(() => {
     if (!url && typeof window !== "undefined") {
+      // eslint-disable-next-line react-hooks/set-state-in-effect -- hydrate share URL from window on mount
       setShareUrl(window.location.href);
     }
     // Prefer the in-page menu on fine-pointer (desktop) devices even when

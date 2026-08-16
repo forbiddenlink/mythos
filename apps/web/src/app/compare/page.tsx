@@ -8,7 +8,7 @@ import { PageHero } from "@/components/layout/page-hero";
 import { Button } from "@/components/ui/button";
 import deitiesData from "@/data/deities.json";
 import pantheonsData from "@/data/pantheons.json";
-import { BookOpen, Check, Scale, Share2, Sparkles } from "lucide-react";
+import { BookOpen, Check, Share2, Sparkles } from "lucide-react";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";

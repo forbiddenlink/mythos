@@ -159,6 +159,7 @@ function LocationsPageInner() {
         .filter((p) => pantheonIdsForEra.has(p.id))
         .map((p) => p.id),
     );
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- syncing pantheon selection to the active era filter
     setActivePantheons(next);
   }, [pantheonIdsForEra, pantheonsWithLocations]);
 

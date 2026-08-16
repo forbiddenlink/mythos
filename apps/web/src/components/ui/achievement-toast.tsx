@@ -126,7 +126,7 @@ export function AchievementToast({
               "shadow-sm",
             )}
           >
-            {/* eslint-disable-next-line react-hooks/static-components -- dynamic icon from runtime prop */}
+            {}
             <Icon className="size-6 text-midnight" />
           </div>
 

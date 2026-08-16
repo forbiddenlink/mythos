@@ -298,12 +298,6 @@ export default function StoriesPage() {
   );
 }
 
-function getStoryGradient(index: number): string {
-  if (index % 3 === 0) return "from-gold-dark to-bronze";
-  if (index % 3 === 1) return "from-midnight-light to-midnight";
-  return "from-patina to-[oklch(0.45_0.10_170)]";
-}
-
 function PaginatedStoryGrid({ stories }: Readonly<{ stories: Story[] }>) {
   const pagination = usePagination(stories, 24);
 
@@ -318,7 +312,7 @@ function PaginatedStoryGrid({ stories }: Readonly<{ stories: Story[] }>) {
   return (
     <>
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 mt-6">
-        {pagination.paginatedData.map((story, index) => (
+        {pagination.paginatedData.map((story) => (
           <Link
             key={story.id}
             href={`/stories/${story.slug}`}
