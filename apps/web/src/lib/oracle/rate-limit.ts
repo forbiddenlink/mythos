@@ -5,7 +5,6 @@
 
 import { Ratelimit } from "@upstash/ratelimit";
 import { Redis } from "@upstash/redis";
-import { isPaidOracleProvider } from "./provider";
 
 const RATE_LIMIT = 10;
 const RATE_LIMIT_WINDOW_MS = 60 * 60 * 1000;
@@ -100,13 +99,12 @@ async function checkBucketRateLimit(
       : { allowed: false, reason: "rate_limited" };
   }
 
-  // Fail closed in prod only when the bucket bills real money. The quiz and
-  // search buckets always trigger paid API calls (Anthropic / OpenAI
-  // embeddings); the oracle bucket may run free on Groq, in which case an
-  // in-memory limiter is acceptable (no spend to protect).
-  const requiresSharedLimiter =
-    bucket === "quiz" || bucket === "search" || isPaidOracleProvider();
-  if (isProductionRuntime() && requiresSharedLimiter) {
+  // Fail closed in prod for EVERY bucket. quiz/search bill real money; the oracle
+  // bucket (even on free Groq) must be globally capped — an in-memory limiter lives
+  // in a single serverless instance, so under concurrency the "10/hr per IP" ceiling
+  // multiplies per instance and is trivially bypassed, leaving the endpoint open to
+  // quota-DoS and use as a free llama-3.3-70b proxy. Requires UPSTASH_* in prod.
+  if (isProductionRuntime()) {
     return { allowed: false, reason: "misconfigured" };
   }
 
