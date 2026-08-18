@@ -1230,4 +1230,49 @@ html.cookie-banner-open {
       transform: none;
     }
   }
+
+  /* ── Pantheon card grain overlay ──────────────────────────────────────── */
+  /* SVG feTurbulence noise — no HTTP request, resolution-independent.      */
+  .pantheon-grain::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-size: 182px;
+    opacity: 0.09;
+    pointer-events: none;
+    mix-blend-mode: overlay;
+  }
+
+  /* ── Scroll-driven card reveal (clip-path wipe) ───────────────────────── */
+  /* Zero JS, off main thread, CWV-safe. Falls back gracefully.             */
+  @supports (animation-timeline: view()) {
+    .pantheon-reveal {
+      animation: pantheon-card-reveal linear both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 28%;
+    }
+  }
+
+  @keyframes pantheon-card-reveal {
+    from {
+      opacity: 0;
+      translate: 0 20px;
+      clip-path: inset(0 0 12% 0);
+    }
+    to {
+      opacity: 1;
+      translate: 0 0;
+      clip-path: inset(0 0 0% 0);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .pantheon-reveal {
+      animation: none;
+      opacity: 1;
+      translate: none;
+      clip-path: none;
+    }
+  }
 }

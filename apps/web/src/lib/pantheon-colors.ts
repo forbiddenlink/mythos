@@ -1,18 +1,22 @@
-/** Shared pantheon accent colors — keep free of heavy graph deps. */
+/**
+ * Shared pantheon accent colors — used for card gradients and highlights.
+ * Culturally informed: hues drawn from each tradition's material culture,
+ * calibrated for legibility against the dark (#07060f) base.
+ */
 export const PANTHEON_COLORS: Record<string, string> = {
-  "greek-pantheon": "#3b82f6",
-  "norse-pantheon": "#10b981",
-  "egyptian-pantheon": "#f59e0b",
-  "roman-pantheon": "#ef4444",
-  "hindu-pantheon": "#8b5cf6",
-  "japanese-pantheon": "#ec4899",
-  "celtic-pantheon": "#14b8a6",
-  "aztec-pantheon": "#f97316",
-  "chinese-pantheon": "#eab308",
-  "mesopotamian-pantheon": "#a16207",
-  "african-pantheon": "#7c3aed",
-  "polynesian-pantheon": "#06b6d4",
-  "mesoamerican-pantheon": "#65a30d",
+  "greek-pantheon": "#c9a84c", // warm Aegean gold (marble, olive)
+  "norse-pantheon": "#4a6fa5", // slate blue-grey (fjord, iron)
+  "egyptian-pantheon": "#b5820e", // amber-ochre (sandstone, papyrus)
+  "roman-pantheon": "#9b3b2f", // terracotta red (brick, legionary)
+  "hindu-pantheon": "#c5671a", // saffron-orange (marigold, ceremony)
+  "japanese-pantheon": "#8b1a1a", // lacquer red (torii, urushi)
+  "celtic-pantheon": "#2d6a4f", // forest green (oak, mist)
+  "aztec-pantheon": "#7a2b1a", // deep terracotta (clay, obsidian)
+  "chinese-pantheon": "#8b1428", // crimson (lacquer, silk)
+  "mesopotamian-pantheon": "#7a5c1a", // amber clay (cuneiform tablet)
+  "african-pantheon": "#7a4a1a", // earth ochre (Benin bronze, laterite)
+  "polynesian-pantheon": "#0b6e7a", // deep Pacific teal (ocean, basalt)
+  "mesoamerican-pantheon": "#2d5a1a", // jade green (ceiba, quetzal)
 };
 
 export function getPantheonColor(pantheonId: string): string {

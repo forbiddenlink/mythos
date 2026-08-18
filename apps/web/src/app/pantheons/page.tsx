@@ -1,17 +1,11 @@
 "use client";
 
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { MythosMark } from "@/components/icons/mythos-marks";
 import dynamic from "next/dynamic";
+import Image from "next/image";
 import Link from "next/link";
 
-// Interactive star-map: the decorative constellation, wired for navigation.
 const ConstellationBackground = dynamic(
   () =>
     import("@/components/three/ConstellationBackground").then(
@@ -92,7 +86,7 @@ export default function PantheonsPage() {
           </p>
         </section>
 
-        {/* Constellation-as-navigation — click a deity's star to open its page. */}
+        {/* Constellation-as-navigation */}
         <section
           aria-label="Featured deities star map"
           className="relative mt-6 overflow-hidden rounded-2xl border border-gold/20 bg-midnight"
@@ -117,40 +111,70 @@ export default function PantheonsPage() {
               <Link
                 key={pantheon.id}
                 href={`/pantheons/${pantheon.slug}`}
-                className="group"
+                className="group pantheon-reveal"
               >
                 <Card
                   asArticle
-                  className="h-full cursor-pointer parchment-card bg-card transition-transform duration-300 hover:-translate-y-1 overflow-hidden"
+                  className="h-full cursor-pointer overflow-hidden border border-white/[0.06] bg-card transition-colors duration-300 hover:border-white/[0.12] hover:bg-card/80"
                 >
+                  {/* Card image area */}
                   <div
-                    className="relative aspect-[16/10] border-b border-border/60 overflow-hidden"
-                    style={{
-                      background: `linear-gradient(135deg, #0a0a19 0%, ${accent}55 48%, #0a0a19 100%)`,
-                    }}
+                    className="pantheon-grain relative aspect-[16/10] overflow-hidden border-b border-white/[0.06]"
                     aria-hidden
                   >
-                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(212,175,55,0.18),transparent_55%)]" />
-                    <div className="absolute bottom-4 left-4 flex h-10 w-10 items-center justify-center rounded-lg border border-gold/25 bg-midnight/40 backdrop-blur-sm">
-                      <MythosMark id="temple" className="h-5 w-5 text-gold" />
+                    {/* Base accent gradient */}
+                    <div
+                      className="absolute inset-0"
+                      style={{
+                        background: `linear-gradient(160deg, #07060f 0%, ${accent}4a 45%, #07060f 100%)`,
+                      }}
+                    />
+                    {/* Atmospheric image – low opacity, luminosity blend for texture */}
+                    {pantheon.imageUrl && (
+                      <Image
+                        src={pantheon.imageUrl}
+                        alt=""
+                        fill
+                        className="object-cover opacity-35 mix-blend-luminosity"
+                        sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+                        priority={false}
+                      />
+                    )}
+                    {/* Vignette overlay */}
+                    <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_60%_25%,transparent_40%,rgba(7,6,15,0.75)_100%)]" />
+                    {/* Accent shimmer */}
+                    <div
+                      className="absolute inset-0 opacity-20"
+                      style={{
+                        background: `radial-gradient(circle at 65% 30%, ${accent}60, transparent 60%)`,
+                      }}
+                    />
+                    {/* Rotating badge on hover */}
+                    <div className="absolute bottom-4 left-4 flex h-9 w-9 items-center justify-center rounded-md border border-gold/20 bg-midnight/50 backdrop-blur-sm transition-transform duration-500 group-hover:rotate-[15deg]">
+                      <MythosMark id="temple" className="h-4 w-4 text-gold" />
+                    </div>
+                    {/* Region label top-right */}
+                    <div className="absolute right-3 top-3">
+                      <span className="rounded px-2 py-0.5 text-[10px] font-mono tracking-widest text-parchment/50 uppercase bg-midnight/40 backdrop-blur-sm border border-white/[0.06]">
+                        {pantheon.region}
+                      </span>
                     </div>
                   </div>
-                  <CardHeader>
-                    <div className="mb-2 flex items-center gap-3">
-                      <div className="border border-gold/20 bg-gold/10 p-2.5 transition-colors duration-300 group-hover:bg-gold/15">
-                        <MythosMark id="temple" className="h-5 w-5 text-gold" />
-                      </div>
-                      <CardTitle className="text-foreground transition-colors duration-300 group-hover:text-gold">
-                        {pantheon.name}
-                      </CardTitle>
-                    </div>
-                    <CardDescription>
-                      {pantheon.culture} • {pantheon.region}
-                    </CardDescription>
+
+                  {/* Card text */}
+                  <CardHeader className="pb-2">
+                    {/* Tracked uppercase culture tag */}
+                    <p className="mb-1.5 text-[10px] font-semibold tracking-[0.18em] uppercase text-muted-foreground/70">
+                      {pantheon.culture}
+                    </p>
+                    <CardTitle className="font-serif text-xl leading-tight text-foreground transition-colors duration-300 group-hover:text-gold">
+                      {pantheon.name}
+                    </CardTitle>
                   </CardHeader>
+
                   {pantheon.description && (
-                    <CardContent>
-                      <p className="line-clamp-3 text-sm leading-relaxed text-muted-foreground">
+                    <CardContent className="pt-0">
+                      <p className="line-clamp-2 text-sm leading-relaxed text-muted-foreground/80">
                         {pantheon.description}
                       </p>
                     </CardContent>
