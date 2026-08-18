@@ -1,24 +1,51 @@
-name: Dependabot Auto-Merge
-on: pull_request
+name: Dependabot auto-merge
+# CI-gated: waits for the repo's CI workflow to pass on the PR's head SHA, then
+# squash-merges patch + minor dependabot PRs. Major updates stay manual.
+# Uses pull_request_target so the GITHUB_TOKEN runs in the base-branch context
+# (required for dependabot/fetch-metadata to read commit metadata without a 403).
+# Safe: gated on github.actor == 'dependabot[bot]'; no PR code is checked out or executed.
+on: pull_request_target
 permissions:
   contents: write
   pull-requests: write
 jobs:
-  auto-merge:
+  automerge:
+    if: ${{ github.actor == 'dependabot[bot]' }}
     runs-on: ubuntu-latest
-    if: github.actor == 'dependabot[bot]'
     steps:
-      - uses: dependabot/fetch-metadata@25dd0e34f4fe68f24cc83900b1fe3fe149efef98 # v3.1.0
+      - name: Dependabot metadata
         id: meta
+        uses: dependabot/fetch-metadata@21025c705c08248db411dc16f3619e6b5f9ea21a # v2.5.0
         with:
-          github-token: "${{ secrets.GITHUB_TOKEN }}"
-      - name: Auto-merge patch and minor updates
-        if: |
-          steps.meta.outputs.update-type == 'version-update:semver-patch' ||
-          steps.meta.outputs.update-type == 'version-update:semver-minor'
-        run: |
-          gh pr review --approve "$PR_URL"
-          gh pr merge --auto --squash "$PR_URL"
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Wait for CI, then merge (patch + minor only)
+        if: ${{ steps.meta.outputs.update-type == 'version-update:semver-patch' || steps.meta.outputs.update-type == 'version-update:semver-minor' }}
         env:
-          PR_URL: ${{ github.event.pull_request.html_url }}
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_URL: ${{ github.event.pull_request.html_url }}
+          SHA: ${{ github.event.pull_request.head.sha }}
+          REPO: ${{ github.repository }}
+        run: |
+          echo "Waiting for CI on $SHA ..."
+          for i in $(seq 1 90); do
+            state=""
+            for workflow in ci.yml test.yml build.yml; do
+              state=$(gh run list --repo "$REPO" --workflow="$workflow" --commit "$SHA" \
+                        --json status,conclusion \
+                        --jq '.[0] // empty | "\(.status)/\(.conclusion)"' 2>/dev/null || true)
+              [ -n "$state" ] && break
+            done
+            case "$state" in
+              completed/success)
+                echo "CI green -> merging"
+                gh pr merge --squash --delete-branch "$PR_URL"
+                exit 0 ;;
+              completed/*)
+                echo "CI not green ($state) -> leaving PR open for review"
+                exit 0 ;;
+              *)
+                sleep 20 ;;
+            esac
+          done
+          echo "Timed out waiting for CI (30 min); leaving PR open."
