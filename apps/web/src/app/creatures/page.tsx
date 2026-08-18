@@ -181,7 +181,7 @@ export default function CreaturesPage() {
               <Link
                 key={creature.id}
                 href={`/creatures/${creature.slug}`}
-                className="group"
+                className="group pantheon-reveal"
               >
                 <Card
                   asArticle

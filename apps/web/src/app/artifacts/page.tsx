@@ -175,7 +175,7 @@ export default function ArtifactsPage() {
               <Link
                 key={artifact.id}
                 href={`/artifacts/${artifact.slug}`}
-                className="group"
+                className="group pantheon-reveal"
               >
                 <Card
                   asArticle

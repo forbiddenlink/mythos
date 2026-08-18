@@ -38,7 +38,10 @@ function InteractiveStoryCard({ story }: Readonly<{ story: BranchingStory }>) {
       : `${remaining} ${endingLabel} remaining`;
 
   return (
-    <Link href={`/stories/interactive/${story.slug}`} className="group">
+    <Link
+      href={`/stories/interactive/${story.slug}`}
+      className="group pantheon-reveal"
+    >
       <Card
         asArticle
         className="h-full cursor-pointer parchment-card bg-card transition-transform duration-300 hover:-translate-y-1 overflow-hidden relative"
@@ -316,7 +319,7 @@ function PaginatedStoryGrid({ stories }: Readonly<{ stories: Story[] }>) {
           <Link
             key={story.id}
             href={`/stories/${story.slug}`}
-            className="group"
+            className="group pantheon-reveal"
           >
             <Card
               asArticle
