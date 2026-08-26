@@ -110,7 +110,17 @@ test.describe("Phase 7: Oracle Chat", () => {
 });
 
 test.describe("Phase 7: 3D Deity Statue", () => {
-  test("should render statue container on deity page", async ({ page }) => {
+  // The DeityStatue component (Canvas + WebGL fallback, .h-80.rounded-xl
+  // container) was removed as dead code in 22f56bc ("chore: clear 2 CVEs
+  // and delete 48 dead files", 2026-08-12) — it was no longer imported by
+  // DeityPageClient. These tests assert on markup that no longer exists
+  // anywhere in the app (verified: no `.h-80.rounded-xl` or `DeityStatue`
+  // reference remains in src/). This is not a headless/WebGL environment
+  // issue — skipping rather than leaving permanently red. Restore these
+  // if the 3D statue feature comes back, otherwise delete them.
+  test.skip("should render statue container on deity page", async ({
+    page,
+  }) => {
     await page.goto(`${BASE_URL}/deities/zeus`);
     await page.waitForLoadState("domcontentloaded");
 
@@ -120,7 +130,7 @@ test.describe("Phase 7: 3D Deity Statue", () => {
     await expect(statueContainer.first()).toBeVisible({ timeout: 10000 });
   });
 
-  test("should display fallback content when WebGL unavailable", async ({
+  test.skip("should display fallback content when WebGL unavailable", async ({
     page,
   }) => {
     // Disable WebGL
@@ -147,7 +157,7 @@ test.describe("Phase 7: 3D Deity Statue", () => {
     await expect(fallbackEmoji).toBeVisible({ timeout: 10000 });
   });
 
-  test("should render different statue materials for different pantheons", async ({
+  test.skip("should render different statue materials for different pantheons", async ({
     page,
   }) => {
     // Test Greek deity (marble material)
@@ -243,9 +253,11 @@ test.describe("Phase 7: Mobile Viewport Tests", () => {
     const deityName = page.locator("h1").filter({ hasText: "Zeus" });
     await expect(deityName).toBeVisible({ timeout: 10000 });
 
-    // Statue container or fallback should be present
-    const statueContainer = page.locator(".h-80.rounded-xl");
-    await expect(statueContainer.first()).toBeVisible({ timeout: 10000 });
+    // NOTE: this test used to also assert a `.h-80.rounded-xl` statue
+    // container/fallback here. That element belonged to the DeityStatue
+    // component, removed as dead code in 22f56bc (2026-08-12) — see the
+    // "Phase 7: 3D Deity Statue" describe block above for detail. The
+    // deity-name assertion above still covers real mobile rendering.
 
     await context.close();
   });
@@ -291,7 +303,10 @@ test.describe("Phase 7: Tablet Viewport Tests", () => {
     await context.close();
   });
 
-  test("Deity 3D statue should render on tablet", async ({ browser }) => {
+  // Same removed-feature reason as the "Phase 7: 3D Deity Statue" describe
+  // block above: DeityStatue (and its `.h-80.rounded-xl` container) no
+  // longer exists (deleted in 22f56bc, 2026-08-12).
+  test.skip("Deity 3D statue should render on tablet", async ({ browser }) => {
     const context = await browser.newContext({ ...devices["iPad Pro 11"] });
     const page = await context.newPage();
 
