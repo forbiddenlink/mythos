@@ -18,7 +18,7 @@ export function SyncretismStrip() {
       <div className="container mx-auto max-w-7xl px-4">
         <div className="mb-10 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
           <div>
-            <div className="mb-2 flex items-center gap-2 text-xs uppercase tracking-[0.25em] text-gold/80">
+            <div className="mb-2 flex items-center gap-2 text-xs uppercase tracking-[0.25em] text-gold-text">
               <MythosMark id="scales" className="h-4 w-4 text-gold" />
               Same gods, different names
             </div>
@@ -32,7 +32,7 @@ export function SyncretismStrip() {
           </div>
           <Link
             href="/compare/parallels"
-            className="text-sm text-gold underline-offset-4 hover:underline"
+            className="text-sm text-gold-text underline-offset-4 hover:underline"
           >
             Browse all parallels →
           </Link>
