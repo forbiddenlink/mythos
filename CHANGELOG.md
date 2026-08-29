@@ -5,6 +5,20 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.0](https://github.com/forbiddenlink/mythos/compare/v1.0.0...v1.1.0) (2026-08-29)
+
+
+### Features
+
+* **listings:** add scroll-reveal entrance animation to story, creature, artifact cards ([d635e53](https://github.com/forbiddenlink/mythos/commit/d635e533025327457c6f969439d5450b28c5385c))
+* **pantheons:** atmospheric card redesign with AI-generated imagery ([583f51b](https://github.com/forbiddenlink/mythos/commit/583f51b53ac3b57dc831e8e1dd511d9d2caf1976))
+
+
+### Bug Fixes
+
+* **e2e:** contrast + dead 3D-statue test fixes for red Test CI ([#64](https://github.com/forbiddenlink/mythos/issues/64)) ([74bb8e4](https://github.com/forbiddenlink/mythos/commit/74bb8e4f0fe24c5a3c4ea1e871cc81d556db7f40))
+* merge oracle shared rate-limit + global cap security hardening ([e127528](https://github.com/forbiddenlink/mythos/commit/e12752855e6f5b47e62c9f148e211112cd68d0d8))
+
 ## 1.0.0 (2026-08-16)
 
 
