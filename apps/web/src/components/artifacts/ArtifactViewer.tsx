@@ -3,21 +3,31 @@
 import { Environment, Float, OrbitControls, Stage } from "@react-three/drei";
 import type { ThreeElements } from "@react-three/fiber";
 import { Canvas, useFrame } from "@react-three/fiber";
+import { useReducedMotion } from "framer-motion";
 import { Suspense, useMemo, useRef, useSyncExternalStore } from "react";
 import * as THREE from "three";
 import { ErrorBoundary } from "@/components/errors/ErrorBoundary";
 
-function GoldenApple(props: Readonly<ThreeElements["mesh"]>) {
+function GoldenApple({
+  reduce = false,
+  ...props
+}: Readonly<ThreeElements["mesh"]> & { reduce?: boolean }) {
   const meshRef = useRef<THREE.Mesh>(null);
 
+  // Hook must run every frame regardless; skip only the mutation so the
+  // artifact sits still under prefers-reduced-motion.
   useFrame((state, delta) => {
-    if (meshRef.current) {
+    if (!reduce && meshRef.current) {
       meshRef.current.rotation.y += delta * 0.5;
     }
   });
 
   return (
-    <Float speed={2} rotationIntensity={0.5} floatIntensity={0.5}>
+    <Float
+      speed={reduce ? 0 : 2}
+      rotationIntensity={reduce ? 0 : 0.5}
+      floatIntensity={reduce ? 0 : 0.5}
+    >
       <mesh {...props} ref={meshRef}>
         <sphereGeometry args={[1, 32, 32]} />
         <meshStandardMaterial
@@ -32,16 +42,23 @@ function GoldenApple(props: Readonly<ThreeElements["mesh"]>) {
   );
 }
 
-function GreekShield(props: Readonly<ThreeElements["group"]>) {
+function GreekShield({
+  reduce = false,
+  ...props
+}: Readonly<ThreeElements["group"]> & { reduce?: boolean }) {
   const meshRef = useRef<THREE.Group>(null);
   useFrame((state, delta) => {
-    if (meshRef.current) {
+    if (!reduce && meshRef.current) {
       meshRef.current.rotation.y -= delta * 0.2;
     }
   });
 
   return (
-    <Float speed={1.5} rotationIntensity={0.4} floatIntensity={0.4}>
+    <Float
+      speed={reduce ? 0 : 1.5}
+      rotationIntensity={reduce ? 0 : 0.4}
+      floatIntensity={reduce ? 0 : 0.4}
+    >
       <group ref={meshRef} {...props}>
         {/* Main shield body */}
         <mesh>
@@ -74,6 +91,8 @@ export function ArtifactViewer({
 }: Readonly<{
   type?: "apple" | "shield";
 }>) {
+  const reduce = !!useReducedMotion();
+
   const isClient = useSyncExternalStore(
     () => () => undefined,
     () => true,
@@ -119,7 +138,11 @@ export function ArtifactViewer({
       </div>
 
       <Canvas shadows camera={{ position: [0, 0, 4], fov: 50 }}>
-        <OrbitControls autoRotate autoRotateSpeed={0.5} enableZoom={false} />
+        <OrbitControls
+          autoRotate={!reduce}
+          autoRotateSpeed={0.5}
+          enableZoom={false}
+        />
         <ErrorBoundary fallback={null}>
           <Suspense fallback={null}>
             <Environment files="/environments/venice_sunset_1k.hdr" />
@@ -127,9 +150,9 @@ export function ArtifactViewer({
         </ErrorBoundary>
         <Stage environment={null} intensity={0.5}>
           {type === "apple" ? (
-            <GoldenApple />
+            <GoldenApple reduce={reduce} />
           ) : (
-            <GreekShield rotation={[Math.PI / 2, 0, 0]} />
+            <GreekShield reduce={reduce} rotation={[Math.PI / 2, 0, 0]} />
           )}
         </Stage>
       </Canvas>

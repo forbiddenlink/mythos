@@ -111,7 +111,7 @@ export function RosettaWheel({
               onMouseLeave={() => setActive(null)}
               onFocus={() => setActive(i)}
               onBlur={() => setActive(null)}
-              className="group flex w-24 flex-col items-center gap-1 text-center focus:outline-none"
+              className="group flex w-24 flex-col items-center gap-1 rounded-md text-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-midnight"
             >
               <span
                 className="flex size-11 items-center justify-center rounded-full border-2 bg-midnight/80 font-serif text-lg text-parchment transition-transform duration-200 group-hover:scale-110 group-focus-visible:scale-110"
