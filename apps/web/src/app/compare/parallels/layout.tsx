@@ -4,7 +4,7 @@ import { generateBaseMetadata } from "@/lib/metadata";
 export const metadata: Metadata = generateBaseMetadata({
   title: "Cross-pantheon parallels — comparative mythology",
   description:
-    "Browse editorial parallels between mythological figures across pantheons — analogies for study, linked from deity entries.",
+    "Explore universal archetypes — storm sovereigns, psychopomps, tricksters — across 13 world traditions, plus curated editorial equivalences between individual mythological figures.",
   url: "/compare/parallels",
 });
 
