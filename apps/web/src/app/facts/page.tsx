@@ -5,9 +5,9 @@ import { FactsPageClient } from "./FactsPageClient";
 import facts from "@/data/mythology-facts.json";
 
 export const metadata: Metadata = generateBaseMetadata({
-  title: "Mythology Facts",
+  title: "Mythology Facts & Ancient Festival Almanac",
   description:
-    "Discover fascinating facts about ancient gods, myths, and cultures from around the world. Learn surprising connections between mythologies.",
+    "Discover fascinating facts about ancient gods, myths, and cultures worldwide, plus an almanac of the seasonal festivals and sacred rites the ancient world actually observed.",
   url: "/facts",
   keywords: [
     "mythology facts",
@@ -18,6 +18,8 @@ export const metadata: Metadata = generateBaseMetadata({
     "ancient cultures",
     "greek mythology facts",
     "norse mythology facts",
+    "ancient festivals",
+    "religious calendar antiquity",
   ],
 });
 
