@@ -3,12 +3,7 @@
 import { useState } from "react";
 import { Download, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import {
-  exportDeityToPdf,
-  exportStoryToPdf,
-  type DeityExportData,
-  type StoryExportData,
-} from "@/lib/pdf-export";
+import type { DeityExportData, StoryExportData } from "@/lib/pdf-export";
 
 interface DeityExportButtonProps {
   type: "deity";
@@ -28,13 +23,14 @@ interface StoryExportButtonProps {
 
 type ExportButtonProps = DeityExportButtonProps | StoryExportButtonProps;
 
-export function ExportButton({
-  type,
-  data,
-  variant = "outline",
-  size = "default",
-  className,
-}: ExportButtonProps) {
+/**
+ * Shared export handler for both button variants, so the dynamic-import and
+ * error-handling behaviour cannot drift between them.
+ */
+function useExportPdf(
+  type: "deity" | "story",
+  data: DeityExportData | StoryExportData,
+) {
   const [isExporting, setIsExporting] = useState(false);
 
   const handleExport = async () => {
@@ -42,6 +38,10 @@ export function ExportButton({
 
     setIsExporting(true);
     try {
+      // Dynamic import keeps jsPDF (+ unicode-font-resolver) out of the initial
+      // bundle — it fetches cdn.jsdelivr.net on first click, not on page load.
+      const { exportDeityToPdf, exportStoryToPdf } =
+        await import("@/lib/pdf-export");
       if (type === "deity") {
         await exportDeityToPdf(data as DeityExportData);
       } else {
@@ -49,7 +49,8 @@ export function ExportButton({
       }
     } catch (error) {
       console.error("Failed to export PDF:", error);
-      // Surface failure so users aren't left staring at a silent no-op.
+      // No toast system in this app, so surface failure rather than leaving
+      // users staring at a silent no-op.
       if (typeof window !== "undefined") {
         window.alert("PDF export failed. Please try again.");
       }
@@ -58,12 +59,25 @@ export function ExportButton({
     }
   };
 
+  return { isExporting, handleExport };
+}
+
+export function ExportButton({
+  type,
+  data,
+  variant = "outline",
+  size = "default",
+  className,
+}: ExportButtonProps) {
+  const { isExporting, handleExport } = useExportPdf(type, data);
+
   return (
     <Button
       variant={variant}
       size={size}
       onClick={handleExport}
       disabled={isExporting}
+      aria-busy={isExporting}
       className={className}
       aria-label={`Export ${type === "deity" ? (data as DeityExportData).name : (data as StoryExportData).title} as PDF`}
     >
@@ -89,27 +103,7 @@ export function ExportIconButton({
   variant = "ghost",
   className,
 }: Omit<ExportButtonProps, "size">) {
-  const [isExporting, setIsExporting] = useState(false);
-
-  const handleExport = async () => {
-    if (isExporting) return;
-
-    setIsExporting(true);
-    try {
-      if (type === "deity") {
-        await exportDeityToPdf(data as DeityExportData);
-      } else {
-        await exportStoryToPdf(data as StoryExportData);
-      }
-    } catch (error) {
-      console.error("Failed to export PDF:", error);
-      if (typeof window !== "undefined") {
-        window.alert("PDF export failed. Please try again.");
-      }
-    } finally {
-      setIsExporting(false);
-    }
-  };
+  const { isExporting, handleExport } = useExportPdf(type, data);
 
   return (
     <Button
@@ -117,6 +111,7 @@ export function ExportIconButton({
       size="icon"
       onClick={handleExport}
       disabled={isExporting}
+      aria-busy={isExporting}
       className={className}
       aria-label={`Export ${type === "deity" ? (data as DeityExportData).name : (data as StoryExportData).title} as PDF`}
       title="Export as PDF"

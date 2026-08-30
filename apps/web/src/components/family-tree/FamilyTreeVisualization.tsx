@@ -124,6 +124,8 @@ function addRelatedNodes(
       ctx.nodes.push({
         id: relatedDeity.id,
         type: "deityNode",
+        width: 200,
+        height: 72,
         data: {
           deity: relatedDeity,
           isFocused: false,
@@ -247,9 +249,13 @@ const DeityNode = ({
     <Card
       id={deity.id}
       className={`relative p-4 min-w-50 bg-white dark:bg-slate-900 transition-shadow duration-150 ${ringClass}`}
-      role="treeitem"
+      // Not role="treeitem": React Flow renders its own wrapper elements between
+      // the canvas container and each node, so the treeitem/tree parent-child
+      // adjacency ARIA requires can never hold here (axe: aria-required-parent /
+      // aria-required-children). The container is role="application" instead and
+      // points at the focused node via aria-activedescendant.
       aria-label={`${deity.name}${domainLabel}`}
-      aria-selected={isKeyboardFocused || isFocused}
+      aria-current={isKeyboardFocused || isFocused ? "true" : undefined}
     >
       <Handle
         type="target"
@@ -390,6 +396,8 @@ function FamilyTreeInner({
       nodes.push({
         id: deity.id,
         type: "deityNode",
+        width: 200,
+        height: 72,
         data: {
           deity,
           isFocused: true,
@@ -514,6 +522,11 @@ function FamilyTreeInner({
         nodes.push({
           id: deity.id,
           type: "deityNode",
+          // Pre-set dimensions so ReactFlow can render edges immediately
+          // without waiting for ResizeObserver to measure. DeityNode card
+          // has min-w-50 (200px) and a fixed two-line content height (~72px).
+          width: 200,
+          height: 72,
           data: {
             deity,
             isFocused: false,
@@ -670,7 +683,8 @@ function FamilyTreeInner({
       ref={containerRef}
       className="w-full h-full focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400"
       tabIndex={0}
-      role="tree"
+      role="application"
+      aria-roledescription="Family tree graph"
       aria-label="Family tree visualization. Use arrow keys to navigate between connected deities, Enter to select, Escape to deselect."
       aria-activedescendant={keyboardFocusedId ?? undefined}
       onKeyDown={handleKeyDown}

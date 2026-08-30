@@ -8,24 +8,24 @@ Mythos Atlas is a research-oriented reference and learning site for ancient and 
 
 ## URL aliases
 
-- `/domains` redirects to `/divine-domains` (canonical hub for domains of influence).
+- [/domains](https://mythosatlas.com/domains) redirects to [/divine-domains](https://mythosatlas.com/divine-domains) (canonical hub for domains of influence).
 
 ## Primary entry points
 
-- Home: https://mythosatlas.com/
-- Browse deities: https://mythosatlas.com/deities
-- Browse stories: https://mythosatlas.com/stories
-- Pantheons: https://mythosatlas.com/pantheons
-- Compare tools: https://mythosatlas.com/compare
-- Knowledge graph: https://mythosatlas.com/knowledge-graph
-- Family tree explorer: https://mythosatlas.com/family-tree
-- Quizzes: https://mythosatlas.com/quiz
-- Sources & policies: https://mythosatlas.com/sources — https://mythosatlas.com/about
+- [Home](https://mythosatlas.com/): the atlas landing page.
+- [Browse deities](https://mythosatlas.com/deities): every deity entry.
+- [Browse stories](https://mythosatlas.com/stories): myth retellings and summaries.
+- [Pantheons](https://mythosatlas.com/pantheons): the 13 traditions covered.
+- [Compare tools](https://mythosatlas.com/compare): cross-pantheon comparison, including [archetype parallels](https://mythosatlas.com/compare/parallels).
+- [Knowledge graph](https://mythosatlas.com/knowledge-graph): relationship explorer.
+- [Family tree explorer](https://mythosatlas.com/family-tree): divine genealogies.
+- [Quizzes](https://mythosatlas.com/quiz): self-testing, plus [study guides](https://mythosatlas.com/study).
+- [Sources](https://mythosatlas.com/sources) and [About](https://mythosatlas.com/about): citation standards and methodology.
 
 ## Machine-readable sitemap
 
-- https://mythosatlas.com/sitemap.xml
-- https://mythosatlas.com/robots.txt
+- [sitemap.xml](https://mythosatlas.com/sitemap.xml): full URL index.
+- [robots.txt](https://mythosatlas.com/robots.txt): crawl rules.
 
 ## API routes (not for general crawling)
 

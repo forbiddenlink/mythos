@@ -321,8 +321,33 @@ export function GlobalSearch() {
           <>
             {/* Search Results */}
             {groupedResults.length === 0 && (
-              <CommandEmpty>
-                No results found for &quot;{debouncedSearch}&quot;
+              <CommandEmpty className="py-6 text-center">
+                <p className="text-sm text-muted-foreground mb-3">
+                  No results found for &quot;{debouncedSearch}&quot;
+                </p>
+                <div className="flex flex-wrap justify-center gap-2 max-w-xs mx-auto">
+                  <button
+                    type="button"
+                    onClick={() => handleNavigationSelect("/pantheons")}
+                    className="text-xs px-2.5 py-1 rounded-md border border-gold/30 text-gold hover:bg-gold/10 transition-colors cursor-pointer"
+                  >
+                    Browse Pantheons
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => handleNavigationSelect("/deities")}
+                    className="text-xs px-2.5 py-1 rounded-md border border-gold/30 text-gold hover:bg-gold/10 transition-colors cursor-pointer"
+                  >
+                    All Deities
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => handleNavigationSelect("/stories")}
+                    className="text-xs px-2.5 py-1 rounded-md border border-gold/30 text-gold hover:bg-gold/10 transition-colors cursor-pointer"
+                  >
+                    Read Stories
+                  </button>
+                </div>
               </CommandEmpty>
             )}
 

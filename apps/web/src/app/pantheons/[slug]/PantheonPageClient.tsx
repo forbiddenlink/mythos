@@ -188,7 +188,7 @@ export function PantheonPageClient({ slug }: PantheonPageClientProps) {
         </section>
 
         {/* Deities Section */}
-        <section className="mb-12">
+        <section className="mb-14">
           <div className="flex items-center gap-3 mb-6">
             <Users className="h-6 w-6 text-gold" />
             <h2 className="text-3xl font-serif font-semibold text-foreground">
@@ -197,20 +197,38 @@ export function PantheonPageClient({ slug }: PantheonPageClientProps) {
           </div>
 
           {pantheonDeities.length > 0 ? (
-            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {pantheonDeities.map((deity) => (
-                <Link key={deity.id} href={`/deities/${deity.slug}`}>
-                  <Card className="h-full border-border bg-card hover:border-gold/40 transition-colors">
-                    <CardHeader>
-                      <CardTitle className="text-foreground">
+                <Link
+                  key={deity.id}
+                  href={`/deities/${deity.slug}`}
+                  className="group block h-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+                >
+                  <Card className="h-full border-border bg-card hover:border-gold/50 hover:shadow-lg hover:shadow-gold/5 transition-all duration-300 overflow-hidden flex flex-col">
+                    {deity.imageUrl && (
+                      <div className="relative w-full aspect-16/10 bg-midnight/40 overflow-hidden border-b border-border/60">
+                        <Image
+                          src={deity.imageUrl}
+                          alt=""
+                          fill
+                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                          className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                        />
+                        <div className="absolute inset-0 bg-linear-to-t from-card via-transparent to-transparent opacity-80" />
+                      </div>
+                    )}
+                    <CardHeader className="pb-3">
+                      <CardTitle className="font-serif text-xl text-foreground group-hover:text-gold transition-colors">
                         {deity.name}
                       </CardTitle>
-                      <CardDescription className="text-gold/80">
-                        {deity.domain.join(", ")}
-                      </CardDescription>
+                      {deity.domain && deity.domain.length > 0 && (
+                        <CardDescription className="text-gold-text text-xs uppercase tracking-wider font-medium line-clamp-1">
+                          {deity.domain.join(" · ")}
+                        </CardDescription>
+                      )}
                     </CardHeader>
-                    <CardContent>
-                      <p className="text-muted-foreground line-clamp-3">
+                    <CardContent className="flex-1">
+                      <p className="text-muted-foreground text-sm line-clamp-3 leading-relaxed">
                         {deity.description || "No description available."}
                       </p>
                     </CardContent>
@@ -241,24 +259,29 @@ export function PantheonPageClient({ slug }: PantheonPageClientProps) {
           {pantheonStories.length > 0 ? (
             <div className="grid gap-6 md:grid-cols-2">
               {pantheonStories.map((story) => (
-                <Card
+                <Link
                   key={story.id}
-                  className="border-border bg-card hover:border-gold/40 transition-colors"
+                  href={`/stories/${story.slug}`}
+                  className="group block h-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
                 >
-                  <CardHeader>
-                    <CardTitle className="text-foreground">
-                      {story.title}
-                    </CardTitle>
-                    <CardDescription className="text-gold/80">
-                      {story.category}
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-muted-foreground line-clamp-3">
-                      {story.summary}
-                    </p>
-                  </CardContent>
-                </Card>
+                  <Card className="h-full border-border bg-card hover:border-gold/50 hover:shadow-lg hover:shadow-gold/5 transition-all duration-300">
+                    <CardHeader>
+                      <div className="flex items-center justify-between gap-2 mb-1">
+                        <CardTitle className="font-serif text-xl text-foreground group-hover:text-gold transition-colors">
+                          {story.title}
+                        </CardTitle>
+                        <span className="text-xs uppercase tracking-widest text-gold/80 px-2 py-0.5 rounded border border-gold/25 bg-gold/5 font-sans shrink-0">
+                          {story.category}
+                        </span>
+                      </div>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-muted-foreground text-sm line-clamp-3 leading-relaxed">
+                        {story.summary}
+                      </p>
+                    </CardContent>
+                  </Card>
+                </Link>
               ))}
             </div>
           ) : (

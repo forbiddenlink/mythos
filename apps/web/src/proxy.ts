@@ -25,12 +25,14 @@ function buildCsp(nonce: string): string {
     : `'self' 'nonce-${nonce}' 'strict-dynamic' 'unsafe-eval' blob: ${vercelScripts}`;
 
   // Analytics beacons + Anthropic/Oracle + optional Sentry/Upstash in prod.
+  // cdn.jsdelivr.net: browser speechSynthesis voice data / unicode font resolver
   const connectSrc = [
     "'self'",
     "https://va.vercel-scripts.com",
     "https://vitals.vercel-insights.com",
     "https://*.ingest.sentry.io",
     "https://*.upstash.io",
+    "https://cdn.jsdelivr.net",
   ].join(" ");
 
   return [

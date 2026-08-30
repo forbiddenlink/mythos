@@ -106,3 +106,6 @@ supabase/.temp/
 dist/
 .vercel
 .audit-report.md
+
+# Local hq CLI catalog metadata (developer tooling, not project code)
+.hq/

@@ -10,6 +10,19 @@ import {
 import { MythosMark } from "@/components/icons/mythos-marks";
 import { HeroMark } from "@/components/icons/hero-mark";
 import { cn } from "@/lib/utils";
+import deitiesData from "@/data/deities.json";
+import pantheonsData from "@/data/pantheons.json";
+import storiesData from "@/data/stories.json";
+import locationsData from "@/data/locations.json";
+
+// Derived from the data files so the About copy can never drift from the atlas
+// again (it previously undercounted locations by 38 and overstated deities).
+const COVERAGE = {
+  pantheons: pantheonsData.length,
+  deities: deitiesData.length,
+  stories: storiesData.length,
+  locations: locationsData.length,
+} as const;
 
 export const metadata = generateBaseMetadata({
   title: "About Mythos Atlas",
@@ -92,8 +105,9 @@ export default function AboutPage() {
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground">
-                  Browse 13 pantheons from Greek to Yoruba, with 189+ deities,
-                  96+ stories, and 85+ sacred locations documented.
+                  Browse {COVERAGE.pantheons} pantheons from Greek to Yoruba,
+                  with {COVERAGE.deities} deities, {COVERAGE.stories} stories,
+                  and {COVERAGE.locations} sacred locations documented.
                 </p>
               </CardContent>
             </Card>
@@ -248,8 +262,7 @@ export default function AboutPage() {
             </CardHeader>
             <CardContent className="space-y-3">
               <p className="text-foreground/80 leading-relaxed">
-                <strong className="text-gold">Last Updated:</strong> February
-                2026
+                <strong className="text-gold">Last Updated:</strong> August 2026
               </p>
               <p className="text-foreground/80 leading-relaxed">
                 Mythos Atlas is an ongoing project with regular updates. The
