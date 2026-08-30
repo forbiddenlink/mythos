@@ -86,8 +86,12 @@ test.describe("Phase 8: Mythology Facts", () => {
     // Should have the page title
     await expect(page.locator("h1")).toContainText("Mythology Facts");
 
-    // Should show fact count (30 facts)
-    await expect(page.locator("text=30 fascinating facts")).toBeVisible();
+    // The fact count moved into the view-switcher tab when the Ancient Almanac
+    // was added; the old "30 fascinating facts" lede no longer exists (and the
+    // count had drifted from the data besides).
+    await expect(
+      page.getByRole("button", { name: /Curated Facts \(\d+\)/ }),
+    ).toBeVisible();
   });
 
   test("should display category filter buttons", async ({ page }) => {
