@@ -5,6 +5,22 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.2.0](https://github.com/forbiddenlink/mythos/compare/v1.1.0...v1.2.0) (2026-08-30)
+
+
+### Features
+
+* **compare:** add cross-pantheon archetype matrix ([980d9cb](https://github.com/forbiddenlink/mythos/commit/980d9cb29bfb808eaa3733b4006ec944d4447d25))
+* **facts:** add ancient festival almanac ([bd431a3](https://github.com/forbiddenlink/mythos/commit/bd431a37068f15d44b70aebcacb9c9f579005b62))
+* **learning:** export deity flashcards as Anki/Quizlet decks ([6168100](https://github.com/forbiddenlink/mythos/commit/61681002971e6ef001978d87c07a004b83f6df11))
+
+
+### Bug Fixes
+
+* **a11y,content:** QA sweep across family tree, pantheons, and site copy ([1e222c1](https://github.com/forbiddenlink/mythos/commit/1e222c15ebcd674509f76eecff387e8071e6677a))
+* **a11y:** restore focus ring on RosettaWheel, gate ArtifactViewer motion ([030f53c](https://github.com/forbiddenlink/mythos/commit/030f53c7d01ea1a2b197d443e7ed3e590b772aa1))
+* **e2e:** repair quiz and facts specs against shipped markup ([b5a00b9](https://github.com/forbiddenlink/mythos/commit/b5a00b9e984b81fbde04a7820b6d7c70eb488558))
+
 ## [1.1.0](https://github.com/forbiddenlink/mythos/compare/v1.0.0...v1.1.0) (2026-08-29)
 
 
