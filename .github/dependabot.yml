@@ -30,6 +30,11 @@ updates:
       # dies. Drop this once the plugin ships ESLint 10 support.
       - dependency-name: "eslint"
         update-types: ["version-update:semver-major"]
+      # lucide-react 1.x removed the brand glyphs (Github, Twitter, Facebook,
+      # Linkedin) that contact/page.tsx and ShareButton.tsx import, so the major
+      # needs a replacement icon source chosen first. Drop this once that is decided.
+      - dependency-name: "lucide-react"
+        update-types: ["version-update:semver-major"]
     labels: ["dependencies"]
     commit-message:
       prefix: "chore(deps):"
