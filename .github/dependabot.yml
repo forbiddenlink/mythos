@@ -35,6 +35,14 @@ updates:
       # once typescript-eslint peers allow TS 7.
       - dependency-name: "typescript"
         update-types: ["version-update:semver-major"]
+      # @tanstack/react-table v9 is a rewrite, not a bump: useReactTable ->
+      # useTable, get*RowModel -> create*RowModel factories, features composed
+      # explicitly, ColumnDef gains type args. DeitiesTable.tsx is the only
+      # consumer and has no tests, so a type-clean port would still ship
+      # unverified sorting, filtering and pagination. Stay on v8 until that
+      # migration is done deliberately with coverage.
+      - dependency-name: "@tanstack/react-table"
+        update-types: ["version-update:semver-major"]
     labels: ["dependencies"]
     commit-message:
       prefix: "chore(deps):"
