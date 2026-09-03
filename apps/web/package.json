@@ -21,7 +21,7 @@
   },
   "dependencies": {
     "@ai-sdk/anthropic": "^4.0.46",
-    "@ai-sdk/groq": "4.0.35",
+    "@ai-sdk/groq": "4.0.37",
     "@gsap/react": "^2.1.2",
     "@radix-ui/react-dialog": "^1.1.23",
     "@radix-ui/react-progress": "^1.1.16",
