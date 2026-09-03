@@ -2,14 +2,8 @@
 
 import { useState, useCallback, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import {
-  Share2,
-  Twitter,
-  Facebook,
-  Linkedin,
-  Link2,
-  Check,
-} from "lucide-react";
+import { Share2, Link2, Check } from "lucide-react";
+import { Twitter, Facebook, Linkedin } from "@/components/icons/brand";
 import { cn } from "@/lib/utils";
 
 interface ShareButtonProps {

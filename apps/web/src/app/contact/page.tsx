@@ -4,7 +4,8 @@ import { SimplePageHeader } from "@/components/layout/simple-page-header";
 import { pageSectionTitleClass } from "@/components/layout/page-typography";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { generateBaseMetadata } from "@/lib/metadata";
-import { ExternalLink, Github, ShieldCheck, ScrollText } from "lucide-react";
+import { ExternalLink, ShieldCheck, ScrollText } from "lucide-react";
+import { Github } from "@/components/icons/brand";
 import { cn } from "@/lib/utils";
 
 export const metadata = generateBaseMetadata({
