@@ -14,7 +14,7 @@ import type { LanguageModel } from "ai";
 
 export type OracleProvider = "anthropic" | "groq";
 
-const DEFAULT_ANTHROPIC_MODEL = "claude-sonnet-4-6";
+const DEFAULT_ANTHROPIC_MODEL = "claude-sonnet-5";
 const DEFAULT_GROQ_MODEL = "llama-3.3-70b-versatile";
 
 /** Resolve which provider the Oracle should use, or null if none is configured. */

@@ -32,7 +32,7 @@ const QuizOutSchema = z.object({
     .max(10),
 });
 
-const DEFAULT_MODEL = "claude-sonnet-4-6";
+const DEFAULT_MODEL = "claude-sonnet-5";
 
 function stripMarkdownLite(s: string): string {
   return s
