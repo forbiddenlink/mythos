@@ -18,7 +18,7 @@ jobs:
   a11y:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v7
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
       - name: Ally accessibility scan
         continue-on-error: true
         uses: forbiddenlink/ally@69b68b76e6fa45ac66a0ec32f4db5d652086e580 # main @ 2026-07-23
