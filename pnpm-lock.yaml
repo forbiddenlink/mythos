@@ -48,61 +48,61 @@ importers:
         specifier: ^2.5.11
         version: 2.5.12
       '@tailwindcss/postcss':
-        specifier: ^4.3.3
+        specifier: 4.3.3
         version: 4.3.3
       '@tailwindcss/typography':
-        specifier: ^0.5.20
+        specifier: 0.5.20
         version: 0.5.20(tailwindcss@4.3.3)
       '@testing-library/jest-dom':
-        specifier: ^7.0.1
+        specifier: 7.0.1
         version: 7.0.1(@testing-library/dom@10.4.1)(vitest@4.1.11)
       '@testing-library/react':
-        specifier: ^16.3.3
+        specifier: 16.3.3
         version: 16.3.3(@testing-library/dom@10.4.1)(@types/react-dom@19.2.7(@types/react@19.2.18))(@types/react@19.2.18)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       '@types/node':
-        specifier: ^26.4.1
+        specifier: 26.4.1
         version: 26.4.1
       '@vitejs/plugin-react':
-        specifier: ^6.1.1
+        specifier: 6.1.1
         version: 6.1.1(vite@8.0.16(@types/node@26.4.1)(esbuild@0.28.2)(jiti@2.7.0)(terser@5.51.2)(tsx@4.23.13)(yaml@2.9.0))
       '@vitest/coverage-v8':
-        specifier: ^4.1.11
+        specifier: 4.1.11
         version: 4.1.11(vitest@4.1.11)
       eslint:
-        specifier: ^9.39.5
+        specifier: 9.39.5
         version: 9.39.5(jiti@2.7.0)
       husky:
-        specifier: ^9.1.7
+        specifier: 9.1.7
         version: 9.1.7
       jsdom:
-        specifier: ^30.0.1
+        specifier: 30.0.1
         version: 30.0.1
       knip:
-        specifier: ^6.33.0
+        specifier: 6.33.0
         version: 6.33.0
       lint-staged:
-        specifier: ^17.4.1
+        specifier: 17.4.1
         version: 17.4.1
       msw:
-        specifier: ^2.15.0
+        specifier: 2.15.0
         version: 2.15.0(@types/node@26.4.1)(typescript@6.0.3)
       prettier:
-        specifier: ^3.9.6
+        specifier: 3.9.6
         version: 3.9.6
       tailwindcss:
-        specifier: ^4.3.3
+        specifier: 4.3.3
         version: 4.3.3
       turbo:
-        specifier: ^2.10.12
+        specifier: 2.10.12
         version: 2.10.12
       tw-animate-css:
-        specifier: ^1.4.0
+        specifier: 1.4.0
         version: 1.4.0
       typescript:
-        specifier: ^6.0.3
+        specifier: 6.0.3
         version: 6.0.3
       vitest:
-        specifier: ^4.1.11
+        specifier: 4.1.11
         version: 4.1.11(@opentelemetry/api@1.9.1)(@types/node@26.4.1)(@vitest/coverage-v8@4.1.11)(jsdom@30.0.1)(msw@2.15.0(@types/node@26.4.1)(typescript@6.0.3))(vite@8.0.16(@types/node@26.4.1)(esbuild@0.28.2)(jiti@2.7.0)(terser@5.51.2)(tsx@4.23.13)(yaml@2.9.0))
 
   apps/api: {}
@@ -246,34 +246,34 @@ importers:
         version: 4.5.4
     devDependencies:
       '@axe-core/playwright':
-        specifier: ^4.13.0
+        specifier: 4.13.0
         version: 4.13.0(playwright-core@1.62.1)
       '@next/bundle-analyzer':
-        specifier: ^16.3.3
+        specifier: 16.3.4
         version: 16.3.4
       '@playwright/test':
-        specifier: ^1.62.1
+        specifier: 1.62.1
         version: 1.62.1
       '@tailwindcss/postcss':
-        specifier: ^4
+        specifier: 4.3.3
         version: 4.3.3
       '@tailwindcss/typography':
-        specifier: ^0.5.20
+        specifier: 0.5.20
         version: 0.5.20(tailwindcss@4.3.3)
       '@testing-library/jest-dom':
-        specifier: ^7.0.1
+        specifier: 7.0.1
         version: 7.0.1(@testing-library/dom@10.4.1)(vitest@4.1.11)
       '@testing-library/react':
-        specifier: ^16.3.3
+        specifier: 16.3.3
         version: 16.3.3(@testing-library/dom@10.4.1)(@types/react-dom@19.2.7(@types/react@19.2.18))(@types/react@19.2.18)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       '@testing-library/user-event':
-        specifier: ^14.6.7
+        specifier: 14.6.7
         version: 14.6.7(@testing-library/dom@10.4.1)
       '@types/leaflet':
-        specifier: ^1.9.22
+        specifier: 1.9.22
         version: 1.9.22
       '@types/node':
-        specifier: ^26.4.1
+        specifier: 26.4.1
         version: 26.4.1
       '@types/react':
         specifier: ^19
@@ -282,46 +282,46 @@ importers:
         specifier: ^19
         version: 19.2.7(@types/react@19.2.18)
       '@vitejs/plugin-react':
-        specifier: ^6.1.1
+        specifier: 6.1.1
         version: 6.1.1(vite@8.0.16(@types/node@26.4.1)(esbuild@0.28.2)(jiti@2.7.0)(terser@5.51.2)(tsx@4.23.13)(yaml@2.9.0))
       '@vitest/coverage-v8':
-        specifier: ^4.1.11
+        specifier: 4.1.11
         version: 4.1.11(vitest@4.1.11)
       eslint:
-        specifier: ^9.39.5
+        specifier: 9.39.5
         version: 9.39.5(jiti@2.7.0)
       eslint-config-next:
         specifier: 16.3.4
         version: 16.3.4(@typescript-eslint/parser@8.69.0(eslint@9.39.5(jiti@2.7.0))(typescript@6.0.3))(eslint@9.39.5(jiti@2.7.0))(typescript@6.0.3)
       eslint-plugin-jsx-a11y:
-        specifier: ^6.10.2
+        specifier: 6.10.2
         version: 6.10.2(eslint@9.39.5(jiti@2.7.0))
       husky:
-        specifier: ^9.1.7
+        specifier: 9.1.7
         version: 9.1.7
       jsdom:
-        specifier: ^30.0.1
+        specifier: 30.0.1
         version: 30.0.1
       lint-staged:
-        specifier: ^17.4.1
+        specifier: 17.4.1
         version: 17.4.1
       postcss:
         specifier: '>=8.5.18'
         version: 8.5.28
       tailwindcss:
-        specifier: ^4
+        specifier: 4.3.3
         version: 4.3.3
       tsx:
-        specifier: ^4.23.13
+        specifier: 4.23.13
         version: 4.23.13
       tw-animate-css:
-        specifier: ^1.4.0
+        specifier: 1.4.0
         version: 1.4.0
       typescript:
-        specifier: ^6.0.3
+        specifier: 6.0.3
         version: 6.0.3
       vitest:
-        specifier: ^4.1.11
+        specifier: 4.1.11
         version: 4.1.11(@opentelemetry/api@1.9.1)(@types/node@26.4.1)(@vitest/coverage-v8@4.1.11)(jsdom@30.0.1)(msw@2.15.0(@types/node@26.4.1)(typescript@6.0.3))(vite@8.0.16(@types/node@26.4.1)(esbuild@0.28.2)(jiti@2.7.0)(terser@5.51.2)(tsx@4.23.13)(yaml@2.9.0))
 
 packages:
@@ -3777,10 +3777,6 @@ packages:
     resolution: {integrity: sha512-wvUjBtSGN7+7SjNpq/9M2Tg350UZD3q62IFZLbRAR1bSMlCo1ZaeW+BJ+D090e4hIIZLBcTDWe4Mh4jvUDajzQ==}
     engines: {node: '>= 0.4'}
 
-  axe-core@4.12.1:
-    resolution: {integrity: sha512-s7iGf5GaVMxEG0ENN9x+xTr7GFZCb1ZP/1uATUpCEK2X78nDB3RwbtFCo9pGAf9ru+VwoQ464DkaLEeRM08wJA==}
-    engines: {node: '>=4'}
-
   axe-core@4.13.0:
     resolution: {integrity: sha512-UzGt8zg7Ny8djbYMhxl2zuEevVa7r2gJjYY5Lwr1xM7+XU2nd6CkIWFTVcCIbAP63vSz71NaVyyuSk9lHKcy0A==}
     engines: {node: '>=4'}
@@ -6153,10 +6149,6 @@ packages:
   tinybench@2.9.0:
     resolution: {integrity: sha512-0+DUvqWMValLmha6lr4kD8iAMK1HzV0/aKnCtWb9v9641TnP/MFb7Pc2bxoxQjTXAErryXVgUOfv2YqNllqGeg==}
 
-  tinyexec@1.3.0:
-    resolution: {integrity: sha512-QKAl9m8gWWGHV8jZcPeym6j+XULi6tOf1mT83WYJ4Lk2ytW/uwAWkrP0uFsdoYMdueVJ0qs26wZ+23xeB4ibNQ==}
-    engines: {node: '>=18'}
-
   tinyexec@1.3.1:
     resolution: {integrity: sha512-GCvB3aoys96IuDFBMcTB46JOR6mdMtAToqwiW8JlWhsoh1mhHi/xn9ss/Dg7N555GiJyEt2qzoG/NHCwM6h1EA==}
     engines: {node: '>=18'}
@@ -6294,10 +6286,6 @@ packages:
 
   undici-types@8.3.0:
     resolution: {integrity: sha512-j375ScV60dom+YkPFIfTLcOiPxkN/buHz5GobjLhixFuANaNs3C9l4GmrWqejgXWJ7BbJcFYpTEUkS1Ge8bpZQ==}
-
-  undici@7.29.0:
-    resolution: {integrity: sha512-IDxfleLmmbSskfWSUATiN1nfn2rDuvnMOqb5CWR92iIfojA0Ud+ulOAAEQ57LPr9rWmsreUyf5lwyao+7GNNVw==}
-    engines: {node: '>=20.18.1'}
 
   undici@7.29.1:
     resolution: {integrity: sha512-RYONW2MeafgYlkVOKYKkA/Ag7BmXqgIWCa8t1m0JcxrQg9pI9lEqRhAOruOBCbAohOa/gkCF+iPi9hrgvTzu6Q==}
@@ -6545,10 +6533,6 @@ packages:
 
   which-collection@1.0.2:
     resolution: {integrity: sha512-K4jVyjnBdgvc86Y6BkaLZEN933SwYOuBFkdmBu9ZfkcAbdVbpITnDmjvZ/aQjRXQrv5EPkTnD1s39GiiqbngCw==}
-    engines: {node: '>= 0.4'}
-
-  which-typed-array@1.1.20:
-    resolution: {integrity: sha512-LYfpUkmqwl0h9A2HL09Mms427Q1RZWuOHsukfVcKRq9q95iQxdw0ix1JQrqbcDR9PH1QDwf5Qo8OZb5lksZ8Xg==}
     engines: {node: '>= 0.4'}
 
   which-typed-array@1.1.22:
@@ -9810,8 +9794,6 @@ snapshots:
     dependencies:
       possible-typed-array-names: 1.1.0
 
-  axe-core@4.12.1: {}
-
   axe-core@4.13.0: {}
 
   axobject-query@4.1.0: {}
@@ -10508,7 +10490,7 @@ snapshots:
       array-includes: 3.1.9
       array.prototype.flatmap: 1.3.3
       ast-types-flow: 0.0.8
-      axe-core: 4.12.1
+      axe-core: 4.13.0
       axobject-query: 4.1.0
       damerau-levenshtein: 1.0.8
       emoji-regex: 9.2.2
@@ -11093,7 +11075,7 @@ snapshots:
 
   is-typed-array@1.1.15:
     dependencies:
-      which-typed-array: 1.1.20
+      which-typed-array: 1.1.22
 
   is-weakmap@2.0.2: {}
 
@@ -11172,7 +11154,7 @@ snapshots:
       saxes: 6.0.0
       symbol-tree: 3.2.4
       tough-cookie: 6.0.2
-      undici: 7.29.0
+      undici: 7.29.1
       w3c-xmlserializer: 5.0.0
       webidl-conversions: 8.0.1
       whatwg-mimetype: 5.0.0
@@ -12635,8 +12617,6 @@ snapshots:
 
   tinybench@2.9.0: {}
 
-  tinyexec@1.3.0: {}
-
   tinyexec@1.3.1: {}
 
   tinyglobby@0.2.17:
@@ -12793,8 +12773,6 @@ snapshots:
 
   undici-types@8.3.0: {}
 
-  undici@7.29.0: {}
-
   undici@7.29.1: {}
 
   unified@11.0.5:
@@ -12949,7 +12927,7 @@ snapshots:
       picomatch: 4.0.7
       std-env: 4.2.0
       tinybench: 2.9.0
-      tinyexec: 1.3.0
+      tinyexec: 1.3.1
       tinyglobby: 0.2.17
       tinyrainbow: 3.1.1
       vite: 8.0.16(@types/node@26.4.1)(esbuild@0.28.2)(jiti@2.7.0)(terser@5.51.2)(tsx@4.23.13)(yaml@2.9.0)
@@ -13101,16 +13079,6 @@ snapshots:
       is-set: 2.0.3
       is-weakmap: 2.0.2
       is-weakset: 2.0.4
-
-  which-typed-array@1.1.20:
-    dependencies:
-      available-typed-arrays: 1.0.7
-      call-bind: 1.0.9
-      call-bound: 1.0.4
-      for-each: 0.3.5
-      get-proto: 1.0.1
-      gopd: 1.2.0
-      has-tostringtag: 1.0.2
 
   which-typed-array@1.1.22:
     dependencies:
