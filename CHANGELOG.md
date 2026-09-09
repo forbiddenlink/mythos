@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.3.1](https://github.com/forbiddenlink/mythos/compare/v1.3.0...v1.3.1) (2026-09-09)
+
+
+### Bug Fixes
+
+* **deps:** dedupe corrupted pnpm-lock.yaml entries breaking prod builds ([#110](https://github.com/forbiddenlink/mythos/issues/110)) ([348894e](https://github.com/forbiddenlink/mythos/commit/348894e98615acdb0e9d3be9cef48cd149a60379))
+* **security:** pin transitive dependencies off their open advisories ([#106](https://github.com/forbiddenlink/mythos/issues/106)) ([911c432](https://github.com/forbiddenlink/mythos/commit/911c432c297fe489724c5f3af5089bde0d0d2a2d))
+
 ## [1.3.0](https://github.com/forbiddenlink/mythos/compare/v1.2.1...v1.3.0) (2026-09-03)
 
 
