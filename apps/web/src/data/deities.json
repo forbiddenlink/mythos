@@ -89,6 +89,15 @@
     "pronunciation": {
       "ipa": "/zjuːs/",
       "phonetic": "ZYOOS"
+    },
+    "worship": {
+      "temples": [
+        "Temple of Zeus at Olympia",
+        "Oracle of Zeus at Dodona",
+        "Nemean sanctuary"
+      ],
+      "festivals": ["Olympic Games", "Diasia", "Dipolieia"],
+      "practices": "White bulls and the thunderbolt belong to him. Olympic contest was a sacrifice as much as a race. Dodona spoke through oak and doves. Civic oaths called Zeus Horkios; a perjurer feared the sky more than the court."
     }
   },
   {
@@ -142,6 +151,15 @@
     "pronunciation": {
       "ipa": "/ˈhɪərə/",
       "phonetic": "HEER-uh"
+    },
+    "worship": {
+      "temples": [
+        "Heraion of Argos",
+        "Heraion of Samos",
+        "Temple of Hera at Olympia"
+      ],
+      "festivals": ["Heraia", "Daedala (Boeotia)"],
+      "practices": "Argos and Samos kept her oldest houses. The Heraia were women's games at Argos and a foot-race at Olympia. Marriage, cattle, and the cuckoo or peacock are hers; the cult is civic and jealous, not only a wedding story."
     }
   },
   {
@@ -190,6 +208,15 @@
     "pronunciation": {
       "ipa": "/pəˈsaɪdən/",
       "phonetic": "puh-SY-dun"
+    },
+    "worship": {
+      "temples": [
+        "Sanctuary of Poseidon at Isthmia",
+        "Temple of Poseidon at Sounion",
+        "Onchestos in Boeotia"
+      ],
+      "festivals": ["Isthmian Games", "Posideia"],
+      "practices": "Horses, earthquakes, and the drowned coast are his working signs. Isthmia held games under his name. A bull often went to the sea. Inland Boeotia kept him as a horse god, not only a sailor's patron."
     }
   },
   {
@@ -232,6 +259,17 @@
     "pronunciation": {
       "ipa": "/ˈheɪdiːz/",
       "phonetic": "HAY-deez"
+    },
+    "worship": {
+      "temples": [
+        "Few civic temples; the Nekromanteion at Ephyra",
+        "Eleusis, where he is named with Persephone"
+      ],
+      "festivals": [
+        "Eleusinian Mysteries (as receiver of Kore)",
+        "Averted offerings"
+      ],
+      "practices": "Greeks preferred not to build him a house in town. They poured to the ground, used black victims, and often would not say his name. Eleusis is the public exception: the husband of the grain's daughter, not a devil."
     }
   },
   {
@@ -275,6 +313,14 @@
     "pronunciation": {
       "ipa": "/əˈθiːnə/",
       "phonetic": "uh-THEE-nuh"
+    },
+    "worship": {
+      "temples": [
+        "Parthenon and Erechtheion on the Athenian Acropolis",
+        "Temple of Athena Alea at Tegea"
+      ],
+      "festivals": ["Panathenaia", "Plynteria", "Chalkeia"],
+      "practices": "The Panathenaia carried a new peplos to her statue. Craftsmen, the olive, and the armed maiden share one cult. She is the city's mind: weaving, bronze, and the vote, not a borrowed Roman Minerva."
     }
   },
   {
@@ -317,6 +363,15 @@
     "pronunciation": {
       "ipa": "/əˈpɒloʊ/",
       "phonetic": "uh-POL-oh"
+    },
+    "worship": {
+      "temples": [
+        "Sanctuary of Apollo at Delphi",
+        "Sacred island and temples of Delos",
+        "Temple of Apollo at Didyma"
+      ],
+      "festivals": ["Pythian Games", "Thargelia", "Karneia (Sparta)"],
+      "practices": "Delphi's oracle and the Pythian contest made him the public voice of the gods. Purification, plague, and the lyre sit in the same precinct. A boy-god of light is a later polish; the working cult is prophecy and katharsis."
     }
   },
   {
@@ -354,7 +409,16 @@
         "source": "Homeric Hymn XXVII, To Artemis (trans. Evelyn-White)",
         "date": "c. 6th century BCE"
       }
-    ]
+    ],
+    "worship": {
+      "temples": [
+        "Artemision at Ephesus",
+        "Brauron in Attica",
+        "Sanctuary at Aulis"
+      ],
+      "festivals": ["Brauronia", "Elaphebolia", "Ephesian Artemisia"],
+      "practices": "Wild animals, childbirth, and girls leaving childhood are hers. Brauron kept the arktoi, the 'bears.' Ephesus housed a many-breasted civic image that is not a Greek huntress in a short chiton. Both are Artemis."
+    }
   },
   {
     "id": "ares",
@@ -391,7 +455,15 @@
         "source": "Homeric Hymn VIII, To Ares (trans. Evelyn-White)",
         "date": "date disputed (Orphic in character, likely later)"
       }
-    ]
+    ],
+    "worship": {
+      "temples": [
+        "Temple of Ares in the Athenian Agora (moved stone, late)",
+        "Theban and Spartan cults of the war god"
+      ],
+      "festivals": ["Areia", "Gymnopaidiai (Spartan war festivals, adjacent)"],
+      "practices": "Athens gave him little love and less architecture. Sparta and Thebes treated the war god as a fact. Dogs and night sacrifices appear in some rites. He is battlefield panic, not a patriotic mascot."
+    }
   },
   {
     "id": "aphrodite",
@@ -428,7 +500,16 @@
         "source": "Homeric Hymn V, To Aphrodite (trans. Evelyn-White)",
         "date": "c. 7th century BCE"
       }
-    ]
+    ],
+    "worship": {
+      "temples": [
+        "Sanctuaries at Paphos and Amathus on Cyprus",
+        "Temple of Aphrodite on Acrocorinth",
+        "Aphrodite Pandemos at Athens"
+      ],
+      "festivals": ["Aphrodisia", "Adonia"],
+      "practices": "Cyprus is her oldest ground. Corinth mixed sailors, courtesans, and a high temple. Athens split Ourania from Pandemos: heavenly and of the whole people. Roses, doves, and the sea-foam story sit on top of a civic sex-and-luck cult."
+    }
   },
   {
     "id": "hermes",
@@ -465,7 +546,15 @@
         "source": "Homeric Hymn IV, To Hermes (trans. Evelyn-White)",
         "date": "c. 6th century BCE"
       }
-    ]
+    ],
+    "worship": {
+      "temples": [
+        "Hermo on roads and at doorways more than a single great temple",
+        "Sanctuary of Hermes at Pheneos in Arcadia"
+      ],
+      "festivals": ["Hermaia"],
+      "practices": "The herm, a bearded head on a pillar, is the cult you actually meet: boundaries, luck, and theft. Athletic Hermaia marked boys. He leads souls and goats with the same staff. A marketplace god before he is a cute messenger."
+    }
   },
   {
     "id": "dionysus",
@@ -490,7 +579,15 @@
         "source": "Homeric Hymn VII, To Dionysus (trans. Evelyn-White)",
         "date": "c. 7th-6th century BCE"
       }
-    ]
+    ],
+    "worship": {
+      "temples": [
+        "Theatre of Dionysus on the south slope of the Acropolis",
+        "Sanctuary of Dionysus Eleuthereus"
+      ],
+      "festivals": ["City Dionysia", "Lenaia", "Anthesteria", "Rural Dionysia"],
+      "practices": "Wine, theater, and the winter opening of jars. The City Dionysia brought tragedies as offerings. The Anthesteria mixed the dead with the new wine. Maenads belong to myth and to real night processions; the civic cult kept both on a leash."
+    }
   },
   {
     "id": "demeter",
@@ -515,7 +612,15 @@
         "source": "Homeric Hymn II, To Demeter (trans. Evelyn-White)",
         "date": "c. 7th century BCE"
       }
-    ]
+    ],
+    "worship": {
+      "temples": [
+        "Telesterion at Eleusis",
+        "Thesmophorion sanctuaries in many cities"
+      ],
+      "festivals": ["Eleusinian Mysteries", "Thesmophoria", "Haloa"],
+      "practices": "Grain and the mother's grief. Eleusis promised a better lot after death to initiates who could keep silence. The Thesmophoria was a women's festival of piglets and decayed offerings. Sicily claimed her as strongly as Attica."
+    }
   },
   {
     "id": "hephaestus",
@@ -547,7 +652,15 @@
         "source": "Homeric Hymn XX, To Hephaestus (trans. Evelyn-White)",
         "date": "c. 6th-4th century BCE"
       }
-    ]
+    ],
+    "worship": {
+      "temples": [
+        "Hephaesteion above the Athenian Agora",
+        "Island cult on Lemnos"
+      ],
+      "festivals": ["Chalkeia", "Hephaisteia"],
+      "practices": "Smiths and fire that can be worked. The Chalkeia linked him with Athena Ergane. Lemnos kept an older, dirtier fire-god. Lameness is myth; the cult is bronze, volcano, and the workshop."
+    }
   },
   {
     "id": "hestia",
@@ -572,7 +685,15 @@
         "source": "Homeric Hymn XXIX, To Hestia (trans. Evelyn-White)",
         "date": "c. 6th-4th century BCE"
       }
-    ]
+    ],
+    "worship": {
+      "temples": [
+        "No major independent temple; the hearth of every house",
+        "Prytaneion hearths of Greek cities"
+      ],
+      "festivals": ["Household offerings at the hearth", "Prytaneia"],
+      "practices": "She is the first and last libation, the round hearth, the fire that must not go out. Public Hestia lived in the town hall. There is almost no personality cult because the goddess is the fixture."
+    }
   },
   {
     "id": "odin",
@@ -644,6 +765,14 @@
     "pronunciation": {
       "ipa": "/ˈoʊdɪn/",
       "phonetic": "OH-din"
+    },
+    "worship": {
+      "temples": [
+        "Temple at Uppsala (Adam of Bremen), with Thor and Freyr",
+        "No surviving named stave-church equivalent; mounds, trees, and halls"
+      ],
+      "festivals": ["Yule", "Sacrifices for victory (sigurblót)"],
+      "practices": "Hanged god, poetry, and the war-dead. Wednesday keeps his name. Uppsala tradition put him with Thor and Freyr. Spear, ravens, and the high seat are the cult signs; evidence is later and Christian-filtered, and should be read that way."
     }
   },
   {
@@ -682,7 +811,18 @@
         "source": "Prose Edda, Gylfaginning (trans. Anderson)",
         "date": "c. 1220 CE"
       }
-    ]
+    ],
+    "worship": {
+      "temples": [
+        "Uppsala temple beside Odin and Freyr",
+        "Wayside hammers and holy oaks more than a single great fane"
+      ],
+      "festivals": [
+        "Thursday observances",
+        "Hammer-blessings of marriages and land"
+      ],
+      "practices": "The most popular of the North's gods in the settlement period. Miniature hammers, Thursday, and oak. He fights giants and blesses the farm. Adam puts him in the high seat at Uppsala; farmers put him over the door."
+    }
   },
   {
     "id": "loki",
@@ -708,7 +848,12 @@
         "source": "Prose Edda, Gylfaginning (trans. Anderson)",
         "date": "c. 1220 CE"
       }
-    ]
+    ],
+    "worship": {
+      "temples": ["No attested temple; place-names are scarce and disputed"],
+      "festivals": [],
+      "practices": "There is no working Loki cult in the sources. He is bound, blamed, and needed in the stories. Do not invent festivals. The honest note is absence: a mythic catalyst without a priesthood."
+    }
   },
   {
     "id": "frigg",
@@ -734,7 +879,14 @@
         "source": "Prose Edda, Gylfaginning (trans. Anderson)",
         "date": "c. 1220 CE"
       }
-    ]
+    ],
+    "worship": {
+      "temples": [
+        "No securely identified temple; paired with Odin in late sources"
+      ],
+      "festivals": ["Winter-night offerings in later folklore"],
+      "practices": "Spinning, foresight, and the high-seat woman. Cult evidence is thin. Friday in some languages remembers a related goddess (Frigg or Freyja; the names bled). Treat the quiet household rites as reconstruction, not a festival calendar."
+    }
   },
   {
     "id": "freyja",
@@ -765,7 +917,14 @@
         "source": "Prose Edda, Gylfaginning (trans. Anderson)",
         "date": "c. 1220 CE"
       }
-    ]
+    ],
+    "worship": {
+      "temples": [
+        "No standing temple identified; seiðr and rich graves are the nearer evidence"
+      ],
+      "festivals": ["Disablót (disir, overlapping)", "Friday in later naming"],
+      "practices": "Love, gold, and the slain she shares with Odin. Cats, boar, and seiðr. Snorri says she taught the Aesir witchcraft. Cult is inferred from the Vanir peace, from women's graves, and from the stubborn popularity of her name."
+    }
   },
   {
     "id": "baldur",
@@ -791,7 +950,12 @@
         "source": "Prose Edda, Gylfaginning (trans. Anderson)",
         "date": "c. 1220 CE"
       }
-    ]
+    ],
+    "worship": {
+      "temples": ["No major temple; Breiðablik is a mythic hall"],
+      "festivals": [],
+      "practices": "Loved in story, barely visible in cult. The funeral ship and the mistletoe are literature. If a rite existed, it did not leave the kind of trail Thor left. Say so rather than filling the calendar."
+    }
   },
   {
     "id": "tyr",
@@ -817,7 +981,14 @@
         "source": "Prose Edda, Gylfaginning (trans. Anderson)",
         "date": "c. 1220 CE"
       }
-    ]
+    ],
+    "worship": {
+      "temples": [
+        "Place-names in Denmark and England more than standing temples"
+      ],
+      "festivals": ["Thing-assemblies under his name in reconstruction"],
+      "practices": "Tuesday is his. One-handed keeper of the thing and of the wolf's binding. Cult evidence is linguistic and onomastic. He looks older than Odin in the weekday layer, then recedes in the written myths."
+    }
   },
   {
     "id": "heimdall",
@@ -853,7 +1024,14 @@
         "source": "Prose Edda, Gylfaginning (trans. Anderson)",
         "date": "c. 1220 CE"
       }
-    ]
+    ],
+    "worship": {
+      "temples": [
+        "No securely identified temple; Bifröst and Himinbjörg are mythic"
+      ],
+      "festivals": [],
+      "practices": "Watchman, horn, gold teeth. Almost no cult footprint. He is a poem's sentinel. Do not give him a festival list the sources do not."
+    }
   },
   {
     "id": "njord",
@@ -913,7 +1091,15 @@
         "source": "Prose Edda, Gylfaginning (trans. Anderson)",
         "date": "c. 1220 CE"
       }
-    ]
+    ],
+    "worship": {
+      "temples": [
+        "Uppsala, with a noted phallic image in Adam of Bremen",
+        "Trøndelag and Swedish king-lore (Ynglingar)"
+      ],
+      "festivals": ["Harvest blót", "Fröblot"],
+      "practices": "Peace, rain, and the harvest. The boar Gullinbursti and the ship Skidbladnir are myth-objects; the cult is grain and kingship. He is Njord's son and a different weather from Thor's thunderstorm."
+    }
   },
   {
     "id": "fenrir",
@@ -965,7 +1151,14 @@
         "source": "Prose Edda, Gylfaginning (trans. Anderson)",
         "date": "c. 1220 CE"
       }
-    ]
+    ],
+    "worship": {
+      "temples": [
+        "No temple; the grave and the road to Hel are the 'precinct'"
+      ],
+      "festivals": [],
+      "practices": "Not worshipped as a blessing-goddess in the surviving record. She receives the dead who do not go to Odin or Freyja. Offerings to the dead are not the same as a Hel-cult, and the texts do not invent one."
+    }
   },
   {
     "id": "sif",
@@ -991,7 +1184,12 @@
         "source": "Poetic Edda, Lokasenna st. 53 (trans. Bellows)",
         "date": "c. 900-1100 CE"
       }
-    ]
+    ],
+    "worship": {
+      "temples": ["No identified temple; paired with Thor in myth"],
+      "festivals": [],
+      "practices": "Golden hair and the grain field in later reading. Direct cult evidence is poor. She is Thor's wife in the poems; treat harvest associations as inference."
+    }
   },
   {
     "id": "ra",
@@ -1043,6 +1241,17 @@
     "pronunciation": {
       "ipa": "/rɑː/",
       "phonetic": "RAH"
+    },
+    "worship": {
+      "temples": [
+        "Great Temple of Ra at Heliopolis (Iunu)",
+        "Solar sanctuaries of the Fifth Dynasty (Abu Ghurab and beyond)"
+      ],
+      "festivals": [
+        "Daily solar barque rites",
+        "Sed festival (king as Ra's son)"
+      ],
+      "practices": "The king is his son. Morning and evening barques, the benben stone, the sun's twelve night hours. Heliopolis set the theology; later Amun-Ra at Thebes absorbed it without erasing the Heliopolitan cult."
     }
   },
   {
@@ -1091,7 +1300,18 @@
         "source": "Plutarch, Isis and Osiris (trans. Babbitt)",
         "date": "c. 100 CE"
       }
-    ]
+    ],
+    "worship": {
+      "temples": [
+        "Abydos, with the processional route to Umm el-Qa'ab",
+        "Osireion and temples throughout Egypt as the dead god"
+      ],
+      "festivals": [
+        "Khoiak mysteries",
+        "Osiris festivals of the month of Khoiak"
+      ],
+      "practices": "Death, grain, and kingship of the underworld. Khoiak grew his figure from grain and floated his neshmet bark. Every tomb needs him. Isis, Horus, and the justified dead share the same story."
+    }
   },
   {
     "id": "isis",
@@ -1116,7 +1336,19 @@
         "source": "Plutarch, Isis and Osiris (trans. Babbitt)",
         "date": "c. 100 CE"
       }
-    ]
+    ],
+    "worship": {
+      "temples": [
+        "Philae, until late antiquity",
+        "Temples across Egypt and, later, the Roman Mediterranean"
+      ],
+      "festivals": [
+        "Isia",
+        "Navigium Isidis (in the Roman world)",
+        "Khoiak with Osiris"
+      ],
+      "practices": "Throne, magic, and the search for Osiris. Philae kept her when other houses closed. In Rome she became a mystery goddess of sailors and households. The knot of Isis and the sistrum are working tools, not ornaments."
+    }
   },
   {
     "id": "horus",
@@ -1146,7 +1378,15 @@
         "source": "Plutarch, Isis and Osiris (trans. Babbitt)",
         "date": "c. 100 CE"
       }
-    ]
+    ],
+    "worship": {
+      "temples": [
+        "Temple of Horus at Edfu",
+        "Hierakonpolis and the living king as Horus"
+      ],
+      "festivals": ["Coronation rites", "Edfu festival of victory over Seth"],
+      "practices": "The living king is Horus; the dead king is Osiris. Edfu's reliefs stage the spearing of Seth. The eye, the falcon, and the two crowns are state cult, not a children's bird story."
+    }
   },
   {
     "id": "set",
@@ -1178,7 +1418,18 @@
         "source": "Plutarch, Isis and Osiris (trans. Babbitt) — 'Typhon' is Plutarch's Greek name for Set",
         "date": "c. 100 CE"
       }
-    ]
+    ],
+    "worship": {
+      "temples": [
+        "Ombos (Nubt) and the northeast frontier",
+        "Ramesside royal cult that claimed him"
+      ],
+      "festivals": [
+        "Heb-Sed in some royal contexts",
+        "Later execration of Seth"
+      ],
+      "practices": "Storm, desert, and foreign lands. Early on he is necessary: strength, the night boat's defender. Later theology makes him the murderer. Both layers are historical. Do not flatten him into a devil with a festival."
+    }
   },
   {
     "id": "anubis",
@@ -1204,7 +1455,12 @@
         "source": "Plutarch, Isis and Osiris (trans. Babbitt)",
         "date": "c. 100 CE"
       }
-    ]
+    ],
+    "worship": {
+      "temples": ["Cynopolis", "Embalming workshops attached to necropolises"],
+      "festivals": ["Opening of the Mouth", "Mummification rites"],
+      "practices": "The jackal on the tomb and the priest in the jackal mask. He weighs, wraps, and guards. Cult is the funeral industry of Egypt, not a city-god's procession first."
+    }
   },
   {
     "id": "thoth",
@@ -1237,6 +1493,24 @@
     "pronunciation": {
       "ipa": "/θoʊθ/",
       "phonetic": "THOHTH"
+    },
+    "primarySources": [
+      {
+        "text": "Thoth, the skillful of fingers, who wrote the books, who established the offering-loaves of the gods.",
+        "source": "Book of the Dead, spell 182 (composite Egyptian scribal tradition)",
+        "date": "c. 1550–50 BCE"
+      }
+    ],
+    "worship": {
+      "temples": [
+        "Hermopolis Magna (Khmun)",
+        "House of Life scriptoria in major temples"
+      ],
+      "festivals": [
+        "Thoth festivals of the lunar calendar",
+        "New Year scribal observances"
+      ],
+      "practices": "Ibis, baboon, and the scribe's kit. He records the weighing of the heart and invents writing. Priests of the House of Life worked in his shadow. Moon and word are one office."
     }
   },
   {
@@ -1256,6 +1530,18 @@
     "pronunciation": {
       "ipa": "/ˈbæstɛt/",
       "phonetic": "BASS-tet"
+    },
+    "primarySources": [
+      {
+        "text": "They come down the river to Bubastis, men and women together, a great multitude, and there they hold festival to Bastet.",
+        "source": "Herodotus, Histories 2.60 (paraphrase of the Bubastis pilgrimage)",
+        "date": "c. 440 BCE"
+      }
+    ],
+    "worship": {
+      "temples": ["Temple of Bastet at Bubastis (Per-Bastet)"],
+      "festivals": ["Bubastis festival described by Herodotus"],
+      "practices": "Cat, perfume, and a noisy river pilgrimage. Herodotus says boats, music, and a larger crowd than any other Egyptian feast. Later she is the gentle counterpart to Sekhmet; both are the same solar eye in different moods."
     }
   },
   {
@@ -1281,6 +1567,24 @@
     "pronunciation": {
       "ipa": "/ˈhæθɔːr/",
       "phonetic": "HATH-or"
+    },
+    "primarySources": [
+      {
+        "text": "The Golden One, Hathor, lady of Dendera, who makes the sistrum speak and the beer of pacification.",
+        "source": "Dendera temple hymns to Hathor (composite)",
+        "date": "Ptolemaic inscriptions on a far older cult"
+      }
+    ],
+    "worship": {
+      "temples": [
+        "Dendera Temple of Hathor",
+        "Mining-country shrines in Sinai and at Timna"
+      ],
+      "festivals": [
+        "Festival of the Beautiful Reunion (Dendera–Edfu)",
+        "Hathor feasts of music and drunkenness"
+      ],
+      "practices": "Love, turquoise, and the sistrum. Dendera still shows the roof rituals. She can be a cow, a woman, or the angry eye. Miners in the desert left her stelae because the desert was hers too."
     }
   },
   {
@@ -1306,7 +1610,14 @@
         "source": "The Book of the Dead, Chapter CXXV (trans. Budge)",
         "date": "c. 1550 BCE (Budge trans.)"
       }
-    ]
+    ],
+    "worship": {
+      "temples": [
+        "No great independent temple; a chapel in major houses and the vizier's hall"
+      ],
+      "festivals": ["Daily offering of Maat by the king"],
+      "practices": "Truth as a goddess you present, not a pilgrimage. The king lifts a small Maat figure to the gods each day. Judges wear her. Cult is the act of keeping the world from tipping, repeated in every sanctuary."
+    }
   },
   {
     "id": "nephthys",
@@ -1358,6 +1669,24 @@
     "pronunciation": {
       "ipa": "/ˈsɛkmet/",
       "phonetic": "SEK-met"
+    },
+    "primarySources": [
+      {
+        "text": "Sekhmet the great, lady of pestilence, who becomes gracious when the red beer is poured.",
+        "source": "Pacification hymns of Sekhmet (Memphite/Theban temple tradition)",
+        "date": "New Kingdom and later"
+      }
+    ],
+    "worship": {
+      "temples": [
+        "Memphis, with Ptah and Nefertem",
+        "Hundreds of seated lioness statues from Amenhotep III"
+      ],
+      "festivals": [
+        "Pacification of Sekhmet",
+        "New Year plague-aversion rites"
+      ],
+      "practices": "Plague and its cure. Priests sang her quiet. Beer dyed red to look like blood is the myth of her pacification turned into rite. She is the same eye of Ra that Bastet can also be."
     }
   },
   {
@@ -1383,6 +1712,21 @@
     "pronunciation": {
       "ipa": "/ˈsoʊbɛk/",
       "phonetic": "SOH-bek"
+    },
+    "primarySources": [
+      {
+        "text": "Sobek, lord of the Faiyum, the raging crocodile, who makes the green come from the water.",
+        "source": "Hymns to Sobek of Shedet",
+        "date": "Middle Kingdom and later"
+      }
+    ],
+    "worship": {
+      "temples": [
+        "Kom Ombo, shared with Horus",
+        "Shedet (Crocodilopolis) in the Faiyum"
+      ],
+      "festivals": ["Faiyum crocodile processions"],
+      "practices": "Living crocodiles kept and mummified. Water, military strength, and the dangerous river. Kom Ombo's double house lets him sit beside Horus without a quarrel the reliefs bother to explain."
     }
   },
   {
@@ -1917,7 +2261,15 @@
         "source": "Vishnu Purana (trans. Dutt, after Wilson)",
         "date": "c. 300-1000 CE"
       }
-    ]
+    ],
+    "worship": {
+      "temples": [
+        "Brahma temple at Pushkar, the rare major seat",
+        "Smaller Brahma shrines, often paired with a curse-story explaining the scarcity"
+      ],
+      "festivals": ["Kartik Purnima at Pushkar"],
+      "practices": "Creator with almost no temples. Pushkar is the exception pilgrims name. The four heads, the Vedas, and the curse of Shiva are how later Hinduism explains the empty calendar. Worship is the Gayatri and the idea of creation, not a festival circuit."
+    }
   },
   {
     "id": "vishnu",
@@ -1949,7 +2301,20 @@
         "source": "Rig Veda 1.154.1 (trans. Griffith)",
         "date": "c. 1500-1200 BCE"
       }
-    ]
+    ],
+    "worship": {
+      "temples": [
+        "Tirumala Venkateswara at Tirupati",
+        "Srirangam and the 108 Divya Desams",
+        "Jagannath at Puri"
+      ],
+      "festivals": [
+        "Vaikuntha Ekadashi",
+        "Janmashtami in Krishna form",
+        "Rama Navami"
+      ],
+      "practices": "Preserver, recumbent on the snake, and every avatara with its own house. Vaishnava temples feed, wake, and put the image to sleep. The cult is attendance on a living icon, not a single Greek-style sacrifice."
+    }
   },
   {
     "id": "shiva",
@@ -1981,7 +2346,16 @@
         "source": "Vishnu Purana (trans. Dutt, after Wilson)",
         "date": "c. 300-1000 CE"
       }
-    ]
+    ],
+    "worship": {
+      "temples": [
+        "Kashi Vishwanath in Varanasi",
+        "Chidambaram Nataraja",
+        "The twelve Jyotirlinga shrines"
+      ],
+      "festivals": ["Maha Shivaratri", "Pradosha"],
+      "practices": "Linga, ashes, and the cremation ground. Householders and ascetics share him. Shivaratri is a night of waking and water on stone. He is destroyer only in the sense that every finished thing is his."
+    }
   },
   {
     "id": "lakshmi",
@@ -2130,7 +2504,14 @@
     "pronunciation": {
       "ipa": "/ɡəˈneɪʃə/",
       "phonetic": "guh-NAY-shuh"
-    }
+    },
+    "primarySources": [
+      {
+        "text": "Let us think of the one-tusked god; let us meditate on the curved trunk. May that tusked one illuminate us.",
+        "source": "Ganapati Atharvashirsha (opening invocation, English paraphrase)",
+        "date": "medieval; century disputed"
+      }
+    ]
   },
   {
     "id": "hanuman",
@@ -2208,7 +2589,16 @@
         "source": "Bhagavad Gita, Ch. IV (trans. Arnold, 'The Song Celestial')",
         "date": "c. 200 BCE"
       }
-    ]
+    ],
+    "worship": {
+      "temples": [
+        "Vrindavan and Mathura",
+        "Dwarka",
+        "Puri Jagannath as a form of Krishna"
+      ],
+      "festivals": ["Janmashtami", "Holi in Braj", "Rath Yatra at Puri"],
+      "practices": "Butter, flute, and the battlefield of Kurukshetra occupy the same god. Braj loves the child and lover; the Gita's speaker is the same person. Cult is song, food, and the swing, not a smoke-filled civic altar first."
+    }
   },
   {
     "id": "indra",
@@ -2360,7 +2750,15 @@
         "source": "Kojiki (trans. Chamberlain), Sect. X",
         "date": "712 CE"
       }
-    ]
+    ],
+    "worship": {
+      "temples": [
+        "Ise Grand Shrine (Naiku), rebuilt on a twenty-year cycle",
+        "Atsuta and other shrines holding imperial regalia traditions"
+      ],
+      "festivals": ["Kannamesai", "Shikinen Sengu (periodic rebuilding)"],
+      "practices": "The mirror, the rice, and the imperial line. Ise is not a tourist temple in origin; it is a restricted house of the sun kami. Offerings of first rice and the rebuilding of the shrine are the cult's time-keeping."
+    }
   },
   {
     "id": "tsukuyomi",
@@ -2436,7 +2834,14 @@
     "pronunciation": {
       "ipa": "/ˈiːnɑːri/",
       "phonetic": "EE-nah-ree"
-    }
+    },
+    "primarySources": [
+      {
+        "text": "Inari is listed among the shrines of Yamashiro, a kami of rice who later took foxes and merchants as well as fields.",
+        "source": "Engishiki, shrine registers (summary of the Inari entry)",
+        "date": "927 CE"
+      }
+    ]
   },
   {
     "id": "hachiman",
@@ -2494,7 +2899,14 @@
     "pronunciation": {
       "ipa": "/ˈraɪdʒɪn/",
       "phonetic": "RY-jin"
-    }
+    },
+    "primarySources": [
+      {
+        "text": "Thunder kami are born from Izanami's rotting body in Yomi as Izanagi flees; later art gives the drum-circle oni a name, Raijin.",
+        "source": "Kojiki, Yomi episode (Chamberlain), with later folk identification",
+        "date": "712 CE; iconography later"
+      }
+    ]
   },
   {
     "id": "fujin",
@@ -2513,7 +2925,14 @@
     "pronunciation": {
       "ipa": "/ˈfuːdʒɪn/",
       "phonetic": "FOO-jin"
-    }
+    },
+    "primarySources": [
+      {
+        "text": "The wind bag and the horned runner at temple gates are a later pair to Raijin; earlier texts name wind kami without that picture.",
+        "source": "Nihon Shoki wind-kami notices; later Buddhist-folk iconography of Fūjin",
+        "date": "720 CE; pairing later"
+      }
+    ]
   },
   {
     "id": "benzaiten",
@@ -2582,7 +3001,14 @@
         "source": "Cath Maige Tuired (trans. Gray)",
         "date": "medieval Irish, c. 9th-12th c. CE"
       }
-    ]
+    ],
+    "worship": {
+      "temples": [
+        "No standing temple; Brú na Bóinne is later associated, not a proven Dagda fane"
+      ],
+      "festivals": ["Samhain in later seasonal reading"],
+      "practices": "Club, cauldron, and harp. Evidence is medieval Irish literature, not excavation of a Dagda temple. Treat Newgrange slogans with caution. The cult, if reconstructed, is hospitality, weather, and the chieftain's hall."
+    }
   },
   {
     "id": "morrigan",
@@ -2608,7 +3034,14 @@
         "source": "Cath Maige Tuired (trans. Gray)",
         "date": "medieval Irish, c. 9th-12th c. CE"
       }
-    ]
+    ],
+    "worship": {
+      "temples": [
+        "No temple; battlefields, rivers, and sovereignty sites in the tales"
+      ],
+      "festivals": ["Samhain meetings in the Ulster Cycle"],
+      "practices": "Phantom queen, crow, and the washer at the ford. You do not find a neat priesthood. Offerings, if any, sit in the same world as war-spells and land-goddess sovereignty, which the manuscripts remember as story."
+    }
   },
   {
     "id": "lug",
@@ -2634,7 +3067,14 @@
         "source": "Cath Maige Tuired (trans. Gray)",
         "date": "medieval Irish, c. 9th-12th c. CE"
       }
-    ]
+    ],
+    "worship": {
+      "temples": [
+        "No surviving temple; Lughnasadh assembly sites in later tradition (Tailtiu)"
+      ],
+      "festivals": ["Lughnasadh (1 August)"],
+      "practices": "Many skills, the spear, and the harvest fair. Lughnasadh is the one calendar fact that stuck. Games for a foster-mother, first fruits, and a god who is not only a sun sticker on a modern altar."
+    }
   },
   {
     "id": "brigid",
@@ -2667,7 +3107,15 @@
         "source": "Cath Maige Tuired (trans. Gray)",
         "date": "medieval Irish, c. 9th-12th c. CE"
       }
-    ]
+    ],
+    "worship": {
+      "temples": [
+        "Kildare, where a fire and a saint overlap a goddess",
+        "Holy wells across Ireland"
+      ],
+      "festivals": ["Imbolc (1 February)", "St Brigid's Day"],
+      "practices": "Poetry, smithcraft, and healing in the mythological layers; a monastic fire in the Christian ones. Imbolc and the well-cults are the working trail. Do not pretend the saint erased the goddess or that they are simply identical."
+    }
   },
   {
     "id": "danu",
@@ -2693,7 +3141,14 @@
         "source": "Cath Maige Tuired (trans. Gray)",
         "date": "medieval Irish, c. 9th-12th c. CE"
       }
-    ]
+    ],
+    "worship": {
+      "temples": [
+        "No temple; river-names (Danube and others) and the Tuatha Dé Danann"
+      ],
+      "festivals": [],
+      "practices": "A mother of peoples more than a shrine-goddess. The evidence is the name of the tribe of gods and hydronyms. Reconstruction that gives her a festival calendar is modern. Say the gap."
+    }
   },
   {
     "id": "nuada",
@@ -2719,7 +3174,12 @@
         "source": "Cath Maige Tuired (trans. Gray)",
         "date": "medieval Irish, c. 9th-12th c. CE"
       }
-    ]
+    ],
+    "worship": {
+      "temples": ["No identified temple; kingship of Tara in the literature"],
+      "festivals": [],
+      "practices": "Silver hand, the sword, and the rule that a blemished king cannot reign. Cult is the story of kingship tests, not a surviving fane. Airgetlám is a legal-mythic figure."
+    }
   },
   {
     "id": "manannan-mac-lir",
@@ -2745,7 +3205,14 @@
         "source": "Lady Gregory, Gods and Fighting Men (1904)",
         "date": "1904 CE (compilation of medieval Irish sources)"
       }
-    ]
+    ],
+    "worship": {
+      "temples": [
+        "Isle of Man traditions; sea and mist more than a stone temple"
+      ],
+      "festivals": ["Manx sea observances in later folklore"],
+      "practices": "Mist, the wave, and the crane bag. He ferries and conceals. Island folklore kept him longer than a priesthood did. Offerings toward the sea are the honest shape of the cult."
+    }
   },
   {
     "id": "aengus",
@@ -2790,7 +3257,14 @@
     "pronunciation": {
       "ipa": "/kɛrˈnuːnɒs/",
       "phonetic": "ker-NOO-nos"
-    }
+    },
+    "primarySources": [
+      {
+        "text": "Cernunnos",
+        "source": "Pillar of the Boatmen (Pilier des Nautes), Paris; the only certain inscription of the name",
+        "date": "c. 14 CE"
+      }
+    ]
   },
   {
     "id": "ogma",
@@ -2946,7 +3420,15 @@
         "source": "Lewis Spence, The Myths of Mexico and Peru (1913), retelling Sahagún",
         "date": "16th c. account (Spence 1913)"
       }
-    ]
+    ],
+    "worship": {
+      "temples": [
+        "Great Pyramid of Cholula",
+        "Round temples of Ehecatl-Quetzalcoatl"
+      ],
+      "festivals": ["Wind-god rites of Ehecatl", "Cholula pilgrimages"],
+      "practices": "Feathered serpent, wind, and priesthood. Cholula was his great house. Ehecatl's round temples cut the air. Some traditions oppose mass sacrifice in his name; others do not. Keep the contradiction; it is historical."
+    }
   },
   {
     "id": "huitzilopochtli",
@@ -2972,7 +3454,12 @@
         "source": "Lewis Spence, The Myths of Mexico and Peru (1913)",
         "date": "Spence 1913, from Aztec myth"
       }
-    ]
+    ],
+    "worship": {
+      "temples": ["Southern half of the Templo Mayor in Tenochtitlan"],
+      "festivals": ["Panquetzaliztli", "Toxcatl adjacent in the same precinct"],
+      "practices": "Hummingbird of the south, sun at war. The Templo Mayor was his and Tlaloc's stacked mountain. Panquetzaliztli raised banners and, in the Mexica state cult, human offerings to keep the sun in motion. That is the imperial rite, not a metaphor."
+    }
   },
   {
     "id": "tezcatlipoca",
@@ -2998,7 +3485,15 @@
         "source": "Lewis Spence, The Myths of Mexico and Peru (1913), retelling Sahagún",
         "date": "16th c. account (Spence 1913)"
       }
-    ]
+    ],
+    "worship": {
+      "temples": [
+        "Temples in the sacred precinct of Tenochtitlan",
+        "Texcoco and other altepetl houses of the Smoking Mirror"
+      ],
+      "festivals": ["Toxcatl"],
+      "practices": "Obsidian mirror, night, and the beautiful captive who lived as the god for a year before Toxcatl. Jaguar, music, and kingship's dark twin. He is not Quetzalcoatl's cartoon opposite; they share cities and fight in story."
+    }
   },
   {
     "id": "coatlicue",
@@ -3178,6 +3673,14 @@
     "pronunciation": {
       "ipa": "/toːnɑːˈtiu/",
       "phonetic": "toh-nah-TEE-oo"
+    },
+    "worship": {
+      "temples": [
+        "The sun's face on the so-called Aztec calendar stone is a cult image, not a building",
+        "Offerings toward the sun at the Templo Mayor"
+      ],
+      "festivals": ["Solar offerings in the veintena calendar"],
+      "practices": "The Fifth Sun who drinks war. Hearts and blood in the Mexica explanation of why the sun rises. There is no gentle pastoral Tonatiuh in the imperial sources. Name the cost if you name the god."
     }
   },
   {
@@ -3390,6 +3893,17 @@
     "pronunciation": {
       "ipa": "/dʒeɪd ˈɛmpərər/",
       "phonetic": "JAYD EM-per-ur"
+    },
+    "worship": {
+      "temples": [
+        "Jade Emperor temples across the Chinese-speaking world",
+        "Heavenly court shrines in city God complexes"
+      ],
+      "festivals": [
+        "Jade Emperor's Birthday (ninth day of the first lunar month)",
+        "Chinese New Year court audiences"
+      ],
+      "practices": "Yuhuang Shangdi as bureaucratic heaven. Incense, paper offerings, and a birthday that opens the year. Folk religion treats him as a distant boss; Daoist liturgy gives him a full court. Both are the cult."
     }
   },
   {
@@ -3445,6 +3959,14 @@
     "pronunciation": {
       "ipa": "/suːn wuːˈkɒŋ/",
       "phonetic": "SOON woo-KONG"
+    },
+    "worship": {
+      "temples": [
+        "Great Sage temples in Fujian, Taiwan, Singapore, and Malaysia",
+        "Side halls in some Buddhist monasteries"
+      ],
+      "festivals": ["Great Sage birthday festivals"],
+      "practices": "Monkey, staff, and the novel made a god people actually visit. Mediums, opera, and fruit. This is living cult from literature, which is a normal Chinese outcome, not a category error."
     }
   },
   {
@@ -3501,6 +4023,17 @@
     "pronunciation": {
       "ipa": "/ɡwɑːnˈjɪn/",
       "phonetic": "gwahn-YIN"
+    },
+    "worship": {
+      "temples": [
+        "Putuo Shan, her island",
+        "Guanyin halls in almost every Chinese Buddhist monastery"
+      ],
+      "festivals": [
+        "Guanyin's birthday(s) in the lunar calendar",
+        "Ullambana adjacent compassion rites"
+      ],
+      "practices": "Hearer of cries. Vegetarian offerings, white robes, and a thousand arms in some images. She is Avalokiteshvara in China, then also a mother. Pilgrimage to Putuo is the sea-road form of the same mercy."
     }
   },
   {
@@ -3708,7 +4241,14 @@
     "pronunciation": {
       "ipa": "/dzaʊ dʒuːn/",
       "phonetic": "DZOW JOON"
-    }
+    },
+    "primarySources": [
+      {
+        "text": "The Stove Lord reports to heaven on the family's year; sweet offerings are meant to seal his lips.",
+        "source": "Chinese domestic almanac and stove-god folk texts (composite)",
+        "date": "late imperial household practice"
+      }
+    ]
   },
   {
     "id": "lei-gong",
@@ -3739,7 +4279,14 @@
     "pronunciation": {
       "ipa": "/leɪ ɡɒŋ/",
       "phonetic": "LAY GONG"
-    }
+    },
+    "primarySources": [
+      {
+        "text": "Lei Gong strikes the drum that is thunder and punishes secret crimes the courts did not see.",
+        "source": "Chinese thunder-god temple tales and Daoist liturgical names of Lei Gong",
+        "date": "medieval to late imperial"
+      }
+    ]
   },
   {
     "id": "mazu",
@@ -3829,6 +4376,16 @@
     "pronunciation": {
       "ipa": "/ʃiː wɑːŋmuː/",
       "phonetic": "SHEE wahng-MOO"
+    },
+    "worship": {
+      "temples": [
+        "Shrines of the Queen Mother of the West; Kunlun in myth",
+        "Han-period cult visible on tomb bronze and later popular temples"
+      ],
+      "festivals": [
+        "Peach-festival imagery at the new year and mid-autumn in later folk practice"
+      ],
+      "practices": "Peaches of immortality, tigers, and a western paradise. Han cult was stronger than many later readers expect. She grants long life and receives the dead; the banquet on Kunlun is a picture of that office."
     }
   },
   {
@@ -3871,6 +4428,13 @@
     "pronunciation": {
       "ipa": "/pɑːnˈɡuː/",
       "phonetic": "pahn-GOO"
+    },
+    "worship": {
+      "temples": [
+        "Scattered Pangu temples in South China; not a universal parish cult"
+      ],
+      "festivals": [],
+      "practices": "Cosmogonic giant more than a parish god. Some villages keep a temple and a birthday. Most Chinese never visit one. The egg, the axe, and the body-become-world are story first."
     }
   },
   {
@@ -3952,6 +4516,14 @@
     "pronunciation": {
       "ipa": "/nuːˈwɑː/",
       "phonetic": "noo-WAH"
+    },
+    "worship": {
+      "temples": [
+        "Nüwa temples in northern China (for example Huaiyang traditions)",
+        "Paired with Fuxi on Han stone reliefs"
+      ],
+      "festivals": ["Human-creation festivals in local temple fairs"],
+      "practices": "She patches the sky and makes humans from yellow earth. Cult is local and often paired with Fuxi. The serpent-human body on Han tombs is the image; the temple fair is the living remainder."
     }
   },
   {
@@ -3990,6 +4562,14 @@
     "pronunciation": {
       "ipa": "/ˈɑːnuː/",
       "phonetic": "AH-noo"
+    },
+    "worship": {
+      "temples": [
+        "Uruk, the sky god's city",
+        "High temples (ziggurats) dedicated in his name across Sumer and Akkad"
+      ],
+      "festivals": ["Akitu in cities where Anu headed the rite"],
+      "practices": "Sky, kingship's source, and a god who recedes as Marduk and others rise. The horned crown and the highest shrine. Offerings go up. He is remote on purpose."
     }
   },
   {
@@ -4114,6 +4694,18 @@
     "pronunciation": {
       "ipa": "/ɪˈnɑːnə/",
       "phonetic": "ih-NAH-nah"
+    },
+    "worship": {
+      "temples": [
+        "Eanna precinct at Uruk",
+        "Temples of Ishtar at Nineveh, Arbela, and Babylon"
+      ],
+      "festivals": [
+        "Akitu in some cities",
+        "Sacred marriage rites in royal ideology",
+        "Mourning of Tammuz/Dumuzi"
+      ],
+      "practices": "Love, war, and the descent. Uruk's Eanna is her house. Morning and evening star. The royal sacred marriage is ideology as much as ritual; the lament for Dumuzi is popular and old. She is not a gentle Venus."
     }
   },
   {
@@ -4152,6 +4744,11 @@
     "pronunciation": {
       "ipa": "/ˈmɑːrdʊk/",
       "phonetic": "MAR-dook"
+    },
+    "worship": {
+      "temples": ["Esagila and the Etemenanki ziggurat in Babylon"],
+      "festivals": ["Akitu, the Babylonian New Year"],
+      "practices": "Fifty names, the Enuma Elish recited, the statue taken out and brought home. Kingship of Babylon is his cult. Tiamat's defeat is liturgy. When the statue was stolen, the New Year broke."
     }
   },
   {
@@ -4441,6 +5038,16 @@
     "pronunciation": {
       "ipa": "/kuːkuːlˈkɑːn/",
       "phonetic": "koo-kool-KAHN"
+    },
+    "worship": {
+      "temples": [
+        "El Castillo at Chichen Itza",
+        "Maya sites where the feathered serpent is a sky-and-wind being"
+      ],
+      "festivals": [
+        "Equinox serpent-shadow gatherings at Chichen (modern; older rites are less documented)"
+      ],
+      "practices": "Maya feathered serpent, related to but not identical with Mexica Quetzalcoatl. Pyramid, wind, and priesthood. Do not collapse Yucatan into Tenochtitlan. The Castillo is a calendar-machine as much as a temple."
     }
   },
   {
@@ -4479,6 +5086,14 @@
     "pronunciation": {
       "ipa": "/ɪtsɑːmˈnɑː/",
       "phonetic": "eet-sahm-NAH"
+    },
+    "worship": {
+      "temples": [
+        "Maya temple-pyramids where the creator-priest god is named in inscriptions",
+        "Writing-houses; he is a patron of scribes"
+      ],
+      "festivals": ["New-year and calendar rites in the Maya cycle"],
+      "practices": "Old man, creator, and inventor of writing. Priestly more than popular. Codices and inscriptions keep him. Cult is the calendar and the incense of the court, not a single surviving pilgrim road."
     }
   },
   {
@@ -4631,6 +5246,18 @@
     "pronunciation": {
       "ipa": "/ˈtlɑːlɒk/",
       "phonetic": "TLAH-lok"
+    },
+    "worship": {
+      "temples": [
+        "Northern half of the Templo Mayor",
+        "Mount Tlaloc and other mountain shrines",
+        "Maya Chaac is a cousin, not this temple"
+      ],
+      "festivals": [
+        "Atlcahualo and other rain veintenas",
+        "Child offerings in the Mexica rain cult"
+      ],
+      "practices": "Rain, mountains, and the dangerous gift of water. Blue, fangs, and Tlalocan as a drowned paradise. The Mexica state cult included child sacrifice for rain. Record it; do not soften it into a weather mascot."
     }
   },
   {
@@ -4783,6 +5410,17 @@
     "pronunciation": {
       "ipa": "/huːnɑːˈpuː ʃbɑːlɑːnˈkeɪ/",
       "phonetic": "hoo-nah-POO shbah-lahn-KAY"
+    },
+    "worship": {
+      "temples": [
+        "Ballcourts across the Maya world as ritual stages of their story",
+        "No single temple of Hunahpu and Xbalanque as a pair-god"
+      ],
+      "festivals": [
+        "Ballgame rites",
+        "Popol Vuh recitation in K'iche' tradition"
+      ],
+      "practices": "They are heroes of a book and of the court ballgame, not parish saints. Every ballcourt restages the underworld match. Cult is the game, the decapitation imagery, and the telling, not a pair of cult statues with a festival badge."
     }
   },
   {
@@ -4862,6 +5500,13 @@
     "pronunciation": {
       "ipa": "/ˈmaʊi/",
       "phonetic": "MOW-ee"
+    },
+    "worship": {
+      "temples": [
+        "No single pan-Polynesian temple; island shrines and fishing cults remember the fisher"
+      ],
+      "festivals": ["Local first-fish and fire-origin observances"],
+      "practices": "The hook, the slow sun, and fire stolen for humans. Cult is scattered by design: each island keeps a Maui. He is a trickster ancestor more than a high god with a priesthood."
     }
   },
   {
@@ -4908,6 +5553,14 @@
     "pronunciation": {
       "ipa": "/ˈpɛleɪ/",
       "phonetic": "PEH-lay"
+    },
+    "worship": {
+      "temples": [
+        "Halemaumau crater at Kilauea, her living house",
+        "Other volcanic sites on Hawai'i Island"
+      ],
+      "festivals": ["Offerings of gin, berries, and ohelo; hula for Pele"],
+      "practices": "The volcano is the temple. People still stack ho'okupu at the crater. She is jealousy, fire, and new land. Christian centuries did not empty the pit. Treat living practice as practice, not as folklore leftover."
     }
   },
   {
@@ -5404,6 +6057,15 @@
     "pronunciation": {
       "ipa": "/oloˈdumare/",
       "phonetic": "oh-loh-doo-MAH-ray"
+    },
+    "worship": {
+      "temples": [
+        "No direct temple; every orisha house is downstream of Olodumare"
+      ],
+      "festivals": [
+        "Ifa divination as the supreme being's speech through Orunmila"
+      ],
+      "practices": "Too high for ordinary sacrifice. Ashe comes from here and is handled by orishas. White, the sun, and the refusal to make a statue. Yoruba cult is mediation: you do not drop in on the owner of heaven."
     }
   },
   {
@@ -6171,6 +6833,14 @@
     "pronunciation": {
       "ipa": "/prəˈmiːθiəs/",
       "phonetic": "pruh-MEE-thee-us"
+    },
+    "worship": {
+      "temples": [
+        "Altar in the Athenian Academy, with torch races toward the city",
+        "Cult at Kolonos with Athena"
+      ],
+      "festivals": ["Prometheia torch races"],
+      "practices": "Almost no panhellenic temple. Athens ran torch races from his altar. He is a craftsman's and a thinker's god more than a state's. The chained Titan of tragedy is larger than the small civic footprint."
     }
   },
   {
@@ -6220,6 +6890,14 @@
     "pronunciation": {
       "ipa": "/ˈpɜːrsiəs/",
       "phonetic": "PUR-see-us"
+    },
+    "worship": {
+      "temples": [
+        "Hero shrine at Argos",
+        "Seriphos and Mycenae in the Perseus cycle"
+      ],
+      "festivals": ["Hero offerings at Argos"],
+      "practices": "A hero cult, not an Olympian's. Argives showed his tomb and claimed the Gorgoneion. He is the city-founder's sword, visited with bloodless or animal offerings the way other dead kings are visited."
     }
   },
   {
@@ -6274,6 +6952,15 @@
     "pronunciation": {
       "ipa": "/pərˈsɛfəni/",
       "phonetic": "per-SEF-uh-nee"
+    },
+    "worship": {
+      "temples": [
+        "Eleusis, with Demeter",
+        "Locri in Italy, where she is a sovereign queen",
+        "Sites in Sicily claimed for her descent"
+      ],
+      "festivals": ["Eleusinian Mysteries", "Thesmophoria", "Koreia"],
+      "practices": "Kore is the girl taken; Persephone is the queen who receives. Eleusis keeps both names in one rite. Locri gave her a queen's cult that does not wait for Demeter's permission. Pomegranate and the dead belong to her even when the hymn pretends she is only a daughter."
     }
   },
   {
@@ -6293,7 +6980,14 @@
     "pronunciation": {
       "ipa": "/ˈodudùwà/",
       "phonetic": "oh-doo-DOO-wah"
-    }
+    },
+    "primarySources": [
+      {
+        "text": "Oduduwa, the one who took the chain and the sand and made Ile-Ife the first land.",
+        "source": "Yoruba oriki and Ifa verses of Oduduwa (oral)",
+        "date": "Traditional"
+      }
+    ]
   },
   {
     "id": "olokun",
@@ -6318,7 +7012,14 @@
     "pronunciation": {
       "ipa": "/òlɔ́kũ/",
       "phonetic": "oh-LOH-koon"
-    }
+    },
+    "primarySources": [
+      {
+        "text": "Olokun, owner of the deep, whose wealth is the sea's and whose anger is the wave.",
+        "source": "Oriki Olokun (Yoruba oral praise)",
+        "date": "Traditional"
+      }
+    ]
   },
   {
     "id": "aje",
@@ -6337,7 +7038,14 @@
     "pronunciation": {
       "ipa": "/àjé/",
       "phonetic": "ah-JAY"
-    }
+    },
+    "primarySources": [
+      {
+        "text": "Aje, the wealth that walks, owner of the market's cool money.",
+        "source": "Yoruba oriki of Aje (oral)",
+        "date": "Traditional"
+      }
+    ]
   },
   {
     "id": "aganju",
@@ -6356,7 +7064,14 @@
     "pronunciation": {
       "ipa": "/àɡànjú/",
       "phonetic": "ah-GAHN-joo"
-    }
+    },
+    "primarySources": [
+      {
+        "text": "Aganju, the volcano's orisha, the wilderness that opens a road.",
+        "source": "Lucumí/Yoruba praise names of Aganju (oral)",
+        "date": "Traditional"
+      }
+    ]
   },
   {
     "id": "ibeji",
@@ -6375,7 +7090,14 @@
     "pronunciation": {
       "ipa": "/ìbéjì/",
       "phonetic": "ee-BEH-jee"
-    }
+    },
+    "primarySources": [
+      {
+        "text": "Ere ibeji: the images kept when a twin dies, so the living twin and the family stay whole.",
+        "source": "Yoruba ibeji carving tradition and oriki (oral / material)",
+        "date": "Traditional"
+      }
+    ]
   },
   {
     "id": "ori",
@@ -6394,7 +7116,14 @@
     "pronunciation": {
       "ipa": "/òrí/",
       "phonetic": "oh-REE"
-    }
+    },
+    "primarySources": [
+      {
+        "text": "Ori, the inner head, chosen in heaven, which no orisha can overturn if it is well made.",
+        "source": "Ifa verses on Ori (oral)",
+        "date": "Traditional"
+      }
+    ]
   },
   {
     "id": "anansi",
@@ -6424,6 +7153,13 @@
         "pantheonId": "greek-pantheon",
         "deityId": "hermes",
         "note": "Both are clever, associated with communication and stories"
+      }
+    ],
+    "primarySources": [
+      {
+        "text": "Kwaku Ananse, who won the stories from Nyame and put them in the world.",
+        "source": "Akan Anansesem (spider tales), oral",
+        "date": "Traditional"
       }
     ]
   },
@@ -6456,7 +7192,22 @@
         "deityId": "zeus",
         "note": "Both are sky gods and supreme rulers of their pantheons"
       }
-    ]
+    ],
+    "primarySources": [
+      {
+        "text": "Nyame, the shining one, whose foot is not carved, whose altar is the forked post.",
+        "source": "Akan prayer and Nyame dua household cult (oral)",
+        "date": "Traditional"
+      }
+    ],
+    "worship": {
+      "temples": [
+        "Nyame dua, the forked post in Akan compounds",
+        "No cathedral-style temple required"
+      ],
+      "festivals": ["Sky offerings at the forked post"],
+      "practices": "Akan sky. The forked tree or post is the altar. God is not carved. Libations go up. Mission Christianity met a supreme being already named; the post and the sky were the cult."
+    }
   },
   {
     "id": "kinich-ahau",

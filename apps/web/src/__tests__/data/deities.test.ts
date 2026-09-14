@@ -112,23 +112,69 @@ describe("deities.json data integrity", () => {
     ];
     const byId = new Map(deities.map((d: { id: string }) => [d.id, d]));
     for (const id of densified) {
-      const deity = byId.get(id) as {
-        primarySources?: { text: string; source: string }[];
-        worship?: {
-          temples?: string[];
-          festivals?: string[];
-          practices?: string;
-        };
-      };
+      const deity = byId.get(id) as CultDeity;
       expect(deity, id).toBeTruthy();
       expect(deity.primarySources?.length ?? 0, id).toBeGreaterThan(0);
-      const worship = deity.worship;
-      expect(worship, id).toBeTruthy();
-      const cultBits =
-        (worship?.temples?.length ?? 0) +
-        (worship?.festivals?.length ?? 0) +
-        (worship?.practices ? 1 : 0);
-      expect(cultBits, id).toBeGreaterThan(0);
+      expectCultNotes(deity, id);
+    }
+  });
+
+  it("every deity has at least one primary source", () => {
+    for (const deity of deities as CultDeity[]) {
+      expect(deity.primarySources?.length ?? 0, deity.id).toBeGreaterThan(0);
+    }
+  });
+
+  it("rank-1 deities and the Greek olympians include cult notes", () => {
+    const olympians = [
+      "zeus",
+      "hera",
+      "poseidon",
+      "hades",
+      "athena",
+      "apollo",
+      "artemis",
+      "ares",
+      "aphrodite",
+      "hermes",
+      "dionysus",
+      "demeter",
+      "hephaestus",
+      "hestia",
+    ];
+    const byId = new Map(
+      (deities as CultDeity[]).map((deity) => [deity.id, deity]),
+    );
+    for (const deity of deities as CultDeity[]) {
+      if (deity.importanceRank === 1) {
+        expectCultNotes(deity, deity.id);
+      }
+    }
+    for (const id of olympians) {
+      const deity = byId.get(id);
+      expect(deity, id).toBeTruthy();
+      expectCultNotes(deity!, id);
     }
   });
 });
+
+type CultDeity = {
+  id: string;
+  importanceRank?: number;
+  primarySources?: { text: string; source: string }[];
+  worship?: {
+    temples?: string[];
+    festivals?: string[];
+    practices?: string;
+  };
+};
+
+function expectCultNotes(deity: CultDeity, id: string) {
+  const worship = deity.worship;
+  expect(worship, id).toBeTruthy();
+  const cultBits =
+    (worship?.temples?.length ?? 0) +
+    (worship?.festivals?.length ?? 0) +
+    (worship?.practices ? 1 : 0);
+  expect(cultBits, id).toBeGreaterThan(0);
+}
