@@ -45,7 +45,7 @@ importers:
   .:
     devDependencies:
       '@biomejs/biome':
-        specifier: ^2.5.11
+        specifier: 2.5.12
         version: 2.5.12
       '@tailwindcss/postcss':
         specifier: 4.3.3
@@ -276,10 +276,10 @@ importers:
         specifier: 26.4.1
         version: 26.4.1
       '@types/react':
-        specifier: ^19
+        specifier: 19.2.18
         version: 19.2.18
       '@types/react-dom':
-        specifier: ^19
+        specifier: 19.2.7
         version: 19.2.7(@types/react@19.2.18)
       '@vitejs/plugin-react':
         specifier: 6.1.1
