@@ -2,7 +2,6 @@
 
 import { Logo } from "@/components/ui/logo";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
-import { motion } from "framer-motion";
 import { Command, Heart, Search } from "lucide-react";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
@@ -104,16 +103,12 @@ export function Header() {
           href="/"
           className="flex items-center gap-3 group mr-auto lg:mr-0"
         >
-          <motion.div
-            whileHover={{ scale: 1.05 }}
-            transition={{ type: "spring", stiffness: 400, damping: 17 }}
-            className="relative"
-          >
+          <div className="relative transition-transform duration-200 group-hover:scale-105">
             <div className="absolute inset-0 bg-gold/20 rounded-lg blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             <div className="relative text-foreground group-hover:text-gold transition-colors duration-300">
               <Logo className="h-8 w-8 sm:h-9 sm:w-9" />
             </div>
-          </motion.div>
+          </div>
           <div className="flex flex-col">
             <span className="font-serif text-lg font-semibold text-foreground tracking-wide leading-tight">
               Mythos Atlas
