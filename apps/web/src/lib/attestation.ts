@@ -12,7 +12,8 @@ export interface PrimarySource {
 
 /**
  * Parse a source date string into a signed year (BCE negative, CE positive).
- * Handles "c. 700 BCE", "750 BCE", "400 CE", and "8th century BCE".
+ * Handles "c. 700 BCE", "750 BCE", "400 CE", "8th century BCE",
+ * and "2nd millennium BCE".
  * Returns null when no year can be read.
  */
 export function parseSourceYear(raw: string | undefined): number | null {
@@ -20,6 +21,14 @@ export function parseSourceYear(raw: string | undefined): number | null {
   const s = raw.trim();
   // "BCE" / "BC" mean before-era; a bare "CE"/"AD" is positive.
   const bce = /\bB\.?C\.?E?\b/i.test(s);
+
+  // "2nd millennium BCE" -> midpoint of that millennium.
+  const millennium = s.match(/(\d+)\s*(?:st|nd|rd|th)\s+millennium/i);
+  if (millennium) {
+    const m = Number.parseInt(millennium[1], 10);
+    const mid = (m - 1) * 1000 + 500; // 2nd millennium -> 1500
+    return bce ? -mid : mid;
+  }
 
   // "8th century BCE" -> midpoint of that century.
   const century = s.match(/(\d+)\s*(?:st|nd|rd|th)\s+century/i);

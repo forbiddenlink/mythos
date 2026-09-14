@@ -117,6 +117,7 @@ const creatureFuse = new Fuse(creatureData, {
     { name: "name", weight: 0.7 },
     { name: "habitat", weight: 0.5 },
     { name: "description", weight: 0.3 },
+    { name: "detailedBio", weight: 0.2 },
     { name: "abilities", weight: 0.3 },
   ],
 });
@@ -127,6 +128,7 @@ const artifactFuse = new Fuse(artifactData, {
     { name: "name", weight: 0.7 },
     { name: "type", weight: 0.5 },
     { name: "description", weight: 0.3 },
+    { name: "detailedBio", weight: 0.2 },
     { name: "powers", weight: 0.3 },
   ],
 });

@@ -157,6 +157,16 @@ export const CreatureSchema = z.looseObject({
   abilities: z.array(z.string()),
   dangerLevel: z.number().min(1).max(10),
   imageUrl: z.string().optional(),
+  detailedBio: z.string().optional(),
+  primarySources: z
+    .array(
+      z.object({
+        text: z.string(),
+        source: z.string(),
+        date: z.string().optional(),
+      }),
+    )
+    .optional(),
 });
 
 export type Creature = z.infer<typeof CreatureSchema>;
@@ -175,7 +185,18 @@ export const ArtifactSchema = z.looseObject({
   description: z.string(),
   powers: z.array(z.string()),
   originStory: z.string().optional(),
+  origin: z.string().optional(),
   imageUrl: z.string().optional(),
+  detailedBio: z.string().optional(),
+  primarySources: z
+    .array(
+      z.object({
+        text: z.string(),
+        source: z.string(),
+        date: z.string().optional(),
+      }),
+    )
+    .optional(),
 });
 
 export type Artifact = z.infer<typeof ArtifactSchema>;
@@ -194,6 +215,16 @@ export const LocationSchema = z.looseObject({
   latitude: z.number().nullable().optional(),
   longitude: z.number().nullable().optional(),
   imageUrl: z.string().optional(),
+  detailedBio: z.string().optional(),
+  primarySources: z
+    .array(
+      z.object({
+        text: z.string(),
+        source: z.string(),
+        date: z.string().optional(),
+      }),
+    )
+    .optional(),
 });
 
 export type Location = z.infer<typeof LocationSchema>;

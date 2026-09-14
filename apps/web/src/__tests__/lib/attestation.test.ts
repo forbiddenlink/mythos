@@ -17,6 +17,11 @@ describe("parseSourceYear", () => {
     expect(parseSourceYear("2nd century CE")).toBe(150);
   });
 
+  it("parses millennium ranges to their midpoint", () => {
+    expect(parseSourceYear("c. 2nd millennium BCE")).toBe(-1500);
+    expect(parseSourceYear("c. late 2nd millennium BCE")).toBe(-1500);
+  });
+
   it("returns null for undated / unparseable strings", () => {
     expect(parseSourceYear(undefined)).toBeNull();
     expect(parseSourceYear("unknown")).toBeNull();

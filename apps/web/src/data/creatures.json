@@ -8,7 +8,15 @@
     "habitat": "Lyngvi (The Island of Heather)",
     "abilities": ["Boundless Growth", "God-slaying Strength"],
     "dangerLevel": 10,
-    "imageUrl": "/creatures/fenrir.png"
+    "imageUrl": "/creatures/fenrir.png",
+    "detailedBio": "## The Bound Wolf\n\nFenrir is Loki's wolf-son by Angrboda, raised among the Aesir until his growth made the gods fear the prophecy that he would kill Odin. They bound him on Lyngvi with the dwarven fetter **Gleipnir**; Tyr lost his hand when Fenrir found the trick. He is a doom kept in chains, not a cult animal: no wolf-priesthood survives in the Eddas.\n\nAt Ragnarok he breaks free, swallows Odin, and dies by Vidar's vengeance. Snorri is the fullest prose witness; the poems supply the bite and the binding.",
+    "primarySources": [
+      {
+        "text": "When the gods saw how much he grew every day, and all prophecies declared that he was predestined to become fatal to them, they resolved to make a very strong fetter.",
+        "source": "Prose Edda, Gylfaginning (trans. Anderson)",
+        "date": "c. 1220 CE"
+      }
+    ]
   },
   {
     "id": "cerberus",
@@ -19,7 +27,15 @@
     "habitat": "The Underworld (Gates)",
     "abilities": ["Multi-headed Awareness", "Immortality", "Serpent Mane"],
     "dangerLevel": 8,
-    "imageUrl": "/creatures/cerberus.jpg"
+    "imageUrl": "/creatures/cerberus.jpg",
+    "detailedBio": "## Hound of the Gate\n\nKerberos is the many-headed dog of Hades, set to keep the dead inside. Hesiod gives him fifty heads; later vase-painters and poets settle on three, with a serpent tail and a mane of snakes. Heracles' last labor is to haul him to the sunlit world and return him unharmed.\n\nVirgil's Aeneas drugs the beast with honeyed cake. The job is architectural, not decorative: the underworld needs a lock, and the lock has teeth.",
+    "primarySources": [
+      {
+        "text": "A fearful hound... with brazen voice, watches before the gates of Hades, pitiless, and of evil name.",
+        "source": "Hesiod, Theogony",
+        "date": "c. 700 BCE"
+      }
+    ]
   },
   {
     "id": "yamata-no-orochi",
@@ -30,7 +46,15 @@
     "habitat": "Koshi Province",
     "abilities": ["Eight Heads", "Size Manipulation", "Regeneration"],
     "dangerLevel": 9,
-    "imageUrl": "/creatures/yamata-no-orochi.jpg"
+    "imageUrl": "/creatures/yamata-no-orochi.jpg",
+    "detailedBio": "## Eight Heads in the River\n\nThe Kojiki and Nihon Shoki tell how Susanoo found a family in Izumo whose daughters were being eaten, year by year, by an eight-headed, eight-tailed serpent that filled eight valleys. He stupefied it with eight vats of sake, cut it apart, and drew the sword **Kusanagi** from the tail.\n\nThe monster is local and hydrological — a Koshi-province terror — before it becomes an imperial relic in the grass-cutting sword.",
+    "primarySources": [
+      {
+        "text": "Its eyes were like winter cherries, and it had eight heads and eight tails. On its body grew moss and trees.",
+        "source": "Kojiki (trans. Chamberlain)",
+        "date": "712 CE"
+      }
+    ]
   },
   {
     "id": "apep",
@@ -41,7 +65,15 @@
     "habitat": "The Duat (Underworld)",
     "abilities": ["Hypnotic Gaze", "Chaos Magic", "Infinite Length"],
     "dangerLevel": 10,
-    "imageUrl": "/creatures/apep.png"
+    "imageUrl": "/creatures/apep.png",
+    "detailedBio": "## The Night Serpent\n\nApep (Apophis) is the chaos snake who waits in the Duat for Ra's night bark. Temple books of overpowering Apep prescribe spitting, trampling, and burning wax images so the sun can rise. He is not a god one petitions; he is the enemy the liturgy has to kill every night.\n\nCoffin and underworld books picture him already speared, because the rite assumes the danger is real until dawn.",
+    "primarySources": [
+      {
+        "text": "The Books of Overthrowing Apep prescribe the nightly destruction of the serpent so that Ra's barque may pass.",
+        "source": "Bremner-Rhind Papyrus (Book of Overthrowing Apep)",
+        "date": "c. 310 BCE"
+      }
+    ]
   },
   {
     "id": "hydra",
@@ -52,7 +84,15 @@
     "habitat": "Lake Lerna",
     "abilities": ["Regeneration", "Venomous Breath", "Immortal Central Head"],
     "dangerLevel": 9,
-    "imageUrl": "/creatures/hydra.jpg"
+    "imageUrl": "/creatures/hydra.jpg",
+    "detailedBio": "## The Lernaean Water-Snake\n\nHesiod places the Hydra among Typhon and Echidna's brood. The second labor of Heracles is to kill the many-headed water-snake of Lerna; for each head cut, two grow, until Iolaus cauterizes the necks. The central head is called immortal and is buried under a rock.\n\nThe spring at Amymone is the local hook: a swamp monster tied to Argive hydrology, later moralized as a labor.",
+    "primarySources": [
+      {
+        "text": "She was raised by Hera, goddess of the white arms, out of anger at Heracles, and the Hydra of Lerna was evil.",
+        "source": "Hesiod, Theogony",
+        "date": "c. 700 BCE"
+      }
+    ]
   },
   {
     "id": "chimera",
@@ -63,7 +103,15 @@
     "habitat": "Lycia",
     "abilities": ["Fire Breath", "Triple Beast Strength", "Venomous Tail"],
     "dangerLevel": 8,
-    "imageUrl": "/creatures/chimera.png"
+    "imageUrl": "/creatures/chimera.png",
+    "detailedBio": "## Lion, Goat, Serpent\n\nHomer's Chimaira is a fire-breathing hybrid in Lycia, 'in front a lion, in the rear a serpent, in the middle a goat.' Bellerophon, riding Pegasus, kills her at the command of King Iobates. Hesiod makes her a child of Typhon and Echidna, kin to the Hydra.\n\nThe name later means any impossible compound; the Homeric beast is still a specific Lycian fire.",
+    "primarySources": [
+      {
+        "text": "A thing of immortal make, not human, lion-fronted and snake behind, a goat in the middle, and snorting out the breath of the terrible flame of bright fire.",
+        "source": "Homer, Iliad 6",
+        "date": "c. 750 BCE"
+      }
+    ]
   },
   {
     "id": "minotaur",
@@ -78,7 +126,15 @@
       "Berserker Rage"
     ],
     "dangerLevel": 7,
-    "imageUrl": "/creatures/minotaur.png"
+    "imageUrl": "/creatures/minotaur.png",
+    "detailedBio": "## Asterion in the House of the Double Axe\n\nPasiphae, cursed by Poseidon, bore a bull-headed son whom Minos hid in Daedalus's labyrinth. Athens sent youths and maidens as tribute until Theseus, with Ariadne's thread, killed the creature. Apollodorus and Plutarch give the political frame: Cretan thalassocracy remembered as a cannibal tax.\n\nThe name Minotauros is 'bull of Minos'; Asterion is the rarer personal name.",
+    "primarySources": [
+      {
+        "text": "And she gave birth to Asterius, who was called the Minotaur. He had the face of a bull, but the rest of his body was human.",
+        "source": "Apollodorus, Library 3.1.4",
+        "date": "c. 1st–2nd century CE"
+      }
+    ]
   },
   {
     "id": "sphinx",
@@ -89,7 +145,15 @@
     "habitat": "Mount Phicium near Thebes",
     "abilities": ["Flight", "Supernatural Intelligence", "Prophetic Riddles"],
     "dangerLevel": 7,
-    "imageUrl": "/creatures/sphinx.png"
+    "imageUrl": "/creatures/sphinx.png",
+    "detailedBio": "## The Theban Riddler\n\nThe Greek Sphinx is a winged lion-woman sent against Thebes. She asks the riddle of the creature that walks on four, two, then three feet; Oedipus answers 'man,' and she throws herself from the rock. Apollodorus and tragedy fix the episode as the city's entry-exam.\n\nShe is not the Giza guardian. Thebes's Sphinx eats the unlettered; Egypt's recumbent king watches the horizon.",
+    "primarySources": [
+      {
+        "text": "The Sphinx, a creature with the face of a woman, the breast and feet and tail of a lion, and the wings of a bird, learned a riddle from the Muses.",
+        "source": "Apollodorus, Library 3.5.8",
+        "date": "c. 1st–2nd century CE"
+      }
+    ]
   },
   {
     "id": "cyclops",
@@ -100,7 +164,15 @@
     "habitat": "Sicily and Volcanic Islands",
     "abilities": ["Immense Strength", "Master Craftsmanship", "Stone Throwing"],
     "dangerLevel": 8,
-    "imageUrl": "/creatures/cyclops.png"
+    "imageUrl": "/creatures/cyclops.png",
+    "detailedBio": "## One Eye, Two Stories\n\nHesiod's Cyclopes — Brontes, Steropes, Arges — forge Zeus's thunderbolt. Homer's Polyphemus is a pastoral giant who cages Odysseus and is blinded for it. Later myth tries to join the smiths to the shepherds; the poems keep them apart.\n\nThe Odyssey episode is the one travelers remember: no wine-guest law, a cave, and a name stolen as 'Nobody.'",
+    "primarySources": [
+      {
+        "text": "They have no assemblies for making council, nor appointed laws, but they dwell on the peaks of lofty mountains in hollow caves.",
+        "source": "Homer, Odyssey 9",
+        "date": "c. 700 BCE"
+      }
+    ]
   },
   {
     "id": "medusa",
@@ -111,7 +183,15 @@
     "habitat": "Western Libya",
     "abilities": ["Petrifying Gaze", "Serpent Hair", "Immortal Blood"],
     "dangerLevel": 9,
-    "imageUrl": "/creatures/medusa.png"
+    "imageUrl": "/creatures/medusa.png",
+    "detailedBio": "## The Mortal Gorgon\n\nOf the three Gorgons only Medusa is mortal. Perseus beheads her with Athena's aid; Pegasus and Chrysaor spring from the neck. Ovid adds the later tale that Athena punished Medusa's beauty after Poseidon's assault in the temple — a Roman overlay on an older beheading myth.\n\nThe head remains a weapon: the aegis, the apotropaic face on shields.",
+    "primarySources": [
+      {
+        "text": "And from the Gorgon the horse Pegasus sprang, and Chrysaor the hero, when Perseus cut off her head.",
+        "source": "Hesiod, Theogony",
+        "date": "c. 700 BCE"
+      }
+    ]
   },
   {
     "id": "jormungandr",
@@ -122,7 +202,15 @@
     "habitat": "The Ocean Surrounding Midgard",
     "abilities": ["Venomous Breath", "World-Encircling Size", "Ocean Control"],
     "dangerLevel": 10,
-    "imageUrl": "/creatures/jormungandr.jpg"
+    "imageUrl": "/creatures/jormungandr.jpg",
+    "detailedBio": "## The Midgard Serpent\n\nJormungandr is Loki's second monstrous child, cast by Odin into the sea that rings Midgard until the serpent bites its own tail. Thor fishes for him with an ox-head; Hymir cuts the line. At Ragnarok they kill each other: venom and hammer.\n\nThe creature record matches the deity-adjacent lore: one body, ocean-wide, waiting for the last tide.",
+    "primarySources": [
+      {
+        "text": "Thor shall put to death the Midgard Serpent, and shall wade away nine paces; then shall he fall dead to the earth, because of the venom.",
+        "source": "Prose Edda, Gylfaginning (trans. Anderson)",
+        "date": "c. 1220 CE"
+      }
+    ]
   },
   {
     "id": "sleipnir",
@@ -133,7 +221,15 @@
     "habitat": "Asgard",
     "abilities": ["Realm Travel", "Supernatural Speed", "Flight"],
     "dangerLevel": 3,
-    "imageUrl": "/creatures/sleipnir.jpg"
+    "imageUrl": "/creatures/sleipnir.jpg",
+    "detailedBio": "## Eight Legs to Hel\n\nSleipnir is Odin's grey, the best of horses, born when Loki as a mare lured the stallion Svadilfari away from the mason who nearly won the sun and Freyja. Hermod rides him to Hel after Baldr's death. The eight legs are in the poems; they are not a later cartoon.\n\nDanger is low because he is a mount, not a hunter — speed between worlds, not a bite.",
+    "primarySources": [
+      {
+        "text": "The best of all horses is Sleipnir; he has eight legs. He belongs to Odin.",
+        "source": "Prose Edda, Gylfaginning (trans. Anderson)",
+        "date": "c. 1220 CE"
+      }
+    ]
   },
   {
     "id": "nidhogg",
@@ -144,7 +240,15 @@
     "habitat": "Nastrond (beneath Yggdrasil)",
     "abilities": ["Corpse Consumption", "Root Gnawing", "Decay Aura"],
     "dangerLevel": 8,
-    "imageUrl": "/creatures/nidhogg.png"
+    "imageUrl": "/creatures/nidhogg.png",
+    "detailedBio": "## Gnawer at the Root\n\nNidhogg is the dragon under Yggdrasil who chews the tree's root and, in Voluspa, flies up from Nidafjoll bearing corpses at the end of the world. Snorri parks him at Nastrond among oath-breakers. He is decay with a name, not a hoard-dragon of the Sigurd type.\n\nThe squirrel Ratatoskr carries insults between Nidhogg and the eagle above — a postal service of spite.",
+    "primarySources": [
+      {
+        "text": "There Nidhogg sucks the corpses of the dead; the wolf tears men.",
+        "source": "Poetic Edda, Voluspa",
+        "date": "c. 10th–13th century CE"
+      }
+    ]
   },
   {
     "id": "draugr",
@@ -155,7 +259,15 @@
     "habitat": "Burial Mounds",
     "abilities": ["Size Manipulation", "Superhuman Strength", "Dark Magic"],
     "dangerLevel": 6,
-    "imageUrl": "/creatures/draugr.png"
+    "imageUrl": "/creatures/draugr.png",
+    "detailedBio": "## The Mound-Dweller\n\nIcelandic sagas treat the draugr as a physically present corpse that walks, swells, and kills from inside its howe. Grettir fights Glam; other tales burn or behead the body to stop it. This is not a Greek shade: it has weight, stench, and legal aftermath.\n\nThe corpus is saga prose, not Eddic verse. Treasure-guarding is a motif; the terror is the neighbor who will not stay buried.",
+    "primarySources": [
+      {
+        "text": "Grettir's saga and other Islendingasogur describe the draugr as a walking corpse of terrible strength, to be wrestled, beheaded, and burned.",
+        "source": "Grettis saga (medieval Icelandic prose)",
+        "date": "c. 14th century CE"
+      }
+    ]
   },
   {
     "id": "kraken",
@@ -170,7 +282,15 @@
       "Massive Tentacles"
     ],
     "dangerLevel": 9,
-    "imageUrl": "/creatures/kraken.jpg"
+    "imageUrl": "/creatures/kraken.jpg",
+    "detailedBio": "## A Modern Sea-Horror\n\nThe kraken is not in the Poetic Edda. Bishop Pontoppidan's 1752 Natural History of Norway popularized a mile-wide cephalopod that fishermen took for an island. Older Norse hafgufa and lyngbakr in the King's Mirror are cousins, not the same name.\n\nCataloging it under the Norse pantheon follows later popular memory. The honest source is early-modern natural history grafted onto northern seas.",
+    "primarySources": [
+      {
+        "text": "The Kraken, also called the Crab-fish... is round, flat, and full of arms... the largest sea monster in the world.",
+        "source": "Erik Pontoppidan, Natural History of Norway",
+        "date": "1752 CE"
+      }
+    ]
   },
   {
     "id": "ammit",
@@ -181,7 +301,15 @@
     "habitat": "The Hall of Two Truths",
     "abilities": ["Soul Consumption", "Heart Detection", "Eternal Hunger"],
     "dangerLevel": 9,
-    "imageUrl": "/creatures/ammit.png"
+    "imageUrl": "/creatures/ammit.png",
+    "detailedBio": "## Eater of the Unjust Heart\n\nAmmit waits beside the balance in the Hall of Two Truths. If the heart outweighs Maat's feather, she eats it; the person dies a second death. She compounds crocodile, lion, and hippopotamus — Egypt's three most lethal waterside animals — into one judicial mouth.\n\nShe is not worshipped. Spell 125 of the Book of the Dead is a plea not to meet her.",
+    "primarySources": [
+      {
+        "text": "The Devourer sits beside the scale; the heart that is heavy with wrong is given to her, and that person shall not exist.",
+        "source": "Book of the Dead, Spell 125 (judgment scene)",
+        "date": "c. 1550–50 BCE"
+      }
+    ]
   },
   {
     "id": "egyptian-sphinx",
@@ -196,7 +324,15 @@
       "Divine Protection"
     ],
     "dangerLevel": 4,
-    "imageUrl": "/creatures/egyptian-sphinx.png"
+    "imageUrl": "/creatures/egyptian-sphinx.png",
+    "detailedBio": "## The Recumbent King\n\nEgyptian sphinxes are royal bodies: lion trunk, pharaoh's head, often bearded, set as avenue guardians (Luxor, Karnak) or as the Great Sphinx of Giza facing the rising sun. They do not pose riddles. Greek travelers mapped their own Theban monster onto the type.\n\nInscriptions call the Giza figure Hor-em-akhet, Horus in the Horizon. The Theban riddler and this recumbent king are different animals of thought.",
+    "primarySources": [
+      {
+        "text": "The Dream Stele of Thutmose IV records the king sleeping in the shadow of the Great Sphinx, who speaks as Hor-em-akhet and asks to have the sand cleared from his body.",
+        "source": "Dream Stele of Thutmose IV, Giza",
+        "date": "c. 1401 BCE"
+      }
+    ]
   },
   {
     "id": "bennu",
@@ -207,7 +343,15 @@
     "habitat": "Heliopolis",
     "abilities": ["Rebirth", "Solar Connection", "Creation Magic"],
     "dangerLevel": 2,
-    "imageUrl": "/creatures/bennu.png"
+    "imageUrl": "/creatures/bennu.png",
+    "detailedBio": "## The Self-Created Heron\n\nThe bennu is a heron of Heliopolis tied to Atum/Ra and to the benben stone. Pyramid Texts already know a bird of becoming. Later Greek writers (Herodotus, then the phoenix legend) recast it as a fire-rebirth cycle Egypt itself did not narrate that way.\n\nDanger is low: this is a cosmogonic bird, not a predator.",
+    "primarySources": [
+      {
+        "text": "The bennu is the ba of Ra, the bird of the benben in Heliopolis, named in the Pyramid Texts as a form of becoming.",
+        "source": "Pyramid Texts (Heliopolitan solar theology)",
+        "date": "c. 2400–2300 BCE"
+      }
+    ]
   },
   {
     "id": "serpopard",
@@ -222,7 +366,15 @@
       "Chaos Embodiment"
     ],
     "dangerLevel": 6,
-    "imageUrl": "/creatures/serpopard.jpg"
+    "imageUrl": "/creatures/serpopard.jpg",
+    "detailedBio": "## Long Necks on the Palette\n\nThe serpopard is an art-historical name for the leopard-bodied, serpent-necked beasts whose intertwined necks form a mixing well on the Narmer Palette. No surviving Egyptian story explains them. They belong to late Predynastic visual language of chaos bounded by the king. What we have is the stone; a hunt-myth does not survive.",
+    "primarySources": [
+      {
+        "text": "The Narmer Palette (Hierakonpolis) shows two long-necked felines whose intertwined necks frame a circular depression; no accompanying myth text survives.",
+        "source": "Narmer Palette, Egyptian Museum, Cairo",
+        "date": "c. 3100 BCE"
+      }
+    ]
   },
   {
     "id": "garuda",
@@ -233,7 +385,15 @@
     "habitat": "Vaikuntha (Vishnu's Realm)",
     "abilities": ["Divine Flight", "Naga Slaying", "Thought-Speed Travel"],
     "dangerLevel": 7,
-    "imageUrl": "/creatures/garuda.png"
+    "imageUrl": "/creatures/garuda.png",
+    "detailedBio": "## Enemy of Serpents, Mount of Vishnu\n\nGaruda, son of Vinata, wins amrita from the gods to free his mother from Kadru's naga-slavery, then becomes Vishnu's vahana. The Mahabharata's Adi Parva tells the raid; the Suparṇādhyāya and later Puranas expand the genealogy. He is both person and species-king.\n\nThai and Khmer courts reused him as a royal emblem. The Sanskrit core is still the bird who outflies thought to steal nectar.",
+    "primarySources": [
+      {
+        "text": "Garuda, son of Vinata, seized the amrita from the gods to ransom his mother, then took Vishnu as lord and became the bane of nagas.",
+        "source": "Mahabharata, Adi Parva (Astika Parva)",
+        "date": "c. 400 BCE–400 CE"
+      }
+    ]
   },
   {
     "id": "naga",
@@ -244,7 +404,15 @@
     "habitat": "Patala (Underworld)",
     "abilities": ["Shapeshifting", "Water Control", "Treasure Guardianship"],
     "dangerLevel": 6,
-    "imageUrl": "/creatures/naga.jpg"
+    "imageUrl": "/creatures/naga.jpg",
+    "detailedBio": "## Serpent Lords of Patala\n\nNagas are a people more than a single beast: Vasuki, Shesha, Takshaka. They hold Patala, marry humans, and guard jewels. The Mahabharata burns them in Janamejaya's snake-sacrifice; the Bhagavata Purana seats Shesha under Vishnu. Buddhist and Jain canons keep their own naga-kings.\n\nDanger varies with the tale. Some nagas rain; some bite kings.",
+    "primarySources": [
+      {
+        "text": "The nagas, sons of Kadru, dwell in Patala; Vasuki became the churning-rope, and Takshaka bit King Parikshit.",
+        "source": "Mahabharata, Adi Parva",
+        "date": "c. 400 BCE–400 CE"
+      }
+    ]
   },
   {
     "id": "makara",
@@ -255,7 +423,15 @@
     "habitat": "Sacred Rivers and Oceans",
     "abilities": ["Water Mastery", "Divine Transport", "Aquatic Supremacy"],
     "dangerLevel": 5,
-    "imageUrl": "/creatures/makara.png"
+    "imageUrl": "/creatures/makara.png",
+    "detailedBio": "## Crocodile at the Threshold of Water\n\nMakara is the composite aquatic mount of Ganga and Varuna, and the vehicle-emblem of Kamadeva. Temple sculpture (Khajuraho, South Indian gopurams) shows a crocodile-elephant-fish hybrid more often than any single narrative hunt.\n\nRead it as a threshold animal of sacred rivers, not as a named villain with a death-scene.",
+    "primarySources": [
+      {
+        "text": "Varuna's makara and Ganga's makara appear in Puranic lists of vahanas; the form is fixed more by temple sculpture than by a single hunt-myth.",
+        "source": "Puranic vahana lists; temple makara-toranas",
+        "date": "c. 5th–12th century CE"
+      }
+    ]
   },
   {
     "id": "kitsune",
@@ -266,7 +442,15 @@
     "habitat": "Forests and Inari Shrines",
     "abilities": ["Shapeshifting", "Illusion Magic", "Possession"],
     "dangerLevel": 5,
-    "imageUrl": "/creatures/kitsune.png"
+    "imageUrl": "/creatures/kitsune.png",
+    "detailedBio": "## Foxes Who Keep Accounts\n\nKitsune in medieval setsuwa (Konjaku, Uji shui) seduce, possess, and repay kindness. Inari's foxes are messengers at shrines; wild kitsune are another file. The nine-tailed elder is a Chinese import (Daji / Tamamo-no-Mae) grafted onto Japanese fox lore.\n\nThere is no single canonical fox. The honest page is a class of spirit with shrine and street variants.",
+    "primarySources": [
+      {
+        "text": "Konjaku Monogatarishu and other Heian–Kamakura setsuwa tell of foxes who take human shape, possess victims, and serve or mock Inari.",
+        "source": "Konjaku Monogatarishu (fox tales)",
+        "date": "c. 12th century CE"
+      }
+    ]
   },
   {
     "id": "tengu",
@@ -277,7 +461,15 @@
     "habitat": "Mountain Forests",
     "abilities": ["Martial Mastery", "Flight", "Wind Control"],
     "dangerLevel": 6,
-    "imageUrl": "/creatures/tengu.jpg"
+    "imageUrl": "/creatures/tengu.jpg",
+    "detailedBio": "## From Kite-Demon to Mountain Tutor\n\nEarly tengu (Nihon ryōiki, Heike) are disruptive kite-goblins who possess monks and start wars. Later yamabushi-tengu of Mt. Kurama teach sword work to Yoshitsune. The long nose and red face are medieval iconography, not Kojiki fauna.\n\nDanger sits in the middle: they punish arrogance more often than they eat travelers.",
+    "primarySources": [
+      {
+        "text": "The Heike Monogatari and earlier Nihon ryoki treat tengu as kite-like demons who lead monks astray; later tales make mountain tengu martial tutors.",
+        "source": "Nihon ryoki; Heike Monogatari",
+        "date": "c. 9th–13th century CE"
+      }
+    ]
   },
   {
     "id": "kappa",
@@ -292,7 +484,15 @@
       "Bone Extraction"
     ],
     "dangerLevel": 4,
-    "imageUrl": "/creatures/kappa.jpg"
+    "imageUrl": "/creatures/kappa.jpg",
+    "detailedBio": "## The River Child with a Dish of Water\n\nKappa appear in Edo encyclopedias and local river law: a child-sized turtle-backed being whose strength lives in the water-filled sara on its head. Bow, it bows, the water spills, it weakens. They drown horses, steal shirikodama, and keep cucumber offerings.\n\nThe corpus is folkloric and regional, not a Kojiki chapter.",
+    "primarySources": [
+      {
+        "text": "Edo-period Wakan Sansai Zue and local river customs describe the kappa as a child-like water being whose power sits in the water-dish on its head.",
+        "source": "Wakan Sansai Zue; Japanese river folklore",
+        "date": "1712 CE"
+      }
+    ]
   },
   {
     "id": "cu-sith",
@@ -303,7 +503,15 @@
     "habitat": "Scottish Highlands",
     "abilities": ["Death Howl", "Soul Collection", "Supernatural Tracking"],
     "dangerLevel": 8,
-    "imageUrl": "/creatures/cu-sith.png"
+    "imageUrl": "/creatures/cu-sith.png",
+    "detailedBio": "## The Green Hound of the Sithein\n\nScottish Gaelic tradition knows a large green fairy dog, the cù-sìth, whose barks (often three) are a death omen. Collectors (J. G. Campbell, later folklore archives) place it on the moors between this world and the sìth mounds. It is not Cú Chulainn's hound.\n\nThe record is oral and early-modern; there is no medieval tract devoted to the beast.",
+    "primarySources": [
+      {
+        "text": "Highland tradition describes a huge green fairy dog whose bark is a death omen; the notices are folkloric, not a medieval tract.",
+        "source": "Scottish Gaelic oral tradition (collected 19th c.)",
+        "date": "19th century CE"
+      }
+    ]
   },
   {
     "id": "each-uisge",
@@ -314,7 +522,15 @@
     "habitat": "Scottish Lochs and Coastal Waters",
     "abilities": ["Shapeshifting", "Adhesive Skin", "Underwater Speed"],
     "dangerLevel": 9,
-    "imageUrl": "/creatures/each-uisge.png"
+    "imageUrl": "/creatures/each-uisge.png",
+    "detailedBio": "## The Salt-Water Horse\n\nThe each-uisge of the Highlands is the vicious cousin of the inland kelpie: a handsome horse by the loch or sea that, once mounted, adheres and dives. Survivors' tales (Campbell, later collectors) leave a liver on the shore. It can also appear as a handsome man.\n\nIrish *each uisce* shares the water-horse job, but the Highland name and the sea-loch setting are distinct. The danger is coastal and lacustrine.",
+    "primarySources": [
+      {
+        "text": "Highland accounts distinguish the each-uisge of sea-lochs from the river kelpie: a horse that sticks to the rider and dives, leaving viscera on the shore.",
+        "source": "Scottish Gaelic oral tradition (J. G. Campbell and later collectors)",
+        "date": "19th century CE"
+      }
+    ]
   },
   {
     "id": "humbaba",
@@ -330,7 +546,15 @@
       "Death Gaze"
     ],
     "dangerLevel": 9,
-    "imageUrl": "/creatures/humbaba.jpg"
+    "imageUrl": "/creatures/humbaba.jpg",
+    "detailedBio": "## Warden of the Cedar\n\nHuwawa / Humbaba is Enlil's appointed guardian of the Cedar Forest. Gilgamesh and Enkidu cut him down anyway; the Standard Babylonian epic makes the killing a moral problem, not a clean trophy. His face is a coil of entrails in terracotta plaques.\n\nThe seven auras (melammu) are stripped one by one. The forest's protection dies with him.",
+    "primarySources": [
+      {
+        "text": "Huwawa is appointed by Enlil to be the terror of the forest; Gilgamesh and Enkidu slay him and fell the cedars, and the gods take notice.",
+        "source": "Epic of Gilgamesh, Standard Babylonian version, Tablets IV–V",
+        "date": "c. 1200 BCE"
+      }
+    ]
   },
   {
     "id": "lamassu",
@@ -346,7 +570,15 @@
       "Blessing of Travelers"
     ],
     "dangerLevel": 2,
-    "imageUrl": "/creatures/lamassu.jpg"
+    "imageUrl": "/creatures/lamassu.jpg",
+    "detailedBio": "## Five-Legged Watchers\n\nAssyrian lamassu (and cognate šēdu) are human-headed winged bulls or lions that flank palace gates at Nimrud, Khorsabad, Nineveh. Inscriptions name them as protective genii. Five legs let the figure stand from the front and stride from the side.\n\nThey are architecture with a spirit, not a hunted monster. Danger is low for those the king admits.",
+    "primarySources": [
+      {
+        "text": "Colossal human-headed winged bulls inscribed as protective lamassu / shedu stand at the gates of Assyrian palaces.",
+        "source": "Neo-Assyrian palace orthostats (Nimrud, Khorsabad, Nineveh)",
+        "date": "c. 9th–7th century BCE"
+      }
+    ]
   },
   {
     "id": "mami-wata",
@@ -362,7 +594,15 @@
       "Shapeshifting"
     ],
     "dangerLevel": 7,
-    "imageUrl": "/creatures/mami-wata.png"
+    "imageUrl": "/creatures/mami-wata.png",
+    "detailedBio": "## The Water Woman of the Atlantic World\n\nMami Wata is a water-power of West and Central Africa and the diaspora, often a beautiful woman with a snake or fish lower body. The name is pidgin ('Mammy Water'); the cult is documented in the colonial and modern ethnographic record more thickly than in a single precolonial scripture.\n\nShe gives wealth and takes fidelity. Treat her as a living cult being, not a fossilized monster.",
+    "primarySources": [
+      {
+        "text": "Twentieth-century ethnography along the West African coast and in the Caribbean records Mami Wata as a water spirit of beauty, wealth, and jealous contract; the dossier is living cult, not a closed ancient book.",
+        "source": "West African and diaspora oral / ethnographic record",
+        "date": "19th–20th century CE"
+      }
+    ]
   },
   {
     "id": "tikoloshe",
@@ -378,7 +618,15 @@
       "Curse Carrying"
     ],
     "dangerLevel": 6,
-    "imageUrl": "/creatures/tikoloshe.png"
+    "imageUrl": "/creatures/tikoloshe.png",
+    "detailedBio": "## The Short Spirit under the Bed\n\nAmong Zulu and Xhosa speakers the tokoloshe / tikoloshe is a small water-linked being witches send to harm, or a household nuisance kept at bay by raising the bed on bricks. The record is oral and mission-era ethnography, not an epic.\n\nInvisibility via a pebble or water is a common motif. The notices stay southern African; they are not a pan-continental demon.",
+    "primarySources": [
+      {
+        "text": "Zulu and Xhosa oral accounts, as recorded by ethnographers, describe the tokoloshe as a small malevolent being associated with water and witchcraft, kept off by raising the sleeping platform.",
+        "source": "Zulu and Xhosa oral tradition (ethnographic record)",
+        "date": "19th–20th century CE"
+      }
+    ]
   },
   {
     "id": "popobawa",
@@ -394,7 +642,15 @@
       "Supernatural Strength"
     ],
     "dangerLevel": 8,
-    "imageUrl": "/creatures/popobawa.png"
+    "imageUrl": "/creatures/popobawa.png",
+    "detailedBio": "## Bat-Wing, Modern Panic\n\nPopobawa ('bat wing') is a Zanzibari incubus-panic documented especially from the 1960s and the 1995 outbreak. Victims report a shapeshifting night attacker and feel compelled to speak. There is no precolonial chronicle; the honest source is contemporary oral report and anthropology.\n\nIt belongs to modern Swahili-coast experience, not a recovered temple hymn. The 1995 panic is the thickest paper trail.",
+    "primarySources": [
+      {
+        "text": "Zanzibar accounts collected around the 1995 outbreak describe a shapeshifting night attacker called Popobawa; the dossier is modern oral report, not a precolonial scripture.",
+        "source": "Zanzibar oral report (ethnographic record)",
+        "date": "1995 CE"
+      }
+    ]
   },
   {
     "id": "ninki-nanka",
@@ -410,7 +666,15 @@
       "Amphibious Movement"
     ],
     "dangerLevel": 10,
-    "imageUrl": "/creatures/ninki-nanka.png"
+    "imageUrl": "/creatures/ninki-nanka.png",
+    "detailedBio": "## The Gambia's River Dragon\n\nMandinka and neighboring traditions along the Gambia speak of a ninki-nanka in the mangroves: a large, dangerous water-reptile whose sighting is unlucky. Cryptozoological expeditions (2006) collected testimony; they did not find a body. Treat this as living folklore, not a recovered temple hymn.\n\nThe three-horn, giraffe-neck composite is a modern composite of informant sketches.",
+    "primarySources": [
+      {
+        "text": "Mandinka and neighboring Gambian oral accounts describe a dangerous swamp-dwelling reptile; modern expeditions recorded testimony, not a specimen.",
+        "source": "Gambian oral tradition (Mandinka and neighbors)",
+        "date": "20th–21st century CE"
+      }
+    ]
   },
   {
     "id": "adze",
@@ -426,7 +690,15 @@
       "Possession"
     ],
     "dangerLevel": 7,
-    "imageUrl": "/creatures/adze.png"
+    "imageUrl": "/creatures/adze.png",
+    "detailedBio": "## Firefly that Drinks\n\nEwe-speaking communities in Ghana and Togo know the adze as a witch's familiar that flies as a light, enters houses, and sucks blood or life. Captured, it may show a humanoid form. The notices are ethnographic (Spieth and later), not a written epic.\n\nIt sits with other West African night-harm beings; it is not a European vampire with a cape.",
+    "primarySources": [
+      {
+        "text": "Ewe accounts recorded by missionaries and ethnographers describe the adze as a vampiric being that travels as a light and drinks from sleepers.",
+        "source": "Ewe oral tradition (Ghana / Togo ethnographic record)",
+        "date": "19th–20th century CE"
+      }
+    ]
   },
   {
     "id": "asanbosam",
@@ -442,7 +714,15 @@
       "Silent Movement"
     ],
     "dangerLevel": 8,
-    "imageUrl": "/creatures/asanbosam.png"
+    "imageUrl": "/creatures/asanbosam.png",
+    "detailedBio": "## Iron Teeth in the Canopy\n\nAshanti folklore collected in the Gold Coast describes the asanbosam (or asanbosam) as a forest vampire with iron teeth and hook-feet, hanging in trees to snatch hunters. R. S. Rattray and later summaries are the paper trail; there is no court chronicle of a hunt.\n\nIt is a forest warning dressed as anatomy.",
+    "primarySources": [
+      {
+        "text": "Ashanti folklore, as recorded in Gold Coast ethnography, describes a tree-dwelling being with iron teeth and hooked feet that preys on hunters.",
+        "source": "Asante oral tradition (ethnographic record)",
+        "date": "19th–20th century CE"
+      }
+    ]
   },
   {
     "id": "eloko",
@@ -458,7 +738,15 @@
       "Treasure Guarding"
     ],
     "dangerLevel": 8,
-    "imageUrl": "/creatures/eloko.png"
+    "imageUrl": "/creatures/eloko.png",
+    "detailedBio": "## Bells in the Mongo Forest\n\nAmong Mongo peoples of the Congo basin, eloko are small, grass-haired forest dead who ring bells to lure prey and can open a mouth wide enough for a person. Folktale collections (Boelaert and later) are the source, not a royal inscription.\n\nThey guard the bush's wealth. The page should not pretend we have a temple hymn.",
+    "primarySources": [
+      {
+        "text": "Mongo folktales describe eloko as grass-covered forest dwarfs, spirits of the dead, who enchant hunters with bells and devour them.",
+        "source": "Mongo oral tradition (Congo basin folktale collections)",
+        "date": "20th century CE"
+      }
+    ]
   },
   {
     "id": "lares",
@@ -469,7 +757,15 @@
     "habitat": "Roman Households and Crossroads",
     "abilities": ["Home Protection", "Family Blessing", "Travel Guidance"],
     "dangerLevel": 1,
-    "imageUrl": "/creatures/lares.png"
+    "imageUrl": "/creatures/lares.png",
+    "detailedBio": "## Gods of the Cupboard and the Crossroads\n\nLares are Roman household and neighborhood gods, not monsters. The lararium received daily offerings; Lares Compitales watched the compita. Plautus, Cato, and countless inscriptions treat them as protective kin-spirits. Augustan religion publicized the Lares Augusti.\n\nDanger 1 is correct: they harm the neglected household, not the passerby as a beast would.",
+    "primarySources": [
+      {
+        "text": "The household Lar speaks in Plautus's Aulularia as the guardian of the family store; inscriptions and lararia show daily cult at the hearth and the crossroads.",
+        "source": "Plautus, Aulularia; Roman lararium inscriptions",
+        "date": "c. 3rd century BCE–3rd century CE"
+      }
+    ]
   },
   {
     "id": "lemures",
@@ -480,7 +776,15 @@
     "habitat": "The Mortal Realm (wandering)",
     "abilities": ["Intangibility", "Fear Inducement", "Haunting Presence"],
     "dangerLevel": 5,
-    "imageUrl": "/creatures/lemures.png"
+    "imageUrl": "/creatures/lemures.png",
+    "detailedBio": "## Unquiet Dead in May\n\nOvid's Fasti describes Lemuria: the householder rises at midnight, casts black beans, and nine times bids the lemures depart. They are restless shades, often contrasted with the honored di Manes. The rite is domestic apotropaia, not a bestiary hunt.\n\nLater Christian writers moralize them as demons. Ovid still knows a calendar job.",
+    "primarySources": [
+      {
+        "text": "When midnight has come... the heir of the house rises, and casting black beans he says nine times: 'These I send; with these beans I redeem me and mine.'",
+        "source": "Ovid, Fasti 5 (Lemuria)",
+        "date": "c. 8 CE"
+      }
+    ]
   },
   {
     "id": "manes",
@@ -495,7 +799,15 @@
       "Dream Visitation"
     ],
     "dangerLevel": 2,
-    "imageUrl": "/creatures/manes.png"
+    "imageUrl": "/creatures/manes.png",
+    "detailedBio": "## The Divine Dead\n\nDi Manes are the deified dead as a collective. Tombstones across the empire open with Dis Manibus. Parentalia in February fed graves; the Manes were not a single ghoul. Cicero and funerary law treat them as recipients of ius, not as a species of monster.\n\nThey are a legal and cult category of the dead, not a species of ghoul to hunt.",
+    "primarySources": [
+      {
+        "text": "Roman epitaphs begin Dis Manibus; during Parentalia the living fed the graves of the family dead as di Manes.",
+        "source": "Roman funerary inscriptions; Ovid, Fasti 2 (Parentalia)",
+        "date": "c. 1st century BCE–2nd century CE"
+      }
+    ]
   },
   {
     "id": "strix",
@@ -506,7 +818,15 @@
     "habitat": "Night Skies and Shadowed Places",
     "abilities": ["Flight", "Blood Draining", "Shapeshifting", "Death Omen"],
     "dangerLevel": 7,
-    "imageUrl": "/creatures/strix.png"
+    "imageUrl": "/creatures/strix.png",
+    "detailedBio": "## Owl of the Cradle\n\nRoman poets (Ovid, Pliny, Petronius) know the strix as a screech-owl witch-bird that attacks infants and drinks blood. Festus and later lexica keep the scare. It sits between omen-bird and shapeshifted woman; the natural-historical and the folkloric are not separated.\n\nMedieval Latin carried the word toward 'witch.' The pagan dossier is already violent.",
+    "primarySources": [
+      {
+        "text": "Ovid's Fasti and Pliny's Natural History know the strix as a night bird that threatens infants; the scare is Roman, not a medieval invention.",
+        "source": "Ovid, Fasti; Pliny, Natural History 11",
+        "date": "c. 1st century CE"
+      }
+    ]
   },
   {
     "id": "ahuizotl",
@@ -522,7 +842,15 @@
       "Tlaloc's Servant"
     ],
     "dangerLevel": 8,
-    "imageUrl": "/creatures/ahuizotl.png"
+    "imageUrl": "/creatures/ahuizotl.png",
+    "detailedBio": "## The Water-Dog of Tlaloc\n\nSahagún's Florentine Codex describes the ahuitzotl as a dog-like water creature with extra hands, including one at the tail, that drowns people so Tlaloc may take them. Corpses are found without eyes, nails, and teeth. The Aztec emperor Ahuitzotl took the name. Sahagún's informants treat the drowning as a Tlaloc-claim, not a random lake accident.",
+    "primarySources": [
+      {
+        "text": "The ahuitzotl lives in the water... it has a hand on its tail, and with it seizes people and makes them drown; the water folk belong to Tlaloc.",
+        "source": "Sahagún, Florentine Codex, Book 11",
+        "date": "c. 1577 CE"
+      }
+    ]
   },
   {
     "id": "cipactli",
@@ -538,7 +866,15 @@
       "Earth Foundation"
     ],
     "dangerLevel": 10,
-    "imageUrl": "/creatures/cipactli.png"
+    "imageUrl": "/creatures/cipactli.png",
+    "detailedBio": "## The Earth That Was a Crocodile\n\nIn the Histoyre du Mechique and related Nahua cosmogonies, Tezcatlipoca and Quetzalcoatl tear the primordial caiman Cipactli to make land. Mouths at the joints explain why the earth still drinks blood. The day-sign Cipactli opens the 260-day count. One caiman, one world-body: later art still shows earth as a hungry hide.",
+    "primarySources": [
+      {
+        "text": "The gods seized Cipactli, the earth-monster of the primeval waters, and from her body they made the land that still hungers.",
+        "source": "Histoyre du Mechique; Nahua cosmogony (day-sign Cipactli)",
+        "date": "c. 16th century CE"
+      }
+    ]
   },
   {
     "id": "nagual",
@@ -554,7 +890,15 @@
       "Animal Communication"
     ],
     "dangerLevel": 6,
-    "imageUrl": "/creatures/nagual.png"
+    "imageUrl": "/creatures/nagual.png",
+    "detailedBio": "## Co-Essence, Not a Single Beast\n\nNahual / nagual in Mesoamerican ethnography is a linked animal or the transforming specialist who shares its skin. Sahagún records nahualli sorcerers; modern Maya and Nahua communities keep tonal/nahual doctrines. This is a relation, not a zoo specimen. A jaguar, turkey, or lightning-bolt can be a person's nahualli; freeze it as one animal and the doctrine collapses.",
+    "primarySources": [
+      {
+        "text": "Sahagún's informants describe the nahualli as a transforming sorcerer; later ethnography across Mesoamerica treats nahual/tonal as a co-essence with an animal.",
+        "source": "Sahagún, Florentine Codex; Mesoamerican ethnography",
+        "date": "c. 1577 CE"
+      }
+    ]
   },
   {
     "id": "xiuhcoatl",
@@ -570,7 +914,15 @@
       "Divine Destruction"
     ],
     "dangerLevel": 9,
-    "imageUrl": "/creatures/xiuhcoatl.png"
+    "imageUrl": "/creatures/xiuhcoatl.png",
+    "detailedBio": "## Turquoise Fire, the God's Weapon\n\nXiuhcoatl, the fire serpent, is Huitzilopochtli's weapon in the Coatepec myth: he slays Coyolxauhqui with it. The form appears in sculpture (the Templo Mayor Coyolxauhqui stone's narrative context, xiuhcoatl atlatls) as a turquoise-mosaic snake of drought-sun.\n\nIt is a divine tool more than a wild animal. The art still shows a serpent that burns, so the bestiary keeps the weapon beside the beasts.",
+    "primarySources": [
+      {
+        "text": "At Coatepec, Huitzilopochtli is born armed and slays Coyolxauhqui with the xiuhcoatl, the fire serpent.",
+        "source": "Florentine Codex, Book 3 (Huitzilopochtli at Coatepec)",
+        "date": "c. 1577 CE"
+      }
+    ]
   },
   {
     "id": "tzitzimime",
@@ -586,7 +938,15 @@
       "Darkness Spreading"
     ],
     "dangerLevel": 10,
-    "imageUrl": "/creatures/tzitzimime.png"
+    "imageUrl": "/creatures/tzitzimime.png",
+    "detailedBio": "## Star-Demons at the Eclipse\n\nTzitzimime are female stellar beings who threaten to devour people when the sun fails — eclipses, the New Fire year's panic. Itzpapalotl is their best-known leader. Codex and Sahagún notices dress them in skulls and claws; they are cosmology, not a swamp cryptid.\n\nThe Fifth Sun's contract is that they wait. Ritual keeps the sun fed so they stay aloft.",
+    "primarySources": [
+      {
+        "text": "When the sun is eclipsed, the tzitzimime, the star-demons, descend to devour people; women in labor were thought especially exposed.",
+        "source": "Sahagún, Florentine Codex (eclipse and tzitzimime notices)",
+        "date": "c. 1577 CE"
+      }
+    ]
   },
   {
     "id": "camazotz",
@@ -602,7 +962,15 @@
       "Death Dealing"
     ],
     "dangerLevel": 9,
-    "imageUrl": "/creatures/camazotz.png"
+    "imageUrl": "/creatures/camazotz.png",
+    "detailedBio": "## Death Bat of Xibalba\n\nIn the Popol Vuh, the hero twins must survive the House of Bats. Camazotz swoops; Hunahpu's head is taken and hung in the ballcourt. The being is both a named killer and a type of underworld bat. The same Xibalba terror appears among the gods of the K'iche' list.\n\nK'iche' colonial alphabetic text is the witness, written from older performance.",
+    "primarySources": [
+      {
+        "text": "In the House of Bats, Camazotz snatches Hunahpu's head; the twins must finish the Xibalba trials without it.",
+        "source": "Popol Vuh (K'iche' Maya)",
+        "date": "c. 1550–1700 CE"
+      }
+    ]
   },
   {
     "id": "fenghuang",
@@ -613,7 +981,15 @@
     "habitat": "Paulownia groves and high celestial peaks",
     "abilities": ["Auspicious Presence", "Harmonic Song", "Foresight"],
     "dangerLevel": 2,
-    "imageUrl": "/creatures/fenghuang.png"
+    "imageUrl": "/creatures/fenghuang.png",
+    "detailedBio": "## Auspicious Pair, Not a Fire-Suicide\n\nFenghuang in Chinese classics (Shijing allusions, later rishu and han rhapsodies) is an omen-bird of virtuous rule, often a feng-male and huang-female pair. It is not the Greek phoenix's pyre. Han tombs and palaces use it as a good-governance badge.\n\nDanger 2: it appears when the age is already bearable.",
+    "primarySources": [
+      {
+        "text": "When the kingdom is well ordered, the fenghuang appears; the bird is an omen of virtue, not a creature that burns and is reborn.",
+        "source": "Chinese classical omen lore (Shijing tradition; Han rhapsodies)",
+        "date": "c. 1st millennium BCE–2nd century CE"
+      }
+    ]
   },
   {
     "id": "qinglong",
@@ -628,7 +1004,15 @@
       "Wood Element"
     ],
     "dangerLevel": 7,
-    "imageUrl": "/creatures/qinglong.png"
+    "imageUrl": "/creatures/qinglong.png",
+    "detailedBio": "## Azure Dragon of the East\n\nQinglong is one of the Four Symbols (Siling): east, spring, wood, the mansions of the Azure Dragon. The form is astronomical and directional before it is a novelistic dragon. Han tomb ceilings and the Huainanzi-style correlative cosmos fix the set with White Tiger, Vermilion Bird, and Black Tortoise.\n\nIt commands weather as a quadrant guardian, not as a village pest.",
+    "primarySources": [
+      {
+        "text": "The Azure Dragon of the East is one of the Four Symbols, correlating with spring and wood on Han tomb ceilings and in correlative cosmology.",
+        "source": "Han Four Symbols cosmology (tomb art; Huainanzi tradition)",
+        "date": "c. 2nd century BCE–2nd century CE"
+      }
+    ]
   },
   {
     "id": "bai-ze",
@@ -639,7 +1023,15 @@
     "habitat": "Holy mountains and imperial courts of legend",
     "abilities": ["Omniscient Lore", "Spirit Identification", "Counsel"],
     "dangerLevel": 1,
-    "imageUrl": "/creatures/bai-ze.png"
+    "imageUrl": "/creatures/bai-ze.png",
+    "detailedBio": "## The White Marsh Informant\n\nBaize (hakutaku in Japan) meets the Yellow Emperor and dictates a catalogue of spirits so humans can name and ward them. The Baize tu tradition is the paper trail: an illustrated demonography, much of it lost and reconstructed from citations.\n\nDanger 1: the beast's gift is taxonomy. Later Japanese prints keep the ox-lion face.",
+    "primarySources": [
+      {
+        "text": "The Baize appeared to the Yellow Emperor and described the forms and habits of spirits so they could be recognized and expelled; later Baize tu illustrated the list.",
+        "source": "Baize tu tradition (Chinese demonography)",
+        "date": "c. 3rd–9th century CE"
+      }
+    ]
   },
   {
     "id": "moo",
@@ -650,7 +1042,15 @@
     "habitat": "Fishponds, springs, and mountain pools of Hawaiʻi",
     "abilities": ["Shapeshifting", "Water Guardianship", "Illusion"],
     "dangerLevel": 6,
-    "imageUrl": "/creatures/moo.png"
+    "imageUrl": "/creatures/moo.png",
+    "detailedBio": "## Lizard Guardians of the Pond\n\nHawaiian moʻo are reptilian water spirits, often female, who hold fishponds and springs. They can appear as women or as great lizards. Kamakau, Malo, and later ethnography record offerings and taboos; disrespect brings drowning or sickness.\n\nThis is living place-law, not a single named dragon to slay.",
+    "primarySources": [
+      {
+        "text": "Hawaiian tradition recorded by Kamakau and others treats moʻo as lizard water-guardians of ponds and springs, dangerous when kapu is broken.",
+        "source": "Hawaiian oral tradition (Kamakau and related ethnography)",
+        "date": "19th century CE"
+      }
+    ]
   },
   {
     "id": "taniwha",
@@ -661,7 +1061,15 @@
     "habitat": "Deep rivers, coastal caves, and whirlpools",
     "abilities": ["Water Mastery", "Guardianship", "Devouring"],
     "dangerLevel": 8,
-    "imageUrl": "/creatures/taniwha.png"
+    "imageUrl": "/creatures/taniwha.png",
+    "detailedBio": "## River Power, Kin or Killer\n\nIn Māori tradition a taniwha is a being of a specific river, cave, or coast: kaitiaki to its people, a devourer to strangers who ignore tapu. Whakapapa and local kōrero, not a pan-Polynesian novel, are the sources. Some taniwha are ancestors in another body.\n\nColonial writing sometimes flattened them into 'dragons.' The local file is political and geographic.",
+    "primarySources": [
+      {
+        "text": "Iwi kōrero describe taniwha as beings of particular waters — guardians to their people, lethal to those who break tapu — known through genealogy and place, not a single monster-hunt.",
+        "source": "Māori oral tradition (iwi kōrero)",
+        "date": "pre-colonial–19th century CE"
+      }
+    ]
   },
   {
     "id": "nian",
@@ -672,18 +1080,15 @@
     "habitat": "Mountains and coastal depths",
     "abilities": ["Seasonal Raid", "Fear Aura", "Great Strength"],
     "dangerLevel": 7,
-    "imageUrl": "/creatures/nian.png"
-  },
-  {
-    "id": "ahuizotl-aztec",
-    "pantheonId": "aztec-pantheon",
-    "name": "Ahuizotl",
-    "slug": "ahuizotl-aztec",
-    "description": "A dog-like water creature with a hand at the tip of its tail, said to drown people near lakes to claim their eyes, nails, and teeth for the water gods.",
-    "habitat": "Lakes and canals of the Valley of Mexico",
-    "abilities": ["Tail-Hand Grasp", "Drowning", "Water Ambush"],
-    "dangerLevel": 8,
-    "imageUrl": "/creatures/ahuizotl-aztec.png"
+    "imageUrl": "/creatures/nian.png",
+    "detailedBio": "## The Year-Beast of Noisy Red\n\nThe nian beast that raids at the turn of the year is a late folk etiology for New Year firecrackers, red paper, and noise. It is not in the early classics. Qing and modern popular retellings fix the plot: an old man or a village learns that scarlet and sound drive the beast off. Custom comes first in the record; the named monster is later etiology.",
+    "primarySources": [
+      {
+        "text": "Late folk etiologies explain Lunar New Year noise, fire, and the color red as devices that once drove off the nian beast; the tale is popular and late, not a Zhou classic.",
+        "source": "Chinese New Year folk etiology (late imperial–modern)",
+        "date": "c. 19th–20th century CE"
+      }
+    ]
   },
   {
     "id": "anzu",
@@ -694,29 +1099,34 @@
     "habitat": "Mountain peaks and storm clouds",
     "abilities": ["Flight", "Destiny Theft", "Storm Wings"],
     "dangerLevel": 9,
-    "imageUrl": "/creatures/anzu.png"
+    "imageUrl": "/creatures/anzu.png",
+    "detailedBio": "## Thief of the Tablet of Destinies\n\nAnzû (Imdugud), the lion-headed eagle, steals Enlil's Tablet of Destinies in the Anzû epic; Ninurta recovers it. Older Imdugud reliefs (Tell al-Ubaid) show the bird as a temple emblem before the theft story. The Standard Babylonian poem is the narrative spine.\n\nChaos here is bureaucratic: stolen office, not a random storm.",
+    "primarySources": [
+      {
+        "text": "Anzû stole the Tablet of Destinies from Enlil; the gods sent Ninurta to strike the lion-headed eagle and bring the tablet back.",
+        "source": "Epic of Anzû (Standard Babylonian)",
+        "date": "c. 13th–7th century BCE"
+      }
+    ]
   },
   {
-    "id": "cipactli-aztec",
-    "pantheonId": "aztec-pantheon",
-    "name": "Cipactli",
-    "slug": "cipactli-aztec",
-    "description": "The primordial crocodilian earth-monster from whose body the gods formed the world — hungry, toothy, and older than the suns.",
-    "habitat": "Primordial waters",
-    "abilities": ["World-Body", "Endless Hunger", "Earth Flesh"],
-    "dangerLevel": "mythic",
-    "imageUrl": "/creatures/cipactli-aztec.png"
-  },
-  {
-    "id": "itzpapalotl-obsidian",
+    "id": "itzpapalotl-obsidian-host",
     "pantheonId": "aztec-pantheon",
     "name": "Itzpapalotl's Obsidian Host",
     "slug": "itzpapalotl-obsidian-host",
     "description": "Obsidian-butterfly warriors of the paradise Tamoanchan — beautiful, jagged, and lethal to the uninitiated.",
     "habitat": "Tamoanchan",
     "abilities": ["Obsidian Wings", "Star Terror", "Paradise Gate"],
-    "dangerLevel": "high",
-    "imageUrl": "/creatures/itzpapalotl-obsidian-host.png"
+    "dangerLevel": 8,
+    "imageUrl": "/creatures/itzpapalotl-obsidian-host.png",
+    "detailedBio": "## Obsidian Butterflies of Tamoanchan\n\nItzpapalotl, the obsidian-butterfly, rules a host of tzitzimime linked to Tamoanchan. Codex Borgia and related ritual books show skeletal, clawed women with butterfly and knife attributes. The host is a war-band of tzitzimime, not a second biography of Itzpapalotl herself.",
+    "primarySources": [
+      {
+        "text": "Codices picture Itzpapalotl with a host of clawed, skeletal women — tzitzimime of Tamoanchan — obsidian and butterfly at once.",
+        "source": "Codex Borgia and related ritual books; Sahagún notices of Itzpapalotl",
+        "date": "c. 15th–16th century CE"
+      }
+    ]
   },
   {
     "id": "mushussu",
@@ -726,8 +1136,16 @@
     "description": "The snaked-headed dragon of Marduk, later emblem of Babylon — horns, lion forelegs, and bird hind talons.",
     "habitat": "Babylon / sacred precincts",
     "abilities": ["Sacred Terror", "Royal Emblem", "Venom Strike"],
-    "dangerLevel": "high",
-    "imageUrl": "/creatures/mushussu.png"
+    "dangerLevel": 8,
+    "imageUrl": "/creatures/mushussu.png",
+    "detailedBio": "## The Snake-Dragon on the Gate\n\nMušḫuššu is the long-necked, horned dragon of Marduk on Babylon's Ishtar Gate: snake head, lion forelegs, bird hind talons. The Enūma Eliš and god lists give Marduk (and earlier Ninazu/Tishpak) the animal as emblem. It is glazed brick walking, not a forest hunt.\n\nDanger is ceremonial. The beast means the god is home.",
+    "primarySources": [
+      {
+        "text": "The mušḫuššu-dragon of Marduk strides in glazed brick on the Ishtar Gate; god lists and Enuma Elish tradition assign the beast as the god's animal.",
+        "source": "Ishtar Gate orthostats; Mesopotamian god lists",
+        "date": "c. 6th century BCE (gate); older in text"
+      }
+    ]
   },
   {
     "id": "ugallu",
@@ -737,7 +1155,15 @@
     "description": "Lion-demon storm spirits of Mesopotamian ritual art — fierce guardians who also threaten the unprotected.",
     "habitat": "Storm fronts / temple thresholds",
     "abilities": ["Storm Roar", "Threshold Guard", "Demon Strength"],
-    "dangerLevel": "high",
-    "imageUrl": "/creatures/ugallu.png"
+    "dangerLevel": 7,
+    "imageUrl": "/creatures/ugallu.png",
+    "detailedBio": "## Storm-Demons at the Threshold\n\nUgallu ('big weather-beast') appear in Neo-Assyrian palace and ritual art as lion-headed, donkey-eared figures with daggers, paired with other apkallu and genii who guard doorways. Incantation series name them among the storm-helpers of Adad and as house protectors who can also threaten.\n\nThey are a type, not a named novel villain. The clay and the doorway are the primary sources.",
+    "primarySources": [
+      {
+        "text": "Neo-Assyrian reliefs and ritual texts place ugallu, lion-headed storm-demons, at doorways among the protective and dangerous genii of the house.",
+        "source": "Neo-Assyrian palatial reliefs; house-blessing incantations",
+        "date": "c. 9th–7th century BCE"
+      }
+    ]
   }
 ]

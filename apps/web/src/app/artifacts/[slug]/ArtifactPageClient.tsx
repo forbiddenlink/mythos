@@ -2,12 +2,14 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Zap, Gem } from "lucide-react";
+import { BookOpen, Zap, Gem } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import ReactMarkdown from "react-markdown";
 import { EditorialByline } from "@/components/content/EditorialByline";
 import { ArtifactJsonLd } from "@/components/seo/JsonLd";
 import { ArtifactProvenance } from "@/components/artifacts/ArtifactProvenance";
+import { SourceProvenance } from "@/components/deities/SourceProvenance";
 import artifactsData from "@/data/artifacts.json";
 import deitiesData from "@/data/deities.json";
 import storiesData from "@/data/stories.json";
@@ -24,6 +26,12 @@ interface Artifact {
   origin?: string | null;
   currentLocation?: string | null;
   relatedStories?: string[];
+  detailedBio?: string;
+  primarySources?: Array<{
+    text: string;
+    source: string;
+    date?: string;
+  }>;
   imageUrl: string | null;
 }
 
@@ -149,10 +157,48 @@ export function ArtifactPageClient({ slug }: ArtifactPageClientProps) {
                     Description
                   </CardTitle>
                 </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground leading-relaxed text-lg">
-                    {artifact.description}
-                  </p>
+                <CardContent className="space-y-6">
+                  {artifact.detailedBio ? (
+                    <div className="prose prose-lg dark:prose-invert prose-headings:font-serif prose-headings:text-gold-text prose-a:text-gold dark:prose-a:text-gold-light max-w-none leading-relaxed">
+                      <ReactMarkdown>{artifact.detailedBio}</ReactMarkdown>
+                    </div>
+                  ) : (
+                    <p className="text-muted-foreground leading-relaxed text-lg">
+                      {artifact.description}
+                    </p>
+                  )}
+                  <SourceProvenance sources={artifact.primarySources} />
+                  {artifact.primarySources &&
+                    artifact.primarySources.length > 0 && (
+                      <section>
+                        <h3 className="font-serif text-xl font-semibold text-foreground mb-4 flex items-center gap-2">
+                          <BookOpen className="h-5 w-5 text-gold" />
+                          Primary Sources
+                        </h3>
+                        <div className="space-y-6">
+                          {artifact.primarySources.map((source, index) => (
+                            <blockquote
+                              key={`${source.source}-${index}`}
+                              className="border-l-4 border-gold/30 pl-4 py-2 bg-muted/50 rounded-r-lg"
+                            >
+                              <p className="text-foreground/80 italic leading-relaxed">
+                                &ldquo;{source.text}&rdquo;
+                              </p>
+                              <footer className="mt-2 text-sm text-muted-foreground">
+                                <span className="font-medium">
+                                  {source.source}
+                                </span>
+                                {source.date && (
+                                  <span className="ml-2 text-muted-foreground/70">
+                                    ({source.date})
+                                  </span>
+                                )}
+                              </footer>
+                            </blockquote>
+                          ))}
+                        </div>
+                      </section>
+                    )}
                 </CardContent>
               </Card>
 

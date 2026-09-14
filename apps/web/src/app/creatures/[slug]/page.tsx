@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import creatures from "@/data/creatures.json";
 import pantheons from "@/data/pantheons.json";
+import { canonicalCreatureSlug } from "@/lib/creature-aliases";
 import { generateBaseMetadata, generateNotFoundMetadata } from "@/lib/metadata";
 import { CreaturePageClient } from "./CreaturePageClient";
 
@@ -35,10 +36,10 @@ export async function generateStaticParams() {
 export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
-  const { slug } = await params;
+  const { slug: rawSlug } = await params;
+  const slug = canonicalCreatureSlug(rawSlug);
   const creature = creatures.find((c) => c.slug === slug) as
-    | CreatureData
-    | undefined;
+    CreatureData | undefined;
 
   if (!creature) {
     return generateNotFoundMetadata(
@@ -80,6 +81,10 @@ export async function generateMetadata({
 
 export default async function CreaturePage({ params }: PageProps) {
   const { slug } = await params;
+  const canonical = canonicalCreatureSlug(slug);
+  if (canonical !== slug) {
+    redirect(`/creatures/${canonical}`);
+  }
 
   // Check if creature exists (for 404)
   const creature = creatures.find((c) => c.slug === slug);

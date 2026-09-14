@@ -4,7 +4,7 @@
 
 ## Overview
 
-Web frontend for Mythos Atlas, an interactive encyclopedia of ancient mythology featuring **13 pantheons**, **190 deities**, **98 stories**, **58 creatures**, **52 artifacts**, and **123 mythological locations** — plus quizzes, interactive family trees, 3D artifact viewers, branching stories, and spaced-repetition review.
+Web frontend for Mythos Atlas, an interactive encyclopedia of ancient mythology featuring **13 pantheons**, **190 deities**, **98 stories**, **56 creatures**, **52 artifacts**, and **121 mythological locations** — plus quizzes, interactive family trees, 3D artifact viewers, branching stories, and spaced-repetition review.
 
 **Built by Elizabeth Stein** using Next.js 16, React 19, TypeScript 5, and modern web technologies.
 
@@ -13,9 +13,9 @@ Web frontend for Mythos Atlas, an interactive encyclopedia of ancient mythology 
 - 🏛️ **13 Pantheons** — Greek, Norse, Egyptian, Roman, Hindu, Japanese, Celtic, Aztec, Chinese, Mesopotamian, African (Yoruba), Polynesian, Mesoamerican
 - 👑 **190 Deity Profiles** — Filterable by gender, domain, and pantheon with smart sorting
 - 📖 **98 Epic Stories** — Including interactive branching narratives (choose-your-own-adventure)
-- 🐉 **58 Creatures** — Mythological beasts with detailed profiles
+- 🐉 **56 Creatures** — Mythological beasts with detailed profiles
 - ⚔️ **52 Artifacts** — Legendary items with interactive 3D viewer (React Three Fiber)
-- 🗺️ **123 Locations** — Interactive mythological map with filters and 3 guided journeys
+- 🗺️ **121 Locations** — Interactive mythological map with filters and 3 guided journeys
 - 🌳 **Family Trees** — Network graph (ReactFlow) and hierarchical (D3.js) visualizations
 - 🧠 **Quizzes & Games** — Relationship quiz, personality quiz, quick quiz, symbol memory game
 - 📚 **Spaced Repetition** — Flashcard review system with intelligent scheduling
@@ -123,9 +123,9 @@ src/
 │   ├── pantheons.json    # 13 pantheons
 │   ├── deities.json      # 190 deities
 │   ├── stories.json      # 98 stories
-│   ├── creatures.json    # 58 creatures
+│   ├── creatures.json    # 56 creatures
 │   ├── artifacts.json    # 52 artifacts
-│   ├── locations.json    # 123 locations
+│   ├── locations.json    # 121 locations
 │   └── relationships.json
 ├── hooks/                # Custom React hooks
 │   ├── useAchievements, useBookmarks, usePagination

@@ -3,12 +3,21 @@
 import { BreadcrumbJsonLd, PlaceJsonLd } from "@/components/seo/JsonLd";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { SourceProvenance } from "@/components/deities/SourceProvenance";
 import locations from "@/data/locations.json";
 import pantheons from "@/data/pantheons.json";
 import { siteConfig } from "@/lib/metadata";
-import { ChevronRight, Compass, Globe, MapPin, Mountain } from "lucide-react";
+import {
+  BookOpen,
+  ChevronRight,
+  Compass,
+  Globe,
+  MapPin,
+  Mountain,
+} from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import ReactMarkdown from "react-markdown";
 
 // ─── Types ──────────────────────────────────────────────────────────────
 interface Location {
@@ -20,6 +29,12 @@ interface Location {
   latitude: number | null;
   longitude: number | null;
   imageUrl?: string;
+  detailedBio?: string;
+  primarySources?: Array<{
+    text: string;
+    source: string;
+    date?: string;
+  }>;
 }
 
 interface LocationPageClientProps {
@@ -256,10 +271,48 @@ export function LocationPageClient({ slug }: LocationPageClientProps) {
                     About This Location
                   </CardTitle>
                 </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground leading-relaxed text-lg">
-                    {location.description}
-                  </p>
+                <CardContent className="space-y-6">
+                  {location.detailedBio ? (
+                    <div className="prose prose-lg dark:prose-invert prose-headings:font-serif prose-headings:text-gold-text prose-a:text-gold dark:prose-a:text-gold-light max-w-none leading-relaxed">
+                      <ReactMarkdown>{location.detailedBio}</ReactMarkdown>
+                    </div>
+                  ) : (
+                    <p className="text-muted-foreground leading-relaxed text-lg">
+                      {location.description}
+                    </p>
+                  )}
+                  <SourceProvenance sources={location.primarySources} />
+                  {location.primarySources &&
+                    location.primarySources.length > 0 && (
+                      <section>
+                        <h3 className="font-serif text-xl font-semibold text-foreground mb-4 flex items-center gap-2">
+                          <BookOpen className="h-5 w-5 text-gold" />
+                          Primary Sources
+                        </h3>
+                        <div className="space-y-6">
+                          {location.primarySources.map((source, index) => (
+                            <blockquote
+                              key={`${source.source}-${index}`}
+                              className="border-l-4 border-gold/30 pl-4 py-2 bg-muted/50 rounded-r-lg"
+                            >
+                              <p className="text-foreground/80 italic leading-relaxed">
+                                &ldquo;{source.text}&rdquo;
+                              </p>
+                              <footer className="mt-2 text-sm text-muted-foreground">
+                                <span className="font-medium">
+                                  {source.source}
+                                </span>
+                                {source.date && (
+                                  <span className="ml-2 text-muted-foreground/70">
+                                    ({source.date})
+                                  </span>
+                                )}
+                              </footer>
+                            </blockquote>
+                          ))}
+                        </div>
+                      </section>
+                    )}
                 </CardContent>
               </Card>
             </div>

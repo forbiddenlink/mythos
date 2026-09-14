@@ -135,4 +135,18 @@ describe("relationships.json data integrity", () => {
       ).toBeGreaterThanOrEqual(4);
     }
   });
+
+  it("does not invent kin for Cernunnos, Guan Yu, or Ori", () => {
+    const inGraph = new Set<string>();
+    for (const rel of relationships) {
+      inGraph.add(rel.fromDeityId);
+      inGraph.add(rel.toDeityId);
+    }
+    // Rank-2 figures with no attested relatives in this catalog:
+    // Cernunnos (Gaulish iconography only), Guan Yu (historical; Liu Bei
+    // and Zhang Fei are not deities here), Ori (inner head, not a lineage).
+    expect(inGraph.has("cernunnos")).toBe(false);
+    expect(inGraph.has("guan-yu")).toBe(false);
+    expect(inGraph.has("ori")).toBe(false);
+  });
 });

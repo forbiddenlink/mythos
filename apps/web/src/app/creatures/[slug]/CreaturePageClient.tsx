@@ -2,9 +2,11 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { ShieldAlert, Zap, MapPin, Skull, Users } from "lucide-react";
+import { BookOpen, ShieldAlert, Zap, MapPin, Skull, Users } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import ReactMarkdown from "react-markdown";
+import { SourceProvenance } from "@/components/deities/SourceProvenance";
 import { CreatureJsonLd, BreadcrumbJsonLd } from "@/components/seo/JsonLd";
 import { EditorialByline } from "@/components/content/EditorialByline";
 import { siteConfig } from "@/lib/metadata";
@@ -20,6 +22,12 @@ interface Creature {
   abilities: string[];
   dangerLevel: number;
   description: string;
+  detailedBio?: string;
+  primarySources?: Array<{
+    text: string;
+    source: string;
+    date?: string;
+  }>;
   imageUrl: string | null;
 }
 
@@ -175,10 +183,48 @@ export function CreaturePageClient({ slug }: CreaturePageClientProps) {
                     Lore & Legend
                   </CardTitle>
                 </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground leading-relaxed text-lg">
-                    {creature.description}
-                  </p>
+                <CardContent className="space-y-6">
+                  {creature.detailedBio ? (
+                    <div className="prose prose-lg dark:prose-invert prose-headings:font-serif prose-headings:text-gold-text prose-a:text-gold dark:prose-a:text-gold-light max-w-none leading-relaxed">
+                      <ReactMarkdown>{creature.detailedBio}</ReactMarkdown>
+                    </div>
+                  ) : (
+                    <p className="text-muted-foreground leading-relaxed text-lg">
+                      {creature.description}
+                    </p>
+                  )}
+                  <SourceProvenance sources={creature.primarySources} />
+                  {creature.primarySources &&
+                    creature.primarySources.length > 0 && (
+                      <section>
+                        <h3 className="font-serif text-xl font-semibold text-foreground mb-4 flex items-center gap-2">
+                          <BookOpen className="h-5 w-5 text-gold" />
+                          Primary Sources
+                        </h3>
+                        <div className="space-y-6">
+                          {creature.primarySources.map((source, index) => (
+                            <blockquote
+                              key={`${source.source}-${index}`}
+                              className="border-l-4 border-gold/30 pl-4 py-2 bg-muted/50 rounded-r-lg"
+                            >
+                              <p className="text-foreground/80 italic leading-relaxed">
+                                &ldquo;{source.text}&rdquo;
+                              </p>
+                              <footer className="mt-2 text-sm text-muted-foreground">
+                                <span className="font-medium">
+                                  {source.source}
+                                </span>
+                                {source.date && (
+                                  <span className="ml-2 text-muted-foreground/70">
+                                    ({source.date})
+                                  </span>
+                                )}
+                              </footer>
+                            </blockquote>
+                          ))}
+                        </div>
+                      </section>
+                    )}
                 </CardContent>
               </Card>
             </div>

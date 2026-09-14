@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import locations from "@/data/locations.json";
 import pantheons from "@/data/pantheons.json";
+import { canonicalLocationSlug } from "@/lib/location-aliases";
 import { generateBaseMetadata, generateNotFoundMetadata } from "@/lib/metadata";
 import { LocationPageClient } from "./LocationPageClient";
 
@@ -13,7 +14,7 @@ interface LocationData {
   description: string;
   latitude: number | null;
   longitude: number | null;
-  imageUrl: string;
+  imageUrl?: string;
 }
 
 interface PageProps {
@@ -31,10 +32,10 @@ export async function generateStaticParams() {
 export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
-  const { slug } = await params;
+  const { slug: rawSlug } = await params;
+  const slug = canonicalLocationSlug(rawSlug);
   const location = locations.find((l) => l.id === slug) as
-    | LocationData
-    | undefined;
+    LocationData | undefined;
 
   if (!location) {
     return generateNotFoundMetadata(
@@ -74,6 +75,10 @@ export async function generateMetadata({
 
 export default async function LocationPage({ params }: PageProps) {
   const { slug } = await params;
+  const canonical = canonicalLocationSlug(slug);
+  if (canonical !== slug) {
+    redirect(`/locations/${canonical}`);
+  }
 
   const location = locations.find((l) => l.id === slug);
   if (!location) {

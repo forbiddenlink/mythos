@@ -1,10 +1,5 @@
 export type EntityType =
-  | "deity"
-  | "creature"
-  | "artifact"
-  | "story"
-  | "location"
-  | "pantheon";
+  "deity" | "creature" | "artifact" | "story" | "location" | "pantheon";
 
 export interface BaseEntity {
   id: string;
@@ -29,12 +24,25 @@ export interface Creature extends BaseEntity {
   habitat: string;
   abilities: string[];
   dangerLevel: number; // 1-10
+  detailedBio?: string;
+  primarySources?: Array<{
+    text: string;
+    source: string;
+    date?: string;
+  }>;
 }
 
 export interface Artifact extends BaseEntity {
   ownerId?: string;
   originStory?: string;
+  origin?: string;
   powers: string[];
+  detailedBio?: string;
+  primarySources?: Array<{
+    text: string;
+    source: string;
+    date?: string;
+  }>;
 }
 
 export interface Pronunciation {

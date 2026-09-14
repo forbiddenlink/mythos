@@ -7,7 +7,15 @@
     "description": "The highest mountain in Greece and the mythological home of the twelve Olympian gods.",
     "latitude": 40.086,
     "longitude": 22.358,
-    "imageUrl": "/locations/mount-olympus.png"
+    "imageUrl": "/locations/mount-olympus.png",
+    "detailedBio": "## Peak above the weather\n\nHomer parks the Olympians on a peak above the weather. Clouds stop below the ridge; Zeus sits apart while the others come and go as if the mountain were a house. Cult on the real Olympus in Pieria is later and thinner than the poems. The *Iliad* is the map. Hesiod's *Theogony* puts the same court there after the Titan war. Local Zeus cults used other Greek peaks; Olympus is first a literary address, not a measured summit shrine.",
+    "primarySources": [
+      {
+        "text": "They reached the peak of snowy Olympus, the seat of the gods that stands forever.",
+        "source": "Homer, Iliad 5",
+        "date": "c. 750 BCE"
+      }
+    ]
   },
   {
     "id": "underworld",
@@ -17,7 +25,15 @@
     "description": "The gloomy realm of the dead ruled by Hades, located deep beneath the earth.",
     "latitude": 36.38,
     "longitude": 22.48,
-    "imageUrl": "/locations/underworld.png"
+    "imageUrl": "/locations/underworld.png",
+    "detailedBio": "## House of Hades\n\nGreek poets send the dead below the earth to a house, not a devil's empire. Homer's Odysseus digs a trench at the world's edge and the shades drink blood to speak (*Odyssey* 11). Later the geography hardens: judges, rivers, gates, and Hades as a lawful king. Mystery cults promised a better lot; ordinary graves did not. Virgil's *Aeneid* 6 is the Roman tour. There is no single canonical map, only overlapping itineraries.",
+    "primarySources": [
+      {
+        "text": "I drew my sharp sword from my thigh and dug a pit a cubit's length this way and that.",
+        "source": "Homer, Odyssey 11",
+        "date": "c. 700 BCE"
+      }
+    ]
   },
   {
     "id": "delphi",
@@ -27,7 +43,15 @@
     "description": "The site of the oracle of Apollo, considered the center of the world (omphalos) by the ancient Greeks.",
     "latitude": 38.48,
     "longitude": 22.5,
-    "imageUrl": "/locations/delphi.png"
+    "imageUrl": "/locations/delphi.png",
+    "detailedBio": "## Navel of consultation\n\nDelphi is Apollo's oracular workplace. The *Homeric Hymn to Apollo* has him kill the serpent and take the shrine from an older earth-power. The Pythia spoke from the adyton; cities sent theoroi and paid in gold and trouble. The omphalos stone marked a navel the Greeks were willing to argue about. Cult here is dense and documented; the poetry explains why a cliff above the Pleistos became the place to ask a god a question.",
+    "primarySources": [
+      {
+        "text": "Phoebus Apollo, you came to Crisa under snowy Parnassus, and there the serpent received you.",
+        "source": "Homeric Hymn to Apollo",
+        "date": "c. 6th c. BCE"
+      }
+    ]
   },
   {
     "id": "tartarus",
@@ -37,7 +61,15 @@
     "description": "The deepest abyss of the underworld, a dungeon of torment where the Titans were imprisoned and the wicked punished for eternity.",
     "latitude": null,
     "longitude": null,
-    "imageUrl": "/locations/tartarus.png"
+    "imageUrl": "/locations/tartarus.png",
+    "detailedBio": "## Pit under the pit\n\nIn the *Iliad* Zeus threatens to hurl gods as far below Hades as heaven is above earth. Hesiod makes Tartarus a bronze-fenced well where the Titans sit after defeat, with a day-long anvil-drop to measure the depth. It is a prison for defeated immortals before it is a rack for wicked humans. Plato and later moralists fill it with famous sinners; Homer does not. No cult of Tartarus is attested. The name is a cosmic distance, not a temple.",
+    "primarySources": [
+      {
+        "text": "A bronze anvil falling from heaven nine nights and days would reach the earth on the tenth; from earth to Tartarus, the same.",
+        "source": "Hesiod, Theogony",
+        "date": "c. 700 BCE"
+      }
+    ]
   },
   {
     "id": "elysian-fields",
@@ -47,7 +79,15 @@
     "description": "A paradise at the end of the earth where heroes and the virtuous were sent after death to live in eternal bliss.",
     "latitude": null,
     "longitude": null,
-    "imageUrl": "/locations/elysian-fields.png"
+    "imageUrl": "/locations/elysian-fields.png",
+    "detailedBio": "## A meadow for a few\n\nHomer does not send every hero to bliss. In *Odyssey* 4 Proteus tells Menelaus he will go to the Elysian plain at the world's end, because he is Helen's husband and Zeus's son-in-law. Pindar later opens a similar meadow to the initiated and the just. Virgil's Elysium in *Aeneid* 6 is already a Roman civic park of ancestors. Ordinary Greek dead go to Hades. Elysium is a privilege with shifting entrance rules, not a default afterlife.",
+    "primarySources": [
+      {
+        "text": "The immortals will send you to the Elysian plain and the ends of the earth, where life is easiest for men.",
+        "source": "Homer, Odyssey 4",
+        "date": "c. 700 BCE"
+      }
+    ]
   },
   {
     "id": "river-styx",
@@ -57,7 +97,15 @@
     "description": "The principal river of the underworld, upon which even the gods swore binding oaths. Charon ferried the dead across its dark waters.",
     "latitude": null,
     "longitude": null,
-    "imageUrl": "/locations/river-styx.png"
+    "imageUrl": "/locations/river-styx.png",
+    "detailedBio": "## Oath-water\n\nThe Styx is a river the gods swear by. Hesiod says Zeus made that oath after Styx and her children sided with him in the Titan war; a god who breaks it lies breathless for a year. Homer's gods invoke it as the strongest, most dreaded oath. Charon's ferry is a later convenience (already familiar to fifth-century vase-painters and to Virgil). The Arcadian Styx of Nonacris is a real waterfall Pausanias describes as poisonous. Myth and a bitter spring share a name.",
+    "primarySources": [
+      {
+        "text": "The great oath of the gods, the water of Styx, that oldest and most dread of rivers.",
+        "source": "Homer, Iliad 15",
+        "date": "c. 750 BCE"
+      }
+    ]
   },
   {
     "id": "olympia",
@@ -67,7 +115,15 @@
     "description": "The sanctuary of Zeus and site of the ancient Olympic Games, featuring a colossal statue of Zeus—one of the Seven Wonders.",
     "latitude": 37.638,
     "longitude": 21.63,
-    "imageUrl": "/locations/olympia.png"
+    "imageUrl": "/locations/olympia.png",
+    "detailedBio": "## Zeus's games, not Olympus\n\nOlympia in Elis is a sanctuary of Zeus in a river valley, not the mountain of the gods. The games were a Panhellenic truce-festival; Pindar's odes pay the victors in myth. Pausanias walks the Altis: Pelops's precinct, Hera's older temple, Pheidias's chryselephantine Zeus. Foundation stories disagree (Heracles, Pelops, local kings). What is solid is the archaeology and the victor lists. The mountain Olympus is a different coordinate; the name is a cult title of Zeus, not a postal error.",
+    "primarySources": [
+      {
+        "text": "The sacred grove of Zeus, which they call Altis, is surrounded by a wall.",
+        "source": "Pausanias, Description of Greece 5.10",
+        "date": "c. 170 CE"
+      }
+    ]
   },
   {
     "id": "thebes",
@@ -77,7 +133,15 @@
     "description": "A powerful city-state and setting of many tragic myths including Oedipus, the Seven Against Thebes, and Dionysus's revenge.",
     "latitude": 38.319,
     "longitude": 23.318,
-    "imageUrl": "/locations/thebes.png"
+    "imageUrl": "/locations/thebes.png",
+    "detailedBio": "## Cadmus's city, tragedy's workshop\n\nThebes is where Cadmus sows the dragon's teeth, where Oedipus answers the Sphinx, where the Seven die at the gates, and where Dionysus wrecks Pentheus in Euripides' *Bacchae*. Homer already knows it as seven-gated. Aeschylus and Sophocles make it a machine for inherited pollution. Cult of Dionysus and Apollo Ismenios is local and real; the Labdacid house is theater. The archaeological Kadmeia is a Bronze Age citadel wearing a later tragic costume.",
+    "primarySources": [
+      {
+        "text": "I am Dionysus, son of Zeus. I have come to this land of Thebes.",
+        "source": "Euripides, Bacchae",
+        "date": "405 BCE"
+      }
+    ]
   },
   {
     "id": "colchis",
@@ -87,7 +151,15 @@
     "description": "The distant kingdom at the edge of the known world where the Golden Fleece was kept, guarded by an ever-watchful dragon.",
     "latitude": 42.266,
     "longitude": 42.718,
-    "imageUrl": "/locations/colchis.png"
+    "imageUrl": "/locations/colchis.png",
+    "detailedBio": "## Fleece at the world's edge\n\nColchis is Aeetes's kingdom on the Phasis, where a ram's gold hide hangs in a grove of Ares. Pindar's *Pythian* 4 already sends Jason there; Apollonius fills the voyage. Medea's magic, the unsleeping dragon, and the fire-breathing oxen are Greek pictures of a Black Sea power that really traded with the Aegean. There is no Colchian epic in Greek libraries, only the Argonauts' report. The fleece is a prize that turns the return into a crime.",
+    "primarySources": [
+      {
+        "text": "They found the fleece hanging on a huge oak, like a cloud that blushes in the beams of the rising sun.",
+        "source": "Apollonius Rhodius, Argonautica 4",
+        "date": "c. 250 BCE"
+      }
+    ]
   },
   {
     "id": "crete",
@@ -97,7 +169,15 @@
     "description": "The great island kingdom of King Minos, home to the Labyrinth where the Minotaur dwelt, and birthplace of Zeus.",
     "latitude": 35.24,
     "longitude": 24.91,
-    "imageUrl": "/locations/crete.png"
+    "imageUrl": "/locations/crete.png",
+    "detailedBio": "## Minos, the maze, and a birth-cave\n\nCrete in myth is Minos's thalassocracy: the Labyrinth, the Minotaur, Pasiphae's bull, and Daedalus's flight. Homer calls Minos a judge of the dead and Zeus's son. Hesiod and later poets put Zeus's infancy in a Cretan cave, hidden from Cronus. The palace at Knossos is archaeology; the Labyrinth as a built maze is a Greek story laid over Minoan ruins. No Linear B tablet names the Minotaur. Theseus's tribute of youths is Athenian charter myth.",
+    "primarySources": [
+      {
+        "text": "Minos, the nine-year companion of great Zeus, who held the scepter.",
+        "source": "Homer, Odyssey 19",
+        "date": "c. 700 BCE"
+      }
+    ]
   },
   {
     "id": "ithaca",
@@ -107,7 +187,15 @@
     "description": "The island kingdom of Odysseus, whose twenty-year journey home from Troy is told in Homer's Odyssey.",
     "latitude": 38.366,
     "longitude": 20.718,
-    "imageUrl": "/locations/ithaca.png"
+    "imageUrl": "/locations/ithaca.png",
+    "detailedBio": "## The island that is the point\n\nIthaca is Odysseus's small, rocky kingdom. The *Odyssey* spends more lines on getting there than on describing it: goats, a harbor, a palace full of suitors. Homeric geography and the modern Ionian island do not match cleanly; Strabo already worried. Cult of Odysseus is late and local. The poem needs a home small enough that a returning beggar can retake it in one night. Ithaca is a political scale, not a tourist map.",
+    "primarySources": [
+      {
+        "text": "I dwell in Ithaca, a land of clear skies. In it is a mountain, Neriton, covered with waving woods.",
+        "source": "Homer, Odyssey 9",
+        "date": "c. 700 BCE"
+      }
+    ]
   },
   {
     "id": "sparta",
@@ -117,7 +205,15 @@
     "description": "The powerful warrior city-state, home of Helen whose abduction sparked the Trojan War, and Menelaus her husband.",
     "latitude": 37.073,
     "longitude": 22.43,
-    "imageUrl": "/locations/sparta.png"
+    "imageUrl": "/locations/sparta.png",
+    "detailedBio": "## Menelaus's house, Helen's departure\n\nHomeric Sparta is Lacedaemon, Menelaus's palace, where Telemachus hears the war's leftovers in *Odyssey* 4. The *Iliad* makes Helen's leaving that house the cause of Troy. Later Sparta is a military city with cults of Artemis Orthia, Apollo Hyakinthios, and the Dioscuri. Those cults are not the Homeric plot. Tyrtaeus and Alcman belong to the historical city; the abduction belongs to epic. Do not collapse the two Spartas.",
+    "primarySources": [
+      {
+        "text": "They came to hollow Lacedaemon and drove to the palace of glorious Menelaus.",
+        "source": "Homer, Odyssey 4",
+        "date": "c. 700 BCE"
+      }
+    ]
   },
   {
     "id": "troy",
@@ -127,7 +223,15 @@
     "description": "The legendary walled city besieged for ten years by the Greeks, eventually fallen to the cunning of the wooden horse.",
     "latitude": 39.957,
     "longitude": 26.239,
-    "imageUrl": "/locations/troy.png"
+    "imageUrl": "/locations/troy.png",
+    "detailedBio": "## The city the poem besieges\n\nTroy in the *Iliad* is Priam's walled town on the Scamander, fought over for Helen and for honor. Homer never tells the wooden horse; that is the Cycle and then Virgil. His Troy has temples of Athena and Apollo, a Scaean gate, and a fate Zeus will not lift. Hisarlik is the archaeology. The poem is not a campaign diary. Cult of the Trojan Athena is Homeric fiction until Greeks later claimed Troad shrines. The war's length is a verse convention.",
+    "primarySources": [
+      {
+        "text": "Sing, goddess, the anger of Achilles, that brought countless ills upon the Achaeans.",
+        "source": "Homer, Iliad 1",
+        "date": "c. 750 BCE"
+      }
+    ]
   },
   {
     "id": "delos",
@@ -137,7 +241,15 @@
     "description": "The sacred island birthplace of Apollo and Artemis, where their mother Leto finally found refuge to give birth.",
     "latitude": 37.396,
     "longitude": 25.268,
-    "imageUrl": "/locations/delos.png"
+    "imageUrl": "/locations/delos.png",
+    "detailedBio": "## Leto's island, Apollo's birth\n\nThe *Homeric Hymn to Apollo* has Leto wander until Delos, a floating rock, agrees to host her labor. Artemis and Apollo are born there; the island is pinned and made holy. Archaic Delos was a real Ionian sanctuary: temples, a sacred lake, a ban on dying on the island in later Athenian rule. The hymn is the charter. There is no older literary rival for the birth story. The geography is tiny; the cult catchment was the Aegean.",
+    "primarySources": [
+      {
+        "text": "Rejoice, blessed Leto, for you bore glorious children, lord Apollo and Artemis who delights in arrows.",
+        "source": "Homeric Hymn to Apollo",
+        "date": "c. 6th c. BCE"
+      }
+    ]
   },
   {
     "id": "lemnos",
@@ -147,7 +259,15 @@
     "description": "The volcanic island where Hephaestus landed after being cast from Olympus, and where he established his forge.",
     "latitude": 39.916,
     "longitude": 25.236,
-    "imageUrl": "/locations/lemnos.png"
+    "imageUrl": "/locations/lemnos.png",
+    "detailedBio": "## Where the smith fell\n\nHomer says Zeus (or Hera) hurled Hephaestus from Olympus; he fell on Lemnos and the Sintians cared for him. The island's volcano and smith-cult (Hephaestia) make the landing local. The *Argonautica* adds Hypsipyle and the Lemnian women who had killed their men. Philoctetes is marooned here in tragedy. Lemnos is a workshop and a wound: fire, isolation, and a woman-ruled interlude the Argonauts sail into. The forge is inferred from the fall, not described as a tourist plant.",
+    "primarySources": [
+      {
+        "text": "All day I fell, and with the setting sun I landed on Lemnos, and little life was in me.",
+        "source": "Homer, Iliad 1",
+        "date": "c. 750 BCE"
+      }
+    ]
   },
   {
     "id": "naxos",
@@ -157,7 +277,15 @@
     "description": "The island where Theseus abandoned Ariadne, only for Dionysus to find and marry her, making it sacred to the wine god.",
     "latitude": 37.103,
     "longitude": 25.378,
-    "imageUrl": "/locations/naxos.png"
+    "imageUrl": "/locations/naxos.png",
+    "detailedBio": "## Ariadne left, Dionysus found\n\nNaxos is where Theseus puts Ariadne ashore and sails on. Homer already knows Artemis killed her there; later poets give her to Dionysus as wife, with a crown set among the stars. The island's real cult of Dionysus is well attested. Catullus 64 and Ovid retell the abandonment as pathos. Apollodorus files it in the Theseus dossier. The myth does not invent Naxos; it uses a wine-island as the hinge between Athenian hero-tale and Dionysian marriage.",
+    "primarySources": [
+      {
+        "text": "Theseus left Ariadne in the island of Dia [Naxos], and Artemis killed her there.",
+        "source": "Homer, Odyssey 11",
+        "date": "c. 700 BCE"
+      }
+    ]
   },
   {
     "id": "cape-sounion",
@@ -167,7 +295,15 @@
     "description": "A dramatic clifftop promontory crowned by the Temple of Poseidon, where Aegeus leapt to his death upon seeing black sails.",
     "latitude": 37.65,
     "longitude": 24.026,
-    "imageUrl": "/locations/cape-sounion.png"
+    "imageUrl": "/locations/cape-sounion.png",
+    "detailedBio": "## Poseidon's cliff, a father's mistake\n\nSounion is a marble temple of Poseidon on Attica's southern tip. The *Odyssey* already parks a death here: Phrontis, Menelaus's helmsman, is struck down at sacred Sounion. Later storytellers (Plutarch's *Theseus* and the common school version) have Aegeus watch for white sails and throw himself down when Theseus forgets. The leap is not in Homer. The cult is Poseidon's; the suicide is an Attic footnote attached to a conspicuous cape.",
+    "primarySources": [
+      {
+        "text": "Phoebus Apollo slew the helmsman with his gentle shafts, as he held the tiller, at sacred Sounion.",
+        "source": "Homer, Odyssey 3",
+        "date": "c. 700 BCE"
+      }
+    ]
   },
   {
     "id": "asgard",
@@ -177,7 +313,15 @@
     "description": "One of the Nine Worlds and home to the Aesir tribe of gods, connected to Midgard by the rainbow bridge Bifrost.",
     "latitude": null,
     "longitude": null,
-    "imageUrl": "/locations/asgard.png"
+    "imageUrl": "/locations/asgard.png",
+    "detailedBio": "## Aesir yard\n\nSnorri's *Gylfaginning* builds Asgard as the gods' enclosed burg, with Valhalla, twelve seats, and a high-seat for Odin. The *Poetic Edda* names individual halls (Valaskjalf, Gladsheim, Sessrumnir) more often than a single city-plan. There is no pagan temple called Asgard; the word is a mythic compound. Bifrost reaches it. At Ragnarok Surtr burns it. Treat Snorri as a thirteenth-century organizer of older stanzas, not as an eyewitness map.",
+    "primarySources": [
+      {
+        "text": "Then they made themselves a burg in the middle of the world, that is called Asgard.",
+        "source": "Snorri Sturluson, Prose Edda, Gylfaginning",
+        "date": "c. 1220 CE"
+      }
+    ]
   },
   {
     "id": "midgard",
@@ -187,7 +331,15 @@
     "description": "The realm of humanity (Earth), encircled by the world serpent Jormungandr and connected to Asgard by the Bifrost bridge.",
     "latitude": null,
     "longitude": null,
-    "imageUrl": "/locations/midgard.png"
+    "imageUrl": "/locations/midgard.png",
+    "detailedBio": "## The middle yard\n\nMidgard is the human world, walled with Ymir's eyebrows in Snorri's creation account, encircled by the sea where Jormungandr lies. The *Poetic Edda* uses *Midgard* as the inhabited middle against Utgard and the gods' garths. It is not a country with a capital. Thor is its defender; the poems send him out of it to fight giants. There is no Midgard cult. The word is a cosmology, the place people already live.",
+    "primarySources": [
+      {
+        "text": "Of Ymir's flesh the earth was shaped, of his blood the sea, of his bones the hills; they made Midgard for the sons of men.",
+        "source": "Poetic Edda, Grimnismal / Voluspa tradition via Gylfaginning",
+        "date": "c. 10th–13th c. CE"
+      }
+    ]
   },
   {
     "id": "niflheim",
@@ -197,7 +349,15 @@
     "description": "The primordial realm of ice, mist, and cold. Its frozen rivers combined with Muspelheim's fire to create the first life.",
     "latitude": null,
     "longitude": null,
-    "imageUrl": "/locations/niflheim.png"
+    "imageUrl": "/locations/niflheim.png",
+    "detailedBio": "## Mist-world, before the worlds\n\nNiflheim is the cold pole of Snorri's cosmogony: eleven rivers (Elivagar) running from the spring Hvergelmir, ice meeting Muspelheim's sparks to wake Ymir. The *Poetic Edda* prefers Niflhel as a death-region. Snorri sometimes slides Niflheim, Niflhel, and Hel together. There is no temple, no festival, no excavated gate. It is a prose diagram of frost as a first material. Read it as origin chemistry, not as a tourist underworld.",
+    "primarySources": [
+      {
+        "text": "First there was Niflheim in the north. From it flowed those rivers called Elivagar.",
+        "source": "Snorri Sturluson, Prose Edda, Gylfaginning",
+        "date": "c. 1220 CE"
+      }
+    ]
   },
   {
     "id": "muspelheim",
@@ -207,7 +367,15 @@
     "description": "The primordial realm of fire, ruled by the fire giant Surtr, whose flames will consume the world at Ragnarok.",
     "latitude": null,
     "longitude": null,
-    "imageUrl": "/locations/muspelheim.png"
+    "imageUrl": "/locations/muspelheim.png",
+    "detailedBio": "## Fire at the south\n\nMuspelheim is Snorri's hot pole, guarded by Surtr with a burning sword. Sparks from it order the stars; at the end Surtr comes and the world burns. The *Voluspa* already has Surtr from the south. A full fire-realm with a king is largely Snorri's architecture. There is no cult of Muspelheim. The name explains heat, stars, and the last fire in one geography. Do not invent a fire-giant priesthood; the texts do not.",
+    "primarySources": [
+      {
+        "text": "Surtr is he who sits at the border to guard Muspell. At the end he will go forth and vanquish all the gods and burn the world with fire.",
+        "source": "Snorri Sturluson, Prose Edda, Gylfaginning",
+        "date": "c. 1220 CE"
+      }
+    ]
   },
   {
     "id": "jotunheim",
@@ -217,7 +385,15 @@
     "description": "The land of the frost giants and other jotnar, a harsh wilderness of mountains and forests bordering Asgard.",
     "latitude": null,
     "longitude": null,
-    "imageUrl": "/locations/jotunheim.png"
+    "imageUrl": "/locations/jotunheim.png",
+    "detailedBio": "## Giant country east of the wall\n\nJotunheim is where the jotnar live: Utgard, Thrymheim, the halls Thor raids in the *Poetic Edda* and in Snorri's *Skaldskaparmal*. It lies beyond Midgard's wall, often to the east, in mountains and waste. The gods marry from there and fight there. It is not a mapped kingdom. No cult addresses Jotunheim as a holy site. The poems need a hostile outside so that Thor has somewhere to drive the goats.",
+    "primarySources": [
+      {
+        "text": "Thor shall fare into Jotunheim and make war on the giants.",
+        "source": "Snorri Sturluson, Prose Edda, Gylfaginning",
+        "date": "c. 1220 CE"
+      }
+    ]
   },
   {
     "id": "vanaheim",
@@ -227,7 +403,15 @@
     "description": "Home of the Vanir gods associated with fertility, wisdom, and nature—including Freya, Freyr, and Njord.",
     "latitude": null,
     "longitude": null,
-    "imageUrl": "/locations/vanaheim.png"
+    "imageUrl": "/locations/vanaheim.png",
+    "detailedBio": "## Vanir home, thinly described\n\nVanaheim is named as the Vanir's land. The Aesir-Vanir war ends in hostages: Njord, Frey, and Freyja come to Asgard; Hoenir and Mimir go the other way. Snorri locates Njord in Vanaheim at the beginning. The poems do not give a city, a river, or a temple plan. Fertility and seid attach to the Vanir as persons, not to a described landscape. Admit the gap: Vanaheim is a label more than a tour.",
+    "primarySources": [
+      {
+        "text": "Njord was bred in Vanaheim, but the Vanir gave him as hostage to the gods.",
+        "source": "Snorri Sturluson, Prose Edda, Gylfaginning",
+        "date": "c. 1220 CE"
+      }
+    ]
   },
   {
     "id": "svartalfheim",
@@ -237,7 +421,15 @@
     "description": "The underground realm of the dwarves (dark elves), master craftsmen who forged Mjolnir, Gungnir, and other legendary items.",
     "latitude": null,
     "longitude": null,
-    "imageUrl": "/locations/svartalfheim.png"
+    "imageUrl": "/locations/svartalfheim.png",
+    "detailedBio": "## Dark elves, or dwarves, depending on the sentence\n\nSnorri puts dark elves in Svartalfheim and also treats dwarves as underground smiths who make Draupnir, Gungnir, and the hair of Sif. The *Poetic Edda* has dwarves in halls of stone and does not cleanly separate *dvergar* from *svartalfar*. Nidavellir overlaps the same workshop. There is no cult geography. Read Svartalfheim as a prose address for the makers of cursed and holy objects, and admit Snorri's terms wobble.",
+    "primarySources": [
+      {
+        "text": "The dwarves had been generated in the earth, like maggots in flesh, and they live in the earth and in stones.",
+        "source": "Snorri Sturluson, Prose Edda, Gylfaginning",
+        "date": "c. 1220 CE"
+      }
+    ]
   },
   {
     "id": "alfheim",
@@ -247,7 +439,15 @@
     "description": "The radiant realm of the light elves, beautiful beings associated with fertility and given to Freyr as a tooth-gift.",
     "latitude": null,
     "longitude": null,
-    "imageUrl": "/locations/alfheim.png"
+    "imageUrl": "/locations/alfheim.png",
+    "detailedBio": "## Frey's tooth-gift\n\nAlfheim is the light-elves' realm. *Grimnismal* says the gods gave it to Frey as a tooth-gift in the morning of time. Snorri distinguishes light elves in Alfheim from dark elves below. That is nearly all the surviving description: brightness, Frey, elves. No ritual calendar for Alfheim survives. Do not invent elf-festivals. The place exists to lodge a people adjacent to the Vanir and to contrast with the underground smiths.",
+    "primarySources": [
+      {
+        "text": "Alfheim the gods gave to Frey in days of yore as a tooth-gift.",
+        "source": "Poetic Edda, Grimnismal",
+        "date": "c. 10th c. CE"
+      }
+    ]
   },
   {
     "id": "helheim",
@@ -257,7 +457,15 @@
     "description": "The realm of the dead ruled by Hel, daughter of Loki. Those who died of illness or old age dwell here in cold monotony.",
     "latitude": null,
     "longitude": null,
-    "imageUrl": "/locations/helheim.png"
+    "imageUrl": "/locations/helheim.png",
+    "detailedBio": "## Hel's place, not a Christian hell\n\nThe Eddas send those who die of sickness and old age to Hel, a being and a location. Snorri gives her a hall, a high threshold, and a dish called Hunger. Baldr rides the Hel-way after Loki's trick. *Helheim* as a set name is rarer than Hel or Niflhel. It is cold and continuing, not a moral furnace. No cult of Helheim is recorded. Hermod's ride in *Gylfaginning* is the fullest itinerary.",
+    "primarySources": [
+      {
+        "text": "Hel he cast into Niflheim and gave her authority over nine worlds, that she should administer food to those sent to her, who die of sickness or old age.",
+        "source": "Snorri Sturluson, Prose Edda, Gylfaginning",
+        "date": "c. 1220 CE"
+      }
+    ]
   },
   {
     "id": "bifrost",
@@ -267,7 +475,15 @@
     "description": "The burning rainbow bridge connecting Asgard to Midgard, guarded by the vigilant god Heimdall with his Gjallarhorn.",
     "latitude": null,
     "longitude": null,
-    "imageUrl": "/locations/bifrost.png"
+    "imageUrl": "/locations/bifrost.png",
+    "detailedBio": "## The burning bridge\n\nBifrost (also Bilrost) is the rainbow bridge from the gods to other worlds, guarded by Heimdall and his horn Gjallarhorn. Snorri says it will break when Muspell's sons ride it at Ragnarok; that is why it is made with care and yet is mortal. The *Poetic Edda* mentions the bridge without a tourist prospectus. There is no shrine of Bifrost. It is a cosmological device: color, fire, and a watchman who never sleeps.",
+    "primarySources": [
+      {
+        "text": "You would not think it safe to send your horses over Bifrost, for it burns with fire.",
+        "source": "Snorri Sturluson, Prose Edda, Gylfaginning",
+        "date": "c. 1220 CE"
+      }
+    ]
   },
   {
     "id": "giza-plateau",
@@ -277,7 +493,15 @@
     "description": "The site of the Great Pyramids and the Sphinx, associated with pharaonic power and the afterlife.",
     "latitude": 29.979,
     "longitude": 31.134,
-    "imageUrl": "/locations/giza-plateau.png"
+    "imageUrl": "/locations/giza-plateau.png",
+    "detailedBio": "## Tombs the gods do not narrate\n\nGiza's pyramids and sphinx belong to Khufu, Khafre, and Menkaure. The *Pyramid Texts* that map the king's afterlife come mainly from Saqqara and later pyramids, not from these three. Mythic literature does not stage Ra or Osiris walking the Giza plateau. Later Greek visitors (Herodotus) already tourist the stones. Treat Giza as royal mortuary engineering that Egyptian religion used, not as a setting named in a cycle. The sphinx's identity is still argued.",
+    "primarySources": [
+      {
+        "text": "Cheops compelled all the Egyptians to work for him. Some were appointed to drag stones from the quarries in the Arabian hills to the Nile.",
+        "source": "Herodotus, Histories 2.124",
+        "date": "c. 440 BCE"
+      }
+    ]
   },
   {
     "id": "karnak",
@@ -287,7 +511,15 @@
     "description": "A vast mix of decayed temples, chapels, pylons, and other buildings near Luxor, primarily dedicated to Amun.",
     "latitude": 25.719,
     "longitude": 32.657,
-    "imageUrl": "/locations/karnak.png"
+    "imageUrl": "/locations/karnak.png",
+    "detailedBio": "## Amun's house at Thebes\n\nKarnak (Ipet-Sut) is the great temple precinct of Amun-Ra at Theban Thebes, grown across the New Kingdom. The *Great Hymn to Amun* and festival reliefs of Opet show the god's barque moving between Karnak and Luxor. It is a working cult machine, not a narrative underworld. No epic parks a hero here. The theology is solar and hidden-name: Amun, the unseen, housed in a stone estate with pylons, hypostyle, and sacred lake.",
+    "primarySources": [
+      {
+        "text": "Amun-Re, lord of the Thrones of the Two Lands, foremost in Karnak.",
+        "source": "Great Hymn to Amun (Cairo CG 58038 tradition)",
+        "date": "c. New Kingdom"
+      }
+    ]
   },
   {
     "id": "duat",
@@ -297,7 +529,15 @@
     "description": "The Egyptian underworld through which Ra travels each night and the dead must journey, facing trials before Osiris's judgment.",
     "latitude": null,
     "longitude": null,
-    "imageUrl": "/locations/duat.png"
+    "imageUrl": "/locations/duat.png",
+    "detailedBio": "## Night road of the sun\n\nThe Duat is the Egyptian underworld through which Ra's night barque sails, hour by hour, in the *Amduat* and *Book of Gates*. The dead need names, passwords, and offerings from the *Book of the Dead*. Osiris sits in judgment; Apophis waits to swallow the sun. It is mapped on tomb walls, not on a civic street. Geography is liturgical: caverns, gates, fire, water. There is no single novel of the Duat, only illustrated itineraries for kings and, later, officials.",
+    "primarySources": [
+      {
+        "text": "The sky-goddess Nut receives the sun in the west, and he travels the Duat to be born again in the east.",
+        "source": "Amduat, First Hour (New Kingdom royal tombs)",
+        "date": "c. 15th–13th c. BCE"
+      }
+    ]
   },
   {
     "id": "field-of-reeds",
@@ -307,7 +547,15 @@
     "description": "The Egyptian paradise, a heavenly realm of abundance where the righteous dead lived eternally in peace and plenty.",
     "latitude": null,
     "longitude": null,
-    "imageUrl": "/locations/field-of-reeds.png"
+    "imageUrl": "/locations/field-of-reeds.png",
+    "detailedBio": "## Aaru, the working paradise\n\nThe Field of Reeds (Aaru, Iaru) is the justified dead's agricultural hereafter: barley, canals, a life like the Nile valley without failure. The *Book of the Dead* (spells 109–110) lets the deceased know the waters and hoe the fields. It is not a cloud heaven. Entry depends on the weighing of the heart. Pyramid Texts already point the king toward reed-fields. Later Book of the Dead vignettes show the deceased farming. Bliss here is labor that works.",
+    "primarySources": [
+      {
+        "text": "I know the Field of Reeds of Re. The height of its barley is five cubits; the ears are two cubits.",
+        "source": "Book of the Dead, Spell 109",
+        "date": "c. New Kingdom"
+      }
+    ]
   },
   {
     "id": "heliopolis",
@@ -317,7 +565,15 @@
     "description": "The ancient City of the Sun, center of Ra worship and home to the Ennead—the nine primordial creator gods.",
     "latitude": 30.131,
     "longitude": 31.308,
-    "imageUrl": "/locations/heliopolis.png"
+    "imageUrl": "/locations/heliopolis.png",
+    "detailedBio": "## Iunu, city of the Ennead\n\nHeliopolis (Iunu) is the cult city of Ra-Atum and the Ennead: Atum, Shu, Tefnut, Geb, Nut, Osiris, Isis, Seth, Nephthys. Creation from the benben stone and the recitation of the solar theology belong here. The *Pyramid Texts* are soaked in Heliopolitan names. Little of the temple survives above ground. Herodotus and later Greeks called it the City of the Sun. It is a school of cosmogony more than a battlefield.",
+    "primarySources": [
+      {
+        "text": "Atum is he who came into being, who masturbated in Iunu. He took his phallus in his fist and made orgasm, and the twins Shu and Tefnut were born.",
+        "source": "Pyramid Texts, Spell 527 (Unis)",
+        "date": "c. 24th c. BCE"
+      }
+    ]
   },
   {
     "id": "memphis",
@@ -327,7 +583,15 @@
     "description": "The ancient capital of Egypt, cult center of Ptah the creator god, and gateway between Upper and Lower Egypt.",
     "latitude": 29.844,
     "longitude": 31.254,
-    "imageUrl": "/locations/memphis.png"
+    "imageUrl": "/locations/memphis.png",
+    "detailedBio": "## Ptah's white wall\n\nMemphis (Ineb-Hedj, White Walls) is Ptah's city and Egypt's early capital at the junction of the Two Lands. The *Memphite Theology* on the Shabaka Stone makes Ptah create by heart and tongue, a rival account to Heliopolis. Apis, the living bull, was housed here. Mythic narrative uses Memphis as a royal and artisan center more than as a quest setting. The archaeology is largely gone under fields and the modern village of Mit Rahina.",
+    "primarySources": [
+      {
+        "text": "Ptah, who made all and created the gods. He is Ta-tenen, who gave birth to the gods, from whom all things came forth.",
+        "source": "Memphite Theology (Shabaka Stone)",
+        "date": "c. 8th c. BCE copy of earlier text"
+      }
+    ]
   },
   {
     "id": "abydos",
@@ -337,7 +601,15 @@
     "description": "The cult center of Osiris and gateway to the underworld, where pharaohs built cenotaphs to be near the god of the dead.",
     "latitude": 26.185,
     "longitude": 31.919,
-    "imageUrl": "/locations/abydos.png"
+    "imageUrl": "/locations/abydos.png",
+    "detailedBio": "## Osiris's doorway\n\nAbydos (Abdju) is Osiris's chief cult town. Early kings were buried nearby; later Egyptians built cenotaphs to lie near the god of the west. The Osiris mysteries and the processional route to Umm el-Qaab are cult fact. Pyramid Texts and later stelae call Osiris \"Lord of Abydos.\" Seti I's temple writes the king-list on its walls. The underworld gate is liturgical here, not a cave you can enter with a torch.",
+    "primarySources": [
+      {
+        "text": "Osiris, lord of Abydos, who is at the head of the westerners.",
+        "source": "Pyramid Texts / standard Osirian epithet; cf. Seti I temple inscriptions",
+        "date": "Old Kingdom–New Kingdom"
+      }
+    ]
   },
   {
     "id": "roman-forum",
@@ -347,7 +619,15 @@
     "description": "The center of Roman public life, containing major temples including the Temple of Vesta and Temple of Saturn.",
     "latitude": 41.8925,
     "longitude": 12.4853,
-    "imageUrl": "/locations/roman-forum.png"
+    "imageUrl": "/locations/roman-forum.png",
+    "detailedBio": "## Vesta's hearth, Saturn's store\n\nThe Forum is Rome's civic floor: the Temple of Vesta and the Vestals' fire, the Temple of Saturn and the state treasury, the Rostra, the Curia. Ovid's *Fasti* walks the calendar through these stones. Livy fills the same ground with kings and consuls. It is not a mythic otherworld. The myths (Tarpeia, the Sabine women, Saturn's hiding) are etiologies for buildings and rites already in use. Treat the Forum as ritual infrastructure the poems annotate.",
+    "primarySources": [
+      {
+        "text": "Vesta, you who occupy the earth and the fire, and who keep the two, sit here, goddess, in your own place.",
+        "source": "Ovid, Fasti 6",
+        "date": "c. 8 CE"
+      }
+    ]
   },
   {
     "id": "capitoline-hill",
@@ -357,7 +637,15 @@
     "description": "The citadel of the earliest Romans and site of the Temple of Jupiter Optimus Maximus.",
     "latitude": 41.8933,
     "longitude": 12.4828,
-    "imageUrl": "/locations/capitoline-hill.png"
+    "imageUrl": "/locations/capitoline-hill.png",
+    "detailedBio": "## Jupiter's citadel\n\nThe Capitol is the arx and the Temple of Jupiter Optimus Maximus, Juno, and Minerva. Triumphs ended here. Livy and Ovid remember the hill as a vowed temple after the kings, and as the place geese saved from the Gauls. Tarpeia's rock is an etiology on the same slope. Cult is dense and state-owned. There is no separate \"Capitoline myth cycle\" beyond the temple's founding and the triad. The hill is where Rome kept its oath to Jupiter.",
+    "primarySources": [
+      {
+        "text": "Jupiter held the Capitol; there he had his temple, the greatest in the city.",
+        "source": "Livy, Ab Urbe Condita 1.55 (temple vow tradition)",
+        "date": "c. 27–9 BCE"
+      }
+    ]
   },
   {
     "id": "mount-kailash",
@@ -367,7 +655,15 @@
     "description": "The sacred peak in Tibet considered the abode of Lord Shiva and Parvati, axis mundi of the cosmos.",
     "latitude": 31.0674,
     "longitude": 81.3119,
-    "imageUrl": "/locations/mount-kailash.png"
+    "imageUrl": "/locations/mount-kailash.png",
+    "detailedBio": "## Shiva's peak, not a mapped palace\n\nKailasa in the Puranas and the *Mahabharata* is Shiva and Parvati's mountain in the north, a cosmic axis adjacent to Meru in some reckonings. Kubera also keeps a house there. The Tibetan peak now called Kailash is a later identification used by Hindu, Buddhist, and Bon pilgrims; the epics do not give GPS. No festival is invented here beyond the long practice of circumambulation. The texts give a god's mountain; the pilgrimage is a later overlay.",
+    "primarySources": [
+      {
+        "text": "The mountain Kailasa, resorted to by the gods, where stands the residence of the lord of wealth and of Shiva.",
+        "source": "Mahabharata, Vana Parva (Kailasa descriptions)",
+        "date": "c. 400 BCE–400 CE"
+      }
+    ]
   },
   {
     "id": "varanasi",
@@ -377,7 +673,15 @@
     "description": "The spiritual capital of India, situated on the banks of the Ganges, one of the oldest continuously inhabited cities and sacred to Shiva.",
     "latitude": 25.3176,
     "longitude": 82.9739,
-    "imageUrl": "/locations/varanasi.png"
+    "imageUrl": "/locations/varanasi.png",
+    "detailedBio": "## Kashi on the Ganga\n\nVaranasi (Kashi) is Shiva's city in the *Skanda Purana* and in Mahabharata geography: a crossing-place where dying is said to free. The Ganga's ghats are later urban form; the holiness is older in the Puranic lists of tirthas. Do not invent a single founding battle. The claim is soteriological: this is where the god of destruction keeps a home on the river. Historical Buddhism and later Mughal layers sit on the same bend. The mythic city is the tirtha, not the modern skyline.",
+    "primarySources": [
+      {
+        "text": "Kashi is the secret of the universe; there Shiva whispers the taraka mantra to the dying.",
+        "source": "Skanda Purana, Kashi Khanda (traditional attribution)",
+        "date": "Puranic"
+      }
+    ]
   },
   {
     "id": "ayodhya",
@@ -387,7 +691,15 @@
     "description": "The birthplace and capital of Lord Rama, setting of the great epic Ramayana and one of Hinduism's seven sacred cities.",
     "latitude": 26.7922,
     "longitude": 82.1961,
-    "imageUrl": "/locations/ayodhya.png"
+    "imageUrl": "/locations/ayodhya.png",
+    "detailedBio": "## Rama's capital in the poem\n\nAyodhya in Valmiki's *Ramayana* is Dasharatha's city on the Sarayu, from which Rama is exiled and to which he returns. The *Bala Kanda* opens with its prosperity; the *Uttara Kanda* closes with his rule. The epic is the map. Later temple politics and archaeology are a different argument. Cult of Rama at Ayodhya is historically late relative to the poem's composition. Read the city first as a narrative court, then as a pilgrimage that grew around the name.",
+    "primarySources": [
+      {
+        "text": "There was a great city named Ayodhya, famous in the world, on the banks of the Sarayu, built by Manu himself.",
+        "source": "Valmiki, Ramayana, Bala Kanda",
+        "date": "c. 5th c. BCE–3rd c. CE"
+      }
+    ]
   },
   {
     "id": "mount-meru",
@@ -397,7 +709,15 @@
     "description": "The cosmic mountain at the center of the universe, around which the sun, moon, and stars revolve. Home of the devas.",
     "latitude": null,
     "longitude": null,
-    "imageUrl": "/locations/mount-meru.png"
+    "imageUrl": "/locations/mount-meru.png",
+    "detailedBio": "## The mountain the heavens turn on\n\nMeru is the cosmic axis in the *Mahabharata*, the Puranas, and Buddhist cosmology: gods on the slopes, continents petal-fashion around it, polaris above. It is not a Himalayan peak you summit. Jambudvipa lies to the south of it in many schemes. Vaikuntha and Kailasa are sometimes placed in relation to it, sometimes independently. There is no Meru temple with a surviving liturgy in the epics. The mountain is a diagram of order.",
+    "primarySources": [
+      {
+        "text": "Meru, the king of mountains, golden, shining like the sun, the resort of gods and gandharvas.",
+        "source": "Mahabharata, Bhishma Parva / cosmological parvas",
+        "date": "c. 400 BCE–400 CE"
+      }
+    ]
   },
   {
     "id": "vaikuntha",
@@ -407,7 +727,15 @@
     "description": "The eternal abode of Lord Vishnu and Lakshmi, a celestial realm of infinite bliss beyond the material universe.",
     "latitude": null,
     "longitude": null,
-    "imageUrl": "/locations/vaikuntha.png"
+    "imageUrl": "/locations/vaikuntha.png",
+    "detailedBio": "## Vishnu's unmeasured court\n\nVaikuntha is Vishnu and Lakshmi's realm beyond the ordinary worlds in the *Bhagavata Purana* and *Vishnu Purana*. Souls who reach it do not fall back into rebirth in the usual Puranic promise. Description is jewelled and courtly: halls, attendants, the god on Shesha. It has no terrestrial lat/long. There is no excavated gate. Treat it as a theological address, not a lost island. Rama's Ayodhya and Krishna's Dvarka are earthly; Vaikuntha is the unfallen home.",
+    "primarySources": [
+      {
+        "text": "Those who reach that supreme abode of Vishnu, Vaikuntha, do not return to this world.",
+        "source": "Bhagavata Purana (Vaikuntha descriptions)",
+        "date": "c. 9th–10th c. CE"
+      }
+    ]
   },
   {
     "id": "lanka",
@@ -417,7 +745,15 @@
     "description": "The golden island kingdom of the demon king Ravana, who abducted Sita and was defeated by Rama's army.",
     "latitude": 7.8731,
     "longitude": 80.7718,
-    "imageUrl": "/locations/lanka.png"
+    "imageUrl": "/locations/lanka.png",
+    "detailedBio": "## Ravana's island city\n\nLanka in the *Ramayana* is Ravana's golden capital, taken from Kubera, reached by Hanuman's leap and later by Rama's army on the causeway. The *Sundara Kanda* is the reconnaissance; the *Yuddha Kanda* is the war. Identification with Sri Lanka is traditional and old, but the poem's Lanka is a rakshasa fortress with Pushpaka and a grove where Sita is held. Do not flatten it into a modern map without saying the epic comes first.",
+    "primarySources": [
+      {
+        "text": "Hanuman saw Lanka, as if hanging in the sky, guarded by rakshasas, delightful, built by Vishvakarman.",
+        "source": "Valmiki, Ramayana, Sundara Kanda",
+        "date": "c. 5th c. BCE–3rd c. CE"
+      }
+    ]
   },
   {
     "id": "ise-grand-shrine",
@@ -427,7 +763,15 @@
     "description": "The most sacred Shinto shrine, dedicated to Amaterasu the sun goddess, ritually rebuilt every 20 years.",
     "latitude": 34.455,
     "longitude": 136.7258,
-    "imageUrl": "/locations/ise-grand-shrine.png"
+    "imageUrl": "/locations/ise-grand-shrine.png",
+    "detailedBio": "## Amaterasu's stored mirror\n\nIse Jingu houses Amaterasu in the Inner Shrine (Naiku) and Toyouke in the Outer. The *Nihon Shoki* tells how the sacred mirror was moved until it rested at Ise in the reign of Suinin. The twenty-year rebuilding (shikinen sengu) is a documented imperial cult practice, not a myth episode. The Kojiki is thinner on Ise as a place. Do not invent a battle on the Isuzu. The shrine is where the sun goddess's regalia lives in the islands.",
+    "primarySources": [
+      {
+        "text": "The Great Goddess Amaterasu was enshrined at Ise, in the province of Watarai.",
+        "source": "Nihon Shoki (Suinin / Ise foundation tradition)",
+        "date": "720 CE"
+      }
+    ]
   },
   {
     "id": "izumo-taisha",
@@ -437,7 +781,15 @@
     "description": "One of the most ancient and important Shinto shrines, dedicated to Okuninushi, lord of the unseen world.",
     "latitude": 35.402,
     "longitude": 132.6855,
-    "imageUrl": "/locations/izumo-taisha.png"
+    "imageUrl": "/locations/izumo-taisha.png",
+    "detailedBio": "## Okuninushi's great shrine\n\nIzumo Taisha is the chief shrine of Okuninushi, the earth-god who cedes the land to Amaterasu's descendants in the Kojiki and Nihon Shoki. The *kuni-yuzuri* (land-cession) is the charter: he keeps the unseen world and marriage, they keep the political sky. The shrine's huge ancient pillars are archaeology; the myth is the handover. Kamiari-zuki, the tenth month when gods gather at Izumo, is a calendar note, not a novel.",
+    "primarySources": [
+      {
+        "text": "Okuninushi said: If you will take me, I will yield the Central Land of Reed Plains.",
+        "source": "Kojiki (land-cession of Izumo)",
+        "date": "712 CE"
+      }
+    ]
   },
   {
     "id": "mount-fuji",
@@ -447,7 +799,15 @@
     "description": "Japan's highest and most sacred mountain, believed to be the dwelling place of kami and a source of immortality.",
     "latitude": 35.3606,
     "longitude": 138.7274,
-    "imageUrl": "/locations/mount-fuji.png"
+    "imageUrl": "/locations/mount-fuji.png",
+    "detailedBio": "## Fire peak, later goddess\n\nFuji is Japan's highest volcano. Early court myth (Kojiki, Nihon Shoki) does not stage the main kami cycle on its slopes. Asama / Konohanasakuya-hime cult and the Fuji-ko pilgrim associations are historically later. The *Man'yoshu* already treats the mountain as a numinous sight. Admit the gap: the peak is sacred in poetry and pilgrimage more than in the island-creation narrative. Do not graft Izanagi onto the crater.",
+    "primarySources": [
+      {
+        "text": "Mount Fuji: when I look at it, the snow falls on the peak, even in summer.",
+        "source": "Man'yoshu (Fuji poems, traditional attribution)",
+        "date": "c. 8th c. CE"
+      }
+    ]
   },
   {
     "id": "floating-bridge",
@@ -457,7 +817,15 @@
     "description": "The celestial bridge from which Izanagi and Izanami stirred the primordial ocean to create the islands of Japan.",
     "latitude": null,
     "longitude": null,
-    "imageUrl": "/locations/floating-bridge.png"
+    "imageUrl": "/locations/floating-bridge.png",
+    "detailedBio": "## Ame-no-ukihashi\n\nThe Floating Bridge of Heaven is the span from which Izanagi and Izanami stir the brine with the jeweled spear until Onogoro island curdles into being. The Kojiki and Nihon Shoki open creation with this gesture. It is not a surviving shrine path. Amenohashidate on the Tango coast is a later scenic identification. The bridge is a cosmogonic tool: sky to sea, spear to island. No festival of the bridge is in the early chronicles.",
+    "primarySources": [
+      {
+        "text": "Standing on the Floating Bridge of Heaven, they stirred the ocean with the heavenly jeweled spear, and the brine that dripped became an island.",
+        "source": "Kojiki",
+        "date": "712 CE"
+      }
+    ]
   },
   {
     "id": "yomi",
@@ -467,7 +835,15 @@
     "description": "The shadowy land of the dead ruled by Izanami, from which Izanagi barely escaped after seeing his wife's decayed form.",
     "latitude": null,
     "longitude": null,
-    "imageUrl": "/locations/yomi.png"
+    "imageUrl": "/locations/yomi.png",
+    "detailedBio": "## The closed land of the dead\n\nYomi is the polluted underworld Izanami goes to after dying in childbirth. Izanagi follows, sees her corpse, and flees; she vows to kill a thousand a day, he to deliver fifteen hundred. The Kojiki makes the boundary a boulder at Yomotsu Hirasaka. There is no tourist map and little later cult of Yomi as a place you visit. Pollution (kegare) and the need for purification (misogi) are the ritual lesson. It is a sealed country.",
+    "primarySources": [
+      {
+        "text": "Izanagi said: I have been to a most unpleasant land, a horrible, unclean land.",
+        "source": "Kojiki (Yomi episode)",
+        "date": "712 CE"
+      }
+    ]
   },
   {
     "id": "takamagahara",
@@ -477,7 +853,15 @@
     "description": "The High Plain of Heaven, dwelling place of the heavenly kami including Amaterasu and the celestial court.",
     "latitude": null,
     "longitude": null,
-    "imageUrl": "/locations/takamagahara.png"
+    "imageUrl": "/locations/takamagahara.png",
+    "detailedBio": "## High plain of heaven\n\nTakamagahara is the heavenly field where Amaterasu rules, where the kami hold council, and from which Ninigi descends to the islands. The Kojiki and Nihon Shoki place the rock-cave of the sun, the weaving hall, and the eight million kami's noise there. It is a political sky, not a mapped plateau. No shrine claims to be the plain itself; shrines receive kami from it. The descent (tenson korin) is the charter of the imperial line.",
+    "primarySources": [
+      {
+        "text": "Amaterasu sat in the High Plain of Heaven and commanded the descent of her grandchild to the Central Land of Reed Plains.",
+        "source": "Kojiki",
+        "date": "712 CE"
+      }
+    ]
   },
   {
     "id": "izumo",
@@ -487,7 +871,15 @@
     "description": "The earthly domain granted to Susanoo after his exile from heaven, where he slew the eight-headed serpent Yamata no Orochi.",
     "latitude": 35.472,
     "longitude": 132.759,
-    "imageUrl": "/locations/izumo.png"
+    "imageUrl": "/locations/izumo.png",
+    "detailedBio": "## Susanoo's exile country\n\nIzumo province is where the storm god Susanoo, thrown out of heaven, kills Yamata no Orochi, finds Kusanagi in the tail, and marries Kushinada-hime. The Kojiki and Nihon Shoki locate the eight-headed serpent in the Hi river country. Okuninushi's later cycle is the same landscape. Izumo Taisha is the cult house; the province is the narrative ground. The imperial chronicles need Izumo as the earth that must cede to the sun line.",
+    "primarySources": [
+      {
+        "text": "The serpent had eight heads and eight tails. On its body moss grew, and trees. It filled eight valleys and eight hills.",
+        "source": "Kojiki (Yamata no Orochi)",
+        "date": "712 CE"
+      }
+    ]
   },
   {
     "id": "newgrange",
@@ -497,7 +889,15 @@
     "description": "A grand prehistoric passage tomb and the home of the Dagda (and later Aengus). Associated with the winter solstice.",
     "latitude": 53.6947,
     "longitude": -6.4756,
-    "imageUrl": "/locations/newgrange.png"
+    "imageUrl": "/locations/newgrange.png",
+    "detailedBio": "## Brug na Boinne\n\nThe Neolithic passage tomb at Newgrange is, in medieval Irish, Brug na Boinne, house of the Dagda and then of Oengus (Mac Oc), who tricks his father out of the Brug in *Tochmarc Etaine* and related dindshenchas. The winter-solstice light-box is archaeology; the Tuatha De stories are a thousand years and more later. Do not pretend the builders left the Dagda's name. The literature reuses a spectacular mound as a sidhe.",
+    "primarySources": [
+      {
+        "text": "Oengus asked the Brug of his father the Dagda for a day and a night, and so held it forever, for all time is day and night.",
+        "source": "Tochmarc Etaine / Brug na Boinne dindshenchas tradition",
+        "date": "c. 8th–12th c. CE"
+      }
+    ]
   },
   {
     "id": "tara",
@@ -507,7 +907,15 @@
     "description": "The ancient seat of the High Kings of Ireland and a sacred dwelling place of the gods.",
     "latitude": 53.5786,
     "longitude": -6.6119,
-    "imageUrl": "/locations/tara.png"
+    "imageUrl": "/locations/tara.png",
+    "detailedBio": "## Temair of the kings\n\nThe Hill of Tara (Temair) is the ceremonial seat of the high kings in the dindshenchas, *Lebor Gabala Erenn*, and the king-tales. Lia Fail, the banqueting hall in story, Medb and later Christian kingship all pile onto one ridge in Meath. Archaeology shows ringditches and feasting, not a stone palace of the Dagda. The myths are medieval Irish political theology. Cult of specific gods at Tara is thinner than the kingship literature.",
+    "primarySources": [
+      {
+        "text": "Temair, the pride of Ireland, seat of the kings, where the Lia Fail was brought from Failias.",
+        "source": "Lebor Gabala Erenn / Dindshenchas of Temair",
+        "date": "c. 11th–12th c. CE"
+      }
+    ]
   },
   {
     "id": "tenochtitlan",
@@ -517,7 +925,15 @@
     "description": "The capital city of the Aztec Empire, built on an island in Lake Texcoco. Site of the Templo Mayor.",
     "latitude": 19.4326,
     "longitude": -99.1332,
-    "imageUrl": "/locations/tenochtitlan.png"
+    "imageUrl": "/locations/tenochtitlan.png",
+    "detailedBio": "## Eagle on the nopal\n\nTenochtitlan is the Mexica island capital in Lake Texcoco, founded where Huitzilopochtli's sign (eagle on a cactus) was seen. The *Cronica Mexicayotl* and Sahagun's *Florentine Codex* keep the migration and the Templo Mayor as Coatepec rebuilt. Twin shrines of Huitzilopochtli and Tlaloc stood on the pyramid. Spanish conquest ends the city; the myth is the charter of why that lake, those temples, that tribute. Do not treat it as a timeless dream: it was a working imperial capital.",
+    "primarySources": [
+      {
+        "text": "When they saw the eagle on the nopal, devouring, they knew that was the place, Mexico Tenochtitlan.",
+        "source": "Florentine Codex / Mexica foundation tradition (Sahagun)",
+        "date": "c. 1577 CE"
+      }
+    ]
   },
   {
     "id": "mictlan",
@@ -527,7 +943,15 @@
     "description": "The nine-level underworld of Aztec mythology, a perilous four-year journey for the souls of the dead to reach Mictlantecuhtli.",
     "latitude": null,
     "longitude": null,
-    "imageUrl": "/locations/mictlan.png"
+    "imageUrl": "/locations/mictlan.png",
+    "detailedBio": "## Nine levels down\n\nMictlan is the underworld of Mictlantecuhtli and Mictecacihuatl. Most dead travel a four-year road of mountains, winds, and a river the dog Xolotl helps them cross. Sahagun records the dangers; the *Leyenda de los Soles* has Quetzalcoatl descend for bones to make this age's humans. Those who die in war, in childbirth, or by water go elsewhere (sun, Tlalocan). Mictlan is default, not a moral hell. No surviving liturgy maps all nine floors in one tidy list.",
+    "primarySources": [
+      {
+        "text": "The dead went to Mictlan, to the place of the fleshless, where Mictlantecuhtli and Mictecacihuatl ruled.",
+        "source": "Florentine Codex, Book 3 (Sahagun)",
+        "date": "c. 1577 CE"
+      }
+    ]
   },
   {
     "id": "mount-kunlun",
@@ -537,7 +961,15 @@
     "description": "The mythical mountain paradise in the west, dwelling of Xiwangmu (Queen Mother of the West) and source of the peaches of immortality.",
     "latitude": 36.0,
     "longitude": 84.0,
-    "imageUrl": "/locations/mount-kunlun.png"
+    "imageUrl": "/locations/mount-kunlun.png",
+    "detailedBio": "## Queen Mother's western mountain\n\nKunlun in the *Shan Hai Jing* and *Huainanzi* is a western axis: hanging gardens, the Queen Mother of the West (Xiwangmu), and later the peaches of immortality. It is a direction more than a surveyed range. Han poets send emperors and adepts there. *Journey to the West* still uses it as a celestial address. There is no single canonical peak with a dated cult foundation in the early texts. The mountain is where immortality is stored out west.",
+    "primarySources": [
+      {
+        "text": "The Queen Mother of the West lives on Kunlun. Her title is Queen Mother; she has a human face, a leopard's tail, and tiger's teeth.",
+        "source": "Shan Hai Jing (Western Mountains)",
+        "date": "c. 4th c. BCE–1st c. CE"
+      }
+    ]
   },
   {
     "id": "heavenly-palace",
@@ -547,7 +979,15 @@
     "description": "The opulent celestial court of the Jade Emperor, where the celestial bureaucracy governs all of heaven and earth. Also known as the Lingxiao Palace, it is the seat of divine government.",
     "latitude": null,
     "longitude": null,
-    "imageUrl": "/locations/heavenly-palace.png"
+    "imageUrl": "/locations/heavenly-palace.png",
+    "detailedBio": "## Lingxiao court\n\nThe Jade Emperor's Lingxiao Palace is the bureaucratic heaven of late imperial fiction, fully staged in Wu Cheng'en's *Journey to the West*: registers, stables, peach banquet, and Sun Wukong's revolt. Older Daoist heavens (Shangqing, Lingbao) are more liturgical than palatial. Do not back-project the Ming novel onto the Han. The palace exists so a monkey can smash a payroll. Cult of the Jade Emperor is real and later; the floor plan is novelistic.",
+    "primarySources": [
+      {
+        "text": "The Handsome Monkey King went up to the Hall of Divine Mists to see the Jade Emperor.",
+        "source": "Wu Cheng'en, Journey to the West, ch. 4–7",
+        "date": "c. 1592 CE"
+      }
+    ]
   },
   {
     "id": "flaming-mountains",
@@ -557,7 +997,15 @@
     "description": "A range of scorching mountains created when Sun Wukong kicked over Laozi's alchemical furnace during his rampage in Heaven. The monk Tang Sanzang and his disciples had to obtain the Banana Leaf Fan from Princess Iron Fan to extinguish the flames and pass through.",
     "latitude": 42.85,
     "longitude": 89.27,
-    "imageUrl": "/locations/flaming-mountains.png"
+    "imageUrl": "/locations/flaming-mountains.png",
+    "detailedBio": "## Furnace slag on the road west\n\nIn *Journey to the West* the Flaming Mountains burn because Sun Wukong kicked over Laozi's alchemical furnace; the pilgrims cannot pass until they borrow Princess Iron Fan's banana-leaf fan. The Turpan hills are a geographic joke the novel exploits. There is no independent ancient scripture of this range as a god's home. The episode is late, comic, and specific: three borrowings, a bull-demon husband, and a fan that raises wind.",
+    "primarySources": [
+      {
+        "text": "The mountains were a mass of fire. Without the Banana Leaf Fan they could not cross.",
+        "source": "Wu Cheng'en, Journey to the West, ch. 59–61",
+        "date": "c. 1592 CE"
+      }
+    ]
   },
   {
     "id": "five-elements-mountain",
@@ -567,7 +1015,15 @@
     "description": "The mountain created by Buddha to imprison Sun Wukong for 500 years after his rebellion against Heaven. The Buddha placed a seal on the mountain, and only the destined pilgrim Tang Sanzang could release the Monkey King.",
     "latitude": null,
     "longitude": null,
-    "imageUrl": "/locations/five-elements-mountain.png"
+    "imageUrl": "/locations/five-elements-mountain.png",
+    "detailedBio": "## Buddha's mountain-seal\n\nAfter the havoc in heaven, the Buddha traps Sun Wukong under a mountain of five elements (or Five-Phases Mountain) with a talisman on the summit. Five hundred years later Xuanzang lifts the seal. *Journey to the West* is the source. There is no earlier Buddhist sutra of this prison. The mountain is a doctrinal joke: the monkey of mind pinned by emptiness and form until a monk needs a disciple.",
+    "primarySources": [
+      {
+        "text": "The Tathagata pushed his hand down and the Monkey King was under the Mountain of Five Elements.",
+        "source": "Wu Cheng'en, Journey to the West, ch. 7",
+        "date": "c. 1592 CE"
+      }
+    ]
   },
   {
     "id": "flower-fruit-mountain",
@@ -577,7 +1033,15 @@
     "description": "The mystical mountain in the Eastern Sea where Sun Wukong was born from a stone egg. Behind the Water Curtain Cave, he established his kingdom of monkeys and ruled as their king before seeking immortality.",
     "latitude": null,
     "longitude": null,
-    "imageUrl": "/locations/flower-fruit-mountain.png"
+    "imageUrl": "/locations/flower-fruit-mountain.png",
+    "detailedBio": "## Stone egg, water curtain\n\nFlower-Fruit Mountain in the Eastern Sea is where a stone egg hatches Sun Wukong. He claims the Water Curtain Cave, titles himself Handsome Monkey King, and only later storms heaven. *Journey to the West* chapters 1–2 are the charter. Older monkey lore exists; this mountain and cave are the novel's. No cult calendar for the peak is required by the text. It is a nursery for chaos before the pilgrimage puts a band on the monkey.",
+    "primarySources": [
+      {
+        "text": "There was on the Mountain of Flowers and Fruit a magic stone. One day it split, and a stone egg became a monkey.",
+        "source": "Wu Cheng'en, Journey to the West, ch. 1",
+        "date": "c. 1592 CE"
+      }
+    ]
   },
   {
     "id": "lunar-palace",
@@ -587,7 +1051,15 @@
     "description": "The Palace of Cold Vastness on the moon, where Chang'e lives in eternal solitude after drinking the elixir of immortality. She is accompanied only by the Jade Rabbit and the woodcutter Wu Gang.",
     "latitude": null,
     "longitude": null,
-    "imageUrl": "/locations/lunar-palace.png"
+    "imageUrl": "/locations/lunar-palace.png",
+    "detailedBio": "## Guanghan, Chang'e's quiet house\n\nThe Guanghan Palace is the moon court where Chang'e lives after stealing (or keeping) the elixir, with the jade rabbit pounding medicine and Wu Gang chopping a self-healing tree. The *Huainanzi* gives the flight to the moon; later verse and festival tale furnish the palace. Mid-Autumn offerings are folk practice around the story, not a Han state liturgy of Guanghan. The palace is loneliness given architecture.",
+    "primarySources": [
+      {
+        "text": "Yi asked the Queen Mother for the drug of immortality. His wife Heng E stole it and fled to the moon.",
+        "source": "Huainanzi, Lanming xun",
+        "date": "c. 2nd c. BCE"
+      }
+    ]
   },
   {
     "id": "diyu",
@@ -597,7 +1069,15 @@
     "description": "The realm of the dead where souls are judged by Yan Wang (King Yama) and punished or rewarded based on their earthly deeds. It contains multiple courts and hells, after which souls drink from the River of Oblivion before reincarnation.",
     "latitude": null,
     "longitude": null,
-    "imageUrl": "/locations/diyu.png"
+    "imageUrl": "/locations/diyu.png",
+    "detailedBio": "## Courts of Yanluo\n\nDiyu is the Chinese underworld of numbered courts, King Yama (Yanluo), punishment mirrors, and the Mengpo soup of forgetfulness before rebirth. It is a Buddhist-Daoist synthesis; the *Jade Record* (Yuli) and popular baojuan spell it out. *Journey to the West* sends Wukong to strike his name from the register. It is not the Zhou Yellow Springs. Admit the layering: older hun/po ideas, then imported Indic hells, then a bureaucratic afterlife with offices.",
+    "primarySources": [
+      {
+        "text": "The Monkey King went down to the underworld, seized the register of life and death, and struck out his own name and those of the monkeys.",
+        "source": "Wu Cheng'en, Journey to the West, ch. 3",
+        "date": "c. 1592 CE"
+      }
+    ]
   },
   {
     "id": "eastern-sea-dragon-palace",
@@ -607,7 +1087,15 @@
     "description": "The underwater palace of Ao Guang, the Dragon King of the Eastern Sea. It was here that Sun Wukong obtained his famous weapon, the Ruyi Jingu Bang, originally a pillar used to measure sea depths.",
     "latitude": null,
     "longitude": null,
-    "imageUrl": "/locations/eastern-sea-dragon-palace.png"
+    "imageUrl": "/locations/eastern-sea-dragon-palace.png",
+    "detailedBio": "## Ao Guang's hall, the iron staff\n\nThe Crystal Palace of the Eastern Sea belongs to the dragon king Ao Guang. Sun Wukong demands a weapon and takes the Ruyi Jingu Bang, the needle that measured the sea. *Journey to the West* chapter 3 is the scene. Dragon kings of the four seas are older in folk religion; this palace visit is the novel's. No separate ancient epic of the staff exists. The hall is where a monkey steals the measure of the deep.",
+    "primarySources": [
+      {
+        "text": "The Dragon King said: This is the iron used to measure the depth of the Heavenly River. The monkey took it, and it became a staff.",
+        "source": "Wu Cheng'en, Journey to the West, ch. 3",
+        "date": "c. 1592 CE"
+      }
+    ]
   },
   {
     "id": "babylon",
@@ -617,7 +1105,15 @@
     "description": "The great city of Marduk, center of the Babylonian Empire and home to the Esagila temple and the ziggurat Etemenanki. The name means 'Gate of the Gods' and the city was considered the axis mundi of the Mesopotamian cosmos.",
     "latitude": 32.5422,
     "longitude": 44.4211,
-    "imageUrl": "/locations/babylon.png"
+    "imageUrl": "/locations/babylon.png",
+    "detailedBio": "## Marduk's city, Enuma's stage\n\nBabylon (Babili, \"gate of the gods\") is Marduk's city. The *Enuma Elish* is recited at Akitu: Marduk kills Tiamat, orders the cosmos, and takes kingship in Esagila, with Etemenanki as the ziggurat. It is a political theology for a late second-millennium and first-millennium capital, not a Sumerian first city (that claim belongs to Eridu). Herodotus later gapes at the walls. The myth explains why this city rules.",
+    "primarySources": [
+      {
+        "text": "They founded Esagila, the counterpart of Esharra. They built the temple tower of Esagila, a ziggurat of equal height.",
+        "source": "Enuma Elish, Tablet VI",
+        "date": "c. 12th–7th c. BCE copies"
+      }
+    ]
   },
   {
     "id": "uruk",
@@ -627,7 +1123,15 @@
     "description": "The city of Gilgamesh and Inanna, one of the first true cities in human history. Its mighty walls, said to be built by Gilgamesh himself, enclosed the great E-anna temple complex sacred to both Anu and Inanna.",
     "latitude": 31.3242,
     "longitude": 45.6367,
-    "imageUrl": "/locations/uruk.png"
+    "imageUrl": "/locations/uruk.png",
+    "detailedBio": "## Gilgamesh's walls\n\nUruk is Inanna/Ishtar's city and Gilgamesh's. The epic opens and closes on the walls he built; Tablet I tells you to inspect the brickwork. Eanna is the temple precinct of Anu and Inanna. This is among the earliest urban names in any literature. The king is two-thirds god, restless, then grieving. Cult of Inanna at Uruk is archaeological fact; the cedar raid is story. Read the city as a measured circuit of baked brick.",
+    "primarySources": [
+      {
+        "text": "See the wall of Uruk, which no later king could copy. Climb Uruk's wall and walk back and forth.",
+        "source": "Epic of Gilgamesh, Tablet I",
+        "date": "c. 18th–7th c. BCE"
+      }
+    ]
   },
   {
     "id": "cedar-forest",
@@ -637,7 +1141,15 @@
     "description": "A vast primordial forest at the edge of civilization, guarded by the monster Humbaba appointed by Enlil. Gilgamesh and Enkidu ventured here to slay Humbaba and make their names immortal.",
     "latitude": 34.0,
     "longitude": 36.0,
-    "imageUrl": "/locations/cedar-forest.png"
+    "imageUrl": "/locations/cedar-forest.png",
+    "detailedBio": "## Humbaba's precinct\n\nThe Cedar Forest is Enlil's protected wood, guarded by Humbaba (Huwawa). Gilgamesh and Enkidu cut a road, kill the guardian, and fell the cedars. Tablet V of the standard epic (and older Sumerian *Gilgamesh and Huwawa*) set the scene in the west, toward Lebanon in later geography. It is a sacred timber reserve, not a city. The crime is against a god's appointment. The forest exists so a name can be made and a curse can follow.",
+    "primarySources": [
+      {
+        "text": "They stood at the edge of the Cedar Forest, gazing at the height of the cedars, gazing at the entrance to the forest.",
+        "source": "Epic of Gilgamesh, Tablet V",
+        "date": "c. 7th c. BCE (Nineveh)"
+      }
+    ]
   },
   {
     "id": "xibalba",
@@ -647,7 +1159,15 @@
     "description": "The Maya underworld, 'Place of Fear,' ruled by the death lords One Death and Seven Death. Souls must pass through houses of darkness, knives, cold, jaguars, fire, and bats. The Hero Twins descended here to defeat death itself.",
     "latitude": null,
     "longitude": null,
-    "imageUrl": "/locations/xibalba.png"
+    "imageUrl": "/locations/xibalba.png",
+    "detailedBio": "## Place of fear\n\nXibalba in the K'iche' *Popol Vuh* is the underworld of One Death and Seven Death. The Hero Twins Hunahpu and Xbalanque descend, survive the dark house, razors, cold, jaguars, fire, and bats, and defeat the lords at the ballgame. Their father and uncle died on the same road. It is a court of tests, not a Mexica Mictlan. Do not merge the two. The text is colonial-era alphabetic but draws on Classic Maya underworld imagery.",
+    "primarySources": [
+      {
+        "text": "They went down to Xibalba, to the place of One Death and Seven Death, and they were summoned to the ballcourt.",
+        "source": "Popol Vuh (Tedlock / Colop tradition)",
+        "date": "c. 16th c. CE text of older narrative"
+      }
+    ]
   },
   {
     "id": "tamoanchan",
@@ -657,7 +1177,15 @@
     "description": "The Aztec paradise where the gods created humanity from the bones retrieved from Mictlan. A place of flowering trees and eternal spring, Tamoanchan represents the original state of creation before the current world age.",
     "latitude": null,
     "longitude": null,
-    "imageUrl": "/locations/tamoanchan.png"
+    "imageUrl": "/locations/tamoanchan.png",
+    "detailedBio": "## Flowering origin, dangerous tree\n\nTamoanchan is a paradisal origin-place in central Mexican lore: flowering trees, gods, and in some accounts the making of humans from bones brought out of Mictlan. Sahagun and the *Codex Telleriano-Remensis* treat it as a place of splendor from which beings fall or are expelled after a forbidden tree is cut or a flower is torn. It is not the Christian Eden with a serial number. Cult evidence is thin compared with Tenochtitlan's temples; the name is more painted and sung than excavated.",
+    "primarySources": [
+      {
+        "text": "Tamoanchan, the place of the misty sky, where the gods dwelt and the flowering tree stood.",
+        "source": "Florentine Codex (Sahagun) / Codex Telleriano-Remensis tradition",
+        "date": "c. 16th c. CE"
+      }
+    ]
   },
   {
     "id": "tollan",
@@ -667,7 +1195,15 @@
     "description": "The legendary Toltec capital associated with Quetzalcoatl as priest-king. A place of artistic and cultural perfection where corn grew in brilliant colors and cotton grew already dyed. Quetzalcoatl was tricked into disgrace here by Tezcatlipoca.",
     "latitude": 20.065,
     "longitude": -99.341,
-    "imageUrl": "/locations/tollan.png"
+    "imageUrl": "/locations/tollan.png",
+    "detailedBio": "## Quetzalcoatl's Toltec capital\n\nTollan (Tula) is the Toltec city of Topiltzin Quetzalcoatl in the *Anales de Cuauhtitlan* and Sahagun: crafts, colored maize, cotton already dyed, then disgrace when Tezcatlipoca tricks the priest-king into drunkenness and incest. He leaves for the east. Archaeology at Tula, Hidalgo, is a real Early Postclassic capital; the myth is a golden-age charter the Mexica later claimed. Do not confuse it with Teotihuacan, though sources sometimes blur \"Tollan\" as any great city.",
+    "primarySources": [
+      {
+        "text": "In Tollan, Quetzalcoatl was priest and king. Tezcatlipoca gave him pulque, and he fell, and he went away to the east.",
+        "source": "Anales de Cuauhtitlan / Florentine Codex Book 3",
+        "date": "c. 16th c. CE"
+      }
+    ]
   },
   {
     "id": "aztlan",
@@ -677,7 +1213,15 @@
     "description": "The mythical homeland of the Aztec people, 'Place of Whiteness' or 'Place of Herons.' From this island city, the Mexica began their long migration south, guided by Huitzilopochtli, until they found the eagle on the cactus that marked Tenochtitlan.",
     "latitude": null,
     "longitude": null,
-    "imageUrl": "/locations/aztlan.png"
+    "imageUrl": "/locations/aztlan.png",
+    "detailedBio": "## Place of herons, start of the walk\n\nAztlan is the island origin of the Mexica in the *Boturini Codex* (Tira de la Peregrinacion) and Sahagun: seven calpulli leave, led by Huitzilopochtli's priests, until the eagle-and-cactus sign. It is a migration charter, not a surveyed homeland. Scholars have looked in western Mexico and found no consensus. There is no Aztlan temple in the Basin. The place exists so an imperial people can say they came from elsewhere by command.",
+    "primarySources": [
+      {
+        "text": "From Aztlan they set out, the eight tribes, and Huitzilopochtli went before them as a hummingbird-sorcerer.",
+        "source": "Codex Boturini / Florentine Codex migration books",
+        "date": "c. 16th c. CE"
+      }
+    ]
   },
   {
     "id": "chichen-itza",
@@ -687,7 +1231,15 @@
     "description": "The great Maya-Toltec city dominated by El Castillo, the pyramid of Kukulkan. During the equinoxes, shadows create the illusion of a serpent descending the stairs. The cenote here received sacrificial offerings to Chaac.",
     "latitude": 20.6843,
     "longitude": -88.5678,
-    "imageUrl": "/locations/chichen-itza.png"
+    "imageUrl": "/locations/chichen-itza.png",
+    "detailedBio": "## Kukulkan's later city\n\nChichen Itza is a Maya-Toltec city on the northern Yucatan plain, with the Castillo pyramid, a large ballcourt, and a sacred cenote that received offerings. Spanish and Maya colonial books (*Chilam Balam*) remember Itza rule and Kukulkan. The equinox serpent-shadow is a modern observation about the stair, not a quoted Classic glyph. Popol Vuh is K'iche', not a Chichen charter. Treat the site as Postclassic power and water-ritual, not as Xibalba's door.",
+    "primarySources": [
+      {
+        "text": "The Itza established themselves at Chichen. Kukulkan came, and the cenote received offerings.",
+        "source": "Books of Chilam Balam (Chumayel tradition, condensed)",
+        "date": "c. 17th–18th c. CE copies"
+      }
+    ]
   },
   {
     "id": "coatepec",
@@ -697,7 +1249,15 @@
     "description": "The mythical mountain where Huitzilopochtli was born fully armed to defeat his sister Coyolxauhqui and four hundred brothers. The Templo Mayor of Tenochtitlan was a recreation of this sacred mountain.",
     "latitude": null,
     "longitude": null,
-    "imageUrl": "/locations/coatepec.png"
+    "imageUrl": "/locations/coatepec.png",
+    "detailedBio": "## Serpent Mountain, Huitzilopochtli's birth\n\nCoatepec is the mountain where Coatlicue conceives Huitzilopochtli from a ball of down, and where he bursts forth armed to dismember Coyolxauhqui and scatter the Centzon Huitznahua. Sahagun's *Florentine Codex* Book 3 is the main prose witness. The Templo Mayor in Tenochtitlan restaged that mountain: Coyolxauhqui at the foot, the sun-war god at the summit. There is no second literary Coatepec required. The myth is a temple plan.",
+    "primarySources": [
+      {
+        "text": "There at Coatepec, Serpent Mountain, Huitzilopochtli was born. He wounded Coyolxauhqui, cut off her head, and the body went rolling down.",
+        "source": "Florentine Codex, Book 3 (Sahagun)",
+        "date": "c. 1577 CE"
+      }
+    ]
   },
   {
     "id": "teotihuacan",
@@ -707,7 +1267,15 @@
     "description": "The 'Place Where Gods Are Made,' site of the Fifth Sun's creation. Here the gods gathered in darkness, and Nanahuatzin sacrificed himself in fire to become the sun. The Pyramid of the Sun and Pyramid of the Moon mark this sacred ground.",
     "latitude": 19.6925,
     "longitude": -98.8438,
-    "imageUrl": "/locations/teotihuacan.png"
+    "imageUrl": "/locations/teotihuacan.png",
+    "detailedBio": "## Where gods are made\n\nThe Mexica called the ruined metropolis Teotihuacan, \"place where gods are made,\" and set the Fifth Sun's creation there: gods meet in darkness, Nanahuatzin and Tecuciztecatl leap into a fire, and the sun and moon begin. Sahagun and the *Leyenda de los Soles* tell it. The city's own language is unread as narrative. Pyramids of Sun and Moon are later names. The myth is a Mexica reading of abandoned monuments, not a Teotihuacano text.",
+    "primarySources": [
+      {
+        "text": "The gods gathered at Teotihuacan. Nanahuatzin threw himself into the fire and became the sun.",
+        "source": "Leyenda de los Soles / Florentine Codex Book 7",
+        "date": "c. 16th c. CE"
+      }
+    ]
   },
   {
     "id": "tlalocan",
@@ -717,7 +1285,15 @@
     "description": "The earthly paradise ruled by Tlaloc, a place of eternal spring and abundance. Those who died by drowning, lightning, or water-related diseases went to Tlalocan rather than Mictlan, considered a blessed fate.",
     "latitude": null,
     "longitude": null,
-    "imageUrl": "/locations/tlalocan.png"
+    "imageUrl": "/locations/tlalocan.png",
+    "detailedBio": "## Tlaloc's spring country\n\nTlalocan is Tlaloc's terrestrial paradise: green, watery, abundant. Those struck by lightning, drowned, or dead of certain watery diseases go there instead of Mictlan. Sahagun is explicit that this is a favored lot. Murals at Tepantitla (Teotihuacan) are often read as Tlalocan, which is a modern iconographic argument, not a caption. There is no surviving long poem of a hero touring Tlalocan. It is a rain-god's estate for a subset of the dead.",
+    "primarySources": [
+      {
+        "text": "Those who died in water, or by lightning, went to Tlalocan, a place of eternal spring.",
+        "source": "Florentine Codex, Book 3 (Sahagun)",
+        "date": "c. 1577 CE"
+      }
+    ]
   },
   {
     "id": "hawaiki",
@@ -727,7 +1303,15 @@
     "description": "The legendary ancestral homeland of the Polynesian peoples, from which the great voyaging canoes departed to settle the Pacific islands. Hawaiki is both a physical place (possibly in the Society Islands) and a spiritual realm where souls return after death.",
     "latitude": null,
     "longitude": null,
-    "imageUrl": "/locations/hawaiki.png"
+    "imageUrl": "/locations/hawaiki.png",
+    "detailedBio": "## Ancestral west, and a return for souls\n\nHawaiki (Hawai'i, Savai'i, and cognates) is the named homeland in Polynesian genealogies from which canoes left to settle distant islands. In Maori tradition souls also travel back toward it. It is both a remembered geography (often argued toward the Society Islands or further west) and a spiritual direction. There is no single canonical book; the evidence is chant, genealogy, and later collections (Grey, Fornander). Do not invent a palace plan.",
+    "primarySources": [
+      {
+        "text": "From Hawaiki the canoes came; to Hawaiki the spirits return.",
+        "source": "Maori and wider Polynesian oral tradition (as recorded in 19th-c. collections)",
+        "date": "oral; recorded 19th c. CE"
+      }
+    ]
   },
   {
     "id": "kilauea",
@@ -737,7 +1321,15 @@
     "description": "The home of Pele, goddess of volcanoes, located on the Big Island of Hawaii. The Halemaumau crater within Kilauea is considered Pele's residence, where she creates new land through volcanic eruptions. One of the most active volcanoes on Earth.",
     "latitude": 19.4069,
     "longitude": -155.2834,
-    "imageUrl": "/locations/kilauea.png"
+    "imageUrl": "/locations/kilauea.png",
+    "detailedBio": "## Pele's pit\n\nHalema'uma'u in Kilauea is Pele's home in Hawaiian tradition: a goddess of lava who arrived from Kahiki, fought sisters (including Poliahu of the snow), and still makes land. Chants and later written versions (Fornander, Kamakau, Emerson) are the sources. There is no pre-contact written epic. Offerings at the crater are attested historically; treat them as living practice, not as a reconstructed Bronze Age rite. The volcano is the body of the story.",
+    "primarySources": [
+      {
+        "text": "Pele-honua-mea dwells in the pit of Kilauea. The land is her making, and her anger is the fire.",
+        "source": "Hawaiian tradition (Pele chants; Fornander / Emerson collections)",
+        "date": "oral; recorded 19th c. CE"
+      }
+    ]
   },
   {
     "id": "te-po",
@@ -747,7 +1339,15 @@
     "description": "The Polynesian realm of darkness and the dead, ruled by Hine-nui-te-po, the goddess of death. Te Po is where souls journey after death, a shadowy realm contrasting with Te Ao (the world of light). Maui died attempting to conquer Te Po.",
     "latitude": null,
     "longitude": null,
-    "imageUrl": "/locations/te-po.png"
+    "imageUrl": "/locations/te-po.png",
+    "detailedBio": "## Darkness before and after\n\nTe Po in Maori and wider Polynesian cosmogony is the darkness before Te Ao, the world of light, and also the night-realm of the dead. Hine-nui-te-po is the Great Woman of Night; Maui dies in some tellings trying to reverse death by crawling through her. Grey's *Polynesian Mythology* and later iwi recensions preserve variants. There is no single floor-plan of Te Po. It is a state and a goddess more than a mapped cavern.",
+    "primarySources": [
+      {
+        "text": "Maui sought to pass through Hine-nui-te-po and end death. The fantail laughed; she woke and crushed him.",
+        "source": "Maori tradition of Maui and Hine-nui-te-po (Grey and iwi variants)",
+        "date": "oral; recorded 19th c. CE"
+      }
+    ]
   },
   {
     "id": "mauna-kea",
@@ -757,7 +1357,15 @@
     "description": "The tallest mountain in Hawaii and home of Poliahu, the snow goddess. Its summit, often covered with snow, is considered sacred and represents the realm of ice that opposes Pele's volcanic fire. The name means 'White Mountain.'",
     "latitude": 19.8207,
     "longitude": -155.468,
-    "imageUrl": "/locations/mauna-kea.png"
+    "imageUrl": "/locations/mauna-kea.png",
+    "detailedBio": "## Poliahu's white mountain\n\nMauna Kea (Mauna a Wakea in some genealogies) is a snow mountain and the home of Poli'ahu, a goddess of ice who opposes Pele's fire in Hawaiian story. Summit shrines and later telescope conflicts sit on land already named as sacred. The evidence is chant and place-name, not a novel. Do not invent a festival calendar the ethnographies do not give. The peak is a cold counter-realm to Kilauea on the same island.",
+    "primarySources": [
+      {
+        "text": "Poli'ahu of the snow mountain, rival of Pele, whose mantle is frost on Mauna Kea.",
+        "source": "Hawaiian tradition (Poli'ahu / Pele cycles; Fornander)",
+        "date": "oral; recorded 19th c. CE"
+      }
+    ]
   },
   {
     "id": "haleakala",
@@ -767,7 +1375,15 @@
     "description": "The 'House of the Sun' on the island of Maui, where according to Hawaiian tradition, Maui captured and beat the sun to slow its passage across the sky. The massive volcanic crater is one of Hawaii's most sacred sites.",
     "latitude": 20.7097,
     "longitude": -156.2533,
-    "imageUrl": "/locations/haleakala.png"
+    "imageUrl": "/locations/haleakala.png",
+    "detailedBio": "## House of the sun\n\nHaleakala, \"house of the sun,\" is the Maui volcano where the trickster Maui snares the sun with ropes of his sister's hair (or with coconut fiber, in variants) and beats it until the days lengthen enough for his mother's kapa to dry. Hawaiian tradition, recorded by Fornander and others, is the source. The crater is a later park; the story is a time-fix. No pre-contact written text exists. The mountain is a snare, not a temple of Helios.",
+    "primarySources": [
+      {
+        "text": "Maui noosed the sun at Haleakala and would not let him go until he promised to travel more slowly.",
+        "source": "Hawaiian tradition of Maui and the sun (Fornander)",
+        "date": "oral; recorded 19th c. CE"
+      }
+    ]
   },
   {
     "id": "te-reinga",
@@ -777,7 +1393,15 @@
     "description": "The northernmost tip of New Zealand, where Maori tradition holds that the spirits of the dead depart for the afterlife. Souls travel north along the island, descend an ancient pohutukawa tree, and slide down its roots into the sea to journey to Hawaiki.",
     "latitude": -34.4289,
     "longitude": 172.6803,
-    "imageUrl": "/locations/te-reinga.png"
+    "imageUrl": "/locations/te-reinga.png",
+    "detailedBio": "## Where spirits leap\n\nTe Rerenga Wairua at Cape Reinga is, in Maori tradition, the leaving-place of the dead: spirits travel north, descend a pohutukawa, and go into the sea toward Hawaiki. It is a directional eschatology tied to a real headland. Nineteenth-century collectors (Grey, later ethnographers) wrote down local accounts. There is no *Book of the Dead* equivalent. The site is still treated as tapu. Do not invent additional courts of judgment the chants do not name.",
+    "primarySources": [
+      {
+        "text": "The spirits go north to Te Rerenga Wairua, down the roots of the pohutukawa, and into the sea.",
+        "source": "Maori tradition of Cape Reinga",
+        "date": "oral; recorded 19th c. CE"
+      }
+    ]
   },
   {
     "id": "rangiatea",
@@ -787,7 +1411,15 @@
     "description": "An island in the Society Islands group, traditionally considered one of the most sacred places in Polynesia. The marae (temple) of Taputapuatea was a center of religious and political power, from which voyaging canoes departed to settle distant islands.",
     "latitude": -16.8333,
     "longitude": -151.4333,
-    "imageUrl": "/locations/rangiatea.png"
+    "imageUrl": "/locations/rangiatea.png",
+    "detailedBio": "## Ra'iatea and Taputapuatea\n\nRa'iatea (Rangiatea in Maori memory) in the Society Islands holds Taputapuatea, a marae complex tied to voyaging, high chiefs, and the god 'Oro in later Tahitian religion. Traditions make it a departure node for long-distance canoes. Maori churches later took the name Rangiatea. There is no single epic; evidence is marae archaeology, chants, and early missionary-era records. Admit what is not there: a verse-by-verse Argonautica of the Pacific.",
+    "primarySources": [
+      {
+        "text": "Taputapuatea on Ra'iatea was the marae from which the voyaging chiefs took their gods and their courses.",
+        "source": "Society Islands oral tradition (Taputapuatea / 'Oro cycles)",
+        "date": "oral; recorded 18th–19th c. CE"
+      }
+    ]
   },
   {
     "id": "ile-ife",
@@ -797,7 +1429,15 @@
     "description": "The holiest city in Yoruba religion, where Obatala first descended from heaven and created land from the primordial waters. Known as 'the navel of the world' and the place where creation began. The city remains the spiritual center of Yoruba tradition, and its kings trace descent from the Orishas.",
     "latitude": 7.4833,
     "longitude": 4.5667,
-    "imageUrl": "/locations/ile-ife.png"
+    "imageUrl": "/locations/ile-ife.png",
+    "detailedBio": "## Where the chain came down\n\nIle-Ife is the Yoruba city of origin: Oduduwa (or Obatala, in competing recensions) descends a chain, pours sand on the primordial water, and land spreads with a five-toed fowl. Ifa verses and Ife palace tradition keep the story; archaeology shows an early urban center of glass and brass. The Ooni's kingship claims descent from that descent. Do not flatten Obatala and Oduduwa into one agent; the corpus argues. Ife remains a living ritual city, not a closed myth.",
+    "primarySources": [
+      {
+        "text": "Oduduwa came down the chain to the water, and the sand he poured became land at Ife.",
+        "source": "Ifa oral corpus / Ife origin recensions",
+        "date": "oral"
+      }
+    ]
   },
   {
     "id": "orun",
@@ -807,7 +1447,15 @@
     "description": "The heavenly realm where Olodumare and the Orishas dwell. Orun exists in layers, with the supreme being at the highest level. It is also the destination of righteous souls after death, where they join the ancestors and may eventually be reborn into the earthly realm (Aye).",
     "latitude": null,
     "longitude": null,
-    "imageUrl": "/locations/orun.png"
+    "imageUrl": "/locations/orun.png",
+    "detailedBio": "## Heaven of Olodumare\n\nOrun is the heavenly side of Yoruba cosmology, paired with Aye (earth). Olodumare and many orisha dwell there; destinies (ori) are chosen there before birth. Ifa verses move between the two realms constantly. It is layered, not a single throne room. Righteous dead and ancestors have commerce with Orun; it is not a sealed Christian heaven. There is no archaeological Orun. The word is a cosmological address used in living ritual speech.",
+    "primarySources": [
+      {
+        "text": "In Orun the ori chooses the life it will live in Aye, and Ifa is the witness.",
+        "source": "Ifa oral corpus (ori / Orun verses)",
+        "date": "oral"
+      }
+    ]
   },
   {
     "id": "osun-osogbo-grove",
@@ -817,7 +1465,15 @@
     "description": "A UNESCO World Heritage Site and the most important shrine to the goddess Oshun. Located along the Osun River in Nigeria, the grove contains ancient sculptures, shrines, and sanctuaries. The annual Osun-Osogbo Festival draws hundreds of thousands of worshippers from around the world.",
     "latitude": 7.7556,
     "longitude": 4.5361,
-    "imageUrl": "/locations/osun-osogbo-grove.png"
+    "imageUrl": "/locations/osun-osogbo-grove.png",
+    "detailedBio": "## Oshun's grove on the river\n\nThe Osun-Osogbo grove is the principal surviving forest shrine of the river goddess Osun (Oshun) in Osogbo, Nigeria. Founding stories tell of Oshogbo settlers who made compact with the goddess of the river. The annual Osun-Osogbo festival is living cult, not a reconstructed antique. Ifa and praise-poetry (oriki) name Osun as a source of children and cool water. The grove's present sculptures are partly twentieth-century. The river is the older presence.",
+    "primarySources": [
+      {
+        "text": "Osun, owner of the river, who heals and who gives children; the grove at Osogbo is her house.",
+        "source": "Ifa / Osun oriki (oral)",
+        "date": "oral"
+      }
+    ]
   },
   {
     "id": "oyo",
@@ -827,7 +1483,15 @@
     "description": "The capital of the ancient Oyo Empire and the city where Shango ruled as the fourth Alaafin (king). After his tragic death and deification, Oyo became a center of Shango worship. The city represents the intersection of historical kingship and divine mythology in Yoruba tradition.",
     "latitude": 7.8439,
     "longitude": 3.9306,
-    "imageUrl": "/locations/oyo.png"
+    "imageUrl": "/locations/oyo.png",
+    "detailedBio": "## Shango's former throne\n\nOld Oyo (Oyo-Ile) was the capital of the Oyo empire. Tradition makes Shango (Sango) a historical Alaafin who became the orisha of thunder after a violent end. Johnson's *History of the Yorubas* and Ifa/Sango praise-poetry are the usual written and oral witnesses. The city is where kingship and thunder-cult meet; it is not a sky-palace. New Oyo after the capital's fall is a later political fact. Do not invent a festival the Sango cult does not actually keep.",
+    "primarySources": [
+      {
+        "text": "Sango was Alaafin at Oyo. When he departed, the people said the king had become thunder.",
+        "source": "Yoruba Sango tradition / Samuel Johnson, History of the Yorubas",
+        "date": "oral; Johnson 1921"
+      }
+    ]
   },
   {
     "id": "igbo-orun",
@@ -837,7 +1501,15 @@
     "description": "A sacred forest believed to be a physical connection point between the earthly realm (Aye) and the heavenly realm (Orun). Such forests throughout Yorubaland are protected as dwelling places of the Orishas and sites for important rituals and initiations.",
     "latitude": null,
     "longitude": null,
-    "imageUrl": "/locations/igbo-orun.png"
+    "imageUrl": "/locations/igbo-orun.png",
+    "detailedBio": "## Forest that is not a mapped park\n\nIgbo-Orun, \"forest of heaven,\" names sacred woodland as a joint between Aye and Orun in Yoruba speech: groves where orisha are fed, initiations run, and hunting is forbidden. It is a class of place more than one GPS pin. Ifa verses assume such forests; they do not publish a tourist prospectus. Do not invent a unique creation battle for this entry. The holiness is prohibition and presence, not architecture.",
+    "primarySources": [
+      {
+        "text": "The forest of heaven is not for casual cutting; it is the orisha's road between Orun and Aye.",
+        "source": "Ifa oral corpus (grove / igbo verses)",
+        "date": "oral"
+      }
+    ]
   },
   {
     "id": "crossroads-eshu",
@@ -847,7 +1519,15 @@
     "description": "Not a single location but every place where paths meet. The crossroads is the domain of Eshu, where decisions are made and fates are determined. Offerings to Eshu are placed at crossroads, and all Yoruba rituals must honor Eshu at the crossroads before proceeding to other Orishas.",
     "latitude": null,
     "longitude": null,
-    "imageUrl": "/locations/crossroads-eshu.png"
+    "imageUrl": "/locations/crossroads-eshu.png",
+    "detailedBio": "## Eshu's working floor\n\nThe crossroads (orita) is Eshu-Elegba's place: every meeting of paths, not one monument. Offerings go there because Eshu opens or blocks communication with other orisha. Ifa verses make him the linguist of the gods and the tester of humans. There is no temple that exhausts the site; the site is repeated wherever roads split. Inventing a single primordial crossroads would miss the point. Ritual begins by feeding him.",
+    "primarySources": [
+      {
+        "text": "Eshu, who sits at the crossroads, who takes the sacrifice and who confuses the proud.",
+        "source": "Ifa oral corpus (Eshu verses)",
+        "date": "oral"
+      }
+    ]
   },
   {
     "id": "cicones-coast",
@@ -857,7 +1537,14 @@
     "description": "Coastal land of the Cicones where Odysseus first raided after leaving Troy.",
     "latitude": 40.85,
     "longitude": 25.9,
-    "imageUrl": null
+    "detailedBio": "## Ismarus, the first raid\n\nOdysseus's first landfall after Troy is the Cicones' coast at Ismarus in Thrace. *Odyssey* 9: they sack the town, Odysseus cannot hold his men from lingering, the inland Cicones counterattack, and he loses companions before a fair wind. It is a failed pirate stop, not a wonder. No cult of the Cicones survives in Greek ritual calendars. The episode teaches the poem's rule: delay and greed cost ships. Maroneia later claimed Homeric wine from here.",
+    "primarySources": [
+      {
+        "text": "From Ilios the wind bore me to the Cicones, to Ismarus. I sacked the city and slew the men.",
+        "source": "Homer, Odyssey 9",
+        "date": "c. 700 BCE"
+      }
+    ]
   },
   {
     "id": "lotus-eaters-island",
@@ -867,7 +1554,14 @@
     "description": "A shore of forgetful hospitality where lotus fruit dulled the will to return home.",
     "latitude": 33.0,
     "longitude": 13.2,
-    "imageUrl": null
+    "detailedBio": "## The fruit that ends return\n\nIn *Odyssey* 9 Odysseus next reaches the lotus-eaters. Three scouts eat the honey-sweet fruit and lose the will to report home; he drags them back weeping and ties them under the benches. The island is unnamed. Later geographers guessed Libya. There is no lotus cult. The stop is a brief anthropological trap: hospitality that erases nostos. Homer spends few lines because the danger is appetite, not a monster.",
+    "primarySources": [
+      {
+        "text": "Whoever ate the honey-sweet fruit of the lotus no longer wished to bring back word or to return.",
+        "source": "Homer, Odyssey 9",
+        "date": "c. 700 BCE"
+      }
+    ]
   },
   {
     "id": "cyclops-cave",
@@ -877,7 +1571,14 @@
     "description": "The cavern of the Cyclops Polyphemus on Sicily's mythic shore.",
     "latitude": 37.75,
     "longitude": 15.0,
-    "imageUrl": null
+    "detailedBio": "## Polyphemus's fold\n\nThe cave in *Odyssey* 9 is a dairy and a prison: Polyphemus, son of Poseidon, eats six men, Odysseus names himself Nobody, blinds the eye, and rides out under the sheep. Homer places the Cyclopes on a lawless shore opposite a goat island; later tradition says Sicily. There is no hero-cult of the cave. Poseidon's anger in the rest of the poem starts here. The architecture is a single blocked door and a sharpened olive stake.",
+    "primarySources": [
+      {
+        "text": "He broke off a piece of the door-stone and sat in the doorway, and milked his ewes and goats.",
+        "source": "Homer, Odyssey 9",
+        "date": "c. 700 BCE"
+      }
+    ]
   },
   {
     "id": "aeolus-island",
@@ -887,7 +1588,14 @@
     "description": "Floating isle of the wind-king Aeolus, keeper of the bag of winds.",
     "latitude": 38.8,
     "longitude": 15.2,
-    "imageUrl": null
+    "detailedBio": "## A bag of winds\n\n*Odyssey* 10 opens on Aeolia, a floating island of bronze wall, where Aeolus Hippotades feasts Odysseus a month and bags the storm-winds, leaving only Zephyr to blow him home. Ithaca is in sight when the crew open the bag. The island then refuses him. There is no Aeolus temple in Homer. Later Aeolian Lipari claimed the king. The place is a meteorological palace whose one gift is squandered in sight of home.",
+    "primarySources": [
+      {
+        "text": "He gave me a bag made of the hide of an ox, and in it he had bound the ways of the blustering winds.",
+        "source": "Homer, Odyssey 10",
+        "date": "c. 700 BCE"
+      }
+    ]
   },
   {
     "id": "laestrygonians-harbor",
@@ -897,7 +1605,14 @@
     "description": "A false harbor where giant Laestrygonians smashed Odysseus's fleet.",
     "latitude": 41.2,
     "longitude": 13.5,
-    "imageUrl": null
+    "detailedBio": "## A harbor that bites\n\nStill in *Odyssey* 10, the Laestrygonians' fjord looks safe: a land-locked harbor, a king's daughter at a spring, then giants who spear men like fish and smash eleven of twelve ships. Odysseus has moored outside, so only his own ship escapes. Later readers guessed Corsica or Formiae. There is no cult. The episode is fleet-destruction in a few dozen lines, a false haven after the wind-bag.",
+    "primarySources": [
+      {
+        "text": "They speared them like fish and carried them home for a gruesome meal. While they were destroying the men in the harbor, I drew my sword and cut the cables.",
+        "source": "Homer, Odyssey 10",
+        "date": "c. 700 BCE"
+      }
+    ]
   },
   {
     "id": "circe-island",
@@ -907,7 +1622,14 @@
     "description": "The enchanted island of Circe, goddess of transformation and herbs.",
     "latitude": 41.2,
     "longitude": 13.0,
-    "imageUrl": null
+    "detailedBio": "## Aeaea, the house in the glade\n\nCirce's Aeaea in *Odyssey* 10 is a stone house, wolves and lions under spell, and a drug that turns men into pigs. Hermes gives moly; Odysseus beds the goddess, stays a year, and leaves with instructions for the dead and for the sea-road home. There is no civic cult of Aeaea. Later poets put the island off Italy. The stop is pharmacological and didactic: the witch becomes a guide.",
+    "primarySources": [
+      {
+        "text": "She struck them with her wand and penned them in sties. They had the heads and voice and bristles of swine, but their minds were as before.",
+        "source": "Homer, Odyssey 10",
+        "date": "c. 700 BCE"
+      }
+    ]
   },
   {
     "id": "sirens-strait",
@@ -917,7 +1639,14 @@
     "description": "The deadly channel where Sirens sang sailors onto the rocks.",
     "latitude": 38.2,
     "longitude": 15.6,
-    "imageUrl": null
+    "detailedBio": "## Song on the bone-beach\n\n*Odyssey* 12: Circe warns of the Sirens' meadow of moldering men. Odysseus stops his crew's ears with wax and has himself lashed to the mast. He hears the pitch (they claim knowledge of Troy) and cannot act. Homer does not give a city or a cult. Later vases show two birds with women's heads. The strait is a listening test. The danger is knowledge offered at the wrong time, not a navy.",
+    "primarySources": [
+      {
+        "text": "Draw near, famous Odysseus, great glory of the Achaeans, and listen to our voice. We know all that the Argives and Trojans suffered at Troy.",
+        "source": "Homer, Odyssey 12",
+        "date": "c. 700 BCE"
+      }
+    ]
   },
   {
     "id": "scylla-charybdis",
@@ -927,7 +1656,14 @@
     "description": "The twin perils of the Messina strait — six-headed Scylla and the whirlpool Charybdis.",
     "latitude": 38.25,
     "longitude": 15.65,
-    "imageUrl": null
+    "detailedBio": "## Two deaths in one lane\n\nStill *Odyssey* 12: Circe maps a narrow water between Scylla (six necks, six men taken) and Charybdis (three times a day she swallows the sea). Odysseus chooses Scylla and loses six. Later geography says the Strait of Messina. There is no temple. Virgil and others reuse the pair as a proverb. Homer's advice is tactical: lose six rather than the ship. The monsters are local weather made flesh.",
+    "primarySources": [
+      {
+        "text": "Hug the cliff of Scylla, and drive your ship past, lest Charybdis suck it down. Better to mourn six comrades than the whole company.",
+        "source": "Homer, Odyssey 12",
+        "date": "c. 700 BCE"
+      }
+    ]
   },
   {
     "id": "thrinacia",
@@ -937,7 +1673,14 @@
     "description": "Sacred island of Helios where Odysseus's crew slaughtered the sun-god's cattle.",
     "latitude": 37.5,
     "longitude": 14.5,
-    "imageUrl": null
+    "detailedBio": "## Helios's cattle\n\nThrinacia in *Odyssey* 12 is the island of the Sun, with seven herds of cattle and seven flocks of sheep, unharmed until Odysseus sleeps and Eurylochus talks the starving crew into slaughter. The hides crawl; the meat lows on the spits. Helios demands vengeance; Zeus wrecks the ship. Sicily later claimed the name. There is no Helios cult described on the beach. The stop is a taboo about property of a god who sees everything.",
+    "primarySources": [
+      {
+        "text": "If you leave the cattle unharmed, you may yet reach Ithaca. If you harm them, I foretell the ruin of ship and crew.",
+        "source": "Homer, Odyssey 12",
+        "date": "c. 700 BCE"
+      }
+    ]
   },
   {
     "id": "calypso-island",
@@ -947,7 +1690,14 @@
     "description": "The remote island where the nymph Calypso held Odysseus for seven years.",
     "latitude": 35.9,
     "longitude": 14.4,
-    "imageUrl": null
+    "detailedBio": "## Ogygia, seven years off the map\n\nOgygia is Calypso's wooded isle in *Odyssey* 5: a cave, a hearth, alders and cypress, Hermes arriving with Zeus's order to release Odysseus. She has kept him seven years and offered immortality. He sits on the shore and weeps for Ithaca. There is no cult of Ogygia. Later guesses include Gozo. The island is delay as a goddess: comfort that is not home. Books 1 and 5 frame the poem with this captivity.",
+    "primarySources": [
+      {
+        "text": "Calypso, the fair goddess, kept him in her hollow caves, yearning that he should be her husband.",
+        "source": "Homer, Odyssey 1 / 5",
+        "date": "c. 700 BCE"
+      }
+    ]
   },
   {
     "id": "phaeacia",
@@ -957,7 +1707,14 @@
     "description": "The hospitable kingdom of the Phaeacians who finally carried Odysseus home.",
     "latitude": 39.6,
     "longitude": 19.9,
-    "imageUrl": null
+    "detailedBio": "## Scheria, last hosts\n\nThe Phaeacians of Scheria in *Odyssey* 6–13 receive the wrecked Odysseus: Nausicaa at the washing pools, Alcinous's palace, Demodocus's songs, athletic games, and a magic ship that delivers him sleeping to Ithaca. Poseidon then stones the vessel. Scheria is mapped toward Corcyra by later readers. There is no historical Phaeacian cult. The episode is institutionalized hospitality, the poem's best house, and the platform for Odysseus to tell books 9–12.",
+    "primarySources": [
+      {
+        "text": "We are the Phaeacians, who live apart, in the wash of the sea, the furthest of men. No other mortals have dealings with us.",
+        "source": "Homer, Odyssey 6",
+        "date": "c. 700 BCE"
+      }
+    ]
   },
   {
     "id": "iolcos",
@@ -967,7 +1724,14 @@
     "description": "Thessalian port from which Jason sailed the Argo for the Golden Fleece.",
     "latitude": 39.37,
     "longitude": 22.93,
-    "imageUrl": null
+    "detailedBio": "## The port the Argo leaves\n\nIolcos in Thessaly is Pelias's city, where Jason, denied his inheritance, is sent for the fleece. Pindar's *Pythian* 4 and Apollonius *Argonautica* 1 launch the Argo from this shore (Pagasae). The building of the ship, the mustering of heroes, and Hera's grudge against Pelias belong here. There is a real Magnesian harbor. Cult of the Argonauts is later and local. The city exists in literature as a bad uncle's court and a departure whistle.",
+    "primarySources": [
+      {
+        "text": "The heroes went down to the ship at Pagasae, and the harbor of Iolcos rang as they rowed out.",
+        "source": "Apollonius Rhodius, Argonautica 1",
+        "date": "c. 250 BCE"
+      }
+    ]
   },
   {
     "id": "samothrace",
@@ -977,7 +1741,14 @@
     "description": "Sacred island of the Mysteries where the Argonauts sought divine favor.",
     "latitude": 40.48,
     "longitude": 25.52,
-    "imageUrl": null
+    "detailedBio": "## Mysteries on the Argo's route\n\nApollonius has the Argonauts put in at Samothrace in Book 1 to be initiated in the rites of the Kabeiroi (Samothracian Mysteries), for protection at sea. The island's mystery cult is historically real and famously secret; the *Argonautica* uses it as a pious stop. Homer does not send Odysseus here. Do not invent the secret. What can be said: seafarers sought the Great Gods, and Apollonius parks Jason's crew in that queue.",
+    "primarySources": [
+      {
+        "text": "They reached Electra's isle, where they were initiated in the sacred rites, that they might sail with greater safety.",
+        "source": "Apollonius Rhodius, Argonautica 1",
+        "date": "c. 250 BCE"
+      }
+    ]
   },
   {
     "id": "cyzicus",
@@ -987,7 +1758,14 @@
     "description": "Propontis city where the Argonauts fought a tragic night battle with allies.",
     "latitude": 40.39,
     "longitude": 27.88,
-    "imageUrl": null
+    "detailedBio": "## Night battle with friends\n\nIn *Argonautica* 1 the Argonauts are hosted by Cyzicus, young king of the Doliones. They leave, are blown back in the dark, and kill him by mistake. His bride Cleite hangs herself; the people bury him. It is a tragic layover in the Propontis, not a monster fight. The city of Cyzicus was real. Apollonius is the narrative source. There is no major independent Cyzicus epic. The stop costs an ally to weather and misrecognition.",
+    "primarySources": [
+      {
+        "text": "They did not know they had returned to the Doliones. In the night they slew Cyzicus, their host.",
+        "source": "Apollonius Rhodius, Argonautica 1",
+        "date": "c. 250 BCE"
+      }
+    ]
   },
   {
     "id": "bebryces",
@@ -997,7 +1775,14 @@
     "description": "Kingdom of King Amycus, where Polydeuces boxed for the Argonauts' passage.",
     "latitude": 41.2,
     "longitude": 29.5,
-    "imageUrl": null
+    "detailedBio": "## Amycus at the shore\n\n*Argonautica* 2: the Bebryces' king Amycus forces strangers to box and kills them. Polydeuces (Pollux) takes the challenge, breaks him, and the Argonauts scatter the Bebryces. The land is a Bithynian shore. Theocritus *Idyll* 22 tells the same bout. There is no Bebrycian cult in Greece. The stop is a ritual of hostile hospitality solved with fists, a Dioscuric set-piece before the clashing rocks.",
+    "primarySources": [
+      {
+        "text": "Amycus came down and said: Stranger, it is the law that no man leave until he has lifted his hands against me.",
+        "source": "Apollonius Rhodius, Argonautica 2",
+        "date": "c. 250 BCE"
+      }
+    ]
   },
   {
     "id": "symplegades",
@@ -1007,7 +1792,14 @@
     "description": "The clashing rocks at the Bosporus that crushed ships until the Argo passed.",
     "latitude": 41.2,
     "longitude": 29.1,
-    "imageUrl": null
+    "detailedBio": "## Clashing rocks at the Bosporus\n\nThe Symplegades (Planctae in some naming muddles) are living cliffs that smash what passes. In *Argonautica* 2 Phineus tells the crew to send a dove; if it lives, row. Athena shoves the Argo through; the rocks freeze apart thereafter. Pindar already knows the feat. There is no cult of the rocks. Later sailors pointed at the Bosporus. The episode is a one-time opening of the Black Sea.",
+    "primarySources": [
+      {
+        "text": "They let fly the dove. The rocks sheared her tail-feathers, then they drove the Argo through, and the rocks stood still thereafter.",
+        "source": "Apollonius Rhodius, Argonautica 2",
+        "date": "c. 250 BCE"
+      }
+    ]
   },
   {
     "id": "libya",
@@ -1017,7 +1809,14 @@
     "description": "The barren North African shore where the Argonauts hauled the Argo inland.",
     "latitude": 32.0,
     "longitude": 20.0,
-    "imageUrl": null
+    "detailedBio": "## The Argo on sand\n\n*Argonautica* 4 strands the crew on a Libyan syrtis. They portage the Argo inland for days, meet the Hesperides after Heracles has already taken the apples, and lose companions to snake and exhaustion. Triton finally shows the sea-road. This is not Odysseus's lotus shore. Apollonius is expanding a North African detour. There is no Libyan Argonaut cult. The desert is a second labor of carrying a ship where water should have been.",
+    "primarySources": [
+      {
+        "text": "They lifted the Argo on their shoulders and bore her across the Libyan sands, toward the Tritonian mere.",
+        "source": "Apollonius Rhodius, Argonautica 4",
+        "date": "c. 250 BCE"
+      }
+    ]
   },
   {
     "id": "nidavellir",
@@ -1027,7 +1826,14 @@
     "description": "The dark home of the dwarves and their legendary forges — sometimes identified with Svartalfheim.",
     "latitude": null,
     "longitude": null,
-    "imageUrl": null
+    "detailedBio": "## Dwarf-fields, overlapping Svartalfheim\n\n*Voluspa* mentions Niðavellir, \"dark fields,\" as a dwarf-place (and a hall of gold). Snorri prefers Svartalfheim for underground smiths. English Nidavellir is a modern convenience for the same workshop: Draupnir, Mjolnir, Gleipnir's makers. There is no separate cult. Admit the overlap rather than invent two kingdoms with flags. The poems need a dark address for skilled beings who are not Aesir.",
+    "primarySources": [
+      {
+        "text": "Stood in the north, on Nidavellir, a hall of gold, the dwelling of Sindri's kin.",
+        "source": "Poetic Edda, Voluspa",
+        "date": "c. 10th c. CE"
+      }
+    ]
   },
   {
     "id": "western-horizon",
@@ -1037,7 +1843,14 @@
     "description": "The sun's descent into the Duat — the threshold of night and the dead.",
     "latitude": 25.7,
     "longitude": 32.6,
-    "imageUrl": null
+    "detailedBio": "## Akhet of the setting sun\n\nThe western horizon (akhet) is where Ra enters the Duat each evening and where the dead are \"westerners\" under Osiris. Pyramid Texts and later underworld books orient tombs and spells toward that descent. It is a daily cosmological door, not a city. Abydos and the necropolis edges of Thebes are earthly analogues. There is no single gatehouse excavated as \"the\" horizon. The west is a direction of completion and danger.",
+    "primarySources": [
+      {
+        "text": "The king goes to the western horizon, among the followers of Re, among the imperishable stars.",
+        "source": "Pyramid Texts (solar / western-horizon spells)",
+        "date": "c. 24th c. BCE"
+      }
+    ]
   },
   {
     "id": "first-gate",
@@ -1047,7 +1860,14 @@
     "description": "The first of the underworld gates the night-bark must pass.",
     "latitude": 25.7,
     "longitude": 32.6,
-    "imageUrl": null
+    "detailedBio": "## Password at hour one\n\nNew Kingdom underworld books (*Book of Gates*, *Amduat*) divide the night into gates and hours. The first gate is where the sun-barque and the deceased must know names to pass. Tomb walls in the Valley of the Kings draw the doorkeepers. There is no civic cult of \"First Gate.\" It is liturgical architecture for a royal night-journey. Later *Book of the Dead* spells keep the same anxiety: speak, or be turned back.",
+    "primarySources": [
+      {
+        "text": "The first gate of the West: the name of its keeper is spoken, and the barque of Re enters the darkness.",
+        "source": "Book of Gates / Amduat, First Hour–Gate",
+        "date": "c. 15th–13th c. BCE"
+      }
+    ]
   },
   {
     "id": "hall-of-maat",
@@ -1057,7 +1877,14 @@
     "description": "The judgment hall where the heart is weighed against the feather of truth.",
     "latitude": 25.7,
     "longitude": 32.6,
-    "imageUrl": null
+    "detailedBio": "## Weighing of the heart\n\nThe Hall of Two Truths (Maat) is where the deceased's heart is weighed against the feather, Anubis adjusting the scale, Thoth recording, Ammit waiting. *Book of the Dead* Spell 125 is the great negative confession before forty-two judges. Osiris presides. This is the moral bottleneck of the Egyptian afterlife as New Kingdom officials imagined it. There is no separate temple of the Hall; coffins and papyri are the building.",
+    "primarySources": [
+      {
+        "text": "I have not done falsehood against men. I have not impoverished my fellows. My heart is weighed in the Hall of Maat.",
+        "source": "Book of the Dead, Spell 125",
+        "date": "c. New Kingdom"
+      }
+    ]
   },
   {
     "id": "lake-of-fire",
@@ -1067,7 +1894,14 @@
     "description": "A devouring lake that destroys the unjust in the Egyptian underworld.",
     "latitude": 25.7,
     "longitude": 32.6,
-    "imageUrl": null
+    "detailedBio": "## A lake that unmakes the unjust\n\nThe Lake of Fire appears in *Book of the Dead* vignettes and in underworld books as a place that destroys enemies of Re and the unjust dead, while the justified may drink. It is not Dante. Ammit and knife-wielding demons work nearby. There is no excavated crater. The image is a warning painted beside the successful farmer in Aaru: the same cosmos has a disposal pit for those who fail the names and the scale.",
+    "primarySources": [
+      {
+        "text": "The Lake of Fire: the unjust are fallen into it, but the justified live on the offerings of Re.",
+        "source": "Book of the Dead (fire-lake vignettes) / Amduat",
+        "date": "c. New Kingdom"
+      }
+    ]
   },
   {
     "id": "osiris-throne",
@@ -1077,7 +1911,14 @@
     "description": "The seat of Osiris where the justified dead find eternal kingship of the west.",
     "latitude": 26.18,
     "longitude": 31.91,
-    "imageUrl": null
+    "detailedBio": "## The western king\n\nOsiris sits as king of the dead, often at Abydos in cult and in the Hall of Judgment in books of the afterlife. Pyramid Texts already identify the dead king with Osiris. Later the throne is the end of the justified path: green skin, crook and flail, Isis beside him. There is no rival \"palace tour\" text. The throne is an office. Abydos supplies the earthly house; the Duat supplies the courtroom.",
+    "primarySources": [
+      {
+        "text": "You are Osiris, and you sit upon the throne of Osiris, at the head of the westerners.",
+        "source": "Pyramid Texts (Osirian identification spells)",
+        "date": "c. 24th c. BCE"
+      }
+    ]
   },
   {
     "id": "nemea",
@@ -1087,7 +1928,14 @@
     "description": "Site of Heracles's first labor — the Nemean Lion.",
     "latitude": 37.81,
     "longitude": 22.71,
-    "imageUrl": null
+    "detailedBio": "## First labor, uncuttable hide\n\nApollodorus *Library* 2.5.1: Heracles' first labor for Eurystheus is the Nemean lion, whose skin weapons will not pierce. He traps it in a cave and strangles it, then wears the hide. Nemea in the Argolid later hosted games for Zeus; the lion is not a cult animal there in the labor text. Hesiod and Pindar already know the beast. The place is a valley with a monster that sets the hero's costume.",
+    "primarySources": [
+      {
+        "text": "He shot the lion, but when he perceived that the beast was invulnerable, he threw away his bow and strangled it with his arms.",
+        "source": "Apollodorus, Library 2.5.1",
+        "date": "c. 1st–2nd c. CE"
+      }
+    ]
   },
   {
     "id": "lerna",
@@ -1097,7 +1945,14 @@
     "description": "Marsh of the Hydra, second labor of Heracles.",
     "latitude": 37.55,
     "longitude": 22.72,
-    "imageUrl": null
+    "detailedBio": "## Hydra in the marsh\n\nApollodorus 2.5.2: the second labor is the Lernaean Hydra, a many-headed water-snake in the swamp of Lerna, with one immortal head. Iolaus burns the necks; Heracles buries the immortal head under a rock and dips his arrows in the gall. Hera sent a crab; both beast and crab become constellations in later sky-lore. Lerna's springs were real. Mystery-cult gossip about Lerna is separate from this kill.",
+    "primarySources": [
+      {
+        "text": "He cut off the immortal head and buried it, and put a heavy rock on it, beside the road that leads through Lerna to Elaius.",
+        "source": "Apollodorus, Library 2.5.2",
+        "date": "c. 1st–2nd c. CE"
+      }
+    ]
   },
   {
     "id": "ceryneia",
@@ -1107,7 +1962,14 @@
     "description": "Hills of the Ceryneian Hind sacred to Artemis.",
     "latitude": 38.2,
     "longitude": 22.1,
-    "imageUrl": null
+    "detailedBio": "## Hind of Artemis\n\nApollodorus 2.5.3: the third labor is to bring the Ceryneian hind alive, a golden-horned deer sacred to Artemis. Heracles hunts it a year, wounds it, and argues with Artemis and Apollo before they allow the loan to Eurystheus. The hills are in Achaea. There is no independent hind-epic. The labor is a piety test: catch the goddess's animal without claiming it as meat.",
+    "primarySources": [
+      {
+        "text": "It was a hind with golden horns, sacred to Artemis. He hunted it a whole year.",
+        "source": "Apollodorus, Library 2.5.3",
+        "date": "c. 1st–2nd c. CE"
+      }
+    ]
   },
   {
     "id": "erymanthus",
@@ -1117,7 +1979,14 @@
     "description": "Mountain of the Erymanthian Boar.",
     "latitude": 37.95,
     "longitude": 21.85,
-    "imageUrl": null
+    "detailedBio": "## Boar on the mountain, centaurs at dinner\n\nApollodorus 2.5.4: the fourth labor is the Erymanthian boar, to be brought alive. On the way Heracles dines with Pholus; opened wine draws centaurs, and a fight kills friends (and, in the long run, Chiron). He then drives the boar into snow and nets it. Mount Erymanthos is in Arcadia. The labor is a capture; the centaur episode is the moral mess attached to the mountain.",
+    "primarySources": [
+      {
+        "text": "He chased the boar from the thicket with shouts, drove it into deep snow, and trapped it in a net.",
+        "source": "Apollodorus, Library 2.5.4",
+        "date": "c. 1st–2nd c. CE"
+      }
+    ]
   },
   {
     "id": "augean-stables",
@@ -1127,7 +1996,14 @@
     "description": "The filthy stables of King Augeas, cleansed by diverting rivers.",
     "latitude": 37.65,
     "longitude": 21.5,
-    "imageUrl": null
+    "detailedBio": "## A river through a king's filth\n\nApollodorus 2.5.5: the fifth labor is to clean Augeas's stables in a day. Heracles diverts the Alpheus (and/or Peneus), then is cheated of pay. Later he sacks Elis. Olympia sits in the same region; do not confuse the labor with the games' charter, though some stories try. The stables are a hygiene miracle with a lawsuit attached. There is no surviving cult of the dung-heap.",
+    "primarySources": [
+      {
+        "text": "He made a breach in the foundation of the cattle-yard and turned in the rivers Alpheus and Peneus, and the water carried the dung out.",
+        "source": "Apollodorus, Library 2.5.5",
+        "date": "c. 1st–2nd c. CE"
+      }
+    ]
   },
   {
     "id": "lake-stymphalus",
@@ -1137,7 +2013,14 @@
     "description": "Lake of the man-eating Stymphalian birds.",
     "latitude": 37.85,
     "longitude": 22.46,
-    "imageUrl": null
+    "detailedBio": "## Birds off the water\n\nApollodorus 2.5.6: the sixth labor is the Stymphalian birds, man-eating (or at least brazen) waterfowl in an Arcadian marsh. Athena gives a bronze rattle; Heracles flushes them and shoots. The lake is real. There is no bird-goddess cult required by Apollodorus. The labor is a wetland pest-control with a borrowed instrument. Pausanias later saw Stymphalos as a town with a temple of Artemis.",
+    "primarySources": [
+      {
+        "text": "Athena gave him a bronze rattle. He scared the birds from the wood, and shot them as they flew.",
+        "source": "Apollodorus, Library 2.5.6",
+        "date": "c. 1st–2nd c. CE"
+      }
+    ]
   },
   {
     "id": "thrace",
@@ -1147,7 +2030,14 @@
     "description": "Northern lands of the man-eating mares of Diomedes.",
     "latitude": 41.1,
     "longitude": 25.0,
-    "imageUrl": null
+    "detailedBio": "## Diomedes's mares\n\nApollodorus 2.5.8: the eighth labor takes Heracles to Thrace, to the man-eating mares of King Diomedes, son of Ares. He feeds Diomedes to his own horses (in the usual version), then brings the team to Eurystheus. Thrace in myth is a northern elsewhere: Ares, harsh kings, wild horses. The labor is not a tour of Thracian religion. Euripides' *Alcestis* already assumes Heracles heading toward these mares.",
+    "primarySources": [
+      {
+        "text": "He killed Diomedes and brought the mares to Eurystheus. They were man-eating.",
+        "source": "Apollodorus, Library 2.5.8",
+        "date": "c. 1st–2nd c. CE"
+      }
+    ]
   },
   {
     "id": "themiscyra",
@@ -1157,7 +2047,14 @@
     "description": "Amazon capital where Heracles sought Hippolyta's girdle.",
     "latitude": 41.2,
     "longitude": 36.7,
-    "imageUrl": null
+    "detailedBio": "## Amazon shore, Hippolyta's belt\n\nApollodorus 2.5.9: the ninth labor is Hippolyta's girdle, a gift of Ares, at Themiscyra on the Thermodon. The Amazons receive him until Hera starts a rumor; fighting follows; the belt is taken. Herodotus later historicizes Amazons; the labor does not. Themiscyra is a Black Sea address for a female warrior politeia. The girdle is a token, not a city's constitution.",
+    "primarySources": [
+      {
+        "text": "He was sent to fetch the belt of Hippolyta, queen of the Amazons, which Ares had given her.",
+        "source": "Apollodorus, Library 2.5.9",
+        "date": "c. 1st–2nd c. CE"
+      }
+    ]
   },
   {
     "id": "erytheia",
@@ -1167,7 +2064,14 @@
     "description": "Western island of Geryon and his cattle.",
     "latitude": 36.1,
     "longitude": -5.5,
-    "imageUrl": null
+    "detailedBio": "## Geryon's red island\n\nApollodorus 2.5.10: the tenth labor is the cattle of Geryon, a three-bodied giant on Erytheia in the far west, with the herdsman Eurytion and the dog Orthrus. Heracles crosses in the golden cup of the Sun, kills them, and drives the herd back. Stesichorus's *Geryoneis* is an older poetic witness. Erytheia is a sunset island, later pointed at Gades. There is no Greek colony-cult of Geryon required by the labor.",
+    "primarySources": [
+      {
+        "text": "He embarked in the cup and sailed to Erytheia. He killed Orthrus and Eurytion, then Geryon, and drove the cattle away.",
+        "source": "Apollodorus, Library 2.5.10",
+        "date": "c. 1st–2nd c. CE"
+      }
+    ]
   },
   {
     "id": "garden-of-hesperides",
@@ -1177,27 +2081,14 @@
     "description": "Far-western orchard of golden apples guarded by Ladon.",
     "latitude": 35.0,
     "longitude": -5.0,
-    "imageUrl": null
-  },
-  {
-    "id": "coatepec-aztec",
-    "name": "Coatepec (Serpent Mountain)",
-    "locationType": "mountain",
-    "pantheonId": "aztec-pantheon",
-    "description": "The mythic mountain where Coatlicue gave birth to Huitzilopochtli and Coyolxauhqui was cast down — prototype of the Templo Mayor.",
-    "latitude": 19.43,
-    "longitude": -99.13,
-    "imageUrl": null
-  },
-  {
-    "id": "tamoanchan-aztec",
-    "name": "Tamoanchan",
-    "locationType": "paradise",
-    "pantheonId": "aztec-pantheon",
-    "description": "A paradisal origin-place of gods and humans, associated with flowering trees and dangerous beauty.",
-    "latitude": 19.5,
-    "longitude": -99.0,
-    "imageUrl": null
+    "detailedBio": "## Apples at the world's west\n\nApollodorus 2.5.11: the eleventh labor is the golden apples of the Hesperides, guarded by a dragon (Ladon) in a western garden of Atlas's daughters. Versions split: Heracles holds the sky while Atlas fetches the fruit, or he kills the dragon himself. The garden is not Eden and not a Greek orchard you can visit. It is a sunset horticulture of immortality-adjacent fruit for a goddess (Hera) who did not want it stolen.",
+    "primarySources": [
+      {
+        "text": "These apples were not in Libya, as some have said, but on Mount Atlas, among the Hyperboreans. The Hesperides guarded them, and the dragon Ladon.",
+        "source": "Apollodorus, Library 2.5.11",
+        "date": "c. 1st–2nd c. CE"
+      }
+    ]
   },
   {
     "id": "eridu",
@@ -1207,7 +2098,14 @@
     "description": "The first city in Sumerian tradition, home of Enki's temple and the Abzu — the freshwater deep.",
     "latitude": 30.82,
     "longitude": 45.99,
-    "imageUrl": null
+    "detailedBio": "## First city, Enki's deep\n\nEridu in the *Sumerian King List* is the first city where kingship descended from heaven. Enki/Ea's temple E-abzu sits on the freshwater deep. Myths (*Enki and the World Order*, *Inanna and Enki*) make it a storehouse of me, the arts of civilization. Archaeology confirms an early sacred precinct on the southern alluvium. It is not Babylon and not Uruk. The claim is priority: water, wisdom, and the first brick platform.",
+    "primarySources": [
+      {
+        "text": "When kingship was lowered from heaven, kingship was in Eridu.",
+        "source": "Sumerian King List",
+        "date": "c. 18th c. BCE copies"
+      }
+    ]
   },
   {
     "id": "nippur",
@@ -1217,7 +2115,14 @@
     "description": "Sacred city of Enlil, where kingship was authorized and the cosmic order of the land was ratified.",
     "latitude": 32.13,
     "longitude": 45.23,
-    "imageUrl": null
+    "detailedBio": "## Enlil's ratification\n\nNippur (Nibru) is Enlil's city, the Ekur temple, where kingship of the land is religiously authorized even when political capitals sit elsewhere. Sumerian hymns and the *Sumerian King List* treat it as a cosmic office. It is not a creation battlefield like Babylon in *Enuma Elish*. Archaeology shows a long-lived scribal and temple center. Mythic narrative uses Nippur as the place Enlil's word binds. No hero-quest is required.",
+    "primarySources": [
+      {
+        "text": "Enlil, whose Ekur in Nippur is the mooring-pole of heaven and earth.",
+        "source": "Sumerian hymns to Enlil / Ekur",
+        "date": "c. 2nd millennium BCE"
+      }
+    ]
   },
   {
     "id": "palenque",
@@ -1227,6 +2132,13 @@
     "description": "Maya city of Pakal's dynasty — temples of the sun, cross, and inscriptions that map royal myth onto stone.",
     "latitude": 17.48,
     "longitude": -92.05,
-    "imageUrl": null
+    "detailedBio": "## Lakamha, Pakal's inscribed mountain\n\nPalenque (Lakamha) is a Classic Maya city in Chiapas whose Temple of the Inscriptions and Cross Group write K'inich Janaab Pakal's dynasty into stone: descent, maize, the world tree, sun and rain gods. This is not the K'iche' *Popol Vuh*, though the imagery rhymes with later highland myth. The texts are hieroglyphic and royal. Do not invent a Palenque chapter of the Hero Twins. The site is a specific court's cosmic autobiography.",
+    "primarySources": [
+      {
+        "text": "Pakal entered the road of the dead beneath the Temple of the Inscriptions; the tablets name his line and the gods of the Cross Group.",
+        "source": "Palenque Temple of the Inscriptions and Cross Group texts",
+        "date": "c. 7th c. CE"
+      }
+    ]
   }
 ]

@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import artifacts from "@/data/artifacts.json";
 import pantheons from "@/data/pantheons.json";
+import { canonicalArtifactSlug } from "@/lib/artifact-aliases";
 import { generateBaseMetadata, generateNotFoundMetadata } from "@/lib/metadata";
 import { ArtifactPageClient } from "./ArtifactPageClient";
 
@@ -35,10 +36,10 @@ export async function generateStaticParams() {
 export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
-  const { slug } = await params;
+  const { slug: rawSlug } = await params;
+  const slug = canonicalArtifactSlug(rawSlug);
   const artifact = artifacts.find((a) => a.slug === slug) as
-    | ArtifactData
-    | undefined;
+    ArtifactData | undefined;
 
   if (!artifact) {
     return generateNotFoundMetadata(
@@ -80,8 +81,11 @@ export async function generateMetadata({
 
 export default async function ArtifactPage({ params }: PageProps) {
   const { slug } = await params;
+  const canonical = canonicalArtifactSlug(slug);
+  if (canonical !== slug) {
+    redirect(`/artifacts/${canonical}`);
+  }
 
-  // Check if artifact exists (for 404)
   const artifact = artifacts.find((a) => a.slug === slug);
   if (!artifact) {
     notFound();
