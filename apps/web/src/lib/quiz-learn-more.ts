@@ -7,7 +7,7 @@ export interface QuizLearnMore {
 export function quizLearnMore(deity: {
   slug: string;
   name: string;
-  primarySources?: Array<{ source?: string }>;
+  primarySources?: Array<{ source?: string; text?: string }>;
 }): QuizLearnMore {
   const sourceCite = deity.primarySources
     ?.map((entry) => entry.source?.trim())
