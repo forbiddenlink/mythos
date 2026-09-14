@@ -1,25 +1,18 @@
-import { NextRequest, NextResponse } from "next/server";
-import { draftMode, cookies } from "next/headers";
-import { safeSameOriginRedirect } from "@/lib/safe-redirect";
+import { NextResponse } from "next/server";
 
 /**
- * Exit preview mode
- *
- * Usage:
- *   GET /api/preview/exit?redirect=/stories
+ * Hygraph preview is disabled — Mythos Atlas serves static JSON.
+ * Returning 410 removes an unauthenticated draft-mode surface.
  */
-export async function GET(request: NextRequest) {
-  const searchParams = request.nextUrl.searchParams;
-  const redirect = searchParams.get("redirect");
+function gone() {
+  return NextResponse.json(
+    {
+      error: "Hygraph preview is disabled. Content is served from static JSON.",
+    },
+    { status: 410 },
+  );
+}
 
-  // Disable draft mode
-  const draft = await draftMode();
-  draft.disable();
-
-  // Clear preview cookies
-  const cookieStore = await cookies();
-  cookieStore.delete("preview_type");
-
-  const redirectUrl = safeSameOriginRedirect(redirect, request.url);
-  return NextResponse.redirect(redirectUrl);
+export async function GET() {
+  return gone();
 }

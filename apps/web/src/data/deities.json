@@ -866,6 +866,7 @@
     "symbols": ["ship", "sea", "wind", "harbor"],
     "description": "Vanir god of the sea, seafaring wealth, trade, and calm waters. Father of Freyja and Freyr.",
     "originStory": "Njord is one of the Vanir, the divine clan associated with prosperity, fertility, and the wealth that comes from land and sea. After the Aesir-Vanir War, he came to live among the Aesir as part of the hostage exchange that secured peace between the two groups of gods. In later Norse tradition he is remembered as a patron of sailors, merchants, fishermen, and all who rely on favorable winds and safe coasts.",
+    "detailedBio": "## Lord of Noatun\n\nNjord belongs to the Vanir, the gods of wealth, harbor weather, and the kind of luck that arrives with a full hold. After the Aesir-Vanir war he was sent to Asgard as a hostage, together with his children Freyja and Freyr, to keep the peace. The arrangement stuck: he lives among the Aesir at **Noatun**, the enclosure of ships, but his cult still smells of salt and trade rather than of Odin's hall.\n\n### Marriage to Skadi\n\nWhen the Aesir killed Thjazi, the giant's daughter **Skadi** came armed for weregild. Part of the settlement was a husband chosen from the gods by looking only at their feet. She picked the most beautiful pair, expecting Baldr, and got Njord. They tried to split their lives between her mountain home and his sea halls. Each hated the other's weather. The marriage failed, which the myths treat as a joke and as a fact about where each god belongs.\n\n### Sea wealth\n\nSailors and coastal farmers invoked Njord for fair winds and for the profit that follows them. He is not a storm-raiser in the style of Thor. Calm water, safe passage, and the money that moves along a coast are his brief.",
     "importanceRank": 8,
     "imageUrl": "/deities/njord.png",
     "pronunciation": {
@@ -1309,6 +1310,7 @@
     "domain": ["mourning", "death", "protection", "night", "childbirth"],
     "symbols": ["house on head", "wings", "kite bird"],
     "description": "Goddess of mourning and protector of the dead. Sister-wife of Set but loyal to Isis. She aided Isis in gathering Osiris's body and mourned him.",
+    "detailedBio": "## Lady of the House\n\nNephthys (Nebet-Het) is the sister of Isis, Osiris, and Set. Temple lists pair her with Set as his wife, yet the Osiris cycle repeatedly puts her on Isis's side. She helps gather the pieces of Osiris's body, mourns with Isis in the kite-form of the two wailing sisters, and in several versions is the mother of **Anubis**. Egyptian religion is comfortable with that tension: a goddess can belong to the household of disorder and still nurse the dead back toward order.\n\n### Mourner and nurse\n\nFunerary texts call on Nephthys to stand at the head of the bier while Isis stands at the foot. She is a night watcher, a goddess of edges: birth, death, and the moment a corpse becomes a protected body. New Kingdom hymns also credit her with protecting the king in the womb and in the tomb.\n\n### Not merely Set's shadow\n\nReducing her to \"Set's wife\" misses the work she does. In the *Contendings of Horus and Set* she can even testify against Set. The loyal sister and the consort of the murderer are the same figure, which is why mourning in Egypt is never only private grief.",
     "importanceRank": 6,
     "imageUrl": "/deities/nephthys.jpg",
     "pronunciation": {
@@ -1378,6 +1380,7 @@
     "symbols": ["thunderbolt", "eagle", "oak tree", "scepter"],
     "description": "King of the gods and god of sky, lightning, and thunder. Supreme deity of the Roman state religion, protector of Rome and source of divine authority for Roman emperors.",
     "originStory": "Jupiter corresponds to the Greek Zeus, born to Saturn (Cronus) and Ops (Rhea). He overthrew his father to become king of the gods, establishing divine order and justice.",
+    "detailedBio": "## Jupiter Optimus Maximus\n\nJupiter is the chief god of the Roman state, not a renamed Zeus wearing a toga. His oldest title, **Optimus Maximus**, \"best and greatest,\" belongs to the temple on the Capitoline that he shared with Juno and Minerva. Roman magistrates took office under his gaze. Treaties were struck in his name. When lightning struck, the *pontifices* read it as his speech.\n\n### Sky, oath, and city\n\nHe is a sky god who hurls the thunderbolt, but Roman cult cares as much about *fides* as about weather. The fetial priests called him to witness declarations of war. Triumphant generals climbed the Capitol to offer spoils at his temple. Imperial coinage later tied emperors to his protection without quite making them his equals.\n\n### Saturn's son, Rome's father\n\nMythographers aligned him with Greek Zeus: son of Saturn, overthrower of the older gods, brother-husband of Juno. Livy and Virgil then folded that genealogy into Rome's own story, so that Aeneas's descendants rule under a god who already governed Latin oaths before the poets finished the comparison.",
     "importanceRank": 1,
     "imageUrl": "/deities/jupiter.jpg",
     "pronunciation": {
@@ -1403,6 +1406,7 @@
     "symbols": ["peacock", "pomegranate", "diadem", "cow"],
     "description": "Queen of the gods and protector of the Roman state. Goddess of marriage, women, and childbirth. Wife and sister of Jupiter, patron of married women and the Roman matrons.",
     "originStory": "Juno is the Roman equivalent of Hera, daughter of Saturn and Ops. She became Jupiter's consort and queen of heaven, fiercely protective of marriage and legitimate children.",
+    "detailedBio": "## Juno Regina\n\nJuno is queen of the Roman gods and the protector of married women, but she is also a civic goddess. As **Juno Regina** she sat on the Capitol with Jupiter and Minerva. As **Juno Moneta** she kept a temple on the Arx whose name still sits inside the word \"money,\" because the mint later worked nearby. As **Juno Sospita** she came from Lanuvium in goatskin and armed, a savior as much as a wife.\n\n### Marriage and the state\n\nThe Matronalia on March 1 honored her as guardian of Roman wives. Myth makes her sister and spouse of Jupiter, jealous in the Greek manner when poets want that color. Cult practice is cooler and more public: women, colonies, and the city's own well-being all fall inside her brief.\n\n### Not Hera in Latin\n\nShe shares myths with Hera, including the difficult marriage to the sky king. She also has Latin faces Hera never wore. Lucina at childbirth, Curitis with the spear, the warning geese of her temple during the Gallic sack: these are Roman stories attached to Juno, not footnotes to Olympus.",
     "importanceRank": 2,
     "imageUrl": "/deities/juno.jpg",
     "pronunciation": {
@@ -1427,6 +1431,7 @@
     "domain": ["sea", "earthquakes", "horses", "freshwater"],
     "symbols": ["trident", "horse", "dolphin"],
     "description": "God of the sea, earthquakes, and horses. Brother of Jupiter and Pluto, ruler of all waters. Also associated with freshwater springs and patronage of horse racing.",
+    "detailedBio": "## Neptune of horses and water\n\nNeptune rules waters in Roman religion, including the sea the poets borrowed from Greek Poseidon. Older Italian cult, though, ties him as closely to freshwater and to horses as to the open Mediterranean. The **Neptunalia** in July was a festival of midsummer drought, when Romans built leaf shelters and remembered the god who could give or withhold water.\n\n### Brother of Jupiter\n\nIn the imported genealogy he is brother to Jupiter and Dis, sharing the world after Saturn's fall. Roman art gives him the trident and the sea-chariot. Roman calendars also remember Consus and other horse-gods whose turf overlaps his, which is why chariot teams and the Campus watering places sit near his name.\n\n### Earth-shaker in Italy\n\nPoets call him Earth-shaker when they are translating Greek epic. In Italy his anger is drought, flood, and the sudden failure of a spring. Sailors still prayed to him, especially once Rome became a naval power, but he never quite became only a sea-king.",
     "importanceRank": 3,
     "imageUrl": "/deities/neptune.jpg",
     "pronunciation": {
@@ -1452,6 +1457,7 @@
     "symbols": ["spear", "shield", "wolf", "woodpecker"],
     "description": "God of war and guardian of Rome. More prominent in Roman religion than his Greek counterpart Ares, Mars was also a god of agriculture and fertility. Father of Romulus and Remus, legendary founders of Rome.",
     "originStory": "Mars was the son of Jupiter and Juno. He fathered Romulus and Remus with the Vestal Virgin Rhea Silvia, making him the divine ancestor of the Roman people.",
+    "detailedBio": "## Mars, father of the city\n\nMars is a war god, and he is also something Ares almost never is: an ancestor. With the Vestal **Rhea Silvia** he fathered Romulus and Remus, which makes him divine grandfather of the Roman people. The Campus Martius, the army's field, carried his name. So did the month of March, when campaigning weather returned and the Salii danced with the sacred shields.\n\n### Agriculture and arms\n\nBefore he is only a soldier, Mars is a god of the land's edge: fields that must be defended, spring that must be opened. Cato's farmer prayed to him to keep disease, disaster, and barrenness off the property. The October Horse, sacrificed after the year's last races, belongs to this older Mars as much as to the legionary one.\n\n### Not a lesser Ares\n\nGreek Ares is chaotic and often disliked. Roman Mars is honorable, ancestral, and politically useful. Augustus's Temple of Mars Ultor in the Forum Augustum made him the avenger of Caesar and the sponsor of recovered standards, a civic weapon rather than a personification of bloodlust.",
     "importanceRank": 2,
     "imageUrl": "/deities/mars.jpg",
     "pronunciation": {
@@ -1477,6 +1483,7 @@
     "symbols": ["dove", "rose", "myrtle", "swan", "sparrow"],
     "description": "Goddess of love, beauty, desire, sex, and fertility. Mother of the Roman people through her son Aeneas, ancestor of Romulus. Patron goddess of the Julian family.",
     "originStory": "Venus corresponds to Greek Aphrodite. In Roman tradition, she was mother of Aeneas by the Trojan prince Anchises. Through Aeneas, she became the divine ancestress of the Roman people.",
+    "detailedBio": "## Venus Genetrix\n\nVenus is love, charm, and winning, but in Rome she is also a mother of a people. Through **Aeneas**, her son by Anchises, the Julian house claimed her blood. Julius Caesar dedicated a temple to **Venus Genetrix** in his forum; the political point was not subtle. What Greek myth tells as Aphrodite's dangerous sweetness, Rome also tells as ancestry.\n\n### Cults of the city\n\nShe had many epithets: Erycina from the Sicilian mountain, Verticordia who turns hearts toward chastity, Victrix who grants victory. The Vinalia festivals mixed her with wine and with Jupiter in ways that refuse a single job description. Desire, luck in war, and the right to rule could occupy the same altar.\n\n### Love with consequences\n\nPoets kept the Greek love-affairs, including her link with Mars. Virgil then used her as Aeneas's advocate before Jupiter, a goddess who argues for Rome's future rather than for a private passion. That double life, erotic and dynastic, is the Roman Venus.",
     "importanceRank": 2,
     "imageUrl": "/deities/venus.jpg",
     "pronunciation": {
@@ -1501,6 +1508,7 @@
     "domain": ["wisdom", "warfare", "crafts", "strategy", "arts"],
     "symbols": ["owl", "olive tree", "aegis", "spear"],
     "description": "Goddess of wisdom, strategic warfare, and crafts. Part of the Capitoline Triad with Jupiter and Juno. Patron of artisans, teachers, and strategic warfare. Roman equivalent of Athena.",
+    "detailedBio": "## Minerva of the Capitol\n\nMinerva is wisdom, crafts, and the intelligent side of war. With Jupiter and Juno she forms the **Capitoline Triad**, a grouping that has no exact Greek temple equivalent. Her own Aventine temple and the craftsmen's guilds that honored her made her a goddess of making: weaving, metalwork, teaching, the slow skill that wins a campaign as surely as a charge.\n\n### Quinquatrus\n\nHer main festival, the Quinquatrus in March, belonged to artisans as much as to soldiers. Schools took holiday. Trumpets were purified. The mood is civic competence, not battlefield frenzy. When Romans equated her with Athena they imported the olive, the aegis, and the virgin warrior, then seated that figure on their own hill.\n\n### Born of the father\n\nThe birth from Jupiter's head travels with the Greek story of Metis. In Roman telling it also explains her place beside him on the Capitol: the mind of the state sitting next to its sky and its marriage. She is less a borrowed Athena than Athena put to work as a magistrate's goddess.",
     "importanceRank": 3,
     "imageUrl": "/deities/minerva.jpg",
     "pronunciation": {
@@ -1525,6 +1533,7 @@
     "domain": ["sun", "music", "poetry", "prophecy", "healing", "archery"],
     "symbols": ["lyre", "laurel wreath", "bow", "raven", "sun"],
     "description": "God of the sun, music, poetry, prophecy, healing, and archery. One of the few gods whose name remained unchanged from Greek to Roman. Patron of the Sibylline Books and protector of Augustus.",
+    "detailedBio": "## Apollo on the Palatine\n\nApollo kept his Greek name in Rome, one of the few major gods who did. Romans took him seriously anyway. The Sibylline Books sat under his authority. Healing, plague, and civic expiation ran through his priesthoods. After Actium, Augustus built him a temple on the Palatine and folded the sun-god into the emperor's public image: order, clarity, the lyre beside the bow.\n\n### Imported, then seated\n\nHe arrived through Italian and Greek contacts well before the Empire. The lectisternium of 431 BCE already invited him to a public feast during plague. Later poets made him the patron of Horace's Carmen Saeculare. The god who speaks at Delphi became, in Rome, a god who also speaks through Latin ritual.\n\n### Not a copy of the Greek youth\n\nThe kouros ideal travels with him, as do the Muses and the Python story. What is Roman is the use: plague liturgies, the Palatine library, the identification with Sol on imperial monuments. This Apollo is a state musician, not only Leto's archer.",
     "importanceRank": 4,
     "imageUrl": "/deities/apollo-roman.png",
     "pronunciation": {
@@ -1549,6 +1558,7 @@
     "domain": ["hunt", "wilderness", "moon", "childbirth", "virginity"],
     "symbols": ["bow", "deer", "crescent moon", "cypress"],
     "description": "Goddess of the hunt, wild animals, wilderness, and the moon. Protector of women in childbirth. Twin sister of Apollo. Roman equivalent of Artemis.",
+    "detailedBio": "## Diana of Aricia\n\nDiana is huntress, moon, and protector of women in childbirth, and her oldest Latin home is not Olympus but the grove at **Aricia** by Lake Nemi. There she was **Diana Nemorensis**, and her priest, the rex Nemorensis, won the office by killing his predecessor. That grim local rule is Italian, not a footnote to Artemis.\n\n### Twin of Apollo\n\nMyth makes her twin sister of Apollo and a sworn virgin. She runs the woods with nymphs and punishes the hunter who sees too much, as in the Actaeon story the poets borrowed. Roman women also prayed to her at childbirth, where the huntress becomes a guardian of a dangerous threshold.\n\n### Three forms\n\nLater writers liked to fold her together with Luna and Hecate, a goddess of three faces for sky, earth, and the roads of the dead. Cult at Nemi stayed more concrete: a lakeside sanctuary, votives from women, and a woodland goddess the city never quite urbanized.",
     "importanceRank": 4,
     "imageUrl": "/deities/diana.png",
     "pronunciation": {
@@ -1580,6 +1590,7 @@
     ],
     "symbols": ["caduceus", "winged sandals", "winged cap", "rooster"],
     "description": "Messenger of the gods and god of commerce, eloquence, messages, travelers, boundaries, luck, and thieves. Guide of souls to the underworld. Roman equivalent of Hermes.",
+    "detailedBio": "## Mercury of the marketplace\n\nMercury is the god of messages, thieves, travelers, and, above all in Rome, **commerce**. His temple on the Aventine was dedicated in 495 BCE and associated with a merchants' guild, the Mercuriales. The caduceus and winged hat come from Hermes. The shopkeeper's prayer is Latin.\n\n### Guide and boundary\n\nLike Hermes he leads souls toward the underworld and watches over crossings: roads, doors, deals. He is eloquent because speech is a tool of trade and of deceit. Ovid's Fasti gives him a festival in May when merchants asked pardon for past fraud and luck for the next bargain.\n\n### Psychopomp in a trading city\n\nThe Greek trickster remains visible in the cattle-theft of his first day. Rome adds the Forum's noise. When a Roman invoked Mercury, the request was often about goods in motion, not only about cleverness for its own sake.",
     "importanceRank": 5,
     "imageUrl": "/deities/mercury.png",
     "pronunciation": {
@@ -1604,6 +1615,7 @@
     "domain": ["wine", "festivity", "theater", "fertility", "madness"],
     "symbols": ["thyrsus", "grapevine", "leopard", "ivy"],
     "description": "God of wine, festivity, fertility, and ritual madness. His cult included the Bacchanalia festivals. Roman equivalent of Dionysus, also identified with the Italian god Liber.",
+    "detailedBio": "## Bacchus and Liber\n\nBacchus is wine, theater, and ritual frenzy, the Latin face of Dionysus and also the partner of the older Italian god **Liber**. His worship could be civic and licensed, or it could scare the Senate. In 186 BCE the Bacchanalia were restricted after a famous investigation; Livy tells the crackdown as a story about foreign rites and Roman control.\n\n### Wine and the city\n\nFestivals of Liber on March 17 (Liberalia) marked young men's coming of age as much as the vine. The god who loosens also initiates. Stage performance, masks, and the vine-staff belong to him because theater, like wine, is a permitted loss of ordinary self.\n\n### Twice-born, twice named\n\nThe Semele story travels with him: the child sewn in Jupiter's thigh, the wanderer spreading the vine. Italians had already been pouring wine for Liber. Bacchus is the name that lets those two currents occupy one altar, sometimes comfortably, sometimes under police watch.",
     "importanceRank": 6,
     "imageUrl": "/deities/bacchus.png",
     "pronunciation": {
@@ -1628,6 +1640,7 @@
     "domain": ["fire", "metalworking", "forges", "volcanoes"],
     "symbols": ["anvil", "hammer", "tongs", "volcano"],
     "description": "God of fire, metalworking, and the forge. Craftsman of the gods who forged divine weapons and armor. Roman equivalent of Hephaestus. Associated with volcanic activity.",
+    "detailedBio": "## Vulcan of the city fire\n\nVulcan is fire that cooks and fire that burns a street down. As a smith he overlaps Hephaestus: forges, divine weapons, the lame craftsman. As **Volcanus** he is also the dangerous blaze inside a wooden city. The **Vulcanalia** on August 23 included bonfires and offerings meant to keep accidental fire in its place at the driest time of year.\n\n### The forge\n\nMyth gives him a workshop and a marriage to Venus that the poets enjoy humiliating. He makes Jupiter's bolts and the armor of heroes. That is the Greek smith's job, retold in Latin.\n\n### Fire as public risk\n\nRome's cult kept a more anxious note. Shrines of Vulcan sat outside the oldest pomerium in some traditions, as if the god should be honored at a slight distance. Volcanic fire in Campania later attached itself to his name, but the city fire was always the nearer fear.",
     "importanceRank": 6,
     "imageUrl": "/deities/vulcan.png",
     "pronunciation": {
@@ -1652,6 +1665,7 @@
     "domain": ["agriculture", "grain", "harvest", "fertility", "motherhood"],
     "symbols": ["wheat", "torch", "cornucopia", "poppies"],
     "description": "Goddess of agriculture, grain crops, fertility, and motherhood. Her cult was central to Roman plebeian identity. Mother of Proserpina (Persephone). Roman equivalent of Demeter.",
+    "detailedBio": "## Ceres of the Aventine\n\nCeres is grain, growth, and the legal protections of the Roman plebs. Her Aventine temple, vowed in 496 BCE and shared with Liber and Libera, was a plebeian center as much as a harvest shrine. The aediles of the plebs operated from her precinct. To starve the people was to offend this goddess in public.\n\n### Mother of Proserpina\n\nThe abduction of Proserpina (Persephone) and Ceres's search explain the empty fields of winter. Romans kept the Greek story and tied it to their own Cerealia in April, when foxes with burning brands were loosed in the Circus, a rite nobody now explains with total confidence.\n\n### Grain and law\n\nCeres also guards the tribune's sacrosanctity in some legal memory: harm the people's magistrate, and you have harmed her. Agriculture here is not rustic decoration. It is the city's food supply and a plebeian political language.",
     "importanceRank": 5,
     "imageUrl": "/deities/ceres.png",
     "pronunciation": {
@@ -1677,6 +1691,7 @@
     "symbols": ["sacred fire", "donkey", "kettle"],
     "description": "Goddess of the hearth, home, and family. Her sacred fire in the Forum Romanum symbolized Rome's eternal life. Served by the Vestal Virgins, priestesses who tended her sacred flame.",
     "originStory": "Vesta corresponds to Greek Hestia. Her worship was fundamental to Roman identity - the sacred fire in her temple represented Rome itself and could never be allowed to go out.",
+    "detailedBio": "## Vesta of the Forum fire\n\nVesta is the hearth, and in Rome the hearth that matters most burns in the Forum. The circular temple of Vesta held a fire that was not supposed to go out. The **Vestal Virgins** tended it, kept wills and treaties, and guarded sacred objects including, in legend, the Palladium. Their legal standing was unique: they could own property, make a will, and free a condemned prisoner by meeting him on the street.\n\n### City as household\n\nGreek Hestia is a close cousin, first and last of the Olympians, receiver of the first offering. Roman Vesta is that idea turned into state furniture. If her fire died, the city itself was thought to be in danger. Extinguishing it was a ritual fault, not a metaphor.\n\n### The Vestals\n\nThe priestesses served a term of thirty years under a harsh rule of chastity. A Vestal convicted of breaking it was buried alive, a punishment that shows how closely Rome yoked the city's luck to these women's bodies and to that one flame.",
     "importanceRank": 4,
     "imageUrl": "/deities/vesta.png",
     "pronunciation": {
@@ -1709,6 +1724,7 @@
     "symbols": ["two faces", "key", "staff", "gate"],
     "description": "God of beginnings, gates, transitions, time, duality, doorways, passages, and endings. Uniquely Roman deity with no Greek equivalent. Depicted with two faces looking to past and future.",
     "originStory": "Janus is one of the oldest Roman gods, said to have no Greek counterpart. He presided over the beginning and end of conflicts, and hence war and peace. All ceremonies and rituals began with an invocation to Janus.",
+    "detailedBio": "## Janus, who looks both ways\n\nJanus has no Greek twin, and Romans knew it. He is the god of going in and going out: doors, gates, the first of the year, the first word of a prayer. He is shown with two faces, one toward what has happened and one toward what has not. January bears his name. The gates of his shrine in the Forum, the **Janus Geminus**, stood open in war and closed in peace, which happened rarely enough to be worth recording.\n\n### First invoked\n\nVarro and the pontifical tradition put him at the beginning of ceremony. Before Jupiter is named, Janus is named, because nothing starts without a threshold. Kings in legend, including Numa, are said to have kept his cult as part of teaching Romans how to begin things properly.\n\n### War and peace as a door\n\nWhen the Senate wanted to say that Rome was at peace, it did not compose a hymn. It closed a gate. Janus is that kind of god: practical, architectural, and older in feel than the imported Olympian family, even when later writers tried to place him in a genealogy.",
     "importanceRank": 3,
     "imageUrl": "/deities/janus.jpg",
     "pronunciation": {
@@ -2109,6 +2125,7 @@
     "symbols": ["spear", "jeweled spear"],
     "description": "Male primordial deity who, with Izanami, created the Japanese islands and many kami. After Izanami's death, he performed the first purification ritual.",
     "originStory": "Izanagi and Izanami were commanded to solidify and create land. Standing on the Floating Bridge of Heaven, Izanagi thrust his spear into the chaos. Drops fell and formed the first island.",
+    "detailedBio": "## Izanagi, who stirred the sea\n\nIzanagi-no-Mikoto, with Izanami, is commanded to make land. Standing on the Floating Bridge of Heaven, he dips the jeweled spear **Ame-no-Nuboko** into the brine. The drops that fall harden into Onogoro, the first island. The pair then circumambulate a pillar, give birth to the islands of Japan and to many kami, and set the pattern of male and female speech that later texts still argue about.\n\n### Yomi and the breaking\n\nIzanami dies bearing the fire kami Kagutsuchi. Izanagi follows her to **Yomi**, lights a torch, and sees her decaying body. She pursues him in rage; he blocks the pass with a boulder. She vows to kill a thousand people a day. He answers that he will cause one thousand five hundred to be born.\n\n### Purification\n\nWashing in the river at Awagihara, he produces further kami from his soiled garments and from the water itself. From his left eye **Amaterasu**, from his right **Tsukuyomi**, from his nose **Susanoo**. Shinto purification rites still point back to that washing: pollution is real, and it can be rinsed into new gods.",
     "importanceRank": 1,
     "imageUrl": "/deities/izanagi.png",
     "pronunciation": {
@@ -2134,6 +2151,7 @@
     "symbols": ["fire", "death"],
     "description": "Female primordial deity who created the Japanese islands and kami with Izanagi. After dying in childbirth, she became goddess of death and ruler of Yomi.",
     "originStory": "Izanami died giving birth to the fire god Kagutsuchi. Grief-stricken, Izanagi followed her to Yomi but fled when he saw her decaying form. She swore to kill 1,000 people each day.",
+    "detailedBio": "## Izanami of the underworld\n\nIzanami-no-Mikoto is the female half of the creating pair. With Izanagi she births the islands and a long catalogue of kami. The birth of **Kagutsuchi**, the fire kami, burns her and she dies. Death does not remove her from the story. It changes her office. She becomes a ruler of **Yomi**, the land of the dead, and a goddess who can no longer be looked at in the light.\n\n### The failed rescue\n\nIzanagi's descent imitates a pattern known from other mythologies, but the Kojiki keeps a harsher ending. There is no bargain that restores her. She is seen, she is shamed, she is sealed behind a rock. The marriage that made the land ends in a shouted exchange of daily death and daily birth.\n\n### Mother, then danger\n\nBefore Yomi she is a world-maker. After it she is the reason corpses pollute. Both are Izanami. Later worship sometimes softens her into a maternal earth figure; the early chronicles do not. They let the creating mother and the furious dead woman occupy the same name.",
     "importanceRank": 1,
     "imageUrl": "/deities/izanami.png",
     "pronunciation": {
@@ -2267,6 +2285,7 @@
     "symbols": ["bow", "dove", "torii gate"],
     "description": "Syncretic god of war, archery, and protector of Japan and warriors. Originally Emperor Ojin deified. Patron of the samurai clains.",
     "originStory": "Originally Emperor Ojin, deified as Hachiman. Over time, led to becoming protector of Buddhism in Japan and guardian deity of warriors.",
+    "detailedBio": "## Hachiman, god of the bow\n\nHachiman is a war god, an archery god, and a protector of Japan who began as a deified emperor. Tradition identifies him with **Emperor Ojin**. The great shrine at Usa in Kyushu is his oldest major seat. From there his cult spread with the Minamoto and other warrior houses, until samurai banners carried his name into battle.\n\n### Syncretism\n\nHe is also a protector of Buddhist establishments, addressed as Hachiman Daibosatsu. That double language, kami and bodhisattva, is ordinary in medieval Japan and essential to him. Oracles at Usa could speak in both registers. The god of warriors became, without contradiction, a guardian of temples.\n\n### Not only war\n\nHachiman protects communities, childbirth in some local forms, and the state as well as the fight. The bow is his sign because archery was a noble skill, not because he is a Japanese Ares. He is closer to a tutelary emperor who never quite left the human world.",
     "importanceRank": 3,
     "imageUrl": "/deities/hachiman.jpg",
     "pronunciation": {
@@ -2323,6 +2342,7 @@
     "symbols": ["biwa lute", "snake", "torii gate"],
     "description": "Goddess of everything that flows: water, time, words, music, and knowledge. One of the Seven Lucky Gods. Originated from Hindu goddess Saraswati.",
     "originStory": "Originally the Hindu goddess Saraswati, introduced to Japan via Buddhism. Syncretized with native water and sea kami.",
+    "detailedBio": "## Benzaiten, what flows\n\nBenzaiten (Benten) is the goddess of things that flow: water, music, speech, and the luck that rides on eloquence. She is one of the **Seven Lucky Gods**. Her far origin is the Hindu river goddess **Saraswati**, carried into Japan through Buddhist transmission and then mixed with native water kami, especially at island shrines such as Enoshima.\n\n### Biwa and serpent\n\nShe is often shown with a biwa, sometimes with a white snake. The instrument is knowledge made audible. The snake is water, treasure, and a reminder that her gift can coil. Performers, merchants who live by talk, and people who need a river to stay kind all have reasons to visit her.\n\n### Adopted, then local\n\nCalling her \"just Saraswati\" erases the Japanese shrines, the lucky-god grouping, and the maritime cults that claimed her. The imported river learned new coasts. That is the point of her Japanese life, not a loss of the Indian one.",
     "importanceRank": 4,
     "imageUrl": "/deities/benzaiten.png",
     "pronunciation": {

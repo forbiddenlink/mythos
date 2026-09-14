@@ -3,6 +3,7 @@ import { withSentryConfig } from "@sentry/nextjs";
 import type { NextConfig } from "next";
 import createNextIntlPlugin from "next-intl/plugin";
 import path from "node:path";
+import { STORY_ALIASES } from "./src/lib/story-aliases";
 
 const withNextIntl = createNextIntlPlugin("./i18n.ts");
 const withBundleAnalyzer = bundleAnalyzer({
@@ -88,6 +89,20 @@ const nextConfig: NextConfig = {
         ],
       },
     ];
+  },
+  async redirects() {
+    return Object.entries(STORY_ALIASES).flatMap(([from, to]) => [
+      {
+        source: `/stories/${from}`,
+        destination: `/stories/${to}`,
+        permanent: true,
+      },
+      {
+        source: `/stories/${from}/read`,
+        destination: `/stories/${to}/read`,
+        permanent: true,
+      },
+    ]);
   },
 };
 

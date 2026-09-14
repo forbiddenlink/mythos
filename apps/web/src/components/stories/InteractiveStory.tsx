@@ -127,7 +127,7 @@ export function InteractiveStory({ story }: InteractiveStoryProps) {
   }
 
   return (
-    <div className="space-y-6">
+    <div id="interactive-story-scene" className="space-y-6 scroll-mt-24">
       {/* Progress Bar */}
       <Card className="border-border bg-card/50 shadow-none overflow-hidden">
         <CardContent className="py-4">

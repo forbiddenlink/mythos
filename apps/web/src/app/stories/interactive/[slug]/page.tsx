@@ -48,6 +48,19 @@ export default function InteractiveStoryPage() {
     }
   }, [story]);
 
+  useEffect(() => {
+    if (!isStarted) return;
+    const scene = document.getElementById("interactive-story-scene");
+    if (!scene) return;
+    const reducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+    scene.scrollIntoView({
+      behavior: reducedMotion ? "auto" : "smooth",
+      block: "start",
+    });
+  }, [isStarted]);
+
   if (!story) {
     return (
       <div className="min-h-screen bg-mythic">
@@ -108,29 +121,31 @@ export default function InteractiveStoryPage() {
         <Breadcrumbs />
 
         <div className="mt-8">
-          <section className="mb-8 rounded-2xl border border-border/60 bg-card/60 p-6">
-            <h2 className="font-serif text-2xl font-semibold text-foreground">
-              Read The Myth By Making Choices
-            </h2>
-            <p className="mt-3 leading-relaxed text-muted-foreground">
-              Interactive stories turn a familiar myth into a branching reading
-              experience. Instead of staying outside the narrative, you move
-              through it decision by decision and see how different choices
-              reshape the ending, the lesson, or the character’s fate.
-            </p>
-            <p className="mt-3 leading-relaxed text-muted-foreground">
-              That makes this format useful for more than novelty. It helps you
-              notice where a myth’s tension really lives, which values are being
-              tested, and why the original story structure pushes toward one
-              outcome rather than another.
-            </p>
-            <p className="mt-3 leading-relaxed text-muted-foreground">
-              Use the replay value deliberately. Try one path, compare the next,
-              then return to the standard story page or related deity entries so
-              the choices feel anchored in the wider mythology rather than
-              detached from it.
-            </p>
-          </section>
+          {!isStarted && (
+            <section className="mb-8 rounded-2xl border border-border/60 bg-card/60 p-6">
+              <h2 className="font-serif text-2xl font-semibold text-foreground">
+                Read The Myth By Making Choices
+              </h2>
+              <p className="mt-3 leading-relaxed text-muted-foreground">
+                Interactive stories turn a familiar myth into a branching
+                reading experience. Instead of staying outside the narrative,
+                you move through it decision by decision and see how different
+                choices reshape the ending, the lesson, or the character’s fate.
+              </p>
+              <p className="mt-3 leading-relaxed text-muted-foreground">
+                That makes this format useful for more than novelty. It helps
+                you notice where a myth’s tension really lives, which values are
+                being tested, and why the original story structure pushes toward
+                one outcome rather than another.
+              </p>
+              <p className="mt-3 leading-relaxed text-muted-foreground">
+                Use the replay value deliberately. Try one path, compare the
+                next, then return to the standard story page or related deity
+                entries so the choices feel anchored in the wider mythology
+                rather than detached from it.
+              </p>
+            </section>
+          )}
 
           {!isStarted ? (
             <Card className="border-border bg-card/50 shadow-none overflow-hidden">

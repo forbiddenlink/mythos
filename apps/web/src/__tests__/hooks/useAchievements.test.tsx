@@ -212,7 +212,7 @@ describe("useAchievements", () => {
       );
 
       expect(allPantheonsAchievement?.progress?.current).toBe(0);
-      expect(allPantheonsAchievement?.progress?.target).toBe(12); // ALL_PANTHEON_IDS.length
+      expect(allPantheonsAchievement?.progress?.target).toBe(13);
     });
 
     it("should track quick quiz score progress", () => {
@@ -417,18 +417,17 @@ describe("useAchievements", () => {
       expect(achievement?.progress?.target).toBe(10);
     });
 
-    it("should handle achievements without count requirements", () => {
+    it("should track pantheon complete progress", () => {
       const { result } = renderHook(() => useAchievements(), { wrapper });
 
-      // pantheon_complete doesn't have standard tracking
       const pantheonComplete = result.current.achievements.find(
         (a) => a.requirement.type === "pantheon_complete",
       );
 
-      // This type returns undefined for progress
-      if (pantheonComplete) {
-        expect(pantheonComplete.progress).toBeUndefined();
-      }
+      expect(pantheonComplete).toBeDefined();
+      expect(pantheonComplete?.id).toBe("roman_household");
+      expect(pantheonComplete?.progress?.current).toBe(0);
+      expect(pantheonComplete?.progress?.target).toBeGreaterThan(0);
     });
   });
 });

@@ -92,15 +92,11 @@ export function CustomCursor() {
     window.addEventListener("mousedown", handleMouseDown);
     window.addEventListener("mouseup", handleMouseUp);
 
-    // Hide default cursor
-    document.body.style.cursor = "none";
-
     return () => {
       window.removeEventListener("mousemove", moveCursor);
       window.removeEventListener("mouseover", handleMouseOver);
       window.removeEventListener("mousedown", handleMouseDown);
       window.removeEventListener("mouseup", handleMouseUp);
-      document.body.style.cursor = "auto";
     };
   }, [mounted, reducedMotion, isTouchDevice, cursorX, cursorY, rotation]);
 
@@ -184,17 +180,6 @@ export function CustomCursor() {
           <div className="w-full h-full rounded-full border-2 border-gold" />
         </motion.div>
       )}
-
-      {/* Global style to hide cursor on interactive elements */}
-      <style jsx global>{`
-        a,
-        button,
-        [role="button"],
-        [data-interactive],
-        .cursor-pointer {
-          cursor: none !important;
-        }
-      `}</style>
     </>
   );
 }

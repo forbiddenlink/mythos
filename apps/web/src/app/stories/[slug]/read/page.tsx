@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import stories from "@/data/stories.json";
 import pantheons from "@/data/pantheons.json";
 import { generateBaseMetadata, generateNotFoundMetadata } from "@/lib/metadata";
+import { canonicalStorySlug } from "@/lib/story-aliases";
 import { ScrollytellingReader } from "@/components/stories/ScrollytellingReader";
 
 // ISR: revalidate weekly, matching the story reference page.
@@ -56,6 +57,11 @@ export async function generateMetadata({
 
 export default async function StoryReadPage({ params }: PageProps) {
   const { slug } = await params;
+  const canonical = canonicalStorySlug(slug);
+  if (canonical !== slug) {
+    redirect(`/stories/${canonical}/read`);
+  }
+
   const story = (stories as StoryData[]).find((s) => s.slug === slug);
 
   if (!story || !story.fullNarrative) {

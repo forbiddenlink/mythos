@@ -1,5 +1,6 @@
 import stories from "../../data/stories.json";
 import pantheons from "../../data/pantheons.json";
+import { STORY_ALIASES } from "@/lib/story-aliases";
 
 const { describe, it, expect } = await import("vitest");
 
@@ -134,6 +135,22 @@ describe("stories.json data integrity", () => {
         (s: { pantheonId: string }) => s.pantheonId === pantheon.id,
       );
       expect(pantheonStories.length).toBeGreaterThan(0);
+    }
+  });
+
+  it("drops alias slugs from the catalog and keeps the canonical story", () => {
+    const slugs = new Set(stories.map((s: { slug: string }) => s.slug));
+    for (const [alias, canonical] of Object.entries(STORY_ALIASES)) {
+      expect(slugs.has(alias)).toBe(false);
+      expect(slugs.has(canonical)).toBe(true);
+    }
+  });
+
+  it("does not point relatedStories at retired aliases", () => {
+    for (const story of stories) {
+      for (const related of story.relatedStories ?? []) {
+        expect(STORY_ALIASES[related]).toBeUndefined();
+      }
     }
   });
 });

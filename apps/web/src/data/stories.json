@@ -1752,44 +1752,6 @@
     "relatedStories": ["epic-of-gilgamesh", "inanna-descent"]
   },
   {
-    "id": "five-suns-mesoamerican",
-    "pantheonId": "mesoamerican-pantheon",
-    "title": "The Legend of the Five Suns",
-    "slug": "five-suns-mesoamerican",
-    "summary": "The Aztec creation myth describing four previous worlds that were destroyed, and the creation of the current Fifth Sun through the sacrifice of the gods at Teotihuacan.",
-    "fullNarrative": "## The Cycle of Destruction\n\nThe Aztecs believed that time was cyclical and the universe had been created and destroyed four times before. Each era was called a \"Sun,\" presided over by different gods and destroyed through different catastrophes.\n\n### The First Sun: Nahui-Ocelotl (Jaguar Sun)\n\nThe first world was ruled by **Tezcatlipoca**, who became the sun. Giants inhabited this earth and subsisted on acorns. But Tezcatlipoca was an incomplete sun, providing dim light. **Quetzalcoatl**, jealous or seeking to improve creation, struck Tezcatlipoca down with his staff. The fallen god transformed into a jaguar and devoured all the giants. The first world ended in darkness and death.\n\n### The Second Sun: Nahui-Ehecatl (Wind Sun)\n\n**Quetzalcoatl** became the second sun. Humans lived in this era and ate pine nuts. But Tezcatlipoca sought revenge. He transformed Quetzalcoatl into a monkey-like creature, and a great hurricane destroyed this world. The humans were transformed into monkeys, which is why monkeys resemble people.\n\n### The Third Sun: Nahui-Quiahuitl (Rain Sun)\n\n**Tlaloc**, the rain god, became the third sun. But Tezcatlipoca seduced Tlaloc's wife **Xochiquetzal**, driving Tlaloc mad with grief. The heartbroken rain god refused to send rain until the people's pleas became unbearable. Then, in his rage, he sent a rain of fire that destroyed the world. Humans were transformed into turkeys and dogs.\n\n### The Fourth Sun: Nahui-Atl (Water Sun)\n\n**Chalchiuhtlicue**, goddess of water and Tlaloc's new consort, became the fourth sun. This world lasted 676 years before a great flood destroyed everything. The sky fell upon the earth, and humans were transformed into fish. The gods Tezcatlipoca and Quetzalcoatl transformed into giant trees to raise the sky back up.\n\n## The Creation of the Fifth Sun\n\nAfter the fourth destruction, the world lay in darkness. The gods gathered at **Teotihuacan** (\"Place Where Gods Are Made\") to create a new sun. But who would become the sun? It required the ultimate sacrifice: self-immolation in a great bonfire.\n\n### Two Volunteers\n\nTwo gods volunteered: **Tecuciztecatl**, a wealthy and beautiful god who arrived in magnificent regalia with precious offerings of quetzal feathers, gold, and jade; and **Nanahuatzin**, a poor, humble god covered in sores, who could only offer cactus thorns, hay, and scabs from his own body.\n\nA great bonfire was prepared. Four times Tecuciztecatl approached the flames, and four times he drew back, afraid of the pain. Then Nanahuatzin, without hesitation, threw himself into the fire. Shamed by the lowly god's courage, Tecuciztecatl finally leapt in after him.\n\n### Two Suns Rise\n\nNanahuatzin emerged as **Tonatiuh**, the sun, blazing with unbearable brightness. Tecuciztecatl emerged as a second sun, equally bright. But the gods could not allow two suns. One threw a rabbit at Tecuciztecatl's face, dimming his light. He became the **moon**, forever bearing the mark of the rabbit.\n\n## The Sun Demands Blood\n\nBut even with the sun created, it would not move. Tonatiuh hung motionless in the sky, scorching the earth. \"I will not move,\" the sun declared, \"unless you give me your blood.\"\n\nThe gods realized what was required. **Ehecatl**, the wind god, drew his obsidian knife and sacrificed all the other gods, one by one. Their blood flowed, and with their life force, the sun began to move across the sky.\n\n> Thus the Fifth Sun began to move, but only through sacrifice could it continue. The gods had given their lives, and now humanity must repay this cosmic debt.\n\n## The Fifth Sun: Nahui-Ollin (Movement Sun)\n\nThe current world is the **Fifth Sun**, destined to end in earthquakes when the **tzitzimime** (star demons) descend to devour humanity. To postpone this doom, the Aztecs believed they must continue the cycle of sacrifice that set the sun in motion. The human heart was *chalchihuatl* (\"precious water\"), the nourishment the sun required to complete its daily journey.\n\nThis was the fundamental logic of Aztec human sacrifice: not cruelty, but cosmic necessity. The gods sacrificed themselves to create the world; humans must sacrifice to maintain it.",
-    "keyExcerpts": "Four worlds destroyed by jaguars, wind, fire, and water. Nanahuatzin jumps into the fire to become the sun while wealthy Tecuciztecatl hesitates. The gods sacrifice themselves to make the sun move.",
-    "category": "creation",
-    "moralThemes": [
-      "sacrifice keeps the world alive",
-      "cyclical time",
-      "cosmic debt",
-      "humility over pride",
-      "duality and balance"
-    ],
-    "culturalSignificance": "The Legend of the Five Suns is the central creation myth of Aztec religion and the primary justification for human sacrifice. It explains why the world has been destroyed multiple times, why humans owe a debt to the gods, and why that debt must be repaid in blood. The story also reveals fundamental Aztec values: the superiority of humble courage over wealthy cowardice, and the cyclical nature of time in which the current world is not permanent but must be actively maintained through proper ritual.",
-    "imageUrl": "/stories/five-suns.png",
-    "citationSources": [
-      {
-        "title": "Leyenda de los Soles",
-        "date": "c. 1558 CE",
-        "type": "primary"
-      },
-      {
-        "title": "Historia de los Mexicanos por sus Pinturas",
-        "date": "c. 1535 CE",
-        "type": "primary"
-      }
-    ],
-    "featuredDeities": [
-      "tezcatlipoca",
-      "quetzalcoatl",
-      "tlaloc",
-      "chalchiuhtlicue"
-    ],
-    "relatedStories": ["quetzalcoatl-mictlan"]
-  },
-  {
     "id": "quetzalcoatl-mictlan",
     "pantheonId": "mesoamerican-pantheon",
     "title": "Quetzalcoatl's Journey to Mictlan",
@@ -1814,7 +1776,7 @@
       }
     ],
     "featuredDeities": ["quetzalcoatl", "mictlantecuhtli"],
-    "relatedStories": ["five-suns-mesoamerican"]
+    "relatedStories": ["five-suns"]
   },
   {
     "id": "hero-twins-popol-vuh",
@@ -1842,34 +1804,6 @@
     ],
     "featuredDeities": ["hero-twins", "hun-hunahpu", "ah-puch"],
     "relatedStories": ["maize-god-rebirth"]
-  },
-  {
-    "id": "birth-huitzilopochtli",
-    "pantheonId": "mesoamerican-pantheon",
-    "title": "The Birth of Huitzilopochtli",
-    "slug": "birth-huitzilopochtli",
-    "summary": "The miraculous birth of the Aztec sun and war god Huitzilopochtli, who sprang fully armed from his mother Coatlicue to slay his sister the moon and his four hundred brothers the stars.",
-    "fullNarrative": "## The Mother on the Mountain\n\n**Coatlicue**, She of the Serpent Skirt, was the earth mother goddess who lived on **Coatepec** (Serpent Mountain) as a penitent priestess. Each day she swept the temple, maintaining its purity. She was already the mother of **Coyolxauhqui** (She with Bells on Her Cheeks), goddess of the moon, and the **Centzon Huitznahua**, the Four Hundred Gods of the South, who were the stars.\n\nOne day, as Coatlicue swept, a ball of hummingbird feathers fell from the sky. Enchanted by its beauty, she tucked it into her waistband. When she finished her work and reached for the feathers, they were gone. But she discovered she was pregnant.\n\n## The Children's Rage\n\nWhen Coyolxauhqui and her four hundred brothers learned of their mother's pregnancy, they were furious. This mysterious conception without a father was a disgrace that could only be cleansed by blood.\n\n\"She has dishonored us!\" Coyolxauhqui declared. \"We must kill her!\"\n\nThe moon goddess led her starry brothers in a march up Coatepec, fully armed for war. They painted their faces and readied their weapons to slay their mother and the unborn thing within her.\n\n## The Warning\n\nOne brother, **Quahuitl Icac** (Wooden Standing), doubted the righteousness of this matricide. He slipped away and whispered to the unborn child within Coatlicue's womb, warning him of the approaching army.\n\n> \"Do not be afraid, mother,\" the voice from within replied. \"I know what I must do.\"\n\nAs the warriors climbed the mountain, as Coyolxauhqui raised her weapon to strike, the moment of birth arrived.\n\n## The Sun God Emerges\n\n**Huitzilopochtli** (Hummingbird of the South) burst from his mother's womb **fully grown and fully armed**. He wore the feathered war costume of an Aztec warrior and carried **Xiuhcoatl**, the Fire Serpent, a weapon of divine flame.\n\nWithout hesitation, he struck down Coyolxauhqui. He cut off her head with a single blow, and her dismembered body tumbled down the slopes of Coatepec, breaking apart as it fell.\n\n> This is why the great stone of Coyolxauhqui at the base of the Templo Mayor shows her dismembered: head separated, arms and legs scattered, her moon goddess ornaments strewn around her broken form.\n\nHuitzilopochtli then turned on his four hundred brothers. With Xiuhcoatl blazing, he pursued them across the sky, slaughtering nearly all. The few who escaped fled to the south, where they became the faint stars of the southern sky.\n\n## Cosmic Meaning\n\nThis battle is not merely mythological history but happens every day. Each dawn, **Huitzilopochtli** (the Sun) defeats **Coyolxauhqui** (the Moon) and the **Centzon Huitznahua** (the stars), driving them from the sky. But night will come again, and the moon and stars will return. The sun must battle them anew each morning.\n\nFor this daily struggle, Huitzilopochtli requires nourishment. He demands the *chalchihuatl*, the \"precious water\" of human blood and hearts, to give him strength for his eternal war against darkness.\n\n## Coatepec and Templo Mayor\n\nThe Templo Mayor of Tenochtitlan was a recreation of Coatepec. The great stone disk of Coyolxauhqui lay at the base of the pyramid's stairs, where victims' bodies tumbled after sacrifice - reenacting the moon goddess's fall. Each sacrifice was a repetition of Huitzilopochtli's birth, a contribution to the sun's daily victory over darkness.\n\nThe birth of Huitzilopochtli is thus not merely creation myth but the charter for Aztec power: the sun god who emerged to defend his mother and defeat her enemies is the patron who led the Aztecs from their wandering to their imperial destiny.",
-    "keyExcerpts": "A ball of hummingbird feathers impregnates Coatlicue. Her daughter Coyolxauhqui (the moon) leads her four hundred sons (the stars) to kill her. Huitzilopochtli bursts from the womb fully armed and slays them all, beginning the eternal battle between sun and night.",
-    "category": "creation",
-    "moralThemes": [
-      "divine birth and destiny",
-      "eternal struggle of light and darkness",
-      "sacrifice as cosmic necessity",
-      "defense of the mother"
-    ],
-    "culturalSignificance": "This is the foundation myth of Aztec religion and state power. Huitzilopochtli was the patron god of the Aztecs specifically, believed to have guided them from Aztlan to Tenochtitlan. His daily battle against night justified the imperial wars to capture sacrificial victims. The Templo Mayor was a ritual machine for reenacting this cosmic drama, with each sacrifice strengthening the sun for his never-ending war.",
-    "imageUrl": "/stories/birth-huitzilopochtli.png",
-    "citationSources": [
-      {
-        "title": "Florentine Codex",
-        "author": "Bernardino de Sahagun",
-        "date": "16th Century",
-        "type": "primary"
-      }
-    ],
-    "featuredDeities": ["huitzilopochtli", "coatlicue"],
-    "relatedStories": ["five-suns-mesoamerican"]
   },
   {
     "id": "maize-god-rebirth",
@@ -2381,19 +2315,6 @@
     "imageUrl": "/stories/house-of-bats.png",
     "featuredDeityIds": ["camazotz", "hunahpu-xbalanque"],
     "category": "quest"
-  },
-  {
-    "id": "birth-huitzilopochtli-full",
-    "pantheonId": "mesoamerican-pantheon",
-    "title": "The Birth of Huitzilopochtli",
-    "slug": "birth-huitzilopochtli-full",
-    "summary": "When Coatlicue's children try to kill her for her mysterious pregnancy, her unborn son Huitzilopochtli bursts forth fully armed to defend her.",
-    "fullNarrative": "Coatlicue, the earth goddess with her skirt of serpents and necklace of skulls, swept the temple atop Coatepec—Serpent Mountain. As she worked, a ball of feathers drifted down from the sky. She tucked it into her waistband, and when she looked for it later, it was gone. She had become pregnant.\n\nHer daughter Coyolxauhqui, goddess of the moon, was outraged. \"Our mother has dishonored us!\" she cried to her four hundred brothers, the Centzon Huitznahua—the stars of the southern sky. \"We must kill her!\"\n\nThey armed themselves and marched up Coatepec. Coatlicue trembled in fear, but a voice spoke from her womb: \"Do not be afraid, Mother. I know what I must do.\"\n\nAs Coyolxauhqui reached the summit, ready to strike, Huitzilopochtli burst from Coatlicue's womb. He emerged fully grown, painted for war, wielding Xiuhcoatl—the fire serpent. In a single blow, he decapitated Coyolxauhqui. Her body tumbled down the mountain, breaking apart as it fell.\n\nHuitzilopochtli then pursued his four hundred brothers across the sky, slaying them until the survivors fled. Each day, he is reborn with the sun and defeats the stars and moon, ensuring light triumphs over darkness.\n\nThis is why the Aztecs fed Huitzilopochtli with the hearts of warriors—to strengthen him for his eternal battle.",
-    "themes": ["divine birth", "cosmic conflict", "protection", "sacrifice"],
-    "culturalSignificance": "This myth explains the daily solar cycle as Huitzilopochtli's triumph over night. It justified the Aztec practice of human sacrifice—feeding the sun god to ensure his victory.",
-    "imageUrl": "/stories/birth-huitzilopochtli-full.png",
-    "featuredDeityIds": ["coatlicue", "huitzilopochtli", "coyolxauhqui"],
-    "category": "creation"
   },
   {
     "id": "rape-of-proserpina",

@@ -23,15 +23,18 @@ import {
   Crown,
 } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import { ShareButton } from "@/components/sharing/ShareButton";
 import { QuizRetentionSurvey } from "@/components/quiz/QuizRetentionSurvey";
 import { useProgress } from "@/hooks/use-progress";
+import { quizLearnMore } from "@/lib/quiz-learn-more";
 import deitiesData from "@/data/deities.json";
 import relationshipsData from "@/data/relationships.json";
 
 interface Deity {
   id: string;
   name: string;
+  slug: string;
   domain: string[];
   symbols: string[];
   pantheonId: string;
@@ -54,6 +57,8 @@ interface Question {
   options: string[];
   correctAnswer: string;
   explanation: string;
+  learnMoreHref: string;
+  learnMoreLabel: string;
 }
 
 export function MythologyQuiz() {
@@ -114,6 +119,7 @@ export function MythologyQuiz() {
         ].sort(() => Math.random() - 0.5),
         correctAnswer: target.name,
         explanation: `This is ${target.name}, the deity of ${target.domain.join(", ")}.`,
+        ...quizLearnMore(target),
       });
     }
 
@@ -140,6 +146,7 @@ export function MythologyQuiz() {
           ].sort(() => Math.random() - 0.5),
           correctAnswer: fromDeity.name,
           explanation: `${fromDeity.name} is the ${relLabel} ${toDeity.name}.`,
+          ...quizLearnMore(fromDeity),
         });
       }
     }
@@ -161,6 +168,7 @@ export function MythologyQuiz() {
           ].sort(() => Math.random() - 0.5),
           correctAnswer: target.name,
           explanation: `${target.name} is the deity of ${target.domain.join(", ")}.`,
+          ...quizLearnMore(target),
         });
       } else if (target.symbols.length > 0) {
         usedIds.add(target.id + "_symbol");
@@ -174,6 +182,7 @@ export function MythologyQuiz() {
           ].sort(() => Math.random() - 0.5),
           correctAnswer: target.name,
           explanation: `${target.name}'s symbols include ${target.symbols.join(", ")}.`,
+          ...quizLearnMore(target),
         });
       }
     }
@@ -451,6 +460,14 @@ export function MythologyQuiz() {
                   {question.explanation}
                 </p>
               </div>
+              <p className="mt-3 pl-10">
+                <Link
+                  href={question.learnMoreHref}
+                  className="text-gold underline underline-offset-4 hover:text-gold/80"
+                >
+                  {question.learnMoreLabel}
+                </Link>
+              </p>
             </output>
           )}
         </CardContent>

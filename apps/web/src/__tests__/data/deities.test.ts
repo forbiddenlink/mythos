@@ -79,4 +79,11 @@ describe("deities.json data integrity", () => {
       }
     }
   });
+
+  it("every deity should have a detailedBio", () => {
+    for (const deity of deities) {
+      expect(typeof deity.detailedBio).toBe("string");
+      expect(deity.detailedBio.trim().length).toBeGreaterThanOrEqual(300);
+    }
+  });
 });

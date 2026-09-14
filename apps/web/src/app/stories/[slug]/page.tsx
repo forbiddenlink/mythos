@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import stories from "@/data/stories.json";
 import pantheons from "@/data/pantheons.json";
 import { generateBaseMetadata, generateNotFoundMetadata } from "@/lib/metadata";
+import { canonicalStorySlug } from "@/lib/story-aliases";
 import { StoryPageClient } from "./StoryPageClient";
 
 // ISR: Revalidate every week (604800 seconds)
@@ -25,16 +26,15 @@ interface PageProps {
 
 // Generate static params for all stories
 export async function generateStaticParams() {
-  return stories.map((story) => ({
-    slug: story.slug,
-  }));
+  return stories.map((story) => ({ slug: story.slug }));
 }
 
 // Generate metadata for each story page
 export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
-  const { slug } = await params;
+  const { slug: rawSlug } = await params;
+  const slug = canonicalStorySlug(rawSlug);
   const story = stories.find((s) => s.slug === slug) as StoryData | undefined;
 
   if (!story) {
@@ -76,6 +76,10 @@ export async function generateMetadata({
 
 export default async function StoryPage({ params }: PageProps) {
   const { slug } = await params;
+  const canonical = canonicalStorySlug(slug);
+  if (canonical !== slug) {
+    redirect(`/stories/${canonical}`);
+  }
 
   // Check if story exists (for 404)
   const story = stories.find((s) => s.slug === slug);

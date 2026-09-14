@@ -129,6 +129,16 @@ export const achievements: Achievement[] = [
     requirement: { type: "all_pantheons" },
     tier: "mythic",
   },
+  {
+    id: "roman_household",
+    name: "Capitoline Household",
+    description: "View every deity in the Roman pantheon",
+    icon: "🏛️",
+    xp: 150,
+    category: "mastery",
+    requirement: { type: "pantheon_complete", pantheonId: "roman-pantheon" },
+    tier: "gold",
+  },
 
   // Locations
   {

@@ -444,11 +444,11 @@
   },
   {
     "id": "r93",
-    "fromDeityId": "huitzilopochtli",
-    "toDeityId": "coatlicue",
+    "fromDeityId": "coatlicue",
+    "toDeityId": "huitzilopochtli",
     "relationshipType": "parent_of",
     "confidenceLevel": "high",
-    "description": "Huitzilopochtli was born from Coatlicue"
+    "description": "Coatlicue gave birth to Huitzilopochtli on Coatepec"
   },
   {
     "id": "r94",
@@ -465,5 +465,629 @@
     "relationshipType": "ally_of",
     "confidenceLevel": "high",
     "description": "Guanyin often aided Sun Wukong on his journey"
+  },
+  {
+    "id": "r96",
+    "fromDeityId": "jupiter",
+    "toDeityId": "neptune",
+    "relationshipType": "sibling_of",
+    "confidenceLevel": "high",
+    "description": "Brothers who divided sky and sea"
+  },
+  {
+    "id": "r97",
+    "fromDeityId": "jupiter",
+    "toDeityId": "vesta",
+    "relationshipType": "sibling_of",
+    "confidenceLevel": "high",
+    "description": "Both children of Saturn in the imported genealogy"
+  },
+  {
+    "id": "r98",
+    "fromDeityId": "jupiter",
+    "toDeityId": "ceres",
+    "relationshipType": "sibling_of",
+    "confidenceLevel": "high",
+    "description": "Both children of Saturn in the imported genealogy"
+  },
+  {
+    "id": "r99",
+    "fromDeityId": "juno",
+    "toDeityId": "mars",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high",
+    "description": "Juno is mother of Mars"
+  },
+  {
+    "id": "r100",
+    "fromDeityId": "jupiter",
+    "toDeityId": "minerva",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "medium",
+    "description": "Minerva born from Jupiter, as Athena from Zeus"
+  },
+  {
+    "id": "r101",
+    "fromDeityId": "jupiter",
+    "toDeityId": "apollo-roman",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high",
+    "description": "Jupiter is father of Apollo"
+  },
+  {
+    "id": "r102",
+    "fromDeityId": "jupiter",
+    "toDeityId": "diana",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high",
+    "description": "Jupiter is father of Diana"
+  },
+  {
+    "id": "r103",
+    "fromDeityId": "jupiter",
+    "toDeityId": "mercury",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high",
+    "description": "Jupiter is father of Mercury"
+  },
+  {
+    "id": "r104",
+    "fromDeityId": "jupiter",
+    "toDeityId": "bacchus",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high",
+    "description": "Jupiter is father of Bacchus"
+  },
+  {
+    "id": "r105",
+    "fromDeityId": "juno",
+    "toDeityId": "vulcan",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "medium",
+    "description": "Some Roman tellings give Vulcan to Juno alone"
+  },
+  {
+    "id": "r106",
+    "fromDeityId": "janus",
+    "toDeityId": "jupiter",
+    "relationshipType": "ally_of",
+    "confidenceLevel": "high",
+    "description": "Rites name Janus first, then Jupiter"
+  },
+  {
+    "id": "r107",
+    "fromDeityId": "minerva",
+    "toDeityId": "juno",
+    "relationshipType": "ally_of",
+    "confidenceLevel": "high",
+    "description": "Seated together in the Capitoline Triad"
+  },
+  {
+    "id": "r108",
+    "fromDeityId": "venus",
+    "toDeityId": "vulcan",
+    "relationshipType": "spouse_of",
+    "confidenceLevel": "medium",
+    "description": "Poets marry Venus to Vulcan as Aphrodite to Hephaestus"
+  },
+  {
+    "id": "r109",
+    "fromDeityId": "njord",
+    "toDeityId": "freyja",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high",
+    "description": "Njord is father of Freyja"
+  },
+  {
+    "id": "r110",
+    "fromDeityId": "njord",
+    "toDeityId": "freyr",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high",
+    "description": "Njord is father of Freyr"
+  },
+  {
+    "id": "r111",
+    "fromDeityId": "tyr",
+    "toDeityId": "odin",
+    "relationshipType": "ally_of",
+    "confidenceLevel": "high",
+    "description": "Tyr stands with Odin among the Aesir"
+  },
+  {
+    "id": "r112",
+    "fromDeityId": "izanagi",
+    "toDeityId": "amaterasu",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high",
+    "description": "Amaterasu born from Izanagi's left eye"
+  },
+  {
+    "id": "r113",
+    "fromDeityId": "izanagi",
+    "toDeityId": "tsukuyomi",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high",
+    "description": "Tsukuyomi born from Izanagi's right eye"
+  },
+  {
+    "id": "r114",
+    "fromDeityId": "izanagi",
+    "toDeityId": "susanoo",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high",
+    "description": "Susanoo born from Izanagi's nose"
+  },
+  {
+    "id": "r115",
+    "fromDeityId": "izanami",
+    "toDeityId": "kagutsuchi",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high",
+    "description": "Izanami died giving birth to Kagutsuchi"
+  },
+  {
+    "id": "r116",
+    "fromDeityId": "amaterasu",
+    "toDeityId": "ame-no-uzume",
+    "relationshipType": "ally_of",
+    "confidenceLevel": "high",
+    "description": "Uzume lured Amaterasu from the cave"
+  },
+  {
+    "id": "r117",
+    "fromDeityId": "hachiman",
+    "toDeityId": "amaterasu",
+    "relationshipType": "ally_of",
+    "confidenceLevel": "medium",
+    "description": "Hachiman protects the imperial line of the sun goddess"
+  },
+  {
+    "id": "r118",
+    "fromDeityId": "benzaiten",
+    "toDeityId": "ryujin",
+    "relationshipType": "ally_of",
+    "confidenceLevel": "medium",
+    "description": "Both tied to water and sea fortune"
+  },
+  {
+    "id": "r119",
+    "fromDeityId": "parvati",
+    "toDeityId": "durga",
+    "relationshipType": "aspect_of",
+    "confidenceLevel": "high",
+    "description": "Durga is a warrior form of Parvati"
+  },
+  {
+    "id": "r120",
+    "fromDeityId": "parvati",
+    "toDeityId": "kali",
+    "relationshipType": "aspect_of",
+    "confidenceLevel": "high",
+    "description": "Kali is a fierce form of Parvati"
+  },
+  {
+    "id": "r121",
+    "fromDeityId": "vishnu",
+    "toDeityId": "rama",
+    "relationshipType": "aspect_of",
+    "confidenceLevel": "high",
+    "description": "Rama is an avatar of Vishnu"
+  },
+  {
+    "id": "r122",
+    "fromDeityId": "vishnu",
+    "toDeityId": "krishna",
+    "relationshipType": "aspect_of",
+    "confidenceLevel": "high",
+    "description": "Krishna is an avatar of Vishnu"
+  },
+  {
+    "id": "r123",
+    "fromDeityId": "parvati",
+    "toDeityId": "ganesha",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high",
+    "description": "Parvati is mother of Ganesha"
+  },
+  {
+    "id": "r124",
+    "fromDeityId": "indra",
+    "toDeityId": "agni",
+    "relationshipType": "ally_of",
+    "confidenceLevel": "high",
+    "description": "Vedic gods of storm and fire, often paired"
+  },
+  {
+    "id": "r125",
+    "fromDeityId": "dagda",
+    "toDeityId": "brigid",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high",
+    "description": "Brigid is daughter of the Dagda"
+  },
+  {
+    "id": "r126",
+    "fromDeityId": "dagda",
+    "toDeityId": "aengus",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high",
+    "description": "Aengus Og is son of the Dagda"
+  },
+  {
+    "id": "r127",
+    "fromDeityId": "danu",
+    "toDeityId": "dagda",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "medium",
+    "description": "Danu as ancestral mother of the Tuatha De"
+  },
+  {
+    "id": "r128",
+    "fromDeityId": "nuada",
+    "toDeityId": "lug",
+    "relationshipType": "ally_of",
+    "confidenceLevel": "high",
+    "description": "Nuada yielded the kingship to Lug in the second battle"
+  },
+  {
+    "id": "r129",
+    "fromDeityId": "manannan-mac-lir",
+    "toDeityId": "aengus",
+    "relationshipType": "ally_of",
+    "confidenceLevel": "medium",
+    "description": "Manannan fosters and aids the young gods"
+  },
+  {
+    "id": "r130",
+    "fromDeityId": "aengus",
+    "toDeityId": "midir",
+    "relationshipType": "sibling_of",
+    "confidenceLevel": "medium",
+    "description": "Both tied to the Dagda's household at Brug na Boinne"
+  },
+  {
+    "id": "r131",
+    "fromDeityId": "chang-e",
+    "toDeityId": "hou-yi",
+    "relationshipType": "spouse_of",
+    "confidenceLevel": "high",
+    "description": "Chang'e is wife of the archer Hou Yi"
+  },
+  {
+    "id": "r132",
+    "fromDeityId": "xi-wangmu",
+    "toDeityId": "jade-emperor",
+    "relationshipType": "ally_of",
+    "confidenceLevel": "medium",
+    "description": "Queen Mother of the West in the celestial court"
+  },
+  {
+    "id": "r133",
+    "fromDeityId": "nezha",
+    "toDeityId": "erlang-shen",
+    "relationshipType": "ally_of",
+    "confidenceLevel": "medium",
+    "description": "Warrior deities often paired in later narrative"
+  },
+  {
+    "id": "r134",
+    "fromDeityId": "nuwa",
+    "toDeityId": "pangu",
+    "relationshipType": "ally_of",
+    "confidenceLevel": "medium",
+    "description": "Both belong to the making and repair of the world"
+  },
+  {
+    "id": "r135",
+    "fromDeityId": "mazu",
+    "toDeityId": "jade-emperor",
+    "relationshipType": "ally_of",
+    "confidenceLevel": "medium",
+    "description": "Mazu is titled in the celestial bureaucracy"
+  },
+  {
+    "id": "r136",
+    "fromDeityId": "inanna",
+    "toDeityId": "ereshkigal",
+    "relationshipType": "sibling_of",
+    "confidenceLevel": "high",
+    "description": "Inanna and Ereshkigal are sisters"
+  },
+  {
+    "id": "r137",
+    "fromDeityId": "nergal",
+    "toDeityId": "ereshkigal",
+    "relationshipType": "spouse_of",
+    "confidenceLevel": "high",
+    "description": "Nergal becomes consort of Ereshkigal"
+  },
+  {
+    "id": "r138",
+    "fromDeityId": "gilgamesh",
+    "toDeityId": "enkidu",
+    "relationshipType": "ally_of",
+    "confidenceLevel": "high",
+    "description": "Enkidu is Gilgamesh's companion"
+  },
+  {
+    "id": "r139",
+    "fromDeityId": "enlil",
+    "toDeityId": "enki",
+    "relationshipType": "sibling_of",
+    "confidenceLevel": "medium",
+    "description": "Both sons of An in common lists"
+  },
+  {
+    "id": "r140",
+    "fromDeityId": "anu",
+    "toDeityId": "inanna",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "medium",
+    "description": "Some traditions name Anu as Inanna's father"
+  },
+  {
+    "id": "r141",
+    "fromDeityId": "marduk",
+    "toDeityId": "tiamat",
+    "relationshipType": "enemy_of",
+    "confidenceLevel": "high",
+    "description": "Marduk slays Tiamat in Enuma Elish"
+  },
+  {
+    "id": "r142",
+    "fromDeityId": "enki",
+    "toDeityId": "inanna",
+    "relationshipType": "ally_of",
+    "confidenceLevel": "medium",
+    "description": "Enki gives Inanna the me in some Sumerian tales"
+  },
+  {
+    "id": "r143",
+    "fromDeityId": "shamash",
+    "toDeityId": "gilgamesh",
+    "relationshipType": "ally_of",
+    "confidenceLevel": "high",
+    "description": "Shamash aids Gilgamesh against Humbaba"
+  },
+  {
+    "id": "r144",
+    "fromDeityId": "olodumare",
+    "toDeityId": "obatala",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "medium",
+    "description": "Olodumare sends Obatala to shape the world"
+  },
+  {
+    "id": "r145",
+    "fromDeityId": "yemoja",
+    "toDeityId": "oshun",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "medium",
+    "description": "Oshun is often named among Yemoja's children"
+  },
+  {
+    "id": "r146",
+    "fromDeityId": "shango",
+    "toDeityId": "oshun",
+    "relationshipType": "spouse_of",
+    "confidenceLevel": "high",
+    "description": "Oshun is one of Shango's wives"
+  },
+  {
+    "id": "r147",
+    "fromDeityId": "shango",
+    "toDeityId": "oya",
+    "relationshipType": "spouse_of",
+    "confidenceLevel": "high",
+    "description": "Oya is wife of Shango"
+  },
+  {
+    "id": "r148",
+    "fromDeityId": "eshu",
+    "toDeityId": "orunmila",
+    "relationshipType": "ally_of",
+    "confidenceLevel": "high",
+    "description": "Eshu opens the road for Ifa"
+  },
+  {
+    "id": "r149",
+    "fromDeityId": "nyame",
+    "toDeityId": "anansi",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high",
+    "description": "Anansi is son of the sky god Nyame"
+  },
+  {
+    "id": "r150",
+    "fromDeityId": "ogun",
+    "toDeityId": "shango",
+    "relationshipType": "ally_of",
+    "confidenceLevel": "medium",
+    "description": "Fellow orisha of iron and thunder"
+  },
+  {
+    "id": "r151",
+    "fromDeityId": "yemoja",
+    "toDeityId": "olokun",
+    "relationshipType": "sibling_of",
+    "confidenceLevel": "medium",
+    "description": "Both rule aspects of the water"
+  },
+  {
+    "id": "r152",
+    "fromDeityId": "rangi",
+    "toDeityId": "papa-polynesian",
+    "relationshipType": "spouse_of",
+    "confidenceLevel": "high",
+    "description": "Sky father and earth mother"
+  },
+  {
+    "id": "r153",
+    "fromDeityId": "rangi",
+    "toDeityId": "tane",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high",
+    "description": "Tane is a child of Rangi and Papa"
+  },
+  {
+    "id": "r154",
+    "fromDeityId": "papa-polynesian",
+    "toDeityId": "tane",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high",
+    "description": "Tane is a child of Rangi and Papa"
+  },
+  {
+    "id": "r155",
+    "fromDeityId": "rangi",
+    "toDeityId": "tangaroa",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high",
+    "description": "Tangaroa is a child of the first parents"
+  },
+  {
+    "id": "r156",
+    "fromDeityId": "tane",
+    "toDeityId": "tangaroa",
+    "relationshipType": "sibling_of",
+    "confidenceLevel": "high",
+    "description": "Brothers among the separated children"
+  },
+  {
+    "id": "r157",
+    "fromDeityId": "pele",
+    "toDeityId": "hiiaka",
+    "relationshipType": "sibling_of",
+    "confidenceLevel": "high",
+    "description": "Hi'iaka is Pele's beloved sister"
+  },
+  {
+    "id": "r158",
+    "fromDeityId": "pele",
+    "toDeityId": "namaka",
+    "relationshipType": "sibling_of",
+    "confidenceLevel": "high",
+    "description": "Namaka is Pele's sea-sister and rival"
+  },
+  {
+    "id": "r159",
+    "fromDeityId": "maui",
+    "toDeityId": "hina",
+    "relationshipType": "ally_of",
+    "confidenceLevel": "medium",
+    "description": "Maui's cycle is tightly bound to Hina"
+  },
+  {
+    "id": "r160",
+    "fromDeityId": "itzamna",
+    "toDeityId": "ix-chel",
+    "relationshipType": "spouse_of",
+    "confidenceLevel": "high",
+    "description": "Itzamna and Ix Chel are a Maya creator pair"
+  },
+  {
+    "id": "r161",
+    "fromDeityId": "hun-hunahpu",
+    "toDeityId": "hero-twins",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high",
+    "description": "The Hero Twins are sons of Hun Hunahpu"
+  },
+  {
+    "id": "r162",
+    "fromDeityId": "tlaloc",
+    "toDeityId": "chalchiuhtlicue",
+    "relationshipType": "spouse_of",
+    "confidenceLevel": "high",
+    "description": "Chalchiuhtlicue is consort of Tlaloc"
+  },
+  {
+    "id": "r163",
+    "fromDeityId": "kukulkan",
+    "toDeityId": "itzamna",
+    "relationshipType": "ally_of",
+    "confidenceLevel": "medium",
+    "description": "Both belong to Maya sky and creator cult"
+  },
+  {
+    "id": "r164",
+    "fromDeityId": "chaac",
+    "toDeityId": "itzamna",
+    "relationshipType": "ally_of",
+    "confidenceLevel": "medium",
+    "description": "Rain and creator gods of the Maya"
+  },
+  {
+    "id": "r165",
+    "fromDeityId": "mictlantecuhtli",
+    "toDeityId": "ah-puch",
+    "relationshipType": "ally_of",
+    "confidenceLevel": "low",
+    "description": "Death lords of neighboring Mesoamerican traditions"
+  },
+  {
+    "id": "r166",
+    "fromDeityId": "coatlicue",
+    "toDeityId": "coyolxauhqui",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high",
+    "description": "Coatlicue is mother of Coyolxauhqui"
+  },
+  {
+    "id": "r167",
+    "fromDeityId": "huitzilopochtli",
+    "toDeityId": "coyolxauhqui",
+    "relationshipType": "enemy_of",
+    "confidenceLevel": "high",
+    "description": "Huitzilopochtli dismembered Coyolxauhqui at birth"
+  },
+  {
+    "id": "r168",
+    "fromDeityId": "quetzalcoatl",
+    "toDeityId": "xolotl",
+    "relationshipType": "sibling_of",
+    "confidenceLevel": "high",
+    "description": "Xolotl is the twin of Quetzalcoatl"
+  },
+  {
+    "id": "r169",
+    "fromDeityId": "tezcatlipoca",
+    "toDeityId": "quetzalcoatl",
+    "relationshipType": "sibling_of",
+    "confidenceLevel": "medium",
+    "description": "Rival creator brothers in several cycles"
+  },
+  {
+    "id": "r170",
+    "fromDeityId": "ra",
+    "toDeityId": "sekhmet",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "medium",
+    "description": "Sekhmet is the eye of Ra in the destruction myth"
+  },
+  {
+    "id": "r171",
+    "fromDeityId": "hathor",
+    "toDeityId": "ra",
+    "relationshipType": "ally_of",
+    "confidenceLevel": "high",
+    "description": "Hathor is daughter or consort of Ra in different periods"
+  },
+  {
+    "id": "r172",
+    "fromDeityId": "maat",
+    "toDeityId": "ra",
+    "relationshipType": "ally_of",
+    "confidenceLevel": "high",
+    "description": "Ra sails by the order of Maat"
+  },
+  {
+    "id": "r173",
+    "fromDeityId": "sobek",
+    "toDeityId": "ra",
+    "relationshipType": "ally_of",
+    "confidenceLevel": "medium",
+    "description": "Sobek is syncretized with Ra as Sobek-Ra"
   }
 ]

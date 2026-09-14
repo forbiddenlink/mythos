@@ -465,5 +465,243 @@
         }
       }
     }
+  },
+  {
+    "id": "inanna-descent",
+    "slug": "inanna-descent",
+    "title": "Inanna's Descent",
+    "description": "Go down to the underworld as Inanna, Queen of Heaven. Each gate will take a piece of your power. Whether you return depends on who you trusted before you left.",
+    "pantheonId": "mesopotamian-pantheon",
+    "protagonist": "Inanna",
+    "coverImage": "/stories/inanna-descent.png",
+    "totalEndings": 4,
+    "estimatedTime": "6-9 min",
+    "startNodeId": "start",
+    "nodes": {
+      "start": {
+        "id": "start",
+        "content": "## The Decision\n\nYou are Inanna, Queen of Heaven, and your ear is turned toward the Great Below. Your sister **Ereshkigal** rules there, in the land of no return. The reason you give your sukkal, **Ninshubur**, is half true: a funeral, a curiosity, a claim on a second throne.\n\nYou know the rules. No one comes back from Kur unchanged. Ninshubur already looks as if she is memorizing your face.\n\n> \"If I do not return,\" you say, \"raise a lament. Go to Enlil, to Nanna, to Enki. Do not let me rot on a hook.\"",
+        "choices": [
+          {
+            "text": "Put on all seven me, the full crown of office, and go down armed in glory",
+            "nextNodeId": "full-regalia",
+            "consequence": "Arrive as a queen"
+          },
+          {
+            "text": "Leave the loudest powers with Ninshubur and descend lighter",
+            "nextNodeId": "travel-light",
+            "consequence": "Keep a witness above"
+          },
+          {
+            "text": "Send Ninshubur ahead to announce you, then follow",
+            "nextNodeId": "send-ninshubur",
+            "consequence": "Courtesy, or a warning"
+          }
+        ]
+      },
+      "full-regalia": {
+        "id": "full-regalia",
+        "content": "## Seven Gates\n\nNeti, gatekeeper of the underworld, will not open for a dressed queen. At Ereshkigal's order he takes one thing at each of the seven gates: crown, beads, breastplate, measuring rod, gold ring, lapis measuring line, the royal robe.\n\nYou arrive naked. That is the point of the gates. Ereshkigal's judges, the Anunnaki, fix their eyes on you as if you were already a corpse.\n\n> \"Why has your heart brought you here?\" the queen of the dead asks, and the question is not curious.",
+        "choices": [
+          {
+            "text": "Claim a share of the underworld as your due",
+            "nextNodeId": "hung",
+            "consequence": "Pride in the wrong hall"
+          },
+          {
+            "text": "Bow and say you came only to mourn",
+            "nextNodeId": "hung",
+            "consequence": "It will not save you"
+          }
+        ]
+      },
+      "travel-light": {
+        "id": "travel-light",
+        "content": "## Seven Gates\n\nYou still lose everything. The gates do not bargain. Crown, jewels, robe: Neti takes them whether you packed light or not. What you saved was not clothing. It was Ninshubur, standing in the world above with your instructions intact.\n\nEreshkigal looks thinner than you remembered, and angrier. The judges close around you.",
+        "choices": [
+          {
+            "text": "Face the judges and let the sentence fall",
+            "nextNodeId": "hung-rescued",
+            "consequence": "Trust the plan you left behind"
+          },
+          {
+            "text": "Turn and fight your way back through the gates",
+            "nextNodeId": "turn-back",
+            "consequence": "Refuse the last threshold"
+          }
+        ]
+      },
+      "send-ninshubur": {
+        "id": "send-ninshubur",
+        "content": "## A Message That Arrives First\n\nNinshubur goes down ahead of you. Ereshkigal hears the announcement as a threat: heaven is sending a sister, dressed as a queen, to a funeral that was not an invitation.\n\nWhen you reach the first gate, it is already shut harder than it needed to be. Neti takes your powers with less patience than the old poem allows.",
+        "choices": [
+          {
+            "text": "Continue anyway. A queen does not turn around",
+            "nextNodeId": "hung",
+            "consequence": "The hook is waiting"
+          },
+          {
+            "text": "Call Ninshubur back and leave the underworld unvisited",
+            "nextNodeId": "turn-back",
+            "consequence": "Keep your life, lose the descent"
+          }
+        ]
+      },
+      "hung": {
+        "id": "hung",
+        "content": "## The Hook\n\nEreshkigal fastens the eye of death on you. You become a corpse. They hang you on a hook.\n\nThree days pass. Ninshubur beats the drum in the world above and goes to the gods, as you told her. Enlil will not help. Nanna will not help. **Enki**, who loves a clever problem, dirties his fingernails and makes two small mourners from dirt under his nails.\n\nThey slip into Kur, echo Ereshkigal's groaning, and earn a gift: the water of life, the plant of life. They sprinkle you. You rise.\n\nBut the underworld does not release a queen for nothing. Someone must take your place.\n\nYour husband **Dumuzi** is sitting in fine clothes, not mourning. The galla demons who escort you look at him with interest.",
+        "choices": [
+          {
+            "text": "Give them Dumuzi",
+            "nextNodeId": "dumuzi-ending",
+            "consequence": "A substitute"
+          },
+          {
+            "text": "Refuse to name anyone and go back to the hook",
+            "nextNodeId": "stay-dead",
+            "consequence": "No substitute"
+          }
+        ]
+      },
+      "hung-rescued": {
+        "id": "hung-rescued",
+        "content": "## Water of Life\n\nYou die. That still happens. The difference is time: Ninshubur does not wait to see if you were bluffing. She is already in Enki's house when the third day starts.\n\nThe little mourners find Ereshkigal sick with her own grief and flatter it until she offers them a gift. They take you down from the hook and make you breathe.\n\nThe demons still need a body. Dumuzi, in his clean clothes, is an easy answer. His sister **Geshtinanna** will later share the sentence, half the year each, so the grain and the vine take turns below.\n\nYou will walk in heaven again. You will also remember the hook.",
+        "ending": {
+          "type": "good",
+          "summary": "You died, returned, and the year split between Dumuzi and Geshtinanna. Heaven has its queen; the fields keep a season of absence."
+        }
+      },
+      "dumuzi-ending": {
+        "id": "dumuzi-ending",
+        "content": "## The Substitute\n\nYou point. The galla take Dumuzi. He flees, hides, is found anyway. Later his sister Geshtinanna offers to share the death, and the year breaks in half: the shepherd below, the vine below, then each returns.\n\nPoets will call this the origin of dying-and-returning gods, of winter, of a marriage that includes the grave. You call it the price of a gate that does not open twice for free.\n\nYou take back the seven me as you climb. They feel heavier.",
+        "ending": {
+          "type": "good",
+          "summary": "You returned from Kur. Dumuzi took your place, then shared the year with Geshtinanna. The queen of heaven lives; the land learns seasons."
+        }
+      },
+      "stay-dead": {
+        "id": "stay-dead",
+        "content": "## No Substitute\n\nYou will not trade a life for yours. The demons have no assignment. Ereshkigal, who understands a sister's refusal better than the gods above do, leaves you on the hook.\n\nNinshubur still beats the drum. Enki still makes the mourners. They arrive too late, or they are turned away, depending on which scribe you ask. Heaven's queen does not come back.\n\nAbove, the me you carried sit in a storeroom. Below, you hang, a warning about visits that were never invitations.",
+        "ending": {
+          "type": "tragic",
+          "summary": "You would not name a substitute. The underworld kept you. Inanna does not return."
+        }
+      },
+      "turn-back": {
+        "id": "turn-back",
+        "content": "## The Boulder You Place Yourself\n\nYou stop at the threshold. Neti keeps what he has already taken; some powers stay below even when a goddess walks away. You return to heaven thinner, unhooked, and uninformed.\n\nEreshkigal remains unvisited. Dumuzi remains unpunished and unsacrificed. The year does not split. Farmers will have to explain winter some other way.\n\nNinshubur does not have to beg Enki. She looks almost disappointed, which you choose not to discuss.\n\n> You still rule heaven. You have not measured the Great Below. That, too, is a kind of knowledge.",
+        "ending": {
+          "type": "neutral",
+          "summary": "You refused the last gate. You live, incomplete, and the descent becomes a story other people finish."
+        }
+      }
+    }
+  },
+  {
+    "id": "amaterasu-cave",
+    "slug": "amaterasu-cave",
+    "title": "Amaterasu and the Cave",
+    "description": "Play as Ame-no-Uzume. The sun goddess has sealed herself in the rock cave after Susanoo's rampage. The world is dark. Someone has to get her to look out.",
+    "pantheonId": "japanese-pantheon",
+    "protagonist": "Ame-no-Uzume",
+    "coverImage": "/stories/amaterasu-cave.png",
+    "totalEndings": 3,
+    "estimatedTime": "5-8 min",
+    "startNodeId": "start",
+    "nodes": {
+      "start": {
+        "id": "start",
+        "content": "## The World Without a Sun\n\n**Amaterasu** has shut herself in **Ame-no-Iwato**, the heavenly rock cave. Her brother **Susanoo** wrecked the rice fields, filled in the irrigation ditches, and threw a flayed pony into her weaving hall. A weaver died. The sun goddess stepped into the cave and pulled the stone shut.\n\nYou are **Ame-no-Uzume**, the kami who is not too proud to be ridiculous. Outside the cave the other gods have stacked a mirror, jewels, and a sakaki tree. They need her to look. They need a reason.\n\nThe world is already going wrong in the dark: rice will not grow, and the wicked are getting louder.",
+        "choices": [
+          {
+            "text": "Dance on an overturned tub until the gods laugh",
+            "nextNodeId": "dance",
+            "consequence": "The famous plan"
+          },
+          {
+            "text": "Talk to her through the rock, reasonably",
+            "nextNodeId": "reason",
+            "consequence": "Dignity first"
+          },
+          {
+            "text": "Have Susanoo stand at the entrance and apologize before anyone performs",
+            "nextNodeId": "apology",
+            "consequence": "Start with the offense"
+          }
+        ]
+      },
+      "dance": {
+        "id": "dance",
+        "content": "## The Dance\n\nYou stamp on the tub. You kick. You expose yourself with a cheer the chronicles still bother to write down. The eight million kami laugh so hard the cave must hear it.\n\nAmaterasu, inside, is offended in a new way. Darkness was her decision. Laughter was not part of the arrangement.\n\n> \"I thought the world would be silent without me,\" she says through the rock. \"Why are they laughing?\"\n\nSomeone holds up the **Yata no Kagami**, the eight-span mirror.",
+        "choices": [
+          {
+            "text": "Tell her there is a goddess more brilliant than she is, and show the mirror",
+            "nextNodeId": "mirror-ending",
+            "consequence": "Curiosity over pride"
+          },
+          {
+            "text": "Keep dancing and ignore the mirror",
+            "nextNodeId": "force-ending",
+            "consequence": "Noise without a hook"
+          }
+        ]
+      },
+      "reason": {
+        "id": "reason",
+        "content": "## A Speech at a Boulder\n\nYou speak well. The rice, the people, the order of heaven: all true, all already known to her. Amaterasu did not hide because she forgot her job. She hid because her hall was made filthy and a woman at the loom was killed.\n\nThe rock does not move. Reason sounds, from inside, like a request that she swallow an insult for everyone else's convenience.\n\nTajikarao, the strong-armed kami, looks at the stone as if he could just pull it.",
+        "choices": [
+          {
+            "text": "Let Tajikarao wrench the cave open",
+            "nextNodeId": "force-ending",
+            "consequence": "Strength without consent"
+          },
+          {
+            "text": "Stop talking. Dance instead",
+            "nextNodeId": "dance",
+            "consequence": "Change the register"
+          }
+        ]
+      },
+      "apology": {
+        "id": "apology",
+        "content": "## The Brother at the Door\n\nSusanoo is still dangerous, but he can also be made to stand still. You put him in front of the cave and make him name what he did: the fields, the pony, the dead weaver.\n\nAmaterasu listens. She does not open the door. An apology is not the same as safety, and she has no reason to trust his next hour.\n\nThe other kami still have the mirror and the tree. Uzume still has a dance.",
+        "choices": [
+          {
+            "text": "Accept the apology as enough and wait",
+            "nextNodeId": "apology-ending",
+            "consequence": "Let time do the work"
+          },
+          {
+            "text": "Use the apology, then dance and show the mirror anyway",
+            "nextNodeId": "mirror-ending",
+            "consequence": "Courtesy plus the old trick"
+          }
+        ]
+      },
+      "mirror-ending": {
+        "id": "mirror-ending",
+        "content": "## The Face in the Mirror\n\nShe cracks the cave to see the brilliant goddess they keep shouting about. She sees her own face. Tajikarao takes the rock and sets it behind her so she cannot step back in.\n\nLight returns. Rice can be thought about again. Susanoo will be fined, expelled, or both, and will eventually kill the eight-headed serpent in Izumo, which is another story.\n\nYou, Uzume, are the reason the sun looked. The chronicles will call the dance lewd and necessary, which is a better pair of words than most hymns manage.\n\n> The cave remains in the landscape of heaven. Everyone now knows it can be used.",
+        "ending": {
+          "type": "good",
+          "summary": "The mirror and the dance brought Amaterasu out. Daylight returns, and Susanoo is driven off to make trouble elsewhere."
+        }
+      },
+      "force-ending": {
+        "id": "force-ending",
+        "content": "## The Stone Pulled Too Soon\n\nTajikarao hauls the boulder aside. Amaterasu, unready, sees a crowd and a strong hand where she expected darkness of her own choosing. She goes deeper into the cave, or into a further inner room the Kojiki does not bother to name.\n\nThe laugh dies. The mirror shows nothing useful. You can stamp on the tub until your feet split; she will not look.\n\nHeaven stays dim. People invent other lights and argue about whether they count. The sun goddess remains a presence behind rock, which is a kind of worship and also a failure.",
+        "ending": {
+          "type": "tragic",
+          "summary": "Force opened the cave and she retreated. The world stays half-dark, and the dance becomes a story of what you should have tried first."
+        }
+      },
+      "apology-ending": {
+        "id": "apology-ending",
+        "content": "## A Slower Dawn\n\nYou wait. Susanoo's apology sits in the air like an unpaid debt that has at least been counted. After a time Amaterasu opens the cave herself, a slit, then a door. No one grabs the stone. No one tricks her with a second sun.\n\nShe comes out on her own terms. The light is thinner for a while, as if she is testing whether the fields are still hers. The wicked are quieter, not gone.\n\nUzume does not get the hymn she would have gotten for the tub dance. She gets a world that works, mostly, and a goddess who has not been fooled.\n\n> Peace without the joke. It is less famous. It holds.",
+        "ending": {
+          "type": "neutral",
+          "summary": "Amaterasu came out after an apology, not a trick. Daylight returns slowly, without the canonical laugh."
+        }
+      }
+    }
   }
 ]
