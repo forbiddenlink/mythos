@@ -86,4 +86,49 @@ describe("deities.json data integrity", () => {
       expect(deity.detailedBio.trim().length).toBeGreaterThanOrEqual(300);
     }
   });
+
+  it("the densified deities include a primary source and cult notes", () => {
+    const densified = [
+      "njord",
+      "nephthys",
+      "jupiter",
+      "juno",
+      "neptune",
+      "mars",
+      "venus",
+      "minerva",
+      "apollo-roman",
+      "diana",
+      "mercury",
+      "bacchus",
+      "vulcan",
+      "ceres",
+      "vesta",
+      "janus",
+      "izanagi",
+      "izanami",
+      "hachiman",
+      "benzaiten",
+    ];
+    const byId = new Map(deities.map((d: { id: string }) => [d.id, d]));
+    for (const id of densified) {
+      const deity = byId.get(id) as {
+        primarySources?: { text: string; source: string }[];
+        worship?: {
+          temples?: string[];
+          festivals?: string[];
+          practices?: string;
+        };
+      };
+      expect(deity, id).toBeTruthy();
+      expect(deity.primarySources?.length ?? 0, id).toBeGreaterThan(0);
+      const worship = deity.worship;
+      expect(worship, id).toBeTruthy();
+      const cultBits =
+        (worship?.temples?.length ?? 0) +
+        (worship?.festivals?.length ?? 0) +
+        (worship?.practices ? 1 : 0);
+      expect(cultBits, id).toBeGreaterThan(0);
+    }
+  });
 });

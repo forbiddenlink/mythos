@@ -879,7 +879,15 @@
         "source": "Prose Edda, Gylfaginning (trans. Anderson)",
         "date": "c. 1220 CE"
       }
-    ]
+    ],
+    "worship": {
+      "temples": [
+        "No named temple survives in the sources; later tradition places his cult in coastal Norway and Sweden, especially among people who lived by ships and trade.",
+        "The Ynglinga saga makes him a king at Noatun after the Aesir-Vanir peace, which is a way of saying his house was a harbor."
+      ],
+      "festivals": ["Seafaring offerings", "Harvest and plenty (Vanir cult)"],
+      "practices": "Njord is asked for wind, wealth, and a safe voyage. Snorri says he rules the motion of wind and sea and the gifts of land and livestock. Evidence for a fixed festival calendar is thin; what we have is a sea god of plenty, not a temple inventory."
+    }
   },
   {
     "id": "freyr",
@@ -1323,7 +1331,15 @@
         "source": "Plutarch, Isis and Osiris (trans. Babbitt)",
         "date": "c. 100 CE"
       }
-    ]
+    ],
+    "worship": {
+      "temples": [
+        "Rarely given a major temple of her own; she is housed with Osiris, Isis, and Anubis in funerary complexes.",
+        "Heliopolis and the Osiris cult at Abydos keep her in the night watch over the dead god."
+      ],
+      "festivals": ["Khoiak Osiris rites", "Night watches for Osiris"],
+      "practices": "Nephthys is a wailing woman and a guard. Coffin texts and Book of the Dead spells station her at the head or the corners of the bier with Isis. Priests recite her as protector of the lungs and of the hidden body, not as a city goddess with her own procession."
+    }
   },
   {
     "id": "sekhmet",
@@ -1393,7 +1409,16 @@
         "source": "Virgil, Aeneid, Book VI (trans. Dryden)",
         "date": "c. 19 BCE"
       }
-    ]
+    ],
+    "worship": {
+      "temples": [
+        "Temple of Jupiter Optimus Maximus on the Capitoline, shared with Juno and Minerva",
+        "Temple of Jupiter Stator near the Forum",
+        "Temple of Jupiter Latiaris on the Alban Mount (Latin League)"
+      ],
+      "festivals": ["Ides (monthly)", "Ludi Romani (September)", "Vinalia"],
+      "practices": "The flamen Dialis kept a life of taboos that marked Jupiter as the state's sky. White cattle went to him. A triumph ended at the Capitoline temple, where the general laid his laurels before Jupiter Optimus Maximus. The Ides belonged to him each month."
+    }
   },
   {
     "id": "juno",
@@ -1419,7 +1444,20 @@
         "source": "Virgil, Aeneid, Book I (trans. Dryden)",
         "date": "c. 19 BCE"
       }
-    ]
+    ],
+    "worship": {
+      "temples": [
+        "Temple of Juno Moneta on the Arx of the Capitoline",
+        "Temple of Juno Regina on the Aventine (evocatio from Veii)",
+        "Capitoline triad cella beside Jupiter and Minerva"
+      ],
+      "festivals": [
+        "Matronalia (1 March)",
+        "Nonae Caprotinae",
+        "Kalends (monthly)"
+      ],
+      "practices": "Juno is the Kalends as Jupiter is the Ides. Matrons offered at the Matronalia. The geese of Juno on the Capitol were remembered as having saved the hill from the Gauls. The flaminica Dialis served her beside the flamen of Jupiter."
+    }
   },
   {
     "id": "neptune",
@@ -1444,7 +1482,15 @@
         "source": "Virgil, Aeneid, Book I (trans. Dryden)",
         "date": "c. 19 BCE"
       }
-    ]
+    ],
+    "worship": {
+      "temples": [
+        "Temple of Neptune in the Circus Flaminius",
+        "Campus Martius cult of Neptune Equester, close to the later circus and to horse-racing ground"
+      ],
+      "festivals": ["Neptunalia (23 July)"],
+      "practices": "In the July heat Romans built leaf shelters (umbrae) and kept the Neptunalia as a thirsty outdoor feast. Neptune's Roman life is water, horses, and the fear of drought more than a Greek-style sea epic. State sacrifice used a bull."
+    }
   },
   {
     "id": "mars",
@@ -1470,7 +1516,21 @@
         "source": "Virgil, Aeneid, Book VIII (trans. Dryden)",
         "date": "c. 19 BCE"
       }
-    ]
+    ],
+    "worship": {
+      "temples": [
+        "Temple of Mars Ultor in the Forum of Augustus",
+        "Altar and later temple in the Campus Martius",
+        "Outside the pomerium in early Rome, where an army god belonged"
+      ],
+      "festivals": [
+        "Equirria",
+        "Quinquatrus (19 March)",
+        "October Horse",
+        "Armilustrium"
+      ],
+      "practices": "The Salii danced with the ancilia in March and October. The flamen Martialis kept his cult. The October Horse was a chariot race whose right-hand horse was killed and its head fought over by neighborhoods. Mars is agriculture's guard as much as the legion's."
+    }
   },
   {
     "id": "venus",
@@ -1496,7 +1556,16 @@
         "source": "Virgil, Aeneid, Book I (trans. Dryden)",
         "date": "c. 19 BCE"
       }
-    ]
+    ],
+    "worship": {
+      "temples": [
+        "Temple of Venus Genetrix in the Forum of Caesar",
+        "Temple of Venus Erycina on the Capitoline and later the Colline Gate",
+        "Temple of Venus Obsequens and Venus Verticordia"
+      ],
+      "festivals": ["Veneralia (1 April)", "Vinalia Rustica (19 August)"],
+      "practices": "Myrtle and roses are hers. The Veneralia was a women's washing of her image. Augustus made Venus Genetrix a family ancestor, so state cult and Julian politics share a temple. She is luck in war as well as desire; generals vowed temples after victories."
+    }
   },
   {
     "id": "minerva",
@@ -1521,7 +1590,19 @@
         "source": "Virgil, Aeneid, Book I (trans. Dryden)",
         "date": "c. 19 BCE"
       }
-    ]
+    ],
+    "worship": {
+      "temples": [
+        "Temple of Minerva on the Aventine",
+        "Capitoline triad cella",
+        "Minerva Capta after the sack of Falerii"
+      ],
+      "festivals": [
+        "Quinquatrus (19–23 March)",
+        "Quinquatrus Minusculae (June)"
+      ],
+      "practices": "Artisans, flute-players, and schoolchildren kept the Quinquatrus. Minerva's Aventine temple was a crafts guild center. Romans treated her as a working goddess of skill and counsel, housed with Jupiter and Juno on the Capitol, not as a borrowed Athena in a separate Greek precinct."
+    }
   },
   {
     "id": "apollo-roman",
@@ -1546,7 +1627,15 @@
         "source": "Virgil, Aeneid, Book III (trans. Dryden)",
         "date": "c. 19 BCE"
       }
-    ]
+    ],
+    "worship": {
+      "temples": [
+        "Temple of Apollo Palatinus, dedicated by Augustus",
+        "Temple of Apollo Sosianus (Apollo Medicus) by the Theater of Marcellus"
+      ],
+      "festivals": ["Ludi Apollinares (from 212 BCE)", "Secular Games"],
+      "practices": "Apollo entered Rome through the Sibylline books and the Greek rite (ritus Graecus). The Palatine temple sat next to Augustus's house and held the Sibylline collection. Games in July were vowed in wartime. He is plague, prophecy, and Augustan order more than a rustic Italian numen."
+    }
   },
   {
     "id": "diana",
@@ -1571,7 +1660,15 @@
         "source": "Virgil, Aeneid, Book VII (trans. Dryden)",
         "date": "c. 19 BCE"
       }
-    ]
+    ],
+    "worship": {
+      "temples": [
+        "Temple of Diana on the Aventine, a Latin League shrine",
+        "Diana Nemorensis at Aricia, beside Lake Nemi"
+      ],
+      "festivals": ["Ides of August at Aricia", "Aventine Diana rites"],
+      "practices": "Nemi kept a runaway-slave priest, the rex Nemorensis, who took the grove by killing his predecessor. Torches, hunting, and childbirth belong to her. The Aventine temple was a political altar for Latins under Rome as much as a hunting cult."
+    }
   },
   {
     "id": "mercury",
@@ -1603,7 +1700,15 @@
         "source": "Virgil, Aeneid, Book VIII (trans. Dryden)",
         "date": "c. 19 BCE"
       }
-    ]
+    ],
+    "worship": {
+      "temples": [
+        "Temple of Mercury on the Aventine, dedicated 495 BCE",
+        "Shrine at the Circus Maximus associated with trade and the guild of merchants"
+      ],
+      "festivals": ["Mercuralia (15 May)"],
+      "practices": "Merchants sprinkled their heads and goods with water from a well at the Porta Capena. The caduceus marked the guild of Mercuriales. He is profit, messages, and the uneasy honesty of the market, not a psychopomp first."
+    }
   },
   {
     "id": "bacchus",
@@ -1628,7 +1733,18 @@
         "source": "Virgil, Aeneid, Book I (trans. Dryden)",
         "date": "c. 19 BCE"
       }
-    ]
+    ],
+    "worship": {
+      "temples": [
+        "Temple of Ceres, Liber, and Libera on the Aventine (Liber as the civic face of the wine god)",
+        "No early independent state temple of Bacchus; the name is the imported mystery, Liber the older Italian wine god"
+      ],
+      "festivals": [
+        "Liberalia (17 March)",
+        "Bacchanalia (restricted after 186 BCE)"
+      ],
+      "practices": "Boys often took the toga virilis at the Liberalia. The Senate's decree on the Bacchanalia in 186 BCE cut the mystery cells back after a moral panic. What remained in public was Liber's wine and theater, not an unregulated night cult."
+    }
   },
   {
     "id": "vulcan",
@@ -1653,7 +1769,15 @@
         "source": "Virgil, Aeneid, Book VIII (trans. Dryden)",
         "date": "c. 19 BCE"
       }
-    ]
+    ],
+    "worship": {
+      "temples": [
+        "Volcanal, an open altar in the Forum",
+        "Temple of Vulcan in the Campus Martius"
+      ],
+      "festivals": ["Volcanalia (23 August)"],
+      "practices": "In the dry month Romans threw live fish into the fire to keep the god fed and the city unburned. His altar sat outside the oldest inhabited core, because a fire god inside the pomerium was a bad idea. Smiths and millers kept him."
+    }
   },
   {
     "id": "ceres",
@@ -1678,7 +1802,15 @@
         "source": "Ovid, Metamorphoses, Book V (trans. Riley)",
         "date": "c. 8 CE"
       }
-    ]
+    ],
+    "worship": {
+      "temples": [
+        "Temple of Ceres, Liber, and Libera on the Aventine",
+        "Rural shrines and boundary rites in the grain fields"
+      ],
+      "festivals": ["Cerialia (12–19 April)", "Ambarvalia", "Ludi Ceriales"],
+      "practices": "Plebeian aediles ran her games. Foxes with burning brands were loosed in the Circus at the Cerialia, a rite nobody quite explains. Greek priestesses served Ceres in the ritus Graecus. Grain, plebeian politics, and the underworld (her daughter) share the same altar."
+    }
   },
   {
     "id": "vesta",
@@ -1704,7 +1836,15 @@
         "source": "Virgil, Aeneid, Book II (trans. Dryden)",
         "date": "c. 19 BCE"
       }
-    ]
+    ],
+    "worship": {
+      "temples": [
+        "Aedes Vestae in the Forum, a round shrine with no cult statue in early form",
+        "House of the Vestals beside the temple"
+      ],
+      "festivals": ["Vestalia (7–15 June)"],
+      "practices": "Six Vestal Virgins kept the fire and the store of sacred objects, including the Palladium in later telling. Blood sacrifice did not belong inside her round temple. In June the inner store was opened to matrons, who walked barefoot. If the fire went out, it was a public emergency."
+    }
   },
   {
     "id": "janus",
@@ -1737,7 +1877,15 @@
         "source": "Virgil, Aeneid, Book VII (trans. Dryden)",
         "date": "c. 19 BCE"
       }
-    ]
+    ],
+    "worship": {
+      "temples": [
+        "Janus Geminus in the Forum, a double gate rather than a house with a statue",
+        "Temple of Janus at the Forum Holitorium, vowed in the First Punic War"
+      ],
+      "festivals": ["Agonalia (9 January)", "Kalends of January"],
+      "practices": "Every proper prayer named Janus first. The Forum gates stood open in war and shut in peace. He is a hinge, not a personality cult: oil, wine, and incense at thresholds, and the first month of the year."
+    }
   },
   {
     "id": "brahma",
@@ -2138,7 +2286,15 @@
         "source": "Kojiki (trans. Chamberlain), Sect. X",
         "date": "712 CE"
       }
-    ]
+    ],
+    "worship": {
+      "temples": [
+        "Izanagi Jingu on Awaji, tied to the island-birth cycle",
+        "Shrines that keep the Izanagi-ryu of ritual purification in western Japan"
+      ],
+      "festivals": ["Shinto harae and misogi", "New-year purification"],
+      "practices": "After leaving Yomi he washed in the sea, and the sun, moon, and storm were born from that washing. Shrine Shinto still treats misogi and harae as the working form of that story. He is invoked as a kami of beginnings and of making things clean, not as a distant creator who left."
+    }
   },
   {
     "id": "izanami",
@@ -2164,7 +2320,15 @@
         "source": "Kojiki (trans. Chamberlain), Sect. IX",
         "date": "712 CE"
       }
-    ]
+    ],
+    "worship": {
+      "temples": [
+        "Izanami no Mikoto shrines, including sites in Kumano that treat her as a kami of the dead",
+        "Paired worship with Izanagi where the marriage and the break are both remembered"
+      ],
+      "festivals": ["Kumano rites", "Memorial offerings"],
+      "practices": "After the divorce at Yomi she is death, fire's cost, and the land of the dead. Some shrines keep her as a fierce underworld kami; others still pair her with Izanagi as the first couple. You do not call her lightly. The Kojiki makes that the point of the broken marriage."
+    }
   },
   {
     "id": "amaterasu",
@@ -2291,6 +2455,26 @@
     "pronunciation": {
       "ipa": "/ˈhɑːtʃimɑːn/",
       "phonetic": "HAH-chee-mahn"
+    },
+    "primarySources": [
+      {
+        "text": "The Great Bodhisattva Hachiman will lead the gods of heaven and earth and complete the making of the Great Buddha.",
+        "source": "Usa Hachiman oracle, Shoku Nihongi, Tenpyō 21 (749 CE entry, English paraphrase)",
+        "date": "749 CE"
+      }
+    ],
+    "worship": {
+      "temples": [
+        "Usa Jingu in Kyushu, the oldest great Hachiman seat",
+        "Iwashimizu Hachimangu southwest of Kyoto",
+        "Tsurugaoka Hachimangu in Kamakura, raised by the Minamoto"
+      ],
+      "festivals": [
+        "Hachiman matsuri",
+        "Yabusame (mounted archery)",
+        "Hōjō-e at Usa"
+      ],
+      "practices": "Oracles at Usa could speak for the court. Warrior houses carried his name on banners. Doves are his messengers. He is addressed as kami and as Hachiman Daibosatsu, a bodhisattva guardian of temples, without the cult treating those as two different gods."
     }
   },
   {
@@ -2348,6 +2532,22 @@
     "pronunciation": {
       "ipa": "/bɛnˈzaɪtɛn/",
       "phonetic": "ben-ZY-ten"
+    },
+    "primarySources": [
+      {
+        "text": "The great goddess Sarasvatī will grant unobstructed eloquence to the preacher of this sutra.",
+        "source": "Suvarṇaprabhāsottama Sūtra (Golden Light Sutra), chapter on the goddess Sarasvatī",
+        "date": "c. 5th century CE"
+      }
+    ],
+    "worship": {
+      "temples": [
+        "Enoshima Shrine, an island cult of sea and luck",
+        "Chikubu-shima in Lake Biwa",
+        "Benten-do halls in temple precincts, including Ueno"
+      ],
+      "festivals": ["Benten festivals (snake day)", "Enoshima Benzaiten rites"],
+      "practices": "People bring the biwa, coins, and a wish for speech that works. Island shrines mix her with naga and water kami. As one of the Seven Lucky Gods she is visited for eloquence and trade as much as for music. The snake is kept as a living sign, not a mascot."
     }
   },
   {
