@@ -1089,5 +1089,333 @@
     "relationshipType": "ally_of",
     "confidenceLevel": "medium",
     "description": "Sobek is syncretized with Ra as Sobek-Ra"
+  },
+  {
+    "id": "r174",
+    "fromDeityId": "zeus",
+    "toDeityId": "persephone",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high",
+    "description": "Persephone is the daughter of Zeus and Demeter"
+  },
+  {
+    "id": "r175",
+    "fromDeityId": "demeter",
+    "toDeityId": "persephone",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high",
+    "description": "Demeter is Persephone's mother"
+  },
+  {
+    "id": "r176",
+    "fromDeityId": "hades",
+    "toDeityId": "persephone",
+    "relationshipType": "spouse_of",
+    "confidenceLevel": "high",
+    "description": "Queen of the underworld beside Hades"
+  },
+  {
+    "id": "r177",
+    "fromDeityId": "zeus",
+    "toDeityId": "perseus",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high",
+    "description": "Perseus is a son of Zeus by Danae"
+  },
+  {
+    "id": "r178",
+    "fromDeityId": "zeus",
+    "toDeityId": "prometheus",
+    "relationshipType": "enemy_of",
+    "confidenceLevel": "high",
+    "description": "Zeus chains Prometheus for the theft of fire"
+  },
+  {
+    "id": "r179",
+    "fromDeityId": "susanoo",
+    "toDeityId": "okuninushi",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "medium",
+    "description": "Izumo line descends from Susanoo; the catalog skips intervening generations"
+  },
+  {
+    "id": "r180",
+    "fromDeityId": "susanoo",
+    "toDeityId": "inari",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "medium",
+    "description": "Inari is often identified with Ukanomitama, a child of Susanoo"
+  },
+  {
+    "id": "r181",
+    "fromDeityId": "okuninushi",
+    "toDeityId": "daikokuten",
+    "relationshipType": "aspect_of",
+    "confidenceLevel": "medium",
+    "description": "Daikokuten is syncretized with Okuninushi"
+  },
+  {
+    "id": "r182",
+    "fromDeityId": "daikokuten",
+    "toDeityId": "ebisu",
+    "relationshipType": "ally_of",
+    "confidenceLevel": "high",
+    "description": "Paired luck gods of kitchen and catch"
+  },
+  {
+    "id": "r183",
+    "fromDeityId": "raijin",
+    "toDeityId": "fujin",
+    "relationshipType": "sibling_of",
+    "confidenceLevel": "high",
+    "description": "Paired wind and thunder at temple gates"
+  },
+  {
+    "id": "r184",
+    "fromDeityId": "dagda",
+    "toDeityId": "ogma",
+    "relationshipType": "sibling_of",
+    "confidenceLevel": "high",
+    "description": "Ogma is commonly a brother of the Dagda among the Tuatha"
+  },
+  {
+    "id": "r185",
+    "fromDeityId": "dian-cecht",
+    "toDeityId": "nuada",
+    "relationshipType": "ally_of",
+    "confidenceLevel": "high",
+    "description": "Physician of the Tuatha; he silvered Nuada's arm"
+  },
+  {
+    "id": "r186",
+    "fromDeityId": "dian-cecht",
+    "toDeityId": "goibniu",
+    "relationshipType": "sibling_of",
+    "confidenceLevel": "medium",
+    "description": "Goibniu is grouped with Dian Cecht among the craft gods"
+  },
+  {
+    "id": "r187",
+    "fromDeityId": "manannan-mac-lir",
+    "toDeityId": "aine",
+    "relationshipType": "lover",
+    "confidenceLevel": "medium",
+    "description": "Munster folklore sometimes binds Aine to Manannan"
+  },
+  {
+    "id": "r188",
+    "fromDeityId": "huitzilopochtli",
+    "toDeityId": "tonatiuh",
+    "relationshipType": "ally_of",
+    "confidenceLevel": "medium",
+    "description": "Distinct sun figures; both fed by Mexica solar war"
+  },
+  {
+    "id": "r189",
+    "fromDeityId": "tezcatlipoca",
+    "toDeityId": "xochiquetzal",
+    "relationshipType": "spouse_of",
+    "confidenceLevel": "medium",
+    "description": "Some tellings make Xochiquetzal a consort taken from Tlaloc"
+  },
+  {
+    "id": "r190",
+    "fromDeityId": "tlazolteotl",
+    "toDeityId": "centeotl",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "medium",
+    "description": "Tlazolteotl is named as maize-mother in several sources"
+  },
+  {
+    "id": "r191",
+    "fromDeityId": "xochiquetzal",
+    "toDeityId": "mayahuel",
+    "relationshipType": "ally_of",
+    "confidenceLevel": "medium",
+    "description": "Flower and maguey fertility, not a single household"
+  },
+  {
+    "id": "r192",
+    "fromDeityId": "huitzilopochtli",
+    "toDeityId": "xiuhtecuhtli",
+    "relationshipType": "ally_of",
+    "confidenceLevel": "medium",
+    "description": "Fire of the year-count at the heart of Tenochtitlan"
+  },
+  {
+    "id": "r193",
+    "fromDeityId": "quetzalcoatl",
+    "toDeityId": "tlaltecuhtli",
+    "relationshipType": "enemy_of",
+    "confidenceLevel": "medium",
+    "description": "Quetzalcoatl and Tezcatlipoca tear Tlaltecuhtli to make the earth"
+  },
+  {
+    "id": "r194",
+    "fromDeityId": "tezcatlipoca",
+    "toDeityId": "xipe-totec",
+    "relationshipType": "aspect_of",
+    "confidenceLevel": "medium",
+    "description": "Xipe Totec is the Red Tezcatlipoca in some calendars"
+  },
+  {
+    "id": "r195",
+    "fromDeityId": "jade-emperor",
+    "toDeityId": "zao-jun",
+    "relationshipType": "ally_of",
+    "confidenceLevel": "medium",
+    "description": "The Kitchen God reports to the Jade Emperor"
+  },
+  {
+    "id": "r196",
+    "fromDeityId": "jade-emperor",
+    "toDeityId": "lei-gong",
+    "relationshipType": "ally_of",
+    "confidenceLevel": "medium",
+    "description": "Thunder as an office in the celestial bureaucracy"
+  },
+  {
+    "id": "r197",
+    "fromDeityId": "itzamna",
+    "toDeityId": "kinich-ahau",
+    "relationshipType": "aspect_of",
+    "confidenceLevel": "medium",
+    "description": "Kinich Ahau is often the sun face of Itzamna"
+  },
+  {
+    "id": "r198",
+    "fromDeityId": "hero-twins",
+    "toDeityId": "camazotz",
+    "relationshipType": "enemy_of",
+    "confidenceLevel": "high",
+    "description": "Camazotz takes Hunahpu's head in the House of Bats"
+  },
+  {
+    "id": "r199",
+    "fromDeityId": "xochiquetzal",
+    "toDeityId": "xochipilli",
+    "relationshipType": "sibling_of",
+    "confidenceLevel": "medium",
+    "description": "Flower prince and flower queen as a pair"
+  },
+  {
+    "id": "r200",
+    "fromDeityId": "rangi",
+    "toDeityId": "tu",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high",
+    "description": "Tu is a child of Rangi and Papa"
+  },
+  {
+    "id": "r201",
+    "fromDeityId": "papa-polynesian",
+    "toDeityId": "tu",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high",
+    "description": "Tu is a child of Rangi and Papa"
+  },
+  {
+    "id": "r202",
+    "fromDeityId": "rangi",
+    "toDeityId": "rongo",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high",
+    "description": "Rongo is a child of Rangi and Papa"
+  },
+  {
+    "id": "r203",
+    "fromDeityId": "papa-polynesian",
+    "toDeityId": "rongo",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high",
+    "description": "Rongo is a child of Rangi and Papa"
+  },
+  {
+    "id": "r204",
+    "fromDeityId": "rangi",
+    "toDeityId": "tawhirimatea",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high",
+    "description": "Tawhirimatea is a child of Rangi and Papa"
+  },
+  {
+    "id": "r205",
+    "fromDeityId": "tane",
+    "toDeityId": "tu",
+    "relationshipType": "sibling_of",
+    "confidenceLevel": "high",
+    "description": "Brothers among the separated children"
+  },
+  {
+    "id": "r206",
+    "fromDeityId": "haumea",
+    "toDeityId": "pele",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high",
+    "description": "Haumea is mother of Pele in Hawaiian telling"
+  },
+  {
+    "id": "r207",
+    "fromDeityId": "pele",
+    "toDeityId": "poliahu",
+    "relationshipType": "enemy_of",
+    "confidenceLevel": "medium",
+    "description": "Snow on Mauna Kea against the volcano"
+  },
+  {
+    "id": "r208",
+    "fromDeityId": "olodumare",
+    "toDeityId": "oduduwa",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "medium",
+    "description": "Oduduwa is sent from heaven in some Ife kingship stories"
+  },
+  {
+    "id": "r209",
+    "fromDeityId": "oduduwa",
+    "toDeityId": "obatala",
+    "relationshipType": "sibling_of",
+    "confidenceLevel": "medium",
+    "description": "Rival or sibling at the founding of Ife, depending on the house"
+  },
+  {
+    "id": "r210",
+    "fromDeityId": "yemoja",
+    "toDeityId": "nana-buruku",
+    "relationshipType": "child_of",
+    "confidenceLevel": "medium",
+    "description": "Nana Buruku is the elder behind several water mothers"
+  },
+  {
+    "id": "r211",
+    "fromDeityId": "aganju",
+    "toDeityId": "shango",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "medium",
+    "description": "Aganju is Shango's father in some lineages"
+  },
+  {
+    "id": "r212",
+    "fromDeityId": "orunmila",
+    "toDeityId": "osanyin",
+    "relationshipType": "ally_of",
+    "confidenceLevel": "medium",
+    "description": "Ifa and the leaf-priest work the same pharmacy"
+  },
+  {
+    "id": "r213",
+    "fromDeityId": "shango",
+    "toDeityId": "ibeji",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "medium",
+    "description": "Twins belong to Shango's house in many compounds"
+  },
+  {
+    "id": "r214",
+    "fromDeityId": "olokun",
+    "toDeityId": "aje",
+    "relationshipType": "ally_of",
+    "confidenceLevel": "medium",
+    "description": "Deep-water wealth beside market wealth"
   }
 ]

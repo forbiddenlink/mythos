@@ -94,6 +94,21 @@ describe("relationships.json data integrity", () => {
     });
   });
 
+  it("every rank-1 deity appears in the family graph", () => {
+    const inGraph = new Set<string>();
+    for (const rel of relationships) {
+      inGraph.add(rel.fromDeityId);
+      inGraph.add(rel.toDeityId);
+    }
+    const missing = deities
+      .filter(
+        (d: { importanceRank?: number; id: string }) =>
+          d.importanceRank === 1 && !inGraph.has(d.id),
+      )
+      .map((d: { id: string }) => d.id);
+    expect(missing).toEqual([]);
+  });
+
   it("every pantheon should have at least four deities in the graph", () => {
     const deityPantheon = new Map(
       deities.map((d: { id: string; pantheonId: string }) => [
