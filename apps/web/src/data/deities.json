@@ -1125,7 +1125,12 @@
         "source": "Prose Edda, Gylfaginning (trans. Anderson)",
         "date": "c. 1220 CE"
       }
-    ]
+    ],
+    "worship": {
+      "temples": ["No attested temple in the surviving record"],
+      "festivals": [],
+      "practices": "Fenrir is bound in the myths, not housed. There is no wolf-priesthood in the Eddas. The honest note is absence: a doom, not a cult."
+    }
   },
   {
     "id": "hel",
@@ -2381,7 +2386,20 @@
         "source": "Vishnu Purana (trans. Dutt, after Wilson)",
         "date": "c. 300-1000 CE"
       }
-    ]
+    ],
+    "worship": {
+      "temples": [
+        "Padmavathi Temple at Tiruchanur",
+        "Ashtalakshmi temples",
+        "Household shrines beside Vishnu"
+      ],
+      "festivals": [
+        "Diwali / Deepavali",
+        "Varalakshmi Vratam",
+        "Kojagiri Purnima"
+      ],
+      "practices": "Coins, lotus, and a swept threshold on Diwali. Vaishnava houses keep her with Vishnu; merchants keep her for the till. The cult is invitation: she stays where the house is clean."
+    }
   },
   {
     "id": "saraswati",
@@ -2407,7 +2425,15 @@
         "source": "Rig Veda 6.61.4 (trans. Griffith)",
         "date": "c. 1500-1200 BCE"
       }
-    ]
+    ],
+    "worship": {
+      "temples": [
+        "Saraswati temples at Basar and Koothanur",
+        "School and music-room shrines"
+      ],
+      "festivals": ["Vasant Panchami", "Navaratri in the Saraswati form"],
+      "practices": "Books and instruments are set before her and not touched that morning. White cloth, a veena, no heavy food. Students ask her before exams; the cult is study, not sacrifice."
+    }
   },
   {
     "id": "parvati",
@@ -2433,7 +2459,16 @@
         "source": "Vishnu Purana (trans. Dutt, after Wilson) — names her Uma, the standard alternate name for Parvati",
         "date": "c. 300-1000 CE"
       }
-    ]
+    ],
+    "worship": {
+      "temples": [
+        "Meenakshi at Madurai",
+        "Kamakhya in Assam",
+        "Household shrines with Shiva as Uma-Maheshvara"
+      ],
+      "festivals": ["Teej", "Gauri Puja", "Navaratri"],
+      "practices": "Wife, mother, and mountain. Married women keep fasts for her; Shaiva temples seat her as half of the pair. The cult is domestic as much as processional."
+    }
   },
   {
     "id": "durga",
@@ -2459,7 +2494,16 @@
         "source": "Markandeya Purana (Devi Mahatmya), Canto XCI (trans. Pargiter)",
         "date": "c. 300-1000 CE"
       }
-    ]
+    ],
+    "worship": {
+      "temples": [
+        "Dakshineswar and Kalighat in Bengal",
+        "Vaishno Devi",
+        "Pandals raised only for the festival week"
+      ],
+      "festivals": ["Durga Puja", "Navaratri", "Vijayadashami"],
+      "practices": "Nine nights, then the image goes into the river. Kolkata's puja is civic theatre: rented clay, drums, and a goodbye. The rest of the year she is a fierce form of the Goddess, not a quiet parish saint."
+    }
   },
   {
     "id": "kali",
@@ -2485,7 +2529,20 @@
         "source": "Markandeya Purana (Devi Mahatmya), Canto LXXXVII (trans. Pargiter)",
         "date": "c. 300-1000 CE"
       }
-    ]
+    ],
+    "worship": {
+      "temples": [
+        "Kalighat in Kolkata",
+        "Dakshineswar Kali Temple",
+        "Kamakhya"
+      ],
+      "festivals": [
+        "Kali Puja",
+        "Diwali night in Bengal",
+        "Navaratri in her fierce form"
+      ],
+      "practices": "Night, red hibiscus, and in older practice blood. Tantric houses keep her close; most public temples now offer gourds or goats under local law. Do not pretty this into a wellness goddess."
+    }
   },
   {
     "id": "ganesha",
@@ -2511,7 +2568,16 @@
         "source": "Ganapati Atharvashirsha (opening invocation, English paraphrase)",
         "date": "medieval; century disputed"
       }
-    ]
+    ],
+    "worship": {
+      "temples": [
+        "Siddhivinayak in Mumbai",
+        "Ashtavinayak circuit in Maharashtra",
+        "Doorway shrines at the start of any rite"
+      ],
+      "festivals": ["Ganesh Chaturthi", "Vinayaka Chaturthi"],
+      "practices": "First god named. A modak, a mouse, and in Mumbai a clay image that is drowned after ten days. Beginnings, ledgers, and the removal of obstacles: the cult is practical."
+    }
   },
   {
     "id": "hanuman",
@@ -2537,7 +2603,16 @@
         "source": "Ramayana of Valmiki, Book I (trans. Griffith)",
         "date": "c. 400 BCE-400 CE"
       }
-    ]
+    ],
+    "worship": {
+      "temples": [
+        "Hanuman Garhi at Ayodhya",
+        "Salasar and Jakhu temples",
+        "Akharas and wayside orange shrines"
+      ],
+      "festivals": ["Hanuman Jayanti", "Tuesdays and Saturdays"],
+      "practices": "The Chalisa is the liturgy. Wrestlers oil up in his name; travellers keep a small image in the cab. Strength as service, not as throne."
+    }
   },
   {
     "id": "rama",
@@ -2563,7 +2638,16 @@
         "source": "Ramayana of Valmiki, Book I (trans. Griffith)",
         "date": "c. 400 BCE-400 CE"
       }
-    ]
+    ],
+    "worship": {
+      "temples": [
+        "Ram Janmabhoomi at Ayodhya",
+        "Rameswaram",
+        "Household Ramayana recitation"
+      ],
+      "festivals": ["Rama Navami", "Dussehra", "Ram Lila performances"],
+      "practices": "The epic is the temple. Towns stage his war with Ravana in the open; the cult is story first, stone second. Kingship and exile are both in the offering."
+    }
   },
   {
     "id": "krishna",
@@ -2624,7 +2708,18 @@
         "source": "Rig Veda 1.32.1 (trans. Griffith)",
         "date": "c. 1500-1200 BCE"
       }
-    ]
+    ],
+    "worship": {
+      "temples": [
+        "Few living Hindu temples; Indra Jatra at Kathmandu",
+        "Vedic fire-altars rather than a house of his own"
+      ],
+      "festivals": [
+        "Indra Jatra in Nepal",
+        "Vedic soma rites in the older layer"
+      ],
+      "practices": "King of the Rigveda, then crowded out by the Trimurti. Nepal still raises his pole. In India the honest note is decline: weather and war moved to other names."
+    }
   },
   {
     "id": "agni",
@@ -2650,7 +2745,12 @@
         "source": "Rig Veda 1.1.1 (trans. Griffith)",
         "date": "c. 1500-1200 BCE"
       }
-    ]
+    ],
+    "worship": {
+      "temples": ["Every Vedic fire; almost no standalone temple cult"],
+      "festivals": [],
+      "practices": "Agni is the mouth. Domestic homa and the cremation fire are his working altars. Looking for a pilgrimage town misses the point: the cult is the flame itself."
+    }
   },
   {
     "id": "izanagi",
@@ -2784,7 +2884,15 @@
         "source": "Kojiki (trans. Chamberlain), Sect. X",
         "date": "712 CE"
       }
-    ]
+    ],
+    "worship": {
+      "temples": [
+        "A subordinate shrine at Ise",
+        "Scattered tsuki shrines; no great independent parish"
+      ],
+      "festivals": [],
+      "practices": "The moon brother in the Kojiki, rarely a head shrine. Offerings go through Amaterasu's house more often than his. Thin cult, thick story."
+    }
   },
   {
     "id": "susanoo",
@@ -2815,7 +2923,16 @@
         "source": "Kojiki (trans. Chamberlain), Sect. XII",
         "date": "712 CE"
       }
-    ]
+    ],
+    "worship": {
+      "temples": [
+        "Yasaka Shrine in Kyoto",
+        "Hiromine and other Gion-line shrines",
+        "Izumo as the wild brother of the sun"
+      ],
+      "festivals": ["Gion Matsuri", "Susanoo festivals at Yasaka"],
+      "practices": "Storm, sword, and the eight-headed serpent. Gion's month-long parade is plague-exorcism dressed as spectacle. He is worshipped as a settler of chaos, not as a polite rice god."
+    }
   },
   {
     "id": "inari",
@@ -2841,7 +2958,15 @@
         "source": "Engishiki, shrine registers (summary of the Inari entry)",
         "date": "927 CE"
       }
-    ]
+    ],
+    "worship": {
+      "temples": [
+        "Fushimi Inari Taisha in Kyoto",
+        "Thousands of fox-gated branch shrines"
+      ],
+      "festivals": ["Hatsu-uma", "Inari festival days in early February"],
+      "practices": "Foxes, vermilion gates, and a wish for the harvest or the shop. Merchants keep a small Inari. The cult is rice and money, not moonlight poetry."
+    }
   },
   {
     "id": "hachiman",
@@ -2906,7 +3031,15 @@
         "source": "Kojiki, Yomi episode (Chamberlain), with later folk identification",
         "date": "712 CE; iconography later"
       }
-    ]
+    ],
+    "worship": {
+      "temples": [
+        "Temple gate statues with Fujin",
+        "Local thunder shrines; no single national parish"
+      ],
+      "festivals": [],
+      "practices": "Drums at the gate. Farmers feared him; temples put him at the threshold as a guardian, not as a god you visit for counsel. Cult is apotropaic."
+    }
   },
   {
     "id": "fujin",
@@ -2932,7 +3065,15 @@
         "source": "Nihon Shoki wind-kami notices; later Buddhist-folk iconography of Fūjin",
         "date": "720 CE; pairing later"
       }
-    ]
+    ],
+    "worship": {
+      "temples": [
+        "Paired with Raijin at temple gates",
+        "No major independent shrine network"
+      ],
+      "festivals": [],
+      "practices": "The wind bag on the other pillar. Same story as Raijin: a pair of threshold demons who became Buddhist-Shinto guardians. Do not invent a wind festival."
+    }
   },
   {
     "id": "benzaiten",
@@ -3238,7 +3379,12 @@
         "source": "Lady Gregory, Gods and Fighting Men (1904)",
         "date": "1904 CE (compilation of medieval Irish sources)"
       }
-    ]
+    ],
+    "worship": {
+      "temples": ["Brug na Boinne / Newgrange in later tradition"],
+      "festivals": [],
+      "practices": "Medieval Irish literature loves him; contemporary cult evidence is thin. Newgrange is a Neolithic tomb later tied to the Dagda's son. Admit the gap: a lover in stories more than a parish god."
+    }
   },
   {
     "id": "cernunnos",
@@ -3264,7 +3410,15 @@
         "source": "Pillar of the Boatmen (Pilier des Nautes), Paris; the only certain inscription of the name",
         "date": "c. 14 CE"
       }
-    ]
+    ],
+    "worship": {
+      "temples": [
+        "Named on the Pillar of the Boatmen in Paris",
+        "No excavated temple of his own"
+      ],
+      "festivals": [],
+      "practices": "Antlers on a stone, and then silence. Place-names and a few images, no festival calendar. Modern horned-god rites are reconstruction. The Gaulish record does not give you a priesthood."
+    }
   },
   {
     "id": "ogma",
@@ -3290,7 +3444,12 @@
         "source": "Cath Maige Tuired (trans. Gray)",
         "date": "medieval Irish, c. 9th-12th c. CE"
       }
-    ]
+    ],
+    "worship": {
+      "temples": ["No attested temple in the surviving record"],
+      "festivals": [],
+      "practices": "Ogham and the strong-man of the Tuatha. Irish saga, not a recovered temple list. Treat him as a literary champion unless a site turns up."
+    }
   },
   {
     "id": "dian-cecht",
@@ -3316,7 +3475,12 @@
         "source": "Cath Maige Tuired (trans. Gray), on the healing well of Slaine",
         "date": "medieval Irish, c. 9th-12th c. CE"
       }
-    ]
+    ],
+    "worship": {
+      "temples": ["No attested temple in the surviving record"],
+      "festivals": [],
+      "practices": "Physician of the Tuatha; the well of healing is in the tales. No surviving Irish temple of Dian Cecht. Healing cults went to wells and saints later."
+    }
   },
   {
     "id": "goibniu",
@@ -3342,7 +3506,12 @@
         "source": "Cath Maige Tuired (trans. Gray)",
         "date": "medieval Irish, c. 9th-12th c. CE"
       }
-    ]
+    ],
+    "worship": {
+      "temples": ["No attested temple in the surviving record"],
+      "festivals": [],
+      "practices": "The smith who hosts the feast of immortality in the literature. Smith-gods leave tools and stories, not parish rolls. Honest absence of a festival list."
+    }
   },
   {
     "id": "aine",
@@ -3368,7 +3537,12 @@
         "source": "Lady Gregory, Gods and Fighting Men (1904)",
         "date": "1904 CE (compilation of medieval Irish sources)"
       }
-    ]
+    ],
+    "worship": {
+      "temples": ["Knockainey (Cnoc Aine) in Limerick"],
+      "festivals": ["Midsummer fires on her hill in folk memory"],
+      "practices": "A Munster sun-and-sovereignty figure with a hill still named for her. Later folklore kept midsummer fire. Thinner than a Greek civic cult, but the place-name is real."
+    }
   },
   {
     "id": "midir",
@@ -3394,7 +3568,12 @@
         "source": "Lady Gregory, Gods and Fighting Men (1904)",
         "date": "1904 CE (compilation of medieval Irish sources)"
       }
-    ]
+    ],
+    "worship": {
+      "temples": ["Bri Leith in the sagas"],
+      "festivals": [],
+      "practices": "Tochmarc Etaine is the dossier. Sid mounds, not inscribed altars. Do not dress a literary rival of the Dagda as a reconstructed festival god."
+    }
   },
   {
     "id": "quetzalcoatl",
@@ -3519,7 +3698,17 @@
         "source": "Lewis Spence, The Myths of Mexico and Peru (1913)",
         "date": "Spence 1913, from Aztec myth"
       }
-    ]
+    ],
+    "worship": {
+      "temples": [
+        "Templo Mayor as mother of Huitzilopochtli",
+        "Teteoinnan shrines in the Mexica calendar"
+      ],
+      "festivals": [
+        "Linked to mother-goddess days rather than a feast in her name alone"
+      ],
+      "practices": "The serpent-skirt statue is a temple object, not a parlour icon. Her cult is the earth that eats and feeds, tied to Coatepec and the war god's birth."
+    }
   },
   {
     "id": "xochiquetzal",
@@ -3557,6 +3746,14 @@
     "pronunciation": {
       "ipa": "/ʃoːtʃiˈketsɑːl/",
       "phonetic": "shoh-chee-KET-sahl"
+    },
+    "worship": {
+      "temples": ["Flower and weaver precincts in Tenochtitlan"],
+      "festivals": [
+        "Huey Tozoztli flower offerings",
+        "Linked days in the xiuhpohualli"
+      ],
+      "practices": "Marigolds, sexual love, and the work of the loom. Young women and artisans kept her. Not a war cult: a soft, expensive one."
     }
   },
   {
@@ -3602,6 +3799,11 @@
     "pronunciation": {
       "ipa": "/tlɑːsolˈteotl/",
       "phonetic": "tlah-sol-TEH-otl"
+    },
+    "worship": {
+      "temples": ["Temples in the Gulf and the Mexica capital"],
+      "festivals": ["Ochpaniztli, the sweeping of the roads"],
+      "practices": "Filth and pardon. Midwives and confessors belong to her. The sweeping month cleaned the city; she ate the dirt of sexual transgression."
     }
   },
   {
@@ -3635,6 +3837,11 @@
     "pronunciation": {
       "ipa": "/mɑːjɑːˈwel/",
       "phonetic": "mah-yah-WELL"
+    },
+    "worship": {
+      "temples": ["Maguey fields more than a stone house"],
+      "festivals": ["Pulque rites; 400 rabbits as her drunken children"],
+      "practices": "The agave is the temple. Pulque was a restricted drink; her cult is the plant, the sap, and the risk of excess."
     }
   },
   {
@@ -3726,6 +3933,11 @@
     "pronunciation": {
       "ipa": "/ˈʃolotl/",
       "phonetic": "SHOH-lotl"
+    },
+    "worship": {
+      "temples": ["Twinned with Quetzalcoatl in the calendar"],
+      "festivals": [],
+      "practices": "Evening Venus, twins, and the dog that walks the dead. Ballgame and deformity sit near him. Independent temple lists are thin; he is a double, not a parish head."
     }
   },
   {
@@ -3769,6 +3981,11 @@
     "pronunciation": {
       "ipa": "/koːjolˈʃaʊki/",
       "phonetic": "koh-yohl-SHAUW-kee"
+    },
+    "worship": {
+      "temples": ["The great disk at the foot of Templo Mayor"],
+      "festivals": [],
+      "practices": "She is the dismembered moon on the stairs, a warning more than a goddess you petition. Cult evidence is the sculpture and the myth of Coatepec, not a living priesthood in her name."
     }
   },
   {
@@ -3807,6 +4024,11 @@
     "pronunciation": {
       "ipa": "/ʃiuːtɛˈkuːtli/",
       "phonetic": "shee-oo-te-KOOT-lee"
+    },
+    "worship": {
+      "temples": ["Turquoise-hearth shrines; New Fire at Huixachtlan"],
+      "festivals": ["Xiuhmolpilli / New Fire every 52 years", "Izcalli"],
+      "practices": "The old fire of the year-count. Every house-hearth was his small temple. The New Fire ceremony rekindled time itself."
     }
   },
   {
@@ -3845,6 +4067,11 @@
     "pronunciation": {
       "ipa": "/tlɑːltɛˈkuːtli/",
       "phonetic": "tlahl-te-KOOT-lee"
+    },
+    "worship": {
+      "temples": ["Templo Mayor earth-monster reliefs"],
+      "festivals": [],
+      "practices": "The earth that was torn to make the world. Offerings go into the ground because the ground is a mouth. Not a kindly harvest lady."
     }
   },
   {
@@ -4081,6 +4308,14 @@
     "pronunciation": {
       "ipa": "/nəˈʒɑː/",
       "phonetic": "nuh-ZHAH"
+    },
+    "worship": {
+      "temples": [
+        "Nezha temples in Tianjin and Taiwan",
+        "Temple-procession cults along the coast"
+      ],
+      "festivals": ["Nezha's birthday in the lunar calendar"],
+      "practices": "The lotus child with the fire-tipped spear. Street processions, child protection, and a temper. Popular novel first, then the temple."
     }
   },
   {
@@ -4124,6 +4359,11 @@
     "pronunciation": {
       "ipa": "/ɜːrˈlɑːŋ ˈʃɛn/",
       "phonetic": "er-LAHNG SHEN"
+    },
+    "worship": {
+      "temples": ["Erwang Temple at Dujiangyan", "Erlang temples in Sichuan"],
+      "festivals": ["Local temple fairs in Sichuan"],
+      "practices": "The third eye and the hunting dog. Irrigation, oaths, and opera stages. A regional god who travelled with the novel and the garrison."
     }
   },
   {
@@ -4167,6 +4407,11 @@
     "pronunciation": {
       "ipa": "/tʃɑːŋˈə/",
       "phonetic": "chahng-UH"
+    },
+    "worship": {
+      "temples": ["Moon-gazing, not a large temple network"],
+      "festivals": ["Mid-Autumn Festival"],
+      "practices": "Mooncakes and a story about exile. Household observance beats priesthood. She is watched, not processed through a city."
     }
   },
   {
@@ -4210,6 +4455,14 @@
     "pronunciation": {
       "ipa": "/ɡwɑːn juː/",
       "phonetic": "GWAHN YOO"
+    },
+    "worship": {
+      "temples": [
+        "Guandi temples across the Chinese world",
+        "Joss houses in diaspora Chinatowns"
+      ],
+      "festivals": ["Guan Yu's birthday", "Oath days for guilds and police"],
+      "practices": "Loyalty as a job. Soldiers, pawnbrokers, and triads have all used him. The face is red; the cult is sworn brotherhood."
     }
   },
   {
@@ -4248,7 +4501,12 @@
         "source": "Chinese domestic almanac and stove-god folk texts (composite)",
         "date": "late imperial household practice"
       }
-    ]
+    ],
+    "worship": {
+      "temples": ["The kitchen stove in every house"],
+      "festivals": ["Little New Year, when the Kitchen God is sent up"],
+      "practices": "Paper horse, sweet glue on the lips, and a report to heaven. The cult is domestic surveillance with candy. No cathedral required."
+    }
   },
   {
     "id": "lei-gong",
@@ -4286,7 +4544,12 @@
         "source": "Chinese thunder-god temple tales and Daoist liturgical names of Lei Gong",
         "date": "medieval to late imperial"
       }
-    ]
+    ],
+    "worship": {
+      "temples": ["Daoist thunder altars; temple side-halls"],
+      "festivals": [],
+      "practices": "Thunder as punishment. Daoist services call the Thunder Department; folk practice fears the strike. Not a gentle weather saint."
+    }
   },
   {
     "id": "mazu",
@@ -4329,6 +4592,14 @@
     "pronunciation": {
       "ipa": "/mɑːˈdzuː/",
       "phonetic": "mah-DZOO"
+    },
+    "worship": {
+      "temples": [
+        "Chaotian Temple at Beigang",
+        "Tianhou temples on every Fujian and Taiwan waterfront"
+      ],
+      "festivals": ["Mazu's birthday pilgrimage", "Dajia procession"],
+      "practices": "The girl who did not come back from the sea. Fishermen, crews, and a palanquin that runs. This is a living maritime cult, not a museum label."
     }
   },
   {
@@ -4473,6 +4744,11 @@
     "pronunciation": {
       "ipa": "/hoʊ jiː/",
       "phonetic": "HOH YEE"
+    },
+    "worship": {
+      "temples": ["Paired with Chang'e in Mid-Autumn telling"],
+      "festivals": ["Mid-Autumn as the archer's night only in story"],
+      "practices": "The bow is famous; the temple is not. He is a culture-hero in the moon story. Do not invent an archer priesthood."
     }
   },
   {
@@ -4608,6 +4884,11 @@
     "pronunciation": {
       "ipa": "/ˈɛnlɪl/",
       "phonetic": "EN-lil"
+    },
+    "worship": {
+      "temples": ["Ekur at Nippur"],
+      "festivals": ["Nippur's temple year; kingship confirmed there"],
+      "practices": "Lord Wind, tablet of destinies. Nippur was the religious capital even when kings lived elsewhere. The cult is the mountain-house and the decree."
     }
   },
   {
@@ -4651,6 +4932,11 @@
     "pronunciation": {
       "ipa": "/ˈɛnki/",
       "phonetic": "EN-kee"
+    },
+    "worship": {
+      "temples": ["E-abzu at Eridu"],
+      "festivals": ["Eridu temple rites; wisdom and freshwater"],
+      "practices": "Sweet water under the earth. Craft, sex, and cleverness belong to Eridu. Kings still listed Eridu first in the antediluvian sequence."
     }
   },
   {
@@ -4787,6 +5073,11 @@
     "pronunciation": {
       "ipa": "/ˈʃɑːmɑːʃ/",
       "phonetic": "SHAH-mahsh"
+    },
+    "worship": {
+      "temples": ["Ebabbar at Sippar", "Ebabbar at Larsa"],
+      "festivals": ["Justice oaths at sunrise"],
+      "practices": "The sun who sees the lawsuit. Hammurabi's stele puts him over the king. Cult is courtroom light as much as astronomy."
     }
   },
   {
@@ -4825,6 +5116,11 @@
     "pronunciation": {
       "ipa": "/sɪn/",
       "phonetic": "SIN"
+    },
+    "worship": {
+      "temples": ["Great Ziggurat of Ur", "Harran in the later period"],
+      "festivals": ["Ur's moon festivals; Nanna's boat processions"],
+      "practices": "The moon at Ur, with priestesses in the giparu. Nabonidus still cared in the sixth century BCE. Silver, cattle, and the month."
     }
   },
   {
@@ -4863,6 +5159,13 @@
     "pronunciation": {
       "ipa": "/tiˈɑːmɑːt/",
       "phonetic": "tee-AH-maht"
+    },
+    "worship": {
+      "temples": ["No attested temple in the surviving record"],
+      "festivals": [
+        "Enuma Elish recited at Akitu — about her death, not to her"
+      ],
+      "practices": "Primordial sea, cut up to make the world. Babylon's New Year recites her defeat. That is not a petitioning cult. Do not invent Tiamat priestesses."
     }
   },
   {
@@ -4901,6 +5204,11 @@
     "pronunciation": {
       "ipa": "/ɛˈrɛʃkɪɡɑːl/",
       "phonetic": "eh-RESH-kih-gahl"
+    },
+    "worship": {
+      "temples": ["Irkalla has no welcoming temple on earth"],
+      "festivals": [],
+      "practices": "Queen of the dead in Inanna's descent. Cult to the underworld was cautious and thin compared with Inanna's. Absence is the point: you do not throw a street fair for the grave."
     }
   },
   {
@@ -4939,6 +5247,13 @@
     "pronunciation": {
       "ipa": "/ˈnɜːrɡəl/",
       "phonetic": "NER-gal"
+    },
+    "worship": {
+      "temples": ["E-meslam at Kutha"],
+      "festivals": [
+        "Plague and war rites; the god who stays in the underworld half the year"
+      ],
+      "practices": "Kutha's god of pestilence and the dead. Kings feared him. The cult is apotropaic: keep the plague god fed and far."
     }
   },
   {
@@ -4972,6 +5287,13 @@
     "pronunciation": {
       "ipa": "/ˈɡɪlɡəmɛʃ/",
       "phonetic": "GIL-gah-mesh"
+    },
+    "worship": {
+      "temples": [
+        "Hero-cult traces at Uruk; funerary offerings in later lists"
+      ],
+      "festivals": [],
+      "practices": "King first, ghost second. He appears in offering lists as a dead hero, not as a sky-god with a daily liturgy. The epic is the main temple."
     }
   },
   {
@@ -5005,6 +5327,11 @@
     "pronunciation": {
       "ipa": "/ˈɛnkɪduː/",
       "phonetic": "EN-kih-doo"
+    },
+    "worship": {
+      "temples": ["No attested temple in the surviving record"],
+      "festivals": [],
+      "practices": "Wild companion, then a ghost in Tablet XII. No temple, no festival. The cult, such as it is, is mourning inside the poem."
     }
   },
   {
@@ -5132,6 +5459,11 @@
     "pronunciation": {
       "ipa": "/iːʃˈtʃɛl/",
       "phonetic": "eesh-CHEL"
+    },
+    "worship": {
+      "temples": ["Sanctuary on Cozumel; midwife shrines on the east coast"],
+      "festivals": ["Maya pilgrimage to the women's island"],
+      "practices": "Moon, weaving, and dangerous childbirth. Spanish sources still found women crossing to Cozumel. The cult is midwifery and the sea path."
     }
   },
   {
@@ -5170,7 +5502,12 @@
         "source": "Lewis Spence, The Myths of Mexico and Peru (1913)",
         "date": "Spence 1913, from Maya sources"
       }
-    ]
+    ],
+    "worship": {
+      "temples": ["Cenotes; Chichen Itza's rain architecture"],
+      "festivals": ["Rain-making; Ch'a Chaak in Yucatec practice"],
+      "practices": "The long-nosed rain lord. Offerings go into sinkholes. Farmers still know the four Chaacs of the directions."
+    }
   },
   {
     "id": "ah-puch",
@@ -5208,6 +5545,11 @@
     "pronunciation": {
       "ipa": "/ɑːˈpuːtʃ/",
       "phonetic": "ah-POOCH"
+    },
+    "worship": {
+      "temples": ["No attested temple in the surviving record"],
+      "festivals": [],
+      "practices": "Death god of the Maya books. You do not invite him. Cult evidence is fear, death glyph, and the lords of Xibalba, not a parish festival."
     }
   },
   {
@@ -5296,6 +5638,11 @@
     "pronunciation": {
       "ipa": "/ˈʃiːpeɪ ˈtoʊtɛk/",
       "phonetic": "SHEE-pay TOH-tek"
+    },
+    "worship": {
+      "temples": ["Calbecac and related precincts in Tenochtitlan"],
+      "festivals": ["Tlacaxipehualiztli"],
+      "practices": "Our Lord the Flayed One. Priests wore the skin. Spring, goldsmiths, and a rite that is easy to sensationalize and hard to pretty up. State the flaying; do not linger for shock."
     }
   },
   {
@@ -5334,6 +5681,13 @@
     "pronunciation": {
       "ipa": "/miːktlɑːntɛˈkuːtli/",
       "phonetic": "meek-tlahn-te-KOOT-lee"
+    },
+    "worship": {
+      "temples": [
+        "Templo Mayor death precinct; Mictlan as destination not a visit"
+      ],
+      "festivals": ["Related to funerary provision more than a joy-feast"],
+      "practices": "Skeletal lord of the ninth underworld. Funerary dogs and jade beads are the cult. He receives; he is not processed like a flower god."
     }
   },
   {
@@ -5372,6 +5726,11 @@
     "pronunciation": {
       "ipa": "/ˈhuːn huːnɑːˈpuː/",
       "phonetic": "HOON hoo-nah-POO"
+    },
+    "worship": {
+      "temples": ["No attested temple in the surviving record"],
+      "festivals": [],
+      "practices": "Maize father in the Popol Vuh, decapitated in Xibalba. K'iche' literature, not a colonial temple roll in this name. The maize god's face in Classic art is the nearer cult object."
     }
   },
   {
@@ -5459,6 +5818,11 @@
     "pronunciation": {
       "ipa": "/tʃɑːltʃiːuːˈtliːkweɪ/",
       "phonetic": "chahl-chee-oot-LEE-kway"
+    },
+    "worship": {
+      "temples": ["Water shrines; sister-wife of Tlaloc at Templo Mayor"],
+      "festivals": ["Atlcahualo and other water months"],
+      "practices": "Jade-her-skirt. Standing water, birth, and drowning. Infants and lakes belong to her. The cult is wet, not solar."
     }
   },
   {
@@ -5603,6 +5967,11 @@
     "pronunciation": {
       "ipa": "/tɑːŋɑːˈroʊə/",
       "phonetic": "tahng-ah-ROH-ah"
+    },
+    "worship": {
+      "temples": ["Sea tapu; coastal shrines vary by island"],
+      "festivals": [],
+      "practices": "Ocean, fish, and the law of the reef. Offerings differ from Aotearoa to Tahiti. Treat local tapu as the liturgy; there is no single cathedral."
     }
   },
   {
@@ -5645,6 +6014,11 @@
     "pronunciation": {
       "ipa": "/ˈtɑːneɪ/",
       "phonetic": "TAH-nay"
+    },
+    "worship": {
+      "temples": ["Forest tapu; Tane Mahuta as a living kauri of the name"],
+      "festivals": [],
+      "practices": "Trees, birds, and the separating of earth and sky in Maori telling. Carvers and forest work sit under his restriction. The cult is the bush."
     }
   },
   {
@@ -5687,6 +6061,11 @@
     "pronunciation": {
       "ipa": "/tuː/",
       "phonetic": "TOO"
+    },
+    "worship": {
+      "temples": ["War tapu; niu and related rites in Maori tradition"],
+      "festivals": [],
+      "practices": "Tu-mata-uenga, man as warrior. Not a peaceable harvest god. Cult is restriction around fighting and the oven of war."
     }
   },
   {
@@ -5735,6 +6114,11 @@
     "pronunciation": {
       "ipa": "/ˈrɒŋoʊ/",
       "phonetic": "RONG-oh"
+    },
+    "worship": {
+      "temples": ["Kumara pits and peace after fighting"],
+      "festivals": [],
+      "practices": "Cultivated food and the laying down of arms. Rongo-marae-roa in Maori. The cult is the garden, not the raid."
     }
   },
   {
@@ -5772,6 +6156,11 @@
     "pronunciation": {
       "ipa": "/ˈhiːnə/",
       "phonetic": "HEE-nah"
+    },
+    "worship": {
+      "temples": ["Moon and tapa; island variants under one name"],
+      "festivals": [],
+      "practices": "Bark-cloth, the moon, and a woman who is not one biography. Hawai'i, Tahiti, and Aotearoa do not share a single parish. Name the work: cloth and night sky."
     }
   },
   {
@@ -5809,6 +6198,11 @@
     "pronunciation": {
       "ipa": "/ˈpɑːpɑː/",
       "phonetic": "PAH-pah"
+    },
+    "worship": {
+      "temples": ["No attested temple in the surviving record"],
+      "festivals": [],
+      "practices": "Earth mother in the separation story. Recited, not housed. The cult is genealogy and the ground you stand on."
     }
   },
   {
@@ -5846,6 +6240,11 @@
     "pronunciation": {
       "ipa": "/ˈrɑːŋiː/",
       "phonetic": "RAHNG-ee"
+    },
+    "worship": {
+      "temples": ["No attested temple in the surviving record"],
+      "festivals": [],
+      "practices": "Sky father, peeled from Papa. Same dossier: cosmology and tapu, not a ticketed shrine."
     }
   },
   {
@@ -5879,6 +6278,11 @@
     "pronunciation": {
       "ipa": "/haʊˈmeɪə/",
       "phonetic": "how-MAY-ah"
+    },
+    "worship": {
+      "temples": ["Hawaiian traditions of fertility and childbirth"],
+      "festivals": [],
+      "practices": "Mother of islands and of Pele's line in some tellings. Cult is reproductive and local. Do not flatten her into a generic earth mother."
     }
   },
   {
@@ -5912,6 +6316,11 @@
     "pronunciation": {
       "ipa": "/nɑːˈmɑːkə/",
       "phonetic": "nah-MAH-kah"
+    },
+    "worship": {
+      "temples": ["Sea as opponent of the volcano"],
+      "festivals": [],
+      "practices": "Pele's sister who fights with water. Coastal respect, not a tourist luau. Thin independent cult beside the volcano cycle."
     }
   },
   {
@@ -5945,6 +6354,11 @@
     "pronunciation": {
       "ipa": "/poʊliˈɑːhuː/",
       "phonetic": "poh-lee-AH-hoo"
+    },
+    "worship": {
+      "temples": ["Mauna Kea snow; the mountain is the sanctuary"],
+      "festivals": [],
+      "practices": "The snow goddess of the summit. Access is the rite: cold, height, and later conflict with observatories. No beach-side temple."
     }
   },
   {
@@ -5986,6 +6400,11 @@
     "pronunciation": {
       "ipa": "/hiːˈiːɑːkə/",
       "phonetic": "hee-ee-AH-kah"
+    },
+    "worship": {
+      "temples": ["Hula lineages; Pele's younger sister in Hawai'i"],
+      "festivals": ["Hula as the working liturgy"],
+      "practices": "The epic of Hi'iakaikapoliopele is danced. Chant and forest travel are the cult. She heals and she wrecks; the hula keeps both."
     }
   },
   {
@@ -6024,6 +6443,11 @@
     "pronunciation": {
       "ipa": "/tɑːˈfiːriːmɑːˈteɪə/",
       "phonetic": "tah-fee-ree-mah-TAY-ah"
+    },
+    "worship": {
+      "temples": ["No attested temple in the surviving record"],
+      "festivals": [],
+      "practices": "Wind and storm after the parents are torn apart. You do not house the gale. Acknowledge him in weather tapu; do not invent a wind priesthood."
     }
   },
   {
@@ -6099,6 +6523,14 @@
     "pronunciation": {
       "ipa": "/obaˈtala/",
       "phonetic": "oh-bah-TAH-lah"
+    },
+    "worship": {
+      "temples": [
+        "Ile-Ife as the landing of creation",
+        "White-cloth shrines in Yoruba towns"
+      ],
+      "festivals": ["Obatala festival days; white is the rule"],
+      "practices": "White cloth, no palm wine, patience. He owns those he shaped clumsily when drunk. The cult is coolness and ethical constraint."
     }
   },
   {
@@ -6132,6 +6564,11 @@
     "pronunciation": {
       "ipa": "/oˈɡun/",
       "phonetic": "oh-GOON"
+    },
+    "worship": {
+      "temples": ["Forge and hunter shrines; roads"],
+      "festivals": ["Ogun festival; palm wine and dogs in older practice"],
+      "practices": "Iron, the cutlass, and the highway. Drivers and smiths keep him. The first blood of a tool is still his in many houses."
     }
   },
   {
@@ -6176,6 +6613,11 @@
     "pronunciation": {
       "ipa": "/ˈʃaŋɡo/",
       "phonetic": "SHAHN-goh"
+    },
+    "worship": {
+      "temples": ["Koso at Oyo", "Thunder houses in the diaspora"],
+      "festivals": ["Sango festival at Oyo"],
+      "practices": "Double axe, ram, and red-and-white. Possession is loud. Oyo's royal thunder is not a metaphor; the drums mean it."
     }
   },
   {
@@ -6209,6 +6651,11 @@
     "pronunciation": {
       "ipa": "/oˈʃun/",
       "phonetic": "oh-SHOON"
+    },
+    "worship": {
+      "temples": ["Osun-Osogbo Sacred Grove"],
+      "festivals": ["Osun-Osogbo festival"],
+      "practices": "Honey, brass, and the river. UNESCO listed the grove because the cult is still there. Beauty as power, not as decoration."
     }
   },
   {
@@ -6248,6 +6695,13 @@
     "pronunciation": {
       "ipa": "/jeˈmodʒa/",
       "phonetic": "yeh-MOH-jah"
+    },
+    "worship": {
+      "temples": ["River and ocean shrines; Brazilian Iemanja on the shore"],
+      "festivals": [
+        "Yemoja festival; New Year offerings to the sea in the diaspora"
+      ],
+      "practices": "Mother of many orisha, salt or sweet water depending on the house. The cult is the water's edge and children."
     }
   },
   {
@@ -6298,6 +6752,11 @@
     "pronunciation": {
       "ipa": "/ˈeʃu/",
       "phonetic": "EH-shoo"
+    },
+    "worship": {
+      "temples": ["The crossroads; the first stone of any compound"],
+      "festivals": [],
+      "practices": "First mouthful of any offering. Without Eshu the message does not go. Trickster in story, postman in cult. Palm oil, not a morality play."
     }
   },
   {
@@ -6337,6 +6796,11 @@
     "pronunciation": {
       "ipa": "/ˈoja/",
       "phonetic": "OH-yah"
+    },
+    "worship": {
+      "temples": ["Niger / River Niger; cemetery gates"],
+      "festivals": ["Oya festival days; wind and the market"],
+      "practices": "Storm, buffalo, and the dead. She owns the whirlwind and the graveyard door. Not a gentle river sister."
     }
   },
   {
@@ -6380,6 +6844,11 @@
     "pronunciation": {
       "ipa": "/orunˈmila/",
       "phonetic": "oh-roon-MEE-lah"
+    },
+    "worship": {
+      "temples": ["Ifa groves; babalawo compounds"],
+      "festivals": [],
+      "practices": "The 256 odu are the temple. Divination, not a spectator festival. Palm nuts, chain, and a long apprenticeship."
     }
   },
   {
@@ -6413,6 +6882,11 @@
     "pronunciation": {
       "ipa": "/oˈsaɲin/",
       "phonetic": "oh-SAHN-yin"
+    },
+    "worship": {
+      "temples": ["Herbalist shrines; one-legged staff"],
+      "festivals": [],
+      "practices": "Leaves. The cult is medicine and the rule that the herb-priest hears what others miss. A bird on a staff, not a cathedral."
     }
   },
   {
@@ -6457,6 +6931,13 @@
     "pronunciation": {
       "ipa": "/ˈnana buˈruku/",
       "phonetic": "NAH-nah boo-ROO-koo"
+    },
+    "worship": {
+      "temples": [
+        "Elder-earth shrines in some West African and diaspora houses"
+      ],
+      "festivals": [],
+      "practices": "Grandparent of the pantheon in some lineages. Slow, old, and not for the impatient. Cult is respect for age more than a youth festival."
     }
   },
   {
@@ -6495,6 +6976,11 @@
     "pronunciation": {
       "ipa": "/ʃoˈpona/",
       "phonetic": "shoh-POH-nah"
+    },
+    "worship": {
+      "temples": ["Avoidant shrines; smallpox as the old dossier"],
+      "festivals": [],
+      "practices": "Disease god. People do not advertise the cult. In some towns even the name is careful. Do not turn a pox orisha into a wellness brand."
     }
   },
   {
@@ -6543,6 +7029,14 @@
     "pronunciation": {
       "ipa": "/ˈɾjuːdʒin/",
       "phonetic": "RYOO-jin"
+    },
+    "worship": {
+      "temples": [
+        "Sea shrines; Ryugu in story",
+        "Coastal jinja that house a dragon king"
+      ],
+      "festivals": [],
+      "practices": "Tide jewels and the undersea palace. Fishermen more than courtiers. The cult is the weather of the catch."
     }
   },
   {
@@ -6587,6 +7081,11 @@
     "pronunciation": {
       "ipa": "/eˈbisɯ/",
       "phonetic": "eh-BEE-soo"
+    },
+    "worship": {
+      "temples": ["Nishinomiya Ebisu; fish-market shrines"],
+      "festivals": ["Toka Ebisu", "New Year among the Seven Lucky Gods"],
+      "practices": "Deaf luck and a sea bream. Merchants open the year with him. One of seven; the cult is commerce with a fishing rod."
     }
   },
   {
@@ -6636,6 +7135,11 @@
     "pronunciation": {
       "ipa": "/daikokɯten/",
       "phonetic": "dy-KOH-koo-ten"
+    },
+    "worship": {
+      "temples": ["Kitchen and storehouse; paired with Ebisu"],
+      "festivals": ["New Year luck-god rounds"],
+      "practices": "Mallet, rice bales, and a grin. Kitchen god by way of Mahakala. The cult is the pantry."
     }
   },
   {
@@ -6685,6 +7189,13 @@
     "pronunciation": {
       "ipa": "/amenoɯzɯme/",
       "phonetic": "ah-meh-noh-oo-ZOO-meh"
+    },
+    "worship": {
+      "temples": [
+        "Kagura stages; the cave dance as origin of shrine performance"
+      ],
+      "festivals": [],
+      "practices": "She danced the sun out of the cave. Shrine maidens and comic kagura inherit that file. The cult is performance, not a quiet inner hall."
     }
   },
   {
@@ -6729,6 +7240,13 @@
     "pronunciation": {
       "ipa": "/kagɯtsɯtɕi/",
       "phonetic": "kah-goo-TSOO-chee"
+    },
+    "worship": {
+      "temples": [
+        "Fire-prevention rites; after his birth the mother dies in the Kojiki"
+      ],
+      "festivals": ["Hi-matsuri and local fire festivals"],
+      "practices": "The fire that killed Izanami. Cult is control: charcoal, hearths, and not burning the town. A dangerous baby, not a cozy stove god."
     }
   },
   {
@@ -6789,6 +7307,11 @@
     "pronunciation": {
       "ipa": "/okɯninɯɕi/",
       "phonetic": "oh-koo-nee-NOO-shee"
+    },
+    "worship": {
+      "temples": ["Izumo Taisha"],
+      "festivals": ["Kamiari-zuki at Izumo, when the gods gather"],
+      "practices": "The great land master and matcher of fates. Izumo's shimenawa is the size of the claim. En-musubi is the popular face of a much older kingdom-god."
     }
   },
   {
@@ -6987,7 +7510,12 @@
         "source": "Yoruba oriki and Ifa verses of Oduduwa (oral)",
         "date": "Traditional"
       }
-    ]
+    ],
+    "worship": {
+      "temples": ["Ile-Ife kingship; the palace as the shrine"],
+      "festivals": ["Ife royal rites"],
+      "practices": "Progenitor of Yoruba crowns. The cult is dynasty and the sacred city, argued over with Obatala in different houses. Kingship is the liturgy."
+    }
   },
   {
     "id": "olokun",
@@ -7019,7 +7547,12 @@
         "source": "Oriki Olokun (Yoruba oral praise)",
         "date": "Traditional"
       }
-    ]
+    ],
+    "worship": {
+      "temples": ["Benin and Yoruba water-wealth shrines"],
+      "festivals": [],
+      "practices": "The deep. Beads, mudfish, and riches that do not come from the farm. Cult is the sea-floor, not the surf of Yemoja's more public beaches."
+    }
   },
   {
     "id": "aje",
@@ -7045,7 +7578,12 @@
         "source": "Yoruba oriki of Aje (oral)",
         "date": "Traditional"
       }
-    ]
+    ],
+    "worship": {
+      "temples": ["Market shrines; women's trading cults"],
+      "festivals": [],
+      "practices": "Wealth that moves in the market. Not a sky god. The cult is the stall, the cowrie, and the women who keep both."
+    }
   },
   {
     "id": "aganju",
@@ -7071,7 +7609,12 @@
         "source": "Lucumí/Yoruba praise names of Aganju (oral)",
         "date": "Traditional"
       }
-    ]
+    ],
+    "worship": {
+      "temples": ["Wilderness and volcano in some lineages"],
+      "festivals": [],
+      "practices": "Shango's father in some houses, a barren-land orisha in others. Thin public festival file. Treat as a hard-country god, not a carnival headliner."
+    }
   },
   {
     "id": "ibeji",
@@ -7097,7 +7640,12 @@
         "source": "Yoruba ibeji carving tradition and oriki (oral / material)",
         "date": "Traditional"
       }
-    ]
+    ],
+    "worship": {
+      "temples": ["Twin figures in the house; no need for a stone temple"],
+      "festivals": [],
+      "practices": "When one twin dies, the image is fed. The cult is the carved pair and the living child. Yoruba twin rates made this ordinary, not exotic."
+    }
   },
   {
     "id": "ori",
@@ -7123,7 +7671,12 @@
         "source": "Ifa verses on Ori (oral)",
         "date": "Traditional"
       }
-    ]
+    ],
+    "worship": {
+      "temples": ["The inner head; personal shrine more than civic temple"],
+      "festivals": [],
+      "practices": "Destiny as a god you greet before the others. Cult is the individual's ori, washed and fed. Skip this and the other orisha cannot help you."
+    }
   },
   {
     "id": "anansi",
@@ -7161,7 +7714,12 @@
         "source": "Akan Anansesem (spider tales), oral",
         "date": "Traditional"
       }
-    ]
+    ],
+    "worship": {
+      "temples": ["No attested temple in the surviving record"],
+      "festivals": [],
+      "practices": "Akan story-owner, not a temple god in the Greek sense. Anansesem is the cult: telling. Do not invent an Anansi priesthood for the atlas."
+    }
   },
   {
     "id": "nyame",
@@ -7245,7 +7803,12 @@
         "source": "Lewis Spence, The Myths of Mexico and Peru (1913)",
         "date": "Spence 1913, from Maya sources"
       }
-    ]
+    ],
+    "worship": {
+      "temples": ["Sun-facing temples; Classic Maya sun kingship"],
+      "festivals": [],
+      "practices": "Sun-eyed lord. Kings wore him. Cult is dawn architecture and royal title more than a surviving parish name."
+    }
   },
   {
     "id": "yum-kaax",
@@ -7271,7 +7834,12 @@
         "source": "Lewis Spence, The Myths of Mexico and Peru (1913)",
         "date": "Spence 1913, from Maya sources"
       }
-    ]
+    ],
+    "worship": {
+      "temples": ["Milpa and forest edge"],
+      "festivals": [],
+      "practices": "Lord of the wild harvest and the young maize in some Yucatec telling. Hunters and milperos, not a city precinct."
+    }
   },
   {
     "id": "camazotz",
@@ -7297,7 +7865,12 @@
         "source": "Lewis Spence, The Myths of Mexico and Peru (1913), retelling the Popol Vuh",
         "date": "Popol Vuh c. 1550 CE (Spence 1913)"
       }
-    ]
+    ],
+    "worship": {
+      "temples": ["No attested temple in the surviving record"],
+      "festivals": [],
+      "practices": "Death bat of the Popol Vuh house of bats. Cave fear and a story trial. No evidence of a friendly bat festival. Leave it grim."
+    }
   },
   {
     "id": "ek-chuaj",
@@ -7323,7 +7896,12 @@
         "source": "Lewis Spence, The Myths of Mexico and Peru (1913)",
         "date": "Spence 1913, from Maya sources"
       }
-    ]
+    ],
+    "worship": {
+      "temples": ["Merchant and cacao associations in the Maya area"],
+      "festivals": [],
+      "practices": "Black scorpion merchant god in the codices. Cacao and the road. Cult is trade, not a tourist chocolate rite."
+    }
   },
   {
     "id": "xochipilli",
@@ -7356,7 +7934,14 @@
         "source": "Lewis Spence, The Myths of Mexico and Peru (1913), citing Sahagún",
         "date": "16th c. account (Spence 1913)"
       }
-    ]
+    ],
+    "worship": {
+      "temples": [
+        "Flower-song precincts; the famous statue is a temple object"
+      ],
+      "festivals": ["Linked to dance, flowers, and the day-count"],
+      "practices": "Prince of flowers. Song, patolli, and plants that alter the afternoon. Not a children's garden god."
+    }
   },
   {
     "id": "centeotl",
@@ -7389,6 +7974,11 @@
         "source": "Lewis Spence, The Myths of Mexico and Peru (1913)",
         "date": "Spence 1913, from Aztec sources"
       }
-    ]
+    ],
+    "worship": {
+      "temples": ["Maize as the body of the god"],
+      "festivals": ["Huey Tozoztli and related maize months"],
+      "practices": "The corn lord. The cult is the cob, the planting, and the hungry months. Flaying and maize sit too close in Mexica religion to separate politely."
+    }
   }
 ]

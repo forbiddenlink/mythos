@@ -156,6 +156,12 @@ describe("deities.json data integrity", () => {
       expectCultNotes(deity!, id);
     }
   });
+
+  it("every deity includes cult notes, including honest absence", () => {
+    for (const deity of deities as CultDeity[]) {
+      expectCultNotes(deity, deity.id);
+    }
+  });
 });
 
 type CultDeity = {
