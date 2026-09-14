@@ -3,6 +3,7 @@
 import { useState, useMemo, useCallback } from "react";
 import dynamic from "next/dynamic";
 import Link from "next/link";
+import Image from "next/image";
 import {
   MapPin,
   Clock,
@@ -147,8 +148,20 @@ export function JourneyPageClient({ slug }: JourneyPageClientProps) {
       {/* Hero Section */}
       <div className="relative h-[35vh] min-h-70 flex items-center justify-center overflow-hidden">
         {/* Background */}
+        {journey.imageUrl && (
+          <div className="absolute inset-0 z-0">
+            <Image
+              src={journey.imageUrl}
+              alt={journey.title}
+              fill
+              sizes="100vw"
+              priority
+              className="object-cover opacity-30 object-center scale-105"
+            />
+          </div>
+        )}
         <div className="absolute inset-0 z-0 bg-hero-gradient" />
-        <div className="absolute inset-0 bg-linear-to-b from-midnight/70 via-midnight/60 to-midnight/80 z-10" />
+        <div className="absolute inset-0 bg-linear-to-b from-midnight/80 via-midnight/70 to-midnight/90 z-10" />
         <div
           className="absolute top-0 left-1/2 -translate-x-1/2 w-[120%] h-[60%] bg-gradient-radial via-transparent to-transparent z-10"
           style={{

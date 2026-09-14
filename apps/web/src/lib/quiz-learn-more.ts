@@ -4,17 +4,20 @@ export interface QuizLearnMore {
   sourceCite?: string;
 }
 
-export function quizLearnMore(deity: {
-  slug: string;
-  name: string;
-  primarySources?: Array<{ source?: string; text?: string }>;
-}): QuizLearnMore {
-  const sourceCite = deity.primarySources
+export function quizLearnMore(
+  entity: {
+    slug: string;
+    name: string;
+    primarySources?: Array<{ source?: string; text?: string }>;
+  },
+  route = "deities",
+): QuizLearnMore {
+  const sourceCite = entity.primarySources
     ?.map((entry) => entry.source?.trim())
     .find((source) => Boolean(source));
   return {
-    learnMoreHref: `/deities/${deity.slug}`,
-    learnMoreLabel: `Read about ${deity.name}`,
+    learnMoreHref: `/${route}/${entity.slug}`,
+    learnMoreLabel: `Read about ${entity.name}`,
     ...(sourceCite ? { sourceCite } : {}),
   };
 }

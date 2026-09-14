@@ -242,7 +242,7 @@ export default function CompareMythsPage() {
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <Image
-            src="/deities-list-hero.jpg"
+            src="/stories-hero.jpg"
             alt="Compare Myths"
             width={HERO_IMAGE_WIDTH}
             height={HERO_IMAGE_HEIGHT}

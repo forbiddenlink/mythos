@@ -11,8 +11,11 @@ import { generateBaseMetadata } from "@/lib/metadata";
 import deitiesData from "@/data/deities.json";
 import storiesData from "@/data/stories.json";
 import pantheonsData from "@/data/pantheons.json";
+import creaturesData from "@/data/creatures.json";
+import artifactsData from "@/data/artifacts.json";
+import locationsData from "@/data/locations.json";
 
-// Computed on the server (this is a Server Component). Importing the ~1 MB source
+// Computed on the server (this is a Server Component). Importing the source
 // JSON here keeps it OUT of the client bundle — only the small derived values below
 // serialize to the client components as props.
 const HERO_PANTHEONS = (
@@ -23,6 +26,9 @@ const HERO_COUNTS = {
   pantheons: (pantheonsData as unknown[]).length,
   deities: (deitiesData as unknown[]).length,
   stories: (storiesData as unknown[]).length,
+  creatures: (creaturesData as unknown[]).length,
+  artifacts: (artifactsData as unknown[]).length,
+  locations: (locationsData as unknown[]).length,
 } as const;
 
 // Slim id/slug -> {name, slug} lookup for DidYouKnow's related-deity chips, so the

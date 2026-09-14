@@ -657,7 +657,7 @@
     "description": "Gilgamesh, king of Uruk, loses his beloved friend Enkidu and journeys to the ends of the earth seeking the secret of eternal life from Utnapishtim, the flood survivor.",
     "pantheonId": "mesopotamian-pantheon",
     "duration": "Many months of wandering",
-    "imageUrl": null,
+    "imageUrl": "/journeys/gilgamesh-quest.png",
     "source": "Epic of Gilgamesh (Standard Babylonian version)",
     "waypoints": [
       {

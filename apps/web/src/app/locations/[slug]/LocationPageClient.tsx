@@ -136,8 +136,20 @@ export function LocationPageClient({ slug }: LocationPageClientProps) {
 
       {/* ── Hero Section ────────────────────────────────────────────── */}
       <div className="relative overflow-hidden bg-midnight">
+        {location.imageUrl && (
+          <div className="absolute inset-0 z-0">
+            <Image
+              src={location.imageUrl}
+              alt={location.name}
+              fill
+              sizes="100vw"
+              priority
+              className="object-cover opacity-20 object-center scale-105"
+            />
+          </div>
+        )}
         <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-linear-to-b from-midnight/80 via-midnight/90 to-midnight z-10" />
+          <div className="absolute inset-0 bg-linear-to-b from-midnight/85 via-midnight/90 to-midnight z-10" />
         </div>
 
         {/* Abstract Emerald Glow */}

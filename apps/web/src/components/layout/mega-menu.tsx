@@ -41,6 +41,18 @@ const exploreMenu: MenuSection = {
       mark: "scroll",
     },
     {
+      label: "Creatures",
+      href: "/creatures",
+      description: "Legendary beasts and monsters",
+      mark: "serpent",
+    },
+    {
+      label: "Artifacts",
+      href: "/artifacts",
+      description: "Mythical weapons and divine relics",
+      mark: "relic",
+    },
+    {
       label: "Locations",
       href: "/locations",
       description: "Sacred places and mythical realms",

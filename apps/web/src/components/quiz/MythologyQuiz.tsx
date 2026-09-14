@@ -30,6 +30,9 @@ import { useProgress } from "@/hooks/use-progress";
 import { quizLearnMore } from "@/lib/quiz-learn-more";
 import deitiesData from "@/data/deities.json";
 import relationshipsData from "@/data/relationships.json";
+import artifactsData from "@/data/artifacts.json";
+import creaturesData from "@/data/creatures.json";
+import locationsData from "@/data/locations.json";
 
 interface Deity {
   id: string;
@@ -101,27 +104,128 @@ export function MythologyQuiz() {
         .sort(() => Math.random() - 0.5)
         .slice(0, count);
 
-    // 1. Visual Questions (Identify Deity)
-    const visualDeities = deities.filter(
-      (d) => d.imageUrl && !d.imageUrl.includes("unsplash"),
-    );
-    if (visualDeities.length > 0) {
-      const target =
-        visualDeities[Math.floor(Math.random() * visualDeities.length)];
-      usedIds.add(target.id + "_visual");
-      newQuestions.push({
-        id: 1,
-        type: "visual",
-        question: "Which deity is depicted in this image?",
-        imageUrl: target.imageUrl,
-        options: [
-          target.name,
-          ...getRandomDeities(3, target.id).map((d) => d.name),
-        ].sort(() => Math.random() - 0.5),
-        correctAnswer: target.name,
-        explanation: `This is ${target.name}, the deity of ${target.domain.join(", ")}.`,
-        ...quizLearnMore(target),
-      });
+    // 1. Visual Questions (Randomly select among Deity, Creature, Artifact, or Location)
+    const visualPool = ["deity", "creature", "artifact", "location"];
+    const chosenCategory =
+      visualPool[Math.floor(Math.random() * visualPool.length)];
+
+    if (chosenCategory === "creature") {
+      const creatures = creaturesData as Array<{
+        id: string;
+        name: string;
+        slug: string;
+        habitat: string;
+        imageUrl?: string | null;
+        primarySources?: Array<{ source?: string; text?: string }>;
+      }>;
+      const valid = creatures.filter((c) => Boolean(c.imageUrl));
+      if (valid.length > 0) {
+        const target = valid[Math.floor(Math.random() * valid.length)];
+        usedIds.add(target.id + "_visual");
+        const others = creatures
+          .filter((c) => c.id !== target.id)
+          .sort(() => Math.random() - 0.5)
+          .slice(0, 3);
+        newQuestions.push({
+          id: 1,
+          type: "visual",
+          question: "Which mythical beast or creature is depicted here?",
+          imageUrl: target.imageUrl || undefined,
+          options: [target.name, ...others.map((o) => o.name)].sort(
+            () => Math.random() - 0.5,
+          ),
+          correctAnswer: target.name,
+          explanation: `This is ${target.name}, legendary creature of ${target.habitat}.`,
+          ...quizLearnMore(target, "creatures"),
+        });
+      }
+    } else if (chosenCategory === "artifact") {
+      const artifacts = artifactsData as Array<{
+        id: string;
+        name: string;
+        slug: string;
+        type: string;
+        imageUrl?: string | null;
+        primarySources?: Array<{ source?: string; text?: string }>;
+      }>;
+      const valid = artifacts.filter((a) => Boolean(a.imageUrl));
+      if (valid.length > 0) {
+        const target = valid[Math.floor(Math.random() * valid.length)];
+        usedIds.add(target.id + "_visual");
+        const others = artifacts
+          .filter((a) => a.id !== target.id)
+          .sort(() => Math.random() - 0.5)
+          .slice(0, 3);
+        newQuestions.push({
+          id: 1,
+          type: "visual",
+          question: "Which legendary relic or artifact is shown here?",
+          imageUrl: target.imageUrl || undefined,
+          options: [target.name, ...others.map((o) => o.name)].sort(
+            () => Math.random() - 0.5,
+          ),
+          correctAnswer: target.name,
+          explanation: `This is ${target.name}, legendary ${target.type}.`,
+          ...quizLearnMore(target, "artifacts"),
+        });
+      }
+    } else if (chosenCategory === "location") {
+      const locations = locationsData as Array<{
+        id: string;
+        name: string;
+        imageUrl?: string | null;
+        primarySources?: Array<{ source?: string; text?: string }>;
+      }>;
+      const valid = locations.filter((l) => Boolean(l.imageUrl));
+      if (valid.length > 0) {
+        const target = valid[Math.floor(Math.random() * valid.length)];
+        usedIds.add(target.id + "_visual");
+        const others = locations
+          .filter((l) => l.id !== target.id)
+          .sort(() => Math.random() - 0.5)
+          .slice(0, 3);
+        newQuestions.push({
+          id: 1,
+          type: "visual",
+          question: "Which sacred site or mythical realm is depicted here?",
+          imageUrl: target.imageUrl || undefined,
+          options: [target.name, ...others.map((o) => o.name)].sort(
+            () => Math.random() - 0.5,
+          ),
+          correctAnswer: target.name,
+          explanation: `This is ${target.name}, sacred location in world mythology.`,
+          ...quizLearnMore(
+            {
+              slug: target.id,
+              name: target.name,
+              primarySources: target.primarySources,
+            },
+            "locations",
+          ),
+        });
+      }
+    } else {
+      const visualDeities = deities.filter(
+        (d) => d.imageUrl && !d.imageUrl.includes("unsplash"),
+      );
+      if (visualDeities.length > 0) {
+        const target =
+          visualDeities[Math.floor(Math.random() * visualDeities.length)];
+        usedIds.add(target.id + "_visual");
+        newQuestions.push({
+          id: 1,
+          type: "visual",
+          question: "Which deity is depicted in this image?",
+          imageUrl: target.imageUrl,
+          options: [
+            target.name,
+            ...getRandomDeities(3, target.id).map((d) => d.name),
+          ].sort(() => Math.random() - 0.5),
+          correctAnswer: target.name,
+          explanation: `This is ${target.name}, the deity of ${target.domain.join(", ")}.`,
+          ...quizLearnMore(target, "deities"),
+        });
+      }
     }
 
     // 2. Relationship Questions
@@ -233,18 +337,20 @@ export function MythologyQuiz() {
     let resultMessage: ReactNode;
     if (percentage >= 80) {
       resultMessage = (
-        <p className="text-lg">🎉 divine wisdom! You rival Athena herself!</p>
+        <p className="text-lg text-gold font-serif">
+          Radiant divine wisdom! You rival Athena herself!
+        </p>
       );
     } else if (percentage >= 60) {
       resultMessage = (
-        <p className="text-lg">
-          👏 A worthy effort! Make an offering to the Muses and try again.
+        <p className="text-lg text-parchment font-serif">
+          A worthy effort! Make an offering to the Muses and try again.
         </p>
       );
     } else {
       resultMessage = (
-        <p className="text-lg">
-          📚 The library of Alexandria awaits your return.
+        <p className="text-lg text-muted-foreground font-serif">
+          The library of Alexandria awaits your return to study.
         </p>
       );
     }

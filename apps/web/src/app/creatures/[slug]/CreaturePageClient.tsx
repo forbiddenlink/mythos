@@ -94,9 +94,21 @@ export function CreaturePageClient({ slug }: CreaturePageClientProps) {
       <BreadcrumbJsonLd items={breadcrumbItems} />
       {/* Hero Section with Background Image */}
       <div className="relative overflow-hidden bg-midnight">
+        {creature.imageUrl && (
+          <div className="absolute inset-0 z-0">
+            <Image
+              src={creature.imageUrl}
+              alt=""
+              fill
+              sizes="100vw"
+              priority
+              className="object-cover opacity-20 object-center scale-105"
+              aria-hidden
+            />
+          </div>
+        )}
         <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-linear-to-b from-midnight/80 via-midnight/90 to-midnight z-10"></div>
-          {/* Optional: Add a subtle texture or noise pattern here */}
+          <div className="absolute inset-0 bg-linear-to-b from-midnight/85 via-midnight/90 to-midnight z-10"></div>
         </div>
 
         {/* Abstract Red Glow */}

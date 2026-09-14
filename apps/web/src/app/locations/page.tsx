@@ -3,10 +3,11 @@
 import { useEffect, useMemo, useState, Suspense } from "react";
 import dynamic from "next/dynamic";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { MapPin, List, Map, Loader2, Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
 import { PageHero } from "@/components/layout/page-hero";
@@ -266,6 +267,8 @@ function LocationsPageInner() {
         tagline="Sacred Geography"
         title="Locations"
         description="Browse temples, realms, and sacred sites by pantheon, place type, or historical era"
+        backgroundImage="/hero-columns.png"
+        backgroundAlt="Classical temple columns and ancient sacred landscape"
         minHeight="min-h-[45vh]"
       />
 
@@ -577,23 +580,36 @@ function LocationsPageInner() {
                       }}
                     >
                       <div className="h-1" style={{ background: colors.bg }} />
-                      <CardHeader className="p-4 pb-2">
-                        <div className="flex justify-between items-start">
-                          <h3 className="font-semibold text-foreground group-hover:text-gold transition-colors">
-                            {location.name}
-                          </h3>
-                          {hasCords ? (
-                            <MapPin className="h-3 w-3 text-muted-foreground" />
-                          ) : (
-                            <span className="text-[10px] border border-border px-1 rounded">
-                              Myth
-                            </span>
-                          )}
+                      <div className="flex p-4 pb-2 gap-3 items-start">
+                        {location.imageUrl && (
+                          <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-lg border border-border/60 bg-muted/30 shadow-xs">
+                            <Image
+                              src={location.imageUrl}
+                              alt={location.name}
+                              fill
+                              sizes="56px"
+                              className="object-cover group-hover:scale-105 transition-transform duration-300"
+                            />
+                          </div>
+                        )}
+                        <div className="flex-1 min-w-0">
+                          <div className="flex justify-between items-start gap-1">
+                            <h3 className="font-semibold text-foreground group-hover:text-gold transition-colors truncate">
+                              {location.name}
+                            </h3>
+                            {hasCords ? (
+                              <MapPin className="h-3 w-3 text-muted-foreground shrink-0 mt-0.5" />
+                            ) : (
+                              <span className="text-[10px] border border-border px-1 rounded shrink-0">
+                                Myth
+                              </span>
+                            )}
+                          </div>
+                          <p className="text-xs text-muted-foreground uppercase mt-0.5">
+                            {pantheon?.name}
+                          </p>
                         </div>
-                        <p className="text-xs text-muted-foreground uppercase">
-                          {pantheon?.name}
-                        </p>
-                      </CardHeader>
+                      </div>
                       <CardContent className="p-4 pt-2">
                         <p className="text-xs text-muted-foreground line-clamp-2">
                           {location.description}

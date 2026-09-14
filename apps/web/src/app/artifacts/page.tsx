@@ -49,6 +49,8 @@ export default function ArtifactsPage() {
         title="Legendary Artifacts"
         description="Weapons, shields, and mystical objects of power wielded by the gods and heroes of old."
         colorScheme="purple"
+        backgroundImage="/deities-list-hero.jpg"
+        backgroundAlt="Relics and divine artifacts of ancient myth"
         minHeight="min-h-[40vh]"
       />
 

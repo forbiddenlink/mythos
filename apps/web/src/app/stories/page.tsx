@@ -16,6 +16,7 @@ import { BranchingStory, getDiscoveredEndings } from "@/lib/branching-story";
 import { BookOpen, Clock, Gamepad2, ScrollText, Trophy } from "lucide-react";
 import { MythosMark } from "@/components/icons/mythos-marks";
 import Link from "next/link";
+import Image from "next/image";
 import { useCallback, useEffect, useMemo, useState } from "react";
 
 const branchingStories = branchingStoriesData as unknown as BranchingStory[];
@@ -56,6 +57,19 @@ function InteractiveStoryCard({ story }: Readonly<{ story: BranchingStory }>) {
 
         {/* Gradient top border */}
         <div className="h-1 bg-linear-to-r from-gold via-amber-400 to-gold"></div>
+
+        {story.coverImage && (
+          <div className="relative w-full h-44 overflow-hidden border-b border-border/50 bg-midnight">
+            <Image
+              src={story.coverImage}
+              alt={story.title}
+              fill
+              sizes="(max-width: 768px) 100vw, 33vw"
+              className="object-cover group-hover:scale-105 transition-transform duration-500"
+            />
+            <div className="absolute inset-0 bg-linear-to-t from-background/90 via-transparent to-transparent" />
+          </div>
+        )}
 
         <CardHeader className="relative">
           <div className="absolute top-4 right-4 opacity-[0.03] group-hover:opacity-[0.06] transition-opacity">
@@ -323,10 +337,23 @@ function PaginatedStoryGrid({ stories }: Readonly<{ stories: Story[] }>) {
           >
             <Card
               asArticle
-              className="h-full cursor-pointer parchment-card bg-card transition-transform duration-300 hover:-translate-y-1 overflow-hidden"
+              className="h-full cursor-pointer parchment-card bg-card transition-transform duration-300 hover:-translate-y-1 overflow-hidden flex flex-col"
             >
-              {/* Subtle Top Border */}
-              <div className="h-0.5 bg-linear-to-r from-gold-dark via-gold to-gold-dark"></div>
+              {story.imageUrl && (
+                <div className="relative w-full h-44 overflow-hidden border-b border-border/50 bg-midnight">
+                  <Image
+                    src={story.imageUrl}
+                    alt={story.title}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-linear-to-t from-background/90 via-transparent to-transparent" />
+                </div>
+              )}
+              {!story.imageUrl && (
+                <div className="h-0.5 bg-linear-to-r from-gold-dark via-gold to-gold-dark"></div>
+              )}
 
               <CardHeader className="relative">
                 <div className="absolute top-4 right-4 opacity-[0.03] group-hover:opacity-[0.06] transition-opacity">

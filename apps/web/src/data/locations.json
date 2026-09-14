@@ -1544,7 +1544,8 @@
         "source": "Homer, Odyssey 9",
         "date": "c. 700 BCE"
       }
-    ]
+    ],
+    "imageUrl": "/locations/cicones-coast.png"
   },
   {
     "id": "lotus-eaters-island",
@@ -1561,7 +1562,8 @@
         "source": "Homer, Odyssey 9",
         "date": "c. 700 BCE"
       }
-    ]
+    ],
+    "imageUrl": "/locations/lotus-eaters-island.png"
   },
   {
     "id": "cyclops-cave",
@@ -1578,7 +1580,8 @@
         "source": "Homer, Odyssey 9",
         "date": "c. 700 BCE"
       }
-    ]
+    ],
+    "imageUrl": "/locations/cyclops-cave.png"
   },
   {
     "id": "aeolus-island",
@@ -1595,7 +1598,8 @@
         "source": "Homer, Odyssey 10",
         "date": "c. 700 BCE"
       }
-    ]
+    ],
+    "imageUrl": "/locations/aeolus-island.png"
   },
   {
     "id": "laestrygonians-harbor",
@@ -1612,7 +1616,8 @@
         "source": "Homer, Odyssey 10",
         "date": "c. 700 BCE"
       }
-    ]
+    ],
+    "imageUrl": "/locations/laestrygonians-harbor.png"
   },
   {
     "id": "circe-island",
@@ -1629,7 +1634,8 @@
         "source": "Homer, Odyssey 10",
         "date": "c. 700 BCE"
       }
-    ]
+    ],
+    "imageUrl": "/locations/circe-island.png"
   },
   {
     "id": "sirens-strait",
@@ -1646,7 +1652,8 @@
         "source": "Homer, Odyssey 12",
         "date": "c. 700 BCE"
       }
-    ]
+    ],
+    "imageUrl": "/locations/sirens-strait.png"
   },
   {
     "id": "scylla-charybdis",
@@ -1663,7 +1670,8 @@
         "source": "Homer, Odyssey 12",
         "date": "c. 700 BCE"
       }
-    ]
+    ],
+    "imageUrl": "/locations/scylla-charybdis.png"
   },
   {
     "id": "thrinacia",
@@ -1680,7 +1688,8 @@
         "source": "Homer, Odyssey 12",
         "date": "c. 700 BCE"
       }
-    ]
+    ],
+    "imageUrl": "/locations/thrinacia.png"
   },
   {
     "id": "calypso-island",
@@ -1697,7 +1706,8 @@
         "source": "Homer, Odyssey 1 / 5",
         "date": "c. 700 BCE"
       }
-    ]
+    ],
+    "imageUrl": "/locations/calypso-island.png"
   },
   {
     "id": "phaeacia",
@@ -1714,7 +1724,8 @@
         "source": "Homer, Odyssey 6",
         "date": "c. 700 BCE"
       }
-    ]
+    ],
+    "imageUrl": "/locations/phaeacia.png"
   },
   {
     "id": "iolcos",
@@ -1731,7 +1742,8 @@
         "source": "Apollonius Rhodius, Argonautica 1",
         "date": "c. 250 BCE"
       }
-    ]
+    ],
+    "imageUrl": "/locations/iolcos.png"
   },
   {
     "id": "samothrace",
@@ -1748,7 +1760,8 @@
         "source": "Apollonius Rhodius, Argonautica 1",
         "date": "c. 250 BCE"
       }
-    ]
+    ],
+    "imageUrl": "/locations/samothrace.png"
   },
   {
     "id": "cyzicus",
@@ -1765,7 +1778,8 @@
         "source": "Apollonius Rhodius, Argonautica 1",
         "date": "c. 250 BCE"
       }
-    ]
+    ],
+    "imageUrl": "/locations/cyzicus.png"
   },
   {
     "id": "bebryces",
@@ -1782,7 +1796,8 @@
         "source": "Apollonius Rhodius, Argonautica 2",
         "date": "c. 250 BCE"
       }
-    ]
+    ],
+    "imageUrl": "/locations/bebryces.png"
   },
   {
     "id": "symplegades",
@@ -1799,7 +1814,8 @@
         "source": "Apollonius Rhodius, Argonautica 2",
         "date": "c. 250 BCE"
       }
-    ]
+    ],
+    "imageUrl": "/locations/symplegades.png"
   },
   {
     "id": "libya",
@@ -1816,7 +1832,8 @@
         "source": "Apollonius Rhodius, Argonautica 4",
         "date": "c. 250 BCE"
       }
-    ]
+    ],
+    "imageUrl": "/locations/libya.png"
   },
   {
     "id": "nidavellir",
@@ -1833,7 +1850,8 @@
         "source": "Poetic Edda, Voluspa",
         "date": "c. 10th c. CE"
       }
-    ]
+    ],
+    "imageUrl": "/locations/nidavellir.png"
   },
   {
     "id": "western-horizon",
@@ -1850,7 +1868,8 @@
         "source": "Pyramid Texts (solar / western-horizon spells)",
         "date": "c. 24th c. BCE"
       }
-    ]
+    ],
+    "imageUrl": "/locations/western-horizon.png"
   },
   {
     "id": "first-gate",
@@ -1867,7 +1886,8 @@
         "source": "Book of Gates / Amduat, First Hour–Gate",
         "date": "c. 15th–13th c. BCE"
       }
-    ]
+    ],
+    "imageUrl": "/locations/first-gate.png"
   },
   {
     "id": "hall-of-maat",
@@ -1884,7 +1904,8 @@
         "source": "Book of the Dead, Spell 125",
         "date": "c. New Kingdom"
       }
-    ]
+    ],
+    "imageUrl": "/locations/hall-of-maat.png"
   },
   {
     "id": "lake-of-fire",
@@ -1901,7 +1922,8 @@
         "source": "Book of the Dead (fire-lake vignettes) / Amduat",
         "date": "c. New Kingdom"
       }
-    ]
+    ],
+    "imageUrl": "/locations/lake-of-fire.png"
   },
   {
     "id": "osiris-throne",
@@ -1918,7 +1940,8 @@
         "source": "Pyramid Texts (Osirian identification spells)",
         "date": "c. 24th c. BCE"
       }
-    ]
+    ],
+    "imageUrl": "/locations/osiris-throne.png"
   },
   {
     "id": "nemea",
@@ -1935,7 +1958,8 @@
         "source": "Apollodorus, Library 2.5.1",
         "date": "c. 1st–2nd c. CE"
       }
-    ]
+    ],
+    "imageUrl": "/locations/nemea.png"
   },
   {
     "id": "lerna",
@@ -1952,7 +1976,8 @@
         "source": "Apollodorus, Library 2.5.2",
         "date": "c. 1st–2nd c. CE"
       }
-    ]
+    ],
+    "imageUrl": "/locations/lerna.png"
   },
   {
     "id": "ceryneia",
@@ -1969,7 +1994,8 @@
         "source": "Apollodorus, Library 2.5.3",
         "date": "c. 1st–2nd c. CE"
       }
-    ]
+    ],
+    "imageUrl": "/locations/ceryneia.png"
   },
   {
     "id": "erymanthus",
@@ -1986,7 +2012,8 @@
         "source": "Apollodorus, Library 2.5.4",
         "date": "c. 1st–2nd c. CE"
       }
-    ]
+    ],
+    "imageUrl": "/locations/erymanthus.png"
   },
   {
     "id": "augean-stables",
@@ -2003,7 +2030,8 @@
         "source": "Apollodorus, Library 2.5.5",
         "date": "c. 1st–2nd c. CE"
       }
-    ]
+    ],
+    "imageUrl": "/locations/augean-stables.png"
   },
   {
     "id": "lake-stymphalus",
@@ -2020,7 +2048,8 @@
         "source": "Apollodorus, Library 2.5.6",
         "date": "c. 1st–2nd c. CE"
       }
-    ]
+    ],
+    "imageUrl": "/locations/lake-stymphalus.png"
   },
   {
     "id": "thrace",
@@ -2037,7 +2066,8 @@
         "source": "Apollodorus, Library 2.5.8",
         "date": "c. 1st–2nd c. CE"
       }
-    ]
+    ],
+    "imageUrl": "/locations/thrace.png"
   },
   {
     "id": "themiscyra",
@@ -2054,7 +2084,8 @@
         "source": "Apollodorus, Library 2.5.9",
         "date": "c. 1st–2nd c. CE"
       }
-    ]
+    ],
+    "imageUrl": "/locations/themiscyra.png"
   },
   {
     "id": "erytheia",
@@ -2071,7 +2102,8 @@
         "source": "Apollodorus, Library 2.5.10",
         "date": "c. 1st–2nd c. CE"
       }
-    ]
+    ],
+    "imageUrl": "/locations/erytheia.png"
   },
   {
     "id": "garden-of-hesperides",
@@ -2088,7 +2120,8 @@
         "source": "Apollodorus, Library 2.5.11",
         "date": "c. 1st–2nd c. CE"
       }
-    ]
+    ],
+    "imageUrl": "/locations/garden-of-hesperides.png"
   },
   {
     "id": "eridu",
@@ -2105,7 +2138,8 @@
         "source": "Sumerian King List",
         "date": "c. 18th c. BCE copies"
       }
-    ]
+    ],
+    "imageUrl": "/locations/eridu.png"
   },
   {
     "id": "nippur",
@@ -2122,7 +2156,8 @@
         "source": "Sumerian hymns to Enlil / Ekur",
         "date": "c. 2nd millennium BCE"
       }
-    ]
+    ],
+    "imageUrl": "/locations/nippur.png"
   },
   {
     "id": "palenque",
@@ -2139,6 +2174,7 @@
         "source": "Palenque Temple of the Inscriptions and Cross Group texts",
         "date": "c. 7th c. CE"
       }
-    ]
+    ],
+    "imageUrl": "/locations/palenque.png"
   }
 ]

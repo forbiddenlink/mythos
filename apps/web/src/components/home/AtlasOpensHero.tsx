@@ -58,6 +58,9 @@ interface AtlasCounts {
   pantheons: number;
   deities: number;
   stories: number;
+  creatures?: number;
+  artifacts?: number;
+  locations?: number;
 }
 
 interface AtlasOpensHeroProps {
@@ -242,17 +245,20 @@ export function AtlasOpensHero({ pantheons, counts }: AtlasOpensHeroProps) {
           ))}
         </div>
       </div>
-      <dl className="flex flex-wrap justify-center gap-8 text-parchment/80">
+      <dl className="flex flex-wrap justify-center gap-6 sm:gap-8 md:gap-10 text-parchment/80">
         {[
           ["Pantheons", STATS.pantheons],
           ["Deities", STATS.deities],
           ["Stories", STATS.stories],
+          ...(STATS.creatures ? [["Creatures", STATS.creatures]] : []),
+          ...(STATS.artifacts ? [["Artifacts", STATS.artifacts]] : []),
+          ...(STATS.locations ? [["Locations", STATS.locations]] : []),
         ].map(([label, value]) => (
           <div key={label as string} className="text-center">
             <dt className="text-xs uppercase tracking-[0.2em] text-gold/70">
               {label}
             </dt>
-            <dd className="font-serif text-3xl text-parchment">{value}</dd>
+            <dd className="font-serif text-3xl text-parchment font-semibold">{value}</dd>
           </div>
         ))}
       </dl>

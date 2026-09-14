@@ -94,8 +94,21 @@ export function ArtifactPageClient({ slug }: ArtifactPageClientProps) {
         powers={artifact.powers}
       />
       <div className="relative overflow-hidden bg-midnight">
+        {artifact.imageUrl && (
+          <div className="absolute inset-0 z-0">
+            <Image
+              src={artifact.imageUrl}
+              alt=""
+              fill
+              sizes="100vw"
+              priority
+              className="object-cover opacity-20 object-center scale-105"
+              aria-hidden
+            />
+          </div>
+        )}
         <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-linear-to-b from-bronze/20 via-midnight/90 to-midnight z-10"></div>
+          <div className="absolute inset-0 bg-linear-to-b from-bronze/25 via-midnight/90 to-midnight z-10"></div>
         </div>
 
         <div className="absolute top-0 left-0 w-[50%] h-full bg-radial-gradient from-bronze/15 to-transparent pointer-events-none z-0" />

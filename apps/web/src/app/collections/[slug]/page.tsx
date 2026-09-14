@@ -365,7 +365,19 @@ export default async function CollectionPage({ params }: PageProps) {
 
                 return (
                   <Link key={story.id} href={`/stories/${story.slug}`}>
-                    <Card className="h-full hover:border-gold/50 hover:bg-gold/5 transition-all group">
+                    <Card className="h-full hover:border-gold/50 hover:bg-gold/5 transition-all group overflow-hidden">
+                      {story.imageUrl && (
+                        <div className="relative w-full h-36 overflow-hidden border-b border-border/50">
+                          <Image
+                            src={story.imageUrl}
+                            alt={story.title}
+                            fill
+                            sizes="(max-width: 768px) 100vw, 33vw"
+                            className="object-cover group-hover:scale-105 transition-transform duration-500"
+                          />
+                          <div className="absolute inset-0 bg-linear-to-t from-background/90 via-transparent to-transparent" />
+                        </div>
+                      )}
                       <CardHeader className="pb-2">
                         <Badge
                           variant="outline"

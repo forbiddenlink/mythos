@@ -55,6 +55,8 @@ export default function CreaturesPage() {
         title="Creatures & Monsters"
         description="From the depths of the underworld to the peaks of mountains, discover the legendary beasts of ancient mythology."
         colorScheme="red"
+        backgroundImage="/stories-hero.jpg"
+        backgroundAlt="Mythic creatures and legendary beasts"
         minHeight="min-h-[40vh]"
       />
 

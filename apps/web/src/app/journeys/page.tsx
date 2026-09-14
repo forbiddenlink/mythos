@@ -106,6 +106,8 @@ export default function JourneysPage() {
         tagline="Epic Voyages"
         title="Hero Journeys"
         description="Trace the legendary voyages of mythological heroes across the ancient world"
+        backgroundImage="/family-tree-hero.jpg"
+        backgroundAlt="Ancient celestial cartography and mythical voyages"
       />
 
       {/* Content Section */}

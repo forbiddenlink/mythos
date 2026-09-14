@@ -17,6 +17,7 @@ import { ExportIconButton } from "@/components/ui/export-button";
 import { ShareButton } from "@/components/sharing/ShareButton";
 import { ArticleJsonLd } from "@/components/seo/JsonLd";
 import Link from "next/link";
+import Image from "next/image";
 import ReactMarkdown from "react-markdown";
 import { useTextToSpeech } from "@/hooks/useTextToSpeech";
 import { RouteHero } from "@/components/layout/route-hero";
@@ -43,6 +44,7 @@ import { EditorialByline } from "@/components/content/EditorialByline";
 import deitiesData from "@/data/deities.json";
 import locationsData from "@/data/locations.json";
 import storiesData from "@/data/stories.json";
+import pantheonsData from "@/data/pantheons.json";
 import { StoryNarrator } from "@/components/stories/StoryNarrator";
 import {
   SourceExcerptsList,
@@ -97,6 +99,7 @@ interface Story {
   title: string;
   slug: string;
   summary: string;
+  imageUrl?: string | null;
   fullNarrative?: string | null;
   keyExcerpts?: string;
   category: string;
@@ -139,6 +142,9 @@ export function StoryPageClient({ slug }: StoryPageClientProps) {
   const { speak, cancel, isSpeaking } = useTextToSpeech();
   const allStories = storiesData as Story[];
   const story = allStories.find((s) => s.slug === slug);
+  const pantheon = (pantheonsData as Array<{ id: string; name: string }>).find(
+    (p) => p.id === story?.pantheonId,
+  );
 
   if (!story) {
     return (
@@ -322,6 +328,31 @@ export function StoryPageClient({ slug }: StoryPageClientProps) {
       {/* Content Section */}
       <div className="container mx-auto max-w-4xl px-4 py-16">
         <Breadcrumbs />
+
+        {/* Story Illustration */}
+        {story.imageUrl && (
+          <div className="mt-8 overflow-hidden rounded-2xl border border-border/70 bg-card/50 shadow-xl">
+            <div className="relative aspect-16/9 w-full max-h-[440px] overflow-hidden bg-midnight">
+              <Image
+                src={story.imageUrl}
+                alt={story.title}
+                fill
+                sizes="(max-width: 1024px) 100vw, 896px"
+                className="object-cover object-center"
+                priority
+              />
+              <div className="absolute inset-0 bg-linear-to-t from-midnight/80 via-transparent to-transparent pointer-events-none" />
+              <div className="absolute bottom-4 left-6 right-6 flex items-center justify-between text-xs pointer-events-none">
+                <span className="font-serif italic text-sm text-gold">
+                  {story.title}
+                </span>
+                <span className="uppercase tracking-widest text-[11px] text-parchment/70">
+                  {pantheon?.name}
+                </span>
+              </div>
+            </div>
+          </div>
+        )}
 
         {/* Story Narrator */}
         {(story.fullNarrative || story.summary) && (
