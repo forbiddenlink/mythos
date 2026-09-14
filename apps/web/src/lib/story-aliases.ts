@@ -3,6 +3,7 @@ export const STORY_ALIASES: Record<string, string> = {
   "five-suns-mesoamerican": "five-suns",
   "birth-huitzilopochtli": "birth-of-huitzilopochtli",
   "birth-huitzilopochtli-full": "birth-of-huitzilopochtli",
+  "fall-of-quetzalcoatl-tula": "quetzalcoatl-fall-exile",
 };
 
 export function canonicalStorySlug(slug: string): string {

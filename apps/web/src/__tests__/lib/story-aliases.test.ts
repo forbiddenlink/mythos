@@ -10,10 +10,13 @@ describe("story aliases", () => {
     expect(canonicalStorySlug("birth-huitzilopochtli-full")).toBe(
       "birth-of-huitzilopochtli",
     );
+    expect(canonicalStorySlug("fall-of-quetzalcoatl-tula")).toBe(
+      "quetzalcoatl-fall-exile",
+    );
     expect(canonicalStorySlug("five-suns")).toBe("five-suns");
   });
 
   it("does not alias unrelated stories", () => {
-    expect(Object.keys(STORY_ALIASES).length).toBe(3);
+    expect(Object.keys(STORY_ALIASES).length).toBe(4);
   });
 });

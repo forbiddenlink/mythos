@@ -56,6 +56,18 @@ describe("stories.json data integrity", () => {
     expect(uniqueSlugs.size).toBe(slugs.length);
   });
 
+  it("every story should have a unique title", () => {
+    const titles = stories.map((s: { title: string }) => s.title.trim());
+    const seen = new Map<string, number>();
+    for (const title of titles) {
+      seen.set(title, (seen.get(title) ?? 0) + 1);
+    }
+    const duplicates = [...seen.entries()]
+      .filter(([, count]) => count > 1)
+      .map(([title]) => title);
+    expect(duplicates).toEqual([]);
+  });
+
   it("every story id should match its slug", () => {
     for (const story of stories) {
       expect(story.id).toBe(story.slug);
