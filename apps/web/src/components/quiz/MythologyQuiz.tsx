@@ -59,6 +59,7 @@ interface Question {
   explanation: string;
   learnMoreHref: string;
   learnMoreLabel: string;
+  sourceCite?: string;
 }
 
 export function MythologyQuiz() {
@@ -467,6 +468,11 @@ export function MythologyQuiz() {
                 >
                   {question.learnMoreLabel}
                 </Link>
+                {question.sourceCite ? (
+                  <span className="mt-1 block text-sm text-muted-foreground">
+                    Source: {question.sourceCite}
+                  </span>
+                ) : null}
               </p>
             </output>
           )}
