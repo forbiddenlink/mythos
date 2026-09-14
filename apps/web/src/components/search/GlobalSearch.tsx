@@ -35,7 +35,13 @@ import {
   Users,
 } from "lucide-react";
 import { useRouter } from "next/navigation";
-import { useCallback, useEffect, useMemo, useState } from "react";
+import {
+  useCallback,
+  useEffect,
+  useMemo,
+  useState,
+  type PointerEvent,
+} from "react";
 
 // Icons for each content type
 const typeIcons: Record<ContentType, typeof Sparkles> = {
@@ -199,24 +205,40 @@ export function GlobalSearch() {
     };
   }, []);
 
-  const handleSelect = useCallback(
-    (result: SearchResultType) => {
-      saveRecentSearch(result.title);
-      setRecentSearches(getRecentSearches());
-      setOpen(false);
+  const navigateAfterClose = useCallback(
+    (href: string) => {
       setSearchQuery("");
-      router.push(getResultUrl(result));
+      setOpen(false);
+      // Pointerdown + a tick: Radix dialog teardown otherwise swallows the push.
+      window.setTimeout(() => {
+        router.push(href);
+      }, 50);
     },
     [router],
   );
 
+  const pointerSelect = useCallback((action: () => void) => {
+    return (event: PointerEvent<HTMLDivElement>) => {
+      if (event.button !== 0) return;
+      event.preventDefault();
+      action();
+    };
+  }, []);
+
+  const handleSelect = useCallback(
+    (result: SearchResultType) => {
+      saveRecentSearch(result.title);
+      setRecentSearches(getRecentSearches());
+      navigateAfterClose(getResultUrl(result));
+    },
+    [navigateAfterClose],
+  );
+
   const handleNavigationSelect = useCallback(
     (href: string) => {
-      setOpen(false);
-      setSearchQuery("");
-      router.push(href);
+      navigateAfterClose(href);
     },
-    [router],
+    [navigateAfterClose],
   );
 
   const handleQuickSearch = useCallback((term: string) => {
@@ -306,6 +328,9 @@ export function GlobalSearch() {
                     key={item.id}
                     value={item.id}
                     onSelect={() => handleNavigationSelect(item.href)}
+                    onPointerDown={pointerSelect(() =>
+                      handleNavigationSelect(item.href),
+                    )}
                     className="flex items-center gap-2"
                   >
                     <Icon className={`h-4 w-4 ${item.iconColor}`} />
@@ -362,6 +387,7 @@ export function GlobalSearch() {
                       key={`${result.type}-${result.id}`}
                       value={`${result.type}-${result.id}-${result.title}`}
                       onSelect={() => handleSelect(result)}
+                      onPointerDown={pointerSelect(() => handleSelect(result))}
                       className="flex items-center gap-3"
                     >
                       <Icon className={`h-4 w-4 shrink-0 ${colorClass}`} />

@@ -73,17 +73,13 @@ test.describe("Search Functionality", () => {
     // Wait for results
     await page.waitForTimeout(500);
 
-    // Click on a result
     const result = page
       .locator('[role="option"]')
       .filter({ hasText: "Zeus" })
       .first();
-    if (await result.isVisible()) {
-      await result.click();
-
-      // Should navigate to the deity page
-      await expect(page).toHaveURL(/.*zeus.*/i, { timeout: 5000 });
-    }
+    await expect(result).toBeVisible({ timeout: 5000 });
+    await result.click();
+    await expect(page).toHaveURL(/\/deities\/zeus/i, { timeout: 8000 });
   });
 
   test("should close search with Escape", async ({ page }) => {
