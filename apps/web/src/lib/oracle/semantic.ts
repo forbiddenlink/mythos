@@ -36,6 +36,7 @@ interface Manifest {
 }
 
 const manifest = embeddingManifest as Manifest;
+const EMBEDDING_REQUEST_TIMEOUT_MS = 2_500;
 
 function cosine(a: number[], b: number[]): number {
   if (a.length !== b.length || a.length === 0) return 0;
@@ -61,31 +62,57 @@ async function embedQueryText(text: string): Promise<number[] | null> {
       ? manifest.model
       : "text-embedding-3-small";
 
-  const res = await fetch("https://api.openai.com/v1/embeddings", {
-    method: "POST",
-    headers: {
-      Authorization: `Bearer ${apiKey}`,
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      model,
-      input: text.slice(0, 8000),
-    }),
-  });
+  const controller = new AbortController();
+  let timeoutId: ReturnType<typeof setTimeout> | undefined;
 
-  if (!res.ok) {
+  try {
+    const request = (async (): Promise<number[] | null> => {
+      const res = await fetch("https://api.openai.com/v1/embeddings", {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${apiKey}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          model,
+          input: text.slice(0, 8000),
+        }),
+        signal: controller.signal,
+      });
+
+      if (!res.ok) {
+        console.warn(
+          "[oracle-semantic] OpenAI embeddings error:",
+          await res.text(),
+        );
+        return null;
+      }
+
+      const json = (await res.json()) as {
+        data?: Array<{ embedding: number[] }>;
+      };
+      const emb = json.data?.[0]?.embedding;
+      return emb && emb.length > 0 ? emb : null;
+    })();
+
+    const timeout = new Promise<never>((_, reject) => {
+      timeoutId = setTimeout(() => {
+        controller.abort();
+        reject(new Error("Embedding request timed out"));
+      }, EMBEDDING_REQUEST_TIMEOUT_MS);
+    });
+
+    return await Promise.race([request, timeout]);
+  } catch (error) {
+    const message = error instanceof Error ? error.message : "Unknown error";
     console.warn(
-      "[oracle-semantic] OpenAI embeddings error:",
-      await res.text(),
+      "[oracle-semantic] OpenAI embeddings request failed:",
+      message,
     );
     return null;
+  } finally {
+    if (timeoutId) clearTimeout(timeoutId);
   }
-
-  const json = (await res.json()) as {
-    data?: Array<{ embedding: number[] }>;
-  };
-  const emb = json.data?.[0]?.embedding;
-  return emb && emb.length > 0 ? emb : null;
 }
 
 function pantheonLabel(pantheonId: string | undefined, kind: string): string {
