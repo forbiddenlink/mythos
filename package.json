@@ -5,7 +5,7 @@
   "description": "Mythology & Folklore Encyclopedia - Research-backed interactive database",
   "packageManager": "pnpm@10.34.5",
   "engines": {
-    "node": ">=20.0.0"
+    "node": ">=22.22.2"
   },
   "scripts": {
     "dev": "turbo dev",
