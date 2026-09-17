@@ -27,6 +27,7 @@ import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Sparkles, Search, X } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 // Navigation map for finding connected nodes by direction
 interface NavigationMap {
@@ -171,6 +172,7 @@ interface KeyActionContext {
   focusDeityId?: string;
   shiftKey: boolean;
   deityMap: Map<string, Deity>;
+  navigateToDeity: (slug: string) => void;
 }
 
 const keyActionMap: Record<string, (ctx: KeyActionContext) => string | null> = {
@@ -192,11 +194,17 @@ const keyActionMap: Record<string, (ctx: KeyActionContext) => string | null> = {
       laterals[Math.min(laterals.length - 1, currentIndex + 1)] || laterals[0]
     );
   },
-  Enter: ({ keyboardFocusedId, deityMap, focusDeityId, nodeIds }) => {
+  Enter: ({
+    keyboardFocusedId,
+    deityMap,
+    focusDeityId,
+    nodeIds,
+    navigateToDeity,
+  }) => {
     if (keyboardFocusedId) {
       const deity = deityMap.get(keyboardFocusedId);
       if (deity?.slug) {
-        globalThis.location.href = `/deities/${deity.slug}`;
+        navigateToDeity(deity.slug);
       }
       return null;
     }
@@ -377,6 +385,7 @@ function FamilyTreeInner({
   navigationMap: Map<string, NavigationMap>;
 }>) {
   const { setCenter, getNodes } = useReactFlow();
+  const router = useRouter();
   const containerRef = useRef<HTMLDivElement>(null);
 
   // Calculate layout using a hierarchical approach
@@ -648,6 +657,7 @@ function FamilyTreeInner({
         focusDeityId,
         shiftKey: event.shiftKey,
         deityMap,
+        navigateToDeity: (slug) => router.push(`/deities/${slug}`),
       });
 
       event.preventDefault();
@@ -663,6 +673,7 @@ function FamilyTreeInner({
       deityMap,
       focusDeityId,
       setKeyboardFocusedId,
+      router,
     ],
   );
 
@@ -672,10 +683,10 @@ function FamilyTreeInner({
       // Set keyboard focus on click as well
       setKeyboardFocusedId(node.id);
       if (deity?.slug) {
-        globalThis.location.href = `/deities/${deity.slug}`;
+        router.push(`/deities/${deity.slug}`);
       }
     },
-    [setKeyboardFocusedId],
+    [router, setKeyboardFocusedId],
   );
 
   return (
