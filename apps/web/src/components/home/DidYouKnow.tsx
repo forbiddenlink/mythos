@@ -3,7 +3,7 @@
 import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { RefreshCw, ChevronRight } from "lucide-react";
+import { RefreshCw, ChevronRight, Copy, Check } from "lucide-react";
 import { MythosMark } from "@/components/icons/mythos-marks";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -63,6 +63,7 @@ function getDailyFactIndex(date: Date): number {
 export function DidYouKnow({ deityLookup }: DidYouKnowProps) {
   const [currentFact, setCurrentFact] = useState<Fact | null>(null);
   const [isSpinning, setIsSpinning] = useState(false);
+  const [isCopied, setIsCopied] = useState(false);
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -74,12 +75,23 @@ export function DidYouKnow({ deityLookup }: DidYouKnowProps) {
 
   const getRandomFact = useCallback(() => {
     setIsSpinning(true);
+    setIsCopied(false);
     setTimeout(() => {
       const randomIndex = Math.floor(Math.random() * facts.length);
       setCurrentFact(facts[randomIndex] as Fact);
       setIsSpinning(false);
     }, 300);
   }, []);
+
+  const handleCopyFact = useCallback(() => {
+    if (!currentFact) return;
+    const shareText = `"${currentFact.fact}" — Mythos Atlas (https://mythosatlas.com/facts)`;
+    if (typeof navigator !== "undefined" && navigator.clipboard) {
+      navigator.clipboard.writeText(shareText);
+      setIsCopied(true);
+      setTimeout(() => setIsCopied(false), 2000);
+    }
+  }, [currentFact]);
 
   // Resolve related deities via the server-provided slim lookup (id or slug).
   const relatedDeityInfo =
@@ -120,21 +132,45 @@ export function DidYouKnow({ deityLookup }: DidYouKnowProps) {
               </div>
             </div>
 
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={getRandomFact}
-              disabled={isSpinning}
-              className="text-muted-foreground hover:text-foreground"
-            >
-              <motion.div
-                animate={{ rotate: isSpinning ? 360 : 0 }}
-                transition={{ duration: 0.3 }}
+            <div className="flex items-center gap-1">
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={handleCopyFact}
+                className="text-muted-foreground hover:text-foreground"
+                aria-label={
+                  isCopied
+                    ? "Fact copied to clipboard"
+                    : "Copy fact to clipboard"
+                }
+                title="Copy fact"
               >
-                <RefreshCw className="h-4 w-4" />
-              </motion.div>
-              <span className="ml-2 hidden sm:inline">Another</span>
-            </Button>
+                {isCopied ? (
+                  <span className="flex items-center gap-1 text-gold">
+                    <Check className="h-4 w-4" />
+                    <span className="text-xs">Copied</span>
+                  </span>
+                ) : (
+                  <Copy className="h-4 w-4" />
+                )}
+              </Button>
+
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={getRandomFact}
+                disabled={isSpinning}
+                className="text-muted-foreground hover:text-foreground"
+              >
+                <motion.div
+                  animate={{ rotate: isSpinning ? 360 : 0 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <RefreshCw className="h-4 w-4" />
+                </motion.div>
+                <span className="ml-2 hidden sm:inline">Another</span>
+              </Button>
+            </div>
           </div>
 
           {/* Fact content */}

@@ -50,11 +50,11 @@ const TOUR_TO_JOURNEY: Record<string, string> = {
 };
 
 const TOUR_COVER_IMAGES: Record<string, string> = {
-  odyssey: "/locations/troy.png",
-  argonauts: "/locations/iolcos.png",
-  "norse-realms": "/locations/asgard.png",
-  "egyptian-afterlife": "/locations/hall-of-maat.png",
-  "heracles-labors": "/locations/garden-of-hesperides.png",
+  odyssey: "/locations/troy.webp",
+  argonauts: "/locations/iolcos.webp",
+  "norse-realms": "/locations/asgard.webp",
+  "egyptian-afterlife": "/locations/hall-of-maat.webp",
+  "heracles-labors": "/locations/garden-of-hesperides.webp",
 };
 
 export default function ToursPage() {
@@ -69,7 +69,7 @@ export default function ToursPage() {
         tagline="Guided walks"
         title="Mythology Tours"
         description="Shareable study walks through sacred geography — stop by stop, with the highlights that make each route worth remembering."
-        backgroundImage="/hero-columns.png"
+        backgroundImage="/hero-columns.webp"
         backgroundAlt="Sacred classical ruins and guided tour path"
       />
 
@@ -130,7 +130,10 @@ export default function ToursPage() {
                         {tour.name}
                       </CardTitle>
                     </div>
-                    <MythosMark id="compass" className="h-5 w-5 text-gold shrink-0 mt-1" />
+                    <MythosMark
+                      id="compass"
+                      className="h-5 w-5 text-gold shrink-0 mt-1"
+                    />
                   </div>
                   <div className="flex flex-wrap gap-2 pt-2">
                     <Badge
@@ -186,7 +189,9 @@ export default function ToursPage() {
                               <span className="text-muted-foreground text-[10px]">
                                 {i + 1}.
                               </span>
-                              <span className="truncate max-w-[120px]">{stop.name}</span>
+                              <span className="truncate max-w-[120px]">
+                                {stop.name}
+                              </span>
                             </Link>
                           </li>
                         ))}

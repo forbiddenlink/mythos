@@ -11,8 +11,18 @@ import { ArtifactJsonLd } from "@/components/seo/JsonLd";
 import { ArtifactProvenance } from "@/components/artifacts/ArtifactProvenance";
 import { SourceProvenance } from "@/components/deities/SourceProvenance";
 import artifactsData from "@/data/artifacts.json";
-import deitiesData from "@/data/deities.json";
-import storiesData from "@/data/stories.json";
+
+export interface ArtifactOwner {
+  id: string;
+  slug: string;
+  name: string;
+}
+
+export interface ArtifactRelatedStory {
+  id: string;
+  slug: string;
+  title: string;
+}
 
 interface Artifact {
   id: string;
@@ -37,9 +47,15 @@ interface Artifact {
 
 interface ArtifactPageClientProps {
   slug: string;
+  owner?: ArtifactOwner | null;
+  relatedStories?: ArtifactRelatedStory[];
 }
 
-export function ArtifactPageClient({ slug }: ArtifactPageClientProps) {
+export function ArtifactPageClient({
+  slug,
+  owner = null,
+  relatedStories = [],
+}: ArtifactPageClientProps) {
   const artifact =
     (artifactsData as Artifact[]).find(
       (item) => item.id === slug || item.slug === slug,
@@ -65,25 +81,6 @@ export function ArtifactPageClient({ slug }: ArtifactPageClientProps) {
       </div>
     );
   }
-  const owner = artifact.owner
-    ? ((deitiesData as Array<{ id: string; slug: string; name: string }>).find(
-        (deity) => deity.id === artifact.owner || deity.slug === artifact.owner,
-      ) ?? null)
-    : null;
-
-  const relatedStories = (artifact.relatedStories ?? [])
-    .map((id) => {
-      const story = (
-        storiesData as Array<{ id: string; slug: string; title: string }>
-      ).find((s) => s.id === id);
-      return story
-        ? { id: story.id, slug: story.slug, title: story.title }
-        : null;
-    })
-    .filter(
-      (s): s is { id: string; slug: string; title: string } => s !== null,
-    );
-
   return (
     <div className="min-h-screen">
       <ArtifactJsonLd

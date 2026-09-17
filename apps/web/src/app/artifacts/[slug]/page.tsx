@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { notFound, redirect } from "next/navigation";
 import artifacts from "@/data/artifacts.json";
+import deitiesData from "@/data/deities.json";
 import pantheons from "@/data/pantheons.json";
+import storiesData from "@/data/stories.json";
 import { canonicalArtifactSlug } from "@/lib/artifact-aliases";
 import { generateBaseMetadata, generateNotFoundMetadata } from "@/lib/metadata";
 import { ArtifactPageClient } from "./ArtifactPageClient";
@@ -91,5 +93,30 @@ export default async function ArtifactPage({ params }: PageProps) {
     notFound();
   }
 
-  return <ArtifactPageClient slug={slug} />;
+  const owner = artifact.owner
+    ? ((deitiesData as Array<{ id: string; slug: string; name: string }>).find(
+        (deity) => deity.id === artifact.owner || deity.slug === artifact.owner,
+      ) ?? null)
+    : null;
+
+  const relatedStories = (artifact.relatedStories ?? [])
+    .map((id) => {
+      const story = (
+        storiesData as Array<{ id: string; slug: string; title: string }>
+      ).find((s) => s.id === id);
+      return story
+        ? { id: story.id, slug: story.slug, title: story.title }
+        : null;
+    })
+    .filter(
+      (s): s is { id: string; slug: string; title: string } => s !== null,
+    );
+
+  return (
+    <ArtifactPageClient
+      slug={slug}
+      owner={owner}
+      relatedStories={relatedStories}
+    />
+  );
 }

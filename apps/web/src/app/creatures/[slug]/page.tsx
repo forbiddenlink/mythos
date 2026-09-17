@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound, redirect } from "next/navigation";
 import creatures from "@/data/creatures.json";
+import deitiesData from "@/data/deities.json";
 import pantheons from "@/data/pantheons.json";
 import { canonicalCreatureSlug } from "@/lib/creature-aliases";
 import { generateBaseMetadata, generateNotFoundMetadata } from "@/lib/metadata";
@@ -92,5 +93,19 @@ export default async function CreaturePage({ params }: PageProps) {
     notFound();
   }
 
-  return <CreaturePageClient slug={slug} />;
+  const samePantheonDeities = (
+    deitiesData as Array<{
+      id: string;
+      slug: string;
+      name: string;
+      pantheonId: string;
+    }>
+  )
+    .filter((d) => d.pantheonId === creature.pantheonId)
+    .slice(0, 4)
+    .map((d) => ({ id: d.id, slug: d.slug, name: d.name }));
+
+  return (
+    <CreaturePageClient slug={slug} samePantheonDeities={samePantheonDeities} />
+  );
 }

@@ -22,6 +22,13 @@ describe("parseSourceYear", () => {
     expect(parseSourceYear("c. late 2nd millennium BCE")).toBe(-1500);
   });
 
+  it("parses historical epoch keywords", () => {
+    expect(parseSourceYear("Old Kingdom")).toBe(-2500);
+    expect(parseSourceYear("New Kingdom and later")).toBe(-1300);
+    expect(parseSourceYear("Ptolemaic inscriptions")).toBe(-250);
+    expect(parseSourceYear("medieval; century disputed")).toBe(1100);
+  });
+
   it("returns null for undated / unparseable strings", () => {
     expect(parseSourceYear(undefined)).toBeNull();
     expect(parseSourceYear("unknown")).toBeNull();

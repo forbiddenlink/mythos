@@ -87,7 +87,7 @@
     "id": "apollo-sun",
     "fact": "Apollo wasn't originally the sun god — that was Helios. Apollo was god of music, poetry, and prophecy. They merged over time in popular imagination.",
     "category": "misconceptions",
-    "relatedDeities": ["apollo", "helios"]
+    "relatedDeities": ["apollo"]
   },
   {
     "id": "isis-name",
@@ -123,7 +123,7 @@
     "id": "pan-panic",
     "fact": "The word 'panic' comes from the god Pan, who could cause sudden, irrational fear in humans and animals with his terrifying shout.",
     "category": "language",
-    "relatedDeities": ["pan"]
+    "relatedDeities": []
   },
   {
     "id": "seth-red-hair",
@@ -147,7 +147,7 @@
     "id": "ganesh-head",
     "fact": "Ganesh got his elephant head because Shiva beheaded him (not recognizing his own son), then replaced it with the first head he found — an elephant's.",
     "category": "origins",
-    "relatedDeities": ["ganesh", "shiva"]
+    "relatedDeities": ["ganesha", "shiva"]
   },
   {
     "id": "echo-narcissus",
@@ -171,7 +171,7 @@
     "id": "midas-donkey",
     "fact": "King Midas had donkey ears as punishment for judging Pan's music better than Apollo's. His barber knew the secret and whispered it to a hole in the ground.",
     "category": "stories",
-    "relatedDeities": ["apollo", "pan"]
+    "relatedDeities": ["apollo"]
   },
   {
     "id": "janus-doors",
@@ -238,5 +238,185 @@
     "fact": "The Epic of Gilgamesh contains a flood story that predates the biblical Noah account by centuries — Utnapishtim survives a world-drowning storm in a sealed boat, guided by the god Ea.",
     "category": "connections",
     "relatedDeities": ["gilgamesh"]
+  },
+  {
+    "id": "hero-twins-ballgame",
+    "fact": "Hunahpu and Xbalanque (the Maya Hero Twins) defeated the death lords of Xibalba in a subterranean ballgame, even using a carved squash as a decoy head after Hunahpu was decapitated in the Bat House.",
+    "category": "stories",
+    "relatedDeities": ["hero-twins", "camazotz"]
+  },
+  {
+    "id": "chaac-cenotes",
+    "fact": "Chaac, the Maya rain deity, was believed to strike clouds with lightning axes to unleash thunderstorms. Ancient Maya priests made offerings in sacred limestone cenotes, which were seen as watery portals to his realm.",
+    "category": "symbolism",
+    "relatedDeities": ["chaac"]
+  },
+  {
+    "id": "kukulkan-equinox",
+    "fact": "At El Castillo in Chichen Itza during the spring and autumn equinoxes, the afternoon sun creates seven triangular shadows along the staircase that join a stone serpent head, creating the illusion of Kukulkan slithering down the pyramid.",
+    "category": "science",
+    "relatedDeities": ["kukulkan"]
+  },
+  {
+    "id": "tezcatlipoca-mirror",
+    "fact": "Tezcatlipoca's name means 'Smoking Mirror' in Nahuatl. He was depicted with an obsidian mirror replacing his right foot, which was torn off when he and Quetzalcoatl wrestled the primordial earth monster Cipactli to create the cosmos.",
+    "category": "origins",
+    "relatedDeities": ["tezcatlipoca", "quetzalcoatl", "tlaltecuhtli"]
+  },
+  {
+    "id": "huitzilopochtli-hummingbird",
+    "fact": "Huitzilopochtli was the patron sun god of Tenochtitlan and was represented as a hummingbird. The Aztecs believed that brave warriors fallen in battle accompanied the sun for four years before returning to earth as hummingbirds and butterflies.",
+    "category": "symbolism",
+    "relatedDeities": ["huitzilopochtli"]
+  },
+  {
+    "id": "tlaloc-goggle-eyes",
+    "fact": "Tlaloc was easily recognized in Mesoamerican codices by his distinctive 'goggle eyes' made of coiled serpents and jaguar fangs. The Great Temple (Templo Mayor) of Tenochtitlan gave him equal billing with Huitzilopochtli, balancing rain with war.",
+    "category": "history",
+    "relatedDeities": ["tlaloc", "huitzilopochtli"]
+  },
+  {
+    "id": "enki-cleverness",
+    "fact": "Enki, the Mesopotamian god of subterranean sweet waters (the Abzu) and wisdom, secretly saved humanity from the Great Flood by whispering the impending disaster through a reed wall to the sage Utnapishtim, circumventing an oath forced by Enlil.",
+    "category": "stories",
+    "relatedDeities": ["enki", "enlil", "gilgamesh"]
+  },
+  {
+    "id": "inanna-descent-underworld",
+    "fact": "When Inanna descended to Kur, the Mesopotamian underworld ruled by her sister Ereshkigal, she had to surrender one royal jewel or vestment at each of the seven gates until she stood completely stripped of her divine authority (me).",
+    "category": "stories",
+    "relatedDeities": ["inanna", "ereshkigal"]
+  },
+  {
+    "id": "marduk-tiamat-constellations",
+    "fact": "In the Babylonian creation epic Enūma Eliš, Marduk defeated the primordial ocean dragon Tiamat with the four winds and an imhullu net. He divided her body to form the sky and the earth, and organized the stars into the Babylonian constellations.",
+    "category": "origins",
+    "relatedDeities": ["marduk", "tiamat"]
+  },
+  {
+    "id": "nuwa-repairing-sky",
+    "fact": "When the celestial pillars collapsed during a cosmic war, tearing open the vault of heaven and inundating the earth, the creator goddess Nüwa smelted five-colored stones to mend the sky and cut the legs from a giant turtle to prop up the four quarters of the universe.",
+    "category": "stories",
+    "relatedDeities": ["nuwa"]
+  },
+  {
+    "id": "erlang-shen-third-eye",
+    "fact": "Erlang Shen, nephew of the Jade Emperor, possesses a third eye in the center of his forehead that can see through any supernatural illusion or disguise. In Journey to the West, he is the only warrior in heaven capable of matching Sun Wukong shapeshift for shapeshift.",
+    "category": "connections",
+    "relatedDeities": ["erlang-shen", "sun-wukong", "jade-emperor"]
+  },
+  {
+    "id": "guanyin-thousand-arms",
+    "fact": "Guanyin, the bodhisattva of compassion, is often depicted with a thousand hands and eyes. Tradition says that upon seeing the boundless misery of sentient beings, her head split into eleven pieces and her two arms into a thousand so she could reach out to aid all who call upon her.",
+    "category": "symbolism",
+    "relatedDeities": ["guanyin"]
+  },
+  {
+    "id": "shiva-natraja-dance",
+    "fact": "In his form as Nataraja, the Lord of Dance, Shiva performs the Ananda Tandava (Dance of Bliss) within a ring of flames. His dance simultaneously creates, maintains, dissolves, conceals, and liberates the cosmos while crushing Apasmara, the demon of spiritual ignorance.",
+    "category": "symbolism",
+    "relatedDeities": ["shiva"]
+  },
+  {
+    "id": "durga-weapons",
+    "fact": "Durga was manifested from the pooled fiery energy (tejas) of all the Hindu deities when the buffalo demon Mahishasura could not be conquered by any individual god. Each deity gifted her their supreme weapon — Shiva's trident, Vishnu's discus, and Indra's thunderbolt.",
+    "category": "origins",
+    "relatedDeities": ["durga", "shiva", "vishnu", "indra"]
+  },
+  {
+    "id": "hanuman-swallowing-sun",
+    "fact": "As a divine child, Hanuman saw the rising sun and mistook it for a sweet ripe mango fruit. He leaped millions of miles into space to eat it, prompting the thunder god Indra to strike him with a vajra that fractured his jaw — originating his name from 'hanu' (jaw).",
+    "category": "language",
+    "relatedDeities": ["hanuman", "indra"]
+  },
+  {
+    "id": "susanoo-yamata-no-orochi",
+    "fact": "The Shinto storm god Susanoo was expelled from heaven and descended to Izumo, where he rescued Princess Kushinadahime by slaying the eight-headed serpent Yamata no Orochi. Inside the beast's severed tail, he discovered the sacred sword Kusanagi, now an Imperial Regalia of Japan.",
+    "category": "stories",
+    "relatedDeities": ["susanoo"]
+  },
+  {
+    "id": "tsukuyomi-food-banishment",
+    "fact": "Tsukuyomi, the Shinto moon deity, was exiled from the presence of his sister Amaterasu after slaying the food kami Ukemochi in offense at how food was produced. This myth explains why the sun and moon are eternally separated and never meet in the sky.",
+    "category": "origins",
+    "relatedDeities": ["tsukuyomi", "amaterasu"]
+  },
+  {
+    "id": "inari-foxes",
+    "fact": "Inari, the Japanese kami of rice, agriculture, foxes, and prosperity, is served by celestial white foxes (byakko). Devotees offer fried tofu (aburaage) at Inari shrines because Japanese folklore held it to be the favorite food of kitsune messengers.",
+    "category": "symbolism",
+    "relatedDeities": ["inari"]
+  },
+  {
+    "id": "lugh-samhain",
+    "fact": "Lugh of the Long Arm was hailed as 'Samildánach' (skilled in all the arts). When seeking entry to the high king's court at Tara, he was denied as a carpenter, smith, and warrior because the hall already had them — but was welcomed when he proved no single man possessed all arts at once.",
+    "category": "stories",
+    "relatedDeities": ["lug"]
+  },
+  {
+    "id": "brigid-flame-imbolc",
+    "fact": "Brigid, the Celtic goddess of poetry, healing, and metallurgy, was venerated at Kildare with a perpetual sacred fire maintained by nineteen priestesses. Her feast day Imbolc on February 1 marked the midpoint between winter solstice and spring equinox, celebrating the first lactation of ewes.",
+    "category": "history",
+    "relatedDeities": ["brigid"]
+  },
+  {
+    "id": "nuada-silver-hand",
+    "fact": "Nuada, high king of the Tuatha Dé Danann, lost his right arm during the First Battle of Mag Tuired. Ancient Celtic sovereignty law forbade any physically blemished king from ruling, so the healer god Dian Cécht crafted him an articulated silver prosthetic hand to restore his throne.",
+    "category": "stories",
+    "relatedDeities": ["nuada", "dian-cecht"]
+  },
+  {
+    "id": "shango-axe-thunder",
+    "fact": "Shango, the Yoruba orisha of thunder, lightning, and royal power, was originally the third Alaafin (king) of the Oyo Empire before his apotheosis. Devotees carry the Oshe Shango, a double-headed wooden dance wand carved in the shape of a neolithic stone axe.",
+    "category": "history",
+    "relatedDeities": ["shango"]
+  },
+  {
+    "id": "oya-wind-cemetery",
+    "fact": "Oya, the fierce Yoruba orisha of the Niger River, sudden squalls, and transformation, commands nine tornados and stands guard at the entrance to cemeteries, shepherding the ancestral spirits (egungun). She rides ahead of Shango's storms, clearing the way with lightning.",
+    "category": "symbolism",
+    "relatedDeities": ["oya", "shango"]
+  },
+  {
+    "id": "obatala-white-cloth",
+    "fact": "Obatala, the elder orisha appointed by Olodumare to mold human forms out of clay, represents purity, moral clarity, and patience. Shrines dedicated to Obatala strictly forbid palm oil, salt, and alcohol, instead honoring the deity with pristine white cloth and cool fresh water.",
+    "category": "origins",
+    "relatedDeities": ["obatala", "olodumare"]
+  },
+  {
+    "id": "tane-separating-sky",
+    "fact": "In Māori cosmology, Tāne Mahuta (god of forests and birds) brought light into a formerly dark universe by placing his head against his mother Papa (Earth) and his feet against his father Rangi (Sky), violently forcing them apart to allow living things to grow between them.",
+    "category": "origins",
+    "relatedDeities": ["tane", "rangi"]
+  },
+  {
+    "id": "tangaroa-ocean-fish",
+    "fact": "Tangaroa, the Polynesian god of the ocean, is the progenitor of all marine life. In Polynesian navigational chants, wayfinders read swell patterns, bioluminescence, and sea currents as the breathing and movement of Tangaroa himself across thousands of miles of open water.",
+    "category": "symbolism",
+    "relatedDeities": ["tangaroa"]
+  },
+  {
+    "id": "mars-agriculture-war",
+    "fact": "While the Greek Ares was despised as mindless violence, Roman Mars was deeply revered as a protective agricultural guardian as well as a god of war. Roman farmers sacrificed a pig, sheep, and bull (the Suovetaurilia) to Mars to purify their crops and borders.",
+    "category": "misconceptions",
+    "relatedDeities": ["mars"]
+  },
+  {
+    "id": "vesta-eternal-flame",
+    "fact": "Vesta, goddess of the hearth and civic continuity, had no cult statue in her circular temple in the Roman Forum. The living presence of the goddess was the eternal flame itself, carefully tended day and night by the six Vestal Virgins to ensure the survival of Rome.",
+    "category": "history",
+    "relatedDeities": ["vesta"]
+  },
+  {
+    "id": "heimdall-gold-teeth",
+    "fact": "Heimdall, the sentry of Asgard who guards the Bifröst rainbow bridge against the jotnar, needed less sleep than a bird, had golden teeth (Gullintanni), and possessed ears so sharp he could hear the wool growing on sheep and the grass springing up through the soil.",
+    "category": "stories",
+    "relatedDeities": ["heimdall"]
+  },
+  {
+    "id": "sekhmet-beer-flood",
+    "fact": "When Ra sent Sekhmet to punish mortals for their rebellion, her ferocious slaughter threatened to extinguish all humanity. To stop her, Ra ordered 7,000 jars of barley beer dyed blood-red with pomegranate juice poured across the fields; Sekhmet drank it, fell asleep, and awakened as the gentle Hathor.",
+    "category": "stories",
+    "relatedDeities": ["sekhmet", "ra", "hathor"]
   }
 ]

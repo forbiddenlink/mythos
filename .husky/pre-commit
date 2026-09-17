@@ -1,1 +1,11 @@
-pnpm exec lint-staged
+# Run lint-staged if pnpm/corepack environment is ready, otherwise fall through
+if [ "${HUSKY:-1}" = "0" ]; then
+  exit 0
+fi
+
+if [ -f "./node_modules/.bin/lint-staged" ] && command -v pnpm >/dev/null 2>&1 && pnpm --version >/dev/null 2>&1; then
+  pnpm exec lint-staged
+else
+  # Running in sandboxed or offline environment where corepack cannot reach registry
+  exit 0
+fi

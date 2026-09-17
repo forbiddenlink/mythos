@@ -11,7 +11,6 @@ import { CreatureJsonLd, BreadcrumbJsonLd } from "@/components/seo/JsonLd";
 import { EditorialByline } from "@/components/content/EditorialByline";
 import { siteConfig } from "@/lib/metadata";
 import creaturesData from "@/data/creatures.json";
-import deitiesData from "@/data/deities.json";
 
 interface Creature {
   id: string;
@@ -31,11 +30,21 @@ interface Creature {
   imageUrl: string | null;
 }
 
-interface CreaturePageClientProps {
+export interface PantheonDeitySummary {
+  id: string;
   slug: string;
+  name: string;
 }
 
-export function CreaturePageClient({ slug }: CreaturePageClientProps) {
+interface CreaturePageClientProps {
+  slug: string;
+  samePantheonDeities?: PantheonDeitySummary[];
+}
+
+export function CreaturePageClient({
+  slug,
+  samePantheonDeities = [],
+}: CreaturePageClientProps) {
   const creature =
     (creaturesData as Creature[]).find(
       (item) => item.id === slug || item.slug === slug,
@@ -67,10 +76,6 @@ export function CreaturePageClient({ slug }: CreaturePageClientProps) {
 
   const samePantheonCreatures = creaturesData
     .filter((c) => c.pantheonId === creature.pantheonId && c.id !== creature.id)
-    .slice(0, 4);
-
-  const samePantheonDeities = deitiesData
-    .filter((d) => d.pantheonId === creature.pantheonId)
     .slice(0, 4);
 
   const breadcrumbItems = [

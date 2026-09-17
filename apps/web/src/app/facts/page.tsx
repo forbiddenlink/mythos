@@ -1,8 +1,27 @@
 import type { Metadata } from "next";
 import { generateBaseMetadata } from "@/lib/metadata";
 import { FAQJsonLd } from "@/components/seo/JsonLd";
-import { FactsPageClient } from "./FactsPageClient";
 import facts from "@/data/mythology-facts.json";
+import deitiesData from "@/data/deities.json";
+import { FactsPageClient, type FactDeityInfo } from "./FactsPageClient";
+
+// Computed on the server to keep the 586 KB deities.json out of the client bundle
+const DEITY_LOOKUP: Record<string, FactDeityInfo> = {};
+for (const d of deitiesData as Array<{
+  id: string;
+  slug: string;
+  name: string;
+  pantheonId: string;
+}>) {
+  const entry: FactDeityInfo = {
+    id: d.id,
+    slug: d.slug,
+    name: d.name,
+    pantheonId: d.pantheonId,
+  };
+  DEITY_LOOKUP[d.id] = entry;
+  DEITY_LOOKUP[d.slug] = entry;
+}
 
 export const metadata: Metadata = generateBaseMetadata({
   title: "Mythology Facts & Ancient Festival Almanac",
@@ -71,7 +90,7 @@ export default function FactsPage() {
   return (
     <>
       <FAQJsonLd questions={uniqueFaqQuestions} />
-      <FactsPageClient />
+      <FactsPageClient deityLookup={DEITY_LOOKUP} />
     </>
   );
 }

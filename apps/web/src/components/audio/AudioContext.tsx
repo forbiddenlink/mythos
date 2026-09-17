@@ -29,23 +29,26 @@ const PANTHEON_TRACKS: Record<string, string> = {
   default: "/audio/ambient/default.mp3",
 };
 
+import { resolveRoutePantheonId } from "@/lib/route-pantheon";
+
 /**
- * Resolve the ambient track key for a route. Pantheon hub pages use slugs in
- * the URL (/pantheons/greek) while the track keys are ids (greek-pantheon), so
- * the two never matched — the ambience always fell back to the default track.
- * Map the slug to its id, then fall back to a direct key-in-path check.
+ * Resolve the ambient track key for a route.
+ * Dynamically resolves pantheon hub routes (/pantheons/[slug]), deity detail
+ * routes (/deities/[slug]), and story routes (/stories/[slug]) to their
+ * corresponding cultural track.
  */
 function resolvePantheonTrackKey(pathname: string | null): string | null {
   if (!pathname) return null;
-  const hub = pathname.match(/^\/pantheons\/([a-z0-9-]+)/);
-  if (hub) {
-    const key = `${hub[1]}-pantheon`;
-    if (key in PANTHEON_TRACKS) return key;
+
+  const resolved = resolveRoutePantheonId(pathname);
+  if (resolved && resolved in PANTHEON_TRACKS) {
+    return resolved;
   }
+
   for (const key of Object.keys(PANTHEON_TRACKS)) {
     if (key !== "default" && pathname.includes(key)) return key;
   }
-  // Unrecognized route (a deity, story, or generic page): don't switch —
+  // Unrecognized route (a generic page like /about): don't switch —
   // let whatever pantheon ambience is playing carry over for continuity.
   return null;
 }
@@ -98,12 +101,7 @@ interface AudioContextType {
   playDomainEffect: (domain: string) => void;
   playUISound: (
     sound:
-      | "click"
-      | "hover"
-      | "achievement"
-      | "success"
-      | "error"
-      | "page-turn",
+      "click" | "hover" | "achievement" | "success" | "error" | "page-turn",
   ) => void;
 }
 
@@ -288,12 +286,7 @@ export function AudioProvider({ children }: { children: React.ReactNode }) {
   const playUISound = useCallback(
     async (
       sound:
-        | "click"
-        | "hover"
-        | "achievement"
-        | "success"
-        | "error"
-        | "page-turn",
+        "click" | "hover" | "achievement" | "success" | "error" | "page-turn",
     ) => {
       if (isMuted) return;
 

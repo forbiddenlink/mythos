@@ -267,7 +267,7 @@ function LocationsPageInner() {
         tagline="Sacred Geography"
         title="Locations"
         description="Browse temples, realms, and sacred sites by pantheon, place type, or historical era"
-        backgroundImage="/hero-columns.png"
+        backgroundImage="/hero-columns.webp"
         backgroundAlt="Classical temple columns and ancient sacred landscape"
         minHeight="min-h-[45vh]"
       />

@@ -39,9 +39,29 @@ export function parseSourceYear(raw: string | undefined): number | null {
   }
 
   const yearMatch = s.match(/(\d{1,4})/);
-  if (!yearMatch) return null;
-  const year = Number.parseInt(yearMatch[1], 10);
-  return bce ? -year : year;
+  if (yearMatch) {
+    const year = Number.parseInt(yearMatch[1], 10);
+    return bce ? -year : year;
+  }
+
+  // Historical epoch fallback midpoints (standard archaeological dating)
+  if (/Early Dynastic/i.test(s)) return -2900;
+  if (/Old Kingdom/i.test(s)) return -2500;
+  if (/Ur III/i.test(s)) return -2100;
+  if (/Middle Kingdom/i.test(s)) return -1900;
+  if (/New Kingdom/i.test(s)) return -1300;
+  if (/Ptolemaic/i.test(s)) return -250;
+  if (/Vedic/i.test(s)) return -1200;
+  if (/Shang/i.test(s)) return -1200;
+  if (/Zhou/i.test(s)) return -800;
+  if (/Han dynasty/i.test(s)) return -100;
+  if (/Tang dynasty/i.test(s)) return 750;
+  if (/Song dynasty/i.test(s)) return 1100;
+  if (/Ming dynasty/i.test(s)) return 1500;
+  if (/medieval/i.test(s)) return 1100;
+  if (/colonial/i.test(s)) return 1600;
+
+  return null;
 }
 
 /** Format a signed year back to a human label. */
