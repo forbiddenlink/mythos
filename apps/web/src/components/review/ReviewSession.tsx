@@ -41,7 +41,7 @@ export function ReviewSession({ onComplete }: ReviewSessionProps) {
 
   // Initialize session with due cards
   useEffect(() => {
-    generateCardsFromProgress();
+    void generateCardsFromProgress().catch(() => {});
   }, [generateCardsFromProgress]);
 
   // Set session cards when due cards are loaded
@@ -82,7 +82,7 @@ export function ReviewSession({ onComplete }: ReviewSessionProps) {
     setSessionCards([]);
     setSessionComplete(false);
     setSessionStats({ correct: 0, incorrect: 0 });
-    generateCardsFromProgress();
+    void generateCardsFromProgress().catch(() => {});
   };
 
   const todayStats = getTodayStats();

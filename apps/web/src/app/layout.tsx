@@ -8,6 +8,7 @@ import { BookmarksProvider } from "@/providers/bookmarks-provider";
 import { LeaderboardProvider } from "@/providers/leaderboard-provider";
 import { ProgressProvider } from "@/providers/progress-provider";
 import { QueryProvider } from "@/providers/query-provider";
+import { ReviewProvider } from "@/providers/review-provider";
 import { ThemeProvider } from "@/providers/theme-provider";
 import type { Metadata, Viewport } from "next";
 import { NextIntlClientProvider } from "next-intl";
@@ -90,23 +91,25 @@ export default async function RootLayout({
             <QueryProvider>
               <BookmarksProvider>
                 <ProgressProvider>
-                  <LeaderboardProvider>
-                    <AchievementNotificationProvider>
-                      <SkipToContent />
-                      <div className="flex min-h-screen flex-col">
-                        <Header />
-                        <main
-                          id="main-content"
-                          className="flex-1 scroll-mt-16"
-                          tabIndex={-1}
-                        >
-                          {children}
-                        </main>
-                        <Footer />
-                      </div>
-                      <GlobalClientAddons />
-                    </AchievementNotificationProvider>
-                  </LeaderboardProvider>
+                  <ReviewProvider>
+                    <LeaderboardProvider>
+                      <AchievementNotificationProvider>
+                        <SkipToContent />
+                        <div className="flex min-h-screen flex-col">
+                          <Header />
+                          <main
+                            id="main-content"
+                            className="flex-1 scroll-mt-16"
+                            tabIndex={-1}
+                          >
+                            {children}
+                          </main>
+                          <Footer />
+                        </div>
+                        <GlobalClientAddons />
+                      </AchievementNotificationProvider>
+                    </LeaderboardProvider>
+                  </ReviewProvider>
                 </ProgressProvider>
               </BookmarksProvider>
             </QueryProvider>

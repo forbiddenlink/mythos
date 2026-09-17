@@ -1,7 +1,5 @@
 "use client";
 
-import deitiesData from "@/data/deities.json";
-import storiesData from "@/data/stories.json";
 import {
   calculateAccuracy,
   createInitialCardState,
@@ -30,7 +28,7 @@ export interface ReviewContextValue {
   reviewState: ReviewState;
   dueCards: ReviewCard[];
   dueCount: number;
-  generateCardsFromProgress: () => void;
+  generateCardsFromProgress: () => Promise<void>;
   reviewCard: (cardId: string, rating: DifficultyRating) => void;
   getCardState: (cardId: string) => CardState | undefined;
   getTodayStats: () => { reviewed: number; correct: number; accuracy: number };
@@ -121,16 +119,38 @@ function formatPantheonLabel(pantheonId: string): string {
     .join(" ");
 }
 
-const ALL_DEITIES = deitiesData as ReviewDeityData[];
-const ALL_STORIES = storiesData as ReviewStoryData[];
+interface ReviewCardSources {
+  deityIndex: Map<string, ReviewDeityData>;
+  storyIndex: Map<string, ReviewStoryData>;
+}
 
-const DEITY_INDEX = new Map<string, ReviewDeityData>(
-  ALL_DEITIES.map((deity) => [deity.id.toLowerCase(), deity]),
-);
+let cardSourcesPromise: Promise<ReviewCardSources> | null = null;
 
-const STORY_INDEX = new Map<string, ReviewStoryData>(
-  ALL_STORIES.map((story) => [story.id.toLowerCase(), story]),
-);
+function loadCardSources(): Promise<ReviewCardSources> {
+  cardSourcesPromise ??= Promise.all([
+    import("@/data/deities.json"),
+    import("@/data/stories.json"),
+  ])
+    .then(([deitiesModule, storiesModule]) => {
+      const deities = deitiesModule.default as ReviewDeityData[];
+      const stories = storiesModule.default as ReviewStoryData[];
+
+      return {
+        deityIndex: new Map(
+          deities.map((deity) => [deity.id.toLowerCase(), deity]),
+        ),
+        storyIndex: new Map(
+          stories.map((story) => [story.id.toLowerCase(), story]),
+        ),
+      };
+    })
+    .catch((error: unknown) => {
+      cardSourcesPromise = null;
+      throw error;
+    });
+
+  return cardSourcesPromise;
+}
 
 export function ReviewProvider({
   children,
@@ -153,18 +173,8 @@ export function ReviewProvider({
       loaded.stats.correctToday = 0;
       loaded.stats.incorrectToday = 0;
 
-      // Update streak
-      const yesterday = getYesterday();
-      if (loaded.lastReviewDate === yesterday) {
-        loaded.stats.currentStreak += 1;
-        if (loaded.stats.currentStreak > loaded.stats.longestStreak) {
-          loaded.stats.longestStreak = loaded.stats.currentStreak;
-        }
-      } else if (loaded.lastReviewDate !== today) {
-        // Streak broken (not yesterday and not today)
-        if (loaded.lastReviewDate) {
-          loaded.stats.currentStreak = 0;
-        }
+      if (loaded.lastReviewDate && loaded.lastReviewDate !== getYesterday()) {
+        loaded.stats.currentStreak = 0;
       }
     }
 
@@ -181,14 +191,15 @@ export function ReviewProvider({
   }, [reviewState, mounted]);
 
   // Generate cards from user's viewed content
-  const generateCardsFromProgress = useCallback(() => {
+  const generateCardsFromProgress = useCallback(async () => {
+    const { deityIndex, storyIndex } = await loadCardSources();
     const viewedDeities = progressContext?.progress.deitiesViewed || [];
     const readStories = progressContext?.progress.storiesRead || [];
     const generatedCards: ReviewCard[] = [];
 
     // Generate deity-based cards
     viewedDeities.forEach((deityId) => {
-      const deity = DEITY_INDEX.get(deityId.toLowerCase());
+      const deity = deityIndex.get(deityId.toLowerCase());
       if (!deity) return;
 
       const domains = deity.domain ?? [];
@@ -236,7 +247,7 @@ export function ReviewProvider({
 
     // Generate story-based cards
     readStories.forEach((storyId) => {
-      const story = STORY_INDEX.get(storyId.toLowerCase());
+      const story = storyIndex.get(storyId.toLowerCase());
       if (!story) return;
 
       const storyCardId = generateCardId("story-character", storyId);
@@ -253,12 +264,15 @@ export function ReviewProvider({
     // Initialize card states for new cards
     setReviewState((prev) => {
       const newCards = { ...prev.cards };
+      let hasNewCards = false;
       generatedCards.forEach((card) => {
         if (!newCards[card.id]) {
           newCards[card.id] = createInitialCardState();
+          hasNewCards = true;
         }
       });
-      return { ...prev, cards: newCards };
+
+      return hasNewCards ? { ...prev, cards: newCards } : prev;
     });
 
     // Filter to only due cards
@@ -283,6 +297,7 @@ export function ReviewProvider({
   // Review a card with a rating
   const reviewCard = useCallback((cardId: string, rating: DifficultyRating) => {
     setReviewState((prev) => {
+      const today = getToday();
       const currentCardState = prev.cards[cardId] || createInitialCardState();
       const updatedCardState = updateCardState(currentCardState, rating);
 
@@ -297,6 +312,12 @@ export function ReviewProvider({
           (prev.stats.averageAccuracy / 100) * prev.stats.totalReviewed,
         ) + (isCorrect ? 1 : 0);
       const averageAccuracy = calculateAccuracy(totalCorrect, totalReviewed);
+      const isNewReviewDay = prev.lastReviewDate !== today;
+      const currentStreak = isNewReviewDay
+        ? prev.lastReviewDate === getYesterday()
+          ? prev.stats.currentStreak + 1
+          : 1
+        : prev.stats.currentStreak;
 
       return {
         ...prev,
@@ -305,13 +326,15 @@ export function ReviewProvider({
           [cardId]: updatedCardState,
         },
         todayReviewed: [...prev.todayReviewed, cardId],
-        lastReviewDate: getToday(),
+        lastReviewDate: today,
         stats: {
           ...prev.stats,
           totalReviewed,
           correctToday,
           incorrectToday,
           averageAccuracy,
+          currentStreak,
+          longestStreak: Math.max(prev.stats.longestStreak, currentStreak),
         },
       };
     });
@@ -348,7 +371,10 @@ export function ReviewProvider({
     () => ({
       reviewState,
       dueCards,
-      dueCount: dueCards.length,
+      dueCount: Object.entries(reviewState.cards).filter(
+        ([cardId, cardState]) =>
+          isCardDue(cardState) && !reviewState.todayReviewed.includes(cardId),
+      ).length,
       generateCardsFromProgress,
       reviewCard,
       getCardState,
@@ -378,7 +404,7 @@ const DEFAULT_REVIEW_CONTEXT: ReviewContextValue = {
   reviewState: DEFAULT_REVIEW_STATE,
   dueCards: [],
   dueCount: 0,
-  generateCardsFromProgress: () => {},
+  generateCardsFromProgress: async () => {},
   reviewCard: () => {},
   getCardState: () => undefined,
   getTodayStats: () => ({ reviewed: 0, correct: 0, accuracy: 0 }),

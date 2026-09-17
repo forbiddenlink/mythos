@@ -46,15 +46,13 @@ export function StreakBadge() {
 }
 
 export function ReviewCountBadge() {
-  const { dueCount, generateCardsFromProgress } = useReview();
+  const { dueCount } = useReview();
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     // eslint-disable-next-line react-hooks/set-state-in-effect -- track client hydration
     setMounted(true);
-    // Generate cards on mount to get accurate due count
-    generateCardsFromProgress();
-  }, [generateCardsFromProgress]);
+  }, []);
 
   // Don't render if no cards due
   if (!mounted || dueCount === 0) {

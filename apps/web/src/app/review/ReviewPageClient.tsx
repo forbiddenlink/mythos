@@ -19,7 +19,7 @@ export function ReviewPageClient() {
   const [isSessionActive, setIsSessionActive] = useState(false);
 
   useEffect(() => {
-    generateCardsFromProgress();
+    void generateCardsFromProgress().catch(() => {});
   }, [generateCardsFromProgress]);
 
   const todayStats = getTodayStats();

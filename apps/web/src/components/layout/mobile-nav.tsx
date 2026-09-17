@@ -32,14 +32,13 @@ interface MobileNavProps {
 
 function MobileQuickStats() {
   const { progress } = useProgress();
-  const { dueCount, generateCardsFromProgress } = useReview();
+  const { dueCount } = useReview();
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     // eslint-disable-next-line react-hooks/set-state-in-effect -- track client hydration
     setMounted(true);
-    generateCardsFromProgress();
-  }, [generateCardsFromProgress]);
+  }, []);
 
   if (!mounted) return null;
 
