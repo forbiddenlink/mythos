@@ -43,7 +43,24 @@ describe("formatYear", () => {
 });
 
 describe("attestationOf", () => {
-  it("finds the earliest source and tiers by corroboration", () => {
+  it("does not count multiple excerpts from one work as separate catalog coverage", () => {
+    const result = attestationOf([
+      {
+        text: "First passage",
+        source: "Apollodorus, Bibliotheca",
+        date: "100 CE",
+      },
+      {
+        text: "Second passage",
+        source: " apollodorus,  bibliotheca ",
+        date: "100 CE",
+      },
+    ]);
+    expect(result.count).toBe(1);
+    expect(result.tier).toBe("single");
+  });
+
+  it("finds the oldest dated catalogued work and reports catalog coverage", () => {
     const a = attestationOf([
       { text: "", source: "Hesiod, Theogony", date: "c. 700 BCE" },
       { text: "", source: "Homer, Iliad", date: "c. 750 BCE" },
@@ -52,6 +69,7 @@ describe("attestationOf", () => {
     expect(a.earliestYear).toBe(-750);
     expect(a.earliestSource?.source).toBe("Homer, Iliad");
     expect(a.tier).toBe("corroborated");
+    expect(a.label).toBe("Two catalogued works");
   });
 
   it("handles a single source and no sources", () => {
@@ -59,6 +77,7 @@ describe("attestationOf", () => {
       "single",
     );
     expect(attestationOf([]).tier).toBe("unattested");
+    expect(attestationOf([]).label).toBe("No catalogued sources");
     expect(attestationOf(undefined).earliestYear).toBeNull();
   });
 
@@ -69,5 +88,6 @@ describe("attestationOf", () => {
       { text: "", source: "C", date: "2 CE" },
     ]);
     expect(a.tier).toBe("well-attested");
+    expect(a.label).toBe("Three or more catalogued works");
   });
 });

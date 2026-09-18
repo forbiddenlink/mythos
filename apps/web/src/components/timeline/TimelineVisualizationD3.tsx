@@ -526,6 +526,7 @@ export function TimelineVisualizationD3({
         </Badge>
         <Button
           size="icon-sm"
+          aria-label="Reset timeline zoom"
           variant="outline"
           className="h-8 w-8 bg-black/50"
           onClick={() => {

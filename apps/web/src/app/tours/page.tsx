@@ -109,8 +109,8 @@ export default function ToursPage() {
                     <div className="absolute inset-0 bg-linear-to-t from-card via-card/25 to-transparent" />
                     <div className="absolute top-3 left-3">
                       <Badge
-                        className="capitalize text-white border-0 shadow-xs"
-                        style={{ backgroundColor: color }}
+                        className="capitalize bg-card text-foreground shadow-xs"
+                        style={{ borderColor: color }}
                       >
                         {prettyPantheon(tour.pantheonId)}
                       </Badge>

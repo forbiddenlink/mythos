@@ -26,6 +26,7 @@ export function Header() {
         links: [
           { href: "/pantheons", label: t("navigation.pantheons") },
           { href: "/deities", label: t("navigation.deities") },
+          { href: "/heroes", label: t("navigation.heroes") },
           { href: "/stories", label: t("navigation.stories") },
           { href: "/creatures", label: t("navigation.creatures") },
           { href: "/artifacts", label: t("navigation.artifacts") },
@@ -95,28 +96,28 @@ export function Header() {
           : "bg-transparent border-b border-transparent"
       }`}
     >
-      <div className="container mx-auto max-w-7xl flex h-16 items-center px-4">
+      <div className="container mx-auto max-w-7xl flex h-16 items-center px-2 sm:px-4">
         {/* Mobile Navigation Trigger */}
-        <div className="lg:hidden mr-2">
+        <div className="lg:hidden mr-1 sm:mr-2">
           <MobileNav sections={mobileNavSections} />
         </div>
 
         {/* Logo */}
         <Link
           href="/"
-          className="flex items-center gap-3 group mr-auto lg:mr-0"
+          className="flex items-center gap-1 sm:gap-3 group mr-auto lg:mr-0"
         >
           <div className="relative transition-transform duration-200 group-hover:scale-105">
-            <div className="absolute inset-0 bg-gold/20 rounded-lg blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            <div className="absolute inset-0 bg-gold/25 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             <div className="relative text-foreground group-hover:text-gold transition-colors duration-300">
               <Logo className="h-8 w-8 sm:h-9 sm:w-9" />
             </div>
           </div>
           <div className="flex flex-col">
-            <span className="font-serif text-lg font-semibold text-foreground tracking-wide leading-tight">
+            <span className="font-serif text-lg font-semibold text-foreground group-hover:text-gold tracking-wide leading-tight transition-colors duration-300">
               Mythos Atlas
             </span>
-            <span className="text-[10px] text-foreground/75 tracking-[0.15em] uppercase hidden sm:block">
+            <span className="text-[10px] text-gold/80 tracking-[0.2em] uppercase font-sans font-medium hidden sm:block">
               Ancient Mythology
             </span>
           </div>
@@ -128,7 +129,7 @@ export function Header() {
         </div>
 
         {/* Right Actions */}
-        <div className="flex items-center gap-2 ml-auto lg:ml-0">
+        <div className="flex items-center gap-0 sm:gap-2 ml-auto lg:ml-0">
           {/* Divider */}
           <div className="hidden lg:block w-px h-6 bg-border mx-2" />
 

@@ -13,6 +13,7 @@ import { cn } from "@/lib/utils";
 
 export interface CitationSourceItem {
   title: string;
+  url?: string;
   author?: string;
   lines?: string;
   book?: string;
@@ -23,7 +24,7 @@ export interface CitationSourceItem {
 
 interface CitationSourcesListProps {
   sources: CitationSourceItem[];
-  /** `story` = dark mythic cards; `deity` = default light cards */
+  /** Controls border emphasis; both variants follow the active theme. */
   variant?: "story" | "deity";
   className?: string;
 }
@@ -46,7 +47,7 @@ export function CitationSourcesList({
     <Card
       className={cn(
         isStory
-          ? "border-gold/20 bg-midnight-light/50"
+          ? "border-gold/20 bg-card"
           : "border-border/60 bg-card",
         className,
       )}
@@ -55,14 +56,14 @@ export function CitationSourcesList({
         <CardTitle
           className={cn(
             "text-2xl font-serif flex items-center gap-2",
-            isStory ? "text-parchment" : "text-foreground",
+            isStory ? "text-foreground" : "text-foreground",
           )}
         >
-          <BookMarked className="h-5 w-5 text-gold shrink-0" aria-hidden />
-          Primary references
+          <BookMarked className="h-5 w-5 text-gold-text shrink-0" aria-hidden />
+          References
         </CardTitle>
-        <CardDescription className={isStory ? "text-parchment/60" : undefined}>
-          Works this article draws on for names, plot, and chronology.
+        <CardDescription className={isStory ? "text-muted-foreground" : undefined}>
+          Sources used for this article.
         </CardDescription>
       </CardHeader>
       <CardContent>
@@ -73,19 +74,23 @@ export function CitationSourcesList({
               className={cn(
                 "rounded-lg border p-4",
                 isStory
-                  ? "border-gold/15 bg-midnight/30"
+                  ? "border-gold/15 bg-muted/30"
                   : "border-border/50 bg-muted/30",
               )}
             >
               <div className="flex flex-wrap items-baseline gap-2 gap-y-1">
-                <cite className="font-serif font-semibold not-italic text-gold">
-                  {c.title}
+                <cite className="font-serif font-semibold not-italic text-gold-text break-words">
+                  {c.url && /^https?:\/\//.test(c.url) ? (
+                    <a href={c.url} className="underline underline-offset-4 hover:text-gold-text">
+                      {c.title}
+                    </a>
+                  ) : c.title}
                 </cite>
                 {c.author && (
                   <span
                     className={cn(
                       "text-sm",
-                      isStory ? "text-parchment/80" : "text-muted-foreground",
+                      isStory ? "text-foreground" : "text-muted-foreground",
                     )}
                   >
                     — {c.author}
@@ -97,7 +102,7 @@ export function CitationSourcesList({
                     className={cn(
                       "text-[10px] uppercase tracking-wide",
                       c.type === "primary"
-                        ? "border-gold/40 text-gold/90"
+                        ? "border-gold/40 text-gold-text"
                         : "border-border text-muted-foreground",
                     )}
                   >
@@ -109,7 +114,7 @@ export function CitationSourcesList({
                 <p
                   className={cn(
                     "mt-2 text-sm font-mono",
-                    isStory ? "text-parchment/55" : "text-muted-foreground",
+                    isStory ? "text-muted-foreground" : "text-muted-foreground",
                   )}
                 >
                   {formatLocation(c)}

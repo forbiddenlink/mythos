@@ -192,7 +192,7 @@ export default function FamilyTreePage() {
               value={selectedPantheon}
               onValueChange={setSelectedPantheon}
             >
-              <SelectTrigger className="w-50">
+              <SelectTrigger className="min-w-0 flex-1 md:w-50 md:flex-none">
                 <SelectValue placeholder="Select Pantheon" />
               </SelectTrigger>
               <SelectContent>
@@ -237,7 +237,7 @@ export default function FamilyTreePage() {
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
               <CardTitle className="font-serif flex items-center gap-2">
                 {pantheonsData.find((p) => p.id === selectedPantheon)?.name}
-                <span className="text-muted-foreground font-sans font-normal text-sm opacity-60">
+                <span className="text-muted-foreground font-sans font-normal text-sm">
                   {viewMode === "hierarchical"
                     ? "Family Tree"
                     : "Network Graph"}

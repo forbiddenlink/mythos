@@ -57,7 +57,7 @@ export function RouteHero({
       />
       <div
         className={cn(
-          "relative z-20 text-center px-4 max-w-3xl mx-auto py-16",
+          "relative z-20 min-w-0 w-full break-words text-center px-4 max-w-3xl mx-auto py-16",
           contentClassName,
         )}
       >

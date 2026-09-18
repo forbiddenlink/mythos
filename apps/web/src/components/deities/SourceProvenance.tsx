@@ -5,17 +5,10 @@ import {
   type PrimarySource,
 } from "@/lib/attestation";
 
-const TIER_COLOR: Record<string, string> = {
-  "well-attested": "#d4af37",
-  corroborated: "#c9a227",
-  single: "#a1741f",
-  unattested: "#6b7280",
-};
-
 /**
- * A compact codex "marginalia" plate stating how firmly a figure is attested,
- * derived entirely from the recorded primary sources — corroboration as
- * confidence, plus the earliest dated attestation. No dates are invented.
+ * A compact codex "marginalia" plate summarizing the sources recorded for a
+ * figure in this catalog. It deliberately avoids treating the dataset as a
+ * complete survey of surviving evidence.
  */
 export function SourceProvenance({
   sources,
@@ -25,43 +18,41 @@ export function SourceProvenance({
   const att = attestationOf(sources ?? undefined);
   if (att.count === 0) return null;
 
-  const color = TIER_COLOR[att.tier];
-
   return (
     <aside
-      className="rounded-xl border border-gold/20 bg-midnight/40 p-5"
-      aria-label="Source attestation"
+      className="rounded-xl border border-gold/20 bg-muted/50 p-5"
+      aria-label="Catalogued sources"
     >
-      <div className="mb-3 flex items-center gap-2">
-        <ScrollText className="h-4 w-4 text-gold/70" aria-hidden />
-        <span className="font-serif text-xs uppercase tracking-[0.25em] text-gold/70">
-          Attestation
+      <div className="mb-3 flex flex-wrap items-center gap-2">
+        <ScrollText className="h-4 w-4 text-gold-text" aria-hidden />
+        <span className="font-serif text-xs uppercase tracking-[0.25em] text-gold-text">
+          Catalogued sources
         </span>
       </div>
 
-      <div className="flex items-center gap-2">
+      <div className="flex flex-wrap items-center gap-2">
         <span
-          className="inline-block h-2.5 w-2.5 rounded-full"
-          style={{ backgroundColor: color }}
+          className="inline-block h-2.5 w-2.5 rounded-full bg-gold"
           aria-hidden
         />
-        <span className="font-serif text-lg text-parchment">{att.label}</span>
-        <span className="text-sm text-parchment/50">
+        <span className="font-serif text-lg text-foreground">{att.label}</span>
+        <span className="text-sm text-muted-foreground">
           · {att.count} primary {att.count === 1 ? "source" : "sources"}
         </span>
       </div>
 
       {att.earliestYear !== null && att.earliestSource && (
-        <p className="mt-3 text-sm leading-relaxed text-parchment/70">
-          Earliest attestation{" "}
-          <span className="text-gold/90">{formatYear(att.earliestYear)}</span>
+        <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+          Oldest dated work in this catalog{" "}
+          <span className="text-gold-text">{formatYear(att.earliestYear)}</span>
           {" — "}
           <span className="italic">{att.earliestSource.source}</span>.
         </p>
       )}
 
-      <p className="mt-2 text-xs italic text-parchment/40">
-        Confidence reflects independent primary sources, not editorial opinion.
+      <p className="mt-2 text-xs italic text-muted-foreground">
+        Coverage reflects this catalog&apos;s source records; it does not establish
+        independent corroboration or the first surviving mention.
       </p>
     </aside>
   );

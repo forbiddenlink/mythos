@@ -9,7 +9,7 @@ import {
   type ReactNode,
 } from "react";
 
-export type BookmarkType = "deity" | "story" | "pantheon";
+export type BookmarkType = "deity" | "story" | "pantheon" | "hero" | "source";
 
 export interface Bookmark {
   type: BookmarkType;
@@ -44,7 +44,13 @@ function loadBookmarks(): Bookmark[] {
   if (typeof window === "undefined") return [];
   try {
     const stored = localStorage.getItem(BOOKMARKS_STORAGE_KEY);
-    return stored ? JSON.parse(stored) : [];
+    const bookmarks: Bookmark[] = stored ? JSON.parse(stored) : [];
+    // Hero pages previously stored saves as stories with a hero- prefix.
+    return bookmarks.map((bookmark) =>
+      bookmark.type === "story" && bookmark.id.startsWith("hero-")
+        ? { ...bookmark, type: "hero", id: bookmark.id.slice(5) }
+        : bookmark,
+    );
   } catch {
     return [];
   }

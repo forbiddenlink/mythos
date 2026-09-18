@@ -37,7 +37,7 @@ interface CommandDialogProps extends DialogProps {
 const CommandDialog = ({
   children,
   title = "Search mythology content",
-  description = "Search for deities, stories, creatures, artifacts, and locations.",
+  description = "Search for deities, heroes, stories, sources, creatures, artifacts, and locations.",
   ...props
 }: CommandDialogProps) => {
   return (

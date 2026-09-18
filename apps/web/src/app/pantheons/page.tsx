@@ -164,7 +164,7 @@ export default function PantheonsPage() {
                   {/* Card text */}
                   <CardHeader className="pb-2">
                     {/* Tracked uppercase culture tag */}
-                    <p className="mb-1.5 text-[10px] font-semibold tracking-[0.18em] uppercase text-muted-foreground/70">
+                    <p className="mb-1.5 text-[10px] font-semibold tracking-[0.18em] uppercase text-muted-foreground">
                       {pantheon.culture}
                     </p>
                     <CardTitle className="font-serif text-xl leading-tight text-foreground transition-colors duration-300 group-hover:text-gold">
@@ -174,7 +174,7 @@ export default function PantheonsPage() {
 
                   {pantheon.description && (
                     <CardContent className="pt-0">
-                      <p className="line-clamp-2 text-sm leading-relaxed text-muted-foreground/80">
+                      <p className="line-clamp-2 text-sm leading-relaxed text-muted-foreground">
                         {pantheon.description}
                       </p>
                     </CardContent>

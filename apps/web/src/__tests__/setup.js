@@ -3,6 +3,15 @@ import "@testing-library/jest-dom/vitest";
 // React 18+ / 19: enable act() in test env (quiets Radix/async focus updates in jsdom)
 globalThis.IS_REACT_ACT_ENVIRONMENT = true;
 
+// Ensure jsdom localStorage is bound to globalThis across Node 22+
+if (typeof window !== "undefined" && window.localStorage) {
+  Object.defineProperty(globalThis, "localStorage", {
+    value: window.localStorage,
+    configurable: true,
+    writable: true,
+  });
+}
+
 // Mock ResizeObserver
 global.ResizeObserver = class ResizeObserver {
   constructor(callback) {

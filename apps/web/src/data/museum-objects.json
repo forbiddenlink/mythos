@@ -1,0 +1,116 @@
+[
+  {
+    "id": "met-246432",
+    "storyIds": [
+      "labors-of-hercules"
+    ],
+    "title": "Bronze statuette of Herakles",
+    "institution": "The Metropolitan Museum of Art",
+    "accessionNumber": "96.9.432",
+    "date": "ca. 3rd–1st century BCE",
+    "culture": "Italic",
+    "medium": "Bronze",
+    "context": "Ancient object",
+    "description": "An Italic representation of the hero. The museum places it among statuettes showing Herakles advancing with club and bow; it does not identify a particular labour.",
+    "url": "https://www.metmuseum.org/art/collection/search/246432",
+    "imageRights": "Public Domain (museum record)",
+    "checkedAt": "2026-09-18",
+    "imageUrl": "https://collectionapi.metmuseum.org/api/collection/v1/iiif/246432/502661/main-image",
+    "imageAlt": "Bronze statuette of Herakles, bronze. Photograph: The Metropolitan Museum of Art."
+  },
+  {
+    "id": "met-251473",
+    "storyIds": [
+      "trojan-war"
+    ],
+    "title": "Marble relief fragment with scenes from the Trojan War",
+    "institution": "The Metropolitan Museum of Art",
+    "accessionNumber": "24.97.11",
+    "date": "1st half of 1st century CE",
+    "culture": "Roman",
+    "medium": "Palombino marble",
+    "context": "Ancient object",
+    "description": "This small relief belongs to the tabulae iliacae, which depict Trojan War scenes. The museum identifies a signature by Theodoros on the reverse. It documents Roman engagement with the story, not an event from the war.",
+    "url": "https://www.metmuseum.org/art/collection/search/251473",
+    "imageRights": "Public Domain (museum record)",
+    "checkedAt": "2026-09-18",
+    "imageUrl": "https://collectionapi.metmuseum.org/api/collection/v1/iiif/251473/539783/main-image",
+    "imageAlt": "Marble relief fragment with scenes from the Trojan War, palombino marble. Photograph: The Metropolitan Museum of Art."
+  },
+  {
+    "id": "met-204758",
+    "storyIds": [
+      "perseus-medusa"
+    ],
+    "title": "Perseus with the Head of Medusa",
+    "institution": "The Metropolitan Museum of Art",
+    "accessionNumber": "67.110.1",
+    "date": "1804–6",
+    "culture": "Italian, Rome",
+    "creator": "Antonio Canova",
+    "medium": "Marble",
+    "context": "Later interpretation",
+    "description": "Canova's sculpture presents Perseus holding Medusa's head. Made in the early nineteenth century, it shows the myth's later artistic reception rather than an ancient depiction.",
+    "url": "https://www.metmuseum.org/art/collection/search/204758",
+    "imageRights": "Public Domain (museum record)",
+    "checkedAt": "2026-09-18",
+    "imageUrl": "https://collectionapi.metmuseum.org/api/collection/v1/iiif/204758/486446/main-image",
+    "imageAlt": "Perseus with the Head of Medusa, marble. Photograph: The Metropolitan Museum of Art."
+  },
+  {
+    "id": "met-545802",
+    "storyIds": [
+      "osiris-myth"
+    ],
+    "title": "Statuette of Osiris",
+    "institution": "The Metropolitan Museum of Art",
+    "accessionNumber": "61.45",
+    "date": "664–332 BCE",
+    "culture": "Egyptian, Late Period",
+    "medium": "Leaded bronze",
+    "context": "Ancient object",
+    "description": "This figure shows Osiris in mummy form with the crook and flail of kingship. It provides evidence for his representation in Egyptian religious art, rather than depicting the full account of his death and restoration.",
+    "url": "https://www.metmuseum.org/art/collection/search/545802",
+    "imageRights": "Public Domain (museum record)",
+    "checkedAt": "2026-09-18",
+    "imageUrl": "https://collectionapi.metmuseum.org/api/collection/v1/iiif/545802/1814028/main-image",
+    "imageAlt": "Bronze figure of Osiris with a tall crown and arms crossed over the torso. Photograph: The Metropolitan Museum of Art."
+  },
+  {
+    "id": "met-329067",
+    "storyIds": [
+      "inanna-descent"
+    ],
+    "title": "Foundation figure of Ur-Namma holding a basket",
+    "institution": "The Metropolitan Museum of Art",
+    "accessionNumber": "47.49",
+    "date": "ca. 2112–2095 BCE",
+    "culture": "Neo-Sumerian",
+    "medium": "Copper alloy",
+    "context": "Religious context",
+    "description": "The inscription identifies this figure with a temple of Inanna built or restored by Ur-Namma. It shows the ruler, not Inanna, and provides context for her worship rather than illustrating her descent to the underworld.",
+    "url": "https://www.metmuseum.org/art/collection/search/329067",
+    "imageRights": "Public Domain (museum record)",
+    "checkedAt": "2026-09-18",
+    "imageUrl": "https://collectionapi.metmuseum.org/api/collection/v1/iiif/329067/1568016/main-image",
+    "imageAlt": "Copper-alloy foundation figure of a man holding a basket above his head. Photograph: The Metropolitan Museum of Art."
+  },
+  {
+    "id": "met-314081",
+    "storyIds": [
+      "first-twins-ibeji"
+    ],
+    "title": "Ibeji Twin Figure",
+    "institution": "The Metropolitan Museum of Art",
+    "accessionNumber": "1979.527.22",
+    "date": "19th–20th century",
+    "culture": "Yoruba peoples, Nigeria",
+    "creator": "Yoruba artist",
+    "medium": "Wood, beads, camwood powder, pigment",
+    "context": "Commemorative practice",
+    "description": "The museum connects ere ibeji figures with care for a deceased twin. This object supports the page’s discussion of remembrance; it is not evidence for the origin episode formerly published here.",
+    "url": "https://www.metmuseum.org/art/collection/search/314081",
+    "imageRights": "Image reuse not established; view at museum",
+    "checkedAt": "2026-09-18"
+  }
+]

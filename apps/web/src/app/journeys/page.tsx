@@ -36,7 +36,7 @@ const JourneyPreviewMap = dynamic(
     ssr: false,
     loading: () => (
       <div className="flex items-center justify-center h-48 rounded-lg bg-muted/50">
-        <Loader2 className="h-6 w-6 animate-spin text-gold" />
+        <Loader2 className="h-6 w-6 animate-spin text-gold-text" />
       </div>
     ),
   },
@@ -117,7 +117,7 @@ export default function JourneysPage() {
           Prefer a shorter study walk?{" "}
           <Link
             href="/tours"
-            className="text-gold underline-offset-4 hover:underline"
+            className="text-gold-text underline-offset-4 hover:underline"
           >
             Open guided tours
           </Link>
@@ -136,8 +136,8 @@ export default function JourneysPage() {
               key={stat.label}
               className="rounded-lg border border-border bg-card px-4 py-3 text-center"
             >
-              <stat.icon className="h-5 w-5 mx-auto mb-2 text-gold" />
-              <div className="text-2xl font-serif font-semibold text-gold">
+              <stat.icon className="h-5 w-5 mx-auto mb-2 text-gold-text" />
+              <div className="text-2xl font-serif font-semibold text-gold-text">
                 {stat.value}
               </div>
               <div className="text-xs text-muted-foreground uppercase tracking-wide mt-0.5">
@@ -148,7 +148,7 @@ export default function JourneysPage() {
         </div>
 
         {/* Journey Cards */}
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
           {journeys.map((journey) => {
             const colors = PANTHEON_COLORS[journey.pantheonId] || {
               bg: "#6b7280",
@@ -159,7 +159,7 @@ export default function JourneysPage() {
               <Link
                 key={journey.id}
                 href={`/journeys/${journey.slug}`}
-                className="group"
+                className="group min-w-0"
                 onMouseEnter={() => setHoveredJourney(journey.id)}
                 onMouseLeave={() => setHoveredJourney(null)}
               >
@@ -200,8 +200,8 @@ export default function JourneysPage() {
 
                   <CardHeader className="pb-2">
                     <div className="flex items-start justify-between gap-2">
-                      <div>
-                        <CardTitle className="text-xl group-hover:text-gold transition-colors">
+                      <div className="min-w-0">
+                        <CardTitle className="text-xl group-hover:text-gold-text transition-colors">
                           {journey.title}
                         </CardTitle>
                         <CardDescription className="text-sm mt-1">
@@ -212,7 +212,7 @@ export default function JourneysPage() {
                         </CardDescription>
                       </div>
                       <div className="w-10 h-10 rounded-full flex items-center justify-center bg-muted shrink-0 group-hover:bg-gold/20 transition-colors">
-                        <Compass className="h-5 w-5 text-muted-foreground group-hover:text-gold transition-colors" />
+                        <Compass className="h-5 w-5 text-muted-foreground group-hover:text-gold-text transition-colors" />
                       </div>
                     </div>
                   </CardHeader>
@@ -228,7 +228,7 @@ export default function JourneysPage() {
                         <Badge
                           key={wp.id}
                           variant="outline"
-                          className="text-xs border-border/50 text-muted-foreground"
+                          className="max-w-full whitespace-normal text-xs border-border/50 text-muted-foreground"
                         >
                           <MapPin className="h-3 w-3 mr-1" />
                           {wp.name}
@@ -249,7 +249,7 @@ export default function JourneysPage() {
                       <span className="text-xs text-muted-foreground truncate max-w-[70%]">
                         {journey.source}
                       </span>
-                      <span className="flex items-center text-xs font-medium text-gold group-hover:translate-x-1 transition-transform">
+                      <span className="flex items-center text-xs font-medium text-gold-text group-hover:translate-x-1 transition-transform">
                         Explore <ChevronRight className="h-3 w-3 ml-1" />
                       </span>
                     </div>
@@ -271,14 +271,13 @@ export default function JourneysPage() {
                 Explore story pages for Norse, Egyptian, and other traditions
                 while more guided journeys are mapped.
               </p>
-              <Link href="/stories">
-                <Button
-                  variant="outline"
-                  className="border-gold/30 hover:bg-gold/10 hover:text-gold"
-                >
-                  Explore Stories
-                </Button>
-              </Link>
+              <Button
+                asChild
+                variant="outline"
+                className="border-gold/30 hover:bg-gold/10 hover:text-gold-text"
+              >
+                <Link href="/stories">Explore Stories</Link>
+              </Button>
             </div>
           </div>
         </div>

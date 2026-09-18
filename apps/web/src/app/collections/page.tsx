@@ -111,7 +111,7 @@ export default function CollectionsPage() {
           </p>
         </section>
 
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
           {collections.map((collection) => {
             const Icon = iconMap[collection.icon] || Sparkles;
             const colors =

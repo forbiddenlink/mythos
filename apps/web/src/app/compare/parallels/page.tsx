@@ -163,15 +163,15 @@ export default function CrossPantheonParallelsPage() {
                           <Badge variant="secondary">{e.fromPantheon}</Badge>
                           <Link
                             href={`/deities/${e.fromSlug}`}
-                            className="font-serif font-semibold text-foreground hover:text-gold transition-colors"
+                            className="font-serif font-semibold text-foreground hover:text-gold-text transition-colors"
                           >
                             {e.fromName}
                           </Link>
-                          <span className="text-gold font-bold">↔</span>
+                          <span className="text-gold-text font-bold">↔</span>
                           <Badge variant="secondary">{e.toPantheon}</Badge>
                           <Link
                             href={`/deities/${e.toSlug}`}
-                            className="font-serif font-semibold text-foreground hover:text-gold transition-colors"
+                            className="font-serif font-semibold text-foreground hover:text-gold-text transition-colors"
                           >
                             {e.toName}
                           </Link>
@@ -195,7 +195,7 @@ export default function CrossPantheonParallelsPage() {
           <strong>Editorial Standards:</strong> Parallels and universal
           archetypes reflect cross-cultural motifs and historical syncretism
           rather than genetic identity. Explore the{" "}
-          <Link href="/about" className="text-gold hover:underline">
+          <Link href="/about" className="text-gold-text hover:underline">
             About
           </Link>{" "}
           page for our methodology and citation standards.

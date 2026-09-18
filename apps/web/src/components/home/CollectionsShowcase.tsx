@@ -46,16 +46,17 @@ export function CollectionsShowcase() {
               war — grouped for comparative reading.
             </p>
           </div>
-          <Link href="/collections">
-            <Button
-              variant="ghost"
-              size="sm"
-              className="text-gold-text hover:text-gold-text/80"
-            >
+          <Button
+            asChild
+            variant="ghost"
+            size="sm"
+            className="text-gold-text hover:text-gold-text/80"
+          >
+            <Link href="/collections">
               View all {collections.length}
               <ArrowRight className="h-4 w-4 ml-1" />
-            </Button>
-          </Link>
+            </Link>
+          </Button>
         </div>
 
         <ol className="divide-y divide-border/70 border-y border-border/70">

@@ -103,7 +103,11 @@ export function JourneyPreviewMap({
         iconSize: [12, 12],
         iconAnchor: [6, 6],
       });
-      L.marker(sortedWaypoints[0].coordinates, { icon: startIcon }).addTo(map);
+      L.marker(sortedWaypoints[0].coordinates, {
+        icon: startIcon,
+        interactive: false,
+        keyboard: false,
+      }).addTo(map);
 
       // End marker
       if (sortedWaypoints.length > 1) {
@@ -122,6 +126,8 @@ export function JourneyPreviewMap({
         });
         L.marker(sortedWaypoints[sortedWaypoints.length - 1].coordinates, {
           icon: endIcon,
+          interactive: false,
+          keyboard: false,
         }).addTo(map);
       }
 
@@ -139,7 +145,11 @@ export function JourneyPreviewMap({
           iconSize: [6, 6],
           iconAnchor: [3, 3],
         });
-        L.marker(wp.coordinates, { icon: dotIcon }).addTo(map);
+        L.marker(wp.coordinates, {
+          icon: dotIcon,
+          interactive: false,
+          keyboard: false,
+        }).addTo(map);
       });
     }
 

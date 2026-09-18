@@ -6,7 +6,7 @@ import { getSyncretismChains } from "@/lib/linked-mentions";
 import { MythosMark } from "@/components/icons/mythos-marks";
 
 /**
- * Homepage "Same Gods, Different Names" strip — curated syncretism chains
+ * Homepage comparison strip — curated thematic groups
  * drawn from crossPantheonParallels (mythologies.wiki pattern).
  */
 export function SyncretismStrip() {
@@ -20,14 +20,14 @@ export function SyncretismStrip() {
           <div>
             <div className="mb-2 flex items-center gap-2 text-xs uppercase tracking-[0.25em] text-gold-text">
               <MythosMark id="scales" className="h-4 w-4 text-gold" />
-              Same gods, different names
+              Across traditions
             </div>
             <h2 className="font-serif text-3xl font-semibold text-foreground md:text-4xl">
-              When cultures met, deities traveled
+              Compare figures and traditions
             </h2>
             <p className="mt-2 max-w-2xl text-muted-foreground">
-              Follow one figure across pantheons — Roman equivalents, sky-father
-              analogues, and living syncretism — then open any name to compare.
+              Explore figures grouped by related roles. Similarities do not by
+              themselves establish a shared origin or historical identification.
             </p>
           </div>
           <Link
@@ -52,7 +52,7 @@ export function SyncretismStrip() {
                   <span key={m.slug} className="inline-flex items-center gap-2">
                     {i > 0 && (
                       <span className="text-gold/50" aria-hidden>
-                        =
+                        ·
                       </span>
                     )}
                     <Link

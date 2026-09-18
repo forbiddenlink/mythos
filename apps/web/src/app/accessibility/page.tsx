@@ -12,12 +12,12 @@ export const metadata: Metadata = generateBaseMetadata({
 export default function AccessibilityPage() {
   return (
     <div className="container mx-auto max-w-4xl px-4 py-12">
-      <h1 className="font-display text-4xl font-bold text-gold">
+      <h1 className="font-display text-4xl font-bold text-gold-text">
         Accessibility Statement
       </h1>
       <p className="mt-2 text-muted-foreground">Last updated: July 23, 2026</p>
 
-      <div className="prose prose-invert mt-8 max-w-none space-y-8">
+      <div className="prose dark:prose-invert mt-8 max-w-none space-y-8">
         <section>
           <h2 className="font-display text-2xl font-semibold text-foreground">
             Commitment
@@ -59,7 +59,7 @@ export default function AccessibilityPage() {
             If you encounter a barrier, please tell us via the{" "}
             <Link
               href="/contact"
-              className="text-gold underline hover:text-gold/80"
+              className="text-gold-text underline hover:text-gold-text"
             >
               contact page
             </Link>

@@ -229,13 +229,22 @@ export function JourneyMap({
         journey.pantheonId,
       );
 
-      const marker = L.marker(waypoint.coordinates, { icon })
-        .addTo(map)
+      const marker = L.marker(waypoint.coordinates, {
+        icon,
+        title: `Stop ${waypoint.order}: ${waypoint.name}`,
+      })
         .on("click", () => {
           setCurrentWaypointIndex(index);
           setVisitedWaypoints((prev) => new Set([...prev, index]));
           onWaypointSelect?.(waypoint);
         });
+
+      marker.on("add", () => {
+        marker
+          .getElement()
+          ?.setAttribute("aria-label", `Stop ${waypoint.order}: ${waypoint.name}`);
+      });
+      marker.addTo(map);
 
       // Add popup
       const popupContent = `
@@ -438,6 +447,7 @@ export function JourneyMap({
             {sortedWaypoints.map((wp, index) => (
               <button
                 key={wp.id}
+                type="button"
                 onClick={() => {
                   setCurrentWaypointIndex(index);
                   setVisitedWaypoints((prev) => new Set([...prev, index]));
@@ -461,6 +471,7 @@ export function JourneyMap({
                       : "#9ca3af",
                 }}
                 title={wp.name}
+                aria-label={`Go to stop ${wp.order}: ${wp.name}`}
               >
                 {wp.order}
               </button>

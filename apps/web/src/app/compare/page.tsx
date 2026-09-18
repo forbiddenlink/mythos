@@ -184,12 +184,12 @@ export default function ComparePage() {
         <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between mb-8">
           <div className="flex flex-wrap items-center gap-2 sm:gap-4">
             <Breadcrumbs />
-            <Link href="/compare/myths">
-              <Button variant="ghost" size="sm" className="gap-2">
+            <Button asChild variant="ghost" size="sm" className="gap-2">
+              <Link href="/compare/myths">
                 <BookOpen className="h-4 w-4" />
                 {t("compareMyths")}
-              </Button>
-            </Link>
+              </Link>
+            </Button>
             {selectedDeities.length > 0 && (
               <span className="text-xs text-muted-foreground rounded-full border border-border px-2 py-1">
                 {t("selectedCount", { count: selectedDeities.length, max: 4 })}

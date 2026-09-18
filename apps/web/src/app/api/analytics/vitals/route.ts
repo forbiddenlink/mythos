@@ -1,8 +1,23 @@
 import { NextResponse } from "next/server";
+import { readJsonBody } from "@/lib/http/read-json-body";
+
+const MAX_REQUEST_BODY_BYTES = 8 * 1024;
 
 export async function POST(request: Request) {
   try {
-    const _metric = await request.json();
+    const body = await readJsonBody(request, MAX_REQUEST_BODY_BYTES);
+    if (!body.ok) {
+      return NextResponse.json(
+        {
+          error:
+            body.reason === "too_large"
+              ? "Request body too large"
+              : "Invalid request",
+        },
+        { status: body.reason === "too_large" ? 413 : 400 },
+      );
+    }
+    const _metric = body.value;
 
     // In production, you could forward to:
     // - Google Analytics

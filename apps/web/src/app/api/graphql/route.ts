@@ -8,6 +8,7 @@ import stories from "@/data/stories.json";
 import Fuse from "fuse.js";
 import { logger } from "@/lib/logger";
 import { NextRequest, NextResponse } from "next/server";
+import { readJsonBody } from "@/lib/http/read-json-body";
 import type { ZodType } from "zod";
 import {
   ArtifactsArraySchema,
@@ -455,25 +456,26 @@ function resolveQueryData(
 
 export async function POST(request: NextRequest) {
   try {
-    const raw = await request.text();
-    if (raw.length > 8_000) {
+    const body = await readJsonBody(request, 8_000);
+    if (!body.ok) {
       return NextResponse.json(
-        { errors: [{ message: "Query too large" }] },
-        { status: 413 },
+        {
+          errors: [
+            {
+              message:
+                body.reason === "too_large"
+                  ? "Query too large"
+                  : "Invalid JSON body",
+            },
+          ],
+        },
+        { status: body.reason === "too_large" ? 413 : 400 },
       );
     }
 
-    let body: { query?: unknown; variables?: unknown };
-    try {
-      body = JSON.parse(raw) as { query?: unknown; variables?: unknown };
-    } catch {
-      return NextResponse.json(
-        { errors: [{ message: "Invalid JSON body" }] },
-        { status: 400 },
-      );
-    }
+    const queryBody = body.value as { query?: unknown; variables?: unknown };
 
-    const query = typeof body?.query === "string" ? body.query : "";
+    const query = typeof queryBody.query === "string" ? queryBody.query : "";
 
     if (!query) {
       return NextResponse.json({
@@ -488,7 +490,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const variables = normalizeVariables(body?.variables);
+    const variables = normalizeVariables(queryBody.variables);
     const data = resolveQueryData(query, variables);
 
     return NextResponse.json(

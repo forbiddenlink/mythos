@@ -302,6 +302,8 @@ function LocationsPageInner() {
                     size="sm"
                     onClick={() => setViewMode("map")}
                     className="gap-2 h-8"
+                    aria-label="Show map view"
+                    aria-pressed={viewMode === "map"}
                   >
                     <Map className="h-4 w-4" />{" "}
                     <span className="hidden sm:inline">Map</span>
@@ -311,6 +313,8 @@ function LocationsPageInner() {
                     size="sm"
                     onClick={() => setViewMode("list")}
                     className="gap-2 h-8"
+                    aria-label="Show list view"
+                    aria-pressed={viewMode === "list"}
                   >
                     <List className="h-4 w-4" />{" "}
                     <span className="hidden sm:inline">List</span>
@@ -382,7 +386,6 @@ function LocationsPageInner() {
                 </div>
                 <div className="flex flex-wrap gap-1.5 max-h-24 overflow-y-auto scrollbar-thin">
                   {pantheonsWithLocations.map((p) => {
-                    const colors = PANTHEON_COLORS[p.id];
                     const isActive = activePantheons.has(p.id);
                     return (
                       <button
@@ -390,12 +393,9 @@ function LocationsPageInner() {
                         onClick={() => togglePantheon(p.id)}
                         className={`text-xs px-3 py-1.5 rounded-full border transition-all ${
                           isActive
-                            ? "border-transparent text-white"
+                            ? "border-gold bg-gold text-midnight"
                             : "border-border text-muted-foreground bg-muted/30 hover:bg-muted"
                         }`}
-                        style={
-                          isActive ? { backgroundColor: colors.bg } : undefined
-                        }
                       >
                         {p.name}
                       </button>
@@ -454,7 +454,7 @@ function LocationsPageInner() {
               key={stat.label}
               className="rounded-lg border border-border bg-card px-4 py-3 text-center"
             >
-              <div className="text-2xl font-serif font-semibold text-gold">
+              <div className="text-2xl font-serif font-semibold text-foreground">
                 {stat.value}
               </div>
               <div className="text-xs text-muted-foreground uppercase tracking-wide mt-0.5">
@@ -537,47 +537,7 @@ function LocationsPageInner() {
                     <Card
                       key={location.id}
                       asArticle
-                      tabIndex={hasCords ? 0 : undefined}
-                      role={hasCords ? "button" : undefined}
-                      className={`group cursor-pointer hover:border-gold/50 transition-all duration-300 ${hasCords ? "" : "opacity-75 grayscale-[0.5]"}`}
-                      onClick={() => {
-                        if (
-                          hasCords &&
-                          location.latitude &&
-                          location.longitude
-                        ) {
-                          // Dispatch custom event for Map component to listen to
-                          globalThis.dispatchEvent(
-                            new CustomEvent("flyToLocation", {
-                              detail: {
-                                lat: location.latitude,
-                                lng: location.longitude,
-                              },
-                            }),
-                          );
-                          // On mobile, switch to map view
-                          if (globalThis.innerWidth < 1024) setViewMode("map");
-                        }
-                      }}
-                      onKeyDown={(e) => {
-                        if (
-                          (e.key === "Enter" || e.key === " ") &&
-                          hasCords &&
-                          location.latitude &&
-                          location.longitude
-                        ) {
-                          e.preventDefault();
-                          globalThis.dispatchEvent(
-                            new CustomEvent("flyToLocation", {
-                              detail: {
-                                lat: location.latitude,
-                                lng: location.longitude,
-                              },
-                            }),
-                          );
-                          if (globalThis.innerWidth < 1024) setViewMode("map");
-                        }
-                      }}
+                      className={`group hover:border-gold/50 transition-all duration-300 ${hasCords ? "" : "opacity-75 grayscale-[0.5]"}`}
                     >
                       <div className="h-1" style={{ background: colors.bg }} />
                       <div className="flex p-4 pb-2 gap-3 items-start">
@@ -598,7 +558,24 @@ function LocationsPageInner() {
                               {location.name}
                             </h3>
                             {hasCords ? (
-                              <MapPin className="h-3 w-3 text-muted-foreground shrink-0 mt-0.5" />
+                              <button
+                                type="button"
+                                className="mt-0.5 shrink-0 rounded-sm text-muted-foreground hover:text-gold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold/50"
+                                aria-label={`Show ${location.name} on the map`}
+                                onClick={() => {
+                                  globalThis.dispatchEvent(
+                                    new CustomEvent("flyToLocation", {
+                                      detail: {
+                                        lat: location.latitude,
+                                        lng: location.longitude,
+                                      },
+                                    }),
+                                  );
+                                  if (globalThis.innerWidth < 1024) setViewMode("map");
+                                }}
+                              >
+                                <MapPin className="h-3 w-3" aria-hidden="true" />
+                              </button>
                             ) : (
                               <span className="text-[10px] border border-border px-1 rounded shrink-0">
                                 Myth

@@ -12,6 +12,20 @@ import { installLocalStorageMock } from '../utils/mocks';
 
 describe('search', () => {
   describe('searchAll', () => {
+    it('finds heroes by name and alternate name with a working destination', () => {
+      for (const query of ['Heracles', 'Hercules']) {
+        const hero = searchAll(query).find(result => result.type === 'hero');
+        expect(hero?.slug).toBe('heracles');
+        expect(getResultUrl(hero!)).toBe('/heroes/heracles');
+      }
+    });
+
+    it('finds primary works and links to their source records', () => {
+      const source = searchAll('Iliad').find(result => result.type === 'source');
+      expect(source?.slug).toBe('iliad');
+      expect(getResultUrl(source!)).toBe('/sources/iliad');
+    });
+
     it('should return empty array for queries under 2 characters', () => {
       expect(searchAll('')).toEqual([]);
       expect(searchAll('a')).toEqual([]);

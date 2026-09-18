@@ -459,9 +459,16 @@ export function MapVisualization({
           footer.appendChild(learnMore);
           popupContent.appendChild(footer);
 
-          L.marker([location.latitude!, location.longitude!], { icon })
-            .bindPopup(popupContent, { maxWidth: 350 })
-            .addTo(markersLayer);
+          const marker = L.marker([location.latitude!, location.longitude!], {
+            icon,
+            title: `${location.name}: ${typeLabel}`,
+          }).bindPopup(popupContent, { maxWidth: 350 });
+          marker.on("add", () => {
+            marker
+              .getElement()
+              ?.setAttribute("aria-label", `${location.name}: ${typeLabel}`);
+          });
+          marker.addTo(markersLayer);
         } else {
           // Cluster marker
           const clusterIcon = createClusterIcon(cluster.locations.length);
@@ -520,11 +527,19 @@ export function MapVisualization({
           clusterFooter.textContent = "Zoom in or click a location";
           clusterPopup.appendChild(clusterFooter);
 
-          L.marker([cluster.center.lat, cluster.center.lng], {
+          const marker = L.marker([cluster.center.lat, cluster.center.lng], {
             icon: clusterIcon,
-          })
-            .bindPopup(clusterPopup, { maxWidth: 300 })
-            .addTo(markersLayer);
+            title: `Cluster of ${cluster.locations.length} locations`,
+          }).bindPopup(clusterPopup, { maxWidth: 300 });
+          marker.on("add", () => {
+            marker
+              .getElement()
+              ?.setAttribute(
+                "aria-label",
+                `Cluster of ${cluster.locations.length} locations. Open locations.`,
+              );
+          });
+          marker.addTo(markersLayer);
         }
       });
     };
@@ -575,6 +590,7 @@ export function MapVisualization({
         {/* All button */}
         <button
           onClick={() => setActivePantheonFilter(null)}
+          aria-pressed={activePantheonFilter === null}
           className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all shadow-sm backdrop-blur-sm ${
             activePantheonFilter === null
               ? "bg-gold text-midnight border border-gold"
@@ -598,16 +614,12 @@ export function MapVisualization({
               onClick={() =>
                 setActivePantheonFilter(isActive ? null : pantheon.id)
               }
+              aria-pressed={isActive}
               className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all shadow-sm backdrop-blur-sm flex items-center gap-1.5 ${
                 isActive
-                  ? "text-white border-transparent"
+                  ? "bg-gold text-midnight border border-gold"
                   : "bg-card/90 text-muted-foreground border border-border hover:border-gold/50"
               }`}
-              style={
-                isActive
-                  ? { backgroundColor: colors?.bg || "#6b7280" }
-                  : undefined
-              }
             >
               <span
                 className="w-2 h-2 rounded-full"
@@ -615,7 +627,7 @@ export function MapVisualization({
               />
               {colors?.label || pantheon.name}
               <span
-                className={`text-[10px] ${isActive ? "text-white/70" : "text-muted-foreground/70"}`}
+                className={isActive ? "text-midnight/80" : "text-muted-foreground"}
               >
                 ({count})
               </span>
@@ -627,6 +639,7 @@ export function MapVisualization({
         <div className="ml-auto">
           <button
             onClick={() => setEnableClustering(!enableClustering)}
+            aria-pressed={enableClustering}
             className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all shadow-sm backdrop-blur-sm flex items-center gap-1.5 ${
               enableClustering
                 ? "bg-gold/20 text-gold border border-gold/30"
@@ -660,9 +673,15 @@ export function MapVisualization({
         ref={containerRef}
         role="region"
         aria-label="Mythology locations map"
-        className="z-0 w-full h-full"
+        className="mythos-locations-map z-0 w-full h-full"
         style={{ width: "100%", height: "100%", minHeight: "500px" }}
       />
+
+      <style jsx global>{`
+        .mythos-locations-map .leaflet-control-attribution a {
+          color: var(--gold-text);
+        }
+      `}</style>
 
       {/* Map stats overlay */}
       <div className="absolute bottom-4 left-4 z-1000 bg-card/90 backdrop-blur-sm border border-border rounded-lg px-3 py-2 text-xs text-muted-foreground">

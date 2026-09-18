@@ -1,7 +1,6 @@
 "use client";
 
 import { useContext, useEffect } from "react";
-import dynamic from "next/dynamic";
 import {
   Card,
   CardContent,
@@ -9,7 +8,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Loader2, Tag, ScrollText, Volume2, Square, Play } from "lucide-react";
+import { Tag, ScrollText, Volume2, Square, Play } from "lucide-react";
 import { HeroMark } from "@/components/icons/hero-mark";
 import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
 import { BookmarkButton } from "@/components/ui/bookmark-button";
@@ -21,22 +20,8 @@ import Image from "next/image";
 import ReactMarkdown from "react-markdown";
 import { useTextToSpeech } from "@/hooks/useTextToSpeech";
 import { RouteHero } from "@/components/layout/route-hero";
+import { MuseumObjects } from "@/components/stories/MuseumObjects";
 
-// Lazy load heavy Three.js-based artifact viewer
-const ArtifactViewer = dynamic(
-  () =>
-    import("@/components/artifacts/ArtifactViewer").then((mod) => ({
-      default: mod.ArtifactViewer,
-    })),
-  {
-    loading: () => (
-      <div className="h-75 flex items-center justify-center">
-        <Loader2 className="h-8 w-8 animate-spin text-gold" />
-      </div>
-    ),
-    ssr: false,
-  },
-);
 import { ProgressContext } from "@/providers/progress-provider";
 import { RelatedContent } from "@/components/related-content";
 import { MythVariants } from "@/components/stories/MythVariants";
@@ -369,7 +354,7 @@ export function StoryPageClient({ slug }: StoryPageClientProps) {
           {story.fullNarrative ? (
             <section className="reveal-on-scroll max-w-[68ch]">
               <h2 className="chapter-mark font-serif text-2xl font-semibold text-foreground mb-5 border-l-4 border-gold pl-4">
-                The Tale
+                Editorial narrative
               </h2>
               <div className="illuminated-tale prose dark:prose-invert prose-gold max-w-none prose-p:leading-relaxed prose-headings:font-serif prose-headings:text-gold-text prose-strong:text-foreground prose-blockquote:border-l-gold/40 prose-li:marker:text-gold/50">
                 <ReactMarkdown>{story.fullNarrative}</ReactMarkdown>
@@ -390,11 +375,11 @@ export function StoryPageClient({ slug }: StoryPageClientProps) {
           {story.keyExcerpts && (
             <section className="max-w-[68ch]">
               <h2 className="font-serif text-xl font-semibold text-foreground mb-4">
-                Key Passages
+                Story highlights
               </h2>
-              <blockquote className="border-l-2 border-gold/40 bg-muted/40 px-5 py-4 text-muted-foreground italic leading-relaxed whitespace-pre-line">
+              <p className="border-l-2 border-gold/40 bg-muted/40 px-5 py-4 text-muted-foreground leading-relaxed whitespace-pre-line">
                 {story.keyExcerpts}
-              </blockquote>
+              </p>
             </section>
           )}
 
@@ -463,6 +448,7 @@ export function StoryPageClient({ slug }: StoryPageClientProps) {
             )}
 
           {/* Further Reading */}
+          <MuseumObjects storyId={story.id} />
           {story.furtherReading && story.furtherReading.length > 0 && (
             <ReferencesList
               references={story.furtherReading}
@@ -500,34 +486,13 @@ export function StoryPageClient({ slug }: StoryPageClientProps) {
             </Card>
           )}
 
-          {/* Museum Relics */}
-          <Card className="border-border bg-card/50 shadow-none overflow-hidden">
-            <CardHeader>
-              <CardTitle className="text-foreground text-2xl font-serif">
-                Museum Artifacts
-              </CardTitle>
-              <CardDescription>
-                Interactive 3D relics associated with this legend.
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              <ArtifactViewer
-                type={
-                  story.title.toLowerCase().includes("war") ||
-                  story.title.toLowerCase().includes("battle")
-                    ? "shield"
-                    : "apple"
-                }
-              />
-            </CardContent>
-          </Card>
-
           {/* Navigation */}
           <div className="flex justify-center pt-8">
-            <Link href="/stories">
-              <button className="px-6 py-3 bg-gold/10 hover:bg-gold/20 border border-gold/30 hover:border-gold/50 rounded-lg text-gold-text transition-colors">
-                ← Back to All Stories
-              </button>
+            <Link
+              href="/stories"
+              className="px-6 py-3 bg-gold/10 hover:bg-gold/20 border border-gold/30 hover:border-gold/50 rounded-lg text-gold-text transition-colors"
+            >
+              ← Back to All Stories
             </Link>
           </div>
         </div>

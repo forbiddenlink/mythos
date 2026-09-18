@@ -92,15 +92,15 @@ export default function LeaderboardPage() {
       </p>
       <p className="mt-3 leading-relaxed text-muted-foreground">
         If you want to move those numbers deliberately, rotate between the{" "}
-        <a href="/review" className="text-gold underline hover:text-gold/80">
+        <a href="/review" className="text-gold-text underline hover:text-gold-text">
           daily review
         </a>
         ,{" "}
-        <a href="/quiz" className="text-gold underline hover:text-gold/80">
+        <a href="/quiz" className="text-gold-text underline hover:text-gold-text">
           quiz hub
         </a>
         , and{" "}
-        <a href="/games" className="text-gold underline hover:text-gold/80">
+        <a href="/games" className="text-gold-text underline hover:text-gold-text">
           practice games
         </a>
         . The profile becomes more meaningful when it reflects a repeatable
@@ -205,7 +205,7 @@ export default function LeaderboardPage() {
           <Card className="border-gold/20">
             <CardHeader>
               <CardTitle className="font-serif flex items-center gap-2">
-                <MythosMark id="torch" className="h-5 w-5 text-gold" />
+                <MythosMark id="torch" className="h-5 w-5 text-gold-text" />
                 Your Profile
               </CardTitle>
             </CardHeader>
@@ -304,7 +304,7 @@ export default function LeaderboardPage() {
                       </p>
                       <Badge
                         variant="outline"
-                        className="mt-2 text-xs border-gold/30 text-gold"
+                        className="mt-2 text-xs border-gold/30 text-gold-text"
                       >
                         Rank #{rank}
                       </Badge>
@@ -333,6 +333,7 @@ export default function LeaderboardPage() {
                     <TabsTrigger
                       key={cat.id}
                       value={cat.id}
+                      aria-label={cat.label}
                       className="flex items-center gap-1.5"
                     >
                       <MythosMark id={cat.mark} className="h-4 w-4" />

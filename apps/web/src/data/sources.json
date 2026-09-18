@@ -8,11 +8,110 @@
     "language": "Ancient Greek",
     "description": "The foundational epic of Greek literature, depicting the wrath of Achilles during the final year of the Trojan War. Primary source for Greek gods' involvement in mortal affairs.",
     "translators": [
-      { "name": "Richmond Lattimore", "year": 1951 },
-      { "name": "Robert Fagles", "year": 1990 },
-      { "name": "Caroline Alexander", "year": 2015 }
+      {
+        "name": "Richmond Lattimore",
+        "year": 1951
+      },
+      {
+        "name": "Robert Fagles",
+        "year": 1990
+      },
+      {
+        "name": "Caroline Alexander",
+        "year": 2015
+      }
     ],
-    "externalUrl": "https://www.perseus.tufts.edu/hopper/text?doc=Perseus:text:1999.01.0134"
+    "externalUrl": "https://www.perseus.tufts.edu/hopper/text?doc=Perseus:text:1999.01.0134",
+    "characters": [
+      {
+        "id": "achilles",
+        "kind": "hero",
+        "role": "protagonist",
+        "where": "Books 1-24"
+      },
+      {
+        "id": "hector",
+        "kind": "hero",
+        "role": "Troy's chief defender, killed by Achilles",
+        "where": "Books 1-24, killed Book 22"
+      },
+      {
+        "id": "patroclus",
+        "kind": "hero",
+        "role": "Achilles' companion, killed by Hector",
+        "where": "Book 16"
+      },
+      {
+        "id": "agamemnon",
+        "kind": "hero",
+        "role": "commander of the Greek forces",
+        "where": "Books 1-24"
+      },
+      {
+        "id": "helen",
+        "kind": "hero",
+        "role": "watches the war from Troy's walls",
+        "where": "Book 3"
+      },
+      {
+        "id": "ajax",
+        "kind": "hero",
+        "role": "second-mightiest Greek warrior",
+        "where": "Books 1-24"
+      },
+      {
+        "id": "odysseus",
+        "kind": "hero",
+        "role": "strategist among the Greek leaders",
+        "where": "Books 1-24"
+      },
+      {
+        "id": "zeus",
+        "kind": "deity",
+        "role": "arbiter of the war's course from Olympus",
+        "where": "Books 1-24"
+      },
+      {
+        "id": "athena",
+        "kind": "deity",
+        "role": "patron of the Greeks, especially Achilles and Odysseus",
+        "where": "Books 1-24"
+      },
+      {
+        "id": "apollo",
+        "kind": "deity",
+        "role": "patron of Troy and Hector",
+        "where": "Books 1-24"
+      }
+    ],
+    "keyScenes": [
+      {
+        "title": "The Wrath of Achilles",
+        "where": "Book 1",
+        "summary": "Agamemnon's seizure of Briseis drives Achilles to withdraw from battle, dooming the Greeks to Trojan advances."
+      },
+      {
+        "title": "Hector and Ajax's Duel",
+        "where": "Book 7",
+        "summary": "Hector and Ajax fight to an inconclusive draw and part with an exchange of gifts."
+      },
+      {
+        "title": "The Death of Patroclus",
+        "where": "Book 16",
+        "summary": "Wearing Achilles' armor, Patroclus routs the Trojans before Hector kills him."
+      },
+      {
+        "title": "The Death of Hector",
+        "where": "Book 22",
+        "summary": "Achilles kills Hector in single combat outside the walls of Troy and drags his body behind his chariot."
+      },
+      {
+        "title": "Priam Ransoms Hector's Body",
+        "where": "Book 24",
+        "summary": "King Priam comes to Achilles' tent by night to beg for his son's body, and Achilles relents."
+      }
+    ],
+    "readingOrder": "Start with Robert Fagles's 1990 translation for a vivid, propulsive verse rendering, or Emily Wilson's 2023 translation for the newest scholarly-accessible option."
   },
   {
     "id": "odyssey",
@@ -23,11 +122,98 @@
     "language": "Ancient Greek",
     "description": "The epic tale of Odysseus's ten-year journey home from Troy, featuring encounters with gods, monsters, and mortals. Essential source for Greek mythology and religious practices.",
     "translators": [
-      { "name": "Richmond Lattimore", "year": 1965 },
-      { "name": "Robert Fagles", "year": 1996 },
-      { "name": "Emily Wilson", "year": 2017 }
+      {
+        "name": "Richmond Lattimore",
+        "year": 1965
+      },
+      {
+        "name": "Robert Fagles",
+        "year": 1996
+      },
+      {
+        "name": "Emily Wilson",
+        "year": 2017
+      }
     ],
-    "externalUrl": "https://www.perseus.tufts.edu/hopper/text?doc=Perseus:text:1999.01.0136"
+    "externalUrl": "https://www.perseus.tufts.edu/hopper/text?doc=Perseus:text:1999.01.0136",
+    "characters": [
+      {
+        "id": "odysseus",
+        "kind": "hero",
+        "role": "protagonist",
+        "where": "Books 1-24"
+      },
+      {
+        "id": "penelope",
+        "kind": "hero",
+        "role": "his wife, besieged by suitors on Ithaca",
+        "where": "Books 1-23"
+      },
+      {
+        "id": "helen",
+        "kind": "hero",
+        "role": "visited at Sparta by Telemachus, now reconciled with Menelaus",
+        "where": "Book 4"
+      },
+      {
+        "id": "agamemnon",
+        "kind": "hero",
+        "role": "shade in the underworld who warns Odysseus about Clytemnestra",
+        "where": "Book 11"
+      },
+      {
+        "id": "achilles",
+        "kind": "hero",
+        "role": "shade in the underworld",
+        "where": "Book 11"
+      },
+      {
+        "id": "ajax",
+        "kind": "hero",
+        "role": "shade who refuses to speak to Odysseus over the arms of Achilles",
+        "where": "Book 11"
+      },
+      {
+        "id": "athena",
+        "kind": "deity",
+        "role": "Odysseus's protector and guide throughout his journey",
+        "where": "Books 1-24"
+      },
+      {
+        "id": "poseidon",
+        "kind": "deity",
+        "role": "pursues Odysseus in anger over the blinding of his son Polyphemus",
+        "where": "Books 1-13"
+      }
+    ],
+    "keyScenes": [
+      {
+        "title": "The Cyclops' Cave",
+        "where": "Book 9",
+        "summary": "Odysseus blinds the Cyclops Polyphemus and escapes by hiding his men under sheep."
+      },
+      {
+        "title": "The Descent to the Underworld",
+        "where": "Book 11",
+        "summary": "Odysseus consults the dead, including the prophet Tiresias and the shades of Achilles and Agamemnon."
+      },
+      {
+        "title": "Circe and the Sirens",
+        "where": "Books 10 and 12",
+        "summary": "Circe turns his men to pigs before aiding him, and he later has himself bound to the mast to hear the Sirens safely."
+      },
+      {
+        "title": "The Stringing of the Bow",
+        "where": "Book 21",
+        "summary": "Penelope sets a contest with Odysseus's own bow that none of the suitors can even bend."
+      },
+      {
+        "title": "The Slaughter of the Suitors",
+        "where": "Book 22",
+        "summary": "Odysseus reveals himself and kills the suitors who have besieged his household."
+      }
+    ],
+    "readingOrder": "Emily Wilson's 2018 translation is the standout starting point for first-time readers, prized for its clarity and pace; Robert Fagles's 1996 verse translation is the classic alternative."
   },
   {
     "id": "theogony",
@@ -38,11 +224,63 @@
     "language": "Ancient Greek",
     "description": "A systematic account of the origin and genealogy of the Greek gods, from primordial Chaos to the reign of Zeus. The definitive source for divine genealogy.",
     "translators": [
-      { "name": "Hugh G. Evelyn-White", "year": 1914 },
-      { "name": "Richmond Lattimore", "year": 1959 },
-      { "name": "M.L. West", "year": 1966 }
+      {
+        "name": "Hugh G. Evelyn-White",
+        "year": 1914
+      },
+      {
+        "name": "Richmond Lattimore",
+        "year": 1959
+      },
+      {
+        "name": "M.L. West",
+        "year": 1966
+      }
     ],
-    "externalUrl": "https://www.perseus.tufts.edu/hopper/text?doc=Perseus:text:1999.01.0130"
+    "externalUrl": "https://www.perseus.tufts.edu/hopper/text?doc=Perseus:text:1999.01.0130",
+    "characters": [
+      {
+        "id": "zeus",
+        "kind": "deity",
+        "role": "youngest child of Cronus who leads the Olympians to victory and becomes king of the gods",
+        "where": "the succession myth"
+      },
+      {
+        "id": "hera",
+        "kind": "deity",
+        "role": "eventually becomes Zeus's queen",
+        "where": "the catalog of Zeus's unions"
+      },
+      {
+        "id": "aphrodite",
+        "kind": "deity",
+        "role": "born from the sea foam after Cronus castrates Uranus",
+        "where": "the early cosmogony"
+      }
+    ],
+    "keyScenes": [
+      {
+        "title": "The Castration of Uranus",
+        "where": "the succession myth's opening",
+        "summary": "Cronus castrates his father Uranus at Gaia's urging, ending Uranus's tyranny over his children."
+      },
+      {
+        "title": "The Birth of Aphrodite",
+        "where": "immediately following Uranus's castration",
+        "summary": "Aphrodite rises from the sea foam formed where Uranus's severed body fell into the water."
+      },
+      {
+        "title": "Zeus Swallows Metis",
+        "where": "the account of Zeus's marriages",
+        "summary": "Zeus swallows his pregnant consort Metis to forestall a prophecy that her child would surpass him, later giving birth to Athena himself."
+      },
+      {
+        "title": "The Titanomachy",
+        "where": "the war of the gods",
+        "summary": "Zeus and the Olympians defeat the Titans in a ten-year war and imprison them in Tartarus."
+      }
+    ],
+    "readingOrder": "M.L. West's Oxford World's Classics prose translation of Hesiod is the standard accessible starting point, with a full scholarly introduction to the succession myth."
   },
   {
     "id": "works-and-days",
@@ -53,10 +291,66 @@
     "language": "Ancient Greek",
     "description": "A didactic poem containing the myth of Prometheus, Pandora, and the Five Ages of Man. Provides insight into Greek religious and moral philosophy.",
     "translators": [
-      { "name": "Hugh G. Evelyn-White", "year": 1914 },
-      { "name": "M.L. West", "year": 1978 }
+      {
+        "name": "Hugh G. Evelyn-White",
+        "year": 1914
+      },
+      {
+        "name": "M.L. West",
+        "year": 1978
+      }
     ],
-    "externalUrl": "https://www.perseus.tufts.edu/hopper/text?doc=Perseus:text:1999.01.0132"
+    "externalUrl": "https://www.perseus.tufts.edu/hopper/text?doc=Perseus:text:1999.01.0132",
+    "characters": [
+      {
+        "id": "zeus",
+        "kind": "deity",
+        "role": "Supreme Olympian ruler who hides fire and prosperity from humankind following Prometheus's deception",
+        "where": "Lines 42-105"
+      },
+      {
+        "id": "prometheus",
+        "kind": "deity",
+        "role": "Titan champion of mortals who steals fire in a hollow fennel stalk, inciting Zeus's retribution",
+        "where": "Lines 48-58"
+      },
+      {
+        "id": "hermes",
+        "kind": "deity",
+        "role": "Messenger god who guides Pandora to Epimetheus and instills within her a shameless mind and deceitful nature",
+        "where": "Lines 67-85"
+      },
+      {
+        "id": "athena",
+        "kind": "deity",
+        "role": "Goddess of wisdom who clothes Pandora in silver robes and teaches her the art of weaving",
+        "where": "Lines 72-76"
+      },
+      {
+        "id": "aphrodite",
+        "kind": "deity",
+        "role": "Goddess of love who sheds irresistible grace and heartbreaking desire upon Pandora's head",
+        "where": "Lines 65-67"
+      }
+    ],
+    "keyScenes": [
+      {
+        "title": "The Fashioning of Pandora",
+        "where": "Lines 60-89",
+        "summary": "At Zeus's order, Hephaestus kneads water and clay into a beautiful maiden, Athena robes her, Aphrodite bestows charm, and Hermes names her Pandora because all Olympians gave her a gift: a beautiful plague for men."
+      },
+      {
+        "title": "The Opening of the Storage Jar",
+        "where": "Lines 90-105",
+        "summary": "Pandora removes the great lid of her jar, dispersing plagues, miseries, and weary labor among mortals, slamming the rim shut while only Hope (Elpis) remains within."
+      },
+      {
+        "title": "The Myth of the Five Ages of Man",
+        "where": "Lines 109-201",
+        "summary": "Hesiod narrates the moral decline of humanity across five epochs: the peaceful Golden Age, foolish Silver Age, violent Bronze Age, noble Heroic Age at Troy and Thebes, and the bitter Iron Age."
+      }
+    ],
+    "readingOrder": "Read lines 42-105 (the myth of Prometheus, Pandora, and the jar) followed directly by lines 109-201 (the Five Ages of Man) to understand Hesiod's view of the human condition."
   },
   {
     "id": "homeric-hymns",
@@ -67,10 +361,72 @@
     "language": "Ancient Greek",
     "description": "A collection of thirty-three anonymous hymns celebrating individual Greek deities. Major source for myths of Demeter, Apollo, Hermes, and Aphrodite.",
     "translators": [
-      { "name": "Hugh G. Evelyn-White", "year": 1914 },
-      { "name": "Michael Crudden", "year": 2001 }
+      {
+        "name": "Hugh G. Evelyn-White",
+        "year": 1914
+      },
+      {
+        "name": "Michael Crudden",
+        "year": 2001
+      }
     ],
-    "externalUrl": "https://www.perseus.tufts.edu/hopper/text?doc=Perseus:text:1999.01.0138"
+    "externalUrl": "https://www.perseus.tufts.edu/hopper/text?doc=Perseus:text:1999.01.0138",
+    "characters": [
+      {
+        "id": "demeter",
+        "kind": "deity",
+        "role": "Goddess of agriculture whose grief for her abducted daughter withers the crops of the earth",
+        "where": "Hymn 2"
+      },
+      {
+        "id": "persephone",
+        "kind": "deity",
+        "role": "Queen of the Underworld whose eating of the pomegranate seed compels her cyclical return to Hades",
+        "where": "Hymn 2"
+      },
+      {
+        "id": "apollo",
+        "kind": "deity",
+        "role": "Archer god of music and light who slays Python on Mount Parnassus to establish the Delphic Oracle",
+        "where": "Hymn 3"
+      },
+      {
+        "id": "hermes",
+        "kind": "deity",
+        "role": "Trickster infant born at dawn who invents the lyre, steals Apollo's cattle at noon, and plays for Zeus at dusk",
+        "where": "Hymn 4"
+      },
+      {
+        "id": "aphrodite",
+        "kind": "deity",
+        "role": "Goddess of love compelled by Zeus to desire the mortal Trojan shepherd Anchises, conceiving Aeneas",
+        "where": "Hymn 5"
+      },
+      {
+        "id": "dionysus",
+        "kind": "deity",
+        "role": "God of wine and divine ecstasy who turns Tyrrhenian pirate kidnappers into leaping dolphins",
+        "where": "Hymn 7"
+      }
+    ],
+    "keyScenes": [
+      {
+        "title": "The Abduction of Persephone and the Eleusinian Rites",
+        "where": "Hymn 2, Lines 1-32, 470-495",
+        "summary": "Hades seizes Persephone into the underworld; Demeter wanders in mourning, withholds harvest from humanity, and upon Persephone's return teaches holy mysteries at Eleusis."
+      },
+      {
+        "title": "Hermes Crafts the Lyre and Steals Apollo's Cattle",
+        "where": "Hymn 4, Lines 24-114",
+        "summary": "Hours after his birth in Mount Cyllene's cave, baby Hermes scoops a tortoise from its shell, strings it with sheep-gut, sings, and drives Apollo's sacred heifers backwards to baffle pursuers."
+      },
+      {
+        "title": "Dionysus and the Tyrrhenian Pirates",
+        "where": "Hymn 7, Lines 34-54",
+        "summary": "Pirates bind young Dionysus; bands fall away, fragrant wine floods the dark ship, ivy wraps the mast, and the god roars as a lion, causing the crew to jump into the sea as dolphins."
+      }
+    ],
+    "readingOrder": "Start with Hymn 2 (to Demeter) for the magnificent narrative behind the Eleusinian Mysteries, followed by Hymn 4 (to Hermes) for divine trickster humor, and Hymn 7 (to Dionysus)."
   },
   {
     "id": "poetic-edda",
@@ -81,12 +437,73 @@
     "language": "Old Norse",
     "description": "A collection of Old Norse poems from the medieval Icelandic manuscript Codex Regius. Primary source for Norse mythology including the Voluspa prophecy and Havamal.",
     "translators": [
-      { "name": "Henry Adams Bellows", "year": 1936 },
-      { "name": "Lee M. Hollander", "year": 1962 },
-      { "name": "Carolyne Larrington", "year": 1996 },
-      { "name": "Jackson Crawford", "year": 2015 }
+      {
+        "name": "Henry Adams Bellows",
+        "year": 1936
+      },
+      {
+        "name": "Lee M. Hollander",
+        "year": 1962
+      },
+      {
+        "name": "Carolyne Larrington",
+        "year": 1996
+      },
+      {
+        "name": "Jackson Crawford",
+        "year": 2015
+      }
     ],
-    "externalUrl": "https://www.sacred-texts.com/neu/poe/index.htm"
+    "externalUrl": "https://www.sacred-texts.com/neu/poe/index.htm",
+    "characters": [
+      {
+        "id": "sigurd",
+        "kind": "hero",
+        "role": "dragon-slayer, central to the heroic lays of the second half of the collection",
+        "where": "Fafnismal, Sigrdrifumal, and the Sigurd lays"
+      },
+      {
+        "id": "odin",
+        "kind": "deity",
+        "role": "appears throughout as wanderer, war-god, and seeker of wisdom",
+        "where": "Havamal and the mythological poems"
+      },
+      {
+        "id": "loki",
+        "kind": "deity",
+        "role": "trickster present in several mythological poems",
+        "where": "Lokasenna and other poems"
+      },
+      {
+        "id": "thor",
+        "kind": "deity",
+        "role": "protector of gods and men against giants",
+        "where": "Thrymskvida and other poems"
+      }
+    ],
+    "keyScenes": [
+      {
+        "title": "Sigurd Slays Fafnir",
+        "where": "Fafnismal",
+        "summary": "Sigurd kills the dragon Fafnir from a pit dug in its path and gains the power to understand birds from tasting its blood."
+      },
+      {
+        "title": "The Waking of Sigrdrifa",
+        "where": "Sigrdrifumal",
+        "summary": "Sigurd wakes a valkyrie sleeping behind a wall of flame, who teaches him runes and counsel before their story turns to tragedy."
+      },
+      {
+        "title": "Loki's Flyting",
+        "where": "Lokasenna",
+        "summary": "Loki crashes a feast of the gods and insults each of them in turn before being bound as punishment."
+      },
+      {
+        "title": "Thor's Wedding Disguise",
+        "where": "Thrymskvida",
+        "summary": "Thor dresses as a bride to recover his stolen hammer from the giant Thrym."
+      }
+    ],
+    "readingOrder": "Carolyne Larrington's Oxford World's Classics translation (1996, revised 2014) is the standard modern starting point, with notes that untangle the poems' compressed references."
   },
   {
     "id": "prose-edda",
@@ -97,11 +514,74 @@
     "language": "Old Norse",
     "description": "A manual of poetics that preserves Norse mythology through three sections: Gylfaginning (mythology), Skaldskaparmal (poetic diction), and Hattatal (verse forms).",
     "translators": [
-      { "name": "Arthur Gilchrist Brodeur", "year": 1916 },
-      { "name": "Anthony Faulkes", "year": 1987 },
-      { "name": "Jesse Byock", "year": 2005 }
+      {
+        "name": "Arthur Gilchrist Brodeur",
+        "year": 1916
+      },
+      {
+        "name": "Anthony Faulkes",
+        "year": 1987
+      },
+      {
+        "name": "Jesse Byock",
+        "year": 2005
+      }
     ],
-    "externalUrl": "https://www.sacred-texts.com/neu/pre/index.htm"
+    "externalUrl": "https://www.sacred-texts.com/neu/pre/index.htm",
+    "characters": [
+      {
+        "id": "sigurd",
+        "kind": "hero",
+        "role": "his slaying of Fafnir is retold as the origin of a kenning for gold",
+        "where": "Skaldskaparmal"
+      },
+      {
+        "id": "odin",
+        "kind": "deity",
+        "role": "narrates or is described throughout the mythological framing",
+        "where": "Gylfaginning"
+      },
+      {
+        "id": "thor",
+        "kind": "deity",
+        "role": "central figure of several retold myths",
+        "where": "Gylfaginning"
+      },
+      {
+        "id": "loki",
+        "kind": "deity",
+        "role": "engineers Baldur's death",
+        "where": "Gylfaginning"
+      }
+    ],
+    "keyScenes": [
+      {
+        "title": "The Creation of the World",
+        "where": "Gylfaginning",
+        "summary": "Snorri recounts how the world was formed from the body of the primordial giant Ymir."
+      },
+      {
+        "title": "Thor's Fishing Trip",
+        "where": "Gylfaginning",
+        "summary": "Thor goes fishing with the giant Hymir and nearly hauls up the World Serpent, Jormungandr."
+      },
+      {
+        "title": "The Death of Baldur",
+        "where": "Gylfaginning",
+        "summary": "Loki tricks the blind god Hodr into killing Baldur with a dart of mistletoe, the one thing that could harm him."
+      },
+      {
+        "title": "Ragnarok",
+        "where": "Gylfaginning",
+        "summary": "The foretold final battle destroys the gods and the world, which is then reborn."
+      },
+      {
+        "title": "The Legend of the Volsungs",
+        "where": "Skaldskaparmal",
+        "summary": "Snorri retells Sigurd's slaying of Fafnir to explain a set of poetic kennings for gold."
+      }
+    ],
+    "readingOrder": "Anthony Faulkes's Everyman translation (1987) is the standard complete English edition and a clear starting point for Snorri's retellings."
   },
   {
     "id": "mahabharata",
@@ -112,11 +592,62 @@
     "language": "Sanskrit",
     "description": "The longest epic poem in existence, containing the Bhagavad Gita. Chronicles the Kurukshetra War and includes extensive Hindu mythology and philosophy.",
     "translators": [
-      { "name": "Kisari Mohan Ganguli", "year": 1896 },
-      { "name": "J.A.B. van Buitenen", "year": 1973 },
-      { "name": "Bibek Debroy", "year": 2015 }
+      {
+        "name": "Kisari Mohan Ganguli",
+        "year": 1896
+      },
+      {
+        "name": "J.A.B. van Buitenen",
+        "year": 1973
+      },
+      {
+        "name": "Bibek Debroy",
+        "year": 2015
+      }
     ],
-    "externalUrl": "https://www.sacred-texts.com/hin/maha/index.htm"
+    "externalUrl": "https://www.sacred-texts.com/hin/maha/index.htm",
+    "characters": [
+      {
+        "id": "arjuna",
+        "kind": "hero",
+        "role": "Pandava warrior who receives the Bhagavad Gita",
+        "where": "throughout; the Gita is in the Bhishma Parva (Book 6)"
+      },
+      {
+        "id": "krishna",
+        "kind": "deity",
+        "role": "Arjuna's charioteer and divine guide",
+        "where": "throughout, especially the Bhagavad Gita in Book 6"
+      }
+    ],
+    "keyScenes": [
+      {
+        "title": "The Game of Dice",
+        "where": "Sabha Parva (Book 2)",
+        "summary": "Yudhishthira loses the Pandavas' kingdom, and Draupadi is humiliated, in a rigged dice game with the Kauravas."
+      },
+      {
+        "title": "The Bhagavad Gita",
+        "where": "Bhishma Parva (Book 6)",
+        "summary": "On the eve of battle, Krishna counsels the grieving Arjuna on duty and the nature of the self."
+      },
+      {
+        "title": "The Death of Bhishma",
+        "where": "Bhishma Parva (Book 6)",
+        "summary": "The Pandavas' grandsire falls to a combined assault by Arjuna and Shikhandi, but lingers to choose the moment of his death."
+      },
+      {
+        "title": "The Death of Karna",
+        "where": "Karna Parva (Book 8)",
+        "summary": "Arjuna kills his secret half-brother Karna in the war's later stages."
+      },
+      {
+        "title": "The War's End",
+        "where": "Shalya Parva and Sauptika Parva (Books 9-10)",
+        "summary": "The last Kaurava commanders fall, and a night raid slaughters the sleeping Pandava camp."
+      }
+    ],
+    "readingOrder": "John D. Smith's abridged Penguin Classics translation (2009) is the most manageable entry point to the full epic; readers who want only the Gita can start with Eknath Easwaran's standalone translation."
   },
   {
     "id": "ramayana",
@@ -127,10 +658,58 @@
     "language": "Sanskrit",
     "description": "The epic tale of Prince Rama, his exile, the abduction of his wife Sita by demon king Ravana, and his alliance with the monkey god Hanuman.",
     "translators": [
-      { "name": "Ralph T.H. Griffith", "year": 1870 },
-      { "name": "Robert P. Goldman", "year": 1984 }
+      {
+        "name": "Ralph T.H. Griffith",
+        "year": 1870
+      },
+      {
+        "name": "Robert P. Goldman",
+        "year": 1984
+      }
     ],
-    "externalUrl": "https://www.sacred-texts.com/hin/rama/index.htm"
+    "externalUrl": "https://www.sacred-texts.com/hin/rama/index.htm",
+    "characters": [
+      {
+        "id": "rama",
+        "kind": "deity",
+        "role": "protagonist, exiled prince of Ayodhya and avatar of Vishnu",
+        "where": "Books 1-7"
+      },
+      {
+        "id": "hanuman",
+        "kind": "deity",
+        "role": "devoted companion who leaps to Lanka to find Sita",
+        "where": "Book 5 (Sundara Kanda)"
+      }
+    ],
+    "keyScenes": [
+      {
+        "title": "Rama's Exile",
+        "where": "Ayodhya Kanda (Book 2)",
+        "summary": "Rama is exiled to the forest for fourteen years to honor a promise his father made to his stepmother Kaikeyi."
+      },
+      {
+        "title": "The Abduction of Sita",
+        "where": "Aranya Kanda (Book 3)",
+        "summary": "The demon king Ravana abducts Sita after luring Rama away with an illusory golden deer."
+      },
+      {
+        "title": "Hanuman's Leap to Lanka",
+        "where": "Sundara Kanda (Book 5)",
+        "summary": "Hanuman crosses the ocean to find Sita and sets fire to Ravana's city."
+      },
+      {
+        "title": "The War with Ravana",
+        "where": "Yuddha Kanda (Book 6)",
+        "summary": "Rama, with an army of vanaras, kills Ravana and rescues Sita."
+      },
+      {
+        "title": "Sita's Trial and Rama's Reign",
+        "where": "Yuddha Kanda and Uttara Kanda (Books 6-7)",
+        "summary": "Sita undergoes a trial by fire to prove her fidelity, and later tradition follows Rama's long reign and Sita's eventual banishment."
+      }
+    ],
+    "readingOrder": "Arshia Sattar's abridged Penguin translation of Valmiki's Ramayana is a widely recommended, accessible starting point."
   },
   {
     "id": "rigveda",
@@ -141,11 +720,70 @@
     "language": "Vedic Sanskrit",
     "description": "The oldest of the four Vedas, containing 1,028 hymns to the Vedic deities including Indra, Agni, and Varuna. Foundation of Hindu religious tradition.",
     "translators": [
-      { "name": "Ralph T.H. Griffith", "year": 1896 },
-      { "name": "Wendy Doniger", "year": 1981 },
-      { "name": "Stephanie W. Jamison & Joel P. Brereton", "year": 2014 }
+      {
+        "name": "Ralph T.H. Griffith",
+        "year": 1896
+      },
+      {
+        "name": "Wendy Doniger",
+        "year": 1981
+      },
+      {
+        "name": "Stephanie W. Jamison & Joel P. Brereton",
+        "year": 2014
+      }
     ],
-    "externalUrl": "https://www.sacred-texts.com/hin/rigveda/index.htm"
+    "externalUrl": "https://www.sacred-texts.com/hin/rigveda/index.htm",
+    "characters": [
+      {
+        "id": "indra",
+        "kind": "deity",
+        "role": "Thunder-wielding hero-king of the Devas who drinks soma, hurls the vajra, and releases the captive waters",
+        "where": "Hymns 1.32, 2.12, 4.18"
+      },
+      {
+        "id": "agni",
+        "kind": "deity",
+        "role": "Sacred fire, divine priest, and mediator carrying offerings from mortals to the gods",
+        "where": "Hymns 1.1, 10.51"
+      },
+      {
+        "id": "shiva",
+        "kind": "deity",
+        "role": "Prefigured in the fierce storm archer Rudra, lord of the wilderness, diseases, and healing balms",
+        "where": "Hymn 2.33"
+      },
+      {
+        "id": "vishnu",
+        "kind": "deity",
+        "role": "The wide-striding cosmic preserver whose three strides measure out earth, air, and the highest abode of light",
+        "where": "Hymn 1.154"
+      },
+      {
+        "id": "brahma",
+        "kind": "deity",
+        "role": "Anticipated in the Golden Womb (Hiranyagarbha) and Prajapati, the singular Lord of all created things",
+        "where": "Hymn 10.121"
+      }
+    ],
+    "keyScenes": [
+      {
+        "title": "Indra's Conquest of Vritra",
+        "where": "Mandala 1, Hymn 32",
+        "summary": "Intoxicated with triple soma, Indra grips his lightning bolt (vajra) and smashes the shoulders of Vritra the dragon-coiler, releasing the rivers that flow like bellowing cows to the sea."
+      },
+      {
+        "title": "The Hymn of Creation (Nasadiya Sukta)",
+        "where": "Mandala 10, Hymn 129",
+        "summary": "An awe-inspiring metaphysical inquiry: 'Then was neither non-existence nor existence... Who knows for certain? Who shall declare it? Whence was it born, and whence came this creation?'"
+      },
+      {
+        "title": "The Sacrifice of the Cosmic Giant (Purusha Sukta)",
+        "where": "Mandala 10, Hymn 90",
+        "summary": "The thousand-headed giant Purusha is offered up by the gods; from his mind the moon was born, from his eye the sun, from his breath the wind, and from his feet the earth."
+      }
+    ],
+    "readingOrder": "Start with Rigveda 1.32 (Indra slaying Vritra) for foundational mythic conflict, then read 10.129 (Nasadiya Sukta) for sublime cosmic philosophy, followed by 1.1 (the invocation of Agni)."
   },
   {
     "id": "kojiki",
@@ -156,11 +794,87 @@
     "language": "Old Japanese",
     "description": "The oldest surviving chronicle of Japan, containing myths of creation, the divine couple Izanagi and Izanami, and the sun goddess Amaterasu.",
     "translators": [
-      { "name": "Basil Hall Chamberlain", "year": 1882 },
-      { "name": "Donald L. Philippi", "year": 1968 },
-      { "name": "Gustav Heldt", "year": 2014 }
+      {
+        "name": "Basil Hall Chamberlain",
+        "year": 1882
+      },
+      {
+        "name": "Donald L. Philippi",
+        "year": 1968
+      },
+      {
+        "name": "Gustav Heldt",
+        "year": 2014
+      }
     ],
-    "externalUrl": "https://www.sacred-texts.com/shi/kj/index.htm"
+    "externalUrl": "https://www.sacred-texts.com/shi/kj/index.htm",
+    "characters": [
+      {
+        "id": "amaterasu",
+        "kind": "deity",
+        "role": "Great August Sun Goddess born from Izanagi's left eye, sovereign ruler of Takamagahara (High Plain of Heaven)",
+        "where": "Chapters 11-17"
+      },
+      {
+        "id": "susanoo",
+        "kind": "deity",
+        "role": "Fierce storm god born from Izanagi's nose, exiled for rebelliousness, who slays the eight-headed dragon Yamata-no-Orochi",
+        "where": "Chapters 11-19"
+      },
+      {
+        "id": "izanagi",
+        "kind": "deity",
+        "role": "The Male-Who-Invites, creator who churned the islands of Japan and journeyed to the underworld of Yomi",
+        "where": "Chapters 3-10"
+      },
+      {
+        "id": "izanami",
+        "kind": "deity",
+        "role": "The Female-Who-Invites, creator who died giving birth to the fire god Kagutsuchi and became ruler of Yomi",
+        "where": "Chapters 3-9"
+      },
+      {
+        "id": "tsukuyomi",
+        "kind": "deity",
+        "role": "Radiant moon god born from Izanagi's right eye during his purifying bath, assigned dominion over the night",
+        "where": "Chapter 11"
+      },
+      {
+        "id": "ame-no-uzume",
+        "kind": "deity",
+        "role": "Goddess of ecstatic dance who coaxes Amaterasu out of the Heavenly Rock Cave with laughter and performance",
+        "where": "Chapter 17"
+      },
+      {
+        "id": "okuninushi",
+        "kind": "deity",
+        "role": "Benevolent earth ruler of Izumo who survives eighty jealous brothers and heals the White Hare of Inaba",
+        "where": "Chapters 20-27"
+      }
+    ],
+    "keyScenes": [
+      {
+        "title": "Churning of the Primordial Island",
+        "where": "Chapter 3",
+        "summary": "Standing upon the Floating Bridge of Heaven, Izanagi and Izanami stir the brine with the Jeweled Spear; drops falling from its tip congeal to form Onogoro Island."
+      },
+      {
+        "title": "The Descent into Yomi and the Great Cleansing",
+        "where": "Chapters 9-10",
+        "summary": "Izanagi seeks Izanami in the land of the dead, breaks his promise not to gaze upon her rotting corpse, flees from thunder demons, and cleanses himself in the river, birthing Amaterasu, Tsukuyomi, and Susanoo."
+      },
+      {
+        "title": "The Retreat into the Heavenly Rock Cave (Ama-no-Iwato)",
+        "where": "Chapter 17",
+        "summary": "Grieved by Susanoo's violent rampages, Amaterasu conceals herself in the cave, plunging the world into darkness until Ame-no-Uzume's joyful dance brings laughter and coaxes her into the mirror's light."
+      },
+      {
+        "title": "Slaying the Yamata-no-Orochi",
+        "where": "Chapter 19",
+        "summary": "Susanoo intoxicates the eight-headed serpent of Koshi with refined sake, hacks it to pieces with his sword, and discovers the legendary blade Ame-no-Murakumo (Kusanagi) in its tail."
+      }
+    ],
+    "readingOrder": "Begin with Chapter 17 (the Heavenly Rock Cave) and Chapter 19 (the slaying of Yamata-no-Orochi), then read Chapters 3-10 for the island creation and Izanagi's eerie descent into Yomi."
   },
   {
     "id": "nihon-shoki",
@@ -171,9 +885,51 @@
     "language": "Classical Chinese",
     "description": "The second-oldest book of classical Japanese history, providing alternative versions of myths found in the Kojiki and additional material.",
     "translators": [
-      { "name": "W.G. Aston", "year": 1896 }
+      {
+        "name": "W.G. Aston",
+        "year": 1896
+      }
     ],
-    "externalUrl": "https://www.sacred-texts.com/shi/nihon0.htm"
+    "externalUrl": "https://www.sacred-texts.com/shi/nihon0.htm",
+    "characters": [
+      {
+        "id": "amaterasu",
+        "kind": "deity",
+        "role": "Supreme solar ruler whose divine decree commands her grandson Ninigi to govern the terrestrial realm",
+        "where": "Age of the Gods, Books I-II"
+      },
+      {
+        "id": "susanoo",
+        "kind": "deity",
+        "role": "Storm brother whose pact with Amaterasu produces divine offspring and whose trials shape ritual kingship",
+        "where": "Age of the Gods, Book I"
+      },
+      {
+        "id": "izanagi",
+        "kind": "deity",
+        "role": "Primordial male deity whose ritual dialogues established ancient customs of marriage and purification",
+        "where": "Age of the Gods, Book I"
+      },
+      {
+        "id": "izanami",
+        "kind": "deity",
+        "role": "Primordial female deity whose binding covenant created mortal life cycles",
+        "where": "Age of the Gods, Book I"
+      }
+    ],
+    "keyScenes": [
+      {
+        "title": "The Primordial Separation of Heaven and Earth",
+        "where": "Book I",
+        "summary": "The chronicle begins in stately classical prose: 'Of old, Heaven and Earth were not yet separated... forming a chaotic mass like an egg, wherein the clear and pure formed Heaven while the heavy and gross settled as Earth.'"
+      },
+      {
+        "title": "The Descent of the Heavenly Grandson (Tenson Korin)",
+        "where": "Book II",
+        "summary": "Amaterasu entrusts Ninigi-no-Mikoto with the Three Sacred Treasures (Mirror, Jewel, Sword), saying: 'The Reed-Plain-1500-Autumn-Fair-Rice-Ear Land is the realm which my descendants shall govern.'"
+      }
+    ],
+    "readingOrder": "Read the opening cosmogony of Book I alongside Book II's account of the Tenson Korin (Divine Descent), the core mythological narrative of Japanese history."
   },
   {
     "id": "book-of-the-dead",
@@ -184,11 +940,82 @@
     "language": "Ancient Egyptian (Hieroglyphic)",
     "description": "A collection of funerary spells intended to assist the deceased in the afterlife. Major source for Egyptian underworld mythology and the weighing of the heart ceremony.",
     "translators": [
-      { "name": "E.A. Wallis Budge", "year": 1895 },
-      { "name": "Raymond O. Faulkner", "year": 1972 },
-      { "name": "John L. Foster", "year": 1998 }
+      {
+        "name": "E.A. Wallis Budge",
+        "year": 1895
+      },
+      {
+        "name": "Raymond O. Faulkner",
+        "year": 1972
+      },
+      {
+        "name": "John L. Foster",
+        "year": 1998
+      }
     ],
-    "externalUrl": "https://www.sacred-texts.com/egy/ebod/index.htm"
+    "externalUrl": "https://www.sacred-texts.com/egy/ebod/index.htm",
+    "characters": [
+      {
+        "id": "osiris",
+        "kind": "deity",
+        "role": "Lord of the Underworld and supreme judge of souls in the afterlife",
+        "where": "Spells 1, 125, 185"
+      },
+      {
+        "id": "anubis",
+        "kind": "deity",
+        "role": "Jackal-headed master of embalming who guides the soul and balances the scale in the Hall of Truth",
+        "where": "Spells 26, 125"
+      },
+      {
+        "id": "thoth",
+        "kind": "deity",
+        "role": "Ibis-headed divine scribe who records the verdict of the weighing of the heart",
+        "where": "Spells 125, 182"
+      },
+      {
+        "id": "horus",
+        "kind": "deity",
+        "role": "Protective prince and son of Osiris who introduces the vindicated soul to his enthroned father",
+        "where": "Spells 125, 173"
+      },
+      {
+        "id": "maat",
+        "kind": "deity",
+        "role": "Goddess of cosmic order whose white ostrich feather is the standard against which the heart is weighed",
+        "where": "Spell 125"
+      },
+      {
+        "id": "ra",
+        "kind": "deity",
+        "role": "Supreme sun god aboard the solar barque whom the blessed dead accompany through eternity",
+        "where": "Spells 15, 130"
+      },
+      {
+        "id": "isis",
+        "kind": "deity",
+        "role": "Great enchantress whose magical wings protect the deceased from decay and danger",
+        "where": "Spells 151, 156"
+      }
+    ],
+    "keyScenes": [
+      {
+        "title": "The Negative Confession (Declaration of Innocence)",
+        "where": "Spell 125",
+        "summary": "Standing before forty-two divine judges in the Hall of Ma'ati, the deceased recites specific denials of sins, demonstrating a life lived in harmony with Ma'at."
+      },
+      {
+        "title": "The Weighing of the Heart",
+        "where": "Spell 125 Papyrus of Ani",
+        "summary": "Anubis balances the deceased's heart (ib) against the feather of truth; Thoth stands poised with stylus and palette while Ammit waits to devour the sinful."
+      },
+      {
+        "title": "Entrance into the Field of Reeds (Aaru)",
+        "where": "Spell 110",
+        "summary": "Declared 'true of voice' (maa kheru), the spirit sails into the fertile celestial paradise to plow, reap, and feast beside Osiris forever."
+      }
+    ],
+    "readingOrder": "Begin with Spell 125 (the Judgment and Weighing of the Heart), the moral core of Egyptian religion; then read Spell 1 for the tomb procession and Spell 110 for the vision of paradise in Aaru."
   },
   {
     "id": "pyramid-texts",
@@ -199,10 +1026,75 @@
     "language": "Ancient Egyptian (Hieroglyphic)",
     "description": "The oldest known religious texts in the world, carved on pyramid walls. Primary source for early Egyptian mythology and solar worship.",
     "translators": [
-      { "name": "Samuel A.B. Mercer", "year": 1952 },
-      { "name": "R.O. Faulkner", "year": 1969 },
-      { "name": "James P. Allen", "year": 2005 }
-    ]
+      {
+        "name": "Samuel A.B. Mercer",
+        "year": 1952
+      },
+      {
+        "name": "R.O. Faulkner",
+        "year": 1969
+      },
+      {
+        "name": "James P. Allen",
+        "year": 2005
+      }
+    ],
+    "characters": [
+      {
+        "id": "osiris",
+        "kind": "deity",
+        "role": "Archetype of resurrected royalty whose triumph over death guarantees the pharaoh's immortality",
+        "where": "Utterances 213, 219, 412"
+      },
+      {
+        "id": "ra",
+        "kind": "deity",
+        "role": "Solar sovereign whose daily ascent the deceased pharaoh joins across the sky",
+        "where": "Utterances 267, 467"
+      },
+      {
+        "id": "horus",
+        "kind": "deity",
+        "role": "Filial avenger whose restored Eye imparts divine vitality to the entombed monarch",
+        "where": "Utterances 214, 587"
+      },
+      {
+        "id": "set",
+        "kind": "deity",
+        "role": "Fierce god of desert storms whose conflict with Horus is ritually reconciled by the king",
+        "where": "Utterances 215, 477"
+      },
+      {
+        "id": "isis",
+        "kind": "deity",
+        "role": "Sister-wife who gathers the dismembered Osiris and revives his royal ka",
+        "where": "Utterances 218, 364"
+      },
+      {
+        "id": "nephthys",
+        "kind": "deity",
+        "role": "Protective goddess stationed at the head of the sarcophagus alongside Isis",
+        "where": "Utterances 218, 364"
+      }
+    ],
+    "keyScenes": [
+      {
+        "title": "The Proclamation of Immortality",
+        "where": "Utterance 213",
+        "summary": "The priest declaims: 'O King, you have not departed dead, you have departed alive to sit upon the throne of Osiris!'"
+      },
+      {
+        "title": "The Cannibal Hymn",
+        "where": "Utterances 273-274",
+        "summary": "An archaic, thunderous ritual chant in the pyramid of Unas describing the pharaoh hunting, lassoing, and consuming the power of the gods to become supreme in heaven."
+      },
+      {
+        "title": "Ascension to the Imperishable Stars",
+        "where": "Utterance 467",
+        "summary": "The king mounts the celestial ladder or soars as a divine falcon to join the circumpolar stars that never set or die."
+      }
+    ],
+    "readingOrder": "Start with Utterance 213 for the fundamental funerary declaration of life after death, followed by Utterance 219 for the liturgical identification with Osiris, and Utterances 273-274 (the Cannibal Hymn) for ancient archaic royal ritual."
   },
   {
     "id": "popol-vuh",
@@ -213,11 +1105,81 @@
     "language": "K'iche' Maya",
     "description": "The creation narrative of the K'iche' Maya, telling of the Hero Twins and multiple attempts by the gods to create humanity. The most important text of Mesoamerican mythology.",
     "translators": [
-      { "name": "Delia Goetz & Sylvanus G. Morley", "year": 1950 },
-      { "name": "Dennis Tedlock", "year": 1985 },
-      { "name": "Allen J. Christenson", "year": 2007 }
+      {
+        "name": "Delia Goetz & Sylvanus G. Morley",
+        "year": 1950
+      },
+      {
+        "name": "Dennis Tedlock",
+        "year": 1985
+      },
+      {
+        "name": "Allen J. Christenson",
+        "year": 2007
+      }
     ],
-    "externalUrl": "https://www.sacred-texts.com/nam/maya/pvgm/index.htm"
+    "externalUrl": "https://www.sacred-texts.com/nam/maya/pvgm/index.htm",
+    "characters": [
+      {
+        "id": "hero-twins",
+        "kind": "deity",
+        "role": "Hunahpu and Xbalanque, miraculous twins who avenge their father and outwit the death-lords of Xibalba",
+        "where": "Parts II-III"
+      },
+      {
+        "id": "hun-hunahpu",
+        "kind": "deity",
+        "role": "Father of the twins, defeated in Xibalba, whose severed head in the calabash tree conceived the twins with Xquic",
+        "where": "Part II"
+      },
+      {
+        "id": "kukulkan",
+        "kind": "deity",
+        "role": "The Plumed Serpent (Gucumatz), sovereign creator god who speaks the cosmos into existence alongside Heart of Sky",
+        "where": "Parts I, IV"
+      },
+      {
+        "id": "itzamna",
+        "kind": "deity",
+        "role": "Primordial sky deity representing celestial wisdom and priestly authority",
+        "where": "Part I"
+      },
+      {
+        "id": "ah-puch",
+        "kind": "deity",
+        "role": "Skeletal death-sovereign representing the lords of the underworld (One Death and Seven Death)",
+        "where": "Parts II-III"
+      },
+      {
+        "id": "camazotz",
+        "kind": "deity",
+        "role": "Monstrous death-bat of Xibalba who beheads Hunahpu during the trial of the Bat House",
+        "where": "Part III"
+      }
+    ],
+    "keyScenes": [
+      {
+        "title": "The Dawn of Creation and the Mud and Wood Races",
+        "where": "Part I",
+        "summary": "Heart of Sky and Plumed Serpent speak creation into existence; animals cannot praise them, mud people dissolve, and wooden mannequins lack hearts and minds and are destroyed in a flood of black pitch."
+      },
+      {
+        "title": "The Trials of the Underworld Houses",
+        "where": "Part III",
+        "summary": "The Hero Twins survive the Dark House, Razor House, Cold House, Jaguar House, and Fire House through clever tricks, animal alliances, and illusion."
+      },
+      {
+        "title": "The Decapitation in Bat House and the Ballgame",
+        "where": "Part III",
+        "summary": "Camazotz severs Hunahpu's head; Xbalanque carves a replacement gourd head, tricks the Xibalbans into using the real head as the ball, recovers it, and restores his brother."
+      },
+      {
+        "title": "Creation of the True Humans from Maize",
+        "where": "Part IV",
+        "summary": "The creators find yellow and white ears of corn at Paxil; Grandmother Xmucane grinds the maize into dough, creating the flesh and strength of the first four true men."
+      }
+    ],
+    "readingOrder": "Read Parts II and III first for the gripping epic of the Hero Twins descending into Xibalba, then read Part I for the primordial creation of the universe and Part IV for the sacred origin of humanity from corn."
   },
   {
     "id": "enuma-elish",
@@ -228,11 +1190,75 @@
     "language": "Akkadian",
     "description": "The Babylonian creation epic describing the rise of Marduk to supremacy among the gods and his creation of the world from the body of Tiamat.",
     "translators": [
-      { "name": "L.W. King", "year": 1902 },
-      { "name": "Stephanie Dalley", "year": 1989 },
-      { "name": "Benjamin R. Foster", "year": 2005 }
+      {
+        "name": "L.W. King",
+        "year": 1902
+      },
+      {
+        "name": "Stephanie Dalley",
+        "year": 1989
+      },
+      {
+        "name": "Benjamin R. Foster",
+        "year": 2005
+      }
     ],
-    "externalUrl": "https://www.sacred-texts.com/ane/enuma.htm"
+    "externalUrl": "https://www.sacred-texts.com/ane/enuma.htm",
+    "characters": [
+      {
+        "id": "marduk",
+        "kind": "deity",
+        "role": "Champion of the gods who slays Tiamat and crafts the cosmos from her body",
+        "where": "Tablets IV-VI"
+      },
+      {
+        "id": "tiamat",
+        "kind": "deity",
+        "role": "Primordial salt-water sea dragon and mother of monsters who wages war against the younger gods",
+        "where": "Tablets I-IV"
+      },
+      {
+        "id": "enki",
+        "kind": "deity",
+        "role": "God of wisdom and subterranean sweet waters (Ea) who slays Apsu and fathers Marduk",
+        "where": "Tablets I-II"
+      },
+      {
+        "id": "anu",
+        "kind": "deity",
+        "role": "Primordial sky god sent first to confront Tiamat before fleeing her wrath",
+        "where": "Tablet II"
+      },
+      {
+        "id": "enlil",
+        "kind": "deity",
+        "role": "Lord of wind and storm whose supreme lordship passes to Marduk upon the victory",
+        "where": "Tablets III-IV"
+      }
+    ],
+    "keyScenes": [
+      {
+        "title": "Tiamat's Uprising and the Army of Monsters",
+        "where": "Tablet II",
+        "summary": "Enraged by the death of her consort Apsu, Tiamat spawns an army of eleven horned serpents, dragons, and demons, bestowing the Tablet of Destinies upon Kingu."
+      },
+      {
+        "title": "Marduk Chosen as Divine Champion",
+        "where": "Tablet III",
+        "summary": "The elder gods assemble in terror; Marduk agrees to face Tiamat only on condition that the council grant him supreme and absolute rule over the universe."
+      },
+      {
+        "title": "The Cosmic Battle and Slaying of Tiamat",
+        "where": "Tablet IV",
+        "summary": "Armed with the four winds and a divine net, Marduk traps Tiamat, drives the evil wind into her gaping maw, splits her heart with an arrow, and divides her corpse to fashion heaven and earth."
+      },
+      {
+        "title": "Creation of Humanity and Esagila",
+        "where": "Tablet VI",
+        "summary": "From the blood of the slain rebel Kingu, Ea creates humankind to bear the labor of the gods, and the immortals build the great temple Esagila in Babylon to honor Marduk."
+      }
+    ],
+    "readingOrder": "Start with Tablet IV for the climactic battle between Marduk and Tiamat, then read Tablet I for the primordial creation of sweet and salt waters, followed by Tablet VI for the creation of humankind."
   },
   {
     "id": "epic-of-gilgamesh",
@@ -243,11 +1269,62 @@
     "language": "Akkadian/Sumerian",
     "description": "The oldest known epic literature, following the hero-king Gilgamesh and his companion Enkidu. Contains the earliest flood narrative and themes of mortality.",
     "translators": [
-      { "name": "N.K. Sandars", "year": 1960 },
-      { "name": "Andrew George", "year": 1999 },
-      { "name": "Stephen Mitchell", "year": 2004 }
+      {
+        "name": "N.K. Sandars",
+        "year": 1960
+      },
+      {
+        "name": "Andrew George",
+        "year": 1999
+      },
+      {
+        "name": "Stephen Mitchell",
+        "year": 2004
+      }
     ],
-    "externalUrl": "https://www.sacred-texts.com/ane/gilgamesh/index.htm"
+    "externalUrl": "https://www.sacred-texts.com/ane/gilgamesh/index.htm",
+    "characters": [
+      {
+        "id": "gilgamesh",
+        "kind": "deity",
+        "role": "protagonist, king of Uruk seeking immortality after Enkidu's death",
+        "where": "Tablets I-XI"
+      },
+      {
+        "id": "enkidu",
+        "kind": "deity",
+        "role": "Gilgamesh's companion, created by the gods to check his tyranny",
+        "where": "Tablets I-VII"
+      }
+    ],
+    "keyScenes": [
+      {
+        "title": "Gilgamesh and Enkidu Meet",
+        "where": "Tablet II",
+        "summary": "Enkidu wrestles Gilgamesh to a standstill, and the two become inseparable friends."
+      },
+      {
+        "title": "The Slaying of Humbaba",
+        "where": "Tablet V",
+        "summary": "Gilgamesh and Enkidu journey to the Cedar Forest and kill its guardian, Humbaba."
+      },
+      {
+        "title": "The Bull of Heaven",
+        "where": "Tablet VI",
+        "summary": "Gilgamesh spurns the goddess Ishtar, who sends the Bull of Heaven to punish him; the heroes kill it, and the gods condemn Enkidu to die."
+      },
+      {
+        "title": "The Death of Enkidu",
+        "where": "Tablet VII",
+        "summary": "Enkidu falls ill and dies, plunging Gilgamesh into grief and fear of his own mortality."
+      },
+      {
+        "title": "The Quest for Immortality",
+        "where": "Tablets IX-XI",
+        "summary": "Gilgamesh seeks out the flood survivor Utnapishtim, fails to attain immortality, and returns to Uruk reconciled to his mortal fate."
+      }
+    ],
+    "readingOrder": "Andrew George's Penguin Classics translation (1999) is the standard scholarly-accessible edition, with a clear introduction to the tablets' fragmentary state."
   },
   {
     "id": "aeneid",
@@ -258,12 +1335,90 @@
     "language": "Latin",
     "description": "The Roman national epic following Trojan hero Aeneas from the fall of Troy to the founding of Rome. Primary source for Roman mythology and religious practice.",
     "translators": [
-      { "name": "John Dryden", "year": 1697 },
-      { "name": "Robert Fitzgerald", "year": 1983 },
-      { "name": "Robert Fagles", "year": 2006 },
-      { "name": "Sarah Ruden", "year": 2021 }
+      {
+        "name": "John Dryden",
+        "year": 1697
+      },
+      {
+        "name": "Robert Fitzgerald",
+        "year": 1983
+      },
+      {
+        "name": "Robert Fagles",
+        "year": 2006
+      },
+      {
+        "name": "Sarah Ruden",
+        "year": 2021
+      }
     ],
-    "externalUrl": "https://www.perseus.tufts.edu/hopper/text?doc=Perseus:text:1999.02.0054"
+    "externalUrl": "https://www.perseus.tufts.edu/hopper/text?doc=Perseus:text:1999.02.0054",
+    "characters": [
+      {
+        "id": "aeneas",
+        "kind": "hero",
+        "role": "protagonist",
+        "where": "Books 1-12"
+      },
+      {
+        "id": "venus",
+        "kind": "deity",
+        "role": "Aeneas divine mother and guardian guide through his journey",
+        "where": "Books 1-12"
+      },
+      {
+        "id": "juno",
+        "kind": "deity",
+        "role": "implacable adversary of the Trojans stirring Carthage and Turnus",
+        "where": "Books 1-12"
+      },
+      {
+        "id": "jupiter",
+        "kind": "deity",
+        "role": "sovereign ruler of destiny who foretells Rome endless empire",
+        "where": "Books 1 and 12"
+      },
+      {
+        "id": "neptune",
+        "kind": "deity",
+        "role": "calms the storm unleashed by Aeolus against the Trojan fleet",
+        "where": "Book 1"
+      },
+      {
+        "id": "mercury",
+        "kind": "deity",
+        "role": "divine messenger who orders Aeneas to abandon Carthage and fulfill destiny",
+        "where": "Book 4"
+      }
+    ],
+    "keyScenes": [
+      {
+        "title": "The Fall of Troy",
+        "where": "Book 2",
+        "summary": "Aeneas recounts the Greeks' wooden horse and Troy's destruction, escaping with his father and son."
+      },
+      {
+        "title": "Dido and Aeneas",
+        "where": "Book 4",
+        "summary": "Aeneas's affair with Queen Dido of Carthage ends when he abandons her to continue his divinely ordained journey."
+      },
+      {
+        "title": "The Descent to the Underworld",
+        "where": "Book 6",
+        "summary": "Aeneas visits his dead father Anchises and glimpses the future glory of Rome."
+      },
+      {
+        "title": "The War in Latium",
+        "where": "Books 7-12",
+        "summary": "Aeneas fights Turnus and the Latin peoples for the right to settle in Italy."
+      },
+      {
+        "title": "The Death of Turnus",
+        "where": "Book 12",
+        "summary": "Aeneas kills Turnus in single combat, ending the epic."
+      }
+    ],
+    "readingOrder": "Robert Fagles's 2006 translation is a vivid, widely read starting point; Sarah Ruden's 2021 translation is a tighter, line-for-line modern alternative."
   },
   {
     "id": "metamorphoses",
@@ -274,11 +1429,104 @@
     "language": "Latin",
     "description": "A narrative poem of transformations spanning from the creation of the world to the deification of Julius Caesar. Contains over 250 Greek and Roman myths.",
     "translators": [
-      { "name": "A.D. Melville", "year": 1986 },
-      { "name": "Charles Martin", "year": 2004 },
-      { "name": "Stephanie McCarter", "year": 2022 }
+      {
+        "name": "A.D. Melville",
+        "year": 1986
+      },
+      {
+        "name": "Charles Martin",
+        "year": 2004
+      },
+      {
+        "name": "Stephanie McCarter",
+        "year": 2022
+      }
     ],
-    "externalUrl": "https://www.perseus.tufts.edu/hopper/text?doc=Perseus:text:1999.02.0028"
+    "externalUrl": "https://www.perseus.tufts.edu/hopper/text?doc=Perseus:text:1999.02.0028",
+    "characters": [
+      {
+        "id": "perseus",
+        "kind": "deity",
+        "role": "slays Medusa and rescues Andromeda",
+        "where": "Books 4-5"
+      },
+      {
+        "id": "orpheus",
+        "kind": "hero",
+        "role": "descends to the underworld for Eurydice",
+        "where": "Books 10-11"
+      },
+      {
+        "id": "achilles",
+        "kind": "hero",
+        "role": "his death and the contest for his armor are narrated",
+        "where": "Books 12-13"
+      },
+      {
+        "id": "ajax",
+        "kind": "hero",
+        "role": "loses the contest for Achilles' armor and takes his own life",
+        "where": "Book 13"
+      },
+      {
+        "id": "aeneas",
+        "kind": "hero",
+        "role": "his post-Troy journey and eventual deification are narrated",
+        "where": "Books 13-14"
+      },
+      {
+        "id": "odysseus",
+        "kind": "hero",
+        "role": "wins the contest for the arms of Achilles through forensic eloquence",
+        "where": "Book 13"
+      },
+      {
+        "id": "heracles",
+        "kind": "hero",
+        "role": "burns on Mount Oeta after the poisoned robe of Nessus and ascends as a god",
+        "where": "Book 9"
+      },
+      {
+        "id": "apollo",
+        "kind": "deity",
+        "role": "pursues Daphne whose transformation into a laurel originates his sacred tree",
+        "where": "Book 1"
+      },
+      {
+        "id": "jupiter",
+        "kind": "deity",
+        "role": "king of the gods who assumes mortal and animal forms across the transformation cycles",
+        "where": "Books 1-3, 6, 8"
+      }
+    ],
+    "keyScenes": [
+      {
+        "title": "Apollo and Daphne",
+        "where": "Book 1",
+        "summary": "Apollo's pursuit of the nymph Daphne ends with her transformation into a laurel tree."
+      },
+      {
+        "title": "Perseus and Andromeda",
+        "where": "Books 4-5",
+        "summary": "Perseus rescues Andromeda from a sea monster and turns a rival suitor to stone with Medusa's head."
+      },
+      {
+        "title": "Orpheus and Eurydice",
+        "where": "Books 10-11",
+        "summary": "Orpheus's underworld plea to reclaim Eurydice fails when he looks back too soon."
+      },
+      {
+        "title": "The Judgment of the Arms",
+        "where": "Book 13",
+        "summary": "Ajax and Ulysses (Odysseus) contest for Achilles' armor in speeches before the Greek leaders; Ajax loses and kills himself."
+      },
+      {
+        "title": "The Deification of Aeneas",
+        "where": "Book 14",
+        "summary": "Aeneas's mother Venus secures his transformation into the god Jupiter Indiges after his death in Italy."
+      }
+    ],
+    "readingOrder": "A.D. Melville's Oxford World's Classics translation (1986) is a reliable, readable entry point; Charles Martin's 2004 verse translation is a livelier modern alternative."
   },
   {
     "id": "library-apollodorus",
@@ -289,10 +1537,72 @@
     "language": "Ancient Greek",
     "description": "A comprehensive handbook of Greek mythology organized by genealogy. Invaluable reference for many myths not preserved elsewhere.",
     "translators": [
-      { "name": "James G. Frazer", "year": 1921 },
-      { "name": "Robin Hard", "year": 1997 }
+      {
+        "name": "James G. Frazer",
+        "year": 1921
+      },
+      {
+        "name": "Robin Hard",
+        "year": 1997
+      }
     ],
-    "externalUrl": "https://www.perseus.tufts.edu/hopper/text?doc=Perseus:text:1999.01.0022"
+    "externalUrl": "https://www.perseus.tufts.edu/hopper/text?doc=Perseus:text:1999.01.0022",
+    "characters": [
+      {
+        "id": "heracles",
+        "kind": "hero",
+        "role": "Greatest of Greek heroes whose Twelve Labors, conquests, and apotheosis are systematically cataloged",
+        "where": "Book II.4.8-II.7.8"
+      },
+      {
+        "id": "perseus",
+        "kind": "deity",
+        "role": "Slayer of Medusa who rescues Andromeda from the sea-monster and fulfills the prophecy of Acrisius",
+        "where": "Book II.4.1-5"
+      },
+      {
+        "id": "jason",
+        "kind": "hero",
+        "role": "Leader of the Argonauts who wins the Golden Fleece with the aid of the sorceress Medea",
+        "where": "Book I.9.16-28"
+      },
+      {
+        "id": "theseus",
+        "kind": "hero",
+        "role": "Athenian champion who clears the Isthmian road and slays the Minotaur in Knossos",
+        "where": "Epitome I.1-24"
+      },
+      {
+        "id": "oedipus",
+        "kind": "hero",
+        "role": "King of Thebes who solves the Sphinx's riddle and unknowingly fulfills the tragic prophecy of Laius",
+        "where": "Book III.5.7-9"
+      },
+      {
+        "id": "achilles",
+        "kind": "hero",
+        "role": "Supreme Achaean warrior at Troy whose upbringing, invulnerability rites, and fatal duel with Hector are recorded",
+        "where": "Book III.13.5-8, Epitome III-V"
+      }
+    ],
+    "keyScenes": [
+      {
+        "title": "The Twelve Labors of Heracles",
+        "where": "Book II.5.1-12",
+        "summary": "The definitive classical handbook record of all twelve labors imposed by Eurystheus, from the Nemean Lion to Cerberus."
+      },
+      {
+        "title": "Perseus and the Gorgon Medusa",
+        "where": "Book II.4.2-3",
+        "summary": "Armed by Hermes and Athena with the reflective bronze shield and curved sickle, Perseus beheads the sleeping Medusa while looking only at her reflection."
+      },
+      {
+        "title": "Theseus in the Cretan Labyrinth",
+        "where": "Epitome I.7-9",
+        "summary": "Guided through the twisting dark by Ariadne's golden thread, Theseus kills the Minotaur with his bare hands and leads the Athenian youths to safety."
+      }
+    ],
+    "readingOrder": "The Bibliotheca serves as the ancient world's primary mythological reference handbook. Read Book II for Heracles and Perseus, Book I.9 for Jason and the Argonauts, and Epitome I-V for Theseus and the Trojan War cycle."
   },
   {
     "id": "mythology-hamilton",
@@ -416,5 +1726,61 @@
     "type": "academic",
     "language": "English",
     "description": "A beautifully illustrated scholarly overview of Greek mythology, examining myths in their cultural, religious, and artistic contexts."
+  },
+  {
+    "id": "tain-bo-cuailnge",
+    "title": "Táin Bó Cúailnge",
+    "author": "Anonymous (Ulster Cycle)",
+    "year": "c. 8th century CE (oral tradition; earliest manuscripts 12th century CE)",
+    "type": "ancient-text",
+    "language": "Old Irish",
+    "description": "The central epic of the Ulster Cycle of Irish mythology, telling how Queen Medb of Connacht invaded Ulster to seize the Brown Bull of Cooley, and how the young hero Cu Chulainn held the province alone against her army.",
+    "translators": [
+      {
+        "name": "Thomas Kinsella",
+        "year": 1969
+      },
+      {
+        "name": "Ciaran Carson",
+        "year": 2007
+      }
+    ],
+    "characters": [
+      {
+        "id": "cu-chulainn",
+        "kind": "hero",
+        "role": "Ulster's champion, defends the province alone",
+        "where": "throughout, especially the ford combats"
+      },
+      {
+        "id": "morrigan",
+        "kind": "deity",
+        "role": "prophesies to Cu Chulainn and later hinders him in battle",
+        "where": "several episodes throughout"
+      }
+    ],
+    "keyScenes": [
+      {
+        "title": "The Pillow Talk",
+        "where": "the prologue",
+        "summary": "Queen Medb goes to war with Ulster after a boasting contest with her husband over their wealth turns on the Brown Bull of Cooley's equal."
+      },
+      {
+        "title": "Cu Chulainn's Single Combats",
+        "where": "the main cattle-raid narrative",
+        "summary": "With Ulster's warriors disabled by a curse, the young Cu Chulainn holds off Medb's army alone in a series of ford duels."
+      },
+      {
+        "title": "The Death of Ferdiad",
+        "where": "the Ferdiad episode",
+        "summary": "Cu Chulainn is forced to kill his foster-brother and friend Ferdiad in a grueling multi-day duel."
+      },
+      {
+        "title": "The Battle of the Bulls",
+        "where": "the conclusion",
+        "summary": "The Brown Bull of Cooley and Connacht's White-Horned Bull fight to the death as Ulster's men finally rise to rout Medb's army."
+      }
+    ],
+    "readingOrder": "Thomas Kinsella's 1969 translation is the classic English starting point; Ciaran Carson's 2007 Penguin Classics translation is a livelier modern alternative."
   }
 ]

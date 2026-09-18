@@ -8,9 +8,11 @@ import stories from '@/data/stories.json';
 import creatures from '@/data/creatures.json';
 import artifacts from '@/data/artifacts.json';
 import locations from '@/data/locations.json';
+import heroes from '@/data/heroes.json';
+import sources from '@/data/sources.json';
 
 // Content type definitions
-export type ContentType = 'deity' | 'story' | 'creature' | 'artifact' | 'location';
+export type ContentType = 'deity' | 'story' | 'creature' | 'artifact' | 'location' | 'hero' | 'source';
 
 export interface SearchResult {
   type: ContentType;
@@ -158,6 +160,28 @@ export function searchAll(query: string, limit: number = 10): SearchResult[] {
   const normalizedQuery = query.toLowerCase().trim();
 
   const results: SearchResult[] = [
+    ...searchItems(heroes, normalizedQuery, {
+      type: 'hero',
+      getTitle: (h) => h.name,
+      getSlug: (h) => h.slug,
+      getSearchFields: (h) => [
+        { value: h.name, weight: 3 },
+        { value: h.alternateNames?.join(' ') || '', weight: 2.5 },
+        { value: h.description, weight: 1 },
+      ],
+      getSubtitle: (h) => getPantheonLabel(h.pantheonId, 'Hero'),
+    }),
+    ...searchItems(sources, normalizedQuery, {
+      type: 'source',
+      getTitle: (s) => s.title,
+      getSlug: (s) => s.id,
+      getSearchFields: (s) => [
+        { value: s.title, weight: 3 },
+        { value: s.author || '', weight: 2 },
+        { value: s.description, weight: 1 },
+      ],
+      getSubtitle: (s) => s.author ? `Source · ${s.author}` : 'Source',
+    }),
     ...searchItems(deities as DeityData[], normalizedQuery, {
       type: 'deity',
       getTitle: (d) => d.name,
@@ -316,6 +340,8 @@ export function getResultUrl(result: SearchResult): string {
     creature: '/creatures',
     artifact: '/artifacts',
     location: '/locations',
+    hero: '/heroes',
+    source: '/sources',
   };
 
   return `${typeToPath[result.type]}/${result.slug}`;

@@ -243,12 +243,12 @@ export default async function CollectionPage({ params }: PageProps) {
 
       {/* Content */}
       <div className="container mx-auto max-w-7xl px-4 py-12">
-        <Link href="/collections">
-          <Button variant="ghost" size="sm" className="mb-8">
+        <Button asChild variant="ghost" size="sm" className="mb-8">
+          <Link href="/collections">
             <ArrowLeft className="h-4 w-4 mr-2" />
             All Collections
-          </Button>
-        </Link>
+          </Link>
+        </Button>
 
         <section className="mb-10 rounded-2xl border border-border/60 bg-card/60 p-6">
           <h2 className="page-section-title text-foreground">

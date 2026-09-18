@@ -86,13 +86,13 @@ const renderForeignObjectNode = ({
               </h3>
             </div>
             {domains && (
-              <p className="text-xs text-slate-600 dark:text-slate-400 truncate">
+              <p className="truncate text-xs text-muted-foreground">
                 {domains}
               </p>
             )}
             {hasChildren && (
               <div className="mt-2 text-center">
-                <span className="text-xs text-teal-600 dark:text-teal-400 flex items-center justify-center gap-1">
+                <span className="flex items-center justify-center gap-1 text-xs text-gold-text">
                   <Users className="h-3 w-3" aria-hidden />
                   {childLabel}
                 </span>
@@ -100,7 +100,7 @@ const renderForeignObjectNode = ({
             )}
           </button>
           {customNode.relationshipType && (
-            <div className="mt-1 px-2 py-0.5 rounded-full bg-teal-100 dark:bg-teal-900/30 text-teal-700 dark:text-teal-300 text-xs">
+            <div className="mt-1 rounded-full bg-secondary px-2 py-0.5 text-xs text-secondary-foreground">
               {customNode.relationshipType}
             </div>
           )}
@@ -233,7 +233,7 @@ export function EnhancedFamilyTree({
           size="sm"
           variant="outline"
           onClick={handleZoomIn}
-          className="bg-white dark:bg-slate-900"
+          className="bg-card"
           aria-label="Zoom in"
         >
           <ZoomIn className="h-4 w-4" />
@@ -242,7 +242,7 @@ export function EnhancedFamilyTree({
           size="sm"
           variant="outline"
           onClick={handleZoomOut}
-          className="bg-white dark:bg-slate-900"
+          className="bg-card"
           aria-label="Zoom out"
         >
           <ZoomOut className="h-4 w-4" />
@@ -251,7 +251,7 @@ export function EnhancedFamilyTree({
           size="sm"
           variant="outline"
           onClick={handleReset}
-          className="bg-white dark:bg-slate-900"
+          className="bg-card"
           aria-label="Reset view"
         >
           <Maximize2 className="h-4 w-4" />

@@ -1,7 +1,4 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { ExternalLink } from "lucide-react";
 import { HeroMark } from "@/components/icons/hero-mark";
-import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
 import { generateBaseMetadata } from "@/lib/metadata";
 import { RouteHero } from "@/components/layout/route-hero";
 import {
@@ -9,6 +6,7 @@ import {
   pageTitleOnDarkClass,
 } from "@/components/layout/page-typography";
 import { cn } from "@/lib/utils";
+import { SourcesPageClient } from "./SourcesPageClient";
 
 export const metadata = generateBaseMetadata({
   title: "Sources & References",
@@ -23,70 +21,14 @@ export const metadata = generateBaseMetadata({
     "Homer",
     "Prose Edda",
     "Book of the Dead",
+    "Rigveda",
+    "Popol Vuh",
+    "Enuma Elish",
+    "Kojiki",
   ],
 });
 
 export default function SourcesPage() {
-  const sources = [
-    {
-      category: "Greek Mythology",
-      references: [
-        {
-          title: "Theogony",
-          author: "Hesiod",
-          description:
-            "Ancient Greek poem describing the origins and genealogies of the gods.",
-        },
-        {
-          title: "The Iliad & The Odyssey",
-          author: "Homer",
-          description:
-            "Epic poems central to understanding Greek mythology and heroic tradition.",
-        },
-        {
-          title: "Metamorphoses",
-          author: "Ovid",
-          description:
-            "Latin narrative poem chronicling the history of the world from creation to the deification of Julius Caesar.",
-        },
-      ],
-    },
-    {
-      category: "Norse Mythology",
-      references: [
-        {
-          title: "Prose Edda",
-          author: "Snorri Sturluson",
-          description:
-            "Old Norse textbook written in Iceland during the early 13th century, a major source for Norse mythology.",
-        },
-        {
-          title: "Poetic Edda",
-          author: "Various",
-          description:
-            "Collection of Old Norse poems from the Icelandic medieval manuscript Codex Regius.",
-        },
-      ],
-    },
-    {
-      category: "Egyptian Mythology",
-      references: [
-        {
-          title: "The Book of the Dead",
-          author: "Ancient Egyptian Funerary Texts",
-          description:
-            "Collection of spells and instructions to help the deceased navigate the afterlife.",
-        },
-        {
-          title: "Pyramid Texts",
-          author: "Ancient Egyptian",
-          description:
-            "Oldest known religious texts in the world, carved into pyramids at Saqqara.",
-        },
-      ],
-    },
-  ];
-
   return (
     <div className="min-h-screen bg-mythic">
       {/* Hero Section */}
@@ -103,99 +45,13 @@ export default function SourcesPage() {
           <div className="w-12 h-px bg-linear-to-l from-transparent to-gold/40" />
         </div>
         <p className={pageLedeOnDarkClass}>
-          Academic sources and primary texts used in our research
+          Primary historical literature, translations, and scholarly references
+          grounding the atlas
         </p>
       </RouteHero>
 
-      {/* Content Section */}
-      <div className="page-shell max-w-4xl">
-        <Breadcrumbs />
-
-        <div className="mt-8">
-          <Card className="border-gold/20 bg-midnight-light/50 mb-8">
-            <CardHeader>
-              <CardTitle className="text-parchment text-2xl font-serif">
-                Our Approach
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-parchment/80 leading-relaxed text-lg">
-                Mythos Atlas draws from primary ancient texts, scholarly
-                translations, and modern academic research to provide accurate
-                and comprehensive information about world mythologies. We
-                prioritize sources that are widely recognized by scholars and
-                institutions.
-              </p>
-              <p className="text-parchment/70 leading-relaxed text-base mt-4">
-                Source work here is meant to show the editorial footing of the
-                encyclopedia rather than pretend that mythology has one final,
-                uncontested version. Many traditions survive in variant
-                retellings, fragmentary texts, and later interpretations, so the
-                most reliable summaries usually come from comparing primary
-                material with careful modern scholarship.
-              </p>
-            </CardContent>
-          </Card>
-
-          <div className="space-y-8">
-            {sources.map((section) => (
-              <div key={section.category}>
-                <h2 className="text-3xl font-serif font-semibold text-parchment mb-6 flex items-center gap-3">
-                  <div className="w-1.5 h-1.5 rotate-45 bg-gold/50" />
-                  {section.category}
-                </h2>
-                <div className="grid gap-6">
-                  {section.references.map((ref) => (
-                    <Card
-                      key={ref.title}
-                      className="border-gold/20 bg-midnight-light/50"
-                    >
-                      <CardHeader>
-                        <CardTitle className="text-parchment flex items-center gap-2">
-                          {ref.title}
-                          <ExternalLink className="h-4 w-4 text-gold/60" />
-                        </CardTitle>
-                        <p className="text-gold/80 text-sm">{ref.author}</p>
-                      </CardHeader>
-                      <CardContent>
-                        <p className="text-parchment/70">{ref.description}</p>
-                      </CardContent>
-                    </Card>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <Card className="border-gold/20 bg-midnight-light/50 mt-12">
-            <CardHeader>
-              <CardTitle className="text-parchment text-2xl font-serif">
-                Additional Resources
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-4">
-              <p className="text-parchment/80 leading-relaxed">
-                We also reference modern scholarly works from universities and
-                research institutions worldwide. Our team continuously updates
-                and verifies information to maintain accuracy and scholarly
-                integrity.
-              </p>
-              <p className="text-parchment/80 leading-relaxed">
-                As the encyclopedia expands, this page will keep growing to
-                reflect the texts, translations, and academic reference works
-                used in newer pantheons and features. If a page needs a source
-                check or a better citation trail, the contact route is the right
-                place to challenge it.
-              </p>
-              <p className="text-parchment/70 text-sm italic">
-                Note: This is a living document. Sources are continuously being
-                added and updated as we expand our coverage of world
-                mythologies.
-              </p>
-            </CardContent>
-          </Card>
-        </div>
-      </div>
+      {/* Interactive Sources Codex */}
+      <SourcesPageClient />
     </div>
   );
 }

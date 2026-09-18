@@ -11,6 +11,7 @@ const JsonObjectSchema = z.record(z.string(), z.unknown());
 
 const CitationSourceSchema = z.looseObject({
   title: z.string(),
+  url: z.url({ protocol: /^https?$/ }).optional(),
   author: z.string().optional(),
   date: z.string().optional(),
   type: z.string().optional(),
@@ -20,8 +21,29 @@ const CitationSourceSchema = z.looseObject({
   chapters: z.string().optional(),
 });
 
+const PrimarySourceExcerptSchema = z.looseObject({
+  text: z.string(),
+  translation: z.string(),
+  source: z.string(),
+  sourceId: z.string().optional(),
+  lineNumbers: z.string().optional(),
+  translator: z.string().optional(),
+  originalLanguage: z.string().optional(),
+  quoteStatus: z.enum(["direct-quotation", "editorial-paraphrase", "unverified"]),
+  verification: z.enum([
+    "verified",
+    "source-and-locator-verified",
+    "not-verified",
+  ]),
+  sourceUrl: z.url({ protocol: /^https?$/ }),
+  edition: z.string().min(1),
+});
+
 const MythVariantSchema = z.looseObject({
   source: z.string(),
+  passage: z.string().optional(),
+  sourceUrl: z.url({ protocol: /^https?$/ }).optional(),
+  translator: z.string().optional(),
   date: z.string().optional(),
   difference: z.string(),
   note: z.string().optional(),
@@ -103,7 +125,7 @@ export const DeitySchema = z.looseObject({
       }),
     )
     .optional(),
-  primarySourceExcerpts: z.array(JsonObjectSchema).optional(),
+  primarySourceExcerpts: z.array(PrimarySourceExcerptSchema).optional(),
   furtherReading: z.array(JsonObjectSchema).optional(),
   worship: z
     .looseObject({
@@ -136,7 +158,7 @@ export const StorySchema = z.looseObject({
   featuredLocations: z.array(z.string()).optional(),
   relatedStories: z.array(z.string()).optional(),
   variants: z.array(MythVariantSchema).optional(),
-  primarySourceExcerpts: z.array(JsonObjectSchema).optional(),
+  primarySourceExcerpts: z.array(PrimarySourceExcerptSchema).optional(),
   furtherReading: z.array(JsonObjectSchema).optional(),
   imageUrl: z.string().optional(),
 });

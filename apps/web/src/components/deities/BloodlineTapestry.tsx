@@ -173,7 +173,7 @@ export function BloodlineTapestry({
       aria-label={`Bloodline of ${deityName}`}
     >
       <div className="mb-6">
-        <span className="text-xs uppercase tracking-[0.25em] text-gold/80">
+        <span className="text-xs uppercase tracking-[0.25em] text-gold-text">
           Bloodline
         </span>
         <h2 className="font-serif text-2xl font-semibold text-foreground">
@@ -211,7 +211,7 @@ export function BloodlineTapestry({
             <Tier label="Siblings" kin={siblings} />
             {rivals.length > 0 && (
               <div className="flex flex-col items-center gap-2">
-                <span className="text-[0.65rem] uppercase tracking-[0.2em] text-red-400/80">
+                <span className="text-[0.65rem] uppercase tracking-[0.2em] text-destructive">
                   Rivals
                 </span>
                 <div className="flex flex-wrap justify-center gap-4">

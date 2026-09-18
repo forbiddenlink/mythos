@@ -248,6 +248,47 @@ describe("BookmarkButton", () => {
   });
 
   describe("Integration with bookmark context", () => {
+    it("restores hero bookmarks saved using the legacy story namespace", () => {
+      localStorageMock.setItem(
+        "mythos-atlas-bookmarks",
+        JSON.stringify([
+          { type: "story", id: "hero-heracles", timestamp: 123 },
+          { type: "story", id: "titanomachy", timestamp: 124 },
+        ]),
+      );
+      render(<BookmarkButton type="hero" id="heracles" />, { wrapper });
+      expect(
+        screen.getByRole("button", { name: "Remove hero from bookmarks" }),
+      ).toHaveAttribute("aria-pressed", "true");
+      expect(
+        JSON.parse(localStorageMock.getItem("mythos-atlas-bookmarks")!),
+      ).toEqual([
+        { type: "hero", id: "heracles", timestamp: 123 },
+        { type: "story", id: "titanomachy", timestamp: 124 },
+      ]);
+    });
+
+    it("persists a source separately from a story with the same id", async () => {
+      render(
+        <>
+          <BookmarkButton type="source" id="iliad" />
+          <BookmarkButton type="story" id="iliad" />
+        </>,
+        { wrapper },
+      );
+
+      const [sourceButton, storyButton] = screen.getAllByRole("button");
+      await act(async () => {
+        fireEvent.click(sourceButton);
+      });
+
+      expect(sourceButton).toHaveAttribute("aria-pressed", "true");
+      expect(storyButton).toHaveAttribute("aria-pressed", "false");
+      expect(
+        JSON.parse(localStorageMock.getItem("mythos-atlas-bookmarks")!),
+      ).toEqual([expect.objectContaining({ type: "source", id: "iliad" })]);
+    });
+
     it("should reflect context state changes", async () => {
       render(<BookmarkButton type="deity" id="zeus" />, { wrapper });
 
@@ -356,6 +397,7 @@ describe("BookmarkButton", () => {
     it.each([
       ["deity", "Add deity to bookmarks", "Remove deity from bookmarks"],
       ["story", "Add story to bookmarks", "Remove story from bookmarks"],
+      ["source", "Add source to bookmarks", "Remove source from bookmarks"],
       [
         "pantheon",
         "Add pantheon to bookmarks",
@@ -426,6 +468,7 @@ describe("BookmarkButton", () => {
     it.each([
       ["deity", "zeus"],
       ["story", "titanomachy"],
+      ["source", "iliad"],
       ["pantheon", "greek"],
     ] as const)("should handle %s type with id %s", (type, id) => {
       const toggleBookmark = vi.fn();

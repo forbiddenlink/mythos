@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useEffect, useState } from "react";
+import { useRef, useEffect, useState, useSyncExternalStore } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -48,6 +48,10 @@ const startPaths = [
   },
 ] as const;
 
+function subscribeToMotionPreference() {
+  return () => {};
+}
+
 interface PantheonRow {
   id: string;
   name: string;
@@ -81,6 +85,13 @@ export function AtlasOpensHero({ pantheons, counts }: AtlasOpensHeroProps) {
   const pinRef = useRef<HTMLDivElement>(null);
   const [showDecor, setShowDecor] = useState(false);
   const [heroInView, setHeroInView] = useState(true);
+  // Keep the server and hydration render on the animated tree; React then
+  // reads the client preference and can swap to the static resting layout.
+  const motionPreferenceReady = useSyncExternalStore(
+    subscribeToMotionPreference,
+    () => true,
+    () => false,
+  );
   const STATS = counts;
 
   useEffect(() => {
@@ -258,14 +269,16 @@ export function AtlasOpensHero({ pantheons, counts }: AtlasOpensHeroProps) {
             <dt className="text-xs uppercase tracking-[0.2em] text-gold/70">
               {label}
             </dt>
-            <dd className="font-serif text-3xl text-parchment font-semibold">{value}</dd>
+            <dd className="font-serif text-3xl text-parchment font-semibold">
+              {value}
+            </dd>
           </div>
         ))}
       </dl>
     </div>
   );
 
-  if (reduce) {
+  if (motionPreferenceReady && reduce) {
     return (
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-hero-gradient noise-overlay">
         <div className="absolute inset-0 z-0">

@@ -69,6 +69,7 @@ import {
 import { RelatedDeities } from "@/components/deities/RelatedDeities";
 import { DeityStoryRecommendations } from "@/components/deities/DeityStoryRecommendations";
 import { LinkedMentions } from "@/components/mythology/LinkedMentions";
+import { AppearsIn } from "@/components/mythology/AppearsIn";
 import { RosettaWheel } from "@/components/collections/RosettaWheel";
 import { MythosMark } from "@/components/icons/mythos-marks";
 import deitiesData from "@/data/deities.json";
@@ -352,7 +353,7 @@ export function DeityPageClient({ slug }: DeityPageClientProps) {
                     title={`${deity.name} - Mythos Atlas`}
                     text={`Discover ${deity.name}, ${deity.domain?.join(", ") || "deity"} from ancient mythology on Mythos Atlas`}
                     url={`https://mythosatlas.com/deities/${deity.slug}`}
-                    className="[&_button]:text-white [&_button]:border-white/30 [&_button]:hover:bg-white/20"
+                    className="[&_button]:text-foreground"
                   />
                   <ExportIconButton
                     type="deity"
@@ -516,7 +517,7 @@ export function DeityPageClient({ slug }: DeityPageClientProps) {
                   </>
                 )}
 
-              {/* Attestation provenance — confidence derived from corroboration */}
+              {/* Source coverage recorded in this catalog */}
               <div className="reveal-on-scroll">
                 <SourceProvenance sources={deity.primarySources} />
               </div>
@@ -539,40 +540,44 @@ export function DeityPageClient({ slug }: DeityPageClientProps) {
                   </section>
                 )}
 
-              {/* Primary Sources (simple quotes) */}
+              {/* Legacy source notes without edition metadata */}
               {deity.primarySources &&
                 deity.primarySources.length > 0 &&
                 !deity.primarySourceExcerpts?.length && (
                   <section className="max-w-[68ch]">
                     <h2 className="font-serif text-2xl font-semibold text-foreground mb-1 border-l-4 border-gold pl-4 flex items-center gap-2">
                       <BookOpen className="h-5 w-5 text-gold" />
-                      Primary Sources
+                      Source Notes
                     </h2>
                     <p className="text-muted-foreground text-sm mb-5 pl-5">
-                      Historical texts and references
+                      These records lack edition and translator details. Their wording
+                      has not been verified as a direct quotation.
                     </p>
                     <div className="space-y-6">
                       {deity.primarySources.map((source, index) => (
-                        <blockquote
+                        <div
                           key={`${source.source}-${index}`}
                           className="border-l-4 border-gold/30 pl-4 py-2 bg-muted/50 rounded-r-lg"
                         >
-                          <p className="text-foreground/80 italic leading-relaxed">
-                            &ldquo;{source.text}&rdquo;
+                          <p className="text-foreground/80 leading-relaxed">
+                            {source.text}
                           </p>
                           <footer className="mt-2 text-sm text-muted-foreground">
                             <span className="font-medium">{source.source}</span>
                             {source.date && (
-                              <span className="ml-2 text-muted-foreground/70">
+                              <span className="ml-2 text-muted-foreground">
                                 ({source.date})
                               </span>
                             )}
                           </footer>
-                        </blockquote>
+                        </div>
                       ))}
                     </div>
                   </section>
                 )}
+
+              {/* Appears In — derived from sources.json */}
+              <AppearsIn entityId={deity.id} kind="deity" />
 
               {/* Further Reading */}
               {deity.furtherReading && deity.furtherReading.length > 0 && (
@@ -638,7 +643,7 @@ export function DeityPageClient({ slug }: DeityPageClientProps) {
                                 <Badge
                                   key={festival}
                                   variant="outline"
-                                  className="border-gold/30 text-gold"
+                                  className="border-gold/30 text-gold-text"
                                 >
                                   {festival}
                                 </Badge>

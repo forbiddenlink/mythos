@@ -7,10 +7,14 @@ import artifacts from "@/data/artifacts.json";
 import journeys from "@/data/journeys.json";
 import locations from "@/data/locations.json";
 import collections from "@/data/collections.json";
+import heroes from "@/data/heroes.json";
+import sources from "@/data/sources.json";
 
 const BASE_URL = "https://mythosatlas.com";
 
 const STUDY_GUIDES = [
+  "inanna-text-and-temple",
+  "ibeji-objects-and-remembrance",
   "greek-gods",
   "norse-mythology",
   "comparative-mythology",
@@ -33,6 +37,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified,
       changeFrequency: "weekly",
       priority: 0.9,
+    },
+    {
+      url: `${BASE_URL}/heroes`,
+      lastModified,
+      changeFrequency: "weekly",
+      priority: 0.85,
     },
     {
       url: `${BASE_URL}/stories`,
@@ -242,6 +252,22 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
+  // Hero pages
+  const heroPages: MetadataRoute.Sitemap = heroes.map((hero) => ({
+    url: `${BASE_URL}/heroes/${hero.slug}`,
+    lastModified,
+    changeFrequency: "monthly" as const,
+    priority: 0.75,
+  }));
+
+  // Source detail pages
+  const sourcePages: MetadataRoute.Sitemap = sources.map((source) => ({
+    url: `${BASE_URL}/sources/${source.id}`,
+    lastModified,
+    changeFrequency: "monthly" as const,
+    priority: 0.6,
+  }));
+
   // Story pages
   const storyPages: MetadataRoute.Sitemap = stories.map((story) => ({
     url: `${BASE_URL}/stories/${story.slug}`,
@@ -311,6 +337,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...staticPages,
     ...studyPages,
     ...deityPages,
+    ...heroPages,
     ...storyPages,
     ...pantheonPages,
     ...creaturePages,
@@ -318,5 +345,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...journeyPages,
     ...locationPages,
     ...collectionPages,
+    ...sourcePages,
   ];
 }

@@ -114,7 +114,7 @@ export function RelatedDeities({
                 </span>
                 <Badge
                   variant="outline"
-                  className="mt-1 text-xs border-gold/30 text-gold/80"
+                  className="mt-1 text-xs border-gold/30 text-gold-text"
                 >
                   {label}
                 </Badge>

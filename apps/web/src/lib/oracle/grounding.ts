@@ -10,6 +10,8 @@ import deities from "@/data/deities.json";
 import locations from "@/data/locations.json";
 import relationships from "@/data/relationships.json";
 import stories from "@/data/stories.json";
+import heroes from "@/data/heroes.json";
+import sources from "@/data/sources.json";
 import type { OracleCitation } from "@/lib/oracle/citations";
 import { citationsFromHits } from "@/lib/oracle/citations";
 import { getLocaleStopwords } from "@/lib/oracle/oracle-locale";
@@ -150,6 +152,24 @@ function relationshipHintsForDeityHits(hits: SearchResult[]): string {
 
 function snippetForResult(r: SearchResult): string | null {
   switch (r.type) {
+    case "hero": {
+      const hero = heroes.find((item) => item.slug === r.slug);
+      return hero
+        ? truncate(
+            stripMarkdownish(`${hero.description}\n${hero.detailedBio}`),
+            MAX_SNIPPET,
+          )
+        : null;
+    }
+    case "source": {
+      const source = sources.find((item) => item.id === r.slug);
+      return source
+        ? truncate(
+            `${source.title}${source.author ? ` — ${source.author}` : ""}: ${source.description}`,
+            MAX_SNIPPET,
+          )
+        : null;
+    }
     case "deity": {
       const d = (
         deities as {

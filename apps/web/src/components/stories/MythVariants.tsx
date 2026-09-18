@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useId, useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
   ChevronDown,
@@ -12,6 +12,9 @@ import {
 
 export interface MythVariant {
   source: string;
+  passage?: string;
+  sourceUrl?: string;
+  translator?: string;
   date?: string;
   difference: string;
   note?: string;
@@ -23,6 +26,7 @@ interface MythVariantsProps {
 
 export function MythVariants({ variants }: MythVariantsProps) {
   const [isExpanded, setIsExpanded] = useState(false);
+  const contentId = useId();
 
   if (!variants || variants.length === 0) {
     return null;
@@ -35,7 +39,7 @@ export function MythVariants({ variants }: MythVariantsProps) {
           onClick={() => setIsExpanded(!isExpanded)}
           className="w-full flex items-center justify-between group cursor-pointer"
           aria-expanded={isExpanded}
-          aria-controls="myth-variants-content"
+          aria-controls={contentId}
         >
           <div className="flex items-center gap-3">
             <div className="p-2 rounded-lg bg-gold/10 border border-gold/25">
@@ -47,8 +51,7 @@ export function MythVariants({ variants }: MythVariantsProps) {
               </CardTitle>
               <p className="text-sm text-muted-foreground mt-1">
                 {variants.length} alternate{" "}
-                {variants.length === 1 ? "account" : "accounts"} from ancient
-                sources
+                {variants.length === 1 ? "account" : "accounts"} in the catalog
               </p>
             </div>
           </div>
@@ -63,7 +66,8 @@ export function MythVariants({ variants }: MythVariantsProps) {
       </CardHeader>
 
       <div
-        id="myth-variants-content"
+        id={contentId}
+        hidden={!isExpanded}
         className={`transition-all duration-300 ease-in-out overflow-hidden ${
           isExpanded ? "max-h-500 opacity-100" : "max-h-0 opacity-0"
         }`}
@@ -77,7 +81,7 @@ export function MythVariants({ variants }: MythVariantsProps) {
               >
                 {/* Source Header */}
                 <div className="flex items-start justify-between mb-3">
-                  <div className="flex items-center gap-2">
+                  <div className="flex flex-wrap items-center gap-2">
                     <ScrollText className="h-4 w-4 text-gold/80" />
                     <span className="font-serif text-gold-text font-medium">
                       {variant.source}
@@ -94,6 +98,24 @@ export function MythVariants({ variants }: MythVariantsProps) {
                 <p className="text-foreground/85 leading-relaxed mb-3">
                   {variant.difference}
                 </p>
+
+                {variant.sourceUrl &&
+                  /^https?:\/\//.test(variant.sourceUrl) && (
+                    <p className="mb-3 text-sm text-muted-foreground">
+                      <a
+                        href={variant.sourceUrl}
+                        className="inline-flex min-h-11 items-center text-gold-text underline underline-offset-4"
+                      >
+                        Read {variant.passage ?? "the source"}
+                      </a>
+                      {variant.translator && (
+                        <span className="block">
+                          Translation: {variant.translator}. Account above is an
+                          editorial summary.
+                        </span>
+                      )}
+                    </p>
+                  )}
 
                 {/* Scholar's Note */}
                 {variant.note && (

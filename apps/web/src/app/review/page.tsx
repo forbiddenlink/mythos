@@ -20,42 +20,20 @@ export const metadata: Metadata = generateBaseMetadata({
 export default function ReviewPage() {
   return (
     <>
-      <section className="bg-mythic">
-        <div className="container mx-auto max-w-5xl px-4 pt-10">
-          <div className="rounded-2xl border border-border/60 bg-card/60 p-6">
-            <h2 className="page-section-title text-foreground">
-              Use Daily Review To Retain What You Read
-            </h2>
-            <p className="mt-3 leading-relaxed text-muted-foreground">
-              Daily review is the memory layer for Mythos Atlas. Instead of
-              rereading full pages every time, you can revisit names, symbols,
-              domains, and story facts in short spaced-repetition sessions that
-              surface the material most likely to fade.
-            </p>
-            <p className="mt-3 leading-relaxed text-muted-foreground">
-              This page works best after real exploration. Read a deity profile,
-              finish a story, or complete a quiz, then return here later to
-              reinforce the details that matter. Over time, the review queue
-              becomes a compact memory loop for mythology study rather than a
-              separate feature disconnected from the rest of the site.
-            </p>
-            <p className="mt-3 leading-relaxed text-muted-foreground">
-              It also helps balance depth and repetition. Some routes are best
-              for long reading and context, while this one is designed for short
-              retrieval practice. Alternating between the two is usually what
-              makes information durable enough to recognize later in quizzes,
-              games, and comparisons.
-            </p>
-            <p className="mt-3 leading-relaxed text-muted-foreground">
-              If your queue feels thin, open a few more deity or story pages and
-              let the site build material for you naturally. Review becomes more
-              useful when it reflects what you are actually studying, not a
-              disconnected pile of random facts.
-            </p>
-          </div>
-        </div>
-      </section>
       <ReviewPageClient />
+      <div className="page-shell max-w-4xl">
+        <details className="border-t border-border py-6 text-muted-foreground">
+          <summary className="cursor-pointer font-medium text-foreground focus-visible:outline-2 focus-visible:outline-ring">
+            How daily review works
+          </summary>
+          <p className="mt-3 leading-relaxed">
+            Read deity profiles and stories to build your review queue. Short
+            sessions revisit their names, symbols, and traditions. Your answers
+            determine when each card returns; review history stays in this
+            browser.
+          </p>
+        </details>
+      </div>
     </>
   );
 }

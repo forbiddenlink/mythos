@@ -80,7 +80,7 @@ export function LanguageSwitcher() {
         aria-label={`Interface language: ${currentLocale.toUpperCase()}. Navigation and Oracle chat follow this locale; most encyclopedia pages remain in English.`}
         title="Navigation and Oracle language"
         aria-expanded={isOpen ? "true" : "false"}
-        aria-haspopup="listbox"
+        aria-haspopup="menu"
       >
         <span className="text-base" aria-hidden="true">
           {localeFlags[currentLocale]}

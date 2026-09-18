@@ -90,11 +90,11 @@ export function AchievementToast({
         // Solid on-brand card (no glassmorphism / glow — matches editorial tone)
         "bg-card border border-gold/25 shadow-lg shadow-black/20",
         // Animation transitions
-        "transform transition-all duration-300 ease-out",
+        "transform transition-all duration-300 ease-out motion-reduce:transition-none motion-reduce:transform-none",
         // Entrance/exit states
         isVisible && !isExiting
-          ? "translate-x-0 opacity-100"
-          : "translate-x-full opacity-0",
+          ? "translate-y-0 opacity-100"
+          : "translate-y-4 opacity-0",
       )}
     >
       {/* Top accent bar */}
@@ -134,8 +134,8 @@ export function AchievementToast({
           <div className="flex-1 min-w-0 pt-0.5">
             {/* Header */}
             <div className="flex items-center gap-2 mb-1">
-              <Icons.Trophy className="size-3.5 text-gold" />
-              <span className="text-xs font-medium uppercase tracking-wider text-gold">
+              <Icons.Trophy className="size-3.5 text-gold-text" />
+              <span className="text-xs font-medium uppercase tracking-wider text-gold-text">
                 Achievement Unlocked!
               </span>
             </div>
@@ -155,10 +155,10 @@ export function AchievementToast({
               className={cn(
                 "inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full",
                 "bg-gold/15 border border-gold/30",
-                "text-xs font-semibold text-gold",
+                "text-xs font-semibold text-gold-text",
               )}
             >
-              <span className="text-gold-light">+{achievement.xp}</span>
+              <span className="text-gold-text">+{achievement.xp}</span>
               <span>XP</span>
             </div>
           </div>

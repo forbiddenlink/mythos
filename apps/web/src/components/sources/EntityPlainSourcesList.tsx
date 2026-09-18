@@ -32,7 +32,7 @@ export function EntityPlainSourcesList({
     <Card
       className={cn(
         isStory
-          ? "border-gold/20 bg-midnight-light/50"
+          ? "border-gold/20 bg-card"
           : "border-border/60 bg-card",
         className,
       )}
@@ -41,13 +41,13 @@ export function EntityPlainSourcesList({
         <CardTitle
           className={cn(
             "font-serif flex items-center gap-2 text-xl",
-            isStory ? "text-parchment" : "text-foreground",
+            isStory ? "text-foreground" : "text-foreground",
           )}
         >
-          <Library className="h-5 w-5 text-gold shrink-0" aria-hidden />
+          <Library className="h-5 w-5 text-gold-text shrink-0" aria-hidden />
           {title}
         </CardTitle>
-        <CardDescription className={isStory ? "text-parchment/60" : undefined}>
+        <CardDescription className={isStory ? "text-muted-foreground" : undefined}>
           Editorial notes for deeper study (not a full bibliography).
         </CardDescription>
       </CardHeader>
@@ -55,23 +55,23 @@ export function EntityPlainSourcesList({
         <ul
           className={cn(
             "list-disc space-y-2 pl-5 text-sm leading-relaxed",
-            isStory ? "text-parchment/85" : "text-foreground/85",
+            isStory ? "text-foreground" : "text-foreground/85",
           )}
         >
           {lines.map((line, i) => (
-            <li key={i}>{line}</li>
+            <li key={i} className="break-words">{line}</li>
           ))}
         </ul>
         <p
           className={cn(
             "text-xs pt-1",
-            isStory ? "text-parchment/45" : "text-muted-foreground",
+            isStory ? "text-muted-foreground" : "text-muted-foreground",
           )}
         >
           Browse representative texts and policies on the{" "}
           <Link
             href="/sources"
-            className="underline underline-offset-2 text-gold hover:text-gold/90"
+            className="underline underline-offset-2 text-gold-text hover:text-gold-text"
           >
             Sources
           </Link>{" "}

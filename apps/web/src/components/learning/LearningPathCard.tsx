@@ -23,6 +23,7 @@ import {
   Clock,
 } from "lucide-react";
 import { getDeityPath } from "@/lib/deities";
+import { isRequiredLearningPathStep } from "@/lib/recommendations";
 import type {
   LearningPath,
   LearningPathStep,
@@ -91,14 +92,22 @@ export function LearningPathCard({
   const bgColor = goalBgColors[path.goal];
   const iconColor = goalIconColors[path.goal];
 
-  // Get the next 3 incomplete steps
-  const incompleteSteps = path.steps.filter((s) => !s.completed);
+  const requiredSteps = path.steps.filter(isRequiredLearningPathStep);
+  const completedRequiredSteps = requiredSteps.filter((step) => step.completed);
+  const incompleteSteps = requiredSteps.filter((step) => !step.completed);
   const nextSteps = incompleteSteps.slice(0, 3);
   const hasMoreSteps = incompleteSteps.length > 3;
+  const optionalPractice = path.steps.find(
+    (step) => !isRequiredLearningPathStep(step),
+  );
 
-  // Find the first incomplete step to link to
   const nextStep = incompleteSteps[0];
-  const continueLink = nextStep ? getStepLink(nextStep) : "/quiz";
+  const reviewStep = requiredSteps[0] ?? optionalPractice;
+  const continueLink = nextStep
+    ? getStepLink(nextStep)
+    : reviewStep
+      ? getStepLink(reviewStep)
+      : "/quiz";
 
   const isComplete = path.progress === 100;
   const isStarted = path.progress > 0;
@@ -155,8 +164,8 @@ export function LearningPathCard({
             aria-label={`${path.name} progress: ${path.progress}%`}
           />
           <p className="text-xs text-muted-foreground">
-            {path.steps.filter((s) => s.completed).length} of{" "}
-            {path.steps.length} steps completed
+            {completedRequiredSteps.length} of {requiredSteps.length} reading
+            steps completed
           </p>
         </div>
 
@@ -186,6 +195,15 @@ export function LearningPathCard({
               </p>
             )}
           </div>
+        )}
+        {optionalPractice && (
+          <Link
+            href={getStepLink(optionalPractice)}
+            className="flex items-center gap-2 border-t border-border pt-3 text-sm text-muted-foreground transition-colors hover:text-gold"
+          >
+            <Play className="h-3.5 w-3.5 shrink-0" />
+            <span>Optional recall practice: {optionalPractice.title}</span>
+          </Link>
         )}
       </CardContent>
 

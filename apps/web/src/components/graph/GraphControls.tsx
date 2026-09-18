@@ -153,7 +153,7 @@ export function GraphControls({
             Search deities in graph
           </label>
           <Search
-            className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400"
+            className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground"
             aria-hidden="true"
           />
           <Input
@@ -166,14 +166,14 @@ export function GraphControls({
               setShowSearchResults(true);
             }}
             onFocus={() => setShowSearchResults(true)}
-            className="pl-9 pr-9 bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-700"
+            className="bg-card pl-9 pr-9 border-border"
           />
           {searchQuery && (
             <button
               type="button"
               onClick={() => setSearchQuery("")}
               aria-label="Clear search"
-              className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200"
+              className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground"
             >
               <X className="h-4 w-4" aria-hidden="true" />
             </button>
@@ -182,16 +182,16 @@ export function GraphControls({
 
         {/* Search Results Dropdown */}
         {showSearchResults && searchResults.length > 0 && (
-          <div className="absolute top-full left-0 right-0 mt-1 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg shadow-lg max-h-60 overflow-y-auto z-50">
+          <div className="absolute top-full left-0 right-0 z-50 mt-1 max-h-60 overflow-y-auto rounded-lg border border-border bg-popover shadow-lg">
             {searchResults.map((deity) => (
               <button
                 key={deity.id}
                 onClick={() => handleSearchSelect(deity)}
-                className="w-full px-3 py-2 text-left hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-900 dark:text-slate-100 text-sm flex flex-col border-b border-slate-100 dark:border-slate-800 last:border-b-0"
+                className="flex w-full flex-col border-b border-border px-3 py-2 text-left text-sm text-popover-foreground last:border-b-0 hover:bg-accent"
               >
                 <span className="font-medium">{deity.name}</span>
                 {deity.domain && deity.domain.length > 0 && (
-                  <span className="text-xs text-slate-500 dark:text-slate-400">
+                  <span className="text-xs text-muted-foreground">
                     {deity.domain.slice(0, 2).join(", ")}
                   </span>
                 )}
@@ -204,7 +204,7 @@ export function GraphControls({
       {/* Control Buttons Row */}
       <div className="flex items-center gap-2 flex-wrap">
         {/* Zoom Controls */}
-        <div className="flex items-center gap-1 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg p-1">
+        <div className="flex items-center gap-1 rounded-lg border border-border bg-card p-1">
           <Button
             variant="ghost"
             size="icon-sm"
@@ -240,6 +240,8 @@ export function GraphControls({
           size="sm"
           onClick={() => setShowFilters(!showFilters)}
           className="gap-2"
+          aria-label={showFilters ? "Hide graph filters" : "Show graph filters"}
+          aria-expanded={showFilters}
         >
           <Filter className="h-4 w-4" />
           <span className="hidden sm:inline">Filters</span>
@@ -258,6 +260,7 @@ export function GraphControls({
             onClusterChange(next === "cluster");
           }}
           className="gap-2"
+          aria-label={`Switch graph layout from ${layoutMode ?? (clusterByPantheon ? "cluster" : "grid")}`}
         >
           <Layers className="h-4 w-4" />
           <span className="hidden sm:inline capitalize">
@@ -268,16 +271,16 @@ export function GraphControls({
 
       {/* Expanded Filters */}
       {showFilters && (
-        <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg p-4 space-y-4">
+        <div className="space-y-4 rounded-lg border border-border bg-card p-4">
           {/* Pantheon Filters */}
           <div className="space-y-2">
             <div className="flex items-center justify-between">
-              <h4 className="text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider">
+              <h4 className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
                 Pantheons
               </h4>
               <button
                 onClick={toggleAllPantheons}
-                className="text-xs text-teal-600 dark:text-teal-400 hover:underline"
+                className="text-xs text-gold-text hover:underline"
               >
                 {selectedPantheons.size === pantheons.length
                   ? "Deselect All"
@@ -302,8 +305,8 @@ export function GraphControls({
           </div>
 
           {/* Relationship Type Filters */}
-          <div className="space-y-2 pt-3 border-t border-slate-200 dark:border-slate-700">
-            <h4 className="text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider">
+          <div className="space-y-2 border-t border-border pt-3">
+            <h4 className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
               Relationship Types
             </h4>
             <div className="flex flex-wrap gap-2">
@@ -320,11 +323,6 @@ export function GraphControls({
                 size="sm"
                 onClick={() => toggleRelationshipFilter("spouse")}
                 className="text-xs h-7"
-                style={
-                  relationshipFilters.spouse
-                    ? { backgroundColor: "#ec4899" }
-                    : {}
-                }
               >
                 Spouse/Lover
               </Button>
@@ -333,11 +331,6 @@ export function GraphControls({
                 size="sm"
                 onClick={() => toggleRelationshipFilter("sibling")}
                 className="text-xs h-7"
-                style={
-                  relationshipFilters.sibling
-                    ? { backgroundColor: "#3b82f6" }
-                    : {}
-                }
               >
                 Sibling
               </Button>
@@ -348,11 +341,6 @@ export function GraphControls({
                 size="sm"
                 onClick={() => toggleRelationshipFilter("crossPantheon")}
                 className="text-xs h-7"
-                style={
-                  relationshipFilters.crossPantheon
-                    ? { background: "linear-gradient(90deg, #fbbf24, #f59e0b)" }
-                    : {}
-                }
               >
                 Cross-Pantheon
               </Button>

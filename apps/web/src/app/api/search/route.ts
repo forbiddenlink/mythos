@@ -4,6 +4,7 @@ import { semanticSearchResults } from "@/lib/oracle/semantic";
 import { forbiddenUnlessSameOrigin } from "@/lib/oracle/request-guards";
 import { checkSearchRateLimit } from "@/lib/oracle/rate-limit";
 import { logger } from "@/lib/logger";
+import { readJsonBody } from "@/lib/http/read-json-body";
 import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
 
@@ -11,6 +12,7 @@ const BodySchema = z.object({
   query: z.string().min(1).max(500),
   limit: z.number().int().min(1).max(30).optional(),
 });
+const MAX_REQUEST_BODY_BYTES = 4 * 1024;
 
 function getClientIp(req: NextRequest): string {
   const vercelForwarded = req.headers
@@ -57,8 +59,20 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const json: unknown = await req.json();
-    const parsed = BodySchema.safeParse(json);
+    const body = await readJsonBody(req, MAX_REQUEST_BODY_BYTES);
+    if (!body.ok) {
+      return NextResponse.json(
+        {
+          error:
+            body.reason === "too_large"
+              ? "Request body too large"
+              : "Invalid body",
+        },
+        { status: body.reason === "too_large" ? 413 : 400 },
+      );
+    }
+
+    const parsed = BodySchema.safeParse(body.value);
     if (!parsed.success) {
       return NextResponse.json(
         { error: "Invalid body", issues: parsed.error.flatten() },

@@ -159,6 +159,7 @@ export function DidYouKnow({ deityLookup }: DidYouKnowProps) {
                 variant="ghost"
                 size="sm"
                 onClick={getRandomFact}
+                aria-label="Show another mythology fact"
                 disabled={isSpinning}
                 className="text-muted-foreground hover:text-foreground"
               >

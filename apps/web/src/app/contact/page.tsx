@@ -61,7 +61,7 @@ export default function ContactPage() {
               <CardTitle
                 className={cn("flex items-center gap-2", pageSectionTitleClass)}
               >
-                <Github className="h-5 w-5 text-gold" />
+                <Github className="h-5 w-5 text-gold-text" />
                 Project Repository
               </CardTitle>
             </CardHeader>
@@ -72,7 +72,7 @@ export default function ContactPage() {
               </p>
               <Link
                 href={repoUrl}
-                className="inline-flex items-center gap-2 text-gold underline hover:text-gold/80"
+                className="inline-flex items-center gap-2 text-gold-text underline hover:text-gold-text"
               >
                 Visit the Mythos Atlas repository
                 <ExternalLink className="h-4 w-4" />
@@ -85,7 +85,7 @@ export default function ContactPage() {
               <CardTitle
                 className={cn("flex items-center gap-2", pageSectionTitleClass)}
               >
-                <ScrollText className="h-5 w-5 text-gold" />
+                <ScrollText className="h-5 w-5 text-gold-text" />
                 Corrections and Source Questions
               </CardTitle>
             </CardHeader>
@@ -97,7 +97,7 @@ export default function ContactPage() {
               </p>
               <Link
                 href={issuesUrl}
-                className="inline-flex items-center gap-2 text-gold underline hover:text-gold/80"
+                className="inline-flex items-center gap-2 text-gold-text underline hover:text-gold-text"
               >
                 Report a content or source issue
                 <ExternalLink className="h-4 w-4" />
@@ -110,7 +110,7 @@ export default function ContactPage() {
               <CardTitle
                 className={cn("flex items-center gap-2", pageSectionTitleClass)}
               >
-                <ShieldCheck className="h-5 w-5 text-gold" />
+                <ShieldCheck className="h-5 w-5 text-gold-text" />
                 Privacy and Legal Requests
               </CardTitle>
             </CardHeader>
@@ -125,14 +125,14 @@ export default function ContactPage() {
                 The current policies are documented on the{" "}
                 <Link
                   href="/privacy"
-                  className="text-gold underline hover:text-gold/80"
+                  className="text-gold-text underline hover:text-gold-text"
                 >
                   Privacy Policy
                 </Link>{" "}
                 and{" "}
                 <Link
                   href="/terms"
-                  className="text-gold underline hover:text-gold/80"
+                  className="text-gold-text underline hover:text-gold-text"
                 >
                   Terms of Service
                 </Link>{" "}
@@ -146,7 +146,7 @@ export default function ContactPage() {
               <CardTitle
                 className={cn("flex items-center gap-2", pageSectionTitleClass)}
               >
-                <Github className="h-5 w-5 text-gold" />
+                <Github className="h-5 w-5 text-gold-text" />
                 What To Include
               </CardTitle>
             </CardHeader>

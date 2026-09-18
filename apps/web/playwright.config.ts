@@ -42,26 +42,19 @@ export default defineConfig({
       name: "chromium",
       use: { ...devices["Desktop Chrome"] },
     },
-    // Uncomment for additional browser coverage
-    // {
-    //   name: 'firefox',
-    //   use: { ...devices['Desktop Firefox'] },
-    // },
-    // {
-    //   name: 'webkit',
-    //   use: { ...devices['Desktop Safari'] },
-    // },
+    ...(process.env.QA_ALL_BROWSERS === "true" ? [
+      { name: "firefox", use: { ...devices["Desktop Firefox"] } },
+      { name: "webkit", use: { ...devices["Desktop Safari"] } },
+    ] : []),
   ],
 
   /* Run your local dev server before starting the tests */
   webServer: {
     // SKIP_BUILD: CI builds separately to set NEXT_PUBLIC_* env vars at build time
-    // Otherwise: Use build:ci in CI to enable Oracle, regular build locally
+    // The suite exercises Oracle UI, so enable it for local builds too.
     command: process.env.SKIP_BUILD
       ? "pnpm start"
-      : process.env.CI
-        ? "pnpm build:ci && pnpm start"
-        : "pnpm build && pnpm start",
+      : "pnpm build:ci && pnpm start",
     url: "http://localhost:3000",
     reuseExistingServer: !process.env.CI,
     timeout: 240000,

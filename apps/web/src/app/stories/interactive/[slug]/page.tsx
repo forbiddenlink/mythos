@@ -232,16 +232,17 @@ export default function InteractiveStoryPage() {
                       ? "Continue Story"
                       : "Begin Story"}
                   </Button>
-                  <Link href="/stories">
-                    <Button
-                      variant="outline"
-                      size="lg"
-                      className="gap-2 border-gold/30 text-gold hover:bg-gold/10"
-                    >
+                  <Button
+                    asChild
+                    variant="outline"
+                    size="lg"
+                    className="gap-2 border-gold/30 text-gold hover:bg-gold/10"
+                  >
+                    <Link href="/stories">
                       <ArrowLeft className="h-4 w-4" />
                       Back to Stories
-                    </Button>
-                  </Link>
+                    </Link>
+                  </Button>
                 </div>
               </CardContent>
             </Card>
@@ -253,15 +254,16 @@ export default function InteractiveStoryPage() {
         {/* Back navigation */}
         {isStarted && (
           <div className="flex justify-center pt-8">
-            <Link href="/stories">
-              <Button
-                variant="outline"
-                className="gap-2 border-gold/30 text-gold hover:bg-gold/10"
-              >
+            <Button
+              asChild
+              variant="outline"
+              className="gap-2 border-gold/30 text-gold hover:bg-gold/10"
+            >
+              <Link href="/stories">
                 <ArrowLeft className="h-4 w-4" />
                 Back to All Stories
-              </Button>
-            </Link>
+              </Link>
+            </Button>
           </div>
         )}
       </div>

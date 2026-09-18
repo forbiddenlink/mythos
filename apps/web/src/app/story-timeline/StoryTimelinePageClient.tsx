@@ -92,9 +92,9 @@ export function StoryTimelinePageClient() {
                 Cross-Cultural Patterns
               </h3>
               <p>
-                Every culture tells stories of creation, golden ages, and
-                endings. Compare how different pantheons conceptualize the same
-                cosmic moments and see where their stories align.
+                These editorial groupings help compare narrative patterns.
+                They do not imply a shared chronology or the same sequence of
+                eras in every tradition.
               </p>
             </div>
             <div>

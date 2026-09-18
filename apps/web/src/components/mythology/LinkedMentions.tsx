@@ -75,7 +75,7 @@ export function LinkedMentions({
     >
       <div className="mb-4 flex flex-wrap items-baseline justify-between gap-2">
         <div>
-          <p className="text-xs uppercase tracking-[0.22em] text-gold/80">
+          <p className="text-xs uppercase tracking-[0.22em] text-gold-text">
             In the atlas
           </p>
           <h2 className="font-serif text-xl font-semibold text-foreground">

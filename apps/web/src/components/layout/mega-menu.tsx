@@ -35,6 +35,12 @@ const exploreMenu: MenuSection = {
       mark: "laurel",
     },
     {
+      label: "Heroes",
+      href: "/heroes",
+      description: "Mortal champions from the world's great epics",
+      mark: "blade",
+    },
+    {
       label: "Stories",
       href: "/stories",
       description: "Myths, legends, and epic tales",

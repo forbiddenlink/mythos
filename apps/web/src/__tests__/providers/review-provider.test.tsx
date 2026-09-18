@@ -15,8 +15,27 @@ function Providers({ children }: Readonly<{ children: ReactNode }>) {
   );
 }
 
+let localStorageData: Record<string, string> = {};
+const localStorageMock = {
+  getItem: vi.fn((key: string) => localStorageData[key] || null),
+  setItem: vi.fn((key: string, value: string) => {
+    localStorageData[key] = value;
+  }),
+  removeItem: vi.fn((key: string) => {
+    delete localStorageData[key];
+  }),
+  clear: vi.fn(() => {
+    localStorageData = {};
+  }),
+};
+
 describe("ReviewProvider", () => {
   beforeEach(() => {
+    localStorageData = {};
+    Object.defineProperty(globalThis, "localStorage", {
+      value: localStorageMock,
+      writable: true,
+    });
     localStorage.setItem(
       PROGRESS_STORAGE_KEY,
       JSON.stringify({ deitiesViewed: ["zeus"] }),

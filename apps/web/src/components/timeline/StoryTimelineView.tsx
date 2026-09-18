@@ -496,6 +496,8 @@ export function StoryTimelineView({
             size="sm"
             onClick={() => setViewMode("list")}
             className="gap-1.5"
+            aria-label="Show timeline list"
+            aria-pressed={viewMode === "list"}
           >
             <Layers className="w-4 h-4" />
             <span className="hidden sm:inline">Timeline</span>
@@ -505,6 +507,8 @@ export function StoryTimelineView({
             size="sm"
             onClick={() => setViewMode("visual")}
             className="gap-1.5"
+            aria-label="Show visual timeline"
+            aria-pressed={viewMode === "visual"}
           >
             <Sparkles className="w-4 h-4" />
             <span className="hidden sm:inline">Visual</span>
@@ -517,6 +521,8 @@ export function StoryTimelineView({
           size="sm"
           onClick={() => setShowFilters(!showFilters)}
           className="gap-2"
+          aria-label={showFilters ? "Hide timeline filters" : "Show timeline filters"}
+          aria-expanded={showFilters}
         >
           <Filter className="h-4 w-4" />
           <span className="hidden sm:inline">Filter</span>

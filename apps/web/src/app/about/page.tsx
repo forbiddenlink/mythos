@@ -97,7 +97,7 @@ export default function AboutPage() {
             <Card className="border-gold/20 bg-card">
               <CardHeader>
                 <div className="flex items-center gap-3 mb-2">
-                  <MythosMark id="temple" className="h-6 w-6 text-gold" />
+                  <MythosMark id="temple" className="h-6 w-6 text-gold-text" />
                   <CardTitle as="h2" className="text-foreground">
                     Global Coverage
                   </CardTitle>
@@ -115,7 +115,7 @@ export default function AboutPage() {
             <Card className="border-gold/20 bg-card">
               <CardHeader>
                 <div className="flex items-center gap-3 mb-2">
-                  <MythosMark id="tree" className="h-6 w-6 text-gold" />
+                  <MythosMark id="tree" className="h-6 w-6 text-gold-text" />
                   <CardTitle as="h2" className="text-foreground">
                     Deity Relationships
                   </CardTitle>
@@ -132,7 +132,7 @@ export default function AboutPage() {
             <Card className="border-gold/20 bg-card">
               <CardHeader>
                 <div className="flex items-center gap-3 mb-2">
-                  <MythosMark id="scroll" className="h-6 w-6 text-gold" />
+                  <MythosMark id="scroll" className="h-6 w-6 text-gold-text" />
                   <CardTitle as="h2" className="text-foreground">
                     Epic Stories
                   </CardTitle>
@@ -150,7 +150,7 @@ export default function AboutPage() {
             <Card className="border-gold/20 bg-card">
               <CardHeader>
                 <div className="flex items-center gap-3 mb-2">
-                  <MythosMark id="codex" className="h-6 w-6 text-gold" />
+                  <MythosMark id="codex" className="h-6 w-6 text-gold-text" />
                   <CardTitle as="h2" className="text-foreground">
                     Open Platform
                   </CardTitle>
@@ -177,7 +177,7 @@ export default function AboutPage() {
             <CardContent className="space-y-4">
               <div className="flex items-start gap-4">
                 <div className="p-3 rounded-lg bg-gold/10 border border-gold/20 shrink-0">
-                  <MythosMark id="codex" className="h-6 w-6 text-gold" />
+                  <MythosMark id="codex" className="h-6 w-6 text-gold-text" />
                 </div>
                 <div className="flex-1">
                   <p className="text-foreground font-semibold text-xl mb-2">
@@ -262,7 +262,7 @@ export default function AboutPage() {
             </CardHeader>
             <CardContent className="space-y-3">
               <p className="text-foreground/80 leading-relaxed">
-                <strong className="text-gold">Last Updated:</strong> August 2026
+                <strong className="text-gold-text">Last Updated:</strong> August 2026
               </p>
               <p className="text-foreground/80 leading-relaxed">
                 Mythos Atlas is an ongoing project with regular updates. The

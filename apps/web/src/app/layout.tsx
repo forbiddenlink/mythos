@@ -23,6 +23,7 @@ const cinzel = Cinzel({
   subsets: ["latin", "latin-ext"],
   display: "swap",
   weight: ["400", "500", "600", "700", "800"],
+  fallback: ["ui-serif", "Georgia", "Cambria", "Times New Roman", "serif"],
 });
 
 // Source Sans 3 - Clean, readable UI font
@@ -31,6 +32,15 @@ const sourceSans = Source_Sans_3({
   subsets: ["latin", "latin-ext"],
   display: "swap",
   weight: ["400", "500"],
+  fallback: [
+    "-apple-system",
+    "BlinkMacSystemFont",
+    "Segoe UI",
+    "Roboto",
+    "Helvetica Neue",
+    "Arial",
+    "sans-serif",
+  ],
 });
 
 // Crimson Pro - Elegant serif for body text and quotes
@@ -39,6 +49,7 @@ const crimsonPro = Crimson_Pro({
   subsets: ["latin", "latin-ext"],
   display: "swap",
   style: ["normal", "italic"],
+  fallback: ["Georgia", "Cambria", "Times New Roman", "serif"],
 });
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -52,8 +63,12 @@ export async function generateMetadata(): Promise<Metadata> {
       locale,
     }),
     icons: {
-      icon: [{ url: "/icon.png", type: "image/png" }],
-      apple: [{ url: "/apple-icon.png", type: "image/png" }],
+      icon: [
+        { url: "/favicon.ico", sizes: "any" },
+        { url: "/icon.svg", type: "image/svg+xml" },
+        { url: "/icon.png", type: "image/png", sizes: "512x512" },
+      ],
+      apple: [{ url: "/apple-icon.png", type: "image/png", sizes: "180x180" }],
       other: [{ rel: "apple-touch-icon", url: "/apple-icon.png" }],
     },
   };
@@ -75,6 +90,8 @@ export default async function RootLayout({
   return (
     <html lang={locale} suppressHydrationWarning>
       <head>
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" href="/icon.svg" type="image/svg+xml" />
         <link rel="apple-touch-icon" href="/apple-icon.png" />
       </head>
       <body

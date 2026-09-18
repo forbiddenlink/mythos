@@ -4,7 +4,7 @@ import { ReviewSession } from "@/components/review/ReviewSession";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useReview } from "@/providers/review-provider";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { ArrowLeft } from "lucide-react";
 import { HeroMark } from "@/components/icons/hero-mark";
 import { MythosMark } from "@/components/icons/mythos-marks";
@@ -14,6 +14,7 @@ import { useEffect, useState } from "react";
 
 export function ReviewPageClient() {
   const router = useRouter();
+  const reducedMotion = useReducedMotion();
   const { reviewState, dueCount, generateCardsFromProgress, getTodayStats } =
     useReview();
   const [isSessionActive, setIsSessionActive] = useState(false);
@@ -61,7 +62,7 @@ export function ReviewPageClient() {
       <div className="container mx-auto max-w-4xl px-4 py-12">
         {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={reducedMotion ? false : { opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           className="text-center mb-12"
@@ -81,7 +82,7 @@ export function ReviewPageClient() {
 
         {/* Stats Grid */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={reducedMotion ? false : { opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.1 }}
           className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12"
@@ -131,7 +132,7 @@ export function ReviewPageClient() {
 
         {/* Start Review Section */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={reducedMotion ? false : { opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
@@ -196,7 +197,7 @@ export function ReviewPageClient() {
 
         {/* How It Works Section */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={reducedMotion ? false : { opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.3 }}
           className="mt-12"
@@ -249,7 +250,7 @@ export function ReviewPageClient() {
         {/* Lifetime Stats */}
         {stats.totalReviewed > 0 && (
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={reducedMotion ? false : { opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
             className="mt-12"

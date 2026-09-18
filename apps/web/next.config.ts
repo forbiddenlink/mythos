@@ -20,6 +20,7 @@ const withPWA = (config: NextConfig) => config;
 
 const nextConfig: NextConfig = {
   devIndicators: false,
+  poweredByHeader: false,
   // NOTE: viewTransition is experimental and was causing navigation to fail
   // (links would preventDefault but navigation wouldn't complete)
   // Disabled until the feature is stable in Next.js
@@ -51,6 +52,11 @@ const nextConfig: NextConfig = {
   },
   images: {
     remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "collectionapi.metmuseum.org",
+        pathname: "/api/collection/v1/iiif/**/main-image",
+      },
       {
         protocol: "https",
         hostname: "images.unsplash.com",

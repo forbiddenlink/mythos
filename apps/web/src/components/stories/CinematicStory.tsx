@@ -94,7 +94,7 @@ function Scene({ scene, index }: { scene: StoryScene; index: number }) {
     <section
       ref={sceneRef}
       id={`scene-${scene.id}`}
-      className={`min-h-screen relative flex items-center justify-center py-20 bg-gradient-to-b ${gradient}`}
+      className={`min-h-screen relative overflow-hidden flex items-center justify-center py-20 bg-gradient-to-b ${gradient}`}
     >
       {/* Background image with parallax */}
       {scene.imageUrl && (
@@ -178,7 +178,7 @@ export function CinematicStory({
           <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-bronze/20 rounded-full blur-3xl" />
         </div>
 
-        <div className="text-center relative z-10 px-6">
+        <div className="min-w-0 max-w-full text-center relative z-10 px-6">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -187,7 +187,7 @@ export function CinematicStory({
             <span className="text-gold/60 text-sm tracking-[0.3em] uppercase font-sans mb-6 block">
               An Ancient Tale
             </span>
-            <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl text-parchment mb-8">
+            <h1 className="font-serif text-3xl sm:text-5xl md:text-6xl lg:text-7xl text-parchment mb-8">
               {title}
             </h1>
             <div className="flex items-center justify-center gap-4 mb-12">
@@ -234,7 +234,7 @@ export function CinematicStory({
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          className="text-center px-6"
+          className="min-w-0 max-w-full text-center px-6"
         >
           <div className="flex items-center justify-center gap-4 mb-8">
             <div className="w-24 h-px bg-gold/40" />

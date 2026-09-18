@@ -88,7 +88,7 @@ export function DeityStoryRecommendations({ deityId, deityName }: DeityStoryReco
                       <h3 className="font-medium text-foreground group-hover:text-gold transition-colors">
                         {story.title}
                       </h3>
-                      <Badge className="bg-gold/20 text-gold border-gold/30 text-xs">
+                      <Badge className="bg-gold/20 text-gold-text border-gold/30 text-xs">
                         Interactive
                       </Badge>
                     </div>

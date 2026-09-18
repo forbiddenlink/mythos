@@ -405,7 +405,7 @@ export default function KnowledgeGraphPage() {
               <CardTitle className="font-serif flex items-center gap-2">
                 <MythosMark id="constellation" className="h-5 w-5 text-gold" />
                 Interactive Graph
-                <span className="text-muted-foreground font-sans font-normal text-sm opacity-60">
+                <span className="text-muted-foreground font-sans font-normal text-sm">
                   {selectedPantheons.size} pantheon
                   {selectedPantheons.size !== 1 ? "s" : ""} selected
                 </span>

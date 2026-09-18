@@ -39,9 +39,9 @@ function pantheonLabel(id: string): string {
 }
 
 /**
- * A swimlane deep-time chart: every deity that carries a *dated* primary source
- * is plotted at its earliest attestation year, in its pantheon's lane. Deities
- * without a datable source are honestly omitted — nothing is placed by guess.
+ * A swimlane chart: every deity with a dated source record in this catalog is
+ * plotted at its oldest normalized source date, in its pantheon's lane. This
+ * visualizes catalog coverage, not first surviving mentions or full evidence.
  */
 export function AttestationTimeline() {
   const [hover, setHover] = useState<Point | null>(null);
@@ -101,21 +101,21 @@ export function AttestationTimeline() {
   return (
     <div className="w-full">
       <div className="mb-4 flex flex-wrap items-baseline justify-between gap-2">
-        <h2 className="font-serif text-2xl text-gold">
-          Deities by First Attestation
+        <h2 className="font-serif text-2xl text-gold-text">
+          Deities by Oldest Catalogued Date
         </h2>
-        <p className="text-sm text-parchment/50">
-          {points.length} of {deities.length} placed by their earliest dated
-          primary source
+        <p className="text-sm text-muted-foreground">
+          {points.length} of {deities.length} placed by the oldest dated work
+          recorded in this catalog
         </p>
       </div>
 
-      <div className="relative overflow-x-auto rounded-2xl border border-gold/15 bg-midnight/40 p-4">
+      <div className="relative overflow-x-auto rounded-2xl border border-gold/15 bg-muted/50 p-4">
         <svg
           viewBox={`0 0 ${VIEW_W} ${height}`}
           className="h-auto w-full min-w-[720px]"
-          role="img"
-          aria-label="Deities plotted by earliest attested primary source, grouped by pantheon"
+          role="group"
+          aria-label="Deities plotted by oldest dated work recorded in this catalog, grouped by pantheon"
         >
           {/* Axis gridlines + year labels */}
           {ticks.map((t) => (
@@ -131,7 +131,7 @@ export function AttestationTimeline() {
                 x={xOf(t)}
                 y={height - AXIS_H + 22}
                 textAnchor="middle"
-                className="fill-parchment/45"
+                className="fill-muted-foreground"
                 fontSize="12"
               >
                 {t < 0 ? `${Math.abs(t)} BCE` : t === 0 ? "0" : `${t} CE`}
@@ -164,7 +164,7 @@ export function AttestationTimeline() {
                 {points
                   .filter((p) => p.pantheonId === pid)
                   .map((p) => (
-                    <Link key={p.slug} href={`/deities/${p.slug}`}>
+                    <Link key={p.slug} href={`/deities/${p.slug}`} aria-label={`${p.name}: ${formatYear(p.year)}`}>
                       <circle
                         cx={xOf(p.year)}
                         cy={laneY(i)}

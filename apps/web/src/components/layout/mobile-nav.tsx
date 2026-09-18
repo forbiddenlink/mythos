@@ -150,13 +150,20 @@ export function MobileNav({ sections }: Readonly<MobileNavProps>) {
 
           <Link
             href="/"
-            className="flex items-center gap-3 mb-6"
+            className="flex items-center gap-3 mb-6 group"
             onClick={() => setOpen(false)}
           >
-            <Logo className="h-8 w-8 text-foreground" />
-            <span className="font-serif text-lg font-semibold text-foreground tracking-wide">
-              Mythos Atlas
-            </span>
+            <div className="text-foreground group-hover:text-gold transition-colors">
+              <Logo className="h-8 w-8" />
+            </div>
+            <div className="flex flex-col">
+              <span className="font-serif text-lg font-semibold text-foreground group-hover:text-gold tracking-wide leading-tight transition-colors">
+                Mythos Atlas
+              </span>
+              <span className="text-[10px] text-gold/80 tracking-[0.18em] uppercase font-sans font-medium">
+                Ancient Mythology
+              </span>
+            </div>
           </Link>
 
           {/* Quick Stats */}

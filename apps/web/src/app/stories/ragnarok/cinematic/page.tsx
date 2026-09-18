@@ -76,25 +76,27 @@ export default function RagnarokCinematicPage() {
       <h1 className="sr-only">Ragnarok Cinematic Story</h1>
       {/* Navigation Header */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-b from-midnight via-midnight/80 to-transparent">
-        <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-          <Link href="/stories/ragnarok">
-            <Button
-              variant="ghost"
-              className="text-parchment/70 hover:text-parchment"
-            >
+        <div className="container mx-auto px-4 py-4 flex flex-wrap gap-2 items-center justify-between">
+          <Button
+            asChild
+            variant="ghost"
+            className="text-parchment/70 hover:text-parchment"
+          >
+            <Link href="/stories/ragnarok">
               <ArrowLeft className="w-4 h-4 mr-2" />
               Back to Story
-            </Button>
-          </Link>
-          <Link href="/stories/ragnarok">
-            <Button
-              variant="outline"
-              className="border-gold/30 text-gold hover:bg-gold/10"
-            >
+            </Link>
+          </Button>
+          <Button
+            asChild
+            variant="outline"
+            className="border-gold/30 text-gold hover:bg-gold/10"
+          >
+            <Link href="/stories/ragnarok">
               <BookOpen className="w-4 h-4 mr-2" />
               Read Full Text
-            </Button>
-          </Link>
+            </Link>
+          </Button>
         </div>
       </nav>
 
@@ -108,27 +110,26 @@ export default function RagnarokCinematicPage() {
             Continue Your Journey
           </h2>
           <div className="flex flex-wrap justify-center gap-4">
-            <Link href="/stories/ragnarok">
-              <Button className="bg-gold hover:bg-gold-light text-midnight">
-                Read the Full Narrative
-              </Button>
-            </Link>
-            <Link href="/pantheons/norse">
-              <Button
-                variant="outline"
-                className="border-gold/30 text-parchment hover:bg-gold/10"
-              >
-                Explore Norse Mythology
-              </Button>
-            </Link>
-            <Link href="/stories">
-              <Button
-                variant="ghost"
-                className="text-parchment/70 hover:text-parchment"
-              >
-                More Stories
-              </Button>
-            </Link>
+            <Button
+              asChild
+              className="bg-gold hover:bg-gold-light text-midnight"
+            >
+              <Link href="/stories/ragnarok">Read the Full Narrative</Link>
+            </Button>
+            <Button
+              asChild
+              variant="outline"
+              className="border-gold/30 text-parchment hover:bg-gold/10"
+            >
+              <Link href="/pantheons/norse">Explore Norse Mythology</Link>
+            </Button>
+            <Button
+              asChild
+              variant="ghost"
+              className="text-parchment/70 hover:text-parchment"
+            >
+              <Link href="/stories">More Stories</Link>
+            </Button>
           </div>
         </div>
       </section>

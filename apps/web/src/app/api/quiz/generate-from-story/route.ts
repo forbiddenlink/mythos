@@ -3,6 +3,7 @@ import { generateObject } from "ai";
 import stories from "@/data/stories.json";
 import { checkGlobalOracleBudget } from "@/lib/oracle/global-budget";
 import { logger } from "@/lib/logger";
+import { readJsonBody } from "@/lib/http/read-json-body";
 import { checkQuizRateLimit } from "@/lib/oracle/rate-limit";
 import {
   forbiddenUnlessSameOrigin,
@@ -12,6 +13,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
 
 const MAX_OUTPUT_TOKENS = 2_000;
+const MAX_REQUEST_BODY_BYTES = 4 * 1024;
 
 const BodySchema = z.object({
   storySlug: z.string().min(1).max(200),
@@ -58,8 +60,20 @@ export async function POST(req: NextRequest) {
     const originBlock = forbiddenUnlessSameOrigin(req);
     if (originBlock) return originBlock;
 
-    const json: unknown = await req.json();
-    const parsed = BodySchema.safeParse(json);
+    const body = await readJsonBody(req, MAX_REQUEST_BODY_BYTES);
+    if (!body.ok) {
+      return NextResponse.json(
+        {
+          error:
+            body.reason === "too_large"
+              ? "Request body too large"
+              : "Invalid body",
+        },
+        { status: body.reason === "too_large" ? 413 : 400 },
+      );
+    }
+
+    const parsed = BodySchema.safeParse(body.value);
     if (!parsed.success) {
       return NextResponse.json({ error: "Invalid body" }, { status: 400 });
     }

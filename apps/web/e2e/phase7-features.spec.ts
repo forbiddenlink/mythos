@@ -56,10 +56,16 @@ test.describe("Phase 7: Oracle Chat", () => {
     await expect(suggestedQuestion).toBeVisible({ timeout: 3000 });
   });
 
-  // TODO: Fix suggested question click - input not being populated
-  test.skip("should fill input when clicking suggested question", async ({
+  test("should send a suggested question without calling a live Oracle", async ({
     page,
   }) => {
+    await page.route("**/api/oracle", async (route) => {
+      await route.fulfill({
+        status: 200,
+        contentType: "text/plain",
+        body: "Zeus is a central god in Greek tradition.",
+      });
+    });
     await page.goto(`${BASE_URL}/`);
     await page.waitForLoadState("domcontentloaded");
 
@@ -77,15 +83,19 @@ test.describe("Phase 7: Oracle Chat", () => {
     );
     await expect(suggestedQuestion).toBeVisible({ timeout: 3000 });
 
-    // Force click and wait for any animations
-    await suggestedQuestion.click({ force: true });
-    await page.waitForTimeout(500);
+    await suggestedQuestion.click();
 
-    // Input should be filled with the question (allow time for state update)
+    // Suggestions deliberately submit immediately; they do not merely fill input.
     const input = page.locator('input[placeholder="Ask the Oracle..."]');
-    await expect(input).toHaveValue("Who is the most powerful Greek god?", {
-      timeout: 5000,
-    });
+    await expect(input).toHaveValue("");
+    await expect(
+      page.getByText("Who is the most powerful Greek god?", { exact: true }),
+    ).toBeVisible();
+    await expect(
+      page.getByText("Zeus is a central god in Greek tradition.", {
+        exact: true,
+      }),
+    ).toBeVisible();
   });
 
   test("should close Oracle modal with X button", async ({ page }) => {
@@ -152,8 +162,7 @@ test.describe("Phase 7: Deity Editorial Layout & Details", () => {
 });
 
 test.describe("Phase 7: Layout Effects", () => {
-  // Gated when Oracle API key is not inlined in CI environment
-  test.skip("Oracle button should be present on all pages", async ({
+  test("Oracle button should be present on all pages", async ({
     page,
   }) => {
     const pagesToCheck = ["/", "/deities", "/pantheons", "/stories", "/quiz"];
@@ -170,7 +179,7 @@ test.describe("Phase 7: Layout Effects", () => {
 });
 
 test.describe("Phase 7: Mobile Viewport Tests", () => {
-  test.skip("Oracle button should be visible on mobile", async ({
+  test("Oracle button should be visible on mobile", async ({
     browser,
   }) => {
     const context = await browser.newContext({ ...devices["iPhone 13"] });

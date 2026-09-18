@@ -13,6 +13,10 @@ export interface PrimarySourceExcerpt {
   lineNumbers?: string;
   translator?: string;
   originalLanguage?: string;
+  quoteStatus: "direct-quotation" | "editorial-paraphrase" | "unverified";
+  verification: "verified" | "source-and-locator-verified" | "not-verified";
+  sourceUrl: string;
+  edition: string;
 }
 
 interface SourceExcerptProps {
@@ -42,6 +46,19 @@ export function SourceExcerpt({
     : null;
 
   const isCompact = variant === "compact";
+  const isDirectQuotation =
+    excerpt.quoteStatus === "direct-quotation" &&
+    excerpt.verification === "verified";
+  const hasVerifiedTranscription =
+    isDirectQuotation && excerpt.verification === "verified";
+  const statusLabel = {
+    "direct-quotation": isDirectQuotation
+      ? "Direct quotation"
+      : "Original wording unverified",
+    "editorial-paraphrase": "Editorial paraphrase",
+    unverified: "Verification pending",
+  }[excerpt.quoteStatus];
+  const readUrl = excerpt.sourceUrl || linkedSource?.externalUrl;
 
   return (
     <figure
@@ -54,17 +71,20 @@ export function SourceExcerpt({
         className,
       )}
     >
-      {/* Quote Icon */}
-      <Quote
-        className={cn(
-          "absolute text-teal-500/20 dark:text-teal-400/20",
-          isCompact ? "h-8 w-8 top-2 right-2" : "h-12 w-12 top-4 right-4",
-        )}
-        aria-hidden="true"
-      />
+      {isDirectQuotation && (
+        <Quote
+          className={cn(
+            "absolute text-teal-500/20 dark:text-teal-400/20",
+            isCompact ? "h-8 w-8 top-2 right-2" : "h-12 w-12 top-4 right-4",
+          )}
+          aria-hidden="true"
+        />
+      )}
 
       {/* Original Language Toggle */}
-      {excerpt.originalLanguage && excerpt.text !== excerpt.translation && (
+      {hasVerifiedTranscription &&
+        excerpt.originalLanguage &&
+        excerpt.text !== excerpt.translation && (
         <button
           onClick={() => setShowOriginal(!showOriginal)}
           className={cn(
@@ -84,25 +104,37 @@ export function SourceExcerpt({
         </button>
       )}
 
-      {/* Quote Text */}
-      <blockquote className={cn("relative", isCompact ? "pr-16" : "pr-20")}>
-        <p
-          className={cn(
-            "font-serif italic leading-relaxed",
-            showOriginal
-              ? "text-slate-600 dark:text-slate-400"
-              : "text-slate-700 dark:text-slate-300",
-            isCompact ? "text-base" : "text-lg",
-          )}
-          lang={
-            showOriginal && excerpt.originalLanguage
-              ? getLanguageCode(excerpt.originalLanguage)
-              : "en"
-          }
-        >
-          &ldquo;{showOriginal ? excerpt.text : excerpt.translation}&rdquo;
-        </p>
-      </blockquote>
+      {isDirectQuotation ? (
+        <blockquote className={cn("relative", isCompact ? "pr-16" : "pr-20")}>
+          <p
+            className={cn(
+              "font-serif italic leading-relaxed",
+              showOriginal
+                ? "text-slate-600 dark:text-slate-400"
+                : "text-slate-700 dark:text-slate-300",
+              isCompact ? "text-base" : "text-lg",
+            )}
+            lang={
+              showOriginal && excerpt.originalLanguage
+                ? getLanguageCode(excerpt.originalLanguage)
+                : "en"
+            }
+          >
+            &ldquo;{showOriginal ? excerpt.text : excerpt.translation}&rdquo;
+          </p>
+        </blockquote>
+      ) : (
+        <div className={cn("relative", isCompact ? "pr-4" : "pr-6")}>
+          <p
+            className={cn(
+              "font-serif leading-relaxed text-slate-700 dark:text-slate-300",
+              isCompact ? "text-base" : "text-lg",
+            )}
+          >
+            {excerpt.translation}
+          </p>
+        </div>
+      )}
 
       {/* Citation Footer */}
       <figcaption
@@ -111,6 +143,9 @@ export function SourceExcerpt({
           isCompact ? "text-xs" : "text-sm",
         )}
       >
+        <span className="rounded border border-gold/30 bg-gold/5 px-1.5 py-0.5 font-medium text-gold-text">
+          {statusLabel}
+        </span>
         <div className="flex items-center gap-1.5 text-slate-600 dark:text-slate-400">
           <Book className="h-4 w-4 shrink-0" aria-hidden="true" />
           <cite className="not-italic font-medium">
@@ -129,13 +164,17 @@ export function SourceExcerpt({
           </span>
         )}
 
-        {linkedSource?.externalUrl && (
+        <span className="text-slate-500 dark:text-slate-500">
+          {excerpt.edition}
+        </span>
+
+        {readUrl && (
           <a
-            href={linkedSource.externalUrl}
+            href={readUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-1 text-teal-600 dark:text-teal-400 hover:text-teal-700 dark:hover:text-teal-300 transition-colors"
-            aria-label={`Read source: ${linkedSource.title} (opens in new tab)`}
+            aria-label={`Read source: ${excerpt.source} (opens in new tab)`}
           >
             <ExternalLink className="h-3.5 w-3.5" aria-hidden="true" />
             <span>Read source</span>

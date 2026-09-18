@@ -132,7 +132,7 @@ export default function APIPage() {
               <div className="bg-midnight/50 p-4 rounded-lg border border-gold/10">
                 <p className="text-gold/80 font-mono text-sm">
                   Endpoint:{" "}
-                  <span className="text-parchment">
+                  <span className="break-all text-parchment">
                     {globalThis.window === undefined
                       ? "https://yourdomain.com"
                       : globalThis.location.origin}

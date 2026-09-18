@@ -50,6 +50,8 @@ const typeIcons: Record<ContentType, typeof Sparkles> = {
   creature: Skull,
   artifact: Gem,
   location: MapPin,
+  hero: Sparkles,
+  source: BookOpen,
 };
 
 // Colors for each content type
@@ -59,6 +61,8 @@ const typeColors: Record<ContentType, string> = {
   creature: "text-red-500",
   artifact: "text-bronze",
   location: "text-emerald-500",
+  hero: "text-gold",
+  source: "text-bronze",
 };
 
 // Group labels for each content type
@@ -68,6 +72,8 @@ const typeLabels: Record<ContentType, string> = {
   creature: "Creatures",
   artifact: "Artifacts",
   location: "Locations",
+  hero: "Heroes",
+  source: "Sources",
 };
 
 // Navigation items shown when no search query
@@ -130,8 +136,10 @@ const navigationItems = [
   },
 ];
 
-export function GlobalSearch() {
-  const [open, setOpen] = useState(false);
+export function GlobalSearch({ open, onOpenChange: setOpen }: {
+  open: boolean;
+  onOpenChange: (open: boolean) => void;
+}) {
   const router = useRouter();
   const [searchQuery, setSearchQuery] = useState("");
   const [recentSearches, setRecentSearches] = useState<string[]>([]);
@@ -161,49 +169,24 @@ export function GlobalSearch() {
       creature: [],
       artifact: [],
       location: [],
+      hero: [],
+      source: [],
     };
 
     for (const result of results) {
       groups[result.type].push(result);
     }
 
-    // Filter out empty groups and sort by number of results
+    // Keep the strongest match first, even when another group has more hits.
     return Object.entries(groups)
       .filter(([, items]) => items.length > 0)
-      .sort((a, b) => b[1].length - a[1].length) as [
+      .sort((a, b) => b[1][0].matchScore - a[1][0].matchScore) as [
       ContentType,
       SearchResultType[],
     ][];
   }, [results]);
 
   const popularSearches = useMemo(() => getPopularSearches().slice(0, 6), []);
-
-  // Handle keyboard shortcuts for opening the command palette
-  useEffect(() => {
-    const down = (e: KeyboardEvent) => {
-      if (e.key === "k" && (e.metaKey || e.ctrlKey)) {
-        e.preventDefault();
-        setOpen((open) => !open);
-      }
-    };
-
-    const openPalette = () => {
-      setOpen(true);
-    };
-
-    document.addEventListener("keydown", down);
-    document.addEventListener(
-      "open-command-palette",
-      openPalette as EventListener,
-    );
-    return () => {
-      document.removeEventListener("keydown", down);
-      document.removeEventListener(
-        "open-command-palette",
-        openPalette as EventListener,
-      );
-    };
-  }, []);
 
   const navigateAfterClose = useCallback(
     (href: string) => {
@@ -214,7 +197,7 @@ export function GlobalSearch() {
         router.push(href);
       }, 50);
     },
-    [router],
+    [router, setOpen],
   );
 
   const pointerSelect = useCallback((action: () => void) => {

@@ -6,6 +6,17 @@ import {
 } from "@/lib/oracle/grounding";
 
 describe("oracle grounding", () => {
+  it.each([
+    ["Heracles", "/heroes/heracles"],
+    ["Iliad", "/sources/iliad"],
+  ])("grounds %s in its catalog entry", async (query, url) => {
+    const { context, citations } = await getOracleGrounding(query, {
+      locale: "en",
+    });
+    expect(context).toContain(url);
+    expect(citations.some((citation) => citation.path === url)).toBe(true);
+  });
+
   it("returns empty string for short query", async () => {
     expect(await buildOracleGroundingContext("a", { locale: "en" })).toBe("");
   });

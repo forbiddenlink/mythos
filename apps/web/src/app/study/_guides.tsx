@@ -11,11 +11,65 @@ type StudyGuide = {
   title: string;
   description: string;
   pantheonId?: string;
+  storyIds?: string[];
   keywords: string[];
   steps: Array<{ title: string; body: string; href: string }>;
 };
 
 const GUIDES: StudyGuide[] = [
+  {
+    slug: "inanna-text-and-temple",
+    title: "Inanna: Text and Temple",
+    description: "Read a Sumerian composition alongside a temple foundation object, and distinguish a literary narrative from evidence of worship.",
+    pantheonId: "mesopotamian-pantheon",
+    keywords: ["Inanna study guide", "Sumerian literature", "Inanna descent", "Ur-Namma"],
+    steps: [
+      {
+        title: "Meet Inanna in the atlas",
+        body: "Use the entry to orient yourself, then follow its references. Keep Sumerian compositions and later Akkadian accounts distinct when comparing names and episodes.",
+        href: "/deities/inanna",
+      },
+      {
+        title: "Read the translated composition",
+        body: "Oxford’s Electronic Text Corpus of Sumerian Literature presents Inana’s descent with line numbers and manuscript variations. Note what the text says at the seven gates and how the editors mark alternatives.",
+        href: "https://etcsl.orinst.ox.ac.uk/section1/tr141.htm",
+      },
+      {
+        title: "Examine a temple foundation figure",
+        body: "The Met identifies this figure as Ur-Namma carrying a basket. Its inscription associates it with a temple of Inanna. It documents a ruler’s building activity, not the events of the descent narrative.",
+        href: "https://www.metmuseum.org/art/collection/search/329067",
+      },
+      {
+        title: "Compare the editorial narrative",
+        body: "Read the atlas account with the translation beside it. Identify one detail supported by the literary text and one question the foundation figure cannot answer.",
+        href: "/stories/inanna-descent",
+      },
+    ],
+  },
+  {
+    slug: "ibeji-objects-and-remembrance",
+    storyIds: ["first-twins-ibeji"],
+    title: "Ibeji: Objects and Remembrance",
+    description: "A focused introduction to Yoruba twin commemoration through one documented object and its museum interpretation.",
+    keywords: ["Ibeji", "Yoruba twin figures", "ere ibeji", "museum study guide"],
+    steps: [
+      {
+        title: "Read the account and its limits",
+        body: "Begin with the short account of ere ibeji and the source note explaining its scope. This route studies a particular commemorative practice; it is not a survey of all Yoruba religious life.",
+        href: "/stories/first-twins-ibeji",
+      },
+      {
+        title: "Inspect the museum record",
+        body: "Compare the object’s materials, date range, and accession number with the museum’s account of caring for a deceased twin. Distinguish observable object details from the curator’s explanation of ritual practice.",
+        href: "https://www.metmuseum.org/art/collection/search/314081",
+      },
+      {
+        title: "Record what the evidence supports",
+        body: "Save the atlas account for later reading. Before comparing it with another tradition, write down one supported claim and one question this single museum record leaves unanswered.",
+        href: "/bookmarks",
+      },
+    ],
+  },
   {
     slug: "greek-gods",
     title: "Greek Gods Study Guide",
@@ -153,7 +207,7 @@ export function StudyGuidePage({ slug }: { slug: string }) {
     return (
       <div className="container mx-auto max-w-3xl px-4 py-24 text-center">
         <h1 className="page-title">Guide not found</h1>
-        <Link href="/study" className="mt-4 inline-block text-gold underline">
+        <Link href="/study" className="mt-4 inline-block text-gold-text underline">
           All study guides
         </Link>
       </div>
@@ -180,9 +234,11 @@ export function StudyGuidePage({ slug }: { slug: string }) {
         .sort((a, b) => (a.importanceRank ?? 99) - (b.importanceRank ?? 99))
         .slice(0, 6)
     : [];
-  const featuredStories = guide.pantheonId
+  const featuredStories = guide.storyIds
+    ? stories.filter((story) => guide.storyIds?.includes(story.id))
+    : guide.pantheonId
     ? stories.filter((s) => s.pantheonId === guide.pantheonId).slice(0, 4)
-    : stories.slice(0, 4);
+    : [];
 
   return (
     <div className="min-h-screen">
@@ -201,7 +257,7 @@ export function StudyGuidePage({ slug }: { slug: string }) {
               key={step.href}
               className="border border-border/60 bg-card/60 p-5"
             >
-              <p className="text-xs uppercase tracking-[0.22em] text-gold/80">
+              <p className="text-xs uppercase tracking-[0.22em] text-gold-text">
                 Step {i + 1}
               </p>
               <h2 className="mt-1 font-serif text-2xl text-foreground">
@@ -212,7 +268,7 @@ export function StudyGuidePage({ slug }: { slug: string }) {
               </p>
               <Link
                 href={step.href}
-                className="mt-3 inline-block text-sm text-gold underline-offset-4 hover:underline"
+                className="mt-3 inline-block text-sm text-gold-text underline-offset-4 hover:underline"
               >
                 Open →
               </Link>
@@ -250,7 +306,7 @@ export function StudyGuidePage({ slug }: { slug: string }) {
                 <li key={s.id}>
                   <Link
                     href={`/stories/${s.slug}`}
-                    className="text-sm text-gold hover:underline"
+                    className="text-sm text-gold-text hover:underline"
                   >
                     {s.title}
                   </Link>
@@ -262,11 +318,11 @@ export function StudyGuidePage({ slug }: { slug: string }) {
 
         <p className="mt-12 text-sm text-muted-foreground">
           More routes:{" "}
-          <Link href="/study" className="text-gold hover:underline">
+          <Link href="/study" className="text-gold-text hover:underline">
             all study guides
           </Link>
           {" · "}
-          <Link href="/learning-paths" className="text-gold hover:underline">
+          <Link href="/learning-paths" className="text-gold-text hover:underline">
             personalized learning paths
           </Link>
         </p>

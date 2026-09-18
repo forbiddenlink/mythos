@@ -81,6 +81,15 @@ describe("Oracle API route", () => {
     expect(json.error).toBe("Invalid request body");
   });
 
+  it("returns 413 before parsing an oversized body", async () => {
+    const req = oracleRequest({
+      messages: [{ role: "user", content: "x".repeat(384 * 1024) }],
+    });
+    const res = await POST(req);
+
+    expect(res.status).toBe(413);
+  });
+
   it("returns 403 when Origin header is missing", async () => {
     const req = oracleRequest(
       { messages: [{ role: "user", content: "Hello" }] },

@@ -1,0 +1,890 @@
+[
+  {
+    "id": "achilles",
+    "pantheonId": "greek-pantheon",
+    "name": "Achilles",
+    "slug": "achilles",
+    "gender": "male",
+    "alternateNames": [
+      "Aeacides",
+      "Pelides"
+    ],
+    "description": "Greatest warrior of the Greek forces at Troy, whose wrath and grief drive the plot of Homer's Iliad. Son of the mortal king Peleus and the sea-goddess Thetis.",
+    "detailedBio": "## The Best of the Achaeans\n\nAchilles is the central figure of Homer's Iliad, called simply \"the best of the Achaeans\" for his unmatched skill and speed in battle. He led the Myrmidons of Phthia to Troy, but the epic's plot turns on his anger, not his fighting: when Agamemnon seizes his war-prize Briseis, Achilles withdraws from the war entirely, and the Greeks suffer for it.\n\n### The Wrath and the Loss\n\nAchilles refuses to fight even as the Trojans push the Greeks back to their ships. He relents only far enough to let his close companion Patroclus wear his armor and lead the Myrmidons into battle. When Hector kills Patroclus, Achilles' grief overtakes his anger at Agamemnon, and he returns to the field to kill Hector in single combat, dragging his body behind his chariot in a rage that the poem treats as excessive even by heroic standards.\n\n### Choice and Mortality\n\nThe Iliad frames Achilles around a foretold choice: a long, obscure life at home, or a short life crowned with undying fame at Troy. He chooses glory, and the poem's tragedy is that he knows the cost in advance. The Iliad itself ends before his death; later tradition (outside Homer) has him killed by Paris, with the god Apollo's aid, and later still gives him a single vulnerable spot at the heel.",
+    "parentage": {
+      "mortalParentName": "Peleus, king of the Myrmidons of Phthia",
+      "note": "His mother, the sea-nymph/goddess Thetis, tried to make him invulnerable; later tradition (not Homer) locates his one weak point at the heel."
+    },
+    "keyDeeds": [
+      "Led the Myrmidon contingent to Troy",
+      "Withdrew from battle after Agamemnon seized Briseis",
+      "Killed Hector in single combat to avenge Patroclus",
+      "Dragged Hector's body behind his chariot around Troy's walls",
+      "Relented and returned Hector's body to Priam"
+    ],
+    "fate": "The Iliad ends before his death. Later tradition (not Homer) has him killed at Troy by Paris, with Apollo's help; the story of a single vulnerable heel is a still later addition to the myth.",
+    "relatedDeityIds": [
+      "athena",
+      "apollo"
+    ],
+    "imageUrl": "/heroes/achilles.png",
+    "pronunciation": {
+      "ipa": "/əˈkɪliːz/",
+      "phonetic": "uh-KIL-eez"
+    },
+    "primarySources": [
+      {
+        "text": "Sing, goddess, the anger of Achilles son of Peleus, the accursed anger which brought countless sorrows upon the Achaeans.",
+        "source": "Homer, Iliad",
+        "date": "c. 750 BCE"
+      },
+      {
+        "text": "In the underworld, Achilles tells Odysseus he would rather be a landless serf on earth than lord over all the dead.",
+        "source": "Homer, Odyssey",
+        "date": "c. 725 BCE"
+      }
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "celtic-pantheon",
+        "refId": "cu-chulainn",
+        "kind": "hero",
+        "note": "Both are the greatest warrior of their people, defined by a foreknown short life and an uncontrollable battle rage."
+      }
+    ]
+  },
+  {
+    "id": "odysseus",
+    "pantheonId": "greek-pantheon",
+    "name": "Odysseus",
+    "slug": "odysseus",
+    "gender": "male",
+    "alternateNames": [
+      "Ulysses"
+    ],
+    "description": "King of Ithaca famed for cunning rather than brute strength. Deviser of the Trojan Horse and protagonist of Homer's Odyssey, his ten-year voyage home after the Trojan War.",
+    "detailedBio": "## The Man of Many Ways\n\nHomer's Odyssey opens by calling Odysseus \"the man of many ways,\" polytropos, a word that captures both his resourcefulness and his tendency to shift identity and story to survive. He is a leading Greek commander at Troy, but his signature contribution is the wooden horse, the trick that finally brings down the city after nine years of open siege failed to.\n\n### The Long Way Home\n\nThe Odyssey follows his ten-year journey back to Ithaca, delayed by the sea-god Poseidon's anger after Odysseus blinds his son, the Cyclops Polyphemus. Along the way he survives the Sirens, Scylla and Charybdis, the sorceress Circe, the nymph Calypso's island, and a journey to consult the dead in the underworld. He loses every one of his men before reaching home alone.\n\n### Reclaiming Ithaca\n\nOn Ithaca, disguised as a beggar, Odysseus finds his household overrun by suitors pressuring his wife Penelope to remarry and his son Telemachus struggling to assert authority. He strings his own great bow, a feat none of the suitors can manage, and with Telemachus and two loyal servants slaughters the suitors, restoring his household and his marriage.",
+    "parentage": {
+      "mortalParentName": "Laertes, king of Ithaca (mother: Anticlea)",
+      "note": "A minor, disputed tradition outside Homer makes Sisyphus his true father; Homer treats him as Laertes's son."
+    },
+    "keyDeeds": [
+      "Devised the Trojan Horse that ended the ten-year siege of Troy",
+      "Blinded the Cyclops Polyphemus, earning Poseidon's enduring anger",
+      "Resisted the Sirens' song by having himself bound to the mast",
+      "Descended to the underworld to consult the dead",
+      "Strung his own bow and slaughtered Penelope's suitors"
+    ],
+    "fate": "Restored to his throne and marriage on Ithaca. A separate, later tradition (the lost epic Telegony, known only through summaries) has him killed by Telegonus, a son he never knew he had by Circe.",
+    "relatedDeityIds": [
+      "athena",
+      "poseidon"
+    ],
+    "imageUrl": "/heroes/odysseus.png",
+    "pronunciation": {
+      "ipa": "/əˈdɪsiəs/",
+      "phonetic": "oh-DIS-ee-us"
+    },
+    "primarySources": [
+      {
+        "text": "Tell me, Muse, of the man of many ways, who was driven far and wide after he sacked the sacred city of Troy.",
+        "source": "Homer, Odyssey",
+        "date": "c. 725 BCE"
+      },
+      {
+        "text": "Odysseus alone devised the stratagem of the wooden horse, by which the leading Greeks entered Troy in secret.",
+        "source": "Apollodorus, Epitome",
+        "date": "c. 100 CE"
+      }
+    ]
+  },
+  {
+    "id": "hector",
+    "pantheonId": "greek-pantheon",
+    "name": "Hector",
+    "slug": "hector",
+    "gender": "male",
+    "alternateNames": [
+      "Breaker of Horses"
+    ],
+    "description": "Crown prince of Troy and the city's greatest defender in the Iliad. Killed by Achilles in the poem's climactic single combat.",
+    "detailedBio": "## Troy's Shield\n\nHector, eldest son of King Priam and Queen Hecuba, commands the Trojan army for most of the Iliad and is treated by the poem with unusual sympathy for an antagonist. Unlike many Greek heroes, he fights not for glory or plunder but to defend his city, his wife Andromache, and his infant son Astyanax.\n\n### Duels and Doubts\n\nHector leads the Trojan counter-offensive while Achilles sulks in his tent, at one point fighting Ajax to an inconclusive draw. He kills Patroclus, wearing Achilles' armor, believing he has finally killed Achilles himself, an error that seals his fate. When Achilles returns to battle for revenge, Hector alone stands outside the walls to face him, then loses his nerve and flees three times around the city before turning to fight.\n\n### Death and Ransom\n\nAchilles kills Hector and mutilates his body for days, refusing burial. In the Iliad's final book, King Priam risks his life to enter the Greek camp by night and beg Achilles for his son's body. Achilles, moved, relents, and the poem closes with Hector's funeral at Troy.",
+    "parentage": {
+      "mortalParentName": "Priam, king of Troy (mother: Hecuba)",
+      "note": "Wholly mortal parentage; his myth has no divine parent."
+    },
+    "keyDeeds": [
+      "Commanded the Trojan army through most of the war",
+      "Fought Ajax to a draw in single combat",
+      "Killed Patroclus, who was wearing Achilles' armor",
+      "Faced Achilles alone outside Troy's walls",
+      "Was killed and his body dragged around Troy before ransom"
+    ],
+    "fate": "Killed by Achilles in single combat outside Troy; his body is mutilated for days before Priam ransoms it, and the Iliad ends with his funeral.",
+    "relatedDeityIds": [
+      "apollo"
+    ],
+    "imageUrl": "/heroes/hector.png",
+    "pronunciation": {
+      "ipa": "/ˈhɛktər/",
+      "phonetic": "HEK-tor"
+    },
+    "primarySources": [
+      {
+        "text": "Hector alone, trusting in his own strength, stayed to face Achilles before the Scaean gates.",
+        "source": "Homer, Iliad",
+        "date": "c. 750 BCE"
+      },
+      {
+        "text": "Then Priam went in to Achilles and clasped his knees and kissed the terrible, man-slaying hands that had killed so many of his sons.",
+        "source": "Homer, Iliad",
+        "date": "c. 750 BCE"
+      }
+    ]
+  },
+  {
+    "id": "heracles",
+    "pantheonId": "greek-pantheon",
+    "name": "Heracles",
+    "slug": "heracles",
+    "gender": "male",
+    "alternateNames": [
+      "Hercules",
+      "Alcides"
+    ],
+    "description": "The most famous Greek hero, son of Zeus, celebrated for superhuman strength and the Twelve Labors he performed in atonement for killing his own children in a fit of madness sent by Hera.",
+    "detailedBio": "## Son of Zeus, Enemy of Hera\n\nHeracles was born to the mortal woman Alcmene after Zeus visited her disguised as her own husband, making Heracles Zeus's son and a permanent target of Hera's jealousy. Hera's persecution shapes his whole story, from the serpents she sent to kill him in his cradle (which he strangled as an infant) to the madness she later inflicted on him.\n\n### The Twelve Labors\n\nAccounts differ on the order of the catastrophe involving Megara and their children. In Pseudo-Apollodorus's *Bibliotheca* (2.4.12–2.5.1), Hera's madness follows the Minyan war; after the killings, Heracles goes to Delphi and is ordered into Eurystheus's service, making the Labors an expiation. Euripides' *Heracles* instead places the madness after Heracles has completed Eurystheus's commands and returned from Hades with Cerberus (610–615, 830–865). The Labors themselves include killing the Nemean Lion and the Lernaean Hydra, capturing the Erymanthian Boar and the Ceryneian Hind, cleaning the Augean stables in a day, driving off the Stymphalian Birds, capturing the Cretan Bull and the Mares of Diomedes, taking the girdle of the Amazon queen Hippolyta, herding the cattle of Geryon, stealing the apples of the Hesperides, and finally dragging the three-headed hound Cerberus up from the underworld.\n\n### Death and Apotheosis\n\nHeracles later married Deianira, who was tricked by the dying centaur Nessus into keeping a robe soaked in poisoned blood as a supposed love-charm. When she used it, the robe burned Heracles's flesh so badly that he built his own funeral pyre on Mount Oeta and had it lit. As his mortal body burned away, Zeus took him up to Olympus, where he became a god and finally reconciled with Hera.",
+    "parentage": {
+      "divineParentId": "zeus",
+      "mortalParentName": "Alcmene of Thebes",
+      "note": "Zeus visited Alcmene in the guise of her husband Amphitryon."
+    },
+    "keyDeeds": [
+      "Strangled two serpents sent by Hera while still an infant",
+      "Completed the Twelve Labors set by King Eurystheus",
+      "Dragged the hound Cerberus up from the underworld",
+      "Freed Prometheus from his chains on the Caucasus",
+      "Died and was raised to godhood on Olympus"
+    ],
+    "fate": "Died in agony wearing a robe poisoned with the blood of the centaur Nessus; he built his own funeral pyre, and Zeus took him up to Olympus as a god upon his death.",
+    "relatedDeityIds": [
+      "zeus",
+      "hera",
+      "prometheus"
+    ],
+    "imageUrl": "/heroes/heracles.png",
+    "pronunciation": {
+      "ipa": "/ˈhɛrəkliːz/",
+      "phonetic": "HERR-uh-kleez"
+    },
+    "primarySources": [
+      {
+        "text": "Heracles performed the Labors set by Eurystheus in twelve years, for so long a time was he in servitude on account of the madness Hera had sent upon him.",
+        "source": "Apollodorus, Bibliotheca",
+        "date": "c. 100 CE"
+      },
+      {
+        "text": "When the pyre was lit, Zeus caught him up to heaven in a cloud, and there he obtained immortality and was reconciled with Hera.",
+        "source": "Apollodorus, Bibliotheca",
+        "date": "c. 100 CE"
+      }
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "hindu-pantheon",
+        "refId": "arjuna",
+        "kind": "hero",
+        "note": "Both are divinely fathered heroes who complete a long series of near-impossible trials as penance or duty."
+      }
+    ]
+  },
+  {
+    "id": "jason",
+    "pantheonId": "greek-pantheon",
+    "name": "Jason",
+    "slug": "jason",
+    "gender": "male",
+    "alternateNames": [
+      "Iason"
+    ],
+    "description": "Leader of the Argonauts, sent on the quest for the Golden Fleece by his usurping uncle Pelias. Aided at every turn by the sorceress Medea, whom he later marries and betrays.",
+    "detailedBio": "## The Quest for the Fleece\n\nJason was the rightful heir to the throne of Iolcos, displaced by his uncle Pelias, who sent him on what he expected to be a fatal errand: retrieving the Golden Fleece from Colchis, at the far edge of the known world. Jason assembled a crew of the greatest heroes of the age, the Argonauts, and sailed on the ship Argo.\n\n### Medea's Help\n\nAt Colchis, King Aeetes set Jason a series of trials before he would surrender the Fleece: yoking fire-breathing bulls, sowing dragon's teeth that grew into armed warriors, and outwitting the sleepless dragon that guarded the Fleece itself. Jason succeeded only with the help of the king's daughter, the sorceress Medea, who fell in love with him and betrayed her own family for his sake.\n\n### Betrayal and Ruin\n\nJason and Medea married and had children, but Jason later abandoned her to marry a Corinthian princess for political advantage. In the most famous version of the myth (Euripides's tragedy Medea), Medea takes a horrific revenge, killing the new bride and, in that telling, her own children by Jason. Jason's later life is left diminished and disgraced; one tradition (recorded by Apollodorus) has him killed when a rotting beam of his own ship, the Argo, collapses on him as he sleeps beneath it.",
+    "parentage": {
+      "mortalParentName": "Aeson, the rightful king of Iolcos",
+      "note": "No divine parent; he was raised in hiding by the centaur Chiron after Pelias seized the throne."
+    },
+    "keyDeeds": [
+      "Assembled the Argonauts and sailed on the Argo",
+      "Yoked King Aeetes's fire-breathing bulls",
+      "Sowed the dragon's teeth and defeated the warriors that sprang from them",
+      "Won the Golden Fleece with Medea's help",
+      "Returned to Iolcos and claimed his throne"
+    ],
+    "fate": "Abandoned Medea for a political marriage, provoking her revenge. Apollodorus records that he later died when a decaying beam of the Argo fell on him as he slept in its shade.",
+    "relatedDeityIds": [
+      "hera"
+    ],
+    "imageUrl": "/heroes/jason.png",
+    "pronunciation": {
+      "ipa": "/ˈdʒeɪsən/",
+      "phonetic": "JAY-sun"
+    },
+    "primarySources": [
+      {
+        "text": "Hera favored Jason above all other heroes, and it was by her design that Medea came to love him.",
+        "source": "Apollonius of Rhodes, Argonautica",
+        "date": "c. 250 BCE"
+      },
+      {
+        "text": "It is said that Jason, sitting in the shadow of the Argo grown old and hauled up on shore, was killed when its stern fell upon him.",
+        "source": "Apollodorus, Bibliotheca",
+        "date": "c. 100 CE"
+      }
+    ]
+  },
+  {
+    "id": "theseus",
+    "pantheonId": "greek-pantheon",
+    "name": "Theseus",
+    "slug": "theseus",
+    "gender": "male",
+    "alternateNames": [],
+    "description": "Athenian founder-hero who killed the Minotaur in the Cretan labyrinth. Traditionally given two fathers, the mortal king Aegeus and the god Poseidon.",
+    "detailedBio": "## The Labyrinth\n\nAthens, defeated in war by Crete, was forced to send seven young men and seven young women to King Minos every year, to be fed to the Minotaur, a monster half man and half bull kept in a labyrinth beneath the palace at Knossos. Theseus volunteered to go among them and end the tribute. Minos's daughter Ariadne fell in love with him and gave him a ball of thread to unwind as he entered the maze, so he could find his way back out after killing the Minotaur.\n\n### A Founder's Career\n\nBefore Crete, Theseus made his name clearing the road from Troezen to Athens of bandits and monsters, matching each of them with their own method of killing (Procrustes on his own bed, Sinis with his own bent pine trees). As king of Athens, later tradition credits him with unifying Attica's scattered villages into a single city-state, a political achievement layered onto the older monster-slaying legend.\n\n### A Fading Reputation\n\nTheseus's later life is marked by poor decisions: he abandons Ariadne on the island of Naxos after she helps him escape Crete, and forgets to change his ship's sails from black to white on the voyage home, causing his father Aegeus to believe him dead and throw himself into the sea (the source of the name Aegean). His final years, according to Plutarch, end in exile and obscurity on the island of Skyros.",
+    "parentage": {
+      "divineParentId": "poseidon",
+      "mortalParentName": "Aegeus, king of Athens",
+      "note": "A dual-paternity story: Aegeus and Poseidon both lay with his mother Aethra on the same night, so Theseus is claimed as both a king's son and a god's son."
+    },
+    "keyDeeds": [
+      "Cleared the road from Troezen to Athens of bandits, killing each with his own method",
+      "Killed the Minotaur in the Cretan labyrinth with Ariadne's thread",
+      "Abandoned Ariadne on Naxos on the voyage home",
+      "Caused his father Aegeus's death by forgetting to change his ship's sails",
+      "Unified the villages of Attica into the city-state of Athens (later tradition)"
+    ],
+    "fate": "According to Plutarch's Life of Theseus, he was exiled to the island of Skyros in his old age and killed there, thrown from a cliff by King Lycomedes.",
+    "relatedDeityIds": [
+      "poseidon"
+    ],
+    "imageUrl": "/heroes/theseus.png",
+    "pronunciation": {
+      "ipa": "/ˈθiːsiəs/",
+      "phonetic": "THEE-see-us"
+    },
+    "primarySources": [
+      {
+        "text": "Theseus slew the Minotaur with blows of his fists, for Ariadne had given him a thread, and by winding it back he found the way out of the labyrinth.",
+        "source": "Apollodorus, Epitome",
+        "date": "c. 100 CE"
+      },
+      {
+        "text": "Lycomedes, either fearing Theseus's growing standing among his people or as a favor to Menestheus, led him up to the heights of the island under pretense of showing him the land, and cast him down.",
+        "source": "Plutarch, Life of Theseus",
+        "date": "c. 100 CE"
+      }
+    ]
+  },
+  {
+    "id": "oedipus",
+    "pantheonId": "greek-pantheon",
+    "name": "Oedipus",
+    "slug": "oedipus",
+    "gender": "male",
+    "alternateNames": [],
+    "description": "King of Thebes who unknowingly fulfilled a prophecy that he would kill his father and marry his mother. Central figure of Sophocles's Theban plays.",
+    "detailedBio": "## Swollen Foot\n\nOedipus's name is traditionally read as \"swollen foot,\" from the injury inflicted when his parents, King Laius and Queen Jocasta of Thebes, pinned his ankles and left him exposed on a mountainside after an oracle warned that their son would kill his father. A shepherd saved him, and he was raised in Corinth by King Polybus and his wife, believing them his true parents.\n\n### The Riddle of the Sphinx\n\nWhen Oedipus himself heard the prophecy from Delphi, he fled Corinth to avoid it, and on the road unknowingly killed a stranger in a dispute over right of way, a man who was, unknown to him, Laius. Arriving at Thebes, he freed the city from the Sphinx by answering her riddle, and was rewarded with the widowed queen's hand: his own mother, Jocasta.\n\n### The Unraveling\n\nSophocles's Oedipus Rex dramatizes the moment years later when a plague forces Oedipus to investigate Laius's unsolved murder, only to discover it was his own doing, and that his wife is his mother. Jocasta hangs herself; Oedipus blinds himself with the pins from her robe. Sophocles's later play Oedipus at Colonus follows him into a long, blind exile, ending with a mysterious death near Athens that the gods themselves seem to receive with favor.",
+    "parentage": {
+      "mortalParentName": "Laius, king of Thebes (mother: Jocasta)",
+      "note": "Wholly mortal parentage; raised unknowingly by King Polybus of Corinth as an adoptive father."
+    },
+    "keyDeeds": [
+      "Answered the Sphinx's riddle, freeing Thebes from her terror",
+      "Unknowingly killed his father Laius on the road from Delphi",
+      "Married his own mother Jocasta and became king of Thebes",
+      "Discovered the truth and blinded himself",
+      "Died in exile near Athens after years of wandering"
+    ],
+    "fate": "Blinded himself upon learning the truth of his birth; spent his final years in exile, dying near Colonus outside Athens in a death Sophocles presents as strangely favored by the gods.",
+    "relatedDeityIds": [
+      "apollo"
+    ],
+    "imageUrl": "/heroes/oedipus.png",
+    "pronunciation": {
+      "ipa": "/ˈɛdɪpəs/",
+      "phonetic": "ED-ih-pus"
+    },
+    "primarySources": [
+      {
+        "text": "O light, may I now look on you for the last time, I who am revealed as cursed in birth, in marriage, in the blood I shed.",
+        "source": "Sophocles, Oedipus Rex",
+        "date": "c. 429 BCE"
+      }
+    ]
+  },
+  {
+    "id": "penelope",
+    "pantheonId": "greek-pantheon",
+    "name": "Penelope",
+    "slug": "penelope",
+    "gender": "female",
+    "alternateNames": [],
+    "description": "Wife of Odysseus, who held off more than a hundred suitors for twenty years while he was away at Troy and on his long voyage home, becoming an ancient byword for marital fidelity and cunning.",
+    "detailedBio": "## Weaving the Delay\n\nWith Odysseus gone for ten years at Troy and another ten on the voyage home, Penelope's household on Ithaca filled with suitors demanding she remarry and eating through the family's estate while they waited for her answer. Her most famous stratagem, told in the Odyssey, was to promise an answer once she finished weaving a burial shroud for Odysseus's father Laertes, then secretly unravel each night's work, stalling the suitors for three years before a disloyal servant exposed the trick.\n\n### Matching Wits\n\nThe Odyssey treats Penelope as Odysseus's match in cleverness as much as in loyalty. When a stranger (Odysseus in disguise) arrives at the palace, she tests him with questions about her husband before revealing anything of her own suspicions, and even after his identity is confirmed she tests him once more, describing their marriage bed as movable when in fact Odysseus built it around a living olive tree, a detail only the real Odysseus could correct.\n\n### The Contest of the Bow\n\nUnder pressure to finally choose a husband, Penelope sets a contest: whoever can string Odysseus's great bow and shoot an arrow through a line of axe heads will have her hand. None of the suitors can even bend the bow. The beggar at the feast, secretly Odysseus, strings it easily, and the contest becomes the opening move in his slaughter of the suitors.",
+    "parentage": {
+      "mortalParentName": "Icarius of Sparta",
+      "note": "Wholly mortal parentage; some later sources make her mother a naiad, but this is not the mainstream tradition."
+    },
+    "keyDeeds": [
+      "Delayed the suitors for years by secretly unweaving a burial shroud each night",
+      "Managed the Ithacan household alone for twenty years",
+      "Tested the disguised Odysseus's identity before accepting him",
+      "Set the contest of the bow that led to the suitors' deaths",
+      "Was reunited with Odysseus after twenty years apart"
+    ],
+    "fate": "Reunited with Odysseus after twenty years, restored as queen of Ithaca; the Odyssey closes on their reunion rather than recording a later fate.",
+    "relatedDeityIds": [
+      "athena"
+    ],
+    "imageUrl": "/heroes/penelope.png",
+    "pronunciation": {
+      "ipa": "/pəˈnɛləpiː/",
+      "phonetic": "puh-NEL-oh-pee"
+    },
+    "primarySources": [
+      {
+        "text": "By day she wove the great web, and by night, when she had torches set beside her, she unraveled it.",
+        "source": "Homer, Odyssey",
+        "date": "c. 725 BCE"
+      }
+    ]
+  },
+  {
+    "id": "helen",
+    "pantheonId": "greek-pantheon",
+    "name": "Helen",
+    "slug": "helen",
+    "gender": "female",
+    "alternateNames": [
+      "Helen of Troy",
+      "Helen of Sparta"
+    ],
+    "description": "Daughter of Zeus and the most beautiful woman in the ancient world, whose abduction (or elopement) by the Trojan prince Paris was the mythic cause of the Trojan War.",
+    "detailedBio": "## The Face That Launched a Thousand Ships\n\nHelen was born to Leda, queen of Sparta, after Zeus visited her in the form of a swan, making Helen his daughter alongside a mortal father, Tyndareus. Her suitors were so numerous and so dangerous to disappoint that they were bound by an oath, sworn before she chose among them, to defend the marriage of whichever man she married. She married Menelaus, king of Sparta.\n\n### Judgment and Abduction\n\nWhen the Trojan prince Paris was asked to judge which goddess was fairest, Aphrodite bribed him with the love of the most beautiful woman alive, Helen, and won. Paris then either abducted her or persuaded her to leave with him for Troy, depending on the telling, and Menelaus called in the suitors' oath, raising the great Greek expedition that became the Trojan War.\n\n### Blame and Return\n\nAncient sources are divided on how much agency or guilt to give Helen. Homer's Iliad shows her at Troy watching the war from the walls, weary and self-critical, blaming herself for the suffering around her even as the poem never quite lets her be simply villain or victim. One striking rival tradition (attributed to the poet Stesichorus and developed by Euripides in his play Helen) claims the real Helen never went to Troy at all, and that the gods sent only a phantom in her place while she waited out the war in Egypt. In the Odyssey, she is shown safely home in Sparta, reconciled with Menelaus.",
+    "parentage": {
+      "divineParentId": "zeus",
+      "mortalParentName": "Leda, queen of Sparta",
+      "note": "Zeus came to Leda in the form of a swan; her mortal father is Tyndareus, Leda's husband."
+    },
+    "keyDeeds": [
+      "Was awarded to Paris by Aphrodite in the Judgment of Paris",
+      "Left Sparta for Troy with Paris, sparking the Trojan War",
+      "Watched the war from Troy's walls, identifying the Greek leaders for Priam",
+      "Was reunited with Menelaus after Troy's fall"
+    ],
+    "fate": "Returned to Sparta with Menelaus after the war; the Odyssey shows them living together in apparent reconciliation. A rival tradition holds she never reached Troy at all.",
+    "relatedDeityIds": [
+      "zeus",
+      "aphrodite"
+    ],
+    "imageUrl": "/heroes/helen.png",
+    "pronunciation": {
+      "ipa": "/ˈhɛlən/",
+      "phonetic": "HEL-en"
+    },
+    "primarySources": [
+      {
+        "text": "So they spoke together, and Priam called sweetly to Helen: come here, dear child, and sit before me, that you may see your former husband.",
+        "source": "Homer, Iliad",
+        "date": "c. 750 BCE"
+      },
+      {
+        "text": "It is not you, but the gods who are guilty in my sight, who stirred up against me the grievous war of the Achaeans.",
+        "source": "Homer, Iliad",
+        "date": "c. 750 BCE"
+      }
+    ]
+  },
+  {
+    "id": "agamemnon",
+    "pantheonId": "greek-pantheon",
+    "name": "Agamemnon",
+    "slug": "agamemnon",
+    "gender": "male",
+    "alternateNames": [],
+    "description": "King of Mycenae and commander-in-chief of the Greek forces at Troy. His quarrel with Achilles opens the Iliad, and his murder upon returning home became the basis of Aeschylus's tragedy.",
+    "detailedBio": "## Commander of the Greeks\n\nAgamemnon, king of Mycenae, led the combined Greek expedition to Troy to recover his brother Menelaus's wife Helen. Before the fleet could sail, he was forced by the goddess Artemis's anger (over an offense that varies by source) to sacrifice his own daughter Iphigenia to gain favorable winds, an act that poisons his household even before the war begins.\n\n### The Quarrel that Starts the Iliad\n\nThe Iliad opens with Agamemnon's dispute with Achilles: forced to give up his own war-prize to appease the god Apollo, he seizes Achilles's prize Briseis instead, driving Achilles to withdraw from the fighting and nearly costing the Greeks the war. Agamemnon is portrayed throughout as a capable but flawed leader, prone to poor judgment and stubborn pride.\n\n### Murder at Home\n\nAgamemnon survives the ten-year war only to be murdered in his own home by his wife Clytemnestra and her lover Aegisthus, in revenge for Iphigenia's sacrifice and for bringing home the captive prophetess Cassandra as a concubine. Homer's Odyssey has Agamemnon's ghost warn Odysseus, from the underworld, never to trust a wife with everything. The murder and its aftermath, including his son Orestes's revenge, form the plot of Aeschylus's Oresteia.",
+    "parentage": {
+      "mortalParentName": "Atreus, king of Mycenae",
+      "note": "Wholly mortal parentage, and heir to the Atreid line's long history of family curses."
+    },
+    "keyDeeds": [
+      "Commanded the combined Greek forces at Troy",
+      "Sacrificed his daughter Iphigenia to secure favorable winds for the fleet",
+      "Seized Achilles's war-prize Briseis, provoking Achilles's withdrawal from battle",
+      "Led the Greeks to victory after ten years of war"
+    ],
+    "fate": "Murdered in his own home upon returning from Troy by his wife Clytemnestra and her lover Aegisthus, an act later avenged by his son Orestes.",
+    "relatedDeityIds": [
+      "artemis"
+    ],
+    "imageUrl": "/heroes/agamemnon.png",
+    "pronunciation": {
+      "ipa": "/ˌæɡəˈmɛmnɒn/",
+      "phonetic": "ag-uh-MEM-non"
+    },
+    "primarySources": [
+      {
+        "text": "Agamemnon's shade told Odysseus that Clytemnestra had killed him and his companions like oxen slaughtered at a manger.",
+        "source": "Homer, Odyssey",
+        "date": "c. 725 BCE"
+      },
+      {
+        "text": "She struck him down within the palace, and the earth ran red with the blood of the king.",
+        "source": "Aeschylus, Agamemnon",
+        "date": "c. 458 BCE"
+      }
+    ]
+  },
+  {
+    "id": "patroclus",
+    "pantheonId": "greek-pantheon",
+    "name": "Patroclus",
+    "slug": "patroclus",
+    "gender": "male",
+    "alternateNames": [],
+    "description": "Closest companion of Achilles in the Iliad. His death at Hector's hands, while wearing Achilles's armor, drives Achilles back into the war.",
+    "detailedBio": "## The Companion\n\nPatroclus grew up alongside Achilles after his own father sent him into exile as a boy, following an accidental killing, and he became Achilles's inseparable companion at Troy, older but subordinate to him in status and famed skill. The Iliad's account of their bond, whether read as close friendship or something more, is one of the most discussed relationships in ancient literature; later Greek writers, including the historian Herodotus's contemporaries and the tragedian Aeschylus, generally read them as lovers.\n\n### Wearing Achilles's Armor\n\nWith the Greeks pushed back to their ships and Achilles still refusing to fight, Patroclus begs to be allowed to lead the Myrmidons into battle wearing Achilles's own armor, hoping the Trojans will mistake him for Achilles and lose heart. The plan works almost too well: Patroclus routs the Trojans and nearly takes the city before overreaching, killing the god Apollo's favorite Sarpedon and pressing his luck too far.\n\n### Death and Consequence\n\nApollo strips Patroclus of his armor and stuns him in the fighting; Hector then delivers the killing blow, taking Achilles's armor as a trophy. Patroclus's death is the emotional turning point of the Iliad: it breaks Achilles's anger at Agamemnon and replaces it with an even greater rage against Hector and the Trojans, driving the poem's final books.",
+    "parentage": {
+      "mortalParentName": "Menoetius of Opus",
+      "note": "Wholly mortal parentage; sent to Phthia as a boy after accidentally killing another child in a dice-game quarrel."
+    },
+    "keyDeeds": [
+      "Grew up as Achilles's closest companion in Phthia and at Troy",
+      "Led the Myrmidons into battle wearing Achilles's armor",
+      "Routed the Trojans and killed Sarpedon, son of Zeus",
+      "Was killed by Hector after Apollo stripped him of his armor"
+    ],
+    "fate": "Killed by Hector in battle after the god Apollo stunned him and stripped away his borrowed armor; his death drives Achilles back into the war.",
+    "relatedDeityIds": [
+      "apollo"
+    ],
+    "imageUrl": "/heroes/patroclus.png",
+    "pronunciation": {
+      "ipa": "/pəˈtroʊkləs/",
+      "phonetic": "puh-TROH-klus"
+    },
+    "primarySources": [
+      {
+        "text": "Then Apollo struck Patroclus on the back and shoulders with the flat of his hand, and his eyes were darkened.",
+        "source": "Homer, Iliad",
+        "date": "c. 750 BCE"
+      }
+    ]
+  },
+  {
+    "id": "ajax",
+    "pantheonId": "greek-pantheon",
+    "name": "Ajax",
+    "slug": "ajax",
+    "gender": "male",
+    "alternateNames": [
+      "Ajax the Great",
+      "Telamonian Ajax"
+    ],
+    "description": "Second-mightiest Greek warrior at Troy after Achilles. Lost the contest for Achilles's armor to Odysseus and, in Sophocles's telling, took his own life in shame.",
+    "detailedBio": "## The Bulwark of the Achaeans\n\nAjax, son of King Telamon of Salamis, is repeatedly called the strongest and steadiest Greek fighter at Troy after Achilles, a defensive rock rather than a flashy hero. In the Iliad he duels Hector to a respectful draw and, when Patroclus falls, is the one who holds off the Trojans long enough for the body to be recovered.\n\n### The Contest for the Arms\n\nAfter Achilles's death, his divine armor, forged by Hephaestus, is offered as a prize to the best of the remaining Greeks. Ajax, who carried Achilles's body from the battlefield, expects to win it, but the Greek leaders (or, in some versions, Trojan prisoners) award it instead to Odysseus for his cunning. Ajax takes the judgment as an unbearable insult to his honor.\n\n### Madness and Death\n\nHumiliated, Ajax plans to murder the Greek commanders in the night, but Athena strikes him with madness so that he instead slaughters a flock of sheep and cattle, believing them to be his enemies. When his sanity returns and he realizes what he has done, the shame is too much to bear: Sophocles's tragedy Ajax shows him falling on his own sword. In the Odyssey, his shade in the underworld still refuses to speak to Odysseus, still resentful over the lost armor.",
+    "parentage": {
+      "mortalParentName": "Telamon, king of Salamis",
+      "note": "Wholly mortal parentage."
+    },
+    "keyDeeds": [
+      "Fought Hector to an inconclusive draw in single combat",
+      "Recovered Achilles's body from the battlefield after his death",
+      "Lost the contest for Achilles's divine armor to Odysseus",
+      "Slaughtered a flock of livestock in a god-sent madness, mistaking them for his rivals"
+    ],
+    "fate": "Fell on his own sword in shame after the madness lifted and he understood what he had done, as dramatized in Sophocles's Ajax.",
+    "relatedDeityIds": [
+      "athena"
+    ],
+    "imageUrl": "/heroes/ajax.png",
+    "pronunciation": {
+      "ipa": "/ˈeɪdʒæks/",
+      "phonetic": "AY-jaks"
+    },
+    "primarySources": [
+      {
+        "text": "Of all the Danaans, after the excellent son of Peleus, Ajax was far the best in both looks and deeds.",
+        "source": "Homer, Iliad",
+        "date": "c. 750 BCE"
+      },
+      {
+        "text": "The shade of Ajax alone stood apart, still angry over the victory Odysseus had won concerning the arms of Achilles, and would not speak to him.",
+        "source": "Homer, Odyssey",
+        "date": "c. 725 BCE"
+      }
+    ]
+  },
+  {
+    "id": "atalanta",
+    "pantheonId": "greek-pantheon",
+    "name": "Atalanta",
+    "slug": "atalanta",
+    "gender": "female",
+    "alternateNames": [],
+    "description": "Swift-footed huntress raised in the wild, celebrated for outrunning every suitor and for drawing first blood on the Calydonian Boar.",
+    "detailedBio": "## Raised by a Bear\n\nExposed on a mountainside as an infant by a father who wanted a son, Atalanta was suckled by a she-bear, sent by the goddess Artemis, and raised by hunters, growing into a huntress feared and admired for her speed and her skill with a bow. She refused marriage, having been warned by an oracle that it would ruin her, and devoted herself to Artemis's wild, unmarried life instead.\n\n### The Calydonian Boar Hunt\n\nWhen King Oeneus of Calydon offended Artemis and she sent a monstrous boar to ravage his land, the greatest heroes of Greece gathered for the hunt, Atalanta among them, over the objections of several who thought a woman had no place there. She drew first blood on the boar with an arrow, and the hero Meleager, who loved her, killed it and awarded her the hide as the hunt's true victor, a decision that led to a fatal quarrel among the other hunters.\n\n### The Footrace\n\nAtalanta's most famous story is the footrace she set for her suitors: any man who wished to marry her had to outrun her, and any who lost was killed. Hippomenes finally won by dropping golden apples, a gift from Aphrodite, one at a time during the race; Atalanta could not resist stopping to pick each one up, and lost the race, marrying him.",
+    "parentage": {
+      "mortalParentName": "Iasus (or, in some tellings, Schoeneus)",
+      "note": "Wholly mortal parentage; closely associated with Artemis as her devoted, unmarried follower rather than her daughter."
+    },
+    "keyDeeds": [
+      "Drew first blood on the Calydonian Boar",
+      "Was awarded the boar's hide by Meleager, sparking a fatal quarrel",
+      "Set a fatal footrace as the price of her hand in marriage",
+      "Was outrun by Hippomenes, who distracted her with golden apples"
+    ],
+    "fate": "Married Hippomenes after losing the footrace to his trick with the golden apples; some sources add that the couple later offended Aphrodite or Zeus and were transformed into lions.",
+    "relatedDeityIds": [
+      "artemis",
+      "aphrodite"
+    ],
+    "imageUrl": "/heroes/atalanta.png",
+    "pronunciation": {
+      "ipa": "/ˌætəˈlæntə/",
+      "phonetic": "at-uh-LAN-tuh"
+    },
+    "primarySources": [
+      {
+        "text": "Atalanta alone of the women present drew the boar's blood first, striking it in the back with an arrow.",
+        "source": "Apollodorus, Bibliotheca",
+        "date": "c. 100 CE"
+      },
+      {
+        "text": "Three times he let fall an apple of gold, and she, delighted, turned aside from her course each time to gather it up.",
+        "source": "Ovid, Metamorphoses",
+        "date": "c. 8 CE"
+      }
+    ]
+  },
+  {
+    "id": "bellerophon",
+    "pantheonId": "greek-pantheon",
+    "name": "Bellerophon",
+    "slug": "bellerophon",
+    "gender": "male",
+    "alternateNames": [],
+    "description": "Tamer of the winged horse Pegasus and slayer of the fire-breathing Chimera, whose later attempt to fly to Olympus ended in his fall and disgrace.",
+    "detailedBio": "## Taming Pegasus\n\nBellerophon, a Corinthian prince, tamed the winged horse Pegasus with a golden bridle given to him by Athena, who appeared to him in a dream. Mounted on Pegasus, he became capable of feats no purely earthbound hero could manage.\n\n### The Chimera and False Accusation\n\nBellerophon's story begins with exile: after accidentally killing a man at home, he took refuge with King Proetus, whose wife falsely accused him of assaulting her when he refused her advances. Rather than kill a guest directly, Proetus sent him to his father-in-law, King Iobates of Lycia, carrying a sealed letter asking that the bearer be killed. Iobates instead set him a task meant to be fatal: killing the Chimera, a monster that was lion, goat, and serpent combined and breathed fire. Riding Pegasus, Bellerophon killed it from the air, out of reach of its flames.\n\n### The Fall\n\nHaving survived further trials Iobates set for him, Bellerophon was accepted as a hero and married into the Lycian royal family. His downfall came from pride: he attempted to ride Pegasus up to Olympus itself, to take his place among the gods. Zeus sent a gadfly to sting Pegasus, throwing Bellerophon back to earth, where he lived out his life crippled, blinded, and shunned, as recounted by Pindar and referenced in the Iliad.",
+    "parentage": {
+      "mortalParentName": "Glaucus, king of Corinth (or, by a variant tradition, Poseidon)",
+      "note": "Homer treats him as Glaucus's son; a rival tradition makes Poseidon his true father, a common motif for heroes with an unusual bond to horses."
+    },
+    "keyDeeds": [
+      "Tamed Pegasus with a golden bridle given by Athena",
+      "Killed the Chimera by attacking it from the air",
+      "Survived further trials set by King Iobates of Lycia and married into his family",
+      "Attempted to fly Pegasus to Olympus and was thrown back to earth by Zeus"
+    ],
+    "fate": "Thrown from Pegasus by Zeus's gadfly after attempting to reach Olympus; lived out his remaining years crippled and shunned by the gods and by men.",
+    "relatedDeityIds": [
+      "athena",
+      "poseidon",
+      "zeus"
+    ],
+    "imageUrl": "/heroes/bellerophon.png",
+    "pronunciation": {
+      "ipa": "/bəˈlɛrəfɒn/",
+      "phonetic": "buh-LAIR-oh-fon"
+    },
+    "primarySources": [
+      {
+        "text": "But when even Bellerophon came to be hated by all the gods, he wandered alone over the Aleian plain, devouring his own soul, and avoided the paths of men.",
+        "source": "Homer, Iliad",
+        "date": "c. 750 BCE"
+      },
+      {
+        "text": "Seeking to reach the dwellings of heaven and the company of Zeus, Pegasus threw his rider, who fell to earth.",
+        "source": "Pindar, Isthmian Odes",
+        "date": "c. 470 BCE"
+      }
+    ]
+  },
+  {
+    "id": "orpheus",
+    "pantheonId": "greek-pantheon",
+    "name": "Orpheus",
+    "slug": "orpheus",
+    "gender": "male",
+    "alternateNames": [],
+    "description": "Legendary musician whose playing could charm animals, trees, and stones. His descent into the underworld to reclaim his wife Eurydice is one of the most retold myths in Western literature.",
+    "detailedBio": "## The Power of Song\n\nOrpheus's lyre, a gift said to be from Apollo, played music so beautiful that wild beasts grew calm, trees bent to listen, and rivers paused in their courses. He sailed with Jason and the Argonauts, using his music to drown out the deadly song of the Sirens when the crew passed their island, saving the expedition where ordinary willpower would have failed.\n\n### The Descent for Eurydice\n\nWhen his wife Eurydice died from a snakebite, Orpheus followed her down into the underworld, charming Charon the ferryman, Cerberus the guard-hound, and finally Hades and Persephone themselves with his grief-stricken music. The rulers of the dead agreed to release Eurydice on one condition: Orpheus had to walk ahead of her back to the world of the living without looking back to confirm she was following. Just short of the surface, his nerve broke, and he looked back; Eurydice vanished a second time, this time for good.\n\n### Death and Legacy\n\nOrpheus's later life, in most versions, ends in violence: grieving and withdrawn from women after losing Eurydice twice, he is torn apart by a group of Thracian maenads, followers of Dionysus, who resent his rejection or his devotion to another god. His severed head is said to have continued singing as it floated down the river Hebrus, and his lyre became the constellation Lyra.",
+    "parentage": {
+      "mortalParentName": "Oeagrus, a Thracian king",
+      "note": "His mother is usually named as Calliope, one of the Muses; some sources make Apollo his father instead, matching his gift for music."
+    },
+    "keyDeeds": [
+      "Sailed with the Argonauts and drowned out the Sirens' song with his own",
+      "Descended into the underworld to plead for Eurydice's return",
+      "Charmed Hades and Persephone into releasing Eurydice under one condition",
+      "Lost Eurydice a second time by looking back too soon"
+    ],
+    "fate": "Torn apart by maenads of Dionysus after retreating from human company in his grief; his severed head is said to have kept singing as it drifted downriver.",
+    "relatedDeityIds": [
+      "apollo",
+      "hades",
+      "persephone"
+    ],
+    "imageUrl": "/heroes/orpheus.png",
+    "pronunciation": {
+      "ipa": "/ˈɔːrfiəs/",
+      "phonetic": "OR-fee-us"
+    },
+    "primarySources": [
+      {
+        "text": "He looked back, and straightway Eurydice slipped down again into the abyss.",
+        "source": "Virgil, Georgics",
+        "date": "c. 29 BCE"
+      },
+      {
+        "text": "Orpheus was warned not to turn his eyes back until he had gone forth from the vale of Avernus, or the gift would be void.",
+        "source": "Ovid, Metamorphoses",
+        "date": "c. 8 CE"
+      }
+    ]
+  },
+  {
+    "id": "aeneas",
+    "pantheonId": "roman-pantheon",
+    "name": "Aeneas",
+    "slug": "aeneas",
+    "gender": "male",
+    "alternateNames": [],
+    "description": "Trojan prince, son of the goddess Venus, who escaped the fall of Troy and, in Virgil's Aeneid, journeyed to Italy to found the line that would lead to Rome.",
+    "detailedBio": "## Out of Burning Troy\n\nAeneas appears already in Homer's Iliad as a capable Trojan fighter protected by his divine mother Venus (Aphrodite), but his defining story is Virgil's Aeneid, composed centuries later to give Rome a mythic founding narrative that ties it to Troy. As the city falls to the Greeks, Aeneas carries his elderly father Anchises on his back and leads his son Ascanius by the hand out of the flames, losing his wife Creusa in the chaos.\n\n### Carthage and the Underworld\n\nDriven off course by the goddess Juno, who favors Carthage and knows it is fated to fall to Aeneas's descendants, his fleet lands at Carthage, where Queen Dido falls in love with him. Aeneas eventually abandons her on the gods' orders to continue toward Italy, and Dido's suicide and curse on his line are read as a mythic origin for Rome's later wars with Carthage. In Italy, Aeneas descends to the underworld to consult his father's spirit, who shows him a vision of Rome's future glory.\n\n### War in Latium\n\nAeneas's arrival in Italy provokes war with Turnus, leader of the native Rutulians, who is also betrothed to Lavinia, the local king's daughter now promised to Aeneas by prophecy. The Aeneid ends with Aeneas killing Turnus in single combat, securing his people's place in Italy and setting up the later founding of Rome by his descendants Romulus and Remus.",
+    "parentage": {
+      "divineParentId": "venus",
+      "mortalParentName": "Anchises, a Trojan noble",
+      "note": "Venus (Greek Aphrodite) is his mother; this parentage already appears in Homer's Iliad, centuries before Virgil's Aeneid."
+    },
+    "keyDeeds": [
+      "Carried his father Anchises out of burning Troy",
+      "Was loved and then abandoned Queen Dido of Carthage",
+      "Descended to the underworld to see Anchises and Rome's future",
+      "Killed Turnus in single combat to win Italy for his people"
+    ],
+    "fate": "Later Roman tradition (Ovid, Livy) holds that Aeneas vanished after a final battle and was deified as Jupiter Indiges, becoming an ancestor-god of the Roman people.",
+    "relatedDeityIds": [
+      "venus",
+      "juno",
+      "jupiter"
+    ],
+    "imageUrl": "/heroes/aeneas.png",
+    "pronunciation": {
+      "ipa": "/ɪˈniːəs/",
+      "phonetic": "ih-NEE-us"
+    },
+    "primarySources": [
+      {
+        "text": "Arms and the man I sing, who first from the shores of Troy, exiled by fate, came to Italy and the Lavinian shores.",
+        "source": "Virgil, Aeneid",
+        "date": "19 BCE"
+      },
+      {
+        "text": "It is said that Aeneas, after this last battle, was nowhere to be found, and the Latins raised a shrine to him as Jupiter Indiges.",
+        "source": "Ovid, Metamorphoses",
+        "date": "8 CE"
+      }
+    ]
+  },
+  {
+    "id": "sigurd",
+    "pantheonId": "norse-pantheon",
+    "name": "Sigurd",
+    "slug": "sigurd",
+    "gender": "male",
+    "alternateNames": [
+      "Siegfried"
+    ],
+    "description": "Dragon-slaying hero of the Volsung line, central figure of the Poetic Edda's heroic lays and the Volsunga Saga. Killed the dragon Fafnir and won a cursed hoard of gold.",
+    "detailedBio": "## Reforging Gram\n\nSigurd was raised by the smith Regin after the death of his father Sigmund, last king of the Volsungs, a family that traced its line back to Odin. Regin reforged the shards of Sigurd's father's broken sword into a new blade, Gram, and urged Sigurd to kill his own brother Fafnir, who had turned himself into a dragon to guard a cursed hoard of gold that had once been the ransom for an accidental killing by the gods themselves.\n\n### The Dragon and the Curse\n\nFollowing Regin's plan, Sigurd dug a pit in the dragon's path and stabbed Fafnir from below as he crawled over it. Tasting the dragon's blood by accident while roasting its heart, Sigurd gained the ability to understand the speech of birds, who warned him that Regin meant to kill him and keep the gold for himself; Sigurd killed Regin first. The gold itself carried a dwarf's curse that it would destroy whoever possessed it, a curse the rest of Sigurd's story plays out in full.\n\n### Brynhild and Betrayal\n\nSigurd rode through a wall of flame to wake and win the shieldmaiden Brynhild, but a magic potion made him forget her and marry Gudrun of the Gjukung family instead; he then helped Gudrun's brother Gunnar win Brynhild for himself by riding through the flames again in Gunnar's shape. When Brynhild discovered the deception, her fury set the tragedy's final betrayal in motion.",
+    "parentage": {
+      "mortalParentName": "Sigmund, king of the Volsungs",
+      "note": "The Volsung line traces its ancestry back to Odin, though this is treated as legendary descent rather than a literal divine parent."
+    },
+    "keyDeeds": [
+      "Had his father's broken sword Gram reforged by the smith Regin",
+      "Killed the dragon Fafnir and gained the power to understand birds from its blood",
+      "Killed Regin after birds warned him of the smith's betrayal",
+      "Rode through a wall of flame to win the shieldmaiden Brynhild"
+    ],
+    "fate": "Betrayed and killed by Gudrun's brothers, who feared his claim on Brynhild after the deception surrounding her marriage came to light; accounts differ on whether he was killed in the forest or in his bed.",
+    "relatedDeityIds": [
+      "odin"
+    ],
+    "imageUrl": "/heroes/sigurd.png",
+    "pronunciation": {
+      "ipa": "/ˈsɪɡərd/",
+      "phonetic": "SIG-urd"
+    },
+    "primarySources": [
+      {
+        "text": "Sigurd thrust his sword under the dragon's left shoulder, so that it sank in to the hilt.",
+        "source": "Volsunga Saga",
+        "date": "c. 1250-1270 CE"
+      },
+      {
+        "text": "Fafnismal tells how Sigurd, having tasted the dragon's heart-blood, understood the speech of the nuthatches warning him of Regin's treachery.",
+        "source": "Poetic Edda, Fafnismal",
+        "date": "c. 1000-1300 CE (compiled)"
+      }
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "greek-pantheon",
+        "refId": "bellerophon",
+        "kind": "hero",
+        "note": "Both slay a monstrous reptilian foe with a weapon and tactic devised by a helper, then meet a fate shaped by pride or betrayal rather than the monster itself."
+      }
+    ]
+  },
+  {
+    "id": "cu-chulainn",
+    "pantheonId": "celtic-pantheon",
+    "name": "Cú Chulainn",
+    "slug": "cu-chulainn",
+    "gender": "male",
+    "alternateNames": [
+      "Setanta",
+      "The Hound of Ulster"
+    ],
+    "description": "Ulster's greatest champion, son of the god Lugh, whose single-handed defense of his province against Queen Medb's army is the centerpiece of the Táin Bó Cúailnge.",
+    "detailedBio": "## Setanta Becomes the Hound\n\nBorn Setanta, he earned his adult name as a boy after killing the ferocious guard-hound of the smith Culann in self-defense, then offering to take the hound's place and guard duty himself until a replacement could be raised; Cú Chulainn means \"Culann's Hound.\" As a child he also displayed the ríastrad, a battle-frenzy that twisted his body into a monstrous shape and made him unrecognizable and unstoppable in combat.\n\n### The Cattle Raid of Cooley\n\nThe Táin Bó Cúailnge tells how Queen Medb of Connacht invaded Ulster to seize the Brown Bull of Cooley, timing her attack for a period when Ulster's warriors lay disabled by a curse. Cú Chulainn, immune to the curse because of his youth, held the invading army back almost single-handedly at a series of river fords, invoking his right under Irish custom to fight the army's champions one at a time rather than face them all at once.\n\n### The Death of Ferdiad\n\nThe Táin's most sorrowful episode has Medb send Ferdiad, Cú Chulainn's foster-brother and closest friend from their shared training under the warrior-woman Scathach, to fight him at the ford. The two duel for days, exchanging gifts and grief each night before resuming combat each morning, until Cú Chulainn is finally forced to kill him with the barbed spear Gae Bulg, a victory he mourns as a tragedy rather than celebrates.",
+    "parentage": {
+      "divineParentId": "lug",
+      "mortalParentName": "Deichtine, sister of King Conchobar of Ulster",
+      "note": "Conceived when the god Lugh visited Deichtine; some versions of his birth story also name Conchobar's family as fostering him."
+    },
+    "keyDeeds": [
+      "Killed the smith Culann's guard-hound and took its place, earning his name",
+      "Held off Queen Medb's invading army alone at the fords of Ulster",
+      "Killed his foster-brother Ferdiad in single combat with the spear Gae Bulg",
+      "Fought under the battle-frenzy (ríastrad) that transformed his body in combat"
+    ],
+    "fate": "According to the Death of Cú Chulainn, he was mortally wounded in a later battle and tied himself upright to a standing stone so he could die on his feet, facing his enemies to the end.",
+    "relatedDeityIds": [
+      "lug",
+      "morrigan"
+    ],
+    "imageUrl": "/heroes/cu-chulainn.png",
+    "pronunciation": {
+      "ipa": "/kuːˈxʊlɪnʲ/",
+      "phonetic": "koo-KHUL-in"
+    },
+    "primarySources": [
+      {
+        "text": "Alone he held the ford against the army of Ireland, for such was the custom, that only one man at a time might come against him.",
+        "source": "Táin Bó Cúailnge",
+        "date": "c. 8th century CE (oral tradition; earliest manuscripts 12th century CE)"
+      },
+      {
+        "text": "It was then that the great distortion came upon Cú Chulainn, so that he became fearsome and many-shaped and monstrous.",
+        "source": "Táin Bó Cúailnge",
+        "date": "c. 8th century CE (oral tradition; earliest manuscripts 12th century CE)"
+      }
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "greek-pantheon",
+        "refId": "achilles",
+        "kind": "hero",
+        "note": "Both are the supreme young warrior of their people, marked by a battle-transformation and a fate that arrives young and on the field of honor."
+      }
+    ]
+  },
+  {
+    "id": "fionn-mac-cumhaill",
+    "pantheonId": "celtic-pantheon",
+    "name": "Fionn mac Cumhaill",
+    "slug": "fionn-mac-cumhaill",
+    "gender": "male",
+    "alternateNames": [
+      "Finn McCool"
+    ],
+    "description": "Leader of the Fianna, Ireland's legendary roving warrior-band, whose wisdom came from accidentally tasting the Salmon of Knowledge. Central hero of the Fenian Cycle of Irish legend.",
+    "detailedBio": "## The Salmon of Knowledge\n\nFionn was raised in hiding by two warrior-women after his father Cumhall, leader of the Fianna, was killed by a rival clan before Fionn's birth. As a boy studying under the poet Finn Eces, he was set to cook the Salmon of Knowledge, a fish said to grant all the world's wisdom to whoever ate it first. Fionn burned his thumb on the cooking salmon and instinctively put it in his mouth to ease the pain, absorbing the fish's wisdom himself; from then on he could call on this knowledge by biting his thumb.\n\n### Leader of the Fianna\n\nUsing his new wisdom and considerable fighting skill, Fionn proved himself by defeating the fire-breathing being Aillen, who burned the royal hall at Tara every year, and was rewarded with leadership of the Fianna, the band of hunter-warriors sworn to defend Ireland and living apart from ordinary society under their own code.\n\n### Love and Loss\n\nMany of the Fenian Cycle's stories concern Fionn's household and old age: his hound-nephews Bran and Sceolang, born after a shapeshifting curse turned his sister into a hound; the tragic hunt in which his son Oisin's mother Sadhbh is lost back into enchantment; and, most famously, the tale of Diarmuid and Grainne, in which Fionn's young bride-to-be Grainne elopes instead with one of his own warriors, Diarmuid, whom an aging and bitter Fionn eventually allows to die rather than save.",
+    "parentage": {
+      "mortalParentName": "Cumhall, leader of the Fianna (mother: Muirne)",
+      "note": "Wholly mortal parentage; his wisdom comes from the Salmon of Knowledge rather than divine ancestry."
+    },
+    "keyDeeds": [
+      "Gained the wisdom of the Salmon of Knowledge by accident",
+      "Defeated the fire-breathing Aillen and saved the hall of Tara",
+      "Became leader of the Fianna, Ireland's legendary warrior-band",
+      "Allowed his own warrior Diarmuid to die rather than save him after Grainne's elopement"
+    ],
+    "fate": "Fenian Cycle tradition gives conflicting endings; several tales have him die in battle in old age, while a popular legend holds that he and the Fianna sleep in a hidden cave, ready to return if Ireland ever needs them.",
+    "relatedDeityIds": [],
+    "imageUrl": "/heroes/fionn-mac-cumhaill.png",
+    "pronunciation": {
+      "ipa": "/fɪn məˈkuːl/",
+      "phonetic": "fin muh-KOOL"
+    },
+    "primarySources": [
+      {
+        "text": "The Boyhood Deeds of Finn recounts how he sucked his burned thumb after cooking the Salmon of Knowledge for his teacher, and so gained the salmon's wisdom for himself.",
+        "source": "Macgnimartha Finn (The Boyhood Deeds of Finn)",
+        "date": "c. 12th century CE manuscript (earlier oral tradition)"
+      }
+    ]
+  },
+  {
+    "id": "arjuna",
+    "pantheonId": "hindu-pantheon",
+    "name": "Arjuna",
+    "slug": "arjuna",
+    "gender": "male",
+    "alternateNames": [
+      "Partha"
+    ],
+    "description": "Third of the five Pandava brothers and the Mahabharata's greatest archer, whose crisis of conscience on the battlefield of Kurukshetra prompts the god Krishna's teaching, the Bhagavad Gita.",
+    "detailedBio": "## Foremost of Archers\n\nArjuna, son of Kunti and the god Indra, is celebrated throughout the Mahabharata as the finest archer of his age, trained alongside his brothers and their rival cousins the Kauravas by the master Drona. He wins his wife Draupadi, who becomes shared wife to all five Pandava brothers, by stringing an impossibly stiff bow and striking a revolving target's reflection in a bowl of oil below it.\n\n### Exile and Preparation\n\nAfter the Pandavas lose their kingdom to the Kauravas in a rigged game of dice, they spend years in exile, during which Arjuna undertakes a solitary quest to win divine weapons, including a direct trial of combat against the god Shiva in disguise, whose favor he ultimately earns.\n\n### The Bhagavad Gita\n\nAs the two armies face each other at Kurukshetra for the war that will decide the throne, Arjuna is overcome by grief and doubt at the thought of killing his own kinsmen, teachers, and friends arrayed on the opposing side, and lets his bow fall. His charioteer, the god Krishna in human form, responds with an extended teaching on duty, the eternal soul, and detached action, the Bhagavad Gita, which restores Arjuna's resolve to fight.",
+    "parentage": {
+      "divineParentId": "indra",
+      "mortalParentName": "Kunti (also mother to Yudhishthira and Bhima)",
+      "note": "Each of the five Pandava brothers has a different divine father, invoked by Kunti with a mantra; Arjuna's is Indra, king of the gods and god of war and storms."
+    },
+    "keyDeeds": [
+      "Won Draupadi's hand by stringing a great bow and hitting a reflected target",
+      "Undertook a solitary quest for divine weapons, including combat with Shiva in disguise",
+      "Received the Bhagavad Gita from Krishna before the battle of Kurukshetra",
+      "Fought through the eighteen-day war and killed his secret half-brother Karna"
+    ],
+    "fate": "Survived the Kurukshetra war and reigned alongside his brothers, but later Mahabharata tradition (the Mahaprasthanika Parva) has him fall on the Pandavas' final journey toward heaven, a fall the text attributes to his pride in his own archery.",
+    "relatedDeityIds": [
+      "indra",
+      "krishna"
+    ],
+    "imageUrl": "/heroes/arjuna.png",
+    "pronunciation": {
+      "ipa": "/ˈɑːrdʒʊnə/",
+      "phonetic": "AR-juh-nuh"
+    },
+    "primarySources": [
+      {
+        "text": "Arjuna said: My limbs fail, and my mouth is parched, my body quivers, and my hair stands on end. How can I fight my own kinsmen?",
+        "source": "Bhagavad Gita (within the Mahabharata)",
+        "date": "c. 400 BCE - 400 CE"
+      }
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "greek-pantheon",
+        "refId": "achilles",
+        "kind": "hero",
+        "note": "Both are the finest warrior of their army, and both stories pause the war itself for the hero to reckon with what fighting will cost."
+      }
+    ]
+  }
+]

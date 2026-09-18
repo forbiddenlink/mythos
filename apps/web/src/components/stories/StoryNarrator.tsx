@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { useNarration } from "@/lib/narration";
+import { estimateNarrationDuration, useNarration } from "@/lib/narration";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Slider } from "@/components/ui/slider";
@@ -104,7 +104,7 @@ export function StoryNarrator({
   }
 
   // Format time estimate based on average reading speed
-  const estimatedDuration = Math.ceil((totalLength / 150) * (1 / speed)); // ~150 chars/second at 1x
+  const estimatedDuration = estimateNarrationDuration(text, speed);
   const formatTime = (seconds: number) => {
     const mins = Math.floor(seconds / 60);
     const secs = seconds % 60;
@@ -197,6 +197,7 @@ export function StoryNarrator({
               </div>
               <div className="flex-1">
                 <Slider
+                  aria-label="Narration speed"
                   value={[speed]}
                   onValueChange={(values) => setSpeed(values[0])}
                   min={0.5}

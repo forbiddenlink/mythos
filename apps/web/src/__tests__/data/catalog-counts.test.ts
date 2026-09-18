@@ -5,6 +5,7 @@ import stories from "../../data/stories.json";
 import creatures from "../../data/creatures.json";
 import artifacts from "../../data/artifacts.json";
 import locations from "../../data/locations.json";
+import heroes from "../../data/heroes.json";
 
 const { describe, it, expect } = await import("vitest");
 
@@ -22,6 +23,7 @@ describe("README catalog counts", () => {
     creatures: creatures.length,
     artifacts: artifacts.length,
     locations: locations.length,
+    heroes: heroes.length,
   };
 
   it.each([
@@ -37,5 +39,6 @@ describe("README catalog counts", () => {
     expect(line).toMatch(
       new RegExp(`\\b${expected.locations}(?: mythological)? locations\\b`),
     );
+    expect(line).toMatch(new RegExp(`\\b${expected.heroes} heroes\\b`));
   });
 });

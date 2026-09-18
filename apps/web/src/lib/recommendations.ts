@@ -496,16 +496,15 @@ export function getDiscoveryRecommendations(
 // ============================================================================
 
 export type LearningGoal =
-  | "pantheon-mastery"
-  | "domain-expert"
-  | "story-scholar"
-  | "completionist";
+  "pantheon-mastery" | "domain-expert" | "story-scholar" | "completionist";
 
 export interface LearningPathStep {
   type: "deity" | "story" | "quiz";
   itemId: string;
   title: string;
   completed: boolean;
+  /** Optional recall practice does not gate completion of a reading path. */
+  required?: boolean;
 }
 
 export interface LearningPath {
@@ -534,10 +533,23 @@ interface StepBuilderResult {
 }
 
 /** Compute progress & estimated time, then assemble a LearningPath */
+export function isRequiredLearningPathStep(step: LearningPathStep): boolean {
+  return step.required !== false;
+}
+
+export function getRequiredLearningPathSteps(
+  steps: LearningPathStep[],
+): LearningPathStep[] {
+  return steps.filter(isRequiredLearningPathStep);
+}
+
 function computeStepProgress(steps: LearningPathStep[]): number {
-  if (steps.length === 0) return 0;
+  const requiredSteps = getRequiredLearningPathSteps(steps);
+  if (requiredSteps.length === 0) return 0;
   return Math.round(
-    (steps.filter((s) => s.completed).length / steps.length) * 100,
+    (requiredSteps.filter((step) => step.completed).length /
+      requiredSteps.length) *
+      100,
   );
 }
 
@@ -586,6 +598,7 @@ function buildPantheonMasterySteps(
       itemId: `quiz-${pantheonId}`,
       title: `${formatPantheonName(pantheonId)} Mythology Quiz`,
       completed: false,
+      required: false,
     },
   ];
 
@@ -638,6 +651,7 @@ function buildDomainExpertSteps(
       itemId: `quiz-domain-${domain}`,
       title: `${capitalizeFirst(domain)} Domain Quiz`,
       completed: false,
+      required: false,
     },
   ];
 
@@ -697,6 +711,7 @@ function buildStoryScholarSteps(
       itemId: "quiz-stories",
       title: "Mythology Stories Quiz",
       completed: false,
+      required: false,
     },
   ];
 
@@ -744,6 +759,7 @@ function buildCompletionistSteps(
       itemId: "quiz-comprehensive",
       title: "Comprehensive Mythology Quiz",
       completed: false,
+      required: false,
     },
   ];
 

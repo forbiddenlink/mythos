@@ -16,6 +16,7 @@ import { Lock } from "lucide-react";
 import { HeroMark } from "@/components/icons/hero-mark";
 import { MythosMark, type MythosMarkId } from "@/components/icons/mythos-marks";
 import { ExplorationWrapped } from "@/components/progress/ExplorationWrapped";
+import { LearningBackup } from "@/components/progress/LearningBackup";
 import { RetentionPulse } from "@/components/progress/RetentionPulse";
 import NextLink from "next/link";
 import { useContext } from "react";
@@ -383,6 +384,10 @@ export default function ProgressPage() {
             browser.
           </p>
         </div>
+
+        <section className="mt-6" aria-label="Learning backup and restore">
+          <LearningBackup />
+        </section>
 
         <section className="mt-6 rounded-2xl border border-border/60 bg-card/60 p-6">
           <h2 className="font-serif text-2xl font-semibold mb-3">

@@ -23,11 +23,14 @@ import {
   isOracleKillSwitchOn,
 } from "@/lib/oracle/request-guards";
 import { logger } from "@/lib/logger";
+import { readJsonBody } from "@/lib/http/read-json-body";
 
 const MAX_OUTPUT_TOKENS = 800;
 
 const MAX_MESSAGE_CONTENT_CHARS = 4_000;
 const MAX_MESSAGES = 20;
+// A UTF-8 character can consume four bytes; leave room for JSON structure.
+const MAX_REQUEST_BODY_BYTES = 384 * 1024;
 
 const MessageSchema = z.object({
   role: z.enum(["user", "assistant"]),
@@ -109,8 +112,15 @@ export async function POST(req: NextRequest) {
     const originBlock = forbiddenUnlessSameOrigin(req);
     if (originBlock) return originBlock;
 
-    const json: unknown = await req.json();
-    const parsed = BodySchema.safeParse(json);
+    const body = await readJsonBody(req, MAX_REQUEST_BODY_BYTES);
+    if (!body.ok) {
+      return new Response(JSON.stringify({ error: "Invalid request body" }), {
+        status: body.reason === "too_large" ? 413 : 400,
+        headers: { "Content-Type": "application/json" },
+      });
+    }
+
+    const parsed = BodySchema.safeParse(body.value);
     if (!parsed.success) {
       return new Response(JSON.stringify({ error: "Invalid request body" }), {
         status: 400,

@@ -500,6 +500,7 @@ function KnowledgeGraphInner({
       nodes.push({
         id: deity.id,
         type: "deityNode",
+        ariaLabel: `${deity.name}${deity.domain?.[0] ? `, ${deity.domain[0]}` : ""}`,
         position,
         data: {
           deity,

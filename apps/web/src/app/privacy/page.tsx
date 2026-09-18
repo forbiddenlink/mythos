@@ -12,12 +12,12 @@ export const metadata: Metadata = generateBaseMetadata({
 export default function PrivacyPolicyPage() {
   return (
     <div className="container mx-auto max-w-4xl px-4 py-12">
-      <h1 className="font-display text-4xl font-bold text-gold">
+      <h1 className="font-display text-4xl font-bold text-gold-text">
         Privacy Policy
       </h1>
       <p className="mt-2 text-muted-foreground">Last updated: July 23, 2026</p>
 
-      <div className="prose prose-invert mt-8 max-w-none">
+      <div className="prose dark:prose-invert mt-8 max-w-none">
         <section className="mb-8">
           <h2 className="font-display text-2xl font-semibold text-foreground">
             Introduction
@@ -155,7 +155,7 @@ export default function PrivacyPolicyPage() {
             requests, prefer a private channel via the{" "}
             <Link
               href="/contact"
-              className="text-gold underline hover:text-gold/80"
+              className="text-gold-text underline hover:text-gold-text"
             >
               contact page
             </Link>{" "}
@@ -207,7 +207,7 @@ export default function PrivacyPolicyPage() {
             data concern, or need a correction to our policy text, visit our{" "}
             <Link
               href="/contact"
-              className="text-gold underline hover:text-gold/80"
+              className="text-gold-text underline hover:text-gold-text"
             >
               contact page
             </Link>{" "}

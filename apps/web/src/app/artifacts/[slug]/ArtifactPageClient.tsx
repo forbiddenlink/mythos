@@ -131,7 +131,7 @@ export function ArtifactPageClient({
 
       <div className="container mx-auto max-w-4xl px-4 py-12">
         <div className="space-y-8">
-          <div className="grid gap-8 md:grid-cols-3">
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
             <div className="md:col-span-1 space-y-6">
               <div className="relative w-full aspect-square overflow-hidden shadow-2xl border border-bronze/25 bg-midnight/50">
                 {artifact.imageUrl ? (
@@ -160,7 +160,7 @@ export function ArtifactPageClient({
               />
             </div>
 
-            <div className="md:col-span-2 space-y-6">
+            <div className="min-w-0 md:col-span-2 space-y-6">
               <Card className="bg-card border-l-4 border-l-bronze">
                 <CardHeader>
                   <CardTitle className="font-serif text-2xl">

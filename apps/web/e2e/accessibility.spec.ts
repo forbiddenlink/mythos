@@ -16,9 +16,6 @@ const pagesToTest = [
   { path: "/facts", name: "Facts" },
 ];
 
-// All color contrast issues fixed with WCAG AA compliant colors
-const KNOWN_ISSUES: string[] = [];
-
 test.describe("Accessibility", () => {
   for (const page of pagesToTest) {
     test(`${page.name} page should not have critical accessibility violations`, async ({
@@ -36,7 +33,6 @@ test.describe("Accessibility", () => {
         page: playwrightPage,
       })
         .withTags(["wcag2a", "wcag2aa", "wcag21a", "wcag21aa"])
-        .disableRules(KNOWN_ISSUES) // Exclude known color contrast issues for now
         .analyze();
 
       // Log violations for debugging
@@ -60,5 +56,39 @@ test.describe("Accessibility", () => {
 
       expect(criticalViolations).toEqual([]);
     });
+  }
+});
+
+test.describe("Reading pages at narrow widths", () => {
+  test.use({ viewport: { width: 320, height: 800 }, contextOptions: { reducedMotion: "reduce" } });
+
+  for (const theme of ["light", "dark"]) {
+    for (const path of [
+      "/deities/zeus",
+      "/deities/hades",
+      "/stories/first-twins-ibeji",
+      "/sources/iliad",
+    ]) {
+      test(`${path} remains accessible in ${theme} mode`, async ({ page }) => {
+        await page.addInitScript((value) => localStorage.setItem("theme", value), theme);
+        await page.goto(path);
+        await expect(page.getByRole("button", { name: `Switch to ${theme === "light" ? "dark" : "light"} mode` })).toBeVisible();
+        await expect(page.locator("h1")).toHaveCount(1);
+        await expect(page.locator("a a, a button, button a, button button")).toHaveCount(0);
+        expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+
+        const provenance = page.getByRole("complementary", { name: "Catalogued sources" });
+        if (await provenance.count()) await provenance.scrollIntoViewIfNeeded();
+        if (path === "/deities/hades") {
+          await expect(page.getByRole("heading", { name: "Source Notes" })).toBeVisible();
+          await expect(page.locator("main blockquote")).toHaveCount(0);
+        }
+        const result = await new AxeBuilder({ page })
+          .include("main")
+          .withTags(["wcag2a", "wcag2aa", "wcag21a", "wcag21aa"])
+          .analyze();
+        expect(result.violations).toEqual([]);
+      });
+    }
   }
 });

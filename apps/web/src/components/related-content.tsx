@@ -104,7 +104,7 @@ function RelatedCard({ href, imageUrl, title, subtitle, fallbackIcon }: CardProp
           )}
 
           {/* Link indicator */}
-          <div className="flex items-center gap-1 mt-2 text-xs text-muted-foreground/70 group-hover:text-gold/80 transition-colors duration-300">
+          <div className="flex items-center gap-1 mt-2 text-xs text-muted-foreground group-hover:text-gold-text transition-colors duration-300">
             <span>View</span>
             <ArrowRight className="h-3 w-3 group-hover:translate-x-0.5 transition-transform duration-300" />
           </div>

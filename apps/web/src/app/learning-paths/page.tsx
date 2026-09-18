@@ -139,6 +139,8 @@ export default function LearningPathsPage() {
             you toward the next deity, story, or quiz that makes sense after the
             last stop, which reduces the friction of deciding what to read next
             and helps your study sessions feel cumulative rather than scattered.
+            Optional quizzes offer a recall check after the reading route; they
+            do not determine whether you complete it.
           </p>
         </section>
 

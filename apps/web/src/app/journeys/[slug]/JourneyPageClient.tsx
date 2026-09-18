@@ -173,8 +173,7 @@ export function JourneyPageClient({ slug }: JourneyPageClientProps) {
         <div className="relative z-20 text-center px-4 max-w-4xl mx-auto">
           <div className="flex items-center justify-center gap-3 mb-4">
             <Badge
-              className="text-sm font-medium text-white border-0"
-              style={{ backgroundColor: colors.bg }}
+              className="border-0 bg-gold text-sm font-medium text-midnight"
             >
               {colors.label} Mythology
             </Badge>
@@ -205,9 +204,14 @@ export function JourneyPageClient({ slug }: JourneyPageClientProps) {
         </div>
 
         {/* Main Layout: Map + Sidebar */}
-        <div className="grid lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {/* Map Section */}
-          <div className="lg:col-span-2">
+          <div className="min-w-0 lg:col-span-2">
+            <p className="mb-3 text-sm leading-relaxed text-muted-foreground">
+              This map illustrates the story’s route. Pins and connecting lines
+              are not evidence of an exact historical itinerary; some locations
+              are disputed or belong to the mythical world.
+            </p>
             <div className="rounded-xl overflow-hidden border border-border shadow-lg h-150">
               <JourneyMap
                 journey={journey}
@@ -379,11 +383,7 @@ export function JourneyPageClient({ slug }: JourneyPageClientProps) {
                           {waypoint.order}
                         </div>
                         <div className="flex-1 min-w-0">
-                          <div
-                            className={`text-sm font-medium truncate ${
-                              isSelected ? "text-gold" : "text-foreground"
-                            }`}
-                          >
+                          <div className="truncate text-sm font-medium text-foreground">
                             {waypoint.name}
                           </div>
                           {waypoint.duration && (

@@ -96,7 +96,7 @@ export function PaginationControls({
         </p>
       )}
 
-      <nav className="flex items-center gap-1" aria-label="Pagination">
+      <nav className="flex max-w-full flex-wrap items-center justify-center gap-1" aria-label="Pagination">
         {/* First page */}
         <Button
           variant="outline"
@@ -122,7 +122,7 @@ export function PaginationControls({
         </Button>
 
         {/* Page numbers */}
-        <div className="flex items-center gap-1">
+        <div className="flex max-w-full flex-wrap items-center justify-center gap-1">
           {getPageNumbers().map((pageNum, index) => {
             if (pageNum === 'ellipsis') {
               return (

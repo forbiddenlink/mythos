@@ -6,6 +6,8 @@ test.describe("Search Functionality", () => {
     await page.waitForLoadState("domcontentloaded");
     // Wait for main content to be visible instead of networkidle (unreliable with analytics)
     await page.waitForSelector("main", { state: "visible", timeout: 10000 });
+    // The server-rendered main is visible before client keyboard handlers mount.
+    await expect(page.getByRole("button", { name: /Switch to (light|dark) mode/ })).toBeVisible();
   });
 
   test("should open search with keyboard shortcut", async ({ page }) => {
@@ -26,12 +28,11 @@ test.describe("Search Functionality", () => {
       )
       .first();
 
-    if (await searchTrigger.isVisible()) {
-      await searchTrigger.click();
-      await expect(page.getByPlaceholder(/search/i)).toBeVisible({
-        timeout: 5000,
-      });
-    }
+    await expect(searchTrigger).toBeVisible();
+    await searchTrigger.click();
+    await expect(page.getByPlaceholder(/search/i)).toBeVisible({
+      timeout: 5000,
+    });
   });
 
   test("should show popular searches when opened", async ({ page }) => {

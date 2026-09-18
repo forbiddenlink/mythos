@@ -6,23 +6,21 @@ import { NextResponse, type NextRequest } from "next/server";
  *
  * Production locks scripts to a per-request nonce plus 'strict-dynamic'
  * (browsers then ignore 'unsafe-inline' and the host allowlist, trusting
- * only nonced scripts and what they load). 'unsafe-eval' is kept for now
- * (see note below). Development stays permissive because Next's HMR /
- * react-refresh need inline + eval.
+ * only nonced scripts and what they load). Development stays permissive
+ * because Next's HMR / react-refresh need inline + eval.
  */
 function buildCsp(nonce: string): string {
   const isDev = process.env.NODE_ENV === "development";
   // Production: nonce + 'strict-dynamic' removes 'unsafe-inline' (the primary
-  // XSS lever). 'unsafe-eval' is kept for now because some third-party libs
-  // (Sentry, particle/animation engines) may use eval internally; dropping it
-  // needs a browser check first. Dev keeps inline for HMR.
+  // XSS lever) and does not permit dynamically evaluated script. Development
+  // keeps inline + eval for HMR.
   //
   // Allow Vercel Analytics / Speed Insights script hosts in both envs so the
   // injected <Script> tags are not blocked by CSP (seen as console errors).
   const vercelScripts = "https://va.vercel-scripts.com";
   const scriptSrc = isDev
     ? `'self' 'unsafe-inline' 'unsafe-eval' blob: ${vercelScripts}`
-    : `'self' 'nonce-${nonce}' 'strict-dynamic' 'unsafe-eval' blob: ${vercelScripts}`;
+    : `'self' 'nonce-${nonce}' 'strict-dynamic' blob: ${vercelScripts}`;
 
   // Analytics beacons + Anthropic/Oracle + optional Sentry/Upstash in prod.
   // cdn.jsdelivr.net: browser speechSynthesis voice data / unicode font resolver

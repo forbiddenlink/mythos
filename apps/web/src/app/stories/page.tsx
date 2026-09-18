@@ -330,14 +330,10 @@ function PaginatedStoryGrid({ stories }: Readonly<{ stories: Story[] }>) {
     <>
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 mt-6">
         {pagination.paginatedData.map((story) => (
-          <Link
-            key={story.id}
-            href={`/stories/${story.slug}`}
-            className="group pantheon-reveal"
-          >
+          <div key={story.id} className="group pantheon-reveal">
             <Card
               asArticle
-              className="h-full cursor-pointer parchment-card bg-card transition-transform duration-300 hover:-translate-y-1 overflow-hidden flex flex-col"
+              className="relative h-full cursor-pointer parchment-card bg-card transition-transform duration-300 hover:-translate-y-1 overflow-hidden flex flex-col"
             >
               {story.imageUrl && (
                 <div className="relative w-full h-44 overflow-hidden border-b border-border/50 bg-midnight">
@@ -355,11 +351,11 @@ function PaginatedStoryGrid({ stories }: Readonly<{ stories: Story[] }>) {
                 <div className="h-0.5 bg-linear-to-r from-gold-dark via-gold to-gold-dark"></div>
               )}
 
-              <CardHeader className="relative">
+              <CardHeader>
                 <div className="absolute top-4 right-4 opacity-[0.03] group-hover:opacity-[0.06] transition-opacity">
                   <BookOpen className="h-24 w-24 text-gold" />
                 </div>
-                <div className="flex items-start gap-3 relative z-10">
+                <div className="flex items-start gap-3">
                   <div className="relative flex h-12 w-12 shrink-0 items-center justify-center border border-gold/30 bg-gold/5 group-hover:border-gold/50 transition-colors">
                     <span className="absolute left-0 top-0 h-2 w-2 border-l border-t border-gold/35" />
                     <span className="absolute right-0 top-0 h-2 w-2 border-r border-t border-gold/35" />
@@ -372,10 +368,20 @@ function PaginatedStoryGrid({ stories }: Readonly<{ stories: Story[] }>) {
                   </div>
                   <div className="flex-1 min-w-0">
                     <CardTitle className="text-lg group-hover:text-gold transition-colors duration-300 line-clamp-2">
-                      {story.title}
+                      <Link
+                        href={`/stories/${story.slug}`}
+                        className="after:absolute after:inset-0"
+                      >
+                        {story.title}
+                      </Link>
                     </CardTitle>
                   </div>
-                  <BookmarkButton type="story" id={story.id} size="sm" />
+                  <BookmarkButton
+                    type="story"
+                    id={story.id}
+                    size="sm"
+                    className="z-10"
+                  />
                 </div>
               </CardHeader>
 
@@ -400,7 +406,7 @@ function PaginatedStoryGrid({ stories }: Readonly<{ stories: Story[] }>) {
                 </CardContent>
               )}
             </Card>
-          </Link>
+          </div>
         ))}
       </div>
 

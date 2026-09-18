@@ -44,6 +44,8 @@ const typeIcons: Record<ContentType, typeof Sparkles> = {
   creature: Skull,
   artifact: Gem,
   location: MapPin,
+  hero: Sparkles,
+  source: BookOpen,
 };
 
 // Colors for each content type
@@ -53,6 +55,8 @@ const typeColors: Record<ContentType, string> = {
   creature: "text-red-500",
   artifact: "text-bronze",
   location: "text-emerald-500",
+  hero: "text-gold",
+  source: "text-bronze",
 };
 
 // Group labels for each content type
@@ -62,6 +66,8 @@ const typeLabels: Record<ContentType, string> = {
   creature: "Creatures",
   artifact: "Artifacts",
   location: "Locations",
+  hero: "Heroes",
+  source: "Sources",
 };
 
 export function SmartSearch({ open, onOpenChange }: SmartSearchProps) {
@@ -92,16 +98,18 @@ export function SmartSearch({ open, onOpenChange }: SmartSearchProps) {
       creature: [],
       artifact: [],
       location: [],
+      hero: [],
+      source: [],
     };
 
     for (const result of results) {
       groups[result.type].push(result);
     }
 
-    // Filter out empty groups and sort by number of results
+    // Keep the strongest match first, even when another group has more hits.
     return Object.entries(groups)
       .filter(([, items]) => items.length > 0)
-      .sort((a, b) => b[1].length - a[1].length) as [
+      .sort((a, b) => b[1][0].matchScore - a[1][0].matchScore) as [
       ContentType,
       SearchResult[],
     ][];

@@ -87,6 +87,9 @@ export interface Deity extends BaseEntity {
 
 export interface MythVariant {
   source: string;
+  passage?: string;
+  sourceUrl?: string;
+  translator?: string;
   date?: string;
   difference: string;
   note?: string;
@@ -106,6 +109,7 @@ export interface Story extends BaseEntity {
   imageUrl?: string;
   citationSources?: Array<{
     title: string;
+    url?: string;
     author?: string;
     lines?: string;
     book?: string;

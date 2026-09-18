@@ -316,16 +316,14 @@ function FilterButton({
 }>) {
   return (
     <Button
-      variant={active ? "default" : "outline"}
+      variant={active ? "secondary" : "outline"}
       size="sm"
       onClick={onClick}
-      className={`text-xs h-7 ${active ? "" : "opacity-60"}`}
-      style={
-        active
-          ? { backgroundColor: color, borderColor: color }
-          : { borderColor: color, color }
-      }
+      className="text-xs h-7"
+      aria-pressed={active}
+      style={{ borderColor: color }}
     >
+      <span className="size-2 rounded-full" style={{ backgroundColor: color }} aria-hidden />
       {label}
     </Button>
   );
@@ -886,7 +884,7 @@ export function FamilyTreeVisualization({
 
         {/* Filter Toggles */}
         <div className="flex flex-wrap gap-2">
-          <span className="text-xs text-slate-400 self-center mr-1">Show:</span>
+          <span className="text-xs text-muted-foreground self-center mr-1">Show:</span>
           <FilterButton
             label="Parents"
             active={filters.parent}

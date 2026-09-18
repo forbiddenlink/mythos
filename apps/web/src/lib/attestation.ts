@@ -1,7 +1,7 @@
 /**
- * Attestation helpers — derive honest, data-grounded scholarship signals from a
- * deity's primary sources. No dates are invented: everything comes from the
- * `date` strings already recorded on each source (e.g. "c. 700 BCE").
+ * Source-record helpers — summarize the dated works recorded in the catalog for
+ * a deity. These are catalog signals, not claims about independent
+ * corroboration or the first surviving mention of a figure.
  */
 
 export interface PrimarySource {
@@ -70,26 +70,28 @@ export function formatYear(year: number): string {
 }
 
 export interface Attestation {
-  /** Earliest attested year (signed), or null if no dated source. */
+  /** Oldest normalized date among the works recorded in this catalog. */
   earliestYear: number | null;
-  /** The source that carries the earliest year. */
+  /** The catalogued work carrying the oldest normalized date. */
   earliestSource: PrimarySource | null;
-  /** Count of primary sources. */
+  /** Count of distinct source labels recorded in the catalog. */
   count: number;
-  /** Scholarly confidence tier derived from corroboration. */
+  /** Display tier based solely on catalog coverage. */
   tier: "unattested" | "single" | "corroborated" | "well-attested";
   label: string;
 }
 
 /**
- * Corroboration = confidence: independent primary sources raise how firmly a
- * figure is attested. This is a defensible, data-derived signal — not a guess.
+ * The result describes catalog coverage only. Source labels are normalized to
+ * avoid counting repeated excerpts from one recorded work more than once.
  */
 export function attestationOf(
   sources: PrimarySource[] | undefined,
 ): Attestation {
   const list = Array.isArray(sources) ? sources : [];
-  const count = list.length;
+  const count = new Set(
+    list.map((entry) => entry.source.trim().replace(/\s+/g, " ").toLowerCase()),
+  ).size;
 
   let earliestYear: number | null = null;
   let earliestSource: PrimarySource | null = null;
@@ -106,16 +108,16 @@ export function attestationOf(
   let label: string;
   if (count === 0) {
     tier = "unattested";
-    label = "Unattested";
+    label = "No catalogued sources";
   } else if (count === 1) {
     tier = "single";
-    label = "Single source";
+    label = "One catalogued work";
   } else if (count === 2) {
     tier = "corroborated";
-    label = "Corroborated";
+    label = "Two catalogued works";
   } else {
     tier = "well-attested";
-    label = "Well attested";
+    label = "Three or more catalogued works";
   }
 
   return { earliestYear, earliestSource, count, tier, label };

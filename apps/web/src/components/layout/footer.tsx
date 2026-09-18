@@ -2,11 +2,13 @@ import { Logo } from "@/components/ui/logo";
 import { CookieSettingsButton } from "@/components/privacy/CookieSettingsButton";
 import Link from "next/link";
 import { Github } from "@/components/icons/brand";
+import { CorrectionLink } from "@/components/layout/CorrectionLink";
 
 const footerLinks = {
   explore: [
     { label: "All Pantheons", href: "/pantheons" },
     { label: "Deities", href: "/deities" },
+    { label: "Heroes", href: "/heroes" },
     { label: "Stories", href: "/stories" },
     { label: "Creatures", href: "/creatures" },
     { label: "Artifacts", href: "/artifacts" },
@@ -61,9 +63,12 @@ export function Footer() {
               <div className="text-foreground group-hover:text-gold transition-colors duration-300">
                 <Logo className="h-8 w-8" />
               </div>
-              <div>
-                <span className="font-serif text-lg font-semibold text-foreground tracking-wide block">
+              <div className="flex flex-col">
+                <span className="font-serif text-lg font-semibold text-foreground group-hover:text-gold tracking-wide leading-tight block transition-colors duration-300">
                   Mythos Atlas
+                </span>
+                <span className="text-[10px] text-gold/80 tracking-[0.2em] uppercase font-sans font-medium block">
+                  Encyclopedia of Antiquity
                 </span>
               </div>
             </Link>
@@ -82,6 +87,7 @@ export function Footer() {
               >
                 <Github className="h-5 w-5" />
               </a>
+              <CorrectionLink />
             </div>
           </div>
 

@@ -270,7 +270,7 @@ export function PantheonPageClient({ slug }: PantheonPageClientProps) {
                         <CardTitle className="font-serif text-xl text-foreground group-hover:text-gold transition-colors">
                           {story.title}
                         </CardTitle>
-                        <span className="text-xs uppercase tracking-widest text-gold/80 px-2 py-0.5 rounded border border-gold/25 bg-gold/5 font-sans shrink-0">
+                        <span className="text-xs uppercase tracking-widest text-gold-text px-2 py-0.5 rounded border border-gold/25 bg-gold/5 font-sans shrink-0">
                           {story.category}
                         </span>
                       </div>

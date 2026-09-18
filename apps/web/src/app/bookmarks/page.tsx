@@ -14,6 +14,8 @@ import type { BookmarkType } from "@/providers/bookmarks-provider";
 import deitiesData from "@/data/deities.json";
 import storiesData from "@/data/stories.json";
 import pantheonsData from "@/data/pantheons.json";
+import heroesData from "@/data/heroes.json";
+import sourcesData from "@/data/sources.json";
 import { RouteHero } from "@/components/layout/route-hero";
 import {
   pageEyebrowClass,
@@ -46,6 +48,14 @@ interface Pantheon {
   description?: string | null;
 }
 
+interface SourceWork {
+  id: string;
+  title: string;
+  author?: string;
+  type: string;
+  description: string;
+}
+
 function formatTimestamp(timestamp: number): string {
   const date = new Date(timestamp);
   const now = new Date();
@@ -69,10 +79,13 @@ export default function BookmarksPage() {
   const deityBookmarks = getBookmarks("deity");
   const storyBookmarks = getBookmarks("story");
   const pantheonBookmarks = getBookmarks("pantheon");
+  const heroBookmarks = getBookmarks("hero");
+  const sourceBookmarks = getBookmarks("source");
   const allBookmarks = getBookmarks();
   const deities = deitiesData as Deity[];
   const stories = storiesData as Story[];
   const pantheons = pantheonsData as Pantheon[];
+  const sources = sourcesData as SourceWork[];
 
   const bookmarkedDeities =
     deities.filter((d) => deityBookmarks.some((b) => b.id === d.id)) ?? [];
@@ -98,7 +111,7 @@ export default function BookmarksPage() {
         </div>
         <p className={pageLedeOnDarkClass}>
           {isEmpty
-            ? "Save your favorite deities, stories, and pantheons"
+            ? "Save favorite deities, heroes, stories, pantheons, and sources"
             : `${allBookmarks.length} saved item${allBookmarks.length !== 1 ? "s" : ""}`}
         </p>
       </RouteHero>
@@ -111,6 +124,82 @@ export default function BookmarksPage() {
           <EmptyState />
         ) : (
           <div className="mt-8 space-y-12">
+            {heroBookmarks.length > 0 && (
+              <section>
+                <h2 className="font-serif text-2xl font-semibold text-foreground mb-6">
+                  Heroes
+                </h2>
+                <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                  {heroBookmarks.map((bookmark) => {
+                    const hero = heroesData.find(
+                      (item) => item.id === bookmark.id,
+                    );
+                    if (!hero) return null;
+                    return (
+                      <BookmarkCard
+                        key={hero.id}
+                        type="hero"
+                        id={hero.id}
+                        href={`/heroes/${hero.slug}`}
+                        title={hero.name}
+                        description={hero.description}
+                        timestamp={bookmark.timestamp}
+                        icon={
+                          <Sparkles
+                            className="h-5 w-5 text-gold"
+                            strokeWidth={1.5}
+                          />
+                        }
+                      />
+                    );
+                  })}
+                </div>
+              </section>
+            )}
+            {sourceBookmarks.length > 0 && (
+              <section>
+                <div className="flex items-center gap-3 mb-6">
+                  <MythosMark id="scroll" className="h-5 w-5 text-gold" />
+                  <h2 className="font-serif text-2xl font-semibold text-foreground">
+                    Reading List
+                  </h2>
+                  <Badge
+                    variant="secondary"
+                    className="bg-gold/20 text-amber-900 dark:text-amber-100 border border-gold/30"
+                  >
+                    {sourceBookmarks.length}
+                  </Badge>
+                </div>
+                <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                  {sourceBookmarks.map((bookmark) => {
+                    const source = sources.find(
+                      (item) => item.id === bookmark.id,
+                    );
+                    if (!source) return null;
+                    return (
+                      <BookmarkCard
+                        key={source.id}
+                        type="source"
+                        id={source.id}
+                        href={`/sources/${source.id}`}
+                        title={source.title}
+                        description={source.description}
+                        tags={[source.author, source.type].filter(
+                          (tag): tag is string => Boolean(tag),
+                        )}
+                        timestamp={bookmark.timestamp}
+                        icon={
+                          <BookOpen
+                            className="h-5 w-5 text-gold"
+                            strokeWidth={1.5}
+                          />
+                        }
+                      />
+                    );
+                  })}
+                </div>
+              </section>
+            )}
             {/* Bookmarked Deities */}
             {deityBookmarks.length > 0 && (
               <section>
@@ -279,55 +368,55 @@ function BookmarkCard({
   icon: React.ReactNode;
 }) {
   return (
-    <Link href={href}>
-      <Card className="group h-full cursor-pointer parchment-card bg-card transition-transform duration-300 hover:-translate-y-1">
-        <CardHeader>
-          <div className="flex items-start justify-between">
-            <div className="p-2.5 rounded-xl bg-gold/10 border border-gold/20 group-hover:bg-gold/15 transition-colors duration-300">
-              {icon}
-            </div>
-            <div className="flex items-center gap-2">
-              <span className="text-xs text-muted-foreground">
-                {formatTimestamp(timestamp)}
-              </span>
-              <BookmarkButton type={type} id={id} size="sm" />
-            </div>
+    <Card className="group relative h-full cursor-pointer parchment-card bg-card transition-transform duration-300 hover:-translate-y-1">
+      <CardHeader>
+        <div className="flex items-start justify-between">
+          <div className="p-2.5 rounded-xl bg-gold/10 border border-gold/20 group-hover:bg-gold/15 transition-colors duration-300">
+            {icon}
           </div>
-          <CardTitle className="text-foreground mt-4 group-hover:text-gold transition-colors duration-300">
+          <div className="flex items-center gap-2">
+            <span className="text-xs text-muted-foreground">
+              {formatTimestamp(timestamp)}
+            </span>
+            <BookmarkButton type={type} id={id} size="sm" className="z-10" />
+          </div>
+        </div>
+        <CardTitle className="text-foreground mt-4 group-hover:text-gold transition-colors duration-300">
+          <Link href={href} className="after:absolute after:inset-0">
             {title}
-          </CardTitle>
-        </CardHeader>
-        <CardContent className="space-y-3">
-          {description && (
-            <p className="text-muted-foreground text-sm line-clamp-2 leading-relaxed">
-              {description}
-            </p>
-          )}
-          {tags && tags.length > 0 && (
-            <div className="flex flex-wrap gap-1.5">
-              {tags.map((tag) => (
-                <Badge
-                  key={tag}
-                  variant="secondary"
-                  className="text-xs bg-gold/20 text-amber-900 dark:text-amber-100 border border-gold/30"
-                >
-                  {tag}
-                </Badge>
-              ))}
+          </Link>
+        </CardTitle>
+      </CardHeader>
+      <CardContent className="space-y-3">
+        {description && (
+          <p className="text-muted-foreground text-sm line-clamp-2 leading-relaxed">
+            {description}
+          </p>
+        )}
+        {tags && tags.length > 0 && (
+          <div className="flex flex-wrap gap-1.5">
+            {tags.map((tag) => (
+              <Badge
+                key={tag}
+                variant="secondary"
+                className="text-xs bg-gold/20 text-amber-900 dark:text-amber-100 border border-gold/30"
+              >
+                {tag}
+              </Badge>
+            ))}
+          </div>
+        )}
+        {readingProgress !== undefined && readingProgress > 0 && (
+          <div className="space-y-1.5">
+            <div className="flex items-center justify-between text-xs text-muted-foreground">
+              <span>Reading progress</span>
+              <span>{Math.round(readingProgress)}%</span>
             </div>
-          )}
-          {readingProgress !== undefined && readingProgress > 0 && (
-            <div className="space-y-1.5">
-              <div className="flex items-center justify-between text-xs text-muted-foreground">
-                <span>Reading progress</span>
-                <span>{Math.round(readingProgress)}%</span>
-              </div>
-              <Progress value={readingProgress} className="h-1.5" />
-            </div>
-          )}
-        </CardContent>
-      </Card>
-    </Link>
+            <Progress value={readingProgress} className="h-1.5" />
+          </div>
+        )}
+      </CardContent>
+    </Card>
   );
 }
 
@@ -342,7 +431,7 @@ function EmptyState() {
       </h2>
       <p className="text-muted-foreground text-center max-w-md mb-8 leading-relaxed">
         Start exploring ancient mythology and save your favorite deities,
-        stories, and pantheons to revisit them later.
+        heroes, stories, pantheons, and source texts to revisit them later.
       </p>
       <div className="flex flex-wrap items-center justify-center gap-4">
         <Link
