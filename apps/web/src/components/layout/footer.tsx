@@ -1,3 +1,4 @@
+import { FooterTools } from "@/components/layout/FooterTools";
 import { Logo } from "@/components/ui/logo";
 import { CookieSettingsButton } from "@/components/privacy/CookieSettingsButton";
 import Link from "next/link";
@@ -170,6 +171,8 @@ export function Footer() {
             </ul>
           </div>
         </div>
+
+        <FooterTools />
 
         {/* Bottom bar */}
         <div className="mt-12 pt-8 border-t border-border/50">

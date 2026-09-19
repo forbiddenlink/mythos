@@ -33,7 +33,8 @@ skeleton-cards, achievement-toast, bookmark-button, export-button, logo, pronunc
 
 ## Hard rules (.impeccable.md — 5 principles)
 - Named theme tokens over hardcoded skins. Brand-first. Depth on FEW surfaces (prefer manuscript lists/prose over card-soup; cards only for interactive/structured data). Atlas-like interactivity. Non-negotiable accessibility.
-- Hero: one cinematic hero ("The Atlas Opens"); brand name IS the hero signal; ≤2 ambient motion systems; scroll-scrub GSAP not idle GPU spam.
+- Hero: one cinematic hero ("The Atlas Opens") in normal document flow; brand name IS the hero signal. Show browse/read actions immediately. No pinned scenes, nested hero scrolling, or decorative WebGL.
+- Optional audio, discovery, and Oracle controls live in the footer, not floating over content. Achievement notifications default off.
 - Motion: purposeful only; prefers-reduced-motion collapses to static; transform/opacity only.
 - Anti-references (banned): purple/indigo SaaS gradients, Lucide-in-gradient-square feature grids, slate/amber stock heroes, stacked identical cards, glow-ring icon badges as brand mark, flat single-color backgrounds without atmosphere.
 

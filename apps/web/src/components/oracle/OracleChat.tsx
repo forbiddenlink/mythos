@@ -1,5 +1,6 @@
 "use client";
 
+import { createPortal } from "react-dom";
 import { Button } from "@/components/ui/button";
 import { useFocusTrap } from "@/hooks/use-focus-trap";
 import {
@@ -74,7 +75,7 @@ export function OracleChat() {
     return () => document.removeEventListener("keydown", onKeyDown);
   }, [isOpen]);
 
-  // Return focus to the floating opener when the dialog closes
+  // Return focus to the footer opener when the dialog closes
   useEffect(() => {
     if (isOpen) {
       wasOpenRef.current = true;
@@ -190,222 +191,221 @@ export function OracleChat() {
 
   return (
     <>
-      {/* Floating Oracle Button */}
-      <motion.div
-        className="fixed bottom-6 right-6 z-50"
-        initial={{ scale: 0 }}
-        animate={{ scale: 1 }}
-        transition={{ delay: 1, type: "spring", stiffness: 200 }}
+      <Button
+        ref={openerRef}
+        variant="ghost"
+        className="min-h-11 px-0 text-muted-foreground"
+        onClick={() => setIsOpen(true)}
+        aria-label={t("fabOpen")}
       >
-        <Button
-          ref={openerRef}
-          onClick={() => setIsOpen(true)}
-          className="w-14 h-14 rounded-full bg-gradient-to-br from-gold-dark via-gold to-gold-light hover:from-gold hover:via-gold-light hover:to-gold text-midnight shadow-lg shadow-gold/30 hover:shadow-xl hover:shadow-gold/40 transition-all duration-300"
-          aria-label={t("fabOpen")}
-        >
-          <Eye className="w-6 h-6" />
-        </Button>
-      </motion.div>
-
-      {/* Oracle Modal */}
-      <AnimatePresence>
-        {isOpen && (
-          <>
-            {/* Backdrop */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              onClick={() => setIsOpen(false)}
-              className="fixed inset-0 bg-midnight/80 backdrop-blur-sm z-50"
-            />
-
-            {/* Modal */}
-            <motion.div
-              ref={panelRef}
-              role="dialog"
-              aria-modal="true"
-              aria-labelledby="oracle-dialog-title"
-              initial={{ opacity: 0, scale: 0.9, y: 20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.9, y: 20 }}
-              transition={{ type: "spring", damping: 25, stiffness: 300 }}
-              className="fixed inset-4 md:inset-auto md:bottom-24 md:right-6 md:w-96 md:h-[32rem] bg-gradient-to-b from-slate-900 to-midnight border border-gold/30 rounded-2xl shadow-2xl shadow-gold/20 z-50 flex flex-col overflow-hidden"
-            >
-              {/* Header */}
-              <div className="flex items-center justify-between p-4 border-b border-gold/20">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-gold-dark to-gold flex items-center justify-center">
-                    <Eye className="w-5 h-5 text-midnight" />
-                  </div>
-                  <div>
-                    <h2
-                      id="oracle-dialog-title"
-                      className="font-serif text-lg text-parchment"
-                    >
-                      {t("title")}
-                    </h2>
-                    <p className="text-xs text-parchment/60">{t("subtitle")}</p>
-                    <p className="text-[10px] text-parchment/50 mt-0.5 max-w-[14rem] leading-snug">
-                      {t("aiDisclosure")}
-                    </p>
-                  </div>
-                </div>
-                <Button
-                  variant="ghost"
-                  size="icon"
+        {t("title")}
+      </Button>
+      {typeof document !== "undefined" &&
+        createPortal(
+          <AnimatePresence>
+            {isOpen && (
+              <>
+                {/* Backdrop */}
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
                   onClick={() => setIsOpen(false)}
-                  className="text-parchment/60 hover:text-parchment hover:bg-gold/10"
-                  aria-label={t("close")}
-                >
-                  <X className="w-5 h-5" />
-                </Button>
-              </div>
+                  className="fixed inset-0 bg-midnight/80 backdrop-blur-sm z-50"
+                />
 
-              {/* Messages */}
-              <div
-                className="flex-1 overflow-y-auto p-4 space-y-4"
-                role="log"
-                aria-live="polite"
-                aria-relevant="additions"
-              >
-                {messages.length === 0 ? (
-                  <div className="text-center py-8">
-                    <Sparkles className="w-12 h-12 text-gold/40 mx-auto mb-4" />
-                    <p className="text-parchment/80 mb-6">{t("greeting")}</p>
-                    <div className="space-y-2">
-                      <p className="text-xs text-parchment/40 mb-3">
-                        {t("tryAsking")}
-                      </p>
-                      {suggestedQuestions.slice(0, 3).map((question) => (
-                        <button
-                          key={question}
-                          onClick={() => handleSuggestedQuestion(question)}
-                          className="block w-full text-left text-sm text-gold/70 hover:text-gold bg-gold/5 hover:bg-gold/10 rounded-lg px-3 py-2 transition-colors"
+                {/* Modal */}
+                <motion.div
+                  ref={panelRef}
+                  role="dialog"
+                  aria-modal="true"
+                  aria-labelledby="oracle-dialog-title"
+                  initial={{ opacity: 0, scale: 0.9, y: 20 }}
+                  animate={{ opacity: 1, scale: 1, y: 0 }}
+                  exit={{ opacity: 0, scale: 0.9, y: 20 }}
+                  transition={{ type: "spring", damping: 25, stiffness: 300 }}
+                  className="fixed inset-4 md:inset-auto md:bottom-24 md:right-6 md:w-96 md:h-[32rem] bg-gradient-to-b from-slate-900 to-midnight border border-gold/30 rounded-2xl shadow-2xl shadow-gold/20 z-50 flex flex-col overflow-hidden"
+                >
+                  {/* Header */}
+                  <div className="flex items-center justify-between p-4 border-b border-gold/20">
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 rounded-full bg-gradient-to-br from-gold-dark to-gold flex items-center justify-center">
+                        <Eye className="w-5 h-5 text-midnight" />
+                      </div>
+                      <div>
+                        <h2
+                          id="oracle-dialog-title"
+                          className="font-serif text-lg text-parchment"
                         >
-                          {question}
-                        </button>
-                      ))}
-                    </div>
-                  </div>
-                ) : (
-                  messages.map((message) => (
-                    <div
-                      key={message.id}
-                      className={`flex ${message.role === "user" ? "justify-end" : "justify-start"}`}
-                    >
-                      <div
-                        className={`max-w-[85%] rounded-2xl px-4 py-3 ${
-                          message.role === "user"
-                            ? "bg-gold/20 text-parchment rounded-br-sm"
-                            : "bg-slate-800/80 text-parchment/90 rounded-bl-sm border border-gold/10"
-                        }`}
-                      >
-                        <p className="text-sm leading-relaxed whitespace-pre-wrap">
-                          {message.role === "assistant" &&
-                          !message.content.trim() &&
-                          isLoading ? (
-                            <span className="inline-flex items-center gap-2 text-gold/60">
-                              <Loader2 className="h-4 w-4 shrink-0 animate-spin" />
-                              {t("loading")}
-                            </span>
-                          ) : (
-                            message.content
-                          )}
+                          {t("title")}
+                        </h2>
+                        <p className="text-xs text-parchment/60">
+                          {t("subtitle")}
                         </p>
-                        {message.role === "assistant" &&
-                          message.groundingHits != null &&
-                          message.groundingHits > 0 && (
-                            <p
-                              className="mt-2 flex items-center gap-1.5 text-[10px] leading-tight text-parchment/50"
-                              aria-label={t("groundingAria", {
-                                count: message.groundingHits,
-                              })}
-                            >
-                              <Sparkles className="size-3 shrink-0 text-gold/60" />
-                              <span>
-                                {t("groundingLine", {
-                                  count: message.groundingHits,
-                                })}
-                              </span>
-                            </p>
-                          )}
-                        {message.role === "assistant" &&
-                          message.citations &&
-                          message.citations.length > 0 && (
-                            <ul
-                              className="mt-2 space-y-1 border-t border-gold/15 pt-2"
-                              aria-label={t("sourcesAria")}
-                            >
-                              {message.citations.slice(0, 10).map((c) => (
-                                <li key={`${c.type}-${c.slug}`}>
-                                  <Link
-                                    href={c.path}
-                                    className="text-[11px] text-gold/80 underline-offset-2 hover:text-gold hover:underline"
-                                  >
-                                    {c.title}
-                                  </Link>
-                                  <span className="text-[10px] text-parchment/45">
-                                    {" "}
-                                    · {c.type}
-                                  </span>
-                                </li>
-                              ))}
-                            </ul>
-                          )}
+                        <p className="text-[10px] text-parchment/50 mt-0.5 max-w-[14rem] leading-snug">
+                          {t("aiDisclosure")}
+                        </p>
                       </div>
                     </div>
-                  ))
-                )}
-
-                {error && (
-                  <div
-                    role="alert"
-                    className="bg-red-900/20 border border-red-500/30 rounded-lg p-3 text-red-300 text-sm"
-                  >
-                    {error}
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      onClick={() => setIsOpen(false)}
+                      className="text-parchment/60 hover:text-parchment hover:bg-gold/10"
+                      aria-label={t("close")}
+                    >
+                      <X className="w-5 h-5" />
+                    </Button>
                   </div>
-                )}
 
-                <div ref={messagesEndRef} />
-              </div>
-
-              {/* Input */}
-              <form
-                onSubmit={handleSubmit}
-                className="p-4 border-t border-gold/20"
-              >
-                <div className="flex gap-2">
-                  <input
-                    ref={inputRef}
-                    value={input}
-                    onChange={(e) => setInput(e.target.value)}
-                    placeholder={t("placeholder")}
-                    disabled={isLoading}
-                    aria-label={t("inputLabel")}
-                    maxLength={4000}
-                    className="flex-1 bg-slate-800/50 border border-gold/20 rounded-xl px-4 py-3 text-parchment placeholder:text-parchment/40 focus:outline-none focus:border-gold/50 focus:ring-1 focus:ring-gold/30 transition-colors disabled:opacity-50"
-                  />
-                  <Button
-                    type="submit"
-                    disabled={isLoading || !input.trim()}
-                    className="bg-gold hover:bg-gold-light text-midnight rounded-xl px-4 disabled:opacity-50"
-                    aria-label={t("sendLabel")}
+                  {/* Messages */}
+                  <div
+                    className="flex-1 overflow-y-auto p-4 space-y-4"
+                    role="log"
+                    aria-live="polite"
+                    aria-relevant="additions"
                   >
-                    <Send className="w-5 h-5" />
-                  </Button>
-                </div>
-                <p
-                  className="mt-1 text-right text-[10px] text-parchment/40"
-                  aria-live="polite"
-                >
-                  {input.length}/4000
-                </p>
-              </form>
-            </motion.div>
-          </>
+                    {messages.length === 0 ? (
+                      <div className="text-center py-8">
+                        <Sparkles className="w-12 h-12 text-gold/40 mx-auto mb-4" />
+                        <p className="text-parchment/80 mb-6">
+                          {t("greeting")}
+                        </p>
+                        <div className="space-y-2">
+                          <p className="text-xs text-parchment/40 mb-3">
+                            {t("tryAsking")}
+                          </p>
+                          {suggestedQuestions.slice(0, 3).map((question) => (
+                            <button
+                              key={question}
+                              onClick={() => handleSuggestedQuestion(question)}
+                              className="block w-full text-left text-sm text-gold/70 hover:text-gold bg-gold/5 hover:bg-gold/10 rounded-lg px-3 py-2 transition-colors"
+                            >
+                              {question}
+                            </button>
+                          ))}
+                        </div>
+                      </div>
+                    ) : (
+                      messages.map((message) => (
+                        <div
+                          key={message.id}
+                          className={`flex ${message.role === "user" ? "justify-end" : "justify-start"}`}
+                        >
+                          <div
+                            className={`max-w-[85%] rounded-2xl px-4 py-3 ${
+                              message.role === "user"
+                                ? "bg-gold/20 text-parchment rounded-br-sm"
+                                : "bg-slate-800/80 text-parchment/90 rounded-bl-sm border border-gold/10"
+                            }`}
+                          >
+                            <p className="text-sm leading-relaxed whitespace-pre-wrap">
+                              {message.role === "assistant" &&
+                              !message.content.trim() &&
+                              isLoading ? (
+                                <span className="inline-flex items-center gap-2 text-gold/60">
+                                  <Loader2 className="h-4 w-4 shrink-0 animate-spin" />
+                                  {t("loading")}
+                                </span>
+                              ) : (
+                                message.content
+                              )}
+                            </p>
+                            {message.role === "assistant" &&
+                              message.groundingHits != null &&
+                              message.groundingHits > 0 && (
+                                <p
+                                  className="mt-2 flex items-center gap-1.5 text-[10px] leading-tight text-parchment/50"
+                                  aria-label={t("groundingAria", {
+                                    count: message.groundingHits,
+                                  })}
+                                >
+                                  <Sparkles className="size-3 shrink-0 text-gold/60" />
+                                  <span>
+                                    {t("groundingLine", {
+                                      count: message.groundingHits,
+                                    })}
+                                  </span>
+                                </p>
+                              )}
+                            {message.role === "assistant" &&
+                              message.citations &&
+                              message.citations.length > 0 && (
+                                <ul
+                                  className="mt-2 space-y-1 border-t border-gold/15 pt-2"
+                                  aria-label={t("sourcesAria")}
+                                >
+                                  {message.citations.slice(0, 10).map((c) => (
+                                    <li key={`${c.type}-${c.slug}`}>
+                                      <Link
+                                        href={c.path}
+                                        className="text-[11px] text-gold/80 underline-offset-2 hover:text-gold hover:underline"
+                                      >
+                                        {c.title}
+                                      </Link>
+                                      <span className="text-[10px] text-parchment/45">
+                                        {" "}
+                                        · {c.type}
+                                      </span>
+                                    </li>
+                                  ))}
+                                </ul>
+                              )}
+                          </div>
+                        </div>
+                      ))
+                    )}
+
+                    {error && (
+                      <div
+                        role="alert"
+                        className="bg-red-900/20 border border-red-500/30 rounded-lg p-3 text-red-300 text-sm"
+                      >
+                        {error}
+                      </div>
+                    )}
+
+                    <div ref={messagesEndRef} />
+                  </div>
+
+                  {/* Input */}
+                  <form
+                    onSubmit={handleSubmit}
+                    className="p-4 border-t border-gold/20"
+                  >
+                    <div className="flex gap-2">
+                      <input
+                        ref={inputRef}
+                        value={input}
+                        onChange={(e) => setInput(e.target.value)}
+                        placeholder={t("placeholder")}
+                        disabled={isLoading}
+                        aria-label={t("inputLabel")}
+                        maxLength={4000}
+                        className="flex-1 bg-slate-800/50 border border-gold/20 rounded-xl px-4 py-3 text-parchment placeholder:text-parchment/40 focus:outline-none focus:border-gold/50 focus:ring-1 focus:ring-gold/30 transition-colors disabled:opacity-50"
+                      />
+                      <Button
+                        type="submit"
+                        disabled={isLoading || !input.trim()}
+                        className="bg-gold hover:bg-gold-light text-midnight rounded-xl px-4 disabled:opacity-50"
+                        aria-label={t("sendLabel")}
+                      >
+                        <Send className="w-5 h-5" />
+                      </Button>
+                    </div>
+                    <p
+                      className="mt-1 text-right text-[10px] text-parchment/40"
+                      aria-live="polite"
+                    >
+                      {input.length}/4000
+                    </p>
+                  </form>
+                </motion.div>
+              </>
+            )}
+          </AnimatePresence>,
+          document.body,
         )}
-      </AnimatePresence>
     </>
   );
 }

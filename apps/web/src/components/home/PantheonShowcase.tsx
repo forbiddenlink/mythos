@@ -88,7 +88,10 @@ export function PantheonShowcase() {
   const [lead, ...rest] = featured;
 
   return (
-    <section className="relative py-28 bg-background noise-overlay">
+    <section
+      id="featured-pantheons"
+      className="relative scroll-mt-24 py-20 md:py-28 bg-background noise-overlay"
+    >
       <div className="container mx-auto px-4 relative z-10 max-w-5xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

@@ -18,10 +18,6 @@ import locationsData from "@/data/locations.json";
 // Computed on the server (this is a Server Component). Importing the source
 // JSON here keeps it OUT of the client bundle — only the small derived values below
 // serialize to the client components as props.
-const HERO_PANTHEONS = (
-  pantheonsData as { id: string; name: string; slug: string }[]
-).map(({ id, name, slug }) => ({ id, name, slug }));
-
 const HERO_COUNTS = {
   pantheons: (pantheonsData as unknown[]).length,
   deities: (deitiesData as unknown[]).length,
@@ -70,7 +66,7 @@ export default function Home() {
         fetchPriority="high"
       />
       <WebSiteJsonLd searchActionTarget="https://mythosatlas.com/?search={search_term_string}" />
-      <AtlasOpensHero pantheons={HERO_PANTHEONS} counts={HERO_COUNTS} />
+      <AtlasOpensHero counts={HERO_COUNTS} />
       <PantheonShowcase />
       <SyncretismStrip />
       <FeaturesGrid />

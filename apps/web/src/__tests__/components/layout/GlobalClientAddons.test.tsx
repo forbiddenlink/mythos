@@ -1,16 +1,14 @@
 import { act, render, screen } from "@testing-library/react";
-import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 import { GlobalClientAddons } from "@/components/layout/GlobalClientAddons";
 
 vi.mock("next/dynamic", () => ({
   default: () =>
-    function DynamicPlaceholder() {
-      return <div data-testid="dynamic-placeholder" />;
+    function DynamicPlaceholder({ open }: { open?: boolean }) {
+      return open === undefined ? null : (
+        <div data-testid="search" data-open={open} />
+      );
     },
-}));
-
-vi.mock("@/components/effects/LayoutEffects", () => ({
-  LayoutEffects: () => null,
 }));
 vi.mock("@/components/analytics/ConsentGatedAnalytics", () => ({
   ConsentGatedAnalytics: () => null,
@@ -19,51 +17,19 @@ vi.mock("@/components/analytics/ConsentGatedSentry", () => ({
   ConsentGatedSentry: () => null,
 }));
 
-describe("GlobalClientAddons audio loading", () => {
-  beforeEach(() => {
-    vi.useFakeTimers();
-    Object.defineProperty(document, "readyState", {
-      configurable: true,
-      value: "loading",
-    });
-  });
-
-  afterEach(() => {
-    vi.useRealTimers();
-    delete (window as { requestIdleCallback?: unknown }).requestIdleCallback;
-  });
-
-  it("waits for load and idle before rendering audio enhancements", () => {
-    let runIdle: (() => void) | undefined;
-    Object.assign(window, {
-      requestIdleCallback: vi.fn((callback: () => void) => {
-        runIdle = callback;
-        return 1;
-      }),
-      cancelIdleCallback: vi.fn(),
-    });
-
+describe("GlobalClientAddons search intent", () => {
+  it("opens lazy search from the header event and toggles it from the keyboard", () => {
     render(<GlobalClientAddons />);
-    expect(screen.getAllByTestId("dynamic-placeholder")).toHaveLength(5);
-
+    expect(screen.getByTestId("search")).toHaveAttribute("data-open", "false");
     act(() => {
-      window.dispatchEvent(new Event("load"));
-      runIdle?.();
+      document.dispatchEvent(new Event("open-command-palette"));
     });
-
-    expect(screen.getAllByTestId("dynamic-placeholder")).toHaveLength(6);
-  });
-
-  it("uses a short timeout fallback and cleans up a pending load listener", () => {
-    const { unmount } = render(<GlobalClientAddons />);
-    expect(screen.getAllByTestId("dynamic-placeholder")).toHaveLength(5);
-
-    unmount();
+    expect(screen.getByTestId("search")).toHaveAttribute("data-open", "true");
     act(() => {
-      window.dispatchEvent(new Event("load"));
-      vi.runAllTimers();
+      document.dispatchEvent(
+        new KeyboardEvent("keydown", { key: "k", ctrlKey: true }),
+      );
     });
-
-    expect(screen.queryByTestId("dynamic-placeholder")).not.toBeInTheDocument();
+    expect(screen.getByTestId("search")).toHaveAttribute("data-open", "false");
   });
 });

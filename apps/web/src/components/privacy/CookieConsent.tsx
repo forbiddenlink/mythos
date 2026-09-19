@@ -78,8 +78,10 @@ export function CookieConsent() {
   }, []);
 
   const handleDismiss = useCallback(() => {
-    setIsVisible(false);
-  }, []);
+    // Dismissal is an explicit choice to keep optional analytics off. The
+    // footer's Cookie Settings control remains available to revisit it.
+    handleReject();
+  }, [handleReject]);
 
   if (!isVisible) {
     return null;

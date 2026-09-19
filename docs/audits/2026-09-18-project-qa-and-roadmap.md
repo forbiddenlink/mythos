@@ -353,3 +353,26 @@ This continuation expands the earlier pilot and supersedes its three skipped Ora
 - Museum images are delivered directly using Next Image's `unoptimized` option because the optimizer rejected a valid museum response. A real-browser check confirms the image loads. A suspected hero-image routing issue disappeared after restarting the stale preview; no speculative proxy change or asset relocation was retained.
 
 Still open: individual edition checks for the 201 legacy source notes and the structured excerpts still marked unverified; more tradition-specific expert review; manual screen-reader testing; production field performance measurements; and a broader visual/copy direction pass with Claude under the repository's routing guidance. Oracle UI tests use intercepted requests; live model responses and production credentials were not verified. No deployment was performed.
+
+## Homepage scrolling and quieter browsing
+
+Follow-up to the reported homepage scroll glitch and intrusive bottom controls:
+
+- Reproduced a nested `overflow-y-auto` / `overscroll-contain` region inside the pinned hero's final scene. Replaced the four overlapping scenes with one server-rendered composition in normal document flow. The title, description, and browse/read links are available immediately, with one main heading and no decorative WebGL background.
+- Kept the existing architectural image and typography, improved title contrast on the dark hero in light mode, and reduced the shared page-title minimum at narrow widths so long headings do not split mid-word.
+- Moved discovery, ambient audio, and the explicitly enabled Oracle launcher into the footer. Removed the global cursor-following overlay. Audio loads only after a visitor opens its controls.
+- Replaced discovery's custom overlay and artificial spinning delay with the shared dialog primitive: keyboard focus, Escape dismissal, and focus return now work. The trigger waits for client readiness.
+- The Oracle owns its inline opener and portals the panel to the document body. This avoids both footer clipping and a lost-click race from a temporary event-based implementation. Oracle API behavior is unchanged.
+- Achievement awards still update progress, but achievement notifications now default off and can be enabled in the footer. Stored awards are not replayed on hydration or opt-in. Dismissing the cookie banner persists a rejection, leaves analytics disabled, and remains reversible from Cookie Settings.
+- Updated the design contract to preserve ordinary homepage scrolling and keep optional tools out of the reading area.
+
+Visitor-flow sampling checked Pantheons → Greek → Zeus, deity source/bookmark controls, study-source links, bookmarks, and review entry points. No confirmed route failure or 390px overflow was found in those sampled flows. External study-source links intentionally retain ordinary same-tab link behavior. This is representative coverage, not a claim that every encyclopedia record received individual editorial or visual review.
+
+Verification for this pass:
+
+- Production build and TypeScript passed. The complete unit suite passed 943 tests; an additional focused audio-control test verifies that the volume slider has an accessible name and responds to the End key.
+- 141 browser checks passed across Chromium, Firefox, and WebKit, covering normal-flow homepage scrolling at 320/768/1440px in both themes, reduced motion, discovery, collections/facts, and Oracle controls. Live Oracle responses were intercepted, not billed or authenticated against production.
+- The route sweep completed 264 unique cases: 66 representative routes × two viewport sizes × two themes. All returned HTTP 200 with exactly one visible main heading, no horizontal overflow, nested controls, broken images, page errors, or axe A/AA violations. The completed case files were retained when increasing the audit's worker count; the merged results contain no duplicate cases.
+- Visual inspection sampled homepage, index, source, deity, and study layouts. These automated results and sampled flows do not establish exhaustive visual consistency, manual screen-reader usability, or editorial accuracy across every record. Existing source-verification and live-Oracle configuration limits above remain open.
+
+After the final audio-label correction, a fresh production build passed and the optional-tool interaction test passed in all three browser engines, including the named volume slider and discovery Escape/focus return.

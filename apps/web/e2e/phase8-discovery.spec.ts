@@ -184,7 +184,7 @@ test.describe("Phase 8: Random Discovery Button", () => {
     await expect(getModalDeityName(page)).toBeVisible({ timeout: 8000 });
   };
 
-  test("should display floating discover button on homepage", async ({
+  test("should display optional discover button on homepage", async ({
     page,
   }) => {
     await page.goto("/");
@@ -197,7 +197,7 @@ test.describe("Phase 8: Random Discovery Button", () => {
     await expect(discoverButton).toBeVisible({ timeout: 10000 });
   });
 
-  test("should display floating discover button on other pages", async ({
+  test("should display optional discover button on other pages", async ({
     page,
   }) => {
     await page.goto("/deities");
@@ -297,7 +297,7 @@ test.describe("Phase 8: Random Discovery Button", () => {
     await waitForModal(page);
 
     // Click close button
-    await page.locator('button[aria-label="Close"]').click();
+    await page.getByRole("button", { name: "Close", exact: true }).click();
 
     // Wait for close animation
     await page.waitForTimeout(500);

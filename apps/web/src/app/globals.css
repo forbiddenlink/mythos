@@ -288,7 +288,7 @@ html.cookie-banner-open {
   /* Canonical page chrome — prefer these over ad-hoc text-4xl/5xl/6xl recipes */
   .page-title {
     font-family: var(--font-cinzel), ui-serif, Georgia, serif;
-    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    font-size: clamp(1.75rem, 5vw, 4.5rem);
     line-height: 1.1;
     letter-spacing: -0.02em;
     font-weight: 600;
