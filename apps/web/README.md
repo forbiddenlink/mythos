@@ -31,24 +31,23 @@ Web frontend for Mythos Atlas, an interactive encyclopedia of ancient mythology 
 ## Tech Stack
 
 | Category       | Technology                   | Version       |
-| -------------- | ---------------------------- | ------------- |
-| Framework      | Next.js (App Router)         | 16.1.6        |
-| UI             | React                        | 19.2.3        |
-| Language       | TypeScript                   | ^5            |
-| Styling        | Tailwind CSS                 | ^4            |
-| Data Fetching  | React Query (TanStack)       | ^5.90         |
-| GraphQL        | graphql-request              | ^7.4          |
+| -------------- | ----------------------------- | ------------- |
+| Framework      | Next.js (App Router)         | 16.3.4        |
+| UI             | React                        | 19.2.8        |
+| Language       | TypeScript                   | 6.0.3         |
+| Styling        | Tailwind CSS                 | ^4.3          |
+| Data Fetching  | React Query (TanStack)       | ^5.102        |
 | Graphs         | ReactFlow                    | ^11.11        |
 | Visualizations | D3.js                        | ^7.9          |
-| 3D Rendering   | React Three Fiber / Three.js | ^9.5 / ^0.182 |
-| Animations     | Framer Motion                | ^12.23        |
+| 3D Rendering   | React Three Fiber / Three.js | ^9.7 / ^0.185 |
+| Animations     | Framer Motion                | ^13.0         |
 | Audio          | Howler.js                    | ^2.2          |
-| i18n           | next-intl                    | ^4.8          |
-| Search         | Fuse.js                      | ^7.1          |
-| Icons          | Lucide React                 | ^0.562        |
+| i18n           | next-intl                    | ^4.14         |
+| Search         | Fuse.js                      | ^7.5          |
+| Icons          | Lucide React                 | ^1.28         |
 | UI Primitives  | shadcn/ui + Radix            | —             |
-| Unit Tests     | Vitest                       | ^3.2          |
-| E2E Tests      | Playwright                   | ^1.52         |
+| Unit Tests     | Vitest                       | 4.1           |
+| E2E Tests      | Playwright                   | 1.62          |
 
 ## Getting Started
 

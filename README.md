@@ -64,7 +64,7 @@ pnpm dev              # Start development server
 pnpm build            # Production build
 pnpm lint             # Run ESLint
 pnpm test             # Run unit tests
-pnpm e2e              # Run E2E tests
+pnpm --filter web e2e # Run E2E tests
 ```
 
 ## Documentation
@@ -72,7 +72,7 @@ pnpm e2e              # Run E2E tests
 - [ARCHITECTURE.md](./ARCHITECTURE.md) - System architecture and data flow
 - [CONTRIBUTING.md](./CONTRIBUTING.md) - Contribution guidelines
 - [CHANGELOG.md](./CHANGELOG.md) - Version history
-- [AGENTS.md](./AGENTS.md) - AI assistant context
+- [CLAUDE.md](./CLAUDE.md) - AI assistant context (AGENTS.md is a symlink to this file)
 
 ## License
 

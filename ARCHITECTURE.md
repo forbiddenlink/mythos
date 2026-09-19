@@ -4,7 +4,7 @@
 
 ## System Overview
 
-Mythos Atlas is an interactive mythology encyclopedia built with Next.js 16 and React 19. It serves structured mythology data (13 pantheons, 189 deities, 96 stories, 29 creatures, 34 artifacts, 85 locations) through a GraphQL API layer backed by JSON files, with client-side caching via React Query.
+Mythos Atlas is an interactive mythology encyclopedia built with Next.js 16 and React 19. It serves structured mythology data (13 pantheons, 190 deities, 20 heroes, 98 stories, 56 creatures, 52 artifacts, 121 locations) through a GraphQL API layer backed by JSON files, with client-side caching via React Query.
 
 ## Architecture Diagram
 
@@ -31,11 +31,11 @@ graph TB
         K --> L[API Route Handler<br/>/api/graphql]
         L --> M[JSON Data Files]
         M --> N[pantheons.json · 13]
-        M --> O[deities.json · 189]
-        M --> P[stories.json · 96]
-        M --> Q[creatures.json · 29]
-        M --> R2[artifacts.json · 34]
-        M --> S2[locations.json · 85]
+        M --> O[deities.json · 190]
+        M --> P[stories.json · 98]
+        M --> Q[creatures.json · 56]
+        M --> R2[artifacts.json · 52]
+        M --> S2[locations.json · 121]
         M --> T2[relationships.json]
     end
 
@@ -170,9 +170,9 @@ erDiagram
 ```mermaid
 graph TB
     subgraph "Frontend Framework"
-        A[Next.js 16.1.6<br/>App Router + SSG]
-        B[React 19.2.3]
-        C[TypeScript 5]
+        A[Next.js 16.3.4<br/>App Router + SSG]
+        B[React 19.2.8]
+        C[TypeScript 6]
     end
 
     subgraph "Styling & Design"
@@ -223,10 +223,10 @@ graph TB
 
 | Area          | Features                                                                                           |
 | ------------- | -------------------------------------------------------------------------------------------------- |
-| **Browse**    | 13 pantheons, 189 deities, 96 stories, 29 creatures, 34 artifacts, 85 locations                    |
+| **Browse**    | 13 pantheons, 190 deities, 20 heroes, 98 stories, 56 creatures, 52 artifacts, 121 locations                    |
 | **Visualize** | Family trees (network + hierarchical), knowledge graph, story timeline, 3D artifacts, location map |
 | **Learn**     | Relationship quiz, personality quiz, quick quiz, symbol memory game, spaced repetition review      |
-| **Progress**  | Achievements (24 badges), leaderboard, daily challenges, learning paths, streaks                   |
+| **Progress**  | Achievements (21 badges), leaderboard, daily challenges, learning paths, streaks                   |
 | **Search**    | ⌘K command palette, fuzzy search (Fuse.js), client-side filters & sorting                          |
 | **Media**     | Text-to-speech, background audio per pantheon, PDF export                                          |
 | **Platform**  | i18n (4 languages), PWA with offline support, dynamic OG images, SEO metadata                      |
