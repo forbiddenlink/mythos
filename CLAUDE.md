@@ -76,7 +76,7 @@ cargo check
 ## Conventions
 
 - **Path alias**: `@/*` maps to `apps/web/src/*` (tsconfig.json, vitest.config.mjs)
-- **Provider stack** (`src/app/layout.tsx`): `NextIntlClientProvider > ThemeProvider > QueryProvider > BookmarksProvider > ProgressProvider > LeaderboardProvider > AchievementNotificationProvider`, then `GlobalClientAddons` (command palette search, PWA/analytics hooks, optional install prompt, `LayoutEffects` for cursor + optional Oracle when `NEXT_PUBLIC_ORACLE_ENABLED` or non-production). Progress, bookmarks, and achievements persist to localStorage via their providers.
+- **Provider stack** (`src/app/layout.tsx`): `NextIntlClientProvider > ThemeProvider > QueryProvider > BookmarksProvider > ProgressProvider > ReviewProvider > LeaderboardProvider > AchievementNotificationProvider`, then `Footer` (renders `FooterTools`, which gates the Oracle chat button on `NEXT_PUBLIC_ORACLE_ENABLED === "true"`) and `GlobalClientAddons` (command palette search, PWA/analytics hooks, optional install prompt). Progress, bookmarks, and achievements persist to localStorage via their providers.
 - **Commits**: Conventional Commits (`feat:`, `fix:`, `docs:`, `refactor:`, `test:`, `chore:`)
 - **Branches**: `feature/*`, `fix/*`, `docs/*`
 - **Pre-commit**: Husky runs lint-staged (ESLint --fix + Prettier on staged `.ts`/`.tsx` files)
@@ -104,7 +104,6 @@ From `apps/web/.env.example`:
 - `NEXT_PUBLIC_SENTRY_DSN`, `SENTRY_ORG`, `SENTRY_PROJECT`, `SENTRY_AUTH_TOKEN` - error tracking
 - `SENTRY_TRACES_SAMPLE_RATE` / `NEXT_PUBLIC_SENTRY_TRACES_SAMPLE_RATE` - trace sample rate (default 0.15); set both to keep server/client sampling in sync
 - `NEXT_PUBLIC_SENTRY_REPLAY_ENABLED` - session replay, off by default
-- `NEXT_PUBLIC_GRAPHQL_URL` - only needed when using the Rust API backend instead of the built-in route handler
 
 ## Gotchas
 
