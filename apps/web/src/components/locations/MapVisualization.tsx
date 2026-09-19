@@ -594,7 +594,7 @@ export function MapVisualization({
           className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all shadow-sm backdrop-blur-sm ${
             activePantheonFilter === null
               ? "bg-gold text-midnight border border-gold"
-              : "bg-card/90 text-muted-foreground border border-border hover:border-gold/50 hover:text-gold"
+              : "bg-card text-safe-subtle border border-border hover:border-gold/50 hover:text-gold-text"
           }`}
         >
           All
@@ -618,7 +618,7 @@ export function MapVisualization({
               className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all shadow-sm backdrop-blur-sm flex items-center gap-1.5 ${
                 isActive
                   ? "bg-gold text-midnight border border-gold"
-                  : "bg-card/90 text-muted-foreground border border-border hover:border-gold/50"
+                  : "bg-card text-safe-subtle border border-border hover:border-gold/50"
               }`}
             >
               <span
@@ -626,9 +626,7 @@ export function MapVisualization({
                 style={{ backgroundColor: colors?.bg || "#6b7280" }}
               />
               {colors?.label || pantheon.name}
-              <span
-                className={isActive ? "text-midnight/80" : "text-muted-foreground"}
-              >
+              <span className={isActive ? "text-midnight" : "text-safe-subtle"}>
                 ({count})
               </span>
             </button>
@@ -642,8 +640,8 @@ export function MapVisualization({
             aria-pressed={enableClustering}
             className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all shadow-sm backdrop-blur-sm flex items-center gap-1.5 ${
               enableClustering
-                ? "bg-gold/20 text-gold border border-gold/30"
-                : "bg-card/90 text-muted-foreground border border-border hover:border-gold/50"
+                ? "bg-gold text-midnight border border-gold"
+                : "bg-card text-safe-subtle border border-border hover:border-gold/50"
             }`}
             title={
               enableClustering ? "Disable clustering" : "Enable clustering"
@@ -684,7 +682,7 @@ export function MapVisualization({
       `}</style>
 
       {/* Map stats overlay */}
-      <div className="absolute bottom-4 left-4 z-1000 bg-card/90 backdrop-blur-sm border border-border rounded-lg px-3 py-2 text-xs text-muted-foreground">
+      <div className="absolute bottom-4 left-4 z-1000 bg-card border border-border rounded-lg px-3 py-2 text-xs text-safe-subtle">
         <span className="font-medium text-foreground">
           {mappableLocations.length}
         </span>{" "}
@@ -693,7 +691,7 @@ export function MapVisualization({
         {activePantheonFilter && (
           <span className="ml-1">
             in{" "}
-            <span style={{ color: PANTHEON_COLORS[activePantheonFilter]?.bg }}>
+            <span className="text-safe-subtle">
               {PANTHEON_COLORS[activePantheonFilter]?.label}
             </span>
           </span>
@@ -701,8 +699,8 @@ export function MapVisualization({
       </div>
 
       {/* Legend */}
-      <div className="absolute bottom-4 right-4 z-1000 bg-card/90 backdrop-blur-sm border border-border rounded-lg px-3 py-2">
-        <div className="text-[10px] font-semibold text-muted-foreground uppercase tracking-wider mb-1.5">
+      <div className="absolute bottom-4 right-4 z-1000 bg-card border border-border rounded-lg px-3 py-2">
+        <div className="text-[10px] font-semibold text-safe-subtle uppercase tracking-wider mb-1.5">
           Legend
         </div>
         <div className="flex flex-wrap gap-x-3 gap-y-1 text-[10px]">
@@ -714,7 +712,7 @@ export function MapVisualization({
                   className="w-2 h-2 rounded-full"
                   style={{ backgroundColor: colors.bg }}
                 />
-                <span className="text-muted-foreground">{colors.label}</span>
+                <span className="text-safe-subtle">{colors.label}</span>
               </div>
             ))}
         </div>

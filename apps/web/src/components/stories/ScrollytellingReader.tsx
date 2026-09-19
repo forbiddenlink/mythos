@@ -213,7 +213,7 @@ export function ScrollytellingReader({
             style={{ backgroundColor: `${color}66` }}
           />
         </div>
-        <p className="mt-6 text-sm text-parchment/50">
+        <p className="mt-6 text-sm text-parchment/60">
           Thus concludes the tale.
         </p>
         <Link

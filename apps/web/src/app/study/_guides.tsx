@@ -20,9 +20,15 @@ const GUIDES: StudyGuide[] = [
   {
     slug: "inanna-text-and-temple",
     title: "Inanna: Text and Temple",
-    description: "Read a Sumerian composition alongside a temple foundation object, and distinguish a literary narrative from evidence of worship.",
+    description:
+      "Read a Sumerian composition alongside a temple foundation object, and distinguish a literary narrative from evidence of worship.",
     pantheonId: "mesopotamian-pantheon",
-    keywords: ["Inanna study guide", "Sumerian literature", "Inanna descent", "Ur-Namma"],
+    keywords: [
+      "Inanna study guide",
+      "Sumerian literature",
+      "Inanna descent",
+      "Ur-Namma",
+    ],
     steps: [
       {
         title: "Meet Inanna in the atlas",
@@ -50,8 +56,14 @@ const GUIDES: StudyGuide[] = [
     slug: "ibeji-objects-and-remembrance",
     storyIds: ["first-twins-ibeji"],
     title: "Ibeji: Objects and Remembrance",
-    description: "A focused introduction to Yoruba twin commemoration through one documented object and its museum interpretation.",
-    keywords: ["Ibeji", "Yoruba twin figures", "ere ibeji", "museum study guide"],
+    description:
+      "A focused introduction to Yoruba twin commemoration through one documented object and its museum interpretation.",
+    keywords: [
+      "Ibeji",
+      "Yoruba twin figures",
+      "ere ibeji",
+      "museum study guide",
+    ],
     steps: [
       {
         title: "Read the account and its limits",
@@ -207,7 +219,10 @@ export function StudyGuidePage({ slug }: { slug: string }) {
     return (
       <div className="container mx-auto max-w-3xl px-4 py-24 text-center">
         <h1 className="page-title">Guide not found</h1>
-        <Link href="/study" className="mt-4 inline-block text-gold-text underline">
+        <Link
+          href="/study"
+          className="mt-4 inline-block text-gold-text underline"
+        >
           All study guides
         </Link>
       </div>
@@ -237,14 +252,15 @@ export function StudyGuidePage({ slug }: { slug: string }) {
   const featuredStories = guide.storyIds
     ? stories.filter((story) => guide.storyIds?.includes(story.id))
     : guide.pantheonId
-    ? stories.filter((s) => s.pantheonId === guide.pantheonId).slice(0, 4)
-    : [];
+      ? stories.filter((s) => s.pantheonId === guide.pantheonId).slice(0, 4)
+      : [];
 
   return (
     <div className="min-h-screen">
       <PageHero
         mark="torch"
         tagline="Study route"
+        className="max-[360px]:[&_.page-title]:text-4xl"
         title={guide.title}
         description={guide.description}
       />
@@ -322,7 +338,10 @@ export function StudyGuidePage({ slug }: { slug: string }) {
             all study guides
           </Link>
           {" · "}
-          <Link href="/learning-paths" className="text-gold-text hover:underline">
+          <Link
+            href="/learning-paths"
+            className="text-gold-text hover:underline"
+          >
             personalized learning paths
           </Link>
         </p>

@@ -119,7 +119,7 @@ export function ArtifactPageClient({
           </Link>
 
           <div className="space-y-4">
-            <div className="inline-flex items-center gap-2 px-3 py-1 border border-bronze/35 bg-bronze/10 text-bronze text-sm font-medium">
+            <div className="inline-flex items-center gap-2 px-3 py-1 border border-bronze/35 bg-midnight/80 text-gold text-sm font-medium">
               <Gem className="h-3.5 w-3.5" />
               {artifact.type}
             </div>
@@ -199,7 +199,7 @@ export function ArtifactPageClient({
                                   {source.source}
                                 </span>
                                 {source.date && (
-                                  <span className="ml-2 text-muted-foreground/70">
+                                  <span className="ml-2 text-muted-foreground">
                                     ({source.date})
                                   </span>
                                 )}
@@ -213,7 +213,7 @@ export function ArtifactPageClient({
               </Card>
 
               {artifact.powers && artifact.powers.length > 0 && (
-                <Card className="bg-midnight/30 border-border/40">
+                <Card className="bg-card border-border">
                   <CardHeader>
                     <CardTitle className="font-serif flex items-center gap-2 text-lg">
                       <Zap className="h-5 w-5 text-amber-400" />
@@ -226,7 +226,7 @@ export function ArtifactPageClient({
                         <Badge
                           key={power}
                           variant="secondary"
-                          className="bg-bronze/20 text-bronze border border-bronze/35 py-1.5 px-3"
+                          className="bg-gold/10 text-gold-text border border-gold/30 py-1.5 px-3"
                         >
                           {power}
                         </Badge>

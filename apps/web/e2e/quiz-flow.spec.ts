@@ -9,7 +9,7 @@ const ANSWER_OPTION = '[role="group"][aria-label="Select your answer"] button';
 test.describe("Quiz Flow", () => {
   test.beforeEach(async ({ page }) => {
     // Navigate to the quiz page
-    await page.goto("/quiz");
+    await page.goto("/quiz", { waitUntil: "domcontentloaded" });
   });
 
   test("should show loading state initially", async ({ page }) => {

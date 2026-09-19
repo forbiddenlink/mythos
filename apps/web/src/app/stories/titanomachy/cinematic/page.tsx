@@ -71,7 +71,6 @@ const titanomachyScenes: StoryScene[] = [
 export default function TitanomachyCinematicPage() {
   return (
     <div className="min-h-screen bg-midnight">
-      <h1 className="sr-only">Titanomachy Cinematic Story</h1>
       {/* Navigation Header */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-b from-midnight via-midnight/80 to-transparent">
         <div className="container mx-auto px-4 py-4 flex flex-wrap gap-2 items-center justify-between">
@@ -88,7 +87,7 @@ export default function TitanomachyCinematicPage() {
           <Button
             asChild
             variant="outline"
-            className="border-gold/30 text-gold hover:bg-gold/10"
+            className="border-gold/30 bg-midnight/90 text-parchment hover:bg-midnight"
           >
             <Link href="/stories/titanomachy">
               <BookOpen className="w-4 h-4 mr-2" />
@@ -117,7 +116,7 @@ export default function TitanomachyCinematicPage() {
             <Button
               asChild
               variant="outline"
-              className="border-gold/30 text-parchment hover:bg-gold/10"
+              className="border-gold/30 bg-midnight/90 text-parchment hover:bg-midnight"
             >
               <Link href="/pantheons/greek">Explore Greek Mythology</Link>
             </Button>

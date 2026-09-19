@@ -211,10 +211,11 @@ export function StoryNarrator({
                   <button
                     key={option.value}
                     onClick={() => setSpeed(option.value)}
+                    aria-pressed={speed === option.value}
                     className={cn(
                       "px-2 py-1 text-xs rounded transition-colors",
                       speed === option.value
-                        ? "bg-gold/20 text-gold border border-gold/30"
+                        ? "bg-gold/20 text-gold-text border border-gold/30"
                         : "text-muted-foreground hover:text-foreground hover:bg-muted/60",
                     )}
                   >

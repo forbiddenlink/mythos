@@ -102,23 +102,24 @@ test.describe("Progress Tracking", () => {
     // Set up initial progress with yesterday's visit
     const yesterdayStr = await getBrowserLocalDate(page, -1);
 
-    await page.evaluate((lastVisit) => {
-      localStorage.setItem(
-        "mythos-atlas-progress",
-        JSON.stringify({
-          deitiesViewed: [],
-          storiesRead: [],
-          pantheonsExplored: [],
-          locationsVisited: [],
-          quizScores: {},
-          achievements: [],
-          dailyStreak: 5,
-          lastVisit,
-          totalXP: 0,
-          streakFreezes: 2,
-        }),
-      );
-    }, yesterdayStr);
+    const seededProgress = {
+      deitiesViewed: [],
+      storiesRead: [],
+      pantheonsExplored: [],
+      locationsVisited: [],
+      quizScores: {},
+      achievements: [],
+      dailyStreak: 5,
+      lastVisit: yesterdayStr,
+      totalXP: 0,
+      streakFreezes: 2,
+    };
+
+    // Seed before the next document's scripts run. Writing into an already
+    // hydrated page can be overwritten by its pending provider persistence.
+    await page.addInitScript((progress) => {
+      localStorage.setItem("mythos-atlas-progress", JSON.stringify(progress));
+    }, seededProgress);
 
     // Reload to trigger streak update
     await page.reload({ waitUntil: "domcontentloaded" });

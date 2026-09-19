@@ -47,21 +47,20 @@ function formatLocationType(type: string): string {
 }
 
 const LOCATION_TYPE_COLORS: Record<string, string> = {
-  mountain: "bg-emerald-900/30 text-emerald-300 border-emerald-500/30",
-  realm: "bg-bronze/20 text-bronze border-bronze/35",
-  sacred_site: "bg-amber-900/30 text-amber-300 border-amber-500/30",
-  city: "bg-blue-900/30 text-blue-300 border-blue-500/30",
-  underworld: "bg-red-900/30 text-red-300 border-red-500/30",
-  body_of_water: "bg-cyan-900/30 text-cyan-300 border-cyan-500/30",
-  temple: "bg-yellow-900/30 text-yellow-300 border-yellow-500/30",
-  forest: "bg-green-900/30 text-green-300 border-green-500/30",
-  cosmic: "bg-patina/20 text-patina border-patina/35",
+  mountain: "bg-gold/10 text-gold-text border-gold/30",
+  realm: "bg-gold/10 text-gold-text border-gold/30",
+  sacred_site: "bg-gold/10 text-gold-text border-gold/30",
+  city: "bg-gold/10 text-gold-text border-gold/30",
+  underworld: "bg-gold/10 text-gold-text border-gold/30",
+  body_of_water: "bg-gold/10 text-gold-text border-gold/30",
+  temple: "bg-gold/10 text-gold-text border-gold/30",
+  forest: "bg-gold/10 text-gold-text border-gold/30",
+  cosmic: "bg-gold/10 text-gold-text border-gold/30",
 };
 
 function getTypeColor(type: string): string {
   return (
-    LOCATION_TYPE_COLORS[type] ||
-    "bg-midnight-light/50 text-parchment/75 border-border/40"
+    LOCATION_TYPE_COLORS[type] || "bg-gold/10 text-gold-text border-gold/30"
   );
 }
 
@@ -244,7 +243,7 @@ export function LocationPageClient({ slug }: LocationPageClientProps) {
                     <p className="text-xs text-muted-foreground uppercase tracking-wider mb-1">
                       Mythology
                     </p>
-                    <p className="text-parchment/80 font-medium">
+                    <p className="text-foreground font-medium">
                       {pantheonName}
                     </p>
                   </div>
@@ -253,7 +252,7 @@ export function LocationPageClient({ slug }: LocationPageClientProps) {
                       <p className="text-xs text-muted-foreground uppercase tracking-wider mb-1">
                         Coordinates
                       </p>
-                      <p className="text-parchment/80 text-sm font-mono">
+                      <p className="text-foreground text-sm font-mono">
                         {Math.abs(location.latitude!)}°
                         {location.latitude! >= 0 ? "N" : "S"},{" "}
                         {Math.abs(location.longitude!)}°
@@ -266,7 +265,7 @@ export function LocationPageClient({ slug }: LocationPageClientProps) {
                       <p className="text-xs text-muted-foreground uppercase tracking-wider mb-1">
                         Realm
                       </p>
-                      <p className="text-sm text-parchment/60 italic">
+                      <p className="text-muted-foreground text-sm italic">
                         Mythological / Non-physical
                       </p>
                     </div>
@@ -315,7 +314,7 @@ export function LocationPageClient({ slug }: LocationPageClientProps) {
                                   {source.source}
                                 </span>
                                 {source.date && (
-                                  <span className="ml-2 text-muted-foreground/70">
+                                  <span className="ml-2 text-muted-foreground">
                                     ({source.date})
                                   </span>
                                 )}

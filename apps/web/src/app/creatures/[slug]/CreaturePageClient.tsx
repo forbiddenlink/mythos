@@ -232,7 +232,7 @@ export function CreaturePageClient({
                                   {source.source}
                                 </span>
                                 {source.date && (
-                                  <span className="ml-2 text-muted-foreground/70">
+                                  <span className="ml-2 text-muted-foreground">
                                     ({source.date})
                                   </span>
                                 )}
@@ -252,7 +252,7 @@ export function CreaturePageClient({
             {/* More Creatures from this Pantheon */}
             {samePantheonCreatures.length > 0 && (
               <div>
-                <h2 className="font-serif text-2xl font-bold text-white mb-4 flex items-center gap-2">
+                <h2 className="font-serif text-2xl font-bold text-foreground mb-4 flex items-center gap-2">
                   <Skull className="h-5 w-5 text-red-500" />
                   More from this Pantheon
                 </h2>
@@ -261,7 +261,7 @@ export function CreaturePageClient({
                     <Link key={c.id} href={`/creatures/${c.slug}`}>
                       <Card className="bg-card/50 border-border hover:border-red-500/50 transition-all group">
                         <CardContent className="p-4">
-                          <h3 className="font-semibold text-white group-hover:text-red-400 transition-colors">
+                          <h3 className="font-semibold text-foreground group-hover:text-red-400 transition-colors">
                             {c.name}
                           </h3>
                           <p className="text-xs text-muted-foreground mt-1">
@@ -278,7 +278,7 @@ export function CreaturePageClient({
             {/* Related Deities */}
             {samePantheonDeities.length > 0 && (
               <div>
-                <h2 className="font-serif text-2xl font-bold text-white mb-4 flex items-center gap-2">
+                <h2 className="font-serif text-2xl font-bold text-foreground mb-4 flex items-center gap-2">
                   <Users className="h-5 w-5 text-gold" />
                   Deities of this Pantheon
                 </h2>
@@ -287,7 +287,7 @@ export function CreaturePageClient({
                     <Link key={d.id} href={`/deities/${d.slug}`}>
                       <Card className="bg-card/50 border-border hover:border-gold/50 transition-all group">
                         <CardContent className="p-4">
-                          <h3 className="font-semibold text-white group-hover:text-gold transition-colors">
+                          <h3 className="font-semibold text-foreground group-hover:text-gold transition-colors">
                             {d.name}
                           </h3>
                         </CardContent>

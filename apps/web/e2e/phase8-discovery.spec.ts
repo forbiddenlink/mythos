@@ -265,6 +265,8 @@ test.describe("Phase 8: Random Discovery Button", () => {
 
     // Verify modal is open
     await waitForModal(page);
+    const initialName = await getModalDeityName(page).textContent();
+    expect(initialName).toBeTruthy();
 
     // Click Another (inside the modal)
     const anotherButton = page.locator(
@@ -273,11 +275,11 @@ test.describe("Phase 8: Random Discovery Button", () => {
     await expect(anotherButton).toBeVisible({ timeout: 3000 });
     await anotherButton.click();
 
-    // Wait for spin animation
-    await page.waitForTimeout(800);
-
-    // Modal should still be open with a deity
-    await expect(getModalDeityName(page)).toBeVisible({ timeout: 3000 });
+    // The card intentionally replaces details with a short spinner. Wait for
+    // the observable ready state instead of assuming timer progress in a
+    // backgrounded browser tab.
+    await waitForModal(page);
+    await expect(getModalDeityName(page)).not.toHaveText(initialName ?? "");
   });
 
   test("should close modal when clicking Close button", async ({ page }) => {

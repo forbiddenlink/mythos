@@ -425,7 +425,7 @@ export function ArchetypeMatrix() {
                             />
                             {pantheonLabel}
                           </h4>
-                          <span className="text-[11px] text-gold/80 font-mono">
+                          <span className="text-[11px] text-gold-text font-mono">
                             {deities.length}{" "}
                             {deities.length === 1 ? "figure" : "figures"}
                           </span>

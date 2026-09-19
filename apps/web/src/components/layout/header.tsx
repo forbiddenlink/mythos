@@ -117,7 +117,7 @@ export function Header() {
             <span className="font-serif text-lg font-semibold text-foreground group-hover:text-gold tracking-wide leading-tight transition-colors duration-300">
               Mythos Atlas
             </span>
-            <span className="text-[10px] text-gold/80 tracking-[0.2em] uppercase font-sans font-medium hidden sm:block">
+            <span className="text-[10px] text-gold-text tracking-[0.2em] uppercase font-sans font-medium hidden sm:block">
               Ancient Mythology
             </span>
           </div>

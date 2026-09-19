@@ -413,7 +413,7 @@ export function HeroPageClient({ slug }: { slug: string }) {
                     <Link key={id} href={`/deities/${related.slug}`}>
                       <Badge
                         variant="outline"
-                        className="border-gold/30 text-gold hover:bg-gold/10"
+                        className="border-gold/30 text-gold-text hover:bg-gold/10"
                       >
                         {related.name}
                       </Badge>

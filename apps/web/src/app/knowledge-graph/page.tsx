@@ -415,6 +415,7 @@ export default function KnowledgeGraphPage() {
                 size="sm"
                 onClick={toggleFullscreen}
                 className="gap-2"
+                aria-label="Expand graph to fullscreen"
               >
                 <Maximize2 className="h-4 w-4" />
                 <span className="hidden sm:inline">Fullscreen</span>

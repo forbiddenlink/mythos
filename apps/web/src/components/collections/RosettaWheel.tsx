@@ -103,7 +103,10 @@ export function RosettaWheel({
             initial={reduce ? false : { opacity: 0, scale: 0.6 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.4, delay: reduce ? 0 : i * 0.05 }}
+            transition={{
+              duration: reduce ? 0 : 0.4,
+              delay: reduce ? 0 : i * 0.05,
+            }}
           >
             <Link
               href={`/deities/${p.slug}`}
@@ -122,10 +125,7 @@ export function RosettaWheel({
               <span className="text-xs font-medium text-foreground group-hover:text-gold">
                 {p.name}
               </span>
-              <span
-                className="text-[0.6rem] uppercase tracking-wider"
-                style={{ color: p.color }}
-              >
+              <span className="text-[0.6rem] uppercase tracking-wider text-muted-foreground">
                 {prettyFromPantheonId(p.pantheonId)}
               </span>
             </Link>

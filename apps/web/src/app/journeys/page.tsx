@@ -181,10 +181,12 @@ export default function JourneysPage() {
 
                     {/* Overlay badges */}
                     <div className="absolute top-3 left-3 flex items-center gap-2">
-                      <Badge
-                        className="text-xs font-medium text-white border-0"
-                        style={{ backgroundColor: colors.bg }}
-                      >
+                      <Badge className="text-xs font-medium bg-card/95 text-foreground border-border">
+                        <span
+                          className="size-2 rounded-full"
+                          style={{ backgroundColor: colors.bg }}
+                          aria-hidden="true"
+                        />
                         {colors.label}
                       </Badge>
                     </div>

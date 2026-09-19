@@ -184,8 +184,10 @@ export default function InteractiveStoryPage() {
                     <p className="text-foreground font-medium">
                       {discoveredCount > 0 ? (
                         <>
-                          <span className="text-gold">{discoveredCount}</span> /{" "}
-                          {story.totalEndings} discovered
+                          <span className="text-gold-text">
+                            {discoveredCount}
+                          </span>{" "}
+                          / {story.totalEndings} discovered
                         </>
                       ) : (
                         <>{story.totalEndings} to discover</>
@@ -201,19 +203,19 @@ export default function InteractiveStoryPage() {
                   </h2>
                   <ul className="space-y-2 text-sm text-muted-foreground">
                     <li className="flex items-start gap-2">
-                      <span className="text-gold">1.</span>
+                      <span className="text-gold-text">1.</span>
                       Read each scene and make your choice
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="text-gold">2.</span>
+                      <span className="text-gold-text">2.</span>
                       Your choices shape the story and lead to different endings
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="text-gold">3.</span>
+                      <span className="text-gold-text">3.</span>
                       Replay to discover all {story.totalEndings} endings
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="text-gold">4.</span>
+                      <span className="text-gold-text">4.</span>
                       Your progress is saved automatically
                     </li>
                   </ul>
@@ -236,7 +238,7 @@ export default function InteractiveStoryPage() {
                     asChild
                     variant="outline"
                     size="lg"
-                    className="gap-2 border-gold/30 text-gold hover:bg-gold/10"
+                    className="gap-2 border-gold/30 text-gold-text hover:bg-gold/10"
                   >
                     <Link href="/stories">
                       <ArrowLeft className="h-4 w-4" />
@@ -257,7 +259,7 @@ export default function InteractiveStoryPage() {
             <Button
               asChild
               variant="outline"
-              className="gap-2 border-gold/30 text-gold hover:bg-gold/10"
+              className="gap-2 border-gold/30 text-gold-text hover:bg-gold/10"
             >
               <Link href="/stories">
                 <ArrowLeft className="h-4 w-4" />

@@ -571,10 +571,14 @@ function LocationsPageInner() {
                                       },
                                     }),
                                   );
-                                  if (globalThis.innerWidth < 1024) setViewMode("map");
+                                  if (globalThis.innerWidth < 1024)
+                                    setViewMode("map");
                                 }}
                               >
-                                <MapPin className="h-3 w-3" aria-hidden="true" />
+                                <MapPin
+                                  className="h-3 w-3"
+                                  aria-hidden="true"
+                                />
                               </button>
                             ) : (
                               <span className="text-[10px] border border-border px-1 rounded shrink-0">
@@ -593,7 +597,7 @@ function LocationsPageInner() {
                         </p>
                         <Link
                           href={`/locations/${location.id}`}
-                          className="inline-flex items-center gap-1 text-xs text-gold hover:text-gold-light mt-2 transition-colors"
+                          className="inline-flex items-center gap-1 text-xs text-gold-text hover:text-gold-text mt-2 transition-colors"
                           aria-label={`Explore ${location.name}`}
                           onClick={(e) => e.stopPropagation()}
                         >

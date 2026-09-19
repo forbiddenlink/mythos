@@ -307,7 +307,7 @@ export default async function CollectionPage({ params }: PageProps) {
                           <div>
                             <Badge
                               variant="outline"
-                              className="text-xs capitalize mb-2 border-gold/30 text-gold"
+                              className="text-xs capitalize mb-2 border-gold/30 text-gold-text"
                             >
                               {pantheonName}
                             </Badge>
@@ -381,7 +381,7 @@ export default async function CollectionPage({ params }: PageProps) {
                       <CardHeader className="pb-2">
                         <Badge
                           variant="outline"
-                          className="text-xs capitalize mb-2 w-fit border-gold/30 text-gold"
+                          className="text-xs capitalize mb-2 w-fit border-gold/30 text-gold-text"
                         >
                           {pantheonName}
                         </Badge>

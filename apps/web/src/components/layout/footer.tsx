@@ -67,7 +67,7 @@ export function Footer() {
                 <span className="font-serif text-lg font-semibold text-foreground group-hover:text-gold tracking-wide leading-tight block transition-colors duration-300">
                   Mythos Atlas
                 </span>
-                <span className="text-[10px] text-gold/80 tracking-[0.2em] uppercase font-sans font-medium block">
+                <span className="text-[10px] text-gold-text tracking-[0.2em] uppercase font-sans font-medium block">
                   Encyclopedia of Antiquity
                 </span>
               </div>

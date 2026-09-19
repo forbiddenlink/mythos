@@ -56,7 +56,7 @@ export function ArtifactProvenance({
       value: (
         <Link
           href={`/deities/${owner.slug}`}
-          className="text-gold hover:underline"
+          className="text-gold-text hover:underline"
         >
           {owner.name}
         </Link>
@@ -77,12 +77,12 @@ export function ArtifactProvenance({
 
   return (
     <aside
-      className="border border-bronze/30 bg-midnight/40 p-5"
+      className="border border-border bg-card p-5"
       aria-label="Artifact provenance"
     >
       <div className="mb-4 flex items-center gap-2">
-        <MythosMark id="relic" className="h-4 w-4 text-bronze" />
-        <h2 className="text-xs font-medium uppercase tracking-[0.22em] text-parchment/70">
+        <MythosMark id="relic" className="h-4 w-4 text-gold-text" />
+        <h2 className="text-xs font-medium uppercase tracking-[0.22em] text-muted-foreground">
           Provenance
         </h2>
       </div>
@@ -111,7 +111,7 @@ export function ArtifactProvenance({
               <li key={story.id}>
                 <Link
                   href={`/stories/${story.slug}`}
-                  className="text-sm text-gold hover:underline"
+                  className="text-sm text-gold-text hover:underline"
                 >
                   {story.title}
                 </Link>

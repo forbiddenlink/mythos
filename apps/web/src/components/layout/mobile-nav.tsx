@@ -160,7 +160,7 @@ export function MobileNav({ sections }: Readonly<MobileNavProps>) {
               <span className="font-serif text-lg font-semibold text-foreground group-hover:text-gold tracking-wide leading-tight transition-colors">
                 Mythos Atlas
               </span>
-              <span className="text-[10px] text-gold/80 tracking-[0.18em] uppercase font-sans font-medium">
+              <span className="text-[10px] text-gold-text tracking-[0.18em] uppercase font-sans font-medium">
                 Ancient Mythology
               </span>
             </div>

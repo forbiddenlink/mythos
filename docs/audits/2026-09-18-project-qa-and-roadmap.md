@@ -28,18 +28,18 @@ The working tree already contained a substantial next batch before this review: 
 
 Computed from the local JSON, not from old README claims:
 
-| Content | Records |
-|---|---:|
-| Pantheons | 13 |
-| Deities | 190 |
-| Heroes | 20 |
-| Stories | 98 |
-| Creatures | 56 |
-| Artifacts | 52 |
-| Locations | 121 |
-| Source records | 34 |
-| Journeys | 6 |
-| Tours | 5 |
+| Content        | Records |
+| -------------- | ------: |
+| Pantheons      |      13 |
+| Deities        |     190 |
+| Heroes         |      20 |
+| Stories        |      98 |
+| Creatures      |      56 |
+| Artifacts      |      52 |
+| Locations      |     121 |
+| Source records |      34 |
+| Journeys       |       6 |
+| Tours          |       5 |
 
 Coverage has different meanings and should not be collapsed into a single quality score:
 
@@ -186,14 +186,14 @@ These are maintenance tasks, not reasons for a framework rewrite.
 
 ## Suggested next delivery sequence
 
-| Order | Deliverable | Done when |
-|---|---|---|
-| 1 | Editorial provenance pilot | 20 heroes and selected flagship entries have verified attribution, passage links, and explicit quote/paraphrase status |
-| 2 | Source-specific variants and comparisons | No unsupported equality/independence labels; source disagreements are visible |
-| 3 | Reading and task hierarchy pass with Claude | Review/quiz/comparison actions are immediate; detail/source templates follow one coherent hierarchy |
-| 4 | Accessibility release check | Manual flows and automated scans pass across representative templates, themes, and viewport sizes |
-| 5 | Compact client data and performance budgets | Before/after measurements show the catalog can grow without proportional client payload growth |
-| 6 | Learning continuity | Source-linked practice, dependable saves, export/import, and an evidence-based retention measurement plan |
+| Order | Deliverable                                 | Done when                                                                                                              |
+| ----- | ------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| 1     | Editorial provenance pilot                  | 20 heroes and selected flagship entries have verified attribution, passage links, and explicit quote/paraphrase status |
+| 2     | Source-specific variants and comparisons    | No unsupported equality/independence labels; source disagreements are visible                                          |
+| 3     | Reading and task hierarchy pass with Claude | Review/quiz/comparison actions are immediate; detail/source templates follow one coherent hierarchy                    |
+| 4     | Accessibility release check                 | Manual flows and automated scans pass across representative templates, themes, and viewport sizes                      |
+| 5     | Compact client data and performance budgets | Before/after measurements show the catalog can grow without proportional client payload growth                         |
+| 6     | Learning continuity                         | Source-linked practice, dependable saves, export/import, and an evidence-based retention measurement plan              |
 
 Defer a new backend, mandatory accounts, additional 3D features, a new design system, and bulk AI-authored entries unless a measured user need justifies them. The next improvement should make the current experience more trustworthy or easier to use.
 
@@ -303,7 +303,7 @@ Still outstanding: verify the wider quote corpus, extend reviewed variant covera
 
 This follow-up supersedes the unresolved Anansi and Ibeji status above, without validating the removed Ibeji origin episode.
 
-- Anansi now follows R. S. Rattray's *Akan-Ashanti Folk-Tales* (1930), tale 17, pp. 54–59. The recorded account supports the four tasks and identifies Aso's role and Ya Nsia's inclusion in Nyame's demand. Invented dialogue and the golden chest were removed. Attribution explains that this is a collector-mediated recorded account, not a universal version. [Text reproduction](https://api.pageplace.de/preview/DT0400.9781107776746_A23755138/preview-9781107776746_A23755138.pdf).
+- Anansi now follows R. S. Rattray's _Akan-Ashanti Folk-Tales_ (1930), tale 17, pp. 54–59. The recorded account supports the four tasks and identifies Aso's role and Ya Nsia's inclusion in Nyame's demand. Invented dialogue and the golden chest were removed. Attribution explains that this is a collector-mediated recorded account, not a universal version. [Text reproduction](https://api.pageplace.de/preview/DT0400.9781107776746_A23755138/preview-9781107776746_A23755138.pdf).
 - The unsupported Ibeji origin episode was replaced with a short, attributed account of twin commemoration and a documented sculpture. The existing URL remains usable; the old narrative image is no longer attached. The page explains the correction and limits its claims to the museum interpretation. [Met object 1979.527.22](https://www.metmuseum.org/art/collection/search/314081).
 - Structured references can now link directly to HTTP(S) evidence. Anansi, Ibeji, Oduduwa, and Bat House have direct links; shared labels accommodate scholarship and museum interpretation. Long reference text wraps on narrow screens.
 - Backup downloads now pass the same validation as imports, preventing an export that cannot be restored. Import reads ignore stale results after a newer selection, show a reading status, and allow canceling a preview. Four interaction tests cover cancellation, stale reads, explicit restore, and invalid export rejection.
@@ -328,3 +328,28 @@ Content inventory: 13 bilingual deity excerpts, 22 bilingual story excerpts, and
 - Production build, TypeScript, and diff checks passed. Full lint had zero errors and the existing unused `Badge` warning in SourcesPageClient; the final badge file passed scoped lint.
 - Existing skipped checks: suggested-question input population, Oracle visibility across all pages, and a separate mobile Oracle-button visibility test. Mobile/tablet Oracle dialog tests did run and pass.
 - Still not established: site-wide WCAG conformance, screen-reader usability, all browser engines, exhaustive route/theme coverage, production field performance, or full quotation verification. No deployment or commit was made.
+
+## Expanded evidence, museum, and cross-browser pass
+
+This continuation expands the earlier pilot and supersedes its three skipped Oracle checks.
+
+- Reviewed all 35 structured excerpts and added explicit quotation status, verification level, edition, and HTTP(S) evidence links. Quotation styling and original-language switching require verified wording. Source pages now aggregate deity passages as well as story passages. The detailed [excerpt ledger](./2026-09-18-excerpt-verification.md) records corrections and unresolved edition checks. The 201 legacy deity source notes are inventoried and explicitly unverified; they have not all been individually authenticated.
+- Expanded museum references from three to six documented objects, with five public-domain images and an intentionally image-free Ibeji entry whose reuse rights were not established. The additions cover Osiris, Ur-Namma's temple foundation figure, and Yoruba twin commemoration. The foundation figure is identified as a ruler and religious context, not a depiction of Inanna's descent.
+- Added Inanna: Text and Temple and Ibeji: Objects and Remembrance study routes. They distinguish literary narrative, material evidence, editorial retelling, and a specific documented practice.
+- Corrected the Heracles narrative's chronology and added separate Pseudo-Apollodorus and Euripides accounts. Corrected the Perseus Pindar variant to the music/lament account in Pythian 12 instead of an unsupported geographic claim.
+- Real-file backup restoration now runs across navigation and page reload while preserving unrelated theme/locale storage. Formerly skipped Oracle suggestion, route-presence, and mobile-button checks now run without live API spending.
+- Added opt-in Firefox and WebKit projects. The first complete three-engine run passed 243 of 273 tests; all 30 failures were the same header/footer contrast issue, subsequently corrected.
+- Extended the quality sweep across page families, checking page errors, status, heading count, nested controls, overflow, images, and WCAG A/AA axe rules. The 120-case intermediate run had no runtime errors or overflow, but exposed additional contrast defects, duplicate cinematic headings, unnamed mobile controls, and a museum-image delivery failure. These findings drove targeted fixes rather than being counted as a clean result.
+- Fixed a reduced-motion home hydration mismatch and deferred optional audio enhancement work until load/idle. The [performance audit](./2026-09-18-performance.md) records asset measurements; it does not establish a production Core Web Vitals or transfer-size improvement.
+
+### Final verification and remaining limits
+
+- Final production build and its TypeScript check passed. Unit suite: 82 files / 939 tests passed. The configured eight-module coverage gate passed (95.73% statements, 87.04% branches, 97.01% functions, 96.4% lines); this is not repository-wide coverage. Full ESLint finished with zero errors and the pre-existing unused `Badge` import warning in SourcesPageClient.
+- The expanded 252-case audit covered 63 representative routes at 320px and 1440px in both themes. Every case returned HTTP 200, with no page errors, document overflow, broken images, nested controls, or duplicate rendered main headings. Nine cases exposed shared contrast or animation issues.
+- After those fixes, a fresh production build passed 52 focused route/viewport/theme checks with zero axe A/AA violations, runtime errors, layout issues, or broken images. This rechecked every failed page family and added Ra, Amaterasu, the Trojan War museum image, and both new study routes. Mobile title wrapping was also inspected visually.
+- Visual review sampled the home, index, reading/source, study, saved-content, quiz, collection, graph/map, review, and artifact families. Automated checks are broader than the visual sample; neither establishes exhaustive screen-reader usability or WCAG conformance.
+- The closing 279-test run passed 276 checks; three Firefox setup checks timed out waiting for the full browser load event. Quiz and search setups now wait for DOM readiness and their relevant UI. The complete quiz/search follow-up passed all 48 checks across Chromium, Firefox, and WebKit. Thus the remaining failures were cleared by a focused rerun; this is not a claim of one entirely green 279-test execution. There are no skipped checks.
+- Earlier runs also exposed readiness races. The backup picker is now disabled until its client handler is attached, with an SSR regression test; the real file-picker restore flow passed in all three engines on the final build. Streak fixtures are seeded before application initialization, deity title checks select the accessible level-one heading, and discovery waits for completed content and verifies that the selected deity changes.
+- Museum images are delivered directly using Next Image's `unoptimized` option because the optimizer rejected a valid museum response. A real-browser check confirms the image loads. A suspected hero-image routing issue disappeared after restarting the stale preview; no speculative proxy change or asset relocation was retained.
+
+Still open: individual edition checks for the 201 legacy source notes and the structured excerpts still marked unverified; more tradition-specific expert review; manual screen-reader testing; production field performance measurements; and a broader visual/copy direction pass with Claude under the repository's routing guidance. Oracle UI tests use intercepted requests; live model responses and production credentials were not verified. No deployment was performed.

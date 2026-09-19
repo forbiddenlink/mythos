@@ -211,7 +211,12 @@ export default function APIPage() {
                     </CardDescription>
                   </CardHeader>
                   <CardContent>
-                    <div className="bg-midnight/70 p-4 rounded-lg border border-gold/10 overflow-x-auto">
+                    <div
+                      aria-label={`GraphQL ${endpoint.name} query example`}
+                      className="bg-midnight/70 p-4 rounded-lg border border-gold/10 overflow-x-auto focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold/60 focus-visible:ring-offset-2 focus-visible:ring-offset-midnight"
+                      role="region"
+                      tabIndex={0}
+                    >
                       <pre className="text-gold/80 text-sm font-mono">
                         <code>{endpoint.example}</code>
                       </pre>

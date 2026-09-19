@@ -215,6 +215,7 @@ export default function FamilyTreePage() {
                 size="sm"
                 onClick={() => setViewMode("hierarchical")}
                 className="gap-2 h-8"
+                aria-label="Hierarchical family tree view"
               >
                 <GitBranch className="h-3.5 w-3.5" />
                 <span className="hidden sm:inline">Hierarchical</span>
@@ -224,6 +225,7 @@ export default function FamilyTreePage() {
                 size="sm"
                 onClick={() => setViewMode("network")}
                 className="gap-2 h-8"
+                aria-label="Network family tree view"
               >
                 <MythosMark id="constellation" className="h-3.5 w-3.5" />
                 <span className="hidden sm:inline">Network</span>

@@ -2,12 +2,13 @@ import { test, expect } from "@playwright/test";
 
 test.describe("Search Functionality", () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto("/");
-    await page.waitForLoadState("domcontentloaded");
+    await page.goto("/", { waitUntil: "domcontentloaded" });
     // Wait for main content to be visible instead of networkidle (unreliable with analytics)
     await page.waitForSelector("main", { state: "visible", timeout: 10000 });
     // The server-rendered main is visible before client keyboard handlers mount.
-    await expect(page.getByRole("button", { name: /Switch to (light|dark) mode/ })).toBeVisible();
+    await expect(
+      page.getByRole("button", { name: /Switch to (light|dark) mode/ }),
+    ).toBeVisible();
   });
 
   test("should open search with keyboard shortcut", async ({ page }) => {

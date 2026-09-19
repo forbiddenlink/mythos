@@ -128,10 +128,15 @@ test.describe("Phase 7: Deity Editorial Layout & Details", () => {
   test("should render deity hero artwork and title on deity page", async ({
     page,
   }) => {
-    await page.goto(`${BASE_URL}/deities/zeus`);
-    await page.waitForLoadState("domcontentloaded");
+    await page.goto(`${BASE_URL}/deities/zeus`, {
+      waitUntil: "domcontentloaded",
+    });
 
-    const deityName = page.locator("h1").filter({ hasText: "Zeus" });
+    const deityName = page.getByRole("heading", {
+      name: "Zeus",
+      level: 1,
+      exact: true,
+    });
     await expect(deityName).toBeVisible({ timeout: 10000 });
 
     const deityImage = page.locator('figure img[alt*="Zeus"]');
@@ -142,29 +147,42 @@ test.describe("Phase 7: Deity Editorial Layout & Details", () => {
     page,
   }) => {
     // Test Greek deity
-    await page.goto(`${BASE_URL}/deities/zeus`);
-    await page.waitForLoadState("domcontentloaded");
-    const greekDeity = page.locator("h1").filter({ hasText: "Zeus" });
+    await page.goto(`${BASE_URL}/deities/zeus`, {
+      waitUntil: "domcontentloaded",
+    });
+    const greekDeity = page.getByRole("heading", {
+      name: "Zeus",
+      level: 1,
+      exact: true,
+    });
     await expect(greekDeity).toBeVisible({ timeout: 10000 });
 
     // Test Egyptian deity
-    await page.goto(`${BASE_URL}/deities/ra`);
-    await page.waitForLoadState("domcontentloaded");
-    const egyptianDeity = page.locator("h1").filter({ hasText: "Ra" });
+    await page.goto(`${BASE_URL}/deities/ra`, {
+      waitUntil: "domcontentloaded",
+    });
+    const egyptianDeity = page.getByRole("heading", {
+      name: "Ra",
+      level: 1,
+      exact: true,
+    });
     await expect(egyptianDeity).toBeVisible({ timeout: 10000 });
 
     // Test Japanese deity
-    await page.goto(`${BASE_URL}/deities/amaterasu`);
-    await page.waitForLoadState("domcontentloaded");
-    const japaneseDeity = page.locator("h1").filter({ hasText: "Amaterasu" });
+    await page.goto(`${BASE_URL}/deities/amaterasu`, {
+      waitUntil: "domcontentloaded",
+    });
+    const japaneseDeity = page.getByRole("heading", {
+      name: "Amaterasu",
+      level: 1,
+      exact: true,
+    });
     await expect(japaneseDeity).toBeVisible({ timeout: 10000 });
   });
 });
 
 test.describe("Phase 7: Layout Effects", () => {
-  test("Oracle button should be present on all pages", async ({
-    page,
-  }) => {
+  test("Oracle button should be present on all pages", async ({ page }) => {
     const pagesToCheck = ["/", "/deities", "/pantheons", "/stories", "/quiz"];
 
     for (const path of pagesToCheck) {
@@ -179,9 +197,7 @@ test.describe("Phase 7: Layout Effects", () => {
 });
 
 test.describe("Phase 7: Mobile Viewport Tests", () => {
-  test("Oracle button should be visible on mobile", async ({
-    browser,
-  }) => {
+  test("Oracle button should be visible on mobile", async ({ browser }) => {
     const context = await browser.newContext({ ...devices["iPhone 13"] });
     const page = await context.newPage();
 

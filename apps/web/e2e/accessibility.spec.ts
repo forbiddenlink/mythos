@@ -60,7 +60,10 @@ test.describe("Accessibility", () => {
 });
 
 test.describe("Reading pages at narrow widths", () => {
-  test.use({ viewport: { width: 320, height: 800 }, contextOptions: { reducedMotion: "reduce" } });
+  test.use({
+    viewport: { width: 320, height: 800 },
+    contextOptions: { reducedMotion: "reduce" },
+  });
 
   for (const theme of ["light", "dark"]) {
     for (const path of [
@@ -70,18 +73,46 @@ test.describe("Reading pages at narrow widths", () => {
       "/sources/iliad",
     ]) {
       test(`${path} remains accessible in ${theme} mode`, async ({ page }) => {
-        await page.addInitScript((value) => localStorage.setItem("theme", value), theme);
+        await page.addInitScript(
+          (value) => localStorage.setItem("theme", value),
+          theme,
+        );
         await page.goto(path);
-        await expect(page.getByRole("button", { name: `Switch to ${theme === "light" ? "dark" : "light"} mode` })).toBeVisible();
+        await expect(
+          page.getByRole("button", {
+            name: `Switch to ${theme === "light" ? "dark" : "light"} mode`,
+          }),
+        ).toBeVisible();
         await expect(page.locator("h1")).toHaveCount(1);
-        await expect(page.locator("a a, a button, button a, button button")).toHaveCount(0);
-        expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+        await expect(
+          page.locator("a a, a button, button a, button button"),
+        ).toHaveCount(0);
+        expect(
+          await page.evaluate(
+            () => document.documentElement.scrollWidth <= innerWidth,
+          ),
+        ).toBe(true);
 
-        const provenance = page.getByRole("complementary", { name: "Catalogued sources" });
+        const provenance = page.getByRole("complementary", {
+          name: "Catalogued sources",
+        });
         if (await provenance.count()) await provenance.scrollIntoViewIfNeeded();
         if (path === "/deities/hades") {
-          await expect(page.getByRole("heading", { name: "Source Notes" })).toBeVisible();
+          await expect(
+            page.getByRole("heading", { name: "Source Notes" }),
+          ).toBeVisible();
           await expect(page.locator("main blockquote")).toHaveCount(0);
+        }
+        if (path === "/sources/iliad") {
+          await expect(
+            page.getByRole("link", { name: "Featured in Zeus →" }),
+          ).toBeVisible();
+          await expect(
+            page.getByRole("link", { name: "Featured in The Trojan War →" }),
+          ).toBeVisible();
+          await expect(
+            page.getByText("Original wording unverified", { exact: true }),
+          ).toHaveCount(3);
         }
         const result = await new AxeBuilder({ page })
           .include("main")

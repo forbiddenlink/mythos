@@ -124,7 +124,7 @@ export function OracleConsult() {
       >
         <label
           htmlFor="oracle-petition"
-          className="mb-3 block font-serif text-sm uppercase tracking-[0.3em] text-gold/70"
+          className="mb-3 block font-serif text-sm uppercase tracking-[0.3em] text-gold"
         >
           Pose your petition
         </label>
@@ -136,7 +136,7 @@ export function OracleConsult() {
             disabled={isConsulting}
             placeholder="Ask the Oracle of the gods and their myths…"
             maxLength={4000}
-            className="flex-1 rounded-lg border border-gold/25 bg-midnight/40 px-4 py-3 text-parchment placeholder:text-parchment/40 focus:border-gold/60 focus:outline-none focus:ring-1 focus:ring-gold/40 disabled:opacity-60"
+            className="flex-1 rounded-lg border border-gold/25 bg-midnight/40 px-4 py-3 text-parchment placeholder:text-parchment/70 focus:border-gold/60 focus:outline-none focus:ring-1 focus:ring-gold/40 disabled:opacity-60"
           />
           <button
             type="submit"
@@ -152,12 +152,12 @@ export function OracleConsult() {
           </button>
         </div>
         <p
-          className="mt-1 text-right text-[10px] text-parchment/40"
+          className="mt-1 text-right text-[10px] text-parchment/70"
           aria-live="polite"
         >
           {input.length}/4000
         </p>
-        <p className="mt-2 text-[10px] leading-snug text-parchment/40">
+        <p className="mt-2 text-[10px] leading-snug text-parchment/70">
           {t("aiDisclosure")}
         </p>
 
@@ -239,7 +239,7 @@ export function OracleConsult() {
               )}
 
               {prophecy && !prophecy.grounded && (
-                <p className="mt-4 text-xs italic text-parchment/40">
+                <p className="mt-4 text-xs italic text-parchment/70">
                   Spoken from memory alone — no Atlas source anchored this
                   reply.
                 </p>

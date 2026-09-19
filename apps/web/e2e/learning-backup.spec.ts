@@ -85,8 +85,17 @@ test.describe("Learning backup", () => {
     });
     await page.reload({ waitUntil: "domcontentloaded" });
 
-    const upload = page.locator('input[type="file"]');
-    await upload.setInputFiles({
+    // Open the picker through the visible client control first. This ensures
+    // its React change handler has hydrated before dispatching a file event.
+    const chooseBackup = page.getByRole("button", {
+      name: "Choose backup to review",
+    });
+    await expect(chooseBackup).toBeEnabled();
+    const chooser = page.waitForEvent("filechooser");
+    await chooseBackup.click();
+    await (
+      await chooser
+    ).setFiles({
       name: BACKUP_NAME,
       mimeType: "application/json",
       buffer: Buffer.from(backupFile()),
@@ -99,7 +108,9 @@ test.describe("Learning backup", () => {
     const reloaded = page.waitForEvent("framenavigated");
     await page.getByRole("button", { name: "Restore this backup" }).click();
     await reloaded;
-    await expect(page.getByRole("heading", { name: "Your Journey" })).toBeVisible();
+    await expect(
+      page.getByRole("heading", { name: "Your Journey" }),
+    ).toBeVisible();
 
     const restored = await page.evaluate(() => ({
       bookmarks: localStorage.getItem("mythos-atlas-bookmarks"),
