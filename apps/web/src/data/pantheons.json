@@ -365,5 +365,84 @@
       }
     ],
     "imageUrl": "/pantheons/mesoamerican.jpg"
+  },
+  {
+    "id": "slavic-pantheon",
+    "name": "Slavic Pantheon",
+    "slug": "slavic",
+    "culture": "Slavic (East, West, and Baltic-coast Slavic peoples)",
+    "region": "Eastern & Central Europe",
+    "timePeriodStart": 500,
+    "timePeriodEnd": 1250,
+    "description": "The gods of the pre-Christian Slavic peoples, known almost entirely through hostile outside witnesses, a handful of chronicle entries, and the outlines that survived Christianization inside later folklore.",
+    "detailedHistory": "## A religion without its own scripture\n\nNo native Slavic pagan text survives. Everything known comes from outsiders (a Byzantine soldier-historian, German and Danish churchmen), from a handful of lines in Christian chronicles written after the fact, and from linguistic and archaeological reconstruction. The earliest witness is Procopius, who in his *History of the Wars* (7.14, written in the 550s CE) describes the early Slavs worshipping a single, unnamed god who \"master of all\" hurls the lightning, and sacrificing cattle and other victims to him, alongside rivers, nymphs, and other spirits that receive lesser offerings. He names no gods.\n\n## East Slavic Rus': the Primary Chronicle\n\nThe *Russian Primary Chronicle* (*Povest' vremennykh let*), compiled in Kiev in the early 12th century and preserved in the Laurentian codex (1377) and Hypatian codex (c. 1425), records the treaties of 907, 945, and 971, in which the Rus' swear by their weapons, by Perun, and by Volos (Veles), \"the cattle god.\" Under the year 980 it reports that Prince Vladimir of Kiev set up six idols on a hill outside his palace — Perun, Khors, Dazhbog, Stribog, Simargl, and Mokosh — which he had torn down and thrown into the Dnieper after his own conversion in 988. A separate strand, a gloss inserted into the Hypatian Chronicle's translation of John Malalas under 1114, borrows the frame of Greek mythology to equate Svarog with Hephaestus and to call Dazhbog \"son of Svarog\" — most historians read this as a learned monk's literary aside, not as direct testimony to living cult.\n\n## West Slavic and Baltic-coast Slavs: temples the Rus' never had\n\nUnlike the Rus', the Polabian and Pomeranian Slavs (the Redarii, the Rani of Rügen, the Pomeranians around Szczecin) built actual temple buildings with carved cult images, and German and Danish churchmen described what they saw before tearing it down: Thietmar of Merseburg (*Chronicon*, completed by 1018) on Svarozhich at the shrine of Riedegost; Adam of Bremen (*Gesta Hammaburgensis Ecclesiae Pontificum*, c. 1075), who gives a different name, Redigast, for what may be the same site; Helmold of Bosau (*Chronica Slavorum*, c. 1168) on Chernobog and on Prove and Svantevit among the Wagrians and Rani; Saxo Grammaticus (*Gesta Danorum*, Book 14, c. 1200–1216) on the four-headed idol and the white divination-horse at Arkona, destroyed by the Danish king Valdemar I in 1168; and the *Lives of Otto of Bamberg* by Ebbo and Herbord (1150s) on Triglav at Szczecin, destroyed during Otto's mission of 1124–1128.\n\n## Reading these sources honestly\n\nEvery one of these accounts was written by a Christian outsider recording either conquest or conversion, so hostile framing and outright misunderstanding are built into the record. Vladimir's 980 pantheon was a political act by a reigning prince, not a description of a stable state religion observed from inside. Khors and Simargl are barely understood at all — their names are probably borrowed, and assigning either a confident \"domain\" goes beyond what the sources support. And the storm-combat between Perun and Veles, often retold on the internet as if it were an attested myth, is a 20th-century linguistic reconstruction by Vyacheslav Ivanov and Vladimir Toporov, built by comparing later folklore, place names, and Baltic and Vedic parallels — not a story any medieval writer set down.\n\n## What this site will not repeat\n\nThe *Book of Veles* (*Velesova kniga*), first published in the 1950s and claiming to be an ancient birch-bark chronicle, is a demonstrated 20th-century forgery: its language mixes Slavic forms from different centuries and no physical tablet has ever been produced for inspection. The Prav-Yav-Nav triad and the \"god\" Chislobog that circulate in popular and Rodnovery (Slavic neopagan) writing come from that forgery or from modern invention, not from any medieval source, and are not treated here as ancient. Figures such as Lada and a personified Kupala are attested only in early-modern and modern folklore, never in a pagan-era source, and are marked as such wherever they appear.\n\n## Folk survival\n\nAfter Christianization (the Rus' in 988; the Baltic Slavs by the 12th–13th century), older beliefs did not vanish but layered under a Christian surface, a pattern Russian scholarship calls *dvoeverie* (\"double-faith\"): Perun's thunder role was partly absorbed into the prophet Elijah, Veles's patronage of cattle partly into Saint Blaise, and a rich lower mythology of household, forest, and water spirits (domovoi, leshy, vodyanoy, rusalka) survived into the 19th-century folklore collected by ethnographers such as Alexander Afanasyev — a genuinely rich record, but of 19th-century peasant belief, not of ancient pagan theology.",
+    "citationSources": [
+      {
+        "title": "History of the Wars (De Bello Gothico), 7.14",
+        "author": "Procopius",
+        "date": "c. 550s CE",
+        "type": "primary"
+      },
+      {
+        "title": "Russian Primary Chronicle (Povest' vremennykh let), s.a. 907, 945, 971, 980, 988",
+        "author": "unattributed monastic chroniclers, Kiev",
+        "date": "compiled early 12th c.; Laurentian codex 1377, Hypatian codex c. 1425",
+        "type": "primary"
+      },
+      {
+        "title": "Chronicle of John Malalas (Slavonic translation), Hypatian Chronicle gloss s.a. 1114",
+        "author": "unattributed",
+        "date": "1114 interpolation",
+        "type": "primary"
+      },
+      {
+        "title": "Chronicon, Book VI",
+        "author": "Thietmar of Merseburg",
+        "date": "completed by 1018",
+        "type": "primary"
+      },
+      {
+        "title": "Gesta Hammaburgensis Ecclesiae Pontificum",
+        "author": "Adam of Bremen",
+        "date": "c. 1075",
+        "type": "primary"
+      },
+      {
+        "title": "Chronica Slavorum",
+        "author": "Helmold of Bosau",
+        "date": "c. 1168",
+        "type": "primary"
+      },
+      {
+        "title": "Gesta Danorum, Book 14",
+        "author": "Saxo Grammaticus",
+        "date": "c. 1200–1216",
+        "type": "primary"
+      },
+      {
+        "title": "Vita Ottonis episcopi Babenbergensis",
+        "author": "Ebbo",
+        "date": "c. 1151",
+        "type": "primary"
+      },
+      {
+        "title": "Dialogus de Vita Ottonis episcopi Babenbergensis",
+        "author": "Herbord",
+        "date": "c. 1158",
+        "type": "primary"
+      },
+      {
+        "title": "Narodnye russkie skazki (Russian Fairy Tales)",
+        "author": "Alexander Afanasyev",
+        "date": "1855–1863",
+        "type": "secondary"
+      },
+      {
+        "title": "Issledovaniya v oblasti slavyanskikh drevnostey (Studies in the Field of Slavic Antiquities)",
+        "author": "Vyacheslav Ivanov & Vladimir Toporov",
+        "date": "1974",
+        "type": "secondary"
+      }
+    ]
   }
 ]

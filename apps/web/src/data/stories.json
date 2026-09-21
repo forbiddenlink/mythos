@@ -3341,5 +3341,111 @@
     "category": "hero",
     "culturalSignificance": "Pairs Maui’s solar feat with Hina’s craft, rooting astronomy in household life across Polynesian tellings.",
     "imageUrl": "/stories/hina-maui-lengthened-day.png"
+  },
+  {
+    "id": "vladimirs-pantheon-980",
+    "pantheonId": "slavic-pantheon",
+    "title": "Vladimir's Pantheon of 980",
+    "slug": "vladimirs-pantheon-980",
+    "summary": "Prince Vladimir of Kiev raises six idols on a hill outside his palace in 980, an official state pantheon he himself would tear down eight years later.",
+    "fullNarrative": "## A prince's pantheon\n\nAccording to the *Russian Primary Chronicle*, in the year 980, having just secured sole rule over Kiev by defeating his brother Yaropolk, Vladimir Sviatoslavich set up a row of wooden idols on a hill outside his palace: Perun, carved with a head of silver and a moustache of gold, standing first among Khors, Dazhbog, Stribog, Simargl, and Mokosh, the only goddess in the group. The chronicle says the people of Kiev brought their sons and daughters to sacrifice before these images, \"defiling the land with their offerings.\"\n\n## A political pantheon\n\nHistorians generally read the 980 pantheon less as a snapshot of settled East Slavic religion than as a deliberate act of statecraft: a newly secure prince gathering gods associated with different peoples and regions under his rule — Iranian-tinged names like Khors and Simargl alongside clearly Slavic ones — into a single, visible cult at the seat of his power, much as he would later choose a single foreign religion (Byzantine Christianity) for the same unifying purpose.\n\n## Torn down in 988\n\nEight years later, having decided to convert, Vladimir had the same idols destroyed. The chronicle singles out Perun for a detailed, almost theatrical demolition: bound to a horse's tail, dragged down the hill while twelve men beat it with sticks \"not because the wood feels blows, but to mock the demon who deceived men in this guise,\" then thrown into the Dnieper with men posted along the bank to push it past the city and the rapids so no one could retrieve or venerate it again. Mass baptism of Kiev's population in the river followed.",
+    "keyExcerpts": "Vladimir sets up Perun, Khors, Dazhbog, Stribog, Simargl, and Mokosh on a Kiev hilltop in 980; in 988, after his own conversion, he has the same idols torn down, Perun's dragged through the streets and thrown into the Dnieper.",
+    "category": "legend",
+    "moralThemes": [
+      "statecraft and religion",
+      "the reversibility of official belief",
+      "conversion as political theater"
+    ],
+    "culturalSignificance": "The single fullest East Slavic account of state paganism and its own deliberate end, and the chronicle's main direct source for the names of six of the twelve deities on this site.",
+    "citationSources": [
+      {
+        "title": "Russian Primary Chronicle (Povest' vremennykh let), s.a. 980 and 988",
+        "author": "unattributed monastic chroniclers, Kiev",
+        "date": "compiled early 12th c.; Laurentian codex 1377, Hypatian codex c. 1425",
+        "type": "primary"
+      }
+    ],
+    "featuredDeities": [
+      "perun",
+      "khors",
+      "dazhbog",
+      "stribog",
+      "simargl",
+      "mokosh"
+    ],
+    "featuredLocations": ["starokyivska-hill"]
+  },
+  {
+    "id": "perun-and-veles",
+    "pantheonId": "slavic-pantheon",
+    "title": "The Storm-God's Duel with the Serpent Below",
+    "slug": "perun-and-veles",
+    "summary": "A modern scholarly reconstruction, not a medieval text: linguists Vyacheslav Ivanov and Vladimir Toporov pieced together a hypothetical myth of Perun battling a serpent-shaped Veles from later folklore, place names, and comparative Indo-European mythology.",
+    "fullNarrative": "## Flagged as reconstruction, not attested myth\n\nNo medieval Slavic text narrates a story of Perun fighting Veles. What follows is the widely cited 1974 reconstruction by the Soviet linguists Vyacheslav Ivanov and Vladimir Toporov, built from comparative method rather than from any single surviving narrative, and it is presented here explicitly as a modern scholarly hypothesis, clearly separated from the attested chronicle material about either god.\n\n## The method behind the reconstruction\n\nIvanov and Toporov worked outward from three kinds of evidence: East Slavic folk tales and proverbs (some collected by Afanasyev) in which a thunder figure chases a snake, wolf, or devil that hides under a tree, a rock, a person, or an animal; place names pairing hill-top or \"Perun\" sites with low-lying or \"Volos/Veles\" sites, including the separation between Perun's hilltop and Veles's low-ground placement in Kiev itself; and comparison with better-attested Indo-European storm-god-versus-serpent combats — Indra against the serpent Vritra in the Vedic *Rigveda*, and Thor's battles with the serpent Jörmungandr in Norse myth.\n\n## The reconstructed shape of the story\n\nAs reconstructed, a serpent-shaped Veles steals cattle, people, or water and hides in a low or hollow place (under a tree, a stone, or in the earth); Perun pursues him from the sky with lightning, splitting the tree or rock that shelters him; Veles flees through a series of transformations and hiding places until Perun's bolt finally strikes true, after which rain falls and order (or the stolen cattle/waters) is restored. Every element of that sequence is inferred, not quoted from a medieval source, and different scholars reconstruct the details differently — this retelling represents one influential version among several, not a settled text.",
+    "keyExcerpts": "A reconstructed sequence, not a quoted myth: a serpent Veles steals something and hides low in the world; Perun strikes from the sky with lightning; Veles flees through transformations; the bolt lands, rain falls, and order returns.",
+    "category": "rivalry",
+    "moralThemes": [
+      "order versus chaos (as reconstructed by comparative mythology)",
+      "the limits of what can be known about a lost religion"
+    ],
+    "culturalSignificance": "The most frequently repeated 'Slavic myth' online and in popular books, making it essential to flag clearly here as a 20th-century academic reconstruction rather than an attested pagan-era story, so it is not mistaken for chronicle content.",
+    "citationSources": [
+      {
+        "title": "Issledovaniya v oblasti slavyanskikh drevnostey (Studies in the Field of Slavic Antiquities)",
+        "author": "Vyacheslav Ivanov & Vladimir Toporov",
+        "date": "1974",
+        "type": "secondary"
+      }
+    ],
+    "featuredDeities": ["perun", "veles"]
+  },
+  {
+    "id": "svantevits-oracle-horse",
+    "pantheonId": "slavic-pantheon",
+    "title": "Svantevit's Oracle Horse at Arkona",
+    "slug": "svantevits-oracle-horse",
+    "summary": "Saxo Grammaticus describes the sacred white horse kept at Arkona for Svantevit's exclusive use, led over crossed spears before war to divine victory or defeat, and the god's annual harvest divination with his drinking horn.",
+    "fullNarrative": "## The temple and its rites\n\nWriting in Book 14 of his *Gesta Danorum* (c. 1200–1216), the Danish historian Saxo Grammaticus describes the temple of Svantevit at Arkona on Rügen in more physical and ritual detail than almost any other Slavic pagan site: a four-headed wooden idol holding a drinking horn and a sword, tended by a single priest forbidden even to breathe near the god's face without first exhaling outside the shrine.\n\n## The harvest horn\n\nOnce a year, after the harvest, the priest filled Svantevit's horn with wine and, the following day, examined how much liquid remained: if the horn had emptied, it foretold a poor year to come; if it was still mostly full, abundance was expected. The priest then poured out the old wine at the idol's feet and refilled the horn for the coming year, a rite the gathered community watched as a forecast for the whole territory.\n\n## The white horse and the crossed spears\n\nSaxo also describes a large white horse stabled at the temple, believed too holy for anyone but Svantevit himself to ride — priests claimed to find it sweated and muddied by morning, as though the god had ridden it fighting his enemies overnight. Before a military campaign, priests planted rows of spears in the ground, crossed in pairs, and led the horse over them: if it stepped over with its right foot first each time, the omen favored going to war; a stumble or a left-foot start called the campaign off. Saxo reports that the temple additionally received a tenth of all war-spoils taken by the Rani, kept in its treasury alongside tribute and ransom money, making Svantevit's cult also a center of very real material wealth and political power on Rügen.",
+    "keyExcerpts": "Once a year the priest reads the fullness of Svantevit's refilled horn to foretell the harvest; before war, the god's white horse is led over crossed spears, and its gait forecasts victory or defeat.",
+    "category": "legend",
+    "moralThemes": [
+      "divination and the will of the gods",
+      "the material power of a temple cult"
+    ],
+    "culturalSignificance": "The fullest surviving eyewitness-informed description of ritual practice at any Slavic pagan shrine, and the direct source for most modern reconstructions of West Slavic temple religion.",
+    "citationSources": [
+      {
+        "title": "Gesta Danorum, Book 14",
+        "author": "Saxo Grammaticus",
+        "date": "composed c. 1200–1216, describing the temple destroyed in 1168",
+        "type": "primary"
+      }
+    ],
+    "featuredDeities": ["svantevit"],
+    "featuredLocations": ["arkona"]
+  },
+  {
+    "id": "vasilisa-the-beautiful",
+    "pantheonId": "slavic-pantheon",
+    "title": "Vasilisa the Beautiful and Baba Yaga",
+    "slug": "vasilisa-the-beautiful",
+    "summary": "Sent by her cruel stepmother into the forest to beg fire from Baba Yaga, Vasilisa survives the witch's household tests with the help of a doll left by her dead mother, and returns with a fire that consumes her tormentors.",
+    "fullNarrative": "## A 19th-century fairy tale, not a pagan myth\n\nThis tale was collected by Alexander Afanasyev and published as part of *Narodnye russkie skazki* (1855–1863), the great 19th-century compendium of East Slavic oral folklore. It has no pagan-era attestation and is presented here as folklore, not as ancient religion, though it is among the best-loved and most widely translated Russian fairy tales.\n\n## The doll and the stepmother\n\nBefore she dies, Vasilisa's mother gives her a small doll, telling her to feed it and confide in it whenever she is in need, and it will help her. Vasilisa's father remarries a woman with two daughters of her own, and the new stepmother, jealous of Vasilisa's beauty, sets her increasingly impossible household chores, hoping to see her fail or worse. On the night the family lets their fire go out, the stepmother sends Vasilisa into the forest to beg a light from Baba Yaga, expecting she will never return.\n\n## The witch's tasks\n\nAt Baba Yaga's hut, turning on chicken legs and fenced with a bone fence topped with skulls whose eyes light the yard, Vasilisa is set a string of impossible household tasks — separating clean grain from dirty, poppy seed from soil, cooking and cleaning for the witch — which her mother's doll secretly completes for her each night while she sleeps. Baba Yaga, unable to find fault or a reason to eat her, and unsettled by Vasilisa's refusal to ask about anything beyond what concerns her directly, finally sends her home with one of the glowing skulls from the fence as her fire.\n\n## The fire's judgment\n\nBack home, the skull's eyes burn through the night, staring at the stepmother and her daughters until, by morning, they have burned to ashes, while Vasilisa is left untouched. She goes on, in the fuller telling of the tale, to weave cloth so fine it reaches the tsar himself, who marries her.",
+    "keyExcerpts": "A magic doll completes Baba Yaga's impossible household tasks for Vasilisa each night; the witch sends her home with a skull for a lamp, whose burning eyes consume the cruel stepmother and stepsisters by morning.",
+    "category": "quest",
+    "moralThemes": [
+      "quiet diligence over complaint",
+      "inherited protection (the mother's blessing)",
+      "the danger and fairness of the liminal witch"
+    ],
+    "culturalSignificance": "One of the most widely translated and illustrated Russian fairy tales, and the primary source for Baba Yaga's best-known characterization as a difficult but fundamentally fair tester rather than a simple monster.",
+    "citationSources": [
+      {
+        "title": "Narodnye russkie skazki (Russian Fairy Tales)",
+        "author": "Alexander Afanasyev",
+        "date": "1855–1863",
+        "type": "secondary"
+      }
+    ]
   }
 ]

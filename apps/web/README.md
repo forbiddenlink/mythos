@@ -4,18 +4,18 @@
 
 ## Overview
 
-Web frontend for Mythos Atlas, an interactive encyclopedia of ancient mythology featuring **13 pantheons**, **213 deities**, **20 heroes**, **98 stories**, **56 creatures**, **52 artifacts**, and **121 mythological locations** — plus quizzes, interactive family trees, 3D artifact viewers, branching stories, and spaced-repetition review.
+Web frontend for Mythos Atlas, an interactive encyclopedia of ancient mythology featuring **14 pantheons**, **225 deities**, **20 heroes**, **102 stories**, **63 creatures**, **52 artifacts**, and **125 mythological locations** — plus quizzes, interactive family trees, 3D artifact viewers, branching stories, and spaced-repetition review.
 
 **Built by Elizabeth Stein** using Next.js 16, React 19, TypeScript 5, and modern web technologies.
 
 ## Features
 
-- 🏛️ **13 Pantheons** — Greek, Norse, Egyptian, Roman, Hindu, Japanese, Celtic, Aztec, Chinese, Mesopotamian, African (Yoruba), Polynesian, Mesoamerican
-- 👑 **190 Deity Profiles** — Filterable by gender, domain, and pantheon with smart sorting
-- 📖 **98 Epic Stories** — Including interactive branching narratives (choose-your-own-adventure)
-- 🐉 **56 Creatures** — Mythological beasts with detailed profiles
+- 🏛️ **14 Pantheons** — Greek, Norse, Egyptian, Roman, Hindu, Japanese, Celtic, Aztec, Chinese, Mesopotamian, African (Yoruba), Polynesian, Mesoamerican, Slavic
+- 👑 **225 Deity Profiles** — Filterable by gender, domain, and pantheon with smart sorting
+- 📖 **102 Epic Stories** — Including interactive branching narratives (choose-your-own-adventure)
+- 🐉 **63 Creatures** — Mythological beasts with detailed profiles
 - ⚔️ **52 Artifacts** — Legendary items with interactive 3D viewer (React Three Fiber)
-- 🗺️ **121 Locations** — Interactive mythological map with filters and 3 guided journeys
+- 🗺️ **125 Locations** — Interactive mythological map with filters and 3 guided journeys
 - 🌳 **Family Trees** — Network graph (ReactFlow) and hierarchical (D3.js) visualizations
 - 🧠 **Quizzes & Games** — Relationship quiz, personality quiz, quick quiz, symbol memory game
 - 📚 **Spaced Repetition** — Flashcard review system with intelligent scheduling
@@ -31,7 +31,7 @@ Web frontend for Mythos Atlas, an interactive encyclopedia of ancient mythology 
 ## Tech Stack
 
 | Category       | Technology                   | Version       |
-| -------------- | ----------------------------- | ------------- |
+| -------------- | ---------------------------- | ------------- |
 | Framework      | Next.js (App Router)         | 16.3.4        |
 | UI             | React                        | 19.2.8        |
 | Language       | TypeScript                   | 6.0.3         |
@@ -119,13 +119,13 @@ src/
 │   ├── ui/               # shadcn/ui components
 │   └── ...               # animations, audio, i18n, pwa, seo, etc.
 ├── data/                 # JSON data files
-│   ├── pantheons.json    # 13 pantheons
-│   ├── deities.json      # 213 deities
+│   ├── pantheons.json    # 14 pantheons
+│   ├── deities.json      # 225 deities
 │   ├── heroes.json       # 20 heroes
-│   ├── stories.json      # 98 stories
-│   ├── creatures.json    # 56 creatures
+│   ├── stories.json      # 102 stories
+│   ├── creatures.json    # 63 creatures
 │   ├── artifacts.json    # 52 artifacts
-│   ├── locations.json    # 121 locations
+│   ├── locations.json    # 125 locations
 │   ├── sources.json      # 34 primary/academic sources
 │   └── relationships.json
 ├── hooks/                # Custom React hooks

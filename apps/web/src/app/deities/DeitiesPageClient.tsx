@@ -116,7 +116,7 @@ export function DeitiesPageClient() {
         mark="laurel"
         tagline="Divine Beings"
         title="Deities"
-        description="Gods and goddesses from 13 pantheons, with family trees, domains, and stories"
+        description="Gods and goddesses from 14 pantheons, with family trees, domains, and stories"
         backgroundImage="/deities-list-hero.jpg"
         backgroundAlt="A dramatic collage of deities from ancient mythology"
         colorScheme="gold"

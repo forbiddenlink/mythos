@@ -262,11 +262,12 @@ export default function AboutPage() {
             </CardHeader>
             <CardContent className="space-y-3">
               <p className="text-foreground/80 leading-relaxed">
-                <strong className="text-gold-text">Last Updated:</strong> August 2026
+                <strong className="text-gold-text">Last Updated:</strong> August
+                2026
               </p>
               <p className="text-foreground/80 leading-relaxed">
                 Mythos Atlas is an ongoing project with regular updates. The
-                encyclopedia currently spans 13 pantheons, and we continuously
+                encyclopedia currently spans 14 pantheons, and we continuously
                 expand depth, source coverage, and cross-cultural links across
                 traditions.
               </p>

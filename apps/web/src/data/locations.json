@@ -2176,5 +2176,78 @@
       }
     ],
     "imageUrl": "/locations/palenque.png"
+  },
+  {
+    "id": "arkona",
+    "name": "Arkona",
+    "locationType": "temple",
+    "pantheonId": "slavic-pantheon",
+    "description": "The temple of Svantevit on Cape Arkona, the northern tip of the island of Rügen, the last great pagan shrine of the Baltic Slavs before its destruction by the Danes in 1168.",
+    "latitude": 54.6811,
+    "longitude": 13.4342,
+    "detailedBio": "## The last pagan stronghold on the Baltic\n\nArkona stood on the chalk cliffs at the northern tip of Rügen, fortified by earthen ramparts that still survive as an archaeological site today. It was the principal shrine of the Rani, a West Slavic tribe, and housed the four-faced idol of Svantevit described in detail by the Danish historian Saxo Grammaticus in Book 14 of his *Gesta Danorum*: a wooden temple within the fortress, a great carved image holding a horn and a sword, and a sacred white horse used to divine the outcome of wars.\n\n## Destruction, 1168\n\nSaxo reports that the Danish king Valdemar I, guided by Bishop Absalon of Roskilde, besieged and took Arkona in 1168, forcing the Rani to accept Christianity and surrender the idol, which was reportedly cut apart and burned before the assembled army. The event marks the effective end of organized paganism among the Baltic Slavs and is one of the best-documented single episodes in the whole corpus of Slavic pagan history, precisely because the Danish side had every reason to record its own victory in detail. Archaeological excavation at the site since the 19th century has confirmed the fortress ramparts and settlement layers, though coastal erosion has since destroyed part of the original promontory.",
+    "primarySources": [
+      {
+        "text": "The city of Arkona [...] stood on a high cliff [...] within its rampart there was a wooden temple, skillfully built, but honored less for its craftsmanship than for the majesty of the god it enshrined.",
+        "source": "Saxo Grammaticus, Gesta Danorum, Book 14 (paraphrase)",
+        "date": "composed c. 1200–1216, describing the site destroyed in 1168"
+      }
+    ]
+  },
+  {
+    "id": "starokyivska-hill",
+    "name": "Starokyivska Hill",
+    "locationType": "sacred_site",
+    "pantheonId": "slavic-pantheon",
+    "description": "The hill outside Prince Vladimir's palace in Kiev where, per the Russian Primary Chronicle, six idols — Perun, Khors, Dazhbog, Stribog, Simargl, and Mokosh — were raised in 980 and pulled down again in 988.",
+    "latitude": 50.4547,
+    "longitude": 30.5238,
+    "detailedBio": "## The site of the state pantheon\n\nThe *Russian Primary Chronicle* records that in 980, before his conversion, Prince Vladimir of Kiev set up six wooden idols on a hill just outside his palace: Perun given pride of place with a silver head and golden moustache, alongside Khors, Dazhbog, Stribog, Simargl, and Mokosh. This was, as far as the chronicle records, a deliberate act of state religious policy by a newly established prince, drawing together gods from across the peoples he ruled rather than a single inherited local cult site. The hill is generally located in what is now the historic Starokyivska (\"Old Kiev\") Hill area of the city, near the later Desyatynna Church.\n\n## Dismantled in 988\n\nAfter Vladimir's baptism and the mass conversion of Kiev in 988, the chronicle reports the same idols being torn down: Perun's image was bound to a horse's tail, dragged down the hill and beaten with sticks, then thrown into the Dnieper and, per the chronicle's account, escorted downstream past the rapids by men posted along the bank to make sure it did not wash ashore and be venerated again. The episode is one of the most vivid and specific passages in the whole chronicle, and is read by historians as much for what it says about Vladimir's political theater of conversion as for what it says about the gods themselves.",
+    "primarySources": [
+      {
+        "text": "And Vladimir began to reign alone in Kiev, and he set up idols on the hill outside the palace [...] and the people sacrificed to them, calling them gods.",
+        "source": "Russian Primary Chronicle, s.a. 980 (paraphrase)",
+        "date": "entry for 980 CE; chronicle compiled early 12th c."
+      },
+      {
+        "text": "And they dragged Perun down to the Dnieper [...] and he ordered men to push it off with poles until it had passed the rapids.",
+        "source": "Russian Primary Chronicle, s.a. 988 (paraphrase)",
+        "date": "entry for 988 CE; chronicle compiled early 12th c."
+      }
+    ]
+  },
+  {
+    "id": "szczecin-triglav-temple",
+    "name": "Szczecin (Triglav's Temple)",
+    "locationType": "temple",
+    "pantheonId": "slavic-pantheon",
+    "description": "The Pomeranian city where Bishop Otto of Bamberg's mission of 1124–1128 destroyed the temple of the three-headed god Triglav, according to the near-contemporary Lives of Otto written by Ebbo and Herbord.",
+    "latitude": 53.4285,
+    "longitude": 14.5528,
+    "detailedBio": "## A Pomeranian cult center\n\nSzczecin (German Stettin) was a major Pomeranian town and, per the biographers of Bishop Otto of Bamberg, home to a temple of the three-headed god Triglav, along with several other lesser shrines that Otto's mission targeted. Ebbo's *Vita Ottonis* (c. 1151) and Herbord's *Dialogus de Vita Ottonis* (c. 1158) both describe Otto's arrival in 1124–1128, sent at the request of the Polish duke Bolesław III to convert recently subjugated Pomerania, and both give Szczecin's temples the fullest individual treatment of any site in the mission.\n\n## Conversion and demolition\n\nThe biographers describe the Szczecin temples being emptied of their treasure and dismantled after negotiation with local elites rather than by force alone, in contrast to the violent Danish conquest of Arkona forty years later. A golden image of Triglav's three heads was reportedly sent to Rome as a gift to Pope Honorius II, framed by the biographers as proof of the mission's success. As with Arkona, the account comes entirely from the converting side, writing to celebrate Otto's later canonization; the temple's internal religious meaning to the Pomeranians themselves is filtered through that lens.",
+    "primarySources": [
+      {
+        "text": "In the city of Stettin there were four temples [...] but one, the greatest and most splendid, was built with wonderful skill [...] in it stood the triple-headed image called Triglav.",
+        "source": "Herbord, Dialogus de Vita Ottonis episcopi Babenbergensis (paraphrase)",
+        "date": "c. 1158, describing events of 1124–1128"
+      }
+    ]
+  },
+  {
+    "id": "peryn",
+    "name": "Peryn",
+    "locationType": "sacred_site",
+    "pantheonId": "slavic-pantheon",
+    "description": "An open-air sanctuary south of Novgorod on the Volkhov river, identified by archaeologists as a likely Perun cult site and named by the First Novgorod Chronicle as the place where his idol was thrown into the river in 989.",
+    "latitude": 58.4711,
+    "longitude": 31.2758,
+    "detailedBio": "## An excavated open-air site\n\nPeryn sits on the west bank of the Volkhov river, near where it drains from Lake Ilmen, just south of Novgorod. Soviet-era excavations (led by V. V. Sedov in the 1940s–50s) uncovered a roughly circular, horseshoe-shaped ditch with a central pit interpreted as the foundation for a wooden idol or post, surrounded by evidence of fire pits — a layout that does not match a Christian church and that most archaeologists read as a pre-Christian open-air sanctuary, consistent with the general East Slavic pattern (unlike the West Slavic Baltic coast) of worshipping without enclosed temple buildings.\n\n## Chronicle connection\n\nThe name Peryn is transparently linked to Perun, and the *First Novgorod Chronicle* records that in 989, following Vladimir's conversion of Kiev the year before, the newly appointed bishop Akim (Joachim) had Novgorod's Perun idol thrown into the Volkhov, an episode local place-name tradition and the excavated site are usually connected to, though the chronicle's own wording does not name Peryn specifically — the identification rests on the site's location, layout, and name rather than an explicit textual statement placing the idol there.",
+    "primarySources": [
+      {
+        "text": "And Bishop Akim came to Novgorod, and destroyed the idols, and threw Perun into the Volkhov.",
+        "source": "First Novgorod Chronicle, s.a. 989 (paraphrase)",
+        "date": "entry for 989 CE; earliest surviving redaction (Synodal copy) 13th–14th c."
+      }
+    ]
   }
 ]

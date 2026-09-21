@@ -17,6 +17,7 @@ export const PANTHEON_COLORS: Record<string, string> = {
   "african-pantheon": "#7a4a1a", // earth ochre (Benin bronze, laterite)
   "polynesian-pantheon": "#0b6e7a", // deep Pacific teal (ocean, basalt)
   "mesoamerican-pantheon": "#2d5a1a", // jade green (ceiba, quetzal)
+  "slavic-pantheon": "#4a5d3a", // oak-forest olive green with a rust undertone (Perun's oak, iron)
 };
 
 export function getPantheonColor(pantheonId: string): string {
@@ -99,6 +100,11 @@ const PANTHEON_ACCENTS: Record<string, PantheonAccent> = {
     primary: "#65a30d",
     secondary: "#4d7c0f",
     label: "Mesoamerican",
+  },
+  "slavic-pantheon": {
+    primary: "#6366f1",
+    secondary: "#4f46e5",
+    label: "Slavic",
   },
 };
 

@@ -390,6 +390,12 @@ export const PANTHEON_COLORS: Record<
     text: "text-bronze",
     dot: "bg-bronze",
   },
+  "slavic-pantheon": {
+    bg: "bg-bronze/15",
+    border: "border-bronze/30",
+    text: "text-bronze",
+    dot: "bg-bronze",
+  },
 };
 
 /**

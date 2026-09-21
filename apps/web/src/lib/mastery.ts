@@ -37,6 +37,7 @@ const PANTHEON_NAMES: Record<string, string> = {
   "aztec-pantheon": "Aztec",
   "mesoamerican-pantheon": "Mesoamerican",
   "mesopotamian-pantheon": "Mesopotamian",
+  "slavic-pantheon": "Slavic",
 };
 
 const MASTERY_THRESHOLDS = {

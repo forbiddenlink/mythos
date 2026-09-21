@@ -1165,5 +1165,168 @@
         "date": "c. 9th–7th century BCE"
       }
     ]
+  },
+  {
+    "id": "leshy",
+    "pantheonId": "slavic-pantheon",
+    "name": "Leshy",
+    "slug": "leshy",
+    "description": "A forest guardian spirit of East Slavic folklore who can change size and shape, lead travelers astray with echoing calls, and grant good hunting to those who show him respect.",
+    "habitat": "Deep forest",
+    "abilities": [
+      "shapeshifting",
+      "size-changing",
+      "voice-throwing / mimicry",
+      "leading travelers in circles"
+    ],
+    "dangerLevel": 4,
+    "detailedBio": "## A 19th-century folk figure, not a pagan-era god\n\nThe leshy (\"forest one\") belongs to the lower mythology recorded from East Slavic peasants by 19th-century ethnographers, chiefly Alexander Afanasyev's collections of folktales and his study *Poeticheskie vozzreniya slavyan na prirodu* (\"The Poetic Outlook of the Slavs upon Nature,\" 1865–1869). No medieval chronicle or missionary account names him; he survives only in this much later oral record, alongside domovoi, vodyanoy, and rusalka, as part of a household-and-wilderness spirit system that coexisted with official Orthodox Christianity (*dvoeverie*, \"double-faith\").\n\n## Character\n\nPeasant tellers described the leshy as the forest's owner and caretaker: he can appear human-sized or taller than the trees, walk without casting a shadow, and wear his coat buttoned right-over-left (opposite the human custom) as a telltale sign. He punishes those who abuse the forest or curse carelessly (a careless \"go to the leshy\" was thought risky to say aloud) and can reward respectful hunters and shepherds with good fortune, but is best known for leading lost travelers in senseless circles until they lose their bearings entirely — a fate reversible, in the folklore, by turning one's clothes inside out.",
+    "primarySources": [
+      {
+        "text": "Collected as part of the largest 19th-century corpus of East Slavic oral folklore.",
+        "source": "Alexander Afanasyev, Narodnye russkie skazki (Russian Fairy Tales), 1855–1863",
+        "date": "collected and published 1855–1863"
+      }
+    ]
+  },
+  {
+    "id": "rusalka",
+    "pantheonId": "slavic-pantheon",
+    "name": "Rusalka",
+    "slug": "rusalka",
+    "description": "A water spirit of East Slavic folklore, most often described as the restless soul of a drowned or unbaptized young woman, who lures men to the water with song.",
+    "habitat": "Rivers, lakes, and the fields near them",
+    "abilities": [
+      "enchanting song / luring",
+      "shapeshifting into a beautiful young woman",
+      "tickling victims to death (in some regional tellings)"
+    ],
+    "dangerLevel": 6,
+    "detailedBio": "## A 19th-century folk figure, not a pagan-era goddess\n\nRusalki are recorded in East Slavic peasant belief collected by 19th-century ethnographers, including Afanasyev, as spirits tied to a specific calendar window (Rusalka Week, in early summer, when they were said to leave the water and roam fields and birch groves). No pagan-era source names or describes them; they belong entirely to the folklore record layered over Christian village life.\n\n## Character\n\nAccounts vary sharply by region: in northern Russian telling, rusalki are often frightening, disheveled, and hostile, the unquiet dead of young women who drowned or died unbaptized or unmarried, luring men into the water with beautiful singing and pulling them under; in Ukrainian telling they are frequently gentler and more playful, associated with fields and rye rather than pure menace. Village custom during Rusalka Week included leaving offerings of cloth on branches and avoiding swimming or working flax, out of respect for or fear of the spirits believed to be abroad.",
+    "primarySources": [
+      {
+        "text": "Collected as part of the largest 19th-century corpus of East Slavic oral folklore.",
+        "source": "Alexander Afanasyev, Narodnye russkie skazki (Russian Fairy Tales), 1855–1863",
+        "date": "collected and published 1855–1863"
+      }
+    ]
+  },
+  {
+    "id": "domovoi",
+    "pantheonId": "slavic-pantheon",
+    "name": "Domovoi",
+    "slug": "domovoi",
+    "description": "A small, hairy household guardian spirit of East Slavic folklore, usually benevolent, who protects a family's home and livestock as long as he is shown respect.",
+    "habitat": "The family home, especially behind the stove or in the threshold/cellar",
+    "abilities": [
+      "invisibility",
+      "minor precognition (warning of misfortune)",
+      "causing mischief when disrespected"
+    ],
+    "dangerLevel": 1,
+    "detailedBio": "## A 19th-century folk figure, not a pagan-era god\n\nThe domovoi (\"house one\") is documented in East Slavic peasant belief recorded by 19th-century ethnographers, including Afanasyev, as the guardian spirit of a specific household, tied to the family that lives there rather than to the building itself. No pagan-era chronicle mentions him; he belongs to the folklore of household spirits alongside the leshy of the forest and the vodyanoy of the water.\n\n## Character\n\nUsually imagined as a small, hairy, old-man-like figure who lives behind the stove, under the threshold, or in the cellar, the domovoi was believed to look after the house and its livestock, sometimes braiding a favored horse's mane, and to warn the family of coming misfortune through strange noises or by appearing briefly before a death. He was treated with small, regular courtesies — a bit of bread and salt left out, greetings when moving to a new house (inviting him along by leaving the old stove's embers for him to \"ride\") — and thought to turn mischievous, hiding objects or making noise at night, if neglected or insulted.",
+    "primarySources": [
+      {
+        "text": "Collected as part of the largest 19th-century corpus of East Slavic oral folklore.",
+        "source": "Alexander Afanasyev, Narodnye russkie skazki (Russian Fairy Tales), 1855–1863",
+        "date": "collected and published 1855–1863"
+      }
+    ]
+  },
+  {
+    "id": "vodyanoy",
+    "pantheonId": "slavic-pantheon",
+    "name": "Vodyanoy",
+    "slug": "vodyanoy",
+    "description": "A water spirit of East Slavic folklore, the malicious male counterpart to the rusalka, imagined as an old man living at the bottom of mills, ponds, and rivers who drowns those who swim without respect.",
+    "habitat": "Millponds, rivers, and lakes, especially near watermills",
+    "abilities": [
+      "shapeshifting (often into a large fish or an old man)",
+      "drowning swimmers",
+      "controlling fish and drowned livestock"
+    ],
+    "dangerLevel": 6,
+    "detailedBio": "## A 19th-century folk figure, not a pagan-era god\n\nThe vodyanoy (\"water one\") is recorded in East Slavic peasant folklore collected by 19th-century ethnographers, including Afanasyev's *Poeticheskie vozzreniya slavyan na prirodu*. He appears in no pagan-era source and is a figure of village belief tied especially to the dangerous, working relationship peasants had with watermills and deep water, not a remnant of an attested medieval cult.\n\n## Character\n\nUsually pictured as an old, bloated man with a fish's tail, green hair and beard, and a body covered in mud, weeds, or scales, the vodyanoy was believed to live at the bottom of ponds, especially near mill-dams, where millers were thought to make small offerings (tobacco, a black animal) to keep him from damaging the mill. He was blamed for drowning careless or disrespectful swimmers, especially at midday, at midnight, or during unlucky calendar periods, and stories described him keeping the souls of the drowned as his servants beneath the water.",
+    "primarySources": [
+      {
+        "text": "Collected as part of the largest 19th-century corpus of East Slavic oral folklore.",
+        "source": "Alexander Afanasyev, Narodnye russkie skazki (Russian Fairy Tales), 1855–1863",
+        "date": "collected and published 1855–1863"
+      }
+    ]
+  },
+  {
+    "id": "zmey-gorynych",
+    "pantheonId": "slavic-pantheon",
+    "name": "Zmey Gorynych",
+    "slug": "zmey-gorynych",
+    "description": "A three-headed, fire-breathing dragon of East Slavic byliny (heroic epic songs) and fairy tales, the classic monstrous antagonist defeated by heroes such as the bogatyr Dobrynya Nikitich.",
+    "habitat": "Mountain caves, often beside a river (in some tellings, the Smorodina river bridge)",
+    "abilities": [
+      "fire breath",
+      "flight",
+      "regrowing severed heads",
+      "shapeshifting into human form (in some tales)"
+    ],
+    "dangerLevel": 9,
+    "detailedBio": "## A folklore and epic figure, not a pagan-era attestation\n\nZmey Gorynych (\"dragon/serpent of the mountain\") is a stock antagonist of the *byliny*, the East Slavic oral heroic epics performed and later transcribed from the 18th–19th centuries onward, and of the fairy tales collected in the same period by Afanasyev. No medieval chronicle describes him; he belongs to a later narrative tradition, though dragon- and serpent-slaying motifs of this general kind are common across many mythologies.\n\n## Character\n\nTypically given three (sometimes more) heads and the power of fire breath, Zmey Gorynych appears as the abductor of princesses, the guardian of treasure, or the terrorizer of a kingdom that a *bogatyr* (epic hero) must defeat. In the best-known *bylina*, the hero Dobrynya Nikitich fights and slays him at the Puchai River after the dragon has been demanding tribute of young women from Kiev; other tellings pit Zmey Gorynych against Ilya Muromets or against Prince Ivan of the fairy-tale tradition. Some scholars connect the figure's serpent/dragon nature to the underworld and chaos-serpent imagery of the Perun-Veles storm-god reconstruction discussed in the Slavic pantheon overview, though this is a comparative suggestion, not a documented link.",
+    "primarySources": [
+      {
+        "text": "Collected as part of the largest 19th-century corpus of East Slavic oral folklore.",
+        "source": "Alexander Afanasyev, Narodnye russkie skazki (Russian Fairy Tales), 1855–1863",
+        "date": "collected and published 1855–1863"
+      },
+      {
+        "text": "Recorded from oral performance by 19th–20th-century folklore collectors.",
+        "source": "Byliny of the Kievan cycle (Dobrynya Nikitich and the Dragon)",
+        "date": "oral tradition; earliest transcriptions 18th–19th century"
+      }
+    ]
+  },
+  {
+    "id": "koschei",
+    "pantheonId": "slavic-pantheon",
+    "name": "Koschei the Deathless",
+    "slug": "koschei",
+    "description": "A villainous sorcerer of East Slavic fairy tales whose death is hidden outside his own body, split across a chain of nested objects and animals, making him near-impossible to kill until the hero finds and breaks the chain.",
+    "habitat": "A remote castle or kingdom, often across the sea or beyond thrice-nine lands",
+    "abilities": [
+      "externalized/hidden death (cannot be killed unless his hidden soul-object is destroyed)",
+      "shapeshifting",
+      "abduction and imprisonment of heroines",
+      "sorcery"
+    ],
+    "dangerLevel": 8,
+    "detailedBio": "## A fairy-tale figure, not a pagan-era attestation\n\nKoschei (\"Koshchey\") the Deathless is a stock antagonist of East Slavic fairy tales collected in the 19th century, chiefly by Afanasyev, who recorded several variant tellings. No medieval or pagan-era source mentions him; his name is sometimes linked by folklorists to a Slavic root for \"bone\" (*kostʹ*) suggesting a skeletal, death-adjacent figure, though the etymology is debated.\n\n## The hidden death motif\n\nKoschei's defining trait, shared with a wider international family of \"externalized soul\" folktales, is that his death is hidden far from his own body: commonly described as being at the tip of a needle, inside an egg, inside a duck, inside a hare, locked in an iron chest, buried under an oak on the island of Buyan. A hero (often Prince Ivan, in the best-known telling pursuing Vasilisa or Marya Morevna, whom Koschei has abducted) must work through this chain of containers to find and break the needle, which alone kills him. Koschei's abduction of a heroine and his vulnerability to a single hidden object make him a recurring foil in the same fairy-tale corpus as Baba Yaga, sometimes appearing in the same cycle of tales.",
+    "primarySources": [
+      {
+        "text": "Collected as part of the largest 19th-century corpus of East Slavic oral folklore.",
+        "source": "Alexander Afanasyev, Narodnye russkie skazki (Russian Fairy Tales), 1855–1863",
+        "date": "collected and published 1855–1863"
+      }
+    ]
+  },
+  {
+    "id": "baba-yaga",
+    "pantheonId": "slavic-pantheon",
+    "name": "Baba Yaga",
+    "slug": "baba-yaga",
+    "description": "An ambiguous witch-like figure of East Slavic fairy tales who lives in a hut on chicken legs deep in the forest, and who can be either a dangerous child-eating threat or a difficult but genuine helper who sets the hero a test.",
+    "habitat": "A hut on chicken legs, deep in the forest, at the edge between the human world and the world of the dead",
+    "abilities": [
+      "flight (by mortar and pestle, sweeping her trail with a broom)",
+      "commanding animals and elemental servants (dawn, day, and night, in some tellings)",
+      "shapeshifting",
+      "granting or withholding magical aid"
+    ],
+    "dangerLevel": 7,
+    "detailedBio": "## A fairy-tale figure, not a pagan-era goddess\n\nBaba Yaga is documented almost entirely in East Slavic fairy tales collected in the 19th century, above all by Afanasyev, whose collection preserves her best-known appearance in *Vasilisa the Beautiful*. No pagan-era chronicle or missionary account describes her; claims that she descends from a specific ancient goddess are modern speculation, not attested continuity, and this site does not present her as a pagan deity.\n\n## An ambiguous figure, not a simple villain\n\nWhat makes Baba Yaga distinctive within the fairy-tale corpus is her moral ambiguity: in some tales she is a straightforward threat who eats children who wander into her hut; in others, including *Vasilisa the Beautiful*, she is a difficult but ultimately fair gatekeeper who sets the protagonist an impossible-seeming household task and rewards honest, respectful effort. Her hut, famously set on chicken legs and able to turn to face the visitor, and her mode of travel — flying in a mortar, rowing with a pestle, sweeping away her tracks with a birch broom — are consistent across tellings and mark her as a liminal figure standing at the boundary between the everyday world and the world of the dead.",
+    "primarySources": [
+      {
+        "text": "Collected as part of the largest 19th-century corpus of East Slavic oral folklore.",
+        "source": "Alexander Afanasyev, Narodnye russkie skazki (Russian Fairy Tales), 1855–1863",
+        "date": "collected and published 1855–1863"
+      }
+    ]
   }
 ]

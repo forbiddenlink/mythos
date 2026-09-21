@@ -10584,5 +10584,475 @@
       "festivals": [],
       "practices": "Unlike the major gods of the Aztec state cult (Huitzilopochtli, Tezcatlipoca, Tlaloc), the dual creator described in sources like the Historia de los Mexicanos por sus pinturas appears as a remote, largely abstract originating principle rather than a deity with an active, image-centered public cult of temples and festivals."
     }
+  },
+  {
+    "id": "perun",
+    "pantheonId": "slavic-pantheon",
+    "name": "Perun",
+    "slug": "perun",
+    "originalLanguageName": {
+      "text": "Перунъ",
+      "language": "Old East Slavic",
+      "transliteration": "Perunŭ",
+      "meaning": "\"The Striker\"; from a Proto-Slavic root also seen in Baltic Perkūnas, part of a wider Indo-European thunder-god word family"
+    },
+    "alternateNames": ["Perunŭ"],
+    "gender": "male",
+    "domain": ["thunder", "lightning", "war", "oaths"],
+    "symbols": ["axe", "oak tree", "thunderbolt"],
+    "description": "The thunder god of the Kievan Rus', sworn by in treaties and installed at the head of Prince Vladimir's official pantheon in 980 before Vladimir himself had his idol destroyed in 988.",
+    "detailedBio": "## Attestation\n\nPerun is the best-attested of the Rus' gods. The *Russian Primary Chronicle* has the Rus' swear by him and by their weapons in the treaties of 907 and 945, and again in 971; under 980 he stands first among the six idols Vladimir raises on the hill outside his Kiev palace, with a head of silver and a moustache of gold. Procopius, writing in the 550s, describes the early Slavs sacrificing cattle to an unnamed god who alone is \"master of all\" and \"the maker of lightning\" — not a named source for Perun, but read by most historians as the same figure centuries earlier.\n\n## A prince's god, then a discarded one\n\nPerun's cult is closely tied to the Rus' ruling class and its armed retinue: the oaths he witnesses are sworn between princes and states. In 988, after Vladimir converts to Christianity, the chronicle has his idol dragged behind a horse, beaten, and thrown into the Dnieper — a deliberate, public undoing of the very installation of 980. The often-repeated tale of a running combat between Perun and Veles is not in any medieval text; it is a modern scholarly reconstruction (see the entry on Veles).",
+    "importanceRank": 1,
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "norse-pantheon",
+        "deityId": "thor",
+        "note": "Both are hammer/axe-wielding thunder gods invoked in oaths, part of the wider Indo-European storm-god pattern; Perun's name is directly cognate with Baltic Perkūnas, Thor's closest attested parallel outside Scandinavia."
+      },
+      {
+        "pantheonId": "hindu-pantheon",
+        "deityId": "indra",
+        "note": "Ivanov and Toporov's reconstruction of a Perun-vs-serpent combat draws its structure from the Vedic Indra-vs-Vritra myth, part of the comparative case for a shared Indo-European storm-god-versus-serpent motif."
+      }
+    ],
+    "primarySources": [
+      {
+        "text": "And Igor summoned the [Byzantine] envoys, and went to the hill where Perun stood, and they laid down their arms, their shields, and their gold, and swore oaths.",
+        "source": "Russian Primary Chronicle, s.a. 945 (paraphrase of the treaty oath)",
+        "date": "entry for 945 CE; chronicle compiled early 12th c."
+      },
+      {
+        "text": "And Vladimir set up idols on the hill outside the palace: Perun of wood with a head of silver and a moustache of gold, and Khors, Dazhbog, Stribog, Simargl, and Mokosh.",
+        "source": "Russian Primary Chronicle, s.a. 980 (paraphrase)",
+        "date": "entry for 980 CE; chronicle compiled early 12th c."
+      }
+    ],
+    "worship": {
+      "temples": [
+        "No enclosed temple building is attested for Perun among the East Slavs; worship was in the open air. An excavated horseshoe-shaped ditch and central post-pit at Peryn, near Novgorod, is widely interpreted by archaeologists as a Perun sanctuary, matching the First Novgorod Chronicle's report that Bishop Akim had Perun's idol thrown into the Volkhov there in 989."
+      ],
+      "festivals": [],
+      "practices": "Oaths of state were sworn on Perun's name alongside weapons (907, 945, 971 treaties). Procopius describes cattle and other animals sacrificed to the Slavs' supreme thunder-god in general terms. In later East Slavic folklore, Perun's thunder role and his midsummer date were partly absorbed into the feast of the prophet Elijah (Ilyin Den) — a post-Christian folk continuation, not a pagan-era practice."
+    },
+    "pronunciation": {
+      "ipa": "/pɛˈrun/",
+      "phonetic": "peh-ROON"
+    }
+  },
+  {
+    "id": "veles",
+    "pantheonId": "slavic-pantheon",
+    "name": "Veles",
+    "slug": "veles",
+    "originalLanguageName": {
+      "text": "Волосъ / Велесъ",
+      "language": "Old East Slavic",
+      "transliteration": "Volosŭ / Velesŭ",
+      "meaning": "Etymology disputed; possibly related to Slavic *vol- (\"ox\") given his epithet, or to a root shared with Baltic Velinas/Vels, a spirit of the dead"
+    },
+    "alternateNames": ["Volos"],
+    "gender": "male",
+    "domain": ["cattle", "wealth", "the underworld", "magic", "oaths"],
+    "symbols": ["cattle", "staff"],
+    "description": "The \"cattle god\" (skotii bog) of the treaty oaths, sworn by beside Perun in 907 and 945, and left off Vladimir's 980 hilltop pantheon in a way scholars have long puzzled over.",
+    "detailedBio": "## Attestation\n\nThe *Russian Primary Chronicle* has the Rus' swear by Volos, \"the cattle god\" (*skotii bog*), together with Perun and their weapons, in the treaties of 907 and 945. Unlike Perun, Khors, Dazhbog, Stribog, Simargl, and Mokosh, Veles is conspicuously absent from the six idols Vladimir sets up on the Kiev hill in 980. Later medieval and early-modern hagiographic tradition associated with Vladimir's baptism places a Veles idol separately, on the lower ground of the Podil district by the river — a detail that postdates the Primary Chronicle itself and should be treated with more caution than the 907 and 945 treaty text.\n\n## A modern reconstruction, clearly labelled\n\nThe absence of Veles from the hill, and his separate association with lower/wet ground, underlies Vyacheslav Ivanov and Vladimir Toporov's influential 1974 reconstruction of a cosmic conflict between a sky-based Perun and an earth- or water-based Veles, echoing comparable Indo-European storm-god-versus-serpent combats (Indra/Vritra, Thor/Jörmungandr). No medieval Slavic text narrates this combat; it is inferred from later folk tales, place names, and comparative mythology, and is presented on this site strictly as a scholarly reconstruction. Later folklore also associates Veles with poetry, magic, and (via the 12th-century *Tale of Igor's Campaign*, which calls the poet Boyan \"Veles's grandson\") skilled speech, though the *Tale*'s own authenticity as an unaltered 12th-century text has been debated by some scholars.",
+    "importanceRank": 2,
+    "primarySources": [
+      {
+        "text": "Let those who break this oath [...] be cursed by God in whom they believe, and by Perun and Volos, the cattle god.",
+        "source": "Russian Primary Chronicle, s.a. 907 (paraphrase of the treaty oath)",
+        "date": "entry for 907 CE; chronicle compiled early 12th c."
+      },
+      {
+        "text": "And the Rus' who are not baptized lay down their shields and their naked swords [...] swearing for themselves and for all Rus' by Perun their god, and Volos, the god of cattle.",
+        "source": "Russian Primary Chronicle, s.a. 945 (paraphrase of the treaty oath)",
+        "date": "entry for 945 CE; chronicle compiled early 12th c."
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [],
+      "practices": "Sworn by merchants and traders alongside Perun in the state treaties of 907 and 945, distinct from any temple cult recorded for him. Later East Slavic folk practice partly transferred his patronage of cattle and wealth to Saint Blaise (Vlasiy), whose feast day (11 February, Old Style) was kept as a blessing of livestock — a post-Christian folk continuation, not a pagan-era rite."
+    },
+    "pronunciation": {
+      "ipa": "/ˈvɛlɛs/",
+      "phonetic": "VEH-less"
+    }
+  },
+  {
+    "id": "mokosh",
+    "pantheonId": "slavic-pantheon",
+    "name": "Mokosh",
+    "slug": "mokosh",
+    "originalLanguageName": {
+      "text": "Мокошь",
+      "language": "Old East Slavic",
+      "transliteration": "Mokoshĭ",
+      "meaning": "Disputed: possibly from Slavic *mok- (\"moist\", suggesting a moist-earth mother figure), or a borrowing of the ethnonym of the Finnic Moksha people, whose territory neighbored the early Rus'"
+    },
+    "alternateNames": ["Makosh"],
+    "gender": "female",
+    "domain": ["women's work", "spinning", "fertility", "the earth"],
+    "symbols": ["spindle", "wool"],
+    "description": "The only goddess among Vladimir's six idols of 980, later folk memory keeps her as a spirit watching over spinning and women's household work.",
+    "detailedBio": "## Attestation\n\nMokosh appears once in the primary medieval record: as the sixth and only female idol Vladimir installs on the Kiev hill in 980, alongside Perun, Khors, Dazhbog, Stribog, and Simargl, per the *Russian Primary Chronicle*. The chronicle gives no myth, temple, or festival for her; everything beyond her name and her place in that list is inference or later folklore.\n\n## Two competing etymologies\n\nPhilologists disagree on her name's origin. Max Vasmer and others have proposed a link to the Finnic Moksha (a Volga-Finnic people neighboring the early Rus'), implying a borrowed cult; other scholars prefer a native Slavic root *mok- (\"wet\"), reading her as a moist-earth or mother-earth figure paired conceptually with the sky. Neither theory is settled.\n\n## Folk survival\n\nEast Slavic peasant belief recorded by 19th-century ethnographers kept a household spirit called Mokosha or a folk figure tied to spinning, sheep-shearing, and women's domestic ritual, and forbade leaving wool unspun overnight for fear of her displeasure. This is genuine, well-documented folk belief, but it is 19th-century ethnography, not a description of Vladimir's goddess — the line between them cannot be drawn with confidence.",
+    "importanceRank": 3,
+    "primarySources": [
+      {
+        "text": "And he set up idols on the hill [...] and Mokosh.",
+        "source": "Russian Primary Chronicle, s.a. 980 (paraphrase)",
+        "date": "entry for 980 CE; chronicle compiled early 12th c."
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [],
+      "practices": "No medieval festival or rite is recorded for Mokosh. Later East Slavic folk custom (recorded by 19th-century ethnographers, not a pagan-era source) forbade women from spinning wool on her associated day, a taboo folklorists connect to her name but cannot trace back to the pagan period with certainty."
+    },
+    "pronunciation": {
+      "ipa": "/ˈmɔkɔʃ/",
+      "phonetic": "MOH-kosh"
+    }
+  },
+  {
+    "id": "svarog",
+    "pantheonId": "slavic-pantheon",
+    "name": "Svarog",
+    "slug": "svarog",
+    "originalLanguageName": {
+      "text": "Сварогъ",
+      "language": "Old East Slavic",
+      "transliteration": "Svarogŭ",
+      "meaning": "Probably from a root related to Sanskrit svarga (\"heaven\", \"sky\"), suggesting a sky-god origin"
+    },
+    "alternateNames": [],
+    "gender": "male",
+    "domain": ["sky", "fire", "smithcraft"],
+    "symbols": ["fire", "smith's hammer"],
+    "description": "A sky and fire god known only from a single learned chronicle gloss that equates him with the Greek smith-god Hephaestus and calls the sun-god Dazhbog his son.",
+    "detailedBio": "## Attestation\n\nSvarog is not among Vladimir's 980 idols. He appears in a gloss inserted into the Hypatian Chronicle's Slavonic translation of John Malalas's *Chronographia*, under the year 1114, where the Greek smith-god Hephaestus is rendered as Svarog, and the sun (identified as Dazhbog) is called \"Svarog's son\" who \"reigned after him.\" This is a bookish, learned aside by a Christian scribe explaining Greek mythology through a Slavic name he expected his audience to recognize — most historians treat it as evidence for the name and a rough sky/fire association, not as direct testimony to a living cult with its own myths.\n\n## A name, not a narrative\n\nBeyond that single gloss, nothing about Svarog's worship, temples, or festivals survives. His name recurs as an element in Svarozhich (\"little Svarog\" or \"son of Svarog\"), the West Slavic fire-and-war god attested independently by Thietmar of Merseburg at Riedegost — whether that patronymic reflects a genuine East-West Slavic theological link, or simply a shared root word for \"bright/heaven,\" is debated rather than settled.",
+    "importanceRank": 4,
+    "primarySources": [
+      {
+        "text": "And after him [Svarog] reigned his son, whose name is the Sun, whom they call Dazhbog [...] Svarog, whom the Egyptians call Hephaestus.",
+        "source": "Hypatian Chronicle, gloss on the Slavonic Chronicle of John Malalas, s.a. 1114 (paraphrase)",
+        "date": "1114 interpolation"
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [],
+      "practices": "No medieval source records a temple, festival, or oath sworn to Svarog directly; everything known about him comes from the single 1114 chronicle gloss identifying him with Hephaestus and naming Dazhbog as his son."
+    },
+    "pronunciation": {
+      "ipa": "/ˈsvɑrox/",
+      "phonetic": "SVAH-rokh"
+    }
+  },
+  {
+    "id": "dazhbog",
+    "pantheonId": "slavic-pantheon",
+    "name": "Dazhbog",
+    "slug": "dazhbog",
+    "originalLanguageName": {
+      "text": "Дажьбогъ",
+      "language": "Old East Slavic",
+      "transliteration": "Dažĭbogŭ",
+      "meaning": "\"Giving god\" (from dažĭ, \"give!\", + bogŭ, \"god\"), commonly read as a solar deity who gives light, warmth, or fortune"
+    },
+    "alternateNames": ["Dažbog"],
+    "gender": "male",
+    "domain": ["the sun", "fortune", "giving"],
+    "symbols": ["sun disc", "gold"],
+    "description": "A sun-and-fortune god among Vladimir's 980 idols, called \"son of Svarog\" in a separate chronicle gloss and invoked as ancestor of the Rus' people in the medieval epic poem the Tale of Igor's Campaign.",
+    "detailedBio": "## Attestation\n\nDazhbog is named fourth among Vladimir's six idols in the *Russian Primary Chronicle*'s account of 980. A separate strand, the Hypatian Chronicle's 1114 gloss on the Slavonic Malalas translation, identifies him with the sun and calls him \"son of Svarog.\" The *Tale of Igor's Campaign* (*Slovo o polku Igoreve*), a medieval poem describing a failed 1185 Rus' military campaign whose manuscript and dating have drawn scholarly debate, twice calls the Rus' people \"Dazhbog's grandsons\" — whatever the poem's exact date, it shows the name still carried weight as an ancestral, poetic figure for the audience it was written for.\n\n## Reading the sources together\n\nThe 980 list, the 1114 gloss, and the *Tale* come from three different kinds of text — a political chronicle entry, a scribal aside translating Greek myth, and an epic poem — and none of them narrate an actual myth about Dazhbog's deeds. What can be said with confidence is that he was one of the state cult's official gods and that his name endured afterward as a literary figure of speech for the Rus' as a people.",
+    "importanceRank": 5,
+    "originStory": "The only genealogical claim about Dazhbog comes from the Hypatian Chronicle's 1114 gloss on Malalas, which says he reigned as the sun after his father Svarog; no birth or creation narrative survives.",
+    "primarySources": [
+      {
+        "text": "And he set up idols [...] Dazhbog [...] on the hill outside the palace.",
+        "source": "Russian Primary Chronicle, s.a. 980 (paraphrase)",
+        "date": "entry for 980 CE; chronicle compiled early 12th c."
+      },
+      {
+        "text": "Now the sons of Rus' set out [...] in the age of Troyan, in the years of Yaroslav, in the campaigns of Oleg [...] we, the grandsons of Dazhbog.",
+        "source": "Tale of Igor's Campaign (Slovo o polku Igoreve), paraphrase",
+        "date": "describing events of 1185; surviving manuscript copy 16th c., first printed 1800"
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [],
+      "practices": "Named among the state idols Vladimir installed in 980 and torn down in 988; no separate festival or shrine is recorded for him specifically. His name persisted afterward as a poetic epithet for the Rus' people (\"grandsons of Dazhbog\") rather than as an active cult title."
+    },
+    "pronunciation": {
+      "ipa": "/ˈdaʒboɡ/",
+      "phonetic": "DAZH-bog"
+    }
+  },
+  {
+    "id": "stribog",
+    "pantheonId": "slavic-pantheon",
+    "name": "Stribog",
+    "slug": "stribog",
+    "originalLanguageName": {
+      "text": "Стрибогъ",
+      "language": "Old East Slavic",
+      "transliteration": "Stribogŭ",
+      "meaning": "Disputed; possibly \"the god who spreads/disperses\" (from a root related to \"strew\"), read as a wind god from the Tale of Igor's Campaign's imagery"
+    },
+    "alternateNames": [],
+    "gender": "male",
+    "domain": ["wind"],
+    "symbols": ["wind", "arrows"],
+    "description": "A wind god among Vladimir's 980 idols, remembered in the Tale of Igor's Campaign as the ancestor of the winds that blow arrows against the poem's defeated Rus' army.",
+    "detailedBio": "## Attestation\n\nStribog is named fourth–fifth among Vladimir's six idols in the *Russian Primary Chronicle*'s entry for 980. His function as a wind god rests almost entirely on one striking line in the *Tale of Igor's Campaign*, which calls the winds \"Stribog's grandsons,\" blowing arrows from the sea against Prince Igor's host. Beyond his name in the idol list and that one poetic image, nothing about his myth, temple, or worship survives.\n\n## An inference, held with appropriate caution\n\nThe wind association is widely accepted by Slavicists precisely because of how specific and vivid the *Tale*'s image is, but it remains an inference from a single later literary reference rather than a chronicle statement of his domain — the *Primary Chronicle* itself never says what Stribog governed.",
+    "importanceRank": 6,
+    "primarySources": [
+      {
+        "text": "And he set up idols [...] Stribog [...] on the hill outside the palace.",
+        "source": "Russian Primary Chronicle, s.a. 980 (paraphrase)",
+        "date": "entry for 980 CE; chronicle compiled early 12th c."
+      },
+      {
+        "text": "Behold, the winds, Stribog's grandsons, blow arrows from the sea upon Igor's brave host.",
+        "source": "Tale of Igor's Campaign (Slovo o polku Igoreve), paraphrase",
+        "date": "describing events of 1185; surviving manuscript copy 16th c., first printed 1800"
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [],
+      "practices": "No medieval source records a rite, temple, or festival for Stribog; he is known only from his place in the 980 idol list and from a single poetic image in the Tale of Igor's Campaign describing the winds as his descendants."
+    },
+    "pronunciation": {
+      "ipa": "/ˈstrɪboɡ/",
+      "phonetic": "STREE-bog"
+    }
+  },
+  {
+    "id": "khors",
+    "pantheonId": "slavic-pantheon",
+    "name": "Khors",
+    "slug": "khors",
+    "originalLanguageName": {
+      "text": "Хърсъ",
+      "language": "Old East Slavic",
+      "transliteration": "Xъrsŭ",
+      "meaning": "Widely thought to be a loanword from an Iranian language (compare Ossetic xor, \"sun\"), reflecting Rus' contact with Iranian-speaking steppe peoples"
+    },
+    "alternateNames": [],
+    "gender": "male",
+    "domain": ["uncertain; possibly the sun or moon"],
+    "symbols": ["solar or lunar disc"],
+    "description": "One of the most obscure of Vladimir's 980 idols; his name is probably an Iranian loanword, but scholars still dispute whether he was a sun god, a moon god, or something else, especially since Dazhbog already covers the sun.",
+    "detailedBio": "## Attestation\n\nKhors is named second among Vladimir's six idols in the *Russian Primary Chronicle*'s entry for 980, and appears again in a few later manuscript variants of the *Tale of Igor's Campaign*, where a prince is said to cross Khors's path by night — read by some scholars as implying a lunar association, since crossing the sun's path would make less sense at night.\n\n## An unresolved problem\n\nMost specialists in Slavic philology (following Max Vasmer and later Ivanov and Toporov) treat \"Khors\" as a borrowing from an Iranian language current among steppe neighbors of the early Rus', related to words for \"sun.\" That creates a puzzle: Dazhbog, standing right next to him in the same 980 list, is also solar. Proposed solutions include Khors as a moon god complementing solar Dazhbog, as a separate solar epithet borrowed through Iranian or Khazar contact, or as a more abstract personification of the sun-disc distinct from Dazhbog's role as \"giver.\" None of these has become a scholarly consensus, and this site does not assign Khors a confident domain beyond what the idol list itself supports.",
+    "importanceRank": 7,
+    "primarySources": [
+      {
+        "text": "And he set up idols [...] Khors [...] on the hill outside the palace.",
+        "source": "Russian Primary Chronicle, s.a. 980 (paraphrase)",
+        "date": "entry for 980 CE; chronicle compiled early 12th c."
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [],
+      "practices": "No medieval source records a rite, temple, or festival for Khors; he is known only from his place in the 980 idol list and a disputed nocturnal reference in some Tale of Igor's Campaign manuscripts, and his function remains an open scholarly question."
+    },
+    "pronunciation": {
+      "ipa": "/xors/",
+      "phonetic": "KHORS"
+    }
+  },
+  {
+    "id": "simargl",
+    "pantheonId": "slavic-pantheon",
+    "name": "Simargl",
+    "slug": "simargl",
+    "originalLanguageName": {
+      "text": "Симаръглъ / Семарглъ",
+      "language": "Old East Slavic",
+      "transliteration": "Simarĭglŭ / Semarglŭ",
+      "meaning": "Widely thought to derive from the Iranian mythic bird-dog Simurgh (Avestan Sǎēna), making the name itself a probable loanword"
+    },
+    "alternateNames": ["Semargl"],
+    "gender": "none",
+    "domain": ["uncertain; possibly plants or a protective/messenger role"],
+    "symbols": [
+      "winged dog or bird-dog hybrid, by analogy with the Iranian Simurgh"
+    ],
+    "description": "The most obscure of Vladimir's 980 idols; his name almost certainly derives from the Iranian mythic bird-dog Simurgh, but no medieval Slavic source explains what function, if any, he served.",
+    "detailedBio": "## Attestation\n\nSimargl is named sixth (fifth in some editions) among Vladimir's six idols in the *Russian Primary Chronicle*'s entry for 980, and is not mentioned anywhere else in the medieval East Slavic record — no other chronicle, treaty, or poem names him.\n\n## A borrowed name with no attached story\n\nPhilologists including Vasmer and later Ivanov and Toporov derive \"Simargl\" from the Iranian Simurgh (Avestan *Sǎēna*), a winged, dog-headed guardian creature in Persian myth, presumably transmitted to the Rus' through contact with Iranian-speaking steppe peoples such as the Khazars or Alans. Later Russian folk tradition preserves a creature called Simargl or Pereplut in some regional variants, sometimes described as a winged dog guarding seeds or crops, but the link between that folklore and the 980 idol is speculative. This site does not assign Simargl a confident domain: he may originally have named a creature rather than a personal god at all, and the chronicler may simply have listed a foreign name he found among the idols without fully understanding it.",
+    "importanceRank": 8,
+    "primarySources": [
+      {
+        "text": "And he set up idols [...] Simargl [...] on the hill outside the palace.",
+        "source": "Russian Primary Chronicle, s.a. 980 (paraphrase)",
+        "date": "entry for 980 CE; chronicle compiled early 12th c."
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [],
+      "practices": "No medieval source records any rite, temple, festival, or function for Simargl beyond his bare name in the 980 idol list; even his status as a personal god rather than a mythic creature is disputed by specialists."
+    },
+    "pronunciation": {
+      "ipa": "/sɪˈmɑrɡəl/",
+      "phonetic": "see-MAR-guhl"
+    }
+  },
+  {
+    "id": "svarozhich",
+    "pantheonId": "slavic-pantheon",
+    "name": "Svarozhich",
+    "slug": "svarozhich",
+    "originalLanguageName": {
+      "text": "Zuarasici (Latinized by Thietmar)",
+      "language": "Polabian (West Slavic)",
+      "transliteration": "Svarožičŭ",
+      "meaning": "\"Son of Svarog\" or \"little Svarog\" (patronymic/diminutive form of Svarog)"
+    },
+    "alternateNames": ["Radogost", "Redigast"],
+    "gender": "male",
+    "domain": ["fire", "war", "divination"],
+    "symbols": ["fire", "a warrior's weapons kept in the shrine"],
+    "description": "The chief god of the West Slavic Redarii, worshipped at a temple in Riedegost and consulted before war through the movements of a sacred horse and lots, known from a German bishop's firsthand account.",
+    "detailedBio": "## Attestation\n\nThietmar of Merseburg, a German bishop writing his *Chronicon* in the years before his death in 1018, gives the fullest surviving account of a Slavic pagan temple: a shrine at Riedegost (in the land of the Redarii, part of the Lutici confederation) housing several carved gods, chief among them one he calls Zuarasici, understood by most scholars as a Latinization of Svarozhich, \"son of Svarog.\" Thietmar describes the Redarii consulting this shrine before going to war, using a horse led over crossed spears and reading its steps as an omen. Writing half a century later, Adam of Bremen names the principal god of what appears to be the same or a closely related site \"Redigast\" (Radogost), leaving it debated among historians whether Svarozhich/Zuarasici and Radogost/Redigast were the same figure under two names, two distinct gods at related sites, or a case of one chronicler confusing a god's name with the name of the town or temple itself.\n\n## Fire and the patronymic problem\n\nThe name's \"son of Svarog\" form has led some scholars to treat Svarozhich as functionally close to Dazhbog (also called \"son of Svarog\" in the East Slavic tradition), especially given a shared fire association; others read Svarozhich as an independent West Slavic war-and-fire god whose patronymic name need not imply the same theology as the unrelated East Slavic Hypatian gloss. This site treats the connection to Svarog as likely but not proven.",
+    "importanceRank": 9,
+    "primarySources": [
+      {
+        "text": "In the land of the Redarii is a town called Riedegost [...] in it stands nothing but a skillfully made wooden shrine [...] the foremost of the images bears the name Zuarasici, and is honored beyond the rest by all the heathens.",
+        "source": "Thietmar of Merseburg, Chronicon, Book VI (paraphrase)",
+        "date": "completed by 1018"
+      }
+    ],
+    "worship": {
+      "temples": [
+        "The shrine at Riedegost, described by Thietmar as a wooden building carved with images of gods and hung with the horns and weapons of victims and offerings."
+      ],
+      "festivals": [],
+      "practices": "Consulted before military campaigns: Thietmar describes a sacred horse led over crossed spears at the shrine, its steps read as a favorable or unfavorable sign, alongside the casting of lots."
+    },
+    "pronunciation": {
+      "ipa": "/svɑˈroʒɪtʃ/",
+      "phonetic": "svah-ROH-zhitch"
+    }
+  },
+  {
+    "id": "svantevit",
+    "pantheonId": "slavic-pantheon",
+    "name": "Svantevit",
+    "slug": "svantevit",
+    "originalLanguageName": {
+      "text": "Sanctus Vitus / Zvantewith (Latinized by Saxo Grammaticus)",
+      "language": "Rani (West Slavic, Rügen)",
+      "transliteration": "Svętovitŭ",
+      "meaning": "\"Holy/mighty lord\" (from svet-/svęt-, \"holy\" or \"strong\", + vitŭ, \"lord\")"
+    },
+    "alternateNames": ["Svetovid", "Sventovit"],
+    "gender": "male",
+    "domain": ["war", "divination", "abundance"],
+    "symbols": [
+      "four faces looking to the four directions",
+      "a white horse",
+      "a drinking horn",
+      "a sword"
+    ],
+    "description": "The four-faced war and oracle god of the Rani on the island of Rügen, whose temple at Cape Arkona was the last great pagan shrine on the Baltic coast until the Danes destroyed it in 1168.",
+    "detailedBio": "## Attestation\n\nThe Danish historian Saxo Grammaticus gives an eyewitness-informed account of Svantevit's temple at Arkona in Book 14 of his *Gesta Danorum* (composed c. 1200–1216), describing a large wooden idol with four heads facing the cardinal directions, a sword, a bow, and a drinking horn held in one hand that priests refilled each year to divine the coming harvest. A sacred white horse, kept in the temple and never ridden except by the god himself (as the priests claimed), was led over crossed spears before military campaigns; its steps were read as an omen, much as Thietmar describes for Svarozhich's cult at Riedegost far to the west.\n\n## Destruction and record\n\nSaxo reports the temple's destruction in 1168 by the Danish king Valdemar I, guided by Bishop Absalon, during a campaign that ended organized paganism among the Rani; the huge idol was reportedly chopped up and burned. Saxo, writing for a Danish royal audience one to two generations later, is not a neutral witness — the conquest and the conversion are the point of his account — but the physical details he gives (the four-faced carving, the horn, the horse ritual) are treated by archaeologists and historians as broadly credible, since they match patterns attested at other West Slavic shrines.",
+    "importanceRank": 10,
+    "primarySources": [
+      {
+        "text": "The statue [...] had four heads on four necks, two facing the chest and two the back [...] in its right hand it held a horn, wrought with various metals, which the priest [...] filled with wine every year, to foretell the coming harvest from how much remained.",
+        "source": "Saxo Grammaticus, Gesta Danorum, Book 14 (paraphrase)",
+        "date": "composed c. 1200–1216, describing the temple destroyed in 1168"
+      }
+    ],
+    "worship": {
+      "temples": [
+        "The great temple at Arkona on Cape Arkona, Rügen, described by Saxo as the principal shrine of the Rani, destroyed in 1168."
+      ],
+      "festivals": [
+        "An annual harvest divination rite in which the priest refilled and inspected Svantevit's drinking horn, per Saxo."
+      ],
+      "practices": "A sacred white horse, kept solely for the god's use, was led over crossed spears before war and its gait read as an omen of victory or defeat; a tenth of all war-spoils and plunder was reportedly dedicated to the temple."
+    },
+    "pronunciation": {
+      "ipa": "/ˈsvɑntəvit/",
+      "phonetic": "SVAHN-teh-vit"
+    }
+  },
+  {
+    "id": "triglav",
+    "pantheonId": "slavic-pantheon",
+    "name": "Triglav",
+    "slug": "triglav",
+    "originalLanguageName": {
+      "text": "Triglaus (Latinized by Ebbo and Herbord)",
+      "language": "Pomeranian (West Slavic)",
+      "transliteration": "Triglávŭ",
+      "meaning": "\"Three-headed\" (tri-, \"three\", + glava, \"head\")"
+    },
+    "alternateNames": ["Triglaus"],
+    "gender": "male",
+    "domain": ["sky, earth, and the underworld (per the chroniclers' gloss)"],
+    "symbols": ["three heads", "a golden blindfold/veil"],
+    "description": "The three-headed chief god of pagan Szczecin, whose temple and golden idol were destroyed during Bishop Otto of Bamberg's Christianizing mission of 1124–1128.",
+    "detailedBio": "## Attestation\n\nTriglav is known from the *Lives of Otto of Bamberg*, written within a generation of the events they describe by the monks Ebbo (*Vita Ottonis*, c. 1151) and Herbord (*Dialogus de Vita Ottonis*, c. 1158), recounting Otto's mission to convert Pomerania in 1124–1128. Both describe a three-headed idol at Szczecin (Stettin), its heads covered by a golden veil or blindfold that the chroniclers gloss as meaning the god chose to see, hear, and speak no evil of the three realms — sky, earth, and the underworld — the three heads were said to survey. A black, divinatory horse comparable to Svantevit's white one at Arkona is also recorded at Szczecin.\n\n## A missionary's frame\n\nAs with Svantevit, the surviving account comes from writers celebrating a bishop's conversion campaign, so the neat symbolic reading of the three heads (sky/earth/underworld, or \"see/hear/speak no evil\") may be the chroniclers' own interpretive gloss rather than a doctrine the Pomeranians themselves would have stated that way. The idol's fate is recorded precisely: after the temple's destruction, a golden likeness of Triglav's heads was reportedly sent to Pope Honorius II in Rome as proof of the mission's success.",
+    "importanceRank": 11,
+    "primarySources": [
+      {
+        "text": "There was in the city [Szczecin] a triple-headed image, which on the necks joined in one body was called Triglav [...] The priest explained that the great god had three heads because he oversaw three kingdoms, that is, heaven, earth, and the underworld, and that he covered his face with a golden veil, so as not to see or make known the sins of men.",
+        "source": "Ebbo, Vita Ottonis episcopi Babenbergensis (paraphrase)",
+        "date": "c. 1151, describing events of 1124–1128"
+      }
+    ],
+    "worship": {
+      "temples": [
+        "The chief temple at Szczecin, destroyed during Otto of Bamberg's mission of 1124–1128; a related cult is also recorded at Wolgast."
+      ],
+      "festivals": [],
+      "practices": "A black horse was kept for divination before military or civic decisions, its refusal to step over crossed spears read as an unfavorable omen, per Ebbo and Herbord's accounts of Szczecin."
+    },
+    "pronunciation": {
+      "ipa": "/ˈtriɡlav/",
+      "phonetic": "TREE-glahv"
+    }
+  },
+  {
+    "id": "chernobog",
+    "pantheonId": "slavic-pantheon",
+    "name": "Chernobog",
+    "slug": "chernobog",
+    "originalLanguageName": {
+      "text": "Zcerneboch (Latinized by Helmold)",
+      "language": "Polabian (West Slavic)",
+      "transliteration": "Chrŭnobogŭ",
+      "meaning": "\"Black god\" (chrŭnŭ, \"black\", + bogŭ, \"god\")"
+    },
+    "alternateNames": [],
+    "gender": "male",
+    "domain": ["misfortune (per a single hostile source)"],
+    "symbols": ["black"],
+    "description": "A \"black god\" of misfortune mentioned in exactly one medieval source, a Christian chronicler's brief and moralizing account of a feast toast; the paired \"white god\" Belobog appears only in much later sources, and most of what is said about Chernobog today goes beyond the evidence.",
+    "detailedBio": "## A single, thin source\n\nEverything known about Chernobog comes from one passage in Helmold of Bosau's *Chronica Slavorum* (Book I, chapter 52, written c. 1168), describing Slavs at a shared feast passing a cup and speaking words invoking, as Helmold reports it, a good god and an evil one, \"which in their language they call Zcerneboch, that is, the black god.\" Helmold states plainly that the Slavs believed good fortune came from the good god and misfortune was dispensed by the black one, and that they preferred to curse the evil god than to praise the good one. No other medieval writer, chronicle, or inscription mentions Chernobog.\n\n## What this site will not add\n\nA popularly repeated \"White God,\" Belobog, presented as Chernobog's opposite number, appears nowhere in Helmold or any other medieval source; the name is first attested only in 18th–19th-century antiquarian and Romantic writing, and modern Rodnovery (Slavic neopagan) material has built an elaborate dualistic cosmology around the pair that has no basis in the medieval record. Because Helmold is a single, late, foreign-authored, and explicitly moralizing witness, some historians have also asked whether his account reflects genuine Slavic dualism or a Christian writer's own framework of good and evil projected onto an unfamiliar toast. This site presents Chernobog only as far as Helmold's own words support, and no further.",
+    "importanceRank": 12,
+    "primarySources": [
+      {
+        "text": "Among the various forms of their idols [...] the Slavs also have a strange delusion: at feasts and carousals they pass around a bowl over which they utter words, I will not say of consecration but of execration, in the name of the gods, of the good one as well as the bad one, professing that all good fortune is arranged by the good god, adversity by the bad one; hence also in their language they call the bad god Zcerneboch, that is, the black god.",
+        "source": "Helmold of Bosau, Chronica Slavorum, Book I, ch. 52 (paraphrase)",
+        "date": "c. 1168"
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [],
+      "practices": "The only recorded practice is a feast-toast rite described by Helmold, in which a shared cup is passed while words are spoken invoking both a good god and Chernobog; no temple, idol, or dedicated festival is recorded anywhere else for him."
+    },
+    "pronunciation": {
+      "ipa": "/ˈtʃɛrnəbɒɡ/",
+      "phonetic": "CHER-noh-bog"
+    }
   }
 ]

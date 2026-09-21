@@ -1184,5 +1184,61 @@
         ]
       }
     ]
+  },
+  {
+    "pantheonId": "slavic-pantheon",
+    "title": "The World Oak: Perun's Sky and Veles's Roots",
+    "summary": "A modern scholarly reconstruction of a Slavic world-tree cosmology, with a sky-based Perun opposed to an underworld/water-based Veles at the roots — not a structure described in any medieval Slavic text.",
+    "axis": {
+      "name": "The World Oak",
+      "kind": "tree",
+      "note": "No medieval Slavic source describes a world tree. The oak's role here follows Vyacheslav Ivanov and Vladimir Toporov's 1974 comparative reconstruction, which infers a sky-versus-roots opposition between Perun and Veles from later East Slavic folklore, place names (Perun on high ground, Volos/Veles on low ground), and parallels with better-attested Indo-European traditions (the Norse world-tree Yggdrasil; the Vedic Indra-Vritra combat)."
+    },
+    "variantNote": "This entire structure is a modern academic reconstruction (Ivanov & Toporov, 1974), not an attested medieval cosmology — no chronicle, treaty, or missionary account describes a Slavic world tree. It is built by comparing later East Slavic folklore and place names with better-documented Indo-European parallels, and different scholars reconstruct the details differently. The West Slavic Baltic-coast temple gods (Svantevit, Triglav, Svarozhich, Chernobog) belong to a separate, later, differently-sourced regional tradition and are deliberately left out of this specific tree, rather than folded in without evidence. This is not the Prav/Yav/Nav triad from the forged Book of Veles (Velesova kniga), which this site does not use anywhere.",
+    "sources": [
+      "Vyacheslav Ivanov & Vladimir Toporov, Issledovaniya v oblasti slavyanskikh drevnostey (Studies in the Field of Slavic Antiquities), 1974",
+      "Alexander Afanasyev, Poeticheskie vozzreniya slavyan na prirodu (The Poetic Outlook of the Slavs upon Nature), 1865–1869"
+    ],
+    "tiers": [
+      {
+        "id": "crown",
+        "label": "The Crown: Sky and Thunder",
+        "band": "sky",
+        "realms": [
+          {
+            "name": "Perun's Sky",
+            "description": "The upper world of thunder, sun, and wind, reconstructed as Perun's domain at the crown of the World Oak, alongside the other sky-associated gods of Vladimir's 980 pantheon.",
+            "deities": ["perun", "svarog", "dazhbog", "stribog", "khors"],
+            "locationId": "peryn"
+          }
+        ]
+      },
+      {
+        "id": "trunk",
+        "label": "The Trunk: The Human World",
+        "band": "earth",
+        "realms": [
+          {
+            "name": "The Middle World",
+            "description": "The everyday world of people, animals, and Mokosh's earth, where Vladimir's state pantheon stood and where humans lived between the sky above and the roots below.",
+            "deities": ["mokosh", "simargl"],
+            "locationId": "starokyivska-hill"
+          }
+        ]
+      },
+      {
+        "id": "roots",
+        "label": "The Roots: Waters and the Underworld",
+        "band": "under",
+        "realms": [
+          {
+            "name": "Veles's Depths",
+            "description": "The lower world of water, cattle, and the dead, reconstructed as Veles's domain at the roots of the World Oak — the same wet, low ground that later folklore's water spirits inhabit.",
+            "deities": ["veles"],
+            "creatures": ["vodyanoy", "rusalka"]
+          }
+        ]
+      }
+    ]
   }
 ]

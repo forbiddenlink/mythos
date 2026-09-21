@@ -43,6 +43,7 @@ function getPantheonLabel(pantheonId: string): string {
     "chinese-pantheon": "Chinese",
     "mesoamerican-pantheon": "Mesoamerican",
     "mesopotamian-pantheon": "Mesopotamian",
+    "slavic-pantheon": "Slavic",
   };
   return labels[pantheonId] || "Ancient";
 }

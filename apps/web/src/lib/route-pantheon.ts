@@ -196,6 +196,18 @@ export const DEITY_PANTHEON_MAP: Record<string, string> = {
   "ek-chuaj": "mesoamerican-pantheon",
   xochipilli: "mesoamerican-pantheon",
   centeotl: "mesoamerican-pantheon",
+  perun: "slavic-pantheon",
+  veles: "slavic-pantheon",
+  mokosh: "slavic-pantheon",
+  svarog: "slavic-pantheon",
+  dazhbog: "slavic-pantheon",
+  stribog: "slavic-pantheon",
+  khors: "slavic-pantheon",
+  simargl: "slavic-pantheon",
+  svarozhich: "slavic-pantheon",
+  svantevit: "slavic-pantheon",
+  triglav: "slavic-pantheon",
+  chernobog: "slavic-pantheon",
 };
 
 export const STORY_PANTHEON_MAP: Record<string, string> = {
@@ -297,6 +309,10 @@ export const STORY_PANTHEON_MAP: Record<string, string> = {
   "etana-and-the-eagle": "mesopotamian-pantheon",
   "maui-and-hina-death": "polynesian-pantheon",
   "hina-maui-lengthened-day": "polynesian-pantheon",
+  "vladimirs-pantheon-980": "slavic-pantheon",
+  "perun-and-veles": "slavic-pantheon",
+  "svantevits-oracle-horse": "slavic-pantheon",
+  "vasilisa-the-beautiful": "slavic-pantheon",
 };
 
 /**

@@ -1704,5 +1704,29 @@
     "toDeityId": "xipe-totec",
     "relationshipType": "parent_of",
     "confidenceLevel": "medium"
+  },
+  {
+    "id": "slavic-svarog-dazhbog",
+    "fromDeityId": "svarog",
+    "toDeityId": "dazhbog",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high",
+    "description": "The Hypatian Chronicle's 1114 gloss on the Slavonic translation of John Malalas explicitly calls Dazhbog \"son of Svarog\" while equating Svarog with Hephaestus."
+  },
+  {
+    "id": "slavic-svarog-svarozhich",
+    "fromDeityId": "svarog",
+    "toDeityId": "svarozhich",
+    "relationshipType": "aspect_of",
+    "confidenceLevel": "low",
+    "description": "Svarozhich's own name is a patronymic/diminutive of Svarog (\"son of\" or \"little Svarog\"), but no medieval source directly links the East Slavic Svarog and the West Slavic Svarozhich cult at Riedegost; the connection is philological inference, not attested narrative."
+  },
+  {
+    "id": "slavic-perun-veles",
+    "fromDeityId": "perun",
+    "toDeityId": "veles",
+    "relationshipType": "enemy_of",
+    "confidenceLevel": "low",
+    "description": "No medieval text narrates a conflict between them. This edge represents Ivanov and Toporov's 1974 comparative reconstruction of a storm-god-versus-serpent combat, built from later folklore and place names, not an attested myth."
   }
 ]

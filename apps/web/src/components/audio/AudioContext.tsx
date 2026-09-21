@@ -26,6 +26,7 @@ const PANTHEON_TRACKS: Record<string, string> = {
   "mesoamerican-pantheon": "/audio/ambient/aztec-ambiance.mp3",
   "african-pantheon": "/audio/ambient/default.mp3",
   "polynesian-pantheon": "/audio/ambient/default.mp3",
+  "slavic-pantheon": "/audio/ambient/default.mp3",
   default: "/audio/ambient/default.mp3",
 };
 

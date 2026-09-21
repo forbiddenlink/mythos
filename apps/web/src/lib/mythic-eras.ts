@@ -67,6 +67,14 @@ export const MYTHIC_ERAS: MythicEra[] = [
     end: 1900,
     pantheonIds: ["african-pantheon"],
   },
+  {
+    id: "medieval-slavic-world",
+    label: "Medieval Slavic World",
+    blurb: "Kievan Rus' and the Baltic-coast Slavs",
+    start: 500,
+    end: 1250,
+    pantheonIds: ["slavic-pantheon"],
+  },
 ];
 
 export function pantheonIdsForEraId(eraId: string): Set<string> | null {
