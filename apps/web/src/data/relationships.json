@@ -1417,5 +1417,292 @@
     "relationshipType": "ally_of",
     "confidenceLevel": "medium",
     "description": "Deep-water wealth beside market wealth"
+  },
+  {
+    "id": "r215",
+    "fromDeityId": "cronus",
+    "toDeityId": "zeus",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high"
+  },
+  {
+    "id": "r216",
+    "fromDeityId": "cronus",
+    "toDeityId": "hera",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high"
+  },
+  {
+    "id": "r217",
+    "fromDeityId": "cronus",
+    "toDeityId": "poseidon",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high"
+  },
+  {
+    "id": "r218",
+    "fromDeityId": "cronus",
+    "toDeityId": "hades",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high"
+  },
+  {
+    "id": "r219",
+    "fromDeityId": "cronus",
+    "toDeityId": "demeter",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high"
+  },
+  {
+    "id": "r220",
+    "fromDeityId": "cronus",
+    "toDeityId": "hestia",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high"
+  },
+  {
+    "id": "r221",
+    "fromDeityId": "gaia",
+    "toDeityId": "uranus",
+    "relationshipType": "spouse_of",
+    "confidenceLevel": "high"
+  },
+  {
+    "id": "r222",
+    "fromDeityId": "gaia",
+    "toDeityId": "uranus",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high"
+  },
+  {
+    "id": "r223",
+    "fromDeityId": "gaia",
+    "toDeityId": "cronus",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high"
+  },
+  {
+    "id": "r224",
+    "fromDeityId": "uranus",
+    "toDeityId": "cronus",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high"
+  },
+  {
+    "id": "r225",
+    "fromDeityId": "hecate",
+    "toDeityId": "persephone",
+    "relationshipType": "ally_of",
+    "confidenceLevel": "medium"
+  },
+  {
+    "id": "r226",
+    "fromDeityId": "odin",
+    "toDeityId": "ymir",
+    "relationshipType": "enemy_of",
+    "confidenceLevel": "high"
+  },
+  {
+    "id": "r227",
+    "fromDeityId": "odin",
+    "toDeityId": "hodr",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high"
+  },
+  {
+    "id": "r228",
+    "fromDeityId": "hodr",
+    "toDeityId": "baldur",
+    "relationshipType": "sibling_of",
+    "confidenceLevel": "high"
+  },
+  {
+    "id": "r229",
+    "fromDeityId": "hodr",
+    "toDeityId": "baldur",
+    "relationshipType": "enemy_of",
+    "confidenceLevel": "high"
+  },
+  {
+    "id": "r230",
+    "fromDeityId": "idun",
+    "toDeityId": "bragi",
+    "relationshipType": "spouse_of",
+    "confidenceLevel": "high"
+  },
+  {
+    "id": "r231",
+    "fromDeityId": "sita",
+    "toDeityId": "rama",
+    "relationshipType": "spouse_of",
+    "confidenceLevel": "high"
+  },
+  {
+    "id": "r232",
+    "fromDeityId": "ravana",
+    "toDeityId": "rama",
+    "relationshipType": "enemy_of",
+    "confidenceLevel": "high"
+  },
+  {
+    "id": "r233",
+    "fromDeityId": "ptah",
+    "toDeityId": "sekhmet",
+    "relationshipType": "spouse_of",
+    "confidenceLevel": "high"
+  },
+  {
+    "id": "r234",
+    "fromDeityId": "amun",
+    "toDeityId": "ra",
+    "relationshipType": "aspect_of",
+    "confidenceLevel": "medium"
+  },
+  {
+    "id": "r235",
+    "fromDeityId": "nut",
+    "toDeityId": "geb",
+    "relationshipType": "spouse_of",
+    "confidenceLevel": "high"
+  },
+  {
+    "id": "r236",
+    "fromDeityId": "nut",
+    "toDeityId": "osiris",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high"
+  },
+  {
+    "id": "r237",
+    "fromDeityId": "nut",
+    "toDeityId": "isis",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high"
+  },
+  {
+    "id": "r238",
+    "fromDeityId": "nut",
+    "toDeityId": "set",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high"
+  },
+  {
+    "id": "r239",
+    "fromDeityId": "nut",
+    "toDeityId": "nephthys",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high"
+  },
+  {
+    "id": "r240",
+    "fromDeityId": "geb",
+    "toDeityId": "osiris",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high"
+  },
+  {
+    "id": "r241",
+    "fromDeityId": "geb",
+    "toDeityId": "isis",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high"
+  },
+  {
+    "id": "r242",
+    "fromDeityId": "geb",
+    "toDeityId": "set",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high"
+  },
+  {
+    "id": "r243",
+    "fromDeityId": "geb",
+    "toDeityId": "nephthys",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high"
+  },
+  {
+    "id": "r244",
+    "fromDeityId": "shu",
+    "toDeityId": "nut",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high"
+  },
+  {
+    "id": "r245",
+    "fromDeityId": "shu",
+    "toDeityId": "geb",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high"
+  },
+  {
+    "id": "r246",
+    "fromDeityId": "fuxi",
+    "toDeityId": "nuwa",
+    "relationshipType": "sibling_of",
+    "confidenceLevel": "high"
+  },
+  {
+    "id": "r247",
+    "fromDeityId": "fuxi",
+    "toDeityId": "nuwa",
+    "relationshipType": "spouse_of",
+    "confidenceLevel": "medium"
+  },
+  {
+    "id": "r248",
+    "fromDeityId": "dumuzi",
+    "toDeityId": "inanna",
+    "relationshipType": "spouse_of",
+    "confidenceLevel": "high"
+  },
+  {
+    "id": "r249",
+    "fromDeityId": "enki",
+    "toDeityId": "utnapishtim",
+    "relationshipType": "ally_of",
+    "confidenceLevel": "high"
+  },
+  {
+    "id": "r250",
+    "fromDeityId": "gilgamesh",
+    "toDeityId": "utnapishtim",
+    "relationshipType": "ally_of",
+    "confidenceLevel": "medium"
+  },
+  {
+    "id": "r251",
+    "fromDeityId": "mictecacihuatl",
+    "toDeityId": "mictlantecuhtli",
+    "relationshipType": "spouse_of",
+    "confidenceLevel": "high"
+  },
+  {
+    "id": "r252",
+    "fromDeityId": "ometeotl",
+    "toDeityId": "huitzilopochtli",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "medium"
+  },
+  {
+    "id": "r253",
+    "fromDeityId": "ometeotl",
+    "toDeityId": "quetzalcoatl",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "medium"
+  },
+  {
+    "id": "r254",
+    "fromDeityId": "ometeotl",
+    "toDeityId": "tezcatlipoca",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "medium"
+  },
+  {
+    "id": "r255",
+    "fromDeityId": "ometeotl",
+    "toDeityId": "xipe-totec",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "medium"
   }
 ]

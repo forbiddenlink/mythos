@@ -22,12 +22,14 @@ describe("structured primary-source excerpts", () => {
   it("has an explicit, valid web citation and editorial status for every record", () => {
     const excerpts = [...excerptsFrom(deities), ...excerptsFrom(stories)];
 
-    expect(excerpts).toHaveLength(35);
+    expect(excerpts).toHaveLength(40);
     for (const excerpt of excerpts) {
       expect(excerpt.edition.trim()).not.toBe("");
-      expect(["direct-quotation", "editorial-paraphrase", "unverified"]).toContain(
-        excerpt.quoteStatus,
-      );
+      expect([
+        "direct-quotation",
+        "editorial-paraphrase",
+        "unverified",
+      ]).toContain(excerpt.quoteStatus);
       expect([
         "verified",
         "source-and-locator-verified",

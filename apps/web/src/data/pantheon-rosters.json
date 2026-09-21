@@ -16,7 +16,11 @@
     "hestia",
     "prometheus",
     "perseus",
-    "persephone"
+    "persephone",
+    "cronus",
+    "gaia",
+    "uranus",
+    "hecate"
   ],
   "norse-pantheon": [
     "odin",
@@ -31,7 +35,11 @@
     "freyr",
     "fenrir",
     "hel",
-    "sif"
+    "sif",
+    "ymir",
+    "hodr",
+    "idun",
+    "bragi"
   ],
   "egyptian-pantheon": [
     "ra",
@@ -46,7 +54,13 @@
     "maat",
     "nephthys",
     "sekhmet",
-    "sobek"
+    "sobek",
+    "ptah",
+    "amun",
+    "bes",
+    "shu",
+    "nut",
+    "geb"
   ],
   "roman-pantheon": [
     "jupiter",
@@ -78,7 +92,10 @@
     "rama",
     "krishna",
     "indra",
-    "agni"
+    "agni",
+    "sita",
+    "ravana",
+    "yama"
   ],
   "japanese-pantheon": [
     "izanagi",
@@ -112,7 +129,8 @@
     "dian-cecht",
     "goibniu",
     "aine",
-    "midir"
+    "midir",
+    "medb"
   ],
   "aztec-pantheon": [
     "quetzalcoatl",
@@ -126,7 +144,9 @@
     "xolotl",
     "coyolxauhqui",
     "xiuhtecuhtli",
-    "tlaltecuhtli"
+    "tlaltecuhtli",
+    "mictecacihuatl",
+    "ometeotl"
   ],
   "chinese-pantheon": [
     "jade-emperor",
@@ -142,7 +162,8 @@
     "xi-wangmu",
     "pangu",
     "hou-yi",
-    "nuwa"
+    "nuwa",
+    "fuxi"
   ],
   "mesopotamian-pantheon": [
     "anu",
@@ -156,7 +177,9 @@
     "ereshkigal",
     "nergal",
     "gilgamesh",
-    "enkidu"
+    "enkidu",
+    "dumuzi",
+    "utnapishtim"
   ],
   "african-pantheon": [
     "olodumare",

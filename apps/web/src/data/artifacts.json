@@ -394,7 +394,7 @@
     "description": "The necklace of the Brisings, a magnificent piece of jewelry belonging to Freya. It enhances her already irresistible beauty and is one of the most coveted treasures in all the Nine Worlds.",
     "type": "jewelry",
     "powers": ["Beauty Enhancement", "Desire Inducement", "Divine Radiance"],
-    "owner": "freya",
+    "owner": "freyja",
     "origin": "Obtained by Freya from four dwarven smiths, each of whom demanded a night with the goddess as payment.",
     "currentLocation": "Worn by Freya in Asgard",
     "imageUrl": "/artifacts/brisingamen.png",
@@ -826,7 +826,7 @@
       "Fire Generation",
       "Returning"
     ],
-    "owner": "lugh",
+    "owner": "lug",
     "origin": "Brought from the city of Gorias by the Tuatha De Danann when they came to Ireland from the otherworld.",
     "currentLocation": "Kept in the otherworld realms of the Tuatha De Danann",
     "imageUrl": "/artifacts/spear-of-lugh.jpg",
