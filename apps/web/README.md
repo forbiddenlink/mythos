@@ -4,18 +4,18 @@
 
 ## Overview
 
-Web frontend for Mythos Atlas, an interactive encyclopedia of ancient mythology featuring **14 pantheons**, **225 deities**, **20 heroes**, **102 stories**, **63 creatures**, **52 artifacts**, and **125 mythological locations** — plus quizzes, interactive family trees, 3D artifact viewers, branching stories, and spaced-repetition review.
+Web frontend for Mythos Atlas, an interactive encyclopedia of ancient mythology featuring **16 pantheons**, **233 deities**, **27 heroes**, **108 stories**, **63 creatures**, **52 artifacts**, and **127 mythological locations** — plus quizzes, interactive family trees, 3D artifact viewers, branching stories, and spaced-repetition review.
 
 **Built by Elizabeth Stein** using Next.js 16, React 19, TypeScript 5, and modern web technologies.
 
 ## Features
 
-- 🏛️ **14 Pantheons** — Greek, Norse, Egyptian, Roman, Hindu, Japanese, Celtic, Aztec, Chinese, Mesopotamian, African (Yoruba), Polynesian, Mesoamerican, Slavic
-- 👑 **225 Deity Profiles** — Filterable by gender, domain, and pantheon with smart sorting
-- 📖 **102 Epic Stories** — Including interactive branching narratives (choose-your-own-adventure)
+- 🏛️ **16 Pantheons** — Greek, Norse, Egyptian, Roman, Hindu, Japanese, Celtic, Aztec, Chinese, Mesopotamian, African (Yoruba), Polynesian, Mesoamerican, Slavic, Haudenosaunee, Tlingit & Haida
+- 👑 **233 Deity Profiles** — Filterable by gender, domain, and pantheon with smart sorting
+- 📖 **108 Epic Stories** — Including interactive branching narratives (choose-your-own-adventure)
 - 🐉 **63 Creatures** — Mythological beasts with detailed profiles
 - ⚔️ **52 Artifacts** — Legendary items with interactive 3D viewer (React Three Fiber)
-- 🗺️ **125 Locations** — Interactive mythological map with filters and 3 guided journeys
+- 🗺️ **127 Locations** — Interactive mythological map with filters and 3 guided journeys
 - 🌳 **Family Trees** — Network graph (ReactFlow) and hierarchical (D3.js) visualizations
 - 🧠 **Quizzes & Games** — Relationship quiz, personality quiz, quick quiz, symbol memory game
 - 📚 **Spaced Repetition** — Flashcard review system with intelligent scheduling
@@ -119,13 +119,13 @@ src/
 │   ├── ui/               # shadcn/ui components
 │   └── ...               # animations, audio, i18n, pwa, seo, etc.
 ├── data/                 # JSON data files
-│   ├── pantheons.json    # 14 pantheons
-│   ├── deities.json      # 225 deities
-│   ├── heroes.json       # 20 heroes
-│   ├── stories.json      # 102 stories
+│   ├── pantheons.json    # 16 pantheons
+│   ├── deities.json      # 233 deities
+│   ├── heroes.json       # 27 heroes
+│   ├── stories.json      # 108 stories
 │   ├── creatures.json    # 63 creatures
 │   ├── artifacts.json    # 52 artifacts
-│   ├── locations.json    # 125 locations
+│   ├── locations.json    # 127 locations
 │   ├── sources.json      # 34 primary/academic sources
 │   └── relationships.json
 ├── hooks/                # Custom React hooks

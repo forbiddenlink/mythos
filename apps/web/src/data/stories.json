@@ -1284,7 +1284,7 @@
       }
     ],
     "featuredDeities": ["hades", "persephone"],
-    "relatedStories": ["death-of-baldur"],
+    "relatedStories": ["death-of-baldur", "abduction-of-persephone"],
     "variants": [
       {
         "source": "Virgil's Georgics",
@@ -1907,7 +1907,11 @@
       }
     ],
     "featuredDeities": ["inanna", "ereshkigal", "enki"],
-    "relatedStories": ["epic-of-gilgamesh", "enuma-elish"]
+    "relatedStories": [
+      "epic-of-gilgamesh",
+      "enuma-elish",
+      "abduction-of-persephone"
+    ]
   },
   {
     "id": "enuma-elish",
@@ -3593,5 +3597,78 @@
     ],
     "featuredDeities": ["raven"],
     "featuredLocations": ["haida-gwaii"]
+  },
+  {
+    "id": "abduction-of-persephone",
+    "pantheonId": "greek-pantheon",
+    "title": "The Abduction of Persephone",
+    "slug": "abduction-of-persephone",
+    "summary": "Hades carries off Persephone, daughter of Demeter, with Zeus's consent. Demeter's grief and her withholding of the harvest force the gods to bargain, but because Persephone has eaten a pomegranate seed below, she must return to the underworld for part of every year.",
+    "fullNarrative": "## The Flower in the Meadow\n\nIn the Homeric Hymn to Demeter, the oldest full telling of this story, Persephone is gathering flowers with the daughters of Ocean in a soft meadow: roses, crocuses, violets, irises, hyacinths. Among them grows a narcissus of astonishing beauty, which Earth has put there at Zeus's wish, as a lure. When the girl reaches for it, the ground opens. Hades, lord of many, rises in his golden chariot drawn by immortal horses and carries her away, screaming for her father. Zeus has given his consent, and he sits apart in his temple, taking offerings from mortals, so that he will not hear her.\n\nOnly two hear her cry: Hecate, in her cave, and Helios, the sun, who sees all that happens on earth.\n\n## A Mother's Search\n\nDemeter hears the echo of her daughter's voice and tears the veil from her hair. For nine days she wanders the earth carrying blazing torches, without eating ambrosia, drinking nectar, or bathing. On the tenth day Hecate meets her, and together they go to Helios, who tells her the truth: Zeus gave Persephone to his brother Hades as a wife, and Hades is not an unworthy husband, since he rules a third of the world.\n\n## The Goddess at Eleusis\n\nFurious with Zeus, Demeter leaves the company of the gods. Disguised as an old woman, she sits by the Maiden Well at Eleusis, where the daughters of King Celeus find her and bring her home to nurse their baby brother, Demophon. The servant Iambe finally makes her laugh with jests. Secretly, each night, Demeter anoints the child with ambrosia and lays him in the fire to burn away his mortality. His mother Metaneira sees it and screams, and the goddess, angered, snatches the child out and reveals herself in her full glory. She orders a temple built for her at Eleusis, and sits in it, apart, mourning.\n\n## The Barren Year\n\nThen Demeter makes the most terrible year for mortals. No seed sprouts. Oxen drag the plough through the fields for nothing. Humanity would have starved, and the gods would have lost their honors and sacrifices, had Zeus not noticed. He sends Iris, then all the gods one after another, with gifts, but Demeter refuses to set foot on Olympus or let the grain grow until she sees her daughter.\n\n## The Pomegranate Seed\n\nZeus sends Hermes down to the underworld. Hades smiles and lets Persephone go, but first he secretly gives her a pomegranate seed to eat, so that she cannot stay forever above with her mother. Mother and daughter are reunited in joy, but Demeter's first question is whether she ate anything below. Because she did, Persephone must spend a third of every year with Hades and the rest with her mother and the other gods.\n\nDemeter lets the fields bear again, and before returning to Olympus she teaches her rites, the Eleusinian Mysteries, to the rulers of Eleusis: Triptolemus, Diocles, Eumolpus, and Celeus. The hymn ends by blessing those mortals who have seen these rites, for the uninitiated have no such share after death.\n\n## Later Tellings\n\nOvid moves the story to Sicily, near Henna. In his version Venus sends Cupid to shoot Dis so that love will reach even the underworld, the nymph Cyane tries to block the chariot and dissolves into her own pool, and Ascalaphus, a son of Acheron who saw her in the garden of Dis, betrays that Proserpina ate seven seeds. Ovid divides the year in half rather than in thirds. Apollodorus keeps the third of the year and also blames Ascalaphus.",
+    "keyExcerpts": "Earth grew the narcissus as a lure, by the will of Zeus. Demeter searched nine days with torches. Because Persephone ate a pomegranate seed below, she must spend part of every year with Hades.",
+    "category": "myth",
+    "moralThemes": [
+      "grief",
+      "mother and daughter",
+      "death and return",
+      "the cycle of the year",
+      "mysteries and initiation"
+    ],
+    "culturalSignificance": "The story is the founding myth of the Eleusinian Mysteries, the most famous initiation rites of the ancient Greek world, celebrated for roughly a thousand years until the late fourth century CE. It gave Greeks a way to think about loss, the fertility of the land, and a better lot after death. The popular reading of Persephone's absence as winter is a later interpretation: the hymn itself only says she returns 'when the earth blooms with fragrant spring flowers', and scholars still debate which season her time below was meant to match.",
+    "citationSources": [
+      {
+        "title": "Homeric Hymn to Demeter (Hymn 2)",
+        "author": "Anonymous",
+        "book": "entire hymn",
+        "type": "primary"
+      },
+      {
+        "title": "Theogony",
+        "author": "Hesiod",
+        "book": "912-914",
+        "type": "primary"
+      },
+      {
+        "title": "Metamorphoses",
+        "author": "Ovid",
+        "book": "5.341-661",
+        "type": "primary"
+      },
+      {
+        "title": "Fasti",
+        "author": "Ovid",
+        "book": "4.417-620",
+        "type": "primary"
+      },
+      {
+        "title": "Library",
+        "author": "Apollodorus",
+        "book": "1.5.1-3",
+        "type": "primary"
+      }
+    ],
+    "featuredDeities": [
+      "persephone",
+      "demeter",
+      "hades",
+      "zeus",
+      "hecate",
+      "hermes"
+    ],
+    "relatedStories": ["orpheus-eurydice", "inanna-descent"],
+    "variants": [
+      {
+        "source": "Ovid, Metamorphoses 5",
+        "date": "c. 8 CE",
+        "difference": "Set in Sicily near Henna. Venus and Cupid cause Dis to fall in love, the nymph Cyane resists and dissolves into water, and Ascalaphus reveals that Proserpina ate seven seeds. The year is split in half.",
+        "note": "Ovid turns a cult hymn into a story about the reach of love's power."
+      },
+      {
+        "source": "Apollodorus, Library 1.5",
+        "date": "1st-2nd century CE",
+        "difference": "Ascalaphus, son of Acheron, testifies against Persephone, and Demeter punishes him. The third of the year below is kept from the hymn.",
+        "note": "A compact mythographer's summary."
+      }
+    ]
   }
 ]

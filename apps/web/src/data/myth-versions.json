@@ -722,5 +722,125 @@
         }
       }
     ]
+  },
+  {
+    "storySlug": "abduction-of-persephone",
+    "question": "Where does Persephone's story happen, and how long is she gone?",
+    "takeaway": "The hymn, Ovid, and Apollodorus agree on the abduction and the pomegranate, but not on the place, the witnesses, or how much of the year Persephone spends below. The half-year many people know is Ovid's; the oldest telling says a third.",
+    "beats": [
+      { "id": "place", "label": "Where she is taken" },
+      { "id": "cause", "label": "Why Hades takes her" },
+      { "id": "witness", "label": "Who reveals what happened" },
+      { "id": "eleusis", "label": "Demeter at Eleusis" },
+      { "id": "famine", "label": "Demeter withholds the harvest" },
+      { "id": "seed", "label": "The pomegranate" },
+      { "id": "time", "label": "Time spent below" }
+    ],
+    "sources": [
+      {
+        "name": "Homeric Hymn to Demeter",
+        "work": "Hymn 2 of the Homeric Hymns",
+        "date": "c. 650-550 BCE",
+        "sortYear": -600,
+        "kind": "primary",
+        "reference": true,
+        "cells": {
+          "place": {
+            "state": "present",
+            "note": "A meadow on the Nysian plain; its location is not fixed."
+          },
+          "cause": {
+            "state": "present",
+            "note": "Zeus has promised her to his brother; Earth grows the narcissus lure."
+          },
+          "witness": {
+            "state": "present",
+            "note": "Hecate hears, and Helios, who saw everything, tells Demeter."
+          },
+          "eleusis": {
+            "state": "present",
+            "note": "She nurses Demophon, is revealed, and founds her temple and Mysteries."
+          },
+          "famine": { "state": "present" },
+          "seed": {
+            "state": "present",
+            "note": "Hades gives her a single seed in secret."
+          },
+          "time": { "state": "present", "note": "A third of the year." }
+        }
+      },
+      {
+        "name": "Ovid, Metamorphoses 5.341-661",
+        "work": "Latin epic",
+        "date": "c. 8 CE",
+        "sortYear": 8,
+        "kind": "primary",
+        "cells": {
+          "place": {
+            "state": "variant",
+            "note": "Sicily, by Lake Pergus near Henna."
+          },
+          "cause": {
+            "state": "variant",
+            "note": "Venus has Cupid shoot Dis so love will rule the underworld too."
+          },
+          "witness": {
+            "state": "variant",
+            "note": "The nymph Arethusa tells Ceres she saw Proserpina below; Ascalaphus reports the seeds."
+          },
+          "eleusis": { "state": "absent" },
+          "famine": {
+            "state": "present",
+            "note": "Ceres curses the land, Sicily above all."
+          },
+          "seed": {
+            "state": "variant",
+            "note": "She eats seven seeds in a garden."
+          },
+          "time": { "state": "variant", "note": "Half the year." }
+        }
+      },
+      {
+        "name": "Ovid, Fasti 4.417-620",
+        "work": "Latin poem on the Roman calendar",
+        "date": "c. 8 CE",
+        "sortYear": 9,
+        "kind": "primary",
+        "cells": {
+          "place": { "state": "variant", "note": "Sicily, near Henna." },
+          "cause": { "state": "absent" },
+          "witness": { "state": "variant", "note": "Helios, as in the hymn." },
+          "eleusis": {
+            "state": "present",
+            "note": "Ceres heals the child Triptolemus at Eleusis."
+          },
+          "famine": { "state": "absent" },
+          "seed": { "state": "variant", "note": "Three seeds." },
+          "time": { "state": "variant", "note": "Half the year." }
+        }
+      },
+      {
+        "name": "Apollodorus, Library 1.5.1-3",
+        "work": "Greek mythographic handbook",
+        "date": "1st-2nd century CE",
+        "sortYear": 100,
+        "kind": "later-ancient",
+        "cells": {
+          "place": { "state": "absent" },
+          "cause": {
+            "state": "present",
+            "note": "Hades carries her off with Zeus's help."
+          },
+          "witness": {
+            "state": "variant",
+            "note": "The people of Hermione tell Demeter; Ascalaphus testifies about the seed."
+          },
+          "eleusis": { "state": "present" },
+          "famine": { "state": "absent" },
+          "seed": { "state": "present", "note": "One seed, given by Hades." },
+          "time": { "state": "present", "note": "A third of the year." }
+        }
+      }
+    ]
   }
 ]
