@@ -1,5 +1,3 @@
-"use client";
-
 import {
   Card,
   CardContent,
@@ -20,6 +18,8 @@ import storiesData from "@/data/stories.json";
 import { RouteHero } from "@/components/layout/route-hero";
 import { MythosMark } from "@/components/icons/mythos-marks";
 import { getPantheonColor } from "@/lib/pantheon-colors";
+import { resolveCosmology } from "@/lib/cosmology";
+import { CosmologyDiagram } from "@/components/cosmology/CosmologyDiagram";
 
 interface Pantheon {
   id: string;
@@ -91,6 +91,7 @@ export function PantheonPageClient({ slug }: PantheonPageClientProps) {
   const pantheonStories = allStories.filter(
     (story) => story.pantheonId === pantheon.id,
   );
+  const cosmology = resolveCosmology(pantheon.id);
 
   return (
     <div className="min-h-screen bg-mythic">
@@ -186,6 +187,13 @@ export function PantheonPageClient({ slug }: PantheonPageClientProps) {
             </p>
           )}
         </section>
+
+        {cosmology && (
+          <CosmologyDiagram
+            cosmology={cosmology}
+            accent={getPantheonColor(pantheon.id)}
+          />
+        )}
 
         {/* Deities Section */}
         <section className="mb-14">

@@ -1,0 +1,1188 @@
+[
+  {
+    "pantheonId": "norse-pantheon",
+    "title": "Yggdrasil and the Nine Worlds",
+    "summary": "An ash tree, Yggdrasil, holds the worlds together. Its roots reach the well of fate, the frost giants, and the cold dark of Niflheim, while a dragon gnaws below and an eagle sits at the crown.",
+    "axis": {
+      "name": "Yggdrasil",
+      "kind": "tree",
+      "note": "The world ash. Grímnismál names its three roots and the creatures that live on it."
+    },
+    "variantNote": "The Eddas speak of nine worlds (Völuspá 2) but never list all nine. The familiar list and the stacked arrangement below are a modern reconstruction from scattered references in Snorri's Gylfaginning and the Eddic poems.",
+    "sources": [
+      "Poetic Edda, Völuspá 2, 19-20",
+      "Poetic Edda, Grímnismál 29-35",
+      "Snorri Sturluson, Gylfaginning 15-17"
+    ],
+    "tiers": [
+      {
+        "id": "upper",
+        "label": "Upper worlds",
+        "band": "sky",
+        "realms": [
+          {
+            "name": "Asgard",
+            "originalName": "Ásgarðr",
+            "description": "Stronghold of the Æsir, with Odin's hall Valhalla. Reached from Midgard by the rainbow bridge Bifröst.",
+            "deities": [
+              "odin",
+              "frigg",
+              "thor",
+              "tyr",
+              "heimdall",
+              "sif",
+              "idun",
+              "bragi"
+            ],
+            "creatures": ["sleipnir"],
+            "locationId": "asgard"
+          },
+          {
+            "name": "Vanaheim",
+            "originalName": "Vanaheimr",
+            "description": "Home of the Vanir, gods of fertility and wealth, who joined the Æsir after the first war.",
+            "deities": ["njord", "freyr", "freyja"],
+            "locationId": "vanaheim"
+          },
+          {
+            "name": "Alfheim",
+            "originalName": "Álfheimr",
+            "description": "Realm of the light elves. Grímnismál says the gods gave it to Freyr as a tooth-gift.",
+            "locationId": "alfheim"
+          }
+        ]
+      },
+      {
+        "id": "middle",
+        "label": "Middle worlds",
+        "band": "earth",
+        "realms": [
+          {
+            "name": "Midgard",
+            "originalName": "Miðgarðr",
+            "description": "The world of humans, fenced from the giants and encircled by the sea serpent Jörmungandr.",
+            "creatures": ["jormungandr"],
+            "locationId": "midgard"
+          },
+          {
+            "name": "Jotunheim",
+            "originalName": "Jötunheimr",
+            "description": "Land of the jötnar, the giants, rivals and in-laws of the gods.",
+            "locationId": "jotunheim"
+          },
+          {
+            "name": "Svartalfheim",
+            "originalName": "Svartálfaheimr",
+            "description": "Underground home of the dark elves and dwarves, makers of the gods' treasures.",
+            "locationId": "svartalfheim"
+          },
+          {
+            "name": "Muspelheim",
+            "originalName": "Múspellsheimr",
+            "description": "The realm of fire in the south, guarded by Surtr, whose host will burn the world at Ragnarök.",
+            "locationId": "muspelheim"
+          }
+        ]
+      },
+      {
+        "id": "lower",
+        "label": "Lower worlds",
+        "band": "under",
+        "realms": [
+          {
+            "name": "Niflheim",
+            "originalName": "Niflheimr",
+            "description": "Primordial mist and ice, where the spring Hvergelmir feeds the rivers and Níðhöggr gnaws the root of the tree.",
+            "creatures": ["nidhogg"],
+            "locationId": "niflheim"
+          },
+          {
+            "name": "Hel",
+            "originalName": "Hel",
+            "description": "Realm of the dead who did not fall in battle, ruled by Loki's daughter Hel. Baldr went here after his death, and Völuspá says he and his slayer Höðr will return from it after Ragnarök.",
+            "deities": ["hel", "baldur", "hodr"],
+            "locationId": "helheim"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "pantheonId": "greek-pantheon",
+    "title": "Sky, Earth, and the Depths",
+    "summary": "Hesiod measures the cosmos with a falling anvil: nine days from heaven to earth, nine more from earth to Tartarus. The Olympians rule the heights, the dead dwell below, and Ocean circles everything.",
+    "axis": null,
+    "variantNote": "Early poets put the Elysian Fields at the western edge of the earth (Odyssey 4). Later writers, especially Virgil, moved them into the underworld.",
+    "sources": [
+      "Hesiod, Theogony 116-133, 720-725",
+      "Homer, Iliad 8.13-16, 15.187-193",
+      "Homer, Odyssey 4.561-569, 11"
+    ],
+    "tiers": [
+      {
+        "id": "heaven",
+        "label": "Heaven and Olympus",
+        "band": "sky",
+        "realms": [
+          {
+            "name": "Ouranos",
+            "originalName": "Οὐρανός",
+            "description": "The starry sky itself, born of Gaia to cover her on every side (Theogony 126-128), and the first ruler of the cosmos until his son Cronus overthrew him.",
+            "deities": ["uranus"]
+          },
+          {
+            "name": "Olympus",
+            "originalName": "Ὄλυμπος",
+            "description": "The mountain seat of the twelve Olympians, whose peak touches the bronze vault of the sky (Ouranos).",
+            "deities": [
+              "zeus",
+              "hera",
+              "athena",
+              "apollo",
+              "artemis",
+              "hermes",
+              "aphrodite",
+              "ares",
+              "hephaestus",
+              "hestia",
+              "dionysus",
+              "demeter"
+            ],
+            "locationId": "mount-olympus"
+          }
+        ]
+      },
+      {
+        "id": "earth",
+        "label": "Earth and sea",
+        "band": "earth",
+        "realms": [
+          {
+            "name": "Gaia and the lands of mortals",
+            "originalName": "Γαῖα",
+            "description": "The broad earth, the first firm seat of all things, where heroes and monsters meet.",
+            "deities": ["gaia", "hecate", "prometheus", "perseus"],
+            "creatures": [
+              "hydra",
+              "chimera",
+              "minotaur",
+              "sphinx",
+              "cyclops",
+              "medusa"
+            ]
+          },
+          {
+            "name": "The sea and Oceanus",
+            "originalName": "Ὠκεανός",
+            "description": "The sea is Poseidon's lot by the division of the three brothers. The river Oceanus rings the whole world.",
+            "deities": ["poseidon"]
+          }
+        ]
+      },
+      {
+        "id": "under",
+        "label": "The house of Hades",
+        "band": "under",
+        "realms": [
+          {
+            "name": "The Underworld",
+            "originalName": "Ἅιδης",
+            "description": "Kingdom of the dead beneath the earth, crossed by the Styx and guarded by Cerberus.",
+            "deities": ["hades", "persephone"],
+            "creatures": ["cerberus"],
+            "locationId": "underworld"
+          },
+          {
+            "name": "Elysian Fields",
+            "originalName": "Ἠλύσιον πεδίον",
+            "description": "A blessed land of mild wind and no snow, set apart for heroes favored by the gods.",
+            "locationId": "elysian-fields"
+          }
+        ]
+      },
+      {
+        "id": "abyss",
+        "label": "Tartarus",
+        "band": "abyss",
+        "realms": [
+          {
+            "name": "Tartarus",
+            "originalName": "Τάρταρος",
+            "description": "A gloomy pit as far below Hades as heaven is above the earth, walled in bronze. Cronus and the defeated Titans are imprisoned there (Iliad 8.478-481; Theogony 717-735).",
+            "locationId": "tartarus",
+            "deities": ["cronus"]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "pantheonId": "roman-pantheon",
+    "title": "Caelum, Terra, and the Realm of Dis",
+    "summary": "Rome took over the Greek three-part cosmos and gave it Latin names. Virgil's Aeneid VI supplies the most detailed map of the Roman underworld, from the grove at Avernus to Elysium.",
+    "axis": null,
+    "variantNote": "Much of this structure is borrowed from Greek poetry. Native Roman religion cared more about the household spirits and the dead of the family than about a mapped cosmos.",
+    "sources": [
+      "Virgil, Aeneid 6.236-901",
+      "Ovid, Metamorphoses 1.5-88",
+      "Ovid, Fasti 5.419-492 (Lemuria)"
+    ],
+    "tiers": [
+      {
+        "id": "caelum",
+        "label": "Caelum, the sky",
+        "band": "sky",
+        "realms": [
+          {
+            "name": "Caelum",
+            "description": "The heavens, seat of Jupiter and the great gods of the state cult on the Capitol.",
+            "deities": [
+              "jupiter",
+              "juno",
+              "minerva",
+              "apollo-roman",
+              "diana",
+              "mars",
+              "venus",
+              "mercury",
+              "vulcan",
+              "bacchus"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "terra",
+        "label": "Terra and the household",
+        "band": "earth",
+        "realms": [
+          {
+            "name": "Terra",
+            "description": "The earth of fields and grain, the hearth of the city, and the doorways Janus watches.",
+            "deities": ["ceres", "vesta", "janus"],
+            "creatures": ["lares", "strix"]
+          },
+          {
+            "name": "Mare",
+            "description": "The sea, ruled by Neptune.",
+            "deities": ["neptune"]
+          }
+        ]
+      },
+      {
+        "id": "infernus",
+        "label": "The realm of Dis",
+        "band": "under",
+        "realms": [
+          {
+            "name": "Orcus",
+            "description": "The underworld Aeneas enters through the cave at Avernus. The dead gather here, and the Manes and Lemures return to the living at set festivals.",
+            "creatures": ["manes", "lemures"]
+          },
+          {
+            "name": "Elysium",
+            "description": "In Virgil, a place of light inside the underworld where the blessed dead live.",
+            "locationId": "elysian-fields"
+          },
+          {
+            "name": "Tartarus",
+            "description": "A fortress ringed by the burning river Phlegethon, where the wicked are punished.",
+            "locationId": "tartarus"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "pantheonId": "egyptian-pantheon",
+    "title": "Nut, Geb, and the Duat",
+    "summary": "The sky goddess Nut arches over the earth god Geb, held apart by Shu, the air. Each night the sun sails through the Duat, the underworld, fighting the serpent Apep, and is reborn at dawn. Around everything lie the dark waters of Nun.",
+    "axis": {
+      "name": "The sun's daily circuit",
+      "kind": "path",
+      "note": "Ra crosses the sky by day and the twelve hours of the Duat by night."
+    },
+    "variantNote": "Egypt kept several creation traditions side by side (Heliopolis, Memphis, Hermopolis, Thebes). This view follows the Heliopolitan family of Shu, Nut, and Geb and the New Kingdom underworld books.",
+    "sources": [
+      "Pyramid Texts (Old Kingdom)",
+      "Amduat, 'Book of What Is in the Underworld' (New Kingdom)",
+      "Book of the Dead, spells 110 and 125"
+    ],
+    "tiers": [
+      {
+        "id": "sky",
+        "label": "The sky of Nut",
+        "band": "sky",
+        "realms": [
+          {
+            "name": "The daytime sky",
+            "originalName": "Nut",
+            "description": "Nut's star-covered body, held up off the earth by Shu, the air. Ra's solar barque crosses it each day.",
+            "deities": ["ra", "shu", "hathor", "nut"],
+            "creatures": ["bennu"]
+          }
+        ]
+      },
+      {
+        "id": "earth",
+        "label": "The earth of Geb",
+        "band": "earth",
+        "realms": [
+          {
+            "name": "Kemet",
+            "originalName": "Kmt",
+            "description": "The Black Land along the Nile, the fertile world of the living, ruled by the king as the living Horus.",
+            "deities": [
+              "geb",
+              "ptah",
+              "amun",
+              "bes",
+              "horus",
+              "isis",
+              "bastet",
+              "sekhmet",
+              "sobek",
+              "nephthys"
+            ],
+            "creatures": ["egyptian-sphinx"],
+            "locationId": "heliopolis"
+          },
+          {
+            "name": "Deshret",
+            "originalName": "Dšrt",
+            "description": "The Red Land of desert beyond the valley, domain of Set, lord of storms and foreign places.",
+            "deities": ["set"],
+            "creatures": ["serpopard"]
+          }
+        ]
+      },
+      {
+        "id": "duat",
+        "label": "The Duat",
+        "band": "under",
+        "realms": [
+          {
+            "name": "The twelve hours of night",
+            "originalName": "Dwꜣt",
+            "description": "The hidden realm the sun crosses each night, hour by hour and gate by gate, while Apep tries to swallow it.",
+            "deities": ["anubis"],
+            "creatures": ["apep"],
+            "locationId": "duat"
+          },
+          {
+            "name": "Hall of the Two Truths",
+            "description": "Where the heart of the dead is weighed against the feather of Maat before Osiris. Thoth records the result and Ammit devours those who fail.",
+            "deities": ["osiris", "maat", "thoth"],
+            "creatures": ["ammit"]
+          },
+          {
+            "name": "Field of Reeds",
+            "originalName": "Sḫt-jꜣrw",
+            "description": "The blessed afterlife, a perfect Egypt of abundant harvests for the justified dead.",
+            "locationId": "field-of-reeds"
+          }
+        ]
+      },
+      {
+        "id": "nun",
+        "label": "Nun, the primeval waters",
+        "band": "water",
+        "realms": [
+          {
+            "name": "Nun",
+            "originalName": "Nwn",
+            "description": "The dark, limitless water that existed before creation and still surrounds the ordered world."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "pantheonId": "hindu-pantheon",
+    "title": "The Fourteen Lokas and Mount Meru",
+    "summary": "The Puranas describe seven worlds rising above the earth and seven below it, with golden Mount Meru standing at the center of the continent Jambudvipa as the axis of the universe.",
+    "axis": {
+      "name": "Mount Meru",
+      "kind": "mountain",
+      "note": "The golden cosmic mountain at the center of the earth-disc, around which the sun and stars turn."
+    },
+    "variantNote": "Different Puranas count and name the worlds differently. Vishnu's Vaikuntha and Shiva's Kailasa are placed at the summit of reality by their own devotional traditions, so they sit apart from the numbered lokas here.",
+    "sources": [
+      "Vishnu Purana 2.5-2.7",
+      "Bhagavata Purana 5.16-5.26",
+      "Brahmanda Purana"
+    ],
+    "tiers": [
+      {
+        "id": "beyond",
+        "label": "Abodes of the supreme gods",
+        "band": "beyond",
+        "realms": [
+          {
+            "name": "Vaikuntha",
+            "description": "Vishnu's eternal realm, beyond the cycle of creation and destruction.",
+            "deities": ["vishnu", "lakshmi"],
+            "creatures": ["garuda"],
+            "locationId": "vaikuntha"
+          },
+          {
+            "name": "Kailasa",
+            "description": "Shiva's mountain dwelling, where he lives with Parvati and their children.",
+            "deities": ["shiva", "parvati", "ganesha"],
+            "locationId": "mount-kailash"
+          }
+        ]
+      },
+      {
+        "id": "upper",
+        "label": "The seven upper worlds",
+        "band": "sky",
+        "realms": [
+          {
+            "name": "Satyaloka",
+            "originalName": "सत्यलोक",
+            "description": "The highest world, Brahma's own abode, also called Brahmaloka.",
+            "deities": ["brahma", "saraswati"]
+          },
+          {
+            "name": "Tapaloka, Janaloka, Maharloka",
+            "description": "Worlds of great sages and ascetics, which survive the partial dissolution of the universe.",
+            "deities": []
+          },
+          {
+            "name": "Svarloka",
+            "originalName": "स्वर्ग",
+            "description": "Svarga, Indra's heaven, where the devas enjoy the rewards of merit until it runs out.",
+            "deities": ["indra", "agni"]
+          },
+          {
+            "name": "Bhuvarloka",
+            "description": "The atmosphere between earth and sun, home of sky beings and spirits.",
+            "deities": []
+          }
+        ]
+      },
+      {
+        "id": "earth",
+        "label": "Bhurloka, the earth",
+        "band": "earth",
+        "realms": [
+          {
+            "name": "Jambudvipa",
+            "description": "The central island-continent of the earth, ringed by oceans, where humans live and where Vishnu's avatars are born.",
+            "deities": [
+              "rama",
+              "krishna",
+              "hanuman",
+              "durga",
+              "kali",
+              "sita",
+              "ravana"
+            ],
+            "locationId": "mount-meru"
+          }
+        ]
+      },
+      {
+        "id": "lower",
+        "label": "The seven lower worlds",
+        "band": "under",
+        "realms": [
+          {
+            "name": "Atala to Patala",
+            "originalName": "पाताल",
+            "description": "Seven jeweled underworlds (Atala, Vitala, Sutala, Talatala, Mahatala, Rasatala, Patala), home of the nagas, daityas, and danavas. They are said to be more beautiful than heaven.",
+            "creatures": ["naga"]
+          }
+        ]
+      },
+      {
+        "id": "naraka",
+        "label": "Naraka",
+        "band": "abyss",
+        "realms": [
+          {
+            "name": "Naraka",
+            "originalName": "नरक",
+            "description": "The hells below the underworlds, where the god Yama judges and purifies the wicked before rebirth. Below them all the serpent Shesha holds up the worlds.",
+            "deities": ["yama"]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "pantheonId": "japanese-pantheon",
+    "title": "The Plain of High Heaven and the Land of Yomi",
+    "summary": "Standing on the Floating Bridge of Heaven, Izanagi and Izanami stirred the sea to make the first island. The Kojiki then maps three realms: heaven above, the Central Land of Reed Plains, and the land of the dead below.",
+    "axis": {
+      "name": "Ame-no-ukihashi",
+      "kind": "bridge",
+      "note": "The Floating Bridge of Heaven, where the creator couple stood."
+    },
+    "variantNote": "The Kojiki gives Tsukuyomi rule of the night, while the Nihon Shoki places him in heaven. Yomi and Ne-no-kuni, the Root Land Susanoo later rules, are sometimes treated as one realm and sometimes as two.",
+    "sources": ["Kojiki (712 CE), Book 1", "Nihon Shoki (720 CE), Books 1-2"],
+    "tiers": [
+      {
+        "id": "heaven",
+        "label": "Takamagahara",
+        "band": "sky",
+        "realms": [
+          {
+            "name": "Plain of High Heaven",
+            "originalName": "高天原",
+            "description": "Home of the heavenly kami, ruled by the sun goddess Amaterasu. Here she hid in the Rock Cave until Ame-no-Uzume's dance drew her out.",
+            "deities": ["amaterasu", "tsukuyomi", "izanagi", "ame-no-uzume"],
+            "locationId": "takamagahara"
+          }
+        ]
+      },
+      {
+        "id": "middle",
+        "label": "Ashihara no Nakatsukuni",
+        "band": "earth",
+        "realms": [
+          {
+            "name": "Central Land of Reed Plains",
+            "originalName": "葦原中国",
+            "description": "The islands of Japan. Okuninushi shaped and ruled them before handing them over to Amaterasu's descendants.",
+            "deities": [
+              "okuninushi",
+              "inari",
+              "hachiman",
+              "ebisu",
+              "daikokuten",
+              "benzaiten"
+            ],
+            "creatures": ["yamata-no-orochi", "kitsune", "tengu", "kappa"],
+            "locationId": "izumo"
+          },
+          {
+            "name": "Ryūgū-jō, the sea palace",
+            "originalName": "竜宮城",
+            "description": "The Dragon Palace beneath the waves, home of the sea kami Ryūjin.",
+            "deities": ["ryujin"]
+          }
+        ]
+      },
+      {
+        "id": "under",
+        "label": "Yomi and the Root Land",
+        "band": "under",
+        "realms": [
+          {
+            "name": "Yomi",
+            "originalName": "黄泉",
+            "description": "The polluted land of the dead. Izanami went here after dying while giving birth to the fire god, and Izanagi fled her rotting form.",
+            "deities": ["izanami"],
+            "locationId": "yomi"
+          },
+          {
+            "name": "Ne-no-kuni",
+            "originalName": "根の国",
+            "description": "The Root Land, which Susanoo chose to rule after being expelled from heaven.",
+            "deities": ["susanoo"]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "pantheonId": "chinese-pantheon",
+    "title": "Heaven, Kunlun, and the Courts of Diyu",
+    "summary": "Pangu pushed heaven and earth apart. Later tradition layered a celestial bureaucracy under the Jade Emperor on top, made Mount Kunlun the pillar linking the realms, and added a Buddhist-influenced underworld of judgment courts.",
+    "axis": {
+      "name": "Mount Kunlun",
+      "kind": "mountain",
+      "note": "The mountain where the Queen Mother of the West keeps her gardens and peaches of immortality."
+    },
+    "variantNote": "Chinese cosmology is layered across two thousand years. The Pangu story is first recorded in the 3rd century CE, and the Jade Emperor's court and the ten courts of Diyu took shape much later, in Daoist and Buddhist popular religion.",
+    "sources": [
+      "Shanhaijing (Classic of Mountains and Seas)",
+      "Xu Zheng, Sanwu Liji (3rd century CE)",
+      "Huainanzi 3 and 6",
+      "Wu Cheng'en, Journey to the West (16th century)"
+    ],
+    "tiers": [
+      {
+        "id": "heaven",
+        "label": "Tian, the heavenly court",
+        "band": "sky",
+        "realms": [
+          {
+            "name": "The Jade Emperor's court",
+            "originalName": "天庭",
+            "description": "A bureaucracy of heaven, with ministries and officials mirroring the imperial court on earth.",
+            "deities": [
+              "jade-emperor",
+              "lei-gong",
+              "erlang-shen",
+              "nezha",
+              "sun-wukong"
+            ],
+            "creatures": ["fenghuang"]
+          },
+          {
+            "name": "Moon Palace",
+            "originalName": "廣寒宮",
+            "description": "The Palace of Great Cold, where Chang'e lives after taking the elixir of immortality.",
+            "deities": ["chang-e"]
+          }
+        ]
+      },
+      {
+        "id": "kunlun",
+        "label": "The pillar mountain",
+        "band": "beyond",
+        "realms": [
+          {
+            "name": "Kunlun",
+            "originalName": "崑崙",
+            "description": "The western mountain that joins earth to heaven, home of Xiwangmu.",
+            "deities": ["xi-wangmu"],
+            "creatures": ["bai-ze"],
+            "locationId": "mount-kunlun"
+          }
+        ]
+      },
+      {
+        "id": "earth",
+        "label": "The world below heaven",
+        "band": "earth",
+        "realms": [
+          {
+            "name": "Tianxia",
+            "originalName": "天下",
+            "description": "The inhabited world. Nuwa repaired the sky over it, and the kitchen god watches each household and reports to heaven every year.",
+            "deities": [
+              "pangu",
+              "nuwa",
+              "hou-yi",
+              "guanyin",
+              "guan-yu",
+              "zao-jun",
+              "fuxi"
+            ],
+            "creatures": ["qinglong", "nian"]
+          },
+          {
+            "name": "The four seas",
+            "originalName": "四海",
+            "description": "The seas that surround the land, protected by Mazu for sailors.",
+            "deities": ["mazu"]
+          }
+        ]
+      },
+      {
+        "id": "under",
+        "label": "Diyu",
+        "band": "under",
+        "realms": [
+          {
+            "name": "The ten courts of Diyu",
+            "originalName": "地獄",
+            "description": "An underworld of ten judgment courts, each with its own king, where souls are sentenced and cleansed before rebirth.",
+            "locationId": "diyu"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "pantheonId": "mesopotamian-pantheon",
+    "title": "Three Heavens, the Earth, the Apsu, and Kur",
+    "summary": "In Enuma Elish, Marduk splits the body of Tiamat to make sky and earth. Babylonian scholars described three heavens made of different stones stacked above the earth, with the sweet waters of the Apsu and the underworld below.",
+    "axis": null,
+    "variantNote": "The three stone heavens come from late Babylonian scholarly texts. Earlier Sumerian tradition simply paired An (heaven) and Ki (earth), separated by Enlil.",
+    "sources": [
+      "Enuma Elish, Tablets IV-V",
+      "KAR 307 and AO 8196 (Babylonian cosmographic texts)",
+      "Descent of Inanna",
+      "Epic of Gilgamesh"
+    ],
+    "tiers": [
+      {
+        "id": "upper",
+        "label": "Upper heaven",
+        "band": "beyond",
+        "realms": [
+          {
+            "name": "Heaven of Anu",
+            "originalName": "šamû elûtu",
+            "description": "The highest heaven, made of luludānītu stone, belonging to the sky god Anu.",
+            "deities": ["anu"]
+          }
+        ]
+      },
+      {
+        "id": "middle-heaven",
+        "label": "Middle and lower heavens",
+        "band": "sky",
+        "realms": [
+          {
+            "name": "Middle heaven",
+            "description": "A heaven of saggilmut stone, dwelling of the Igigi gods, where Marduk sits on a lapis lazuli throne.",
+            "deities": ["marduk"],
+            "creatures": ["anzu"]
+          },
+          {
+            "name": "Lower heaven",
+            "description": "A heaven of jasper, on which the stars are drawn. The sun, moon, and Venus cross it.",
+            "deities": ["shamash", "sin-nanna", "inanna"]
+          }
+        ]
+      },
+      {
+        "id": "earth",
+        "label": "Ki, the earth",
+        "band": "earth",
+        "realms": [
+          {
+            "name": "The land between the rivers",
+            "description": "The earth, made from half of Tiamat's body, where humans were created to serve the gods.",
+            "deities": ["enlil", "gilgamesh", "enkidu", "utnapishtim"],
+            "creatures": ["lamassu", "mushussu", "ugallu"],
+            "locationId": "uruk"
+          },
+          {
+            "name": "The Cedar Forest",
+            "description": "The distant forest guarded by Humbaba, which Gilgamesh and Enkidu entered.",
+            "creatures": ["humbaba"],
+            "locationId": "cedar-forest"
+          }
+        ]
+      },
+      {
+        "id": "apsu",
+        "label": "The waters below",
+        "band": "water",
+        "realms": [
+          {
+            "name": "Apsu",
+            "originalName": "abzu",
+            "description": "The freshwater ocean under the earth, source of springs and rivers, and home of the wise god Enki at Eridu.",
+            "deities": ["enki"],
+            "locationId": "eridu"
+          },
+          {
+            "name": "Tiamat's sea",
+            "originalName": "tâmtu",
+            "description": "The primordial salt water. In Enuma Elish, Tiamat mingled with Apsu at the beginning, and Marduk later split her body to form the sky and the earth.",
+            "deities": ["tiamat"]
+          }
+        ]
+      },
+      {
+        "id": "under",
+        "label": "Kur, the land of no return",
+        "band": "under",
+        "realms": [
+          {
+            "name": "Kur / Irkalla",
+            "description": "A dark realm behind seven gates, where the dead eat dust. Ereshkigal rules it with Nergal. At the end of the Descent of Inanna, Dumuzi must spend half of each year here.",
+            "deities": ["ereshkigal", "nergal", "dumuzi"]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "pantheonId": "aztec-pantheon",
+    "title": "Thirteen Heavens and Nine Levels of Mictlan",
+    "summary": "Aztec sources describe thirteen heavens above the earth and nine levels of the underworld below. The earth itself is the body of Tlaltecuhtli, torn apart to make the land.",
+    "axis": {
+      "name": "The five world trees",
+      "kind": "tree",
+      "note": "Four trees stand at the corners of the world and one at the center, holding up the sky."
+    },
+    "variantNote": "The names and order of the heavens differ between sources, and some scholars suspect the thirteen-layer scheme was shaped by colonial-era European models. Where the dead went depended on how they died, not on how they lived.",
+    "sources": [
+      "Codex Vaticanus A (Codex Ríos), folios 1v-2r",
+      "Historia de los mexicanos por sus pinturas",
+      "Bernardino de Sahagún, Florentine Codex, Book 3, appendix"
+    ],
+    "tiers": [
+      {
+        "id": "omeyocan",
+        "label": "Omeyocan, the thirteenth heaven",
+        "band": "beyond",
+        "realms": [
+          {
+            "name": "Omeyocan",
+            "description": "The Place of Duality, the highest heaven, home of the creator pair Ometecuhtli and Omecihuatl, whom some scholars treat as one dual god, Ometeotl.",
+            "deities": ["ometeotl"]
+          }
+        ]
+      },
+      {
+        "id": "heavens",
+        "label": "The upper heavens",
+        "band": "sky",
+        "realms": [
+          {
+            "name": "Heaven of the Sun",
+            "originalName": "Tonatiuh Ilhuicac",
+            "description": "The eastern paradise where warriors who died in battle escort the sun from dawn to noon.",
+            "deities": ["tonatiuh", "huitzilopochtli"],
+            "creatures": ["xiuhcoatl"]
+          },
+          {
+            "name": "Tamoanchan",
+            "description": "A paradise of origins, where the gods made humanity and where flowers and maize were born.",
+            "deities": ["quetzalcoatl", "xochiquetzal"],
+            "locationId": "tamoanchan"
+          },
+          {
+            "name": "The starry and fiery heavens",
+            "description": "Layers holding the moon, the stars, the planet Venus, and comets.",
+            "deities": ["tezcatlipoca", "coyolxauhqui"],
+            "creatures": ["tzitzimime"]
+          }
+        ]
+      },
+      {
+        "id": "earth",
+        "label": "Tlalticpac, the earth",
+        "band": "earth",
+        "realms": [
+          {
+            "name": "Tlalticpac",
+            "description": "The surface of the earth, made from the monster Tlaltecuhtli, whose hair became plants and whose eyes became springs.",
+            "deities": [
+              "tlaltecuhtli",
+              "coatlicue",
+              "mayahuel",
+              "tlazolteotl",
+              "xiuhtecuhtli",
+              "xipe-totec",
+              "xochipilli",
+              "centeotl"
+            ],
+            "creatures": ["cipactli", "itzpapalotl-obsidian-host"]
+          },
+          {
+            "name": "Tlalocan",
+            "description": "The green paradise of the rain god, for those who died by drowning, lightning, or water-borne disease.",
+            "deities": ["tlaloc", "chalchiuhtlicue"],
+            "locationId": "tlalocan",
+            "creatures": ["ahuizotl"]
+          }
+        ]
+      },
+      {
+        "id": "mictlan",
+        "label": "Mictlan, nine levels down",
+        "band": "under",
+        "realms": [
+          {
+            "name": "The eight trials",
+            "description": "A four-year journey past crashing mountains, obsidian winds, and a river crossed with the help of a dog.",
+            "deities": ["xolotl"]
+          },
+          {
+            "name": "Mictlan Opochcalocan",
+            "description": "The ninth and deepest level, where the soul finally rests before Mictlantecuhtli and Mictecacihuatl.",
+            "deities": ["mictlantecuhtli", "mictecacihuatl"],
+            "locationId": "mictlan"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "pantheonId": "mesoamerican-pantheon",
+    "title": "The Maya World Tree and Xibalba",
+    "summary": "For the Maya, a great ceiba tree rises from the underworld through the earth to the sky. The earth floats on the back of a caiman or turtle, and below lies Xibalba, the Place of Fear, where the Hero Twins outwitted the lords of death.",
+    "axis": {
+      "name": "Wakah Chan",
+      "kind": "tree",
+      "note": "The 'Raised-up Sky' world tree, a ceiba shown at the center of Classic Maya cosmic diagrams."
+    },
+    "variantNote": "Maya sources describe thirteen layers of sky and nine of the underworld, as the Aztecs did, but the numbers are best attested in late and colonial texts. The Popol Vuh is a K'iche' Maya book, written down in the 1550s. Central Mexican figures in this pantheon (Tlaloc, Xipe Totec, Xochipilli, Centeotl, and others) appear in the Aztec cosmology instead.",
+    "sources": [
+      "Popol Vuh (K'iche' Maya, c. 1554-1558)",
+      "Chilam Balam of Chumayel",
+      "Sarcophagus lid of K'inich Janaab Pakal, Palenque (683 CE)"
+    ],
+    "tiers": [
+      {
+        "id": "sky",
+        "label": "The thirteen skies",
+        "band": "sky",
+        "realms": [
+          {
+            "name": "The sky",
+            "description": "The realm of the creator Itzamna, the sun, and the rain gods who bring storms from the four directions.",
+            "deities": [
+              "itzamna",
+              "kinich-ahau",
+              "chaac",
+              "ix-chel",
+              "kukulkan"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "earth",
+        "label": "The middle world",
+        "band": "earth",
+        "realms": [
+          {
+            "name": "The maize fields",
+            "description": "The earth where people, shaped from maize dough in the Popol Vuh, live and farm.",
+            "deities": ["yum-kaax", "ek-chuaj"]
+          }
+        ]
+      },
+      {
+        "id": "under",
+        "label": "Xibalba",
+        "band": "under",
+        "realms": [
+          {
+            "name": "Xibalba",
+            "description": "The underworld of trial houses (Dark House, Razor House, Bat House), ruled by the lords One Death and Seven Death. The Hero Twins defeated them and raised their father.",
+            "deities": ["ah-puch", "hun-hunahpu", "hero-twins"],
+            "creatures": ["camazotz"],
+            "locationId": "xibalba"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "pantheonId": "celtic-pantheon",
+    "title": "Ireland and the Otherworld",
+    "summary": "Irish myth does not stack heaven over hell. The Otherworld lies alongside this one: inside the fairy mounds, under lakes, or on islands over the western sea, and people can cross into it at certain places and times.",
+    "axis": null,
+    "variantNote": "Almost all Irish myth survives in texts written by Christian monks from the 8th century on. What pre-Christian belief about the afterlife looked like is uncertain. This view follows the medieval Irish tales. Cernunnos is known from Gaulish carvings, not Irish texts, so he does not appear in this Irish map.",
+    "sources": [
+      "Lebor Gabála Érenn (Book of Invasions)",
+      "Immram Brain (The Voyage of Bran)",
+      "Tochmarc Étaíne (The Wooing of Étaín)",
+      "Echtra Condla"
+    ],
+    "tiers": [
+      {
+        "id": "west",
+        "label": "Islands of the western sea",
+        "band": "beyond",
+        "realms": [
+          {
+            "name": "Tír na nÓg, Mag Mell, Emain Ablach",
+            "description": "The Land of Youth, the Plain of Delight, and the Isle of Apples, lands of feasting and no death, ruled from the sea by Manannán.",
+            "deities": ["manannan-mac-lir"]
+          }
+        ]
+      },
+      {
+        "id": "world",
+        "label": "Ireland, the visible world",
+        "band": "earth",
+        "realms": [
+          {
+            "name": "Ériu",
+            "description": "Ireland, taken in turn by waves of invaders. The Tuatha Dé Danann ruled it until the Sons of Míl arrived.",
+            "deities": [
+              "lug",
+              "nuada",
+              "morrigan",
+              "brigid",
+              "danu",
+              "ogma",
+              "dian-cecht",
+              "goibniu",
+              "medb"
+            ],
+            "creatures": ["each-uisge"]
+          }
+        ]
+      },
+      {
+        "id": "side",
+        "label": "The síde, the hollow hills",
+        "band": "under",
+        "realms": [
+          {
+            "name": "The fairy mounds",
+            "originalName": "síd",
+            "description": "After their defeat, the Tuatha Dé withdrew into the mounds, such as Brú na Bóinne (Newgrange), home of Aengus, Brí Léith, home of Midir, and Cnoc Áine, the hill of Áine.",
+            "deities": ["dagda", "aengus", "midir", "aine"],
+            "creatures": ["cu-sith"]
+          },
+          {
+            "name": "Tech Duinn",
+            "description": "The House of Donn, a rocky island off the southwest coast where the dead gather.",
+            "deities": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "pantheonId": "african-pantheon",
+    "title": "Ọ̀run and Ayé",
+    "summary": "In Yoruba thought, Ọ̀run, the invisible realm of Olodumare, the orisha, and the ancestors, sits above Ayé, the visible world. Obatala came down a chain from Ọ̀run to create land on the primordial waters at Ile-Ife.",
+    "axis": {
+      "name": "The chain from Ọ̀run",
+      "kind": "chain",
+      "note": "The chain by which Obatala (or Oduduwa, in other versions) descended to create the land."
+    },
+    "variantNote": "This view follows Yoruba tradition, which is still a living religion. Whether Obatala or Oduduwa created the land differs between tellings. Other figures in this pantheon, such as the Akan Nyame and Anansi, come from separate traditions with their own cosmologies.",
+    "sources": [
+      "Ifá literary corpus (Odù Ifá)",
+      "Yoruba oral tradition recorded by Samuel Johnson, The History of the Yorubas (1921)"
+    ],
+    "tiers": [
+      {
+        "id": "orun",
+        "label": "Ọ̀run, the invisible realm",
+        "band": "sky",
+        "realms": [
+          {
+            "name": "Ọ̀run",
+            "description": "Home of the supreme being Olodumare, the orisha, and the ancestors. Each person chooses their destiny (ori) here before birth.",
+            "deities": ["olodumare", "obatala", "orunmila", "ori"],
+            "locationId": "orun"
+          }
+        ]
+      },
+      {
+        "id": "crossing",
+        "label": "The crossroads",
+        "band": "beyond",
+        "realms": [
+          {
+            "name": "The messenger's road",
+            "description": "Eshu carries offerings and messages between Ọ̀run and Ayé and guards the crossroads between them.",
+            "deities": ["eshu"]
+          }
+        ]
+      },
+      {
+        "id": "aye",
+        "label": "Ayé, the visible world",
+        "band": "earth",
+        "realms": [
+          {
+            "name": "Ile-Ife",
+            "description": "The sacred city where land first spread over the waters and where humans were shaped.",
+            "deities": [
+              "oduduwa",
+              "ogun",
+              "shango",
+              "oya",
+              "oshun",
+              "osanyin",
+              "aganju",
+              "ibeji",
+              "aje",
+              "shopona",
+              "nana-buruku"
+            ],
+            "locationId": "ile-ife"
+          }
+        ]
+      },
+      {
+        "id": "waters",
+        "label": "The deep waters",
+        "band": "water",
+        "realms": [
+          {
+            "name": "The ocean",
+            "description": "The waters that covered everything before creation, ruled by Olokun in the depths, with Yemoja as mother of rivers and seas.",
+            "deities": ["olokun", "yemoja"],
+            "creatures": ["mami-wata"]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "pantheonId": "polynesian-pantheon",
+    "title": "Rangi, Papa, and Te Pō",
+    "summary": "In Māori tradition, Sky Father Ranginui and Earth Mother Papatūānuku lay locked together until their son Tāne pushed them apart, letting light into the world. Their children became gods of forest, sea, war, crops, and wind.",
+    "axis": {
+      "name": "Tāne's separation",
+      "kind": "pillar",
+      "note": "Tāne lies on his back and pushes the sky up with his feet, making room for Te Ao Mārama, the world of light."
+    },
+    "variantNote": "Polynesia is many island cultures, not one. This view follows Māori tradition for the sky, earth, and underworld, and places Hawaiian deities such as Pele on the earth and sea. The ten or twelve heavens and the supreme god Io appear only in some later Māori traditions.",
+    "sources": [
+      "George Grey, Ngā Mahi a ngā Tūpuna (1854)",
+      "Kumulipo (Hawaiian creation chant)",
+      "Elsdon Best, Maori Religion and Mythology (1924)"
+    ],
+    "tiers": [
+      {
+        "id": "rangi",
+        "label": "Ngā Rangi, the heavens",
+        "band": "sky",
+        "realms": [
+          {
+            "name": "Ranginui",
+            "description": "The Sky Father, whose tears for his lost wife fall as rain. Tāwhirimātea, angry at the separation, went with him and wars on his brothers with storms.",
+            "deities": ["rangi", "tawhirimatea"]
+          }
+        ]
+      },
+      {
+        "id": "ao",
+        "label": "Te Ao Mārama, the world of light",
+        "band": "earth",
+        "realms": [
+          {
+            "name": "Papatūānuku",
+            "description": "The Earth Mother and the forests, fields, and people her children look after.",
+            "deities": [
+              "papa-polynesian",
+              "tane",
+              "tu",
+              "rongo",
+              "maui",
+              "hina"
+            ]
+          },
+          {
+            "name": "The Hawaiian islands",
+            "description": "Volcanic islands where Pele lives in the fire of Kīlauea and Poliʻahu wears the snows of Mauna Kea.",
+            "deities": ["pele", "hiiaka", "poliahu", "haumea"],
+            "locationId": "kilauea"
+          },
+          {
+            "name": "Hawaiki",
+            "description": "The ancestral homeland the voyagers sailed from, and where spirits return after death.",
+            "locationId": "hawaiki"
+          }
+        ]
+      },
+      {
+        "id": "moana",
+        "label": "Te Moana, the ocean",
+        "band": "water",
+        "realms": [
+          {
+            "name": "The domain of Tangaroa",
+            "description": "The ocean and its creatures, ruled by Tangaroa. Guardians and monsters live in its deep places and rivers.",
+            "deities": ["tangaroa", "namaka"],
+            "creatures": ["taniwha", "moo"]
+          }
+        ]
+      },
+      {
+        "id": "po",
+        "label": "Te Pō, the night",
+        "band": "under",
+        "realms": [
+          {
+            "name": "Te Pō",
+            "description": "The realm of darkness and the dead, where Hine-nui-te-pō waits. Māui died trying to win immortality by passing through her body.",
+            "locationId": "te-po"
+          }
+        ]
+      }
+    ]
+  }
+]

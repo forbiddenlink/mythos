@@ -77,6 +77,12 @@ const discoverMenu: MenuSection = {
       mark: "constellation",
     },
     {
+      label: "Cosmologies",
+      href: "/cosmology",
+      description: "How each culture mapped heaven, earth, and underworld",
+      mark: "tree",
+    },
+    {
       label: "The Oracle",
       href: "/oracle",
       description: "Ask an AI seer grounded in the Atlas's sources",
