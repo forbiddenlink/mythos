@@ -1284,3 +1284,9 @@ html.cookie-banner-open {
     }
   }
 }
+
+/* OpenStreetMap tiles are light; invert them into the dark atlas palette. */
+.mythos-dark-tiles {
+  filter: invert(1) hue-rotate(185deg) brightness(0.85) contrast(0.9)
+    saturate(0.35);
+}

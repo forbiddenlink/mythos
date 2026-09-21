@@ -12,12 +12,32 @@ import {
   ChevronRight,
   Compass,
   Globe,
+  Loader2,
   MapPin,
   Mountain,
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import dynamic from "next/dynamic";
 import ReactMarkdown from "react-markdown";
+
+// Dynamic import with SSR disabled - Leaflet requires the window object.
+// Fixed height matches the loaded component's own height so nothing shifts
+// when the map swaps in (avoids CLS).
+const LocationMapInset = dynamic(
+  () =>
+    import("@/components/locations/LocationMapInset").then(
+      (mod) => mod.LocationMapInset,
+    ),
+  {
+    ssr: false,
+    loading: () => (
+      <div className="flex h-80 items-center justify-center rounded-lg border border-border bg-muted/30">
+        <Loader2 className="h-6 w-6 animate-spin text-gold" />
+      </div>
+    ),
+  },
+);
 
 // ─── Types ──────────────────────────────────────────────────────────────
 interface Location {
@@ -109,6 +129,13 @@ export function LocationPageClient({ slug }: LocationPageClientProps) {
   const relatedLocations = (locations as Location[])
     .filter((l) => l.pantheonId === location.pantheonId && l.id !== location.id)
     .slice(0, 6);
+
+  // Same-pantheon locations for the map inset's faint context markers
+  // (unbounded, unlike the "More from" grid above, so the inset shows the
+  // full geographic picture rather than just the first six cards).
+  const pantheonMapLocations = (locations as Location[]).filter(
+    (l) => l.pantheonId === location.pantheonId && l.id !== location.id,
+  );
 
   const breadcrumbItems = [
     { name: "Home", item: siteConfig.url },
@@ -270,6 +297,29 @@ export function LocationPageClient({ slug }: LocationPageClientProps) {
                       </p>
                     </div>
                   )}
+                </CardContent>
+              </Card>
+
+              <Card className="bg-card/50 border-border overflow-hidden">
+                <CardHeader>
+                  <CardTitle className="text-lg font-serif flex items-center gap-2">
+                    <MapPin className="h-4 w-4 text-emerald-500" />
+                    On the Map
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <LocationMapInset
+                    location={{
+                      id: location.id,
+                      name: location.name,
+                      locationType: location.locationType,
+                      pantheonId: location.pantheonId,
+                      latitude: location.latitude,
+                      longitude: location.longitude,
+                    }}
+                    relatedLocations={pantheonMapLocations}
+                    pantheonName={pantheonName}
+                  />
                 </CardContent>
               </Card>
             </div>

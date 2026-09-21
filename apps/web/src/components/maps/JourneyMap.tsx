@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { PANTHEON_PRIMARY_SECONDARY as PANTHEON_COLORS } from "@/lib/pantheon-colors";
+import { MAP_TILE_OPTIONS, MAP_TILE_URL } from "@/lib/map-tiles";
 
 // Types
 interface Waypoint {
@@ -168,12 +169,7 @@ export function JourneyMap({
     L.control.zoom({ position: "bottomright" }).addTo(map);
 
     // Dark tile layer
-    L.tileLayer(
-      "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",
-      {
-        attribution: "&copy; OpenStreetMap",
-      },
-    ).addTo(map);
+    L.tileLayer(MAP_TILE_URL, MAP_TILE_OPTIONS).addTo(map);
 
     // Fit to waypoints
     if (sortedWaypoints.length > 0) {
@@ -232,17 +228,19 @@ export function JourneyMap({
       const marker = L.marker(waypoint.coordinates, {
         icon,
         title: `Stop ${waypoint.order}: ${waypoint.name}`,
-      })
-        .on("click", () => {
-          setCurrentWaypointIndex(index);
-          setVisitedWaypoints((prev) => new Set([...prev, index]));
-          onWaypointSelect?.(waypoint);
-        });
+      }).on("click", () => {
+        setCurrentWaypointIndex(index);
+        setVisitedWaypoints((prev) => new Set([...prev, index]));
+        onWaypointSelect?.(waypoint);
+      });
 
       marker.on("add", () => {
         marker
           .getElement()
-          ?.setAttribute("aria-label", `Stop ${waypoint.order}: ${waypoint.name}`);
+          ?.setAttribute(
+            "aria-label",
+            `Stop ${waypoint.order}: ${waypoint.name}`,
+          );
       });
       marker.addTo(map);
 

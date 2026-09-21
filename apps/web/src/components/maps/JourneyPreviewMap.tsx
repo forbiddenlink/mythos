@@ -4,6 +4,7 @@ import { useEffect, useRef, useMemo } from "react";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import { PANTHEON_PRIMARY_SECONDARY as PANTHEON_COLORS } from "@/lib/pantheon-colors";
+import { MAP_TILE_OPTIONS, MAP_TILE_URL } from "@/lib/map-tiles";
 
 // Types
 interface Waypoint {
@@ -66,9 +67,7 @@ export function JourneyPreviewMap({
     mapRef.current = map;
 
     // Dark tile layer
-    L.tileLayer(
-      "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",
-    ).addTo(map);
+    L.tileLayer(MAP_TILE_URL, MAP_TILE_OPTIONS).addTo(map);
 
     // Fit to waypoints
     if (sortedWaypoints.length > 0) {
