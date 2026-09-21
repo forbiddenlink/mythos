@@ -5,10 +5,7 @@
     "name": "Achilles",
     "slug": "achilles",
     "gender": "male",
-    "alternateNames": [
-      "Aeacides",
-      "Pelides"
-    ],
+    "alternateNames": ["Aeacides", "Pelides"],
     "description": "Greatest warrior of the Greek forces at Troy, whose wrath and grief drive the plot of Homer's Iliad. Son of the mortal king Peleus and the sea-goddess Thetis.",
     "detailedBio": "## The Best of the Achaeans\n\nAchilles is the central figure of Homer's Iliad, called simply \"the best of the Achaeans\" for his unmatched skill and speed in battle. He led the Myrmidons of Phthia to Troy, but the epic's plot turns on his anger, not his fighting: when Agamemnon seizes his war-prize Briseis, Achilles withdraws from the war entirely, and the Greeks suffer for it.\n\n### The Wrath and the Loss\n\nAchilles refuses to fight even as the Trojans push the Greeks back to their ships. He relents only far enough to let his close companion Patroclus wear his armor and lead the Myrmidons into battle. When Hector kills Patroclus, Achilles' grief overtakes his anger at Agamemnon, and he returns to the field to kill Hector in single combat, dragging his body behind his chariot in a rage that the poem treats as excessive even by heroic standards.\n\n### Choice and Mortality\n\nThe Iliad frames Achilles around a foretold choice: a long, obscure life at home, or a short life crowned with undying fame at Troy. He chooses glory, and the poem's tragedy is that he knows the cost in advance. The Iliad itself ends before his death; later tradition (outside Homer) has him killed by Paris, with the god Apollo's aid, and later still gives him a single vulnerable spot at the heel.",
     "parentage": {
@@ -23,10 +20,7 @@
       "Relented and returned Hector's body to Priam"
     ],
     "fate": "The Iliad ends before his death. Later tradition (not Homer) has him killed at Troy by Paris, with Apollo's help; the story of a single vulnerable heel is a still later addition to the myth.",
-    "relatedDeityIds": [
-      "athena",
-      "apollo"
-    ],
+    "relatedDeityIds": ["athena", "apollo"],
     "imageUrl": "/heroes/achilles.png",
     "pronunciation": {
       "ipa": "/əˈkɪliːz/",
@@ -59,9 +53,7 @@
     "name": "Odysseus",
     "slug": "odysseus",
     "gender": "male",
-    "alternateNames": [
-      "Ulysses"
-    ],
+    "alternateNames": ["Ulysses"],
     "description": "King of Ithaca famed for cunning rather than brute strength. Deviser of the Trojan Horse and protagonist of Homer's Odyssey, his ten-year voyage home after the Trojan War.",
     "detailedBio": "## The Man of Many Ways\n\nHomer's Odyssey opens by calling Odysseus \"the man of many ways,\" polytropos, a word that captures both his resourcefulness and his tendency to shift identity and story to survive. He is a leading Greek commander at Troy, but his signature contribution is the wooden horse, the trick that finally brings down the city after nine years of open siege failed to.\n\n### The Long Way Home\n\nThe Odyssey follows his ten-year journey back to Ithaca, delayed by the sea-god Poseidon's anger after Odysseus blinds his son, the Cyclops Polyphemus. Along the way he survives the Sirens, Scylla and Charybdis, the sorceress Circe, the nymph Calypso's island, and a journey to consult the dead in the underworld. He loses every one of his men before reaching home alone.\n\n### Reclaiming Ithaca\n\nOn Ithaca, disguised as a beggar, Odysseus finds his household overrun by suitors pressuring his wife Penelope to remarry and his son Telemachus struggling to assert authority. He strings his own great bow, a feat none of the suitors can manage, and with Telemachus and two loyal servants slaughters the suitors, restoring his household and his marriage.",
     "parentage": {
@@ -76,10 +68,7 @@
       "Strung his own bow and slaughtered Penelope's suitors"
     ],
     "fate": "Restored to his throne and marriage on Ithaca. A separate, later tradition (the lost epic Telegony, known only through summaries) has him killed by Telegonus, a son he never knew he had by Circe.",
-    "relatedDeityIds": [
-      "athena",
-      "poseidon"
-    ],
+    "relatedDeityIds": ["athena", "poseidon"],
     "imageUrl": "/heroes/odysseus.png",
     "pronunciation": {
       "ipa": "/əˈdɪsiəs/",
@@ -104,9 +93,7 @@
     "name": "Hector",
     "slug": "hector",
     "gender": "male",
-    "alternateNames": [
-      "Breaker of Horses"
-    ],
+    "alternateNames": ["Breaker of Horses"],
     "description": "Crown prince of Troy and the city's greatest defender in the Iliad. Killed by Achilles in the poem's climactic single combat.",
     "detailedBio": "## Troy's Shield\n\nHector, eldest son of King Priam and Queen Hecuba, commands the Trojan army for most of the Iliad and is treated by the poem with unusual sympathy for an antagonist. Unlike many Greek heroes, he fights not for glory or plunder but to defend his city, his wife Andromache, and his infant son Astyanax.\n\n### Duels and Doubts\n\nHector leads the Trojan counter-offensive while Achilles sulks in his tent, at one point fighting Ajax to an inconclusive draw. He kills Patroclus, wearing Achilles' armor, believing he has finally killed Achilles himself, an error that seals his fate. When Achilles returns to battle for revenge, Hector alone stands outside the walls to face him, then loses his nerve and flees three times around the city before turning to fight.\n\n### Death and Ransom\n\nAchilles kills Hector and mutilates his body for days, refusing burial. In the Iliad's final book, King Priam risks his life to enter the Greek camp by night and beg Achilles for his son's body. Achilles, moved, relents, and the poem closes with Hector's funeral at Troy.",
     "parentage": {
@@ -121,9 +108,7 @@
       "Was killed and his body dragged around Troy before ransom"
     ],
     "fate": "Killed by Achilles in single combat outside Troy; his body is mutilated for days before Priam ransoms it, and the Iliad ends with his funeral.",
-    "relatedDeityIds": [
-      "apollo"
-    ],
+    "relatedDeityIds": ["apollo"],
     "imageUrl": "/heroes/hector.png",
     "pronunciation": {
       "ipa": "/ˈhɛktər/",
@@ -148,10 +133,7 @@
     "name": "Heracles",
     "slug": "heracles",
     "gender": "male",
-    "alternateNames": [
-      "Hercules",
-      "Alcides"
-    ],
+    "alternateNames": ["Hercules", "Alcides"],
     "description": "The most famous Greek hero, son of Zeus, celebrated for superhuman strength and the Twelve Labors he performed in atonement for killing his own children in a fit of madness sent by Hera.",
     "detailedBio": "## Son of Zeus, Enemy of Hera\n\nHeracles was born to the mortal woman Alcmene after Zeus visited her disguised as her own husband, making Heracles Zeus's son and a permanent target of Hera's jealousy. Hera's persecution shapes his whole story, from the serpents she sent to kill him in his cradle (which he strangled as an infant) to the madness she later inflicted on him.\n\n### The Twelve Labors\n\nAccounts differ on the order of the catastrophe involving Megara and their children. In Pseudo-Apollodorus's *Bibliotheca* (2.4.12–2.5.1), Hera's madness follows the Minyan war; after the killings, Heracles goes to Delphi and is ordered into Eurystheus's service, making the Labors an expiation. Euripides' *Heracles* instead places the madness after Heracles has completed Eurystheus's commands and returned from Hades with Cerberus (610–615, 830–865). The Labors themselves include killing the Nemean Lion and the Lernaean Hydra, capturing the Erymanthian Boar and the Ceryneian Hind, cleaning the Augean stables in a day, driving off the Stymphalian Birds, capturing the Cretan Bull and the Mares of Diomedes, taking the girdle of the Amazon queen Hippolyta, herding the cattle of Geryon, stealing the apples of the Hesperides, and finally dragging the three-headed hound Cerberus up from the underworld.\n\n### Death and Apotheosis\n\nHeracles later married Deianira, who was tricked by the dying centaur Nessus into keeping a robe soaked in poisoned blood as a supposed love-charm. When she used it, the robe burned Heracles's flesh so badly that he built his own funeral pyre on Mount Oeta and had it lit. As his mortal body burned away, Zeus took him up to Olympus, where he became a god and finally reconciled with Hera.",
     "parentage": {
@@ -167,11 +149,7 @@
       "Died and was raised to godhood on Olympus"
     ],
     "fate": "Died in agony wearing a robe poisoned with the blood of the centaur Nessus; he built his own funeral pyre, and Zeus took him up to Olympus as a god upon his death.",
-    "relatedDeityIds": [
-      "zeus",
-      "hera",
-      "prometheus"
-    ],
+    "relatedDeityIds": ["zeus", "hera", "prometheus"],
     "imageUrl": "/heroes/heracles.png",
     "pronunciation": {
       "ipa": "/ˈhɛrəkliːz/",
@@ -204,9 +182,7 @@
     "name": "Jason",
     "slug": "jason",
     "gender": "male",
-    "alternateNames": [
-      "Iason"
-    ],
+    "alternateNames": ["Iason"],
     "description": "Leader of the Argonauts, sent on the quest for the Golden Fleece by his usurping uncle Pelias. Aided at every turn by the sorceress Medea, whom he later marries and betrays.",
     "detailedBio": "## The Quest for the Fleece\n\nJason was the rightful heir to the throne of Iolcos, displaced by his uncle Pelias, who sent him on what he expected to be a fatal errand: retrieving the Golden Fleece from Colchis, at the far edge of the known world. Jason assembled a crew of the greatest heroes of the age, the Argonauts, and sailed on the ship Argo.\n\n### Medea's Help\n\nAt Colchis, King Aeetes set Jason a series of trials before he would surrender the Fleece: yoking fire-breathing bulls, sowing dragon's teeth that grew into armed warriors, and outwitting the sleepless dragon that guarded the Fleece itself. Jason succeeded only with the help of the king's daughter, the sorceress Medea, who fell in love with him and betrayed her own family for his sake.\n\n### Betrayal and Ruin\n\nJason and Medea married and had children, but Jason later abandoned her to marry a Corinthian princess for political advantage. In the most famous version of the myth (Euripides's tragedy Medea), Medea takes a horrific revenge, killing the new bride and, in that telling, her own children by Jason. Jason's later life is left diminished and disgraced; one tradition (recorded by Apollodorus) has him killed when a rotting beam of his own ship, the Argo, collapses on him as he sleeps beneath it.",
     "parentage": {
@@ -221,9 +197,7 @@
       "Returned to Iolcos and claimed his throne"
     ],
     "fate": "Abandoned Medea for a political marriage, provoking her revenge. Apollodorus records that he later died when a decaying beam of the Argo fell on him as he slept in its shade.",
-    "relatedDeityIds": [
-      "hera"
-    ],
+    "relatedDeityIds": ["hera"],
     "imageUrl": "/heroes/jason.png",
     "pronunciation": {
       "ipa": "/ˈdʒeɪsən/",
@@ -264,9 +238,7 @@
       "Unified the villages of Attica into the city-state of Athens (later tradition)"
     ],
     "fate": "According to Plutarch's Life of Theseus, he was exiled to the island of Skyros in his old age and killed there, thrown from a cliff by King Lycomedes.",
-    "relatedDeityIds": [
-      "poseidon"
-    ],
+    "relatedDeityIds": ["poseidon"],
     "imageUrl": "/heroes/theseus.png",
     "pronunciation": {
       "ipa": "/ˈθiːsiəs/",
@@ -306,9 +278,7 @@
       "Died in exile near Athens after years of wandering"
     ],
     "fate": "Blinded himself upon learning the truth of his birth; spent his final years in exile, dying near Colonus outside Athens in a death Sophocles presents as strangely favored by the gods.",
-    "relatedDeityIds": [
-      "apollo"
-    ],
+    "relatedDeityIds": ["apollo"],
     "imageUrl": "/heroes/oedipus.png",
     "pronunciation": {
       "ipa": "/ˈɛdɪpəs/",
@@ -343,9 +313,7 @@
       "Was reunited with Odysseus after twenty years apart"
     ],
     "fate": "Reunited with Odysseus after twenty years, restored as queen of Ithaca; the Odyssey closes on their reunion rather than recording a later fate.",
-    "relatedDeityIds": [
-      "athena"
-    ],
+    "relatedDeityIds": ["athena"],
     "imageUrl": "/heroes/penelope.png",
     "pronunciation": {
       "ipa": "/pəˈnɛləpiː/",
@@ -365,10 +333,7 @@
     "name": "Helen",
     "slug": "helen",
     "gender": "female",
-    "alternateNames": [
-      "Helen of Troy",
-      "Helen of Sparta"
-    ],
+    "alternateNames": ["Helen of Troy", "Helen of Sparta"],
     "description": "Daughter of Zeus and the most beautiful woman in the ancient world, whose abduction (or elopement) by the Trojan prince Paris was the mythic cause of the Trojan War.",
     "detailedBio": "## The Face That Launched a Thousand Ships\n\nHelen was born to Leda, queen of Sparta, after Zeus visited her in the form of a swan, making Helen his daughter alongside a mortal father, Tyndareus. Her suitors were so numerous and so dangerous to disappoint that they were bound by an oath, sworn before she chose among them, to defend the marriage of whichever man she married. She married Menelaus, king of Sparta.\n\n### Judgment and Abduction\n\nWhen the Trojan prince Paris was asked to judge which goddess was fairest, Aphrodite bribed him with the love of the most beautiful woman alive, Helen, and won. Paris then either abducted her or persuaded her to leave with him for Troy, depending on the telling, and Menelaus called in the suitors' oath, raising the great Greek expedition that became the Trojan War.\n\n### Blame and Return\n\nAncient sources are divided on how much agency or guilt to give Helen. Homer's Iliad shows her at Troy watching the war from the walls, weary and self-critical, blaming herself for the suffering around her even as the poem never quite lets her be simply villain or victim. One striking rival tradition (attributed to the poet Stesichorus and developed by Euripides in his play Helen) claims the real Helen never went to Troy at all, and that the gods sent only a phantom in her place while she waited out the war in Egypt. In the Odyssey, she is shown safely home in Sparta, reconciled with Menelaus.",
     "parentage": {
@@ -383,10 +348,7 @@
       "Was reunited with Menelaus after Troy's fall"
     ],
     "fate": "Returned to Sparta with Menelaus after the war; the Odyssey shows them living together in apparent reconciliation. A rival tradition holds she never reached Troy at all.",
-    "relatedDeityIds": [
-      "zeus",
-      "aphrodite"
-    ],
+    "relatedDeityIds": ["zeus", "aphrodite"],
     "imageUrl": "/heroes/helen.png",
     "pronunciation": {
       "ipa": "/ˈhɛlən/",
@@ -425,9 +387,7 @@
       "Led the Greeks to victory after ten years of war"
     ],
     "fate": "Murdered in his own home upon returning from Troy by his wife Clytemnestra and her lover Aegisthus, an act later avenged by his son Orestes.",
-    "relatedDeityIds": [
-      "artemis"
-    ],
+    "relatedDeityIds": ["artemis"],
     "imageUrl": "/heroes/agamemnon.png",
     "pronunciation": {
       "ipa": "/ˌæɡəˈmɛmnɒn/",
@@ -466,9 +426,7 @@
       "Was killed by Hector after Apollo stripped him of his armor"
     ],
     "fate": "Killed by Hector in battle after the god Apollo stunned him and stripped away his borrowed armor; his death drives Achilles back into the war.",
-    "relatedDeityIds": [
-      "apollo"
-    ],
+    "relatedDeityIds": ["apollo"],
     "imageUrl": "/heroes/patroclus.png",
     "pronunciation": {
       "ipa": "/pəˈtroʊkləs/",
@@ -488,10 +446,7 @@
     "name": "Ajax",
     "slug": "ajax",
     "gender": "male",
-    "alternateNames": [
-      "Ajax the Great",
-      "Telamonian Ajax"
-    ],
+    "alternateNames": ["Ajax the Great", "Telamonian Ajax"],
     "description": "Second-mightiest Greek warrior at Troy after Achilles. Lost the contest for Achilles's armor to Odysseus and, in Sophocles's telling, took his own life in shame.",
     "detailedBio": "## The Bulwark of the Achaeans\n\nAjax, son of King Telamon of Salamis, is repeatedly called the strongest and steadiest Greek fighter at Troy after Achilles, a defensive rock rather than a flashy hero. In the Iliad he duels Hector to a respectful draw and, when Patroclus falls, is the one who holds off the Trojans long enough for the body to be recovered.\n\n### The Contest for the Arms\n\nAfter Achilles's death, his divine armor, forged by Hephaestus, is offered as a prize to the best of the remaining Greeks. Ajax, who carried Achilles's body from the battlefield, expects to win it, but the Greek leaders (or, in some versions, Trojan prisoners) award it instead to Odysseus for his cunning. Ajax takes the judgment as an unbearable insult to his honor.\n\n### Madness and Death\n\nHumiliated, Ajax plans to murder the Greek commanders in the night, but Athena strikes him with madness so that he instead slaughters a flock of sheep and cattle, believing them to be his enemies. When his sanity returns and he realizes what he has done, the shame is too much to bear: Sophocles's tragedy Ajax shows him falling on his own sword. In the Odyssey, his shade in the underworld still refuses to speak to Odysseus, still resentful over the lost armor.",
     "parentage": {
@@ -505,9 +460,7 @@
       "Slaughtered a flock of livestock in a god-sent madness, mistaking them for his rivals"
     ],
     "fate": "Fell on his own sword in shame after the madness lifted and he understood what he had done, as dramatized in Sophocles's Ajax.",
-    "relatedDeityIds": [
-      "athena"
-    ],
+    "relatedDeityIds": ["athena"],
     "imageUrl": "/heroes/ajax.png",
     "pronunciation": {
       "ipa": "/ˈeɪdʒæks/",
@@ -546,10 +499,7 @@
       "Was outrun by Hippomenes, who distracted her with golden apples"
     ],
     "fate": "Married Hippomenes after losing the footrace to his trick with the golden apples; some sources add that the couple later offended Aphrodite or Zeus and were transformed into lions.",
-    "relatedDeityIds": [
-      "artemis",
-      "aphrodite"
-    ],
+    "relatedDeityIds": ["artemis", "aphrodite"],
     "imageUrl": "/heroes/atalanta.png",
     "pronunciation": {
       "ipa": "/ˌætəˈlæntə/",
@@ -588,11 +538,7 @@
       "Attempted to fly Pegasus to Olympus and was thrown back to earth by Zeus"
     ],
     "fate": "Thrown from Pegasus by Zeus's gadfly after attempting to reach Olympus; lived out his remaining years crippled and shunned by the gods and by men.",
-    "relatedDeityIds": [
-      "athena",
-      "poseidon",
-      "zeus"
-    ],
+    "relatedDeityIds": ["athena", "poseidon", "zeus"],
     "imageUrl": "/heroes/bellerophon.png",
     "pronunciation": {
       "ipa": "/bəˈlɛrəfɒn/",
@@ -631,11 +577,7 @@
       "Lost Eurydice a second time by looking back too soon"
     ],
     "fate": "Torn apart by maenads of Dionysus after retreating from human company in his grief; his severed head is said to have kept singing as it drifted downriver.",
-    "relatedDeityIds": [
-      "apollo",
-      "hades",
-      "persephone"
-    ],
+    "relatedDeityIds": ["apollo", "hades", "persephone"],
     "imageUrl": "/heroes/orpheus.png",
     "pronunciation": {
       "ipa": "/ˈɔːrfiəs/",
@@ -675,11 +617,7 @@
       "Killed Turnus in single combat to win Italy for his people"
     ],
     "fate": "Later Roman tradition (Ovid, Livy) holds that Aeneas vanished after a final battle and was deified as Jupiter Indiges, becoming an ancestor-god of the Roman people.",
-    "relatedDeityIds": [
-      "venus",
-      "juno",
-      "jupiter"
-    ],
+    "relatedDeityIds": ["venus", "juno", "jupiter"],
     "imageUrl": "/heroes/aeneas.png",
     "pronunciation": {
       "ipa": "/ɪˈniːəs/",
@@ -704,9 +642,7 @@
     "name": "Sigurd",
     "slug": "sigurd",
     "gender": "male",
-    "alternateNames": [
-      "Siegfried"
-    ],
+    "alternateNames": ["Siegfried"],
     "description": "Dragon-slaying hero of the Volsung line, central figure of the Poetic Edda's heroic lays and the Volsunga Saga. Killed the dragon Fafnir and won a cursed hoard of gold.",
     "detailedBio": "## Reforging Gram\n\nSigurd was raised by the smith Regin after the death of his father Sigmund, last king of the Volsungs, a family that traced its line back to Odin. Regin reforged the shards of Sigurd's father's broken sword into a new blade, Gram, and urged Sigurd to kill his own brother Fafnir, who had turned himself into a dragon to guard a cursed hoard of gold that had once been the ransom for an accidental killing by the gods themselves.\n\n### The Dragon and the Curse\n\nFollowing Regin's plan, Sigurd dug a pit in the dragon's path and stabbed Fafnir from below as he crawled over it. Tasting the dragon's blood by accident while roasting its heart, Sigurd gained the ability to understand the speech of birds, who warned him that Regin meant to kill him and keep the gold for himself; Sigurd killed Regin first. The gold itself carried a dwarf's curse that it would destroy whoever possessed it, a curse the rest of Sigurd's story plays out in full.\n\n### Brynhild and Betrayal\n\nSigurd rode through a wall of flame to wake and win the shieldmaiden Brynhild, but a magic potion made him forget her and marry Gudrun of the Gjukung family instead; he then helped Gudrun's brother Gunnar win Brynhild for himself by riding through the flames again in Gunnar's shape. When Brynhild discovered the deception, her fury set the tragedy's final betrayal in motion.",
     "parentage": {
@@ -720,9 +656,7 @@
       "Rode through a wall of flame to win the shieldmaiden Brynhild"
     ],
     "fate": "Betrayed and killed by Gudrun's brothers, who feared his claim on Brynhild after the deception surrounding her marriage came to light; accounts differ on whether he was killed in the forest or in his bed.",
-    "relatedDeityIds": [
-      "odin"
-    ],
+    "relatedDeityIds": ["odin"],
     "imageUrl": "/heroes/sigurd.png",
     "pronunciation": {
       "ipa": "/ˈsɪɡərd/",
@@ -755,10 +689,7 @@
     "name": "Cú Chulainn",
     "slug": "cu-chulainn",
     "gender": "male",
-    "alternateNames": [
-      "Setanta",
-      "The Hound of Ulster"
-    ],
+    "alternateNames": ["Setanta", "The Hound of Ulster"],
     "description": "Ulster's greatest champion, son of the god Lugh, whose single-handed defense of his province against Queen Medb's army is the centerpiece of the Táin Bó Cúailnge.",
     "detailedBio": "## Setanta Becomes the Hound\n\nBorn Setanta, he earned his adult name as a boy after killing the ferocious guard-hound of the smith Culann in self-defense, then offering to take the hound's place and guard duty himself until a replacement could be raised; Cú Chulainn means \"Culann's Hound.\" As a child he also displayed the ríastrad, a battle-frenzy that twisted his body into a monstrous shape and made him unrecognizable and unstoppable in combat.\n\n### The Cattle Raid of Cooley\n\nThe Táin Bó Cúailnge tells how Queen Medb of Connacht invaded Ulster to seize the Brown Bull of Cooley, timing her attack for a period when Ulster's warriors lay disabled by a curse. Cú Chulainn, immune to the curse because of his youth, held the invading army back almost single-handedly at a series of river fords, invoking his right under Irish custom to fight the army's champions one at a time rather than face them all at once.\n\n### The Death of Ferdiad\n\nThe Táin's most sorrowful episode has Medb send Ferdiad, Cú Chulainn's foster-brother and closest friend from their shared training under the warrior-woman Scathach, to fight him at the ford. The two duel for days, exchanging gifts and grief each night before resuming combat each morning, until Cú Chulainn is finally forced to kill him with the barbed spear Gae Bulg, a victory he mourns as a tragedy rather than celebrates.",
     "parentage": {
@@ -773,10 +704,7 @@
       "Fought under the battle-frenzy (ríastrad) that transformed his body in combat"
     ],
     "fate": "According to the Death of Cú Chulainn, he was mortally wounded in a later battle and tied himself upright to a standing stone so he could die on his feet, facing his enemies to the end.",
-    "relatedDeityIds": [
-      "lug",
-      "morrigan"
-    ],
+    "relatedDeityIds": ["lug", "morrigan"],
     "imageUrl": "/heroes/cu-chulainn.png",
     "pronunciation": {
       "ipa": "/kuːˈxʊlɪnʲ/",
@@ -809,9 +737,7 @@
     "name": "Fionn mac Cumhaill",
     "slug": "fionn-mac-cumhaill",
     "gender": "male",
-    "alternateNames": [
-      "Finn McCool"
-    ],
+    "alternateNames": ["Finn McCool"],
     "description": "Leader of the Fianna, Ireland's legendary roving warrior-band, whose wisdom came from accidentally tasting the Salmon of Knowledge. Central hero of the Fenian Cycle of Irish legend.",
     "detailedBio": "## The Salmon of Knowledge\n\nFionn was raised in hiding by two warrior-women after his father Cumhall, leader of the Fianna, was killed by a rival clan before Fionn's birth. As a boy studying under the poet Finn Eces, he was set to cook the Salmon of Knowledge, a fish said to grant all the world's wisdom to whoever ate it first. Fionn burned his thumb on the cooking salmon and instinctively put it in his mouth to ease the pain, absorbing the fish's wisdom himself; from then on he could call on this knowledge by biting his thumb.\n\n### Leader of the Fianna\n\nUsing his new wisdom and considerable fighting skill, Fionn proved himself by defeating the fire-breathing being Aillen, who burned the royal hall at Tara every year, and was rewarded with leadership of the Fianna, the band of hunter-warriors sworn to defend Ireland and living apart from ordinary society under their own code.\n\n### Love and Loss\n\nMany of the Fenian Cycle's stories concern Fionn's household and old age: his hound-nephews Bran and Sceolang, born after a shapeshifting curse turned his sister into a hound; the tragic hunt in which his son Oisin's mother Sadhbh is lost back into enchantment; and, most famously, the tale of Diarmuid and Grainne, in which Fionn's young bride-to-be Grainne elopes instead with one of his own warriors, Diarmuid, whom an aging and bitter Fionn eventually allows to die rather than save.",
     "parentage": {
@@ -845,9 +771,7 @@
     "name": "Arjuna",
     "slug": "arjuna",
     "gender": "male",
-    "alternateNames": [
-      "Partha"
-    ],
+    "alternateNames": ["Partha"],
     "description": "Third of the five Pandava brothers and the Mahabharata's greatest archer, whose crisis of conscience on the battlefield of Kurukshetra prompts the god Krishna's teaching, the Bhagavad Gita.",
     "detailedBio": "## Foremost of Archers\n\nArjuna, son of Kunti and the god Indra, is celebrated throughout the Mahabharata as the finest archer of his age, trained alongside his brothers and their rival cousins the Kauravas by the master Drona. He wins his wife Draupadi, who becomes shared wife to all five Pandava brothers, by stringing an impossibly stiff bow and striking a revolving target's reflection in a bowl of oil below it.\n\n### Exile and Preparation\n\nAfter the Pandavas lose their kingdom to the Kauravas in a rigged game of dice, they spend years in exile, during which Arjuna undertakes a solitary quest to win divine weapons, including a direct trial of combat against the god Shiva in disguise, whose favor he ultimately earns.\n\n### The Bhagavad Gita\n\nAs the two armies face each other at Kurukshetra for the war that will decide the throne, Arjuna is overcome by grief and doubt at the thought of killing his own kinsmen, teachers, and friends arrayed on the opposing side, and lets his bow fall. His charioteer, the god Krishna in human form, responds with an extended teaching on duty, the eternal soul, and detached action, the Bhagavad Gita, which restores Arjuna's resolve to fight.",
     "parentage": {
@@ -862,10 +786,7 @@
       "Fought through the eighteen-day war and killed his secret half-brother Karna"
     ],
     "fate": "Survived the Kurukshetra war and reigned alongside his brothers, but later Mahabharata tradition (the Mahaprasthanika Parva) has him fall on the Pandavas' final journey toward heaven, a fall the text attributes to his pride in his own archery.",
-    "relatedDeityIds": [
-      "indra",
-      "krishna"
-    ],
+    "relatedDeityIds": ["indra", "krishna"],
     "imageUrl": "/heroes/arjuna.png",
     "pronunciation": {
       "ipa": "/ˈɑːrdʒʊnə/",
@@ -884,6 +805,276 @@
         "refId": "achilles",
         "kind": "hero",
         "note": "Both are the finest warrior of their army, and both stories pause the war itself for the hero to reckon with what fighting will cost."
+      }
+    ]
+  },
+  {
+    "id": "yamato-takeru",
+    "pantheonId": "japanese-pantheon",
+    "name": "Yamato Takeru",
+    "slug": "yamato-takeru",
+    "gender": "male",
+    "alternateNames": ["Ousu", "Yamato Takeru no Mikoto"],
+    "description": "Legendary prince of early Japan sent by his father, Emperor Keiko, to subdue rival clans in the west and east. Central figure of the Kojiki and Nihon Shoki, and the hero associated with the sacred sword Kusanagi.",
+    "detailedBio": "## A Dangerous Son\n\nYamato Takeru was born Ousu, a son of the semi-legendary Emperor Keiko. The Kojiki (712 CE) opens his story with a disturbing act: his father, alarmed by Ousu's violence after he killed his own brother, sends him away on a string of near-suicidal military missions, first against the Kumaso people in the west, hoping the danger will remove him from court. The Nihon Shoki (720 CE), compiled only eight years later, tells the story quite differently: it omits the fratricide entirely and frames Ousu's western campaign as a loyal prince's service rather than a father's attempt to be rid of him. Which account is closer to an older tradition, if either, is debated by scholars of early Japanese literature.\n\n### The Sword Kusanagi\n\nDisguised as a woman, Ousu infiltrated a feast held by the Kumaso chieftains and killed them, and it was the dying chieftain Kumaso Takeru who gave him the name Yamato Takeru, \"the brave one of Yamato.\" On a later eastern campaign, his aunt Yamatohime, priestess of the Ise shrine, gave him a sword associated with the god Susanoo's slaying of the eight-headed serpent Yamata-no-Orochi. When enemies set fire to the grass around him in an ambush, Yamato Takeru used the sword to cut back the flames and escape, and the blade was renamed Kusanagi, \"grass-cutter.\"\n\n### Death and the White Bird\n\nOn his way home from the eastern campaign, Yamato Takeru insulted the deity of Mount Ibuki by underestimating him, and the god struck him with a debilitating illness. He died shortly after at Nobono, still short of home. The Kojiki closes his story with an image rather than a burial: his grieving family builds him a tomb, but his spirit rises from it as a great white bird and flies off toward the sea, so that the tomb they built is said to have held only his clothing.",
+    "parentage": {
+      "mortalParentName": "Emperor Keiko, twelfth legendary emperor of Japan",
+      "note": "The imperial line claims descent from the sun goddess Amaterasu many generations back, but no source gives Yamato Takeru a direct divine parent; his father Keiko is presented as fully human."
+    },
+    "keyDeeds": [
+      "Killed the Kumaso chieftains disguised as a woman, earning the name Yamato Takeru",
+      "Received the sword later named Kusanagi from the priestess Yamatohime at the Ise shrine",
+      "Used the sword to cut back a grass fire set as an ambush, giving the blade its name",
+      "Campaigned against the Emishi peoples of eastern Japan",
+      "Died near Nobono after offending the deity of Mount Ibuki, then rose as a white bird"
+    ],
+    "fate": "Struck down by illness after insulting the mountain deity of Ibuki; the Kojiki records that his spirit left the tomb built for him in the form of a great white bird and flew away toward the sea.",
+    "relatedDeityIds": ["susanoo", "amaterasu"],
+    "pronunciation": {
+      "ipa": "/jaˈmato taˈkeɾɯ/",
+      "phonetic": "yah-MAH-toh tah-KEH-roo"
+    },
+    "primarySources": [
+      {
+        "text": "The Kojiki tells how Yamato Takeru, disguised in women's clothing, slipped a blade into the Kumaso chieftain and was given his own name by the dying man in return.",
+        "source": "Kojiki, Book 2",
+        "date": "712 CE (compiled; recounting earlier oral tradition)"
+      },
+      {
+        "text": "The Nihon Shoki's account of the western and eastern campaigns differs from the Kojiki in chronology and in omitting the killing of his brother that opens the Kojiki's version.",
+        "source": "Nihon Shoki, Book 7",
+        "date": "720 CE"
+      }
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "greek-pantheon",
+        "refId": "achilles",
+        "kind": "hero",
+        "note": "Both are their people's greatest young warrior, carry a form of supernatural protection into battle, and die before old age in a death later tradition treats as a tragedy rather than a defeat."
+      }
+    ]
+  },
+  {
+    "id": "ilya-muromets",
+    "pantheonId": "slavic-pantheon",
+    "name": "Ilya Muromets",
+    "slug": "ilya-muromets",
+    "gender": "male",
+    "alternateNames": ["Ilya of Murom"],
+    "description": "Mightiest of the bogatyrs, the heroic warriors of the Russian byliny (oral epic songs), healed of lifelong paralysis by wandering pilgrims and sent to serve Prince Vladimir of Kiev. Best known for defeating the monstrous Nightingale-Robber.",
+    "detailedBio": "## Healed by Wanderers\n\nIn the byliny, Ilya is the son of peasant farmers in or near the town of Murom, unable to walk or use his limbs for the first thirty-three years of his life. Wandering pilgrims (kaliki perekhozhiye) come to his family's home, give him water or drink to swallow, and tell him to rise; he does, finds himself filled with tremendous strength, and is warned to use it in service rather than for personal gain. The motif of a late, sudden, externally granted strength has no real parallel among the Greek or Norse heroes in this collection, who are typically strong from birth or gifted by a direct divine parent.\n\n### The Nightingale-Robber\n\nTraveling the direct road to Kiev rather than the longer, safer route, Ilya encounters Solovey the Nightingale-Robber, a bandit whose whistle is powerful enough to kill or fell trees. Ilya wounds him with an arrow, ties him to his saddle, and brings him to Prince Vladimir's court, where Solovey's whistle, demonstrated at the prince's skeptical request, devastates the hall and proves the truth of Ilya's feat.\n\n### An Oral Tradition Recorded Late\n\nThe byliny about Ilya circulated as sung oral poetry for centuries before anyone wrote them down. The earliest substantial written collection is Kirsha Danilov's, compiled in the late eighteenth century and first published in 1804. The versions best known to scholars today come from fieldwork collectors who traveled to remote northern Russian villages, especially Pavel Rybnikov in the 1860s and Alexander Hilferding in the 1870s, recording bylina-singers whose repertoire was already understood at the time to be a fading tradition. There is no medieval manuscript of these songs; what survives is a nineteenth-century transcription of a tradition that claims roots in Kievan Rus' of the tenth through thirteenth centuries.",
+    "parentage": {
+      "mortalParentName": "Ivan Timofeyevich, a peasant farmer near Murom",
+      "note": "Wholly mortal parentage. Later Orthodox hagiography identifies Ilya with a canonized monk-warrior of the Kyiv Pechersk Lavra, a separate and disputed tradition layered onto the epic hero centuries after the byliny themselves took shape."
+    },
+    "keyDeeds": [
+      "Healed of lifelong paralysis by wandering pilgrims who gave him superhuman strength",
+      "Rode the direct, bandit-haunted road to Kiev rather than the longer safe route",
+      "Wounded and captured Solovey the Nightingale-Robber, whose whistle could kill",
+      "Presented Solovey to Prince Vladimir's court as proof of the road's danger",
+      "Served as the foremost of Kiev's bogatyrs in the broader bylina cycle"
+    ],
+    "fate": "The byliny give no single agreed death for Ilya. Some songs have him turned to stone after refusing to fight fellow bogatyrs; a separate, later Orthodox tradition venerates him as a monk-warrior saint whose relics are said to rest at the Kyiv Pechersk Lavra, a conflation of epic hero and historical monk that remains disputed.",
+    "relatedDeityIds": [],
+    "pronunciation": {
+      "ipa": "/ɪlʲˈja ˈmurəmʲɪts/",
+      "phonetic": "il-YAH MOOR-oh-mets"
+    },
+    "primarySources": [
+      {
+        "text": "The bylina of Ilya Muromets and the Nightingale-Robber describes his ride along the direct road through Bryn Forest, where a robber's whistle alone could kill a man, and his eventual capture of that robber for Prince Vladimir.",
+        "source": "Byliny recorded by Pavel Rybnikov, \"Pesni, sobrannye P. N. Rybnikovym\" (Songs Collected by P. N. Rybnikov)",
+        "date": "field-recorded 1860s; published 1861-1867"
+      },
+      {
+        "text": "Alexander Hilferding's later collection from the Lake Onega region preserved further variants of the Ilya cycle from singers in the same oral tradition.",
+        "source": "Alexander Hilferding, \"Onezhskie byliny\" (Onega Byliny)",
+        "date": "field-recorded 1871; published 1873"
+      }
+    ]
+  },
+  {
+    "id": "dobrynya-nikitich",
+    "pantheonId": "slavic-pantheon",
+    "name": "Dobrynya Nikitich",
+    "slug": "dobrynya-nikitich",
+    "gender": "male",
+    "alternateNames": ["Dobrynya"],
+    "description": "Second of the great bogatyrs of the Kievan Rus' byliny after Ilya Muromets, celebrated for slaying the dragon Zmey Gorynych and rescuing Prince Vladimir's niece from its lair.",
+    "detailedBio": "## Second Among the Bogatyrs\n\nDobrynya Nikitich appears throughout the bylina cycle as a nobly born bogatyr, more polished and diplomatically skilled than the peasant-born Ilya Muromets, and often sent by Prince Vladimir on delicate missions as much as violent ones. Different songs give him different family details, but the Ryazan region and a father named Nikita are the most common thread.\n\n### The Dragon at the Puchai River\n\nDobrynya's best-known bylina has him swim in the Puchai River against his mother's warning and encounter Zmey Gorynych, a fire-breathing, multi-headed dragon. In the version most often collected, the two fight to a standstill and swear an oath of peace; the dragon then breaks the truce by abducting Zabava Putyatichna, Prince Vladimir's niece. Dobrynya, called on to make good the dragon's broken word, returns to its lair, kills it, and frees Zabava and other captives the dragon had taken.\n\n### An Oral Tradition, Recorded and Repainted\n\nLike the Ilya Muromets cycle, the Dobrynya byliny survive only from written collections beginning in the late eighteenth century. Kirsha Danilov's collection, compiled roughly in the 1780s-1804 and first published in 1804, is among the oldest written sources for the bylina tradition and preserves versions of the Dobrynya and dragon story. Nineteenth-century fieldwork collectors, again including Rybnikov and Hilferding, recorded further regional variants from singers in northern Russia. The now-famous grouping of Dobrynya with Ilya Muromets and a third bogatyr, Alyosha Popovich, as a fixed trio owes a great deal to Viktor Vasnetsov's 1898 painting Bogatyrs, a nineteenth-century artistic synthesis rather than a grouping fixed in the earliest recorded songs.",
+    "parentage": {
+      "mortalParentName": "Nikita Romanovich, said to be of Ryazan",
+      "note": "Wholly mortal, noble-born parentage, in contrast to Ilya Muromets's peasant origin; no divine parent appears in the byliny."
+    },
+    "keyDeeds": [
+      "Fought the dragon Zmey Gorynych to a truce at the Puchai River",
+      "Returned to kill the dragon after it broke the truce and abducted Zabava Putyatichna",
+      "Freed Zabava and other captives from the dragon's lair",
+      "Served Prince Vladimir of Kiev as a trusted retainer and envoy"
+    ],
+    "fate": "No single death is fixed for Dobrynya in the byliny; he continues to appear across the wider Kievan cycle as one of Prince Vladimir's chief bogatyrs, later popularized as one of a fixed trio with Ilya Muromets and Alyosha Popovich in nineteenth-century Russian art.",
+    "relatedDeityIds": [],
+    "pronunciation": {
+      "ipa": "/dɐˈbrɨnʲə nʲɪˈkʲitʲɪtɕ/",
+      "phonetic": "duh-BRIN-yuh nih-KEE-tich"
+    },
+    "primarySources": [
+      {
+        "text": "The bylina of Dobrynya and the Serpent recounts his swim in the Puchai River against his mother's warning, his fight with Zmey Gorynych, and his later return to the dragon's lair to free Zabava Putyatichna.",
+        "source": "Kirsha Danilov, \"Drevние Russkie Stikhotvoreniya\" (Ancient Russian Poems)",
+        "date": "compiled c. 1780s-1804; first published 1804"
+      }
+    ]
+  },
+  {
+    "id": "hua-mulan",
+    "pantheonId": "chinese-pantheon",
+    "name": "Hua Mulan",
+    "slug": "hua-mulan",
+    "gender": "female",
+    "alternateNames": ["Mulan"],
+    "description": "Legendary Chinese woman warrior who disguised herself as a man to take her aged father's place in military conscription, serving undetected for years. Heroine of the short narrative poem the Ballad of Mulan.",
+    "detailedBio": "## Taking Her Father's Place\n\nThe Ballad of Mulan (Mulan Ci) is a short yuefu, a folk ballad in the Chinese tradition of anonymously composed narrative songs. It opens with Mulan weaving at her loom and worrying over a conscription order that names her elderly father, who has no grown son to send in his place. She resolves to buy a horse and armor and take his place herself, disguised as a man, and no one in the poem's telling discovers her true identity throughout the campaign.\n\n### Twelve Years Undetected\n\nThe ballad compresses years of campaigning into a handful of lines, emphasizing the length and hardship of her service, described as lasting roughly a decade, over the details of any specific battle. When the campaign ends, the poem has the emperor offer Mulan high office; she asks instead only for a swift camel to carry her home. Reunited with her family, she puts on women's clothing again, and her stunned former comrades, visiting her, realize only then that the soldier who marched beside them for years was a woman.\n\n### An Uncertain Date, Later Embellished\n\nThe ballad's own text does not name Mulan's family or give her a surname; \"Hua\" (flower) and an extensive backstory, including a romance and other invented episodes, are additions from much later Ming-dynasty fiction and should not be read back into the original poem. The ballad's date is itself debated: it is usually placed in the Northern and Southern Dynasties period, plausibly the Northern Wei (386-534 CE), based on internal details like references to a Khan and to the Rouran, though some scholars argue for later Tang-dynasty revision. It survives because a twelfth-century anthology, the Yuefu Shiji, compiled by Guo Maoqian, preserved it; the earlier collection said to have first recorded it no longer survives independently.",
+    "parentage": {
+      "mortalParentName": "An unnamed elderly father, liable for conscription",
+      "note": "The original ballad gives no family surname; \"Hua\" and other biographical detail belong to much later Ming-dynasty elaborations, not the source poem itself."
+    },
+    "keyDeeds": [
+      "Disguised herself as a man to take her father's place in a military conscription",
+      "Served in campaigns for roughly a decade without her fellow soldiers discovering her sex",
+      "Declined the emperor's offer of high office, asking only to return home",
+      "Resumed women's dress on her return, astonishing former comrades who never suspected her"
+    ],
+    "fate": "The ballad ends with her peaceful return home rather than any battlefield death; its closing image compares a running male and female hare, indistinguishable once they are both in motion, as a comment on how completely she had passed as a man.",
+    "relatedDeityIds": [],
+    "pronunciation": {
+      "ipa": "/xwä˥ mu˥˩län˧˥/",
+      "phonetic": "hwah moo-LAHN"
+    },
+    "primarySources": [
+      {
+        "text": "The Ballad of Mulan opens with her sighing at her loom over the conscription roll bearing her father's name, and resolving to buy a horse and saddle to go in his place.",
+        "source": "Ballad of Mulan (Mulan Ci), preserved in Guo Maoqian's Yuefu Shiji",
+        "date": "poem likely Northern and Southern Dynasties period, c. 4th-6th century CE; preserved in a 12th-century CE anthology"
+      }
+    ]
+  },
+  {
+    "id": "kupe",
+    "pantheonId": "polynesian-pantheon",
+    "name": "Kupe",
+    "slug": "kupe",
+    "gender": "male",
+    "alternateNames": [],
+    "description": "Legendary Polynesian navigator credited in Maori oral tradition with discovering Aotearoa (New Zealand) while pursuing a giant octopus across the Pacific from the ancestral homeland of Hawaiki.",
+    "detailedBio": "## The Pursuit of the Octopus\n\nIn Maori oral tradition, Kupe sets out from Hawaiki, the ancestral homeland of Polynesian voyaging tradition, in pursuit of a great octopus, Te Wheke-a-Muturangi, that had been raiding the bait from his people's fishing lines. Different tribal accounts (iwi have their own versions of this story) vary on the exact reason for the voyage and on some of its details, but the pursuit across open ocean, ending far from Hawaiki, is the tradition's common thread.\n\n### Naming a New Land\n\nFollowing the octopus south, Kupe is said to have sighted a long cloud on the horizon, which some traditions credit as the origin of the Maori name for New Zealand, Aotearoa, \"land of the long white cloud.\" Various coastal features, headlands, and harbors around the country are attributed in local tradition to Kupe's exploration and naming as he mapped the new land's coastline, and he is credited with finally cornering and killing the octopus in Cook Strait.\n\n### An Oral Tradition in Writing\n\nAs with other Polynesian material in this encyclopedia, Kupe's story survives through oral tradition, transmitted for generations through whakapapa (genealogical recitation) and formal storytelling before European contact, then set down in writing by nineteenth- and early twentieth-century collectors working with Maori informants, notably George Grey's Polynesian Mythology (1855) and the later compilations of S. Percy Smith. Because the tradition was never a single fixed text, different iwi preserve different versions of Kupe's route, his landfalls, and even his return, and no version should be read as the single canonical account.",
+    "parentage": {
+      "mortalParentName": "Accounts vary by iwi tradition; most describe him as a chief or navigator of Hawaiki",
+      "note": "No consistent divine parentage is given across the different tribal versions of his story; he is treated as a great human ancestor rather than a demigod."
+    },
+    "keyDeeds": [
+      "Pursued the giant octopus Te Wheke-a-Muturangi across the Pacific from Hawaiki",
+      "Sighted and is credited with naming Aotearoa, \"land of the long white cloud\"",
+      "Explored and named coastal features of Aotearoa according to many local iwi traditions",
+      "Cornered and killed the octopus in what is now Cook Strait",
+      "Returned to Hawaiki with sailing directions that guided later migratory voyages"
+    ],
+    "fate": "Traditions differ on whether Kupe settled in Aotearoa or returned permanently to Hawaiki; many iwi genealogies (whakapapa) trace descent from him or from the voyage he made possible, and he is remembered chiefly as a founding ancestor rather than through a fixed death story.",
+    "relatedDeityIds": ["tangaroa"],
+    "pronunciation": {
+      "ipa": "/ˈkupe/",
+      "phonetic": "KOO-peh"
+    },
+    "primarySources": [
+      {
+        "text": "Nineteenth-century collections of Maori tradition record Kupe's pursuit of the octopus Te Wheke-a-Muturangi from Hawaiki and his sighting of a long white cloud over an unknown land.",
+        "source": "George Grey, Polynesian Mythology",
+        "date": "published 1855, from Maori oral tradition"
+      },
+      {
+        "text": "Later compilations of tribal whakapapa and oral history, gathered from Maori informants across different iwi, preserve variant accounts of Kupe's landfalls and naming of the coastline.",
+        "source": "S. Percy Smith, Hawaiki: The Original Home of the Maori",
+        "date": "published early 20th century, from Maori oral tradition"
+      }
+    ]
+  },
+  {
+    "id": "moremi-ajasoro",
+    "pantheonId": "african-pantheon",
+    "name": "Moremi Ajasoro",
+    "slug": "moremi-ajasoro",
+    "gender": "female",
+    "alternateNames": ["Moremi"],
+    "description": "Legendary queen of Ile-Ife in Yoruba oral tradition, celebrated for allowing herself to be captured by raiders to learn the secret of their terrifying disguise, then leading her people to victory. Still honored annually at Ile-Ife's Edi Festival.",
+    "detailedBio": "## Captured by Choice\n\nIn Yoruba oral tradition (itan), the city of Ile-Ife was repeatedly raided by a people usually called the Ugbo, who appeared to the Ife as fearsome spirits covered in dried grass and raffia fiber, terrifying the defenders into flight. Moremi, a queen of Ife, chose to let herself be captured during a raid so she could learn the raiders' secret from inside their camp, where she rose in status, in most versions marrying the Ugbo king.\n\n### The Secret of the Raffia Spirits\n\nMoremi discovered that the \"spirits\" were ordinary men disguised in raffia and grass costumes and escaped back to Ife with this knowledge. Armed with it, the Ife were able to defeat the next raid by setting the attackers' costumes alight with fire, ending the threat the Ugbo had posed for years.\n\n### A Vow and Its Cost\n\nBefore her capture, Moremi had made a vow to the spirit of a local river, most often named as Esimirin, promising a great sacrifice if she returned safely and her plan succeeded. In the tradition's most widely told and most painful version, the price the river spirit demanded was her only son, Oluorogbo, whom she gave up to fulfill her vow. As with much orally transmitted history, different lineages and quarters of Ile-Ife preserve variant details of the story, including which river spirit was owed the debt and the exact nature of what Moremi sacrificed.\n\n### A Living Memory\n\nMoremi's story was first set down at length in Reverend Samuel Johnson's The History of the Yorubas, compiled from oral sources around 1897 and published posthumously in 1921, though the tradition itself long predates that written record. Ile-Ife still commemorates her sacrifice and the city's deliverance each year at the Edi Festival.",
+    "parentage": {
+      "mortalParentName": "Accounts vary; some traditions describe her as of Ife birth, others as having married into the Ife royal house",
+      "note": "Wholly mortal in Yoruba tradition; the vow that led to her son's sacrifice was made to a river spirit rather than to any parent."
+    },
+    "keyDeeds": [
+      "Allowed herself to be captured by Ugbo raiders to learn the secret of their disguise",
+      "Discovered that the raiders' fearsome appearance was raffia and grass costume worn by ordinary men",
+      "Escaped back to Ile-Ife and revealed the secret, enabling a decisive victory by fire",
+      "Fulfilled a vow made to a river spirit before her capture, in most versions at the cost of her son Oluorogbo"
+    ],
+    "fate": "Yoruba oral tradition does not give a fixed death for Moremi beyond the sacrifice tied to her vow; she is remembered as an ancestral heroine of Ile-Ife and commemorated annually in the city's Edi Festival, which reenacts her sacrifice and Ife's deliverance from the Ugbo raids.",
+    "relatedDeityIds": [],
+    "pronunciation": {
+      "ipa": "/moɾemi adʒaʃoɾo/",
+      "phonetic": "moh-REH-mee ah-jah-SHOH-roh"
+    },
+    "primarySources": [
+      {
+        "text": "Samuel Johnson's history records the tradition of Moremi's capture among the Ugbo, her discovery of their raffia disguise, and Ife's subsequent victory over the raiders by fire.",
+        "source": "Samuel Johnson, The History of the Yorubas",
+        "date": "compiled c. 1897 from Yoruba oral tradition; published 1921"
+      }
+    ]
+  },
+  {
+    "id": "etana",
+    "pantheonId": "mesopotamian-pantheon",
+    "name": "Etana",
+    "slug": "etana",
+    "gender": "male",
+    "alternateNames": [],
+    "description": "Legendary early king of Kish, recorded in the Sumerian King List as \"the shepherd who ascended to heaven,\" and hero of the Myth of Etana, who flew on the back of an eagle in search of a plant that would let his wife bear him an heir.",
+    "detailedBio": "## A Shepherd Who Ascended to Heaven\n\nThe Sumerian King List, a text that blends genuine early rulers with clearly legendary ones, names Etana as a king of the first dynasty of Kish after the great flood, giving him the striking epithet \"the shepherd who ascended to heaven.\" The Myth of Etana, a separate composition surviving in Old Babylonian, Middle Assyrian, and Neo-Assyrian versions (the latter from Ashurbanipal's library at Nineveh, seventh century BCE), tells the story behind that epithet, though every surviving copy is damaged, and no single tablet preserves the whole text.\n\n### The Eagle and the Serpent\n\nThe myth opens with an unrelated fable: an eagle and a serpent swear an oath of friendship and agree to share their hunting, but the eagle breaks the pact by eating the serpent's young. The serpent, with the sun god Shamash's help, traps and injures the eagle in punishment. Later, Etana, troubled that he has no heir, prays to Shamash, who directs him to the wounded eagle. Etana nurses the eagle back to health, and in gratitude the eagle offers to carry him to heaven to find the \"plant of birth\" that will let his wife conceive.\n\n### An Ending Lost to Damage\n\nRiding the eagle, Etana ascends through the successive heavens associated with Anu, Enlil, and Ishtar, growing more anxious at the shrinking view of the earth below with every stage of the climb. At the point where the surviving tablets are most badly damaged, the story breaks off; reconstructions disagree on whether Etana reaches the plant and returns safely or falls back to earth with the eagle, a fate that would parallel other flight-and-fall stories such as Bellerophon's. The Sumerian King List's own record of a son, Balih, succeeding Etana as king suggests the quest for an heir eventually succeeded by some means, but the myth's own ending is not securely established from what survives.",
+    "parentage": {
+      "mortalParentName": "Not given in the surviving texts",
+      "note": "No parentage details survive for Etana in either the Sumerian King List or the Myth of Etana; he is presented as a legendary early king rather than the child of a named mortal or deity."
+    },
+    "keyDeeds": [
+      "Prayed to the sun god Shamash for an heir and was directed to a wounded eagle",
+      "Nursed the injured eagle back to health after its punishment for breaking a vow",
+      "Flew on the eagle's back through the successive heavens in search of the plant of birth",
+      "Is named in the Sumerian King List as an early king of Kish who \"ascended to heaven\""
+    ],
+    "fate": "The climax of the Myth of Etana is lost to damage on every surviving tablet. Some reconstructions have Etana and the eagle fall back to earth after flying too high; the Sumerian King List's record of his son Balih succeeding him suggests the quest for an heir succeeded in some form, but the myth's own ending is not known with confidence.",
+    "relatedDeityIds": ["shamash", "anu"],
+    "pronunciation": {
+      "ipa": "/eˈtana/",
+      "phonetic": "eh-TAH-nah"
+    },
+    "primarySources": [
+      {
+        "text": "The Sumerian King List records Etana among the kings of Kish with the epithet \"the shepherd, who ascended to heaven, who consolidated all countries.\"",
+        "source": "Sumerian King List (Old Babylonian copies)",
+        "date": "composition traditionally dated to the Old Babylonian period, c. early 2nd millennium BCE"
+      },
+      {
+        "text": "The Neo-Assyrian recension of the Myth of Etana, from Ashurbanipal's library, preserves the eagle's offer to carry Etana to heaven and the ascent through the successive divine realms, breaking off before its resolution.",
+        "source": "Myth of Etana, Neo-Assyrian recension",
+        "date": "tablets from the library of Ashurbanipal, 7th century BCE; the myth itself is older, with Old Babylonian fragments from the early 2nd millennium BCE"
+      }
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "greek-pantheon",
+        "refId": "bellerophon",
+        "kind": "hero",
+        "note": "Both heroes attempt a flight to the heavens on a winged creature in pursuit of a personal goal, and both stories turn on an ambiguous or diminished outcome once the climb goes too far."
       }
     ]
   }
