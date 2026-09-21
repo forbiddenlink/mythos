@@ -6,6 +6,7 @@ import pantheons from "@/data/pantheons.json";
 import { canonicalCreatureSlug } from "@/lib/creature-aliases";
 import { generateBaseMetadata, generateNotFoundMetadata } from "@/lib/metadata";
 import { CreaturePageClient } from "./CreaturePageClient";
+import { getMuseumObjectsFor } from "@/lib/museum";
 
 // ISR: Revalidate every week (604800 seconds)
 export const revalidate = 604800;
@@ -106,6 +107,10 @@ export default async function CreaturePage({ params }: PageProps) {
     .map((d) => ({ id: d.id, slug: d.slug, name: d.name }));
 
   return (
-    <CreaturePageClient slug={slug} samePantheonDeities={samePantheonDeities} />
+    <CreaturePageClient
+      slug={slug}
+      samePantheonDeities={samePantheonDeities}
+      museumObjects={getMuseumObjectsFor({ creature: slug })}
+    />
   );
 }

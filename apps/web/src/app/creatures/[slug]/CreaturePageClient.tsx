@@ -11,6 +11,8 @@ import { CreatureJsonLd, BreadcrumbJsonLd } from "@/components/seo/JsonLd";
 import { EditorialByline } from "@/components/content/EditorialByline";
 import { siteConfig } from "@/lib/metadata";
 import creaturesData from "@/data/creatures.json";
+import { MuseumGallery } from "@/components/museum/MuseumGallery";
+import type { MuseumObject } from "@/lib/museum";
 
 interface Creature {
   id: string;
@@ -39,11 +41,13 @@ export interface PantheonDeitySummary {
 interface CreaturePageClientProps {
   slug: string;
   samePantheonDeities?: PantheonDeitySummary[];
+  museumObjects?: MuseumObject[];
 }
 
 export function CreaturePageClient({
   slug,
   samePantheonDeities = [],
+  museumObjects = [],
 }: CreaturePageClientProps) {
   const creature =
     (creaturesData as Creature[]).find(
@@ -246,6 +250,8 @@ export function CreaturePageClient({
               </Card>
             </div>
           </div>
+
+          <MuseumGallery name={creature.name} objects={museumObjects} />
 
           {/* Related Content */}
           <div className="mt-12 space-y-8">

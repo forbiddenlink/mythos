@@ -5,6 +5,7 @@ import pantheons from "@/data/pantheons.json";
 import { findDeityByReference } from "@/lib/deities";
 import { generateBaseMetadata, generateNotFoundMetadata } from "@/lib/metadata";
 import { DeityPageClient } from "./DeityPageClient";
+import { getMuseumObjectsFor } from "@/lib/museum";
 
 // ISR: Revalidate every week (604800 seconds)
 export const revalidate = 604800;
@@ -96,5 +97,10 @@ export default async function DeityPage({ params }: PageProps) {
     redirect(`/deities/${deity.slug}`);
   }
 
-  return <DeityPageClient slug={slug} />;
+  return (
+    <DeityPageClient
+      slug={slug}
+      museumObjects={getMuseumObjectsFor({ deity: deity.slug })}
+    />
+  );
 }

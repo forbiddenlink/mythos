@@ -2,7 +2,9 @@ import objects from "@/data/museum-objects.json";
 import Image from "next/image";
 
 export function MuseumObjects({ storyId }: { storyId: string }) {
-  const entries = objects.filter((object) => object.storyIds.includes(storyId));
+  const entries = objects.filter((object) =>
+    (object.storyIds as string[]).includes(storyId),
+  );
   if (entries.length === 0) return null;
 
   return (

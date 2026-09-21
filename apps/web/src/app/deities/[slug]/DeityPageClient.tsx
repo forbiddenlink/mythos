@@ -67,6 +67,8 @@ import {
   type OriginalLanguageNameData,
 } from "@/components/sources";
 import { RelatedDeities } from "@/components/deities/RelatedDeities";
+import { MuseumGallery } from "@/components/museum/MuseumGallery";
+import { getMuseumPortrait, type MuseumObject } from "@/lib/museum";
 import { DeityStoryRecommendations } from "@/components/deities/DeityStoryRecommendations";
 import { LinkedMentions } from "@/components/mythology/LinkedMentions";
 import { AppearsIn } from "@/components/mythology/AppearsIn";
@@ -136,6 +138,7 @@ interface Relationship {
 
 interface DeityPageClientProps {
   slug: string;
+  museumObjects?: MuseumObject[];
 }
 
 function formatSlugAsTitle(slug: string) {
@@ -146,13 +149,17 @@ function formatSlugAsTitle(slug: string) {
     .join(" ");
 }
 
-export function DeityPageClient({ slug }: DeityPageClientProps) {
+export function DeityPageClient({
+  slug,
+  museumObjects = [],
+}: DeityPageClientProps) {
   // Track progress when deity is viewed
   const { trackDeityView, trackPantheonExplore } = useProgress();
   const allDeities = deitiesData as Deity[];
   const relationshipList = relationshipsData as Relationship[];
   const deity =
     allDeities.find((item) => item.id === slug || item.slug === slug) ?? null;
+  const museumPortrait = getMuseumPortrait(museumObjects);
   const deityRelationships = useMemo(
     () =>
       deity
@@ -275,6 +282,15 @@ export function DeityPageClient({ slug }: DeityPageClientProps) {
                     className="h-full w-full object-cover"
                     priority
                   />
+                ) : museumPortrait?.imageUrl ? (
+                  <Image
+                    src={museumPortrait.imageUrl}
+                    alt={museumPortrait.imageAlt || museumPortrait.title}
+                    fill
+                    unoptimized
+                    sizes="14rem"
+                    className="object-contain p-2"
+                  />
                 ) : (
                   <div className="flex h-full items-center justify-center">
                     <span className="font-serif text-7xl text-gold/70">
@@ -283,6 +299,11 @@ export function DeityPageClient({ slug }: DeityPageClientProps) {
                   </div>
                 )}
               </div>
+              {!deity.imageUrl && museumPortrait && (
+                <figcaption className="bg-midnight/90 px-2 py-1.5 text-[0.65rem] leading-snug text-parchment/75">
+                  {museumPortrait.title}, {museumPortrait.institution}
+                </figcaption>
+              )}
             </figure>
 
             <div>
@@ -550,8 +571,8 @@ export function DeityPageClient({ slug }: DeityPageClientProps) {
                       Source Notes
                     </h2>
                     <p className="text-muted-foreground text-sm mb-5 pl-5">
-                      These records lack edition and translator details. Their wording
-                      has not been verified as a direct quotation.
+                      These records lack edition and translator details. Their
+                      wording has not been verified as a direct quotation.
                     </p>
                     <div className="space-y-6">
                       {deity.primarySources.map((source, index) => (
@@ -710,6 +731,8 @@ export function DeityPageClient({ slug }: DeityPageClientProps) {
               )}
             </div>
           </div>
+
+          <MuseumGallery name={deity.name} objects={museumObjects} />
 
           {/* Related Deities */}
           <RelatedDeities deityId={deity.id} pantheonId={deity.pantheonId} />
