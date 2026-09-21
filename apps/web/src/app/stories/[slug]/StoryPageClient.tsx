@@ -25,6 +25,8 @@ import { MuseumObjects } from "@/components/stories/MuseumObjects";
 import { ProgressContext } from "@/providers/progress-provider";
 import { RelatedContent } from "@/components/related-content";
 import { MythVariants } from "@/components/stories/MythVariants";
+import { VersionMatrix } from "@/components/stories/VersionMatrix";
+import type { MythVersions } from "@/lib/myth-versions";
 import { EditorialByline } from "@/components/content/EditorialByline";
 import deitiesData from "@/data/deities.json";
 import locationsData from "@/data/locations.json";
@@ -118,12 +120,16 @@ interface Location {
 
 interface StoryPageClientProps {
   slug: string;
+  versions?: MythVersions | null;
 }
 
 // Stories that have cinematic versions available
 const CINEMATIC_STORIES = ["ragnarok", "titanomachy"];
 
-export function StoryPageClient({ slug }: StoryPageClientProps) {
+export function StoryPageClient({
+  slug,
+  versions = null,
+}: StoryPageClientProps) {
   const { speak, cancel, isSpeaking } = useTextToSpeech();
   const allStories = storiesData as Story[];
   const story = allStories.find((s) => s.slug === slug);
@@ -421,6 +427,8 @@ export function StoryPageClient({ slug }: StoryPageClientProps) {
               variant="story"
             />
           )}
+
+          {versions && <VersionMatrix versions={versions} />}
 
           {/* Myth Variants */}
           {story.variants && story.variants.length > 0 && (

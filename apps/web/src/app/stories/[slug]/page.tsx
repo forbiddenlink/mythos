@@ -5,6 +5,7 @@ import pantheons from "@/data/pantheons.json";
 import { generateBaseMetadata, generateNotFoundMetadata } from "@/lib/metadata";
 import { canonicalStorySlug } from "@/lib/story-aliases";
 import { StoryPageClient } from "./StoryPageClient";
+import { getMythVersions } from "@/lib/myth-versions";
 
 // ISR: Revalidate every week (604800 seconds)
 export const revalidate = 604800;
@@ -87,5 +88,5 @@ export default async function StoryPage({ params }: PageProps) {
     notFound();
   }
 
-  return <StoryPageClient slug={slug} />;
+  return <StoryPageClient slug={slug} versions={getMythVersions(slug)} />;
 }
