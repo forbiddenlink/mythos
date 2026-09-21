@@ -251,5 +251,12 @@
     "svantevit",
     "triglav",
     "chernobog"
+  ],
+  "haudenosaunee-pantheon": ["sky-woman", "sapling", "flint", "turtle"],
+  "tlingit-haida-pantheon": [
+    "raven",
+    "fog-woman",
+    "chief-fog-over-the-salmon",
+    "naas-shaak-aankawu"
   ]
 }

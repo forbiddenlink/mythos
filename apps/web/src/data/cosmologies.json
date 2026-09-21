@@ -1240,5 +1240,74 @@
         ]
       }
     ]
+  },
+  {
+    "pantheonId": "haudenosaunee-pantheon",
+    "title": "Sky World Above, Turtle Island Below",
+    "summary": "A two-part cosmos: the Sky World Sky Woman falls from, and the earth, Turtle Island, built up on the Great Turtle's back below, connected by the great tree whose uprooting opened the way between them.",
+    "axis": {
+      "name": "The Celestial Tree",
+      "kind": "tree",
+      "note": "The tree that lit the Sky World before it was uprooted, opening the hole Sky Woman fell through. Recorded by Hewitt and Parker as the event that begins the story, not described in these sources as an ongoing axis connecting the two worlds the way Yggdrasil connects Norse cosmology's realms; this site presents it modestly, as the story's opening image rather than a standing structure."
+    },
+    "variantNote": "Haudenosaunee tellers do not describe a stacked, multi-level cosmos with an underworld the way Norse or Mesoamerican tradition does; the tradition recorded here is essentially two-part, the Sky World above and the earth below, and this site does not add a third tier that is not in the sources. Different nations and tellers also disagree on details within each world, including which animal dives for the earth and how the Twins' contest resolves; this cosmology follows Hewitt's and Parker's recorded Seneca, Onondaga, and Mohawk variants rather than a single standardized account.",
+    "sources": [
+      "J.N.B. Hewitt (Tuscarora), Iroquoian Cosmology, Bureau of American Ethnology Annual Reports 21 and 43, 1903 and 1928",
+      "Arthur C. Parker (Seneca), Seneca Myths and Folk Tales, 1923"
+    ],
+    "tiers": [
+      {
+        "id": "sky-world",
+        "label": "The Sky World",
+        "band": "sky",
+        "realms": [
+          {
+            "name": "The Sky World",
+            "description": "The world above, lit by the celestial tree, from which Sky Woman falls after the tree is uprooted.",
+            "deities": ["sky-woman"]
+          }
+        ]
+      },
+      {
+        "id": "turtle-island",
+        "label": "Turtle Island",
+        "band": "earth",
+        "realms": [
+          {
+            "name": "Turtle Island",
+            "description": "The earth built up on the Great Turtle's back from the mud the diving animals bring up, where Sky Woman's daughter and grandsons Sapling and Flint live and where the Twins shape the land's features.",
+            "deities": ["turtle", "sapling", "flint"],
+            "locationId": "onondaga-lake"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "pantheonId": "tlingit-haida-pantheon",
+    "title": "A World Without a Stack: Raven's Coast",
+    "summary": "Tlingit and Haida tradition does not describe a tiered universe of sky, earth, and underworld realms; this entry keeps to a single coastal world, honestly flagging where the site's usual layered cosmology format is a poor fit.",
+    "axis": null,
+    "variantNote": "Forcing Tlingit and Haida tradition into this site's usual sky-to-underworld tier format would import a structure that is not theirs. Neither Swanton's recorded texts nor the Dauenhauers' or Bringhurst's later translations describe a layered cosmos with a world tree or a stacked underworld the way Norse, Haudenosaunee, or Mesoamerican traditions do; daylight comes from boxes in an old man's earthly house at the head of the Nass River, not from a separate sky realm reached by an axis, and the Haida Texts and Myths that Swanton recorded describe some supernatural beings and events (including a being some tellers connect to earthquakes) that this site does not attempt to place on a vertical scale, since doing so would go beyond what the sources support. This entry is deliberately modest: a single coastal world where transformation, not location on a stack, is how Raven moves between states.",
+    "sources": [
+      "John R. Swanton, Tlingit Myths and Texts, 1909",
+      "John R. Swanton, Haida Texts and Myths, Skidegate Dialect, 1905",
+      "Nora Marks Dauenhauer and Richard Dauenhauer, Haa Shuká, Our Ancestors: Tlingit Oral Narratives, 1987"
+    ],
+    "tiers": [
+      {
+        "id": "the-coastal-world",
+        "label": "The Coastal World",
+        "band": "earth",
+        "realms": [
+          {
+            "name": "The Coastal World",
+            "description": "The single world of sea, forest, and river where Raven's stories take place: the Nass River household where daylight is stolen, and the beach at Rose Spit, Haida Gwaii, where the first people leave the clamshell.",
+            "deities": ["raven", "fog-woman", "naas-shaak-aankawu"],
+            "locationId": "haida-gwaii"
+          }
+        ]
+      }
+    ]
   }
 ]

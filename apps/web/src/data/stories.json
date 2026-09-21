@@ -3447,5 +3447,151 @@
         "type": "secondary"
       }
     ]
+  },
+  {
+    "id": "sky-woman-and-turtle-island",
+    "pantheonId": "haudenosaunee-pantheon",
+    "title": "Sky Woman and the Making of Turtle Island",
+    "slug": "sky-woman-and-turtle-island",
+    "summary": "A woman falls from a torn-open hole in the Sky World, is caught by waterfowl, and set on the back of the Great Turtle, whose back the diving animals build into Turtle Island.",
+    "fullNarrative": "## Variants, not one version\n\nHaudenosaunee tradition tells this story in more than one way, and this retelling follows the shape recorded by Arthur C. Parker (Seneca) and J.N.B. Hewitt (Tuscarora) from named Seneca, Onondaga, and Mohawk tellers, without claiming any single version is the only correct one.\n\n## The fall\n\nIn the Sky World above, a great tree that lit the sky is uprooted, tearing open a hole. A woman, curious or pushed, depending on the teller, falls through it toward the waters far below. Geese or swans, seeing her fall, fly up together and slow her descent, carrying her gently down rather than letting her strike the water.\n\n## The turtle's back\n\nThe animals of the water world below debate what to do; several offer to dive to the bottom of the endless sea to bring up mud for her to stand on, and many fail before one, muskrat in many tellings, succeeds, bringing up a pawful of earth. The Great Turtle offers his back to bear this earth, and as it is spread across his shell, it grows outward into land, this is Turtle Island, the name still used for the continent today.\n\n## What follows\n\nSky Woman's daughter is born on this new earth, and her grandsons, the twins Sapling and Flint, are born after her, go on to shape the earth's features in their turn. Their story is told separately on this site as its own entry.",
+    "keyExcerpts": "Sky Woman falls through a torn-open sky, is slowed by waterfowl, and is set on the Great Turtle's back; the diving animals bring up mud that grows into Turtle Island.",
+    "category": "creation",
+    "moralThemes": [
+      "the earth as a shared gift built by many hands",
+      "cooperation among the animals"
+    ],
+    "culturalSignificance": "The foundational Haudenosaunee account of the earth's origin, and the source of Turtle Island as a living name for the continent used by Haudenosaunee people and many other Indigenous nations today.",
+    "citationSources": [
+      {
+        "title": "Seneca Myths and Folk Tales",
+        "author": "Arthur C. Parker (Seneca)",
+        "date": "1923",
+        "type": "primary"
+      },
+      {
+        "title": "Iroquoian Cosmology, Bureau of American Ethnology Annual Reports 21 and 43",
+        "author": "J.N.B. Hewitt (Tuscarora)",
+        "date": "1903 and 1928",
+        "type": "primary"
+      }
+    ],
+    "featuredDeities": ["sky-woman", "turtle"]
+  },
+  {
+    "id": "the-twins-sapling-and-flint",
+    "pantheonId": "haudenosaunee-pantheon",
+    "title": "The Twins: Sapling and Flint",
+    "slug": "the-twins-sapling-and-flint",
+    "summary": "Sky Woman's grandsons, the good-minded Sapling and the hard-minded Flint, shape the young earth's features in opposite directions, one toward ease and abundance, the other toward difficulty.",
+    "fullNarrative": "## Birth\n\nSky Woman's daughter, grown on the new earth of Turtle Island, gives birth to twin sons. Tellers differ on how she conceives; in many versions, the birth of the second twin, Flint, is unusually difficult and costs her life, which is why Sky Woman raises the boys herself.\n\n## Shaping the world\n\nAs the twins grow, they set about shaping the young earth, and, in most tellings recorded by Parker and Hewitt, they work in opposite directions. Sapling, also called Skyholder, makes rivers run smoothly, plants bear food, and the land welcome; Flint makes rapids, thickets, and hardship, or in some tellings brings dangerous creatures into being. Neither is purely good or purely evil in the way an outside reader might expect; together they are read by many tellers as accounting for why the world holds both ease and difficulty side by side.\n\n## An unresolved contest\n\nThe brothers eventually contest with each other, sometimes described as a wrestling match or a contest of power, and recorded tellings disagree on how it ends. Some Seneca tellers describe Sapling winning outright; others describe an ongoing, unresolved balance between the two rather than one twin's final defeat. This site does not choose between them.",
+    "keyExcerpts": "Sky Woman's grandsons Sapling and Flint shape the young earth in opposite directions, one toward abundance and ease, the other toward hardship, and their contest is told with different endings by different tellers.",
+    "category": "creation",
+    "moralThemes": [
+      "balance between ease and hardship",
+      "the world as neither wholly kind nor wholly cruel"
+    ],
+    "culturalSignificance": "A core Haudenosaunee account of why the world contains both abundance and difficulty, told across Seneca, Onondaga, and Mohawk tradition with acknowledged variation in its ending.",
+    "citationSources": [
+      {
+        "title": "Seneca Myths and Folk Tales",
+        "author": "Arthur C. Parker (Seneca)",
+        "date": "1923",
+        "type": "primary"
+      },
+      {
+        "title": "Iroquoian Cosmology, Bureau of American Ethnology Annual Reports 21 and 43",
+        "author": "J.N.B. Hewitt (Tuscarora)",
+        "date": "1903 and 1928",
+        "type": "primary"
+      }
+    ],
+    "featuredDeities": ["sky-woman", "sapling", "flint"]
+  },
+  {
+    "id": "peacemaker-great-law-of-peace",
+    "pantheonId": "haudenosaunee-pantheon",
+    "title": "The Peacemaker and the Great Law of Peace",
+    "slug": "peacemaker-great-law-of-peace",
+    "summary": "The Peacemaker and Hiawatha persuade the feared Onondaga leader Tadodaho to accept peace, uniting the warring nations under the Great Law of Peace at Onondaga Lake.",
+    "fullNarrative": "## A history the Confederacy shares publicly\n\nUnlike the cosmological stories on this site, the Onondaga Nation and the Haudenosaunee Confederacy present the founding of the Great Law of Peace as both sacred narrative and real history, and both nations publish this account on their own websites for a general audience. This retelling follows their published wording closely.\n\n## The Peacemaker and Hiawatha\n\nIn a time of constant warfare among the nations, a man later known as the Peacemaker, born under unusual circumstances and said to be sent to end the fighting, began traveling among them teaching a message of unity and reason over force. At Onondaga, a man named Hiawatha, who had lost his family to the violence of the Onondaga leader Tadodaho, was persuaded by the Peacemaker's teaching and became his partner in carrying the message onward.\n\n## Tadodaho's transformation\n\nTadodaho is described, in both the Onondaga Nation's and the Haudenosaunee Confederacy's own published accounts, as a powerful and feared figure whose body was twisted and who had snakes growing from his hair. The Peacemaker and Hiawatha went to him last, after the other nations had agreed to unite, and through the Peacemaker's teaching and the offer of wampum, Tadodaho accepted peace; the snakes were combed from his hair and his body made straight, and he was given the role of Firekeeper, presiding over the confederacy's Grand Council.\n\n## The Great Tree of Peace\n\nAt Onondaga Lake, the united nations planted the Great Tree of Peace, its roots reaching toward the four directions to welcome any who wished to follow the Great Law, and an eagle set at its top to watch for danger. The Peacemaker taught the law of \"One Dish, One Spoon,\" meaning the nations would share their resources without bloodshed, and established a government of fifty chiefs, organized in three benches, deciding matters by consensus rather than majority vote.\n\n## When this happened\n\nSources disagree on the date: some scholars point to an oral reference to a solar eclipse and argue for around 1142 CE; others, working from archaeological evidence, favor a date in the 15th century. The Haudenosaunee Confederacy's own materials describe it simply as \"over a thousand years ago.\" This site does not assert a single year.",
+    "keyExcerpts": "The Peacemaker and Hiawatha persuade Tadodaho to accept peace; the nations plant the Great Tree of Peace at Onondaga Lake and adopt the Great Law of Peace, government by consensus among fifty chiefs.",
+    "category": "legend",
+    "moralThemes": [
+      "reason over force",
+      "unity among formerly warring nations",
+      "the transformation of a feared enemy into a keeper of peace"
+    ],
+    "culturalSignificance": "The founding narrative of the Haudenosaunee Confederacy's government, still in place today, and a story the Confederacy and the Onondaga Nation actively teach and publish for a public audience rather than treat as closed history.",
+    "citationSources": [
+      {
+        "title": "History",
+        "author": "Onondaga Nation",
+        "date": "onondaganation.org, accessed 2026",
+        "type": "primary"
+      },
+      {
+        "title": "Confederacy's Creation",
+        "author": "Haudenosaunee Confederacy",
+        "date": "haudenosauneeconfederacy.com, accessed 2026",
+        "type": "primary"
+      }
+    ],
+    "featuredLocations": ["onondaga-lake"]
+  },
+  {
+    "id": "raven-steals-the-light",
+    "pantheonId": "tlingit-haida-pantheon",
+    "title": "Raven Steals the Light",
+    "slug": "raven-steals-the-light",
+    "summary": "Raven tricks his way into the household of a wealthy old man at the head of the Nass River to steal his nested boxes holding the stars, moon, and sun, freeing daylight into the world.",
+    "fullNarrative": "## A story told by many tellers\n\nThis is one of the most widely told Tlingit stories, recorded from named tellers by John R. Swanton at Wrangell in the early 20th century and retold since by Tlingit tellers themselves and by institutions like Sealaska Heritage Institute for public audiences; this retelling follows Swanton's recorded version.\n\n## The old man's boxes\n\nA wealthy old man of the raven lineage lives at the head of the Nass River, keeping the world's daylight, the stars, the moon, and the sun, locked away in three boxes nested one inside another. The world at this time is dark, and Raven, wanting light, sets out to get it.\n\n## Rebirth as a grandson\n\nRaven transforms himself into a hemlock needle and drops into the water the old man's daughter drinks from as she gathers berries; she swallows it without noticing, becomes pregnant, and gives birth to a boy: Raven, reborn. The old man dotes on this unexpected grandson, and when the child cries endlessly, the household eventually gives him the box of stars to quiet him.\n\n## The theft\n\nPlaying with the box, Raven opens it, and the stars escape upward through the smoke hole into the sky. He cries again until he is given the box of the moon, and lets that escape the same way. Finally, still crying, he is given the box holding the sun; this time, once it is opened, Raven seizes the sun itself in his beak, changes back into his raven form, and flies out through the smoke hole with it, carrying daylight out into the waiting world.",
+    "keyExcerpts": "Raven is reborn as the grandson of the old man who keeps the stars, moon, and sun in nested boxes, and steals each box in turn, finally flying off with the sun itself in his beak.",
+    "category": "trickster",
+    "moralThemes": [
+      "cunning and persistence rather than force",
+      "the world's light as something won, not simply given"
+    ],
+    "culturalSignificance": "The best-known Tlingit account of how the world gained daylight, and a story still told publicly by Tlingit tellers and institutions today.",
+    "citationSources": [
+      {
+        "title": "Tlingit Myths and Texts, \"Raven, Part I\"",
+        "author": "John R. Swanton",
+        "date": "1909",
+        "type": "primary"
+      }
+    ],
+    "featuredDeities": ["raven", "naas-shaak-aankawu"]
+  },
+  {
+    "id": "raven-and-the-first-men",
+    "pantheonId": "tlingit-haida-pantheon",
+    "title": "Raven and the First Men",
+    "slug": "raven-and-the-first-men",
+    "summary": "Walking alone on the beach at Rose Spit, Haida Gwaii, Raven finds a giant clamshell full of small frightened beings and coaxes them out to become the first Haida.",
+    "fullNarrative": "## A Haida telling, and a sculptor's retelling\n\nThis story is recorded by John R. Swanton in *Haida Texts and Myths* (1905) and, decades later, reworked by the Haida artist Bill Reid, drawing on 19th-century Haida carver Charles Edenshaw's earlier miniature version, into the monumental sculpture *The Raven and the First Men*, carved from laminated yellow cedar between 1978 and 1980 and held at the Museum of Anthropology at the University of British Columbia. Reid's version is itself a public, widely seen retelling of Haida tradition, not a departure from it, and this narrative draws on both his and Swanton's versions.\n\n## The clamshell\n\nRaven, walking the beach alone at Rose Spit on Haida Gwaii after a great flood has receded, notices an enormous clamshell lying in the sand, and from it come small sounds. Looking closer, he finds it full of tiny beings, the first humans, crowded together and afraid to come out into his strange new world.\n\n## Coaxing them out\n\nUsing his voice, by turns coaxing, teasing, and persuading, exactly as Raven persuades and tricks his way through every other story told of him, he convinces the beings to leave the shell's safety. Some hesitate at the edge; others emerge readily, curious about the wide world of sea, sky, and forest Raven describes to them. Once out, they become the first Haida people, beginning their life on Haida Gwaii.",
+    "keyExcerpts": "Raven finds a clamshell full of small frightened beings on the beach at Rose Spit and coaxes them out into the world, where they become the first Haida.",
+    "category": "creation",
+    "moralThemes": [
+      "curiosity overcoming fear",
+      "Raven as a maker of the world through persuasion rather than force"
+    ],
+    "culturalSignificance": "A Haida account of human origins on Haida Gwaii, brought to wide public attention through Bill Reid's sculpture at the Museum of Anthropology, and told by Haida people as living tradition.",
+    "citationSources": [
+      {
+        "title": "Haida Texts and Myths, Skidegate Dialect",
+        "author": "John R. Swanton",
+        "date": "1905",
+        "type": "primary"
+      },
+      {
+        "title": "The Raven and the First Men (sculpture)",
+        "author": "Bill Reid, drawing on Charles Edenshaw's earlier carving",
+        "date": "1978 to 1980",
+        "type": "secondary"
+      }
+    ],
+    "featuredDeities": ["raven"],
+    "featuredLocations": ["haida-gwaii"]
   }
 ]

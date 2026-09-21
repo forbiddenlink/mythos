@@ -44,6 +44,8 @@ function getPantheonLabel(pantheonId: string): string {
     "mesoamerican-pantheon": "Mesoamerican",
     "mesopotamian-pantheon": "Mesopotamian",
     "slavic-pantheon": "Slavic",
+    "haudenosaunee-pantheon": "Haudenosaunee",
+    "tlingit-haida-pantheon": "Tlingit & Haida",
   };
   return labels[pantheonId] || "Ancient";
 }

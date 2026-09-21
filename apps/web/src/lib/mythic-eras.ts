@@ -75,6 +75,23 @@ export const MYTHIC_ERAS: MythicEra[] = [
     end: 1250,
     pantheonIds: ["slavic-pantheon"],
   },
+  {
+    id: "haudenosaunee-confederacy",
+    label: "Haudenosaunee Confederacy",
+    blurb:
+      "Sky Woman's Turtle Island and the Great Law of Peace, a living tradition",
+    start: 1000,
+    end: 2026,
+    pantheonIds: ["haudenosaunee-pantheon"],
+  },
+  {
+    id: "northwest-coast",
+    label: "Northwest Coast",
+    blurb: "Tlingit and Haida Raven tradition, a living tradition",
+    start: -11000,
+    end: 2026,
+    pantheonIds: ["tlingit-haida-pantheon"],
+  },
 ];
 
 export function pantheonIdsForEraId(eraId: string): Set<string> | null {

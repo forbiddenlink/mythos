@@ -122,7 +122,7 @@ export const achievements: Achievement[] = [
   {
     id: "mythology_master",
     name: "Mythology Master",
-    description: "Explore all 14 pantheons",
+    description: "Explore all 16 pantheons",
     icon: "🌟",
     xp: 200,
     category: "mastery",

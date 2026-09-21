@@ -208,6 +208,14 @@ export const DEITY_PANTHEON_MAP: Record<string, string> = {
   svantevit: "slavic-pantheon",
   triglav: "slavic-pantheon",
   chernobog: "slavic-pantheon",
+  "sky-woman": "haudenosaunee-pantheon",
+  sapling: "haudenosaunee-pantheon",
+  flint: "haudenosaunee-pantheon",
+  turtle: "haudenosaunee-pantheon",
+  raven: "tlingit-haida-pantheon",
+  "fog-woman": "tlingit-haida-pantheon",
+  "chief-fog-over-the-salmon": "tlingit-haida-pantheon",
+  "naas-shaak-aankawu": "tlingit-haida-pantheon",
 };
 
 export const STORY_PANTHEON_MAP: Record<string, string> = {
@@ -313,6 +321,11 @@ export const STORY_PANTHEON_MAP: Record<string, string> = {
   "perun-and-veles": "slavic-pantheon",
   "svantevits-oracle-horse": "slavic-pantheon",
   "vasilisa-the-beautiful": "slavic-pantheon",
+  "sky-woman-and-turtle-island": "haudenosaunee-pantheon",
+  "the-twins-sapling-and-flint": "haudenosaunee-pantheon",
+  "peacemaker-great-law-of-peace": "haudenosaunee-pantheon",
+  "raven-steals-the-light": "tlingit-haida-pantheon",
+  "raven-and-the-first-men": "tlingit-haida-pantheon",
 };
 
 /**

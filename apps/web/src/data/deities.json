@@ -11054,5 +11054,263 @@
       "ipa": "/ˈtʃɛrnəbɒɡ/",
       "phonetic": "CHER-noh-bog"
     }
+  },
+  {
+    "id": "sky-woman",
+    "pantheonId": "haudenosaunee-pantheon",
+    "name": "Sky Woman",
+    "slug": "sky-woman",
+    "alternateNames": ["Awenhai"],
+    "gender": "female",
+    "domain": ["creation", "the sky world", "the earth"],
+    "symbols": ["the Great Turtle", "the celestial tree"],
+    "description": "The woman who falls from the Sky World through a hole torn open when a great tree is uprooted, and is caught and set on the back of the Great Turtle, whose back becomes Turtle Island.",
+    "detailedBio": "## Attestation and variation\n\nSky Woman's fall is the opening event of Haudenosaunee cosmological tradition, recorded in detail by J.N.B. Hewitt (Tuscarora) in *Iroquoian Cosmology* from Onondaga, Seneca, and Mohawk tellers, and by Arthur C. Parker (Seneca) in *Seneca Myths and Folk Tales* (1923). Tellings agree on the core shape, a woman falls from a torn-open sky, is slowed by waterfowl, and is set on a turtle whose back grows into the earth, but differ on why she fell (an uprooted tree, a jealous husband, curiosity about the hole of light), which animal succeeds at diving for the mud that becomes land, and other particulars. This site follows Hewitt and Parker in treating these as genuine regional and individual variants rather than errors to be corrected into one master version.\n\n## Grandmother of the Twins\n\nSky Woman's daughter is born on the new earth, and that daughter, in most tellings, dies giving birth to twin sons, Sapling and Flint, whom Sky Woman then raises. This detail, that the Twins are her grandsons rather than sons, is consistent across the Parker and Hewitt recordings, though different tellers give the daughter different fates and different explanations for how she conceived.\n\n## Not a dated story\n\nHaudenosaunee tradition presents this account in the present tense, as an ongoing description of how the world came to be, not as a chronicle with a year attached; this site follows that framing rather than assigning it a calendar date.",
+    "importanceRank": 1,
+    "primarySources": [
+      {
+        "text": "A composite account drawing on Hewitt's recorded Onondaga, Seneca, and Mohawk tellings of Sky Woman's fall and the founding of Turtle Island.",
+        "source": "J.N.B. Hewitt, Iroquoian Cosmology, Bureau of American Ethnology Annual Reports 21 and 43",
+        "date": "1903 and 1928"
+      },
+      {
+        "text": "A Seneca telling of the sky woman's fall and the diving animals, recorded from named Seneca tellers.",
+        "source": "Arthur C. Parker, Seneca Myths and Folk Tales",
+        "date": "1923"
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [],
+      "practices": "Sky Woman's story is told as part of Haudenosaunee oral tradition rather than marked by a specific festival or temple; this site does not describe any ceremony associated with her, in keeping with the guidance of the sources used here."
+    }
+  },
+  {
+    "id": "sapling",
+    "pantheonId": "haudenosaunee-pantheon",
+    "name": "Sapling",
+    "slug": "sapling",
+    "originalLanguageName": {
+      "text": "Teharonhiawagon",
+      "language": "Mohawk",
+      "transliteration": "Teharonhiawagon",
+      "meaning": "\"He Holds Up the Sky,\" one of several nation-specific names for this twin; called Sapling or Skyholder in many English retellings"
+    },
+    "alternateNames": ["Skyholder", "Teharonhiawagon", "Djuskaha"],
+    "gender": "male",
+    "domain": ["creation", "growth", "the useful and the good"],
+    "symbols": ["corn, beans, and squash (the Three Sisters)", "the sun"],
+    "description": "The good-minded twin grandson of Sky Woman, who in Haudenosaunee tradition shapes the world's fertile land, food plants, and easy rivers, opposite his hard-minded brother Flint.",
+    "detailedBio": "## A name that varies by nation\n\nWhat English retellings often call Sapling or Skyholder is given different names by different Haudenosaunee nations and tellers: the Mohawk name Teharonhiawagon (\"He Holds Up the Sky\") is recorded by several 19th- and 20th-century sources, while Arthur C. Parker's Seneca tellers use Djuskaha and other terms. This site uses Sapling and Skyholder as the most common English forms while naming the Mohawk term as one nation's own name for him, not the only correct one.\n\n## The Twins' contest\n\nAfter their grandmother Sky Woman raises them, Sapling and his brother Flint shape the features of the earth in opposite ways, one making it fertile, temperate, and easy to live in, the other making it difficult: mountains, rapids, and thorns, in some tellings, or dangerous creatures in others. Parker and Hewitt's recorded tellers differ on how their rivalry resolves, some describing a contest Sapling wins decisively, others describing an ongoing balance between the two rather than one twin's defeat. This site follows its sources in presenting that as unresolved variation, not a single correct ending.",
+    "importanceRank": 2,
+    "primarySources": [
+      {
+        "text": "A Seneca telling of the Twins' birth and their shaping of the world's features, recorded from named tellers.",
+        "source": "Arthur C. Parker, Seneca Myths and Folk Tales",
+        "date": "1923"
+      },
+      {
+        "text": "A comparative record of Onondaga, Seneca, and Mohawk tellings of the Twins' contest.",
+        "source": "J.N.B. Hewitt, Iroquoian Cosmology, Bureau of American Ethnology Annual Reports 21 and 43",
+        "date": "1903 and 1928"
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [],
+      "practices": "No specific ceremony for Sapling is described in the public sources this site draws on; the Three Sisters (corn, beans, and squash) that many tellings credit to him remain a living agricultural and ceremonial staple among Haudenosaunee communities today, a continuity this site notes without describing any restricted ceremony attached to it."
+    }
+  },
+  {
+    "id": "flint",
+    "pantheonId": "haudenosaunee-pantheon",
+    "name": "Flint",
+    "slug": "flint",
+    "originalLanguageName": {
+      "text": "Tawiskaron",
+      "language": "Mohawk",
+      "transliteration": "Tawiskaron",
+      "meaning": "Commonly glossed \"flint\" or \"the hard/icy one\""
+    },
+    "alternateNames": ["Tawiskaron"],
+    "gender": "male",
+    "domain": ["hard and difficult things", "winter", "obstacles"],
+    "symbols": ["flint"],
+    "description": "The hard-minded twin grandson of Sky Woman, born in a way that costs their mother's life, who in Haudenosaunee tradition shapes the earth's difficult features in contest with his brother Sapling.",
+    "detailedBio": "## A difficult birth, a contested ending\n\nIn most recorded tellings, Flint is born after his brother Sapling in a way described as unusually violent, some tellers say he forces his way out rather than being born in the ordinary manner, and this birth costs their mother's life, which is why Sky Woman raises the Twins herself. From there, Flint shapes the parts of the world that make life harder: difficult terrain, dangerous animals, or winter, depending on the teller. Hewitt's and Parker's recorded tellers do not agree on how the brothers' rivalry ends, and this site does not present one outcome as final.\n\n## Not a simple villain\n\nHaudenosaunee tellings recorded by Parker and Hewitt generally do not cast Flint as evil in the way a folkloric devil figure is; he represents difficulty and hardship as a genuine part of the world's balance, set against Sapling's ease and abundance, rather than a force to be eliminated outright. This site follows that framing rather than importing an outside good-versus-evil template onto the story.",
+    "importanceRank": 2,
+    "primarySources": [
+      {
+        "text": "A Seneca telling of Flint's birth and his shaping of the world's difficult features, recorded from named tellers.",
+        "source": "Arthur C. Parker, Seneca Myths and Folk Tales",
+        "date": "1923"
+      },
+      {
+        "text": "A comparative record of Onondaga, Seneca, and Mohawk tellings of the Twins' contest.",
+        "source": "J.N.B. Hewitt, Iroquoian Cosmology, Bureau of American Ethnology Annual Reports 21 and 43",
+        "date": "1903 and 1928"
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [],
+      "practices": "No specific ceremony for Flint is described in the public sources this site draws on."
+    }
+  },
+  {
+    "id": "turtle",
+    "pantheonId": "haudenosaunee-pantheon",
+    "name": "Great Turtle",
+    "slug": "turtle",
+    "alternateNames": ["Turtle Island (the land itself)"],
+    "gender": "none",
+    "domain": ["the earth", "endurance", "the created world"],
+    "symbols": [
+      "the turtle's shell (often read as marking the seasons or lands)"
+    ],
+    "description": "The turtle on whose back Sky Woman is set as she falls from the Sky World, and whose back, built up with earth by other animals, becomes Turtle Island, the Haudenosaunee name for the continent.",
+    "detailedBio": "## Attestation\n\nThe Great Turtle appears in Haudenosaunee cosmological tradition as recorded by Hewitt and Parker: after Sky Woman falls and is slowed by waterfowl, the animals of the primordial waters debate who can bear her weight, and the turtle volunteers his back; another animal (muskrat, in many Seneca and Onondaga tellings, though other tellers name other divers) succeeds in bringing up mud from the depths to spread across the turtle's back, which grows into the earth. \"Turtle Island\" remains a name Haudenosaunee people and other Indigenous nations across North America use for the continent today, a living use of the story's image, not only a historical reference.\n\n## Variation across tellers\n\nWhich animal dives for the mud, how many attempts fail before one succeeds, and exactly how large the resulting land becomes vary between the Seneca tellers Parker recorded and the Onondaga and Mohawk tellers Hewitt recorded. This site does not resolve those differences into a single version.",
+    "importanceRank": 3,
+    "primarySources": [
+      {
+        "text": "A Seneca telling of the diving animals and the growth of the earth on the turtle's back, recorded from named tellers.",
+        "source": "Arthur C. Parker, Seneca Myths and Folk Tales",
+        "date": "1923"
+      },
+      {
+        "text": "A comparative record of Onondaga, Seneca, and Mohawk tellings of the earth-diver episode.",
+        "source": "J.N.B. Hewitt, Iroquoian Cosmology, Bureau of American Ethnology Annual Reports 21 and 43",
+        "date": "1903 and 1928"
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [],
+      "practices": "No specific ceremony is described in the public sources this site draws on."
+    }
+  },
+  {
+    "id": "raven",
+    "pantheonId": "tlingit-haida-pantheon",
+    "name": "Raven",
+    "slug": "raven",
+    "originalLanguageName": {
+      "text": "Yéil / Xuuya / Yáahl",
+      "language": "Tlingit / Haida (Skidegate dialect) / Haida (Masset dialect)",
+      "transliteration": "Yéil (Tlingit); Xuuya (Skidegate Haida); Yáahl (Masset Haida)",
+      "meaning": "\"Raven\"; the two Haida forms reflect the language's northern and southern dialects rather than a single standard spelling"
+    },
+    "alternateNames": ["Yéil", "Xuuya", "Yáahl"],
+    "gender": "none",
+    "domain": ["transformation", "daylight", "trickery and creation"],
+    "symbols": ["the raven", "the bentwood box"],
+    "description": "The central figure of Tlingit and Haida oral tradition, who steals daylight from a wealthy old man's nested boxes at the head of the Nass River and, in a Haida telling, coaxes the first people from a clamshell on the beach at Haida Gwaii.",
+    "detailedBio": "## Not simply a trickster\n\nAs the poet and translator Robert Bringhurst wrote of the Haida telling, Raven \"never actually creates anything; he made the world by stealing, exchanging, redistributing, and generally moving things around.\" Both Tlingit and Haida traditions cast Raven this way: greedy, funny, and self-interested, yet the figure through whom the world's useful and beautiful things (daylight, salmon, the first people) come to be. Raven's stories are told today by Tlingit and Haida people as living oral tradition, and Sealaska Heritage Institute, the Tlingit, Haida, and Tsimshian nations' own cultural institution, publishes Raven stories for public audiences.\n\n## Two nations, two tellings\n\nRaven appears independently in both Tlingit and Haida tradition, and this entry does not merge the two into one story. In the Tlingit telling recorded by John R. Swanton in *Tlingit Myths and Texts* (1909), Raven tricks his way into a wealthy old man's household at the head of the Nass River to steal his boxes of stars, moon, and sun. In a Haida telling recorded by Swanton in *Haida Texts and Myths* (1905) and reinterpreted by the Haida artist Bill Reid in his sculpture *The Raven and the First Men* (1978 to 1980), Raven finds a giant clamshell on the beach at Rose Spit, Haida Gwaii, and coaxes the small beings inside it out to become the first Haida.\n\n## Clan property and public telling\n\nAmong the Tlingit, Raven-cycle stories can be clan-owned (at.óow) in their fullest ceremonial form. What this site presents follows the form these stories take in the public retellings published by Sealaska Heritage Institute and in Swanton's and the Dauenhauers' recorded texts, not a claim to ceremonial or clan-specific content.",
+    "importanceRank": 1,
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "norse-pantheon",
+        "deityId": "loki",
+        "note": "Both are shapeshifting, morally ambiguous figures whose schemes, rather than any straightforward heroism, reshape the world; the comparison is a common one in popular writing about tricksters, not a claim of historical contact."
+      }
+    ],
+    "primarySources": [
+      {
+        "text": "The Tlingit telling of Raven stealing the boxes of stars, moon, and sun from the wealthy old man at the head of the Nass River, recorded at Wrangell.",
+        "source": "John R. Swanton, Tlingit Myths and Texts, \"Raven, Part I\"",
+        "date": "1909"
+      },
+      {
+        "text": "A Haida telling of Raven and the clamshell of the first people, recorded in the Skidegate dialect.",
+        "source": "John R. Swanton, Haida Texts and Myths, Skidegate Dialect",
+        "date": "1905"
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [],
+      "practices": "Raven stories continue to be told publicly today, including through Sealaska Heritage Institute's published collections, and are carved and painted on totem poles, house fronts, and regalia across Tlingit and Haida communities; this site does not describe any restricted ceremony connected to Raven."
+    }
+  },
+  {
+    "id": "fog-woman",
+    "pantheonId": "tlingit-haida-pantheon",
+    "name": "Fog Woman",
+    "slug": "fog-woman",
+    "alternateNames": [],
+    "gender": "female",
+    "domain": ["fog", "salmon", "abundance"],
+    "symbols": ["fog", "salmon"],
+    "description": "In Tlingit tradition, the daughter of Chief Fog-Over-the-Salmon who marries Raven and creates a run of sockeye salmon, then withdraws it and herself into the water after he mistreats her, explaining why salmon return to Tlingit rivers each year.",
+    "detailedBio": "## The story\n\nIn this widely told Tlingit story, Raven marries Fog Woman, daughter of a chief called Fog-Over-the-Salmon. She conjures a great abundance of sockeye salmon for Raven and his household, drying more than they can eat. When Raven strikes her in anger or disrespect, depending on the telling, she leaves through the water, and every dried salmon Raven had stored follows her back into the river. Tlingit tellers use the story to explain why salmon return to the region's rivers each year, and it is publicly commemorated in the Chief Johnson totem pole in Ketchikan, Alaska, which depicts Raven, Fog Woman, and salmon.\n\n## A story still told\n\nThis is a living story rather than a closed text: it continues to be told by Tlingit families and represented in public Tlingit art, including totem poles raised well into the 20th century. This site presents it as such, not as a historical record with a fixed date of origin.",
+    "importanceRank": 2,
+    "primarySources": [
+      {
+        "text": "A Tlingit telling of Fog Woman's marriage to Raven and the origin of the seasonal salmon run.",
+        "source": "Nora Marks Dauenhauer and Richard Dauenhauer, Haa Shuká, Our Ancestors: Tlingit Oral Narratives",
+        "date": "1987"
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [],
+      "practices": "The story is memorialized publicly in Tlingit totem-pole art, including the Chief Johnson pole in Ketchikan, Alaska; this site does not describe any restricted ceremony connected to Fog Woman."
+    }
+  },
+  {
+    "id": "chief-fog-over-the-salmon",
+    "pantheonId": "tlingit-haida-pantheon",
+    "name": "Chief Fog-Over-the-Salmon",
+    "slug": "chief-fog-over-the-salmon",
+    "alternateNames": [],
+    "gender": "male",
+    "domain": ["fog", "salmon"],
+    "symbols": ["fog"],
+    "description": "In Tlingit tradition, the father of Fog Woman, named in the story of her marriage to Raven and the origin of the salmon run.",
+    "detailedBio": "## A minor but named figure\n\nChief Fog-Over-the-Salmon appears in the Tlingit Fog Woman story as her father, establishing her as the daughter of a figure connected to fog and salmon abundance before her marriage to Raven. Public retellings of the story, including those associated with Sealaska Heritage Institute and the Alaska Native Knowledge Network, name him this way, though he does not otherwise appear as an independent character with his own separate narrative in the sources this site draws on.",
+    "importanceRank": 3,
+    "primarySources": [
+      {
+        "text": "A Tlingit telling naming Fog Woman as the daughter of Chief Fog-Over-the-Salmon.",
+        "source": "Nora Marks Dauenhauer and Richard Dauenhauer, Haa Shuká, Our Ancestors: Tlingit Oral Narratives",
+        "date": "1987"
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [],
+      "practices": "No independent ceremony or practice is recorded for this figure in the public sources this site draws on."
+    }
+  },
+  {
+    "id": "naas-shaak-aankawu",
+    "pantheonId": "tlingit-haida-pantheon",
+    "name": "Naas Shaak Aankáawu",
+    "slug": "naas-shaak-aankawu",
+    "originalLanguageName": {
+      "text": "Naas Shaak Aankáawu",
+      "language": "Tlingit",
+      "transliteration": "Naas Shaak Aankáawu",
+      "meaning": "\"Nobleman at the Head of the Nass River\"; older ethnographic sources render the name variously, including Naas-sháki Yéil and Naas-sháki Shaan"
+    },
+    "alternateNames": ["Naas-sháki Yéil", "Naas-sháki Shaan"],
+    "gender": "male",
+    "domain": ["daylight", "wealth"],
+    "symbols": ["the nested boxes of stars, moon, and sun"],
+    "description": "In the Tlingit telling of Raven and the box of daylight, the wealthy old man living at the head of the Nass River who keeps the stars, moon, and sun locked in nested boxes, until Raven tricks his way into his household to steal them.",
+    "detailedBio": "## The keeper of daylight\n\nIn the Tlingit telling recorded by John R. Swanton, this wealthy old man of the raven lineage owns three boxes, nested one inside another, holding the stars, the moon, and the sun. Raven, wanting light for the world, transforms himself into a hemlock needle and is swallowed by the old man's daughter as she drinks from a stream; she becomes pregnant and gives birth to Raven reborn as the old man's grandson. Doting on this grandson, the old man eventually gives him the box of stars to quiet his crying, and Raven opens it, releasing the stars through the smoke hole; he goes on to obtain the boxes of the moon and finally the sun in the same way, escaping with the sun in his beak.\n\n## A name that varies by source\n\nDifferent recordings and modern retellings give this figure different exact names and spellings, from Swanton's early transliterations to the modern orthography used by Sealaska Heritage Institute and the Dauenhauers. This site uses \"Naas Shaak Aankáawu\" (\"Nobleman at the Head of the Nass River\") as a widely used modern rendering while noting the older forms recorded by Swanton.",
+    "importanceRank": 3,
+    "primarySources": [
+      {
+        "text": "Raven transforms into a hemlock needle to be reborn as the grandson of the wealthy old man at the head of the Nass, who owns the boxes of stars, moon, and sun.",
+        "source": "John R. Swanton, Tlingit Myths and Texts, \"Raven, Part I\"",
+        "date": "1909"
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [],
+      "practices": "No independent ceremony is recorded for this figure in the public sources this site draws on; he appears only within the Raven and the box of daylight story."
+    }
   }
 ]

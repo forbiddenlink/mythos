@@ -59,6 +59,8 @@ const PANTHEON_COLORS: Record<string, string> = {
   "polynesian-pantheon": "bg-cyan-500/20 text-cyan-400 border-cyan-500/30",
   "mesoamerican-pantheon": "bg-lime-500/20 text-lime-400 border-lime-500/30",
   "slavic-pantheon": "bg-indigo-500/20 text-indigo-400 border-indigo-500/30",
+  "haudenosaunee-pantheon": "bg-teal-500/20 text-teal-400 border-teal-500/30",
+  "tlingit-haida-pantheon": "bg-rose-500/20 text-rose-400 border-rose-500/30",
 };
 
 function getPantheonColor(pantheonId: string): string {

@@ -38,6 +38,8 @@ const PANTHEON_NAMES: Record<string, string> = {
   "mesoamerican-pantheon": "Mesoamerican",
   "mesopotamian-pantheon": "Mesopotamian",
   "slavic-pantheon": "Slavic",
+  "haudenosaunee-pantheon": "Haudenosaunee",
+  "tlingit-haida-pantheon": "Tlingit & Haida",
 };
 
 const MASTERY_THRESHOLDS = {

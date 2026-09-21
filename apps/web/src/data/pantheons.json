@@ -444,5 +444,85 @@
         "type": "secondary"
       }
     ]
+  },
+  {
+    "id": "haudenosaunee-pantheon",
+    "name": "Haudenosaunee Tradition",
+    "slug": "haudenosaunee",
+    "culture": "Haudenosaunee (Six Nations / Iroquois Confederacy: Mohawk, Oneida, Onondaga, Cayuga, Seneca, Tuscarora)",
+    "region": "Northeastern Woodlands (present-day New York State and southern Ontario)",
+    "timePeriodStart": 1000,
+    "timePeriodEnd": null,
+    "description": "A living tradition of the sovereign Haudenosaunee nations: Sky Woman's fall to Turtle Island, the twins Sapling and Flint, and the Peacemaker's founding of the Great Law of Peace, told today by the people who tell it.",
+    "detailedHistory": "## Two nations, one entry\n\nThe Haudenosaunee (People of the Longhouse, also called the Six Nations or, by an exonym, the Iroquois Confederacy) are Mohawk, Oneida, Onondaga, Cayuga, Seneca, and, since the early 18th century, Tuscarora nations. They are sovereign nations today, with their own governments, and Haudenosaunee people practice, teach, and retell these traditions now, not only in a documented past. This entry follows only what the Confederacy and its constituent nations share publicly themselves, plus scholarship recorded with, or in direct collaboration with, Haudenosaunee tellers, and it leaves out anything described as belonging to a specific medicine society or ceremony.\n\n## Sky Woman, the Twins, and Turtle Island\n\nIn Haudenosaunee tradition, in the Sky World above, a woman falls through a hole torn open when a great tree is uprooted. Waterfowl slow her fall and set her on the back of a Great Turtle, who offers to bear the earth; other animals dive into the primordial waters beneath the Turtle to bring up a pawful of mud, which grows across the Turtle's back into the world, later called Turtle Island. Sky Woman's daughter is born on this new earth, and the daughter in turn gives birth to twin grandsons: the good-minded Sapling, also called Skyholder or, among the Mohawk, Teharonhiawagon (\"He Holds Up the Sky\"), and the hard-minded Flint (Tawiskaron), born in a way that costs their mother's life. Sapling and Flint go on to shape the features of the world, one making it fertile and easy to live in, the other making it difficult, and different nations and tellers place different weight on how their contest ends. This is cosmological tradition, not a dated history; it is told in the present tense by the people who tell it, not assigned a calendar year.\n\nSources for this material disagree on details large and small: which animal succeeds at diving for the mud (muskrat, in many Seneca and Onondaga tellings), what becomes of the twins' mother, and how firmly Flint is defeated versus simply withdrawn. Arthur C. Parker's *Seneca Myths and Folk Tales* (1923) and J.N.B. Hewitt's *Iroquoian Cosmology* (Bureau of American Ethnology Annual Reports 21 and 43) record these variations from Onondaga, Seneca, and Mohawk tellers by name; Hewitt was himself Tuscarora. This entry follows their lead in presenting variants side by side rather than flattening them into one version.\n\n## The Peacemaker and the Great Law of Peace\n\nA separate, later strand of tradition, one the Confederacy calls history as much as sacred narrative, tells how the Great Law of Peace (Gayanashagowa) brought the warring nations together under a shared government. In the accounts the Onondaga Nation and the Haudenosaunee Confederacy publish on their own websites, the Peacemaker, sent to end the fighting, is joined by Hiawatha (Aiionwatha), an Onondaga man who had lost his family to violence; together they persuade the powerful and feared Onondaga leader Tadodaho, described in both accounts as having snakes in his hair and a twisted body, to accept peace and become the confederacy's Firekeeper. At Onondaga Lake the nations plant the Great Tree of Peace, its roots reaching to the four directions and an eagle set at its top to watch for danger, and the Peacemaker teaches the law of \"One Dish, One Spoon\" and government by consensus among fifty chiefs.\n\nHistorians and the nations themselves date this founding differently: some scholars, working from an oral reference to a solar eclipse, argue for a date around 1142 CE, while archaeological approaches favor a later date, often the 15th century; the Haudenosaunee Confederacy's own materials describe it simply as \"over a thousand years ago.\" This site does not pick a single date and presents it as it is presented by the nations: a founding whose exact year is debated, not a settled fact.\n\n## What this entry leaves out\n\nMaterial describing ceremonies of the medicine societies, the False Face Society, and other content the Haudenosaunee themselves mark as restricted or clan-specific is not included here, in line with the guidance of the sources this entry draws on. Nothing here claims to be the single correct version of any story; where tellers differ, that difference is the point.",
+    "citationSources": [
+      {
+        "title": "Seneca Myths and Folk Tales",
+        "author": "Arthur C. Parker (Seneca)",
+        "date": "1923",
+        "type": "primary"
+      },
+      {
+        "title": "Iroquoian Cosmology, Bureau of American Ethnology Annual Reports 21 and 43",
+        "author": "J.N.B. Hewitt (Tuscarora)",
+        "date": "1903 and 1928",
+        "type": "primary"
+      },
+      {
+        "title": "History",
+        "author": "Onondaga Nation",
+        "date": "onondaganation.org, accessed 2026",
+        "type": "primary"
+      },
+      {
+        "title": "Confederacy's Creation",
+        "author": "Haudenosaunee Confederacy",
+        "date": "haudenosauneeconfederacy.com, accessed 2026",
+        "type": "primary"
+      }
+    ]
+  },
+  {
+    "id": "tlingit-haida-pantheon",
+    "name": "Tlingit and Haida Tradition",
+    "slug": "tlingit-haida",
+    "culture": "Tlingit and Haida (Northwest Coast peoples of present-day Southeast Alaska and Haida Gwaii, British Columbia)",
+    "region": "Pacific Northwest Coast",
+    "timePeriodStart": -11000,
+    "timePeriodEnd": null,
+    "description": "A living Northwest Coast tradition of the Tlingit and Haida nations, centered on Raven: stealing daylight from a wealthy old man's boxes, and freeing the first people from a clamshell on the beach at Haida Gwaii.",
+    "detailedHistory": "## Two nations, one entry, carefully framed\n\nTlingit and Haida are distinct nations of the Northwest Coast, the Tlingit centered in what is now Southeast Alaska and the Haida on Haida Gwaii (formerly the Queen Charlotte Islands) in British Columbia and in southern Alaska. Both are living, sovereign peoples, and Raven's stories are told by their own tellers today, not only recorded in old books. Archaeological evidence, karst-cave finds on Haida Gwaii and remains from On Your Knees Cave in Southeast Alaska, documents human presence on this coast for at least 10,000 to 13,000 years; that figure describes how long people have lived here, not the age of any single story, since these are living oral traditions passed down and retold, not artifacts with a fixed date of composition.\n\n## Clan property and what this site includes\n\nAmong the Tlingit especially, many stories, crests, and songs are at.óow: property owned by a specific clan, whose telling in full ceremonial context requires that clan's standing and permission. What follows here are Raven-cycle stories in the form they have been published for a general public audience, by the tellers' own nations or with their direct involvement (Sealaska Heritage Institute, the Tlingit, Haida, and Tsimshian nations' own cultural institution, publishes Raven stories for exactly this kind of public telling) or recorded by name from specific tellers by early ethnographers. Nothing describing a restricted ceremony or a clan's exclusive at.óow is included.\n\n## Raven\n\nRaven, Yéil in Tlingit and, in Haida, Xuuya or Yáahl depending on dialect (Skidegate and Masset), is the central figure of this cycle: not a simple trickster but, as the poet and translator Robert Bringhurst put it of the Haida telling, one who \"never actually creates anything; he made the world by stealing, exchanging, redistributing, and generally moving things around.\" Raven steals daylight from an old man's nested boxes at the head of the Nass River in the best-known Tlingit telling, and in a Haida telling recorded by John R. Swanton and reinterpreted in Bill Reid's sculpture *The Raven and the First Men* (1978 to 1980, Museum of Anthropology at the University of British Columbia), he coaxes the first people out of a clamshell on the beach at Rose Spit on Haida Gwaii.\n\n## Sources used here, and how they differ\n\nJohn R. Swanton's *Tlingit Myths and Texts* (1909) and *Haida Texts and Myths* (1905) are outsider recordings, made by a non-Native ethnographer, but they record specific named Tlingit and Haida tellers and remain the fullest early written source for many of these stories. Nora Marks Dauenhauer and Richard Dauenhauer's *Haa Shuká, Our Ancestors: Tlingit Oral Narratives* (1987), edited with extensive Tlingit-language and cultural annotation, and Robert Bringhurst's translations of the Haida poets Skaay and Ghandl in *A Story as Sharp as a Knife* (1999) represent later, more collaborative scholarship, though Bringhurst's own standing to translate Haida oral literature has itself been debated within Haida and academic communities, and this site notes that debate rather than treating his translations as beyond question. Tellings differ across nation, dialect, and individual teller on details as basic as Raven's kin and exact route to the light; this entry does not force them into a single version.",
+    "citationSources": [
+      {
+        "title": "Tlingit Myths and Texts",
+        "author": "John R. Swanton",
+        "date": "1909",
+        "type": "primary"
+      },
+      {
+        "title": "Haida Texts and Myths, Skidegate Dialect",
+        "author": "John R. Swanton",
+        "date": "1905",
+        "type": "primary"
+      },
+      {
+        "title": "Haa Shuká, Our Ancestors: Tlingit Oral Narratives",
+        "author": "Nora Marks Dauenhauer and Richard Dauenhauer",
+        "date": "1987",
+        "type": "secondary"
+      },
+      {
+        "title": "A Story as Sharp as a Knife: The Classical Haida Mythtellers and Their World",
+        "author": "Robert Bringhurst (translating Skaay and Ghandl)",
+        "date": "1999",
+        "type": "secondary"
+      },
+      {
+        "title": "Raven story publications",
+        "author": "Sealaska Heritage Institute",
+        "date": "sealaskaheritage.org, accessed 2026",
+        "type": "primary"
+      }
+    ]
   }
 ]

@@ -107,6 +107,8 @@ const PANTHEON_NAMES: Record<string, string> = {
   "mayan-pantheon": "Mayan",
   "akan-pantheon": "Akan",
   "slavic-pantheon": "Slavic",
+  "haudenosaunee-pantheon": "Haudenosaunee",
+  "tlingit-haida-pantheon": "Tlingit & Haida",
 };
 
 function formatPantheonLabel(pantheonId: string): string {

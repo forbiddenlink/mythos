@@ -1728,5 +1728,45 @@
     "relationshipType": "enemy_of",
     "confidenceLevel": "low",
     "description": "No medieval text narrates a conflict between them. This edge represents Ivanov and Toporov's 1974 comparative reconstruction of a storm-god-versus-serpent combat, built from later folklore and place names, not an attested myth."
+  },
+  {
+    "id": "haudenosaunee-sapling-flint",
+    "fromDeityId": "sapling",
+    "toDeityId": "flint",
+    "relationshipType": "sibling_of",
+    "confidenceLevel": "high",
+    "description": "Sapling and Flint are twin grandsons of Sky Woman across every recorded Haudenosaunee telling used on this site, though tellers differ on the details of their birth and the outcome of their contest."
+  },
+  {
+    "id": "haudenosaunee-sky-woman-turtle",
+    "fromDeityId": "sky-woman",
+    "toDeityId": "turtle",
+    "relationshipType": "ally_of",
+    "confidenceLevel": "high",
+    "description": "The Great Turtle offers to bear Sky Woman and the earth built up on his back, a direct alliance in the earth-diver episode recorded by Parker and Hewitt, not a family relationship."
+  },
+  {
+    "id": "tlingit-raven-fog-woman",
+    "fromDeityId": "raven",
+    "toDeityId": "fog-woman",
+    "relationshipType": "spouse_of",
+    "confidenceLevel": "high",
+    "description": "Raven marries Fog Woman in the Tlingit story recorded by the Dauenhauers, before mistreating her and losing the salmon abundance she created."
+  },
+  {
+    "id": "tlingit-chief-fog-fog-woman",
+    "fromDeityId": "chief-fog-over-the-salmon",
+    "toDeityId": "fog-woman",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high",
+    "description": "Fog Woman is named as the daughter of Chief Fog-Over-the-Salmon in public retellings of the story."
+  },
+  {
+    "id": "tlingit-naas-shaak-raven",
+    "fromDeityId": "naas-shaak-aankawu",
+    "toDeityId": "raven",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "low",
+    "description": "In Swanton's telling, Raven transforms into a hemlock needle and is reborn as this old man's doted-on grandson, not his son; the site's relationship categories have no grandparent/grandchild type, so this edge is marked low confidence to flag that the actual kinship is one generation removed from what 'parent_of' literally states."
   }
 ]
