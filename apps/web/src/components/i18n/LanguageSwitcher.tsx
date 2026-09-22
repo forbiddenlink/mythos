@@ -47,8 +47,7 @@ export function LanguageSwitcher() {
 
   const handleLocaleChange = (locale: Locale) => {
     // Set cookie for server-side locale detection (mirrors the flags proxy.ts
-    // sets on this same cookie; httpOnly can't be set from client JS, but
-    // nothing here reads it back via document.cookie either).
+    // sets on this same cookie).
     const secureFlag = process.env.NODE_ENV === "production" ? ";Secure" : "";
     // eslint-disable-next-line react-hooks/immutability -- document.cookie is a standard browser API
     document.cookie = `locale=${locale};path=/;max-age=31536000;SameSite=Lax${secureFlag}`;
