@@ -8,6 +8,7 @@ import Image from "next/image";
 import ReactMarkdown from "react-markdown";
 import { EditorialByline } from "@/components/content/EditorialByline";
 import { ArtifactJsonLd } from "@/components/seo/JsonLd";
+import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
 import { ArtifactProvenance } from "@/components/artifacts/ArtifactProvenance";
 import { SourceProvenance } from "@/components/deities/SourceProvenance";
 import artifactsData from "@/data/artifacts.json";
@@ -130,6 +131,7 @@ export function ArtifactPageClient({
       </div>
 
       <div className="container mx-auto max-w-4xl px-4 py-12">
+        <Breadcrumbs />
         <div className="space-y-8">
           <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
             <div className="md:col-span-1 space-y-6">

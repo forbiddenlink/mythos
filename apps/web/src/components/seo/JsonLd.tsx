@@ -1,15 +1,23 @@
-import Script from 'next/script'
 import { siteConfig } from '@/lib/metadata'
 
 // ─── Helper ──────────────────────────────────────────────────────────
 // JSON-LD script injection is safe here: all data is constructed from
 // our own trusted data structures, never from user input.
+//
+// A plain native <script> tag, not next/script's <Script>, is required here.
+// next/script's default "afterInteractive" strategy renders null during SSR
+// for inline (dangerouslySetInnerHTML) scripts — it injects them into the DOM
+// client-side only, after hydration (see next/dist/client/script.js). A crawler
+// that reads the server-rendered HTML never sees the tag. Next.js's own docs
+// recommend a native <script> for JSON-LD for exactly this reason: it isn't
+// executable code, so next/script's loading optimizations don't apply.
 function JsonLdScript({ id, data }: Readonly<{ id: string; data: Record<string, unknown> }>) {
   return (
-    <Script
+    <script
       id={id}
       type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
+      // eslint-disable-next-line react-hooks/immutability -- server-only JSON-LD injection, no user input
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(data).replace(/</g, '\\u003c') }}
     />
   )
 }
@@ -121,7 +129,22 @@ export function ArticleJsonLd({
   return <JsonLdScript id="article-jsonld" data={article} />
 }
 
-// ─── Deity (Person schema for mythological figure) ───────────────────
+// ─── Organization (sitewide brand entity) ─────────────────────────────
+export function OrganizationJsonLd() {
+  const organization = {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: siteConfig.name,
+    url: siteConfig.url,
+    logo: `${siteConfig.url}${siteConfig.ogImage}`,
+    sameAs: Object.values(siteConfig.links),
+  }
+
+  return <JsonLdScript id="organization-jsonld" data={organization} />
+}
+
+// ─── Deity (mythological figure — Thing, not Person: we don't assert
+// these figures were real people) ──────────────────────────────────────
 interface DeityJsonLdProps {
   name: string
   description: string
@@ -141,7 +164,7 @@ export function DeityJsonLd({
 }: Readonly<DeityJsonLdProps>) {
   const deity: Record<string, unknown> = {
     '@context': 'https://schema.org',
-    '@type': ['Person', 'Article'],
+    '@type': ['Thing', 'Article'],
     name,
     description,
     url: `${siteConfig.url}${url}`,

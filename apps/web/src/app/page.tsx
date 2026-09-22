@@ -6,7 +6,6 @@ import { AtlasOpensHero } from "@/components/home/AtlasOpensHero";
 import { InteractiveStoriesBanner } from "@/components/home/InteractiveStoriesBanner";
 import { PantheonShowcase } from "@/components/home/PantheonShowcase";
 import { SyncretismStrip } from "@/components/mythology/SyncretismStrip";
-import { WebSiteJsonLd } from "@/components/seo/JsonLd";
 import { generateBaseMetadata } from "@/lib/metadata";
 import deitiesData from "@/data/deities.json";
 import storiesData from "@/data/stories.json";
@@ -65,7 +64,6 @@ export default function Home() {
         href="/hero-columns.webp"
         fetchPriority="high"
       />
-      <WebSiteJsonLd searchActionTarget="https://mythosatlas.com/?search={search_term_string}" />
       <AtlasOpensHero counts={HERO_COUNTS} />
       <PantheonShowcase />
       <SyncretismStrip />

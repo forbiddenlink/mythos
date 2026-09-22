@@ -2,6 +2,7 @@ import { SkipToContent } from "@/components/accessibility/SkipToContent";
 import { Footer } from "@/components/layout/footer";
 import { GlobalClientAddons } from "@/components/layout/GlobalClientAddons";
 import { Header } from "@/components/layout/header";
+import { OrganizationJsonLd, WebSiteJsonLd } from "@/components/seo/JsonLd";
 import { generateBaseMetadata } from "@/lib/metadata";
 import { AchievementNotificationProvider } from "@/providers/achievement-notification-provider";
 import { BookmarksProvider } from "@/providers/bookmarks-provider";
@@ -97,6 +98,8 @@ export default async function RootLayout({
       <body
         className={`${sourceSans.variable} ${cinzel.variable} ${crimsonPro.variable} font-sans antialiased`}
       >
+        <WebSiteJsonLd searchActionTarget="https://mythosatlas.com/?search={search_term_string}" />
+        <OrganizationJsonLd />
         <NextIntlClientProvider messages={messages} locale={locale}>
           <ThemeProvider
             attribute="class"
