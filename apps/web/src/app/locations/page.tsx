@@ -641,6 +641,23 @@ function LocationsPageInner() {
             />
           </div>
         </div>
+
+        {/* Crawlable link to every location, regardless of pagination/search/
+            filter state — the list above only renders one page at a time via
+            client-side state, and (unlike deities/stories) no pantheon page
+            lists all of its locations, so locations beyond page 1 had no
+            internal link pointing at them anywhere on the site. */}
+        <nav aria-label="All locations" className="sr-only">
+          <ul>
+            {locations.map((location) => (
+              <li key={location.id}>
+                <Link href={`/locations/${location.id}`}>
+                  {location.name}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
       </div>
     </div>
   );

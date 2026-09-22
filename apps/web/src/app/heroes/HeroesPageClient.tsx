@@ -306,6 +306,21 @@ export function HeroesPageClient() {
             )}
           </>
         )}
+
+        {/* Crawlable link to every hero, regardless of pagination/search/filter
+            state — the visible grid above only renders one page at a time via
+            client-side state, which left heroes beyond page 1 with no internal
+            link pointing at them anywhere on the site (unlike deities/stories,
+            which are also listed in full on their pantheon page). */}
+        <nav aria-label="All heroes" className="sr-only">
+          <ul>
+            {allHeroes.map((hero) => (
+              <li key={hero.id}>
+                <Link href={`/heroes/${hero.slug}`}>{hero.name}</Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
       </div>
     </div>
   );
