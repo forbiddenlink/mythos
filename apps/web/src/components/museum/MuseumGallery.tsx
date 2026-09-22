@@ -50,7 +50,6 @@ export function MuseumGallery({
                     src={object.imageUrl}
                     alt={object.imageAlt || object.title}
                     fill
-                    unoptimized
                     loading="lazy"
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     className="object-contain p-3 transition-transform duration-500 group-hover:scale-[1.03] motion-reduce:transition-none motion-reduce:group-hover:scale-100"

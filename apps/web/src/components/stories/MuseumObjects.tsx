@@ -32,7 +32,6 @@ export function MuseumObjects({ storyId }: { storyId: string }) {
                     src={object.imageUrl}
                     alt={object.imageAlt || object.title}
                     fill
-                    unoptimized
                     sizes="(max-width: 768px) 100vw, 768px"
                     className="object-contain p-4"
                   />

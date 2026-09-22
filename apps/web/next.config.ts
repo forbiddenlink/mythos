@@ -59,6 +59,11 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: "https",
+        hostname: "images.metmuseum.org",
+        pathname: "/CRDImages/**",
+      },
+      {
+        protocol: "https",
         hostname: "images.unsplash.com",
         pathname: "/**",
       },

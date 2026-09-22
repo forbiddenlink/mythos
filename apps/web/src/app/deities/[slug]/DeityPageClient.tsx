@@ -288,7 +288,6 @@ export function DeityPageClient({
                     src={museumPortrait.imageUrl}
                     alt={museumPortrait.imageAlt || museumPortrait.title}
                     fill
-                    unoptimized
                     sizes="14rem"
                     className="object-contain p-2"
                   />
