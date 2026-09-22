@@ -3,7 +3,7 @@ import { notFound, redirect } from "next/navigation";
 import deities from "@/data/deities.json";
 import pantheons from "@/data/pantheons.json";
 import { findDeityByReference } from "@/lib/deities";
-import { generateBaseMetadata, generateNotFoundMetadata } from "@/lib/metadata";
+import { generateBaseMetadata, generateNotFoundMetadata, shortPantheonName } from "@/lib/metadata";
 import { DeityPageClient } from "./DeityPageClient";
 import { getMuseumObjectsFor } from "@/lib/museum";
 
@@ -51,7 +51,7 @@ export async function generateMetadata({
   }
 
   const pantheon = pantheons.find((p) => p.id === deity.pantheonId);
-  const pantheonName = pantheon?.name || "Ancient";
+  const pantheonName = shortPantheonName(pantheon);
 
   // Create a rich description
   const domains = deity.domain?.slice(0, 3).join(", ") || "";

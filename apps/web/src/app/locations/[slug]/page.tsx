@@ -3,7 +3,7 @@ import { notFound, redirect } from "next/navigation";
 import locations from "@/data/locations.json";
 import pantheons from "@/data/pantheons.json";
 import { canonicalLocationSlug } from "@/lib/location-aliases";
-import { generateBaseMetadata, generateNotFoundMetadata } from "@/lib/metadata";
+import { generateBaseMetadata, generateNotFoundMetadata, shortPantheonName } from "@/lib/metadata";
 import { LocationPageClient } from "./LocationPageClient";
 
 interface LocationData {
@@ -45,7 +45,7 @@ export async function generateMetadata({
   }
 
   const pantheon = pantheons.find((p) => p.id === location.pantheonId);
-  const pantheonName = pantheon?.name || "Ancient";
+  const pantheonName = shortPantheonName(pantheon);
   const locationType =
     location.locationType?.replaceAll("_", " ") || "location";
 

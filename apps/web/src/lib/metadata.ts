@@ -14,6 +14,20 @@ export const siteConfig = {
   },
 };
 
+/**
+ * A pantheon's display `name` already ends in "Pantheon" or "Tradition"
+ * (e.g. "Slavic Pantheon", "Haudenosaunee Tradition", "African Pantheon
+ * (Yoruba)"). Several page titles append a noun after it ("Hero of X
+ * Mythology", "X Deity"), which reads redundantly ("Slavic Pantheon
+ * Mythology") and was pushing titles past 60 characters once " | Mythos
+ * Atlas" is appended. Strip that trailing word (and anything after it) so
+ * titles read "Hero of Slavic Mythology" / "Zeus - Greek Deity".
+ */
+export function shortPantheonName(pantheon: { name: string } | undefined): string {
+  if (!pantheon) return "Ancient";
+  return pantheon.name.replace(/\s+(Pantheon|Tradition).*$/, "");
+}
+
 /** Map UI locale to Open Graph locale (cookie-based locale; URLs are not locale-prefixed). */
 export function localeToOpenGraphLocale(locale: string): string {
   const map: Record<Locale, string> = {

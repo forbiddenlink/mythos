@@ -8,7 +8,7 @@ import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
 import { MythosMark } from "@/components/icons/mythos-marks";
 
 export const metadata = generateBaseMetadata({
-  title: "Cosmologies Compared - How Each Culture Mapped the Universe",
+  title: "Cosmologies Compared Across Cultures",
   description:
     "Thirteen mythic universes side by side: Yggdrasil's nine worlds, the Egyptian Duat, the Hindu lokas, Aztec heavens and Mictlan, and more, each drawn from its primary sources.",
   url: "/cosmology",
