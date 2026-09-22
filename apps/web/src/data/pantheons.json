@@ -443,7 +443,8 @@
         "date": "1974",
         "type": "secondary"
       }
-    ]
+    ],
+    "imageUrl": "/pantheons/slavic.jpg"
   },
   {
     "id": "haudenosaunee-pantheon",
@@ -480,7 +481,8 @@
         "date": "haudenosauneeconfederacy.com, accessed 2026",
         "type": "primary"
       }
-    ]
+    ],
+    "imageUrl": "/pantheons/haudenosaunee.jpg"
   },
   {
     "id": "tlingit-haida-pantheon",
@@ -523,6 +525,7 @@
         "date": "sealaskaheritage.org, accessed 2026",
         "type": "primary"
       }
-    ]
+    ],
+    "imageUrl": "/pantheons/tlingit-haida.jpg"
   }
 ]

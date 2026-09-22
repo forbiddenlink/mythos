@@ -959,8 +959,8 @@
     "locationType": "mountain",
     "pantheonId": "chinese-pantheon",
     "description": "The mythical mountain paradise in the west, dwelling of Xiwangmu (Queen Mother of the West) and source of the peaches of immortality.",
-    "latitude": 36.0,
-    "longitude": 84.0,
+    "latitude": 36,
+    "longitude": 84,
     "imageUrl": "/locations/mount-kunlun.png",
     "detailedBio": "## Queen Mother's western mountain\n\nKunlun in the *Shan Hai Jing* and *Huainanzi* is a western axis: hanging gardens, the Queen Mother of the West (Xiwangmu), and later the peaches of immortality. It is a direction more than a surveyed range. Han poets send emperors and adepts there. *Journey to the West* still uses it as a celestial address. There is no single canonical peak with a dated cult foundation in the early texts. The mountain is where immortality is stored out west.",
     "primarySources": [
@@ -1139,8 +1139,8 @@
     "locationType": "mythical_realm",
     "pantheonId": "mesopotamian-pantheon",
     "description": "A vast primordial forest at the edge of civilization, guarded by the monster Humbaba appointed by Enlil. Gilgamesh and Enkidu ventured here to slay Humbaba and make their names immortal.",
-    "latitude": 34.0,
-    "longitude": 36.0,
+    "latitude": 34,
+    "longitude": 36,
     "imageUrl": "/locations/cedar-forest.png",
     "detailedBio": "## Humbaba's precinct\n\nThe Cedar Forest is Enlil's protected wood, guarded by Humbaba (Huwawa). Gilgamesh and Enkidu cut a road, kill the guardian, and fell the cedars. Tablet V of the standard epic (and older Sumerian *Gilgamesh and Huwawa*) set the scene in the west, toward Lebanon in later geography. It is a sacred timber reserve, not a city. The crime is against a god's appointment. The forest exists so a name can be made and a curse can follow.",
     "primarySources": [
@@ -1553,7 +1553,7 @@
     "locationType": "island",
     "pantheonId": "greek-pantheon",
     "description": "A shore of forgetful hospitality where lotus fruit dulled the will to return home.",
-    "latitude": 33.0,
+    "latitude": 33,
     "longitude": 13.2,
     "detailedBio": "## The fruit that ends return\n\nIn *Odyssey* 9 Odysseus next reaches the lotus-eaters. Three scouts eat the honey-sweet fruit and lose the will to report home; he drags them back weeping and ties them under the benches. The island is unnamed. Later geographers guessed Libya. There is no lotus cult. The stop is a brief anthropological trap: hospitality that erases nostos. Homer spends few lines because the danger is appetite, not a monster.",
     "primarySources": [
@@ -1572,7 +1572,7 @@
     "pantheonId": "greek-pantheon",
     "description": "The cavern of the Cyclops Polyphemus on Sicily's mythic shore.",
     "latitude": 37.75,
-    "longitude": 15.0,
+    "longitude": 15,
     "detailedBio": "## Polyphemus's fold\n\nThe cave in *Odyssey* 9 is a dairy and a prison: Polyphemus, son of Poseidon, eats six men, Odysseus names himself Nobody, blinds the eye, and rides out under the sheep. Homer places the Cyclopes on a lawless shore opposite a goat island; later tradition says Sicily. There is no hero-cult of the cave. Poseidon's anger in the rest of the poem starts here. The architecture is a single blocked door and a sharpened olive stake.",
     "primarySources": [
       {
@@ -1626,7 +1626,7 @@
     "pantheonId": "greek-pantheon",
     "description": "The enchanted island of Circe, goddess of transformation and herbs.",
     "latitude": 41.2,
-    "longitude": 13.0,
+    "longitude": 13,
     "detailedBio": "## Aeaea, the house in the glade\n\nCirce's Aeaea in *Odyssey* 10 is a stone house, wolves and lions under spell, and a drug that turns men into pigs. Hermes gives moly; Odysseus beds the goddess, stays a year, and leaves with instructions for the dead and for the sea-road home. There is no civic cult of Aeaea. Later poets put the island off Italy. The stop is pharmacological and didactic: the witch becomes a guide.",
     "primarySources": [
       {
@@ -1823,8 +1823,8 @@
     "locationType": "desert",
     "pantheonId": "greek-pantheon",
     "description": "The barren North African shore where the Argonauts hauled the Argo inland.",
-    "latitude": 32.0,
-    "longitude": 20.0,
+    "latitude": 32,
+    "longitude": 20,
     "detailedBio": "## The Argo on sand\n\n*Argonautica* 4 strands the crew on a Libyan syrtis. They portage the Argo inland for days, meet the Hesperides after Heracles has already taken the apples, and lose companions to snake and exhaustion. Triton finally shows the sea-road. This is not Odysseus's lotus shore. Apollonius is expanding a North African detour. There is no Libyan Argonaut cult. The desert is a second labor of carrying a ship where water should have been.",
     "primarySources": [
       {
@@ -2058,7 +2058,7 @@
     "pantheonId": "greek-pantheon",
     "description": "Northern lands of the man-eating mares of Diomedes.",
     "latitude": 41.1,
-    "longitude": 25.0,
+    "longitude": 25,
     "detailedBio": "## Diomedes's mares\n\nApollodorus 2.5.8: the eighth labor takes Heracles to Thrace, to the man-eating mares of King Diomedes, son of Ares. He feeds Diomedes to his own horses (in the usual version), then brings the team to Eurystheus. Thrace in myth is a northern elsewhere: Ares, harsh kings, wild horses. The labor is not a tour of Thracian religion. Euripides' *Alcestis* already assumes Heracles heading toward these mares.",
     "primarySources": [
       {
@@ -2111,8 +2111,8 @@
     "locationType": "garden",
     "pantheonId": "greek-pantheon",
     "description": "Far-western orchard of golden apples guarded by Ladon.",
-    "latitude": 35.0,
-    "longitude": -5.0,
+    "latitude": 35,
+    "longitude": -5,
     "detailedBio": "## Apples at the world's west\n\nApollodorus 2.5.11: the eleventh labor is the golden apples of the Hesperides, guarded by a dragon (Ladon) in a western garden of Atlas's daughters. Versions split: Heracles holds the sky while Atlas fetches the fruit, or he kills the dragon himself. The garden is not Eden and not a Greek orchard you can visit. It is a sunset horticulture of immortality-adjacent fruit for a goddess (Hera) who did not want it stolen.",
     "primarySources": [
       {
@@ -2192,7 +2192,8 @@
         "source": "Saxo Grammaticus, Gesta Danorum, Book 14 (paraphrase)",
         "date": "composed c. 1200–1216, describing the site destroyed in 1168"
       }
-    ]
+    ],
+    "imageUrl": "/locations/arkona.png"
   },
   {
     "id": "starokyivska-hill",
@@ -2214,7 +2215,8 @@
         "source": "Russian Primary Chronicle, s.a. 988 (paraphrase)",
         "date": "entry for 988 CE; chronicle compiled early 12th c."
       }
-    ]
+    ],
+    "imageUrl": "/locations/starokyivska-hill.png"
   },
   {
     "id": "szczecin-triglav-temple",
@@ -2231,7 +2233,8 @@
         "source": "Herbord, Dialogus de Vita Ottonis episcopi Babenbergensis (paraphrase)",
         "date": "c. 1158, describing events of 1124–1128"
       }
-    ]
+    ],
+    "imageUrl": "/locations/szczecin-triglav-temple.png"
   },
   {
     "id": "peryn",
@@ -2248,7 +2251,8 @@
         "source": "First Novgorod Chronicle, s.a. 989 (paraphrase)",
         "date": "entry for 989 CE; earliest surviving redaction (Synodal copy) 13th–14th c."
       }
-    ]
+    ],
+    "imageUrl": "/locations/peryn.png"
   },
   {
     "id": "onondaga-lake",
@@ -2270,7 +2274,8 @@
         "source": "Onondaga Nation, History",
         "date": "onondaganation.org, accessed 2026"
       }
-    ]
+    ],
+    "imageUrl": "/locations/onondaga-lake.png"
   },
   {
     "id": "haida-gwaii",
@@ -2287,6 +2292,7 @@
         "source": "John R. Swanton, Haida Texts and Myths, Skidegate Dialect",
         "date": "1905"
       }
-    ]
+    ],
+    "imageUrl": "/locations/haida-gwaii.png"
   }
 ]
