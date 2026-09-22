@@ -93,6 +93,11 @@ export function proxy(request: NextRequest) {
       path: "/",
       maxAge: 60 * 60 * 24 * 365,
       sameSite: "lax",
+      secure: process.env.NODE_ENV === "production",
+      // Safe to mark httpOnly: nothing reads this cookie via document.cookie
+      // client-side (next-intl's request config reads it server-side via
+      // next/headers' cookies()); LanguageSwitcher only ever writes it.
+      httpOnly: true,
     });
   }
 
