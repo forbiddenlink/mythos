@@ -28,8 +28,8 @@ export function getPantheonColor(pantheonId: string): string {
 
 /**
  * Pantheon accent pairs (primary + darker secondary shade) + display label,
- * shared source for the map/journey/timeline visuals below. Distinct from
- * PANTHEON_COLORS above (different palette, different consumers).
+ * shared source for the map/journey/timeline visuals below.
+ * Calibrated with culturally grounded pigments rather than generic saturated hues.
  */
 interface PantheonAccent {
   primary: string;
@@ -39,83 +39,83 @@ interface PantheonAccent {
 
 const PANTHEON_ACCENTS: Record<string, PantheonAccent> = {
   "greek-pantheon": {
-    primary: "#3b82f6",
-    secondary: "#2563eb",
+    primary: "#c9a84c",
+    secondary: "#9e7e2c",
     label: "Greek",
   },
   "norse-pantheon": {
-    primary: "#8b5cf6",
-    secondary: "#7c3aed",
+    primary: "#5d82b0",
+    secondary: "#3d5f8a",
     label: "Norse",
   },
   "egyptian-pantheon": {
-    primary: "#f59e0b",
-    secondary: "#d97706",
+    primary: "#c99218",
+    secondary: "#9e6f0b",
     label: "Egyptian",
   },
   "roman-pantheon": {
-    primary: "#ef4444",
-    secondary: "#dc2626",
+    primary: "#a83e32",
+    secondary: "#7e281e",
     label: "Roman",
   },
   "hindu-pantheon": {
-    primary: "#f97316",
-    secondary: "#ea580c",
+    primary: "#d46f1a",
+    secondary: "#a8500c",
     label: "Hindu",
   },
   "japanese-pantheon": {
-    primary: "#ec4899",
-    secondary: "#db2777",
+    primary: "#a82424",
+    secondary: "#7d1414",
     label: "Japanese",
   },
   "celtic-pantheon": {
-    primary: "#22c55e",
-    secondary: "#16a34a",
+    primary: "#3a785b",
+    secondary: "#25543e",
     label: "Celtic",
   },
   "aztec-pantheon": {
-    primary: "#14b8a6",
-    secondary: "#0d9488",
+    primary: "#8c3b28",
+    secondary: "#662516",
     label: "Aztec",
   },
   "chinese-pantheon": {
-    primary: "#e11d48",
-    secondary: "#be123c",
+    primary: "#a81932",
+    secondary: "#7d0c20",
     label: "Chinese",
   },
   "mesopotamian-pantheon": {
-    primary: "#a16207",
-    secondary: "#854d0e",
+    primary: "#8c6922",
+    secondary: "#664911",
     label: "Mesopotamian",
   },
   "african-pantheon": {
-    primary: "#7c3aed",
-    secondary: "#6d28d9",
+    primary: "#8c5722",
+    secondary: "#663b11",
     label: "African",
   },
   "polynesian-pantheon": {
-    primary: "#06b6d4",
-    secondary: "#0891b2",
+    primary: "#137e8c",
+    secondary: "#0a5863",
     label: "Polynesian",
   },
   "mesoamerican-pantheon": {
-    primary: "#65a30d",
-    secondary: "#4d7c0f",
+    primary: "#3d7026",
+    secondary: "#274d15",
     label: "Mesoamerican",
   },
   "slavic-pantheon": {
-    primary: "#6366f1",
-    secondary: "#4f46e5",
+    primary: "#586e45",
+    secondary: "#3c4f2d",
     label: "Slavic",
   },
   "haudenosaunee-pantheon": {
-    primary: "#10b981",
-    secondary: "#059669",
+    primary: "#266b53",
+    secondary: "#164736",
     label: "Haudenosaunee",
   },
   "tlingit-haida-pantheon": {
-    primary: "#c2451f",
-    secondary: "#2f6e6b",
+    primary: "#b54a32",
+    secondary: "#326b66",
     label: "Tlingit & Haida",
   },
 };

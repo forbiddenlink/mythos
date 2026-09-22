@@ -32,6 +32,7 @@ interface Pantheon {
   timePeriodStart: number | null;
   timePeriodEnd: number | null;
   imageUrl?: string | null;
+  figuresLabel?: string | null;
 }
 
 interface Deity {
@@ -45,6 +46,7 @@ interface Deity {
   description: string | null;
   importanceRank: number | null;
   imageUrl: string | null;
+  traditionRole?: string | null;
 }
 
 interface Story {
@@ -165,7 +167,9 @@ export function PantheonPageClient({ slug }: PantheonPageClientProps) {
           </div>
           <div className="flex items-center gap-2">
             <Users className="h-4 w-4 text-gold" aria-hidden />
-            <dt className="text-muted-foreground">Deities</dt>
+            <dt className="text-muted-foreground">
+              {pantheon.figuresLabel || "Deities"}
+            </dt>
             <dd className="font-medium text-foreground">
               {pantheonDeities.length}
             </dd>
@@ -200,7 +204,7 @@ export function PantheonPageClient({ slug }: PantheonPageClientProps) {
           <div className="flex items-center gap-3 mb-6">
             <Users className="h-6 w-6 text-gold" />
             <h2 className="text-3xl font-serif font-semibold text-foreground">
-              Deities
+              {pantheon.figuresLabel || "Deities"}
             </h2>
           </div>
 
@@ -226,9 +230,16 @@ export function PantheonPageClient({ slug }: PantheonPageClientProps) {
                       </div>
                     )}
                     <CardHeader className="pb-3">
-                      <CardTitle className="font-serif text-xl text-foreground group-hover:text-gold transition-colors">
-                        {deity.name}
-                      </CardTitle>
+                      <div className="flex flex-wrap items-baseline justify-between gap-1 mb-1">
+                        <CardTitle className="font-serif text-xl text-foreground group-hover:text-gold transition-colors">
+                          {deity.name}
+                        </CardTitle>
+                        {deity.traditionRole && (
+                          <span className="text-[0.65rem] uppercase tracking-wider text-gold-light border border-gold/30 bg-gold/10 px-1.5 py-0.5 font-medium">
+                            {deity.traditionRole}
+                          </span>
+                        )}
+                      </div>
                       {deity.domain && deity.domain.length > 0 && (
                         <CardDescription className="text-gold-text text-xs uppercase tracking-wider font-medium line-clamp-1">
                           {deity.domain.join(" · ")}

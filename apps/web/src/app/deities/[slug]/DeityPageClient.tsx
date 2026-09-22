@@ -106,6 +106,7 @@ interface Deity {
   importanceRank: number | null;
   imageUrl: string | null;
   alternateNames: string[];
+  traditionRole?: string;
   crossPantheonParallels?: Array<{
     pantheonId: string;
     deityId: string;
@@ -307,9 +308,22 @@ export function DeityPageClient({
             </figure>
 
             <div>
-              <p className="mb-3 text-xs uppercase tracking-[0.28em] text-gold/80">
-                {formatSlugAsTitle(deity.pantheonId.replace(/-pantheon$/, ""))}{" "}
-                pantheon
+              <p className="mb-3 text-xs uppercase tracking-[0.28em] text-gold/80 flex flex-wrap items-center gap-2">
+                <span>
+                  {formatSlugAsTitle(deity.pantheonId.replace(/-pantheon$/, ""))}
+                  {" "}
+                  pantheon
+                </span>
+                {deity.traditionRole && (
+                  <>
+                    <span className="text-gold/40" aria-hidden>
+                      •
+                    </span>
+                    <span className="text-parchment/90 font-medium tracking-wider">
+                      {deity.traditionRole}
+                    </span>
+                  </>
+                )}
               </p>
               <div
                 className="flex flex-wrap items-start gap-4"

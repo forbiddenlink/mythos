@@ -11665,7 +11665,8 @@
       ],
       "practices": "The Kronia briefly inverted social order, with masters and slaves feasting together, a ritual echo of the Golden Age he was said to have ruled. His Roman counterpart Saturn had a far larger cult (Saturnalia); the two figures should not be treated as mythologically identical."
     },
-    "imageUrl": "/deities/cronus.png"
+    "imageUrl": "/deities/cronus.png",
+    "traditionRole": "Titan Ruler"
   },
   {
     "id": "gaia",
@@ -11769,7 +11770,8 @@
       ],
       "practices": "Gaia's cult was diffuse rather than centered on grand temples: oaths, first-fruits offerings to the earth, and the tradition — reported by later Greek writers, not universally accepted by modern scholars — that Delphi's oracle originally belonged to her before passing to Themis and then Apollo."
     },
-    "imageUrl": "/deities/gaia.png"
+    "imageUrl": "/deities/gaia.png",
+    "traditionRole": "Primordial Earth Mother"
   },
   {
     "id": "uranus",
@@ -11842,7 +11844,8 @@
       ],
       "practices": "Uranus received little formal cult of his own in the historical Greek world. His role is almost entirely cosmogonic and genealogical rather than devotional, invoked mainly in solemn oaths paired with Gaia."
     },
-    "imageUrl": "/deities/uranus.png"
+    "imageUrl": "/deities/uranus.png",
+    "traditionRole": "Primordial Sky Father"
   },
   {
     "id": "hecate",
@@ -12041,7 +12044,8 @@
       "festivals": [],
       "practices": "Ymir was not an object of worship. He belongs to the cosmogonic layer of Norse myth preserved by poets and by Snorri, explaining the material origin of the world rather than receiving offerings himself."
     },
-    "imageUrl": "/deities/ymir.png"
+    "imageUrl": "/deities/ymir.png",
+    "traditionRole": "Primeval Giant"
   },
   {
     "id": "hodr",
@@ -13373,7 +13377,8 @@
       "festivals": [],
       "practices": "Unlike the major gods of the Aztec state cult (Huitzilopochtli, Tezcatlipoca, Tlaloc), the dual creator described in sources like the Historia de los Mexicanos por sus pinturas appears as a remote, largely abstract originating principle rather than a deity with an active, image-centered public cult of temples and festivals."
     },
-    "imageUrl": "/deities/ometeotl.png"
+    "imageUrl": "/deities/ometeotl.png",
+    "traditionRole": "Dual Primordial Creator"
   },
   {
     "id": "perun",
@@ -13984,7 +13989,8 @@
       "festivals": [],
       "practices": "Sky Woman's story is told as part of Haudenosaunee oral tradition rather than marked by a specific festival or temple; this site does not describe any ceremony associated with her, in keeping with the guidance of the sources used here."
     },
-    "imageUrl": "/deities/sky-woman.png"
+    "imageUrl": "/deities/sky-woman.png",
+    "traditionRole": "Primordial Ancestress"
   },
   {
     "id": "sapling",
@@ -14032,7 +14038,8 @@
       "festivals": [],
       "practices": "No specific ceremony for Sapling is described in the public sources this site draws on; the Three Sisters (corn, beans, and squash) that many tellings credit to him remain a living agricultural and ceremonial staple among Haudenosaunee communities today, a continuity this site notes without describing any restricted ceremony attached to it."
     },
-    "imageUrl": "/deities/sapling.png"
+    "imageUrl": "/deities/sapling.png",
+    "traditionRole": "Creator & Culture Hero"
   },
   {
     "id": "flint",
@@ -14077,7 +14084,8 @@
       "festivals": [],
       "practices": "No specific ceremony for Flint is described in the public sources this site draws on."
     },
-    "imageUrl": "/deities/flint.png"
+    "imageUrl": "/deities/flint.png",
+    "traditionRole": "Challenger Spirit"
   },
   {
     "id": "turtle",
@@ -14116,7 +14124,8 @@
       "festivals": [],
       "practices": "No specific ceremony is described in the public sources this site draws on."
     },
-    "imageUrl": "/deities/turtle.png"
+    "imageUrl": "/deities/turtle.png",
+    "traditionRole": "World-Bearer"
   },
   {
     "id": "raven",
@@ -14171,7 +14180,8 @@
       "festivals": [],
       "practices": "Raven stories continue to be told publicly today, including through Sealaska Heritage Institute's published collections, and are carved and painted on totem poles, house fronts, and regalia across Tlingit and Haida communities; this site does not describe any restricted ceremony connected to Raven."
     },
-    "imageUrl": "/deities/raven.png"
+    "imageUrl": "/deities/raven.png",
+    "traditionRole": "Creator & Culture Hero"
   },
   {
     "id": "fog-woman",
@@ -14204,7 +14214,8 @@
       "festivals": [],
       "practices": "The story is memorialized publicly in Tlingit totem-pole art, including the Chief Johnson pole in Ketchikan, Alaska; this site does not describe any restricted ceremony connected to Fog Woman."
     },
-    "imageUrl": "/deities/fog-woman.png"
+    "imageUrl": "/deities/fog-woman.png",
+    "traditionRole": "Salmon Mother Spirit"
   },
   {
     "id": "chief-fog-over-the-salmon",
@@ -14235,7 +14246,8 @@
       "festivals": [],
       "practices": "No independent ceremony or practice is recorded for this figure in the public sources this site draws on."
     },
-    "imageUrl": "/deities/chief-fog-over-the-salmon.png"
+    "imageUrl": "/deities/chief-fog-over-the-salmon.png",
+    "traditionRole": "Salmon Chief"
   },
   {
     "id": "naas-shaak-aankawu",
@@ -14275,6 +14287,7 @@
       "festivals": [],
       "practices": "No independent ceremony is recorded for this figure in the public sources this site draws on; he appears only within the Raven and the box of daylight story."
     },
-    "imageUrl": "/deities/naas-shaak-aankawu.png"
+    "imageUrl": "/deities/naas-shaak-aankawu.png",
+    "traditionRole": "Daylight Keeper"
   }
 ]
