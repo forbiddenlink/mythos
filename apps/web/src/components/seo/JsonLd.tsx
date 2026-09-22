@@ -16,7 +16,6 @@ function JsonLdScript({ id, data }: Readonly<{ id: string; data: Record<string, 
     <script
       id={id}
       type="application/ld+json"
-      // eslint-disable-next-line react-hooks/immutability -- server-only JSON-LD injection, no user input
       dangerouslySetInnerHTML={{ __html: JSON.stringify(data).replace(/</g, '\\u003c') }}
     />
   )
