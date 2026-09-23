@@ -88,7 +88,11 @@ export function ScrollytellingReader({
 
   // Motion is opt-in: reduced-motion readers get a clean, fully-visible article.
   const plateMotion = reduce
-    ? {}
+    ? {
+        initial: false as const,
+        animate: { opacity: 1, y: 0 },
+        transition: { duration: 0 },
+      }
     : {
         initial: { opacity: 0, y: 48 },
         whileInView: { opacity: 1, y: 0 },
@@ -135,13 +139,10 @@ export function ScrollytellingReader({
         </Link>
         <motion.div
           initial={reduce ? false : { opacity: 0, y: 24 }}
-          animate={reduce ? undefined : { opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, ease: "easeOut" }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: reduce ? 0 : 0.9, ease: "easeOut" }}
         >
-          <span
-            className="mb-6 block text-xs uppercase tracking-[0.35em]"
-            style={{ color }}
-          >
+          <span className="mb-6 block text-xs uppercase tracking-[0.35em] text-parchment/80">
             {pantheonName ? `${pantheonName} · A Reading` : "A Reading"}
           </span>
           <h1 className="mx-auto max-w-3xl font-serif text-4xl leading-tight text-parchment sm:text-6xl">
@@ -161,7 +162,7 @@ export function ScrollytellingReader({
               style={{ backgroundColor: `${color}80` }}
             />
           </div>
-          <p className="mt-8 text-sm text-parchment/50">
+          <p className="mt-8 text-sm text-parchment/60">
             Scroll to unfold the myth
           </p>
         </motion.div>
@@ -180,8 +181,7 @@ export function ScrollytellingReader({
             >
               <span
                 aria-hidden
-                className="mb-6 block font-serif text-sm tracking-widest"
-                style={{ color: `${color}cc` }}
+                className="mb-6 block font-serif text-sm tracking-widest text-parchment/80"
               >
                 {String(index + 1).padStart(2, "0")}
               </span>
@@ -205,9 +205,7 @@ export function ScrollytellingReader({
             className="h-px w-20"
             style={{ backgroundColor: `${color}66` }}
           />
-          <span className="font-serif text-xl" style={{ color }}>
-            Finis
-          </span>
+          <span className="font-serif text-xl text-parchment/80">Finis</span>
           <span
             className="h-px w-20"
             style={{ backgroundColor: `${color}66` }}

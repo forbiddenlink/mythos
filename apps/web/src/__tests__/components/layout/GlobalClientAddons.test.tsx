@@ -20,7 +20,7 @@ vi.mock("@/components/analytics/ConsentGatedSentry", () => ({
 describe("GlobalClientAddons search intent", () => {
   it("opens lazy search from the header event and toggles it from the keyboard", () => {
     render(<GlobalClientAddons />);
-    expect(screen.getByTestId("search")).toHaveAttribute("data-open", "false");
+    expect(screen.queryByTestId("search")).not.toBeInTheDocument();
     act(() => {
       document.dispatchEvent(new Event("open-command-palette"));
     });

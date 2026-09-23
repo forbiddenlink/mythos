@@ -58,7 +58,7 @@ test.describe("Phase 8: Collections", () => {
     await waitForPage(page);
 
     // Should show underworld deities like Hades, Osiris, Anubis
-    const deityLinks = page.locator('a[href^="/deities/"]');
+    const deityLinks = page.locator('a[href^="/deities/"]:visible');
     await expect(deityLinks.first()).toBeVisible({ timeout: 10000 });
     const count = await deityLinks.count();
     expect(count).toBeGreaterThan(0);
@@ -113,22 +113,17 @@ test.describe("Phase 8: Mythology Facts", () => {
     await page.goto("/facts");
     await waitForPage(page);
 
-    // Get initial card count
-    const initialCards = page.locator('[class*="Card"]');
-    const initialCount = await initialCards.count();
-
-    // Click a specific category filter
-    await page.locator('button:has-text("Word Origins")').click();
-
-    // Wait for animation
-    await page.waitForTimeout(500);
-
-    // Card count should change (filtered)
-    const filteredCards = page.locator('[class*="Card"]');
-    const filteredCount = await filteredCards.count();
-
-    // Should have fewer cards or same (filtered to one category)
-    expect(filteredCount).toBeLessThanOrEqual(initialCount);
+    const cards = page.locator('[data-slot="card"].Card');
+    await expect(cards.first()).toBeVisible();
+    const filter = page.getByRole("button", { name: /^Word Origins/ });
+    const label = await filter.innerText();
+    const expectedCount = Number(label.match(/\((\d+)\)/)?.[1]);
+    expect(expectedCount).toBeGreaterThan(0);
+    await filter.click();
+    await expect(cards).toHaveCount(expectedCount);
+    for (const card of await cards.all()) {
+      await expect(card).toContainText("Word Origins");
+    }
   });
 
   test("should have shuffle button", async ({ page }) => {

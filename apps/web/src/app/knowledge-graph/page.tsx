@@ -484,7 +484,10 @@ export default function KnowledgeGraphPage() {
                 <ul className="list-disc list-inside space-y-1 mt-2">
                   <li>Zeus (Greek) = Jupiter (Roman) = Odin (Norse)</li>
                   <li>Aphrodite (Greek) = Venus (Roman) = Freyja (Norse)</li>
-                  <li>Hades (Greek) = Pluto (Roman) = Osiris (Egyptian)</li>
+                  <li>
+                    Hades is also called Pluto in Roman sources; Osiris is a
+                    compared ruler of the dead
+                  </li>
                 </ul>
               </CardContent>
             </Card>

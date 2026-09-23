@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
+import { hasAnalyticsConsent } from "@/lib/privacy-consent";
 
 type Rating = "very" | "somewhat" | "not";
 
@@ -54,16 +55,20 @@ export function QuizRetentionSurvey({
     } catch {
       /* ignore quota */
     }
-    const body = JSON.stringify(payload);
-    if (navigator.sendBeacon) {
-      navigator.sendBeacon("/api/analytics/events", body);
-    } else {
-      void fetch("/api/analytics/events", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body,
-        keepalive: true,
-      });
+    if (hasAnalyticsConsent()) {
+      const body = JSON.stringify(payload);
+      if (navigator.sendBeacon) {
+        navigator.sendBeacon("/api/analytics/events", body);
+      } else {
+        void fetch("/api/analytics/events", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body,
+          keepalive: true,
+        }).catch(() => {
+          // Feedback remains saved locally when analytics is unavailable.
+        });
+      }
     }
     setTimeout(() => setDone(true), 1200);
   };

@@ -7,8 +7,8 @@ export type MythicEra = {
   label: string;
   blurb: string;
   /** Inclusive year bounds for display; BCE negative */
-  start: number;
-  end: number;
+  start: number | null;
+  end: number | null;
   /** Pantheon ids that belong in this browse window */
   pantheonIds: string[];
 };
@@ -61,10 +61,10 @@ export const MYTHIC_ERAS: MythicEra[] = [
   },
   {
     id: "west-africa",
-    label: "West Africa",
-    blurb: "Yoruba and related traditions",
-    start: -500,
-    end: 1900,
+    label: "African traditions",
+    blurb: "Distinct traditions across Africa; no shared historical period",
+    start: null,
+    end: null,
     pantheonIds: ["african-pantheon"],
   },
   {

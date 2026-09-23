@@ -57,6 +57,51 @@ export function ReviewPageClient() {
     );
   }
 
+  if (
+    Object.keys(reviewState.cards).length === 0 &&
+    stats.totalReviewed === 0
+  ) {
+    return (
+      <div className="page-shell max-w-4xl min-h-screen">
+        <h1 className="page-title text-foreground">Daily Review</h1>
+        <section
+          className="mt-8 max-w-2xl"
+          aria-labelledby="review-start-title"
+        >
+          <h2
+            id="review-start-title"
+            className="font-serif text-2xl text-foreground"
+          >
+            Build your first review deck
+          </h2>
+          <p className="mt-4 font-body text-xl leading-relaxed text-foreground">
+            Visit a figure or read a story, then return here. Review cards are
+            created from those entries to help you recall names, symbols and
+            relationships.
+          </p>
+          <div className="mt-6 flex flex-wrap gap-4">
+            <Link
+              href="/deities/athena"
+              className="inline-flex min-h-11 items-center rounded-md bg-gold px-5 font-medium text-midnight hover:bg-gold-light"
+            >
+              Start with Athena
+            </Link>
+            <Link
+              href="/deities"
+              className="inline-flex min-h-11 items-center text-gold-text underline underline-offset-4"
+            >
+              Choose another figure
+            </Link>
+          </div>
+          <p className="mt-8 border-t border-border pt-5 text-sm text-muted-foreground">
+            Cards and review history are saved in this browser. When you return,
+            answer a card and rate how easily you remembered it.
+          </p>
+        </section>
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen bg-linear-to-b from-background via-muted/20 to-background">
       <div className="container mx-auto max-w-4xl px-4 py-12">

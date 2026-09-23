@@ -6,11 +6,11 @@ import { generateBaseMetadata } from "@/lib/metadata";
 import { RouteHero } from "@/components/layout/route-hero";
 import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
 import { MythosMark } from "@/components/icons/mythos-marks";
+import cosmologiesData from "@/data/cosmologies.json";
 
 export const metadata = generateBaseMetadata({
   title: "Cosmologies Compared - How Each Culture Mapped the Universe",
-  description:
-    "Thirteen mythic universes side by side: Yggdrasil's nine worlds, the Egyptian Duat, the Hindu lokas, Aztec heavens and Mictlan, and more, each drawn from its primary sources.",
+  description: `${cosmologiesData.length} mythic universes side by side: Yggdrasil's nine worlds, the Egyptian Duat, the Hindu lokas, Aztec heavens and Mictlan, and more, each drawn from its primary sources.`,
   url: "/cosmology",
   keywords: [
     "mythology cosmology",
@@ -58,8 +58,9 @@ export default function CosmologyPage() {
             Cosmologies Compared
           </h1>
           <p className="mx-auto max-w-2xl font-body text-lg leading-relaxed text-parchment/75 md:text-xl">
-            Every culture drew its own map of the universe. Here are thirteen of
-            them side by side, from the highest heaven to the deepest pit.
+            Every culture drew its own map of the universe. Here are{" "}
+            {cosmologies.length} of them side by side, from the highest heaven
+            to the deepest pit.
           </p>
         </RouteHero>
       </div>

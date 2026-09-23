@@ -29,7 +29,11 @@ const PrimarySourceExcerptSchema = z.looseObject({
   lineNumbers: z.string().optional(),
   translator: z.string().optional(),
   originalLanguage: z.string().optional(),
-  quoteStatus: z.enum(["direct-quotation", "editorial-paraphrase", "unverified"]),
+  quoteStatus: z.enum([
+    "direct-quotation",
+    "editorial-paraphrase",
+    "unverified",
+  ]),
   verification: z.enum([
     "verified",
     "source-and-locator-verified",
@@ -71,7 +75,7 @@ export const PantheonSchema = z.looseObject({
   slug: z.string(),
   culture: z.string(),
   region: z.string(),
-  timePeriodStart: z.number(),
+  timePeriodStart: z.number().nullable(),
   timePeriodEnd: z.number().nullable(),
   description: z.string(),
   detailedHistory: z.string().optional(),

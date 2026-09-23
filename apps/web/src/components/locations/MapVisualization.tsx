@@ -2,7 +2,7 @@
 
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState, useRef } from "react";
 import { PANTHEON_BG_BORDER_LABEL as PANTHEON_COLORS } from "@/lib/pantheon-colors";
 import {
   createMarkerIcon,
@@ -109,6 +109,8 @@ export function MapVisualization({
     [],
   );
 
+  const hasFitBounds = useRef(false);
+
   // Filter locations by pantheon if filter is active
   const filteredLocations = useMemo(() => {
     if (!activePantheonFilter) return locations;
@@ -175,17 +177,35 @@ export function MapVisualization({
     // Add Tile Layer
     L.tileLayer(MAP_TILE_URL, MAP_TILE_OPTIONS).addTo(map);
 
-    // Fit Bounds
-    if (mappableLocations.length > 0) {
+    const handleFlyTo = (event: Event) => {
+      const { lat, lng } = (event as CustomEvent<{ lat: number; lng: number }>)
+        .detail;
+      map.flyTo([lat, lng], 8, { duration: 1.5 });
+    };
+    globalThis.addEventListener("flyToLocation", handleFlyTo);
+
+    return () => {
+      globalThis.removeEventListener("flyToLocation", handleFlyTo);
+      map.stop();
+      map.remove();
+      mapInstanceRef.current = null;
+      hasFitBounds.current = false;
+    };
+  }, [containerRef, mapInstanceRef]);
+
+  useEffect(() => {
+    const map = mapInstanceRef.current;
+    if (!map) return;
+
+    // Orient once when coordinates first arrive; filters preserve the reader's view.
+    if (!hasFitBounds.current && mappableLocations.length > 0) {
       const bounds = L.latLngBounds(
         mappableLocations.map((loc) => [loc.latitude!, loc.longitude!]),
       );
       map.fitBounds(bounds, { padding: [50, 50], maxZoom: 5 });
+      hasFitBounds.current = true;
     }
-
-    // Create markers layer group
     const markersLayer = L.layerGroup();
-
     markersLayerRef.current = markersLayer;
 
     // Simple clustering implementation
@@ -339,7 +359,7 @@ export function MapVisualization({
             const deitiesLabel = document.createElement("div");
             deitiesLabel.style.cssText =
               "font-size:10px; font-weight:600; color:#94a3b8; text-transform:uppercase; letter-spacing:0.05em; margin-bottom:6px;";
-            deitiesLabel.textContent = "Associated Deities";
+            deitiesLabel.textContent = "Figures in this tradition";
             deitiesSection.appendChild(deitiesLabel);
             const deityLinks = document.createElement("div");
             deityLinks.style.cssText = "display:flex; flex-wrap:wrap; gap:4px;";
@@ -362,7 +382,7 @@ export function MapVisualization({
             const storiesLabel = document.createElement("div");
             storiesLabel.style.cssText =
               "font-size:10px; font-weight:600; color:#94a3b8; text-transform:uppercase; letter-spacing:0.05em; margin-bottom:4px;";
-            storiesLabel.textContent = "Related Stories";
+            storiesLabel.textContent = "Stories in this tradition";
             storiesSection.appendChild(storiesLabel);
             locationStories.forEach((story) => {
               const a = document.createElement("a");
@@ -479,37 +499,20 @@ export function MapVisualization({
     // Re-render on zoom change
     map.on("zoomend", renderMarkers);
 
-    // FlyTo Listener
-    const handleFlyTo = (e: Event) => {
-      const customEvent = e as CustomEvent<{ lat: number; lng: number }>;
-      const { lat, lng } = customEvent.detail;
-      map.flyTo([lat, lng], 8, { duration: 1.5 });
-    };
-    globalThis.addEventListener("flyToLocation", handleFlyTo);
-
     return () => {
-      globalThis.removeEventListener("flyToLocation", handleFlyTo);
-      map.off("zoomend");
-      // Cancel any in-flight pan/zoom/flyTo animation before teardown. A filter
-      // pill click changes mappableLocations and re-runs this effect; without
-      // stop(), a queued animation frame calls _move() on the removed map whose
-      // _mapPane no longer has _leaflet_pos, throwing TypeError (Sentry MYTHOS-G).
-      map.stop();
-      if (mapInstanceRef.current) {
-        mapInstanceRef.current.remove();
-        mapInstanceRef.current = null;
-      }
-      if (markersLayerRef.current) {
-        markersLayerRef.current = null;
-      }
+      map.off("zoomend", renderMarkers);
+      markersLayer.clearLayers();
+      markersLayer.remove();
+      markersLayerRef.current = null;
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps -- refs are stable and don't need to be in deps
   }, [
     mappableLocations,
     enableClustering,
     getDeitiesForLocation,
     getStoriesForLocation,
-  ]); // Re-init if locations change or clustering toggle
+    mapInstanceRef,
+    markersLayerRef,
+  ]);
 
   return (
     <div className="relative w-full h-full min-h-125 bg-slate-950 rounded-xl overflow-hidden border border-slate-800">

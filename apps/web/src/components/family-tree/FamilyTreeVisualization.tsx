@@ -170,7 +170,6 @@ interface KeyActionContext {
   nodeIds: string[];
   keyboardFocusedId: string | null;
   focusDeityId?: string;
-  shiftKey: boolean;
   deityMap: Map<string, Deity>;
   navigateToDeity: (slug: string) => void;
 }
@@ -209,18 +208,6 @@ const keyActionMap: Record<string, (ctx: KeyActionContext) => string | null> = {
       return null;
     }
     return focusDeityId || nodeIds[0] || null;
-  },
-  Tab: ({ keyboardFocusedId, nodeIds, shiftKey }) => {
-    if (shiftKey) {
-      const currentIndex = keyboardFocusedId
-        ? nodeIds.indexOf(keyboardFocusedId)
-        : nodeIds.length;
-      return nodeIds[(currentIndex - 1 + nodeIds.length) % nodeIds.length];
-    }
-    const currentIndex = keyboardFocusedId
-      ? nodeIds.indexOf(keyboardFocusedId)
-      : -1;
-    return nodeIds[(currentIndex + 1) % nodeIds.length];
   },
   Home: ({ nodeIds }) => nodeIds[0] ?? null,
   End: ({ nodeIds }) => nodeIds.at(-1) ?? null,
@@ -323,7 +310,11 @@ function FilterButton({
       aria-pressed={active}
       style={{ borderColor: color }}
     >
-      <span className="size-2 rounded-full" style={{ backgroundColor: color }} aria-hidden />
+      <span
+        className="size-2 rounded-full"
+        style={{ backgroundColor: color }}
+        aria-hidden
+      />
       {label}
     </Button>
   );
@@ -630,8 +621,8 @@ function FamilyTreeInner({
   // Keyboard navigation handler
   const handleKeyDown = useCallback(
     (event: KeyboardEvent<HTMLDivElement>) => {
-      // Don't handle if focus is in an input field
-      if (event.target instanceof HTMLInputElement) return;
+      // Nested controls and React Flow nodes keep their own keyboard behavior.
+      if (event.target !== event.currentTarget) return;
 
       // Escape clears focus (special case — not in the action map)
       if (event.key === "Escape") {
@@ -653,7 +644,6 @@ function FamilyTreeInner({
         nodeIds,
         keyboardFocusedId,
         focusDeityId,
-        shiftKey: event.shiftKey,
         deityMap,
         navigateToDeity: (slug) => router.push(`/deities/${slug}`),
       });
@@ -884,7 +874,9 @@ export function FamilyTreeVisualization({
 
         {/* Filter Toggles */}
         <div className="flex flex-wrap gap-2">
-          <span className="text-xs text-muted-foreground self-center mr-1">Show:</span>
+          <span className="text-xs text-muted-foreground self-center mr-1">
+            Show:
+          </span>
           <FilterButton
             label="Parents"
             active={filters.parent}

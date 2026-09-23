@@ -14,43 +14,8 @@ import type { Metadata, Viewport } from "next";
 import { NextIntlClientProvider } from "next-intl";
 import { getLocale, getMessages } from "next-intl/server";
 import { headers } from "next/headers";
-import { Cinzel, Crimson_Pro, Source_Sans_3 } from "next/font/google";
+import { cinzel, crimsonPro, sourceSans } from "./fonts";
 import "./globals.css";
-
-// Cinzel - Elegant classical display font inspired by Roman inscriptions
-const cinzel = Cinzel({
-  variable: "--font-cinzel",
-  subsets: ["latin", "latin-ext"],
-  display: "swap",
-  weight: ["400", "500", "600", "700", "800"],
-  fallback: ["ui-serif", "Georgia", "Cambria", "Times New Roman", "serif"],
-});
-
-// Source Sans 3 - Clean, readable UI font
-const sourceSans = Source_Sans_3({
-  variable: "--font-source-sans",
-  subsets: ["latin", "latin-ext"],
-  display: "swap",
-  weight: ["400", "500"],
-  fallback: [
-    "-apple-system",
-    "BlinkMacSystemFont",
-    "Segoe UI",
-    "Roboto",
-    "Helvetica Neue",
-    "Arial",
-    "sans-serif",
-  ],
-});
-
-// Crimson Pro - Elegant serif for body text and quotes
-const crimsonPro = Crimson_Pro({
-  variable: "--font-crimson",
-  subsets: ["latin", "latin-ext"],
-  display: "swap",
-  style: ["normal", "italic"],
-  fallback: ["Georgia", "Cambria", "Times New Roman", "serif"],
-});
 
 export async function generateMetadata(): Promise<Metadata> {
   const locale = await getLocale();

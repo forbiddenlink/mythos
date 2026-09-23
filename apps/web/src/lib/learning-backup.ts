@@ -17,7 +17,9 @@ type LearningStorageValues = Record<LearningStorageKey, string | null>;
 function isValidCalendarDate(value: string): boolean {
   if (!/^\d{4}-\d{2}-\d{2}$/.test(value)) return false;
   const date = new Date(`${value}T00:00:00.000Z`);
-  return !Number.isNaN(date.getTime()) && date.toISOString().slice(0, 10) === value;
+  return (
+    !Number.isNaN(date.getTime()) && date.toISOString().slice(0, 10) === value
+  );
 }
 
 const dateOnlySchema = z.string().refine(isValidCalendarDate, {
@@ -40,7 +42,7 @@ const readingProgressSchema = z.record(
   }),
 );
 
-const progressSchema = z.strictObject({
+export const progressSchema = z.strictObject({
   deitiesViewed: z.array(z.string().min(1).max(200)),
   storiesRead: z.array(z.string().min(1).max(200)),
   pantheonsExplored: z.array(z.string().min(1).max(200)),
@@ -73,7 +75,7 @@ const cardStateSchema = z.strictObject({
   lapses: z.number().int().nonnegative(),
 });
 
-const reviewSchema = z.strictObject({
+export const reviewSchema = z.strictObject({
   cards: z.record(z.string().min(1).max(300), cardStateSchema),
   todayReviewed: z.array(z.string().min(1).max(300)),
   lastReviewDate: emptyOrDateOnlySchema,
@@ -140,12 +142,19 @@ function validateStoredValue(key: LearningStorageKey, value: string | null) {
 function checkedBackup(candidate: unknown): BackupParseResult {
   const parsed = backupSchema.safeParse(candidate);
   if (!parsed.success) {
-    return { success: false, error: "This is not a valid Mythos Atlas learning backup." };
+    return {
+      success: false,
+      error: "This is not a valid Mythos Atlas learning backup.",
+    };
   }
 
   for (const key of LEARNING_STORAGE_KEYS) {
     if (!validateStoredValue(key, parsed.data.data[key]).success) {
-      return { success: false, error: "This backup contains invalid learning data and was not imported." };
+      return {
+        success: false,
+        error:
+          "This backup contains invalid learning data and was not imported.",
+      };
     }
   }
 
@@ -154,10 +163,14 @@ function checkedBackup(candidate: unknown): BackupParseResult {
     ? (JSON.parse(data["mythos-atlas-bookmarks"]) as unknown[]).length
     : 0;
   const readingProgress = data["mythos-atlas-reading-progress"]
-    ? Object.keys(JSON.parse(data["mythos-atlas-reading-progress"]) as object).length
+    ? Object.keys(JSON.parse(data["mythos-atlas-reading-progress"]) as object)
+        .length
     : 0;
   const progress = data["mythos-atlas-progress"]
-    ? (JSON.parse(data["mythos-atlas-progress"]) as { deitiesViewed: unknown[]; storiesRead: unknown[] })
+    ? (JSON.parse(data["mythos-atlas-progress"]) as {
+        deitiesViewed: unknown[];
+        storiesRead: unknown[];
+      })
     : null;
   const reviewCards = data["mythos-atlas-review"]
     ? Object.keys(
@@ -170,7 +183,8 @@ function checkedBackup(candidate: unknown): BackupParseResult {
     backup: parsed.data,
     preview: {
       exportedAt: parsed.data.exportedAt,
-      savedCategories: LEARNING_STORAGE_KEYS.filter((key) => data[key] !== null).length,
+      savedCategories: LEARNING_STORAGE_KEYS.filter((key) => data[key] !== null)
+        .length,
       bookmarks,
       readingProgress,
       viewedDeities: progress?.deitiesViewed.length ?? 0,
@@ -195,7 +209,9 @@ export function serializeLearningBackup(storage: Storage): string {
   const raw = JSON.stringify(createLearningBackup(storage), null, 2);
   const result = parseLearningBackup(raw);
   if (!result.success) {
-    throw new Error("The current learning record cannot be exported as a restorable backup. No stored data was changed.");
+    throw new Error(
+      "The current learning record cannot be exported as a restorable backup. No stored data was changed.",
+    );
   }
   return raw;
 }
@@ -250,7 +266,8 @@ export function restoreLearningBackup(
       }
       return {
         success: false,
-        error: "Storage could not be updated. Your existing learning data was restored.",
+        error:
+          "Storage could not be updated. Your existing learning data was restored.",
       };
     } catch {
       return {

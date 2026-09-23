@@ -14,7 +14,8 @@
     "imageRights": "Public Domain (museum record)",
     "checkedAt": "2026-09-18",
     "imageUrl": "https://collectionapi.metmuseum.org/api/collection/v1/iiif/246432/502661/main-image",
-    "imageAlt": "Bronze statuette of Herakles, bronze. Photograph: The Metropolitan Museum of Art."
+    "imageAlt": "Bronze statuette of Herakles, bronze. Photograph: The Metropolitan Museum of Art.",
+    "heroIds": ["heracles"]
   },
   {
     "id": "met-251473",
@@ -1618,7 +1619,8 @@
     "imageRights": "Public Domain (museum record)",
     "checkedAt": "2026-09-21",
     "imageUrl": "https://images.metmuseum.org/CRDImages/gr/web-large/DP155545.jpg",
-    "imageAlt": "Sardonyx cameo fragment showing Hercules restraining Cerberus. Photograph: The Metropolitan Museum of Art."
+    "imageAlt": "Sardonyx cameo fragment showing Hercules restraining Cerberus. Photograph: The Metropolitan Museum of Art.",
+    "heroIds": ["heracles"]
   },
   {
     "id": "met-248177",
@@ -1631,12 +1633,13 @@
     "culture": "Greek, Attic",
     "medium": "Terracotta",
     "context": "Ancient object",
-    "description": "An Archaic Attic eye-cup whose painted scene the museum tags with Theseus and the Minotaur, depicting the hero's slaying of the bull-headed creature in the labyrinth.",
+    "description": "Between painted eyes, Theseus confronts the Minotaur, with youths and maidens as spectators. The scene appears on both sides of the cup.",
     "url": "https://www.metmuseum.org/art/collection/search/248177",
     "imageRights": "Public Domain (museum record)",
     "checkedAt": "2026-09-21",
     "imageUrl": "https://images.metmuseum.org/CRDImages/gr/web-large/DP116987.jpg",
-    "imageAlt": "Terracotta eye-cup with a painted scene of Theseus and the Minotaur. Photograph: The Metropolitan Museum of Art."
+    "imageAlt": "Terracotta eye-cup with a painted scene of Theseus and the Minotaur. Photograph: The Metropolitan Museum of Art.",
+    "heroIds": ["theseus"]
   },
   {
     "id": "met-244858",
@@ -1649,12 +1652,13 @@
     "culture": "Greek, Attic",
     "medium": "Terracotta",
     "context": "Ancient object",
-    "description": "A Classical Attic drinking cup painted with a scene the museum tags as Theseus and the Minotaur, part of the well-attested cycle of vase imagery around the myth.",
+    "description": "Theseus appears on one side and the Minotaur on the other. The museum describes the figures as separate protagonists rather than a continuous narrative.",
     "url": "https://www.metmuseum.org/art/collection/search/244858",
     "imageRights": "Public Domain (museum record)",
     "checkedAt": "2026-09-21",
     "imageUrl": "https://images.metmuseum.org/CRDImages/gr/web-large/DP-18922-001.jpg",
-    "imageAlt": "Terracotta skyphos with a painted scene of Theseus and the Minotaur. Photograph: The Metropolitan Museum of Art."
+    "imageAlt": "Terracotta skyphos with a painted scene of Theseus and the Minotaur. Photograph: The Metropolitan Museum of Art.",
+    "heroIds": ["theseus"]
   },
   {
     "id": "met-38199",

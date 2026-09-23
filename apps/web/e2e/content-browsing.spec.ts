@@ -96,30 +96,35 @@ test.describe("Content Browsing", () => {
   });
 
   test("should support navigation back and forward", async ({ page }) => {
-    // Navigate through several pages
     await page.goto("/");
-    await waitForPage(page);
-    await expect(page.locator("h1").first()).toBeVisible({ timeout: 10000 });
-
+    await expect(
+      page.getByRole("heading", {
+        level: 1,
+        name: "Mythos Atlas",
+        exact: true,
+      }),
+    ).toBeVisible();
     await page.goto("/deities/zeus");
-    await waitForPage(page);
-    await expect(page.locator("text=Zeus").first()).toBeVisible({
-      timeout: 10000,
-    });
-    expect(page.url()).toContain("zeus");
+    await expect(page).toHaveURL(/\/deities\/zeus$/);
+    await expect(
+      page.getByRole("heading", { level: 1, name: /Zeus/ }),
+    ).toBeVisible();
 
-    // Go back
     await page.goBack();
-    await waitForPage(page);
-    await expect(page.locator("h1").first()).toBeVisible({ timeout: 10000 });
+    await expect(page).toHaveURL(/\/$/);
+    await expect(
+      page.getByRole("heading", {
+        level: 1,
+        name: "Mythos Atlas",
+        exact: true,
+      }),
+    ).toBeVisible();
 
-    // Go forward
     await page.goForward();
-    await waitForPage(page);
-    await expect(page.locator("text=Zeus").first()).toBeVisible({
-      timeout: 10000,
-    });
-    expect(page.url()).toContain("zeus");
+    await expect(page).toHaveURL(/\/deities\/zeus$/);
+    await expect(
+      page.getByRole("heading", { level: 1, name: /Zeus/ }),
+    ).toBeVisible();
   });
 
   test("should have working internal links", async ({ page }) => {

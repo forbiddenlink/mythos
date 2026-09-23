@@ -359,9 +359,8 @@ function LocationsPageInner() {
               </div>
               {activeEra && (
                 <p className="text-xs text-muted-foreground">
-                  {MYTHIC_ERAS.find((e) => e.id === activeEra)?.blurb} —
-                  pantheon chips below sync to cultures that overlap this
-                  window. Shareable as{" "}
+                  {MYTHIC_ERAS.find((e) => e.id === activeEra)?.blurb} — the
+                  collection filters below follow this selection. Shareable as{" "}
                   <code className="text-gold/90">?era={activeEra}</code>
                 </p>
               )}

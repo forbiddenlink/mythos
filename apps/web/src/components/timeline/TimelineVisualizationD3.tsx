@@ -90,6 +90,10 @@ export function TimelineVisualizationD3({
   events,
   viewRange,
 }: TimelineVisualizationProps) {
+  const chartHeight = Math.max(
+    600,
+    pantheons.length * 36 + MARGIN.top + MARGIN.bottom,
+  );
   const containerRef = useRef<HTMLDivElement>(null);
   const svgRef = useRef<SVGSVGElement>(null);
   const [selectedPantheon, setSelectedPantheon] = useState<string | null>(null);
@@ -176,7 +180,7 @@ export function TimelineVisualizationD3({
     const svg = d3.select(svgRef.current);
     const container = containerRef.current;
     const { width } = container.getBoundingClientRect();
-    const height = 600;
+    const height = chartHeight;
     const innerWidth = width - MARGIN.left - MARGIN.right;
     const innerHeight = height - MARGIN.top - MARGIN.bottom;
 
@@ -329,7 +333,9 @@ export function TimelineVisualizationD3({
 
       // 3. Pantheon Bars
       const sortedPantheons = pantheons.toSorted(
-        (a, b) => (a.timePeriodStart ?? 0) - (b.timePeriodStart ?? 0),
+        (a, b) =>
+          (a.timePeriodStart ?? a.timePeriodEnd ?? Number.POSITIVE_INFINITY) -
+          (b.timePeriodStart ?? b.timePeriodEnd ?? Number.POSITIVE_INFINITY),
       );
       const barHeight = 24;
       const barGap = 12;
@@ -359,6 +365,17 @@ export function TimelineVisualizationD3({
 
         // Clear old rects/text in this group to avoid dupes on re-render
         g.selectAll("*").remove();
+
+        if (d.timePeriodStart === null && d.timePeriodEnd === null) {
+          g.append("text")
+            .attr("x", MARGIN.left)
+            .attr("y", barHeight / 2)
+            .attr("dominant-baseline", "middle")
+            .attr("fill", "currentColor")
+            .attr("class", "text-xs text-muted-foreground")
+            .text("No shared period recorded");
+          return;
+        }
 
         // Bar Rect
         g.append("rect")
@@ -512,7 +529,7 @@ export function TimelineVisualizationD3({
     return () => {
       // D3 cleanup if needed
     };
-  }, [pantheons, events, selectedPantheon]); // Re-run when selection changes
+  }, [pantheons, events, selectedPantheon, chartHeight]); // Re-run when selection changes
 
   return (
     <div className="relative w-full rounded-xl border border-border bg-black/40 backdrop-blur-md shadow-2xl overflow-hidden">
@@ -545,7 +562,11 @@ export function TimelineVisualizationD3({
         </Button>
       </div>
 
-      <div ref={containerRef} className="w-full h-150 relative">
+      <div
+        ref={containerRef}
+        className="w-full relative"
+        style={{ height: chartHeight }}
+      >
         <svg
           ref={svgRef}
           width="100%"

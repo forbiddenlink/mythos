@@ -16,7 +16,6 @@ import pantheonsData from "@/data/pantheons.json";
 import deitiesData from "@/data/deities.json";
 import storiesData from "@/data/stories.json";
 import { RouteHero } from "@/components/layout/route-hero";
-import { MythosMark } from "@/components/icons/mythos-marks";
 import { getPantheonColor } from "@/lib/pantheon-colors";
 import { resolveCosmology } from "@/lib/cosmology";
 import { CosmologyDiagram } from "@/components/cosmology/CosmologyDiagram";
@@ -125,23 +124,45 @@ export function PantheonPageClient({ slug }: PantheonPageClientProps) {
             }}
           />
         </div>
-        <RouteHero overlayClassName="bg-transparent">
-          <div className="mb-6 flex justify-center">
-            <MythosMark id="temple" className="h-8 w-8 text-gold" />
-          </div>
+        <RouteHero
+          overlayClassName="bg-transparent"
+          contentClassName="max-w-6xl text-left"
+        >
+          <p className="mb-3 text-sm text-parchment/85">{pantheon.culture}</p>
           <h1 className="page-title text-parchment mb-6">{pantheon.name}</h1>
-          <div className="flex items-center justify-center gap-4 mb-6">
-            <div className="w-12 h-px bg-linear-to-r from-transparent to-gold/40" />
-            <div className="w-1.5 h-1.5 rotate-45 bg-gold/50" />
-            <div className="w-12 h-px bg-linear-to-l from-transparent to-gold/40" />
-          </div>
-          <p className="text-lg md:text-xl text-parchment/70 max-w-2xl mx-auto font-body leading-relaxed">
-            {pantheon.culture}
-          </p>
-          <EditorialByline
-            className="mx-auto mt-4 max-w-2xl text-center text-parchment/80"
-            tone="light"
-          />
+          {pantheon.description && pantheon.detailedHistory && (
+            <p className="max-w-2xl font-body text-xl leading-relaxed text-parchment/85">
+              {pantheon.description}
+            </p>
+          )}
+          <nav
+            aria-label="On this page"
+            className="mt-6 flex flex-wrap gap-x-6 gap-y-2"
+          >
+            <a
+              href="#pantheon-about"
+              className="inline-flex min-h-11 items-center text-parchment underline underline-offset-4"
+            >
+              {pantheon.detailedHistory ? "History and context" : "Context"}
+            </a>
+            {pantheonDeities.length > 0 && (
+              <a
+                href="#pantheon-figures"
+                className="inline-flex min-h-11 items-center text-parchment underline underline-offset-4"
+              >
+                {pantheon.figuresLabel || "Deities"}
+              </a>
+            )}
+            {pantheonStories.length > 0 && (
+              <a
+                href="#pantheon-stories"
+                className="inline-flex min-h-11 items-center text-parchment underline underline-offset-4"
+              >
+                Stories and myths
+              </a>
+            )}
+          </nav>
+          <EditorialByline className="mt-4 max-w-2xl" tone="light" />
         </RouteHero>
       </div>
 
@@ -158,11 +179,13 @@ export function PantheonPageClient({ slug }: PantheonPageClientProps) {
           </div>
           <div className="flex items-center gap-2">
             <Calendar className="h-4 w-4 text-gold" aria-hidden />
-            <dt className="text-muted-foreground">Era</dt>
+            <dt className="text-muted-foreground">Catalog period</dt>
             <dd className="font-medium text-foreground">
-              {pantheon.timePeriodStart && pantheon.timePeriodEnd
-                ? `${Math.abs(pantheon.timePeriodStart)} BCE – ${Math.abs(pantheon.timePeriodEnd)} ${pantheon.timePeriodEnd < 0 ? "BCE" : "CE"}`
-                : "Ancient times"}
+              {pantheon.timePeriodStart !== null
+                ? `${pantheon.timePeriodEnd === null ? "From " : ""}${Math.abs(pantheon.timePeriodStart)} ${pantheon.timePeriodStart < 0 ? "BCE" : "CE"}${pantheon.timePeriodEnd !== null ? ` – ${Math.abs(pantheon.timePeriodEnd)} ${pantheon.timePeriodEnd < 0 ? "BCE" : "CE"}` : "; end date not recorded"}`
+                : pantheon.timePeriodEnd !== null
+                  ? `Until ${Math.abs(pantheon.timePeriodEnd)} ${pantheon.timePeriodEnd < 0 ? "BCE" : "CE"}`
+                  : "Dates not recorded"}
             </dd>
           </div>
           <div className="flex items-center gap-2">
@@ -177,7 +200,10 @@ export function PantheonPageClient({ slug }: PantheonPageClientProps) {
         </dl>
 
         {/* About — borderless editorial prose */}
-        <section className="mb-14 max-w-[68ch]">
+        <section
+          id="pantheon-about"
+          className="mb-14 max-w-[68ch] scroll-mt-24"
+        >
           <h2 className="font-serif text-2xl font-semibold text-foreground mb-4">
             About
           </h2>
@@ -200,7 +226,7 @@ export function PantheonPageClient({ slug }: PantheonPageClientProps) {
         )}
 
         {/* Deities Section */}
-        <section className="mb-14">
+        <section id="pantheon-figures" className="mb-14 scroll-mt-24">
           <div className="flex items-center gap-3 mb-6">
             <Users className="h-6 w-6 text-gold" />
             <h2 className="text-3xl font-serif font-semibold text-foreground">
@@ -235,7 +261,7 @@ export function PantheonPageClient({ slug }: PantheonPageClientProps) {
                           {deity.name}
                         </CardTitle>
                         {deity.traditionRole && (
-                          <span className="text-[0.65rem] uppercase tracking-wider text-gold-light border border-gold/30 bg-gold/10 px-1.5 py-0.5 font-medium">
+                          <span className="text-[0.65rem] uppercase tracking-wider text-gold-text border border-gold/30 bg-gold/10 px-1.5 py-0.5 font-medium">
                             {deity.traditionRole}
                           </span>
                         )}
@@ -267,7 +293,7 @@ export function PantheonPageClient({ slug }: PantheonPageClientProps) {
         </section>
 
         {/* Stories Section */}
-        <section>
+        <section id="pantheon-stories" className="scroll-mt-24">
           <div className="flex items-center gap-3 mb-6">
             <BookOpen className="h-6 w-6 text-gold" />
             <h2 className="text-3xl font-serif font-semibold text-foreground">
@@ -285,7 +311,7 @@ export function PantheonPageClient({ slug }: PantheonPageClientProps) {
                 >
                   <Card className="h-full border-border bg-card hover:border-gold/50 hover:shadow-lg hover:shadow-gold/5 transition-all duration-300">
                     <CardHeader>
-                      <div className="flex items-center justify-between gap-2 mb-1">
+                      <div className="flex flex-wrap items-start justify-between gap-2 mb-1">
                         <CardTitle className="font-serif text-xl text-foreground group-hover:text-gold transition-colors">
                           {story.title}
                         </CardTitle>

@@ -1,5 +1,6 @@
 import stories from "../../data/stories.json";
 import pantheons from "../../data/pantheons.json";
+import deities from "../../data/deities.json";
 import { STORY_ALIASES } from "@/lib/story-aliases";
 
 const { describe, it, expect } = await import("vitest");
@@ -29,6 +30,20 @@ const validCategories = [
 ];
 
 describe("stories.json data integrity", () => {
+  it("uses the featuredDeities field consumed by story pages for deity links", () => {
+    const unsupported = stories
+      .filter((story) => "featuredDeityIds" in story)
+      .map((story) => story.id);
+    expect(unsupported).toEqual([]);
+
+    const deityIds = new Set(deities.map((deity) => deity.id));
+    for (const story of stories) {
+      for (const deityId of story.featuredDeities ?? []) {
+        expect(deityIds.has(deityId), `${story.id}: ${deityId}`).toBe(true);
+      }
+    }
+  });
+
   it("should have at least one story", () => {
     expect(stories.length).toBeGreaterThan(0);
   });

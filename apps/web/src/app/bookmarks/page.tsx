@@ -6,7 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { BookmarkButton } from "@/components/ui/bookmark-button";
 import { Progress } from "@/components/ui/progress";
 import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
-import { Sparkles, ScrollText, BookOpen, Compass } from "lucide-react";
+import { Sparkles, ScrollText, BookOpen } from "lucide-react";
 import { HeroMark } from "@/components/icons/hero-mark";
 import { MythosMark } from "@/components/icons/mythos-marks";
 import Link from "next/link";
@@ -94,6 +94,16 @@ export default function BookmarksPage() {
     stories.filter((s) => storyBookmarks.some((b) => b.id === s.id)) ?? [];
 
   const isEmpty = allBookmarks.length === 0;
+
+  if (isEmpty) {
+    return (
+      <div className="page-shell max-w-4xl min-h-screen">
+        <Breadcrumbs />
+        <h1 className="page-title text-foreground">Bookmarks</h1>
+        <EmptyState />
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-mythic">
@@ -422,40 +432,41 @@ function BookmarkCard({
 
 function EmptyState() {
   return (
-    <div className="mt-8 flex flex-col items-center justify-center py-20">
-      <div className="mb-6">
-        <HeroMark mark="favor" tone="light" size="lg" />
-      </div>
-      <h2 className="text-2xl font-serif font-semibold mb-3 text-foreground">
-        No bookmarks yet
+    <section className="mt-8 max-w-2xl" aria-labelledby="bookmarks-empty-title">
+      <h2
+        id="bookmarks-empty-title"
+        className="font-serif text-2xl text-foreground"
+      >
+        Keep a reading list
       </h2>
-      <p className="text-muted-foreground text-center max-w-md mb-8 leading-relaxed">
-        Start exploring ancient mythology and save your favorite deities,
-        heroes, stories, pantheons, and source texts to revisit them later.
+      <p className="mt-4 font-body text-xl leading-relaxed text-foreground">
+        Save a figure, story or source with its heart button. Your saved entries
+        will appear here, ready to open again.
       </p>
-      <div className="flex flex-wrap items-center justify-center gap-4">
-        <Link
-          href="/deities"
-          className="inline-flex items-center gap-2 px-5 py-2.5 bg-gold/20 hover:bg-gold/30 border border-gold/40 hover:border-gold/50 rounded-lg text-amber-900 dark:text-amber-100 transition-colors"
-        >
-          <Sparkles className="h-4 w-4" />
-          Explore Deities
-        </Link>
+      <div className="mt-6 flex flex-wrap gap-4">
         <Link
           href="/stories"
-          className="inline-flex items-center gap-2 px-5 py-2.5 bg-gold/20 hover:bg-gold/30 border border-gold/40 hover:border-gold/50 rounded-lg text-amber-900 dark:text-amber-100 transition-colors"
+          className="inline-flex min-h-11 items-center rounded-md bg-gold px-5 font-medium text-midnight hover:bg-gold-light"
         >
-          <ScrollText className="h-4 w-4" />
-          Read Stories
+          Find a story to save
         </Link>
         <Link
-          href="/pantheons"
-          className="inline-flex items-center gap-2 px-5 py-2.5 bg-gold/20 hover:bg-gold/30 border border-gold/40 hover:border-gold/50 rounded-lg text-amber-900 dark:text-amber-100 transition-colors"
+          href="/deities"
+          className="inline-flex min-h-11 items-center text-gold-text underline underline-offset-4"
         >
-          <Compass className="h-4 w-4" />
-          Browse Pantheons
+          Browse figures
         </Link>
       </div>
-    </div>
+      <p className="mt-8 border-t border-border pt-5 text-sm text-muted-foreground">
+        Bookmarks are saved in this browser. You can export or restore them from{" "}
+        <Link
+          href="/progress"
+          className="text-gold-text underline underline-offset-4"
+        >
+          Progress
+        </Link>
+        .
+      </p>
+    </section>
   );
 }

@@ -28,7 +28,11 @@ describe("SourceExcerpt", () => {
     expect(document.querySelector("blockquote")).toBeInTheDocument();
 
     fireEvent.click(screen.getByRole("button", { name: "Ancient Greek" }));
-    expect(screen.getByText(/Μῆνιν ἄειδε θεὰ/)).toBeInTheDocument();
+    expect(screen.getByText(/Μῆνιν ἄειδε θεὰ/)).toHaveAttribute("lang", "grc");
+    expect(screen.getByRole("button", { name: "Translation" })).toHaveAttribute(
+      "aria-pressed",
+      "true",
+    );
   });
 
   it.each([
@@ -59,7 +63,21 @@ describe("SourceExcerpt", () => {
       expect(
         screen.queryByRole("button", { name: "Ancient Greek" }),
       ).not.toBeInTheDocument();
-      expect(screen.getByText("Editorially presented text.")).toBeInTheDocument();
+      if (verification === "not-verified") {
+        expect(
+          screen.queryByText("Editorially presented text."),
+        ).not.toBeInTheDocument();
+        expect(screen.getByText(/Its wording is withheld/)).toBeInTheDocument();
+      } else {
+        expect(
+          screen.getByText("Editorially presented text."),
+        ).toBeInTheDocument();
+      }
+      expect(screen.queryByText("Unverified original")).not.toBeInTheDocument();
+      expect(screen.getByRole("link", { name: /Read source/ })).toHaveAttribute(
+        "href",
+        verifiedExcerpt.sourceUrl,
+      );
     },
   );
 });

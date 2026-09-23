@@ -9,3 +9,26 @@ apps/web/.next
 .turbo
 *.log
 apps/api
+
+# Keep local tooling, history, and generated QA artifacts out of deployments.
+**/.env*
+**/.history/**
+**/.claude/**
+**/.codex/**
+**/.agents/**
+**/.hq/**
+**/.specter/**
+**/.playwright-mcp/**
+**/.qa-shots/**
+**/playwright-report/**
+**/test-results/**
+**/coverage/**
+**/*.tsbuildinfo
+.codacy
+thoughts
+tmp
+temp
+.audit-report.md
+/*.png
+/*.jpg
+/*.jpeg

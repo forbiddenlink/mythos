@@ -1,4 +1,9 @@
 import deities from "../../data/deities.json";
+import {
+  distinctDeityReference,
+  findDeityByReference,
+  normalizeDeityReference,
+} from "@/lib/deities";
 import pantheons from "../../data/pantheons.json";
 
 const { describe, it, expect } = await import("vitest");
@@ -6,6 +11,50 @@ const { describe, it, expect } = await import("vitest");
 const validPantheonIds = pantheons.map((p: { id: string }) => p.id);
 
 describe("deities.json data integrity", () => {
+  it("uses canonical IDs when a parallel names a known alias in the same pantheon", () => {
+    const aliases = deities.flatMap((deity) =>
+      (deity.alternateNames ?? []).map((alias) => ({
+        alias: normalizeDeityReference(alias),
+        deity,
+      })),
+    );
+    const stale: string[] = [];
+    for (const deity of deities) {
+      for (const parallel of deity.crossPantheonParallels ?? []) {
+        const target = aliases.find(
+          ({ alias, deity: candidate }) =>
+            alias === normalizeDeityReference(parallel.deityId) &&
+            candidate.pantheonId === parallel.pantheonId,
+        )?.deity;
+        if (target && parallel.deityId !== target.id) {
+          stale.push(`${deity.id}: ${parallel.deityId} should be ${target.id}`);
+        }
+      }
+    }
+    expect(stale).toEqual([]);
+  });
+
+  it("keeps Roman names searchable without a second deity page", () => {
+    expect(findDeityByReference("pluto")?.id).toBe("hades");
+    expect(findDeityByReference("proserpina")?.id).toBe("persephone");
+    expect(distinctDeityReference("hades", "pluto")).toBeUndefined();
+    expect(distinctDeityReference("persephone", "proserpina")).toBeUndefined();
+    expect(distinctDeityReference("hades", "osiris")?.id).toBe("osiris");
+
+    const selfAliases: string[] = [];
+    for (const deity of deities) {
+      for (const parallel of deity.crossPantheonParallels ?? []) {
+        if (findDeityByReference(parallel.deityId)?.id === deity.id) {
+          selfAliases.push(`${deity.id}:${parallel.deityId}`);
+        }
+      }
+    }
+    expect(selfAliases.sort()).toEqual([
+      "hades:pluto",
+      "persephone:proserpina",
+    ]);
+  });
+
   it("should have at least one deity", () => {
     expect(deities.length).toBeGreaterThan(0);
   });
@@ -125,7 +174,7 @@ describe("deities.json data integrity", () => {
     }
   });
 
-  it("rank-1 deities and the Greek olympians include cult notes", () => {
+  it("the Greek olympians include cult notes", () => {
     const olympians = [
       "zeus",
       "hera",
@@ -145,11 +194,6 @@ describe("deities.json data integrity", () => {
     const byId = new Map(
       (deities as CultDeity[]).map((deity) => [deity.id, deity]),
     );
-    for (const deity of deities as CultDeity[]) {
-      if (deity.importanceRank === 1) {
-        expectCultNotes(deity, deity.id);
-      }
-    }
     for (const id of olympians) {
       const deity = byId.get(id);
       expect(deity, id).toBeTruthy();
@@ -157,9 +201,18 @@ describe("deities.json data integrity", () => {
     }
   });
 
-  it("every deity includes cult notes, including honest absence", () => {
+  it("recorded cult notes are nonempty and contain no drafting instructions", () => {
     for (const deity of deities as CultDeity[]) {
+      // Missing evidence is allowed; filling this field is not evidence of a cult.
+      if (!deity.worship) continue;
       expectCultNotes(deity, deity.id);
+      for (const note of [
+        ...(deity.worship.temples ?? []),
+        ...(deity.worship.festivals ?? []),
+        deity.worship.practices ?? "",
+      ]) {
+        expect(note, deity.id).not.toMatch(/(?:^|[.;]\s+)do not invent\b/i);
+      }
     }
   });
 });

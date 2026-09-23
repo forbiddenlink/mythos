@@ -2,6 +2,7 @@ import museumObjects from "../../data/museum-objects.json";
 import deities from "../../data/deities.json";
 import creatures from "../../data/creatures.json";
 import stories from "../../data/stories.json";
+import heroes from "../../data/heroes.json";
 
 const { describe, it, expect } = await import("vitest");
 
@@ -10,6 +11,7 @@ type MuseumObject = {
   storyIds: string[];
   deityIds?: string[];
   creatureIds?: string[];
+  heroIds?: string[];
   title: string;
   institution: string;
   accessionNumber: string;
@@ -49,6 +51,14 @@ const ALLOWED_IMAGE_HOSTS = new Set([
 ]);
 
 describe("museum-objects.json data integrity", () => {
+  it("hero associations reference real hero articles", () => {
+    const slugs = new Set(heroes.map((hero) => hero.slug));
+    for (const object of objects) {
+      for (const slug of object.heroIds ?? []) {
+        expect(slugs.has(slug), `${object.id}: ${slug}`).toBe(true);
+      }
+    }
+  });
   it("should have at least one object", () => {
     expect(objects.length).toBeGreaterThan(0);
   });

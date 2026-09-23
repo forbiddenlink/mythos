@@ -239,6 +239,60 @@ export default function ProgressPage() {
     "special",
   ];
 
+  const hasActivity =
+    stats.totalXP > 0 ||
+    stats.totalDeitiesViewed > 0 ||
+    stats.totalStoriesRead > 0 ||
+    stats.totalPantheonsExplored > 0 ||
+    stats.totalLocationsVisited > 0 ||
+    stats.totalQuizzesTaken > 0 ||
+    stats.totalAchievements > 0;
+
+  if (!hasActivity) {
+    return (
+      <div className="page-shell max-w-4xl min-h-screen">
+        <Breadcrumbs />
+        <h1 className="page-title text-foreground">Your Journey</h1>
+        <section
+          className="mt-8 max-w-2xl"
+          aria-labelledby="progress-start-title"
+        >
+          <h2
+            id="progress-start-title"
+            className="font-serif text-2xl text-foreground"
+          >
+            Begin with something that interests you
+          </h2>
+          <p className="mt-4 font-body text-xl leading-relaxed text-foreground">
+            Open a figure or read a story. This page will record the entries you
+            visit and the traditions you explore, alongside your quiz results.
+          </p>
+          <div className="mt-6 flex flex-wrap gap-4">
+            <NextLink
+              href="/pantheons"
+              className="inline-flex min-h-11 items-center rounded-md bg-gold px-5 font-medium text-midnight hover:bg-gold-light"
+            >
+              Choose a tradition
+            </NextLink>
+            <NextLink
+              href="/stories"
+              className="inline-flex min-h-11 items-center text-gold-text underline underline-offset-4"
+            >
+              Find a story
+            </NextLink>
+          </div>
+          <p className="mt-8 border-t border-border pt-5 text-sm text-muted-foreground">
+            Your activity is saved in this browser. If you have a learning
+            backup, restore it below to continue where you left off.
+          </p>
+        </section>
+        <section className="mt-8" aria-label="Learning backup and restore">
+          <LearningBackup />
+        </section>
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen">
       {/* Hero Section */}

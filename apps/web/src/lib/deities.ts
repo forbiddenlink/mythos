@@ -35,6 +35,16 @@ export function findDeityByReference(
   return deityReferenceMap.get(normalizeDeityReference(reference));
 }
 
+/** A cross-pantheon parallel that only matches the source entry's own alias is not another page. */
+export function distinctDeityReference(
+  sourceId: string,
+  reference: string,
+): DeityLookup | undefined {
+  const found = findDeityByReference(reference);
+  if (!found || found.id === sourceId) return undefined;
+  return found;
+}
+
 export function formatDeityReference(reference: string): string {
   return reference
     .split("-")

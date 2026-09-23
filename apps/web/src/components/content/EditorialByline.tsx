@@ -13,7 +13,7 @@ export function EditorialByline({
   const mutedClass =
     tone === "light" ? "text-parchment/75" : "text-muted-foreground";
   const accentClass =
-    tone === "light" ? "text-parchment underline" : "text-gold underline";
+    tone === "light" ? "text-parchment underline" : "text-gold-text underline";
 
   return (
     <p className={cn("text-sm leading-6", mutedClass, className)}>

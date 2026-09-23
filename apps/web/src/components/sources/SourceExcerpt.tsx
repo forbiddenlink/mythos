@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Quote, Languages, Book, ExternalLink } from "lucide-react";
+import { Languages, ExternalLink } from "lucide-react";
 import { cn } from "@/lib/utils";
 import sourcesData from "@/data/sources.json";
 
@@ -40,80 +40,61 @@ export function SourceExcerpt({
 }: SourceExcerptProps) {
   const [showOriginal, setShowOriginal] = useState(false);
 
-  // Find the linked source if available
   const linkedSource = excerpt.sourceId
-    ? (sourcesData as Source[]).find((s) => s.id === excerpt.sourceId)
+    ? (sourcesData as Source[]).find((source) => source.id === excerpt.sourceId)
     : null;
-
-  const isCompact = variant === "compact";
   const isDirectQuotation =
     excerpt.quoteStatus === "direct-quotation" &&
     excerpt.verification === "verified";
-  const hasVerifiedTranscription =
-    isDirectQuotation && excerpt.verification === "verified";
-  const statusLabel = {
-    "direct-quotation": isDirectQuotation
+  const isUnverified =
+    excerpt.verification === "not-verified" ||
+    excerpt.quoteStatus === "unverified";
+  const statusLabel = isUnverified
+    ? "Verification pending"
+    : isDirectQuotation
       ? "Direct quotation"
-      : "Original wording unverified",
-    "editorial-paraphrase": "Editorial paraphrase",
-    unverified: "Verification pending",
-  }[excerpt.quoteStatus];
+      : excerpt.quoteStatus === "editorial-paraphrase"
+        ? "Editorial paraphrase"
+        : "Original wording unverified";
   const readUrl = excerpt.sourceUrl || linkedSource?.externalUrl;
 
   return (
     <figure
       className={cn(
-        "relative",
-        isCompact ? "p-4" : "p-6",
-        "bg-linear-to-br from-slate-50 to-slate-100 dark:from-slate-800/60 dark:to-slate-900/60",
-        "border-l-4 border-teal-500/70 dark:border-teal-400/70",
-        "rounded-r-lg shadow-sm",
+        "border-l-2 border-gold/40 bg-muted/30",
+        variant === "compact" ? "p-4" : "p-6",
         className,
       )}
     >
-      {isDirectQuotation && (
-        <Quote
-          className={cn(
-            "absolute text-teal-500/20 dark:text-teal-400/20",
-            isCompact ? "h-8 w-8 top-2 right-2" : "h-12 w-12 top-4 right-4",
+      <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
+        <span className="text-xs font-medium uppercase tracking-wide text-gold-text">
+          {statusLabel}
+        </span>
+        {isDirectQuotation &&
+          excerpt.originalLanguage &&
+          excerpt.text !== excerpt.translation && (
+            <button
+              onClick={() => setShowOriginal(!showOriginal)}
+              className="inline-flex min-h-11 items-center gap-2 border border-border bg-background px-3 py-2 text-sm text-foreground hover:bg-muted"
+              aria-pressed={showOriginal}
+              aria-label={
+                showOriginal ? "Translation" : excerpt.originalLanguage
+              }
+            >
+              <Languages className="h-4 w-4" aria-hidden="true" />
+              {showOriginal ? "Translation" : excerpt.originalLanguage}
+            </button>
           )}
-          aria-hidden="true"
-        />
-      )}
-
-      {/* Original Language Toggle */}
-      {hasVerifiedTranscription &&
-        excerpt.originalLanguage &&
-        excerpt.text !== excerpt.translation && (
-        <button
-          onClick={() => setShowOriginal(!showOriginal)}
-          className={cn(
-            "absolute flex items-center gap-1.5 px-2.5 py-1 rounded-md",
-            "text-xs font-medium transition-colors",
-            "border border-slate-200 dark:border-slate-700",
-            showOriginal
-              ? "bg-teal-100 dark:bg-teal-900/50 text-teal-700 dark:text-teal-300 border-teal-300 dark:border-teal-700"
-              : "bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-teal-50 dark:hover:bg-teal-900/30",
-            isCompact ? "top-2 right-12" : "top-4 right-20",
-          )}
-          aria-pressed={showOriginal}
-          aria-label={showOriginal ? "Translation" : excerpt.originalLanguage}
-        >
-          <Languages className="h-3.5 w-3.5" aria-hidden="true" />
-          <span>{showOriginal ? "Translation" : excerpt.originalLanguage}</span>
-        </button>
-      )}
-
-      {isDirectQuotation ? (
-        <blockquote className={cn("relative", isCompact ? "pr-16" : "pr-20")}>
+      </div>
+      {isUnverified ? (
+        <p className="text-sm leading-relaxed text-muted-foreground">
+          This passage is awaiting verification against its source edition. Its
+          wording is withheld until that check is complete.
+        </p>
+      ) : isDirectQuotation ? (
+        <blockquote>
           <p
-            className={cn(
-              "font-serif italic leading-relaxed",
-              showOriginal
-                ? "text-slate-600 dark:text-slate-400"
-                : "text-slate-700 dark:text-slate-300",
-              isCompact ? "text-base" : "text-lg",
-            )}
+            className="font-body text-lg leading-relaxed text-foreground"
             lang={
               showOriginal && excerpt.originalLanguage
                 ? getLanguageCode(excerpt.originalLanguage)
@@ -124,60 +105,38 @@ export function SourceExcerpt({
           </p>
         </blockquote>
       ) : (
-        <div className={cn("relative", isCompact ? "pr-4" : "pr-6")}>
-          <p
-            className={cn(
-              "font-serif leading-relaxed text-slate-700 dark:text-slate-300",
-              isCompact ? "text-base" : "text-lg",
-            )}
-          >
-            {excerpt.translation}
-          </p>
-        </div>
+        <p className="font-body text-lg leading-relaxed text-foreground">
+          {excerpt.translation}
+        </p>
       )}
-
-      {/* Citation Footer */}
-      <figcaption
-        className={cn(
-          "mt-4 flex flex-wrap items-center gap-x-3 gap-y-1",
-          isCompact ? "text-xs" : "text-sm",
-        )}
-      >
-        <span className="rounded border border-gold/30 bg-gold/5 px-1.5 py-0.5 font-medium text-gold-text">
-          {statusLabel}
-        </span>
-        <div className="flex items-center gap-1.5 text-slate-600 dark:text-slate-400">
-          <Book className="h-4 w-4 shrink-0" aria-hidden="true" />
-          <cite className="not-italic font-medium">
+      <figcaption className="mt-5 space-y-2 border-t border-border pt-4 text-sm leading-relaxed text-muted-foreground">
+        <p>
+          <cite className="font-medium not-italic text-foreground">
             {excerpt.source}
-            {excerpt.lineNumbers && (
-              <span className="text-slate-500 dark:text-slate-500 font-normal">
-                , {excerpt.lineNumbers}
-              </span>
-            )}
           </cite>
-        </div>
-
+          {excerpt.lineNumbers && ` · ${excerpt.lineNumbers}`}
+        </p>
         {excerpt.translator && (
-          <span className="text-slate-500 dark:text-slate-500">
-            trans. {excerpt.translator}
-          </span>
+          <p>
+            {isUnverified
+              ? "Attribution to check"
+              : isDirectQuotation
+                ? "Translation"
+                : "Reference translation"}
+            : {excerpt.translator}
+          </p>
         )}
-
-        <span className="text-slate-500 dark:text-slate-500">
-          {excerpt.edition}
-        </span>
-
+        <p>{excerpt.edition}</p>
         {readUrl && (
           <a
             href={readUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1 text-teal-600 dark:text-teal-400 hover:text-teal-700 dark:hover:text-teal-300 transition-colors"
+            className="inline-flex min-h-11 items-center gap-2 text-gold-text underline underline-offset-4"
             aria-label={`Read source: ${excerpt.source} (opens in new tab)`}
           >
+            Read source{" "}
             <ExternalLink className="h-3.5 w-3.5" aria-hidden="true" />
-            <span>Read source</span>
           </a>
         )}
       </figcaption>

@@ -269,30 +269,34 @@
   },
   {
     "id": "african-pantheon",
-    "name": "African Pantheon (Yoruba)",
+    "name": "African Traditions",
     "slug": "african",
-    "culture": "Yoruba/West African",
-    "region": "West Africa (Nigeria, Benin)",
-    "timePeriodStart": -500,
+    "culture": "Yoruba, Akan, and other African traditions",
+    "region": "Africa and the African diaspora",
+    "timePeriodStart": null,
     "timePeriodEnd": null,
-    "description": "The Yoruba religious tradition centers on the Orishas, divine spirits who serve as intermediaries between Olodumare (the supreme creator) and humanity. This living tradition has spread across the globe through the African diaspora, manifesting in religions such as Santeria (Cuba), Candomble (Brazil), and Vodou (Haiti).",
-    "detailedHistory": "## The Children of Olodumare\n\nYoruba religion originated among the Yoruba people of what is now southwestern Nigeria and Benin, one of Africa's most influential civilizations. Unlike many pantheons where gods are distant figures, the Orishas are intimate presences in daily life, each governing specific aspects of nature and human experience.\n\n### Ile-Ife: The Sacred City\n\nAccording to tradition, Ile-Ife is where creation began. It was here that Olodumare sent the Orishas to shape the world from primordial waters. The city remains the spiritual heart of Yoruba religion, and its rulers trace their lineage to Oduduwa, the first divine king.\n\n### The Atlantic Crossing\n\nWhen millions of Yoruba people were enslaved and transported to the Americas during the transatlantic slave trade, they carried their religion with them. Despite brutal suppression, the Orishas survived by syncretizing with Catholic saints. Shango became Saint Barbara, Oshun became Our Lady of Charity, and Ogun became Saint Peter. These diaspora traditions continue to thrive today, with millions of practitioners in the Caribbean, Brazil, and North America.\n\n### A Living Tradition\n\nUnlike many mythologies studied here, Yoruba religion is not a relic of the past. Millions of people worldwide still worship the Orishas, consult Ifa divination, and maintain the traditions of their ancestors. The mythology continues to evolve, incorporating new stories and interpretations while honoring ancient wisdom.",
+    "description": "A collection of distinct African religious and storytelling traditions. Yoruba orishas appear alongside Akan figures such as Anansi and Nyame, and beings from other regions. These entries do not form a single shared pantheon.",
+    "detailedHistory": "## Distinct traditions, shared collection\n\nThis collection brings together entries from several African traditions for browsing. It does not imply a common religion, origin, or historical period. Anansi and Nyame belong to Akan traditions; the Yoruba orishas have their own religious contexts.\n\n### Yoruba traditions\n\nMany entries in this collection concern Yoruba religion, rooted in southwestern Nigeria and neighboring Benin. Orishas connect religious practice with particular places, communities, and aspects of life. Ifa divination is one part of this living tradition.\n\n### Akan storytelling\n\nAnansi and Nyame appear in Akan-Ashanti tales, including the account of Anansi obtaining stories from Nyame. The version included here follows R. S. Rattray's collected account; it is one recorded version rather than a universal telling.\n\n### Reading across traditions\n\nFollow each entry's cultural description and references. Similar roles, such as creator or trickster, do not make figures interchangeable. The broader collection also contains beings from other African regions; their inclusion here should not be read as Yoruba or Akan attribution.",
     "citationSources": [
       {
-        "title": "Ifa Divination Poetry",
-        "date": "Oral tradition, compiled 19th-20th century",
-        "type": "primary"
+        "title": "Ifa divination system",
+        "author": "UNESCO",
+        "type": "institutional reference",
+        "url": "https://ich.unesco.org/en/RL/ifa-divination-system-00146"
       },
       {
-        "title": "Yoruba Myths",
-        "author": "Ulli Beier",
-        "date": "1980",
-        "type": "secondary"
+        "title": "Akua ’ba figure: Asante-Akan cultural context",
+        "author": "The Metropolitan Museum of Art",
+        "type": "museum record",
+        "url": "https://www.metmuseum.org/art/collection/search/310293"
       },
       {
-        "title": "Orishas: Living Tradition",
-        "author": "Afolabi Epega",
-        "type": "secondary"
+        "title": "Akan-Ashanti Folk-Tales",
+        "author": "R. S. Rattray, collector and translator",
+        "book": "Tale 17",
+        "lines": "pp. 54–59",
+        "type": "oral tradition",
+        "url": "https://api.pageplace.de/preview/DT0400.9781107776746_A23755138/preview-9781107776746_A23755138.pdf"
       }
     ],
     "imageUrl": "/pantheons/african.jpg"

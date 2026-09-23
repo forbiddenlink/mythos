@@ -6,14 +6,7 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: "*",
         allow: "/",
-        disallow: [
-          "/api/",
-          "/_next/",
-          "/admin/",
-          "/bookmarks",
-          "/progress",
-          "/review",
-        ],
+        disallow: ["/api/", "/admin/", "/bookmarks", "/progress", "/review"],
       },
     ],
     sitemap: "https://mythosatlas.com/sitemap.xml",

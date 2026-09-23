@@ -13,6 +13,29 @@ const base = {
   imageUrl: "https://example.org/i.jpg",
 };
 
+it("requires an explicit hero association, not just a story connection", () => {
+  const objects: MuseumObject[] = [
+    {
+      ...base,
+      id: "portrait",
+      title: "Hero",
+      context: "Ancient object",
+      heroIds: ["heracles"],
+    },
+    {
+      ...base,
+      id: "story-only",
+      title: "Story",
+      context: "Ancient object",
+      storyIds: ["labors-of-hercules"],
+    },
+  ];
+  expect(
+    getMuseumObjectsFor({ hero: "heracles" }, objects).map((o) => o.id),
+  ).toEqual(["portrait"]);
+  expect(getMuseumObjectsFor({ hero: "perseus" }, objects)).toEqual([]);
+});
+
 const fixture: MuseumObject[] = [
   {
     ...base,

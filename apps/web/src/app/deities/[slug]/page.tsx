@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound, redirect } from "next/navigation";
 import deities from "@/data/deities.json";
+import heroes from "@/data/heroes.json";
 import pantheons from "@/data/pantheons.json";
 import { findDeityByReference } from "@/lib/deities";
 import { generateBaseMetadata, generateNotFoundMetadata } from "@/lib/metadata";
@@ -100,6 +101,17 @@ export default async function DeityPage({ params }: PageProps) {
   return (
     <DeityPageClient
       slug={slug}
+      traditionLabel={
+        pantheons.find((pantheon) => pantheon.id === deity.pantheonId)?.name
+      }
+      heroParallels={heroes
+        .filter((hero) => {
+          const entry = deities.find((item) => item.id === deity.id);
+          return entry?.crossPantheonParallels?.some(
+            (parallel) => parallel.deityId === hero.id,
+          );
+        })
+        .map(({ id, name, slug }) => ({ id, name, slug }))}
       museumObjects={getMuseumObjectsFor({ deity: deity.slug })}
     />
   );

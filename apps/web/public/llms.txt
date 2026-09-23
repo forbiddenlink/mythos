@@ -15,7 +15,7 @@ Mythos Atlas is a research-oriented reference and learning site for ancient and 
 - [Home](https://mythosatlas.com/): the atlas landing page.
 - [Browse deities](https://mythosatlas.com/deities): every deity entry.
 - [Browse stories](https://mythosatlas.com/stories): myth retellings and summaries.
-- [Pantheons](https://mythosatlas.com/pantheons): the 13 traditions covered.
+- [Pantheons](https://mythosatlas.com/pantheons): the traditions covered.
 - [Compare tools](https://mythosatlas.com/compare): cross-pantheon comparison, including [archetype parallels](https://mythosatlas.com/compare/parallels).
 - [Knowledge graph](https://mythosatlas.com/knowledge-graph): relationship explorer.
 - [Family tree explorer](https://mythosatlas.com/family-tree): divine genealogies.

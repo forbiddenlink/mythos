@@ -1,7 +1,5 @@
 import { test, expect, devices } from "@playwright/test";
 
-const BASE_URL = "http://localhost:3000";
-
 // Helper to wait for Oracle button (has 1s animation delay + dynamic loading)
 const waitForOracleButton = async (page: import("@playwright/test").Page) => {
   const oracleButton = page.locator('button[aria-label="Ask the Oracle"]');
@@ -11,7 +9,7 @@ const waitForOracleButton = async (page: import("@playwright/test").Page) => {
 
 test.describe("Phase 7: Oracle Chat", () => {
   test("should display Oracle button on homepage", async ({ page }) => {
-    await page.goto(`${BASE_URL}/`);
+    await page.goto(`/`);
     await page.waitForLoadState("domcontentloaded");
 
     // Oracle button should be visible (has 1s animation delay)
@@ -19,7 +17,7 @@ test.describe("Phase 7: Oracle Chat", () => {
   });
 
   test("should open Oracle modal when clicking button", async ({ page }) => {
-    await page.goto(`${BASE_URL}/`);
+    await page.goto(`/`);
     await page.waitForLoadState("domcontentloaded");
 
     // Click Oracle button
@@ -38,7 +36,7 @@ test.describe("Phase 7: Oracle Chat", () => {
   test("should display suggested questions in Oracle modal", async ({
     page,
   }) => {
-    await page.goto(`${BASE_URL}/`);
+    await page.goto(`/`);
     await page.waitForLoadState("domcontentloaded");
 
     const oracleButton = await waitForOracleButton(page);
@@ -66,7 +64,7 @@ test.describe("Phase 7: Oracle Chat", () => {
         body: "Zeus is a central god in Greek tradition.",
       });
     });
-    await page.goto(`${BASE_URL}/`);
+    await page.goto(`/`);
     await page.waitForLoadState("domcontentloaded");
 
     const oracleButton = await waitForOracleButton(page);
@@ -99,7 +97,7 @@ test.describe("Phase 7: Oracle Chat", () => {
   });
 
   test("should close Oracle modal with X button", async ({ page }) => {
-    await page.goto(`${BASE_URL}/`);
+    await page.goto(`/`);
     await page.waitForLoadState("domcontentloaded");
 
     const oracleButton = await waitForOracleButton(page);
@@ -128,7 +126,7 @@ test.describe("Phase 7: Deity Editorial Layout & Details", () => {
   test("should render deity hero artwork and title on deity page", async ({
     page,
   }) => {
-    await page.goto(`${BASE_URL}/deities/zeus`, {
+    await page.goto(`/deities/zeus`, {
       waitUntil: "domcontentloaded",
     });
 
@@ -147,7 +145,7 @@ test.describe("Phase 7: Deity Editorial Layout & Details", () => {
     page,
   }) => {
     // Test Greek deity
-    await page.goto(`${BASE_URL}/deities/zeus`, {
+    await page.goto(`/deities/zeus`, {
       waitUntil: "domcontentloaded",
     });
     const greekDeity = page.getByRole("heading", {
@@ -158,7 +156,7 @@ test.describe("Phase 7: Deity Editorial Layout & Details", () => {
     await expect(greekDeity).toBeVisible({ timeout: 10000 });
 
     // Test Egyptian deity
-    await page.goto(`${BASE_URL}/deities/ra`, {
+    await page.goto(`/deities/ra`, {
       waitUntil: "domcontentloaded",
     });
     const egyptianDeity = page.getByRole("heading", {
@@ -169,7 +167,7 @@ test.describe("Phase 7: Deity Editorial Layout & Details", () => {
     await expect(egyptianDeity).toBeVisible({ timeout: 10000 });
 
     // Test Japanese deity
-    await page.goto(`${BASE_URL}/deities/amaterasu`, {
+    await page.goto(`/deities/amaterasu`, {
       waitUntil: "domcontentloaded",
     });
     const japaneseDeity = page.getByRole("heading", {
@@ -186,7 +184,7 @@ test.describe("Phase 7: Layout Effects", () => {
     const pagesToCheck = ["/", "/deities", "/pantheons", "/stories", "/quiz"];
 
     for (const path of pagesToCheck) {
-      await page.goto(`${BASE_URL}${path}`);
+      await page.goto(`${path}`);
       await page.waitForLoadState("domcontentloaded");
 
       // Oracle has 1s animation delay + dynamic loading
@@ -197,11 +195,20 @@ test.describe("Phase 7: Layout Effects", () => {
 });
 
 test.describe("Phase 7: Mobile Viewport Tests", () => {
-  test("Oracle button should be visible on mobile", async ({ browser }) => {
-    const context = await browser.newContext({ ...devices["iPhone 13"] });
+  test("Oracle button should be visible on mobile", async ({
+    browser,
+    baseURL,
+    storageState,
+  }) => {
+    const context = await browser.newContext({
+      ...devices["iPhone 13"],
+      baseURL,
+      storageState,
+      isMobile: browser.browserType().name() !== "firefox",
+    });
     const page = await context.newPage();
 
-    await page.goto(`${BASE_URL}/`);
+    await page.goto(`/`);
     await page.waitForLoadState("domcontentloaded");
 
     // Oracle has 1s animation delay + dynamic loading
@@ -211,11 +218,20 @@ test.describe("Phase 7: Mobile Viewport Tests", () => {
     await context.close();
   });
 
-  test("Oracle modal should be responsive on mobile", async ({ browser }) => {
-    const context = await browser.newContext({ ...devices["iPhone 13"] });
+  test("Oracle modal should be responsive on mobile", async ({
+    browser,
+    baseURL,
+    storageState,
+  }) => {
+    const context = await browser.newContext({
+      ...devices["iPhone 13"],
+      baseURL,
+      storageState,
+      isMobile: browser.browserType().name() !== "firefox",
+    });
     const page = await context.newPage();
 
-    await page.goto(`${BASE_URL}/`);
+    await page.goto(`/`);
     await page.waitForLoadState("domcontentloaded");
 
     // Wait for Oracle button
@@ -236,11 +252,20 @@ test.describe("Phase 7: Mobile Viewport Tests", () => {
     await context.close();
   });
 
-  test("Deity page should render properly on mobile", async ({ browser }) => {
-    const context = await browser.newContext({ ...devices["iPhone 13"] });
+  test("Deity page should render properly on mobile", async ({
+    browser,
+    baseURL,
+    storageState,
+  }) => {
+    const context = await browser.newContext({
+      ...devices["iPhone 13"],
+      baseURL,
+      storageState,
+      isMobile: browser.browserType().name() !== "firefox",
+    });
     const page = await context.newPage();
 
-    await page.goto(`${BASE_URL}/deities/zeus`);
+    await page.goto(`/deities/zeus`);
     await page.waitForLoadState("domcontentloaded");
 
     // Page should load without errors
@@ -258,7 +283,7 @@ test.describe("Phase 7: Mobile Viewport Tests", () => {
     // Emulate reduced motion preference
     await page.emulateMedia({ reducedMotion: "reduce" });
 
-    await page.goto(`${BASE_URL}/`);
+    await page.goto(`/`);
     await page.waitForLoadState("domcontentloaded");
 
     // Page should still load successfully
@@ -270,11 +295,18 @@ test.describe("Phase 7: Mobile Viewport Tests", () => {
 test.describe("Phase 7: Tablet Viewport Tests", () => {
   test("Oracle modal should be properly sized on tablet", async ({
     browser,
+    baseURL,
+    storageState,
   }) => {
-    const context = await browser.newContext({ ...devices["iPad Pro 11"] });
+    const context = await browser.newContext({
+      ...devices["iPad Pro 11"],
+      baseURL,
+      storageState,
+      isMobile: browser.browserType().name() !== "firefox",
+    });
     const page = await context.newPage();
 
-    await page.goto(`${BASE_URL}/`);
+    await page.goto(`/`);
     await page.waitForLoadState("domcontentloaded");
 
     // Wait for Oracle button
@@ -297,11 +329,18 @@ test.describe("Phase 7: Tablet Viewport Tests", () => {
 
   test("Deity editorial layout should render on tablet", async ({
     browser,
+    baseURL,
+    storageState,
   }) => {
-    const context = await browser.newContext({ ...devices["iPad Pro 11"] });
+    const context = await browser.newContext({
+      ...devices["iPad Pro 11"],
+      baseURL,
+      storageState,
+      isMobile: browser.browserType().name() !== "firefox",
+    });
     const page = await context.newPage();
 
-    await page.goto(`${BASE_URL}/deities/athena`);
+    await page.goto(`/deities/athena`);
     await page.waitForLoadState("domcontentloaded");
 
     const deityName = page.locator("h1").filter({ hasText: "Athena" });
@@ -317,7 +356,7 @@ test.describe("Phase 7: Tablet Viewport Tests", () => {
 test.describe("Phase 7: Performance", () => {
   test("Homepage should load within acceptable time", async ({ page }) => {
     const start = Date.now();
-    await page.goto(`${BASE_URL}/`);
+    await page.goto(`/`);
     await page.waitForLoadState("domcontentloaded");
     const loadTime = Date.now() - start;
 
@@ -326,7 +365,7 @@ test.describe("Phase 7: Performance", () => {
   });
 
   test("Deity page should not block interaction", async ({ page }) => {
-    await page.goto(`${BASE_URL}/deities/odin`);
+    await page.goto(`/deities/odin`);
     await page.waitForLoadState("domcontentloaded");
 
     // Page content should be interactive

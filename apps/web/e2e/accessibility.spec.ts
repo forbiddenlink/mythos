@@ -67,8 +67,13 @@ test.describe("Reading pages at narrow widths", () => {
 
   for (const theme of ["light", "dark"]) {
     for (const path of [
+      "/atlas",
+      "/pantheons/greek",
+      "/stories/osiris-myth",
+      "/stories/inanna-descent",
       "/deities/zeus",
       "/deities/hades",
+      "/deities/gaia",
       "/stories/first-twins-ibeji",
       "/sources/iliad",
     ]) {
@@ -83,15 +88,18 @@ test.describe("Reading pages at narrow widths", () => {
             name: `Switch to ${theme === "light" ? "dark" : "light"} mode`,
           }),
         ).toBeVisible();
+        await page.evaluate(() => document.fonts.ready.then(() => undefined));
         await expect(page.locator("h1")).toHaveCount(1);
         await expect(
           page.locator("a a, a button, button a, button button"),
         ).toHaveCount(0);
-        expect(
-          await page.evaluate(
-            () => document.documentElement.scrollWidth <= innerWidth,
-          ),
-        ).toBe(true);
+        await expect
+          .poll(() =>
+            page.evaluate(
+              () => document.documentElement.scrollWidth <= innerWidth,
+            ),
+          )
+          .toBe(true);
 
         const provenance = page.getByRole("complementary", {
           name: "Catalogued sources",

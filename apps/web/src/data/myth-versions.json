@@ -4,13 +4,34 @@
     "question": "Which parts of Baldr's death appear in which source?",
     "takeaway": "The familiar story of the oath, the overlooked mistletoe, and Loki guiding the blind Höðr's hand is Snorri's. The Eddic poems allude to pieces of it, and Saxo tells a different story, where Baldr and Höðr are rivals for a woman and the fatal weapon is a sword.",
     "beats": [
-      { "id": "dreams", "label": "Ominous dreams" },
-      { "id": "oath", "label": "All things swear not to harm him" },
-      { "id": "weapon", "label": "The fatal weapon" },
-      { "id": "loki", "label": "Loki's part" },
-      { "id": "killer", "label": "Höðr kills him" },
-      { "id": "hel", "label": "Attempt to bring him back from Hel" },
-      { "id": "vengeance", "label": "His death is avenged" }
+      {
+        "id": "dreams",
+        "label": "Ominous dreams"
+      },
+      {
+        "id": "oath",
+        "label": "All things swear not to harm him"
+      },
+      {
+        "id": "weapon",
+        "label": "The fatal weapon"
+      },
+      {
+        "id": "loki",
+        "label": "Loki's part"
+      },
+      {
+        "id": "killer",
+        "label": "Höðr kills him"
+      },
+      {
+        "id": "hel",
+        "label": "Attempt to bring him back from Hel"
+      },
+      {
+        "id": "vengeance",
+        "label": "His death is avenged"
+      }
     ],
     "sources": [
       {
@@ -20,8 +41,12 @@
         "sortYear": 1000,
         "kind": "primary",
         "cells": {
-          "dreams": { "state": "absent" },
-          "oath": { "state": "absent" },
+          "dreams": {
+            "state": "absent"
+          },
+          "oath": {
+            "state": "absent"
+          },
           "weapon": {
             "state": "present",
             "note": "A mistletoe shoot, slender and fair, becomes the dart."
@@ -30,8 +55,14 @@
             "state": "variant",
             "note": "Only seen bound afterwards; his role in the killing is not stated."
           },
-          "killer": { "state": "present", "note": "Höðr shoots." },
-          "hel": { "state": "absent", "note": "Frigg weeps in Fensalir." },
+          "killer": {
+            "state": "present",
+            "note": "Höðr shoots."
+          },
+          "hel": {
+            "state": "absent",
+            "note": "Frigg weeps in Fensalir."
+          },
           "vengeance": {
             "state": "present",
             "note": "Baldr's brother, one night old, kills Höðr."
@@ -49,14 +80,22 @@
             "state": "present",
             "note": "Baldr's bad dreams send Odin riding to Hel to question a dead seeress."
           },
-          "oath": { "state": "absent" },
+          "oath": {
+            "state": "absent"
+          },
           "weapon": {
             "state": "variant",
             "note": "Höðr brings 'the famed branch', not named as mistletoe."
           },
-          "loki": { "state": "absent" },
-          "killer": { "state": "present" },
-          "hel": { "state": "absent" },
+          "loki": {
+            "state": "absent"
+          },
+          "killer": {
+            "state": "present"
+          },
+          "hel": {
+            "state": "absent"
+          },
           "vengeance": {
             "state": "present",
             "note": "Váli, born of Rindr, will avenge him at one night old."
@@ -82,12 +121,16 @@
             "state": "variant",
             "note": "The sword of the satyr Mimingus."
           },
-          "loki": { "state": "absent" },
+          "loki": {
+            "state": "absent"
+          },
           "killer": {
             "state": "variant",
             "note": "Hotherus, a human prince and Balderus' rival for Nanna."
           },
-          "hel": { "state": "absent" },
+          "hel": {
+            "state": "absent"
+          },
           "vengeance": {
             "state": "variant",
             "note": "Bous, son of Odin and Rinda, kills Hotherus."
@@ -102,12 +145,17 @@
         "kind": "medieval",
         "reference": true,
         "cells": {
-          "dreams": { "state": "present" },
+          "dreams": {
+            "state": "present"
+          },
           "oath": {
             "state": "present",
             "note": "Frigg takes oaths from everything except the young mistletoe."
           },
-          "weapon": { "state": "present", "note": "A mistletoe dart." },
+          "weapon": {
+            "state": "present",
+            "note": "A mistletoe dart."
+          },
           "loki": {
             "state": "present",
             "note": "Learns the secret in disguise and guides Höðr's hand."
@@ -130,266 +178,429 @@
   },
   {
     "storySlug": "osiris-myth",
-    "question": "How does the Osiris story change across two thousand years of sources?",
-    "takeaway": "Egyptian texts allude to the murder but never narrate it in full. The version most people know, with the chest at the banquet, the journey to Byblos, and the fourteen pieces, comes from the Greek writer Plutarch, around 100 CE.",
+    "question": "How does the Osiris story change across nearly 2,500 years of sources?",
+    "takeaway": "The Egyptian sources in this comparison preserve episodes and ritual allusions rather than Plutarch’s continuous narrative. His account, written around 100 CE, includes the chest at the banquet, the journey to Byblos and the fourteen pieces.",
     "beats": [
-      { "id": "murder", "label": "Set kills Osiris" },
-      { "id": "method", "label": "How he is killed" },
-      { "id": "body", "label": "Fate of the body" },
-      { "id": "search", "label": "Isis searches" },
-      { "id": "conception", "label": "Horus is conceived" },
-      { "id": "rule", "label": "Osiris rules the dead" },
-      { "id": "contest", "label": "Horus contends with Set" }
+      {
+        "id": "murder",
+        "label": "Set kills Osiris"
+      },
+      {
+        "id": "method",
+        "label": "How he is killed"
+      },
+      {
+        "id": "body",
+        "label": "Fate of the body"
+      },
+      {
+        "id": "search",
+        "label": "Isis searches"
+      },
+      {
+        "id": "conception",
+        "label": "Horus is conceived"
+      },
+      {
+        "id": "rule",
+        "label": "Osiris rules the dead"
+      },
+      {
+        "id": "contest",
+        "label": "Horus contends with Set"
+      }
     ],
     "sources": [
       {
-        "name": "Pyramid Texts",
-        "work": "Old Kingdom royal tomb inscriptions",
-        "date": "c. 2400-2300 BCE",
-        "sortYear": -2350,
+        "name": "Pyramid Texts (selected utterances)",
+        "work": "Utterances 355–357, 364, 366 and 532; S. A. B. Mercer translation (1952)",
+        "date": "c. 2350–2175 BCE",
+        "sortYear": -2300,
         "kind": "primary",
         "cells": {
           "murder": {
             "state": "present",
-            "note": "Set 'struck him down' at Nedyt."
+            "note": "Set fells Osiris at Nedyt (PT 532, §1256a–b)."
           },
           "method": {
-            "state": "absent",
-            "note": "Never narrated; the texts avoid describing the god's death."
+            "state": "variant",
+            "note": "No continuous murder scene; one passage alludes to drowning (PT 364, §615d)."
           },
           "body": {
             "state": "variant",
-            "note": "Allusions to his limbs being gathered and reassembled."
+            "note": "Nephthys gathers the limbs; Horus joins them (PT 364, §616a–617b)."
           },
           "search": {
             "state": "present",
-            "note": "Isis and Nephthys find him."
+            "note": "Isis and Nephthys find him (PT 357, §584a–b)."
           },
           "conception": {
             "state": "present",
-            "note": "Isis receives his seed."
+            "note": "His sister receives his seed and Horus comes forth (PT 366, §632a–d)."
           },
-          "rule": { "state": "present" },
-          "contest": { "state": "present" }
-        }
+          "rule": {
+            "state": "present",
+            "note": "The deceased, identified with Osiris, commands the spirits (PT 355, §573a–b)."
+          },
+          "contest": {
+            "state": "present",
+            "note": "Horus subdues Set and avenges his father (PT 356, §581a–582d)."
+          }
+        },
+        "readingUrl": "https://archive.sacred-texts.com/egy/pyt/index.htm"
       },
       {
         "name": "Great Hymn to Osiris (stela of Amenmose)",
-        "work": "Louvre C 286",
+        "work": "Louvre C 286; Miriam Lichtheim translation (1976)",
         "date": "18th Dynasty, c. 1400 BCE",
         "sortYear": -1400,
         "kind": "primary",
         "cells": {
-          "murder": { "state": "variant", "note": "Implied, not narrated." },
-          "method": { "state": "absent" },
-          "body": { "state": "absent" },
+          "murder": {
+            "state": "variant",
+            "note": "The hymn does not narrate Set killing Osiris. Lichtheim notes that Egyptian texts rarely write the slaying; this episode begins with Isis already searching (between her line markers 10 and 20)."
+          },
+          "method": {
+            "state": "absent",
+            "note": "No weapon or method is described."
+          },
+          "body": {
+            "state": "absent",
+            "note": "The hymn does not describe the body's division or burial."
+          },
           "search": {
             "state": "present",
-            "note": "Isis searches without rest, shading him with her wings."
+            "note": "Isis searches without wearying, shades him with her plumage, and makes breath with her wings (Lichtheim, between lines 10 and 20)."
           },
           "conception": {
             "state": "present",
-            "note": "She raises the weary one's inertness and conceives the heir."
+            "note": "She raises the weary one's inertness, receives the seed, and bears the heir (same passage)."
           },
-          "rule": { "state": "present" },
+          "rule": {
+            "state": "present",
+            "note": "The praise calls him lord of eternity, and those in the Duat kiss the ground before him."
+          },
           "contest": {
             "state": "present",
-            "note": "The gods award Horus his father's throne."
+            "note": "In the hall of Geb the Ennead gives Horus his father's kingship, and he comes out crowned (Lichtheim, after line 10)."
           }
         }
       },
       {
         "name": "The Contendings of Horus and Seth",
-        "work": "Papyrus Chester Beatty I",
+        "work": "Papyrus Chester Beatty I, recto; Alan H. Gardiner translation (1931)",
         "date": "20th Dynasty, c. 1160 BCE",
         "sortYear": -1160,
         "kind": "primary",
         "cells": {
-          "murder": { "state": "variant", "note": "Assumed background." },
-          "method": { "state": "absent" },
-          "body": { "state": "absent" },
-          "search": { "state": "absent" },
-          "conception": { "state": "variant", "note": "Assumed background." },
+          "murder": {
+            "state": "variant",
+            "note": "Not narrated. The tale opens with the child Horus already claiming his father's office; Gardiner notes that the plot assumes Osiris's tragedy."
+          },
+          "method": {
+            "state": "absent",
+            "note": "The papyrus does not describe how Osiris was killed."
+          },
+          "body": {
+            "state": "absent",
+            "note": "The papyrus does not describe the body's fate."
+          },
+          "search": {
+            "state": "absent",
+            "note": "Isis does not search for the body in this tale."
+          },
+          "conception": {
+            "state": "variant",
+            "note": "Horus is already a child before the tribunal; his conception is not told."
+          },
           "rule": {
             "state": "variant",
-            "note": "Osiris writes from the Duat, threatening the gods into a verdict."
+            "note": "Osiris answers from the West. His second letter threatens to send messengers for the hearts of wrongdoers; Gardiner reads him as ruling the netherworld (recto 14–15)."
           },
           "contest": {
             "state": "present",
-            "note": "An eighty-year trial full of tricks and bawdy contests."
+            "note": "The Ennead says the case has already lasted eighty years. At the close they set the White Crown on Horus and give him his father's office."
           }
-        }
+        },
+        "readingUrl": "https://chesterbeatty.ie/assets/uploads/2018/11/The-Library-of-A.-Chestera-Beatty-Description-of-a-Hieratic-Papyrus-with-a-Mythological-Story-Love-Songs-and-Other-Miscellaneous-Texts.pdf"
       },
       {
         "name": "Diodorus Siculus, Library 1.21",
-        "work": "Greek universal history",
+        "work": "Library of History 1.21; C. H. Oldfather translation (1933)",
         "date": "1st century BCE",
         "sortYear": -50,
         "kind": "later-ancient",
         "cells": {
-          "murder": { "state": "present" },
+          "murder": {
+            "state": "present",
+            "note": "Typhon, Osiris’s brother, murders him (1.21.2)."
+          },
           "method": {
             "state": "variant",
-            "note": "Typhon (Set) kills him outright."
+            "note": "The killing is reported without specifying a weapon or method (1.21.2)."
           },
           "body": {
             "state": "variant",
-            "note": "Cut into 26 pieces shared among the conspirators."
+            "note": "Twenty-six pieces are distributed among the killers (1.21.2)."
           },
-          "search": { "state": "present" },
-          "conception": { "state": "absent" },
-          "rule": { "state": "present" },
+          "search": {
+            "state": "present",
+            "note": "Isis recovers the remains except the genitals (1.21.5)."
+          },
+          "conception": {
+            "state": "absent",
+            "note": "Horus is already Isis’s son; his conception is not told in this chapter (1.21.3)."
+          },
+          "rule": {
+            "state": "absent",
+            "note": "Chapter 1.21 describes burial and divine honours, not rule over the dead."
+          },
           "contest": {
             "state": "present",
-            "note": "Isis and Horus defeat Typhon."
+            "note": "Isis avenges Osiris with Horus’s help and kills Typhon and his allies (1.21.3–4)."
           }
-        }
+        },
+        "readingUrl": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Diodorus_Siculus/1A%2A.html#21"
       },
       {
         "name": "Plutarch, On Isis and Osiris 13-19",
-        "work": "Moralia",
+        "work": "Moralia; Frank Cole Babbitt translation (1936)",
         "date": "c. 100 CE",
         "sortYear": 100,
         "kind": "later-ancient",
         "reference": true,
         "cells": {
-          "murder": { "state": "present" },
+          "murder": {
+            "state": "present",
+            "note": "Typhon and his accomplices trap Osiris (§13)."
+          },
           "method": {
             "state": "present",
-            "note": "Set tricks him into a made-to-measure chest at a banquet and throws it in the Nile."
+            "note": "They seal him in a fitted chest at a feast and send it downriver (§13)."
           },
           "body": {
             "state": "present",
-            "note": "Found again and cut into fourteen pieces; the phallus is eaten by fish."
+            "note": "Typhon divides the recovered body into fourteen pieces; fish consume the genitals (§18)."
           },
           "search": {
             "state": "present",
-            "note": "Isis follows the chest to Byblos, where it is enclosed in a tree."
+            "note": "Isis follows the chest to Byblos, where a tree has enclosed it (§§15–16)."
           },
-          "conception": { "state": "present" },
-          "rule": { "state": "present" },
-          "contest": { "state": "present" }
-        }
+          "conception": {
+            "state": "variant",
+            "note": "The posthumous child is named Harpocrates, distinguished here from the Horus who fights Typhon (§19)."
+          },
+          "rule": {
+            "state": "absent",
+            "note": "Osiris returns from the other world to train Horus; these sections do not describe his rule over the dead (§19)."
+          },
+          "contest": {
+            "state": "present",
+            "note": "Horus wins battles against Typhon, and the gods uphold his legitimacy (§19)."
+          }
+        },
+        "readingUrl": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Plutarch/Moralia/Isis_and_Osiris%2A/A.html#13"
       }
     ]
   },
   {
     "storySlug": "ramayana",
     "question": "How do major Ramayanas tell Sita's abduction and ordeal?",
-    "takeaway": "There is no single Ramayana. Later devotional tellings protect Sita from Ravana's touch: Kamban has Ravana lift the ground she stands on, and the Adhyatma and Tulsidas versions have Ravana carry off only an illusory Sita.",
+    "takeaway": "There is no single Ramayana. Later devotional tellings protect Sita from Ravana's touch: Kamban has him carry away her cottage without touching her, and the Adhyatma and Tulsidas versions have Ravana carry off only an illusory Sita.",
     "beats": [
-      { "id": "deer", "label": "The golden deer" },
-      { "id": "abduction", "label": "Ravana takes Sita" },
-      { "id": "hanuman", "label": "Hanuman finds her in Lanka" },
-      { "id": "war", "label": "War and Ravana's death" },
-      { "id": "ordeal", "label": "Sita's trial by fire" },
-      { "id": "banishment", "label": "Sita's later banishment" }
+      {
+        "id": "deer",
+        "label": "The golden deer"
+      },
+      {
+        "id": "abduction",
+        "label": "Ravana takes Sita"
+      },
+      {
+        "id": "hanuman",
+        "label": "Hanuman finds her in Lanka"
+      },
+      {
+        "id": "war",
+        "label": "War and Ravana's death"
+      },
+      {
+        "id": "ordeal",
+        "label": "Sita's trial by fire"
+      },
+      {
+        "id": "banishment",
+        "label": "Sita's later banishment"
+      }
     ],
     "sources": [
       {
         "name": "Valmiki Ramayana",
-        "work": "Sanskrit epic",
+        "work": "Ralph T. H. Griffith, The Rámáyan of Válmíki (1870–1874)",
         "date": "composed c. 5th century BCE to 3rd century CE",
         "sortYear": -200,
         "kind": "primary",
         "reference": true,
         "cells": {
-          "deer": { "state": "present" },
+          "deer": {
+            "state": "present",
+            "note": "Márícha becomes the golden deer, and Ráma goes to hunt him (Griffith, Book III, Canto XLIII)."
+          },
           "abduction": {
             "state": "present",
-            "note": "Ravana seizes Sita bodily and carries her off in his chariot."
+            "note": "Rávana clasps Sítá and sets her in his car (Griffith, Book III, Canto XLIX)."
           },
-          "hanuman": { "state": "present" },
-          "war": { "state": "present" },
+          "hanuman": {
+            "state": "present",
+            "note": "Hanumán searches the ashoka grove and finds her there (Griffith, Book V, Cantos XIV–XV)."
+          },
+          "war": {
+            "state": "present",
+            "note": "Rávana dies in the battle (Griffith, Book VI, Canto CX)."
+          },
           "ordeal": {
             "state": "present",
-            "note": "Sita enters the fire and Agni returns her unharmed."
+            "note": "Sítá answers the charge and is restored after the battle (Griffith, Book VI, Cantos CXVII–CXX)."
           },
           "banishment": {
             "state": "present",
-            "note": "In the Uttara Kanda, which many scholars regard as a later addition."
+            "note": "Not in Griffith's Books I–VI, which end at the consecration (Book VI, Canto CXXX). The banishment is told in the Uttara Kanda, often printed as Book VII and widely regarded as a later addition; that book is not in the edition linked here."
           }
-        }
+        },
+        "readingUrl": "https://sacred-texts.com/hin/rama/index.htm"
       },
       {
         "name": "Kamba Ramayanam",
-        "work": "Tamil epic by Kamban",
+        "work": "V. S. Mudaliar, condensed English version (1970)",
         "date": "12th century",
         "sortYear": 1150,
         "kind": "medieval",
         "cells": {
-          "deer": { "state": "present" },
+          "deer": {
+            "state": "present",
+            "note": "Maricha appears as a golden deer and Rama hunts him (Mudaliar, Aranya Kandam)."
+          },
           "abduction": {
             "state": "variant",
-            "note": "Ravana lifts the earth she stands on so that he never touches her."
+            "note": "Remembering a curse, Ravana does not seize Sita. He digs out her hut and carries her inside it (Mudaliar, Aranya Kandam)."
           },
-          "hanuman": { "state": "present" },
-          "war": { "state": "present" },
-          "ordeal": { "state": "present" },
+          "hanuman": {
+            "state": "present",
+            "note": "Hanuman finds her in the ashoka grove, guarded by rakshasis (Mudaliar, Sundara Kandam)."
+          },
+          "war": {
+            "state": "present",
+            "note": "Ravana is killed; Vibhishana is crowned, and Hanuman tells Sita (Mudaliar, Yuddha Kandam)."
+          },
+          "ordeal": {
+            "state": "present",
+            "note": "Sita leaps into the fire. The fire-god brings her out unburnt and returns her to Rama (Mudaliar, Yuddha Kandam)."
+          },
           "banishment": {
             "state": "absent",
-            "note": "Kamban ends with the coronation; the Tamil Uttara Kandam is a separate, later work."
+            "note": "This six-kandam version ends at Rama's coronation and does not tell a later banishment."
           }
         }
       },
       {
         "name": "Adhyatma Ramayana",
-        "work": "Sanskrit, part of the Brahmanda Purana tradition",
+        "work": "Lala Baij Nath translation (Sacred Books of the Hindus, 1912)",
         "date": "c. 14th-15th century",
         "sortYear": 1400,
         "kind": "medieval",
         "cells": {
-          "deer": { "state": "present" },
+          "deer": {
+            "state": "present",
+            "note": "Maricha becomes a golden deer and the illusory Sita asks Rama to catch it (Baij Nath, Aranya Kanda, chapters VI–VII)."
+          },
           "abduction": {
             "state": "variant",
-            "note": "The real Sita waits in the fire; Ravana carries off an illusory Sita."
+            "note": "Rama tells Sita to leave a shadow of herself and live in the fire for a year. She does, and Ravana takes the shadow (Aranya Kanda, chapter VII, verses 1–4)."
           },
-          "hanuman": { "state": "present" },
-          "war": { "state": "present" },
+          "hanuman": {
+            "state": "present",
+            "note": "Hanuman finds her under a shimshapa tree in the ashoka grove (Sundara Kanda, chapter III)."
+          },
+          "war": {
+            "state": "present",
+            "note": "Rama's arrow tears out Ravana's heart and he falls (Yuddha Kanda, chapter XI, verses 69–75)."
+          },
           "ordeal": {
             "state": "variant",
-            "note": "The fire ordeal returns the real Sita and dissolves the illusion."
+            "note": "The fire returns the Sita entrusted to it in the forest. The illusory Sita disappears (Yuddha Kanda, chapter XIII, verses 19–21)."
           },
-          "banishment": { "state": "present" }
-        }
+          "banishment": {
+            "state": "present",
+            "note": "Rama tells Lakshmana to leave her near Valmiki's ashram (Uttara Kanda, chapter IV, verses 55–59)."
+          }
+        },
+        "readingUrl": "https://archive.org/details/TheAdhyatmaRamayana"
       },
       {
         "name": "Tulsidas, Ramcharitmanas",
-        "work": "Awadhi devotional epic",
+        "work": "F. S. Growse, The Ramayana of Tulsi Das (1883)",
         "date": "1574-c. 1577",
         "sortYear": 1575,
         "kind": "medieval",
         "cells": {
-          "deer": { "state": "present" },
+          "deer": {
+            "state": "present",
+            "note": "Maricha takes a golden deer's form and Rama hunts him (Growse, Forest, doha 22)."
+          },
           "abduction": {
             "state": "variant",
-            "note": "As in the Adhyatma, a shadow Sita is abducted."
+            "note": "Sita enters the fire and leaves an image of herself (Forest, doha 19). Ravana seats that Sita in his chariot (doha 24)."
           },
-          "hanuman": { "state": "present" },
-          "war": { "state": "present" },
+          "hanuman": {
+            "state": "present",
+            "note": "Hanuman goes to the ashoka grove and sees her there (Growse, The Beautiful, after doha 7; her mourning is doha 8)."
+          },
+          "war": {
+            "state": "present",
+            "note": "Rama shoots thirty-one shafts: one dries the nectar in Ravana's navel and the others strike off his heads and arms. The earth reels as he falls (Growse, Lanka, chhand 29)."
+          },
           "ordeal": {
             "state": "variant",
-            "note": "The fire restores the real Sita."
+            "note": "Sita enters the fire. Her shadow and the stain of disgrace are consumed, and Fire leads her back to Rama (Growse, Lanka, dohas 105–106)."
           },
           "banishment": {
             "state": "absent",
-            "note": "Tulsidas leaves the banishment out."
+            "note": "Growse's introduction says the Sequel omits Sita's exile and tells the story of Kakabhushundi instead."
           }
-        }
+        },
+        "readingUrl": "https://archive.org/details/in.ernet.dli.2015.283665"
       }
     ]
   },
   {
     "storySlug": "orpheus-eurydice",
     "question": "Did Orpheus ever succeed? How the ending changed.",
-    "takeaway": "The famous backward glance is first securely attested in Virgil and Ovid. Earlier Greek writers either imply that Orpheus succeeded (Euripides) or say the gods gave him only a phantom (Plato).",
+    "takeaway": "Virgil and Ovid tell of the fatal backward glance. Plato describes a phantom shown to Orpheus. Euripides alludes to the power of his music through Admetus’s wish to rescue Alcestis; that passage does not tell us whether Orpheus recovered Eurydice.",
     "beats": [
-      { "id": "death", "label": "How Eurydice dies" },
-      { "id": "descent", "label": "Orpheus goes below" },
-      { "id": "music", "label": "His music moves the dead" },
-      { "id": "condition", "label": "Do not look back" },
-      { "id": "outcome", "label": "The outcome" },
-      { "id": "end", "label": "Orpheus's own death" }
+      {
+        "id": "death",
+        "label": "How Eurydice dies"
+      },
+      {
+        "id": "descent",
+        "label": "Orpheus goes below"
+      },
+      {
+        "id": "music",
+        "label": "His music moves the dead"
+      },
+      {
+        "id": "condition",
+        "label": "Do not look back"
+      },
+      {
+        "id": "outcome",
+        "label": "The outcome"
+      },
+      {
+        "id": "end",
+        "label": "Orpheus's own death"
+      }
     ],
     "sources": [
       {
@@ -399,19 +610,29 @@
         "sortYear": -438,
         "kind": "primary",
         "cells": {
-          "death": { "state": "absent" },
+          "death": {
+            "state": "absent"
+          },
           "descent": {
-            "state": "present",
-            "note": "Admetus wishes for Orpheus's voice to charm the powers below."
-          },
-          "music": { "state": "present" },
-          "condition": { "state": "absent" },
-          "outcome": {
             "state": "variant",
-            "note": "The wish implies that Orpheus brought his wife back."
+            "note": "An allusion: Admetus imagines descending with Orpheus’s musical power, rather than narrating Orpheus’s journey."
           },
-          "end": { "state": "absent" }
-        }
+          "music": {
+            "state": "variant",
+            "note": "Admetus wishes he could charm the rulers below with Orpheus’s voice."
+          },
+          "condition": {
+            "state": "absent"
+          },
+          "outcome": {
+            "state": "absent",
+            "note": "No outcome for Orpheus and Eurydice is stated in these lines."
+          },
+          "end": {
+            "state": "absent"
+          }
+        },
+        "readingUrl": "https://www.perseus.tufts.edu/hopper/text?doc=Perseus%3Atext%3A1999.01.0088%3Acard%3D328"
       },
       {
         "name": "Plato, Symposium 179d",
@@ -420,10 +641,18 @@
         "sortYear": -385,
         "kind": "primary",
         "cells": {
-          "death": { "state": "absent" },
-          "descent": { "state": "present" },
-          "music": { "state": "present" },
-          "condition": { "state": "absent" },
+          "death": {
+            "state": "absent"
+          },
+          "descent": {
+            "state": "present"
+          },
+          "music": {
+            "state": "present"
+          },
+          "condition": {
+            "state": "absent"
+          },
           "outcome": {
             "state": "variant",
             "note": "The gods show him only a phantom of his wife, because he would not die for love."
@@ -446,9 +675,16 @@
             "state": "variant",
             "note": "A snakebite as she flees Aristaeus."
           },
-          "descent": { "state": "present" },
-          "music": { "state": "present" },
-          "condition": { "state": "present", "note": "Proserpina's law." },
+          "descent": {
+            "state": "present"
+          },
+          "music": {
+            "state": "present"
+          },
+          "condition": {
+            "state": "present",
+            "note": "Proserpina's law."
+          },
           "outcome": {
             "state": "present",
             "note": "He looks back at the edge of light and loses her."
@@ -470,9 +706,15 @@
             "state": "present",
             "note": "A snakebite while walking with the naiads; no Aristaeus."
           },
-          "descent": { "state": "present" },
-          "music": { "state": "present" },
-          "condition": { "state": "present" },
+          "descent": {
+            "state": "present"
+          },
+          "music": {
+            "state": "present"
+          },
+          "condition": {
+            "state": "present"
+          },
           "outcome": {
             "state": "present",
             "note": "He looks back, afraid she is not following."
@@ -490,15 +732,28 @@
         "sortYear": 100,
         "kind": "later-ancient",
         "cells": {
-          "death": { "state": "present", "note": "A snakebite." },
-          "descent": { "state": "present" },
-          "music": { "state": "present", "note": "He persuades Pluto." },
+          "death": {
+            "state": "present",
+            "note": "A snakebite."
+          },
+          "descent": {
+            "state": "present"
+          },
+          "music": {
+            "state": "present",
+            "note": "He persuades Pluto."
+          },
           "condition": {
             "state": "variant",
             "note": "Not to turn round until he reached his own house."
           },
-          "outcome": { "state": "present" },
-          "end": { "state": "present", "note": "Torn apart by maenads." }
+          "outcome": {
+            "state": "present"
+          },
+          "end": {
+            "state": "present",
+            "note": "Torn apart by maenads."
+          }
         }
       }
     ]
@@ -506,15 +761,36 @@
   {
     "storySlug": "flood-utnapishtim",
     "question": "The Mesopotamian flood, told four times",
-    "takeaway": "The flood hero has a different name in each language and era: Ziusudra in Sumerian, Atrahasis in Old Babylonian, Utnapishtim in the Gilgamesh epic, and Xisouthros in Greek. The frame stays remarkably stable: a warning god, a boat, a sacrifice, and a hero set apart from mortals.",
+    "takeaway": "These accounts name Ziusudra, Atrahasis, Utnapishtim and Xisouthros. They share flood and survival motifs, but damaged tablets leave gaps: a missing detail cannot always be treated as a difference between complete stories.",
     "beats": [
-      { "id": "hero", "label": "The flood hero" },
-      { "id": "cause", "label": "Why the gods send the flood" },
-      { "id": "warning", "label": "Who warns him, and how" },
-      { "id": "duration", "label": "How long it rains" },
-      { "id": "birds", "label": "Birds sent out" },
-      { "id": "sacrifice", "label": "Sacrifice after the flood" },
-      { "id": "fate", "label": "The hero's fate" }
+      {
+        "id": "hero",
+        "label": "The flood hero"
+      },
+      {
+        "id": "cause",
+        "label": "Why the gods send the flood"
+      },
+      {
+        "id": "warning",
+        "label": "Who warns him, and how"
+      },
+      {
+        "id": "duration",
+        "label": "How long it rains"
+      },
+      {
+        "id": "birds",
+        "label": "Birds sent out"
+      },
+      {
+        "id": "sacrifice",
+        "label": "Sacrifice after the flood"
+      },
+      {
+        "id": "fate",
+        "label": "The hero's fate"
+      }
     ],
     "sources": [
       {
@@ -540,7 +816,10 @@
             "state": "present",
             "note": "Seven days and seven nights."
           },
-          "birds": { "state": "lost", "note": "The tablet is broken here." },
+          "birds": {
+            "state": "lost",
+            "note": "The tablet is broken here."
+          },
           "sacrifice": {
             "state": "present",
             "note": "The starving gods gather like flies."
@@ -568,22 +847,25 @@
           },
           "warning": {
             "state": "present",
-            "note": "Enki speaks to him beside a wall."
+            "note": "Ziusudra hears a warning addressed to a wall. The speaker’s name is not preserved in this passage."
           },
           "duration": {
             "state": "present",
             "note": "Seven days and seven nights."
           },
-          "birds": { "state": "lost" },
+          "birds": {
+            "state": "lost"
+          },
           "sacrifice": {
             "state": "present",
-            "note": "An ox and a sheep for the sun god Utu."
+            "note": "Oxen and sheep offered after Utu appears (Segment D)."
           },
           "fate": {
             "state": "present",
             "note": "Given life like a god and settled in Dilmun."
           }
-        }
+        },
+        "readingUrl": "https://etcsl.orinst.ox.ac.uk/cgi-bin/etcsl.cgi?text=t.1.7.4"
       },
       {
         "name": "Epic of Gilgamesh, Tablet XI",
@@ -630,18 +912,27 @@
         "sortYear": -280,
         "kind": "later-ancient",
         "cells": {
-          "hero": { "state": "variant", "note": "Xisouthros." },
-          "cause": { "state": "absent" },
+          "hero": {
+            "state": "variant",
+            "note": "Xisouthros."
+          },
+          "cause": {
+            "state": "absent"
+          },
           "warning": {
             "state": "variant",
             "note": "Kronos warns him in a dream and tells him to bury the writings at Sippar."
           },
-          "duration": { "state": "absent" },
+          "duration": {
+            "state": "absent"
+          },
           "birds": {
             "state": "present",
             "note": "Birds sent out three times."
           },
-          "sacrifice": { "state": "present" },
+          "sacrifice": {
+            "state": "present"
+          },
           "fate": {
             "state": "present",
             "note": "Vanishes to live with the gods."
@@ -655,12 +946,30 @@
     "question": "Inanna in Sumerian and Ishtar in Akkadian",
     "takeaway": "The Akkadian Descent of Ishtar is a shorter, later retelling. It keeps the seven gates and the rescue, but drops the choosing of Dumuzi as a substitute and the half-year arrangement that ends the Sumerian poem.",
     "beats": [
-      { "id": "why", "label": "Why she goes down" },
-      { "id": "gates", "label": "Stripped at seven gates" },
-      { "id": "death", "label": "Her death below" },
-      { "id": "rescue", "label": "The rescue" },
-      { "id": "substitute", "label": "Dumuzi as substitute" },
-      { "id": "halfyear", "label": "The half-year arrangement" }
+      {
+        "id": "why",
+        "label": "Why she goes down"
+      },
+      {
+        "id": "gates",
+        "label": "Stripped at seven gates"
+      },
+      {
+        "id": "death",
+        "label": "Her death below"
+      },
+      {
+        "id": "rescue",
+        "label": "The rescue"
+      },
+      {
+        "id": "substitute",
+        "label": "Dumuzi as substitute"
+      },
+      {
+        "id": "halfyear",
+        "label": "The half-year arrangement"
+      }
     ],
     "sources": [
       {
@@ -675,7 +984,9 @@
             "state": "present",
             "note": "Her stated reason is the funeral rites of Gugalanna, Ereshkigal's husband."
           },
-          "gates": { "state": "present" },
+          "gates": {
+            "state": "present"
+          },
           "death": {
             "state": "present",
             "note": "Ereshkigal's gaze kills her; her corpse hangs on a hook."
@@ -705,7 +1016,9 @@
             "state": "variant",
             "note": "No reason given; she threatens to break the gate and raise the dead."
           },
-          "gates": { "state": "present" },
+          "gates": {
+            "state": "present"
+          },
           "death": {
             "state": "variant",
             "note": "Namtar strikes her with sixty diseases."
@@ -718,7 +1031,9 @@
             "state": "variant",
             "note": "Tammuz (Dumuzi) appears only at the end, in instructions for his mourning rites."
           },
-          "halfyear": { "state": "absent" }
+          "halfyear": {
+            "state": "absent"
+          }
         }
       }
     ]
@@ -728,13 +1043,34 @@
     "question": "Where does Persephone's story happen, and how long is she gone?",
     "takeaway": "The hymn, Ovid, and Apollodorus agree on the abduction and the pomegranate, but not on the place, the witnesses, or how much of the year Persephone spends below. The half-year many people know is Ovid's; the oldest telling says a third.",
     "beats": [
-      { "id": "place", "label": "Where she is taken" },
-      { "id": "cause", "label": "Why Hades takes her" },
-      { "id": "witness", "label": "Who reveals what happened" },
-      { "id": "eleusis", "label": "Demeter at Eleusis" },
-      { "id": "famine", "label": "Demeter withholds the harvest" },
-      { "id": "seed", "label": "The pomegranate" },
-      { "id": "time", "label": "Time spent below" }
+      {
+        "id": "place",
+        "label": "Where she is taken"
+      },
+      {
+        "id": "cause",
+        "label": "Why Hades takes her"
+      },
+      {
+        "id": "witness",
+        "label": "Who reveals what happened"
+      },
+      {
+        "id": "eleusis",
+        "label": "Demeter at Eleusis"
+      },
+      {
+        "id": "famine",
+        "label": "Demeter withholds the harvest"
+      },
+      {
+        "id": "seed",
+        "label": "The pomegranate"
+      },
+      {
+        "id": "time",
+        "label": "Time spent below"
+      }
     ],
     "sources": [
       {
@@ -761,12 +1097,17 @@
             "state": "present",
             "note": "She nurses Demophon, is revealed, and founds her temple and Mysteries."
           },
-          "famine": { "state": "present" },
+          "famine": {
+            "state": "present"
+          },
           "seed": {
             "state": "present",
             "note": "Hades gives her a single seed in secret."
           },
-          "time": { "state": "present", "note": "A third of the year." }
+          "time": {
+            "state": "present",
+            "note": "A third of the year."
+          }
         }
       },
       {
@@ -788,7 +1129,9 @@
             "state": "variant",
             "note": "The nymph Arethusa tells Ceres she saw Proserpina below; Ascalaphus reports the seeds."
           },
-          "eleusis": { "state": "absent" },
+          "eleusis": {
+            "state": "absent"
+          },
           "famine": {
             "state": "present",
             "note": "Ceres curses the land, Sicily above all."
@@ -797,7 +1140,10 @@
             "state": "variant",
             "note": "She eats seven seeds in a garden."
           },
-          "time": { "state": "variant", "note": "Half the year." }
+          "time": {
+            "state": "variant",
+            "note": "Half the year."
+          }
         }
       },
       {
@@ -807,16 +1153,32 @@
         "sortYear": 9,
         "kind": "primary",
         "cells": {
-          "place": { "state": "variant", "note": "Sicily, near Henna." },
-          "cause": { "state": "absent" },
-          "witness": { "state": "variant", "note": "Helios, as in the hymn." },
+          "place": {
+            "state": "variant",
+            "note": "Sicily, near Henna."
+          },
+          "cause": {
+            "state": "absent"
+          },
+          "witness": {
+            "state": "variant",
+            "note": "Helios, as in the hymn."
+          },
           "eleusis": {
             "state": "present",
             "note": "Ceres heals the child Triptolemus at Eleusis."
           },
-          "famine": { "state": "absent" },
-          "seed": { "state": "variant", "note": "Three seeds." },
-          "time": { "state": "variant", "note": "Half the year." }
+          "famine": {
+            "state": "absent"
+          },
+          "seed": {
+            "state": "variant",
+            "note": "Three seeds."
+          },
+          "time": {
+            "state": "variant",
+            "note": "Half the year."
+          }
         }
       },
       {
@@ -826,7 +1188,9 @@
         "sortYear": 100,
         "kind": "later-ancient",
         "cells": {
-          "place": { "state": "absent" },
+          "place": {
+            "state": "absent"
+          },
           "cause": {
             "state": "present",
             "note": "Hades carries her off with Zeus's help."
@@ -835,10 +1199,20 @@
             "state": "variant",
             "note": "The people of Hermione tell Demeter; Ascalaphus testifies about the seed."
           },
-          "eleusis": { "state": "present" },
-          "famine": { "state": "absent" },
-          "seed": { "state": "present", "note": "One seed, given by Hades." },
-          "time": { "state": "present", "note": "A third of the year." }
+          "eleusis": {
+            "state": "present"
+          },
+          "famine": {
+            "state": "absent"
+          },
+          "seed": {
+            "state": "present",
+            "note": "One seed, given by Hades."
+          },
+          "time": {
+            "state": "present",
+            "note": "A third of the year."
+          }
         }
       }
     ]

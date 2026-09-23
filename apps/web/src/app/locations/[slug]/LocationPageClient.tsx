@@ -8,7 +8,6 @@ import locations from "@/data/locations.json";
 import pantheons from "@/data/pantheons.json";
 import { siteConfig } from "@/lib/metadata";
 import {
-  BookOpen,
   ChevronRight,
   Compass,
   Globe,
@@ -20,6 +19,7 @@ import Image from "next/image";
 import Link from "next/link";
 import dynamic from "next/dynamic";
 import ReactMarkdown from "react-markdown";
+import { CatalogSourceNotes } from "@/components/sources/CatalogSourceNotes";
 
 // Dynamic import with SSR disabled - Leaflet requires the window object.
 // Fixed height matches the loaded component's own height so nothing shifts
@@ -162,18 +162,6 @@ export function LocationPageClient({ slug }: LocationPageClientProps) {
 
       {/* ── Hero Section ────────────────────────────────────────────── */}
       <div className="relative overflow-hidden bg-midnight">
-        {location.imageUrl && (
-          <div className="absolute inset-0 z-0">
-            <Image
-              src={location.imageUrl}
-              alt={location.name}
-              fill
-              sizes="100vw"
-              priority
-              className="object-cover opacity-20 object-center scale-105"
-            />
-          </div>
-        )}
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-linear-to-b from-midnight/85 via-midnight/90 to-midnight z-10" />
         </div>
@@ -184,7 +172,7 @@ export function LocationPageClient({ slug }: LocationPageClientProps) {
         <div className="container mx-auto max-w-4xl px-4 py-12 relative z-20">
           <Link
             href="/locations"
-            className="text-sm text-parchment/60 hover:text-parchment mb-6 inline-block transition-colors"
+            className="text-sm text-parchment/80 hover:text-parchment mb-6 inline-block transition-colors"
           >
             ← Back to Locations
           </Link>
@@ -209,9 +197,33 @@ export function LocationPageClient({ slug }: LocationPageClientProps) {
             </div>
 
             <h1 className="page-title text-parchment">{location.name}</h1>
+            {location.detailedBio && (
+              <p className="max-w-2xl text-lg leading-relaxed text-parchment/85">
+                {location.description}
+              </p>
+            )}
+            <nav
+              aria-label="On this page"
+              className="flex flex-wrap gap-x-6 gap-y-3 pt-3 text-sm text-parchment"
+            >
+              <a
+                href="#about"
+                className="inline-flex min-h-11 items-center underline underline-offset-4"
+              >
+                About {location.name}
+              </a>
+              {location.primarySources?.length ? (
+                <a
+                  href="#source-notes"
+                  className="inline-flex min-h-11 items-center underline underline-offset-4"
+                >
+                  Source notes
+                </a>
+              ) : null}
+            </nav>
 
             {hasCoordinates && (
-              <div className="flex items-center gap-2 text-parchment/60 text-sm">
+              <div className="flex items-center gap-2 text-parchment/80 text-sm">
                 <Compass className="h-4 w-4" />
                 <span>
                   {Math.abs(location.latitude!)}°
@@ -230,23 +242,27 @@ export function LocationPageClient({ slug }: LocationPageClientProps) {
         <div className="space-y-8">
           {/* Hero Image */}
           {location.imageUrl && (
-            <div className="relative w-full max-w-lg mx-auto rounded-xl overflow-hidden shadow-2xl border border-border">
+            <figure className="w-full max-w-lg border border-border">
               <div className="aspect-video relative">
                 <Image
                   src={location.imageUrl}
                   alt={location.name}
                   fill
+                  sizes="(min-width: 768px) 32rem, 100vw"
                   className="object-cover"
                   priority
                 />
                 <div className="absolute inset-0 ring-1 ring-inset ring-white/10 rounded-xl" />
               </div>
-            </div>
+              <figcaption className="px-3 py-2 text-xs text-muted-foreground">
+                Editorial illustration of {location.name}
+              </figcaption>
+            </figure>
           )}
 
           <div className="grid gap-8 md:grid-cols-3">
             {/* ── Left Column: Details ──────────────────────────────── */}
-            <div className="md:col-span-1 space-y-6">
+            <div className="order-last min-w-0 md:order-first md:col-span-1 space-y-6">
               <Card className="bg-card/50 border-border">
                 <CardHeader>
                   <CardTitle className="text-lg font-serif flex items-center gap-2">
@@ -325,14 +341,12 @@ export function LocationPageClient({ slug }: LocationPageClientProps) {
             </div>
 
             {/* ── Right Column: Description ─────────────────────────── */}
-            <div className="md:col-span-2">
-              <Card className="bg-card border-l-4 border-l-emerald-500">
-                <CardHeader>
-                  <CardTitle className="font-serif text-2xl">
-                    About This Location
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-6">
+            <div className="min-w-0 md:col-span-2">
+              <section id="about" className="scroll-mt-24 space-y-6">
+                <div>
+                  <h2 className="page-section-title">About This Location</h2>
+                </div>
+                <div className="space-y-6">
                   {location.detailedBio ? (
                     <div className="prose prose-lg dark:prose-invert prose-headings:font-serif prose-headings:text-gold-text prose-a:text-gold dark:prose-a:text-gold-light max-w-none leading-relaxed">
                       <ReactMarkdown>{location.detailedBio}</ReactMarkdown>
@@ -343,39 +357,9 @@ export function LocationPageClient({ slug }: LocationPageClientProps) {
                     </p>
                   )}
                   <SourceProvenance sources={location.primarySources} />
-                  {location.primarySources &&
-                    location.primarySources.length > 0 && (
-                      <section>
-                        <h3 className="font-serif text-xl font-semibold text-foreground mb-4 flex items-center gap-2">
-                          <BookOpen className="h-5 w-5 text-gold" />
-                          Primary Sources
-                        </h3>
-                        <div className="space-y-6">
-                          {location.primarySources.map((source, index) => (
-                            <blockquote
-                              key={`${source.source}-${index}`}
-                              className="border-l-4 border-gold/30 pl-4 py-2 bg-muted/50 rounded-r-lg"
-                            >
-                              <p className="text-foreground/80 italic leading-relaxed">
-                                &ldquo;{source.text}&rdquo;
-                              </p>
-                              <footer className="mt-2 text-sm text-muted-foreground">
-                                <span className="font-medium">
-                                  {source.source}
-                                </span>
-                                {source.date && (
-                                  <span className="ml-2 text-muted-foreground">
-                                    ({source.date})
-                                  </span>
-                                )}
-                              </footer>
-                            </blockquote>
-                          ))}
-                        </div>
-                      </section>
-                    )}
-                </CardContent>
-              </Card>
+                  <CatalogSourceNotes sources={location.primarySources} />
+                </div>
+              </section>
             </div>
           </div>
 
@@ -398,14 +382,15 @@ export function LocationPageClient({ slug }: LocationPageClientProps) {
                               src={related.imageUrl}
                               alt={related.name}
                               fill
+                              sizes="100vw"
                               className="object-cover group-hover:scale-105 transition-transform duration-500"
                             />
                             <div className="absolute inset-0 bg-linear-to-t from-midnight/80 to-transparent" />
                           </div>
                         )}
                         <CardHeader className="p-4 pb-2">
-                          <div className="flex justify-between items-start gap-2">
-                            <CardTitle className="text-base font-serif group-hover:text-emerald-400 transition-colors">
+                          <div className="flex flex-wrap justify-between items-start gap-2">
+                            <CardTitle className="text-base font-serif group-hover:text-gold-text transition-colors">
                               {related.name}
                             </CardTitle>
                             <Badge
