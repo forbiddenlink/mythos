@@ -1,7 +1,7 @@
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
+import { TrackPageView } from "@/components/analytics/TrackPageView";
 import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
-import { Button } from "@/components/ui/button";
+import { SupportButton } from "@/components/support/SupportButton";
 import { generateBaseMetadata } from "@/lib/metadata";
 
 export const metadata = generateBaseMetadata({
@@ -14,6 +14,10 @@ export const metadata = generateBaseMetadata({
 export default function SupportPage() {
   return (
     <div className="min-h-screen bg-mythic">
+      <TrackPageView
+        event="support_page_viewed"
+        properties={{ from: "support_page" }}
+      />
       <div className="page-shell">
         <Breadcrumbs />
         <div className="mt-8 max-w-3xl">
@@ -47,12 +51,7 @@ export default function SupportPage() {
             </ul>
           </section>
           <div className="mt-8">
-            <Button asChild variant="gold" size="lg">
-              <a href="https://buy.stripe.com/dRmbJ0b641kOblE3xm0Ny01">
-                Support through Stripe{" "}
-                <ArrowUpRight aria-hidden="true" className="size-4" />
-              </a>
-            </Button>
+            <SupportButton placement="support_page" />
             <p className="mt-3 text-sm text-muted-foreground">
               One-time payment · $5 USD suggested · Choose any amount from $1
               USD

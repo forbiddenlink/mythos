@@ -3,6 +3,8 @@
 import { useState } from "react";
 import { Download, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { trackEvent } from "@/lib/analytics/events";
+import { recordValueMoment } from "@/lib/support-nudge";
 import type { DeityExportData, StoryExportData } from "@/lib/pdf-export";
 
 interface DeityExportButtonProps {
@@ -47,6 +49,8 @@ function useExportPdf(
       } else {
         await exportStoryToPdf(data as StoryExportData);
       }
+      trackEvent("export_generated", { format: "pdf", kind: type });
+      recordValueMoment("export_generated");
     } catch (error) {
       console.error("Failed to export PDF:", error);
       // No toast system in this app, so surface failure rather than leaving

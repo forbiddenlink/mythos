@@ -26,6 +26,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { ShareButton } from "@/components/sharing/ShareButton";
 import { QuizRetentionSurvey } from "@/components/quiz/QuizRetentionSurvey";
+import { SupportNudge } from "@/components/support/SupportNudge";
+import { trackEvent } from "@/lib/analytics/events";
 import { useProgress } from "@/hooks/use-progress";
 import { quizLearnMore } from "@/lib/quiz-learn-more";
 import deitiesData from "@/data/deities.json";
@@ -88,7 +90,18 @@ export function MythologyQuiz() {
     recordedCompletion.current = true;
     recordQuizScore("mythology-quiz", score);
     trackQuizCompletion(score);
-  }, [quizCompleted, score, recordQuizScore, trackQuizCompletion]);
+    trackEvent("quiz_completed", {
+      quizId: "mythology-quiz",
+      score,
+      total: questions.length,
+    });
+  }, [
+    quizCompleted,
+    score,
+    questions.length,
+    recordQuizScore,
+    trackQuizCompletion,
+  ]);
 
   const deities = deitiesData as Deity[];
   const relationships = relationshipsData as Relationship[];
@@ -392,6 +405,8 @@ export function MythologyQuiz() {
           <div className="text-center max-w-sm mx-auto">{resultMessage}</div>
 
           <QuizRetentionSurvey score={score} total={questions.length} />
+
+          <SupportNudge moment="quiz_completed" placement="quiz_results" />
 
           <div className="flex flex-col sm:flex-row gap-3">
             <ShareButton
