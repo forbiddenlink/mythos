@@ -119,8 +119,9 @@ test.describe("Reading pages at narrow widths", () => {
             page.getByRole("link", { name: "Featured in The Trojan War →" }),
           ).toBeVisible();
           await expect(
-            page.getByText("Original wording unverified", { exact: true }),
+            page.getByText("Direct quotation", { exact: true }),
           ).toHaveCount(3);
+          await expect(page.locator("main [lang=el]")).toHaveCount(0);
         }
         const result = await new AxeBuilder({ page })
           .include("main")

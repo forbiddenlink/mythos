@@ -6,13 +6,7 @@ import { BookOpen, Scroll, Search, Sparkles, X, Users } from "lucide-react";
 import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Badge } from "@/components/ui/badge";
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import sourcesData from "@/data/sources.json";
 
 interface SourceCharacter {
@@ -85,13 +79,9 @@ const TRADITION_GROUPS: TraditionGroup[] = [
     id: "asian-vedic",
     label: "Indic & East Asian",
     match: (s) =>
-      [
-        "rigveda",
-        "mahabharata",
-        "ramayana",
-        "kojiki",
-        "nihon-shoki",
-      ].includes(s.id),
+      ["rigveda", "mahabharata", "ramayana", "kojiki", "nihon-shoki"].includes(
+        s.id,
+      ),
   },
   {
     id: "mesoamerican",
@@ -169,10 +159,10 @@ export function SourcesPageClient() {
         </CardHeader>
         <CardContent className="p-0 space-y-3">
           <p className="text-muted-foreground leading-relaxed text-sm md:text-base">
-            This catalog brings together primary works, translations, and
-            modern scholarship used across the atlas. It is a selected reading
-            library, not a complete record of every tradition or the earliest
-            surviving mention of each figure.
+            This catalog brings together primary works, translations, and modern
+            scholarship used across the atlas. It is a selected reading library,
+            not a complete record of every tradition or the earliest surviving
+            mention of each figure.
           </p>
           <p className="text-muted-foreground/80 leading-relaxed text-xs md:text-sm">
             Primary canonical works below are enriched with structured character
@@ -354,9 +344,9 @@ export function SourcesPageClient() {
           <p>
             Ancient literature survives in recensions, papyrus fragments, and
             variant manuscripts across centuries. When consulting entries, look
-            for the &ldquo;Appears In&rdquo; cross-index on deities and heroes to
-            compare how Homeric epic differs from Hesiodic theology, or how the
-            Vedas differ from later Puranic literature.
+            for the &ldquo;Appears In&rdquo; cross-index on deities and heroes
+            to compare how Homeric epic differs from Hesiodic theology, or how
+            the Vedas differ from later Puranic literature.
           </p>
         </CardContent>
       </Card>

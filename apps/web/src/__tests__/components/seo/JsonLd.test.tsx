@@ -1,6 +1,10 @@
 import { renderToStaticMarkup } from "react-dom/server";
 import { describe, expect, it } from "vitest";
-import { BreadcrumbJsonLd } from "@/components/seo/JsonLd";
+import {
+  BreadcrumbJsonLd,
+  OrganizationJsonLd,
+  DeityJsonLd,
+} from "@/components/seo/JsonLd";
 
 function renderBreadcrumb(name: string): HTMLDivElement {
   const container = document.createElement("div");
@@ -33,5 +37,33 @@ describe("structured data server rendering", () => {
       container.querySelector("script")?.textContent ?? "null",
     );
     expect(data.itemListElement[0].name).toBe(name);
+  });
+});
+
+describe("structured data identity", () => {
+  it("uses the project icon and only the verified repository identity", () => {
+    const container = document.createElement("div");
+    container.innerHTML = renderToStaticMarkup(<OrganizationJsonLd />);
+    const data = JSON.parse(
+      container.querySelector("script")?.textContent ?? "null",
+    );
+    expect(data["@type"]).toBe("Organization");
+    expect(data.logo).toBe("https://mythosatlas.com/icon.png");
+    expect(data.sameAs).toEqual(["https://github.com/forbiddenlink/mythos"]);
+  });
+  it("does not classify a mythological figure as a historical person", () => {
+    const container = document.createElement("div");
+    container.innerHTML = renderToStaticMarkup(
+      <DeityJsonLd
+        name="Zeus"
+        description="A Greek mythological figure"
+        url="/deities/zeus"
+      />,
+    );
+    const data = JSON.parse(
+      container.querySelector("script")?.textContent ?? "null",
+    );
+    expect(data["@type"]).not.toContain("Person");
+    expect(data["@type"]).toContain("Thing");
   });
 });

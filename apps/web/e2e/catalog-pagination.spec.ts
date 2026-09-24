@@ -177,3 +177,44 @@ test("an explicit map preference survives loading a later page", async ({
     page.getByRole("button", { name: "Show map view", exact: true }),
   ).toHaveAttribute("aria-pressed", "true");
 });
+
+test("tradition deep links survive reload for both catalogs", async ({
+  page,
+}) => {
+  await page.goto("/heroes?pantheon=greek-pantheon", {
+    waitUntil: "domcontentloaded",
+  });
+  await page.reload({ waitUntil: "domcontentloaded" });
+  await expect(page).toHaveURL(/pantheon=greek-pantheon/);
+  const heroLinks = await page
+    .locator('main a[aria-label^="View "]')
+    .evaluateAll((links) => links.map((link) => link.getAttribute("href")));
+  expect(heroLinks.length).toBeGreaterThan(0);
+  expect(
+    heroLinks.every((href) =>
+      heroes.some(
+        (hero) =>
+          hero.pantheonId === "greek-pantheon" &&
+          href === `/heroes/${hero.slug}`,
+      ),
+    ),
+  ).toBe(true);
+  await page.goto("/locations?pantheons=egyptian-pantheon&view=list", {
+    waitUntil: "domcontentloaded",
+  });
+  await page.reload({ waitUntil: "domcontentloaded" });
+  await expect(page).toHaveURL(/pantheons=egyptian-pantheon/);
+  const placeLinks = await page
+    .locator('main a[aria-label^="Explore "]')
+    .evaluateAll((links) => links.map((link) => link.getAttribute("href")));
+  expect(placeLinks.length).toBeGreaterThan(0);
+  expect(
+    placeLinks.every((href) =>
+      locations.some(
+        (location) =>
+          location.pantheonId === "egyptian-pantheon" &&
+          href === `/locations/${location.id}`,
+      ),
+    ),
+  ).toBe(true);
+});

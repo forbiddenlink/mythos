@@ -47,6 +47,7 @@ import { BookmarkButton } from "@/components/ui/bookmark-button";
 import { ExportIconButton } from "@/components/ui/export-button";
 import { ShareButton } from "@/components/sharing/ShareButton";
 import { DeityJsonLd } from "@/components/seo/JsonLd";
+import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
 import ReactMarkdown from "react-markdown";
 import { CatalogSourceNotes } from "@/components/sources/CatalogSourceNotes";
 import { PronunciationDisplay } from "@/components/ui/pronunciation";
@@ -429,6 +430,7 @@ export function DeityPageClient({
 
       {/* Content Section */}
       <div className="container mx-auto max-w-4xl px-4 py-12">
+        <Breadcrumbs />
         <div className="space-y-8">
           <div className="space-y-8">
             <LinkedMentions deityId={deity.id} deityName={deity.name} />

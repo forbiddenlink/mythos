@@ -10,8 +10,8 @@ Please be respectful and constructive in all interactions. We welcome contributo
 
 ### Prerequisites
 
-- Node.js 20+
-- pnpm 10+
+- Node.js matching `.nvmrc` (22.22.2 pin)
+- pnpm matching root `packageManager` (10.34.5)
 
 ### Setup
 
@@ -25,7 +25,8 @@ Please be respectful and constructive in all interactions. We welcome contributo
 2. Install dependencies:
 
    ```bash
-   pnpm install
+   nvm use
+   pnpm install --frozen-lockfile
    ```
 
 3. Start the development server:
@@ -44,6 +45,10 @@ Please be respectful and constructive in all interactions. We welcome contributo
 - `fix/*` - Bug fixes
 - `docs/*` - Documentation updates
 
+- `codex/*` - Agent-assisted integration and feature work
+
+Do not remove a branch or worktree until its unique commits are merged or preserved in the replacement PR, and the worktree is clean. Close superseded PRs with a reference to the replacement; production deployment follows the main-branch workflow.
+
 ### Making Changes
 
 1. Create a feature branch:
@@ -58,7 +63,9 @@ Please be respectful and constructive in all interactions. We welcome contributo
 
    ```bash
    pnpm lint
-   pnpm test
+   pnpm --filter web exec tsc --noEmit
+   pnpm --filter web test:coverage
+   pnpm --filter web e2e
    ```
 
 4. Commit your changes with a descriptive message:
@@ -93,7 +100,7 @@ We follow [Conventional Commits](https://www.conventionalcommits.org/):
 ### Styling
 
 - Use Tailwind CSS utility classes
-- Follow the existing design system
+- Read `apps/web/public/design-system.txt` and `.impeccable.md`; use the existing design tokens
 - Ensure responsive design
 - Test accessibility (WCAG 2.1 AA)
 
@@ -106,7 +113,7 @@ We follow [Conventional Commits](https://www.conventionalcommits.org/):
 
 1. Ensure all tests pass
 2. Update documentation if needed
-3. Add changelog entry for significant changes
+3. Record significant changes in the PR and audit notes; leave release-managed `CHANGELOG.md` entries to the release workflow
 4. Request review from maintainers
 5. Address review feedback
 

@@ -82,7 +82,7 @@ export function RelatedDeities({
       </CardHeader>
       <CardContent>
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
-          {filledRelated.map(({ deity, label }, index) => (
+          {filledRelated.map(({ deity, label }) => (
             <ViewTransitionLink
               key={deity.id}
               href={`/deities/${deity.slug}`}
@@ -100,7 +100,6 @@ export function RelatedDeities({
                       width={64}
                       height={64}
                       sizes="64px"
-                      priority={index < 2}
                       className="object-cover"
                     />
                   </div>

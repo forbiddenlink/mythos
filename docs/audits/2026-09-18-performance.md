@@ -97,3 +97,23 @@ works. The British Museum [catalogues an Enuma elish tablet](https://www.british
 Use such collection/corpus records alongside a named modern translation rather
 than copying generic summaries or presenting one tradition as a single,
 timeless canon.
+
+## September 23: catalog data boundaries
+
+The earlier measurements above are historical. The current site loads search on intent and audio from an explicit footer action; it no longer uses the earlier load/idle audio strategy.
+
+A production build of the integrated branch exposed full JSON catalogs in the Heroes and Locations client dependency graphs. Locations' cards and map popups were loading complete deity biographies and story bodies. The server wrappers now project only fields consumed by browse cards, filters and map popups. Full source records remain available to their detail pages and API.
+
+Two fresh Chromium contexts per route, a 390 × 844 viewport, reduced motion, disabled browser cache, blocked service workers and rejected analytics were used against local `next start` on port 3112. Measurements capture the initial document plus scripts observed during a three-second settling window, without interaction. Both builds used the same Node 22.23.1 runtime and Oracle-visible/kill-switch configuration. There was no CPU/network throttling; these are local payload measurements, not mobile field results or Lighthouse scores. The two runs agreed on JavaScript totals.
+
+| Route                              | Before JS, raw bytes | After JS, raw bytes | JS reduction | Before HTML, raw bytes | After HTML, raw bytes | Combined raw reduction |
+| ---------------------------------- | -------------------: | ------------------: | -----------: | ---------------------: | --------------------: | ---------------------: |
+| `/heroes`                          |            1,249,994 |           1,130,106 |         9.6% |                182,719 |               201,614 |                   7.0% |
+| `/locations?view=list`             |            2,746,836 |           1,311,047 |        52.3% |                219,710 |               328,655 |                  44.7% |
+| `/stories/abduction-of-persephone` |            1,366,192 |           1,366,192 |           0% |                191,461 |               191,014 |  effectively unchanged |
+
+The catalog props increase streamed HTML while removing considerably larger JavaScript dependencies. Browser-reported encoded script bodies fell from 885,503 to 406,824 bytes on Locations and from 396,917 to 354,487 on Heroes. Those figures exclude the document and must not be presented as total network transfer savings.
+
+Local LCP varied heavily with image/cache warm-up (for example, Heroes measured 2,256/96 ms before and 1,684/96 ms after). This does **not** establish an LCP improvement. Continue with controlled deployed profiling and consented field metrics before claiming the site is fast; the story route still needs separate investigation.
+
+Evidence: `/tmp/mythos-performance-before.json`, `/tmp/mythos-performance-after.json`, and their build logs. Navigation, era/filter persistence, map-view preference, and source links are covered by the browser release suite. The reliable direct museum-image path was retained instead of accepting PR118's unverified blanket optimization change.

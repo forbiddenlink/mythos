@@ -17413,5 +17413,42 @@
     "previewBuild": "passed",
     "preview": "https://mythos-irpkencj7-elizabeth-emersons-projects.vercel.app/locations?page=2&view=list",
     "deployedBrowserSmoke": "passed: direct page 2 shows entries 25\u201348; next link loads page 3 with entries 49\u201372"
+  },
+  "repositoryIntegration": {
+    "date": "2026-09-23",
+    "branch": "codex/atlas-quality-integration",
+    "incorporates": [117, 118],
+    "unitTests": 1042,
+    "unitFiles": 102,
+    "typecheck": "passed",
+    "productionBuild": "passed",
+    "performance": {
+      "method": "Local production, 390x844, reduced motion, two uncached browser contexts per route, 3-second observation; no throttling. Payload evidence, not field latency.",
+      "routes": [
+        {
+          "path": "/heroes",
+          "beforeJsRawBytes": 1249994,
+          "afterJsRawBytes": 1130106,
+          "beforeHtmlRawBytes": 182719,
+          "afterHtmlRawBytes": 201614
+        },
+        {
+          "path": "/locations?view=list",
+          "beforeJsRawBytes": 2746836,
+          "afterJsRawBytes": 1311047,
+          "beforeHtmlRawBytes": 219710,
+          "afterHtmlRawBytes": 328655
+        },
+        {
+          "path": "/stories/abduction-of-persephone",
+          "beforeJsRawBytes": 1366192,
+          "afterJsRawBytes": 1366192,
+          "beforeHtmlRawBytes": 191461,
+          "afterHtmlRawBytes": 191014
+        }
+      ]
+    },
+    "fullBrowserSuite": "rerunning after correcting three test expectations",
+    "productionPromoted": false
   }
 }

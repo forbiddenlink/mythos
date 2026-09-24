@@ -3,7 +3,11 @@ import { notFound, redirect } from "next/navigation";
 import heroes from "@/data/heroes.json";
 import pantheons from "@/data/pantheons.json";
 import { findHeroByReference } from "@/lib/heroes";
-import { generateBaseMetadata, generateNotFoundMetadata } from "@/lib/metadata";
+import {
+  generateBaseMetadata,
+  generateNotFoundMetadata,
+  shortPantheonName,
+} from "@/lib/metadata";
 import { HeroPageClient } from "./HeroPageClient";
 import { getMuseumObjectsFor } from "@/lib/museum";
 
@@ -50,7 +54,7 @@ export async function generateMetadata({
   }
 
   const pantheon = pantheons.find((p) => p.id === hero.pantheonId);
-  const pantheonName = pantheon?.name || "Ancient";
+  const pantheonName = shortPantheonName(pantheon);
 
   const baseDescription =
     hero.description ||

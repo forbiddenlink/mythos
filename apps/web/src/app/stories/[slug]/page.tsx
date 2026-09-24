@@ -2,7 +2,11 @@ import type { Metadata } from "next";
 import { notFound, redirect } from "next/navigation";
 import stories from "@/data/stories.json";
 import pantheons from "@/data/pantheons.json";
-import { generateBaseMetadata, generateNotFoundMetadata } from "@/lib/metadata";
+import {
+  generateBaseMetadata,
+  generateNotFoundMetadata,
+  shortPantheonName,
+} from "@/lib/metadata";
 import { canonicalStorySlug } from "@/lib/story-aliases";
 import { StoryPageClient, type StoryPageClientProps } from "./StoryPageClient";
 import deities from "@/data/deities.json";
@@ -49,7 +53,7 @@ export async function generateMetadata({
   }
 
   const pantheon = pantheons.find((p) => p.id === story.pantheonId);
-  const pantheonName = pantheon?.name || "Ancient";
+  const pantheonName = shortPantheonName(pantheon);
 
   // Create a rich description
   const themes = story.moralThemes?.slice(0, 3).join(", ") || "";

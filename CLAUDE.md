@@ -9,6 +9,7 @@ This file provides guidance to agents when working with code in this repository.
 Mythos Atlas is an interactive mythology encyclopedia. Live site: https://mythosatlas.com
 
 It's a **pnpm + Turborepo monorepo** with two apps:
+
 - **`apps/web`** - Next.js 16 (App Router) + React 19 frontend. Serves a GraphQL API from a Next.js route handler backed by static JSON data files. This is the primary app where most development happens.
 - **`apps/api`** - Rust (Axum + async-graphql + SQLx) backend targeting PostgreSQL. Secondary/optional; mirrors the GraphQL API.
 
@@ -34,9 +35,9 @@ pnpm dev                              # starts all apps via Turborepo (web on :3
 pnpm --filter web dev                 # start only the web app
 
 pnpm build                            # build all apps
-pnpm --filter web build               # build only web (uses --webpack flag for next-pwa compatibility)
+pnpm --filter web build               # build only web (uses the configured --webpack plugin pipeline)
 
-pnpm lint                             # ESLint across all apps
+pnpm lint                             # ESLint for the web app
 pnpm --filter web exec tsc --noEmit   # TypeScript type check (web)
 
 pnpm --filter web test                # Vitest unit tests, run once
@@ -44,7 +45,7 @@ pnpm --filter web test:watch
 pnpm --filter web test:coverage       # thresholds: 80% lines/functions/statements, 70% branches
 pnpm --filter web exec vitest run src/__tests__/lib/search.test.ts   # single file
 
-pnpm --filter web e2e                 # Playwright, headless Chromium (auto-starts dev server on :3000)
+pnpm --filter web e2e                 # Playwright, headless Chromium (builds and starts production server on :3000)
 pnpm --filter web e2e:ui
 
 pnpm --filter web analyze             # webpack bundle analyzer (sets ANALYZE=true)
@@ -54,6 +55,7 @@ pnpm biome:fix
 ```
 
 Rust API (optional; requires Rust toolchain + PostgreSQL via docker-compose):
+
 ```bash
 docker compose up -d                # Postgres on port 5435
 cd apps/api && cargo watch -x run   # dev server on :8000
@@ -65,7 +67,7 @@ cargo check
 
 - `apps/web/src/app/` - Next.js App Router pages, including `api/graphql/route.ts` and `api/oracle/route.ts`
 - `apps/web/src/data/` - static JSON content: `pantheons.json`, `deities.json`, `stories.json`, `creatures.json`, `artifacts.json`, `locations.json`, `relationships.json`, plus game/progress data (`achievements.json`, `challenges.json`, `collections.json`, `journeys.json`, etc.)
-- `apps/web/src/types/Entity.ts` - entity types (`Deity`, `Creature`, `Artifact`, `Story`, `Pantheon`, etc.) - the GraphQL route handler has its own inline types that must be kept in sync
+- `apps/web/src/types/Entity.ts` - entity types (`Deity`, `Creature`, `Artifact`, `Story`, `Pantheon`, etc.) - the GraphQL route imports Zod-inferred types from `src/lib/schemas.ts`; keep these consistent with the entity interfaces
 - `apps/web/src/components/ui/` - shadcn/ui components (new-york style), configured via `apps/web/components.json`
 - `apps/web/messages/` - next-intl translation messages (en, es, fr, de)
 - `apps/web/e2e/` - Playwright specs
@@ -81,8 +83,8 @@ cargo check
 - **Branches**: `feature/*`, `fix/*`, `docs/*`
 - **Pre-commit**: Husky runs lint-staged (ESLint --fix + Prettier on staged `.ts`/`.tsx` files)
 - **Unused vars**: ESLint allows unused vars prefixed with `_`
-- **Build**: production builds use `next build --webpack` (required for next-pwa compatibility; Turbopack is configured but plugins need webpack)
-- Key libraries: ReactFlow + D3 + React Three Fiber (visualizations), Leaflet (maps), Fuse.js (fuzzy search), cmdk (⌘K command palette), Framer Motion + GSAP, next-pwa (service worker, offline caching, install prompt)
+- **Build**: production builds use `next build --webpack` for the configured plugin pipeline; service-worker generation is disabled
+- Key libraries: ReactFlow + D3 + React Three Fiber (visualizations), Leaflet (maps), Fuse.js (fuzzy search), cmdk (⌘K command palette), Framer Motion + GSAP, offline-status indicator and optional install UI (service-worker generation is disabled)
 
 ## Testing
 
@@ -93,13 +95,16 @@ cargo check
 ## Env vars
 
 From `apps/web/.env.example`:
-- `ANTHROPIC_API_KEY` - Oracle AI chat feature
+
+- `ANTHROPIC_API_KEY` / `GROQ_API_KEY` - server-side credentials for the configured Oracle provider
+- `ORACLE_PROVIDER` - optional `anthropic` or `groq`; default precedence is Anthropic when keyed, then Groq
+- `GROQ_ORACLE_MODEL` - optional Groq model override; see `src/lib/oracle/provider.ts` for defaults
 - `ANTHROPIC_ORACLE_MODEL` - optional override for the Oracle model
 - `OPENAI_EMBEDDINGS_API_KEY` / `OPENAI_API_KEY` - optional, semantic Oracle grounding
-- `UPSTASH_REDIS_REST_URL`, `UPSTASH_REDIS_REST_TOKEN` - required in production for Oracle (shared rate limits across serverless instances); without them, production Oracle requests fail closed with HTTP 503
-- `ORACLE_KILL_SWITCH` - optional, hard-disables Anthropic routes without a redeploy
+- `UPSTASH_REDIS_REST_URL`, `UPSTASH_REDIS_REST_TOKEN` - shared limits across instances; the current Anthropic production guard fails closed without them, while Groq can fall back to instance-local limits. Use Upstash with either provider for a shared daily cap
+- `ORACLE_KILL_SWITCH` - optional, disables Oracle and generated story quizzes; apply environment changes through the deployment configuration
 - `ORACLE_DAILY_REQUEST_CAP` - optional global daily request cap (default 500, requires Upstash)
-- `NEXT_PUBLIC_ORACLE_ENABLED` - shows the floating Oracle button (also requires `ANTHROPIC_API_KEY`)
+- `NEXT_PUBLIC_ORACLE_ENABLED` - shows the footer Oracle control; the server also requires a configured provider
 - `NEXT_PUBLIC_PWA_INSTALL_PROMPT` - optional install prompt, off by default
 - `NEXT_PUBLIC_SENTRY_DSN`, `SENTRY_ORG`, `SENTRY_PROJECT`, `SENTRY_AUTH_TOKEN` - error tracking
 - `SENTRY_TRACES_SAMPLE_RATE` / `NEXT_PUBLIC_SENTRY_TRACES_SAMPLE_RATE` - trace sample rate (default 0.15); set both to keep server/client sampling in sync
@@ -107,6 +112,6 @@ From `apps/web/.env.example`:
 
 ## Gotchas
 
-- The GraphQL route handler's inline types and `src/types/Entity.ts` are two separate definitions that must be kept in sync manually.
-- `next build` requires `--webpack`, not Turbopack, for next-pwa compatibility.
+- GraphQL's `src/lib/schemas.ts` contracts and `src/types/Entity.ts` interfaces must be kept in sync.
+- Use the configured `pnpm --filter web build` webpack pipeline; next-pwa is not active.
 - Vercel Analytics/Speed Insights load only after cookie consent (and never when Global Privacy Control is on); `NEXT_PUBLIC_VERCEL_ANALYTICS_ID` is unused by current code.

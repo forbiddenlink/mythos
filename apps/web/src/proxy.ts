@@ -93,6 +93,9 @@ export function proxy(request: NextRequest) {
       path: "/",
       maxAge: 60 * 60 * 24 * 365,
       sameSite: "lax",
+      secure: process.env.NODE_ENV === "production",
+      // Not httpOnly: LanguageSwitcher rewrites this cookie via document.cookie,
+      // and browsers reject script writes that would replace an HttpOnly cookie.
     });
   }
 

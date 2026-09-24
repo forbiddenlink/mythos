@@ -128,7 +128,23 @@ export function ArticleJsonLd({
   return <JsonLdScript id="article-jsonld" data={article} />;
 }
 
-// ─── Deity (Person schema for mythological figure) ───────────────────
+export function OrganizationJsonLd() {
+  return (
+    <JsonLdScript
+      id="organization-jsonld"
+      data={{
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        name: siteConfig.name,
+        url: siteConfig.url,
+        logo: `${siteConfig.url}/icon.png`,
+        sameAs: [siteConfig.links.github],
+      }}
+    />
+  );
+}
+
+// ─── Deity (mythological figure) ───────────────────
 interface DeityJsonLdProps {
   name: string;
   description: string;
@@ -148,7 +164,7 @@ export function DeityJsonLd({
 }: Readonly<DeityJsonLdProps>) {
   const deity: Record<string, unknown> = {
     "@context": "https://schema.org",
-    "@type": ["Person", "Article"],
+    "@type": ["Thing", "Article"],
     name,
     description,
     url: `${siteConfig.url}${url}`,

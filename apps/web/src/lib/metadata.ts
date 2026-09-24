@@ -14,6 +14,13 @@ export const siteConfig = {
   },
 };
 
+/** Remove a terminal category label without dropping cultural qualifiers. */
+export function shortPantheonName(
+  pantheon: { name: string } | undefined,
+): string {
+  return pantheon?.name.replace(/\s+(?:Pantheon|Tradition)$/, "") ?? "Ancient";
+}
+
 /** Map UI locale to Open Graph locale (cookie-based locale; URLs are not locale-prefixed). */
 export function localeToOpenGraphLocale(locale: string): string {
   const map: Record<Locale, string> = {

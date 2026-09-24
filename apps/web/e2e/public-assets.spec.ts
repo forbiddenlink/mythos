@@ -56,6 +56,15 @@ test("server HTML contains unique structured data scoped to the page", async ({
     expect(scripts.length, path).toBeGreaterThan(0);
     const ids = scripts.map((match) => match[1].match(/\bid="([^"]+)"/)?.[1]);
     expect(new Set(ids).size, path).toBe(ids.length);
+    const entities = scripts.map((match) => JSON.parse(match[2]));
+    expect(
+      entities.filter((entity) => entity["@type"] === "WebSite"),
+      path,
+    ).toHaveLength(1);
+    expect(
+      entities.filter((entity) => entity["@type"] === "Organization"),
+      path,
+    ).toHaveLength(1);
     const collections = scripts
       .map((match) => JSON.parse(match[2]))
       .filter((data) => data["@type"] === "CollectionPage");

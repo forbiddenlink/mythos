@@ -12,6 +12,7 @@ import { BookmarkButton } from "@/components/ui/bookmark-button";
 import { PronunciationDisplay } from "@/components/ui/pronunciation";
 import { EditorialByline } from "@/components/content/EditorialByline";
 import { DeityJsonLd } from "@/components/seo/JsonLd";
+import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
 import { AppearsIn } from "@/components/mythology/AppearsIn";
 import { getPantheonColor } from "@/lib/pantheon-colors";
 import { normalizeHeroReference } from "@/lib/heroes";
@@ -282,6 +283,7 @@ export function HeroPageClient({
 
       {/* Content */}
       <div className="container mx-auto max-w-4xl px-4 py-12">
+        <Breadcrumbs />
         <div className="space-y-12">
           {/* Detailed Bio */}
           <section id="about" className="max-w-[68ch] scroll-mt-24">

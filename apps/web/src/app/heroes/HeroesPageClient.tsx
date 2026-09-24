@@ -12,8 +12,6 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { PaginationControls } from "@/components/ui/pagination-controls";
 import { usePagination } from "@/hooks/usePagination";
 import { getPantheonColor } from "@/lib/pantheon-colors";
-import heroesData from "@/data/heroes.json";
-import pantheonsData from "@/data/pantheons.json";
 
 import {
   catalogPage,
@@ -46,11 +44,13 @@ function formatPantheonLabel(pantheonId: string, pantheons: Pantheon[]) {
 
 export function HeroesPageClient({
   initialQuery,
+  allHeroes,
+  pantheons,
 }: {
   initialQuery: CatalogQuery;
+  allHeroes: Hero[];
+  pantheons: Pantheon[];
 }) {
-  const allHeroes = heroesData as Hero[];
-  const pantheons = pantheonsData as Pantheon[];
   const [searchQuery, setSearchQuery] = useState(
     queryValue(initialQuery, "q") ?? "",
   );

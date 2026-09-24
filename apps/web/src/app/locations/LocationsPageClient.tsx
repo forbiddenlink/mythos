@@ -16,10 +16,6 @@ import {
 import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
 import { PageHero } from "@/components/layout/page-hero";
 import { PaginationControls } from "@/components/ui/pagination-controls";
-import locationsData from "@/data/locations.json";
-import pantheonsData from "@/data/pantheons.json";
-import deitiesData from "@/data/deities.json";
-import storiesData from "@/data/stories.json";
 import { usePagination } from "@/hooks/usePagination";
 import { PANTHEON_BG_LABEL as PANTHEON_COLORS } from "@/lib/pantheon-colors";
 import { MYTHIC_ERAS, pantheonIdsForEraId } from "@/lib/mythic-eras";
@@ -100,13 +96,17 @@ function getLocationTypeLabel(type: string): string {
 
 export function LocationsPageClient({
   initialQuery,
+  locations,
+  pantheons,
+  deities,
+  stories,
 }: {
   initialQuery: CatalogQuery;
+  locations: Location[];
+  pantheons: Pantheon[];
+  deities: Deity[];
+  stories: Story[];
 }) {
-  const locations = locationsData as Location[];
-  const pantheons = pantheonsData as Pantheon[];
-  const deities = deitiesData as Deity[];
-  const stories = storiesData as Story[];
   const initialEra =
     MYTHIC_ERAS.find((era) => era.id === queryValue(initialQuery, "era"))?.id ??
     null;
