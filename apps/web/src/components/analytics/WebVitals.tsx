@@ -1,5 +1,6 @@
 "use client";
 
+import { getPostHogDistinctId } from "@/components/analytics/ConsentGatedPostHog";
 import { hasAnalyticsConsent } from "@/lib/privacy-consent";
 import { useEffect } from "react";
 import { onCLS, onFCP, onINP, onLCP, onTTFB, type Metric } from "web-vitals";
@@ -15,8 +16,8 @@ function sendToAnalytics(metric: Metric) {
     console.log("[Web Vitals]", metric.name, metric.value);
   }
 
-  // Send to analytics service
-  // You can send to Google Analytics, Vercel Analytics, or a custom endpoint
+  // The route forwards these to PostHog. Path is included because an LCP
+  // average across 60 routes hides the one slow page worth fixing.
   const body = JSON.stringify({
     id: metric.id,
     name: metric.name,
@@ -24,6 +25,8 @@ function sendToAnalytics(metric: Metric) {
     rating: metric.rating,
     delta: metric.delta,
     navigationType: metric.navigationType,
+    path: window.location.pathname,
+    distinctId: getPostHogDistinctId(),
   });
 
   // Use sendBeacon if available for reliability

@@ -21,6 +21,9 @@ const withPWA = (config: NextConfig) => config;
 const nextConfig: NextConfig = {
   devIndicators: false,
   poweredByHeader: false,
+  // Required by the /ingest PostHog proxy below: its API paths end in a slash
+  // and Next would otherwise redirect them away before the rewrite applies.
+  skipTrailingSlashRedirect: true,
   // NOTE: viewTransition is experimental and was causing navigation to fail
   // (links would preventDefault but navigation wouldn't complete)
   // Disabled until the feature is stable in Next.js
@@ -67,6 +70,28 @@ const nextConfig: NextConfig = {
     deviceSizes: [640, 750, 828, 1080, 1200, 1920],
     imageSizes: [16, 32, 48, 64, 128, 256, 384],
     minimumCacheTTL: 60 * 60 * 24 * 365, // 1 year for static images
+  },
+  async rewrites() {
+    const posthogHost =
+      process.env.NEXT_PUBLIC_POSTHOG_HOST ?? "https://us.i.posthog.com";
+    const posthogAssetHost =
+      process.env.NEXT_PUBLIC_POSTHOG_ASSET_HOST ??
+      "https://us-assets.i.posthog.com";
+
+    return [
+      // Same-origin ingest path. Content blockers drop requests to known
+      // analytics hostnames, which silently deletes the data the roadmap is
+      // decided from; proxying keeps the traffic first-party and keeps the CSP
+      // connect-src at 'self'.
+      {
+        source: "/ingest/static/:path*",
+        destination: `${posthogAssetHost}/static/:path*`,
+      },
+      {
+        source: "/ingest/:path*",
+        destination: `${posthogHost}/:path*`,
+      },
+    ];
   },
   async headers() {
     return [

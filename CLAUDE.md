@@ -106,6 +106,8 @@ From `apps/web/.env.example`:
 - `ORACLE_DAILY_REQUEST_CAP` - optional global daily request cap (default 500, requires Upstash)
 - `NEXT_PUBLIC_ORACLE_ENABLED` - shows the footer Oracle control; the server also requires a configured provider
 - `NEXT_PUBLIC_PWA_INSTALL_PROMPT` - optional install prompt, off by default
+- `NEXT_PUBLIC_POSTHOG_KEY` / `POSTHOG_KEY` - product analytics. Without a key the app runs normally, `trackEvent` has no sink, and `/api/analytics/*` answers 501 instead of acknowledging events it cannot store
+- `NEXT_PUBLIC_POSTHOG_HOST`, `NEXT_PUBLIC_POSTHOG_ASSET_HOST`, `NEXT_PUBLIC_POSTHOG_UI_HOST`, `POSTHOG_HOST` - PostHog hosts; browser traffic is proxied through the `/ingest` rewrite in `next.config.ts`
 - `NEXT_PUBLIC_SENTRY_DSN`, `SENTRY_ORG`, `SENTRY_PROJECT`, `SENTRY_AUTH_TOKEN` - error tracking
 - `SENTRY_TRACES_SAMPLE_RATE` / `NEXT_PUBLIC_SENTRY_TRACES_SAMPLE_RATE` - trace sample rate (default 0.15); set both to keep server/client sampling in sync
 - `NEXT_PUBLIC_SENTRY_REPLAY_ENABLED` - session replay, off by default
@@ -113,5 +115,6 @@ From `apps/web/.env.example`:
 ## Gotchas
 
 - GraphQL's `src/lib/schemas.ts` contracts and `src/types/Entity.ts` interfaces must be kept in sync.
+- Analytics events are a closed set in `src/lib/analytics/events.ts`, validated at runtime on both client and server. Add the name there first or the event is dropped. See `docs/analytics.md`.
 - Use the configured `pnpm --filter web build` webpack pipeline; next-pwa is not active.
 - Vercel Analytics/Speed Insights load only after cookie consent (and never when Global Privacy Control is on); `NEXT_PUBLIC_VERCEL_ANALYTICS_ID` is unused by current code.

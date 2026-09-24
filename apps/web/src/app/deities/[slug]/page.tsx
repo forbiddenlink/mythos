@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { notFound, redirect } from "next/navigation";
+import { TrackPageView } from "@/components/analytics/TrackPageView";
 import deities from "@/data/deities.json";
 import heroes from "@/data/heroes.json";
 import pantheons from "@/data/pantheons.json";
@@ -103,20 +104,30 @@ export default async function DeityPage({ params }: PageProps) {
   }
 
   return (
-    <DeityPageClient
-      slug={slug}
-      traditionLabel={
-        pantheons.find((pantheon) => pantheon.id === deity.pantheonId)?.name
-      }
-      heroParallels={heroes
-        .filter((hero) => {
-          const entry = deities.find((item) => item.id === deity.id);
-          return entry?.crossPantheonParallels?.some(
-            (parallel) => parallel.deityId === hero.id,
-          );
-        })
-        .map(({ id, name, slug }) => ({ id, name, slug }))}
-      museumObjects={getMuseumObjectsFor({ deity: deity.slug })}
-    />
+    <>
+      <TrackPageView
+        event="entry_viewed"
+        properties={{
+          entityType: "deity",
+          slug,
+          pantheon: deity.pantheonId,
+        }}
+      />
+      <DeityPageClient
+        slug={slug}
+        traditionLabel={
+          pantheons.find((pantheon) => pantheon.id === deity.pantheonId)?.name
+        }
+        heroParallels={heroes
+          .filter((hero) => {
+            const entry = deities.find((item) => item.id === deity.id);
+            return entry?.crossPantheonParallels?.some(
+              (parallel) => parallel.deityId === hero.id,
+            );
+          })
+          .map(({ id, name, slug }) => ({ id, name, slug }))}
+        museumObjects={getMuseumObjectsFor({ deity: deity.slug })}
+      />
+    </>
   );
 }

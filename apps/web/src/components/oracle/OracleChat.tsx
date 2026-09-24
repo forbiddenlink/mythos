@@ -1,6 +1,7 @@
 "use client";
 
 import { createPortal } from "react-dom";
+import { trackEvent } from "@/lib/analytics/events";
 import { Button } from "@/components/ui/button";
 import { useFocusTrap } from "@/hooks/use-focus-trap";
 import {
@@ -130,6 +131,10 @@ export function OracleChat() {
           0,
           parseInt(groundingHitsRaw ?? "0", 10) || 0,
         );
+
+        // Grounded vs ungrounded is the quality signal worth tracking: an
+        // Oracle answering with zero source hits is the failure mode.
+        trackEvent("oracle_asked", { grounded: groundingHits > 0 });
 
         const citationsRaw = response.headers.get(ORACLE_CITATIONS_HEADER);
         const citations = citationsRaw

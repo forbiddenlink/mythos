@@ -31,6 +31,13 @@ const CookieConsent = dynamic(
     ),
   { ssr: false },
 );
+const ConsentGatedPostHog = dynamic(
+  () =>
+    import("@/components/analytics/ConsentGatedPostHog").then(
+      (mod) => mod.ConsentGatedPostHog,
+    ),
+  { ssr: false },
+);
 const WebVitals = dynamic(
   () => import("@/components/analytics/WebVitals").then((mod) => mod.WebVitals),
   { ssr: false },
@@ -63,6 +70,7 @@ export function GlobalClientAddons() {
   return (
     <>
       <ConsentGatedAnalytics />
+      <ConsentGatedPostHog />
       <ConsentGatedSentry />
       <OfflineIndicator />
       {searchRequested ? (

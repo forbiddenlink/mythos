@@ -9,6 +9,7 @@ import {
   CommandList,
   CommandSeparator,
 } from "@/components/ui/command";
+import { trackEvent } from "@/lib/analytics/events";
 import { useDebounce } from "@/hooks/use-debounce";
 import {
   clearRecentSearches,
@@ -136,7 +137,10 @@ const navigationItems = [
   },
 ];
 
-export function GlobalSearch({ open, onOpenChange: setOpen }: {
+export function GlobalSearch({
+  open,
+  onOpenChange: setOpen,
+}: {
   open: boolean;
   onOpenChange: (open: boolean) => void;
 }) {
@@ -185,6 +189,16 @@ export function GlobalSearch({ open, onOpenChange: setOpen }: {
       SearchResultType[],
     ][];
   }, [results]);
+
+  // Zero-result searches name the content gaps worth filling next; the query
+  // itself is never sent, only its length.
+  useEffect(() => {
+    if (!debouncedSearch || debouncedSearch.length < 2) return;
+    trackEvent("search_performed", {
+      queryLength: debouncedSearch.length,
+      resultCount: results.length,
+    });
+  }, [debouncedSearch, results.length]);
 
   const popularSearches = useMemo(() => getPopularSearches().slice(0, 6), []);
 
