@@ -5,6 +5,20 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.5.0](https://github.com/forbiddenlink/mythos/compare/v1.4.0...v1.5.0) (2026-09-24)
+
+
+### Features
+
+* **atlas:** preserve reader journeys and optional project support ([4e7cad3](https://github.com/forbiddenlink/mythos/commit/4e7cad360ad3b596e7ca7d8a9ace4b733e477472))
+
+
+### Bug Fixes
+
+* **atlas:** reconcile audited changes and reduce catalog payloads ([60a0510](https://github.com/forbiddenlink/mythos/commit/60a0510e94683a85c61590f067773fe6cae4741e))
+* **atlas:** retain verified image behavior and accurate operations guidance ([d1e82b1](https://github.com/forbiddenlink/mythos/commit/d1e82b10a4b1c6b070a7b232f0c2462e10ce470f))
+* **reading:** keep claims tied to the editions that were checked ([ffc4f93](https://github.com/forbiddenlink/mythos/commit/ffc4f930c4531f5b4d3e240cff6ed1a050a1b308))
+
 ## [1.4.0](https://github.com/forbiddenlink/mythos/compare/v1.3.1...v1.4.0) (2026-09-22)
 
 
