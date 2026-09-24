@@ -13,6 +13,11 @@ import {
 const raw = cosmologies as RawCosmology[];
 
 describe("cosmologies data", () => {
+  it("describes the current catalog size in page metadata", async () => {
+    const { metadata } = await import("@/app/cosmology/page");
+    expect(metadata.description).toContain(`${raw.length} mythic universes`);
+  });
+
   it("covers every pantheon exactly once", () => {
     const ids = raw.map((c) => c.pantheonId).sort();
     expect(ids).toEqual(pantheons.map((p) => p.id).sort());

@@ -8,8 +8,8 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
-  findDeityByReference,
-  getDeityName,
+  distinctDeityReference,
+  formatDeityReference,
   getDeityPath,
 } from "@/lib/deities";
 import { cn } from "@/lib/utils";
@@ -199,26 +199,32 @@ export function ComparisonCard({
                 Cross-Pantheon Parallels
               </h4>
               <ul className="space-y-2">
-                {deity.crossPantheonParallels.slice(0, 3).map((parallel) => (
-                  <li key={parallel.deityId} className="text-sm">
-                    {findDeityByReference(parallel.deityId) ? (
-                      <Link
-                        href={getDeityPath(parallel.deityId)}
-                        className="text-gold hover:underline font-medium"
-                      >
-                        {getDeityName(parallel.deityId)}
-                      </Link>
-                    ) : (
-                      <span className="font-medium text-foreground">
-                        {getDeityName(parallel.deityId)}
+                {deity.crossPantheonParallels.slice(0, 3).map((parallel) => {
+                  const related = distinctDeityReference(
+                    deity.id,
+                    parallel.deityId,
+                  );
+                  return (
+                    <li key={parallel.deityId} className="text-sm">
+                      {related ? (
+                        <Link
+                          href={getDeityPath(related.slug)}
+                          className="text-gold hover:underline font-medium"
+                        >
+                          {related.name}
+                        </Link>
+                      ) : (
+                        <span className="font-medium text-foreground">
+                          {formatDeityReference(parallel.deityId)}
+                        </span>
+                      )}
+                      <span className="text-muted-foreground">
+                        {" "}
+                        ({formatPantheonName(parallel.pantheonId)})
                       </span>
-                    )}
-                    <span className="text-muted-foreground">
-                      {" "}
-                      ({formatPantheonName(parallel.pantheonId)})
-                    </span>
-                  </li>
-                ))}
+                    </li>
+                  );
+                })}
               </ul>
             </div>
           )}

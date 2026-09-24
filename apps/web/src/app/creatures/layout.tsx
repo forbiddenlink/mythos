@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { CollectionPageJsonLd } from "@/components/seo/JsonLd";
 import { generateBaseMetadata } from "@/lib/metadata";
 
 export const metadata: Metadata = generateBaseMetadata({
@@ -19,14 +18,5 @@ export const metadata: Metadata = generateBaseMetadata({
 export default function CreaturesLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
-  return (
-    <>
-      <CollectionPageJsonLd
-        name="Mythological Creatures and Monsters"
-        description="Explore legendary beasts and supernatural creatures from mythologies around the world."
-        url="/creatures"
-      />
-      {children}
-    </>
-  );
+  return children;
 }

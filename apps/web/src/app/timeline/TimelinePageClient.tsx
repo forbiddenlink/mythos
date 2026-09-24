@@ -1,72 +1,85 @@
-'use client'
+"use client";
 
-import dynamic from 'next/dynamic'
-import { Loader2 } from 'lucide-react'
-import { Breadcrumbs } from '@/components/navigation/Breadcrumbs'
+import dynamic from "next/dynamic";
+import { Loader2 } from "lucide-react";
+import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
 
-import pantheonsData from '@/data/pantheons.json'
+import pantheonsData from "@/data/pantheons.json";
 
 // Lazy load D3-based timeline visualization
 const TimelineVisualizationD3 = dynamic(
-  () => import('@/components/timeline/TimelineVisualizationD3').then(mod => ({ default: mod.TimelineVisualizationD3 })),
-  { loading: () => <div className="h-100 flex items-center justify-center"><Loader2 className="h-8 w-8 animate-spin text-primary" /></div>, ssr: false }
-)
-import storiesData from '@/data/stories.json'
-import deitiesData from '@/data/deities.json'
-import eventsData from '@/data/events.json'
+  () =>
+    import("@/components/timeline/TimelineVisualizationD3").then((mod) => ({
+      default: mod.TimelineVisualizationD3,
+    })),
+  {
+    loading: () => (
+      <div className="h-100 flex items-center justify-center">
+        <Loader2 className="h-8 w-8 animate-spin text-primary" />
+      </div>
+    ),
+    ssr: false,
+  },
+);
+import storiesData from "@/data/stories.json";
+import deitiesData from "@/data/deities.json";
+import eventsData from "@/data/events.json";
 
 interface Pantheon {
-  id: string
-  name: string
-  slug: string
-  culture: string
-  region: string
-  timePeriodStart: number | null
-  timePeriodEnd: number | null
-  description: string | null
+  id: string;
+  name: string;
+  slug: string;
+  culture: string;
+  region: string;
+  timePeriodStart: number | null;
+  timePeriodEnd: number | null;
+  description: string | null;
 }
 
 interface Story {
-  id: string
-  pantheonId: string
-  title: string
-  slug: string
-  summary: string
-  category?: string
+  id: string;
+  pantheonId: string;
+  title: string;
+  slug: string;
+  summary: string;
+  category?: string;
 }
 
 interface Deity {
-  id: string
-  pantheonId: string
-  name: string
-  slug: string
-  domain: string[]
-  importanceRank: number
+  id: string;
+  pantheonId: string;
+  name: string;
+  slug: string;
+  domain: string[];
+  importanceRank: number;
 }
 
 interface TimelineEvent {
-  id: string
-  title: string
-  year: number
-  pantheonId: string
-  type: 'mythical' | 'historical'
-  description: string
+  id: string;
+  title: string;
+  year: number;
+  pantheonId: string;
+  type: "mythical" | "historical";
+  description: string;
 }
 
-import { useState } from 'react'
-import { TimelineControls } from '@/components/timeline/TimelineControls'
+import { useState } from "react";
+import { TimelineControls } from "@/components/timeline/TimelineControls";
 
 // ... existing interfaces ...
 
 export function TimelinePageClient() {
-  const pantheons = pantheonsData as unknown as Pantheon[]
-  const _stories = storiesData as unknown as Story[]
-  const _deities = deitiesData as unknown as Deity[]
-  const events = eventsData as unknown as TimelineEvent[]
+  const pantheons = pantheonsData as unknown as Pantheon[];
+  const _stories = storiesData as unknown as Story[];
+  const _deities = deitiesData as unknown as Deity[];
+  const events = eventsData as unknown as TimelineEvent[];
 
-  const MIN_YEAR = -3500
-  const MAX_YEAR = 2025
-  const [viewRange, setViewRange] = useState<[number, number]>([MIN_YEAR, MAX_YEAR])
+  const MIN_YEAR = -3500;
+  const MAX_YEAR = 2025;
+  const [viewRange, setViewRange] = useState<[number, number]>([
+    MIN_YEAR,
+    MAX_YEAR,
+  ]);
 
   return (
     <div className="min-h-screen">
@@ -100,27 +113,33 @@ export function TimelinePageClient() {
             <div>
               <h3 className="font-medium text-foreground mb-1">Navigation</h3>
               <p>
-                Use your mouse wheel to <strong>zoom in</strong> up to 50x magnification.
-                Click and drag to <strong>pan</strong> across different eras.
+                Use your mouse wheel to <strong>zoom in</strong> up to 50x
+                magnification. Click and drag to <strong>pan</strong> across
+                different eras.
               </p>
             </div>
             <div>
-              <h3 className="font-medium text-foreground mb-1">Events & Details</h3>
+              <h3 className="font-medium text-foreground mb-1">
+                Events & Details
+              </h3>
               <p>
-                <strong>Hollow circles</strong> represent key mythical or historical events.
-                Hover over them to reveal detailed descriptions and dates.
+                <strong>Hollow circles</strong> represent key mythical or
+                historical events. Hover over them to reveal detailed
+                descriptions and dates.
               </p>
             </div>
             <div>
               <h3 className="font-medium text-foreground mb-1">Pantheons</h3>
               <p>
-                Colored bars show the active periods of major civilizations.
-                <strong>Click</strong> a bar to highlight that pantheon and dim others.
+                Colored bars show catalog periods where dates are recorded.
+                Collections without a shared period are labeled after the dated
+                entries.
+                <strong>Click</strong> an entry to highlight it and dim others.
               </p>
             </div>
           </div>
         </div>
       </div>
     </div>
-  )
+  );
 }

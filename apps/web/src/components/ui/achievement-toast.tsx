@@ -1,7 +1,30 @@
 "use client";
 
 import { useEffect, useState, useCallback } from "react";
-import * as Icons from "lucide-react";
+import {
+  Axe,
+  Book,
+  BookMarked,
+  BookOpen,
+  Calendar,
+  Compass,
+  Crown,
+  Eye,
+  Flame,
+  GitBranch,
+  Globe,
+  GraduationCap,
+  Library,
+  Link,
+  MapPin,
+  PawPrint,
+  Pencil,
+  Pyramid,
+  Star,
+  Sword,
+  Trophy,
+  X,
+} from "lucide-react";
 import { cn } from "@/lib/utils";
 
 export interface AchievementToastProps {
@@ -33,12 +56,32 @@ function toPascalCase(str: string): string {
 function getIcon(
   iconName: string,
 ): React.ComponentType<{ className?: string }> {
-  const icons = Icons as unknown as Record<
-    string,
-    React.ComponentType<{ className?: string }>
-  >;
+  const icons: Record<string, React.ComponentType<{ className?: string }>> = {
+    Axe,
+    Book,
+    BookMarked,
+    BookOpen,
+    Calendar,
+    Compass,
+    Crown,
+    Eye,
+    Flame,
+    GitBranch,
+    Globe,
+    GraduationCap,
+    Library,
+    Link,
+    MapPin,
+    PawPrint,
+    Pencil,
+    Pyramid,
+    Star,
+    Sword,
+    Trophy,
+    X,
+  };
   const pascalName = toPascalCase(iconName);
-  return icons[pascalName] || Icons.Trophy;
+  return icons[pascalName] || Trophy;
 }
 
 export function AchievementToast({
@@ -113,7 +156,7 @@ export function AchievementToast({
           )}
           aria-label="Close notification"
         >
-          <Icons.X className="size-4" />
+          <X className="size-4" />
         </button>
 
         <div className="flex items-start gap-4 pr-6">
@@ -134,7 +177,7 @@ export function AchievementToast({
           <div className="flex-1 min-w-0 pt-0.5">
             {/* Header */}
             <div className="flex items-center gap-2 mb-1">
-              <Icons.Trophy className="size-3.5 text-gold-text" />
+              <Trophy className="size-3.5 text-gold-text" />
               <span className="text-xs font-medium uppercase tracking-wider text-gold-text">
                 Achievement Unlocked!
               </span>

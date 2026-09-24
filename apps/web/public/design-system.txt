@@ -6,10 +6,11 @@
 > Token SoT = apps/web/src/app/globals.css. Philosophy = .impeccable.md (repo root).
 
 Site: https://mythosatlas.com
-Stack: Next.js 16.2, React 19.2, Tailwind CSS v4 (@theme inline), shadcn/ui (new-york, base neutral, lucide), cva. Monorepo (pnpm workspace) — app at apps/web/, source apps/web/src/.
+Stack: Next.js 16.3.4, React 19.2, Tailwind CSS v4 (@theme inline), shadcn/ui (new-york, base neutral, lucide), cva. Monorepo (pnpm workspace) — app at apps/web/, source apps/web/src/.
 Colors = OKLCH in :root (light) + .dark.
 
-## Fonts (next/font/google)
+## Fonts (next/font/local)
+Bundled variable WOFF2 files and OFL licenses: apps/web/src/app/fonts/. Shared declarations: apps/web/src/app/fonts.ts.
 - Display / serif headings: Cinzel — --font-cinzel (→ --font-display / --font-serif), weights 400-800
 - Body serif: Crimson Pro — --font-crimson (→ --font-body), normal + italic
 - UI / sans: Source Sans 3 — --font-source-sans (→ --font-sans), weights 400-500

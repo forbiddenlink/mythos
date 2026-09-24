@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Search, Sparkles, Shield, X } from "lucide-react";
@@ -8,17 +8,16 @@ import { PageHero } from "@/components/layout/page-hero";
 import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { PaginationControls } from "@/components/ui/pagination-controls";
 import { usePagination } from "@/hooks/usePagination";
 import { getPantheonColor } from "@/lib/pantheon-colors";
-import heroesData from "@/data/heroes.json";
-import pantheonsData from "@/data/pantheons.json";
+
+import {
+  catalogPage,
+  queryValue,
+  type CatalogQuery,
+} from "@/lib/catalog-query";
 
 interface Hero {
   id: string;
@@ -43,11 +42,21 @@ function formatPantheonLabel(pantheonId: string, pantheons: Pantheon[]) {
   );
 }
 
-export function HeroesPageClient() {
-  const allHeroes = heroesData as Hero[];
-  const pantheons = pantheonsData as Pantheon[];
-  const [searchQuery, setSearchQuery] = useState("");
-  const [activePantheon, setActivePantheon] = useState<string | null>(null);
+export function HeroesPageClient({
+  initialQuery,
+  allHeroes,
+  pantheons,
+}: {
+  initialQuery: CatalogQuery;
+  allHeroes: Hero[];
+  pantheons: Pantheon[];
+}) {
+  const [searchQuery, setSearchQuery] = useState(
+    queryValue(initialQuery, "q") ?? "",
+  );
+  const [activePantheon, setActivePantheon] = useState<string | null>(
+    queryValue(initialQuery, "pantheon") ?? null,
+  );
 
   const heroPantheonIds = useMemo(
     () => Array.from(new Set(allHeroes.map((h) => h.pantheonId))),
@@ -71,7 +80,23 @@ export function HeroesPageClient() {
     });
   }, [allHeroes, activePantheon, searchQuery]);
 
-  const pagination = usePagination(filteredHeroes, 12);
+  const pagination = usePagination(
+    filteredHeroes,
+    12,
+    catalogPage(initialQuery),
+  );
+
+  const getPageHref = (page: number): string => {
+    const params = new URLSearchParams();
+    if (searchQuery) params.set("q", searchQuery);
+    if (activePantheon) params.set("pantheon", activePantheon);
+    if (page > 1) params.set("page", String(page));
+    return `/heroes${params.size ? `?${params}` : ""}`;
+  };
+  const currentHref = getPageHref(pagination.page);
+  useEffect(() => {
+    window.history.replaceState(null, "", currentHref);
+  }, [currentHref]);
 
   return (
     <div className="min-h-screen bg-mythic">
@@ -99,10 +124,10 @@ export function HeroesPageClient() {
           <p className="max-w-4xl text-sm md:text-base leading-7 text-muted-foreground">
             Unlike immortal deities, heroes live and die in their sagas. Born of
             divine blood or mortal daring, their destinies unfold not on high
-            Olympus, but in the trenches of Troy, the treacherous currents of the
-            wine-dark sea, or the bloody fields of Kurukshetra. Each champion is
-            grounded in primary ancient sources, complete with family lineage,
-            fateful choices, and cross-tradition parallels.
+            Olympus, but in the trenches of Troy, the treacherous currents of
+            the wine-dark sea, or the bloody fields of Kurukshetra. Each
+            champion is grounded in primary ancient sources, complete with
+            family lineage, fateful choices, and cross-tradition parallels.
           </p>
         </section>
 
@@ -115,13 +140,20 @@ export function HeroesPageClient() {
                 type="text"
                 placeholder="Search heroes by name, title, or myth..."
                 value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
+                aria-label="Search heroes"
+                onChange={(e) => {
+                  setSearchQuery(e.target.value);
+                  pagination.firstPage();
+                }}
                 className="pl-10 pr-10 border-gold/20 bg-card/60 focus-visible:ring-gold/40 text-sm"
               />
               {searchQuery && (
                 <button
                   type="button"
-                  onClick={() => setSearchQuery("")}
+                  onClick={() => {
+                    setSearchQuery("");
+                    pagination.firstPage();
+                  }}
                   className="absolute right-3.5 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground"
                   aria-label="Clear search"
                 >
@@ -142,7 +174,10 @@ export function HeroesPageClient() {
             <Button
               variant={activePantheon === null ? "default" : "outline"}
               size="sm"
-              onClick={() => setActivePantheon(null)}
+              onClick={() => {
+                setActivePantheon(null);
+                pagination.firstPage();
+              }}
               className="text-xs"
             >
               All Traditions ({allHeroes.length})
@@ -159,7 +194,10 @@ export function HeroesPageClient() {
                     activePantheon === pantheonId ? "default" : "outline"
                   }
                   size="sm"
-                  onClick={() => setActivePantheon(pantheonId)}
+                  onClick={() => {
+                    setActivePantheon(pantheonId);
+                    pagination.firstPage();
+                  }}
                   className="text-xs flex items-center gap-1.5"
                 >
                   <span
@@ -177,10 +215,7 @@ export function HeroesPageClient() {
         {filteredHeroes.length === 0 ? (
           <div className="text-center py-20">
             <div className="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-card border border-gold/20 mb-6 shadow-sm">
-              <Sparkles
-                className="h-10 w-10 text-gold/60"
-                strokeWidth={1.5}
-              />
+              <Sparkles className="h-10 w-10 text-gold/60" strokeWidth={1.5} />
             </div>
             <h2 className="text-2xl font-serif font-semibold mb-2 text-foreground">
               No heroes found
@@ -194,6 +229,7 @@ export function HeroesPageClient() {
               size="sm"
               className="mt-6 border-gold/30 text-gold hover:bg-gold/10"
               onClick={() => {
+                pagination.firstPage();
                 setSearchQuery("");
                 setActivePantheon(null);
               }}
@@ -257,11 +293,12 @@ export function HeroesPageClient() {
                         <CardTitle className="font-serif text-xl text-foreground group-hover:text-gold transition-colors duration-300">
                           {hero.name}
                         </CardTitle>
-                        {hero.alternateNames && hero.alternateNames.length > 0 && (
-                          <p className="text-xs text-muted-foreground/80 italic">
-                            {hero.alternateNames.join(", ")}
-                          </p>
-                        )}
+                        {hero.alternateNames &&
+                          hero.alternateNames.length > 0 && (
+                            <p className="text-xs text-muted-foreground/80 italic">
+                              {hero.alternateNames.join(", ")}
+                            </p>
+                          )}
                       </CardHeader>
 
                       <CardContent className="flex-1 flex flex-col justify-between pt-1 pb-4">
@@ -289,6 +326,7 @@ export function HeroesPageClient() {
 
             {pagination.totalPages > 1 && (
               <PaginationControls
+                getPageHref={getPageHref}
                 page={pagination.page}
                 totalPages={pagination.totalPages}
                 hasNextPage={pagination.hasNextPage}

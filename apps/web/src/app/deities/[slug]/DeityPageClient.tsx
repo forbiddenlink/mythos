@@ -17,7 +17,6 @@ import {
   Shield,
   Users,
   Network,
-  BookOpen,
   Building,
   Calendar,
   ScrollText,
@@ -25,8 +24,6 @@ import {
 import Link from "next/link";
 import Image from "next/image";
 
-const HERO_IMAGE_WIDTH = 1920;
-const HERO_IMAGE_HEIGHT = 1080;
 const DEITY_IMAGE_WIDTH = 768;
 const DEITY_IMAGE_HEIGHT = 1024;
 
@@ -50,7 +47,9 @@ import { BookmarkButton } from "@/components/ui/bookmark-button";
 import { ExportIconButton } from "@/components/ui/export-button";
 import { ShareButton } from "@/components/sharing/ShareButton";
 import { DeityJsonLd } from "@/components/seo/JsonLd";
+import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
 import ReactMarkdown from "react-markdown";
+import { CatalogSourceNotes } from "@/components/sources/CatalogSourceNotes";
 import { PronunciationDisplay } from "@/components/ui/pronunciation";
 import { EditorialByline } from "@/components/content/EditorialByline";
 import { BloodlineTapestry } from "@/components/deities/BloodlineTapestry";
@@ -72,6 +71,7 @@ import { getMuseumPortrait, type MuseumObject } from "@/lib/museum";
 import { DeityStoryRecommendations } from "@/components/deities/DeityStoryRecommendations";
 import { LinkedMentions } from "@/components/mythology/LinkedMentions";
 import { AppearsIn } from "@/components/mythology/AppearsIn";
+import { getAppearsIn } from "@/lib/appears-in";
 import { RosettaWheel } from "@/components/collections/RosettaWheel";
 import { MythosMark } from "@/components/icons/mythos-marks";
 import deitiesData from "@/data/deities.json";
@@ -106,6 +106,7 @@ interface Deity {
   importanceRank: number | null;
   imageUrl: string | null;
   alternateNames: string[];
+  traditionRole?: string;
   crossPantheonParallels?: Array<{
     pantheonId: string;
     deityId: string;
@@ -139,6 +140,8 @@ interface Relationship {
 interface DeityPageClientProps {
   slug: string;
   museumObjects?: MuseumObject[];
+  traditionLabel?: string;
+  heroParallels?: Array<{ id: string; name: string; slug: string }>;
 }
 
 function formatSlugAsTitle(slug: string) {
@@ -152,6 +155,8 @@ function formatSlugAsTitle(slug: string) {
 export function DeityPageClient({
   slug,
   museumObjects = [],
+  heroParallels = [],
+  traditionLabel,
 }: DeityPageClientProps) {
   // Track progress when deity is viewed
   const { trackDeityView, trackPantheonExplore } = useProgress();
@@ -213,6 +218,14 @@ export function DeityPageClient({
     );
   }
 
+  const hasSources = Boolean(
+    deity.primarySources?.length ||
+    deity.primarySourceExcerpts?.length ||
+    deity.furtherReading?.length ||
+    deity.sources?.length ||
+    getAppearsIn(deity.id, "deity").length,
+  );
+
   return (
     <div className="min-h-screen">
       <DeityJsonLd
@@ -225,30 +238,9 @@ export function DeityPageClient({
         url={`/deities/${deity.slug}`}
         image={deity.imageUrl || undefined}
       />
-      {/* Hero — per-deity art (portfolio Phase 2), not the shared deity-hero.jpg */}
+      {/* Hero header */}
       <div className="relative overflow-hidden bg-midnight">
         <div className="absolute inset-0 z-0">
-          {deity.imageUrl ? (
-            <Image
-              src={deity.imageUrl}
-              alt=""
-              fill
-              sizes="100vw"
-              priority
-              className="object-cover object-top scale-105 opacity-50 blur-[2px] motion-safe:animate-none"
-              aria-hidden
-            />
-          ) : (
-            <Image
-              src="/deity-hero.jpg"
-              alt=""
-              width={HERO_IMAGE_WIDTH}
-              height={HERO_IMAGE_HEIGHT}
-              sizes="100vw"
-              className="h-full w-full object-cover"
-              aria-hidden
-            />
-          )}
           <div
             className="absolute inset-0 bg-linear-to-br from-midnight/90 via-midnight/75 to-midnight/55"
             style={{
@@ -267,59 +259,32 @@ export function DeityPageClient({
           </Link>
 
           <div className="grid gap-10 md:grid-cols-[minmax(0,14rem)_1fr] md:items-end">
-            <figure
-              className="relative mx-auto w-full max-w-[14rem] overflow-hidden border border-gold/30 shadow-2xl"
-              style={{ viewTransitionName: `deity-image-${deity.slug}` }}
-            >
-              <div className="aspect-3/4 relative bg-midnight">
-                {deity.imageUrl ? (
-                  <Image
-                    src={deity.imageUrl}
-                    alt={deity.name}
-                    width={DEITY_IMAGE_WIDTH}
-                    height={DEITY_IMAGE_HEIGHT}
-                    sizes="14rem"
-                    className="h-full w-full object-cover"
-                    priority
-                  />
-                ) : museumPortrait?.imageUrl ? (
-                  <Image
-                    src={museumPortrait.imageUrl}
-                    alt={museumPortrait.imageAlt || museumPortrait.title}
-                    fill
-                    unoptimized
-                    sizes="14rem"
-                    className="object-contain p-2"
-                  />
-                ) : (
-                  <div className="flex h-full items-center justify-center">
-                    <span className="font-serif text-7xl text-gold/70">
-                      {deity.name.charAt(0)}
-                    </span>
-                  </div>
-                )}
-              </div>
-              {!deity.imageUrl && museumPortrait && (
-                <figcaption className="bg-midnight/90 px-2 py-1.5 text-[0.65rem] leading-snug text-parchment/75">
-                  {museumPortrait.title}, {museumPortrait.institution}
-                </figcaption>
-              )}
-            </figure>
-
             <div>
-              <p className="mb-3 text-xs uppercase tracking-[0.28em] text-gold/80">
-                {formatSlugAsTitle(deity.pantheonId.replace(/-pantheon$/, ""))}{" "}
-                pantheon
+              <p className="mb-3 text-xs uppercase tracking-[0.28em] text-gold/80 flex flex-wrap items-center gap-2">
+                <span>
+                  {traditionLabel ??
+                    formatSlugAsTitle(
+                      deity.pantheonId.replace(/-pantheon$/, ""),
+                    )}
+                </span>
+                {deity.traditionRole && (
+                  <>
+                    <span className="text-gold/40" aria-hidden>
+                      •
+                    </span>
+                    <span className="text-parchment/90 font-medium tracking-wider">
+                      {deity.traditionRole}
+                    </span>
+                  </>
+                )}
               </p>
               <div
-                className="flex flex-wrap items-start gap-4"
+                className="flex flex-col gap-4"
                 style={{ viewTransitionName: "page-header" }}
               >
                 <div className="min-w-0 flex-1">
                   <div className="flex flex-wrap items-baseline gap-3">
-                    <h1 className="page-title text-gold-text drop-shadow-[0_2px_8px_rgba(0,0,0,0.55)]">
-                      {deity.name}
-                    </h1>
+                    <h1 className="page-title text-parchment">{deity.name}</h1>
                     {deity.pronunciation && (
                       <PronunciationDisplay
                         pronunciation={deity.pronunciation}
@@ -361,6 +326,25 @@ export function DeityPageClient({
                       {deity.description}
                     </p>
                   )}
+                  <nav
+                    aria-label="On this page"
+                    className="mt-5 flex flex-wrap gap-x-6 gap-y-2"
+                  >
+                    <a
+                      href="#deity-about"
+                      className="inline-flex min-h-11 items-center font-medium text-parchment underline underline-offset-4"
+                    >
+                      About {deity.name}
+                    </a>
+                    {hasSources && (
+                      <a
+                        href="#deity-sources"
+                        className="inline-flex min-h-11 items-center text-parchment underline underline-offset-4"
+                      >
+                        Sources and further reading
+                      </a>
+                    )}
+                  </nav>
                   <EditorialByline className="mt-4 max-w-2xl" tone="light" />
                 </div>
                 <div className="flex shrink-0 gap-2">
@@ -397,12 +381,56 @@ export function DeityPageClient({
                 </div>
               </div>
             </div>
+            <figure
+              className="relative mx-auto w-full md:order-first max-w-[14rem] overflow-hidden border border-gold/30 shadow-2xl"
+              style={{ viewTransitionName: `deity-image-${deity.slug}` }}
+            >
+              <div className="aspect-3/4 relative bg-midnight">
+                {deity.imageUrl ? (
+                  <Image
+                    src={deity.imageUrl}
+                    alt={deity.name}
+                    width={DEITY_IMAGE_WIDTH}
+                    height={DEITY_IMAGE_HEIGHT}
+                    sizes="14rem"
+                    className="h-full w-full object-cover"
+                    priority
+                  />
+                ) : museumPortrait?.imageUrl ? (
+                  <Image
+                    src={museumPortrait.imageUrl}
+                    alt={museumPortrait.imageAlt || museumPortrait.title}
+                    fill
+                    unoptimized
+                    sizes="14rem"
+                    className="object-contain p-2"
+                  />
+                ) : (
+                  <div className="flex h-full items-center justify-center">
+                    <span className="font-serif text-7xl text-gold/70">
+                      {deity.name.charAt(0)}
+                    </span>
+                  </div>
+                )}
+              </div>
+              {deity.imageUrl && (
+                <figcaption className="bg-midnight px-3 py-2 text-xs leading-relaxed text-parchment/85">
+                  Editorial illustration of {deity.name}
+                </figcaption>
+              )}
+              {!deity.imageUrl && museumPortrait && (
+                <figcaption className="bg-midnight/90 px-2 py-1.5 text-[0.65rem] leading-snug text-parchment/75">
+                  {museumPortrait.title}, {museumPortrait.institution}
+                </figcaption>
+              )}
+            </figure>
           </div>
         </div>
       </div>
 
       {/* Content Section */}
       <div className="container mx-auto max-w-4xl px-4 py-12">
+        <Breadcrumbs />
         <div className="space-y-8">
           <div className="space-y-8">
             <LinkedMentions deityId={deity.id} deityName={deity.name} />
@@ -410,7 +438,7 @@ export function DeityPageClient({
             {/* Narrative + structured sections */}
             <div className="space-y-12">
               {/* Detailed Bio — borderless editorial */}
-              <section className="max-w-[68ch]">
+              <section id="deity-about" className="max-w-[68ch] scroll-mt-24">
                 <h2 className="font-serif text-2xl font-semibold text-foreground mb-5 border-l-4 border-gold pl-4">
                   About {deity.name}
                 </h2>
@@ -456,14 +484,23 @@ export function DeityPageClient({
                         },
                         ...deity.crossPantheonParallels
                           .map((parallel) => {
-                            const relatedDeity = deityReferenceMap.get(
+                            const matchedDeity = deityReferenceMap.get(
                               normalizeDeityReference(parallel.deityId),
                             );
-                            if (!relatedDeity) return null;
+                            const relatedDeity =
+                              matchedDeity && matchedDeity.id !== deity.id
+                                ? matchedDeity
+                                : undefined;
+                            const relatedHero = heroParallels.find(
+                              (hero) => hero.id === parallel.deityId,
+                            );
+                            const relatedFigure = relatedDeity ?? relatedHero;
+                            if (!relatedFigure) return null;
                             return {
-                              name: relatedDeity.name,
-                              slug: relatedDeity.slug,
+                              name: relatedFigure.name,
+                              slug: relatedFigure.slug,
                               pantheonId: parallel.pantheonId,
+                              href: `/${relatedDeity ? "deities" : "heroes"}/${relatedFigure.slug}`,
                             };
                           })
                           .filter(
@@ -473,6 +510,7 @@ export function DeityPageClient({
                               name: string;
                               slug: string;
                               pantheonId: string;
+                              href: string;
                             } => d !== null,
                           ),
                       ]}
@@ -483,13 +521,22 @@ export function DeityPageClient({
                         Cross-Pantheon Parallels
                       </h2>
                       <p className="text-muted-foreground text-sm mb-5 pl-5">
-                        Similar deities across different mythologies
+                        Editorial comparisons across traditions; shared roles do
+                        not establish a shared origin.
                       </p>
                       <ul className="space-y-4">
                         {deity.crossPantheonParallels.map((parallel) => {
-                          const relatedDeity = deityReferenceMap.get(
+                          const matchedDeity = deityReferenceMap.get(
                             normalizeDeityReference(parallel.deityId),
                           );
+                          const relatedDeity =
+                            matchedDeity && matchedDeity.id !== deity.id
+                              ? matchedDeity
+                              : undefined;
+                          const relatedHero = heroParallels.find(
+                            (hero) => hero.id === parallel.deityId,
+                          );
+                          const relatedFigure = relatedDeity ?? relatedHero;
                           const pantheonColor = getPantheonColor(
                             parallel.pantheonId,
                           );
@@ -504,12 +551,12 @@ export function DeityPageClient({
                               style={{ borderColor: pantheonColor }}
                             >
                               <div className="flex flex-wrap items-baseline gap-x-2 gap-y-1">
-                                {relatedDeity ? (
+                                {relatedFigure ? (
                                   <Link
-                                    href={`/deities/${relatedDeity.slug}`}
+                                    href={`/${relatedDeity ? "deities" : "heroes"}/${relatedFigure.slug}`}
                                     className="font-medium text-foreground hover:text-gold transition-colors"
                                   >
-                                    {relatedDeity.name}
+                                    {relatedFigure.name}
                                   </Link>
                                 ) : (
                                   <span className="font-medium text-foreground">
@@ -538,82 +585,58 @@ export function DeityPageClient({
                   </>
                 )}
 
-              {/* Source coverage recorded in this catalog */}
-              <div className="reveal-on-scroll">
-                <SourceProvenance sources={deity.primarySources} />
+              <div id="deity-sources" className="space-y-12 scroll-mt-24">
+                {/* Source coverage recorded in this catalog */}
+                <div className="reveal-on-scroll">
+                  <SourceProvenance sources={deity.primarySources} />
+                </div>
+
+                {/* Primary Source Excerpts (with original language toggle) */}
+                {deity.primarySourceExcerpts &&
+                  deity.primarySourceExcerpts.length > 0 && (
+                    <section className="max-w-[68ch]">
+                      <h2 className="font-serif text-2xl font-semibold text-foreground mb-1 border-l-4 border-gold pl-4 flex items-center gap-2">
+                        <ScrollText className="h-5 w-5 text-gold" />
+                        Ancient Sources
+                      </h2>
+                      <p className="text-muted-foreground text-sm mb-5 pl-5">
+                        Quotations, paraphrases and verification notes. Each
+                        passage states what has been checked.
+                      </p>
+                      <SourceExcerptsList
+                        excerpts={deity.primarySourceExcerpts}
+                      />
+                    </section>
+                  )}
+
+                {/* Legacy source notes without edition metadata */}
+                {deity.primarySources &&
+                  deity.primarySources.length > 0 &&
+                  !deity.primarySourceExcerpts?.length && (
+                    <CatalogSourceNotes sources={deity.primarySources} />
+                  )}
+
+                {/* Appears In — derived from sources.json */}
+                <AppearsIn entityId={deity.id} kind="deity" />
+
+                {/* Further Reading */}
+                {deity.furtherReading && deity.furtherReading.length > 0 && (
+                  <ReferencesList
+                    references={deity.furtherReading}
+                    title="Further Reading"
+                    showDescriptions={false}
+                    collapsible={true}
+                    defaultExpanded={false}
+                  />
+                )}
+
+                {deity.sources && deity.sources.length > 0 && (
+                  <EntityPlainSourcesList
+                    lines={deity.sources}
+                    variant="deity"
+                  />
+                )}
               </div>
-
-              {/* Primary Source Excerpts (with original language toggle) */}
-              {deity.primarySourceExcerpts &&
-                deity.primarySourceExcerpts.length > 0 && (
-                  <section className="max-w-[68ch]">
-                    <h2 className="font-serif text-2xl font-semibold text-foreground mb-1 border-l-4 border-gold pl-4 flex items-center gap-2">
-                      <ScrollText className="h-5 w-5 text-gold" />
-                      Ancient Sources
-                    </h2>
-                    <p className="text-muted-foreground text-sm mb-5 pl-5">
-                      Original texts with translations - toggle to see the
-                      original language
-                    </p>
-                    <SourceExcerptsList
-                      excerpts={deity.primarySourceExcerpts}
-                    />
-                  </section>
-                )}
-
-              {/* Legacy source notes without edition metadata */}
-              {deity.primarySources &&
-                deity.primarySources.length > 0 &&
-                !deity.primarySourceExcerpts?.length && (
-                  <section className="max-w-[68ch]">
-                    <h2 className="font-serif text-2xl font-semibold text-foreground mb-1 border-l-4 border-gold pl-4 flex items-center gap-2">
-                      <BookOpen className="h-5 w-5 text-gold" />
-                      Source Notes
-                    </h2>
-                    <p className="text-muted-foreground text-sm mb-5 pl-5">
-                      These records lack edition and translator details. Their
-                      wording has not been verified as a direct quotation.
-                    </p>
-                    <div className="space-y-6">
-                      {deity.primarySources.map((source, index) => (
-                        <div
-                          key={`${source.source}-${index}`}
-                          className="border-l-4 border-gold/30 pl-4 py-2 bg-muted/50 rounded-r-lg"
-                        >
-                          <p className="text-foreground/80 leading-relaxed">
-                            {source.text}
-                          </p>
-                          <footer className="mt-2 text-sm text-muted-foreground">
-                            <span className="font-medium">{source.source}</span>
-                            {source.date && (
-                              <span className="ml-2 text-muted-foreground">
-                                ({source.date})
-                              </span>
-                            )}
-                          </footer>
-                        </div>
-                      ))}
-                    </div>
-                  </section>
-                )}
-
-              {/* Appears In — derived from sources.json */}
-              <AppearsIn entityId={deity.id} kind="deity" />
-
-              {/* Further Reading */}
-              {deity.furtherReading && deity.furtherReading.length > 0 && (
-                <ReferencesList
-                  references={deity.furtherReading}
-                  title="Further Reading"
-                  showDescriptions={false}
-                  collapsible={true}
-                  defaultExpanded={false}
-                />
-              )}
-
-              {deity.sources && deity.sources.length > 0 && (
-                <EntityPlainSourcesList lines={deity.sources} variant="deity" />
-              )}
 
               {/* Worship & Cult */}
               {deity.worship &&
@@ -626,7 +649,8 @@ export function DeityPageClient({
                       Worship & Cult
                     </h2>
                     <p className="text-muted-foreground text-sm mb-5 pl-5">
-                      How {deity.name} was venerated in ancient times
+                      Temples, festivals, and practices recorded for{" "}
+                      {deity.name}
                     </p>
                     <div className="space-y-6">
                       {deity.worship.temples &&
@@ -664,7 +688,7 @@ export function DeityPageClient({
                                 <Badge
                                   key={festival}
                                   variant="outline"
-                                  className="border-gold/30 text-gold-text"
+                                  className="max-w-full whitespace-normal border-gold/30 text-gold-text"
                                 >
                                   {festival}
                                 </Badge>

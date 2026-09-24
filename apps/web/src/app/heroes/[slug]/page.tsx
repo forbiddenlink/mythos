@@ -3,8 +3,13 @@ import { notFound, redirect } from "next/navigation";
 import heroes from "@/data/heroes.json";
 import pantheons from "@/data/pantheons.json";
 import { findHeroByReference } from "@/lib/heroes";
-import { generateBaseMetadata, generateNotFoundMetadata } from "@/lib/metadata";
+import {
+  generateBaseMetadata,
+  generateNotFoundMetadata,
+  shortPantheonName,
+} from "@/lib/metadata";
 import { HeroPageClient } from "./HeroPageClient";
+import { getMuseumObjectsFor } from "@/lib/museum";
 
 // ISR: Revalidate every week (604800 seconds)
 export const revalidate = 604800;
@@ -49,7 +54,7 @@ export async function generateMetadata({
   }
 
   const pantheon = pantheons.find((p) => p.id === hero.pantheonId);
-  const pantheonName = pantheon?.name || "Ancient";
+  const pantheonName = shortPantheonName(pantheon);
 
   const baseDescription =
     hero.description ||
@@ -89,5 +94,10 @@ export default async function HeroPage({ params }: PageProps) {
     redirect(`/heroes/${hero.slug}`);
   }
 
-  return <HeroPageClient slug={slug} />;
+  return (
+    <HeroPageClient
+      slug={slug}
+      museumObjects={getMuseumObjectsFor({ hero: hero.slug })}
+    />
+  );
 }

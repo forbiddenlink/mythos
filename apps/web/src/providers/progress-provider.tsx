@@ -1,5 +1,7 @@
 "use client";
 
+import { progressSchema } from "@/lib/learning-backup";
+
 import { getLocalToday, getLocalYesterday } from "@/lib/date";
 import {
   createContext,
@@ -114,7 +116,19 @@ function loadProgress(): UserProgress {
     if (stored) {
       const parsed = JSON.parse(stored);
       // Merge with defaults to handle any missing fields from older versions
-      return { ...DEFAULT_PROGRESS, ...parsed };
+      // Keep valid fields from older saves; malformed fields use defaults.
+      const fields = Object.entries(progressSchema.shape).map(
+        ([key, schema]) => {
+          const result = schema.safeParse(parsed?.[key]);
+          return [
+            key,
+            result.success
+              ? result.data
+              : DEFAULT_PROGRESS[key as keyof typeof DEFAULT_PROGRESS],
+          ];
+        },
+      );
+      return { ...DEFAULT_PROGRESS, ...Object.fromEntries(fields) };
     }
     return DEFAULT_PROGRESS;
   } catch {

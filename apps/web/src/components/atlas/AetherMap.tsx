@@ -167,10 +167,21 @@ function Scene({ onSelect }: { onSelect: (slug: string) => void }) {
 
 /* --------------------- accessible / no-WebGL fallback -------------------- */
 
-function AtlasFallback({ intro }: { intro?: string }) {
+function AtlasFallback({
+  intro,
+  showTitle = true,
+}: {
+  intro?: string;
+  showTitle?: boolean;
+}) {
   const { pantheons, nodes } = useMemo(() => computeAtlasLayout(), []);
   return (
     <div className="mx-auto max-w-5xl px-4 py-16">
+      {showTitle && (
+        <h1 className="mb-4 font-serif text-3xl text-foreground md:text-4xl">
+          Every god, one sky
+        </h1>
+      )}
       <p className="mb-8 text-muted-foreground">
         {intro ??
           "An interactive star map of every deity, grouped by pantheon. (A text list is shown here because motion is reduced or 3D is unavailable.)"}
@@ -178,7 +189,7 @@ function AtlasFallback({ intro }: { intro?: string }) {
       <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
         {pantheons.map((p) => (
           <section key={p.id}>
-            <h2 className="mb-2 font-serif text-lg" style={{ color: p.color }}>
+            <h2 className="mb-2 font-serif text-lg text-foreground">
               {p.name}
             </h2>
             <ul className="space-y-1">
@@ -271,9 +282,12 @@ export function AetherMap() {
           it, then shown as a scrollable overlay panel. */}
       <nav
         aria-label="Aether Map deities, list view"
-        className="sr-only focus-within:not-sr-only focus-within:absolute focus-within:inset-0 focus-within:z-20 focus-within:overflow-y-auto focus-within:bg-midnight/95"
+        className="sr-only focus-within:not-sr-only focus-within:absolute focus-within:inset-0 focus-within:z-20 focus-within:overflow-y-auto focus-within:bg-background"
       >
-        <AtlasFallback intro="Every deity, grouped by pantheon — a keyboard- and screen-reader-navigable list of the star map above." />
+        <AtlasFallback
+          showTitle={false}
+          intro="Every deity, grouped by pantheon — a keyboard- and screen-reader-navigable list of the star map above."
+        />
       </nav>
     </div>
   );

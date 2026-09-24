@@ -1,5 +1,5 @@
 /**
- * Global daily spend guard for Anthropic routes (Oracle + story quiz).
+ * Global daily request guard for both providers (Oracle + story quiz).
  * Caps total successful admissions across all IPs for a UTC day.
  */
 

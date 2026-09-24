@@ -17,6 +17,7 @@ export interface WheelDeity {
   name: string;
   slug: string;
   pantheonId: string;
+  href?: string;
 }
 
 /**
@@ -58,14 +59,31 @@ export function RosettaWheel({
     <section className="mb-12" aria-label={`${archetype} across pantheons`}>
       <div className="mb-6">
         <span className="text-xs uppercase tracking-[0.25em] text-gold-text">
-          One role, many cultures
+          Explore the connections
         </span>
         <h2 className="font-serif text-2xl font-semibold text-foreground">
-          The {archetype} archetype across pantheons
+          {archetype}: figures across traditions
         </h2>
       </div>
 
-      <div className="relative mx-auto aspect-square w-full max-w-[34rem]">
+      <ul className="divide-y divide-border md:hidden">
+        {members.map((member) => (
+          <li key={member.slug}>
+            <Link
+              href={member.href ?? `/deities/${member.slug}`}
+              className="flex min-h-14 flex-wrap items-baseline justify-between gap-x-4 gap-y-1 rounded-sm py-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+            >
+              <span className="font-serif text-lg text-foreground">
+                {member.name}
+              </span>
+              <span className="text-sm text-muted-foreground">
+                {prettyFromPantheonId(member.pantheonId)}
+              </span>
+            </Link>
+          </li>
+        ))}
+      </ul>
+      <div className="relative mx-auto hidden aspect-square w-full max-w-[34rem] md:block">
         {/* threads */}
         <svg
           viewBox="0 0 100 100"
@@ -109,7 +127,7 @@ export function RosettaWheel({
             }}
           >
             <Link
-              href={`/deities/${p.slug}`}
+              href={p.href ?? `/deities/${p.slug}`}
               onMouseEnter={() => setActive(i)}
               onMouseLeave={() => setActive(null)}
               onFocus={() => setActive(i)}

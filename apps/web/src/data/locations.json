@@ -368,7 +368,7 @@
     "latitude": null,
     "longitude": null,
     "imageUrl": "/locations/muspelheim.png",
-    "detailedBio": "## Fire at the south\n\nMuspelheim is Snorri's hot pole, guarded by Surtr with a burning sword. Sparks from it order the stars; at the end Surtr comes and the world burns. The *Voluspa* already has Surtr from the south. A full fire-realm with a king is largely Snorri's architecture. There is no cult of Muspelheim. The name explains heat, stars, and the last fire in one geography. Do not invent a fire-giant priesthood; the texts do not.",
+    "detailedBio": "## Fire at the south\n\nMuspelheim is Snorri's hot pole, guarded by Surtr with a burning sword. Sparks from it order the stars; at the end Surtr comes and the world burns. The *Voluspa* already has Surtr from the south. A full fire-realm with a king is largely Snorri's architecture. There is no cult of Muspelheim. The name explains heat, stars, and the last fire in one geography.",
     "primarySources": [
       {
         "text": "Surtr is he who sits at the border to guard Muspell. At the end he will go forth and vanquish all the gods and burn the world with fire.",
@@ -440,7 +440,7 @@
     "latitude": null,
     "longitude": null,
     "imageUrl": "/locations/alfheim.png",
-    "detailedBio": "## Frey's tooth-gift\n\nAlfheim is the light-elves' realm. *Grimnismal* says the gods gave it to Frey as a tooth-gift in the morning of time. Snorri distinguishes light elves in Alfheim from dark elves below. That is nearly all the surviving description: brightness, Frey, elves. No ritual calendar for Alfheim survives. Do not invent elf-festivals. The place exists to lodge a people adjacent to the Vanir and to contrast with the underground smiths.",
+    "detailedBio": "## Frey's tooth-gift\n\nAlfheim is the light-elves' realm. *Grimnismal* says the gods gave it to Frey as a tooth-gift in the morning of time. Snorri distinguishes light elves in Alfheim from dark elves below. That is nearly all the surviving description: brightness, Frey, elves. No ritual calendar for Alfheim survives. The place exists to lodge a people adjacent to the Vanir and to contrast with the underground smiths.",
     "primarySources": [
       {
         "text": "Alfheim the gods gave to Frey in days of yore as a tooth-gift.",
@@ -529,7 +529,7 @@
     "description": "The Egyptian underworld through which Ra travels each night and the dead must journey, facing trials before Osiris's judgment.",
     "latitude": null,
     "longitude": null,
-    "imageUrl": "/locations/duat.png",
+    "imageUrl": "/locations/duat.webp",
     "detailedBio": "## Night road of the sun\n\nThe Duat is the Egyptian underworld through which Ra's night barque sails, hour by hour, in the *Amduat* and *Book of Gates*. The dead need names, passwords, and offerings from the *Book of the Dead*. Osiris sits in judgment; Apophis waits to swallow the sun. It is mapped on tomb walls, not on a civic street. Geography is liturgical: caverns, gates, fire, water. There is no single novel of the Duat, only illustrated itineraries for kings and, later, officials.",
     "primarySources": [
       {
@@ -674,7 +674,7 @@
     "latitude": 25.3176,
     "longitude": 82.9739,
     "imageUrl": "/locations/varanasi.png",
-    "detailedBio": "## Kashi on the Ganga\n\nVaranasi (Kashi) is Shiva's city in the *Skanda Purana* and in Mahabharata geography: a crossing-place where dying is said to free. The Ganga's ghats are later urban form; the holiness is older in the Puranic lists of tirthas. Do not invent a single founding battle. The claim is soteriological: this is where the god of destruction keeps a home on the river. Historical Buddhism and later Mughal layers sit on the same bend. The mythic city is the tirtha, not the modern skyline.",
+    "detailedBio": "## Kashi on the Ganga\n\nVaranasi (Kashi) is Shiva's city in the *Skanda Purana* and in Mahabharata geography: a crossing-place where dying is said to free. The Ganga's ghats are later urban form; the holiness is older in the Puranic lists of tirthas. The claim is soteriological: this is where the god of destruction keeps a home on the river. Historical Buddhism and later Mughal layers sit on the same bend. The mythic city is the tirtha, not the modern skyline.",
     "primarySources": [
       {
         "text": "Kashi is the secret of the universe; there Shiva whispers the taraka mantra to the dying.",
@@ -764,7 +764,7 @@
     "latitude": 34.455,
     "longitude": 136.7258,
     "imageUrl": "/locations/ise-grand-shrine.png",
-    "detailedBio": "## Amaterasu's stored mirror\n\nIse Jingu houses Amaterasu in the Inner Shrine (Naiku) and Toyouke in the Outer. The *Nihon Shoki* tells how the sacred mirror was moved until it rested at Ise in the reign of Suinin. The twenty-year rebuilding (shikinen sengu) is a documented imperial cult practice, not a myth episode. The Kojiki is thinner on Ise as a place. Do not invent a battle on the Isuzu. The shrine is where the sun goddess's regalia lives in the islands.",
+    "detailedBio": "## Amaterasu's stored mirror\n\nIse Jingu houses Amaterasu in the Inner Shrine (Naiku) and Toyouke in the Outer. The *Nihon Shoki* tells how the sacred mirror was moved until it rested at Ise in the reign of Suinin. The twenty-year rebuilding (shikinen sengu) is a documented imperial cult practice, not a myth episode. The Kojiki is thinner on Ise as a place. The shrine is where the sun goddess's regalia lives in the islands.",
     "primarySources": [
       {
         "text": "The Great Goddess Amaterasu was enshrined at Ise, in the province of Watarai.",
@@ -1304,7 +1304,7 @@
     "latitude": null,
     "longitude": null,
     "imageUrl": "/locations/hawaiki.png",
-    "detailedBio": "## Ancestral west, and a return for souls\n\nHawaiki (Hawai'i, Savai'i, and cognates) is the named homeland in Polynesian genealogies from which canoes left to settle distant islands. In Maori tradition souls also travel back toward it. It is both a remembered geography (often argued toward the Society Islands or further west) and a spiritual direction. There is no single canonical book; the evidence is chant, genealogy, and later collections (Grey, Fornander). Do not invent a palace plan.",
+    "detailedBio": "## Ancestral west, and a return for souls\n\nHawaiki (Hawai'i, Savai'i, and cognates) is the named homeland in Polynesian genealogies from which canoes left to settle distant islands. In Maori tradition souls also travel back toward it. It is both a remembered geography (often argued toward the Society Islands or further west) and a spiritual direction. There is no single canonical book; the evidence is chant, genealogy, and later collections (Grey, Fornander).",
     "primarySources": [
       {
         "text": "From Hawaiki the canoes came; to Hawaiki the spirits return.",
@@ -1358,7 +1358,7 @@
     "latitude": 19.8207,
     "longitude": -155.468,
     "imageUrl": "/locations/mauna-kea.png",
-    "detailedBio": "## Poliahu's white mountain\n\nMauna Kea (Mauna a Wakea in some genealogies) is a snow mountain and the home of Poli'ahu, a goddess of ice who opposes Pele's fire in Hawaiian story. Summit shrines and later telescope conflicts sit on land already named as sacred. The evidence is chant and place-name, not a novel. Do not invent a festival calendar the ethnographies do not give. The peak is a cold counter-realm to Kilauea on the same island.",
+    "detailedBio": "## Poliahu's white mountain\n\nMauna Kea (Mauna a Wakea in some genealogies) is a snow mountain and the home of Poli'ahu, a goddess of ice who opposes Pele's fire in Hawaiian story. Summit shrines and later telescope conflicts sit on land already named as sacred. The evidence is chant and place-name, not a novel. The peak is a cold counter-realm to Kilauea on the same island.",
     "primarySources": [
       {
         "text": "Poli'ahu of the snow mountain, rival of Pele, whose mantle is frost on Mauna Kea.",
@@ -1394,7 +1394,7 @@
     "latitude": -34.4289,
     "longitude": 172.6803,
     "imageUrl": "/locations/te-reinga.png",
-    "detailedBio": "## Where spirits leap\n\nTe Rerenga Wairua at Cape Reinga is, in Maori tradition, the leaving-place of the dead: spirits travel north, descend a pohutukawa, and go into the sea toward Hawaiki. It is a directional eschatology tied to a real headland. Nineteenth-century collectors (Grey, later ethnographers) wrote down local accounts. There is no *Book of the Dead* equivalent. The site is still treated as tapu. Do not invent additional courts of judgment the chants do not name.",
+    "detailedBio": "## Where spirits leap\n\nTe Rerenga Wairua at Cape Reinga is, in Maori tradition, the leaving-place of the dead: spirits travel north, descend a pohutukawa, and go into the sea toward Hawaiki. It is a directional eschatology tied to a real headland. Nineteenth-century collectors (Grey, later ethnographers) wrote down local accounts. There is no *Book of the Dead* equivalent. The site is still treated as tapu.",
     "primarySources": [
       {
         "text": "The spirits go north to Te Rerenga Wairua, down the roots of the pohutukawa, and into the sea.",
@@ -1484,7 +1484,7 @@
     "latitude": 7.8439,
     "longitude": 3.9306,
     "imageUrl": "/locations/oyo.png",
-    "detailedBio": "## Shango's former throne\n\nOld Oyo (Oyo-Ile) was the capital of the Oyo empire. Tradition makes Shango (Sango) a historical Alaafin who became the orisha of thunder after a violent end. Johnson's *History of the Yorubas* and Ifa/Sango praise-poetry are the usual written and oral witnesses. The city is where kingship and thunder-cult meet; it is not a sky-palace. New Oyo after the capital's fall is a later political fact. Do not invent a festival the Sango cult does not actually keep.",
+    "detailedBio": "## Shango's former throne\n\nOld Oyo (Oyo-Ile) was the capital of the Oyo empire. Tradition makes Shango (Sango) a historical Alaafin who became the orisha of thunder after a violent end. Johnson's *History of the Yorubas* and Ifa/Sango praise-poetry are the usual written and oral witnesses. The city is where kingship and thunder-cult meet; it is not a sky-palace. New Oyo after the capital's fall is a later political fact.",
     "primarySources": [
       {
         "text": "Sango was Alaafin at Oyo. When he departed, the people said the king had become thunder.",
@@ -1502,7 +1502,7 @@
     "latitude": null,
     "longitude": null,
     "imageUrl": "/locations/igbo-orun.png",
-    "detailedBio": "## Forest that is not a mapped park\n\nIgbo-Orun, \"forest of heaven,\" names sacred woodland as a joint between Aye and Orun in Yoruba speech: groves where orisha are fed, initiations run, and hunting is forbidden. It is a class of place more than one GPS pin. Ifa verses assume such forests; they do not publish a tourist prospectus. Do not invent a unique creation battle for this entry. The holiness is prohibition and presence, not architecture.",
+    "detailedBio": "## Forest that is not a mapped park\n\nIgbo-Orun, \"forest of heaven,\" names sacred woodland as a joint between Aye and Orun in Yoruba speech: groves where orisha are fed, initiations run, and hunting is forbidden. It is a class of place more than one GPS pin. Ifa verses assume such forests; they do not publish a tourist prospectus. The holiness is prohibition and presence, not architecture.",
     "primarySources": [
       {
         "text": "The forest of heaven is not for casual cutting; it is the orisha's road between Orun and Aye.",
@@ -1753,7 +1753,7 @@
     "description": "Sacred island of the Mysteries where the Argonauts sought divine favor.",
     "latitude": 40.48,
     "longitude": 25.52,
-    "detailedBio": "## Mysteries on the Argo's route\n\nApollonius has the Argonauts put in at Samothrace in Book 1 to be initiated in the rites of the Kabeiroi (Samothracian Mysteries), for protection at sea. The island's mystery cult is historically real and famously secret; the *Argonautica* uses it as a pious stop. Homer does not send Odysseus here. Do not invent the secret. What can be said: seafarers sought the Great Gods, and Apollonius parks Jason's crew in that queue.",
+    "detailedBio": "## Mysteries on the Argo's route\n\nApollonius has the Argonauts put in at Samothrace in Book 1 to be initiated in the rites of the Kabeiroi (Samothracian Mysteries), for protection at sea. The island's mystery cult is historically real and famously secret; the *Argonautica* uses it as a pious stop. Homer does not send Odysseus here. What can be said: seafarers sought the Great Gods, and Apollonius parks Jason's crew in that queue.",
     "primarySources": [
       {
         "text": "They reached Electra's isle, where they were initiated in the sacred rites, that they might sail with greater safety.",
@@ -2167,7 +2167,7 @@
     "description": "Maya city of Pakal's dynasty — temples of the sun, cross, and inscriptions that map royal myth onto stone.",
     "latitude": 17.48,
     "longitude": -92.05,
-    "detailedBio": "## Lakamha, Pakal's inscribed mountain\n\nPalenque (Lakamha) is a Classic Maya city in Chiapas whose Temple of the Inscriptions and Cross Group write K'inich Janaab Pakal's dynasty into stone: descent, maize, the world tree, sun and rain gods. This is not the K'iche' *Popol Vuh*, though the imagery rhymes with later highland myth. The texts are hieroglyphic and royal. Do not invent a Palenque chapter of the Hero Twins. The site is a specific court's cosmic autobiography.",
+    "detailedBio": "## Lakamha, Pakal's inscribed mountain\n\nPalenque (Lakamha) is a Classic Maya city in Chiapas whose Temple of the Inscriptions and Cross Group write K'inich Janaab Pakal's dynasty into stone: descent, maize, the world tree, sun and rain gods. This is not the K'iche' *Popol Vuh*, though the imagery rhymes with later highland myth. The texts are hieroglyphic and royal. The site is a specific court's cosmic autobiography.",
     "primarySources": [
       {
         "text": "Pakal entered the road of the dead beneath the Temple of the Inscriptions; the tablets name his line and the gods of the Cross Group.",

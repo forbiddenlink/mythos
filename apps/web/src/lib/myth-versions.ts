@@ -15,6 +15,7 @@ export interface VersionSource {
   sortYear: number;
   kind: SourceKind;
   reference?: boolean;
+  readingUrl?: string;
   cells: Record<string, VersionCell>;
 }
 

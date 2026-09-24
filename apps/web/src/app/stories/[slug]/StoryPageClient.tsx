@@ -1,6 +1,6 @@
 "use client";
 
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, type ReactNode } from "react";
 import {
   Card,
   CardContent,
@@ -8,8 +8,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Tag, ScrollText, Volume2, Square, Play } from "lucide-react";
-import { HeroMark } from "@/components/icons/hero-mark";
+import { ScrollText, Play, ArrowDown, Headphones } from "lucide-react";
 import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
 import { BookmarkButton } from "@/components/ui/bookmark-button";
 import { ExportIconButton } from "@/components/ui/export-button";
@@ -18,9 +17,6 @@ import { ArticleJsonLd } from "@/components/seo/JsonLd";
 import Link from "next/link";
 import Image from "next/image";
 import ReactMarkdown from "react-markdown";
-import { useTextToSpeech } from "@/hooks/useTextToSpeech";
-import { RouteHero } from "@/components/layout/route-hero";
-import { MuseumObjects } from "@/components/stories/MuseumObjects";
 
 import { ProgressContext } from "@/providers/progress-provider";
 import { RelatedContent } from "@/components/related-content";
@@ -28,10 +24,6 @@ import { MythVariants } from "@/components/stories/MythVariants";
 import { VersionMatrix } from "@/components/stories/VersionMatrix";
 import type { MythVersions } from "@/lib/myth-versions";
 import { EditorialByline } from "@/components/content/EditorialByline";
-import deitiesData from "@/data/deities.json";
-import locationsData from "@/data/locations.json";
-import storiesData from "@/data/stories.json";
-import pantheonsData from "@/data/pantheons.json";
 import { StoryNarrator } from "@/components/stories/StoryNarrator";
 import {
   SourceExcerptsList,
@@ -103,23 +95,29 @@ interface Story {
   sources?: string[];
 }
 
-interface Deity {
-  id: string;
-  name: string;
-  slug: string;
-  domain?: string[];
-  imageUrl?: string;
-}
-
-interface Location {
-  id: string;
-  name: string;
-  locationType?: string;
-  imageUrl?: string;
-}
-
-interface StoryPageClientProps {
-  slug: string;
+export interface StoryPageClientProps {
+  story: Story;
+  pantheon?: { name: string; slug: string };
+  featuredDeitiesData: Array<{
+    id: string;
+    name: string;
+    slug: string;
+    domain?: string[];
+    imageUrl?: string;
+  }>;
+  featuredLocationsData: Array<{
+    id: string;
+    name: string;
+    slug: string;
+    imageUrl?: string;
+  }>;
+  relatedStoriesData: Array<{
+    id: string;
+    title: string;
+    slug: string;
+    summary: string;
+  }>;
+  museumObjects: ReactNode;
   versions?: MythVersions | null;
 }
 
@@ -127,81 +125,14 @@ interface StoryPageClientProps {
 const CINEMATIC_STORIES = ["ragnarok", "titanomachy"];
 
 export function StoryPageClient({
-  slug,
+  story,
+  pantheon,
+  featuredDeitiesData,
+  featuredLocationsData,
+  relatedStoriesData,
+  museumObjects,
   versions = null,
 }: StoryPageClientProps) {
-  const { speak, cancel, isSpeaking } = useTextToSpeech();
-  const allStories = storiesData as Story[];
-  const story = allStories.find((s) => s.slug === slug);
-  const pantheon = (pantheonsData as Array<{ id: string; name: string }>).find(
-    (p) => p.id === story?.pantheonId,
-  );
-
-  if (!story) {
-    return (
-      <div className="container mx-auto max-w-6xl px-4 py-24">
-        <div className="text-center">
-          <h2 className="text-2xl font-bold">Story Not Found</h2>
-          <p className="text-muted-foreground mt-2">
-            The story you&apos;re looking for doesn&apos;t exist.
-          </p>
-          <Link
-            href="/stories"
-            className="text-gold hover:underline mt-4 inline-block"
-          >
-            View all stories
-          </Link>
-        </div>
-      </div>
-    );
-  }
-
-  // Look up featured deities by ID
-  const featuredDeitiesData = (story.featuredDeities || [])
-    .map((deityId) => {
-      const deity = (deitiesData as Deity[]).find((d) => d.id === deityId);
-      if (!deity) return null;
-      return {
-        id: deity.id,
-        name: deity.name,
-        slug: deity.slug,
-        domain: deity.domain,
-        imageUrl: deity.imageUrl,
-      };
-    })
-    .filter((d): d is NonNullable<typeof d> => d !== null);
-
-  // Look up featured locations by ID
-  const featuredLocationsData = (story.featuredLocations || [])
-    .map((locationId) => {
-      const location = (locationsData as Location[]).find(
-        (l) => l.id === locationId,
-      );
-      if (!location) return null;
-      // Locations don't have a slug field, use id as slug
-      return {
-        id: location.id,
-        name: location.name,
-        slug: location.id,
-        imageUrl: location.imageUrl,
-      };
-    })
-    .filter((l): l is NonNullable<typeof l> => l !== null);
-
-  // Look up related stories by ID
-  const relatedStoriesData = (story.relatedStories || [])
-    .map((storyId) => {
-      const relatedStory = allStories.find((s) => s.id === storyId);
-      if (!relatedStory) return null;
-      return {
-        id: relatedStory.id,
-        title: relatedStory.title,
-        slug: relatedStory.slug,
-        summary: relatedStory.summary,
-      };
-    })
-    .filter((s): s is NonNullable<typeof s> => s !== null);
-
   const hasRelatedContent =
     featuredDeitiesData.length > 0 ||
     featuredLocationsData.length > 0 ||
@@ -217,38 +148,95 @@ export function StoryPageClient({
         tags={story.moralThemes}
         url={`/stories/${story.slug}`}
       />
-      {/* Hero Section */}
-      <RouteHero tone="surface">
-        <div className="flex items-center justify-center mb-6">
-          <HeroMark mark="scroll" tone="gold" size="lg" />
-        </div>
-        <h1 className="page-title text-foreground mb-6">{story.title}</h1>
-        <div className="flex items-center justify-center gap-4 mb-6">
-          <div className="w-12 h-px bg-linear-to-r from-transparent to-gold/40" />
-          <div className="w-1.5 h-1.5 rotate-45 bg-gold/50" />
-          <div className="w-12 h-px bg-linear-to-l from-transparent to-gold/40" />
-        </div>
-        <div className="flex items-center justify-center gap-2 mb-4">
-          <Tag className="h-4 w-4 text-gold" />
-          <p className="text-gold-text font-body">{story?.category}</p>
-        </div>
-        <EditorialByline
-          className="mx-auto max-w-2xl text-center"
-          tone="dark"
-        />
+      <div className="container mx-auto max-w-6xl px-4 pb-10 pt-6 sm:pt-10">
+        <Breadcrumbs />
+        <header className="mt-8 grid gap-8 lg:grid-cols-5 lg:items-center lg:gap-12">
+          <div
+            className={
+              story.imageUrl ? "lg:col-span-3" : "lg:col-span-5 max-w-3xl"
+            }
+          >
+            <p className="mb-4 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-gold-text">
+              {pantheon && (
+                <Link
+                  href={`/pantheons/${pantheon.slug}`}
+                  className="underline-offset-4 hover:underline"
+                >
+                  {pantheon.name}
+                </Link>
+              )}
+              <span aria-hidden="true">/</span>
+              <span className="capitalize">{story.category}</span>
+            </p>
+            <h1 className="page-title text-foreground">{story.title}</h1>
+            <p className="mt-5 max-w-2xl font-body text-xl leading-relaxed text-muted-foreground">
+              {story.summary}
+            </p>
+            <nav
+              aria-label="On this story page"
+              className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-3 text-sm"
+            >
+              <a
+                href="#story-narrative"
+                className="inline-flex min-h-11 items-center gap-2 font-semibold text-gold-text underline underline-offset-4"
+              >
+                Read the story{" "}
+                <ArrowDown className="h-4 w-4" aria-hidden="true" />
+              </a>
+              <a
+                href="#story-sources"
+                className="inline-flex min-h-11 items-center text-foreground underline underline-offset-4"
+              >
+                Sources and context
+              </a>
+              {versions && (
+                <a
+                  href="#version-matrix-title"
+                  className="inline-flex min-h-11 items-center text-foreground underline underline-offset-4"
+                >
+                  Compare tellings
+                </a>
+              )}
+            </nav>
+          </div>
+          {story.imageUrl && (
+            <figure className="lg:col-span-2">
+              <div className="relative aspect-video overflow-hidden border border-border bg-muted lg:aspect-square">
+                <Image
+                  src={story.imageUrl}
+                  alt={`Illustration for ${story.title}`}
+                  fill
+                  sizes="(min-width: 1024px) 440px, (max-width: 640px) 100vw, 640px"
+                  className="object-cover object-center"
+                  priority
+                  fetchPriority="high"
+                />
+              </div>
+              <figcaption className="mt-2 text-xs leading-relaxed text-muted-foreground">
+                Story illustration. Historical objects are identified separately
+                with their museum records.
+              </figcaption>
+            </figure>
+          )}
+        </header>
+      </div>
 
-        <div className="flex flex-wrap items-center justify-center gap-3 mt-2">
-          <BookmarkButton type="story" id={story?.id || ""} size="lg" />
-
-          {story && (
+      <div className="container mx-auto max-w-4xl px-4 pb-16">
+        <div className="mb-10 flex flex-wrap items-center justify-between gap-4 border-y border-border py-3">
+          <p className="text-sm text-muted-foreground">
+            An editorial retelling
+          </p>
+          <div
+            className="flex items-center gap-2"
+            role="group"
+            aria-label="Save or share this story"
+          >
+            <BookmarkButton type="story" id={story.id} />
             <ShareButton
               title={`${story.title} - Mythos Atlas`}
-              text={`Read "${story.title}" - ${story.summary?.slice(0, 100)}... on Mythos Atlas`}
+              text={story.summary}
               url={`https://mythosatlas.com/stories/${story.slug}`}
             />
-          )}
-
-          {story && (
             <ExportIconButton
               type="story"
               data={{
@@ -263,102 +251,13 @@ export function StoryPageClient({
               }}
               variant="ghost"
             />
-          )}
-
-          {story && (
-            <button
-              onClick={() => {
-                if (isSpeaking) {
-                  cancel();
-                } else {
-                  speak(story.fullNarrative || story.summary);
-                }
-              }}
-              className={`flex items-center gap-2 px-4 py-2 rounded-lg border transition-all ${
-                isSpeaking
-                  ? "bg-destructive/15 border-destructive/40 text-destructive hover:bg-destructive/25"
-                  : "bg-gold/15 border-gold/40 text-gold-text hover:bg-gold/25"
-              }`}
-            >
-              {isSpeaking ? (
-                <>
-                  <Square className="h-4 w-4 fill-current" />
-                  <span className="font-semibold">Stop Reading</span>
-                </>
-              ) : (
-                <>
-                  <Volume2 className="h-4 w-4" />
-                  <span className="font-semibold">Read Aloud</span>
-                </>
-              )}
-            </button>
-          )}
-
-          {story && CINEMATIC_STORIES.includes(story.slug) && (
-            <Link
-              href={`/stories/${story.slug}/cinematic`}
-              className="flex items-center gap-2 px-4 py-2 rounded-lg border bg-bronze/15 border-bronze/40 text-bronze hover:bg-bronze/25 transition-all"
-            >
-              <Play className="h-4 w-4" />
-              <span className="font-semibold">Cinematic Mode</span>
-            </Link>
-          )}
-
-          {story?.fullNarrative && (
-            <Link
-              href={`/stories/${story.slug}/read`}
-              className="flex items-center gap-2 px-4 py-2 rounded-lg border bg-gold/10 border-gold/40 text-gold-text hover:bg-gold/20 transition-all"
-            >
-              <ScrollText className="h-4 w-4" />
-              <span className="font-semibold">Read Cinematically</span>
-            </Link>
-          )}
+          </div>
         </div>
-      </RouteHero>
 
-      {/* Content Section */}
-      <div className="container mx-auto max-w-4xl px-4 py-16">
-        <Breadcrumbs />
-
-        {/* Story Illustration */}
-        {story.imageUrl && (
-          <div className="mt-8 overflow-hidden rounded-2xl border border-border/70 bg-card/50 shadow-xl">
-            <div className="relative aspect-16/9 w-full max-h-[440px] overflow-hidden bg-midnight">
-              <Image
-                src={story.imageUrl}
-                alt={story.title}
-                fill
-                sizes="(max-width: 1024px) 100vw, 896px"
-                className="object-cover object-center"
-                priority
-              />
-              <div className="absolute inset-0 bg-linear-to-t from-midnight/80 via-transparent to-transparent pointer-events-none" />
-              <div className="absolute bottom-4 left-6 right-6 flex items-center justify-between text-xs pointer-events-none">
-                <span className="font-serif italic text-sm text-gold">
-                  {story.title}
-                </span>
-                <span className="uppercase tracking-widest text-[11px] text-parchment/70">
-                  {pantheon?.name}
-                </span>
-              </div>
-            </div>
-          </div>
-        )}
-
-        {/* Story Narrator */}
-        {(story.fullNarrative || story.summary) && (
-          <div className="mt-6">
-            <StoryNarrator
-              text={story.fullNarrative || story.summary}
-              defaultCompact={false}
-            />
-          </div>
-        )}
-
-        <div className="mt-8 space-y-12">
+        <div className="space-y-12">
           {/* Full Narrative — borderless editorial */}
           {story.fullNarrative ? (
-            <section className="reveal-on-scroll max-w-[68ch]">
+            <section id="story-narrative" className="max-w-[68ch] scroll-mt-24">
               <h2 className="chapter-mark font-serif text-2xl font-semibold text-foreground mb-5 border-l-4 border-gold pl-4">
                 Editorial narrative
               </h2>
@@ -367,7 +266,7 @@ export function StoryPageClient({
               </div>
             </section>
           ) : (
-            <section className="max-w-[68ch]">
+            <section id="story-narrative" className="max-w-[68ch] scroll-mt-24">
               <h2 className="font-serif text-2xl font-semibold text-foreground mb-5 border-l-4 border-gold pl-4">
                 Summary
               </h2>
@@ -376,6 +275,42 @@ export function StoryPageClient({
               </p>
             </section>
           )}
+
+          <details className="border-y border-border py-4">
+            <summary className="flex min-h-11 cursor-pointer items-center gap-2 font-medium text-foreground">
+              <Headphones
+                className="h-4 w-4 text-gold-text"
+                aria-hidden="true"
+              />
+              Listen or change reading mode
+            </summary>
+            <div className="mt-4 space-y-4">
+              <StoryNarrator
+                text={story.fullNarrative || story.summary}
+                defaultCompact
+              />
+              <div className="flex flex-wrap gap-4 text-sm">
+                {story.fullNarrative && (
+                  <Link
+                    href={`/stories/${story.slug}/read`}
+                    className="inline-flex min-h-11 items-center gap-2 text-gold-text underline underline-offset-4"
+                  >
+                    <ScrollText className="h-4 w-4" aria-hidden="true" />
+                    Cinematic reading
+                  </Link>
+                )}
+                {CINEMATIC_STORIES.includes(story.slug) && (
+                  <Link
+                    href={`/stories/${story.slug}/cinematic`}
+                    className="inline-flex min-h-11 items-center gap-2 text-gold-text underline underline-offset-4"
+                  >
+                    <Play className="h-4 w-4" aria-hidden="true" />
+                    Scene-by-scene version
+                  </Link>
+                )}
+              </div>
+            </div>
+          </details>
 
           {/* Key Excerpts */}
           {story.keyExcerpts && (
@@ -420,6 +355,20 @@ export function StoryPageClient({
             </section>
           )}
 
+          <section
+            id="story-sources"
+            aria-labelledby="story-sources-title"
+            className="scroll-mt-24 border-t border-border pt-8"
+          >
+            <h2
+              id="story-sources-title"
+              className="page-section-title mb-4 text-foreground"
+            >
+              Sources and context
+            </h2>
+            <EditorialByline tone="dark" />
+          </section>
+
           {/* Structured citation references (from JSON citationSources) */}
           {story.citationSources && story.citationSources.length > 0 && (
             <CitationSourcesList
@@ -445,8 +394,8 @@ export function StoryPageClient({
                     Ancient Sources
                   </CardTitle>
                   <CardDescription>
-                    Original texts with translations — toggle to see the
-                    original language
+                    Quotations and source notes. Verification status is shown
+                    for each passage.
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
@@ -456,7 +405,7 @@ export function StoryPageClient({
             )}
 
           {/* Further Reading */}
-          <MuseumObjects storyId={story.id} />
+          {museumObjects}
           {story.furtherReading && story.furtherReading.length > 0 && (
             <ReferencesList
               references={story.furtherReading}

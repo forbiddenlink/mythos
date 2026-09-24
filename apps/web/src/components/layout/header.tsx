@@ -37,14 +37,14 @@ export function Header() {
       {
         title: t("navigation.discover"),
         links: [
+          { href: "/collections", label: t("navigation.collections") },
+          { href: "/journeys", label: t("navigation.heroJourneys") },
+          { href: "/family-tree", label: t("navigation.familyTree") },
+          { href: "/compare", label: t("navigation.compareDeities") },
           { href: "/atlas", label: t("navigation.atlas") },
           { href: "/cosmology", label: t("navigation.cosmology") },
-          { href: "/oracle", label: t("navigation.oracle") },
-          { href: "/collections", label: t("navigation.collections") },
-          { href: "/compare", label: t("navigation.compareDeities") },
           { href: "/knowledge-graph", label: t("navigation.knowledgeGraph") },
-          { href: "/family-tree", label: t("navigation.familyTree") },
-          { href: "/journeys", label: t("navigation.heroJourneys") },
+          { href: "/oracle", label: t("navigation.oracle") },
         ],
       },
       {

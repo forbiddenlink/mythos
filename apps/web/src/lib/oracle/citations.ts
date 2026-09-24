@@ -1,4 +1,4 @@
-import { getResultUrl, type SearchResult } from "@/lib/search";
+import { getResultUrl, type SearchResult } from "@/lib/search-result";
 
 export interface OracleCitation {
   type: string;

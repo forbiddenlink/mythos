@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
 import { AboutPageJsonLd } from "@/components/seo/JsonLd";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -92,6 +93,25 @@ export default function AboutPage() {
               </p>
             </CardContent>
           </Card>
+
+          <section
+            aria-labelledby="support-atlas"
+            className="border-y border-border py-6"
+          >
+            <h2 id="support-atlas" className="page-section-title">
+              Support the atlas
+            </h2>
+            <p className="mt-3 text-muted-foreground leading-relaxed">
+              Mythos Atlas is an independent project. Optional contributions
+              help with source research, design and upkeep.
+            </p>
+            <Link
+              href="/support"
+              className="mt-3 inline-flex min-h-11 items-center text-gold-text underline underline-offset-4"
+            >
+              Support Mythos Atlas
+            </Link>
+          </section>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <Card className="border-gold/20 bg-card">

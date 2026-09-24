@@ -1,5 +1,3 @@
-"use client";
-
 import Link from "next/link";
 import { getPantheonColor } from "@/lib/pantheon-colors";
 import { getSyncretismChains } from "@/lib/linked-mentions";

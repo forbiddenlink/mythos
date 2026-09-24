@@ -1,11 +1,10 @@
 "use client";
 
-import { useRef, useEffect, useState } from "react";
+import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
-import { motion, useReducedMotion } from "framer-motion";
 
 // Register GSAP plugins
 if (typeof window !== "undefined") {
@@ -40,52 +39,31 @@ const moodGradients: Record<string, string> = {
 
 function Scene({ scene, index }: { scene: StoryScene; index: number }) {
   const sceneRef = useRef<HTMLDivElement>(null);
-  const textRef = useRef<HTMLDivElement>(null);
   const imageRef = useRef<HTMLDivElement>(null);
 
   const gradient = moodGradients[scene.mood || "default"];
 
   useGSAP(
     () => {
-      if (!sceneRef.current) return;
-
-      // Skip the scroll-scrubbed reveal entirely under reduced motion — leave
-      // text/image at their natural (visible) state instead of animating in.
-      if (
-        typeof window !== "undefined" &&
-        window.matchMedia("(prefers-reduced-motion: reduce)").matches
-      ) {
-        return;
-      }
-
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: sceneRef.current,
-          start: "top 80%",
-          end: "center center",
-          scrub: 1,
-        },
-      });
-
-      // Animate text
-      if (textRef.current) {
-        tl.fromTo(
-          textRef.current,
-          { opacity: 0, y: 50 },
-          { opacity: 1, y: 0, duration: 1 },
-          0,
-        );
-      }
-
-      // Animate image with parallax
-      if (imageRef.current) {
-        tl.fromTo(
+      if (!sceneRef.current || !imageRef.current) return;
+      const media = gsap.matchMedia();
+      media.add("(prefers-reduced-motion: no-preference)", () => {
+        gsap.fromTo(
           imageRef.current,
-          { scale: 1.1, opacity: 0.5 },
-          { scale: 1, opacity: 1, duration: 1.2 },
-          0,
+          { scale: 1.05 },
+          {
+            scale: 1,
+            ease: "none",
+            scrollTrigger: {
+              trigger: sceneRef.current,
+              start: "top bottom",
+              end: "center center",
+              scrub: 1,
+            },
+          },
         );
-      }
+      });
+      return () => media.revert();
     },
     { scope: sceneRef },
   );
@@ -111,16 +89,11 @@ function Scene({ scene, index }: { scene: StoryScene; index: number }) {
 
       {/* Content */}
       <div className="container mx-auto max-w-3xl px-6 relative z-10">
-        <div ref={textRef} className="text-center">
+        <div className="text-center">
           {scene.title && (
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="font-serif text-3xl md:text-4xl lg:text-5xl text-gold mb-8"
-            >
+            <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-gold mb-8">
               {scene.title}
-            </motion.h2>
+            </h2>
           )}
 
           <div className="prose prose-lg prose-invert mx-auto">
@@ -149,27 +122,8 @@ export function CinematicStory({
   scenes,
   className = "",
 }: CinematicStoryProps) {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const [mounted, setMounted] = useState(false);
-  const shouldReduceMotion = useReducedMotion();
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  // Cleanup ScrollTrigger on unmount
-  useEffect(() => {
-    return () => {
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-    };
-  }, []);
-
-  if (!mounted) {
-    return null;
-  }
-
   return (
-    <div ref={containerRef} className={`relative ${className}`}>
+    <div className={`relative ${className}`}>
       {/* Story Title */}
       <section className="min-h-screen flex items-center justify-center bg-gradient-to-b from-midnight to-slate-900 relative overflow-hidden">
         {/* Atmospheric background */}
@@ -179,11 +133,7 @@ export function CinematicStory({
         </div>
 
         <div className="min-w-0 max-w-full text-center relative z-10 px-6">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1, ease: "easeOut" }}
-          >
+          <div>
             <span className="text-gold/60 text-sm tracking-[0.3em] uppercase font-sans mb-6 block">
               An Ancient Tale
             </span>
@@ -198,15 +148,7 @@ export function CinematicStory({
             <p className="text-parchment/60 text-lg">
               Scroll to begin the journey
             </p>
-            <motion.div
-              animate={shouldReduceMotion ? undefined : { y: [0, 10, 0] }}
-              transition={
-                shouldReduceMotion
-                  ? undefined
-                  : { duration: 2, repeat: Infinity }
-              }
-              className="mt-8"
-            >
+            <div className="mt-8" aria-hidden="true">
               <svg
                 className="w-6 h-6 text-gold/50 mx-auto"
                 fill="none"
@@ -218,8 +160,8 @@ export function CinematicStory({
               >
                 <path d="M19 14l-7 7m0 0l-7-7m7 7V3" />
               </svg>
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -230,19 +172,14 @@ export function CinematicStory({
 
       {/* Story End */}
       <section className="min-h-[50vh] flex items-center justify-center bg-gradient-to-b from-slate-900 to-midnight">
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          className="min-w-0 max-w-full text-center px-6"
-        >
+        <div className="min-w-0 max-w-full text-center px-6">
           <div className="flex items-center justify-center gap-4 mb-8">
             <div className="w-24 h-px bg-gold/40" />
             <span className="text-gold font-serif text-xl">Finis</span>
             <div className="w-24 h-px bg-gold/40" />
           </div>
           <p className="text-parchment/60 text-sm">Thus concludes the tale</p>
-        </motion.div>
+        </div>
       </section>
     </div>
   );

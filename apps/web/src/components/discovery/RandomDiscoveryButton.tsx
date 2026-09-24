@@ -13,7 +13,6 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { ProgressContext } from "@/providers/progress-provider";
-import deities from "@/data/deities.json";
 
 interface Deity {
   id: string;
@@ -27,6 +26,7 @@ interface Deity {
 
 /** Prefer unvisited deities and cold pantheons (skill-mapper decay pattern). */
 function pickDiscoveryDeity(
+  deities: Deity[],
   exclude: string | undefined,
   viewedIds: string[],
   exploredPantheons: string[],
@@ -60,21 +60,34 @@ export function RandomDiscoveryButton() {
   const [isOpen, setIsOpen] = useState(false);
   const [deity, setDeity] = useState<Deity | null>(null);
 
-  function discover() {
-    setDeity(
-      pickDiscoveryDeity(
-        deity?.id,
-        progress?.progress.deitiesViewed ?? [],
-        progress?.progress.pantheonsExplored ?? [],
-      ),
-    );
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  async function discover(): Promise<void> {
+    setLoading(true);
+    setError(null);
+    try {
+      const { default: deities } = await import("@/data/deities.json");
+      setDeity(
+        pickDiscoveryDeity(
+          deities,
+          deity?.id,
+          progress?.progress.deitiesViewed ?? [],
+          progress?.progress.pantheonsExplored ?? [],
+        ),
+      );
+    } catch {
+      setError("Couldn’t load a deity. Try again.");
+    } finally {
+      setLoading(false);
+    }
   }
 
   return (
     <Dialog
       open={isOpen}
       onOpenChange={(open) => {
-        if (open) discover();
+        if (open) void discover();
         setIsOpen(open);
       }}
     >
@@ -97,6 +110,8 @@ export function RandomDiscoveryButton() {
         <DialogDescription className="capitalize">
           {deity?.domain?.slice(0, 3).join(", ")}
         </DialogDescription>
+        {loading && <p role="status">Finding a deity…</p>}
+        {error && <p role="alert">{error}</p>}
         <p className="text-sm leading-relaxed text-muted-foreground">
           {deity?.description}
         </p>
@@ -107,7 +122,12 @@ export function RandomDiscoveryButton() {
           </p>
         ) : null}
         <div className="flex gap-3 pt-2">
-          <Button variant="outline" className="flex-1" onClick={discover}>
+          <Button
+            variant="outline"
+            className="flex-1"
+            disabled={loading}
+            onClick={() => void discover()}
+          >
             Another
           </Button>
           {deity && (

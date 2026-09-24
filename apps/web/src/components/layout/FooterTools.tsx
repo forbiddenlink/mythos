@@ -52,7 +52,7 @@ export function FooterTools() {
         {process.env.NEXT_PUBLIC_ORACLE_ENABLED === "true" && <OracleChat />}
         <Button
           variant="ghost"
-          className="min-h-11 px-0 text-muted-foreground"
+          className="min-h-11 px-0 text-foreground"
           disabled={!hydrated}
           aria-expanded={audioOpen}
           aria-controls="footer-audio-controls"

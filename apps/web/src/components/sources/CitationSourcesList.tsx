@@ -1,14 +1,5 @@
 "use client";
 
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { BookMarked } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 export interface CitationSourceItem {
@@ -41,89 +32,65 @@ export function CitationSourcesList({
 }: CitationSourcesListProps) {
   if (!sources?.length) return null;
 
-  const isStory = variant === "story";
-
   return (
-    <Card
+    <section
       className={cn(
-        isStory
-          ? "border-gold/20 bg-card"
-          : "border-border/60 bg-card",
+        "border-y py-6",
+        variant === "story" ? "border-gold/20" : "border-border",
         className,
       )}
+      aria-label="References"
     >
-      <CardHeader>
-        <CardTitle
-          className={cn(
-            "text-2xl font-serif flex items-center gap-2",
-            isStory ? "text-foreground" : "text-foreground",
-          )}
-        >
-          <BookMarked className="h-5 w-5 text-gold-text shrink-0" aria-hidden />
-          References
-        </CardTitle>
-        <CardDescription className={isStory ? "text-muted-foreground" : undefined}>
-          Sources used for this article.
-        </CardDescription>
-      </CardHeader>
-      <CardContent>
-        <ul className="space-y-4">
-          {sources.map((c, i) => (
-            <li
-              key={`${c.title}-${c.author ?? ""}-${i}`}
-              className={cn(
-                "rounded-lg border p-4",
-                isStory
-                  ? "border-gold/15 bg-muted/30"
-                  : "border-border/50 bg-muted/30",
-              )}
+      <h2 className="page-section-title text-foreground">References</h2>
+      <p className="mt-2 text-sm text-muted-foreground">
+        Sources cited in this article.
+      </p>
+      <ol className="mt-5 divide-y divide-border">
+        {sources.map((source, index) => (
+          <li
+            key={`${source.title}-${source.author ?? ""}-${index}`}
+            className="grid grid-cols-[auto_1fr] gap-4 py-4 first:pt-0 last:pb-0"
+          >
+            <span
+              aria-hidden="true"
+              className="pt-1 text-sm tabular-nums text-muted-foreground"
             >
-              <div className="flex flex-wrap items-baseline gap-2 gap-y-1">
-                <cite className="font-serif font-semibold not-italic text-gold-text break-words">
-                  {c.url && /^https?:\/\//.test(c.url) ? (
-                    <a href={c.url} className="underline underline-offset-4 hover:text-gold-text">
-                      {c.title}
+              {String(index + 1).padStart(2, "0")}
+            </span>
+            <div className="min-w-0">
+              <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+                <cite className="break-words font-serif font-medium not-italic text-foreground">
+                  {source.url && /^https?:\/\//.test(source.url) ? (
+                    <a
+                      href={source.url}
+                      className="text-gold-text underline underline-offset-4"
+                    >
+                      {source.title}
                     </a>
-                  ) : c.title}
+                  ) : (
+                    source.title
+                  )}
                 </cite>
-                {c.author && (
-                  <span
-                    className={cn(
-                      "text-sm",
-                      isStory ? "text-foreground" : "text-muted-foreground",
-                    )}
-                  >
-                    — {c.author}
+                {source.type && (
+                  <span className="text-xs capitalize text-muted-foreground">
+                    {source.type}
                   </span>
                 )}
-                {c.type && (
-                  <Badge
-                    variant="outline"
-                    className={cn(
-                      "text-[10px] uppercase tracking-wide",
-                      c.type === "primary"
-                        ? "border-gold/40 text-gold-text"
-                        : "border-border text-muted-foreground",
-                    )}
-                  >
-                    {c.type}
-                  </Badge>
-                )}
               </div>
-              {formatLocation(c) && (
-                <p
-                  className={cn(
-                    "mt-2 text-sm font-mono",
-                    isStory ? "text-muted-foreground" : "text-muted-foreground",
-                  )}
-                >
-                  {formatLocation(c)}
+              {source.author && (
+                <p className="mt-1 text-sm text-muted-foreground">
+                  {source.author}
                 </p>
               )}
-            </li>
-          ))}
-        </ul>
-      </CardContent>
-    </Card>
+              {formatLocation(source) && (
+                <p className="mt-2 text-sm text-foreground">
+                  {formatLocation(source)}
+                </p>
+              )}
+            </div>
+          </li>
+        ))}
+      </ol>
+    </section>
   );
 }

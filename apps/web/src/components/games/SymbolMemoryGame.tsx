@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -208,20 +208,44 @@ export function SymbolMemoryGame() {
     },
   );
   const [isChecking, setIsChecking] = useState(false);
+  const mismatchTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const deities = deitiesData as Deity[];
 
   // Load best times from localStorage
   useEffect(() => {
-    const saved = localStorage.getItem("mythos_memory_best_times");
-    if (saved) {
-      try {
-        // eslint-disable-next-line react-hooks/set-state-in-effect -- hydration: load persisted best times from localStorage on client mount
-        setBestTimes(JSON.parse(saved));
-      } catch {
-        // Ignore parse errors
+    try {
+      const saved = localStorage.getItem("mythos_memory_best_times");
+      if (!saved) return;
+      const parsed: unknown = JSON.parse(saved);
+      if (!parsed || typeof parsed !== "object" || Array.isArray(parsed))
+        return;
+      const record = parsed as Record<string, unknown>;
+      const valid = (["easy", "medium", "hard"] as const).every(
+        (key) =>
+          record[key] === null ||
+          (typeof record[key] === "number" &&
+            Number.isSafeInteger(record[key]) &&
+            record[key] >= 0),
+      );
+      if (valid) {
+        // eslint-disable-next-line react-hooks/set-state-in-effect -- hydrate validated local scores
+        setBestTimes({
+          easy: record.easy,
+          medium: record.medium,
+          hard: record.hard,
+        } as Record<Difficulty, number | null>);
       }
+    } catch {
+      // Storage may be unavailable; the game still works without saved scores.
     }
   }, []);
+
+  useEffect(
+    () => () => {
+      if (mismatchTimer.current !== null) clearTimeout(mismatchTimer.current);
+    },
+    [],
+  );
 
   // Timer effect
   useEffect(() => {
@@ -235,6 +259,10 @@ export function SymbolMemoryGame() {
   }, [gameStarted, gameCompleted, startTime]);
 
   const initializeGame = useCallback(() => {
+    if (mismatchTimer.current !== null) {
+      clearTimeout(mismatchTimer.current);
+      mismatchTimer.current = null;
+    }
     const config = DIFFICULTY_CONFIG[difficulty];
 
     // Filter deities that have symbols
@@ -348,18 +376,26 @@ export function SymbolMemoryGame() {
           setElapsedTime(finalTime);
 
           // Update best time
-          if (!bestTimes[difficulty] || finalTime < bestTimes[difficulty]!) {
+          if (
+            bestTimes[difficulty] === null ||
+            finalTime < bestTimes[difficulty]!
+          ) {
             const newBestTimes = { ...bestTimes, [difficulty]: finalTime };
             setBestTimes(newBestTimes);
-            localStorage.setItem(
-              "mythos_memory_best_times",
-              JSON.stringify(newBestTimes),
-            );
+            try {
+              localStorage.setItem(
+                "mythos_memory_best_times",
+                JSON.stringify(newBestTimes),
+              );
+            } catch {
+              // Keep the completed game usable when storage is unavailable.
+            }
           }
         }
       } else {
         // No match - flip cards back after delay
-        setTimeout(() => {
+        mismatchTimer.current = setTimeout(() => {
+          mismatchTimer.current = null;
           setCards((prev) =>
             prev.map((c) =>
               c.id === firstId || c.id === secondId

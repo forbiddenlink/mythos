@@ -124,30 +124,28 @@
     ],
     "primarySourceExcerpts": [
       {
-        "text": "Bræðr muno beriaz ok at bönom verðaz, muno systrungar sifjom spilla; hart er í heimi, hórdómr mikill, skeggöld, skálmöld, skildir ro klofnir, vindöld, vargöld, áðr veröld steypiz.",
-        "translation": "Brothers shall fight and slay each other, cousins shall break their kinship bonds. Hard it is in the world, whoredom abounds, an axe age, a sword age, shields are cloven, a wind age, a wolf age, before the world sinks.",
-        "source": "Voluspa, Poetic Edda",
+        "text": "Axe-time, sword-time, shields are sundered, Wind-time, wolf-time, ere the world falls; Nor ever shall men each other spare.",
+        "translation": "Axe-time, sword-time, shields are sundered, Wind-time, wolf-time, ere the world falls; Nor ever shall men each other spare.",
+        "source": "Voluspo, Poetic Edda",
         "sourceId": "poetic-edda",
-        "lineNumbers": "45-46",
-        "translator": "Carolyne Larrington",
-        "originalLanguage": "Old Norse",
+        "lineNumbers": "Stanza 45, final three lines",
+        "translator": "Henry Adams Bellows",
         "quoteStatus": "direct-quotation",
-        "verification": "source-and-locator-verified",
-        "sourceUrl": "https://www.germanicmythology.com/PoeticEdda/Voluspa.html",
-        "edition": "Carolyne Larrington, revised 2014"
+        "verification": "verified",
+        "sourceUrl": "https://sacred-texts.com/neu/poe/poe03.htm",
+        "edition": "1923; Sacred Texts transcription. Caesura bars omitted; verse whitespace normalized. English transcription checked 2026-09-23. Replaces prior unverified wording; no original-language text is supplied or certified."
       },
       {
-        "text": "Sól tér sortna, sígr fold í mar, hverfa af himni heiðar stjörnur; geisar eimi við aldrnara, leikr hár hiti við himin sjálfan.",
-        "translation": "The sun turns black, earth sinks into the sea, the bright stars vanish from the sky; steam rises up with the life-nurturer, high flames lick heaven itself.",
-        "source": "Voluspa, Poetic Edda",
+        "text": "The sun turns black, earth sinks in the sea, The hot stars down from heaven are whirled; Fierce grows the steam and the life-feeding flame, Till fire leaps high about heaven itself.",
+        "translation": "The sun turns black, earth sinks in the sea, The hot stars down from heaven are whirled; Fierce grows the steam and the life-feeding flame, Till fire leaps high about heaven itself.",
+        "source": "Voluspo, Poetic Edda",
         "sourceId": "poetic-edda",
-        "lineNumbers": "57",
-        "translator": "Carolyne Larrington",
-        "originalLanguage": "Old Norse",
+        "lineNumbers": "Stanza 57",
+        "translator": "Henry Adams Bellows",
         "quoteStatus": "direct-quotation",
-        "verification": "source-and-locator-verified",
-        "sourceUrl": "https://www.germanicmythology.com/PoeticEdda/Voluspa.html",
-        "edition": "Carolyne Larrington, revised 2014"
+        "verification": "verified",
+        "sourceUrl": "https://sacred-texts.com/neu/poe/poe03.htm",
+        "edition": "1923; Sacred Texts transcription. Caesura bars omitted; verse whitespace normalized. English transcription checked 2026-09-23. Replaces prior unverified wording; no original-language text is supplied or certified."
       }
     ],
     "furtherReading": [
@@ -191,11 +189,7 @@
     "fullNarrative": "## The Void Between Worlds\n\nBefore there was earth or sky, before the first tree grew or the first river flowed, there was only Ginnungagap, the Yawning Void, a vast and silent emptiness stretching in all directions. It was neither dark nor light, neither hot nor cold, but a space of pure potential, waiting for the spark of creation.\n\nTo the north of Ginnungagap lay Niflheim, the realm of ice and mist, where eleven poisonous rivers called the Elivagar flowed outward from the spring Hvergelmir. To the south burned Muspelheim, a realm of fire guarded by the giant Surtr, whose flaming sword cast light into the darkness.\n\n## The First Giant\n\nWhere the rime ice of Niflheim met the sparks and heat of Muspelheim in the center of the void, the ice began to thaw and drip. From these drops, quickened by the heat, a form took shape: Ymir, the first frost giant, ancestor of all the jotnar. As Ymir slept, other beings grew from his body. From the sweat of his left armpit came a male and female giant, and his feet produced a son together.\n\nThe melting ice also formed the great cow Audhumla, whose four rivers of milk nourished Ymir. Audhumla herself fed by licking the salty ice blocks, and as she licked, she uncovered a being trapped within: Buri, the first of the gods, beautiful and mighty. Buri's son Borr married the giantess Bestla, and they produced three sons: Odin, Vili, and Ve.\n\n## The Shaping of the World\n\nThe three brothers looked upon Ymir and the chaos of the primordial world and determined to bring order from it. They slew the ancient giant, and from his enormous body they fashioned the world.\n\n> From Ymir's flesh the earth was shaped, from his blood the sea. Mountains from his bones, trees from his hair, and from his skull the sky.\n\nYmir's blood poured forth in such quantity that it drowned nearly all the frost giants. Only Bergelmir and his wife survived by climbing aboard a hollowed tree trunk, and from them all future giants descended. The brothers set Ymir's skull over the earth as the dome of the sky, supported at four corners by four dwarves: Nordri, Sudri, Austri, and Vestri. His brains they cast into the air to become the clouds.\n\n## The First Humans\n\nThe brothers then turned their attention to populating their new world. Walking along the seashore, they found two tree trunks, an ash and an elm, washed up on the sand. Odin gave them breath and life, Vili gave them understanding and movement, and Ve gave them form, speech, hearing, and sight.\n\nThe man they named Ask, and the woman Embla. From these two, all of humanity descended. The gods gave them Midgard as their home, a realm encircled by Ymir's eyebrows as a protective fence against the giants who dwelt in the wilds beyond.",
     "keyExcerpts": "Odin, Vili, and Ve killed Ymir and created the world from his body: his flesh became earth, his blood the seas, his bones the mountains, his skull the sky. From two trees they created the first humans, Ask and Embla.",
     "category": "creation",
-    "moralThemes": [
-      "creation from chaos",
-      "sacrifice",
-      "divine craftsmanship"
-    ],
+    "moralThemes": ["creation from chaos", "sacrifice", "divine craftsmanship"],
     "culturalSignificance": "This creation myth explains the Norse cosmology and the origin of humanity.",
     "imageUrl": "/stories/creation-myth-norse.png",
     "citationSources": [
@@ -218,12 +212,7 @@
     "fullNarrative": "## Dreams of Doom\n\nBaldur, son of Odin and Frigg, was the most radiant and beloved of all the Aesir. His beauty was legendary, his judgment fair, and his hall Breidablik was the most splendid in all of Asgard, a place where nothing impure could exist. Yet darkness found even this shining god.\n\nBaldur began to suffer terrible dreams, visions of his own death that came to him night after night. The dreams troubled all the gods, for the Aesir understood that Baldur's fate was intertwined with the fate of the world itself. Odin rode to Hel on his eight-legged horse Sleipnir to consult a dead seeress, and she confirmed the worst: Baldur was marked for death.\n\n## Frigg's Bargain\n\nFrigg, Baldur's mother, refused to accept this fate. She traveled across all the Nine Worlds, extracting solemn oaths from every substance and creature in existence: fire and water, iron and all metals, stones, earth, trees, diseases, beasts, birds, serpents, and poisons all swore they would never harm Baldur. When she returned to Asgard, the gods rejoiced and made a game of it, hurling weapons and objects at Baldur and laughing as everything bounced harmlessly off him.\n\nBut there was one thing Frigg had overlooked. The mistletoe, she thought, was too young and insignificant to pose any threat. She never asked it to swear.\n\n## Loki's Treachery\n\nLoki, the trickster, watched the gods' sport with growing malice. Disguising himself as an old woman, he visited Frigg and through clever questioning discovered the one gap in Baldur's protection. Loki went to where the mistletoe grew west of Valhalla, plucked it, and fashioned it into a sharp dart.\n\n> All things in the world wept for Baldur. People and animals, earth and stones, trees and metals, all wept as you have seen them weep when they come out of frost into warmth.\n\nReturning to where the gods played their game, Loki found the blind god Hodr standing apart, unable to participate. With poisoned kindness, Loki offered to guide Hodr's hand, placing the mistletoe dart in his grip and directing his throw. The dart struck Baldur and pierced him through. The god of light fell dead, and a silence deeper than any the world had ever known descended upon Asgard.\n\n## The Failed Rescue\n\nThe gods' grief was beyond all measure. Baldur's body was placed upon his great ship Hringhorni and given a magnificent funeral, with Nanna, his wife, dying of grief beside him. But Frigg would not surrender. She asked who among the gods would ride to Hel to offer a ransom for Baldur's return.\n\nHermod the Bold volunteered, borrowing Sleipnir for the nine-night ride down to the realm of the dead. Hel, mistress of the underworld, set a condition: if every thing in the world, living and dead, would weep for Baldur, she would release him.\n\nMessengers went to every corner of existence, and indeed all things wept. All except one: a giantess named Thokk, sitting alone in a cave, who refused with the words, \"Let Hel hold what she has.\" The gods knew that Thokk was Loki in disguise, and Baldur remained in the land of the dead, awaiting the renewal that would come after Ragnarok.",
     "keyExcerpts": "Loki discovered this weakness and fashioned a dart from mistletoe. He gave it to the blind god Hodr, who unknowingly threw it, killing Baldur. The gods attempted to ransom him from Hel, but Loki refused to weep for him.",
     "category": "tragedy",
-    "moralThemes": [
-      "treachery",
-      "vulnerability",
-      "grief",
-      "fate"
-    ],
+    "moralThemes": ["treachery", "vulnerability", "grief", "fate"],
     "culturalSignificance": "Baldur's death is a pivotal event leading to Ragnarok and represents the loss of light and innocence.",
     "imageUrl": "/stories/death-of-baldur.png",
     "citationSources": [
@@ -263,11 +252,7 @@
     "fullNarrative": "## The Monstrous Offspring\n\nFenrir was one of three monstrous children born to Loki and the giantess Angrboda in the iron forests of Jotunheim. His siblings were Jormungandr, the World Serpent, and Hel, the half-living, half-dead mistress of the underworld. When the gods learned of these creatures and the prophecies surrounding them, they acted swiftly: Odin cast Jormungandr into the deep ocean and sent Hel to rule the realm of the dead. But Fenrir, they brought to Asgard to raise among the gods.\n\nOnly Tyr, the god of war and justice, was brave enough to feed the growing wolf. Day by day, Fenrir grew larger and more ferocious, until the gods realized with horror that the prophecies might be true: this beast was destined to devour the All-Father at Ragnarok.\n\n## The First Chains\n\nThe gods resolved to bind Fenrir, but they could not simply attack him outright, for it would violate the sanctuary of Asgard. Instead, they approached it as a game, challenging the wolf to test his strength against their strongest fetters.\n\nFirst, they forged the chain called Leyding and brought it to Fenrir. The wolf examined it, judged it a small challenge, and allowed himself to be bound. With one mighty kick, he shattered it to pieces. The gods then forged Dromi, a chain twice as strong. Again Fenrir allowed himself to be bound, and though this time he struggled, the chain broke apart under his tremendous power. The wolf's fame only grew.\n\n## The Impossible Ribbon\n\nDesperate, the gods sent a messenger to the dwarves of Svartalfheim, the master craftsmen of the Nine Worlds. The dwarves forged Gleipnir, a creation unlike any other: not a chain of iron or steel, but a ribbon as smooth and soft as silk.\n\n> It was made from six impossible things: the sound of a cat's footfall, the beard of a woman, the roots of a mountain, the sinews of a bear, the breath of a fish, and the spittle of a bird. This is why none of these things exist in the world today.\n\nWhen the gods brought Gleipnir to Fenrir and challenged him once more, the wolf was suspicious. The ribbon looked like nothing, yet something about it troubled him. He agreed to be bound only on one condition: that one of the gods place a hand in his mouth as a pledge of good faith.\n\n## Tyr's Sacrifice\n\nThe gods looked at one another, and silence fell. They all understood what it would mean. Only Tyr stepped forward. The god of justice, who had fed Fenrir since he was a pup, placed his right hand between the wolf's terrible jaws without hesitation.\n\nGleipnir was wrapped around Fenrir's legs. The wolf strained against it, twisted and thrashed, but the more he struggled, the tighter the ribbon held. When Fenrir realized he had been tricked and could not break free, he bit down and severed Tyr's hand at the wrist.\n\nThe gods laughed in relief, all except Tyr, who bore his loss with the same quiet honor that defined him. They drove a great sword through Fenrir's jaws to hold them open, and the wolf's drool formed the river Van. There on the island of Lyngvi, in the lake Amsvartnir, Fenrir would remain bound until the day of Ragnarok, when he would at last break free and fulfill his destiny.",
     "keyExcerpts": "Gleipnir was made from the sound of a cat's footfall, the beard of a woman, the roots of a mountain, the sinews of a bear, the breath of a fish, and the spittle of a bird. Tyr volunteered to place his hand in Fenrir's mouth as a pledge, and when Fenrir couldn't break free, he bit off Tyr's hand.",
     "category": "myth",
-    "moralThemes": [
-      "sacrifice",
-      "courage",
-      "necessity of binding chaos"
-    ],
+    "moralThemes": ["sacrifice", "courage", "necessity of binding chaos"],
     "culturalSignificance": "This story explains Tyr's missing hand and illustrates the gods' desperate measures to prevent destruction.",
     "imageUrl": "/stories/binding-of-fenrir.png",
     "citationSources": [
@@ -286,11 +271,7 @@
     "fullNarrative": "## The Axis of All Worlds\n\nAt the center of the Norse cosmos stands Yggdrasil, the World Tree, an immense ash tree whose branches spread over all of existence and whose roots plunge into the deepest wells of wisdom and fate. It is the axis upon which all Nine Worlds turn, the pillar that holds creation together, and the most sacred symbol in all of Norse cosmology.\n\nThe name Yggdrasil is often interpreted as \"Odin's Horse,\" referring to the All-Father's self-sacrifice when he hung upon the tree for nine nights, wounded by his own spear, in order to gain the knowledge of the runes. In this sense, Yggdrasil is not merely a tree but a gateway to transcendent knowledge.\n\n## The Three Roots\n\nThree great roots support Yggdrasil, each extending to a different realm. The first root reaches to Asgard, the home of the gods, where it draws water from the Well of Urd. Here the Norns, three women named Urd, Verdandi, and Skuld, who represent the past, present, and future, tend to the tree daily. They draw water from the well and pour it over the roots, along with the white clay that gathers at the well's edge, to keep the tree healthy and green.\n\n> I know an ash tree that stands, called Yggdrasil, a tall tree, sprinkled with white mud. From there come the dews that fall in the valleys. It stands forever green above the Well of Urd.\n\nThe second root extends to Jotunheim, the land of the giants, where it reaches Mimir's Well. This is the well of wisdom, and it was here that Odin sacrificed one of his eyes to drink from its waters and gain cosmic knowledge. The head of the wise Mimir guards this well for all eternity.\n\nThe third root plunges down to Niflheim, the primordial realm of ice and mist, where the spring Hvergelmir bubbles. Here the dragon Nidhoggr gnaws ceaselessly at the root, along with countless serpents, slowly working to undermine the very foundation of the cosmos.\n\n## The Creatures of the Tree\n\nYggdrasil teems with life. At its crown sits an unnamed eagle of great wisdom, and between the eagle's eyes perches a hawk called Vedrfolnir. The squirrel Ratatoskr runs up and down the trunk, carrying messages and insults between the eagle above and Nidhoggr below, sowing discord between them.\n\nFour stags, Dainn, Dvalinn, Duneyrr, and Durathror, run among the branches, feeding on the tree's foliage. The goat Heidrun stands on the roof of Valhalla, eating from the tree's leaves, and from her udders flows the mead that feeds the einherjar, the honored dead.\n\n## The Nine Worlds\n\nYggdrasil connects and sustains the Nine Worlds: Asgard, realm of the Aesir gods; Vanaheim, home of the Vanir; Alfheim, land of the light elves; Midgard, the world of humans; Jotunheim, domain of the giants; Svartalfheim, realm of the dwarves; Niflheim, the world of ice and mist; Muspelheim, the realm of fire; and Hel, the land of the dead. The Bifrost, the rainbow bridge, connects Midgard to Asgard, but Yggdrasil connects all realms in ways both seen and unseen.\n\nEven at Ragnarok, when the worlds burn and the gods fall, Yggdrasil will endure, sheltering the two humans who will repopulate the reborn earth. The World Tree is not merely part of creation; it is creation itself, the living, breathing backbone of all that exists.",
     "keyExcerpts": "At its base sit the Norns (Fates), and various creatures live within it, including the eagle at its crown, the dragon Nidhoggr gnawing at its roots, and the squirrel Ratatoskr running up and down carrying messages.",
     "category": "cosmology",
-    "moralThemes": [
-      "interconnection",
-      "cosmic order",
-      "the axis mundi"
-    ],
+    "moralThemes": ["interconnection", "cosmic order", "the axis mundi"],
     "culturalSignificance": "Yggdrasil represents the Norse understanding of the universe's structure and the connections between all realms.",
     "imageUrl": "/stories/yggdrasil.png",
     "citationSources": [
@@ -367,11 +348,7 @@
     "fullNarrative": "## The Barque of Millions\n\nEvery morning, Ra, the supreme sun god, rises in the east aboard his great solar barque, the Mandjet, also called the Barque of Millions of Years. As the vessel crests the horizon, its golden light spills across the land, banishing the darkness and bringing warmth, life, and order to the world. Ra stands at the prow in his full glory, the solar disk blazing upon his head, accompanied by a retinue of gods who serve as his crew.\n\nThroughout the day, the barque sails across the body of the sky goddess Nut, traveling from east to west. Ra ages as the day progresses: he is Khepri the scarab at dawn, Ra at his zenith at noon, and the elderly Atum at sunset. The people of Egypt could trace the passage of time simply by watching the sun's journey overhead.\n\n## The Descent into the Duat\n\nAs evening falls and the barque reaches the western horizon, Ra transfers to a second vessel, the Mesektet, the Night Barque. He enters the Duat, the Egyptian underworld, through the western gate. Here begins the most perilous part of his journey, a twelve-hour voyage through twelve regions of darkness, each guarded by gates, serpents, and demons.\n\n> I am Ra, who rises in the east. I am the one who crosses the sky. The beings of the underworld open their gates before me. I know the paths of the Duat.\n\nThe dead line the shores of the underworld river, crying out for Ra's light. As the barque passes, they receive a brief moment of illumination and warmth before being plunged back into darkness. Ra speaks the names of each gate's guardian to pass through, for in Egypt, to know a name was to hold power over it.\n\n## The Battle with Apophis\n\nThe greatest danger comes in the seventh hour, when the barque encounters Apophis, the colossal serpent of chaos, who seeks to swallow Ra and prevent the sun from ever rising again. Apophis is not merely a monster but the embodiment of uncreation, the force that would return all existence to the formless waters of Nun.\n\nThe gods aboard the barque rally to defend Ra. Set, paradoxically the god of chaos himself, stands at the prow with a great spear and drives it into Apophis. Isis and other deities use magic to bind and repel the serpent. Every night this battle is fought, and every night the forces of order prevail, though never permanently, for Apophis regenerates and will attack again the following night.\n\n## The Eternal Dawn\n\nIn the twelfth hour, the barque passes through the body of a great serpent, and Ra emerges renewed, reborn as the young sun Khepri. He rises in the east once more, and the cycle begins again. Each dawn is not merely a new day but a cosmic victory, proof that order has triumphed over chaos once more. For the ancient Egyptians, the reliability of the sunrise was the greatest evidence of Ma'at, the cosmic order that held the universe together.",
     "keyExcerpts": "The chaos serpent Apophis tries to swallow Ra and prevent sunrise. Set, despite his negative role elsewhere, protects Ra by spearing Apophis. Each dawn represents Ra's victory over chaos.",
     "category": "cosmology",
-    "moralThemes": [
-      "order vs chaos",
-      "daily renewal",
-      "the eternal cycle"
-    ],
+    "moralThemes": ["order vs chaos", "daily renewal", "the eternal cycle"],
     "culturalSignificance": "This daily journey explains the sun's movement and represents the eternal battle between order and chaos.",
     "imageUrl": "/stories/ra-journey.png",
     "citationSources": [
@@ -396,11 +373,7 @@
     "fullNarrative": "## The Claim to the Throne\n\nAfter Osiris descended to rule the underworld, the throne of Egypt stood empty. His son Horus, raised in secret by Isis in the marshes of the Delta, came of age and presented himself before the Ennead, the council of the great gods, to claim his father's crown. But Set, who had murdered Osiris and seized power, was not prepared to relinquish it.\n\nThe tribunal of gods, presided over by Ra, debated the matter. Most favored Horus as the rightful heir, but Ra was reluctant to grant the throne to one so young, and Set argued that only a god of his strength could defend the solar barque against Apophis each night.\n\n## Eighty Years of Contests\n\nWhat followed was an extraordinary series of contests, tricks, and trials that stretched across eighty years. The gods could not resolve the dispute through deliberation, so they turned to competition.\n\nSet and Horus raced in boats made of stone, though Horus secretly made his from wood painted to look like stone. They transformed into hippopotamuses and contested who could stay submerged longest. Each trial was marked by trickery and violence on both sides.\n\n> Horus and Set contended for the office of Osiris. And their contending was great, for they were mighty ones and the tribunal could not decide between them.\n\nIn their fiercest confrontation, Set tore out one of Horus's eyes, splitting it into six pieces and scattering them across Egypt. Horus, in turn, injured Set grievously. Thoth, the god of wisdom and magic, gathered the pieces of Horus's eye and restored it, creating the Wedjat, the Eye of Horus, which would become one of the most powerful protective symbols in all of Egyptian culture.\n\n## The Letter from the Dead\n\nAs the contest dragged on with no resolution, Isis and Thoth persuaded the Ennead to write to Osiris in the underworld to seek his judgment. Osiris's response was a masterwork of divine authority: he reminded the gods that he controlled the land of the dead, where all of them would eventually dwell. His messenger stars, he warned, could reach anyone, anywhere.\n\nThe implied threat was unmistakable. The lord of the afterlife could send demons to collect any god who defied justice.\n\n## The Rightful King\n\nFaced with Osiris's warning, even Ra relented. The Ennead declared Horus the rightful king of Egypt, inheriting his father's throne. Set was not destroyed but given a new role: he was placed in the sky as the god of storms and chaos, tasked with using his tremendous strength to protect Ra's barque during its nightly journey through the underworld.\n\nThe resolution established the foundational principle of Egyptian kingship. Every pharaoh was considered a living Horus, and upon death became an Osiris. The story legitimized royal succession and demonstrated that legitimate authority, not mere strength, was the true measure of a king.",
     "keyExcerpts": "Set damaged Horus's eye, while Horus castrated Set. Eventually, Osiris sent a threatening letter from the underworld, and the gods decided Horus was the rightful king. Horus's damaged eye was healed by Thoth and became the Wedjat.",
     "category": "war",
-    "moralThemes": [
-      "rightful succession",
-      "justice",
-      "perseverance"
-    ],
+    "moralThemes": ["rightful succession", "justice", "perseverance"],
     "culturalSignificance": "This story legitimizes royal succession and explains the origin of the Eye of Horus symbol.",
     "imageUrl": "/stories/contendings.png",
     "citationSources": [
@@ -423,11 +396,7 @@
     "fullNarrative": "## The Journey to the Hall of Two Truths\n\nWhen an Egyptian died, their soul, known as the ba, embarked on the most important journey it would ever take. Guided by Anubis, the jackal-headed god of mummification, the deceased traveled through the underworld to reach the Hall of Two Truths, known as the Hall of Ma'ati. This was the great courtroom of the afterlife, where Osiris sat upon his throne surrounded by forty-two assessor gods.\n\nThe journey itself was perilous. The dead had to navigate through gates guarded by demons, across lakes of fire, and past serpents and other dangers. The Book of the Dead, a collection of spells and instructions placed in the tomb with the deceased, served as a guidebook for this treacherous passage.\n\n## The Negative Confession\n\nUpon reaching the Hall of Two Truths, the deceased was required to make the Negative Confession, addressing each of the forty-two assessor gods by name and declaring their innocence of specific sins. The confessions covered the full range of moral behavior: \"I have not stolen. I have not killed. I have not told lies. I have not waded in water. I have not been angry without cause.\"\n\n> O my heart which I received from my mother, do not stand against me as a witness. Do not oppose me in the tribunal. Do not be hostile to me before the Keeper of the Balance.\n\nThis was not merely a ritual recitation but a magical act. By naming each sin and denying it, the deceased sought to purify their soul through the power of truthful speech, one of the most sacred concepts in Egyptian religion.\n\n## The Weighing\n\nThe central moment of the ceremony was the weighing of the heart. Anubis led the deceased to a great set of scales. On one side was placed the heart of the dead person, the organ the Egyptians believed contained the soul, memory, and moral character. On the other side was placed the feather of Ma'at, the goddess of truth, justice, and cosmic order.\n\nAnubis carefully adjusted the scales while Thoth, the ibis-headed god of wisdom and writing, stood ready with his reed pen and palette to record the result. The moment was one of absolute truth: the heart could not lie, and no magic could alter its weight.\n\nIf the heart balanced with the feather, it proved the deceased had lived a life of justice and truth. If the heart was heavier, weighed down by sin and wrongdoing, a terrible fate awaited.\n\n## Paradise or Oblivion\n\nFor the righteous, the reward was Aaru, the Field of Reeds, an idealized version of Egypt where the crops grew tall, the weather was always perfect, and the deceased could live in eternal peace among the gods. They would be reunited with loved ones and enjoy all the pleasures of life without any of its hardships.\n\nFor the wicked, the consequence was final and absolute. The monstrous Ammit, a terrifying hybrid creature with the head of a crocodile, the body of a lion, and the hindquarters of a hippopotamus, crouched beside the scales, waiting. If the heart was heavy with sin, Ammit devoured it, and the deceased suffered the Second Death, a complete annihilation of existence. They would not persist in any afterlife, good or bad. They would simply cease to be, erased from the cosmos forever.",
     "keyExcerpts": "If the heart is lighter than the feather, the soul proceeds to Aaru (paradise). If the heart is heavy with sin, it is devoured by Ammit, causing the 'second death' - the soul ceases to exist.",
     "category": "afterlife",
-    "moralThemes": [
-      "moral judgment",
-      "truth",
-      "consequences of actions"
-    ],
+    "moralThemes": ["moral judgment", "truth", "consequences of actions"],
     "culturalSignificance": "This ceremony was central to Egyptian funerary beliefs and moral philosophy.",
     "imageUrl": "/stories/weighing-heart.png",
     "citationSources": [
@@ -441,30 +410,28 @@
     ],
     "primarySourceExcerpts": [
       {
-        "text": "Ib-i n mwt-i, ib-i n mwt-i, ḥꜣty-i n ḫprw-i, m ꜥḥꜥ r-i m mtrw, m ḫsf r-i m ḏꜣḏꜣt, m ir rki r-i m-bꜣḥ iry-mḫꜣt.",
-        "translation": "O my heart which I had from my mother! O my heart of my transformations! Stand not forth against me as a witness, oppose me not in the tribunal, cast no weight against me before the keeper of the balance!",
-        "source": "Book of the Dead, Spell 30B (Papyrus of Ani)",
+        "text": "My heart my mother, my heart my mother, my heart my coming into being! May there be nothing to resist me at [my] judgment;",
+        "translation": "My heart my mother, my heart my mother, my heart my coming into being! May there be nothing to resist me at [my] judgment;",
+        "source": "Book of the Dead, Papyrus of Ani",
         "sourceId": "book-of-the-dead",
-        "lineNumbers": "Spell 30B",
-        "translator": "Raymond O. Faulkner",
-        "originalLanguage": "Ancient Egyptian",
+        "lineNumbers": "Chapter XXXB (30B), Plate III, opening",
+        "translator": "E. A. Wallis Budge",
         "quoteStatus": "direct-quotation",
-        "verification": "source-and-locator-verified",
-        "sourceUrl": "https://palimpsest.stmarytx.edu/thanneken/th7391/primary/EgyptianBookOfTheDead%281200bce%29.pdf",
-        "edition": "Raymond O. Faulkner, 1985"
+        "verification": "verified",
+        "sourceUrl": "https://sacred-texts.com/egy/ebod/ebod15.htm",
+        "edition": "1895; Sacred Texts transcription. Closing semicolon retained; bracketed text belongs to the edition. English transcription checked 2026-09-23. Replaces prior unverified wording; no original-language text is supplied or certified."
       },
       {
-        "text": "I nd-ḥr-tn nṯrw imyw wḫꜣt... nn ir-i isft, nn ḥḏ-i ꜥqwt m ḥwt-nṯr, nn ḥḳꜣ-i m ḥsbwt, wꜥb-kwi, wꜥb-kwi, wꜥb-kwi, wꜥb-kwi!",
-        "translation": "Hail to you, divine lords of truth! I have done no iniquity, I have not diminished the temple offerings, I have not altered the measure of grain. I am pure! I am pure! I am pure! I am pure!",
-        "source": "Book of the Dead, Spell 125",
+        "text": "Hail, lord of faces, who comest forth from Tchefet, I have never judged hastily.",
+        "translation": "Hail, lord of faces, who comest forth from Tchefet, I have never judged hastily.",
+        "source": "Book of the Dead",
         "sourceId": "book-of-the-dead",
-        "lineNumbers": "Spell 125",
-        "translator": "Raymond O. Faulkner",
-        "originalLanguage": "Ancient Egyptian",
-        "quoteStatus": "editorial-paraphrase",
-        "verification": "source-and-locator-verified",
-        "sourceUrl": "https://erenow.org/ancient/daily-life-women-in-ancient-egypt/10.php",
-        "edition": "Editorial selection; Faulkner not checked line by line"
+        "lineNumbers": "Chapter CXXV (125), Plate XXXII, statement 31 in the Nebseni appendix",
+        "translator": "E. A. Wallis Budge",
+        "quoteStatus": "direct-quotation",
+        "verification": "verified",
+        "sourceUrl": "https://sacred-texts.com/egy/ebod/ebod37.htm",
+        "edition": "1895; Sacred Texts transcription. This statement comes from the appended Nebseni version, not Ani’s wording. English transcription checked 2026-09-23. Replaces prior unverified wording; no original-language text is supplied or certified."
       }
     ]
   },
@@ -477,12 +444,7 @@
     "fullNarrative": "## Flight from Troy\n\nWhen the Greeks poured out of the Wooden Horse and Troy fell to flames, the hero Aeneas, son of the goddess Venus and the mortal Anchises, fought bravely but was told by the ghost of Hector that hope for the city was lost. His destiny lay elsewhere. Shouldering his elderly father Anchises and leading his young son Ascanius by the hand, Aeneas fled the burning city, carrying with him the household gods (Penates) of Troy. He gathered a band of refugees and set sail, beginning a long and perilous odyssey to find a new home in the west.\n\n## The Passion of Dido\n\nAfter years of wandering, blown off course by Juno (who hated the Trojans), Aeneas washed ashore in Carthage, a rising city in North Africa ruled by Queen Dido. Venus caused Dido to fall madly in love with Aeneas to ensure his safety. For a time, Aeneas forgot his mission, living in luxury with the queen.\n\nBut Jupiter sent Mercury to remind Aeneas of his destiny: he was not born to rule Carthage but to found a great empire in Italy. Reluctantly, placing duty (pietas) above love, Aeneas secretly prepared to leave. When Dido discovered his betrayal, she cursed him and his descendants—foretelling the Punic Wars between Rome and Carthage—before taking her own life upon a burning pyre as his ships sailed away.\n\n## Descent into the Underworld\n\nUpon reaching Italy, Aeneas visited the Sibyl of Cumae, a prophetess who guided him into the Underworld to consult the shade of his father. There, in the Elysian Fields, Anchises showed his son a procession of future souls waiting to be born: the great heroes and leaders of Rome, culminating in Augustus Caesar. This vision of Rome's glorious future renewed Aeneas's resolve.\n\n## War for Italy\n\nAeneas arrived in Latium, where the local king Latinus offered him his daughter Lavinia in marriage. However, Turnus, a local prince who had been betrothed to her, was incited to war by the fury Allecto (sent by Juno). War erupted between the Trojans and the Rutulians. \n\nThe conflict was brutal and bloody, mirroring the Trojan War. Finally, the war came down to single combat between Aeneas and Turnus. Aeneas wounded Turnus, who begged for mercy. Aeneas hesitated, considering sparing him, until he saw the sword-belt of his young friend Pallas (whom Turnus had slain) on his enemy's shoulder. Consumed by rage and grief, Aeneas drove his sword through Turnus's chest, ending the war and securing the foundation of the Roman race.",
     "keyExcerpts": "Aeneas carries his father Anchises from burning Troy. He tragically leaves Queen Dido of Carthage to fulfill his destiny. He journeys to the Underworld to see the future glory of Rome.",
     "category": "epic",
-    "moralThemes": [
-      "pietas (duty)",
-      "fate",
-      "sacrifice",
-      "empire"
-    ],
+    "moralThemes": ["pietas (duty)", "fate", "sacrifice", "empire"],
     "culturalSignificance": "Virgil's Aeneid is the national epic of Rome, linking the Romans to the heroic age of Greece and legitimizing the Julian dynasty (Augustus) as descendants of Venus.",
     "imageUrl": "/stories/aeneid.png",
     "citationSources": [
@@ -508,17 +470,16 @@
         "edition": "H. Rushton Fairclough, 1916"
       },
       {
-        "text": "Tu regere imperio populos, Romane, memento (hae tibi erunt artes), pacique imponere morem, parcere subiectis et debellare superbos.",
-        "translation": "Remember thou, O Roman, to rule the nations with thy sway—these shall be thine arts: to crown peace with justice, to spare the vanquished, and to crush the proud in war.",
+        "text": "But, Rome, ’tis thine alone, with awful sway, To rule mankind, and make the world obey, Disposing peace and war by thy own majestic way; To tame the proud, the fetter’d slave to free: These are imperial arts, and worthy thee.",
+        "translation": "But, Rome, ’tis thine alone, with awful sway, To rule mankind, and make the world obey, Disposing peace and war by thy own majestic way; To tame the proud, the fetter’d slave to free: These are imperial arts, and worthy thee.",
         "source": "Virgil, Aeneid",
         "sourceId": "aeneid",
-        "lineNumbers": "6.851-853",
-        "translator": "Adapted translation; exact edition not verified",
-        "originalLanguage": "Latin",
-        "quoteStatus": "editorial-paraphrase",
-        "verification": "source-and-locator-verified",
-        "sourceUrl": "https://www.perseus.tufts.edu/hopper/text?doc=Perseus:text:1999.02.0055:book=6:card=851",
-        "edition": "Editorial adaptation; no single translation verified"
+        "lineNumbers": "Book VI, Anchises’s address on Roman rule; corresponding to Latin 6.851–853",
+        "translator": "John Dryden",
+        "quoteStatus": "direct-quotation",
+        "verification": "verified",
+        "sourceUrl": "https://www.gutenberg.org/files/228/228-h/228-h.htm",
+        "edition": "1697 translation; Project Gutenberg eBook 228. Verse whitespace normalized; outer dialogue quotation marks omitted. English transcription checked 2026-09-23. Replaces prior unverified wording; no original-language text is supplied or certified."
       }
     ]
   },
@@ -577,13 +538,8 @@
         "type": "primary"
       }
     ],
-    "featuredDeities": [
-      "mars",
-      "juno"
-    ],
-    "relatedStories": [
-      "romulus-remus"
-    ]
+    "featuredDeities": ["mars", "juno"],
+    "relatedStories": ["romulus-remus"]
   },
   {
     "id": "cupid-psyche",
@@ -611,13 +567,8 @@
         "type": "primary"
       }
     ],
-    "featuredDeities": [
-      "venus",
-      "jupiter"
-    ],
-    "relatedStories": [
-      "aeneid"
-    ]
+    "featuredDeities": ["venus", "jupiter"],
+    "relatedStories": ["aeneid"]
   },
   {
     "id": "ramayana",
@@ -628,12 +579,7 @@
     "fullNarrative": "## The Perfect Prince\n\nRama, the eldest son of King Dasharatha of Ayodhya, was the embodiment of virtue and the perfect heir. He was also an avatar of the preserver god Vishnu, born to rid the world of the demon king Ravana. However, on the eve of his coronation, his stepmother Kaikeyi invoked an old boon, forcing the king to banish Rama to the forest for fourteen years and crown her own son, Bharata, instead.\n\nRama accepted his father's command without resentment, honoring his dharma (duty). He departed for the wilderness, accompanied by his devoted wife Sita (avatar of Lakshmi) and his loyal brother Lakshmana.\n\n## The Abduction of Sita\n\nIn the forest of Dandaka, the trio lived as ascetics, battling demons who threatened the sages. Their presence attracted the attention of Ravana, the ten-headed Rakshasa king of Lanka. Ravana engineered a diversion: a golden deer that Sita desired. While Rama and Lakshmana were drawn away, Ravana engaged Sita, kidnapped her, and flew her south to his island fortress of Lanka.\n\nSita, fiercely loyal to Rama, refused Ravana's advances and was held captive in the Ashoka garden, dreaming of her rescue.\n\n## The Search and the War\n\nRama and Lakshmana began a desperate search. They forged an alliance with the Vanaras (monkey race), led by the exiled king Sugriva and his mighty general Hanuman. Hanuman, son of the wind god, leaped across the ocean to Lanka, found Sita, and assured her of Rama's coming. He then allowed himself to be captured, set his tail on fire, and burned down the golden city of Lanka before escaping.\n\nThe monkey army built a bridge of floating stones across the ocean. Rama led his forces to Lanka, where a terrible war raged. Ravana, protected by boons that made him immune to gods and demons (but not humans), was formidable. But Rama, fighting as a mortal man, eventually pierced Ravana's heart with the Brahmastra weapon.\n\n## The Trial by Fire\n\nWith Ravana dead, Sita was freed. But Rama, bound by the strict codes of honor and public perception, hesitated to accept her back, fearing rumors about her purity after living in another man's house. To prove her chastity, Sita entered a blazing fire. Agni, the fire god, carried her out unharmed, testifying to her absolute purity.\n\nRama revealed he knew her truth all along but needed the world to witness it. They returned to Ayodhya, where Rama was crowned king (Ram Rajya), establishing a golden age of righteousness.",
     "keyExcerpts": "Rama accepts 14 years of exile. Sita is kidnapped by Ravana. Hanuman burns Lanka. Rama kills Ravana. Sita performs the Agni Pariksha (trial by fire) to prove her purity.",
     "category": "epic",
-    "moralThemes": [
-      "dharma (duty)",
-      "devotion",
-      "honor",
-      "good vs evil"
-    ],
+    "moralThemes": ["dharma (duty)", "devotion", "honor", "good vs evil"],
     "culturalSignificance": "The Ramayana presents the ideals of human relationships: the ideal son, brother, wife, and king. It is a cornerstone of Hindu ethics and culture.",
     "imageUrl": "/stories/ramayana.png",
     "citationSources": [
@@ -645,30 +591,28 @@
     ],
     "primarySourceExcerpts": [
       {
-        "text": "रामो विग्रहवान् धर्मः साधुः सत्यपराक्रमः । राजा सर्वस्य लोकस्य देवानाम् इव वासवः ॥",
-        "translation": "Rama is Dharma personified; he is pious, righteous, and truthful in prowess. He is the sovereign of all the world, as Indra is the ruler of the gods.",
-        "source": "Valmiki Ramayana, Aranya Kanda",
+        "text": "Ráma in truth and goodness bold Is Virtue's self in human mould, The sovereign of the world confessed As Indra rules among the Blest.",
+        "translation": "Ráma in truth and goodness bold Is Virtue's self in human mould, The sovereign of the world confessed As Indra rules among the Blest.",
+        "source": "Ramayana, Book III",
         "sourceId": "ramayana",
-        "lineNumbers": "3.35.13 (critical edition); 3.37.13 (vulgate)",
-        "translator": "Adapted translation; not verified against Goldman",
-        "originalLanguage": "Sanskrit",
-        "quoteStatus": "editorial-paraphrase",
-        "verification": "source-and-locator-verified",
-        "sourceUrl": "https://srivalmikiramayana.com/en/?pid=8414",
-        "edition": "Editorial adaptation; Goldman not checked"
+        "lineNumbers": "Canto XXXVII, Márícha’s Speech, four lines beginning “Ráma in truth”",
+        "translator": "Ralph T. H. Griffith",
+        "quoteStatus": "direct-quotation",
+        "verification": "verified",
+        "sourceUrl": "https://sacred-texts.com/hin/rama/ry235.htm",
+        "edition": "1870–1874; Sacred Texts transcription. Canto numbering belongs to this English edition; verse whitespace normalized. English transcription checked 2026-09-23. Replaces prior unverified wording; no original-language text is supplied or certified."
       },
       {
-        "text": "स ददर्श ततो रामं तिष्ठन्तमपराजितम् । धनुर्विस्फार्य वेगेन रावणान्तकरं परम् ॥",
-        "translation": "Then he beheld Rama standing invincible upon the field, bending his mighty bow with supreme force, bringing about the destined end of Ravana and establishing the triumph of truth.",
-        "source": "Valmiki Ramayana, Yuddha Kanda",
+        "text": "He laid it on the twisted cord,\nHe turned the point at Lanká's lord,\nAnd swift the limb-dividing dart\nPierced the huge chest and cleft the heart,\nAnd dead he fell upon the plain\nLike Vritra by the Thunderer slain.",
+        "translation": "He laid it on the twisted cord,\nHe turned the point at Lanká's lord,\nAnd swift the limb-dividing dart\nPierced the huge chest and cleft the heart,\nAnd dead he fell upon the plain\nLike Vritra by the Thunderer slain.",
+        "source": "Ramayana, Yuddha Kanda",
         "sourceId": "ramayana",
-        "lineNumbers": "Locator unverified",
-        "translator": "Translation attribution unverified; do not treat as Goldman",
-        "originalLanguage": "Sanskrit",
-        "quoteStatus": "unverified",
-        "verification": "not-verified",
-        "sourceUrl": "https://www.valmiki.iitk.ac.in/sloka?field_kanda_tid=6&field_sarga_value=107&language=dv",
-        "edition": "No verified edition or locator recorded"
+        "lineNumbers": "Book VI, Canto CX, Rávan’s Death; six lines beginning ‘He laid it on the twisted cord’",
+        "translator": "Ralph T. H. Griffith",
+        "quoteStatus": "direct-quotation",
+        "verification": "verified",
+        "sourceUrl": "https://sacred-texts.com/hin/rama/ry481.htm",
+        "edition": "Griffith translation, Internet Sacred Text Archive transcription; this canto numbering belongs to the cited English edition. English excerpt checked against the cited transcription on 2026-09-23; no original-language text is supplied. This replaces the previously unverified passage."
       }
     ]
   },
@@ -681,12 +625,7 @@
     "fullNarrative": "## The Game of Dice\n\nThe dynastic struggle centered on two sets of cousins: the five Pandavas (sons of Pandu, though divinely fathered) and the one hundred Kauravas (sons of the blind king Dhritarashtra). Current King Duryodhana of the Kauravas, jealous of the Pandavas' prosperity, invited the eldest Pandava, Yudhishthira, to a rigged game of dice.\n\nYudhishthira, bound by honor and addicted to gambling, lost everything: his kingdom, his brothers, himself, and finally their shared wife, Draupadi. The Kauravas humiliated Draupadi in the court, attempting to disrobe her, but Krishna miraculously made her sari endless, protecting her dignity. The Pandavas were sentenced to thirteen years of exile.\n\n## The Bhagavad Gita\n\nWhen the exile ended, the Kauravas refused to return the kingdom. War became inevitable. The armies gathered at Kurukshetra. Arjuna, the greatest archer of the Pandavas, looked across the battlefield and saw his cousins, teachers, and elders arrayed against him. Overcome with grief at the prospect of killing his kin, he dropped his bow.\n\nKrishna, acting as Arjuna's charioteer (and revealed as the Supreme God), paused time to deliver the Bhagavad Gita. He taught Arjuna about the immortality of the soul, the duty of a warrior (dharma), and the path of selfless action (Karma Yoga). He urged Arjuna to fight not for gain, but to uphold righteousness.\n\n## The Great War\n\nThe war lasted eighteen days and involved millions of warriors. It was a war of devastating weaponry and complex morality. The code of chivalry broke down. The great grandsire Bhishma fell on a bed of arrows. The teacher Drona was tricked into laying down his arms. Karna, the secret eldest brother of the Pandavas fighting for the enemy, was killed while his chariot wheel was stuck.\n\nIn the end, the Pandavas won, but the victory was pyrrhic. Almost all the warriors on both sides were dead. The 100 Kauravas were slain. The Pandavas ruled for 36 years, seeking redemption for the sins of the war, before renouncing the world and climbing the Himalayas to reach heaven.",
     "keyExcerpts": "The game of dice and humiliation of Draupadi. Krishna delivering the Bhagavad Gita to Arjuna. The 18-day war of Kurukshetra where righteousness triumphs at great cost.",
     "category": "epic",
-    "moralThemes": [
-      "dharma",
-      "karma",
-      "futility of war",
-      "divine will"
-    ],
+    "moralThemes": ["dharma", "karma", "futility of war", "divine will"],
     "culturalSignificance": "The longest epic poem known to man. It is a comprehensive guide to life, ethics, philosophy, and governance in Hinduism.",
     "imageUrl": "/stories/mahabharata.png",
     "citationSources": [
@@ -698,30 +637,28 @@
     ],
     "primarySourceExcerpts": [
       {
-        "text": "कालोऽस्मि लोकक्षयकृत्प्रवृद्धो लोकान्समाहर्तुमिह प्रवृत्तः । ऋतेऽपि त्वां न भविष्यन्ति सर्वे येऽवस्थिताः प्रत्यनीकेषु योधाः ॥",
-        "translation": "I am Time, the great destroyer of worlds, arisen here to annihilate all beings. Even without thy action, none of the warriors marshaled in the opposing ranks shall escape death.",
-        "source": "Mahabharata, Bhishma Parva (Bhagavad Gita)",
+        "text": "I am the mighty world-destroying Time, here made manifest for the purpose of infolding the world.",
+        "translation": "I am the mighty world-destroying Time, here made manifest for the purpose of infolding the world.",
+        "source": "Srimad-Bhagavad-Gita",
         "sourceId": "mahabharata",
-        "lineNumbers": "11.32",
-        "translator": "Translation attribution unverified (Easwaran and Mascaró differ)",
-        "originalLanguage": "Sanskrit",
+        "lineNumbers": "11.32 (p. 259)",
+        "translator": "Swami Swarupananda",
         "quoteStatus": "direct-quotation",
-        "verification": "source-and-locator-verified",
-        "sourceUrl": "https://www.bhoomananda.org/bhagavad-gita/chapter-11-visvarupa-darsana-yoga/verse-32/",
-        "edition": "No single English edition verified"
+        "verification": "verified",
+        "sourceUrl": "https://sacred-texts.com/hin/sbg/sbg16.htm",
+        "edition": "Early-20th-century Swami Swarupananda translation, public-domain Sacred Texts web transcription; English-only replacement of prior unverified wording. Exact wording checked against the cited page at verse 32. Sacred Texts identifies the translation as English and public domain; only the English transcription was reviewed. English transcription checked 2026-09-23."
       },
       {
-        "text": "यतो धर्मस्ततो जयः । न धर्मो हीयते जातु न च पापोऽभिवर्धते ॥",
-        "translation": "Where there is righteousness (Dharma), there is victory. Righteousness is never extinguished, nor does unrighteousness endure forever.",
-        "source": "Mahabharata, Udyoga Parva",
+        "text": "Discriminating then between righteousness, and unrighteousness, and understanding what is meant by covetousness and having recourse to exertion fight without arrogance, for victory is there where righteousness is.",
+        "translation": "Discriminating then between righteousness, and unrighteousness, and understanding what is meant by covetousness and having recourse to exertion fight without arrogance, for victory is there where righteousness is.",
+        "source": "Mahabharata, Bhishma Parva",
         "sourceId": "mahabharata",
-        "lineNumbers": "Locator unverified; refrain occurs in multiple recensions",
-        "translator": "Translation attribution unverified; do not treat as Ganguli",
-        "originalLanguage": "Sanskrit",
-        "quoteStatus": "unverified",
-        "verification": "not-verified",
-        "sourceUrl": "https://lawfaculty.du.ac.in/userfiles/downloads/%28Updated%29%20LB%20604%20JURIS%202%20Course%20Material.pdf",
-        "edition": "No verified edition or locator recorded"
+        "lineNumbers": "Book 6, Section XXI, Arjuna’s reply to Yudhishthira",
+        "translator": "Kisari Mohan Ganguli",
+        "quoteStatus": "direct-quotation",
+        "verification": "verified",
+        "sourceUrl": "https://sacred-texts.com/hin/m06/m06021.htm",
+        "edition": "Ganguli translation, Internet Sacred Text Archive transcription; replaces the unsupported Udyoga Parva attribution. English excerpt checked against the cited transcription on 2026-09-23; no original-language text is supplied. This replaces the previously unverified passage."
       }
     ]
   },
@@ -734,11 +671,7 @@
     "fullNarrative": "## The Curse of Durvasa\n\nOnce, the Devas (gods) lost their glory and strength due to a curse from the sage Durvasa. The Asuras (demons) seized the opportunity to defeat them and take control of the universe. Desperate, the gods appealed to Vishnu, the Preserver.\n\nVishnu advised them to churn the Milky Ocean (Ksheera Sagara) to obtain Amrita, the nectar of immortality, which would restore their power. However, the task was too great for the gods alone. They had to form a diplomatic alliance with their enemies, the Asuras, promising to share the nectar.\n\n## The Great Churning\n\nThey used Mount Mandara as the churning rod and the giant serpent Vasuki as the rope. The gods held the tail, and the demons held the head (which spat poison). But the mountain began to sink into the ocean floor. Vishnu assumed his Kurma (tortoise) avatar, diving to the bottom to support the mountain on his back.\n\nAs they churned for a thousand years, the ocean first produced Halahala, a deadly poison that threatened to destroy all creation. Shiva, the Destroyer, stepped forward and drank the poison to save the world. Parvati, his consort, gripped his throat to stop the poison from reaching his stomach, turning his neck blue (hence his name Neelakantha).\n\n## Treasures of the Deep\n\nContinued churning released fourteen distinct treasures (Ratnas), including:\n- Kamadhenu, the wish-fulfilling cow\n- Airavata, the white elephant\n- The Moon (Chandra)\n- Lakshmi, the goddess of wealth, who immediately chose Vishnu as her consort.\n\n## The Deception\n\nFinally, Dhanvantari, the physician of the gods, emerged holding the pot of Amrita. The Asuras immediately snatched it. Chaos ensued.\n\nVishnu then transformed into Mohini, a breathtakingly beautiful enchantress. She distracted the Asuras and offered to distribute the nectar fairly. Mesmerized by her beauty, the Asuras agreed. Mohini seated the gods and demons in separate rows. She served the nectar only to the gods. One demon, Rahu, disguised himself as a god and took a sip. The Sun and Moon spotted him, and Vishnu cut off his head. Since the nectar had touched his throat, his head remained immortal (Rahu) while his body died (Ketu), causing eclipses by swallowing the sun and moon.\n\nThe gods, now immortal, defeated the Asuras and restored order to the cosmos.",
     "keyExcerpts": "Vishnu as Kurma (the tortoise) supports the mountain. Shiva drinks the poison Halahala. Lakshmi emerges from the ocean. Vishnu as Mohini tricks the Asuras to give the nectar only to the gods.",
     "category": "myth",
-    "moralThemes": [
-      "cooperation",
-      "greed vs wisdom",
-      "divine intervention"
-    ],
+    "moralThemes": ["cooperation", "greed vs wisdom", "divine intervention"],
     "culturalSignificance": "Explain the origin of many divine items, the eclipses (Rahu/Ketu), and Shiva's blue throat. It symbolizes the spiritual process of churning one's mind to reach self-realization.",
     "imageUrl": "/stories/churning-ocean.png",
     "citationSources": [
@@ -796,30 +729,28 @@
     ],
     "primarySourceExcerpts": [
       {
-        "text": "天照大御神、見畏みて、天の岩戸を開きて、籠り坐しき。ここに高天原皆暗く、葦原中国悉に闇し。ここを以て常夜往きき。",
-        "translation": "Thereupon the Great August Deity Amaterasu, terrified at the sight, opened the Heavenly Rock Cave and secluded herself within. Then all the Plain of High Heaven was obscured, and the Central Land of Reed Plains was entirely enveloped in darkness, so that constant night prevailed.",
-        "source": "Kojiki, Upper Volume",
+        "text": "So thereupon the Heaven-Shining-Great-August-Deity, terrified at the sight, closed [behind her] the door of the Heavenly Rock-Dwelling, made it fast, and retired.",
+        "translation": "So thereupon the Heaven-Shining-Great-August-Deity, terrified at the sight, closed [behind her] the door of the Heavenly Rock-Dwelling, made it fast, and retired.",
+        "source": "Kojiki",
         "sourceId": "kojiki",
-        "lineNumbers": "Amaterasu and Susanoo episode",
-        "translator": "Adapted translation; not verified against Chamberlain or Philippi",
-        "originalLanguage": "Classical Japanese",
-        "quoteStatus": "editorial-paraphrase",
-        "verification": "source-and-locator-verified",
-        "sourceUrl": "https://kojiki.co/genbun/episode08.html",
-        "edition": "Editorial adaptation; Chamberlain and Philippi not checked"
+        "lineNumbers": "Part I, §XVI (p. 63)",
+        "translator": "Basil Hall Chamberlain",
+        "quoteStatus": "direct-quotation",
+        "verification": "verified",
+        "sourceUrl": "https://archive.sacred-texts.com/shi/kj/kj023.htm",
+        "edition": "The Kojiki, trans. Basil Hall Chamberlain (1882), Sacred Texts 1919 web transcription; English-only replacement of prior unverified wording. Exact punctuation, bracketed interpolation, and wording checked against the cited English transcription. Japanese text was not retained or certified. English transcription checked 2026-09-23."
       },
       {
-        "text": "天宇受売命、天の香山の天のひかげを手次に懸け... 槽伏せて踏み轟こし、神懸りして胸乳を掛き出で、裳緒を陰に押し垂れき。ここに高天原動みて、八百万の神共に咲ひき。",
-        "translation": "Then Ame-no-Uzume bound up her sleeves with clubmoss and overturned a sounding tub before the cave door, stamping rhythmically upon it until she became divinely possessed, baring her breasts and loosening her skirt. Thereupon the High Plain of Heaven shook, and the eight million kami laughed together in joy.",
-        "source": "Kojiki, Upper Volume",
+        "text": "Then the Plain of High Heaven shook, and the eight hundred myriad Deities laughed together.",
+        "translation": "Then the Plain of High Heaven shook, and the eight hundred myriad Deities laughed together.",
+        "source": "Kojiki",
         "sourceId": "kojiki",
-        "lineNumbers": "Amaterasu and Susanoo episode",
-        "translator": "Adapted translation; not verified against Philippi",
-        "originalLanguage": "Classical Japanese",
-        "quoteStatus": "editorial-paraphrase",
-        "verification": "source-and-locator-verified",
-        "sourceUrl": "https://www.kyototuu.jp/WorldWide/Kojiki4Amaterasu.html",
-        "edition": "Editorial adaptation; Philippi not checked"
+        "lineNumbers": "Part I, §XVI (pp. 64–65)",
+        "translator": "Basil Hall Chamberlain",
+        "quoteStatus": "direct-quotation",
+        "verification": "verified",
+        "sourceUrl": "https://archive.sacred-texts.com/shi/kj/kj023.htm",
+        "edition": "The Kojiki, trans. Basil Hall Chamberlain (1882), Sacred Texts 1919 web transcription; English-only replacement of prior unverified wording. Exact wording checked against the cited English transcription. Japanese text was not retained or certified. English transcription checked 2026-09-23."
       }
     ]
   },
@@ -832,11 +763,7 @@
     "fullNarrative": "## The Exile\n\nBanishment from heaven for his crimes against Amaterasu, Susanoo descended to the province of Izumo on earth. By the Hi river, he found an old couple weeping with their beautiful daughter, Kushinada-hime. They explained that for the past seven years, the terrible eight-headed serpent Yamata no Orochi had come to devour one of their daughters. Now, only Kushinada remained, and the dragon was coming for her.\n\n## The Trap\n\nSusanoo agreed to slay the monster if he could have Kushinada's hand in marriage. He turned the girl into a comb and placed her in his hair for safety. Then, he instructed the couple to build a fence with eight gates. At each gate, they placed a vat of strong sake (rice wine).\n\nWhen Yamata no Orochi arrived, its eyes glowing like winter cherries, its eight heads dipped into the eight vats and drank greedily. The beast soon fell into a drunken stupor.\n\n## The Sword in the Tail\n\nSusanoo drew his sword and hacked the sleeping dragon to pieces. The river flowed red with blood. As he cut into the middle tail, his blade chipped. Investigating, he pulled open the flesh and found a magnificent sword hidden inside: the Kusanagi-no-Tsurugi (Grass-Cutting Sword).\n\nRealizing this was a divine treasure, Susanoo sent the sword up to heaven as a reconciliation gift to his sister Amaterasu. He then built a palace in Izumo and lived happily with his wife Kushinada, composing the first waka poem about the clouds rising around their home.",
     "keyExcerpts": "Susanoo saves Kushinada-hime by getting the eight-headed dragon drunk on sake. He finds the Kusanagi sword in its tail and gives it to Amaterasu.",
     "category": "myth",
-    "moralThemes": [
-      "redemption",
-      "heroism",
-      "ingenuity over brute force"
-    ],
+    "moralThemes": ["redemption", "heroism", "ingenuity over brute force"],
     "culturalSignificance": "Marks Susanoo's transition from troublemaker to hero. The Kusanagi sword is one of the three Imperial Regalia of Japan.",
     "imageUrl": "/stories/yamata-no-orochi.png",
     "citationSources": [
@@ -963,13 +890,8 @@
         "type": "primary"
       }
     ],
-    "featuredDeities": [
-      "hou-yi",
-      "chang-e"
-    ],
-    "relatedStories": [
-      "chang-e-moon"
-    ]
+    "featuredDeities": ["hou-yi", "chang-e"],
+    "relatedStories": ["chang-e-moon"]
   },
   {
     "id": "chang-e-moon",
@@ -999,14 +921,8 @@
         "type": "primary"
       }
     ],
-    "featuredDeities": [
-      "chang-e",
-      "hou-yi",
-      "xi-wangmu"
-    ],
-    "relatedStories": [
-      "archer-yi"
-    ],
+    "featuredDeities": ["chang-e", "hou-yi", "xi-wangmu"],
+    "relatedStories": ["archer-yi"],
     "variants": [
       {
         "source": "Folk tradition",
@@ -1043,9 +959,7 @@
         "type": "primary"
       }
     ],
-    "featuredDeities": [
-      "pangu"
-    ],
+    "featuredDeities": ["pangu"],
     "variants": [
       {
         "source": "Southern Chinese traditions",
@@ -1084,10 +998,7 @@
         "type": "secondary"
       }
     ],
-    "featuredDeities": [
-      "nezha",
-      "jade-emperor"
-    ],
+    "featuredDeities": ["nezha", "jade-emperor"],
     "variants": [
       {
         "source": "Buddhist tradition",
@@ -1161,9 +1072,7 @@
         "type": "primary"
       }
     ],
-    "featuredDeities": [
-      "nuwa"
-    ],
+    "featuredDeities": ["nuwa"],
     "variants": [
       {
         "source": "Huainanzi",
@@ -1209,14 +1118,8 @@
         "type": "primary"
       }
     ],
-    "featuredDeities": [
-      "prometheus",
-      "zeus",
-      "hephaestus"
-    ],
-    "relatedStories": [
-      "titanomachy"
-    ],
+    "featuredDeities": ["prometheus", "zeus", "hephaestus"],
+    "relatedStories": ["titanomachy"],
     "variants": [
       {
         "source": "Hesiod's Works and Days",
@@ -1270,15 +1173,8 @@
         "type": "primary"
       }
     ],
-    "featuredDeities": [
-      "perseus",
-      "athena",
-      "hermes",
-      "poseidon"
-    ],
-    "relatedStories": [
-      "titanomachy"
-    ],
+    "featuredDeities": ["perseus", "athena", "hermes", "poseidon"],
+    "relatedStories": ["titanomachy"],
     "variants": [
       {
         "source": "Hesiod's Theogony",
@@ -1341,12 +1237,8 @@
       }
     ],
     "featuredDeities": [],
-    "featuredLocations": [
-      "crete"
-    ],
-    "relatedStories": [
-      "perseus-medusa"
-    ]
+    "featuredLocations": ["crete"],
+    "relatedStories": ["perseus-medusa"]
   },
   {
     "id": "orpheus-eurydice",
@@ -1380,14 +1272,8 @@
         "type": "primary"
       }
     ],
-    "featuredDeities": [
-      "hades",
-      "persephone"
-    ],
-    "relatedStories": [
-      "death-of-baldur",
-      "abduction-of-persephone"
-    ],
+    "featuredDeities": ["hades", "persephone"],
+    "relatedStories": ["death-of-baldur", "abduction-of-persephone"],
     "variants": [
       {
         "source": "Virgil's Georgics",
@@ -1453,10 +1339,7 @@
       "zeus",
       "hera"
     ],
-    "relatedStories": [
-      "aeneid",
-      "perseus-medusa"
-    ],
+    "relatedStories": ["aeneid", "perseus-medusa"],
     "variants": [
       {
         "source": "Stesichorus's Palinode",
@@ -1477,30 +1360,28 @@
     ],
     "primarySourceExcerpts": [
       {
-        "text": "Μῆνιν ἄειδε θεὰ Πηληϊάδεω Ἀχιλῆος οὐλομένην, ἣ μυρί’ Ἀχαιοῖς ἄλγε’ ἔθηκε, πολλὰς δ’ ἰφθίμους ψυχὰς Ἄϊδι προΐαψεν ἡρώων, αὐτοὺς δὲ ἑλώρια τεῦχε κύνεσσιν οἰωνοῖσί τε πᾶσι, Διὸς δ’ ἐτελείετο βουλή.",
-        "translation": "Sing, goddess, the wrath of Achilles son of Peleus, that destructive wrath which brought countless woes upon the Achaeans, and hurled forth to Hades many valiant souls of heroes, and made their bodies the spoil of dogs and of all birds—and so the will of Zeus was accomplished.",
+        "text": "The wrath sing, goddess, of Peleus' son, Achilles, that destructive wrath which brought countless woes upon the Achaeans,",
+        "translation": "The wrath sing, goddess, of Peleus' son, Achilles, that destructive wrath which brought countless woes upon the Achaeans,",
         "source": "Homer, Iliad",
         "sourceId": "iliad",
-        "lineNumbers": "1.1-5",
-        "translator": "Richmond Lattimore",
-        "originalLanguage": "Ancient Greek",
+        "lineNumbers": "1.1–2",
+        "translator": "A. T. Murray",
         "quoteStatus": "direct-quotation",
-        "verification": "source-and-locator-verified",
+        "verification": "verified",
         "sourceUrl": "https://www.theoi.com/Text/HomerIliad1.html",
-        "edition": "Richmond Lattimore, 1951"
+        "edition": "The Iliad with an English Translation, A. T. Murray (1924), public-domain web transcription; English-only replacement of prior unverified wording. Exact source capitalization and terminal comma retained from the cited Book 1 line, which identifies the A. T. Murray translation. Greek text was not retained or certified. English transcription checked 2026-09-23."
       },
       {
-        "text": "Μὴ δή μοι θάνατόν γε παραύδα, φαίδιμ’ Ὀδυσσεῦ. βουλοίμην κ’ ἐπάρουρος ἐὼν θητευέμεν ἄλλῳ, ἀνδρὶ παρ’ ἀκλήρῳ, ᾧ μὴ βίοτος πολὺς εἴη, ἢ πᾶσιν νεκύεσσι καταφθιμένοισιν ἀνάσσειν.",
-        "translation": "Speak not smoothly of death to me, noble Odysseus! I would rather be a hired day-laborer bound to some landless, impoverished man on earth who has no great livelihood, than rule over all the dead who have perished.",
+        "text": "Say not a word in death's favour; I would rather be a paid servant in a poor man's house and be above ground than king of kings among the dead.",
+        "translation": "Say not a word in death's favour; I would rather be a paid servant in a poor man's house and be above ground than king of kings among the dead.",
         "source": "Homer, Odyssey",
         "sourceId": "odyssey",
-        "lineNumbers": "11.488-491",
-        "translator": "A. T. Murray (wording adapted; Fagles not verified)",
-        "originalLanguage": "Ancient Greek",
-        "quoteStatus": "editorial-paraphrase",
-        "verification": "source-and-locator-verified",
-        "sourceUrl": "https://www.theoi.com/Text/HomerOdyssey11.html",
-        "edition": "A. T. Murray wording adapted; Fagles not checked"
+        "lineNumbers": "11.488–491",
+        "translator": "Samuel Butler",
+        "quoteStatus": "direct-quotation",
+        "verification": "verified",
+        "sourceUrl": "https://www.gutenberg.org/files/1727/1727-h/1727-h.htm",
+        "edition": "The Odyssey, trans. Samuel Butler (1900), Project Gutenberg eBook #1727; English-only replacement of prior unverified wording. Exact wording checked in the cited Project Gutenberg Book XI passage. The displayed source presents the sentence with a dialogue lead-in; Greek text was not retained or certified. English transcription checked 2026-09-23."
       }
     ],
     "furtherReading": [
@@ -1536,12 +1417,7 @@
     "fullNarrative": "## The Origin of the Mead\n\nWhen the Aesir and Vanir gods ended their war, they sealed their peace in a ritual older than memory. Each god spat into a great vessel, and from this mingled essence they created Kvasir, a being of unparalleled wisdom who could answer any question put to him. Kvasir wandered the Nine Worlds, sharing knowledge with all who sought it.\n\nBut wisdom so pure attracts those who would possess it. Two dwarves, Fjalar and Galar, invited Kvasir to a feast and murdered him in secret. They drained his blood into three vessels: two vats called Son and Bodn, and a cauldron called Odrerir. Mixed with honey, Kvasir's blood became the Mead of Poetry, a drink that could make anyone who tasted it a poet or scholar.\n\n> Whoever drinks of the mead becomes a poet and a sage. The mead is Odin's gift to the worlds, though he won it through cunning, not kindness.\n\n## The Giant's Treasury\n\nThe dwarves' crime did not go unpunished for long. When they later murdered a giant named Gilling and his wife, Gilling's son Suttung came seeking vengeance. He seized the dwarves and stranded them on a tidal rock, where they would surely drown. To save their lives, they offered him the mead as weregild. Suttung took the three vessels and hid them deep within the mountain Hnitbjorg, setting his daughter Gunnlod to guard them.\n\nWord of the mead reached Odin, and the All-Father became consumed with desire for it. He understood that the power of poetry was too precious to remain locked away in a giant's cave, hoarded rather than shared. He laid his plans carefully.\n\n## Odin's Cunning\n\nOdin descended to Midgard in disguise, calling himself Bolverk, meaning \"worker of evil.\" He came upon nine thralls mowing hay for Baugi, Suttung's brother. Odin produced a whetstone and offered to sharpen their scythes. The blades became so keen that the thralls fought over who would buy the stone, and in their struggle, all nine cut each other's throats with their own scythes.\n\nOdin then approached Baugi, offering to do the work of nine men in exchange for a single drink of Suttung's mead. Baugi agreed, though he warned that the mead was not his to give. For an entire summer, Odin labored in the fields, working as hard as any mortal.\n\nWhen harvest came, Baugi approached his brother, but Suttung refused to part with even a drop of the mead. Baugi, bound by his oath, agreed to help Odin steal it instead. Taking an auger called Rati, Baugi bored a hole through the mountain Hnitbjorg. Odin transformed himself into a serpent and slithered through the narrow passage.\n\n## The Seduction of Gunnlod\n\nIn the heart of the mountain, Odin found Gunnlod sitting alone with the three vessels of mead. He resumed his true form, the handsome god of wisdom and poetry, and for three nights he lay with her in darkness. Whether through love or magic, Gunnlod agreed to give him three sips of the mead.\n\nBut Odin's sips were mighty indeed. With his first draft, he drained the cauldron Odrerir. With his second, the vat Bodn. With his third, Son was emptied completely. The mead of poetry, every drop of it, now resided in the All-Father's belly.\n\n## The Flight to Asgard\n\nBefore Gunnlod or Suttung could react, Odin transformed himself into an eagle and burst from the mountain. Suttung, enraged, took eagle form himself and gave chase across the sky. The gods of Asgard, seeing the two great birds approaching, set out vessels in the courtyard to receive the mead.\n\nOdin reached Asgard just ahead of his pursuer and disgorged the mead into the waiting containers. In his haste, some of the mead escaped from behind, falling to earth below. This portion, touched by Odin's flight but not his intent, became the portion of rhymesters and bad poets, available to anyone without discrimination.\n\nBut the true mead, the gift that Odin dispenses sparingly to gods and mortals, grants genuine poetic inspiration. Those touched by it speak in verse that moves the heart, write words that endure beyond lifetimes, and understand truths that ordinary speech cannot convey. Every great poem ever composed, every song that lives in memory, owes its existence to Odin's theft from the giants and his gift to the worlds.",
     "keyExcerpts": "The Mead of Poetry was created from the blood of Kvasir, a being of perfect wisdom. Odin worked for a summer, seduced the giantess Gunnlod for three nights, and drank all the mead before fleeing as an eagle to Asgard.",
     "category": "myth",
-    "moralThemes": [
-      "wisdom",
-      "cunning",
-      "transformation",
-      "sacrifice"
-    ],
+    "moralThemes": ["wisdom", "cunning", "transformation", "sacrifice"],
     "culturalSignificance": "The Mead of Poetry explains the Norse understanding of poetic inspiration as a divine gift. It establishes Odin as the patron of poets and skalds, and the tale itself became a favorite subject for the very poets who benefited from its telling. The story reflects the high value Norse culture placed on eloquence and the art of verse.",
     "imageUrl": "/stories/mead-of-poetry.png",
     "citationSources": [
@@ -1552,13 +1428,8 @@
         "type": "primary"
       }
     ],
-    "featuredDeities": [
-      "odin"
-    ],
-    "relatedStories": [
-      "odins-sacrifice",
-      "creation-myth-norse"
-    ]
+    "featuredDeities": ["odin"],
+    "relatedStories": ["odins-sacrifice", "creation-myth-norse"]
   },
   {
     "id": "thors-journey-utgard",
@@ -1569,11 +1440,7 @@
     "fullNarrative": "## The Journey Begins\n\nThor, the Thunder God, set out from Asgard with Loki at his side, driving his chariot pulled by the goats Tanngrisnir and Tanngnjostr. They traveled to Midgard and stopped at a peasant's cottage, where Thor slaughtered his goats for a feast, instructing the family to throw the bones onto the skins without breaking them. He would resurrect the goats in the morning with his hammer Mjolnir.\n\nBut the peasant's son Thjalfi, tempted by the marrow, split a thighbone to suck it out. When Thor revived the goats, one was lame. In his fury, Thor nearly slew the family, but they offered their children, Thjalfi and Roskva, as servants. Leaving the chariot behind, the four travelers continued on foot toward Jotunheim.\n\n> Thor's grip on Mjolnir's handle tightened until his knuckles went white. Even the god of thunder would learn humility in the halls of Utgard-Loki.\n\n## The Giant's Glove\n\nAs darkness fell, they came upon an enormous hall and took shelter inside. During the night, the earth shook with terrible tremors, and they retreated into a side chamber for safety. At dawn, Thor discovered their shelter had been the thumb of a giant's glove, and the tremors had been the snoring of Skrymir, a giant so vast that Thor barely reached his belt buckle.\n\nSkrymir offered to carry their provisions and walked with them through the day. That night, when Thor tried to open the provision bag for supper, he could not undo the knots. In frustration, he struck the sleeping giant with Mjolnir, but Skrymir merely asked if a leaf had fallen on his head. Thor struck twice more, each blow harder than the last, but the giant dismissed them as acorns and twigs.\n\nAt dawn, Skrymir directed them toward Utgard and departed. Thor's pride was already wounded.\n\n## The Challenges of Utgard-Loki\n\nUtgard, the castle of the giant king Utgard-Loki, was so vast that the travelers could slip between the bars of its gate. The king received them with contempt, demanding they prove themselves with some skill or depart in shame.\n\nLoki boasted that no one could eat faster than he. A trencher of meat was brought, and Loki raced a giant called Logi from opposite ends. They met in the middle, but while Loki had eaten all the meat, Logi had devoured meat, bones, and the wooden trencher itself. Loki lost.\n\nThjalfi, the swiftest of mortals, challenged a giant named Hugi to a footrace. Three times they ran, and three times Hugi won with increasing ease, finishing the last race before Thjalfi had reached the midpoint.\n\nThor was offered a drinking horn. Utgard-Loki claimed any decent drinker could drain it in one draft, or at least two. Thor drank mightily three times, but the level seemed barely to drop. He was then challenged to lift a gray cat from the floor, but despite all his strength, he could only raise one paw. Finally, humiliated, he agreed to wrestle an old woman named Elli. Thor strained with all his divine might, but the crone forced him to one knee.\n\n## The Truth Revealed\n\nUtgard-Loki bid them leave, and Thor's shame was complete. But once outside the walls, the giant king revealed the truth. Everything had been illusion.\n\nSkrymir's provision bag had been bound with iron wrought by trolls. Thor's hammer blows had struck mountains, carving three deep valleys that stand to this day. Logi, who had beaten Loki at eating, was wildfire itself, which consumes everything in its path. Hugi, who outran Thjalfi, was thought, which nothing can outpace.\n\nThe drinking horn's tip had rested in the ocean, and Thor's three drafts had lowered the sea level, creating the tides. The cat was the Midgard Serpent, Jormungandr, and Thor had nearly pulled it from the sea. The old woman Elli was old age itself, which no living thing can defeat.\n\n> No one who saw what you did could fail to realize that you are much stronger than you appear. And I never want you near my castle again.\n\nThor raised Mjolnir to smash Utgard to rubble, but the castle and its king had vanished, leaving only empty plains where no giant realm had ever stood. The god of thunder returned to Asgard with a new understanding: there are forces in the universe that even the mightiest of gods cannot overcome through strength alone.",
     "keyExcerpts": "Thor's drinking lowered the ocean and created tides. The cat he tried to lift was the World Serpent. The old woman he wrestled was Old Age itself. Utgard-Loki's challenges were all illusions concealing cosmic forces.",
     "category": "epic",
-    "moralThemes": [
-      "humility",
-      "illusion vs reality",
-      "limitations of power"
-    ],
+    "moralThemes": ["humility", "illusion vs reality", "limitations of power"],
     "culturalSignificance": "This tale serves as a rare moment of humility for Thor and explores the Norse understanding that brute strength has its limits. The story also showcases Utgard-Loki's masterful use of magic and illusion, distinguishing him from the physical might typically associated with giants.",
     "imageUrl": "/stories/thors-journey-utgard.png",
     "citationSources": [
@@ -1584,14 +1451,8 @@
         "type": "primary"
       }
     ],
-    "featuredDeities": [
-      "thor",
-      "loki"
-    ],
-    "relatedStories": [
-      "binding-of-fenrir",
-      "ragnarok"
-    ]
+    "featuredDeities": ["thor", "loki"],
+    "relatedStories": ["binding-of-fenrir", "ragnarok"]
   },
   {
     "id": "odins-sacrifice",
@@ -1602,12 +1463,7 @@
     "fullNarrative": "## The Quest for Wisdom\n\nOdin, the All-Father, was never content with the power he possessed. Though he ruled Asgard and commanded the respect of gods and mortals alike, he hungered for deeper knowledge, for understanding of the mysteries that lay beyond even divine sight. He had already sacrificed one eye to drink from Mimir's Well, gaining wisdom of things past and present. But the runes, those symbols of power that could shape reality itself, remained hidden from him.\n\nThe runes existed before the gods, before the worlds, before anything that had name or form. They were carved into the roots of existence, and no being, neither god nor giant nor dwarf, knew how to unlock their secrets. Odin understood that such knowledge could not be bought or stolen or won through battle. It demanded a sacrifice unlike any other.\n\n> I know that I hung on that windy tree nine long nights, wounded with a spear, dedicated to Odin, myself to myself, on that tree of which no man knows from where its roots run.\n\n## The Sacrifice\n\nOdin chose the greatest sacrifice he could offer: himself to himself. He went to Yggdrasil, the World Tree that connects all Nine Worlds, and there he hanged himself from its branches. He wounded himself with his own spear, Gungnir, and there he hung, twisting in the wind between life and death.\n\nNo one gave him bread or drink. He was alone in his agony, suspended above the void, the cold wind howling around him and the darkness pressing in from all sides. For nine nights he hung there, his body growing weaker, his vision dimming, until he passed beyond the threshold of ordinary consciousness.\n\n## The Revelation\n\nOn the ninth night, at the moment between heartbeats, at the boundary between death and life, Odin looked downward into the depths below Yggdrasil. And there, in the darkness, he saw them: the runes, glowing with power, waiting for one worthy to claim them.\n\n> Then I was fertilized and became wise. I grew and well I thrived. Word led to word, word found for me. Deed led to deed, deed found for me.\n\nWith a scream of triumph and agony, Odin seized the runes. The knowledge poured into him like fire and ice, reshaping his mind, expanding his understanding beyond all previous limits. He fell from the tree, no longer the god who had climbed it, but something more.\n\n## The Gift of the Runes\n\nOdin had died and been reborn. He had sacrificed himself to himself, surrendered everything to gain everything. He now possessed the eighteen great runes and the power to use them. With the runes, he could heal wounds, calm storms, blunt enemy blades, break chains, stop arrows in flight, turn curses back upon their speakers, speak with the dead, and work countless other magics.\n\nBut the runes were not his alone to hoard. He taught them to the Aesir and the Vanir, to elves and to dwarves, and finally to humans. The völvas, the wise women who served as seers and practitioners of seidr magic, received special instruction. Poets and warriors, healers and rulers, all could learn to read and cast the runes.\n\nEvery time runes are carved, every time they are cast for divination, every time their power is invoked, Odin's sacrifice is remembered. He gave himself so that wisdom would flow through all the worlds, and his example stands as the ultimate testament to the price of true knowledge: everything you have, including yourself.",
     "keyExcerpts": "Odin hanged himself on Yggdrasil for nine nights, wounded by his own spear, sacrificing himself to himself. In the depths of his ordeal, he glimpsed the runes and seized them, gaining their power and wisdom.",
     "category": "myth",
-    "moralThemes": [
-      "sacrifice",
-      "wisdom",
-      "transformation",
-      "initiation"
-    ],
+    "moralThemes": ["sacrifice", "wisdom", "transformation", "initiation"],
     "culturalSignificance": "This myth establishes Odin as the god who mastered the runes through self-sacrifice, making him the ultimate model for shamanic initiation and the pursuit of wisdom at any cost. The story influenced later Norse magical practices and the understanding of the runes as tools of power.",
     "imageUrl": "/stories/odins-sacrifice.png",
     "citationSources": [
@@ -1617,13 +1473,8 @@
         "type": "primary"
       }
     ],
-    "featuredDeities": [
-      "odin"
-    ],
-    "relatedStories": [
-      "yggdrasil",
-      "mead-of-poetry"
-    ]
+    "featuredDeities": ["odin"],
+    "relatedStories": ["yggdrasil", "mead-of-poetry"]
   },
   {
     "id": "book-of-dead-journey",
@@ -1634,12 +1485,7 @@
     "fullNarrative": "## The Descent into Darkness\n\nWhen an Egyptian died, their journey had only begun. The ka and the ba, the two aspects of the soul, departed from the body and entered the Duat, the vast and terrifying underworld through which the sun traveled each night. The spells inscribed on papyrus scrolls and painted on tomb walls, collectively known as the Book of the Dead or \"The Book of Coming Forth by Day,\" served as a guide through this realm of shadows.\n\nThe newly dead soul, called the akh, found itself in darkness. Before it stretched a path fraught with danger: lakes of fire, serpents with knives for teeth, demons whose names had to be known to pass, gates guarded by creatures of nightmare. Without the proper knowledge, the soul would be devoured or lost forever in the darkness.\n\n> I know the names of the forty-two judges. I know the words of power. I have not done evil. My heart is pure, lighter than the feather of Ma'at.\n\n## The Trials of the Duat\n\nThe soul passed through twelve regions, each corresponding to an hour of the night. It encountered the serpent Apep, the embodiment of chaos, who sought to swallow the sun-bark of Ra and plunge all existence into eternal darkness. The justified dead might join Ra's crew in the nightly battle against Apep, helping to ensure that dawn would come again.\n\nAt each gate, guardians demanded passwords and proof of worth. The soul had to recite the correct formulae, speak the true names of the demons, and demonstrate knowledge of the divine mysteries. Those who failed were seized by the Am-mit, the Devourer, a monster with the head of a crocodile, the body of a lion, and the hindquarters of a hippopotamus.\n\n## The Hall of Two Truths\n\nIf the soul survived the Duat's perils, it arrived at last at the Hall of Two Truths, also called the Hall of Ma'at. Here sat Osiris, Lord of the Dead, upon his throne, attended by Isis and Nephthys. Before him stood a great scale, and around the hall sat the forty-two assessor gods, each representing a different sin.\n\nThe soul stood before this divine tribunal and recited the Negative Confession, declaring each sin they had not committed: \"I have not done wrong. I have not robbed. I have not stolen. I have not killed. I have not told lies. I have not caused pain. I have not committed adultery.\" The declaration went on, covering every aspect of moral conduct.\n\n## The Weighing of the Heart\n\nAnubis, the jackal-headed god of mummification and the guide of souls, took the deceased's heart and placed it upon one side of the scale. On the other side rested the feather of Ma'at, the symbol of cosmic truth and justice, lighter than breath.\n\nIf the heart was heavy with sin, if the weight of wrongdoing tipped the scale, the Am-mit waited eagerly to devour it. The soul would cease to exist, denied the afterlife, erased from eternity. This was the second death, the true death from which there was no return.\n\nBut if the heart balanced against the feather, or better still, if it proved lighter, the soul was declared \"true of voice\" and worthy to enter the presence of Osiris. Thoth, the ibis-headed god of wisdom and writing, recorded the verdict on his scroll.\n\n> The heart of the deceased has been weighed in the scale of the Balance, and it has been found true. He has not sinned against any god or goddess. Admit him to the Kingdom of Osiris.\n\n## The Field of Reeds\n\nThe justified soul was led by Horus into the presence of Osiris, where they received eternal life and a place in the Field of Reeds, the Egyptian paradise. Here, the afterlife mirrored the best of Egypt itself: eternal harvests, cool breezes, and reunion with loved ones who had gone before. The soul would live forever in peace, journeying with Ra across the sky by day and through the Duat by night, part of the eternal cycle of death and rebirth that governed all existence.",
     "keyExcerpts": "The soul traversed the twelve hours of the Duat, facing demons and gates. In the Hall of Two Truths, Anubis weighed the heart against the feather of Ma'at while Thoth recorded the verdict. The justified soul entered eternal paradise in the Field of Reeds.",
     "category": "afterlife",
-    "moralThemes": [
-      "judgment",
-      "death",
-      "rebirth",
-      "truth"
-    ],
+    "moralThemes": ["judgment", "death", "rebirth", "truth"],
     "culturalSignificance": "The Book of the Dead represents the most complete expression of Egyptian beliefs about the afterlife. The concept of judgment after death influenced later religious traditions and established a moral framework where earthly actions determined eternal fate.",
     "imageUrl": "/stories/book-of-dead-journey.png",
     "citationSources": [
@@ -1652,15 +1498,8 @@
         "type": "primary"
       }
     ],
-    "featuredDeities": [
-      "osiris",
-      "anubis",
-      "thoth"
-    ],
-    "relatedStories": [
-      "osiris-myth",
-      "creation-heliopolis"
-    ]
+    "featuredDeities": ["osiris", "anubis", "thoth"],
+    "relatedStories": ["osiris-myth", "creation-heliopolis"]
   },
   {
     "id": "sekhmet-rampage",
@@ -1671,11 +1510,7 @@
     "fullNarrative": "## The Plotting of Mortals\n\nIn the earliest times, Ra, the sun god, ruled over both gods and mortals as king. He walked among his creations, and his light brought life to all the land of Egypt. But Ra was growing old, and his human subjects began to whisper. They saw his age, saw his limbs grow weak and his step falter, and some began to plot rebellion.\n\nRa heard of their schemes, for nothing escapes the All-Seeing Eye. He called a council of the gods in secret, summoning Shu, Tefnut, Geb, Nut, and Nun, the primordial waters from which he had emerged. \"Look upon my children,\" Ra said. \"Those I created from my own Eye now conspire against me. What shall I do with them?\"\n\nNun spoke: \"Send forth your Eye against them. Let your daughter smite those who plot evil.\"\n\n## The Wrath of Sekhmet\n\nRa's Eye took the form of Hathor, the gentle goddess of love and beauty. But Hathor transformed, her gentle aspect falling away to reveal Sekhmet, the lioness, the most terrible of all the gods. Her breath was hot desert wind, her mane a crown of fire, her eyes blazing with divine fury.\n\n> Sekhmet fell upon humanity with the fury of a hundred storms. The deserts ran red with blood, and her roar shook the pillars of heaven. She was wrath incarnate, and she exulted in her slaughter.\n\nSekhmet descended upon the rebellious mortals in Upper Egypt, where they had fled into the desert to escape Ra's judgment. She tore them apart with claws of bronze, drank their blood like wine, and waded through the carnage laughing. When night fell, she returned to Ra to report her victory.\n\n\"I have been mighty among them,\" she declared. \"Their blood is sweet.\"\n\n## The Bloodlust Grows\n\nRa looked upon his daughter and saw that something had changed. The killing had awakened a hunger in Sekhmet that would not be easily satisfied. She spoke of returning at dawn to finish what she had started, to slay every mortal who remained. But Ra's anger had cooled. He had not meant to destroy all humanity, only to punish the plotters.\n\n\"It is enough,\" he said. But Sekhmet did not hear. Her eyes were distant, already imagining the blood she would spill with the coming sun.\n\nRa understood that even he could not simply command Sekhmet to stop. Her nature had been unleashed, and nature cannot be denied. He would have to use cunning where force would fail.\n\n## The Deception\n\nThrough the night, Ra's servants worked in frantic haste. He ordered seven thousand jars of beer to be brewed, and into the beer they mixed red ochre from Elephantine until it gleamed crimson, indistinguishable from blood. Before dawn, they poured the mixture into the fields where Sekhmet would hunt.\n\nWhen the lioness goddess descended at sunrise, ready to continue her slaughter, she saw the fields flooded with what appeared to be blood. Delighted, she drank deeply. Three times she waded through the crimson pools, and the beer entered her veins. Her eyes grew heavy. Her roar softened to a purr.\n\nSekhmet, the destroyer of mankind, fell into a deep, drunken sleep.\n\n## Transformation and Mercy\n\nWhen she awoke, the bloodlust had faded. Hathor's gentler nature returned, and she could not remember the full extent of her rampage. Ra welcomed his daughter back and declared that from this day forward, the festival of Hathor would be celebrated with great quantities of red beer, so that her terrible thirst would be satisfied without the spilling of blood.\n\nMankind survived, chastened but alive. Ra, weary of the troubles of rulership, ascended to the sky to journey across it each day in his solar bark, leaving the governance of Egypt to the gods who came after. But in every drought, in every plague, in every scorching summer wind, Egyptians remembered Sekhmet and knew that the Eye of Ra could always turn its fury upon them once more.",
     "keyExcerpts": "Ra sent Sekhmet to punish plotting humanity, but her bloodlust grew beyond control. Ra tricked her by flooding the fields with seven thousand jars of beer dyed red with ochre. Sekhmet drank it thinking it was blood and fell asleep, saving mankind.",
     "category": "myth",
-    "moralThemes": [
-      "divine wrath",
-      "mercy",
-      "transformation"
-    ],
+    "moralThemes": ["divine wrath", "mercy", "transformation"],
     "culturalSignificance": "This myth explains the dual nature of Hathor/Sekhmet and the festival of drunkenness celebrated in her honor. It also reflects Egyptian anxieties about the destructive power of the sun and the thin line between divine blessing and divine punishment.",
     "imageUrl": "/stories/sekhmet-rampage.png",
     "citationSources": [
@@ -1684,15 +1519,8 @@
         "type": "primary"
       }
     ],
-    "featuredDeities": [
-      "ra",
-      "sekhmet",
-      "hathor"
-    ],
-    "relatedStories": [
-      "creation-heliopolis",
-      "osiris-myth"
-    ]
+    "featuredDeities": ["ra", "sekhmet", "hathor"],
+    "relatedStories": ["creation-heliopolis", "osiris-myth"]
   },
   {
     "id": "krishna-childhood",
@@ -1703,12 +1531,7 @@
     "fullNarrative": "## The Birth of the Divine Child\n\nKrishna, the eighth avatar of Vishnu, was born in a prison cell to Devaki and Vasudeva while the tyrant Kamsa held them captive. Kamsa had been warned by prophecy that Devaki's eighth child would destroy him, and he had killed her first seven infants. But on the night of Krishna's birth, the prison guards fell into enchanted sleep, the chains fell from Vasudeva's wrists, and the doors swung open of their own accord.\n\nVasudeva carried the newborn through the storming night to the village of Gokul, crossing the flooded Yamuna River while the divine serpent Shesha sheltered them with his hood. There, he exchanged Krishna for the newborn daughter of Nanda and Yashoda, simple cowherds who would raise the god as their own son. When Kamsa came to kill the child, the baby girl transformed into the goddess Yogamaya and ascended to heaven, warning that his destroyer had escaped.\n\n> In a simple cowherd's home, the Lord of the Universe learned to crawl, to walk, to speak. The sustainer of all creation delighted in stealing butter from earthen pots.\n\n## The Butter Thief\n\nKrishna grew among the gopas and gopis, the cowherds and milkmaids of Vrindavan. He was beautiful, charming, mischievous, and utterly irresistible. His favorite sport was stealing freshly churned butter from the village homes, earning him the name Makhan Chor, the Butter Thief.\n\nThe village women would complain to Yashoda about her son's antics. They told her he untied their calves so they would drink all the milk. He broke their butter pots and shared the stolen butter with the monkeys. He pinched the younger children and denied everything with butter still smeared on his face. Yashoda would scold him, but his innocent smile would melt her heart every time.\n\nOne day, the gopis bound him to a heavy stone mortar as punishment for his thieving. Krishna simply dragged the mortar between two trees and toppled them, freeing two celestial beings who had been cursed to take tree form. Such was the divine play, the lila, of the Lord who chose to be a village child.\n\n## Defeating the Demons\n\nKamsa, learning that Krishna had survived, sent demon after demon to destroy him. The demoness Putana came disguised as a beautiful woman offering to nurse the infant, but her breasts were smeared with poison. Krishna drank not just the poisoned milk but her life force as well, granting her liberation through her contact with the divine.\n\nThe whirlwind demon Trinavarta tried to carry Krishna away, but the baby became so heavy that the demon crashed to earth and died. The serpent Aghasura opened his enormous mouth, disguising it as a cave, but Krishna expanded within his body until the serpent burst. Each assassination attempt became another opportunity for the Lord to display his power while maintaining the appearance of a child at play.\n\n## The Universe in His Mouth\n\nThe most remarkable revelation came when Krishna was caught eating dirt. His playmates ran to Yashoda, reporting that Krishna was eating mud again. She demanded he open his mouth, preparing to scold him.\n\nWhen Krishna opened his mouth, Yashoda saw within it the entire universe: the sun, moon, and stars, the mountains and oceans, all the continents, all living beings, time itself, nature, the elements, and the cosmic principle. She saw Vrindavan, and herself looking into her son's mouth. She saw infinity contained within the child she had raised.\n\nFor a moment, Yashoda understood that her son was Vishnu himself. But then Krishna's maya, his divine power of illusion, covered her memory, and she saw only a small boy with a dirty mouth. She kissed his head and sent him out to play.\n\n> What mother can hold the Universe on her lap? What village can contain the Infinite? Yet Krishna chose this humble form, finding joy in stealing butter and playing with his friends.\n\n## The Lifting of Govardhana\n\nAs Krishna grew, his exploits only increased. When the villagers prepared sacrifices for Indra, king of the gods, Krishna convinced them to worship the nearby Govardhana mountain instead, which provided their cattle with pasture. Indra, enraged at being denied his offerings, sent terrible storms to destroy Vrindavan.\n\nKrishna simply lifted the entire mountain on his little finger and held it aloft like an umbrella. For seven days and seven nights, while Indra's worst storms raged, the people and animals of Vrindavan sheltered beneath the mountain. At last, Indra recognized Krishna's divinity and descended to offer worship.\n\nThe child of Vrindavan, the butter thief, the prankster who teased the village women, was all along the Supreme Lord, playing the role of a human child for the sheer joy of it, blessing all who participated in his divine play.",
     "keyExcerpts": "Krishna defeated every demon Kamsa sent while still a child. When Yashoda looked into his mouth, she saw the entire universe within it. He lifted Mount Govardhana on his finger to protect the village from Indra's storms.",
     "category": "myth",
-    "moralThemes": [
-      "divine play",
-      "protection",
-      "innocence",
-      "cosmic power"
-    ],
+    "moralThemes": ["divine play", "protection", "innocence", "cosmic power"],
     "culturalSignificance": "Krishna's childhood stories are among the most beloved in Hindu tradition, inspiring countless devotional works, paintings, and festivals. The butter-stealing Krishna (Bal Gopal) is a central object of worship, representing the intimate, playful relationship between the divine and devotees.",
     "imageUrl": "/stories/krishna-childhood.png",
     "citationSources": [
@@ -1718,13 +1541,8 @@
         "type": "primary"
       }
     ],
-    "featuredDeities": [
-      "krishna",
-      "vishnu"
-    ],
-    "relatedStories": [
-      "ganesha-creation"
-    ]
+    "featuredDeities": ["krishna", "vishnu"],
+    "relatedStories": ["ganesha-creation"]
   },
   {
     "id": "ganesha-creation",
@@ -1735,12 +1553,7 @@
     "fullNarrative": "## The Creation of a Son\n\nParvati, the gentle goddess of fertility and devotion, wife of the great god Shiva, wished for a child of her own, a son who would be hers alone, devoted to her above all others. Shiva, absorbed in his endless meditation upon Mount Kailash, was often absent for vast stretches of time, and Parvati longed for companionship and protection.\n\nOne day, while preparing to bathe, Parvati took sandalwood paste mixed with oils and other unguents from her own body, and from this sacred substance she fashioned the form of a boy. She breathed life into the figure, and he awoke as her son, beautiful, strong, and utterly devoted to his mother.\n\n> From her own essence, Parvati created a son. From a mother's longing came a warrior's heart. He knew no father but would soon meet one in the most terrible way.\n\n\"You are my son,\" Parvati told him. \"Guard this door while I bathe. Let no one enter, no matter who they claim to be.\"\n\n## The Confrontation\n\nThe boy stood before the door of Parvati's chambers, proud and vigilant. He had been created for this purpose and would fulfill it perfectly. When servants approached, he turned them away. When lesser gods came, he refused them. And when Shiva himself returned from his meditation and approached his own home, the boy stood in his path.\n\n\"You cannot enter,\" the boy declared. \"My mother is bathing.\"\n\nShiva was bewildered. He did not recognize this child, who had been created in his absence. \"I am Shiva, lord of this mountain. This is my home. Stand aside.\"\n\n\"I know only my mother's command. No one enters.\"\n\nThe confrontation escalated. Shiva's attendants, the ganas, tried to force past the boy, but he defeated them all. The greatest warriors of heaven came against him, and he turned them back. His devotion to his duty was absolute. He had been born to guard this door, and he would die before allowing anyone through.\n\n## The Beheading\n\nShiva's patience, already thin, snapped entirely. In his fury at being barred from his own home by this unknown child, Shiva drew his trident and with a single mighty blow severed the boy's head from his body. The guardian fell, his duty fulfilled even in death.\n\nParvati, hearing the commotion, emerged to find her son's headless body. Her grief transformed to rage, and the mountains themselves trembled before her wrath. She demanded that Shiva restore her child or she would destroy all of creation. The goddess of gentle devotion had become Shakti in her most terrible aspect.\n\n> When a mother's love is violated, even the Destroyer himself must make amends. The universe holds no force greater than a parent's grief.\n\n## The Elephant-Headed God\n\nShiva, recognizing the magnitude of his error, agreed to restore the boy. He sent his ganas to bring back the head of the first living creature they found facing north. They returned with the head of an elephant, and Shiva placed it upon the boy's shoulders and restored him to life.\n\nBut Shiva did more than simply repair the damage. He declared the boy his own son, gave him the name Ganesha, meaning \"lord of the ganas,\" and made him the leader of his divine attendants. He bestowed upon Ganesha the power to remove obstacles from the paths of those who worshipped him, and he decreed that Ganesha would be worshipped before all other gods at the beginning of any undertaking.\n\n## The Beloved God\n\nGanesha accepted his strange new form and his new father, and the household of Shiva and Parvati was complete. His elephant head, far from being a mark of shame, became a symbol of wisdom, for elephants are the wisest of animals. His large ears hear every prayer. His single tusk, broken in service, reminds devotees that sacrifice and imperfection are part of divine love.\n\nHe rides upon a mouse, teaching that even the smallest creatures can carry great burdens. He holds an axe to cut attachments, a rope to pull devotees toward the highest goals, a sweet to reward those who pursue wisdom, and his broken tusk to write the sacred texts.\n\nToday, no Hindu ceremony begins without first invoking Ganesha. He is approached before weddings, before journeys, before any new venture. The god who was born of a mother's loneliness, killed by a father's rage, and restored through divine grace has become the most beloved deity in the Hindu pantheon, the remover of obstacles, the lord of beginnings, the elephant-headed son of Shiva and Parvati.",
     "keyExcerpts": "Parvati created a son from sandalwood paste to guard her privacy. When Shiva returned and the boy refused him entry, Shiva beheaded him. To make amends, Shiva gave the boy an elephant's head and made him lord of his ganas.",
     "category": "creation",
-    "moralThemes": [
-      "family",
-      "devotion",
-      "rebirth",
-      "protection"
-    ],
+    "moralThemes": ["family", "devotion", "rebirth", "protection"],
     "culturalSignificance": "Ganesha is one of the most widely worshipped deities in Hinduism, and this origin story establishes key themes of his worship: devotion, sacrifice, and the removal of obstacles. The festival of Ganesh Chaturthi celebrates his birth, and his image guards the entrance of homes and temples throughout India.",
     "imageUrl": "/stories/ganesha-creation.png",
     "citationSources": [
@@ -1753,14 +1566,8 @@
         "type": "primary"
       }
     ],
-    "featuredDeities": [
-      "ganesha",
-      "shiva",
-      "parvati"
-    ],
-    "relatedStories": [
-      "krishna-childhood"
-    ]
+    "featuredDeities": ["ganesha", "shiva", "parvati"],
+    "relatedStories": ["krishna-childhood"]
   },
   {
     "id": "izanagi-yomi",
@@ -1771,12 +1578,7 @@
     "fullNarrative": "## The Death of Izanami\n\nIn the time of the world's beginning, the divine couple Izanagi and Izanami stood upon the Floating Bridge of Heaven and stirred the primordial chaos with a jeweled spear. Where the brine dripped from the spear, islands formed, and thus Japan was born. Together they descended to these islands and gave birth to the gods of the sea, mountains, wind, and trees.\n\nBut when Izanami gave birth to Kagutsuchi, the god of fire, the flames consumed her. She died in agony, and her divine husband's grief was boundless. In his rage, Izanagi drew his sword and beheaded the fire god, and from the blood that sprayed from the blade were born more deities of violence and destruction.\n\nIzanami's body was buried on Mount Hiba, but Izanagi could not accept her death. He resolved to journey to Yomi, the shadowy underworld, to bring his beloved wife back to the world of the living.\n\n> The boundary between the living and the dead was not yet fixed. A god might cross where mortals could not. But even gods must obey the laws of death.\n\n## The Descent\n\nIzanagi walked the dark path into Yomi, leaving the light of the sun far behind. The underworld was a realm of perpetual gloom, neither hot nor cold, where the spirits of the dead wandered without purpose. At last he came to the great palace where Izanami now dwelt.\n\nHe called out to her through the closed doors, begging her to return with him. \"We have not finished making the islands,\" he pleaded. \"The world above needs you. I need you.\"\n\nIzanami's voice came from within, weak but still recognizable. \"You have come too late, my beloved. I have eaten the food of Yomi. I belong to this realm now.\" In all the underworlds of myth, those who consume the food of the dead cannot return to life.\n\n\"But I will ask the gods of Yomi if an exception might be made,\" she continued. \"Wait for me, and whatever you do, do not look upon me.\"\n\n## The Forbidden Sight\n\nIzanagi waited in the darkness. Hours passed, or perhaps days, for time moves differently in Yomi. His patience wore thin, his longing unbearable. Surely enough time had passed. Surely she would not mind if he just looked for a moment.\n\nHe took a comb from his hair and broke off a tooth. He set it alight like a torch, and in its small, flickering flame, he saw Izanami.\n\nShe had become a thing of horror. Her beautiful form had decayed, maggots writhing through her flesh, the eight thunder deities growing from her rotting limbs. She was no longer the wife he remembered but a creature of death, and she had been transformed utterly by her time in Yomi.\n\n> What love can survive the sight of death? What bond can endure the corruption of the flesh? Izanagi learned that some boundaries must not be crossed, and some promises must be kept.\n\n## The Pursuit\n\nIzanami's scream of rage and shame echoed through all of Yomi. \"You have shamed me!\" she shrieked. \"You have seen my humiliation!\" She sent the hags of Yomi after him, the shikome, foul spirits of the underworld.\n\nIzanagi fled, casting behind him his headdress, which transformed into grapes. When the hags stopped to devour them, he threw his comb, which became bamboo shoots. Each delay bought him a few more steps toward the light.\n\nBut Izanami herself now pursued him, and she was faster than her servants. Just as Izanagi reached the pass of Yomi, the boundary between the worlds, he found a massive boulder and sealed the passage behind him. Through the rock, husband and wife faced each other for the last time.\n\n\"If you do this,\" Izanami swore, \"I will kill a thousand of your precious living things each day.\"\n\n\"Then I will cause fifteen hundred to be born,\" Izanagi replied. \"Life will always overcome death.\"\n\nThey divorced there at the gates of hell, and the boulder became the barrier between the living and the dead that exists to this day.\n\n## Purification and Creation\n\nIzanagi emerged from Yomi polluted by his contact with death and decay. He went to a river to purify himself, and as he washed, more gods were born from the contamination. From his left eye came Amaterasu, the sun goddess. From his right eye came Tsukuyomi, the moon god. From his nose came Susanoo, the storm god.\n\nThese three would become the most important deities of Japan, born from the purification that followed a failed journey to rescue the dead. Izanagi's descent to Yomi established the laws of mortality that have governed Japan ever since, and his failure taught that death must be accepted, not defied.",
     "keyExcerpts": "Izanagi descended to Yomi to rescue Izanami but broke the taboo against looking at her. He saw her decayed form and fled, sealing the underworld with a boulder. From his purification afterward were born Amaterasu, Tsukuyomi, and Susanoo.",
     "category": "myth",
-    "moralThemes": [
-      "death",
-      "love",
-      "taboo",
-      "origin of mortality"
-    ],
+    "moralThemes": ["death", "love", "taboo", "origin of mortality"],
     "culturalSignificance": "This myth establishes the origin of death in Japanese mythology and the separation between the worlds of the living and the dead. It also explains Shinto concepts of ritual pollution and purification, which remain central to Japanese religious practice.",
     "imageUrl": "/stories/izanagi-yomi.png",
     "citationSources": [
@@ -1791,13 +1593,8 @@
         "type": "primary"
       }
     ],
-    "featuredDeities": [
-      "izanagi",
-      "izanami"
-    ],
-    "relatedStories": [
-      "tale-of-hoori"
-    ]
+    "featuredDeities": ["izanagi", "izanami"],
+    "relatedStories": ["tale-of-hoori"]
   },
   {
     "id": "tale-of-hoori",
@@ -1808,11 +1605,7 @@
     "fullNarrative": "## The Lost Fishhook\n\nHoori and his elder brother Hoderi were grandsons of Amaterasu, the sun goddess. Hoderi was a fisherman, blessed with the luck of the sea, while Hoori was a hunter, skilled in the mountain ways. One day, they decided to exchange their crafts. Hoderi gave Hoori his magical fishhook, and Hoori lent Hoderi his bow.\n\nBut fortune did not favor the exchange. Hoderi caught nothing in the mountains, while Hoori, fishing from the shore, lost the magical hook when a great fish snapped his line and carried it away. Hoderi was furious. The fishhook had belonged to their father, and no ordinary hook would serve as replacement. No matter how many substitutes Hoori offered, even melting down his own sword to forge five hundred hooks, Hoderi demanded the original.\n\nDesperate, Hoori sat weeping by the sea. There he met the wise old god Shiotsuchi, who built him a small boat and instructed him to sail to the palace of Watatsumi, the god of the sea. \"Follow the current,\" Shiotsuchi said. \"The path will open before you.\"\n\n> Beneath the waves lies another world, as strange and beautiful as any realm above. Hoori would find there what he had lost, and more besides.\n\n## The Sea God's Palace\n\nHoori sailed until the waters closed over his head, but he did not drown. The boat carried him down, down, through the blue depths to the ocean floor, where he found a magnificent palace built of fish scales and coral, shimmering with its own light.\n\nAt the gate stood a great cassia tree, and at its base a well. Hoori climbed the tree to wait. Soon, a servant girl came to draw water and saw his reflection in the well. She looked up, startled by his divine beauty, and ran to fetch her mistress.\n\nToyotama-hime, the sea dragon princess, daughter of the sea god, came to see the stranger in her father's tree. Her human form was beautiful, but her true nature was that of a dragon, a wani of the depths. One glance at Hoori, and she fell in love.\n\n## Three Years Beneath the Waves\n\nWatatsumi, the sea king, welcomed Hoori as a son-in-law. He married Toyotama-hime, and for three years they lived in bliss beneath the sea. Hoori feasted in the dragon palace, loved his wife, and nearly forgot the world above.\n\nBut at last, he remembered his quest. He told Watatsumi about the lost fishhook, and the sea god summoned all the fish of the ocean. The hook was found in the throat of a sea bream, and Watatsumi gave Hoori two magical jewels: one to control the tides, and one to command the waters.\n\n> \"Return to your land,\" the sea god said. \"When your brother troubles you, raise the tide-swelling jewel and he will submit. When he begs for mercy, use the tide-ebbing jewel to restore him.\"\n\n## The Forbidden Sight\n\nHoori returned to the land above, and with the magical jewels, he subdued his brother Hoderi, who became his vassal. But soon Toyotama-hime followed him, for she was pregnant with their child and wished to give birth on land.\n\nShe built a birth hut by the sea and made Hoori swear a single oath: \"When I give birth, do not look upon me. No matter what sounds you hear, do not enter the hut until I call for you.\"\n\nHoori agreed, but curiosity overcame him. As his wife labored, he peered through a gap in the walls of the hut. He saw not Toyotama-hime but a great dragon, a wani, thrashing and coiling as she brought forth their son.\n\nToyotama-hime knew at once that she had been seen in her true form. Overcome with shame, she abandoned the child and returned to the sea, sealing the path between the ocean palace and the land. She sent her sister Tamayori-hime to raise the boy, but she herself never returned to the world above.\n\n> \"I wished to travel between the lands forever,\" she sent word through her sister. \"But you saw my shame, and now the way is closed. Though my love remains, I cannot return.\"\n\n## The Imperial Line\n\nThe son of Hoori and Toyotama-hime grew to manhood and married his aunt, Tamayori-hime. Their child was Jimmu, who would become the first human Emperor of Japan. Thus the Imperial line descends from both the sun goddess Amaterasu through Hoori and the dragon princess of the sea through Toyotama-hime.\n\nThe tale of Hoori and Toyotama-hime echoes across time, a story of love between different worlds, of curiosity that cannot be contained, and of the price of broken promises. The way to the sea god's palace remains sealed, but every Emperor of Japan carries the blood of the dragon princess in their veins.",
     "keyExcerpts": "Hoori journeyed to the sea god's palace and married the dragon princess Toyotama-hime. When he broke his promise and watched her give birth in her true dragon form, she returned to the sea forever. Their descendant became the first Emperor of Japan.",
     "category": "epic",
-    "moralThemes": [
-      "honor",
-      "transformation",
-      "forbidden knowledge"
-    ],
+    "moralThemes": ["honor", "transformation", "forbidden knowledge"],
     "culturalSignificance": "This myth establishes the divine ancestry of the Japanese Imperial line, connecting the emperors to both the sun goddess and the sea. The story also reinforces Shinto themes of transformation, taboo, and the separation between different realms of existence.",
     "imageUrl": "/stories/tale-of-hoori.png",
     "citationSources": [
@@ -1827,9 +1620,7 @@
       }
     ],
     "featuredDeities": [],
-    "relatedStories": [
-      "izanagi-yomi"
-    ]
+    "relatedStories": ["izanagi-yomi"]
   },
   {
     "id": "cattle-raid-cooley",
@@ -1840,12 +1631,7 @@
     "fullNarrative": "## The Pillow Talk\n\nIt began with a quarrel between lovers. Queen Medb of Connacht and her husband Ailill lay in bed comparing their wealth, and they found themselves perfectly matched in every category but one. Ailill possessed Finnbhennach, the White-Horned Bull, which had been born to Medb's herd but had refused to be owned by a woman and joined Ailill's cattle instead.\n\nTo match this bull, Medb needed the only creature in Ireland that was its equal: Donn Cuailnge, the Brown Bull of Cooley, which belonged to Daire of Ulster. She sent messengers to negotiate for its loan, and Daire agreed, but that night her envoys grew drunk and boastful, claiming they would have taken the bull by force if refused. Daire withdrew his offer, and Medb raised the armies of Connacht for war.\n\n> For a bull, Ireland would burn. For wounded pride, the finest warriors of a generation would die at the fords. Such is the price of kings and queens who will not yield.\n\n## The Curse of Macha\n\nMedb could not have chosen a better time to invade. The warriors of Ulster lay helpless in their beds, struck down by the curse of Macha. Years before, the goddess had been forced to race against horses while pregnant, and when she won, she cursed the men of Ulster to suffer labor pains in their time of greatest need.\n\nOnly one warrior was exempt: Cu Chulainn, the Hound of Culann, seventeen years old and the greatest champion Ireland had ever produced. Son of the god Lugh, trained by the warrior-woman Scathach, bound by sacred geasa, Cu Chulainn stood alone between Medb's armies and Ulster.\n\n## The Combats at the Ford\n\nCu Chulainn invoked the ancient right of single combat. Each day, one champion from Connacht would face him at the ford, and while the duel lasted, the army could not advance. Day after day, Medb sent her finest warriors, and day after day, Cu Chulainn cut them down.\n\nHe fought without rest, sleeping in snatches, tended only by his charioteer Laeg. His wounds multiplied, but he would not yield. When Medb sent twenty warriors at once, violating the rules of single combat, Cu Chulainn killed them all. When she sent supernatural champions, he matched them. The fords of Ireland ran red with blood.\n\n> The warp-spasm came upon Cu Chulainn, and he was transformed into a monstrous thing. His body shook, his muscles knotted, one eye sank into his skull while the other bulged out. A hero-light rose from his brow, and in his battle-frenzy, he knew neither friend nor foe.\n\nThe Morrigan, goddess of war, came to him in three forms, as an eel, a wolf, and a heifer, each time hindering his combat. Yet still he fought, wounded and exhausted, holding the ford alone.\n\n## The Death of Ferdia\n\nMedb's cruelest stroke was to send Ferdia, Cu Chulainn's foster-brother. They had trained together under Scathach, sworn oaths of brotherhood, loved each other as only warriors could. But Ferdia was bound by his own honor to fight for Connacht.\n\nFor three days and three nights, the two brothers fought at the ford. Each evening, they would share food and medicine, their charioteers tending them side by side. Each morning, they would resume their battle to the death.\n\nOn the fourth day, Cu Chulainn used the gae bolga, a barbed spear that entered the body as one point and opened into thirty, which could only be used with the foot in flowing water. He drove it into Ferdia's body, and as his foster-brother died in his arms, Cu Chulainn collapsed in grief.\n\n\"Had Ferdia lived,\" he lamented, \"we would have conquered the world together.\"\n\n## The End of the Raid\n\nAt last, the curse of Macha lifted, and the warriors of Ulster rose from their beds. King Conchobar led his army to meet Medb's forces, and the final battle was terrible. Cu Chulainn, wounds upon wounds, fought on despite everything.\n\nThe Brown Bull of Cooley was taken to Connacht, where it met the White-Horned Bull. The two beasts fought across all of Ireland, their battle lasting a day and a night, until Donn Cuailnge killed its rival. But the Brown Bull, mortally wounded, wandered back toward Ulster, its entrails trailing behind it, dropping pieces of Finnbhennach across the countryside before it too died of its wounds.\n\nMedb's war had gained her nothing. Her finest champions were dead, her armies broken, and the bulls that had started it all had destroyed each other. Cu Chulainn had held the ford alone, but the cost had been beyond measuring, and the feud between Connacht and Ulster would not end for generations.",
     "keyExcerpts": "Cu Chulainn held the ford alone against all of Connacht's armies. He killed his foster-brother Ferdia with the gae bolga. When the Ulster warriors finally rose, the Brown Bull and White-Horned Bull fought to mutual destruction, making the war meaningless.",
     "category": "epic",
-    "moralThemes": [
-      "honor",
-      "heroism",
-      "fate",
-      "pride"
-    ],
+    "moralThemes": ["honor", "heroism", "fate", "pride"],
     "culturalSignificance": "The Tain is the central epic of Irish mythology, comparable to the Iliad in scope and importance. Cu Chulainn became the archetypal Irish hero, inspiring warriors and revolutionaries throughout Irish history. The tale explores themes of honor, fate, and the terrible cost of pride that resonate through Celtic literature.",
     "imageUrl": "/stories/cattle-raid-cooley.png",
     "citationSources": [
@@ -1859,13 +1645,8 @@
         "type": "manuscript"
       }
     ],
-    "featuredDeities": [
-      "morrigan"
-    ],
-    "relatedStories": [
-      "death-of-baldur",
-      "trojan-war"
-    ]
+    "featuredDeities": ["morrigan"],
+    "relatedStories": ["death-of-baldur", "trojan-war"]
   },
   {
     "id": "wooing-of-etain",
@@ -1896,14 +1677,8 @@
         "type": "manuscript"
       }
     ],
-    "featuredDeities": [
-      "midir",
-      "aengus"
-    ],
-    "relatedStories": [
-      "children-lir",
-      "dream-of-aengus"
-    ]
+    "featuredDeities": ["midir", "aengus"],
+    "relatedStories": ["children-lir", "dream-of-aengus"]
   },
   {
     "id": "dream-of-aengus",
@@ -1934,14 +1709,8 @@
         "type": "manuscript"
       }
     ],
-    "featuredDeities": [
-      "aengus",
-      "dagda"
-    ],
-    "relatedStories": [
-      "wooing-of-etain",
-      "children-lir"
-    ]
+    "featuredDeities": ["aengus", "dagda"],
+    "relatedStories": ["wooing-of-etain", "children-lir"]
   },
   {
     "id": "sons-of-tuireann",
@@ -1972,13 +1741,8 @@
         "type": "manuscript"
       }
     ],
-    "featuredDeities": [
-      "manannan-mac-lir"
-    ],
-    "relatedStories": [
-      "cath-maige-tuired",
-      "children-lir"
-    ]
+    "featuredDeities": ["manannan-mac-lir"],
+    "relatedStories": ["cath-maige-tuired", "children-lir"]
   },
   {
     "id": "death-of-cu-chulainn",
@@ -2009,13 +1773,8 @@
         "type": "manuscript"
       }
     ],
-    "featuredDeities": [
-      "morrigan"
-    ],
-    "relatedStories": [
-      "cattle-raid-cooley",
-      "children-lir"
-    ]
+    "featuredDeities": ["morrigan"],
+    "relatedStories": ["cattle-raid-cooley", "children-lir"]
   },
   {
     "id": "voyage-of-bran",
@@ -2046,13 +1805,8 @@
         "type": "manuscript"
       }
     ],
-    "featuredDeities": [
-      "manannan-mac-lir"
-    ],
-    "relatedStories": [
-      "children-lir",
-      "dream-of-aengus"
-    ]
+    "featuredDeities": ["manannan-mac-lir"],
+    "relatedStories": ["children-lir", "dream-of-aengus"]
   },
   {
     "id": "epic-of-gilgamesh",
@@ -2063,12 +1817,7 @@
     "fullNarrative": "## The Tyrant King\n\nGilgamesh ruled the great city of Uruk, a king whose beauty and strength had no equal. He was two-thirds divine, born of the goddess Ninsun and the mortal king Lugalbanda. But his power had made him a tyrant. He exhausted his people with endless building projects and claimed the right to sleep with every bride on her wedding night.\n\nThe people of Uruk cried out to the gods for relief, and the gods heard them. The mother goddess Aruru fashioned a man from clay, wild as the beasts of the field, to be Gilgamesh's equal. This was Enkidu, who ran with the gazelles and knew nothing of civilization.\n\n> He who saw the Deep, the foundation of the land, who knew the seas, was wise in all matters. Gilgamesh, who saw the Deep, the foundation of the land, who knew the seas, was wise in all matters.\n\n## The Civilizing of Enkidu\n\nA hunter discovered Enkidu at the watering holes and was terrified by his wild strength. He brought Shamhat, a temple priestess of Ishtar, to tame the wild man. For seven days and nights, Shamhat lay with Enkidu, and when they were done, the animals no longer recognized him as one of their own. He had become human.\n\nShamhat led Enkidu to Uruk, where he learned of Gilgamesh's cruelty. When Gilgamesh came to claim a bride, Enkidu blocked his path. They fought in the streets like bulls, shaking the walls, until neither could prevail. In that moment of equal strength, they recognized in each other the friend their souls had been seeking. They embraced, and their friendship became legendary.\n\n## The Cedar Forest\n\nGilgamesh proposed a great adventure to make their names immortal: they would travel to the Cedar Forest and slay its guardian Humbaba, a monster appointed by the gods. Enkidu knew Humbaba's terror and tried to dissuade his friend, but Gilgamesh would not be deterred.\n\nThey journeyed far, crossing seven mountains, until they reached the forest. Humbaba's roar was the flood, his mouth was fire, his breath was death. Yet with the help of Shamash the sun god, who sent the thirteen winds against the monster, Gilgamesh and Enkidu overcame him. Humbaba begged for mercy, but at Enkidu's urging, Gilgamesh cut off his head.\n\nThey felled the great cedars and built a raft to float the logs down the Euphrates. Gilgamesh washed his long hair and dressed in his finest robes. The goddess Ishtar saw him and desired him, offering him her love and the kingship of the world.\n\n## The Bull of Heaven\n\nGilgamesh rejected Ishtar, reminding her of the terrible fates of her previous lovers: Tammuz whom she condemned to the underworld, the shepherd whom she turned into a wolf, the gardener whom she transformed into a spider. Ishtar, enraged, demanded her father Anu release the Bull of Heaven to destroy Gilgamesh.\n\nThe Bull descended to Uruk, and with each snort of its nostrils, pits opened in the earth, swallowing hundreds of men. But Gilgamesh and Enkidu worked together: Enkidu seized its tail while Gilgamesh drove his sword between its horns. They tore out its heart and offered it to Shamash.\n\nIshtar stood on the walls of Uruk, cursing Gilgamesh. Enkidu tore off the Bull's haunch and threw it in her face, declaring that if he could catch her, he would do the same to her.\n\n## The Death of Enkidu\n\nThe gods held council. For killing Humbaba and the Bull of Heaven, one of the heroes must die. They chose Enkidu. He fell ill, and over twelve days he withered and died, dreaming of the grim underworld where all mortals go.\n\n> For six days and seven nights Gilgamesh wept for Enkidu, until a worm fell out of his nose. Then Gilgamesh was afraid, and he said, \"Now I fear death. I will seek the one who found eternal life.\"\n\nGilgamesh covered Enkidu's face and would not leave his body until a maggot fell from its nose. Only then did he understand that his friend was truly gone. And in that moment, the reality of death struck him. If mighty Enkidu could die, so could he.\n\n## The Quest for Immortality\n\nGilgamesh set out to find Utnapishtim, the only mortal to whom the gods had granted eternal life. He traveled to the ends of the earth, to Mount Mashu where the sun rises and sets. There, scorpion-people guarded the gate through the mountains. They warned him that no mortal had ever passed through the tunnel of darkness, but Gilgamesh walked for twelve leagues in absolute darkness until he emerged in a garden of jeweled trees at the edge of the world.\n\nThere he met Siduri, the tavern-keeper of the gods, who tried to dissuade him. \"The life that you seek you will never find,\" she said. \"When the gods created mankind, they kept death for themselves. Enjoy your life, fill your belly, let your wife delight in your embrace. This is the lot of mankind.\"\n\nBut Gilgamesh would not turn back. He crossed the Waters of Death with the ferryman Urshanabi and came at last to Utnapishtim, the Faraway, survivor of the Great Flood.\n\n## Utnapishtim's Story\n\nUtnapishtim told Gilgamesh how he had gained immortality. Long ago, the gods decided to destroy humanity with a flood. But Ea, lord of wisdom, warned Utnapishtim in a dream, speaking through the reed wall of his house. Utnapishtim built a great boat, sealed it with pitch, and loaded upon it the seed of all living things.\n\nThe flood came, and even the gods cowered in fear at what they had unleashed. For seven days the waters raged. When they receded, Utnapishtim's boat came to rest on Mount Nisir. He released a dove, then a swallow, then a raven. When the raven did not return, he knew the waters had subsided.\n\nThe gods, smelling his sacrifice, gathered like flies around the offering. They granted him and his wife immortality, setting them apart at the edge of the world. But this gift had been given only once and would not be given again.\n\n## The Plant of Youth\n\nUtnapishtim challenged Gilgamesh to defeat sleep for six days and seven nights. Gilgamesh failed immediately, falling asleep the moment he sat down. Utnapishtim's wife baked a loaf of bread each day, proving how long he had slept.\n\nAs Gilgamesh departed in despair, Utnapishtim's wife persuaded her husband to give him something. Utnapishtim revealed a secret: a plant at the bottom of the sea that could restore youth. Gilgamesh tied stones to his feet, dove into the deep, found the plant, and began his journey home.\n\nBut on the way, while Gilgamesh bathed in a cool pool, a serpent smelled the plant's sweet fragrance and stole it, sloughing its skin as it departed. Gilgamesh sat down and wept. He had held immortality in his hands and lost it.\n\n## Return to Uruk\n\nGilgamesh returned to Uruk with the ferryman Urshanabi. As they approached, he pointed out the great walls he had built, the temples he had raised, the orchards and gardens. He understood at last that this was his immortality: not endless life, but the enduring works of civilization. The walls of Uruk would stand when his bones were dust. The story of his adventures would be told when his name was forgotten.\n\n> Go up on the wall of Uruk and walk about. Examine the brickwork, examine the foundation. Is not the core of burnt brick, and did not the Seven Sages lay the foundations? One square mile is the city, one square mile the gardens, one square mile the claypits, and half a square mile is the temple of Ishtar. Three and a half square miles is Uruk's expanse.\n\nHe had sought immortality and found it, though not as he expected. The epic that bears his name, inscribed on clay tablets over four thousand years ago, remains humanity's oldest great story.",
     "keyExcerpts": "Gilgamesh and Enkidu slay Humbaba and the Bull of Heaven. Enkidu dies, and Gilgamesh seeks immortality from Utnapishtim. He finds the plant of youth but loses it to a serpent. He returns to Uruk understanding that his immortality lies in his works and his story.",
     "category": "epic",
-    "moralThemes": [
-      "mortality",
-      "friendship",
-      "meaning",
-      "legacy"
-    ],
+    "moralThemes": ["mortality", "friendship", "meaning", "legacy"],
     "culturalSignificance": "The Epic of Gilgamesh is humanity's oldest surviving work of literature, predating Homer by over a thousand years. Its themes of friendship, mortality, and the search for meaning resonate across all cultures and times. The flood narrative influenced the biblical story of Noah, and Gilgamesh's journey became the template for heroic quests throughout world literature.",
     "imageUrl": "/stories/epic-of-gilgamesh.png",
     "citationSources": [
@@ -2084,43 +1833,32 @@
         "type": "primary"
       }
     ],
-    "featuredDeities": [
-      "gilgamesh",
-      "enkidu",
-      "inanna",
-      "shamash"
-    ],
-    "relatedStories": [
-      "inanna-descent",
-      "flood-utnapishtim",
-      "enuma-elish"
-    ],
+    "featuredDeities": ["gilgamesh", "enkidu", "inanna", "shamash"],
+    "relatedStories": ["inanna-descent", "flood-utnapishtim", "enuma-elish"],
     "primarySourceExcerpts": [
       {
-        "text": "šūtur eli šarrī, rubû šamrūti, zikaru daprānu, ilitti Uruk, rīmu kadru... ša nīqī ebbēti ana ili iškunu.",
-        "translation": "Surpassing all other kings, heroic in stature, brave scion of Uruk, wild bull on the rampage... who made pure offerings to the gods and sought the secret of eternal life.",
-        "source": "The Epic of Gilgamesh (adapted composite)",
+        "text": "\"Gilgamish, I will reveal thee a hidden matter . . . I'll tell thee: There is a plant like a thorn with its root (?) [deep down in the ocean], Like unto those of the briar (in sooth) its prickles will scratch [thee], (Yet) if thy hand reach this plant, [thou’lt surely find life (everlasting)] .\"",
+        "translation": "\"Gilgamish, I will reveal thee a hidden matter . . . I'll tell thee: There is a plant like a thorn with its root (?) [deep down in the ocean], Like unto those of the briar (in sooth) its prickles will scratch [thee], (Yet) if thy hand reach this plant, [thou’lt surely find life (everlasting)] .\"",
+        "source": "The Epic of Gilgamish",
         "sourceId": "epic-of-gilgamesh",
-        "lineNumbers": "Tablet I.27-30 / Tablet XI.155-160",
-        "translator": "Adapted composite; not a direct quotation from George",
-        "originalLanguage": "Akkadian",
-        "quoteStatus": "editorial-paraphrase",
-        "verification": "source-and-locator-verified",
-        "sourceUrl": "https://www.soas.ac.uk/babylonian/epicofgilgamesh",
-        "edition": "Editorial composite; Andrew George not quoted directly"
+        "lineNumbers": "Tablet XI, 265–270",
+        "translator": "R. Campbell Thompson",
+        "quoteStatus": "direct-quotation",
+        "verification": "verified",
+        "sourceUrl": "https://sacred-texts.com/ane/eog/eog13.htm",
+        "edition": "The Epic of Gilgamish, trans. R. Campbell Thompson (1928), public-domain Sacred Texts transcription; English-only replacement of prior unverified wording. Continuous English translation at lines 265–270, checked against the cited transcription. Source capitalization, quotation marks, spacing before terminal punctuation, ellipsis, editorial question mark, and bracketed restorations are retained; only line breaks were joined into a paragraph. Akkadian text was not retained or certified. English transcription checked 2026-09-23."
       },
       {
-        "text": "šammu šû šammu kurru šībūti utâr ana eṭlūti... anāku lūkulma lutūr ana ša ṣeḫrēkuma.",
-        "translation": "This plant is a remedy against despair; by it a man may regain his youthful vigor. I will take it to Uruk-the-Sheepfold, I will give it to the elders to eat, and I myself will eat it and return to my youth.",
-        "source": "The Epic of Gilgamesh, Tablet XI",
+        "text": "\"(Nay, but) this plant is a plant of great wonder(?), Ur-Shanabi,\" said he, \"Whereby a man may attain his desire—I'll take it to Erech, (Erech), the high-wall’d, and give it to eat [unto . . . .]. 'Greybeard-who-turneth-to-man-in-his-prime' is its name and I'll eat it I myself, that again I may come to my youthful condition.\"",
+        "translation": "\"(Nay, but) this plant is a plant of great wonder(?), Ur-Shanabi,\" said he, \"Whereby a man may attain his desire—I'll take it to Erech, (Erech), the high-wall’d, and give it to eat [unto . . . .]. 'Greybeard-who-turneth-to-man-in-his-prime' is its name and I'll eat it I myself, that again I may come to my youthful condition.\"",
+        "source": "The Epic of Gilgamish",
         "sourceId": "epic-of-gilgamesh",
-        "lineNumbers": "Tablet XI.281-285",
-        "translator": "Andrew George",
-        "originalLanguage": "Akkadian",
+        "lineNumbers": "Tablet XI, 278–283",
+        "translator": "R. Campbell Thompson",
         "quoteStatus": "direct-quotation",
-        "verification": "source-and-locator-verified",
-        "sourceUrl": "https://www.livius.org/sources/content/gilgamesh/gilgamesh-tablet-11/",
-        "edition": "Andrew George, 1999; wording not checked"
+        "verification": "verified",
+        "sourceUrl": "https://sacred-texts.com/ane/eog/eog13.htm",
+        "edition": "The Epic of Gilgamish, trans. R. Campbell Thompson (1928), public-domain Sacred Texts transcription; English-only replacement of prior unverified wording. Continuous English translation at lines 278–283, checked against the cited transcription. Source capitalization, quotation marks, punctuation, editorial question mark, and bracketed lacuna are retained; only line breaks were joined into a paragraph. Akkadian text was not retained or certified. English transcription checked 2026-09-23."
       }
     ]
   },
@@ -2153,11 +1891,7 @@
         "type": "primary"
       }
     ],
-    "featuredDeities": [
-      "inanna",
-      "ereshkigal",
-      "enki"
-    ],
+    "featuredDeities": ["inanna", "ereshkigal", "enki"],
     "relatedStories": [
       "epic-of-gilgamesh",
       "enuma-elish",
@@ -2188,11 +1922,7 @@
         "type": "primary"
       }
     ],
-    "featuredDeities": [
-      "marduk",
-      "tiamat",
-      "enki"
-    ],
+    "featuredDeities": ["marduk", "tiamat", "enki"],
     "relatedStories": [
       "epic-of-gilgamesh",
       "flood-utnapishtim",
@@ -2200,30 +1930,28 @@
     ],
     "primarySourceExcerpts": [
       {
-        "text": "Enūma eliš lā nabû šamāmū, šapliš ammatu šuma lā zakrat, Apsû-ma rēštû zārûšun, mummu Tiāmat muallidat gimrīšun.",
-        "translation": "When on high the heavens were not yet named, and below the earth was not called by name, there was only primordial Apsu, their begetter, and Mother Tiamat, who bore them all, their waters mingling as a single body.",
-        "source": "Enuma Elish, Tablet I",
+        "text": "When in the height heaven was not named, And the earth beneath did not yet bear a name,",
+        "translation": "When in the height heaven was not named, And the earth beneath did not yet bear a name,",
+        "source": "Enuma Elish",
         "sourceId": "enuma-elish",
-        "lineNumbers": "1-5",
-        "translator": "Adapted translation; exact edition not verified",
-        "originalLanguage": "Akkadian",
-        "quoteStatus": "editorial-paraphrase",
-        "verification": "source-and-locator-verified",
-        "sourceUrl": "https://www.livius.org/sources/content/anet/111-enuma-elish/",
-        "edition": "Editorial adaptation; no single translation verified"
+        "lineNumbers": "Tablet I, 1–2",
+        "translator": "Leonard W. King",
+        "quoteStatus": "direct-quotation",
+        "verification": "verified",
+        "sourceUrl": "https://sacred-texts.com/ane/stc/stc04.htm",
+        "edition": "The Seven Tablets of Creation, trans. Leonard W. King (1902), public-domain Sacred Texts transcription; English-only replacement of prior unverified wording. Exact source capitalization and terminal comma retained from the cited First Tablet transcription; only the line break was joined to a space. Akkadian text was not retained or certified. English transcription checked 2026-09-23."
       },
       {
-        "text": "Ipušma bēlu šamrūssu Tiāmat ikmīma napištaša ušqattī... iḫpīšima kīma nūn mašṭê ana šinīšu, mišlāša iškunma šamāma uṣallil.",
-        "translation": "The Lord stepped forth, trampled upon Tiamat's body, and with his merciless weapon extinguished her life. He split her like a shellfish into two parts; half of her he set up and ceiled as the sky.",
-        "source": "Enuma Elish, Tablet IV",
+        "text": "He split her up like a flat fish into two halves; One half of her he stablished as a covering for heaven.",
+        "translation": "He split her up like a flat fish into two halves; One half of her he stablished as a covering for heaven.",
+        "source": "Enuma Elish",
         "sourceId": "enuma-elish",
-        "lineNumbers": "128-138",
-        "translator": "Stephanie Dalley",
-        "originalLanguage": "Akkadian",
-        "quoteStatus": "editorial-paraphrase",
-        "verification": "source-and-locator-verified",
-        "sourceUrl": "https://www.livius.org/sources/content/anet/111-enuma-elish/",
-        "edition": "Editorial selection; Dalley wording not checked"
+        "lineNumbers": "Tablet IV, 137–138",
+        "translator": "Leonard W. King",
+        "quoteStatus": "direct-quotation",
+        "verification": "verified",
+        "sourceUrl": "https://sacred-texts.com/ane/stc/stc07.htm",
+        "edition": "The Seven Tablets of Creation, trans. Leonard W. King (1902), public-domain Sacred Texts transcription; English-only replacement of prior unverified wording. Exact source capitalization, punctuation, and the translation's archaic 'stablished' retained from the cited Fourth Tablet transcription; only the line break was joined to a space. Akkadian text was not retained or certified. English transcription checked 2026-09-23."
       }
     ]
   },
@@ -2256,14 +1984,8 @@
         "type": "primary"
       }
     ],
-    "featuredDeities": [
-      "enki",
-      "enlil"
-    ],
-    "relatedStories": [
-      "epic-of-gilgamesh",
-      "enuma-elish"
-    ]
+    "featuredDeities": ["enki", "enlil"],
+    "relatedStories": ["epic-of-gilgamesh", "enuma-elish"]
   },
   {
     "id": "gilgamesh-enkidu-friendship",
@@ -2274,12 +1996,7 @@
     "fullNarrative": "## The Tyrant of Uruk\n\nGilgamesh was without equal. Two-thirds divine, one-third mortal, he combined the strength of the gods with the restlessness of humanity. He built the mighty walls of Uruk, raised its temples, planted its orchards. But his power had made him cruel.\n\nHe exhausted his people with endless building. He let no son go free to his father. He claimed the right to sleep with every bride before her wedding night. The young men were worn out, the women were not safe, and the people of Uruk cried out to the gods.\n\n> Gilgamesh leaves no virgin to her lover, neither the warrior's daughter nor the wife of the noble. Yet he is shepherd of the city, wise, a master of strength, a rampart to his soldiers.\n\nThe gods heard and considered. What could be done with one who was nearly their equal in power? They turned to Aruru, the mother goddess, who had created humanity from clay. \"You made him,\" they said. \"Now make one who can match him.\"\n\n## The Creation of Enkidu\n\nAruru washed her hands, pinched off clay, and threw it into the wilderness. From that clay grew Enkidu, covered in shaggy hair like the god of cattle. He knew nothing of civilization, nothing of people. He ran with the gazelles, ate grass with the animals, drank at the watering holes.\n\nA hunter discovered him and was terrified. This wild man was destroying his traps, freeing the animals. He went to his father and then to Gilgamesh, asking what could be done.\n\nGilgamesh understood. \"Take Shamhat, the temple priestess. Let her show him the ways of humanity. When the animals see he is no longer one of them, they will reject him, and he will come to Uruk.\"\n\n## The Transformation\n\nShamhat waited by the watering hole. When Enkidu came with the animals to drink, she stripped off her garments and showed him her beauty. For six days and seven nights they lay together, and when they were done, Enkidu was transformed.\n\nHe tried to run with the gazelles, but his body was no longer made for such speed. He tried to return to the animals, but they fled from him. He had become human. His mind had gained understanding, and though his body was weaker, his thoughts were deeper.\n\n\"You are wise now, Enkidu,\" Shamhat said. \"You are like a god. Why do you roam the wild with beasts? Come to Uruk of the strong walls, where Gilgamesh reigns.\"\n\nShe told him of the city, of bread and beer, of the shepherd's festivals. But she also told him of Gilgamesh's cruelty. Enkidu's face grew pale with anger.\n\n> \"I will go to Uruk. I will challenge him. I will change the way things are done. The one born in the wilderness is the mightiest!\"\n\n## The Challenge\n\nEnkidu entered Uruk, and the people gathered around him, marveling at his wild strength. \"He is the equal of Gilgamesh,\" they said. \"Perhaps he can stand against him.\"\n\nThat night, Gilgamesh went to the house of a bride to claim his right. Enkidu blocked the door. Their eyes met, two beings of equal power recognizing each other for the first time.\n\n## The Wrestling\n\nThey grappled like bulls, shaking the walls, breaking the doorframe. The whole city gathered to watch. They fought through the streets of Uruk, neither gaining advantage. They were too perfectly matched.\n\n> They grasped each other, bent like wrestlers. They shattered the doorpost, and the wall shook. Gilgamesh and Enkidu grasped each other, and like bulls locked their horns.\n\nAt last, Gilgamesh threw Enkidu, gaining the slightest advantage. But his fury faded. He had found something he had never known: an equal. Enkidu's anger also cooled. He saw in Gilgamesh not a tyrant but a king in need of a friend.\n\n\"There is no one like you,\" Enkidu said. \"Ninsun, the wild cow, nursed you. Enlil destined you for kingship. Your strength surpasses all others.\"\n\nGilgamesh helped Enkidu to his feet. They embraced, and in that moment, two became one. The tyrant found his balance. The wild man found his home.\n\n## The Transformation of Gilgamesh\n\nFrom that day, Gilgamesh was changed. The people no longer feared him, for Enkidu was always at his side, tempering his excess, sharing his strength. They became inseparable, planning great adventures, dreaming of immortal fame.\n\nNinsun, Gilgamesh's divine mother, adopted Enkidu as her own son, placing an amulet around his neck. \"Though you were not born of my womb,\" she said, \"now you are the devoted brother of Gilgamesh.\"\n\nThe friendship of Gilgamesh and Enkidu became legendary. Their adventures would shake the gods themselves. But the greatest gift Enkidu gave was not his strength in battle but the transformation of a tyrant into a hero, through the simple miracle of being truly seen and truly known.\n\n> Two there are who walk through the city. What they have found, they will not forget. What they have become, they can never lose. This is the bond that makes men greater than the sum of their parts.",
     "keyExcerpts": "Enkidu is created from clay to match Gilgamesh. Shamhat transforms him from beast to human. He blocks Gilgamesh's path and they wrestle to a draw. Their combat becomes friendship, transforming both forever.",
     "category": "myth",
-    "moralThemes": [
-      "friendship",
-      "transformation",
-      "civilization",
-      "balance"
-    ],
+    "moralThemes": ["friendship", "transformation", "civilization", "balance"],
     "culturalSignificance": "The friendship of Gilgamesh and Enkidu is perhaps the first great literary depiction of friendship, influencing portrayals from Achilles and Patroclus to David and Jonathan. The story explores how true equals can transform each other, and how civilization and wildness, power and restraint, must be balanced for wisdom to emerge.",
     "imageUrl": "/stories/gilgamesh-enkidu-friendship.png",
     "citationSources": [
@@ -2289,15 +2006,8 @@
         "type": "primary"
       }
     ],
-    "featuredDeities": [
-      "gilgamesh",
-      "enkidu",
-      "inanna"
-    ],
-    "relatedStories": [
-      "epic-of-gilgamesh",
-      "inanna-descent"
-    ]
+    "featuredDeities": ["gilgamesh", "enkidu", "inanna"],
+    "relatedStories": ["epic-of-gilgamesh", "inanna-descent"]
   },
   {
     "id": "quetzalcoatl-mictlan",
@@ -2323,13 +2033,8 @@
         "type": "primary"
       }
     ],
-    "featuredDeities": [
-      "quetzalcoatl",
-      "mictlantecuhtli"
-    ],
-    "relatedStories": [
-      "five-suns"
-    ]
+    "featuredDeities": ["quetzalcoatl", "mictlantecuhtli"],
+    "relatedStories": ["five-suns"]
   },
   {
     "id": "hero-twins-popol-vuh",
@@ -2355,40 +2060,32 @@
         "type": "primary"
       }
     ],
-    "featuredDeities": [
-      "hero-twins",
-      "hun-hunahpu",
-      "ah-puch"
-    ],
-    "relatedStories": [
-      "maize-god-rebirth"
-    ],
+    "featuredDeities": ["hero-twins", "hun-hunahpu", "ah-puch"],
+    "relatedStories": ["maize-god-rebirth"],
     "primarySourceExcerpts": [
       {
-        "text": "Are utzijoxik vae x-e k'oje vi: q'equm, aq'ab, ma k'o k'ut jun vachulew, xax u tuqel x-q'axik ulew, xa ri ch'a, xa ri rox chuch'ulew ri kaj.",
-        "translation": "This is the account of when all was in suspense, all calm, in silence; all motionless, quiet, and the expanse of the sky was empty, with only the sky and the sea existing in absolute stillness.",
-        "source": "Popol Vuh, Part I",
+        "text": "THIS IS THE ACCOUNT OF HOW ALL WAS in suspense, all calm, in silence; all motionless, still, and the expanse of the sky was empty.",
+        "translation": "THIS IS THE ACCOUNT OF HOW ALL WAS in suspense, all calm, in silence; all motionless, still, and the expanse of the sky was empty.",
+        "source": "Popul Vuh",
         "sourceId": "popol-vuh",
-        "lineNumbers": "Prologue / Lines 1-12",
-        "translator": "Adapted translation; not a direct shared translation of Tedlock and Christenson",
-        "originalLanguage": "K'iche' Maya",
-        "quoteStatus": "editorial-paraphrase",
-        "verification": "source-and-locator-verified",
-        "sourceUrl": "https://www.mesoweb.com/publications/Christenson/PopolVuh.pdf",
-        "edition": "Editorial adaptation from distinct Tedlock and Christenson editions"
+        "lineNumbers": "Part I, ch. 1 (PDF physical p. 3; printed p. 2)",
+        "translator": "Delia Goetz and Sylvanus Griswold Morley (from Adrián Recinos’s Spanish translation)",
+        "quoteStatus": "direct-quotation",
+        "verification": "verified",
+        "sourceUrl": "https://latinamericanstudies.org/maya/Popol_Vuh.pdf",
+        "edition": "Popul Vuh, Plantin Press (1954), attributed public-domain web PDF; English-only replacement of prior unverified wording. Exact capitalization and wording checked on PDF physical page 3 (printed page 2); the PDF credits Goetz and Morley and states the text is public domain. K'iche' text was not retained or certified. English transcription checked 2026-09-23."
       },
       {
-        "text": "K'ate k'ut x-e paqi chik pa kaj, jun chi q'ij, jun chi ik' x-u b'ano; x-saqirik, x-taqaj k'ut u vach kaj, k'o chi k'ut u vachulew.",
-        "translation": "Then the two boys ascended directly into the sky; the one became the sun, and the other became the moon. Light broke over the face of the sky, and the earth was illuminated.",
-        "source": "Popol Vuh, Part III",
+        "text": "One was given the sun, the other, the moon. Then the arch of heaven and the face of the earth were lighted.",
+        "translation": "One was given the sun, the other, the moon. Then the arch of heaven and the face of the earth were lighted.",
+        "source": "Popul Vuh",
         "sourceId": "popol-vuh",
-        "lineNumbers": "Chapter 14",
-        "translator": "Dennis Tedlock",
-        "originalLanguage": "K'iche' Maya",
+        "lineNumbers": "Part II, ch. 14 (PDF physical p. 48; printed p. 47)",
+        "translator": "Delia Goetz and Sylvanus Griswold Morley (from Adrián Recinos’s Spanish translation)",
         "quoteStatus": "direct-quotation",
-        "verification": "source-and-locator-verified",
-        "sourceUrl": "https://www.mesoweb.com/publications/Christenson/PopolVuh.pdf",
-        "edition": "Dennis Tedlock, 1996; wording not checked"
+        "verification": "verified",
+        "sourceUrl": "https://latinamericanstudies.org/maya/Popol_Vuh.pdf",
+        "edition": "Popul Vuh, Plantin Press (1954), attributed public-domain web PDF; English-only replacement of prior unverified wording. Exact wording checked on PDF physical page 48 (printed page 47); the PDF credits Goetz and Morley and states the text is public domain. K'iche' text was not retained or certified. English transcription checked 2026-09-23."
       }
     ]
   },
@@ -2421,13 +2118,8 @@
         "type": "primary"
       }
     ],
-    "featuredDeities": [
-      "hun-hunahpu",
-      "hero-twins"
-    ],
-    "relatedStories": [
-      "hero-twins-popol-vuh"
-    ]
+    "featuredDeities": ["hun-hunahpu", "hero-twins"],
+    "relatedStories": ["hero-twins-popol-vuh"]
   },
   {
     "id": "maui-fishes-up-islands",
@@ -2458,13 +2150,8 @@
         "type": "primary"
       }
     ],
-    "featuredDeities": [
-      "maui"
-    ],
-    "relatedStories": [
-      "maui-slows-the-sun",
-      "maui-steals-fire"
-    ]
+    "featuredDeities": ["maui"],
+    "relatedStories": ["maui-slows-the-sun", "maui-steals-fire"]
   },
   {
     "id": "maui-slows-the-sun",
@@ -2495,14 +2182,8 @@
         "type": "primary"
       }
     ],
-    "featuredDeities": [
-      "maui",
-      "hina"
-    ],
-    "relatedStories": [
-      "maui-fishes-up-islands",
-      "maui-steals-fire"
-    ]
+    "featuredDeities": ["maui", "hina"],
+    "relatedStories": ["maui-fishes-up-islands", "maui-steals-fire"]
   },
   {
     "id": "maui-steals-fire",
@@ -2533,13 +2214,8 @@
         "type": "primary"
       }
     ],
-    "featuredDeities": [
-      "maui"
-    ],
-    "relatedStories": [
-      "maui-fishes-up-islands",
-      "maui-slows-the-sun"
-    ]
+    "featuredDeities": ["maui"],
+    "relatedStories": ["maui-fishes-up-islands", "maui-slows-the-sun"]
   },
   {
     "id": "pele-and-hiiaka",
@@ -2571,13 +2247,8 @@
         "type": "secondary"
       }
     ],
-    "featuredDeities": [
-      "pele",
-      "hiiaka"
-    ],
-    "relatedStories": [
-      "separation-of-rangi-and-papa"
-    ]
+    "featuredDeities": ["pele", "hiiaka"],
+    "relatedStories": ["separation-of-rangi-and-papa"]
   },
   {
     "id": "separation-of-rangi-and-papa",
@@ -2616,9 +2287,7 @@
       "tu",
       "tawhirimatea"
     ],
-    "relatedStories": [
-      "maui-fishes-up-islands"
-    ]
+    "relatedStories": ["maui-fishes-up-islands"]
   },
   {
     "id": "yoruba-creation",
@@ -2649,14 +2318,8 @@
         "type": "secondary"
       }
     ],
-    "featuredDeities": [
-      "obatala",
-      "olodumare"
-    ],
-    "relatedStories": [
-      "shango-becomes-orisha",
-      "oshun-saves-world"
-    ]
+    "featuredDeities": ["obatala", "olodumare"],
+    "relatedStories": ["shango-becomes-orisha", "oshun-saves-world"]
   },
   {
     "id": "shango-becomes-orisha",
@@ -2686,15 +2349,8 @@
         "type": "secondary"
       }
     ],
-    "featuredDeities": [
-      "shango",
-      "oya",
-      "oshun"
-    ],
-    "relatedStories": [
-      "yoruba-creation",
-      "ogun-shango-contest"
-    ]
+    "featuredDeities": ["shango", "oya", "oshun"],
+    "relatedStories": ["yoruba-creation", "ogun-shango-contest"]
   },
   {
     "id": "oshun-saves-world",
@@ -2723,17 +2379,8 @@
         "type": "primary"
       }
     ],
-    "featuredDeities": [
-      "oshun",
-      "olodumare",
-      "ogun",
-      "shango",
-      "obatala"
-    ],
-    "relatedStories": [
-      "yoruba-creation",
-      "eshu-two-friends"
-    ]
+    "featuredDeities": ["oshun", "olodumare", "ogun", "shango", "obatala"],
+    "relatedStories": ["yoruba-creation", "eshu-two-friends"]
   },
   {
     "id": "eshu-two-friends",
@@ -2762,13 +2409,8 @@
         "type": "secondary"
       }
     ],
-    "featuredDeities": [
-      "eshu"
-    ],
-    "relatedStories": [
-      "yoruba-creation",
-      "ogun-shango-contest"
-    ]
+    "featuredDeities": ["eshu"],
+    "relatedStories": ["yoruba-creation", "ogun-shango-contest"]
   },
   {
     "id": "ogun-shango-contest",
@@ -2793,15 +2435,8 @@
         "type": "primary"
       }
     ],
-    "featuredDeities": [
-      "ogun",
-      "shango",
-      "oshun"
-    ],
-    "relatedStories": [
-      "shango-becomes-orisha",
-      "oshun-saves-world"
-    ]
+    "featuredDeities": ["ogun", "shango", "oshun"],
+    "relatedStories": ["shango-becomes-orisha", "oshun-saves-world"]
   },
   {
     "id": "birth-of-huitzilopochtli",
@@ -2831,14 +2466,8 @@
         "type": "primary"
       }
     ],
-    "featuredDeities": [
-      "huitzilopochtli",
-      "coatlicue",
-      "coyolxauhqui"
-    ],
-    "relatedStories": [
-      "five-suns"
-    ]
+    "featuredDeities": ["huitzilopochtli", "coatlicue", "coyolxauhqui"],
+    "relatedStories": ["five-suns"]
   },
   {
     "id": "quetzalcoatl-fall-exile",
@@ -2867,14 +2496,8 @@
         "type": "primary"
       }
     ],
-    "featuredDeities": [
-      "quetzalcoatl",
-      "tezcatlipoca"
-    ],
-    "relatedStories": [
-      "five-suns",
-      "birth-of-huitzilopochtli"
-    ]
+    "featuredDeities": ["quetzalcoatl", "tezcatlipoca"],
+    "relatedStories": ["five-suns", "birth-of-huitzilopochtli"]
   },
   {
     "id": "journey-to-mictlan",
@@ -2904,14 +2527,8 @@
         "type": "primary"
       }
     ],
-    "featuredDeities": [
-      "mictlantecuhtli",
-      "xolotl"
-    ],
-    "relatedStories": [
-      "five-suns",
-      "quetzalcoatl-fall-exile"
-    ]
+    "featuredDeities": ["mictlantecuhtli", "xolotl"],
+    "relatedStories": ["five-suns", "quetzalcoatl-fall-exile"]
   },
   {
     "id": "anansi-bought-stories",
@@ -2920,12 +2537,7 @@
     "slug": "anansi-bought-stories",
     "summary": "The clever spider Anansi bargains with the sky god Nyame to purchase all the world's stories by completing four impossible tasks.",
     "fullNarrative": "In one Akan-Ashanti account collected by R. S. Rattray, Anansi asks Nyame, the sky god, for the right to call the stories Anansesem—Spider Stories. Nyame sets a price that seems impossible: Onini the python, Osebo the leopard, the Mmoboro hornets, and Mmoatia, a fairy. Anansi also offers his mother, Ya Nsia.\n\nAnansi consults his wife, Aso. To take Onini, he stages an argument about whether the python is longer than a palm branch. Onini stretches beside it to settle the question, and Anansi binds him with creeper rope.\n\nFor the hornets, Anansi splashes water on their swarm and himself, then pretends that rain has come. He offers them his gourd for shelter and closes it once they have flown inside. He digs a covered pit for Osebo; when the leopard falls in, Anansi kills him and carries him as part of the payment.\n\nFor Mmoatia, Anansi makes a carved wooden figure, coats it with sticky tree sap, and sets out food. When the fairy strikes the unresponsive figure, she becomes stuck. Anansi takes Mmoatia and Ya Nsia to Nyame.\n\nNyame accepts the payment and gives the name Anansesem to the stories. This is one recorded account among Akan-Ashanti storytelling traditions.",
-    "themes": [
-      "wisdom",
-      "trickery",
-      "perseverance",
-      "storytelling"
-    ],
+    "themes": ["wisdom", "trickery", "perseverance", "storytelling"],
     "culturalSignificance": "This story explains the origin of oral storytelling in Akan culture and why tales are called 'Anansesem' (spider stories). It celebrates intelligence over physical strength and represents the cultural value of wit.",
     "imageUrl": "/stories/anansi-bought-stories.png",
     "citationSources": [
@@ -2941,10 +2553,7 @@
     "sources": [
       "Source note: Rattray's 1930 collector-mediated English translation records one Akan-Ashanti oral-tale version; it is not a universal account. Primary-text reproduction: https://api.pageplace.de/preview/DT0400.9781107776746_A23755138/preview-9781107776746_A23755138.pdf"
     ],
-    "featuredDeityIds": [
-      "anansi",
-      "nyame"
-    ],
+    "featuredDeities": ["anansi", "nyame"],
     "category": "trickster"
   },
   {
@@ -2971,11 +2580,7 @@
         "url": "https://scielo.org.za/pdf/hts/v76n4/20.pdf"
       }
     ],
-    "featuredDeityIds": [
-      "oduduwa",
-      "obatala",
-      "olodumare"
-    ],
+    "featuredDeities": ["oduduwa", "obatala", "olodumare"],
     "category": "creation"
   },
   {
@@ -2985,17 +2590,9 @@
     "slug": "first-twins-ibeji",
     "summary": "An introduction to Yoruba twin commemoration and the carved figures known as ere ibeji, based on a documented museum object.",
     "fullNarrative": "## Twins and Sacred Care\n\nThe Metropolitan Museum of Art describes Yoruba twins as extraordinary beings under the protection of Sango, the thunder deity. Its account connects the honor given to twins with their capacity to bring their families prosperity or misfortune.\n\n## Remembering a Twin\n\nWhen a twin dies, an ere ibeji figure can provide a focus for continued care and remembrance. The museum describes mothers washing, dressing, decorating, and feeding these figures as part of that care. The sculpture represents a relationship with a departed person rather than simply an image of an anonymous deity.\n\n## A Documented Figure\n\nThe Met records object 1979.527.22 as the work of a Yoruba artist in Nigeria, dated to the nineteenth or twentieth century. Its materials include wood, beads, camwood powder, and pigment. This dated object provides a concrete point of reference for learning about the practice.\n\nThis account summarizes the museum’s interpretation. It does not establish a single origin story or describe every Yoruba community’s practice.",
-    "themes": [
-      "protection",
-      "transformation",
-      "family",
-      "sacred duality"
-    ],
+    "themes": ["protection", "transformation", "family", "sacred duality"],
     "culturalSignificance": "Ere ibeji figures connect remembrance, ritual care, and beliefs about twins. The cited museum account documents this context without substantiating the earlier Oya-and-Shango origin episode published on this page.",
-    "featuredDeityIds": [
-      "ibeji",
-      "shango"
-    ],
+    "featuredDeities": ["ibeji", "shango"],
     "category": "afterlife",
     "citationSources": [
       {
@@ -3018,12 +2615,7 @@
     "slug": "house-of-bats",
     "summary": "The Hero Twins Hunahpu and Xbalanque face the terrifying Camazotz in one of Xibalba's deadly trial houses.",
     "fullNarrative": "The Hero Twins had survived the House of Gloom, the House of Cold, the House of Jaguars, and the House of Fire. Now only the House of Bats remained.\n\nThey entered a cave filled with shrieking darkness. Giant bats with razor wings circled endlessly, and at the center sat Camazotz himself—the Death Bat with obsidian blade wings and an insatiable hunger for blood.\n\nHunahpu and Xbalanque crawled inside their blowguns for protection. All night the bats swooped and slashed, but the brothers remained hidden.\n\nAs dawn approached, the bats grew quiet. Hunahpu thought it safe to look out and see if morning had come. The instant his head emerged, Camazotz struck—and Hunahpu's head rolled across the floor.\n\nXbalanque was alone. The Lords of Xibalba took his brother's head and hung it in the ballcourt for the next day's game.\n\nBut Xbalanque was cunning. He called the animals to help. A coati found a squash the exact size of Hunahpu's head. A rabbit agreed to hide nearby. Xbalanque carved the squash into a face and placed it on his brother's body.\n\nWhen the ballgame began, the Lords threw Hunahpu's real head as the ball. But the rabbit leaped past, and the Lords chased it, thinking it was the ball. Xbalanque switched the squash for his brother's real head.\n\nHunahpu lived again. Together, the twins defeated the Lords of Death.",
-    "themes": [
-      "cleverness",
-      "resurrection",
-      "trials",
-      "brotherhood"
-    ],
+    "themes": ["cleverness", "resurrection", "trials", "brotherhood"],
     "culturalSignificance": "This episode from the Popol Vuh shows how wit overcomes brute force. The Hero Twins' victory over death establishes the pattern of resurrection central to Maya cosmology.",
     "imageUrl": "/stories/house-of-bats.png",
     "citationSources": [
@@ -3035,10 +2627,7 @@
         "url": "https://www.famsi.org/research/vanstone/2012/PopolVuhBrief.pdf"
       }
     ],
-    "featuredDeityIds": [
-      "camazotz",
-      "hero-twins"
-    ],
+    "featuredDeities": ["camazotz", "hero-twins"],
     "category": "quest"
   },
   {
@@ -3073,14 +2662,8 @@
         "type": "primary"
       }
     ],
-    "featuredDeities": [
-      "ceres",
-      "jupiter"
-    ],
-    "relatedStories": [
-      "cupid-psyche",
-      "orpheus-eurydice"
-    ]
+    "featuredDeities": ["ceres", "jupiter"],
+    "relatedStories": ["cupid-psyche", "orpheus-eurydice"]
   },
   {
     "id": "lucretia-fall-kings",
@@ -3115,10 +2698,7 @@
       }
     ],
     "featuredDeities": [],
-    "relatedStories": [
-      "romulus-remus",
-      "sabine-women"
-    ]
+    "relatedStories": ["romulus-remus", "sabine-women"]
   },
   {
     "id": "labors-of-hercules",
@@ -3152,15 +2732,8 @@
         "type": "primary"
       }
     ],
-    "featuredDeities": [
-      "juno",
-      "jupiter",
-      "diana"
-    ],
-    "relatedStories": [
-      "prometheus-fire",
-      "theseus-minotaur"
-    ],
+    "featuredDeities": ["juno", "jupiter", "diana"],
+    "relatedStories": ["prometheus-fire", "theseus-minotaur"],
     "variants": [
       {
         "source": "Pseudo-Apollodorus, Library",
@@ -3208,17 +2781,8 @@
         "type": "primary"
       }
     ],
-    "featuredDeities": [
-      "venus",
-      "jupiter",
-      "juno",
-      "mercury"
-    ],
-    "relatedStories": [
-      "aeneid",
-      "trojan-war",
-      "cupid-psyche"
-    ]
+    "featuredDeities": ["venus", "jupiter", "juno", "mercury"],
+    "relatedStories": ["aeneid", "trojan-war", "cupid-psyche"]
   },
   {
     "id": "aztec-creation-humanity",
@@ -3248,10 +2812,7 @@
         "type": "primary"
       }
     ],
-    "featuredDeities": [
-      "quetzalcoatl",
-      "mictlantecuhtli"
-    ],
+    "featuredDeities": ["quetzalcoatl", "mictlantecuhtli"],
     "relatedStories": [
       "five-suns",
       "journey-to-mictlan",
@@ -3284,13 +2845,8 @@
         "type": "primary"
       }
     ],
-    "featuredDeities": [
-      "xipe-totec"
-    ],
-    "relatedStories": [
-      "five-suns",
-      "aztec-creation-humanity"
-    ]
+    "featuredDeities": ["xipe-totec"],
+    "relatedStories": ["five-suns", "aztec-creation-humanity"]
   },
   {
     "id": "xochiquetzal-forbidden",
@@ -3321,13 +2877,8 @@
         "type": "primary"
       }
     ],
-    "featuredDeities": [
-      "xochiquetzal"
-    ],
-    "relatedStories": [
-      "quetzalcoatl-fall-exile",
-      "five-suns"
-    ]
+    "featuredDeities": ["xochiquetzal"],
+    "relatedStories": ["quetzalcoatl-fall-exile", "five-suns"]
   },
   {
     "id": "four-hundred-rabbits",
@@ -3360,14 +2911,8 @@
         "type": "primary"
       }
     ],
-    "featuredDeities": [
-      "mayahuel",
-      "quetzalcoatl"
-    ],
-    "relatedStories": [
-      "five-suns",
-      "xochiquetzal-forbidden"
-    ]
+    "featuredDeities": ["mayahuel", "quetzalcoatl"],
+    "relatedStories": ["five-suns", "xochiquetzal-forbidden"]
   },
   {
     "id": "narasimha-prahlada",
@@ -3399,16 +2944,8 @@
         "type": "primary"
       }
     ],
-    "featuredDeities": [
-      "vishnu",
-      "brahma",
-      "lakshmi"
-    ],
-    "relatedStories": [
-      "churning-ocean",
-      "ramayana",
-      "krishna-childhood"
-    ]
+    "featuredDeities": ["vishnu", "brahma", "lakshmi"],
+    "relatedStories": ["churning-ocean", "ramayana", "krishna-childhood"]
   },
   {
     "id": "shakuntala-dushyanta",
@@ -3440,13 +2977,8 @@
         "type": "primary"
       }
     ],
-    "featuredDeities": [
-      "indra"
-    ],
-    "relatedStories": [
-      "mahabharata",
-      "ramayana"
-    ]
+    "featuredDeities": ["indra"],
+    "relatedStories": ["mahabharata", "ramayana"]
   },
   {
     "id": "shiva-parvati-marriage",
@@ -3477,16 +3009,8 @@
         "type": "primary"
       }
     ],
-    "featuredDeities": [
-      "shiva",
-      "parvati",
-      "vishnu",
-      "ganesha"
-    ],
-    "relatedStories": [
-      "ganesha-creation",
-      "churning-ocean"
-    ]
+    "featuredDeities": ["shiva", "parvati", "vishnu", "ganesha"],
+    "relatedStories": ["ganesha-creation", "churning-ocean"]
   },
   {
     "id": "hanuman-leap-lanka",
@@ -3519,13 +3043,8 @@
         "type": "primary"
       }
     ],
-    "featuredDeities": [
-      "hanuman",
-      "rama"
-    ],
-    "relatedStories": [
-      "ramayana"
-    ]
+    "featuredDeities": ["hanuman", "rama"],
+    "relatedStories": ["ramayana"]
   },
   {
     "id": "icarus-daedalus",
@@ -3559,13 +3078,8 @@
         "type": "primary"
       }
     ],
-    "featuredDeities": [
-      "apollo"
-    ],
-    "relatedStories": [
-      "theseus-minotaur",
-      "prometheus-fire"
-    ]
+    "featuredDeities": ["apollo"],
+    "relatedStories": ["theseus-minotaur", "prometheus-fire"]
   },
   {
     "id": "judgment-of-paris",
@@ -3599,16 +3113,8 @@
         "type": "primary"
       }
     ],
-    "featuredDeities": [
-      "hera",
-      "athena",
-      "aphrodite",
-      "zeus",
-      "hermes"
-    ],
-    "relatedStories": [
-      "trojan-war"
-    ]
+    "featuredDeities": ["hera", "athena", "aphrodite", "zeus", "hermes"],
+    "relatedStories": ["trojan-war"]
   },
   {
     "id": "pygmalion-galatea",
@@ -3636,13 +3142,8 @@
         "type": "primary"
       }
     ],
-    "featuredDeities": [
-      "aphrodite"
-    ],
-    "relatedStories": [
-      "cupid-psyche",
-      "orpheus-eurydice"
-    ]
+    "featuredDeities": ["aphrodite"],
+    "relatedStories": ["cupid-psyche", "orpheus-eurydice"]
   },
   {
     "id": "echo-narcissus",
@@ -3670,29 +3171,13 @@
         "type": "primary"
       }
     ],
-    "featuredDeities": [
-      "hera"
-    ],
-    "relatedStories": [
-      "cupid-psyche",
-      "pygmalion-galatea",
-      "orpheus-eurydice"
-    ]
+    "featuredDeities": ["hera"],
+    "relatedStories": ["cupid-psyche", "pygmalion-galatea", "orpheus-eurydice"]
   },
   {
     "keyExcerpts": "Storm god Susanoo rages through Amaterasu’s heavenly fields, wrecking her loom and sacred halls until the sun goddess seals herself in a cave — and Susanoo is cast from heaven.",
-    "moralThemes": [
-      "chaos",
-      "exile",
-      "divine order",
-      "sibling rivalry"
-    ],
-    "themes": [
-      "chaos",
-      "exile",
-      "divine order",
-      "sibling rivalry"
-    ],
+    "moralThemes": ["chaos", "exile", "divine order", "sibling rivalry"],
+    "themes": ["chaos", "exile", "divine order", "sibling rivalry"],
     "citationSources": [
       {
         "title": "Kojiki",
@@ -3709,10 +3194,7 @@
       "Heldt, Gustav. *The Kojiki: An Account of Ancient Matters* (Columbia, 2014)."
     ],
     "variants": [],
-    "featuredDeityIds": [
-      "susanoo",
-      "amaterasu"
-    ],
+    "featuredDeities": ["susanoo", "amaterasu"],
     "id": "susanoo-banishment",
     "pantheonId": "japanese-pantheon",
     "title": "The Banishment of Susanoo",
@@ -3725,18 +3207,8 @@
   },
   {
     "keyExcerpts": "Okuninushi endures murder by jealous brothers, underworld tests from Susanoo, and the love of Suseri-hime before becoming the great earthly kami who “makes the land.”",
-    "moralThemes": [
-      "perseverance",
-      "love",
-      "sovereignty",
-      "ordeal"
-    ],
-    "themes": [
-      "perseverance",
-      "love",
-      "sovereignty",
-      "ordeal"
-    ],
+    "moralThemes": ["perseverance", "love", "sovereignty", "ordeal"],
+    "themes": ["perseverance", "love", "sovereignty", "ordeal"],
     "citationSources": [
       {
         "title": "Kojiki",
@@ -3746,10 +3218,7 @@
     "primarySourceExcerpts": [],
     "furtherReading": [],
     "variants": [],
-    "featuredDeityIds": [
-      "okuninushi",
-      "susanoo"
-    ],
+    "featuredDeities": ["okuninushi", "susanoo"],
     "id": "okuninushi-trials",
     "pantheonId": "japanese-pantheon",
     "title": "The Trials of Okuninushi",
@@ -3762,18 +3231,8 @@
   },
   {
     "keyExcerpts": "When the gods plague humanity for making too much noise, Ea warns Atrahasis to build a boat. Floodwaters erase the old world — then the gods regret famine and grant a new order of ",
-    "moralThemes": [
-      "divine judgment",
-      "survival",
-      "mortality",
-      "wisdom"
-    ],
-    "themes": [
-      "divine judgment",
-      "survival",
-      "mortality",
-      "wisdom"
-    ],
+    "moralThemes": ["divine judgment", "survival", "mortality", "wisdom"],
+    "themes": ["divine judgment", "survival", "mortality", "wisdom"],
     "citationSources": [
       {
         "title": "Atrahasis Epic",
@@ -3786,9 +3245,7 @@
       "Lambert & Millard, *Atra-ḫasīs: The Babylonian Story of the Flood* (Eisenbrauns)."
     ],
     "variants": [],
-    "featuredDeityIds": [
-      "enlil"
-    ],
+    "featuredDeities": ["enlil"],
     "id": "atrahasis-flood",
     "pantheonId": "mesopotamian-pantheon",
     "title": "Atrahasis and the Great Flood",
@@ -3801,18 +3258,8 @@
   },
   {
     "keyExcerpts": "King Etana, childless, aids a betrayed eagle and rides it toward heaven seeking the plant of birth — a flight that shows both the hope and terror of rising too near the gods.",
-    "moralThemes": [
-      "kingship",
-      "justice",
-      "aspiration",
-      "fear"
-    ],
-    "themes": [
-      "kingship",
-      "justice",
-      "aspiration",
-      "fear"
-    ],
+    "moralThemes": ["kingship", "justice", "aspiration", "fear"],
+    "themes": ["kingship", "justice", "aspiration", "fear"],
     "citationSources": [
       {
         "title": "Etana Epic",
@@ -3822,9 +3269,7 @@
     "primarySourceExcerpts": [],
     "furtherReading": [],
     "variants": [],
-    "featuredDeityIds": [
-      "inanna"
-    ],
+    "featuredDeities": ["inanna"],
     "id": "etana-and-the-eagle",
     "pantheonId": "mesopotamian-pantheon",
     "title": "Etana and the Eagle",
@@ -3837,18 +3282,8 @@
   },
   {
     "keyExcerpts": "Having slowed the sun and fished up islands, Maui tries to win immortality by crawling through the body of Hine-nui-te-pō — and fails when laughing birds wake the goddess of death.",
-    "moralThemes": [
-      "mortality",
-      "hubris",
-      "trickster limits",
-      "silence"
-    ],
-    "themes": [
-      "mortality",
-      "hubris",
-      "trickster limits",
-      "silence"
-    ],
+    "moralThemes": ["mortality", "hubris", "trickster limits", "silence"],
+    "themes": ["mortality", "hubris", "trickster limits", "silence"],
     "citationSources": [
       {
         "title": "Māori oral tradition",
@@ -3858,10 +3293,7 @@
     "primarySourceExcerpts": [],
     "furtherReading": [],
     "variants": [],
-    "featuredDeityIds": [
-      "maui",
-      "hina"
-    ],
+    "featuredDeities": ["maui", "hina"],
     "id": "maui-and-hina-death",
     "pantheonId": "polynesian-pantheon",
     "title": "Maui’s Attempt to Conquer Death",
@@ -3874,18 +3306,8 @@
   },
   {
     "keyExcerpts": "When the sun raced too fast for Hina to dry her bark cloth, Maui and his brothers snared it with ropes of sisal and hair until it promised to walk slowly across the sky.",
-    "moralThemes": [
-      "cooperation",
-      "sun",
-      "craft",
-      "cleverness"
-    ],
-    "themes": [
-      "cooperation",
-      "sun",
-      "craft",
-      "cleverness"
-    ],
+    "moralThemes": ["cooperation", "sun", "craft", "cleverness"],
+    "themes": ["cooperation", "sun", "craft", "cleverness"],
     "citationSources": [
       {
         "title": "Hawaiian and Māori solar Maui cycles",
@@ -3895,10 +3317,7 @@
     "primarySourceExcerpts": [],
     "furtherReading": [],
     "variants": [],
-    "featuredDeityIds": [
-      "maui",
-      "hina"
-    ],
+    "featuredDeities": ["maui", "hina"],
     "id": "hina-maui-lengthened-day",
     "pantheonId": "polynesian-pantheon",
     "title": "How Hina and Maui Lengthened the Day",
@@ -3940,9 +3359,7 @@
       "simargl",
       "mokosh"
     ],
-    "featuredLocations": [
-      "starokyivska-hill"
-    ],
+    "featuredLocations": ["starokyivska-hill"],
     "imageUrl": "/stories/vladimirs-pantheon-980.png"
   },
   {
@@ -3967,10 +3384,7 @@
         "type": "secondary"
       }
     ],
-    "featuredDeities": [
-      "perun",
-      "veles"
-    ],
+    "featuredDeities": ["perun", "veles"],
     "imageUrl": "/stories/perun-and-veles.png"
   },
   {
@@ -3995,12 +3409,8 @@
         "type": "primary"
       }
     ],
-    "featuredDeities": [
-      "svantevit"
-    ],
-    "featuredLocations": [
-      "arkona"
-    ],
+    "featuredDeities": ["svantevit"],
+    "featuredLocations": ["arkona"],
     "imageUrl": "/stories/svantevits-oracle-horse.png"
   },
   {
@@ -4056,10 +3466,7 @@
         "type": "primary"
       }
     ],
-    "featuredDeities": [
-      "sky-woman",
-      "turtle"
-    ],
+    "featuredDeities": ["sky-woman", "turtle"],
     "imageUrl": "/stories/sky-woman-and-turtle-island.png"
   },
   {
@@ -4090,11 +3497,7 @@
         "type": "primary"
       }
     ],
-    "featuredDeities": [
-      "sky-woman",
-      "sapling",
-      "flint"
-    ],
+    "featuredDeities": ["sky-woman", "sapling", "flint"],
     "imageUrl": "/stories/the-twins-sapling-and-flint.png"
   },
   {
@@ -4126,9 +3529,7 @@
         "type": "primary"
       }
     ],
-    "featuredLocations": [
-      "onondaga-lake"
-    ],
+    "featuredLocations": ["onondaga-lake"],
     "imageUrl": "/stories/peacemaker-great-law-of-peace.png"
   },
   {
@@ -4153,10 +3554,7 @@
         "type": "primary"
       }
     ],
-    "featuredDeities": [
-      "raven",
-      "naas-shaak-aankawu"
-    ],
+    "featuredDeities": ["raven", "naas-shaak-aankawu"],
     "imageUrl": "/stories/raven-steals-the-light.png"
   },
   {
@@ -4187,12 +3585,8 @@
         "type": "secondary"
       }
     ],
-    "featuredDeities": [
-      "raven"
-    ],
-    "featuredLocations": [
-      "haida-gwaii"
-    ],
+    "featuredDeities": ["raven"],
+    "featuredLocations": ["haida-gwaii"],
     "imageUrl": "/stories/raven-and-the-first-men.png"
   },
   {
@@ -4252,10 +3646,7 @@
       "hecate",
       "hermes"
     ],
-    "relatedStories": [
-      "orpheus-eurydice",
-      "inanna-descent"
-    ],
+    "relatedStories": ["orpheus-eurydice", "inanna-descent"],
     "variants": [
       {
         "source": "Ovid, Metamorphoses 5",

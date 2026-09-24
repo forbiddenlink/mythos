@@ -44,7 +44,18 @@ function loadBookmarks(): Bookmark[] {
   if (typeof window === "undefined") return [];
   try {
     const stored = localStorage.getItem(BOOKMARKS_STORAGE_KEY);
-    const bookmarks: Bookmark[] = stored ? JSON.parse(stored) : [];
+    const parsed: unknown = stored ? JSON.parse(stored) : [];
+    if (!Array.isArray(parsed)) return [];
+    const bookmarks = parsed.filter(
+      (value): value is Bookmark =>
+        value !== null &&
+        typeof value === "object" &&
+        ["deity", "story", "pantheon", "hero", "source"].includes(value.type) &&
+        typeof value.id === "string" &&
+        value.id.length > 0 &&
+        typeof value.timestamp === "number" &&
+        Number.isFinite(value.timestamp),
+    );
     // Hero pages previously stored saves as stories with a hero- prefix.
     return bookmarks.map((bookmark) =>
       bookmark.type === "story" && bookmark.id.startsWith("hero-")
@@ -60,7 +71,23 @@ function loadReadingProgress(): Record<string, ReadingProgress> {
   if (typeof window === "undefined") return {};
   try {
     const stored = localStorage.getItem(READING_PROGRESS_STORAGE_KEY);
-    return stored ? JSON.parse(stored) : {};
+    const parsed: unknown = stored ? JSON.parse(stored) : {};
+    if (!parsed || typeof parsed !== "object" || Array.isArray(parsed))
+      return {};
+    return Object.fromEntries(
+      Object.entries(parsed).filter(
+        ([key, value]) =>
+          value !== null &&
+          typeof value === "object" &&
+          value.storyId === key &&
+          typeof value.percentage === "number" &&
+          Number.isFinite(value.percentage) &&
+          value.percentage >= 0 &&
+          value.percentage <= 100 &&
+          typeof value.updatedAt === "number" &&
+          Number.isFinite(value.updatedAt),
+      ),
+    );
   } catch {
     return {};
   }

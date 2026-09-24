@@ -1,22 +1,8 @@
 "use client";
 
-import { Cinzel, Source_Sans_3 } from "next/font/google";
+import { cinzel, sourceSans } from "./fonts";
 import Link from "next/link";
 import { useEffect } from "react";
-
-const cinzel = Cinzel({
-  variable: "--font-cinzel",
-  subsets: ["latin"],
-  display: "swap",
-  weight: ["400", "700"],
-});
-
-const sourceSans = Source_Sans_3({
-  variable: "--font-source-sans",
-  subsets: ["latin"],
-  display: "swap",
-  weight: ["400", "500"],
-});
 
 export default function GlobalError({
   error,

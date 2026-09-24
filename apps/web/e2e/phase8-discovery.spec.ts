@@ -1,4 +1,5 @@
 import { test, expect } from "@playwright/test";
+import collections from "../src/data/collections.json";
 
 // Use domcontentloaded for faster tests, then wait for specific elements
 const waitForPage = async (page: import("@playwright/test").Page) => {
@@ -15,9 +16,33 @@ test.describe("Phase 8: Collections", () => {
     // Should have the page title
     await expect(page.locator("h1")).toContainText("Mythological Collections");
 
-    // Should display all 12 collection cards
-    const collectionCards = page.locator('a[href^="/collections/"]');
-    await expect(collectionCards).toHaveCount(12);
+    const destinations = await page
+      .getByRole("main")
+      .locator('a[href^="/collections/"]')
+      .evaluateAll((links) =>
+        [...new Set(links.map((link) => link.getAttribute("href")))].sort(),
+      );
+    expect(destinations).toEqual(
+      collections.map((collection) => `/collections/${collection.slug}`).sort(),
+    );
+  });
+
+  test("a collection choice is available on a narrow phone without scrolling", async ({
+    page,
+  }) => {
+    await page.setViewportSize({ width: 320, height: 800 });
+    await page.goto("/collections");
+    const featured = page.getByRole("link", {
+      name: "Rulers of the Dead",
+      exact: true,
+    });
+    await expect(featured).toBeInViewport();
+    await featured.focus();
+    await page.keyboard.press("Enter");
+    await expect(page).toHaveURL(/\/collections\/underworld-rulers$/);
+    await expect(page.getByRole("heading", { level: 1 })).toHaveText(
+      "Rulers of the Dead",
+    );
   });
 
   test("should navigate to collection detail page", async ({ page }) => {
@@ -37,18 +62,20 @@ test.describe("Phase 8: Collections", () => {
     await expect(page.locator("h1")).toContainText("Trickster Gods");
   });
 
-  test("should display deity and story counts on collection cards", async ({
+  test("should display deity and story counts for featured and listed themes", async ({
     page,
   }) => {
     await page.goto("/collections");
     await waitForPage(page);
 
-    // Cards should show deity/story counts via badges
-    const badges = page.locator(
-      '[class*="Badge"], span:has-text("deities"), span:has-text("deity")',
-    );
-    const badgeCount = await badges.count();
-    expect(badgeCount).toBeGreaterThan(0);
+    const featured = page.getByRole("region", {
+      name: "Rulers of the Dead",
+      exact: true,
+    });
+    await expect(featured).toContainText("7 deities · 4 stories");
+    await expect(
+      page.getByRole("link", { name: /^Trickster Gods/ }),
+    ).toContainText("7 deities · 4 stories");
   });
 
   test("should show related deities on collection detail page", async ({
@@ -58,7 +85,7 @@ test.describe("Phase 8: Collections", () => {
     await waitForPage(page);
 
     // Should show underworld deities like Hades, Osiris, Anubis
-    const deityLinks = page.locator('a[href^="/deities/"]');
+    const deityLinks = page.locator('a[href^="/deities/"]:visible');
     await expect(deityLinks.first()).toBeVisible({ timeout: 10000 });
     const count = await deityLinks.count();
     expect(count).toBeGreaterThan(0);
@@ -113,22 +140,17 @@ test.describe("Phase 8: Mythology Facts", () => {
     await page.goto("/facts");
     await waitForPage(page);
 
-    // Get initial card count
-    const initialCards = page.locator('[class*="Card"]');
-    const initialCount = await initialCards.count();
-
-    // Click a specific category filter
-    await page.locator('button:has-text("Word Origins")').click();
-
-    // Wait for animation
-    await page.waitForTimeout(500);
-
-    // Card count should change (filtered)
-    const filteredCards = page.locator('[class*="Card"]');
-    const filteredCount = await filteredCards.count();
-
-    // Should have fewer cards or same (filtered to one category)
-    expect(filteredCount).toBeLessThanOrEqual(initialCount);
+    const cards = page.locator('[data-slot="card"].Card');
+    await expect(cards.first()).toBeVisible();
+    const filter = page.getByRole("button", { name: /^Word Origins/ });
+    const label = await filter.innerText();
+    const expectedCount = Number(label.match(/\((\d+)\)/)?.[1]);
+    expect(expectedCount).toBeGreaterThan(0);
+    await filter.click();
+    await expect(cards).toHaveCount(expectedCount);
+    for (const card of await cards.all()) {
+      await expect(card).toContainText("Word Origins");
+    }
   });
 
   test("should have shuffle button", async ({ page }) => {

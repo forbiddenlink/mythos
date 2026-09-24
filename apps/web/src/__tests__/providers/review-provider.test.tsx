@@ -30,6 +30,16 @@ const localStorageMock = {
 };
 
 describe("ReviewProvider", () => {
+  it("recovers from parseable malformed review state", () => {
+    localStorage.setItem(
+      "mythos-atlas-review",
+      JSON.stringify({ cards: null, stats: null }),
+    );
+    const { result } = renderHook(() => useReview(), { wrapper: Providers });
+    expect(result.current.reviewState.cards).toEqual({});
+    expect(result.current.getTodayStats().reviewed).toBe(0);
+  });
+
   beforeEach(() => {
     localStorageData = {};
     Object.defineProperty(globalThis, "localStorage", {

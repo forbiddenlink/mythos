@@ -18,6 +18,7 @@ export interface MuseumObject {
   storyIds?: string[];
   deityIds?: string[];
   creatureIds?: string[];
+  heroIds?: string[];
 }
 
 const ANCIENT = "Ancient object";
@@ -28,7 +29,7 @@ const ANCIENT = "Ancient object";
  * ancient attestation before later reception.
  */
 export function getMuseumObjectsFor(
-  ref: { deity?: string; creature?: string },
+  ref: { deity?: string; creature?: string; hero?: string },
   source: MuseumObject[] = objectsData as MuseumObject[],
 ): MuseumObject[] {
   return source
@@ -36,7 +37,8 @@ export function getMuseumObjectsFor(
       (o) =>
         o.imageUrl &&
         ((ref.deity && o.deityIds?.includes(ref.deity)) ||
-          (ref.creature && o.creatureIds?.includes(ref.creature))),
+          (ref.creature && o.creatureIds?.includes(ref.creature)) ||
+          (ref.hero && o.heroIds?.includes(ref.hero))),
     )
     .sort(
       (a, b) => Number(b.context === ANCIENT) - Number(a.context === ANCIENT),

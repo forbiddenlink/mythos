@@ -12,31 +12,32 @@ An interactive mythology and folklore explorer built with Next.js.
 - Browse mythology from 16 world cultures (Greek, Norse, Egyptian, Japanese, Celtic, and more)
 - Explore 233 deities, 27 heroes, 108 stories, 63 creatures, 52 artifacts, and 127 locations
 - Interactive family trees and relationship visualizations
-- AI-powered mythology Q&A via the Oracle feature
+- Optional Oracle mythology Q&A (requires configuration and production rate limits)
 - Quiz games and achievement tracking
 - Full-text search with command palette (Cmd+K)
-- PWA with offline support
-- Internationalization (EN, ES, FR, DE)
+- Browser-local bookmarks, reading progress, and review history
+- Interface and Oracle language selection (EN, ES, FR, DE); most encyclopedia prose is English
+- Optional one-time support through Stripe-hosted checkout
 
 ## Getting Started
 
 ```bash
 git clone https://github.com/forbiddenlink/mythos
 cd mythos
-pnpm install
-cp .env.example .env.local
-# Add ANTHROPIC_API_KEY to .env.local for Oracle feature
-pnpm dev
+nvm use  # Node version from .nvmrc
+pnpm install --frozen-lockfile
+# Optional: configure Oracle using apps/web/.env.example
+pnpm --filter web dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) to view the app.
+Open [http://localhost:3000](http://localhost:3000) to view the app. The encyclopedia runs without Oracle credentials or the optional Rust/PostgreSQL service. For Oracle, copy `apps/web/.env.example` to `apps/web/.env.local` and configure the required values; never commit that file.
 
 ## Tech Stack
 
 - **Framework:** Next.js 16 (App Router) + React 19
 - **Language:** TypeScript
 - **Styling:** Tailwind CSS v4 + shadcn/ui
-- **Data:** GraphQL API backed by JSON files
+- **Data:** versioned JSON used by pages and the separate web GraphQL endpoint
 - **Visualizations:** ReactFlow, D3.js, React Three Fiber
 - **Testing:** Vitest (unit), Playwright (E2E)
 - **Deployment:** Vercel
@@ -46,7 +47,8 @@ Open [http://localhost:3000](http://localhost:3000) to view the app.
 ```
 mythos/
 ├── apps/
-│   └── web/          # Next.js frontend
+│   ├── api/          # Optional Rust/PostgreSQL service
+│   └── web/          # Self-contained Next.js app
 │       ├── src/
 │       │   ├── app/          # App Router pages
 │       │   ├── components/   # React components
@@ -64,7 +66,9 @@ pnpm dev              # Start development server
 pnpm build            # Production build
 pnpm lint             # Run ESLint
 pnpm test             # Run unit tests
-pnpm --filter web e2e # Run E2E tests
+pnpm --filter web exec tsc --noEmit # Type check
+pnpm --filter web test:coverage     # Unit tests and configured coverage checks
+pnpm --filter web e2e               # Build and run Chromium E2E tests
 ```
 
 ## Documentation
@@ -72,7 +76,16 @@ pnpm --filter web e2e # Run E2E tests
 - [ARCHITECTURE.md](./ARCHITECTURE.md) - System architecture and data flow
 - [CONTRIBUTING.md](./CONTRIBUTING.md) - Contribution guidelines
 - [CHANGELOG.md](./CHANGELOG.md) - Version history
-- [CLAUDE.md](./CLAUDE.md) - AI assistant context (AGENTS.md is a symlink to this file)
+- [CLAUDE.md](./CLAUDE.md) - Repository context for coding agents
+
+## Current work and release checks
+
+- [Improvement plan](docs/audits/2026-09-22-improvement-plan.md)
+- [QA evidence and limitations](docs/audits/2026-09-22-qa-results.json)
+- [Performance measurements](docs/audits/2026-09-18-performance.md)
+- [Operations runbook](docs/ops/incident-runbook.md)
+
+Protected previews are reviewed separately from production. Service-worker generation is disabled; do not assume offline reading is supported.
 
 ## License
 

@@ -448,7 +448,7 @@
     "currentLocation": "Wielded by Heimdall at the Bifrost",
     "imageUrl": "/artifacts/hofud.png",
     "relatedStories": ["ragnarok"],
-    "detailedBio": "## Heimdall's sword Höfuð\n\nSnorri names Heimdall's sword Höfuð, \"man-head.\" *Gylfaginning* says that at Ragnarok Heimdall and Loki will kill each other. The blade is barely described: an attribute of the Bifrost watchman, not a dwarf-forged set-piece with a wager-story like Mjöllnir. Skalds remember Heimdall more for hearing, the Gjallarhorn, and the nine mothers. Do not invent a temple of the sword. The name is Snorri's; the poems give the fated duel more than the metallurgy.\n",
+    "detailedBio": "## Heimdall's sword Höfuð\n\nSnorri names Heimdall's sword Höfuð, \"man-head.\" *Gylfaginning* says that at Ragnarok Heimdall and Loki will kill each other. The blade is barely described: an attribute of the Bifrost watchman, not a dwarf-forged set-piece with a wager-story like Mjöllnir. Skalds remember Heimdall more for hearing, the Gjallarhorn, and the nine mothers. The name is Snorri's; the poems give the fated duel more than the metallurgy.\n",
     "primarySources": [
       {
         "text": "Heimdall's sword is called Höfuð. He and Loki will slay one another in the breaking of the gods.",
@@ -1118,7 +1118,7 @@
     "currentLocation": "Carried in Shango's rites",
     "imageUrl": "/artifacts/oshe-of-shango.png",
     "relatedStories": [],
-    "detailedBio": "## Double axe of thunder\n\nṢàngó (Shango), orisha of thunder and lightning and a remembered Aláàfin of Oyo in Yoruba tradition, is danced with the oshe, a double-headed wooden axe. Lightning is spoken as his justice. Ifá and praise-poetry (oríkì) are oral; colonial and later writers set them on paper. The oshe is a ritual staff and dance-attribute, not a unique palace relic with a forging scene. Kingship at Oyo and the storm are the two claims the axe carries. Do not invent a thunder-cult object independent of Shango's living houses.\n",
+    "detailedBio": "## Double axe of thunder\n\nṢàngó (Shango), orisha of thunder and lightning and a remembered Aláàfin of Oyo in Yoruba tradition, is danced with the oshe, a double-headed wooden axe. Lightning is spoken as his justice. Ifá and praise-poetry (oríkì) are oral; colonial and later writers set them on paper. The oshe is a ritual staff and dance-attribute, not a unique palace relic with a forging scene. Kingship at Oyo and the storm are the two claims the axe carries.\n",
     "primarySources": [
       {
         "text": "Shango's oshe, the double-headed axe, is raised in dance when thunder is his; he is the king who became orisha at Oyo.",
@@ -1211,7 +1211,7 @@
     "currentLocation": "Held among the war banners of Tenochtitlan in mythic memory",
     "imageUrl": "/artifacts/macuahuitl-of-huitzilopochtli.png",
     "relatedStories": [],
-    "detailedBio": "## Obsidian-edged club under the war god\n\nThe macuahuitl is a historical Mesoamerican wooden sword-club set with obsidian prismatic blades; Spanish witnesses describe the wounds. Huitzilopochtli is the Mexica patron of war and the sun. A specific named \"Macuahuitl of Huitzilopochtli\" is a modern convenience: warriors and the god share the weapon-type in art and in the Florentine Codex's war material. Do not invent a unique relic stored in the Templo Mayor with a forging myth. The Coatepec cycle gives him the xiuhcoatl as the famous divine weapon; the macuahuitl is the human fighter's analog under his patronage.\n",
+    "detailedBio": "## Obsidian-edged club under the war god\n\nThe macuahuitl is a historical Mesoamerican wooden sword-club set with obsidian prismatic blades; Spanish witnesses describe the wounds. Huitzilopochtli is the Mexica patron of war and the sun. A specific named \"Macuahuitl of Huitzilopochtli\" is a modern convenience: warriors and the god share the weapon-type in art and in the Florentine Codex's war material. The Coatepec cycle gives him the xiuhcoatl as the famous divine weapon; the macuahuitl is the human fighter's analog under his patronage.\n",
     "primarySources": [
       {
         "text": "Mexica warriors fought with the macuahuitl, wood set with obsidian edges, under the patronage of Huitzilopochtli, whose own mythic weapon at Coatepec is the fire serpent.",

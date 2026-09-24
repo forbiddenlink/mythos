@@ -2,13 +2,17 @@
 
 import Link from "next/link";
 import Image from "next/image";
+import { getMuseumPortrait, type MuseumObject } from "@/lib/museum";
+import { MuseumGallery } from "@/components/museum/MuseumGallery";
 import ReactMarkdown from "react-markdown";
-import { BookOpen, Scroll, Shield, Sparkles } from "lucide-react";
+import { CatalogSourceNotes } from "@/components/sources/CatalogSourceNotes";
+import { Scroll, Shield, Sparkles } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { BookmarkButton } from "@/components/ui/bookmark-button";
 import { PronunciationDisplay } from "@/components/ui/pronunciation";
 import { EditorialByline } from "@/components/content/EditorialByline";
 import { DeityJsonLd } from "@/components/seo/JsonLd";
+import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
 import { AppearsIn } from "@/components/mythology/AppearsIn";
 import { getPantheonColor } from "@/lib/pantheon-colors";
 import { normalizeHeroReference } from "@/lib/heroes";
@@ -74,7 +78,14 @@ function formatSlugAsTitle(slug: string) {
     .join(" ");
 }
 
-export function HeroPageClient({ slug }: { slug: string }) {
+export function HeroPageClient({
+  slug,
+  museumObjects = [],
+}: {
+  slug: string;
+  museumObjects?: MuseumObject[];
+}) {
+  const museumPortrait = getMuseumPortrait(museumObjects);
   const allHeroes = heroesData as Hero[];
   const allDeities = deitiesData as Deity[];
   const pantheons = pantheonsData as Pantheon[];
@@ -132,17 +143,6 @@ export function HeroPageClient({ slug }: { slug: string }) {
       {/* Hero header */}
       <div className="relative overflow-hidden bg-midnight">
         <div className="absolute inset-0 z-0">
-          {hero.imageUrl ? (
-            <Image
-              src={hero.imageUrl}
-              alt=""
-              fill
-              sizes="100vw"
-              priority
-              className="object-cover object-top scale-105 opacity-35 blur-[2px] motion-safe:animate-none"
-              aria-hidden
-            />
-          ) : null}
           <div
             className="absolute inset-0 bg-linear-to-br from-midnight/90 via-midnight/75 to-midnight/55"
             style={{
@@ -161,9 +161,19 @@ export function HeroPageClient({ slug }: { slug: string }) {
           </Link>
 
           <div className="grid gap-10 md:grid-cols-[minmax(0,14rem)_1fr] md:items-end">
-            <figure className="relative mx-auto w-full max-w-[14rem] overflow-hidden border border-gold/30 shadow-2xl">
+            <figure className="order-last md:order-first relative mx-auto w-full max-w-[14rem] overflow-hidden border border-gold/30 shadow-2xl">
               <div className="aspect-3/4 relative bg-midnight flex items-center justify-center">
-                {hero.imageUrl ? (
+                {museumPortrait?.imageUrl ? (
+                  <Image
+                    src={museumPortrait.imageUrl}
+                    alt={museumPortrait.imageAlt || museumPortrait.title}
+                    fill
+                    sizes="14rem"
+                    unoptimized
+                    className="object-contain p-3"
+                    priority
+                  />
+                ) : hero.imageUrl ? (
                   <Image
                     src={hero.imageUrl}
                     alt={hero.name}
@@ -179,18 +189,46 @@ export function HeroPageClient({ slug }: { slug: string }) {
                   </span>
                 )}
               </div>
+              <figcaption className="bg-midnight px-3 py-2 text-xs text-parchment/85">
+                {museumPortrait ? (
+                  <>
+                    <span className="block text-gold mb-1">
+                      {museumPortrait.context}
+                    </span>
+                    <span className="block font-serif text-sm">
+                      {museumPortrait.title}
+                    </span>
+                    <span className="block mt-1">
+                      {museumPortrait.date} · {museumPortrait.medium}
+                    </span>
+                    <a
+                      href={museumPortrait.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-2 block underline underline-offset-4 hover:text-parchment"
+                    >
+                      {museumPortrait.institution} ·{" "}
+                      {museumPortrait.accessionNumber}
+                      <span className="sr-only"> (opens in a new tab)</span>
+                    </a>
+                    <span className="block mt-1">
+                      {museumPortrait.imageRights}
+                    </span>
+                  </>
+                ) : (
+                  <>Editorial illustration of {hero.name}</>
+                )}
+              </figcaption>
             </figure>
 
             <div>
-              <p className="mb-3 text-xs uppercase tracking-[0.28em] text-gold/80">
-                {pantheonName(hero.pantheonId)} tradition
+              <p className="mb-3 text-xs uppercase tracking-[0.28em] text-parchment/85">
+                {pantheonName(hero.pantheonId)}
               </p>
               <div className="flex flex-wrap items-start gap-4">
                 <div className="min-w-0 flex-1">
                   <div className="flex flex-wrap items-baseline gap-3">
-                    <h1 className="page-title text-gold-text drop-shadow-[0_2px_8px_rgba(0,0,0,0.55)]">
-                      {hero.name}
-                    </h1>
+                    <h1 className="page-title text-parchment">{hero.name}</h1>
                     {hero.pronunciation && (
                       <PronunciationDisplay
                         pronunciation={hero.pronunciation}
@@ -209,6 +247,25 @@ export function HeroPageClient({ slug }: { slug: string }) {
                     </p>
                   )}
                   <EditorialByline className="mt-4 max-w-2xl" tone="light" />
+                  <nav
+                    aria-label="On this page"
+                    className="flex flex-wrap gap-x-6 gap-y-3 pt-3 text-sm text-parchment"
+                  >
+                    <a
+                      href="#about"
+                      className="inline-flex min-h-11 items-center underline underline-offset-4"
+                    >
+                      About {hero.name}
+                    </a>
+                    {hero.primarySources?.length ? (
+                      <a
+                        href="#source-notes"
+                        className="inline-flex min-h-11 items-center underline underline-offset-4"
+                      >
+                        Source notes
+                      </a>
+                    ) : null}
+                  </nav>
                 </div>
                 <div className="flex shrink-0 gap-2">
                   <BookmarkButton
@@ -226,9 +283,10 @@ export function HeroPageClient({ slug }: { slug: string }) {
 
       {/* Content */}
       <div className="container mx-auto max-w-4xl px-4 py-12">
+        <Breadcrumbs />
         <div className="space-y-12">
           {/* Detailed Bio */}
-          <section className="max-w-[68ch]">
+          <section id="about" className="max-w-[68ch] scroll-mt-24">
             <h2 className="font-serif text-2xl font-semibold text-foreground mb-5 border-l-4 border-gold pl-4">
               About {hero.name}
             </h2>
@@ -242,6 +300,13 @@ export function HeroPageClient({ slug }: { slug: string }) {
               </p>
             )}
           </section>
+
+          <MuseumGallery
+            name={hero.name}
+            objects={museumObjects.filter(
+              (object) => object.id !== museumPortrait?.id,
+            )}
+          />
 
           {/* Parentage */}
           {hero.parentage && (
@@ -363,37 +428,7 @@ export function HeroPageClient({ slug }: { slug: string }) {
             )}
 
           {/* Primary Sources */}
-          {hero.primarySources && hero.primarySources.length > 0 && (
-            <section className="max-w-[68ch]">
-              <h2 className="font-serif text-2xl font-semibold text-foreground mb-1 border-l-4 border-gold pl-4 flex items-center gap-2">
-                <BookOpen className="h-5 w-5 text-gold" />
-                Primary Sources
-              </h2>
-              <p className="text-muted-foreground text-sm mb-5 pl-5">
-                Historical texts and references
-              </p>
-              <div className="space-y-6">
-                {hero.primarySources.map((source, index) => (
-                  <blockquote
-                    key={`${source.source}-${index}`}
-                    className="border-l-4 border-gold/30 pl-4 py-2 bg-muted/50 rounded-r-lg"
-                  >
-                    <p className="text-foreground/80 italic leading-relaxed">
-                      &ldquo;{source.text}&rdquo;
-                    </p>
-                    <footer className="mt-2 text-sm text-muted-foreground">
-                      <span className="font-medium">{source.source}</span>
-                      {source.date && (
-                        <span className="ml-2 text-muted-foreground">
-                          ({source.date})
-                        </span>
-                      )}
-                    </footer>
-                  </blockquote>
-                ))}
-              </div>
-            </section>
-          )}
+          <CatalogSourceNotes sources={hero.primarySources} />
 
           {/* Appears In — derived from sources.json */}
           <AppearsIn entityId={hero.id} kind="hero" />

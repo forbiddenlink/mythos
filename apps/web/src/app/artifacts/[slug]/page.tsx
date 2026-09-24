@@ -5,7 +5,7 @@ import deitiesData from "@/data/deities.json";
 import pantheons from "@/data/pantheons.json";
 import storiesData from "@/data/stories.json";
 import { canonicalArtifactSlug } from "@/lib/artifact-aliases";
-import { generateBaseMetadata, generateNotFoundMetadata } from "@/lib/metadata";
+import { generateBaseMetadata, generateNotFoundMetadata, shortPantheonName } from "@/lib/metadata";
 import { ArtifactPageClient } from "./ArtifactPageClient";
 
 // ISR: Revalidate every week (604800 seconds)
@@ -51,7 +51,7 @@ export async function generateMetadata({
   }
 
   const pantheon = pantheons.find((p) => p.id === artifact.pantheonId);
-  const pantheonName = pantheon?.name || "Ancient";
+  const pantheonName = shortPantheonName(pantheon);
 
   // Create a rich description
   const powers = artifact.powers?.slice(0, 3).join(", ") || "";

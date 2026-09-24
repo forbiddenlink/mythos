@@ -7,16 +7,19 @@ const eslintConfig = defineConfig([
   ...nextTs,
   {
     rules: {
-      '@typescript-eslint/no-unused-vars': ['warn', {
-        argsIgnorePattern: '^_',
-        varsIgnorePattern: '^_',
-        caughtErrorsIgnorePattern: '^_',
-      }],
-      'react-hooks/set-state-in-effect': 'warn',
-      'react-hooks/immutability': 'warn',
-      'react-hooks/purity': 'warn',
-      'react-hooks/preserve-manual-memoization': 'off',
-      'react-hooks/exhaustive-deps': 'warn',
+      "@typescript-eslint/no-unused-vars": [
+        "warn",
+        {
+          argsIgnorePattern: "^_",
+          varsIgnorePattern: "^_",
+          caughtErrorsIgnorePattern: "^_",
+        },
+      ],
+      "react-hooks/set-state-in-effect": "warn",
+      "react-hooks/immutability": "warn",
+      "react-hooks/purity": "warn",
+      "react-hooks/preserve-manual-memoization": "off",
+      "react-hooks/exhaustive-deps": "warn",
     },
   },
   // Override default ignores of eslint-config-next.
@@ -29,7 +32,9 @@ const eslintConfig = defineConfig([
     // Generated PWA service worker files
     "public/sw.js",
     "public/workbox-*.js",
-    // Coverage reports
+    // Generated test artifacts and coverage reports
+    "test-results/**",
+    "playwright-report/**",
     "coverage/**",
     // Utility scripts using CommonJS
     "audit_codebase_images.js",

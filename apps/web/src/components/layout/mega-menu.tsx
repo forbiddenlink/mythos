@@ -71,46 +71,46 @@ const discoverMenu: MenuSection = {
   label: "Discover",
   items: [
     {
-      label: "Aether Map",
-      href: "/atlas",
-      description: "Every deity as a star in one navigable sky",
-      mark: "constellation",
-    },
-    {
-      label: "Cosmologies",
-      href: "/cosmology",
-      description: "How each culture mapped heaven, earth, and underworld",
-      mark: "tree",
-    },
-    {
-      label: "The Oracle",
-      href: "/oracle",
-      description: "Ask an AI seer grounded in the Atlas's sources",
-      mark: "owl",
-    },
-    {
       label: "Collections",
       href: "/collections",
-      description: "Curated groupings for faster exploration",
+      description: "Follow a theme across traditions",
       mark: "codex",
     },
     {
       label: "Hero Journeys",
       href: "/journeys",
-      description: "Epic voyages across the ancient world",
+      description: "Follow a story from place to place",
       mark: "compass",
-    },
-    {
-      label: "Compare Deities",
-      href: "/compare",
-      description: "Side-by-side deity comparisons",
-      mark: "scales",
     },
     {
       label: "Family Tree",
       href: "/family-tree",
-      description: "Divine genealogies",
+      description: "Trace parents, siblings, and descendants",
       mark: "tree",
+    },
+    {
+      label: "Compare Deities",
+      href: "/compare",
+      description: "Compare the roles and attributes of two deities",
+      mark: "scales",
+    },
+    {
+      label: "Aether Map",
+      href: "/atlas",
+      description: "Browse deities by tradition and domain",
+      mark: "constellation",
+    },
+    {
+      label: "Cosmologies",
+      href: "/cosmology",
+      description: "Explore heavens, worlds, and underworlds",
+      mark: "tree",
+    },
+    {
+      label: "The Oracle",
+      href: "/oracle",
+      description: "Ask questions with catalog references",
+      mark: "owl",
     },
   ],
 };
@@ -121,7 +121,7 @@ const learnMenu: MenuSection = {
     {
       label: "Study Guides",
       href: "/study",
-      description: "Short ICP routes for undergrads",
+      description: "Read source passages with guided questions",
       mark: "torch",
     },
     {
@@ -133,19 +133,19 @@ const learnMenu: MenuSection = {
     {
       label: "Daily Review",
       href: "/review",
-      description: "Spaced repetition flashcards",
+      description: "Revisit what you have read with flashcards",
       mark: "chronos",
     },
     {
       label: "Learning Paths",
       href: "/learning-paths",
-      description: "Guided mythology courses",
+      description: "Work through a sequence of readings",
       mark: "scroll",
     },
     {
       label: "Guided Tours",
       href: "/tours",
-      description: "Walk mythic routes stop by stop",
+      description: "Explore a subject through selected stops",
       mark: "compass",
     },
     {
@@ -254,7 +254,7 @@ function MegaMenuDropdown({
             transition={{ duration: 0.15 }}
             className="absolute left-1/2 top-full z-50 -translate-x-1/2 pt-2"
           >
-            <div className="w-72 rounded-xl border border-border/50 bg-background/95 backdrop-blur-md shadow-xl overflow-hidden">
+            <div className="max-h-[calc(100dvh-5rem)] w-72 overflow-y-auto overscroll-contain rounded-xl border border-border/50 bg-background/95 backdrop-blur-md shadow-xl">
               <div className="p-2">
                 {section.items.map((item) => (
                   <Link
@@ -273,7 +273,7 @@ function MegaMenuDropdown({
                         {item.label}
                       </div>
                       {item.description && (
-                        <div className="text-xs text-muted-foreground mt-0.5 line-clamp-1">
+                        <div className="text-xs leading-relaxed text-muted-foreground mt-0.5">
                           {item.description}
                         </div>
                       )}

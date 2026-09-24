@@ -1,5 +1,5 @@
 /**
- * Shared Upstash / in-memory rate limiters for paid Anthropic routes.
+ * Shared Upstash / development in-memory rate limiters for Oracle, quiz, and search.
  * Production fails closed when Upstash is not configured.
  */
 

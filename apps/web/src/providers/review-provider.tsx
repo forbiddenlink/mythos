@@ -1,5 +1,7 @@
 "use client";
 
+import { reviewSchema } from "@/lib/learning-backup";
+
 import {
   calculateAccuracy,
   createInitialCardState,
@@ -74,7 +76,17 @@ function loadReviewState(): ReviewState {
     const stored = localStorage.getItem(REVIEW_STORAGE_KEY);
     if (stored) {
       const parsed = JSON.parse(stored);
-      return { ...DEFAULT_REVIEW_STATE, ...parsed };
+      // Keep valid fields from older saves; malformed fields use defaults.
+      const fields = Object.entries(reviewSchema.shape).map(([key, schema]) => {
+        const result = schema.safeParse(parsed?.[key]);
+        return [
+          key,
+          result.success
+            ? result.data
+            : DEFAULT_REVIEW_STATE[key as keyof typeof DEFAULT_REVIEW_STATE],
+        ];
+      });
+      return { ...DEFAULT_REVIEW_STATE, ...Object.fromEntries(fields) };
     }
     return DEFAULT_REVIEW_STATE;
   } catch {

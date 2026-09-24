@@ -37,16 +37,21 @@ const WebVitals = dynamic(
 );
 export function GlobalClientAddons() {
   const [searchOpen, setSearchOpen] = useState(false);
+  const [searchRequested, setSearchRequested] = useState(false);
 
   // Capture intent before the lazy search bundle has finished loading.
   useEffect(() => {
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key.toLowerCase() === "k" && (event.metaKey || event.ctrlKey)) {
         event.preventDefault();
+        setSearchRequested(true);
         setSearchOpen((open) => !open);
       }
     };
-    const openSearch = () => setSearchOpen(true);
+    const openSearch = () => {
+      setSearchRequested(true);
+      setSearchOpen(true);
+    };
     document.addEventListener("keydown", onKeyDown);
     document.addEventListener("open-command-palette", openSearch);
     return () => {
@@ -60,7 +65,9 @@ export function GlobalClientAddons() {
       <ConsentGatedAnalytics />
       <ConsentGatedSentry />
       <OfflineIndicator />
-      <GlobalSearch open={searchOpen} onOpenChange={setSearchOpen} />
+      {searchRequested ? (
+        <GlobalSearch open={searchOpen} onOpenChange={setSearchOpen} />
+      ) : null}
       {pwaInstallEnabled ? <InstallPrompt /> : null}
       <CookieConsent />
       <WebVitals />

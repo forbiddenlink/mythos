@@ -66,6 +66,7 @@ export interface Deity extends BaseEntity {
   importanceRank: number;
   imageUrl?: string;
   pronunciation?: Pronunciation;
+  traditionRole?: string;
   crossPantheonParallels?: Array<{
     pantheonId: string;
     deityId: string;
@@ -153,3 +154,24 @@ export interface Tour {
   pantheonId: string;
   locations: string[];
 }
+
+export interface Pantheon extends BaseEntity {
+  id: string;
+  name: string;
+  slug: string;
+  culture: string;
+  region: string;
+  timePeriodStart?: number | null;
+  timePeriodEnd?: number | null;
+  description: string;
+  detailedHistory?: string;
+  citationSources?: Array<{
+    title: string;
+    author?: string;
+    date?: string;
+    type?: string;
+  }>;
+  imageUrl?: string;
+  figuresLabel?: string;
+}
+

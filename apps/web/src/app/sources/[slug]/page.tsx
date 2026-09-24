@@ -16,16 +16,11 @@ import deities from "@/data/deities.json";
 import heroes from "@/data/heroes.json";
 import storiesData from "@/data/stories.json";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
-import { RouteHero } from "@/components/layout/route-hero";
-import {
-  pageLedeOnDarkClass,
-  pageTitleOnDarkClass,
-} from "@/components/layout/page-typography";
 import { generateBaseMetadata, generateNotFoundMetadata } from "@/lib/metadata";
 import { matchesSource } from "@/lib/source-matching";
 import { BookmarkButton } from "@/components/ui/bookmark-button";
+import { SourceExcerpt } from "@/components/sources/SourceExcerpt";
 
 export const revalidate = 604800;
 
@@ -196,79 +191,53 @@ export default async function SourcePage({ params }: PageProps) {
   });
 
   return (
-    <div className="min-h-screen bg-mythic">
-      <RouteHero>
-        <h1 className={pageTitleOnDarkClass}>{source.title}</h1>
-        {source.author && (
-          <p className={pageLedeOnDarkClass}>{source.author}</p>
-        )}
-      </RouteHero>
-
+    <div className="min-h-screen bg-background">
       <div className="page-shell max-w-4xl">
         <Breadcrumbs />
-
+        <header className="mt-8 border-b border-border pb-8">
+          <p className="mb-3 text-sm uppercase tracking-widest text-gold-text">
+            Source record
+          </p>
+          <div className="flex items-start justify-between gap-4">
+            <h1 className="page-title text-foreground">{source.title}</h1>
+            <BookmarkButton type="source" id={source.id} />
+          </div>
+          <p className="mt-4 flex flex-wrap gap-x-3 gap-y-1 text-sm text-muted-foreground">
+            {source.author && <span>{source.author}</span>}
+            {source.year && <span>{source.year}</span>}
+            {source.language && <span>{source.language}</span>}
+          </p>
+          <p className="mt-6 max-w-2xl font-body text-xl leading-relaxed text-foreground">
+            {source.description}
+          </p>
+          {source.externalUrl && (
+            <a
+              href={source.externalUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`Read ${source.title} online (opens in new tab)`}
+              className="mt-5 inline-flex min-h-11 items-center gap-2 font-medium text-gold-text underline underline-offset-4"
+            >
+              Open source{" "}
+              <ExternalLink className="h-4 w-4" aria-hidden="true" />
+            </a>
+          )}
+          {source.translators && source.translators.length > 0 && (
+            <div className="mt-6 border-t border-border pt-5">
+              <h2 className="mb-2 text-sm font-medium text-foreground">
+                Translations
+              </h2>
+              <ul className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted-foreground">
+                {source.translators.map((translator) => (
+                  <li key={translator.name}>
+                    {translator.name} ({translator.year})
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </header>
         <div className="mt-8 space-y-8">
-          {/* Main Work Header Card */}
-          <Card className="parchment-card border-gold/20 bg-card/70 p-6 md:p-8 backdrop-blur-xs shadow-sm">
-            <CardHeader className="p-0 pb-4">
-              <div className="flex flex-wrap items-start justify-between gap-3">
-                <div>
-                  <CardTitle className="text-foreground text-2xl font-serif flex items-center gap-2">
-                    {source.title}
-                    {source.externalUrl && (
-                      <a
-                        href={source.externalUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label={`Read ${source.title} online`}
-                        className="text-gold/70 hover:text-gold transition-colors"
-                      >
-                        <ExternalLink className="h-4 w-4" />
-                      </a>
-                    )}
-                  </CardTitle>
-                  <p className="text-gold/90 text-sm font-medium mt-1">
-                    {source.author || "Traditional / Canonical"}
-                    {source.year && ` · ${source.year}`}
-                    {source.language && ` · ${source.language}`}
-                  </p>
-                </div>
-                <div className="flex items-center gap-2">
-                  {source.language && (
-                    <span className="px-3 py-1 rounded text-xs font-medium uppercase tracking-wider bg-gold/10 text-gold border border-gold/30">
-                      {source.language}
-                    </span>
-                  )}
-                  <BookmarkButton type="source" id={source.id} />
-                </div>
-              </div>
-            </CardHeader>
-            <CardContent className="p-0 space-y-4">
-              <p className="text-muted-foreground text-base leading-relaxed">
-                {source.description}
-              </p>
-
-              {source.translators && source.translators.length > 0 && (
-                <div className="pt-2">
-                  <h3 className="text-foreground font-serif text-sm font-medium mb-2">
-                    Notable Academic Translations
-                  </h3>
-                  <div className="flex flex-wrap gap-2">
-                    {source.translators.map((t) => (
-                      <Badge
-                        key={t.name}
-                        variant="outline"
-                        className="border-gold/30 text-gold bg-gold/5"
-                      >
-                        {t.name} ({t.year})
-                      </Badge>
-                    ))}
-                  </div>
-                </div>
-              )}
-            </CardContent>
-          </Card>
-
           {/* Reading Guidance / Where To Start */}
           {source.readingOrder && (
             <Card className="border-gold/20 bg-card/60 p-6 shadow-sm">
@@ -303,7 +272,7 @@ export default async function SourcePage({ params }: PageProps) {
                 {/* Heroes */}
                 {heroCharacters.length > 0 && (
                   <div>
-                    <h3 className="text-gold font-serif text-sm uppercase tracking-wider mb-3">
+                    <h3 className="text-gold-text font-serif text-sm uppercase tracking-wider mb-3">
                       Heroes &amp; Mortals
                     </h3>
                     <div className="grid gap-4 sm:grid-cols-2">
@@ -324,7 +293,7 @@ export default async function SourcePage({ params }: PageProps) {
                                   className="object-cover"
                                 />
                               ) : (
-                                <div className="flex h-full w-full items-center justify-center text-gold font-serif text-lg">
+                                <div className="flex h-full w-full items-center justify-center text-gold-text font-serif text-lg">
                                   {hero ? hero.name.charAt(0) : c.id.charAt(0)}
                                 </div>
                               )}
@@ -333,7 +302,7 @@ export default async function SourcePage({ params }: PageProps) {
                               {hero ? (
                                 <Link
                                   href={`/heroes/${hero.slug}`}
-                                  className="font-medium text-foreground text-sm hover:text-gold transition-colors block truncate"
+                                  className="font-medium text-foreground text-sm hover:text-gold-text transition-colors block truncate"
                                 >
                                   {hero.name}
                                 </Link>
@@ -345,7 +314,7 @@ export default async function SourcePage({ params }: PageProps) {
                               <p className="text-muted-foreground text-xs leading-snug mt-1">
                                 {c.role}
                               </p>
-                              <span className="text-[11px] text-gold/80 block mt-1">
+                              <span className="text-[11px] text-gold-text block mt-1">
                                 {c.where}
                               </span>
                             </div>
@@ -359,7 +328,7 @@ export default async function SourcePage({ params }: PageProps) {
                 {/* Deities */}
                 {deityCharacters.length > 0 && (
                   <div className="pt-2">
-                    <h3 className="text-gold font-serif text-sm uppercase tracking-wider mb-3">
+                    <h3 className="text-gold-text font-serif text-sm uppercase tracking-wider mb-3">
                       Deities &amp; Immortals
                     </h3>
                     <div className="grid gap-4 sm:grid-cols-2">
@@ -380,7 +349,7 @@ export default async function SourcePage({ params }: PageProps) {
                                   className="object-cover"
                                 />
                               ) : (
-                                <div className="flex h-full w-full items-center justify-center text-gold font-serif text-lg">
+                                <div className="flex h-full w-full items-center justify-center text-gold-text font-serif text-lg">
                                   {deity
                                     ? deity.name.charAt(0)
                                     : c.id.charAt(0)}
@@ -391,7 +360,7 @@ export default async function SourcePage({ params }: PageProps) {
                               {deity ? (
                                 <Link
                                   href={`/deities/${deity.slug}`}
-                                  className="font-medium text-foreground text-sm hover:text-gold transition-colors block truncate"
+                                  className="font-medium text-foreground text-sm hover:text-gold-text transition-colors block truncate"
                                 >
                                   {deity.name}
                                 </Link>
@@ -403,7 +372,7 @@ export default async function SourcePage({ params }: PageProps) {
                               <p className="text-muted-foreground text-xs leading-snug mt-1">
                                 {c.role}
                               </p>
-                              <span className="text-[11px] text-gold/80 block mt-1">
+                              <span className="text-[11px] text-gold-text block mt-1">
                                 {c.where}
                               </span>
                             </div>
@@ -438,13 +407,13 @@ export default async function SourcePage({ params }: PageProps) {
                       className="border-l-2 border-gold/40 pl-4 py-1"
                     >
                       <div className="flex flex-wrap items-baseline gap-2">
-                        <span className="font-serif text-xs font-semibold text-gold">
+                        <span className="font-serif text-xs font-semibold text-gold-text">
                           {ROMAN_NUMERALS[index] || `${index + 1}.`}
                         </span>
                         <h4 className="font-medium text-foreground text-base">
                           {scene.title}
                         </h4>
-                        <span className="text-xs text-gold/80 font-medium">
+                        <span className="text-xs text-gold-text font-medium">
                           ({scene.where})
                         </span>
                       </div>
@@ -472,63 +441,18 @@ export default async function SourcePage({ params }: PageProps) {
                 </p>
               </CardHeader>
               <CardContent className="p-0 space-y-6">
-                {sourceExcerpts.map((excerpt, idx) => (
+                {sourceExcerpts.map((excerpt, index) => (
                   <div
-                    key={`${excerpt.entitySlug}-${idx}`}
-                    className="p-4 rounded-xl border border-gold/20 bg-background/50 space-y-3"
+                    key={`${excerpt.entitySlug}-${index}`}
+                    className="space-y-3"
                   >
-                    <div className="flex flex-wrap items-center justify-between gap-2 text-xs">
-                      <span className="font-medium text-gold">
-                        {excerpt.lineNumbers
-                          ? `Ref: ${excerpt.lineNumbers}`
-                          : "Original Excerpt"}
-                      </span>
-                      {excerpt.quoteStatus === "direct-quotation" &&
-                        excerpt.verification === "verified" &&
-                        excerpt.originalLanguage && (
-                        <span className="text-muted-foreground uppercase text-[11px] tracking-wider">
-                          {excerpt.originalLanguage}
-                        </span>
-                      )}
-                    </div>
-                    <span className="inline-flex w-fit rounded border border-gold/30 bg-gold/5 px-1.5 py-0.5 text-xs font-medium text-gold-text">
-                      {excerpt.quoteStatus === "direct-quotation"
-                        ? excerpt.verification === "verified"
-                          ? "Direct quotation"
-                          : "Original wording unverified"
-                        : excerpt.quoteStatus === "editorial-paraphrase"
-                          ? "Editorial paraphrase"
-                          : "Verification pending"}
-                    </span>
-                    {excerpt.quoteStatus === "direct-quotation" &&
-                    excerpt.verification === "verified" ? (
-                      <>
-                        <blockquote className="font-serif text-base md:text-lg italic text-foreground/90 leading-relaxed pl-3 border-l-2 border-gold/40">
-                          &ldquo;{excerpt.text}&rdquo;
-                        </blockquote>
-                        <p className="text-sm text-muted-foreground leading-relaxed pl-3">
-                          {excerpt.translation}
-                        </p>
-                      </>
-                    ) : (
-                      <p className="font-serif text-base md:text-lg text-foreground/90 leading-relaxed">
-                        {excerpt.translation}
-                      </p>
-                    )}
-                    <div className="pt-2 border-t border-border/40 flex items-center justify-between text-xs text-muted-foreground">
-                      <div className="space-y-1">
-                        <span className="block">
-                          Translator: {excerpt.translator || "Not specified"}
-                        </span>
-                        <span className="block">{excerpt.edition}</span>
-                      </div>
-                      <Link
-                        href={`/${excerpt.entityType === "story" ? "stories" : "deities"}/${excerpt.entitySlug}`}
-                        className="text-gold hover:underline inline-flex items-center gap-1"
-                      >
-                        Featured in {excerpt.entityTitle} &rarr;
-                      </Link>
-                    </div>
+                    <SourceExcerpt excerpt={excerpt} />
+                    <Link
+                      href={`/${excerpt.entityType === "story" ? "stories" : "deities"}/${excerpt.entitySlug}`}
+                      className="inline-flex min-h-11 items-center gap-1 text-sm text-gold-text underline underline-offset-4"
+                    >
+                      Featured in {excerpt.entityTitle} &rarr;
+                    </Link>
                   </div>
                 ))}
               </CardContent>
@@ -553,7 +477,7 @@ export default async function SourcePage({ params }: PageProps) {
                       className="p-3.5 rounded-xl border border-gold/20 bg-background/60 hover:border-gold/40 transition-colors flex items-center justify-between group"
                     >
                       <div className="min-w-0 flex-1 pr-2">
-                        <h4 className="font-medium text-sm text-foreground group-hover:text-gold transition-colors truncate">
+                        <h4 className="font-medium text-sm text-foreground group-hover:text-gold-text transition-colors truncate">
                           {story.title}
                         </h4>
                         <p className="text-xs text-muted-foreground line-clamp-1 mt-0.5">
@@ -562,7 +486,7 @@ export default async function SourcePage({ params }: PageProps) {
                             "Read full narrative"}
                         </p>
                       </div>
-                      <ArrowRight className="h-4 w-4 text-gold/60 group-hover:text-gold group-hover:translate-x-0.5 transition-all shrink-0" />
+                      <ArrowRight className="h-4 w-4 text-gold/60 group-hover:text-gold-text group-hover:translate-x-0.5 transition-all shrink-0" />
                     </Link>
                   ))}
                 </div>

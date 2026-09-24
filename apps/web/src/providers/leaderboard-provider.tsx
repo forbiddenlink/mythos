@@ -52,7 +52,27 @@ function loadLeaderboard(): LeaderboardEntry[] {
   if (typeof window === "undefined") return [];
   try {
     const stored = localStorage.getItem(LEADERBOARD_STORAGE_KEY);
-    return stored ? JSON.parse(stored) : [];
+    const parsed: unknown = stored ? JSON.parse(stored) : [];
+    if (!Array.isArray(parsed)) return [];
+    return parsed.filter(
+      (entry): entry is LeaderboardEntry =>
+        entry !== null &&
+        typeof entry === "object" &&
+        typeof entry.id === "string" &&
+        entry.id.length > 0 &&
+        typeof entry.nickname === "string" &&
+        typeof entry.lastUpdated === "string" &&
+        Number.isFinite(Date.parse(entry.lastUpdated)) &&
+        [
+          entry.totalXP,
+          entry.quickQuizHighScore,
+          entry.achievementsUnlocked,
+          entry.longestStreak,
+        ].every(
+          (value) =>
+            typeof value === "number" && Number.isFinite(value) && value >= 0,
+        ),
+    );
   } catch {
     return [];
   }

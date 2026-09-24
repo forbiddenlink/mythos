@@ -2,9 +2,16 @@ import type { Metadata } from "next";
 import { notFound, redirect } from "next/navigation";
 import stories from "@/data/stories.json";
 import pantheons from "@/data/pantheons.json";
-import { generateBaseMetadata, generateNotFoundMetadata } from "@/lib/metadata";
+import {
+  generateBaseMetadata,
+  generateNotFoundMetadata,
+  shortPantheonName,
+} from "@/lib/metadata";
 import { canonicalStorySlug } from "@/lib/story-aliases";
-import { StoryPageClient } from "./StoryPageClient";
+import { StoryPageClient, type StoryPageClientProps } from "./StoryPageClient";
+import deities from "@/data/deities.json";
+import locations from "@/data/locations.json";
+import { MuseumObjects } from "@/components/stories/MuseumObjects";
 import { getMythVersions } from "@/lib/myth-versions";
 
 // ISR: Revalidate every week (604800 seconds)
@@ -46,7 +53,7 @@ export async function generateMetadata({
   }
 
   const pantheon = pantheons.find((p) => p.id === story.pantheonId);
-  const pantheonName = pantheon?.name || "Ancient";
+  const pantheonName = shortPantheonName(pantheon);
 
   // Create a rich description
   const themes = story.moralThemes?.slice(0, 3).join(", ") || "";
@@ -88,5 +95,61 @@ export default async function StoryPage({ params }: PageProps) {
     notFound();
   }
 
-  return <StoryPageClient slug={slug} versions={getMythVersions(slug)} />;
+  const pantheon = pantheons.find((entry) => entry.id === story.pantheonId);
+  const featuredDeitiesData = (story.featuredDeities || []).flatMap((id) => {
+    const entry = deities.find((deity) => deity.id === id);
+    return entry
+      ? [
+          {
+            id: entry.id,
+            name: entry.name,
+            slug: entry.slug,
+            domain: entry.domain,
+            imageUrl: entry.imageUrl,
+          },
+        ]
+      : [];
+  });
+  const featuredLocationsData = (story.featuredLocations || []).flatMap(
+    (id) => {
+      const entry = locations.find((location) => location.id === id);
+      return entry
+        ? [
+            {
+              id: entry.id,
+              name: entry.name,
+              slug: entry.id,
+              imageUrl: entry.imageUrl,
+            },
+          ]
+        : [];
+    },
+  );
+  const relatedStoriesData = (story.relatedStories || []).flatMap((id) => {
+    const entry = stories.find((related) => related.id === id);
+    return entry
+      ? [
+          {
+            id: entry.id,
+            title: entry.title,
+            slug: entry.slug,
+            summary: entry.summary,
+          },
+        ]
+      : [];
+  });
+
+  return (
+    <StoryPageClient
+      story={story as StoryPageClientProps["story"]}
+      pantheon={
+        pantheon ? { name: pantheon.name, slug: pantheon.slug } : undefined
+      }
+      featuredDeitiesData={featuredDeitiesData}
+      featuredLocationsData={featuredLocationsData}
+      relatedStoriesData={relatedStoriesData}
+      museumObjects={<MuseumObjects storyId={story.id} />}
+      versions={getMythVersions(slug)}
+    />
+  );
 }

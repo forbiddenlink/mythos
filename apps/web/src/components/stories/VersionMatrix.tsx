@@ -128,11 +128,16 @@ export function VersionMatrix({ versions }: { versions: MythVersions }) {
             aria-hidden
             className="inline-block h-3 w-5 rounded-sm border border-gold/40 bg-gold/15"
           />
-          Shaded column: the version most people know
+          Shaded column: comparison baseline
         </li>
       </ul>
 
-      <div className="mt-6 overflow-x-auto rounded-lg border border-border/70">
+      <div
+        role="region"
+        aria-labelledby="version-matrix-title"
+        tabIndex={0}
+        className="relative mt-6 overflow-x-auto rounded-lg border border-border/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+      >
         <table className="w-full min-w-[44rem] border-collapse text-left text-sm">
           <caption className="sr-only">
             {versions.question} Rows are moments in the story; columns are
@@ -158,12 +163,25 @@ export function VersionMatrix({ versions }: { versions: MythVersions }) {
                   <span className="block font-serif text-sm leading-snug text-foreground">
                     {s.name}
                   </span>
+                  <span className="mt-1 block text-xs leading-relaxed text-muted-foreground">
+                    {s.work}
+                  </span>
                   <span className="mt-1 block text-xs text-muted-foreground">
                     {s.date}
                   </span>
+                  {s.readingUrl && (
+                    <a
+                      href={s.readingUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-2 inline-flex min-h-11 items-center text-xs text-gold-text underline underline-offset-4"
+                    >
+                      Read the passage (opens a new tab)
+                    </a>
+                  )}
                   <span className="mt-1 block text-[0.65rem] uppercase tracking-[0.12em] text-gold-text">
                     {KIND_LABEL[s.kind]}
-                    {s.reference && " · most familiar"}
+                    {s.reference && " · baseline"}
                   </span>
                 </th>
               ))}
