@@ -75,10 +75,45 @@ not asking.
 Every path to Stripe goes through `SupportButton`, so the funnel has exactly one
 conversion event, tagged with the placement it came from.
 
+## The dashboard
+
+`https://us.posthog.com/project/626790/dashboard/2132719` — PostHog org **Mythos Atlas**,
+project **626790**. The project is deliberately separate from the shared "Default project",
+which already collects three other sites; a funnel computed across four unrelated products
+answers nothing.
+
+Nine saved insights, each written to answer one question rather than to look thorough:
+
+| Insight                        | The question                                                     |
+| ------------------------------ | ---------------------------------------------------------------- |
+| Does anyone pay                | Visit to support click, the only conversion the site has         |
+| Does anyone engage             | Landing to a finished quiz                                       |
+| Product-market fit signal      | Share answering "very disappointed"; 40% is the conventional bar |
+| Which pantheons earn attention | What to write next                                               |
+| Searches that found nothing    | Content gaps someone actually asked for                          |
+| Does the share loop exist      | No shares means no organic growth                                |
+| Is the Oracle citing sources   | Ungrounded answers are the failure mode                          |
+| Slowest routes (LCP p75)       | Field data per path, not an average                              |
+| Value moments delivered        | Exports, study sessions, finished quizzes                        |
+
+Read the funnels before the trend lines. A rising pageview count with a flat support funnel
+is traffic, not interest.
+
 ## Configuration
 
 See `apps/web/.env.example`. With no key set, the app runs normally and records
 nothing.
+
+## A 404 that answers 200
+
+`notFound()` in a dynamic route returns **200** with the 404 body, not a 404 status. This is
+documented Next.js behaviour, not a bug in this app: the response has already begun streaming
+by the time the check runs, and the status cannot change afterwards. Reproduced on 16.3.4 with
+a page whose entire body is `notFound()`, and with middleware fully disabled.
+
+The mitigation is already in place — `src/app/not-found.tsx` sets `robots: { index: false }`,
+which is the remedy Next's own documentation names. A real 404 status would mean checking the
+slug before the response streams, i.e. carrying entity id lists in middleware. Not worth it.
 
 ## Errors
 
