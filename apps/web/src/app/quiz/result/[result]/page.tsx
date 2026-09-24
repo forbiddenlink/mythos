@@ -6,7 +6,11 @@ import { SupportNudge } from "@/components/support/SupportNudge";
 import { Button } from "@/components/ui/button";
 import { ShareButton } from "@/components/sharing/ShareButton";
 import { generateBaseMetadata, siteConfig } from "@/lib/metadata";
-import { parseQuizResultSlug, quizResultVerdict } from "@/lib/quiz-share";
+import {
+  parseQuizResultSlug,
+  quizLabel,
+  quizResultVerdict,
+} from "@/lib/quiz-share";
 
 export async function generateMetadata({
   params,
@@ -28,7 +32,7 @@ export async function generateMetadata({
 
   return generateBaseMetadata({
     title: `${verdict.title} — ${parsed.score}/${parsed.total}`,
-    description: `${verdict.blurb} Take the Mythos Atlas mythology quiz and see how you compare.`,
+    description: `${verdict.blurb} Take the ${quizLabel(parsed.quizId)} on Mythos Atlas and see how you compare.`,
     url: `/quiz/result/${result}`,
     // Passed explicitly: generateBaseMetadata always sets openGraph.images,
     // which overrides the opengraph-image file convention and would put the
@@ -57,6 +61,8 @@ export default async function QuizResultPage({
   }
 
   const { score, total } = parsed;
+  const quizHref =
+    parsed.quizId === "relationships" ? "/quiz/relationships" : "/quiz";
   const percent = Math.round((score / total) * 100);
   const verdict = quizResultVerdict(score, total);
 
@@ -65,7 +71,9 @@ export default async function QuizResultPage({
       <div className="page-shell">
         <Breadcrumbs />
         <div className="mx-auto mt-12 max-w-2xl text-center">
-          <p className="page-eyebrow text-gold-text">Mythology quiz</p>
+          <p className="page-eyebrow text-gold-text">
+            {quizLabel(parsed.quizId)}
+          </p>
 
           <div className="mt-6 flex items-baseline justify-center gap-3">
             <span className="font-display text-7xl font-bold text-gold">
@@ -88,12 +96,12 @@ export default async function QuizResultPage({
 
           <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <Button asChild variant="gold" size="lg">
-              <Link href="/quiz">Beat this score</Link>
+              <Link href={quizHref}>Beat this score</Link>
             </Button>
             <ShareButton
               surface="quiz_result_page"
               title="Mythos Atlas quiz result"
-              text={`I scored ${score}/${total} on the Mythos Atlas mythology quiz. Can you beat it?`}
+              text={`I scored ${score}/${total} on the ${quizLabel(parsed.quizId)}. Can you beat it?`}
               url={`https://mythosatlas.com/quiz/result/${result}`}
             />
           </div>

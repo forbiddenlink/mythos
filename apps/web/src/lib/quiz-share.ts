@@ -10,31 +10,66 @@
 /** Longest quiz the route will describe; keeps the segment from being abused. */
 export const MAX_QUIZ_LENGTH = 100;
 
+/**
+ * Quizzes that may appear in a share slug. Closed set: the id is rendered on
+ * the page, so accepting an arbitrary prefix would let the URL write copy.
+ */
+export const QUIZ_LABELS = {
+  relationships: "Divine Relationships Quiz",
+} as const;
+
+export type QuizId = keyof typeof QUIZ_LABELS;
+
+const DEFAULT_QUIZ_LABEL = "Mythology Quiz";
+
+export function quizLabel(quizId: string | undefined): string {
+  if (quizId && quizId in QUIZ_LABELS) {
+    return QUIZ_LABELS[quizId as QuizId];
+  }
+  return DEFAULT_QUIZ_LABEL;
+}
+
 export interface QuizResult {
   score: number;
   total: number;
+  quizId?: QuizId;
 }
 
-export function formatQuizResultSlug(score: number, total: number): string {
-  return `${score}-of-${total}`;
+export function formatQuizResultSlug(
+  score: number,
+  total: number,
+  quizId?: QuizId,
+): string {
+  const tail = `${score}-of-${total}`;
+  return quizId ? `${quizId}-${tail}` : tail;
 }
 
-export function quizResultPath(score: number, total: number): string {
-  return `/quiz/result/${formatQuizResultSlug(score, total)}`;
+export function quizResultPath(
+  score: number,
+  total: number,
+  quizId?: QuizId,
+): string {
+  return `/quiz/result/${formatQuizResultSlug(score, total, quizId)}`;
 }
 
 export function parseQuizResultSlug(slug: string): QuizResult | null {
-  const match = /^(\d+)-of-(\d+)$/.exec(slug);
+  const match = /^(?:([a-z]+)-)?(\d+)-of-(\d+)$/.exec(slug);
   if (!match) return null;
 
-  const score = Number.parseInt(match[1], 10);
-  const total = Number.parseInt(match[2], 10);
+  const [, rawQuizId, rawScore, rawTotal] = match;
+
+  if (rawQuizId !== undefined && !(rawQuizId in QUIZ_LABELS)) return null;
+
+  const score = Number.parseInt(rawScore, 10);
+  const total = Number.parseInt(rawTotal, 10);
 
   if (!Number.isFinite(score) || !Number.isFinite(total)) return null;
   if (total < 1 || total > MAX_QUIZ_LENGTH) return null;
   if (score < 0 || score > total) return null;
 
-  return { score, total };
+  return rawQuizId
+    ? { score, total, quizId: rawQuizId as QuizId }
+    : { score, total };
 }
 
 export interface QuizVerdict {
