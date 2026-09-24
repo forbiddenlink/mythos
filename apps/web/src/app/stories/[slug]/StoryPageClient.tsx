@@ -233,6 +233,7 @@ export function StoryPageClient({
           >
             <BookmarkButton type="story" id={story.id} />
             <ShareButton
+              surface="story_page"
               title={`${story.title} - Mythos Atlas`}
               text={story.summary}
               url={`https://mythosatlas.com/stories/${story.slug}`}

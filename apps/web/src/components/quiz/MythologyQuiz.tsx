@@ -28,6 +28,7 @@ import { ShareButton } from "@/components/sharing/ShareButton";
 import { QuizRetentionSurvey } from "@/components/quiz/QuizRetentionSurvey";
 import { SupportNudge } from "@/components/support/SupportNudge";
 import { trackEvent } from "@/lib/analytics/events";
+import { quizResultPath } from "@/lib/quiz-share";
 import { useProgress } from "@/hooks/use-progress";
 import { quizLearnMore } from "@/lib/quiz-learn-more";
 import deitiesData from "@/data/deities.json";
@@ -416,10 +417,13 @@ export function MythologyQuiz() {
           <SupportNudge moment="quiz_completed" placement="quiz_results" />
 
           <div className="flex flex-col sm:flex-row gap-3">
+            {/* The score lives in the path so the Open Graph card can render
+                it; a shared /quiz link carries no score at all. */}
             <ShareButton
+              surface="quiz_results"
               title="Mythos Atlas Quiz Results"
               text={`I scored ${score}/${questions.length} (${percentage}%) on the Mythos Atlas mythology quiz! Can you beat my score?`}
-              url="https://mythosatlas.com/quiz"
+              url={`https://mythosatlas.com${quizResultPath(score, questions.length)}`}
               className="flex-1 [&_button]:w-full [&_button]:h-12 [&_button]:text-lg"
             />
             <Button

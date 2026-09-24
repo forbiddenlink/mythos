@@ -355,6 +355,7 @@ export function DeityPageClient({
                     variant="light"
                   />
                   <ShareButton
+                    surface="deity_page"
                     title={`${deity.name} - Mythos Atlas`}
                     text={`Discover ${deity.name}, ${deity.domain?.join(", ") || "deity"} from ancient mythology on Mythos Atlas`}
                     url={`https://mythosatlas.com/deities/${deity.slug}`}
