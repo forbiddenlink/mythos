@@ -17448,7 +17448,10 @@
         }
       ]
     },
-    "fullBrowserSuite": "rerunning after correcting three test expectations",
+    "fullBrowserSuite": "154 passed; final complete Chromium run against the local production build",
+    "lint": "passed without warnings",
+    "integrationPullRequest": "https://github.com/forbiddenlink/mythos/pull/119",
+    "branchCleanup": "PR117 and PR118 closed as superseded; remote branches removed after ancestry verification; clean rv-scan worktree removed",
     "productionPromoted": false
   }
 }

@@ -607,3 +607,15 @@ Validation: nine targeted browser tests passed; 30 existing pagination-hook test
 Next: reconcile the remaining dependency/image-policy work in open PRs against the current changes, then profile deployed browse and story loading. The broader editorial review and real-reader validation remain unfinished. Production has not been promoted.
 
 Protected preview: https://mythos-irpkencj7-elizabeth-emersons-projects.vercel.app/locations?page=2&view=list . Remote production build passed; deployed browser smoke confirmed page two and next-page navigation to entries 49–72.
+
+## September 23 integration — performance, documentation, and branch cleanup
+
+PR119 consolidates the prior reader, collection, support, privacy, and catalog work with the current main branch and the histories of PR117/118. The older PRs were closed as superseded, their remote branches removed after verifying ancestry in the pushed integration branch, and the clean rv-scan worktree removed. Local main is aligned with origin/main; the integration branch retains the earlier local commits. The unrelated local pre-commit hook change remains outside this PR.
+
+Heroes and Locations now receive compact server-projected records instead of shipping full catalog JSON. Local production measurements show raw JavaScript reductions of 9.6% and 52.3%, respectively; after accounting for larger HTML, combined raw HTML plus JavaScript falls approximately 7% and 45%. The measured Persephone story payload is unchanged. Method and byte counts are in the performance audit; these measurements do not establish field latency or LCP gains.
+
+Updated README, CONTRIBUTING, CLAUDE, environment examples, operational guidance, and the architecture diagrams to reflect the actual static-data flow, optional services, reader state, and release process. Production Oracle requires shared Upstash limits for either provider; only development can use in-memory fallback.
+
+Validation: 1,042 unit tests in 102 files with configured coverage checks, all 154 Chromium browser tests, production builds, typecheck, and clean lint. Independent reviews checked catalog field contracts, integration changes, and documentation. Museum image behavior remains unchanged; visible pagination replaces the older hidden-link proposal.
+
+Review: https://github.com/forbiddenlink/mythos/pull/119 . Production remains unchanged. Next release decisions should use the protected preview and CI results. Further story performance profiling, qualified editorial review, and real-reader usability evidence remain open; animation or bulk content additions should not displace those priorities.
