@@ -70,6 +70,7 @@ interface Question {
 export function MythologyQuiz() {
   const { recordQuizScore, trackQuizCompletion } = useProgress();
   const recordedCompletion = useRef(false);
+  const startedQuiz = useRef(false);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [score, setScore] = useState(0);
   const [highScore, setHighScore] = useState(0);
@@ -311,6 +312,12 @@ export function MythologyQuiz() {
   }, [deities, relationships]);
 
   const handleAnswerSelect = (answer: string) => {
+    // Counted on the first answer rather than on mount, so a visitor who
+    // opens the quiz and leaves does not inflate the start of the funnel.
+    if (!startedQuiz.current) {
+      startedQuiz.current = true;
+      trackEvent("quiz_started", { quizId: "mythology-quiz" });
+    }
     setSelectedAnswer(answer);
     setShowResult(true);
 
