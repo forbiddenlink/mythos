@@ -5,6 +5,47 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.4.0](https://github.com/forbiddenlink/mythos/compare/v1.3.1...v1.4.0) (2026-09-22)
+
+
+### Features
+
+* add cult notes for pantheon heads and olympians ([765e588](https://github.com/forbiddenlink/mythos/commit/765e588b14072a942adb20ed7dcbf27267ed6de3))
+* add cult notes for the remaining deities ([daefa96](https://github.com/forbiddenlink/mythos/commit/daefa962dc646fd28fc97d216bf53bbb8943ab80))
+* add cult notes to the densified deities ([7b959a0](https://github.com/forbiddenlink/mythos/commit/7b959a090a990a02f4ea72d2be1172aed9462cd9))
+* **assets:** generate complete visual suite for missing pantheons, heroes, deities, creatures, locations, and stories ([0ec83d0](https://github.com/forbiddenlink/mythos/commit/0ec83d07ff09e3dd38fe6599c064e1439c53c017))
+* **assets:** upgrade creature, artifact, story, and journey illustrations ([3b3dc9b](https://github.com/forbiddenlink/mythos/commit/3b3dc9b2b051a37be7a54173998a77fb3a682f22))
+* cite a primary source after quiz answers ([651cecf](https://github.com/forbiddenlink/mythos/commit/651cecf9cf81aa6987f4d1afb48001c68e572fb7))
+* complete location and journey visuals, guided tours, and multi-category quiz ([af90d6f](https://github.com/forbiddenlink/mythos/commit/af90d6fda9ae5a1ac6afefc0e804c416ee633274))
+* **content:** add 23 missing major figures and repair broken refs ([47fb400](https://github.com/forbiddenlink/mythos/commit/47fb400b5fef5a146643b4305ef38813a074cfd0))
+* **content:** add a Slavic pantheon with its source problem stated ([05c582e](https://github.com/forbiddenlink/mythos/commit/05c582effb12266d4ccae46b895cc50833cfd4cf))
+* **content:** add Haudenosaunee and Tlingit-Haida traditions ([06b8316](https://github.com/forbiddenlink/mythos/commit/06b83168aa8a926d28bb92acbbcd008174c0ae83))
+* **content:** add heroes from beyond Greece ([eb187ab](https://github.com/forbiddenlink/mythos/commit/eb187abadc5ae3551b7988b8b076cea19a15e3ab))
+* **cosmology:** draw each pantheon's own map of the universe ([87d3e88](https://github.com/forbiddenlink/mythos/commit/87d3e88855f403c9bc439b16c8c6a79c2b44ee90))
+* densify bios, family graph, and branching myths ([6bcfdf4](https://github.com/forbiddenlink/mythos/commit/6bcfdf487bf1e4056454a81ad62914f5bf37f979))
+* densify creature, artifact, and location entries ([3db4f1c](https://github.com/forbiddenlink/mythos/commit/3db4f1cdbc2877add23ce740c5683d3a0292ae78))
+* **design:** overhaul visual branding, multi-res favicons, and typography fallbacks ([8ad648e](https://github.com/forbiddenlink/mythos/commit/8ad648eb9d1d68d3217761de1c41af39ac1508cb))
+* expand deity facts, decouple client JSON bundles, add dynamic audio routing, and extend attestation timeline ([f913e38](https://github.com/forbiddenlink/mythos/commit/f913e38e73105b7fe6c58975cc1bc9e4c582924e))
+* **museum:** show real public-domain art for gods and creatures ([19526c2](https://github.com/forbiddenlink/mythos/commit/19526c26f10251f0020773f6ad763d9a725ad455))
+* put remaining rank-1 deities in the family graph ([22df17d](https://github.com/forbiddenlink/mythos/commit/22df17d0a8f133124f1f7b4673b49a462b7d74b3))
+* **stories:** add the abduction of Persephone with its version matrix ([c81f3c9](https://github.com/forbiddenlink/mythos/commit/c81f3c981af113d9a3a0a0535fee5382fe8f3be3))
+* **stories:** compare how each source tells a myth ([2666dc9](https://github.com/forbiddenlink/mythos/commit/2666dc9794bcd777f3d2dcb0e847d6efa548aa23))
+
+
+### Bug Fixes
+
+* accept deity source text in quiz learn-more types ([4b9df26](https://github.com/forbiddenlink/mythos/commit/4b9df2637475fbb4b24fe6c39847dd1ca38b5c5e))
+* alias the Tula Quetzalcoatl duplicate and unique story titles ([4ec7c0c](https://github.com/forbiddenlink/mythos/commit/4ec7c0cfb2897d6734aacaa2750ef5ef7e8fcaa5))
+* **ci:** use GITHUB_TOKEN directly in release-please ([#114](https://github.com/forbiddenlink/mythos/issues/114)) ([34a8480](https://github.com/forbiddenlink/mythos/commit/34a8480b0044baf04d8c8b1c33f6d5a5c124da76))
+* keep atlas reading and learning controls accessible across browsers ([46d6a5d](https://github.com/forbiddenlink/mythos/commit/46d6a5d9e274c50bb08182d3ef2c10a9294e5a04))
+* keep homepage scrolling and reading free of intrusive overlays ([6666191](https://github.com/forbiddenlink/mythos/commit/6666191aa3ed80959905988e7608046ddb6a1820))
+* keep the header logo on CSS hover instead of Framer Motion ([a3ae9cf](https://github.com/forbiddenlink/mythos/commit/a3ae9cf206e5744e1e1dbe22e06b878d823ba44e))
+* make command palette results navigate ([e09c119](https://github.com/forbiddenlink/mythos/commit/e09c119298fcc2c09363a5c50cd783a1173e6177))
+* **maps:** replace watermarked CARTO tiles and map each location ([6604223](https://github.com/forbiddenlink/mythos/commit/6604223336144c27a8a6c3250b1d12552762df0d))
+* **navigation:** preserve family tree client transitions ([46bc305](https://github.com/forbiddenlink/mythos/commit/46bc305861c05900862dd5498f7541c4713f9a1d))
+* **review:** restore reliable daily practice ([a19c7e5](https://github.com/forbiddenlink/mythos/commit/a19c7e5abc74ce26213e4f2f2310ad51fd8ed59a))
+* **search:** bound optional semantic retrieval ([c221c21](https://github.com/forbiddenlink/mythos/commit/c221c21130caf7be492426423faa2be50d73cf53))
+
 ## [1.3.1](https://github.com/forbiddenlink/mythos/compare/v1.3.0...v1.3.1) (2026-09-09)
 
 
