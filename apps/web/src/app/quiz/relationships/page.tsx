@@ -43,6 +43,7 @@ import { useProgress } from "@/hooks/use-progress";
 import deitiesData from "@/data/deities.json";
 import relationshipsData from "@/data/relationships.json";
 import type { Deity } from "@/types/Entity";
+import { quizResultPath } from "@/lib/quiz-share";
 
 interface QuizState {
   questions: RelationshipQuestion[];
@@ -200,42 +201,40 @@ export default function RelationshipQuizPage() {
     setQuizState(null);
   }, []);
 
-  const handleShare = useCallback(
-    async (score: number, total: number, diff: Difficulty) => {
-      const params = new URLSearchParams({
-        score: score.toString(),
-        total: total.toString(),
-        difficulty: diff,
-      });
-      const shareUrl = `${globalThis.location.origin}/quiz/relationships?${params.toString()}`;
+  const handleShare = useCallback(async (score: number, total: number) => {
+    // Path, not query: Next passes route params only to opengraph-image, so
+    // a query-string score always rendered the generic card.
+    const shareUrl = `${globalThis.location.origin}${quizResultPath(
+      score,
+      total,
+      "relationships",
+    )}`;
 
-      try {
-        // Try native share first on mobile
-        if (navigator.share) {
-          const percentage = Math.round((score / total) * 100);
-          await navigator.share({
-            title: "My Quiz Results - Mythos Atlas",
-            text: `I scored ${percentage}% on the Divine Relationships Quiz! Can you beat my score?`,
-            url: shareUrl,
-          });
-        } else {
-          // Fall back to clipboard
-          await navigator.clipboard.writeText(shareUrl);
-          setCopied(true);
-          setTimeout(() => setCopied(false), 2000);
-        }
-      } catch {
-        try {
-          await navigator.clipboard.writeText(shareUrl);
-        } catch {
-          // Clipboard API unavailable
-        }
+    try {
+      // Try native share first on mobile
+      if (navigator.share) {
+        const percentage = Math.round((score / total) * 100);
+        await navigator.share({
+          title: "My Quiz Results - Mythos Atlas",
+          text: `I scored ${percentage}% on the Divine Relationships Quiz! Can you beat my score?`,
+          url: shareUrl,
+        });
+      } else {
+        // Fall back to clipboard
+        await navigator.clipboard.writeText(shareUrl);
         setCopied(true);
         setTimeout(() => setCopied(false), 2000);
       }
-    },
-    [],
-  );
+    } catch {
+      try {
+        await navigator.clipboard.writeText(shareUrl);
+      } catch {
+        // Clipboard API unavailable
+      }
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    }
+  }, []);
 
   // Shared Results View (from URL params)
   if (isSharedResult) {
@@ -403,11 +402,7 @@ export default function RelationshipQuizPage() {
                 <Button
                   variant="outline"
                   onClick={() =>
-                    handleShare(
-                      quizState.score,
-                      quizState.questions.length,
-                      difficulty,
-                    )
+                    handleShare(quizState.score, quizState.questions.length)
                   }
                   className="flex-1 h-12 text-lg gap-2"
                 >

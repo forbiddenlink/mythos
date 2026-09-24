@@ -1,5 +1,9 @@
 import { ImageResponse } from "next/og";
-import { parseQuizResultSlug, quizResultVerdict } from "@/lib/quiz-share";
+import {
+  parseQuizResultSlug,
+  quizLabel,
+  quizResultVerdict,
+} from "@/lib/quiz-share";
 
 export const runtime = "edge";
 export const alt = "Mythos Atlas quiz result";
@@ -143,7 +147,7 @@ export default async function Image({
         >
           {percent === null
             ? "mythosatlas.com/quiz"
-            : `${percent}% correct · mythosatlas.com/quiz`}
+            : `${percent}% correct · ${quizLabel(parsed?.quizId)}`}
         </div>
       </div>
     </div>,

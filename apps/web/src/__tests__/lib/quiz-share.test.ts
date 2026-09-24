@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 import {
   formatQuizResultSlug,
   parseQuizResultSlug,
+  quizLabel,
   quizResultPath,
   quizResultVerdict,
 } from "@/lib/quiz-share";
@@ -43,6 +44,37 @@ describe("quiz result share slugs", () => {
 
   it("builds the share path", () => {
     expect(quizResultPath(8, 10)).toBe("/quiz/result/8-of-10");
+  });
+
+  it("carries a quiz id when one is given", () => {
+    expect(formatQuizResultSlug(8, 10, "relationships")).toBe(
+      "relationships-8-of-10",
+    );
+    expect(quizResultPath(8, 10, "relationships")).toBe(
+      "/quiz/result/relationships-8-of-10",
+    );
+  });
+
+  it("round-trips a slug carrying a quiz id", () => {
+    expect(parseQuizResultSlug("relationships-8-of-10")).toEqual({
+      score: 8,
+      total: 10,
+      quizId: "relationships",
+    });
+  });
+
+  it("omits the quiz id for the default quiz", () => {
+    expect(parseQuizResultSlug("8-of-10")).toEqual({ score: 8, total: 10 });
+  });
+
+  it("rejects an unknown quiz id rather than echoing it back", () => {
+    expect(parseQuizResultSlug("not-a-quiz-8-of-10")).toBeNull();
+    expect(parseQuizResultSlug("<script>-8-of-10")).toBeNull();
+  });
+
+  it("names each known quiz", () => {
+    expect(quizLabel("relationships")).toBe("Divine Relationships Quiz");
+    expect(quizLabel(undefined)).toBe("Mythology Quiz");
   });
 
   it("gives every score a verdict", () => {
