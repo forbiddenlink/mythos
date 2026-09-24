@@ -12,6 +12,7 @@ import {
   useState,
   type ReactNode,
 } from "react";
+import { trackEvent } from "@/lib/analytics/events";
 
 export interface UserProgress {
   deitiesViewed: string[];
@@ -376,6 +377,7 @@ export function ProgressProvider({
       if (prev.achievements.includes(achievementId)) {
         return prev;
       }
+      trackEvent("achievement_unlocked", { achievementId });
       return {
         ...prev,
         achievements: [...prev.achievements, achievementId],

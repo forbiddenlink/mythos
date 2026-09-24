@@ -4,6 +4,7 @@ import { useState, useCallback, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Share2, Link2, Check } from "lucide-react";
 import { Twitter, Facebook, Linkedin } from "@/components/icons/brand";
+import { trackEvent } from "@/lib/analytics/events";
 import { cn } from "@/lib/utils";
 
 interface ShareButtonProps {
@@ -11,13 +12,21 @@ interface ShareButtonProps {
   text: string;
   url?: string;
   className?: string;
+  /** Where this button lives, so shares can be attributed to a surface. */
+  surface?: string;
 }
 
 /**
  * ShareButton component for sharing content to social media platforms.
  * Uses native Web Share API on mobile with fallback to individual buttons on desktop.
  */
-export function ShareButton({ title, text, url, className }: ShareButtonProps) {
+export function ShareButton({
+  title,
+  text,
+  url,
+  className,
+  surface = "unknown",
+}: ShareButtonProps) {
   const [copied, setCopied] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [shareUrl, setShareUrl] = useState(url ?? "");
@@ -26,7 +35,7 @@ export function ShareButton({ title, text, url, className }: ShareButtonProps) {
 
   useEffect(() => {
     if (!url && typeof window !== "undefined") {
-      // eslint-disable-next-line react-hooks/set-state-in-effect -- hydrate share URL from window on mount
+      // Hydrate the share URL from window on mount, so SSR output stays stable.
       setShareUrl(window.location.href);
     }
     // Prefer the in-page menu on fine-pointer (desktop) devices even when
@@ -47,6 +56,7 @@ export function ShareButton({ title, text, url, className }: ShareButtonProps) {
           text,
           url: shareUrl,
         });
+        trackEvent("share_clicked", { surface, method: "native" });
       } catch (error) {
         // User cancelled or share failed, show fallback
         if ((error as Error).name !== "AbortError") {
@@ -56,11 +66,12 @@ export function ShareButton({ title, text, url, className }: ShareButtonProps) {
     } else {
       setIsOpen(true);
     }
-  }, [title, text, shareUrl]);
+  }, [title, text, shareUrl, surface]);
 
   const handleCopyLink = useCallback(async () => {
     try {
       await navigator.clipboard.writeText(shareUrl);
+      trackEvent("share_clicked", { surface, method: "copy_link" });
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     } catch {
@@ -74,34 +85,37 @@ export function ShareButton({ title, text, url, className }: ShareButtonProps) {
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     }
-  }, [shareUrl]);
+  }, [shareUrl, surface]);
 
   const handleTwitterShare = useCallback(() => {
     const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(shareUrl)}`;
+    trackEvent("share_clicked", { surface, method: "twitter" });
     window.open(
       twitterUrl,
       "_blank",
       "noopener,noreferrer,width=550,height=420",
     );
-  }, [text, shareUrl]);
+  }, [text, shareUrl, surface]);
 
   const handleFacebookShare = useCallback(() => {
     const facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}&quote=${encodeURIComponent(text)}`;
+    trackEvent("share_clicked", { surface, method: "facebook" });
     window.open(
       facebookUrl,
       "_blank",
       "noopener,noreferrer,width=550,height=420",
     );
-  }, [text, shareUrl]);
+  }, [text, shareUrl, surface]);
 
   const handleLinkedInShare = useCallback(() => {
     const linkedInUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(shareUrl)}`;
+    trackEvent("share_clicked", { surface, method: "linkedin" });
     window.open(
       linkedInUrl,
       "_blank",
       "noopener,noreferrer,width=550,height=420",
     );
-  }, [shareUrl]);
+  }, [shareUrl, surface]);
 
   // On mobile with native share support, show simple share button
   if (hasNativeShare && !isOpen) {

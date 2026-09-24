@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { notFound, redirect } from "next/navigation";
+import { TrackPageView } from "@/components/analytics/TrackPageView";
 import stories from "@/data/stories.json";
 import pantheons from "@/data/pantheons.json";
 import {
@@ -140,16 +141,26 @@ export default async function StoryPage({ params }: PageProps) {
   });
 
   return (
-    <StoryPageClient
-      story={story as StoryPageClientProps["story"]}
-      pantheon={
-        pantheon ? { name: pantheon.name, slug: pantheon.slug } : undefined
-      }
-      featuredDeitiesData={featuredDeitiesData}
-      featuredLocationsData={featuredLocationsData}
-      relatedStoriesData={relatedStoriesData}
-      museumObjects={<MuseumObjects storyId={story.id} />}
-      versions={getMythVersions(slug)}
-    />
+    <>
+      <TrackPageView
+        event="entry_viewed"
+        properties={{
+          entityType: "story",
+          slug,
+          pantheon: story.pantheonId,
+        }}
+      />
+      <StoryPageClient
+        story={story as StoryPageClientProps["story"]}
+        pantheon={
+          pantheon ? { name: pantheon.name, slug: pantheon.slug } : undefined
+        }
+        featuredDeitiesData={featuredDeitiesData}
+        featuredLocationsData={featuredLocationsData}
+        relatedStoriesData={relatedStoriesData}
+        museumObjects={<MuseumObjects storyId={story.id} />}
+        versions={getMythVersions(slug)}
+      />
+    </>
   );
 }

@@ -26,6 +26,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { ShareButton } from "@/components/sharing/ShareButton";
 import { QuizRetentionSurvey } from "@/components/quiz/QuizRetentionSurvey";
+import { SupportNudge } from "@/components/support/SupportNudge";
+import { trackEvent } from "@/lib/analytics/events";
+import { quizResultPath } from "@/lib/quiz-share";
 import { useProgress } from "@/hooks/use-progress";
 import { quizLearnMore } from "@/lib/quiz-learn-more";
 import deitiesData from "@/data/deities.json";
@@ -68,6 +71,7 @@ interface Question {
 export function MythologyQuiz() {
   const { recordQuizScore, trackQuizCompletion } = useProgress();
   const recordedCompletion = useRef(false);
+  const startedQuiz = useRef(false);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [score, setScore] = useState(0);
   const [highScore, setHighScore] = useState(0);
@@ -88,7 +92,18 @@ export function MythologyQuiz() {
     recordedCompletion.current = true;
     recordQuizScore("mythology-quiz", score);
     trackQuizCompletion(score);
-  }, [quizCompleted, score, recordQuizScore, trackQuizCompletion]);
+    trackEvent("quiz_completed", {
+      quizId: "mythology-quiz",
+      score,
+      total: questions.length,
+    });
+  }, [
+    quizCompleted,
+    score,
+    questions.length,
+    recordQuizScore,
+    trackQuizCompletion,
+  ]);
 
   const deities = deitiesData as Deity[];
   const relationships = relationshipsData as Relationship[];
@@ -298,6 +313,12 @@ export function MythologyQuiz() {
   }, [deities, relationships]);
 
   const handleAnswerSelect = (answer: string) => {
+    // Counted on the first answer rather than on mount, so a visitor who
+    // opens the quiz and leaves does not inflate the start of the funnel.
+    if (!startedQuiz.current) {
+      startedQuiz.current = true;
+      trackEvent("quiz_started", { quizId: "mythology-quiz" });
+    }
     setSelectedAnswer(answer);
     setShowResult(true);
 
@@ -393,11 +414,16 @@ export function MythologyQuiz() {
 
           <QuizRetentionSurvey score={score} total={questions.length} />
 
+          <SupportNudge moment="quiz_completed" placement="quiz_results" />
+
           <div className="flex flex-col sm:flex-row gap-3">
+            {/* The score lives in the path so the Open Graph card can render
+                it; a shared /quiz link carries no score at all. */}
             <ShareButton
+              surface="quiz_results"
               title="Mythos Atlas Quiz Results"
               text={`I scored ${score}/${questions.length} (${percentage}%) on the Mythos Atlas mythology quiz! Can you beat my score?`}
-              url="https://mythosatlas.com/quiz"
+              url={`https://mythosatlas.com${quizResultPath(score, questions.length)}`}
               className="flex-1 [&_button]:w-full [&_button]:h-12 [&_button]:text-lg"
             />
             <Button

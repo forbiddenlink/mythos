@@ -17,6 +17,8 @@ import {
 import { FlashCard } from "./FlashCard";
 import { useReview } from "@/providers/review-provider";
 import type { DifficultyRating, ReviewCard } from "@/lib/spaced-repetition";
+import { trackEvent } from "@/lib/analytics/events";
+import { recordValueMoment } from "@/lib/support-nudge";
 
 interface ReviewSessionProps {
   onComplete?: () => void;
@@ -73,6 +75,11 @@ export function ReviewSession({ onComplete }: ReviewSessionProps) {
     if (currentIndex < sessionCards.length - 1) {
       setCurrentIndex(currentIndex + 1);
     } else {
+      trackEvent("study_session_completed", {
+        cards: sessionCards.length,
+        correct: sessionStats.correct + (isCorrect ? 1 : 0),
+      });
+      recordValueMoment("study_session_completed");
       setSessionComplete(true);
     }
   };

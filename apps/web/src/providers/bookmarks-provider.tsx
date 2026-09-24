@@ -8,6 +8,7 @@ import {
   useState,
   type ReactNode,
 } from "react";
+import { trackEvent } from "@/lib/analytics/events";
 
 export type BookmarkType = "deity" | "story" | "pantheon" | "hero" | "source";
 
@@ -159,6 +160,9 @@ export function BookmarksProvider({ children }: { children: ReactNode }) {
       if (exists) {
         return prev.filter((b) => !(b.type === type && b.id === id));
       }
+      // Only the add is tracked: saving something is intent to return, while
+      // removing it says little.
+      trackEvent("bookmark_added", { entityType: type });
       return [...prev, { type, id, timestamp: Date.now() }];
     });
   }, []);
@@ -187,14 +191,30 @@ export function BookmarksProvider({ children }: { children: ReactNode }) {
 
   const setReadingProgress = useCallback(
     (storyId: string, percentage: number) => {
-      setReadingProgressState((prev) => ({
-        ...prev,
-        [storyId]: {
-          storyId,
-          percentage: Math.min(100, Math.max(0, percentage)),
-          updatedAt: Date.now(),
-        },
-      }));
+      setReadingProgressState((prev) => {
+        const clamped = Math.min(100, Math.max(0, percentage));
+        // Report at quarter marks only. A scroll handler firing per pixel
+        // would bury the funnel in noise and the useful question is just how
+        // deep readers get.
+        const previous = prev[storyId]?.percentage ?? 0;
+        for (const milestone of [25, 50, 75, 100]) {
+          if (previous < milestone && clamped >= milestone) {
+            trackEvent("story_read_progress", {
+              slug: storyId,
+              percent: milestone,
+            });
+          }
+        }
+
+        return {
+          ...prev,
+          [storyId]: {
+            storyId,
+            percentage: clamped,
+            updatedAt: Date.now(),
+          },
+        };
+      });
     },
     [],
   );

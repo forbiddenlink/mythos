@@ -2,6 +2,8 @@
 
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
+import { getPostHogDistinctId } from "@/components/analytics/ConsentGatedPostHog";
+import { trackEvent } from "@/lib/analytics/events";
 import { hasAnalyticsConsent } from "@/lib/privacy-consent";
 
 type Rating = "very" | "somewhat" | "not";
@@ -10,7 +12,10 @@ const STORAGE_KEY = "mythos_quiz_disappointed_v1";
 
 /**
  * Sean Ellis–style "very disappointed" pulse after quiz completion.
- * Stored locally + optionally beaconed to /api/analytics/events.
+ * Stored locally and, with consent, sent to PostHog. This single answer is
+ * the closest thing the site has to a product-market-fit reading, so it is
+ * sent twice: through the client sink, and as a beacon that survives the tab
+ * closing immediately after the click.
  */
 export function QuizRetentionSurvey({
   quizId = "mythology-quiz",
@@ -43,12 +48,13 @@ export function QuizRetentionSurvey({
   const submit = (rating: Rating) => {
     setPicked(rating);
     const payload = {
-      type: "quiz_disappointed",
+      type: "pmf_survey_answered",
       quizId,
       rating,
       score,
       total,
       at: Date.now(),
+      distinctId: getPostHogDistinctId(),
     };
     try {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(payload));
@@ -56,6 +62,7 @@ export function QuizRetentionSurvey({
       /* ignore quota */
     }
     if (hasAnalyticsConsent()) {
+      trackEvent("pmf_survey_answered", { quizId, rating });
       const body = JSON.stringify(payload);
       if (navigator.sendBeacon) {
         navigator.sendBeacon("/api/analytics/events", body);
