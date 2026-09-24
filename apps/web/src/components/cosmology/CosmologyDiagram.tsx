@@ -48,7 +48,7 @@ function Figure({ figure }: { figure: CosmologyFigure }) {
         {figure.imageUrl ? (
           <Image
             src={figure.imageUrl}
-            alt={figure.name}
+            alt=""
             width={24}
             height={24}
             className="h-6 w-6 rounded-full object-cover object-top ring-1 ring-gold/40"

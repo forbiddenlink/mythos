@@ -247,7 +247,7 @@ export function PantheonPageClient({ slug }: PantheonPageClientProps) {
                       <div className="relative w-full aspect-16/10 bg-midnight/40 overflow-hidden border-b border-border/60">
                         <Image
                           src={deity.imageUrl}
-                          alt={deity.name}
+                          alt=""
                           fill
                           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                           className="object-cover object-top group-hover:scale-105 transition-transform duration-500"

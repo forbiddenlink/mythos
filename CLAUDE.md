@@ -101,7 +101,7 @@ From `apps/web/.env.example`:
 - `GROQ_ORACLE_MODEL` - optional Groq model override; see `src/lib/oracle/provider.ts` for defaults
 - `ANTHROPIC_ORACLE_MODEL` - optional override for the Oracle model
 - `OPENAI_EMBEDDINGS_API_KEY` / `OPENAI_API_KEY` - optional, semantic Oracle grounding
-- `UPSTASH_REDIS_REST_URL`, `UPSTASH_REDIS_REST_TOKEN` - shared limits across instances; the current Anthropic production guard fails closed without them, while Groq can fall back to instance-local limits. Use Upstash with either provider for a shared daily cap
+- `UPSTASH_REDIS_REST_URL`, `UPSTASH_REDIS_REST_TOKEN` - required in production for both Anthropic and Groq: shared per-IP limits and the global daily cap fail closed without them. Only development can fall back to in-memory limits
 - `ORACLE_KILL_SWITCH` - optional, disables Oracle and generated story quizzes; apply environment changes through the deployment configuration
 - `ORACLE_DAILY_REQUEST_CAP` - optional global daily request cap (default 500, requires Upstash)
 - `NEXT_PUBLIC_ORACLE_ENABLED` - shows the footer Oracle control; the server also requires a configured provider

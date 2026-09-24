@@ -238,7 +238,7 @@ function PaginatedDeityGrid({ deities }: Readonly<{ deities: Deity[] }>) {
                     <div className="rounded-xl overflow-hidden border border-gold/20 shadow-sm">
                       <Image
                         src={deity.imageUrl}
-                        alt={deity.name}
+                        alt=""
                         width={64}
                         height={64}
                         sizes="64px"

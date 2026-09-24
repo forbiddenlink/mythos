@@ -179,7 +179,7 @@ export default function ToursPage() {
                                 <div className="relative h-4 w-4 rounded overflow-hidden shrink-0 border border-border/40">
                                   <Image
                                     src={stop.imageUrl}
-                                    alt={stop.name}
+                                    alt=""
                                     fill
                                     sizes="16px"
                                     className="object-cover"

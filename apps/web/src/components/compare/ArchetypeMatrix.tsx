@@ -444,7 +444,7 @@ export function ArchetypeMatrix() {
                                     <div className="relative size-9 rounded-md overflow-hidden shrink-0 border border-gold/20 bg-midnight">
                                       <Image
                                         src={deity.imageUrl}
-                                        alt={deity.name}
+                                        alt=""
                                         fill
                                         sizes="36px"
                                         className="object-cover"

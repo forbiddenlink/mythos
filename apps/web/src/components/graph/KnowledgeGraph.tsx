@@ -242,7 +242,7 @@ const DeityNode = memo(function DeityNode({
         {deity.imageUrl && isMajor && (
           <Image
             src={deity.imageUrl}
-            alt={deity.name}
+            alt=""
             width={dot}
             height={dot}
             className="h-full w-full rounded-full object-cover opacity-90"

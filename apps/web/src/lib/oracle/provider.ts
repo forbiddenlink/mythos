@@ -1,11 +1,9 @@
 /**
  * Oracle model provider resolution.
  *
- * The Oracle can run on Anthropic (paid, highest quality) or Groq (free tier).
- * Groq is preferred when no Anthropic key is present, which lets the Oracle go
- * live with zero spend. Whether the active provider is *paid* also decides how
- * strictly the rate limiters fail: a paid provider must be protected by shared
- * (Upstash) limits, while a free provider can safely fall back to in-memory.
+ * The Oracle can run on Anthropic or Groq. Anthropic takes precedence when
+ * both keys are present unless ORACLE_PROVIDER selects another provider.
+ * Production rate limits require shared Upstash storage for either provider.
  */
 
 import { anthropic } from "@ai-sdk/anthropic";
@@ -24,15 +22,15 @@ export function resolveOracleProvider(): OracleProvider | null {
   if (explicit === "anthropic" && process.env.ANTHROPIC_API_KEY) {
     return "anthropic";
   }
-  // Default precedence: Anthropic (quality) if keyed, else Groq (free).
+  // Default precedence: Anthropic if keyed, else Groq.
   if (process.env.ANTHROPIC_API_KEY) return "anthropic";
   if (process.env.GROQ_API_KEY) return "groq";
   return null;
 }
 
 /**
- * True when the active Oracle provider bills per request. Free providers relax
- * the "fail closed without Upstash" guard since there is no spend to protect.
+ * Legacy provider classification; this does not determine production rate-limit
+ * enforcement or the billing terms of the configured account.
  */
 export function isPaidOracleProvider(): boolean {
   return resolveOracleProvider() === "anthropic";
