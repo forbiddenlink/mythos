@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { CollectionPageJsonLd } from "@/components/seo/JsonLd";
 import { generateBaseMetadata } from "@/lib/metadata";
 
 export const metadata: Metadata = generateBaseMetadata({
@@ -19,14 +18,5 @@ export const metadata: Metadata = generateBaseMetadata({
 export default function LocationsLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
-  return (
-    <>
-      <CollectionPageJsonLd
-        name="Mythological Locations and Sacred Places"
-        description="Explore sacred sites, temples, cities, rivers, mountains, and mythical realms from ancient civilizations."
-        url="/locations"
-      />
-      {children}
-    </>
-  );
+  return children;
 }

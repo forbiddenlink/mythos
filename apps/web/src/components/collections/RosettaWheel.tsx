@@ -59,10 +59,10 @@ export function RosettaWheel({
     <section className="mb-12" aria-label={`${archetype} across pantheons`}>
       <div className="mb-6">
         <span className="text-xs uppercase tracking-[0.25em] text-gold-text">
-          One role, many cultures
+          Explore the connections
         </span>
         <h2 className="font-serif text-2xl font-semibold text-foreground">
-          The {archetype} archetype across pantheons
+          {archetype}: figures across traditions
         </h2>
       </div>
 

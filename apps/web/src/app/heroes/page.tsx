@@ -1,7 +1,14 @@
 import { CollectionPageJsonLd } from "@/components/seo/JsonLd";
 import { HeroesPageClient } from "./HeroesPageClient";
 
-export default function HeroesPage() {
+import type { CatalogQuery } from "@/lib/catalog-query";
+
+export default async function HeroesPage({
+  searchParams,
+}: {
+  searchParams: Promise<CatalogQuery>;
+}) {
+  const query = await searchParams;
   return (
     <>
       <CollectionPageJsonLd
@@ -9,7 +16,7 @@ export default function HeroesPage() {
         description="Browse legendary heroes from Greek, Roman, Norse, Celtic, and Hindu mythology."
         url="/heroes"
       />
-      <HeroesPageClient />
+      <HeroesPageClient key={JSON.stringify(query)} initialQuery={query} />
     </>
   );
 }

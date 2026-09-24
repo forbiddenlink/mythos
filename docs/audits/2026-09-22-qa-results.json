@@ -17278,5 +17278,140 @@
     "preview": "https://mythos-8gzdgwvwp-elizabeth-emersons-projects.vercel.app",
     "build": "Vercel production build passed",
     "deployedVerification": "Osiris comparison edition attribution verified in signed-in browser"
+  },
+  "openWorkReview20260923Evening": {
+    "localHead": "ffc4f93",
+    "remoteMainObserved": "4a2aa6efeff6387536d5e8549fb9d53b8e110a68",
+    "openPRs": [117, 118],
+    "visualInspection": ["home desktop", "collections desktop"],
+    "research": [
+      "https://www.vam.ac.uk/info/va-trails",
+      "https://www.metmuseum.org/exhibitions/listings/2016/show-and-tell",
+      "https://www.nngroup.com/articles/progressive-disclosure/"
+    ],
+    "implementation": "Server-rendered escaped JSON-LD; collection schemas scoped to listing pages",
+    "unitTestsPassed": 2,
+    "rawHtmlRouteTestPassed": 1,
+    "routesCovered": 7,
+    "typecheck": "passed",
+    "lint": "passed",
+    "productionBuild": "passed",
+    "independentReview": "duplicate schema finding fixed; follow-up clean",
+    "runtime": "Node22.23.1 installed patch; repo .nvmrc22.22.2",
+    "deployment": "No deployment or merge in this pass",
+    "limits": "Visual observations are a scoped heuristic review; no new usability participants or current whole-site recertification."
+  },
+  "collectionsDesign20260923": {
+    "scope": [
+      "home section hierarchy",
+      "collections index",
+      "collection detail guidance",
+      "shared comparison labels"
+    ],
+    "layoutChecks": {
+      "initial": 18,
+      "followup": 12,
+      "failed": 0,
+      "widths": [320, 768, 1440],
+      "themes": ["light", "dark"],
+      "artifacts": [
+        "/tmp/mythos-collections-design",
+        "/tmp/mythos-collections-detail-design",
+        "/tmp/mythos-collections-final"
+      ],
+      "finalIndexRefinement": 6
+    },
+    "browserRegressions": {
+      "passed": 15,
+      "log": "/tmp/mythos-collections-tests.log"
+    },
+    "returnVisitChecks": {
+      "browserPassed": 9,
+      "unitPassed": 71,
+      "logs": ["/tmp/mythos-return-tests.log", "/tmp/mythos-return-unit.log"]
+    },
+    "verification": {
+      "typecheck": "passed",
+      "changedFileLint": "passed",
+      "diffCheck": "passed",
+      "focusedReview": "no material issues",
+      "localProductionBuild": "passed",
+      "previewProductionBuild": "passed; final preview visually checked and museum image loaded"
+    },
+    "limitations": [
+      "No real reader participation",
+      "No full-site factual or manual accessibility certification",
+      "PR integration and production performance remain open"
+    ],
+    "preview": "https://mythos-clmjyns01-elizabeth-emersons-projects.vercel.app/collections",
+    "productionPromoted": false
+  },
+  "supportAndMotion20260923": {
+    "stripe": {
+      "accountName": "ImKindaGeeky",
+      "livemode": true,
+      "link": "https://buy.stripe.com/dRmbJ0b641kOblE3xm0Ny01",
+      "price": "price_1UJ0jdA1qZnsNmFKlHc9v4nZ",
+      "currency": "usd",
+      "preset": 500,
+      "minimum": 100,
+      "recurring": false,
+      "checkoutInspected": true,
+      "paymentSubmitted": false
+    },
+    "checks": {
+      "focusedPassed": 8,
+      "layoutPassed": 36,
+      "typecheck": "passed",
+      "lint": "passed",
+      "review": "no material issues",
+      "previewBuild": "passed",
+      "deployedSupportPage": "verified in browser"
+    },
+    "logs": [
+      "/tmp/mythos-support-tests-final.log",
+      "/tmp/mythos-support-sweep.log",
+      "/tmp/mythos-cinema-header-sweep.log"
+    ],
+    "limitations": [
+      "Next.js stories loading boundary still needs scripts to reveal streamed content",
+      "No completed sandbox or live payment",
+      "Review preview only, production not promoted"
+    ],
+    "preview": "https://mythos-38hkigllf-elizabeth-emersons-projects.vercel.app/support"
+  },
+  "catalogPaginationContinuation": {
+    "date": "2026-09-23",
+    "scope": ["/heroes", "/locations"],
+    "serverHtmlEntries": {
+      "heroes": 27,
+      "locations": 127
+    },
+    "browserPassed": 9,
+    "paginationUnitPassed": 30,
+    "layoutCasesPassed": 12,
+    "typecheck": "passed",
+    "scopedLint": "passed",
+    "independentReview": "no material issues",
+    "fixes": [
+      "URL-backed server pagination and filter persistence",
+      "Initial era filtering and clear-era reset",
+      "Respect explicit map preference on later pages",
+      "Remove tall sticky location filter obstruction",
+      "Use existing Duat WebP after local PNG-to-AVIF request stalled"
+    ],
+    "logs": [
+      "/tmp/mythos-pagination-verified-tests.log",
+      "/tmp/mythos-pagination-layout-verified/results.json",
+      "/tmp/mythos-pagination-unit.log"
+    ],
+    "limitations": [
+      "Scoped browser and HTML checks, not a full-site no-JavaScript certification",
+      "No reader study",
+      "Production not promoted"
+    ],
+    "previewBuild": "passed",
+    "preview": "https://mythos-irpkencj7-elizabeth-emersons-projects.vercel.app/locations?page=2&view=list",
+    "deployedBrowserSmoke": "passed: direct page 2 shows entries 25\u201348; next link loads page 3 with entries 49\u201372"
   }
 }

@@ -32,3 +32,35 @@ test("renders the documented Met image without the Next image optimizer", async 
     )
     .toBeGreaterThan(0);
 });
+
+test("server HTML contains unique structured data scoped to the page", async ({
+  request,
+}) => {
+  for (const path of [
+    "/stories",
+    "/pantheons",
+    "/artifacts",
+    "/creatures",
+    "/locations",
+    "/stories/osiris-myth",
+    "/locations/mount-olympus",
+  ]) {
+    const response = await request.get(path);
+    expect(response.ok()).toBe(true);
+    const html = await response.text();
+    const scripts = [
+      ...html.matchAll(
+        /<script\b([^>]*type="application\/ld\+json"[^>]*)>([\s\S]*?)<\/script>/g,
+      ),
+    ];
+    expect(scripts.length, path).toBeGreaterThan(0);
+    const ids = scripts.map((match) => match[1].match(/\bid="([^"]+)"/)?.[1]);
+    expect(new Set(ids).size, path).toBe(ids.length);
+    const collections = scripts
+      .map((match) => JSON.parse(match[2]))
+      .filter((data) => data["@type"] === "CollectionPage");
+    expect(collections, path).toHaveLength(
+      path.split("/").length === 2 ? 1 : 0,
+    );
+  }
+});

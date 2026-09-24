@@ -72,7 +72,10 @@ export default function TitanomachyCinematicPage() {
   return (
     <div className="min-h-screen bg-midnight">
       {/* Navigation Header */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-b from-midnight via-midnight/80 to-transparent">
+      <nav
+        aria-label="Story navigation"
+        className="sticky top-16 z-40 border-b border-gold/20 bg-midnight"
+      >
         <div className="container mx-auto px-4 py-4 flex flex-wrap gap-2 items-center justify-between">
           <Button
             asChild

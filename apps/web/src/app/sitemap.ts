@@ -25,6 +25,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   // Static pages - core navigation
   const staticPages: MetadataRoute.Sitemap = [
+    { url: `${BASE_URL}/support`, changeFrequency: "monthly", priority: 0.3 },
     {
       url: BASE_URL,
       changeFrequency: "weekly",

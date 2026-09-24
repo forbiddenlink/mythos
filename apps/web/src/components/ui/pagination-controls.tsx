@@ -1,8 +1,14 @@
-'use client';
+"use client";
 
-import { ChevronLeft, ChevronRight, ChevronsLeft, ChevronsRight } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { cn } from '@/lib/utils';
+import type { ReactNode } from "react";
+import {
+  ChevronLeft,
+  ChevronRight,
+  ChevronsLeft,
+  ChevronsRight,
+} from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 interface PaginationControlsProps {
   page: number;
@@ -19,6 +25,7 @@ interface PaginationControlsProps {
   totalItems: number;
   className?: string;
   showItemCount?: boolean;
+  getPageHref?: (page: number) => string;
 }
 
 export function PaginationControls({
@@ -36,10 +43,11 @@ export function PaginationControls({
   totalItems,
   className,
   showItemCount = true,
+  getPageHref,
 }: PaginationControlsProps) {
   // Generate page numbers to display
-  const getPageNumbers = (): (number | 'ellipsis')[] => {
-    const pages: (number | 'ellipsis')[] = [];
+  const getPageNumbers = (): (number | "ellipsis")[] => {
+    const pages: (number | "ellipsis")[] = [];
     const maxVisible = 5;
 
     if (totalPages <= maxVisible + 2) {
@@ -64,7 +72,7 @@ export function PaginationControls({
 
       // Add ellipsis if needed at start
       if (startPage > 2) {
-        pages.push('ellipsis');
+        pages.push("ellipsis");
       }
 
       // Add middle pages
@@ -74,7 +82,7 @@ export function PaginationControls({
 
       // Add ellipsis if needed at end
       if (endPage < totalPages - 1) {
-        pages.push('ellipsis');
+        pages.push("ellipsis");
       }
 
       // Always show last page
@@ -88,43 +96,71 @@ export function PaginationControls({
     return null;
   }
 
+  const control = (
+    target: number,
+    label: string,
+    content: ReactNode,
+    onClick: () => void,
+    disabled = false,
+    current = false,
+  ): ReactNode => {
+    const props = {
+      variant: current ? ("default" as const) : ("outline" as const),
+      size: "icon" as const,
+      className: cn(
+        "h-8 w-8",
+        current && "bg-gold hover:bg-gold-dark text-midnight",
+      ),
+      "aria-label": label,
+      "aria-current": current ? ("page" as const) : undefined,
+    };
+    return getPageHref && !disabled ? (
+      <Button {...props} asChild>
+        <a href={getPageHref(target)}>{content}</a>
+      </Button>
+    ) : (
+      <Button {...props} onClick={onClick} disabled={disabled}>
+        {content}
+      </Button>
+    );
+  };
+
   return (
-    <div className={cn('flex flex-col sm:flex-row items-center justify-between gap-4', className)}>
+    <div
+      className={cn(
+        "flex flex-col sm:flex-row items-center justify-between gap-4",
+        className,
+      )}
+    >
       {showItemCount && (
         <p className="text-sm text-muted-foreground">
           Showing {startIndex}–{endIndex} of {totalItems}
         </p>
       )}
 
-      <nav className="flex max-w-full flex-wrap items-center justify-center gap-1" aria-label="Pagination">
-        {/* First page */}
-        <Button
-          variant="outline"
-          size="icon"
-          className="h-8 w-8"
-          onClick={onFirstPage}
-          disabled={!hasPreviousPage}
-          aria-label="Go to first page"
-        >
-          <ChevronsLeft className="h-4 w-4" />
-        </Button>
-
-        {/* Previous page */}
-        <Button
-          variant="outline"
-          size="icon"
-          className="h-8 w-8"
-          onClick={onPreviousPage}
-          disabled={!hasPreviousPage}
-          aria-label="Go to previous page"
-        >
-          <ChevronLeft className="h-4 w-4" />
-        </Button>
+      <nav
+        className="flex max-w-full flex-wrap items-center justify-center gap-1"
+        aria-label="Pagination"
+      >
+        {control(
+          1,
+          "Go to first page",
+          <ChevronsLeft className="h-4 w-4" />,
+          onFirstPage,
+          !hasPreviousPage,
+        )}
+        {control(
+          page - 1,
+          "Go to previous page",
+          <ChevronLeft className="h-4 w-4" />,
+          onPreviousPage,
+          !hasPreviousPage,
+        )}
 
         {/* Page numbers */}
         <div className="flex max-w-full flex-wrap items-center justify-center gap-1">
           {getPageNumbers().map((pageNum, index) => {
-            if (pageNum === 'ellipsis') {
+            if (pageNum === "ellipsis") {
               return (
                 <span
                   key={`ellipsis-${index}`}
@@ -137,47 +173,34 @@ export function PaginationControls({
             }
 
             return (
-              <Button
-                key={pageNum}
-                variant={pageNum === page ? 'default' : 'outline'}
-                size="icon"
-                className={cn(
-                  'h-8 w-8',
-                  pageNum === page && 'bg-gold hover:bg-gold-dark text-midnight'
+              <span key={pageNum}>
+                {control(
+                  pageNum,
+                  `Page ${pageNum}`,
+                  pageNum,
+                  () => onPageChange(pageNum),
+                  false,
+                  pageNum === page,
                 )}
-                onClick={() => onPageChange(pageNum)}
-                aria-label={`Page ${pageNum}`}
-                aria-current={pageNum === page ? 'page' : undefined}
-              >
-                {pageNum}
-              </Button>
+              </span>
             );
           })}
         </div>
 
-        {/* Next page */}
-        <Button
-          variant="outline"
-          size="icon"
-          className="h-8 w-8"
-          onClick={onNextPage}
-          disabled={!hasNextPage}
-          aria-label="Go to next page"
-        >
-          <ChevronRight className="h-4 w-4" />
-        </Button>
-
-        {/* Last page */}
-        <Button
-          variant="outline"
-          size="icon"
-          className="h-8 w-8"
-          onClick={onLastPage}
-          disabled={!hasNextPage}
-          aria-label="Go to last page"
-        >
-          <ChevronsRight className="h-4 w-4" />
-        </Button>
+        {control(
+          page + 1,
+          "Go to next page",
+          <ChevronRight className="h-4 w-4" />,
+          onNextPage,
+          !hasNextPage,
+        )}
+        {control(
+          totalPages,
+          "Go to last page",
+          <ChevronsRight className="h-4 w-4" />,
+          onLastPage,
+          !hasNextPage,
+        )}
       </nav>
     </div>
   );

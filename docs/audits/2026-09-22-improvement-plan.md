@@ -3,6 +3,78 @@
 **Date:** 2026-09-22; updated 2026-09-23  
 **Decision:** strengthen trust, reading quality, and product evidence before adding a broad new feature set or bulk content.
 
+## Optional support and cinematic reading — 2026-09-23
+
+Created the user-approved live Stripe support setup under ImKindaGeeky. Product `prod_VJe1ZiWOYTvbLY`, price `price_1UJ0jdA1qZnsNmFKlHc9v4nZ`, and payment link `plink_1UJ0jwA1qZnsNmFKoHnGXJvt`: https://buy.stripe.com/dRmbJ0b641kOblE3xm0Ny01. USD, one-time, customer-chosen amount, $5 preset and $1 minimum; no recurring price. Link and PaymentIntent metadata identify `app=mythos` / `purpose=optional_support`. Hosted Stripe confirmation avoids inferring payment success from a website URL. There is no site entitlement or fulfillment to unlock; transaction records remain in Stripe. No account-wide payment settings were changed.
+
+Added `/support`, footer and About links, sitemap inclusion, and a Stripe processing disclosure in Privacy. The support page explains the work funded, amount choice, optional nature and ImKindaGeeky merchant identity. The live checkout was opened and its title, preset amount and one-time wording checked without entering payment details or submitting a charge. Only the live account is connected; a completed sandbox payment, settlement and refunds were not exercised.
+
+CinematicStory no longer waits for mount or hides reading text behind scroll reveals. Image-only scale motion uses a reduced-motion media query that responds to preference changes, with scoped cleanup instead of killing every ScrollTrigger on the page. Removed the looping decorative arrow and text entrance effects. Two initial no-JavaScript route tests exposed an additional Next.js streaming limitation: the existing stories loading boundary remains visible with scripts disabled. This pass does **not** claim full no-JavaScript route support. Revised checks directly verify real title/scene elements in the server HTML, not text in the React payload; browser checks verify readable content and image animation removal on a live reduced-motion preference change.
+
+Visual inspection also caught the cinematic navigation overlapping the main site header. Both cinematic pages now use a named sticky story-navigation bar below the shared header, with an opaque background. Position checks pass at 320/1440 before and after scrolling.
+
+Validation: eight focused checks (support navigation at 320/1440, existing reduced-motion reading, two server-content checks, live motion preference change, and two cinematic-navigation checks); 24 layout/accessibility cases across support, About, Ragnarök and Titanomachy cinematic pages at 320/768/1440 in both themes. An additional 12 layout cases passed after the cinematic-navigation correction. No detected overflow, broken images, runtime errors or automated accessibility failures. Typecheck, changed-file lint and diff check passed. Independent review found no material issue; the streaming limitation above supersedes its earlier optimistic no-JavaScript wording. [Final review preview](https://mythos-38hkigllf-elizabeth-emersons-projects.vercel.app/support) built successfully and the deployed support page, merchant disclosure and checkout destination were verified in the browser. Production site not promoted.
+
+## Current priorities after open-work review — 2026-09-23 evening
+
+This section is the current work queue. Older sections below preserve historical evidence and may describe work subsequently completed. It supersedes their outstanding-task lists where they conflict.
+
+### Verified repository and open work
+
+- Local main is `ffc4f93`, two commits ahead of the remote main observed through GitHub (`4a2aa6e`). Reading/source fixes and material-color work are committed locally; they are not yet integrated into remote main. Preview deployment and GitHub integration are separate steps.
+- [PR 118](https://github.com/forbiddenlink/mythos/pull/118) remains open. Its failed E2E job includes a museum-image URL expectation incompatible with its optimizer change, plus flaky ambiguous All/Shuffle selectors. The SSR structured-data fix is worthwhile. Hidden duplicate link lists should be replaced by usable server-rendered pagination; optimization of external museum images needs an explicit tested delivery policy. Do not merge the entire branch merely because its preview built.
+- [PR 117](https://github.com/forbiddenlink/mythos/pull/117) changes a brace-expansion override and the matching lockfile declaration. Its build failed in the Google-font loader, not in an observed brace-expansion regression. Current local code bundles fonts. Refresh this PR against the integrated baseline and rerun CI; the old result does not establish current compatibility.
+- One open issue is the dependency dashboard (#104), not a product backlog.
+- The pre-existing hook edit and generated next-env change were preserved. Runtime pin is 22.22.2; the installed/current runtime is Node 22.23.1. This pass uses the installed Node 22 explicitly, not Node 24.
+- Later Ramayana editions, the hymn and Contendings, and Pluto/Proserpina/Avalokiteshvara corrections are now documented and present. They are no longer untouched tasks. The Valmiki Uttara Kanda remains uncollated; checking selected passages still does not certify whole articles.
+
+### Product direction and alternatives
+
+**Recommend: a curated atlas with playful discovery.** The core experience is choosing an intriguing subject, reading a clear account, examining an object or place, noticing a source difference, and saving something worth returning to. Use existing collections, journeys, comparisons and bookmarks before inventing another feature family.
+
+A games-first product could emphasize daily puzzles and repeat visits, but risks making the encyclopedia secondary and demands an ongoing editorial puzzle supply. A research-library product could prioritize exhaustive bibliographic tools, but risks raising the entry barrier for casual readers. Keep scholarly depth available and play optional within the curated-atlas direction.
+
+Research informs this recommendation; it does not prove Mythos reader demand. [V&A trails](https://www.vam.ac.uk/info/va-trails) demonstrate bounded thematic exploration through selected objects. [The Met's Show and Tell](https://www.metmuseum.org/exhibitions/listings/2016/show-and-tell) distinguishes storytelling through sequences, a single evocative scene, and contextual interpretation. [NN/g's progressive disclosure guidance](https://www.nngroup.com/articles/progressive-disclosure/) supports deferring secondary complexity; [recognition and recall](https://www.nngroup.com/articles/recognition-and-recall/) supports visible, understandable choices. Adapt these principles rather than copying museum layouts.
+
+### Fresh visual findings
+
+Current local desktop home and Collections were inspected in the browser. The home opening has a coherent typographic hierarchy, atmospheric image and two clear primary routes. Preserve that foundation. Its later six-path section repeats choices already offered in the hero, featured pantheons and navigation. Collections has a large icon/title treatment and a second explanatory panel; at the inspected 1264×712 desktop viewport no collection choices appear above the fold. The next visual work should improve access to material, not add decoration. These observations are heuristic, not participant findings or a full responsive audit.
+
+### Implementation sequence and completion gates
+
+| Order | Work package                   | Concrete change                                                                                                                                                                                              | Completion evidence                                                                                                                                                      |
+| ----- | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| 1     | Integrate open work safely     | Consolidate the two local commits and review PR118 against them; retain source corrections; resolve image policy and replace hidden links with real pagination. Refresh PR117 afterward.                     | Current-head CI passes; image loads and JSON-LD verified in raw HTML; all hero/location pages reachable through visible links with JS disabled; review integration diff. |
+| 2     | Collections and home hierarchy | Put collection choices immediately after one concise introduction; use an image-led featured theme plus restrained editorial list. Replace repeated home onboarding with a selected story/object connection. | First meaningful choice visible at common desktop and phone sizes; long titles, no-image entries, keyboard, zoom and both themes work; before/after full-page captures.  |
+| 3     | One exemplary exploration path | Improve an existing Persephone or Osiris path from story to checked source, object and comparison, ending with one relevant continuation. No new generic carousel.                                           | Reader can find story, source edition and next entry without searching several panels; zero unresolved links; image provenance and each featured claim checked.          |
+| 4     | Useful return visit            | Make existing saved items and reading continuation easy to find. Test existing review/quiz flows before expanding them.                                                                                      | Save, reload, resume and remove work; graceful empty/corrupt-storage states; no account or notification pressure.                                                        |
+| 5     | Performance                    | Profile home, story, collections and the heaviest map on a controlled production build. Remove measured transfer/render bottlenecks.                                                                         | Same device/network/profile across repeated before/after runs; report median and variability, not one score; distinguish lab from field data.                            |
+| 6     | Editorial coverage             | Maintain claim/edition/object review status; finish uncollated material and missing comparison-target decisions.                                                                                             | Named edition, precise locator and scoped confidence; no invented article just to satisfy a link check; living traditions framed accurately.                             |
+
+### Visual standard for implementation
+
+Keep the existing font/token system. Give each page a clear purpose: an editorial opening for a story, compact orientation for a catalog, and an immediate useful control for a tool. Prefer specific images and meaningful captions over repeated icon badges, framed title plates and uniform card grids. Select image crops by subject; do not crop inscriptions or museum objects merely to fill a card. Keep historical objects and editorial illustrations visibly distinguishable. Motion should explain a transition or focus attention, respect reduced motion, and never postpone reading. “Fun” should come from discovering a connection, trying a consequential story choice, or answering a sourced question—not additional confetti, badges or constant prompts.
+
+### Whole-site release checklist
+
+Each implementation batch must identify affected template families and cover: narrow/medium/wide screens; light/dark themes; keyboard and focus order; reduced motion; long/empty/error states; image loading and credits; internal links and fragments; source claims and cultural framing; metadata/structured data; consent and saved-state behavior; loading cost; and deployment rollback. Full screen-reader assessment, real-device performance, translations, live operational alerts and optional Rust-backend checks remain separate work. Do not turn an automated passing count into a claim that all categories are certified.
+
+The existing reader-test kit remains unrun because no participants are available. A useful initial target is five readers completing: choose a myth, explain one source difference, identify an artwork's status, save a page, and return to it. Record completion, hesitation and wrong turns. No retention claim should be made from internal walkthroughs; custom event endpoints currently do not provide a persisted research dataset.
+
+### Collections design implementation — 2026-09-23
+
+The collection index now has a compact editorial opening, a featured Rulers of the Dead route illustrated by the existing Met Osiris object (545802), full museum attribution, and a numbered list preserving all 12 collection destinations. The first collection link is visible at 320×800 and works by keyboard. Homepage collections now follow pantheons; the redundant six-path FeaturesGrid is no longer rendered. Collection detail pages replace three repeated explanatory paragraphs with brief guidance that preserves differences among traditions. The shared comparison wheel now says “figures across traditions” rather than asserting a common archetype.
+
+Verification: 18 layout cases for home, Collections and its featured detail, followed by 12 cases for the revised detail and shared deity-page labels, then six more for the final index heading width; no detected overflow, broken images, runtime errors or automated accessibility violations. Fifteen browser regressions passed, including destination completeness, mobile keyboard entry, counts, homepage scrolling and reduced motion. Changed-file lint and type checking passed; local production build passed. The first protected preview build also passed with the final detail copy. The [final review preview](https://mythos-clmjyns01-elizabeth-emersons-projects.vercel.app/collections) also built successfully and was visually checked with the museum image loaded. It includes the final index heading-width refinement. Production was not promoted. Desktop/mobile and light/dark Collections screenshots were inspected; the featured route was followed successfully. Independent focused review found no material issue. These are scoped checks, not a whole-site certification or reader validation.
+
+Existing return-visit verification also passed: nine browser checks for saves, reloads, progress, review entry and backup restoration; 71 targeted unit checks covering saved-state providers, bookmark controls and backup handling, including malformed storage. This is functional evidence, not retention evidence.
+
+Still open: PR reconciliation and visible server-rendered catalog pagination; the complete exemplary story-to-source-to-object path; measured production performance; remaining edition collation; real-reader evidence. The index redesign is not completion of all six work packages above.
+
+### Work continued during this pass
+
+Carried forward the core structured-data rendering fix from PR118 into the current workspace, without its image-policy or hidden-link changes. The shared helper now emits JSON-LD in server HTML and escapes less-than signs. Review exposed duplicate collection schemas in five parent layouts; the schemas now belong to their listing pages, including Locations outside its Suspense boundary. Two helper regressions pass, and one HTTP test checks seven routes for unique script IDs and correctly scoped collection data. Type checking, changed-file lint, independent review and the production build pass. This is a technical correction with no visual redesign in this pass. The plan above is ready to guide subsequent implementation; it is not a claim those changes are already shipped.
+
 ## Goal
 
 Make Mythos Atlas feel like a distinctive, carefully edited atlas: useful to a curious reader, credible enough to cite and return to, and visually deliberate rather than generically "mythology themed." The next releases should improve the quality of the experience end-to-end, not merely increase the number of routes or cards.
@@ -523,3 +595,15 @@ Potential next bets, in order of fit with the product direction:
 ## Definition of progress
 
 For each release, report: the reader problem addressed; the exact routes/content affected; test and accessibility results; editorial/source review status; consented evidence when relevant; and screenshots at the review viewports. A feature is complete only when it passes those checks and improves a reader task—not when the implementation is merely merged.
+
+## September 23 continuation — addressable catalog pages
+
+Heroes and Locations now use visible pagination anchors backed by server-resolved URL parameters. All 27 heroes and 127 locations appear in the expected actual HTML page slices. Search, tradition/type selections, and location era/view preferences survive page links and reloads; changing a filter resets page one. Era filtering applies before the first render, and clearing filters clears the era as well. Invalid page numbers safely fall back or clamp. Mobile page links open the location list, while an explicitly selected map preference remains respected.
+
+The location filter panel now remains in normal page flow: its previous tall sticky layout covered scrolled cards. Duat uses its existing WebP asset after the PNG-to-AVIF request stalled locally; the WebP optimization returned immediately and the scrolled-thumbnail browser regression passes. Lazy loading is preserved. This does not establish a universal image-encoder defect.
+
+Validation: nine targeted browser tests passed; 30 existing pagination-hook tests passed; typecheck and scoped lint passed; 12 layout/accessibility cases (320/768/1440, light/dark, both page-two catalogs) passed with no broken images, overflow, nested controls, console errors, or automated accessibility violations. Focused independent review found no material issue. Earlier failed checks were retained in temporary logs and informed the thumbnail fix. Raw HTML assertions are not a claim that every streamed route works with JavaScript disabled.
+
+Next: reconcile the remaining dependency/image-policy work in open PRs against the current changes, then profile deployed browse and story loading. The broader editorial review and real-reader validation remain unfinished. Production has not been promoted.
+
+Protected preview: https://mythos-irpkencj7-elizabeth-emersons-projects.vercel.app/locations?page=2&view=list . Remote production build passed; deployed browser smoke confirmed page two and next-page navigation to entries 49–72.

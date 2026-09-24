@@ -1,87 +1,92 @@
-import Script from 'next/script'
-import { siteConfig } from '@/lib/metadata'
+import { siteConfig } from "@/lib/metadata";
 
 // ─── Helper ──────────────────────────────────────────────────────────
-// JSON-LD script injection is safe here: all data is constructed from
-// our own trusted data structures, never from user input.
-function JsonLdScript({ id, data }: Readonly<{ id: string; data: Record<string, unknown> }>) {
+// Render in the server HTML; escape less-than signs so text cannot close the script.
+function JsonLdScript({
+  id,
+  data,
+}: Readonly<{ id: string; data: Record<string, unknown> }>) {
   return (
-    <Script
+    <script
       id={id}
       type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
+      dangerouslySetInnerHTML={{
+        __html: JSON.stringify(data).replace(/</g, "\\u003c"),
+      }}
     />
-  )
+  );
 }
 
 // ─── BreadcrumbList ──────────────────────────────────────────────────
 interface BreadcrumbItem {
-  name: string
-  item: string
+  name: string;
+  item: string;
 }
 
 interface BreadcrumbProps {
-  items: BreadcrumbItem[]
+  items: BreadcrumbItem[];
 }
 
 export function BreadcrumbJsonLd({ items }: Readonly<BreadcrumbProps>) {
   const breadcrumbList = {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
     itemListElement: items.map((item, index) => ({
-      '@type': 'ListItem',
+      "@type": "ListItem",
       position: index + 1,
       name: item.name,
       item: item.item,
     })),
-  }
+  };
 
-  return <JsonLdScript id="breadcrumb-jsonld" data={breadcrumbList} />
+  return <JsonLdScript id="breadcrumb-jsonld" data={breadcrumbList} />;
 }
 
 // ─── WebSite (homepage) ──────────────────────────────────────────────
 interface WebSiteJsonLdProps {
-  searchActionTarget?: string
+  searchActionTarget?: string;
 }
 
-export function WebSiteJsonLd({ searchActionTarget }: Readonly<WebSiteJsonLdProps>) {
+export function WebSiteJsonLd({
+  searchActionTarget,
+}: Readonly<WebSiteJsonLdProps>) {
   const website: Record<string, unknown> = {
-    '@context': 'https://schema.org',
-    '@type': 'WebSite',
+    "@context": "https://schema.org",
+    "@type": "WebSite",
     name: siteConfig.name,
     url: siteConfig.url,
     description: siteConfig.description,
     publisher: {
-      '@type': 'Person',
+      "@type": "Person",
       name: siteConfig.creator,
     },
-  }
+  };
 
   if (searchActionTarget) {
     website.potentialAction = {
-      '@type': 'SearchAction',
+      "@type": "SearchAction",
       target: {
-        '@type': 'EntryPoint',
+        "@type": "EntryPoint",
         urlTemplate: searchActionTarget,
       },
-      'query-input': 'required name=search_term_string',
-    }
+      "query-input": "required name=search_term_string",
+    };
   }
 
-  return <JsonLdScript id="website-jsonld" data={website} />
+  return <JsonLdScript id="website-jsonld" data={website} />;
 }
 
 // ─── Article (stories, deity articles) ───────────────────────────────
 interface ArticleJsonLdProps {
-  headline: string
-  description: string
-  image?: string
-  datePublished?: string
-  dateModified?: string
-  author?: string
-  section?: string
-  tags?: string[]
-  url?: string
+  headline: string;
+  description: string;
+  image?: string;
+  datePublished?: string;
+  dateModified?: string;
+  author?: string;
+  section?: string;
+  tags?: string[];
+  url?: string;
 }
 
 export function ArticleJsonLd({
@@ -96,39 +101,41 @@ export function ArticleJsonLd({
   url,
 }: Readonly<ArticleJsonLdProps>) {
   const article: Record<string, unknown> = {
-    '@context': 'https://schema.org',
-    '@type': 'Article',
+    "@context": "https://schema.org",
+    "@type": "Article",
     headline,
     description,
-    image: image ? `${siteConfig.url}${image}` : `${siteConfig.url}/og-image.png`,
-    datePublished: datePublished || '2026-01-01T00:00:00Z',
-    dateModified: dateModified || '2026-02-01T00:00:00Z',
+    image: image
+      ? `${siteConfig.url}${image}`
+      : `${siteConfig.url}/og-image.png`,
+    datePublished: datePublished || "2026-01-01T00:00:00Z",
+    dateModified: dateModified || "2026-02-01T00:00:00Z",
     author: {
-      '@type': 'Organization',
+      "@type": "Organization",
       name: author,
     },
     publisher: {
-      '@type': 'Organization',
+      "@type": "Organization",
       name: siteConfig.name,
       url: siteConfig.url,
     },
-  }
+  };
 
-  if (url) article.url = `${siteConfig.url}${url}`
-  if (section) article.articleSection = section
-  if (tags && tags.length > 0) article.keywords = tags
+  if (url) article.url = `${siteConfig.url}${url}`;
+  if (section) article.articleSection = section;
+  if (tags && tags.length > 0) article.keywords = tags;
 
-  return <JsonLdScript id="article-jsonld" data={article} />
+  return <JsonLdScript id="article-jsonld" data={article} />;
 }
 
 // ─── Deity (Person schema for mythological figure) ───────────────────
 interface DeityJsonLdProps {
-  name: string
-  description: string
-  alternateNames?: string[]
-  domains?: string[]
-  url: string
-  image?: string
+  name: string;
+  description: string;
+  alternateNames?: string[];
+  domains?: string[];
+  url: string;
+  image?: string;
 }
 
 export function DeityJsonLd({
@@ -140,45 +147,45 @@ export function DeityJsonLd({
   image,
 }: Readonly<DeityJsonLdProps>) {
   const deity: Record<string, unknown> = {
-    '@context': 'https://schema.org',
-    '@type': ['Person', 'Article'],
+    "@context": "https://schema.org",
+    "@type": ["Person", "Article"],
     name,
     description,
     url: `${siteConfig.url}${url}`,
     headline: name,
     author: {
-      '@type': 'Organization',
+      "@type": "Organization",
       name: siteConfig.name,
     },
     publisher: {
-      '@type': 'Organization',
+      "@type": "Organization",
       name: siteConfig.name,
       url: siteConfig.url,
     },
-    datePublished: '2026-01-01T00:00:00Z',
-    dateModified: '2026-02-01T00:00:00Z',
-  }
+    datePublished: "2026-01-01T00:00:00Z",
+    dateModified: "2026-02-01T00:00:00Z",
+  };
 
   if (alternateNames && alternateNames.length > 0) {
-    deity.alternateName = alternateNames
+    deity.alternateName = alternateNames;
   }
   if (domains && domains.length > 0) {
-    deity.keywords = domains
-    deity.knowsAbout = domains
+    deity.keywords = domains;
+    deity.knowsAbout = domains;
   }
   if (image) {
-    deity.image = `${siteConfig.url}${image}`
+    deity.image = `${siteConfig.url}${image}`;
   }
 
-  return <JsonLdScript id="deity-jsonld" data={deity} />
+  return <JsonLdScript id="deity-jsonld" data={deity} />;
 }
 
 // ─── CollectionPage (pantheons listing, deities listing) ─────────────
 interface CollectionPageJsonLdProps {
-  name: string
-  description: string
-  url: string
-  numberOfItems?: number
+  name: string;
+  description: string;
+  url: string;
+  numberOfItems?: number;
 }
 
 export function CollectionPageJsonLd({
@@ -188,65 +195,69 @@ export function CollectionPageJsonLd({
   numberOfItems,
 }: Readonly<CollectionPageJsonLdProps>) {
   const collection: Record<string, unknown> = {
-    '@context': 'https://schema.org',
-    '@type': 'CollectionPage',
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
     name,
     description,
     url: `${siteConfig.url}${url}`,
     isPartOf: {
-      '@type': 'WebSite',
+      "@type": "WebSite",
       name: siteConfig.name,
       url: siteConfig.url,
     },
-  }
+  };
 
   if (numberOfItems !== undefined) {
     collection.mainEntity = {
-      '@type': 'ItemList',
+      "@type": "ItemList",
       numberOfItems,
-    }
+    };
   }
 
-  return <JsonLdScript id="collection-jsonld" data={collection} />
+  return <JsonLdScript id="collection-jsonld" data={collection} />;
 }
 
 // ─── Quiz ────────────────────────────────────────────────────────────
 interface QuizJsonLdProps {
-  name: string
-  description: string
-  url: string
+  name: string;
+  description: string;
+  url: string;
 }
 
-export function QuizJsonLd({ name, description, url }: Readonly<QuizJsonLdProps>) {
+export function QuizJsonLd({
+  name,
+  description,
+  url,
+}: Readonly<QuizJsonLdProps>) {
   const quiz = {
-    '@context': 'https://schema.org',
-    '@type': 'Quiz',
+    "@context": "https://schema.org",
+    "@type": "Quiz",
     name,
     description,
     url: `${siteConfig.url}${url}`,
     educationalAlignment: {
-      '@type': 'AlignmentObject',
-      alignmentType: 'educationalSubject',
-      targetName: 'World Mythology',
+      "@type": "AlignmentObject",
+      alignmentType: "educationalSubject",
+      targetName: "World Mythology",
     },
     about: {
-      '@type': 'Thing',
-      name: 'Ancient Mythology',
+      "@type": "Thing",
+      name: "Ancient Mythology",
     },
     provider: {
-      '@type': 'Organization',
+      "@type": "Organization",
       name: siteConfig.name,
       url: siteConfig.url,
     },
-  }
+  };
 
-  return <JsonLdScript id="quiz-jsonld" data={quiz} />
+  return <JsonLdScript id="quiz-jsonld" data={quiz} />;
 }
 
 // ─── AboutPage ───────────────────────────────────────────────────────
 interface AboutPageJsonLdProps {
-  creatorName: string
-  creatorDescription: string
+  creatorName: string;
+  creatorDescription: string;
 }
 
 export function AboutPageJsonLd({
@@ -254,32 +265,32 @@ export function AboutPageJsonLd({
   creatorDescription,
 }: Readonly<AboutPageJsonLdProps>) {
   const aboutPage = {
-    '@context': 'https://schema.org',
-    '@type': 'AboutPage',
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
     name: `About ${siteConfig.name}`,
     description: `Learn about ${siteConfig.name}, an interactive encyclopedia of ancient mythology.`,
     url: `${siteConfig.url}/about`,
     mainEntity: {
-      '@type': 'Person',
+      "@type": "Person",
       name: creatorName,
       description: creatorDescription,
-      jobTitle: 'Developer',
+      jobTitle: "Developer",
     },
     isPartOf: {
-      '@type': 'WebSite',
+      "@type": "WebSite",
       name: siteConfig.name,
       url: siteConfig.url,
     },
-  }
+  };
 
-  return <JsonLdScript id="about-jsonld" data={aboutPage} />
+  return <JsonLdScript id="about-jsonld" data={aboutPage} />;
 }
 
 // ─── WebApplication (family tree) ────────────────────────────────────
 interface WebApplicationJsonLdProps {
-  name: string
-  description: string
-  url: string
+  name: string;
+  description: string;
+  url: string;
 }
 
 export function WebApplicationJsonLd({
@@ -288,62 +299,62 @@ export function WebApplicationJsonLd({
   url,
 }: Readonly<WebApplicationJsonLdProps>) {
   const app = {
-    '@context': 'https://schema.org',
-    '@type': 'WebApplication',
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
     name,
     description,
     url: `${siteConfig.url}${url}`,
-    applicationCategory: 'EducationalApplication',
-    operatingSystem: 'All',
+    applicationCategory: "EducationalApplication",
+    operatingSystem: "All",
     offers: {
-      '@type': 'Offer',
-      price: '0',
-      priceCurrency: 'USD',
+      "@type": "Offer",
+      price: "0",
+      priceCurrency: "USD",
     },
     provider: {
-      '@type': 'Organization',
+      "@type": "Organization",
       name: siteConfig.name,
       url: siteConfig.url,
     },
-  }
+  };
 
-  return <JsonLdScript id="webapp-jsonld" data={app} />
+  return <JsonLdScript id="webapp-jsonld" data={app} />;
 }
 
 // ─── FAQPage ──────────────────────────────────────────────────────────
 interface FAQQuestion {
-  question: string
-  answer: string
+  question: string;
+  answer: string;
 }
 
 interface FAQJsonLdProps {
-  questions: FAQQuestion[]
+  questions: FAQQuestion[];
 }
 
 export function FAQJsonLd({ questions }: Readonly<FAQJsonLdProps>) {
   const faqPage = {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
     mainEntity: questions.map((q) => ({
-      '@type': 'Question',
+      "@type": "Question",
       name: q.question,
       acceptedAnswer: {
-        '@type': 'Answer',
+        "@type": "Answer",
         text: q.answer,
       },
     })),
-  }
+  };
 
-  return <JsonLdScript id="faq-jsonld" data={faqPage} />
+  return <JsonLdScript id="faq-jsonld" data={faqPage} />;
 }
 
 // ─── Creature (using CreativeWork schema) ─────────────────────────────
 interface CreatureJsonLdProps {
-  name: string
-  description: string
-  url: string
-  image?: string
-  abilities?: string[]
+  name: string;
+  description: string;
+  url: string;
+  image?: string;
+  abilities?: string[];
 }
 
 export function CreatureJsonLd({
@@ -354,42 +365,42 @@ export function CreatureJsonLd({
   abilities,
 }: Readonly<CreatureJsonLdProps>) {
   const creature: Record<string, unknown> = {
-    '@context': 'https://schema.org',
-    '@type': ['Thing', 'Article'],
+    "@context": "https://schema.org",
+    "@type": ["Thing", "Article"],
     name,
     description,
     url: `${siteConfig.url}${url}`,
     headline: name,
     author: {
-      '@type': 'Organization',
+      "@type": "Organization",
       name: siteConfig.name,
     },
     publisher: {
-      '@type': 'Organization',
+      "@type": "Organization",
       name: siteConfig.name,
       url: siteConfig.url,
     },
-    datePublished: '2026-01-01T00:00:00Z',
-    dateModified: '2026-02-01T00:00:00Z',
-  }
+    datePublished: "2026-01-01T00:00:00Z",
+    dateModified: "2026-02-01T00:00:00Z",
+  };
 
   if (abilities && abilities.length > 0) {
-    creature.keywords = abilities
+    creature.keywords = abilities;
   }
   if (image) {
-    creature.image = `${siteConfig.url}${image}`
+    creature.image = `${siteConfig.url}${image}`;
   }
 
-  return <JsonLdScript id="creature-jsonld" data={creature} />
+  return <JsonLdScript id="creature-jsonld" data={creature} />;
 }
 
 // ─── Artifact (using Product-like schema) ─────────────────────────────
 interface ArtifactJsonLdProps {
-  name: string
-  description: string
-  url: string
-  image?: string
-  powers?: string[]
+  name: string;
+  description: string;
+  url: string;
+  image?: string;
+  powers?: string[];
 }
 
 export function ArtifactJsonLd({
@@ -400,44 +411,44 @@ export function ArtifactJsonLd({
   powers,
 }: Readonly<ArtifactJsonLdProps>) {
   const artifact: Record<string, unknown> = {
-    '@context': 'https://schema.org',
-    '@type': ['Thing', 'Article'],
+    "@context": "https://schema.org",
+    "@type": ["Thing", "Article"],
     name,
     description,
     url: `${siteConfig.url}${url}`,
     headline: name,
     author: {
-      '@type': 'Organization',
+      "@type": "Organization",
       name: siteConfig.name,
     },
     publisher: {
-      '@type': 'Organization',
+      "@type": "Organization",
       name: siteConfig.name,
       url: siteConfig.url,
     },
-    datePublished: '2026-01-01T00:00:00Z',
-    dateModified: '2026-02-01T00:00:00Z',
-  }
+    datePublished: "2026-01-01T00:00:00Z",
+    dateModified: "2026-02-01T00:00:00Z",
+  };
 
   if (powers && powers.length > 0) {
-    artifact.keywords = powers
+    artifact.keywords = powers;
   }
   if (image) {
-    artifact.image = `${siteConfig.url}${image}`
+    artifact.image = `${siteConfig.url}${image}`;
   }
 
-  return <JsonLdScript id="artifact-jsonld" data={artifact} />
+  return <JsonLdScript id="artifact-jsonld" data={artifact} />;
 }
 
 // ─── Place (for mythological locations) ───────────────────────────────
 interface PlaceJsonLdProps {
-  name: string
-  description: string
-  url: string
-  image?: string
-  latitude?: number | null
-  longitude?: number | null
-  locationType?: string
+  name: string;
+  description: string;
+  url: string;
+  image?: string;
+  latitude?: number | null;
+  longitude?: number | null;
+  locationType?: string;
 }
 
 export function PlaceJsonLd({
@@ -450,52 +461,52 @@ export function PlaceJsonLd({
   locationType,
 }: Readonly<PlaceJsonLdProps>) {
   const place: Record<string, unknown> = {
-    '@context': 'https://schema.org',
-    '@type': ['Place', 'Article'],
+    "@context": "https://schema.org",
+    "@type": ["Place", "Article"],
     name,
     description,
     url: `${siteConfig.url}${url}`,
     headline: name,
     author: {
-      '@type': 'Organization',
+      "@type": "Organization",
       name: siteConfig.name,
     },
     publisher: {
-      '@type': 'Organization',
+      "@type": "Organization",
       name: siteConfig.name,
       url: siteConfig.url,
     },
-    datePublished: '2026-01-01T00:00:00Z',
-    dateModified: '2026-02-01T00:00:00Z',
-  }
+    datePublished: "2026-01-01T00:00:00Z",
+    dateModified: "2026-02-01T00:00:00Z",
+  };
 
   if (latitude != null && longitude != null) {
     place.geo = {
-      '@type': 'GeoCoordinates',
+      "@type": "GeoCoordinates",
       latitude,
       longitude,
-    }
+    };
   }
   if (locationType) {
-    place.additionalType = locationType
+    place.additionalType = locationType;
   }
   if (image) {
-    place.image = `${siteConfig.url}${image}`
+    place.image = `${siteConfig.url}${image}`;
   }
 
-  return <JsonLdScript id="place-jsonld" data={place} />
+  return <JsonLdScript id="place-jsonld" data={place} />;
 }
 
 // ─── ItemList (for listing pages) ─────────────────────────────────────
 interface ItemListJsonLdProps {
-  name: string
-  description: string
-  url: string
+  name: string;
+  description: string;
+  url: string;
   items: Array<{
-    name: string
-    url: string
-    position: number
-  }>
+    name: string;
+    url: string;
+    position: number;
+  }>;
 }
 
 export function ItemListJsonLd({
@@ -505,19 +516,19 @@ export function ItemListJsonLd({
   items,
 }: Readonly<ItemListJsonLdProps>) {
   const itemList = {
-    '@context': 'https://schema.org',
-    '@type': 'ItemList',
+    "@context": "https://schema.org",
+    "@type": "ItemList",
     name,
     description,
     url: `${siteConfig.url}${url}`,
     numberOfItems: items.length,
     itemListElement: items.map((item) => ({
-      '@type': 'ListItem',
+      "@type": "ListItem",
       position: item.position,
       name: item.name,
       url: `${siteConfig.url}${item.url}`,
     })),
-  }
+  };
 
-  return <JsonLdScript id="itemlist-jsonld" data={itemList} />
+  return <JsonLdScript id="itemlist-jsonld" data={itemList} />;
 }

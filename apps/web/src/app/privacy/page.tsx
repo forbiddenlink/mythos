@@ -15,7 +15,9 @@ export default function PrivacyPolicyPage() {
       <h1 className="font-display text-4xl font-bold text-gold-text">
         Privacy Policy
       </h1>
-      <p className="mt-2 text-muted-foreground">Last updated: July 23, 2026</p>
+      <p className="mt-2 text-muted-foreground">
+        Last updated: September 23, 2026
+      </p>
 
       <div className="prose dark:prose-invert mt-8 max-w-none">
         <section className="mb-8">
@@ -174,7 +176,30 @@ export default function PrivacyPolicyPage() {
             <li>Vercel - Hosting and analytics</li>
             <li>Sentry - Error tracking and monitoring</li>
             <li>Anthropic - AI features (Oracle)</li>
+            <li>
+              Stripe - Optional support payments through a hosted checkout
+            </li>
           </ul>
+        </section>
+
+        <section className="mb-8">
+          <h2 className="font-display text-2xl font-semibold text-foreground">
+            Optional Support Payments
+          </h2>
+          <p className="mt-4 text-muted-foreground">
+            If you choose to support Mythos Atlas, you leave this site for
+            Stripe’s hosted checkout. Stripe processes the contact and payment
+            information you enter there. The project owner can access
+            transaction records in Stripe to manage payments and respond to
+            questions; Mythos Atlas does not receive your full card number. See{" "}
+            <a
+              href="https://stripe.com/privacy"
+              className="text-gold-text underline"
+            >
+              Stripe’s privacy policy
+            </a>{" "}
+            for details about its processing.
+          </p>
         </section>
 
         <section className="mb-8">

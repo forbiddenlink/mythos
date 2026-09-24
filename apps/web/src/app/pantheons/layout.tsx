@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { generateBaseMetadata } from "@/lib/metadata";
-import { CollectionPageJsonLd } from "@/components/seo/JsonLd";
 
 export const metadata: Metadata = generateBaseMetadata({
   title: "Pantheons of Ancient Civilizations",
@@ -23,14 +22,5 @@ export default function PantheonsLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return (
-    <>
-      <CollectionPageJsonLd
-        name="Pantheons - Mythological Traditions of Ancient Civilizations"
-        description="Explore the divine hierarchies and mythological traditions of Greek, Norse, Egyptian, Roman, Hindu, Japanese, Celtic, Aztec, Chinese, and other ancient civilizations."
-        url="/pantheons"
-      />
-      {children}
-    </>
-  );
+  return children;
 }

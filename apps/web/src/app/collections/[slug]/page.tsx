@@ -250,28 +250,11 @@ export default async function CollectionPage({ params }: PageProps) {
           </Link>
         </Button>
 
-        <section className="mb-10 rounded-2xl border border-border/60 bg-card/60 p-6">
-          <h2 className="page-section-title text-foreground">
-            Why This Theme Is Useful
-          </h2>
-          <p className="mt-3 leading-relaxed text-muted-foreground">
-            Collections make comparative mythology easier to scan. Instead of
-            approaching one pantheon at a time, this page groups related figures
-            and narratives so you can compare how different traditions handled
-            the same role, motif, or symbolic pattern.
-          </p>
-          <p className="mt-3 leading-relaxed text-muted-foreground">
-            The best way to use it is to open a few entries side by side, notice
-            the overlap first, and then branch into the full deity and story
-            pages for context, source material, and deeper reading.
-          </p>
-          <p className="mt-3 leading-relaxed text-muted-foreground">
-            That process matters because collections are strongest when they do
-            more than list names. They help you see where a motif repeats, where
-            a culture changes the pattern, and which figures deserve a closer
-            read once the broad shape of the theme is clear.
-          </p>
-        </section>
+        <p className="mb-8 max-w-3xl font-body text-lg leading-relaxed text-muted-foreground">
+          Choose a figure or story to explore its sources and context. These
+          entries share a theme; their roles, beliefs and histories differ
+          across traditions.
+        </p>
 
         {/* Cross-pantheon archetype wheel */}
         <RosettaWheel
