@@ -12,6 +12,7 @@ import {
 } from "@/lib/metadata";
 import { DeityPageClient } from "./DeityPageClient";
 import { getMuseumObjectsFor } from "@/lib/museum";
+import { ComparisonLinks } from "@/components/compare/ComparisonLinks";
 
 // ISR: Revalidate every week (604800 seconds)
 export const revalidate = 604800;
@@ -128,6 +129,7 @@ export default async function DeityPage({ params }: PageProps) {
           .map(({ id, name, slug }) => ({ id, name, slug }))}
         museumObjects={getMuseumObjectsFor({ deity: deity.slug })}
       />
+      <ComparisonLinks deityId={deity.id} deityName={deity.name} />
     </>
   );
 }

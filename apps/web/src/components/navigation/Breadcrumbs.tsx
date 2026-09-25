@@ -23,7 +23,10 @@ function generateBreadcrumbs(pathname: string): BreadcrumbItem[] {
     // Format label: capitalize and replace hyphens with spaces
     const label = path
       .split("-")
-      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+      // "vs" joins two names in a comparison slug; it is not a word to title-case.
+      .map((word) =>
+        word === "vs" ? word : word.charAt(0).toUpperCase() + word.slice(1),
+      )
       .join(" ");
 
     breadcrumbs.push({

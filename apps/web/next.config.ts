@@ -7,6 +7,7 @@ import { CREATURE_ALIASES } from "./src/lib/creature-aliases";
 import { ARTIFACT_ALIASES } from "./src/lib/artifact-aliases";
 import { LOCATION_ALIASES } from "./src/lib/location-aliases";
 import { STORY_ALIASES } from "./src/lib/story-aliases";
+import { getReversedComparisonSlugs } from "./src/lib/comparisons";
 
 const withNextIntl = createNextIntlPlugin("./i18n.ts");
 const withBundleAnalyzer = bundleAnalyzer({
@@ -151,6 +152,11 @@ const nextConfig: NextConfig = {
       ...Object.entries(LOCATION_ALIASES).map(([from, to]) => ({
         source: `/locations/${from}`,
         destination: `/locations/${to}`,
+        permanent: true,
+      })),
+      ...Object.entries(getReversedComparisonSlugs()).map(([from, to]) => ({
+        source: `/compare/${from}`,
+        destination: `/compare/${to}`,
         permanent: true,
       })),
     ];
