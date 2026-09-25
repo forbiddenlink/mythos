@@ -68,6 +68,10 @@ export async function captureServerEvent({
         timestamp: new Date().toISOString(),
         properties: {
           ...clean,
+          // PostHog project 325061 is shared by every personal app. The browser SDK stamps
+          // `app` via posthog.register(); this path posts to the capture API directly, so
+          // without this line every server event from mythos is unattributable.
+          app: "mythos",
           // Anonymous events only: no person profile, so no cross-session
           // identity is built for a visitor who never signs in.
           $process_person_profile: false,
