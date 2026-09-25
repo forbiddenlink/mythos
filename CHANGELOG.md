@@ -5,6 +5,25 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.6.0](https://github.com/forbiddenlink/mythos/compare/v1.5.0...v1.6.0) (2026-09-25)
+
+
+### Features
+
+* **analytics:** emit the remaining retention events ([d69d274](https://github.com/forbiddenlink/mythos/commit/d69d2744e30e7146fc54fe02f311116d67bfd85c))
+* **analytics:** measure the product instead of pretending to ([01712a4](https://github.com/forbiddenlink/mythos/commit/01712a4711d1be6233571285b361fb20bec873b0))
+* **analytics:** replace the fake event sinks with real PostHog ingest ([78f2698](https://github.com/forbiddenlink/mythos/commit/78f2698fc5d2de795e45db0afa9f11b8236c463c))
+* **quiz:** put the score in the shared card ([bd954bb](https://github.com/forbiddenlink/mythos/commit/bd954bb10a91dabfcd025f597c791a2fc0df3129))
+* **seo:** give the comparison feature crawlable pages ([ad01328](https://github.com/forbiddenlink/mythos/commit/ad01328229b3fcd2597cadd0f134f7a1163519a0))
+* **seo:** give the comparison feature crawlable pages ([8109f4e](https://github.com/forbiddenlink/mythos/commit/8109f4eb7ed68436f2405d2aa4bba4b883148c86))
+* **support:** ask for support at a value moment, and measure the funnel ([e99928f](https://github.com/forbiddenlink/mythos/commit/e99928f06cf4520898951b74c9a5148b187b6e0c))
+
+
+### Bug Fixes
+
+* **quiz:** make the relationships quiz card carry its score ([fdf125a](https://github.com/forbiddenlink/mythos/commit/fdf125a3c43fdfa1bd221496c202571d33d9e9c4))
+* **quiz:** make the relationships quiz card carry its score ([c8b7933](https://github.com/forbiddenlink/mythos/commit/c8b79339961f9ab18e4c58413294ef585b98149c))
+
 ## [1.5.0](https://github.com/forbiddenlink/mythos/compare/v1.4.0...v1.5.0) (2026-09-24)
 
 
