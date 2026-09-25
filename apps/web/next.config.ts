@@ -73,11 +73,19 @@ const nextConfig: NextConfig = {
     minimumCacheTTL: 60 * 60 * 24 * 365, // 1 year for static images
   },
   async rewrites() {
-    const posthogHost =
-      process.env.NEXT_PUBLIC_POSTHOG_HOST ?? "https://us.i.posthog.com";
-    const posthogAssetHost =
-      process.env.NEXT_PUBLIC_POSTHOG_ASSET_HOST ??
-      "https://us-assets.i.posthog.com";
+    // These are the rewrite targets, so they must stay absolute origins. Reading them from
+    // NEXT_PUBLIC_POSTHOG_HOST was a trap: that variable is what the browser points at, and
+    // setting it to "/ingest" would have made this rewrite forward /ingest to itself.
+    const absolute = (value: string | undefined, fallback: string) =>
+      value && /^https?:\/\//.test(value) ? value : fallback;
+    const posthogHost = absolute(
+      process.env.POSTHOG_INGEST_ORIGIN,
+      "https://us.i.posthog.com",
+    );
+    const posthogAssetHost = absolute(
+      process.env.NEXT_PUBLIC_POSTHOG_ASSET_HOST,
+      "https://us-assets.i.posthog.com",
+    );
 
     return [
       // Same-origin ingest path. Content blockers drop requests to known
