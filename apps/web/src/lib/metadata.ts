@@ -40,6 +40,17 @@ export function buildHreflangAlternates(_path: string): Record<string, string> {
   return {};
 }
 
+/**
+ * Search Console ownership token, emitted as `<meta name="google-site-verification">`.
+ *
+ * Public by design: Google requires it to be readable in the page source, so it
+ * is not a secret. Absent, no tag is emitted and nothing else changes.
+ */
+export function googleSiteVerification(): string | undefined {
+  const token = process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION?.trim();
+  return token ? token : undefined;
+}
+
 /** Metadata for soft-missing entity pages — always noindex. */
 export function generateNotFoundMetadata(
   title: string,
