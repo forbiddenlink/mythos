@@ -75,6 +75,14 @@ export function ConsentGatedPostHog() {
           disable_session_recording: true,
           person_profiles: "identified_only",
         });
+        // Identifies this app in the shared PostHog project every personal app reports into.
+        posthog.register({
+          app: "mythos",
+          environment: process.env.NEXT_PUBLIC_VERCEL_ENV || "development",
+          app_version:
+            process.env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_SHA?.slice(0, 7) ||
+            "local",
+        });
 
         cached = posthog as unknown as PostHogClient;
 
