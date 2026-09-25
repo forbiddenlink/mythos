@@ -3,7 +3,7 @@ import { Footer } from "@/components/layout/footer";
 import { GlobalClientAddons } from "@/components/layout/GlobalClientAddons";
 import { Header } from "@/components/layout/header";
 import { OrganizationJsonLd, WebSiteJsonLd } from "@/components/seo/JsonLd";
-import { generateBaseMetadata } from "@/lib/metadata";
+import { generateBaseMetadata, googleSiteVerification } from "@/lib/metadata";
 import { AchievementNotificationProvider } from "@/providers/achievement-notification-provider";
 import { BookmarksProvider } from "@/providers/bookmarks-provider";
 import { LeaderboardProvider } from "@/providers/leaderboard-provider";
@@ -28,6 +28,9 @@ export async function generateMetadata(): Promise<Metadata> {
       url: "/",
       locale,
     }),
+    verification: {
+      google: googleSiteVerification(),
+    },
     icons: {
       icon: [
         { url: "/favicon.ico", sizes: "any" },

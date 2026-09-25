@@ -108,6 +108,7 @@ From `apps/web/.env.example`:
 - `NEXT_PUBLIC_PWA_INSTALL_PROMPT` - optional install prompt, off by default
 - `NEXT_PUBLIC_POSTHOG_KEY` / `POSTHOG_KEY` - product analytics. Without a key the app runs normally, `trackEvent` has no sink, and `/api/analytics/*` answers 501 instead of acknowledging events it cannot store
 - `NEXT_PUBLIC_POSTHOG_HOST`, `NEXT_PUBLIC_POSTHOG_ASSET_HOST`, `NEXT_PUBLIC_POSTHOG_UI_HOST`, `POSTHOG_HOST` - PostHog hosts; browser traffic is proxied through the `/ingest` rewrite in `next.config.ts`
+- `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION` - Search Console ownership token from the "HTML tag" method; public by design, and without it no verification tag is emitted
 - `NEXT_PUBLIC_SENTRY_DSN`, `SENTRY_ORG`, `SENTRY_PROJECT`, `SENTRY_AUTH_TOKEN` - error tracking
 - `SENTRY_TRACES_SAMPLE_RATE` / `NEXT_PUBLIC_SENTRY_TRACES_SAMPLE_RATE` - trace sample rate (default 0.15); set both to keep server/client sampling in sync
 - `NEXT_PUBLIC_SENTRY_REPLAY_ENABLED` - session replay, off by default
