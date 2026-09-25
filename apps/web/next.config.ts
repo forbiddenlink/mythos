@@ -89,6 +89,11 @@ const nextConfig: NextConfig = {
         destination: `${posthogAssetHost}/static/:path*`,
       },
       {
+        // The recorder, surveys and toolbar bundles load from /array, not /static.
+        source: "/ingest/array/:path*",
+        destination: `${posthogAssetHost}/array/:path*`,
+      },
+      {
         source: "/ingest/:path*",
         destination: `${posthogHost}/:path*`,
       },
