@@ -9,6 +9,7 @@ import locations from "@/data/locations.json";
 import collections from "@/data/collections.json";
 import heroes from "@/data/heroes.json";
 import sources from "@/data/sources.json";
+import { getDeityComparisons } from "@/lib/comparisons";
 
 const BASE_URL = "https://mythosatlas.com";
 
@@ -285,6 +286,21 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }),
   );
 
+  // Head-to-head comparison pages. The /compare tool itself is client-rendered
+  // behind query params, so these static routes are the only crawlable form.
+  const comparisonPages: MetadataRoute.Sitemap = [
+    {
+      url: `${BASE_URL}/compare/pairs`,
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+    },
+    ...getDeityComparisons().map((comparison) => ({
+      url: `${BASE_URL}/compare/${comparison.slug}`,
+      changeFrequency: "monthly" as const,
+      priority: 0.6,
+    })),
+  ];
+
   const studyPages: MetadataRoute.Sitemap = STUDY_GUIDES.map((slug) => ({
     url: `${BASE_URL}/study/${slug}`,
     changeFrequency: "monthly" as const,
@@ -294,6 +310,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     ...staticPages,
     ...studyPages,
+    ...comparisonPages,
     ...deityPages,
     ...heroPages,
     ...storyPages,
