@@ -4,8 +4,6 @@ import dynamic from "next/dynamic";
 import { Loader2 } from "lucide-react";
 import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
 
-import pantheonsData from "@/data/pantheons.json";
-
 // Lazy load D3-based timeline visualization
 const StoryTimelineView = dynamic(
   () =>
@@ -21,15 +19,13 @@ const StoryTimelineView = dynamic(
     ssr: false,
   },
 );
-import storiesData from "@/data/stories.json";
-
-interface Pantheon {
+export interface StoryTimelinePantheon {
   id: string;
   name: string;
   slug: string;
 }
 
-interface Story {
+export interface StoryTimelineStory {
   id: string;
   pantheonId: string;
   title: string;
@@ -38,10 +34,13 @@ interface Story {
   category?: string;
 }
 
-export function StoryTimelinePageClient() {
-  const pantheons = pantheonsData as unknown as Pantheon[];
-  const stories = storiesData as unknown as Story[];
-
+export function StoryTimelinePageClient({
+  pantheons,
+  stories,
+}: {
+  pantheons: StoryTimelinePantheon[];
+  stories: StoryTimelineStory[];
+}) {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
@@ -92,9 +91,9 @@ export function StoryTimelinePageClient() {
                 Cross-Cultural Patterns
               </h3>
               <p>
-                These editorial groupings help compare narrative patterns.
-                They do not imply a shared chronology or the same sequence of
-                eras in every tradition.
+                These editorial groupings help compare narrative patterns. They
+                do not imply a shared chronology or the same sequence of eras in
+                every tradition.
               </p>
             </div>
             <div>

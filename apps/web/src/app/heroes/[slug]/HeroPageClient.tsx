@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { getMuseumPortrait, type MuseumObject } from "@/lib/museum";
+import type { MuseumObject } from "@/lib/museum";
 import { MuseumGallery } from "@/components/museum/MuseumGallery";
 import ReactMarkdown from "react-markdown";
 import { CatalogSourceNotes } from "@/components/sources/CatalogSourceNotes";
@@ -15,11 +15,7 @@ import { DeityJsonLd } from "@/components/seo/JsonLd";
 import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
 import { AppearsIn } from "@/components/mythology/AppearsIn";
 import { getPantheonColor } from "@/lib/pantheon-colors";
-import { normalizeHeroReference } from "@/lib/heroes";
-import { normalizeDeityReference } from "@/lib/deities";
-import heroesData from "@/data/heroes.json";
-import deitiesData from "@/data/deities.json";
-import pantheonsData from "@/data/pantheons.json";
+import { normalizeDeityReference } from "@/lib/deity-reference";
 
 interface Pronunciation {
   ipa: string;
@@ -40,7 +36,7 @@ interface CrossParallel {
   note: string;
 }
 
-interface Hero {
+export interface HeroPageHero {
   id: string;
   pantheonId: string;
   name: string;
@@ -59,7 +55,9 @@ interface Hero {
   crossPantheonParallels?: CrossParallel[];
 }
 
-interface Deity {
+type Hero = HeroPageHero;
+
+interface FigureRef {
   id: string;
   slug: string;
   name: string;
@@ -80,18 +78,23 @@ function formatSlugAsTitle(slug: string) {
 
 export function HeroPageClient({
   slug,
+  hero,
+  deities: allDeities,
+  heroes: allHeroes,
+  pantheons,
   museumObjects = [],
+  museumPortrait = null,
 }: {
   slug: string;
+  /** The hero record, resolved on the server (null renders "not found"). */
+  hero: Hero | null;
+  /** id / slug / name references for linking parents and parallels. */
+  deities: FigureRef[];
+  heroes: FigureRef[];
+  pantheons: Pantheon[];
   museumObjects?: MuseumObject[];
+  museumPortrait?: MuseumObject | null;
 }) {
-  const museumPortrait = getMuseumPortrait(museumObjects);
-  const allHeroes = heroesData as Hero[];
-  const allDeities = deitiesData as Deity[];
-  const pantheons = pantheonsData as Pantheon[];
-  const hero =
-    allHeroes.find((item) => item.id === slug || item.slug === slug) ?? null;
-
   if (!hero) {
     return (
       <div className="container mx-auto max-w-6xl px-4 py-24">
@@ -118,7 +121,7 @@ export function HeroPageClient({
     );
   const heroById = (id: string) =>
     allHeroes.find(
-      (h) => normalizeHeroReference(h.id) === normalizeHeroReference(id),
+      (h) => normalizeDeityReference(h.id) === normalizeDeityReference(id),
     );
   const pantheonName = (pantheonId: string) =>
     pantheons.find((p) => p.id === pantheonId)?.name ??

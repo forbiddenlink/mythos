@@ -1,5 +1,6 @@
 "use client";
 
+import { loadDeityIndex, loadStoryIndex } from "@/lib/catalog-client";
 import { reviewSchema } from "@/lib/learning-backup";
 
 import {
@@ -142,14 +143,9 @@ interface ReviewCardSources {
 let cardSourcesPromise: Promise<ReviewCardSources> | null = null;
 
 function loadCardSources(): Promise<ReviewCardSources> {
-  cardSourcesPromise ??= Promise.all([
-    import("@/data/deities.json"),
-    import("@/data/stories.json"),
-  ])
-    .then(([deitiesModule, storiesModule]) => {
-      const deities = deitiesModule.default as ReviewDeityData[];
-      const stories = storiesModule.default as ReviewStoryData[];
-
+  // Slim catalog indexes, fetched only when the user builds a review deck.
+  cardSourcesPromise ??= Promise.all([loadDeityIndex(), loadStoryIndex()])
+    .then(([deities, stories]: [ReviewDeityData[], ReviewStoryData[]]) => {
       return {
         deityIndex: new Map(
           deities.map((deity) => [deity.id.toLowerCase(), deity]),

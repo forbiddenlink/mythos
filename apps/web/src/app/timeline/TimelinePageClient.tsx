@@ -4,8 +4,6 @@ import dynamic from "next/dynamic";
 import { Loader2 } from "lucide-react";
 import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
 
-import pantheonsData from "@/data/pantheons.json";
-
 // Lazy load D3-based timeline visualization
 const TimelineVisualizationD3 = dynamic(
   () =>
@@ -21,11 +19,7 @@ const TimelineVisualizationD3 = dynamic(
     ssr: false,
   },
 );
-import storiesData from "@/data/stories.json";
-import deitiesData from "@/data/deities.json";
-import eventsData from "@/data/events.json";
-
-interface Pantheon {
+export interface TimelinePantheon {
   id: string;
   name: string;
   slug: string;
@@ -36,25 +30,7 @@ interface Pantheon {
   description: string | null;
 }
 
-interface Story {
-  id: string;
-  pantheonId: string;
-  title: string;
-  slug: string;
-  summary: string;
-  category?: string;
-}
-
-interface Deity {
-  id: string;
-  pantheonId: string;
-  name: string;
-  slug: string;
-  domain: string[];
-  importanceRank: number;
-}
-
-interface TimelineEvent {
+export interface TimelineEvent {
   id: string;
   title: string;
   year: number;
@@ -66,14 +42,13 @@ interface TimelineEvent {
 import { useState } from "react";
 import { TimelineControls } from "@/components/timeline/TimelineControls";
 
-// ... existing interfaces ...
-
-export function TimelinePageClient() {
-  const pantheons = pantheonsData as unknown as Pantheon[];
-  const _stories = storiesData as unknown as Story[];
-  const _deities = deitiesData as unknown as Deity[];
-  const events = eventsData as unknown as TimelineEvent[];
-
+export function TimelinePageClient({
+  pantheons,
+  events,
+}: {
+  pantheons: TimelinePantheon[];
+  events: TimelineEvent[];
+}) {
   const MIN_YEAR = -3500;
   const MAX_YEAR = 2025;
   const [viewRange, setViewRange] = useState<[number, number]>([

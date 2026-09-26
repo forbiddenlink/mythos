@@ -8,11 +8,10 @@ import {
   generateNotFoundMetadata,
   shortPantheonName,
 } from "@/lib/metadata";
-import { HeroPageClient } from "./HeroPageClient";
-import { getMuseumObjectsFor } from "@/lib/museum";
-
-// ISR: Revalidate every week (604800 seconds)
-export const revalidate = 604800;
+import { getDeityRefs } from "@/lib/data/catalog";
+import { project } from "@/lib/data/project";
+import { HeroPageClient, type HeroPageHero } from "./HeroPageClient";
+import { getMuseumObjectsFor, getMuseumPortrait } from "@/lib/museum";
 
 interface HeroData {
   id: string;
@@ -31,6 +30,12 @@ interface PageProps {
 function resolveHeroBySlug(slug: string) {
   return findHeroByReference(slug) as HeroData | undefined;
 }
+
+// Every valid param is prerendered by generateStaticParams; anything else is a
+// 404 served from the static not-found page. (On-demand rendering of unknown
+// params would cache HTML carrying one request's CSP nonce.) Alias URLs (ids,
+// alternate names, other casings) are redirected by src/proxy.ts.
+export const dynamicParams = false;
 
 // Generate static params for all heroes
 export async function generateStaticParams() {
@@ -94,10 +99,20 @@ export default async function HeroPage({ params }: PageProps) {
     redirect(`/heroes/${hero.slug}`);
   }
 
+  const museumObjects = getMuseumObjectsFor({ hero: hero.slug });
+  const record = (heroes as unknown as HeroPageHero[]).find(
+    (item) => item.id === hero.id,
+  );
+
   return (
     <HeroPageClient
       slug={slug}
-      museumObjects={getMuseumObjectsFor({ hero: hero.slug })}
+      hero={record ?? null}
+      deities={project(getDeityRefs(), ["id", "slug", "name"])}
+      heroes={project(heroes, ["id", "slug", "name"])}
+      pantheons={project(pantheons, ["id", "name"])}
+      museumObjects={museumObjects}
+      museumPortrait={getMuseumPortrait(museumObjects)}
     />
   );
 }

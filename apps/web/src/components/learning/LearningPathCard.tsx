@@ -22,7 +22,7 @@ import {
   Play,
   Clock,
 } from "lucide-react";
-import { getDeityPath } from "@/lib/deities";
+import { normalizeDeityReference } from "@/lib/deity-reference";
 import { isRequiredLearningPathStep } from "@/lib/recommendations";
 import type {
   LearningPath,
@@ -66,7 +66,7 @@ const goalIconColors: Record<LearningGoal, string> = {
 function getStepLink(step: LearningPathStep): string {
   switch (step.type) {
     case "deity":
-      return getDeityPath(step.itemId);
+      return `/deities/${step.slug ?? normalizeDeityReference(step.itemId)}`;
     case "story":
       return `/stories/${step.itemId}`;
     case "quiz":

@@ -38,6 +38,8 @@ interface FactsPageClientProps {
    * does not need to be loaded into the client bundle.
    */
   deityLookup?: Record<string, FactDeityInfo>;
+  /** Festival honored-deity name → deity page slug, resolved on the server. */
+  festivalDeitySlugs?: Record<string, string>;
 }
 
 interface _Fact {
@@ -94,7 +96,10 @@ const categoryColors: Record<string, string> = {
 
 const categories = Array.from(new Set(facts.map((f) => f.category)));
 
-export function FactsPageClient({ deityLookup = {} }: FactsPageClientProps) {
+export function FactsPageClient({
+  deityLookup = {},
+  festivalDeitySlugs = {},
+}: FactsPageClientProps) {
   const [activeTab, setActiveTab] = useState<"facts" | "calendar">("facts");
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
@@ -476,7 +481,7 @@ export function FactsPageClient({ deityLookup = {} }: FactsPageClientProps) {
             )}
           </div>
         ) : (
-          <AntiquityCalendar />
+          <AntiquityCalendar deitySlugs={festivalDeitySlugs} />
         )}
       </div>
     </div>

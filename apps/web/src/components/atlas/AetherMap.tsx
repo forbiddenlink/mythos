@@ -1,13 +1,13 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls, Line, Html, Stars } from "@react-three/drei";
 import * as THREE from "three";
 import {
-  computeAtlasLayout,
+  type AtlasLayout,
   prettyPantheonName,
   type AtlasNode,
 } from "@/lib/atlas-layout";
@@ -64,8 +64,14 @@ function Star({
 
 /* ------------------------------- the scene ------------------------------- */
 
-function Scene({ onSelect }: { onSelect: (slug: string) => void }) {
-  const { nodes, edges, pantheons } = useMemo(() => computeAtlasLayout(), []);
+function Scene({
+  layout,
+  onSelect,
+}: {
+  layout: AtlasLayout;
+  onSelect: (slug: string) => void;
+}) {
+  const { nodes, edges, pantheons } = layout;
   const [hoveredId, setHoveredId] = useState<string | null>(null);
   const hovered = hoveredId ? nodes.find((n) => n.id === hoveredId) : undefined;
 
@@ -168,13 +174,15 @@ function Scene({ onSelect }: { onSelect: (slug: string) => void }) {
 /* --------------------- accessible / no-WebGL fallback -------------------- */
 
 function AtlasFallback({
+  layout,
   intro,
   showTitle = true,
 }: {
+  layout: AtlasLayout;
   intro?: string;
   showTitle?: boolean;
 }) {
-  const { pantheons, nodes } = useMemo(() => computeAtlasLayout(), []);
+  const { pantheons, nodes } = layout;
   return (
     <div className="mx-auto max-w-5xl px-4 py-16">
       {showTitle && (
@@ -216,7 +224,7 @@ function AtlasFallback({
 
 /* ------------------------------- wrapper --------------------------------- */
 
-export function AetherMap() {
+export function AetherMap({ layout }: { layout: AtlasLayout }) {
   const router = useRouter();
   const [ready, setReady] = useState(false);
   const [useCanvas, setUseCanvas] = useState(false);
@@ -243,7 +251,7 @@ export function AetherMap() {
 
   // Server + first paint: render the accessible fallback (also the
   // reduced-motion / no-WebGL experience). Progressive enhancement.
-  if (!ready || !useCanvas) return <AtlasFallback />;
+  if (!ready || !useCanvas) return <AtlasFallback layout={layout} />;
 
   return (
     <div
@@ -256,7 +264,10 @@ export function AetherMap() {
         dpr={[1, 1.5]}
         gl={{ antialias: false, powerPreference: "low-power" }}
       >
-        <Scene onSelect={(slug) => router.push(`/deities/${slug}`)} />
+        <Scene
+          layout={layout}
+          onSelect={(slug) => router.push(`/deities/${slug}`)}
+        />
       </Canvas>
 
       {/* HUD overlay */}
@@ -285,6 +296,7 @@ export function AetherMap() {
         className="sr-only focus-within:not-sr-only focus-within:absolute focus-within:inset-0 focus-within:z-20 focus-within:overflow-y-auto focus-within:bg-background"
       >
         <AtlasFallback
+          layout={layout}
           showTitle={false}
           intro="Every deity, grouped by pantheon — a keyboard- and screen-reader-navigable list of the star map above."
         />

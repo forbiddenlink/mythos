@@ -1,74 +1,16 @@
-"use client";
-
 import Image from "next/image";
 import { ViewTransitionLink } from "@/components/transitions/ViewTransitionLink";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Sparkles, Users } from "lucide-react";
-import { getTopRelatedDeities, type RelatedDeity } from "@/lib/relationships";
-import deitiesData from "@/data/deities.json";
+import type { RelatedDeityCard } from "@/lib/deity-page";
 
-interface DeityBasic {
-  id: string;
-  name: string;
-  slug: string;
-  pantheonId: string;
-  domain: string[];
-  imageUrl: string | null;
-}
-
-interface RelatedDeitiesProps {
-  deityId: string;
-  pantheonId: string;
-  maxItems?: number;
-}
-
-export function RelatedDeities({
-  deityId,
-  pantheonId,
-  maxItems = 6,
-}: RelatedDeitiesProps) {
-  // Get related deities from relationships data
-  const relatedDeities = getTopRelatedDeities(deityId, maxItems);
-  const deities = deitiesData as DeityBasic[];
-
-  if (relatedDeities.length === 0) {
-    return null;
-  }
-
-  // Create a map for quick lookup
-  const deityMap = new Map<string, DeityBasic>();
-  for (const d of deities) deityMap.set(d.id, d);
-
-  // Get full deity data for related deities
-  const relatedWithData = relatedDeities
-    .map((rel) => ({
-      ...rel,
-      deity: deityMap.get(rel.deityId),
-    }))
-    .filter((r): r is RelatedDeity & { deity: DeityBasic } => !!r.deity);
-
-  // If we have fewer than 4, try to fill with same-pantheon deities
-  let filledRelated = [...relatedWithData];
-  if (filledRelated.length < 4) {
-    const existingIds = new Set(filledRelated.map((r) => r.deity.id));
-    existingIds.add(deityId); // Don't include self
-
-    const samePantheon = deities
-      .filter((d) => d.pantheonId === pantheonId && !existingIds.has(d.id))
-      .slice(0, 4 - filledRelated.length)
-      .map((d) => ({
-        deityId: d.id,
-        relationshipType: "same_pantheon",
-        label: "Same Pantheon",
-        direction: "to" as const,
-        deity: d,
-      }));
-
-    filledRelated = [...filledRelated, ...samePantheon];
-  }
-
-  if (filledRelated.length === 0) {
+/**
+ * Related-deity grid. The server page selects the cards
+ * (`selectRelatedDeities`) so the catalog never reaches the client.
+ */
+export function RelatedDeities({ deities }: { deities: RelatedDeityCard[] }) {
+  if (deities.length === 0) {
     return null;
   }
 
@@ -82,7 +24,7 @@ export function RelatedDeities({
       </CardHeader>
       <CardContent>
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
-          {filledRelated.map(({ deity, label }) => (
+          {deities.map(({ label, ...deity }) => (
             <ViewTransitionLink
               key={deity.id}
               href={`/deities/${deity.slug}`}

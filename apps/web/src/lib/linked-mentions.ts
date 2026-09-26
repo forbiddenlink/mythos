@@ -1,8 +1,10 @@
+import "server-only";
+
 import deitiesData from "@/data/deities.json";
 import storiesData from "@/data/stories.json";
 import artifactsData from "@/data/artifacts.json";
 import journeysData from "@/data/journeys.json";
-import { normalizeDeityReference } from "@/lib/deities";
+import { normalizeDeityReference } from "@/lib/deity-reference";
 
 export type MentionKind = "story" | "artifact" | "journey" | "parallel";
 

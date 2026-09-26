@@ -18,7 +18,11 @@
       ]
     },
     "apps/web": {
-      "entry": ["i18n.ts", "scripts/quality-sweep.ts"],
+      "entry": [
+        "i18n.ts",
+        "scripts/quality-sweep.ts",
+        "scripts/measure-client-js.mjs"
+      ],
       "ignoreDependencies": ["eslint-plugin-jsx-a11y", "husky", "lint-staged"],
       "ignoreIssues": {
         "src/lib/schemas.ts": ["exports", "types"],

@@ -1,59 +1,37 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import { Gamepad2, Clock, Trophy, ChevronRight } from 'lucide-react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import { Button } from '@/components/ui/button';
-import { BranchingStory, getDiscoveredEndings } from '@/lib/branching-story';
-import branchingStoriesData from '@/data/branching-stories.json';
-import { useEffect, useState } from 'react';
-
-const branchingStories = branchingStoriesData as unknown as BranchingStory[];
-
-/**
- * Get interactive stories that feature a specific deity
- */
-export function getStoriesFeaturingDeity(deityId: string): BranchingStory[] {
-  const deityIdLower = deityId.toLowerCase();
-
-  return branchingStories.filter((story) => {
-    // Check if the protagonist matches
-    const protagonistMatch = story.protagonist.toLowerCase().includes(deityIdLower);
-
-    // Check if any node content mentions the deity
-    const contentMatch = Object.values(story.nodes).some((node) =>
-      node.content.toLowerCase().includes(deityIdLower)
-    );
-
-    // Check description
-    const descMatch = story.description.toLowerCase().includes(deityIdLower);
-
-    return protagonistMatch || contentMatch || descMatch;
-  });
-}
+import Link from "next/link";
+import { Gamepad2, Clock, Trophy, ChevronRight } from "lucide-react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { getDiscoveredEndings } from "@/lib/branching-story";
+import type { InteractiveStoryCard } from "@/lib/deity-page";
+import { useEffect, useState } from "react";
 
 interface DeityStoryRecommendationsProps {
-  deityId: string;
   deityName: string;
+  /** Interactive stories featuring the deity, selected on the server. */
+  stories: InteractiveStoryCard[];
 }
 
-export function DeityStoryRecommendations({ deityId, deityName }: DeityStoryRecommendationsProps) {
-  const [relatedStories, setRelatedStories] = useState<BranchingStory[]>([]);
-  const [discoveredCounts, setDiscoveredCounts] = useState<Record<string, number>>({});
+export function DeityStoryRecommendations({
+  deityName,
+  stories: relatedStories,
+}: DeityStoryRecommendationsProps) {
+  const [discoveredCounts, setDiscoveredCounts] = useState<
+    Record<string, number>
+  >({});
 
   useEffect(() => {
-    const stories = getStoriesFeaturingDeity(deityId);
-    // eslint-disable-next-line react-hooks/set-state-in-effect -- compute related stories from static data
-    setRelatedStories(stories);
-
-    // Get discovered endings for each story
+    // Endings discovered live in localStorage, so they are read after mount.
     const counts: Record<string, number> = {};
-    stories.forEach((story) => {
+    relatedStories.forEach((story) => {
       counts[story.id] = getDiscoveredEndings(story.id).length;
     });
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- hydrate progress from localStorage (SSR-safe)
     setDiscoveredCounts(counts);
-  }, [deityId]);
+  }, [relatedStories]);
 
   if (relatedStories.length === 0) {
     return null;
@@ -133,7 +111,11 @@ export function DeityStoryRecommendations({ deityId, deityName }: DeityStoryReco
         })}
 
         {/* View all CTA */}
-        <Button asChild variant="outline" className="w-full border-gold/30 hover:bg-gold/10">
+        <Button
+          asChild
+          variant="outline"
+          className="w-full border-gold/30 hover:bg-gold/10"
+        >
           <Link href="/stories">
             View All Stories
             <ChevronRight className="h-4 w-4 ml-1" />

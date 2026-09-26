@@ -10,12 +10,44 @@ import {
   generateNotFoundMetadata,
   shortPantheonName,
 } from "@/lib/metadata";
-import { DeityPageClient } from "./DeityPageClient";
-import { getMuseumObjectsFor } from "@/lib/museum";
+import { getMuseumObjectsFor, getMuseumPortrait } from "@/lib/museum";
 import { ComparisonLinks } from "@/components/compare/ComparisonLinks";
-
-// ISR: Revalidate every week (604800 seconds)
-export const revalidate = 604800;
+import { BloodlineTapestry } from "@/components/deities/BloodlineTapestry";
+import { DeityStoryRecommendations } from "@/components/deities/DeityStoryRecommendations";
+import { RelatedDeities } from "@/components/deities/RelatedDeities";
+import { MuseumGallery } from "@/components/museum/MuseumGallery";
+import { LinkedMentions } from "@/components/mythology/LinkedMentions";
+import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
+import { DeityJsonLd } from "@/components/seo/JsonLd";
+import { getAppearsIn } from "@/lib/appears-in";
+import {
+  getBranchingStories,
+  getDeities,
+  getDeityById,
+  getDeityLookup,
+  getPantheonById,
+  getRelationships,
+} from "@/lib/data/catalog";
+import { project } from "@/lib/data/project";
+import {
+  buildBloodline,
+  deitiesInRelationships,
+  interactiveStoriesFeaturing,
+  relationshipsFor,
+  resolveParallels,
+  selectRelatedDeities,
+} from "@/lib/deity-page";
+import { getTopRelatedDeities } from "@/lib/relationships";
+import { DeityFamilyTree } from "./_components/DeityFamilyTree";
+import { DeityHero } from "./_components/DeityHero";
+import {
+  DeityAttributes,
+  DeityNarrative,
+  DeityParallels,
+  DeitySources,
+  DeityWorship,
+} from "./_components/DeitySections";
+import { DeityViewTracker } from "./_components/DeityViewTracker";
 
 interface DeityData {
   id: string;
@@ -35,6 +67,12 @@ interface PageProps {
 function resolveDeityBySlug(slug: string) {
   return findDeityByReference(slug) as DeityData | undefined;
 }
+
+// Every valid param is prerendered by generateStaticParams; anything else is a
+// 404 served from the static not-found page. (On-demand rendering of unknown
+// params would cache HTML carrying one request's CSP nonce.) Alias URLs (ids,
+// alternate names, other casings) are redirected by src/proxy.ts.
+export const dynamicParams = false;
 
 // Generate static params for all deities
 export async function generateStaticParams() {
@@ -95,14 +133,68 @@ export default async function DeityPage({ params }: PageProps) {
   const { slug } = await params;
 
   // Check if deity exists (for 404)
-  const deity = resolveDeityBySlug(slug);
+  const summary = resolveDeityBySlug(slug);
+  if (!summary) {
+    notFound();
+  }
+
+  if (summary.slug !== slug) {
+    redirect(`/deities/${summary.slug}`);
+  }
+
+  const deity = getDeityById(summary.id);
   if (!deity) {
     notFound();
   }
 
-  if (deity.slug !== slug) {
-    redirect(`/deities/${deity.slug}`);
-  }
+  const allDeities = getDeities();
+  const relationships = getRelationships();
+  const pantheon = getPantheonById(deity.pantheonId);
+  const museumObjects = getMuseumObjectsFor({ deity: deity.slug });
+
+  // Hero comparisons live in their own field; render them with the deity
+  // parallels so the comparison section links them to hero articles.
+  const allParallels = [
+    ...(deity.crossPantheonParallels ?? []),
+    ...(deity.heroParallels ?? []).map(({ heroId, ...rest }) => ({
+      ...rest,
+      deityId: heroId,
+    })),
+  ];
+  const heroParallels = heroes
+    .filter((hero) =>
+      allParallels.some((parallel) => parallel.deityId === hero.id),
+    )
+    .map(({ id, name, slug }) => ({ id, name, slug }));
+  const parallels = resolveParallels(
+    deity.id,
+    allParallels,
+    getDeityLookup(),
+    heroParallels,
+  );
+
+  const ownRelationships = relationshipsFor(deity.id, relationships);
+  const familyTreeDeities = project(
+    deitiesInRelationships(ownRelationships, allDeities),
+    ["id", "name", "slug", "domain", "gender"],
+  );
+  const familyTreeRelationships = ownRelationships.map(
+    ({ id, fromDeityId, toDeityId, relationshipType, description }) => ({
+      id,
+      fromDeityId,
+      toDeityId,
+      relationshipType,
+      description: description ?? null,
+    }),
+  );
+
+  const hasSources = Boolean(
+    deity.primarySources?.length ||
+    deity.primarySourceExcerpts?.length ||
+    deity.furtherReading?.length ||
+    deity.sources?.length ||
+    getAppearsIn(deity.id, "deity").length,
+  );
 
   return (
     <>
@@ -114,21 +206,74 @@ export default async function DeityPage({ params }: PageProps) {
           pantheon: deity.pantheonId,
         }}
       />
-      <DeityPageClient
-        slug={slug}
-        traditionLabel={
-          pantheons.find((pantheon) => pantheon.id === deity.pantheonId)?.name
-        }
-        heroParallels={heroes
-          .filter((hero) => {
-            const entry = deities.find((item) => item.id === deity.id);
-            return entry?.crossPantheonParallels?.some(
-              (parallel) => parallel.deityId === hero.id,
-            );
-          })
-          .map(({ id, name, slug }) => ({ id, name, slug }))}
-        museumObjects={getMuseumObjectsFor({ deity: deity.slug })}
-      />
+      <DeityViewTracker deityId={deity.id} pantheonId={deity.pantheonId} />
+      <div className="min-h-screen">
+        <DeityJsonLd
+          name={deity.name}
+          description={
+            deity.description || `${deity.name} - deity from ancient mythology`
+          }
+          alternateNames={deity.alternateNames}
+          domains={deity.domain}
+          url={`/deities/${deity.slug}`}
+          image={deity.imageUrl || undefined}
+        />
+        <DeityHero
+          deity={deity}
+          traditionLabel={pantheon?.name}
+          museumPortrait={getMuseumPortrait(museumObjects)}
+          hasSources={hasSources}
+        />
+
+        <div className="container mx-auto max-w-4xl px-4 py-12">
+          <Breadcrumbs />
+          <div className="space-y-8">
+            <div className="space-y-8">
+              <LinkedMentions deityId={deity.id} deityName={deity.name} />
+              <div className="space-y-12">
+                <DeityNarrative deity={deity} />
+                <DeityParallels deity={deity} parallels={parallels} />
+                <DeitySources deity={deity} />
+                <DeityWorship deity={deity} />
+                <DeityAttributes deity={deity} />
+              </div>
+            </div>
+
+            <MuseumGallery name={deity.name} objects={museumObjects} />
+
+            <RelatedDeities
+              deities={selectRelatedDeities(
+                deity.id,
+                deity.pantheonId,
+                getTopRelatedDeities(deity.id, 6),
+                allDeities,
+              )}
+            />
+
+            <DeityStoryRecommendations
+              deityName={deity.name}
+              stories={interactiveStoriesFeaturing(
+                deity.id,
+                getBranchingStories(),
+              )}
+            />
+
+            <BloodlineTapestry
+              deityId={deity.id}
+              deityName={deity.name}
+              pantheonId={deity.pantheonId}
+              bloodline={buildBloodline(deity.id, relationships, allDeities)}
+            />
+
+            <DeityFamilyTree
+              deityId={deity.id}
+              deityName={deity.name}
+              deities={familyTreeDeities}
+              relationships={familyTreeRelationships}
+            />
+          </div>
+        </div>
+      </div>
       <ComparisonLinks deityId={deity.id} deityName={deity.name} />
     </>
   );

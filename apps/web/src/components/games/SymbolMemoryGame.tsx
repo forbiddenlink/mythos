@@ -13,9 +13,7 @@ import {
   Crown,
   Zap,
 } from "lucide-react";
-import deitiesData from "@/data/deities.json";
-
-interface Deity {
+export interface MemoryGameDeity {
   id: string;
   name: string;
   symbols: string[];
@@ -190,7 +188,12 @@ function getEfficiencyMessage(efficiency: number): string {
   return "The symbols reveal themselves to those who practice. Try again!";
 }
 
-export function SymbolMemoryGame() {
+export function SymbolMemoryGame({
+  deities,
+}: {
+  /** id / name / symbols / pantheonId for every deity, from the server page. */
+  deities: MemoryGameDeity[];
+}) {
   const [difficulty, setDifficulty] = useState<Difficulty>("medium");
   const [cards, setCards] = useState<MemoryCard[]>([]);
   const [flippedCards, setFlippedCards] = useState<string[]>([]);
@@ -209,7 +212,6 @@ export function SymbolMemoryGame() {
   );
   const [isChecking, setIsChecking] = useState(false);
   const mismatchTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const deities = deitiesData as Deity[];
 
   // Load best times from localStorage
   useEffect(() => {

@@ -9,6 +9,11 @@ import {
 
 type Props = { params: Promise<{ slug: string }> };
 
+// Every valid param is prerendered by generateStaticParams; anything else is a
+// 404 served from the static not-found page. (On-demand rendering of unknown
+// params would cache HTML carrying one request's CSP nonce.)
+export const dynamicParams = false;
+
 export function generateStaticParams() {
   return listGuides().map((g) => ({ slug: g.slug }));
 }

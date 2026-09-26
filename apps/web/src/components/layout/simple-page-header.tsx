@@ -15,8 +15,8 @@ interface SimplePageHeaderProps {
   icon?: React.ReactNode;
   /** Optional uppercase eyebrow above the title */
   tagline?: string;
-  title: string;
-  description?: string;
+  title: React.ReactNode;
+  description?: React.ReactNode;
   /** Extra content under the lede (stats chips, CTAs, etc.) */
   children?: React.ReactNode;
   className?: string;

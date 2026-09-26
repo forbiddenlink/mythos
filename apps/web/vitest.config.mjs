@@ -64,6 +64,9 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': resolve(__dirname, './src'),
+      // Server-only modules are exercised directly in unit tests; the marker
+      // package throws outside the react-server condition, so stub it here.
+      'server-only': resolve(__dirname, './node_modules/server-only/empty.js'),
     },
   },
 });

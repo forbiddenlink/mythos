@@ -3,6 +3,7 @@ import { generateBaseMetadata } from "@/lib/metadata";
 import { FAQJsonLd } from "@/components/seo/JsonLd";
 import facts from "@/data/mythology-facts.json";
 import deitiesData from "@/data/deities.json";
+import { resolveFestivalDeitySlugs } from "@/lib/antiquity-festivals";
 import { FactsPageClient, type FactDeityInfo } from "./FactsPageClient";
 
 // Computed on the server to keep the 586 KB deities.json out of the client bundle
@@ -90,7 +91,10 @@ export default function FactsPage() {
   return (
     <>
       <FAQJsonLd questions={uniqueFaqQuestions} />
-      <FactsPageClient deityLookup={DEITY_LOOKUP} />
+      <FactsPageClient
+        deityLookup={DEITY_LOOKUP}
+        festivalDeitySlugs={resolveFestivalDeitySlugs(deitiesData)}
+      />
     </>
   );
 }

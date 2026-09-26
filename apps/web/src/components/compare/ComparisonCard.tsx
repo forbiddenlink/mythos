@@ -7,11 +7,7 @@ import { MythosMark } from "@/components/icons/mythos-marks";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import {
-  distinctDeityReference,
-  formatDeityReference,
-  getDeityPath,
-} from "@/lib/deities";
+import { formatDeityReference } from "@/lib/deity-reference";
 import { cn } from "@/lib/utils";
 
 export interface Deity {
@@ -30,6 +26,8 @@ export interface Deity {
     pantheonId: string;
     deityId: string;
     note: string;
+    /** The other deity's page, resolved on the server; absent when dangling. */
+    related?: { name: string; slug: string };
   }[];
 }
 
@@ -200,15 +198,12 @@ export function ComparisonCard({
               </h4>
               <ul className="space-y-2">
                 {deity.crossPantheonParallels.slice(0, 3).map((parallel) => {
-                  const related = distinctDeityReference(
-                    deity.id,
-                    parallel.deityId,
-                  );
+                  const related = parallel.related;
                   return (
                     <li key={parallel.deityId} className="text-sm">
                       {related ? (
                         <Link
-                          href={getDeityPath(related.slug)}
+                          href={`/deities/${related.slug}`}
                           className="text-gold hover:underline font-medium"
                         >
                           {related.name}

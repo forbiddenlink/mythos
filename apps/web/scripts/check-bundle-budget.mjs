@@ -28,8 +28,8 @@ import { gzipSync } from "node:zlib";
 // bundle reduction lands so the gain is locked in.
 const BUDGETS_KIB = {
   "/": 350,
-  "/deities/[slug]": 985,
-  "/stories/[slug]": 650,
+  "/deities/[slug]": 445,
+  "/stories/[slug]": 465,
 };
 
 const webRoot = join(dirname(fileURLToPath(import.meta.url)), "..");

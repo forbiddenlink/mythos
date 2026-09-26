@@ -20,7 +20,7 @@ import ReactFlow, {
   type EdgeProps,
 } from "reactflow";
 import "reactflow/dist/style.css";
-import { normalizeDeityReference } from "@/lib/deities";
+import { normalizeDeityReference } from "@/lib/deity-reference";
 import Image from "next/image";
 
 // Types

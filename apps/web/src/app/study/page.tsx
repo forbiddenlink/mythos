@@ -3,8 +3,38 @@ import type { Metadata } from "next";
 import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
 import { PageHero } from "@/components/layout/page-hero";
 import { generateBaseMetadata } from "@/lib/metadata";
-import { AnkiDeckExport } from "@/components/learning/AnkiDeckExport";
+import {
+  AnkiDeckExport,
+  type AnkiDeckExportProps,
+} from "@/components/learning/AnkiDeckExport";
+import { toDeityCardData } from "@/lib/anki-export";
+import {
+  getDeities,
+  getPantheonShortNames,
+  getPantheons,
+} from "@/lib/data/catalog";
+import { project } from "@/lib/data/project";
 import { listGuides } from "./_guides";
+
+/** Counts and one preview card per pantheon; the full deck loads on download. */
+function ankiDeckProps(): AnkiDeckExportProps {
+  const deities = getDeities();
+  const names = getPantheonShortNames();
+  const deityCounts: Record<string, number> = {};
+  const samples: AnkiDeckExportProps["samples"] = {};
+  for (const d of deities) {
+    deityCounts[d.pantheonId] = (deityCounts[d.pantheonId] ?? 0) + 1;
+    const card = () => toDeityCardData(d, names[d.pantheonId] ?? d.pantheonId);
+    samples.all ??= card();
+    samples[d.pantheonId] ??= card();
+  }
+  return {
+    pantheons: project(getPantheons(), ["id", "name", "slug"]),
+    deityCounts,
+    totalDeities: deities.length,
+    samples,
+  };
+}
 
 export const metadata: Metadata = generateBaseMetadata({
   title: "Mythology Study Guides & Anki Decks",
@@ -61,7 +91,7 @@ export default function StudyIndexPage() {
 
         {/* Anki Flashcard Exporter Tool */}
         <section>
-          <AnkiDeckExport />
+          <AnkiDeckExport {...ankiDeckProps()} />
         </section>
       </div>
     </div>

@@ -5,8 +5,8 @@
   "packageManager": "pnpm@10.34.5",
   "scripts": {
     "dev": "next dev",
-    "build": "next build --webpack",
-    "build:ci": "NEXT_PUBLIC_ORACLE_ENABLED=true next build --webpack",
+    "build": "next build --webpack && node scripts/csp-hashes.mjs",
+    "build:ci": "NEXT_PUBLIC_ORACLE_ENABLED=true next build --webpack && node scripts/csp-hashes.mjs",
     "analyze": "ANALYZE=true next build --webpack",
     "bundle:budget": "node scripts/check-bundle-budget.mjs",
     "start": "next start",
@@ -55,6 +55,7 @@
     "react-dom": "19.2.8",
     "react-markdown": "^10.1.0",
     "reactflow": "^11.11.4",
+    "server-only": "0.0.1",
     "tailwind-merge": "^3.6.0",
     "three": "^0.185.1",
     "web-vitals": "^6.2.1",

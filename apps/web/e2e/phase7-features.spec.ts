@@ -58,10 +58,24 @@ test.describe("Phase 7: Oracle Chat", () => {
     page,
   }) => {
     await page.route("**/api/oracle", async (route) => {
+      // The Oracle streams AI SDK UI message chunks as server-sent events.
       await route.fulfill({
         status: 200,
-        contentType: "text/plain",
-        body: "Zeus is a central god in Greek tradition.",
+        contentType: "text/event-stream",
+        body: [
+          { type: "start" },
+          { type: "text-start", id: "t1" },
+          {
+            type: "text-delta",
+            id: "t1",
+            delta: "Zeus is a central god in Greek tradition.",
+          },
+          { type: "text-end", id: "t1" },
+          { type: "finish" },
+        ]
+          .map((chunk) => `data: ${JSON.stringify(chunk)}\n\n`)
+          .concat("data: [DONE]\n\n")
+          .join(""),
       });
     });
     await page.goto(`/`);

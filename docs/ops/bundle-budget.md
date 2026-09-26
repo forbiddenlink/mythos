@@ -29,9 +29,9 @@ match), 845.1 KiB for `/deities/zeus` (manifest: 895.9) and 401.7 KiB for
 
 | Route             | Measured 2026-09-26 (KiB gz) | Budget (KiB gz) |
 | ----------------- | ---------------------------- | --------------- |
-| `/`               | 319.0                        | 350             |
-| `/deities/[slug]` | 895.9                        | 985             |
-| `/stories/[slug]` | 592.9                        | 650             |
+| `/`               | 320.3                        | 350             |
+| `/deities/[slug]` | 401.9                        | 445             |
+| `/stories/[slug]` | 421.4                        | 465             |
 
 Budgets are the measurement plus about 10%. The detail routes are heavy
 because several client components import whole JSON catalogs; when that

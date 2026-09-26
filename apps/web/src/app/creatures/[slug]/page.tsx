@@ -4,12 +4,13 @@ import creatures from "@/data/creatures.json";
 import deitiesData from "@/data/deities.json";
 import pantheons from "@/data/pantheons.json";
 import { canonicalCreatureSlug } from "@/lib/creature-aliases";
-import { generateBaseMetadata, generateNotFoundMetadata, shortPantheonName } from "@/lib/metadata";
+import {
+  generateBaseMetadata,
+  generateNotFoundMetadata,
+  shortPantheonName,
+} from "@/lib/metadata";
 import { CreaturePageClient } from "./CreaturePageClient";
 import { getMuseumObjectsFor } from "@/lib/museum";
-
-// ISR: Revalidate every week (604800 seconds)
-export const revalidate = 604800;
 
 interface CreatureData {
   id: string;
@@ -26,6 +27,11 @@ interface CreatureData {
 interface PageProps {
   params: Promise<{ slug: string }>;
 }
+
+// Every valid param is prerendered by generateStaticParams; anything else is a
+// 404 served from the static not-found page. (On-demand rendering of unknown
+// params would cache HTML carrying one request's CSP nonce.)
+export const dynamicParams = false;
 
 // Generate static params for all creatures
 export async function generateStaticParams() {
