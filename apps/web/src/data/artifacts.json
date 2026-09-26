@@ -18,11 +18,15 @@
       {
         "text": "About her shoulders she flung the tasselled aegis, fraught with terror, all about which Rout is set as a crown, and therein is the head of the grim monster Gorgon.",
         "source": "Homer, Iliad 5",
+        "sourceId": "iliad",
+        "locator": "Book 5",
         "date": "c. 8th century BCE"
       },
       {
         "text": "Perseus gave the Gorgon's head to Athena, and she placed it in the middle of her shield.",
         "source": "Apollodorus, Library 2.4",
+        "sourceId": "library-apollodorus",
+        "locator": "2.4",
         "date": "c. 1st–2nd century CE"
       }
     ]
@@ -50,6 +54,7 @@
       {
         "text": "They gave Zeus the thunder and the glowing thunderbolt and lightning, and in return he set them free from their bonds.",
         "source": "Hesiod, Theogony",
+        "sourceId": "theogony",
         "date": "c. 700 BCE"
       }
     ]
@@ -78,6 +83,8 @@
       {
         "text": "Poseidon struck the rock with his trident and produced a sea, now called Erechtheis.",
         "source": "Apollodorus, Library 3.14",
+        "sourceId": "library-apollodorus",
+        "locator": "3.14",
         "date": "c. 1st–2nd century CE"
       }
     ]
@@ -101,11 +108,15 @@
       {
         "text": "Athena put on the cap of Hades, that mighty Ares might not see her.",
         "source": "Homer, Iliad 5.844–845",
+        "sourceId": "iliad",
+        "locator": "5.844–845",
         "date": "c. 8th century BCE"
       },
       {
         "text": "The nymphs gave Perseus the cap of Hades, the winged sandals, and the kibisis.",
         "source": "Apollodorus, Library 2.4",
+        "sourceId": "library-apollodorus",
+        "locator": "2.4",
         "date": "c. 1st–2nd century CE"
       }
     ]
@@ -134,6 +145,7 @@
       {
         "text": "I will give you a splendid staff of riches and wealth, a golden one with three branches, which will keep you scatheless.",
         "source": "Homeric Hymn to Hermes",
+        "sourceId": "homeric-hymns",
         "date": "c. 6th century BCE"
       }
     ]
@@ -162,6 +174,8 @@
       {
         "text": "Down from the peaks of Olympus he strode, angry at heart, with his bow and covered quiver on his shoulders. The arrows rattled on the shoulders of the angry god.",
         "source": "Homer, Iliad 1",
+        "sourceId": "iliad",
+        "locator": "Book 1",
         "date": "c. 8th century BCE"
       }
     ]
@@ -208,6 +222,7 @@
       {
         "text": "The woman took off the great lid of the jar with her hands and scattered all these sorrows for men. Only Hope remained there in an unbreakable home under the rim.",
         "source": "Hesiod, Works and Days",
+        "sourceId": "works-and-days",
         "date": "c. 700 BCE"
       }
     ]
@@ -253,6 +268,8 @@
       {
         "text": "He made the earth upon it, and the sky, and the sea's water, and the unwearying sun, and the moon waxing, and all the constellations that crown the heavens.",
         "source": "Homer, Iliad 18 (shield of Achilles)",
+        "sourceId": "iliad",
+        "locator": "Book 18",
         "date": "c. 8th century BCE"
       }
     ]
@@ -281,6 +298,8 @@
       {
         "text": "The hammer was defective in that the handle was rather short. Yet they judged that the hammer was the best of all the works and the greatest defence against the frost-giants.",
         "source": "Prose Edda, Skáldskaparmál (Brokkr and Eitri)",
+        "sourceId": "prose-edda",
+        "locator": "Skáldskaparmál",
         "date": "c. 1220 CE"
       }
     ]
@@ -304,11 +323,14 @@
       {
         "text": "Odin had a spear called Gungnir, which the dwarves had made; it never stopped in its thrust.",
         "source": "Prose Edda, Skáldskaparmál / Gylfaginning",
+        "sourceId": "prose-edda",
         "date": "c. 1220 CE"
       },
       {
         "text": "Odin hurled a spear over the host; that was the first war in the world.",
         "source": "Poetic Edda, Völuspá",
+        "sourceId": "poetic-edda",
+        "locator": "Völuspá",
         "date": "c. 10th–13th century (Codex Regius 1270s)"
       }
     ]
@@ -336,11 +358,15 @@
       {
         "text": "The ring Draupnir: every ninth night eight rings of equal weight drip from it.",
         "source": "Prose Edda, Skáldskaparmál",
+        "sourceId": "prose-edda",
+        "locator": "Skáldskaparmál",
         "date": "c. 1220 CE"
       },
       {
         "text": "Odin laid the gold ring Draupnir on Baldr's pyre; Hermod brought it out of Hel.",
         "source": "Prose Edda, Gylfaginning (death of Baldr)",
+        "sourceId": "prose-edda",
+        "locator": "Gylfaginning",
         "date": "c. 1220 CE"
       }
     ]
@@ -367,6 +393,8 @@
       {
         "text": "They had the dwarves make the fetter called Gleipnir. It was made of six things: the noise a cat makes in its footfall, the beard of a woman, the roots of a mountain, the sinews of a bear, the breath of a fish, and the spittle of a bird.",
         "source": "Prose Edda, Gylfaginning (binding of Fenrir)",
+        "sourceId": "prose-edda",
+        "locator": "Gylfaginning",
         "date": "c. 1220 CE"
       }
     ]
@@ -395,6 +423,8 @@
       {
         "text": "Skiðblaðnir is the best of ships. It has a fair wind wherever it must go, and it can be folded together like a cloth and kept in a pouch.",
         "source": "Prose Edda, Gylfaginning",
+        "sourceId": "prose-edda",
+        "locator": "Gylfaginning",
         "date": "c. 1220 CE"
       }
     ]
@@ -423,6 +453,7 @@
       {
         "text": "Heimdall and Loki fought in the form of seals for the Brísingamen.",
         "source": "Prose Edda, quoting Úlfr Uggason, Húsdrápa",
+        "sourceId": "prose-edda",
         "date": "c. 10th century poem / 1220 CE prose"
       }
     ]
@@ -446,6 +477,8 @@
       {
         "text": "He has three especially fine possessions. One is the hammer Mjöllnir. The second is the belt of might, Megingjörð: when he buckles it on, his strength is doubled.",
         "source": "Prose Edda, Gylfaginning",
+        "sourceId": "prose-edda",
+        "locator": "Gylfaginning",
         "date": "c. 1220 CE"
       }
     ]
@@ -469,6 +502,7 @@
       {
         "text": "Heimdall's sword is called Höfuð. He and Loki will slay one another in the breaking of the gods.",
         "source": "Prose Edda, Gylfaginning / Skáldskaparmál",
+        "sourceId": "prose-edda",
         "date": "c. 1220 CE"
       }
     ]
@@ -599,6 +633,8 @@
       {
         "text": "Krishna released the Sudarshana chakra, and it struck off the head of Shishupala in the assembly.",
         "source": "Mahabharata, Sabha Parva (Śiśupāla-vadha)",
+        "sourceId": "mahabharata",
+        "locator": "Sabha Parva",
         "date": "epic recensions, written form by early centuries CE"
       }
     ]
@@ -627,6 +663,7 @@
       {
         "text": "Shiva bears the trident, and from him the great weapons of destruction go forth to those he favors.",
         "source": "Mahabharata and Shaiva Puranas (trishula as Shiva's mark)",
+        "sourceId": "mahabharata",
         "date": "epic / Puranic centuries CE"
       }
     ]
@@ -655,6 +692,8 @@
       {
         "text": "He slew the dragon, then he let the waters flow; Indra with the vajra, his great weapon, struck down Vrtra.",
         "source": "Rigveda 1.32 (Indra and Vṛtra)",
+        "sourceId": "rigveda",
+        "locator": "1.32",
         "date": "c. 1500–1200 BCE"
       },
       {
@@ -715,6 +754,7 @@
       {
         "text": "When he cut the serpent's middle tail, the edge of his sword was nicked. He split the tail and found a great sword. He called it Ama-no-Murakumo-no-Tsurugi and presented it to Amaterasu.",
         "source": "Kojiki (Susanoo and Yamata no Orochi)",
+        "sourceId": "kojiki",
         "date": "712 CE"
       }
     ]
@@ -742,6 +782,7 @@
       {
         "text": "They hung a mirror on the branch of the sakaki, and Amaterasu, thinking it strange, opened the door of the heavenly rock-cave a little and saw her reflection.",
         "source": "Kojiki (rock-cave of heaven)",
+        "sourceId": "kojiki",
         "date": "712 CE"
       }
     ]
@@ -769,6 +810,7 @@
       {
         "text": "They hung the Yasakani jewels and the eight-span mirror on the branches of the sakaki before the heavenly rock-cave.",
         "source": "Kojiki (Ame-no-Iwato)",
+        "sourceId": "kojiki",
         "date": "712 CE"
       }
     ]
@@ -861,11 +903,13 @@
       {
         "text": "From Gorias was brought the spear that Lugh had. No battle was maintained against it or against him who held it in his hand.",
         "source": "Lebor Gabála Érenn (Four Treasures)",
+        "sourceId": "lebor-gabala-erenn",
         "date": "c. 11th century recension"
       },
       {
         "text": "Lugh came to the battle of Mag Tuired with the equipment of a champion, and the victory of the Tuatha Dé followed his coming.",
         "source": "Cath Maige Tuired",
+        "sourceId": "cath-maige-tuired",
         "date": "c. 9th–12th century"
       }
     ]
@@ -894,6 +938,7 @@
       {
         "text": "The Monkey King took the iron from the sea treasury: a golden-hooped rod that obeyed his wish, shrinking to a needle or swelling to a pillar.",
         "source": "Journey to the West (Xiyouji), chapter of the Dragon Palace",
+        "sourceId": "journey-to-the-west",
         "date": "c. 1592 CE"
       }
     ]
@@ -922,6 +967,7 @@
       {
         "text": "Standing on the Floating Bridge of Heaven, they stirred the ocean with the heavenly jeweled spear, and the brine that dripped became an island.",
         "source": "Kojiki",
+        "sourceId": "kojiki",
         "date": "712 CE"
       }
     ]
@@ -1036,6 +1082,8 @@
       {
         "text": "Aeneas bore the household gods and the sacred image from the burning city toward the land that would be Rome.",
         "source": "Virgil, Aeneid 2",
+        "sourceId": "aeneid",
+        "locator": "Book 2",
         "date": "c. 19 BCE"
       }
     ]
@@ -1064,6 +1112,7 @@
       {
         "text": "Marduk defeated Kingu and took from him the Tablet of Destinies, sealed it with his seal, and fastened it on his breast.",
         "source": "Enuma Elish",
+        "sourceId": "enuma-elish",
         "date": "c. late 2nd millennium BCE"
       }
     ]
@@ -1087,6 +1136,8 @@
       {
         "text": "Tezcatlipoca, Smoking Mirror, whose seer-stone is obsidian, lord of the night and of princes.",
         "source": "Florentine Codex (Sahagún), Books 1 and 6 (Tezcatlipoca)",
+        "sourceId": "florentine-codex",
+        "locator": "Books 1 and 6",
         "date": "c. 1577 CE"
       }
     ]
@@ -1110,6 +1161,8 @@
       {
         "text": "At Coatepec, Huitzilopochtli was born fully armed and with the xiuhcoatl, the fire serpent, he struck Coyolxauhqui and cut her to pieces, then routed the four hundred southerners.",
         "source": "Florentine Codex, Book 3 (Huitzilopochtli at Coatepec)",
+        "sourceId": "florentine-codex",
+        "locator": "Book 3",
         "date": "c. 1577 CE"
       }
     ]
@@ -1230,6 +1283,7 @@
       {
         "text": "Sun Wukong slipped into the orchard and ate the peaches of immortality before the banquet of the immortals.",
         "source": "Journey to the West (Xiyouji)",
+        "sourceId": "journey-to-the-west",
         "date": "c. 1592 CE"
       }
     ]
@@ -1276,6 +1330,8 @@
       {
         "text": "Huitzilopochtli struck Coyolxauhqui, cut off her head, and her body went falling down the mountain, breaking to pieces.",
         "source": "Florentine Codex, Book 3 (Coatepec)",
+        "sourceId": "florentine-codex",
+        "locator": "Book 3",
         "date": "c. 1577 CE"
       },
       {
@@ -1327,6 +1383,8 @@
       {
         "text": "He sent the imhullu, the evil wind, to swell Tiamat's belly; then he shot the arrow that split her.",
         "source": "Enuma Elish, Tablet IV",
+        "sourceId": "enuma-elish",
+        "locator": "Tablet IV",
         "date": "c. late 2nd millennium BCE"
       }
     ]
@@ -1372,6 +1430,7 @@
       {
         "text": "Hunahpu shot Seven Macaw in the jaw with the blowgun, and the twins later walked the trials of Xibalba with the same hunter's craft.",
         "source": "Popol Vuh",
+        "sourceId": "popol-vuh",
         "date": "colonial K'iche' text; 16th–18th century manuscript tradition"
       }
     ]

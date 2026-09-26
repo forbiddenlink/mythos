@@ -23,11 +23,13 @@
       {
         "text": "And when the blessed gods had finished their toil, and settled by force their struggle for honours with the Titans, they pressed far-seeing Olympian Zeus to reign and to rule over them. And he divided their dignities amongst them.",
         "source": "Hesiod, Theogony",
+        "sourceId": "theogony",
         "date": "c. 700 BCE"
       },
       {
         "text": "Zeus, the father of gods and men, whose power is the greatest among the immortals.",
         "source": "Homer, Iliad",
+        "sourceId": "iliad",
         "date": "c. 750 BCE"
       }
     ],
@@ -143,6 +145,8 @@
       {
         "text": "Hera, golden-throned queen, whom Rhea bare, immortal queen, the wife of Zeus who holds the aegis, sister and bedmate of loud-thundering Zeus.",
         "source": "Homeric Hymn 12, To Hera",
+        "sourceId": "homeric-hymns",
+        "locator": "Hymn 12, To Hera",
         "date": "c. 650 BCE"
       }
     ],
@@ -208,11 +212,13 @@
       {
         "text": "I am Poseidon, and my lot was the grey sea to be my habitation for ever, when we cast lots and divided all things into three portions.",
         "source": "Homer, Iliad",
+        "sourceId": "iliad",
         "date": "c. 750 BCE"
       },
       {
         "text": "The Earth-Shaker who girdles the earth made the earth and sea tremble beneath him, and all the high peaks and forests quaked.",
         "source": "Homer, Odyssey",
+        "sourceId": "odyssey",
         "date": "c. 725 BCE"
       }
     ],
@@ -273,6 +279,7 @@
       {
         "text": "He caught her up reluctant on his golden car and bare her away lamenting. Then she cried out shrilly with her voice, calling upon her father, the Son of Cronos, who is most high and excellent. But no one heard her voice, neither of the deathless gods nor of mortal men.",
         "source": "Homeric Hymn to Demeter",
+        "sourceId": "homeric-hymns",
         "date": "c. 650 BCE"
       }
     ],
@@ -332,11 +339,13 @@
       {
         "text": "From his own head he bore her, the grey-eyed Tritogeneia, the unwearying queen who delights in tumults and wars and battles.",
         "source": "Hesiod, Theogony",
+        "sourceId": "theogony",
         "date": "c. 700 BCE"
       },
       {
         "text": "For I am here to stay your fury, if you will obey—sent from the white-armed goddess Hera, who loves both of you in her heart and cares for you both alike. Come, cease from strife, and let not your hand draw the sword.",
         "source": "Homer, Odyssey",
+        "sourceId": "odyssey",
         "date": "c. 725 BCE"
       }
     ],
@@ -392,6 +401,7 @@
       {
         "text": "Phoebus Apollo, as soon as he was born, sprang forth from the immortal limbs, and all the goddesses cried aloud. Then you, O Far-Shooter, went over the mountain ridges to rocky Pytho, and there slew the bloated serpent with your bow.",
         "source": "Homeric Hymn to Apollo",
+        "sourceId": "homeric-hymns",
         "date": "c. 650 BCE"
       },
       {
@@ -459,6 +469,8 @@
       {
         "text": "I sing of Artemis, whose shafts are of gold, who cheers on the hounds, the pure maiden, shooter of stags, who delights in archery, own sister to Apollo with the golden sword.",
         "source": "Homeric Hymn XXVII, To Artemis (trans. Evelyn-White)",
+        "sourceId": "homeric-hymns",
+        "locator": "Hymn XXVII, To Artemis",
         "date": "c. 6th century BCE"
       }
     ],
@@ -505,6 +517,8 @@
       {
         "text": "Ares, exceeding in strength, chariot-rider, golden-helmed, doughty in heart, shield-bearer, Saviour of cities, harnessed in bronze, strong of arm, unwearying, mighty with the spear.",
         "source": "Homeric Hymn VIII, To Ares (trans. Evelyn-White)",
+        "sourceId": "homeric-hymns",
+        "locator": "Hymn VIII, To Ares",
         "date": "date disputed (Orphic in character, likely later)"
       }
     ],
@@ -550,6 +564,8 @@
       {
         "text": "Muse, tell me the deeds of golden Aphrodite the Cyprian, who stirs up sweet passion in the gods and subdues the tribes of mortal men and birds that fly in air and all the many creatures of land and sea.",
         "source": "Homeric Hymn V, To Aphrodite (trans. Evelyn-White)",
+        "sourceId": "homeric-hymns",
+        "locator": "Hymn V, To Aphrodite",
         "date": "c. 7th century BCE"
       }
     ],
@@ -596,6 +612,8 @@
       {
         "text": "Muse, sing of Hermes, the son of Zeus and Maia, lord of Cyllene and Arcadia rich in flocks, the luck-bringing messenger of the immortals whom Maia bare, the rich-tressed nymph.",
         "source": "Homeric Hymn IV, To Hermes (trans. Evelyn-White)",
+        "sourceId": "homeric-hymns",
+        "locator": "Hymn IV, To Hermes",
         "date": "c. 6th century BCE"
       }
     ],
@@ -641,6 +659,8 @@
       {
         "text": "I will tell of Dionysus, the son of glorious Semele, how he appeared on a jutting headland by the shore of the fruitless sea, seeming like a stripling in the first flush of manhood.",
         "source": "Homeric Hymn VII, To Dionysus (trans. Evelyn-White)",
+        "sourceId": "homeric-hymns",
+        "locator": "Hymn VII, To Dionysus",
         "date": "c. 7th-6th century BCE"
       }
     ],
@@ -686,6 +706,8 @@
       {
         "text": "I begin to sing of rich-haired Demeter, awful goddess—of her and her trim-ankled daughter whom Aidoneus rapt away, given to him by all-seeing Zeus the loud-thunderer.",
         "source": "Homeric Hymn II, To Demeter (trans. Evelyn-White)",
+        "sourceId": "homeric-hymns",
+        "locator": "Hymn II, To Demeter",
         "date": "c. 7th century BCE"
       }
     ],
@@ -726,6 +748,8 @@
       {
         "text": "Sing, clear-voiced Muses, of Hephaestus famed for inventions. With bright-eyed Athene he taught men glorious gifts throughout the world.",
         "source": "Homeric Hymn XX, To Hephaestus (trans. Evelyn-White)",
+        "sourceId": "homeric-hymns",
+        "locator": "Hymn XX, To Hephaestus",
         "date": "c. 6th-4th century BCE"
       }
     ],
@@ -771,6 +795,8 @@
       {
         "text": "Hestia, in the high dwellings of all, both deathless gods and men who walk on earth, you have gained an everlasting abode and highest honour.",
         "source": "Homeric Hymn XXIX, To Hestia (trans. Evelyn-White)",
+        "sourceId": "homeric-hymns",
+        "locator": "Hymn XXIX, To Hestia",
         "date": "c. 6th-4th century BCE"
       }
     ],
@@ -830,6 +856,8 @@
       {
         "text": "I know that I hung on a windy tree nine long nights, wounded with a spear, dedicated to Odin, myself to myself, on that tree of which no man knows from where its roots run.",
         "source": "Havamal, Poetic Edda",
+        "sourceId": "poetic-edda",
+        "locator": "Havamal",
         "date": "c. 10th century CE"
       }
     ],
@@ -938,6 +966,8 @@
       {
         "text": "He is called Asa-Thor, or Oku-Thor. He is the strongest of all gods and men, and rules over the realm which is called Thrudvang.",
         "source": "Prose Edda, Gylfaginning (trans. Anderson)",
+        "sourceId": "prose-edda",
+        "locator": "Gylfaginning",
         "date": "c. 1220 CE"
       }
     ],
@@ -1007,6 +1037,8 @@
       {
         "text": "He is the originator of deceit, and the disgrace of all gods and men.",
         "source": "Prose Edda, Gylfaginning (trans. Anderson)",
+        "sourceId": "prose-edda",
+        "locator": "Gylfaginning",
         "date": "c. 1220 CE"
       }
     ],
@@ -1050,6 +1082,8 @@
       {
         "text": "Frigg is his wife, and she knows the fate of men, although she tells not thereof.",
         "source": "Prose Edda, Gylfaginning (trans. Anderson)",
+        "sourceId": "prose-edda",
+        "locator": "Gylfaginning",
         "date": "c. 1220 CE"
       }
     ],
@@ -1100,6 +1134,8 @@
       {
         "text": "Freyja is the most famous of the goddesses. She has in heaven a dwelling which is called Folkvang, and when she rides to the battle, one half of the slain belong to her, and the other half to Odin.",
         "source": "Prose Edda, Gylfaginning (trans. Anderson)",
+        "sourceId": "prose-edda",
+        "locator": "Gylfaginning",
         "date": "c. 1220 CE"
       }
     ],
@@ -1140,6 +1176,8 @@
       {
         "text": "He is so fair of face and so bright that rays of light issue from him; and there is a plant so white that it is likened unto Balder's brow, and it is the whitest of all plants.",
         "source": "Prose Edda, Gylfaginning (trans. Anderson)",
+        "sourceId": "prose-edda",
+        "locator": "Gylfaginning",
         "date": "c. 1220 CE"
       }
     ],
@@ -1188,6 +1226,8 @@
       {
         "text": "There is yet an asa, whose name is Tyr. He is very daring and stout-hearted. He sways victory in war, wherefore warriors should call on him.",
         "source": "Prose Edda, Gylfaginning (trans. Anderson)",
+        "sourceId": "prose-edda",
+        "locator": "Gylfaginning",
         "date": "c. 1220 CE"
       }
     ],
@@ -1233,11 +1273,15 @@
       {
         "text": "Heimdal is the name of one. He is also called the white-asa. He is great and holy; born of nine maidens, all of whom were sisters.",
         "source": "Prose Edda, Gylfaginning (trans. Anderson)",
+        "sourceId": "prose-edda",
+        "locator": "Gylfaginning",
         "date": "c. 1220 CE"
       },
       {
         "text": "He hears the grass grow and the wool on the backs of the sheep, and of course all things that sound louder than these.",
         "source": "Prose Edda, Gylfaginning (trans. Anderson)",
+        "sourceId": "prose-edda",
+        "locator": "Gylfaginning",
         "date": "c. 1220 CE"
       }
     ],
@@ -1288,6 +1332,8 @@
       {
         "text": "The third asa is he who is called Njord. He dwells in Noatun, which is in heaven. He rules the course of the wind and checks the fury of the sea and of fire.",
         "source": "Prose Edda, Gylfaginning (trans. Anderson)",
+        "sourceId": "prose-edda",
+        "locator": "Gylfaginning",
         "date": "c. 1220 CE"
       }
     ],
@@ -1334,6 +1380,8 @@
       {
         "text": "Frey is the most famous of the asas. He rules over rain and sunshine, and over the fruits of the earth. It is good to call on him for harvests and peace.",
         "source": "Prose Edda, Gylfaginning (trans. Anderson)",
+        "sourceId": "prose-edda",
+        "locator": "Gylfaginning",
         "date": "c. 1220 CE"
       }
     ],
@@ -1368,6 +1416,8 @@
       {
         "text": "When the gods saw how much he grew every day, and all prophecies declared that he was predestined to become fatal to them, they resolved to make a very strong fetter.",
         "source": "Prose Edda, Gylfaginning (trans. Anderson)",
+        "sourceId": "prose-edda",
+        "locator": "Gylfaginning",
         "date": "c. 1220 CE"
       }
     ],
@@ -1416,6 +1466,8 @@
       {
         "text": "Hel he cast into Niflheim, and gave her power over nine worlds, that she should appoint abodes to them that are sent to her, namely, those who die from sickness or old age.",
         "source": "Prose Edda, Gylfaginning (trans. Anderson)",
+        "sourceId": "prose-edda",
+        "locator": "Gylfaginning",
         "date": "c. 1220 CE"
       }
     ],
@@ -1456,6 +1508,8 @@
       {
         "text": "Hail to thee, Loki, and take thou here The crystal cup of old mead; For me at least, alone of the gods, Blameless thou knowest to be.",
         "source": "Poetic Edda, Lokasenna st. 53 (trans. Bellows)",
+        "sourceId": "poetic-edda",
+        "locator": "Lokasenna st. 53",
         "date": "c. 900-1100 CE"
       }
     ],
@@ -1506,6 +1560,8 @@
       {
         "text": "Homage to thee, O Ra, at thy tremendous rising! Thou risest! Thou shinest! The heavens are rolled aside! Thou art the King of Gods, thou art the All-comprising.",
         "source": "Book of the Dead, Hymn to Ra",
+        "sourceId": "book-of-the-dead",
+        "locator": "Hymn to Ra",
         "date": "c. 1550-50 BCE"
       }
     ],
@@ -1605,11 +1661,14 @@
       {
         "text": "Glory be to thee, O Osiris Un-Nefer, thou great god in Abtu, King of Eternity, Lord of Everlastingness, God whose existence is millions of years, eldest son of Nut, begotten by Geb, Lord of the Crowns of the South and the North.",
         "source": "The Book of the Dead, Hymn to Osiris (trans. Budge)",
+        "sourceId": "book-of-the-dead",
+        "locator": "Hymn to Osiris",
         "date": "New Kingdom text; Budge translation 1895"
       },
       {
         "text": "They relate that on the first of these days Osiris was born, and at the hour of his birth a voice issued forth saying, 'The Lord of All advances to the light.'",
         "source": "Plutarch, Isis and Osiris (trans. Babbitt)",
+        "sourceId": "plutarch-isis-osiris",
         "date": "c. 100 CE"
       }
     ],
@@ -1667,6 +1726,7 @@
       {
         "text": "In Sais the statue of Athena, whom they believe to be Isis, bore the inscription: 'I am all that has been, and is, and shall be, and my robe no mortal has yet uncovered.'",
         "source": "Plutarch, Isis and Osiris (trans. Babbitt)",
+        "sourceId": "plutarch-isis-osiris",
         "date": "c. 100 CE"
       }
     ],
@@ -1716,6 +1776,7 @@
       {
         "text": "After a time Osiris asked Horus what he held to be the most noble of all things. When Horus replied, 'To avenge one's father and mother for evil done to them,' Osiris then asked him what animal he considered the most useful for them who go forth to battle.",
         "source": "Plutarch, Isis and Osiris (trans. Babbitt)",
+        "sourceId": "plutarch-isis-osiris",
         "date": "c. 100 CE"
       }
     ],
@@ -1768,6 +1829,7 @@
       {
         "text": "Typhon, having secretly measured Osiris's body and having made ready a beautiful chest of corresponding size artistically ornamented, caused it to be brought into the room where the festivity was in progress.",
         "source": "Plutarch, Isis and Osiris (trans. Babbitt) — 'Typhon' is Plutarch's Greek name for Set",
+        "sourceId": "plutarch-isis-osiris",
         "date": "c. 100 CE"
       }
     ],
@@ -1817,6 +1879,7 @@
       {
         "text": "And when the child had been found, with the help of dogs which led Isis to it, it was brought up and became her guardian and attendant, receiving the name of Anubis, and it is said to protect the gods just as dogs protect men.",
         "source": "Plutarch, Isis and Osiris (trans. Babbitt)",
+        "sourceId": "plutarch-isis-osiris",
         "date": "c. 100 CE"
       }
     ],
@@ -1893,6 +1956,7 @@
       {
         "text": "Thoth, the skillful of fingers, who wrote the books, who established the offering-loaves of the gods.",
         "source": "Book of the Dead, spell 182 (composite Egyptian scribal tradition)",
+        "sourceId": "book-of-the-dead",
         "date": "c. 1550–50 BCE"
       }
     ],
@@ -2029,6 +2093,8 @@
       {
         "text": "Homage to you, O ye gods who dwell in your Hall of Maati. I know you and I know your names. Let me not fall under your slaughtering knives.",
         "source": "The Book of the Dead, Chapter CXXV (trans. Budge)",
+        "sourceId": "book-of-the-dead",
+        "locator": "Chapter CXXV",
         "date": "c. 1550 BCE (Budge trans.)"
       }
     ],
@@ -2061,6 +2127,7 @@
       {
         "text": "And on the fifth Nephthys, to whom they give the name of Finality and the name of Aphrodite, and some also the name of Victory.",
         "source": "Plutarch, Isis and Osiris (trans. Babbitt)",
+        "sourceId": "plutarch-isis-osiris",
         "date": "c. 100 CE"
       }
     ],
@@ -2191,6 +2258,8 @@
       {
         "text": "But he, the King of Heav'n, obscure on high, bar'd his red arm, and, launching from the sky his writhen bolt, not shaking empty smoke, down to the deep abyss the flaming felon strook.",
         "source": "Virgil, Aeneid, Book VI (trans. Dryden)",
+        "sourceId": "aeneid",
+        "locator": "Book VI",
         "date": "c. 19 BCE"
       }
     ],
@@ -2238,6 +2307,8 @@
       {
         "text": "But I, who walk in awful state above, the majesty of heav'n, the sister wife of Jove, for length of years my fruitless force employ against the thin remains of ruin'd Troy!",
         "source": "Virgil, Aeneid, Book I (trans. Dryden)",
+        "sourceId": "aeneid",
+        "locator": "Book I",
         "date": "c. 19 BCE"
       }
     ],
@@ -2283,6 +2354,8 @@
       {
         "text": "Meantime imperial Neptune heard the sound of raging billows breaking on the ground. Displeas'd, and fearing for his wat'ry reign, he rear'd his awful head above the main, serene in majesty.",
         "source": "Virgil, Aeneid, Book I (trans. Dryden)",
+        "sourceId": "aeneid",
+        "locator": "Book I",
         "date": "c. 19 BCE"
       }
     ],
@@ -2324,6 +2397,8 @@
       {
         "text": "Inferior ministers, for Mars, repair his broken axletrees and blunted war, and send him forth again with furbish'd arms, to wake the lazy war with trumpets' loud alarms.",
         "source": "Virgil, Aeneid, Book VIII (trans. Dryden)",
+        "sourceId": "aeneid",
+        "locator": "Book VIII",
         "date": "c. 19 BCE"
       }
     ],
@@ -2371,6 +2446,8 @@
       {
         "text": "But Venus, anxious for her son's affairs, new counsels tries, and new designs prepares: that Cupid should assume the shape and face of sweet Ascanius, and the sprightly grace.",
         "source": "Virgil, Aeneid, Book I (trans. Dryden)",
+        "sourceId": "aeneid",
+        "locator": "Book I",
         "date": "c. 19 BCE"
       }
     ],
@@ -2417,6 +2494,8 @@
       {
         "text": "Could angry Pallas, with revengeful spleen, the Grecian navy burn, and drown the men? She, for the fault of one offending foe, the bolts of Jove himself presum'd to throw.",
         "source": "Virgil, Aeneid, Book I (trans. Dryden)",
+        "sourceId": "aeneid",
+        "locator": "Book I",
         "date": "c. 19 BCE"
       }
     ],
@@ -2461,6 +2540,8 @@
       {
         "text": "Indulgent god, propitious pow'r to Troy, swift to relieve, unwilling to destroy, directed by whose hand the Dardan dart pierc'd the proud Grecian's only mortal part.",
         "source": "Virgil, Aeneid, Book III (trans. Dryden)",
+        "sourceId": "aeneid",
+        "locator": "Book III",
         "date": "c. 19 BCE"
       }
     ],
@@ -2501,6 +2582,8 @@
       {
         "text": "But chaste Diana, who his death deplor'd, with Aesculapian herbs his life restor'd.",
         "source": "Virgil, Aeneid, Book VII (trans. Dryden)",
+        "sourceId": "aeneid",
+        "locator": "Book VII",
         "date": "c. 19 BCE"
       }
     ],
@@ -2558,6 +2641,8 @@
       {
         "text": "Your sire is Mercury, whom long before on cold Cyllene's top fair Maia bore.",
         "source": "Virgil, Aeneid, Book VIII (trans. Dryden)",
+        "sourceId": "aeneid",
+        "locator": "Book VIII",
         "date": "c. 19 BCE"
       }
     ],
@@ -2598,6 +2683,8 @@
       {
         "text": "Thou, Bacchus, god of joys and friendly cheer, and gracious Juno, both be present here!",
         "source": "Virgil, Aeneid, Book I (trans. Dryden)",
+        "sourceId": "aeneid",
+        "locator": "Book I",
         "date": "c. 19 BCE"
       }
     ],
@@ -2646,6 +2733,8 @@
       {
         "text": "'My sons,' said Vulcan, 'set your tasks aside; your strength and master-skill must now be tried. Arms for a hero forge; arms that require your force, your speed, and all your forming fire.'",
         "source": "Virgil, Aeneid, Book VIII (trans. Dryden)",
+        "sourceId": "aeneid",
+        "locator": "Book VIII",
         "date": "c. 19 BCE"
       }
     ],
@@ -2696,6 +2785,8 @@
       {
         "text": "Thou mayst not be the son-in-law of Ceres against her will. The girl should have been asked of her mother, not carried away.",
         "source": "Ovid, Metamorphoses, Book V (trans. Riley)",
+        "sourceId": "metamorphoses",
+        "locator": "Book V",
         "date": "c. 8 CE"
       }
     ],
@@ -2737,6 +2828,8 @@
       {
         "text": "With ancient Vesta from the sacred choir, the wreaths and relics of th' immortal fire.",
         "source": "Virgil, Aeneid, Book II (trans. Dryden)",
+        "sourceId": "aeneid",
+        "locator": "Book II",
         "date": "c. 19 BCE"
       }
     ],
@@ -2790,6 +2883,8 @@
       {
         "text": "And ancient Janus, with his double face, and bunch of keys, the porter of the place.",
         "source": "Virgil, Aeneid, Book VII (trans. Dryden)",
+        "sourceId": "aeneid",
+        "locator": "Book VII",
         "date": "c. 19 BCE"
       }
     ],
@@ -2837,6 +2932,7 @@
       {
         "text": "Brahma said, 'Do ye seek the protection of the Supreme of supreme deities, that Lord, the Destroyer of Asuras, the cause of all creation, protection and destruction; even Vishnu. He will provide for your welfare.'",
         "source": "Vishnu Purana (trans. Dutt, after Wilson)",
+        "sourceId": "vishnu-purana",
         "date": "c. 300-1000 CE"
       }
     ],
@@ -2877,6 +2973,8 @@
       {
         "text": "I will declare the mighty deeds of Visnu, of him who measured out the earthly regions, Who propped the highest place of congregation, thrice setting down his footstep, widely striding.",
         "source": "Rig Veda 1.154.1 (trans. Griffith)",
+        "sourceId": "rigveda",
+        "locator": "1.154.1",
         "date": "c. 1500-1200 BCE"
       }
     ],
@@ -2939,6 +3037,7 @@
       {
         "text": "And thereon, he said unto the Lord of creatures, 'let me have a name.' And the Lord said, 'O divine one, thou art named Rudra. Do not cry. Have patience.'",
         "source": "Vishnu Purana (trans. Dutt, after Wilson)",
+        "sourceId": "vishnu-purana",
         "date": "c. 300-1000 CE"
       }
     ],
@@ -2986,6 +3085,7 @@
       {
         "text": "Sri is earth, and Hari, the supporter thereof. The reverend one is contentment, and, O Maitreya, Lakshmi is permanent peace.",
         "source": "Vishnu Purana (trans. Dutt, after Wilson)",
+        "sourceId": "vishnu-purana",
         "date": "c. 300-1000 CE"
       }
     ],
@@ -3032,6 +3132,8 @@
       {
         "text": "May the divine Sarasvati, rich in her wealth, protect us well, Furthering all our thoughts with might.",
         "source": "Rig Veda 6.61.4 (trans. Griffith)",
+        "sourceId": "rigveda",
+        "locator": "6.61.4",
         "date": "c. 1500-1200 BCE"
       }
     ],
@@ -3066,6 +3168,7 @@
       {
         "text": "Rudra took to his wife Sati, and through Daksha's ire, Sati renounced her person. And then she became the daughter of Himavat by name Uma. Then the reverend Bhava again married Uma, who was his solely.",
         "source": "Vishnu Purana (trans. Dutt, after Wilson) — names her Uma, the standard alternate name for Parvati",
+        "sourceId": "vishnu-purana",
         "date": "c. 300-1000 CE"
       }
     ],
@@ -3253,6 +3356,8 @@
       {
         "text": "Then, by Sampati's counsel led, Brave Hanuman, who mocked at dread, Sprang at one wild tremendous leap Two hundred leagues across the deep.",
         "source": "Ramayana of Valmiki, Book V, Sundara Kanda (trans. Griffith)",
+        "sourceId": "ramayana",
+        "locator": "Book V, Sundara Kanda",
         "date": "c. 400 BCE-400 CE"
       }
     ],
@@ -3295,6 +3400,8 @@
       {
         "text": "From old Ikshvaku's line he came, Known to the world by Rama's name: With soul subdued, a chief of might, In Scripture versed, in glory bright.",
         "source": "Ramayana of Valmiki, Book I (trans. Griffith)",
+        "sourceId": "ramayana",
+        "locator": "Book I",
         "date": "c. 400 BCE-400 CE"
       }
     ],
@@ -3330,6 +3437,8 @@
       {
         "text": "When Righteousness Declines, O Bharata! when Wickedness Is strong, I rise, from age to age, and take Visible shape, and move a man with men, Succouring the good, thrusting the evil back, And setting Virtue on her seat again.",
         "source": "Bhagavad Gita, Ch. IV (trans. Arnold, 'The Song Celestial')",
+        "sourceId": "mahabharata",
+        "locator": "Bhagavad Gita, Ch. IV",
         "date": "c. 200 BCE"
       }
     ],
@@ -3382,6 +3491,8 @@
       {
         "text": "I will declare the manly deeds of Indra, the first that he achieved, the Thunder-wielder. He slew the Dragon, then disclosed the waters, and cleft the channels of the mountain torrents.",
         "source": "Rig Veda 1.32.1 (trans. Griffith)",
+        "sourceId": "rigveda",
+        "locator": "1.32.1",
         "date": "c. 1500-1200 BCE"
       }
     ],
@@ -3436,6 +3547,8 @@
       {
         "text": "I laud Agni, the chosen Priest, God, minister of sacrifice, The Hotar, lavishest of wealth.",
         "source": "Rig Veda 1.1.1 (trans. Griffith)",
+        "sourceId": "rigveda",
+        "locator": "1.1.1",
         "date": "c. 1500-1200 BCE"
       }
     ],
@@ -3467,6 +3580,8 @@
       {
         "text": "Nay! hideous! I have come to a hideous and polluted land,—I have! So I will perform the purification of my august person.",
         "source": "Kojiki (trans. Chamberlain), Sect. X",
+        "sourceId": "kojiki",
+        "locator": "Sect. X",
         "date": "712 CE"
       }
     ],
@@ -3508,6 +3623,8 @@
       {
         "text": "Lamentable indeed that thou earnest not sooner! I have eaten of the furnace of Hades.",
         "source": "Kojiki (trans. Chamberlain), Sect. IX",
+        "sourceId": "kojiki",
+        "locator": "Sect. IX",
         "date": "712 CE"
       }
     ],
@@ -3555,6 +3672,8 @@
       {
         "text": "The name of the Deity that was born as he thereupon washed his left august eye was the Heaven-Shining-Great-August-Deity.",
         "source": "Kojiki (trans. Chamberlain), Sect. X",
+        "sourceId": "kojiki",
+        "locator": "Sect. X",
         "date": "712 CE"
       }
     ],
@@ -3620,6 +3739,8 @@
       {
         "text": "The name of the Deity that was next born as he washed his right august eye was His Augustness, Moon-Night Possessor.",
         "source": "Kojiki (trans. Chamberlain), Sect. X",
+        "sourceId": "kojiki",
+        "locator": "Sect. X",
         "date": "712 CE"
       }
     ],
@@ -3661,11 +3782,15 @@
       {
         "text": "The name of the Deity that was next born as he washed his august nose was His Brave-Swift-Impetuous-Male-Augustness.",
         "source": "Kojiki (trans. Chamberlain), Sect. X",
+        "sourceId": "kojiki",
+        "locator": "Sect. X",
         "date": "712 CE"
       },
       {
         "text": "I wail because I wish to depart to my deceased mother's land, to the Nether Distant Land.",
         "source": "Kojiki (trans. Chamberlain), Sect. XII",
+        "sourceId": "kojiki",
+        "locator": "Sect. XII",
         "date": "712 CE"
       }
     ],
@@ -3805,6 +3930,7 @@
       {
         "text": "Thunder kami are born from Izanami's rotting body in Yomi as Izanagi flees; later art gives the drum-circle oni a name, Raijin.",
         "source": "Kojiki, Yomi episode (Chamberlain), with later folk identification",
+        "sourceId": "kojiki",
         "date": "712 CE; iconography later"
       }
     ],
@@ -3942,6 +4068,7 @@
       {
         "text": "From Murias was brought the Dagda's cauldron. No company ever went away from it unsatisfied.",
         "source": "Cath Maige Tuired (trans. Gray)",
+        "sourceId": "cath-maige-tuired",
         "date": "medieval Irish, c. 9th-12th c. CE"
       }
     ],
@@ -3987,6 +4114,7 @@
       {
         "text": "Then after the battle was won and the slaughter had been cleaned away, the Morrigan, the daughter of Ernmas, proceeded to announce the battle and the great victory which had occurred there to the royal heights of Ireland.",
         "source": "Cath Maige Tuired (trans. Gray)",
+        "sourceId": "cath-maige-tuired",
         "date": "medieval Irish, c. 9th-12th c. CE"
       }
     ],
@@ -4027,6 +4155,7 @@
       {
         "text": "From Gorias was brought the spear which Lug had. No battle was ever sustained against it, or against the man who held it in his hand.",
         "source": "Cath Maige Tuired (trans. Gray)",
+        "sourceId": "cath-maige-tuired",
         "date": "medieval Irish, c. 9th-12th c. CE"
       }
     ],
@@ -4074,6 +4203,7 @@
       {
         "text": "Brig came and keened for her son. At first she shrieked, in the end she wept. Then for the first time weeping and shrieking were heard in Ireland.",
         "source": "Cath Maige Tuired (trans. Gray)",
+        "sourceId": "cath-maige-tuired",
         "date": "medieval Irish, c. 9th-12th c. CE"
       }
     ],
@@ -4108,6 +4238,7 @@
       {
         "text": "Then after the preparation for the battle had been settled, Lug and the Dagda and Ogma went to the three gods of Danu, and they gave Lug equipment for the battle.",
         "source": "Cath Maige Tuired (trans. Gray)",
+        "sourceId": "cath-maige-tuired",
         "date": "medieval Irish, c. 9th-12th c. CE"
       }
     ],
@@ -4148,6 +4279,7 @@
       {
         "text": "Nuadu's hand was cut off in that battle. So with Credne the brazier helping him, Dian Cecht the physician put on him a silver hand that moved as well as any other hand.",
         "source": "Cath Maige Tuired (trans. Gray)",
+        "sourceId": "cath-maige-tuired",
         "date": "medieval Irish, c. 9th-12th c. CE"
       }
     ],
@@ -4191,6 +4323,7 @@
       {
         "text": "Now as to Manannan the Proud, son of Lir, after he had made places for the rest of the Tuatha de Danaan to live in, he went away out of Ireland himself.",
         "source": "Lady Gregory, Gods and Fighting Men (1904)",
+        "sourceId": "gods-and-fighting-men",
         "date": "1904 CE (compilation of medieval Irish sources)"
       }
     ],
@@ -4224,6 +4357,7 @@
       {
         "text": "In his hand he held a silver harp with strings of red gold, and the sound of its strings was sweeter than all music under the sky.",
         "source": "Lady Gregory, Gods and Fighting Men (1904)",
+        "sourceId": "gods-and-fighting-men",
         "date": "1904 CE (compilation of medieval Irish sources)"
       }
     ],
@@ -4296,6 +4430,7 @@
       {
         "text": "Then Ogma threw the flagstone, which required fourscore yoke of oxen to move it, through the side of the hall so that it lay outside against Tara.",
         "source": "Cath Maige Tuired (trans. Gray)",
+        "sourceId": "cath-maige-tuired",
         "date": "medieval Irish, c. 9th-12th c. CE"
       }
     ],
@@ -4327,6 +4462,7 @@
       {
         "text": "Dian Cecht put into it every herb that grew in Ireland.",
         "source": "Cath Maige Tuired (trans. Gray), on the healing well of Slaine",
+        "sourceId": "cath-maige-tuired",
         "date": "medieval Irish, c. 9th-12th c. CE"
       }
     ],
@@ -4370,6 +4506,7 @@
       {
         "text": "Goibniu the smith was in the smithy making swords and spears and javelins. He would make those weapons with three strokes.",
         "source": "Cath Maige Tuired (trans. Gray)",
+        "sourceId": "cath-maige-tuired",
         "date": "medieval Irish, c. 9th-12th c. CE"
       }
     ],
@@ -4401,6 +4538,7 @@
       {
         "text": "Those that did cures by herbs said she had power over the whole body; and she used to give gifts of poetry and of music, and they called her the Leanan Sidhe, the Sweetheart of the Sidhe.",
         "source": "Lady Gregory, Gods and Fighting Men (1904)",
+        "sourceId": "gods-and-fighting-men",
         "date": "1904 CE (compilation of medieval Irish sources)"
       }
     ],
@@ -4432,6 +4570,7 @@
       {
         "text": "Many great battles will happen for your sake to Echaid of Midhe; destruction will fall upon the Sidhe, and war on thousands of men.",
         "source": "Lady Gregory, Gods and Fighting Men (1904)",
+        "sourceId": "gods-and-fighting-men",
         "date": "1904 CE (compilation of medieval Irish sources)"
       }
     ],
@@ -4470,6 +4609,7 @@
       {
         "text": "You are welcome, old man. I have known for many days that you would come. I am exceedingly indisposed. The malady affects my entire system, and I can use neither my hands nor feet.",
         "source": "Lewis Spence, The Myths of Mexico and Peru (1913), retelling Sahagún",
+        "sourceId": "myths-mexico-peru",
         "date": "16th c. account (Spence 1913)"
       }
     ],
@@ -4511,6 +4651,7 @@
       {
         "text": "O brother, hearken attentively to what I have to say to you. I am fully informed of what is about to happen.",
         "source": "Lewis Spence, The Myths of Mexico and Peru (1913)",
+        "sourceId": "myths-mexico-peru",
         "date": "Spence 1913, from Aztec myth"
       }
     ],
@@ -4554,6 +4695,7 @@
       {
         "text": "How are you, my son? I have brought you a drug which you should drink, and which will put an end to the course of your malady.",
         "source": "Lewis Spence, The Myths of Mexico and Peru (1913), retelling Sahagún",
+        "sourceId": "myths-mexico-peru",
         "date": "16th c. account (Spence 1913)"
       }
     ],
@@ -4595,6 +4737,7 @@
       {
         "text": "Under the shadow of the mountain of Coatepec, near the Toltec city of Tollan, there dwelt a pious widow called Coatlicue, the mother of a tribe of Indians called Centzonuitznaua.",
         "source": "Lewis Spence, The Myths of Mexico and Peru (1913)",
+        "sourceId": "myths-mexico-peru",
         "date": "Spence 1913, from Aztec myth"
       }
     ],
@@ -4627,6 +4770,7 @@
       {
         "text": "Xochiquetzal, goddess of flowers and love, dwelt in the place above the heavens called Tamoanchan.",
         "source": "Florentine Codex",
+        "sourceId": "florentine-codex",
         "date": "16th Century"
       }
     ],
@@ -4685,6 +4829,7 @@
       {
         "text": "She was called the eater of filth. She ate the sins of men who confessed to her priest.",
         "source": "Florentine Codex",
+        "sourceId": "florentine-codex",
         "date": "16th Century"
       }
     ],
@@ -4723,6 +4868,7 @@
       {
         "text": "Mayahuel was the goddess of maguey. She was said to have four hundred breasts with which she nursed her four hundred children.",
         "source": "Florentine Codex",
+        "sourceId": "florentine-codex",
         "date": "16th Century"
       }
     ],
@@ -4761,6 +4907,7 @@
       {
         "text": "Tonatiuh, the sun, demands hearts. Without chalchiuatl, the precious water, he will not move.",
         "source": "Leyenda de los Soles",
+        "sourceId": "leyenda-de-los-soles",
         "date": "16th Century"
       }
     ],
@@ -4814,6 +4961,7 @@
       {
         "text": "Xolotl, they said, was unwilling to die. He fled, transforming into maize, into maguey, and finally into the axolotl of the water.",
         "source": "Florentine Codex",
+        "sourceId": "florentine-codex",
         "date": "16th Century"
       }
     ],
@@ -4862,6 +5010,7 @@
       {
         "text": "He struck off her head and cast her down from Coatepec, and her body fell to pieces at the foot of the mountain.",
         "source": "Florentine Codex",
+        "sourceId": "florentine-codex",
         "date": "16th Century"
       }
     ],
@@ -4905,6 +5054,7 @@
       {
         "text": "He is the old god, Huehueteotl. He dwells in the navel of the earth, in the enclosure of turquoise.",
         "source": "Florentine Codex",
+        "sourceId": "florentine-codex",
         "date": "16th Century"
       }
     ],
@@ -5001,6 +5151,7 @@
       {
         "text": "The Jade Emperor in his Lingxiao Palace rules the three realms of Heaven, Earth, and the Underworld.",
         "source": "Journey to the West",
+        "sourceId": "journey-to-the-west",
         "date": "1592 CE"
       }
     ],
@@ -5067,6 +5218,8 @@
       {
         "text": "My name is Sun Wukong. I was born of Heaven and Earth, nourished by the sun and moon, formed by the creative essence of the universe!",
         "source": "Journey to the West, Chapter 1",
+        "sourceId": "journey-to-the-west",
+        "locator": "Chapter 1",
         "date": "1592 CE"
       }
     ],
@@ -5235,6 +5388,7 @@
       {
         "text": "True Lord Erlang, with his celestial hound and truth-seeing eye, was the only warrior of Heaven who could match the Great Sage.",
         "source": "Journey to the West",
+        "sourceId": "journey-to-the-west",
         "date": "1592 CE"
       }
     ],
@@ -5622,6 +5776,7 @@
       {
         "text": "When Yao was ruler, the ten suns all rose at once, scorching the crops and killing plants. Yao ordered Yi to shoot at them. Yi shot nine of them.",
         "source": "Huainanzi",
+        "sourceId": "huainanzi",
         "date": "139 BCE"
       }
     ],
@@ -5672,6 +5827,7 @@
       {
         "text": "In ancient times, the four poles of the world collapsed, the nine regions were rent asunder, Heaven did not cover all, and Earth did not support all. Nuwa smelted stones of five colors to repair the azure sky.",
         "source": "Huainanzi",
+        "sourceId": "huainanzi",
         "date": "139 BCE"
       }
     ],
@@ -5910,6 +6066,8 @@
       {
         "text": "He split her like a shellfish into two parts: half of her he set up as a ceiling, the sky; he pulled down the bar and posted guards. He directed them not to let her waters escape.",
         "source": "Enuma Elish, Tablet IV",
+        "sourceId": "enuma-elish",
+        "locator": "Tablet IV",
         "date": "c. 1100 BCE"
       }
     ],
@@ -6039,6 +6197,8 @@
       {
         "text": "Mother Tiamat, who fashioned all things, made in addition eleven monsters. Among the gods her children she elevated Kingu and made him chief among them.",
         "source": "Enuma Elish, Tablet I",
+        "sourceId": "enuma-elish",
+        "locator": "Tablet I",
         "date": "c. 1100 BCE"
       }
     ],
@@ -6172,6 +6332,8 @@
       {
         "text": "He who saw the Deep, the foundation of the country, who knew the seas, was wise in all matters.",
         "source": "Epic of Gilgamesh, Tablet I (Standard Babylonian Version)",
+        "sourceId": "epic-of-gilgamesh",
+        "locator": "Tablet I",
         "date": "c. 1200-1000 BCE"
       }
     ],
@@ -6213,6 +6375,8 @@
       {
         "text": "With the gazelles he feeds on grass, with the wild beasts he drinks at the water-hole. His heart delights with the wild creatures in the water.",
         "source": "Epic of Gilgamesh, Tablet I (Standard Babylonian Version)",
+        "sourceId": "epic-of-gilgamesh",
+        "locator": "Tablet I",
         "date": "c. 1200-1000 BCE"
       }
     ],
@@ -6251,6 +6415,7 @@
       {
         "text": "Only the Maker, Modeler alone, Sovereign Plumed Serpent, the Bearers, Begetters, were in the water, a glittering light.",
         "source": "Popol Vuh",
+        "sourceId": "popol-vuh",
         "date": "c. 1550 CE (recording ancient traditions)"
       }
     ],
@@ -6413,6 +6578,7 @@
       {
         "text": "Chac, the rain-god, is the possessor of an elongated nose, not unlike the proboscis of a tapir, which of course is the spout whence comes the rain which he blows over the earth.",
         "source": "Lewis Spence, The Myths of Mexico and Peru (1913)",
+        "sourceId": "myths-mexico-peru",
         "date": "Spence 1913, from Maya sources"
       }
     ],
@@ -6440,6 +6606,7 @@
       {
         "text": "The lords of Xibalba are One Death and Seven Death.",
         "source": "Popol Vuh",
+        "sourceId": "popol-vuh",
         "date": "c. 1550 CE (recording ancient traditions)"
       }
     ],
@@ -6483,6 +6650,7 @@
       {
         "text": "Tlaloc was a great god among the Mexicans. He was lord of the earthly paradise called Tlalocan.",
         "source": "Florentine Codex",
+        "sourceId": "florentine-codex",
         "date": "16th Century"
       }
     ],
@@ -6533,6 +6701,7 @@
       {
         "text": "And the priests who wore the skins of the captives went about the city, going from house to house, visiting and demanding gifts.",
         "source": "Florentine Codex",
+        "sourceId": "florentine-codex",
         "date": "16th Century"
       }
     ],
@@ -6576,6 +6745,7 @@
       {
         "text": "And Quetzalcoatl went to Mictlan to the Lord and Lady of the Dead.",
         "source": "Leyenda de los Soles",
+        "sourceId": "leyenda-de-los-soles",
         "date": "16th Century"
       }
     ],
@@ -6621,6 +6791,7 @@
       {
         "text": "And the skull of One Hunahpu was there in the fork of the tree.",
         "source": "Popol Vuh",
+        "sourceId": "popol-vuh",
         "date": "c. 1550 CE (recording ancient traditions)"
       }
     ],
@@ -6664,6 +6835,7 @@
       {
         "text": "And this is the great defeat of the rulers of Xibalba: only through a miracle did the boys accomplish it.",
         "source": "Popol Vuh",
+        "sourceId": "popol-vuh",
         "date": "c. 1550 CE (recording ancient traditions)"
       }
     ],
@@ -6713,6 +6885,7 @@
       {
         "text": "Chalchiuhtlicue was the goddess of water - of the seas, rivers, and lakes. She was the wife of Tlaloc.",
         "source": "Florentine Codex",
+        "sourceId": "florentine-codex",
         "date": "16th Century"
       }
     ],
@@ -8084,6 +8257,7 @@
       {
         "text": "Ame-no-Uzume-no-Mikoto bound up her sleeves with a cord of heavenly hikage vine, tied around her head a head-band of the heavenly masaki vine, bound together bundles of sasa leaves to hold in her hands, and overturning a bucket before the heavenly rock-cave door, stamped resoundingly upon it.",
         "source": "Kojiki",
+        "sourceId": "kojiki",
         "date": "712 CE"
       }
     ],
@@ -8135,6 +8309,7 @@
       {
         "text": "Through giving birth to this child, her august private parts were burned, and she sickened and lay down.",
         "source": "Kojiki",
+        "sourceId": "kojiki",
         "date": "712 CE"
       }
     ],
@@ -8197,11 +8372,13 @@
       {
         "text": "Then Oho-kuni-nushi-no-Kami appeared, and made and consolidated this land together with the Dwarf Deity Sukuna-biko-na.",
         "source": "Kojiki",
+        "sourceId": "kojiki",
         "date": "712 CE"
       },
       {
         "text": "If thou wilt rule the visible affairs, I will rule the unseen. If thou wilt build me a palace with columns broad and high, I will dwell there.",
         "source": "Nihon Shoki",
+        "sourceId": "nihon-shoki",
         "date": "720 CE"
       }
     ],
@@ -8251,6 +8428,7 @@
       {
         "text": "And ready-witted Prometheus he bound with inextricable bonds, cruel chains, and drove a shaft through his middle, and set on him a long-winged eagle, which used to eat his immortal liver.",
         "source": "Hesiod, Theogony",
+        "sourceId": "theogony",
         "date": "c. 700 BCE"
       },
       {
@@ -8308,11 +8486,13 @@
       {
         "text": "Perseus, after leaving the daughters of Phorcys, made his way to the Gorgons. They were sleeping at that moment. Perseus cut off Medusa's head, and flew back.",
         "source": "Apollodorus, Bibliotheca",
+        "sourceId": "library-apollodorus",
         "date": "c. 100 CE"
       },
       {
         "text": "Her the Deliverer slew, who on his feet had wings; and one eye, shared in turn, betrayed the Gorgons.",
         "source": "Ovid, Metamorphoses",
+        "sourceId": "metamorphoses",
         "date": "c. 8 CE"
       }
     ],
@@ -8365,11 +8545,13 @@
       {
         "text": "But he secretly put in my mouth sweet food, a pomegranate seed, and forced me to taste against my will.",
         "source": "Homeric Hymn to Demeter",
+        "sourceId": "homeric-hymns",
         "date": "c. 650 BCE"
       },
       {
         "text": "There queenly Persephone received me kindly, and gave me food and drink, and every day they come who dwell beneath and hold their sacrifices.",
         "source": "Homer, Odyssey",
+        "sourceId": "odyssey",
         "date": "c. 750 BCE"
       }
     ],
@@ -8729,6 +8911,7 @@
       {
         "text": "In Yucatan the sun-god was known as Kinich-ahau (Lord of the Face of the Sun). He was identified with the Fire-bird, or Arara, and was thus called Kinich-Kakmo.",
         "source": "Lewis Spence, The Myths of Mexico and Peru (1913)",
+        "sourceId": "myths-mexico-peru",
         "date": "Spence 1913, from Maya sources"
       }
     ],
@@ -8760,6 +8943,7 @@
       {
         "text": "Brinton calls this god Ghanan, and Schellhas thinks he may be identical with a deity Yum Kaax, whose name means \"Lord of the Harvest Fields.\"",
         "source": "Lewis Spence, The Myths of Mexico and Peru (1913)",
+        "sourceId": "myths-mexico-peru",
         "date": "Spence 1913, from Maya sources"
       }
     ],
@@ -8829,6 +9013,7 @@
       {
         "text": "The black god Ekchuah was the god of merchants and cacao-planters. He is represented in the manuscripts several times.",
         "source": "Lewis Spence, The Myths of Mexico and Peru (1913)",
+        "sourceId": "myths-mexico-peru",
         "date": "Spence 1913, from Maya sources"
       }
     ],
@@ -8867,6 +9052,7 @@
       {
         "text": "Sahagun says of him that a fête was held in his honour, which was preceded by a rigorous fast. The people covered themselves with ornaments and jewels symbolic of the deity.",
         "source": "Lewis Spence, The Myths of Mexico and Peru (1913), citing Sahagún",
+        "sourceId": "myths-mexico-peru",
         "date": "16th c. account (Spence 1913)"
       }
     ],
@@ -8907,6 +9093,7 @@
       {
         "text": "The victim sacrificed at the Xalaquia wore a ritual dress made from the fibres of the aloe, and with this garment the maize-god Centeotl was clothed.",
         "source": "Lewis Spence, The Myths of Mexico and Peru (1913)",
+        "sourceId": "myths-mexico-peru",
         "date": "Spence 1913, from Aztec sources"
       }
     ],
@@ -8944,11 +9131,13 @@
       {
         "text": "And her sons, whom she bore, great Heaven used to call Titans as a term of reproach... but her youngest, wily Cronos the most terrible of her children, hated his lusty sire.",
         "source": "Hesiod, Theogony (trans. Evelyn-White)",
+        "sourceId": "theogony",
         "date": "c. 700 BCE"
       },
       {
         "text": "But great Cronos the wily took courage and answered his dear mother: 'Mother, I will undertake to do this deed.'",
         "source": "Hesiod, Theogony (trans. Evelyn-White)",
+        "sourceId": "theogony",
         "date": "c. 700 BCE"
       }
     ],
@@ -9036,11 +9225,13 @@
       {
         "text": "Verily at the first Chaos came to be, but next wide-bosomed Earth, the ever-sure foundation of all the deathless ones.",
         "source": "Hesiod, Theogony (trans. Evelyn-White)",
+        "sourceId": "theogony",
         "date": "c. 700 BCE"
       },
       {
         "text": "And Earth first bare starry Heaven, equal to herself, to cover her on every side, and to be an ever-sure abiding-place for the blessed gods.",
         "source": "Hesiod, Theogony (trans. Evelyn-White)",
+        "sourceId": "theogony",
         "date": "c. 700 BCE"
       }
     ],
@@ -9128,11 +9319,13 @@
       {
         "text": "And Earth first bare starry Heaven, equal to herself, to cover her on every side, and to be an ever-sure abiding-place for the blessed gods.",
         "source": "Hesiod, Theogony (trans. Evelyn-White)",
+        "sourceId": "theogony",
         "date": "c. 700 BCE"
       },
       {
         "text": "These sons whom he begot were the most terrible of children, and they hated their own father from the first.",
         "source": "Hesiod, Theogony (trans. Evelyn-White)",
+        "sourceId": "theogony",
         "date": "c. 700 BCE"
       }
     ],
@@ -9205,11 +9398,13 @@
       {
         "text": "Zeus the son of Cronos honoured her above all: he gave her splendid gifts, to have a share of the earth and the unfruitful sea.",
         "source": "Hesiod, Theogony (trans. Evelyn-White)",
+        "sourceId": "theogony",
         "date": "c. 700 BCE"
       },
       {
         "text": "Hecate with bright veil... came near, and spoke to her, and much she lamented and clasped her in her arms.",
         "source": "Homeric Hymn to Demeter (trans. Evelyn-White)",
+        "sourceId": "homeric-hymns",
         "date": "c. 7th century BCE"
       }
     ],
@@ -9295,11 +9490,15 @@
       {
         "text": "Of Ymir's flesh the earth was made, and of his blood the sea, of his bones the hills, of his hair the trees, of his skull the sky.",
         "source": "Grimnismal, Poetic Edda (trans. Bellows)",
+        "sourceId": "poetic-edda",
+        "locator": "Grimnismal",
         "date": "c. 10th-13th century CE (manuscript compiled 13th century)"
       },
       {
         "text": "It is said that when he slept he fell into a sweat, and then there grew under his left hand a man and a woman.",
         "source": "Snorri Sturluson, Prose Edda, Gylfaginning (trans. Brodeur)",
+        "sourceId": "prose-edda",
+        "locator": "Gylfaginning",
         "date": "c. 1220 CE"
       }
     ],
@@ -9387,11 +9586,15 @@
       {
         "text": "Then said Gangleri: 'Hodr shot Baldr with mistletoe?' ... 'That is great tidings,' said Gangleri, 'if Baldr's kinsman had not vengeance for him.'",
         "source": "Snorri Sturluson, Prose Edda, Gylfaginning (trans. Brodeur)",
+        "sourceId": "prose-edda",
+        "locator": "Gylfaginning",
         "date": "c. 1220 CE"
       },
       {
         "text": "Brodr Baldrs var borinn snimma, sa nam Oðins sonr einnættr vega.",
         "source": "Voluspa, Poetic Edda (on Vali's vengeance against Hodr)",
+        "sourceId": "poetic-edda",
+        "locator": "Voluspa",
         "date": "c. 10th century CE"
       }
     ],
@@ -9448,6 +9651,8 @@
       {
         "text": "Bragi's wife is Idun... she keeps in her box the apples which the gods must taste whensoever they grow old, and then they all become young.",
         "source": "Snorri Sturluson, Prose Edda, Gylfaginning (trans. Brodeur)",
+        "sourceId": "prose-edda",
+        "locator": "Gylfaginning",
         "date": "c. 1220 CE"
       }
     ],
@@ -9512,6 +9717,8 @@
       {
         "text": "Bragi is renowned for wisdom, and most of all for fluency of speech and skill with words. He knows most of skaldship, and after him skaldship is called bragr.",
         "source": "Snorri Sturluson, Prose Edda, Gylfaginning (trans. Brodeur)",
+        "sourceId": "prose-edda",
+        "locator": "Gylfaginning",
         "date": "c. 1220 CE"
       }
     ],
@@ -9575,11 +9782,15 @@
       {
         "text": "Then, as the king was ploughing, from the ploughed earth up sprung, a maiden springing from the furrow, whom men Sita call.",
         "source": "Ramayana of Valmiki, Bala Kanda (trans. Griffith)",
+        "sourceId": "ramayana",
+        "locator": "Bala Kanda",
         "date": "c. 400 BCE-400 CE"
       },
       {
         "text": "If thou, deluded, deem me weak, and helpless for the want of thee, thy folly shall be seen in me, protectress of mine own chastity.",
         "source": "Ramayana of Valmiki, Sundara Kanda (trans. Griffith, Sita's refusal of Ravana)",
+        "sourceId": "ramayana",
+        "locator": "Sundara Kanda",
         "date": "c. 400 BCE-400 CE"
       }
     ],
@@ -9653,11 +9864,15 @@
       {
         "text": "Ten heads and twenty arms had he, the mighty lord of Lanka's isle.",
         "source": "Ramayana of Valmiki, Uttara Kanda (trans. Griffith)",
+        "sourceId": "ramayana",
+        "locator": "Uttara Kanda",
         "date": "c. 400 BCE-400 CE"
       },
       {
         "text": "I am Ravana, dread to all the worlds, before whose might the gods themselves have fled.",
         "source": "Ramayana of Valmiki, Sundara Kanda (trans. Griffith, paraphrased boast to Sita)",
+        "sourceId": "ramayana",
+        "locator": "Sundara Kanda",
         "date": "c. 400 BCE-400 CE"
       }
     ],
@@ -9720,11 +9935,15 @@
       {
         "text": "Yama was the first to find us the way. This pasture never can be taken from us. Men born on earth will travel their own pathway to the place where our early fathers travelled.",
         "source": "Rigveda 10.14 (trans. Griffith)",
+        "sourceId": "rigveda",
+        "locator": "10.14",
         "date": "c. 1500-1200 BCE"
       },
       {
         "text": "Not thus, my sister, have the holy singers spoken of old, in heaven, upon this earth-child: not seemly is it that a sister court her brother.",
         "source": "Rigveda 10.10, the Yama-Yami dialogue (trans. Griffith)",
+        "sourceId": "rigveda",
+        "locator": "10.10",
         "date": "c. 1500-1200 BCE"
       }
     ],
@@ -10018,6 +10237,8 @@
       {
         "text": "Atum-Khoprer... you spat out as Shu, you spat out as Tefnut.",
         "source": "Pyramid Texts, Utterance 600 (trans. Faulkner, paraphrased)",
+        "sourceId": "pyramid-texts",
+        "locator": "Utterance 600",
         "date": "Old Kingdom, c. 2400-2300 BCE"
       }
     ],
@@ -10081,6 +10302,7 @@
       {
         "text": "They relate that Rhea [Nut], without the knowledge of Helios [Ra], had intercourse with Cronus [Geb], and that Helios, on detecting the intrigue, invoked a curse upon her, that she should not be delivered of her child in any month or any year.",
         "source": "Plutarch, Isis and Osiris (trans. Babbitt, using his Greek equivalents for the Egyptian gods)",
+        "sourceId": "plutarch-isis-osiris",
         "date": "c. 100 CE"
       }
     ],
@@ -10217,11 +10439,13 @@
       {
         "text": "I never had one man without another waiting in his shadow... but you're the first man I've found that wasn't jealous, or mean, or afraid.",
         "source": "Táin Bó Cúailnge, the pillow talk (trans. Kinsella)",
+        "sourceId": "tain-bo-cuailnge",
         "date": "Medieval Irish, earliest recension c. 8th-9th century CE, manuscripts 12th century"
       },
       {
         "text": "'I will follow you,' said Medb, 'until the men of Ireland fall about me, or until I take with me the bull.'",
         "source": "Táin Bó Cúailnge (paraphrased, trans. Kinsella)",
+        "sourceId": "tain-bo-cuailnge",
         "date": "Medieval Irish, earliest recension c. 8th-9th century CE"
       }
     ],
@@ -10425,11 +10649,15 @@
       {
         "text": "Tear down the house, build a boat! Abandon riches and seek survival! Spurn property, save life! Take on board the boat all living things' seed!",
         "source": "Epic of Gilgamesh, Tablet XI, Standard Babylonian Version (trans. George)",
+        "sourceId": "epic-of-gilgamesh",
+        "locator": "Tablet XI, Standard Babylonian Version",
         "date": "c. 1200-1000 BCE"
       },
       {
         "text": "The gods crowded like flies about the sacrificer.",
         "source": "Epic of Gilgamesh, Tablet XI (trans. Sandars, on the gods' response to Utnapishtim's post-flood offering)",
+        "sourceId": "epic-of-gilgamesh",
+        "locator": "Tablet XI",
         "date": "c. 1200-1000 BCE"
       }
     ],
@@ -10484,6 +10712,8 @@
       {
         "text": "And the lord of the region of the dead was named Mictlantecutli, and his consort was named Mictecacihuatl.",
         "source": "Bernardino de Sahagún, Florentine Codex, Book 3 (trans. Anderson & Dibble)",
+        "sourceId": "florentine-codex",
+        "locator": "Book 3",
         "date": "Compiled 1545-1590 CE, from earlier Nahua tradition"
       }
     ],
@@ -10622,11 +10852,15 @@
       {
         "text": "And Igor summoned the [Byzantine] envoys, and went to the hill where Perun stood, and they laid down their arms, their shields, and their gold, and swore oaths.",
         "source": "Russian Primary Chronicle, s.a. 945 (paraphrase of the treaty oath)",
+        "sourceId": "russian-primary-chronicle",
+        "locator": "s.a. 945",
         "date": "entry for 945 CE; chronicle compiled early 12th c."
       },
       {
         "text": "And Vladimir set up idols on the hill outside the palace: Perun of wood with a head of silver and a moustache of gold, and Khors, Dazhbog, Stribog, Simargl, and Mokosh.",
         "source": "Russian Primary Chronicle, s.a. 980 (paraphrase)",
+        "sourceId": "russian-primary-chronicle",
+        "locator": "s.a. 980",
         "date": "entry for 980 CE; chronicle compiled early 12th c."
       }
     ],
@@ -10665,11 +10899,15 @@
       {
         "text": "Let those who break this oath [...] be cursed by God in whom they believe, and by Perun and Volos, the cattle god.",
         "source": "Russian Primary Chronicle, s.a. 907 (paraphrase of the treaty oath)",
+        "sourceId": "russian-primary-chronicle",
+        "locator": "s.a. 907",
         "date": "entry for 907 CE; chronicle compiled early 12th c."
       },
       {
         "text": "And the Rus' who are not baptized lay down their shields and their naked swords [...] swearing for themselves and for all Rus' by Perun their god, and Volos, the god of cattle.",
         "source": "Russian Primary Chronicle, s.a. 945 (paraphrase of the treaty oath)",
+        "sourceId": "russian-primary-chronicle",
+        "locator": "s.a. 945",
         "date": "entry for 945 CE; chronicle compiled early 12th c."
       }
     ],
@@ -10706,6 +10944,8 @@
       {
         "text": "And he set up idols on the hill [...] and Mokosh.",
         "source": "Russian Primary Chronicle, s.a. 980 (paraphrase)",
+        "sourceId": "russian-primary-chronicle",
+        "locator": "s.a. 980",
         "date": "entry for 980 CE; chronicle compiled early 12th c."
       }
     ],
@@ -10779,6 +11019,8 @@
       {
         "text": "And he set up idols [...] Dazhbog [...] on the hill outside the palace.",
         "source": "Russian Primary Chronicle, s.a. 980 (paraphrase)",
+        "sourceId": "russian-primary-chronicle",
+        "locator": "s.a. 980",
         "date": "entry for 980 CE; chronicle compiled early 12th c."
       },
       {
@@ -10820,6 +11062,8 @@
       {
         "text": "And he set up idols [...] Stribog [...] on the hill outside the palace.",
         "source": "Russian Primary Chronicle, s.a. 980 (paraphrase)",
+        "sourceId": "russian-primary-chronicle",
+        "locator": "s.a. 980",
         "date": "entry for 980 CE; chronicle compiled early 12th c."
       },
       {
@@ -10861,6 +11105,8 @@
       {
         "text": "And he set up idols [...] Khors [...] on the hill outside the palace.",
         "source": "Russian Primary Chronicle, s.a. 980 (paraphrase)",
+        "sourceId": "russian-primary-chronicle",
+        "locator": "s.a. 980",
         "date": "entry for 980 CE; chronicle compiled early 12th c."
       }
     ],
@@ -10899,6 +11145,8 @@
       {
         "text": "And he set up idols [...] Simargl [...] on the hill outside the palace.",
         "source": "Russian Primary Chronicle, s.a. 980 (paraphrase)",
+        "sourceId": "russian-primary-chronicle",
+        "locator": "s.a. 980",
         "date": "entry for 980 CE; chronicle compiled early 12th c."
       }
     ],
@@ -11086,11 +11334,13 @@
       {
         "text": "A composite account drawing on Hewitt's recorded Onondaga, Seneca, and Mohawk tellings of Sky Woman's fall and the founding of Turtle Island.",
         "source": "J.N.B. Hewitt, Iroquoian Cosmology, Bureau of American Ethnology Annual Reports 21 and 43",
+        "sourceId": "iroquoian-cosmology",
         "date": "1903 and 1928"
       },
       {
         "text": "A Seneca telling of the sky woman's fall and the diving animals, recorded from named Seneca tellers.",
         "source": "Arthur C. Parker, Seneca Myths and Folk Tales",
+        "sourceId": "seneca-myths-folk-tales",
         "date": "1923"
       }
     ],
@@ -11124,11 +11374,13 @@
       {
         "text": "A Seneca telling of the Twins' birth and their shaping of the world's features, recorded from named tellers.",
         "source": "Arthur C. Parker, Seneca Myths and Folk Tales",
+        "sourceId": "seneca-myths-folk-tales",
         "date": "1923"
       },
       {
         "text": "A comparative record of Onondaga, Seneca, and Mohawk tellings of the Twins' contest.",
         "source": "J.N.B. Hewitt, Iroquoian Cosmology, Bureau of American Ethnology Annual Reports 21 and 43",
+        "sourceId": "iroquoian-cosmology",
         "date": "1903 and 1928"
       }
     ],
@@ -11162,11 +11414,13 @@
       {
         "text": "A Seneca telling of Flint's birth and his shaping of the world's difficult features, recorded from named tellers.",
         "source": "Arthur C. Parker, Seneca Myths and Folk Tales",
+        "sourceId": "seneca-myths-folk-tales",
         "date": "1923"
       },
       {
         "text": "A comparative record of Onondaga, Seneca, and Mohawk tellings of the Twins' contest.",
         "source": "J.N.B. Hewitt, Iroquoian Cosmology, Bureau of American Ethnology Annual Reports 21 and 43",
+        "sourceId": "iroquoian-cosmology",
         "date": "1903 and 1928"
       }
     ],
@@ -11196,11 +11450,13 @@
       {
         "text": "A Seneca telling of the diving animals and the growth of the earth on the turtle's back, recorded from named tellers.",
         "source": "Arthur C. Parker, Seneca Myths and Folk Tales",
+        "sourceId": "seneca-myths-folk-tales",
         "date": "1923"
       },
       {
         "text": "A comparative record of Onondaga, Seneca, and Mohawk tellings of the earth-diver episode.",
         "source": "J.N.B. Hewitt, Iroquoian Cosmology, Bureau of American Ethnology Annual Reports 21 and 43",
+        "sourceId": "iroquoian-cosmology",
         "date": "1903 and 1928"
       }
     ],
@@ -11649,9 +11905,8 @@
       },
       {
         "text": "Asclepius, taught by Chiron, healed every kind of sickness, but when he was tempted by gold to bring back a man already dead, Zeus hurled his thunderbolt and took the life from both.",
-        "source": "Pindar, Pythian Ode 3 (paraphrase)",
-        "date": "c. 474 BCE",
-        "locator": "Pythian 3.45-58"
+        "source": "Pindar, Pythian Ode 3.45-58 (paraphrase)",
+        "date": "c. 474 BCE"
       }
     ],
     "furtherReading": [
@@ -12344,12 +12599,14 @@
       {
         "text": "Sun Wukong dives to the Dragon Palace of the Eastern Sea and demands a weapon; rejecting every blade and halberd, he takes the great iron pillar once used to fix the depth of the waters, and Ao Guang afterwards carries his complaint to the Jade Emperor.",
         "source": "Wu Cheng'en, Journey to the West, ch. 3 (paraphrase)",
+        "sourceId": "journey-to-the-west",
         "date": "c. 1592 CE",
         "locator": "ch. 3"
       },
       {
         "text": "The Jing River Dragon King, set on discrediting a fortune-teller, alters the hour and measure of the rain Heaven had ordered; he is sentenced to death, and the minister Wei Zheng carries out the execution in a dream.",
         "source": "Wu Cheng'en, Journey to the West, ch. 9-10 (paraphrase)",
+        "sourceId": "journey-to-the-west",
         "date": "c. 1592 CE",
         "locator": "ch. 9-10"
       }

@@ -14,6 +14,8 @@
       {
         "text": "They reached the peak of snowy Olympus, the seat of the gods that stands forever.",
         "source": "Homer, Iliad 5",
+        "sourceId": "iliad",
+        "locator": "Book 5",
         "date": "c. 750 BCE"
       }
     ]
@@ -33,6 +35,8 @@
       {
         "text": "I drew my sharp sword from my thigh and dug a pit a cubit's length this way and that.",
         "source": "Homer, Odyssey 11",
+        "sourceId": "odyssey",
+        "locator": "Book 11",
         "date": "c. 700 BCE"
       }
     ]
@@ -52,6 +56,7 @@
       {
         "text": "Phoebus Apollo, you came to Crisa under snowy Parnassus, and there the serpent received you.",
         "source": "Homeric Hymn to Apollo",
+        "sourceId": "homeric-hymns",
         "date": "c. 6th c. BCE"
       }
     ]
@@ -71,6 +76,7 @@
       {
         "text": "A bronze anvil falling from heaven nine nights and days would reach the earth on the tenth; from earth to Tartarus, the same.",
         "source": "Hesiod, Theogony",
+        "sourceId": "theogony",
         "date": "c. 700 BCE"
       }
     ]
@@ -90,6 +96,8 @@
       {
         "text": "The immortals will send you to the Elysian plain and the ends of the earth, where life is easiest for men.",
         "source": "Homer, Odyssey 4",
+        "sourceId": "odyssey",
+        "locator": "Book 4",
         "date": "c. 700 BCE"
       }
     ]
@@ -110,6 +118,8 @@
       {
         "text": "The great oath of the gods, the water of Styx, that oldest and most dread of rivers.",
         "source": "Homer, Iliad 15",
+        "sourceId": "iliad",
+        "locator": "Book 15",
         "date": "c. 750 BCE"
       }
     ]
@@ -167,6 +177,8 @@
       {
         "text": "They found the fleece hanging on a huge oak, like a cloud that blushes in the beams of the rising sun.",
         "source": "Apollonius Rhodius, Argonautica 4",
+        "sourceId": "argonautica",
+        "locator": "Book 4",
         "date": "c. 250 BCE"
       }
     ]
@@ -186,6 +198,8 @@
       {
         "text": "Minos, the nine-year companion of great Zeus, who held the scepter.",
         "source": "Homer, Odyssey 19",
+        "sourceId": "odyssey",
+        "locator": "Book 19",
         "date": "c. 700 BCE"
       }
     ]
@@ -205,6 +219,8 @@
       {
         "text": "I dwell in Ithaca, a land of clear skies. In it is a mountain, Neriton, covered with waving woods.",
         "source": "Homer, Odyssey 9",
+        "sourceId": "odyssey",
+        "locator": "Book 9",
         "date": "c. 700 BCE"
       }
     ]
@@ -224,6 +240,8 @@
       {
         "text": "They came to hollow Lacedaemon and drove to the palace of glorious Menelaus.",
         "source": "Homer, Odyssey 4",
+        "sourceId": "odyssey",
+        "locator": "Book 4",
         "date": "c. 700 BCE"
       }
     ]
@@ -243,6 +261,8 @@
       {
         "text": "Sing, goddess, the anger of Achilles, that brought countless ills upon the Achaeans.",
         "source": "Homer, Iliad 1",
+        "sourceId": "iliad",
+        "locator": "Book 1",
         "date": "c. 750 BCE"
       }
     ]
@@ -262,6 +282,7 @@
       {
         "text": "Rejoice, blessed Leto, for you bore glorious children, lord Apollo and Artemis who delights in arrows.",
         "source": "Homeric Hymn to Apollo",
+        "sourceId": "homeric-hymns",
         "date": "c. 6th c. BCE"
       }
     ]
@@ -281,6 +302,8 @@
       {
         "text": "All day I fell, and with the setting sun I landed on Lemnos, and little life was in me.",
         "source": "Homer, Iliad 1",
+        "sourceId": "iliad",
+        "locator": "Book 1",
         "date": "c. 750 BCE"
       }
     ]
@@ -300,6 +323,8 @@
       {
         "text": "Theseus left Ariadne in the island of Dia [Naxos], and Artemis killed her there.",
         "source": "Homer, Odyssey 11",
+        "sourceId": "odyssey",
+        "locator": "Book 11",
         "date": "c. 700 BCE"
       }
     ]
@@ -319,6 +344,8 @@
       {
         "text": "Phoebus Apollo slew the helmsman with his gentle shafts, as he held the tiller, at sacred Sounion.",
         "source": "Homer, Odyssey 3",
+        "sourceId": "odyssey",
+        "locator": "Book 3",
         "date": "c. 700 BCE"
       }
     ]
@@ -338,6 +365,8 @@
       {
         "text": "Then they made themselves a burg in the middle of the world, that is called Asgard.",
         "source": "Snorri Sturluson, Prose Edda, Gylfaginning",
+        "sourceId": "prose-edda",
+        "locator": "Gylfaginning",
         "date": "c. 1220 CE"
       }
     ]
@@ -376,6 +405,8 @@
       {
         "text": "First there was Niflheim in the north. From it flowed those rivers called Elivagar.",
         "source": "Snorri Sturluson, Prose Edda, Gylfaginning",
+        "sourceId": "prose-edda",
+        "locator": "Gylfaginning",
         "date": "c. 1220 CE"
       }
     ]
@@ -395,6 +426,8 @@
       {
         "text": "Surtr is he who sits at the border to guard Muspell. At the end he will go forth and vanquish all the gods and burn the world with fire.",
         "source": "Snorri Sturluson, Prose Edda, Gylfaginning",
+        "sourceId": "prose-edda",
+        "locator": "Gylfaginning",
         "date": "c. 1220 CE"
       }
     ]
@@ -414,6 +447,8 @@
       {
         "text": "Thor shall fare into Jotunheim and make war on the giants.",
         "source": "Snorri Sturluson, Prose Edda, Gylfaginning",
+        "sourceId": "prose-edda",
+        "locator": "Gylfaginning",
         "date": "c. 1220 CE"
       }
     ]
@@ -433,6 +468,8 @@
       {
         "text": "Njord was bred in Vanaheim, but the Vanir gave him as hostage to the gods.",
         "source": "Snorri Sturluson, Prose Edda, Gylfaginning",
+        "sourceId": "prose-edda",
+        "locator": "Gylfaginning",
         "date": "c. 1220 CE"
       }
     ]
@@ -452,6 +489,8 @@
       {
         "text": "The dwarves had been generated in the earth, like maggots in flesh, and they live in the earth and in stones.",
         "source": "Snorri Sturluson, Prose Edda, Gylfaginning",
+        "sourceId": "prose-edda",
+        "locator": "Gylfaginning",
         "date": "c. 1220 CE"
       }
     ]
@@ -471,6 +510,8 @@
       {
         "text": "Alfheim the gods gave to Frey in days of yore as a tooth-gift.",
         "source": "Poetic Edda, Grimnismal",
+        "sourceId": "poetic-edda",
+        "locator": "Grimnismal",
         "date": "c. 10th c. CE"
       }
     ]
@@ -490,6 +531,8 @@
       {
         "text": "Hel he cast into Niflheim and gave her authority over nine worlds, that she should administer food to those sent to her, who die of sickness or old age.",
         "source": "Snorri Sturluson, Prose Edda, Gylfaginning",
+        "sourceId": "prose-edda",
+        "locator": "Gylfaginning",
         "date": "c. 1220 CE"
       }
     ]
@@ -509,6 +552,8 @@
       {
         "text": "You would not think it safe to send your horses over Bifrost, for it burns with fire.",
         "source": "Snorri Sturluson, Prose Edda, Gylfaginning",
+        "sourceId": "prose-edda",
+        "locator": "Gylfaginning",
         "date": "c. 1220 CE"
       }
     ]
@@ -585,6 +630,8 @@
       {
         "text": "I know the Field of Reeds of Re. The height of its barley is five cubits; the ears are two cubits.",
         "source": "Book of the Dead, Spell 109",
+        "sourceId": "book-of-the-dead",
+        "locator": "Spell 109",
         "date": "c. New Kingdom"
       }
     ]
@@ -604,6 +651,8 @@
       {
         "text": "Atum is he who came into being, who masturbated in Iunu. He took his phallus in his fist and made orgasm, and the twins Shu and Tefnut were born.",
         "source": "Pyramid Texts, Spell 527 (Unis)",
+        "sourceId": "pyramid-texts",
+        "locator": "Spell 527",
         "date": "c. 24th c. BCE"
       }
     ]
@@ -661,6 +710,8 @@
       {
         "text": "Vesta, you who occupy the earth and the fire, and who keep the two, sit here, goddess, in your own place.",
         "source": "Ovid, Fasti 6",
+        "sourceId": "fasti",
+        "locator": "Book 6",
         "date": "c. 8 CE"
       }
     ]
@@ -699,6 +750,8 @@
       {
         "text": "The mountain Kailasa, resorted to by the gods, where stands the residence of the lord of wealth and of Shiva.",
         "source": "Mahabharata, Vana Parva (Kailasa descriptions)",
+        "sourceId": "mahabharata",
+        "locator": "Vana Parva",
         "date": "c. 400 BCE–400 CE"
       }
     ]
@@ -737,6 +790,8 @@
       {
         "text": "There was a great city named Ayodhya, famous in the world, on the banks of the Sarayu, built by Manu himself.",
         "source": "Valmiki, Ramayana, Bala Kanda",
+        "sourceId": "ramayana",
+        "locator": "Bala Kanda",
         "date": "c. 5th c. BCE–3rd c. CE"
       }
     ]
@@ -794,6 +849,8 @@
       {
         "text": "Hanuman saw Lanka, as if hanging in the sky, guarded by rakshasas, delightful, built by Vishvakarman.",
         "source": "Valmiki, Ramayana, Sundara Kanda",
+        "sourceId": "ramayana",
+        "locator": "Sundara Kanda",
         "date": "c. 5th c. BCE–3rd c. CE"
       }
     ]
@@ -832,6 +889,7 @@
       {
         "text": "Okuninushi said: If you will take me, I will yield the Central Land of Reed Plains.",
         "source": "Kojiki (land-cession of Izumo)",
+        "sourceId": "kojiki",
         "date": "712 CE"
       }
     ]
@@ -870,6 +928,7 @@
       {
         "text": "Standing on the Floating Bridge of Heaven, they stirred the ocean with the heavenly jeweled spear, and the brine that dripped became an island.",
         "source": "Kojiki",
+        "sourceId": "kojiki",
         "date": "712 CE"
       }
     ]
@@ -889,6 +948,7 @@
       {
         "text": "Izanagi said: I have been to a most unpleasant land, a horrible, unclean land.",
         "source": "Kojiki (Yomi episode)",
+        "sourceId": "kojiki",
         "date": "712 CE"
       }
     ]
@@ -908,6 +968,7 @@
       {
         "text": "Amaterasu sat in the High Plain of Heaven and commanded the descent of her grandchild to the Central Land of Reed Plains.",
         "source": "Kojiki",
+        "sourceId": "kojiki",
         "date": "712 CE"
       }
     ]
@@ -927,6 +988,7 @@
       {
         "text": "The serpent had eight heads and eight tails. On its body moss grew, and trees. It filled eight valleys and eight hills.",
         "source": "Kojiki (Yamata no Orochi)",
+        "sourceId": "kojiki",
         "date": "712 CE"
       }
     ]
@@ -1003,6 +1065,8 @@
       {
         "text": "The dead went to Mictlan, to the place of the fleshless, where Mictlantecuhtli and Mictecacihuatl ruled.",
         "source": "Florentine Codex, Book 3 (Sahagun)",
+        "sourceId": "florentine-codex",
+        "locator": "Book 3",
         "date": "c. 1577 CE"
       }
     ]
@@ -1041,6 +1105,8 @@
       {
         "text": "The Handsome Monkey King went up to the Hall of Divine Mists to see the Jade Emperor.",
         "source": "Wu Cheng'en, Journey to the West, ch. 4–7",
+        "sourceId": "journey-to-the-west",
+        "locator": "ch. 4–7",
         "date": "c. 1592 CE"
       }
     ]
@@ -1060,6 +1126,8 @@
       {
         "text": "The mountains were a mass of fire. Without the Banana Leaf Fan they could not cross.",
         "source": "Wu Cheng'en, Journey to the West, ch. 59–61",
+        "sourceId": "journey-to-the-west",
+        "locator": "ch. 59–61",
         "date": "c. 1592 CE"
       }
     ]
@@ -1079,6 +1147,8 @@
       {
         "text": "The Tathagata pushed his hand down and the Monkey King was under the Mountain of Five Elements.",
         "source": "Wu Cheng'en, Journey to the West, ch. 7",
+        "sourceId": "journey-to-the-west",
+        "locator": "ch. 7",
         "date": "c. 1592 CE"
       }
     ]
@@ -1099,6 +1169,8 @@
       {
         "text": "There was on the Mountain of Flowers and Fruit a magic stone. One day it split, and a stone egg became a monkey.",
         "source": "Wu Cheng'en, Journey to the West, ch. 1",
+        "sourceId": "journey-to-the-west",
+        "locator": "ch. 1",
         "date": "c. 1592 CE"
       }
     ]
@@ -1118,6 +1190,8 @@
       {
         "text": "Yi asked the Queen Mother for the drug of immortality. His wife Heng E stole it and fled to the moon.",
         "source": "Huainanzi, Lanming xun",
+        "sourceId": "huainanzi",
+        "locator": "Lanming xun",
         "date": "c. 2nd c. BCE"
       }
     ]
@@ -1137,6 +1211,8 @@
       {
         "text": "The Monkey King went down to the underworld, seized the register of life and death, and struck out his own name and those of the monkeys.",
         "source": "Wu Cheng'en, Journey to the West, ch. 3",
+        "sourceId": "journey-to-the-west",
+        "locator": "ch. 3",
         "date": "c. 1592 CE"
       }
     ]
@@ -1156,6 +1232,8 @@
       {
         "text": "The Dragon King said: This is the iron used to measure the depth of the Heavenly River. The monkey took it, and it became a staff.",
         "source": "Wu Cheng'en, Journey to the West, ch. 3",
+        "sourceId": "journey-to-the-west",
+        "locator": "ch. 3",
         "date": "c. 1592 CE"
       }
     ]
@@ -1175,6 +1253,8 @@
       {
         "text": "They founded Esagila, the counterpart of Esharra. They built the temple tower of Esagila, a ziggurat of equal height.",
         "source": "Enuma Elish, Tablet VI",
+        "sourceId": "enuma-elish",
+        "locator": "Tablet VI",
         "date": "c. 12th–7th c. BCE copies"
       }
     ]
@@ -1194,6 +1274,8 @@
       {
         "text": "See the wall of Uruk, which no later king could copy. Climb Uruk's wall and walk back and forth.",
         "source": "Epic of Gilgamesh, Tablet I",
+        "sourceId": "epic-of-gilgamesh",
+        "locator": "Tablet I",
         "date": "c. 18th–7th c. BCE"
       }
     ]
@@ -1213,6 +1295,8 @@
       {
         "text": "They stood at the edge of the Cedar Forest, gazing at the height of the cedars, gazing at the entrance to the forest.",
         "source": "Epic of Gilgamesh, Tablet V",
+        "sourceId": "epic-of-gilgamesh",
+        "locator": "Tablet V",
         "date": "c. 7th c. BCE (Nineveh)"
       }
     ]
@@ -1327,6 +1411,8 @@
       {
         "text": "There at Coatepec, Serpent Mountain, Huitzilopochtli was born. He wounded Coyolxauhqui, cut off her head, and the body went rolling down.",
         "source": "Florentine Codex, Book 3 (Sahagun)",
+        "sourceId": "florentine-codex",
+        "locator": "Book 3",
         "date": "c. 1577 CE"
       }
     ]
@@ -1365,6 +1451,8 @@
       {
         "text": "Those who died in water, or by lightning, went to Tlalocan, a place of eternal spring.",
         "source": "Florentine Codex, Book 3 (Sahagun)",
+        "sourceId": "florentine-codex",
+        "locator": "Book 3",
         "date": "c. 1577 CE"
       }
     ]
@@ -1630,6 +1718,8 @@
       {
         "text": "From Ilios the wind bore me to the Cicones, to Ismarus. I sacked the city and slew the men.",
         "source": "Homer, Odyssey 9",
+        "sourceId": "odyssey",
+        "locator": "Book 9",
         "date": "c. 700 BCE"
       }
     ],
@@ -1649,6 +1739,8 @@
       {
         "text": "Whoever ate the honey-sweet fruit of the lotus no longer wished to bring back word or to return.",
         "source": "Homer, Odyssey 9",
+        "sourceId": "odyssey",
+        "locator": "Book 9",
         "date": "c. 700 BCE"
       }
     ],
@@ -1668,6 +1760,8 @@
       {
         "text": "He broke off a piece of the door-stone and sat in the doorway, and milked his ewes and goats.",
         "source": "Homer, Odyssey 9",
+        "sourceId": "odyssey",
+        "locator": "Book 9",
         "date": "c. 700 BCE"
       }
     ],
@@ -1687,6 +1781,8 @@
       {
         "text": "He gave me a bag made of the hide of an ox, and in it he had bound the ways of the blustering winds.",
         "source": "Homer, Odyssey 10",
+        "sourceId": "odyssey",
+        "locator": "Book 10",
         "date": "c. 700 BCE"
       }
     ],
@@ -1706,6 +1802,8 @@
       {
         "text": "They speared them like fish and carried them home for a gruesome meal. While they were destroying the men in the harbor, I drew my sword and cut the cables.",
         "source": "Homer, Odyssey 10",
+        "sourceId": "odyssey",
+        "locator": "Book 10",
         "date": "c. 700 BCE"
       }
     ],
@@ -1725,6 +1823,8 @@
       {
         "text": "She struck them with her wand and penned them in sties. They had the heads and voice and bristles of swine, but their minds were as before.",
         "source": "Homer, Odyssey 10",
+        "sourceId": "odyssey",
+        "locator": "Book 10",
         "date": "c. 700 BCE"
       }
     ],
@@ -1744,6 +1844,8 @@
       {
         "text": "Draw near, famous Odysseus, great glory of the Achaeans, and listen to our voice. We know all that the Argives and Trojans suffered at Troy.",
         "source": "Homer, Odyssey 12",
+        "sourceId": "odyssey",
+        "locator": "Book 12",
         "date": "c. 700 BCE"
       }
     ],
@@ -1763,6 +1865,8 @@
       {
         "text": "Hug the cliff of Scylla, and drive your ship past, lest Charybdis suck it down. Better to mourn six comrades than the whole company.",
         "source": "Homer, Odyssey 12",
+        "sourceId": "odyssey",
+        "locator": "Book 12",
         "date": "c. 700 BCE"
       }
     ],
@@ -1782,6 +1886,8 @@
       {
         "text": "If you leave the cattle unharmed, you may yet reach Ithaca. If you harm them, I foretell the ruin of ship and crew.",
         "source": "Homer, Odyssey 12",
+        "sourceId": "odyssey",
+        "locator": "Book 12",
         "date": "c. 700 BCE"
       }
     ],
@@ -1820,6 +1926,8 @@
       {
         "text": "We are the Phaeacians, who live apart, in the wash of the sea, the furthest of men. No other mortals have dealings with us.",
         "source": "Homer, Odyssey 6",
+        "sourceId": "odyssey",
+        "locator": "Book 6",
         "date": "c. 700 BCE"
       }
     ],
@@ -1839,6 +1947,8 @@
       {
         "text": "The heroes went down to the ship at Pagasae, and the harbor of Iolcos rang as they rowed out.",
         "source": "Apollonius Rhodius, Argonautica 1",
+        "sourceId": "argonautica",
+        "locator": "Book 1",
         "date": "c. 250 BCE"
       }
     ],
@@ -1858,6 +1968,8 @@
       {
         "text": "They reached Electra's isle, where they were initiated in the sacred rites, that they might sail with greater safety.",
         "source": "Apollonius Rhodius, Argonautica 1",
+        "sourceId": "argonautica",
+        "locator": "Book 1",
         "date": "c. 250 BCE"
       }
     ],
@@ -1877,6 +1989,8 @@
       {
         "text": "They did not know they had returned to the Doliones. In the night they slew Cyzicus, their host.",
         "source": "Apollonius Rhodius, Argonautica 1",
+        "sourceId": "argonautica",
+        "locator": "Book 1",
         "date": "c. 250 BCE"
       }
     ],
@@ -1896,6 +2010,8 @@
       {
         "text": "Amycus came down and said: Stranger, it is the law that no man leave until he has lifted his hands against me.",
         "source": "Apollonius Rhodius, Argonautica 2",
+        "sourceId": "argonautica",
+        "locator": "Book 2",
         "date": "c. 250 BCE"
       }
     ],
@@ -1915,6 +2031,8 @@
       {
         "text": "They let fly the dove. The rocks sheared her tail-feathers, then they drove the Argo through, and the rocks stood still thereafter.",
         "source": "Apollonius Rhodius, Argonautica 2",
+        "sourceId": "argonautica",
+        "locator": "Book 2",
         "date": "c. 250 BCE"
       }
     ],
@@ -1934,6 +2052,8 @@
       {
         "text": "They lifted the Argo on their shoulders and bore her across the Libyan sands, toward the Tritonian mere.",
         "source": "Apollonius Rhodius, Argonautica 4",
+        "sourceId": "argonautica",
+        "locator": "Book 4",
         "date": "c. 250 BCE"
       }
     ],
@@ -1953,6 +2073,8 @@
       {
         "text": "Stood in the north, on Nidavellir, a hall of gold, the dwelling of Sindri's kin.",
         "source": "Poetic Edda, Voluspa",
+        "sourceId": "poetic-edda",
+        "locator": "Voluspa",
         "date": "c. 10th c. CE"
       }
     ],
@@ -2010,6 +2132,8 @@
       {
         "text": "I have not done falsehood against men. I have not impoverished my fellows. My heart is weighed in the Hall of Maat.",
         "source": "Book of the Dead, Spell 125",
+        "sourceId": "book-of-the-dead",
+        "locator": "Spell 125",
         "date": "c. New Kingdom"
       }
     ],
@@ -2048,6 +2172,7 @@
       {
         "text": "You are Osiris, and you sit upon the throne of Osiris, at the head of the westerners.",
         "source": "Pyramid Texts (Osirian identification spells)",
+        "sourceId": "pyramid-texts",
         "date": "c. 24th c. BCE"
       }
     ],
@@ -2067,6 +2192,8 @@
       {
         "text": "He shot the lion, but when he perceived that the beast was invulnerable, he threw away his bow and strangled it with his arms.",
         "source": "Apollodorus, Library 2.5.1",
+        "sourceId": "library-apollodorus",
+        "locator": "2.5.1",
         "date": "c. 1st–2nd c. CE"
       }
     ],
@@ -2086,6 +2213,8 @@
       {
         "text": "He cut off the immortal head and buried it, and put a heavy rock on it, beside the road that leads through Lerna to Elaius.",
         "source": "Apollodorus, Library 2.5.2",
+        "sourceId": "library-apollodorus",
+        "locator": "2.5.2",
         "date": "c. 1st–2nd c. CE"
       }
     ],
@@ -2105,6 +2234,8 @@
       {
         "text": "It was a hind with golden horns, sacred to Artemis. He hunted it a whole year.",
         "source": "Apollodorus, Library 2.5.3",
+        "sourceId": "library-apollodorus",
+        "locator": "2.5.3",
         "date": "c. 1st–2nd c. CE"
       }
     ],
@@ -2124,6 +2255,8 @@
       {
         "text": "He chased the boar from the thicket with shouts, drove it into deep snow, and trapped it in a net.",
         "source": "Apollodorus, Library 2.5.4",
+        "sourceId": "library-apollodorus",
+        "locator": "2.5.4",
         "date": "c. 1st–2nd c. CE"
       }
     ],
@@ -2143,6 +2276,8 @@
       {
         "text": "He made a breach in the foundation of the cattle-yard and turned in the rivers Alpheus and Peneus, and the water carried the dung out.",
         "source": "Apollodorus, Library 2.5.5",
+        "sourceId": "library-apollodorus",
+        "locator": "2.5.5",
         "date": "c. 1st–2nd c. CE"
       }
     ],
@@ -2162,6 +2297,8 @@
       {
         "text": "Athena gave him a bronze rattle. He scared the birds from the wood, and shot them as they flew.",
         "source": "Apollodorus, Library 2.5.6",
+        "sourceId": "library-apollodorus",
+        "locator": "2.5.6",
         "date": "c. 1st–2nd c. CE"
       }
     ],
@@ -2181,6 +2318,8 @@
       {
         "text": "He killed Diomedes and brought the mares to Eurystheus. They were man-eating.",
         "source": "Apollodorus, Library 2.5.8",
+        "sourceId": "library-apollodorus",
+        "locator": "2.5.8",
         "date": "c. 1st–2nd c. CE"
       }
     ],
@@ -2200,6 +2339,8 @@
       {
         "text": "He was sent to fetch the belt of Hippolyta, queen of the Amazons, which Ares had given her.",
         "source": "Apollodorus, Library 2.5.9",
+        "sourceId": "library-apollodorus",
+        "locator": "2.5.9",
         "date": "c. 1st–2nd c. CE"
       }
     ],
@@ -2219,6 +2360,8 @@
       {
         "text": "He embarked in the cup and sailed to Erytheia. He killed Orthrus and Eurytion, then Geryon, and drove the cattle away.",
         "source": "Apollodorus, Library 2.5.10",
+        "sourceId": "library-apollodorus",
+        "locator": "2.5.10",
         "date": "c. 1st–2nd c. CE"
       }
     ],
@@ -2238,6 +2381,8 @@
       {
         "text": "These apples were not in Libya, as some have said, but on Mount Atlas, among the Hyperboreans. The Hesperides guarded them, and the dragon Ladon.",
         "source": "Apollodorus, Library 2.5.11",
+        "sourceId": "library-apollodorus",
+        "locator": "2.5.11",
         "date": "c. 1st–2nd c. CE"
       }
     ],
@@ -2333,11 +2478,15 @@
       {
         "text": "And Vladimir began to reign alone in Kiev, and he set up idols on the hill outside the palace [...] and the people sacrificed to them, calling them gods.",
         "source": "Russian Primary Chronicle, s.a. 980 (paraphrase)",
+        "sourceId": "russian-primary-chronicle",
+        "locator": "s.a. 980",
         "date": "entry for 980 CE; chronicle compiled early 12th c."
       },
       {
         "text": "And they dragged Perun down to the Dnieper [...] and he ordered men to push it off with poles until it had passed the rapids.",
         "source": "Russian Primary Chronicle, s.a. 988 (paraphrase)",
+        "sourceId": "russian-primary-chronicle",
+        "locator": "s.a. 988",
         "date": "entry for 988 CE; chronicle compiled early 12th c."
       }
     ],

@@ -36,11 +36,13 @@
       {
         "text": "Sing, goddess, the anger of Achilles son of Peleus, the accursed anger which brought countless sorrows upon the Achaeans.",
         "source": "Homer, Iliad",
+        "sourceId": "iliad",
         "date": "c. 750 BCE"
       },
       {
         "text": "In the underworld, Achilles tells Odysseus he would rather be a landless serf on earth than lord over all the dead.",
         "source": "Homer, Odyssey",
+        "sourceId": "odyssey",
         "date": "c. 725 BCE"
       }
     ],
@@ -89,11 +91,14 @@
       {
         "text": "Tell me, Muse, of the man of many ways, who was driven far and wide after he sacked the sacred city of Troy.",
         "source": "Homer, Odyssey",
+        "sourceId": "odyssey",
         "date": "c. 725 BCE"
       },
       {
         "text": "Odysseus alone devised the stratagem of the wooden horse, by which the leading Greeks entered Troy in secret.",
         "source": "Apollodorus, Epitome",
+        "sourceId": "library-apollodorus",
+        "locator": "Epitome",
         "date": "c. 100 CE"
       }
     ]
@@ -133,11 +138,13 @@
       {
         "text": "Hector alone, trusting in his own strength, stayed to face Achilles before the Scaean gates.",
         "source": "Homer, Iliad",
+        "sourceId": "iliad",
         "date": "c. 750 BCE"
       },
       {
         "text": "Then Priam went in to Achilles and clasped his knees and kissed the terrible, man-slaying hands that had killed so many of his sons.",
         "source": "Homer, Iliad",
+        "sourceId": "iliad",
         "date": "c. 750 BCE"
       }
     ]
@@ -181,11 +188,13 @@
       {
         "text": "Heracles performed the Labors set by Eurystheus in twelve years, for so long a time was he in servitude on account of the madness Hera had sent upon him.",
         "source": "Apollodorus, Bibliotheca",
+        "sourceId": "library-apollodorus",
         "date": "c. 100 CE"
       },
       {
         "text": "When the pyre was lit, Zeus caught him up to heaven in a cloud, and there he obtained immortality and was reconciled with Hera.",
         "source": "Apollodorus, Bibliotheca",
+        "sourceId": "library-apollodorus",
         "date": "c. 100 CE"
       }
     ],
@@ -233,11 +242,13 @@
       {
         "text": "Hera favored Jason above all other heroes, and it was by her design that Medea came to love him.",
         "source": "Apollonius of Rhodes, Argonautica",
+        "sourceId": "argonautica",
         "date": "c. 250 BCE"
       },
       {
         "text": "It is said that Jason, sitting in the shadow of the Argo grown old and hauled up on shore, was killed when its stern fell upon him.",
         "source": "Apollodorus, Bibliotheca",
+        "sourceId": "library-apollodorus",
         "date": "c. 100 CE"
       }
     ]
@@ -276,6 +287,8 @@
       {
         "text": "Theseus slew the Minotaur with blows of his fists, for Ariadne had given him a thread, and by winding it back he found the way out of the labyrinth.",
         "source": "Apollodorus, Epitome",
+        "sourceId": "library-apollodorus",
+        "locator": "Epitome",
         "date": "c. 100 CE"
       },
       {
@@ -355,6 +368,7 @@
       {
         "text": "By day she wove the great web, and by night, when she had torches set beside her, she unraveled it.",
         "source": "Homer, Odyssey",
+        "sourceId": "odyssey",
         "date": "c. 725 BCE"
       }
     ]
@@ -396,11 +410,13 @@
       {
         "text": "So they spoke together, and Priam called sweetly to Helen: come here, dear child, and sit before me, that you may see your former husband.",
         "source": "Homer, Iliad",
+        "sourceId": "iliad",
         "date": "c. 750 BCE"
       },
       {
         "text": "It is not you, but the gods who are guilty in my sight, who stirred up against me the grievous war of the Achaeans.",
         "source": "Homer, Iliad",
+        "sourceId": "iliad",
         "date": "c. 750 BCE"
       }
     ]
@@ -437,6 +453,7 @@
       {
         "text": "Agamemnon's shade told Odysseus that Clytemnestra had killed him and his companions like oxen slaughtered at a manger.",
         "source": "Homer, Odyssey",
+        "sourceId": "odyssey",
         "date": "c. 725 BCE"
       },
       {
@@ -478,6 +495,7 @@
       {
         "text": "Then Apollo struck Patroclus on the back and shoulders with the flat of his hand, and his eyes were darkened.",
         "source": "Homer, Iliad",
+        "sourceId": "iliad",
         "date": "c. 750 BCE"
       }
     ]
@@ -517,11 +535,13 @@
       {
         "text": "Of all the Danaans, after the excellent son of Peleus, Ajax was far the best in both looks and deeds.",
         "source": "Homer, Iliad",
+        "sourceId": "iliad",
         "date": "c. 750 BCE"
       },
       {
         "text": "The shade of Ajax alone stood apart, still angry over the victory Odysseus had won concerning the arms of Achilles, and would not speak to him.",
         "source": "Homer, Odyssey",
+        "sourceId": "odyssey",
         "date": "c. 725 BCE"
       }
     ]
@@ -559,11 +579,13 @@
       {
         "text": "Atalanta alone of the women present drew the boar's blood first, striking it in the back with an arrow.",
         "source": "Apollodorus, Bibliotheca",
+        "sourceId": "library-apollodorus",
         "date": "c. 100 CE"
       },
       {
         "text": "Three times he let fall an apple of gold, and she, delighted, turned aside from her course each time to gather it up.",
         "source": "Ovid, Metamorphoses",
+        "sourceId": "metamorphoses",
         "date": "c. 8 CE"
       }
     ]
@@ -602,6 +624,7 @@
       {
         "text": "But when even Bellerophon came to be hated by all the gods, he wandered alone over the Aleian plain, devouring his own soul, and avoided the paths of men.",
         "source": "Homer, Iliad",
+        "sourceId": "iliad",
         "date": "c. 750 BCE"
       },
       {
@@ -650,6 +673,7 @@
       {
         "text": "Orpheus was warned not to turn his eyes back until he had gone forth from the vale of Avernus, or the gift would be void.",
         "source": "Ovid, Metamorphoses",
+        "sourceId": "metamorphoses",
         "date": "c. 8 CE"
       }
     ]
@@ -689,11 +713,13 @@
       {
         "text": "Arms and the man I sing, who first from the shores of Troy, exiled by fate, came to Italy and the Lavinian shores.",
         "source": "Virgil, Aeneid",
+        "sourceId": "aeneid",
         "date": "19 BCE"
       },
       {
         "text": "It is said that Aeneas, after this last battle, was nowhere to be found, and the Latins raised a shrine to him as Jupiter Indiges.",
         "source": "Ovid, Metamorphoses",
+        "sourceId": "metamorphoses",
         "date": "8 CE"
       }
     ]
@@ -737,6 +763,8 @@
       {
         "text": "Fafnismal tells how Sigurd, having tasted the dragon's heart-blood, understood the speech of the nuthatches warning him of Regin's treachery.",
         "source": "Poetic Edda, Fafnismal",
+        "sourceId": "poetic-edda",
+        "locator": "Fafnismal",
         "date": "c. 1000-1300 CE (compiled)"
       }
     ],
@@ -786,11 +814,13 @@
       {
         "text": "Alone he held the ford against the army of Ireland, for such was the custom, that only one man at a time might come against him.",
         "source": "Táin Bó Cúailnge",
+        "sourceId": "tain-bo-cuailnge",
         "date": "c. 8th century CE (oral tradition; earliest manuscripts 12th century CE)"
       },
       {
         "text": "It was then that the great distortion came upon Cú Chulainn, so that he became fearsome and many-shaped and monstrous.",
         "source": "Táin Bó Cúailnge",
+        "sourceId": "tain-bo-cuailnge",
         "date": "c. 8th century CE (oral tradition; earliest manuscripts 12th century CE)"
       }
     ],
@@ -875,6 +905,8 @@
       {
         "text": "Arjuna said: My limbs fail, and my mouth is parched, my body quivers, and my hair stands on end. How can I fight my own kinsmen?",
         "source": "Bhagavad Gita (within the Mahabharata)",
+        "sourceId": "mahabharata",
+        "locator": "Bhagavad Gita",
         "date": "c. 400 BCE - 400 CE"
       }
     ],
@@ -923,11 +955,15 @@
       {
         "text": "The Kojiki tells how Yamato Takeru, disguised in women's clothing, slipped a blade into the Kumaso chieftain and was given his own name by the dying man in return.",
         "source": "Kojiki, Book 2",
+        "sourceId": "kojiki",
+        "locator": "Book 2",
         "date": "712 CE (compiled; recounting earlier oral tradition)"
       },
       {
         "text": "The Nihon Shoki's account of the western and eastern campaigns differs from the Kojiki in chronology and in omitting the killing of his brother that opens the Kojiki's version.",
         "source": "Nihon Shoki, Book 7",
+        "sourceId": "nihon-shoki",
+        "locator": "Book 7",
         "date": "720 CE"
       }
     ],

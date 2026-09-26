@@ -11,6 +11,7 @@
     "duration": "10 years",
     "imageUrl": "/journeys/odyssey.png",
     "source": "Homer, The Odyssey (c. 725 BCE)",
+    "sourceId": "odyssey",
     "waypoints": [
       {
         "id": "troy",
@@ -238,6 +239,7 @@
     "duration": "Several years",
     "imageUrl": "/journeys/golden-fleece.png",
     "source": "Apollonius of Rhodes, Argonautica (3rd century BCE)",
+    "sourceId": "argonautica",
     "waypoints": [
       {
         "id": "iolcos",
@@ -461,6 +463,7 @@
     "duration": "12 years",
     "imageUrl": "/journeys/twelve-labors.png",
     "source": "Apollodorus, The Library (1st-2nd century CE)",
+    "sourceId": "library-apollodorus",
     "waypoints": [
       {
         "id": "nemea",
@@ -663,6 +666,7 @@
     "duration": "Many months of wandering",
     "imageUrl": "/journeys/gilgamesh-quest.png",
     "source": "Epic of Gilgamesh (Standard Babylonian version)",
+    "sourceId": "epic-of-gilgamesh",
     "waypoints": [
       {
         "id": "uruk",
@@ -756,6 +760,7 @@
     "duration": "Many nights in Xibalba",
     "imageUrl": "/journeys/xibalba-hero-twins.png",
     "source": "Popol Vuh (Kʼicheʼ Maya)",
+    "sourceId": "popol-vuh",
     "waypoints": [
       {
         "id": "ballcourt-earth",

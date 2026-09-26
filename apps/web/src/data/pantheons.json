@@ -12,12 +12,14 @@
     "citationSources": [
       {
         "title": "Theogony",
+        "sourceId": "theogony",
         "author": "Hesiod",
         "date": "~700 BCE",
         "type": "primary"
       },
       {
         "title": "The Library",
+        "sourceId": "library-apollodorus",
         "author": "Apollodorus",
         "date": "1st or 2nd century CE",
         "type": "primary"
@@ -38,12 +40,14 @@
     "citationSources": [
       {
         "title": "Poetic Edda",
+        "sourceId": "poetic-edda",
         "author": "Anonymous",
         "date": "~1270 CE",
         "type": "primary"
       },
       {
         "title": "Prose Edda",
+        "sourceId": "prose-edda",
         "author": "Snorri Sturluson",
         "date": "~1220 CE",
         "type": "primary"
@@ -64,11 +68,13 @@
     "citationSources": [
       {
         "title": "Pyramid Texts",
+        "sourceId": "pyramid-texts",
         "date": "~2400-2300 BCE",
         "type": "primary"
       },
       {
         "title": "Book of the Dead",
+        "sourceId": "book-of-the-dead",
         "date": "~1550 BCE onwards",
         "type": "primary"
       }
@@ -87,18 +93,21 @@
     "citationSources": [
       {
         "title": "Metamorphoses",
+        "sourceId": "metamorphoses",
         "author": "Ovid",
         "date": "8 CE",
         "type": "primary"
       },
       {
         "title": "Aeneid",
+        "sourceId": "aeneid",
         "author": "Virgil",
         "date": "~19 BCE",
         "type": "primary"
       },
       {
         "title": "Fasti",
+        "sourceId": "fasti",
         "author": "Ovid",
         "date": "~8 CE",
         "type": "primary"
@@ -118,17 +127,20 @@
     "citationSources": [
       {
         "title": "Rigveda",
+        "sourceId": "rigveda",
         "date": "~1500-1200 BCE",
         "type": "primary"
       },
       {
         "title": "Mahabharata",
+        "sourceId": "mahabharata",
         "author": "Vyasa",
         "date": "~400 BCE-400 CE",
         "type": "primary"
       },
       {
         "title": "Ramayana",
+        "sourceId": "ramayana",
         "author": "Valmiki",
         "date": "~500-100 BCE",
         "type": "primary"
@@ -148,12 +160,14 @@
     "citationSources": [
       {
         "title": "Kojiki",
+        "sourceId": "kojiki",
         "author": "O no Yasumaro",
         "date": "712 CE",
         "type": "primary"
       },
       {
         "title": "Nihon Shoki",
+        "sourceId": "nihon-shoki",
         "date": "720 CE",
         "type": "primary"
       }
@@ -172,6 +186,7 @@
     "citationSources": [
       {
         "title": "Lebor Gabála Érenn",
+        "sourceId": "lebor-gabala-erenn",
         "type": "primary"
       },
       {
@@ -193,6 +208,7 @@
     "citationSources": [
       {
         "title": "Florentine Codex",
+        "sourceId": "florentine-codex",
         "date": "16th Century",
         "type": "primary"
       },
@@ -216,6 +232,7 @@
     "citationSources": [
       {
         "title": "Journey to the West",
+        "sourceId": "journey-to-the-west",
         "author": "Wu Cheng'en",
         "date": "1592 CE",
         "type": "primary"
@@ -232,6 +249,7 @@
       },
       {
         "title": "Huainanzi",
+        "sourceId": "huainanzi",
         "date": "~139 BCE",
         "type": "primary"
       }
@@ -251,11 +269,13 @@
     "citationSources": [
       {
         "title": "Epic of Gilgamesh",
+        "sourceId": "epic-of-gilgamesh",
         "date": "~2100 BCE",
         "type": "primary"
       },
       {
         "title": "Enuma Elish",
+        "sourceId": "enuma-elish",
         "date": "~1100 BCE",
         "type": "primary"
       },
@@ -349,12 +369,14 @@
     "citationSources": [
       {
         "title": "Florentine Codex",
+        "sourceId": "florentine-codex",
         "author": "Bernardino de Sahagun",
         "date": "16th Century",
         "type": "primary"
       },
       {
         "title": "Popol Vuh",
+        "sourceId": "popol-vuh",
         "author": "Anonymous Maya",
         "date": "16th Century (recording ancient traditions)",
         "type": "primary"
@@ -389,6 +411,7 @@
       },
       {
         "title": "Russian Primary Chronicle (Povest' vremennykh let), s.a. 907, 945, 971, 980, 988",
+        "sourceId": "russian-primary-chronicle",
         "author": "unattributed monastic chroniclers, Kiev",
         "date": "compiled early 12th c.; Laurentian codex 1377, Hypatian codex c. 1425",
         "type": "primary"
@@ -437,6 +460,7 @@
       },
       {
         "title": "Narodnye russkie skazki (Russian Fairy Tales)",
+        "sourceId": "afanasyev-russian-fairy-tales",
         "author": "Alexander Afanasyev",
         "date": "1855–1863",
         "type": "secondary"
@@ -463,12 +487,14 @@
     "citationSources": [
       {
         "title": "Seneca Myths and Folk Tales",
+        "sourceId": "seneca-myths-folk-tales",
         "author": "Arthur C. Parker (Seneca)",
         "date": "1923",
         "type": "primary"
       },
       {
         "title": "Iroquoian Cosmology, Bureau of American Ethnology Annual Reports 21 and 43",
+        "sourceId": "iroquoian-cosmology",
         "author": "J.N.B. Hewitt (Tuscarora)",
         "date": "1903 and 1928",
         "type": "primary"

@@ -7,12 +7,15 @@
  */
 import { describe, expect, it } from "vitest";
 import artifacts from "@/data/artifacts.json";
+import creatures from "@/data/creatures.json";
 import deities from "@/data/deities.json";
 import heroes from "@/data/heroes.json";
 import journeys from "@/data/journeys.json";
 import locations from "@/data/locations.json";
 import pantheons from "@/data/pantheons.json";
 import relationships from "@/data/relationships.json";
+import sources from "@/data/sources.json";
+import stories from "@/data/stories.json";
 import { normalizeDeityReference } from "@/lib/deities";
 import { RELATIONSHIP_TYPES } from "@/lib/schemas";
 
@@ -293,6 +296,88 @@ describe("location coordinates", () => {
         expect(loc.latitude, loc.id).not.toBeNull();
       }
     }
+  });
+});
+
+describe("citation sourceIds", () => {
+  const sourceIds = new Set(sources.map((s) => s.id));
+  const catalogs: Record<string, unknown[]> = {
+    deities,
+    heroes,
+    creatures,
+    artifacts,
+    locations,
+    stories,
+    pantheons,
+    journeys,
+  };
+
+  /** Every `sourceId` anywhere inside a record, with its JSON path. */
+  function collectSourceIds(
+    value: unknown,
+    path: string,
+    out: Array<[string, string]>,
+  ): void {
+    if (Array.isArray(value)) {
+      value.forEach((item, i) => collectSourceIds(item, `${path}[${i}]`, out));
+    } else if (value && typeof value === "object") {
+      for (const [key, child] of Object.entries(value)) {
+        if (key === "sourceId" && typeof child === "string") {
+          out.push([path, child]);
+        } else {
+          collectSourceIds(child, `${path}.${key}`, out);
+        }
+      }
+    }
+  }
+
+  it.each(Object.keys(catalogs))(
+    "every sourceId in %s names a work in sources.json",
+    (name) => {
+      const found: Array<[string, string]> = [];
+      collectSourceIds(catalogs[name], name, found);
+      const dangling = found
+        .filter(([, id]) => !sourceIds.has(id))
+        .map(([path, id]) => `${path}: ${id}`);
+      expect(dangling).toEqual([]);
+    },
+  );
+
+  it("links the commonly cited works rather than leaving them as free text", () => {
+    // Plain "Homer, Iliad"-style labels are unambiguous; they must carry an id.
+    const plain =
+      /^(Homer, (Iliad|Odyssey)|Hesiod, Theogony|Virgil, Aeneid|Ovid, Metamorphoses)(,? (Book )?[\dIVXL.–-]+)?( \(trans\. [^)]*\))?$/;
+    const unlinked: string[] = [];
+    for (const [name, records] of Object.entries(catalogs)) {
+      for (const record of records as Array<{
+        id: string;
+        primarySources?: Array<{ source: string; sourceId?: string }>;
+      }>) {
+        for (const citation of record.primarySources ?? []) {
+          if (plain.test(citation.source) && !citation.sourceId) {
+            unlinked.push(`${name}/${record.id}: ${citation.source}`);
+          }
+        }
+      }
+    }
+    expect(unlinked).toEqual([]);
+  });
+
+  it("gives a locator only alongside a sourceId", () => {
+    const orphaned: Array<[string, string]> = [];
+    for (const [name, records] of Object.entries(catalogs)) {
+      for (const record of records as Array<{
+        id: string;
+        primarySources?: Array<{ locator?: string; sourceId?: string }>;
+      }>) {
+        for (const citation of record.primarySources ?? []) {
+          if (citation.locator && !citation.sourceId) {
+            orphaned.push([name, record.id]);
+          }
+        }
+      }
+    }
+    expect(orphaned).toEqual([]);
   });
 });
 
