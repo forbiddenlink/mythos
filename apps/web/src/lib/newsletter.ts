@@ -26,8 +26,6 @@ export const newsletterRequestSchema = z.strictObject({
   website: z.string().max(200).optional(),
 });
 
-export type NewsletterRequest = z.infer<typeof newsletterRequestSchema>;
-
 export interface NewsletterConfig {
   apiKey: string;
   segmentId: string;

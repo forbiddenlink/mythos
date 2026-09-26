@@ -46,6 +46,28 @@ describe("consolidation redirects", () => {
     }
   });
 
+  it("are never listed in the sitemap", async () => {
+    const { default: sitemap } = await import("@/app/sitemap");
+    const paths = sitemap().map((entry) => new URL(entry.url).pathname);
+    for (const { source } of CONSOLIDATION_REDIRECTS) {
+      const listed = source.endsWith("/:path*")
+        ? paths.filter((p) => p.startsWith(source.replace(":path*", "")))
+        : paths.filter((p) => p === source);
+      expect(listed, source).toEqual([]);
+    }
+  });
+
+  it("send former tour URLs to real journeys", async () => {
+    const journeys = (await import("@/data/journeys.json")).default;
+    const slugs = new Set(journeys.map((j) => j.slug));
+    for (const { source, destination } of CONSOLIDATION_REDIRECTS) {
+      if (!source.startsWith("/tours/") || source.includes(":")) continue;
+      expect(slugs.has(destination.replace("/journeys/", "")), source).toBe(
+        true,
+      );
+    }
+  });
+
   it("send the old leaderboard to Your Stats", () => {
     expect(CONSOLIDATION_REDIRECTS).toContainEqual({
       source: "/leaderboard",
