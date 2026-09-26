@@ -5,13 +5,14 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { MapPin, Calendar, Users, BookOpen } from "lucide-react";
+import { MapPin, Calendar, Users, BookOpen, Printer } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
 import { CollectionPageJsonLd } from "@/components/seo/JsonLd";
 import { EditorialByline } from "@/components/content/EditorialByline";
 import { ShareButton } from "@/components/sharing/ShareButton";
+import { hasWorksheet } from "@/lib/data/worksheets";
 import ReactMarkdown from "react-markdown";
 import pantheonsData from "@/data/pantheons.json";
 import deitiesData from "@/data/deities.json";
@@ -171,6 +172,15 @@ export function PantheonPageClient({ slug }: PantheonPageClientProps) {
               text={`Explore the ${pantheon.name} of ${pantheon.culture} mythology on Mythos Atlas`}
               url={`https://mythosatlas.com/pantheons/${pantheon.slug}`}
             />
+            {hasWorksheet(pantheon.slug) ? (
+              <Link
+                href={`/pantheons/${pantheon.slug}/worksheet`}
+                className="inline-flex min-h-11 items-center gap-2 text-sm text-parchment underline underline-offset-4 hover:text-gold-light"
+              >
+                <Printer aria-hidden className="h-4 w-4" />
+                Printable worksheet
+              </Link>
+            ) : null}
           </div>
         </RouteHero>
       </div>

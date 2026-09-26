@@ -1290,3 +1290,31 @@ html.cookie-banner-open {
   filter: invert(1) hue-rotate(185deg) brightness(0.85) contrast(0.9)
     saturate(0.35);
 }
+
+/* Printable worksheets (/pantheons/[slug]/worksheet): print only the sheet,
+   in black on white, with the answer key starting on its own page. */
+@media print {
+  @page {
+    margin: 16mm;
+  }
+  body:has([data-print-page="worksheet"]) {
+    background: #fff !important;
+    color: #000 !important;
+  }
+  body:has([data-print-page="worksheet"]) header,
+  body:has([data-print-page="worksheet"]) footer,
+  body:has([data-print-page="worksheet"]) nav,
+  body:has([data-print-page="worksheet"]) [role="dialog"],
+  body:has([data-print-page="worksheet"]) a[href="#main-content"] {
+    display: none !important;
+  }
+  .worksheet {
+    color: #000;
+  }
+  .worksheet .worksheet-section {
+    break-inside: avoid;
+  }
+  .worksheet .worksheet-answer-key {
+    break-before: page;
+  }
+}
