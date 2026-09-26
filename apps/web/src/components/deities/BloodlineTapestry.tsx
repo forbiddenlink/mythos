@@ -1,54 +1,8 @@
-"use client";
-
-import { useMemo } from "react";
 import Link from "next/link";
-import deitiesData from "@/data/deities.json";
-import relationshipsData from "@/data/relationships.json";
 import { getPantheonColor } from "@/lib/pantheon-colors";
+import { hasLineage, type Bloodline, type Kin } from "@/lib/deity-page";
 
-interface RawDeity {
-  id: string;
-  slug: string;
-  name: string;
-  pantheonId: string;
-}
-interface RawRel {
-  fromDeityId: string;
-  toDeityId: string;
-  relationshipType: string;
-}
-
-export interface Kin {
-  key: string;
-  name: string;
-  slug: string | null;
-  color: string;
-}
-
-const byId = new Map(
-  (deitiesData as unknown as RawDeity[]).map((d) => [d.id, d]),
-);
-
-function toKin(id: string): Kin {
-  const d = byId.get(id);
-  if (d)
-    return {
-      key: id,
-      name: d.name,
-      slug: d.slug,
-      color: getPantheonColor(d.pantheonId),
-    };
-  // dangling reference — show a readable name, no link
-  return {
-    key: id,
-    name: id
-      .split(/[-_]/)
-      .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
-      .join(" "),
-    slug: null,
-    color: "#6b7280",
-  };
-}
+export type { Kin } from "@/lib/deity-page";
 
 function Medallion({ kin, big = false }: { kin: Kin; big?: boolean }) {
   const inner = (
@@ -103,62 +57,23 @@ function Tier({ label, kin }: { label: string; kin: Kin[] }) {
   );
 }
 
+/**
+ * Genealogy plate for a deity page. Pure markup: the server page computes the
+ * tiers with `buildBloodline` and passes only the kin it links to.
+ */
 export function BloodlineTapestry({
   deityId,
   deityName,
   pantheonId,
+  bloodline,
 }: {
   deityId: string;
   deityName: string;
   pantheonId: string;
+  bloodline: Bloodline;
 }) {
-  const groups = useMemo(() => {
-    const rels = relationshipsData as unknown as RawRel[];
-    const parents: Kin[] = [];
-    const children: Kin[] = [];
-    const consorts: Kin[] = [];
-    const siblings: Kin[] = [];
-    const rivals: Kin[] = [];
-    const seen = new Set<string>();
-    const push = (arr: Kin[], id: string) => {
-      const tag = arr === consorts ? "c" : arr === rivals ? "r" : "";
-      const dedup = `${tag}:${id}`;
-      if (seen.has(dedup)) return;
-      seen.add(dedup);
-      arr.push(toKin(id));
-    };
-
-    for (const r of rels) {
-      const involvesFrom = r.fromDeityId === deityId;
-      const involvesTo = r.toDeityId === deityId;
-      if (!involvesFrom && !involvesTo) continue;
-      const other = involvesFrom ? r.toDeityId : r.fromDeityId;
-      switch (r.relationshipType) {
-        case "parent_of":
-          if (involvesTo)
-            push(parents, other); // other is parent OF me
-          else push(children, other); // I am parent OF other
-          break;
-        case "spouse_of":
-        case "lover":
-          push(consorts, other);
-          break;
-        case "sibling_of":
-          push(siblings, other);
-          break;
-        case "enemy_of":
-          push(rivals, other);
-          break;
-        default:
-          break; // ally_of / aspect_of not part of the bloodline plate
-      }
-    }
-    return { parents, children, consorts, siblings, rivals };
-  }, [deityId]);
-
-  const { parents, children, consorts, siblings, rivals } = groups;
-  const hasLineage = parents.length + children.length + consorts.length > 0;
-  if (!hasLineage) return null;
+  const { parents, children, consorts, siblings, rivals } = bloodline;
+  if (!hasLineage(bloodline)) return null;
 
   const self: Kin = {
     key: deityId,

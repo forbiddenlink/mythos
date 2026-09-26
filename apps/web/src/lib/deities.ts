@@ -1,70 +1,43 @@
+import "server-only";
+
+/**
+ * Catalog-backed deity reference lookups (server only). Client components use
+ * `@/lib/deity-reference` with a slim list passed as props instead.
+ */
 import deitiesData from "@/data/deities.json";
+import {
+  createDeityLookup,
+  formatDeityReference,
+  normalizeDeityReference,
+  type DeityLookupEntry,
+} from "@/lib/deity-reference";
 
-interface DeityLookup {
-  id: string;
-  name: string;
-  slug: string;
-  alternateNames?: string[];
-}
+export { formatDeityReference, normalizeDeityReference };
 
-const allDeities = deitiesData as DeityLookup[];
-
-export function normalizeDeityReference(value: string): string {
-  return value
-    .toLowerCase()
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/^-+|-+$/g, "");
-}
-
-const deityReferenceMap = new Map<string, DeityLookup>();
-
-for (const deity of allDeities) {
-  deityReferenceMap.set(normalizeDeityReference(deity.id), deity);
-  deityReferenceMap.set(normalizeDeityReference(deity.slug), deity);
-
-  for (const alternateName of deity.alternateNames || []) {
-    deityReferenceMap.set(normalizeDeityReference(alternateName), deity);
-  }
-}
+const lookup = createDeityLookup(deitiesData as DeityLookupEntry[]);
 
 export function findDeityByReference(
   reference: string,
-): DeityLookup | undefined {
-  return deityReferenceMap.get(normalizeDeityReference(reference));
+): DeityLookupEntry | undefined {
+  return lookup.find(reference);
 }
 
 /** A cross-pantheon parallel that only matches the source entry's own alias is not another page. */
 export function distinctDeityReference(
   sourceId: string,
   reference: string,
-): DeityLookup | undefined {
-  const found = findDeityByReference(reference);
-  if (!found || found.id === sourceId) return undefined;
-  return found;
-}
-
-export function formatDeityReference(reference: string): string {
-  return reference
-    .split("-")
-    .filter(Boolean)
-    .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
-    .join(" ");
+): DeityLookupEntry | undefined {
+  return lookup.distinct(sourceId, reference);
 }
 
 export function getDeitySlug(reference: string): string {
-  return (
-    findDeityByReference(reference)?.slug ?? normalizeDeityReference(reference)
-  );
+  return lookup.slug(reference);
 }
 
 export function getDeityName(reference: string): string {
-  return (
-    findDeityByReference(reference)?.name ?? formatDeityReference(reference)
-  );
+  return lookup.name(reference);
 }
 
 export function getDeityPath(reference: string): string {
-  return `/deities/${getDeitySlug(reference)}`;
+  return lookup.path(reference);
 }

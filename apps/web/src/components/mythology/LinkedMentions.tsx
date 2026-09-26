@@ -1,5 +1,3 @@
-"use client";
-
 import Link from "next/link";
 import { MythosMark, type MythosMarkId } from "@/components/icons/mythos-marks";
 import {
