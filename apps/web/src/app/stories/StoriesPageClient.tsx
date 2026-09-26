@@ -175,9 +175,12 @@ type Story = StoryListItem;
 export function StoriesPageClient({
   stories,
   interactiveStories: branchingStories,
+  traditionCount,
 }: Readonly<{
   stories: StoryListItem[];
   interactiveStories: InteractiveStoryListItem[];
+  /** Traditions in the atlas (collections excluded), counted on the server. */
+  traditionCount: number;
 }>) {
   const allStories = useMemo(
     () =>
@@ -254,7 +257,7 @@ export function StoriesPageClient({
     <div className="min-h-screen">
       <CollectionPageJsonLd
         name="Mythological Stories"
-        description="Epic tales and legends from ancient civilizations across 16 pantheons"
+        description={`Epic tales and legends from ancient civilizations across ${traditionCount} traditions`}
         url="/stories"
         numberOfItems={allStories.length}
       />

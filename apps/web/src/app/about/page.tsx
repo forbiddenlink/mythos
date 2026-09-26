@@ -12,14 +12,14 @@ import { MythosMark } from "@/components/icons/mythos-marks";
 import { HeroMark } from "@/components/icons/hero-mark";
 import { cn } from "@/lib/utils";
 import deitiesData from "@/data/deities.json";
-import pantheonsData from "@/data/pantheons.json";
 import storiesData from "@/data/stories.json";
 import locationsData from "@/data/locations.json";
+import { getTraditionCount } from "@/lib/data/catalog";
 
 // Derived from the data files so the About copy can never drift from the atlas
 // again (it previously undercounted locations by 38 and overstated deities).
 const COVERAGE = {
-  pantheons: pantheonsData.length,
+  pantheons: getTraditionCount(),
   deities: deitiesData.length,
   stories: storiesData.length,
   locations: locationsData.length,
@@ -125,7 +125,7 @@ export default function AboutPage() {
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground">
-                  Browse {COVERAGE.pantheons} pantheons from Greek to Yoruba,
+                  Browse {COVERAGE.pantheons} traditions from Greek to Yoruba,
                   with {COVERAGE.deities} deities, {COVERAGE.stories} stories,
                   and {COVERAGE.locations} sacred locations documented.
                 </p>
@@ -287,9 +287,9 @@ export default function AboutPage() {
               </p>
               <p className="text-foreground/80 leading-relaxed">
                 Mythos Atlas is an ongoing project with regular updates. The
-                encyclopedia currently spans 16 pantheons, and we continuously
-                expand depth, source coverage, and cross-cultural links across
-                traditions.
+                encyclopedia currently spans {COVERAGE.pantheons} traditions,
+                and we continuously expand depth, source coverage, and
+                cross-cultural links across traditions.
               </p>
               <div className="pt-2 border-t border-gold/20">
                 <p className="text-muted-foreground text-sm">

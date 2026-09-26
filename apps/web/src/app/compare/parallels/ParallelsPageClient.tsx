@@ -36,6 +36,9 @@ export function ParallelsPageClient({
   const [activeTab, setActiveTab] = useState<"archetypes" | "pairs">(
     "archetypes",
   );
+  const traditionCount = new Set(
+    edges.flatMap((e) => [e.fromPantheon, e.toPantheon]),
+  ).size;
 
   return (
     <div className="min-h-screen">
@@ -43,7 +46,7 @@ export function ParallelsPageClient({
         mark="scales"
         tagline="Comparative mythology"
         title="Cross-Pantheon Parallels"
-        description="Explore universal motifs, syncretism, and analogies between figures from 13 world traditions — uncovering how different ancient cultures personified natural forces and human experience."
+        description={`Explore universal motifs, syncretism, and analogies between figures from ${traditionCount} world traditions — uncovering how different ancient cultures personified natural forces and human experience.`}
       />
 
       <div className="container mx-auto max-w-6xl px-4 py-10 bg-mythic space-y-10">

@@ -61,6 +61,20 @@ export function getPantheons(): readonly PantheonRecord[] {
   return pantheons;
 }
 
+/**
+ * Pantheon records that are traditions in their own right. Collection
+ * records (`isCollection: true`, e.g. the African overview that groups the
+ * Yoruba and Akan entries) are navigation aids, not an additional tradition.
+ */
+export function getTraditions(): readonly PantheonRecord[] {
+  return pantheons.filter((p) => !p.isCollection);
+}
+
+/** How many traditions the atlas covers; use this in copy, never a literal. */
+export function getTraditionCount(): number {
+  return getTraditions().length;
+}
+
 export function getRelationships(): readonly RelationshipRecord[] {
   return relationships;
 }

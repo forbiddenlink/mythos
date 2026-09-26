@@ -58,7 +58,12 @@ const RECOMMENDED_DEITIES = [
 
 export function DeitiesPageClient({
   deities: allDeities,
-}: Readonly<{ deities: Deity[] }>) {
+  traditionCount,
+}: Readonly<{
+  deities: Deity[];
+  /** Traditions in the atlas (collections excluded), counted on the server. */
+  traditionCount: number;
+}>) {
   const [viewMode, setViewMode] = useState<"grid" | "table">("grid");
   const [filteredDeities, setFilteredDeities] = useState<Deity[]>(allDeities);
   const [filtersVersion, setFiltersVersion] = useState(0);
@@ -106,7 +111,7 @@ export function DeitiesPageClient({
         mark="laurel"
         tagline="Divine Beings"
         title="Deities"
-        description="Gods and goddesses from 16 pantheons, with family trees, domains, and stories"
+        description={`Gods and goddesses from ${traditionCount} traditions, with family trees, domains, and stories`}
         backgroundImage="/deities-list-hero.jpg"
         backgroundAlt="A dramatic collage of deities from ancient mythology"
         colorScheme="gold"

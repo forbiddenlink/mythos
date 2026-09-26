@@ -1,12 +1,15 @@
 import { AetherMap } from "@/components/atlas/AetherMap";
 import { computeAtlasLayout } from "@/lib/atlas-layout";
-import { getDeities, getRelationships } from "@/lib/data/catalog";
+import {
+  getDeities,
+  getRelationships,
+  getTraditionCount,
+} from "@/lib/data/catalog";
 import { generateBaseMetadata } from "@/lib/metadata";
 
 export const metadata = generateBaseMetadata({
   title: "The Aether Map - Every God, One Sky",
-  description:
-    "An interactive 3D star map of deities across 16 pantheons, connected by their relationships. Explore world mythology as a living cosmos.",
+  description: `An interactive 3D star map of deities across ${getTraditionCount()} traditions, connected by their relationships. Explore world mythology as a living cosmos.`,
   url: "/atlas",
   keywords: [
     "mythology map",
