@@ -132,6 +132,9 @@ def draw_emblem(draw, cx, cy, motif, accent, gold, bg=(14, 14, 18)):
         _serpent(draw, cx, cy, gold, pale, 1)
     elif kind == "serpent2":
         _serpent(draw, cx, cy, gold, pale, 2)
+    elif kind == "serpent_flame":
+        _flame(draw, cx, cy - 22, 58, (214, 118, 48), pale)
+        _serpent(draw, cx, cy + 46, gold, pale, 1)
     elif kind == "llama":
         draw.ellipse([cx - 40, cy - 6, cx + 30, cy + 34], fill=deep, outline=gold, width=3)
         draw.line([(cx + 22, cy + 4), (cx + 40, cy - 52)], fill=gold, width=12)

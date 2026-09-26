@@ -52,7 +52,7 @@ Legacy: .page-eyebrow, .page-lede, .text-display/.text-h1/h2/h3 remain for old p
 
 ## Components — apps/web/src/components/ui/ (shadcn, cva, 18 files)
 button, card, badge, dialog, select, tabs, command, input, progress, slider, hover-card, pagination-controls,
-skeleton-cards, achievement-toast, bookmark-button, export-button, logo, pronunciation, theme-toggle
+achievement-toast, bookmark-button, export-button, logo, pronunciation, theme-toggle
 - Button (cva): variants default/destructive/outline/secondary/ghost/link/gold (custom: bg-gold text-midnight); sizes default/sm/lg/icon/icon-sm/icon-lg
 - Card (cva): variants default/glass (.glass-card)/elevated (.card-elevated); `interactive` opts into the hover lift — set it only on cards that are link/button targets (static cards must not move on hover)
 

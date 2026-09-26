@@ -28,6 +28,7 @@ DEITIES = [
     {"id": "ymir", "name": "YMIR", "tag": "NORSE PRIMORDIAL", "domain": "FROST GIANTS · MATERIAL OF CREATION", "accent": (110, 170, 220), "bg": (12, 18, 26), "motif": "frost_chasm"},
     {"id": "hodr", "name": "HÖÐR", "tag": "NORSE GOD", "domain": "DARKNESS · WINTER · THE SHADOWED GOD", "accent": (130, 140, 170), "bg": (16, 16, 22), "motif": "blind_bow"},
     {"id": "idun", "name": "IÐUNN", "tag": "NORSE GODDESS", "domain": "YOUTH · RENEWAL · GOLDEN APPLES", "accent": (235, 180, 60), "bg": (20, 18, 12), "motif": "golden_apples"},
+    {"id": "loki", "name": "LOKI", "tag": "NORSE GOD", "domain": "TRICKERY · FIRE · THE BOUND ONE", "accent": (120, 160, 90), "bg": (14, 18, 14), "motif": "emblem_serpent_flame"},
     {"id": "bragi", "name": "BRAGI", "tag": "NORSE GOD", "domain": "POETRY · SKALDIC ELOQUENCE · THE HARP", "accent": (210, 155, 75), "bg": (22, 16, 14), "motif": "skald_harp"},
 
     # HINDU
