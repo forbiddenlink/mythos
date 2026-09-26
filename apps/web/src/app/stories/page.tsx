@@ -1,14 +1,11 @@
 import {
-  getBranchingStories,
+  getPantheonShortNames,
   getStories,
   getTraditionCount,
 } from "@/lib/data/catalog";
+import { interactiveStoryItems } from "@/lib/data/interactive-stories";
 import { pick } from "@/lib/data/project";
-import {
-  StoriesPageClient,
-  type InteractiveStoryListItem,
-  type StoryListItem,
-} from "./StoriesPageClient";
+import { StoriesPageClient, type StoryListItem } from "./StoriesPageClient";
 
 /**
  * Story index. The catalog is read here on the server; the client component
@@ -23,25 +20,13 @@ export default function StoriesPage() {
       themes: themes ?? [],
     };
   });
-  const interactiveStories: InteractiveStoryListItem[] =
-    getBranchingStories().map((story) =>
-      pick(story, [
-        "id",
-        "slug",
-        "title",
-        "description",
-        "protagonist",
-        "estimatedTime",
-        "totalEndings",
-        "coverImage",
-      ]),
-    );
 
   return (
     <StoriesPageClient
       stories={stories}
-      interactiveStories={interactiveStories}
+      interactiveStories={interactiveStoryItems()}
       traditionCount={getTraditionCount()}
+      traditionNames={getPantheonShortNames()}
     />
   );
 }

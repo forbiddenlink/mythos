@@ -1,5 +1,9 @@
 import { CollectionPageJsonLd } from "@/components/seo/JsonLd";
-import { getDeityListItems, getTraditionCount } from "@/lib/data/catalog";
+import {
+  getDeityListItems,
+  getPantheonShortNames,
+  getTraditionCount,
+} from "@/lib/data/catalog";
 import { DeitiesPageClient } from "./DeitiesPageClient";
 
 export default function DeitiesPage() {
@@ -13,6 +17,7 @@ export default function DeitiesPage() {
       <DeitiesPageClient
         deities={getDeityListItems()}
         traditionCount={getTraditionCount()}
+        traditionNames={getPantheonShortNames()}
       />
     </>
   );

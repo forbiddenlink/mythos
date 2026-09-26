@@ -1,12 +1,8 @@
-import { HeroMark } from "@/components/icons/hero-mark";
+import { AboutThisPage } from "@/components/layout/about-this-page";
+import { PageHeader } from "@/components/layout/page-header";
 import { generateBaseMetadata } from "@/lib/metadata";
-import { RouteHero } from "@/components/layout/route-hero";
-import {
-  pageLedeOnDarkClass,
-  pageTitleOnDarkClass,
-} from "@/components/layout/page-typography";
-import { cn } from "@/lib/utils";
-import { SourcesPageClient } from "./SourcesPageClient";
+import sourcesData from "@/data/sources.json";
+import { SourcesPageClient, type SourceListItem } from "./SourcesPageClient";
 
 export const metadata = generateBaseMetadata({
   title: "Sources & References",
@@ -28,30 +24,62 @@ export const metadata = generateBaseMetadata({
   ],
 });
 
+interface SourceRecord {
+  id: string;
+  title: string;
+  author?: string;
+  year?: string | number;
+  type: string;
+  language?: string;
+  description: string;
+  characters?: unknown[];
+  keyScenes?: unknown[];
+}
+
+// Card fields only: passages, translators and scene summaries stay here.
+const sources: SourceListItem[] = (sourcesData as SourceRecord[]).map(
+  (source) => ({
+    id: source.id,
+    title: source.title,
+    ...(source.author ? { author: source.author } : {}),
+    ...(source.year !== undefined ? { year: String(source.year) } : {}),
+    type: source.type,
+    ...(source.language ? { language: source.language } : {}),
+    description: source.description,
+    characterCount: source.characters?.length ?? 0,
+    sceneCount: source.keyScenes?.length ?? 0,
+  }),
+);
+
 export default function SourcesPage() {
   return (
-    <div className="min-h-screen bg-mythic">
-      {/* Hero Section */}
-      <RouteHero>
-        <div className="flex items-center justify-center mb-6">
-          <HeroMark mark="codex" tone="gold" size="lg" />
-        </div>
-        <h1 className={cn(pageTitleOnDarkClass, "mb-6")}>
-          Sources &amp; References
-        </h1>
-        <div className="flex items-center justify-center gap-4 mb-6">
-          <div className="w-12 h-px bg-linear-to-r from-transparent to-gold/40" />
-          <div className="w-1.5 h-1.5 rotate-45 bg-gold/50" />
-          <div className="w-12 h-px bg-linear-to-l from-transparent to-gold/40" />
-        </div>
-        <p className={pageLedeOnDarkClass}>
-          Primary historical literature, translations, and scholarly references
-          grounding the atlas
-        </p>
-      </RouteHero>
+    <div className="min-h-screen">
+      <PageHeader
+        mark="codex"
+        eyebrow="The library"
+        title="Sources & References"
+        lede="Primary literature, translations and scholarship that ground the atlas."
+      />
 
-      {/* Interactive Sources Codex */}
-      <SourcesPageClient />
+      <SourcesPageClient sources={sources} />
+
+      <AboutThisPage title="About the sources">
+        <p>
+          This catalog brings together primary works, translations, and modern
+          scholarship used across the atlas. It is a selected reading library,
+          not a complete record of every tradition or the earliest surviving
+          mention of each figure. Primary canonical works are enriched with
+          structured character occurrences, key narrative scenes, recommended
+          reading sequences, and dual-language excerpts.
+        </p>
+        <p>
+          Ancient literature survives in recensions, papyrus fragments, and
+          variant manuscripts across centuries. When consulting entries, look
+          for the &ldquo;Appears In&rdquo; cross-index on deities and heroes to
+          compare how Homeric epic differs from Hesiodic theology, or how the
+          Vedas differ from later Puranic literature.
+        </p>
+      </AboutThisPage>
     </div>
   );
 }
