@@ -1,15 +1,3 @@
-"use client";
-
-import { useId, useState } from "react";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import {
-  ChevronDown,
-  ChevronUp,
-  BookMarked,
-  ScrollText,
-  Info,
-} from "lucide-react";
-
 export interface MythVariant {
   source: string;
   passage?: string;
@@ -20,126 +8,60 @@ export interface MythVariant {
   note?: string;
 }
 
-interface MythVariantsProps {
-  variants: MythVariant[];
-}
-
-export function MythVariants({ variants }: MythVariantsProps) {
-  const [isExpanded, setIsExpanded] = useState(false);
-  const contentId = useId();
-
-  if (!variants || variants.length === 0) {
-    return null;
-  }
+/**
+ * Alternate tellings recorded for a story: which source, when, and how it
+ * differs. Content only; the page's <ArticleSection> supplies the heading.
+ */
+export function MythVariants({ variants }: { variants: MythVariant[] }) {
+  if (!variants || variants.length === 0) return null;
 
   return (
-    <Card className="border-border bg-card/50 shadow-none overflow-hidden">
-      <CardHeader className="pb-0">
-        <button
-          onClick={() => setIsExpanded(!isExpanded)}
-          className="w-full flex items-center justify-between group cursor-pointer"
-          aria-expanded={isExpanded}
-          aria-controls={contentId}
-        >
-          <div className="flex items-center gap-3">
-            <div className="p-2 rounded-lg bg-gold/10 border border-gold/25">
-              <BookMarked className="h-5 w-5 text-gold" />
-            </div>
-            <div className="text-left">
-              <CardTitle className="text-foreground text-xl font-serif">
-                In Other Versions...
-              </CardTitle>
-              <p className="text-sm text-muted-foreground mt-1">
-                {variants.length} alternate{" "}
-                {variants.length === 1 ? "account" : "accounts"} in the catalog
-              </p>
-            </div>
-          </div>
-          <div className="p-2 rounded-lg bg-gold/10 group-hover:bg-gold/20 transition-colors">
-            {isExpanded ? (
-              <ChevronUp className="h-5 w-5 text-gold" />
-            ) : (
-              <ChevronDown className="h-5 w-5 text-gold" />
-            )}
-          </div>
-        </button>
-      </CardHeader>
-
-      <div
-        id={contentId}
-        hidden={!isExpanded}
-        className={`transition-all duration-300 ease-in-out overflow-hidden ${
-          isExpanded ? "max-h-500 opacity-100" : "max-h-0 opacity-0"
-        }`}
-      >
-        <CardContent className="pt-6">
-          <div className="space-y-4">
-            {variants.map((variant) => (
-              <div
-                key={variant.source}
-                className="relative p-5 rounded-lg border-l-4 border-gold/50 bg-muted/40 hover:bg-muted/60 transition-colors"
-              >
-                {/* Source Header */}
-                <div className="flex items-start justify-between mb-3">
-                  <div className="flex flex-wrap items-center gap-2">
-                    <ScrollText className="h-4 w-4 text-gold/80" />
-                    <span className="font-serif text-gold-text font-medium">
-                      {variant.source}
-                    </span>
-                    {variant.date && (
-                      <span className="text-xs text-muted-foreground px-2 py-0.5 bg-muted rounded">
-                        {variant.date}
-                      </span>
-                    )}
-                  </div>
-                </div>
-
-                {/* Difference */}
-                <p className="text-foreground/85 leading-relaxed mb-3">
-                  {variant.difference}
-                </p>
-
-                {variant.sourceUrl &&
-                  /^https?:\/\//.test(variant.sourceUrl) && (
-                    <p className="mb-3 text-sm text-muted-foreground">
-                      <a
-                        href={variant.sourceUrl}
-                        className="inline-flex min-h-11 items-center text-gold-text underline underline-offset-4"
-                      >
-                        Read {variant.passage ?? "the source"}
-                      </a>
-                      {variant.translator && (
-                        <span className="block">
-                          Translation: {variant.translator}. Account above is an
-                          editorial summary.
-                        </span>
-                      )}
-                    </p>
-                  )}
-
-                {/* Scholar's Note */}
-                {variant.note && (
-                  <div className="flex items-start gap-2 mt-3 p-3 rounded bg-muted/50 border border-border">
-                    <Info className="h-4 w-4 text-gold/60 mt-0.5 shrink-0" />
-                    <p className="text-sm text-muted-foreground italic leading-relaxed">
-                      {variant.note}
-                    </p>
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
-
-          {/* Footer Note */}
-          <div className="mt-6 pt-4 border-t border-border">
-            <p className="text-xs text-muted-foreground text-center">
-              Ancient myths evolved across centuries and cultures. These
-              variations reflect the rich oral and written traditions that
-              preserved these stories.
+    <div>
+      <ul className="divide-y divide-border/70 border-y border-border/70">
+        {variants.map((variant) => (
+          <li key={variant.source} className="py-5">
+            <p className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+              <cite className="font-serif text-[1.0625rem] font-semibold not-italic text-foreground">
+                {variant.source}
+              </cite>
+              {variant.date ? (
+                <span className="type-meta text-muted-foreground">
+                  {variant.date}
+                </span>
+              ) : null}
             </p>
-          </div>
-        </CardContent>
-      </div>
-    </Card>
+            <p className="mt-2 type-reading text-foreground/90">
+              {variant.difference}
+            </p>
+            {variant.note ? (
+              <p className="mt-2 type-ui text-muted-foreground">
+                <span className="font-medium text-foreground">Note: </span>
+                {variant.note}
+              </p>
+            ) : null}
+            {variant.sourceUrl && /^https?:\/\//.test(variant.sourceUrl) ? (
+              <p className="mt-1 type-ui text-muted-foreground">
+                <a
+                  href={variant.sourceUrl}
+                  className="inline-flex min-h-10 items-center text-gold-text underline decoration-gold/40 underline-offset-4 hover:decoration-current"
+                >
+                  Read {variant.passage ?? "the source"}
+                </a>
+                {variant.translator ? (
+                  <span className="block">
+                    Translation: {variant.translator}. The account above is an
+                    editorial summary.
+                  </span>
+                ) : null}
+              </p>
+            ) : null}
+          </li>
+        ))}
+      </ul>
+      <p className="mt-3 type-meta text-muted-foreground">
+        Myths changed across centuries and communities; these differences are
+        part of how the stories were preserved.
+      </p>
+    </div>
   );
 }

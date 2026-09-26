@@ -1,4 +1,3 @@
-import { ScrollText } from "lucide-react";
 import {
   attestationOf,
   formatYear,
@@ -6,9 +5,9 @@ import {
 } from "@/lib/attestation";
 
 /**
- * A compact codex "marginalia" plate summarizing the sources recorded for a
- * figure in this catalog. It deliberately avoids treating the dataset as a
- * complete survey of surviving evidence.
+ * A one-line summary of the sources this catalog records for a figure: how
+ * many, and the oldest dated one. It deliberately avoids treating the dataset
+ * as a complete survey of surviving evidence.
  */
 export function SourceProvenance({
   sources,
@@ -20,37 +19,23 @@ export function SourceProvenance({
 
   return (
     <aside
-      className="rounded-xl border border-gold/20 bg-muted/50 p-5"
       aria-label="Catalogued sources"
+      className="border-y border-border/70 py-4"
     >
-      <div className="mb-3 flex flex-wrap items-center gap-2">
-        <ScrollText className="h-4 w-4 text-gold-text" aria-hidden />
-        <span className="font-serif text-xs uppercase tracking-[0.25em] text-gold-text">
-          Catalogued sources
+      <p className="type-ui text-foreground">
+        <span className="font-medium">
+          {att.count} catalogued {att.count === 1 ? "work" : "works"}
         </span>
-      </div>
-
-      <div className="flex flex-wrap items-center gap-2">
-        <span
-          className="inline-block h-2.5 w-2.5 rounded-full bg-gold"
-          aria-hidden
-        />
-        <span className="font-serif text-lg text-foreground">{att.label}</span>
-        <span className="text-sm text-muted-foreground">
-          · {att.count} primary {att.count === 1 ? "source" : "sources"}
-        </span>
-      </div>
-
-      {att.earliestYear !== null && att.earliestSource && (
-        <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-          Oldest dated work in this catalog{" "}
-          <span className="text-gold-text">{formatYear(att.earliestYear)}</span>
-          {" — "}
-          <span className="italic">{att.earliestSource.source}</span>.
-        </p>
-      )}
-
-      <p className="mt-2 text-xs italic text-muted-foreground">
+        {att.earliestYear !== null && att.earliestSource ? (
+          <span className="text-muted-foreground">
+            {" "}
+            · oldest dated:{" "}
+            <cite className="text-foreground">{att.earliestSource.source}</cite>
+            , {formatYear(att.earliestYear)}
+          </span>
+        ) : null}
+      </p>
+      <p className="mt-1.5 type-meta text-muted-foreground">
         Coverage reflects this catalog&apos;s source records; it does not
         establish independent corroboration or the first surviving mention.
       </p>

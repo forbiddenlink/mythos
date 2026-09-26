@@ -35,7 +35,10 @@ import {
   LinkedMentions,
 } from "@/components/mythology/LinkedMentions";
 import { DeityJsonLd } from "@/components/seo/JsonLd";
-import { getAppearsIn } from "@/lib/appears-in";
+import {
+  EntitySources,
+  hasEntitySources,
+} from "@/components/sources/EntitySources";
 import { citedWorksFor } from "@/lib/seo/cited-works";
 import {
   getBranchingStories,
@@ -64,7 +67,6 @@ import { DeityHero } from "./_components/DeityHero";
 import {
   DeityNarrative,
   DeityParallels,
-  DeitySources,
   DeityWorship,
   hasWorship,
 } from "./_components/DeitySections";
@@ -226,13 +228,10 @@ export default async function DeityPage({ params }: PageProps) {
     }),
   );
 
-  const hasSources = Boolean(
-    deity.primarySources?.length ||
-    deity.primarySourceExcerpts?.length ||
-    deity.furtherReading?.length ||
-    deity.sources?.length ||
-    getAppearsIn(deity.id, "deity").length,
-  );
+  const hasSources = hasEntitySources({
+    ...deity,
+    appearsIn: { id: deity.id, kind: "deity" },
+  });
 
   // Portraits for the parallels, keyed by the page each one links to.
   const parallelImages: Record<string, string | null | undefined> = {};
@@ -498,9 +497,14 @@ export default async function DeityPage({ params }: PageProps) {
           ) : null}
 
           {museumObjects.length > 0 ? (
-            <div id="in-art" className="scroll-mt-24">
-              <MuseumGallery name={deity.name} objects={museumObjects} />
-            </div>
+            <ArticleSection
+              id="in-art"
+              eyebrow="In the museums"
+              title={`${deity.name} in art`}
+              reading={false}
+            >
+              <MuseumGallery objects={museumObjects} />
+            </ArticleSection>
           ) : null}
 
           {hasSources ? (
@@ -508,7 +512,10 @@ export default async function DeityPage({ params }: PageProps) {
               id="deity-sources"
               title="Sources and further reading"
             >
-              <DeitySources deity={deity} />
+              <EntitySources
+                {...deity}
+                appearsIn={{ id: deity.id, kind: "deity" }}
+              />
             </ArticleSection>
           ) : null}
 
