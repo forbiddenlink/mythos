@@ -12,8 +12,9 @@ import {
   TrendingUp,
 } from "lucide-react";
 import { useDebounce } from "@/hooks/use-debounce";
+import { useSearchIndex } from "@/hooks/use-search-index";
 import {
-  searchAll,
+  searchIndex,
   getPopularSearches,
   getRecentSearches,
   saveRecentSearch,
@@ -21,7 +22,7 @@ import {
   getResultUrl,
   type SearchResult,
   type ContentType,
-} from "@/lib/search";
+} from "@/lib/search-engine";
 import {
   CommandDialog,
   CommandInput,
@@ -82,13 +83,14 @@ export function SmartSearch({ open, onOpenChange }: SmartSearchProps) {
     setRecentSearches(getRecentSearches());
   }, [open]);
 
-  // Search results
+  // Search results over the prebuilt index, fetched on first open.
+  const { index } = useSearchIndex(open);
   const results = useMemo(() => {
-    if (!debouncedQuery || debouncedQuery.length < 2) {
+    if (!index || !debouncedQuery || debouncedQuery.length < 2) {
       return [];
     }
-    return searchAll(debouncedQuery, 15);
-  }, [debouncedQuery]);
+    return searchIndex(index, debouncedQuery, 15);
+  }, [index, debouncedQuery]);
 
   // Group results by type
   const groupedResults = useMemo(() => {

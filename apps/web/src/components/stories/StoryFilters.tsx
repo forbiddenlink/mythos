@@ -19,9 +19,9 @@ interface Story {
   title: string;
   slug: string;
   summary: string | null;
-  fullNarrative: string | null;
+  fullNarrative?: string | null;
   themes: string[];
-  culturalSignificance: string | null;
+  culturalSignificance?: string | null;
   imageUrl: string | null;
   category?: string;
   moralThemes?: string[];

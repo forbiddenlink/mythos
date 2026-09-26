@@ -1,5 +1,3 @@
-import deitiesData from "@/data/deities.json";
-import relationshipsData from "@/data/relationships.json";
 import { getPantheonColor } from "@/lib/pantheon-colors";
 
 /**
@@ -42,7 +40,7 @@ export interface AtlasLayout {
   pantheons: AtlasPantheon[];
 }
 
-interface RawDeity {
+export interface AtlasSourceDeity {
   id: string;
   slug: string;
   name: string;
@@ -55,7 +53,7 @@ interface RawDeity {
   }>;
 }
 
-interface RawRelationship {
+export interface AtlasSourceRelationship {
   id: string;
   fromDeityId: string;
   toDeityId: string;
@@ -87,8 +85,17 @@ export function prettyPantheonName(pantheonId: string): string {
     .join(" ");
 }
 
-export function computeAtlasLayout(): AtlasLayout {
-  const deities = deitiesData as unknown as RawDeity[];
+type RawDeity = AtlasSourceDeity;
+type RawRelationship = AtlasSourceRelationship;
+
+/**
+ * Deterministic layout for the Aether Map. Pure: the server page passes the
+ * catalog in and the client receives only the computed nodes and edges.
+ */
+export function computeAtlasLayout(
+  deities: readonly RawDeity[],
+  relationships: readonly RawRelationship[],
+): AtlasLayout {
   const pantheonIds = [...new Set(deities.map((d) => d.pantheonId))].sort();
 
   const centers = new Map<string, [number, number, number]>();
@@ -140,7 +147,7 @@ export function computeAtlasLayout(): AtlasLayout {
     };
   });
 
-  const rels = relationshipsData as unknown as RawRelationship[];
+  const rels = relationships;
   const edges: AtlasEdge[] = [];
   const seenParallel = new Set<string>();
 

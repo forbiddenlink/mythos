@@ -31,13 +31,45 @@ import { trackEvent } from "@/lib/analytics/events";
 import { quizResultPath } from "@/lib/quiz-share";
 import { useProgress } from "@/hooks/use-progress";
 import { quizLearnMore } from "@/lib/quiz-learn-more";
-import deitiesData from "@/data/deities.json";
-import relationshipsData from "@/data/relationships.json";
-import artifactsData from "@/data/artifacts.json";
-import creaturesData from "@/data/creatures.json";
-import locationsData from "@/data/locations.json";
+type SourceHint = Array<{ source?: string; text?: string }>;
 
-interface Deity {
+/**
+ * Everything the quiz draws questions from, projected on the server: names,
+ * images, domains/symbols and at most one source citation per entry.
+ */
+export interface MythologyQuizPool {
+  deities: Array<QuizPoolDeity>;
+  relationships: Array<{
+    id: string;
+    fromDeityId: string;
+    toDeityId: string;
+    relationshipType: string;
+  }>;
+  creatures: Array<{
+    id: string;
+    name: string;
+    slug: string;
+    habitat: string;
+    imageUrl?: string | null;
+    primarySources?: SourceHint;
+  }>;
+  artifacts: Array<{
+    id: string;
+    name: string;
+    slug: string;
+    type: string;
+    imageUrl?: string | null;
+    primarySources?: SourceHint;
+  }>;
+  locations: Array<{
+    id: string;
+    name: string;
+    imageUrl?: string | null;
+    primarySources?: SourceHint;
+  }>;
+}
+
+export interface QuizPoolDeity {
   id: string;
   name: string;
   slug: string;
@@ -46,7 +78,10 @@ interface Deity {
   pantheonId: string;
   imageUrl?: string;
   gender: string;
+  primarySources?: SourceHint;
 }
+
+type Deity = QuizPoolDeity;
 
 interface Relationship {
   id: string;
@@ -68,7 +103,7 @@ interface Question {
   sourceCite?: string;
 }
 
-export function MythologyQuiz() {
+export function MythologyQuiz({ pool }: { pool: MythologyQuizPool }) {
   const { recordQuizScore, trackQuizCompletion } = useProgress();
   const recordedCompletion = useRef(false);
   const startedQuiz = useRef(false);
@@ -105,8 +140,8 @@ export function MythologyQuiz() {
     trackQuizCompletion,
   ]);
 
-  const deities = deitiesData as Deity[];
-  const relationships = relationshipsData as Relationship[];
+  const deities: Deity[] = pool.deities;
+  const relationships: Relationship[] = pool.relationships;
 
   // Generate Questions
   useEffect(() => {
@@ -125,14 +160,7 @@ export function MythologyQuiz() {
       visualPool[Math.floor(Math.random() * visualPool.length)];
 
     if (chosenCategory === "creature") {
-      const creatures = creaturesData as Array<{
-        id: string;
-        name: string;
-        slug: string;
-        habitat: string;
-        imageUrl?: string | null;
-        primarySources?: Array<{ source?: string; text?: string }>;
-      }>;
+      const creatures = pool.creatures;
       const valid = creatures.filter((c) => Boolean(c.imageUrl));
       if (valid.length > 0) {
         const target = valid[Math.floor(Math.random() * valid.length)];
@@ -155,14 +183,7 @@ export function MythologyQuiz() {
         });
       }
     } else if (chosenCategory === "artifact") {
-      const artifacts = artifactsData as Array<{
-        id: string;
-        name: string;
-        slug: string;
-        type: string;
-        imageUrl?: string | null;
-        primarySources?: Array<{ source?: string; text?: string }>;
-      }>;
+      const artifacts = pool.artifacts;
       const valid = artifacts.filter((a) => Boolean(a.imageUrl));
       if (valid.length > 0) {
         const target = valid[Math.floor(Math.random() * valid.length)];
@@ -185,12 +206,7 @@ export function MythologyQuiz() {
         });
       }
     } else if (chosenCategory === "location") {
-      const locations = locationsData as Array<{
-        id: string;
-        name: string;
-        imageUrl?: string | null;
-        primarySources?: Array<{ source?: string; text?: string }>;
-      }>;
+      const locations = pool.locations;
       const valid = locations.filter((l) => Boolean(l.imageUrl));
       if (valid.length > 0) {
         const target = valid[Math.floor(Math.random() * valid.length)];
@@ -310,7 +326,7 @@ export function MythologyQuiz() {
     const shuffled = newQuestions.toSorted(() => Math.random() - 0.5); // Shuffle order
     // eslint-disable-next-line react-hooks/set-state-in-effect -- generate questions when data loads
     setQuestions(shuffled);
-  }, [deities, relationships]);
+  }, [deities, relationships, pool]);
 
   const handleAnswerSelect = (answer: string) => {
     // Counted on the first answer rather than on mount, so a visitor who

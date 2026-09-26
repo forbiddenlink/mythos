@@ -2,7 +2,14 @@ import type { Metadata } from "next";
 import { PageHero } from "@/components/layout/page-hero";
 import { generateBaseMetadata } from "@/lib/metadata";
 import { AttestationTimeline } from "@/components/timeline/AttestationTimeline";
-import { TimelinePageClient } from "./TimelinePageClient";
+import eventsData from "@/data/events.json";
+import { getDeities, getPantheons } from "@/lib/data/catalog";
+import { attestationPoints } from "@/lib/attestation";
+import {
+  TimelinePageClient,
+  type TimelineEvent,
+  type TimelinePantheon,
+} from "./TimelinePageClient";
 
 export const metadata: Metadata = generateBaseMetadata({
   title: "Mythology Timeline",
@@ -12,6 +19,18 @@ export const metadata: Metadata = generateBaseMetadata({
 });
 
 export default function TimelinePage() {
+  const pantheons: TimelinePantheon[] = getPantheons().map((p) => ({
+    id: p.id,
+    name: p.name,
+    slug: p.slug,
+    culture: p.culture,
+    region: p.region,
+    timePeriodStart: p.timePeriodStart ?? null,
+    timePeriodEnd: p.timePeriodEnd ?? null,
+    description: p.description ?? null,
+  }));
+  const deities = getDeities();
+
   return (
     <>
       <PageHero
@@ -76,9 +95,15 @@ export default function TimelinePage() {
           </div>
         </div>
       </section>
-      <TimelinePageClient />
+      <TimelinePageClient
+        pantheons={pantheons}
+        events={eventsData as TimelineEvent[]}
+      />
       <section className="container mx-auto max-w-5xl px-4 pb-20">
-        <AttestationTimeline />
+        <AttestationTimeline
+          points={attestationPoints(deities)}
+          total={deities.length}
+        />
       </section>
     </>
   );

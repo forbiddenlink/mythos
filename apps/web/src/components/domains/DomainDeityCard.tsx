@@ -4,7 +4,7 @@ import Image from "next/image";
 import { TransitionLink } from "@/components/transitions";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { normalizeDeityReference } from "@/lib/deities";
+import { normalizeDeityReference } from "@/lib/deity-reference";
 import { Sparkles, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 

@@ -2,28 +2,10 @@
 
 import Link from "next/link";
 import { useMemo, useState } from "react";
-import deities from "@/data/deities.json";
 import { getPantheonColor } from "@/lib/pantheon-colors";
-import {
-  attestationOf,
-  formatYear,
-  type PrimarySource,
-} from "@/lib/attestation";
+import { formatYear, type AttestationPoint } from "@/lib/attestation";
 
-interface DeityRecord {
-  slug: string;
-  name: string;
-  pantheonId: string;
-  primarySources?: PrimarySource[];
-}
-
-interface Point {
-  slug: string;
-  name: string;
-  pantheonId: string;
-  year: number;
-  source: string;
-}
+type Point = AttestationPoint;
 
 const VIEW_W = 1000;
 const PAD_L = 150;
@@ -43,23 +25,18 @@ function pantheonLabel(id: string): string {
  * plotted at its oldest normalized source date, in its pantheon's lane. This
  * visualizes catalog coverage, not first surviving mentions or full evidence.
  */
-export function AttestationTimeline() {
+export function AttestationTimeline({
+  points: pts,
+  total,
+}: {
+  /** Precomputed on the server with `attestationPoints`. */
+  points: Point[];
+  /** Number of figures considered, for the "N of M placed" caption. */
+  total: number;
+}) {
   const [hover, setHover] = useState<Point | null>(null);
 
   const { points, lanes, minYear, maxYear } = useMemo(() => {
-    const pts: Point[] = [];
-    for (const d of deities as DeityRecord[]) {
-      const att = attestationOf(d.primarySources);
-      if (att.earliestYear === null || !att.earliestSource) continue;
-      pts.push({
-        slug: d.slug,
-        name: d.name,
-        pantheonId: d.pantheonId,
-        year: att.earliestYear,
-        source: att.earliestSource.source,
-      });
-    }
-
     const laneOrder = Array.from(new Set(pts.map((p) => p.pantheonId)));
     // Order lanes by each pantheon's earliest point (oldest first).
     laneOrder.sort((a, b) => {
@@ -79,7 +56,7 @@ export function AttestationTimeline() {
       minYear: Math.min(...years),
       maxYear: Math.max(...years),
     };
-  }, []);
+  }, [pts]);
 
   if (points.length === 0) return null;
 
@@ -105,8 +82,8 @@ export function AttestationTimeline() {
           Deities by Oldest Catalogued Date
         </h2>
         <p className="text-sm text-muted-foreground">
-          {points.length} of {deities.length} placed by the oldest dated work
-          recorded in this catalog
+          {points.length} of {total} placed by the oldest dated work recorded in
+          this catalog
         </p>
       </div>
 
@@ -164,7 +141,11 @@ export function AttestationTimeline() {
                 {points
                   .filter((p) => p.pantheonId === pid)
                   .map((p) => (
-                    <Link key={p.slug} href={`/deities/${p.slug}`} aria-label={`${p.name}: ${formatYear(p.year)}`}>
+                    <Link
+                      key={p.slug}
+                      href={`/deities/${p.slug}`}
+                      aria-label={`${p.name}: ${formatYear(p.year)}`}
+                    >
                       <circle
                         cx={xOf(p.year)}
                         cy={laneY(i)}

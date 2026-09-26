@@ -15,24 +15,13 @@ import {
 } from "@/components/ui/card";
 import { PaginationControls } from "@/components/ui/pagination-controls";
 import { usePagination } from "@/hooks/usePagination";
-import deitiesData from "@/data/deities.json";
+import type { DeityListItem } from "@/lib/data/types";
 import { LayoutGrid, Sparkles, Table } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
-interface Deity {
-  id: string;
-  name: string;
-  slug: string;
-  gender: string | null;
-  domain: string[];
-  symbols: string[];
-  description: string | null;
-  importanceRank: number | null;
-  imageUrl: string | null;
-  alternateNames: string[];
-}
+type Deity = DeityListItem;
 
 const RECOMMENDED_DEITIES = [
   {
@@ -67,8 +56,9 @@ const RECOMMENDED_DEITIES = [
   },
 ];
 
-export function DeitiesPageClient() {
-  const allDeities = deitiesData as Deity[];
+export function DeitiesPageClient({
+  deities: allDeities,
+}: Readonly<{ deities: Deity[] }>) {
   const [viewMode, setViewMode] = useState<"grid" | "table">("grid");
   const [filteredDeities, setFilteredDeities] = useState<Deity[]>(allDeities);
   const [filtersVersion, setFiltersVersion] = useState(0);

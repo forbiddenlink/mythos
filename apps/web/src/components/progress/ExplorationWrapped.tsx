@@ -4,34 +4,27 @@ import { useMemo } from "react";
 import Link from "next/link";
 import { MythosMark } from "@/components/icons/mythos-marks";
 import { useProgress } from "@/hooks/use-progress";
-import deitiesData from "@/data/deities.json";
-import storiesData from "@/data/stories.json";
-import pantheonsData from "@/data/pantheons.json";
+import type { DeityRef, StoryRef } from "@/lib/data/types";
 
 /**
  * Spotify-Wrapped-style monthly exploration recap (time-slip pattern).
  */
-export function ExplorationWrapped() {
+export interface ExplorationCatalog {
+  deities: DeityRef[];
+  stories: StoryRef[];
+  pantheons: Array<{ id: string; name: string; slug: string }>;
+}
+
+export function ExplorationWrapped({
+  catalog,
+}: {
+  /** Slim id/name/slug references, passed from the server page. */
+  catalog: ExplorationCatalog;
+}) {
   const { progress } = useProgress();
 
   const summary = useMemo(() => {
-    const deities = deitiesData as Array<{
-      id: string;
-      slug: string;
-      name: string;
-      pantheonId: string;
-    }>;
-    const stories = storiesData as Array<{
-      id: string;
-      slug: string;
-      title: string;
-      pantheonId: string;
-    }>;
-    const pantheons = pantheonsData as Array<{
-      id: string;
-      name: string;
-      slug: string;
-    }>;
+    const { deities, stories, pantheons } = catalog;
 
     const viewed = new Set(progress.deitiesViewed ?? []);
     const read = new Set(progress.storiesRead ?? []);
@@ -70,7 +63,7 @@ export function ExplorationWrapped() {
       sampleStories,
       cold,
     };
-  }, [progress]);
+  }, [progress, catalog]);
 
   if (summary.deityCount === 0 && summary.storyCount === 0) {
     return (

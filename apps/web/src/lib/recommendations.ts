@@ -32,12 +32,12 @@ export interface Story {
   pantheonId: string;
   title: string;
   slug: string;
-  summary: string;
-  fullNarrative: string;
-  keyExcerpts: string;
+  summary?: string;
+  fullNarrative?: string;
+  keyExcerpts?: string;
   category: string;
   moralThemes: string[];
-  culturalSignificance: string;
+  culturalSignificance?: string;
   imageUrl?: string;
 }
 
@@ -501,6 +501,8 @@ export type LearningGoal =
 export interface LearningPathStep {
   type: "deity" | "story" | "quiz";
   itemId: string;
+  /** Page slug for deity steps (links resolve without a catalog lookup). */
+  slug?: string;
   title: string;
   completed: boolean;
   /** Optional recall practice does not gate completion of a reading path. */
@@ -584,6 +586,7 @@ function buildPantheonMasterySteps(
     ...pantheonDeities.slice(0, 10).map((deity) => ({
       type: "deity" as const,
       itemId: deity.id,
+      slug: deity.slug,
       title: `Learn about ${deity.name}`,
       completed: prefs.viewedDeities.includes(deity.id),
     })),
@@ -643,6 +646,7 @@ function buildDomainExpertSteps(
     ...selectedDeities.map((deity) => ({
       type: "deity" as const,
       itemId: deity.id,
+      slug: deity.slug,
       title: `Study ${deity.name} (${formatPantheonName(deity.pantheonId)})`,
       completed: prefs.viewedDeities.includes(deity.id),
     })),
@@ -745,6 +749,7 @@ function buildCompletionistSteps(
     ...sortedDeities.map((deity) => ({
       type: "deity" as const,
       itemId: deity.id,
+      slug: deity.slug,
       title: `Discover ${deity.name}`,
       completed: false,
     })),

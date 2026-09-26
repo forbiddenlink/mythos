@@ -1,6 +1,7 @@
 import Link from "next/link";
-import { getTranslations } from "next-intl/server";
+import { Translated } from "@/components/i18n/Translated";
 import { MythologyQuiz } from "@/components/quiz/MythologyQuiz";
+import { getMythologyQuizPool } from "@/lib/data/quiz-pool";
 import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
 import { SimplePageHeader } from "@/components/layout/simple-page-header";
 import { pageSectionTitleClass } from "@/components/layout/page-typography";
@@ -60,9 +61,7 @@ const OTHER_QUIZZES = [
   },
 ] as const;
 
-export default async function QuizPage() {
-  const t = await getTranslations("pages.quiz");
-
+export default function QuizPage() {
   return (
     <div className="min-h-screen bg-linear-to-b from-background to-mythic">
       <QuizJsonLd
@@ -76,16 +75,18 @@ export default async function QuizPage() {
         <SimplePageHeader
           mark="lyre"
           tagline="Test yourself"
-          title={t("title")}
-          description={t("subtitle")}
+          title={<Translated namespace="pages.quiz" k="title" />}
+          description={<Translated namespace="pages.quiz" k="subtitle" />}
         >
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-3xl mx-auto">
             <div className="flex items-center gap-3 p-4 bg-card border border-border">
               <MythosMark id="scroll" className="h-5 w-5 text-gold" />
               <div className="text-left">
-                <div className="font-semibold text-sm">{t("learn")}</div>
+                <div className="font-semibold text-sm">
+                  <Translated namespace="pages.quiz" k="learn" />
+                </div>
                 <div className="text-xs text-muted-foreground">
-                  {t("learnDescription")}
+                  <Translated namespace="pages.quiz" k="learnDescription" />
                 </div>
               </div>
             </div>
@@ -94,10 +95,10 @@ export default async function QuizPage() {
               <MythosMark id="owl" className="h-5 w-5 text-gold" />
               <div className="text-left">
                 <div className="font-semibold text-sm">
-                  {t("challengeTitle")}
+                  <Translated namespace="pages.quiz" k="challengeTitle" />
                 </div>
                 <div className="text-xs text-muted-foreground">
-                  {t("challengeDescription")}
+                  <Translated namespace="pages.quiz" k="challengeDescription" />
                 </div>
               </div>
             </div>
@@ -105,9 +106,11 @@ export default async function QuizPage() {
             <div className="flex items-center gap-3 p-4 bg-card border border-border">
               <MythosMark id="laurel" className="h-5 w-5 text-gold" />
               <div className="text-left">
-                <div className="font-semibold text-sm">{t("achieveTitle")}</div>
+                <div className="font-semibold text-sm">
+                  <Translated namespace="pages.quiz" k="achieveTitle" />
+                </div>
                 <div className="text-xs text-muted-foreground">
-                  {t("achieveDescription")}
+                  <Translated namespace="pages.quiz" k="achieveDescription" />
                 </div>
               </div>
             </div>
@@ -117,15 +120,15 @@ export default async function QuizPage() {
         {/* Main Knowledge Quiz */}
         <div className="mb-8">
           <h2 className={cn(pageSectionTitleClass, "mb-6 text-center")}>
-            {t("knowledgeQuizTitle")}
+            <Translated namespace="pages.quiz" k="knowledgeQuizTitle" />
           </h2>
         </div>
-        <MythologyQuiz />
+        <MythologyQuiz pool={getMythologyQuizPool()} />
 
         {/* Other Quiz Types */}
         <div className="mb-12 mt-16">
           <h2 className={cn(pageSectionTitleClass, "mb-6 text-center")}>
-            {t("moreQuizzesTitle")}
+            <Translated namespace="pages.quiz" k="moreQuizzesTitle" />
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
             {OTHER_QUIZZES.map((quiz) => {
@@ -139,16 +142,24 @@ export default async function QuizPage() {
                         >
                           <MythosMark id={quiz.mark} className="h-6 w-6" />
                         </div>
-                        <Badge variant="secondary">{t(quiz.badgeKey)}</Badge>
+                        <Badge variant="secondary">
+                          <Translated
+                            namespace="pages.quiz"
+                            k={quiz.badgeKey}
+                          />
+                        </Badge>
                       </div>
                       <CardTitle className="text-xl font-serif mt-4 group-hover:text-gold transition-colors flex items-center gap-2">
-                        {t(quiz.titleKey)}
+                        <Translated namespace="pages.quiz" k={quiz.titleKey} />
                         <ArrowRight className="h-4 w-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
                       </CardTitle>
                     </CardHeader>
                     <CardContent>
                       <CardDescription className="text-sm">
-                        {t(quiz.descriptionKey)}
+                        <Translated
+                          namespace="pages.quiz"
+                          k={quiz.descriptionKey}
+                        />
                       </CardDescription>
                     </CardContent>
                   </Card>
@@ -160,10 +171,10 @@ export default async function QuizPage() {
 
         <section className="mx-auto mb-12 max-w-4xl rounded-xl border border-border/60 bg-card/60 p-6">
           <h2 className={cn(pageSectionTitleClass, "mb-3")}>
-            {t("studySectionTitle")}
+            <Translated namespace="pages.quiz" k="studySectionTitle" />
           </h2>
           <p className="text-muted-foreground leading-relaxed">
-            {t("studySectionDescription")}
+            <Translated namespace="pages.quiz" k="studySectionDescription" />
           </p>
         </section>
       </div>

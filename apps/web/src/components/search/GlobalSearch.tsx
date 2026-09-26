@@ -17,10 +17,11 @@ import {
   getRecentSearches,
   getResultUrl,
   saveRecentSearch,
-  searchAll,
+  searchIndex,
   type ContentType,
   type SearchResult as SearchResultType,
-} from "@/lib/search";
+} from "@/lib/search-engine";
+import { useSearchIndex } from "@/hooks/use-search-index";
 import {
   BookOpen,
   Clock,
@@ -157,13 +158,15 @@ export function GlobalSearch({
     }
   }, [open]);
 
-  // Search results using local JSON search
+  // Search results over the prebuilt index, fetched the first time the
+  // palette opens (the catalog JSON is not part of this bundle).
+  const { index, error: indexError } = useSearchIndex(open);
   const results = useMemo(() => {
-    if (!debouncedSearch || debouncedSearch.length < 2) {
+    if (!index || !debouncedSearch || debouncedSearch.length < 2) {
       return [];
     }
-    return searchAll(debouncedSearch, 15);
-  }, [debouncedSearch]);
+    return searchIndex(index, debouncedSearch, 15);
+  }, [index, debouncedSearch]);
 
   // Group results by type
   const groupedResults = useMemo(() => {
@@ -193,12 +196,12 @@ export function GlobalSearch({
   // Zero-result searches name the content gaps worth filling next; the query
   // itself is never sent, only its length.
   useEffect(() => {
-    if (!debouncedSearch || debouncedSearch.length < 2) return;
+    if (!index || !debouncedSearch || debouncedSearch.length < 2) return;
     trackEvent("search_performed", {
       queryLength: debouncedSearch.length,
       resultCount: results.length,
     });
-  }, [debouncedSearch, results.length]);
+  }, [index, debouncedSearch, results.length]);
 
   const popularSearches = useMemo(() => getPopularSearches().slice(0, 6), []);
 
@@ -261,7 +264,7 @@ export function GlobalSearch({
   // wrong item (Home / popular terms) mid-type.
   const showPendingResults =
     searchQuery.trim().length >= 2 &&
-    debouncedSearch.trim() !== searchQuery.trim();
+    (debouncedSearch.trim() !== searchQuery.trim() || (!index && !indexError));
 
   return (
     <CommandDialog open={open} onOpenChange={setOpen}>

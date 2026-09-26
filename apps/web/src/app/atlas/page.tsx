@@ -1,4 +1,6 @@
 import { AetherMap } from "@/components/atlas/AetherMap";
+import { computeAtlasLayout } from "@/lib/atlas-layout";
+import { getDeities, getRelationships } from "@/lib/data/catalog";
 import { generateBaseMetadata } from "@/lib/metadata";
 
 export const metadata = generateBaseMetadata({
@@ -17,5 +19,7 @@ export const metadata = generateBaseMetadata({
 });
 
 export default function AtlasPage() {
-  return <AetherMap />;
+  return (
+    <AetherMap layout={computeAtlasLayout(getDeities(), getRelationships())} />
+  );
 }

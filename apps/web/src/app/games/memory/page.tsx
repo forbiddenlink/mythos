@@ -1,4 +1,6 @@
 import { SymbolMemoryGame } from "@/components/games/SymbolMemoryGame";
+import { getDeities } from "@/lib/data/catalog";
+import { project } from "@/lib/data/project";
 import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
 import { SimplePageHeader } from "@/components/layout/simple-page-header";
 import { Sparkles, Brain, Timer } from "lucide-react";
@@ -133,7 +135,14 @@ export default function MemoryGamePage() {
           </p>
         </section>
 
-        <SymbolMemoryGame />
+        <SymbolMemoryGame
+          deities={project(getDeities(), [
+            "id",
+            "name",
+            "symbols",
+            "pantheonId",
+          ])}
+        />
       </div>
     </div>
   );

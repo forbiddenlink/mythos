@@ -23,7 +23,7 @@ interface Deity {
   importanceRank: number | null;
   imageUrl: string | null;
   alternateNames: string[];
-  pantheonId?: string;
+  pantheonId: string;
 }
 
 interface DeityFiltersProps {

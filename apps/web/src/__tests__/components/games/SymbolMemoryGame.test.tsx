@@ -17,13 +17,11 @@ vi.mock("framer-motion", () => ({
     <>{children}</>
   ),
 }));
-vi.mock("@/data/deities.json", () => ({
-  default: Array.from({ length: 12 }, (_, i) => ({
-    id: `figure-${i}`,
-    name: `Figure ${i}`,
-    symbols: [`symbol ${i}`],
-    pantheonId: "greek-pantheon",
-  })),
+const deities = Array.from({ length: 12 }, (_, i) => ({
+  id: `figure-${i}`,
+  name: `Figure ${i}`,
+  symbols: [`symbol ${i}`],
+  pantheonId: "greek-pantheon",
 }));
 
 beforeEach(() => {
@@ -54,7 +52,7 @@ describe("memory game recovery", () => {
     '{"easy":null,"medium":-1,"hard":null}',
   ])("ignores invalid saved scores: %s", (saved) => {
     localStorage.setItem("mythos_memory_best_times", saved);
-    render(<SymbolMemoryGame />);
+    render(<SymbolMemoryGame deities={deities} />);
     expect(
       screen.getAllByRole("button", { name: "Face down card" }),
     ).toHaveLength(16);
@@ -63,7 +61,7 @@ describe("memory game recovery", () => {
   it.each(["Reset game", "Easy"])(
     "cancels a pending mismatch when %s starts a new board",
     (action) => {
-      render(<SymbolMemoryGame />);
+      render(<SymbolMemoryGame deities={deities} />);
       mismatch();
       fireEvent.click(screen.getByRole("button", { name: action }));
       fireEvent.click(
@@ -77,7 +75,7 @@ describe("memory game recovery", () => {
   );
 
   it("cancels delayed work on unmount", () => {
-    const view = render(<SymbolMemoryGame />);
+    const view = render(<SymbolMemoryGame deities={deities} />);
     mismatch();
     view.unmount();
     expect(vi.getTimerCount()).toBe(0);
@@ -87,7 +85,7 @@ describe("memory game recovery", () => {
     vi.spyOn(Storage.prototype, "getItem").mockImplementation(() => {
       throw new Error("Unavailable");
     });
-    render(<SymbolMemoryGame />);
+    render(<SymbolMemoryGame deities={deities} />);
     expect(
       screen.getAllByRole("button", { name: "Face down card" }),
     ).toHaveLength(16);

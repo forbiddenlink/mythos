@@ -18,8 +18,6 @@ import {
   scoreArchetypeMatch,
   qualifies,
 } from "@/lib/archetype-matching";
-import deitiesData from "@/data/deities.json";
-import pantheonsData from "@/data/pantheons.json";
 
 interface ArchetypeDefinition {
   id: string;
@@ -231,7 +229,7 @@ const ARCHETYPES: ArchetypeDefinition[] = [
   },
 ];
 
-interface Deity {
+export interface ArchetypeDeity {
   id: string;
   name: string;
   slug: string;
@@ -245,15 +243,16 @@ interface Deity {
 /** Deities shown per pantheon card before the roster is summarised. */
 const PREVIEW_PER_PANTHEON = 3;
 
-export function ArchetypeMatrix() {
-  const [activeArchetype, setActiveArchetype] = useState<string>("storm-sky");
+type Deity = ArchetypeDeity;
 
-  const allDeities = deitiesData as Deity[];
-  const allPantheons = pantheonsData as Array<{
-    id: string;
-    name: string;
-    slug: string;
-  }>;
+export function ArchetypeMatrix({
+  deities: allDeities,
+  pantheons: allPantheons,
+}: {
+  deities: ArchetypeDeity[];
+  pantheons: Array<{ id: string; name: string; slug: string }>;
+}) {
+  const [activeArchetype, setActiveArchetype] = useState<string>("storm-sky");
 
   const pantheonNameMap = useMemo(() => {
     return new Map(
