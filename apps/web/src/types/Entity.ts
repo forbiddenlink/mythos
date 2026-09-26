@@ -168,6 +168,13 @@ export interface UserProgress {
 }
 
 /**
+ * How an entity image was made (mirrors `ImageProvenanceKindSchema`).
+ * Resolve per entity with `getImageProvenance` from `src/lib/image-provenance.ts`.
+ */
+export type ImageProvenanceKind =
+  "illustration-ai" | "illustration-procedural" | "public-domain" | "licensed";
+
+/**
  * How a location relates to the map (mirrors `LocationGeographySchema`):
  * a real place, a mythic place pinned to a traditional identification, or a
  * realm with no terrestrial coordinates.

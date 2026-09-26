@@ -345,6 +345,58 @@ export const JourneySchema = z.looseObject({
 export type Journey = z.infer<typeof JourneySchema>;
 
 // ═══════════════════════════════════════════════════════════════════
+// IMAGE PROVENANCE (src/data/image-provenance.json)
+// ═══════════════════════════════════════════════════════════════════
+
+/**
+ * How an entity image was made. Only the illustration kinds occur today;
+ * the others exist so a future sourced image can be recorded honestly.
+ */
+export const ImageProvenanceKindSchema = z.enum([
+  "illustration-ai",
+  "illustration-procedural",
+  "public-domain",
+  "licensed",
+]);
+
+export type ImageProvenanceKind = z.infer<typeof ImageProvenanceKindSchema>;
+
+export const ImageGeneratorSchema = z.looseObject({
+  kind: ImageProvenanceKindSchema,
+  label: z.string(),
+  description: z.string(),
+  license: z.string().optional(),
+  source: z.string().optional(),
+  scripts: z.array(z.string()).optional(),
+});
+
+export const IMAGE_ENTITY_TYPES = [
+  "deity",
+  "hero",
+  "creature",
+  "artifact",
+  "location",
+  "story",
+  "pantheon",
+  "journey",
+] as const;
+
+export type ImageEntityType = (typeof IMAGE_ENTITY_TYPES)[number];
+
+/**
+ * Central provenance map: `entities[type][id]` names a key in `generators`.
+ * Kept out of the entity records so 600+ entries share a handful of
+ * descriptions; regenerate with `scripts/build_image_provenance.py`.
+ */
+export const ImageProvenanceFileSchema = z.looseObject({
+  generators: z.record(z.string(), ImageGeneratorSchema),
+  entities: z.record(
+    z.enum(IMAGE_ENTITY_TYPES),
+    z.record(z.string(), z.string()),
+  ),
+});
+
+// ═══════════════════════════════════════════════════════════════════
 // ARRAY VALIDATORS (for validating entire data files)
 // ═══════════════════════════════════════════════════════════════════
 
