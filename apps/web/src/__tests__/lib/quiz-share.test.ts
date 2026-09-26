@@ -75,6 +75,12 @@ describe("quiz result share slugs", () => {
   it("names each known quiz", () => {
     expect(quizLabel("relationships")).toBe("Divine Relationships Quiz");
     expect(quizLabel(undefined)).toBe("Mythology Quiz");
+    expect(quizLabel("daily")).toBe("Today’s Myth");
+    expect(parseQuizResultSlug("daily-2-of-3")).toEqual({
+      score: 2,
+      total: 3,
+      quizId: "daily",
+    });
   });
 
   it("gives every score a verdict", () => {

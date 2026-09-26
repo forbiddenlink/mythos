@@ -5,6 +5,7 @@
 
 import dailyChallengesData from "@/data/daily-challenges.json";
 import { toLocalDateString } from "@/lib/date";
+import { getDateSeed, seededShuffle } from "@/lib/seeded";
 
 export interface DailyChallengeAction {
   type:
@@ -29,37 +30,6 @@ export interface DailyChallenge {
 }
 
 const allChallenges = dailyChallengesData.challenges as DailyChallenge[];
-
-/**
- * Get a deterministic seed for a given date
- */
-function getDateSeed(date: Date): number {
-  const dateStr = toLocalDateString(date);
-  let hash = 0;
-  for (let i = 0; i < dateStr.length; i++) {
-    const char = dateStr.codePointAt(i) ?? 0;
-    hash = (hash << 5) - hash + char;
-    hash = hash & hash;
-  }
-  return Math.abs(hash);
-}
-
-/**
- * Shuffle array with a seeded random
- */
-function seededShuffle<T>(array: T[], seed: number): T[] {
-  const result = [...array];
-  let currentSeed = seed;
-
-  for (let i = result.length - 1; i > 0; i--) {
-    // Simple linear congruential generator
-    currentSeed = (currentSeed * 1103515245 + 12345) & 0x7fffffff;
-    const j = currentSeed % (i + 1);
-    [result[i], result[j]] = [result[j], result[i]];
-  }
-
-  return result;
-}
 
 /**
  * Get today's date string (YYYY-MM-DD)

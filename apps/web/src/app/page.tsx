@@ -4,6 +4,7 @@ import { DidYouKnow } from "@/components/home/DidYouKnow";
 import { AtlasOpensHero } from "@/components/home/AtlasOpensHero";
 import { InteractiveStoriesBanner } from "@/components/home/InteractiveStoriesBanner";
 import { PantheonShowcase } from "@/components/home/PantheonShowcase";
+import { TodaysMyth } from "@/components/home/TodaysMyth";
 import { SyncretismStrip } from "@/components/mythology/SyncretismStrip";
 import { generateBaseMetadata } from "@/lib/metadata";
 import { getTraditionCount } from "@/lib/data/catalog";
@@ -64,6 +65,7 @@ export default function Home() {
       />
       <AtlasOpensHero counts={HERO_COUNTS} />
       <PantheonShowcase />
+      <TodaysMyth />
       <CollectionsShowcase />
       <SyncretismStrip />
       <InteractiveStoriesBanner />
