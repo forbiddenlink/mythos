@@ -207,7 +207,13 @@ DEITIES = [
         "accent": (190, 120, 70),
         "bg": (22, 16, 12),
         "motif": "three_boxes"
-    }
+    },
+    # 2026-09 additions: figures behind the Percy Jackson and Hades II guides
+    {"id": "atlas", "name": "ATLAS", "tag": "GREEK TITAN", "domain": "BEARER OF THE SKY · SON OF IAPETUS", "accent": (205, 160, 80), "bg": (22, 18, 14), "motif": "starry_vault"},
+    {"id": "nyx", "name": "NYX", "tag": "GREEK PRIMORDIAL", "domain": "NIGHT · MOTHER OF SLEEP & DEATH", "accent": (120, 110, 190), "bg": (12, 12, 24), "motif": "starry_vault"},
+    {"id": "nemesis", "name": "NEMESIS", "tag": "GREEK GODDESS", "domain": "RETRIBUTION · DUE MEASURE · RHAMNOUS", "accent": (190, 150, 90), "bg": (20, 16, 14), "motif": "sickle_hourglass"},
+    {"id": "thanatos", "name": "THANATOS", "tag": "GREEK GOD", "domain": "DEATH · SON OF NIGHT · TWIN OF SLEEP", "accent": (150, 150, 170), "bg": (14, 14, 18), "motif": "black_raven"},
+    {"id": "melinoe", "name": "MELINOË", "tag": "GREEK GODDESS", "domain": "GHOSTS · NIGHT TERRORS · ORPHIC HYMN 71", "accent": (215, 170, 70), "bg": (18, 14, 20), "motif": "triple_torch"}
 ]
 
 def draw_deity_motif(draw, cx, cy, radius, motif, accent, gold):

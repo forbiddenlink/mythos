@@ -13228,5 +13228,239 @@
       "practices": "No ceremony for this figure is described in the published sources this site draws on."
     },
     "traditionRole": "Supernatural Craftsman"
+  },
+  {
+    "id": "atlas",
+    "pantheonId": "greek-pantheon",
+    "name": "Atlas",
+    "slug": "atlas",
+    "originalLanguageName": {
+      "text": "Ἄτλας",
+      "language": "Ancient Greek",
+      "transliteration": "Atlas",
+      "meaning": "Usually connected with tlēnai, 'to bear, endure'"
+    },
+    "alternateNames": [],
+    "gender": "male",
+    "domain": ["endurance", "the heavens"],
+    "symbols": [
+      "the sky borne on his shoulders",
+      "the western edge of the world"
+    ],
+    "description": "The Titan son of Iapetus whom Zeus set to hold up the sky at the western edge of the world, near the garden of the Hesperides. Brother of Prometheus and father of Maia and Calypso, he appears in Heracles' quest for the golden apples, and in Ovid is turned to stone as the Atlas mountains.",
+    "detailedBio": "## Bearer of the Sky\n\nHesiod makes Atlas one of the four sons of the Titan Iapetus and the Oceanid Clymene, with Menoetius, Prometheus and Epimetheus. Zeus deals with each of them, and Atlas's lot is to stand at the ends of the earth, before the clear-voiced Hesperides, holding up the wide sky with his head and arms. The *Theogony* presents this as an assignment by Zeus, not as the aftermath of any single battle.\n\nThe *Odyssey* gives a different image of the same figure: the nymph Calypso is the daughter of Atlas, who knows the depths of every sea and keeps the tall pillars that hold earth and sky apart. Hesiod also names him as the father of Maia, mother of Hermes.\n\n### The Golden Apples\n\nApollodorus's handbook tells how Heracles, sent for the golden apples of the Hesperides, was advised by Prometheus not to fetch them himself but to send Atlas, taking the sky onto his own shoulders meanwhile. Atlas came back with three apples and proposed to deliver them to Eurystheus himself; Heracles, by a trick, got him to take the sky back and left with the apples. Apollodorus adds that some say Heracles picked the apples himself after killing the guardian serpent.\n\n### The Stone Mountain\n\nOvid ties Atlas to the mountains of north-west Africa. In the *Metamorphoses* Perseus, returning with Medusa's head, asks Atlas for hospitality and is refused, because Atlas remembers a prophecy that a son of Zeus would rob him of his golden fruit. Perseus shows him the Gorgon's head and Atlas becomes a mountain range that carries the sky and its stars.",
+    "originStory": "Atlas is the son of the Titan Iapetus and the Oceanid Clymene, and the brother of Menoetius, Prometheus and Epimetheus (Hesiod, Theogony 507-514). His task of holding up the sky is the lot Zeus assigned him.",
+    "importanceRank": 7,
+    "primarySources": [
+      {
+        "text": "Atlas, under hard constraint, holds up the wide sky with his head and tireless arms, standing at the ends of the earth before the clear-voiced Hesperides; this was the lot wise Zeus assigned him (paraphrase).",
+        "source": "Hesiod, Theogony 517-520 (paraphrase)",
+        "sourceId": "theogony",
+        "locator": "517-520",
+        "date": "c. 700 BCE"
+      },
+      {
+        "text": "Calypso is the daughter of Atlas, who knows the depths of every sea and himself keeps the tall pillars that hold earth and sky apart (paraphrase).",
+        "source": "Homer, Odyssey 1.52-54 (paraphrase)",
+        "sourceId": "odyssey",
+        "locator": "1.52-54",
+        "date": "c. 725 BCE"
+      }
+    ],
+    "furtherReading": [
+      {
+        "sourceId": "library-apollodorus",
+        "note": "2.5.11: Atlas fetches the golden apples while Heracles holds the sky"
+      },
+      {
+        "sourceId": "metamorphoses",
+        "note": "Book 4: Perseus turns Atlas to stone with Medusa's head"
+      }
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "egyptian-pantheon",
+        "deityId": "shu",
+        "note": "Both hold the sky apart from the earth, though Shu is the air that separates Nut from Geb while Atlas bears the sky as the lot Zeus assigned him"
+      }
+    ],
+    "pronunciation": {
+      "ipa": "/ˈætləs/",
+      "phonetic": "AT-lus"
+    },
+    "imageUrl": "/deities/atlas.png"
+  },
+  {
+    "id": "nyx",
+    "pantheonId": "greek-pantheon",
+    "name": "Nyx",
+    "slug": "nyx",
+    "originalLanguageName": {
+      "text": "Νύξ",
+      "language": "Ancient Greek",
+      "transliteration": "Nyx",
+      "meaning": "Night"
+    },
+    "alternateNames": ["Night", "Nox (Roman)"],
+    "gender": "female",
+    "domain": ["night"],
+    "symbols": ["darkness", "the house of Night at the edge of Tartarus"],
+    "description": "Night, one of the first powers in Hesiod's account of creation: born from Chaos, she bears Day and Aether and, on her own, a long brood of forces that trouble mortals, among them Death, Sleep, Doom and Nemesis. Even Zeus, in the Iliad, hesitates to anger her.",
+    "detailedBio": "## First Darkness\n\nIn the *Theogony* Night comes out of Chaos together with Erebus, the darkness below. Joined with Erebus she bears the bright Aether and Day, and Hesiod then lists the children she bore with no partner at all: Moros (Doom), black Ker, Thanatos (Death), Hypnos (Sleep) and the tribe of Dreams, Blame and Woe, the Hesperides who tend the golden apples beyond the ocean, the Fates, Nemesis, Deceit, Friendship, Old Age and Strife.\n\n### The House of Night\n\nHesiod places Night's house at the edge of Tartarus, where Night and Day greet each other at a great bronze threshold as one goes in and the other comes out; the house never holds them both at once. Her sons Sleep and Death live nearby.\n\n### A Power Zeus Respects\n\nIn *Iliad* 14 Sleep reminds Hera of the last time he lulled Zeus for her: the enraged god would have hurled him from the sky if Night, 'subduer of gods and men', had not sheltered him, and Zeus held back because he was unwilling to displease swift Night. It is one of the few moments in Homer where Zeus defers to another power.\n\nNight had little public cult; she matters above all as a cosmic power, and later Orphic poetry gives her a still larger place in the origin of the world.",
+    "originStory": "Night is born from Chaos alongside Erebus, at the very beginning of Hesiod's account of the world (Theogony 123). With Erebus she bears Aether and Day; alone, she bears Doom, Death, Sleep, Nemesis, Strife and many other powers (Theogony 211-225).",
+    "importanceRank": 4,
+    "primarySources": [
+      {
+        "text": "From Chaos came forth Erebus and black Night; and from Night, joined in love with Erebus, were born Aether and Day (paraphrase).",
+        "source": "Hesiod, Theogony 123-125 (paraphrase)",
+        "sourceId": "theogony",
+        "locator": "123-125",
+        "date": "c. 700 BCE"
+      },
+      {
+        "text": "Zeus would have flung Sleep from the sky had not Night, subduer of gods and men, saved him; Zeus held back his anger, unwilling to displease swift Night (paraphrase).",
+        "source": "Homer, Iliad 14 (paraphrase)",
+        "sourceId": "iliad",
+        "locator": "Book 14",
+        "date": "c. 750 BCE"
+      }
+    ],
+    "furtherReading": [
+      {
+        "sourceId": "theogony",
+        "note": "Night's children (211-225) and her house by Tartarus (744-757)"
+      }
+    ],
+    "pronunciation": {
+      "ipa": "/nɪks/",
+      "phonetic": "NIKS"
+    },
+    "imageUrl": "/deities/nyx.png"
+  },
+  {
+    "id": "nemesis",
+    "pantheonId": "greek-pantheon",
+    "name": "Nemesis",
+    "slug": "nemesis",
+    "originalLanguageName": {
+      "text": "Νέμεσις",
+      "language": "Ancient Greek",
+      "transliteration": "Némesis",
+      "meaning": "Righteous indignation; due apportionment (from nemein, 'to distribute')"
+    },
+    "alternateNames": ["Rhamnousia"],
+    "gender": "female",
+    "domain": ["retribution", "due measure"],
+    "symbols": ["measuring rod", "bridle", "wheel"],
+    "description": "The daughter of Night whom Hesiod calls a bane to mortals: the indignation that answers excess and undeserved good fortune. She had a Classical temple at Rhamnous in Attica, and a lost early epic made her, not Leda, the mother of Helen.",
+    "detailedBio": "## The Answer to Excess\n\nHesiod lists Nemesis among the children Night bore without a partner, 'a pain to mortal men'. The word means the indignation stirred by something out of proportion, and the power that restores the balance. In *Works and Days*, when the age of iron has fully decayed, Shame (Aidos) and Nemesis wrap themselves in white robes and leave the earth for the gods, abandoning humankind to its miseries.\n\n### Rhamnous\n\nNemesis was worshipped above all at Rhamnous on the north-east coast of Attica, where a Classical temple held her cult statue; she was known there as Rhamnousia. Later art gives her attributes of measure and restraint, such as the measuring rod and the bridle.\n\n### Mother of Helen\n\nThe *Cypria*, a lost epic of the Trojan cycle known through fragments, told how Zeus pursued Nemesis as she fled through many shapes and fathered Helen on her. Apollodorus records a version in which she became a goose and Zeus a swan, and the egg she laid was brought to Leda, who raised Helen as her own. The story sets the goddess of retribution at the origin of the Trojan War.",
+    "originStory": "Nemesis is one of the children Night bore without a father, set among Hesiod's list of powers that afflict mortals (Theogony 223-224).",
+    "importanceRank": 10,
+    "primarySources": [
+      {
+        "text": "Deadly Night also bore Nemesis, a pain to mortal men (paraphrase).",
+        "source": "Hesiod, Theogony 223-224 (paraphrase)",
+        "sourceId": "theogony",
+        "locator": "223-224",
+        "date": "c. 700 BCE"
+      },
+      {
+        "text": "At the end of the iron age, Aidos and Nemesis will cover their fair forms in white robes and leave the wide-pathed earth for the company of the gods, and bitter sorrows will be left for mortals (paraphrase).",
+        "source": "Hesiod, Works and Days 197-201 (paraphrase)",
+        "sourceId": "works-and-days",
+        "locator": "197-201",
+        "date": "c. 700 BCE"
+      }
+    ],
+    "worship": {
+      "temples": ["Rhamnous in Attica, a Classical temple of Nemesis"],
+      "practices": "Cult is best attested at Rhamnous, where she was honoured as Rhamnousia; elsewhere she was more often invoked than worshipped."
+    },
+    "pronunciation": {
+      "ipa": "/ˈnɛməsɪs/",
+      "phonetic": "NEM-uh-sis"
+    },
+    "imageUrl": "/deities/nemesis.png"
+  },
+  {
+    "id": "thanatos",
+    "pantheonId": "greek-pantheon",
+    "name": "Thanatos",
+    "slug": "thanatos",
+    "originalLanguageName": {
+      "text": "Θάνατος",
+      "language": "Ancient Greek",
+      "transliteration": "Thánatos",
+      "meaning": "Death"
+    },
+    "alternateNames": ["Death", "Mors (Roman)"],
+    "gender": "male",
+    "domain": ["death"],
+    "symbols": ["wings", "sword"],
+    "description": "Death personified, son of Night and twin brother of Sleep (Hypnos). Hesiod gives him a heart of iron, hated even by the gods; in the Iliad the twins carry the fallen Sarpedon home to Lycia, and in Euripides Heracles wrestles him for the life of Alcestis.",
+    "detailedBio": "## Son of Night\n\nHesiod names Thanatos among the children of Night, together with his brother Hypnos, Sleep. The two live in Night's house near Tartarus, where the sun never looks on them. Sleep goes gently over land and sea, but Death has a heart of iron and a pitiless spirit of bronze; whoever he seizes he holds, and he is hateful even to the immortal gods.\n\n### Sarpedon's Bearer\n\nIn *Iliad* 16, when Zeus's son Sarpedon is killed at Troy, Apollo washes and anoints the body and hands it to the twin brothers Sleep and Death, who carry it swiftly to the broad land of Lycia for burial. The scene became a favourite of Athenian vase-painters, who show the two as winged young men lifting the body.\n\n### Wrestling Death\n\nIn Euripides' *Alcestis*, Death comes to take Alcestis, who has agreed to die in her husband Admetus's place; Heracles waits by the tomb, wrestles Death and brings her back. Later tradition also told how the trickster Sisyphus chained Death so that no one could die until Ares freed him.",
+    "originStory": "Thanatos is one of the children Night bore without a partner, twin of Hypnos, Sleep (Hesiod, Theogony 211-212).",
+    "importanceRank": 9,
+    "primarySources": [
+      {
+        "text": "Night bore hateful Doom and black Fate and Death, and she bore Sleep and the tribe of Dreams (paraphrase).",
+        "source": "Hesiod, Theogony 211-212 (paraphrase)",
+        "sourceId": "theogony",
+        "locator": "211-212",
+        "date": "c. 700 BCE"
+      },
+      {
+        "text": "Apollo gave Sarpedon's body to the swift escorts Sleep and Death, twin brothers, who set it down in the rich land of wide Lycia (paraphrase).",
+        "source": "Homer, Iliad 16 (paraphrase)",
+        "sourceId": "iliad",
+        "locator": "Book 16",
+        "date": "c. 750 BCE"
+      }
+    ],
+    "furtherReading": [
+      {
+        "sourceId": "theogony",
+        "note": "The house of Sleep and Death beside Tartarus (758-766)"
+      }
+    ],
+    "pronunciation": {
+      "ipa": "/ˈθænətɒs/",
+      "phonetic": "THAN-uh-toss"
+    },
+    "imageUrl": "/deities/thanatos.png"
+  },
+  {
+    "id": "melinoe",
+    "pantheonId": "greek-pantheon",
+    "name": "Melinoë",
+    "slug": "melinoe",
+    "originalLanguageName": {
+      "text": "Μηλινόη",
+      "language": "Ancient Greek",
+      "transliteration": "Mēlinóē",
+      "meaning": "Uncertain"
+    },
+    "alternateNames": ["Melinoe"],
+    "gender": "female",
+    "domain": ["ghosts", "night terrors"],
+    "symbols": ["saffron veil"],
+    "description": "A chthonic goddess known from a single ancient text, Orphic Hymn 71: a saffron-veiled daughter of Persephone, fathered by Zeus in the guise of Plouton, who sends apparitions and night terrors to mortals. Almost nothing else is recorded of her.",
+    "detailedBio": "## One Hymn\n\nMelinoë is known from one ancient poem, the seventy-first of the *Orphic Hymns*, a collection of cult hymns usually dated to the Roman imperial period. The hymn calls her saffron-veiled and of the earth, born beside the mouth of the river Cocytus to Persephone, who lay with Zeus while he took the form of Plouton. It asks her to turn away the frenzy she sends: she drives mortals mad with airy phantoms, appearing to them in strange shapes in the darkness of night.\n\n### What Is Not Known\n\nNo myth about Melinoë survives, and she has no attested temple or festival. The hymn's language of night, ghosts and the underworld overlaps with the way Hecate is addressed, and some scholars have read the name as a title belonging to Hecate's circle rather than a separate goddess. Any fuller portrait, including her modern prominence, is later invention built on this one text.",
+    "originStory": "Orphic Hymn 71 makes Melinoë the daughter of Persephone, born by the river Cocytus after Zeus lay with Persephone in the guise of Plouton.",
+    "importanceRank": 12,
+    "primarySources": [
+      {
+        "text": "I call on saffron-veiled Melinoë of the earth, whom revered Persephone bore by the mouth of the Cocytus, after Zeus lay with her in the guise of Plouton; she drives mortals to madness with airy phantoms, appearing in strange shapes in the dark (paraphrase).",
+        "source": "Orphic Hymn 71, To Melinoë (paraphrase)",
+        "sourceId": "orphic-hymns",
+        "locator": "Hymn 71",
+        "date": "c. 2nd-3rd century CE"
+      }
+    ],
+    "pronunciation": {
+      "ipa": "/məˈlɪnoʊiː/",
+      "phonetic": "muh-LIN-oh-ee"
+    },
+    "imageUrl": "/deities/melinoe.png"
   }
 ]

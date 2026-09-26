@@ -2024,5 +2024,51 @@
     "type": "academic",
     "language": "English",
     "description": "A collection of Seneca narratives recorded by the Seneca archaeologist and ethnologist Arthur C. Parker, including creation and trickster stories."
+  },
+  {
+    "id": "orphic-hymns",
+    "title": "Orphic Hymns",
+    "author": "Anonymous (Orphic tradition)",
+    "year": "c. 2nd-3rd century CE",
+    "type": "ancient-text",
+    "language": "Ancient Greek",
+    "description": "A collection of 87 short hymns for use in cult, attributed to Orpheus and usually dated to the Roman imperial period, probably from western Asia Minor. It preserves invocations of gods and powers who are otherwise thinly attested, including the only ancient account of Melinoë.",
+    "translators": [
+      {
+        "name": "Thomas Taylor",
+        "year": 1792
+      },
+      {
+        "name": "Apostolos N. Athanassakis",
+        "year": 1977
+      }
+    ],
+    "characters": [
+      {
+        "id": "hecate",
+        "kind": "deity",
+        "role": "invoked as goddess of the crossroads",
+        "where": "Hymn 1"
+      },
+      {
+        "id": "nyx",
+        "kind": "deity",
+        "role": "invoked as mother of gods and men",
+        "where": "Hymn 3"
+      },
+      {
+        "id": "melinoe",
+        "kind": "deity",
+        "role": "sole ancient account of the goddess",
+        "where": "Hymn 71"
+      },
+      {
+        "id": "thanatos",
+        "kind": "deity",
+        "role": "invoked as Death",
+        "where": "Hymn 87"
+      }
+    ],
+    "readingOrder": "Athanassakis's facing-page translation (1977, revised with Wolkow 2013) is the standard modern English edition; Thomas Taylor's 1792 verse translation is out of copyright."
   }
 ]

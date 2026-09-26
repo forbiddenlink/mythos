@@ -17,10 +17,7 @@
       "kind": "illustration-ai",
       "label": "AI-generated illustration",
       "description": "Generated with a text-to-image model (scripts/generate_missing.py via Magica flux_2_max, or renders imported by scripts/move_and_update.py). Illustrative only; not historical artwork and not evidence of how the tradition depicted the subject. Inferred per image: the pipelines did not record the model or prompt for each file.",
-      "scripts": [
-        "scripts/generate_missing.py",
-        "scripts/move_and_update.py"
-      ]
+      "scripts": ["scripts/generate_missing.py", "scripts/move_and_update.py"]
     }
   },
   "entities": {
@@ -46,6 +43,7 @@
       "asclepius": "procedural-plate",
       "ashvins": "procedural-plate",
       "athena": "ai-illustration",
+      "atlas": "procedural-plate",
       "bacchus": "ai-illustration",
       "baldur": "ai-illustration",
       "bastet": "ai-illustration",
@@ -164,6 +162,7 @@
       "mayahuel": "ai-illustration",
       "mazu": "ai-illustration",
       "medb": "procedural-plate",
+      "melinoe": "procedural-plate",
       "mercury": "ai-illustration",
       "mictecacihuatl": "procedural-plate",
       "mictlantecuhtli": "ai-illustration",
@@ -174,6 +173,7 @@
       "naas-shaak-aankawu": "procedural-plate",
       "namaka": "ai-illustration",
       "nana-buruku": "ai-illustration",
+      "nemesis": "procedural-plate",
       "nephthys": "ai-illustration",
       "neptune": "ai-illustration",
       "nergal": "ai-illustration",
@@ -184,6 +184,7 @@
       "nut": "procedural-plate",
       "nuwa": "ai-illustration",
       "nyame": "ai-illustration",
+      "nyx": "procedural-plate",
       "obatala": "ai-illustration",
       "odin": "ai-illustration",
       "oduduwa": "ai-illustration",
@@ -253,6 +254,7 @@
       "tawhirimatea": "ai-illustration",
       "tethys": "procedural-plate",
       "tezcatlipoca": "ai-illustration",
+      "thanatos": "procedural-plate",
       "thor": "ai-illustration",
       "thoth": "ai-illustration",
       "three-sisters": "procedural-plate",
@@ -360,6 +362,7 @@
       "kooshdaa-kaa": "procedural-plate",
       "koschei": "procedural-plate",
       "kraken": "ai-illustration",
+      "ladon": "procedural-plate",
       "lamassu": "ai-illustration",
       "lares": "ai-illustration",
       "lemures": "ai-illustration",
@@ -375,6 +378,7 @@
       "mushussu": "ai-illustration",
       "naga": "ai-illustration",
       "nagual": "ai-illustration",
+      "nemean-lion": "procedural-plate",
       "niagwahe": "procedural-plate",
       "nian": "ai-illustration",
       "nidhogg": "ai-illustration",
@@ -541,6 +545,7 @@
       "mount-kunlun": "ai-illustration",
       "mount-meru": "ai-illustration",
       "mount-olympus": "ai-illustration",
+      "mount-othrys": "procedural-plate",
       "moytirra": "procedural-plate",
       "muspelheim": "ai-illustration",
       "nass-river": "procedural-plate",

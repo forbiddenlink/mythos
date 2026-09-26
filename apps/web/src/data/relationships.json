@@ -2092,5 +2092,46 @@
     "relationshipType": "ally_of",
     "confidenceLevel": "medium",
     "description": "Attested pairing: in the treaties recorded in the Primary Chronicle (s.a. 907 and 971) the Rus' swear by Perun and by Volos, the cattle god, together. This is joint invocation in oaths, not a narrated alliance; the opposed 'enemy' reading of the same pair is a modern reconstruction."
+  },
+  {
+    "id": "greek-atlas-prometheus",
+    "fromDeityId": "atlas",
+    "toDeityId": "prometheus",
+    "relationshipType": "sibling_of",
+    "confidenceLevel": "high",
+    "description": "Both are sons of Iapetus and Clymene (Hesiod, Theogony 507-514)."
+  },
+  {
+    "id": "greek-nyx-nemesis",
+    "fromDeityId": "nyx",
+    "toDeityId": "nemesis",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high",
+    "description": "Night bore Nemesis without a partner (Hesiod, Theogony 223-224)."
+  },
+  {
+    "id": "greek-nyx-thanatos",
+    "fromDeityId": "nyx",
+    "toDeityId": "thanatos",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high",
+    "description": "Night bore Death, with Sleep and Doom, without a partner (Hesiod, Theogony 211-212)."
+  },
+  {
+    "id": "greek-persephone-melinoe",
+    "fromDeityId": "persephone",
+    "toDeityId": "melinoe",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "medium",
+    "description": "Only source: Orphic Hymn 71, where Persephone bears Melinoë by the Cocytus."
+  },
+  {
+    "id": "greek-zeus-melinoe",
+    "fromDeityId": "zeus",
+    "toDeityId": "melinoe",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "medium",
+    "description": "Only source: Orphic Hymn 71, where Zeus fathers Melinoë in the guise of Plouton (Hades).",
+    "isDisputed": true
   }
 ]

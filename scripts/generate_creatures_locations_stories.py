@@ -182,6 +182,23 @@ CREATURES = [
         "accent": (100, 170, 140),
         "bg": (12, 20, 18),
         "motif": "zmey_dragon"
+    },
+    # 2026-09 additions for the Percy Jackson guide
+    {
+        "id": "nemean-lion",
+        "name": "NEMEAN LION",
+        "subtitle": "THE HIDE NO WEAPON COULD PIERCE",
+        "accent": (210, 165, 75),
+        "bg": (22, 18, 12),
+        "motif": "leshy_antlers"
+    },
+    {
+        "id": "ladon",
+        "name": "LADON",
+        "subtitle": "SERPENT OF THE GOLDEN APPLES",
+        "accent": (150, 180, 90),
+        "bg": (14, 20, 14),
+        "motif": "zmey_dragon"
     }
 ]
 
@@ -424,6 +441,14 @@ LOCATIONS = [
         "name": "MAG TUIRED",
         "subtitle": "THE PLAIN OF THE SECOND BATTLE",
         "accent": (160, 130, 110),
+        "bg": (18, 16, 14),
+        "motif": "arkona_cliffs"
+    },
+    {
+        "id": "mount-othrys",
+        "name": "MOUNT OTHRYS",
+        "subtitle": "THE TITANS' SIDE OF THE WAR",
+        "accent": (180, 150, 110),
         "bg": (18, 16, 14),
         "motif": "arkona_cliffs"
     }
