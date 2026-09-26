@@ -93,6 +93,12 @@ describe("csp-hashes build script", () => {
     ]);
   });
 
+  it("finds scripts whose end tag carries whitespace or attributes", () => {
+    const html =
+      "<script>first()</script ><script>second()</script\n foo><p>x</p>";
+    expect(inlineScripts(html)).toEqual(["first()", "second()"]);
+  });
+
   it("produces CSP-compatible SHA-256 sources", () => {
     // echo -n "alert(1)" | openssl dgst -sha256 -binary | base64
     expect(sha256("alert(1)")).toBe(

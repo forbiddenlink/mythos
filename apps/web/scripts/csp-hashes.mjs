@@ -36,7 +36,9 @@ const EXECUTABLE_TYPES = new Set([
 /** Inline, executable script bodies in document order. */
 export function inlineScripts(html) {
   const out = [];
-  const re = /<script\b([^>]*)>([\s\S]*?)<\/script>/gi;
+  // Browsers end a script at "</script" followed by whitespace, "/" or ">",
+  // so accept any end tag of that shape, e.g. "</script >".
+  const re = /<script\b([^>]*)>([\s\S]*?)<\/script\b[^>]*>/gi;
   for (const match of html.matchAll(re)) {
     const attrs = match[1];
     if (/\bsrc\s*=/.test(attrs)) continue;
