@@ -59,12 +59,6 @@ export function getDeitySlug(reference: string): string {
   );
 }
 
-export function getDeityName(reference: string): string {
-  return (
-    findDeityByReference(reference)?.name ?? formatDeityReference(reference)
-  );
-}
-
 export function getDeityPath(reference: string): string {
   return `/deities/${getDeitySlug(reference)}`;
 }

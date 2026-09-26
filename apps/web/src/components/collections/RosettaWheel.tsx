@@ -153,5 +153,3 @@ export function RosettaWheel({
     </section>
   );
 }
-
-export default RosettaWheel;

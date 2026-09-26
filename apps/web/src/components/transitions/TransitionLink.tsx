@@ -94,5 +94,3 @@ export function TransitionLink({
     </Link>
   );
 }
-
-export default TransitionLink;

@@ -221,5 +221,3 @@ export function AchievementToast({
     </div>
   );
 }
-
-export default AchievementToast;

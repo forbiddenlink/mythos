@@ -1,7 +1,6 @@
 "use client";
 
 import { jsPDF } from "jspdf";
-import html2canvas from "html2canvas";
 
 export interface DeityExportData {
   name: string;
@@ -410,70 +409,4 @@ export async function exportStoryToPdf(story: StoryExportData): Promise<void> {
   // Download
   const filename = `${story.title.toLowerCase().replaceAll(/\s+/g, "-")}-mythos-atlas.pdf`;
   doc.save(filename);
-}
-
-// Alternative: Export visible content using html2canvas
-export async function exportElementToPdf(
-  elementId: string,
-  filename: string,
-  title?: string,
-): Promise<void> {
-  const element = document.getElementById(elementId);
-  if (!element) {
-    throw new Error(`Element with id "${elementId}" not found`);
-  }
-
-  // Create canvas from element
-  const canvas = await html2canvas(element, {
-    scale: 2,
-    useCORS: true,
-    logging: false,
-    backgroundColor: "#ffffff",
-  });
-
-  const imgData = canvas.toDataURL("image/png");
-  const imgWidth = 190;
-  const imgHeight = (canvas.height * imgWidth) / canvas.width;
-
-  const doc = new jsPDF({
-    orientation: imgHeight > 277 ? "portrait" : "portrait",
-    unit: "mm",
-    format: "a4",
-  });
-
-  // Add header
-  doc.setFillColor(COLORS.midnight);
-  doc.rect(0, 0, 210, 30, "F");
-  doc.setTextColor(COLORS.gold);
-  doc.setFontSize(18);
-  doc.setFont("helvetica", "bold");
-  doc.text("MYTHOS ATLAS", PAGE_MARGIN, 20);
-
-  // Add title if provided
-  let yOffset = 35;
-  if (title) {
-    doc.setTextColor(COLORS.text);
-    doc.setFontSize(16);
-    doc.text(title, PAGE_MARGIN, yOffset);
-    yOffset += 10;
-  }
-
-  // Calculate how many pages we need
-  const pageHeight = 277 - yOffset;
-  let heightLeft = imgHeight;
-  let position = yOffset;
-
-  // First page
-  doc.addImage(imgData, "PNG", 10, position, imgWidth, imgHeight);
-  heightLeft -= pageHeight;
-
-  // Additional pages if needed
-  while (heightLeft > 0) {
-    doc.addPage();
-    position = 10 - (imgHeight - heightLeft);
-    doc.addImage(imgData, "PNG", 10, position, imgWidth, imgHeight);
-    heightLeft -= 277;
-  }
-
-  doc.save(`${filename}.pdf`);
 }

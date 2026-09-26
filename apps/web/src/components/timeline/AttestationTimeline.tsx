@@ -164,7 +164,11 @@ export function AttestationTimeline() {
                 {points
                   .filter((p) => p.pantheonId === pid)
                   .map((p) => (
-                    <Link key={p.slug} href={`/deities/${p.slug}`} aria-label={`${p.name}: ${formatYear(p.year)}`}>
+                    <Link
+                      key={p.slug}
+                      href={`/deities/${p.slug}`}
+                      aria-label={`${p.name}: ${formatYear(p.year)}`}
+                    >
                       <circle
                         cx={xOf(p.year)}
                         cy={laneY(i)}
@@ -200,5 +204,3 @@ export function AttestationTimeline() {
     </div>
   );
 }
-
-export default AttestationTimeline;

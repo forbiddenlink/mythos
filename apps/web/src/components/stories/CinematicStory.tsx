@@ -176,5 +176,3 @@ export function CinematicStory({
     </div>
   );
 }
-
-export default CinematicStory;

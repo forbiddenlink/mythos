@@ -125,5 +125,3 @@ export function AtlasOpensHero({ counts }: AtlasOpensHeroProps) {
     </section>
   );
 }
-
-export default AtlasOpensHero;

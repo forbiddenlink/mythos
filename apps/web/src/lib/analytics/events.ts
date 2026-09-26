@@ -88,10 +88,6 @@ export function resetAnalyticsSink(): void {
   sink = null;
 }
 
-export function hasAnalyticsSink(): boolean {
-  return sink !== null;
-}
-
 function isPrimitive(value: unknown): value is AnalyticsPropertyValue {
   return (
     value === null ||

@@ -224,5 +224,3 @@ export function ScrollytellingReader({
     </div>
   );
 }
-
-export default ScrollytellingReader;

@@ -41,7 +41,6 @@
     "d3": "^7.9.0",
     "framer-motion": "^13.0.0",
     "howler": "^2.2.4",
-    "html2canvas": "^1.4.1",
     "jspdf": "^4.2.1",
     "leaflet": "^1.9.4",
     "lucide-react": "^1.28.0",

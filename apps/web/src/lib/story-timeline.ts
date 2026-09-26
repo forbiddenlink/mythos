@@ -292,15 +292,6 @@ export function groupEventsByEra(
 }
 
 /**
- * Gets unique pantheons from events
- */
-export function getUniquePantheons(events: TimelineEvent[]): string[] {
-  const pantheons = new Set<string>();
-  events.forEach((e) => pantheons.add(e.pantheon));
-  return Array.from(pantheons);
-}
-
-/**
  * Pantheon color mappings for consistency with existing components
  */
 export const PANTHEON_COLORS: Record<

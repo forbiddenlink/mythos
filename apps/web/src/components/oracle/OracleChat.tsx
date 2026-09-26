@@ -414,5 +414,3 @@ export function OracleChat() {
     </>
   );
 }
-
-export default OracleChat;

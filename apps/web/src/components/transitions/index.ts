@@ -7,7 +7,6 @@
  * ## Available Components
  *
  * - `TransitionLink` - Enhanced Link with view transition support
- * - `PageTransition` - Wrapper to apply view-transition-name to sections
  *
  * ## CSS Transition Names
  *
@@ -21,7 +20,7 @@
  * ## Usage
  *
  * ```tsx
- * import { TransitionLink, PageTransition } from '@/components/transitions';
+ * import { TransitionLink } from '@/components/transitions';
  *
  * // Link with view transition
  * <TransitionLink href="/deities/zeus">
@@ -32,14 +31,7 @@
  * <TransitionLink href="/deities/zeus">
  *   <Image style={{ viewTransitionName: 'deity-zeus' }} />
  * </TransitionLink>
- *
- * // Page section with transition
- * <PageTransition name="hero-section">
- *   <HeroContent />
- * </PageTransition>
  * ```
  */
 
-export { TransitionLink } from './TransitionLink';
-export { PageTransition } from './PageTransition';
-export { TransitionSkeleton } from './TransitionSkeleton';
+export { TransitionLink } from "./TransitionLink";

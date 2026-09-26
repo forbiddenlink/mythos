@@ -293,43 +293,6 @@ function calculateSimilarity(story1: Story, story2: Story): number {
 }
 
 /**
- * Find myths similar to a given story
- */
-export function findSimilarMyths(
-  story: Story,
-  allStories: Story[],
-  limit: number = 5,
-): Array<{ story: Story; similarity: number }> {
-  const similarities: Array<{ story: Story; similarity: number }> = [];
-
-  for (const otherStory of allStories) {
-    if (otherStory.id === story.id) continue;
-
-    const similarity = calculateSimilarity(story, otherStory);
-
-    if (similarity > 0.2) {
-      // Minimum threshold
-      similarities.push({ story: otherStory, similarity });
-    }
-  }
-
-  // Sort by similarity descending
-  similarities.sort((a, b) => b.similarity - a.similarity);
-
-  return similarities.slice(0, limit);
-}
-
-/**
- * Get stories by category
- */
-export function getStoriesByCategory(
-  stories: Story[],
-  category: MythCategory,
-): Story[] {
-  return stories.filter((s) => s.category === category);
-}
-
-/**
  * Compare multiple myth versions/similar stories
  */
 export function compareMythVersions(
@@ -450,63 +413,10 @@ function formatPantheonName(pantheonId: string): string {
 }
 
 /**
- * Get unique themes across all stories in a comparison
- */
-export function getUniqueThemes(stories: Story[]): string[] {
-  const themes = new Set<string>();
-  stories.forEach((story) => {
-    story.moralThemes.forEach((theme) => themes.add(theme.toLowerCase()));
-  });
-  return Array.from(themes).map((t) => t.charAt(0).toUpperCase() + t.slice(1));
-}
-
-/**
- * Check if a theme is shared between multiple stories
- */
-export function isSharedTheme(theme: string, stories: Story[]): boolean {
-  const normalizedTheme = theme.toLowerCase();
-  let count = 0;
-  for (const story of stories) {
-    if (story.moralThemes.some((t) => t.toLowerCase() === normalizedTheme)) {
-      count++;
-      if (count >= 2) return true;
-    }
-  }
-  return false;
-}
-
-/**
- * Get stories by theme
- */
-export function getStoriesByTheme(stories: Story[], theme: string): Story[] {
-  const normalizedTheme = theme.toLowerCase();
-  return stories.filter((story) =>
-    story.moralThemes.some((t) => t.toLowerCase().includes(normalizedTheme)),
-  );
-}
-
-/**
  * Get all available categories from stories
  */
 export function getAvailableCategories(stories: Story[]): string[] {
   const categories = new Set<string>();
   stories.forEach((story) => categories.add(story.category));
   return Array.from(categories).sort();
-}
-
-/**
- * Search stories by title, theme, or content
- */
-export function searchStories(stories: Story[], query: string): Story[] {
-  const normalizedQuery = query.toLowerCase();
-
-  return stories.filter(
-    (story) =>
-      story.title.toLowerCase().includes(normalizedQuery) ||
-      story.summary.toLowerCase().includes(normalizedQuery) ||
-      story.moralThemes.some((t) =>
-        t.toLowerCase().includes(normalizedQuery),
-      ) ||
-      story.category.toLowerCase().includes(normalizedQuery),
-  );
 }

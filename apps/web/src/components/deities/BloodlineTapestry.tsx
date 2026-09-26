@@ -227,5 +227,3 @@ export function BloodlineTapestry({
     </section>
   );
 }
-
-export default BloodlineTapestry;
