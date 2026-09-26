@@ -903,5 +903,179 @@
         "duration": "Aftermath"
       }
     ]
+  },
+  {
+    "id": "nine-realms",
+    "heroId": "odin",
+    "heroKind": "deity",
+    "heroName": "Odin",
+    "title": "The Nine Realms",
+    "slug": "nine-realms",
+    "description": "A circuit of the worlds gathered around the ash Yggdrasil, the realms Odin the Wanderer crosses in the Eddic poems in search of knowledge. The Eddas never give one fixed list or map of the nine worlds; this route follows the list most modern retellings use.",
+    "pantheonId": "norse-pantheon",
+    "duration": "A cosmic circuit",
+    "setting": "otherworld",
+    "imageUrl": "/locations/asgard.webp",
+    "source": "Poetic Edda and Snorri Sturluson's Prose Edda (13th century)",
+    "sourceId": "poetic-edda",
+    "waypoints": [
+      {
+        "id": "asgard",
+        "locationId": "asgard",
+        "name": "Asgard",
+        "order": 1,
+        "description": "Home of the Aesir, where Odin's hall Valhalla receives the chosen dead and Bifrost, the rainbow bridge, reaches down to the world of humans.",
+        "events": ["Odin's hall Valhalla", "The rainbow bridge Bifrost"],
+        "deities": ["Odin", "Frigg", "Heimdall"]
+      },
+      {
+        "id": "vanaheim",
+        "locationId": "vanaheim",
+        "name": "Vanaheim",
+        "order": 2,
+        "description": "Realm of the Vanir, the gods of fertility and plenty, who warred with the Aesir and made peace by exchanging hostages.",
+        "events": ["The Aesir–Vanir war and its truce"],
+        "deities": ["Njord", "Freyr", "Freyja"]
+      },
+      {
+        "id": "alfheim",
+        "locationId": "alfheim",
+        "name": "Alfheim",
+        "order": 3,
+        "description": "The bright realm of the light elves, given to Freyr as a tooth-gift according to Grímnismál.",
+        "events": ["Freyr's tooth-gift"],
+        "deities": ["Freyr"]
+      },
+      {
+        "id": "midgard",
+        "locationId": "midgard",
+        "name": "Midgard",
+        "order": 4,
+        "description": "The middle enclosure where humans live, fenced from the giants and circled by the world serpent in the ocean.",
+        "events": ["The world serpent Jormungandr in the encircling sea"],
+        "deities": ["Thor"]
+      },
+      {
+        "id": "jotunheim",
+        "locationId": "jotunheim",
+        "name": "Jotunheim",
+        "order": 5,
+        "description": "The giants' wilderness. In Vafþrúðnismál Odin travels here in disguise to test the wise giant Vafthrudnir in a contest of knowledge.",
+        "events": [
+          "The frost giants of Jotunheim",
+          "Odin's wisdom contest with Vafthrudnir"
+        ],
+        "deities": ["Odin"]
+      },
+      {
+        "id": "svartalfheim",
+        "locationId": "svartalfheim",
+        "name": "Svartalfheim",
+        "order": 6,
+        "description": "Snorri's home of the dark elves, whom he treats as dwarves: the smiths who forged Mjolnir, Gungnir and Draupnir.",
+        "events": ["The forges of the dwarves"]
+      },
+      {
+        "id": "nidavellir",
+        "locationId": "nidavellir",
+        "name": "Nidavellir",
+        "order": 7,
+        "description": "'Dark fields', named in Völuspá as a golden hall of Sindri's kin; many retellings fold it into Svartalfheim.",
+        "events": ["Sindri's golden hall"]
+      },
+      {
+        "id": "niflheim",
+        "locationId": "niflheim",
+        "name": "Niflheim",
+        "order": 8,
+        "description": "The primordial world of ice and mist. One root of Yggdrasil stands over it, above the seething spring Hvergelmir.",
+        "events": ["The roots of Yggdrasil", "The spring Hvergelmir"]
+      },
+      {
+        "id": "muspelheim",
+        "locationId": "muspelheim",
+        "name": "Muspelheim",
+        "order": 9,
+        "description": "The primordial world of fire, guarded by Surtr, whose flames will sweep the worlds at Ragnarok.",
+        "events": ["Surtr's fire at Ragnarok"]
+      }
+    ]
+  },
+  {
+    "id": "duat-night-journey",
+    "heroId": "ra",
+    "heroKind": "deity",
+    "heroName": "Ra",
+    "title": "Journey Through the Duat",
+    "slug": "duat-night-journey",
+    "description": "Follow the sun god's night barque into the Duat and the path the justified dead hoped to share: through guarded gates, to the weighing of the heart before Osiris, and on to the Field of Reeds. The stops combine the New Kingdom underworld books with the Book of the Dead; they are a composite route, not the itinerary of a single text.",
+    "pantheonId": "egyptian-pantheon",
+    "duration": "The twelve hours of night",
+    "setting": "otherworld",
+    "imageUrl": "/locations/hall-of-maat.webp",
+    "source": "Book of the Dead and the New Kingdom underworld books (Amduat, Book of Gates)",
+    "sourceId": "book-of-the-dead",
+    "waypoints": [
+      {
+        "id": "western-horizon",
+        "locationId": "western-horizon",
+        "name": "The Western Horizon",
+        "order": 1,
+        "description": "Where the sun sets and enters the Duat each evening; the dead, too, are 'westerners' who go to this horizon.",
+        "events": ["Sunset and the descent into the Duat"],
+        "deities": ["Ra"]
+      },
+      {
+        "id": "first-gate",
+        "locationId": "first-gate",
+        "name": "First Gate of the Duat",
+        "order": 2,
+        "description": "The first of the gates the night barque must pass, each guarded by serpents and doorkeepers whose names must be known.",
+        "events": [
+          "Navigating the twelve hours of night",
+          "Naming the gatekeepers"
+        ],
+        "deities": ["Ra"]
+      },
+      {
+        "id": "hall-of-maat",
+        "locationId": "hall-of-maat",
+        "name": "Hall of the Two Truths",
+        "order": 3,
+        "description": "The hall of judgment in Book of the Dead Spell 125, where the heart is weighed against the feather of Maat before Osiris and forty-two judges.",
+        "events": [
+          "The weighing of the heart",
+          "Meeting the forty-two judges",
+          "The devourer waits beside the scales"
+        ],
+        "creatures": ["Ammit"],
+        "deities": ["Osiris", "Anubis", "Thoth", "Maat"]
+      },
+      {
+        "id": "lake-of-fire",
+        "locationId": "lake-of-fire",
+        "name": "Lake of Fire",
+        "order": 4,
+        "description": "A lake of flame that destroys the sun god's enemies and the unjust, yet refreshes the justified.",
+        "events": ["The fate of the unjust dead"]
+      },
+      {
+        "id": "osiris-throne",
+        "locationId": "osiris-throne",
+        "name": "Throne of Osiris",
+        "order": 5,
+        "description": "The seat of Osiris as king of the dead and ruler of the West, the goal of the justified dead.",
+        "events": ["Standing before Osiris, ruler of the West"],
+        "deities": ["Osiris"]
+      },
+      {
+        "id": "field-of-reeds",
+        "locationId": "field-of-reeds",
+        "name": "Field of Reeds",
+        "order": 6,
+        "description": "Aaru, the paradise of abundance where the justified dead live on, sowing and reaping without end.",
+        "events": ["The paradise of the Field of Reeds"]
+      }
+    ]
   }
 ]

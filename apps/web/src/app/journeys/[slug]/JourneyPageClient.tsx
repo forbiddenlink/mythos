@@ -26,8 +26,14 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
 import { ItemListJsonLd } from "@/components/seo/JsonLd";
-import journeysData from "@/data/journeys.json";
-import pantheonsData from "@/data/pantheons.json";
+import { OtherworldRoute } from "@/components/maps/OtherworldRoute";
+import {
+  isOtherworldJourney,
+  mappedWaypoints,
+  sortWaypoints,
+  type JourneyDetail,
+  type JourneyWaypoint,
+} from "@/lib/journeys";
 import { PANTHEON_BG_LABEL as PANTHEON_COLORS } from "@/lib/pantheon-colors";
 
 // Dynamic import for the journey map
@@ -48,56 +54,30 @@ const JourneyMap = dynamic(
   },
 );
 
-// Types
-interface Waypoint {
-  id: string;
-  name: string;
-  coordinates: [number, number];
-  order: number;
-  description: string;
-  events?: string[];
-  creatures?: string[];
-  deities?: string[];
-  duration?: string;
-}
-
-interface Journey {
-  id: string;
-  heroId: string;
-  heroName: string;
-  title: string;
-  slug: string;
-  description: string;
-  pantheonId: string;
-  duration: string;
-  imageUrl?: string;
-  source: string;
-  waypoints: Waypoint[];
-}
-
-interface Pantheon {
-  id: string;
-  name: string;
-  slug: string;
-  culture: string;
-}
+type Waypoint = JourneyWaypoint;
 
 interface JourneyPageClientProps {
-  slug: string;
+  /** The journey, read on the server. */
+  journey: JourneyDetail;
+  /** Its tradition, for the "explore more" link. */
+  pantheon?: { name: string; slug: string };
 }
 
-export function JourneyPageClient({ slug }: JourneyPageClientProps) {
-  const journeys = journeysData as unknown as Journey[];
-  const pantheons = pantheonsData as Pantheon[];
-
-  const journey = journeys.find((j) => j.slug === slug);
+export function JourneyPageClient({
+  journey,
+  pantheon,
+}: Readonly<JourneyPageClientProps>) {
   const [selectedWaypoint, setSelectedWaypoint] = useState<Waypoint | null>(
     null,
   );
+  const otherworld = isOtherworldJourney(journey);
 
   const sortedWaypoints = useMemo(
-    () =>
-      journey ? journey.waypoints.toSorted((a, b) => a.order - b.order) : [],
+    () => sortWaypoints(journey.waypoints),
+    [journey],
+  );
+  const mapJourney = useMemo(
+    () => ({ ...journey, waypoints: mappedWaypoints(journey.waypoints) }),
     [journey],
   );
 
@@ -105,26 +85,6 @@ export function JourneyPageClient({ slug }: JourneyPageClientProps) {
     setSelectedWaypoint(waypoint);
   }, []);
 
-  if (!journey) {
-    return (
-      <div className="container mx-auto max-w-6xl px-4 py-24">
-        <div className="text-center">
-          <h2 className="text-2xl font-bold">Journey Not Found</h2>
-          <p className="text-slate-600 dark:text-slate-400 mt-2">
-            The journey you&apos;re looking for doesn&apos;t exist.
-          </p>
-          <Link
-            href="/journeys"
-            className="text-gold hover:underline mt-4 inline-block"
-          >
-            View all journeys
-          </Link>
-        </div>
-      </div>
-    );
-  }
-
-  const pantheon = pantheons.find((p) => p.id === journey.pantheonId);
   const colors = PANTHEON_COLORS[journey.pantheonId] || {
     bg: "#6b7280",
     label: "Unknown",
@@ -181,7 +141,7 @@ export function JourneyPageClient({ slug }: JourneyPageClientProps) {
           </div>
           <h1 className="page-title text-parchment mb-4">{journey.title}</h1>
           <p className="text-lg text-parchment/70 max-w-2xl mx-auto font-body">
-            The epic voyage of{" "}
+            {otherworld ? "Travel the realms with " : "The epic voyage of "}
             <span className="text-gold font-medium">{journey.heroName}</span>
           </p>
         </div>
@@ -205,18 +165,35 @@ export function JourneyPageClient({ slug }: JourneyPageClientProps) {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {/* Map Section */}
           <div className="min-w-0 lg:col-span-2">
-            <p className="mb-3 text-sm leading-relaxed text-muted-foreground">
-              This map illustrates the story’s route. Pins and connecting lines
-              are not evidence of an exact historical itinerary; some locations
-              are disputed or belong to the mythical world.
-            </p>
-            <div className="rounded-xl overflow-hidden border border-border shadow-lg h-150">
-              <JourneyMap
-                journey={journey}
-                onWaypointSelect={handleWaypointSelect}
-                selectedWaypointId={selectedWaypoint?.id}
-              />
-            </div>
+            {otherworld ? (
+              <>
+                <p className="mb-3 text-sm leading-relaxed text-muted-foreground">
+                  These realms belong to the mythic cosmos, not an earthly map,
+                  so the route is shown in order instead of as pins.
+                </p>
+                <OtherworldRoute
+                  waypoints={sortedWaypoints}
+                  color={colors.bg}
+                  selectedWaypointId={currentWaypoint?.id}
+                  onWaypointSelect={handleWaypointSelect}
+                />
+              </>
+            ) : (
+              <>
+                <p className="mb-3 text-sm leading-relaxed text-muted-foreground">
+                  This map illustrates the story’s route. Pins and connecting
+                  lines are not evidence of an exact historical itinerary; some
+                  locations are disputed or belong to the mythical world.
+                </p>
+                <div className="rounded-xl overflow-hidden border border-border shadow-lg h-150">
+                  <JourneyMap
+                    journey={mapJourney}
+                    onWaypointSelect={handleWaypointSelect}
+                    selectedWaypointId={selectedWaypoint?.id}
+                  />
+                </div>
+              </>
+            )}
 
             {/* Journey Description */}
             <Card className="mt-6">
@@ -279,6 +256,14 @@ export function JourneyPageClient({ slug }: JourneyPageClientProps) {
                   <p className="text-sm text-muted-foreground leading-relaxed">
                     {currentWaypoint.description}
                   </p>
+                  {currentWaypoint.locationId ? (
+                    <Link
+                      href={`/locations/${currentWaypoint.locationId}`}
+                      className="inline-flex min-h-11 items-center text-sm text-gold-text underline-offset-4 hover:underline"
+                    >
+                      Read about {currentWaypoint.name} →
+                    </Link>
+                  ) : null}
 
                   {/* Events */}
                   {currentWaypoint.events &&
@@ -410,7 +395,9 @@ export function JourneyPageClient({ slug }: JourneyPageClientProps) {
             Explore More
           </h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            <Link href={`/pantheons/${pantheon?.slug || "greek"}`}>
+            <Link
+              href={pantheon ? `/pantheons/${pantheon.slug}` : "/pantheons"}
+            >
               <Card
                 interactive
                 className="h-full hover:border-gold/50 transition-colors cursor-pointer"
@@ -427,7 +414,7 @@ export function JourneyPageClient({ slug }: JourneyPageClientProps) {
                   </div>
                   <div>
                     <h3 className="font-medium">
-                      {pantheon?.name || "Greek Pantheon"}
+                      {pantheon?.name || "All traditions"}
                     </h3>
                     <p className="text-sm text-muted-foreground">
                       Explore the {colors.label} gods

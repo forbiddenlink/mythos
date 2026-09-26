@@ -16,4 +16,14 @@ function permanent(source: string, destination: string): RouteRedirect {
 export const CONSOLIDATION_REDIRECTS: readonly RouteRedirect[] = [
   // "Your Stats" was a local-only leaderboard; it now lives on /progress.
   permanent("/leaderboard", "/progress"),
+
+  // Guided tours merged into journeys. Three tours duplicated a journey; the
+  // Nine Realms and Duat tours became otherworld journeys.
+  permanent("/tours", "/journeys"),
+  permanent("/tours/odyssey", "/journeys/odyssey"),
+  permanent("/tours/argonauts", "/journeys/golden-fleece"),
+  permanent("/tours/heracles-labors", "/journeys/twelve-labors"),
+  permanent("/tours/norse-realms", "/journeys/nine-realms"),
+  permanent("/tours/egyptian-afterlife", "/journeys/duat-night-journey"),
+  permanent("/tours/:path*", "/journeys"),
 ];

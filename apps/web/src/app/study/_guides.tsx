@@ -137,8 +137,8 @@ const GUIDES: StudyGuide[] = [
       },
       {
         title: "Walk the Nine Realms",
-        body: "Use the Norse realms tour (and journeys when you want the map).",
-        href: "/tours#norse-realms",
+        body: "Follow the Nine Realms journey around Yggdrasil, stop by stop.",
+        href: "/journeys/nine-realms",
       },
       {
         title: "Read a signature arc",

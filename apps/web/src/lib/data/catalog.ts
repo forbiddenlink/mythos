@@ -13,12 +13,14 @@ import "server-only";
 import branchingStoriesJson from "@/data/branching-stories.json";
 import deitiesJson from "@/data/deities.json";
 import heroesJson from "@/data/heroes.json";
+import journeysJson from "@/data/journeys.json";
 import pantheonsJson from "@/data/pantheons.json";
 import relationshipsJson from "@/data/relationships.json";
 import sourcesJson from "@/data/sources.json";
 import storiesJson from "@/data/stories.json";
 import type { BranchingStory } from "@/lib/branching-story";
 import { createDeityLookup, type DeityLookup } from "@/lib/deity-reference";
+import type { JourneyDetail } from "@/lib/journeys";
 import type {
   DeityIndexEntry,
   DeityListItem,
@@ -48,6 +50,12 @@ export interface HeroRecord {
   [key: string]: unknown;
 }
 const heroes = heroesJson as unknown as readonly HeroRecord[];
+
+const journeys = journeysJson as unknown as readonly JourneyDetail[];
+
+export function getJourneys(): readonly JourneyDetail[] {
+  return journeys;
+}
 
 export function getDeities(): readonly DeityRecord[] {
   return deities;

@@ -29,7 +29,6 @@ const footerLinks = {
     { label: "Quiz", href: "/quiz" },
     { label: "Symbol Memory", href: "/games/memory" },
     { label: "Learning Paths", href: "/learning-paths" },
-    { label: "Guided Tours", href: "/tours" },
     { label: "Daily Review", href: "/review" },
     { label: "Achievements", href: "/achievements" },
     { label: "Your Stats", href: "/progress" },

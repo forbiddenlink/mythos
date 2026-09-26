@@ -17,10 +17,7 @@
       "kind": "illustration-ai",
       "label": "AI-generated illustration",
       "description": "Generated with a text-to-image model (scripts/generate_missing.py via Magica flux_2_max, or renders imported by scripts/move_and_update.py). Illustrative only; not historical artwork and not evidence of how the tradition depicted the subject. Inferred per image: the pipelines did not record the model or prompt for each file.",
-      "scripts": [
-        "scripts/generate_missing.py",
-        "scripts/move_and_update.py"
-      ]
+      "scripts": ["scripts/generate_missing.py", "scripts/move_and_update.py"]
     }
   },
   "entities": {
@@ -738,10 +735,12 @@
       "yoruba-pantheon": "procedural-plate"
     },
     "journey": {
+      "duat-night-journey": "ai-illustration",
       "gilgamesh-quest": "ai-illustration",
       "heracles-labors": "ai-illustration",
       "jason-argonauts": "ai-illustration",
       "maui-island-fishing": "ai-illustration",
+      "nine-realms": "ai-illustration",
       "odyssey": "ai-illustration",
       "xibalba-hero-twins": "ai-illustration"
     }

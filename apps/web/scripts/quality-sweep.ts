@@ -20,7 +20,6 @@ const routes = [
   "/journeys",
   "/learning-paths",
   "/study",
-  "/tours",
   "/review",
   "/bookmarks",
   "/progress",

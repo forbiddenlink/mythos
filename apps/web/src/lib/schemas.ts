@@ -340,6 +340,17 @@ export const JourneySchema = z.looseObject({
   slug: z.string(),
   pantheonId: z.string(),
   imageUrl: z.string().optional(),
+  /** "otherworld" routes cross realms with no coordinates (no map). */
+  setting: z.enum(["earthly", "otherworld"]).optional(),
+  waypoints: z.array(
+    z.looseObject({
+      id: z.string(),
+      name: z.string(),
+      order: z.number().int().positive(),
+      coordinates: z.tuple([z.number(), z.number()]).optional(),
+      locationId: z.string().optional(),
+    }),
+  ),
 });
 
 export type Journey = z.infer<typeof JourneySchema>;
