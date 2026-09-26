@@ -18,6 +18,4 @@ export const pageLedeOnDarkClass = "page-lede text-parchment/70";
 
 export const pageLedeOnLightClass = "page-lede text-muted-foreground";
 
-export const pageShellClass = "page-shell";
-
 export const pageSectionTitleClass = "page-section-title";

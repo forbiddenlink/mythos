@@ -223,5 +223,3 @@ export function OracleConsult() {
     </div>
   );
 }
-
-export default OracleConsult;

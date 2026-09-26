@@ -66,11 +66,6 @@ export function getDomainMarkId(domain: string): MythosMarkId {
   return DOMAIN_MARKS[domain.toLowerCase()] || "constellation";
 }
 
-/** @deprecated Use getDomainMarkId + MythosMark */
-export function getDomainIcon(domain: string): MythosMarkId {
-  return getDomainMarkId(domain);
-}
-
 interface DomainSelectorProps {
   selectedDomain: string | null;
   onDomainSelect: (domain: string | null) => void;

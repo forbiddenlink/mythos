@@ -58,5 +58,3 @@ export const ViewTransitionLink = forwardRef<HTMLAnchorElement, LinkProps>(
     );
   },
 );
-
-export default ViewTransitionLink;

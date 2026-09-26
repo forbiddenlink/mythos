@@ -279,7 +279,7 @@ export function groupEventsByEra(
     "heroic",
     "decline",
   ];
-  eras.forEach((era) => groups.set(era, []));
+  for (const era of eras) groups.set(era, []);
 
   // Group events
   events.forEach((event) => {
@@ -289,15 +289,6 @@ export function groupEventsByEra(
   });
 
   return groups;
-}
-
-/**
- * Gets unique pantheons from events
- */
-export function getUniquePantheons(events: TimelineEvent[]): string[] {
-  const pantheons = new Set<string>();
-  events.forEach((e) => pantheons.add(e.pantheon));
-  return Array.from(pantheons);
 }
 
 /**

@@ -36,6 +36,12 @@ jobs:
       - name: Run TypeScript type check
         run: pnpm --filter web exec tsc --noEmit
 
+      - name: Run Biome
+        run: pnpm biome:check
+
+      - name: Check for unused files, dependencies and exports (knip)
+        run: pnpm knip
+
   unit-tests:
     name: Unit & Integration Tests
     runs-on: ubuntu-latest
@@ -113,6 +119,10 @@ jobs:
         env:
           CI: true
           NEXT_PUBLIC_ORACLE_ENABLED: "true"
+
+      # Reuses the build above; budgets and rationale: docs/ops/bundle-budget.md
+      - name: Check first-load JS bundle budget
+        run: pnpm --filter web bundle:budget
 
       - name: Run E2E tests
         run: pnpm --filter web e2e:start-only

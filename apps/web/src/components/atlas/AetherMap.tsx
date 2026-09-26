@@ -292,5 +292,3 @@ export function AetherMap() {
     </div>
   );
 }
-
-export default AetherMap;

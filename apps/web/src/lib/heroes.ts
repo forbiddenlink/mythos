@@ -32,25 +32,3 @@ for (const hero of allHeroes) {
 export function findHeroByReference(reference: string): HeroLookup | undefined {
   return heroReferenceMap.get(normalizeHeroReference(reference));
 }
-
-export function formatHeroReference(reference: string): string {
-  return reference
-    .split("-")
-    .filter(Boolean)
-    .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
-    .join(" ");
-}
-
-export function getHeroSlug(reference: string): string {
-  return (
-    findHeroByReference(reference)?.slug ?? normalizeHeroReference(reference)
-  );
-}
-
-export function getHeroName(reference: string): string {
-  return findHeroByReference(reference)?.name ?? formatHeroReference(reference);
-}
-
-export function getHeroPath(reference: string): string {
-  return `/heroes/${getHeroSlug(reference)}`;
-}

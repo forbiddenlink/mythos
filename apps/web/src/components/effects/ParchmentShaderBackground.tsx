@@ -135,5 +135,3 @@ export function ParchmentShaderBackground() {
     </div>
   );
 }
-
-export default ParchmentShaderBackground;

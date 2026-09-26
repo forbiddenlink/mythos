@@ -429,5 +429,3 @@ export function ConstellationBackground({
     </div>
   );
 }
-
-export default ConstellationBackground;

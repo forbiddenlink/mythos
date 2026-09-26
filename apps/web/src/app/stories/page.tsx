@@ -17,7 +17,13 @@ import { BookOpen, Clock, Gamepad2, ScrollText, Trophy } from "lucide-react";
 import { MythosMark } from "@/components/icons/mythos-marks";
 import Link from "next/link";
 import Image from "next/image";
-import { useCallback, useEffect, useMemo, useState } from "react";
+import {
+  type ReactNode,
+  useCallback,
+  useEffect,
+  useMemo,
+  useState,
+} from "react";
 
 const branchingStories = branchingStoriesData as unknown as BranchingStory[];
 
@@ -176,7 +182,7 @@ export default function StoriesPage() {
     filteredStories.some((story, index) => story.id !== allStories[index]?.id);
   const displayStories = hasActiveFilters ? filteredStories : allStories;
 
-  let storiesContent;
+  let storiesContent: ReactNode;
   if (displayStories.length > 0) {
     storiesContent = <PaginatedStoryGrid stories={displayStories} />;
   } else if (hasActiveFilters) {

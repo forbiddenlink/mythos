@@ -4,7 +4,7 @@ import { useEffect, useMemo, useState } from "react";
 import dynamic from "next/dynamic";
 import Link from "next/link";
 import Image from "next/image";
-import { MapPin, List, Map, Loader2, Search } from "lucide-react";
+import { MapPin, List, Map as MapIcon, Loader2, Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -311,7 +311,7 @@ export function LocationsPageClient({
                     aria-label="Show map view"
                     aria-pressed={viewMode === "map"}
                   >
-                    <Map className="h-4 w-4" />{" "}
+                    <MapIcon className="h-4 w-4" />{" "}
                     <span className="hidden sm:inline">Map</span>
                   </Button>
                   <Button
@@ -477,7 +477,7 @@ export function LocationsPageClient({
             onClick={() => setViewMode("map")}
             className="gap-2 h-8"
           >
-            <Map className="h-4 w-4" /> Map
+            <MapIcon className="h-4 w-4" /> Map
           </Button>
           <Button
             variant={viewMode === "list" ? "default" : "ghost"}

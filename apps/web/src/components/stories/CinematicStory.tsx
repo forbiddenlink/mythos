@@ -1,15 +1,14 @@
 "use client";
 
 import { useRef } from "react";
-import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import {
+  motion,
+  useReducedMotion,
+  useScroll,
+  useSpring,
+  useTransform,
+} from "framer-motion";
 import Image from "next/image";
-
-// Register GSAP plugins
-if (typeof window !== "undefined") {
-  gsap.registerPlugin(ScrollTrigger);
-}
 
 export interface StoryScene {
   id: string;
@@ -39,34 +38,24 @@ const moodGradients: Record<string, string> = {
 
 function Scene({ scene, index }: { scene: StoryScene; index: number }) {
   const sceneRef = useRef<HTMLDivElement>(null);
-  const imageRef = useRef<HTMLDivElement>(null);
 
   const gradient = moodGradients[scene.mood || "default"];
 
-  useGSAP(
-    () => {
-      if (!sceneRef.current || !imageRef.current) return;
-      const media = gsap.matchMedia();
-      media.add("(prefers-reduced-motion: no-preference)", () => {
-        gsap.fromTo(
-          imageRef.current,
-          { scale: 1.05 },
-          {
-            scale: 1,
-            ease: "none",
-            scrollTrigger: {
-              trigger: sceneRef.current,
-              start: "top bottom",
-              end: "center center",
-              scrub: 1,
-            },
-          },
-        );
-      });
-      return () => media.revert();
-    },
-    { scope: sceneRef },
-  );
+  // Parallax: the background image settles from 1.05x to 1x as the scene
+  // scrolls from entering the viewport ("start end") to its centre reaching
+  // the viewport centre ("center center"). The spring smooths the scrubbed
+  // value; reduced-motion users get a static image.
+  const reduceMotion = useReducedMotion();
+  const { scrollYProgress } = useScroll({
+    target: sceneRef,
+    offset: ["start end", "center center"],
+  });
+  const smoothProgress = useSpring(scrollYProgress, {
+    stiffness: 120,
+    damping: 30,
+    restDelta: 0.001,
+  });
+  const scale = useTransform(smoothProgress, [0, 1], [1.05, 1]);
 
   return (
     <section
@@ -76,7 +65,10 @@ function Scene({ scene, index }: { scene: StoryScene; index: number }) {
     >
       {/* Background image with parallax */}
       {scene.imageUrl && (
-        <div ref={imageRef} className="absolute inset-0 z-0">
+        <motion.div
+          className="absolute inset-0 z-0"
+          style={reduceMotion ? undefined : { scale }}
+        >
           <Image
             src={scene.imageUrl}
             alt={scene.imageAlt || scene.title || "Story scene"}
@@ -84,7 +76,7 @@ function Scene({ scene, index }: { scene: StoryScene; index: number }) {
             className="object-cover opacity-30"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-slate-900/50" />
-        </div>
+        </motion.div>
       )}
 
       {/* Content */}
@@ -184,5 +176,3 @@ export function CinematicStory({
     </div>
   );
 }
-
-export default CinematicStory;

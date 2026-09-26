@@ -51,11 +51,9 @@ export function SourceProvenance({
       )}
 
       <p className="mt-2 text-xs italic text-muted-foreground">
-        Coverage reflects this catalog&apos;s source records; it does not establish
-        independent corroboration or the first surviving mention.
+        Coverage reflects this catalog&apos;s source records; it does not
+        establish independent corroboration or the first surviving mention.
       </p>
     </aside>
   );
 }
-
-export default SourceProvenance;
