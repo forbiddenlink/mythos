@@ -4,6 +4,7 @@ import { type ReactNode } from "react";
 import { useAchievements } from "@/hooks/useAchievements";
 import { ProgressProvider } from "@/providers/progress-provider";
 import { achievements, type Achievement } from "@/data/achievements";
+import { PANTHEON_IDS } from "@/lib/pantheon-rosters";
 
 // Mock localStorage
 const localStorageMock = (() => {
@@ -212,7 +213,9 @@ describe("useAchievements", () => {
       );
 
       expect(allPantheonsAchievement?.progress?.current).toBe(0);
-      expect(allPantheonsAchievement?.progress?.target).toBe(16);
+      expect(allPantheonsAchievement?.progress?.target).toBe(
+        PANTHEON_IDS.length,
+      );
     });
 
     it("should track quick quiz score progress", () => {

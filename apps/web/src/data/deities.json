@@ -1018,7 +1018,7 @@
         "note": "Sun Wukong already lists Loki; both are shape-shifting troublemakers whose mischief repeatedly disrupts the divine order"
       },
       {
-        "pantheonId": "african-pantheon",
+        "pantheonId": "yoruba-pantheon",
         "deityId": "eshu",
         "note": "Eshu already lists Loki; both are trickster gods who thrive on mischief, disruption, and crossing boundaries"
       },
@@ -1647,7 +1647,7 @@
         "note": "Xipe Totec already lists Osiris; both are gods of death and agricultural renewal/rebirth"
       },
       {
-        "pantheonId": "african-pantheon",
+        "pantheonId": "yoruba-pantheon",
         "deityId": "oduduwa",
         "note": "Both are the foundational divine ancestor-king figure behind the origin of legitimate kingship in their civilization"
       }
@@ -2918,7 +2918,7 @@
     "importanceRank": 1,
     "crossPantheonParallels": [
       {
-        "pantheonId": "african-pantheon",
+        "pantheonId": "yoruba-pantheon",
         "deityId": "olodumare",
         "note": "Both are the remote supreme creator deity of their pantheon, rarely worshipped directly compared to more active gods (Olodumare already lists Brahma)"
       }
@@ -3065,7 +3065,7 @@
     "importanceRank": 2,
     "crossPantheonParallels": [
       {
-        "pantheonId": "african-pantheon",
+        "pantheonId": "yoruba-pantheon",
         "deityId": "aje",
         "note": "Both are goddesses of wealth, prosperity, and commercial abundance"
       },
@@ -4486,7 +4486,7 @@
     "importanceRank": 3,
     "crossPantheonParallels": [
       {
-        "pantheonId": "african-pantheon",
+        "pantheonId": "yoruba-pantheon",
         "deityId": "ogun",
         "note": "Both are divine smiths and patrons of ironworking, weapons, and technology"
       },
@@ -7538,7 +7538,7 @@
   },
   {
     "id": "olodumare",
-    "pantheonId": "african-pantheon",
+    "pantheonId": "yoruba-pantheon",
     "name": "Olodumare",
     "slug": "olodumare",
     "alternateNames": ["Olorun", "Olofi", "Eledumare"],
@@ -7580,7 +7580,7 @@
   },
   {
     "id": "obatala",
-    "pantheonId": "african-pantheon",
+    "pantheonId": "yoruba-pantheon",
     "name": "Obatala",
     "slug": "obatala",
     "alternateNames": ["Oxala", "Orishanla", "Oshala"],
@@ -7621,7 +7621,7 @@
   },
   {
     "id": "ogun",
-    "pantheonId": "african-pantheon",
+    "pantheonId": "yoruba-pantheon",
     "name": "Ogun",
     "slug": "ogun",
     "alternateNames": ["Ogum", "Ogoun", "Gu"],
@@ -7659,7 +7659,7 @@
   },
   {
     "id": "shango",
-    "pantheonId": "african-pantheon",
+    "pantheonId": "yoruba-pantheon",
     "name": "Shango",
     "slug": "shango",
     "alternateNames": ["Sango", "Xango", "Chango"],
@@ -7708,7 +7708,7 @@
   },
   {
     "id": "oshun",
-    "pantheonId": "african-pantheon",
+    "pantheonId": "yoruba-pantheon",
     "name": "Oshun",
     "slug": "oshun",
     "alternateNames": ["Oxum", "Ochun", "Osun"],
@@ -7746,7 +7746,7 @@
   },
   {
     "id": "yemoja",
-    "pantheonId": "african-pantheon",
+    "pantheonId": "yoruba-pantheon",
     "name": "Yemoja",
     "slug": "yemoja",
     "alternateNames": ["Yemaya", "Iemanja", "Yemanja"],
@@ -7792,7 +7792,7 @@
   },
   {
     "id": "eshu",
-    "pantheonId": "african-pantheon",
+    "pantheonId": "yoruba-pantheon",
     "name": "Eshu",
     "slug": "eshu",
     "alternateNames": ["Elegua", "Elegba", "Exu", "Legba"],
@@ -7847,7 +7847,7 @@
   },
   {
     "id": "oya",
-    "pantheonId": "african-pantheon",
+    "pantheonId": "yoruba-pantheon",
     "name": "Oya",
     "slug": "oya",
     "alternateNames": ["Iansa", "Oya-Iansa", "Oia"],
@@ -7891,7 +7891,7 @@
   },
   {
     "id": "orunmila",
-    "pantheonId": "african-pantheon",
+    "pantheonId": "yoruba-pantheon",
     "name": "Orunmila",
     "slug": "orunmila",
     "alternateNames": ["Orula", "Orunla", "Ifa"],
@@ -7939,7 +7939,7 @@
   },
   {
     "id": "osanyin",
-    "pantheonId": "african-pantheon",
+    "pantheonId": "yoruba-pantheon",
     "name": "Osanyin",
     "slug": "osanyin",
     "alternateNames": ["Ossaim", "Osain", "Ossanha"],
@@ -7977,7 +7977,7 @@
   },
   {
     "id": "nana-buruku",
-    "pantheonId": "african-pantheon",
+    "pantheonId": "yoruba-pantheon",
     "name": "Nana Buruku",
     "slug": "nana-buruku",
     "alternateNames": ["Nana Buluku", "Nana Bukuu", "Nananbouclou"],
@@ -8028,7 +8028,7 @@
   },
   {
     "id": "shopona",
-    "pantheonId": "african-pantheon",
+    "pantheonId": "yoruba-pantheon",
     "name": "Shopona",
     "slug": "shopona",
     "alternateNames": ["Sopona", "Sakpata", "Omolu", "Obaluaye"],
@@ -8583,7 +8583,7 @@
   },
   {
     "id": "oduduwa",
-    "pantheonId": "african-pantheon",
+    "pantheonId": "yoruba-pantheon",
     "name": "Oduduwa",
     "slug": "oduduwa",
     "alternateNames": ["Odudua", "Oduwa"],
@@ -8614,7 +8614,7 @@
   },
   {
     "id": "olokun",
-    "pantheonId": "african-pantheon",
+    "pantheonId": "yoruba-pantheon",
     "name": "Olokun",
     "slug": "olokun",
     "alternateNames": ["Olokun-su", "Lokun"],
@@ -8658,7 +8658,7 @@
   },
   {
     "id": "aje",
-    "pantheonId": "african-pantheon",
+    "pantheonId": "yoruba-pantheon",
     "name": "Aje",
     "slug": "aje",
     "alternateNames": ["Aje Shaluga", "Aje Olokun"],
@@ -8696,7 +8696,7 @@
   },
   {
     "id": "aganju",
-    "pantheonId": "african-pantheon",
+    "pantheonId": "yoruba-pantheon",
     "name": "Aganju",
     "slug": "aganju",
     "alternateNames": ["Aganyu"],
@@ -8734,7 +8734,7 @@
   },
   {
     "id": "ibeji",
-    "pantheonId": "african-pantheon",
+    "pantheonId": "yoruba-pantheon",
     "name": "Ibeji",
     "slug": "ibeji",
     "alternateNames": ["Ibeyi", "Taiwo and Kehinde"],
@@ -8772,7 +8772,7 @@
   },
   {
     "id": "ori",
-    "pantheonId": "african-pantheon",
+    "pantheonId": "yoruba-pantheon",
     "name": "Ori",
     "slug": "ori",
     "alternateNames": ["Ori Inu"],
@@ -8803,7 +8803,7 @@
   },
   {
     "id": "anansi",
-    "pantheonId": "african-pantheon",
+    "pantheonId": "akan-pantheon",
     "name": "Anansi",
     "slug": "anansi",
     "alternateNames": ["Ananse", "Kwaku Ananse", "Aunt Nancy"],
@@ -8841,7 +8841,7 @@
   },
   {
     "id": "nyame",
-    "pantheonId": "african-pantheon",
+    "pantheonId": "akan-pantheon",
     "name": "Nyame",
     "slug": "nyame",
     "alternateNames": ["Nyankopon", "Onyankopon", "Nyamie"],
@@ -8859,7 +8859,7 @@
     },
     "crossPantheonParallels": [
       {
-        "pantheonId": "african-pantheon",
+        "pantheonId": "yoruba-pantheon",
         "deityId": "olodumare",
         "note": "Both are supreme creator deities who became remote from human affairs"
       },
@@ -8871,8 +8871,13 @@
     ],
     "primarySources": [
       {
-        "text": "Nyame, the shining one, whose foot is not carved, whose altar is the forked post.",
-        "source": "Akan prayer and Nyame dua household cult (oral)",
+        "text": "Rattray describes the Nyame dua, a forked branch set up in Asante compounds as an altar where offerings to the sky god were placed (paraphrase).",
+        "source": "R. S. Rattray, Ashanti",
+        "date": "1923"
+      },
+      {
+        "text": "Many Akan tellings explain the sky god's distance: an old woman pounding fufu kept striking Nyame with her long pestle, so he withdrew higher into the sky (paraphrase of a widely recorded Akan tale).",
+        "source": "Akan oral tradition (widely retold; no single recorded version)",
         "date": "Traditional"
       }
     ]
@@ -11860,7 +11865,7 @@
     ],
     "crossPantheonParallels": [
       {
-        "pantheonId": "african-pantheon",
+        "pantheonId": "yoruba-pantheon",
         "deityId": "yemoja",
         "note": "Both are mother goddesses of waters and of many offspring"
       },
@@ -11925,7 +11930,7 @@
     ],
     "crossPantheonParallels": [
       {
-        "pantheonId": "african-pantheon",
+        "pantheonId": "yoruba-pantheon",
         "deityId": "osanyin",
         "note": "Both are gods of healing and medicine"
       },
@@ -12008,7 +12013,7 @@
         "note": "Both are deities of wealth and abundance"
       },
       {
-        "pantheonId": "african-pantheon",
+        "pantheonId": "yoruba-pantheon",
         "deityId": "aje",
         "note": "Both personify wealth as a divine power that chooses whom it enriches"
       },
@@ -12330,7 +12335,7 @@
         "note": "Both are river goddesses associated with purification"
       },
       {
-        "pantheonId": "african-pantheon",
+        "pantheonId": "yoruba-pantheon",
         "deityId": "oshun",
         "note": "Both are goddesses present in a specific sacred river whose waters heal and bless"
       }
@@ -12415,7 +12420,7 @@
         "note": "Both are divine twins associated with cosmic functions"
       },
       {
-        "pantheonId": "african-pantheon",
+        "pantheonId": "yoruba-pantheon",
         "deityId": "ibeji",
         "note": "Both are sacred twin powers who bring blessing and protection"
       }
@@ -12725,5 +12730,503 @@
       "practices": "Invoked as the divine midwife and 'mother of the gods'; kings of Lagash and other cities claimed to have been nourished by her milk."
     },
     "imageUrl": "/deities/ninhursag.png"
+  },
+  {
+    "id": "asase-yaa",
+    "pantheonId": "akan-pantheon",
+    "name": "Asase Yaa",
+    "slug": "asase-yaa",
+    "originalLanguageName": {
+      "text": "Asase Yaa",
+      "language": "Twi (Akan)",
+      "transliteration": "Asase Yaa",
+      "meaning": "\"Earth\" (asase) with the day-name Yaa, given to a female born on Thursday; in Fante areas she is Asase Efua, the Friday-born"
+    },
+    "alternateNames": ["Asase Efua", "Aberewa (Old Woman)", "Mother Earth"],
+    "gender": "female",
+    "domain": [
+      "the earth",
+      "fertility of the soil",
+      "the dead",
+      "truth and oaths"
+    ],
+    "symbols": ["the soil", "the hoe", "libation poured on the ground"],
+    "description": "The earth in Akan religion, honoured with libations rather than temples. Her day-name, Yaa, marks her as Thursday-born, and in many Asante areas the land was not farmed on her day.",
+    "detailedBio": "## The earth herself\n\nRattray's Asante informants in the early 1920s described Asase Yaa as the second great power after the sky god: the earth that bears crops and receives the dead. Unlike the abosom, she had no priests and no shrine; she was addressed in the libation poured on the ground at the start of prayers, and in the invocation that names the sky god first and the earth second. Her name is the word for earth joined to a day-name: Yaa for a female born on Thursday, which is why Thursday was kept as her rest day and farming on it was avoided in many Asante communities. In Fante areas, where her day is Friday, she is Asase Efua.\n\n## Earth, the dead, and truth\n\nBecause the dead are buried in her, the earth is closely tied to the ancestors, and she was invoked when land was cleared, graves were dug, and oaths were sworn. Rattray records that permission was asked of the earth before breaking ground. Some modern writers describe her as Nyame's wife; that pairing is widely repeated but is a relationship of complementary powers, sky and earth, more than a narrative marriage with its own myths.\n\n## A living practice\n\nPouring libation to the earth remains a common part of Akan ceremony in Ghana today, including at civic events, which is the clearest continuity with the tradition Rattray recorded.",
+    "importanceRank": 1,
+    "imageUrl": "/deities/asase-yaa.png",
+    "pronunciation": {
+      "ipa": "/asase jaː/",
+      "phonetic": "ah-SAH-seh YAH"
+    },
+    "primarySources": [
+      {
+        "text": "Rattray describes the earth goddess Asase Yaa as honoured without priests or temples, addressed in libations, and associated with Thursday, on which the Asante did not till the ground (paraphrase).",
+        "source": "R. S. Rattray, Ashanti",
+        "date": "1923"
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [],
+      "practices": "Honoured through libations poured on the ground, especially at the opening of prayers and ceremonies; in many Asante areas Thursday, her day, was kept free of farm work."
+    },
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "greek-pantheon",
+        "deityId": "gaia",
+        "note": "Both are the earth personified as a primordial female power beneath the sky"
+      }
+    ],
+    "traditionRole": "The Earth"
+  },
+  {
+    "id": "tano",
+    "pantheonId": "akan-pantheon",
+    "name": "Tano",
+    "slug": "tano",
+    "originalLanguageName": {
+      "text": "Ta Kora",
+      "language": "Twi (Akan)",
+      "transliteration": "Tano, Ta Kora; Tando among the Fante",
+      "meaning": "Tano is the name of the river he is identified with; Ta Kora is given as his personal name"
+    },
+    "alternateNames": ["Ta Kora", "Tando", "Taakora"],
+    "gender": "male",
+    "domain": ["the Tano River", "war", "thunder", "the abosom"],
+    "symbols": [
+      "the Tano River",
+      "river stones in a brass pan (shrine vessel)"
+    ],
+    "description": "The great river obosom of the Akan, identified with the Tano River of western Ghana and regarded in Asante as the foremost of the abosom; tellings make him a son of Nyame who tricked his brother Bia out of the fertile land.",
+    "detailedBio": "## The foremost of the abosom\n\nThe abosom are powers associated with rivers, lakes, and other features of the land, who act through their priests and shrines. Rattray, writing in 1923, placed Tano at the head of the Asante abosom and described his shrines, where the power of the god was lodged in a brass pan holding river water and stones. The river rises near Techiman in the Bono region, and the Tano shrines at Tanoboase in that area are among the oldest sacred sites of the Bono and Asante; many other abosom are described as his children.\n\n## Tano and Bia\n\nA well-known story makes Tano and Bia sons of Nyame, who planned to divide the land between them. In the Asante version summarised by modern reference works, Nyame meant the fertile land for Bia, but the goat who served him favoured Tano, who went to his father in Bia's place and received it; Bia was left the poorer country to the west, where the Bia River flows into Côte d'Ivoire. An Agni (Anyi) version from Côte d'Ivoire reverses the roles. The story explains the geography of the two rivers and the rivalry of the people who live along them, and the variation between tellings is part of that history.\n\n## Tano and Death\n\nAnother tale sets Tano against Owuo, Death, over a hunter: neither wins, and they agree to share their claim on people, which is given as one reason for Tano's association with war.",
+    "importanceRank": 2,
+    "imageUrl": "/deities/tano.png",
+    "pronunciation": {
+      "ipa": "/tanɔ/",
+      "phonetic": "TAH-noh"
+    },
+    "primarySources": [
+      {
+        "text": "Rattray describes Tano as the greatest of the Asante abosom, served by priests at river shrines where the god's power was kept in a brass pan (paraphrase).",
+        "source": "R. S. Rattray, Ashanti",
+        "date": "1923"
+      },
+      {
+        "text": "Summarises the Asante and Agni versions of how Tano and Bia divided Nyame's land, and the tale of Tano's contest with Death (paraphrase).",
+        "source": "Patricia Ann Lynch and Jeremy Roberts, African Mythology A to Z (2nd ed.)",
+        "date": "2010"
+      }
+    ],
+    "worship": {
+      "temples": ["Tano shrines at Tanoboase, Bono East region, Ghana"],
+      "festivals": [],
+      "practices": "Served through priests (akomfo) at river shrines; the god's presence is kept in a shrine vessel holding water and stones from the river."
+    },
+    "traditionRole": "River Obosom"
+  },
+  {
+    "id": "bia",
+    "pantheonId": "akan-pantheon",
+    "name": "Bia",
+    "slug": "bia",
+    "alternateNames": [],
+    "gender": "male",
+    "domain": ["the Bia River", "the western forests"],
+    "symbols": ["the Bia River"],
+    "description": "The obosom of the Bia River, which flows from western Ghana into Côte d'Ivoire; in the story of Nyame's inheritance he is Tano's brother, who loses the fertile land to him.",
+    "detailedBio": "## Brother of Tano\n\nBia is known chiefly through the story he shares with Tano. Both are sons of the sky god Nyame, who divides the land between them. In the Asante telling Bia is the son Nyame meant to favour, but Tano, helped by the goat who served their father, reaches Nyame first and is given the fertile country; Bia receives the drier, poorer lands to the west. The Agni (Anyi) of Côte d'Ivoire tell it the other way round, with Bia gaining the better share. Both versions tie the two brothers to the rivers that bear their names, and both treat the division as the origin of a lasting rivalry.\n\n## A river and a border\n\nThe Bia River rises in Ghana's Western North region and crosses into Côte d'Ivoire, where it reaches the lagoons near the coast. That course, straddling the lands of Akan-speaking peoples on both sides of a modern border, is one reason the same story is told from two directions. Little else about Bia as an independent figure appears in the published sources used here, and this entry does not add to it.",
+    "importanceRank": 4,
+    "imageUrl": "/deities/bia.png",
+    "primarySources": [
+      {
+        "text": "Summarises the Asante and Agni versions of how Nyame's sons Tano and Bia divided the land, with the goat's trick deciding the fertile share (paraphrase).",
+        "source": "Patricia Ann Lynch and Jeremy Roberts, African Mythology A to Z (2nd ed.)",
+        "date": "2010"
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [],
+      "practices": "No specific cult practice for Bia is described in the published sources this site draws on beyond his identification with the river."
+    },
+    "traditionRole": "River Obosom"
+  },
+  {
+    "id": "hinon",
+    "pantheonId": "haudenosaunee-pantheon",
+    "name": "Hinon the Thunderer",
+    "slug": "hinon",
+    "originalLanguageName": {
+      "text": "Hi'non",
+      "language": "Seneca",
+      "transliteration": "Hinon, Heno, Hinu",
+      "meaning": "The Thunderer; recorded spellings vary widely between collectors and nations"
+    },
+    "alternateNames": [
+      "Heno",
+      "Hinu",
+      "The Thunderer",
+      "Grandfathers the Thunderers"
+    ],
+    "gender": "male",
+    "domain": ["thunder", "rain", "protection from underwater monsters"],
+    "symbols": ["lightning arrows", "storm clouds"],
+    "description": "The Thunderer of Seneca and wider Haudenosaunee tradition, maker of rains, who hunts the horned serpent and other malicious beings of the underworld with arrows of lightning.",
+    "detailedBio": "## Maker of rains\n\nArthur C. Parker, himself Seneca, introduces Hi'non in *Seneca Myths and Folk Tales* (1923) as one of the great beings of Seneca tradition, but of the second order: in the cosmology he serves the good-minded twin, who in Parker's retelling subdues him and assigns him his work in the world. Parker describes him as the maker of rains, whose frown is the thunder and whose glance is the lightning, and whose charge is to drive the malicious beings of the underworld back to their places and to kill the great water serpents.\n\n## The serpent hunter\n\nHi'non's enemy in the stories is the horned serpent of the deep waters, which can take the shape of a handsome man. In Parker's tale 26 the Thunderer rescues a young woman who has been lured away by such a serpent, striking it dead with an arrow as it rises from a lake. The Thunderers are thanked today in the Haudenosaunee Thanksgiving Address as the Grandfathers, who bring the rains and keep the waters fresh; that address is shared publicly by the nations themselves.\n\n## Variation\n\nTellers and collectors differ on whether Hi'non is one being or one of several Thunderers, and on where he lives. Nineteenth-century writers often placed his home behind Niagara Falls; this site notes that association without treating it as the only one.",
+    "importanceRank": 2,
+    "imageUrl": "/deities/hinon.png",
+    "primarySources": [
+      {
+        "text": "Parker describes the Thunderer as a mighty being and maker of rains who hates evil spirits and seeks to slay the underwater serpent and all folk-beasts that use evil magic (paraphrase).",
+        "source": "Arthur C. Parker, Seneca Myths and Folk Tales",
+        "sourceId": "seneca-myths-folk-tales",
+        "date": "1923",
+        "locator": "Introduction, Beings of the primal order"
+      },
+      {
+        "text": "A girl lured away by a horned serpent disguised as a young man is rescued when the Thunderer kills the serpent with an arrow (paraphrase of tale 26).",
+        "source": "Arthur C. Parker, Seneca Myths and Folk Tales",
+        "sourceId": "seneca-myths-folk-tales",
+        "date": "1923",
+        "locator": "Tale 26"
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [],
+      "practices": "The Thunderers are thanked as the Grandfathers in the Haudenosaunee Thanksgiving Address, which the nations share publicly; No ceremony is described here; this site follows the Haudenosaunee request that ceremonial and medicine-society matters not be published by outsiders."
+    },
+    "traditionRole": "Thunderer"
+  },
+  {
+    "id": "earth-holder",
+    "pantheonId": "haudenosaunee-pantheon",
+    "name": "Earth Holder",
+    "slug": "earth-holder",
+    "originalLanguageName": {
+      "text": "Te'haon'hwendjaiwa'khon'",
+      "language": "Seneca",
+      "transliteration": "Tehaonhwendjaiwakhon (Parker's spelling, simplified)",
+      "meaning": "\"He holds the earth\"; Hewitt's Onondaga and Mohawk texts give the Sky World chief other names"
+    },
+    "alternateNames": [
+      "The Sky Chief",
+      "The Ancient One",
+      "He-Holds-the-Earth"
+    ],
+    "gender": "male",
+    "domain": ["the Sky World", "the celestial tree"],
+    "symbols": ["the great tree of the Sky World"],
+    "description": "The chief of the Sky World and husband of Sky Woman, who in many tellings uproots the great celestial tree, opening the hole through which she falls.",
+    "detailedBio": "## The chief above\n\nBefore there is earth, the recorded cosmologies describe a Sky World with its own people, lodges, and a great tree that lights it. Its chief, called Earth Holder in Parker's Seneca material and given other names in the Onondaga, Seneca, and Mohawk versions J.N.B. Hewitt recorded, takes Sky Woman as his wife. Parker summarises a Seneca telling in which the chief becomes jealous and troubled, and, prompted by a dream or by the Fire Beast, uproots the great tree; Sky Woman falls, or is pushed, through the opening to the waters below.\n\n## Why the tree comes down\n\nThe reasons differ from teller to teller, and Hewitt's comparative texts are the fullest record of that difference: in some versions the chief is ill and dreams that the tree must be uprooted to cure him; in others jealousy drives him; in others Sky Woman leans over the hole out of curiosity and falls. This site treats those as genuine variants, not errors to be resolved, and does not describe the chief as simply good or wicked.\n\n## After the fall\n\nEarth Holder stays in the Sky World, which continues above the new earth. The recorded tellings say little more about him after the fall; the story's attention turns to Sky Woman, her daughter, and the twins, and this site does not add to what the sources give.",
+    "importanceRank": 3,
+    "imageUrl": "/deities/earth-holder.png",
+    "primarySources": [
+      {
+        "text": "Parker names Earth Holder as ruler of the Sky World and summarises the uprooting of the celestial tree and Sky Woman's fall (paraphrase).",
+        "source": "Arthur C. Parker, Seneca Myths and Folk Tales",
+        "sourceId": "seneca-myths-folk-tales",
+        "date": "1923",
+        "locator": "Introduction, Beings of the primal order"
+      },
+      {
+        "text": "Hewitt's Onondaga, Seneca, and Mohawk texts differ on the Sky World chief's name and on why he uproots the tree (paraphrase).",
+        "source": "J.N.B. Hewitt, Iroquoian Cosmology, Bureau of American Ethnology Annual Reports 21 and 43",
+        "sourceId": "iroquoian-cosmology",
+        "date": "1903 and 1928"
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [],
+      "practices": "No ceremony for this figure is described in the public sources this site draws on."
+    },
+    "traditionRole": "Chief of the Sky World"
+  },
+  {
+    "id": "sky-womans-daughter",
+    "pantheonId": "haudenosaunee-pantheon",
+    "name": "Sky Woman's Daughter",
+    "slug": "sky-womans-daughter",
+    "alternateNames": ["Mother of the Twins"],
+    "gender": "female",
+    "domain": ["birth", "the food plants", "the moon (in some tellings)"],
+    "symbols": ["corn, beans, and squash growing from her grave"],
+    "description": "The daughter born to Sky Woman on the new earth, mother of the twins Sapling and Flint, who dies giving birth to them; in many tellings the food plants grow from her grave.",
+    "detailedBio": "## Born on Turtle Island\n\nSky Woman is already pregnant when she falls, or gives birth soon after, and her child is a daughter who grows quickly on the new earth. Most recorded tellings do not give the daughter a personal name, and this site does not supply one. How she conceives the twins is one of the points on which tellers most disagree: in the Seneca retelling Parker summarises she marries Ga'ha', the gentle wind, while other versions recorded by Hewitt name a different visitor, or leave the father mysterious.\n\n## The twins' birth\n\nShe bears twin sons. The first, Sapling, is born in the ordinary way; the second, Flint, forces his way out, and she dies. In some versions Flint blames his brother, and Sky Woman believes him, which begins the long rivalry between the twins and their grandmother's favour for Flint.\n\n## What grows from her\n\nMany tellings, including the Seneca material Parker summarises, say that the plants the people live on grow from her grave: corn, beans, and squash, and in several versions tobacco. Some tellings also make the sun or the moon from her face or body. Tellers differ on which plant grows from which part of her, and this entry does not choose between them.",
+    "importanceRank": 2,
+    "imageUrl": "/deities/sky-womans-daughter.png",
+    "primarySources": [
+      {
+        "text": "In Parker's Seneca summary the sky woman's daughter marries the zephyr, bears the twins, dies at the second twin's birth, and food plants grow from her grave (paraphrase).",
+        "source": "Arthur C. Parker, Seneca Myths and Folk Tales",
+        "sourceId": "seneca-myths-folk-tales",
+        "date": "1923",
+        "locator": "Tale 1"
+      },
+      {
+        "text": "Hewitt's texts record differing accounts of how the daughter conceives and what becomes of her body after death (paraphrase).",
+        "source": "J.N.B. Hewitt, Iroquoian Cosmology, Bureau of American Ethnology Annual Reports 21 and 43",
+        "sourceId": "iroquoian-cosmology",
+        "date": "1903 and 1928"
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [],
+      "practices": "No ceremony for this figure is described in the public sources this site draws on."
+    },
+    "traditionRole": "Mother of the Twins"
+  },
+  {
+    "id": "gaha",
+    "pantheonId": "haudenosaunee-pantheon",
+    "name": "Ga'ha' the Zephyr",
+    "slug": "gaha",
+    "originalLanguageName": {
+      "text": "Gä'ha'",
+      "language": "Seneca",
+      "transliteration": "Gaha, Ga'ha', Ga-oh (a 19th-century spelling)",
+      "meaning": "The gentle wind"
+    },
+    "alternateNames": ["Gaha", "Ga-oh", "The Zephyr"],
+    "gender": "male",
+    "domain": ["the gentle wind", "ripening", "the warm season"],
+    "symbols": ["the warm wind"],
+    "description": "The soft, kindly wind of Seneca tradition, who helps plants grow and fruits ripen; in the Seneca cosmology Parker summarises he is the husband of Sky Woman's daughter and father of the twins.",
+    "detailedBio": "## The kinder wind\n\nParker's introduction to Seneca folklore distinguishes the gentle wind, Gä'ha', from the violent Storm Wind that appears as a flying head with streaming hair. Gä'ha' is described as kindly: he helps plants grow and belongs to the warm season, when fruits ripen, and stories tell of him courting and marrying a woman of the forest. Nineteenth-century writers on Iroquois belief sometimes spelled his name Ga-oh and made him the keeper of all the winds; Parker's Seneca material keeps the gentle wind and the storm wind apart.\n\n## Father of the twins?\n\nIn the Seneca cosmology Parker summarises, the daughter of Sky Woman marries Gä'ha', and the twins Sapling and Flint are his sons. That is one telling among several: Hewitt's Onondaga and Mohawk texts give the twins' father differently, and the question of the twins' paternity is one on which Haudenosaunee tellers have long differed. This site records the Seneca account without presenting it as the only one.",
+    "importanceRank": 3,
+    "imageUrl": "/deities/gaha.png",
+    "primarySources": [
+      {
+        "text": "Parker describes Gä'ha', the zephyr, as a softer and kindlier wind than the storm wind, a helper of growing plants associated with the warm season (paraphrase).",
+        "source": "Arthur C. Parker, Seneca Myths and Folk Tales",
+        "sourceId": "seneca-myths-folk-tales",
+        "date": "1923",
+        "locator": "Introduction, Nature beings"
+      },
+      {
+        "text": "In the Seneca cosmology Parker summarises, Sky Woman's daughter marries Gä'ha' and bears the twins (paraphrase).",
+        "source": "Arthur C. Parker, Seneca Myths and Folk Tales",
+        "sourceId": "seneca-myths-folk-tales",
+        "date": "1923",
+        "locator": "Tale 1"
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [],
+      "practices": "The winds are thanked in the Haudenosaunee Thanksgiving Address, which the nations share publicly; no separate ceremony for Gä'ha' is described here."
+    },
+    "traditionRole": "Gentle Wind"
+  },
+  {
+    "id": "three-sisters",
+    "pantheonId": "haudenosaunee-pantheon",
+    "name": "The Three Sisters",
+    "slug": "three-sisters",
+    "originalLanguageName": {
+      "text": "Dion'he'kon",
+      "language": "Seneca",
+      "transliteration": "Dionhekon (Parker); De-o-ha-ko in 19th-century spellings",
+      "meaning": "\"Those we live on\", the spirits of sustenance"
+    },
+    "alternateNames": [
+      "Dionhekon",
+      "De-o-ha-ko",
+      "Our Life Supporters",
+      "Corn, Beans, and Squash"
+    ],
+    "gender": "female",
+    "domain": ["corn, beans, and squash", "sustenance", "agriculture"],
+    "symbols": [
+      "corn",
+      "beans",
+      "squash",
+      "the three planted together in one hill"
+    ],
+    "description": "The inseparable spirits of corn, beans, and squash, the crops Haudenosaunee farmers plant together, remembered as sisters and thanked as the sustainers of the people.",
+    "detailedBio": "## Spirits of sustenance\n\nParker's Seneca material names the spirits of sustenance Dion'he'kon and describes them as the inseparable spirits of the corn, the bean, and the squash, sometimes called the three sisters; the old people, he writes, told of hearing them talk together in the fields where they grow side by side. The planting method itself, corn as a pole for climbing beans with squash spreading over the ground beneath, is the agricultural system of the Haudenosaunee and many other Indigenous nations of the Northeast, and it remains in use.\n\n## Where they come from\n\nMany Haudenosaunee cosmologies connect the three crops with the grave of Sky Woman's daughter, the twins' mother, from whose body the food plants grow; others credit Sapling with making them. Tellings differ on the details.\n\n## Thanked today\n\nThe Three Sisters are named in the Thanksgiving Address and honoured in harvest observances; this site mentions those publicly shared practices without describing ceremonial detail.",
+    "importanceRank": 3,
+    "imageUrl": "/deities/three-sisters.png",
+    "primarySources": [
+      {
+        "text": "Parker describes Dion'he'kon as the inseparable spirits of corn, bean, and squash, sometimes called the three sisters, whom the old people heard talking together in the fields (paraphrase).",
+        "source": "Arthur C. Parker, Seneca Myths and Folk Tales",
+        "sourceId": "seneca-myths-folk-tales",
+        "date": "1923",
+        "locator": "Introduction, Nature beings"
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [
+        "Green Corn and harvest observances (named here, not described)"
+      ],
+      "practices": "The Three Sisters are thanked in the publicly shared Thanksgiving Address and remain a living agricultural practice; No ceremony is described here; this site follows the Haudenosaunee request that ceremonial and medicine-society matters not be published by outsiders."
+    },
+    "traditionRole": "Spirits of Sustenance"
+  },
+  {
+    "id": "dew-eagle",
+    "pantheonId": "haudenosaunee-pantheon",
+    "name": "Dew Eagle",
+    "slug": "dew-eagle",
+    "originalLanguageName": {
+      "text": "O's'hä'dä'geä'",
+      "language": "Seneca",
+      "transliteration": "Oshadagea (Parker's spelling, simplified)",
+      "meaning": "The Cloudland or Dew Eagle"
+    },
+    "alternateNames": ["Oshadagea", "Cloudland Eagle"],
+    "gender": "none",
+    "domain": ["dew", "the upper air", "watching over the people"],
+    "symbols": ["the eagle", "a pool of dew on its back"],
+    "description": "The great eagle of the upper air in Seneca tradition, who lives above the clouds, gathers dew in its feathers, and watches over the people, coming down when calamity threatens.",
+    "detailedBio": "## Above the clouds\n\nParker calls O's'hä'dä'geä' the chief of all creatures of the air. It lives above the clouds and collects the dew in its feathers; some say it carries a pool of dew on its back between its shoulders. It is described as watching over humankind, the Haudenosaunee especially, and coming to earth when great calamities threaten.\n\n## The eagle on the Tree of Peace\n\nA separate and much better-known eagle stands at the top of the Great Tree of Peace in the Great Law tradition, watching for danger to the Confederacy. The two are not the same figure in the sources this site uses, though both express the eagle's role as a far-seeing guardian.\n\n## Restraint\n\nParker adds that the Iroquois regard the Dew Eagle with great reverence and connect it with many worthy exploits. In keeping with the guidance followed throughout this tradition's entries, this site does not describe any ceremony or society associated with it.",
+    "importanceRank": 4,
+    "imageUrl": "/deities/dew-eagle.png",
+    "primarySources": [
+      {
+        "text": "Parker describes the Cloudland Eagle as chief of the creatures of the air, living above the clouds, gathering dew in its feathers, and watching over mankind (paraphrase).",
+        "source": "Arthur C. Parker, Seneca Myths and Folk Tales",
+        "sourceId": "seneca-myths-folk-tales",
+        "date": "1923",
+        "locator": "Introduction, Magic beasts and birds"
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [],
+      "practices": "No ceremony is described here; this site follows the Haudenosaunee request that ceremonial and medicine-society matters not be published by outsiders."
+    },
+    "traditionRole": "Guardian of the Upper Air"
+  },
+  {
+    "id": "petrel",
+    "pantheonId": "tlingit-haida-pantheon",
+    "name": "Petrel",
+    "slug": "petrel",
+    "originalLanguageName": {
+      "text": "Ganook",
+      "language": "Tlingit",
+      "transliteration": "Ganook (modern spelling); GAnû'k in Swanton's 1909 orthography",
+      "meaning": "Petrel, the storm-petrel"
+    },
+    "alternateNames": ["Ganook", "GAnû'k"],
+    "gender": "male",
+    "domain": ["fresh water", "the everlasting spring"],
+    "symbols": ["the covered spring", "the petrel"],
+    "description": "In the Tlingit Raven cycle, the owner of the world's only fresh water, an everlasting spring he guards by sleeping beside it, until Raven tricks him and flies off with the water to make the rivers.",
+    "detailedBio": "## The keeper of the spring\n\nIn the Raven cycle John R. Swanton recorded in English at Sitka and published in *Tlingit Myths and Texts* (1909), Raven hears of a man named Petrel (GAnû'k) who owns an everlasting spring of water, at a time when there is none to drink anywhere else in the world. Petrel keeps the spring covered and sleeps beside it so that no one can take it.\n\n## Outwitted\n\nRaven visits and stays the night. While Petrel sleeps, Raven smears dog dung beside him, then wakes him and tells him he has soiled himself. While Petrel goes outside to clean up, Raven uncovers the spring and drinks it dry. Petrel returns and Raven flies for the smoke hole, but Petrel's spirits hold him there, and the smoke of Petrel's fire blackens him: that is why ravens are black. Escaping, Raven spits out the water as he flies, making the great rivers, the Nass, Stikine, Taku, Chilkat, and Alsek, and from the smaller drops the salmon creeks.\n\n## Other tellings\n\nPetrel's name and the details of the trick vary between tellers and between Tlingit and neighbouring nations' versions. Some modern Tlingit tellers treat Ganook as an important ancestral figure in his own right; this entry keeps to the published Raven episode.",
+    "importanceRank": 3,
+    "imageUrl": "/deities/petrel.png",
+    "primarySources": [
+      {
+        "text": "Raven tricks Petrel (GAnû'k), owner of an everlasting spring, drinks the water, is blackened by the smoke of Petrel's fire, and spits out the water to form the Nass, Stikine, Taku, Chilkat, and Alsek rivers and the salmon creeks (paraphrase).",
+        "source": "John R. Swanton, Tlingit Myths and Texts (Bureau of American Ethnology Bulletin 39), \"Raven\" (Sitka, recorded in English)",
+        "date": "1909"
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [],
+      "practices": "No ceremony is described here; clan-owned (at.óow) forms of Tlingit stories and crests belong to their clans, and this site follows only published public tellings."
+    },
+    "traditionRole": "Keeper of Fresh Water"
+  },
+  {
+    "id": "old-woman-underneath",
+    "pantheonId": "tlingit-haida-pantheon",
+    "name": "Old-Woman-Underneath",
+    "slug": "old-woman-underneath",
+    "originalLanguageName": {
+      "text": "Hayicâ'nak!u",
+      "language": "Tlingit",
+      "transliteration": "Hayicâ'nak!u (Swanton's 1909 orthography; modern Tlingit spellings vary)",
+      "meaning": "\"Old woman underneath\""
+    },
+    "alternateNames": ["Hayicâ'nak!u"],
+    "gender": "female",
+    "domain": ["the post that holds up the earth", "the tides", "earthquakes"],
+    "symbols": ["the earth-post", "grease offered in the fire"],
+    "description": "In the Tlingit Raven cycle, the old woman beneath the earth who tends the post it rests on and controls the tides; when she is hungry the earth shakes, and Raven forces her to let the tide rise and fall.",
+    "detailedBio": "## Under the world\n\nSwanton's Sitka Raven cycle describes the earth as resting on a post attended by Old-woman-underneath (Hayicâ'nak!u). When she is hungry the earth shakes, and people put grease into the fire to send to her. She also controls the rising and falling of the water.\n\n## Raven and the tide\n\nRaven, wanting to see everything under the sea, has the water raised, gathers sea urchins, and then comes to the cliff from which the old woman speaks. He breaks it open, knocks her down, and jabs her with sea-urchin spines until she agrees to let the tide go down. Mink, Raven's companion, reports the water falling. Raven makes her promise to let the tide rise and fall regularly from then on, which is why there are tides, and the story also gives a humorous explanation of marks on the bodies of old women.\n\n## A figure beneath the Raven stories\n\nOld-woman-underneath is one of the few figures in the Tlingit cycle whose activity continues in the present world: every earthquake is her, and every tide is Raven's bargain with her. Spellings of her name vary between Swanton's orthography and modern Tlingit writing.",
+    "importanceRank": 3,
+    "imageUrl": "/deities/old-woman-underneath.png",
+    "primarySources": [
+      {
+        "text": "Old-woman-underneath attends to the post that holds up the earth, and when she is hungry the earth shakes; Raven forces her to let the tide rise and fall regularly (paraphrase).",
+        "source": "John R. Swanton, Tlingit Myths and Texts (Bureau of American Ethnology Bulletin 39), \"Raven\" (Sitka, recorded in English)",
+        "date": "1909"
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [],
+      "practices": "Swanton records that grease was put into the fire to send to Old-woman-underneath when the earth shook; No ceremony is described here; clan-owned (at.óow) forms of Tlingit stories and crests belong to their clans, and this site follows only published public tellings."
+    },
+    "traditionRole": "Keeper of the Earth-Post"
+  },
+  {
+    "id": "djilaqons",
+    "pantheonId": "tlingit-haida-pantheon",
+    "name": "Djilaqons",
+    "slug": "djilaqons",
+    "originalLanguageName": {
+      "text": "Jiila Kuns",
+      "language": "Haida",
+      "transliteration": "Jiila Kuns (modern spelling); Djila'qons in Swanton's 1905 orthography",
+      "meaning": "Name of the ancestress; not translated in Swanton"
+    },
+    "alternateNames": ["Jiila Kuns", "Djila'qons"],
+    "gender": "female",
+    "domain": ["ancestry of the Eagle clans", "the Eagle moiety"],
+    "symbols": ["the eagle"],
+    "description": "In Haida tradition, the ancestress of the Eagle clans, regarded as the special patroness of everyone of the Eagle side of Haida society.",
+    "detailedBio": "## Two sides of society\n\nHaida society is divided into two halves, or moieties, Raven and Eagle, and a person belongs to the side of their mother. Marriage traditionally takes place across the two sides, so every family joins them. Each side is made up of many matrilineal clans with their own names, histories, crests, and territories. Tlingit society is divided in a similar way, into Raven and Eagle (or Wolf) moieties.\n\n## The ancestress\n\nIn the Skidegate texts John R. Swanton recorded in 1900 and 1901, Djila'qons appears as the ancestress of one Eagle lineage and is described as the ancestress or special patroness of all those of the Eagle clans. Her stories are therefore not only myths but lineage histories, and parts of them belong to the clans that descend from her.\n\n## Restraint\n\nCrests and the fuller stories that support them are the property of particular clans. This entry records only what Swanton published and does not attempt to reconstruct any clan's own account.",
+    "importanceRank": 2,
+    "imageUrl": "/deities/djilaqons.png",
+    "primarySources": [
+      {
+        "text": "Djila'qons is named as the ancestress of an Eagle lineage and as the ancestress or special patroness of all those of the Eagle clan (paraphrase).",
+        "source": "John R. Swanton, Haida Texts and Myths, Skidegate Dialect (Bureau of American Ethnology Bulletin 29)",
+        "date": "1905"
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [],
+      "practices": "Crests and lineage histories connected with her belong to the Eagle clans; this site describes no ceremony."
+    },
+    "traditionRole": "Ancestress of the Eagle Clans"
+  },
+  {
+    "id": "master-carpenter",
+    "pantheonId": "tlingit-haida-pantheon",
+    "name": "Master Carpenter",
+    "slug": "master-carpenter",
+    "alternateNames": ["Master-carpenter"],
+    "gender": "male",
+    "domain": ["woodworking", "canoes", "craft"],
+    "symbols": ["the canoe", "the wedge"],
+    "description": "A supernatural craftsman of Haida tradition who, in a Skidegate story Swanton recorded, sets out to build a canoe to make war on South-East, the storm wind.",
+    "detailedBio": "## The craftsman\n\nMaster Carpenter is a supernatural being in the Haida stories John R. Swanton recorded at Skidegate in 1900 and 1901, the embodiment of the woodworking skill on which Haida life depended: great cedar canoes, plank houses, boxes, and poles.\n\n## A canoe for war\n\nIn 'How Master-carpenter began making a canoe to war with South-East', he begins work at a steep place at one end of the town of Sqa-i. His first canoe splits when he throws it into the water; so do the next, each thicker than the last. Along the way a figure called Greatest Fool shows him how to use bent wedges to split one log into two canoes. At last he gives up on building and sets out for South-East's house, the stormy south-east wind whose weather dominates the coast of Haida Gwaii.\n\n## Craft against weather\n\nThe story sets human and supernatural skill against the sea and storm that every canoe on the coast must survive. This entry follows Swanton's published text and does not fill in episodes it does not give.",
+    "importanceRank": 3,
+    "imageUrl": "/deities/master-carpenter.png",
+    "primarySources": [
+      {
+        "text": "Master-carpenter's canoes split one after another until he learns to use bent wedges, and he sets out to find South-East (paraphrase).",
+        "source": "John R. Swanton, Haida Texts and Myths, Skidegate Dialect (Bureau of American Ethnology Bulletin 29), \"How Master-carpenter began making a canoe to war with South-East\"",
+        "date": "1905"
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [],
+      "practices": "No ceremony for this figure is described in the published sources this site draws on."
+    },
+    "traditionRole": "Supernatural Craftsman"
   }
 ]

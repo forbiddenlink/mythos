@@ -289,6 +289,22 @@ NEW_PANTHEONS = [
         "accent": (195, 65, 55),      # Cedar Ochre & Vermilion
         "bg_tone": (18, 12, 14),
         "motif": "tlingit_raven"
+    },
+    {
+        "slug": "yoruba",
+        "name": "YORUBA TRADITION",
+        "culture": "ILE-IFE AND THE ORISHA",
+        "accent": (200, 140, 60),
+        "bg_tone": (20, 14, 10),
+        "motif": "yoruba_chain"
+    },
+    {
+        "slug": "akan",
+        "name": "AKAN TRADITION",
+        "culture": "NYAME, ASASE YAA AND ANANSE",
+        "accent": (215, 175, 45),
+        "bg_tone": (20, 18, 10),
+        "motif": "akan_web"
     }
 ]
 
@@ -362,6 +378,23 @@ def generate_pantheon_plate(p):
         draw.ellipse([cx + 5, m_cy - 25, cx + 55, m_cy + 25], outline=gold, width=4)
         draw.ellipse([cx + 20, m_cy - 10, cx + 45, cy + 10], fill=accent)
 
+    elif p["motif"] == "yoruba_chain":
+        # The chain let down from the sky, the snail shell of earth, and the five-toed hen
+        for i in range(7):
+            y = m_cy - 110 + i * 22
+            draw.ellipse([cx - 9, y, cx + 9, y + 18], outline=gold, width=3)
+        draw.arc([cx - 60, m_cy + 30, cx + 60, m_cy + 110], start=180, end=360, fill=(245, 230, 180), width=5)
+        draw.ellipse([cx - 22, m_cy + 45, cx + 22, m_cy + 80], outline=gold, width=3)
+
+    elif p["motif"] == "akan_web":
+        # Ananse's web
+        for k in range(8):
+            ang = k * (math.pi / 4)
+            draw.line([(cx, m_cy), (cx + 110 * math.cos(ang), m_cy + 110 * math.sin(ang))], fill=gold, width=2)
+        for r in (30, 55, 80, 105):
+            draw.ellipse([cx - r, m_cy - r, cx + r, m_cy + r], outline=(245, 230, 180), width=2)
+        draw.ellipse([cx - 12, m_cy - 12, cx + 12, m_cy + 12], fill=accent)
+
     # Typography
     font_lg = serif_font("bold", 46)
     font_sub = serif_font("regular", 20)
@@ -379,12 +412,22 @@ def generate_pantheon_plate(p):
     print(f"  ✓ Pantheon: {p['slug']} -> JPG & PNG")
 
 if __name__ == "__main__":
+    import argparse
+
+    parser = argparse.ArgumentParser(description="Generate hero plates and pantheon covers.")
+    parser.add_argument(
+        "--only",
+        help="Comma-separated hero ids or pantheon slugs to (re)generate; default is every plate.",
+    )
+    args = parser.parse_args()
+    wanted = set(args.only.split(",")) if args.only else None
+
     print("Generating Hero Plates...")
     for h in NEW_HEROES:
-        generate_hero_plate(h)
+        if wanted is None or h["id"] in wanted:
+            generate_hero_plate(h)
 
     print("Generating Pantheon Covers...")
     for p in NEW_PANTHEONS:
-        generate_pantheon_plate(p)
-
-    print("All 7 Heroes and 3 Pantheons successfully generated!")
+        if wanted is None or p["slug"] in wanted:
+            generate_pantheon_plate(p)

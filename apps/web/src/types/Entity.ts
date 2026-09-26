@@ -260,4 +260,9 @@ export interface Pantheon extends BaseEntity {
   >;
   imageUrl?: string;
   figuresLabel?: string;
+  /**
+   * A regional collection page rather than a pantheon: it groups figures from
+   * several unrelated peoples and may have no deities or stories of its own.
+   */
+  isCollection?: boolean;
 }

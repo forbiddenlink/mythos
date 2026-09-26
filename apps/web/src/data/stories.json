@@ -786,7 +786,7 @@
     "title": "Susanoo and Yamata no Orochi",
     "slug": "yamata-no-orochi",
     "summary": "Exiled storm god Susanoo encounters an eight-headed, eight-tailed dragon terrorizing a family. He slays the beast and discovers the sacred sword Kusanagi in its tail.",
-    "fullNarrative": "## The Exile\n\nBanishment from heaven for his crimes against Amaterasu, Susanoo descended to the province of Izumo on earth. By the Hi river, he found an old couple weeping with their beautiful daughter, Kushinada-hime. They explained that for the past seven years, the terrible eight-headed serpent Yamata no Orochi had come to devour one of their daughters. Now, only Kushinada remained, and the dragon was coming for her.\n\n## The Trap\n\nSusanoo agreed to slay the monster if he could have Kushinada's hand in marriage. He turned the girl into a comb and placed her in his hair for safety. Then, he instructed the couple to build a fence with eight gates. At each gate, they placed a vat of strong sake (rice wine).\n\nWhen Yamata no Orochi arrived, its eyes glowing like winter cherries, its eight heads dipped into the eight vats and drank greedily. The beast soon fell into a drunken stupor.\n\n## The Sword in the Tail\n\nSusanoo drew his sword and hacked the sleeping dragon to pieces. The river flowed red with blood. As he cut into the middle tail, his blade chipped. Investigating, he pulled open the flesh and found a magnificent sword hidden inside: the Kusanagi-no-Tsurugi (Grass-Cutting Sword).\n\nRealizing this was a divine treasure, Susanoo sent the sword up to heaven as a reconciliation gift to his sister Amaterasu. He then built a palace in Izumo and lived happily with his wife Kushinada, composing the first waka poem about the clouds rising around their home.",
+    "fullNarrative": "## The Exile\n\nBanishment from heaven for his crimes against Amaterasu, Susanoo descended to the province of Izumo on earth. By the Hi river, he found an old couple weeping with their beautiful daughter, Kushinada-hime. They explained that for the past seven years, the terrible eight-headed serpent Yamata no Orochi had come to devour one of their daughters. Now, only Kushinada remained, and the dragon was coming for her.\n\n## The Trap\n\nSusanoo agreed to slay the monster if he could have Kushinada's hand in marriage. He turned the girl into a comb and placed her in his hair for safety. Then, he instructed the couple to build a fence with eight gates. At each gate, they placed a vat of strong sake (rice wine).\n\nWhen Yamata no Orochi arrived, its eyes glowing like winter cherries, its eight heads dipped into the eight vats and drank greedily. The beast soon fell into a drunken stupor.\n\n## The Sword in the Tail\n\nSusanoo drew his sword and hacked the sleeping dragon to pieces. The river flowed red with blood. As he cut into the middle tail, his blade chipped. Investigating, he pulled open the flesh and found a magnificent sword hidden inside: the Kusanagi-no-Tsurugi (Grass-Cutting Sword).\n\nRealizing this was a divine treasure, Susanoo sent the sword up to heaven as a reconciliation gift to his sister Amaterasu. He then built a palace in Izumo and lived happily with his wife Kushinada, composing the first waka poem about the clouds rising around their home.\n\n## Names and Versions\n\nThe *Kojiki* names the old couple Ashinazuchi and Tenazuchi and places the meeting on the upper Hi River in Izumo. It explains that the sword was later called Ame-no-Murakumo, 'Heavenly Gathering Clouds', because clouds always hung above the serpent. The *Nihon Shoki* gives the main story and several variant versions, differing on details such as where the sword was sent. Susanoo's poem 'Yakumo tatsu', about eightfold clouds rising round his new home, is traditionally counted the first waka.",
     "keyExcerpts": "Susanoo saves Kushinada-hime by getting the eight-headed dragon drunk on sake. He finds the Kusanagi sword in its tail and gives it to Amaterasu.",
     "category": "myth",
     "moralThemes": ["redemption", "heroism", "ingenuity over brute force"],
@@ -2356,7 +2356,7 @@
   },
   {
     "id": "yoruba-creation",
-    "pantheonId": "african-pantheon",
+    "pantheonId": "yoruba-pantheon",
     "title": "The Creation of Ile-Ife",
     "slug": "yoruba-creation",
     "summary": "How Obatala descended from heaven with a snail shell of sand and a white hen to create land from the primordial waters, founding the sacred city of Ile-Ife.",
@@ -2388,7 +2388,7 @@
   },
   {
     "id": "shango-becomes-orisha",
-    "pantheonId": "african-pantheon",
+    "pantheonId": "yoruba-pantheon",
     "title": "How Shango Became an Orisha",
     "slug": "shango-becomes-orisha",
     "summary": "The story of the fourth king of Oyo, who mastered thunder and lightning but faced tragedy, only to be elevated to divine status after his death.",
@@ -2419,7 +2419,7 @@
   },
   {
     "id": "oshun-saves-world",
-    "pantheonId": "african-pantheon",
+    "pantheonId": "yoruba-pantheon",
     "title": "Oshun Saves the World",
     "slug": "oshun-saves-world",
     "summary": "When the world was dying and all the male Orishas had failed, Oshun transformed herself into a peacock and flew to heaven, sacrificing her beauty to save creation.",
@@ -2449,7 +2449,7 @@
   },
   {
     "id": "eshu-two-friends",
-    "pantheonId": "african-pantheon",
+    "pantheonId": "yoruba-pantheon",
     "title": "Eshu and the Two Friends",
     "slug": "eshu-two-friends",
     "summary": "A classic trickster tale in which Eshu teaches two best friends a painful lesson about the dangers of perspective and assumption.",
@@ -2479,7 +2479,7 @@
   },
   {
     "id": "ogun-shango-contest",
-    "pantheonId": "african-pantheon",
+    "pantheonId": "yoruba-pantheon",
     "title": "The Contest Between Ogun and Shango",
     "slug": "ogun-shango-contest",
     "summary": "A tale of rivalry between two great Orishas - Ogun of iron and Shango of thunder - who compete for supremacy with unexpected results.",
@@ -2600,11 +2600,11 @@
   },
   {
     "id": "anansi-bought-stories",
-    "pantheonId": "african-pantheon",
+    "pantheonId": "akan-pantheon",
     "title": "How Anansi Bought the World's Stories",
     "slug": "anansi-bought-stories",
     "summary": "The clever spider Anansi bargains with the sky god Nyame to purchase all the world's stories by completing four impossible tasks.",
-    "fullNarrative": "In one Akan-Ashanti account collected by R. S. Rattray, Anansi asks Nyame, the sky god, for the right to call the stories Anansesem—Spider Stories. Nyame sets a price that seems impossible: Onini the python, Osebo the leopard, the Mmoboro hornets, and Mmoatia, a fairy. Anansi also offers his mother, Ya Nsia.\n\nAnansi consults his wife, Aso. To take Onini, he stages an argument about whether the python is longer than a palm branch. Onini stretches beside it to settle the question, and Anansi binds him with creeper rope.\n\nFor the hornets, Anansi splashes water on their swarm and himself, then pretends that rain has come. He offers them his gourd for shelter and closes it once they have flown inside. He digs a covered pit for Osebo; when the leopard falls in, Anansi kills him and carries him as part of the payment.\n\nFor Mmoatia, Anansi makes a carved wooden figure, coats it with sticky tree sap, and sets out food. When the fairy strikes the unresponsive figure, she becomes stuck. Anansi takes Mmoatia and Ya Nsia to Nyame.\n\nNyame accepts the payment and gives the name Anansesem to the stories. This is one recorded account among Akan-Ashanti storytelling traditions.",
+    "fullNarrative": "In one Akan-Ashanti account collected by R. S. Rattray, Anansi asks Nyame, the sky god, for the right to call the stories Anansesem—Spider Stories. Nyame sets a price that seems impossible: Onini the python, Osebo the leopard, the Mmoboro hornets, and Mmoatia, a fairy. Anansi also offers his mother, Ya Nsia.\n\nAnansi consults his wife, Aso. To take Onini, he stages an argument about whether the python is longer than a palm branch. Onini stretches beside it to settle the question, and Anansi binds him with creeper rope.\n\nFor the hornets, Anansi splashes water on their swarm and himself, then pretends that rain has come. He offers them his gourd for shelter and closes it once they have flown inside. He digs a covered pit for Osebo; when the leopard falls in, Anansi kills him and carries him as part of the payment.\n\nFor Mmoatia, Anansi makes a carved wooden figure, coats it with sticky tree sap, and sets out food. When the fairy strikes the unresponsive figure, she becomes stuck. Anansi takes Mmoatia and Ya Nsia to Nyame.\n\nNyame accepts the payment and gives the name Anansesem to the stories. This is one recorded account among Akan-Ashanti storytelling traditions.\n\n## The Storyteller's Frame\n\nRattray printed the Twi text beside his English translation, and his collection shows how Akan tellers frame such tales: a telling opens with a formula disclaiming that the story is literally true, and closes by handing the story on, asking the listeners to take it elsewhere, whether they found it sweet or not, and to let some come back to the teller. The frame makes storytelling an exchange, which is fitting for a tale about how stories were bought.\n\n## The Spider Crosses the Ocean\n\nEnslaved Akan people carried Ananse to the Caribbean and the Americas. He survives as Anansi or Anancy in Jamaica and across the Caribbean, as Nansi in Curaçao, and as Aunt Nancy in the southern United States, and the gum-doll trick used on the mmoatia reappears in the African American tar-baby stories.",
     "themes": ["wisdom", "trickery", "perseverance", "storytelling"],
     "culturalSignificance": "This story explains the origin of oral storytelling in Akan culture and why tales are called 'Anansesem' (spider stories). It celebrates intelligence over physical strength and represents the cultural value of wit.",
     "imageUrl": "/stories/anansi-bought-stories.png",
@@ -2626,11 +2626,11 @@
   },
   {
     "id": "oduduwa-creation-earth",
-    "pantheonId": "african-pantheon",
+    "pantheonId": "yoruba-pantheon",
     "title": "Oduduwa and the Creation of the Earth",
     "slug": "oduduwa-creation-earth",
     "summary": "After Obatala fails his divine mission, Oduduwa descends from heaven to create dry land and establish the sacred city of Ile-Ife.",
-    "fullNarrative": "In the beginning, there was only water—endless, dark, primordial waters stretching in all directions. Above sat Olodumare in the heavens with the Orishas.\n\nOlodumare summoned Obatala, the wisest Orisha, and gave him a golden chain, a calabash filled with soil, a five-toed chicken, and a palm nut. \"Descend,\" said Olodumare, \"and create dry land where humans may live.\"\n\nObatala began his descent, but along the way he stopped at a feast where palm wine flowed freely. He drank deeply and fell into a stupor, his sacred mission forgotten.\n\nSeeing this, Olodumare sent Oduduwa to complete the work. Oduduwa took the chain, the calabash, and the chicken from his sleeping brother and descended to the waters below. He poured out the soil onto the waters and set the chicken upon it. The bird scratched and spread the soil in all directions, creating vast expanses of dry land.\n\nWhere Oduduwa first touched the earth became Ile-Ife, the sacred city, the navel of the world. There he planted the palm nut, which grew into the tree of life. There he established the first kingdom, becoming the ancestor of all Yoruba rulers.\n\nWhen Obatala awoke and discovered what had happened, he was filled with shame. Olodumare, in mercy, gave him dominion over the creation of human bodies—though he must never drink palm wine while doing so.",
+    "fullNarrative": "## Whose Creation?\n\nYoruba traditions disagree about the creation, and the disagreement is part of the story's history. In many tellings, especially those associated with Obatala's worshippers, Obatala himself spreads the land. In the Ife tradition followed here, Obatala fails through palm wine and Oduduwa completes the task, becoming the first ruler of Ife and ancestor of the Yoruba kingdoms. Samuel Johnson's *The History of the Yorubas* (completed 1897, published 1921) also records an Oyo tradition that brings Oduduwa from the east. None of these is the single correct version.\n\nIn the beginning, there was only water—endless, dark, primordial waters stretching in all directions. Above sat Olodumare in the heavens with the Orishas.\n\nOlodumare summoned Obatala, the wisest Orisha, and gave him a golden chain, a calabash filled with soil, a five-toed chicken, and a palm nut. \"Descend,\" said Olodumare, \"and create dry land where humans may live.\"\n\nObatala began his descent, but along the way he stopped at a feast where palm wine flowed freely. He drank deeply and fell into a stupor, his sacred mission forgotten.\n\nSeeing this, Olodumare sent Oduduwa to complete the work. Oduduwa took the chain, the calabash, and the chicken from his sleeping brother and descended to the waters below. He poured out the soil onto the waters and set the chicken upon it. The bird scratched and spread the soil in all directions, creating vast expanses of dry land.\n\nWhere Oduduwa first touched the earth became Ile-Ife, the sacred city, the navel of the world. There he planted the palm nut, which grew into the tree of life. There he established the first kingdom, becoming the ancestor of all Yoruba rulers.\n\nWhen Obatala awoke and discovered what had happened, he was filled with shame. Olodumare, in mercy, gave him dominion over the creation of human bodies—though he must never drink palm wine while doing so.\n\n## Ife Today\n\nThe Ooni of Ife, the city's king, is regarded as Oduduwa's successor, and Ile-Ife remains the spiritual centre for Yoruba people and for many Orisha devotees across the Atlantic. Oduduwa's association with kingship explains why so many Yoruba rulers traced their authority to his sons, who were said to have founded the other kingdoms. Obatala's prohibition on palm wine, and the white cloth of his worshippers, keep the memory of his failure and his forgiveness alive in practice.",
     "themes": [
       "creation",
       "responsibility",
@@ -2653,11 +2653,11 @@
   },
   {
     "id": "first-twins-ibeji",
-    "pantheonId": "african-pantheon",
+    "pantheonId": "yoruba-pantheon",
     "title": "Ibeji and the Care of Twins",
     "slug": "first-twins-ibeji",
     "summary": "An introduction to Yoruba twin commemoration and the carved figures known as ere ibeji, based on a documented museum object.",
-    "fullNarrative": "## Twins and Sacred Care\n\nThe Metropolitan Museum of Art describes Yoruba twins as extraordinary beings under the protection of Sango, the thunder deity. Its account connects the honor given to twins with their capacity to bring their families prosperity or misfortune.\n\n## Remembering a Twin\n\nWhen a twin dies, an ere ibeji figure can provide a focus for continued care and remembrance. The museum describes mothers washing, dressing, decorating, and feeding these figures as part of that care. The sculpture represents a relationship with a departed person rather than simply an image of an anonymous deity.\n\n## A Documented Figure\n\nThe Met records object 1979.527.22 as the work of a Yoruba artist in Nigeria, dated to the nineteenth or twentieth century. Its materials include wood, beads, camwood powder, and pigment. This dated object provides a concrete point of reference for learning about the practice.\n\nThis account summarizes the museum’s interpretation. It does not establish a single origin story or describe every Yoruba community’s practice.",
+    "fullNarrative": "## Twins and Sacred Care\n\nThe Metropolitan Museum of Art describes Yoruba twins as extraordinary beings under the protection of Sango, the thunder deity. Its account connects the honor given to twins with their capacity to bring their families prosperity or misfortune.\n\n## Remembering a Twin\n\nWhen a twin dies, an ere ibeji figure can provide a focus for continued care and remembrance. The museum describes mothers washing, dressing, decorating, and feeding these figures as part of that care. The sculpture represents a relationship with a departed person rather than simply an image of an anonymous deity.\n\n## A Documented Figure\n\nThe Met records object 1979.527.22 as the work of a Yoruba artist in Nigeria, dated to the nineteenth or twentieth century. Its materials include wood, beads, camwood powder, and pigment. This dated object provides a concrete point of reference for learning about the practice.\n\nThis account summarizes the museum’s interpretation. It does not establish a single origin story or describe every Yoruba community’s practice.\n\n## Taiwo and Kehinde\n\nYoruba twins are named by order of birth: the first-born is Taiwo, 'the one who tasted the world', and the second Kehinde, 'the one who came after'. Kehinde is traditionally regarded as the elder, having sent Taiwo ahead to see whether the world was fit to enter. Twins are honoured with songs and praise names, and in some communities mothers of twins danced in the market with them, receiving gifts.\n\n## A Place of Many Twins\n\nThe Yoruba region has one of the highest rates of twin births recorded anywhere in the world, and the town of Igbo-Ora in Oyo State calls itself the twin capital of the world. That demographic fact helps explain why twins, living and dead, have such a strong place in Yoruba religion and art.",
     "themes": ["protection", "transformation", "family", "sacred duality"],
     "culturalSignificance": "Ere ibeji figures connect remembrance, ritual care, and beliefs about twins. The cited museum account documents this context without substantiating the earlier Oya-and-Shango origin episode published on this page.",
     "featuredDeities": ["ibeji", "shango"],
@@ -2682,7 +2682,7 @@
     "title": "The House of Bats",
     "slug": "house-of-bats",
     "summary": "The Hero Twins Hunahpu and Xbalanque face the terrifying Camazotz in one of Xibalba's deadly trial houses.",
-    "fullNarrative": "The Hero Twins had survived the House of Gloom, the House of Cold, the House of Jaguars, and the House of Fire. Now only the House of Bats remained.\n\nThey entered a cave filled with shrieking darkness. Giant bats with razor wings circled endlessly, and at the center sat Camazotz himself—the Death Bat with obsidian blade wings and an insatiable hunger for blood.\n\nHunahpu and Xbalanque crawled inside their blowguns for protection. All night the bats swooped and slashed, but the brothers remained hidden.\n\nAs dawn approached, the bats grew quiet. Hunahpu thought it safe to look out and see if morning had come. The instant his head emerged, Camazotz struck—and Hunahpu's head rolled across the floor.\n\nXbalanque was alone. The Lords of Xibalba took his brother's head and hung it in the ballcourt for the next day's game.\n\nBut Xbalanque was cunning. He called the animals to help. A coati found a squash the exact size of Hunahpu's head. A rabbit agreed to hide nearby. Xbalanque carved the squash into a face and placed it on his brother's body.\n\nWhen the ballgame began, the Lords threw Hunahpu's real head as the ball. But the rabbit leaped past, and the Lords chased it, thinking it was the ball. Xbalanque switched the squash for his brother's real head.\n\nHunahpu lived again. Together, the twins defeated the Lords of Death.",
+    "fullNarrative": "## Why the Twins Were in Xibalba\n\nIn the K'iche' Maya *Popol Vuh*, recorded in the 1550s and preserved in Francisco Ximénez's copy of about 1701, the lords of Xibalba, One Death and Seven Death, summon the twins Hunahpu and Xbalanque to play ball in the underworld, as they had summoned the twins' father and uncle before them and killed them. Each night the twins must pass a test house.\n\nThe Hero Twins had survived the Dark House, the Razor House, the Cold House, the Jaguar House, and the House of Fire. Now only the House of Bats remained.\n\nThey entered a cave filled with shrieking darkness. Giant bats with razor wings circled endlessly, and at the center sat Camazotz himself—the Death Bat with obsidian blade wings and an insatiable hunger for blood.\n\nHunahpu and Xbalanque crawled inside their blowguns for protection. All night the bats swooped and slashed, but the brothers remained hidden.\n\nAs dawn approached, the bats grew quiet. Hunahpu thought it safe to look out and see if morning had come. The instant his head emerged, Camazotz struck—and Hunahpu's head rolled across the floor.\n\nXbalanque was alone. The Lords of Xibalba took his brother's head and hung it in the ballcourt for the next day's game.\n\nBut Xbalanque was cunning. He called the animals to help. A coati found a squash the exact size of Hunahpu's head. A rabbit agreed to hide nearby. Xbalanque carved the squash into a face and placed it on his brother's body.\n\nWhen the ballgame began, the Lords threw Hunahpu's real head as the ball. But the rabbit leaped past, and the Lords chased it, thinking it was the ball. Xbalanque switched the squash for his brother's real head.\n\nHunahpu lived again, and the squash, struck back into play, burst apart before the lords.\n\n## After the Bat House\n\nThe twins' final victory came by a trick of their own. Knowing the lords meant to burn them, they told two seers to have their bones ground and cast into the river. They returned as fish, then as ragged travelling performers whose wonders included sacrificing each other and coming back to life. One Death and Seven Death demanded to be sacrificed too; the twins killed them and did not bring them back. Xibalba's power was broken, and the twins rose into the sky as the sun and the moon.",
     "themes": ["cleverness", "resurrection", "trials", "brotherhood"],
     "culturalSignificance": "This episode from the Popol Vuh shows how wit overcomes brute force. The Hero Twins' victory over death establishes the pattern of resurrection central to Maya cosmology.",
     "imageUrl": "/stories/house-of-bats.png",
@@ -3290,7 +3290,7 @@
     "title": "The Banishment of Susanoo",
     "slug": "susanoo-banishment",
     "summary": "Storm god Susanoo rages through Amaterasu’s heavenly fields, wrecking her loom and sacred halls until the sun goddess seals herself in a cave — and Susanoo is cast from heaven.",
-    "fullNarrative": "## A Brother’s Storm\n\nSusanoo, born of Izanagi’s purification, was given dominion over the seas. Yet his heart stayed wild. He wept for his mother until the fields flooded, and when summoned before Amaterasu he swore loyalty — then betrayed it.\n\n## Sacrilege in Heaven\n\nHe broke the ridges between her rice fields, filled irrigation ditches, and hurled a flayed pony into the sacred weaving hall. Attendants died; the sun goddess fled in horror into the Heavenly Rock Cave. The world went dark.\n\n## Exile\n\nThe gods punished Susanoo with fines and banishment. Driven to the land of Izumo, he would later face the eight-headed serpent Yamata no Orochi — redemption through ordeal after chaos in heaven.\n\nThe tale binds weather, agriculture, and solar light: when the storm god’s fury goes unchecked, even the sun can choose to hide.",
+    "fullNarrative": "## A Brother’s Storm\n\nSusanoo, born of Izanagi’s purification, was given dominion over the seas. Yet his heart stayed wild. Instead of ruling it, he wept and howled for his dead mother Izanami until, the *Kojiki* says, the green mountains withered and the rivers and seas dried up, and evil spirits swarmed like summer flies. Izanagi expelled him, and Susanoo went up to the High Plain of Heaven to take leave of his sister.\n\n## The Contest of Oaths\n\nThe mountains and rivers shook at his coming, and Amaterasu, suspecting he meant to seize her realm, bound up her hair like a man's, took up bow and quivers, and met him armed. To prove his intentions they swore an oath (ukehi) across the Heavenly Tranquil River: Amaterasu broke his sword into three pieces, crunched them, and breathed out three goddesses; Susanoo chewed her strings of jewels and breathed out five gods, among them Ame-no-oshihomimi, ancestor of the imperial line. Susanoo declared that his gentle daughters proved his purity, and, triumphant, he began to rampage.\n\n## Sacrilege in Heaven\n\nHe broke the ridges between her rice fields, filled in the irrigation ditches, and fouled the hall where the first fruits were offered. Then he broke a hole in the roof of the sacred weaving hall and dropped in a heavenly piebald colt he had flayed backwards. A weaving maiden, startled, struck herself with her shuttle and died. The sun goddess fled in horror into the Heavenly Rock Cave and shut its door. The world went dark, and every kind of calamity arose.\n\n## Drawing Out the Sun\n\nThe eight hundred myriad gods gathered by the Heavenly Tranquil River, and Omoikane, the god of thought, devised a plan. They set crowing roosters before the cave, hung a great mirror and strings of jewels on a sakaki tree, and Ame-no-Uzume danced on an upturned tub until the gods roared with laughter. Curious, Amaterasu opened the door a crack; she was shown her own radiance in the mirror, and the strong god Ame-no-Tajikarao drew her out by the hand while a sacred rope was stretched behind her to bar the way back. Light returned.\n\n## Exile\n\nThe gods punished Susanoo with a fine of a thousand tables of offerings, cut off his beard, pulled out his finger- and toenails, and drove him out of heaven. On his way down, the *Kojiki* adds, he killed the food goddess Ōgetsu-hime, from whose body grew silkworms, rice, millet, beans, and wheat. Driven to the land of Izumo, he would later face the eight-headed serpent Yamata no Orochi — redemption through ordeal after chaos in heaven.\n\nThe tale binds weather, agriculture, and solar light: when the storm god’s fury goes unchecked, even the sun can choose to hide.\n\n## Sources\n\nThe story is told in the *Kojiki* (712) and, with several variant versions, in the *Nihon Shoki* (720); in the Shoki's main text it is Amaterasu herself who is wounded by the shuttle. The Rock Cave episode is the charter for the mirror among the imperial regalia and for the sacred dances of kagura.",
     "category": "rivalry",
     "culturalSignificance": "Explains Susanoo’s fall from the High Plain of Heaven and sets up his later heroism in Izumo. Central to Shinto understandings of kegare (pollution) and the restoration of cosmic balance.",
     "imageUrl": "/stories/susanoo-banishment.png"
@@ -3315,7 +3315,7 @@
     "title": "The Trials of Okuninushi",
     "slug": "okuninushi-trials",
     "summary": "Okuninushi endures murder by jealous brothers, underworld tests from Susanoo, and the love of Suseri-hime before becoming the great earthly kami who “makes the land.”",
-    "fullNarrative": "## The White Hare\n\nOkuninushi’s brothers sought the hand of Princess Yakami. On the road they found a skinned hare and mocked it; Okuninushi healed the creature with advice that revealed his kindness. The hare prophesied that he — not his brothers — would win the princess.\n\n## Murder and Return\n\nEnraged, the brothers crushed Okuninushi beneath a heated boulder. His mother appealed to kami who restored him. Twice more they killed him; twice he returned.\n\n## In Susanoo’s Realm\n\nFleeing to the underworld, Okuninushi met Suseri-hime, daughter of Susanoo. The storm god set lethal trials: snakes, centipedes, and a howling field of fire. With Suseri-hime’s counsel and a life-giving scarf, Okuninushi survived, bound Susanoo’s hair as he slept, and escaped with divine treasures.\n\n## Lord of the Land\n\nArmed with Susanoo’s sword, bow, and koto, he subdued his brothers and became Okuninushi — Great Land Master — architect of the earthly realm later “ceded” to Amaterasu’s line.\n\nThe cycle praises perseverance, alliance, and the hard apprenticeship of sovereignty.",
+    "fullNarrative": "## The White Hare\n\nOkuninushi, a descendant of Susanoo, had eighty brothers, the Yasogami, and all of them sought the hand of Princess Yakami of Inaba. They made Okuninushi carry their bags like a servant. On the road they found a skinned hare and mocked it; Okuninushi healed the creature with advice that revealed his kindness. The hare prophesied that he — not his brothers — would win the princess.\n\n## Murder and Return\n\nEnraged when the princess chose him, the brothers told Okuninushi to catch a red boar they would drive down a mountain, then rolled down a great rock heated red-hot, and he was burned to death. His mother, Sashikuni-waka-hime, appealed to the creator deity Kamimusubi, who sent two shellfish goddesses, Kisagai-hime and Umugi-hime, to restore him with a salve of powdered shell and clam juice. The brothers killed him again, crushing him in a split tree; again his mother revived him, and sent him to Susanoo's land for safety.\n\n## In Susanoo’s Realm\n\nFleeing to the underworld, Okuninushi met Suseri-hime, daughter of Susanoo. The storm god set lethal trials: snakes, centipedes, and a howling field of fire. With Suseri-hime’s counsel and a life-giving scarf, Okuninushi survived, bound Susanoo’s hair as he slept, and escaped with divine treasures.\n\n## Lord of the Land\n\nArmed with Susanoo’s sword, bow, and koto, he subdued his brothers and became Okuninushi — Great Land Master — architect of the earthly realm later “ceded” to Amaterasu’s line.\n\n## Making the Land\n\nThe *Kojiki* goes on to tell how a tiny god, Sukunabikona, came to him over the waves in a boat made from a seed pod, dressed in the skin of a moth, and how the two together built and consolidated the land, until Sukunabikona departed across the sea to the Eternal Land.\n\n## Ceding the Land\n\nLater, envoys of Amaterasu came to demand the land for her descendants. After a contest of strength between Takemikazuchi and Okuninushi's son Takeminakata, Okuninushi agreed to yield the visible world, asking in return for a great shrine whose pillars reached down to the bedrock and whose crossbeams rose to heaven. Tradition identifies that shrine with Izumo Taisha, where he is still worshipped as Ōkuninushi-no-Ōkami.\n\nThe cycle praises perseverance, alliance, and the hard apprenticeship of sovereignty.",
     "category": "hero",
     "culturalSignificance": "A cornerstone Izumo cycle explaining how the earthly kami established Japan’s land before the heavenly lineage of the imperial line.",
     "imageUrl": "/stories/okuninushi-trials.png"
@@ -3328,6 +3328,12 @@
       {
         "title": "Atrahasis Epic",
         "type": "primary"
+      },
+      {
+        "title": "Atra-hasis: The Babylonian Story of the Flood",
+        "author": "W. G. Lambert and A. R. Millard",
+        "date": "1969",
+        "type": "secondary"
       }
     ],
     "primarySourceExcerpts": [],
@@ -3342,7 +3348,7 @@
     "title": "Atrahasis and the Great Flood",
     "slug": "atrahasis-flood",
     "summary": "When the gods plague humanity for making too much noise, Ea warns Atrahasis to build a boat. Floodwaters erase the old world — then the gods regret famine and grant a new order of mortality.",
-    "fullNarrative": "## Too Many Voices\n\nThe lesser gods tired of labor; humans were made to dig canals and feed the temples. But humanity multiplied until their clamor kept Enlil from sleep. Plague, drought, and famine followed — each time Ea whispered a way for Atrahasis to spare his people.\n\n## The Boat\n\nEnlil resolved on a flood. Ea spoke through a reed wall, telling Atrahasis to demolish his house and build a vessel, to load animals and craftspeople, to seal pitch against the coming waters.\n\n## Deluge and Remorse\n\nStorm gods shattered the dikes. For seven days and nights the flood erased cities. When waters fell, Atrahasis offered sacrifice; the hungry gods gathered “like flies” over the sweet scent. Enlil raged that anyone survived — then accepted a new design: not annihilation, but limits on human lifespan and birth.\n\nAtrahasis stands with Utnapishtim as Mesopotamia’s answer to why floods come — and why the gods themselves cannot bear a silent world.",
+    "fullNarrative": "## The Tablets\n\nThe fullest copy of the Babylonian poem *Atrahasis* ('Exceedingly Wise') was written out on three tablets at Sippar in the 17th century BCE by a junior scribe named Ipiq-Aya, in the reign of Ammi-saduqa. Later Assyrian fragments and the flood tablet of the *Epic of Gilgamesh* (Tablet XI) retell parts of it. The standard edition is W. G. Lambert and A. R. Millard, *Atra-hasis: The Babylonian Story of the Flood* (1969). Gaps in the tablets mean some episodes are reconstructed.\n\n## Too Many Voices\n\nWhen the gods, as the poem begins, were like men, the lesser Igigi gods bore the work of digging the rivers and canals. They burned their tools and surrounded Enlil's house in revolt. Enki proposed a solution: the mother goddess, Belet-ili or Mami, mixed clay with the flesh and blood of a slain god, We-ila, who had intelligence, and fourteen birth goddesses shaped the first seven pairs of humans to take the gods' labor on themselves. But humanity multiplied until their clamor kept Enlil from sleep. Plague, drought, and famine followed — each time Ea whispered a way for Atrahasis to spare his people.\n\n## The Boat\n\nEnlil resolved on a flood. Ea spoke through a reed wall, telling Atrahasis to demolish his house and build a vessel, to load animals and craftspeople, to seal pitch against the coming waters.\n\n## Deluge and Remorse\n\nStorm gods shattered the dikes. For seven days and nights the flood erased cities. When waters fell, Atrahasis offered sacrifice; the hungry gods gathered “like flies” over the sweet scent. Enlil raged that anyone survived, and Enki defended what he had done. Then, instead of annihilation, the gods accepted a new design with limits built in: some women would be barren, a demon would snatch babies from their mothers' laps, and certain classes of priestesses would not bear children, so that humanity's numbers and noise would never again threaten the gods' rest.\n\nAtrahasis stands with Utnapishtim as Mesopotamia’s answer to why floods come — and why the gods themselves cannot bear a silent world.\n\n## Why It Matters\n\nThe poem was among the first Mesopotamian texts recognised as a close parallel to the biblical flood story, and it explains more than the flood: why humans exist (to do the gods' work), why they must die, and why births are limited.",
     "category": "apocalypse",
     "culturalSignificance": "One of the oldest flood narratives (Old Babylonian). It frames human mortality as a negotiated settlement between noisy life and divine rest.",
     "imageUrl": "/stories/atrahasis-flood.png"
@@ -3366,7 +3372,7 @@
     "title": "Etana and the Eagle",
     "slug": "etana-and-the-eagle",
     "summary": "King Etana, childless, aids a betrayed eagle and rides it toward heaven seeking the plant of birth — a flight that shows both the hope and terror of rising too near the gods.",
-    "fullNarrative": "## A Broken Pact\n\nAn eagle and a serpent swore friendship beside a tree. The eagle ate the serpent’s young; the sun god Shamash judged the crime. Trapped in a pit, the eagle cried for mercy.\n\n## The Childless King\n\nEtana of Kish, first king after the flood in some king lists, had no heir. Shamash directed him to the eagle. Etana freed and healed the bird; together they planned a climb to Ishtar’s heaven for the plant of birth.\n\n## The Ascent\n\nOn the eagle’s back Etana rose through successive heavens. The land shrank to a garden plot, then a furrow, then nothing. Fear took him; he cried to descend. Fragments break off — some imply a fall, others a return — but the image endures: a mortal king tasting the altitude of gods in search of a child.\n\nThe myth binds kingship, justice, and the longing for lineage.",
+    "fullNarrative": "## The Texts\n\nThe *Myth of Etana* survives in Old Babylonian, Middle Assyrian, and Neo-Assyrian copies, the last from Ashurbanipal's library at Nineveh, and no copy is complete. The *Sumerian King List* names Etana as a king of Kish after the flood, 'the shepherd who ascended to heaven, who consolidated all the lands', and credits him with an impossibly long reign followed by his son Balih.\n\n## A Broken Pact\n\nAn eagle and a serpent swore friendship before Shamash beside a poplar tree, the eagle nesting in its crown and the serpent at its roots, and they shared their hunting. When the eagle's young were grown, the eagle ate the serpent's young, though its own wise fledgling warned it against breaking the oath. The serpent appealed to Shamash, who told it to hide inside the carcass of a wild ox. When the eagle came down to feed, the serpent seized it, cut its wings, plucked its feathers, and threw it into a pit to die. There the eagle cried to Shamash for mercy.\n\n## The Childless King\n\nEtana of Kish, first king after the flood in some king lists, had no heir. Shamash directed him to the eagle. Etana, who had prayed to Shamash for the plant of birth so that his wife could bear a son, found the eagle in its pit, fed it, and nursed it for months until it could fly. In return the eagle offered to carry him up to the heaven of Anu and Ishtar to find the plant. Dreams in the later version encourage the attempt.\n\n## The Ascent\n\nOn the eagle’s back Etana rose through successive heavens. The land shrank to a garden plot, then a furrow, then nothing. Fear took him; he cried to descend. Fragments break off — some imply a fall, others a return — but the image endures: a mortal king tasting the altitude of gods in search of a child.\n\nThe myth binds kingship, justice, and the longing for lineage.\n\n## Reading the Ending\n\nBecause the King List gives Etana a son, many scholars think the lost ending was happy, with the plant found and the heir born; others read the frightened descent as a fall. The flight on an eagle's back is shown on Akkadian cylinder seals of the late third millennium BCE, where a man rides an eagle above shepherds and dogs, which shows the story was known centuries before the surviving copies.",
     "category": "hero",
     "culturalSignificance": "An early Mesopotamian sky-journey myth linking royal succession to divine favor and cosmic scale.",
     "imageUrl": "/stories/etana-and-the-eagle.png"
@@ -3390,7 +3396,7 @@
     "title": "Maui’s Attempt to Conquer Death",
     "slug": "maui-and-hina-death",
     "summary": "Having slowed the sun and fished up islands, Maui tries to win immortality by crawling through the body of Hine-nui-te-pō — and fails when laughing birds wake the goddess of death.",
-    "fullNarrative": "## The Last Feat\n\nMaui had trapped the sun with ropes, stolen fire from Mahuika, and hauled land from the sea. Still humans died. He resolved to enter the sleeping goddess of death, Hine-nui-te-pō, and reverse mortality from within.\n\n## The Approach\n\nHe warned his bird companions to keep silence. As he crawled between the sleeping goddess’s thighs toward her heart, a fantail’s laughter broke the hush. She woke, crushed Maui, and death remained in the world.\n\n## Why We Die\n\nThe story does not scold curiosity alone — it marks a boundary. Maui’s cleverness remakes geography and daylight; it cannot unmake the night of death. In Māori tradition, his failure is why humans are mortal still.\n\nHina appears across Polynesia in many guises; here the great lady of night closes the trickster’s final wager.",
+    "fullNarrative": "## Sources\n\nThis retelling follows the Māori tradition as published by George Grey in *Polynesian Mythology* (1855), from texts written by Māori authorities of the time, and notes where other tellings differ. The story is told across Polynesia in different forms; in Māori tradition it closes the Māui cycle.\n\n## The Last Feat\n\nMaui had trapped the sun with ropes, stolen fire from Mahuika, and hauled land from the sea. Still humans died. In Grey's version his father, Makeatutara, had made an error in the ritual performed over Māui as a child, and warned that this meant he would die; Māui answered by resolving to defeat death itself. He would enter the sleeping goddess of death, Hine-nui-te-pō, great woman of the night, and pass through her body, so that death would no longer have power over people.\n\n## The Approach\n\nHe went to her with his companions the little birds, among them the tomtit, the robin, the grey warbler, and the fantail (tīwakawaka), and warned them to keep silence whatever they saw. As he crawled between the sleeping goddess’s thighs toward her heart, a fantail’s laughter broke the hush. She woke, crushed Maui, and death remained in the world.\n\n## Why We Die\n\nThe story does not scold curiosity alone — it marks a boundary. Maui’s cleverness remakes geography and daylight; it cannot unmake the night of death. In Māori tradition, his failure is why humans are mortal still.\n\nHina appears across Polynesia in many guises; here the great lady of night closes the trickster’s final wager.\n\n## Who Was Hine-nui-te-pō?\n\nIn widely told Māori tradition, Hine-nui-te-pō was once Hine-tītama, the dawn maiden, daughter and wife of Tāne; when she learned that her husband was also her father, she fled to the underworld, where she receives her descendants when they die. The fantail's laughter is remembered whenever the bird flits close to people, and in some traditions its appearance indoors is taken as an omen of death.",
     "category": "tragedy",
     "culturalSignificance": "A defining Maui tale explaining human mortality after his successes with sun, fire, and land.",
     "imageUrl": "/stories/maui-and-hina-death.png"
@@ -3413,8 +3419,8 @@
     "pantheonId": "polynesian-pantheon",
     "title": "How Hina and Maui Lengthened the Day",
     "slug": "hina-maui-lengthened-day",
-    "summary": "When the sun raced too fast for Hina to dry her bark cloth, Maui and his brothers snared it with ropes of sisal and hair until it promised to walk slowly across the sky.",
-    "fullNarrative": "## Cloth That Would Not Dry\n\nHina beat tapa in the brief light. The sun — Tama-nui-te-rā — rushed from dawn to dusk so swiftly that her cloth stayed damp and days felt stolen.\n\n## The Snare\n\nMaui braided ropes from flax and from his sister’s hair. With his brothers he traveled east to the sun’s pit, laid nooses along its path, and when the blazing disk rose, the ropes held. The sun struggled; Maui struck it until it begged release.\n\n## A Slower Path\n\nReleased on a vow, the sun thereafter crossed the sky more slowly. Humans gained time to work, worship, and dry their cloth. The myth ties domestic craft (Hina’s tapa) to cosmic negotiation (Maui’s snare) — everyday labor secured by heroic daring.",
+    "summary": "When the sun raced too fast for Hina to dry her bark cloth, Maui and his brothers snared it with ropes of flax (or, in Hawaiian tellings, coconut fibre and hair) until it promised to walk slowly across the sky.",
+    "fullNarrative": "## Two Tellings\n\nMāui snares the sun in many Polynesian traditions. In the Māori version George Grey published in *Polynesian Mythology* (1855), Māui and his brothers make the ropes and the sun is Tama-nui-te-rā; in Hawaiian tradition, gathered in collections such as W. D. Westervelt's *Legends of Ma-ui* (1910), Māui acts for his mother Hina, who cannot dry her kapa cloth, and snares the sun from the summit of Haleakalā on Maui. The retelling below braids the common thread and notes where the traditions diverge.\n\n## Cloth That Would Not Dry\n\nHina beat tapa in the brief light. The sun — Tama-nui-te-rā — rushed from dawn to dusk so swiftly that her cloth stayed damp and days felt stolen.\n\n## The Snare\n\nIn the Māori telling Maui and his brothers plaited strong ropes of flax; in some Hawaiian tellings the ropes are made of coconut fibre, or from the hair of his sister or of Hina herself. With his brothers he traveled east to the sun’s pit, laid nooses along its path, and when the blazing disk rose, the ropes held. The sun struggled; in Grey's version Maui beat it with the enchanted jawbone of his ancestress Muri-ranga-whenua until, crying out, it revealed its second name and begged for release.\n\n## A Slower Path\n\nReleased on a vow, the sun thereafter crossed the sky more slowly. Humans gained time to work, worship, and dry their cloth. The myth ties domestic craft (Hina’s tapa) to cosmic negotiation (Maui’s snare) — everyday labor secured by heroic daring.\n\n## Haleakalā\n\nThe Hawaiian name Haleakalā means 'house of the sun', and the story is attached to the great volcano on the island that bears Māui's name. In many Hawaiian tellings the agreement is that the sun will travel slowly for half the year, which gives the long days of summer, and more quickly for the other half.",
     "category": "hero",
     "culturalSignificance": "Pairs Maui’s solar feat with Hina’s craft, rooting astronomy in household life across Polynesian tellings.",
     "imageUrl": "/stories/hina-maui-lengthened-day.png"
@@ -3537,7 +3543,7 @@
     "title": "Sky Woman and the Making of Turtle Island",
     "slug": "sky-woman-and-turtle-island",
     "summary": "A woman falls from a torn-open hole in the Sky World, is caught by waterfowl, and set on the back of the Great Turtle, whose back the diving animals build into Turtle Island.",
-    "fullNarrative": "## Variants, not one version\n\nHaudenosaunee tradition tells this story in more than one way, and this retelling follows the shape recorded by Arthur C. Parker (Seneca) and J.N.B. Hewitt (Tuscarora) from named Seneca, Onondaga, and Mohawk tellers, without claiming any single version is the only correct one.\n\n## The fall\n\nIn the Sky World above, a great tree that lit the sky is uprooted, tearing open a hole. A woman, curious or pushed, depending on the teller, falls through it toward the waters far below. Geese or swans, seeing her fall, fly up together and slow her descent, carrying her gently down rather than letting her strike the water.\n\n## The turtle's back\n\nThe animals of the water world below debate what to do; several offer to dive to the bottom of the endless sea to bring up mud for her to stand on, and many fail before one, muskrat in many tellings, succeeds, bringing up a pawful of earth. The Great Turtle offers his back to bear this earth, and as it is spread across his shell, it grows outward into land, this is Turtle Island, the name still used for the continent today.\n\n## What follows\n\nSky Woman's daughter is born on this new earth, and her grandsons, the twins Sapling and Flint, are born after her, go on to shape the earth's features in their turn. Their story is told separately on this site as its own entry.",
+    "fullNarrative": "## Variants, not one version\n\nHaudenosaunee tradition tells this story in more than one way, and this retelling follows the shape recorded by Arthur C. Parker (Seneca) and J.N.B. Hewitt (Tuscarora) from named Seneca, Onondaga, and Mohawk tellers, without claiming any single version is the only correct one.\n\n## The fall\n\nIn the Sky World above, a great tree that lit the sky is uprooted, tearing open a hole. A woman, curious or pushed, depending on the teller, falls through it toward the waters far below. In Parker's Seneca summary the chief of the Sky World, jealous and influenced by the being called the Fire Beast, uproots the tree, and as she falls she clutches seeds and earth from the edge of the hole, which later sprout on the new land. Geese or swans, seeing her fall, fly up together and slow her descent, carrying her gently down rather than letting her strike the water.\n\n## The turtle's back\n\nThe animals of the water world below debate what to do; several offer to dive to the bottom of the endless sea to bring up mud for her to stand on, and many fail before one, muskrat in many tellings, succeeds, bringing up a pawful of earth. The Great Turtle offers his back to bear this earth, and as it is spread across his shell, it grows outward into land, this is Turtle Island, the name still used for the continent today.\n\n## What follows\n\nSky Woman's daughter is born on this new earth, and her grandsons, the twins Sapling and Flint, are born after her, go on to shape the earth's features in their turn. Their story is told separately on this site as its own entry.\n\n## After the Twins\n\nIn Parker's Seneca summary, Sky Woman, the twins' grandmother, eventually returns to the Sky World, and the good-minded twin later makes the sun and moon from his mother's body; other tellers give those deeds to Sky Woman herself. Tellers also differ over whether Sky Woman sided with Flint against Sapling. The land built on the turtle's back remains, and the name Turtle Island is used today by many Indigenous nations for North America.",
     "keyExcerpts": "Sky Woman falls through a torn-open sky, is slowed by waterfowl, and is set on the Great Turtle's back; the diving animals bring up mud that grows into Turtle Island.",
     "category": "creation",
     "moralThemes": [
@@ -3570,7 +3576,7 @@
     "title": "The Twins: Sapling and Flint",
     "slug": "the-twins-sapling-and-flint",
     "summary": "Sky Woman's grandsons, the good-minded Sapling and the hard-minded Flint, shape the young earth's features in opposite directions, one toward ease and abundance, the other toward difficulty.",
-    "fullNarrative": "## Birth\n\nSky Woman's daughter, grown on the new earth of Turtle Island, gives birth to twin sons. Tellers differ on how she conceives; in many versions, the birth of the second twin, Flint, is unusually difficult and costs her life, which is why Sky Woman raises the boys herself.\n\n## Shaping the world\n\nAs the twins grow, they set about shaping the young earth, and, in most tellings recorded by Parker and Hewitt, they work in opposite directions. Sapling, also called Skyholder, makes rivers run smoothly, plants bear food, and the land welcome; Flint makes rapids, thickets, and hardship, or in some tellings brings dangerous creatures into being. Neither is purely good or purely evil in the way an outside reader might expect; together they are read by many tellers as accounting for why the world holds both ease and difficulty side by side.\n\n## An unresolved contest\n\nThe brothers eventually contest with each other, sometimes described as a wrestling match or a contest of power, and recorded tellings disagree on how it ends. Some Seneca tellers describe Sapling winning outright; others describe an ongoing, unresolved balance between the two rather than one twin's final defeat. This site does not choose between them.",
+    "fullNarrative": "## Birth\n\nSky Woman's daughter, grown on the new earth of Turtle Island, gives birth to twin sons. Tellers differ on how she conceives; in many versions, the birth of the second twin, Flint, is unusually difficult and costs her life, which is why Sky Woman raises the boys herself.\n\n## Shaping the world\n\nAs the twins grow, they set about shaping the young earth, and, in most tellings recorded by Parker and Hewitt, they work in opposite directions. Sapling, also called Skyholder, makes rivers run smoothly, plants bear food, and the land welcome; Flint makes rapids, thickets, and hardship, or in some tellings brings dangerous creatures into being. Neither is purely good or purely evil in the way an outside reader might expect; together they are read by many tellers as accounting for why the world holds both ease and difficulty side by side.\n\n## Copying and spoiling\n\nIn several of Hewitt's texts, Flint tries to copy what his brother makes and produces something harsher: where Sapling makes useful animals, Flint's attempts turn into dangerous creatures. In Parker's Seneca summary, Sapling (the Good Mind) shapes the first people from clay, is tested by his father before he receives the animals he brings to the earth, and assigns the Thunderer and the winds their work in the world.\n\n## An unresolved contest\n\nThe brothers eventually contest with each other, sometimes described as a wrestling match or a contest of power, and recorded tellings disagree on how it ends. Some Seneca tellers describe Sapling winning outright; others describe an ongoing, unresolved balance between the two rather than one twin's final defeat. This site does not choose between them.\n\n## Where Flint Went\n\nIn tellings where Sapling prevails, Flint is not destroyed but withdraws or is confined, often under the earth or to the west, and his influence continues in winter, hard stone, and other difficulties people still face. Parker's summary has the Good Mind confine his brother after their final conflict and later depart along the sky road. The contest is therefore less an ending than an explanation of the world's lasting balance.",
     "keyExcerpts": "Sky Woman's grandsons Sapling and Flint shape the young earth in opposite directions, one toward abundance and ease, the other toward hardship, and their contest is told with different endings by different tellers.",
     "category": "creation",
     "moralThemes": [
@@ -3660,7 +3666,7 @@
     "title": "Raven and the First Men",
     "slug": "raven-and-the-first-men",
     "summary": "Walking alone on the beach at Rose Spit, Haida Gwaii, Raven finds a giant clamshell full of small frightened beings and coaxes them out to become the first Haida.",
-    "fullNarrative": "## A Haida telling, and a sculptor's retelling\n\nThis story is recorded by John R. Swanton in *Haida Texts and Myths* (1905) and, decades later, reworked by the Haida artist Bill Reid, drawing on 19th-century Haida carver Charles Edenshaw's earlier miniature version, into the monumental sculpture *The Raven and the First Men*, carved from laminated yellow cedar between 1978 and 1980 and held at the Museum of Anthropology at the University of British Columbia. Reid's version is itself a public, widely seen retelling of Haida tradition, not a departure from it, and this narrative draws on both his and Swanton's versions.\n\n## The clamshell\n\nRaven, walking the beach alone at Rose Spit on Haida Gwaii after a great flood has receded, notices an enormous clamshell lying in the sand, and from it come small sounds. Looking closer, he finds it full of tiny beings, the first humans, crowded together and afraid to come out into his strange new world.\n\n## Coaxing them out\n\nUsing his voice, by turns coaxing, teasing, and persuading, exactly as Raven persuades and tricks his way through every other story told of him, he convinces the beings to leave the shell's safety. Some hesitate at the edge; others emerge readily, curious about the wide world of sea, sky, and forest Raven describes to them. Once out, they become the first Haida people, beginning their life on Haida Gwaii.",
+    "fullNarrative": "## A Haida telling, and a sculptor's retelling\n\nThis story is recorded by John R. Swanton in *Haida Texts and Myths* (1905) and, decades later, reworked by the Haida artist Bill Reid, drawing on 19th-century Haida carver Charles Edenshaw's earlier miniature version, into the monumental sculpture *The Raven and the First Men*, carved from laminated yellow cedar between 1978 and 1980 and held at the Museum of Anthropology at the University of British Columbia. Reid's version is itself a public, widely seen retelling of Haida tradition, not a departure from it, and this narrative draws on both his and Swanton's versions.\n\n## The clamshell\n\nRaven, walking the beach alone at Rose Spit on Haida Gwaii after a great flood has receded, notices an enormous clamshell lying in the sand, and from it come small sounds. Looking closer, he finds it full of tiny beings, the first humans, crowded together and afraid to come out into his strange new world.\n\n## Coaxing them out\n\nUsing his voice, by turns coaxing, teasing, and persuading, exactly as Raven persuades and tricks his way through every other story told of him, he convinces the beings to leave the shell's safety. Some hesitate at the edge; others emerge readily, curious about the wide world of sea, sky, and forest Raven describes to them. Once out, they become the first Haida people, beginning their life on Haida Gwaii.\n\n## The Sculpture\n\nReid's work, about two metres tall, shows Raven perched on a half-open clamshell with the small figures squeezing out beneath him, some eager and some afraid. It was unveiled in 1980 in its own rotunda at the Museum of Anthropology in Vancouver, where it remains, and it appears on the reverse of the Canadian twenty-dollar note issued from 2004. Reid and the poet Robert Bringhurst later retold the story in *The Raven Steals the Light* (1984). Haida tellers tell of the first people in more than one way, and this is one of those tellings, not the only account of Haida origins.",
     "keyExcerpts": "Raven finds a clamshell full of small frightened beings on the beach at Rose Spit and coaxes them out into the world, where they become the first Haida.",
     "category": "creation",
     "moralThemes": [
@@ -3766,5 +3772,215 @@
       }
     ],
     "imageUrl": "/stories/abduction-of-persephone.png"
+  },
+  {
+    "id": "tano-and-bia-divide-the-land",
+    "pantheonId": "akan-pantheon",
+    "title": "Tano and Bia Divide the Land",
+    "slug": "tano-and-bia-divide-the-land",
+    "summary": "The sky god Nyame means to divide his lands between his sons Tano and Bia, but a goat's advice sends the wrong son to receive the fertile country, and the rivalry of two rivers begins.",
+    "fullNarrative": "## Two versions, two riverbanks\n\nThis story is told on both sides of the modern Ghana and Côte d'Ivoire border, and it is told differently on each side. The version followed here is the Asante one as summarised in modern reference works; the Agni (Anyi) version from Côte d'Ivoire reverses which brother is favoured and which is tricked. Neither is the correct version; each explains the land from the point of view of the people telling it.\n\n## Nyame's plan\n\nNyame, the sky god, had two sons, Bia and Tano, and when they were grown he decided to divide the land between them. He meant the rich, well-watered country to go to Bia, the son who pleased him most, and the poorer, drier land to Tano. He told his servant, the goat, to send the sons to him in the morning so that he could make the gift.\n\n## The goat's advice\n\nThe goat favoured Tano. Going to him first, the goat told him what Nyame intended and advised him to go to his father early, before his brother, in Bia's place. Nyame took the son before him to be Bia and gave him the fertile land. When Bia came later and asked for his share, the gift could not be taken back, and he received what was left: the country to the west.\n\n## The rivers\n\nSo Tano became the great river of the fertile Bono and Asante country, honoured as the foremost of the abosom, and Bia the river that flows westward into what is now Côte d'Ivoire. In the Agni telling the goat's help goes the other way, Bia gains the better share, and Tano has to take his inheritance back by force, driving his brother west. Either way, the story makes the two rivers brothers and their peoples rivals, and it closes with the division standing: what the sky god has given, he does not take back.",
+    "keyExcerpts": "Nyame means the fertile land for one son, but the goat sends the other to receive it first, and the gift cannot be undone.",
+    "category": "rivalry",
+    "moralThemes": [
+      "a gift once given cannot be taken back",
+      "favouritism and its consequences",
+      "geography explained through kinship"
+    ],
+    "culturalSignificance": "An Akan account of the rivers Tano and Bia and of the relationship between the peoples who live along them, told in opposite versions in Ghana and Côte d'Ivoire.",
+    "citationSources": [
+      {
+        "title": "African Mythology A to Z",
+        "author": "Patricia Ann Lynch and Jeremy Roberts",
+        "date": "2010",
+        "type": "secondary"
+      },
+      {
+        "title": "Ashanti",
+        "author": "R. S. Rattray",
+        "date": "1923",
+        "type": "secondary"
+      }
+    ],
+    "featuredDeities": ["nyame", "tano", "bia"],
+    "imageUrl": "/stories/tano-and-bia-divide-the-land.png"
+  },
+  {
+    "id": "hinon-and-the-horned-serpent",
+    "pantheonId": "haudenosaunee-pantheon",
+    "title": "The Thunderer and the Horned Serpent",
+    "slug": "hinon-and-the-horned-serpent",
+    "summary": "A young woman runs away with a handsome stranger who takes her to a lodge beneath a lake; when she discovers he is a horned serpent, the Thunderer Hi'non strikes the monster down and brings her home.",
+    "fullNarrative": "## A Seneca telling\n\nThis retelling follows tale 26 in Arthur C. Parker's *Seneca Myths and Folk Tales* (1923), 'The Horned Serpent Runs Away with a Girl Who is Rescued by the Thunderer'. It is one Seneca version of a story shape told across the Northeast and Great Lakes: the sky powers against the powers of the deep waters. Details differ from teller to teller.\n\n## Two suitors\n\nThe Thunderer, Hi'non, often hovered about a certain village, hoping to win a young woman there, and he hated all evil beings and watched for them at their work. One night he found that another suitor was visiting her: a graceful young man in a fine suit of clothing that shone as if freshly washed, with a black stripe of porcupine quills down the back, a long neck, and small, bright eyes. The stranger asked her to come away with him, and she promised to go in three days.\n\n## The lodge beneath the lake\n\nOn the third night she went with him. He led her over the hills to the high rocky shore of a lake, took her by the waist, climbed down the cliff, and dived with her into the water. They came to a dim lodge full of fine things, and there they were married. Her husband urged her to choose a new dress from the many hanging in the lodge, but each smelled of fish, and she hesitated. Looking more closely, she understood that the garments were the skins of great serpents.\n\n## The Thunderer's arrow\n\nShe fled, forcing her way up through the water to the surface on a stormy night. Behind her came a monstrous serpent with blazing eyes and horns on its head, and in the flash of lightning she saw that its eyes were her husband's. As it coiled to seize her on the slippery rocks, there was a peal of thunder and a blinding flash, and the serpent fell dead, struck by one of Hi'non's arrows. A strong arm caught her and carried her home to her father's lodge.\n\n## Purification\n\nThe Thunderer told her she must be purified, and in the women's sweat lodge she was freed of the serpent's young, which the Thunderer killed as they fled. He then showed the people that the serpent's power could be contained, so that it could no longer harm them.",
+    "keyExcerpts": "As the serpent coiled to seize her, there was a peal of thunder, a blinding flash, and it fell dead, struck by one of Hi'non's arrows.",
+    "category": "romance",
+    "moralThemes": [
+      "appearances can deceive",
+      "the sky powers protect the people from the powers of the deep"
+    ],
+    "culturalSignificance": "A Seneca story of the Thunderers' enmity with the horned serpents, recorded by the Seneca scholar Arthur C. Parker, and one expression of a sky-against-water opposition found across the Northeast and Great Lakes.",
+    "citationSources": [
+      {
+        "title": "Seneca Myths and Folk Tales, tale 26",
+        "sourceId": "seneca-myths-folk-tales",
+        "author": "Arthur C. Parker (Seneca)",
+        "date": "1923",
+        "type": "primary"
+      }
+    ],
+    "featuredDeities": ["hinon"],
+    "imageUrl": "/stories/hinon-and-the-horned-serpent.png"
+  },
+  {
+    "id": "hiawatha-and-the-condolence",
+    "pantheonId": "haudenosaunee-pantheon",
+    "title": "Hiawatha and the Words of Condolence",
+    "slug": "hiawatha-and-the-condolence",
+    "summary": "Hiawatha, destroyed by grief after the deaths of his daughters, strings shells to carry words of comfort; the Peacemaker finds him and condoles him, and the words that restore him become the Condolence still used by the Confederacy.",
+    "fullNarrative": "## A story that is also a ceremony\n\nThis story belongs to the founding of the Great Law of Peace, and the words at its centre are still spoken when a Confederacy chief dies and a successor is raised. What follows is the outline shared publicly by the Onondaga Nation and recorded in Arthur C. Parker's 1916 edition of the Great Law and, earlier, in Horatio Hale's *The Iroquois Book of Rites* (1883). It does not reproduce the ceremonial words themselves.\n\n## Grief\n\nIn a time of constant war, an Onondaga man named Hiawatha loses his daughters, one after another; in the tradition Parker recorded, their deaths are the work of the feared Onondaga leader Tadodaho. Hiawatha's grief is so great that he can no longer stay among his people. He leaves them and wanders alone.\n\n## The shell strings\n\nAt a lake he gathers shells and strings them. He sets up the strings and says that if he found anyone burdened with grief as he was, he would take these strings and console them, and the strings would become words. But there is no one to console him.\n\n## Condolence\n\nThe Peacemaker, carrying his message of peace to the nations, finds Hiawatha. Taking up the strings, he speaks words of condolence: he wipes the tears from Hiawatha's eyes so that he can see clearly, clears his ears so that he can hear, and clears his throat so that he can speak. Hiawatha's mind is restored. He becomes the Peacemaker's partner and speaker, and together they carry the Great Law to the Mohawk, Oneida, Cayuga, and Seneca, and at last to Tadodaho.\n\n## Why it matters\n\nThe story explains why grief must be answered before any council can do its work: a mind clouded by loss cannot think of peace. The shell strings became wampum, used to carry and confirm words, and the Condolence remains one of the Confederacy's central observances.",
+    "keyExcerpts": "The Peacemaker takes up Hiawatha's shell strings and wipes away his tears, clears his ears, and clears his throat, so that he can see, hear, and speak again.",
+    "category": "origin",
+    "moralThemes": [
+      "grief must be answered before peace can be made",
+      "words carried with care can heal"
+    ],
+    "culturalSignificance": "The origin of the Condolence and of the use of wampum strings to carry words, and a central episode in the founding of the Haudenosaunee Confederacy.",
+    "citationSources": [
+      {
+        "title": "The Constitution of the Five Nations (\"The Dekanawida Legend\")",
+        "author": "Arthur C. Parker (Seneca)",
+        "date": "1916",
+        "type": "primary"
+      },
+      {
+        "title": "The Iroquois Book of Rites",
+        "author": "Horatio Hale",
+        "date": "1883",
+        "type": "primary"
+      },
+      {
+        "title": "History",
+        "author": "Onondaga Nation",
+        "date": "onondaganation.org, accessed 2026",
+        "type": "primary"
+      }
+    ],
+    "featuredDeities": [],
+    "featuredLocations": ["onondaga-lake"],
+    "imageUrl": "/stories/hiawatha-and-the-condolence.png"
+  },
+  {
+    "id": "origin-of-the-three-sisters",
+    "pantheonId": "haudenosaunee-pantheon",
+    "title": "The Origin of the Three Sisters",
+    "slug": "origin-of-the-three-sisters",
+    "summary": "Sky Woman's daughter dies giving birth to the twins Sapling and Flint, and from her grave grow the corn, beans, and squash the people live on.",
+    "fullNarrative": "## One strand of the creation\n\nThis episode is part of the larger account of Sky Woman's fall and the twins' shaping of the world. It is summarised here from the Seneca material in Arthur C. Parker's *Seneca Myths and Folk Tales* (1923) and the Onondaga, Seneca, and Mohawk texts in J.N.B. Hewitt's *Iroquoian Cosmology*. Tellers differ on many details, and the variants are noted.\n\n## The daughter\n\nOn the new earth that has grown across the Great Turtle's back, Sky Woman gives birth to a daughter, who grows quickly. When she is grown she conceives: in the Seneca telling Parker summarises, she marries Gä'ha', the gentle wind; other tellings name a different visitor or leave the father unnamed. She is carrying twins.\n\n## The twins' birth\n\nThe twins argue before they are born about how to enter the world. The first, Sapling, is born in the ordinary way. The second, Flint, forces his way out through his mother's side or armpit, and she dies. Sky Woman, grieving, asks which of them killed their mother; in many tellings Flint blames his brother, and she believes him.\n\n## The grave\n\nSky Woman buries her daughter, and from the grave the food plants begin to grow: corn, beans, and squash, and in several tellings tobacco as well. Tellers differ on which plant grows from which part of her body, and in some versions the sun and the moon are made from her face or body too. The plants that sustain the people are, in this way, the gift of the twins' mother, and the Seneca remember the corn, the bean, and the squash as inseparable sisters, the Dion'he'kon.\n\n## The twins take up the work\n\nFrom here the story becomes the twins' contest: Sapling making the world good to live in, Flint making it hard. But it begins with a death that feeds everyone who comes after.",
+    "keyExcerpts": "From the grave of the twins' mother grow corn, beans, and squash, the sisters the people live on.",
+    "category": "origin",
+    "moralThemes": [
+      "life springing from loss",
+      "the food plants as a gift to be thanked"
+    ],
+    "culturalSignificance": "Connects the Three Sisters of Haudenosaunee agriculture to the creation, and explains why the crops are thanked as relatives rather than treated as mere produce.",
+    "citationSources": [
+      {
+        "title": "Seneca Myths and Folk Tales",
+        "sourceId": "seneca-myths-folk-tales",
+        "author": "Arthur C. Parker (Seneca)",
+        "date": "1923",
+        "type": "primary"
+      },
+      {
+        "title": "Iroquoian Cosmology",
+        "sourceId": "iroquoian-cosmology",
+        "author": "J.N.B. Hewitt (Tuscarora)",
+        "date": "1903 and 1928",
+        "type": "primary"
+      }
+    ],
+    "featuredDeities": [
+      "sky-womans-daughter",
+      "sky-woman",
+      "sapling",
+      "flint",
+      "gaha",
+      "three-sisters"
+    ],
+    "imageUrl": "/stories/origin-of-the-three-sisters.png"
+  },
+  {
+    "id": "raven-and-petrel",
+    "pantheonId": "tlingit-haida-pantheon",
+    "title": "Raven Steals the Fresh Water",
+    "slug": "raven-and-petrel",
+    "summary": "Raven tricks Petrel, who owns the world's only fresh water, drinks his everlasting spring dry, is blackened by the smoke of Petrel's fire as he escapes, and spits out the water to make the rivers of the northern coast.",
+    "fullNarrative": "## A Sitka telling\n\nThis episode belongs to the long Raven cycle recorded in English at Sitka and published by John R. Swanton in *Tlingit Myths and Texts* (1909). Tlingit tellers tell it in many ways, and in its fullest forms Raven stories can be clan property; this is the published version, retold in summary.\n\n## No water to drink\n\nAfter Raven had freed the stars, the moon, and daylight, there was still no fresh water to drink in the world. Raven heard of a man named Petrel (Ganook) who owned an everlasting spring. Petrel kept it covered and slept beside it, so that no one could take any.\n\n## The trick\n\nRaven came to Petrel's house and was taken in for the night. While Petrel slept, Raven took some dog dung and put it beside him. Then he woke Petrel and told him he had soiled himself and his clothes. Petrel, ashamed, went outside to clean himself, and Raven went straight to the spring, took off its cover, and began to drink.\n\n## The smoke hole\n\nPetrel came back and saw what Raven was doing. Raven flew up toward the smoke hole, but Petrel called on his spirits to hold him there, and Raven hung in the smoke of Petrel's fire until at last he got free. Raven had been white; the smoke turned him black, and ravens have been black ever since.\n\n## The rivers\n\nFlying over the land with his mouth full, Raven let the water fall. Where it fell the great rivers began: the Nass, the Stikine, the Taku, the Chilkat, and the Alsek, and from the smaller drops came the many little creeks where the salmon run. So the fresh water that one man had kept to himself became the rivers everyone shares.",
+    "keyExcerpts": "Raven drinks Petrel's everlasting spring, is blackened by the smoke as he escapes, and spits out the water to make the Nass, Stikine, Taku, Chilkat, and Alsek rivers.",
+    "category": "trickster",
+    "moralThemes": [
+      "what is hoarded is made common",
+      "cunning over possession"
+    ],
+    "culturalSignificance": "Explains the origin of the major rivers of the Tlingit country and the raven's black colour, and is one of the best-known episodes of the Raven cycle.",
+    "citationSources": [
+      {
+        "title": "Tlingit Myths and Texts, \"Raven\" (Sitka, recorded in English)",
+        "author": "John R. Swanton",
+        "date": "1909",
+        "type": "primary"
+      }
+    ],
+    "featuredDeities": ["raven", "petrel"],
+    "featuredLocations": ["nass-river"],
+    "relatedStories": ["raven-steals-the-light"],
+    "imageUrl": "/stories/raven-and-petrel.png"
+  },
+  {
+    "id": "kats-and-the-bear-wife",
+    "pantheonId": "tlingit-haida-pantheon",
+    "title": "Kaatsʼ and the Bear Wife",
+    "slug": "kats-and-the-bear-wife",
+    "summary": "A Kaagwaantaan hunter of Sitka marries a bear woman and fathers bear children; returning to his people under a promise never to touch or smile at his human family, he breaks it and is killed by his cubs.",
+    "fullNarrative": "## A clan story\n\nThis story belongs to the Kaagwaantaan clan of the Tlingit, for whom the bear is a crest. The retelling below follows the version John R. Swanton recorded and published in *Tlingit Myths and Texts* (1909) as 'Kâts!'. Related stories of people who marry bears are told widely across the Northwest Coast and the interior.\n\n## Into the den\n\nKaats' was a hunter of the Kaagwaantaan who lived at Sitka. A female bear took him as her husband, and he lived with her in the bears' world, where she bore him children who were cubs.\n\n## The promise\n\nIn time Kaats' went back to his own people. Before he left, his bear wife made him promise that he would not touch or smile at his human wife and children. He kept hunting for his bear family, bringing game down to the shore, where his rough, strong cubs came to haul them away.\n\n## The breaking\n\nOne day, moved by his human family, Kaats' broke the promise. When he next went to the bear family, his cubs fell on him and killed him.\n\n## After\n\nSwanton's text follows the bear children after their father's death and records that the last of them was killed at White Stone Narrows. It also connects the story to the reasons people did not eat grizzly bear meat. The story joins the human and animal worlds through marriage and makes the obligations of both binding.\n\n## Telling it\n\nStories of a person who marries into the bear people are among the most widespread in the Northwest Coast and the northern interior, told by Tlingit, Haida, Tsimshian, Tagish, and other nations, and they often carry instructions about how bears should be addressed and treated. The Kaagwaantaan version is distinct because it belongs to a particular clan and explains that clan's relationship with the bear. This retelling follows Swanton's published text and does not reproduce any clan-owned form of the story.",
+    "keyExcerpts": "His bear wife lets him return to his people only if he promises never to touch or smile at his human family; when he does, his cubs kill him.",
+    "category": "tragedy",
+    "moralThemes": [
+      "promises across worlds are binding",
+      "kinship with animals carries obligations"
+    ],
+    "culturalSignificance": "A Kaagwaantaan clan story connected with the bear crest and with a Tlingit avoidance of grizzly meat, and one of the best-known Northwest Coast bear-marriage stories.",
+    "citationSources": [
+      {
+        "title": "Tlingit Myths and Texts, story 19, \"Kâts!\"",
+        "author": "John R. Swanton",
+        "date": "1909",
+        "type": "primary"
+      }
+    ],
+    "featuredDeities": [],
+    "imageUrl": "/stories/kats-and-the-bear-wife.png"
+  },
+  {
+    "id": "natsilane-and-the-killer-whales",
+    "pantheonId": "tlingit-haida-pantheon",
+    "title": "Naatsilanéi Carves the Killer Whales",
+    "slug": "natsilane-and-the-killer-whales",
+    "summary": "A carver of the Tsague'dî tries wood after wood until killer whales carved from yellow cedar come alive, and sends them into the sea to hunt, forbidding them ever to harm a human being.",
+    "fullNarrative": "## A clan origin\n\nThis story explains the origin of the killer whale and why one Tlingit clan uses it as a crest. It follows the short version John R. Swanton published in 1909 as 'Origin of the Killer Whale', and notes where widely retold versions add more.\n\n## The failed carvings\n\nNaatsilanéi, of the Tsague'dî, a branch of the DAqL!awe'dî, set out to make killer whales. He carved them first from red cedar, but when he put them in the water they only floated. He tried hemlock, and then other woods, and each time the carvings lay on the surface like driftwood.\n\n## Yellow cedar\n\nThen he carved them from yellow cedar. When he put these in the water, they came alive and swam. He made them in several kinds, marking one with white paint so that it became the white-mouthed killer whale, and he named the long, slender red one that swims at the front 'killer-whale-spear'.\n\n## The instruction\n\nHe told the whales that when they went up to the heads of the bays they were to hunt for seal, halibut, and everything else under the sea, but that they were never to hurt a human being. Because the Tsague'dî are a branch of the DAqL!awe'dî, Swanton records, the DAqL!awe'dî alone use the killer whale as their emblem.\n\n## Other tellings\n\nMany later tellings frame the carving with a story of betrayal: jealous brothers-in-law abandon Naatsilanéi on a distant sea rock, the sea lions rescue him, and his first command to the new whales is to overturn the brothers-in-law's canoe, before he forbids them ever to harm people again. Those episodes come from those other tellings, not from Swanton's text.",
+    "keyExcerpts": "Carvings of red cedar and hemlock only float; carved from yellow cedar, the killer whales come alive, and he tells them never to hurt a human being.",
+    "category": "origin",
+    "moralThemes": ["persistence in craft", "power bound by responsibility"],
+    "culturalSignificance": "The Tlingit origin of the killer whale and of its use as a clan crest, and an expression of the Northwest Coast understanding of carving as a way of bringing beings into the world.",
+    "citationSources": [
+      {
+        "title": "Tlingit Myths and Texts, story 4, \"Origin of the Killer Whale\"",
+        "author": "John R. Swanton",
+        "date": "1909",
+        "type": "primary"
+      }
+    ],
+    "featuredDeities": [],
+    "imageUrl": "/stories/natsilane-and-the-killer-whales.png"
   }
 ]

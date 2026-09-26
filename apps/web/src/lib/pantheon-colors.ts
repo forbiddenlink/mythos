@@ -15,6 +15,8 @@ export const PANTHEON_COLORS: Record<string, string> = {
   "chinese-pantheon": "#8b1428", // crimson (lacquer, silk)
   "mesopotamian-pantheon": "#7a5c1a", // amber clay (cuneiform tablet)
   "african-pantheon": "#7a4a1a", // earth ochre (Benin bronze, laterite)
+  "yoruba-pantheon": "#8a5a1e", // indigo-dyed adire brown-gold (Ife bronze, laterite)
+  "akan-pantheon": "#9a7418", // kente gold (Asante gold weights, kente)
   "polynesian-pantheon": "#0b6e7a", // deep Pacific teal (ocean, basalt)
   "mesoamerican-pantheon": "#2d5a1a", // jade green (ceiba, quetzal)
   "slavic-pantheon": "#4a5d3a", // oak-forest olive green with a rust undertone (Perun's oak, iron)
@@ -92,6 +94,16 @@ const PANTHEON_ACCENTS: Record<string, PantheonAccent> = {
     primary: "#8c5722",
     secondary: "#663b11",
     label: "African",
+  },
+  "yoruba-pantheon": {
+    primary: "#9a6428",
+    secondary: "#6e4416",
+    label: "Yoruba",
+  },
+  "akan-pantheon": {
+    primary: "#a8821e",
+    secondary: "#765a10",
+    label: "Akan",
   },
   "polynesian-pantheon": {
     primary: "#137e8c",

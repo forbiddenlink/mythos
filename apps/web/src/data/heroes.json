@@ -1135,7 +1135,7 @@
   },
   {
     "id": "moremi-ajasoro",
-    "pantheonId": "african-pantheon",
+    "pantheonId": "yoruba-pantheon",
     "name": "Moremi Ajasoro",
     "slug": "moremi-ajasoro",
     "gender": "female",
@@ -1218,5 +1218,222 @@
       }
     ],
     "imageUrl": "/heroes/etana.png"
+  },
+  {
+    "id": "peacemaker",
+    "pantheonId": "haudenosaunee-pantheon",
+    "name": "The Peacemaker",
+    "slug": "peacemaker",
+    "gender": "male",
+    "alternateNames": [
+      "The Great Peacemaker"
+    ],
+    "description": "The messenger of the Great Law of Peace, who in Haudenosaunee tradition crossed the lake in a white stone canoe, joined with Hiawatha, and brought the five warring nations together under one law. Many Haudenosaunee people avoid speaking his personal name outside ceremony, so this site uses his title.",
+    "detailedBio": "## Why the title\n\nHaudenosaunee people generally refer to him as the Peacemaker, and many avoid using his personal name outside ceremonial contexts. This site follows that practice, as the Onondaga Nation and the Haudenosaunee Confederacy do in the accounts they publish themselves.\n\n## Birth and the stone canoe\n\nArthur C. Parker's 1916 edition of the Great Law includes a version of the Peacemaker's story recorded from Six Nations chiefs: he is born to a Wendat (Huron) woman north of Lake Ontario, and his grandmother, warned in a dream that he would bring sorrow to their people, tries to drown him, but he returns each time. As a man he builds a canoe of white stone and crosses the lake to the country of the warring nations.\n\n## The message\n\nHe goes first to a woman whose house fed war parties, Jikonhsaseh, and she becomes the first to accept the message. The Mohawk test him by having him climb a tree over the great falls on the Mohawk River, cut it down, and wait: when he is found alive the next morning, they accept the law. With Hiawatha, whom he condoles in his grief, he carries the message west, and together they persuade the Onondaga leader Tadodaho. At Onondaga Lake the nations bury their weapons beneath the Great Tree of Peace and take up government by fifty chiefs.\n\n## Dates\n\nScholars and the nations date the founding differently, from the 12th to the 15th century; the Haudenosaunee Confederacy describes it as over a thousand years ago. This site does not fix a year.",
+    "parentage": {
+      "mortalParentName": "A Wendat (Huron) mother; no human father is named",
+      "note": "Parker's recorded legend describes a virgin birth; accounts differ in detail, and the nations' own public accounts focus on his message rather than his birth."
+    },
+    "keyDeeds": [
+      "Crossed the lake in a canoe of white stone to bring the message of peace",
+      "Won Jikonhsaseh, the first to accept the Great Peace",
+      "Survived the Mohawk test at the falls on the Mohawk River",
+      "Condoled Hiawatha in his grief, establishing the words of condolence",
+      "Persuaded Tadodaho and planted the Great Tree of Peace at Onondaga"
+    ],
+    "fate": "Having established the Great Law and the council of fifty chiefs, the Peacemaker departs; tradition holds that his name is not to be given to any later chief, and that he may be called on again if the law is ever forgotten.",
+    "relatedDeityIds": [],
+    "primarySources": [
+      {
+        "text": "The Dekanawida legend recorded from Six Nations chiefs gives the Peacemaker's birth, his stone canoe, Jikonhsaseh's acceptance, the Mohawk test, the condolence of Hiawatha, and the persuasion of Tadodaho (paraphrase).",
+        "source": "Arthur C. Parker, The Constitution of the Five Nations, or The Iroquois Book of the Great Law (\"The Dekanawida Legend\")",
+        "date": "1916"
+      },
+      {
+        "text": "The Onondaga Nation's own account names the Peacemaker, Jikonhsaseh, Hiawatha, and Tadodaho, and describes the test over the falls now called Cohoes Falls and the fifty chiefs (paraphrase).",
+        "source": "Onondaga Nation, \"History\" (onondaganation.org)",
+        "date": "accessed 2026"
+      }
+    ],
+    "imageUrl": "/heroes/peacemaker.png"
+  },
+  {
+    "id": "hiawatha",
+    "pantheonId": "haudenosaunee-pantheon",
+    "name": "Hiawatha",
+    "slug": "hiawatha",
+    "gender": "male",
+    "alternateNames": [
+      "Aiionwatha",
+      "Hayenwatha",
+      "Ayonwentah"
+    ],
+    "description": "An Onondaga man who, grieving the loss of his daughters, strung the first shell strings of condolence and became the Peacemaker's partner and spokesman in founding the Great Law of Peace. Not the character of Longfellow's poem, which borrowed only his name.",
+    "detailedBio": "## Not Longfellow's Hiawatha\n\nHenry Wadsworth Longfellow's *The Song of Hiawatha* (1855) took the name from Iroquois tradition but attached it to stories drawn largely from Ojibwe material collected by Henry Rowe Schoolcraft. The historical and traditional Hiawatha of the Haudenosaunee is a different figure, and the Confederacy's flag, the Hiawatha Belt, is named for him.\n\n## Grief\n\nIn the tradition recorded by Parker in 1916 and retold by the Onondaga Nation, Hiawatha is an Onondaga man whose daughters die, one after another, through the malice of Tadodaho. Overwhelmed with grief, he leaves his people and wanders. He gathers shells, strings them, and says that if he found anyone burdened with grief as he was, he would take these strings and console them with words.\n\n## Condolence\n\nThe Peacemaker finds him and does exactly that, using the strings to wipe away his tears, clear his ears, and clear his throat so that he can see, hear, and speak again. Those words became the Condolence, still used when a chief dies and a new one is raised. Restored, Hiawatha becomes the Peacemaker's partner, speaking the message the Peacemaker brings, and the two carry it to the nations and to Tadodaho himself.",
+    "parentage": {
+      "mortalParentName": "Not named in the sources used here",
+      "note": "A mortal Onondaga man (some tellings make him Mohawk by adoption)."
+    },
+    "keyDeeds": [
+      "Strung the first shell strings to carry words of condolence",
+      "Was condoled by the Peacemaker and restored from grief",
+      "Spoke the Peacemaker's message to the five nations",
+      "Helped persuade Tadodaho to accept the Great Law"
+    ],
+    "fate": "Hiawatha became one of the founding chiefs of the Confederacy, and his title is among the fifty held by chiefs today; the Hiawatha Belt, the Confederacy's emblem, carries his name.",
+    "relatedDeityIds": [],
+    "primarySources": [
+      {
+        "text": "Hiawatha, bereaved of his daughters, strings shells to console the grieving and is himself condoled by the Peacemaker, becoming his companion in establishing the Great Law (paraphrase).",
+        "source": "Arthur C. Parker, The Constitution of the Five Nations, or The Iroquois Book of the Great Law (\"The Dekanawida Legend\")",
+        "date": "1916"
+      },
+      {
+        "text": "Horatio Hale records the Condolence ritual and its speeches as recited by Onondaga and Mohawk chiefs, with the tradition of its founders (paraphrase).",
+        "source": "Horatio Hale, The Iroquois Book of Rites",
+        "date": "1883"
+      }
+    ],
+    "imageUrl": "/heroes/hiawatha.png"
+  },
+  {
+    "id": "jikonhsaseh",
+    "pantheonId": "haudenosaunee-pantheon",
+    "name": "Jikonhsaseh",
+    "slug": "jikonhsaseh",
+    "gender": "female",
+    "alternateNames": [
+      "Jigonsaseh",
+      "Djigonsasee",
+      "Mother of Nations"
+    ],
+    "description": "The woman who, in Haudenosaunee tradition, was the first to accept the Peacemaker's message; in recognition the Peacemaker gave the women of the nations the responsibility of choosing and removing chiefs, and she is remembered as the Mother of Nations.",
+    "detailedBio": "## The first to accept\n\nIn the account published by the Onondaga Nation, the Peacemaker, searching for those who could end the fighting, comes to the house of a woman named Jikonhsaseh, who fed the warriors passing along the war trail. He tells her that her actions are feeding war, and she agrees to take up the message of peace instead. Because she was the first to accept the Great Peace and change her ways, the Peacemaker set aside a special duty for the women of the five nations.\n\n## The clan mothers\n\nThat duty is the clan mothers' responsibility to select chiefs, advise them, and remove them if they fail the people, a central feature of Haudenosaunee government that continues today. Parker's 1916 edition of the Great Law records her under the spelling Djigonsasee.\n\n## Remembered today\n\nJikonhsaseh is honoured as the Mother of Nations, including at Ganondagan State Historic Site, a Seneca town site in western New York.Tellers differ on where her house stood and on details of her meeting with the Peacemaker.",
+    "parentage": {
+      "mortalParentName": "Not named in the sources used here",
+      "note": "A mortal woman; her lineage is not given in the published accounts."
+    },
+    "keyDeeds": [
+      "Was the first to accept the Peacemaker's message of peace",
+      "Gave up feeding war parties",
+      "Became the model for the clan mothers' role in choosing chiefs"
+    ],
+    "fate": "Remembered as the Mother of Nations; the clan mothers' responsibilities in Haudenosaunee government are traced to her acceptance of the Great Peace.",
+    "relatedDeityIds": [],
+    "primarySources": [
+      {
+        "text": "The Peacemaker comes to Jikonhsaseh, who fed warriors; she is the first to accept the Great Peace, and he sets aside a special duty for the women of the five nations (paraphrase).",
+        "source": "Onondaga Nation, \"History\" (onondaganation.org)",
+        "date": "accessed 2026"
+      },
+      {
+        "text": "The Dekanawida legend records the Peacemaker's meeting with the woman Djigonsasee (paraphrase).",
+        "source": "Arthur C. Parker, The Constitution of the Five Nations, or The Iroquois Book of the Great Law (\"The Dekanawida Legend\")",
+        "date": "1916"
+      }
+    ],
+    "imageUrl": "/heroes/jikonhsaseh.png"
+  },
+  {
+    "id": "tadodaho",
+    "pantheonId": "haudenosaunee-pantheon",
+    "name": "Tadodaho",
+    "slug": "tadodaho",
+    "gender": "male",
+    "alternateNames": [
+      "Thadodaho",
+      "Atotarho",
+      "Adodarhoh"
+    ],
+    "description": "The feared Onondaga leader, described with snakes in his hair and a twisted body, who resisted the Great Peace until the Peacemaker and Hiawatha straightened his mind; he became the Confederacy's Firekeeper, and his title is still held today.",
+    "detailedBio": "## The most feared man\n\nEvery public Haudenosaunee account of the founding of the Great Law includes Tadodaho, an Onondaga leader so feared that people fled from him. The Onondaga Nation and the Haudenosaunee Confederacy describe him as having snakes in his hair and a twisted body, images of a twisted mind, and Parker's 1916 legend makes him responsible for the deaths of Hiawatha's daughters.\n\n## Straightened\n\nThe Peacemaker and Hiawatha go to him with the message of peace and the support of the other nations. They comb the snakes from his hair and straighten his mind and body, and he accepts the Great Law. Because the council would meet at Onondaga, he is given the role of Firekeeper, the chief who keeps the council fire of the Confederacy.\n\n## A living title\n\nTadodaho is also a title: the chief who holds it today serves as the Confederacy's presiding Firekeeper at Onondaga. The story is therefore not only about one man's transformation but about the origin of an office that still exists.",
+    "parentage": {
+      "mortalParentName": "Not named in the sources used here",
+      "note": "A mortal Onondaga leader."
+    },
+    "keyDeeds": [
+      "Opposed the Great Peace and was feared across the nations",
+      "Had his mind and body straightened by the Peacemaker and Hiawatha",
+      "Accepted the Great Law and became the Confederacy's Firekeeper at Onondaga"
+    ],
+    "fate": "Transformed and made Firekeeper of the Confederacy; the title Tadodaho is held by the presiding chief at Onondaga to this day.",
+    "relatedDeityIds": [],
+    "primarySources": [
+      {
+        "text": "The Onondaga Nation's account describes the feared Tadodaho, with snakes in his hair and a twisted body, persuaded to accept peace and made Firekeeper (paraphrase).",
+        "source": "Onondaga Nation, \"History\" (onondaganation.org)",
+        "date": "accessed 2026"
+      },
+      {
+        "text": "The Dekanawida legend makes Adodarhoh the cause of Hiawatha's grief and records how the snakes were combed from his hair (paraphrase).",
+        "source": "Arthur C. Parker, The Constitution of the Five Nations, or The Iroquois Book of the Great Law (\"The Dekanawida Legend\")",
+        "date": "1916"
+      }
+    ],
+    "imageUrl": "/heroes/tadodaho.png"
+  },
+  {
+    "id": "kats",
+    "pantheonId": "tlingit-haida-pantheon",
+    "name": "Kaatsʼ",
+    "slug": "kats",
+    "gender": "male",
+    "alternateNames": [
+      "Kats",
+      "Kâts!"
+    ],
+    "description": "A Tlingit hunter of the Kaagwaantaan clan at Sitka who married a bear woman and lived with her and their cubs, until, back among people, a moment's tenderness toward his human family cost him his life.",
+    "detailedBio": "## The man who married the bear\n\nSwanton's *Tlingit Myths and Texts* (1909) records the story of Kâts!, a man of the Kâ'gwAntân (Kaagwaantaan) clan who lived at Sitka. He is taken as a husband by a female bear, and he lives with her and has children with her, cubs who are part human.\n\n## Two families\n\nWhen Kaats' returns to his people, the bear wife lets him go on one condition: he must not touch or smile at his human wife and children. He keeps hunting for his bear family, bringing game to the shore for the cubs to haul away. But one day, moved by his human family, he breaks the promise, and his bear children kill him.\n\n## What the story explains\n\nSwanton's text ties the story to the reasons people did not eat grizzly bear meat and follows the fate of Kaats' bear children, the last of whom was killed at White Stone Narrows. The story belongs to the Kaagwaantaan, for whom the bear is a crest, and versions of the bear-husband and bear-wife story are told across the Northwest Coast and interior.",
+    "parentage": {
+      "mortalParentName": "Not named in Swanton",
+      "note": "A mortal man of the Kaagwaantaan clan of Sitka."
+    },
+    "keyDeeds": [
+      "Lived with a bear wife and fathered bear children",
+      "Returned to his people and hunted to feed both families",
+      "Was bound by a promise not to touch or smile at his human family"
+    ],
+    "fate": "He broke his promise and was killed by his bear children; the story explains a Tlingit avoidance of grizzly meat and is associated with the Kaagwaantaan bear crest.",
+    "relatedDeityIds": [],
+    "primarySources": [
+      {
+        "text": "Kâts! of the Kâ'gwAntân at Sitka marries a female bear, has children with her, returns to his human wife under a prohibition, and is killed by his bear children when he breaks it (paraphrase).",
+        "source": "John R. Swanton, Tlingit Myths and Texts (Bureau of American Ethnology Bulletin 39), story 19, \"Kâts!\"",
+        "date": "1909"
+      }
+    ],
+    "imageUrl": "/heroes/kats.png"
+  },
+  {
+    "id": "natsilane",
+    "pantheonId": "tlingit-haida-pantheon",
+    "name": "Naatsilanéi",
+    "slug": "natsilane",
+    "gender": "male",
+    "alternateNames": [
+      "Natsilane",
+      "NâtsAlAne'"
+    ],
+    "description": "The Tlingit carver who made the first killer whales from yellow cedar, after other woods failed, and sent them into the sea with the instruction never to harm human beings.",
+    "detailedBio": "## The carver of killer whales\n\nSwanton's 'Origin of the Killer Whale' (1909) tells how NâtsAlAne', of the Tsague'dî, a branch of the DAqL!awe'dî clan, made the first killer whales. He carves them first from red cedar, then from hemlock and other woods, but each set of figures only floats when put in the water. When he carves them from yellow cedar, they come alive and swim away.\n\n## The instruction\n\nHe tells the whales that when they go up to the heads of the bays they are to hunt seal, halibut, and everything else under the sea, but never to hurt a human being. He makes them in several kinds, including a white-mouthed killer whale marked with white paint, and names the long, slender red one that swims ahead 'killer-whale-spear'. Swanton notes that because the Tsague'dî are a branch of the DAqL!awe'dî, the DAqL!awe'dî alone use the killer whale as their emblem.\n\n## Other tellings\n\nWidely retold versions add that Naatsilanéi was abandoned on a distant rock by jealous brothers-in-law, rescued by the sea lions, and sent his whales to take revenge on the brothers-in-law's canoe. Those episodes are part of other tellings, not the short version Swanton printed, and this entry keeps them distinct.",
+    "parentage": {
+      "mortalParentName": "Not named in Swanton",
+      "note": "A mortal man of the Tsague'dî, a branch of the DAqL!awe'dî clan."
+    },
+    "keyDeeds": [
+      "Carved the first killer whales, succeeding only with yellow cedar",
+      "Instructed the whales to hunt the sea but never harm people",
+      "Named the killer whale that swims ahead \"killer-whale-spear\""
+    ],
+    "fate": "Swanton's text ends with the killer whales' creation and naming; it does not describe Naatsilanéi's death.",
+    "relatedDeityIds": [],
+    "primarySources": [
+      {
+        "text": "NâtsAlAne' carves killer whales from red cedar, hemlock, and other woods that only float, then from yellow cedar, which come alive; he tells them to hunt seal and halibut but never to hurt a human being (paraphrase).",
+        "source": "John R. Swanton, Tlingit Myths and Texts (Bureau of American Ethnology Bulletin 39), story 4, \"Origin of the Killer Whale\"",
+        "date": "1909"
+      }
+    ],
+    "imageUrl": "/heroes/natsilane.png"
   }
 ]

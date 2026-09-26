@@ -1986,5 +1986,111 @@
     "relationshipType": "spouse_of",
     "confidenceLevel": "high",
     "description": "Enki and Ninhursag couple in Dilmun in the Sumerian myth that bears their names."
+  },
+  {
+    "id": "akan-nyame-asase-yaa",
+    "fromDeityId": "nyame",
+    "toDeityId": "asase-yaa",
+    "relationshipType": "spouse_of",
+    "confidenceLevel": "low",
+    "description": "Sky and earth are paired in Akan prayer, the sky god named first and the earth second; many modern writers call Asase Yaa Nyame's wife, but no narrative marriage is recorded in the sources used here.",
+    "isDisputed": true
+  },
+  {
+    "id": "akan-nyame-tano",
+    "fromDeityId": "nyame",
+    "toDeityId": "tano",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "medium",
+    "description": "Tano is one of the two sons among whom Nyame divides the land in the Asante and Agni versions of the inheritance story."
+  },
+  {
+    "id": "akan-nyame-bia",
+    "fromDeityId": "nyame",
+    "toDeityId": "bia",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "medium",
+    "description": "Bia is Nyame's other son in the inheritance story, the brother who loses (or, in the Agni telling, wins) the fertile land."
+  },
+  {
+    "id": "akan-tano-bia",
+    "fromDeityId": "tano",
+    "toDeityId": "bia",
+    "relationshipType": "sibling_of",
+    "confidenceLevel": "medium",
+    "description": "Brothers and rivals, their quarrel over Nyame's land explains the courses of the two rivers."
+  },
+  {
+    "id": "haudenosaunee-earth-holder-sky-woman",
+    "fromDeityId": "earth-holder",
+    "toDeityId": "sky-woman",
+    "relationshipType": "spouse_of",
+    "confidenceLevel": "high",
+    "description": "Sky Woman is the wife of the Sky World's chief in the Seneca, Onondaga, and Mohawk tellings recorded by Parker and Hewitt."
+  },
+  {
+    "id": "haudenosaunee-sky-woman-daughter",
+    "fromDeityId": "sky-woman",
+    "toDeityId": "sky-womans-daughter",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high",
+    "description": "Sky Woman gives birth to a daughter on the new earth in the recorded tellings."
+  },
+  {
+    "id": "haudenosaunee-daughter-sapling",
+    "fromDeityId": "sky-womans-daughter",
+    "toDeityId": "sapling",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high",
+    "description": "The daughter of Sky Woman is the mother of the twins."
+  },
+  {
+    "id": "haudenosaunee-daughter-flint",
+    "fromDeityId": "sky-womans-daughter",
+    "toDeityId": "flint",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high",
+    "description": "The daughter of Sky Woman is the mother of the twins and dies at Flint's birth."
+  },
+  {
+    "id": "haudenosaunee-gaha-daughter",
+    "fromDeityId": "gaha",
+    "toDeityId": "sky-womans-daughter",
+    "relationshipType": "spouse_of",
+    "confidenceLevel": "low",
+    "isDisputed": true,
+    "description": "In the Seneca cosmology Parker summarises, Sky Woman's daughter marries the gentle wind; other tellings recorded by Hewitt name the twins' father differently."
+  },
+  {
+    "id": "haudenosaunee-hinon-sapling",
+    "fromDeityId": "hinon",
+    "toDeityId": "sapling",
+    "relationshipType": "ally_of",
+    "confidenceLevel": "medium",
+    "description": "Parker describes the Thunderer as a servant of the good-minded twin, who assigns him his work of bringing rain and destroying underworld monsters."
+  },
+  {
+    "id": "tlingit-raven-petrel",
+    "fromDeityId": "raven",
+    "toDeityId": "petrel",
+    "relationshipType": "enemy_of",
+    "confidenceLevel": "high",
+    "description": "Raven tricks Petrel out of his everlasting spring and escapes with the water (Swanton, Tlingit Myths and Texts, Sitka Raven cycle)."
+  },
+  {
+    "id": "tlingit-raven-old-woman-underneath",
+    "fromDeityId": "raven",
+    "toDeityId": "old-woman-underneath",
+    "relationshipType": "enemy_of",
+    "confidenceLevel": "high",
+    "description": "Raven attacks Old-woman-underneath until she agrees to let the tide rise and fall (Swanton, Sitka Raven cycle)."
+  },
+  {
+    "id": "slavic-perun-veles-oaths",
+    "fromDeityId": "perun",
+    "toDeityId": "veles",
+    "relationshipType": "ally_of",
+    "confidenceLevel": "medium",
+    "description": "Attested pairing: in the treaties recorded in the Primary Chronicle (s.a. 907 and 971) the Rus' swear by Perun and by Volos, the cattle god, together. This is joint invocation in oaths, not a narrated alliance; the opposed 'enemy' reading of the same pair is a modern reconstruction."
   }
 ]

@@ -65,7 +65,7 @@ export const MYTHIC_ERAS: MythicEra[] = [
     blurb: "Distinct traditions across Africa; no shared historical period",
     start: null,
     end: null,
-    pantheonIds: ["african-pantheon"],
+    pantheonIds: ["african-pantheon", "yoruba-pantheon", "akan-pantheon"],
   },
   {
     id: "medieval-slavic-world",

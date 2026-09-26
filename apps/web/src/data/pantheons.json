@@ -36,7 +36,7 @@
     "timePeriodStart": -1200,
     "timePeriodEnd": 1100,
     "description": "The Norse pantheon includes the Aesir and Vanir gods of Scandinavian mythology, centered in Asgard and featuring stories of creation, heroism, and the prophesied end of the world known as Ragnarok.",
-    "detailedHistory": "## The World Tree and Ragnarok\n\nNorse mythology centers on Yggdrasil, the Ash Tree connecting the nine worlds. The Aesir (sky gods) and Vanir (earth gods) eventually unified after a war.\n\n### The Prophecy\n\nUnique among mythologies, the Norse gods know their end. **Ragnarok** is the prophesied twilight of the gods, where they will battle the frost giants and chaos monsters, resulting in the destruction and renewal of the world.",
+    "detailedHistory": "## Late sources for an older religion\n\nAlmost everything told about the Norse gods comes from Iceland in the 13th century, two hundred years after the island's conversion to Christianity around 1000 CE. The *Poetic Edda*, a collection of anonymous mythological and heroic poems preserved mainly in the Codex Regius (c. 1270), includes *Völuspá*, the seeress's account of the world from creation to Ragnarök, and *Hávamál*, the sayings of Odin. Some of these poems are probably much older than the manuscript. Snorri Sturluson's *Prose Edda* (c. 1220) is a handbook for poets that retells the myths in systematic prose; it is the source of many familiar details, but Snorri was a Christian scholar organising inherited material, and scholars read him with care.\n\n## Other witnesses\n\nOlder and independent evidence is patchier: skaldic poems composed for Viking-age rulers and quoted in the sagas, runic inscriptions, picture stones on Gotland, carvings such as the Thor fishing stones at Altuna and Gosforth, place names across Scandinavia that preserve the names of Thor, Odin, Frey, and Ullr, Adam of Bremen's description (c. 1075) of a temple at Uppsala with images of Thor, Wodan, and Fricco, and, much earlier, Tacitus's *Germania* (98 CE) on the religion of the continental Germanic peoples. Saxo Grammaticus's Latin *Gesta Danorum* (c. 1200) retells some of the same figures as ancient kings.\n\n## Æsir and Vanir\n\nThe sources describe two groups of gods, the Æsir (Odin, Thor, Frigg, Týr, Baldr, and others) and the Vanir (Njörðr, Freyr, Freyja), associated with fertility, wealth, and the sea. They fought a war that ended in a truce and an exchange of hostages, after which the Vanir lived among the Æsir. Whether that war reflects a historical merging of cults is an old scholarly question with no settled answer.\n\n## The world and its end\n\nThe cosmos is organised around the ash Yggdrasil and its nine worlds. *Völuspá* tells how the gods order the world from the body of the giant Ymir, how Baldr is killed, and how Ragnarök, the doom of the gods, will bring Fenrir, the Midgard Serpent, Surtr's fire, and the deaths of Odin and Thor, before a green earth rises again from the sea. How much of that ending reflects Christian influence is debated. Religious practice itself, blót sacrifice, feasting, and oath-taking, is known mainly from saga descriptions written long after.",
     "citationSources": [
       {
         "title": "Poetic Edda",
@@ -64,7 +64,7 @@
     "timePeriodStart": -3100,
     "timePeriodEnd": 640,
     "description": "The Egyptian pantheon encompasses the gods and goddesses of ancient Egypt, featuring creation deities, solar worship, the afterlife, and the eternal struggle between order (Ma'at) and chaos (Isfet).",
-    "detailedHistory": "## Gods of the Nile\n\nEgyptian mythology is one of the longest-enduring religious systems in history. It focused heavily on the afterlife, the sun's journey, and the maintenance of *Ma'at* (cosmic order).\n\n### The Afterlife\n\nThe Egyptians believed the soul faced judgment in the Hall of Truth, where the heart was weighed against the feather of Ma'at. Only the righteous could enter the Field of Reeds.",
+    "detailedHistory": "## Three thousand years of religion\n\nEgyptian religion was practised from before the unification of the country (c. 3100 BCE) until the closing of the last temples in late antiquity; the temple of Isis at Philae functioned until the 6th century CE. Over that span gods rose and fell in importance, merged (Amun-Ra, Ra-Horakhty), and were worshipped differently in different cities. There was no single creed or scripture: each major temple had its own theology, and several creation accounts coexisted without contradiction being a problem.\n\n## Creation accounts\n\nAt Heliopolis, Atum emerges on the primeval mound from the waters of Nun and produces Shu and Tefnut, from whom come Geb and Nut and their children Osiris, Isis, Set, and Nephthys, the Ennead. At Hermopolis, eight primordial beings, the Ogdoad, precede the sun. At Memphis, the *Shabaka Stone* (c. 710 BCE, copying an older text) presents Ptah creating through heart and tongue, thought and word.\n\n## The written sources\n\nThe *Pyramid Texts*, carved inside royal pyramids at Saqqara from the reign of Unas (c. 2350 BCE), are the oldest religious texts. They were adapted for non-royal burials in the *Coffin Texts* of the Middle Kingdom and, from the New Kingdom, in the *Book of the Dead*, illustrated papyri of spells to guide the deceased. Underworld books such as the *Amduat* and the *Book of Gates* map the sun's night journey on royal tomb walls in the Valley of the Kings. Egyptian texts rarely tell myths as continuous narratives; the fullest account of the Osiris story is in Greek, in Plutarch's *On Isis and Osiris* (c. 100 CE), alongside Egyptian allusions and the New Kingdom tale *The Contendings of Horus and Set*.\n\n## Maat and the afterlife\n\nMaat, truth and right order, was what king and temple ritual existed to uphold against isfet, disorder. The dead hoped to be judged justified before Osiris, their heart weighed against Maat's feather (Book of the Dead Spell 125), and to live on in the Field of Reeds or travel with the sun. Temples were the houses of the gods, served daily by priests on the king's behalf, and ordinary people approached the gods through festivals, household cults, amulets, and oracles.",
     "citationSources": [
       {
         "title": "Pyramid Texts",
@@ -113,7 +113,8 @@
         "type": "primary"
       }
     ],
-    "imageUrl": "/pantheons/roman.jpg"
+    "imageUrl": "/pantheons/roman.jpg",
+    "detailedHistory": "## Religion as practice\n\nRoman religion was above all a matter of correct practice: sacrifice, vows, festivals, and the reading of signs, carried out by magistrates and priestly colleges on behalf of the state, and by heads of households for their families. Belief mattered less than keeping faith with the gods (pax deorum) through ritual done properly. The major priesthoods, the pontifices headed by the pontifex maximus, the augurs, the Vestal Virgins, and the flamines of individual gods, were held by members of the governing elite.\n\n## Native gods and Greek stories\n\nThe earliest Roman gods, Jupiter, Mars, and Quirinus, Janus, Vesta, and many small powers of house and field, had few myths of their own. From an early date Rome absorbed Etruscan and Greek influence: the Capitoline triad of Jupiter, Juno, and Minerva had an Etruscan-style temple dedicated, by tradition, in 509 BCE, and Greek gods such as Apollo were adopted outright. Roman writers then identified their gods with the Greek Olympians (Jupiter with Zeus, Juno with Hera, Minerva with Athena), so that much of what is called Roman mythology is Greek mythology told in Latin, above all in Ovid's *Metamorphoses*.\n\n## Rome's own myths\n\nThe myths the Romans developed most fully were stories about Rome itself: Aeneas's flight from Troy and his arrival in Latium, told in Virgil's *Aeneid*; Romulus and Remus and the founding of the city, and the early kings, told by Livy and Dionysius of Halicarnassus; and the origins of festivals and cults, explained in Ovid's *Fasti* and Varro's lost *Antiquities*, known through quotations. These are political myths, tying the gods to the city's history and destiny.\n\n## Change and end\n\nUnder the empire the cult of the deified emperors joined the state religion, and cults from the eastern provinces, such as those of Isis, Cybele, and Mithras, spread widely. After Constantine's conversion Christianity was favoured, and laws under Theodosius I in the 390s banned public sacrifice; the fire of Vesta was put out and the Vestals disbanded. The date 476 used here marks the end of the western empire, not a single moment when the old religion ceased."
   },
   {
     "id": "hindu-pantheon",
@@ -146,7 +147,8 @@
         "type": "primary"
       }
     ],
-    "imageUrl": "/pantheons/hindu.jpg"
+    "imageUrl": "/pantheons/hindu.jpg",
+    "detailedHistory": "## Many texts, many traditions\n\nHinduism is not a single religion with one founder or scripture but a family of traditions developing over more than three thousand years and practised today by over a billion people. This site's entries follow the principal textual sources while recognising that devotional and regional traditions often tell the stories differently.\n\n## The Vedas\n\nThe oldest layer is the *Rigveda*, hymns in Vedic Sanskrit composed in the northwest of the subcontinent in roughly the later second millennium BCE and transmitted orally with extraordinary precision long before being written down. Its prominent gods are Indra, slayer of the serpent Vritra, Agni the fire, Soma, Varuna, and the dawn goddess Ushas; Vishnu and Rudra, later Shiva, are comparatively minor. Later Vedic texts, the Brahmanas and the Upanishads, turned to the meaning of sacrifice and to the identity of the self (atman) with ultimate reality (brahman).\n\n## Epics and Puranas\n\nThe two Sanskrit epics, the *Mahabharata*, which contains the *Bhagavad Gita*, and the *Ramayana*, took shape over centuries around the turn of the common era and remain the most widely known stories in South and Southeast Asia. The Puranas, compiled from roughly the 3rd century CE into the second millennium, organise the gods around great deities: Vishnu and his avatars, including Rama and Krishna; Shiva with Parvati and their sons Ganesha and Kartikeya; and the Goddess, Devi, in forms such as Durga and Kali. The idea of the Trimurti, Brahma as creator, Vishnu as preserver, and Shiva as destroyer, is a Puranic scheme; in practice most devotees worship Vishnu, Shiva, or the Goddess as supreme.\n\n## Living worship\n\nHindu worship centres on temples, household shrines, pilgrimage, and festivals such as Diwali, Holi, and Navaratri. Tamil devotional poetry, regional epics, and local goddess traditions are as much part of Hindu mythology as the Sanskrit texts. The start date of 1500 BCE given here is a conventional marker for the Vedic period; the tradition has no end date."
   },
   {
     "id": "japanese-pantheon",
@@ -172,7 +174,8 @@
         "type": "primary"
       }
     ],
-    "imageUrl": "/pantheons/japanese.jpg"
+    "imageUrl": "/pantheons/japanese.jpg",
+    "detailedHistory": "## Kami\n\nKami are the sacred powers of Japanese religion: the great deities of the classical myths, but also mountains, waterfalls, ancient trees, ancestors, and remarkable people. Shinto, 'the way of the kami', names the practices that honour them at shrines across Japan. The name took on its modern sense relatively late, and for most of Japanese history kami worship was closely combined with Buddhism, the two separated by government order only in 1868.\n\n## The written myths\n\nThe classical myths are known from two court histories compiled in the early 8th century: the *Kojiki* ('Record of Ancient Matters', 712), written down by Ō no Yasumaro, and the *Nihon Shoki* ('Chronicles of Japan', 720), which records many variant versions side by side. Both begin with the creation of the islands by Izanagi and Izanami, tell of Amaterasu, the sun goddess, and her unruly brother Susanoo, the Izumo cycle of Ōkuninushi, and the descent of Amaterasu's grandson Ninigi to rule the land. They then run on into the reigns of legendary and historical emperors. Both were compiled to support the authority of the imperial house, which claims descent from Amaterasu, and they should be read with that purpose in mind. The provincial *Fudoki* gazetteers of the same period preserve local myths the court histories leave out.\n\n## Shrines and practice\n\nThe Ise Grand Shrine, dedicated to Amaterasu and rebuilt every twenty years, and Izumo Taisha, dedicated to Ōkuninushi, are the most important shrines associated with the myths. Practice centres on purification, offerings, seasonal festivals (matsuri), and prayer at shrines. The conventional date of 660 BCE for the first emperor, Jimmu, comes from the *Nihon Shoki* and is legendary, not historical."
   },
   {
     "id": "celtic-pantheon",
@@ -194,7 +197,8 @@
         "type": "primary"
       }
     ],
-    "imageUrl": "/pantheons/celtic.jpg"
+    "imageUrl": "/pantheons/celtic.jpg",
+    "detailedHistory": "## A modern label\n\n'Celtic' is a linguistic term: it groups peoples who spoke Celtic languages, from Gaul and Britain to Ireland, Iberia, and Galatia in Anatolia. There was no single Celtic religion or pantheon. This site's entries draw on two very different bodies of evidence, and it is important to keep them apart.\n\n## Ancient Gaul and Britain\n\nThe first is the evidence from the ancient continental Celts and Roman Britain: inscriptions naming hundreds of gods, many of them local, often paired with Roman gods (Sulis Minerva at Bath, Lenus Mars); images such as the antlered god on the Gundestrup cauldron and the Pillar of the Boatmen from Paris, which names Cernunnos; and the reports of Greek and Roman writers. Julius Caesar's *Gallic War* (6.13-18) describes the druids and equates Gaulish gods with Mercury, Apollo, Mars, Jupiter, and Minerva, but he was an enemy general writing for Romans. No myths survive from these peoples in their own words.\n\n## Medieval Ireland and Wales\n\nThe second is the literature written down by Christian scholars in Ireland from about the 7th century and in Wales later. Irish texts such as the *Lebor Gabála Érenn* (the 'Book of Invasions'), *Cath Maige Tuired*, and the tales of the Ulster Cycle, including the *Táin Bó Cúailnge*, present the Túatha Dé Danann (Dagda, Lug, Brigit, Nuadu, the Morrígan) as a race of ancient rulers who withdrew into the mounds (síde), not openly as gods. The Welsh *Four Branches of the Mabinogi*, preserved in 14th-century manuscripts, include figures such as Rhiannon, Manawydan, and Lleu, whose names echo older deities. How much of this literature preserves pre-Christian belief, and how much is medieval invention, is a long-running scholarly debate.\n\n## Dates\n\nThe period of 500 BCE to 400 CE given here covers the Iron Age and Roman evidence; the Irish and Welsh literature was written down centuries after it, and many sites connected with the stories, such as Tara, Newgrange, and Emain Macha, are far older than any text."
   },
   {
     "id": "aztec-pantheon",
@@ -217,7 +221,8 @@
         "type": "primary"
       }
     ],
-    "imageUrl": "/pantheons/aztec.jpg"
+    "imageUrl": "/pantheons/aztec.jpg",
+    "detailedHistory": "## The Mexica and their neighbours\n\n'Aztec' usually refers to the Nahuatl-speaking peoples of central Mexico and especially to the Mexica, who founded Tenochtitlan on an island in Lake Texcoco, traditionally in 1325, and, through the Triple Alliance with Texcoco and Tlacopan, dominated much of Mesoamerica until the Spanish conquest in 1521. Their religion shared a great deal with other Mesoamerican peoples: the 260-day ritual calendar, the ballgame, a layered cosmos of heavens and underworld, and the feathered serpent.\n\n## The sources\n\nOnly a handful of pre-conquest manuscripts survive, among them ritual and divinatory books of the Borgia Group from central and southern Mexico. Most of what is known was recorded after 1521. The most important source is the *General History of the Things of New Spain*, the *Florentine Codex*, compiled in Nahuatl and Spanish between the 1540s and about 1577 by the Franciscan Bernardino de Sahagún with Nahua scholars and elders. Other key texts include the *Leyenda de los Soles* (1558), the *Historia de los mexicanos por sus pinturas*, the *Histoyre du Mechique*, and illustrated colonial codices such as the *Codex Borbonicus* and *Codex Mendoza*. All were produced under Spanish rule, often by missionaries seeking to understand and suppress the old religion, and their framing needs care.\n\n## Gods and the Fifth Sun\n\nThe cosmology tells of four earlier worlds, or suns, each destroyed, before the present Fifth Sun was created at Teotihuacan when the gods Nanahuatzin and Tecuciztecatl threw themselves into a fire. The gods then gave their own blood to set the sun moving, and humans were thought to owe a debt repaid through offerings, including blood and, in state ritual, human sacrifice. Huitzilopochtli, the Mexica patron, and Tlaloc, god of rain, shared the Templo Mayor; Quetzalcoatl, Tezcatlipoca, and many others were worshipped through a year of monthly festivals.\n\n## After 1521\n\nThe temples were destroyed, but Nahuatl, the calendar's memory, and many practices continued in altered forms, and Nahua communities today are the descendants of the people who kept these traditions."
   },
   {
     "id": "chinese-pantheon",
@@ -291,12 +296,12 @@
     "id": "african-pantheon",
     "name": "African Traditions",
     "slug": "african",
-    "culture": "Yoruba, Akan, and other African traditions",
+    "culture": "Several distinct African peoples (Zulu and Xhosa, Swahili, Mandinka, Ewe, Mongo) and the Mami Wata tradition",
     "region": "Africa and the African diaspora",
     "timePeriodStart": null,
     "timePeriodEnd": null,
-    "description": "A collection of distinct African religious and storytelling traditions. Yoruba orishas appear alongside Akan figures such as Anansi and Nyame, and beings from other regions. These entries do not form a single shared pantheon.",
-    "detailedHistory": "## Distinct traditions, shared collection\n\nThis collection brings together entries from several African traditions for browsing. It does not imply a common religion, origin, or historical period. Anansi and Nyame belong to Akan traditions; the Yoruba orishas have their own religious contexts.\n\n### Yoruba traditions\n\nMany entries in this collection concern Yoruba religion, rooted in southwestern Nigeria and neighboring Benin. Orishas connect religious practice with particular places, communities, and aspects of life. Ifa divination is one part of this living tradition.\n\n### Akan storytelling\n\nAnansi and Nyame appear in Akan-Ashanti tales, including the account of Anansi obtaining stories from Nyame. The version included here follows R. S. Rattray's collected account; it is one recorded version rather than a universal telling.\n\n### Reading across traditions\n\nFollow each entry's cultural description and references. Similar roles, such as creator or trickster, do not make figures interchangeable. The broader collection also contains beings from other African regions; their inclusion here should not be read as Yoruba or Akan attribution.",
+    "description": "A regional collection, not a pantheon: beings from African traditions that do not yet have their own entry on this site. Yoruba orisha and Akan figures such as Nyame and Anansi now have their own pages.",
+    "detailedHistory": "## A collection, not a pantheon\n\nThis page used to gather Yoruba orisha, Akan figures, and beings from several other African peoples under one heading. That grouping implied a shared religion that never existed, so the two best-documented traditions now have their own entries, and this page keeps only what remains: creatures and spirits from peoples whose traditions this site has not yet covered in depth. Nothing here implies a common origin, date, or cosmology.\n\n### Yoruba traditions\n\nThe orisha of the Yoruba of southwestern Nigeria and neighbouring Benin, with the creation at Ile-Ife, Ifa divination, and the diaspora religions that grew from them, are now on the [Yoruba Tradition](/pantheons/yoruba) page.\n\n### Akan storytelling\n\nNyame, Asase Yaa, the river abosom, and Kwaku Ananse the spider, known largely through R. S. Rattray's recordings of Asante tellers in the 1920s, are now on the [Akan Tradition](/pantheons/akan) page.\n\n### What stays here\n\nThe beings still listed on this page come from separate peoples and should be read that way: the tikoloshe from Zulu and Xhosa belief in South Africa, the popobawa from late-20th-century reports on Zanzibar and Pemba, the ninki-nanka from Mandinka and neighbouring traditions of the Gambia and Senegal, the adze from Ewe belief in Ghana and Togo, and the eloko from the Mongo of the Congo basin. Mami Wata is the exception: a water spirit venerated across West and Central Africa and the diaspora, whose modern image owes much to 19th- and 20th-century trade and print culture. Each entry names the people it belongs to, and none should be read as Yoruba or Akan.",
     "citationSources": [
       {
         "title": "Ifa divination system",
@@ -319,7 +324,9 @@
         "url": "https://api.pageplace.de/preview/DT0400.9781107776746_A23755138/preview-9781107776746_A23755138.pdf"
       }
     ],
-    "imageUrl": "/pantheons/african.jpg"
+    "imageUrl": "/pantheons/african.jpg",
+    "isCollection": true,
+    "figuresLabel": "Figures"
   },
   {
     "id": "polynesian-pantheon",
@@ -559,5 +566,83 @@
     ],
     "imageUrl": "/pantheons/tlingit-haida.jpg",
     "figuresLabel": "Ancestral Spirits & Transformers"
+  },
+  {
+    "id": "yoruba-pantheon",
+    "name": "Yoruba Tradition",
+    "slug": "yoruba",
+    "culture": "Yoruba (southwestern Nigeria, Benin, and Togo) and the Orisha religions of the diaspora",
+    "region": "West Africa and the Americas",
+    "timePeriodStart": null,
+    "timePeriodEnd": null,
+    "description": "The orisha of Yoruba religion, a living tradition centred on Ile-Ife: Olodumare above, Obatala and Oduduwa at the making of the land, Orunmila and Ifa divination, and orisha such as Ogun, Shango, Oshun, and Yemoja who crossed the Atlantic into Santería, Candomblé, and related faiths.",
+    "detailedHistory": "## A living religion\n\nYoruba religion is practised today in Nigeria, Benin, and Togo, and, through the forced migration of the Atlantic slave trade, in Cuban Santería (Regla de Ocha), Brazilian Candomblé, Trinidadian Orisha worship, and communities across the Americas. It has no single scripture and no single orthodoxy: each orisha is worshipped through particular lineages, towns, and houses, and practice differs from one to the next. This page presents what published sources and practitioners share publicly, and notes where houses and tellers disagree.\n\n## Olodumare and the orisha\n\nOlodumare (also Olorun, 'owner of the sky') is the supreme being, remote from daily worship and approached through the orisha. The orisha are many (tradition speaks of 401, or of 'countless') and include deities who were present at creation, such as Obatala, and deified ancestors and kings, such as Shango, remembered as a king of Oyo. Eshu carries sacrifice and messages between people and the orisha and must be acknowledged first; Orunmila is the witness of destiny whose wisdom speaks through Ifa.\n\n## Ile-Ife and the making of the land\n\nCreation stories centre on Ile-Ife, regarded as the place where the land was first spread over the primordial waters. Tellings disagree on the central actor: in many, Obatala is sent down a chain from the sky with earth in a snail shell and a five-toed hen to scatter it, but falls asleep drunk on palm wine, and Oduduwa completes the task and becomes the first ruler of Ife. Samuel Johnson's *The History of the Yorubas* (completed 1897, published 1921) records the Oyo tradition; Ife's own traditions give Oduduwa greater weight. The disagreement is itself historical evidence of rival centres, and this site presents both.\n\n## Ifa\n\nIfa divination, inscribed by UNESCO on the Representative List of the Intangible Cultural Heritage of Humanity (2008), is a vast oral literature of verses (ese) organised into 256 signs (odu). A babalawo casts palm nuts or a divining chain and recites the verses of the resulting sign, many of which contain the myths summarised on this site. Wande Abimbola's editions and translations of Ifa verses (1970s onward) are among the most important published records.\n\n## Dates\n\nThe tradition has no founding date. Ile-Ife was a major urban and artistic centre by about the 11th to 15th centuries CE, the period of its celebrated copper-alloy and terracotta heads, but those dates belong to the city and its art, not to the beginning of the religion.",
+    "citationSources": [
+      {
+        "title": "Ifa divination system",
+        "author": "UNESCO",
+        "type": "institutional reference",
+        "url": "https://ich.unesco.org/en/RL/ifa-divination-system-00146"
+      },
+      {
+        "title": "The History of the Yorubas",
+        "author": "Samuel Johnson",
+        "date": "1921 (completed 1897)",
+        "type": "primary"
+      },
+      {
+        "title": "Ifá: An Exposition of Ifá Literary Corpus",
+        "author": "Wande Abimbola",
+        "date": "1976",
+        "type": "secondary"
+      },
+      {
+        "title": "Ifa Divination: Communication between Gods and Men in West Africa",
+        "author": "William Bascom",
+        "date": "1969",
+        "type": "secondary"
+      }
+    ],
+    "imageUrl": "/pantheons/yoruba.jpg",
+    "figuresLabel": "Olodumare & the Orisha"
+  },
+  {
+    "id": "akan-pantheon",
+    "name": "Akan Tradition",
+    "slug": "akan",
+    "culture": "Akan (Asante, Bono, Fante, Akuapem, and related peoples)",
+    "region": "Ghana and eastern Côte d’Ivoire",
+    "timePeriodStart": null,
+    "timePeriodEnd": null,
+    "description": "The sky god Nyame and the earth Asase Yaa, the river abosom such as Tano, and Kwaku Ananse the spider, who bought the world's stories from Nyame: the religious and storytelling tradition of the Akan peoples of Ghana and Côte d'Ivoire.",
+    "detailedHistory": "## Sky, earth, and the abosom\n\nAkan religion recognises a supreme sky god, Nyame (also Onyame or Onyankopon), and the earth, Asase Yaa, who is honoured rather than served through shrines and priests. Between people and the sky god stand the abosom, powers associated with rivers, lakes, and other features of the land, such as Tano of the Tano River, and the ancestors (nsamanfo), whose presence is central to Akan religious and political life. Akan religion is a living tradition in Ghana today, alongside Christianity and Islam.\n\n## Rattray and the record\n\nMuch of the written record comes from R. S. Rattray, a British colonial anthropologist in the Gold Coast, whose *Ashanti* (1923), *Religion and Art in Ashanti* (1927), and *Akan-Ashanti Folk-Tales* (1930) recorded Asante belief and storytelling, the last with the Twi text beside the English. Rattray worked through colonial structures and his interpretations should be read critically, but the tales he printed were told to him by named and unnamed Akan speakers. Akan scholars such as J. B. Danquah, in *The Akan Doctrine of God* (1944), wrote about the same tradition from within it.\n\n## Anansesem\n\nAkan folktales are called anansesem, 'spider stories', whether or not Kwaku Ananse appears in them, because of the tale Rattray printed as the account of how all stories came to belong to the spider: Ananse buys them from Nyame by capturing the python, the leopard, the hornets, and the forest fairy. Tellings traditionally open and close with set formulas disclaiming literal truth. Ananse stories travelled with enslaved Akan people to the Caribbean and the Americas, where he survives as Anansi, Anancy, and Aunt Nancy.\n\n## Dates\n\nThe tradition has no recorded founding date; Akan states such as Bono and later Asante emerged between roughly the 13th and 18th centuries, but the religion is older than any one state and this site does not assign it a start year.",
+    "citationSources": [
+      {
+        "title": "Akan-Ashanti Folk-Tales",
+        "author": "R. S. Rattray, collector and translator",
+        "date": "1930",
+        "type": "oral tradition"
+      },
+      {
+        "title": "Ashanti",
+        "author": "R. S. Rattray",
+        "date": "1923",
+        "type": "secondary"
+      },
+      {
+        "title": "Religion and Art in Ashanti",
+        "author": "R. S. Rattray",
+        "date": "1927",
+        "type": "secondary"
+      },
+      {
+        "title": "The Akan Doctrine of God",
+        "author": "J. B. Danquah",
+        "date": "1944",
+        "type": "secondary"
+      }
+    ],
+    "imageUrl": "/pantheons/akan.jpg",
+    "figuresLabel": "Nyame, the Abosom & Ananse"
   }
 ]

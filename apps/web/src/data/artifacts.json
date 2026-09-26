@@ -1169,7 +1169,7 @@
   },
   {
     "id": "oguns-iron",
-    "pantheonId": "african-pantheon",
+    "pantheonId": "yoruba-pantheon",
     "name": "Ogun's Iron",
     "slug": "oguns-iron",
     "description": "Sacred iron of Ogun, orisha of metalworking, war, and the open road. Tools, machetes, and weapons dedicated to him carry his cutting, clearing power.",
@@ -1192,7 +1192,7 @@
   },
   {
     "id": "oshe-of-shango",
-    "pantheonId": "african-pantheon",
+    "pantheonId": "yoruba-pantheon",
     "name": "Oshe of Shango",
     "slug": "oshe-of-shango",
     "description": "The double-headed axe of Shango, orisha of thunder and kingship. It channels lightning and asserts just rule — a symbol of power that must not be abused.",
@@ -1432,6 +1432,197 @@
         "source": "Popol Vuh",
         "sourceId": "popol-vuh",
         "date": "colonial K'iche' text; 16th–18th century manuscript tradition"
+      }
+    ]
+  },
+  {
+    "id": "svantevits-horn",
+    "pantheonId": "slavic-pantheon",
+    "name": "Svantevit's Horn",
+    "slug": "svantevits-horn",
+    "description": "The drinking horn held in the right hand of Svantevit's four-headed statue at Arkona, filled with wine once a year; the priest read the coming harvest from how much remained.",
+    "type": "ritual vessel",
+    "powers": ["Harvest divination", "Measure of the coming year"],
+    "ownerId": "svantevit",
+    "ownerKind": "deity",
+    "origin": "Described by the Danish historian Saxo Grammaticus (c. 1200) as part of the cult statue in Svantevit's temple at Arkona on Rügen, destroyed by the Danes in 1168.",
+    "currentLocation": "Destroyed with the temple at Arkona in 1168",
+    "imageUrl": "/artifacts/svantevits-horn.png",
+    "relatedStories": ["svantevits-oracle-horse"],
+    "detailedBio": "## An attested object\n\nUnlike most Slavic cult objects, Svantevit's horn is described by a witness close to the events. Saxo Grammaticus, writing his *Gesta Danorum* around 1200, describes the temple at Arkona that King Valdemar I's Danish army destroyed in 1168: its huge four-headed wooden statue held in its right hand a horn worked in various metals, which the priest filled with wine every year. Beside the statue hung a bridle and saddle, and a great sword was kept there too.\n\n## Reading the harvest\n\nAt the yearly festival after harvest, Saxo writes, the priest examined the horn the day after the rites: if the wine had diminished, he foretold a poor harvest and advised the people to save their grain; if it had not, he foretold plenty. He then poured the old wine at the statue's feet, refilled the horn, and drank to the god, praying for the people's prosperity.\n\n## Reading Saxo\n\nSaxo was a Christian writer celebrating the conquest, and his account is shaped by that purpose; but the detail of the horn, the statue, and the rite is specific, and it is among the best-attested descriptions of West Slavic temple religion.",
+    "primarySources": [
+      {
+        "text": "The statue of Svantevit at Arkona held in its right hand a horn made of various metals, filled each year with wine by the priest, who read the coming harvest from what remained (paraphrase).",
+        "source": "Saxo Grammaticus, Gesta Danorum, Book 14",
+        "date": "c. 1200 CE"
+      }
+    ]
+  },
+  {
+    "id": "idol-of-perun-kyiv",
+    "pantheonId": "slavic-pantheon",
+    "name": "Idol of Perun at Kyiv",
+    "slug": "idol-of-perun-kyiv",
+    "description": "The wooden image of Perun with a silver head and a golden moustache that Prince Vladimir set up on the hill outside his palace in 980, and had thrown into the Dnieper at his conversion in 988.",
+    "type": "idol",
+    "powers": ["Focus of state cult", "Guarantor of oaths"],
+    "ownerId": "perun",
+    "ownerKind": "deity",
+    "origin": "Erected by Vladimir Sviatoslavich on the hill beyond the palace courtyard in Kyiv, according to the Primary Chronicle under the year 980.",
+    "currentLocation": "Cast into the Dnieper in 988, according to the Primary Chronicle",
+    "imageUrl": "/artifacts/idol-of-perun-kyiv.png",
+    "relatedStories": ["vladimirs-pantheon-980"],
+    "detailedBio": "## Set up in 980\n\nThe *Russian Primary Chronicle*, compiled in Kyiv in the early 12th century, records under the year 980 that Vladimir, newly ruler of Kyiv, set up idols on the hill outside his palace: Perun, made of wood with a head of silver and a moustache of gold, and beside him Khors, Dazhbog, Stribog, Simargl, and Mokosh. People sacrificed to them, the chronicler writes with disapproval.\n\n## Thrown down in 988\n\nUnder 988, after Vladimir's baptism, the chronicle describes the images being overthrown. Perun was tied to a horse's tail and dragged down to the stream, beaten with sticks by twelve men, and thrown into the Dnieper, and men were set to push the image away from the banks until it had passed the rapids.\n\n## How far to trust it\n\nThe chronicle was written more than a century later by Christian monks, and some historians read the 980 'pantheon' as partly literary. But the silver-and-gold idol is one of the few physical descriptions of an East Slavic cult image that survives, and excavations on Starokyivska Hill have been argued to locate the site.",
+    "primarySources": [
+      {
+        "text": "Vladimir set up idols on the hill outside the palace: Perun of wood with a head of silver and a moustache of gold, with Khors, Dazhbog, Stribog, Simargl, and Mokosh (paraphrase).",
+        "source": "Russian Primary Chronicle, s.a. 980 (paraphrase)",
+        "sourceId": "russian-primary-chronicle",
+        "locator": "s.a. 980",
+        "date": "early 12th century CE"
+      },
+      {
+        "text": "Perun was tied to a horse's tail, beaten with sticks, and thrown into the Dnieper after Vladimir's baptism (paraphrase).",
+        "source": "Russian Primary Chronicle, s.a. 988 (paraphrase)",
+        "sourceId": "russian-primary-chronicle",
+        "locator": "s.a. 988",
+        "date": "early 12th century CE"
+      }
+    ]
+  },
+  {
+    "id": "triglav-idol-szczecin",
+    "pantheonId": "slavic-pantheon",
+    "name": "Three-Headed Idol of Triglav",
+    "slug": "triglav-idol-szczecin",
+    "description": "The three-headed image of Triglav at Szczecin, described by the biographers of Bishop Otto of Bamberg, who had it broken during his mission to Pomerania in the 1120s and sent its heads away as a trophy.",
+    "type": "idol",
+    "powers": [
+      "Rule over three realms (as the biographers report the priests explaining)",
+      "Oracle by the god's black horse"
+    ],
+    "ownerId": "triglav",
+    "ownerKind": "deity",
+    "origin": "Kept in a temple at Szczecin (Stettin) in Pomerania; described in the 12th-century Lives of Otto of Bamberg by Ebbo and Herbord.",
+    "currentLocation": "Destroyed during the mission of Otto of Bamberg (1124 to 1128)",
+    "imageUrl": "/artifacts/triglav-idol-szczecin.png",
+    "relatedStories": [],
+    "detailedBio": "## The witnesses\n\nTriglav is known almost entirely from the Lives of Otto of Bamberg, the German bishop who led missions to Pomerania in 1124 and 1128. His biographers Ebbo and Herbord, writing in the mid-12th century from the reports of Otto's companions, describe a temple at Szczecin with a three-headed image of the god. Herbord reports the priests' explanation that the three heads signified rule over heaven, earth, and the underworld, and that the god's eyes were covered with a golden band so that he would not see the sins of men.\n\n## Broken and sent away\n\nAccording to Herbord, Otto had the image broken and sent its three joined heads away as a trophy of the mission. Ebbo tells a different detail, that a golden image of Triglav was hidden by the pagans and could not be found. The biographers also describe a black horse used for divination, led over spears laid on the ground.\n\n## Attestation\n\nThese are hostile, second-hand Christian sources, and they disagree with each other; but they are contemporary with the cult, which is more than can be said for most Slavic gods.",
+    "primarySources": [
+      {
+        "text": "Herbord describes the three-headed image at Szczecin, explains the heads as rule over heaven, earth, and the underworld, and says its eyes were covered with a golden band; Otto had it broken and the heads sent away (paraphrase).",
+        "source": "Herbord, Dialogus de vita Ottonis episcopi Babenbergensis",
+        "date": "c. 1158–1159 CE"
+      },
+      {
+        "text": "Ebbo reports that a golden image of Triglav was hidden by the pagans and describes the divinatory black horse (paraphrase).",
+        "source": "Ebbo, Vita Ottonis episcopi Babenbergensis",
+        "date": "c. 1151–1159 CE"
+      }
+    ]
+  },
+  {
+    "id": "zbruch-idol",
+    "pantheonId": "slavic-pantheon",
+    "name": "Zbruch Idol",
+    "slug": "zbruch-idol",
+    "description": "A four-sided limestone pillar about 2.6 metres tall, carved with four faces under a single cap and tiers of figures below, found in the Zbruch River in 1848 and now in the Archaeological Museum in Kraków; its identification with Svantevit is a modern hypothesis.",
+    "type": "idol",
+    "powers": ["Unknown; interpretations are modern"],
+    "ownerLabel": "Unidentified; often linked to Svantevit or to a composite of several gods, both disputed",
+    "origin": "Found in 1848 in the Zbruch River near Husiatyn (now in western Ukraine); usually dated to the 9th or 10th century, though some scholars have questioned that date.",
+    "currentLocation": "Archaeological Museum, Kraków, Poland",
+    "imageUrl": "/artifacts/zbruch-idol.png",
+    "relatedStories": [],
+    "detailedBio": "## A real object, an uncertain meaning\n\nThe Zbruch Idol is one of the very few surviving pieces of what may be Slavic pagan sculpture. The pillar, a little over 2.5 metres tall, has four faces on its sides beneath a single round cap. Below them run tiers of smaller figures, and at the base a kneeling or crouching figure seems to hold up the whole. One face holds a horn, another a ring, and a horse and a sword are carved on other sides.\n\n## Svantevit? Reconstruction, not attestation\n\nBecause Saxo describes Svantevit's statue at Arkona as four-headed and holding a horn, the pillar was soon called a 'Sviatovid', and it appears under that name in older literature and in Polish and Ukrainian heraldry. But nothing ties this object to Svantevit: Arkona is on the Baltic island of Rügen, hundreds of kilometres from the Zbruch, and Saxo's statue was wooden. Scholars such as Boris Rybakov read the tiers as a three-level cosmos of gods, people, and underworld; others have questioned whether the pillar is medieval at all. This site treats all of those readings as hypotheses.\n\n## Seeing it\n\nThe original is displayed in the Archaeological Museum in Kraków.",
+    "primarySources": [
+      {
+        "text": "The pillar recovered from the Zbruch River in 1848 bears four faces under one cap, with a horn, ring, horse, and sword among its carvings; its identification with any named god is conjectural (paraphrase of the museum record and scholarship).",
+        "source": "Archaeological Museum in Kraków, collection record; Boris Rybakov, Yazychestvo drevnikh slavyan (Paganism of the Ancient Slavs)",
+        "date": "1981 (Rybakov)"
+      },
+      {
+        "text": "The statue of Svantevit at Arkona had four heads and held a horn, the description that led later scholars to associate the Zbruch pillar with him (paraphrase).",
+        "source": "Saxo Grammaticus, Gesta Danorum, Book 14",
+        "date": "c. 1200 CE"
+      }
+    ]
+  },
+  {
+    "id": "jawbone-of-muri-ranga-whenua",
+    "pantheonId": "polynesian-pantheon",
+    "name": "Jawbone of Muri-ranga-whenua",
+    "slug": "jawbone-of-muri-ranga-whenua",
+    "description": "The enchanted jawbone of Māui's grandmother Muri-ranga-whenua, which, in the Māori traditions George Grey published, Māui used as a weapon to beat the sun and as the hook with which he fished up the North Island.",
+    "type": "weapon and fishhook",
+    "powers": ["Wounding the sun", "Fishing up land from the sea"],
+    "ownerId": "maui",
+    "ownerKind": "deity",
+    "origin": "Taken by Māui from his grandmother Muri-ranga-whenua, who, in Grey's version, gave it up to him as he came to her.",
+    "currentLocation": "In the story, it becomes the hook of the fish Te Ika-a-Māui, the North Island",
+    "imageUrl": "/artifacts/jawbone-of-muri-ranga-whenua.png",
+    "relatedStories": ["hina-maui-lengthened-day"],
+    "detailedBio": "## A grandmother's jaw\n\nIn the Māori Māui traditions George Grey published in 1855, Māui learns that his grandmother Muri-ranga-whenua has been neglected, and goes to her. She is half dead and ready to devour whoever comes, but recognising her grandson, she lets him take her enchanted jawbone. The jawbone becomes the source of his power in the deeds that follow.\n\n## Beating the sun\n\nThe days are too short because the sun hurries across the sky. Māui and his brothers make ropes and set a noose at the pit from which the sun rises; when it is caught, Māui beats it with the jawbone until it is weakened and must travel slowly, and the days grow long.\n\n## Fishing up the land\n\nLater, Māui makes a fishhook from the same jawbone, hides in his brothers' canoe, and, baiting the hook with blood from his own nose, hauls up an enormous fish: Te Ika-a-Māui, the North Island of Aotearoa, whose ridges and valleys are the marks of his brothers' knives as they cut into it before the gods were appeased.\n\n## Other islands, other hooks\n\nHawaiian tradition names Māui's hook Manaiakalani and tells the island-fishing story of the Hawaiian chain; the jawbone origin belongs to the Māori tellings.",
+    "primarySources": [
+      {
+        "text": "Māui obtains the jawbone of his ancestress Muri-ranga-whenua, beats the snared sun with it, and later makes from it the fishhook with which he draws up the land (paraphrase).",
+        "source": "George Grey, Polynesian Mythology and Ancient Traditional History of the New Zealand Race",
+        "date": "1855"
+      }
+    ]
+  },
+  {
+    "id": "nga-kete-o-te-wananga",
+    "pantheonId": "polynesian-pantheon",
+    "name": "Ngā Kete o te Wānanga",
+    "slug": "nga-kete-o-te-wananga",
+    "description": "The three baskets of knowledge that, in Māori tradition, were brought down from the uppermost heaven: most often credited to Tāne, and in other tribal traditions to Tāwhaki.",
+    "type": "sacred baskets",
+    "powers": [
+      "Knowledge of ritual and the sacred",
+      "Knowledge of evil and harm (to be guarded against)",
+      "Knowledge of the world and its arts"
+    ],
+    "ownerId": "tane",
+    "ownerKind": "deity",
+    "origin": "Obtained by Tāne (or, in some traditions, Tāwhaki) from Io or the guardians of the highest heaven, after an ascent through the heavens.",
+    "currentLocation": "Held, in the tradition, in the house of learning (whare wānanga)",
+    "imageUrl": "/artifacts/nga-kete-o-te-wananga.png",
+    "relatedStories": [],
+    "detailedBio": "## Three baskets\n\nMāori tradition tells of three kete (baskets) of knowledge brought down from the highest of the heavens so that people could learn. Their names and contents vary between iwi (tribes) and between the scholars who recorded them, but a common set is te kete tuauri, te kete tuatea, and te kete aronui: knowledge of ritual and the sacred, knowledge of harmful arts that must be guarded against, and knowledge of the world and the arts that help people.\n\n## Who brought them\n\nIn many accounts, especially those recorded from the Tūhoe and Ngāti Kahungunu schools of learning, Tāne climbs through the heavens, overcomes his brother Whiro who tries to stop him, and returns with the baskets and with two sacred stones. Other tribal traditions credit the ascent to the hero Tāwhaki. Some of these accounts, especially those that place a supreme being Io at the top of the heavens, were recorded in the late 19th and early 20th centuries, and scholars debate how old and widespread the Io teachings were.\n\n## A living image\n\nThe three baskets remain a central image in Māori education today, used in the names and mottos of schools, universities, and libraries.",
+    "primarySources": [
+      {
+        "text": "Records the tradition of the three baskets of knowledge obtained from the heavens (paraphrase).",
+        "source": "John White, The Ancient History of the Maori, Vol. 1",
+        "date": "1887"
+      },
+      {
+        "text": "Describes Tāne's ascent, his contest with Whiro, and the baskets of knowledge as taught in the whare wānanga (paraphrase).",
+        "source": "Elsdon Best, Maori Religion and Mythology, Part 1",
+        "date": "1924"
+      }
+    ]
+  },
+  {
+    "id": "matahourua",
+    "pantheonId": "polynesian-pantheon",
+    "name": "Matahourua",
+    "slug": "matahourua",
+    "description": "The voyaging canoe in which, in Māori tradition, Kupe crossed from Hawaiki, pursued the great octopus of Muturangi, and discovered Aotearoa.",
+    "type": "voyaging canoe",
+    "powers": ["Ocean voyaging", "Carrying Kupe to Aotearoa"],
+    "ownerId": "kupe",
+    "ownerKind": "hero",
+    "origin": "Kupe's canoe in the traditions of Hokianga and other northern and eastern iwi; in some traditions later refitted and renamed Ngātokimatawhaorua.",
+    "currentLocation": "In tradition, its name lives on in Ngātokimatawhaorua, the great ceremonial waka at Waitangi",
+    "imageUrl": "/artifacts/matahourua.png",
+    "relatedStories": [],
+    "detailedBio": "## Kupe's canoe\n\nKupe is honoured by many iwi as the discoverer of Aotearoa. In widely told accounts he sails from Hawaiki in the canoe Matahourua (also spelled Matawhaorua), pursuing Te Wheke-a-Muturangi, the great octopus that had been stealing bait, across the ocean. The chase brings him to a new land, which his wife Kuramārōtini names for the long white cloud she sees on the horizon: Aotearoa.\n\n## After the voyage\n\nKupe kills the octopus in Cook Strait, names many places around the coasts, and returns to Hawaiki with sailing directions for those who come after. Northern traditions, especially in Hokianga, remember the canoe being refitted and renamed Ngātokimatawhaorua; that name was given in 1940 to the great ceremonial waka that is launched at Waitangi each February.\n\n## Many traditions\n\nKupe's voyages differ in detail and emphasis from iwi to iwi, and the name of the canoe itself varies. The 20th-century 'Great Fleet' dating of these voyages, popularised by S. Percy Smith, is no longer accepted, and this entry gives no date.",
+    "primarySources": [
+      {
+        "text": "Kupe sails from Hawaiki in Matahourua in pursuit of the octopus of Muturangi and reaches Aotearoa (paraphrase).",
+        "source": "Māori oral tradition (Kupe traditions of Hokianga and other iwi); summarised in Te Ara: The Encyclopedia of New Zealand, \"Kupe\"",
+        "date": "oral; summarised 2005 onward"
       }
     ]
   }
