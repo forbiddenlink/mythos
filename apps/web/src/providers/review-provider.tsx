@@ -124,6 +124,7 @@ const PANTHEON_NAMES: Record<string, string> = {
   "hittite-pantheon": "Hittite",
   "canaanite-pantheon": "Canaanite",
   "inuit-pantheon": "Inuit",
+  "aboriginal-australian-pantheon": "Aboriginal Australian",
 };
 
 function formatPantheonLabel(pantheonId: string): string {

@@ -244,6 +244,15 @@ export const DEITY_PANTHEON_MAP: Record<string, string> = {
   pinga: "inuit-pantheon",
   tornarsuk: "inuit-pantheon",
   tulunigraq: "inuit-pantheon",
+  bunjil: "aboriginal-australian-pantheon",
+  pallian: "aboriginal-australian-pantheon",
+  baiame: "aboriginal-australian-pantheon",
+  "rainbow-serpent": "aboriginal-australian-pantheon",
+  wagyl: "aboriginal-australian-pantheon",
+  "seven-sisters": "aboriginal-australian-pantheon",
+  "wati-nyiru": "aboriginal-australian-pantheon",
+  kuniya: "aboriginal-australian-pantheon",
+  liru: "aboriginal-australian-pantheon",
 };
 
 export const STORY_PANTHEON_MAP: Record<string, string> = {
@@ -367,6 +376,11 @@ export const STORY_PANTHEON_MAP: Record<string, string> = {
   "sun-sister-and-moon-brother": "inuit-pantheon",
   "kiviuq-and-the-journeys": "inuit-pantheon",
   "raven-harpoons-the-whale-land": "inuit-pantheon",
+  "bunjil-and-the-kulin-country": "aboriginal-australian-pantheon",
+  "the-seven-sisters-songline": "aboriginal-australian-pantheon",
+  "baiames-ngunnhu": "aboriginal-australian-pantheon",
+  "wagyl-and-derbarl-yerrigan": "aboriginal-australian-pantheon",
+  "kuniya-and-liru": "aboriginal-australian-pantheon",
 };
 
 /**

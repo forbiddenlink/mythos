@@ -676,5 +676,53 @@
     ],
     "imageUrl": "/pantheons/inuit.jpg",
     "figuresLabel": "Spirits & Powers"
+  },
+  {
+    "id": "aboriginal-australian-pantheon",
+    "name": "Aboriginal Australian Traditions",
+    "slug": "aboriginal-australian",
+    "culture": "Many distinct Aboriginal nations and language groups; this entry draws on publicly shared stories of the Kulin nations, the Ngemba and Wiradjuri, the Whadjuk Noongar, the Aṉangu, and the Martu, Ngaanyatjarra, and Aṉangu Pitjantjatjara Yankunytjatjara peoples",
+    "region": "Australia (many distinct Countries)",
+    "timePeriodStart": null,
+    "timePeriodEnd": null,
+    "description": "Not one mythology but the living laws and stories of hundreds of Aboriginal nations, often called the Dreaming in English. This entry is a respectful introduction limited to stories that their custodians have chosen to share publicly, each attributed to its people and Country.",
+    "detailedHistory": "## A cultural note before reading\n\nThis entry includes only stories that Aboriginal custodians have chosen to share publicly, in forms published by or with the communities concerned: through national park signage written with traditional owners, national heritage listings prepared in consultation with communities, museum exhibitions developed with knowledge holders, and community organisations' own publications. Much Aboriginal knowledge is secret or sacred, restricted by gender, age, or initiation, or belongs to particular families and clans; none of that material is included here, and where a figure is associated with restricted ceremony, this site says so and stops. Summaries on this site are not a substitute for the tellings of the peoples themselves, and readers are encouraged to seek out community-authored sources, such as the publications of Aboriginal land councils and cultural centres, the First Knowledges book series, and works by Aboriginal authors.\n\nAboriginal and Torres Strait Islander readers are advised that sources linked from this entry may contain names and images of people who have died.\n\n## Not one mythology\n\nBefore colonisation there were more than 250 Aboriginal languages and many more dialects, each the language of a people with its own Country, law, and stories. There is no single \"Aboriginal mythology\", any more than there is a single European one, and presenting Kulin, Noongar, and Aṉangu stories on one page does not mean they belong to one system. Each story on this site is attributed to the people and Country it belongs to. Torres Strait Islander peoples have their own distinct traditions, which this entry does not cover.\n\n## The Dreaming, and the words for it\n\n\"The Dreaming\" and \"Dreamtime\" are English words, popularised by the anthropologists Baldwin Spencer and Francis Gillen from an Arrernte term, and by W. E. H. Stanner's essay \"The Dreaming\" (1953). Aboriginal languages have their own terms, with their own meanings: Jukurrpa in Warlpiri, Tjukurpa for Aṉangu, Altyerre in Arrernte, Nyitting for Noongar people, and many others. These words name something that is not simply a distant past: ancestral beings travelled and shaped the land, established law, and remain present in Country, in the stars, and in the lives of their descendants. Stanner's word for this was \"everywhen\". This entry therefore does not give a start or end date.\n\n## Not \"gods\"\n\nThe beings on this page are called ancestral beings or creator beings, not gods. Some, like Bunjil and Baiame, were described by nineteenth-century missionaries and ethnographers as a \"Supreme Being\" or \"All-Father\", and scholars have long debated how much those descriptions were shaped by Christian expectations. Others, like the Seven Sisters or Kuniya and Liru, are ancestors whose actions left their marks on the land. The site's usual \"deity\" format is used for technical reasons only, and each figure is labelled as an ancestral being.\n\n## Songlines and Country\n\nMany ancestral journeys are recorded as songlines: sequences of songs, stories, dances, and designs that follow the ancestors' tracks across the land, sometimes for thousands of kilometres and through the Countries of many peoples. A songline is at once a map, a law, and a history. The Seven Sisters songline shared through the National Museum of Australia's exhibition *Songlines: Tracking the Seven Sisters* (2017) is one publicly shared example.\n\n## Colonisation and continuity\n\nColonisation from 1788 brought dispossession, violence, the removal of children, and the suppression of languages and ceremonies. Aboriginal law and story nonetheless continue, held by elders, taught in communities, and increasingly shared on Aboriginal terms, as in the co-management of Uluṟu-Kata Tjuṯa National Park and the National Heritage listing of Baiame's Ngunnhu at Brewarrina. The recognition of Aboriginal cultural authority over these stories is part of that continuing history.",
+    "citationSources": [
+      {
+        "title": "National Museum of Australia, Songlines: Tracking the Seven Sisters (exhibition and catalogue, ed. Margo Neale)",
+        "author": "Margo Neale (ed.), with Martu, Ngaanyatjarra, and Aṉangu Pitjantjatjara Yankunytjatjara custodians",
+        "date": "2017",
+        "type": "primary",
+        "sourceId": "songlines-seven-sisters"
+      },
+      {
+        "title": "Uluṟu-Kata Tjuṯa National Park (Parks Australia, with Aṉangu traditional owners), 'The Kuniya & Liru stories'",
+        "author": "Aṉangu traditional owners and Parks Australia",
+        "date": "uluru.gov.au, accessed 2026",
+        "type": "primary",
+        "url": "https://uluru.gov.au/discover/culture/stories/kuniya-liru-stories/"
+      },
+      {
+        "title": "Australian Government, National Heritage List: Brewarrina Aboriginal Fish Traps (Baiame's Ngunnhu)",
+        "author": "Department of Climate Change, Energy, the Environment and Water",
+        "date": "inscribed 2005; accessed 2026",
+        "type": "primary",
+        "url": "https://www.dcceew.gov.au/parks-heritage/heritage/places/national/brewarrina"
+      },
+      {
+        "title": "The Dreaming",
+        "author": "W. E. H. Stanner",
+        "date": "1953",
+        "type": "secondary"
+      },
+      {
+        "title": "Songlines: The Power and Promise (First Knowledges series)",
+        "author": "Margo Neale and Lynne Kelly",
+        "date": "2020",
+        "type": "secondary"
+      }
+    ],
+    "imageUrl": "/pantheons/aboriginal-australian.jpg",
+    "figuresLabel": "Ancestral Beings"
   }
 ]

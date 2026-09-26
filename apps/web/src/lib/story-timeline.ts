@@ -426,6 +426,12 @@ export const PANTHEON_COLORS: Record<
     text: "text-patina",
     dot: "bg-patina",
   },
+  "aboriginal-australian-pantheon": {
+    bg: "bg-bronze/20",
+    border: "border-bronze/40",
+    text: "text-bronze",
+    dot: "bg-bronze",
+  },
 };
 
 /**

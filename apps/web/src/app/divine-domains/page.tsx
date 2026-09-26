@@ -86,6 +86,7 @@ const PANTHEON_COLORS: Record<string, string> = {
   "hittite-pantheon": "bg-orange-700/20 text-orange-500 border-orange-700/30",
   "canaanite-pantheon": "bg-fuchsia-500/20 text-fuchsia-400 border-fuchsia-500/30",
   "inuit-pantheon": "bg-sky-500/20 text-sky-400 border-sky-500/30",
+  "aboriginal-australian-pantheon": "bg-red-700/20 text-red-400 border-red-700/30",
 };
 
 function getPantheonColor(pantheonId: string): string {

@@ -49,6 +49,7 @@ function getPantheonLabel(pantheonId: string): string {
     "hittite-pantheon": "Hittite",
     "canaanite-pantheon": "Canaanite",
     "inuit-pantheon": "Inuit",
+    "aboriginal-australian-pantheon": "Aboriginal Australian",
   };
   return labels[pantheonId] || "Ancient";
 }

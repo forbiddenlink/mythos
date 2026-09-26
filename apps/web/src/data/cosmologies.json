@@ -1554,5 +1554,66 @@
         ]
       }
     ]
+  },
+  {
+    "pantheonId": "aboriginal-australian-pantheon",
+    "title": "Country, Sky, and Water: No Single Map",
+    "summary": "There is no one Aboriginal cosmology. This diagram only sorts the publicly shared stories on this site by where their beings are found: ancestors in the sky, in the land, and in the waters, each belonging to a particular people and Country.",
+    "axis": null,
+    "variantNote": "Hundreds of Aboriginal nations have their own understandings of the world, and many are not public. A layered diagram like this one is this site's format, not an Aboriginal model; it groups beings from the Kulin, Noongar, Ngemba, Aṉangu, and Western Desert stories on this site only by where each story places them (in the sky, on the land, or in the water), and it should not be read as a combined Aboriginal cosmos. The Dreaming is not a past era beneath the present, and this diagram has no underworld tier for that reason.",
+    "sources": [
+      "National Museum of Australia, Songlines: Tracking the Seven Sisters, 2017",
+      "Uluṟu-Kata Tjuṯa National Park, The Kuniya & Liru stories",
+      "Museums Victoria, First Peoples of Australia Astronomy",
+      "W. E. H. Stanner, 'The Dreaming', 1953"
+    ],
+    "tiers": [
+      {
+        "id": "sky",
+        "label": "In the sky",
+        "band": "sky",
+        "realms": [
+          {
+            "name": "The night sky",
+            "description": "Where, in their own peoples' stories, Bunjil is seen as Altair (Kulin), and the Seven Sisters as the Pleiades, pursued by Wati Nyiru in Orion (Western and Central Deserts).",
+            "deities": ["bunjil", "seven-sisters", "wati-nyiru"]
+          }
+        ]
+      },
+      {
+        "id": "country",
+        "label": "In Country",
+        "band": "earth",
+        "realms": [
+          {
+            "name": "Uluṟu and the desert",
+            "description": "Aṉangu Country, where Kuniya and the Liru left their marks in the rock.",
+            "deities": ["kuniya", "liru"],
+            "locationId": "uluru"
+          },
+          {
+            "name": "Kulin and Ngemba Country",
+            "description": "Land shaped by Bunjil in central Victoria, and the Barwon River at Brewarrina where Baiame laid out the fish traps.",
+            "deities": ["baiame"],
+            "creatures": ["mimih"],
+            "locationId": "brewarrina-fish-traps"
+          }
+        ]
+      },
+      {
+        "id": "waters",
+        "label": "In the waters",
+        "band": "water",
+        "realms": [
+          {
+            "name": "Rivers and waterholes",
+            "description": "The waters made or kept by serpent beings such as the Noongar Wagyl, and by Pallian among the Kulin; dangerous water beings live in some waterholes of the south-east.",
+            "deities": ["wagyl", "rainbow-serpent", "pallian"],
+            "creatures": ["bunyip"],
+            "locationId": "derbarl-yerrigan"
+          }
+        ]
+      }
+    ]
   }
 ]

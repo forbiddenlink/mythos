@@ -4384,5 +4384,214 @@
     "relatedStories": ["raven-steals-the-light", "raven-and-the-first-men"],
     "furtherReading": [],
     "imageUrl": "/stories/raven-harpoons-the-whale-land.png"
+  },
+  {
+    "id": "bunjil-and-the-kulin-country",
+    "pantheonId": "aboriginal-australian-pantheon",
+    "title": "Bunjil and the Making of Kulin Country",
+    "slug": "bunjil-and-the-kulin-country",
+    "summary": "A Kulin creation story from central Victoria, shared publicly by Kulin people: Bunjil the eagle shapes the land and the first men, his brother Pallian brings the first women from the water, and Bunjil gives them law before rising into the sky.",
+    "fullNarrative": "## Whose story this is\n\nThis story belongs to the Kulin nations of central Victoria, including the Wurundjeri Woi-wurrung, Boon Wurrung, Wadawurrung, Taungurung, and Dja Dja Wurrung peoples, whose Countries surround and include what is now Melbourne. Kulin Elders and organisations share Bunjil's story publicly today, and parts of it were also recorded by colonial observers in the nineteenth century. The summary below follows the public outline of those tellings; it is not the full story, and it is not told in the way a Kulin Elder would tell it on Country.\n\n## Bunjil and Pallian\n\nBunjil, the wedge-tailed eagle, is the creator ancestor. In the public tellings he shaped the land of the Kulin: its hills and plains, its rivers, its trees and plants, and its animals. Then he made the first people. In one widely shared telling, Bunjil shaped two men, and gave them life; his brother Pallian, who had been given charge of the rivers, creeks, and billabongs, then beat the water with his hands until two women took shape in it, and they became the first women. So men and women, the land and the water, came into being together.\n\n## The law\n\nBunjil gave the people law: how to live on Country, how to care for it, and how to behave toward one another. Among the Kulin, people belong to one of two moieties, Bunjil the eagle or Waa the crow, and the law of the moieties governs marriage and relationships. Stories shared publicly also tell of Bunjil stepping in when people did not follow the law, and in one telling of his turning back the rising sea when the people agreed to change their ways.\n\n## Rising into the sky\n\nWhen his work was done, Bunjil gathered his family. In one widely published telling, the keeper of the winds (named as Waa the crow in some accounts and as another being in others) opened his bag of winds, and a strong wind carried Bunjil and his people up into the sky. Boon Wurrung and Wurundjeri people connect Bunjil with the bright star Altair, with his two wives, as black swans, on either side. From the sky, Bunjil watches over the land and people he made.\n\n## Bunjil in Country today\n\nBunjil's presence is marked in Country and in present-day Melbourne. The only known rock painting of Bunjil is at Bunjil's Shelter in the Black Range near Stawell, on Djab Wurrung Country. In Melbourne's Docklands, a large sculpture of an eagle refers to Bunjil. Kulin people continue to refer to Bunjil when they welcome visitors to Country, reminding them of his law of caring for the land and its children.\n\n## Earlier records\n\nColonists such as the Assistant Protector William Thomas and the writer R. Brough Smyth recorded Kulin stories of Bunjil in the nineteenth century, often calling him a supreme being. Those records preserve some details but also reflect their authors' assumptions, and they were made during the dispossession of the Kulin nations. Kulin peoples' own tellings are the authority for this story.",
+    "keyExcerpts": "Bunjil the eagle shapes the land and the first men, his brother Pallian brings the first women out of the water, and Bunjil gives the people law before a great wind lifts him and his family into the sky.",
+    "category": "creation",
+    "moralThemes": [
+      "caring for Country",
+      "living by the law",
+      "men and women made together"
+    ],
+    "culturalSignificance": "The creation story of the Kulin nations, still invoked in Welcome to Country and in Kulin cultural life; Bunjil's law of caring for the land is central to how Kulin people describe their responsibilities.",
+    "citationSources": [
+      {
+        "title": "Museums Victoria, First Peoples of Australia Astronomy (Melbourne Planetarium)",
+        "author": "Museums Victoria, drawing on Boon Wurrung and Wurundjeri knowledge",
+        "date": "accessed 2026",
+        "type": "primary",
+        "chapter": "Warepil and Bunjil",
+        "url": "https://museumsvictoria.com.au/scienceworks/melbourne-planetarium/fact-sheets/first-peoples-of-australia-astronomy/"
+      },
+      {
+        "title": "The Aborigines of Victoria, vol. 1",
+        "author": "R. Brough Smyth (colonial record)",
+        "date": "1878",
+        "type": "secondary"
+      }
+    ],
+    "featuredDeities": ["bunjil", "pallian"],
+    "featuredLocations": ["bunjils-shelter"],
+    "relatedStories": ["the-seven-sisters-songline"],
+    "variants": [
+      {
+        "source": "Colonial records (Thomas; Smyth 1878)",
+        "difference": "The keeper of the winds who lifts Bunjil into the sky is named differently in different records, and colonial writers describe Bunjil as a 'supreme being'.",
+        "note": "This summary follows a publicly shared telling. It is not the full story, and restricted parts are not included; the people named are its custodians."
+      }
+    ],
+    "furtherReading": [],
+    "imageUrl": "/stories/bunjil-and-the-kulin-country.png"
+  },
+  {
+    "id": "the-seven-sisters-songline",
+    "pantheonId": "aboriginal-australian-pantheon",
+    "title": "The Seven Sisters Songline",
+    "slug": "the-seven-sisters-songline",
+    "summary": "Shared by Martu, Ngaanyatjarra, and Aṉangu Pitjantjatjara Yankunytjatjara custodians through the National Museum of Australia: ancestral sisters flee across the deserts from a man who uses magic to pursue them, and rise into the sky as the Pleiades.",
+    "fullNarrative": "## Whose story this is\n\nThe Seven Sisters songlines belong to peoples of the Western and Central Deserts, among them the Martu, the Ngaanyatjarra, and the Aṉangu Pitjantjatjara Yankunytjatjara (APY). The Martu call the sisters Minyipuru and the pursuer Yurla; Aṉangu call the sisters Kungkarangkalpa and the pursuer Wati Nyiru. In 2017 the custodians of these songlines worked with the National Museum of Australia on the exhibition *Songlines: Tracking the Seven Sisters*, deciding what could be shared with the public through painting, weaving, song, dance, and film. This summary follows what they chose to share, and no more.\n\n## A songline, not a single tale\n\nA songline follows the journey of ancestral beings across the land. The Seven Sisters' journey runs for hundreds of kilometres across what are now Western Australia, South Australia, and the Northern Territory, through the Countries of many peoples, each of whom holds and tells the part of the story that belongs to their Country. Rockholes, hills, and other features along the way mark where the sisters camped, rested, dug for water, or escaped. Knowing the songline means knowing the land.\n\n## The pursuit\n\nThe sisters travel together, and they are pursued by a man who desires them, or one of them. He is a sorcerer who uses magic and changes his shape to get close to them, becoming, in public tellings, things in the landscape that might tempt or deceive the sisters. The sisters escape him again and again, using their own powers and relying on one another. At some places he comes close; at others they elude him entirely. The shape of the land along the songline records these encounters.\n\n## Into the sky\n\nAt last the sisters rise into the sky, where they are the star cluster known in Western astronomy as the Pleiades. The man follows them, and is seen in stars of Orion, still in pursuit across the night sky.\n\n## What the story teaches\n\nAs the custodians presented it, the Seven Sisters story carries lessons about proper conduct, about the danger of uncontrolled desire, and above all about the strength of women who stand together. Aṉangu senior women artists, speaking to the museum in 2016, described themselves as big sisters to the young women, with the duty, as in the Seven Sisters story, to teach and protect their younger sisters (paraphrase). The story is also a way of holding knowledge of Country: where water is, how to travel, and how the land is connected.\n\n## Shared on the custodians' terms\n\nThe exhibition opened in Canberra in 2017 and toured internationally, to Paris, Berlin, Plymouth, Perth, and New Delhi. It was widely recognised as a model of how knowledge holders can share part of a songline publicly while keeping restricted knowledge protected. Some parts of the Seven Sisters story are women's knowledge or otherwise restricted, and this site does not include them.\n\n## Beyond the deserts\n\nStories connecting sisters with the Pleiades are found among other Aboriginal peoples as well, in their own forms and languages. They should not be assumed to be the same story as the desert songlines described here.",
+    "keyExcerpts": "Ancestral sisters flee across the Western and Central Deserts from a shape-changing man, Yurla or Wati Nyiru, leaving their marks in the land; they rise into the sky as the Pleiades, and he follows as stars of Orion.",
+    "category": "legend",
+    "moralThemes": [
+      "sisters who protect one another",
+      "the danger of uncontrolled desire",
+      "knowledge of Country held in story"
+    ],
+    "culturalSignificance": "One of the great songlines of the Western and Central Deserts, shared in part by its custodians through the National Museum of Australia's internationally touring exhibition as a model of community-controlled cultural sharing.",
+    "citationSources": [
+      {
+        "title": "National Museum of Australia, Songlines: Tracking the Seven Sisters (exhibition and catalogue, ed. Margo Neale)",
+        "author": "Margo Neale (ed.), with Martu, Ngaanyatjarra, and APY custodians",
+        "date": "2017",
+        "type": "primary",
+        "sourceId": "songlines-seven-sisters",
+        "url": "https://www.nma.gov.au/exhibitions/songlines"
+      },
+      {
+        "title": "Songlines: The Power and Promise (First Knowledges series)",
+        "author": "Margo Neale and Lynne Kelly",
+        "date": "2020",
+        "type": "secondary"
+      }
+    ],
+    "featuredDeities": ["seven-sisters", "wati-nyiru"],
+    "featuredLocations": [],
+    "relatedStories": ["kuniya-and-liru"],
+    "variants": [
+      {
+        "source": "Martu tellings",
+        "difference": "The sisters are the Minyipuru and the pursuer is Yurla.",
+        "note": "This summary follows a publicly shared telling. It is not the full story, and restricted parts are not included; the people named are its custodians."
+      },
+      {
+        "source": "Aṉangu Pitjantjatjara Yankunytjatjara tellings",
+        "difference": "The sisters are the Kungkarangkalpa and the pursuer is Wati Nyiru.",
+        "note": "This summary follows a publicly shared telling. It is not the full story, and restricted parts are not included; the people named are its custodians."
+      }
+    ],
+    "furtherReading": [
+      {
+        "sourceId": "songlines-seven-sisters",
+        "note": "The exhibition catalogue, shaped by the custodians"
+      }
+    ],
+    "imageUrl": "/stories/the-seven-sisters-songline.png"
+  },
+  {
+    "id": "baiames-ngunnhu",
+    "pantheonId": "aboriginal-australian-pantheon",
+    "title": "Baiame's Ngunnhu: The Brewarrina Fish Traps",
+    "slug": "baiames-ngunnhu",
+    "summary": "Shared by the Ngemba people and their neighbours at Brewarrina, New South Wales: the ancestral creation being Baiame revealed the design of the stone fish traps in the Barwon River by throwing his net over it, and gave each family group a trap to use and maintain.",
+    "fullNarrative": "## Whose story this is\n\nBaiame's Ngunnhu are the stone fish traps in the Barwon River at Brewarrina, in north-western New South Wales. The Ngemba (Ngiyampaa) people are their custodians, and they shared use of the traps with neighbouring peoples, including, as the National Heritage listing records, the Morowari, Paarkinji, Weilwan, Barabinja, Ualarai, and Kamilaroi. The story summarised here is the one recorded in that listing, prepared with the Aboriginal community, and told publicly by Brewarrina's Aboriginal people. It is not a complete account of Baiame, who is associated with other stories and with restricted ceremonies not described here.\n\n## The net over the river\n\nAccording to Aboriginal tradition, the ancestral creation being Baiame revealed the design of the traps by throwing his net over the river. The pattern of the net, laid across the water, became the plan of the traps: a network of dry-stone walls and pens across the riverbed. Baiame and his two sons, Booma-ooma-nowi and Ghinda-inda-mui, then built the traps to that design.\n\n## Responsibility for the traps\n\nBaiame did not simply make the traps and leave. He allocated particular traps to each family group and made them responsible for their use and maintenance. The traps were therefore a system of law as well as a structure: who could fish where, who was responsible for repairing which walls, and how the catch was shared. Neighbouring peoples were invited to Brewarrina for gatherings, ceremonies, and trade, especially when the fish were running.\n\n## How the traps work\n\nThe design of rock weirs and pens allowed large numbers of fish to be guided and caught, particularly during their spring migrations, and it withstood both floods and low water. The traps show a detailed understanding of river flow and fish behaviour, and they are among the largest and most complex Aboriginal fish traps known. Their age is not known with certainty; the story places their origin in Baiame's time, and archaeologists regard them as very old.\n\n## Damage and recognition\n\nAfter colonisation, the traps were damaged: stones were removed for building, and a weir later built across the river altered the flow and buried part of the system. In 2005 the Brewarrina Aboriginal Fish Traps were added to Australia's National Heritage List, recognising both the traps and the Baiame story. Local Aboriginal people continue to care for the traps and to lead work on their future.\n\n## What the story teaches\n\nThe story of Baiame's Ngunnhu joins technology, law, and sharing. The traps are a gift that comes with duties: each family's responsibility for its part of the system, and a sharing of the river's abundance with neighbours. That combination of practical knowledge and law is characteristic of how many Aboriginal stories connect people to Country.",
+    "keyExcerpts": "Baiame throws his net over the Barwon River and its pattern becomes the plan of the stone fish traps; with his sons he builds them, and gives each family group a trap to use and care for.",
+    "category": "origin",
+    "moralThemes": [
+      "knowledge given with responsibility",
+      "sharing the river's abundance",
+      "caring for Country"
+    ],
+    "culturalSignificance": "The origin story of one of the largest Aboriginal fish-trap systems, National Heritage listed in 2005 in recognition of both the traps and the Baiame story; a continuing centre of Ngemba cultural life.",
+    "citationSources": [
+      {
+        "title": "Australian Government, National Heritage List: Brewarrina Aboriginal Fish Traps (Baiame's Ngunnhu)",
+        "author": "Department of Climate Change, Energy, the Environment and Water, with the Brewarrina Aboriginal community",
+        "date": "inscribed 2005; accessed 2026",
+        "type": "primary",
+        "url": "https://www.dcceew.gov.au/parks-heritage/heritage/places/national/brewarrina",
+        "chapter": "The story of Baiame's Ngunnhu"
+      }
+    ],
+    "featuredDeities": ["baiame"],
+    "featuredLocations": ["brewarrina-fish-traps"],
+    "relatedStories": ["bunjil-and-the-kulin-country"],
+    "variants": [
+      {
+        "source": "Other Baiame traditions (Gamilaraay, Wiradjuri, Yuwaalaraay)",
+        "difference": "Other peoples tell different Baiame stories, about shaping rivers and landforms and about his going up to the sky.",
+        "note": "This summary follows a publicly shared telling. It is not the full story, and restricted parts are not included; the people named are its custodians."
+      }
+    ],
+    "furtherReading": [],
+    "imageUrl": "/stories/baiames-ngunnhu.png"
+  },
+  {
+    "id": "wagyl-and-derbarl-yerrigan",
+    "pantheonId": "aboriginal-australian-pantheon",
+    "title": "The Wagyl and the Derbarl Yerrigan",
+    "slug": "wagyl-and-derbarl-yerrigan",
+    "summary": "Shared publicly by Whadjuk Noongar people: in the Nyitting, the creation time, the Wagyl moved across the land and shaped the Derbarl Yerrigan (Swan River) and the waterways of the Perth region.",
+    "fullNarrative": "## Whose story this is\n\nThe Wagyl belongs to the Noongar people of the south-west of Western Australia, and this story in particular to the Whadjuk Noongar, whose Country includes the city of Perth and the Derbarl Yerrigan, the Swan River. Noongar organisations, including the South West Aboriginal Land and Sea Council through its Kaartdijin Noongar (Noongar Knowledge) project, and local councils working with Noongar Elders share this story publicly. The summary below follows those public tellings; Noongar people tell it in their own ways, and some Wagyl knowledge is not public.\n\n## The Nyitting\n\nNoongar people speak of the Nyitting, the creation time, often translated as \"the cold time\", when the land took its present shape. In the Nyitting, the Wagyl, a great serpent being, moved across the land. As it travelled, its body carved out the land, and its tracks became the rivers, lakes, and wetlands. The Derbarl Yerrigan, winding from the hills to the sea through what is now Perth, follows the Wagyl's movements.\n\n## Resting places\n\nAlong the river are places where the Wagyl rested, and these are important to Whadjuk Noongar people. One such place is associated with the foot of Kaarta Gar-up (Mount Eliza, below Kings Park), at Goonininup, near a freshwater spring. The Wagyl continues to be present in the waters it made, and Noongar people have responsibility for caring for them.\n\n## Protecting the Wagyl's places\n\nIn 1989 Noongar people began a long protest against the redevelopment of the Old Swan Brewery site at Goonininup, because of its association with the Wagyl. The protest became one of the best-known Aboriginal heritage struggles in Western Australia. Although the redevelopment eventually went ahead, the campaign brought wide public attention to Noongar connections to the river, and to the Wagyl as a living part of Noongar law rather than a figure of the past.\n\n## Water and responsibility\n\nThe Wagyl is associated with fresh water, and Noongar people describe the Wagyl's waters as places to be respected. Some tellings say the Wagyl should not be disturbed, and that certain places should be approached only with care. In a dry region, the story connects people to the sources of fresh water and to the obligation to protect them.\n\n## Many waterways\n\nWagyl stories are told across Noongar Country, not only in Perth, and connect other rivers, lakes, and wetlands of the south-west. Different Noongar groups tell them differently. Readers who want to know more should seek out the tellings of Noongar Elders and organisations.\n\n## A note on names\n\nThe Swan River's Noongar name is often spelled Derbarl Yerrigan, and the Wagyl's name Wagyl, Waugal, or Waakal; Noongar spelling varies because the language was written down by many different people. This site uses the spellings found in current Noongar-led public sources.",
+    "keyExcerpts": "In the Nyitting the Wagyl moves across the land, and its tracks become the rivers and wetlands; the Derbarl Yerrigan winding through Perth follows its course, and its resting places remain in Whadjuk Noongar care.",
+    "category": "creation",
+    "moralThemes": [
+      "responsibility for fresh water",
+      "respect for sacred places",
+      "the living presence of the creation time"
+    ],
+    "culturalSignificance": "The Whadjuk Noongar account of the origin of the Swan River and the waterways of the Perth region, central to Noongar heritage campaigns including the protests at Goonininup from 1989.",
+    "citationSources": [
+      {
+        "title": "Kaartdijin Noongar: Noongar Knowledge",
+        "author": "South West Aboriginal Land and Sea Council",
+        "date": "noongarculture.org.au, accessed 2026",
+        "type": "primary"
+      },
+      {
+        "title": "Aboriginal history",
+        "author": "City of Swan (prepared with Noongar community input)",
+        "date": "accessed 2026",
+        "type": "primary",
+        "url": "https://www.swan.wa.gov.au/city-and-council/city-history/aboriginal-history"
+      }
+    ],
+    "featuredDeities": ["wagyl", "rainbow-serpent"],
+    "featuredLocations": ["derbarl-yerrigan"],
+    "relatedStories": ["baiames-ngunnhu"],
+    "variants": [
+      {
+        "source": "Other Noongar groups",
+        "difference": "Wagyl stories are also told for other rivers, lakes, and wetlands across Noongar Country, differently by different groups.",
+        "note": "This summary follows a publicly shared telling. It is not the full story, and restricted parts are not included; the people named are its custodians."
+      }
+    ],
+    "furtherReading": [],
+    "imageUrl": "/stories/wagyl-and-derbarl-yerrigan.png"
+  },
+  {
+    "id": "kuniya-and-liru",
+    "pantheonId": "aboriginal-australian-pantheon",
+    "title": "Kuniya and Liru at Uluṟu",
+    "slug": "kuniya-and-liru",
+    "summary": "Shared publicly by Aṉangu at Uluṟu-Kata Tjuṯa National Park: when Liru warriors kill her nephew, Kuniya the woma python woman confronts one of them at Muṯitjulu Waterhole and strikes him down with her digging stick.",
+    "fullNarrative": "## Whose story this is\n\nThis is Aṉangu Tjukurpa, the law and ancestral knowledge of the Aṉangu, the traditional owners of Uluṟu-Kata Tjuṯa National Park in the Northern Territory. Aṉangu share this story publicly with visitors: it is told on signs along the Kuniya walk to Muṯitjulu Waterhole and on the park's website, both prepared with Aṉangu, and by Aṉangu guides. Uluṟu holds many Tjukurpa stories, and many of them are not public; this summary keeps to the public telling of Kuniya and Liru.\n\n## Kuniya comes to Uluṟu\n\nKuniya, the woma python, came to Uluṟu from far away, travelling across the land. At Uluṟu she laid her eggs and made her camp. Her nephew, a young Kuniya man, also came to the area.\n\n## The Liru war party\n\nA war party of Liru, venomous snake men, came to Uluṟu. They attacked Kuniya's nephew with their spears and killed him. The spear marks are said to remain on the rock of Uluṟu, and Aṉangu point to them when they tell the story.\n\n## Kuniya's grief and anger\n\nWhen Kuniya learned that her nephew had been killed, she was overcome with grief and anger. She came to Muṯitjulu to confront the Liru. As the public telling describes it, she performed a powerful dance and took up her wana, her digging stick. She struck one of the Liru warriors on the head, and he died. Features of the rock face at Muṯitjulu record this encounter: the marks of the blow, and the forms of Kuniya and the Liru warrior.\n\n## Muṯitjulu Waterhole\n\nMuṯitjulu is one of the few permanent waterholes at Uluṟu and an important place for Aṉangu. The public story teaches visitors about the Tjukurpa that gives the place its meaning, and about the proper response to wrongdoing within Aṉangu law. Aṉangu guides explain that the story also carries lessons about responsibility to kin and about the consequences of violence.\n\n## Visiting on Aṉangu terms\n\nUluṟu-Kata Tjuṯa National Park is jointly managed by Aṉangu and Parks Australia, following the return of the land to its traditional owners in 1985. Aṉangu ask visitors to respect culturally sensitive sites, including places where photography is not allowed. At the request of the traditional owners, climbing Uluṟu was permanently closed in October 2019.\n\n## Not a \"Rainbow Serpent\"\n\nKuniya is sometimes loosely called a \"Rainbow Serpent\" in popular writing. She is a woma python woman in a specific Aṉangu story, and her story should be understood as Aṉangu tell it, not folded into a general category.",
+    "keyExcerpts": "Liru warriors spear Kuniya's nephew; in grief and anger Kuniya confronts one of them at Muṯitjulu Waterhole and strikes him with her wana, and the marks of the encounter remain in the rock of Uluṟu.",
+    "category": "legend",
+    "moralThemes": [
+      "responsibility to kin",
+      "the consequences of violence",
+      "law held in the land"
+    ],
+    "culturalSignificance": "One of the Tjukurpa stories Aṉangu share publicly at Uluṟu, told along the Kuniya walk to Muṯitjulu Waterhole; part of the jointly managed park's presentation of Aṉangu law to visitors.",
+    "citationSources": [
+      {
+        "title": "Uluṟu-Kata Tjuṯa National Park (Parks Australia, with Aṉangu traditional owners), 'The Kuniya & Liru stories'",
+        "author": "Aṉangu traditional owners and Parks Australia",
+        "date": "accessed 2026",
+        "type": "primary",
+        "url": "https://uluru.gov.au/discover/culture/stories/kuniya-liru-stories/"
+      }
+    ],
+    "featuredDeities": ["kuniya", "liru"],
+    "featuredLocations": ["uluru"],
+    "relatedStories": ["the-seven-sisters-songline"],
+    "furtherReading": [],
+    "imageUrl": "/stories/kuniya-and-liru.png"
   }
 ]

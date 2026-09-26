@@ -2264,5 +2264,42 @@
       }
     ],
     "readingOrder": "A good first book: elders speak in their own words, with Inuktitut terms explained."
+  },
+  {
+    "id": "songlines-seven-sisters",
+    "title": "Songlines: Tracking the Seven Sisters",
+    "author": "Margo Neale (ed.), with Martu, Ngaanyatjarra, and Aṉangu Pitjantjatjara Yankunytjatjara knowledge holders and artists",
+    "year": "2017",
+    "type": "academic",
+    "language": "English, with Martu Wangka, Ngaanyatjarra, Pitjantjatjara, and Yankunytjatjara terms",
+    "description": "Catalogue of the National Museum of Australia's exhibition, developed with the custodians of the Seven Sisters songlines of the Western and Central Deserts, who decided what could be shared publicly. The exhibition later toured to Paris, Berlin, Plymouth, Perth, and New Delhi.",
+    "externalUrl": "https://www.nma.gov.au/exhibitions/songlines",
+    "characters": [
+      {
+        "id": "seven-sisters",
+        "kind": "deity",
+        "role": "the ancestral sisters (Minyipuru, Kungkarangkalpa) who flee across the deserts",
+        "where": "throughout"
+      },
+      {
+        "id": "wati-nyiru",
+        "kind": "deity",
+        "role": "the man (Yurla, Wati Nyiru) who pursues them",
+        "where": "throughout"
+      }
+    ],
+    "keyScenes": [
+      {
+        "title": "The pursuit across the deserts",
+        "where": "Martu, Ngaanyatjarra, and APY sections",
+        "summary": "The sisters travel across the Countries of several peoples, pursued by a man who uses magic and changes shape; the places they pass are marked in the land."
+      },
+      {
+        "title": "Into the sky",
+        "where": "concluding sections",
+        "summary": "The sisters rise into the sky as the Pleiades, and the man follows, seen in stars of Orion."
+      }
+    ],
+    "readingOrder": "Begin with the custodians' own introductions and the maps of the songlines before the art."
   }
 ]

@@ -2492,5 +2492,77 @@
       }
     ],
     "imageUrl": "/locations/torngat-mountains.png"
+  },
+  {
+    "id": "brewarrina-fish-traps",
+    "name": "Baiame's Ngunnhu (Brewarrina Fish Traps)",
+    "locationType": "sacred_site",
+    "pantheonId": "aboriginal-australian-pantheon",
+    "description": "Stone fish traps in the Barwon River at Brewarrina, New South Wales, whose design the ancestral creation being Baiame revealed; National Heritage listed in 2005 and cared for by the Ngemba people and their neighbours.",
+    "latitude": -29.9603,
+    "longitude": 146.8617,
+    "detailedBio": "## A system of stone\n\nBaiame's Ngunnhu is a network of dry-stone walls and pens across the Barwon River at Brewarrina, in north-western New South Wales. The design guided fish, especially during spring migrations, into pens where they could be caught, and resisted both floods and low water. It is among the largest and most complex Aboriginal fish-trap systems known.\n\n## Story and law\n\nAccording to the Ngemba people and their neighbours, as recorded in the National Heritage listing, the ancestral creation being Baiame revealed the design by throwing his net over the river, built the traps with his two sons, and allocated them to family groups who were responsible for their use and maintenance. Neighbouring peoples gathered here for ceremony and trade.\n\n## Heritage and care\n\nThe traps were damaged after colonisation, and a weir later built across the river altered its flow and buried part of them. They were added to the National Heritage List in 2005. The Brewarrina Aboriginal community continues to care for the traps, and the site is visited through local Aboriginal-led cultural tourism. The coordinates given here are approximate.",
+    "primarySources": [
+      {
+        "text": "The Ngemba people of Brewarrina used their advanced knowledge of river hydrology and fish ecology to trap and catch large numbers of fresh water fish.",
+        "source": "Australian Government, National Heritage List: Brewarrina Aboriginal Fish Traps (Baiame's Ngunnhu)",
+        "date": "accessed 2026"
+      }
+    ],
+    "imageUrl": "/locations/brewarrina-fish-traps.png"
+  },
+  {
+    "id": "bunjils-shelter",
+    "name": "Bunjil's Shelter",
+    "locationType": "sacred_site",
+    "pantheonId": "aboriginal-australian-pantheon",
+    "description": "A rock shelter in the Black Range near Stawell, Victoria, on Djab Wurrung Country, holding the only known rock painting of Bunjil.",
+    "latitude": -37.1394,
+    "longitude": 142.7333,
+    "detailedBio": "## Bunjil in the rock\n\nBunjil's Shelter, in the Black Range Scenic Reserve about ten kilometres south of Stawell in western Victoria, holds a painting of a figure understood as Bunjil, with two dogs, the only rock painting of Bunjil known. The site is on Djab Wurrung Country and is significant to the Djab Wurrung and other Kulin and neighbouring peoples; Bunjil is also said to have sheltered in the Gariwerd (Grampians) region.\n\n## Protection\n\nThe painting is protected behind a grille, and the site is managed as a heritage place. Visitors are asked to treat it with respect. Research on the painting has considered its age and the way it has been retouched over time, but its meaning is for its custodians to explain.\n\n## Part of a wider landscape\n\nBunjil's Shelter lies near Gariwerd, a region rich in rock art sites managed with Traditional Owners, and near the Brambuk cultural centre at Halls Gap, where Aboriginal communities of the region share aspects of their culture with visitors.",
+    "primarySources": [
+      {
+        "text": "Rock art research on Bunjil's Shelter in the Black Range near Stawell, in Djab Wurrung Country (paraphrase).",
+        "source": "Rock Art Research, 'Bunyip, Bunjil and mother-in-law avoidance'",
+        "date": "accessed 2026"
+      }
+    ],
+    "imageUrl": "/locations/bunjils-shelter.png"
+  },
+  {
+    "id": "derbarl-yerrigan",
+    "name": "Derbarl Yerrigan (Swan River)",
+    "locationType": "body_of_water",
+    "pantheonId": "aboriginal-australian-pantheon",
+    "description": "The river that runs through Perth, Western Australia, whose course Whadjuk Noongar tradition attributes to the Wagyl; its resting places, including Goonininup below Kaarta Gar-up (Kings Park), are important Noongar places.",
+    "latitude": -31.9633,
+    "longitude": 115.8697,
+    "detailedBio": "## A Noongar river\n\nThe Derbarl Yerrigan, the Swan River, flows from the Darling Scarp through Perth to the Indian Ocean at Fremantle. For Whadjuk Noongar people it is at the heart of Country: a source of food and fresh water and a place of story. In the public Noongar telling, the Wagyl shaped the river in the Nyitting as it moved across the land. The coordinates given here mark Perth Water, in the city.\n\n## Goonininup\n\nAt the foot of Kaarta Gar-up (Mount Eliza, below Kings Park) is Goonininup, near a freshwater spring, associated with the Wagyl. From 1989 Noongar people protested the redevelopment of the Old Swan Brewery on this site; the protest became a landmark in Western Australian heritage politics.\n\n## Today\n\nNoongar names for the river and for places along it are increasingly used in Perth, and Noongar-led tours and public art along the foreshore share aspects of the Derbarl Yerrigan's story with residents and visitors.",
+    "primarySources": [
+      {
+        "text": "During the Nyitting (Creation Time), the great creator snake called the Waugal or Wagyl moved down the Derbal Yerrigan and created the waterways and landscapes.",
+        "source": "City of Swan, 'Aboriginal history'",
+        "date": "accessed 2026"
+      }
+    ],
+    "imageUrl": "/locations/derbarl-yerrigan.png"
+  },
+  {
+    "id": "uluru",
+    "name": "Uluṟu",
+    "locationType": "sacred_site",
+    "pantheonId": "aboriginal-australian-pantheon",
+    "description": "The great sandstone monolith in Uluṟu-Kata Tjuṯa National Park, Northern Territory, shaped by the actions of Aṉangu ancestral beings, including Kuniya and the Liru; jointly managed by Aṉangu and Parks Australia.",
+    "latitude": -25.3444,
+    "longitude": 131.0369,
+    "detailedBio": "## Aṉangu Country\n\nUluṟu is part of the Country of the Aṉangu, the traditional owners of Uluṟu-Kata Tjuṯa National Park. For Aṉangu, the features of Uluṟu are evidence of the actions of ancestral beings in the Tjukurpa: the Kuniya (woma python) and the Liru (venomous snake men), the Mala (rufous hare-wallaby) people, and others. Some of these stories are shared publicly with visitors; many are not.\n\n## Handback and joint management\n\nTitle to Uluṟu-Kata Tjuṯa was handed back to its traditional owners on 26 October 1985, and the park has since been jointly managed by Aṉangu and Parks Australia. It is a UNESCO World Heritage Site for both its natural and cultural values.\n\n## Respect\n\nAṉangu ask visitors not to photograph certain culturally sensitive areas. Climbing Uluṟu, long discouraged by the traditional owners, was permanently closed in October 2019. Visitors can learn the publicly shared stories along walks such as the Kuniya walk to Muṯitjulu Waterhole.",
+    "primarySources": [
+      {
+        "text": "Aṉangu share the Kuniya and Liru Tjukurpa publicly along the walk to Muṯitjulu Waterhole (paraphrase).",
+        "source": "Uluṟu-Kata Tjuṯa National Park (Parks Australia, with Aṉangu traditional owners), 'The Kuniya & Liru stories'",
+        "date": "accessed 2026"
+      }
+    ],
+    "imageUrl": "/locations/uluru.png"
   }
 ]

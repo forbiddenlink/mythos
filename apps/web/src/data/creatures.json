@@ -1517,5 +1517,51 @@
       }
     ],
     "imageUrl": "/creatures/ijiraq.png"
+  },
+  {
+    "id": "bunyip",
+    "pantheonId": "aboriginal-australian-pantheon",
+    "name": "Bunyip",
+    "slug": "bunyip",
+    "description": "A dangerous being of waterholes, swamps, and billabongs in the traditions of peoples of south-eastern Australia; the word comes from Wergaia or Wemba Wemba, and colonial newspapers turned the bunyip into a settlers' monster.",
+    "habitat": "Deep waterholes, swamps, creeks, and billabongs of south-eastern Australia",
+    "abilities": [
+      "lurks in deep water",
+      "seizes people who come too close, especially at night",
+      "its call is heard at night"
+    ],
+    "dangerLevel": 7,
+    "detailedBio": "## An Aboriginal word\n\n\"Bunyip\" is usually traced to the Wergaia or Wemba Wemba languages of western Victoria; other peoples of south-eastern Australia had their own names for dangerous beings of the water. In Aboriginal tellings recorded in the nineteenth century, such beings lived in deep waterholes, swamps, and billabongs and could seize people who came too close, especially at night. Many of these stories served to keep children away from dangerous water.\n\n## A colonial sensation\n\nFrom the 1840s, settlers took up the word. Newspapers reported bunyip sightings and bellowing in the swamps, and in 1846 a skull found on the Murrumbidgee River was exhibited in Sydney as a bunyip's (it was later identified as a deformed animal skull). The bunyip became a figure of colonial folklore, and later of children's books, often with little connection to the Aboriginal beings behind the word. \"Bunyip aristocracy\" became an insult in colonial politics.\n\n## Distinguishing the two\n\nThis site distinguishes the Aboriginal water beings, which belong to particular peoples and places and are told about in their own languages, from the colonial \"bunyip\" of newspapers and fiction. Some scholars have suggested that stories of water beings preserve memories of extinct megafauna or reflect seals travelling up rivers; these are interpretations, not the peoples' own accounts.",
+    "primarySources": [
+      {
+        "text": "Settler newspapers of the 1840s report the bunyip as a creature of the swamps, drawing on Aboriginal accounts of dangerous beings of the water (paraphrase).",
+        "source": "Colonial press reports collected in Robert Holden, Bunyips: Australia's Folklore of Fear (National Library of Australia)",
+        "date": "2001"
+      }
+    ],
+    "imageUrl": "/creatures/bunyip.png"
+  },
+  {
+    "id": "mimih",
+    "pantheonId": "aboriginal-australian-pantheon",
+    "name": "Mimih",
+    "slug": "mimih",
+    "description": "Tall, extremely thin spirit beings of the rock country of western Arnhem Land in Kunwinjku tradition, who live in cracks in the rock and are said to have taught people to hunt, cook, and paint on rock.",
+    "habitat": "Cracks and crevices in the rock escarpments of western Arnhem Land",
+    "abilities": [
+      "open and close rock crevices by blowing on them",
+      "so thin that a strong wind could break them",
+      "teach hunting and painting"
+    ],
+    "dangerLevel": 3,
+    "detailedBio": "## Spirits of the rock country\n\nIn the traditions of the Kunwinjku people and their neighbours in western Arnhem Land, Mimih are spirit beings who live in the rock country of the Arnhem Land escarpment. They are described as very tall and so thin that a strong wind could snap their necks, which is why they come out mainly on still days. They live inside cracks in the rock and can open and close the rock by blowing on it.\n\n## Teachers\n\nKunwinjku tellings shared publicly, including through art centres such as Injalak Arts at Gunbalanya, describe Mimih as the ones who taught people to hunt, to cook, and to paint on rock; some of the oldest rock paintings of the region, with slender, active human figures, are attributed to Mimih. Mimih can be shy and mischievous, and a person who is careless with them may be led astray.\n\n## In art\n\nMimih are among the best-known subjects of Kunwinjku bark painting and carving, and slender carved Mimih figures are made for sale by artists through community art centres. These are publicly shared depictions made by the people whose tradition this is; this site does not attempt to depict Mimih.",
+    "primarySources": [
+      {
+        "text": "Kunwinjku artists describe the Mimih as thin spirits living in the rock who taught people to hunt and to paint (paraphrase of art-centre descriptions).",
+        "source": "Injalak Arts (Gunbalanya), public descriptions of Mimih works",
+        "date": "accessed 2026"
+      }
+    ],
+    "imageUrl": "/creatures/mimih.png"
   }
 ]

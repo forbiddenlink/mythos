@@ -23,6 +23,7 @@ export const PANTHEON_COLORS: Record<string, string> = {
   "hittite-pantheon": "#7a4a2a", // baked-clay terracotta (Hattusa tablets and mudbrick)
   "canaanite-pantheon": "#6b2d5c", // Tyrian purple (murex dye of the Levantine coast)
   "inuit-pantheon": "#3d6f8e", // sea-ice blue (open water at the floe edge)
+  "aboriginal-australian-pantheon": "#8f4a2c", // inland earth red (landscape tone, not a ceremonial pigment reference)
 };
 
 export function getPantheonColor(pantheonId: string): string {
@@ -135,6 +136,11 @@ const PANTHEON_ACCENTS: Record<string, PantheonAccent> = {
     primary: "#5b9bc4",
     secondary: "#9aa7b0",
     label: "Inuit",
+  },
+  "aboriginal-australian-pantheon": {
+    primary: "#b8683f",
+    secondary: "#5f7f6a",
+    label: "Aboriginal Australian",
   },
 };
 

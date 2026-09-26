@@ -12759,5 +12759,347 @@
       "practices": "This is part of a living tradition. Inuit relationships with these figures today range from continued respect and storytelling to Christian faith that sets older practice aside, and they vary by family and community; this site does not describe angakkuq (shamanic) practice beyond what elders and Inuit-led publishers have chosen to make public."
     },
     "traditionRole": "Maker of the Land (Tikiġaq)"
+  },
+  {
+    "id": "bunjil",
+    "pantheonId": "aboriginal-australian-pantheon",
+    "name": "Bunjil",
+    "slug": "bunjil",
+    "originalLanguageName": {
+      "text": "Bunjil / Bundjil",
+      "language": "Woiwurrung and other Kulin languages",
+      "transliteration": "Bunjil",
+      "meaning": "Wedge-tailed eagle"
+    },
+    "alternateNames": ["Bundjil", "Pundjel (older spelling)", "Eaglehawk"],
+    "gender": "male",
+    "domain": [
+      "creation of the land and people (Kulin)",
+      "law",
+      "the wedge-tailed eagle"
+    ],
+    "symbols": ["the wedge-tailed eagle", "the star Altair"],
+    "description": "The creator ancestor of the Kulin nations of central Victoria, a wedge-tailed eagle who shaped the land, made people, gave them law, and rose into the sky, where the Wurundjeri and Boon Wurrung see him as the star Altair.",
+    "detailedBio": "## Creator of the Kulin\n\nBunjil is the creator ancestor of the Kulin nations of central Victoria, among them the Wurundjeri Woi-wurrung, Boon Wurrung, Wadawurrung, Taungurung, and Dja Dja Wurrung peoples. He takes the form of the wedge-tailed eagle, and he is one of the two moiety ancestors of the Kulin, the other being Waa (Waang), the crow; every Kulin person belongs to Bunjil's moiety or Waa's, which governs marriage and relationships. The Wurundjeri Woi-wurrung Cultural Heritage Aboriginal Corporation and other Kulin organisations share Bunjil's story publicly today.\n\n## What he made\n\nIn publicly shared Kulin tellings, Bunjil shaped the land, its mountains, rivers, plants, and animals, and made the first people, and gave them the law by which to live. His brother Pallian, who had charge of the waters, is said in many tellings to have brought the first women from the water. Bunjil's family includes two wives and a son, Binbeal, the rainbow. When his work was done, he went up into the sky.\n\n## In the stars\n\nMuseums Victoria, drawing on Boon Wurrung and Wurundjeri knowledge, reports that Bunjil is associated with the star Altair, and his two wives, in the form of black swans, with the stars on either side of it. The only known rock painting of Bunjil is at Bunjil's Shelter near Stawell, on Djab Wurrung Country.\n\n## Earlier records\n\nNineteenth-century colonists such as William Thomas and Robert Brough Smyth recorded Bunjil stories and often described him as a \"Supreme Being\"; those descriptions reflect the recorders' own religious frameworks as well as what Kulin people told them. The Kulin nations' own tellings are the authority for his story.",
+    "importanceRank": 1,
+    "imageUrl": "/deities/bunjil.png",
+    "primarySources": [
+      {
+        "text": "Museums Victoria reports that the Boon Wurrung and Wurundjeri connect Bunjil the eagle with the star Altair, and his two black-swan wives with the stars on either side (paraphrase).",
+        "source": "Museums Victoria, 'First Peoples of Australia Astronomy' (Melbourne Planetarium fact sheet)",
+        "date": "accessed 2026"
+      },
+      {
+        "text": "Kulin creation accounts recorded in colonial Victoria, including Bunjil's making of the land and his ascent to the sky (paraphrase).",
+        "source": "R. Brough Smyth, The Aborigines of Victoria, vol. 1",
+        "date": "1878"
+      }
+    ],
+    "furtherReading": [],
+    "sources": [
+      "Wurundjeri Woi-wurrung Cultural Heritage Aboriginal Corporation, public cultural information on Bunjil (wurundjeri.com.au)."
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [],
+      "practices": "This site does not describe ceremonies, sacred sites, or practices associated with this figure. Only the publicly shared story is summarised here; custodianship of the story belongs to the people named, and their own tellings take precedence."
+    },
+    "traditionRole": "Creator Ancestor (Kulin)"
+  },
+  {
+    "id": "pallian",
+    "pantheonId": "aboriginal-australian-pantheon",
+    "name": "Pallian",
+    "slug": "pallian",
+    "alternateNames": ["Palian", "Balayang (in some records)"],
+    "gender": "male",
+    "domain": [
+      "the waters: rivers, creeks, and billabongs (Kulin)",
+      "the making of the first women"
+    ],
+    "symbols": ["water", "the bat (in some records)"],
+    "description": "In Kulin tellings, Bunjil's brother, who had charge of the waters and who, beating the water with his hands, brought forth the first women.",
+    "detailedBio": "## Bunjil's brother\n\nPallian appears in Kulin creation stories as Bunjil's brother, who was given charge of the rivers, creeks, and billabongs. In a telling shared publicly by a Wadawurrung Elder, after Bunjil had made the first men, Pallian began to thump the water with his hands until the water took the shape of two women, who became the first women. Similar accounts were recorded in the nineteenth century in colonial Victoria.\n\n## Names and records\n\nColonial sources spell his name in several ways, and some associate the name Balayang, and the bat, with Bunjil's brother; whether these are the same figure in every Kulin tradition is not clear from the published records, and this site follows the public Kulin tellings in calling him Pallian.\n\n## Why he matters\n\nPallian's story makes creation a shared work between brothers, one with the land and one with the water, and it grounds the relationship between men and women in the first acts of making. Like Bunjil's story, it belongs to the Kulin nations, whose own tellings take precedence over any summary here.",
+    "importanceRank": 2,
+    "imageUrl": "/deities/pallian.png",
+    "primarySources": [
+      {
+        "text": "A Wadawurrung Elder's public telling of the Kulin creation: Bunjil's brother Pallian, who had charge of the waters, thumped the water with his hands until it took the shape of women (paraphrase).",
+        "source": "Wadawurrung Elder's telling shared by the National Wool Museum, Geelong",
+        "date": "accessed 2026"
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [],
+      "practices": "This site does not describe ceremonies, sacred sites, or practices associated with this figure. Only the publicly shared story is summarised here; custodianship of the story belongs to the people named, and their own tellings take precedence."
+    },
+    "traditionRole": "Ancestral Being of the Waters (Kulin)"
+  },
+  {
+    "id": "baiame",
+    "pantheonId": "aboriginal-australian-pantheon",
+    "name": "Baiame",
+    "slug": "baiame",
+    "originalLanguageName": {
+      "text": "Baayami / Baiame",
+      "language": "Gamilaraay, Wiradjuri, Ngiyampaa, Yuwaalaraay and neighbouring languages",
+      "transliteration": "Baayami",
+      "meaning": "Often explained as related to a verb 'to make'; the etymology is debated"
+    },
+    "alternateNames": ["Baayami", "Biame", "Byamee"],
+    "gender": "male",
+    "domain": [
+      "creation (south-eastern Australia)",
+      "law",
+      "the Brewarrina fish traps"
+    ],
+    "symbols": ["the net thrown over the river", "the sky camp"],
+    "description": "The creator ancestor of several peoples of New South Wales, among them the Gamilaraay, Wiradjuri, Ngiyampaa (Ngemba), and Yuwaalaraay, who made rivers and laws; at Brewarrina he revealed the design of the fish traps, Baiame's Ngunnhu.",
+    "detailedBio": "## A creator of many nations\n\nBaiame is a creator ancestor for a number of peoples of central and northern New South Wales, including the Gamilaraay (Kamilaroi), Wiradjuri, Ngiyampaa (including the Ngemba of Brewarrina), and Yuwaalaraay (Euahlayi). Stories shared by these peoples describe Baiame travelling the land, shaping rivers and landforms, giving law, and eventually going up to live in the sky. Each people tells his story in its own way, and this site does not merge them.\n\n## Baiame's Ngunnhu\n\nThe best documented public story is from Brewarrina, on the Barwon River. The Australian Government's National Heritage listing, prepared with the local Aboriginal community, records that the ancestral creation being Baiame revealed the design of the fish traps by throwing his net over the river, and that he and his two sons, Booma-ooma-nowi and Ghinda-inda-mui, built the traps to that design. Baiame allocated particular traps to each family group and made them responsible for their use and maintenance.\n\n## Restricted aspects\n\nBaiame is also associated with ceremonies, including initiation, that are restricted to initiated people; those are not described here. Nineteenth-century missionaries and ethnographers often presented Baiame as a supreme being comparable to the Christian God, a framing that scholars have questioned and that may reflect missionary influence as much as earlier belief.\n\n## Rock art\n\nA painted figure in a rock shelter at Milbrodale in the Hunter Valley, on Wonnarua Country, is widely known as Baiame's Cave; the site's significance is for its custodians to explain.",
+    "importanceRank": 2,
+    "imageUrl": "/deities/baiame.png",
+    "primarySources": [
+      {
+        "text": "According to Aboriginal tradition the ancestral creation being Baiame revealed the design of the traps by throwing his net over the river.",
+        "source": "Australian Government, National Heritage List: Brewarrina Aboriginal Fish Traps (Baiame's Ngunnhu)",
+        "date": "accessed 2026"
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [],
+      "practices": "This site does not describe ceremonies, sacred sites, or practices associated with this figure. Only the publicly shared story is summarised here; custodianship of the story belongs to the people named, and their own tellings take precedence."
+    },
+    "traditionRole": "Creator Ancestor (NSW nations)"
+  },
+  {
+    "id": "rainbow-serpent",
+    "pantheonId": "aboriginal-australian-pantheon",
+    "name": "Rainbow Serpent (an umbrella term)",
+    "slug": "rainbow-serpent",
+    "alternateNames": [
+      "Wagyl or Waugal (Noongar)",
+      "Ngalyod (Kunwinjku, western Arnhem Land)",
+      "many other names in other languages"
+    ],
+    "gender": "none",
+    "domain": ["water, rain, and waterholes", "the shaping of the land"],
+    "symbols": ["the rainbow", "the waterhole"],
+    "description": "An English umbrella term, introduced by the anthropologist A. R. Radcliffe-Brown in 1926, for the many great serpent beings associated with water and rain in the traditions of different Aboriginal peoples; each has its own name, Country, and story.",
+    "detailedBio": "## A scholar's category\n\n\"Rainbow Serpent\" is not an Aboriginal name. The anthropologist A. R. Radcliffe-Brown used it in a 1926 paper, \"The Rainbow-Serpent Myth of Australia\", to group together serpent beings he found in the traditions of many peoples across the continent, associated with water, rain, and the rainbow. The term stuck, and it is now used widely, including by some Aboriginal people speaking in English, but it can hide the differences between distinct beings with their own names, Countries, and laws.\n\n## Some named beings\n\nAmong publicly known serpent beings associated with water are the Wagyl (or Waugal) of the Noongar people of south-western Western Australia, who shaped the rivers and waterways, including the Derbarl Yerrigan (Swan River); and Ngalyod of the Kunwinjku people of western Arnhem Land, who appears in publicly exhibited bark paintings. These are not simply local names for one being, and this site gives the Wagyl its own entry. Not every great snake in Aboriginal story is a \"Rainbow Serpent\": Kuniya at Uluṟu, for instance, is a woma python woman with her own story, and should not be folded into this category.\n\n## Water, law, and care\n\nIn many traditions serpent beings are associated with permanent water, and with the law governing how people approach it; stories warn against disturbing certain waterholes. Some stories associated with serpent beings are restricted, and this site includes only those shared publicly.\n\n## In wider culture\n\nPopular books and artworks have made the \"Rainbow Serpent\" one of the best-known images of Aboriginal Australia worldwide. Readers who want to know more should look for stories told by the particular people concerned, under their own names for the being.",
+    "importanceRank": 3,
+    "imageUrl": "/deities/rainbow-serpent.png",
+    "primarySources": [
+      {
+        "text": "Radcliffe-Brown groups the serpent beings associated with water and the rainbow in many Aboriginal traditions under the name 'Rainbow-Serpent' (paraphrase).",
+        "source": "A. R. Radcliffe-Brown, 'The Rainbow-Serpent Myth of Australia', Journal of the Royal Anthropological Institute 56",
+        "date": "1926"
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [],
+      "practices": "This site does not describe ceremonies, sacred sites, or practices associated with this figure. Only the publicly shared story is summarised here; custodianship of the story belongs to the people named, and their own tellings take precedence."
+    },
+    "traditionRole": "Scholarly Umbrella Term"
+  },
+  {
+    "id": "wagyl",
+    "pantheonId": "aboriginal-australian-pantheon",
+    "name": "Wagyl (Waugal)",
+    "slug": "wagyl",
+    "originalLanguageName": {
+      "text": "Wagyl / Waugal",
+      "language": "Noongar",
+      "transliteration": "Wagyl, Waugal, Waakal",
+      "meaning": "The serpent being of Noongar tradition"
+    },
+    "alternateNames": ["Waugal", "Waakal", "Wakarl"],
+    "gender": "none",
+    "domain": [
+      "the rivers, lakes, and wetlands of Noongar Country",
+      "fresh water"
+    ],
+    "symbols": ["the Derbarl Yerrigan (Swan River)", "fresh water"],
+    "description": "The serpent being of the Noongar people of south-western Western Australia, who in the Nyitting (creation time) moved across the land shaping its rivers, lakes, and wetlands, including the Derbarl Yerrigan (Swan River) at Perth.",
+    "detailedBio": "## Noongar Country\n\nThe Noongar are the Aboriginal people of the south-west of Western Australia, made up of several language groups, among them the Whadjuk around Perth. The Wagyl (also spelled Waugal, Waakal, and in other ways) is the serpent being of Noongar tradition. Noongar organisations and local governments working with Noongar Elders publicly share that in the Nyitting, the creation time, the Wagyl moved across the land and created its waterways: rivers, lakes, and wetlands.\n\n## The Derbarl Yerrigan\n\nThe best-known Wagyl story in public sources concerns the Derbarl Yerrigan, the Swan River at Perth: the Wagyl's movements shaped the river's course, and its resting places along the river are important to Whadjuk Noongar people. The Wagyl is associated with fresh water and with the responsibility to care for it.\n\n## A living responsibility\n\nNoongar people have acted to protect places associated with the Wagyl. The best-known example is Goonininup, on the Swan River below Kings Park, where Noongar people protested the redevelopment of the Old Swan Brewery site from 1989 because of its association with the Wagyl. The Wagyl is not only a figure of the past but part of Noongar responsibility for Country today.\n\n## Variation\n\nDifferent Noongar groups tell Wagyl stories in different ways, and some knowledge about the Wagyl is not public. This summary follows what Noongar organisations such as the South West Aboriginal Land and Sea Council (Kaartdijin Noongar) and local councils working with Noongar Elders have published.",
+    "importanceRank": 2,
+    "imageUrl": "/deities/wagyl.png",
+    "primarySources": [
+      {
+        "text": "During the Nyitting (Creation Time), the great creator snake called the Waugal or Wagyl moved down the Derbal Yerrigan and created the waterways and landscapes.",
+        "source": "City of Swan, 'Aboriginal history' (prepared with Noongar community input)",
+        "date": "accessed 2026"
+      }
+    ],
+    "sources": [
+      "South West Aboriginal Land and Sea Council, Kaartdijin Noongar (Noongar Knowledge), noongarculture.org.au."
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [],
+      "practices": "This site does not describe ceremonies, sacred sites, or practices associated with this figure. Only the publicly shared story is summarised here; custodianship of the story belongs to the people named, and their own tellings take precedence."
+    },
+    "traditionRole": "Serpent Being of the Waters (Noongar)"
+  },
+  {
+    "id": "seven-sisters",
+    "pantheonId": "aboriginal-australian-pantheon",
+    "name": "The Seven Sisters (Minyipuru, Kungkarangkalpa)",
+    "slug": "seven-sisters",
+    "originalLanguageName": {
+      "text": "Minyipuru; Kungkarangkalpa",
+      "language": "Martu Wangka; Pitjantjatjara and Yankunytjatjara",
+      "transliteration": "Minyipuru (Martu); Kungkarangkalpa or Kungkarrangkalpa (Aṉangu)",
+      "meaning": "Kungkarangkalpa is often glossed as 'the seven sisters'"
+    },
+    "alternateNames": [
+      "Minyipuru (Martu)",
+      "Kungkarangkalpa (Aṉangu Pitjantjatjara Yankunytjatjara)",
+      "the Pleiades"
+    ],
+    "gender": "female",
+    "domain": [
+      "the Seven Sisters songline",
+      "the Pleiades",
+      "women's strength and sisterhood"
+    ],
+    "symbols": [
+      "the Pleiades",
+      "the sisters' camps and rockholes along the songline"
+    ],
+    "description": "Ancestral sisters whose flight across the Western and Central Deserts, pursued by a man who uses magic, is recorded in songlines of the Martu, Ngaanyatjarra, and Aṉangu Pitjantjatjara Yankunytjatjara peoples, and who became the Pleiades.",
+    "detailedBio": "## A songline across many Countries\n\nThe Seven Sisters travel across the Western and Central Deserts, through the Countries of the Martu (who call them Minyipuru), the Ngaanyatjarra, and the Aṉangu Pitjantjatjara Yankunytjatjara (who call them Kungkarangkalpa), pursued by a man who desires one or all of them. Their journey forms songlines that cross hundreds of kilometres of what are now Western Australia, South Australia, and the Northern Territory, and the places where they camped, rested, and escaped are marked in the land.\n\n## Shared through Songlines\n\nThe custodians of these songlines worked with the National Museum of Australia to share parts of the story publicly in the exhibition *Songlines: Tracking the Seven Sisters* (2017), through paintings, weavings, song, dance, and digital media, deciding themselves what could be shown. Aṉangu senior women artists quoted by the museum describe themselves as big sisters to the young women, with a duty, as in the Seven Sisters story, to teach and protect them.\n\n## In the sky\n\nThe sisters rise into the sky as the Pleiades. Stories of sisters and the Pleiades are found in many Aboriginal traditions beyond the deserts as well, but they are told in their own ways by their own peoples.\n\n## What is not here\n\nParts of the Seven Sisters story are women's knowledge, or are restricted in other ways, and are not public. This entry keeps to the outline that the custodians chose to share.",
+    "importanceRank": 1,
+    "imageUrl": "/deities/seven-sisters.png",
+    "primarySources": [
+      {
+        "text": "Aṉangu senior women artists describe themselves as big sisters (kanguru pulka) to the young women, who, as in the Seven Sisters story, must teach and protect their young sisters (paraphrase of statement quoted by the museum).",
+        "source": "National Museum of Australia, Songlines: Tracking the Seven Sisters (exhibition and catalogue, ed. Margo Neale)",
+        "date": "2016 statement; exhibition 2017"
+      }
+    ],
+    "furtherReading": [
+      {
+        "sourceId": "songlines-seven-sisters",
+        "note": "The custodians' own presentation of the songline"
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [],
+      "practices": "This site does not describe ceremonies, sacred sites, or practices associated with this figure. Only the publicly shared story is summarised here; custodianship of the story belongs to the people named, and their own tellings take precedence."
+    },
+    "traditionRole": "Ancestral Sisters (Western and Central Deserts)"
+  },
+  {
+    "id": "wati-nyiru",
+    "pantheonId": "aboriginal-australian-pantheon",
+    "name": "Wati Nyiru (Yurla)",
+    "slug": "wati-nyiru",
+    "originalLanguageName": {
+      "text": "Wati Nyiru; Yurla",
+      "language": "Pitjantjatjara and Yankunytjatjara; Martu Wangka",
+      "transliteration": "Wati Nyiru (Aṉangu); Yurla (Martu)",
+      "meaning": "Wati means 'man'"
+    },
+    "alternateNames": ["Yurla (Martu)", "Nyiru"],
+    "gender": "male",
+    "domain": ["pursuit and desire", "shape-changing magic"],
+    "symbols": ["stars of Orion"],
+    "description": "The man who pursues the Seven Sisters across the deserts, using magic and changing his shape to trick them; called Wati Nyiru by Aṉangu and Yurla by the Martu.",
+    "detailedBio": "## The pursuer\n\nIn the Seven Sisters songlines shared publicly by Martu, Ngaanyatjarra, and Aṉangu Pitjantjatjara Yankunytjatjara custodians, the sisters are pursued by a man, Yurla to the Martu and Wati Nyiru to Aṉangu. He is a sorcerer who uses magic and changes his shape to get close to them, taking the form of things in the landscape to trick them, and he never gives up.\n\n## A story about conduct\n\nAs the custodians have presented it, the story of Wati Nyiru is also a lesson about proper and improper behaviour, and about the strength of sisters and women who look after one another. The sisters escape him again and again, helped by their own powers and by each other.\n\n## In the sky\n\nWhen the sisters rise into the sky as the Pleiades, the man follows, and is seen in stars of the constellation known in Western astronomy as Orion, still pursuing them across the night sky.\n\n## Limits\n\nThis entry summarises only what was shared publicly through the National Museum of Australia's *Songlines* exhibition and its catalogue. Other parts of the story are restricted and are not described.",
+    "importanceRank": 2,
+    "imageUrl": "/deities/wati-nyiru.png",
+    "primarySources": [
+      {
+        "text": "The Seven Sisters are pursued across three deserts by the sorcerer Wati Nyiru (paraphrase of the exhibition's public description).",
+        "source": "National Museum of Australia, Songlines: Tracking the Seven Sisters (exhibition and catalogue, ed. Margo Neale)",
+        "date": "2017"
+      }
+    ],
+    "furtherReading": [
+      {
+        "sourceId": "songlines-seven-sisters",
+        "note": "The custodians' presentation of the pursuit"
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [],
+      "practices": "This site does not describe ceremonies, sacred sites, or practices associated with this figure. Only the publicly shared story is summarised here; custodianship of the story belongs to the people named, and their own tellings take precedence."
+    },
+    "traditionRole": "Ancestral Pursuer (Western and Central Deserts)"
+  },
+  {
+    "id": "kuniya",
+    "pantheonId": "aboriginal-australian-pantheon",
+    "name": "Kuniya",
+    "slug": "kuniya",
+    "originalLanguageName": {
+      "text": "Kuniya",
+      "language": "Pitjantjatjara and Yankunytjatjara",
+      "transliteration": "Kuniya",
+      "meaning": "Woma python"
+    },
+    "alternateNames": ["Kuniya, the woma python woman"],
+    "gender": "female",
+    "domain": [
+      "the woma python",
+      "the south side of Uluṟu",
+      "protection of kin"
+    ],
+    "symbols": ["the woma python", "the wana (digging stick)"],
+    "description": "The woma python woman of Aṉangu Tjukurpa who came to Uluṟu and, when her nephew was killed by Liru warriors, confronted and struck down a Liru warrior at Muṯitjulu Waterhole; the marks of the fight remain in the rock.",
+    "detailedBio": "## An Aṉangu ancestor\n\nKuniya is the woma python in the Tjukurpa (the law and ancestral knowledge) of the Aṉangu, the traditional owners of Uluṟu-Kata Tjuṯa National Park. Her story is one that Aṉangu share publicly with visitors, told on signs along the Kuniya walk to Muṯitjulu Waterhole and on the park's website, both prepared with Aṉangu.\n\n## Her story\n\nAs Aṉangu tell it publicly, Kuniya travelled to Uluṟu from far away. Her nephew, a young Kuniya man, was attacked and killed by a war party of Liru, venomous snake men. Filled with grief and anger, Kuniya came to Muṯitjulu and confronted one of the Liru warriors. She took up her wana, her digging stick, and struck him on the head, and he died. Features of the rock face at Muṯitjulu are the marks of this encounter.\n\n## Not a \"Rainbow Serpent\"\n\nKuniya is a woma python woman, not an example of the scholarly category \"Rainbow Serpent\", and her story should be understood on its own terms, as Aṉangu tell it.\n\n## Visiting respectfully\n\nAṉangu ask visitors to Uluṟu to respect culturally sensitive areas, including places where photography is not permitted, and no longer permit climbing Uluṟu, which was closed to climbing in 2019 at the request of the traditional owners.",
+    "importanceRank": 1,
+    "imageUrl": "/deities/kuniya.png",
+    "primarySources": [
+      {
+        "text": "Kuniya's nephew is killed by a war party of Liru; at Muṯitjulu she strikes a Liru warrior with her wana (digging stick) (paraphrase of the public telling).",
+        "source": "Uluṟu-Kata Tjuṯa National Park (Parks Australia, with Aṉangu traditional owners), 'The Kuniya & Liru stories'",
+        "date": "accessed 2026"
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [],
+      "practices": "This site does not describe ceremonies, sacred sites, or practices associated with this figure. Only the publicly shared story is summarised here; custodianship of the story belongs to the people named, and their own tellings take precedence."
+    },
+    "traditionRole": "Ancestral Being (Aṉangu)"
+  },
+  {
+    "id": "liru",
+    "pantheonId": "aboriginal-australian-pantheon",
+    "name": "Liru",
+    "slug": "liru",
+    "originalLanguageName": {
+      "text": "Liru",
+      "language": "Pitjantjatjara and Yankunytjatjara",
+      "transliteration": "Liru",
+      "meaning": "Venomous snake (brown snake)"
+    },
+    "alternateNames": ["the Liru warriors"],
+    "gender": "male",
+    "domain": ["venomous snakes", "the warriors of the Kuniya and Liru story"],
+    "symbols": ["spears", "the venomous snake"],
+    "description": "The venomous snake men of Aṉangu Tjukurpa, a war party who attacked and killed Kuniya's nephew and one of whom Kuniya struck down at Muṯitjulu.",
+    "detailedBio": "## The warriors\n\nIn the Aṉangu story of Kuniya and Liru, shared publicly at Uluṟu-Kata Tjuṯa National Park, the Liru are venomous snake men who came as a war party. They attacked Kuniya's nephew and killed him, and the marks of their spears are said to remain on the rock of Uluṟu.\n\n## The confrontation\n\nKuniya, grieving and angry, came to Muṯitjulu and faced one of the Liru warriors. She struck him with her wana, her digging stick, and killed him. Aṉangu point to features of the rock as evidence of this story.\n\n## A collective figure\n\nLiru in this story is a group, not a single named individual, and this entry treats them collectively. The story is part of Aṉangu Tjukurpa, and the public telling is the one Aṉangu have chosen to share with visitors; other knowledge connected with it is not public.",
+    "importanceRank": 3,
+    "imageUrl": "/deities/liru.png",
+    "primarySources": [
+      {
+        "text": "A war party of Liru, poisonous snake men, attack Kuniya's nephew; Kuniya confronts one of them at Muṯitjulu (paraphrase of the public telling).",
+        "source": "Uluṟu-Kata Tjuṯa National Park (Parks Australia, with Aṉangu traditional owners), 'The Kuniya & Liru stories'",
+        "date": "accessed 2026"
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [],
+      "practices": "This site does not describe ceremonies, sacred sites, or practices associated with this figure. Only the publicly shared story is summarised here; custodianship of the story belongs to the people named, and their own tellings take precedence."
+    },
+    "traditionRole": "Ancestral Beings (Aṉangu)"
   }
 ]

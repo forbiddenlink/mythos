@@ -1944,5 +1944,29 @@
     "relationshipType": "parent_of",
     "confidenceLevel": "high",
     "description": "In the Baffin Island tellings Boas recorded, Anguta is Sedna's father; many other regional versions give the Sea Woman's father no name, or tell a different origin entirely."
+  },
+  {
+    "id": "aboriginal-bunjil-pallian",
+    "fromDeityId": "bunjil",
+    "toDeityId": "pallian",
+    "relationshipType": "sibling_of",
+    "confidenceLevel": "medium",
+    "description": "Public Kulin tellings, including a Wadawurrung Elder's, and nineteenth-century Victorian records call Pallian Bunjil's brother; records differ on names and details."
+  },
+  {
+    "id": "aboriginal-wati-nyiru-seven-sisters",
+    "fromDeityId": "wati-nyiru",
+    "toDeityId": "seven-sisters",
+    "relationshipType": "enemy_of",
+    "confidenceLevel": "high",
+    "description": "In the Seven Sisters songlines shared through the National Museum of Australia, Yurla or Wati Nyiru pursues the sisters across the deserts; 'enemy' here means pursuer."
+  },
+  {
+    "id": "aboriginal-kuniya-liru",
+    "fromDeityId": "kuniya",
+    "toDeityId": "liru",
+    "relationshipType": "enemy_of",
+    "confidenceLevel": "high",
+    "description": "In the Aṉangu Tjukurpa shared at Uluṟu, the Liru kill Kuniya's nephew and Kuniya strikes down a Liru warrior at Muṯitjulu."
   }
 ]
