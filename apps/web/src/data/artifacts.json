@@ -1582,5 +1582,89 @@
         "date": "completed 1010 CE"
       }
     ]
+  },
+  {
+    "id": "sampo",
+    "pantheonId": "finnish-pantheon",
+    "name": "Sampo",
+    "slug": "sampo",
+    "ownerId": "louhi",
+    "ownerKind": "deity",
+    "ownerLabel": "Forged by Ilmarinen for Louhi, mistress of Pohjola",
+    "description": "The wonder-mill forged by Ilmarinen, with a many-colored lid, that grinds grain, salt, and money; locked in Pohjola's mountain, stolen by the Kalevala heroes, and shattered in the sea during Louhi's pursuit.",
+    "type": "relic",
+    "powers": [
+      "Grinding grain, salt, and money without end",
+      "Bringing prosperity to its land",
+      "Enriching the sea and shore when shattered"
+    ],
+    "origin": "Forged by Ilmarinen from a swan's feather tip, the milk of a barren cow, a grain of barley, and a summer lamb's wool (Kalevala, Rune 10).",
+    "currentLocation": "Shattered; its pieces in the sea and on the shores of Kalevala, its lid in Pohjola",
+    "imageUrl": "/artifacts/sampo.png",
+    "relatedStories": ["forging-of-the-sampo", "theft-of-the-sampo"],
+    "detailedBio": "## Forged in the North\n\nIn the Kalevala, Louhi of Pohjola promises her daughter to whoever can forge the Sampo, and Ilmarinen does so after destroying four lesser creations. It has a many-colored lid (*kirjokansi*) and grinds on three sides: flour, salt, and money. Louhi locks it in the rock-mountain of Pohjola, where it takes root, and her land prospers.\n\n## Stolen and shattered\n\nWhen Väinämöinen, Ilmarinen, and Lemminkäinen steal it, Louhi pursues them as a giant eagle and drags it overboard. It breaks in the sea: the large pieces make the sea rich, smaller pieces washed ashore bring prosperity to Kalevala, and Louhi carries home only the lid.\n\n## A famous riddle\n\nThe folk songs never say clearly what the Sampo is, and scholars have proposed more than thirty interpretations: a mill, a treasure chest, a decorated shield, a talisman, a world pillar, the starry sky turning on its axis, and others. The Finnish folklorist Uno Harva connected it with the world pillar of northern Eurasian cosmology; others read it as a symbol of prosperity or of the heavens. No interpretation is certain, and Lönnrot's mill is his own resolution of the ambiguity.",
+    "primarySources": [
+      {
+        "text": "Forges skilfully the Sampo; / On one side the flour is grinding, / On another salt is making, / On a third is money forging, / And the lid is many-colored.",
+        "source": "Kalevala (trans. John Martin Crawford, 1888), Rune X",
+        "sourceId": "kalevala",
+        "locator": "Rune 10",
+        "date": "Lönnrot's compilation 1849; trans. 1888"
+      }
+    ]
+  },
+  {
+    "id": "vainamoinens-kantele",
+    "pantheonId": "finnish-pantheon",
+    "name": "Kantele of Väinämöinen",
+    "slug": "vainamoinens-kantele",
+    "ownerId": "vainamoinen",
+    "ownerKind": "deity",
+    "description": "The first kantele, made by Väinämöinen from the jawbone of a giant pike, whose music draws every creature to listen and puts Pohjola to sleep; lost overboard in Louhi's storm and replaced with one of birch.",
+    "type": "instrument",
+    "powers": [
+      "Enchanting all living things",
+      "Bringing sleep",
+      "Moving listeners to tears"
+    ],
+    "origin": "Made by Väinämöinen from the jawbone and teeth of the pike killed in the rapids, with strings of hair from Hiisi's gelding (Kalevala, Rune 40).",
+    "currentLocation": "Lost in the sea during the flight from Pohjola; its birchwood successor left to the people when Väinämöinen departed",
+    "imageUrl": "/artifacts/vainamoinens-kantele.png",
+    "relatedStories": ["theft-of-the-sampo"],
+    "detailedBio": "## The first kantele\n\nIn Rune 40, after the heroes kill the giant pike, Väinämöinen makes a kantele from its jawbone, using its teeth as pegs and hair from Hiisi's gelding as strings. Neither Ilmarinen nor Lemminkäinen nor anyone else can play it. In Rune 41 Väinämöinen sits on the rock of joy and plays, and all creatures of forest, air, and water, and the people too, come to listen, weeping; the old singer weeps too, and his tears roll into the sea and become pearls.\n\n## Lost and remade\n\nIn Rune 42 the music puts the people of Pohjola to sleep so the heroes can take the Sampo, but in Louhi's storm the kantele falls into the sea. In Rune 44 Väinämöinen makes a new one from a weeping birch, with pegs from an oak and strings from a maiden's hair. When he sails away at the end of the epic, he leaves the kantele and his songs to the Finnish people.\n\n## The instrument\n\nThe kantele, a plucked box-zither traditionally with five strings, is Finland's national instrument, and the Kalevala's account of its invention helped make it a symbol of Finnish identity in the nineteenth century.",
+    "primarySources": [
+      {
+        "text": "\"Something wondrous might be builded / From these jaws, and teeth, and fish-bones; / Might a magic harp be fashioned.\"",
+        "source": "Kalevala (trans. John Martin Crawford, 1888), Rune XL",
+        "sourceId": "kalevala",
+        "locator": "Rune 40",
+        "date": "Lönnrot's compilation 1849; trans. 1888"
+      }
+    ]
+  },
+  {
+    "id": "golden-maiden",
+    "pantheonId": "finnish-pantheon",
+    "name": "Golden Maiden of Ilmarinen",
+    "slug": "golden-maiden",
+    "ownerId": "ilmarinen",
+    "ownerKind": "deity",
+    "description": "The bride of gold and silver that the grieving smith Ilmarinen forges after his wife's death, beautiful but cold as ice beside him at night; Väinämöinen tells him to melt her down and warns young men never to court gold.",
+    "type": "relic",
+    "powers": ["Unmatched beauty", "Chilling whoever lies beside her"],
+    "origin": "Forged by Ilmarinen from gold and silver after the death of his wife (Kalevala, Rune 37).",
+    "currentLocation": "Rejected; offered to Väinämöinen, who refuses her",
+    "imageUrl": "/artifacts/golden-maiden.png",
+    "relatedStories": ["kullervo"],
+    "detailedBio": "## A bride from the forge\n\nAfter his wife, the Maiden of Pohjola, is killed through Kullervo's revenge, Ilmarinen mourns for months. In Rune 37 he decides to forge himself a new wife. He throws gold and silver into the furnace; after several failed attempts that produce a sheep, a colt, and other things, a maiden of gold and silver emerges, and he works her with great skill into a beautiful woman. But she cannot speak or feel, and when he lies beside her at night, the side of his body that touches her freezes.\n\n## Väinämöinen's advice\n\nIlmarinen offers the golden maiden to Väinämöinen, who looks at her and tells the smith to throw her back into the fire and make useful things from her, or to send her to foreign lands where men want gold. Then he warns the young men of later generations never to bow to gold or court a golden bride, for gold is cold.\n\n## Meaning\n\nThe episode, like the Greek story of Pandora or the Pygmalion legend in reverse, turns on a manufactured woman; here the lesson is explicitly against valuing wealth over a living companion.",
+    "primarySources": [
+      {
+        "text": "Ilmarinen forged a maiden of gold and silver; but when he lay beside her at night, the side that touched her grew cold as ice. Väinämöinen told him to throw her back into the fire, and warned the young never to woo gold.",
+        "source": "Kalevala, Rune 37 (paraphrase)",
+        "sourceId": "kalevala",
+        "locator": "Rune 37",
+        "date": "Lönnrot's compilation 1849; trans. 1888"
+      }
+    ]
   }
 ]

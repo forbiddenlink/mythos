@@ -165,6 +165,10 @@ describe("relationships", () => {
       "mama-qucha",
       "illapa",
       "pachacamac",
+      // Finnish: Ukko's consort (Akka/Rauni) and Tuoni's household have no
+      // entries of their own; no kinship with catalogued figures is attested.
+      "ukko",
+      "tuoni",
     ]);
     const inGraph = new Set(
       relationshipList.flatMap((r) => [r.fromDeityId, r.toDeityId]),

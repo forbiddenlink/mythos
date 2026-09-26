@@ -239,6 +239,17 @@ export const DEITY_PANTHEON_MAP: Record<string, string> = {
   sraosha: "persian-pantheon",
   zurvan: "persian-pantheon",
   yima: "persian-pantheon",
+  ukko: "finnish-pantheon",
+  ilmatar: "finnish-pantheon",
+  vainamoinen: "finnish-pantheon",
+  ilmarinen: "finnish-pantheon",
+  lemminkainen: "finnish-pantheon",
+  louhi: "finnish-pantheon",
+  tuoni: "finnish-pantheon",
+  tapio: "finnish-pantheon",
+  mielikki: "finnish-pantheon",
+  ahti: "finnish-pantheon",
+  vellamo: "finnish-pantheon",
 };
 
 export const STORY_PANTHEON_MAP: Record<string, string> = {
@@ -361,6 +372,12 @@ export const STORY_PANTHEON_MAP: Record<string, string> = {
   "zahhak-and-kaveh": "persian-pantheon",
   "zal-and-the-simurgh": "persian-pantheon",
   "rostam-and-sohrab": "persian-pantheon",
+  "ilmatar-and-the-world-egg": "finnish-pantheon",
+  aino: "finnish-pantheon",
+  "forging-of-the-sampo": "finnish-pantheon",
+  "lemminkainens-mother": "finnish-pantheon",
+  "theft-of-the-sampo": "finnish-pantheon",
+  kullervo: "finnish-pantheon",
 };
 
 /**

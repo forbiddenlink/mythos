@@ -22,6 +22,7 @@ export const PANTHEON_COLORS: Record<string, string> = {
   "tlingit-haida-pantheon": "#a8442c", // formline ochre-red (Northwest Coast red paint, cedar bark)
   "inca-pantheon": "#a3294f", // cochineal carmine (the red dye of Inca tapestry cloth, qompi)
   "persian-pantheon": "#2c4a9a", // lapis lazuli (Achaemenid glazed brick, Sasanian and Persian manuscript blue)
+  "finnish-pantheon": "#5e5a8c", // twilight violet (the polar-night kaamos sky over lakes and birch)
 };
 
 export function getPantheonColor(pantheonId: string): string {
@@ -129,6 +130,11 @@ const PANTHEON_ACCENTS: Record<string, PantheonAccent> = {
     primary: "#3b5bb0",
     secondary: "#233c7a",
     label: "Persian",
+  },
+  "finnish-pantheon": {
+    primary: "#6f6aa3",
+    secondary: "#4a467a",
+    label: "Finnish",
   },
 };
 

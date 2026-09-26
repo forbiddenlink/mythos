@@ -672,5 +672,53 @@
     ],
     "imageUrl": "/pantheons/persian.jpg",
     "figuresLabel": "Divine Beings & Kings"
+  },
+  {
+    "id": "finnish-pantheon",
+    "name": "Finnish Tradition (Kalevala)",
+    "slug": "finnish",
+    "culture": "Finnish and Karelian (Baltic Finnic) peoples",
+    "region": "Finland and Karelia (Northern Europe)",
+    "timePeriodStart": 800,
+    "timePeriodEnd": 1849,
+    "description": "The gods and heroes of Finnish and Karelian runo-song, known from Mikael Agricola's list of 1551, from thousands of folk poems collected in the eighteenth and nineteenth centuries, and above all from Elias Lönnrot's national epic, the Kalevala.",
+    "detailedHistory": "## A tradition recorded late\n\nThe Baltic Finnic peoples, ancestors of the Finns, Karelians, and Estonians, had no writing before Christianization, which reached Finland gradually between the eleventh and thirteenth centuries through Swedish and Novgorodian influence. The earliest written list of Finnish gods comes from the Lutheran reformer Mikael Agricola, who prefaced his Finnish Psalter of 1551 with a rhymed catalog of the 'idols' of the Tavastians and Karelians: Tapio who gave game from the forest, Ahti who brought fish from the water, Väinämöinen who made songs, Ilmarinen who made calm and storm, Ukko whose bowl was drunk at the spring sowing, and many more. Christfrid Ganander's *Mythologia Fennica* (1789) added a dictionary of beliefs and names.\n\n## Runo-song\n\nThe richest evidence is oral poetry in the Kalevala metre, a trochaic line with heavy alliteration and parallelism, sung in Finland, Karelia, and Ingria. It includes epic songs about Väinämöinen, Ilmarinen, and Lemminkäinen, charms (*loitsut*) that invoke the origin of iron, fire, or disease to gain power over it, lyric songs, and wedding songs. The tradition survived longest among the Orthodox Karelians of Viena (White Sea) Karelia, now in Russia. Collected from the late eighteenth century on, these songs fill the 34 volumes of *Suomen Kansan Vanhat Runot*.\n\n## Lönnrot's Kalevala\n\nThe physician Elias Lönnrot made eleven collecting journeys between 1828 and 1844, meeting singers such as Arhippa Perttunen of Latvajärvi in Viena Karelia. From his own and others' collections he compiled the *Kalevala* (1835; expanded edition of 50 runes, 1849), joining separate songs into a continuous epic, harmonizing names, supplying linking passages, and sometimes moving episodes between characters. The creation from the eggs, for example, is laid on the knee of Väinämöinen himself in most folk variants; Lönnrot gave the role to the air-maiden he named Ilmatar. The Kalevala is therefore both a work of genuine folk poetry and a nineteenth-century literary creation, and it shaped Finnish national identity during the period of Russian rule before independence in 1917.\n\n## What this entry does\n\nEach record here says whether it rests on Agricola, on folk poetry, or on the Kalevala as Lönnrot arranged it. Quotations from the Kalevala are from John Martin Crawford's public-domain English translation of 1888, which follows the 50-rune edition.",
+    "citationSources": [
+      {
+        "title": "Kalevala",
+        "author": "Elias Lönnrot; trans. John Martin Crawford (1888), W. F. Kirby (1907), Keith Bosley (1989)",
+        "date": "1849",
+        "type": "primary",
+        "sourceId": "kalevala"
+      },
+      {
+        "title": "Dauidin Psaltari, verse preface",
+        "author": "Mikael Agricola",
+        "date": "1551",
+        "type": "primary",
+        "sourceId": "agricola-psalter-preface"
+      },
+      {
+        "title": "Suomen Kansan Vanhat Runot",
+        "author": "Finnish Literature Society",
+        "date": "1908-1948; 1997",
+        "type": "primary",
+        "sourceId": "suomen-kansan-vanhat-runot"
+      },
+      {
+        "title": "Mythologia Fennica",
+        "author": "Christfrid Ganander",
+        "date": "1789",
+        "type": "primary"
+      },
+      {
+        "title": "Finno-Ugric Mythology (The Mythology of All Races, vol. 4)",
+        "author": "Uno Holmberg (Harva)",
+        "date": "1927",
+        "type": "secondary"
+      }
+    ],
+    "imageUrl": "/pantheons/finnish.jpg",
+    "figuresLabel": "Gods, Spirits & Heroes"
   }
 ]

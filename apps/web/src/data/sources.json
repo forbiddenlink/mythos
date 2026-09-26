@@ -2375,5 +2375,112 @@
         "year": 1920
       }
     ]
+  },
+  {
+    "id": "kalevala",
+    "title": "Kalevala",
+    "author": "Elias Lönnrot (compiler), from Finnish and Karelian oral poetry",
+    "year": "1835 (Old Kalevala); 1849 (New Kalevala, 50 runes)",
+    "type": "ancient-text",
+    "language": "Finnish",
+    "description": "The Finnish national epic, compiled by the physician and folklorist Elias Lönnrot from runo-songs he and others collected, chiefly in Viena (White Sea) Karelia and Finnish Karelia. Lönnrot selected, joined, and sometimes rewrote the songs into a continuous story, so the Kalevala is a nineteenth-century literary work built from genuine folk poetry rather than a single ancient text.",
+    "translators": [
+      {
+        "name": "John Martin Crawford",
+        "year": 1888
+      },
+      {
+        "name": "W. F. Kirby",
+        "year": 1907
+      },
+      {
+        "name": "Francis Peabody Magoun Jr.",
+        "year": 1963
+      },
+      {
+        "name": "Keith Bosley",
+        "year": 1989
+      }
+    ],
+    "externalUrl": "https://www.sacred-texts.com/neu/kveng/index.htm",
+    "characters": [
+      {
+        "id": "vainamoinen",
+        "kind": "deity",
+        "role": "the eternal singer and sage, central hero of the epic",
+        "where": "Runes 1-50"
+      },
+      {
+        "id": "ilmarinen",
+        "kind": "deity",
+        "role": "the smith who forges the Sampo",
+        "where": "Runes 7-10, 18-25, 37-49"
+      },
+      {
+        "id": "lemminkainen",
+        "kind": "deity",
+        "role": "the reckless adventurer killed at the river of Tuonela and restored by his mother",
+        "where": "Runes 11-15, 26-30"
+      },
+      {
+        "id": "louhi",
+        "kind": "deity",
+        "role": "the mistress of Pohjola, keeper of the Sampo",
+        "where": "Runes 7-10, 42-49"
+      },
+      {
+        "id": "ilmatar",
+        "kind": "deity",
+        "role": "the air-maiden, mother of Väinämöinen",
+        "where": "Rune 1"
+      }
+    ],
+    "keyScenes": [
+      {
+        "title": "The Creation",
+        "where": "Rune 1",
+        "summary": "A duck lays eggs on Ilmatar's knee in the primeval sea; the broken eggs become earth, sky, sun, moon, stars, and clouds."
+      },
+      {
+        "title": "The Forging of the Sampo",
+        "where": "Rune 10",
+        "summary": "Ilmarinen forges the wonder-mill that grinds grain, salt, and money for Louhi of Pohjola."
+      },
+      {
+        "title": "Lemminkäinen's Mother",
+        "where": "Rune 15",
+        "summary": "Lemminkäinen's mother rakes the pieces of her son from the river of Tuonela and restores him to life."
+      },
+      {
+        "title": "Kullervo",
+        "where": "Runes 31-36",
+        "summary": "The wronged, doomed Kullervo takes revenge on his enemies and, after unknowingly seducing his sister, dies on his own sword."
+      },
+      {
+        "title": "The Theft of the Sampo",
+        "where": "Runes 39-43",
+        "summary": "The heroes steal the Sampo; Louhi pursues them as a giant eagle, and the Sampo shatters in the sea."
+      }
+    ],
+    "readingOrder": "Keith Bosley's 1989 verse translation or Eino Friberg's 1988 version are the most readable modern renderings; Crawford (1888) and Kirby (1907) are public domain and freely available but in a Longfellow-like trochaic meter. Read Runes 1-10 first for the creation and the Sampo, then 31-36 (Kullervo) and 39-43 (the theft of the Sampo)."
+  },
+  {
+    "id": "agricola-psalter-preface",
+    "title": "Dauidin Psaltari (The Psalter of David), verse preface",
+    "author": "Mikael Agricola",
+    "year": "1551",
+    "type": "ancient-text",
+    "language": "Finnish",
+    "description": "The Lutheran reformer Agricola's Finnish Psalter opens with a rhymed list of the 'idols' formerly worshipped by the Tavastians and Karelians, the earliest written source for many Finnish deities, among them Tapio, Ahti, Väinämöinen, Ilmarinen, and Ukko."
+  },
+  {
+    "id": "suomen-kansan-vanhat-runot",
+    "title": "Suomen Kansan Vanhat Runot (Ancient Poems of the Finnish People)",
+    "author": "Finnish Literature Society (SKS), eds.",
+    "year": "1908-1948; 1997",
+    "type": "academic",
+    "language": "Finnish and Karelian",
+    "description": "The 34-volume scholarly edition of the Kalevala-metre runo-songs collected in Finland, Karelia, and Ingria from the seventeenth to the twentieth century, about 89,000 texts, now searchable online. It is the evidence behind the Kalevala, showing the variants Lönnrot chose among.",
+    "externalUrl": "https://skvr.fi/"
   }
 ]

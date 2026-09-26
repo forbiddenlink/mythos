@@ -100,6 +100,15 @@ export const MYTHIC_ERAS: MythicEra[] = [
     end: 1010,
     pantheonIds: ["persian-pantheon"],
   },
+  {
+    id: "finnic-north",
+    label: "Finnic North",
+    blurb:
+      "Finnish and Karelian runo-song, from Agricola's list to the Kalevala",
+    start: 800,
+    end: 1849,
+    pantheonIds: ["finnish-pantheon"],
+  },
 ];
 
 export function pantheonIdsForEraId(eraId: string): Set<string> | null {

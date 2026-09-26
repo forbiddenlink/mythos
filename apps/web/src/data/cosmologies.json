@@ -1491,5 +1491,90 @@
         ]
       }
     ]
+  },
+  {
+    "pantheonId": "finnish-pantheon",
+    "title": "The Egg-Born World and the Nail of the North",
+    "summary": "A world made from the pieces of an egg: the vault of the sky above, forged by Ilmarinen and turning on the Nail of the North; the lands of Kalevala and dark Pohjola; the waters of Ahti; and Tuonela, the land of the dead beyond the black river.",
+    "axis": {
+      "name": "The Nail of the North (Pohjan naula)",
+      "kind": "pillar",
+      "note": "In Finnish folk cosmology the sky turns around the North Star, imagined as a nail or pillar holding it up. The folklorist Uno Harva read the Sampo itself as a form of this world pillar; that interpretation is one of many and remains disputed."
+    },
+    "variantNote": "No single Finnish cosmology was ever written down. This diagram combines the Kalevala's creation from the egg (Rune 1), folk beliefs about the sky's vault (taivaankansi) forged by Ilmarinen and the Milky Way as the 'birds' path' (Linnunrata) leading to Lintukoto, the warm home of birds at the edge of the world, and the Kalevala's journeys to Pohjola and Tuonela. Lönnrot's epic arranges these materials; the folk tradition is more varied and less systematic.",
+    "sources": [
+      "Elias Lönnrot, Kalevala, 1849 (trans. John Martin Crawford, 1888), Runes 1, 10, 16",
+      "Uno Holmberg (Harva), Finno-Ugric Mythology, The Mythology of All Races vol. 4, 1927",
+      "Suomen Kansan Vanhat Runot, 1908-1948"
+    ],
+    "tiers": [
+      {
+        "id": "taivas",
+        "label": "Taivas: The Vault of the Sky",
+        "band": "sky",
+        "realms": [
+          {
+            "name": "The Sky-Lid and the Birds' Path",
+            "originalName": "taivaankansi, Linnunrata",
+            "description": "The dome of heaven made from the upper half of the egg and hammered by Ilmarinen, turning on the Nail of the North; the Milky Way is the path of migrating birds to Lintukoto at the world's edge, and Ukko rules above.",
+            "deities": ["ukko", "ilmatar"]
+          }
+        ]
+      },
+      {
+        "id": "kalevala-land",
+        "label": "The Lands of Kalevala and Pohjola",
+        "band": "earth",
+        "realms": [
+          {
+            "name": "Kalevala (Väinölä)",
+            "description": "The heroes' homeland, where Väinämöinen sows the first trees and the forest belongs to Tapio and Mielikki.",
+            "deities": [
+              "vainamoinen",
+              "ilmarinen",
+              "lemminkainen",
+              "tapio",
+              "mielikki"
+            ],
+            "creatures": ["elk-of-hiisi"],
+            "locationId": "vainola"
+          },
+          {
+            "name": "Pohjola",
+            "description": "The dark, rich North ruled by Louhi, where the Sampo was forged and locked in the mountain.",
+            "deities": ["louhi"],
+            "locationId": "pohjola"
+          }
+        ]
+      },
+      {
+        "id": "ahtola",
+        "label": "Ahtola: The Waters",
+        "band": "water",
+        "realms": [
+          {
+            "name": "Ahtola",
+            "description": "The realm of the waters beneath the waves, ruled by Ahti and Vellamo, home of fish, water-maidens, and the monster Iku-Turso; the shattered Sampo's greater pieces enrich it.",
+            "deities": ["ahti", "vellamo"],
+            "creatures": ["iku-turso", "great-pike"]
+          }
+        ]
+      },
+      {
+        "id": "tuonela",
+        "label": "Tuonela: The Land of the Dead",
+        "band": "under",
+        "realms": [
+          {
+            "name": "Tuonela (Manala)",
+            "originalName": "Tuonela, Manala",
+            "description": "The land of the dead beyond the black river, ruled by Tuoni, where the swan swims and from which no living visitor escapes easily.",
+            "deities": ["tuoni"],
+            "creatures": ["swan-of-tuonela"],
+            "locationId": "tuonela"
+          }
+        ]
+      }
+    ]
   }
 ]

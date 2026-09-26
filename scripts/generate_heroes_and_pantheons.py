@@ -304,6 +304,9 @@ NEW_PANTHEONS = [
 
     # PERSIAN / IRANIAN (2026-09)
     {"slug": "persian", "name": "PERSIAN (IRANIAN) TRADITION", "culture": "AVESTA · SHAHNAMEH", "accent": (90, 130, 210), "bg_tone": (12, 14, 24), "motif": "emblem_winged_disc"},
+
+    # FINNISH / KALEVALA (2026-09)
+    {"slug": "finnish", "name": "FINNISH TRADITION", "culture": "KALEVALA · KARELIA", "accent": (130, 190, 170), "bg_tone": (10, 12, 20), "motif": "emblem_kantele"},
 ]
 
 def generate_pantheon_plate(p):

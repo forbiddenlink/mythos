@@ -219,7 +219,7 @@ export default function AchievementsPage() {
 
             <p className="text-lg text-muted-foreground mb-8">
               Earn badges as you read stories, study deities, and test your
-              knowledge across all 18 pantheons.
+              knowledge across all 19 pantheons.
             </p>
 
             <p className="mx-auto max-w-2xl text-sm leading-7 text-muted-foreground">

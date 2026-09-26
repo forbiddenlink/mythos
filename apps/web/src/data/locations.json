@@ -2845,5 +2845,113 @@
       }
     ],
     "imageUrl": "/locations/chinvat-bridge.png"
+  },
+  {
+    "id": "tuonela",
+    "name": "Tuonela",
+    "slug": "tuonela",
+    "locationType": "underworld",
+    "pantheonId": "finnish-pantheon",
+    "description": "The land of the dead in Finnish tradition, ruled by Tuoni, lying beyond a black river on which the swan of Tuonela swims and across which Tuoni's daughter ferries the dead.",
+    "latitude": null,
+    "longitude": null,
+    "geography": "mythic",
+    "detailedBio": "## The land beyond the river\n\nFinnish and Karelian tradition places the dead in Tuonela, also called Manala, the land 'under the ground', reached by crossing a dark river. In the Kalevala it has its own household: Tuoni, the lord; Tuonetar, the mistress; Tuoni's daughter, the ferrywoman; and a son who is a killer. On the river swims the swan of Tuonela.\n\n## Visitors\n\nVäinämöinen travels to Tuonela in Rune 16 to seek three magic words and barely escapes by turning into a steel serpent to slip through the iron nets Tuoni's son stretches across the river; he warns the young never to go there. Lemminkäinen dies at its river in Rune 14, and his mother rakes his body from its waters in Rune 15. Ilmarinen, as one of his bridal tasks, catches the great pike of Tuonela.\n\n## Belief and practice\n\nThe idea of Tuonela as a separate world of the dead, with its own river and rulers, coexisted in folk belief with the idea that the dead lived on in the grave and returned to visit their families at the autumn Kekri feast.",
+    "primarySources": [
+      {
+        "text": "Väinämöinen came to the river of Tuonela, and Tuoni's daughter, washing clothes at the black water, at first refused to ferry him, for no living man should come to Tuonela.",
+        "source": "Kalevala, Rune 16 (paraphrase)",
+        "sourceId": "kalevala",
+        "locator": "Rune 16",
+        "date": "Lönnrot's compilation 1849; trans. 1888"
+      }
+    ],
+    "imageUrl": "/locations/tuonela.png"
+  },
+  {
+    "id": "pohjola",
+    "name": "Pohjola",
+    "slug": "pohjola",
+    "locationType": "realm",
+    "pantheonId": "finnish-pantheon",
+    "description": "The dark, cold land of the North ruled by Louhi, home of the Sampo and of the maidens the Kalevala heroes seek as brides, a hostile and magical realm opposite the heroes' home of Kalevala.",
+    "latitude": null,
+    "longitude": null,
+    "geography": "mythic",
+    "detailedBio": "## The North\n\n*Pohjola* means 'the North' or 'the place at the bottom'. In Finnish folk poetry it is a cold, dark land of sorcerers and man-eaters, the source of diseases, frost, and wolves, and also a place of wealth and desirable brides. Its gate is guarded, its people are hostile, and its mistress, Louhi, is a powerful witch.\n\n## In the Kalevala\n\nThe Kalevala's plot turns on journeys between Kalevala (or Väinölä), the heroes' home, and Pohjola. Väinämöinen is stranded there; Ilmarinen forges the Sampo there and later marries Louhi's daughter there; Lemminkäinen performs his tasks and kills Pohjola's master there; and the heroes finally steal the Sampo from its mountain. Its prosperity comes from the Sampo, and its later poverty from the Sampo's loss.\n\n## Geography\n\nNineteenth-century readers often identified Pohjola with Lapland, and the Kalevala sometimes blends the two, but Pohjola is better understood as a mythic land of the north, and this site does not place it on the map. The identification of its people with the Sámi reflects historical Finnish attitudes that modern scholarship treats with caution.",
+    "primarySources": [
+      {
+        "text": "Pohjola, the dark land of the North, where men are eaten and heroes drowned, and where Louhi, its gap-toothed mistress, keeps her daughters and the Sampo.",
+        "source": "Kalevala, Runes 7 and 10 (paraphrase)",
+        "sourceId": "kalevala",
+        "locator": "Runes 7, 10",
+        "date": "Lönnrot's compilation 1849; trans. 1888"
+      }
+    ],
+    "imageUrl": "/locations/pohjola.png"
+  },
+  {
+    "id": "vainola",
+    "name": "Kalevala (Väinölä)",
+    "slug": "vainola",
+    "locationType": "realm",
+    "pantheonId": "finnish-pantheon",
+    "description": "The heroes' homeland in the Kalevala, the land of Kaleva's descendants where Väinämöinen, Ilmarinen, and Lemminkäinen live, and which Lönnrot's title names; a mythic counterpart to the dark North of Pohjola.",
+    "latitude": null,
+    "longitude": null,
+    "geography": "mythic",
+    "detailedBio": "## The land of Kaleva\n\n*Kalevala* means 'the land (or dwelling) of Kaleva', a legendary ancestor figure only faintly attested in folk poetry, whose descendants (the 'sons of Kaleva') are giants or heroes in Finnish and Estonian tradition. Lönnrot used the name for the heroes' homeland and for his epic; the songs also call it Väinölä, 'Väinämöinen's home'.\n\n## In the epic\n\nKalevala is where Väinämöinen sows the first trees and grain, where Ilmarinen has his forge, and where the heroes return from their journeys to Pohjola. When the Sampo shatters, its fragments drift ashore there, bringing prosperity; Louhi's revenge brings plague and a bear against it, and she steals its sun and moon.\n\n## Not a place on the map\n\nThe land of Kalevala is not a real region. The Russian Karelian village of Uhtua was renamed Kalevala in 1963 in honor of the epic, and this site lists that town separately; the epic homeland itself is mythic.",
+    "primarySources": [
+      {
+        "text": "The pieces of the Sampo drifted to the shores of Kalevala, and Väinämöinen gathered them and planted them, praying that the land might prosper.",
+        "source": "Kalevala, Rune 43 (paraphrase)",
+        "sourceId": "kalevala",
+        "locator": "Rune 43",
+        "date": "Lönnrot's compilation 1849; trans. 1888"
+      }
+    ],
+    "imageUrl": "/locations/vainola.png"
+  },
+  {
+    "id": "vuokkiniemi",
+    "name": "Vuokkiniemi (Voknavolok)",
+    "slug": "vuokkiniemi",
+    "locationType": "region",
+    "pantheonId": "finnish-pantheon",
+    "description": "The village and parish in Viena (White Sea) Karelia, now in the Russian Republic of Karelia, whose runo-singers, above all Arhippa Perttunen of nearby Latvajärvi, sang thousands of lines to Elias Lönnrot in 1834.",
+    "latitude": 64.9517,
+    "longitude": 30.5533,
+    "geography": "physical",
+    "detailedBio": "## A singing parish\n\nVuokkiniemi (Russian Voknavolok) lies on a lake in Viena Karelia, near the present border with Finland. In the nineteenth century it and its surrounding villages were among the richest sources of Kalevala-metre epic poetry anywhere. The tradition survived there longer than in Finland itself, among Orthodox Karelian families in which singing passed from generation to generation.\n\n## Arhippa Perttunen\n\nOn his fifth collecting journey, in 1834, Elias Lönnrot visited the elderly singer Arhippa Perttunen at Latvajärvi in the Vuokkiniemi area. Over several days Perttunen sang him several thousand lines of epic poetry, including songs of Väinämöinen, the Sampo, and Lemminkäinen, and the material shaped the first Kalevala of 1835. Perttunen's son Miihkali Perttunen was later also recorded as a singer.\n\n## Today\n\nVuokkiniemi is a small village in the Kalevala district of the Republic of Karelia, and the region's runo-singing villages are remembered as the cradle of the Kalevala.",
+    "primarySources": [
+      {
+        "text": "At Latvajärvi Lönnrot recorded from the old singer Arhippa Perttunen songs of Väinämöinen, of the Sampo, and of Lemminkäinen, several thousand lines in all.",
+        "source": "Elias Lönnrot's travel notes of 1834, as summarized in Suomen Kansan Vanhat Runot (paraphrase)",
+        "sourceId": "suomen-kansan-vanhat-runot",
+        "date": "recorded 1834"
+      }
+    ],
+    "imageUrl": "/locations/vuokkiniemi.png"
+  },
+  {
+    "id": "kalevala-town",
+    "name": "Kalevala (Uhtua)",
+    "slug": "kalevala-town",
+    "locationType": "city",
+    "pantheonId": "finnish-pantheon",
+    "description": "The Viena Karelian village formerly called Uhtua, visited by Lönnrot and other collectors of runo-song, and renamed Kalevala in 1963 in honor of the epic; now the center of the Kalevala district of the Republic of Karelia.",
+    "latitude": 65.2167,
+    "longitude": 31.1833,
+    "geography": "physical",
+    "detailedBio": "## Uhtua\n\nUhtua (Russian Ukhta) is a village on the waterways of Viena Karelia, in the region where the runo-singing tradition behind the Kalevala was strongest. Lönnrot passed through it on his collecting journeys, and later folklorists recorded singers in the surrounding villages.\n\n## Renamed for the epic\n\nIn 1963 the Soviet authorities renamed Uhtua 'Kalevala' in honor of the Finnish epic, recognizing the region's role in its creation; the surrounding district became the Kalevala district. The renaming reflects how the Kalevala came to be claimed as the heritage of Karelians on both sides of the border.\n\n## Distinct from the epic homeland\n\nThe town should not be confused with the mythic land of Kalevala in the epic, which has no location. It is included here as a real place tied to the tradition's recording.",
+    "primarySources": [
+      {
+        "text": "Lönnrot's collecting journeys in Viena Karelia took him to Uhtua and the surrounding villages, where he recorded runo-singers.",
+        "source": "Elias Lönnrot's travel notes, 1830s, as summarized in Suomen Kansan Vanhat Runot (paraphrase)",
+        "sourceId": "suomen-kansan-vanhat-runot",
+        "date": "1830s"
+      }
+    ],
+    "imageUrl": "/locations/kalevala-town.png"
   }
 ]

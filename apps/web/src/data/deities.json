@@ -13985,5 +13985,568 @@
       "phonetic": "YEE-mah"
     },
     "imageUrl": "/deities/yima.png"
+  },
+  {
+    "id": "ukko",
+    "pantheonId": "finnish-pantheon",
+    "name": "Ukko",
+    "slug": "ukko",
+    "originalLanguageName": {
+      "text": "Ukko",
+      "language": "Finnish",
+      "meaning": "\"Old man, grandfather\"; called Ukko ylijumala, 'Ukko, highest god'"
+    },
+    "alternateNames": ["Ukko ylijumala", "Isäinen (the Father)"],
+    "gender": "male",
+    "domain": ["the sky", "thunder", "rain", "the harvest"],
+    "symbols": ["the thunderbolt", "stone axes (ukonvaaja)", "Ukko's bowl"],
+    "description": "The sky and thunder god of Finnish and Karelian tradition, 'highest god' of the runo-songs, whose feast at the spring sowing Agricola condemned in 1551 and whom the Kalevala's heroes and Ilmatar call on in need.",
+    "detailedBio": "## Attestation\n\nMikael Agricola's list of 1551 includes Ukko, and describes a spring rite: when the sowing was done, Ukko's bowl (*Ukon malja*) was drunk, and Agricola complains of the drunkenness and shameful conduct that went with it. Folk poetry calls him *ylijumala*, the highest god, and addresses him in charms and prayers for rain and against storms; a thunderstorm is still *ukonilma*, 'Ukko's weather', in Finnish. Neolithic stone axes turned up by the plough were called *ukonvaaja* or *ukonkirves*, 'Ukko's wedge' or 'axe', and were believed to be thunderbolts he had hurled.\n\n## In the Kalevala\n\nUkko appears as the supreme power to whom the characters pray. In the first rune the air-maiden Ilmatar, adrift and in labor on the primeval sea, calls on him: 'Ukko, thou O God, up yonder, / Thou the ruler of the heavens'. Heroes invoke him for help with bow, boat, and battle, and when Louhi hides the sun and moon, Ukko strikes fire to make a new light.\n\n## An older thunder god\n\nThe Finnish word *perkele*, now a notorious curse meaning 'devil', is an old borrowing of the Baltic thunder god's name (Lithuanian Perkūnas), suggesting that Finnic peoples once knew a thunder god under that name before Christianity demonized it. Some later sources give Ukko a consort, called Akka or Rauni, but the evidence for her is thin.",
+    "originStory": "No birth or origin is told; Ukko is the old man of the sky, above all.",
+    "importanceRank": 2,
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "norse-pantheon",
+        "deityId": "thor",
+        "note": "Both are thunder gods associated with a hurled weapon and with farming and rain; Finnish 'torstai' (Thursday) is borrowed from the Scandinavian name of Thor's day, a sign of long contact."
+      },
+      {
+        "pantheonId": "slavic-pantheon",
+        "deityId": "perun",
+        "note": "Both are sky-and-thunder gods of the wider Indo-European and Baltic-Finnic region; the Finnish curse word 'perkele' derives from the Baltic thunder god Perkūnas, Perun's cognate."
+      }
+    ],
+    "primarySources": [
+      {
+        "text": "Ukko, thou O God, up yonder, / Thou the ruler of the heavens, / Come thou hither, thou art needed, / Come thou hither, I implore thee.",
+        "source": "Kalevala (trans. John Martin Crawford, 1888), Rune I",
+        "sourceId": "kalevala",
+        "locator": "Rune 1",
+        "date": "Lönnrot's compilation 1849; trans. 1888"
+      },
+      {
+        "text": "When the spring sowing was sown, then Ukko's bowl was drunk; Ukko's basket was brought, and the maids and wives got drunk.",
+        "source": "Mikael Agricola, preface to Dauidin Psaltari (paraphrase)",
+        "sourceId": "agricola-psalter-preface",
+        "date": "1551"
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [
+        "Ukko's feast at the spring sowing, when 'Ukko's bowl' was drunk, as condemned by Agricola in 1551."
+      ],
+      "practices": "Prayers and charms for rain and against thunder and hail; stone axes found in the fields were kept as thunderbolts and used in folk healing and protection."
+    },
+    "pronunciation": {
+      "ipa": "/ˈukːo/",
+      "phonetic": "OOK-koh"
+    },
+    "imageUrl": "/deities/ukko.png"
+  },
+  {
+    "id": "ilmatar",
+    "pantheonId": "finnish-pantheon",
+    "name": "Ilmatar",
+    "slug": "ilmatar",
+    "originalLanguageName": {
+      "text": "Ilmatar",
+      "language": "Finnish",
+      "meaning": "\"Air-maiden\" (ilma, air, with the feminine suffix -tar)"
+    },
+    "alternateNames": [
+      "Ilman impi (Maiden of the Air)",
+      "Veden emo (Water-mother)"
+    ],
+    "gender": "female",
+    "traditionRole": "Primordial Mother",
+    "domain": ["the air", "creation", "the primeval sea"],
+    "symbols": ["the duck's eggs", "the primeval sea"],
+    "description": "The virgin daughter of the air who, in the Kalevala's first rune, descends to the primeval sea, becomes pregnant by wind and wave, and on whose knee a duck lays the eggs from which earth, sky, sun, moon, and stars are made; mother of Väinämöinen.",
+    "detailedBio": "## In the Kalevala\n\nLönnrot's epic opens with the maiden of the air, long alone in the empty heavens, who descends to the sea. The east wind and the waves make her pregnant, and she drifts for seven hundred years, unable to give birth. A duck, searching for a place to nest, sees her raised knee as a grassy hillock and lays six golden eggs and one of iron there. When the knee grows hot, Ilmatar jerks it, the eggs fall and break, and their pieces become the earth below, the vault of heaven above, the sun from the yolk, the moon from the white, the stars from the speckled parts, and the clouds from the dark. Ilmatar then shapes the coasts, bays, and reefs with her body, and finally gives birth to Väinämöinen.\n\n## Lönnrot's arrangement\n\nIn most of the folk variants Lönnrot knew, it is Väinämöinen himself, floating on the sea, on whose knee the bird lays its eggs. The name *Ilmatar* and her role as creator-mother are largely Lönnrot's shaping of scattered material; the first edition of 1835 differs from the canonical edition of 1849. The world-egg motif itself is old and widespread in Finnic tradition.",
+    "originStory": "The daughter of the air, living alone in the heavens before she descends to the sea (Kalevala, Rune 1).",
+    "importanceRank": 2,
+    "crossPantheonParallels": [],
+    "primarySources": [
+      {
+        "text": "Six, the golden eggs she lays there, / Then a seventh, an egg of iron.",
+        "source": "Kalevala (trans. John Martin Crawford, 1888), Rune I",
+        "sourceId": "kalevala",
+        "locator": "Rune 1",
+        "date": "Lönnrot's compilation 1849; trans. 1888"
+      },
+      {
+        "text": "Thus our hero, Wainamoinen, / Thus the wonderful enchanter / Was delivered from his mother, / Ilmatar, the Ether's daughter.",
+        "source": "Kalevala (trans. John Martin Crawford, 1888), Rune I",
+        "sourceId": "kalevala",
+        "locator": "Rune 1",
+        "date": "Lönnrot's compilation 1849; trans. 1888"
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [],
+      "practices": "Not known as an object of cult; Ilmatar is a figure of Lönnrot's epic built on folk-poetry motifs of the air-maiden and water-mother."
+    },
+    "pronunciation": {
+      "ipa": "/ˈilmɑtɑr/",
+      "phonetic": "IL-mah-tar"
+    },
+    "imageUrl": "/deities/ilmatar.png"
+  },
+  {
+    "id": "vainamoinen",
+    "pantheonId": "finnish-pantheon",
+    "name": "Väinämöinen",
+    "slug": "vainamoinen",
+    "originalLanguageName": {
+      "text": "Väinämöinen",
+      "language": "Finnish",
+      "meaning": "Possibly from *väinä*, 'broad, slow river'"
+    },
+    "alternateNames": [
+      "Väinö",
+      "Wainamoinen",
+      "Vanha Väinämöinen (Old Väinämöinen)"
+    ],
+    "gender": "male",
+    "traditionRole": "Eternal Singer",
+    "domain": ["song and poetry", "wisdom and magic", "the kantele"],
+    "symbols": ["the kantele", "the boat", "the Sampo"],
+    "description": "The 'steady old' singer and sage of Finnish runo-song, named by Agricola in 1551 as the maker of songs, who in the Kalevala is born of Ilmatar, sings his rival into a bog, builds the first kantele from a pike's jawbone, leads the theft of the Sampo, and finally sails away.",
+    "detailedBio": "## Attestation\n\nAgricola's list of 1551 says that Väinämöinen 'forged songs'. In folk poetry he is the eternal sage (*tietäjä iänikuinen*), a singer whose words have creative and magical force: he sings the world into order, sings rivals into the ground, and knows the 'origins' of things, the charms that give power over iron, fire, and wounds. In many folk variants he is himself the one on whose knee the world-egg is laid.\n\n## In the Kalevala\n\nLönnrot made him the epic's central figure. Born old from Ilmatar after centuries in the womb, he clears and sows the land, defeats the young Joukahainen in a singing contest by singing him into a swamp, and loses the promised bride Aino, who drowns herself rather than marry an old man. Stranded in Pohjola, he sends his brother-smith Ilmarinen to forge the Sampo. He builds a boat by singing, seeks lost words from the dead giant Antero Vipunen, makes the first kantele from the jawbone of a giant pike, and plays it so beautifully that every creature comes to listen and he weeps. He leads the raid that takes the Sampo from Louhi.\n\n## Departure\n\nIn the last rune, a virgin named Marjatta bears a son who is baptized king of Karelia over Väinämöinen's objection. The old sage sails away in a copper boat, leaving his kantele and songs to the people, a close echo of Christianity supplanting the old ways.",
+    "originStory": "Born of Ilmatar after thirty years in her womb on the primeval sea (Kalevala, Rune 1).",
+    "importanceRank": 1,
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "norse-pantheon",
+        "deityId": "odin",
+        "note": "Both are aged, wise masters of poetry and magical knowledge who win contests of wisdom; the resemblance is typological, not a borrowing."
+      }
+    ],
+    "heroParallels": [
+      {
+        "pantheonId": "greek-pantheon",
+        "heroId": "orpheus",
+        "note": "Both are singers whose music enchants all living creatures, Väinämöinen with the pike-bone kantele (Kalevala, Runes 40-41), Orpheus with the lyre."
+      }
+    ],
+    "primarySources": [
+      {
+        "text": "Väinämöinen forged songs.",
+        "source": "Mikael Agricola, preface to Dauidin Psaltari (paraphrase)",
+        "sourceId": "agricola-psalter-preface",
+        "date": "1551"
+      },
+      {
+        "text": "Wainamoinen, brave and mighty, / Seizes quick the water-monster, / Lifts him by his ears and questions: / \"Iku-Turso, son of Old-age, / Why art rising from the blue-sea?\"",
+        "source": "Kalevala (trans. John Martin Crawford, 1888), Rune XLII",
+        "sourceId": "kalevala",
+        "locator": "Rune 42",
+        "date": "Lönnrot's compilation 1849; trans. 1888"
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [
+        "Kalevala Day (28 February), Finland's day of Finnish culture, marking the date Lönnrot signed the preface to the first Kalevala in 1835."
+      ],
+      "practices": "Invoked in folk charms as the first and greatest sage; tietäjät (folk healers and seers) claimed his knowledge of the 'origins' of things."
+    },
+    "pronunciation": {
+      "ipa": "/ˈʋæi̯næmøi̯nen/",
+      "phonetic": "VAI-na-muh-ee-nen"
+    },
+    "imageUrl": "/deities/vainamoinen.png"
+  },
+  {
+    "id": "ilmarinen",
+    "pantheonId": "finnish-pantheon",
+    "name": "Ilmarinen",
+    "slug": "ilmarinen",
+    "originalLanguageName": {
+      "text": "Ilmarinen",
+      "language": "Finnish",
+      "meaning": "From *ilma*, 'air, weather, sky'"
+    },
+    "alternateNames": ["Seppo Ilmarinen (Ilmarinen the Smith)"],
+    "gender": "male",
+    "domain": ["smithcraft", "the weather", "the forging of the sky"],
+    "symbols": ["the hammer and forge", "the Sampo", "the vault of heaven"],
+    "description": "The eternal smith of Finnish tradition, who forged the vault of the sky and, in the Kalevala, the Sampo for Louhi of Pohjola; named by Agricola in 1551 as the maker of calm and storm who carried travelers on their way.",
+    "detailedBio": "## A weather god become smith\n\nAgricola's list of 1551 says Ilmarinen 'made peace and weather and carried travelers forward', a role as a god of the air and winds that matches his name, from *ilma*, 'air, weather'. In the runo-songs he is above all the smith (*seppo*), the one 'who forged the sky, who hammered out the lid of the air', so skilled that no trace of hammer or tongs can be seen on his work.\n\n## In the Kalevala\n\nVäinämöinen tricks him into going to Pohjola, where he forges the Sampo, after failed attempts that produce a crossbow, a boat, a cow, and a plough, each of which he throws back into the fire. Louhi does not give him her daughter until later, after he has ploughed a field of serpents, bridled the bear of Tuoni and the wolf of Manala, and caught the great pike of Tuonela. His wife is killed through Kullervo's revenge; grief-stricken, he forges a bride of gold and silver who stays cold in his bed, and Väinämöinen warns the young men against making such idols. He joins the raid on the Sampo and later forges a false sun and moon when Louhi hides the real ones.\n\n## Craft and power\n\nThe smith's knowledge in Finnish tradition is also magical: the charm of the origin of iron, sung in Rune 9, tells how iron was born and how the smith first tempered it, knowledge that gives power to heal wounds made by iron.",
+    "originStory": "In folk poetry, and in the Kalevala's charm of the origin of iron, he is born on a hill of charcoal with a copper hammer in his hand.",
+    "importanceRank": 2,
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "greek-pantheon",
+        "deityId": "hephaestus",
+        "note": "Both are divine master smiths who forge marvels for others, including a manufactured woman (Hephaestus's Pandora, Ilmarinen's golden bride) that brings no good."
+      },
+      {
+        "pantheonId": "celtic-pantheon",
+        "deityId": "goibniu",
+        "note": "Both are smiths of the gods whose craft carries supernatural power."
+      }
+    ],
+    "primarySources": [
+      {
+        "text": "Ilmarinen, metal-artist, / Thou that long ago wert forging, / Forging earth a concave cover, / Yesterday wert forging wonders, / Forge thou now, immortal blacksmith, / Forge a rake with shaft of copper.",
+        "source": "Kalevala (trans. John Martin Crawford, 1888), Rune XV",
+        "sourceId": "kalevala",
+        "locator": "Rune 15",
+        "date": "Lönnrot's compilation 1849; trans. 1888"
+      },
+      {
+        "text": "Forges skilfully the Sampo; / On one side the flour is grinding, / On another salt is making, / On a third is money forging.",
+        "source": "Kalevala (trans. John Martin Crawford, 1888), Rune X",
+        "sourceId": "kalevala",
+        "locator": "Rune 10",
+        "date": "Lönnrot's compilation 1849; trans. 1888"
+      },
+      {
+        "text": "Ilmarinen made peace and weather, and carried travelers forward.",
+        "source": "Mikael Agricola, preface to Dauidin Psaltari (paraphrase)",
+        "sourceId": "agricola-psalter-preface",
+        "date": "1551"
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [],
+      "practices": "Invoked in smiths' charms, especially the 'origin of iron'; Agricola records him as a weather god who helped travelers."
+    },
+    "pronunciation": {
+      "ipa": "/ˈilmɑrinen/",
+      "phonetic": "IL-mah-ree-nen"
+    },
+    "imageUrl": "/deities/ilmarinen.png"
+  },
+  {
+    "id": "lemminkainen",
+    "pantheonId": "finnish-pantheon",
+    "name": "Lemminkäinen",
+    "slug": "lemminkainen",
+    "originalLanguageName": {
+      "text": "Lemminkäinen",
+      "language": "Finnish",
+      "meaning": "Possibly from *lempi*, 'love, passion'"
+    },
+    "alternateNames": ["Ahti Saarelainen", "Kaukomieli", "Lemminkainen"],
+    "gender": "male",
+    "domain": ["adventure", "love and seduction", "war", "magic song"],
+    "symbols": [
+      "the hairbrush that bleeds",
+      "the copper rake",
+      "the swan of Tuonela"
+    ],
+    "description": "The reckless, handsome adventurer of the Kalevala, who is killed at the river of Tuonela while trying to shoot its swan and cut to pieces, and whom his mother rakes from the river and restores to life.",
+    "detailedBio": "## A composite hero\n\nIn Finnish folk poetry Lemminkäinen, Ahti Saarelainen ('Ahti the Islander'), and Kaukomieli were related but partly separate figures, heroes of songs about uninvited guests at feasts, sea raids, and duels of magic. Lönnrot combined them into one character, which is why the Kalevala calls him by all three names.\n\n## Death and return\n\nIn the Kalevala Lemminkäinen abducts and marries Kyllikki, then goes to Pohjola to woo Louhi's daughter, leaving his hairbrush with his mother: if it bleeds, he is dead. Louhi sets him three tasks: to ski down the elk of Hiisi, to bridle the fire-breathing gelding of Hiisi, and to shoot the swan on the black river of Tuonela with a single arrow. At the river a blind cowherd he had insulted kills him with a water-snake and throws him in, and the son of Tuoni hacks his body to pieces. The hairbrush bleeds. His mother searches the world, has Ilmarinen forge a long copper rake, and rakes his pieces from the river; she joins them with charms, and a bee brings honey from beyond the ninth heaven to anoint him until he rises again.\n\n## Later deeds\n\nHe returns uninvited to the wedding feast at Pohjola, kills its master in a sword duel, and must hide on an island. Later he joins Väinämöinen and Ilmarinen in the raid on the Sampo, where his singing wakes the crane that rouses Pohjola. Jean Sibelius's *Lemminkäinen Suite* (1895-1896), including *The Swan of Tuonela*, made him known internationally.",
+    "originStory": "Son of a devoted, unnamed mother, the 'islander' raised on the headland; the Kalevala gives no divine parentage.",
+    "importanceRank": 3,
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "egyptian-pantheon",
+        "deityId": "osiris",
+        "note": "Both are dismembered and scattered in water, then gathered and restored by a devoted woman (Lemminkäinen by his mother with a copper rake, Osiris by Isis), a parallel often noted by comparative mythologists."
+      }
+    ],
+    "primarySources": [
+      {
+        "text": "\"Ilmarinen, metal-artist, / [...] Forge thou now, immortal blacksmith, / Forge a rake with shaft of copper.\"",
+        "source": "Kalevala (trans. John Martin Crawford, 1888), Rune XV (the mother's plea for the rake)",
+        "sourceId": "kalevala",
+        "locator": "Rune 15",
+        "date": "Lönnrot's compilation 1849; trans. 1888"
+      },
+      {
+        "text": "The mother raked the river of Tuonela with the copper rake and drew out the pieces of her son, and joined them with charms; the bee brought honey from above the ninth heaven, and she anointed him until he woke.",
+        "source": "Kalevala, Rune 15 (paraphrase)",
+        "sourceId": "kalevala",
+        "locator": "Rune 15",
+        "date": "Lönnrot's compilation 1849; trans. 1888"
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [],
+      "practices": "A hero of song rather than an object of worship; his episodes were sung as epic and adapted in charms."
+    },
+    "pronunciation": {
+      "ipa": "/ˈlemːiŋkæi̯nen/",
+      "phonetic": "LEM-min-kai-nen"
+    },
+    "imageUrl": "/deities/lemminkainen.png"
+  },
+  {
+    "id": "louhi",
+    "pantheonId": "finnish-pantheon",
+    "name": "Louhi",
+    "slug": "louhi",
+    "originalLanguageName": {
+      "text": "Louhi",
+      "language": "Finnish",
+      "meaning": "Etymology uncertain; also called Pohjan akka ('Old Woman of the North')"
+    },
+    "alternateNames": [
+      "Pohjan akka",
+      "Pohjolan emäntä (Mistress of Pohjola)",
+      "Louhiatar"
+    ],
+    "gender": "female",
+    "domain": ["the North (Pohjola)", "sorcery", "the Sampo"],
+    "symbols": ["the Sampo", "the eagle", "the stone mountain"],
+    "description": "The powerful, gap-toothed mistress of Pohjola, the dark North, who demands the forging of the Sampo in exchange for her daughter, pursues the heroes as a giant eagle when they steal it, and hides the sun and moon in a mountain.",
+    "detailedBio": "## Mistress of the North\n\nIn Finnish folk poetry the Old Woman of the North, *Pohjan akka*, rules Pohjola, a cold, dark, hostile land somewhere to the north, and is a formidable sorceress; in charms the related *Louhiatar* or *Loviatar* is the mother of diseases. The Kalevala makes Louhi the chief antagonist of the Kalevala heroes, though an ambivalent one: she rescues the shipwrecked Väinämöinen and bargains fairly for her daughter's marriage.\n\n## The Sampo\n\nLouhi promises her daughter to the man who can forge the Sampo, a wonder-mill that grinds grain, salt, and money. Ilmarinen succeeds, and she locks it in the rock-mountain of Pohjola behind nine locks, where it roots itself deep in the earth. When the heroes steal it, she sends fog, wind, and the sea-monster Iku-Turso after them, then transforms herself into a giant eagle carrying a hundred warriors under her wings. Väinämöinen smashes her talons with his rudder, and in the struggle the Sampo falls into the sea and breaks; Louhi carries home only its lid, which is why, the epic says, the North is poor.\n\n## Revenge\n\nLouhi then sends plagues and a bear against Kalevala and steals the sun and moon, hiding them in a mountain until Ilmarinen's forging frightens her into releasing them. Her daughter becomes Ilmarinen's wife and is killed by Kullervo's wolves and bears.",
+    "originStory": "No origin is told; she is simply the mistress of Pohjola.",
+    "importanceRank": 2,
+    "crossPantheonParallels": [],
+    "primarySources": [
+      {
+        "text": "Louhi locked the Sampo within the stone mountain of Pohjola, behind nine locks, and it put down roots nine fathoms deep, one into the earth, one into the sea shore, one into the home mountain.",
+        "source": "Kalevala, Rune 10 (paraphrase)",
+        "sourceId": "kalevala",
+        "locator": "Rune 10",
+        "date": "Lönnrot's compilation 1849; trans. 1888"
+      },
+      {
+        "text": "Louhi changed herself into a great eagle, took a hundred men under her wings and a thousand on her tail, and flew after the heroes to seize the Sampo.",
+        "source": "Kalevala, Rune 43 (paraphrase)",
+        "sourceId": "kalevala",
+        "locator": "Rune 43",
+        "date": "Lönnrot's compilation 1849; trans. 1888"
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [],
+      "practices": "Not worshipped; in folk charms the related figure of the Old Woman of the North, mother of diseases, is named in order to banish illness back to Pohjola."
+    },
+    "pronunciation": {
+      "ipa": "/ˈlou̯hi/",
+      "phonetic": "LOH-hee"
+    },
+    "imageUrl": "/deities/louhi.png"
+  },
+  {
+    "id": "tuoni",
+    "pantheonId": "finnish-pantheon",
+    "name": "Tuoni",
+    "slug": "tuoni",
+    "originalLanguageName": {
+      "text": "Tuoni",
+      "language": "Finnish",
+      "meaning": "\"Death\" or \"the dead\"; his realm is Tuonela"
+    },
+    "alternateNames": ["Tuonen herra (Lord of Tuoni)", "Mana"],
+    "gender": "male",
+    "domain": ["death", "the underworld (Tuonela)"],
+    "symbols": ["the black river", "the swan of Tuonela", "iron nets"],
+    "description": "The lord of Tuonela, the land of the dead beyond a dark river, whose daughter ferries the dead, whose son hacks Lemminkäinen to pieces, and whose realm Väinämöinen escapes only by turning himself into a serpent.",
+    "detailedBio": "## Tuonela and Manala\n\nFinnish folk tradition places the dead in Tuonela, also called Manala ('the land under the earth'), reached by crossing a dark river. Its ruler, Tuoni, is a shadowy figure; his family is more vivid. The Kalevala names Tuoni's daughter (*Tuonen tytti*) as the ferrywoman, Tuonetar as the mistress of the house, and a son of Tuoni who is a killer.\n\n## Journeys to the dead\n\nIn the Kalevala Väinämöinen travels to Tuonela to seek three magic words he needs to finish his boat. Tuoni's daughter at first refuses to ferry a living man; once he is across, Tuonetar gives him beer full of frogs and worms and puts him to sleep, while Tuoni's son stretches iron nets across the river to keep him from leaving. Väinämöinen escapes by turning into a steel serpent and slipping through the mesh, and warns the young never to go to Tuonela. Lemminkäinen dies at Tuonela's river trying to shoot its swan, and Tuoni's son cuts his body into pieces.\n\n## Belief\n\nArchaeology and folk custom show careful care for the dead among Finns and Karelians, including memorial meals and grave houses in Karelian Orthodox cemeteries; the dead were thought to continue their existence and to need offerings. How far Tuoni was a personal god rather than a personification of death is uncertain.",
+    "originStory": "No origin is told.",
+    "importanceRank": 3,
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "greek-pantheon",
+        "deityId": "hades",
+        "note": "Both rule a land of the dead reached across a river with a ferryman (Tuoni's daughter, Charon), from which a living visitor returns only with difficulty."
+      }
+    ],
+    "primarySources": [
+      {
+        "text": "Tuoni's son stretched nets of iron and copper across the river of Tuonela so that Väinämöinen should not escape; but Väinämöinen changed into a serpent of steel and slipped through the meshes.",
+        "source": "Kalevala, Rune 16 (paraphrase)",
+        "sourceId": "kalevala",
+        "locator": "Rune 16",
+        "date": "Lönnrot's compilation 1849; trans. 1888"
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [
+        "Kekri, the traditional autumn harvest feast, when the spirits of the dead were believed to visit and were offered food (a festival of the dead in general, not of Tuoni himself)."
+      ],
+      "practices": "Care for the dead through memorial meals and offerings at graves; charms to keep death and the dead in Tuonela."
+    },
+    "pronunciation": {
+      "ipa": "/ˈtuo̯ni/",
+      "phonetic": "TWOH-nee"
+    },
+    "imageUrl": "/deities/tuoni.png"
+  },
+  {
+    "id": "tapio",
+    "pantheonId": "finnish-pantheon",
+    "name": "Tapio",
+    "slug": "tapio",
+    "originalLanguageName": {
+      "text": "Tapio",
+      "language": "Finnish",
+      "meaning": "Name of uncertain etymology; his realm is Tapiola"
+    },
+    "alternateNames": ["Metsän kuningas (King of the Forest)"],
+    "gender": "male",
+    "domain": ["the forest", "game and hunting"],
+    "symbols": ["the spruce forest", "a hat of fir", "a beard of moss"],
+    "description": "The god of the forest and giver of game, named by Agricola in 1551, whom hunters in the runo-songs and the Kalevala address with his wife Mielikki to open the forest's storehouse to them.",
+    "detailedBio": "## Attestation\n\nAgricola's list of 1551 says of the Tavastians that Tapio gave them game from the forest. In folk poetry and charms, Tapio is the old king of the forest, with a beard of lichen and a hat of fir, living in Tapiola with his wife Mielikki, their son Nyyrikki, and daughter Tellervo. Hunters sang to him to ask for game, promising respect and offerings, and avoided offending the forest by loud boasting or careless behavior.\n\n## In the Kalevala\n\nWhen Lemminkäinen must capture the elk of Hiisi, he prays to Tapio and Mielikki to open their forest to him, promising gifts of gold and silver, and the elk is driven into his hands. In another rune, cattle charms ask the forest powers to protect the herds while they graze in the woods.\n\n## The forest in Finnish life\n\nFor a people whose land was mostly forest, Tapio stood for the forest as a society with its own rulers, rights, and moods. Sibelius's last tone poem, *Tapiola* (1926), takes its name from his realm.",
+    "originStory": "No origin is told.",
+    "importanceRank": 3,
+    "crossPantheonParallels": [],
+    "primarySources": [
+      {
+        "text": "Tapio gave game from the forest.",
+        "source": "Mikael Agricola, preface to Dauidin Psaltari (paraphrase)",
+        "sourceId": "agricola-psalter-preface",
+        "date": "1551"
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [],
+      "practices": "Hunters' prayers and charms to Tapio and Mielikki before the hunt; small offerings and respectful behavior in the forest; the first catch was sometimes left on a tree stump for the forest."
+    },
+    "pronunciation": {
+      "ipa": "/ˈtɑpio/",
+      "phonetic": "TAH-pee-oh"
+    },
+    "imageUrl": "/deities/tapio.png"
+  },
+  {
+    "id": "mielikki",
+    "pantheonId": "finnish-pantheon",
+    "name": "Mielikki",
+    "slug": "mielikki",
+    "originalLanguageName": {
+      "text": "Mielikki",
+      "language": "Finnish",
+      "meaning": "Possibly from *mieli*, 'mind, favor'"
+    },
+    "alternateNames": ["Metsän emäntä (Mistress of the Forest)"],
+    "gender": "female",
+    "domain": [
+      "the forest",
+      "the hunt",
+      "the protection of cattle in the woods"
+    ],
+    "symbols": [
+      "the keys of the forest storehouse",
+      "gold and silver ornaments"
+    ],
+    "description": "The mistress of the forest and wife of Tapio, who holds the keys to the forest's storehouse of game and whom hunters and herders, and Lemminkäinen in the Kalevala, entreat for luck and protection.",
+    "detailedBio": "## Mistress of the forest\n\nIn Finnish runo-songs and charms, Mielikki is the forest's mistress (*metsän emäntä*) and the wife of Tapio, the forest's king. Hunters ask her to open the forest's storehouse and send them game; herders ask her to keep their cattle safe from bears and wolves when the animals graze in the woods. She was often imagined as more generous than her husband, and prayers flatter her beauty and ornaments.\n\n## In the Kalevala\n\nWhen Lemminkäinen hunts the elk of Hiisi, he addresses her directly: 'Mistress of the woods, Mielikki, / Forest-mother, formed in beauty', asking her for her silver keys, and she drives the elk to him. Later cattle charms in the epic ask Mielikki and other forest powers to protect the herd.\n\n## Evidence\n\nMielikki is not in Agricola's list, but she is well attested in charms and songs recorded from the eighteenth century onward and appears in Ganander's *Mythologia Fennica* (1789).",
+    "originStory": "No origin is told.",
+    "importanceRank": 4,
+    "crossPantheonParallels": [],
+    "primarySources": [
+      {
+        "text": "\"Mistress of the woods, Mielikki, / Forest-mother, formed in beauty, / [...] Bring me here thy keys of silver.\"",
+        "source": "Kalevala (trans. John Martin Crawford, 1888), Rune XIV",
+        "sourceId": "kalevala",
+        "locator": "Rune 14",
+        "date": "Lönnrot's compilation 1849; trans. 1888"
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [],
+      "practices": "Hunters' and herders' prayers and charms for game and for the safety of cattle grazing in the forest."
+    },
+    "pronunciation": {
+      "ipa": "/ˈmie̯likːi/",
+      "phonetic": "MYEH-lik-kee"
+    },
+    "imageUrl": "/deities/mielikki.png"
+  },
+  {
+    "id": "ahti",
+    "pantheonId": "finnish-pantheon",
+    "name": "Ahti",
+    "slug": "ahti",
+    "originalLanguageName": {
+      "text": "Ahti",
+      "language": "Finnish",
+      "meaning": "Name of uncertain etymology; the Kalevala also uses Ahto; his realm is Ahtola"
+    },
+    "alternateNames": ["Ahto", "Allon kuningas (King of the Waves)"],
+    "gender": "male",
+    "domain": ["the sea and waters", "fish and fishing"],
+    "symbols": ["the waves", "a beard of grass", "fish"],
+    "description": "The god of waters and fish, named by Agricola in 1551 as the one who brought fish from the water, called king of the waves in the runo-songs, husband of Vellamo and lord of the underwater realm of Ahtola.",
+    "detailedBio": "## Attestation\n\nAgricola's list of 1551 says that Ahti brought fish from the waters. Folk poetry calls him *Ahto*, king of the waves, with a beard of grass, ruling Ahtola, a rich realm beneath the water, with his wife Vellamo. Fishermen asked him for a good catch and took care not to offend him.\n\n## In the Kalevala\n\nWhen Väinämöinen plays his new kantele (Rune 41), all creatures come to listen, and among them Ahto, king of the waves, rises from the water to hear. The Kalevala's hero Lemminkäinen is also called Ahti Saarelainen, 'Ahti the Islander', but he is a different figure from the water god, and the shared name is one of the knots Lönnrot inherited from folk tradition.\n\n## Waters in Finnish life\n\nFinland has tens of thousands of lakes and a long coast; fishing was as important as hunting. Ahti and Vellamo were the water's counterparts to Tapio and Mielikki of the forest.",
+    "originStory": "No origin is told.",
+    "importanceRank": 3,
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "norse-pantheon",
+        "deityId": "njord",
+        "note": "Both are gods of the sea and its bounty invoked by fishermen; the comparison is typological."
+      }
+    ],
+    "primarySources": [
+      {
+        "text": "Ahti brought fish from the waters.",
+        "source": "Mikael Agricola, preface to Dauidin Psaltari (paraphrase)",
+        "sourceId": "agricola-psalter-preface",
+        "date": "1551"
+      },
+      {
+        "text": "When Väinämöinen played the kantele, Ahto, king of the waves, rose to the surface of the water to listen.",
+        "source": "Kalevala, Rune 41 (paraphrase)",
+        "sourceId": "kalevala",
+        "locator": "Rune 41",
+        "date": "Lönnrot's compilation 1849; trans. 1888"
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [],
+      "practices": "Fishermen's prayers and charms for a good catch; offerings of the first fish or of small gifts to the water."
+    },
+    "pronunciation": {
+      "ipa": "/ˈɑhti/",
+      "phonetic": "AHH-tee"
+    },
+    "imageUrl": "/deities/ahti.png"
+  },
+  {
+    "id": "vellamo",
+    "pantheonId": "finnish-pantheon",
+    "name": "Vellamo",
+    "slug": "vellamo",
+    "originalLanguageName": {
+      "text": "Vellamo",
+      "language": "Finnish",
+      "meaning": "Possibly from *velloa*, 'to surge, roll' (of waves)"
+    },
+    "alternateNames": ["Veden emäntä (Mistress of the Water)"],
+    "gender": "female",
+    "domain": ["the waters", "the sea", "fish"],
+    "symbols": ["the waves", "the water-maidens"],
+    "description": "The mistress of the waters and wife of Ahti in Finnish runo-song, whose water-maidens appear in the Kalevala and who was asked for good fishing and calm seas.",
+    "detailedBio": "## Mistress of the water\n\nIn Finnish folk poetry and charms, Vellamo is the mistress of the waters (*veden emäntä*) and the wife of Ahti. She and her maidens, the water-maidens (*Vellamon neidot*), live in the depths, and fishermen addressed her for a good catch and for calm weather.\n\n## In the Kalevala\n\nVellamo and her maidens appear among the water beings of the epic: in the rune of Väinämöinen's music the mistress of the waters comes to listen alongside Ahto. Lönnrot's use of her follows the folk poems' pairing of the water's king and queen.\n\n## Evidence\n\nVellamo is not in Agricola's list but is attested in folk poetry and in Ganander's *Mythologia Fennica* (1789). The maritime museum center Vellamo in Kotka is named after her.",
+    "originStory": "No origin is told.",
+    "importanceRank": 4,
+    "crossPantheonParallels": [],
+    "primarySources": [
+      {
+        "text": "Vellamo, mistress of the water, with her maidens, came to hear the kantele.",
+        "source": "Kalevala, Rune 41 (paraphrase)",
+        "sourceId": "kalevala",
+        "locator": "Rune 41",
+        "date": "Lönnrot's compilation 1849; trans. 1888"
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [],
+      "practices": "Fishermen's and seafarers' prayers for a good catch and calm water, paired with prayers to Ahti."
+    },
+    "pronunciation": {
+      "ipa": "/ˈʋelːɑmo/",
+      "phonetic": "VEL-lah-moh"
+    },
+    "imageUrl": "/deities/vellamo.png"
   }
 ]

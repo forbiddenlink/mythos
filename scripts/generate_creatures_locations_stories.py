@@ -117,6 +117,12 @@ CREATURES = [
     {"id": "azhi-dahaka", "name": "AZHI DAHAKA", "subtitle": "THREE-HEADED DRAGON", "accent": (150, 90, 110), "bg": (16, 10, 14), "motif": "emblem_dragon"},
     {"id": "div-e-sepid", "name": "DIV-E SEPID", "subtitle": "THE WHITE DIV OF MAZANDARAN", "accent": (200, 200, 205), "bg": (14, 14, 18), "motif": "emblem_beast"},
     {"id": "apaosha", "name": "APAOSHA", "subtitle": "THE DAEVA OF DROUGHT", "accent": (130, 110, 90), "bg": (16, 12, 10), "motif": "emblem_horse"},
+
+    # FINNISH / KALEVALA (2026-09)
+    {"id": "iku-turso", "name": "IKU-TURSO", "subtitle": "MONSTER OF THE DEEP", "accent": (90, 150, 160), "bg": (10, 14, 18), "motif": "emblem_sea_monster"},
+    {"id": "elk-of-hiisi", "name": "ELK OF HIISI", "subtitle": "THE FIRST TASK OF LEMMINKÄINEN", "accent": (150, 130, 95), "bg": (14, 16, 12), "motif": "emblem_elk"},
+    {"id": "swan-of-tuonela", "name": "SWAN OF TUONELA", "subtitle": "ON THE RIVER OF THE DEAD", "accent": (200, 205, 215), "bg": (8, 10, 14), "motif": "emblem_swan"},
+    {"id": "great-pike", "name": "THE GREAT PIKE", "subtitle": "BONES OF THE FIRST KANTELE", "accent": (130, 170, 130), "bg": (10, 16, 16), "motif": "emblem_fish"},
 ]
 
 def draw_creature_motif(draw, cx, cy, r, motif, accent, gold):
@@ -276,6 +282,13 @@ LOCATIONS = [
     {"id": "takht-e-soleyman", "name": "TAKHT-E SOLEYMAN", "subtitle": "FIRE OF THE WARRIOR KINGS", "accent": (225, 120, 60), "bg": (20, 14, 12), "motif": "emblem_fire"},
     {"id": "mount-damavand", "name": "MOUNT DAMAVAND", "subtitle": "PRISON OF ZAHHAK", "accent": (200, 210, 225), "bg": (12, 14, 22), "motif": "emblem_mountain"},
     {"id": "chinvat-bridge", "name": "CHINVAT BRIDGE", "subtitle": "THE BRIDGE OF THE SEPARATOR", "accent": (170, 160, 210), "bg": (12, 12, 20), "motif": "emblem_bridge"},
+
+    # FINNISH / KALEVALA (2026-09)
+    {"id": "tuonela", "name": "TUONELA", "subtitle": "LAND OF THE DEAD", "accent": (120, 130, 150), "bg": (8, 10, 14), "motif": "emblem_underworld_river"},
+    {"id": "pohjola", "name": "POHJOLA", "subtitle": "THE DARK NORTH", "accent": (130, 190, 170), "bg": (8, 12, 18), "motif": "emblem_northern_lights"},
+    {"id": "vainola", "name": "KALEVALA", "subtitle": "LAND OF THE HEROES", "accent": (150, 185, 110), "bg": (12, 16, 12), "motif": "emblem_village_lake"},
+    {"id": "vuokkiniemi", "name": "VUOKKINIEMI", "subtitle": "VILLAGE OF THE RUNO-SINGERS", "accent": (180, 170, 130), "bg": (12, 14, 16), "motif": "emblem_village_lake"},
+    {"id": "kalevala-town", "name": "KALEVALA (UHTUA)", "subtitle": "VIENA KARELIA", "accent": (170, 180, 150), "bg": (12, 14, 16), "motif": "emblem_village_lake"},
 ]
 
 def draw_location_motif(draw, cx, cy, r, motif, accent, gold):
@@ -452,6 +465,14 @@ STORIES = [
     {"id": "zahhak-and-kaveh", "name": "ZAHHAK & KAVEH", "subtitle": "THE SERPENT KING OVERTHROWN", "accent": (200, 90, 70), "bg": (20, 12, 12), "motif": "emblem_banner"},
     {"id": "zal-and-the-simurgh", "name": "ZAL & THE SIMURGH", "subtitle": "THE NEST ON ALBORZ", "accent": (120, 175, 170), "bg": (10, 18, 20), "motif": "emblem_great_bird"},
     {"id": "rostam-and-sohrab", "name": "ROSTAM & SOHRAB", "subtitle": "FATHER AND SON", "accent": (200, 140, 70), "bg": (20, 14, 12), "motif": "emblem_mace"},
+
+    # FINNISH / KALEVALA (2026-09)
+    {"id": "ilmatar-and-the-world-egg", "name": "ILMATAR & THE WORLD EGG", "subtitle": "THE CREATION", "accent": (190, 205, 230), "bg": (10, 14, 22), "motif": "emblem_egg"},
+    {"id": "aino", "name": "AINO", "subtitle": "THE MAIDEN WHO BECAME A FISH", "accent": (130, 180, 200), "bg": (10, 14, 20), "motif": "emblem_fish"},
+    {"id": "forging-of-the-sampo", "name": "FORGING THE SAMPO", "subtitle": "ILMARINEN IN POHJOLA", "accent": (225, 130, 60), "bg": (22, 14, 10), "motif": "emblem_mill"},
+    {"id": "lemminkainens-mother", "name": "LEMMINKÄINEN'S MOTHER", "subtitle": "THE RAKE AND THE RIVER", "accent": (205, 120, 110), "bg": (14, 10, 12), "motif": "emblem_underworld_river"},
+    {"id": "theft-of-the-sampo", "name": "THEFT OF THE SAMPO", "subtitle": "THE EAGLE OVER THE SEA", "accent": (150, 140, 200), "bg": (10, 12, 20), "motif": "emblem_great_bird"},
+    {"id": "kullervo", "name": "KULLERVO", "subtitle": "THE DOOMED SLAVE", "accent": (170, 110, 100), "bg": (16, 10, 10), "motif": "emblem_flame"},
 ]
 
 def draw_story_motif(draw, cx, cy, r, motif, accent, gold):
@@ -602,6 +623,11 @@ ARTIFACTS = [
     {"id": "derafsh-kaviani", "name": "DERAFSH-E KAVIANI", "subtitle": "THE BANNER OF KAVEH", "accent": (200, 90, 70), "bg": (20, 12, 12), "motif": "emblem_banner"},
     {"id": "jam-e-jam", "name": "JAM-E JAM", "subtitle": "THE WORLD-REVEALING CUP", "accent": (90, 130, 210), "bg": (12, 14, 24), "motif": "emblem_cup"},
     {"id": "ox-headed-mace", "name": "OX-HEADED MACE", "subtitle": "WEAPON OF FEREYDUN", "accent": (205, 150, 70), "bg": (20, 14, 12), "motif": "emblem_mace"},
+
+    # FINNISH / KALEVALA (2026-09)
+    {"id": "sampo", "name": "SAMPO", "subtitle": "THE MILL OF PLENTY", "accent": (220, 170, 70), "bg": (18, 14, 12), "motif": "emblem_mill"},
+    {"id": "vainamoinens-kantele", "name": "THE FIRST KANTELE", "subtitle": "HARP OF PIKE-BONE", "accent": (215, 175, 90), "bg": (18, 16, 12), "motif": "emblem_kantele"},
+    {"id": "golden-maiden", "name": "THE GOLDEN MAIDEN", "subtitle": "BRIDE FROM THE FORGE", "accent": (225, 185, 80), "bg": (18, 14, 10), "motif": "emblem_flame"},
 ]
 
 def draw_artifact_motif(draw, cx, cy, r, motif, accent, gold):

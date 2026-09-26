@@ -118,6 +118,19 @@ DEITIES = [
     {"id": "sraosha", "name": "SRAOSHA", "tag": "IRANIAN YAZATA", "domain": "OBEDIENCE · GUARDIAN OF SOULS", "accent": (190, 180, 150), "bg": (14, 14, 20), "motif": "emblem_bird"},
     {"id": "zurvan", "name": "ZURVAN", "tag": "ZURVANITE PRINCIPLE", "domain": "INFINITE TIME · FATHER OF TWINS", "accent": (160, 150, 200), "bg": (12, 12, 20), "motif": "emblem_stars"},
     {"id": "yima", "name": "YIMA", "tag": "PRIMORDIAL KING", "domain": "THE GOLDEN AGE · THE VAR · JAMSHID", "accent": (90, 130, 210), "bg": (12, 14, 24), "motif": "emblem_cup"},
+
+    # FINNISH / KALEVALA (2026-09)
+    {"id": "ukko", "name": "UKKO", "tag": "FINNISH GOD", "domain": "SKY · THUNDER · RAIN", "accent": (150, 175, 225), "bg": (12, 14, 24), "motif": "emblem_lightning"},
+    {"id": "ilmatar", "name": "ILMATAR", "tag": "FINNISH PRIMORDIAL", "domain": "DAUGHTER OF THE AIR · THE WORLD EGG", "accent": (190, 205, 230), "bg": (12, 16, 24), "motif": "emblem_egg"},
+    {"id": "vainamoinen", "name": "VÄINÄMÖINEN", "tag": "FINNISH SAGE", "domain": "THE ETERNAL SINGER · THE KANTELE", "accent": (215, 175, 90), "bg": (18, 16, 12), "motif": "emblem_kantele"},
+    {"id": "ilmarinen", "name": "ILMARINEN", "tag": "FINNISH SMITH", "domain": "FORGER OF THE SKY & THE SAMPO", "accent": (225, 130, 60), "bg": (22, 14, 10), "motif": "emblem_mill"},
+    {"id": "lemminkainen", "name": "LEMMINKÄINEN", "tag": "FINNISH HERO", "domain": "ADVENTURE · DEATH & RETURN", "accent": (205, 120, 110), "bg": (20, 12, 14), "motif": "emblem_underworld_river"},
+    {"id": "louhi", "name": "LOUHI", "tag": "MISTRESS OF POHJOLA", "domain": "THE DARK NORTH · SORCERY", "accent": (150, 140, 200), "bg": (12, 12, 20), "motif": "emblem_great_bird"},
+    {"id": "tuoni", "name": "TUONI", "tag": "FINNISH GOD", "domain": "DEATH · LORD OF TUONELA", "accent": (120, 130, 150), "bg": (10, 10, 14), "motif": "emblem_gate_below"},
+    {"id": "tapio", "name": "TAPIO", "tag": "FINNISH GOD", "domain": "KING OF THE FOREST · GAME", "accent": (110, 160, 100), "bg": (12, 18, 12), "motif": "emblem_elk"},
+    {"id": "mielikki", "name": "MIELIKKI", "tag": "FINNISH GODDESS", "domain": "MISTRESS OF THE FOREST", "accent": (150, 185, 110), "bg": (14, 18, 12), "motif": "emblem_flower"},
+    {"id": "ahti", "name": "AHTI", "tag": "FINNISH GOD", "domain": "KING OF THE WAVES · FISH", "accent": (90, 160, 190), "bg": (10, 16, 22), "motif": "emblem_fish"},
+    {"id": "vellamo", "name": "VELLAMO", "tag": "FINNISH GODDESS", "domain": "MISTRESS OF THE WATERS", "accent": (110, 175, 200), "bg": (10, 16, 24), "motif": "emblem_water_flower"},
 ]
 
 def draw_deity_motif(draw, cx, cy, radius, motif, accent, gold):

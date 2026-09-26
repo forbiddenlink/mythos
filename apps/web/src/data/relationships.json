@@ -2182,5 +2182,69 @@
     "relationshipType": "enemy_of",
     "confidenceLevel": "medium",
     "description": "In the struggle for the Glory, the Good Spirit sends Atar and the Evil Spirit sends Azhi Dahaka (Yasht 19.46-50)."
+  },
+  {
+    "id": "finnish-ilmatar-vainamoinen",
+    "fromDeityId": "ilmatar",
+    "toDeityId": "vainamoinen",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high",
+    "description": "Väinämöinen is 'delivered from his mother, Ilmatar, the Ether's daughter' (Kalevala, Rune 1); in most folk variants he has no such mother."
+  },
+  {
+    "id": "finnish-tapio-mielikki",
+    "fromDeityId": "tapio",
+    "toDeityId": "mielikki",
+    "relationshipType": "spouse_of",
+    "confidenceLevel": "high",
+    "description": "Mielikki is the forest's mistress and Tapio's wife in folk charms and in Lemminkäinen's prayers (Kalevala, Rune 14)."
+  },
+  {
+    "id": "finnish-ahti-vellamo",
+    "fromDeityId": "ahti",
+    "toDeityId": "vellamo",
+    "relationshipType": "spouse_of",
+    "confidenceLevel": "high",
+    "description": "The king and mistress of the waters, paired in folk poetry and in the Kalevala."
+  },
+  {
+    "id": "finnish-louhi-vainamoinen",
+    "fromDeityId": "louhi",
+    "toDeityId": "vainamoinen",
+    "relationshipType": "enemy_of",
+    "confidenceLevel": "high",
+    "description": "Louhi pursues Väinämöinen as a giant eagle to recover the Sampo, and he breaks her talons with his rudder (Kalevala, Rune 43)."
+  },
+  {
+    "id": "finnish-louhi-lemminkainen",
+    "fromDeityId": "louhi",
+    "toDeityId": "lemminkainen",
+    "relationshipType": "enemy_of",
+    "confidenceLevel": "high",
+    "description": "Louhi sends Lemminkäinen on the tasks that end in his death at Tuonela (Kalevala, Runes 13-14), and he later kills the master of Pohjola (Rune 27)."
+  },
+  {
+    "id": "finnish-louhi-ilmarinen",
+    "fromDeityId": "louhi",
+    "toDeityId": "ilmarinen",
+    "relationshipType": "enemy_of",
+    "confidenceLevel": "medium",
+    "description": "Ilmarinen forges the Sampo for Louhi and marries her daughter, but joins the raid that steals it from her (Kalevala, Runes 10, 18-25, 42)."
+  },
+  {
+    "id": "finnish-vainamoinen-ilmarinen",
+    "fromDeityId": "vainamoinen",
+    "toDeityId": "ilmarinen",
+    "relationshipType": "ally_of",
+    "confidenceLevel": "high",
+    "description": "Companions in the theft of the Sampo; Väinämöinen calls the smith his brother and tricks him into forging the Sampo (Kalevala, Runes 10, 39-43)."
+  },
+  {
+    "id": "finnish-vainamoinen-lemminkainen",
+    "fromDeityId": "vainamoinen",
+    "toDeityId": "lemminkainen",
+    "relationshipType": "ally_of",
+    "confidenceLevel": "high",
+    "description": "Lemminkäinen joins Väinämöinen and Ilmarinen in the raid on Pohjola (Kalevala, Runes 39-43)."
   }
 ]
