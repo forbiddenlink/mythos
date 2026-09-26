@@ -242,7 +242,10 @@ export function PantheonPageClient({ slug }: PantheonPageClientProps) {
                   href={`/deities/${deity.slug}`}
                   className="group block h-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
                 >
-                  <Card className="h-full border-border bg-card hover:border-gold/50 hover:shadow-lg hover:shadow-gold/5 transition-all duration-300 overflow-hidden flex flex-col">
+                  <Card
+                    interactive
+                    className="h-full border-border bg-card hover:border-gold/50 hover:shadow-lg hover:shadow-gold/5 transition-all duration-300 overflow-hidden flex flex-col"
+                  >
                     {deity.imageUrl && (
                       <div className="relative w-full aspect-16/10 bg-midnight/40 overflow-hidden border-b border-border/60">
                         <Image
@@ -309,7 +312,10 @@ export function PantheonPageClient({ slug }: PantheonPageClientProps) {
                   href={`/stories/${story.slug}`}
                   className="group block h-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
                 >
-                  <Card className="h-full border-border bg-card hover:border-gold/50 hover:shadow-lg hover:shadow-gold/5 transition-all duration-300">
+                  <Card
+                    interactive
+                    className="h-full border-border bg-card hover:border-gold/50 hover:shadow-lg hover:shadow-gold/5 transition-all duration-300"
+                  >
                     <CardHeader>
                       <div className="flex flex-wrap items-start justify-between gap-2 mb-1">
                         <CardTitle className="font-serif text-xl text-foreground group-hover:text-gold transition-colors">

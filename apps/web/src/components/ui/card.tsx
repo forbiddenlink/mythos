@@ -7,9 +7,8 @@ const cardVariants = cva(
   // Base styles - no glass effect by default for better performance
   [
     "bg-card text-card-foreground flex flex-col gap-6 rounded-xl border border-border/60 py-6",
-    "shadow-sm transition-all duration-200",
-    "hover:shadow-md hover:border-border hover:-translate-y-0.5",
-    "dark:shadow-none dark:hover:shadow-lg dark:hover:shadow-black/20",
+    "shadow-sm transition-[color,background-color,border-color,box-shadow,transform] duration-200",
+    "dark:shadow-none",
     // Focus styles - gold themed
     "group-focus-visible:ring-2 group-focus-visible:ring-gold/50 group-focus-visible:ring-offset-2",
     "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold/50 focus-visible:ring-offset-2",
@@ -21,9 +20,22 @@ const cardVariants = cva(
         glass: "glass-card",
         elevated: "card-elevated",
       },
+      /**
+       * Hover lift for cards that are, or sit inside, a link or button.
+       * Static cards must not lift: movement on hover reads as clickable.
+       */
+      interactive: {
+        true: [
+          "hover:shadow-md hover:border-border hover:-translate-y-0.5",
+          "dark:hover:shadow-lg dark:hover:shadow-black/20",
+          "motion-reduce:hover:translate-y-0",
+        ],
+        false: "",
+      },
     },
     defaultVariants: {
       variant: "default",
+      interactive: false,
     },
   },
 );
@@ -36,15 +48,27 @@ interface CardProps
    * Omit for container/section cards where native div semantics are sufficient.
    */
   asArticle?: boolean;
+  /**
+   * Opt in to the hover lift. Set only when the card is a link/button target
+   * (wrapped in one, or containing a full-card link overlay).
+   */
+  interactive?: boolean;
 }
 
-function Card({ className, asArticle, variant, ...props }: CardProps) {
+function Card({
+  className,
+  asArticle,
+  variant,
+  interactive,
+  ...props
+}: CardProps) {
   return (
     <div
       data-slot="card"
       data-variant={variant}
+      data-interactive={interactive ? "" : undefined}
       role={asArticle ? "article" : undefined}
-      className={cn(cardVariants({ variant }), className)}
+      className={cn(cardVariants({ variant, interactive }), className)}
       {...props}
     />
   );

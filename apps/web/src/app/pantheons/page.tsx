@@ -114,6 +114,7 @@ export default function PantheonsPage() {
                 className="group pantheon-reveal"
               >
                 <Card
+                  interactive
                   asArticle
                   className="h-full cursor-pointer overflow-hidden border border-white/[0.06] bg-card transition-colors duration-300 hover:border-white/[0.12] hover:bg-card/80"
                 >

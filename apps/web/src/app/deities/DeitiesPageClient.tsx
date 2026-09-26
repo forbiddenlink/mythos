@@ -205,6 +205,7 @@ function PaginatedDeityGrid({ deities }: Readonly<{ deities: Deity[] }>) {
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {pagination.paginatedData.map((deity, index) => (
           <Card
+            interactive
             key={deity.id}
             asArticle
             className="parchment-card group relative h-full bg-card transition-transform duration-300 hover:-translate-y-1"

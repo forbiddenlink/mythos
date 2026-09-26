@@ -332,4 +332,25 @@ describe("Card", () => {
       expect(classes).toContain("card-elevated");
     });
   });
+
+  describe("interactive hover lift", () => {
+    it("does not lift static cards on hover", () => {
+      render(<Card data-testid="card">Stat</Card>);
+      const card = screen.getByTestId("card");
+      expect(card.className).not.toMatch(/hover:-translate-y/);
+      expect(card.className).not.toMatch(/hover:shadow-md/);
+      expect(card).not.toHaveAttribute("data-interactive");
+    });
+
+    it("lifts only when opted in", () => {
+      render(
+        <Card interactive data-testid="card">
+          Link target
+        </Card>,
+      );
+      const card = screen.getByTestId("card");
+      expect(card.className).toMatch(/hover:-translate-y-0\.5/);
+      expect(card).toHaveAttribute("data-interactive");
+    });
+  });
 });

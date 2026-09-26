@@ -245,7 +245,10 @@ export function CreaturePageClient({
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                   {samePantheonCreatures.map((c) => (
                     <Link key={c.id} href={`/creatures/${c.slug}`}>
-                      <Card className="bg-card/50 border-border hover:border-red-500/50 transition-all group">
+                      <Card
+                        interactive
+                        className="bg-card/50 border-border hover:border-red-500/50 transition-all group"
+                      >
                         <CardContent className="p-4">
                           <h3 className="font-semibold text-foreground group-hover:text-red-400 transition-colors">
                             {c.name}
@@ -271,7 +274,10 @@ export function CreaturePageClient({
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                   {samePantheonDeities.map((d) => (
                     <Link key={d.id} href={`/deities/${d.slug}`}>
-                      <Card className="bg-card/50 border-border hover:border-gold/50 transition-all group">
+                      <Card
+                        interactive
+                        className="bg-card/50 border-border hover:border-gold/50 transition-all group"
+                      >
                         <CardContent className="p-4">
                           <h3 className="font-semibold text-foreground group-hover:text-gold transition-colors">
                             {d.name}

@@ -32,6 +32,7 @@ function InteractiveStoryCard({ story }: Readonly<{ story: BranchingStory }>) {
   return (
     <Link href={`/stories/interactive/${story.slug}`} className="group">
       <Card
+        interactive
         asArticle
         className="h-full cursor-pointer parchment-card bg-card transition-transform duration-300 hover:-translate-y-1 overflow-hidden relative"
       >

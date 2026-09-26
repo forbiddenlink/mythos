@@ -244,6 +244,7 @@ export function HeroesPageClient({
                 const color = getPantheonColor(hero.pantheonId);
                 return (
                   <Card
+                    interactive
                     key={hero.id}
                     asArticle
                     className="parchment-card group relative h-full bg-card overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-gold/40 flex flex-col"

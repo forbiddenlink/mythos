@@ -375,7 +375,10 @@ export function LocationPageClient({ slug }: LocationPageClientProps) {
                   const relatedType = formatLocationType(related.locationType);
                   return (
                     <Link key={related.id} href={`/locations/${related.id}`}>
-                      <Card className="group h-full bg-card/30 border-border hover:border-emerald-500/50 transition-all duration-300 cursor-pointer">
+                      <Card
+                        interactive
+                        className="group h-full bg-card/30 border-border hover:border-emerald-500/50 transition-all duration-300 cursor-pointer"
+                      >
                         {related.imageUrl && (
                           <div className="relative w-full aspect-video overflow-hidden rounded-t-lg">
                             <Image

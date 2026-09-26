@@ -164,6 +164,7 @@ export default function JourneysPage() {
                 onMouseLeave={() => setHoveredJourney(null)}
               >
                 <Card
+                  interactive
                   asArticle
                   className="h-full cursor-pointer overflow-hidden bg-card hover:border-gold/50 transition-all duration-300 hover:scale-[1.02]"
                 >

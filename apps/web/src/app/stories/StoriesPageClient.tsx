@@ -60,6 +60,7 @@ function InteractiveStoryCard({
       className="group pantheon-reveal"
     >
       <Card
+        interactive
         asArticle
         className="h-full cursor-pointer parchment-card bg-card transition-transform duration-300 hover:-translate-y-1 overflow-hidden relative"
       >
@@ -355,6 +356,7 @@ function PaginatedStoryGrid({ stories }: Readonly<{ stories: Story[] }>) {
         {pagination.paginatedData.map((story) => (
           <div key={story.id} className="group pantheon-reveal">
             <Card
+              interactive
               asArticle
               className="relative h-full cursor-pointer parchment-card bg-card transition-transform duration-300 hover:-translate-y-1 overflow-hidden flex flex-col"
             >

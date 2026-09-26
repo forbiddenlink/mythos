@@ -172,9 +172,7 @@ export function JourneyPageClient({ slug }: JourneyPageClientProps) {
         {/* Hero Content */}
         <div className="relative z-20 text-center px-4 max-w-4xl mx-auto">
           <div className="flex items-center justify-center gap-3 mb-4">
-            <Badge
-              className="border-0 bg-gold text-sm font-medium text-midnight"
-            >
+            <Badge className="border-0 bg-gold text-sm font-medium text-midnight">
               {colors.label} Mythology
             </Badge>
             <Badge variant="secondary" className="text-sm">
@@ -413,7 +411,10 @@ export function JourneyPageClient({ slug }: JourneyPageClientProps) {
           </h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
             <Link href={`/pantheons/${pantheon?.slug || "greek"}`}>
-              <Card className="h-full hover:border-gold/50 transition-colors cursor-pointer">
+              <Card
+                interactive
+                className="h-full hover:border-gold/50 transition-colors cursor-pointer"
+              >
                 <CardContent className="flex items-center gap-4 p-4">
                   <div
                     className="w-12 h-12 rounded-lg flex items-center justify-center"
@@ -436,7 +437,10 @@ export function JourneyPageClient({ slug }: JourneyPageClientProps) {
               </Card>
             </Link>
             <Link href="/stories">
-              <Card className="h-full hover:border-gold/50 transition-colors cursor-pointer">
+              <Card
+                interactive
+                className="h-full hover:border-gold/50 transition-colors cursor-pointer"
+              >
                 <CardContent className="flex items-center gap-4 p-4">
                   <div className="w-12 h-12 rounded-lg flex items-center justify-center bg-gold/20">
                     <Scroll className="h-6 w-6 text-gold" />
@@ -451,7 +455,10 @@ export function JourneyPageClient({ slug }: JourneyPageClientProps) {
               </Card>
             </Link>
             <Link href="/locations">
-              <Card className="h-full hover:border-gold/50 transition-colors cursor-pointer">
+              <Card
+                interactive
+                className="h-full hover:border-gold/50 transition-colors cursor-pointer"
+              >
                 <CardContent className="flex items-center gap-4 p-4">
                   <div className="w-12 h-12 rounded-lg flex items-center justify-center bg-patina/20">
                     <MapPin className="h-6 w-6 text-patina" />
