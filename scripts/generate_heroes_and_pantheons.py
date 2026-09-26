@@ -299,16 +299,13 @@ def draw_pantheon_motif(draw, cx, m_cy, p, accent, gold):
         draw.polygon([(cx, m_cy - 95), (cx - 15, m_cy - 80), (cx + 15, m_cy - 80)], fill=gold)
 
     elif p["motif"] == "tlingit_raven":
-        # Northwest Coast Formline Raven & Sun in the Box
-        draw.ellipse([cx - 75, m_cy - 65, cx + 75, m_cy + 65], outline=gold, width=3)
-        # Raven's curved beak holding the sun
-        draw.arc([cx - 85, m_cy - 45, cx + 25, m_cy + 35], start=180, end=350, fill=(245, 230, 180), width=6)
-        draw.line([(cx - 85, m_cy - 5), (cx - 15, m_cy - 5)], fill=gold, width=5)
-        # Daylight radiant sphere in the beak
-        draw.ellipse([cx - 80, m_cy - 35, cx - 40, m_cy + 5], fill=(245, 230, 180))
-        # Formline ovoids
-        draw.ellipse([cx + 5, m_cy - 25, cx + 55, m_cy + 25], outline=gold, width=4)
-        draw.ellipse([cx + 20, m_cy - 10, cx + 45, cy + 10], fill=accent)
+        # Daylight released over the coastal sea (plain marks; no formline ovoids,
+        # crest figures or other Northwest Coast design conventions)
+        pale = (245, 230, 180)
+        draw.ellipse([cx - 32, m_cy - 70, cx + 32, m_cy - 6], fill=pale, outline=gold, width=3)
+        for k, half in enumerate((80, 70, 58)):
+            y = m_cy + 18 + k * 20
+            draw.arc([cx - half, y - 12, cx + half, y + 12], start=10, end=170, fill=gold, width=4)
 
     elif p["motif"] == "yoruba_chain":
         # The chain let down from the sky, the snail shell of earth, and the five-toed hen
