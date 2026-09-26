@@ -1576,7 +1576,7 @@
     "pantheonId": "tlingit-haida-pantheon",
     "name": "Gonakadet",
     "slug": "gonakadet",
-    "description": "A Tlingit sea being, the chief of a people under the ocean, whose appearance brings good fortune and wealth; often shown with the head of a wolf or bear and a finned body, and carved on house posts and mortuary poles.",
+    "description": "A Tlingit sea being, in one Swanton text the head chief of the killer-whale people under the ocean, whose appearance brings good fortune and wealth; often shown with the head of a wolf or bear and a finned body, and carved on house posts and mortuary poles.",
     "habitat": "Beneath the ocean and lakes",
     "abilities": [
       "Bringing wealth and good fortune",
@@ -1585,11 +1585,16 @@
     ],
     "dangerLevel": 4,
     "imageUrl": "/creatures/gonakadet.png",
-    "detailedBio": "## The wealth-bringer\n\nGonakadet (Gunakadeit) is one of the best-known sea beings of Tlingit tradition. Swanton's *Tlingit Myths and Texts* (1909) names Gonakadet as the head chief of a people under the ocean and records the belief that the sight of him brings good fortune, and he is associated with wealth throughout Tlingit art and story.\n\n## The son-in-law story\n\nA widely told story concerns a young man scorned by his wife's family as lazy. He secretly kills a sea monster, takes its skin, and wearing it hunts at night, leaving fish and seals on the beach during a famine. His mother-in-law claims the food comes through her own power, until the truth is revealed. The young man, now bound to the skin, goes into the sea, and in many tellings his wife follows him, the two becoming beings who bring good fortune to those who see them.\n\n## On poles and house posts\n\nGonakadet appears on house posts and poles as a crest of particular clans. Edward Keithahn's *Monuments in Cedar* (1945) notes that the Gonakadet pole standing before Chief Shakes's house at Wrangell held the ashes of the father and mother of Chief Shakes VI; a duplicate now stands in the same spot.",
+    "detailedBio": "## The wealth-bringer\n\nGonakadet (Gunakadeit) is one of the best-known sea beings of Tlingit tradition. Swanton's *Tlingit Myths and Texts* (1909), in its Wrangell Raven myth, names Gonakadet as the head chief of the killer-whale people under the ocean and records the belief that the sight of him brings good fortune, and he is associated with wealth throughout Tlingit art and story.\n\n## The son-in-law story\n\nSwanton prints the widely told son-in-law story as 'Origin of the Gonaqadet' (story 33). A high-caste young man is scorned by his mother-in-law as a lazy gambler. He traps a monster in a lake with a split tree, skins it, and wearing the skin hunts at night, leaving salmon, halibut, seals, and at last whales on the beach during a famine. His mother-in-law claims the food comes through her own spirit power and is honoured as a shaman. One dawn a raven calls before he can take off the skin, and he dies inside it; his wife reveals the truth, and her mother dies of shame. The wife lays his body and the skin by the lake, and later he rises in the monster's form and takes her down to its house. Swanton's text ends by saying that this Gonaqadet brings good luck to those who see him, as do his wife and their children, the Daughters of the Creek.\n\n## On poles and house posts\n\nGonakadet appears on house posts and poles as a crest of particular clans. Edward Keithahn's *Monuments in Cedar* (1945) notes that the Gonakadet pole standing before Chief Shakes's house at Wrangell held the ashes of the father and mother of Chief Shakes VI; a duplicate now stands in the same spot.",
     "primarySources": [
       {
-        "text": "Their head chief was named Gonakadet, and the natives say that the sight of him brings good fortune (paraphrase).",
-        "source": "John R. Swanton, Tlingit Myths and Texts (Bureau of American Ethnology Bulletin 39)",
+        "text": "The killer-whale people's head chief was named Gonakadet, and the natives say that the sight of him brings good fortune (paraphrase).",
+        "source": "John R. Swanton, Tlingit Myths and Texts (Bureau of American Ethnology Bulletin 39), Wrangell Raven myth",
+        "date": "1909"
+      },
+      {
+        "text": "A lazy son-in-law kills a lake monster, hunts in its skin to feed the village while his mother-in-law claims the credit, dies in the skin when a raven calls, and returns as the Gonaqadet, who brings good luck to those who see him (paraphrase).",
+        "source": "John R. Swanton, Tlingit Myths and Texts (Bureau of American Ethnology Bulletin 39), story 33, \"Origin of the Gonaqadet\"",
         "date": "1909"
       },
       {
@@ -1885,7 +1890,7 @@
       "hurls lightning"
     ],
     "dangerLevel": 10,
-    "detailedBio": "## The Big Monster\n\nYéʼiitsoh (Matthews's Yéitso), the Big Monster, is the greatest of the naayééʼ, the monsters that preyed on the people after the emergence. He is a giant clad in armour of flint, and in some tellings he is himself a son of the Sun. He comes close to finding the Hero Twins when they are children, and his defeat is the twins' first act on returning from their father's house.\n\n## His death\n\nIn Matthews's version the twins confront Yéʼiitsoh at a lake near Tsoodził where he comes to drink. They exchange taunts; he hurls lightning at them and misses; the Sun strikes him first with lightning, and the twins follow with their lightning arrows, shattering his armour until he falls. The twins take his scalp, and the flow of his blood is turned aside so that it cannot bring him back to life.\n\n## In the land\n\nIn widely told accounts, Yéʼiitsoh's blood became the black lava flows near Mount Taylor, the malpais of the region, and his head became Cabezon Peak to the east. The story ties the volcanic landscape of the area to the twins' victory.",
+    "detailedBio": "## The Big Monster\n\nYéʼiitsoh (Matthews's Yéitso), the Big Monster, is the greatest of the naayééʼ, the monsters that preyed on the people after the emergence. He is a giant clad in armour of flint, and in some tellings he is himself a son of the Sun. He comes close to finding the Hero Twins when they are children, and his defeat is the twins' first act on returning from their father's house.\n\n## His death\n\nIn Matthews's version the twins confront Yéʼiitsoh at a lake near Tsoodził where he comes to drink. They exchange taunts; he hurls lightning at them and misses; the Sun strikes him first with lightning, and the twins follow with their lightning arrows, shattering his armour until he falls. The twins take his scalp, and the flow of his blood is turned aside so that it cannot bring him back to life.\n\n## In the land\n\nIn widely told accounts, Yéʼiitsoh's blood became the black lava flows near Mount Taylor, the malpais of the region, and his head became Cabezon Peak to the east. The story ties the volcanic landscape of the area to the twins' victory. Many Diné families teach that this part of the origin story is told in winter.",
     "primarySources": [
       {
         "text": "The twins meet Yéitso at a lake near Tsoťsil; the Sun strikes first with lightning and the twins' lightning arrows shatter his armour (paraphrase).",
@@ -1907,7 +1912,7 @@
       "sees anyone approaching across open ground"
     ],
     "dangerLevel": 8,
-    "detailedBio": "## The horned monster\n\nDéélgééd (Matthews's Téelget) is one of the naayééʼ, a huge horned creature that lives on an open plain, killing anyone who comes near. Because the plain offers no cover, no one can approach it unseen.\n\n## Gopher's help\n\nIn Matthews's version, Gopher offers Monster Slayer help: he digs a tunnel beneath the monster and gnaws away the hair over its heart. Monster Slayer crawls through the tunnel and shoots a lightning arrow into the monster's heart, then takes refuge in side tunnels as the dying beast tears at the ground with its horns. When it is dead, Gopher asks for the hide and wears it still.\n\n## Marks in the world\n\nThe story explains features of animals: the gopher's coat, and in some tellings the stripes on the ground squirrel's face, painted with the monster's blood in celebration. Monster Slayer takes parts of the monster as trophies.",
+    "detailedBio": "## The horned monster\n\nDéélgééd (Matthews's Téelget) is one of the naayééʼ, a huge horned creature that lives on an open plain, killing anyone who comes near. Because the plain offers no cover, no one can approach it unseen.\n\n## Gopher's help\n\nIn Matthews's version, Gopher offers Monster Slayer help: he digs a tunnel beneath the monster and gnaws away the hair over its heart. Monster Slayer crawls through the tunnel and shoots a lightning arrow into the monster's heart, then takes refuge in side tunnels as the dying beast tears at the ground with its horns. When it is dead, Gopher asks for the hide and wears it still.\n\n## Marks in the world\n\nThe story explains features of animals: the gopher's coat, and in some tellings the stripes on the ground squirrel's face, painted with the monster's blood in celebration. Monster Slayer takes parts of the monster as trophies. Many Diné families teach that this part of the origin story is told in winter.",
     "primarySources": [
       {
         "text": "Gopher digs beneath Téelget and gnaws the hair over its heart, and Nayénĕzgani shoots it through the heart from the tunnel (paraphrase).",
@@ -1929,7 +1934,7 @@
       "drop victims from great heights"
     ],
     "dangerLevel": 8,
-    "detailedBio": "## The rock with wings\n\nTsé Bitʼaʼí, \"rock with wings\", is the Diné name for Shiprock, the volcanic peak in northwest New Mexico. In the Hero Twins' story it is the nesting place of the Tsé Nináhálééh (Matthews's Tsenahále), monstrous birds that carry people off to feed to their young.\n\n## Monster Slayer's trick\n\nIn Matthews's version Monster Slayer allows the male bird to seize him and drop him into the nest, protected from the fall by the feather Spider Woman gave him. When the adult birds return, he kills them with his lightning arrows.\n\n## The young spared\n\nMonster Slayer spares the young birds, turning one into the eagle, whose feathers would be used by the people, and the other into the owl. The feathers of the monster birds are scattered and become the many small birds of the world. As so often in this story, what was destructive is transformed into something that has a place in the world.",
+    "detailedBio": "## The rock with wings\n\nTsé Bitʼaʼí, \"rock with wings\", is the Diné name for Shiprock, the volcanic peak in northwest New Mexico. In the Hero Twins' story it is the nesting place of the Tsé Nináhálééh (Matthews's Tsenahále), monstrous birds that carry people off to feed to their young.\n\n## Monster Slayer's trick\n\nIn Matthews's version Monster Slayer allows the male bird to seize him and drop him into the nest, protected from the fall by the feather Spider Woman gave him. When the adult birds return, he kills them with his lightning arrows.\n\n## The young spared\n\nMonster Slayer spares the young birds, turning one into the eagle, whose feathers would be used by the people, and the other into the owl. The feathers of the monster birds are scattered and become the many small birds of the world. As so often in this story, what was destructive is transformed into something that has a place in the world. Many Diné families teach that this part of the origin story is told in winter.",
     "primarySources": [
       {
         "text": "Nayénĕzgani is carried to the nest of the Tsenahále, kills the parent birds, and turns the young into the eagle and the owl (paraphrase).",
@@ -1975,9 +1980,9 @@
     "primarySources": [
       {
         "text": "In the war with Pariacaca, Huallallo Carhuincho sent against him an amaru, a great serpent; Pariacaca struck it with his golden staff and it turned to stone.",
-        "source": "Huarochirí Manuscript, Huallallo Carhuincho episodes (paraphrase)",
+        "source": "Huarochirí Manuscript, ch. 16 (paraphrase)",
         "sourceId": "huarochiri-manuscript",
-        "locator": "chs. 8 and 16",
+        "locator": "ch. 16",
         "date": "compiled c. 1598-1608"
       }
     ],
@@ -2020,7 +2025,7 @@
       "promoting the increase of flocks"
     ],
     "dangerLevel": 1,
-    "detailedBio": "## A star for herders\n\nThe jurist Juan Polo de Ondegardo, investigating Andean religion in Cusco in the 1550s-1570s, reported that herders worshipped a star they called Urcuchillay, which they imagined as a male llama of many colors and credited with the protection and increase of the flocks; the Jesuit José de Acosta (1590) repeated his account. Polo reported similar star-guardians for other animals and for particular human activities, suggesting a general Andean idea that each kind of creature had a celestial prototype watching over it.\n\n## Herding and the sky\n\nLlamas and alpacas were the basis of Andean wealth: food, wool for cloth, transport, and the most important sacrificial animals of the state cult. It is no surprise that the sky itself held llamas, from the dark-cloud Yacana of the Huarochirí Manuscript to Urcuchillay's bright star. The *urku* in the name means 'male' (used of animals).\n\n## Identification\n\nWhich star Urcuchillay was is not stated clearly in the colonial sources, and modern proposals differ. This entry treats it as a named celestial guardian of herds without asserting a particular modern constellation.",
+    "detailedBio": "## A star for herders\n\nThe jurist Juan Polo de Ondegardo, investigating Andean religion in Cusco in the 1550s-1570s, reported that herders worshipped a star they called Urcuchillay, which they imagined as a male llama of many colors and credited with the protection and increase of the flocks; the Jesuit José de Acosta (1590) repeated his account. Polo reported similar star-guardians for other animals and for particular human activities, suggesting a general Andean idea that each kind of creature had a celestial prototype watching over it.\n\n## Herding and the sky\n\nLlamas and alpacas were the basis of Andean wealth: food, wool for cloth, transport, and the most important sacrificial animals of the state cult. It is no surprise that the sky itself held llamas, from the dark-cloud Yacana of the Huarochirí Manuscript to Urcuchillay's bright star. The *urku* in the name means 'male' (used of animals).\n\n## Identification\n\nPolo and Acosta do not say which star Urcuchillay was. The Jesuit Bernabé Cobo (1653) identifies it with the constellation European astronomers call Lyra, and says the herders also honoured two smaller stars below it. Whether Cobo's identification reflects Andean usage or his own reading of the sky cannot be checked, so this entry records it as Cobo's.",
     "primarySources": [
       {
         "text": "They worshipped a star called Urcuchillay, which they said was a ram of many colors and had charge of the preservation of their flocks.",
@@ -2028,6 +2033,13 @@
         "sourceId": "acosta-natural-moral-history",
         "locator": "Book 5",
         "date": "published 1590"
+      },
+      {
+        "text": "All the herders honoured and sacrificed to the star that astronomers call Lyra, which they named Urcuchillay and said was a ram of many colours that looked after the preservation of the flocks (paraphrase).",
+        "source": "Bernabé Cobo, Historia del Nuevo Mundo, Book 13 (paraphrase)",
+        "sourceId": "cobo-inca-religion",
+        "locator": "Book 13",
+        "date": "completed 1653"
       }
     ],
     "imageUrl": "/creatures/urcuchillay.png"

@@ -267,9 +267,11 @@ export default function HadesIIGuide() {
             retellingLabel={GAME}
             retelling={
               <p>
-                Several of Night&apos;s children, among them Moros (Doom) and
-                Thanatos (Death), appear as characters, continuing the first
-                game&apos;s family of the Underworld.
+                Several of Night&apos;s children appear as characters,
+                continuing the first game&apos;s family of the Underworld. Moros
+                (Doom) comes to Melinoë&apos;s base at the Crossroads as an
+                emissary of the Fates; Thanatos (Death) returns from the first
+                game.
               </p>
             }
             myth={
@@ -295,8 +297,9 @@ export default function HadesIIGuide() {
             retellingLabel={GAME}
             retelling={
               <p>
-                A proud, combative daughter of Night whom Melinoë meets,
-                sometimes as a rival.
+                A proud, combative daughter of Night, posted as a sentry at the
+                Crossroads, who turns up during Melinoë&apos;s journeys to
+                challenge her as a rival or to trade.
               </p>
             }
             myth={

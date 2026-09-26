@@ -2179,7 +2179,7 @@
     "toDeityId": "yam",
     "relationshipType": "parent_of",
     "confidenceLevel": "medium",
-    "description": "El proclaims Yam's name and calls him beloved (KTU 1.1 IV); the damaged text appears to call him El's son, but the reading is not certain."
+    "description": "El proclaims Yam's name and calls him beloved (KTU 1.1 IV); in Smith's reading El also calls him 'my son' (line 14), but the surrounding text is damaged, so the kinship rests on a single passage."
   },
   {
     "id": "canaanite-el-mot",
@@ -2363,7 +2363,7 @@
     "toDeityId": "changing-woman",
     "relationshipType": "aspect_of",
     "confidenceLevel": "low",
-    "description": "Many later tellings treat White Shell Woman as another name or aspect of Changing Woman, while Matthews presents them as two women; marked low confidence because the versions disagree."
+    "description": "Many later tellings treat White Shell Woman as another name or aspect of Changing Woman, while Matthews (1897) has the gods bring a turquoise image and a white shell image to life as two women, 'the two divine sisters'; marked low confidence because the versions disagree."
   },
   {
     "id": "dine-first-man-changing-woman",
@@ -2371,7 +2371,7 @@
     "toDeityId": "changing-woman",
     "relationshipType": "parent_of",
     "confidenceLevel": "low",
-    "description": "In many tellings First Man finds the infant Changing Woman and he and First Woman raise her; this is fosterage, not birth, and it is marked low confidence for that reason."
+    "description": "In Zolbrod's Diné bahane' (1984) and tellings like it, First Man hears an infant cry on Chʼóolʼį́ʼí and finds a turquoise figure there, which the Holy People bring to life; they tell First Man and First Woman to raise her as their daughter. In Matthews (1897) the turquoise image is found by an unnamed family and the gods leave the two sisters on the mountain, with no fostering by First Man. This is fosterage, not birth, and it is marked low confidence for that reason."
   },
   {
     "id": "inca-inti-mama-killa",
@@ -2403,7 +2403,7 @@
     "toDeityId": "manco-capac",
     "relationshipType": "parent_of",
     "confidenceLevel": "low",
-    "description": "Garcilaso calls the Moon mother of the Incas; the founding siblings' descent from her is implied rather than narrated."
+    "description": "Garcilaso says the Incas held the Moon to be the sister and wife of the Sun and 'mother of the Incas and of all their generation' (Comentarios Reales, Part 1); the founding siblings' descent from her is implied rather than narrated."
   },
   {
     "id": "inca-manco-capac-mama-ocllo-spouse",

@@ -364,7 +364,9 @@ export default function PercyJacksonTitansCurseGuide() {
                 almost nothing more to say.
               </p>
             }
-            citations={[{ label: "Ovid, Fasti 3", href: "/sources/fasti" }]}
+            citations={[
+              { label: "Ovid, Fasti 3.793-808", href: "/sources/fasti" },
+            ]}
             entities={[]}
           />
 
