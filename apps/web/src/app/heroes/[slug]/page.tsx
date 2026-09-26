@@ -12,6 +12,9 @@ import { getDeityRefs } from "@/lib/data/catalog";
 import { project } from "@/lib/data/project";
 import { HeroPageClient, type HeroPageHero } from "./HeroPageClient";
 import { getMuseumObjectsFor, getMuseumPortrait } from "@/lib/museum";
+import { FeaturedInGuides } from "@/components/guides/FeaturedInGuides";
+import { HeroJsonLd } from "@/components/seo/JsonLd";
+import { citedWorksFor } from "@/lib/seo/cited-works";
 
 interface HeroData {
   id: string;
@@ -73,7 +76,8 @@ export async function generateMetadata({
     title: `${hero.name} - Hero of ${pantheonName} Mythology`,
     description: description.slice(0, 160),
     url: `/heroes/${hero.slug}`,
-    image: hero.imageUrl || "/og-image.png",
+    // The generated opengraph-image card for this route supplies og:image.
+    image: null,
     type: "article",
     keywords: [
       hero.name,
@@ -104,15 +108,35 @@ export default async function HeroPage({ params }: PageProps) {
     (item) => item.id === hero.id,
   );
 
+  const pantheon = pantheons.find((p) => p.id === hero.pantheonId);
+
   return (
-    <HeroPageClient
-      slug={slug}
-      hero={record ?? null}
-      deities={project(getDeityRefs(), ["id", "slug", "name"])}
-      heroes={project(heroes, ["id", "slug", "name"])}
-      pantheons={project(pantheons, ["id", "name"])}
-      museumObjects={museumObjects}
-      museumPortrait={getMuseumPortrait(museumObjects)}
-    />
+    <>
+      <HeroJsonLd
+        name={hero.name}
+        description={
+          hero.description || `${hero.name}, a hero of ancient mythology`
+        }
+        alternateNames={hero.alternateNames}
+        url={`/heroes/${hero.slug}`}
+        image={hero.imageUrl || undefined}
+        tradition={shortPantheonName(pantheon)}
+        citations={citedWorksFor(record ?? {})}
+      />
+      <HeroPageClient
+        slug={slug}
+        hero={record ?? null}
+        deities={project(getDeityRefs(), ["id", "slug", "name"])}
+        heroes={project(heroes, ["id", "slug", "name"])}
+        pantheons={project(pantheons, ["id", "name"])}
+        museumObjects={museumObjects}
+        museumPortrait={getMuseumPortrait(museumObjects)}
+      />
+      <FeaturedInGuides
+        kind="hero"
+        id={hero.id}
+        className="container mx-auto mb-16 max-w-4xl px-4"
+      />
+    </>
   );
 }

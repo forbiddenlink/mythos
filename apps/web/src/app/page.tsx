@@ -1,6 +1,7 @@
 import { CollectionsShowcase } from "@/components/home/CollectionsShowcase";
 import { CTASection } from "@/components/home/CTASection";
 import { DidYouKnow } from "@/components/home/DidYouKnow";
+import { GuidesStrip } from "@/components/home/GuidesStrip";
 import { AtlasOpensHero } from "@/components/home/AtlasOpensHero";
 import { InteractiveStoriesBanner } from "@/components/home/InteractiveStoriesBanner";
 import { PantheonShowcase } from "@/components/home/PantheonShowcase";
@@ -66,6 +67,7 @@ export default function Home() {
       <AtlasOpensHero counts={HERO_COUNTS} />
       <PantheonShowcase />
       <CollectionsShowcase />
+      <GuidesStrip />
       <SyncretismStrip />
       <InteractiveStoriesBanner />
       <DidYouKnow deityLookup={DEITY_LOOKUP} />
