@@ -2177,5 +2177,203 @@
         "year": 1990
       }
     ]
+  },
+  {
+    "id": "avesta",
+    "title": "The Avesta (Zend-Avesta)",
+    "author": "Zoroastrian priestly tradition; the Gathas are attributed to Zarathushtra",
+    "year": "Gathas c. 1500-1000 BCE (date disputed); later parts through the Achaemenid era; written down in the Sasanian period",
+    "type": "ancient-text",
+    "language": "Avestan",
+    "description": "The scripture of Zoroastrianism: the Gathas (hymns attributed to Zarathushtra), the Yasna liturgy, the Yashts (hymns to Mithra, Anahita, Tishtrya, Verethragna and others), and the Vendidad (purity law, with the myths of the sixteen lands and of Yima's enclosure). Transmitted orally for centuries; the surviving manuscripts are medieval.",
+    "translators": [
+      {
+        "name": "James Darmesteter (Vendidad, Yashts; Sacred Books of the East 4 and 23)",
+        "year": 1880
+      },
+      {
+        "name": "L. H. Mills (Yasna and Gathas; Sacred Books of the East 31)",
+        "year": 1887
+      },
+      {
+        "name": "Helmut Humbach (Gathas)",
+        "year": 1991
+      }
+    ],
+    "externalUrl": "https://www.avesta.org/",
+    "characters": [
+      {
+        "id": "ahura-mazda",
+        "kind": "deity",
+        "role": "the Wise Lord, creator, addressed in the Gathas and speaker of the Yashts and Vendidad",
+        "where": "throughout"
+      },
+      {
+        "id": "mithra",
+        "kind": "deity",
+        "role": "lord of wide pastures and guardian of contracts",
+        "where": "Yasht 10 (Mihr Yasht)"
+      },
+      {
+        "id": "anahita",
+        "kind": "deity",
+        "role": "the heavenly river-goddess Ardvi Sura Anahita",
+        "where": "Yasht 5 (Aban Yasht)"
+      },
+      {
+        "id": "tishtrya",
+        "kind": "deity",
+        "role": "the star Sirius, who battles the drought demon Apaosha",
+        "where": "Yasht 8 (Tir Yasht)"
+      },
+      {
+        "id": "verethragna",
+        "kind": "deity",
+        "role": "victory, coming in ten shapes",
+        "where": "Yasht 14 (Bahram Yasht)"
+      },
+      {
+        "id": "yima",
+        "kind": "deity",
+        "role": "the first king, who builds the Var against the winters",
+        "where": "Vendidad 2; Yasht 19"
+      }
+    ],
+    "keyScenes": [
+      {
+        "title": "The Two Spirits",
+        "where": "Yasna 30",
+        "summary": "Zarathushtra describes the two primal spirits and the choice between truth and the lie that every being must make."
+      },
+      {
+        "title": "The Sixteen Lands",
+        "where": "Vendidad 1",
+        "summary": "Ahura Mazda creates sixteen good lands, and Angra Mainyu counter-creates a plague against each."
+      },
+      {
+        "title": "Yima's Var",
+        "where": "Vendidad 2",
+        "summary": "Warned of devastating winters, Yima builds an enclosure to preserve the best of every kind of creature."
+      },
+      {
+        "title": "Tishtrya and Apaosha",
+        "where": "Yasht 8",
+        "summary": "The star Sirius, as a white horse, battles the black horse of drought at the sea Vouru-Kasha and releases the rains."
+      }
+    ],
+    "readingOrder": "Start with the Yashts in Darmesteter's Sacred Books of the East translation (volume 23), which contain the most vivid narrative hymns, then the Vendidad's first two chapters (volume 4). Read the Gathas last and in a modern translation such as Humbach's, since their language is archaic and every English rendering involves heavy interpretation."
+  },
+  {
+    "id": "bundahishn",
+    "title": "Bundahishn (Primal Creation)",
+    "author": "Zoroastrian priests, compiled from older material",
+    "year": "compiled 9th century CE",
+    "type": "ancient-text",
+    "language": "Middle Persian (Pahlavi)",
+    "description": "The fullest Zoroastrian account of cosmology: the two principles of light and darkness, Ahriman's assault on Ohrmazd's creation, the first man Gayomard and the sole-created bull, and the end of time. Survives in a shorter Indian and a longer Iranian recension.",
+    "translators": [
+      {
+        "name": "E. W. West (Sacred Books of the East 5)",
+        "year": 1880
+      },
+      {
+        "name": "B. T. Anklesaria (Greater Bundahishn)",
+        "year": 1956
+      }
+    ],
+    "externalUrl": "https://www.avesta.org/mp/bundahis.html"
+  },
+  {
+    "id": "shahnameh",
+    "title": "Shahnameh (The Book of Kings)",
+    "author": "Abolqasem Ferdowsi",
+    "year": "completed 1010 CE",
+    "type": "ancient-text",
+    "language": "Persian",
+    "description": "The Persian national epic of roughly fifty thousand couplets, telling the history of Iran's kings from the first man to the Arab conquest. Composed in the Islamic era from older Iranian traditions, it retells Avestan figures as kings and heroes: Yima as Jamshid, Azhi Dahaka as Zahhak, Thraetaona as Fereydun.",
+    "translators": [
+      {
+        "name": "Helen Zimmern (abridged prose, The Epic of Kings)",
+        "year": 1883
+      },
+      {
+        "name": "Arthur George Warner and Edmond Warner",
+        "year": 1905
+      },
+      {
+        "name": "Dick Davis",
+        "year": 2006
+      }
+    ],
+    "characters": [
+      {
+        "id": "rostam",
+        "kind": "hero",
+        "role": "Iran's greatest champion",
+        "where": "from the reign of Manuchehr to that of Goshtasp"
+      },
+      {
+        "id": "yima",
+        "kind": "deity",
+        "role": "retold as King Jamshid, who loses the royal glory through pride",
+        "where": "reign of Jamshid"
+      }
+    ],
+    "keyScenes": [
+      {
+        "title": "Zahhak and Kaveh",
+        "where": "reigns of Zahhak and Fereydun",
+        "summary": "The serpent-shouldered tyrant is overthrown when the blacksmith Kaveh raises his leather apron as a banner for Fereydun."
+      },
+      {
+        "title": "Zal and the Simurgh",
+        "where": "reign of Manuchehr",
+        "summary": "Exposed as an infant for his white hair, Zal is raised by the Simurgh on Mount Alborz."
+      },
+      {
+        "title": "Rostam and Sohrab",
+        "where": "reign of Kay Kavus",
+        "summary": "Rostam kills his own son in single combat, learning who he is only as he dies."
+      }
+    ],
+    "readingOrder": "Dick Davis's 2006 prose-and-verse translation is the most readable complete selection; the Warners' nine-volume verse translation (1905-1925) is complete and public domain but archaic."
+  },
+  {
+    "id": "behistun-inscription",
+    "title": "Behistun Inscription",
+    "author": "Darius I of Persia",
+    "year": "c. 520 BCE",
+    "type": "ancient-text",
+    "language": "Old Persian, Elamite, and Babylonian",
+    "description": "Darius I's trilingual account of his seizure of power, carved on a cliff at Bisotun in western Iran, which repeatedly credits his success to 'the favor of Ahuramazda'; its decipherment in the nineteenth century opened cuneiform to modern scholarship.",
+    "translators": [
+      {
+        "name": "L. W. King and R. C. Thompson",
+        "year": 1907
+      },
+      {
+        "name": "Roland G. Kent",
+        "year": 1950
+      }
+    ]
+  },
+  {
+    "id": "herodotus-histories",
+    "title": "Histories",
+    "author": "Herodotus",
+    "year": "c. 430 BCE",
+    "type": "ancient-text",
+    "language": "Ancient Greek",
+    "description": "The Greek historian's account of the Persian Wars, whose first book includes the earliest outside description of Persian religion: sacrifice on mountaintops, without temples or images, to the sky, sun, moon, earth, fire, water, and winds.",
+    "translators": [
+      {
+        "name": "George Rawlinson",
+        "year": 1858
+      },
+      {
+        "name": "A. D. Godley",
+        "year": 1920
+      }
+    ]
   }
 ]

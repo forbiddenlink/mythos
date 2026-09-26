@@ -105,6 +105,19 @@ DEITIES = [
     {"id": "huallallo-carhuincho", "name": "HUALLALLO", "tag": "HUAROCHIRÍ HUACA", "domain": "FIRE · LORD OF THE OLD HOT WORLD", "accent": (215, 95, 55), "bg": (24, 12, 10), "motif": "emblem_flame"},
     {"id": "manco-capac", "name": "MANCO CÁPAC", "tag": "INCA ANCESTOR", "domain": "FIRST INCA · FOUNDER OF CUSCO", "accent": (220, 175, 60), "bg": (22, 16, 12), "motif": "emblem_rod"},
     {"id": "mama-ocllo", "name": "MAMA OCLLO", "tag": "INCA ANCESTRESS", "domain": "FOUNDING MOTHER · SPINNING & WEAVING", "accent": (190, 120, 150), "bg": (22, 14, 18), "motif": "emblem_flower"},
+
+    # PERSIAN / IRANIAN (2026-09)
+    {"id": "ahura-mazda", "name": "AHURA MAZDA", "tag": "ZOROASTRIAN CREATOR", "domain": "THE WISE LORD · TRUTH · LIGHT", "accent": (215, 175, 70), "bg": (14, 16, 26), "motif": "emblem_winged_disc"},
+    {"id": "angra-mainyu", "name": "ANGRA MAINYU", "tag": "ZOROASTRIAN ADVERSARY", "domain": "THE HOSTILE SPIRIT · THE LIE", "accent": (130, 80, 110), "bg": (12, 10, 14), "motif": "emblem_serpent"},
+    {"id": "mithra", "name": "MITHRA", "tag": "IRANIAN YAZATA", "domain": "THE COVENANT · DAWN · JUDGMENT", "accent": (230, 165, 70), "bg": (22, 14, 12), "motif": "emblem_sun"},
+    {"id": "anahita", "name": "ANAHITA", "tag": "IRANIAN YAZATA", "domain": "THE HEAVENLY RIVER · BIRTH · PURITY", "accent": (100, 170, 205), "bg": (10, 16, 26), "motif": "emblem_water_flower"},
+    {"id": "tishtrya", "name": "TISHTRYA", "tag": "IRANIAN YAZATA", "domain": "THE STAR SIRIUS · BRINGER OF RAIN", "accent": (180, 200, 235), "bg": (10, 14, 26), "motif": "emblem_horse"},
+    {"id": "verethragna", "name": "VERETHRAGNA", "tag": "IRANIAN YAZATA", "domain": "VICTORY · THE TEN INCARNATIONS", "accent": (205, 130, 70), "bg": (22, 14, 12), "motif": "emblem_beast"},
+    {"id": "atar", "name": "ATAR", "tag": "IRANIAN YAZATA", "domain": "SACRED FIRE · SON OF AHURA MAZDA", "accent": (230, 110, 50), "bg": (24, 12, 10), "motif": "emblem_fire"},
+    {"id": "spenta-armaiti", "name": "SPENTA ARMAITI", "tag": "AMESHA SPENTA", "domain": "DEVOTION · GUARDIAN OF THE EARTH", "accent": (150, 175, 95), "bg": (16, 18, 12), "motif": "emblem_earth"},
+    {"id": "sraosha", "name": "SRAOSHA", "tag": "IRANIAN YAZATA", "domain": "OBEDIENCE · GUARDIAN OF SOULS", "accent": (190, 180, 150), "bg": (14, 14, 20), "motif": "emblem_bird"},
+    {"id": "zurvan", "name": "ZURVAN", "tag": "ZURVANITE PRINCIPLE", "domain": "INFINITE TIME · FATHER OF TWINS", "accent": (160, 150, 200), "bg": (12, 12, 20), "motif": "emblem_stars"},
+    {"id": "yima", "name": "YIMA", "tag": "PRIMORDIAL KING", "domain": "THE GOLDEN AGE · THE VAR · JAMSHID", "accent": (90, 130, 210), "bg": (12, 14, 24), "motif": "emblem_cup"},
 ]
 
 def draw_deity_motif(draw, cx, cy, radius, motif, accent, gold):

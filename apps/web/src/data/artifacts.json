@@ -1507,5 +1507,80 @@
         "date": "written 1653"
       }
     ]
+  },
+  {
+    "id": "derafsh-kaviani",
+    "pantheonId": "persian-pantheon",
+    "name": "Derafsh-e Kaviani",
+    "slug": "derafsh-kaviani",
+    "ownerLabel": "Kaveh the Blacksmith; afterwards the royal standard of Iran's kings",
+    "description": "The banner of Kaveh: the leather apron the blacksmith raised on a spear against the tyrant Zahhak, adorned with jewels by Fereydun and carried as Iran's royal standard until, the historians say, it was captured in the Arab conquest.",
+    "type": "banner",
+    "powers": [
+      "Rallying the people against tyranny",
+      "Emblem of legitimate kingship"
+    ],
+    "origin": "Raised by Kaveh in revolt against Zahhak and adorned by Fereydun (Ferdowsi, Shahnameh, reign of Zahhak).",
+    "currentLocation": "Lost; reported captured at the battle of al-Qadisiyyah (c. 636 CE)",
+    "imageUrl": "/artifacts/derafsh-kaviani.png",
+    "relatedStories": ["zahhak-and-kaveh"],
+    "detailedBio": "## The apron on a spear\n\nIn the Shahnameh, when the blacksmith Kaveh learns that his last son is to be killed to feed Zahhak's serpents, he tears up the tyrant's declaration of justice, fixes his leather apron to the point of a spear in the marketplace, and calls the people to rise. They follow the apron to Fereydun, who honors it by covering it with brocade and jewels; each later king, Ferdowsi says, added more jewels, until it shone like the sun in the night.\n\n## A real standard\n\nThe Sasanian kings had a great royal banner called the *Drafsh-i Kawiyan*, 'banner of the Kays' (the legendary royal dynasty), which the Kaveh story explains through a popular etymology linking it to the blacksmith. Arab historians including al-Tabari report that this jeweled standard was captured at the battle of al-Qadisiyyah, around 636 CE, in the Arab conquest of Iran, and divided as spoil.\n\n## Symbol\n\nThe banner of Kaveh has remained a symbol of Iranian nationhood and of revolt against tyranny, used in modern political imagery by movements of very different kinds.",
+    "primarySources": [
+      {
+        "text": "Kaveh fixed the leather apron that blacksmiths wear to protect their legs to the point of a spear, and raised a cry in the marketplace; the people gathered to him and went in search of Fereydun, who adorned it with brocade and jewels.",
+        "source": "Ferdowsi, Shahnameh, reign of Zahhak (paraphrase)",
+        "sourceId": "shahnameh",
+        "locator": "reign of Zahhak",
+        "date": "completed 1010 CE"
+      }
+    ]
+  },
+  {
+    "id": "jam-e-jam",
+    "pantheonId": "persian-pantheon",
+    "name": "Jam-e Jam",
+    "slug": "jam-e-jam",
+    "ownerLabel": "Kay Khosrow in the Shahnameh; attributed to Jamshid in later Persian poetry",
+    "description": "The world-revealing cup of Persian legend, in which the seven regions of the world could be seen; in the Shahnameh Kay Khosrow uses it to find the captive hero Bizhan, and later poets named it the cup of Jamshid.",
+    "type": "vessel",
+    "powers": ["Revealing the whole world", "Finding what is hidden"],
+    "origin": "A royal cup of Kay Khosrow in the Shahnameh; its attribution to Jamshid (Jam) appears in later Persian literature.",
+    "currentLocation": "Legendary",
+    "imageUrl": "/artifacts/jam-e-jam.png",
+    "relatedStories": ["yima-and-the-var"],
+    "detailedBio": "## Kay Khosrow's cup\n\nIn the Shahnameh story of Bizhan and Manizheh, the young hero Bizhan is imprisoned by the Turanian king Afrasiyab in a pit covered with a great stone. When his father Giv despairs of finding him, King Kay Khosrow waits for Nowruz, takes up his world-revealing cup, and looks into it, seeing the seven regions of the world and the movements of the heavens, until he finds Bizhan in the pit in Turan. Rostam is then sent to rescue him.\n\n## Jamshid's cup\n\nIn later Persian poetry the cup is regularly called the *jam-e jam* or *jam-e Jamshid*, the cup of Jamshid, the legendary king whose name (Jam) also means 'cup' in Persian by coincidence of sound; the attribution to Jamshid is not Ferdowsi's. For Hafez and the mystical poets, the world-seeing cup becomes a symbol of the heart that reflects the divine, or of wine that reveals truth.\n\n## Not an object\n\nThe cup belongs to legend and poetry; no historical vessel is associated with it.",
+    "primarySources": [
+      {
+        "text": "At Nowruz Kay Khosrow took up the world-revealing cup and looked into it, and saw the seven regions of the world, until he found Bizhan in the pit in Turan.",
+        "source": "Ferdowsi, Shahnameh, 'Bizhan and Manizheh', reign of Kay Khosrow (paraphrase)",
+        "sourceId": "shahnameh",
+        "locator": "reign of Kay Khosrow",
+        "date": "completed 1010 CE"
+      }
+    ]
+  },
+  {
+    "id": "ox-headed-mace",
+    "pantheonId": "persian-pantheon",
+    "name": "Ox-Headed Mace of Fereydun",
+    "slug": "ox-headed-mace",
+    "ownerLabel": "Fereydun (Avestan Thraetaona)",
+    "description": "The mace with the head of an ox that Fereydun had forged to fight Zahhak, in memory of the cow Barmayeh that nursed him; with it he struck down the tyrant before binding him in Mount Damavand.",
+    "type": "weapon",
+    "powers": ["Overthrowing the tyrant", "Emblem of the royal hero"],
+    "origin": "Forged by smiths to Fereydun's design before his march on Zahhak (Ferdowsi, Shahnameh, reign of Fereydun).",
+    "currentLocation": "Legendary",
+    "imageUrl": "/artifacts/ox-headed-mace.png",
+    "relatedStories": ["zahhak-and-kaveh"],
+    "detailedBio": "## The cow and the mace\n\nIn the Shahnameh the infant Fereydun, hidden from Zahhak, is nursed by a wonderful cow, Barmayeh, whose coat shines with every color; Zahhak later finds and kills her. When Fereydun sets out against the tyrant, he draws the design of a mace with an ox's head on the ground and has smiths forge it. Zahhak had dreamed years earlier of a young warrior striking him with just such a mace.\n\n## The blow\n\nFereydun strikes Zahhak with the ox-headed mace, but before he can kill him the heavenly messenger Sorush tells him to bind the tyrant instead, and he chains him in Mount Damavand. In the Avesta, Thraetaona, Fereydun's older form, is simply the hero who smote Azhi Dahaka; the ox-headed mace is a feature of the later epic.\n\n## The gorz\n\nThe *gorz-e gavsar* (ox-headed mace) became an emblem of Iranian heroism, carried by later champions in the epic, including Rostam; ox-headed maces are frequently depicted in Persian manuscript painting.",
+    "primarySources": [
+      {
+        "text": "Fereydun drew for the smiths the shape of a mace with the head of an ox, and they forged it; with it he struck Zahhak down.",
+        "source": "Ferdowsi, Shahnameh, reign of Fereydun (paraphrase)",
+        "sourceId": "shahnameh",
+        "locator": "reign of Fereydun",
+        "date": "completed 1010 CE"
+      }
+    ]
   }
 ]

@@ -1391,5 +1391,105 @@
         ]
       }
     ]
+  },
+  {
+    "pantheonId": "persian-pantheon",
+    "title": "Endless Light, the Seven Regions, and the House of the Lie",
+    "summary": "A world between light and darkness: the House of Song above, the stations of stars, moon, and sun, the seven regions of the earth around the world-mountain Hara and the sea Vouru-Kasha, the Chinvat Bridge that every soul must cross, and the House of the Lie below.",
+    "axis": {
+      "name": "Hara Berezaiti (High Hara)",
+      "kind": "mountain",
+      "note": "The world-mountain around which the sun, moon, and stars revolve; the Mihr Yasht has Mithra rise over Hara before the sun, and the Chinvat Bridge stretches from its peak. Later identified with the Alborz range of northern Iran."
+    },
+    "variantNote": "This arrangement follows the Middle Persian synthesis (Bundahishn, Arda Viraf, Menog-i Khrad), which systematizes allusions scattered through the Avesta; the Gathas themselves describe the House of Song, the House of the Lie, and the Bridge of the Separator, but not a full map. The three stations of the stars, moon, and sun correspond in later texts to good thoughts, good words, and good deeds. The Shahnameh has no cosmology of this kind; its Alborz is an earthly mountain where the Simurgh nests.",
+    "sources": [
+      "Avesta, trans. James Darmesteter and L. H. Mills, Sacred Books of the East 4, 23, 31 (1880-1887)",
+      "Bundahishn, trans. E. W. West, Sacred Books of the East 5 (1880)",
+      "The Book of Arda Viraf, 9th-10th century CE"
+    ],
+    "tiers": [
+      {
+        "id": "garo-demana",
+        "label": "Garo-demana: The House of Song",
+        "band": "beyond",
+        "realms": [
+          {
+            "name": "The House of Song and the Endless Lights",
+            "originalName": "Garō.dəmāna / Garōdmān",
+            "description": "The highest heaven, the dwelling of Ahura Mazda and the Beneficent Immortals, reached by righteous souls after the bridge.",
+            "deities": ["ahura-mazda", "spenta-armaiti"]
+          }
+        ]
+      },
+      {
+        "id": "stations",
+        "label": "The Stations of the Sun, Moon, and Stars",
+        "band": "sky",
+        "realms": [
+          {
+            "name": "The Heavens",
+            "description": "The spheres of the stars, moon, and sun, crossed by Mithra's chariot and by Tishtrya, the rain-star, on his flight to the sea.",
+            "deities": ["mithra", "tishtrya", "verethragna"]
+          }
+        ]
+      },
+      {
+        "id": "karshvars",
+        "label": "The Seven Regions of the Earth",
+        "band": "earth",
+        "realms": [
+          {
+            "name": "Xvaniratha and the Six Outer Regions",
+            "originalName": "haft kišwar",
+            "description": "The inhabited central region and the six surrounding ones, ringed by mountains, where fire burns on the altars and Yima once ruled a deathless golden age.",
+            "deities": ["atar", "yima"],
+            "creatures": ["simurgh"],
+            "locationId": "mount-damavand"
+          }
+        ]
+      },
+      {
+        "id": "chinvat",
+        "label": "The Chinvat Bridge",
+        "band": "beyond",
+        "realms": [
+          {
+            "name": "The Bridge of the Separator",
+            "originalName": "Cinvatō Pərətu",
+            "description": "The crossing every soul makes on the fourth dawn after death, judged by Mithra, Sraosha, and Rashnu: broad for the righteous, narrow as a blade for the wicked.",
+            "deities": ["sraosha"],
+            "locationId": "chinvat-bridge"
+          }
+        ]
+      },
+      {
+        "id": "vourukasha",
+        "label": "The Sea Vouru-Kasha",
+        "band": "water",
+        "realms": [
+          {
+            "name": "Vouru-Kasha, the Wide-Bayed Sea",
+            "originalName": "Vouru.kaša",
+            "description": "The cosmic sea into which Anahita's heavenly river pours and from which all waters flow, where Tishtrya battles the drought demon and the tree of all seeds stands.",
+            "deities": ["anahita"],
+            "creatures": ["apaosha"]
+          }
+        ]
+      },
+      {
+        "id": "drujo-demana",
+        "label": "Drujo-demana: The House of the Lie",
+        "band": "under",
+        "realms": [
+          {
+            "name": "The House of the Lie",
+            "originalName": "Drūjō.dəmāna / Dušox",
+            "description": "The place of darkness, stench, and torment into which the wicked fall from the bridge, the realm of the Hostile Spirit and his demons until the final renewal.",
+            "deities": ["angra-mainyu"],
+            "creatures": ["azhi-dahaka", "div-e-sepid"]
+          }
+        ]
+      }
+    ]
   }
 ]

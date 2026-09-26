@@ -4022,5 +4022,237 @@
     "featuredLocations": ["nevado-pariacaca"],
     "relatedStories": ["huatyacuri-and-the-false-god"],
     "imageUrl": "/stories/pariacaca-and-huallallo-carhuincho.png"
+  },
+  {
+    "id": "ohrmazd-and-ahriman",
+    "pantheonId": "persian-pantheon",
+    "title": "Ohrmazd and Ahriman: The Two Spirits and the Assault on Creation",
+    "slug": "ohrmazd-and-ahriman",
+    "summary": "From the Gathas' two primal spirits and the choice between truth and the lie to the Bundahishn's cosmic drama: Ohrmazd in light and Ahriman in darkness, a created world attacked and corrupted, and the promise of its final renewal.",
+    "fullNarrative": "## The choice of the two spirits\n\nThe oldest layer of this story is not a narrative at all. In one of the Gathas (Yasna 30), Zarathushtra describes two primal spirits, called twins, who in the beginning chose between the good and the bad in thought, word, and deed: one chose truth, the other the lie. When they first came together they established life and non-life, and the followers of the lie will have the worst existence at the end, the followers of truth the best mind. Humans, like the spirits, must choose. The hymn's emphasis is ethical: the world is a place of decision.\n\n## Light above, darkness below\n\nThe Middle Persian Bundahishn ('Primal Creation'), compiled in the ninth century CE from older traditions, turns this into a cosmic history. In the beginning Ohrmazd dwelt on high in endless light, omniscient and good; Ahriman dwelt below in endless darkness, ignorant and destructive; between them lay empty space. Ohrmazd, knowing Ahriman existed, created the world first in a spiritual, invisible state. When Ahriman rose to the boundary and saw the light, he desired to destroy it. Ohrmazd offered peace, which Ahriman refused, and so Ohrmazd proposed a fixed period of struggle, knowing that a limited war would end in Ahriman's defeat. Then Ohrmazd recited the Ahuna Vairya prayer, and Ahriman, seeing his final ruin in it, fell back stunned into the darkness for three thousand years.\n\n## The seven creations\n\nDuring that time Ohrmazd made the material world in seven stages: the sky, water, earth, plants, the sole-created bull, the first man Gayomard, and fire, which pervades all the others. Everything was at first perfect and still, the sun standing at noon.\n\n## The assault\n\nAt the end of the three thousand years Ahriman attacked. He broke through the sky, pierced the earth, poisoned the waters, withered the plants, and sent disease and death against the bull and against Gayomard. The world became mixed: good and evil entangled everywhere, the sun beginning to move and time to pass. But the bull's seed, purified in the moon, gave rise to the animals; and from Gayomard's seed, after forty years, grew a rhubarb plant from which the first human couple, Mashya and Mashyana, emerged.\n\n## The renewal\n\nThe struggle continues through the ages of the world, which the Bundahishn and related texts divide into periods of three thousand years, with Zarathushtra's revelation at the start of the last. At the end, a savior (Saoshyant) born of Zarathushtra's preserved seed will raise the dead; a river of molten metal will purify all people; Ahriman will be defeated and made powerless; and the world will be renewed, never to grow old or die. The Zamyad Yasht of the Avesta already looks forward to that renewal, 'when the dead will rise, when life and immortality will come'.\n\n## Variants\n\nThe Zurvanite version, reported by Christian and Armenian writers, made Ohrmazd and Ahriman twin sons of Zurvan, Infinite Time, reading the Gathas' 'twins' literally; later Zoroastrian orthodoxy rejected it.",
+    "keyExcerpts": "Two primal spirits choose between truth and the lie; Ohrmazd creates the world in seven stages; Ahriman breaks in and mixes good with evil; from the first man's seed grow Mashya and Mashyana; at the end the dead rise and the world is renewed.",
+    "category": "creation",
+    "moralThemes": [
+      "moral choice",
+      "good and evil as cosmic struggle",
+      "hope in final renewal"
+    ],
+    "culturalSignificance": "The foundation of Zoroastrian cosmology and ethics, and one of the earliest fully dualist accounts of the world, influential in discussions of the origins of ideas about the end of time, resurrection, and judgment.",
+    "citationSources": [
+      {
+        "title": "Avesta, Yasna 30 (Gathas)",
+        "sourceId": "avesta",
+        "author": "trans. L. H. Mills; Helmut Humbach",
+        "date": "Gathas date disputed; trans. 1887, 1991",
+        "type": "primary"
+      },
+      {
+        "title": "Bundahishn, chs. 1-4 (West's numbering, SBE 5)",
+        "sourceId": "bundahishn",
+        "author": "trans. E. W. West",
+        "date": "compiled 9th c. CE; trans. 1880",
+        "type": "primary"
+      },
+      {
+        "title": "Avesta, Yasht 19.89-96",
+        "sourceId": "avesta",
+        "author": "trans. James Darmesteter",
+        "date": "trans. 1883",
+        "type": "primary"
+      }
+    ],
+    "variants": [
+      {
+        "source": "Eznik of Kolb, Refutation of the Sects",
+        "date": "5th century CE",
+        "difference": "Ohrmazd and Ahriman are twin sons of Zurvan (Time): Ohrmazd born of his sacrifice, Ahriman of his doubt, with Ahriman granted a limited reign by Zurvan's vow.",
+        "note": "Known mainly from hostile Christian and Armenian writers; later Zoroastrian orthodoxy rejected it."
+      }
+    ],
+    "featuredDeities": ["ahura-mazda", "angra-mainyu", "zurvan"],
+    "relatedStories": ["yima-and-the-var"],
+    "imageUrl": "/stories/ohrmazd-and-ahriman.png"
+  },
+  {
+    "id": "tishtrya-and-apaosha",
+    "pantheonId": "persian-pantheon",
+    "title": "Tishtrya and the Demon of Drought",
+    "slug": "tishtrya-and-apaosha",
+    "summary": "The star Sirius descends to the cosmic sea as a white horse to release the rains, but the black horse of drought, Apaosha, defeats him; only when he is worshipped by his own name does Tishtrya return in strength, drive Apaosha away, and send the rain across the world.",
+    "fullNarrative": "## The star and the arrow\n\nThe Tir Yasht, the Avesta's hymn to the star Tishtrya (Sirius), opens with his swiftness. He flies toward the sea Vouru-Kasha as swiftly as the arrow once shot by Erekhsha, the swiftest archer of the Aryans, from Mount Khshaotha to Mount Hvanvant. Ahura Mazda gives him help, and so do the waters and the plants, and Mithra, lord of wide pastures, opens a wide way before him.\n\n## Three forms\n\nThrough the nights of his rising Tishtrya takes three forms in turn: for ten nights the body of a shining young man of fifteen, for ten nights a bull with golden horns, and for ten nights a white horse with golden ears. In that last form he goes down to the sea Vouru-Kasha, whose waters he must stir up so that they rise as clouds and fall as rain on the thirsty lands.\n\n## Defeat\n\nBut the demon of drought, Apaosha, rushes down to meet him in the shape of a black horse, black-eared, black-backed, black-tailed, stamped with brands of terror. They meet hoof against hoof at the edge of the sea and fight for three days and three nights, and Apaosha proves the stronger. He overcomes Tishtrya and drives him back from the sea.\n\nThen Tishtrya cries out in distress. Woe is him, and woe to the waters and the plants, and woe to the religion of Mazda: men do not worship him with a sacrifice in which he is invoked by his own name. If they did, he says, he would have the strength of ten horses, ten camels, ten bulls, ten mountains, and ten rivers.\n\n## Victory\n\nWhen Tishtrya receives the worship due to him, invoked by name, his strength returns. He goes down again to the sea as the white horse, and again Apaosha rushes to meet him as the black horse. Again they fight hoof against hoof, and this time, at noon, Tishtrya overcomes Apaosha and drives him away from the sea. The waters of Vouru-Kasha surge and boil over; mists rise from its shores and gather into clouds, and the winds drive the clouds with the rain across the seven regions of the earth, to the fields, the pastures, and the flocks.\n\n## Reading the hymn\n\nThe hymn joins astronomy and agriculture. The heliacal rising of Sirius in high summer came at the driest time of year in Iran, and the hymn makes the star the champion who wins back the rains. It also makes a point about worship: Tishtrya's defeat is caused by neglect, and his victory by correct ritual in which he is honored by name. The festival of Tirgan, held in the month named for him, remembered both Tishtrya and the archer Erekhsha, later known as Arash, whose arrow in Persian legend fixed the border of Iran.",
+    "keyExcerpts": "Tishtrya, as a white horse, meets the black horse Apaosha at the sea Vouru-Kasha; they fight three days and nights and Apaosha wins; worshipped by his own name, Tishtrya returns, defeats Apaosha at noon, and the rains spread over the seven regions.",
+    "category": "myth",
+    "moralThemes": [
+      "the necessity of right worship",
+      "persistence after defeat",
+      "order against drought"
+    ],
+    "culturalSignificance": "The Avesta's most dramatic combat myth, explaining the seasonal rains by the rising of Sirius and grounding the summer festival of Tirgan, still celebrated in parts of Iran.",
+    "citationSources": [
+      {
+        "title": "Avesta, Yasht 8 (Tir Yasht)",
+        "sourceId": "avesta",
+        "author": "trans. James Darmesteter",
+        "date": "Younger Avestan; trans. 1883",
+        "type": "primary"
+      }
+    ],
+    "featuredDeities": ["tishtrya", "ahura-mazda", "mithra"],
+    "relatedStories": ["ohrmazd-and-ahriman"],
+    "imageUrl": "/stories/tishtrya-and-apaosha.png"
+  },
+  {
+    "id": "yima-and-the-var",
+    "pantheonId": "persian-pantheon",
+    "title": "Yima and the Var",
+    "slug": "yima-and-the-var",
+    "summary": "Yima, the first king, declines to be Ahura Mazda's prophet but agrees to rule and protect the world; he enlarges the earth three times, then builds an enclosure to preserve the best of every living thing from the coming winters, before his pride costs him the royal Glory.",
+    "fullNarrative": "## The first to hear the religion\n\nIn the second chapter of the Vendidad, Zarathushtra asks Ahura Mazda who was the first mortal before himself with whom the Wise Lord spoke. Ahura Mazda answers: the fair Yima, the good shepherd, son of Vivanghat. He asked Yima to be the preacher and bearer of his religion, but Yima replied that he was not born or taught for that. So Ahura Mazda asked him instead to make the world increase and grow, to nourish it, rule it, and watch over it, and Yima agreed: while he was king there would be neither cold wind nor hot wind, neither disease nor death. Ahura Mazda gave him a golden seal and a dagger inlaid with gold as signs of his rule.\n\n## The growing earth\n\nUnder Yima's rule three hundred winters passed, and the earth became so full of flocks and herds, people, dogs, birds, and red blazing fires that there was no more room. Ahura Mazda warned him, and Yima stepped forward into the light, southward along the path of the sun. He pressed the earth with the golden seal and bored it with the dagger, calling on Spenta Armaiti, the spirit of the earth, to open and stretch herself wider, and the earth grew larger by a third. After six hundred winters it happened again, and he enlarged it by two thirds; after nine hundred, by three thirds.\n\n## The winters and the Var\n\nThen Ahura Mazda called an assembly and warned Yima that evil winters were about to fall on the material world, bringing fierce, deadly frost and snow lying thick even on the highest mountains; when the snow melted, the floods would leave the world desolate. He told Yima to make a *vara*, an enclosure, as long as a riding ground on every side, and to bring into it the seeds of the finest men and women, of every kind of cattle, of every plant and food, and of red blazing fires, in pairs, to be kept there imperishable. No one deformed, diseased, or wicked was to enter. Yima built it, with streets and houses, and lit it with lights both uncreated and created. Inside, the Vendidad says, people live the happiest life, a year seems like a day, and every forty years each couple bears a new pair.\n\n## The lost Glory\n\nThe Zamyad Yasht adds the end of Yima's story. For a long time the royal Glory clung to him, and under his rule neither age nor death touched the creatures, until he began to delight in words of falsehood. Then the Glory fled from him in the shape of a bird, three times, and was seized by Mithra, by Thraetaona, and by the hero Keresaspa. Yima, deprived of it, trembled before his foes; the same hymn names Spityura as the one who sawed him in two.\n\n## Jamshid\n\nIn Ferdowsi's Shahnameh Yima becomes King Jamshid, who teaches the arts of civilization and sits on a jeweled throne raised into the air by demons, the day that became Nowruz. Growing proud, he claims to be the creator of the world, loses the divine glory, and falls to the usurper Zahhak, who has him sawn in half.",
+    "keyExcerpts": "Yima refuses to be prophet but agrees to rule; with a golden seal and dagger he enlarges the earth three times; warned of deadly winters, he builds the Var to preserve the best of all living things; when he delights in falsehood the royal Glory flees him as a bird.",
+    "category": "myth",
+    "moralThemes": [
+      "stewardship of the world",
+      "preservation against catastrophe",
+      "pride and the loss of legitimacy"
+    ],
+    "culturalSignificance": "The Iranian myth of the first king and a lost golden age, whose enclosure against winter is often compared with flood stories, and whose Shahnameh form made Jamshid a byword for royal splendor and hubris in Persian literature.",
+    "citationSources": [
+      {
+        "title": "Avesta, Vendidad, Fargard 2",
+        "sourceId": "avesta",
+        "author": "trans. James Darmesteter",
+        "date": "Younger Avestan; trans. 1880",
+        "type": "primary"
+      },
+      {
+        "title": "Avesta, Yasht 19.31-38 (Zamyad Yasht)",
+        "sourceId": "avesta",
+        "author": "trans. James Darmesteter",
+        "date": "Younger Avestan; trans. 1883",
+        "type": "primary"
+      },
+      {
+        "title": "Shahnameh, reign of Jamshid",
+        "sourceId": "shahnameh",
+        "author": "Abolqasem Ferdowsi",
+        "date": "completed 1010 CE",
+        "type": "primary"
+      }
+    ],
+    "variants": [
+      {
+        "source": "Ferdowsi, Shahnameh",
+        "sourceId": "shahnameh",
+        "date": "1010 CE",
+        "difference": "Jamshid builds no enclosure against winter; the emphasis falls on his civilizing work, the institution of Nowruz, and his fall through pride to Zahhak.",
+        "note": "The Islamic-era epic retells Yima as a human king, without the Avestan Var."
+      }
+    ],
+    "featuredDeities": ["yima", "ahura-mazda", "spenta-armaiti"],
+    "relatedStories": ["zahhak-and-kaveh", "ohrmazd-and-ahriman"],
+    "imageUrl": "/stories/yima-and-the-var.png"
+  },
+  {
+    "id": "zahhak-and-kaveh",
+    "pantheonId": "persian-pantheon",
+    "title": "Zahhak the Serpent King and Kaveh the Blacksmith",
+    "slug": "zahhak-and-kaveh",
+    "summary": "Tempted by Iblis, the prince Zahhak kills his father and seizes Jamshid's throne; serpents grow from his shoulders and must be fed on human brains, until the blacksmith Kaveh raises his leather apron as a banner and Fereydun defeats the tyrant and chains him in Mount Damavand.",
+    "fullNarrative": "## The tempted prince\n\nFerdowsi's Shahnameh tells of Zahhak, son of a good king, Mardas. Iblis, the Devil, came to the young prince in disguise and, having bound him by an oath of secrecy, persuaded him to kill his father so as to rule sooner; Mardas fell into a pit that Iblis had dug in his garden path. Iblis then came to Zahhak again as a skilled cook and fed him, for the first time, on the meat of animals, dish after richer dish. Delighted, Zahhak offered him any reward, and the cook asked only to kiss his shoulders. Where he kissed, two black serpents grew. When they were cut off, they grew back. Iblis returned a third time, now as a physician, and advised that the serpents be fed human brains so that they might grow quiet and perhaps die.\n\n## The thousand-year tyranny\n\nIn Iran, meanwhile, King Jamshid had grown proud and lost the divine glory, and the Iranians turned to Zahhak, who seized the throne and later had Jamshid sawn in two. Zahhak reigned for a thousand years. Every day two young men were killed to feed the serpents on his shoulders. Two righteous men who entered his kitchen managed to save one of each pair, substituting sheep's brains, and sent the survivors into the mountains; Ferdowsi says their descendants became the Kurds.\n\n## The dream and the child\n\nZahhak dreamed that three warriors attacked him and the youngest struck him down with an ox-headed mace. His interpreters told him that a child not yet born, Fereydun, would overthrow him. Zahhak hunted for the boy, killing his father Abtin; his mother Faranak hid the child with a keeper of a wonderful cow, Barmayeh, who nursed him, and later took him to safety in the Alborz mountains. Zahhak found and killed the cow.\n\n## Kaveh's apron\n\nZahhak, fearing the prophecy, forced the nobles of the realm to sign a declaration that he had ruled only with justice. At that moment the blacksmith Kaveh burst into the court, crying out for justice: seventeen of his eighteen sons had been taken for the serpents, and now the last was to die. Zahhak released his son and asked him to sign the declaration. Kaveh read it, tore it up, and walked out. In the marketplace he fixed his leather blacksmith's apron to the point of a spear and raised it as a banner, and the people gathered around him and went to find Fereydun. Fereydun honored the banner and adorned it with brocade and jewels; it became the royal standard of Iran, the *Derafsh-e Kaviani*.\n\n## The fall of Zahhak\n\nFereydun had smiths forge a mace with the head of an ox and led the army to Zahhak's palace. He struck the tyrant down with it, but the heavenly messenger Sorush told him not to kill Zahhak, whose time had not yet come, but to bind him. Fereydun took him to Mount Damavand and chained him in a cave within the mountain, where he hangs still.\n\n## The Avestan dragon behind the king\n\nIn the Avesta, Azhi Dahaka is a three-headed, three-mouthed, six-eyed dragon created by Angra Mainyu, and Thraetaona is the hero 'who smote Azhi Dahaka'. Ferdowsi's human tyrant with serpents on his shoulders is that dragon retold as a king, and his Fereydun is Thraetaona. Middle Persian tradition adds that at the end of time Dahag will break free, only to be killed by the hero Keresaspa.",
+    "keyExcerpts": "Iblis tempts Zahhak to kill his father and kisses his shoulders, raising two serpents that feed on human brains; after a thousand years the blacksmith Kaveh tears up the tyrant's declaration and raises his apron as a banner; Fereydun strikes Zahhak down with an ox-headed mace and chains him in Mount Damavand.",
+    "category": "legend",
+    "moralThemes": [
+      "resistance to tyranny",
+      "the corruption of temptation",
+      "justice raised by ordinary people"
+    ],
+    "culturalSignificance": "One of the best-known episodes of the Shahnameh; Kaveh's banner became the symbol of the Iranian monarchy and of popular revolt, and the story is retold in Iran as a tale of an ordinary craftsman bringing down a tyrant.",
+    "citationSources": [
+      {
+        "title": "Shahnameh, reigns of Zahhak and Fereydun",
+        "sourceId": "shahnameh",
+        "author": "Abolqasem Ferdowsi; trans. A. G. and E. Warner (1905); Dick Davis (2006)",
+        "date": "completed 1010 CE",
+        "type": "primary"
+      },
+      {
+        "title": "Avesta, Vendidad 1.17 and Yasht 19.36-37",
+        "sourceId": "avesta",
+        "author": "trans. James Darmesteter",
+        "date": "trans. 1880, 1883",
+        "type": "primary"
+      }
+    ],
+    "variants": [
+      {
+        "source": "Avesta, Yasht 19.37",
+        "sourceId": "avesta",
+        "date": "Younger Avestan",
+        "difference": "Azhi Dahaka is not a human king but a three-mouthed, three-headed, six-eyed dragon created by Angra Mainyu, smitten by the hero Thraetaona.",
+        "note": "The epic's serpent-shouldered king is the Avestan dragon reimagined; Kaveh does not appear in the Avesta."
+      }
+    ],
+    "featuredDeities": ["angra-mainyu", "sraosha", "yima"],
+    "featuredLocations": ["mount-damavand"],
+    "relatedStories": ["yima-and-the-var", "zal-and-the-simurgh"],
+    "imageUrl": "/stories/zahhak-and-kaveh.png"
+  },
+  {
+    "id": "zal-and-the-simurgh",
+    "pantheonId": "persian-pantheon",
+    "title": "Zal and the Simurgh",
+    "slug": "zal-and-the-simurgh",
+    "summary": "The hero Sam abandons his newborn son on Mount Alborz because the child's hair is white as an old man's; the great bird Simurgh carries him to her nest and raises him, and when the repentant father comes for him, she gives the boy a feather to burn whenever he needs her.",
+    "fullNarrative": "## A child with white hair\n\nIn the reign of King Manuchehr, the great warrior Sam, lord of Zabulistan, longed for a son. When at last a boy was born, beautiful in face and body but with hair as white as an old man's, no one dared tell Sam until his child's nurse did. Sam, seeing the white-haired child, was ashamed and afraid of what people would say: was this the child of a demon? He ordered the baby taken far away and left on the slopes of Mount Alborz.\n\n## The nest of the Simurgh\n\nOn the heights of Alborz the Simurgh had her nest. Seeking food for her young, she saw the infant crying on the bare rock and swooped down to take him. But God put compassion in her heart, and instead of feeding him to her chicks she raised him with them. The boy grew strong and tall in the nest, and travelers who passed the mountain began to speak of a young man living with the great bird.\n\n## The father's repentance\n\nYears later Sam dreamed that a rider came from India bringing news that his son was alive, and in a second dream he was rebuked by a wise man for abandoning the child: how could he call the boy a demon's son when he himself had rejected him? Ashamed, Sam went to Alborz and prayed at the foot of the mountain. The Simurgh saw him and knew why he had come. She told the young man that it was time to return to his father and his inheritance. When he protested that he did not want to leave her, she gave him one of her feathers and told him to keep it: if ever he were in danger or distress he should burn it, and she would come at once. She named him Dastan, and his father called him Zal, 'the white-haired'.\n\n## The feather\n\nThe feather's promise is kept twice in the Shahnameh. When Zal's wife Rudabeh cannot give birth to their enormous child, Zal burns the feather; the Simurgh appears and tells them to open her side while she is drugged with wine, and to heal the wound with herbs and the touch of her feather. The child born is Rostam. Much later, when Rostam and his horse Rakhsh are gravely wounded in combat with the invulnerable prince Esfandiyar, Zal burns the feather again. The Simurgh heals them and tells Rostam to cut a branch of tamarisk and shape it into an arrow aimed at Esfandiyar's eyes, warning him that whoever kills Esfandiyar will suffer for it.\n\n## Behind the bird\n\nThe Simurgh's name derives from the Avestan *saena meregha*, the bird Saena, and Middle Persian texts place the Senmurw on the tree of all seeds in the middle of the cosmic sea. In Ferdowsi she is a wise and protective power, and in later Persian mystical poetry, above all Attar's *Conference of the Birds* (1177), she becomes a symbol of the divine sought by the soul.",
+    "keyExcerpts": "Sam abandons his white-haired son on Mount Alborz; the Simurgh raises him in her nest; the repentant father comes for him, and the Simurgh gives Zal a feather to burn in need, which later brings her to guide Rostam's birth and his combat with Esfandiyar.",
+    "category": "legend",
+    "moralThemes": [
+      "prejudice and its reversal",
+      "compassion beyond kind",
+      "protection and indebtedness"
+    ],
+    "culturalSignificance": "The origin of the bond between the house of Sam and the Simurgh, which runs through the Shahnameh's central heroic cycle, and one source of the Simurgh's long life in Persian literature and art.",
+    "citationSources": [
+      {
+        "title": "Shahnameh, reign of Manuchehr (Zal and the Simurgh)",
+        "sourceId": "shahnameh",
+        "author": "Abolqasem Ferdowsi; trans. A. G. and E. Warner (1905); Dick Davis (2006)",
+        "date": "completed 1010 CE",
+        "type": "primary"
+      }
+    ],
+    "featuredDeities": [],
+    "featuredLocations": ["mount-damavand"],
+    "relatedStories": ["rostam-and-sohrab", "zahhak-and-kaveh"],
+    "imageUrl": "/stories/zal-and-the-simurgh.png"
+  },
+  {
+    "id": "rostam-and-sohrab",
+    "pantheonId": "persian-pantheon",
+    "title": "Rostam and Sohrab",
+    "slug": "rostam-and-sohrab",
+    "summary": "Rostam fathers a son on a night in Samangan and leaves a token for him; years later the young champion Sohrab leads an army against Iran seeking his father, and the two meet in single combat without either knowing the other, until Rostam's dagger strikes home.",
+    "fullNarrative": "## A night in Samangan\n\nOne day, hunting near the border of Turan, Rostam fell asleep and his horse Rakhsh was stolen by Turanian riders. Following the tracks, he came to the city of Samangan, whose king received him as a guest. That night Tahmineh, the king's daughter, came to his room; she had long heard of his deeds and wished to bear his child. Rostam asked for her hand, and they were married. In the morning, when Rakhsh had been found, he gave her an onyx armband and told her to tie it to the child's arm if it were a son. Then he rode back to Iran.\n\n## The young champion\n\nTahmineh bore a son, Sohrab, who grew with astonishing speed: at a month he was like a child of a year, at ten no one could stand against him. When his mother told him his father was Rostam, Sohrab resolved to march on Iran, overthrow its king Kay Kavus, and set his father on the throne, and then to overthrow Afrasiyab of Turan as well. Afrasiyab, learning of this, secretly sent an army with him, with orders that father and son must never recognize each other, so that one might kill the other.\n\n## Unrecognized\n\nSohrab's advance brought him to the White Fortress on Iran's frontier, where he fought the woman warrior Gordafarid. Kay Kavus summoned Rostam, who delayed, drinking for days, and was rebuked by the angry king before he took the field. Sohrab, looking down on the Iranian camp, asked a captured Iranian, Hujir, to point out the famous heroes, and above all Rostam. Hujir, afraid that the young man would kill Rostam, lied and said Rostam was not there.\n\n## The combat\n\nFather and son met in single combat between the armies. On the first day they fought with spears, swords, and maces until their weapons broke, and parted exhausted. Sohrab felt drawn to the older man and asked whether he was Rostam; Rostam denied it. On the second day Sohrab threw Rostam to the ground and could have killed him, but Rostam claimed that custom required a wrestler to throw his opponent twice before killing him, and Sohrab let him go. That night Rostam prayed for the full strength he had once asked God to diminish. On the third day he threw Sohrab down and drove his dagger into the young man's side.\n\n## The token\n\nDying, Sohrab told him that his father Rostam would avenge him. Rostam, stricken, demanded proof, and Sohrab showed him the armband on his arm. Rostam tore his clothes and wept. He sent to Kay Kavus for the healing potion that the king kept, but Kavus, fearing that Rostam and a son like this together would be too powerful, delayed. Before the potion could come, Sohrab died. Rostam carried his body home to Zabulistan, and Tahmineh mourned him until her own death.\n\n## Why the story endures\n\nFerdowsi frames the tragedy with reflections on fate and the limits of human understanding. The father who kills his unrecognized son is a motif known in other traditions, from the Irish Cú Chulainn and Connla to the German Hildebrand; in the Shahnameh it becomes the defining grief of Iran's greatest hero. Matthew Arnold's poem *Sohrab and Rustum* (1853) made it famous in English.",
+    "keyExcerpts": "Rostam leaves an armband with Tahmineh in Samangan; their son Sohrab marches on Iran seeking him; Hujir hides Rostam's identity; after three days of combat Rostam stabs Sohrab and recognizes the armband too late; Kay Kavus withholds the healing potion.",
+    "category": "tragedy",
+    "moralThemes": [
+      "fate and recognition",
+      "pride and deception",
+      "the cost of withheld mercy"
+    ],
+    "culturalSignificance": "The most famous tragedy of the Shahnameh, retold in Persian painting, performance, and storytelling (naqqali), and in English through Matthew Arnold's 1853 poem.",
+    "citationSources": [
+      {
+        "title": "Shahnameh, reign of Kay Kavus (Rostam and Sohrab)",
+        "sourceId": "shahnameh",
+        "author": "Abolqasem Ferdowsi; trans. A. G. and E. Warner (1906); Dick Davis (2006)",
+        "date": "completed 1010 CE",
+        "type": "primary"
+      }
+    ],
+    "featuredDeities": [],
+    "featuredHeroes": ["rostam"],
+    "relatedStories": ["zal-and-the-simurgh"],
+    "imageUrl": "/stories/rostam-and-sohrab.png"
   }
 ]

@@ -111,6 +111,12 @@ CREATURES = [
     {"id": "amaru", "name": "AMARU", "subtitle": "SERPENT OF THE DEPTHS", "accent": (120, 170, 110), "bg": (12, 18, 14), "motif": "emblem_serpent2"},
     {"id": "yacana", "name": "YACANA", "subtitle": "LLAMA OF THE MILKY WAY", "accent": (120, 130, 190), "bg": (10, 12, 22), "motif": "emblem_llama"},
     {"id": "urcuchillay", "name": "URCUCHILLAY", "subtitle": "MANY-COLORED STAR LLAMA", "accent": (200, 140, 180), "bg": (14, 12, 22), "motif": "emblem_llama"},
+
+    # PERSIAN / IRANIAN (2026-09)
+    {"id": "simurgh", "name": "SIMURGH", "subtitle": "THE WISE BIRD OF ALBORZ", "accent": (120, 175, 170), "bg": (10, 18, 20), "motif": "emblem_great_bird"},
+    {"id": "azhi-dahaka", "name": "AZHI DAHAKA", "subtitle": "THREE-HEADED DRAGON", "accent": (150, 90, 110), "bg": (16, 10, 14), "motif": "emblem_dragon"},
+    {"id": "div-e-sepid", "name": "DIV-E SEPID", "subtitle": "THE WHITE DIV OF MAZANDARAN", "accent": (200, 200, 205), "bg": (14, 14, 18), "motif": "emblem_beast"},
+    {"id": "apaosha", "name": "APAOSHA", "subtitle": "THE DAEVA OF DROUGHT", "accent": (130, 110, 90), "bg": (16, 12, 10), "motif": "emblem_horse"},
 ]
 
 def draw_creature_motif(draw, cx, cy, r, motif, accent, gold):
@@ -262,6 +268,14 @@ LOCATIONS = [
     {"id": "pachacamac-sanctuary", "name": "PACHACAMAC", "subtitle": "ORACLE SANCTUARY OF THE COAST", "accent": (200, 140, 80), "bg": (20, 16, 12), "motif": "emblem_pyramid"},
     {"id": "huanacauri", "name": "HUANACAURI", "subtitle": "FOUNDING HILL ABOVE CUSCO", "accent": (190, 150, 80), "bg": (20, 16, 12), "motif": "emblem_rod"},
     {"id": "nevado-pariacaca", "name": "PARIACACA", "subtitle": "THE SNOW MOUNTAIN GOD", "accent": (170, 200, 225), "bg": (12, 16, 24), "motif": "emblem_mountain"},
+
+    # PERSIAN / IRANIAN (2026-09)
+    {"id": "persepolis", "name": "PERSEPOLIS", "subtitle": "TAKHT-E JAMSHID · FARS", "accent": (205, 165, 100), "bg": (20, 16, 12), "motif": "emblem_columns"},
+    {"id": "behistun", "name": "BEHISTUN", "subtitle": "BY THE FAVOR OF AHURAMAZDA", "accent": (185, 160, 120), "bg": (18, 16, 14), "motif": "emblem_cliff_relief"},
+    {"id": "naqsh-e-rostam", "name": "NAQSH-E ROSTAM", "subtitle": "TOMBS OF THE KINGS", "accent": (190, 150, 110), "bg": (18, 14, 12), "motif": "emblem_cliff_relief"},
+    {"id": "takht-e-soleyman", "name": "TAKHT-E SOLEYMAN", "subtitle": "FIRE OF THE WARRIOR KINGS", "accent": (225, 120, 60), "bg": (20, 14, 12), "motif": "emblem_fire"},
+    {"id": "mount-damavand", "name": "MOUNT DAMAVAND", "subtitle": "PRISON OF ZAHHAK", "accent": (200, 210, 225), "bg": (12, 14, 22), "motif": "emblem_mountain"},
+    {"id": "chinvat-bridge", "name": "CHINVAT BRIDGE", "subtitle": "THE BRIDGE OF THE SEPARATOR", "accent": (170, 160, 210), "bg": (12, 12, 20), "motif": "emblem_bridge"},
 ]
 
 def draw_location_motif(draw, cx, cy, r, motif, accent, gold):
@@ -430,6 +444,14 @@ STORIES = [
     {"id": "the-llama-and-the-flood", "name": "THE LLAMA & THE FLOOD", "subtitle": "REFUGE ON VILLCACOTO", "accent": (120, 160, 200), "bg": (12, 16, 22), "motif": "emblem_llama"},
     {"id": "huatyacuri-and-the-false-god", "name": "HUATYACURI", "subtitle": "THE RICH MAN WHO CALLED HIMSELF GOD", "accent": (180, 150, 90), "bg": (18, 16, 12), "motif": "emblem_serpent"},
     {"id": "pariacaca-and-huallallo-carhuincho", "name": "PARIACACA & HUALLALLO", "subtitle": "WATER AGAINST FIRE", "accent": (190, 120, 90), "bg": (16, 14, 20), "motif": "emblem_eggs"},
+
+    # PERSIAN / IRANIAN (2026-09)
+    {"id": "ohrmazd-and-ahriman", "name": "OHRMAZD & AHRIMAN", "subtitle": "THE TWO SPIRITS", "accent": (215, 175, 70), "bg": (12, 10, 16), "motif": "emblem_winged_disc"},
+    {"id": "tishtrya-and-apaosha", "name": "TISHTRYA & APAOSHA", "subtitle": "THE STAR AGAINST DROUGHT", "accent": (180, 200, 235), "bg": (10, 14, 26), "motif": "emblem_horse"},
+    {"id": "yima-and-the-var", "name": "YIMA & THE VAR", "subtitle": "REFUGE FROM THE WINTERS", "accent": (90, 130, 210), "bg": (12, 14, 24), "motif": "emblem_seals"},
+    {"id": "zahhak-and-kaveh", "name": "ZAHHAK & KAVEH", "subtitle": "THE SERPENT KING OVERTHROWN", "accent": (200, 90, 70), "bg": (20, 12, 12), "motif": "emblem_banner"},
+    {"id": "zal-and-the-simurgh", "name": "ZAL & THE SIMURGH", "subtitle": "THE NEST ON ALBORZ", "accent": (120, 175, 170), "bg": (10, 18, 20), "motif": "emblem_great_bird"},
+    {"id": "rostam-and-sohrab", "name": "ROSTAM & SOHRAB", "subtitle": "FATHER AND SON", "accent": (200, 140, 70), "bg": (20, 14, 12), "motif": "emblem_mace"},
 ]
 
 def draw_story_motif(draw, cx, cy, r, motif, accent, gold):
@@ -575,6 +597,11 @@ ARTIFACTS = [
     {"id": "golden-rod-of-manco-capac", "name": "THE GOLDEN ROD", "subtitle": "TEST OF THE GROUND AT HUANACAURI", "accent": (225, 175, 55), "bg": (22, 16, 12), "motif": "emblem_rod"},
     {"id": "punchao", "name": "PUNCHAO", "subtitle": "GOLDEN IMAGE OF THE DAY", "accent": (225, 170, 50), "bg": (24, 16, 10), "motif": "emblem_sun_face"},
     {"id": "sling-of-illapa", "name": "SLING OF ILLAPA", "subtitle": "THE CRACK OF THUNDER", "accent": (140, 165, 215), "bg": (14, 16, 26), "motif": "emblem_sling"},
+
+    # PERSIAN / IRANIAN (2026-09)
+    {"id": "derafsh-kaviani", "name": "DERAFSH-E KAVIANI", "subtitle": "THE BANNER OF KAVEH", "accent": (200, 90, 70), "bg": (20, 12, 12), "motif": "emblem_banner"},
+    {"id": "jam-e-jam", "name": "JAM-E JAM", "subtitle": "THE WORLD-REVEALING CUP", "accent": (90, 130, 210), "bg": (12, 14, 24), "motif": "emblem_cup"},
+    {"id": "ox-headed-mace", "name": "OX-HEADED MACE", "subtitle": "WEAPON OF FEREYDUN", "accent": (205, 150, 70), "bg": (20, 14, 12), "motif": "emblem_mace"},
 ]
 
 def draw_artifact_motif(draw, cx, cy, r, motif, accent, gold):

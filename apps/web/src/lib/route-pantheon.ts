@@ -228,6 +228,17 @@ export const DEITY_PANTHEON_MAP: Record<string, string> = {
   "huallallo-carhuincho": "inca-pantheon",
   "manco-capac": "inca-pantheon",
   "mama-ocllo": "inca-pantheon",
+  "ahura-mazda": "persian-pantheon",
+  "angra-mainyu": "persian-pantheon",
+  mithra: "persian-pantheon",
+  anahita: "persian-pantheon",
+  tishtrya: "persian-pantheon",
+  verethragna: "persian-pantheon",
+  atar: "persian-pantheon",
+  "spenta-armaiti": "persian-pantheon",
+  sraosha: "persian-pantheon",
+  zurvan: "persian-pantheon",
+  yima: "persian-pantheon",
 };
 
 export const STORY_PANTHEON_MAP: Record<string, string> = {
@@ -344,6 +355,12 @@ export const STORY_PANTHEON_MAP: Record<string, string> = {
   "the-llama-and-the-flood": "inca-pantheon",
   "huatyacuri-and-the-false-god": "inca-pantheon",
   "pariacaca-and-huallallo-carhuincho": "inca-pantheon",
+  "ohrmazd-and-ahriman": "persian-pantheon",
+  "tishtrya-and-apaosha": "persian-pantheon",
+  "yima-and-the-var": "persian-pantheon",
+  "zahhak-and-kaveh": "persian-pantheon",
+  "zal-and-the-simurgh": "persian-pantheon",
+  "rostam-and-sohrab": "persian-pantheon",
 };
 
 /**

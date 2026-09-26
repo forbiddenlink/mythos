@@ -92,6 +92,14 @@ export const MYTHIC_ERAS: MythicEra[] = [
     end: 2026,
     pantheonIds: ["tlingit-haida-pantheon"],
   },
+  {
+    id: "ancient-iran",
+    label: "Ancient Iran",
+    blurb: "Avestan hymns, Achaemenid and Sasanian kings, and the Shahnameh",
+    start: -1500,
+    end: 1010,
+    pantheonIds: ["persian-pantheon"],
+  },
 ];
 
 export function pantheonIdsForEraId(eraId: string): Set<string> | null {

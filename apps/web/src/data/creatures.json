@@ -1588,5 +1588,107 @@
       }
     ],
     "imageUrl": "/creatures/urcuchillay.png"
+  },
+  {
+    "id": "simurgh",
+    "pantheonId": "persian-pantheon",
+    "name": "Simurgh",
+    "slug": "simurgh",
+    "description": "The great wise bird of Persian tradition, who in the Shahnameh raises the abandoned Zal on Mount Alborz, guides the birth of Rostam, and heals him in his combat with Esfandiyar; descended from the Avestan bird Saena.",
+    "habitat": "Mount Alborz; in Middle Persian texts, the tree of all seeds in the cosmic sea",
+    "abilities": [
+      "healing",
+      "wisdom and foreknowledge",
+      "summoned by burning her feather",
+      "carrying a person in flight"
+    ],
+    "dangerLevel": 3,
+    "detailedBio": "## From Saena to Simurgh\n\nThe name Simurgh (Middle Persian Senmurw) comes from the Avestan *saena meregha*, 'the bird Saena', a great bird mentioned in the Yashts. Middle Persian texts make the Senmurw a being of cosmic scale nesting in the tree of all seeds that stands in the middle of the sea Vouru-Kasha; when it rises from the tree, seeds are scattered to be carried by the rains over the world.\n\n## In the Shahnameh\n\nFerdowsi's Simurgh is the protector of Zal and his family. She finds the white-haired infant abandoned on Mount Alborz and raises him with her chicks, and when his father comes to reclaim him she gives Zal a feather to burn in need. Later she guides the difficult birth of Rostam by instructing a surgical delivery, and she heals Rostam and his horse Rakhsh after their near-fatal combat with Esfandiyar, revealing to Rostam how the invulnerable prince can be killed. The Shahnameh also knows a hostile Simurgh, killed by Esfandiyar in his seven trials, which suggests more than one tradition behind the figure.\n\n## A symbol of the divine\n\nIn Attar's twelfth-century Sufi allegory *The Conference of the Birds*, the birds of the world set out to find the Simurgh as their king; only thirty (*si murgh*, 'thirty birds') arrive, and they discover that the Simurgh they sought is themselves, a famous play on the name. The Simurgh appears widely in Persian painting and textiles.",
+    "primarySources": [
+      {
+        "text": "The Simurgh saw the crying infant on the mountain, took pity on him, and raised him in her nest with her young; when his father came, she gave the boy one of her feathers to burn whenever he needed her.",
+        "source": "Ferdowsi, Shahnameh, reign of Manuchehr (paraphrase)",
+        "sourceId": "shahnameh",
+        "locator": "reign of Manuchehr",
+        "date": "completed 1010 CE"
+      }
+    ],
+    "imageUrl": "/creatures/simurgh.png"
+  },
+  {
+    "id": "azhi-dahaka",
+    "pantheonId": "persian-pantheon",
+    "name": "Azhi Dahaka",
+    "slug": "azhi-dahaka",
+    "description": "The three-headed, three-mouthed, six-eyed dragon of the Avesta, created by Angra Mainyu to destroy the good world and smitten by the hero Thraetaona; retold in the Shahnameh as Zahhak, the tyrant with serpents on his shoulders.",
+    "habitat": "Bound within Mount Damavand",
+    "abilities": [
+      "three heads and a thousand senses",
+      "vast destructive power",
+      "breaking free at the end of time (Middle Persian tradition)"
+    ],
+    "dangerLevel": 10,
+    "detailedBio": "## In the Avesta\n\nThe Zamyad Yasht calls Azhi Dahaka 'the three-mouthed, the three-headed, the six-eyed, who had a thousand senses, that most powerful, fiendish Druj', created by Angra Mainyu against the material world. He struggles with Atar, the fire, for possession of the royal Glory, and is smitten by Thraetaona, heir of the Athwya clan. The Vendidad names the land of Varena as the place 'for which was born Thraetaona, who smote Azi Dahaka', and the Greater Bundahishn, as Darmesteter noted, identifies that land with Mount Damavand, where the dragon was bound with iron bonds. The Aban Yasht says that he sacrificed to Anahita, asking to empty the seven regions of the earth of men, and that she refused him.\n\n## Zahhak\n\nIn Ferdowsi's Shahnameh the dragon has become a human king, Zahhak, whose shoulders sprout two serpents after the Devil kisses them and who feeds the serpents on human brains through a reign of a thousand years, until Fereydun, the epic form of Thraetaona, overthrows him and chains him in a cave in Mount Damavand.\n\n## At the end of time\n\nMiddle Persian tradition holds that near the end of the world Dahag will break his bonds and ravage creation until the hero Keresaspa is raised to kill him, one of the events that lead to the final renovation.",
+    "primarySources": [
+      {
+        "text": "Who smote Azhi Dahaka, the three-mouthed, the three-headed, the six-eyed, who had a thousand senses, that most powerful, fiendish Druj, that demon baleful to the world, the strongest Druj that Angra Mainyu created against the material world.",
+        "source": "Avesta, Yasht 19.37 (trans. Darmesteter)",
+        "sourceId": "avesta",
+        "locator": "Yasht 19.37",
+        "date": "Younger Avestan; trans. 1883"
+      }
+    ],
+    "imageUrl": "/creatures/azhi-dahaka.png"
+  },
+  {
+    "id": "div-e-sepid",
+    "pantheonId": "persian-pantheon",
+    "name": "Div-e Sepid",
+    "slug": "div-e-sepid",
+    "description": "The White Div, lord of the demons of Mazandaran in the Shahnameh, who blinds King Kay Kavus and his army and is killed by Rostam in his cave at the end of the hero's Seven Trials.",
+    "habitat": "A cave in the mountains of Mazandaran",
+    "abilities": [
+      "immense size and strength",
+      "sorcery",
+      "raising storms and darkness",
+      "striking armies blind"
+    ],
+    "dangerLevel": 8,
+    "detailedBio": "## The demons of Mazandaran\n\nIn the Shahnameh the *divs* (from Avestan *daeva*, the false gods rejected by Zoroastrianism) are demons of great strength and sorcery. The reckless King Kay Kavus, tempted by a demon's song about the beauty of Mazandaran, invades it against all advice; the White Div, chief of its demons, answers with a storm of hail and darkness that strikes the king and his army blind, and holds them captive.\n\n## The seventh trial\n\nRostam rides to the rescue by the shorter, deadlier road, passing seven trials (*Haft Khan*): a lion, a waterless desert, a dragon, a sorceress, a warrior-demon, the demon lord Arzhang, and finally the White Div. Guided by the captured Olad, he waits until midday, when the demons sleep, enters the dark cave, and finds the White Div, huge as a mountain. They fight savagely; Rostam tears off one of the demon's legs, and at last kills him and cuts out his liver. The blood of the White Div, dropped into their eyes, restores the sight of Kay Kavus and his men.\n\n## In art\n\nRostam's combat with the White Div, often showing the spotted white demon in the cave, is one of the most frequently illustrated scenes in Persian manuscript painting.",
+    "primarySources": [
+      {
+        "text": "Rostam went into the cave of the White Div, found him asleep, and after a fierce struggle killed him and took his liver, whose blood restored the sight of Kay Kavus and his men.",
+        "source": "Ferdowsi, Shahnameh, the Seven Trials of Rostam (paraphrase)",
+        "sourceId": "shahnameh",
+        "locator": "reign of Kay Kavus",
+        "date": "completed 1010 CE"
+      }
+    ],
+    "imageUrl": "/creatures/div-e-sepid.png"
+  },
+  {
+    "id": "apaosha",
+    "pantheonId": "persian-pantheon",
+    "name": "Apaosha",
+    "slug": "apaosha",
+    "description": "The daeva of drought in the Avesta, who in the shape of a black horse 'stamped with brands of terror' fights the star Tishtrya at the edge of the cosmic sea to keep the rains from falling.",
+    "habitat": "The shores of the sea Vouru-Kasha",
+    "abilities": [
+      "withholding the rains",
+      "taking the shape of a black horse",
+      "overpowering a neglected god"
+    ],
+    "dangerLevel": 6,
+    "detailedBio": "## The black horse\n\nThe Tir Yasht (Yasht 8) describes Apaosha rushing down to meet the star Tishtrya, who has come to the sea Vouru-Kasha as a white horse with golden ears, in the shape of a dark horse, black with black ears, black back, and black tail, stamped with brands of terror. They meet hoof against hoof and fight for three days and nights, and the first time Apaosha wins, driving Tishtrya from the sea.\n\n## Defeated by right worship\n\nThe hymn makes Tishtrya's defeat a consequence of neglect: men had not worshipped him by his own name. When he receives that worship he returns with the strength of ten horses, camels, bulls, mountains, and rivers, and at noon he overcomes Apaosha and drives him away; the waters of the sea rise as clouds and spread the rain over the seven regions.\n\n## Drought as a demon\n\nThe name has been interpreted as 'the withholder of water' or similar, though its etymology is disputed. In the Middle Persian Bundahishn the battle of Tishtar and Apush is retold as part of Ahriman's assault on the waters of creation.",
+    "primarySources": [
+      {
+        "text": "But there rushes down to meet him the Daeva Apaosha, in the shape of a dark horse, black with black ears, black with a black back, black with a black tail, stamped with brands of terror.",
+        "source": "Avesta, Yasht 8.21 (trans. Darmesteter)",
+        "sourceId": "avesta",
+        "locator": "Yasht 8.21",
+        "date": "Younger Avestan; trans. 1883"
+      }
+    ],
+    "imageUrl": "/creatures/apaosha.png"
   }
 ]

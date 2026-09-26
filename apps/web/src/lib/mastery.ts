@@ -41,6 +41,7 @@ const PANTHEON_NAMES: Record<string, string> = {
   "haudenosaunee-pantheon": "Haudenosaunee",
   "tlingit-haida-pantheon": "Tlingit & Haida",
   "inca-pantheon": "Inca & Andean",
+  "persian-pantheon": "Persian",
 };
 
 const MASTERY_THRESHOLDS = {

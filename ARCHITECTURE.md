@@ -25,7 +25,7 @@ flowchart TB
     Catalog --> Oracle
 ```
 
-The main catalogs currently contain 17 tradition records, 260 deities, 27 heroes, 114 stories, 66 creatures, 55 artifacts, and 133 locations. These are catalog counts, not claims that every tradition is equally covered or every passage has received scholarly review.
+The main catalogs currently contain 18 tradition records, 271 deities, 28 heroes, 120 stories, 70 creatures, 58 artifacts, and 139 locations. These are catalog counts, not claims that every tradition is equally covered or every passage has received scholarly review.
 
 ## Catalog navigation
 

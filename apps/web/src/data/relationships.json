@@ -2051,5 +2051,136 @@
     "confidenceLevel": "medium",
     "description": "The Huarochirí material records him invoked as 'Cuniraya Viracocha, lord of all'; whether he was a local form of the state Creator or a local deity later identified with him is debated.",
     "isDisputed": true
+  },
+  {
+    "id": "persian-ahura-mazda-angra-mainyu-enemy",
+    "fromDeityId": "ahura-mazda",
+    "toDeityId": "angra-mainyu",
+    "relationshipType": "enemy_of",
+    "confidenceLevel": "high",
+    "description": "The Hostile Spirit counter-creates a plague against each good land Ahura Mazda makes (Vendidad 1) and assaults his creation (Bundahishn)."
+  },
+  {
+    "id": "persian-ahura-mazda-angra-mainyu-twins",
+    "fromDeityId": "ahura-mazda",
+    "toDeityId": "angra-mainyu",
+    "relationshipType": "sibling_of",
+    "confidenceLevel": "low",
+    "description": "Twin sons of Zurvan only in the Zurvanite current reported by Eznik of Kolb; the Gathas call the two primal spirits twins (Yasna 30.3), but orthodox tradition holds Ohrmazd uncreated.",
+    "isDisputed": true
+  },
+  {
+    "id": "persian-zurvan-ahura-mazda",
+    "fromDeityId": "zurvan",
+    "toDeityId": "ahura-mazda",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "low",
+    "description": "Ohrmazd is born of Zurvan's sacrifice in the Zurvanite myth (Eznik of Kolb, 5th c.); rejected by later Zoroastrian orthodoxy.",
+    "isDisputed": true
+  },
+  {
+    "id": "persian-zurvan-angra-mainyu",
+    "fromDeityId": "zurvan",
+    "toDeityId": "angra-mainyu",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "low",
+    "description": "Ahriman is born of Zurvan's doubt in the Zurvanite myth (Eznik of Kolb, 5th c.).",
+    "isDisputed": true
+  },
+  {
+    "id": "persian-ahura-mazda-atar",
+    "fromDeityId": "ahura-mazda",
+    "toDeityId": "atar",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high",
+    "description": "'Atar, the son of Ahura Mazda' is a standing Avestan formula (e.g. Yasht 19.46-50)."
+  },
+  {
+    "id": "persian-ahura-mazda-spenta-armaiti",
+    "fromDeityId": "ahura-mazda",
+    "toDeityId": "spenta-armaiti",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high",
+    "description": "The Gathas call Armaiti the daughter of Ahura Mazda (Yasna 45.4)."
+  },
+  {
+    "id": "persian-mithra-ahura-mazda",
+    "fromDeityId": "mithra",
+    "toDeityId": "ahura-mazda",
+    "relationshipType": "ally_of",
+    "confidenceLevel": "high",
+    "description": "'When I created Mithra ... I created him as worthy of sacrifice, as worthy of prayer as myself' (Yasht 10.1)."
+  },
+  {
+    "id": "persian-verethragna-mithra",
+    "fromDeityId": "verethragna",
+    "toDeityId": "mithra",
+    "relationshipType": "ally_of",
+    "confidenceLevel": "high",
+    "description": "Verethragna runs before Mithra's chariot in the shape of a boar (Yasht 10.70)."
+  },
+  {
+    "id": "persian-sraosha-mithra",
+    "fromDeityId": "sraosha",
+    "toDeityId": "mithra",
+    "relationshipType": "ally_of",
+    "confidenceLevel": "medium",
+    "description": "With Rashnu they judge each soul at the Chinvat Bridge in Zoroastrian eschatology."
+  },
+  {
+    "id": "persian-tishtrya-ahura-mazda",
+    "fromDeityId": "tishtrya",
+    "toDeityId": "ahura-mazda",
+    "relationshipType": "ally_of",
+    "confidenceLevel": "high",
+    "description": "'For Ahura Mazda gave him assistance; so did the waters and the plants' (Yasht 8.7)."
+  },
+  {
+    "id": "persian-tishtrya-mithra",
+    "fromDeityId": "tishtrya",
+    "toDeityId": "mithra",
+    "relationshipType": "ally_of",
+    "confidenceLevel": "high",
+    "description": "Mithra 'opened a wide way unto him' as Tishtrya flew to the sea Vouru-Kasha (Yasht 8.7)."
+  },
+  {
+    "id": "persian-anahita-ahura-mazda",
+    "fromDeityId": "anahita",
+    "toDeityId": "ahura-mazda",
+    "relationshipType": "ally_of",
+    "confidenceLevel": "high",
+    "description": "Ahura Mazda calls her 'this spring of mine', and she 'proceeded forth from the Maker Mazda' (Yasht 5.1, 5.7)."
+  },
+  {
+    "id": "persian-anahita-mithra",
+    "fromDeityId": "anahita",
+    "toDeityId": "mithra",
+    "relationshipType": "ally_of",
+    "confidenceLevel": "medium",
+    "description": "Invoked together with Ahuramazda by Artaxerxes II (r. 404-358 BCE), the first Achaemenid inscriptions to name either."
+  },
+  {
+    "id": "persian-yima-ahura-mazda",
+    "fromDeityId": "yima",
+    "toDeityId": "ahura-mazda",
+    "relationshipType": "ally_of",
+    "confidenceLevel": "high",
+    "description": "The first mortal with whom Ahura Mazda conversed, who agreed to rule and protect his world (Vendidad 2)."
+  },
+  {
+    "id": "persian-yima-spenta-armaiti",
+    "fromDeityId": "yima",
+    "toDeityId": "spenta-armaiti",
+    "relationshipType": "ally_of",
+    "confidenceLevel": "medium",
+    "description": "Yima calls on Spenta Armaiti to stretch the earth wider for the growing world (Vendidad 2.10)."
+  },
+  {
+    "id": "persian-atar-angra-mainyu",
+    "fromDeityId": "atar",
+    "toDeityId": "angra-mainyu",
+    "relationshipType": "enemy_of",
+    "confidenceLevel": "medium",
+    "description": "In the struggle for the Glory, the Good Spirit sends Atar and the Evil Spirit sends Azhi Dahaka (Yasht 19.46-50)."
   }
 ]

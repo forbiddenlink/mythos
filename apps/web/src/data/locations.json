@@ -2710,5 +2710,140 @@
       }
     ],
     "imageUrl": "/locations/nevado-pariacaca.png"
+  },
+  {
+    "id": "persepolis",
+    "name": "Persepolis",
+    "slug": "persepolis",
+    "locationType": "palace",
+    "pantheonId": "persian-pantheon",
+    "description": "The ceremonial capital of the Achaemenid kings in Fars, begun by Darius I around 518 BCE and burned by Alexander in 330 BCE, whose reliefs show the winged figure in a disc; later called Takht-e Jamshid, 'the Throne of Jamshid'.",
+    "latitude": 29.935,
+    "longitude": 52.89,
+    "geography": "physical",
+    "detailedBio": "## Parsa\n\nPersepolis (Old Persian *Parsa*) stands on a great terrace at the foot of a mountain in the Marvdasht plain of Fars, southwestern Iran. Darius I began it around 518 BCE, and his successors Xerxes and Artaxerxes I added audience halls, palaces, and a treasury. Its staircases carry reliefs of delegations from across the empire bringing gifts to the king, and its inscriptions invoke Ahuramazda's protection over the land. Alexander of Macedon burned it in 330 BCE.\n\n## The winged figure\n\nAbove royal figures on the reliefs hovers a figure emerging from a winged disc, now popularly called the Faravahar. It is often identified as Ahuramazda, but scholars also argue that it represents the royal glory (*khvarenah*) or the king's guardian spirit (*fravashi*); the identification is disputed.\n\n## Jamshid's Throne\n\nLong after its fall, Persians called the ruins *Takht-e Jamshid*, 'the Throne of Jamshid', linking them with the legendary king of the Shahnameh. Persepolis is a UNESCO World Heritage Site.",
+    "primarySources": [
+      {
+        "text": "Says Darius the King: may Ahuramazda protect this country from a hostile army, from famine, from the Lie.",
+        "source": "Darius I, inscription at Persepolis (DPd) (paraphrase)",
+        "date": "c. 515 BCE"
+      }
+    ],
+    "imageUrl": "/locations/persepolis.png"
+  },
+  {
+    "id": "behistun",
+    "name": "Behistun",
+    "slug": "behistun",
+    "locationType": "monument",
+    "pantheonId": "persian-pantheon",
+    "description": "The cliff at Bisotun in western Iran where Darius I carved a trilingual inscription and relief around 520 BCE, attributing his rise to 'the favor of Ahuramazda'; the key to the decipherment of cuneiform.",
+    "latitude": 34.3906,
+    "longitude": 47.4358,
+    "geography": "physical",
+    "detailedBio": "## The inscription\n\nHigh on a cliff above the ancient road from Mesopotamia to the Iranian plateau, Darius I had his account of his seizure of power carved in Old Persian, Elamite, and Babylonian. It tells how he overthrew the usurper Gaumata and put down rebellions across the empire in a single year, and it repeatedly credits his success to 'the favor of Ahuramazda', while condemning his enemies as followers of the Lie (*drauga*), a word related to the Avestan *druj*.\n\n## The relief\n\nAbove the text, Darius stands with his foot on the prostrate Gaumata before a line of bound rebel kings, beneath the winged figure in a disc. The scene joins royal power, divine favor, and the triumph of truth over falsehood.\n\n## Decipherment\n\nIn the 1830s and 1840s the British officer Henry Rawlinson copied the inscription at great risk from the cliff face; his work on the Old Persian text, and then on the Babylonian, opened Mesopotamian cuneiform to modern scholarship. Behistun is a UNESCO World Heritage Site.",
+    "primarySources": [
+      {
+        "text": "Darius the King says: by the favor of Ahuramazda I am king; Ahuramazda granted me the kingdom.",
+        "source": "Behistun Inscription, col. I (paraphrase)",
+        "sourceId": "behistun-inscription",
+        "locator": "col. I",
+        "date": "c. 520 BCE"
+      }
+    ],
+    "imageUrl": "/locations/behistun.png"
+  },
+  {
+    "id": "naqsh-e-rostam",
+    "name": "Naqsh-e Rostam",
+    "slug": "naqsh-e-rostam",
+    "locationType": "tomb",
+    "pantheonId": "persian-pantheon",
+    "description": "The cliff near Persepolis bearing the rock-cut tombs of Darius I and other Achaemenid kings and the Sasanian relief of Ardashir I receiving the ring of kingship from Ohrmazd, whose horse tramples Ahriman.",
+    "latitude": 29.9889,
+    "longitude": 52.8747,
+    "geography": "physical",
+    "detailedBio": "## Royal tombs\n\nA few kilometers north of Persepolis, four cross-shaped tombs are cut high in the cliff: those of Darius I, whose inscription praises Ahuramazda as the great god who created earth, sky, man, and happiness for man, and of three of his successors. Each façade shows the king before a fire altar, beneath the winged figure in a disc.\n\n## The investiture of Ardashir\n\nBelow the tombs, the Sasanian kings carved their own reliefs. In the most famous, Ardashir I (r. 224-242 CE), founder of the dynasty, receives the ring of kingship from Ohrmazd, both on horseback; beneath Ardashir's horse lies his defeated predecessor, the Parthian king Artabanus IV, and beneath Ohrmazd's lies Ahriman, identified by the snakes in his hair. Trilingual inscriptions name the figures.\n\n## Why 'Rostam'\n\nThe site's name, 'Picture of Rostam', comes from later Persians' belief that the carved Sasanian warriors depicted the hero of the Shahnameh.",
+    "primarySources": [
+      {
+        "text": "A great god is Ahuramazda, who created this earth, who created that sky, who created man, who created happiness for man, who made Darius king.",
+        "source": "Darius I, tomb inscription at Naqsh-e Rostam (DNa), §1 (paraphrase)",
+        "date": "c. 490 BCE"
+      }
+    ],
+    "imageUrl": "/locations/naqsh-e-rostam.png"
+  },
+  {
+    "id": "takht-e-soleyman",
+    "name": "Takht-e Soleyman",
+    "slug": "takht-e-soleyman",
+    "locationType": "temple",
+    "pantheonId": "persian-pantheon",
+    "description": "The Sasanian royal sanctuary in northwestern Iran built around a crater lake, home of Adur Gushnasp, the great fire of the warriors and kings, one of the three most sacred fires of Sasanian Zoroastrianism.",
+    "latitude": 36.6032,
+    "longitude": 47.2359,
+    "geography": "physical",
+    "detailedBio": "## The fire of the kings\n\nIn the mountains of West Azerbaijan province, a walled Sasanian complex surrounds a spring-fed lake in a limestone crater. Excavations have identified it with Shiz, site of Adur Gushnasp, the sacred fire of the warrior class and of the kings, one of the three great fires named in Sasanian tradition alongside Adur Farnbag (the fire of priests) and Adur Burzen-Mihr (the fire of farmers). Sasanian kings made gifts to it, and tradition says they came there after their accession.\n\n## Fire and water\n\nThe site joins a fire temple with a sacred lake, the two elements most honored in Zoroastrian ritual, and scholars have connected its water with the cult of Anahita. The Byzantine emperor Heraclius sacked it in 624 CE during his war with Khosrow II.\n\n## The later name\n\nThe name 'Throne of Solomon' was given in the Islamic period, linking the site to the prophet-king of Islamic legend. It is a UNESCO World Heritage Site.",
+    "primarySources": [
+      {
+        "text": "The Glory departs threefold, as it belongs to the king as priest, warrior, and husbandman, identical with the fires Adar Farnbag, Adar Gushasp, and Adar Burzin Mehr.",
+        "source": "James Darmesteter, note to Avesta, Yasht 19.35 (paraphrase of the commentary tradition)",
+        "sourceId": "avesta",
+        "locator": "Yasht 19.35, note",
+        "date": "note published 1883"
+      }
+    ],
+    "imageUrl": "/locations/takht-e-soleyman.png"
+  },
+  {
+    "id": "mount-damavand",
+    "name": "Mount Damavand",
+    "slug": "mount-damavand",
+    "locationType": "mountain",
+    "pantheonId": "persian-pantheon",
+    "description": "The volcanic peak in the Alborz range northeast of Tehran, the highest mountain in Iran, in which the Shahnameh's tyrant Zahhak lies chained in a cave, and which Middle Persian tradition connects with the binding of the dragon Azhi Dahaka.",
+    "latitude": 35.951,
+    "longitude": 52.109,
+    "geography": "physical",
+    "detailedBio": "## Iran's highest mountain\n\nDamavand is a dormant stratovolcano rising to about 5,600 meters above the Caspian slope of the Alborz range, northeast of Tehran, and its snow-capped cone is a national symbol of Iran, pictured on banknotes and in poetry.\n\n## The prison of the dragon\n\nIn Ferdowsi's Shahnameh, Fereydun, told by the heavenly messenger Sorush not to kill the defeated Zahhak, carries him to Mount Damavand and chains him in a cave inside the mountain, where he is to remain until the end of time. The tradition is older than Ferdowsi: the Vendidad names the land of Varena as the birthplace of Thraetaona, who smote Azhi Dahaka, and Darmesteter noted that the Greater Bundahishn identifies it with Damavand, where the dragon was bound with iron bonds. Local folklore held that the fumes from the mountain's vents were the breath of the imprisoned tyrant.\n\n## At the end of time\n\nMiddle Persian eschatology foretells that Dahag will break free near the end of the world before the hero Keresaspa kills him.",
+    "primarySources": [
+      {
+        "text": "Fereydun brought Zahhak to Mount Damavand and chained him in a deep cave in the mountain, fastening him with heavy nails so that he could not escape.",
+        "source": "Ferdowsi, Shahnameh, reign of Fereydun (paraphrase)",
+        "sourceId": "shahnameh",
+        "locator": "reign of Fereydun",
+        "date": "completed 1010 CE"
+      },
+      {
+        "text": "The fourteenth of the good lands and countries which I, Ahura Mazda, created, was the four-cornered Varena, for which was born Thraetaona, who smote Azi Dahaka.",
+        "source": "Avesta, Vendidad 1.17 (trans. Darmesteter)",
+        "sourceId": "avesta",
+        "locator": "Vendidad 1.17",
+        "date": "Younger Avestan; trans. 1880"
+      }
+    ],
+    "imageUrl": "/locations/mount-damavand.png"
+  },
+  {
+    "id": "chinvat-bridge",
+    "name": "Chinvat Bridge",
+    "slug": "chinvat-bridge",
+    "locationType": "realm",
+    "pantheonId": "persian-pantheon",
+    "description": "The Bridge of the Separator, which every soul must cross on the fourth dawn after death: broad for the righteous, who are met by a beautiful maiden, and narrow as a blade for the wicked, who fall into the House of the Lie.",
+    "latitude": null,
+    "longitude": null,
+    "geography": "mythic",
+    "detailedBio": "## The bridge of judgment\n\nThe Gathas already speak of the 'Bridge of the Separator' (*cinvato peretu*) where each soul is judged by its deeds. Later Avestan and Middle Persian texts describe the scene in detail. For three nights after death the soul remains near the body, guarded by Sraosha. On the fourth dawn it comes to the bridge, which stretches from the peak of Mount Hara to the heavens, and its deeds are weighed by Mithra, Sraosha, and Rashnu.\n\n## Maiden or hag\n\nThe soul of a righteous person is met by its own *daena*, its conscience or religious self, in the form of a beautiful maiden who says she is the embodiment of its good thoughts, words, and deeds; the bridge becomes broad, and the soul passes over to the House of Song. The wicked soul meets a hideous hag, the bridge narrows to the width of a blade, and the soul falls into the House of the Lie. The ninth-century *Book of Arda Viraf* describes a priest's visionary journey across the bridge to see heaven and hell.\n\n## A lasting image\n\nThe image of a narrow bridge over the abyss that the righteous cross and the wicked fall from appears also in Islamic tradition (the *sirat*), and its possible Iranian background is widely discussed.",
+    "primarySources": [
+      {
+        "text": "The righteous soul is met at the bridge by its own conscience in the form of a beautiful maiden, who says: I am thy good thoughts, good words, and good deeds.",
+        "source": "Hadokht Nask, ch. 2 (paraphrase)",
+        "sourceId": "avesta",
+        "locator": "Hadokht Nask 2",
+        "date": "Younger Avestan"
+      }
+    ],
+    "imageUrl": "/locations/chinvat-bridge.png"
   }
 ]

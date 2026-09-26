@@ -616,5 +616,61 @@
     ],
     "imageUrl": "/pantheons/inca.jpg",
     "figuresLabel": "Deities, Huacas & Ancestors"
+  },
+  {
+    "id": "persian-pantheon",
+    "name": "Persian (Iranian) Tradition",
+    "slug": "persian",
+    "culture": "Ancient Iranian: Avestan and Zoroastrian religion, the Achaemenid and Sasanian empires, and the Persian epic tradition",
+    "region": "Iranian plateau and Central Asia",
+    "timePeriodStart": -1500,
+    "timePeriodEnd": null,
+    "description": "The divine beings and heroes of ancient Iran in two distinct layers: the Zoroastrian scripture of the Avesta, with Ahura Mazda, Angra Mainyu, Mithra, and Anahita, and Ferdowsi's Shahnameh, which a thousand years later retold Iran's primeval kings and heroes as epic.",
+    "detailedHistory": "## Two traditions, kept apart\n\nThis entry draws on two bodies of material that should not be blurred together. The first is the **Avesta**, the scripture of Zoroastrianism, composed in Avestan, an Old Iranian language close to the Sanskrit of the Rigveda. Its oldest part, the **Gathas**, are seventeen hymns attributed to the prophet Zarathushtra; their date is disputed, with most scholars placing them somewhere between about 1500 and 1000 BCE on linguistic grounds and others later. The younger parts include the **Yashts**, hymns to individual divine beings such as Mithra, Anahita, and the star Tishtrya, and the **Vendidad**, a book of purity law that preserves myths of creation and of the first king, Yima. The Avesta was transmitted orally for many centuries, written down in a script devised in the Sasanian period, and survives only in medieval manuscripts. Middle Persian books of the ninth and tenth centuries CE, above all the **Bundahishn**, systematize its cosmology.\n\nThe second is the **Shahnameh** ('Book of Kings'), the Persian epic completed by Ferdowsi in 1010 CE, in Islamic-era Iran, from older chronicles of the Iranian kings. It contains no gods: Ferdowsi was a Muslim, and the Avestan figures reappear transformed into kings and villains, so that Yima becomes King Jamshid and the three-headed dragon Azhi Dahaka becomes the serpent-shouldered tyrant Zahhak. Its great heroes, Rostam above all, have no clear Avestan counterparts. Each record on this site says which layer it comes from.\n\n## One God, and beings worthy of worship\n\nZoroastrianism is a living religion, and 'pantheon' fits it only loosely. Zoroastrians today regard **Ahura Mazda**, the Wise Lord, as the one uncreated God. The **Amesha Spentas** ('Beneficent Immortals') such as Spenta Armaiti are his emanations or aspects, and the **yazatas** ('beings worthy of worship') such as Mithra, Anahita, and Tishtrya are divine beings created by him and honored in their own hymns. Opposed to this good creation is **Angra Mainyu** (Ahriman), the Hostile Spirit, who is not a god to be worshipped but the source of death, lies, and every corruption. At the heart of the Gathas is the choice between truth (*asha*) and the lie (*druj*) that each person must make.\n\n## Kings and inscriptions\n\nThe Achaemenid kings (550-330 BCE) credited their rule to 'the favor of Ahuramazda' in inscriptions at Behistun, Persepolis, and Naqsh-e Rostam; Artaxerxes II (r. 404-358 BCE) is the first king whose inscriptions also name Anahita and Mithra. Herodotus reports that the Persians worshipped without temples or statues, on the tops of mountains. Under the Sasanians (224-651 CE) Zoroastrianism became a state church with great fire temples, and a speculative current, Zurvanism, made Infinite Time the father of both spirits. After the Arab conquest the religion became a minority in Iran; many Zoroastrians migrated to India, where they are known as Parsis. Zoroastrian communities survive today in Iran, India, and a worldwide diaspora, and festivals rooted in the old calendar, above all **Nowruz**, the new year at the spring equinox, are celebrated across the Iranian world.\n\n## Cautions\n\nThe winged figure in a disc on Achaemenid reliefs, now called the Faravahar, is popularly identified with Ahura Mazda, but scholars disagree whether it represents the god, the royal glory, or the king's guardian spirit. The Mithras of the Roman mystery cult shares a name with the Iranian Mithra, but how much, if anything, of Iranian belief lay behind the Roman mysteries remains debated.",
+    "citationSources": [
+      {
+        "title": "The Zend-Avesta, Parts I-II (Vendidad; Yashts)",
+        "author": "trans. James Darmesteter",
+        "date": "1880, 1883",
+        "type": "primary",
+        "sourceId": "avesta"
+      },
+      {
+        "title": "The Zend-Avesta, Part III (Yasna, Gathas)",
+        "author": "trans. L. H. Mills",
+        "date": "1887",
+        "type": "primary",
+        "sourceId": "avesta"
+      },
+      {
+        "title": "Bundahishn",
+        "author": "trans. E. W. West",
+        "date": "1880",
+        "type": "primary",
+        "sourceId": "bundahishn"
+      },
+      {
+        "title": "Shahnameh",
+        "author": "Abolqasem Ferdowsi; trans. A. G. and E. Warner; Dick Davis",
+        "date": "1010 CE; trans. 1905-1925, 2006",
+        "type": "primary",
+        "sourceId": "shahnameh"
+      },
+      {
+        "title": "Behistun Inscription",
+        "author": "Darius I",
+        "date": "c. 520 BCE",
+        "type": "primary",
+        "sourceId": "behistun-inscription"
+      },
+      {
+        "title": "A History of Zoroastrianism",
+        "author": "Mary Boyce",
+        "date": "1975-1991",
+        "type": "secondary"
+      }
+    ],
+    "imageUrl": "/pantheons/persian.jpg",
+    "figuresLabel": "Divine Beings & Kings"
   }
 ]

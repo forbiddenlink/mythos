@@ -85,7 +85,10 @@ NEW_HEROES = [
         "accent": (205, 150, 75),     # Cuneiform Lapis & Gold
         "bg_tone": (22, 16, 14),
         "motif": "etana_eagle"
-    }
+    },
+
+    # PERSIAN / IRANIAN (2026-09)
+    {"id": "rostam", "name": "ROSTAM", "epithet": "CHAMPION OF IRAN · RIDER OF RAKHSH", "pantheon": "PERSIAN", "accent": (200, 140, 70), "bg_tone": (20, 14, 12), "motif": "emblem_mace"},
 ]
 
 W_HERO, H_HERO = 768, 1024
@@ -119,6 +122,9 @@ def draw_new_hero_motif(draw, cx, cy, radius, motif, accent):
             (cx + r1 * math.cos(angle), cy + r1 * math.sin(angle)),
             (cx + r2 * math.cos(angle), cy + r2 * math.sin(angle))
         ], fill=dark_gold, width=1)
+
+    if draw_emblem(draw, cx, cy, motif, accent, gold):
+        return
 
     if motif == "kusanagi_sword":
         # Sacred Bronze Sword of Yamato Takeru & Sun Disk
@@ -295,6 +301,9 @@ NEW_PANTHEONS = [
 
     # INCA & ANDEAN (2026-09)
     {"slug": "inca", "name": "INCA & ANDEAN TRADITION", "culture": "TAWANTINSUYU · THE ANDES", "accent": (215, 165, 55), "bg_tone": (20, 14, 12), "motif": "emblem_sun_face"},
+
+    # PERSIAN / IRANIAN (2026-09)
+    {"slug": "persian", "name": "PERSIAN (IRANIAN) TRADITION", "culture": "AVESTA · SHAHNAMEH", "accent": (90, 130, 210), "bg_tone": (12, 14, 24), "motif": "emblem_winged_disc"},
 ]
 
 def generate_pantheon_plate(p):

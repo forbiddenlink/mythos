@@ -13357,5 +13357,633 @@
       "phonetic": "MAH-mah OHK-lyoh"
     },
     "imageUrl": "/deities/mama-ocllo.png"
+  },
+  {
+    "id": "ahura-mazda",
+    "pantheonId": "persian-pantheon",
+    "name": "Ahura Mazda",
+    "slug": "ahura-mazda",
+    "originalLanguageName": {
+      "text": "Ahura Mazdā",
+      "language": "Avestan",
+      "transliteration": "Ahura Mazdā; Old Persian Auramazdā; Middle Persian Ohrmazd",
+      "meaning": "\"Wise Lord\" or \"Lord Wisdom\""
+    },
+    "alternateNames": ["Ohrmazd", "Auramazda", "Hormozd", "Wise Lord"],
+    "gender": "male",
+    "traditionRole": "Creator",
+    "domain": ["creation", "wisdom", "truth (asha)", "kingship"],
+    "symbols": ["fire", "light", "the sky"],
+    "description": "The Wise Lord, uncreated creator of the good world in Zoroastrianism, addressed by Zarathushtra in the Gathas and credited by the Achaemenid kings with their rule; opposed by the Hostile Spirit, Angra Mainyu.",
+    "detailedBio": "## In the Gathas\n\nZarathushtra's hymns address Ahura Mazda as the creator who established the earth below and held up the sky, who ordered the paths of sun and stars, and who is the father of the good powers: Truth (*Asha*), Good Mind (*Vohu Manah*), and Devotion (*Armaiti*), whom one hymn calls his daughter. The Gathas are hymns of questioning and devotion rather than narratives; they present a world in which every being must choose between truth and the lie, and in which the Wise Lord will judge by that choice.\n\n## In the Achaemenid inscriptions\n\nDarius I (r. 522-486 BCE) names Ahuramazda again and again in his inscription at Behistun, attributing his seizure of power to 'the favor of Ahuramazda', and his tomb inscription at Naqsh-e Rostam praises Ahuramazda as the great god who created earth, sky, man, and happiness for man, and who made Darius king. Whether the early Achaemenids were Zoroastrians in a strict sense is debated, but their god is recognizably the same.\n\n## Ohrmazd against Ahriman\n\nIn the Middle Persian books of the ninth century CE, Ohrmazd dwells in endless light above and Ahriman in darkness below; their struggle shapes a cosmic history of twelve thousand years that ends with the renovation of the world (*frashokereti*). Zoroastrians today worship Ahura Mazda as the one God, in the presence of fire as the symbol of his light and truth.",
+    "originStory": "Uncreated in orthodox Zoroastrianism. In the Sasanian-era Zurvanite current, known mainly from Christian and Armenian polemic, Ohrmazd and Ahriman are twin sons of Zurvan, Infinite Time.",
+    "importanceRank": 1,
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "greek-pantheon",
+        "deityId": "zeus",
+        "note": "Herodotus (1.131) says the Persians called the whole vault of the sky Zeus, and at Nemrut Dağ in Commagene (1st century BCE) King Antiochus I paired the two as Zeus-Oromasdes; the equation is a Greek interpretation, not a claim of identity."
+      }
+    ],
+    "primarySources": [
+      {
+        "text": "This I ask Thee, tell me truly, O Ahura: who upheld the earth beneath and the sky from falling? Who made the waters and the plants?",
+        "source": "Avesta, Yasna 44.4 (paraphrase of the Gathic questions)",
+        "sourceId": "avesta",
+        "locator": "Yasna 44.4",
+        "date": "Gathas, date disputed (c. 1500-1000 BCE)"
+      },
+      {
+        "text": "A great god is Ahuramazda, who created this earth, who created that sky, who created man, who created happiness for man, who made Darius king.",
+        "source": "Darius I, tomb inscription at Naqsh-e Rostam (DNa), §1 (paraphrase)",
+        "date": "c. 490 BCE"
+      },
+      {
+        "text": "Darius the King says: by the favor of Ahuramazda I am king; Ahuramazda granted me the kingdom.",
+        "source": "Behistun Inscription, col. I (paraphrase)",
+        "sourceId": "behistun-inscription",
+        "locator": "col. I",
+        "date": "c. 520 BCE"
+      }
+    ],
+    "worship": {
+      "temples": [
+        "Zoroastrian fire temples, in which a consecrated fire is kept burning as the focus of worship; the highest grade, the Atash Behram, includes the fire at Yazd, Iran, and the Iranshah fire at Udvada, India."
+      ],
+      "festivals": [
+        "The six seasonal gahambars and Nowruz, the new year at the spring equinox."
+      ],
+      "practices": "Prayer five times a day in the presence of fire or light, with the Ahuna Vairya and Ashem Vohu prayers; the tying of the sacred cord (kusti) over the sacred shirt (sudreh). Herodotus reports that the ancient Persians sacrificed on mountaintops without temples or statues."
+    },
+    "pronunciation": {
+      "ipa": "/aˈhuːɾa ˈmazdaː/",
+      "phonetic": "ah-HOO-rah MAHZ-dah"
+    },
+    "imageUrl": "/deities/ahura-mazda.png"
+  },
+  {
+    "id": "angra-mainyu",
+    "pantheonId": "persian-pantheon",
+    "name": "Angra Mainyu",
+    "slug": "angra-mainyu",
+    "originalLanguageName": {
+      "text": "Aŋra Mainyu",
+      "language": "Avestan",
+      "transliteration": "Angra Mainyu; Middle Persian Ahriman",
+      "meaning": "\"Hostile (or Destructive) Spirit\""
+    },
+    "alternateNames": ["Ahriman", "Ahreman", "the Hostile Spirit"],
+    "gender": "male",
+    "traditionRole": "Adversary",
+    "domain": ["destruction", "the lie (druj)", "death", "darkness"],
+    "symbols": ["darkness", "noxious creatures (khrafstra)", "winter"],
+    "description": "The Hostile Spirit of Zoroastrianism, source of death, lies, and every plague, who in the Vendidad 'counter-creates' an evil against each good land Ahura Mazda makes, and who will be defeated at the end of time.",
+    "detailedBio": "## The counter-creator\n\nThe opening chapter of the Vendidad lists sixteen good lands created by Ahura Mazda and, against each, a plague created by Angra Mainyu, 'who is all death': the serpent and winter, the locust, plunder, doubt, witchcraft, and more. The pattern of creation and counter-creation is the core of his character: he makes nothing good, only corruption of what is good.\n\n## In the Gathas and after\n\nThe Gathas speak of two primal spirits, one more beneficent and one hostile, and of the choice every being makes between them; they do not describe the Hostile Spirit in narrative detail. The Middle Persian books of the ninth century develop Ahriman into a cosmic adversary: dwelling in endless darkness, he attacks Ohrmazd's creation, breaks through the sky, kills the first man Gayomard and the primordial bull, and fills the world with noxious creatures, beginning the mixed age of good and evil in which humanity now lives. At the end, he will be defeated and rendered powerless.\n\n## Not worshipped\n\nAngra Mainyu is not a god who received worship; Zoroastrian practice aims to repel him, through truthfulness, purity laws, and the destruction of creatures regarded as his. The Sasanian-era Zurvanite current made him Ohrmazd's twin brother, born of Zurvan's doubt, a view rejected by later orthodoxy.",
+    "originStory": "In the Gathas one of two primal spirits, called twins (Yasna 30.3); in the Zurvanite myth the elder of Zurvan's twin sons, born of his father's doubt.",
+    "importanceRank": 1,
+    "crossPantheonParallels": [],
+    "primarySources": [
+      {
+        "text": "The first of the good lands and countries which I, Ahura Mazda, created, was the Airyana Vaeja, by the Vanguhi Daitya. Thereupon came Angra Mainyu, who is all death, and he counter-created the serpent in the river and Winter, a work of the Daevas.",
+        "source": "Avesta, Vendidad, Fargard 1.2 (trans. Darmesteter)",
+        "sourceId": "avesta",
+        "locator": "Vendidad 1.2",
+        "date": "Younger Avestan; trans. 1880"
+      },
+      {
+        "text": "The evil-doing Angra Mainyu bows and flees, becoming powerless.",
+        "source": "Avesta, Yasht 19.96 (trans. Darmesteter)",
+        "sourceId": "avesta",
+        "locator": "Yasht 19.96",
+        "date": "Younger Avestan; trans. 1883"
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [],
+      "practices": "Not worshipped. Zoroastrian purity laws, truthfulness, and the ritual killing of creatures regarded as his (khrafstra) are ways of opposing him."
+    },
+    "pronunciation": {
+      "ipa": "/ˈaŋɡɾa ˈmainju/",
+      "phonetic": "AHN-grah MINE-yoo"
+    },
+    "imageUrl": "/deities/angra-mainyu.png"
+  },
+  {
+    "id": "mithra",
+    "pantheonId": "persian-pantheon",
+    "name": "Mithra",
+    "slug": "mithra",
+    "originalLanguageName": {
+      "text": "Miθra",
+      "language": "Avestan",
+      "transliteration": "Mithra; Middle Persian Mihr",
+      "meaning": "\"Contract, covenant\""
+    },
+    "alternateNames": ["Mihr", "Mehr", "Mithra of wide pastures"],
+    "gender": "male",
+    "domain": [
+      "contracts and oaths",
+      "truth",
+      "the light of dawn",
+      "judgment of souls"
+    ],
+    "symbols": [
+      "a thousand ears and ten thousand eyes",
+      "the chariot drawn by white horses",
+      "the boar Verethragna running before him"
+    ],
+    "description": "The yazata of the covenant, 'lord of wide pastures', who watches with a thousand ears and ten thousand eyes over everyone who keeps or breaks their word, and whom Ahura Mazda created 'as worthy of sacrifice as myself'.",
+    "detailedBio": "## The Mihr Yasht\n\nYasht 10, one of the longest hymns of the Avesta, is devoted to Mithra. It opens with Ahura Mazda declaring that he created Mithra as worthy of sacrifice and prayer as himself, and it describes a watchful, terrible god of the covenant: the first of the heavenly beings to rise over Mount Hara before the sun, he drives a chariot across the sky, sees everything with his thousand ears and ten thousand eyes, and brings ruin on the 'Mithra-deceiver' who breaks a contract, while protecting those who keep faith. Before him runs Verethragna, victory, in the shape of a boar.\n\n## Kings, oaths, and the Sun\n\nArtaxerxes II (r. 404-358 BCE) is the first Achaemenid king to invoke Mithra in his inscriptions, alongside Ahuramazda and Anahita. Greek writers equated Mithra with the Sun: Strabo reports that the Persians honor Helios, 'whom they call Mithras'. In Middle Persian tradition Mihr, with Sraosha and Rashnu, judges each soul at the Chinvat Bridge, and the seventh month and the autumn festival of Mehregan bear his name.\n\n## Mithra and Mithras\n\nThe Roman mystery god Mithras, worshipped in underground chambers across the Roman Empire from the first century CE and shown slaying a bull, shares Mithra's name. How much the Roman cult drew from Iranian religion is a long-standing scholarly debate; the bull-slaying scene, central to Roman Mithraism, has no counterpart in the Avesta.",
+    "originStory": "Created by Ahura Mazda as worthy of worship as himself (Yasht 10.1).",
+    "importanceRank": 2,
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "greek-pantheon",
+        "deityId": "helios",
+        "note": "Strabo (Geography 15.3.13) says the Persians honor Helios, 'whom they call Mithras', and the Commagene inscriptions at Nemrut Dağ name a combined Apollo-Mithras-Helios-Hermes; the solar identification is Greek interpretation of Mithra's association with light and dawn."
+      },
+      {
+        "pantheonId": "mesopotamian-pantheon",
+        "deityId": "shamash",
+        "note": "Both are all-seeing gods of the sun's light who guard oaths and justice, though Mithra's primary sense is the covenant itself rather than the solar disk."
+      }
+    ],
+    "primarySources": [
+      {
+        "text": "Ahura Mazda spake unto Spitama Zarathushtra, saying: 'Verily, when I created Mithra, the lord of wide pastures, O Spitama! I created him as worthy of sacrifice, as worthy of prayer as myself, Ahura Mazda.'",
+        "source": "Avesta, Yasht 10.1 (trans. Darmesteter)",
+        "sourceId": "avesta",
+        "locator": "Yasht 10.1",
+        "date": "Younger Avestan; trans. 1883"
+      },
+      {
+        "text": "They also honor Helios, whom they call Mithras, and Selene and Aphrodite, and fire and earth and winds and water.",
+        "source": "Strabo, Geography 15.3.13 (paraphrase)",
+        "date": "early 1st century CE"
+      }
+    ],
+    "worship": {
+      "temples": [
+        "Zoroastrian fire temples are also called Dar-e Mehr, 'the court of Mithra'."
+      ],
+      "festivals": [
+        "Mehregan, the autumn festival on the day Mihr of the month Mihr, still celebrated in Iran."
+      ],
+      "practices": "Invoked as witness and guardian of contracts and oaths; in Zoroastrian eschatology he judges souls with Sraosha and Rashnu at the Chinvat Bridge."
+    },
+    "pronunciation": {
+      "ipa": "/ˈmiθɾa/",
+      "phonetic": "MITH-rah"
+    },
+    "imageUrl": "/deities/mithra.png"
+  },
+  {
+    "id": "anahita",
+    "pantheonId": "persian-pantheon",
+    "name": "Anahita",
+    "slug": "anahita",
+    "originalLanguageName": {
+      "text": "Arəduuī Sūrā Anāhitā",
+      "language": "Avestan",
+      "transliteration": "Ardvi Sura Anahita; Middle Persian Anahid",
+      "meaning": "\"The Moist, Strong, Undefiled\""
+    },
+    "alternateNames": ["Ardvi Sura Anahita", "Anahid", "Nahid", "Anaitis"],
+    "gender": "female",
+    "domain": ["the waters", "fertility and birth", "purity", "victory"],
+    "symbols": [
+      "the heavenly river",
+      "a golden mantle",
+      "a crown of stars",
+      "beaver-skin robes"
+    ],
+    "description": "The yazata of the waters, the heavenly river that flows from Mount Hukairya into the sea Vouru-Kasha and feeds every stream on earth, invoked for fertility, safe childbirth, and victory, and honored by Achaemenid and Sasanian kings.",
+    "detailedBio": "## The Aban Yasht\n\nYasht 5 is Anahita's hymn. Ahura Mazda commands sacrifice to 'this spring of mine', a river as large as all the waters on earth that runs from the height Hukairya down to the sea Vouru-Kasha, and from which all the waters of the seven regions of the world flow. She purifies the seed of males and the wombs of females and brings safe birth and milk. The hymn then catalogs heroes and villains who sacrificed to her, granting the prayers of the righteous and refusing the wicked, and it ends with a vivid description of her as a tall, strong maiden in a golden mantle, with golden earrings, a crown of stars, and robes of beaver skins.\n\n## A royal goddess\n\nArtaxerxes II (r. 404-358 BCE) names Anahita with Ahuramazda and Mithra in his inscriptions, and the Babylonian priest Berossus, quoted by later Greek authors, says that he set up statues of 'Aphrodite Anaitis' in cities across the empire, an innovation in a religion that had not used cult images. Under the Sasanians, the dynasty's ancestor Sasan was remembered as the custodian of a fire temple of Anahid at Istakhr, and Sasanian kings honored her.\n\n## Name and identifications\n\nThe name combines several epithets: *aredvi* ('moist' or 'high'), *sura* ('strong'), and *anahita* ('undefiled'). Scholars have long compared the heavenly river with the Vedic river-goddess Sarasvati, whose name is cognate with the Iranian region Harahvaiti, and Greek writers equated Anahita with Artemis or Aphrodite.",
+    "originStory": "She 'proceeded forth from the Maker Mazda' (Yasht 5.7), who brought her waters down to the earth.",
+    "importanceRank": 2,
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "hindu-pantheon",
+        "deityId": "saraswati",
+        "note": "Both are divine rivers personified as goddesses of fertility and purity; the Avestan region name Harahvaiti is the cognate of Sarasvati, and scholars have long compared Anahita's heavenly river with the Rigvedic river-goddess."
+      },
+      {
+        "pantheonId": "greek-pantheon",
+        "deityId": "aphrodite",
+        "note": "Berossus, as quoted by Clement of Alexandria, calls the image Artaxerxes II set up 'Aphrodite Anaitis'; Greek writers also identified her with Artemis. The equations reflect Greek interpretation."
+      }
+    ],
+    "primarySources": [
+      {
+        "text": "Offer up a sacrifice, O Spitama Zarathushtra! unto this spring of mine, Ardvi Sura Anahita, the wide-expanding and health-giving, who hates the Daevas and obeys the laws of Ahura.",
+        "source": "Avesta, Yasht 5.1 (trans. Darmesteter)",
+        "sourceId": "avesta",
+        "locator": "Yasht 5.1",
+        "date": "Younger Avestan; trans. 1883"
+      },
+      {
+        "text": "She stands, the good Ardvi Sura Anahita, wearing a golden mantle, waiting for a man who shall offer her libations and prayers.",
+        "source": "Avesta, Yasht 5.123 (trans. Darmesteter)",
+        "sourceId": "avesta",
+        "locator": "Yasht 5.123",
+        "date": "Younger Avestan; trans. 1883"
+      }
+    ],
+    "worship": {
+      "temples": [
+        "A fire temple of Anahid at Istakhr in Persis, whose custodian Sasan was remembered as the ancestor of the Sasanian kings (al-Tabari).",
+        "Images of Anahita set up by Artaxerxes II in Babylon, Susa, Ecbatana, Persepolis, Bactra, Damascus, and Sardis, according to Berossus as quoted by Clement of Alexandria."
+      ],
+      "festivals": [
+        "Abangan, the feast of the waters on the day Aban of the month Aban in the Zoroastrian calendar."
+      ],
+      "practices": "Libations and prayers at rivers and springs; invoked for fertility, safe childbirth, and the purity of water."
+    },
+    "pronunciation": {
+      "ipa": "/anaːˈhiːtaː/",
+      "phonetic": "ah-nah-HEE-tah"
+    },
+    "imageUrl": "/deities/anahita.png"
+  },
+  {
+    "id": "tishtrya",
+    "pantheonId": "persian-pantheon",
+    "name": "Tishtrya",
+    "slug": "tishtrya",
+    "originalLanguageName": {
+      "text": "Tištriia",
+      "language": "Avestan",
+      "transliteration": "Tishtrya; Middle Persian Tishtar, Tir",
+      "meaning": "The star Sirius"
+    },
+    "alternateNames": ["Tishtar", "Tir", "Sirius"],
+    "gender": "male",
+    "domain": ["rain", "the star Sirius", "fertility of the land"],
+    "symbols": [
+      "a white horse with golden ears",
+      "a golden-horned bull",
+      "the arrow of Erekhsha"
+    ],
+    "description": "The star Sirius as a rain-bringing yazata, who in the Tir Yasht descends to the cosmic sea as a white horse, is at first overcome by the black horse of the drought demon Apaosha, and then, strengthened by worship, defeats him and releases the rains.",
+    "detailedBio": "## The Tir Yasht\n\nYasht 8 is devoted to Tishtrya, the brightest star in the sky. He flies toward the sea Vouru-Kasha as swiftly as the arrow that the archer Erekhsha shot from Mount Khshaotha to Mount Hvanvant, and Ahura Mazda, the waters, and the plants aid him, while Mithra opens a wide way for him. He takes three forms in turn: a young man of fifteen, a bull with golden horns, and a white horse with golden ears.\n\n## Battle with drought\n\nAs a white horse he goes down to the sea, where the demon of drought, Apaosha, rushes to meet him as a black horse 'stamped with brands of terror'. They fight hoof against hoof for three days and nights, and Apaosha wins, driving Tishtrya from the sea. Tishtrya laments that men do not worship him with a sacrifice in which he is invoked by his own name; when he receives such worship, he returns with renewed strength, defeats Apaosha at noon, and the waters of Vouru-Kasha rise in clouds that carry rain to the seven regions of the earth.\n\n## Festival and later tradition\n\nThe summer festival of Tirgan, on the day Tir of the month Tir, honored Tishtrya and was later linked with the legend of the archer Arash (Avestan Erekhsha), whose arrow fixed the frontier between Iran and Turan. Tirgan is still celebrated in parts of Iran, with water-splashing and the tying of colored bands.",
+    "originStory": "No birth is told; he is the star Sirius, a creation of Ahura Mazda.",
+    "importanceRank": 3,
+    "crossPantheonParallels": [],
+    "primarySources": [
+      {
+        "text": "For Ahura Mazda gave him assistance; so did the waters and the plants; and Mithra, the lord of wide pastures, opened a wide way unto him.",
+        "source": "Avesta, Yasht 8.7 (trans. Darmesteter)",
+        "sourceId": "avesta",
+        "locator": "Yasht 8.7",
+        "date": "Younger Avestan; trans. 1883"
+      },
+      {
+        "text": "The bright and glorious Tistrya goes down to the sea Vouru-Kasha in the shape of a white, beautiful horse, with golden ears and a golden caparison.",
+        "source": "Avesta, Yasht 8.20 (trans. Darmesteter; diacritics simplified)",
+        "sourceId": "avesta",
+        "locator": "Yasht 8.20",
+        "date": "Younger Avestan; trans. 1883"
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [
+        "Tirgan, the midsummer festival on the day Tir of the month Tir, still observed in parts of Iran."
+      ],
+      "practices": "Sacrifice in which he is invoked by his own name, which the Tir Yasht presents as the source of his strength against drought; prayers for rain."
+    },
+    "pronunciation": {
+      "ipa": "/ˈtiʃtrija/",
+      "phonetic": "TISH-tree-yah"
+    },
+    "imageUrl": "/deities/tishtrya.png"
+  },
+  {
+    "id": "verethragna",
+    "pantheonId": "persian-pantheon",
+    "name": "Verethragna",
+    "slug": "verethragna",
+    "originalLanguageName": {
+      "text": "Vərəθraγna",
+      "language": "Avestan",
+      "transliteration": "Verethragna; Middle Persian Wahram, Bahram",
+      "meaning": "\"Smiting of resistance\", victory"
+    },
+    "alternateNames": ["Bahram", "Wahram", "Vahagn (Armenian)"],
+    "gender": "male",
+    "domain": ["victory", "strength", "protection in battle"],
+    "symbols": ["the boar", "the raven-like bird Varaghna", "ten incarnations"],
+    "description": "The yazata of victory, 'best-armed of the heavenly gods', who comes to Zarathushtra in ten shapes, from a strong wind and a golden-horned bull to a boar and a raven-like bird, and who gives his name to the highest grade of sacred fire.",
+    "detailedBio": "## Ten incarnations\n\nYasht 14 answers Zarathushtra's question, 'Who is the best-armed of the heavenly gods?', with Verethragna, and describes him coming in ten successive forms: a strong, beautiful wind; a bull with yellow ears and golden horns; a white horse with a golden caparison; a burden-bearing camel; a sharp-toothed boar; a youth of fifteen; the swift bird Varaghna; a wild ram; a fighting buck; and a man holding a golden sword. Each bears the Glory made by Mazda. His feather, the hymn says, protects the one who carries it, a motif that recurs in the Shahnameh with the Simurgh's feather.\n\n## Companion of Mithra\n\nIn the Mihr Yasht Verethragna runs before Mithra's chariot in the form of a fierce boar. Kings and warriors invoked him for victory; several Sasanian kings bore his name as Bahram (Wahram), and the Kushan kings of Central Asia put him on their coins as Orlagno.\n\n## The victorious fire\n\nThe highest grade of Zoroastrian sacred fire is the Atash Behram, the 'victorious fire' or 'fire of Verethragna', consecrated from sixteen kinds of fire. The name Vrtrahan ('slayer of Vrtra') is an epithet of the Vedic Indra, and the Iranian and Indian words derive from the same Indo-Iranian root.",
+    "originStory": "A being 'made by Ahura' (Yasht 14.1); no birth narrative is told.",
+    "importanceRank": 3,
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "hindu-pantheon",
+        "deityId": "indra",
+        "note": "Verethragna's name is cognate with Vrtrahan, 'slayer of Vrtra', the chief epithet of the Vedic Indra; in Iran the word became a god of victory in his own right rather than an epithet of a storm god."
+      },
+      {
+        "pantheonId": "greek-pantheon",
+        "deityId": "ares",
+        "note": "At Nemrut Dağ in Commagene (1st century BCE) Antiochus I honored a combined Artagnes-Heracles-Ares, a Hellenistic equation of Verethragna with Greek gods of strength and war."
+      }
+    ],
+    "heroParallels": [
+      {
+        "pantheonId": "greek-pantheon",
+        "heroId": "heracles",
+        "note": "The Commagene inscriptions equate Artagnes (Verethragna) with Heracles, and Parthian and Kushan images show Verethragna with Heracles' club; the pairing is iconographic and Hellenistic."
+      }
+    ],
+    "primarySources": [
+      {
+        "text": "Zarathushtra asked Ahura Mazda: 'Who is the best-armed of the heavenly gods?' Ahura Mazda answered: 'It is Verethraghna, made by Ahura, O Spitama Zarathushtra!'",
+        "source": "Avesta, Yasht 14.1 (trans. Darmesteter)",
+        "sourceId": "avesta",
+        "locator": "Yasht 14.1",
+        "date": "Younger Avestan; trans. 1883"
+      },
+      {
+        "text": "Verethraghna, made by Ahura, came to him first, running in the shape of a strong, beautiful wind, made by Mazda; he bore the good Glory, made by Mazda, the Glory made by Mazda, that is both health and strength.",
+        "source": "Avesta, Yasht 14.2 (trans. Darmesteter)",
+        "sourceId": "avesta",
+        "locator": "Yasht 14.2",
+        "date": "Younger Avestan; trans. 1883"
+      }
+    ],
+    "worship": {
+      "temples": [
+        "Atash Behram fire temples, the highest grade of Zoroastrian fire, whose name means the fire of Bahram (Verethragna): among them the fires at Yazd in Iran and at Udvada and Mumbai in India."
+      ],
+      "festivals": [],
+      "practices": "Invoked for victory and protection; the Bahram Yasht is recited for protection, and the twentieth day of each Zoroastrian month is dedicated to him."
+    },
+    "pronunciation": {
+      "ipa": "/vɛrɛθˈraɣna/",
+      "phonetic": "veh-reth-RAHG-nah"
+    },
+    "imageUrl": "/deities/verethragna.png"
+  },
+  {
+    "id": "atar",
+    "pantheonId": "persian-pantheon",
+    "name": "Atar",
+    "slug": "atar",
+    "originalLanguageName": {
+      "text": "Ātar",
+      "language": "Avestan",
+      "transliteration": "Atar; Middle Persian Adur, Azar",
+      "meaning": "\"Fire\""
+    },
+    "alternateNames": ["Adur", "Azar", "Atash"],
+    "gender": "male",
+    "domain": ["fire", "truth", "ritual purity"],
+    "symbols": ["the sacred fire", "the fire altar"],
+    "description": "Fire as a divine being, 'son of Ahura Mazda', the visible focus of Zoroastrian worship, who in the Zamyad Yasht faces down the three-mouthed dragon Azhi Dahaka in the struggle for the royal Glory.",
+    "detailedBio": "## Son of Ahura Mazda\n\nThe Avesta calls Atar, fire, 'the son of Ahura Mazda', and fire is the element through which Zoroastrians approach God: prayers are said facing a fire or another source of light, and consecrated fires are kept burning in fire temples. Fire is not itself worshipped as God, Zoroastrians emphasize, but honored as the purest of creations and the symbol of truth and divine light.\n\n## Atar against the dragon\n\nThe Zamyad Yasht (Yasht 19) tells how the Good Spirit and the Evil Spirit struggled for the royal Glory (*khvarenah*) after it left Yima. Atar came forward to seize it, but the three-mouthed Azhi Dahaka rushed at him, threatening to extinguish him so that he would never again blaze on the earth; Atar drew back his hands. Then when Azhi tried to seize it, Atar threatened in turn to enter the dragon and blaze up in his jaws, and Azhi drew back. The Glory escaped into the sea Vouru-Kasha.\n\n## The great fires\n\nSasanian tradition named three great fires: Adur Farnbag, the fire of the priests; Adur Gushnasp, the fire of the warriors and kings, housed at the sanctuary now called Takht-e Soleyman in northwestern Iran; and Adur Burzen-Mihr, the fire of the farmers. Fires are graded today as Atash Behram, Atash Adaran, and Atash Dadgah, according to their consecration.",
+    "originStory": "Son of Ahura Mazda, in the standard Avestan formula.",
+    "importanceRank": 3,
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "hindu-pantheon",
+        "deityId": "agni",
+        "note": "Both are sacrificial fire personified as a god at the center of Indo-Iranian ritual; the names are not cognate, but the ritual role of fire as the medium between worshippers and the divine is shared."
+      }
+    ],
+    "primarySources": [
+      {
+        "text": "Then forward came Atar, the son of Ahura Mazda, thinking thus in his heart: 'I want to seize that Glory that cannot be forcibly seized.' But Azhi Dahaka, the three-mouthed, he of the evil law, rushed on his back, thinking of extinguishing it.",
+        "source": "Avesta, Yasht 19.47 (trans. Darmesteter)",
+        "sourceId": "avesta",
+        "locator": "Yasht 19.47",
+        "date": "Younger Avestan; trans. 1883"
+      },
+      {
+        "text": "'There give it up to me, thou three-mouthed Azhi Dahaka. If thou seizest that Glory that cannot be forcibly seized, then I will enter thy hinder part, I will blaze up in thy jaws.'",
+        "source": "Avesta, Yasht 19.50 (trans. Darmesteter)",
+        "sourceId": "avesta",
+        "locator": "Yasht 19.50",
+        "date": "Younger Avestan; trans. 1883"
+      }
+    ],
+    "worship": {
+      "temples": [
+        "The Sasanian royal fire Adur Gushnasp at Takht-e Soleyman, Iran.",
+        "Living Atash Behram fires at Yazd (Iran) and Udvada (India), among others."
+      ],
+      "festivals": [
+        "Adargan, the feast of fire on the day Adar of the month Adar."
+      ],
+      "practices": "Consecrated fires are fed with sandalwood and incense by priests five times a day; the faithful pray facing the fire and must never pollute it."
+    },
+    "pronunciation": {
+      "ipa": "/ˈaːtar/",
+      "phonetic": "AH-tar"
+    },
+    "imageUrl": "/deities/atar.png"
+  },
+  {
+    "id": "spenta-armaiti",
+    "pantheonId": "persian-pantheon",
+    "name": "Spenta Armaiti",
+    "slug": "spenta-armaiti",
+    "originalLanguageName": {
+      "text": "Spəṇtā Ārmaiti",
+      "language": "Avestan",
+      "transliteration": "Spenta Armaiti; Middle Persian Spandarmad, Esfand",
+      "meaning": "\"Beneficent Devotion\" or \"Holy Right-Mindedness\""
+    },
+    "alternateNames": ["Spandarmad", "Esfand", "Armaiti"],
+    "gender": "female",
+    "traditionRole": "Amesha Spenta",
+    "domain": ["devotion", "the earth", "serenity"],
+    "symbols": ["the earth", "the month Esfand"],
+    "description": "One of the Amesha Spentas, the Beneficent Immortals: devotion personified, called Ahura Mazda's daughter in the Gathas, and in later tradition the guardian of the earth, whom Yima asks to stretch wider to hold the growing world.",
+    "detailedBio": "## In the Gathas\n\nArmaiti, 'right-mindedness' or 'devotion', is one of the qualities of Ahura Mazda that the Gathas address almost as persons. One hymn (Yasna 45.4) calls her his daughter, the doer of good deeds. With Truth (Asha), Good Mind (Vohu Manah), Dominion (Khshathra), Wholeness (Haurvatat), and Immortality (Ameretat), she belongs to the group later called the Amesha Spentas, the 'Beneficent Immortals', each of whom came to be associated with one part of the good creation.\n\n## Guardian of the earth\n\nArmaiti's part is the earth. In the Vendidad, when the world has grown too crowded, Yima presses the earth with his golden seal and calls on her by name: 'O Spenta Armaiti, kindly open asunder and stretch thyself afar', and the earth grows larger. Middle Persian texts make Spandarmad the guardian of the earth and of good women.\n\n## Esfand\n\nThe twelfth month of the Iranian calendar, Esfand, and the fifth day of each month bear her name, and the festival of Sepandarmazgan, when the day and month names coincide, was traditionally a festival of women and of the earth; it has been revived in modern Iran.",
+    "originStory": "Called the daughter of Ahura Mazda in the Gathas (Yasna 45.4).",
+    "importanceRank": 4,
+    "crossPantheonParallels": [],
+    "primarySources": [
+      {
+        "text": "Ahura Mazda is the father of Good Mind, and his daughter is Armaiti of good deeds.",
+        "source": "Avesta, Yasna 45.4 (paraphrase of the Gathic verse)",
+        "sourceId": "avesta",
+        "locator": "Yasna 45.4",
+        "date": "Gathas, date disputed (c. 1500-1000 BCE)"
+      },
+      {
+        "text": "'O Spenta Armaiti, kindly open asunder and stretch thyself afar, to bear flocks and herds and men.'",
+        "source": "Avesta, Vendidad 2.10 (trans. Darmesteter)",
+        "sourceId": "avesta",
+        "locator": "Vendidad 2.10",
+        "date": "Younger Avestan; trans. 1880"
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [
+        "Sepandarmazgan (Esfandgan), on the day Spandarmad of the month Spandarmad, traditionally a festival of women and the earth."
+      ],
+      "practices": "Invoked as guardian of the earth; the earth must be kept pure, which is one reason Zoroastrian law forbade burying the dead in it."
+    },
+    "pronunciation": {
+      "ipa": "/ˈspɛnta ˈaːrmaiti/",
+      "phonetic": "SPEN-tah AR-my-tee"
+    },
+    "imageUrl": "/deities/spenta-armaiti.png"
+  },
+  {
+    "id": "sraosha",
+    "pantheonId": "persian-pantheon",
+    "name": "Sraosha",
+    "slug": "sraosha",
+    "originalLanguageName": {
+      "text": "Sraoša",
+      "language": "Avestan",
+      "transliteration": "Sraosha; Middle Persian Srosh; Persian Sorush",
+      "meaning": "\"Hearkening, obedience\""
+    },
+    "alternateNames": ["Srosh", "Sorush"],
+    "gender": "male",
+    "domain": [
+      "obedience to the divine word",
+      "prayer",
+      "protection of the soul",
+      "judgment"
+    ],
+    "symbols": [
+      "the rooster",
+      "a raised weapon against the demons of the night"
+    ],
+    "description": "The yazata of 'hearkening' to the divine word, who guards the world by night against the demons, protects the soul for three nights after death, and judges it at the Chinvat Bridge with Mithra and Rashnu; in the Shahnameh, as Sorush, a heavenly messenger.",
+    "detailedBio": "## The hymn of Sraosha\n\nThe Srosh Yasht (Yasna 57) praises Sraosha as the first to worship Ahura Mazda with the sacred twigs and the first to sing the Gathas, and as a warrior who strikes down Aeshma, the demon of fury. He never sleeps, but watches over the world through the night, when the demons are strongest; the rooster, which wakes people for dawn prayer, is his bird.\n\n## Guardian of the dead\n\nIn Zoroastrian tradition the soul of the dead remains near the body for three nights, protected by Sraosha, and prayers to him (the Srosh Baj) are recited during that time. On the fourth dawn the soul comes to the Chinvat Bridge, where Mithra, Sraosha, and Rashnu weigh its deeds.\n\n## Sorush in the Shahnameh\n\nFerdowsi's Sorush is a heavenly messenger who appears at crucial moments: he warns King Kayumars of the demon who has killed his son, and he instructs Fereydun not to kill the defeated Zahhak but to chain him in Mount Damavand.",
+    "originStory": "A being created by Ahura Mazda; no birth narrative is told.",
+    "importanceRank": 4,
+    "crossPantheonParallels": [],
+    "primarySources": [
+      {
+        "text": "We sacrifice unto the holy, strong Sraosha, the incarnate Word, who first worshipped Ahura Mazda and first sang the Gathas.",
+        "source": "Avesta, Yasna 57 (Srosh Yasht) (paraphrase)",
+        "sourceId": "avesta",
+        "locator": "Yasna 57",
+        "date": "Younger Avestan"
+      },
+      {
+        "text": "Sorush came to Fereydun and told him not to kill Zahhak, whose time had not come, but to bind him and take him to Mount Damavand.",
+        "source": "Ferdowsi, Shahnameh, reign of Fereydun (paraphrase)",
+        "sourceId": "shahnameh",
+        "locator": "reign of Fereydun",
+        "date": "completed 1010 CE"
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [],
+      "practices": "The Srosh Baj prayer, recited at night and for the soul of the dead during the three nights after death; the seventeenth day of each Zoroastrian month is dedicated to him."
+    },
+    "pronunciation": {
+      "ipa": "/ˈsraoʃa/",
+      "phonetic": "SROW-shah"
+    },
+    "imageUrl": "/deities/sraosha.png"
+  },
+  {
+    "id": "zurvan",
+    "pantheonId": "persian-pantheon",
+    "name": "Zurvan",
+    "slug": "zurvan",
+    "originalLanguageName": {
+      "text": "Zurvān",
+      "language": "Middle Persian (Avestan zruuan)",
+      "meaning": "\"Time\""
+    },
+    "alternateNames": ["Zurvan Akarana (Infinite Time)", "Zamān"],
+    "gender": "androgynous",
+    "domain": ["time", "fate", "the origin of the two spirits"],
+    "symbols": ["infinite time", "the barsom twigs of sacrifice"],
+    "description": "Infinite Time, whom a Sasanian-era current of Zoroastrian thought made the father of both Ohrmazd and Ahriman, born as twins from his sacrifice and his doubt; known mainly from hostile Christian and Armenian writers, and rejected by later orthodoxy.",
+    "detailedBio": "## The Zurvanite myth\n\nThe fullest account comes not from a Zoroastrian text but from the fifth-century Armenian Christian Eznik of Kolb, in his *Refutation of the Sects*, with parallels in Syriac Christian sources. Before anything existed, Zurvan offered sacrifice for a thousand years in order to have a son who would create heaven and earth. Then he doubted whether his sacrifice would bear fruit, and from his doubt Ahriman was conceived, while from the sacrifice Ohrmazd was conceived. Zurvan vowed that whichever son reached him first would be king. Ohrmazd, knowing this, told his brother; Ahriman tore open the womb and presented himself, and Zurvan, bound by his vow, gave him rule for nine thousand years, after which Ohrmazd would reign.\n\n## A heresy or a current?\n\nHow widespread Zurvanism was is disputed. Some scholars saw it as the dominant theology of the Sasanian court; others see it as one speculative current among several. The Avesta mentions Zruvan, Time, only as a minor divine being, and the ninth-century Middle Persian books that became the basis of later orthodoxy present Ohrmazd as uncreated and Ahriman as his opposite, not his twin. No cult of Zurvan with temples or festivals is attested.\n\n## Why the myth mattered\n\nThe Zurvanite story tried to answer a question the Gathas leave open: why there should be two spirits at all. Its answer, that evil arose from a moment of doubt within a single origin, made the twins brothers, which later Zoroastrians found incompatible with Ohrmazd's goodness.",
+    "originStory": "Uncreated, the first being in the Zurvanite myth.",
+    "importanceRank": 5,
+    "crossPantheonParallels": [],
+    "primarySources": [
+      {
+        "text": "Zurvan offered sacrifice for a thousand years to have a son; then he doubted, and from the sacrifice Ohrmazd was conceived and from the doubt Ahriman.",
+        "source": "Eznik of Kolb, Refutation of the Sects, Book 2 (paraphrase)",
+        "date": "5th century CE"
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [],
+      "practices": "No cult is attested; Zurvanism appears as a theological current within Sasanian Zoroastrianism, known largely through its opponents."
+    },
+    "pronunciation": {
+      "ipa": "/zurˈvaːn/",
+      "phonetic": "zoor-VAHN"
+    },
+    "imageUrl": "/deities/zurvan.png"
+  },
+  {
+    "id": "yima",
+    "pantheonId": "persian-pantheon",
+    "name": "Yima",
+    "slug": "yima",
+    "originalLanguageName": {
+      "text": "Yima Xšaēta",
+      "language": "Avestan",
+      "transliteration": "Yima Khshaeta; Middle Persian Jam; Persian Jamshid",
+      "meaning": "\"Radiant Yima\"; Yima means 'twin'"
+    },
+    "alternateNames": ["Jamshid", "Jam", "Yima Khshaeta"],
+    "gender": "male",
+    "traditionRole": "Primordial King",
+    "domain": ["kingship", "the golden age", "preservation of life"],
+    "symbols": [
+      "a golden seal and a gold-inlaid dagger",
+      "the Var enclosure",
+      "the world-revealing cup (later tradition)"
+    ],
+    "description": "The first king, son of Vivahvant, under whose rule there was neither cold nor heat, age nor death; in the Vendidad he builds an enclosure to preserve life from devastating winters, and in the Shahnameh, as Jamshid, he loses the royal Glory through pride.",
+    "detailedBio": "## The good shepherd\n\nIn the Vendidad (Fargard 2), Ahura Mazda first asks Yima, son of Vivanghat, to be the bearer of his religion; Yima declines but agrees to rule and protect the world, promising that under him there will be neither cold wind nor hot wind, disease nor death. Given a golden seal and a gold-inlaid dagger, he enlarges the earth three times as it fills with people and animals, calling on Spenta Armaiti to stretch wider. Warned of terrible winters to come, he builds the Var, an enclosure in which the best of every kind of person, animal, plant, and fire is preserved.\n\n## The lost Glory\n\nThe Zamyad Yasht (Yasht 19) says that when Yima began to delight in words of falsehood, the royal Glory fled from him in the shape of a bird, three times; Mithra, Thraetaona, and Keresaspa seized it in turn. The same hymn names Spityura as the one 'who sawed Yima in twain'.\n\n## Jamshid in the Shahnameh\n\nFerdowsi's Jamshid is a great civilizing king who teaches crafts, divides society into classes, and has the demons raise his jeweled throne into the sky, a day remembered as Nowruz. Growing proud, he claims to be the world's creator; the divine glory (*farr*) leaves him, and the usurper Zahhak takes his throne and later has him sawn in two. The ruins of Persepolis came to be called Takht-e Jamshid, 'Jamshid's Throne'.\n\n## The Indian twin\n\nYima is the Iranian counterpart of the Vedic Yama: both are sons of the sun-related Vivahvant or Vivasvant, and both names mean 'twin'. In India Yama became king of the dead; in Iran Yima remained the king of a lost golden age.",
+    "originStory": "Son of Vivanghat (Vivahvant), the first mortal with whom Ahura Mazda conversed before Zarathushtra (Vendidad 2.2).",
+    "importanceRank": 3,
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "hindu-pantheon",
+        "deityId": "yama",
+        "note": "Yima and the Vedic Yama are the same Indo-Iranian figure: both are sons of Vivahvant/Vivasvant and both names mean 'twin'. The traditions diverged, making Yama lord of the dead and Yima the king of a vanished golden age."
+      }
+    ],
+    "primarySources": [
+      {
+        "text": "'Yes! I will make thy world increase, I will make thy world grow. Yes! I will nourish, and rule, and watch over thy world. There shall be, while I am king, neither cold wind nor hot wind, neither disease nor death.'",
+        "source": "Avesta, Vendidad 2.5 (trans. Darmesteter)",
+        "sourceId": "avesta",
+        "locator": "Vendidad 2.5",
+        "date": "Younger Avestan; trans. 1880"
+      },
+      {
+        "text": "But when he began to find delight in words of falsehood and untruth, the Glory was seen to flee away from him in the shape of a bird.",
+        "source": "Avesta, Yasht 19.34 (trans. Darmesteter)",
+        "sourceId": "avesta",
+        "locator": "Yasht 19.34",
+        "date": "Younger Avestan; trans. 1883"
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [
+        "Nowruz, the Iranian new year, which the Shahnameh traces to the day Jamshid's throne was raised into the sky."
+      ],
+      "practices": "Remembered rather than worshipped: Yima is honored in Zoroastrian tradition as the righteous first king who lost his glory through a lie, and Jamshid is a figure of Nowruz lore."
+    },
+    "pronunciation": {
+      "ipa": "/ˈjima/",
+      "phonetic": "YEE-mah"
+    },
+    "imageUrl": "/deities/yima.png"
   }
 ]
