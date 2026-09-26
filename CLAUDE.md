@@ -72,7 +72,7 @@ pnpm biome:fix
 - **Pre-commit**: Husky runs lint-staged (ESLint --fix + Prettier on staged `.ts`/`.tsx` files)
 - **Unused vars**: ESLint allows unused vars prefixed with `_`
 - **Build**: production builds use `next build --webpack` for the configured plugin pipeline; service-worker generation is disabled
-- Key libraries: ReactFlow + D3 + React Three Fiber (visualizations), Leaflet (maps), Fuse.js (fuzzy search), cmdk (⌘K command palette), Framer Motion (all animation; GSAP was removed), offline-status indicator and optional install UI (service-worker generation is disabled)
+- Key libraries: ReactFlow + D3 + React Three Fiber (visualizations), Leaflet (maps), scored local search in `src/lib/search.ts`, cmdk (⌘K command palette), Framer Motion (all animation; GSAP was removed), offline-status indicator and optional install UI (service-worker generation is disabled)
 
 ## Testing
 

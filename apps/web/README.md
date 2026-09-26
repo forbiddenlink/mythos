@@ -4,7 +4,7 @@
 
 ## Overview
 
-Web frontend for Mythos Atlas, an interactive encyclopedia of ancient mythology featuring **16 pantheons**, **233 deities**, **27 heroes**, **108 stories**, **63 creatures**, **52 artifacts**, and **127 mythological locations** — plus quizzes, interactive family trees, 3D artifact viewers, branching stories, and spaced-repetition review.
+Web frontend for Mythos Atlas, an interactive encyclopedia of ancient mythology featuring **16 pantheons**, **233 deities**, **27 heroes**, **108 stories**, **63 creatures**, **52 artifacts**, and **127 mythological locations** — plus quizzes, interactive family trees, branching stories, and spaced-repetition review.
 
 **Built by Elizabeth Stein** using Next.js 16, React 19, TypeScript 5, and modern web technologies.
 
@@ -42,7 +42,6 @@ Web frontend for Mythos Atlas, an interactive encyclopedia of ancient mythology 
 | Animations     | Framer Motion                | ^13.0         |
 | Audio          | Howler.js                    | ^2.2          |
 | i18n           | next-intl                    | ^4.14         |
-| Search         | Fuse.js                      | ^7.5          |
 | Icons          | Lucide React                 | ^1.28         |
 | UI Primitives  | shadcn/ui + Radix            | —             |
 | Unit Tests     | Vitest                       | 4.1           |
@@ -98,7 +97,7 @@ src/
 │   ├── timeline/         # Mythological timeline
 │   └── api/              # App-internal route handlers (search, analytics, Oracle)
 ├── components/           # React components (~40 directories)
-│   ├── artifacts/        # 3D artifact viewer
+│   ├── artifacts/        # Artifact provenance
 │   ├── challenges/       # Daily challenges
 │   ├── compare/          # Deity comparison
 │   ├── deities/          # Deity cards, filters, details
@@ -129,12 +128,12 @@ src/
 │   └── relationships.json
 ├── hooks/                # Custom React hooks
 │   ├── useAchievements, useBookmarks, usePagination
-│   ├── useTextToSpeech, use-progress, use-recommendations
+│   ├── use-progress, use-recommendations
 │   └── use-background-sync, use-debounce
 ├── i18n/                 # Internationalization config
 ├── lib/                  # Utilities and logic
 │   ├── recommendations.ts
-│   ├── search.ts         # Fuse.js search engine
+│   ├── search.ts         # Scored local search
 │   ├── branching-story.ts
 │   ├── daily-challenges.ts
 │   ├── spaced-repetition.ts
