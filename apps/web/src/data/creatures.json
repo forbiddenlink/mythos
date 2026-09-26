@@ -2293,5 +2293,68 @@
       }
     ],
     "imageUrl": "/creatures/munmu-sea-dragon.png"
+  },
+  {
+    "id": "nemean-lion",
+    "pantheonId": "greek-pantheon",
+    "name": "Nemean Lion",
+    "slug": "nemean-lion",
+    "description": "The lion of Nemea whose hide no weapon could pierce. Killing it was the first of Heracles' labours: when his arrows glanced off, he trapped it in its cave and strangled it, and its skin became his emblem.",
+    "habitat": "The hills of Nemea, northeast Peloponnese",
+    "abilities": ["Hide no weapon could pierce", "Twin-mouthed lair"],
+    "dangerLevel": 7,
+    "imageUrl": "/creatures/nemean-lion.png",
+    "detailedBio": "## Hera's Nursling\n\nHesiod places the lion in the brood of monsters descended from Echidna: mated with the dog Orthus, the mother of the Sphinx (Hesiod's 'she' may be Echidna or the Chimera) bore the Nemean lion, which Hera reared and settled in the hills of Nemea as a plague to the people there. Apollodorus instead calls it the offspring of Typhon.\n\n## The First Labour\n\nIn Apollodorus's account Eurystheus's first command was to bring back the lion's skin. The beast could not be wounded, so when Heracles' arrows failed he drove it into its cave, which had two mouths, blocked one entrance, went in by the other and choked it to death. He carried the carcass to Mycenae; Eurystheus was so frightened that he forbade Heracles to enter the city again and had him display his future trophies outside the gates. The lion skin, worn as a cloak with the head as a hood, became Heracles' constant attribute in art. Nemea later hosted the Nemean Games, one of the four great Panhellenic festivals.",
+    "primarySources": [
+      {
+        "text": "Mated with Orthus, she bore the deadly Sphinx and the Nemean lion, which Hera reared and set in the hills of Nemea, a plague to men (paraphrase).",
+        "source": "Hesiod, Theogony 326-332 (paraphrase)",
+        "sourceId": "theogony",
+        "locator": "326-332",
+        "date": "c. 700 BCE"
+      },
+      {
+        "text": "Finding the lion could not be wounded, Heracles drove it into its cave with two entrances, blocked one, went in by the other and choked it (paraphrase).",
+        "source": "Apollodorus, Library 2.5.1 (paraphrase)",
+        "sourceId": "library-apollodorus",
+        "locator": "2.5.1",
+        "date": "c. 1st-2nd century CE"
+      }
+    ]
+  },
+  {
+    "id": "ladon",
+    "pantheonId": "greek-pantheon",
+    "name": "Ladon",
+    "slug": "ladon",
+    "description": "The serpent that guarded the golden apples in the garden of the Hesperides. Hesiod calls it the youngest child of Ceto and Phorcys; Apollodorus gives it a hundred heads; Apollonius of Rhodes names it Ladon and shows it lying dead the day after Heracles took the apples.",
+    "habitat": "The garden of the Hesperides, at the western edge of the world",
+    "abilities": ["Many heads", "Many voices", "Guardian of the golden apples"],
+    "dangerLevel": 7,
+    "imageUrl": "/creatures/ladon.png",
+    "detailedBio": "## Guardian of the Apples\n\nThe golden apples were Earth's gift at the wedding of Zeus and Hera, planted in a garden beyond the ocean and tended by the Hesperides. Hesiod ends his list of the children of the sea-powers Ceto and Phorcys with a terrible serpent that guards the golden apples in the hidden places of the dark earth at its far bounds. Apollodorus makes the guardian an immortal dragon with a hundred heads, born of Typhon and Echidna, which spoke with many different voices.\n\n## The Name and the Death\n\nThe name Ladon is best known from Apollonius of Rhodes. In the *Argonautica*, the Argonauts, parched in the Libyan desert, come upon the garden the day after Heracles has passed through: the serpent Ladon lies dead by the golden apple tree, shot with arrows dipped in the Hydra's poison, while the Hesperides lament. Apollodorus preserves two versions of how Heracles got the apples: by sending Atlas for them while he held the sky, or by killing the serpent and picking them himself.",
+    "primarySources": [
+      {
+        "text": "Ceto, joined in love with Phorcys, bore as her youngest a terrible serpent that guards the all-golden apples in the hidden places of the dark earth at its great bounds (paraphrase).",
+        "source": "Hesiod, Theogony 333-336 (paraphrase)",
+        "sourceId": "theogony",
+        "locator": "333-336",
+        "date": "c. 700 BCE"
+      },
+      {
+        "text": "The apples were guarded by an immortal dragon with a hundred heads, offspring of Typhon and Echidna, which spoke with many and various voices (paraphrase).",
+        "source": "Apollodorus, Library 2.5.11 (paraphrase)",
+        "sourceId": "library-apollodorus",
+        "locator": "2.5.11",
+        "date": "c. 1st-2nd century CE"
+      },
+      {
+        "text": "The Argonauts reach the sacred garden the day after Heracles has killed the serpent Ladon, guardian of the golden apples, and find the Hesperides lamenting beside it (paraphrase).",
+        "source": "Apollonius of Rhodes, Argonautica 4 (paraphrase)",
+        "sourceId": "argonautica",
+        "locator": "Book 4",
+        "date": "3rd century BCE"
+      }
+    ]
   }
 ]

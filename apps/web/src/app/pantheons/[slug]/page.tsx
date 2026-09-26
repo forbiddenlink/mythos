@@ -59,7 +59,8 @@ export async function generateMetadata({
     title: `${pantheon.name} Guide`,
     description: description,
     url: `/pantheons/${pantheon.slug}`,
-    image: "/og-image.png",
+    // The generated opengraph-image card for this route supplies og:image.
+    image: null,
     type: "website",
     keywords: [
       pantheon.name,

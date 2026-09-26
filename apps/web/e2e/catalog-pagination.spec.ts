@@ -57,8 +57,10 @@ for (const catalog of [
       .getByRole("link", { name: "Go to next page", exact: true })
       .click();
     await expect(page).toHaveURL(/page=2/);
+    // During the client transition the old and new lists can both be mounted
+    // for a moment; any visible current-page marker for page 2 is enough.
     await expect(
-      page.locator('[aria-current="page"]').filter({ hasText: "2" }),
+      page.locator('[aria-current="page"]').filter({ hasText: "2" }).first(),
     ).toBeVisible();
     await expect(
       page.locator(`a[href="${catalog.items[catalog.size]}"]`).first(),

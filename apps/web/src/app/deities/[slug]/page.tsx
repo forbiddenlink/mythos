@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { getIllustrativeImageNote } from "@/lib/image-provenance";
+import Link from "next/link";
 import { notFound, redirect } from "next/navigation";
 import { TrackPageView } from "@/components/analytics/TrackPageView";
 import deities from "@/data/deities.json";
@@ -13,6 +14,10 @@ import {
 } from "@/lib/metadata";
 import { getMuseumObjectsFor, getMuseumPortrait } from "@/lib/museum";
 import { ComparisonLinks } from "@/components/compare/ComparisonLinks";
+import { FeaturedInGuides } from "@/components/guides/FeaturedInGuides";
+import { counterpart, getComparisonsForDeity } from "@/lib/comparisons";
+import { familyFaq } from "@/lib/deity-faq";
+import { godsOfLinksForDomains } from "@/lib/gods-of";
 import { BloodlineTapestry } from "@/components/deities/BloodlineTapestry";
 import { DeityStoryRecommendations } from "@/components/deities/DeityStoryRecommendations";
 import { RelatedDeities } from "@/components/deities/RelatedDeities";
@@ -21,6 +26,7 @@ import { LinkedMentions } from "@/components/mythology/LinkedMentions";
 import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
 import { DeityJsonLd } from "@/components/seo/JsonLd";
 import { getAppearsIn } from "@/lib/appears-in";
+import { citedWorksFor } from "@/lib/seo/cited-works";
 import {
   getBranchingStories,
   getDeities,
@@ -39,6 +45,7 @@ import {
   selectRelatedDeities,
 } from "@/lib/deity-page";
 import { getTopRelatedDeities } from "@/lib/relationships";
+import { DeityFamilyFaq } from "./_components/DeityFamilyFaq";
 import { DeityFamilyTree } from "./_components/DeityFamilyTree";
 import { DeityHero } from "./_components/DeityHero";
 import {
@@ -113,7 +120,8 @@ export async function generateMetadata({
     title: `${deity.name} - ${pantheonName} Deity`,
     description: description.slice(0, 160),
     url: `/deities/${deity.slug}`,
-    image: deity.imageUrl || "/og-image.png",
+    // The generated opengraph-image card for this route supplies og:image.
+    image: null,
     type: "article",
     keywords: [
       deity.name,
@@ -174,6 +182,15 @@ export default async function DeityPage({ params }: PageProps) {
     heroParallels,
   );
 
+  const compareSlugs = Object.fromEntries(
+    getComparisonsForDeity(deity.id, Number.POSITIVE_INFINITY).map((c) => [
+      counterpart(c, deity.id).id,
+      c.slug,
+    ]),
+  );
+  const bloodline = buildBloodline(deity.id, relationships, allDeities);
+  const domainPages = godsOfLinksForDomains(deity.domain ?? []);
+
   const ownRelationships = relationshipsFor(deity.id, relationships);
   const familyTreeDeities = project(
     deitiesInRelationships(ownRelationships, allDeities),
@@ -218,6 +235,8 @@ export default async function DeityPage({ params }: PageProps) {
           domains={deity.domain}
           url={`/deities/${deity.slug}`}
           image={deity.imageUrl || undefined}
+          tradition={shortPantheonName(pantheon)}
+          citations={citedWorksFor(deity)}
         />
         <DeityHero
           deity={deity}
@@ -234,10 +253,36 @@ export default async function DeityPage({ params }: PageProps) {
               <LinkedMentions deityId={deity.id} deityName={deity.name} />
               <div className="space-y-12">
                 <DeityNarrative deity={deity} />
-                <DeityParallels deity={deity} parallels={parallels} />
+                <FeaturedInGuides kind="deity" id={deity.id} />
+                <DeityParallels
+                  deity={deity}
+                  parallels={parallels}
+                  compareSlugs={compareSlugs}
+                />
                 <DeitySources deity={deity} />
                 <DeityWorship deity={deity} />
                 <DeityAttributes deity={deity} />
+                {domainPages.length > 0 ? (
+                  <nav
+                    aria-label="Other gods of these domains"
+                    className="max-w-[68ch] text-sm text-muted-foreground"
+                  >
+                    <span className="text-sm font-medium uppercase tracking-[0.2em] mr-2">
+                      Across traditions
+                    </span>
+                    {domainPages.map((page, index) => (
+                      <span key={page.slug}>
+                        {index > 0 ? " · " : null}
+                        <Link
+                          href={`/gods-of/${page.slug}`}
+                          className="text-foreground underline decoration-gold/50 underline-offset-4 hover:text-gold-text hover:decoration-current"
+                        >
+                          Gods of {page.label}
+                        </Link>
+                      </span>
+                    ))}
+                  </nav>
+                ) : null}
               </div>
             </div>
 
@@ -264,7 +309,12 @@ export default async function DeityPage({ params }: PageProps) {
               deityId={deity.id}
               deityName={deity.name}
               pantheonId={deity.pantheonId}
-              bloodline={buildBloodline(deity.id, relationships, allDeities)}
+              bloodline={bloodline}
+            />
+
+            <DeityFamilyFaq
+              deityName={deity.name}
+              answers={familyFaq(deity.name, bloodline)}
             />
 
             <DeityFamilyTree

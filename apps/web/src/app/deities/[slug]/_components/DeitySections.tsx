@@ -60,9 +60,12 @@ export function DeityNarrative({ deity }: { deity: DeityRecord }) {
 export function DeityParallels({
   deity,
   parallels,
+  compareSlugs = {},
 }: {
   deity: DeityRecord;
   parallels: ResolvedParallel[];
+  /** Counterpart id → slug of its /compare page with this deity, when one exists. */
+  compareSlugs?: Record<string, string>;
 }) {
   if (parallels.length === 0) return null;
 
@@ -129,6 +132,14 @@ export function DeityParallels({
               <p className="text-muted-foreground text-sm mt-1">
                 {parallel.note}
               </p>
+              {compareSlugs[parallel.deityId] ? (
+                <Link
+                  href={`/compare/${compareSlugs[parallel.deityId]}`}
+                  className="mt-1 inline-block text-sm text-gold-text underline decoration-gold/50 underline-offset-4 hover:decoration-current"
+                >
+                  Compare {deity.name} and {parallel.name} side by side
+                </Link>
+              ) : null}
             </li>
           ))}
         </ul>

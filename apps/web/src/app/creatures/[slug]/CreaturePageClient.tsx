@@ -11,7 +11,7 @@ import Image from "next/image";
 import ReactMarkdown from "react-markdown";
 import { CatalogSourceNotes } from "@/components/sources/CatalogSourceNotes";
 import { SourceProvenance } from "@/components/deities/SourceProvenance";
-import { CreatureJsonLd, BreadcrumbJsonLd } from "@/components/seo/JsonLd";
+import { BreadcrumbJsonLd } from "@/components/seo/JsonLd";
 import { EditorialByline } from "@/components/content/EditorialByline";
 import { siteConfig } from "@/lib/metadata";
 import creaturesData from "@/data/creatures.json";
@@ -97,13 +97,6 @@ export function CreaturePageClient({
 
   return (
     <div className="min-h-screen">
-      <CreatureJsonLd
-        name={creature.name}
-        description={creature.description}
-        url={`/creatures/${creature.slug}`}
-        image={creature.imageUrl || undefined}
-        abilities={creature.abilities}
-      />
       <BreadcrumbJsonLd items={breadcrumbItems} />
       {/* Hero Section */}
       <div className="relative overflow-hidden bg-midnight">

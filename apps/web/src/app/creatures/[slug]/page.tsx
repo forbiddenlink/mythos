@@ -12,6 +12,9 @@ import {
 } from "@/lib/metadata";
 import { CreaturePageClient } from "./CreaturePageClient";
 import { getMuseumObjectsFor } from "@/lib/museum";
+import { FeaturedInGuides } from "@/components/guides/FeaturedInGuides";
+import { CreatureJsonLd } from "@/components/seo/JsonLd";
+import { citedWorksFor } from "@/lib/seo/cited-works";
 
 interface CreatureData {
   id: string;
@@ -70,7 +73,8 @@ export async function generateMetadata({
     title: `${creature.name} - ${pantheonName} Creature`,
     description: description,
     url: `/creatures/${creature.slug}`,
-    image: creature.imageUrl || "/og-image.png",
+    // The generated opengraph-image card for this route supplies og:image.
+    image: null,
     type: "article",
     keywords: [
       creature.name,
@@ -113,12 +117,30 @@ export default async function CreaturePage({ params }: PageProps) {
     .slice(0, 4)
     .map((d) => ({ id: d.id, slug: d.slug, name: d.name }));
 
+  const pantheon = pantheons.find((p) => p.id === creature.pantheonId);
+
   return (
-    <CreaturePageClient
-      slug={slug}
-      samePantheonDeities={samePantheonDeities}
-      museumObjects={getMuseumObjectsFor({ creature: slug })}
-      imageNote={getIllustrativeImageNote("creature", creature.id)}
-    />
+    <>
+      <CreatureJsonLd
+        name={creature.name}
+        description={creature.description}
+        url={`/creatures/${creature.slug}`}
+        image={creature.imageUrl || undefined}
+        abilities={creature.abilities}
+        tradition={shortPantheonName(pantheon)}
+        citations={citedWorksFor(creature)}
+      />
+      <CreaturePageClient
+        slug={slug}
+        samePantheonDeities={samePantheonDeities}
+        museumObjects={getMuseumObjectsFor({ creature: slug })}
+        imageNote={getIllustrativeImageNote("creature", creature.id)}
+      />
+      <FeaturedInGuides
+        kind="creature"
+        id={creature.id}
+        className="container mx-auto mb-16 max-w-4xl px-4"
+      />
+    </>
   );
 }

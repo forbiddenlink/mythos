@@ -208,6 +208,23 @@ CREATURES = [
     {"id": "samjok-o", "name": "SAMJOK-O", "subtitle": "THE THREE-LEGGED CROW", "accent": (225, 160, 70), "bg": (18, 12, 10), "motif": "emblem_crow_sun"},
     {"id": "haetae", "name": "HAETAE", "subtitle": "GUARDIAN BEAST OF JUSTICE", "accent": (180, 170, 140), "bg": (14, 14, 12), "motif": "emblem_beast"},
     {"id": "munmu-sea-dragon", "name": "THE SEA DRAGON", "subtitle": "KING MUNMU'S GUARDIANSHIP", "accent": (90, 170, 170), "bg": (10, 14, 18), "motif": "emblem_dragon"},
+    # 2026-09 additions for the Percy Jackson guide
+    {
+        "id": "nemean-lion",
+        "name": "NEMEAN LION",
+        "subtitle": "THE HIDE NO WEAPON COULD PIERCE",
+        "accent": (210, 165, 75),
+        "bg": (22, 18, 12),
+        "motif": "leshy_antlers"
+    },
+    {
+        "id": "ladon",
+        "name": "LADON",
+        "subtitle": "SERPENT OF THE GOLDEN APPLES",
+        "accent": (150, 180, 90),
+        "bg": (14, 20, 14),
+        "motif": "zmey_dragon"
+    }
 ]
 
 def draw_creature_motif(draw, cx, cy, r, motif, accent, gold):
@@ -486,6 +503,14 @@ LOCATIONS = [
     {"id": "najeong", "name": "NAJEONG", "subtitle": "THE WELL OF THE WHITE HORSE", "accent": (215, 180, 100), "bg": (14, 14, 10), "motif": "emblem_well"},
     {"id": "daewangam", "name": "DAEWANGAM", "subtitle": "THE UNDERWATER TOMB OF KING MUNMU", "accent": (90, 160, 190), "bg": (10, 14, 20), "motif": "emblem_sea_rock"},
     {"id": "jeoseung", "name": "JEOSEUNG", "subtitle": "THE OTHER WORLD", "accent": (160, 150, 190), "bg": (10, 10, 16), "motif": "emblem_gate_below"},
+    {
+        "id": "mount-othrys",
+        "name": "MOUNT OTHRYS",
+        "subtitle": "THE TITANS' SIDE OF THE WAR",
+        "accent": (180, 150, 110),
+        "bg": (18, 16, 14),
+        "motif": "arkona_cliffs"
+    }
 ]
 
 def draw_location_motif(draw, cx, cy, r, motif, accent, gold):

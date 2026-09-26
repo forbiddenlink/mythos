@@ -22,6 +22,7 @@ import { matchesSource } from "@/lib/source-matching";
 import { BookmarkButton } from "@/components/ui/bookmark-button";
 import { ShareButton } from "@/components/sharing/ShareButton";
 import { SourceExcerpt } from "@/components/sources/SourceExcerpt";
+import { SourceWorkJsonLd } from "@/components/seo/JsonLd";
 
 interface SourceCharacter {
   id: string;
@@ -194,8 +195,28 @@ export default async function SourcePage({ params }: PageProps) {
     );
   });
 
+  const characterLinks = [
+    ...heroCharacters.flatMap((c) => {
+      const hero = heroById(c.id);
+      return hero ? [{ name: hero.name, url: `/heroes/${hero.slug}` }] : [];
+    }),
+    ...deityCharacters.flatMap((c) => {
+      const deity = deityById(c.id);
+      return deity ? [{ name: deity.name, url: `/deities/${deity.slug}` }] : [];
+    }),
+  ];
+
   return (
     <div className="min-h-screen bg-background">
+      <SourceWorkJsonLd
+        title={source.title}
+        description={source.description}
+        url={`/sources/${source.id}`}
+        author={source.author}
+        language={source.language}
+        translators={source.translators?.map((t) => t.name)}
+        characters={characterLinks}
+      />
       <div className="page-shell max-w-4xl">
         <Breadcrumbs />
         <header className="mt-8 border-b border-border pb-8">

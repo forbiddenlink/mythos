@@ -10,6 +10,9 @@ import {
   shortPantheonName,
 } from "@/lib/metadata";
 import { LocationPageClient } from "./LocationPageClient";
+import { FeaturedInGuides } from "@/components/guides/FeaturedInGuides";
+import { PlaceJsonLd } from "@/components/seo/JsonLd";
+import { citedWorksFor } from "@/lib/seo/cited-works";
 
 interface LocationData {
   id: string;
@@ -67,7 +70,8 @@ export async function generateMetadata({
     title: `${location.name} - ${pantheonName} Location`,
     description,
     url: `/locations/${location.id}`,
-    image: location.imageUrl || "/og-image.png",
+    // The generated opengraph-image card for this route supplies og:image.
+    image: null,
     type: "article",
     keywords: [
       location.name,
@@ -95,10 +99,31 @@ export default async function LocationPage({ params }: PageProps) {
     notFound();
   }
 
+  const pantheon = pantheons.find((p) => p.id === location.pantheonId);
+
   return (
-    <LocationPageClient
-      slug={slug}
-      imageNote={getIllustrativeImageNote("location", location.id)}
-    />
+    <>
+      <PlaceJsonLd
+        name={location.name}
+        description={location.description}
+        url={`/locations/${location.id}`}
+        image={location.imageUrl}
+        latitude={location.latitude}
+        longitude={location.longitude}
+        geography={location.geography}
+        locationType={location.locationType}
+        tradition={shortPantheonName(pantheon)}
+        citations={citedWorksFor(location)}
+      />
+      <LocationPageClient
+        slug={slug}
+        imageNote={getIllustrativeImageNote("location", location.id)}
+      />
+      <FeaturedInGuides
+        kind="location"
+        id={location.id}
+        className="container mx-auto mb-16 max-w-4xl px-4"
+      />
+    </>
   );
 }

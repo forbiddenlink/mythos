@@ -1,6 +1,6 @@
 "use client";
 
-import { BreadcrumbJsonLd, PlaceJsonLd } from "@/components/seo/JsonLd";
+import { BreadcrumbJsonLd } from "@/components/seo/JsonLd";
 import { ShareButton } from "@/components/sharing/ShareButton";
 import { IllustrativeImageCaption } from "@/components/content/IllustrativeImageCaption";
 import type { ImageNote } from "@/lib/image-provenance";
@@ -157,15 +157,6 @@ export function LocationPageClient({
 
   return (
     <div className="min-h-screen">
-      <PlaceJsonLd
-        name={location.name}
-        description={location.description}
-        url={`/locations/${location.id}`}
-        image={location.imageUrl}
-        latitude={location.latitude}
-        longitude={location.longitude}
-        locationType={location.locationType}
-      />
       <BreadcrumbJsonLd items={breadcrumbItems} />
 
       {/* ── Hero Section ────────────────────────────────────────────── */}

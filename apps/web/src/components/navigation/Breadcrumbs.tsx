@@ -22,6 +22,13 @@ const PARENT_CRUMBS: Record<string, BreadcrumbItem> = {
   "/story-timeline": { label: "Timeline", href: "/timeline" },
 };
 
+/** Segments whose title-cased slug would read wrongly ("Hades Ii"). */
+const SEGMENT_LABELS: Record<string, string> = {
+  "gods-of": "Gods of",
+  "hades-ii": "Hades II",
+  "percy-jackson-titans-curse": "Percy Jackson: The Titan's Curse",
+};
+
 function generateBreadcrumbs(pathname: string): BreadcrumbItem[] {
   const paths = pathname.split("/").filter(Boolean);
   const breadcrumbs: BreadcrumbItem[] = [{ label: "Home", href: "/" }];
@@ -36,13 +43,15 @@ function generateBreadcrumbs(pathname: string): BreadcrumbItem[] {
     }
 
     // Format label: capitalize and replace hyphens with spaces
-    const label = path
-      .split("-")
-      // "vs" joins two names in a comparison slug; it is not a word to title-case.
-      .map((word) =>
-        word === "vs" ? word : word.charAt(0).toUpperCase() + word.slice(1),
-      )
-      .join(" ");
+    const label =
+      SEGMENT_LABELS[path] ??
+      path
+        .split("-")
+        // "vs" joins two names in a comparison slug; it is not a word to title-case.
+        .map((word) =>
+          word === "vs" ? word : word.charAt(0).toUpperCase() + word.slice(1),
+        )
+        .join(" ");
 
     breadcrumbs.push({
       label,

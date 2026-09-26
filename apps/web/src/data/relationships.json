@@ -2704,5 +2704,46 @@
     "relationshipType": "enemy_of",
     "confidenceLevel": "high",
     "description": "Seokga wins the world from Mireuk by stealing the flower from his knee (Changse-ga, recorded 1923)."
+  },
+  {
+    "id": "greek-atlas-prometheus",
+    "fromDeityId": "atlas",
+    "toDeityId": "prometheus",
+    "relationshipType": "sibling_of",
+    "confidenceLevel": "high",
+    "description": "Both are sons of Iapetus and Clymene (Hesiod, Theogony 507-514)."
+  },
+  {
+    "id": "greek-nyx-nemesis",
+    "fromDeityId": "nyx",
+    "toDeityId": "nemesis",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high",
+    "description": "Night bore Nemesis without a partner (Hesiod, Theogony 223-224)."
+  },
+  {
+    "id": "greek-nyx-thanatos",
+    "fromDeityId": "nyx",
+    "toDeityId": "thanatos",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high",
+    "description": "Night bore Death, with Sleep and Doom, without a partner (Hesiod, Theogony 211-212)."
+  },
+  {
+    "id": "greek-persephone-melinoe",
+    "fromDeityId": "persephone",
+    "toDeityId": "melinoe",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "medium",
+    "description": "Only source: Orphic Hymn 71, where Persephone bears Melinoë by the Cocytus."
+  },
+  {
+    "id": "greek-zeus-melinoe",
+    "fromDeityId": "zeus",
+    "toDeityId": "melinoe",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "medium",
+    "description": "Only source: Orphic Hymn 71, where Zeus fathers Melinoë in the guise of Plouton (Hades).",
+    "isDisputed": true
   }
 ]

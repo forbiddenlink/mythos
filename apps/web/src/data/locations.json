@@ -3789,5 +3789,26 @@
       }
     ],
     "imageUrl": "/locations/jeoseung.png"
+  },
+  {
+    "id": "mount-othrys",
+    "name": "Mount Othrys",
+    "locationType": "mountain",
+    "pantheonId": "greek-pantheon",
+    "description": "The mountain range in central Greece, south of the Thessalian plain, from which Hesiod says the Titans fought their ten-year war against the Olympian gods on Olympus.",
+    "latitude": 39.03,
+    "longitude": 22.62,
+    "geography": "physical",
+    "imageUrl": "/locations/mount-othrys.png",
+    "detailedBio": "## The Titans' Side of the War\n\nIn Hesiod's *Theogony* the war between the Titans and the children of Cronus is fought between two mountains: the Titans on lofty Othrys, the Olympians on Olympus across the Thessalian plain. The fighting lasts ten full years without either side winning, until Zeus frees the Hundred-Handed ones and the Titans are driven down into Tartarus.\n\nHesiod names Othrys only as the Titans' base in that war. It is a real range in Phthiotis and Magnesia, facing Olympus from the south, and the picture of a palace of the Titans on its summit belongs to later and modern retellings rather than to the ancient poem.",
+    "primarySources": [
+      {
+        "text": "For ten full years they fought, the proud Titans from lofty Othrys and the gods, givers of good things, whom Rhea bore to Cronus, from Olympus (paraphrase).",
+        "source": "Hesiod, Theogony 630-636 (paraphrase)",
+        "sourceId": "theogony",
+        "locator": "630-636",
+        "date": "c. 700 BCE"
+      }
+    ]
   }
 ]

@@ -9,7 +9,10 @@ import locations from "@/data/locations.json";
 import collections from "@/data/collections.json";
 import heroes from "@/data/heroes.json";
 import sources from "@/data/sources.json";
+import branchingStories from "@/data/branching-stories.json";
 import { getDeityComparisons } from "@/lib/comparisons";
+import { getGodsOfDomains } from "@/lib/gods-of";
+import { GUIDES } from "@/lib/guides";
 import { isOracleEnabled } from "@/lib/oracle/availability";
 
 const BASE_URL = "https://mythosatlas.com";
@@ -293,8 +296,46 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.85,
   }));
 
+  // Indexable static routes that are not in the core navigation list above.
+  const exploratoryPages: MetadataRoute.Sitemap = [
+    { url: `${BASE_URL}/atlas`, changeFrequency: "monthly", priority: 0.7 },
+    {
+      url: `${BASE_URL}/compare/parallels`,
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
+    {
+      url: `${BASE_URL}/accessibility`,
+      changeFrequency: "yearly",
+      priority: 0.3,
+    },
+    ...branchingStories.map((story) => ({
+      url: `${BASE_URL}/stories/interactive/${story.slug}`,
+      changeFrequency: "monthly" as const,
+      priority: 0.6,
+    })),
+  ];
+
+  // Editorial guides and the programmatic "gods of <domain>" pages.
+  const guidePages: MetadataRoute.Sitemap = [
+    { url: `${BASE_URL}/guides`, changeFrequency: "monthly", priority: 0.8 },
+    ...GUIDES.map((guide) => ({
+      url: `${BASE_URL}/guides/${guide.slug}`,
+      changeFrequency: "monthly" as const,
+      priority: 0.9,
+    })),
+  ];
+  const domainPages: MetadataRoute.Sitemap = getGodsOfDomains().map((page) => ({
+    url: `${BASE_URL}/gods-of/${page.slug}`,
+    changeFrequency: "monthly" as const,
+    priority: 0.75,
+  }));
+
   return [
     ...staticPages,
+    ...exploratoryPages,
+    ...guidePages,
+    ...domainPages,
     ...studyPages,
     ...comparisonPages,
     ...deityPages,
