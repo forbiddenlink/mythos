@@ -12,7 +12,6 @@ import { Button } from "@/components/ui/button";
 import { LayoutGrid, Table, Gem } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
-import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
 import { Badge } from "@/components/ui/badge";
 import { CollectionPageJsonLd } from "@/components/seo/JsonLd";
 import { PageHero } from "@/components/layout/page-hero";
@@ -56,7 +55,6 @@ export default function ArtifactsPage() {
 
       {/* Content Section */}
       <div className="container mx-auto max-w-6xl px-4 py-16">
-        <Breadcrumbs />
         <section className="mt-6 rounded-2xl border border-border/60 bg-card/60 p-6 shadow-sm">
           <h2 className="font-serif text-2xl text-foreground">
             Follow Objects Through Their Stories

@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { PageHero } from "@/components/layout/page-hero";
-import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
 import { ItemListJsonLd } from "@/components/seo/JsonLd";
 import { GUIDES } from "@/lib/guides";
 import { generateBaseMetadata } from "@/lib/metadata";
@@ -41,7 +40,6 @@ export default function GuidesIndex() {
         minHeight="min-h-[36vh]"
       />
       <div className="page-shell pb-20">
-        <Breadcrumbs />
         <ul className="mt-8 max-w-[68ch] divide-y divide-border/50">
           {GUIDES.map((guide) => (
             <li key={guide.slug} className="py-6">

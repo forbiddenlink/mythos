@@ -5,7 +5,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { Search, Sparkles, Shield, X } from "lucide-react";
 import { PageHero } from "@/components/layout/page-hero";
-import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -111,8 +110,6 @@ export function HeroesPageClient({
       />
 
       <div className="container mx-auto max-w-6xl px-4 py-16">
-        <Breadcrumbs />
-
         {/* Editorial Introduction */}
         <section className="mt-6 rounded-2xl border border-gold/20 bg-card/70 p-6 md:p-8 backdrop-blur-xs shadow-sm">
           <div className="flex items-center gap-3 mb-2">

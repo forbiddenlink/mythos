@@ -13,7 +13,6 @@ const ConstellationBackground = dynamic(
     ),
   { ssr: false },
 );
-import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
 import { CollectionPageJsonLd } from "@/components/seo/JsonLd";
 import { PageHero } from "@/components/layout/page-hero";
 import { getPantheonColor } from "@/lib/pantheon-colors";
@@ -53,7 +52,6 @@ export default function PantheonsPage() {
       />
 
       <div className="container mx-auto max-w-6xl px-4 py-16 bg-mythic">
-        <Breadcrumbs />
         <section className="mt-6 rounded-2xl border border-border/60 bg-card/60 p-6 shadow-sm">
           <h2 className="font-serif text-2xl text-foreground">
             How To Use The Pantheon Guide

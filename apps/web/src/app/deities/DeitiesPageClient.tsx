@@ -3,7 +3,6 @@
 import { DeitiesTable } from "@/components/deities/DeitiesTable";
 import { DeityFilters } from "@/components/deities/DeityFilters";
 import { PageHero } from "@/components/layout/page-hero";
-import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
 import { BookmarkButton } from "@/components/ui/bookmark-button";
 import { Button } from "@/components/ui/button";
 import {
@@ -119,7 +118,6 @@ export function DeitiesPageClient({
 
       {/* Content Section */}
       <div className="container mx-auto max-w-6xl px-4 py-16 bg-mythic">
-        <Breadcrumbs />
         <section className="mt-6 rounded-2xl border border-border/60 bg-card/60 p-6 shadow-sm">
           <h2 className="font-serif text-2xl text-foreground">
             Browse By Domain, Symbol, And Role

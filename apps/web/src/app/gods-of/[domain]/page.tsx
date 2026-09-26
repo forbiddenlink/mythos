@@ -4,7 +4,6 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowRight } from "lucide-react";
 import { PageHero } from "@/components/layout/page-hero";
-import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
 import {
   CollectionPageJsonLd,
   FAQJsonLd,
@@ -142,8 +141,6 @@ export default async function GodsOfDomainPage({
       />
 
       <div className="page-shell">
-        <Breadcrumbs />
-
         <nav
           aria-label="Traditions on this page"
           className="mt-6 flex flex-wrap gap-x-4 gap-y-2 font-body text-base"

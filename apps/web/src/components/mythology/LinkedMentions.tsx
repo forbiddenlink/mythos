@@ -36,7 +36,8 @@ const KIND_META: Record<
   },
 };
 
-const KIND_ORDER: MentionKind[] = ["story", "artifact", "journey", "parallel"];
+// Parallels have their own section on the deity page, so they are not repeated here.
+const KIND_ORDER: MentionKind[] = ["story", "artifact", "journey"];
 
 function groupMentions(mentions: LinkedMention[]) {
   const groups = new Map<MentionKind, LinkedMention[]>();
@@ -47,9 +48,14 @@ function groupMentions(mentions: LinkedMention[]) {
   return groups;
 }
 
-/**
- * Above-the-fold reverse links — Met museum lesson: related content dies if buried.
- */
+/** Whether a deity has stories, artifacts or journeys that mention it. */
+export function hasLinkedMentions(deityId: string): boolean {
+  return getLinkedMentionsForDeity(deityId).some((m) =>
+    KIND_ORDER.includes(m.kind),
+  );
+}
+
+/** Reverse links: the stories, artifacts and journeys that mention a deity. */
 export function LinkedMentions({
   deityId,
   deityName,
@@ -57,65 +63,38 @@ export function LinkedMentions({
   deityId: string;
   deityName: string;
 }) {
-  const mentions = getLinkedMentionsForDeity(deityId);
+  const mentions = getLinkedMentionsForDeity(deityId).filter((m) =>
+    KIND_ORDER.includes(m.kind),
+  );
   if (mentions.length === 0) return null;
 
   const groups = groupMentions(mentions);
-  const counts = KIND_ORDER.map((k) => ({
-    kind: k,
-    count: groups.get(k)?.length ?? 0,
-  })).filter((c) => c.count > 0);
 
   return (
-    <section
-      className="mb-10 border border-gold/25 bg-card/50 p-5"
-      aria-label={`Linked mentions for ${deityName}`}
-    >
-      <div className="mb-4 flex flex-wrap items-baseline justify-between gap-2">
-        <div>
-          <p className="text-xs uppercase tracking-[0.22em] text-gold-text">
-            In the atlas
-          </p>
-          <h2 className="font-serif text-xl font-semibold text-foreground">
-            Referenced across Mythos
-          </h2>
-        </div>
-        <p className="text-sm text-muted-foreground">
-          {counts
-            .map((c) => {
-              const word =
-                c.count === 1
-                  ? KIND_META[c.kind].singular
-                  : KIND_META[c.kind].label.toLowerCase();
-              return `${c.count} ${word}`;
-            })
-            .join(" · ")}
-        </p>
-      </div>
-
-      <div className="grid gap-5 md:grid-cols-2">
+    <section aria-label={`Linked mentions for ${deityName}`}>
+      <div className="grid gap-x-10 gap-y-8 sm:grid-cols-2">
         {KIND_ORDER.map((kind) => {
           const items = groups.get(kind) ?? [];
           if (items.length === 0) return null;
           const meta = KIND_META[kind];
           return (
             <div key={kind}>
-              <div className="mb-2 flex items-center gap-2 text-sm font-medium text-foreground">
-                <MythosMark id={meta.mark} className="h-4 w-4 text-gold" />
+              <h3 className="mb-2 flex items-center gap-2 type-h3 text-foreground">
+                <MythosMark id={meta.mark} className="h-4 w-4 text-gold-text" />
                 {meta.label}
-              </div>
+              </h3>
               <ul className="space-y-1.5">
                 {items.slice(0, 6).map((item) => (
                   <li key={`${item.kind}-${item.id}`}>
                     <Link
                       href={item.href}
-                      className="group flex items-baseline justify-between gap-2 border-b border-border/40 py-1.5 text-sm hover:border-gold/40"
+                      className="group flex min-h-11 items-center justify-between gap-3 border-b border-border/70 py-2 text-[0.9375rem] hover:border-gold/50"
                     >
                       <span className="text-foreground group-hover:text-gold">
                         {item.title}
                       </span>
                       {item.subtitle && (
-                        <span className="shrink-0 text-xs capitalize text-muted-foreground">
+                        <span className="shrink-0 text-[0.8125rem] capitalize text-muted-foreground">
                           {item.subtitle}
                         </span>
                       )}
@@ -124,7 +103,7 @@ export function LinkedMentions({
                 ))}
               </ul>
               {items.length > 6 && (
-                <p className="mt-1 text-xs text-muted-foreground">
+                <p className="mt-2 text-[0.8125rem] text-muted-foreground">
                   +{items.length - 6} more
                 </p>
               )}

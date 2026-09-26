@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { PageHero } from "@/components/layout/page-hero";
-import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
 import {
   EntityRoster,
   GuideContents,
@@ -132,8 +131,6 @@ export default function HadesIIGuide() {
       />
 
       <div className="page-shell pb-20">
-        <Breadcrumbs />
-
         <div className="mt-8 max-w-[68ch] space-y-4 font-body text-lg leading-relaxed text-foreground">
           <p>
             Hades II casts Melinoë, princess of the Underworld, against Chronos,

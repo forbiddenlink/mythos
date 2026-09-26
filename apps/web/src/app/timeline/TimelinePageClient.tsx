@@ -3,7 +3,6 @@
 import dynamic from "next/dynamic";
 import { Loader2 } from "lucide-react";
 import { useEffect, useState, type ReactNode } from "react";
-import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
 import { TimelineControls } from "@/components/timeline/TimelineControls";
 import { cn } from "@/lib/utils";
 
@@ -127,12 +126,10 @@ export function TimelinePageClient({
   return (
     <div className="min-h-screen">
       <div className="container mx-auto max-w-7xl px-4 py-12 bg-mythic">
-        <Breadcrumbs />
-
         <div
           role="tablist"
           aria-label="Timeline view"
-          className="mt-6 inline-flex flex-wrap gap-1 border border-border bg-card/60 p-1"
+          className="inline-flex flex-wrap gap-1 border border-border bg-card/60 p-1"
         >
           {VIEWS.map((option) => {
             const selected = view === option.id;

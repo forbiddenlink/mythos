@@ -14,7 +14,7 @@ function Medallion({ kin, big = false }: { kin: Kin; big?: boolean }) {
         {kin.name.charAt(0)}
       </span>
       <span
-        className={`mt-1 max-w-[6rem] truncate text-center ${big ? "text-sm font-semibold text-foreground" : "text-xs text-foreground/80 group-hover:text-gold"}`}
+        className={`mt-1.5 max-w-[7rem] truncate text-center ${big ? "text-[0.9375rem] font-semibold text-foreground" : "text-sm text-foreground group-hover:text-gold-text"}`}
       >
         {kin.name}
       </span>
@@ -43,7 +43,7 @@ function Tier({ label, kin }: { label: string; kin: Kin[] }) {
   if (kin.length === 0) return null;
   return (
     <div className="flex flex-col items-center gap-2">
-      <span className="text-[0.65rem] uppercase tracking-[0.2em] text-muted-foreground">
+      <span className="text-[0.8125rem] uppercase tracking-[0.16em] text-muted-foreground">
         {label}
       </span>
       <div className="flex flex-wrap justify-center gap-4">
@@ -82,18 +82,9 @@ export function BloodlineTapestry({
 
   return (
     <section
-      className="rounded-2xl border border-border/60 bg-card/40 p-6 md:p-8"
+      className="rounded-lg bg-muted/40 px-4 py-8 ring-1 ring-border/60 sm:px-8"
       aria-label={`Bloodline of ${deityName}`}
     >
-      <div className="mb-6">
-        <span className="text-xs uppercase tracking-[0.25em] text-gold-text">
-          Bloodline
-        </span>
-        <h2 className="font-serif text-2xl font-semibold text-foreground">
-          The house of {deityName}
-        </h2>
-      </div>
-
       <div className="flex flex-col items-center gap-1">
         <Tier label="Parents" kin={parents} />
         {parents.length > 0 && <Descent />}
@@ -101,7 +92,7 @@ export function BloodlineTapestry({
         {/* the deity, flanked by consorts */}
         <div className="flex flex-col items-center gap-2">
           {consorts.length > 0 && (
-            <span className="text-[0.65rem] uppercase tracking-[0.2em] text-muted-foreground">
+            <span className="text-[0.8125rem] uppercase tracking-[0.16em] text-muted-foreground">
               with
             </span>
           )}
@@ -124,7 +115,7 @@ export function BloodlineTapestry({
             <Tier label="Siblings" kin={siblings} />
             {rivals.length > 0 && (
               <div className="flex flex-col items-center gap-2">
-                <span className="text-[0.65rem] uppercase tracking-[0.2em] text-destructive">
+                <span className="text-[0.8125rem] uppercase tracking-[0.16em] text-destructive">
                   Rivals
                 </span>
                 <div className="flex flex-wrap justify-center gap-4">

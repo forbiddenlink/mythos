@@ -12,8 +12,6 @@ export const pageTitleClass = "page-title";
 
 export const pageTitleOnDarkClass = "page-title text-parchment";
 
-export const pageLedeClass = "page-lede";
-
 export const pageLedeOnDarkClass = "page-lede text-parchment/70";
 
 export const pageLedeOnLightClass = "page-lede text-muted-foreground";

@@ -4,7 +4,6 @@ import { notFound } from "next/navigation";
 import { ArrowRight, Scale } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
 import { PageHero } from "@/components/layout/page-hero";
 import { ArticleJsonLd, FAQJsonLd } from "@/components/seo/JsonLd";
 import { generateBaseMetadata, generateNotFoundMetadata } from "@/lib/metadata";
@@ -212,8 +211,6 @@ export default async function ComparisonPage({ params }: Readonly<PageProps>) {
       />
 
       <div className="page-shell">
-        <Breadcrumbs />
-
         <section className="mt-10 space-y-6">
           <h2 className="page-section-title">At a glance</h2>
           <div className="rounded-lg border border-border/60 bg-card/40 px-5 py-2 sm:px-8">

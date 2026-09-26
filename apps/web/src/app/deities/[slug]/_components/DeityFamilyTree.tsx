@@ -1,14 +1,8 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import { Loader2, Network } from "lucide-react";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Loader2 } from "lucide-react";
+import { SectionHeading } from "@/components/layout/section";
 
 // Lazy load heavy ReactFlow-based family tree
 const FamilyTreeVisualization = dynamic(
@@ -59,23 +53,25 @@ export function DeityFamilyTree({
 }) {
   if (relationships.length === 0) return null;
   return (
-    <Card className="reveal-on-scroll">
-      <CardHeader>
-        <CardTitle className="font-serif flex items-center gap-2">
-          <Network className="h-5 w-5 text-gold" />
-          Family Tree
-        </CardTitle>
-        <CardDescription>
-          Explore {deityName}&apos;s relationships with other deities
-        </CardDescription>
-      </CardHeader>
-      <CardContent>
+    <section
+      id="family-tree"
+      aria-labelledby="family-tree-heading"
+      className="scroll-mt-24"
+    >
+      <SectionHeading
+        id="family-tree-heading"
+        eyebrow="Genealogy"
+        title="Family tree"
+        description={`${deityName}'s parents, consorts, children and rivals, as recorded in the atlas.`}
+        action={{ href: "/family-tree", label: "Open the full tree" }}
+      />
+      <div className="overflow-hidden rounded-lg bg-card ring-1 ring-border/70">
         <FamilyTreeVisualization
           deities={deities}
           relationships={relationships}
           focusDeityId={deityId}
         />
-      </CardContent>
-    </Card>
+      </div>
+    </section>
   );
 }

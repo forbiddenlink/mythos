@@ -13,11 +13,14 @@ import { MOBILE_MORE_NAV, PRIMARY_NAV } from "@/components/layout/nav-config";
 import { MobileNav } from "@/components/layout/mobile-nav";
 import { QuickActions } from "@/components/layout/quick-actions";
 
+/** Shared look for the square icon controls on the right of the header. */
+const headerIconButtonClass =
+  "size-10 shrink-0 items-center justify-center rounded-md text-muted-foreground transition-colors hover:bg-muted hover:text-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold";
+
 export function Header() {
   const t = useTranslations();
   const [isMac, setIsMac] = useState(false);
   const [mounted, setMounted] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
 
   // Mobile menu: the same primary IA plus a "More" section.
   const mobileNavSections = useMemo(
@@ -36,13 +39,6 @@ export function Header() {
     // eslint-disable-next-line react-hooks/set-state-in-effect
     setMounted(true);
     setIsMac(/(Mac|iPhone|iPod|iPad)/i.test(navigator.userAgent));
-
-    const handleScroll = () => {
-      setScrolled(globalThis.scrollY > 20);
-    };
-
-    globalThis.addEventListener("scroll", handleScroll, { passive: true });
-    return () => globalThis.removeEventListener("scroll", handleScroll);
   }, []);
 
   const handleSearchClick = () => {
@@ -50,68 +46,53 @@ export function Header() {
   };
 
   return (
-    <header
-      className={`sticky top-0 z-50 w-full transition-all duration-300 ${
-        scrolled
-          ? "bg-background/95 backdrop-blur-md border-b border-border/50 shadow-sm"
-          : "bg-transparent border-b border-transparent"
-      }`}
-    >
-      <div className="container mx-auto max-w-7xl flex h-16 items-center px-2 sm:px-4">
+    <header className="sticky top-0 z-50 w-full border-b border-border/70 bg-background/90 backdrop-blur-md supports-[backdrop-filter]:bg-background/80">
+      <div className="layout-container layout-container-content flex h-16 items-center gap-2">
         {/* Mobile Navigation Trigger */}
-        <div className="lg:hidden mr-1 sm:mr-2">
+        <div className="-ml-2 lg:hidden">
           <MobileNav sections={mobileNavSections} />
         </div>
 
         {/* Logo */}
         <Link
           href="/"
-          className="flex items-center gap-1 sm:gap-3 group mr-auto lg:mr-0"
+          className="group mr-auto flex items-center gap-2.5 rounded-md focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold lg:mr-6"
         >
-          <div className="relative transition-transform duration-200 group-hover:scale-105">
-            <div className="absolute inset-0 bg-gold/25 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-            <div className="relative text-foreground group-hover:text-gold transition-colors duration-300">
-              <Logo className="h-8 w-8 sm:h-9 sm:w-9" />
-            </div>
-          </div>
-          <div className="flex flex-col">
-            <span className="font-serif text-lg font-semibold text-foreground group-hover:text-gold tracking-wide leading-tight transition-colors duration-300">
-              Mythos Atlas
-            </span>
-            <span className="text-[10px] text-gold-text tracking-[0.2em] uppercase font-sans font-medium hidden sm:block">
-              Ancient Mythology
-            </span>
-          </div>
+          <span className="text-foreground transition-colors duration-200 group-hover:text-gold-text">
+            <Logo className="h-8 w-8" />
+          </span>
+          <span className="whitespace-nowrap font-serif text-base max-[359px]:sr-only font-semibold leading-none tracking-wide text-foreground transition-colors duration-200 group-hover:text-gold-text sm:text-lg">
+            Mythos Atlas
+          </span>
         </Link>
 
         {/* Desktop Navigation with Mega Menu */}
-        <div className="mx-auto">
+        <div className="hidden flex-1 lg:block">
           <MegaMenu />
         </div>
 
         {/* Right Actions */}
-        <div className="flex items-center gap-0 sm:gap-2 ml-auto lg:ml-0">
-          {/* Divider */}
-          <div className="hidden lg:block w-px h-6 bg-border mx-2" />
-
+        <div className="flex items-center gap-1">
           {/* Quick Actions (Streak & Review Count) */}
           <QuickActions />
 
           {/* Command Palette Trigger */}
           <button
+            type="button"
             onClick={handleSearchClick}
-            className="flex items-center gap-2 px-3 py-2 text-sm text-muted-foreground hover:text-foreground bg-muted/50 hover:bg-muted rounded-lg border border-border/50 hover:border-border transition-all duration-200 group"
+            className="group inline-flex h-10 items-center gap-2 rounded-md px-2.5 text-sm text-muted-foreground transition-colors hover:bg-muted hover:text-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold md:border md:border-border md:bg-card/60 md:pr-1.5 md:pl-3"
             aria-label={t("actions.search")}
           >
-            <Search className="h-4 w-4 group-hover:text-gold transition-colors duration-200" />
-            <span className="hidden lg:inline">{t("actions.search")}</span>
+            <Search className="h-4 w-4" aria-hidden="true" />
+            <span className="hidden w-20 text-left lg:inline">
+              {t("actions.search")}
+            </span>
             <kbd
               aria-hidden="true"
-              className="hidden md:inline-flex items-center gap-0.5 px-1.5 py-0.5 text-[10px] font-mono rounded bg-background border border-border/80 text-muted-foreground"
+              className="hidden h-6 min-w-11 items-center justify-center gap-0.5 rounded border border-border bg-background px-1.5 font-sans text-xs text-muted-foreground md:inline-flex"
             >
-              {mounted && isMac ? <Command className="h-2.5 w-2.5" /> : null}
+              {mounted && isMac ? <Command className="h-3 w-3" /> : null}
               {mounted && !isMac ? "Ctrl" : null}
-              {!mounted && <span className="w-6" aria-hidden="true" />}
               <span>K</span>
             </kbd>
           </button>
@@ -119,10 +100,10 @@ export function Header() {
           {/* Bookmarks */}
           <Link
             href="/bookmarks"
-            className="hidden xl:flex items-center justify-center p-2 text-muted-foreground hover:text-gold rounded-lg hover:bg-muted/50 transition-all duration-200"
+            className={`${headerIconButtonClass} hidden xl:inline-flex`}
             aria-label={t("navigation.bookmarks")}
           >
-            <Heart className="h-4 w-4" strokeWidth={1.5} />
+            <Heart className="h-[1.125rem] w-[1.125rem]" strokeWidth={1.75} />
           </Link>
 
           {/* Language Switcher */}

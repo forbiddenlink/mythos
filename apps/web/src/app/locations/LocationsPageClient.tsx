@@ -13,7 +13,6 @@ import {
   queryValue,
   type CatalogQuery,
 } from "@/lib/catalog-query";
-import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
 import { PageHero } from "@/components/layout/page-hero";
 import { PaginationControls } from "@/components/ui/pagination-controls";
 import { usePagination } from "@/hooks/usePagination";
@@ -282,8 +281,6 @@ export function LocationsPageClient({
           <div className="flex flex-col gap-6">
             {/* Top Row: Breadcrumbs + Search + View Toggle */}
             <div className="flex flex-col md:flex-row items-center justify-between gap-4 border-b border-border/50 pb-4">
-              <Breadcrumbs />
-
               <div className="flex items-center gap-4 w-full md:w-auto">
                 <div className="relative w-full md:w-64">
                   <label htmlFor="locations-search" className="sr-only">

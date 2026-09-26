@@ -37,16 +37,14 @@ const categoryLabels: Record<string, string> = {
 
 /* Stay inside the classical palette — gold, bronze, patina, parchment, wine */
 const categoryColors: Record<string, string> = {
-  connections: "bg-bronze/10 text-bronze border-bronze/30",
-  language: "bg-patina/10 text-patina border-patina/30",
-  science: "bg-gold/10 text-gold-text border-gold/30",
-  origins: "bg-gold/15 text-gold-dark dark:text-gold border-gold/35",
-  symbolism:
-    "bg-midnight/10 text-midnight dark:text-parchment/80 border-midnight/25 dark:border-parchment/25",
-  stories:
-    "bg-amber-900/10 text-amber-900 dark:text-amber-200 border-amber-800/30",
-  misconceptions: "bg-destructive/10 text-destructive border-destructive/30",
-  history: "bg-muted text-muted-foreground border-border",
+  connections: "bg-bronze/10 border-bronze/35",
+  language: "bg-patina/10 border-patina/35",
+  science: "bg-gold/10 border-gold/35",
+  origins: "bg-gold/15 border-gold/40",
+  symbolism: "bg-midnight/5 border-midnight/25 dark:border-parchment/25",
+  stories: "bg-bronze/10 border-bronze/30",
+  misconceptions: "bg-destructive/10 border-destructive/30",
+  history: "bg-muted border-border",
 };
 
 // Deterministic daily fact based on date
@@ -102,30 +100,25 @@ export function DidYouKnow({ deityLookup }: DidYouKnowProps) {
 
   if (!mounted || !currentFact) {
     return (
-      <section className="container mx-auto max-w-7xl px-4 py-16 md:py-20">
-        <div className="h-40 bg-muted/50 rounded-xl animate-pulse" />
+      <section className="layout-container layout-container-content pb-[var(--section-space)]">
+        <div className="h-52 rounded-lg bg-muted/50 animate-pulse motion-reduce:animate-none" />
       </section>
     );
   }
 
   return (
-    <section className="container mx-auto max-w-7xl px-4 py-16 md:py-20">
-      <div className="relative overflow-hidden rounded-xl bg-gradient-to-br from-gold/5 via-card to-bronze/5 border border-gold/20">
-        {/* Background decoration */}
-        <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-radial from-gold/10 to-transparent opacity-50" />
-
-        <div className="relative p-6 md:p-8">
+    <section className="layout-container layout-container-content pb-[var(--section-space)]">
+      <div className="relative overflow-hidden rounded-lg bg-card ring-1 ring-border/70">
+        <div className="relative p-6 md:p-10">
           {/* Header */}
           <div className="flex items-start justify-between mb-4">
             <div className="flex items-center gap-3">
-              <MythosMark id="torch" className="h-5 w-5 text-gold" />
+              <MythosMark id="torch" className="h-5 w-5 text-gold-text" />
               <div>
-                <h2 className="font-serif text-lg font-semibold">
-                  Did You Know?
-                </h2>
+                <h2 className="type-h3 text-foreground">Did you know?</h2>
                 <Badge
                   variant="outline"
-                  className={`text-xs mt-1 ${categoryColors[currentFact.category] || ""}`}
+                  className={`mt-1 text-xs text-foreground ${categoryColors[currentFact.category] || ""}`}
                 >
                   {categoryLabels[currentFact.category] || currentFact.category}
                 </Badge>
@@ -183,7 +176,7 @@ export function DidYouKnow({ deityLookup }: DidYouKnowProps) {
               exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.2 }}
             >
-              <p className="text-lg md:text-xl text-foreground leading-relaxed mb-6">
+              <p className="mb-6 max-w-4xl font-body text-xl leading-relaxed text-foreground md:text-2xl md:leading-snug">
                 {currentFact.fact}
               </p>
             </motion.div>

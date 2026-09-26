@@ -39,7 +39,7 @@ for (const file of walk(srcRoot, [".tsx", ".ts"])) {
 
 describe("CSS background-image assets exist in public/", () => {
   it("finds at least the known references", () => {
-    expect(refs.length).toBeGreaterThanOrEqual(2); // cta-ruins + hero-columns
+    expect(refs.length).toBeGreaterThanOrEqual(1); // hero-columns
   });
 
   it.each(refs)("$asset (in $file) exists in public/", ({ asset }) => {
