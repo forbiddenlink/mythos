@@ -1,83 +1,92 @@
+import Image from "next/image";
 import Link from "next/link";
+import { Section, SectionHeading } from "@/components/layout/section";
+import { getDeities } from "@/lib/data/catalog";
 import { getPantheonColor } from "@/lib/pantheon-colors";
 import { getSyncretismChains } from "@/lib/linked-mentions";
-import { MythosMark } from "@/components/icons/mythos-marks";
+
+function traditionName(pantheonId: string): string {
+  const label = pantheonId.replace(/-pantheon$/, "").replaceAll("-", " ");
+  return label.charAt(0).toUpperCase() + label.slice(1);
+}
 
 /**
- * Homepage comparison strip — curated thematic groups
- * drawn from crossPantheonParallels (mythologies.wiki pattern).
+ * Homepage comparison section: curated groups of figures with related roles
+ * (from crossPantheonParallels), each shown as a row of portraits.
  */
 export function SyncretismStrip() {
-  const chains = getSyncretismChains(5);
+  const chains = getSyncretismChains(4);
   if (chains.length === 0) return null;
+  const images = new Map(getDeities().map((d) => [d.slug, d.imageUrl]));
 
   return (
-    <section className="border-y border-border/60 bg-mythic/40 py-16">
-      <div className="container mx-auto max-w-7xl px-4">
-        <div className="mb-10 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
-          <div>
-            <div className="mb-2 flex items-center gap-2 text-xs uppercase tracking-[0.25em] text-gold-text">
-              <MythosMark id="scales" className="h-4 w-4 text-gold" />
-              Across traditions
-            </div>
-            <h2 className="font-serif text-3xl font-semibold text-foreground md:text-4xl">
-              Compare figures and traditions
-            </h2>
-            <p className="mt-2 max-w-2xl text-muted-foreground">
-              Explore figures grouped by related roles. Similarities do not by
-              themselves establish a shared origin or historical identification.
-            </p>
-          </div>
-          <Link
-            href="/compare/parallels"
-            className="text-sm text-gold-text underline-offset-4 hover:underline"
+    <Section tone="muted" aria-labelledby="compare-strip-title">
+      <SectionHeading
+        id="compare-strip-title"
+        eyebrow="Across traditions"
+        title="Compare figures and traditions"
+        description="Figures grouped by related roles. A shared role is not, by itself, evidence of a shared origin."
+        action={{ href: "/compare/parallels", label: "Browse all parallels" }}
+      />
+      <ul className="grid gap-5 md:grid-cols-2">
+        {chains.map((chain) => (
+          <li
+            key={chain.id}
+            className="rounded-lg bg-card p-4 ring-1 ring-border/70 sm:p-5"
           >
-            Browse all parallels →
-          </Link>
-        </div>
-
-        <ul className="space-y-6">
-          {chains.map((chain) => (
-            <li
-              key={chain.id}
-              className="flex flex-col gap-3 border border-border/50 bg-card/40 p-4 md:flex-row md:items-center md:gap-2"
-            >
-              <span className="shrink-0 font-serif text-sm text-muted-foreground md:w-28">
-                {chain.label}
-              </span>
-              <div className="flex flex-wrap items-center gap-x-2 gap-y-2">
-                {chain.members.map((m, i) => (
-                  <span key={m.slug} className="inline-flex items-center gap-2">
-                    {i > 0 && (
-                      <span className="text-gold/50" aria-hidden>
-                        ·
-                      </span>
-                    )}
+            <p className="mb-4 text-[0.8125rem] font-medium uppercase tracking-[0.16em] text-muted-foreground">
+              The {chain.label} parallels
+            </p>
+            <ul className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+              {chain.members.slice(0, 4).map((member) => {
+                const image = images.get(member.slug);
+                return (
+                  <li key={member.slug}>
                     <Link
-                      href={`/deities/${m.slug}`}
-                      className="inline-flex items-center gap-2 border border-border/60 bg-background/60 px-3 py-1.5 text-sm transition-colors hover:border-gold/40 hover:text-gold"
+                      href={`/deities/${member.slug}`}
+                      className="group block rounded-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold"
                     >
-                      <span
-                        className="inline-block size-2 rounded-full"
-                        style={{
-                          backgroundColor: getPantheonColor(m.pantheonId),
-                        }}
-                        aria-hidden
-                      />
-                      <span className="font-medium">{m.name}</span>
-                      <span className="text-xs uppercase tracking-wide text-muted-foreground">
-                        {m.pantheonId
-                          .replace(/-pantheon$/, "")
-                          .replaceAll("-", " ")}
+                      <span className="relative block aspect-4/5 overflow-hidden rounded-md bg-muted ring-1 ring-border/60">
+                        {image ? (
+                          <Image
+                            src={image}
+                            alt=""
+                            fill
+                            sizes="(min-width: 768px) 8rem, 45vw"
+                            className="object-cover object-top transition-transform duration-700 group-hover:scale-[1.05]"
+                          />
+                        ) : (
+                          <span
+                            className="flex h-full items-center justify-center font-serif text-3xl text-gold-text"
+                            aria-hidden="true"
+                          >
+                            {member.name.charAt(0)}
+                          </span>
+                        )}
+                      </span>
+                      <span className="mt-2 block font-serif text-base font-semibold leading-tight text-foreground group-hover:text-gold-text">
+                        {member.name}
+                      </span>
+                      <span className="mt-0.5 flex items-center gap-1.5 text-[0.8125rem] text-muted-foreground">
+                        <span
+                          className="inline-block size-2 shrink-0 rounded-full"
+                          style={{
+                            backgroundColor: getPantheonColor(
+                              member.pantheonId,
+                            ),
+                          }}
+                          aria-hidden="true"
+                        />
+                        {traditionName(member.pantheonId)}
                       </span>
                     </Link>
-                  </span>
-                ))}
-              </div>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </section>
+                  </li>
+                );
+              })}
+            </ul>
+          </li>
+        ))}
+      </ul>
+    </Section>
   );
 }

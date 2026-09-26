@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useContext, useEffect, useRef, useState } from "react";
 import { NewsletterSignup } from "@/components/newsletter/NewsletterSignup";
@@ -157,28 +158,28 @@ export function TodaysMyth() {
       ref={sectionRef}
       id="todays-myth"
       aria-labelledby="todays-myth-title"
-      className="scroll-mt-20 border-y border-border/70 bg-card/40 py-14 md:py-16"
+      className="section-space scroll-mt-20 border-y border-border/60 bg-muted/45"
     >
-      <div className="container mx-auto max-w-3xl px-4">
-        <p className="text-sm font-medium uppercase tracking-[0.25em] text-gold-text">
-          Daily ritual
-        </p>
-        <h2
-          id="todays-myth-title"
-          className="mt-2 font-serif text-3xl font-semibold tracking-tight text-foreground"
-        >
-          Today&apos;s myth
-        </h2>
-        <p className="mt-2 text-muted-foreground">
-          One myth a day and three questions about it. A new one each morning,
-          by your local date.
-        </p>
+      <div className="layout-container layout-container-content grid gap-8 lg:grid-cols-[minmax(0,20rem)_minmax(0,1fr)] lg:gap-16">
+        <div>
+          <p className="type-eyebrow">Daily ritual</p>
+          <h2
+            id="todays-myth-title"
+            className="page-section-title mt-2 text-foreground"
+          >
+            Today&apos;s myth
+          </h2>
+          <p className="type-lede mt-3 text-muted-foreground">
+            One myth a day and three questions about it. A new one each morning,
+            by your local date.
+          </p>
+        </div>
 
-        <div className="mt-8 min-h-48" aria-live="polite">
+        <div className="min-h-48" aria-live="polite">
           {phase.kind === "loading" ? (
             <div
               role="status"
-              className="h-40 animate-pulse bg-muted/50 motion-reduce:animate-none"
+              className="h-64 animate-pulse rounded-lg bg-card ring-1 ring-border/70 motion-reduce:animate-none"
             >
               <span className="sr-only">Loading today&apos;s myth</span>
             </div>
@@ -195,26 +196,39 @@ export function TodaysMyth() {
           ) : null}
 
           {myth && phase.kind === "intro" ? (
-            <div>
-              <p className="text-xs uppercase tracking-widest text-muted-foreground">
-                {myth.tradition}
-              </p>
-              <h3 className="mt-1 font-serif text-2xl text-foreground">
-                {myth.title}
-              </h3>
-              <p className="mt-3 line-clamp-4 font-body text-lg leading-relaxed text-foreground/85">
-                {myth.summary}
-              </p>
-              <div className="mt-6 flex flex-wrap items-center gap-4">
-                <Button variant="gold" size="lg" onClick={start}>
-                  Answer three questions
-                </Button>
-                <Link
-                  href={`/stories/${myth.slug}`}
-                  className="inline-flex min-h-11 items-center text-gold-text underline underline-offset-4"
-                >
-                  Read the myth first
-                </Link>
+            <div className="grid gap-6 overflow-hidden rounded-lg bg-card ring-1 ring-border/70 sm:grid-cols-[minmax(0,14rem)_minmax(0,1fr)]">
+              {myth.imageUrl ? (
+                <div className="relative aspect-[3/2] sm:aspect-auto sm:min-h-64">
+                  <Image
+                    src={myth.imageUrl}
+                    alt=""
+                    fill
+                    sizes="(min-width: 640px) 14rem, 100vw"
+                    className="object-cover"
+                  />
+                </div>
+              ) : null}
+              <div className="px-5 pb-6 sm:py-6 sm:pr-6 sm:pl-0">
+                <p className="text-[0.8125rem] font-medium uppercase tracking-[0.16em] text-muted-foreground">
+                  {myth.tradition}
+                </p>
+                <h3 className="mt-1 font-serif text-2xl font-semibold text-foreground">
+                  {myth.title}
+                </h3>
+                <p className="mt-3 line-clamp-4 font-body text-lg leading-relaxed text-foreground/85">
+                  {myth.summary}
+                </p>
+                <div className="mt-6 flex flex-wrap items-center gap-4">
+                  <Button variant="gold" size="lg" onClick={start}>
+                    Answer three questions
+                  </Button>
+                  <Link
+                    href={`/stories/${myth.slug}`}
+                    className="inline-flex min-h-11 items-center text-gold-text underline underline-offset-4"
+                  >
+                    Read the myth first
+                  </Link>
+                </div>
               </div>
             </div>
           ) : null}

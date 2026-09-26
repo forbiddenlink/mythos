@@ -1,159 +1,134 @@
-"use client";
-
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import branchingStoriesData from "@/data/branching-stories.json";
-import { BranchingStory, getDiscoveredEndings } from "@/lib/branching-story";
-import { ChevronRight } from "lucide-react";
-import { MythosMark } from "@/components/icons/mythos-marks";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { ArrowRight } from "lucide-react";
+import { Container } from "@/components/layout/container";
+import { Button } from "@/components/ui/button";
+import { EndingsDiscovered } from "@/components/home/EndingsDiscovered";
 
-const branchingStories = branchingStoriesData as unknown as BranchingStory[];
+export interface InteractiveStorySummary {
+  id: string;
+  slug: string;
+  title: string;
+  description: string;
+  coverImage?: string;
+  totalEndings: number;
+  estimatedTime?: string;
+}
 
-export function InteractiveStoriesBanner() {
-  const [totalDiscovered, setTotalDiscovered] = useState(0);
-  const [totalEndings, setTotalEndings] = useState(0);
-
-  useEffect(() => {
-    let discovered = 0;
-    let total = 0;
-    for (const story of branchingStories) {
-      discovered += getDiscoveredEndings(story.id).length;
-      total += story.totalEndings;
-    }
-    // eslint-disable-next-line react-hooks/set-state-in-effect -- hydrate discovered totals from localStorage
-    setTotalDiscovered(discovered);
-    setTotalEndings(total);
-  }, []);
-
-  if (branchingStories.length === 0) {
-    return null;
-  }
-
-  const featuredStory = branchingStories[0];
+/**
+ * Promo for the branching myths: the featured story's cover as a large image,
+ * the pitch beside it and the other stories as a short list. Server-rendered;
+ * only the "endings discovered" count reads localStorage.
+ */
+export function InteractiveStoriesBanner({
+  stories,
+}: {
+  stories: InteractiveStorySummary[];
+}) {
+  const [featured, ...others] = stories;
+  if (!featured) return null;
+  const totalEndings = stories.reduce((sum, s) => sum + s.totalEndings, 0);
 
   return (
-    <section className="py-20 md:py-24 bg-linear-to-b from-background to-midnight/5">
-      <div className="container mx-auto max-w-6xl px-4">
-        <div className="relative overflow-hidden rounded-xl border border-gold/20 bg-linear-to-br from-midnight/85 via-midnight/92 to-midnight">
-          {/* Decorative elements */}
-          <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-radial from-gold/10 to-transparent opacity-50" />
-          <div className="absolute bottom-0 left-0 w-64 h-64 bg-gradient-radial from-gold/5 to-transparent" />
+    <section
+      aria-labelledby="interactive-stories-title"
+      className="section-space"
+    >
+      <Container>
+        <div className="dark relative isolate grid overflow-hidden rounded-xl bg-midnight text-foreground ring-1 ring-gold/20 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)]">
+          <Link
+            href={`/stories/interactive/${featured.slug}`}
+            className="group relative block min-h-72 overflow-hidden sm:min-h-96 focus-visible:outline-2 focus-visible:-outline-offset-4 focus-visible:outline-gold"
+          >
+            {featured.coverImage ? (
+              <Image
+                src={featured.coverImage}
+                alt={`Illustration for ${featured.title}`}
+                fill
+                sizes="(min-width: 1024px) 38rem, 100vw"
+                className="object-cover object-[50%_35%] transition-transform duration-700 group-hover:scale-[1.03]"
+              />
+            ) : null}
+            <span
+              className="absolute inset-0 bg-linear-to-t from-midnight via-midnight/20 to-transparent lg:bg-linear-to-r lg:from-transparent lg:via-transparent lg:to-midnight/70"
+              aria-hidden="true"
+            />
+            <span className="absolute bottom-0 left-0 p-5 sm:p-7 lg:hidden">
+              <span className="rounded-full bg-gold px-3 py-1 text-xs font-semibold uppercase tracking-wide text-midnight">
+                Featured
+              </span>
+            </span>
+          </Link>
 
-          <div className="relative z-10 p-8 md:p-12">
-            <div className="flex flex-col lg:flex-row items-start lg:items-center gap-8">
-              {/* Content */}
-              <div className="flex-1">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="relative flex h-11 w-11 items-center justify-center border border-gold/35 bg-gold/15">
-                    <MythosMark id="labyrinth" className="h-6 w-6 text-gold" />
-                  </div>
-                  <Badge className="rounded-sm bg-gold/20 text-gold border-gold/30 px-3 py-1">
-                    <MythosMark
-                      id="constellation"
-                      className="h-3 w-3 mr-1 inline"
-                    />
-                    Branching myth
-                  </Badge>
-                </div>
-
-                <h2 className="font-serif text-3xl md:text-4xl font-semibold text-parchment text-pretty mb-3">
-                  Branching myths you can play
-                </h2>
-
-                <p className="text-parchment/70 text-lg mb-6 max-w-xl font-body">
-                  Stand in Paris&rsquo;s place before Hera, Athena, and
-                  Aphrodite — each gift a different war. Choices rewrite the
-                  ending.
-                </p>
-
-                {/* Stats */}
-                <div className="flex items-center gap-6 mb-6">
-                  <div className="flex items-center gap-2">
-                    <MythosMark id="laurel" className="h-5 w-5 text-gold" />
-                    <span className="text-parchment">
-                      <span className="font-semibold text-gold">
-                        {branchingStories.length}
-                      </span>{" "}
-                      stories
-                    </span>
-                  </div>
-                  <div className="w-px h-5 bg-gold/30" />
-                  <span className="text-parchment">
-                    <span className="font-semibold text-gold">
-                      {totalDiscovered}/{totalEndings}
-                    </span>{" "}
-                    endings discovered
-                  </span>
-                </div>
-
-                {/* CTA Buttons */}
-                <div className="flex flex-wrap gap-3">
-                  <Button
-                    asChild
-                    size="lg"
-                    className="bg-gold hover:bg-gold-dark text-midnight"
-                  >
-                    <Link href={`/stories/interactive/${featuredStory.slug}`}>
-                      <MythosMark id="labyrinth" className="h-5 w-5 mr-2" />
-                      Play Now
-                    </Link>
-                  </Button>
-                  <Button
-                    asChild
-                    variant="outline"
-                    size="lg"
-                    className="border-gold/30 text-gold-dark hover:bg-gold/10 hover:text-gold"
-                  >
-                    <Link href="/stories">
-                      View All Stories
-                      <ChevronRight className="h-5 w-5 ml-1" />
-                    </Link>
-                  </Button>
-                </div>
-              </div>
-
-              {/* Featured Story Preview */}
-              <div className="w-full max-w-sm lg:w-80 shrink-0 mx-auto lg:mx-0">
-                <Link
-                  href={`/stories/interactive/${featuredStory.slug}`}
-                  className="group block"
-                >
-                  <div className="relative rounded-xl overflow-hidden border border-gold/30 hover:border-gold/50 transition-colors">
-                    {featuredStory.coverImage && (
-                      <div className="relative aspect-square">
-                        <Image
-                          src={featuredStory.coverImage}
-                          alt={featuredStory.title}
-                          width={640}
-                          height={640}
-                          loading="lazy"
-                          sizes="(max-width: 1024px) 22rem, 20rem"
-                          className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500"
-                        />
-                        <div className="absolute inset-0 bg-linear-to-t from-midnight via-midnight/20 to-transparent" />
-                      </div>
-                    )}
-                    <div className="absolute bottom-0 left-0 right-0 p-4">
-                      <Badge className="bg-gold/90 text-midnight border-0 mb-2">
-                        Featured
-                      </Badge>
-                      <h3 className="font-serif text-xl font-semibold text-parchment group-hover:text-gold transition-colors">
-                        {featuredStory.title}
-                      </h3>
-                      <p className="text-parchment/60 text-sm mt-1 line-clamp-2">
-                        {featuredStory.description}
-                      </p>
-                    </div>
-                  </div>
-                </Link>
-              </div>
+          <div className="relative flex flex-col justify-center gap-6 p-6 sm:p-10 lg:p-12">
+            <div>
+              <p className="type-eyebrow text-gold-light">Branching myths</p>
+              <h2
+                id="interactive-stories-title"
+                className="page-section-title mt-2 text-parchment"
+              >
+                Stand where the heroes stood
+              </h2>
+              <p className="mt-4 font-body text-lg leading-relaxed text-parchment/85">
+                <span className="font-semibold text-parchment">
+                  {featured.title}.
+                </span>{" "}
+                {featured.description} Your choices decide the ending.
+              </p>
             </div>
+
+            <div className="flex flex-wrap items-baseline gap-x-8 gap-y-2 text-sm text-parchment/75">
+              <span>
+                <span className="font-serif text-2xl font-semibold text-parchment">
+                  {stories.length}
+                </span>{" "}
+                stories
+              </span>
+              <EndingsDiscovered
+                storyIds={stories.map((s) => s.id)}
+                totalEndings={totalEndings}
+              />
+            </div>
+
+            <div className="flex flex-wrap gap-3">
+              <Button asChild variant="gold" size="lg">
+                <Link href={`/stories/interactive/${featured.slug}`}>
+                  Play {featured.title} <ArrowRight />
+                </Link>
+              </Button>
+            </div>
+
+            {others.length > 0 ? (
+              <div className="border-t border-parchment/15 pt-5">
+                <p className="mb-2 text-[0.8125rem] uppercase tracking-[0.16em] text-parchment/65">
+                  Also playable
+                </p>
+                <ul className="flex flex-wrap gap-x-5 gap-y-1">
+                  {others.map((story) => (
+                    <li key={story.id}>
+                      <Link
+                        href={`/stories/interactive/${story.slug}`}
+                        className="inline-flex min-h-9 items-center text-[0.9375rem] text-parchment underline decoration-gold/40 underline-offset-4 hover:text-gold-light hover:decoration-current"
+                      >
+                        {story.title}
+                      </Link>
+                    </li>
+                  ))}
+                  <li>
+                    <Link
+                      href="/stories/interactive"
+                      className="inline-flex min-h-9 items-center gap-1 text-[0.9375rem] text-gold-light hover:underline"
+                    >
+                      All interactive stories
+                      <ArrowRight className="size-4" aria-hidden="true" />
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+            ) : null}
           </div>
         </div>
-      </div>
+      </Container>
     </section>
   );
 }
