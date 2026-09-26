@@ -1,7 +1,9 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { ArrowRight } from "lucide-react";
-import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
+import { EntityCard, EntityGrid } from "@/components/entities/EntityCard";
+import { Container } from "@/components/layout/container";
+import { PageHeader } from "@/components/layout/page-header";
 import {
   AnkiDeckExport,
   type AnkiDeckExportProps,
@@ -21,6 +23,7 @@ import {
 } from "@/lib/data/catalog";
 import { project } from "@/lib/data/project";
 import { generateBaseMetadata } from "@/lib/metadata";
+import { getPantheonColor } from "@/lib/pantheon-colors";
 import { listGuides } from "../study/_guides";
 
 export const metadata: Metadata = generateBaseMetadata({
@@ -86,21 +89,14 @@ export default function PathsPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-mythic">
-      <div className="page-shell">
-        <Breadcrumbs />
-        <header className="mb-8 mt-6">
-          <p className="mb-3 text-sm uppercase tracking-widest text-gold-text">
-            Guided ways through the atlas
-          </p>
-          <h1 className="page-title text-foreground">Paths</h1>
-          <p className="mt-4 max-w-2xl font-body text-xl leading-relaxed text-muted-foreground">
-            Choose how to be led: by a theme that crosses traditions, a route
-            with stops, a study guide, or a reading path shaped by what you have
-            already opened.
-          </p>
-        </header>
-
+    <div className="min-h-screen">
+      <PageHeader
+        mark="compass"
+        eyebrow="Guided ways through the atlas"
+        title="Paths"
+        lede="Be led by a theme that crosses traditions, a route with stops, a study guide, or a reading path shaped by what you have opened."
+      />
+      <Container className="pt-6 pb-16 md:pt-8">
         <nav aria-label="Kinds of path" className="mb-14">
           <ul className="grid gap-x-8 border-y border-border sm:grid-cols-2 lg:grid-cols-4">
             {sections.map((section) => (
@@ -129,9 +125,7 @@ export default function PathsPage() {
             aria-labelledby="paths-journeys"
             className="scroll-mt-24"
           >
-            <p className="mb-2 text-xs uppercase tracking-widest text-gold-text">
-              Follow a route
-            </p>
+            <p className="type-eyebrow mb-2">Follow a route</p>
             <h2 id="paths-journeys" className="page-section-title">
               Guided journeys
             </h2>
@@ -140,34 +134,25 @@ export default function PathsPage() {
               drawn on a map; journeys through the otherworld follow their
               realms in order.
             </p>
-            <ol className="mt-6 grid gap-x-12 md:grid-cols-2">
+            <EntityGrid className="mt-8">
               {journeys.map((journey) => (
-                <li key={journey.id} className="border-t border-border">
-                  <Link
-                    href={`/journeys/${journey.slug}`}
-                    className="group flex gap-4 py-5 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring"
-                  >
-                    <div className="min-w-0 flex-1">
-                      <span className="block font-serif text-xl text-foreground group-hover:text-gold-text">
-                        {journey.title}
-                      </span>
-                      <span className="mt-1 block text-sm text-muted-foreground">
-                        {journey.heroName} ·{" "}
-                        {shortNames[journey.pantheonId] ?? journey.pantheonId} ·{" "}
-                        {journey.waypoints.length} stops
-                        {journey.setting === "otherworld"
-                          ? " · otherworld"
-                          : ""}
-                      </span>
-                    </div>
-                    <ArrowRight
-                      aria-hidden="true"
-                      className="mt-1 size-4 shrink-0 text-gold-text"
-                    />
-                  </Link>
-                </li>
+                <EntityCard
+                  key={journey.id}
+                  href={`/journeys/${journey.slug}`}
+                  title={journey.title}
+                  image={journey.imageUrl}
+                  aspect="landscape"
+                  tradition={
+                    shortNames[journey.pantheonId] ?? journey.pantheonId
+                  }
+                  traditionColor={getPantheonColor(journey.pantheonId)}
+                  subtitle={`${journey.heroName} · ${journey.waypoints.length} stops${
+                    journey.setting === "otherworld" ? " · otherworld" : ""
+                  }`}
+                  description={journey.description}
+                />
               ))}
-            </ol>
+            </EntityGrid>
             <Link
               href="/journeys"
               className="mt-4 inline-flex min-h-11 items-center gap-2 font-medium text-gold-text underline underline-offset-4"
@@ -182,9 +167,7 @@ export default function PathsPage() {
             aria-labelledby="paths-study-guides"
             className="scroll-mt-24"
           >
-            <p className="mb-2 text-xs uppercase tracking-widest text-gold-text">
-              Read with sources
-            </p>
+            <p className="type-eyebrow mb-2">Read with sources</p>
             <h2 id="paths-study-guides" className="page-section-title">
               Study guides
             </h2>
@@ -225,9 +208,7 @@ export default function PathsPage() {
             aria-labelledby="paths-reading"
             className="scroll-mt-24"
           >
-            <p className="mb-2 text-xs uppercase tracking-widest text-gold-text">
-              Made for you, in this browser
-            </p>
+            <p className="type-eyebrow mb-2">Made for you, in this browser</p>
             <h2 id="paths-reading" className="page-section-title">
               Your reading paths
             </h2>
@@ -255,7 +236,7 @@ export default function PathsPage() {
             />
           </section>
         </div>
-      </div>
+      </Container>
     </div>
   );
 }

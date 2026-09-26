@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowRight } from "lucide-react";
+import { EntityCard } from "@/components/entities/EntityCard";
+import { Container } from "@/components/layout/container";
 import { PageHero } from "@/components/layout/page-hero";
 import {
   CollectionPageJsonLd,
@@ -18,6 +19,7 @@ import {
   type GodsOfDomain,
 } from "@/lib/gods-of";
 import { generateBaseMetadata, generateNotFoundMetadata } from "@/lib/metadata";
+import { getPantheonColor } from "@/lib/pantheon-colors";
 
 interface PageProps {
   params: Promise<{ domain: string }>;
@@ -137,77 +139,82 @@ export default async function GodsOfDomainPage({
         tagline="Divine domains"
         title={title}
         description={lede(page)}
-        minHeight="min-h-[40vh]"
       />
 
-      <div className="page-shell">
-        <nav
-          aria-label="Traditions on this page"
-          className="mt-6 flex flex-wrap gap-x-4 gap-y-2 font-body text-base"
-        >
-          {page.traditions.map((tradition) => (
-            <a
-              key={tradition.pantheonId}
-              href={`#${tradition.pantheonId}`}
-              className="text-muted-foreground underline decoration-gold/50 underline-offset-4 hover:text-gold-text hover:decoration-current"
-            >
-              {tradition.name} ({tradition.deities.length})
-            </a>
-          ))}
+      <Container className="pt-6 pb-4 md:pt-8">
+        <nav aria-label="Traditions on this page">
+          <ul className="flex flex-wrap gap-1.5">
+            {page.traditions.map((tradition) => (
+              <li key={tradition.pantheonId}>
+                <a
+                  href={`#${tradition.pantheonId}`}
+                  className="inline-flex min-h-9 items-center gap-1.5 rounded-full border border-border bg-background px-3 text-sm text-foreground/85 transition-colors hover:border-gold/60 hover:text-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold"
+                >
+                  <span
+                    className="size-2 shrink-0 rounded-full"
+                    style={{
+                      backgroundColor: getPantheonColor(tradition.pantheonId),
+                    }}
+                    aria-hidden="true"
+                  />
+                  {tradition.name}
+                  <span className="text-muted-foreground tabular-nums">
+                    {tradition.deities.length}
+                  </span>
+                </a>
+              </li>
+            ))}
+          </ul>
         </nav>
+      </Container>
 
-        <div className="mt-10 space-y-12">
+      <Container className="pb-16">
+        <div className="mt-6 md:mt-8">
           {page.traditions.map((tradition) => (
             <section
               key={tradition.pantheonId}
               id={tradition.pantheonId}
               aria-labelledby={`${tradition.pantheonId}-heading`}
-              className="scroll-mt-24"
+              className="grid scroll-mt-24 gap-x-10 gap-y-2 border-t border-border/70 py-6 lg:grid-cols-[13rem_minmax(0,1fr)]"
             >
-              <h2
-                id={`${tradition.pantheonId}-heading`}
-                className="page-section-title"
-              >
-                {tradition.name}
-              </h2>
-              <ul className="mt-4 divide-y divide-border/50 border-y border-border/50">
+              <div className="flex items-baseline justify-between gap-4 lg:block">
+                <h2
+                  id={`${tradition.pantheonId}-heading`}
+                  className="font-serif text-2xl font-semibold leading-tight text-foreground"
+                >
+                  {tradition.name}
+                </h2>
+                <p className="type-meta mt-1 shrink-0 text-muted-foreground">
+                  {tradition.deities.length}{" "}
+                  {tradition.deities.length === 1 ? "deity" : "deities"}
+                </p>
+              </div>
+              <div className="grid gap-x-8 md:grid-cols-2">
                 {tradition.deities.map((deity) => (
-                  <li key={deity.id} className="flex gap-4 py-4">
-                    {deity.imageUrl ? (
-                      <Image
-                        src={deity.imageUrl}
-                        alt=""
-                        width={56}
-                        height={56}
-                        className="size-14 shrink-0 rounded-full border border-gold/30 object-cover"
-                      />
-                    ) : null}
-                    <div className="min-w-0 space-y-1">
-                      <Link
-                        href={`/deities/${deity.slug}`}
-                        className="font-serif text-xl text-foreground underline decoration-gold/50 underline-offset-4 hover:text-gold-text hover:decoration-current"
-                      >
-                        {deity.name}
-                      </Link>
-                      {deity.description ? (
-                        <p className="font-body leading-relaxed text-muted-foreground">
-                          {deity.description}
-                        </p>
-                      ) : null}
-                      <p className="text-sm text-muted-foreground">
-                        <span className="text-gold-text">Domains:</span>{" "}
-                        {deity.domains.join(", ")}
-                      </p>
-                    </div>
-                  </li>
+                  <EntityCard
+                    key={deity.id}
+                    variant="list"
+                    href={`/deities/${deity.slug}`}
+                    title={deity.name}
+                    image={deity.imageUrl}
+                    imagePosition="50% 22%"
+                    aspect="portrait"
+                    traditionColor={getPantheonColor(tradition.pantheonId)}
+                    subtitle={deity.domains.slice(0, 3).join(" · ")}
+                    description={deity.description}
+                    descriptionLines={3}
+                  />
                 ))}
-              </ul>
+              </div>
             </section>
           ))}
         </div>
 
         {page.parallels.length > 0 ? (
-          <section className="mt-14" aria-labelledby="parallels-heading">
+          <section
+            className="mt-16 max-w-reading"
+            aria-labelledby="parallels-heading"
+          >
             <h2 id="parallels-heading" className="page-section-title">
               Parallels across traditions
             </h2>
@@ -260,7 +267,10 @@ export default async function GodsOfDomainPage({
           </section>
         ) : null}
 
-        <section className="mt-14" aria-labelledby="answers-heading">
+        <section
+          className="mt-16 max-w-reading"
+          aria-labelledby="answers-heading"
+        >
           <h2 id="answers-heading" className="page-section-title">
             Quick answers
           </h2>
@@ -279,16 +289,16 @@ export default async function GodsOfDomainPage({
         </section>
 
         {related.length > 0 ? (
-          <section className="mt-14" aria-labelledby="related-heading">
+          <section className="mt-16" aria-labelledby="related-heading">
             <h2 id="related-heading" className="page-section-title">
               Related domains
             </h2>
-            <ul className="mt-4 flex flex-wrap gap-x-5 gap-y-2 font-body text-lg">
+            <ul className="mt-5 flex flex-wrap gap-2">
               {related.map((other) => (
                 <li key={other.slug}>
                   <Link
                     href={`/gods-of/${other.slug}`}
-                    className="text-foreground underline decoration-gold/50 underline-offset-4 hover:text-gold-text hover:decoration-current"
+                    className="inline-flex min-h-10 items-center rounded-full border border-border bg-background px-4 type-ui text-foreground transition-colors hover:border-gold/60 hover:text-gold-text focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold"
                   >
                     {godsOfTitle(other)}
                   </Link>
@@ -298,7 +308,7 @@ export default async function GodsOfDomainPage({
           </section>
         ) : null}
 
-        <p className="mt-14 border-t border-border/50 pt-6 pb-16 text-sm text-muted-foreground">
+        <p className="mt-16 max-w-reading border-t border-border/50 pt-6 type-ui text-muted-foreground">
           Built from each deity&apos;s catalog entry
           {page.matchedTerms.length > 1
             ? ` (matching ${page.matchedTerms.map((t) => `“${t}”`).join(", ")})`
@@ -319,7 +329,7 @@ export default async function GodsOfDomainPage({
           </Link>
           .
         </p>
-      </div>
+      </Container>
     </>
   );
 }

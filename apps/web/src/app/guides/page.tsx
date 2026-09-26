@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { EntityCard, EntityGrid } from "@/components/entities/EntityCard";
+import { AboutThisPage } from "@/components/layout/about-this-page";
+import { Container } from "@/components/layout/container";
 import { PageHero } from "@/components/layout/page-hero";
 import { ItemListJsonLd } from "@/components/seo/JsonLd";
 import { GUIDES } from "@/lib/guides";
@@ -19,6 +22,13 @@ export const metadata: Metadata = generateBaseMetadata({
   ],
 });
 
+/** A catalog image that stands for each guide's subject. */
+const GUIDE_IMAGES: Record<string, string> = {
+  "percy-jackson-titans-curse": "/deities/artemis.jpg",
+  odyssey: "/journeys/odyssey.png",
+  "hades-ii": "/deities/hades.jpg",
+};
+
 export default function GuidesIndex() {
   return (
     <>
@@ -37,35 +47,39 @@ export default function GuidesIndex() {
         tagline="Guides"
         title="Read the Myths Behind the Story"
         description="Epics, novels and games, set beside the ancient sources they draw on."
-        minHeight="min-h-[36vh]"
+        count={`${GUIDES.length} guides`}
       />
-      <div className="page-shell pb-20">
-        <ul className="mt-8 max-w-[68ch] divide-y divide-border/50">
-          {GUIDES.map((guide) => (
-            <li key={guide.slug} className="py-6">
-              <Link
-                href={`/guides/${guide.slug}`}
-                className="font-serif text-2xl text-foreground underline decoration-gold/50 underline-offset-4 hover:text-gold-text hover:decoration-current"
-              >
-                {guide.title}
-              </Link>
-              <p className="mt-2 font-body text-lg leading-relaxed text-muted-foreground">
-                {guide.description}
-              </p>
-            </li>
+      <Container className="pt-8 pb-12 md:pt-10">
+        <EntityGrid>
+          {GUIDES.map((guide, index) => (
+            <EntityCard
+              key={guide.slug}
+              href={`/guides/${guide.slug}`}
+              title={guide.title}
+              image={GUIDE_IMAGES[guide.slug]}
+              imagePosition="50% 30%"
+              aspect="landscape"
+              priority={index < 3}
+              headingLevel="h2"
+              description={guide.description}
+              descriptionLines={3}
+              meta={`${Object.values(guide.featured).reduce(
+                (sum, ids) => sum + (ids?.length ?? 0),
+                0,
+              )} linked entries`}
+            />
           ))}
-        </ul>
-        <p className="mt-6 max-w-[68ch] text-sm text-muted-foreground">
-          Looking for a single domain instead? See the{" "}
-          <Link
-            href="/divine-domains"
-            className="text-gold-text underline decoration-gold/50 underline-offset-4 hover:decoration-current"
-          >
-            gods by domain
-          </Link>
-          , from war and love to the sea and the dead.
+        </EntityGrid>
+      </Container>
+      <AboutThisPage title="About the guides">
+        <p>
+          Each guide reads a modern retelling or an ancient epic against its
+          sources, then links every figure, creature and place it mentions to
+          its entry in the atlas. Looking for a single domain instead? See the{" "}
+          <Link href="/divine-domains">gods by domain</Link>, from war and love
+          to the sea and the dead.
         </p>
-      </div>
+      </AboutThisPage>
     </>
   );
 }

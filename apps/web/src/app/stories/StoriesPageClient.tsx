@@ -1,160 +1,33 @@
 "use client";
 
+import { useEffect, useMemo, useState } from "react";
+import { EntityCard, EntityGrid } from "@/components/entities/EntityCard";
+import {
+  EmptyResults,
+  FilterToolbar,
+  ToolbarSearch,
+} from "@/components/entities/FilterToolbar";
+import { AboutThisPage } from "@/components/layout/about-this-page";
+import { Container } from "@/components/layout/container";
 import { PageHero } from "@/components/layout/page-hero";
+import { SectionHeading } from "@/components/layout/section";
 import { CollectionPageJsonLd } from "@/components/seo/JsonLd";
-import { StoryFilters } from "@/components/stories/StoryFilters";
-import { Badge } from "@/components/ui/badge";
+import {
+  InteractiveStoryCard,
+  type InteractiveStoryListItem,
+} from "@/components/stories/InteractiveStoryCard";
 import { BookmarkButton } from "@/components/ui/bookmark-button";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { PaginationControls } from "@/components/ui/pagination-controls";
-import { usePagination } from "@/hooks/usePagination";
-import { getDiscoveredEndings } from "@/lib/branching-story";
-import { BookOpen, Clock, Gamepad2, ScrollText, Trophy } from "lucide-react";
-import { MythosMark } from "@/components/icons/mythos-marks";
-import Link from "next/link";
-import Image from "next/image";
 import {
-  type ReactNode,
-  useCallback,
-  useEffect,
-  useMemo,
-  useState,
-} from "react";
-
-/** Interactive-story card fields (no story graph). */
-export interface InteractiveStoryListItem {
-  id: string;
-  slug: string;
-  title: string;
-  description: string;
-  protagonist: string;
-  estimatedTime: string;
-  totalEndings: number;
-  coverImage?: string;
-}
-
-// Interactive Story Card Component
-function InteractiveStoryCard({
-  story,
-}: Readonly<{ story: InteractiveStoryListItem }>) {
-  const [discoveredCount, setDiscoveredCount] = useState(0);
-
-  useEffect(() => {
-    const discovered = getDiscoveredEndings(story.id);
-    // eslint-disable-next-line react-hooks/set-state-in-effect -- hydrate discovered count from localStorage
-    setDiscoveredCount(discovered.length);
-  }, [story.id]);
-
-  const remaining = story.totalEndings - discoveredCount;
-  const endingLabel = remaining > 1 ? "endings" : "ending";
-  const progressText =
-    discoveredCount === story.totalEndings
-      ? "All endings discovered!"
-      : `${remaining} ${endingLabel} remaining`;
-
-  return (
-    <Link
-      href={`/stories/interactive/${story.slug}`}
-      className="group pantheon-reveal"
-    >
-      <Card
-        interactive
-        asArticle
-        className="h-full cursor-pointer parchment-card bg-card transition-transform duration-300 hover:-translate-y-1 overflow-hidden relative"
-      >
-        {/* Interactive badge */}
-        <div className="absolute top-3 right-3 z-10">
-          <Badge className="bg-gold/20 text-amber-900 dark:text-amber-100 border-gold/30 gap-1">
-            <Gamepad2 className="h-3 w-3" />
-            Interactive
-          </Badge>
-        </div>
-
-        {/* Gradient top border */}
-        <div className="h-1 bg-linear-to-r from-gold via-amber-400 to-gold"></div>
-
-        {story.coverImage && (
-          <div className="relative w-full h-44 overflow-hidden border-b border-border/50 bg-midnight">
-            <Image
-              src={story.coverImage}
-              alt={story.title}
-              fill
-              sizes="(max-width: 768px) 100vw, 33vw"
-              className="object-cover group-hover:scale-105 transition-transform duration-500"
-            />
-            <div className="absolute inset-0 bg-linear-to-t from-background/90 via-transparent to-transparent" />
-          </div>
-        )}
-
-        <CardHeader className="relative">
-          <div className="absolute top-4 right-4 opacity-[0.03] group-hover:opacity-[0.06] transition-opacity">
-            <Gamepad2 className="h-24 w-24 text-gold" />
-          </div>
-          <div className="flex items-start gap-3 relative z-10">
-            <div className="relative flex h-12 w-12 shrink-0 items-center justify-center border border-gold/35 bg-midnight/30 group-hover:border-gold/55 transition-colors">
-              <span className="absolute left-0 top-0 h-2 w-2 border-l border-t border-gold/40" />
-              <span className="absolute right-0 top-0 h-2 w-2 border-r border-t border-gold/40" />
-              <span className="absolute bottom-0 left-0 h-2 w-2 border-b border-l border-gold/40" />
-              <span className="absolute bottom-0 right-0 h-2 w-2 border-b border-r border-gold/40" />
-              <MythosMark
-                id="labyrinth"
-                className="relative h-6 w-6 text-gold"
-              />
-            </div>
-            <div className="flex-1 min-w-0 pr-16">
-              <CardTitle className="text-lg group-hover:text-gold transition-colors duration-300 line-clamp-2">
-                {story.title}
-              </CardTitle>
-              <p className="text-sm text-muted-foreground mt-1">
-                Play as {story.protagonist}
-              </p>
-            </div>
-          </div>
-        </CardHeader>
-
-        <CardContent className="space-y-4">
-          <p className="text-muted-foreground text-sm line-clamp-2 leading-relaxed">
-            {story.description}
-          </p>
-
-          {/* Stats row */}
-          <div className="flex items-center gap-4 text-xs text-muted-foreground">
-            <span className="flex items-center gap-1">
-              <Clock className="h-3.5 w-3.5" />
-              {story.estimatedTime}
-            </span>
-            <span className="flex items-center gap-1">
-              <Trophy className="h-3.5 w-3.5" />
-              {discoveredCount > 0 ? (
-                <span className="text-gold">
-                  {discoveredCount}/{story.totalEndings}
-                </span>
-              ) : (
-                <span>{story.totalEndings} endings</span>
-              )}
-            </span>
-          </div>
-
-          {/* Progress bar if started */}
-          {discoveredCount > 0 && (
-            <div className="space-y-1">
-              <div className="h-1.5 bg-midnight rounded-full overflow-hidden">
-                <div
-                  className="h-full bg-linear-to-r from-gold-dark to-gold transition-all duration-300"
-                  style={{
-                    width: `${(discoveredCount / story.totalEndings) * 100}%`,
-                  }}
-                />
-              </div>
-              <p className="text-xs text-gold/70">{progressText}</p>
-            </div>
-          )}
-        </CardContent>
-      </Card>
-    </Link>
-  );
-}
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { usePagination } from "@/hooks/usePagination";
+import { getPantheonColor } from "@/lib/pantheon-colors";
 
 /** Story card and filter fields (no narrative text). */
 export interface StoryListItem {
@@ -165,92 +38,65 @@ export interface StoryListItem {
   summary: string | null;
   themes: string[];
   imageUrl: string | null;
-  category?: string;
-  moralThemes?: string[];
 }
 
-type Story = StoryListItem;
+const capitalize = (value: string) =>
+  value.charAt(0).toUpperCase() + value.slice(1);
 
 export function StoriesPageClient({
   stories,
-  interactiveStories: branchingStories,
+  interactiveStories,
   traditionCount,
+  traditionNames,
 }: Readonly<{
   stories: StoryListItem[];
   interactiveStories: InteractiveStoryListItem[];
   /** Traditions in the atlas (collections excluded), counted on the server. */
   traditionCount: number;
+  /** Pantheon id → short name ("Greek"), computed on the server. */
+  traditionNames: Record<string, string>;
 }>) {
-  const allStories = useMemo(
+  const [searchQuery, setSearchQuery] = useState("");
+  const [categoryFilter, setCategoryFilter] = useState("all");
+  const [themeFilter, setThemeFilter] = useState("all");
+
+  const categories = useMemo(
     () =>
-      stories.map((story) => ({
-        ...story,
-        category: story.themes?.[0] || "other",
-        moralThemes: story.themes || [],
-      })),
+      Array.from(new Set(stories.map((s) => s.themes[0] ?? "other"))).sort(
+        (a, b) => a.localeCompare(b),
+      ),
     [stories],
   );
-  const [filteredStories, setFilteredStories] = useState<Story[]>(allStories);
-  const [filtersVersion, setFiltersVersion] = useState(0);
+  const themes = useMemo(
+    () =>
+      Array.from(new Set(stories.flatMap((s) => s.themes))).sort((a, b) =>
+        a.localeCompare(b),
+      ),
+    [stories],
+  );
 
-  const handleFilteredChange = useCallback((filtered: Story[]) => {
-    setFilteredStories(filtered);
-  }, []);
+  const displayStories = useMemo(() => {
+    const query = searchQuery.trim().toLowerCase();
+    return stories.filter(
+      (s) =>
+        (categoryFilter === "all" ||
+          (s.themes[0] ?? "other") === categoryFilter) &&
+        (themeFilter === "all" || s.themes.includes(themeFilter)) &&
+        (!query ||
+          s.title.toLowerCase().includes(query) ||
+          s.summary?.toLowerCase().includes(query)),
+    );
+  }, [stories, searchQuery, categoryFilter, themeFilter]);
 
   const hasActiveFilters =
-    filteredStories.length !== allStories.length ||
-    filteredStories.some((story, index) => story.id !== allStories[index]?.id);
-  const displayStories = hasActiveFilters ? filteredStories : allStories;
-
-  let storiesContent: ReactNode;
-  if (displayStories.length > 0) {
-    storiesContent = <PaginatedStoryGrid stories={displayStories} />;
-  } else if (hasActiveFilters) {
-    storiesContent = (
-      <div className="text-center py-20">
-        <div className="inline-flex items-center justify-center w-20 h-20 rounded-xl bg-muted border border-border mb-6">
-          <ScrollText
-            className="h-10 w-10 text-muted-foreground"
-            strokeWidth={1.5}
-          />
-        </div>
-        <h2 className="text-2xl font-serif font-semibold mb-2 text-foreground">
-          No stories found
-        </h2>
-        <p className="text-muted-foreground">
-          Try adjusting your filters to find what you&apos;re looking for
-        </p>
-        <Button
-          variant="outline"
-          size="sm"
-          className="mt-4"
-          onClick={() => {
-            setFilteredStories(allStories);
-            setFiltersVersion((prev) => prev + 1);
-          }}
-        >
-          Clear filters
-        </Button>
-      </div>
-    );
-  } else {
-    storiesContent = (
-      <div className="text-center py-20">
-        <div className="inline-flex items-center justify-center w-20 h-20 rounded-xl bg-muted border border-border mb-6">
-          <ScrollText
-            className="h-10 w-10 text-muted-foreground"
-            strokeWidth={1.5}
-          />
-        </div>
-        <h2 className="text-2xl font-serif font-semibold mb-2 text-foreground">
-          No stories yet
-        </h2>
-        <p className="text-muted-foreground">
-          Check back later for mythological tales and legends
-        </p>
-      </div>
-    );
-  }
+    searchQuery.trim() !== "" ||
+    categoryFilter !== "all" ||
+    themeFilter !== "all";
+  const resetFilters = () => {
+    setSearchQuery("");
+    setCategoryFilter("all");
+    setThemeFilter("all");
+  };
 
   return (
     <div className="min-h-screen">
@@ -258,183 +104,191 @@ export function StoriesPageClient({
         name="Mythological Stories"
         description={`Epic tales and legends from ancient civilizations across ${traditionCount} traditions`}
         url="/stories"
-        numberOfItems={allStories.length}
+        numberOfItems={stories.length}
       />
       <PageHero
         mark="scroll"
         tagline="Epic Tales"
         title="Mythological Stories"
-        description="Epic tales and legends from ancient civilizations"
+        description={`Creation myths, descents to the underworld and hero quests from ${traditionCount} traditions.`}
         backgroundImage="/stories-hero.jpg"
         backgroundAlt="Ancient storytellers and heroes gathered in a mythic landscape"
         colorScheme="gold"
       />
 
-      {/* Stories Grid */}
-      <div className="container mx-auto max-w-7xl px-4 py-12 bg-mythic">
-        <section className="mt-6 rounded-2xl border border-border/60 bg-card/60 p-6 shadow-sm">
-          <h2 className="font-serif text-2xl text-foreground">
-            Read The Core Myths First
-          </h2>
-          <p className="mt-3 max-w-4xl text-sm leading-7 text-muted-foreground">
-            The story index is organized to help you move from foundational
-            myths into more specialized tales. Start with creation stories,
-            succession struggles, and culture-defining journeys, then use the
-            filters to narrow by theme or tradition. Interactive stories are
-            collected separately so returning readers can switch between
-            reference reading and choice-driven exploration without losing the
-            main narrative canon.
-          </p>
-        </section>
-
-        {/* Interactive Stories Section */}
-        {branchingStories.length > 0 && (
-          <div id="interactive" className="mb-12 mt-10 scroll-mt-24">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="p-2 rounded-lg bg-gold/10 border border-gold/20">
-                <Gamepad2 className="h-5 w-5 text-gold" />
-              </div>
-              <div>
-                <h2 className="text-xl font-serif font-semibold text-foreground">
-                  Interactive Stories
-                </h2>
-                <p className="text-sm text-muted-foreground">
-                  Choose your own adventure through mythology
-                </p>
-              </div>
-            </div>
-            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {branchingStories.map((story) => (
-                <InteractiveStoryCard key={story.id} story={story} />
-              ))}
-            </div>
-          </div>
-        )}
-
-        {/* Regular Stories */}
-        <div className="flex items-center gap-3 mb-6">
-          <div className="p-2 rounded-lg bg-gold/10 border border-gold/20">
-            <BookOpen className="h-5 w-5 text-gold" />
-          </div>
-          <div>
-            <h2 className="text-xl font-serif font-semibold text-foreground">
-              Epic Tales
-            </h2>
-            <p className="text-sm text-muted-foreground">
-              Classic mythology narratives
-            </p>
-          </div>
-        </div>
-
-        <div className="mb-6">
-          <StoryFilters
-            key={filtersVersion}
-            stories={allStories}
-            onFilteredChange={handleFilteredChange}
+      {interactiveStories.length > 0 && (
+        <Container
+          as="section"
+          id="interactive"
+          aria-labelledby="interactive-heading"
+          className="scroll-mt-24 pt-8 pb-4 md:pt-10"
+        >
+          <SectionHeading
+            id="interactive-heading"
+            eyebrow="Choose your path"
+            title="Interactive stories"
+            description="Branching myths where your choices decide the ending."
+            action={{ href: "/stories/interactive", label: "All interactive" }}
+            className="md:mb-8"
           />
-        </div>
+          <EntityGrid>
+            {interactiveStories.slice(0, 3).map((story, index) => (
+              <InteractiveStoryCard
+                key={story.id}
+                story={story}
+                priority={index < 3}
+              />
+            ))}
+          </EntityGrid>
+        </Container>
+      )}
 
-        {storiesContent}
-      </div>
+      <Container
+        as="section"
+        aria-labelledby="epic-tales-heading"
+        className="pt-10 pb-12 md:pt-14"
+      >
+        <SectionHeading
+          id="epic-tales-heading"
+          eyebrow="The canon"
+          title="Epic tales"
+          description="The classic narratives, retold from their sources."
+          className="md:mb-8"
+        />
+        <FilterToolbar
+          label="Filter stories"
+          count={
+            hasActiveFilters
+              ? `${displayStories.length} of ${stories.length} stories`
+              : `${stories.length} stories`
+          }
+        >
+          <ToolbarSearch
+            id="story-search"
+            label="Search stories"
+            placeholder="Search stories…"
+            value={searchQuery}
+            onChange={setSearchQuery}
+          />
+          <Select value={categoryFilter} onValueChange={setCategoryFilter}>
+            <SelectTrigger className="w-40">
+              <SelectValue placeholder="Category" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="all">All categories</SelectItem>
+              {categories.map((category) => (
+                <SelectItem key={category} value={category}>
+                  {capitalize(category)}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+          <Select value={themeFilter} onValueChange={setThemeFilter}>
+            <SelectTrigger className="w-40">
+              <SelectValue placeholder="Theme" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="all">All themes</SelectItem>
+              {themes.map((theme) => (
+                <SelectItem key={theme} value={theme}>
+                  {capitalize(theme)}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+          {hasActiveFilters ? (
+            <Button variant="link" size="sm" onClick={resetFilters}>
+              Reset
+            </Button>
+          ) : null}
+        </FilterToolbar>
+
+        <div className="pt-8">
+          {displayStories.length > 0 ? (
+            <PaginatedStoryGrid
+              stories={displayStories}
+              traditionNames={traditionNames}
+            />
+          ) : (
+            <EmptyResults
+              title={hasActiveFilters ? "No stories found" : "No stories yet"}
+              action={
+                hasActiveFilters ? (
+                  <Button variant="outline" size="sm" onClick={resetFilters}>
+                    Clear filters
+                  </Button>
+                ) : null
+              }
+            >
+              {hasActiveFilters
+                ? "Try another title, category or theme."
+                : "Check back later for mythological tales and legends."}
+            </EmptyResults>
+          )}
+        </div>
+      </Container>
+
+      <AboutThisPage title="About the story index">
+        <p>
+          The story index is organized to help you move from foundational myths
+          into more specialized tales. Start with creation stories, succession
+          struggles, and culture-defining journeys, then use the filters to
+          narrow by theme or tradition. Interactive stories are collected
+          separately so returning readers can switch between reference reading
+          and choice-driven exploration without losing the main narrative canon.
+        </p>
+      </AboutThisPage>
     </div>
   );
 }
 
-function PaginatedStoryGrid({ stories }: Readonly<{ stories: Story[] }>) {
+function PaginatedStoryGrid({
+  stories,
+  traditionNames,
+}: Readonly<{
+  stories: StoryListItem[];
+  traditionNames: Record<string, string>;
+}>) {
   const pagination = usePagination(stories, 24);
+  const { firstPage } = pagination;
 
   // Reset to first page when filtered data changes
   useEffect(() => {
-    if (pagination.page !== 1) {
-      pagination.setPage(1);
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [stories.length]);
+    firstPage();
+  }, [stories.length, firstPage]);
 
   return (
     <>
-      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 mt-6">
+      <EntityGrid>
         {pagination.paginatedData.map((story) => (
-          <div key={story.id} className="group pantheon-reveal">
-            <Card
-              interactive
-              asArticle
-              className="relative h-full cursor-pointer parchment-card bg-card transition-transform duration-300 hover:-translate-y-1 overflow-hidden flex flex-col"
-            >
-              {story.imageUrl && (
-                <div className="relative w-full h-44 overflow-hidden border-b border-border/50 bg-midnight">
-                  <Image
-                    src={story.imageUrl}
-                    alt={story.title}
-                    fill
-                    sizes="(max-width: 768px) 100vw, 33vw"
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-linear-to-t from-background/90 via-transparent to-transparent" />
-                </div>
-              )}
-              {!story.imageUrl && (
-                <div className="h-0.5 bg-linear-to-r from-gold-dark via-gold to-gold-dark"></div>
-              )}
-
-              <CardHeader>
-                <div className="absolute top-4 right-4 opacity-[0.03] group-hover:opacity-[0.06] transition-opacity">
-                  <BookOpen className="h-24 w-24 text-gold" />
-                </div>
-                <div className="flex items-start gap-3">
-                  <div className="relative flex h-12 w-12 shrink-0 items-center justify-center border border-gold/30 bg-gold/5 group-hover:border-gold/50 transition-colors">
-                    <span className="absolute left-0 top-0 h-2 w-2 border-l border-t border-gold/35" />
-                    <span className="absolute right-0 top-0 h-2 w-2 border-r border-t border-gold/35" />
-                    <span className="absolute bottom-0 left-0 h-2 w-2 border-b border-l border-gold/35" />
-                    <span className="absolute bottom-0 right-0 h-2 w-2 border-b border-r border-gold/35" />
-                    <MythosMark
-                      id="scroll"
-                      className="relative h-6 w-6 text-gold"
-                    />
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <CardTitle className="text-lg group-hover:text-gold transition-colors duration-300 line-clamp-2">
-                      <Link
-                        href={`/stories/${story.slug}`}
-                        className="after:absolute after:inset-0"
-                      >
-                        {story.title}
-                      </Link>
-                    </CardTitle>
-                  </div>
-                  <BookmarkButton
-                    type="story"
-                    id={story.id}
-                    size="sm"
-                    className="z-10"
-                  />
-                </div>
-              </CardHeader>
-
-              {story.summary && (
-                <CardContent className="space-y-4">
-                  <p className="text-muted-foreground text-sm line-clamp-3 leading-relaxed">
-                    {story.summary}
-                  </p>
-                  {story.themes && story.themes.length > 0 && (
-                    <div className="flex flex-wrap gap-2">
-                      {story.themes.slice(0, 3).map((theme) => (
-                        <Badge
-                          key={theme}
-                          variant="secondary"
-                          className="text-xs bg-gold/20 text-amber-900 dark:text-amber-100 border border-gold/30"
-                        >
-                          {theme}
-                        </Badge>
-                      ))}
-                    </div>
-                  )}
-                </CardContent>
-              )}
-            </Card>
-          </div>
+          <EntityCard
+            key={story.id}
+            href={`/stories/${story.slug}`}
+            title={story.title}
+            image={story.imageUrl}
+            aspect="landscape"
+            tradition={
+              traditionNames[story.pantheonId] ??
+              story.pantheonId.replace(/-pantheon$/, "")
+            }
+            traditionColor={getPantheonColor(story.pantheonId)}
+            description={story.summary}
+            meta={
+              story.themes.length > 0
+                ? story.themes.slice(0, 3).map(capitalize).join(" · ")
+                : undefined
+            }
+            action={
+              <BookmarkButton
+                type="story"
+                id={story.id}
+                size="md"
+                variant="light"
+              />
+            }
+          />
         ))}
-      </div>
+      </EntityGrid>
 
       {pagination.totalPages > 1 && (
         <PaginationControls
@@ -450,7 +304,7 @@ function PaginatedStoryGrid({ stories }: Readonly<{ stories: Story[] }>) {
           startIndex={pagination.startIndex}
           endIndex={pagination.endIndex}
           totalItems={pagination.totalItems}
-          className="mt-8"
+          className="mt-12"
         />
       )}
     </>

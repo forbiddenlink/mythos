@@ -50,6 +50,11 @@ interface MapVisualizationProps {
   pantheons: Pantheon[];
   deities?: Deity[];
   stories?: Story[];
+  /**
+   * `minimal` drops the map's own tradition pills, count and legend, for
+   * pages whose filter toolbar already provides them.
+   */
+  chrome?: "full" | "minimal";
 }
 
 // ─── Cluster icon creator ───────────────────────────────────────────────
@@ -91,7 +96,9 @@ export function MapVisualization({
   pantheons,
   deities = [],
   stories = [],
+  chrome = "full",
 }: MapVisualizationProps) {
+  const minimal = chrome === "minimal";
   // Filter state for pantheons (quick filter within map)
   const [activePantheonFilter, setActivePantheonFilter] = useState<
     string | null
@@ -517,52 +524,64 @@ export function MapVisualization({
   return (
     <div className="relative w-full h-full min-h-125 bg-slate-950 rounded-xl overflow-hidden border border-slate-800">
       {/* Pantheon Filter Pills - Above Map */}
-      <div className="absolute top-4 left-4 right-4 z-1000 flex flex-wrap items-center gap-2">
+      <div
+        className={
+          minimal
+            ? "absolute top-4 right-4 z-1000"
+            : "absolute top-4 left-4 right-4 z-1000 flex flex-wrap items-center gap-2"
+        }
+      >
         {/* All button */}
-        <button
-          onClick={() => setActivePantheonFilter(null)}
-          aria-pressed={activePantheonFilter === null}
-          className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all shadow-sm backdrop-blur-sm ${
-            activePantheonFilter === null
-              ? "bg-gold text-midnight border border-gold"
-              : "bg-card text-safe-subtle border border-border hover:border-gold/50 hover:text-gold-text"
-          }`}
-        >
-          All
-        </button>
+        {minimal ? null : (
+          <button
+            onClick={() => setActivePantheonFilter(null)}
+            aria-pressed={activePantheonFilter === null}
+            className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all shadow-sm backdrop-blur-sm ${
+              activePantheonFilter === null
+                ? "bg-gold text-midnight border border-gold"
+                : "bg-card text-safe-subtle border border-border hover:border-gold/50 hover:text-gold-text"
+            }`}
+          >
+            All
+          </button>
+        )}
 
         {/* Pantheon filter buttons */}
-        {uniquePantheons.map((pantheon) => {
-          const colors = PANTHEON_COLORS[pantheon.id];
-          const isActive = activePantheonFilter === pantheon.id;
-          const count = locations.filter(
-            (l) => l.pantheonId === pantheon.id && l.latitude !== null,
-          ).length;
+        {minimal
+          ? null
+          : uniquePantheons.map((pantheon) => {
+              const colors = PANTHEON_COLORS[pantheon.id];
+              const isActive = activePantheonFilter === pantheon.id;
+              const count = locations.filter(
+                (l) => l.pantheonId === pantheon.id && l.latitude !== null,
+              ).length;
 
-          return (
-            <button
-              key={pantheon.id}
-              onClick={() =>
-                setActivePantheonFilter(isActive ? null : pantheon.id)
-              }
-              aria-pressed={isActive}
-              className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all shadow-sm backdrop-blur-sm flex items-center gap-1.5 ${
-                isActive
-                  ? "bg-gold text-midnight border border-gold"
-                  : "bg-card text-safe-subtle border border-border hover:border-gold/50"
-              }`}
-            >
-              <span
-                className="w-2 h-2 rounded-full"
-                style={{ backgroundColor: colors?.bg || "#6b7280" }}
-              />
-              {colors?.label || pantheon.name}
-              <span className={isActive ? "text-midnight" : "text-safe-subtle"}>
-                ({count})
-              </span>
-            </button>
-          );
-        })}
+              return (
+                <button
+                  key={pantheon.id}
+                  onClick={() =>
+                    setActivePantheonFilter(isActive ? null : pantheon.id)
+                  }
+                  aria-pressed={isActive}
+                  className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all shadow-sm backdrop-blur-sm flex items-center gap-1.5 ${
+                    isActive
+                      ? "bg-gold text-midnight border border-gold"
+                      : "bg-card text-safe-subtle border border-border hover:border-gold/50"
+                  }`}
+                >
+                  <span
+                    className="w-2 h-2 rounded-full"
+                    style={{ backgroundColor: colors?.bg || "#6b7280" }}
+                  />
+                  {colors?.label || pantheon.name}
+                  <span
+                    className={isActive ? "text-midnight" : "text-safe-subtle"}
+                  >
+                    ({count})
+                  </span>
+                </button>
+              );
+            })}
 
         {/* Clustering toggle */}
         <div className="ml-auto">
@@ -613,41 +632,45 @@ export function MapVisualization({
       `}</style>
 
       {/* Map stats overlay */}
-      <div className="absolute bottom-4 left-4 z-1000 bg-card border border-border rounded-lg px-3 py-2 text-xs text-safe-subtle">
-        <span className="font-medium text-foreground">
-          {mappableLocations.length}
-        </span>{" "}
-        location
-        {mappableLocations.length !== 1 ? "s" : ""} shown
-        {activePantheonFilter && (
-          <span className="ml-1">
-            in{" "}
-            <span className="text-safe-subtle">
-              {PANTHEON_COLORS[activePantheonFilter]?.label}
+      {minimal ? null : (
+        <div className="absolute bottom-4 left-4 z-1000 bg-card border border-border rounded-lg px-3 py-2 text-xs text-safe-subtle">
+          <span className="font-medium text-foreground">
+            {mappableLocations.length}
+          </span>{" "}
+          location
+          {mappableLocations.length !== 1 ? "s" : ""} shown
+          {activePantheonFilter && (
+            <span className="ml-1">
+              in{" "}
+              <span className="text-safe-subtle">
+                {PANTHEON_COLORS[activePantheonFilter]?.label}
+              </span>
             </span>
-          </span>
-        )}
-      </div>
+          )}
+        </div>
+      )}
 
       {/* Legend */}
-      <div className="absolute bottom-4 right-4 z-1000 bg-card border border-border rounded-lg px-3 py-2">
-        <div className="text-[10px] font-semibold text-safe-subtle uppercase tracking-wider mb-1.5">
-          Legend
+      {minimal ? null : (
+        <div className="absolute bottom-4 right-4 z-1000 bg-card border border-border rounded-lg px-3 py-2">
+          <div className="text-[10px] font-semibold text-safe-subtle uppercase tracking-wider mb-1.5">
+            Legend
+          </div>
+          <div className="flex flex-wrap gap-x-3 gap-y-1 text-[10px]">
+            {Object.entries(PANTHEON_COLORS)
+              .slice(0, 5)
+              .map(([id, colors]) => (
+                <div key={id} className="flex items-center gap-1">
+                  <span
+                    className="w-2 h-2 rounded-full"
+                    style={{ backgroundColor: colors.bg }}
+                  />
+                  <span className="text-safe-subtle">{colors.label}</span>
+                </div>
+              ))}
+          </div>
         </div>
-        <div className="flex flex-wrap gap-x-3 gap-y-1 text-[10px]">
-          {Object.entries(PANTHEON_COLORS)
-            .slice(0, 5)
-            .map(([id, colors]) => (
-              <div key={id} className="flex items-center gap-1">
-                <span
-                  className="w-2 h-2 rounded-full"
-                  style={{ backgroundColor: colors.bg }}
-                />
-                <span className="text-safe-subtle">{colors.label}</span>
-              </div>
-            ))}
-        </div>
-      </div>
+      )}
     </div>
   );
 }

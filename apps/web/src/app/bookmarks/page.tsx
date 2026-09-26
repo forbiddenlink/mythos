@@ -1,6 +1,7 @@
 import {
   getDeities,
   getHeroes,
+  getPantheonShortNames,
   getPantheons,
   getSourceWorks,
   getStories,
@@ -15,27 +16,30 @@ export default function Page() {
         "id",
         "name",
         "slug",
+        "pantheonId",
         "domain",
         "description",
-        "importanceRank",
+        "imageUrl",
       ])}
       storiesData={getStories().map((story) => ({
-        ...pick(story, ["id", "title", "slug", "summary"]),
+        ...pick(story, ["id", "title", "slug", "summary", "pantheonId"]),
+        imageUrl: story.imageUrl ?? null,
         themes: (story as { themes?: string[] }).themes ?? [],
       }))}
-      pantheonsData={project(getPantheons(), [
-        "id",
-        "name",
-        "slug",
-        "description",
-      ])}
+      pantheonsData={getPantheons().map((pantheon) => ({
+        ...pick(pantheon, ["id", "name", "slug", "description"]),
+        imageUrl: pantheon.imageUrl ?? null,
+      }))}
       heroesData={getHeroes().map((hero) => ({
         id: hero.id,
         name: hero.name,
         slug: hero.slug,
+        pantheonId: hero.pantheonId ?? "",
         description: String(hero.description ?? ""),
+        imageUrl: (hero.imageUrl as string | null | undefined) ?? null,
       }))}
       sourcesData={getSourceWorks()}
+      traditionNames={getPantheonShortNames()}
     />
   );
 }
