@@ -10,11 +10,17 @@ import {
 } from "@/components/layout/nav-config";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
+
+function isActivePath(pathname: string, href: string): boolean {
+  return pathname === href || pathname.startsWith(`${href}/`);
+}
 
 interface MenuItem {
   label: string;
   href: string;
+  current?: boolean;
   description?: string;
   mark?: MythosMarkId;
 }
@@ -26,6 +32,8 @@ interface MenuSection {
 
 interface MegaMenuDropdownProps {
   section: MenuSection;
+  /** The current page belongs to this section. */
+  isCurrent: boolean;
   isOpen: boolean;
   onOpen: () => void;
   onClose: () => void;
@@ -33,6 +41,7 @@ interface MegaMenuDropdownProps {
 
 function MegaMenuDropdown({
   section,
+  isCurrent,
   isOpen,
   onOpen,
   onClose,
@@ -76,8 +85,8 @@ function MegaMenuDropdown({
       <button
         type="button"
         className={cn(
-          "relative flex items-center gap-1 px-3 py-2 text-sm font-medium transition-colors duration-200 group",
-          isOpen
+          "group relative flex h-10 items-center gap-1 rounded-md px-3 text-[0.9375rem] font-medium transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold",
+          isOpen || isCurrent
             ? "text-foreground"
             : "text-muted-foreground hover:text-foreground",
         )}
@@ -99,9 +108,10 @@ function MegaMenuDropdown({
           )}
         />
         <span
+          aria-hidden="true"
           className={cn(
-            "absolute inset-x-1 -bottom-px h-px bg-linear-to-r from-transparent via-gold/60 to-transparent transition-transform duration-300",
-            isOpen ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100",
+            "absolute inset-x-3 -bottom-[0.6875rem] h-0.5 rounded-full bg-gold transition-transform duration-300",
+            isCurrent ? "scale-x-100" : "scale-x-0",
           )}
         />
       </button>
@@ -122,7 +132,11 @@ function MegaMenuDropdown({
                     key={item.href}
                     href={item.href}
                     onClick={onClose}
-                    className="flex items-start gap-3 rounded-lg px-3 py-2.5 text-sm transition-colors hover:bg-muted/50 group"
+                    aria-current={item.current ? "page" : undefined}
+                    className={cn(
+                      "group flex items-start gap-3 rounded-lg px-3 py-2.5 text-sm transition-colors hover:bg-muted/60",
+                      item.current && "bg-muted/60",
+                    )}
                   >
                     <div className="shrink-0 mt-0.5 text-muted-foreground group-hover:text-gold transition-colors">
                       {item.mark ? (
@@ -134,7 +148,7 @@ function MegaMenuDropdown({
                         {item.label}
                       </div>
                       {item.description && (
-                        <div className="text-xs leading-relaxed text-muted-foreground mt-0.5">
+                        <div className="mt-0.5 text-[0.8125rem] leading-snug text-muted-foreground">
                           {item.description}
                         </div>
                       )}
@@ -152,6 +166,7 @@ function MegaMenuDropdown({
 
 export function MegaMenu() {
   const t = useTranslations();
+  const pathname = usePathname() ?? "/";
   const [openMenu, setOpenMenu] = useState<string | null>(null);
 
   const sections: MenuSection[] = PRIMARY_NAV.map((group) => ({
@@ -159,6 +174,7 @@ export function MegaMenu() {
     items: group.items.map((item) => ({
       label: t(`navigation.${item.labelKey}`),
       href: item.href,
+      current: isActivePath(pathname, item.href),
       description: item.descriptionKey
         ? t(`navDescriptions.${item.descriptionKey}`)
         : undefined,
@@ -166,15 +182,15 @@ export function MegaMenu() {
     })),
   }));
 
+  const directActive = isActivePath(pathname, PRIMARY_DIRECT_LINK.href);
+
   return (
-    <nav
-      aria-label="Primary"
-      className="hidden lg:flex items-center gap-1 xl:gap-2"
-    >
+    <nav aria-label="Primary" className="hidden items-center gap-0.5 lg:flex">
       {sections.map((section) => (
         <MegaMenuDropdown
           key={section.label}
           section={section}
+          isCurrent={section.items.some((item) => item.current)}
           isOpen={openMenu === section.label}
           onOpen={() => setOpenMenu(section.label)}
           onClose={() => setOpenMenu(null)}
@@ -183,12 +199,22 @@ export function MegaMenu() {
 
       <Link
         href={PRIMARY_DIRECT_LINK.href}
-        className="relative inline-flex min-h-12 items-center px-4 py-2.5 text-sm font-medium text-foreground hover:text-gold transition-colors duration-200 group"
+        aria-current={directActive ? "page" : undefined}
+        className={cn(
+          "relative inline-flex h-10 items-center rounded-md px-3 text-[0.9375rem] font-medium transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold",
+          directActive
+            ? "text-foreground"
+            : "text-muted-foreground hover:text-foreground",
+        )}
       >
-        <span className="relative z-10">
-          {t(`navigation.${PRIMARY_DIRECT_LINK.labelKey}`)}
-        </span>
-        <span className="absolute inset-x-1 -bottom-px h-px bg-linear-to-r from-transparent via-gold/60 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
+        {t(`navigation.${PRIMARY_DIRECT_LINK.labelKey}`)}
+        <span
+          aria-hidden="true"
+          className={cn(
+            "absolute inset-x-3 -bottom-[0.6875rem] h-0.5 rounded-full bg-gold transition-transform duration-300",
+            directActive ? "scale-x-100" : "scale-x-0",
+          )}
+        />
       </Link>
     </nav>
   );
