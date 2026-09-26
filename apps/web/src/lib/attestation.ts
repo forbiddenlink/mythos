@@ -122,3 +122,35 @@ export function attestationOf(
 
   return { earliestYear, earliestSource, count, tier, label };
 }
+
+export interface AttestationPoint {
+  slug: string;
+  name: string;
+  pantheonId: string;
+  year: number;
+  source: string;
+}
+
+/** One point per figure with a dated source record, at its oldest date. */
+export function attestationPoints(
+  figures: readonly {
+    slug: string;
+    name: string;
+    pantheonId: string;
+    primarySources?: PrimarySource[];
+  }[],
+): AttestationPoint[] {
+  const points: AttestationPoint[] = [];
+  for (const figure of figures) {
+    const att = attestationOf(figure.primarySources);
+    if (att.earliestYear === null || !att.earliestSource) continue;
+    points.push({
+      slug: figure.slug,
+      name: figure.name,
+      pantheonId: figure.pantheonId,
+      year: att.earliestYear,
+      source: att.earliestSource.source,
+    });
+  }
+  return points;
+}

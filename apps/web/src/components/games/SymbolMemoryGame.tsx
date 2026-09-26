@@ -4,6 +4,7 @@ import { useState, useEffect, useCallback, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { MythosMark } from "@/components/icons/mythos-marks";
 import {
   Trophy,
   RefreshCw,
@@ -13,9 +14,7 @@ import {
   Crown,
   Zap,
 } from "lucide-react";
-import deitiesData from "@/data/deities.json";
-
-interface Deity {
+export interface MemoryGameDeity {
   id: string;
   name: string;
   symbols: string[];
@@ -171,7 +170,7 @@ function getCardBorderClasses(card: MemoryCard): string {
   if (card.isMatched)
     return "border-green-500/50 bg-green-500/10 cursor-default";
   if (card.isFlipped) return "border-gold/50 bg-gold/10 cursor-default";
-  return "border-border hover:border-gold/30 hover:bg-gold/5 cursor-pointer active:scale-95";
+  return "border-gold/25 bg-midnight bg-[radial-gradient(circle_at_50%_40%,color-mix(in_oklch,var(--gold)_16%,transparent),transparent_65%)] hover:border-gold/70 cursor-pointer active:scale-95";
 }
 
 function getCardAriaLabel(card: MemoryCard): string {
@@ -190,7 +189,12 @@ function getEfficiencyMessage(efficiency: number): string {
   return "The symbols reveal themselves to those who practice. Try again!";
 }
 
-export function SymbolMemoryGame() {
+export function SymbolMemoryGame({
+  deities,
+}: {
+  /** id / name / symbols / pantheonId for every deity, from the server page. */
+  deities: MemoryGameDeity[];
+}) {
   const [difficulty, setDifficulty] = useState<Difficulty>("medium");
   const [cards, setCards] = useState<MemoryCard[]>([]);
   const [flippedCards, setFlippedCards] = useState<string[]>([]);
@@ -209,7 +213,6 @@ export function SymbolMemoryGame() {
   );
   const [isChecking, setIsChecking] = useState(false);
   const mismatchTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const deities = deitiesData as Deity[];
 
   // Load best times from localStorage
   useEffect(() => {
@@ -523,7 +526,7 @@ export function SymbolMemoryGame() {
             </span>
           </div>
           <output
-            className="flex items-center gap-2 px-3 py-2 rounded-lg bg-gold/10 border border-gold/20 text-gold"
+            className="flex items-center gap-2 px-3 py-2 rounded-lg bg-gold/10 border border-gold/20 text-gold-text"
             aria-label={`Matches: ${matches} of ${config.pairs}`}
           >
             <Trophy className="h-4 w-4" aria-hidden="true" />
@@ -621,9 +624,12 @@ export function SymbolMemoryGame() {
                       transition={{ duration: 0.2 }}
                       className="h-full flex items-center justify-center"
                     >
-                      <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-lg bg-linear-to-br from-gold/20 to-amber-600/20 flex items-center justify-center border border-gold/30">
-                        <Sparkles className="h-6 w-6 sm:h-8 sm:w-8 text-gold/60" />
-                      </div>
+                      <span className="flex size-12 items-center justify-center rounded-full border border-gold/40 sm:size-16">
+                        <MythosMark
+                          id="labyrinth"
+                          className="size-6 text-gold-light sm:size-8"
+                        />
+                      </span>
                     </motion.div>
                   )}
                 </AnimatePresence>

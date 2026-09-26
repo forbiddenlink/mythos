@@ -1,9 +1,12 @@
 import type { Metadata } from "next";
 import { generateBaseMetadata } from "@/lib/metadata";
+import { isOracleEnabled } from "@/lib/oracle/availability";
 import { OracleConsult } from "@/components/oracle/OracleConsult";
 import { ParchmentShaderBackground } from "@/components/effects/ParchmentShaderBackground";
+import { Container } from "@/components/layout/container";
+import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
 
-export const metadata: Metadata = generateBaseMetadata({
+const baseMetadata: Metadata = generateBaseMetadata({
   title: "The Oracle of Delphi",
   description:
     "Consult the Oracle — an AI seer grounded in the Mythos Atlas's own sources. Pose a petition about the gods, myths, and their meanings, and receive a prophecy with citations.",
@@ -19,28 +22,37 @@ export const metadata: Metadata = generateBaseMetadata({
   ],
 });
 
-const oracleEnabled = process.env.NEXT_PUBLIC_ORACLE_ENABLED === "true";
+export function generateMetadata(): Metadata {
+  // A disabled Oracle is an empty shell: keep it out of search results.
+  return isOracleEnabled()
+    ? baseMetadata
+    : { ...baseMetadata, robots: { index: false, follow: true } };
+}
 
 export default function OraclePage() {
+  const oracleEnabled = isOracleEnabled();
   return (
-    <div className="relative min-h-screen overflow-hidden bg-midnight text-parchment">
+    <div className="dark relative min-h-screen overflow-hidden bg-midnight text-parchment">
       {/* Atmospheric temple background — GLSL parchment/candlelight, with a
           matching static gradient fallback baked in for SSR and low-power. */}
       <ParchmentShaderBackground />
 
-      <div className="container mx-auto max-w-4xl px-6 py-20 sm:py-28">
+      <Container className="relative pt-5">
+        <Breadcrumbs tone="onDark" />
+      </Container>
+      <div className="layout-container layout-container-content relative max-w-4xl! pt-10 pb-20 sm:pt-16 sm:pb-28">
         {/* Invocation */}
         <header className="text-center">
-          <span className="page-eyebrow text-gold/60 tracking-[0.35em]">
+          <p className="type-eyebrow mb-4 text-gold-light">
             The Sanctuary at Delphi
-          </span>
+          </p>
           <h1 className="page-title text-parchment">The Oracle</h1>
           <div className="mt-6 flex items-center justify-center gap-4">
             <span className="h-px w-16 bg-gold/40" />
             <span className="h-2 w-2 rotate-45 bg-gold/60" />
             <span className="h-px w-16 bg-gold/40" />
           </div>
-          <p className="page-lede mt-8 text-parchment/80">
+          <p className="type-lede mx-auto mt-8 max-w-2xl text-parchment/85">
             In the old world, seekers climbed to Delphi to put their questions
             to the Pythia and left with a prophecy to puzzle over. Put yours to
             this Oracle: a seer that answers from the Atlas&rsquo;s own gods,
@@ -54,10 +66,10 @@ export default function OraclePage() {
             <OracleConsult />
           ) : (
             <div className="mx-auto max-w-2xl rounded-2xl border border-gold/20 bg-midnight/50 p-8 text-center">
-              <p className="font-serif text-xl text-gold/80">
+              <p className="font-serif text-xl text-gold-light">
                 The Oracle sleeps
               </p>
-              <p className="mt-3 text-parchment/70">
+              <p className="mt-3 text-parchment/80">
                 No prophecies are being given at this hour. The reference pages,
                 family trees, and readings await you in the meantime.
               </p>
@@ -85,10 +97,10 @@ export default function OraclePage() {
               key={rite.title}
               className="rounded-xl border border-gold/15 bg-midnight/40 p-6"
             >
-              <h2 className="font-serif text-lg text-gold/90">{rite.title}</h2>
-              <p className="mt-3 text-sm leading-relaxed text-parchment/70">
-                {rite.body}
-              </p>
+              <h2 className="font-serif text-lg text-gold-light">
+                {rite.title}
+              </h2>
+              <p className="mt-3 type-ui text-parchment/80">{rite.body}</p>
             </div>
           ))}
         </section>

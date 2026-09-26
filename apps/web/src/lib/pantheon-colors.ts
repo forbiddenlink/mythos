@@ -15,11 +15,22 @@ export const PANTHEON_COLORS: Record<string, string> = {
   "chinese-pantheon": "#8b1428", // crimson (lacquer, silk)
   "mesopotamian-pantheon": "#7a5c1a", // amber clay (cuneiform tablet)
   "african-pantheon": "#7a4a1a", // earth ochre (Benin bronze, laterite)
+  "yoruba-pantheon": "#8a5a1e", // indigo-dyed adire brown-gold (Ife bronze, laterite)
+  "akan-pantheon": "#9a7418", // kente gold (Asante gold weights, kente)
   "polynesian-pantheon": "#0b6e7a", // deep Pacific teal (ocean, basalt)
   "mesoamerican-pantheon": "#2d5a1a", // jade green (ceiba, quetzal)
   "slavic-pantheon": "#4a5d3a", // oak-forest olive green with a rust undertone (Perun's oak, iron)
   "haudenosaunee-pantheon": "#1f5c47", // white pine spruce-green (the Tree of Peace)
   "tlingit-haida-pantheon": "#a8442c", // formline ochre-red (Northwest Coast red paint, cedar bark)
+  "hittite-pantheon": "#7a4a2a", // baked-clay terracotta (Hattusa tablets and mudbrick)
+  "canaanite-pantheon": "#6b2d5c", // Tyrian purple (murex dye of the Levantine coast)
+  "inuit-pantheon": "#3d6f8e", // sea-ice blue (open water at the floe edge)
+  "aboriginal-australian-pantheon": "#8f4a2c", // inland earth red (landscape tone, not a ceremonial pigment reference)
+  "dine-pantheon": "#2c7a7b", // turquoise
+  "inca-pantheon": "#a3294f", // cochineal carmine (the red dye of Inca tapestry cloth, qompi)
+  "persian-pantheon": "#2c4a9a", // lapis lazuli (Achaemenid glazed brick, Sasanian and Persian manuscript blue)
+  "finnish-pantheon": "#5e5a8c", // twilight violet (the polar-night kaamos sky over lakes and birch)
+  "korean-pantheon": "#5f8f7e", // celadon (the jade-green glaze of Goryeo stoneware)
 };
 
 export function getPantheonColor(pantheonId: string): string {
@@ -93,6 +104,16 @@ const PANTHEON_ACCENTS: Record<string, PantheonAccent> = {
     secondary: "#663b11",
     label: "African",
   },
+  "yoruba-pantheon": {
+    primary: "#9a6428",
+    secondary: "#6e4416",
+    label: "Yoruba",
+  },
+  "akan-pantheon": {
+    primary: "#a8821e",
+    secondary: "#765a10",
+    label: "Akan",
+  },
   "polynesian-pantheon": {
     primary: "#137e8c",
     secondary: "#0a5863",
@@ -118,18 +139,54 @@ const PANTHEON_ACCENTS: Record<string, PantheonAccent> = {
     secondary: "#326b66",
     label: "Tlingit & Haida",
   },
+  "hittite-pantheon": {
+    primary: "#b8703f",
+    secondary: "#6f7f5a",
+    label: "Hittite",
+  },
+  "canaanite-pantheon": {
+    primary: "#9b4a86",
+    secondary: "#c28a3a",
+    label: "Canaanite",
+  },
+  "inuit-pantheon": {
+    primary: "#5b9bc4",
+    secondary: "#9aa7b0",
+    label: "Inuit",
+  },
+  "aboriginal-australian-pantheon": {
+    primary: "#b8683f",
+    secondary: "#5f7f6a",
+    label: "Aboriginal Australian",
+  },
+  "dine-pantheon": {
+    primary: "#3fa3a0",
+    secondary: "#b08a4a",
+    label: "Diné",
+  },
+  "inca-pantheon": {
+    primary: "#b83a5c",
+    secondary: "#8a2340",
+    label: "Inca & Andean",
+  },
+  "persian-pantheon": {
+    primary: "#3b5bb0",
+    secondary: "#233c7a",
+    label: "Persian",
+  },
+  "finnish-pantheon": {
+    primary: "#6f6aa3",
+    secondary: "#4a467a",
+    label: "Finnish",
+  },
+  "korean-pantheon": {
+    primary: "#6fa391",
+    secondary: "#487565",
+    label: "Korean",
+  },
 };
 
-/** {bg,label} shape — locations/page.tsx, journeys/page.tsx, journeys/[slug]/JourneyPageClient.tsx */
-export const PANTHEON_BG_LABEL: Record<string, { bg: string; label: string }> =
-  Object.fromEntries(
-    Object.entries(PANTHEON_ACCENTS).map(([id, a]) => [
-      id,
-      { bg: a.primary, label: a.label },
-    ]),
-  );
-
-/** {primary,secondary} shape — components/maps/JourneyMap.tsx, JourneyPreviewMap.tsx */
+/** {primary,secondary} shape — components/maps/JourneyMap.tsx */
 export const PANTHEON_PRIMARY_SECONDARY: Record<
   string,
   { primary: string; secondary: string }

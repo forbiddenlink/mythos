@@ -1,46 +1,30 @@
 #!/usr/bin/env python3
 """
 generate_creatures_locations_stories.py
-Generates illustrations for the 7 missing creatures, 6 missing locations,
-and 11 missing stories in Mythos Atlas, adhering to the dark-academia classical atlas style.
+Generates illustrations for creatures, locations, stories, and artifacts in
+Mythos Atlas that have no other image, adhering to the dark-academia classical
+atlas style. Pass --only with comma-separated ids to redraw just those plates.
 """
 
+import argparse
 import os
 import math
-import subprocess
-from PIL import Image, ImageDraw, ImageFont
 
-REPO_ROOT = "/Volumes/LizsDisk/mythos"
-WEB_PUBLIC = os.path.join(REPO_ROOT, "apps/web/public")
+from _plate_emblems import draw_emblem
+from _plate_art import pantheon_of, render_plate, write_plate
+from _repo_paths import WEB_PUBLIC
+
 CREATURES_DIR = os.path.join(WEB_PUBLIC, "creatures")
 LOCATIONS_DIR = os.path.join(WEB_PUBLIC, "locations")
 STORIES_DIR = os.path.join(WEB_PUBLIC, "stories")
+ARTIFACTS_DIR = os.path.join(WEB_PUBLIC, "artifacts")
 
 os.makedirs(CREATURES_DIR, exist_ok=True)
 os.makedirs(LOCATIONS_DIR, exist_ok=True)
 os.makedirs(STORIES_DIR, exist_ok=True)
+os.makedirs(ARTIFACTS_DIR, exist_ok=True)
 
 SIZE = 768
-
-def draw_plate_borders(draw, w, h, gold, accent):
-    # Outer double border
-    draw.rectangle([24, 24, w - 24, h - 24], outline=gold, width=2)
-    draw.rectangle([32, 32, w - 32, h - 32], outline=(gold[0]//2, gold[1]//2, gold[2]//2), width=1)
-    
-    # Ornamental corner brackets
-    s = 20
-    for cx, cy, dx, dy in [(24, 24, 1, 1), (w - 24, 24, -1, 1), (24, h - 24, 1, -1), (w - 24, h - 24, -1, -1)]:
-        draw.line([(cx, cy), (cx + dx * s, cy)], fill=gold, width=2)
-        draw.line([(cx, cy), (cx, cy + dy * s)], fill=gold, width=2)
-        draw.ellipse([cx + dx * 8 - 2, cy + dy * 8 - 2, cx + dx * 8 + 2, cy + dy * 8 + 2], fill=gold)
-
-def draw_radial_wash(img, cx, cy, radius, accent):
-    rad = Image.new("RGBA", img.size, (0, 0, 0, 0))
-    rdraw = ImageDraw.Draw(rad)
-    for r in range(radius, 40, -10):
-        alpha = int(40 * (1.0 - r / float(radius)))
-        rdraw.ellipse([cx - r, cy - r, cx + r, cy + r], fill=accent + (alpha,))
-    return Image.alpha_composite(img, rad)
 
 # ---------------------------------------------------------------------------
 # 1. Creatures
@@ -101,14 +85,134 @@ CREATURES = [
         "accent": (195, 150, 75),
         "bg": (20, 16, 12),
         "motif": "baba_yaga_hut"
+    },
+    {
+        "id": "mmoatia",
+        "name": "MMOATIA",
+        "subtitle": "LITTLE FOLK OF THE ASANTE FOREST",
+        "accent": (140, 180, 100),
+        "bg": (14, 20, 14),
+        "motif": "leshy_antlers"
+    },
+    {
+        "id": "stone-giants",
+        "name": "STONE GIANTS",
+        "subtitle": "GENONSGWA · COATS OF FLINT",
+        "accent": (170, 150, 120),
+        "bg": (18, 16, 14),
+        "motif": "koschei_needle"
+    },
+    {
+        "id": "horned-serpent",
+        "name": "HORNED SERPENT",
+        "subtitle": "SERPENT OF THE DEEP WATERS",
+        "accent": (90, 160, 150),
+        "bg": (10, 20, 20),
+        "motif": "zmey_dragon"
+    },
+    {
+        "id": "djogeon",
+        "name": "DJOGEON",
+        "subtitle": "THE LITTLE PEOPLE OF THE GULCHES",
+        "accent": (160, 170, 110),
+        "bg": (16, 18, 12),
+        "motif": "domovoi_hearth"
+    },
+    {
+        "id": "niagwahe",
+        "name": "NIA'GWAHE",
+        "subtitle": "THE MONSTER BEAR",
+        "accent": (170, 110, 80),
+        "bg": (20, 14, 12),
+        "motif": "leshy_antlers"
+    },
+    {
+        "id": "dagwanoenyent",
+        "name": "DAGWANOENYENT",
+        "subtitle": "THE STORM WIND · FLYING HEAD",
+        "accent": (140, 160, 200),
+        "bg": (14, 16, 24),
+        "motif": "vodyanoy_swirl"
+    },
+    {
+        "id": "kooshdaa-kaa",
+        "name": "KOOSHDAA KAA",
+        "subtitle": "THE LAND OTTER PEOPLE",
+        "accent": (130, 150, 120),
+        "bg": (14, 18, 16),
+        "motif": "rusalka_water"
+    },
+    {
+        "id": "gonakadet",
+        "name": "GONAKADET",
+        "subtitle": "BRINGER OF WEALTH FROM THE SEA",
+        "accent": (200, 90, 70),
+        "bg": (22, 14, 14),
+        "motif": "vodyanoy_swirl"
+    },
+    {
+        "id": "cihuateteo",
+        "name": "CIHUATETEO",
+        "subtitle": "WOMEN WHO ESCORT THE SETTING SUN",
+        "accent": (210, 130, 80),
+        "bg": (24, 14, 12),
+        "motif": "koschei_needle"
+    },
+    {
+        "id": "maquizcoatl",
+        "name": "MAQUIZCOATL",
+        "subtitle": "THE TWO-HEADED SERPENT",
+        "accent": (100, 170, 140),
+        "bg": (12, 20, 18),
+        "motif": "zmey_dragon"
+    },
+
+    # INCA & ANDEAN (2026-09)
+    {"id": "amaru", "name": "AMARU", "subtitle": "SERPENT OF THE DEPTHS", "accent": (120, 170, 110), "bg": (12, 18, 14), "motif": "emblem_serpent2"},
+    {"id": "yacana", "name": "YACANA", "subtitle": "LLAMA OF THE MILKY WAY", "accent": (120, 130, 190), "bg": (10, 12, 22), "motif": "emblem_llama"},
+    {"id": "urcuchillay", "name": "URCUCHILLAY", "subtitle": "MANY-COLORED STAR LLAMA", "accent": (200, 140, 180), "bg": (14, 12, 22), "motif": "emblem_llama"},
+
+    # PERSIAN / IRANIAN (2026-09)
+    {"id": "simurgh", "name": "SIMURGH", "subtitle": "THE WISE BIRD OF ALBORZ", "accent": (120, 175, 170), "bg": (10, 18, 20), "motif": "emblem_great_bird"},
+    {"id": "azhi-dahaka", "name": "AZHI DAHAKA", "subtitle": "THREE-HEADED DRAGON", "accent": (150, 90, 110), "bg": (16, 10, 14), "motif": "emblem_dragon"},
+    {"id": "div-e-sepid", "name": "DIV-E SEPID", "subtitle": "THE WHITE DIV OF MAZANDARAN", "accent": (200, 200, 205), "bg": (14, 14, 18), "motif": "emblem_beast"},
+    {"id": "apaosha", "name": "APAOSHA", "subtitle": "THE DAEVA OF DROUGHT", "accent": (130, 110, 90), "bg": (16, 12, 10), "motif": "emblem_horse"},
+
+    # FINNISH / KALEVALA (2026-09)
+    {"id": "iku-turso", "name": "IKU-TURSO", "subtitle": "MONSTER OF THE DEEP", "accent": (90, 150, 160), "bg": (10, 14, 18), "motif": "emblem_sea_monster"},
+    {"id": "elk-of-hiisi", "name": "ELK OF HIISI", "subtitle": "THE FIRST TASK OF LEMMINKÄINEN", "accent": (150, 130, 95), "bg": (14, 16, 12), "motif": "emblem_elk"},
+    {"id": "swan-of-tuonela", "name": "SWAN OF TUONELA", "subtitle": "ON THE RIVER OF THE DEAD", "accent": (200, 205, 215), "bg": (8, 10, 14), "motif": "emblem_swan"},
+    {"id": "great-pike", "name": "THE GREAT PIKE", "subtitle": "BONES OF THE FIRST KANTELE", "accent": (130, 170, 130), "bg": (10, 16, 16), "motif": "emblem_fish"},
+
+    # KOREAN (2026-09)
+    {"id": "samjok-o", "name": "SAMJOK-O", "subtitle": "THE THREE-LEGGED CROW", "accent": (225, 160, 70), "bg": (18, 12, 10), "motif": "emblem_crow_sun"},
+    {"id": "haetae", "name": "HAETAE", "subtitle": "GUARDIAN BEAST OF JUSTICE", "accent": (180, 170, 140), "bg": (14, 14, 12), "motif": "emblem_beast"},
+    {"id": "munmu-sea-dragon", "name": "THE SEA DRAGON", "subtitle": "KING MUNMU'S GUARDIANSHIP", "accent": (90, 170, 170), "bg": (10, 14, 18), "motif": "emblem_dragon"},
+    # 2026-09 additions for the Percy Jackson guide
+    {
+        "id": "nemean-lion",
+        "name": "NEMEAN LION",
+        "subtitle": "THE HIDE NO WEAPON COULD PIERCE",
+        "accent": (210, 165, 75),
+        "bg": (22, 18, 12),
+        "motif": "leshy_antlers"
+    },
+    {
+        "id": "ladon",
+        "name": "LADON",
+        "subtitle": "SERPENT OF THE GOLDEN APPLES",
+        "accent": (150, 180, 90),
+        "bg": (14, 20, 14),
+        "motif": "zmey_dragon"
     }
 ]
 
 def draw_creature_motif(draw, cx, cy, r, motif, accent, gold):
     pale = (min(255, gold[0]+40), min(255, gold[1]+40), min(255, gold[2]+40))
-    # Outer ring
-    draw.ellipse([cx - r, cy - r, cx + r, cy + r], outline=gold, width=3)
-    draw.ellipse([cx - r + 10, cy - r + 10, cx + r - 10, cy + r - 10], outline=(gold[0]//2, gold[1]//2, gold[2]//2), width=1)
+
+
+    if draw_emblem(draw, cx, cy, motif, accent, gold):
+        return
 
     if motif == "leshy_antlers":
         # Stag antlers & ancient oak foliage
@@ -241,13 +345,157 @@ LOCATIONS = [
         "accent": (195, 75, 65),
         "bg": (20, 14, 16),
         "motif": "haida_totem"
+    },
+    {
+        "id": "sky-world",
+        "name": "THE SKY WORLD",
+        "subtitle": "WHERE THE CELESTIAL TREE STOOD",
+        "accent": (120, 160, 220),
+        "bg": (12, 16, 26),
+        "motif": "onondaga_pine"
+    },
+    {
+        "id": "cohoes-falls",
+        "name": "COHOES FALLS",
+        "subtitle": "THE PEACEMAKER'S TEST · MOHAWK RIVER",
+        "accent": (90, 150, 190),
+        "bg": (12, 18, 24),
+        "motif": "peryn_ring"
+    },
+    {
+        "id": "nass-river",
+        "name": "NASS RIVER",
+        "subtitle": "WHERE THE DAYLIGHT WAS KEPT",
+        "accent": (200, 90, 70),
+        "bg": (20, 14, 16),
+        "motif": "haida_totem"
+    },
+    {
+        "id": "templo-mayor",
+        "name": "TEMPLO MAYOR",
+        "subtitle": "COATEPEC MADE IN STONE · TENOCHTITLAN",
+        "accent": (200, 110, 70),
+        "bg": (24, 14, 12),
+        "motif": "szczecin_temple"
+    },
+    {
+        "id": "omeyocan",
+        "name": "OMEYOCAN",
+        "subtitle": "THE PLACE OF DUALITY",
+        "accent": (90, 170, 170),
+        "bg": (12, 20, 22),
+        "motif": "peryn_ring"
+    },
+    {
+        "id": "temple-of-vesta",
+        "name": "TEMPLE OF VESTA",
+        "subtitle": "THE HEARTH OF ROME",
+        "accent": (210, 120, 70),
+        "bg": (24, 14, 12),
+        "motif": "szczecin_temple"
+    },
+    {
+        "id": "lake-nemi",
+        "name": "LAKE NEMI",
+        "subtitle": "DIANA'S MIRROR · THE GROVE OF ARICIA",
+        "accent": (110, 160, 190),
+        "bg": (12, 18, 24),
+        "motif": "arkona_cliffs"
+    },
+    {
+        "id": "lake-avernus",
+        "name": "LAKE AVERNUS",
+        "subtitle": "THE DOOR TO THE UNDERWORLD",
+        "accent": (120, 120, 160),
+        "bg": (14, 14, 22),
+        "motif": "arkona_cliffs"
+    },
+    {
+        "id": "palatine-hill",
+        "name": "PALATINE HILL",
+        "subtitle": "ROMULUS'S CITY · THE LUPERCAL",
+        "accent": (200, 150, 80),
+        "bg": (22, 18, 12),
+        "motif": "kiev_hill"
+    },
+    {
+        "id": "emain-macha",
+        "name": "EMAIN MACHA",
+        "subtitle": "ROYAL SEAT OF ULSTER",
+        "accent": (110, 170, 120),
+        "bg": (12, 20, 16),
+        "motif": "peryn_ring"
+    },
+    {
+        "id": "rathcroghan",
+        "name": "RATHCROGHAN",
+        "subtitle": "CRUACHAN · COURT OF MEDB",
+        "accent": (160, 150, 90),
+        "bg": (18, 18, 12),
+        "motif": "kiev_hill"
+    },
+    {
+        "id": "aquae-sulis",
+        "name": "AQUAE SULIS",
+        "subtitle": "SPRING OF SULIS MINERVA · BATH",
+        "accent": (190, 160, 100),
+        "bg": (20, 18, 14),
+        "motif": "szczecin_temple"
+    },
+    {
+        "id": "moytirra",
+        "name": "MAG TUIRED",
+        "subtitle": "THE PLAIN OF THE SECOND BATTLE",
+        "accent": (160, 130, 110),
+        "bg": (18, 16, 14),
+        "motif": "arkona_cliffs"
+    },
+
+    # INCA & ANDEAN (2026-09)
+    {"id": "isla-del-sol", "name": "ISLAND OF THE SUN", "subtitle": "WHERE THE SUN ROSE · TITICACA", "accent": (225, 170, 60), "bg": (12, 16, 24), "motif": "emblem_lake_island"},
+    {"id": "tiwanaku", "name": "TIWANAKU", "subtitle": "CITY OF THE CREATION", "accent": (175, 150, 110), "bg": (18, 16, 14), "motif": "emblem_gateway"},
+    {"id": "coricancha", "name": "CORICANCHA", "subtitle": "GOLDEN ENCLOSURE OF THE SUN", "accent": (225, 175, 55), "bg": (22, 16, 10), "motif": "emblem_temple_walls"},
+    {"id": "pachacamac-sanctuary", "name": "PACHACAMAC", "subtitle": "ORACLE SANCTUARY OF THE COAST", "accent": (200, 140, 80), "bg": (20, 16, 12), "motif": "emblem_pyramid"},
+    {"id": "huanacauri", "name": "HUANACAURI", "subtitle": "FOUNDING HILL ABOVE CUSCO", "accent": (190, 150, 80), "bg": (20, 16, 12), "motif": "emblem_rod"},
+    {"id": "nevado-pariacaca", "name": "PARIACACA", "subtitle": "THE SNOW MOUNTAIN GOD", "accent": (170, 200, 225), "bg": (12, 16, 24), "motif": "emblem_mountain"},
+
+    # PERSIAN / IRANIAN (2026-09)
+    {"id": "persepolis", "name": "PERSEPOLIS", "subtitle": "TAKHT-E JAMSHID · FARS", "accent": (205, 165, 100), "bg": (20, 16, 12), "motif": "emblem_columns"},
+    {"id": "behistun", "name": "BEHISTUN", "subtitle": "BY THE FAVOR OF AHURAMAZDA", "accent": (185, 160, 120), "bg": (18, 16, 14), "motif": "emblem_cliff_relief"},
+    {"id": "naqsh-e-rostam", "name": "NAQSH-E ROSTAM", "subtitle": "TOMBS OF THE KINGS", "accent": (190, 150, 110), "bg": (18, 14, 12), "motif": "emblem_cliff_relief"},
+    {"id": "takht-e-soleyman", "name": "TAKHT-E SOLEYMAN", "subtitle": "FIRE OF THE WARRIOR KINGS", "accent": (225, 120, 60), "bg": (20, 14, 12), "motif": "emblem_fire"},
+    {"id": "mount-damavand", "name": "MOUNT DAMAVAND", "subtitle": "PRISON OF ZAHHAK", "accent": (200, 210, 225), "bg": (12, 14, 22), "motif": "emblem_mountain"},
+    {"id": "chinvat-bridge", "name": "CHINVAT BRIDGE", "subtitle": "THE BRIDGE OF THE SEPARATOR", "accent": (170, 160, 210), "bg": (12, 12, 20), "motif": "emblem_bridge"},
+
+    # FINNISH / KALEVALA (2026-09)
+    {"id": "tuonela", "name": "TUONELA", "subtitle": "LAND OF THE DEAD", "accent": (120, 130, 150), "bg": (8, 10, 14), "motif": "emblem_underworld_river"},
+    {"id": "pohjola", "name": "POHJOLA", "subtitle": "THE DARK NORTH", "accent": (130, 190, 170), "bg": (8, 12, 18), "motif": "emblem_northern_lights"},
+    {"id": "vainola", "name": "KALEVALA", "subtitle": "LAND OF THE HEROES", "accent": (150, 185, 110), "bg": (12, 16, 12), "motif": "emblem_village_lake"},
+    {"id": "vuokkiniemi", "name": "VUOKKINIEMI", "subtitle": "VILLAGE OF THE RUNO-SINGERS", "accent": (180, 170, 130), "bg": (12, 14, 16), "motif": "emblem_village_lake"},
+    {"id": "kalevala-town", "name": "KALEVALA (UHTUA)", "subtitle": "VIENA KARELIA", "accent": (170, 180, 150), "bg": (12, 14, 16), "motif": "emblem_village_lake"},
+
+    # KOREAN (2026-09)
+    {"id": "mount-myohyang", "name": "MYOHYANGSAN", "subtitle": "MOUNT TAEBAEK OF THE SAMGUK YUSA", "accent": (130, 185, 165), "bg": (10, 14, 12), "motif": "emblem_mountain"},
+    {"id": "chamseongdan", "name": "CHAMSEONGDAN", "subtitle": "ALTAR ON MANISAN, GANGHWA", "accent": (180, 170, 140), "bg": (12, 14, 14), "motif": "emblem_tree_altar"},
+    {"id": "wunu-mountain", "name": "WUNÜ MOUNTAIN", "subtitle": "HOLGEN, FIRST GOGURYEO CAPITAL", "accent": (170, 150, 120), "bg": (14, 12, 10), "motif": "emblem_mountain"},
+    {"id": "najeong", "name": "NAJEONG", "subtitle": "THE WELL OF THE WHITE HORSE", "accent": (215, 180, 100), "bg": (14, 14, 10), "motif": "emblem_well"},
+    {"id": "daewangam", "name": "DAEWANGAM", "subtitle": "THE UNDERWATER TOMB OF KING MUNMU", "accent": (90, 160, 190), "bg": (10, 14, 20), "motif": "emblem_sea_rock"},
+    {"id": "jeoseung", "name": "JEOSEUNG", "subtitle": "THE OTHER WORLD", "accent": (160, 150, 190), "bg": (10, 10, 16), "motif": "emblem_gate_below"},
+    {
+        "id": "mount-othrys",
+        "name": "MOUNT OTHRYS",
+        "subtitle": "THE TITANS' SIDE OF THE WAR",
+        "accent": (180, 150, 110),
+        "bg": (18, 16, 14),
+        "motif": "arkona_cliffs"
     }
 ]
 
 def draw_location_motif(draw, cx, cy, r, motif, accent, gold):
     pale = (min(255, gold[0]+40), min(255, gold[1]+40), min(255, gold[2]+40))
-    draw.ellipse([cx - r, cy - r, cx + r, cy + r], outline=gold, width=3)
-    draw.ellipse([cx - r + 10, cy - r + 10, cx + r - 10, cy + r - 10], outline=(gold[0]//2, gold[1]//2, gold[2]//2), width=1)
+
+    if draw_emblem(draw, cx, cy, motif, accent, gold):
+        return
 
     if motif == "arkona_cliffs":
         # Cape Rügen sea cliff and four-headed wooden shrine
@@ -398,13 +646,102 @@ STORIES = [
         "accent": (175, 120, 190),
         "bg": (20, 14, 22),
         "motif": "story_persephone"
-    }
+    },
+    {
+        "id": "tano-and-bia-divide-the-land",
+        "name": "TANO AND BIA",
+        "subtitle": "NYAME DIVIDES THE LAND",
+        "accent": (190, 160, 70),
+        "bg": (20, 18, 12),
+        "motif": "story_twins"
+    },
+    {
+        "id": "hinon-and-the-horned-serpent",
+        "name": "THE THUNDERER AND THE SERPENT",
+        "subtitle": "HI'NON'S ARROW",
+        "accent": (120, 150, 220),
+        "bg": (12, 16, 26),
+        "motif": "story_perun_veles"
+    },
+    {
+        "id": "hiawatha-and-the-condolence",
+        "name": "THE WORDS OF CONDOLENCE",
+        "subtitle": "HIAWATHA AND THE PEACEMAKER",
+        "accent": (190, 190, 170),
+        "bg": (16, 18, 20),
+        "motif": "story_peacemaker"
+    },
+    {
+        "id": "origin-of-the-three-sisters",
+        "name": "THE THREE SISTERS",
+        "subtitle": "CORN, BEANS AND SQUASH",
+        "accent": (200, 170, 70),
+        "bg": (20, 18, 12),
+        "motif": "story_sky_woman"
+    },
+    {
+        "id": "raven-and-petrel",
+        "name": "RAVEN STEALS THE WATER",
+        "subtitle": "PETREL'S EVERLASTING SPRING",
+        "accent": (110, 170, 200),
+        "bg": (12, 18, 24),
+        "motif": "story_raven_sun"
+    },
+    {
+        "id": "kats-and-the-bear-wife",
+        "name": "KAATS' AND THE BEAR WIFE",
+        "subtitle": "A KAAGWAANTAAN STORY",
+        "accent": (170, 120, 80),
+        "bg": (20, 16, 12),
+        "motif": "story_horse"
+    },
+    {
+        "id": "natsilane-and-the-killer-whales",
+        "name": "THE FIRST KILLER WHALES",
+        "subtitle": "CARVED FROM YELLOW CEDAR",
+        "accent": (90, 150, 190),
+        "bg": (12, 18, 24),
+        "motif": "story_clamshell"
+    },
+
+    # INCA & ANDEAN (2026-09)
+    {"id": "viracocha-creation-at-titicaca", "name": "VIRACOCHA MAKES THE WORLD", "subtitle": "CREATION AT TITICACA", "accent": (215, 165, 70), "bg": (12, 16, 24), "motif": "emblem_lake_island"},
+    {"id": "children-of-the-sun", "name": "CHILDREN OF THE SUN", "subtitle": "MANCO CÁPAC & MAMA OCLLO", "accent": (225, 170, 50), "bg": (22, 16, 10), "motif": "emblem_rod"},
+    {"id": "cuniraya-and-cavillaca", "name": "CUNIRAYA & CAVILLACA", "subtitle": "THE TRICKSTER AND THE SEA", "accent": (190, 140, 90), "bg": (14, 16, 22), "motif": "emblem_sea_rock"},
+    {"id": "the-llama-and-the-flood", "name": "THE LLAMA & THE FLOOD", "subtitle": "REFUGE ON VILLCACOTO", "accent": (120, 160, 200), "bg": (12, 16, 22), "motif": "emblem_llama"},
+    {"id": "huatyacuri-and-the-false-god", "name": "HUATYACURI", "subtitle": "THE RICH MAN WHO CALLED HIMSELF GOD", "accent": (180, 150, 90), "bg": (18, 16, 12), "motif": "emblem_serpent"},
+    {"id": "pariacaca-and-huallallo-carhuincho", "name": "PARIACACA & HUALLALLO", "subtitle": "WATER AGAINST FIRE", "accent": (190, 120, 90), "bg": (16, 14, 20), "motif": "emblem_eggs"},
+
+    # PERSIAN / IRANIAN (2026-09)
+    {"id": "ohrmazd-and-ahriman", "name": "OHRMAZD & AHRIMAN", "subtitle": "THE TWO SPIRITS", "accent": (215, 175, 70), "bg": (12, 10, 16), "motif": "emblem_winged_disc"},
+    {"id": "tishtrya-and-apaosha", "name": "TISHTRYA & APAOSHA", "subtitle": "THE STAR AGAINST DROUGHT", "accent": (180, 200, 235), "bg": (10, 14, 26), "motif": "emblem_horse"},
+    {"id": "yima-and-the-var", "name": "YIMA & THE VAR", "subtitle": "REFUGE FROM THE WINTERS", "accent": (90, 130, 210), "bg": (12, 14, 24), "motif": "emblem_seals"},
+    {"id": "zahhak-and-kaveh", "name": "ZAHHAK & KAVEH", "subtitle": "THE SERPENT KING OVERTHROWN", "accent": (200, 90, 70), "bg": (20, 12, 12), "motif": "emblem_banner"},
+    {"id": "zal-and-the-simurgh", "name": "ZAL & THE SIMURGH", "subtitle": "THE NEST ON ALBORZ", "accent": (120, 175, 170), "bg": (10, 18, 20), "motif": "emblem_great_bird"},
+    {"id": "rostam-and-sohrab", "name": "ROSTAM & SOHRAB", "subtitle": "FATHER AND SON", "accent": (200, 140, 70), "bg": (20, 14, 12), "motif": "emblem_mace"},
+
+    # FINNISH / KALEVALA (2026-09)
+    {"id": "ilmatar-and-the-world-egg", "name": "ILMATAR & THE WORLD EGG", "subtitle": "THE CREATION", "accent": (190, 205, 230), "bg": (10, 14, 22), "motif": "emblem_egg"},
+    {"id": "aino", "name": "AINO", "subtitle": "THE MAIDEN WHO BECAME A FISH", "accent": (130, 180, 200), "bg": (10, 14, 20), "motif": "emblem_fish"},
+    {"id": "forging-of-the-sampo", "name": "FORGING THE SAMPO", "subtitle": "ILMARINEN IN POHJOLA", "accent": (225, 130, 60), "bg": (22, 14, 10), "motif": "emblem_mill"},
+    {"id": "lemminkainens-mother", "name": "LEMMINKÄINEN'S MOTHER", "subtitle": "THE RAKE AND THE RIVER", "accent": (205, 120, 110), "bg": (14, 10, 12), "motif": "emblem_underworld_river"},
+    {"id": "theft-of-the-sampo", "name": "THEFT OF THE SAMPO", "subtitle": "THE EAGLE OVER THE SEA", "accent": (150, 140, 200), "bg": (10, 12, 20), "motif": "emblem_great_bird"},
+    {"id": "kullervo", "name": "KULLERVO", "subtitle": "THE DOOMED SLAVE", "accent": (170, 110, 100), "bg": (16, 10, 10), "motif": "emblem_flame"},
+
+    # KOREAN (2026-09)
+    {"id": "dangun-and-the-bear-woman", "name": "DANGUN & THE BEAR WOMAN", "subtitle": "THE FOUNDING OF GOJOSEON", "accent": (170, 130, 95), "bg": (14, 12, 10), "motif": "emblem_bear_cave"},
+    {"id": "jumong-son-of-heaven", "name": "JUMONG", "subtitle": "SON OF HEAVEN, GRANDSON OF THE RIVER", "accent": (205, 120, 90), "bg": (16, 12, 10), "motif": "emblem_egg"},
+    {"id": "bak-hyeokgeose-and-the-egg", "name": "BAK HYEOKGEOSE", "subtitle": "THE EGG BY THE WELL", "accent": (215, 180, 100), "bg": (14, 14, 10), "motif": "emblem_well"},
+    {"id": "princess-bari", "name": "PRINCESS BARI", "subtitle": "THE ABANDONED DAUGHTER", "accent": (200, 170, 210), "bg": (12, 10, 16), "motif": "emblem_flower"},
+    {"id": "mireuk-and-seokga", "name": "MIREUK & SEOKGA", "subtitle": "THE CONTEST FOR THE WORLD", "accent": (190, 205, 230), "bg": (10, 12, 18), "motif": "emblem_water_flower"},
+    {"id": "manpasikjeok", "name": "MANPASIKJEOK", "subtitle": "THE DRAGON'S BAMBOO", "accent": (90, 170, 170), "bg": (10, 14, 18), "motif": "emblem_flute"},
 ]
 
 def draw_story_motif(draw, cx, cy, r, motif, accent, gold):
     pale = (min(255, gold[0]+40), min(255, gold[1]+40), min(255, gold[2]+40))
-    draw.ellipse([cx - r, cy - r, cx + r, cy + r], outline=gold, width=3)
-    draw.ellipse([cx - r + 10, cy - r + 10, cx + r - 10, cy + r - 10], outline=(gold[0]//2, gold[1]//2, gold[2]//2), width=1)
+
+    if draw_emblem(draw, cx, cy, motif, accent, gold):
+        return
 
     if motif == "story_ibeji":
         # Twin carved figures
@@ -497,55 +834,154 @@ def draw_story_motif(draw, cx, cy, r, motif, accent, gold):
             ang = sp * (math.pi / 3)
             draw.ellipse([cx + 15*math.cos(ang) - 6, cy - 70 + 15*math.sin(ang) - 6, cx + 15*math.cos(ang) + 6, cy - 70 + 15*math.sin(ang) + 6], fill=gold)
 
-def generate_square_plate(item, out_dir, category_tag, motif_fn):
-    img = Image.new("RGBA", (SIZE, SIZE), item["bg"] + (255,))
+# ---------------------------------------------------------------------------
+# 4. Artifacts (drawn with the story emblems)
+# ---------------------------------------------------------------------------
+ARTIFACTS = [
+    {
+        "id": "svantevits-horn",
+        "name": "SVANTEVIT'S HORN",
+        "subtitle": "THE HARVEST ORACLE OF ARKONA",
+        "accent": (200, 160, 90),
+        "bg": (22, 18, 14),
+        "motif": "story_horse"
+    },
+    {
+        "id": "idol-of-perun-kyiv",
+        "name": "IDOL OF PERUN",
+        "subtitle": "SILVER HEAD · GOLDEN MOUSTACHE · KYIV",
+        "accent": (220, 170, 60),
+        "bg": (22, 18, 12),
+        "motif": "story_vladimir"
+    },
+    {
+        "id": "triglav-idol-szczecin",
+        "name": "IDOL OF TRIGLAV",
+        "subtitle": "THREE HEADS · SZCZECIN",
+        "accent": (170, 140, 110),
+        "bg": (18, 16, 18),
+        "motif": "story_twins"
+    },
+    {
+        "id": "zbruch-idol",
+        "name": "ZBRUCH IDOL",
+        "subtitle": "FOUR FACES UNDER ONE CAP",
+        "accent": (170, 160, 140),
+        "bg": (18, 18, 16),
+        "motif": "story_vladimir"
+    },
+    {
+        "id": "jawbone-of-muri-ranga-whenua",
+        "name": "THE ENCHANTED JAWBONE",
+        "subtitle": "MURI-RANGA-WHENUA'S GIFT TO MAUI",
+        "accent": (200, 190, 150),
+        "bg": (12, 18, 22),
+        "motif": "story_clamshell"
+    },
+    {
+        "id": "nga-kete-o-te-wananga",
+        "name": "NGA KETE O TE WANANGA",
+        "subtitle": "THE THREE BASKETS OF KNOWLEDGE",
+        "accent": (190, 150, 80),
+        "bg": (14, 20, 20),
+        "motif": "story_ibeji"
+    },
+    {
+        "id": "matahourua",
+        "name": "MATAHOURUA",
+        "subtitle": "KUPE'S VOYAGING CANOE",
+        "accent": (90, 160, 180),
+        "bg": (10, 18, 22),
+        "motif": "story_raven_sun"
+    }
+]
+
+def generate_square_plate(item, out_dir, kind, motif_fn):
     accent = item["accent"]
     gold = (212, 175, 55)
+    img = render_plate(
+        kind=kind,
+        key=item["id"],
+        size=(SIZE, SIZE),
+        accent=accent,
+        bg=item["bg"],
+        pantheon=item.get("pantheon") or pantheon_of(kind, item["id"]),
+        hint=item.get("subtitle", ""),
+        emblem=lambda draw, cx, cy: motif_fn(draw, cx, cy, 145, item["motif"], accent, gold),
+        emblem_center=(SIZE // 2, SIZE // 2 - 25),
+    )
+    path = write_plate(img, out_dir, item["id"])
+    print(f"  ✓ {item['id']} -> {os.path.basename(path)}")
 
-    img = draw_radial_wash(img, SIZE // 2, SIZE // 2 - 30, 320, accent)
-    draw = ImageDraw.Draw(img)
 
-    draw_plate_borders(draw, SIZE, SIZE, gold, accent)
+# ---------------------------------------------------------------------------
+# Covers for interactive (branching) stories without an illustration. They
+# live beside the story plates; branching-stories.json points at them.
+# ---------------------------------------------------------------------------
+BRANCHING_COVERS = [
+    {"id": "thor-jotunheim", "name": "THOR IN JOTUNHEIM", "subtitle": "THUNDER AMONG THE GIANTS · FROST AND STORM",
+     "accent": (120, 165, 220), "bg": (12, 16, 26), "motif": "emblem_hammer", "pantheon": "norse-pantheon"},
+    {"id": "orpheus-underworld", "name": "ORPHEUS IN THE UNDERWORLD", "subtitle": "THE LYRE THAT MOVED THE DEAD · NIGHT",
+     "accent": (170, 130, 200), "bg": (16, 12, 22), "motif": "emblem_lyre", "pantheon": "greek-pantheon"},
+]
 
-    # Top category label
-    try:
-        font_sm = ImageFont.truetype("/System/Library/Fonts/Supplemental/Times New Roman.ttf", 15)
-        font_lg = ImageFont.truetype("/System/Library/Fonts/Supplemental/Times New Roman Bold.ttf", 36)
-        font_sub = ImageFont.truetype("/System/Library/Fonts/Supplemental/Times New Roman Italic.ttf", 17)
-    except:
-        font_sm = font_lg = font_sub = ImageFont.load_default()
 
-    draw.text((SIZE // 2, 55), f"MYTHOS ATLAS · {category_tag}", font=font_sm, fill=(200, 180, 140), anchor="mm")
-    draw.line([(50, 75), (SIZE - 50, 75)], fill=(gold[0]//2, gold[1]//2, gold[2]//2), width=1)
+# ---------------------------------------------------------------------------
+# 5. Artifacts drawn with the tradition emblems (_plate_emblems.py)
+# ---------------------------------------------------------------------------
+EMBLEM_ARTIFACTS = [
 
-    # Center motif
-    motif_fn(draw, SIZE // 2, SIZE // 2 - 25, 145, item["motif"], accent, gold)
+    # INCA & ANDEAN (2026-09)
+    {"id": "golden-rod-of-manco-capac", "name": "THE GOLDEN ROD", "subtitle": "TEST OF THE GROUND AT HUANACAURI", "accent": (225, 175, 55), "bg": (22, 16, 12), "motif": "emblem_rod"},
+    {"id": "punchao", "name": "PUNCHAO", "subtitle": "GOLDEN IMAGE OF THE DAY", "accent": (225, 170, 50), "bg": (24, 16, 10), "motif": "emblem_sun_face"},
+    {"id": "sling-of-illapa", "name": "SLING OF ILLAPA", "subtitle": "THE CRACK OF THUNDER", "accent": (140, 165, 215), "bg": (14, 16, 26), "motif": "emblem_sling"},
 
-    # Bottom labels
-    draw.line([(60, SIZE - 125), (SIZE - 60, SIZE - 125)], fill=gold, width=2)
-    draw.text((SIZE // 2, SIZE - 90), item["name"], font=font_lg, fill=(245, 235, 220), anchor="mm")
-    draw.text((SIZE // 2, SIZE - 55), item["subtitle"], font=font_sub, fill=gold, anchor="mm")
+    # PERSIAN / IRANIAN (2026-09)
+    {"id": "derafsh-kaviani", "name": "DERAFSH-E KAVIANI", "subtitle": "THE BANNER OF KAVEH", "accent": (200, 90, 70), "bg": (20, 12, 12), "motif": "emblem_banner"},
+    {"id": "jam-e-jam", "name": "JAM-E JAM", "subtitle": "THE WORLD-REVEALING CUP", "accent": (90, 130, 210), "bg": (12, 14, 24), "motif": "emblem_cup"},
+    {"id": "ox-headed-mace", "name": "OX-HEADED MACE", "subtitle": "WEAPON OF FEREYDUN", "accent": (205, 150, 70), "bg": (20, 14, 12), "motif": "emblem_mace"},
 
-    # Export PNG
-    png_path = os.path.join(out_dir, f"{item['id']}.png")
-    img.convert("RGB").save(png_path, "PNG")
+    # FINNISH / KALEVALA (2026-09)
+    {"id": "sampo", "name": "SAMPO", "subtitle": "THE MILL OF PLENTY", "accent": (220, 170, 70), "bg": (18, 14, 12), "motif": "emblem_mill"},
+    {"id": "vainamoinens-kantele", "name": "THE FIRST KANTELE", "subtitle": "HARP OF PIKE-BONE", "accent": (215, 175, 90), "bg": (18, 16, 12), "motif": "emblem_kantele"},
+    {"id": "golden-maiden", "name": "THE GOLDEN MAIDEN", "subtitle": "BRIDE FROM THE FORGE", "accent": (225, 185, 80), "bg": (18, 14, 10), "motif": "emblem_flame"},
 
-    # Export WebP
-    webp_path = os.path.join(out_dir, f"{item['id']}.webp")
-    subprocess.run(["/opt/homebrew/bin/cwebp", "-q", "85", png_path, "-o", webp_path], check=True, stdout=subprocess.DEVNULL)
-    print(f"  ✓ {item['id']} -> PNG & WebP")
+    # KOREAN (2026-09)
+    {"id": "cheonbuin", "name": "CHEONBUIN", "subtitle": "THE THREE HEAVENLY SEALS", "accent": (215, 180, 90), "bg": (16, 14, 10), "motif": "emblem_seals"},
+    {"id": "manpasikjeok-flute", "name": "MANPASIKJEOK", "subtitle": "THE FLUTE THAT CALMS TEN THOUSAND WAVES", "accent": (150, 190, 130), "bg": (10, 16, 14), "motif": "emblem_flute"},
+    {"id": "water-of-life", "name": "WATER OF LIFE", "subtitle": "BROUGHT BACK BY PRINCESS BARI", "accent": (140, 190, 210), "bg": (10, 14, 18), "motif": "emblem_well"},
+]
+
+def draw_artifact_motif(draw, cx, cy, r, motif, accent, gold):
+    draw_emblem(draw, cx, cy, motif, accent, gold)
 
 if __name__ == "__main__":
-    print("Generating Creature Plates...")
-    for c in CREATURES:
-        generate_square_plate(c, CREATURES_DIR, "BESTIARY ARCHIVE", draw_creature_motif)
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument(
+        "--only",
+        help="Comma-separated ids to (re)generate; default is every plate.",
+    )
+    args = parser.parse_args()
+    wanted = set(args.only.split(",")) if args.only else None
 
-    print("Generating Location Plates...")
-    for loc in LOCATIONS:
-        generate_square_plate(loc, LOCATIONS_DIR, "SACRED GEOGRAPHY", draw_location_motif)
-
-    print("Generating Story Plates...")
-    for s in STORIES:
-        generate_square_plate(s, STORIES_DIR, "MYTHIC TRADITION", draw_story_motif)
-
-    print("Creatures, Locations, and Stories completed!")
+    groups = [
+        ("Creature", CREATURES, CREATURES_DIR, "creature", draw_creature_motif),
+        ("Location", LOCATIONS, LOCATIONS_DIR, "location", draw_location_motif),
+        ("Story", STORIES, STORIES_DIR, "story", draw_story_motif),
+        ("Interactive story cover", BRANCHING_COVERS, STORIES_DIR, "cover", draw_story_motif),
+        ("Artifact", ARTIFACTS, ARTIFACTS_DIR, "artifact", draw_story_motif),
+        ("Artifact", EMBLEM_ARTIFACTS, ARTIFACTS_DIR, "artifact", draw_artifact_motif),
+    ]
+    if wanted:
+        known = {item["id"] for _, items, *_ in groups for item in items}
+        missing = wanted - known
+        if missing:
+            raise SystemExit(f"Unknown ids: {', '.join(sorted(missing))}")
+    for label, items, out_dir, kind, motif_fn in groups:
+        selected = [i for i in items if wanted is None or i["id"] in wanted]
+        if not selected:
+            continue
+        print(f"Generating {len(selected)} {label} Plates...")
+        for item in selected:
+            generate_square_plate(item, out_dir, kind, motif_fn)
+    print("Creatures, Locations, Stories, and Artifacts completed!")

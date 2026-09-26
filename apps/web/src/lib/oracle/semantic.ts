@@ -1,12 +1,19 @@
 /**
  * Optional semantic retrieval using OpenAI embeddings + precomputed vectors.
- * Run `pnpm --filter web run generate:embeddings` when OPENAI_API_KEY is set to populate data.
+ *
+ * Inert by default: `src/data/oracle-embeddings.json` ships with an empty
+ * `vectors` array, and every entry point checks
+ * {@link isSemanticGroundingAvailable} first, so no embedding request (and no
+ * scoring work) happens until the file is populated. Generate it with
+ * `pnpm --filter web generate:embeddings` (needs OPENAI_EMBEDDINGS_API_KEY or
+ * OPENAI_API_KEY; see scripts/generate-oracle-embeddings.ts).
  */
 
 import type { ContentType, SearchResult } from "@/lib/search";
 import artifacts from "@/data/artifacts.json";
 import creatures from "@/data/creatures.json";
 import deities from "@/data/deities.json";
+import heroes from "@/data/heroes.json";
 import embeddingManifest from "@/data/oracle-embeddings.json";
 import locations from "@/data/locations.json";
 import stories from "@/data/stories.json";
@@ -38,6 +45,22 @@ interface Manifest {
 const manifest = embeddingManifest as Manifest;
 const EMBEDDING_REQUEST_TIMEOUT_MS = 2_500;
 
+function embeddingsApiKey(): string | undefined {
+  return (
+    process.env.OPENAI_EMBEDDINGS_API_KEY?.trim() ||
+    process.env.OPENAI_API_KEY?.trim() ||
+    undefined
+  );
+}
+
+/**
+ * True only when precomputed vectors are bundled AND a query-embedding key is
+ * configured. Callers skip semantic retrieval entirely otherwise.
+ */
+export function isSemanticGroundingAvailable(): boolean {
+  return (manifest.vectors?.length ?? 0) > 0 && Boolean(embeddingsApiKey());
+}
+
 function cosine(a: number[], b: number[]): number {
   if (a.length !== b.length || a.length === 0) return 0;
   let dot = 0;
@@ -53,8 +76,7 @@ function cosine(a: number[], b: number[]): number {
 }
 
 async function embedQueryText(text: string): Promise<number[] | null> {
-  const apiKey =
-    process.env.OPENAI_EMBEDDINGS_API_KEY ?? process.env.OPENAI_API_KEY;
+  const apiKey = embeddingsApiKey();
   if (!apiKey) return null;
 
   const model =
@@ -76,6 +98,9 @@ async function embedQueryText(text: string): Promise<number[] | null> {
         body: JSON.stringify({
           model,
           input: text.slice(0, 8000),
+          // The index may be generated with reduced dimensions; the query
+          // vector must match it.
+          ...(manifest.dim ? { dimensions: manifest.dim } : {}),
         }),
         signal: controller.signal,
       });
@@ -126,6 +151,25 @@ function rowToSearchResult(
 ): SearchResult | null {
   const ms = Math.round(score * 1000);
   switch (row.t) {
+    case "hero": {
+      const h = (
+        heroes as {
+          id: string;
+          slug: string;
+          name: string;
+          pantheonId?: string;
+        }[]
+      ).find((x) => x.slug === row.s);
+      if (!h) return null;
+      return {
+        type: "hero",
+        id: h.id,
+        slug: h.slug,
+        title: h.name,
+        subtitle: pantheonLabel(h.pantheonId, "Hero"),
+        matchScore: ms,
+      };
+    }
     case "deity": {
       const d = (
         deities as {
@@ -241,10 +285,16 @@ export async function semanticSearchResults(
   limit: number,
 ): Promise<SearchResult[]> {
   const trimmed = query.trim();
-  if (trimmed.length < 2 || !manifest.vectors?.length) return [];
+  if (trimmed.length < 2 || !isSemanticGroundingAvailable()) return [];
 
   const qv = await embedQueryText(trimmed);
   if (!qv) return [];
+  if (manifest.dim && qv.length !== manifest.dim) {
+    console.warn(
+      `[oracle-semantic] query embedding has ${qv.length} dims but the index has ${manifest.dim}; regenerate oracle-embeddings.json with the same model`,
+    );
+    return [];
+  }
 
   const scored = manifest.vectors
     .map((row) => ({

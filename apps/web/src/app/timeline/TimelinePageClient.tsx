@@ -1,12 +1,12 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import { Loader2 } from "lucide-react";
-import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
+import { useEffect, useState, type ReactNode } from "react";
+import { StageLoading } from "@/components/layout/tool-stage";
+import { TimelineControls } from "@/components/timeline/TimelineControls";
+import { cn } from "@/lib/utils";
 
-import pantheonsData from "@/data/pantheons.json";
-
-// Lazy load D3-based timeline visualization
+// Lazy load the D3 views: only the chosen one is fetched.
 const TimelineVisualizationD3 = dynamic(
   () =>
     import("@/components/timeline/TimelineVisualizationD3").then((mod) => ({
@@ -14,18 +14,35 @@ const TimelineVisualizationD3 = dynamic(
     })),
   {
     loading: () => (
-      <div className="h-100 flex items-center justify-center">
-        <Loader2 className="h-8 w-8 animate-spin text-primary" />
-      </div>
+      <StageLoading
+        tone="dark"
+        mark="chronos"
+        label="Laying out three thousand years…"
+        className="h-[min(70vh,44rem)] rounded-lg ring-1 ring-border"
+      />
     ),
     ssr: false,
   },
 );
-import storiesData from "@/data/stories.json";
-import deitiesData from "@/data/deities.json";
-import eventsData from "@/data/events.json";
 
-interface Pantheon {
+const StoryTimelineView = dynamic(
+  () =>
+    import("@/components/timeline/StoryTimelineView").then((mod) => ({
+      default: mod.StoryTimelineView,
+    })),
+  {
+    loading: () => (
+      <StageLoading
+        mark="scroll"
+        label="Arranging the stories by era…"
+        className="h-[min(70vh,44rem)] rounded-lg border border-border"
+      />
+    ),
+    ssr: false,
+  },
+);
+
+export interface TimelinePantheon {
   id: string;
   name: string;
   slug: string;
@@ -36,25 +53,7 @@ interface Pantheon {
   description: string | null;
 }
 
-interface Story {
-  id: string;
-  pantheonId: string;
-  title: string;
-  slug: string;
-  summary: string;
-  category?: string;
-}
-
-interface Deity {
-  id: string;
-  pantheonId: string;
-  name: string;
-  slug: string;
-  domain: string[];
-  importanceRank: number;
-}
-
-interface TimelineEvent {
+export interface TimelineEvent {
   id: string;
   title: string;
   year: number;
@@ -63,33 +62,115 @@ interface TimelineEvent {
   description: string;
 }
 
-import { useState } from "react";
-import { TimelineControls } from "@/components/timeline/TimelineControls";
+export interface TimelineStory {
+  id: string;
+  pantheonId: string;
+  title: string;
+  slug: string;
+  summary: string;
+  category?: string;
+}
 
-// ... existing interfaces ...
+export type TimelineView = "traditions" | "stories";
 
-export function TimelinePageClient() {
-  const pantheons = pantheonsData as unknown as Pantheon[];
-  const _stories = storiesData as unknown as Story[];
-  const _deities = deitiesData as unknown as Deity[];
-  const events = eventsData as unknown as TimelineEvent[];
+const VIEWS: Array<{ id: TimelineView; label: string; hint: string }> = [
+  {
+    id: "traditions",
+    label: "Traditions and events",
+    hint: "Historical periods and dated events",
+  },
+  {
+    id: "stories",
+    label: "Stories by cosmic era",
+    hint: "From primordial chaos to the twilight of the gods",
+  },
+];
 
+/** `#stories` opens the story view (the retired /story-timeline links here). */
+export function viewFromHash(hash: string): TimelineView {
+  return hash.replace(/^#/, "") === "stories" ? "stories" : "traditions";
+}
+
+export function TimelinePageClient({
+  pantheons,
+  events,
+  stories,
+  attestation,
+}: Readonly<{
+  pantheons: TimelinePantheon[];
+  events: TimelineEvent[];
+  stories: TimelineStory[];
+  /** Server-rendered attestation chart shown with the traditions view. */
+  attestation?: ReactNode;
+}>) {
   const MIN_YEAR = -3500;
   const MAX_YEAR = 2025;
   const [viewRange, setViewRange] = useState<[number, number]>([
     MIN_YEAR,
     MAX_YEAR,
   ]);
+  const [view, setView] = useState<TimelineView>("traditions");
+
+  // The page is prerendered; the view is read from the URL after hydration.
+  useEffect(() => {
+    const sync = () => setView(viewFromHash(globalThis.location.hash));
+    sync();
+    globalThis.addEventListener("hashchange", sync);
+    return () => globalThis.removeEventListener("hashchange", sync);
+  }, []);
+
+  const choose = (next: TimelineView) => {
+    setView(next);
+    globalThis.history.replaceState(
+      null,
+      "",
+      next === "stories" ? "#stories" : globalThis.location.pathname,
+    );
+  };
 
   return (
-    <div className="min-h-screen">
-      {/* Hero Section ... */}
+    <div>
+      <div
+        role="tablist"
+        aria-label="Timeline view"
+        className="flex flex-wrap gap-x-8 gap-y-2 border-b border-border/70"
+      >
+        {VIEWS.map((option) => {
+          const selected = view === option.id;
+          return (
+            <button
+              key={option.id}
+              type="button"
+              role="tab"
+              id={`timeline-tab-${option.id}`}
+              aria-selected={selected}
+              aria-controls={`timeline-panel-${option.id}`}
+              onClick={() => choose(option.id)}
+              className={cn(
+                "-mb-px min-h-11 border-b-2 pb-3 text-left transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold",
+                selected
+                  ? "border-gold text-foreground"
+                  : "border-transparent text-muted-foreground hover:text-foreground",
+              )}
+            >
+              <span className="block type-ui font-semibold">
+                {option.label}
+              </span>
+              <span className="block type-meta text-muted-foreground">
+                {option.hint}
+              </span>
+            </button>
+          );
+        })}
+      </div>
 
-      {/* Content Section */}
-      <div className="container mx-auto max-w-7xl px-4 py-12 bg-mythic">
-        <Breadcrumbs />
-
-        <div className="mt-8">
+      {view === "traditions" ? (
+        <div
+          role="tabpanel"
+          id="timeline-panel-traditions"
+          aria-labelledby="timeline-tab-traditions"
+          className="mt-5"
+        >
           <TimelineControls
             currentRange={viewRange}
             minYear={MIN_YEAR}
@@ -97,49 +178,35 @@ export function TimelinePageClient() {
             onRangeChange={setViewRange}
           />
 
-          <TimelineVisualizationD3
-            pantheons={pantheons}
-            events={events}
-            viewRange={viewRange}
+          <div className="mt-5">
+            <TimelineVisualizationD3
+              pantheons={pantheons}
+              events={events}
+              viewRange={viewRange}
+            />
+          </div>
+
+          {attestation ? (
+            <div className="mt-16 md:mt-20">{attestation}</div>
+          ) : null}
+        </div>
+      ) : (
+        <div
+          role="tabpanel"
+          id="timeline-panel-stories"
+          aria-labelledby="timeline-tab-stories"
+          className="mt-6"
+        >
+          <StoryTimelineView
+            stories={stories}
+            pantheons={pantheons.map(({ id, name, slug }) => ({
+              id,
+              name,
+              slug,
+            }))}
           />
         </div>
-
-        {/* Historical Context Card */}
-        <div className="mt-12 p-6 rounded-xl border border-border bg-card/50 backdrop-blur-sm">
-          <h2 className="font-serif text-xl font-semibold text-foreground mb-3">
-            Using the Interactive Timeline
-          </h2>
-          <div className="grid gap-4 md:grid-cols-3 text-sm text-muted-foreground leading-relaxed">
-            <div>
-              <h3 className="font-medium text-foreground mb-1">Navigation</h3>
-              <p>
-                Use your mouse wheel to <strong>zoom in</strong> up to 50x
-                magnification. Click and drag to <strong>pan</strong> across
-                different eras.
-              </p>
-            </div>
-            <div>
-              <h3 className="font-medium text-foreground mb-1">
-                Events & Details
-              </h3>
-              <p>
-                <strong>Hollow circles</strong> represent key mythical or
-                historical events. Hover over them to reveal detailed
-                descriptions and dates.
-              </p>
-            </div>
-            <div>
-              <h3 className="font-medium text-foreground mb-1">Pantheons</h3>
-              <p>
-                Colored bars show catalog periods where dates are recorded.
-                Collections without a shared period are labeled after the dated
-                entries.
-                <strong>Click</strong> an entry to highlight it and dim others.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
+      )}
     </div>
   );
 }

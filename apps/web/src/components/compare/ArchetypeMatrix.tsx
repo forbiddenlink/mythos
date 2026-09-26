@@ -18,8 +18,6 @@ import {
   scoreArchetypeMatch,
   qualifies,
 } from "@/lib/archetype-matching";
-import deitiesData from "@/data/deities.json";
-import pantheonsData from "@/data/pantheons.json";
 
 interface ArchetypeDefinition {
   id: string;
@@ -231,7 +229,7 @@ const ARCHETYPES: ArchetypeDefinition[] = [
   },
 ];
 
-interface Deity {
+export interface ArchetypeDeity {
   id: string;
   name: string;
   slug: string;
@@ -245,15 +243,16 @@ interface Deity {
 /** Deities shown per pantheon card before the roster is summarised. */
 const PREVIEW_PER_PANTHEON = 3;
 
-export function ArchetypeMatrix() {
-  const [activeArchetype, setActiveArchetype] = useState<string>("storm-sky");
+type Deity = ArchetypeDeity;
 
-  const allDeities = deitiesData as Deity[];
-  const allPantheons = pantheonsData as Array<{
-    id: string;
-    name: string;
-    slug: string;
-  }>;
+export function ArchetypeMatrix({
+  deities: allDeities,
+  pantheons: allPantheons,
+}: {
+  deities: ArchetypeDeity[];
+  pantheons: Array<{ id: string; name: string; slug: string }>;
+}) {
+  const [activeArchetype, setActiveArchetype] = useState<string>("storm-sky");
 
   const pantheonNameMap = useMemo(() => {
     return new Map(
@@ -313,7 +312,7 @@ export function ArchetypeMatrix() {
               onClick={() => setActiveArchetype(arch.id)}
               className={`flex items-center gap-2 px-3.5 py-2 rounded-lg text-xs md:text-sm font-medium transition-all cursor-pointer ${
                 isActive
-                  ? "border border-gold bg-gold/15 text-gold shadow-sm font-semibold"
+                  ? "border border-gold bg-gold/15 text-gold-text shadow-sm font-semibold"
                   : "border border-border/70 bg-card/60 text-muted-foreground hover:text-foreground hover:border-gold/40"
               }`}
             >
@@ -325,8 +324,8 @@ export function ArchetypeMatrix() {
       </div>
 
       {/* Active Archetype Editorial Spotlight */}
-      <Card className="border-gold/30 bg-card/75 shadow-xl overflow-hidden">
-        <CardHeader className="border-b border-border/60 bg-muted/30 pb-6">
+      <Card className="overflow-hidden border-border/70 bg-card shadow-none">
+        <CardHeader className="border-b border-border/60 pb-6">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
             <div>
               <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded-full border border-gold/30 bg-gold/10 text-gold-text text-xs uppercase tracking-wider font-semibold mb-3">
@@ -339,13 +338,13 @@ export function ArchetypeMatrix() {
               >
                 {currentArchetype.name}
               </CardTitle>
-              <CardDescription className="text-base text-parchment/80 mt-1 font-serif italic">
+              <CardDescription className="mt-1 font-body text-lg italic text-muted-foreground">
                 {currentArchetype.tagline}
               </CardDescription>
             </div>
             {currentArchetype.protoIndoEuropeanRoot && (
-              <div className="rounded-lg border border-gold/25 bg-midnight/60 px-4 py-3 text-xs text-parchment/90 shrink-0">
-                <span className="text-gold block font-semibold mb-0.5">
+              <div className="shrink-0 rounded-lg border border-gold/30 bg-gold/[0.07] px-4 py-3 text-xs text-foreground">
+                <span className="mb-0.5 block font-semibold uppercase tracking-[0.12em] text-gold-text">
                   Etymological Ancestry
                 </span>
                 <span className="font-serif text-sm">
@@ -417,7 +416,7 @@ export function ArchetypeMatrix() {
                     >
                       <div>
                         <div className="flex items-center justify-between gap-2 border-b border-border/60 pb-2 mb-3">
-                          <h4 className="text-xs uppercase tracking-wider font-semibold text-muted-foreground flex items-center gap-1.5">
+                          <h4 className="flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-foreground/80">
                             <span
                               className="size-2 rounded-full"
                               style={{ backgroundColor: pantheonColor }}
@@ -425,7 +424,7 @@ export function ArchetypeMatrix() {
                             />
                             {pantheonLabel}
                           </h4>
-                          <span className="text-[11px] text-gold-text font-mono">
+                          <span className="type-meta tabular-nums text-muted-foreground">
                             {deities.length}{" "}
                             {deities.length === 1 ? "figure" : "figures"}
                           </span>

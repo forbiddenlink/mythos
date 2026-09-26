@@ -1,120 +1,38 @@
-import { Metadata } from "next";
-import { notFound } from "next/navigation";
-import Link from "next/link";
+import type { Metadata } from "next";
 import Image from "next/image";
+import { notFound } from "next/navigation";
+import { EditorialByline } from "@/components/content/EditorialByline";
 import {
-  ArrowLeft,
-  Sparkles,
-  Skull,
-  CloudLightning,
-  Heart,
-  Swords,
-  Sun,
-  Waves,
-  BookOpen,
-  Droplets,
-  Leaf,
-  Hammer,
-  ScrollText,
-  Users,
-} from "lucide-react";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
-import { generateBaseMetadata, generateNotFoundMetadata } from "@/lib/metadata";
+  ArticleStack,
+  heroShareClass,
+} from "@/components/content/detail-parts";
+import { AboutThisPage } from "@/components/layout/about-this-page";
+import {
+  ArticleSection,
+  AsideLinks,
+  DetailHero,
+  DetailLayout,
+  FactList,
+  type TocItem,
+} from "@/components/layout/detail-layout";
+import { EntityList } from "@/components/layout/entity-gallery";
+import { ParallelFigures } from "@/components/mythology/ParallelFigures";
 import { ItemListJsonLd } from "@/components/seo/JsonLd";
-import { RosettaWheel } from "@/components/collections/RosettaWheel";
+import { ShareButton } from "@/components/sharing/ShareButton";
 import collections from "@/data/collections.json";
-import deities from "@/data/deities.json";
-import stories from "@/data/stories.json";
-
-type IconComponent = typeof Sparkles;
-
-const iconMap: Record<string, IconComponent> = {
-  sparkles: Sparkles,
-  skull: Skull,
-  "cloud-lightning": CloudLightning,
-  heart: Heart,
-  sword: Swords,
-  sun: Sun,
-  waves: Waves,
-  "book-open": BookOpen,
-  droplets: Droplets,
-  leaf: Leaf,
-  hammer: Hammer,
-};
-
-/* Classical atlas palette — gold, bronze, patina, parchment, wine — not rainbow SaaS chips */
-const themeColors: Record<
-  string,
-  { bg: string; border: string; text: string }
-> = {
-  chaos: {
-    bg: "from-bronze/15 to-gold/5",
-    border: "border-bronze/35",
-    text: "text-bronze",
-  },
-  death: {
-    bg: "from-midnight/20 to-muted/40",
-    border: "border-foreground/20",
-    text: "text-muted-foreground",
-  },
-  sky: {
-    bg: "from-patina/15 to-midnight/10",
-    border: "border-patina/35",
-    text: "text-patina",
-  },
-  love: {
-    bg: "from-[oklch(0.45_0.1_25)]/15 to-bronze/10",
-    border: "border-bronze/35",
-    text: "text-bronze",
-  },
-  war: {
-    bg: "from-destructive/10 to-bronze/10",
-    border: "border-destructive/30",
-    text: "text-destructive",
-  },
-  sun: {
-    bg: "from-gold/15 to-bronze/10",
-    border: "border-gold/35",
-    text: "text-gold-text",
-  },
-  water: {
-    bg: "from-patina/15 to-patina/5",
-    border: "border-patina/30",
-    text: "text-patina",
-  },
-  wisdom: {
-    bg: "from-midnight/15 to-gold/5",
-    border: "border-gold/25",
-    text: "text-gold-text",
-  },
-  creation: {
-    bg: "from-gold/10 to-bronze/10",
-    border: "border-gold/30",
-    text: "text-gold-text",
-  },
-  flood: {
-    bg: "from-patina/12 to-midnight/10",
-    border: "border-patina/30",
-    text: "text-patina",
-  },
-  earth: {
-    bg: "from-bronze/15 to-patina/10",
-    border: "border-bronze/30",
-    text: "text-bronze",
-  },
-  craft: {
-    bg: "from-bronze/15 to-gold/10",
-    border: "border-bronze/35",
-    text: "text-bronze",
-  },
-};
+import pantheons from "@/data/pantheons.json";
+import { getDeities, getStories } from "@/lib/data/catalog";
+import { formatPantheonLabel } from "@/lib/deity-page";
+import { generateBaseMetadata, generateNotFoundMetadata } from "@/lib/metadata";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
 }
+
+// Every valid param is prerendered by generateStaticParams; anything else is a
+// 404 served from the static not-found page. (On-demand rendering of unknown
+// params would cache HTML carrying one request's CSP nonce.)
+export const dynamicParams = false;
 
 export async function generateStaticParams() {
   return collections.map((collection) => ({
@@ -153,6 +71,48 @@ export async function generateMetadata({
   });
 }
 
+/** First sentence of a description, for compact annotations. */
+function firstSentence(text: string | null | undefined): string | undefined {
+  if (!text) return undefined;
+  const match = text.match(/^.+?[.!?](?=\s|$)/);
+  return (match?.[0] ?? text).trim();
+}
+
+/** Four portraits of the collection's figures, for the hero. */
+function PortraitMosaic({
+  figures,
+}: {
+  figures: Array<{ name: string; imageUrl?: string | null }>;
+}) {
+  const shown = figures.filter((f) => f.imageUrl).slice(0, 4);
+  if (shown.length === 0) return null;
+  return (
+    <div
+      className="mx-auto grid w-full max-w-[18rem] grid-cols-2 gap-2 md:max-w-none"
+      aria-hidden="true"
+    >
+      {shown.map((figure, index) => (
+        <div
+          key={figure.name}
+          className={
+            "relative aspect-4/5 overflow-hidden rounded-md bg-midnight-light shadow-xl shadow-black/40 ring-1 ring-gold/25" +
+            (index % 2 === 1 ? " md:translate-y-6" : "")
+          }
+        >
+          <Image
+            src={figure.imageUrl as string}
+            alt=""
+            fill
+            priority={index < 2}
+            sizes="(min-width: 1024px) 14rem, (min-width: 768px) 10rem, 9rem"
+            className="object-cover object-top"
+          />
+        </div>
+      ))}
+    </div>
+  );
+}
+
 export default async function CollectionPage({ params }: PageProps) {
   const { slug } = await params;
   const collection = collections.find((c) => c.slug === slug);
@@ -161,17 +121,24 @@ export default async function CollectionPage({ params }: PageProps) {
     notFound();
   }
 
-  const Icon = iconMap[collection.icon] || Sparkles;
-  const colors = themeColors[collection.theme] || themeColors.creation;
+  const deities = getDeities();
+  const stories = getStories();
+  const collectionDeities = collection.deities.flatMap((id) => {
+    const deity = deities.find((d) => d.id === id || d.slug === id);
+    return deity ? [deity] : [];
+  });
+  const collectionStories = collection.stories.flatMap((id) => {
+    const story = stories.find((s) => s.id === id || s.slug === id);
+    return story ? [story] : [];
+  });
 
-  // Get actual deity and story data
-  const collectionDeities = collection.deities
-    .map((id) => deities.find((d) => d.id === id || d.slug === id))
-    .filter((d): d is (typeof deities)[0] => d !== undefined);
-
-  const collectionStories = collection.stories
-    .map((id) => stories.find((s) => s.id === id || s.slug === id))
-    .filter((s): s is (typeof stories)[0] => s !== undefined);
+  const pantheonName = (id: string) =>
+    pantheons.find((p) => p.id === id)?.name ?? formatPantheonLabel(id);
+  const traditions = [
+    ...new Set(
+      collectionDeities.map((deity) => pantheonName(deity.pantheonId)),
+    ),
+  ];
 
   const listItems = [
     ...collectionDeities.map((deity, index) => ({
@@ -186,220 +153,147 @@ export default async function CollectionPage({ params }: PageProps) {
     })),
   ];
 
+  const toc: TocItem[] = [
+    ...(collectionDeities.length > 0
+      ? [{ id: "figures", label: "The figures" }]
+      : []),
+    ...(collectionStories.length > 0
+      ? [{ id: "stories", label: "The stories" }]
+      : []),
+  ];
+
+  const facts = (
+    <FactList
+      facts={[
+        {
+          label: "Theme",
+          value: <span className="capitalize">{collection.theme}</span>,
+        },
+        {
+          label: "Figures",
+          value: collectionDeities.length
+            ? String(collectionDeities.length)
+            : null,
+        },
+        {
+          label: "Stories",
+          value: collectionStories.length
+            ? String(collectionStories.length)
+            : null,
+        },
+        {
+          label: traditions.length === 1 ? "Tradition" : "Traditions",
+          value: traditions.length ? traditions.join(", ") : null,
+        },
+      ]}
+    />
+  );
+
+  const otherCollections = collections
+    .filter((other) => other.slug !== collection.slug)
+    .slice(0, 6)
+    .map((other) => ({
+      href: `/collections/${other.slug}`,
+      label: other.name,
+      meta: `${other.deities.length} figures · ${other.stories.length} stories`,
+    }));
+
   return (
-    <div className="min-h-screen bg-gradient-to-b from-background to-mythic">
+    <>
       <ItemListJsonLd
         name={`${collection.name} Collection`}
         description={collection.description}
         url={`/collections/${slug}`}
         items={listItems}
       />
-      {/* Hero Section */}
-      <div className={`relative py-16 bg-gradient-to-br ${colors.bg}`}>
-        <div className="container mx-auto max-w-7xl px-4">
-          <Breadcrumbs />
-
-          <div className="mt-8 flex flex-col md:flex-row md:items-start gap-6">
-            <div
-              className={`p-4 rounded-2xl bg-background/50 ${colors.border} border backdrop-blur-sm`}
+      <DetailLayout
+        hero={
+          <DetailHero
+            media={<PortraitMosaic figures={collectionDeities} />}
+            eyebrow={
+              <>
+                <span>Collection</span>
+                <span className="text-gold/50" aria-hidden="true">
+                  ·
+                </span>
+                <span className="capitalize text-parchment/85">
+                  {collection.theme}
+                </span>
+              </>
+            }
+            title={collection.name}
+            lede={<p>{collection.description}</p>}
+            actions={
+              <ShareButton
+                surface="collection_page"
+                title={`${collection.name} - Mythos Atlas`}
+                text={collection.description}
+                url={`https://mythosatlas.com/collections/${collection.slug}`}
+                className={heroShareClass}
+              />
+            }
+          />
+        }
+        facts={facts}
+        toc={toc}
+        asideLabel={`${collection.name} at a glance`}
+        aside={<AsideLinks title="More collections" links={otherCollections} />}
+      >
+        <ArticleStack>
+          {collectionDeities.length > 0 ? (
+            <ArticleSection
+              id="figures"
+              eyebrow="Across traditions"
+              title="The figures"
+              description="They share a theme; their roles, beliefs and histories differ from one tradition to the next."
+              reading={false}
             >
-              <Icon className={`h-12 w-12 ${colors.text}`} />
-            </div>
+              <ParallelFigures
+                label={`${collection.name} across pantheons`}
+                figures={collectionDeities.map((deity) => ({
+                  name: deity.name,
+                  href: `/deities/${deity.slug}`,
+                  pantheonId: deity.pantheonId,
+                  traditionLabel: pantheonName(deity.pantheonId),
+                  imageUrl: deity.imageUrl,
+                  note: firstSentence(deity.description),
+                }))}
+              />
+            </ArticleSection>
+          ) : null}
 
-            <div className="flex-1">
-              <h1 className="page-title text-foreground mb-4">
-                {collection.name}
-              </h1>
-              <p className="text-lg text-muted-foreground max-w-3xl leading-relaxed">
-                {collection.description}
-              </p>
+          {collectionStories.length > 0 ? (
+            <ArticleSection id="stories" title="The stories" reading={false}>
+              <EntityList
+                columns={2}
+                items={collectionStories.map((story) => ({
+                  name: story.title,
+                  href: `/stories/${story.slug}`,
+                  imageUrl: story.imageUrl,
+                  pantheonId: story.pantheonId,
+                  meta: pantheonName(story.pantheonId),
+                  description: story.summary,
+                }))}
+              />
+            </ArticleSection>
+          ) : null}
 
-              <div className="flex flex-wrap gap-3 mt-6">
-                {collectionDeities.length > 0 && (
-                  <Badge
-                    variant="outline"
-                    className={`${colors.border} ${colors.text}`}
-                  >
-                    <Users className="h-3.5 w-3.5 mr-1.5" />
-                    {collectionDeities.length}{" "}
-                    {collectionDeities.length === 1 ? "Deity" : "Deities"}
-                  </Badge>
-                )}
-                {collectionStories.length > 0 && (
-                  <Badge
-                    variant="outline"
-                    className={`${colors.border} ${colors.text}`}
-                  >
-                    <ScrollText className="h-3.5 w-3.5 mr-1.5" />
-                    {collectionStories.length}{" "}
-                    {collectionStories.length === 1 ? "Story" : "Stories"}
-                  </Badge>
-                )}
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Content */}
-      <div className="container mx-auto max-w-7xl px-4 py-12">
-        <Button asChild variant="ghost" size="sm" className="mb-8">
-          <Link href="/collections">
-            <ArrowLeft className="h-4 w-4 mr-2" />
-            All Collections
-          </Link>
-        </Button>
-
-        <p className="mb-8 max-w-3xl font-body text-lg leading-relaxed text-muted-foreground">
-          Choose a figure or story to explore its sources and context. These
-          entries share a theme; their roles, beliefs and histories differ
-          across traditions.
-        </p>
-
-        {/* Cross-pantheon archetype wheel */}
-        <RosettaWheel
-          archetype={collection.name}
-          deities={collectionDeities.map((d) => ({
-            name: d.name,
-            slug: d.slug,
-            pantheonId: d.pantheonId,
-          }))}
-        />
-
-        {/* Deities Section */}
-        {collectionDeities.length > 0 && (
-          <section className="mb-16">
-            <h2 className="font-serif text-2xl font-semibold mb-6 flex items-center gap-3">
-              <Users className={`h-6 w-6 ${colors.text}`} />
-              Deities in this Collection
-            </h2>
-
-            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-              {collectionDeities.map((deity, index) => {
-                const pantheonName =
-                  deity.pantheonId
-                    ?.replace("-pantheon", "")
-                    .replaceAll("-", " ") || "";
-                const domains = deity.domain?.slice(0, 3).join(", ") || "";
-
-                return (
-                  <Link key={deity.id} href={`/deities/${deity.slug}`}>
-                    <Card className="h-full hover:border-gold/50 hover:bg-gold/5 transition-all group">
-                      <CardHeader className="pb-2">
-                        <div className="flex items-start justify-between">
-                          <div>
-                            <Badge
-                              variant="outline"
-                              className="text-xs capitalize mb-2 border-gold/30 text-gold-text"
-                            >
-                              {pantheonName}
-                            </Badge>
-                            <CardTitle className="font-serif text-lg group-hover:text-gold transition-colors">
-                              {deity.name}
-                            </CardTitle>
-                          </div>
-                          {deity.imageUrl && (
-                            <div className="relative w-12 h-12 rounded-lg overflow-hidden border border-border">
-                              <Image
-                                src={deity.imageUrl}
-                                alt={deity.name}
-                                fill
-                                sizes="48px"
-                                priority={index < 4}
-                                className="object-cover"
-                              />
-                            </div>
-                          )}
-                        </div>
-                      </CardHeader>
-                      <CardContent>
-                        {domains && (
-                          <p className="text-sm text-muted-foreground capitalize mb-2">
-                            {domains}
-                          </p>
-                        )}
-                        <p className="text-sm text-muted-foreground line-clamp-2">
-                          {deity.description}
-                        </p>
-                      </CardContent>
-                    </Card>
-                  </Link>
-                );
-              })}
-            </div>
-          </section>
-        )}
-
-        {/* Stories Section */}
-        {collectionStories.length > 0 && (
-          <section>
-            <h2 className="font-serif text-2xl font-semibold mb-6 flex items-center gap-3">
-              <ScrollText className={`h-6 w-6 ${colors.text}`} />
-              Stories in this Collection
-            </h2>
-
-            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {collectionStories.map((story) => {
-                const pantheonName =
-                  story.pantheonId
-                    ?.replace("-pantheon", "")
-                    .replaceAll("-", " ") || "";
-                const themes = story.themes?.slice(0, 3).join(", ") || "";
-
-                return (
-                  <Link key={story.id} href={`/stories/${story.slug}`}>
-                    <Card className="h-full hover:border-gold/50 hover:bg-gold/5 transition-all group overflow-hidden">
-                      {story.imageUrl && (
-                        <div className="relative w-full h-36 overflow-hidden border-b border-border/50">
-                          <Image
-                            src={story.imageUrl}
-                            alt={story.title}
-                            fill
-                            sizes="(max-width: 768px) 100vw, 33vw"
-                            className="object-cover group-hover:scale-105 transition-transform duration-500"
-                          />
-                          <div className="absolute inset-0 bg-linear-to-t from-background/90 via-transparent to-transparent" />
-                        </div>
-                      )}
-                      <CardHeader className="pb-2">
-                        <Badge
-                          variant="outline"
-                          className="text-xs capitalize mb-2 w-fit border-gold/30 text-gold-text"
-                        >
-                          {pantheonName}
-                        </Badge>
-                        <CardTitle className="font-serif text-lg group-hover:text-gold transition-colors">
-                          {story.title}
-                        </CardTitle>
-                      </CardHeader>
-                      <CardContent>
-                        {themes && (
-                          <p className="text-sm text-muted-foreground capitalize mb-2">
-                            {themes}
-                          </p>
-                        )}
-                        <p className="text-sm text-muted-foreground line-clamp-3">
-                          {story.summary}
-                        </p>
-                      </CardContent>
-                    </Card>
-                  </Link>
-                );
-              })}
-            </div>
-          </section>
-        )}
-
-        {/* Empty State */}
-        {collectionDeities.length === 0 && collectionStories.length === 0 && (
-          <div className="text-center py-16">
-            <Sparkles className="h-12 w-12 text-muted-foreground mx-auto mb-4" />
-            <p className="text-muted-foreground">
-              This collection is being curated. Check back soon!
+          {collectionDeities.length === 0 && collectionStories.length === 0 ? (
+            <p className="type-reading text-muted-foreground">
+              This collection is being curated.
             </p>
-          </div>
-        )}
-      </div>
-    </div>
+          ) : null}
+
+          <AboutThisPage title="About this collection" size={false}>
+            <EditorialByline />
+            <p>
+              Collections group figures and myths by a shared theme. A shared
+              theme is an editorial lens, not evidence that the traditions
+              borrowed from one another.
+            </p>
+          </AboutThisPage>
+        </ArticleStack>
+      </DetailLayout>
+    </>
   );
 }

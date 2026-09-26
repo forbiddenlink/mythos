@@ -2,31 +2,13 @@
 
 import Link from "next/link";
 import { useMemo, useState } from "react";
-import deities from "@/data/deities.json";
 import { getPantheonColor } from "@/lib/pantheon-colors";
-import {
-  attestationOf,
-  formatYear,
-  type PrimarySource,
-} from "@/lib/attestation";
+import { formatYear, type AttestationPoint } from "@/lib/attestation";
 
-interface DeityRecord {
-  slug: string;
-  name: string;
-  pantheonId: string;
-  primarySources?: PrimarySource[];
-}
-
-interface Point {
-  slug: string;
-  name: string;
-  pantheonId: string;
-  year: number;
-  source: string;
-}
+type Point = AttestationPoint;
 
 const VIEW_W = 1000;
-const PAD_L = 150;
+const PAD_L = 196;
 const PAD_R = 40;
 const PAD_TOP = 16;
 const ROW_H = 46;
@@ -35,6 +17,7 @@ const AXIS_H = 40;
 function pantheonLabel(id: string): string {
   return id
     .replace(/-pantheon$/, "")
+    .replace(/-/g, " ")
     .replace(/(^|\s)\S/g, (c) => c.toUpperCase());
 }
 
@@ -43,23 +26,18 @@ function pantheonLabel(id: string): string {
  * plotted at its oldest normalized source date, in its pantheon's lane. This
  * visualizes catalog coverage, not first surviving mentions or full evidence.
  */
-export function AttestationTimeline() {
+export function AttestationTimeline({
+  points: pts,
+  total,
+}: {
+  /** Precomputed on the server with `attestationPoints`. */
+  points: Point[];
+  /** Number of figures considered, for the "N of M placed" caption. */
+  total: number;
+}) {
   const [hover, setHover] = useState<Point | null>(null);
 
   const { points, lanes, minYear, maxYear } = useMemo(() => {
-    const pts: Point[] = [];
-    for (const d of deities as DeityRecord[]) {
-      const att = attestationOf(d.primarySources);
-      if (att.earliestYear === null || !att.earliestSource) continue;
-      pts.push({
-        slug: d.slug,
-        name: d.name,
-        pantheonId: d.pantheonId,
-        year: att.earliestYear,
-        source: att.earliestSource.source,
-      });
-    }
-
     const laneOrder = Array.from(new Set(pts.map((p) => p.pantheonId)));
     // Order lanes by each pantheon's earliest point (oldest first).
     laneOrder.sort((a, b) => {
@@ -79,7 +57,7 @@ export function AttestationTimeline() {
       minYear: Math.min(...years),
       maxYear: Math.max(...years),
     };
-  }, []);
+  }, [pts]);
 
   if (points.length === 0) return null;
 
@@ -100,17 +78,17 @@ export function AttestationTimeline() {
 
   return (
     <div className="w-full">
-      <div className="mb-4 flex flex-wrap items-baseline justify-between gap-2">
-        <h2 className="font-serif text-2xl text-gold-text">
-          Deities by Oldest Catalogued Date
+      <div className="mb-6 flex flex-wrap items-end justify-between gap-3">
+        <h2 className="page-section-title text-foreground">
+          Deities by oldest catalogued date
         </h2>
-        <p className="text-sm text-muted-foreground">
-          {points.length} of {deities.length} placed by the oldest dated work
-          recorded in this catalog
+        <p className="type-ui text-muted-foreground">
+          {points.length} of {total} placed by the oldest dated work recorded in
+          this catalog
         </p>
       </div>
 
-      <div className="relative overflow-x-auto rounded-2xl border border-gold/15 bg-muted/50 p-4">
+      <div className="relative overflow-x-auto rounded-lg border border-border bg-card p-4">
         <svg
           viewBox={`0 0 ${VIEW_W} ${height}`}
           className="h-auto w-full min-w-[720px]"
@@ -149,22 +127,26 @@ export function AttestationTimeline() {
                   y1={laneY(i)}
                   x2={VIEW_W - PAD_R}
                   y2={laneY(i)}
-                  stroke="rgba(255,255,255,0.05)"
+                  stroke="var(--border)"
                 />
+                <circle cx={PAD_L - 10} cy={laneY(i)} r={3.5} fill={color} />
                 <text
-                  x={PAD_L - 12}
+                  x={PAD_L - 20}
                   y={laneY(i) + 4}
                   textAnchor="end"
-                  fill={color}
                   fontSize="13"
-                  className="font-serif"
+                  className="fill-foreground font-serif"
                 >
                   {pantheonLabel(pid)}
                 </text>
                 {points
                   .filter((p) => p.pantheonId === pid)
                   .map((p) => (
-                    <Link key={p.slug} href={`/deities/${p.slug}`} aria-label={`${p.name}: ${formatYear(p.year)}`}>
+                    <Link
+                      key={p.slug}
+                      href={`/deities/${p.slug}`}
+                      aria-label={`${p.name}: ${formatYear(p.year)}`}
+                    >
                       <circle
                         cx={xOf(p.year)}
                         cy={laneY(i)}
@@ -200,5 +182,3 @@ export function AttestationTimeline() {
     </div>
   );
 }
-
-export default AttestationTimeline;

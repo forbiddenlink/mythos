@@ -1,22 +1,14 @@
+import Image from "next/image";
 import Link from "next/link";
-import { getTranslations } from "next-intl/server";
-import { MythologyQuiz } from "@/components/quiz/MythologyQuiz";
-import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
-import { SimplePageHeader } from "@/components/layout/simple-page-header";
-import { pageSectionTitleClass } from "@/components/layout/page-typography";
 import { ArrowRight } from "lucide-react";
-import { MythosMark, type MythosMarkId } from "@/components/icons/mythos-marks";
+import { Translated } from "@/components/i18n/Translated";
+import { MythologyQuiz } from "@/components/quiz/MythologyQuiz";
+import { getMythologyQuizPool } from "@/lib/data/quiz-pool";
+import { AboutThisPage } from "@/components/layout/about-this-page";
+import { Container } from "@/components/layout/container";
+import { PageHeader } from "@/components/layout/page-header";
 import { QuizJsonLd } from "@/components/seo/JsonLd";
 import { generateBaseMetadata } from "@/lib/metadata";
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-  CardDescription,
-} from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { cn } from "@/lib/utils";
 
 export const metadata = generateBaseMetadata({
   title: "Mythology Quiz - Test Your Knowledge",
@@ -37,136 +29,120 @@ const OTHER_QUIZZES = [
   {
     titleKey: "quickQuizTitle",
     descriptionKey: "quickQuizDescription",
-    href: "/quiz/quick",
-    mark: "bolt" as MythosMarkId,
     badgeKey: "speedBadge",
-    color: "text-gold",
+    href: "/quiz/quick",
+    image: "/deities/zeus.jpg",
   },
   {
     titleKey: "relationshipsTitle",
     descriptionKey: "relationshipsDescription",
-    href: "/quiz/relationships",
-    mark: "tree" as MythosMarkId,
     badgeKey: "challengeTitle",
-    color: "text-patina",
+    href: "/quiz/relationships",
+    image: "/deities/hera.jpg",
   },
   {
     titleKey: "personalityTitle",
     descriptionKey: "personalityDescription",
-    href: "/quiz/personality",
-    mark: "lyre" as MythosMarkId,
     badgeKey: "personalityBadge",
-    color: "text-gold",
+    href: "/quiz/personality",
+    image: "/deities/athena.jpg",
   },
 ] as const;
 
-export default async function QuizPage() {
-  const t = await getTranslations("pages.quiz");
-
+export default function QuizPage() {
   return (
-    <div className="min-h-screen bg-linear-to-b from-background to-mythic">
+    <div className="min-h-screen">
       <QuizJsonLd
         name="Mythology Quiz - Test Your Knowledge"
         description="Test your knowledge of Greek, Norse, Egyptian, and world mythology with interactive quizzes about deities, symbols, and domains."
         url="/quiz"
       />
-      <div className="page-shell">
-        <Breadcrumbs />
+      <PageHeader
+        eyebrow="Test yourself"
+        mark="lyre"
+        title={<Translated namespace="pages.quiz" k="title" />}
+        lede={<Translated namespace="pages.quiz" k="subtitle" />}
+      />
 
-        <SimplePageHeader
-          mark="lyre"
-          tagline="Test yourself"
-          title={t("title")}
-          description={t("subtitle")}
-        >
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-3xl mx-auto">
-            <div className="flex items-center gap-3 p-4 bg-card border border-border">
-              <MythosMark id="scroll" className="h-5 w-5 text-gold" />
-              <div className="text-left">
-                <div className="font-semibold text-sm">{t("learn")}</div>
-                <div className="text-xs text-muted-foreground">
-                  {t("learnDescription")}
-                </div>
-              </div>
+      <Container className="section-space-sm">
+        <div className="grid gap-12 lg:grid-cols-[minmax(0,1fr)_20rem] lg:gap-14 xl:grid-cols-[minmax(0,1fr)_22rem]">
+          <section aria-labelledby="knowledge-quiz-title" className="min-w-0">
+            <div className="mx-auto mb-6 max-w-2xl">
+              <p className="type-eyebrow">Five questions · one sitting</p>
+              <h2
+                id="knowledge-quiz-title"
+                className="page-section-title mt-2 text-foreground"
+              >
+                <Translated namespace="pages.quiz" k="knowledgeQuizTitle" />
+              </h2>
             </div>
+            <MythologyQuiz pool={getMythologyQuizPool()} />
+          </section>
 
-            <div className="flex items-center gap-3 p-4 bg-card border border-border">
-              <MythosMark id="owl" className="h-5 w-5 text-gold" />
-              <div className="text-left">
-                <div className="font-semibold text-sm">
-                  {t("challengeTitle")}
-                </div>
-                <div className="text-xs text-muted-foreground">
-                  {t("challengeDescription")}
-                </div>
-              </div>
-            </div>
-
-            <div className="flex items-center gap-3 p-4 bg-card border border-border">
-              <MythosMark id="laurel" className="h-5 w-5 text-gold" />
-              <div className="text-left">
-                <div className="font-semibold text-sm">{t("achieveTitle")}</div>
-                <div className="text-xs text-muted-foreground">
-                  {t("achieveDescription")}
-                </div>
-              </div>
-            </div>
-          </div>
-        </SimplePageHeader>
-
-        {/* Main Knowledge Quiz */}
-        <div className="mb-8">
-          <h2 className={cn(pageSectionTitleClass, "mb-6 text-center")}>
-            {t("knowledgeQuizTitle")}
-          </h2>
+          <aside aria-labelledby="more-quizzes-title" className="min-w-0">
+            <h2
+              id="more-quizzes-title"
+              className="type-h3 border-b border-border/70 pb-3 text-foreground"
+            >
+              <Translated namespace="pages.quiz" k="moreQuizzesTitle" />
+            </h2>
+            <ul className="divide-y divide-border/70">
+              {OTHER_QUIZZES.map((quiz) => (
+                <li key={quiz.href}>
+                  <Link
+                    href={quiz.href}
+                    className="group grid grid-cols-[4.5rem_minmax(0,1fr)] gap-4 py-5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold"
+                  >
+                    <span className="relative block aspect-4/5 overflow-hidden rounded-md bg-muted ring-1 ring-border/70">
+                      <Image
+                        src={quiz.image}
+                        alt=""
+                        fill
+                        sizes="72px"
+                        className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.05]"
+                      />
+                    </span>
+                    <span className="min-w-0">
+                      <span className="type-eyebrow block text-[0.75rem]!">
+                        <Translated namespace="pages.quiz" k={quiz.badgeKey} />
+                      </span>
+                      <span className="mt-1 flex items-center gap-1.5 font-serif text-lg font-semibold leading-snug text-foreground group-hover:text-gold-text">
+                        <Translated namespace="pages.quiz" k={quiz.titleKey} />
+                        <ArrowRight
+                          className="size-4 shrink-0 transition-transform group-hover:translate-x-0.5"
+                          aria-hidden="true"
+                        />
+                      </span>
+                      <span className="mt-1 block type-ui text-muted-foreground">
+                        <Translated
+                          namespace="pages.quiz"
+                          k={quiz.descriptionKey}
+                        />
+                      </span>
+                    </span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+            <p className="border-t border-border/70 pt-4 type-ui text-muted-foreground">
+              Scores and streaks are kept in this browser on{" "}
+              <Link
+                href="/progress"
+                className="text-gold-text underline underline-offset-4"
+              >
+                Your Stats
+              </Link>
+              .
+            </p>
+          </aside>
         </div>
-        <MythologyQuiz />
+      </Container>
 
-        {/* Other Quiz Types */}
-        <div className="mb-12 mt-16">
-          <h2 className={cn(pageSectionTitleClass, "mb-6 text-center")}>
-            {t("moreQuizzesTitle")}
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
-            {OTHER_QUIZZES.map((quiz) => {
-              return (
-                <Link key={quiz.href} href={quiz.href}>
-                  <Card className="h-full border-border hover:border-gold/50 transition-all duration-200 hover:shadow-lg group cursor-pointer">
-                    <CardHeader className="pb-2">
-                      <div className="flex items-start justify-between">
-                        <div
-                          className={`border border-border bg-muted p-3 transition-colors group-hover:bg-gold/10 ${quiz.color}`}
-                        >
-                          <MythosMark id={quiz.mark} className="h-6 w-6" />
-                        </div>
-                        <Badge variant="secondary">{t(quiz.badgeKey)}</Badge>
-                      </div>
-                      <CardTitle className="text-xl font-serif mt-4 group-hover:text-gold transition-colors flex items-center gap-2">
-                        {t(quiz.titleKey)}
-                        <ArrowRight className="h-4 w-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <CardDescription className="text-sm">
-                        {t(quiz.descriptionKey)}
-                      </CardDescription>
-                    </CardContent>
-                  </Card>
-                </Link>
-              );
-            })}
-          </div>
-        </div>
-
-        <section className="mx-auto mb-12 max-w-4xl rounded-xl border border-border/60 bg-card/60 p-6">
-          <h2 className={cn(pageSectionTitleClass, "mb-3")}>
-            {t("studySectionTitle")}
-          </h2>
-          <p className="text-muted-foreground leading-relaxed">
-            {t("studySectionDescription")}
-          </p>
-        </section>
-      </div>
+      <AboutThisPage title="Study with every quiz mode">
+        <p>
+          <Translated namespace="pages.quiz" k="studySectionDescription" />
+        </p>
+      </AboutThisPage>
     </div>
   );
 }

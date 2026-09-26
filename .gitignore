@@ -59,9 +59,6 @@ test-results/
 # Local History (VS Code extension)
 .history/
 
-# Rust build artifacts
-apps/api/target/
-
 # Specter knowledge graph cache
 .specter/
 

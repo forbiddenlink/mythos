@@ -4,18 +4,18 @@
 
 ## Overview
 
-Web frontend for Mythos Atlas, an interactive encyclopedia of ancient mythology featuring **16 pantheons**, **233 deities**, **27 heroes**, **108 stories**, **63 creatures**, **52 artifacts**, and **127 mythological locations** — plus quizzes, interactive family trees, 3D artifact viewers, branching stories, and spaced-repetition review.
+Web frontend for Mythos Atlas, an interactive encyclopedia of ancient mythology featuring **26 pantheons** (plus a regional collection), **359 deities**, **37 heroes**, **162 stories**, **103 creatures**, **76 artifacts**, and **184 mythological locations** — plus quizzes, interactive family trees, branching stories, and spaced-repetition review.
 
 **Built by Elizabeth Stein** using Next.js 16, React 19, TypeScript 5, and modern web technologies.
 
 ## Features
 
-- 🏛️ **16 Pantheons** — Greek, Norse, Egyptian, Roman, Hindu, Japanese, Celtic, Aztec, Chinese, Mesopotamian, African (Yoruba), Polynesian, Mesoamerican, Slavic, Haudenosaunee, Tlingit & Haida
-- 👑 **233 Deity Profiles** — Filterable by gender, domain, and pantheon with smart sorting
-- 📖 **108 Epic Stories** — Including interactive branching narratives (choose-your-own-adventure)
-- 🐉 **63 Creatures** — Mythological beasts with detailed profiles
-- ⚔️ **52 Artifacts** — Legendary items with interactive 3D viewer (React Three Fiber)
-- 🗺️ **127 Locations** — Interactive mythological map with filters and 3 guided journeys
+- 🏛️ **26 Pantheons** — Greek, Norse, Egyptian, Roman, Hindu, Japanese, Celtic, Aztec, Chinese, Mesopotamian, Yoruba, Akan, Polynesian, Mesoamerican, Slavic, Haudenosaunee, Tlingit & Haida, Hittite, Canaanite, Inuit, Aboriginal Australian, Diné, Inca & Andean, Persian, Finnish, Korean
+- 👑 **359 Deity Profiles** — Filterable by gender, domain, and pantheon with smart sorting
+- 📖 **162 Epic Stories** — Including interactive branching narratives (choose-your-own-adventure)
+- 🐉 **103 Creatures** — Mythological beasts with detailed profiles
+- ⚔️ **76 Artifacts** — Legendary items with interactive 3D viewer (React Three Fiber)
+- 🗺️ **184 Locations** — Interactive mythological map with filters and 3 guided journeys
 - 🌳 **Family Trees** — Network graph (ReactFlow) and hierarchical (D3.js) visualizations
 - 🧠 **Quizzes & Games** — Relationship quiz, personality quiz, quick quiz, symbol memory game
 - 📚 **Spaced Repetition** — Flashcard review system with intelligent scheduling
@@ -36,14 +36,12 @@ Web frontend for Mythos Atlas, an interactive encyclopedia of ancient mythology 
 | UI             | React                        | 19.2.8        |
 | Language       | TypeScript                   | 6.0.3         |
 | Styling        | Tailwind CSS                 | ^4.3          |
-| Data Fetching  | React Query (TanStack)       | ^5.102        |
 | Graphs         | ReactFlow                    | ^11.11        |
 | Visualizations | D3.js                        | ^7.9          |
 | 3D Rendering   | React Three Fiber / Three.js | ^9.7 / ^0.185 |
 | Animations     | Framer Motion                | ^13.0         |
 | Audio          | Howler.js                    | ^2.2          |
 | i18n           | next-intl                    | ^4.14         |
-| Search         | Fuse.js                      | ^7.5          |
 | Icons          | Lucide React                 | ^1.28         |
 | UI Primitives  | shadcn/ui + Radix            | —             |
 | Unit Tests     | Vitest                       | 4.1           |
@@ -97,9 +95,9 @@ src/
 │   ├── review/           # Spaced repetition flashcards
 │   ├── stories/          # Story collection + branching stories
 │   ├── timeline/         # Mythological timeline
-│   └── api/graphql/      # GraphQL API route
+│   └── api/              # App-internal route handlers (search, analytics, Oracle)
 ├── components/           # React components (~40 directories)
-│   ├── artifacts/        # 3D artifact viewer
+│   ├── artifacts/        # Artifact provenance
 │   ├── challenges/       # Daily challenges
 │   ├── compare/          # Deity comparison
 │   ├── deities/          # Deity cards, filters, details
@@ -119,25 +117,23 @@ src/
 │   ├── ui/               # shadcn/ui components
 │   └── ...               # animations, audio, i18n, pwa, seo, etc.
 ├── data/                 # JSON data files
-│   ├── pantheons.json    # 16 pantheons
-│   ├── deities.json      # 233 deities
-│   ├── heroes.json       # 27 heroes
-│   ├── stories.json      # 108 stories
-│   ├── creatures.json    # 63 creatures
-│   ├── artifacts.json    # 52 artifacts
-│   ├── locations.json    # 127 locations
+│   ├── pantheons.json    # 26 pantheons + 1 regional collection
+│   ├── deities.json      # 359 deities
+│   ├── heroes.json       # 37 heroes
+│   ├── stories.json      # 162 stories
+│   ├── creatures.json    # 103 creatures
+│   ├── artifacts.json    # 76 artifacts
+│   ├── locations.json    # 184 locations
 │   ├── sources.json      # 34 primary/academic sources
 │   └── relationships.json
 ├── hooks/                # Custom React hooks
 │   ├── useAchievements, useBookmarks, usePagination
-│   ├── useTextToSpeech, use-progress, use-recommendations
+│   ├── use-progress, use-recommendations
 │   └── use-background-sync, use-debounce
 ├── i18n/                 # Internationalization config
 ├── lib/                  # Utilities and logic
-│   ├── graphql-client.ts # GraphQL setup
-│   ├── queries.ts        # GraphQL query definitions
 │   ├── recommendations.ts
-│   ├── search.ts         # Fuse.js search engine
+│   ├── search.ts         # Scored local search
 │   ├── branching-story.ts
 │   ├── daily-challenges.ts
 │   ├── spaced-repetition.ts
@@ -146,7 +142,7 @@ src/
 │   └── utils.ts
 ├── providers/            # Context providers
 │   ├── achievement-notification, bookmarks, leaderboard
-│   ├── progress, query, review, theme
+│   ├── progress, review, theme
 │   └── ...
 ├── types/                # TypeScript definitions
 └── proxy.ts              # i18n routing proxy
@@ -175,12 +171,11 @@ Automatic deployments on push to `main` via GitHub integration.
 
 ## Environment Variables
 
-No environment variables required — the app uses static JSON data files served through a GraphQL layer.
+No environment variables are required to browse — pages import static JSON data files directly. See `.env.example` for the optional Oracle, analytics and Sentry settings.
 
 ## Learn More
 
 - [Next.js Documentation](https://nextjs.org/docs)
-- [React Query Documentation](https://tanstack.com/query/latest)
 - [Tailwind CSS](https://tailwindcss.com/docs)
 - [shadcn/ui](https://ui.shadcn.com/)
 

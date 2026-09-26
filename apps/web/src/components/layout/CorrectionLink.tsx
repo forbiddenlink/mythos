@@ -12,7 +12,7 @@ export function CorrectionLink() {
   return (
     <a
       href={`https://github.com/forbiddenlink/mythos/issues/new?${query}`}
-      className="inline-flex min-h-11 items-center text-sm text-muted-foreground underline underline-offset-4 hover:text-foreground"
+      className="inline-flex min-h-9 items-center text-[0.8125rem] text-muted-foreground underline underline-offset-4 hover:text-foreground"
     >
       Suggest a correction (GitHub)
     </a>

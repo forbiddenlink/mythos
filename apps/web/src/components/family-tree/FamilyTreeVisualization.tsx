@@ -26,7 +26,7 @@ import "reactflow/dist/style.css";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { Sparkles, Search, X } from "lucide-react";
+import { Search, X } from "lucide-react";
 import { useRouter } from "next/navigation";
 
 // Navigation map for finding connected nodes by direction
@@ -229,12 +229,11 @@ const DeityNode = ({
   let ringClass = "";
   if (isKeyboardFocused) {
     // Keyboard focus gets highest priority - cyan ring with glow
-    ringClass =
-      "ring-2 ring-cyan-400 shadow-lg shadow-cyan-400/40 outline-none";
+    ringClass = "ring-2 ring-gold shadow-lg shadow-gold/30 outline-none";
   } else if (isSearchMatch) {
-    ringClass = "ring-2 ring-amber-400 shadow-lg shadow-amber-400/30";
+    ringClass = "ring-2 ring-gold-light shadow-lg shadow-gold/20";
   } else if (isFocused) {
-    ringClass = "ring-2 ring-teal-500 shadow-lg";
+    ringClass = "ring-2 ring-patina shadow-lg";
   }
 
   const domainLabel =
@@ -243,7 +242,7 @@ const DeityNode = ({
   return (
     <Card
       id={deity.id}
-      className={`relative p-4 min-w-50 bg-white dark:bg-slate-900 transition-shadow duration-150 ${ringClass}`}
+      className={`relative min-w-50 border-border bg-card px-3.5 py-3 transition-shadow duration-150 ${ringClass}`}
       // Not role="treeitem": React Flow renders its own wrapper elements between
       // the canvas container and each node, so the treeitem/tree parent-child
       // adjacency ARIA requires can never hold here (axe: aria-required-parent /
@@ -266,16 +265,17 @@ const DeityNode = ({
       />
       <div className="flex items-center gap-3">
         <div
-          className={`w-10 h-10 rounded-lg bg-linear-to-br from-amber-500 to-orange-600 flex items-center justify-center shrink-0`}
+          aria-hidden="true"
+          className="flex size-10 shrink-0 items-center justify-center rounded-full border border-gold/40 bg-gold/10 font-serif text-lg font-semibold text-gold-text"
         >
-          <Sparkles className="h-5 w-5 text-white" />
+          {deity.name.charAt(0)}
         </div>
         <div className="flex-1 min-w-0">
-          <h3 className="font-semibold text-sm truncate text-slate-900 dark:text-slate-100">
+          <h3 className="truncate font-serif text-[0.95rem] font-semibold text-foreground">
             {deity.name}
           </h3>
           {deity.domain && deity.domain.length > 0 && (
-            <p className="text-xs text-slate-600 dark:text-slate-400 truncate">
+            <p className="truncate text-xs capitalize text-muted-foreground">
               {deity.domain[0]}
             </p>
           )}
@@ -331,18 +331,19 @@ function SearchResults({
   if (results.length === 0) return null;
 
   return (
-    <div className="absolute top-full left-0 right-0 mt-1 bg-slate-900 border border-slate-700 rounded-md shadow-lg max-h-60 overflow-y-auto z-50">
+    <div className="absolute top-full left-0 right-0 z-50 mt-1 max-h-60 overflow-y-auto rounded-md border border-border bg-popover shadow-lg">
       {results.map((deity) => (
         <button
           key={deity.id}
           onClick={() => onSelect(deity)}
-          className="w-full px-3 py-2 text-left hover:bg-slate-800 text-slate-100 text-sm flex items-center gap-2 border-b border-slate-700 last:border-b-0"
+          className="flex w-full items-center gap-2 border-b border-border px-3 py-2 text-left text-sm text-popover-foreground last:border-b-0 hover:bg-muted"
         >
-          <Sparkles className="h-4 w-4 text-amber-500 shrink-0" />
           <div>
             <div className="font-medium">{deity.name}</div>
             {deity.domain && deity.domain.length > 0 && (
-              <div className="text-xs text-slate-400">{deity.domain[0]}</div>
+              <div className="text-xs text-muted-foreground">
+                {deity.domain[0]}
+              </div>
             )}
           </div>
         </button>
@@ -680,7 +681,7 @@ function FamilyTreeInner({
   return (
     <div
       ref={containerRef}
-      className="w-full h-full focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400"
+      className="w-full h-full focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-gold"
       tabIndex={0}
       role="application"
       aria-roledescription="Family tree graph"
@@ -696,7 +697,9 @@ function FamilyTreeInner({
         onNodeClick={onNodeClick}
         nodeTypes={nodeTypes}
         fitView
-        attributionPosition="bottom-left"
+        fitViewOptions={{ padding: 0.2, maxZoom: 1.1 }}
+        minZoom={0.2}
+        attributionPosition="bottom-right"
       >
         <Background />
         <Controls />
@@ -837,7 +840,7 @@ export function FamilyTreeVisualization({
               Search deities in family tree
             </label>
             <Search
-              className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400"
+              className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground"
               aria-hidden="true"
             />
             <Input
@@ -851,14 +854,14 @@ export function FamilyTreeVisualization({
               }}
               onFocus={() => setShowResults(true)}
               onBlur={() => setTimeout(() => setShowResults(false), 200)}
-              className="pl-9 pr-9 bg-slate-900 border-slate-700 text-slate-100 placeholder:text-slate-500"
+              className="pl-9 pr-9"
             />
             {searchQuery && (
               <button
                 onClick={clearSearch}
                 aria-label="Clear search"
                 title="Clear search"
-                className="absolute right-3 top-1/2 -translate-y-1/2 flex min-w-6 min-h-6 items-center justify-center text-slate-400 hover:text-slate-200"
+                className="absolute right-3 top-1/2 -translate-y-1/2 flex min-w-6 min-h-6 items-center justify-center text-muted-foreground hover:text-foreground"
               >
                 <X className="h-4 w-4" />
               </button>
@@ -905,7 +908,7 @@ export function FamilyTreeVisualization({
       </div>
 
       {/* React Flow Visualization */}
-      <div className="w-full h-150 border border-slate-700 rounded-lg overflow-hidden relative">
+      <div className="relative h-[min(70vh,42rem)] min-h-96 w-full overflow-hidden rounded-lg border border-border bg-muted/30">
         <ReactFlowProvider>
           <FamilyTreeInner
             deities={deities}

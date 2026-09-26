@@ -1,7 +1,7 @@
-import { describe, it, expect, vi, beforeEach } from 'vitest';
+import { describe, it, expect, vi, beforeEach } from "vitest";
 
 // The MythologyQuiz component is tightly integrated with:
-// - GraphQL (@tanstack/react-query + graphql-request)
+// - Static JSON data imports
 // - React state management
 // - localStorage for high scores
 //
@@ -17,35 +17,31 @@ const localStorageMock = {
   clear: vi.fn(),
 };
 
-Object.defineProperty(globalThis, 'localStorage', {
+Object.defineProperty(globalThis, "localStorage", {
   value: localStorageMock,
   writable: true,
 });
 
-describe('MythologyQuiz', () => {
+describe("MythologyQuiz", () => {
   beforeEach(() => {
     vi.clearAllMocks();
   });
 
-  describe('Module structure', () => {
-    it('should export MythologyQuiz from the module path', async () => {
+  describe("Module structure", () => {
+    it("should export MythologyQuiz from the module path", async () => {
       // This validates the component can be imported without syntax errors
       // Full functionality is tested via E2E
-      const modulePath = '@/components/quiz/MythologyQuiz';
-
-      // Note: We can't dynamically import the component here because it imports
-      // graphql-request which uses template literals that Vitest can't parse
-      // without proper module transformation
+      const modulePath = "@/components/quiz/MythologyQuiz";
 
       // Instead, we validate the file exists and exports are correct
       expect(modulePath).toBeDefined();
     });
   });
 
-  describe('Quiz scoring logic', () => {
+  describe("Quiz scoring logic", () => {
     // Test the scoring logic that doesn't require rendering
 
-    it('should calculate percentage correctly', () => {
+    it("should calculate percentage correctly", () => {
       // This is the same logic used in the component
       const calculatePercentage = (score: number, total: number) =>
         Math.round((score / total) * 100);
@@ -56,7 +52,7 @@ describe('MythologyQuiz', () => {
       expect(calculatePercentage(0, 5)).toBe(0);
     });
 
-    it('should calculate score points correctly', () => {
+    it("should calculate score points correctly", () => {
       // Each correct answer is worth 100 points
       const calculatePoints = (correctAnswers: number) => correctAnswers * 100;
 
@@ -66,33 +62,38 @@ describe('MythologyQuiz', () => {
     });
   });
 
-  describe('High score localStorage', () => {
-    it('should save high score to localStorage', () => {
+  describe("High score localStorage", () => {
+    it("should save high score to localStorage", () => {
       const saveHighScore = (score: number) => {
-        localStorage.setItem('mythos_quiz_highscore', score.toString());
+        localStorage.setItem("mythos_quiz_highscore", score.toString());
       };
 
       saveHighScore(5);
-      expect(localStorageMock.setItem).toHaveBeenCalledWith('mythos_quiz_highscore', '5');
+      expect(localStorageMock.setItem).toHaveBeenCalledWith(
+        "mythos_quiz_highscore",
+        "5",
+      );
     });
 
-    it('should load high score from localStorage', () => {
-      localStorageMock.getItem.mockReturnValue('10');
+    it("should load high score from localStorage", () => {
+      localStorageMock.getItem.mockReturnValue("10");
 
       const loadHighScore = () => {
-        const saved = localStorage.getItem('mythos_quiz_highscore');
+        const saved = localStorage.getItem("mythos_quiz_highscore");
         return saved ? Number.parseInt(saved, 10) : 0;
       };
 
       expect(loadHighScore()).toBe(10);
-      expect(localStorageMock.getItem).toHaveBeenCalledWith('mythos_quiz_highscore');
+      expect(localStorageMock.getItem).toHaveBeenCalledWith(
+        "mythos_quiz_highscore",
+      );
     });
 
-    it('should return 0 when no high score saved', () => {
+    it("should return 0 when no high score saved", () => {
       localStorageMock.getItem.mockReturnValue(null);
 
       const loadHighScore = () => {
-        const saved = localStorage.getItem('mythos_quiz_highscore');
+        const saved = localStorage.getItem("mythos_quiz_highscore");
         return saved ? Number.parseInt(saved, 10) : 0;
       };
 

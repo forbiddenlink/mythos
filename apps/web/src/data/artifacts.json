@@ -7,7 +7,8 @@
     "description": "The legendary shield of Zeus and Athena, adorned with the fearsome head of the Gorgon Medusa. This divine aegis strikes terror into the hearts of enemies and provides impenetrable protection to its bearer.",
     "type": "armor",
     "powers": ["Invulnerability", "Fear Inducement", "Divine Protection"],
-    "owner": "athena",
+    "ownerId": "athena",
+    "ownerKind": "deity",
     "origin": "Forged by Hephaestus at Zeus's command, the shield was later given to Athena who mounted Medusa's severed head upon it after Perseus's legendary quest.",
     "currentLocation": "Carried eternally by Athena on Mount Olympus",
     "imageUrl": "/artifacts/aegis.png",
@@ -17,11 +18,15 @@
       {
         "text": "About her shoulders she flung the tasselled aegis, fraught with terror, all about which Rout is set as a crown, and therein is the head of the grim monster Gorgon.",
         "source": "Homer, Iliad 5",
+        "sourceId": "iliad",
+        "locator": "Book 5",
         "date": "c. 8th century BCE"
       },
       {
         "text": "Perseus gave the Gorgon's head to Athena, and she placed it in the middle of her shield.",
         "source": "Apollodorus, Library 2.4",
+        "sourceId": "library-apollodorus",
+        "locator": "2.4",
         "date": "c. 1st–2nd century CE"
       }
     ]
@@ -38,7 +43,8 @@
       "Absolute Destruction",
       "Weather Control"
     ],
-    "owner": "zeus",
+    "ownerId": "zeus",
+    "ownerKind": "deity",
     "origin": "Forged by the Cyclopes during the Titanomachy as a gift to Zeus in exchange for their freedom from Tartarus.",
     "currentLocation": "Wielded by Zeus on Mount Olympus",
     "imageUrl": "/artifacts/thunderbolt-of-zeus.png",
@@ -48,6 +54,7 @@
       {
         "text": "They gave Zeus the thunder and the glowing thunderbolt and lightning, and in return he set them free from their bonds.",
         "source": "Hesiod, Theogony",
+        "sourceId": "theogony",
         "date": "c. 700 BCE"
       }
     ]
@@ -60,7 +67,8 @@
     "description": "The three-pronged spear of the sea god, granting dominion over all oceans, rivers, and waters. With a single strike, Poseidon can summon earthquakes, storms, and tidal waves.",
     "type": "weapon",
     "powers": ["Sea Control", "Earthquake Generation", "Storm Summoning"],
-    "owner": "poseidon",
+    "ownerId": "poseidon",
+    "ownerKind": "deity",
     "origin": "Forged by the Cyclopes alongside Zeus's thunderbolt and Hades's helm during the war against the Titans.",
     "currentLocation": "Held by Poseidon in his underwater palace",
     "imageUrl": "/artifacts/trident-of-poseidon.png",
@@ -75,6 +83,8 @@
       {
         "text": "Poseidon struck the rock with his trident and produced a sea, now called Erechtheis.",
         "source": "Apollodorus, Library 3.14",
+        "sourceId": "library-apollodorus",
+        "locator": "3.14",
         "date": "c. 1st–2nd century CE"
       }
     ]
@@ -87,7 +97,8 @@
     "description": "The helmet of invisibility belonging to Hades, lord of the underworld. This dark artifact renders the wearer completely invisible to gods, mortals, and even other supernatural beings.",
     "type": "armor",
     "powers": ["Invisibility", "Fear Aura", "Shadow Walking"],
-    "owner": "hades",
+    "ownerId": "hades",
+    "ownerKind": "deity",
     "origin": "Created by the Cyclopes during the Titanomachy, given to Hades as his portion of the divine weapons.",
     "currentLocation": "Kept in the depths of the Underworld",
     "imageUrl": "/artifacts/helm-of-darkness.png",
@@ -97,11 +108,15 @@
       {
         "text": "Athena put on the cap of Hades, that mighty Ares might not see her.",
         "source": "Homer, Iliad 5.844–845",
+        "sourceId": "iliad",
+        "locator": "5.844–845",
         "date": "c. 8th century BCE"
       },
       {
         "text": "The nymphs gave Perseus the cap of Hades, the winged sandals, and the kibisis.",
         "source": "Apollodorus, Library 2.4",
+        "sourceId": "library-apollodorus",
+        "locator": "2.4",
         "date": "c. 1st–2nd century CE"
       }
     ]
@@ -119,7 +134,8 @@
       "Peace Inducement",
       "Sleep Inducement"
     ],
-    "owner": "hermes",
+    "ownerId": "hermes",
+    "ownerKind": "deity",
     "origin": "Given to Hermes by Apollo in exchange for the lyre. The serpents were added when Hermes separated two fighting snakes with the staff.",
     "currentLocation": "Carried by Hermes throughout all realms",
     "imageUrl": "/artifacts/caduceus.jpg",
@@ -129,6 +145,7 @@
       {
         "text": "I will give you a splendid staff of riches and wealth, a golden one with three branches, which will keep you scatheless.",
         "source": "Homeric Hymn to Hermes",
+        "sourceId": "homeric-hymns",
         "date": "c. 6th century BCE"
       }
     ]
@@ -146,7 +163,8 @@
       "Healing Light",
       "Long-range Destruction"
     ],
-    "owner": "apollo",
+    "ownerId": "apollo",
+    "ownerKind": "deity",
     "origin": "Forged by Hephaestus with silver taken from the moon, matching the golden bow he created for Artemis.",
     "currentLocation": "Carried by Apollo on Mount Olympus",
     "imageUrl": "/artifacts/bow-of-apollo.png",
@@ -156,6 +174,8 @@
       {
         "text": "Down from the peaks of Olympus he strode, angry at heart, with his bow and covered quiver on his shoulders. The arrows rattled on the shoulders of the angry god.",
         "source": "Homer, Iliad 1",
+        "sourceId": "iliad",
+        "locator": "Book 1",
         "date": "c. 8th century BCE"
       }
     ]
@@ -168,7 +188,9 @@
     "description": "The legendary fleece of the golden-winged ram Chrysomallos, possessing the power to heal any wound and cure any illness. It was the prize sought by Jason and the Argonauts.",
     "type": "other",
     "powers": ["Healing", "Resurrection", "Prosperity Blessing"],
-    "owner": "King Aeetes (later Jason)",
+    "ownerId": "jason",
+    "ownerKind": "hero",
+    "ownerLabel": "King Aeëtes of Colchis, later Jason",
     "origin": "The fleece came from Chrysomallos, a flying ram sent by the gods to rescue Phrixus and Helle from their murderous stepmother.",
     "currentLocation": "Last seen in Colchis, guarded by a sleepless dragon",
     "imageUrl": "/artifacts/golden-fleece.png",
@@ -190,7 +212,7 @@
     "description": "The infamous pithos given to Pandora by Zeus, containing all the evils of the world. When opened, it released sickness, death, and countless other plagues upon humanity, leaving only hope trapped inside.",
     "type": "vessel",
     "powers": ["Evil Containment", "Hope Preservation", "Curse Distribution"],
-    "owner": "Pandora",
+    "ownerLabel": "Pandora",
     "origin": "Created by Hephaestus and filled by the gods as punishment for Prometheus's theft of fire.",
     "currentLocation": "Lost to mortal history, its evils now loose in the world",
     "imageUrl": "/artifacts/pandoras-box.png",
@@ -200,6 +222,7 @@
       {
         "text": "The woman took off the great lid of the jar with her hands and scattered all these sorrows for men. Only Hope remained there in an unbreakable home under the rim.",
         "source": "Hesiod, Works and Days",
+        "sourceId": "works-and-days",
         "date": "c. 700 BCE"
       }
     ]
@@ -212,7 +235,7 @@
     "description": "A blade suspended by a single horsehair above the throne, symbolizing the constant peril faced by those in power. It represents the anxiety and danger that accompany great authority.",
     "type": "weapon",
     "powers": ["Psychological Terror", "Symbol of Peril", "Truth Revelation"],
-    "owner": "King Dionysius II of Syracuse",
+    "ownerLabel": "Dionysius, tyrant of Syracuse",
     "origin": "Hung by King Dionysius to teach the courtier Damocles about the true nature of a ruler's life.",
     "currentLocation": "A metaphorical lesson preserved in philosophy",
     "imageUrl": "/artifacts/sword-of-damocles.png",
@@ -234,7 +257,8 @@
     "description": "The magnificent shield forged by Hephaestus for the greatest Greek warrior. Its surface depicts the entire cosmos - earth, sea, sky, cities at war and peace, and all aspects of mortal life.",
     "type": "armor",
     "powers": ["Divine Protection", "Cosmic Reflection", "Indestructibility"],
-    "owner": "achilles",
+    "ownerId": "achilles",
+    "ownerKind": "hero",
     "origin": "Forged by Hephaestus at the request of Thetis after Achilles's original armor was lost when Hector killed Patroclus.",
     "currentLocation": "Lost after the fall of Troy",
     "imageUrl": "/artifacts/shield-of-achilles.jpg",
@@ -244,6 +268,8 @@
       {
         "text": "He made the earth upon it, and the sky, and the sea's water, and the unwearying sun, and the moon waxing, and all the constellations that crown the heavens.",
         "source": "Homer, Iliad 18 (shield of Achilles)",
+        "sourceId": "iliad",
+        "locator": "Book 18",
         "date": "c. 8th century BCE"
       }
     ]
@@ -261,7 +287,8 @@
       "Returning",
       "Mountain Shattering"
     ],
-    "owner": "thor",
+    "ownerId": "thor",
+    "ownerKind": "deity",
     "origin": "Forged by the dwarf brothers Sindri and Brokkr as part of a wager with Loki, who sabotaged its creation resulting in its short handle.",
     "currentLocation": "Wielded by Thor in Asgard",
     "imageUrl": "/artifacts/mjolnir.jpg",
@@ -271,6 +298,8 @@
       {
         "text": "The hammer was defective in that the handle was rather short. Yet they judged that the hammer was the best of all the works and the greatest defence against the frost-giants.",
         "source": "Prose Edda, Skáldskaparmál (Brokkr and Eitri)",
+        "sourceId": "prose-edda",
+        "locator": "Skáldskaparmál",
         "date": "c. 1220 CE"
       }
     ]
@@ -283,7 +312,8 @@
     "description": "Odin's mighty spear that never misses its mark and always kills its target. Oaths sworn upon Gungnir are unbreakable, and it was used to begin the first war in creation.",
     "type": "weapon",
     "powers": ["Perfect Accuracy", "Oath Binding", "Certain Death"],
-    "owner": "odin",
+    "ownerId": "odin",
+    "ownerKind": "deity",
     "origin": "Forged by the Sons of Ivaldi, the same dwarven craftsmen who made Sif's golden hair and Freyr's ship Skidbladnir.",
     "currentLocation": "Wielded by Odin in Asgard",
     "imageUrl": "/artifacts/gungnir.png",
@@ -293,11 +323,14 @@
       {
         "text": "Odin had a spear called Gungnir, which the dwarves had made; it never stopped in its thrust.",
         "source": "Prose Edda, Skáldskaparmál / Gylfaginning",
+        "sourceId": "prose-edda",
         "date": "c. 1220 CE"
       },
       {
         "text": "Odin hurled a spear over the host; that was the first war in the world.",
         "source": "Poetic Edda, Völuspá",
+        "sourceId": "poetic-edda",
+        "locator": "Völuspá",
         "date": "c. 10th–13th century (Codex Regius 1270s)"
       }
     ]
@@ -314,7 +347,8 @@
       "Wealth Generation",
       "Symbolic Authority"
     ],
-    "owner": "odin",
+    "ownerId": "odin",
+    "ownerKind": "deity",
     "origin": "Forged by the dwarf brothers Sindri and Brokkr alongside Mjolnir and Gullinbursti.",
     "currentLocation": "Placed on Baldur's funeral pyre, later retrieved from Hel",
     "imageUrl": "/artifacts/draupnir.png",
@@ -324,11 +358,15 @@
       {
         "text": "The ring Draupnir: every ninth night eight rings of equal weight drip from it.",
         "source": "Prose Edda, Skáldskaparmál",
+        "sourceId": "prose-edda",
+        "locator": "Skáldskaparmál",
         "date": "c. 1220 CE"
       },
       {
         "text": "Odin laid the gold ring Draupnir on Baldr's pyre; Hermod brought it out of Hel.",
         "source": "Prose Edda, Gylfaginning (death of Baldr)",
+        "sourceId": "prose-edda",
+        "locator": "Gylfaginning",
         "date": "c. 1220 CE"
       }
     ]
@@ -345,7 +383,7 @@
       "Monster Restraint",
       "Magical Durability"
     ],
-    "owner": "The Aesir",
+    "ownerLabel": "The Æsir",
     "origin": "Forged by the dwarves from six impossible things: the sound of a cat's footsteps, the beard of a woman, the roots of a mountain, the sinews of a bear, the breath of a fish, and the spittle of a bird.",
     "currentLocation": "Binding Fenrir on the island Lyngvi until Ragnarok",
     "imageUrl": "/artifacts/gleipnir.png",
@@ -355,6 +393,8 @@
       {
         "text": "They had the dwarves make the fetter called Gleipnir. It was made of six things: the noise a cat makes in its footfall, the beard of a woman, the roots of a mountain, the sinews of a bear, the breath of a fish, and the spittle of a bird.",
         "source": "Prose Edda, Gylfaginning (binding of Fenrir)",
+        "sourceId": "prose-edda",
+        "locator": "Gylfaginning",
         "date": "c. 1220 CE"
       }
     ]
@@ -372,7 +412,8 @@
       "Size Manipulation",
       "All-terrain Travel"
     ],
-    "owner": "freyr",
+    "ownerId": "freyr",
+    "ownerKind": "deity",
     "origin": "Built by the Sons of Ivaldi as a gift to the gods, part of the treasures created after Loki cut off Sif's hair.",
     "currentLocation": "Possessed by Freyr in Asgard",
     "imageUrl": "/artifacts/skidbladnir.png",
@@ -382,6 +423,8 @@
       {
         "text": "Skiðblaðnir is the best of ships. It has a fair wind wherever it must go, and it can be folded together like a cloth and kept in a pouch.",
         "source": "Prose Edda, Gylfaginning",
+        "sourceId": "prose-edda",
+        "locator": "Gylfaginning",
         "date": "c. 1220 CE"
       }
     ]
@@ -394,7 +437,8 @@
     "description": "The necklace of the Brisings, a magnificent piece of jewelry belonging to Freya. It enhances her already irresistible beauty and is one of the most coveted treasures in all the Nine Worlds.",
     "type": "jewelry",
     "powers": ["Beauty Enhancement", "Desire Inducement", "Divine Radiance"],
-    "owner": "freyja",
+    "ownerId": "freyja",
+    "ownerKind": "deity",
     "origin": "Obtained by Freya from four dwarven smiths, each of whom demanded a night with the goddess as payment.",
     "currentLocation": "Worn by Freya in Asgard",
     "imageUrl": "/artifacts/brisingamen.png",
@@ -409,6 +453,7 @@
       {
         "text": "Heimdall and Loki fought in the form of seals for the Brísingamen.",
         "source": "Prose Edda, quoting Úlfr Uggason, Húsdrápa",
+        "sourceId": "prose-edda",
         "date": "c. 10th century poem / 1220 CE prose"
       }
     ]
@@ -421,7 +466,8 @@
     "description": "Thor's belt of strength that doubles his already immense godly power. When worn, it allows Thor to lift and wield Mjolnir with even greater devastating force.",
     "type": "armor",
     "powers": ["Strength Doubling", "Power Enhancement", "Endurance Boost"],
-    "owner": "thor",
+    "ownerId": "thor",
+    "ownerKind": "deity",
     "origin": "One of Thor's essential items alongside Mjolnir and his iron gloves Jarngreipr, its origin is attributed to divine craftsmanship.",
     "currentLocation": "Worn by Thor in Asgard",
     "imageUrl": "/artifacts/megingjord.jpg",
@@ -431,6 +477,8 @@
       {
         "text": "He has three especially fine possessions. One is the hammer Mjöllnir. The second is the belt of might, Megingjörð: when he buckles it on, his strength is doubled.",
         "source": "Prose Edda, Gylfaginning",
+        "sourceId": "prose-edda",
+        "locator": "Gylfaginning",
         "date": "c. 1220 CE"
       }
     ]
@@ -443,7 +491,8 @@
     "description": "The sword of Heimdall, guardian of the Bifrost. This legendary blade will be used in the final battle at Ragnarok, where Heimdall and Loki are fated to slay each other.",
     "type": "weapon",
     "powers": ["Divine Sharpness", "Fated Killing", "Bifrost Attunement"],
-    "owner": "heimdall",
+    "ownerId": "heimdall",
+    "ownerKind": "deity",
     "origin": "Forged specifically for the watchman of the gods, attuned to his role as guardian of the rainbow bridge.",
     "currentLocation": "Wielded by Heimdall at the Bifrost",
     "imageUrl": "/artifacts/hofud.png",
@@ -453,6 +502,7 @@
       {
         "text": "Heimdall's sword is called Höfuð. He and Loki will slay one another in the breaking of the gods.",
         "source": "Prose Edda, Gylfaginning / Skáldskaparmál",
+        "sourceId": "prose-edda",
         "date": "c. 1220 CE"
       }
     ]
@@ -470,7 +520,8 @@
       "Agricultural Blessing",
       "Leadership"
     ],
-    "owner": "osiris",
+    "ownerId": "osiris",
+    "ownerKind": "deity",
     "origin": "Originally the symbols of Osiris as god-king of Egypt, passed down to all pharaohs as emblems of their divine right to rule.",
     "currentLocation": "Held by Osiris in the Duat (underworld)",
     "imageUrl": "/artifacts/crook-and-flail.jpg",
@@ -497,7 +548,8 @@
       "Mass Destruction",
       "Goddess Manifestation"
     ],
-    "owner": "ra",
+    "ownerId": "ra",
+    "ownerKind": "deity",
     "origin": "An extension of Ra's own power, the Eye can separate from him and act independently as an avenging force.",
     "currentLocation": "Part of Ra's essence, traveling with the sun barque",
     "imageUrl": "/artifacts/eye-of-ra.jpg",
@@ -519,7 +571,7 @@
     "description": "The key of life, representing eternal existence and the breath of life itself. Gods are often depicted holding the ankh to the nose of pharaohs, bestowing upon them divine life force.",
     "type": "tool",
     "powers": ["Life Bestowal", "Immortality", "Divine Breath", "Resurrection"],
-    "owner": "Multiple Egyptian deities",
+    "ownerLabel": "Many Egyptian deities",
     "origin": "An ancient symbol whose true origin is debated, representing the union of masculine and feminine principles in creating life.",
     "currentLocation": "Carried by various gods throughout the Egyptian pantheon",
     "imageUrl": "/artifacts/ankh.jpg",
@@ -541,7 +593,9 @@
     "description": "The scepter of power and dominion, featuring a forked base and an animal head. It represents control over the forces of chaos and the authority of divine and royal power.",
     "type": "tool",
     "powers": ["Dominion", "Chaos Control", "Royal Authority", "Divine Power"],
-    "owner": "Set (and other Egyptian deities)",
+    "ownerId": "set",
+    "ownerKind": "deity",
+    "ownerLabel": "Set and other Egyptian deities",
     "origin": "Associated with Set's control over the desert and chaos, later adopted as a universal symbol of divine authority.",
     "currentLocation": "Wielded by various gods in the Egyptian pantheon",
     "imageUrl": "/artifacts/was-scepter.png",
@@ -568,7 +622,8 @@
       "Solar Fire",
       "Infinite Range"
     ],
-    "owner": "vishnu",
+    "ownerId": "vishnu",
+    "ownerKind": "deity",
     "origin": "Created by Vishwakarma, the divine architect, from the dust of the sun and scraps from Shiva's trident.",
     "currentLocation": "Spinning eternally on Vishnu's finger",
     "imageUrl": "/artifacts/sudarshana-chakra.jpg",
@@ -578,6 +633,8 @@
       {
         "text": "Krishna released the Sudarshana chakra, and it struck off the head of Shishupala in the assembly.",
         "source": "Mahabharata, Sabha Parva (Śiśupāla-vadha)",
+        "sourceId": "mahabharata",
+        "locator": "Sabha Parva",
         "date": "epic recensions, written form by early centuries CE"
       }
     ]
@@ -595,7 +652,8 @@
       "Reality Manipulation",
       "Third Eye Activation"
     ],
-    "owner": "shiva",
+    "ownerId": "shiva",
+    "ownerKind": "deity",
     "origin": "Emerged from the primordial essence during the creation of the universe, an extension of Shiva's own cosmic power.",
     "currentLocation": "Wielded by Shiva on Mount Kailash",
     "imageUrl": "/artifacts/trishula.png",
@@ -605,6 +663,7 @@
       {
         "text": "Shiva bears the trident, and from him the great weapons of destruction go forth to those he favors.",
         "source": "Mahabharata and Shaiva Puranas (trishula as Shiva's mark)",
+        "sourceId": "mahabharata",
         "date": "epic / Puranic centuries CE"
       }
     ]
@@ -622,7 +681,8 @@
       "Demon Slaying",
       "Weather Command"
     ],
-    "owner": "indra",
+    "ownerId": "indra",
+    "ownerKind": "deity",
     "origin": "Forged by Vishwakarma from the bones of the sage Dadhichi, who sacrificed himself so the gods could defeat the demon Vritra.",
     "currentLocation": "Wielded by Indra in Svarga (heaven)",
     "imageUrl": "/artifacts/vajra.png",
@@ -632,6 +692,8 @@
       {
         "text": "He slew the dragon, then he let the waters flow; Indra with the vajra, his great weapon, struck down Vrtra.",
         "source": "Rigveda 1.32 (Indra and Vṛtra)",
+        "sourceId": "rigveda",
+        "locator": "1.32",
         "date": "c. 1500–1200 BCE"
       },
       {
@@ -654,7 +716,8 @@
       "Target Annihilation",
       "Counter-Immunity"
     ],
-    "owner": "shiva",
+    "ownerId": "shiva",
+    "ownerKind": "deity",
     "origin": "Bestowed by Shiva only to the most worthy devotees, including Arjuna who received it through intense penance.",
     "currentLocation": "Held by Shiva, rarely granted to mortals",
     "imageUrl": "/artifacts/pashupatastra.jpg",
@@ -681,7 +744,7 @@
       "Imperial Authority",
       "Serpent-Slaying"
     ],
-    "owner": "Japanese Imperial Family",
+    "ownerLabel": "Japanese imperial house",
     "origin": "Found by Susanoo within the tail of Yamata no Orochi after he slew the monster. Originally named Ama-no-Murakumo-no-Tsurugi (Sword of the Gathering Clouds of Heaven).",
     "currentLocation": "Enshrined at Atsuta Shrine in Nagoya",
     "imageUrl": "/artifacts/kusanagi.jpg",
@@ -691,6 +754,7 @@
       {
         "text": "When he cut the serpent's middle tail, the edge of his sword was nicked. He split the tail and found a great sword. He called it Ama-no-Murakumo-no-Tsurugi and presented it to Amaterasu.",
         "source": "Kojiki (Susanoo and Yamata no Orochi)",
+        "sourceId": "kojiki",
         "date": "712 CE"
       }
     ]
@@ -708,7 +772,7 @@
       "Divine Wisdom",
       "Soul Revelation"
     ],
-    "owner": "Japanese Imperial Family",
+    "ownerLabel": "Japanese imperial house",
     "origin": "Forged by the god Ishikoridome and hung on a sacred tree to capture Amaterasu's attention during her self-imposed exile.",
     "currentLocation": "Enshrined at Ise Grand Shrine",
     "imageUrl": "/artifacts/yata-no-kagami.jpg",
@@ -718,6 +782,7 @@
       {
         "text": "They hung a mirror on the branch of the sakaki, and Amaterasu, thinking it strange, opened the door of the heavenly rock-cave a little and saw her reflection.",
         "source": "Kojiki (rock-cave of heaven)",
+        "sourceId": "kojiki",
         "date": "712 CE"
       }
     ]
@@ -735,7 +800,7 @@
       "Spiritual Protection",
       "Divine Connection"
     ],
-    "owner": "Japanese Imperial Family",
+    "ownerLabel": "Japanese imperial house",
     "origin": "Created by the god Tamanooya and offered to Amaterasu along with the mirror to entice her from her cave.",
     "currentLocation": "Kept in the Imperial Palace in Tokyo",
     "imageUrl": "/artifacts/yasakani-no-magatama.png",
@@ -745,6 +810,7 @@
       {
         "text": "They hung the Yasakani jewels and the eight-span mirror on the branches of the sakaki before the heavenly rock-cave.",
         "source": "Kojiki (Ame-no-Iwato)",
+        "sourceId": "kojiki",
         "date": "712 CE"
       }
     ]
@@ -762,7 +828,7 @@
       "Wound Prevention (scabbard)",
       "Blinding Light"
     ],
-    "owner": "King Arthur",
+    "ownerLabel": "King Arthur",
     "origin": "Given to Arthur by the Lady of the Lake, or in some tellings, drawn from a stone proving his rightful claim to the throne.",
     "currentLocation": "Returned to the Lady of the Lake after Arthur's death, resting beneath the waters",
     "imageUrl": "/artifacts/excalibur.jpg",
@@ -794,7 +860,7 @@
       "Spiritual Purity",
       "Divine Sustenance"
     ],
-    "owner": "Unknown/Spiritual",
+    "ownerLabel": "The Grail keepers of the romances",
     "origin": "Used by Christ at the Last Supper and later by Joseph of Arimathea to catch Christ's blood. It was brought to Britain and hidden.",
     "currentLocation": "Hidden in the Castle of Corbenic, awaiting a worthy knight",
     "imageUrl": "/artifacts/holy-grail.png",
@@ -826,7 +892,8 @@
       "Fire Generation",
       "Returning"
     ],
-    "owner": "lug",
+    "ownerId": "lug",
+    "ownerKind": "deity",
     "origin": "Brought from the city of Gorias by the Tuatha De Danann when they came to Ireland from the otherworld.",
     "currentLocation": "Kept in the otherworld realms of the Tuatha De Danann",
     "imageUrl": "/artifacts/spear-of-lugh.jpg",
@@ -836,11 +903,13 @@
       {
         "text": "From Gorias was brought the spear that Lugh had. No battle was maintained against it or against him who held it in his hand.",
         "source": "Lebor Gabála Érenn (Four Treasures)",
+        "sourceId": "lebor-gabala-erenn",
         "date": "c. 11th century recension"
       },
       {
         "text": "Lugh came to the battle of Mag Tuired with the equipment of a champion, and the victory of the Tuatha Dé followed his coming.",
         "source": "Cath Maige Tuired",
+        "sourceId": "cath-maige-tuired",
         "date": "c. 9th–12th century"
       }
     ]
@@ -858,7 +927,8 @@
       "Indestructibility",
       "Owner Recognition"
     ],
-    "owner": "sun-wukong",
+    "ownerId": "sun-wukong",
+    "ownerKind": "deity",
     "origin": "Originally a pillar used by Yu the Great to measure the depths of the ocean during his legendary flood control efforts.",
     "currentLocation": "Wielded by Sun Wukong on his journey westward",
     "imageUrl": "/artifacts/ruyi-jingu-bang.png",
@@ -868,6 +938,7 @@
       {
         "text": "The Monkey King took the iron from the sea treasury: a golden-hooped rod that obeyed his wish, shrinking to a needle or swelling to a pillar.",
         "source": "Journey to the West (Xiyouji), chapter of the Dragon Palace",
+        "sourceId": "journey-to-the-west",
         "date": "c. 1592 CE"
       }
     ]
@@ -885,7 +956,8 @@
       "Divine Authority",
       "Primordial Power"
     ],
-    "owner": "izanagi",
+    "ownerId": "izanagi",
+    "ownerKind": "deity",
     "origin": "Given to the primal divine couple by the older heavenly gods to bring order to the chaos below the heavens.",
     "currentLocation": "Returned to the heavenly realm after creation was complete",
     "imageUrl": "/artifacts/ame-no-nuboko.jpg",
@@ -895,6 +967,7 @@
       {
         "text": "Standing on the Floating Bridge of Heaven, they stirred the ocean with the heavenly jeweled spear, and the brine that dripped became an island.",
         "source": "Kojiki",
+        "sourceId": "kojiki",
         "date": "712 CE"
       }
     ]
@@ -912,7 +985,8 @@
       "Divine Authority",
       "Storm Summoning"
     ],
-    "owner": "jupiter",
+    "ownerId": "jupiter",
+    "ownerKind": "deity",
     "origin": "Forged by Vulcan for the king of the gods, representing the protective power of the Roman state.",
     "currentLocation": "Wielded by Jupiter in the heavens",
     "imageUrl": "/artifacts/aegis-of-jupiter.png",
@@ -939,7 +1013,7 @@
       "Legal Power",
       "Imperium"
     ],
-    "owner": "Roman Magistrates and Lictors",
+    "ownerLabel": "Roman magistrates and their lictors",
     "origin": "Adopted from the Etruscans, the fasces became the supreme symbol of Roman governmental authority and the power of the state.",
     "currentLocation": "Carried ceremonially throughout Roman history, now a symbol in modern heraldry",
     "imageUrl": "/artifacts/fasces.png",
@@ -966,7 +1040,7 @@
       "Hunger Banishment",
       "Wealth Generation"
     ],
-    "owner": "Abundantia / Fortuna",
+    "ownerLabel": "Abundantia and Fortuna",
     "origin": "One of the horns of the goat Amalthea, who nursed the infant Jupiter in hiding from Saturn. When the horn broke off, Jupiter blessed it with the power of endless abundance.",
     "currentLocation": "Held by various goddesses of fortune and plenty",
     "imageUrl": "/artifacts/cornucopia.png",
@@ -993,7 +1067,7 @@
       "Invincibility Blessing",
       "Sacred Authority"
     ],
-    "owner": "The Roman State",
+    "ownerLabel": "Troy, then the Roman state",
     "origin": "According to legend, the statue fell from the sky and was first kept in Troy. Aeneas rescued it during Troy's fall and brought it to Italy, where it became Rome's most sacred treasure.",
     "currentLocation": "Hidden in the Temple of Vesta, guarded by the Vestal Virgins",
     "imageUrl": "/artifacts/palladium.png",
@@ -1008,6 +1082,8 @@
       {
         "text": "Aeneas bore the household gods and the sacred image from the burning city toward the land that would be Rome.",
         "source": "Virgil, Aeneid 2",
+        "sourceId": "aeneid",
+        "locator": "Book 2",
         "date": "c. 19 BCE"
       }
     ]
@@ -1020,7 +1096,8 @@
     "description": "A clay tablet that confers supreme authority over the cosmos. Whoever holds it commands the decrees of heaven and earth — stolen and reclaimed in the battles of Mesopotamian myth.",
     "type": "relic",
     "powers": ["Cosmic Authority", "Divine Decree", "Fate Binding"],
-    "owner": "enlil",
+    "ownerId": "enlil",
+    "ownerKind": "deity",
     "origin": "Associated with Enlil and later Marduk; contested in myths of Anzu and the Enuma Elish tradition.",
     "currentLocation": "Held among the gods of Mesopotamia",
     "imageUrl": "/artifacts/tablet-of-destinies.png",
@@ -1035,6 +1112,7 @@
       {
         "text": "Marduk defeated Kingu and took from him the Tablet of Destinies, sealed it with his seal, and fastened it on his breast.",
         "source": "Enuma Elish",
+        "sourceId": "enuma-elish",
         "date": "c. late 2nd millennium BCE"
       }
     ]
@@ -1047,7 +1125,8 @@
     "description": "Obsidian mirror of the night lord Tezcatlipoca, used for divination and revealing hidden truths. Smoke rises from its dark surface — a window into destiny and war.",
     "type": "tool",
     "powers": ["Divination", "Revelation", "Night Vision"],
-    "owner": "tezcatlipoca",
+    "ownerId": "tezcatlipoca",
+    "ownerKind": "deity",
     "origin": "An emblem of Tezcatlipoca himself; his name means 'Smoking Mirror.'",
     "currentLocation": "Borne by Tezcatlipoca",
     "imageUrl": "/artifacts/smoking-mirror.png",
@@ -1057,6 +1136,8 @@
       {
         "text": "Tezcatlipoca, Smoking Mirror, whose seer-stone is obsidian, lord of the night and of princes.",
         "source": "Florentine Codex (Sahagún), Books 1 and 6 (Tezcatlipoca)",
+        "sourceId": "florentine-codex",
+        "locator": "Books 1 and 6",
         "date": "c. 1577 CE"
       }
     ]
@@ -1069,7 +1150,8 @@
     "description": "The turquoise fire serpent weapon of Huitzilopochtli and Xiuhtecuhtli — a living bolt of flame that burns enemies of the sun and the Mexica.",
     "type": "weapon",
     "powers": ["Fire Serpent", "Solar Flame", "Enemy Destruction"],
-    "owner": "huitzilopochtli",
+    "ownerId": "huitzilopochtli",
+    "ownerKind": "deity",
     "origin": "Wielded at Huitzilopochtli's birth when he slew Coyolxauhqui and the Centzon Huitznahua.",
     "currentLocation": "Wielded by the sun warrior gods",
     "imageUrl": "/artifacts/xiuhcoatl.png",
@@ -1079,19 +1161,22 @@
       {
         "text": "At Coatepec, Huitzilopochtli was born fully armed and with the xiuhcoatl, the fire serpent, he struck Coyolxauhqui and cut her to pieces, then routed the four hundred southerners.",
         "source": "Florentine Codex, Book 3 (Huitzilopochtli at Coatepec)",
+        "sourceId": "florentine-codex",
+        "locator": "Book 3",
         "date": "c. 1577 CE"
       }
     ]
   },
   {
     "id": "oguns-iron",
-    "pantheonId": "african-pantheon",
+    "pantheonId": "yoruba-pantheon",
     "name": "Ogun's Iron",
     "slug": "oguns-iron",
     "description": "Sacred iron of Ogun, orisha of metalworking, war, and the open road. Tools, machetes, and weapons dedicated to him carry his cutting, clearing power.",
     "type": "weapon",
     "powers": ["Path Clearing", "Metal Mastery", "Warrior Strength"],
-    "owner": "ogun",
+    "ownerId": "ogun",
+    "ownerKind": "deity",
     "origin": "Ogun cleared the path from heaven to earth with iron — technology and force bound together.",
     "currentLocation": "Present in every forge and iron tool",
     "imageUrl": "/artifacts/oguns-iron.png",
@@ -1107,13 +1192,14 @@
   },
   {
     "id": "oshe-of-shango",
-    "pantheonId": "african-pantheon",
+    "pantheonId": "yoruba-pantheon",
     "name": "Oshe of Shango",
     "slug": "oshe-of-shango",
     "description": "The double-headed axe of Shango, orisha of thunder and kingship. It channels lightning and asserts just rule — a symbol of power that must not be abused.",
     "type": "weapon",
     "powers": ["Thunder", "Lightning Strike", "Royal Authority"],
-    "owner": "shango",
+    "ownerId": "shango",
+    "ownerKind": "deity",
     "origin": "Emblem of Shango's reign as a legendary king of Oyo who became an orisha.",
     "currentLocation": "Carried in Shango's rites",
     "imageUrl": "/artifacts/oshe-of-shango.png",
@@ -1135,7 +1221,8 @@
     "description": "Maui's magical fishhook, baited with his own blood in some tellings, used to haul islands from the deep and snare the sun to slow its course across the sky.",
     "type": "tool",
     "powers": ["Island Raising", "Sun Snaring", "Ocean Mastery"],
-    "owner": "maui",
+    "ownerId": "maui",
+    "ownerKind": "deity",
     "origin": "Fashioned from the jawbone of an ancestor in several Polynesian traditions.",
     "currentLocation": "Remembered in star lore and island geography",
     "imageUrl": "/artifacts/manaiakalani.png",
@@ -1157,7 +1244,8 @@
     "description": "The spiral wind jewel (ehēcatl) associated with Quetzalcoatl as Ehecatl, the wind aspect — breath that clears the way for rain and life.",
     "type": "relic",
     "powers": ["Wind Calling", "Breath of Life", "Path Opening"],
-    "owner": "quetzalcoatl",
+    "ownerId": "quetzalcoatl",
+    "ownerKind": "deity",
     "origin": "Iconography of Quetzalcoatl-Ehecatl across central Mexico.",
     "currentLocation": "Borne as Quetzalcoatl's emblem",
     "imageUrl": "/artifacts/wind-jewel.png",
@@ -1179,7 +1267,8 @@
     "description": "Sacred peaches from the garden of Xi Wangmu that ripen only once every few thousand years. Eating one grants longevity approaching immortality.",
     "type": "relic",
     "powers": ["Longevity", "Immortality", "Divine Vitality"],
-    "owner": "xi-wangmu",
+    "ownerId": "xi-wangmu",
+    "ownerKind": "deity",
     "origin": "Grown in the Queen Mother of the West's orchard; famously stolen in Journey to the West.",
     "currentLocation": "The peach orchard of Kunlun",
     "imageUrl": "/artifacts/peach-of-immortality.png",
@@ -1194,6 +1283,7 @@
       {
         "text": "Sun Wukong slipped into the orchard and ate the peaches of immortality before the banquet of the immortals.",
         "source": "Journey to the West (Xiyouji)",
+        "sourceId": "journey-to-the-west",
         "date": "c. 1592 CE"
       }
     ]
@@ -1206,7 +1296,8 @@
     "description": "An obsidian-edged war club associated with the Mexica war god — a weapon that cuts like a blade and carries solar war-fire into battle.",
     "type": "weapon",
     "powers": ["Obsidian Edge", "War Favor", "Solar Wrath"],
-    "owner": "huitzilopochtli",
+    "ownerId": "huitzilopochtli",
+    "ownerKind": "deity",
     "origin": "Linked to Huitzilopochtli's patronage of Mexica warriors and the ritual warfare that sustained the Fifth Sun.",
     "currentLocation": "Held among the war banners of Tenochtitlan in mythic memory",
     "imageUrl": "/artifacts/macuahuitl-of-huitzilopochtli.png",
@@ -1228,7 +1319,8 @@
     "description": "The great disk depicting the dismembered moon goddess Coyolxauhqui, a cosmic emblem of defeat beneath the Templo Mayor.",
     "type": "relic",
     "powers": ["Lunar Memory", "Ritual Warning", "Cosmic Order"],
-    "owner": "coyolxauhqui",
+    "ownerId": "coyolxauhqui",
+    "ownerKind": "deity",
     "origin": "Commemorates Coyolxauhqui's fall at Coatepec when Huitzilopochtli rose as the sun of war.",
     "currentLocation": "At the base of the sacred mountain Coatepec / Templo Mayor in myth",
     "imageUrl": "/artifacts/coyolxauhqui-stone.png",
@@ -1238,6 +1330,8 @@
       {
         "text": "Huitzilopochtli struck Coyolxauhqui, cut off her head, and her body went falling down the mountain, breaking to pieces.",
         "source": "Florentine Codex, Book 3 (Coatepec)",
+        "sourceId": "florentine-codex",
+        "locator": "Book 3",
         "date": "c. 1577 CE"
       },
       {
@@ -1255,7 +1349,8 @@
     "description": "The foundational powers of civilization — crafts, kingship, music, law — stolen and gifted by Inanna from Enki's house in Eridu.",
     "type": "relic",
     "powers": ["Civilization", "Kingship", "Sacred Arts"],
-    "owner": "inanna",
+    "ownerId": "inanna",
+    "ownerKind": "deity",
     "origin": "Taken by Inanna from Enki after a feast in the Abzu, then carried to Uruk.",
     "currentLocation": "Distributed through the temples of Uruk",
     "imageUrl": "/artifacts/the-me.png",
@@ -1277,7 +1372,8 @@
     "description": "The storm-weapon Marduk used to swell Tiamat's belly before piercing her with an arrow in the Enuma Elish.",
     "type": "weapon",
     "powers": ["Storm Force", "Chaos Binding", "Creation Victory"],
-    "owner": "marduk",
+    "ownerId": "marduk",
+    "ownerKind": "deity",
     "origin": "Forged among Marduk's arsenal for the battle against Tiamat.",
     "currentLocation": "Wielded by Marduk in the heavens of Babylonian myth",
     "imageUrl": "/artifacts/imhullu.png",
@@ -1287,6 +1383,8 @@
       {
         "text": "He sent the imhullu, the evil wind, to swell Tiamat's belly; then he shot the arrow that split her.",
         "source": "Enuma Elish, Tablet IV",
+        "sourceId": "enuma-elish",
+        "locator": "Tablet IV",
         "date": "c. late 2nd millennium BCE"
       }
     ]
@@ -1296,10 +1394,10 @@
     "pantheonId": "mesoamerican-pantheon",
     "name": "Pakal's Sarcophagus Lid",
     "slug": "pakal-sarcophagus-lid",
+    "ownerLabel": "K'inich Janaab Pakal, king of Palenque",
     "description": "The carved lid of K'inich Janaab' Pakal's tomb at Palenque — a world-tree vision of descent and rebirth between underworld and sky.",
     "type": "relic",
     "powers": ["World Tree Vision", "Royal Afterlife", "Cosmic Axis"],
-    "owner": null,
     "origin": "Maya royal funerary art encoding the king's passage along the axis mundi.",
     "currentLocation": "Temple of the Inscriptions, Palenque (historical); in myth, the road between Xibalba and the heavens",
     "imageUrl": "/artifacts/pakal-sarcophagus-lid.png",
@@ -1318,10 +1416,11 @@
     "pantheonId": "mesoamerican-pantheon",
     "name": "Blowgun of the Hero Twins",
     "slug": "hero-twins-blowgun",
+    "ownerId": "hero-twins",
+    "ownerKind": "deity",
     "description": "The blowgun Hunahpu and Xbalanque use to strike the arrogant bird-demon Seven Macaw and later to navigate the trials of Xibalba.",
     "type": "weapon",
     "powers": ["Precision Strike", "Trickster Aim", "Underworld Cunning"],
-    "owner": null,
     "origin": "Popol Vuh — the twins' tool against Seven Macaw and the lords of death.",
     "currentLocation": "Carried through the courts of Xibalba",
     "imageUrl": "/artifacts/hero-twins-blowgun.png",
@@ -1331,7 +1430,639 @@
       {
         "text": "Hunahpu shot Seven Macaw in the jaw with the blowgun, and the twins later walked the trials of Xibalba with the same hunter's craft.",
         "source": "Popol Vuh",
+        "sourceId": "popol-vuh",
         "date": "colonial K'iche' text; 16th–18th century manuscript tradition"
+      }
+    ]
+  },
+  {
+    "id": "svantevits-horn",
+    "pantheonId": "slavic-pantheon",
+    "name": "Svantevit's Horn",
+    "slug": "svantevits-horn",
+    "description": "The drinking horn held in the right hand of Svantevit's four-headed statue at Arkona, filled with wine once a year; the priest read the coming harvest from how much remained.",
+    "type": "ritual vessel",
+    "powers": ["Harvest divination", "Measure of the coming year"],
+    "ownerId": "svantevit",
+    "ownerKind": "deity",
+    "origin": "Described by the Danish historian Saxo Grammaticus (c. 1200) as part of the cult statue in Svantevit's temple at Arkona on Rügen, destroyed by the Danes in 1168.",
+    "currentLocation": "Destroyed with the temple at Arkona in 1168",
+    "imageUrl": "/artifacts/svantevits-horn.webp",
+    "relatedStories": ["svantevits-oracle-horse"],
+    "detailedBio": "## An attested object\n\nUnlike most Slavic cult objects, Svantevit's horn is described by a witness close to the events. Saxo Grammaticus, writing his *Gesta Danorum* around 1200, describes the temple at Arkona that King Valdemar I's Danish army destroyed in 1168: its huge four-headed wooden statue held in its right hand a horn worked in various metals, which the priest filled with wine every year. Beside the statue hung a bridle and saddle, and a great sword was kept there too.\n\n## Reading the harvest\n\nAt the yearly festival after harvest, Saxo writes, the priest examined the horn the day after the rites: if the wine had diminished, he foretold a poor harvest and advised the people to save their grain; if it had not, he foretold plenty. He then poured the old wine at the statue's feet, refilled the horn, and drank to the god, praying for the people's prosperity.\n\n## Reading Saxo\n\nSaxo was a Christian writer celebrating the conquest, and his account is shaped by that purpose; but the detail of the horn, the statue, and the rite is specific, and it is among the best-attested descriptions of West Slavic temple religion.",
+    "primarySources": [
+      {
+        "text": "The statue of Svantevit at Arkona held in its right hand a horn made of various metals, filled each year with wine by the priest, who read the coming harvest from what remained (paraphrase).",
+        "source": "Saxo Grammaticus, Gesta Danorum, Book 14",
+        "date": "c. 1200 CE"
+      }
+    ]
+  },
+  {
+    "id": "idol-of-perun-kyiv",
+    "pantheonId": "slavic-pantheon",
+    "name": "Idol of Perun at Kyiv",
+    "slug": "idol-of-perun-kyiv",
+    "description": "The wooden image of Perun with a silver head and a golden moustache that Prince Vladimir set up on the hill outside his palace in 980, and had thrown into the Dnieper at his conversion in 988.",
+    "type": "idol",
+    "powers": ["Focus of state cult", "Guarantor of oaths"],
+    "ownerId": "perun",
+    "ownerKind": "deity",
+    "origin": "Erected by Vladimir Sviatoslavich on the hill beyond the palace courtyard in Kyiv, according to the Primary Chronicle under the year 980.",
+    "currentLocation": "Cast into the Dnieper in 988, according to the Primary Chronicle",
+    "imageUrl": "/artifacts/idol-of-perun-kyiv.webp",
+    "relatedStories": ["vladimirs-pantheon-980"],
+    "detailedBio": "## Set up in 980\n\nThe *Russian Primary Chronicle*, compiled in Kyiv in the early 12th century, records under the year 980 that Vladimir, newly ruler of Kyiv, set up idols on the hill outside his palace: Perun, made of wood with a head of silver and a moustache of gold, and beside him Khors, Dazhbog, Stribog, Simargl, and Mokosh. People sacrificed to them, the chronicler writes with disapproval.\n\n## Thrown down in 988\n\nUnder 988, after Vladimir's baptism, the chronicle describes the images being overthrown. Perun was tied to a horse's tail and dragged down to the stream, beaten with sticks by twelve men, and thrown into the Dnieper, and men were set to push the image away from the banks until it had passed the rapids.\n\n## How far to trust it\n\nThe chronicle was written more than a century later by Christian monks, and some historians read the 980 'pantheon' as partly literary. But the silver-and-gold idol is one of the few physical descriptions of an East Slavic cult image that survives, and excavations on Starokyivska Hill have been argued to locate the site.",
+    "primarySources": [
+      {
+        "text": "Vladimir set up idols on the hill outside the palace: Perun of wood with a head of silver and a moustache of gold, with Khors, Dazhbog, Stribog, Simargl, and Mokosh (paraphrase).",
+        "source": "Russian Primary Chronicle, s.a. 980 (paraphrase)",
+        "sourceId": "russian-primary-chronicle",
+        "locator": "s.a. 980",
+        "date": "early 12th century CE"
+      },
+      {
+        "text": "Perun was tied to a horse's tail, beaten with sticks, and thrown into the Dnieper after Vladimir's baptism (paraphrase).",
+        "source": "Russian Primary Chronicle, s.a. 988 (paraphrase)",
+        "sourceId": "russian-primary-chronicle",
+        "locator": "s.a. 988",
+        "date": "early 12th century CE"
+      }
+    ]
+  },
+  {
+    "id": "triglav-idol-szczecin",
+    "pantheonId": "slavic-pantheon",
+    "name": "Three-Headed Idol of Triglav",
+    "slug": "triglav-idol-szczecin",
+    "description": "The three-headed image of Triglav at Szczecin, described by the biographers of Bishop Otto of Bamberg, who had it broken during his mission to Pomerania in the 1120s and sent its heads away as a trophy.",
+    "type": "idol",
+    "powers": [
+      "Rule over three realms (as the biographers report the priests explaining)",
+      "Oracle by the god's black horse"
+    ],
+    "ownerId": "triglav",
+    "ownerKind": "deity",
+    "origin": "Kept in a temple at Szczecin (Stettin) in Pomerania; described in the 12th-century Lives of Otto of Bamberg by Ebbo and Herbord.",
+    "currentLocation": "Destroyed during the mission of Otto of Bamberg (1124 to 1128)",
+    "imageUrl": "/artifacts/triglav-idol-szczecin.webp",
+    "relatedStories": [],
+    "detailedBio": "## The witnesses\n\nTriglav is known almost entirely from the Lives of Otto of Bamberg, the German bishop who led missions to Pomerania in 1124 and 1128. His biographers Ebbo and Herbord, writing in the mid-12th century from the reports of Otto's companions, describe a temple at Szczecin with a three-headed image of the god. Herbord reports the priests' explanation that the three heads signified rule over heaven, earth, and the underworld, and that the god's eyes were covered with a golden band so that he would not see the sins of men.\n\n## Broken and sent away\n\nAccording to Herbord, Otto had the image broken and sent its three joined heads away as a trophy of the mission. Ebbo tells a different detail, that a golden image of Triglav was hidden by the pagans and could not be found. The biographers also describe a black horse used for divination, led over spears laid on the ground.\n\n## Attestation\n\nThese are hostile, second-hand Christian sources, and they disagree with each other; but they are contemporary with the cult, which is more than can be said for most Slavic gods.",
+    "primarySources": [
+      {
+        "text": "Herbord describes the three-headed image at Szczecin, explains the heads as rule over heaven, earth, and the underworld, and says its eyes were covered with a golden band; Otto had it broken and the heads sent away (paraphrase).",
+        "source": "Herbord, Dialogus de vita Ottonis episcopi Babenbergensis",
+        "date": "c. 1158–1159 CE"
+      },
+      {
+        "text": "Ebbo reports that a golden image of Triglav was hidden by the pagans and describes the divinatory black horse (paraphrase).",
+        "source": "Ebbo, Vita Ottonis episcopi Babenbergensis",
+        "date": "c. 1151–1159 CE"
+      }
+    ]
+  },
+  {
+    "id": "zbruch-idol",
+    "pantheonId": "slavic-pantheon",
+    "name": "Zbruch Idol",
+    "slug": "zbruch-idol",
+    "description": "A four-sided limestone pillar about 2.6 metres tall, carved with four faces under a single cap and tiers of figures below, found in the Zbruch River in 1848 and now in the Archaeological Museum in Kraków; its identification with Svantevit is a modern hypothesis.",
+    "type": "idol",
+    "powers": ["Unknown; interpretations are modern"],
+    "ownerLabel": "Unidentified; often linked to Svantevit or to a composite of several gods, both disputed",
+    "origin": "Found in 1848 in the Zbruch River near Husiatyn (now in western Ukraine); usually dated to the 9th or 10th century, though some scholars have questioned that date.",
+    "currentLocation": "Archaeological Museum, Kraków, Poland",
+    "imageUrl": "/artifacts/zbruch-idol.webp",
+    "relatedStories": [],
+    "detailedBio": "## A real object, an uncertain meaning\n\nThe Zbruch Idol is one of the very few surviving pieces of what may be Slavic pagan sculpture. The pillar, a little over 2.5 metres tall, has four faces on its sides beneath a single round cap. Below them run tiers of smaller figures, and at the base a kneeling or crouching figure seems to hold up the whole. One face holds a horn, another a ring, and a horse and a sword are carved on other sides.\n\n## Svantevit? Reconstruction, not attestation\n\nBecause Saxo describes Svantevit's statue at Arkona as four-headed and holding a horn, the pillar was soon called a 'Sviatovid', and it appears under that name in older literature and in Polish and Ukrainian heraldry. But nothing ties this object to Svantevit: Arkona is on the Baltic island of Rügen, hundreds of kilometres from the Zbruch, and Saxo's statue was wooden. Scholars such as Boris Rybakov read the tiers as a three-level cosmos of gods, people, and underworld; others have questioned whether the pillar is medieval at all. This site treats all of those readings as hypotheses.\n\n## Seeing it\n\nThe original is displayed in the Archaeological Museum in Kraków.",
+    "primarySources": [
+      {
+        "text": "The pillar recovered from the Zbruch River in 1848 bears four faces under one cap, with a horn, ring, horse, and sword among its carvings; its identification with any named god is conjectural (paraphrase of the museum record and scholarship).",
+        "source": "Archaeological Museum in Kraków, collection record; Boris Rybakov, Yazychestvo drevnikh slavyan (Paganism of the Ancient Slavs)",
+        "date": "1981 (Rybakov)"
+      },
+      {
+        "text": "The statue of Svantevit at Arkona had four heads and held a horn, the description that led later scholars to associate the Zbruch pillar with him (paraphrase).",
+        "source": "Saxo Grammaticus, Gesta Danorum, Book 14",
+        "date": "c. 1200 CE"
+      }
+    ]
+  },
+  {
+    "id": "jawbone-of-muri-ranga-whenua",
+    "pantheonId": "polynesian-pantheon",
+    "name": "Jawbone of Muri-ranga-whenua",
+    "slug": "jawbone-of-muri-ranga-whenua",
+    "description": "The enchanted jawbone of Māui's grandmother Muri-ranga-whenua, which, in the Māori traditions George Grey published, Māui used as a weapon to beat the sun and as the hook with which he fished up the North Island.",
+    "type": "weapon and fishhook",
+    "powers": ["Wounding the sun", "Fishing up land from the sea"],
+    "ownerId": "maui",
+    "ownerKind": "deity",
+    "origin": "Taken by Māui from his grandmother Muri-ranga-whenua, who, in Grey's version, gave it up to him as he came to her.",
+    "currentLocation": "In the story, it becomes the hook of the fish Te Ika-a-Māui, the North Island",
+    "imageUrl": "/artifacts/jawbone-of-muri-ranga-whenua.webp",
+    "relatedStories": ["hina-maui-lengthened-day"],
+    "detailedBio": "## A grandmother's jaw\n\nIn the Māori Māui traditions George Grey published in 1855, Māui learns that his grandmother Muri-ranga-whenua has been neglected, and goes to her. She is half dead and ready to devour whoever comes, but recognising her grandson, she lets him take her enchanted jawbone. The jawbone becomes the source of his power in the deeds that follow.\n\n## Beating the sun\n\nThe days are too short because the sun hurries across the sky. Māui and his brothers make ropes and set a noose at the pit from which the sun rises; when it is caught, Māui beats it with the jawbone until it is weakened and must travel slowly, and the days grow long.\n\n## Fishing up the land\n\nLater, Māui makes a fishhook from the same jawbone, hides in his brothers' canoe, and, baiting the hook with blood from his own nose, hauls up an enormous fish: Te Ika-a-Māui, the North Island of Aotearoa, whose ridges and valleys are the marks of his brothers' knives as they cut into it before the gods were appeased.\n\n## Other islands, other hooks\n\nHawaiian tradition names Māui's hook Manaiakalani and tells the island-fishing story of the Hawaiian chain; the jawbone origin belongs to the Māori tellings.",
+    "primarySources": [
+      {
+        "text": "Māui obtains the jawbone of his ancestress Muri-ranga-whenua, beats the snared sun with it, and later makes from it the fishhook with which he draws up the land (paraphrase).",
+        "source": "George Grey, Polynesian Mythology and Ancient Traditional History of the New Zealand Race",
+        "date": "1855"
+      }
+    ]
+  },
+  {
+    "id": "nga-kete-o-te-wananga",
+    "pantheonId": "polynesian-pantheon",
+    "name": "Ngā Kete o te Wānanga",
+    "slug": "nga-kete-o-te-wananga",
+    "description": "The three baskets of knowledge that, in Māori tradition, were brought down from the uppermost heaven: most often credited to Tāne, and in other tribal traditions to Tāwhaki.",
+    "type": "sacred baskets",
+    "powers": [
+      "Knowledge of ritual and the sacred",
+      "Knowledge of evil and harm (to be guarded against)",
+      "Knowledge of the world and its arts"
+    ],
+    "ownerId": "tane",
+    "ownerKind": "deity",
+    "origin": "Obtained by Tāne (or, in some traditions, Tāwhaki) from Io or the guardians of the highest heaven, after an ascent through the heavens.",
+    "currentLocation": "Held, in the tradition, in the house of learning (whare wānanga)",
+    "imageUrl": "/artifacts/nga-kete-o-te-wananga.webp",
+    "relatedStories": [],
+    "detailedBio": "## Three baskets\n\nMāori tradition tells of three kete (baskets) of knowledge brought down from the highest of the heavens so that people could learn. Their names and contents vary between iwi (tribes) and between the scholars who recorded them, but a common set is te kete tuauri, te kete tuatea, and te kete aronui: knowledge of ritual and the sacred, knowledge of harmful arts that must be guarded against, and knowledge of the world and the arts that help people.\n\n## Who brought them\n\nIn many accounts, especially those recorded from the Tūhoe and Ngāti Kahungunu schools of learning, Tāne climbs through the heavens, overcomes his brother Whiro who tries to stop him, and returns with the baskets and with two sacred stones. Other tribal traditions credit the ascent to the hero Tāwhaki. Some of these accounts, especially those that place a supreme being Io at the top of the heavens, were recorded in the late 19th and early 20th centuries, and scholars debate how old and widespread the Io teachings were.\n\n## A living image\n\nThe three baskets remain a central image in Māori education today, used in the names and mottos of schools, universities, and libraries.",
+    "primarySources": [
+      {
+        "text": "Records the tradition of the three baskets of knowledge obtained from the heavens (paraphrase).",
+        "source": "John White, The Ancient History of the Maori, Vol. 1",
+        "date": "1887"
+      },
+      {
+        "text": "Describes Tāne's ascent, his contest with Whiro, and the baskets of knowledge as taught in the whare wānanga (paraphrase).",
+        "source": "Elsdon Best, Maori Religion and Mythology, Part 1",
+        "date": "1924"
+      }
+    ]
+  },
+  {
+    "id": "matahourua",
+    "pantheonId": "polynesian-pantheon",
+    "name": "Matahourua",
+    "slug": "matahourua",
+    "description": "The voyaging canoe in which, in Māori tradition, Kupe crossed from Hawaiki, pursued the great octopus of Muturangi, and discovered Aotearoa.",
+    "type": "voyaging canoe",
+    "powers": ["Ocean voyaging", "Carrying Kupe to Aotearoa"],
+    "ownerId": "kupe",
+    "ownerKind": "hero",
+    "origin": "Kupe's canoe in the traditions of Hokianga and other northern and eastern iwi; in some traditions later refitted and renamed Ngātokimatawhaorua.",
+    "currentLocation": "In tradition, its name lives on in Ngātokimatawhaorua, the great ceremonial waka at Waitangi",
+    "imageUrl": "/artifacts/matahourua.webp",
+    "relatedStories": [],
+    "detailedBio": "## Kupe's canoe\n\nKupe is honoured by many iwi as the discoverer of Aotearoa. In widely told accounts he sails from Hawaiki in the canoe Matahourua (also spelled Matawhaorua), pursuing Te Wheke-a-Muturangi, the great octopus that had been stealing bait, across the ocean. The chase brings him to a new land, which his wife Kuramārōtini names for the long white cloud she sees on the horizon: Aotearoa.\n\n## After the voyage\n\nKupe kills the octopus in Cook Strait, names many places around the coasts, and returns to Hawaiki with sailing directions for those who come after. Northern traditions, especially in Hokianga, remember the canoe being refitted and renamed Ngātokimatawhaorua; that name was given in 1940 to the great ceremonial waka that is launched at Waitangi each February.\n\n## Many traditions\n\nKupe's voyages differ in detail and emphasis from iwi to iwi, and the name of the canoe itself varies. The 20th-century 'Great Fleet' dating of these voyages, popularised by S. Percy Smith, is no longer accepted, and this entry gives no date.",
+    "primarySources": [
+      {
+        "text": "Kupe sails from Hawaiki in Matahourua in pursuit of the octopus of Muturangi and reaches Aotearoa (paraphrase).",
+        "source": "Māori oral tradition (Kupe traditions of Hokianga and other iwi); summarised in Te Ara: The Encyclopedia of New Zealand, \"Kupe\"",
+        "date": "oral; summarised 2005 onward"
+      }
+    ]
+  },
+  {
+    "id": "ancient-copper-cutter",
+    "pantheonId": "hittite-pantheon",
+    "name": "The Ancient Copper Cutter",
+    "slug": "ancient-copper-cutter",
+    "description": "The primeval copper cutting tool with which heaven and earth were once separated, brought out of the ancient storehouses so that Ea can sever the stone giant Ullikummi from Upelluri's shoulder.",
+    "type": "tool",
+    "powers": [
+      "separated heaven from earth at the beginning",
+      "cuts what no weapon can"
+    ],
+    "origin": "Song of Ullikummi (CTH 345): the tool used when heaven and earth were separated, kept by the Former Gods.",
+    "currentLocation": "Returned to the storehouses of the Former Gods (implied; the text breaks off)",
+    "imageUrl": "/artifacts/ancient-copper-cutter.webp",
+    "relatedStories": ["song-of-ullikummi"],
+    "detailedBio": "## A tool from the making of the world\n\nIn the Song of Ullikummi, when the storm-god Teššub has been beaten and the stone giant is still growing, the wise god Ea goes to the Former Gods, the primeval deities of the underworld, and asks them to open the old storehouses of their fathers and bring out the ancient copper cutting tool, the one with which heaven and earth were separated. With it he cuts Ullikummi's feet away from the shoulder of Upelluri, and the giant loses the strength that came from his footing.\n\n## What the story assumes\n\nThe episode assumes a cosmology in which heaven and earth were once joined and had to be cut apart, and in which the cutting tool still exists, stored away. Upelluri himself says that he felt nothing when heaven and earth were built on him and nothing when they were cut apart. The idea of a primeval separation of heaven and earth is widespread in Near Eastern and other traditions; the Hurrian song is distinctive in making the separating tool a physical object that can be brought out again.\n\n## Nothing more is known\n\nThe text does not describe the tool's shape beyond calling it a copper cutter, and it has no life outside this one scene. It is not an archaeological object, and this site does not attach it to any real find.",
+    "primarySources": [
+      {
+        "text": "Ea asks the Former Gods to open the ancient storehouses and bring out the olden copper cutting tool with which heaven and earth were separated (paraphrase).",
+        "source": "Song of Ullikummi, CTH 345, trans. H. A. Hoffner Jr., Hittite Myths",
+        "date": "Hittite copies 13th c. BCE"
+      }
+    ],
+    "ownerLabel": "The Former Gods (kept in their ancient storehouses)"
+  },
+  {
+    "id": "kursa-hunting-bag",
+    "pantheonId": "hittite-pantheon",
+    "name": "The Kurša Bag on the Eya Tree",
+    "slug": "kursa-hunting-bag",
+    "description": "The hunting bag of sheep's fleece hung from an evergreen eya tree before the returned Telipinu, holding fat, grain, wine, cattle, sheep, long life, and offspring: a cult object as well as a mythic image.",
+    "type": "relic",
+    "powers": ["holds the land's abundance", "assures long life and offspring"],
+    "origin": "Disappearance of Telipinu (CTH 324): set up before Telipinu when he returns; kurša bags were also real cult objects in Hittite festivals.",
+    "currentLocation": "Hung before Telipinu on the evergreen eya tree",
+    "imageUrl": "/artifacts/kursa-hunting-bag.webp",
+    "relatedStories": ["disappearance-of-telipinu"],
+    "detailedBio": "## The closing image of the Telipinu myth\n\nWhen Telipinu's anger has been sent to the Dark Earth and he comes home, the text describes an evergreen eya tree set up before him, and hanging from it a hunting bag (kurša) made of sheep's fleece. In the bag lie sheep fat, grain, wine, cattle and sheep, and long years and progeny. The list turns the bag into a container for everything the god's absence had taken away.\n\n## A real cult object\n\nThe kurša was not only a mythic image. Hittite festival and inventory texts mention kurša bags or fleeces as sacred objects associated with protective deities, carried in procession and renewed in festivals; the most important was kept at Hattusa. The myth's final scene therefore describes something worshippers could actually see, which is one reason scholars read the Telipinu story as a charter for ritual practice.\n\n## Interpretation\n\nComparisons with the Golden Fleece of Greek myth have been proposed, since both are fleeces hung in a tree and associated with prosperity and kingship. The link is debated and should be treated as a possibility, not a demonstrated connection.",
+    "primarySources": [
+      {
+        "text": "Before Telipinu stands an eya tree, and from it hangs a hunting bag of sheep's fleece; in it lie sheep fat, grain, wine, cattle, sheep, long years, and progeny (paraphrase).",
+        "source": "Disappearance of Telipinu, CTH 324, trans. H. A. Hoffner Jr., Hittite Myths",
+        "date": "Old Hittite composition; later copies"
+      }
+    ],
+    "ownerId": "telipinu",
+    "ownerKind": "deity"
+  },
+  {
+    "id": "yagrush-and-ayyamur",
+    "pantheonId": "canaanite-pantheon",
+    "name": "Yagrush and Ayyamur",
+    "slug": "yagrush-and-ayyamur",
+    "description": "The two clubs that Kothar-wa-Khasis makes and names for Baal: Yagrush, 'Driver', which fails to fell Yam, and Ayyamur, 'Expeller', which strikes him down.",
+    "type": "weapon",
+    "powers": [
+      "named and charged with a spell by the craftsman god",
+      "leap from Baal's hand like an eagle",
+      "Ayyamur fells the Sea"
+    ],
+    "origin": "Baal Cycle, KTU 1.2 IV: made and named by Kothar-wa-Khasis for Baal's fight with Yam.",
+    "currentLocation": "Wielded by Baal on Mount Zaphon",
+    "imageUrl": "/artifacts/yagrush-and-ayyamur.webp",
+    "relatedStories": ["baal-and-yam"],
+    "detailedBio": "## Named weapons\n\nIn KTU 1.2 IV, Kothar-wa-Khasis fashions two clubs (ṣmdm) for Baal and gives each a name, speaking over it words that tell it what to do. The first is Yagrush (\"Driver\" or \"Chaser\"), commanded to drive Yam from his throne. It leaps from Baal's hand like an eagle and strikes Yam's shoulders and chest, but Yam does not fall. The second is Ayyamur (\"Expeller\" or \"Driver-out\"), commanded to expel Yam from his seat. It strikes Yam's head, between the eyes, and the Sea collapses.\n\n## Word and weapon\n\nThe scene joins craft and speech: Kothar is both smith and speaker of incantations, and the naming is part of what makes the weapons effective. The clubs are among the earliest named weapons in any surviving literature.\n\n## In art\n\nThe storm-god's club or mace is his standard weapon in Levantine art. The well-known \"Baal au foudre\" stele from Ugarit, now in the Louvre, shows the god striding with a raised club in one hand and a spear or lightning-shaft ending in plant growth in the other. The stele does not label the weapons, and this site does not claim they are Yagrush and Ayyamur, but it shows how Ugaritians pictured their storm-god armed.",
+    "primarySources": [
+      {
+        "text": "Kothar-wa-Khasis brings down two clubs and proclaims their names: Yagrush, drive Yam from his throne; Ayyamur, expel Yam from his seat (paraphrase).",
+        "source": "Baal Cycle, KTU 1.2 IV",
+        "date": "tablets of the late 13th or early 12th c. BCE"
+      }
+    ],
+    "ownerId": "baal",
+    "ownerKind": "deity"
+  },
+  {
+    "id": "bow-of-aqhat",
+    "pantheonId": "canaanite-pantheon",
+    "name": "The Bow of Aqhat",
+    "slug": "bow-of-aqhat",
+    "description": "The bow and arrows that Kothar-wa-Khasis brings to Danel's house and that pass to Aqhat; the goddess Anat's desire for it leads to Aqhat's death, and it is broken or lost in the killing.",
+    "type": "weapon",
+    "powers": ["made by the craftsman god", "desired by the goddess of war"],
+    "origin": "Epic of Aqhat, KTU 1.17 V: brought by Kothar-wa-Khasis to Danel, who gives it to his son.",
+    "currentLocation": "Broken or lost in the water when Aqhat is killed; Anat never obtains it",
+    "imageUrl": "/artifacts/bow-of-aqhat.webp",
+    "relatedStories": ["legend-of-aqhat"],
+    "detailedBio": "## A divine gift\n\nIn KTU 1.17 V, Danel is sitting at the city gate, judging, when he sees Kothar-wa-Khasis approaching, carrying a bow and a quiver of arrows. Danel and his wife feed and honour the god, and he leaves the bow with them. Danel gives it to Aqhat and tells him to offer the choicest of his game to the gods.\n\n## The object of desire\n\nAt a feast Anat sees the bow and demands it, offering silver, gold, and finally immortality. The poem describes the materials a bow is made of, horn, sinew, and wood, when Aqhat tells her to make her own, with the implication that a goddess does not need his. His refusal leads to his death.\n\n## Broken\n\nWhen Anat's henchman Yatpan kills Aqhat, the bow is broken or falls into the water; the passage is damaged. Anat laments, and says she killed Aqhat only for the bow. The object that caused the tragedy is lost to everyone, which many readers take as the poem's comment on the futility of her desire.",
+    "primarySources": [
+      {
+        "text": "Danel sees Kothar-wa-Khasis coming, carrying a bow and a quiver of arrows, and has a lamb prepared for the god (paraphrase).",
+        "source": "Epic of Aqhat, KTU 1.17 V",
+        "date": "tablets of the late 13th or early 12th c. BCE"
+      }
+    ],
+    "ownerId": "aqhat",
+    "ownerKind": "hero"
+  },
+  {
+    "id": "lightning-arrows-of-the-twins",
+    "pantheonId": "dine-pantheon",
+    "name": "The Sun's Gifts to the Hero Twins",
+    "slug": "lightning-arrows-of-the-twins",
+    "description": "The armour of flint and the weapons, among them arrows of lightning, that the Sun gave his sons when he at last acknowledged them, and with which they killed Yéʼiitsoh and the other monsters.",
+    "type": "weapon",
+    "powers": [
+      "lightning arrows that shatter the monsters' armour",
+      "flint armour that turns aside lightning and weapons"
+    ],
+    "origin": "Washington Matthews, Navaho Legends (1897): given by the Sun (Tsóhanoai) to the twins at his house.",
+    "currentLocation": "With the Hero Twins",
+    "imageUrl": "/artifacts/lightning-arrows-of-the-twins.webp",
+    "relatedStories": [
+      "twins-journey-to-the-sun",
+      "monster-slayer-and-the-naayee"
+    ],
+    "detailedBio": "## The father's gifts\n\nWhen the Sun finally acknowledges the twins as his sons, he asks what they want, and they ask for the means to destroy the monsters. In Matthews's version, the Sun gives them armour of flint and weapons that include arrows of lightning of different kinds. He sends them back to the earth on a path of lightning.\n\n## In use\n\nWith these weapons the twins kill Yéʼiitsoh, whose own armour of flint is shattered by the lightning arrows, and Monster Slayer goes on to kill Déélgééd and the monster eagles of Shiprock. Yéʼiitsoh's flint scales, in some tellings, are later used by the people.\n\n## Why this entry is brief\n\nThe Hero Twins' weapons and protections are connected with ceremonies of protection that this site does not describe. This entry records only what appears in the published narrative, not their ceremonial meaning, and it does not depict them.",
+    "primarySources": [
+      {
+        "text": "The Sun gives the twins armour and weapons of lightning with which to destroy the alien gods (paraphrase).",
+        "source": "Washington Matthews, Navaho Legends",
+        "date": "1897"
+      }
+    ],
+    "ownerId": "monster-slayer",
+    "ownerKind": "deity"
+  },
+  {
+    "id": "golden-rod-of-manco-capac",
+    "pantheonId": "inca-pantheon",
+    "name": "Golden Rod of Manco Cápac",
+    "slug": "golden-rod-of-manco-capac",
+    "ownerId": "manco-capac",
+    "ownerKind": "deity",
+    "description": "The rod of gold that the Sun gave to his children at Lake Titicaca, which would show them where to found their city by sinking into the ground at a single thrust; it vanished into the earth at Huanacauri above Cusco.",
+    "type": "staff",
+    "powers": ["Revealing fertile ground", "Choosing the site of Cusco"],
+    "origin": "Given by the Sun to Manco Cápac and Mama Ocllo when he placed them in Lake Titicaca (Garcilaso, Comentarios Reales, Part I, Book 1).",
+    "currentLocation": "Sunk into the earth at Huanacauri, in the story",
+    "imageUrl": "/artifacts/golden-rod-of-manco-capac.webp",
+    "relatedStories": ["children-of-the-sun"],
+    "detailedBio": "## The test of the ground\n\nIn Garcilaso de la Vega's *Royal Commentaries* (1609), the Sun sends his son and daughter to civilize humanity with a single instrument: a rod of gold half a yard long and two fingers thick. Wherever they stopped, they were to push it into the ground, and where it sank in at one thrust they were to settle. It refused every resting place until Huanacauri, the hill above the Cusco valley, where it disappeared into the earth.\n\n## Meaning\n\nThe rod ties the Inca dynasty's claim to rule to both the Sun and the soil: the place of the capital is not chosen by conquest but revealed by the land's own depth and fertility. Sarmiento de Gamboa's rival Pacaritambo version includes a similar test of the valley soil with golden staffs, suggesting the motif was part of Cusco tradition rather than Garcilaso's invention.\n\n## Not an object in a museum\n\nNo actual rod associated with Manco Cápac is known to have survived or been displayed by the Incas; it belongs to the founding story. The Inca rulers did carry a royal staff as a sign of office, and the story's rod may reflect that regalia.",
+    "primarySources": [
+      {
+        "text": "He gave them a rod of gold, half a yard long and two fingers thick, and told them that wherever it sank into the ground at a single thrust, there they should stay; at Huanacauri it sank in and they saw it no more.",
+        "source": "Garcilaso de la Vega, Comentarios Reales, Part I, Book 1, ch. 15 (paraphrase)",
+        "sourceId": "garcilaso-royal-commentaries",
+        "locator": "Part I, Book 1, ch. 15",
+        "date": "published 1609"
+      }
+    ]
+  },
+  {
+    "id": "punchao",
+    "pantheonId": "inca-pantheon",
+    "name": "Punchao",
+    "slug": "punchao",
+    "ownerId": "inti",
+    "ownerKind": "deity",
+    "description": "The golden image of the Sun ('Day') kept in the Coricancha, the most sacred object of the Inca state cult, carried into the Vilcabamba refuge after the conquest and captured by Spanish forces in 1572.",
+    "type": "relic",
+    "powers": ["Embodying the Sun", "Legitimizing Inca rule"],
+    "origin": "Made for the Sun's cult in Cusco; its date and maker are unknown.",
+    "currentLocation": "Lost after its capture at Vilcabamba in 1572",
+    "imageUrl": "/artifacts/punchao.webp",
+    "relatedStories": ["children-of-the-sun"],
+    "detailedBio": "## The Day\n\n*Punchao* means 'day' or 'daylight'. Chroniclers describe it as a golden image of the Sun kept in the Coricancha and brought out into the main square of Cusco for major ceremonies; some later accounts describe it as a figure of a seated boy with rays, and say that a cavity in it held the powdered hearts of past Inca rulers. The descriptions differ and were written by people who had not all seen it.\n\n## Flight and capture\n\nAfter the Spanish seizure of Cusco, the Inca rulers who resisted in the forested refuge of Vilcabamba kept the Punchao with them as the focus of their continuing cult. When Viceroy Francisco de Toledo's expedition overran Vilcabamba in 1572 and captured Túpac Amaru, the Punchao was also taken. Toledo proposed sending it to Spain, to the king or to the pope, and after that its trail is lost.\n\n## Why it matters\n\nThe Punchao was the Sun in visible form and the emblem of Inca legitimacy; its capture, together with Túpac Amaru's execution, marked the end of the independent Inca state. Its disappearance also means that everything said about its appearance rests on colonial description.",
+    "primarySources": [
+      {
+        "text": "The golden image of the Sun, the Punchao, which the Incas had kept in Vilcabamba, was taken by the Spanish expedition that captured Túpac Amaru in 1572.",
+        "source": "Documents on the 1572 Vilcabamba campaign, in Brian S. Bauer, Madeleine Halac-Higashimori, and Gabriel E. Cantarutti, Voices from Vilcabamba (2016) (paraphrase)",
+        "date": "events of 1572; documents late 16th-early 17th c."
+      }
+    ]
+  },
+  {
+    "id": "sling-of-illapa",
+    "pantheonId": "inca-pantheon",
+    "name": "Sling of Illapa",
+    "slug": "sling-of-illapa",
+    "ownerId": "illapa",
+    "ownerKind": "deity",
+    "description": "The sling of the Thunder god: its crack was the thunderclap, and with it Illapa drew water from the river of the sky to pour down as rain and hail.",
+    "type": "weapon",
+    "powers": ["Thunder", "Summoning rain and hail"],
+    "origin": "Part of Illapa's image as described by Bernabé Cobo from earlier reports (Historia del Nuevo Mundo, Book 13).",
+    "currentLocation": "In the sky, in the hand of the Thunder",
+    "imageUrl": "/artifacts/sling-of-illapa.webp",
+    "relatedStories": [],
+    "detailedBio": "## A herder's weapon in the sky\n\nThe sling (*warak'a*) was an everyday Andean tool, used by herders to guide flocks and by soldiers in war. Bernabé Cobo (1653), drawing on reports from the sixteenth century, says the Andeans pictured the Thunder as a man in the sky holding a club and a sling: when he whirled the sling it cracked like a whip, and that was the thunder, while the flash of his clothing was the lightning. With it he governed rain, hail, and storms, taking water from the river of the sky, the Milky Way, and letting it fall on the earth.\n\n## Slings and thunder elsewhere in the sources\n\nIn the Pacaritambo origin story, the strongest of the Ayar brothers, Ayar Cachi, splits hills with his sling, a detail that links the sling with superhuman power. After the conquest, the thunder's identification with Saint James (Santiago), whose image showed him charging on horseback, gave the old sky-warrior a new form; the crack of the sling and the saint's gunfire could be heard in the same storm.\n\n## Evidence\n\nNo sacred sling of Illapa is known as a physical object. The sling belongs to the god's image as colonial writers recorded it.",
+    "primarySources": [
+      {
+        "text": "They pictured the Thunder as a man in the sky with a club in one hand and a sling in the other; the crack of his sling was the thunder, and he took water from the river of the sky to send down as rain.",
+        "source": "Bernabé Cobo, Historia del Nuevo Mundo, Book 13 (paraphrase)",
+        "sourceId": "cobo-inca-religion",
+        "locator": "Book 13",
+        "date": "written 1653"
+      }
+    ]
+  },
+  {
+    "id": "derafsh-kaviani",
+    "pantheonId": "persian-pantheon",
+    "name": "Derafsh-e Kaviani",
+    "slug": "derafsh-kaviani",
+    "ownerLabel": "Kaveh the Blacksmith; afterwards the royal standard of Iran's kings",
+    "description": "The banner of Kaveh: the leather apron the blacksmith raised on a spear against the tyrant Zahhak, adorned with jewels by Fereydun and carried as Iran's royal standard until, the historians say, it was captured in the Arab conquest.",
+    "type": "banner",
+    "powers": [
+      "Rallying the people against tyranny",
+      "Emblem of legitimate kingship"
+    ],
+    "origin": "Raised by Kaveh in revolt against Zahhak and adorned by Fereydun (Ferdowsi, Shahnameh, reign of Zahhak).",
+    "currentLocation": "Lost; reported captured at the battle of al-Qadisiyyah (c. 636 CE)",
+    "imageUrl": "/artifacts/derafsh-kaviani.webp",
+    "relatedStories": ["zahhak-and-kaveh"],
+    "detailedBio": "## The apron on a spear\n\nIn the Shahnameh, when the blacksmith Kaveh learns that his last son is to be killed to feed Zahhak's serpents, he tears up the tyrant's declaration of justice, fixes his leather apron to the point of a spear in the marketplace, and calls the people to rise. They follow the apron to Fereydun, who honors it by covering it with brocade and jewels; each later king, Ferdowsi says, added more jewels, until it shone like the sun in the night.\n\n## A real standard\n\nThe Sasanian kings had a great royal banner called the *Drafsh-i Kawiyan*, 'banner of the Kays' (the legendary royal dynasty), which the Kaveh story explains through a popular etymology linking it to the blacksmith. Arab historians including al-Tabari report that this jeweled standard was captured at the battle of al-Qadisiyyah, around 636 CE, in the Arab conquest of Iran, and divided as spoil.\n\n## Symbol\n\nThe banner of Kaveh has remained a symbol of Iranian nationhood and of revolt against tyranny, used in modern political imagery by movements of very different kinds.",
+    "primarySources": [
+      {
+        "text": "Kaveh fixed the leather apron that blacksmiths wear to protect their legs to the point of a spear, and raised a cry in the marketplace; the people gathered to him and went in search of Fereydun, who adorned it with brocade and jewels.",
+        "source": "Ferdowsi, Shahnameh, reign of Zahhak (paraphrase)",
+        "sourceId": "shahnameh",
+        "locator": "reign of Zahhak",
+        "date": "completed 1010 CE"
+      }
+    ]
+  },
+  {
+    "id": "jam-e-jam",
+    "pantheonId": "persian-pantheon",
+    "name": "Jam-e Jam",
+    "slug": "jam-e-jam",
+    "ownerLabel": "Kay Khosrow in the Shahnameh; attributed to Jamshid in later Persian poetry",
+    "description": "The world-revealing cup of Persian legend, in which the seven regions of the world could be seen; in the Shahnameh Kay Khosrow uses it to find the captive hero Bizhan, and later poets named it the cup of Jamshid.",
+    "type": "vessel",
+    "powers": ["Revealing the whole world", "Finding what is hidden"],
+    "origin": "A royal cup of Kay Khosrow in the Shahnameh; its attribution to Jamshid (Jam) appears in later Persian literature.",
+    "currentLocation": "Legendary",
+    "imageUrl": "/artifacts/jam-e-jam.webp",
+    "relatedStories": ["yima-and-the-var"],
+    "detailedBio": "## Kay Khosrow's cup\n\nIn the Shahnameh story of Bizhan and Manizheh, the young hero Bizhan is imprisoned by the Turanian king Afrasiyab in a pit covered with a great stone. When his father Giv despairs of finding him, King Kay Khosrow waits for Nowruz, takes up his world-revealing cup, and looks into it, seeing the seven regions of the world and the movements of the heavens, until he finds Bizhan in the pit in Turan. Rostam is then sent to rescue him.\n\n## Jamshid's cup\n\nIn later Persian poetry the cup is regularly called the *jam-e jam* or *jam-e Jamshid*, the cup of Jamshid, the legendary king whose name (Jam) also means 'cup' in Persian by coincidence of sound; the attribution to Jamshid is not Ferdowsi's. For Hafez and the mystical poets, the world-seeing cup becomes a symbol of the heart that reflects the divine, or of wine that reveals truth.\n\n## Not an object\n\nThe cup belongs to legend and poetry; no historical vessel is associated with it.",
+    "primarySources": [
+      {
+        "text": "At Nowruz Kay Khosrow took up the world-revealing cup and looked into it, and saw the seven regions of the world, until he found Bizhan in the pit in Turan.",
+        "source": "Ferdowsi, Shahnameh, 'Bizhan and Manizheh', reign of Kay Khosrow (paraphrase)",
+        "sourceId": "shahnameh",
+        "locator": "reign of Kay Khosrow",
+        "date": "completed 1010 CE"
+      }
+    ]
+  },
+  {
+    "id": "ox-headed-mace",
+    "pantheonId": "persian-pantheon",
+    "name": "Ox-Headed Mace of Fereydun",
+    "slug": "ox-headed-mace",
+    "ownerLabel": "Fereydun (Avestan Thraetaona)",
+    "description": "The mace with the head of an ox that Fereydun had forged to fight Zahhak, in memory of the cow Barmayeh that nursed him; with it he struck down the tyrant before binding him in Mount Damavand.",
+    "type": "weapon",
+    "powers": ["Overthrowing the tyrant", "Emblem of the royal hero"],
+    "origin": "Forged by smiths to Fereydun's design before his march on Zahhak (Ferdowsi, Shahnameh, reign of Fereydun).",
+    "currentLocation": "Legendary",
+    "imageUrl": "/artifacts/ox-headed-mace.webp",
+    "relatedStories": ["zahhak-and-kaveh"],
+    "detailedBio": "## The cow and the mace\n\nIn the Shahnameh the infant Fereydun, hidden from Zahhak, is nursed by a wonderful cow, Barmayeh, whose coat shines with every color; Zahhak later finds and kills her. When Fereydun sets out against the tyrant, he draws the design of a mace with an ox's head on the ground and has smiths forge it. Zahhak had dreamed years earlier of a young warrior striking him with just such a mace.\n\n## The blow\n\nFereydun strikes Zahhak with the ox-headed mace, but before he can kill him the heavenly messenger Sorush tells him to bind the tyrant instead, and he chains him in Mount Damavand. In the Avesta, Thraetaona, Fereydun's older form, is simply the hero who smote Azhi Dahaka; the ox-headed mace is a feature of the later epic.\n\n## The gorz\n\nThe *gorz-e gavsar* (ox-headed mace) became an emblem of Iranian heroism, carried by later champions in the epic, including Rostam; ox-headed maces are frequently depicted in Persian manuscript painting.",
+    "primarySources": [
+      {
+        "text": "Fereydun drew for the smiths the shape of a mace with the head of an ox, and they forged it; with it he struck Zahhak down.",
+        "source": "Ferdowsi, Shahnameh, reign of Fereydun (paraphrase)",
+        "sourceId": "shahnameh",
+        "locator": "reign of Fereydun",
+        "date": "completed 1010 CE"
+      }
+    ]
+  },
+  {
+    "id": "sampo",
+    "pantheonId": "finnish-pantheon",
+    "name": "Sampo",
+    "slug": "sampo",
+    "ownerId": "louhi",
+    "ownerKind": "deity",
+    "ownerLabel": "Forged by Ilmarinen for Louhi, mistress of Pohjola",
+    "description": "The wonder-mill forged by Ilmarinen, with a many-colored lid, that grinds grain, salt, and money; locked in Pohjola's mountain, stolen by the Kalevala heroes, and shattered in the sea during Louhi's pursuit.",
+    "type": "relic",
+    "powers": [
+      "Grinding grain, salt, and money without end",
+      "Bringing prosperity to its land",
+      "Enriching the sea and shore when shattered"
+    ],
+    "origin": "Forged by Ilmarinen from a swan's feather tip, the milk of a barren cow, a grain of barley, and a summer lamb's wool (Kalevala, Rune 10).",
+    "currentLocation": "Shattered; its pieces in the sea and on the shores of Kalevala, its lid in Pohjola",
+    "imageUrl": "/artifacts/sampo.webp",
+    "relatedStories": ["forging-of-the-sampo", "theft-of-the-sampo"],
+    "detailedBio": "## Forged in the North\n\nIn the Kalevala, Louhi of Pohjola promises her daughter to whoever can forge the Sampo, and Ilmarinen does so after destroying four lesser creations. It has a many-colored lid (*kirjokansi*) and grinds on three sides: flour, salt, and money. Louhi locks it in the rock-mountain of Pohjola, where it takes root, and her land prospers.\n\n## Stolen and shattered\n\nWhen Väinämöinen, Ilmarinen, and Lemminkäinen steal it, Louhi pursues them as a giant eagle and drags it overboard. It breaks in the sea: the large pieces make the sea rich, smaller pieces washed ashore bring prosperity to Kalevala, and Louhi carries home only the lid.\n\n## A famous riddle\n\nThe folk songs never say clearly what the Sampo is, and scholars have proposed more than thirty interpretations: a mill, a treasure chest, a decorated shield, a talisman, a world pillar, the starry sky turning on its axis, and others. The Finnish folklorist Uno Harva connected it with the world pillar of northern Eurasian cosmology; others read it as a symbol of prosperity or of the heavens. No interpretation is certain, and Lönnrot's mill is his own resolution of the ambiguity.",
+    "primarySources": [
+      {
+        "text": "Forges skilfully the Sampo; / On one side the flour is grinding, / On another salt is making, / On a third is money forging, / And the lid is many-colored.",
+        "source": "Kalevala (trans. John Martin Crawford, 1888), Rune X",
+        "sourceId": "kalevala",
+        "locator": "Rune 10",
+        "date": "Lönnrot's compilation 1849; trans. 1888"
+      }
+    ]
+  },
+  {
+    "id": "vainamoinens-kantele",
+    "pantheonId": "finnish-pantheon",
+    "name": "Kantele of Väinämöinen",
+    "slug": "vainamoinens-kantele",
+    "ownerId": "vainamoinen",
+    "ownerKind": "deity",
+    "description": "The first kantele, made by Väinämöinen from the jawbone of a giant pike, whose music draws every creature to listen and puts Pohjola to sleep; lost overboard in Louhi's storm and replaced with one of birch.",
+    "type": "instrument",
+    "powers": [
+      "Enchanting all living things",
+      "Bringing sleep",
+      "Moving listeners to tears"
+    ],
+    "origin": "Made by Väinämöinen from the jawbone and teeth of the pike killed in the rapids, with strings of hair from Hiisi's gelding (Kalevala, Rune 40).",
+    "currentLocation": "Lost in the sea during the flight from Pohjola; its birchwood successor left to the people when Väinämöinen departed",
+    "imageUrl": "/artifacts/vainamoinens-kantele.webp",
+    "relatedStories": ["theft-of-the-sampo"],
+    "detailedBio": "## The first kantele\n\nIn Rune 40, after the heroes kill the giant pike, Väinämöinen makes a kantele from its jawbone, using its teeth as pegs and hair from Hiisi's gelding as strings. Neither Ilmarinen nor Lemminkäinen nor anyone else can play it. In Rune 41 Väinämöinen sits on the rock of joy and plays, and all creatures of forest, air, and water, and the people too, come to listen, weeping; the old singer weeps too, and his tears roll into the sea and become pearls.\n\n## Lost and remade\n\nIn Rune 42 the music puts the people of Pohjola to sleep so the heroes can take the Sampo, but in Louhi's storm the kantele falls into the sea. In Rune 44 Väinämöinen makes a new one from a weeping birch, with pegs from an oak and strings from a maiden's hair. When he sails away at the end of the epic, he leaves the kantele and his songs to the Finnish people.\n\n## The instrument\n\nThe kantele, a plucked box-zither traditionally with five strings, is Finland's national instrument, and the Kalevala's account of its invention helped make it a symbol of Finnish identity in the nineteenth century.",
+    "primarySources": [
+      {
+        "text": "\"Something wondrous might be builded / From these jaws, and teeth, and fish-bones; / Might a magic harp be fashioned.\"",
+        "source": "Kalevala (trans. John Martin Crawford, 1888), Rune XL",
+        "sourceId": "kalevala",
+        "locator": "Rune 40",
+        "date": "Lönnrot's compilation 1849; trans. 1888"
+      }
+    ]
+  },
+  {
+    "id": "golden-maiden",
+    "pantheonId": "finnish-pantheon",
+    "name": "Golden Maiden of Ilmarinen",
+    "slug": "golden-maiden",
+    "ownerId": "ilmarinen",
+    "ownerKind": "deity",
+    "description": "The bride of gold and silver that the grieving smith Ilmarinen forges after his wife's death, beautiful but cold as ice beside him at night; Väinämöinen tells him to melt her down and warns young men never to court gold.",
+    "type": "relic",
+    "powers": ["Unmatched beauty", "Chilling whoever lies beside her"],
+    "origin": "Forged by Ilmarinen from gold and silver after the death of his wife (Kalevala, Rune 37).",
+    "currentLocation": "Rejected; offered to Väinämöinen, who refuses her",
+    "imageUrl": "/artifacts/golden-maiden.webp",
+    "relatedStories": ["kullervo"],
+    "detailedBio": "## A bride from the forge\n\nAfter his wife, the Maiden of Pohjola, is killed through Kullervo's revenge, Ilmarinen mourns for months. In Rune 37 he decides to forge himself a new wife. He throws gold and silver into the furnace; after several failed attempts that produce a sheep, a colt, and other things, a maiden of gold and silver emerges, and he works her with great skill into a beautiful woman. But she cannot speak or feel, and when he lies beside her at night, the side of his body that touches her freezes.\n\n## Väinämöinen's advice\n\nIlmarinen offers the golden maiden to Väinämöinen, who looks at her and tells the smith to throw her back into the fire and make useful things from her, or to send her to foreign lands where men want gold. Then he warns the young men of later generations never to bow to gold or court a golden bride, for gold is cold.\n\n## Meaning\n\nThe episode, like the Greek story of Pandora or the Pygmalion legend in reverse, turns on a manufactured woman; here the lesson is explicitly against valuing wealth over a living companion.",
+    "primarySources": [
+      {
+        "text": "Ilmarinen forged a maiden of gold and silver; but when he lay beside her at night, the side that touched her grew cold as ice. Väinämöinen told him to throw her back into the fire, and warned the young never to woo gold.",
+        "source": "Kalevala, Rune 37 (paraphrase)",
+        "sourceId": "kalevala",
+        "locator": "Rune 37",
+        "date": "Lönnrot's compilation 1849; trans. 1888"
+      }
+    ]
+  },
+  {
+    "id": "cheonbuin",
+    "pantheonId": "korean-pantheon",
+    "name": "Cheonbuin (Three Heavenly Seals)",
+    "slug": "cheonbuin",
+    "ownerId": "hwanung",
+    "ownerKind": "deity",
+    "description": "The three heavenly seals or tokens that Hwanin gave his son Hwanung as signs of heaven's authority when he sent him down to rule the world at Mount Taebaek.",
+    "type": "regalia",
+    "powers": [
+      "Conferring heaven's authority to rule",
+      "Marking the legitimacy of the heavenly descent"
+    ],
+    "origin": "Given by Hwanin to Hwanung before his descent (Samguk Yusa, Book 1, 'Gojoseon').",
+    "currentLocation": "Unknown; they appear only in the myth",
+    "imageUrl": "/artifacts/cheonbuin.webp",
+    "relatedStories": ["dangun-and-the-bear-woman"],
+    "detailedBio": "## Heaven's tokens\n\nThe *Samguk Yusa* says only that Hwanin gave Hwanung 'three heavenly seals' (*cheonbuin samgae*) and sent him down to rule. The text does not say what they were. The word *bu* means a tally or token of authority and *in* a seal, and the three objects mark Hwanung's rule as delegated by heaven.\n\n## Interpretations\n\nScholars have proposed that the three seals reflect the ritual regalia of early Korean or northeast Asian rulers and shamans, commonly identified as a bronze mirror, a bronze sword, and a bronze bell or rattle, objects found together in Bronze Age burials of the Korean peninsula and Manchuria. The comparison with the three imperial regalia of Japan (mirror, sword, and jewel) is also often made. These identifications are modern hypotheses; the myth itself names no objects.\n\n## In modern tradition\n\nDaejonggyo and other Dangun-centered movements treat the three seals as symbols of the heavenly mandate, and they appear in modern art depicting Hwanung's descent.",
+    "primarySources": [
+      {
+        "text": "He gave him three heavenly seals and sent him to go and rule there.",
+        "source": "Iryeon, Samguk Yusa, Book 1, 'Gojoseon (Wanggeom Joseon)' (paraphrase)",
+        "sourceId": "samguk-yusa",
+        "locator": "Book 1, Gojoseon",
+        "date": "compiled c. 1281-1289"
+      }
+    ]
+  },
+  {
+    "id": "manpasikjeok-flute",
+    "pantheonId": "korean-pantheon",
+    "name": "Manpasikjeok",
+    "slug": "manpasikjeok-flute",
+    "ownerLabel": "King Sinmun of Silla, gift of the sea dragon of King Munmu",
+    "description": "The bamboo flute made from a stalk that was two by day and one by night, given to Silla by the sea dragon of King Munmu; when played it drove off enemies, cured sickness, brought rain in drought, and calmed the wind and waves.",
+    "type": "instrument",
+    "powers": [
+      "Driving off enemy armies",
+      "Curing disease",
+      "Bringing or stopping rain",
+      "Calming wind and waves"
+    ],
+    "origin": "Cut from the bamboo on a floating mountain in the East Sea in 682 and made into a flute by King Sinmun (Samguk Yusa, Book 2).",
+    "currentLocation": "Kept in the Silla royal treasury, according to the Samguk Yusa; now lost",
+    "imageUrl": "/artifacts/manpasikjeok-flute.webp",
+    "relatedStories": ["manpasikjeok"],
+    "detailedBio": "## The bamboo of the floating mountain\n\nIn the *Samguk Yusa*, a small turtle-shaped mountain floats toward the temple of Gameunsa in 682, and on it grows a bamboo that is two stalks by day and one by night. A dragon tells King Sinmun that the bamboo, like two hands clapping, makes sound only when joined, and that a flute made from it will bring peace to the world, a gift from his father, King Munmu, now a sea dragon, and the general Kim Yu-sin, now a heavenly god.\n\n## The flute's powers\n\nWhen the flute was played, the text says, enemy soldiers retreated, disease was healed, drought ended in rain and floods cleared, and wind and waves grew still, so it was called 'the flute that calms ten thousand waves'. It was kept in the royal treasury, and the *Samguk Yusa* tells how in a later reign it was lost and recovered and given a longer title.\n\n## Legacy\n\nManpasikjeok has become a symbol of harmony and national peace in Korea. Traditional Korean transverse bamboo flutes (*daegeum*) are sometimes linked with it in popular tradition, though the historical instrument's form is unknown.",
+    "primarySources": [
+      {
+        "text": "When this flute was blown, enemy soldiers withdrew, sickness was cured, rain fell in drought and cleared in floods, and the wind stopped and the waves grew calm; so it was called Manpasikjeok.",
+        "source": "Iryeon, Samguk Yusa, Book 2, 'Manpasikjeok' (paraphrase)",
+        "sourceId": "samguk-yusa",
+        "locator": "Book 2, Manpasikjeok",
+        "date": "compiled c. 1281-1289"
+      }
+    ]
+  },
+  {
+    "id": "water-of-life",
+    "pantheonId": "korean-pantheon",
+    "name": "Water of Life and Flowers of Revival",
+    "slug": "water-of-life",
+    "ownerId": "bari-gongju",
+    "ownerKind": "deity",
+    "description": "The medicinal water of the Western Heaven and the flowers that restore bone, flesh, and breath, which Princess Bari brings back from the end of the world to revive her dead parents.",
+    "type": "elixir",
+    "powers": ["Restoring the dead to life", "Healing mortal illness"],
+    "origin": "Guarded at the source in the Western Heaven, and earned by Bari through years of labor (Bari Gongju muga).",
+    "currentLocation": "The Western Heaven, in the song",
+    "imageUrl": "/artifacts/water-of-life.webp",
+    "relatedStories": ["princess-bari"],
+    "detailedBio": "## The medicine water\n\nIn the Bari Gongju songs, King Ogu and Queen Gildae fall mortally ill and learn that only the medicinal water (*yaksu*) of the Western Heaven can save them. Bari earns it by years of labor for its guardian, drawing water, cutting firewood, and tending fire, and brings it home in a vessel.\n\n## The flowers\n\nAlong with the water she gathers flowers that restore the parts of a body: in many versions a flower that revives bone, one that restores flesh, and one that restores breath. When she meets her parents' funeral procession, she lays the flowers on their bodies and pours the water into their mouths, and they return to life.\n\n## Flowers of life in Korean shamanism\n\nFlowers that restore life appear in several Korean shamanic narratives, especially in Jeju, where the Seocheon flower field in the other world is tended by a flower-guardian god, and flowers of life and death decide human fates. Paper flowers are prominent in Korean shamanic rites for the dead.",
+    "primarySources": [
+      {
+        "text": "She laid the flowers of bone, flesh, and breath on the bodies of her parents and poured the water of life into their mouths, and they rose as if from sleep.",
+        "source": "Bari Gongju muga (paraphrase of the revival scene common to many versions)",
+        "sourceId": "hanguk-muga-jip",
+        "date": "recorded 20th century"
       }
     ]
   }

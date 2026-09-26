@@ -1,54 +1,6 @@
-"use client";
-
-import { useMemo } from "react";
 import Link from "next/link";
-import deitiesData from "@/data/deities.json";
-import relationshipsData from "@/data/relationships.json";
 import { getPantheonColor } from "@/lib/pantheon-colors";
-
-interface RawDeity {
-  id: string;
-  slug: string;
-  name: string;
-  pantheonId: string;
-}
-interface RawRel {
-  fromDeityId: string;
-  toDeityId: string;
-  relationshipType: string;
-}
-
-export interface Kin {
-  key: string;
-  name: string;
-  slug: string | null;
-  color: string;
-}
-
-const byId = new Map(
-  (deitiesData as unknown as RawDeity[]).map((d) => [d.id, d]),
-);
-
-function toKin(id: string): Kin {
-  const d = byId.get(id);
-  if (d)
-    return {
-      key: id,
-      name: d.name,
-      slug: d.slug,
-      color: getPantheonColor(d.pantheonId),
-    };
-  // dangling reference — show a readable name, no link
-  return {
-    key: id,
-    name: id
-      .split(/[-_]/)
-      .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
-      .join(" "),
-    slug: null,
-    color: "#6b7280",
-  };
-}
+import { hasLineage, type Bloodline, type Kin } from "@/lib/deity-page";
 
 function Medallion({ kin, big = false }: { kin: Kin; big?: boolean }) {
   const inner = (
@@ -62,7 +14,7 @@ function Medallion({ kin, big = false }: { kin: Kin; big?: boolean }) {
         {kin.name.charAt(0)}
       </span>
       <span
-        className={`mt-1 max-w-[6rem] truncate text-center ${big ? "text-sm font-semibold text-foreground" : "text-xs text-foreground/80 group-hover:text-gold"}`}
+        className={`mt-1.5 max-w-[7rem] truncate text-center ${big ? "text-[0.9375rem] font-semibold text-foreground" : "text-sm text-foreground group-hover:text-gold-text"}`}
       >
         {kin.name}
       </span>
@@ -91,7 +43,7 @@ function Tier({ label, kin }: { label: string; kin: Kin[] }) {
   if (kin.length === 0) return null;
   return (
     <div className="flex flex-col items-center gap-2">
-      <span className="text-[0.65rem] uppercase tracking-[0.2em] text-muted-foreground">
+      <span className="text-[0.8125rem] uppercase tracking-[0.16em] text-muted-foreground">
         {label}
       </span>
       <div className="flex flex-wrap justify-center gap-4">
@@ -103,62 +55,23 @@ function Tier({ label, kin }: { label: string; kin: Kin[] }) {
   );
 }
 
+/**
+ * Genealogy plate for a deity page. Pure markup: the server page computes the
+ * tiers with `buildBloodline` and passes only the kin it links to.
+ */
 export function BloodlineTapestry({
   deityId,
   deityName,
   pantheonId,
+  bloodline,
 }: {
   deityId: string;
   deityName: string;
   pantheonId: string;
+  bloodline: Bloodline;
 }) {
-  const groups = useMemo(() => {
-    const rels = relationshipsData as unknown as RawRel[];
-    const parents: Kin[] = [];
-    const children: Kin[] = [];
-    const consorts: Kin[] = [];
-    const siblings: Kin[] = [];
-    const rivals: Kin[] = [];
-    const seen = new Set<string>();
-    const push = (arr: Kin[], id: string) => {
-      const tag = arr === consorts ? "c" : arr === rivals ? "r" : "";
-      const dedup = `${tag}:${id}`;
-      if (seen.has(dedup)) return;
-      seen.add(dedup);
-      arr.push(toKin(id));
-    };
-
-    for (const r of rels) {
-      const involvesFrom = r.fromDeityId === deityId;
-      const involvesTo = r.toDeityId === deityId;
-      if (!involvesFrom && !involvesTo) continue;
-      const other = involvesFrom ? r.toDeityId : r.fromDeityId;
-      switch (r.relationshipType) {
-        case "parent_of":
-          if (involvesTo)
-            push(parents, other); // other is parent OF me
-          else push(children, other); // I am parent OF other
-          break;
-        case "spouse_of":
-        case "lover":
-          push(consorts, other);
-          break;
-        case "sibling_of":
-          push(siblings, other);
-          break;
-        case "enemy_of":
-          push(rivals, other);
-          break;
-        default:
-          break; // ally_of / aspect_of not part of the bloodline plate
-      }
-    }
-    return { parents, children, consorts, siblings, rivals };
-  }, [deityId]);
-
-  const { parents, children, consorts, siblings, rivals } = groups;
-  const hasLineage = parents.length + children.length + consorts.length > 0;
-  if (!hasLineage) return null;
+  const { parents, children, consorts, siblings, rivals } = bloodline;
+  if (!hasLineage(bloodline)) return null;
 
   const self: Kin = {
     key: deityId,
@@ -169,18 +82,9 @@ export function BloodlineTapestry({
 
   return (
     <section
-      className="rounded-2xl border border-border/60 bg-card/40 p-6 md:p-8"
+      className="rounded-lg bg-muted/40 px-4 py-8 ring-1 ring-border/60 sm:px-8"
       aria-label={`Bloodline of ${deityName}`}
     >
-      <div className="mb-6">
-        <span className="text-xs uppercase tracking-[0.25em] text-gold-text">
-          Bloodline
-        </span>
-        <h2 className="font-serif text-2xl font-semibold text-foreground">
-          The house of {deityName}
-        </h2>
-      </div>
-
       <div className="flex flex-col items-center gap-1">
         <Tier label="Parents" kin={parents} />
         {parents.length > 0 && <Descent />}
@@ -188,7 +92,7 @@ export function BloodlineTapestry({
         {/* the deity, flanked by consorts */}
         <div className="flex flex-col items-center gap-2">
           {consorts.length > 0 && (
-            <span className="text-[0.65rem] uppercase tracking-[0.2em] text-muted-foreground">
+            <span className="text-[0.8125rem] uppercase tracking-[0.16em] text-muted-foreground">
               with
             </span>
           )}
@@ -211,7 +115,7 @@ export function BloodlineTapestry({
             <Tier label="Siblings" kin={siblings} />
             {rivals.length > 0 && (
               <div className="flex flex-col items-center gap-2">
-                <span className="text-[0.65rem] uppercase tracking-[0.2em] text-destructive">
+                <span className="text-[0.8125rem] uppercase tracking-[0.16em] text-destructive">
                   Rivals
                 </span>
                 <div className="flex flex-wrap justify-center gap-4">
@@ -227,5 +131,3 @@ export function BloodlineTapestry({
     </section>
   );
 }
-
-export default BloodlineTapestry;

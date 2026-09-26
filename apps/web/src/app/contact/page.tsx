@@ -1,12 +1,11 @@
 import Link from "next/link";
-import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
-import { SimplePageHeader } from "@/components/layout/simple-page-header";
-import { pageSectionTitleClass } from "@/components/layout/page-typography";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { generateBaseMetadata } from "@/lib/metadata";
-import { ExternalLink, ShieldCheck, ScrollText } from "lucide-react";
+import { ExternalLink, ScrollText, ShieldCheck } from "lucide-react";
+import type * as React from "react";
 import { Github } from "@/components/icons/brand";
-import { cn } from "@/lib/utils";
+import { Container } from "@/components/layout/container";
+import { InfoColumns } from "@/components/layout/info-page";
+import { PageHeader } from "@/components/layout/page-header";
+import { generateBaseMetadata } from "@/lib/metadata";
 
 export const metadata = generateBaseMetadata({
   title: "Contact Mythos Atlas",
@@ -18,180 +17,148 @@ export const metadata = generateBaseMetadata({
 const repoUrl = "https://github.com/forbiddenlink/mythos";
 const issuesUrl = `${repoUrl}/issues`;
 
+const linkClass =
+  "inline-flex min-h-11 items-center gap-2 type-ui font-medium text-gold-text underline decoration-gold/40 underline-offset-4 hover:decoration-current";
+
+const CHANNELS: Array<{
+  icon: React.ComponentType<{ className?: string; "aria-hidden"?: boolean }>;
+  title: string;
+  body: React.ReactNode;
+  action: React.ReactNode;
+}> = [
+  {
+    icon: ScrollText,
+    title: "Corrections and source questions",
+    body: "Spotted a factual error, a broken source link, missing context or a mythology attribution issue? Open an issue with the page URL and the correction you want reviewed.",
+    action: (
+      <Link href={issuesUrl} className={linkClass}>
+        Report a content or source issue
+        <ExternalLink className="size-4" aria-hidden="true" />
+      </Link>
+    ),
+  },
+  {
+    icon: ShieldCheck,
+    title: "Privacy and legal requests",
+    body: (
+      <>
+        For privacy-policy questions, terms clarification, or requests about
+        local data and analytics consent, use the same issue tracker and mark
+        the request as privacy or legal. The policies are on the{" "}
+        <Link
+          href="/privacy"
+          className="text-gold-text underline underline-offset-4"
+        >
+          Privacy Policy
+        </Link>{" "}
+        and{" "}
+        <Link
+          href="/terms"
+          className="text-gold-text underline underline-offset-4"
+        >
+          Terms of Service
+        </Link>{" "}
+        pages.
+      </>
+    ),
+    action: (
+      <Link href={`${issuesUrl}/new`} className={linkClass}>
+        Open a privacy request
+        <ExternalLink className="size-4" aria-hidden="true" />
+      </Link>
+    ),
+  },
+  {
+    icon: Github,
+    title: "Project repository",
+    body: "For general feedback, open-source questions and code discussions, start with the public repository.",
+    action: (
+      <Link href={repoUrl} className={linkClass}>
+        Visit the Mythos Atlas repository
+        <ExternalLink className="size-4" aria-hidden="true" />
+      </Link>
+    ),
+  },
+];
+
 export default function ContactPage() {
   return (
-    <div className="min-h-screen bg-mythic">
-      <div className="page-shell max-w-5xl">
-        <Breadcrumbs />
+    <div className="min-h-screen">
+      <PageHeader
+        eyebrow="Get in touch"
+        mark="scroll"
+        title="Contact Mythos Atlas"
+        lede="Mythos Atlas is maintained by Elizabeth Stein. Report factual issues, ask about sources, raise privacy requests or discuss licensing through the project links below."
+      />
 
-        <SimplePageHeader
-          align="left"
-          mark="scroll"
-          tagline="Get in touch"
-          title="Contact Mythos Atlas"
-          description="Mythos Atlas is maintained by Elizabeth Stein. Report factual issues, ask about sources, raise privacy requests, or discuss licensing through the official project links below."
-        />
-
-        <div className="max-w-3xl space-y-3 mb-10 font-body text-base leading-relaxed text-muted-foreground">
-          <p>
-            The fastest path is usually a repository issue with the page URL,
-            the problem you found, and the change you want reviewed. That makes
-            it easier to verify mythology details against cited material and to
-            track technical fixes in one visible place.
-          </p>
-          <p>
-            Mythos Atlas is an editorial and technical project at the same time,
-            so the most useful requests tend to be specific. If you are
-            reporting a factual issue, include the exact statement that looks
-            wrong and the source tradition it belongs to. If you are reporting a
-            product issue, include the route, browser, and the user action that
-            triggered the bug.
-          </p>
-          <p>
-            For privacy or personal-data requests, do not paste sensitive
-            details into a public GitHub issue. Open an issue titled
-            &quot;Privacy request&quot; with a contact method only, and we will
-            follow up privately.
-          </p>
-        </div>
-
-        <div className="mt-10 grid gap-6 md:grid-cols-2">
-          <Card className="bg-card">
-            <CardHeader>
-              <CardTitle
-                className={cn("flex items-center gap-2", pageSectionTitleClass)}
-              >
-                <Github className="h-5 w-5 text-gold-text" />
-                Project Repository
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-4 text-muted-foreground">
-              <p>
-                For general project feedback, open-source questions, and code
-                discussions, start with the public repository.
+      <Container className="pt-10 md:pt-14">
+        <ul className="grid gap-px overflow-hidden rounded-lg border border-border/70 bg-border/70 md:grid-cols-3">
+          {CHANNELS.map(({ icon: Icon, title, body, action }) => (
+            <li key={title} className="flex flex-col bg-background p-6">
+              <Icon className="size-6 text-gold-text" aria-hidden={true} />
+              <h2 className="mt-4 type-h3 text-foreground">{title}</h2>
+              <p className="mt-2 flex-1 type-reading text-muted-foreground">
+                {body}
               </p>
-              <Link
-                href={repoUrl}
-                className="inline-flex items-center gap-2 text-gold-text underline hover:text-gold-text"
-              >
-                Visit the Mythos Atlas repository
-                <ExternalLink className="h-4 w-4" />
-              </Link>
-            </CardContent>
-          </Card>
+              <div className="mt-3">{action}</div>
+            </li>
+          ))}
+        </ul>
+      </Container>
 
-          <Card className="bg-card">
-            <CardHeader>
-              <CardTitle
-                className={cn("flex items-center gap-2", pageSectionTitleClass)}
-              >
-                <ScrollText className="h-5 w-5 text-gold-text" />
-                Corrections and Source Questions
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-4 text-muted-foreground">
-              <p>
-                If you spot a factual error, a broken source link, missing
-                context, or a mythology attribution issue, open an issue with
-                the page URL and the correction you want reviewed.
-              </p>
-              <Link
-                href={issuesUrl}
-                className="inline-flex items-center gap-2 text-gold-text underline hover:text-gold-text"
-              >
-                Report a content or source issue
-                <ExternalLink className="h-4 w-4" />
-              </Link>
-            </CardContent>
-          </Card>
-
-          <Card className="bg-card">
-            <CardHeader>
-              <CardTitle
-                className={cn("flex items-center gap-2", pageSectionTitleClass)}
-              >
-                <ShieldCheck className="h-5 w-5 text-gold-text" />
-                Privacy and Legal Requests
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-4 text-muted-foreground">
-              <p>
-                For privacy-policy questions, terms clarification, or requests
-                related to local data handling and analytics consent, use the
-                same issue tracker and clearly mark the request as privacy or
-                legal.
-              </p>
-              <p>
-                The current policies are documented on the{" "}
-                <Link
-                  href="/privacy"
-                  className="text-gold-text underline hover:text-gold-text"
-                >
-                  Privacy Policy
-                </Link>{" "}
-                and{" "}
-                <Link
-                  href="/terms"
-                  className="text-gold-text underline hover:text-gold-text"
-                >
-                  Terms of Service
-                </Link>{" "}
-                pages.
-              </p>
-            </CardContent>
-          </Card>
-
-          <Card className="bg-card">
-            <CardHeader>
-              <CardTitle
-                className={cn("flex items-center gap-2", pageSectionTitleClass)}
-              >
-                <Github className="h-5 w-5 text-gold-text" />
-                What To Include
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-3 text-muted-foreground">
-              <p>
-                Include the page URL, the issue you found, and the requested
-                change.
-              </p>
-              <p>
-                For source questions, include the citation or reference you want
+      <Container className="section-space">
+        <InfoColumns>
+          <section aria-labelledby="contact-include">
+            <h2 id="contact-include">What to include</h2>
+            <p>
+              The fastest path is usually a repository issue with the page URL,
+              the problem you found and the change you want reviewed. That makes
+              it easier to verify mythology details against cited material and
+              to track technical fixes in one visible place.
+            </p>
+            <ul>
+              <li>
+                <strong>Content:</strong> the exact statement that looks wrong
+                and the tradition it belongs to.
+              </li>
+              <li>
+                <strong>Sources:</strong> the citation or reference you want
                 compared.
-              </p>
-              <p>
-                For technical bugs, include device, browser, and any console or
-                UI errors.
-              </p>
-              <p>
-                For licensing or collaboration questions, include the intended
-                use case so the request can be reviewed with the right context.
-              </p>
-            </CardContent>
-          </Card>
-        </div>
+              </li>
+              <li>
+                <strong>Bugs:</strong> the route, device, browser and the action
+                that triggered the problem.
+              </li>
+              <li>
+                <strong>Licensing or collaboration:</strong> the intended use,
+                so the request can be reviewed with the right context.
+              </li>
+            </ul>
+            <p>
+              For privacy or personal-data requests, do not paste sensitive
+              details into a public GitHub issue. Open an issue titled
+              &quot;Privacy request&quot; with a contact method only, and we
+              will follow up privately.
+            </p>
+          </section>
 
-        <section className="mt-10 rounded-2xl border border-border/60 bg-card/60 p-6">
-          <h2 className={cn(pageSectionTitleClass, "text-foreground")}>
-            Response Expectations
-          </h2>
-          <p className="mt-3 leading-relaxed text-muted-foreground">
-            Mythos Atlas is a curated project, not a staffed support desk, so
-            response times vary. Reports that include page URLs, screenshots,
-            citations, or reproducible steps are easier to review than general
-            complaints because they can be checked against the live route and
-            the underlying source notes immediately.
-          </p>
-          <p className="mt-3 leading-relaxed text-muted-foreground">
-            If your request touches privacy, legal use, or attribution, point to
-            the relevant policy section and explain the desired outcome. If your
-            request is about a mythological interpretation, note whether you are
-            challenging a factual claim, a translation choice, or an editorial
-            summary. Those distinctions keep review focused and make the
-            resulting changes more accurate.
-          </p>
-        </section>
-      </div>
+          <section aria-labelledby="contact-response">
+            <h2 id="contact-response">Response expectations</h2>
+            <p>
+              Mythos Atlas is a curated project, not a staffed support desk, so
+              response times vary. Reports with page URLs, screenshots,
+              citations or reproducible steps can be checked against the live
+              route and the underlying source notes straight away.
+            </p>
+            <p>
+              If your request is about a mythological interpretation, note
+              whether you are challenging a factual claim, a translation choice
+              or an editorial summary. Those distinctions keep review focused
+              and make the resulting changes more accurate.
+            </p>
+          </section>
+        </InfoColumns>
+      </Container>
     </div>
   );
 }

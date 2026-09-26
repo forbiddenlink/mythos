@@ -58,10 +58,24 @@ test.describe("Phase 7: Oracle Chat", () => {
     page,
   }) => {
     await page.route("**/api/oracle", async (route) => {
+      // The Oracle streams AI SDK UI message chunks as server-sent events.
       await route.fulfill({
         status: 200,
-        contentType: "text/plain",
-        body: "Zeus is a central god in Greek tradition.",
+        contentType: "text/event-stream",
+        body: [
+          { type: "start" },
+          { type: "text-start", id: "t1" },
+          {
+            type: "text-delta",
+            id: "t1",
+            delta: "Zeus is a central god in Greek tradition.",
+          },
+          { type: "text-end", id: "t1" },
+          { type: "finish" },
+        ]
+          .map((chunk) => `data: ${JSON.stringify(chunk)}\n\n`)
+          .concat("data: [DONE]\n\n")
+          .join(""),
       });
     });
     await page.goto(`/`);
@@ -265,8 +279,7 @@ test.describe("Phase 7: Mobile Viewport Tests", () => {
     });
     const page = await context.newPage();
 
-    await page.goto(`/deities/zeus`);
-    await page.waitForLoadState("domcontentloaded");
+    await page.goto(`/deities/zeus`, { waitUntil: "domcontentloaded" });
 
     // Page should load without errors
     const deityName = page.locator("h1").filter({ hasText: "Zeus" });
@@ -340,8 +353,10 @@ test.describe("Phase 7: Tablet Viewport Tests", () => {
     });
     const page = await context.newPage();
 
-    await page.goto(`/deities/athena`);
-    await page.waitForLoadState("domcontentloaded");
+    // Athena's page shows Met museum images hotlinked from metmuseum.org; on a
+    // tablet viewport they load eagerly, so the full "load" event depends on a
+    // third-party host. The layout checks below only need the document.
+    await page.goto(`/deities/athena`, { waitUntil: "domcontentloaded" });
 
     const deityName = page.locator("h1").filter({ hasText: "Athena" });
     await expect(deityName).toBeVisible({ timeout: 10000 });
@@ -365,8 +380,7 @@ test.describe("Phase 7: Performance", () => {
   });
 
   test("Deity page should not block interaction", async ({ page }) => {
-    await page.goto(`/deities/odin`);
-    await page.waitForLoadState("domcontentloaded");
+    await page.goto(`/deities/odin`, { waitUntil: "domcontentloaded" });
 
     // Page content should be interactive
     const deityName = page.locator("h1").filter({ hasText: "Odin" });

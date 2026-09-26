@@ -18,9 +18,19 @@
       ]
     },
     "apps/web": {
-      "entry": ["i18n.ts"],
-      "ignoreDependencies": ["eslint-plugin-jsx-a11y", "husky", "lint-staged"]
+      "entry": [
+        "i18n.ts",
+        "scripts/quality-sweep.ts",
+        "scripts/measure-client-js.mjs"
+      ],
+      "ignoreDependencies": ["eslint-plugin-jsx-a11y", "husky", "lint-staged"],
+      "ignoreIssues": {
+        "src/lib/schemas.ts": ["exports", "types"],
+        "src/types/Entity.ts": ["types"],
+        "src/lib/oracle/provider.ts": ["exports"]
+      }
     }
   },
-  "ignore": [".agents/**", ".history/**", ".specter/**", "thoughts/**"]
+  "ignore": [".agents/**"],
+  "ignoreExportsUsedInFile": true
 }

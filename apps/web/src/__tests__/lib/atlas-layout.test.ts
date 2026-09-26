@@ -1,9 +1,12 @@
 import { describe, it, expect } from "vitest";
 import { computeAtlasLayout, prettyPantheonName } from "@/lib/atlas-layout";
 import deitiesData from "@/data/deities.json";
+import relationshipsData from "@/data/relationships.json";
+
+const build = () => computeAtlasLayout(deitiesData, relationshipsData);
 
 describe("computeAtlasLayout", () => {
-  const layout = computeAtlasLayout();
+  const layout = build();
 
   it("creates one node per deity", () => {
     expect(layout.nodes).toHaveLength(deitiesData.length);
@@ -17,7 +20,7 @@ describe("computeAtlasLayout", () => {
   });
 
   it("is deterministic across calls (SSR-safe)", () => {
-    const again = computeAtlasLayout();
+    const again = build();
     expect(again.nodes[0].position).toEqual(layout.nodes[0].position);
     expect(again.nodes.at(-1)?.position).toEqual(layout.nodes.at(-1)?.position);
   });

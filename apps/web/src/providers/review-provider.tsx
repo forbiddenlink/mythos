@@ -1,5 +1,6 @@
 "use client";
 
+import { loadDeityIndex, loadStoryIndex } from "@/lib/catalog-client";
 import { reviewSchema } from "@/lib/learning-backup";
 
 import {
@@ -121,6 +122,11 @@ const PANTHEON_NAMES: Record<string, string> = {
   "slavic-pantheon": "Slavic",
   "haudenosaunee-pantheon": "Haudenosaunee",
   "tlingit-haida-pantheon": "Tlingit & Haida",
+  "hittite-pantheon": "Hittite",
+  "canaanite-pantheon": "Canaanite",
+  "inuit-pantheon": "Inuit",
+  "aboriginal-australian-pantheon": "Aboriginal Australian",
+  "dine-pantheon": "Diné",
 };
 
 function formatPantheonLabel(pantheonId: string): string {
@@ -142,14 +148,9 @@ interface ReviewCardSources {
 let cardSourcesPromise: Promise<ReviewCardSources> | null = null;
 
 function loadCardSources(): Promise<ReviewCardSources> {
-  cardSourcesPromise ??= Promise.all([
-    import("@/data/deities.json"),
-    import("@/data/stories.json"),
-  ])
-    .then(([deitiesModule, storiesModule]) => {
-      const deities = deitiesModule.default as ReviewDeityData[];
-      const stories = storiesModule.default as ReviewStoryData[];
-
+  // Slim catalog indexes, fetched only when the user builds a review deck.
+  cardSourcesPromise ??= Promise.all([loadDeityIndex(), loadStoryIndex()])
+    .then(([deities, stories]: [ReviewDeityData[], ReviewStoryData[]]) => {
       return {
         deityIndex: new Map(
           deities.map((deity) => [deity.id.toLowerCase(), deity]),

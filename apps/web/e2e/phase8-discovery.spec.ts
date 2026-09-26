@@ -7,14 +7,16 @@ const waitForPage = async (page: import("@playwright/test").Page) => {
 };
 
 test.describe("Phase 8: Collections", () => {
-  test("should display collections index page with all 12 collections", async ({
-    page,
-  }) => {
+  test("lists every collection on the Paths hub", async ({ page }) => {
     await page.goto("/collections");
     await waitForPage(page);
 
-    // Should have the page title
-    await expect(page.locator("h1")).toContainText("Mythological Collections");
+    // The old index redirects to its section of /paths.
+    await expect(page).toHaveURL(/\/paths#collections$/);
+    await expect(page.locator("h1")).toHaveText("Paths");
+    await expect(
+      page.getByRole("heading", { level: 2, name: "Themed collections" }),
+    ).toBeVisible();
 
     const destinations = await page
       .getByRole("main")
@@ -31,12 +33,14 @@ test.describe("Phase 8: Collections", () => {
     page,
   }) => {
     await page.setViewportSize({ width: 320, height: 800 });
-    await page.goto("/collections");
+    await page.goto("/paths");
+    await expect(
+      page.getByRole("link", { name: /Themed collections/ }),
+    ).toBeInViewport();
     const featured = page.getByRole("link", {
       name: "Rulers of the Dead",
       exact: true,
     });
-    await expect(featured).toBeInViewport();
     await featured.focus();
     await page.keyboard.press("Enter");
     await expect(page).toHaveURL(/\/collections\/underworld-rulers$/);
@@ -46,7 +50,7 @@ test.describe("Phase 8: Collections", () => {
   });
 
   test("should navigate to collection detail page", async ({ page }) => {
-    await page.goto("/collections");
+    await page.goto("/paths");
     await waitForPage(page);
 
     // Wait for the link to be visible and click
@@ -65,7 +69,7 @@ test.describe("Phase 8: Collections", () => {
   test("should display deity and story counts for featured and listed themes", async ({
     page,
   }) => {
-    await page.goto("/collections");
+    await page.goto("/paths");
     await waitForPage(page);
 
     const featured = page.getByRole("region", {
@@ -144,7 +148,8 @@ test.describe("Phase 8: Mythology Facts", () => {
     await expect(cards.first()).toBeVisible();
     const filter = page.getByRole("button", { name: /^Word Origins/ });
     const label = await filter.innerText();
-    const expectedCount = Number(label.match(/\((\d+)\)/)?.[1]);
+    // The chip shows its count after the label ("Word Origins 5").
+    const expectedCount = Number(label.match(/(\d+)\s*$/)?.[1]);
     expect(expectedCount).toBeGreaterThan(0);
     await filter.click();
     await expect(cards).toHaveCount(expectedCount);
@@ -412,7 +417,7 @@ test.describe("Phase 8: Homepage Integration", () => {
     await waitForPage(page);
 
     // Collections link is in the CollectionsShowcase component
-    const collectionsLink = page.locator('a[href="/collections"]');
+    const collectionsLink = page.locator('a[href="/paths#collections"]');
     await collectionsLink.first().scrollIntoViewIfNeeded();
     await expect(collectionsLink.first()).toBeVisible({ timeout: 10000 });
   });

@@ -1,392 +1,143 @@
-"use client";
-
-import { useState } from "react";
-import {
-  Book,
-  Scroll,
-  Pen,
-  ExternalLink,
-  ChevronDown,
-  ChevronUp,
-} from "lucide-react";
-import { cn } from "@/lib/utils";
+import "server-only";
+import { ExternalLink } from "lucide-react";
+import Link from "next/link";
+import { InlineMarkdown } from "@/components/content/reading-prose";
 import sourcesData from "@/data/sources.json";
+import { cn } from "@/lib/utils";
 
 export interface FurtherReadingReference {
   sourceId: string;
   note?: string;
 }
 
-interface Source {
+interface SourceWork {
   id: string;
   title: string;
   author?: string;
   year?: string | number;
-  type: "ancient-text" | "academic" | "translation";
+  type: string;
   language?: string;
-  description?: string;
   externalUrl?: string;
   translators?: Array<{ name: string; year: number }>;
 }
 
-interface ReferencesListProps {
-  references: FurtherReadingReference[];
-  title?: string;
-  className?: string;
-  showDescriptions?: boolean;
-  collapsible?: boolean;
-  defaultExpanded?: boolean;
-}
+const works = sourcesData as unknown as SourceWork[];
 
-const typeConfig = {
-  "ancient-text": {
-    label: "Ancient Texts",
-    icon: Scroll,
-    color: "text-bronze",
-    bgColor: "bg-bronze/10",
-    borderColor: "border-bronze/30",
-  },
-  academic: {
-    label: "Academic References",
-    icon: Book,
-    color: "text-patina",
-    bgColor: "bg-patina/10",
-    borderColor: "border-patina/30",
-  },
-  translation: {
-    label: "Translations & Retellings",
-    icon: Pen,
-    color: "text-gold",
-    bgColor: "bg-gold/10",
-    borderColor: "border-gold/30",
-  },
+const TYPE_LABEL: Record<string, string> = {
+  "ancient-text": "Ancient text",
+  translation: "Translation",
+  academic: "Scholarship",
 };
 
-export function ReferencesList({
-  references,
-  title = "Further Reading",
-  className,
-  showDescriptions = false,
-  collapsible = false,
-  defaultExpanded = true,
-}: ReferencesListProps) {
-  const [isExpanded, setIsExpanded] = useState(defaultExpanded);
+// Ancient texts first, then translations, then scholarship.
+const TYPE_ORDER = ["ancient-text", "translation", "academic"];
 
-  if (!references || references.length === 0) {
-    return null;
-  }
-
-  // Type for resolved references
-  type ResolvedRef = Source & { note?: string };
-
-  // Resolve references to full source objects and group by type
-  const resolvedRefs: ResolvedRef[] = [];
-  for (const ref of references) {
-    const source = (sourcesData as Source[]).find((s) => s.id === ref.sourceId);
-    if (source) {
-      resolvedRefs.push({ ...source, note: ref.note });
-    }
-  }
-
-  // Group by type
-  const groupedRefs = resolvedRefs.reduce(
-    (acc, ref) => {
-      const type = ref.type || "academic";
-      if (!acc[type]) {
-        acc[type] = [];
-      }
-      acc[type].push(ref);
-      return acc;
-    },
-    {} as Record<string, ResolvedRef[]>,
-  );
-
-  // Order: ancient-text, translation, academic
-  const typeOrder: Array<"ancient-text" | "translation" | "academic"> = [
-    "ancient-text",
-    "translation",
-    "academic",
-  ];
-
-  const headerContent = (
-    <div className="flex items-center gap-2">
-      <Book
-        className="h-5 w-5 text-teal-600 dark:text-teal-400"
-        aria-hidden="true"
-      />
-      <h3 className="font-serif text-lg font-semibold text-slate-800 dark:text-slate-200">
-        {title}
-      </h3>
-      {collapsible && (
-        <span className="ml-auto text-slate-500 dark:text-slate-400">
-          {isExpanded ? (
-            <ChevronUp className="h-5 w-5" aria-hidden="true" />
-          ) : (
-            <ChevronDown className="h-5 w-5" aria-hidden="true" />
-          )}
-        </span>
-      )}
-    </div>
-  );
-
-  return (
-    <div
-      className={cn(
-        "rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 overflow-hidden",
-        className,
-      )}
-    >
-      {collapsible ? (
-        <button
-          onClick={() => setIsExpanded(!isExpanded)}
-          className="w-full p-4 text-left hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors"
-          aria-expanded={isExpanded}
-          aria-controls="references-content"
-        >
-          {headerContent}
-        </button>
-      ) : (
-        <div className="p-4 border-b border-slate-200 dark:border-slate-700">
-          {headerContent}
-        </div>
-      )}
-
-      <div
-        id="references-content"
-        className={cn(
-          "transition-all duration-300 ease-in-out overflow-hidden",
-          isExpanded ? "max-h-500 opacity-100" : "max-h-0 opacity-0",
-        )}
-      >
-        <div className="p-4 pt-0 space-y-6">
-          {typeOrder.map((type) => {
-            const refs = groupedRefs[type];
-            if (!refs || refs.length === 0) return null;
-
-            const config = typeConfig[type];
-            const Icon = config.icon;
-
-            return (
-              <section key={type} aria-labelledby={`ref-type-${type}`}>
-                <h4
-                  id={`ref-type-${type}`}
-                  className={cn(
-                    "flex items-center gap-2 text-sm font-medium mb-3",
-                    config.color,
-                  )}
-                >
-                  <Icon className="h-4 w-4" aria-hidden="true" />
-                  {config.label}
-                </h4>
-                <ul className="space-y-3">
-                  {refs.map((ref) => (
-                    <ReferenceItem
-                      key={ref.id}
-                      source={ref}
-                      note={ref.note}
-                      showDescription={showDescriptions}
-                      typeConfig={config}
-                    />
-                  ))}
-                </ul>
-              </section>
-            );
-          })}
-        </div>
-      </div>
-    </div>
-  );
+function typeRank(type: string): number {
+  const index = TYPE_ORDER.indexOf(type);
+  return index === -1 ? TYPE_ORDER.length : index;
 }
 
-interface ReferenceItemProps {
-  source: Source & { note?: string };
-  note?: string;
-  showDescription?: boolean;
-  typeConfig: (typeof typeConfig)["ancient-text"];
-}
-
-function ReferenceItem({
-  source,
-  note,
-  showDescription,
-  typeConfig,
-}: ReferenceItemProps) {
-  return (
-    <li
-      className={cn(
-        "p-3 rounded-lg border transition-colors",
-        typeConfig.bgColor,
-        typeConfig.borderColor,
-        "hover:shadow-sm",
-      )}
-    >
-      <div className="flex flex-wrap items-start justify-between gap-2">
-        <div className="flex-1 min-w-0">
-          {/* Title and Author */}
-          <p className="font-medium text-slate-800 dark:text-slate-200">
-            <cite className="not-italic">{source.title}</cite>
-            {source.author && (
-              <span className="text-slate-600 dark:text-slate-400 font-normal">
-                {" "}
-                by {source.author}
-              </span>
-            )}
-          </p>
-
-          {/* Year and Language */}
-          <p className="text-sm text-slate-500 dark:text-slate-500 mt-0.5">
-            {source.year}
-            {source.language && (
-              <>
-                <span className="mx-1.5">·</span>
-                <span className="italic">{source.language}</span>
-              </>
-            )}
-          </p>
-
-          {/* Note from reference */}
-          {note && (
-            <p className="text-sm text-slate-600 dark:text-slate-400 mt-2 pl-3 border-l-2 border-slate-300 dark:border-slate-600">
-              {note}
-            </p>
-          )}
-
-          {/* Description */}
-          {showDescription && source.description && (
-            <p className="text-sm text-slate-600 dark:text-slate-400 mt-2 line-clamp-2">
-              {source.description}
-            </p>
-          )}
-
-          {/* Recommended Translations */}
-          {source.translators && source.translators.length > 0 && (
-            <p className="text-xs text-slate-500 dark:text-slate-500 mt-2">
-              <span className="font-medium">Recommended translations:</span>{" "}
-              {source.translators.slice(0, 2).map((t, i) => (
-                <span key={t.name}>
-                  {i > 0 && ", "}
-                  {t.name} ({t.year})
-                </span>
-              ))}
-            </p>
-          )}
-        </div>
-
-        {/* External Link */}
-        {source.externalUrl && (
-          <a
-            href={source.externalUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={cn(
-              "flex items-center gap-1 px-2 py-1 rounded text-xs font-medium transition-colors",
-              "text-teal-600 dark:text-teal-400",
-              "hover:bg-teal-100 dark:hover:bg-teal-900/50",
-            )}
-            aria-label={`Read ${source.title} online (opens in new tab)`}
-          >
-            <ExternalLink className="h-3.5 w-3.5" aria-hidden="true" />
-            <span>Read {source.title}</span>
-          </a>
-        )}
-      </div>
-    </li>
-  );
-}
-
-// Standalone bibliography component for pages that want to show all sources
-interface BibliographyProps {
-  sourceIds?: string[];
+interface ReferencesListProps {
+  /** Works in the source catalog, each with an optional editorial note. */
+  references?: FurtherReadingReference[];
+  /** Editorial bibliography lines (plain text with *emphasis*). */
+  lines?: string[];
+  title?: string;
   className?: string;
 }
 
-export function Bibliography({ sourceIds, className }: BibliographyProps) {
-  const sources = sourceIds
-    ? (sourcesData as Source[]).filter((s) => sourceIds.includes(s.id))
-    : (sourcesData as Source[]);
+/**
+ * "Further reading": one list for catalogued works (linked to their source
+ * records) and editorial bibliography lines, so an entry never shows the
+ * same books twice under two headings.
+ */
+export function ReferencesList({
+  references = [],
+  lines = [],
+  title = "Further reading",
+  className,
+}: ReferencesListProps) {
+  const resolved: Array<SourceWork & { note?: string }> = [];
+  for (const ref of references) {
+    const work = works.find((w) => w.id === ref.sourceId);
+    if (work) resolved.push({ ...work, note: ref.note });
+  }
+  resolved.sort((a, b) => typeRank(a.type) - typeRank(b.type));
 
-  const groupedSources = sources.reduce(
-    (acc, source) => {
-      const type = source.type || "academic";
-      if (!acc[type]) {
-        acc[type] = [];
-      }
-      acc[type].push(source);
-      return acc;
-    },
-    {} as Record<string, Source[]>,
-  );
-
-  const typeOrder: Array<"ancient-text" | "translation" | "academic"> = [
-    "ancient-text",
-    "translation",
-    "academic",
-  ];
+  if (resolved.length === 0 && lines.length === 0) return null;
 
   return (
-    <div className={cn("space-y-8", className)}>
-      {typeOrder.map((type) => {
-        const typeSources = groupedSources[type];
-        if (!typeSources || typeSources.length === 0) return null;
-
-        const config = typeConfig[type];
-        const Icon = config.icon;
-
-        return (
-          <section key={type} aria-labelledby={`bib-${type}`}>
-            <h3
-              id={`bib-${type}`}
-              className={cn(
-                "flex items-center gap-2 text-xl font-serif font-semibold mb-4",
-                config.color,
-              )}
-            >
-              <Icon className="h-5 w-5" aria-hidden="true" />
-              {config.label}
-            </h3>
-            <ul className="space-y-3">
-              {typeSources.map((source) => (
-                <li
-                  key={source.id}
-                  className="p-4 rounded-lg bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700"
-                >
-                  <p className="font-medium text-slate-800 dark:text-slate-200">
-                    <cite className="not-italic">{source.title}</cite>
-                  </p>
-                  {source.author && (
-                    <p className="text-slate-600 dark:text-slate-400">
-                      {source.author}
-                    </p>
-                  )}
-                  <p className="text-sm text-slate-500 dark:text-slate-500 mt-1">
-                    {source.year}
-                    {source.language && ` · ${source.language}`}
-                  </p>
-                  {source.description && (
-                    <p className="text-sm text-slate-600 dark:text-slate-400 mt-2">
-                      {source.description}
-                    </p>
-                  )}
-                  {source.externalUrl && (
-                    <a
-                      href={source.externalUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1 mt-2 text-sm text-teal-600 dark:text-teal-400 hover:underline"
-                    >
-                      <ExternalLink
-                        className="h-3.5 w-3.5"
-                        aria-hidden="true"
-                      />
-                      Access online
-                    </a>
-                  )}
-                </li>
-              ))}
-            </ul>
-          </section>
-        );
-      })}
-    </div>
+    <section
+      aria-labelledby="further-reading-heading"
+      className={cn(className)}
+    >
+      <h3 id="further-reading-heading" className="type-h3 text-foreground">
+        {title}
+      </h3>
+      <ul className="mt-4 divide-y divide-border/70 border-y border-border/70">
+        {resolved.map((work) => (
+          <li key={work.id} className="py-3">
+            <p className="flex flex-wrap items-baseline gap-x-3 gap-y-0.5">
+              <Link
+                href={`/sources/${work.id}`}
+                className="font-body text-[1.125rem] italic text-foreground underline decoration-gold/40 underline-offset-4 hover:text-gold-text hover:decoration-current"
+              >
+                {work.title}
+              </Link>
+              <span className="type-meta text-muted-foreground">
+                {[work.author, work.year, TYPE_LABEL[work.type] ?? work.type]
+                  .filter(Boolean)
+                  .join(" · ")}
+              </span>
+            </p>
+            {work.note ? (
+              <p className="mt-1 type-ui text-foreground/85">{work.note}</p>
+            ) : null}
+            {work.translators?.length ? (
+              <p className="mt-1 type-meta text-muted-foreground">
+                Recommended translations:{" "}
+                {work.translators
+                  .slice(0, 2)
+                  .map((t) => `${t.name} (${t.year})`)
+                  .join(", ")}
+              </p>
+            ) : null}
+            {work.externalUrl ? (
+              <a
+                href={work.externalUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-1 inline-flex min-h-10 items-center gap-1.5 type-ui text-gold-text underline decoration-gold/40 underline-offset-4 hover:decoration-current"
+              >
+                Read online
+                <span className="sr-only">
+                  : {work.title} (opens in new tab)
+                </span>
+                <ExternalLink className="size-3.5" aria-hidden="true" />
+              </a>
+            ) : null}
+          </li>
+        ))}
+        {lines.map((line) => (
+          <li
+            key={line}
+            className="break-words py-3 type-ui leading-relaxed text-foreground/90"
+          >
+            <InlineMarkdown text={line} />
+          </li>
+        ))}
+      </ul>
+      <p className="mt-3 type-meta text-muted-foreground">
+        An editorial selection, not a full bibliography. Browse every text on
+        the{" "}
+        <Link
+          href="/sources"
+          className="text-gold-text underline underline-offset-2"
+        >
+          Sources
+        </Link>{" "}
+        page.
+      </p>
+    </section>
   );
 }

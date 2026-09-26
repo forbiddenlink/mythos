@@ -66,40 +66,6 @@ function useExportPdf(
   return { isExporting, handleExport };
 }
 
-export function ExportButton({
-  type,
-  data,
-  variant = "outline",
-  size = "default",
-  className,
-}: ExportButtonProps) {
-  const { isExporting, handleExport } = useExportPdf(type, data);
-
-  return (
-    <Button
-      variant={variant}
-      size={size}
-      onClick={handleExport}
-      disabled={isExporting}
-      aria-busy={isExporting}
-      className={className}
-      aria-label={`Export ${type === "deity" ? (data as DeityExportData).name : (data as StoryExportData).title} as PDF`}
-    >
-      {isExporting ? (
-        <>
-          <Loader2 className="h-4 w-4 animate-spin" />
-          <span>Exporting...</span>
-        </>
-      ) : (
-        <>
-          <Download className="h-4 w-4" />
-          <span>Export PDF</span>
-        </>
-      )}
-    </Button>
-  );
-}
-
 // Icon-only variant for compact layouts
 export function ExportIconButton({
   type,

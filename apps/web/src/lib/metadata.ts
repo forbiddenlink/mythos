@@ -75,7 +75,12 @@ export function generateBaseMetadata({
 }: {
   title: string;
   description?: string;
-  image?: string;
+  /**
+   * Share image. `null` leaves og:image and twitter:image unset so the route's
+   * `opengraph-image` file supplies them: an explicit image here would
+   * override the generated card.
+   */
+  image?: string | null;
   type?: "website" | "article";
   url?: string;
   keywords?: string[];
@@ -85,6 +90,7 @@ export function generateBaseMetadata({
   locale?: string;
 }): Metadata {
   const desc = description || siteConfig.description;
+  const useRouteImage = image === null;
   const ogImage = image || siteConfig.ogImage;
   const pageUrl = url ? `${siteConfig.url}${url}` : siteConfig.url;
   const pathForAlternates = url || "/";
@@ -108,14 +114,16 @@ export function generateBaseMetadata({
     ? [...new Set([...keywords, ...baseKeywords])]
     : baseKeywords;
 
-  const ogImages = [
-    {
-      url: ogImage,
-      width: 1200,
-      height: 630,
-      alt: title,
-    },
-  ];
+  const ogImages = useRouteImage
+    ? undefined
+    : [
+        {
+          url: ogImage,
+          width: 1200,
+          height: 630,
+          alt: title,
+        },
+      ];
 
   const ogMetadata: Metadata["openGraph"] =
     type === "article"
@@ -126,7 +134,7 @@ export function generateBaseMetadata({
           title,
           description: desc,
           siteName: siteConfig.name,
-          images: ogImages,
+          ...(ogImages ? { images: ogImages } : {}),
           section: articleSection,
           tags: articleTags,
         }
@@ -137,7 +145,7 @@ export function generateBaseMetadata({
           title,
           description: desc,
           siteName: siteConfig.name,
-          images: ogImages,
+          ...(ogImages ? { images: ogImages } : {}),
         };
 
   return {
@@ -159,7 +167,7 @@ export function generateBaseMetadata({
       card: "summary_large_image",
       title,
       description: desc,
-      images: [ogImage],
+      ...(useRouteImage ? {} : { images: [ogImage] }),
       creator: "@mythosatlas",
     },
     metadataBase: new URL(siteConfig.url),

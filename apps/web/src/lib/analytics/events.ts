@@ -33,6 +33,7 @@ export const ANALYTICS_EVENTS = [
   // Conversion
   "support_page_viewed",
   "support_click",
+  "newsletter_signup",
 ] as const;
 
 export type AnalyticsEventName = (typeof ANALYTICS_EVENTS)[number];
@@ -58,6 +59,7 @@ export interface AnalyticsEventMap {
   web_vital: { metric: string; value: number; rating: string; path?: string };
   support_page_viewed: { from: string };
   support_click: { placement: string };
+  newsletter_signup: { placement: string };
 }
 
 export type AnalyticsSink = (
@@ -86,10 +88,6 @@ export function setAnalyticsSink(next: AnalyticsSink): void {
 
 export function resetAnalyticsSink(): void {
   sink = null;
-}
-
-export function hasAnalyticsSink(): boolean {
-  return sink !== null;
 }
 
 function isPrimitive(value: unknown): value is AnalyticsPropertyValue {

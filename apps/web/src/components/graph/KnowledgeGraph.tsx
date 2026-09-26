@@ -20,7 +20,7 @@ import ReactFlow, {
   type EdgeProps,
 } from "reactflow";
 import "reactflow/dist/style.css";
-import { normalizeDeityReference } from "@/lib/deities";
+import { normalizeDeityReference } from "@/lib/deity-reference";
 import Image from "next/image";
 
 // Types
@@ -688,6 +688,7 @@ function KnowledgeGraphInner({
         }}
         maskColor="rgba(11, 12, 20, 0.6)"
         style={{ background: "#0b0c14" }}
+        className="max-sm:hidden!"
         position="bottom-right"
       />
     </ReactFlow>
@@ -716,10 +717,10 @@ export function KnowledgeGraph(props: KnowledgeGraphProps) {
     >
       <nav
         aria-label="Deities in this graph"
-        className="max-h-40 shrink-0 overflow-y-auto rounded-lg border border-border bg-card/80 p-3 lg:max-h-none lg:w-56"
+        className="max-h-40 shrink-0 overflow-y-auto rounded-lg border border-border bg-card p-3 lg:max-h-none lg:w-60"
       >
-        <p className="mb-2 text-xs font-medium text-muted-foreground">
-          Keyboard list ({listDeities.length})
+        <p className="mb-2 px-2 type-meta font-medium uppercase tracking-[0.14em] text-muted-foreground">
+          Figures ({listDeities.length})
           {props.exploreMode && exploreFocusId ? " · explore focus" : ""}
         </p>
         {props.exploreMode && exploreFocusId && (
@@ -754,7 +755,7 @@ export function KnowledgeGraph(props: KnowledgeGraphProps) {
           ))}
         </ul>
       </nav>
-      <div className="min-h-0 min-w-0 flex-1">
+      <div className="min-h-0 min-w-0 flex-1 overflow-hidden rounded-lg ring-1 ring-border">
         <ReactFlowProvider>
           <KnowledgeGraphInner
             {...props}

@@ -1,85 +1,98 @@
 import type { Metadata } from "next";
-import { PageHero } from "@/components/layout/page-hero";
+import { AboutThisPage } from "@/components/layout/about-this-page";
+import { Container } from "@/components/layout/container";
+import { PageHeader } from "@/components/layout/page-header";
 import { generateBaseMetadata } from "@/lib/metadata";
 import { AttestationTimeline } from "@/components/timeline/AttestationTimeline";
-import { TimelinePageClient } from "./TimelinePageClient";
+import eventsData from "@/data/events.json";
+import { getDeities, getPantheons, getStories } from "@/lib/data/catalog";
+import { project } from "@/lib/data/project";
+import { attestationPoints } from "@/lib/attestation";
+import {
+  TimelinePageClient,
+  type TimelineEvent,
+  type TimelinePantheon,
+} from "./TimelinePageClient";
 
 export const metadata: Metadata = generateBaseMetadata({
   title: "Mythology Timeline",
   description:
-    "Explore a visual mythology timeline from 3500 BCE to 1600 CE and compare Greek, Norse, Egyptian, Roman, Hindu, Japanese, Celtic, Aztec, and Chinese traditions.",
+    "Two timelines in one: the historical periods and dated events of the world's mythic traditions, and their stories arranged by cosmic era from creation to the twilight of the gods.",
   url: "/timeline",
 });
 
 export default function TimelinePage() {
+  const pantheons: TimelinePantheon[] = getPantheons().map((p) => ({
+    id: p.id,
+    name: p.name,
+    slug: p.slug,
+    culture: p.culture,
+    region: p.region,
+    timePeriodStart: p.timePeriodStart ?? null,
+    timePeriodEnd: p.timePeriodEnd ?? null,
+    description: p.description ?? null,
+  }));
+  const deities = getDeities();
+
   return (
-    <>
-      <PageHero
+    <div className="min-h-screen">
+      <PageHeader
+        eyebrow="Chronology"
         mark="chronos"
-        tagline="Chronology"
         title="Mythology Timeline"
-        description="Trace major mythological traditions across eras, compare their active periods, and explore when stories and civilizations overlapped."
-        backgroundImage="/stories-hero.jpg"
-        backgroundAlt="A mythic landscape representing the passage of eras and civilizations"
+        lede="See when traditions flourished and overlapped, or follow their stories from creation to the twilight of the gods."
       />
-      <section className="bg-mythic">
-        <div className="container mx-auto max-w-5xl px-4 py-10">
-          <div className="rounded-2xl border border-border/60 bg-card/60 p-6">
-            <h2 className="font-serif text-2xl font-semibold text-foreground">
-              Read Mythology In Historical Sequence
-            </h2>
-            <p className="mt-3 text-sm leading-7 text-muted-foreground">
-              This timeline places major pantheons beside one another so you can
-              see when traditions overlapped, when civilizations rose and fell,
-              and how long different mythic systems remained culturally active.
-              It works well as a first orientation layer before you move into
-              deity profiles, stories, and source notes.
-            </p>
-            <p className="mt-3 text-sm leading-7 text-muted-foreground">
-              Use it to compare broad eras rather than chase exact dates for
-              every myth. The goal is to understand sequence, proximity, and
-              cultural context: which traditions coexisted, which were separated
-              by centuries, and how geography and time frame the stories people
-              told about gods, kings, monsters, and the cosmos.
-            </p>
-            <p className="mt-3 text-sm leading-7 text-muted-foreground">
-              Once you spot an overlap or gap, jump from the timeline into the
-              related pantheon and story pages. That back-and-forth makes the
-              chronology useful as a study tool instead of just a visual list of
-              dates.
-            </p>
-            <p className="mt-3 text-sm leading-7 text-muted-foreground">
-              This means the page works best as a context layer rather than a
-              final authority on exact historical dating. Mythology often
-              survives through long oral and textual traditions, so the same
-              story can belong to a much older cultural pattern than the source
-              manuscript that preserves it. Reading the timeline with that in
-              mind makes it easier to separate mythic sequence, historical
-              period, and literary transmission.
-            </p>
-            <p className="mt-3 text-sm leading-7 text-muted-foreground">
-              Try using the timeline to frame specific questions: which
-              traditions overlap with classical Greece, which mythic systems
-              remain active into late antiquity, and which story worlds are
-              separated by centuries even when they share familiar themes such
-              as flood myths, underworld journeys, or divine kingship. That is
-              where chronology stops being decorative and starts improving
-              interpretation.
-            </p>
-            <p className="mt-3 text-sm leading-7 text-muted-foreground">
-              For students, writers, and curious readers, the page can also act
-              as a reading-order tool. Move from the broad timeline into a
-              pantheon overview, then into deity profiles and individual
-              narratives. That sequence gives each myth a clearer civilizational
-              frame before you focus on characters and plot.
-            </p>
-          </div>
-        </div>
-      </section>
-      <TimelinePageClient />
-      <section className="container mx-auto max-w-5xl px-4 pb-20">
-        <AttestationTimeline />
-      </section>
-    </>
+      <Container size="wide" className="pt-6 pb-4 md:pt-8">
+        <TimelinePageClient
+          pantheons={pantheons}
+          events={eventsData as TimelineEvent[]}
+          stories={project(getStories(), [
+            "id",
+            "pantheonId",
+            "title",
+            "slug",
+            "summary",
+            "category",
+          ])}
+          attestation={
+            <AttestationTimeline
+              points={attestationPoints(deities)}
+              total={deities.length}
+            />
+          }
+        />
+      </Container>
+      <AboutThisPage title="Using the interactive timeline" size="wide">
+        <p>
+          Read the dates as context, not a final authority: myths often outlive,
+          or long predate, the manuscripts that preserve them. The story view
+          groups tales by the era they describe, which is an editorial frame
+          rather than a shared chronology.
+        </p>
+        <p>
+          <strong>Navigation.</strong> Use your mouse wheel to zoom in up to 50x
+          magnification, and click and drag to pan across eras. The era buttons
+          and year fields jump straight to a range.
+        </p>
+        <p>
+          <strong>Events and details.</strong> Hollow circles mark key mythical
+          or historical events; hover over them for descriptions and dates.
+        </p>
+        <p>
+          <strong>Pantheons.</strong> Coloured bars show catalog periods where
+          dates are recorded. Collections without a shared period are labelled
+          after the dated entries. Click an entry to highlight it and dim the
+          others.
+        </p>
+        <p>
+          <strong>Cosmic eras.</strong> In the story view, myths are grouped
+          into five eras: the Primordial void, the Creation of worlds and gods,
+          the Golden Age of divine rule, the Heroic Age of mortal champions, and
+          the Decline or twilight of the gods. These editorial groupings help
+          compare narrative patterns; they do not imply a shared chronology or
+          the same sequence of eras in every tradition.
+        </p>
+      </AboutThisPage>
+    </div>
   );
 }

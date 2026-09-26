@@ -1,28 +1,33 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import Image from "next/image";
-import {
-  BookOpen,
-  ExternalLink,
-  Scroll,
-  Users,
-  Quote,
-  Sparkles,
-  ArrowRight,
-} from "lucide-react";
+import { ExternalLink } from "lucide-react";
 import sources from "@/data/sources.json";
 import deities from "@/data/deities.json";
 import heroes from "@/data/heroes.json";
 import storiesData from "@/data/stories.json";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
+import { EditorialByline } from "@/components/content/EditorialByline";
+import {
+  ArticleStack,
+  heroIconButtonClass,
+  heroShareClass,
+} from "@/components/content/detail-parts";
+import { ReadingParagraph } from "@/components/content/reading-prose";
+import { AboutThisPage } from "@/components/layout/about-this-page";
+import {
+  ArticleSection,
+  DetailHero,
+  DetailLayout,
+  FactList,
+  type TocItem,
+} from "@/components/layout/detail-layout";
+import { EntityList } from "@/components/layout/entity-gallery";
 import { generateBaseMetadata, generateNotFoundMetadata } from "@/lib/metadata";
 import { matchesSource } from "@/lib/source-matching";
 import { BookmarkButton } from "@/components/ui/bookmark-button";
+import { ShareButton } from "@/components/sharing/ShareButton";
 import { SourceExcerpt } from "@/components/sources/SourceExcerpt";
-
-export const revalidate = 604800;
+import { SourceWorkJsonLd } from "@/components/seo/JsonLd";
 
 interface SourceCharacter {
   id: string;
@@ -66,10 +71,19 @@ interface SourceExcerptRecord {
   edition: string;
 }
 
+interface Deity {
+  id: string;
+  name: string;
+  slug: string;
+  primarySourceExcerpts?: SourceExcerptRecord[];
+}
+
 interface Story {
   id: string;
   title: string;
   slug: string;
+  imageUrl?: string | null;
+  category?: string;
   summary?: string;
   description?: string;
   citationSources?: Array<{
@@ -80,13 +94,6 @@ interface Story {
   primarySourceExcerpts?: SourceExcerptRecord[];
 }
 
-interface Deity {
-  id: string;
-  name: string;
-  slug: string;
-  primarySourceExcerpts?: SourceExcerptRecord[];
-}
-
 interface PageProps {
   params: Promise<{ slug: string }>;
 }
@@ -94,6 +101,11 @@ interface PageProps {
 function resolveSource(slug: string): Source | undefined {
   return (sources as Source[]).find((s) => s.id === slug);
 }
+
+// Every valid param is prerendered by generateStaticParams; anything else is a
+// 404 served from the static not-found page. (On-demand rendering of unknown
+// params would cache HTML carrying one request's CSP nonce.)
+export const dynamicParams = false;
 
 export async function generateStaticParams() {
   return (sources as Source[]).map((source) => ({ slug: source.id }));
@@ -123,7 +135,44 @@ export async function generateMetadata({
   });
 }
 
-const ROMAN_NUMERALS = ["I", "II", "III", "IV", "V", "VI", "VII", "VIII"];
+const TYPE_LABEL: Record<string, string> = {
+  "ancient-text": "Ancient text",
+  translation: "Translation",
+  academic: "Scholarship",
+};
+
+/** A typographic title plate for a text (works have no portrait). */
+function TitlePlate({ source }: { source: Source }) {
+  return (
+    <div className="mx-auto w-full max-w-[15rem] md:max-w-none">
+      <div className="relative flex aspect-4/5 flex-col items-center justify-center overflow-hidden rounded-md bg-linear-to-b from-midnight-light to-midnight px-6 text-center shadow-2xl shadow-black/50 ring-1 ring-gold/30">
+        <div
+          className="absolute inset-3 rounded-sm border border-gold/25"
+          aria-hidden="true"
+        />
+        <p className="type-eyebrow text-gold-light">
+          {TYPE_LABEL[source.type] ?? source.type}
+        </p>
+        <p className="mt-5 font-serif text-3xl leading-tight text-parchment text-balance lg:text-4xl">
+          {source.title}
+        </p>
+        <div className="mt-5 flex items-center gap-3" aria-hidden="true">
+          <span className="h-px w-8 bg-gold/50" />
+          <span className="size-1.5 rotate-45 bg-gold" />
+          <span className="h-px w-8 bg-gold/50" />
+        </div>
+        {source.author ? (
+          <p className="mt-5 font-body text-lg text-parchment/85">
+            {source.author}
+          </p>
+        ) : null}
+        {source.year ? (
+          <p className="mt-1 type-meta text-parchment/65">{source.year}</p>
+        ) : null}
+      </div>
+    </div>
+  );
+}
 
 export default async function SourcePage({ params }: PageProps) {
   const { slug } = await params;
@@ -136,17 +185,31 @@ export default async function SourcePage({ params }: PageProps) {
   const allStories = storiesData as Story[];
   const allDeities = deities as Deity[];
 
-  const heroCharacters = (source.characters ?? []).filter(
-    (c) => c.kind === "hero",
-  );
-  const deityCharacters = (source.characters ?? []).filter(
-    (c) => c.kind === "deity",
-  );
-
   const heroById = (id: string) => heroes.find((h) => h.id === id);
   const deityById = (id: string) => deities.find((d) => d.id === id);
 
-  // Find linked excerpts from stories
+  const figureItems = (kind: "hero" | "deity") =>
+    (source.characters ?? [])
+      .filter((character) => character.kind === kind)
+      .flatMap((character) => {
+        const figure =
+          kind === "hero" ? heroById(character.id) : deityById(character.id);
+        return figure
+          ? [
+              {
+                name: figure.name,
+                href: `/${kind === "hero" ? "heroes" : "deities"}/${figure.slug}`,
+                imageUrl: figure.imageUrl,
+                meta: character.where,
+                description: character.role,
+              },
+            ]
+          : [];
+      });
+  const heroFigures = figureItems("hero");
+  const deityFigures = figureItems("deity");
+
+  // Passages quoted from this work on story and deity pages.
   const sourceExcerpts: Array<
     SourceExcerptRecord & {
       entityTitle: string;
@@ -179,7 +242,6 @@ export default async function SourcePage({ params }: PageProps) {
     }
   }
 
-  // Find linked stories
   const linkedStories = allStories.filter((story) => {
     const hasExcerpt = story.primarySourceExcerpts?.some((excerpt) =>
       matchesSource(excerpt, source),
@@ -190,311 +252,245 @@ export default async function SourcePage({ params }: PageProps) {
     );
   });
 
+  const characterLinks = [...heroFigures, ...deityFigures].map((item) => ({
+    name: item.name,
+    url: item.href,
+  }));
+  const typeLabel = TYPE_LABEL[source.type] ?? source.type;
+
+  const toc: TocItem[] = [
+    { id: "about", label: "About this work" },
+    ...(heroFigures.length + deityFigures.length > 0
+      ? [{ id: "figures", label: "Figures in the text" }]
+      : []),
+    ...(source.keyScenes?.length
+      ? [{ id: "scenes", label: "Key scenes" }]
+      : []),
+    ...(sourceExcerpts.length > 0
+      ? [{ id: "passages", label: "Passages" }]
+      : []),
+    ...(linkedStories.length > 0
+      ? [{ id: "stories", label: "Stories drawn from it" }]
+      : []),
+  ];
+
+  const facts = (
+    <FactList
+      facts={[
+        { label: "Author", value: source.author },
+        { label: "Date", value: source.year ? String(source.year) : null },
+        { label: "Language", value: source.language },
+        { label: "Kind", value: typeLabel },
+        {
+          label: "Translations",
+          value: source.translators?.length ? (
+            <ul className="space-y-0.5">
+              {source.translators.map((translator) => (
+                <li key={translator.name}>
+                  {translator.name} ({translator.year})
+                </li>
+              ))}
+            </ul>
+          ) : null,
+        },
+      ]}
+    />
+  );
+
   return (
-    <div className="min-h-screen bg-background">
-      <div className="page-shell max-w-4xl">
-        <Breadcrumbs />
-        <header className="mt-8 border-b border-border pb-8">
-          <p className="mb-3 text-sm uppercase tracking-widest text-gold-text">
-            Source record
-          </p>
-          <div className="flex items-start justify-between gap-4">
-            <h1 className="page-title text-foreground">{source.title}</h1>
-            <BookmarkButton type="source" id={source.id} />
-          </div>
-          <p className="mt-4 flex flex-wrap gap-x-3 gap-y-1 text-sm text-muted-foreground">
-            {source.author && <span>{source.author}</span>}
-            {source.year && <span>{source.year}</span>}
-            {source.language && <span>{source.language}</span>}
-          </p>
-          <p className="mt-6 max-w-2xl font-body text-xl leading-relaxed text-foreground">
-            {source.description}
-          </p>
-          {source.externalUrl && (
-            <a
-              href={source.externalUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={`Read ${source.title} online (opens in new tab)`}
-              className="mt-5 inline-flex min-h-11 items-center gap-2 font-medium text-gold-text underline underline-offset-4"
-            >
-              Open source{" "}
-              <ExternalLink className="h-4 w-4" aria-hidden="true" />
-            </a>
-          )}
-          {source.translators && source.translators.length > 0 && (
-            <div className="mt-6 border-t border-border pt-5">
-              <h2 className="mb-2 text-sm font-medium text-foreground">
-                Translations
-              </h2>
-              <ul className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted-foreground">
-                {source.translators.map((translator) => (
-                  <li key={translator.name}>
-                    {translator.name} ({translator.year})
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
-        </header>
-        <div className="mt-8 space-y-8">
-          {/* Reading Guidance / Where To Start */}
-          {source.readingOrder && (
-            <Card className="border-gold/20 bg-card/60 p-6 shadow-sm">
-              <CardHeader className="p-0 pb-3">
-                <CardTitle className="text-foreground font-serif text-lg flex items-center gap-2">
-                  <Sparkles className="h-4 w-4 text-gold" />
-                  Recommended Reading Order
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="p-0">
-                <p className="text-muted-foreground text-sm md:text-base leading-relaxed">
+    <>
+      <SourceWorkJsonLd
+        title={source.title}
+        description={source.description}
+        url={`/sources/${source.id}`}
+        author={source.author}
+        language={source.language}
+        translators={source.translators?.map((t) => t.name)}
+        characters={characterLinks}
+      />
+      <DetailLayout
+        hero={
+          <DetailHero
+            media={<TitlePlate source={source} />}
+            eyebrow={
+              <>
+                <span>Source record</span>
+                <span className="text-gold/50" aria-hidden="true">
+                  ·
+                </span>
+                <span className="text-parchment/85">{typeLabel}</span>
+              </>
+            }
+            title={source.title}
+            nativeName={
+              [source.author, source.year, source.language]
+                .filter(Boolean)
+                .join(" · ") || null
+            }
+            lede={<p>{source.description}</p>}
+            actions={
+              <>
+                {source.externalUrl ? (
+                  <a
+                    href={source.externalUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`Read ${source.title} online (opens in new tab)`}
+                    className="inline-flex h-10 items-center gap-2 rounded-full bg-gold px-5 text-[0.9375rem] font-semibold text-midnight transition-colors hover:bg-gold-light"
+                  >
+                    Read online
+                    <ExternalLink className="size-4" aria-hidden="true" />
+                  </a>
+                ) : null}
+                <BookmarkButton
+                  type="source"
+                  id={source.id}
+                  size="md"
+                  variant="light"
+                  className={heroIconButtonClass}
+                />
+                <ShareButton
+                  surface="source_page"
+                  title={`${source.title} - Mythos Atlas`}
+                  text={`${source.title}${source.author ? ` by ${source.author}` : ""}: passages, characters and linked myths on Mythos Atlas`}
+                  url={`https://mythosatlas.com/sources/${source.id}`}
+                  className={heroShareClass}
+                />
+              </>
+            }
+          />
+        }
+        facts={facts}
+        toc={toc}
+        asideLabel={`${source.title} at a glance`}
+      >
+        <ArticleStack>
+          <ArticleSection id="about" title="About this work">
+            <ReadingParagraph>{source.description}</ReadingParagraph>
+            {source.readingOrder ? (
+              <div className="mt-10">
+                <h3 className="type-h3 text-foreground">Where to start</h3>
+                <ReadingParagraph className="mt-3">
                   {source.readingOrder}
-                </p>
-              </CardContent>
-            </Card>
-          )}
+                </ReadingParagraph>
+              </div>
+            ) : null}
+          </ArticleSection>
 
-          {/* Canonical Characters / Figures */}
-          {(heroCharacters.length > 0 || deityCharacters.length > 0) && (
-            <Card className="border-gold/20 bg-card/70 p-6 md:p-8 shadow-sm">
-              <CardHeader className="p-0 pb-6">
-                <CardTitle className="text-foreground text-xl font-serif flex items-center gap-2">
-                  <Users className="h-5 w-5 text-gold" />
-                  Canonical Figures in this Text
-                </CardTitle>
-                <p className="text-muted-foreground text-xs md:text-sm mt-1">
-                  Key heroes and divinities who feature prominently across the
-                  chapters of this work
-                </p>
-              </CardHeader>
-              <CardContent className="p-0 space-y-6">
-                {/* Heroes */}
-                {heroCharacters.length > 0 && (
+          {heroFigures.length + deityFigures.length > 0 ? (
+            <ArticleSection
+              id="figures"
+              title="Figures in the text"
+              description="Heroes and divinities who feature prominently, with where they appear."
+              reading={false}
+            >
+              <div className="space-y-10">
+                {heroFigures.length > 0 ? (
                   <div>
-                    <h3 className="text-gold-text font-serif text-sm uppercase tracking-wider mb-3">
-                      Heroes &amp; Mortals
+                    <h3 className="type-h3 mb-3 text-foreground">
+                      Heroes and mortals
                     </h3>
-                    <div className="grid gap-4 sm:grid-cols-2">
-                      {heroCharacters.map((c) => {
-                        const hero = heroById(c.id);
-                        return (
-                          <div
-                            key={c.id}
-                            className="p-3.5 rounded-xl border border-gold/20 bg-background/60 flex items-start gap-3 hover:border-gold/40 transition-colors"
-                          >
-                            <div className="relative w-11 h-11 shrink-0 rounded-lg overflow-hidden border border-gold/30 bg-midnight">
-                              {hero?.imageUrl ? (
-                                <Image
-                                  src={hero.imageUrl}
-                                  alt={hero.name}
-                                  fill
-                                  sizes="44px"
-                                  className="object-cover"
-                                />
-                              ) : (
-                                <div className="flex h-full w-full items-center justify-center text-gold-text font-serif text-lg">
-                                  {hero ? hero.name.charAt(0) : c.id.charAt(0)}
-                                </div>
-                              )}
-                            </div>
-                            <div className="min-w-0 flex-1">
-                              {hero ? (
-                                <Link
-                                  href={`/heroes/${hero.slug}`}
-                                  className="font-medium text-foreground text-sm hover:text-gold-text transition-colors block truncate"
-                                >
-                                  {hero.name}
-                                </Link>
-                              ) : (
-                                <span className="font-medium text-foreground text-sm block truncate">
-                                  {c.id}
-                                </span>
-                              )}
-                              <p className="text-muted-foreground text-xs leading-snug mt-1">
-                                {c.role}
-                              </p>
-                              <span className="text-[11px] text-gold-text block mt-1">
-                                {c.where}
-                              </span>
-                            </div>
-                          </div>
-                        );
-                      })}
-                    </div>
+                    <EntityList columns={2} items={heroFigures} />
                   </div>
-                )}
-
-                {/* Deities */}
-                {deityCharacters.length > 0 && (
-                  <div className="pt-2">
-                    <h3 className="text-gold-text font-serif text-sm uppercase tracking-wider mb-3">
-                      Deities &amp; Immortals
+                ) : null}
+                {deityFigures.length > 0 ? (
+                  <div>
+                    <h3 className="type-h3 mb-3 text-foreground">
+                      Deities and immortals
                     </h3>
-                    <div className="grid gap-4 sm:grid-cols-2">
-                      {deityCharacters.map((c) => {
-                        const deity = deityById(c.id);
-                        return (
-                          <div
-                            key={c.id}
-                            className="p-3.5 rounded-xl border border-gold/20 bg-background/60 flex items-start gap-3 hover:border-gold/40 transition-colors"
-                          >
-                            <div className="relative w-11 h-11 shrink-0 rounded-lg overflow-hidden border border-gold/30 bg-midnight">
-                              {deity?.imageUrl ? (
-                                <Image
-                                  src={deity.imageUrl}
-                                  alt={deity.name}
-                                  fill
-                                  sizes="44px"
-                                  className="object-cover"
-                                />
-                              ) : (
-                                <div className="flex h-full w-full items-center justify-center text-gold-text font-serif text-lg">
-                                  {deity
-                                    ? deity.name.charAt(0)
-                                    : c.id.charAt(0)}
-                                </div>
-                              )}
-                            </div>
-                            <div className="min-w-0 flex-1">
-                              {deity ? (
-                                <Link
-                                  href={`/deities/${deity.slug}`}
-                                  className="font-medium text-foreground text-sm hover:text-gold-text transition-colors block truncate"
-                                >
-                                  {deity.name}
-                                </Link>
-                              ) : (
-                                <span className="font-medium text-foreground text-sm block truncate">
-                                  {c.id}
-                                </span>
-                              )}
-                              <p className="text-muted-foreground text-xs leading-snug mt-1">
-                                {c.role}
-                              </p>
-                              <span className="text-[11px] text-gold-text block mt-1">
-                                {c.where}
-                              </span>
-                            </div>
-                          </div>
-                        );
-                      })}
-                    </div>
+                    <EntityList columns={2} items={deityFigures} />
                   </div>
-                )}
-              </CardContent>
-            </Card>
-          )}
+                ) : null}
+              </div>
+            </ArticleSection>
+          ) : null}
 
-          {/* Key Canonical Scenes */}
-          {source.keyScenes && source.keyScenes.length > 0 && (
-            <Card className="border-gold/20 bg-card/70 p-6 md:p-8 shadow-sm">
-              <CardHeader className="p-0 pb-6">
-                <CardTitle className="text-foreground text-xl font-serif flex items-center gap-2">
-                  <Scroll className="h-5 w-5 text-gold" />
-                  Key Dramatic Scenes
-                </CardTitle>
-                <p className="text-muted-foreground text-xs md:text-sm mt-1">
-                  Pivotal passages and mythological turning points recorded in
-                  this canon
-                </p>
-              </CardHeader>
-              <CardContent className="p-0">
-                <ul className="space-y-4">
-                  {source.keyScenes.map((scene, index) => (
-                    <li
-                      key={scene.title}
-                      className="border-l-2 border-gold/40 pl-4 py-1"
+          {source.keyScenes?.length ? (
+            <ArticleSection
+              id="scenes"
+              title="Key scenes"
+              description="Turning points of the work, in reading order."
+            >
+              <ol className="divide-y divide-border/70 border-y border-border/70">
+                {source.keyScenes.map((scene, index) => (
+                  <li
+                    key={scene.title}
+                    className="grid grid-cols-[2.25rem_minmax(0,1fr)] gap-x-2 py-4"
+                  >
+                    <span
+                      aria-hidden="true"
+                      className="pt-0.5 font-serif text-[0.9375rem] font-semibold tabular-nums text-gold-text"
                     >
-                      <div className="flex flex-wrap items-baseline gap-2">
-                        <span className="font-serif text-xs font-semibold text-gold-text">
-                          {ROMAN_NUMERALS[index] || `${index + 1}.`}
-                        </span>
-                        <h4 className="font-medium text-foreground text-base">
-                          {scene.title}
-                        </h4>
-                        <span className="text-xs text-gold-text font-medium">
-                          ({scene.where})
-                        </span>
-                      </div>
-                      <p className="text-muted-foreground text-sm mt-2 leading-relaxed">
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                    <div className="min-w-0">
+                      <h3 className="font-serif text-[1.125rem] font-semibold leading-snug text-foreground">
+                        {scene.title}
+                      </h3>
+                      <p className="mt-0.5 type-meta text-muted-foreground">
+                        {scene.where}
+                      </p>
+                      <p className="mt-2 type-reading text-foreground/90">
                         {scene.summary}
                       </p>
-                    </li>
-                  ))}
-                </ul>
-              </CardContent>
-            </Card>
-          )}
+                    </div>
+                  </li>
+                ))}
+              </ol>
+            </ArticleSection>
+          ) : null}
 
-          {/* Preserved Dual-Language Ancient Passages */}
-          {sourceExcerpts.length > 0 && (
-            <Card className="border-gold/20 bg-card/70 p-6 md:p-8 shadow-sm">
-              <CardHeader className="p-0 pb-6">
-                <CardTitle className="text-foreground text-xl font-serif flex items-center gap-2">
-                  <Quote className="h-5 w-5 text-gold" />
-                  Source Passages and Editorial Notes
-                </CardTitle>
-                <p className="text-muted-foreground text-xs md:text-sm mt-1">
-                  Direct quotations are distinguished from editorial paraphrases
-                  and records awaiting verification.
-                </p>
-              </CardHeader>
-              <CardContent className="p-0 space-y-6">
+          {sourceExcerpts.length > 0 ? (
+            <ArticleSection
+              id="passages"
+              title="Passages"
+              description="Direct quotations are distinguished from editorial paraphrases and records awaiting verification."
+            >
+              <div className="divide-y divide-border/70 border-y border-border/70">
                 {sourceExcerpts.map((excerpt, index) => (
-                  <div
-                    key={`${excerpt.entitySlug}-${index}`}
-                    className="space-y-3"
-                  >
-                    <SourceExcerpt excerpt={excerpt} />
+                  <div key={`${excerpt.entitySlug}-${index}`} className="pb-4">
+                    <SourceExcerpt excerpt={excerpt} className="pb-2" />
                     <Link
                       href={`/${excerpt.entityType === "story" ? "stories" : "deities"}/${excerpt.entitySlug}`}
-                      className="inline-flex min-h-11 items-center gap-1 text-sm text-gold-text underline underline-offset-4"
+                      className="inline-flex min-h-10 items-center type-ui text-gold-text underline decoration-gold/40 underline-offset-4 hover:decoration-current"
                     >
                       Featured in {excerpt.entityTitle} &rarr;
                     </Link>
                   </div>
                 ))}
-              </CardContent>
-            </Card>
-          )}
+              </div>
+            </ArticleSection>
+          ) : null}
 
-          {/* Linked Stories in Mythos Atlas */}
-          {linkedStories.length > 0 && (
-            <Card className="border-gold/20 bg-card/70 p-6 md:p-8 shadow-sm">
-              <CardHeader className="p-0 pb-4">
-                <CardTitle className="text-foreground text-xl font-serif flex items-center gap-2">
-                  <BookOpen className="h-5 w-5 text-gold" />
-                  Stories Sourced from this Work
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="p-0">
-                <div className="grid gap-3 sm:grid-cols-2">
-                  {linkedStories.map((story) => (
-                    <Link
-                      key={story.id}
-                      href={`/stories/${story.slug}`}
-                      className="p-3.5 rounded-xl border border-gold/20 bg-background/60 hover:border-gold/40 transition-colors flex items-center justify-between group"
-                    >
-                      <div className="min-w-0 flex-1 pr-2">
-                        <h4 className="font-medium text-sm text-foreground group-hover:text-gold-text transition-colors truncate">
-                          {story.title}
-                        </h4>
-                        <p className="text-xs text-muted-foreground line-clamp-1 mt-0.5">
-                          {story.summary ||
-                            story.description ||
-                            "Read full narrative"}
-                        </p>
-                      </div>
-                      <ArrowRight className="h-4 w-4 text-gold/60 group-hover:text-gold-text group-hover:translate-x-0.5 transition-all shrink-0" />
-                    </Link>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
-          )}
-        </div>
-      </div>
-    </div>
+          {linkedStories.length > 0 ? (
+            <ArticleSection
+              id="stories"
+              title="Stories drawn from it"
+              description="Retellings in the atlas that quote or cite this work."
+              reading={false}
+            >
+              <EntityList
+                columns={2}
+                items={linkedStories.map((story) => ({
+                  name: story.title,
+                  href: `/stories/${story.slug}`,
+                  imageUrl: story.imageUrl,
+                  meta: story.category,
+                  description: story.summary || story.description,
+                }))}
+              />
+            </ArticleSection>
+          ) : null}
+
+          <AboutThisPage title="About this record" size={false}>
+            <EditorialByline />
+            <p>
+              Dates and authorship follow standard scholarly references; for
+              many ancient works both are approximate or disputed.
+            </p>
+          </AboutThisPage>
+        </ArticleStack>
+      </DetailLayout>
+    </>
   );
 }

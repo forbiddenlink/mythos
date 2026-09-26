@@ -12,18 +12,20 @@
     "citationSources": [
       {
         "title": "Theogony",
+        "sourceId": "theogony",
         "author": "Hesiod",
         "date": "~700 BCE",
         "type": "primary"
       },
       {
         "title": "The Library",
+        "sourceId": "library-apollodorus",
         "author": "Apollodorus",
         "date": "1st or 2nd century CE",
         "type": "primary"
       }
     ],
-    "imageUrl": "/pantheons/greek.jpg"
+    "imageUrl": "https://images.unsplash.com/photo-1557686583-560ae7baba2a?auto=format&fit=crop&w=1600&q=80"
   },
   {
     "id": "norse-pantheon",
@@ -34,16 +36,18 @@
     "timePeriodStart": -1200,
     "timePeriodEnd": 1100,
     "description": "The Norse pantheon includes the Aesir and Vanir gods of Scandinavian mythology, centered in Asgard and featuring stories of creation, heroism, and the prophesied end of the world known as Ragnarok.",
-    "detailedHistory": "## The World Tree and Ragnarok\n\nNorse mythology centers on Yggdrasil, the Ash Tree connecting the nine worlds. The Aesir (sky gods) and Vanir (earth gods) eventually unified after a war.\n\n### The Prophecy\n\nUnique among mythologies, the Norse gods know their end. **Ragnarok** is the prophesied twilight of the gods, where they will battle the frost giants and chaos monsters, resulting in the destruction and renewal of the world.",
+    "detailedHistory": "## Late sources for an older religion\n\nAlmost everything told about the Norse gods comes from Iceland in the 13th century, two hundred years after the island's conversion to Christianity around 1000 CE. The *Poetic Edda*, a collection of anonymous mythological and heroic poems preserved mainly in the Codex Regius (c. 1270), includes *Völuspá*, the seeress's account of the world from creation to Ragnarök, and *Hávamál*, the sayings of Odin. Some of these poems are probably much older than the manuscript. Snorri Sturluson's *Prose Edda* (c. 1220) is a handbook for poets that retells the myths in systematic prose; it is the source of many familiar details, but Snorri was a Christian scholar organising inherited material, and scholars read him with care.\n\n## Other witnesses\n\nOlder and independent evidence is patchier: skaldic poems composed for Viking-age rulers and quoted in the sagas, runic inscriptions, picture stones on Gotland, carvings such as the Thor fishing stones at Altuna and Gosforth, place names across Scandinavia that preserve the names of Thor, Odin, Frey, and Ullr, Adam of Bremen's description (c. 1075) of a temple at Uppsala with images of Thor, Wodan, and Fricco, and, much earlier, Tacitus's *Germania* (98 CE) on the religion of the continental Germanic peoples. Saxo Grammaticus's Latin *Gesta Danorum* (c. 1200) retells some of the same figures as ancient kings.\n\n## Æsir and Vanir\n\nThe sources describe two groups of gods, the Æsir (Odin, Thor, Frigg, Týr, Baldr, and others) and the Vanir (Njörðr, Freyr, Freyja), associated with fertility, wealth, and the sea. They fought a war that ended in a truce and an exchange of hostages, after which the Vanir lived among the Æsir. Whether that war reflects a historical merging of cults is an old scholarly question with no settled answer.\n\n## The world and its end\n\nThe cosmos is organised around the ash Yggdrasil and its nine worlds. *Völuspá* tells how the gods order the world from the body of the giant Ymir, how Baldr is killed, and how Ragnarök, the doom of the gods, will bring Fenrir, the Midgard Serpent, Surtr's fire, and the deaths of Odin and Thor, before a green earth rises again from the sea. How much of that ending reflects Christian influence is debated. Religious practice itself, blót sacrifice, feasting, and oath-taking, is known mainly from saga descriptions written long after.",
     "citationSources": [
       {
         "title": "Poetic Edda",
+        "sourceId": "poetic-edda",
         "author": "Anonymous",
         "date": "~1270 CE",
         "type": "primary"
       },
       {
         "title": "Prose Edda",
+        "sourceId": "prose-edda",
         "author": "Snorri Sturluson",
         "date": "~1220 CE",
         "type": "primary"
@@ -60,15 +64,17 @@
     "timePeriodStart": -3100,
     "timePeriodEnd": 640,
     "description": "The Egyptian pantheon encompasses the gods and goddesses of ancient Egypt, featuring creation deities, solar worship, the afterlife, and the eternal struggle between order (Ma'at) and chaos (Isfet).",
-    "detailedHistory": "## Gods of the Nile\n\nEgyptian mythology is one of the longest-enduring religious systems in history. It focused heavily on the afterlife, the sun's journey, and the maintenance of *Ma'at* (cosmic order).\n\n### The Afterlife\n\nThe Egyptians believed the soul faced judgment in the Hall of Truth, where the heart was weighed against the feather of Ma'at. Only the righteous could enter the Field of Reeds.",
+    "detailedHistory": "## Three thousand years of religion\n\nEgyptian religion was practised from before the unification of the country (c. 3100 BCE) until the closing of the last temples in late antiquity; the temple of Isis at Philae functioned until the 6th century CE. Over that span gods rose and fell in importance, merged (Amun-Ra, Ra-Horakhty), and were worshipped differently in different cities. There was no single creed or scripture: each major temple had its own theology, and several creation accounts coexisted without contradiction being a problem.\n\n## Creation accounts\n\nAt Heliopolis, Atum emerges on the primeval mound from the waters of Nun and produces Shu and Tefnut, from whom come Geb and Nut and their children Osiris, Isis, Set, and Nephthys, the Ennead. At Hermopolis, eight primordial beings, the Ogdoad, precede the sun. At Memphis, the *Shabaka Stone* (c. 710 BCE, copying an older text) presents Ptah creating through heart and tongue, thought and word.\n\n## The written sources\n\nThe *Pyramid Texts*, carved inside royal pyramids at Saqqara from the reign of Unas (c. 2350 BCE), are the oldest religious texts. They were adapted for non-royal burials in the *Coffin Texts* of the Middle Kingdom and, from the New Kingdom, in the *Book of the Dead*, illustrated papyri of spells to guide the deceased. Underworld books such as the *Amduat* and the *Book of Gates* map the sun's night journey on royal tomb walls in the Valley of the Kings. Egyptian texts rarely tell myths as continuous narratives; the fullest account of the Osiris story is in Greek, in Plutarch's *On Isis and Osiris* (c. 100 CE), alongside Egyptian allusions and the New Kingdom tale *The Contendings of Horus and Set*.\n\n## Maat and the afterlife\n\nMaat, truth and right order, was what king and temple ritual existed to uphold against isfet, disorder. The dead hoped to be judged justified before Osiris, their heart weighed against Maat's feather (Book of the Dead Spell 125), and to live on in the Field of Reeds or travel with the sun. Temples were the houses of the gods, served daily by priests on the king's behalf, and ordinary people approached the gods through festivals, household cults, amulets, and oracles.",
     "citationSources": [
       {
         "title": "Pyramid Texts",
+        "sourceId": "pyramid-texts",
         "date": "~2400-2300 BCE",
         "type": "primary"
       },
       {
         "title": "Book of the Dead",
+        "sourceId": "book-of-the-dead",
         "date": "~1550 BCE onwards",
         "type": "primary"
       }
@@ -87,24 +93,28 @@
     "citationSources": [
       {
         "title": "Metamorphoses",
+        "sourceId": "metamorphoses",
         "author": "Ovid",
         "date": "8 CE",
         "type": "primary"
       },
       {
         "title": "Aeneid",
+        "sourceId": "aeneid",
         "author": "Virgil",
         "date": "~19 BCE",
         "type": "primary"
       },
       {
         "title": "Fasti",
+        "sourceId": "fasti",
         "author": "Ovid",
         "date": "~8 CE",
         "type": "primary"
       }
     ],
-    "imageUrl": "/pantheons/roman.jpg"
+    "imageUrl": "/pantheons/roman.jpg",
+    "detailedHistory": "## Religion as practice\n\nRoman religion was above all a matter of correct practice: sacrifice, vows, festivals, and the reading of signs, carried out by magistrates and priestly colleges on behalf of the state, and by heads of households for their families. Belief mattered less than keeping faith with the gods (pax deorum) through ritual done properly. The major priesthoods, the pontifices headed by the pontifex maximus, the augurs, the Vestal Virgins, and the flamines of individual gods, were held by members of the governing elite.\n\n## Native gods and Greek stories\n\nThe earliest Roman gods, Jupiter, Mars, and Quirinus, Janus, Vesta, and many small powers of house and field, had few myths of their own. From an early date Rome absorbed Etruscan and Greek influence: the Capitoline triad of Jupiter, Juno, and Minerva had an Etruscan-style temple dedicated, by tradition, in 509 BCE, and Greek gods such as Apollo were adopted outright. Roman writers then identified their gods with the Greek Olympians (Jupiter with Zeus, Juno with Hera, Minerva with Athena), so that much of what is called Roman mythology is Greek mythology told in Latin, above all in Ovid's *Metamorphoses*.\n\n## Rome's own myths\n\nThe myths the Romans developed most fully were stories about Rome itself: Aeneas's flight from Troy and his arrival in Latium, told in Virgil's *Aeneid*; Romulus and Remus and the founding of the city, and the early kings, told by Livy and Dionysius of Halicarnassus; and the origins of festivals and cults, explained in Ovid's *Fasti* and Varro's lost *Antiquities*, known through quotations. These are political myths, tying the gods to the city's history and destiny.\n\n## Change and end\n\nUnder the empire the cult of the deified emperors joined the state religion, and cults from the eastern provinces, such as those of Isis, Cybele, and Mithras, spread widely. After Constantine's conversion Christianity was favoured, and laws under Theodosius I in the 390s banned public sacrifice; the fire of Vesta was put out and the Vestals disbanded. The date 476 used here marks the end of the western empire, not a single moment when the old religion ceased."
   },
   {
     "id": "hindu-pantheon",
@@ -118,23 +128,27 @@
     "citationSources": [
       {
         "title": "Rigveda",
+        "sourceId": "rigveda",
         "date": "~1500-1200 BCE",
         "type": "primary"
       },
       {
         "title": "Mahabharata",
+        "sourceId": "mahabharata",
         "author": "Vyasa",
         "date": "~400 BCE-400 CE",
         "type": "primary"
       },
       {
         "title": "Ramayana",
+        "sourceId": "ramayana",
         "author": "Valmiki",
         "date": "~500-100 BCE",
         "type": "primary"
       }
     ],
-    "imageUrl": "/pantheons/hindu.jpg"
+    "imageUrl": "/pantheons/hindu.jpg",
+    "detailedHistory": "## Many texts, many traditions\n\nHinduism is not a single religion with one founder or scripture but a family of traditions developing over more than three thousand years and practised today by over a billion people. This site's entries follow the principal textual sources while recognising that devotional and regional traditions often tell the stories differently.\n\n## The Vedas\n\nThe oldest layer is the *Rigveda*, hymns in Vedic Sanskrit composed in the northwest of the subcontinent in roughly the later second millennium BCE and transmitted orally with extraordinary precision long before being written down. Its prominent gods are Indra, slayer of the serpent Vritra, Agni the fire, Soma, Varuna, and the dawn goddess Ushas; Vishnu and Rudra, later Shiva, are comparatively minor. Later Vedic texts, the Brahmanas and the Upanishads, turned to the meaning of sacrifice and to the identity of the self (atman) with ultimate reality (brahman).\n\n## Epics and Puranas\n\nThe two Sanskrit epics, the *Mahabharata*, which contains the *Bhagavad Gita*, and the *Ramayana*, took shape over centuries around the turn of the common era and remain the most widely known stories in South and Southeast Asia. The Puranas, compiled from roughly the 3rd century CE into the second millennium, organise the gods around great deities: Vishnu and his avatars, including Rama and Krishna; Shiva with Parvati and their sons Ganesha and Kartikeya; and the Goddess, Devi, in forms such as Durga and Kali. The idea of the Trimurti, Brahma as creator, Vishnu as preserver, and Shiva as destroyer, is a Puranic scheme; in practice most devotees worship Vishnu, Shiva, or the Goddess as supreme.\n\n## Living worship\n\nHindu worship centres on temples, household shrines, pilgrimage, and festivals such as Diwali, Holi, and Navaratri. Tamil devotional poetry, regional epics, and local goddess traditions are as much part of Hindu mythology as the Sanskrit texts. The start date of 1500 BCE given here is a conventional marker for the Vedic period; the tradition has no end date."
   },
   {
     "id": "japanese-pantheon",
@@ -148,17 +162,20 @@
     "citationSources": [
       {
         "title": "Kojiki",
+        "sourceId": "kojiki",
         "author": "O no Yasumaro",
         "date": "712 CE",
         "type": "primary"
       },
       {
         "title": "Nihon Shoki",
+        "sourceId": "nihon-shoki",
         "date": "720 CE",
         "type": "primary"
       }
     ],
-    "imageUrl": "/pantheons/japanese.jpg"
+    "imageUrl": "/pantheons/japanese.jpg",
+    "detailedHistory": "## Kami\n\nKami are the sacred powers of Japanese religion: the great deities of the classical myths, but also mountains, waterfalls, ancient trees, ancestors, and remarkable people. Shinto, 'the way of the kami', names the practices that honour them at shrines across Japan. The name took on its modern sense relatively late, and for most of Japanese history kami worship was closely combined with Buddhism, the two separated by government order only in 1868.\n\n## The written myths\n\nThe classical myths are known from two court histories compiled in the early 8th century: the *Kojiki* ('Record of Ancient Matters', 712), written down by Ō no Yasumaro, and the *Nihon Shoki* ('Chronicles of Japan', 720), which records many variant versions side by side. Both begin with the creation of the islands by Izanagi and Izanami, tell of Amaterasu, the sun goddess, and her unruly brother Susanoo, the Izumo cycle of Ōkuninushi, and the descent of Amaterasu's grandson Ninigi to rule the land. They then run on into the reigns of legendary and historical emperors. Both were compiled to support the authority of the imperial house, which claims descent from Amaterasu, and they should be read with that purpose in mind. The provincial *Fudoki* gazetteers of the same period preserve local myths the court histories leave out.\n\n## Shrines and practice\n\nThe Ise Grand Shrine, dedicated to Amaterasu and rebuilt every twenty years, and Izumo Taisha, dedicated to Ōkuninushi, are the most important shrines associated with the myths. Practice centres on purification, offerings, seasonal festivals (matsuri), and prayer at shrines. The conventional date of 660 BCE for the first emperor, Jimmu, comes from the *Nihon Shoki* and is legendary, not historical."
   },
   {
     "id": "celtic-pantheon",
@@ -172,6 +189,7 @@
     "citationSources": [
       {
         "title": "Lebor Gabála Érenn",
+        "sourceId": "lebor-gabala-erenn",
         "type": "primary"
       },
       {
@@ -179,7 +197,8 @@
         "type": "primary"
       }
     ],
-    "imageUrl": "/pantheons/celtic.jpg"
+    "imageUrl": "/pantheons/celtic.jpg",
+    "detailedHistory": "## A modern label\n\n'Celtic' is a linguistic term: it groups peoples who spoke Celtic languages, from Gaul and Britain to Ireland, Iberia, and Galatia in Anatolia. There was no single Celtic religion or pantheon. This site's entries draw on two very different bodies of evidence, and it is important to keep them apart.\n\n## Ancient Gaul and Britain\n\nThe first is the evidence from the ancient continental Celts and Roman Britain: inscriptions naming hundreds of gods, many of them local, often paired with Roman gods (Sulis Minerva at Bath, Lenus Mars); images such as the antlered god on the Gundestrup cauldron and the Pillar of the Boatmen from Paris, which names Cernunnos; and the reports of Greek and Roman writers. Julius Caesar's *Gallic War* (6.13-18) describes the druids and equates Gaulish gods with Mercury, Apollo, Mars, Jupiter, and Minerva, but he was an enemy general writing for Romans. No myths survive from these peoples in their own words.\n\n## Medieval Ireland and Wales\n\nThe second is the literature written down by Christian scholars in Ireland from about the 7th century and in Wales later. Irish texts such as the *Lebor Gabála Érenn* (the 'Book of Invasions'), *Cath Maige Tuired*, and the tales of the Ulster Cycle, including the *Táin Bó Cúailnge*, present the Túatha Dé Danann (Dagda, Lug, Brigit, Nuadu, the Morrígan) as a race of ancient rulers who withdrew into the mounds (síde), not openly as gods. The Welsh *Four Branches of the Mabinogi*, preserved in 14th-century manuscripts, include figures such as Rhiannon, Manawydan, and Lleu, whose names echo older deities. How much of this literature preserves pre-Christian belief, and how much is medieval invention, is a long-running scholarly debate.\n\n## Dates\n\nThe period of 500 BCE to 400 CE given here covers the Iron Age and Roman evidence; the Irish and Welsh literature was written down centuries after it, and many sites connected with the stories, such as Tara, Newgrange, and Emain Macha, are far older than any text."
   },
   {
     "id": "aztec-pantheon",
@@ -193,6 +212,7 @@
     "citationSources": [
       {
         "title": "Florentine Codex",
+        "sourceId": "florentine-codex",
         "date": "16th Century",
         "type": "primary"
       },
@@ -201,7 +221,8 @@
         "type": "primary"
       }
     ],
-    "imageUrl": "/pantheons/aztec.jpg"
+    "imageUrl": "/pantheons/aztec.jpg",
+    "detailedHistory": "## The Mexica and their neighbours\n\n'Aztec' usually refers to the Nahuatl-speaking peoples of central Mexico and especially to the Mexica, who founded Tenochtitlan on an island in Lake Texcoco, traditionally in 1325, and, through the Triple Alliance with Texcoco and Tlacopan, dominated much of Mesoamerica until the Spanish conquest in 1521. Their religion shared a great deal with other Mesoamerican peoples: the 260-day ritual calendar, the ballgame, a layered cosmos of heavens and underworld, and the feathered serpent.\n\n## The sources\n\nOnly a handful of pre-conquest manuscripts survive, among them ritual and divinatory books of the Borgia Group from central and southern Mexico. Most of what is known was recorded after 1521. The most important source is the *General History of the Things of New Spain*, the *Florentine Codex*, compiled in Nahuatl and Spanish between the 1540s and about 1577 by the Franciscan Bernardino de Sahagún with Nahua scholars and elders. Other key texts include the *Leyenda de los Soles* (1558), the *Historia de los mexicanos por sus pinturas*, the *Histoyre du Mechique*, and illustrated colonial codices such as the *Codex Borbonicus* and *Codex Mendoza*. All were produced under Spanish rule, often by missionaries seeking to understand and suppress the old religion, and their framing needs care.\n\n## Gods and the Fifth Sun\n\nThe cosmology tells of four earlier worlds, or suns, each destroyed, before the present Fifth Sun was created at Teotihuacan when the gods Nanahuatzin and Tecuciztecatl threw themselves into a fire. The gods then gave their own blood to set the sun moving, and humans were thought to owe a debt repaid through offerings, including blood and, in state ritual, human sacrifice. Huitzilopochtli, the Mexica patron, and Tlaloc, god of rain, shared the Templo Mayor; Quetzalcoatl, Tezcatlipoca, and many others were worshipped through a year of monthly festivals.\n\n## After 1521\n\nThe temples were destroyed, but Nahuatl, the calendar's memory, and many practices continued in altered forms, and Nahua communities today are the descendants of the people who kept these traditions."
   },
   {
     "id": "chinese-pantheon",
@@ -216,6 +237,7 @@
     "citationSources": [
       {
         "title": "Journey to the West",
+        "sourceId": "journey-to-the-west",
         "author": "Wu Cheng'en",
         "date": "1592 CE",
         "type": "primary"
@@ -232,6 +254,7 @@
       },
       {
         "title": "Huainanzi",
+        "sourceId": "huainanzi",
         "date": "~139 BCE",
         "type": "primary"
       }
@@ -251,11 +274,13 @@
     "citationSources": [
       {
         "title": "Epic of Gilgamesh",
+        "sourceId": "epic-of-gilgamesh",
         "date": "~2100 BCE",
         "type": "primary"
       },
       {
         "title": "Enuma Elish",
+        "sourceId": "enuma-elish",
         "date": "~1100 BCE",
         "type": "primary"
       },
@@ -271,12 +296,12 @@
     "id": "african-pantheon",
     "name": "African Traditions",
     "slug": "african",
-    "culture": "Yoruba, Akan, and other African traditions",
+    "culture": "Several distinct African peoples (Zulu and Xhosa, Swahili, Mandinka, Ewe, Mongo) and the Mami Wata tradition",
     "region": "Africa and the African diaspora",
     "timePeriodStart": null,
     "timePeriodEnd": null,
-    "description": "A collection of distinct African religious and storytelling traditions. Yoruba orishas appear alongside Akan figures such as Anansi and Nyame, and beings from other regions. These entries do not form a single shared pantheon.",
-    "detailedHistory": "## Distinct traditions, shared collection\n\nThis collection brings together entries from several African traditions for browsing. It does not imply a common religion, origin, or historical period. Anansi and Nyame belong to Akan traditions; the Yoruba orishas have their own religious contexts.\n\n### Yoruba traditions\n\nMany entries in this collection concern Yoruba religion, rooted in southwestern Nigeria and neighboring Benin. Orishas connect religious practice with particular places, communities, and aspects of life. Ifa divination is one part of this living tradition.\n\n### Akan storytelling\n\nAnansi and Nyame appear in Akan-Ashanti tales, including the account of Anansi obtaining stories from Nyame. The version included here follows R. S. Rattray's collected account; it is one recorded version rather than a universal telling.\n\n### Reading across traditions\n\nFollow each entry's cultural description and references. Similar roles, such as creator or trickster, do not make figures interchangeable. The broader collection also contains beings from other African regions; their inclusion here should not be read as Yoruba or Akan attribution.",
+    "description": "A regional collection, not a pantheon: beings from African traditions that do not yet have their own entry on this site. Yoruba orisha and Akan figures such as Nyame and Anansi now have their own pages.",
+    "detailedHistory": "## A collection, not a pantheon\n\nThis page used to gather Yoruba orisha, Akan figures, and beings from several other African peoples under one heading. That grouping implied a shared religion that never existed, so the two best-documented traditions now have their own entries, and this page keeps only what remains: creatures and spirits from peoples whose traditions this site has not yet covered in depth. Nothing here implies a common origin, date, or cosmology.\n\n### Yoruba traditions\n\nThe orisha of the Yoruba of southwestern Nigeria and neighbouring Benin, with the creation at Ile-Ife, Ifa divination, and the diaspora religions that grew from them, are now on the [Yoruba Tradition](/pantheons/yoruba) page.\n\n### Akan storytelling\n\nNyame, Asase Yaa, the river abosom, and Kwaku Ananse the spider, known largely through R. S. Rattray's recordings of Asante tellers in the 1920s, are now on the [Akan Tradition](/pantheons/akan) page.\n\n### What stays here\n\nThe beings still listed on this page come from separate peoples and should be read that way: the tikoloshe from Zulu and Xhosa belief in South Africa, the popobawa from late-20th-century reports on Zanzibar and Pemba, the ninki-nanka from Mandinka and neighbouring traditions of the Gambia and Senegal, the adze from Ewe belief in Ghana and Togo, and the eloko from the Mongo of the Congo basin. Mami Wata is the exception: a water spirit venerated across West and Central Africa and the diaspora, whose modern image owes much to 19th- and 20th-century trade and print culture. Each entry names the people it belongs to, and none should be read as Yoruba or Akan.",
     "citationSources": [
       {
         "title": "Ifa divination system",
@@ -299,7 +324,9 @@
         "url": "https://api.pageplace.de/preview/DT0400.9781107776746_A23755138/preview-9781107776746_A23755138.pdf"
       }
     ],
-    "imageUrl": "/pantheons/african.jpg"
+    "imageUrl": "/pantheons/african.jpg",
+    "isCollection": true,
+    "figuresLabel": "Figures"
   },
   {
     "id": "polynesian-pantheon",
@@ -349,12 +376,14 @@
     "citationSources": [
       {
         "title": "Florentine Codex",
+        "sourceId": "florentine-codex",
         "author": "Bernardino de Sahagun",
         "date": "16th Century",
         "type": "primary"
       },
       {
         "title": "Popol Vuh",
+        "sourceId": "popol-vuh",
         "author": "Anonymous Maya",
         "date": "16th Century (recording ancient traditions)",
         "type": "primary"
@@ -389,6 +418,7 @@
       },
       {
         "title": "Russian Primary Chronicle (Povest' vremennykh let), s.a. 907, 945, 971, 980, 988",
+        "sourceId": "russian-primary-chronicle",
         "author": "unattributed monastic chroniclers, Kiev",
         "date": "compiled early 12th c.; Laurentian codex 1377, Hypatian codex c. 1425",
         "type": "primary"
@@ -437,6 +467,7 @@
       },
       {
         "title": "Narodnye russkie skazki (Russian Fairy Tales)",
+        "sourceId": "afanasyev-russian-fairy-tales",
         "author": "Alexander Afanasyev",
         "date": "1855–1863",
         "type": "secondary"
@@ -448,7 +479,7 @@
         "type": "secondary"
       }
     ],
-    "imageUrl": "/pantheons/slavic.jpg"
+    "imageUrl": "/pantheons/slavic.webp"
   },
   {
     "id": "haudenosaunee-pantheon",
@@ -463,12 +494,14 @@
     "citationSources": [
       {
         "title": "Seneca Myths and Folk Tales",
+        "sourceId": "seneca-myths-folk-tales",
         "author": "Arthur C. Parker (Seneca)",
         "date": "1923",
         "type": "primary"
       },
       {
         "title": "Iroquoian Cosmology, Bureau of American Ethnology Annual Reports 21 and 43",
+        "sourceId": "iroquoian-cosmology",
         "author": "J.N.B. Hewitt (Tuscarora)",
         "date": "1903 and 1928",
         "type": "primary"
@@ -486,7 +519,7 @@
         "type": "primary"
       }
     ],
-    "imageUrl": "/pantheons/haudenosaunee.jpg",
+    "imageUrl": "/pantheons/haudenosaunee.webp",
     "figuresLabel": "Sacred Beings & Ancestors"
   },
   {
@@ -531,7 +564,541 @@
         "type": "primary"
       }
     ],
-    "imageUrl": "/pantheons/tlingit-haida.jpg",
+    "imageUrl": "/pantheons/tlingit-haida.webp",
     "figuresLabel": "Ancestral Spirits & Transformers"
+  },
+  {
+    "id": "yoruba-pantheon",
+    "name": "Yoruba Tradition",
+    "slug": "yoruba",
+    "culture": "Yoruba (southwestern Nigeria, Benin, and Togo) and the Orisha religions of the diaspora",
+    "region": "West Africa and the Americas",
+    "timePeriodStart": null,
+    "timePeriodEnd": null,
+    "description": "The orisha of Yoruba religion, a living tradition centred on Ile-Ife: Olodumare above, Obatala and Oduduwa at the making of the land, Orunmila and Ifa divination, and orisha such as Ogun, Shango, Oshun, and Yemoja who crossed the Atlantic into Santería, Candomblé, and related faiths.",
+    "detailedHistory": "## A living religion\n\nYoruba religion is practised today in Nigeria, Benin, and Togo, and, through the forced migration of the Atlantic slave trade, in Cuban Santería (Regla de Ocha), Brazilian Candomblé, Trinidadian Orisha worship, and communities across the Americas. It has no single scripture and no single orthodoxy: each orisha is worshipped through particular lineages, towns, and houses, and practice differs from one to the next. This page presents what published sources and practitioners share publicly, and notes where houses and tellers disagree.\n\n## Olodumare and the orisha\n\nOlodumare (also Olorun, 'owner of the sky') is the supreme being, remote from daily worship and approached through the orisha. The orisha are many (tradition speaks of 401, or of 'countless') and include deities who were present at creation, such as Obatala, and deified ancestors and kings, such as Shango, remembered as a king of Oyo. Eshu carries sacrifice and messages between people and the orisha and must be acknowledged first; Orunmila is the witness of destiny whose wisdom speaks through Ifa.\n\n## Ile-Ife and the making of the land\n\nCreation stories centre on Ile-Ife, regarded as the place where the land was first spread over the primordial waters. Tellings disagree on the central actor: in many, Obatala is sent down a chain from the sky with earth in a snail shell and a five-toed hen to scatter it, but falls asleep drunk on palm wine, and Oduduwa completes the task and becomes the first ruler of Ife. Samuel Johnson's *The History of the Yorubas* (completed 1897, published 1921) records the Oyo tradition; Ife's own traditions give Oduduwa greater weight. The disagreement is itself historical evidence of rival centres, and this site presents both.\n\n## Ifa\n\nIfa divination, inscribed by UNESCO on the Representative List of the Intangible Cultural Heritage of Humanity (2008), is a vast oral literature of verses (ese) organised into 256 signs (odu). A babalawo casts palm nuts or a divining chain and recites the verses of the resulting sign, many of which contain the myths summarised on this site. Wande Abimbola's editions and translations of Ifa verses (1970s onward) are among the most important published records.\n\n## Dates\n\nThe tradition has no founding date. Ile-Ife was a major urban and artistic centre by about the 11th to 15th centuries CE, the period of its celebrated copper-alloy and terracotta heads, but those dates belong to the city and its art, not to the beginning of the religion.",
+    "citationSources": [
+      {
+        "title": "Ifa divination system",
+        "author": "UNESCO",
+        "type": "institutional reference",
+        "url": "https://ich.unesco.org/en/RL/ifa-divination-system-00146"
+      },
+      {
+        "title": "The History of the Yorubas",
+        "author": "Samuel Johnson",
+        "date": "1921 (completed 1897)",
+        "type": "primary"
+      },
+      {
+        "title": "Ifá: An Exposition of Ifá Literary Corpus",
+        "author": "Wande Abimbola",
+        "date": "1976",
+        "type": "secondary"
+      },
+      {
+        "title": "Ifa Divination: Communication between Gods and Men in West Africa",
+        "author": "William Bascom",
+        "date": "1969",
+        "type": "secondary"
+      }
+    ],
+    "imageUrl": "/pantheons/yoruba.webp",
+    "figuresLabel": "Olodumare & the Orisha"
+  },
+  {
+    "id": "akan-pantheon",
+    "name": "Akan Tradition",
+    "slug": "akan",
+    "culture": "Akan (Asante, Bono, Fante, Akuapem, and related peoples)",
+    "region": "Ghana and eastern Côte d’Ivoire",
+    "timePeriodStart": null,
+    "timePeriodEnd": null,
+    "description": "The sky god Nyame and the earth Asase Yaa, the river abosom such as Tano, and Kwaku Ananse the spider, who bought the world's stories from Nyame: the religious and storytelling tradition of the Akan peoples of Ghana and Côte d'Ivoire.",
+    "detailedHistory": "## Sky, earth, and the abosom\n\nAkan religion recognises a supreme sky god, Nyame (also Onyame or Onyankopon), and the earth, Asase Yaa, who is honoured rather than served through shrines and priests. Between people and the sky god stand the abosom, powers associated with rivers, lakes, and other features of the land, such as Tano of the Tano River, and the ancestors (nsamanfo), whose presence is central to Akan religious and political life. Akan religion is a living tradition in Ghana today, alongside Christianity and Islam.\n\n## Rattray and the record\n\nMuch of the written record comes from R. S. Rattray, a British colonial anthropologist in the Gold Coast, whose *Ashanti* (1923), *Religion and Art in Ashanti* (1927), and *Akan-Ashanti Folk-Tales* (1930) recorded Asante belief and storytelling, the last with the Twi text beside the English. Rattray worked through colonial structures and his interpretations should be read critically, but the tales he printed were told to him by named and unnamed Akan speakers. Akan scholars such as J. B. Danquah, in *The Akan Doctrine of God* (1944), wrote about the same tradition from within it.\n\n## Anansesem\n\nAkan folktales are called anansesem, 'spider stories', whether or not Kwaku Ananse appears in them, because of the tale Rattray printed as the account of how all stories came to belong to the spider: Ananse buys them from Nyame by capturing the python, the leopard, the hornets, and the forest fairy. Tellings traditionally open and close with set formulas disclaiming literal truth. Ananse stories travelled with enslaved Akan people to the Caribbean and the Americas, where he survives as Anansi, Anancy, and Aunt Nancy.\n\n## Dates\n\nThe tradition has no recorded founding date; Akan states such as Bono and later Asante emerged between roughly the 13th and 18th centuries, but the religion is older than any one state and this site does not assign it a start year.",
+    "citationSources": [
+      {
+        "title": "Akan-Ashanti Folk-Tales",
+        "author": "R. S. Rattray, collector and translator",
+        "date": "1930",
+        "type": "oral tradition"
+      },
+      {
+        "title": "Ashanti",
+        "author": "R. S. Rattray",
+        "date": "1923",
+        "type": "secondary"
+      },
+      {
+        "title": "Religion and Art in Ashanti",
+        "author": "R. S. Rattray",
+        "date": "1927",
+        "type": "secondary"
+      },
+      {
+        "title": "The Akan Doctrine of God",
+        "author": "J. B. Danquah",
+        "date": "1944",
+        "type": "secondary"
+      }
+    ],
+    "imageUrl": "/pantheons/akan.webp",
+    "figuresLabel": "Nyame, the Abosom & Ananse"
+  },
+  {
+    "id": "hittite-pantheon",
+    "name": "Hittite Pantheon",
+    "slug": "hittite",
+    "culture": "Hittite, with Hattian, Hurrian, and Luwian strands (Late Bronze Age Anatolia)",
+    "region": "Anatolia (central Türkiye) and northern Syria",
+    "timePeriodStart": -1650,
+    "timePeriodEnd": -1180,
+    "description": "The \"thousand gods of Hatti\": the layered pantheon of the Hittite kingdom, where a native storm-god and sun-goddess stood beside Hattian local deities and Hurrian gods whose myths, the Song of Kumarbi and the Song of Ullikummi, were translated into Hittite at the capital Hattusa.",
+    "detailedHistory": "## A pantheon assembled, not inherited\n\nThe Hittite kings of the Late Bronze Age (from about 1650 BCE until the collapse of the kingdom around 1180 BCE) ruled from Hattusa, near modern Boğazkale in central Türkiye, and their scribes spoke of \"the thousand gods of Hatti\" when they listed the divine witnesses to a treaty. The phrase was not an exaggeration so much as an honest description of how the pantheon was built: the Hittites, speakers of an Indo-European language, settled among the Hattians, a non-Indo-European people whose gods (the Storm-god of Nerik, the Sun-goddess of Arinna, Telipinu, Inara) they kept; they absorbed Luwian and Palaic deities from neighbouring Anatolian peoples; and from the fifteenth century BCE onward they took in the gods of the Hurrians of northern Syria and Mesopotamia, including Teššub, Hebat, Šauška, and Kumarbi. Rather than replacing local gods, Hittite religion tended to add them, so that the same storm-god might be worshipped under a Hattian, a Hittite, and a Hurrian name in different rites.\n\n## Where the myths come from, and why that matters\n\nAlmost everything on this site about Hittite myth comes from clay tablets excavated at Hattusa since 1906, the archive that allowed Bedřich Hrozný to identify Hittite as an Indo-European language in 1915. Two very different kinds of story survive. The Illuyanka tales and the myth of Telipinu's disappearance are **Anatolian and Hattian** in origin, and they survive because they were written down as part of rituals and festivals: the Illuyanka story was recited at the Purulli festival of Nerik, and the Telipinu story sits inside an invocation meant to coax an angry god home. The Song of Kumarbi, the Song of Ullikummi, and the Song of Hedammu, by contrast, are **Hurrian** literary compositions translated into Hittite; Hurrian-language fragments of the same cycle also survive, and its gods, places, and even its hero Teššub are Hurrian. Modern scholars group these songs as the Kumarbi cycle. This site marks the difference on every story, because treating Hurrian songs as native Hittite myth, a common simplification, hides how the pantheon was actually put together.\n\n## Fragmentary texts\n\nNearly every one of these compositions is broken. Tablets are damaged, columns are missing, and several endings, including the end of the Song of Ullikummi, are simply lost. Where this site retells a story, it follows the translations of Harry A. Hoffner Jr. (*Hittite Myths*, 2nd ed., 1998) and marks gaps as gaps rather than filling them from later Greek parallels. Text numbers in the *Catalogue des Textes Hittites* (CTH), the standard reference system for Hittite compositions, are given so readers can find each text in any modern edition.\n\n## Why Hittite myth matters beyond Anatolia\n\nThe Kumarbi cycle's succession of sky-kings (Alalu, then Anu, then Kumarbi, then the storm-god) and its castration and swallowing episodes are the closest known Near Eastern parallel to Hesiod's *Theogony*, and the storm-god's battle with the serpent Illuyanka belongs to a wide family of storm-god-versus-serpent stories stretching from Ugarit to Scandinavia. This site notes those parallels where they are well established, while treating the Hittite and Hurrian texts on their own terms first.",
+    "citationSources": [
+      {
+        "title": "Hittite Myths (2nd ed., SBL Writings from the Ancient World 2)",
+        "author": "Harry A. Hoffner Jr. (translator)",
+        "date": "1998",
+        "type": "primary",
+        "sourceId": "hittite-myths-hoffner"
+      },
+      {
+        "title": "The Kumarbi Cycle (Song of Kumarbi, Song of Hedammu, Song of Ullikummi), CTH 344-348",
+        "author": "Hurrian compositions in Hittite translation, Hattusa archives",
+        "date": "Late Bronze Age copies, 14th-13th c. BCE",
+        "type": "primary",
+        "sourceId": "kumarbi-cycle"
+      },
+      {
+        "title": "Hittite Prayers (SBL Writings from the Ancient World 11)",
+        "author": "Itamar Singer",
+        "date": "2002",
+        "type": "secondary"
+      },
+      {
+        "title": "The Hittites and Their World",
+        "author": "Billie Jean Collins",
+        "date": "2007",
+        "type": "secondary"
+      }
+    ],
+    "imageUrl": "/pantheons/hittite.webp"
+  },
+  {
+    "id": "canaanite-pantheon",
+    "name": "Canaanite Pantheon (Ugarit)",
+    "slug": "canaanite",
+    "culture": "West Semitic (Canaanite), known chiefly from the Ugaritic texts of Ras Shamra",
+    "region": "The Levant (coastal Syria, Lebanon, and Israel/Palestine)",
+    "timePeriodStart": -1450,
+    "timePeriodEnd": -1185,
+    "description": "The gods of the Late Bronze Age Levant as the clay tablets of Ugarit preserve them: aged El and Lady Athirat at the head of the divine family, and the storm-god Baal, who defeats the Sea, builds his palace on Mount Zaphon, and is swallowed by Death before he returns.",
+    "detailedHistory": "## Ugarit and the problem of the word \"Canaanite\"\n\nAlmost everything known in detail about the myths of the ancient Levant before the first millennium BCE comes from one city: Ugarit, on the Syrian coast at Ras Shamra, north of modern Latakia. In 1928 a farmer's plough broke into a tomb nearby; excavations led by Claude Schaeffer from 1929 uncovered a wealthy port city, destroyed around 1185 BCE, and archives written in a previously unknown alphabetic cuneiform of thirty signs. The mythological poems on this site come from those archives. \"Canaanite\" is the conventional scholarly label for the shared West Semitic religion of the Levant, and it is used here for that reason; but the people of Ugarit did not call themselves Canaanites (an Ugaritic text lists a \"Canaanite\" as a foreigner), and the Ugaritic myths should not be assumed to describe every Levantine city. Where later Phoenician or biblical evidence differs, this site says so.\n\n## The texts and their scribe\n\nThe three great narrative poems, the Baal Cycle (KTU 1.1-1.6), the Epic of Aqhat (KTU 1.17-1.19), and the Epic of Kirta (KTU 1.14-1.16), survive on tablets copied in the late thirteenth or early twelfth century BCE. Several carry a colophon naming the scribe Ilimilku, who worked under a king Niqmaddu, although the poems themselves are older. All are damaged: whole columns are missing, the order of the Baal tablets is partly reconstructed, and the endings of Aqhat and Kirta are lost. Citations here use the standard KTU numbering (Keilalphabetische Texte aus Ugarit, also published in English as CAT), by tablet and column, so readers can check any retelling against a modern translation such as those of Mark S. Smith, Simon B. Parker, Edward L. Greenstein, and Nicolas Wyatt.\n\n## The divine family\n\nAt the head of the pantheon stands El (Ilu), the aged \"Father of Years\" and \"Bull El\", creator of creatures, who presides over the assembly of the gods from his dwelling at the source of the two rivers. His consort is Athirat, \"Lady Athirat of the Sea\", mother of the seventy gods. The drama of the myths, though, belongs to a younger generation: Baal (Baʿlu Haddu), the storm-god of rain and fertility, \"Rider of the Clouds\", who is called the son of Dagan; his fierce sister-ally Anat; the Sea (Yamm) and Death (Mot), both favourites of El; the craftsman god Kothar-wa-Khasis; and the sun-goddess Shapash, who sees everything as she crosses the sky and the underworld.\n\n## Why these texts matter\n\nThe Ugaritic poems are the closest surviving literary context for the Hebrew Bible's poetry. Biblical texts use the same divine names (El, Baal, Asherah), the same image of a storm-god riding the clouds, and even nearly the same words: Isaiah 27:1 describes \"Leviathan the twisting serpent\" in terms close to the Ugaritic description of Litan. The relationship is one of shared language and imagery across a region, not of one text copying another, and this site describes Ugaritic religion on its own terms rather than as background to the Bible. Readers of Jewish and Christian scripture should also know that biblical polemic against \"Baal\" and \"Asherah\" was written centuries later and from a very different standpoint; the Ugaritic texts are the only surviving account of these gods from their own worshippers.",
+    "citationSources": [
+      {
+        "title": "The Baal Cycle (KTU 1.1-1.6)",
+        "author": "Ugaritic poem; scribe Ilimilku",
+        "date": "tablets of the late 13th or early 12th c. BCE",
+        "type": "primary",
+        "sourceId": "baal-cycle"
+      },
+      {
+        "title": "The Epic of Aqhat (KTU 1.17-1.19)",
+        "author": "Ugaritic poem; scribe Ilimilku",
+        "date": "tablets of the late 13th or early 12th c. BCE",
+        "type": "primary",
+        "sourceId": "aqhat-epic"
+      },
+      {
+        "title": "The Epic of Kirta (KTU 1.14-1.16)",
+        "author": "Ugaritic poem; scribe Ilimilku",
+        "date": "tablets of the late 13th or early 12th c. BCE",
+        "type": "primary",
+        "sourceId": "kirta-epic"
+      },
+      {
+        "title": "Ugaritic Narrative Poetry (SBL Writings from the Ancient World 9), ed. Simon B. Parker",
+        "author": "Mark S. Smith, Simon B. Parker, Edward L. Greenstein (translators)",
+        "date": "1997",
+        "type": "primary"
+      },
+      {
+        "title": "Stories from Ancient Canaan (2nd ed.)",
+        "author": "Michael D. Coogan and Mark S. Smith",
+        "date": "2012",
+        "type": "primary"
+      },
+      {
+        "title": "Religious Texts from Ugarit (2nd ed.)",
+        "author": "Nicolas Wyatt",
+        "date": "2002",
+        "type": "primary"
+      }
+    ],
+    "imageUrl": "/pantheons/canaanite.webp"
+  },
+  {
+    "id": "inuit-pantheon",
+    "name": "Inuit Tradition",
+    "slug": "inuit",
+    "culture": "Inuit (Inuit Nunangat in Canada, Kalaallit Nunaat/Greenland, and Iñupiat Alaska), with strong regional variation",
+    "region": "The Arctic, from northern Alaska across Canada to Greenland",
+    "timePeriodStart": 1000,
+    "timePeriodEnd": null,
+    "description": "A living Arctic tradition whose powers go by different names from region to region: the Sea Woman who keeps the sea animals (Sedna, Nuliajuk, Takannaaluk, Sassuma Arnaa), the Moon Man and Sun Woman, and Sila, the breath of the world, told by Inuit from Alaska to Greenland.",
+    "detailedHistory": "## One people, many regions, many names\n\nInuit live across the Arctic: in Inuit Nunangat in Canada (the Inuvialuit Settlement Region, Nunavut, Nunavik, and Nunatsiavut), in Kalaallit Nunaat (Greenland), and, as Iñupiat, in northern Alaska. They share a language family and a great deal of story, but not a single scripture or standardised mythology. The same figure goes by different names from one region to the next, and the stories told about her differ too. The Sea Woman whom Franz Boas recorded as **Sedna** in Cumberland Sound on Baffin Island in the 1880s is **Nuliajuk** among the Netsilingmiut, **Takannaaluk** or **Uinigumasuittuq** in Iglulik tellings, and **Sassuma Arnaa**, \"mother of the deep\", in West Greenland. \"Sedna\" has become the name the wider world knows, even giving its name to a distant dwarf planet, but it is one regional name among many, and this site gives the others alongside it wherever they are known.\n\n## A living tradition\n\nThese are not the beliefs of a vanished people. Inuit elders, storytellers, artists, and publishers tell these stories today, in Inuktitut and other Inuit languages as well as in English, Danish, and French. Many Inuit are also Christian, and communities and families hold a wide range of views about the old powers and about the angakkuit (shamans) who once dealt with them. The dates attached to this entry reflect archaeology, not the age of any story: the ancestors of today's Inuit, known to archaeologists as the Thule people, spread east from Alaska across the Arctic from roughly 1000 to 1300 CE, meeting the earlier Arctic people whom Inuit tradition remembers as the Tuniit.\n\n## Sources and their limits\n\nMuch of what outsiders know comes from ethnographers of the late nineteenth and early twentieth centuries: Franz Boas's *The Central Eskimo* (1888), Hinrich Rink's Greenland collections, and above all the reports of the Fifth Thule Expedition (1921-24) led by Knud Rasmussen, who was himself of Greenlandic Inuit and Danish descent and recorded the words of named Inuit speakers such as Aua in Iglulik and Orpingalik among the Netsilingmiut. These books preserve invaluable testimony, but they also use terms, including \"Eskimo\", that many Inuit now reject, and they reflect the interests of their compilers. This site recommends reading them alongside Inuit-authored and community-led work: the Nunavut Arctic College series *Interviewing Inuit Elders*, in which Inuit students interviewed elders about their own knowledge; the books of Inhabit Media, an Inuit-owned publisher in Iqaluit; and the films of Isuma and other Inuit filmmakers.\n\n## What this site includes\n\nThe stories here are ones that Inuit elders and Inuit-led publishers have made public and that appear in published sources. They are summarised, not presented as authoritative scripts, and details that concern the practice of angakkuuniq (shamanism) are described only in general terms. Where a story differs by region, the differences are the point, not an obstacle to be smoothed away.",
+    "citationSources": [
+      {
+        "title": "Franz Boas, The Central Eskimo (Sixth Annual Report of the Bureau of Ethnology)",
+        "author": "Franz Boas",
+        "date": "1888",
+        "type": "primary",
+        "sourceId": "boas-central-eskimo"
+      },
+      {
+        "title": "Knud Rasmussen, Intellectual Culture of the Iglulik Eskimos (Report of the Fifth Thule Expedition 1921-24, vol. 7, no. 1)",
+        "author": "Knud Rasmussen",
+        "date": "1929",
+        "type": "primary",
+        "sourceId": "rasmussen-fifth-thule"
+      },
+      {
+        "title": "Knud Rasmussen, The Netsilik Eskimos: Social Life and Spiritual Culture (Report of the Fifth Thule Expedition, vol. 8, nos. 1-2)",
+        "author": "Knud Rasmussen",
+        "date": "1931",
+        "type": "primary",
+        "sourceId": "rasmussen-fifth-thule"
+      },
+      {
+        "title": "Knud Rasmussen, Intellectual Culture of the Caribou Eskimos (Report of the Fifth Thule Expedition, vol. 7, no. 2)",
+        "author": "Knud Rasmussen",
+        "date": "1930",
+        "type": "primary",
+        "sourceId": "rasmussen-fifth-thule"
+      },
+      {
+        "title": "Interviewing Inuit Elders, vol. 4: Cosmology and Shamanism (ed. Bernard Saladin d'Anglure; Nunavut Arctic College)",
+        "author": "Mariano Aupilaarjuk, Lucassie Nutaraaluk, Rose Iqallijuq, Johanasi Ujarak, Isidore Ijituuq, Michel Kupaaq; ed. Bernard Saladin d'Anglure",
+        "date": "2001",
+        "type": "primary",
+        "sourceId": "interviewing-inuit-elders-cosmology"
+      }
+    ],
+    "imageUrl": "/pantheons/inuit.webp",
+    "figuresLabel": "Spirits & Powers"
+  },
+  {
+    "id": "aboriginal-australian-pantheon",
+    "name": "Aboriginal Australian Traditions",
+    "slug": "aboriginal-australian",
+    "culture": "Many distinct Aboriginal nations and language groups; this entry draws on publicly shared stories of the Kulin nations, the Ngemba and Wiradjuri, the Whadjuk Noongar, the Aṉangu, and the Martu, Ngaanyatjarra, and Aṉangu Pitjantjatjara Yankunytjatjara peoples",
+    "region": "Australia (many distinct Countries)",
+    "timePeriodStart": null,
+    "timePeriodEnd": null,
+    "description": "Not one mythology but the living laws and stories of hundreds of Aboriginal nations, often called the Dreaming in English. This entry is a respectful introduction limited to stories that their custodians have chosen to share publicly, each attributed to its people and Country.",
+    "detailedHistory": "## A cultural note before reading\n\nThis entry includes only stories that Aboriginal custodians have chosen to share publicly, in forms published by or with the communities concerned: through national park signage written with traditional owners, national heritage listings prepared in consultation with communities, museum exhibitions developed with knowledge holders, and community organisations' own publications. Much Aboriginal knowledge is secret or sacred, restricted by gender, age, or initiation, or belongs to particular families and clans; none of that material is included here, and where a figure is associated with restricted ceremony, this site says so and stops. Summaries on this site are not a substitute for the tellings of the peoples themselves, and readers are encouraged to seek out community-authored sources, such as the publications of Aboriginal land councils and cultural centres, the First Knowledges book series, and works by Aboriginal authors.\n\nAboriginal and Torres Strait Islander readers are advised that sources linked from this entry may contain names and images of people who have died.\n\n## Not one mythology\n\nBefore colonisation there were more than 250 Aboriginal languages and many more dialects, each the language of a people with its own Country, law, and stories. There is no single \"Aboriginal mythology\", any more than there is a single European one, and presenting Kulin, Noongar, and Aṉangu stories on one page does not mean they belong to one system. Each story on this site is attributed to the people and Country it belongs to. Torres Strait Islander peoples have their own distinct traditions, which this entry does not cover.\n\n## The Dreaming, and the words for it\n\n\"The Dreaming\" and \"Dreamtime\" are English words, popularised by the anthropologists Baldwin Spencer and Francis Gillen from an Arrernte term, and by W. E. H. Stanner's essay \"The Dreaming\" (1953). Aboriginal languages have their own terms, with their own meanings: Jukurrpa in Warlpiri, Tjukurpa for Aṉangu, Altyerre in Arrernte, Nyitting for Noongar people, and many others. These words name something that is not simply a distant past: ancestral beings travelled and shaped the land, established law, and remain present in Country, in the stars, and in the lives of their descendants. Stanner's word for this was \"everywhen\". This entry therefore does not give a start or end date.\n\n## Not \"gods\"\n\nThe beings on this page are called ancestral beings or creator beings, not gods. Some, like Bunjil and Baiame, were described by nineteenth-century missionaries and ethnographers as a \"Supreme Being\" or \"All-Father\", and scholars have long debated how much those descriptions were shaped by Christian expectations. Others, like the Seven Sisters or Kuniya and Liru, are ancestors whose actions left their marks on the land. The site's usual \"deity\" format is used for technical reasons only, and each figure is labelled as an ancestral being.\n\n## Songlines and Country\n\nMany ancestral journeys are recorded as songlines: sequences of songs, stories, dances, and designs that follow the ancestors' tracks across the land, sometimes for thousands of kilometres and through the Countries of many peoples. A songline is at once a map, a law, and a history. The Seven Sisters songline shared through the National Museum of Australia's exhibition *Songlines: Tracking the Seven Sisters* (2017) is one publicly shared example.\n\n## Colonisation and continuity\n\nColonisation from 1788 brought dispossession, violence, the removal of children, and the suppression of languages and ceremonies. Aboriginal law and story nonetheless continue, held by elders, taught in communities, and increasingly shared on Aboriginal terms, as in the co-management of Uluṟu-Kata Tjuṯa National Park and the National Heritage listing of Baiame's Ngunnhu at Brewarrina. The recognition of Aboriginal cultural authority over these stories is part of that continuing history.",
+    "citationSources": [
+      {
+        "title": "National Museum of Australia, Songlines: Tracking the Seven Sisters (exhibition and catalogue, ed. Margo Neale)",
+        "author": "Margo Neale (ed.), with Martu, Ngaanyatjarra, and Aṉangu Pitjantjatjara Yankunytjatjara custodians",
+        "date": "2017",
+        "type": "primary",
+        "sourceId": "songlines-seven-sisters"
+      },
+      {
+        "title": "Uluṟu-Kata Tjuṯa National Park (Parks Australia, with Aṉangu traditional owners), 'The Kuniya & Liru stories'",
+        "author": "Aṉangu traditional owners and Parks Australia",
+        "date": "uluru.gov.au, accessed 2026",
+        "type": "primary",
+        "url": "https://uluru.gov.au/discover/culture/stories/kuniya-liru-stories/"
+      },
+      {
+        "title": "Australian Government, National Heritage List: Brewarrina Aboriginal Fish Traps (Baiame's Ngunnhu)",
+        "author": "Department of Climate Change, Energy, the Environment and Water",
+        "date": "inscribed 2005; accessed 2026",
+        "type": "primary",
+        "url": "https://www.dcceew.gov.au/parks-heritage/heritage/places/national/brewarrina"
+      },
+      {
+        "title": "The Dreaming",
+        "author": "W. E. H. Stanner",
+        "date": "1953",
+        "type": "secondary"
+      },
+      {
+        "title": "Songlines: The Power and Promise (First Knowledges series)",
+        "author": "Margo Neale and Lynne Kelly",
+        "date": "2020",
+        "type": "secondary"
+      }
+    ],
+    "imageUrl": "/pantheons/aboriginal-australian.webp",
+    "figuresLabel": "Ancestral Beings"
+  },
+  {
+    "id": "dine-pantheon",
+    "name": "Diné (Navajo) Tradition",
+    "slug": "dine",
+    "culture": "Diné (Navajo), within Diné Bikéyah, the land between the four sacred mountains",
+    "region": "Diné Bikéyah (the Navajo Nation and surrounding lands of the Four Corners region, southwestern United States)",
+    "timePeriodStart": null,
+    "timePeriodEnd": null,
+    "description": "The living tradition of the Diné, the People, whose Holy People (Diyin Dineʼé) include Changing Woman, the Hero Twins Monster Slayer and Born for Water, First Man and First Woman, Spider Woman, and Coyote; told here only at summary level, with seasonal and ceremonial restrictions respected.",
+    "detailedHistory": "## A note on telling these stories\n\nThe stories on this page are sacred narratives of a living people. Many Diné families teach that Coyote stories, and much of the account of the emergence and the Holy People, should be told only in winter, after the first frost and before the thunder of spring; telling them out of season can be harmful. Diné scholars, including the historian Jennifer Nez Denetdale, have also cautioned that outsiders' retellings have often distorted Diné history and religion, stripped stories of their ceremonial context, or treated them as quaint folklore. This site therefore keeps retellings short and at the level of published summaries, attributes them to their sources, does not describe ceremonies, and does not reproduce sandpaintings or ceremonial images; the plates on these pages are deliberately plain placeholders. Readers are encouraged to learn from Diné-authored works and Diné institutions such as Diné College and the Navajo Nation Museum.\n\n## The Diné and Diné Bikéyah\n\nThe Diné (the People), known in English as the Navajo, are one of the largest Native nations in the United States; the Navajo Nation's land spans parts of Arizona, New Mexico, and Utah. Diné Bikéyah, Diné land, is bounded by four sacred mountains: Sisnaajiní (Blanca Peak) in the east, Tsoodził (Mount Taylor) in the south, Dookʼoʼoosłííd (the San Francisco Peaks) in the west, and Dibé Ntsaa (Hesperus Mountain) in the north. Within them lie other sacred places, including Dziłnaʼoodiłii (Huerfano Mountain) and Chʼóolʼį́ʼí (Gobernador Knob), where Changing Woman was found. Archaeologists and linguists relate the Diné to other Athabaskan-speaking peoples of the north; Diné tradition tells of an emergence into this world from worlds below. This site does not set one account against the other, and gives no start date.\n\n## The Holy People\n\nThe Diyin Dineʼé, Holy People, are powerful beings who shaped the world and gave the Diné their way of life; the Diné are the Earth Surface People (Nihookáá Dineʼé). \"Holy\" here means powerful and to be approached carefully, not necessarily good: Coyote is among the Holy People, and so are beings who caused harm. Central to Diné thought is hózhó, often translated as beauty, harmony, or balance, which ceremonies seek to restore.\n\n## Sources and their limits\n\nThe best-known published sources were produced by outsiders. Washington Matthews, a U.S. Army surgeon who worked with Diné ceremonial practitioners in the 1880s, published *Navaho Legends* in 1897, a translation of the origin story and related narratives in the orthography of his day. Paul G. Zolbrod's *Diné bahaneʼ: The Navajo Creation Story* (1984) reworked Matthews's material and other sources into a continuous English narrative, and has itself been criticised by Diné readers for presenting a composite as if it were one authoritative telling. Diné-authored works include *Navajo History* (1971), produced by the Navajo Curriculum Center at Rough Rock Demonstration School, and essays gathered in *Diné Perspectives: Revitalizing and Reclaiming Navajo Thought* (2014, edited by Lloyd L. Lee). Accounts vary by family, clan, and ceremonial tradition, and differences between versions are not errors.",
+    "citationSources": [
+      {
+        "title": "Navaho Legends (Memoirs of the American Folk-Lore Society 5)",
+        "author": "Washington Matthews",
+        "date": "1897",
+        "type": "primary",
+        "sourceId": "navaho-legends-matthews"
+      },
+      {
+        "title": "Diné bahane': The Navajo Creation Story",
+        "author": "Paul G. Zolbrod",
+        "date": "1984",
+        "type": "primary",
+        "sourceId": "dine-bahane-zolbrod"
+      },
+      {
+        "title": "Navajo History, vol. 1 (Navajo Curriculum Center, Rough Rock Demonstration School; ed. Ethelou Yazzie)",
+        "author": "Navajo Curriculum Center (Diné-authored)",
+        "date": "1971",
+        "type": "secondary"
+      },
+      {
+        "title": "Reclaiming Diné History: The Legacies of Navajo Chief Manuelito and Juanita",
+        "author": "Jennifer Nez Denetdale",
+        "date": "2007",
+        "type": "secondary"
+      },
+      {
+        "title": "Diné Perspectives: Revitalizing and Reclaiming Navajo Thought",
+        "author": "Lloyd L. Lee (ed.)",
+        "date": "2014",
+        "type": "secondary"
+      }
+    ],
+    "imageUrl": "/pantheons/dine.webp",
+    "figuresLabel": "Holy People (Diyin Dineʼé)"
+  },
+  {
+    "id": "inca-pantheon",
+    "name": "Inca and Andean Tradition",
+    "slug": "inca",
+    "culture": "Inca (Tawantinsuyu) and the wider Quechua- and Aymara-speaking Andean world",
+    "region": "Andes (western South America)",
+    "timePeriodStart": 1200,
+    "timePeriodEnd": 1572,
+    "description": "The religion of the Inca state and the older Andean shrines it absorbed: Viracocha the maker rising from Lake Titicaca, Inti the Sun as ancestor of the Inca kings, and the mountain and coastal huacas of the Huarochirí Manuscript, all known through writers of the colonial era.",
+    "detailedHistory": "## Known only through the colonial filter\n\nThe Incas kept records on knotted cords (khipu) read by trained specialists, but they left no written narratives of their gods. Every story on this site was written down after the Spanish invasion of 1532, by people with their own purposes. Juan de Betanzos (1551) wrote in Cusco with the help of his wife's royal Inca kin. Cristóbal de Molina (c. 1575) questioned elders who had served in the state cult. Pedro Sarmiento de Gamboa (1572) interviewed Inca lineage heads for a viceroy who wanted the Incas shown as tyrants. The Inca Garcilaso de la Vega (1609), son of a Spanish captain and an Inca noblewoman, wrote from Spain decades later and presented Inca religion as a noble monotheism that anticipated Christianity. Felipe Guaman Poma de Ayala (c. 1615), an Andean noble, drew and wrote a long protest to the Spanish king. And much of what survives about local gods comes from the campaigns to destroy them: the Quechua Huarochirí Manuscript (c. 1598-1608) was compiled in the circle of the extirpator Francisco de Ávila. Each of these sources is used here for what it can show, with its point of view stated.\n\n## Two layers: the state cult and the huacas\n\nAt the top of the Inca state cult stood the Creator (called Viracocha, Con Tici Viracocha, or Pachayachachic), the Sun (Inti), the Thunder (Illapa), and the Moon (Mama Killa), whose images and chambers were housed in the Coricancha, the gold-sheathed temple at the center of Cusco. Beneath and alongside them were countless huacas: mountains, springs, stones, ancestral mummies, and regional gods with their own priests, oracles, and stories, such as Pachacamac on the coast and Pariacaca in the highlands of Huarochirí. The Inca state generally absorbed these rather than abolishing them, adding a Temple of the Sun beside Pachacamac's ancient shrine, for example, and keeping the images of conquered peoples' huacas in Cusco. Around Cusco itself, the Jesuit Bernabé Cobo later listed more than three hundred shrines arranged along imaginary lines (ceques) radiating from the Coricancha.\n\n## Origins, ancestors, and the Sun\n\nThe Inca kings claimed descent from the Sun through the founding ancestor Manco Cápac. Chroniclers preserve two main versions of that origin: in one, told by Garcilaso, the Sun sends his son and daughter to Lake Titicaca to civilize humanity; in the other, told by Betanzos and Sarmiento, four brothers and four sisters emerge from a cave at Pacaritambo and travel to the valley of Cusco. Andean peoples more generally traced each lineage to a pacarina, a place of emergence such as a lake, spring, or cave.\n\n## After 1572, and today\n\nThe Inca state ended with the fall of Vilcabamba and the execution of Túpac Amaru in 1572, when the Sun image called the Punchao was also captured. Andean religion did not end with it. Quechua and Aymara communities continue to make offerings to Pachamama and to the mountain lords (apus), often alongside Catholic practice, and the Inti Raymi solstice pageant has been re-staged at Sacsayhuamán in Cusco since 1944 as a civic festival reconstructed largely from Garcilaso's description.",
+    "citationSources": [
+      {
+        "title": "Suma y narración de los Incas",
+        "author": "Juan de Betanzos",
+        "date": "1551",
+        "type": "primary",
+        "sourceId": "betanzos-suma-y-narracion"
+      },
+      {
+        "title": "Relación de las fábulas y ritos de los Incas",
+        "author": "Cristóbal de Molina",
+        "date": "c. 1575",
+        "type": "primary",
+        "sourceId": "molina-fables-and-rites"
+      },
+      {
+        "title": "Comentarios Reales de los Incas",
+        "author": "Inca Garcilaso de la Vega",
+        "date": "1609",
+        "type": "primary",
+        "sourceId": "garcilaso-royal-commentaries"
+      },
+      {
+        "title": "The Huarochirí Manuscript",
+        "author": "Anonymous; trans. Frank Salomon and George L. Urioste",
+        "date": "c. 1598-1608; trans. 1991",
+        "type": "primary",
+        "sourceId": "huarochiri-manuscript"
+      },
+      {
+        "title": "El primer nueva corónica y buen gobierno",
+        "author": "Felipe Guaman Poma de Ayala",
+        "date": "c. 1615",
+        "type": "primary",
+        "sourceId": "guaman-poma-nueva-coronica"
+      },
+      {
+        "title": "Inca Religion and Customs (Historia del Nuevo Mundo, Books 13-14)",
+        "author": "Bernabé Cobo; trans. Roland Hamilton",
+        "date": "1653; trans. 1990",
+        "type": "primary",
+        "sourceId": "cobo-inca-religion"
+      }
+    ],
+    "imageUrl": "/pantheons/inca.webp",
+    "figuresLabel": "Deities, Huacas & Ancestors"
+  },
+  {
+    "id": "persian-pantheon",
+    "name": "Persian (Iranian) Tradition",
+    "slug": "persian",
+    "culture": "Ancient Iranian: Avestan and Zoroastrian religion, the Achaemenid and Sasanian empires, and the Persian epic tradition",
+    "region": "Iranian plateau and Central Asia",
+    "timePeriodStart": -1500,
+    "timePeriodEnd": null,
+    "description": "The divine beings and heroes of ancient Iran in two distinct layers: the Zoroastrian scripture of the Avesta, with Ahura Mazda, Angra Mainyu, Mithra, and Anahita, and Ferdowsi's Shahnameh, which a thousand years later retold Iran's primeval kings and heroes as epic.",
+    "detailedHistory": "## Two traditions, kept apart\n\nThis entry draws on two bodies of material that should not be blurred together. The first is the **Avesta**, the scripture of Zoroastrianism, composed in Avestan, an Old Iranian language close to the Sanskrit of the Rigveda. Its oldest part, the **Gathas**, are seventeen hymns attributed to the prophet Zarathushtra; their date is disputed, with most scholars placing them somewhere between about 1500 and 1000 BCE on linguistic grounds and others later. The younger parts include the **Yashts**, hymns to individual divine beings such as Mithra, Anahita, and the star Tishtrya, and the **Vendidad**, a book of purity law that preserves myths of creation and of the first king, Yima. The Avesta was transmitted orally for many centuries, written down in a script devised in the Sasanian period, and survives only in medieval manuscripts. Middle Persian books of the ninth and tenth centuries CE, above all the **Bundahishn**, systematize its cosmology.\n\nThe second is the **Shahnameh** ('Book of Kings'), the Persian epic completed by Ferdowsi in 1010 CE, in Islamic-era Iran, from older chronicles of the Iranian kings. It contains no gods: Ferdowsi was a Muslim, and the Avestan figures reappear transformed into kings and villains, so that Yima becomes King Jamshid and the three-headed dragon Azhi Dahaka becomes the serpent-shouldered tyrant Zahhak. Its great heroes, Rostam above all, have no clear Avestan counterparts. Each record on this site says which layer it comes from.\n\n## One God, and beings worthy of worship\n\nZoroastrianism is a living religion, and 'pantheon' fits it only loosely. Zoroastrians today regard **Ahura Mazda**, the Wise Lord, as the one uncreated God. The **Amesha Spentas** ('Beneficent Immortals') such as Spenta Armaiti are his emanations or aspects, and the **yazatas** ('beings worthy of worship') such as Mithra, Anahita, and Tishtrya are divine beings created by him and honored in their own hymns. Opposed to this good creation is **Angra Mainyu** (Ahriman), the Hostile Spirit, who is not a god to be worshipped but the source of death, lies, and every corruption. At the heart of the Gathas is the choice between truth (*asha*) and the lie (*druj*) that each person must make.\n\n## Kings and inscriptions\n\nThe Achaemenid kings (550-330 BCE) credited their rule to 'the favor of Ahuramazda' in inscriptions at Behistun, Persepolis, and Naqsh-e Rostam; Artaxerxes II (r. 404-358 BCE) is the first king whose inscriptions also name Anahita and Mithra. Herodotus reports that the Persians worshipped without temples or statues, on the tops of mountains. Under the Sasanians (224-651 CE) Zoroastrianism became a state church with great fire temples, and a speculative current, Zurvanism, made Infinite Time the father of both spirits. After the Arab conquest the religion became a minority in Iran; many Zoroastrians migrated to India, where they are known as Parsis. Zoroastrian communities survive today in Iran, India, and a worldwide diaspora, and festivals rooted in the old calendar, above all **Nowruz**, the new year at the spring equinox, are celebrated across the Iranian world.\n\n## Cautions\n\nThe winged figure in a disc on Achaemenid reliefs, now called the Faravahar, is popularly identified with Ahura Mazda, but scholars disagree whether it represents the god, the royal glory, or the king's guardian spirit. The Mithras of the Roman mystery cult shares a name with the Iranian Mithra, but how much, if anything, of Iranian belief lay behind the Roman mysteries remains debated.",
+    "citationSources": [
+      {
+        "title": "The Zend-Avesta, Parts I-II (Vendidad; Yashts)",
+        "author": "trans. James Darmesteter",
+        "date": "1880, 1883",
+        "type": "primary",
+        "sourceId": "avesta"
+      },
+      {
+        "title": "The Zend-Avesta, Part III (Yasna, Gathas)",
+        "author": "trans. L. H. Mills",
+        "date": "1887",
+        "type": "primary",
+        "sourceId": "avesta"
+      },
+      {
+        "title": "Bundahishn",
+        "author": "trans. E. W. West",
+        "date": "1880",
+        "type": "primary",
+        "sourceId": "bundahishn"
+      },
+      {
+        "title": "Shahnameh",
+        "author": "Abolqasem Ferdowsi; trans. A. G. and E. Warner; Dick Davis",
+        "date": "1010 CE; trans. 1905-1925, 2006",
+        "type": "primary",
+        "sourceId": "shahnameh"
+      },
+      {
+        "title": "Behistun Inscription",
+        "author": "Darius I",
+        "date": "c. 520 BCE",
+        "type": "primary",
+        "sourceId": "behistun-inscription"
+      },
+      {
+        "title": "A History of Zoroastrianism",
+        "author": "Mary Boyce",
+        "date": "1975-1991",
+        "type": "secondary"
+      }
+    ],
+    "imageUrl": "/pantheons/persian.webp",
+    "figuresLabel": "Divine Beings & Kings"
+  },
+  {
+    "id": "finnish-pantheon",
+    "name": "Finnish Tradition (Kalevala)",
+    "slug": "finnish",
+    "culture": "Finnish and Karelian (Baltic Finnic) peoples",
+    "region": "Finland and Karelia (Northern Europe)",
+    "timePeriodStart": 800,
+    "timePeriodEnd": 1849,
+    "description": "The gods and heroes of Finnish and Karelian runo-song, known from Mikael Agricola's list of 1551, from thousands of folk poems collected in the eighteenth and nineteenth centuries, and above all from Elias Lönnrot's national epic, the Kalevala.",
+    "detailedHistory": "## A tradition recorded late\n\nThe Baltic Finnic peoples, ancestors of the Finns, Karelians, and Estonians, had no writing before Christianization, which reached Finland gradually between the eleventh and thirteenth centuries through Swedish and Novgorodian influence. The earliest written list of Finnish gods comes from the Lutheran reformer Mikael Agricola, who prefaced his Finnish Psalter of 1551 with a rhymed catalog of the 'idols' of the Tavastians and Karelians: Tapio who gave game from the forest, Ahti who brought fish from the water, Väinämöinen who made songs, Ilmarinen who made calm and storm, Ukko whose bowl was drunk at the spring sowing, and many more. Christfrid Ganander's *Mythologia Fennica* (1789) added a dictionary of beliefs and names.\n\n## Runo-song\n\nThe richest evidence is oral poetry in the Kalevala metre, a trochaic line with heavy alliteration and parallelism, sung in Finland, Karelia, and Ingria. It includes epic songs about Väinämöinen, Ilmarinen, and Lemminkäinen, charms (*loitsut*) that invoke the origin of iron, fire, or disease to gain power over it, lyric songs, and wedding songs. The tradition survived longest among the Orthodox Karelians of Viena (White Sea) Karelia, now in Russia. Collected from the late eighteenth century on, these songs fill the 34 volumes of *Suomen Kansan Vanhat Runot*.\n\n## Lönnrot's Kalevala\n\nThe physician Elias Lönnrot made eleven collecting journeys between 1828 and 1844, meeting singers such as Arhippa Perttunen of Latvajärvi in Viena Karelia. From his own and others' collections he compiled the *Kalevala* (1835; expanded edition of 50 runes, 1849), joining separate songs into a continuous epic, harmonizing names, supplying linking passages, and sometimes moving episodes between characters. The creation from the eggs, for example, is laid on the knee of Väinämöinen himself in most folk variants; Lönnrot gave the role to the air-maiden he named Ilmatar. The Kalevala is therefore both a work of genuine folk poetry and a nineteenth-century literary creation, and it shaped Finnish national identity during the period of Russian rule before independence in 1917.\n\n## What this entry does\n\nEach record here says whether it rests on Agricola, on folk poetry, or on the Kalevala as Lönnrot arranged it. Quotations from the Kalevala are from John Martin Crawford's public-domain English translation of 1888, which follows the 50-rune edition.",
+    "citationSources": [
+      {
+        "title": "Kalevala",
+        "author": "Elias Lönnrot; trans. John Martin Crawford (1888), W. F. Kirby (1907), Keith Bosley (1989)",
+        "date": "1849",
+        "type": "primary",
+        "sourceId": "kalevala"
+      },
+      {
+        "title": "Dauidin Psaltari, verse preface",
+        "author": "Mikael Agricola",
+        "date": "1551",
+        "type": "primary",
+        "sourceId": "agricola-psalter-preface"
+      },
+      {
+        "title": "Suomen Kansan Vanhat Runot",
+        "author": "Finnish Literature Society",
+        "date": "1908-1948; 1997",
+        "type": "primary",
+        "sourceId": "suomen-kansan-vanhat-runot"
+      },
+      {
+        "title": "Mythologia Fennica",
+        "author": "Christfrid Ganander",
+        "date": "1789",
+        "type": "primary"
+      },
+      {
+        "title": "Finno-Ugric Mythology (The Mythology of All Races, vol. 4)",
+        "author": "Uno Holmberg (Harva)",
+        "date": "1927",
+        "type": "secondary"
+      }
+    ],
+    "imageUrl": "/pantheons/finnish.webp",
+    "figuresLabel": "Gods, Spirits & Heroes"
+  },
+  {
+    "id": "korean-pantheon",
+    "name": "Korean Tradition",
+    "slug": "korean",
+    "culture": "Korean: the foundation myths of the Three Kingdoms and the shamanic (muism) narrative tradition",
+    "region": "Korean Peninsula and Manchuria",
+    "timePeriodStart": 400,
+    "timePeriodEnd": null,
+    "description": "The founders and gods of Korean tradition: Dangun, born of the Lord of Heaven's son and a bear who became a woman; the egg-born kings Jumong and Bak Hyeokgeose; and the goddesses and creators of shamanic song, such as Princess Bari, guide of the dead, and Mireuk, who separated heaven from earth.",
+    "detailedHistory": "## Two bodies of myth\n\nKorean myth reaches us through two very different channels. The first is the **foundation myths** of the ancient kingdoms, written in Literary Chinese by later historians and monks. The earliest datable text is the stele erected in 414 CE for King Gwanggaeto of Goguryeo, whose opening lines tell of the founder Chumo (Jumong), son of the Heavenly Emperor and the River Earl's daughter, breaking out of an egg. Kim Busik's official *Samguk Sagi* (1145) gives full accounts of the founders of Silla, Goguryeo, and Baekje, and the monk Iryeon's *Samguk Yusa* (c. 1281-1289) preserves the earliest surviving telling of the Dangun myth, citing an older record now lost. These texts were written centuries after the events they describe, by scholars with Confucian or Buddhist commitments, and their dates for legendary kings are traditional rather than historical.\n\nThe second channel is **muga**, the narrative songs of Korean shamans (*mudang*), performed in rituals (*gut*) and transmitted orally until folklorists began recording them in the twentieth century. They include creation songs in which the deities Mireuk and Seokga contend for the world, and the long narrative of Princess Bari, the abandoned daughter who becomes the guide of the dead. Each song exists in many regional versions; on Jeju Island a distinct body of shamanic myths (*bonpuri*) survives.\n\n## Heaven, founders, and descent\n\nA recurring pattern links the foundation myths: a heavenly figure descends to a mountain or river, unites with an earthly woman associated with animals, water, or the land, and their child founds a kingdom. Hwanung descends to Mount Taebaek and marries the bear-woman Ungnyeo; Haemosu, son of Heaven, unites with Yuhwa, daughter of the River Earl; Silla's founder emerges from an egg beside a well, heralded by a white horse from the sky. Egg births and heavenly descent tie royal legitimacy to heaven.\n\n## Buddhist names, shamanic gods\n\nThe creator figures of the shamanic songs, Mireuk and Seokga, bear the Korean names of the Buddhas Maitreya and Shakyamuni, but in the songs they are rival creator gods whose contest explains why the world is imperfect; they are not Buddhist doctrine. Iryeon, a Buddhist monk, likewise glosses the Lord of Heaven Hwanin as Jeseok, the Buddhist name of Indra. Such layering is typical of Korean religion, in which shamanism, Buddhism, Confucianism, and Daoist elements have long coexisted.\n\n## Living traditions\n\nKorean shamanism remains a living practice, with mudang performing gut for healing, good fortune, and the dead. Dangun is honored on National Foundation Day (Gaecheonjeol, 3 October) in South Korea, whose traditional founding date of 2333 BCE is a calculation by later Joseon-era historians rather than a statement of the Samguk Yusa itself; in North Korea, a 'Mausoleum of Dangun' near Pyongyang, built in 1994 after the reported discovery of his bones, is regarded by most historians outside the country as a political monument rather than an archaeological fact.",
+    "citationSources": [
+      {
+        "title": "Samguk Yusa",
+        "author": "Iryeon; trans. Ha Tae-hung and Grafton K. Mintz",
+        "date": "c. 1281-1289; trans. 1972",
+        "type": "primary",
+        "sourceId": "samguk-yusa"
+      },
+      {
+        "title": "Samguk Sagi",
+        "author": "Kim Busik",
+        "date": "1145",
+        "type": "primary",
+        "sourceId": "samguk-sagi"
+      },
+      {
+        "title": "Gwanggaeto Stele inscription",
+        "author": "Goguryeo court",
+        "date": "414 CE",
+        "type": "primary",
+        "sourceId": "gwanggaeto-stele"
+      },
+      {
+        "title": "Dongmyeongwang-pyeon",
+        "author": "Yi Gyu-bo",
+        "date": "1193",
+        "type": "primary",
+        "sourceId": "dongmyeongwang-pyeon"
+      },
+      {
+        "title": "Joseon Singa Yupyeon",
+        "author": "Son Jin-tae",
+        "date": "1930",
+        "type": "primary",
+        "sourceId": "joseon-singa-yupyeon"
+      },
+      {
+        "title": "Hanguk Muga Jip",
+        "author": "Kim Tae-gon",
+        "date": "1971-1980",
+        "type": "primary",
+        "sourceId": "hanguk-muga-jip"
+      }
+    ],
+    "imageUrl": "/pantheons/korean.webp",
+    "figuresLabel": "Gods, Founders & Shamanic Deities"
   }
 ]

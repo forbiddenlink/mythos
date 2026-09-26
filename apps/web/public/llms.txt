@@ -4,7 +4,7 @@
 
 ## Summary
 
-Mythos Atlas is a research-oriented reference and learning site for ancient and world mythology. Content is curated into structured entries with cross-links, maps, knowledge graphs, and study tools (quizzes, spaced repetition, learning paths). The site is built with Next.js; static JSON is the primary data source, with optional Hygraph CMS for editorial workflows when configured.
+Mythos Atlas is a research-oriented reference and learning site for ancient and world mythology. Content is curated into structured entries with cross-links, maps, knowledge graphs, and study tools (quizzes, spaced repetition, learning paths). The site is built with Next.js; all content is served from versioned static JSON.
 
 ## URL aliases
 
@@ -22,6 +22,21 @@ Mythos Atlas is a research-oriented reference and learning site for ancient and 
 - [Quizzes](https://mythosatlas.com/quiz): self-testing, plus [study guides](https://mythosatlas.com/study).
 - [Sources](https://mythosatlas.com/sources) and [About](https://mythosatlas.com/about): citation standards and methodology.
 
+## Guides
+
+Editorial hubs that set a modern retelling or an ancient epic beside its sources, separating ancient material from modern invention and linking every figure and place to its entry.
+
+- [All guides](https://mythosatlas.com/guides)
+- [The Myths Behind Percy Jackson: The Titan's Curse](https://mythosatlas.com/guides/percy-jackson-titans-curse): Artemis and her Hunters, Atlas, Zoë Nightshade and the Hesperides, the Nemean Lion, Ladon, the Ophiotaurus, Mount Othrys and Kronos, each against Hesiod, Apollodorus, Apollonius and Ovid.
+- [The Odyssey: A Guide to Homer's Epic](https://mythosatlas.com/guides/odyssey): Odysseus's route (Troy to Ithaca, with each stop classed as real, identified or mythic), a 24-book summary, and the cast. About Homer's poem, not any film.
+- [Who's Who in Hades II](https://mythosatlas.com/guides/hades-ii): Melinoë (Orphic Hymn 71), Hecate, Chronos versus Cronus, Nyx and her children, Nemesis, Odysseus and Charon, with what the game invents.
+
+## Gods by domain
+
+- [Divine domains](https://mythosatlas.com/divine-domains) is the hub. Each domain held by at least three deities in two or more traditions has its own page at `/gods-of/<domain>`, for example [gods of war](https://mythosatlas.com/gods-of/war), [love](https://mythosatlas.com/gods-of/love), [the sea](https://mythosatlas.com/gods-of/sea), [death](https://mythosatlas.com/gods-of/death), [wisdom](https://mythosatlas.com/gods-of/wisdom) and [the sun](https://mythosatlas.com/gods-of/sun). Every name and description on those pages comes from the deity entries.
+- Head-to-head pages at `/compare/<a>-vs-<b>` (index: [comparison pairs](https://mythosatlas.com/compare/pairs)) exist only for pairs the catalog links through a cross-pantheon parallel or a recorded kinship.
+- Deity entries answer family questions (parents, children, consorts, siblings) from the catalog's kinship records, which are not exhaustive.
+
 ## Machine-readable sitemap
 
 - [sitemap.xml](https://mythosatlas.com/sitemap.xml): full URL index.
@@ -29,7 +44,7 @@ Mythos Atlas is a research-oriented reference and learning site for ancient and 
 
 ## API routes (not for general crawling)
 
-`/api/*` routes are application APIs (GraphQL facade, previews, webhooks, Oracle AI). They are disallowed in robots.txt. Do not rely on them as stable public content APIs without maintainer agreement.
+`/api/*` routes are internal application APIs (search, analytics, CSP reports, quiz generation, Oracle AI). They are disallowed in robots.txt. Do not rely on them as stable public content APIs without maintainer agreement.
 
 ## Oracle (AI assistant)
 

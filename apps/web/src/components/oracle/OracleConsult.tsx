@@ -4,15 +4,13 @@ import { useCallback, useRef, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { Loader2, Sparkles } from "lucide-react";
-import Link from "next/link";
+import type { OracleSourcesPayload } from "@/lib/oracle/citations";
+import { isNotInSourcesAnswer } from "@/lib/oracle/coverage";
+import { readOracleStream } from "@/lib/oracle/stream-client";
 import {
-  ORACLE_CITATIONS_HEADER,
-  ORACLE_GROUNDING_HITS_HEADER,
-} from "@/lib/oracle/constants";
-import {
-  decodeCitationsHeader,
-  type OracleCitation,
-} from "@/lib/oracle/citations";
+  OracleSources,
+  renderOracleText,
+} from "@/components/oracle/OracleAnswer";
 
 const PETITIONS = [
   "Why did the gods punish Prometheus?",
@@ -24,8 +22,8 @@ const PETITIONS = [
 interface Prophecy {
   question: string;
   answer: string;
-  citations: OracleCitation[];
-  grounded: boolean;
+  sources: OracleSourcesPayload | null;
+  notInSources: boolean;
 }
 
 /**
@@ -75,29 +73,19 @@ export function OracleConsult() {
           );
         }
 
-        const grounded =
-          (parseInt(
-            response.headers.get(ORACLE_GROUNDING_HITS_HEADER) ?? "0",
-            10,
-          ) || 0) > 0;
-        const citationsRaw = response.headers.get(ORACLE_CITATIONS_HEADER);
-        const citations = citationsRaw
-          ? decodeCitationsHeader(citationsRaw)
-          : [];
+        if (!response.body)
+          throw new Error("The Oracle's voice did not carry.");
 
-        const reader = response.body?.getReader();
-        if (!reader) throw new Error("The Oracle's voice did not carry.");
+        const { text, sources } = await readOracleStream(response.body, {
+          onText: (full) => setStreaming(full),
+        });
 
-        const decoder = new TextDecoder();
-        let full = "";
-        while (true) {
-          const { done, value } = await reader.read();
-          if (done) break;
-          full += decoder.decode(value, { stream: true });
-          setStreaming(full);
-        }
-
-        setProphecy({ question: q, answer: full, citations, grounded });
+        setProphecy({
+          question: q,
+          answer: text,
+          sources,
+          notInSources: sources?.hitCount === 0 || isNotInSourcesAnswer(text),
+        });
         setStreaming("");
         setInput("");
       } catch (err) {
@@ -212,37 +200,21 @@ export function OracleConsult() {
                 The Oracle speaks
               </p>
               <p className="whitespace-pre-line font-serif text-lg leading-relaxed text-parchment/90">
-                {prophecy ? prophecy.answer : streaming}
+                {renderOracleText(
+                  prophecy ? prophecy.answer : streaming,
+                  "text-gold underline decoration-gold/40 underline-offset-4 hover:decoration-gold",
+                )}
                 {!prophecy && (
                   <span className="ml-1 inline-block h-5 w-[2px] animate-pulse bg-gold align-middle" />
                 )}
               </p>
 
-              {prophecy && prophecy.citations.length > 0 && (
-                <div className="mt-6 border-t border-gold/15 pt-4">
-                  <p className="mb-2 text-xs uppercase tracking-widest text-gold/50">
-                    Drawn from the Atlas
-                  </p>
-                  <ul className="flex flex-wrap gap-2">
-                    {prophecy.citations.map((c) => (
-                      <li key={`${c.type}:${c.slug}`}>
-                        <Link
-                          href={c.path}
-                          className="rounded-full border border-gold/25 px-3 py-1 text-xs text-parchment/80 transition-colors hover:border-gold/50 hover:text-gold"
-                        >
-                          {c.title}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-
-              {prophecy && !prophecy.grounded && (
-                <p className="mt-4 text-xs italic text-parchment/70">
-                  Spoken from memory alone — no Atlas source anchored this
-                  reply.
-                </p>
+              {prophecy && (
+                <OracleSources
+                  variant="full"
+                  sources={prophecy.sources}
+                  notInSources={prophecy.notInSources}
+                />
               )}
             </motion.div>
           )}
@@ -251,5 +223,3 @@ export function OracleConsult() {
     </div>
   );
 }
-
-export default OracleConsult;

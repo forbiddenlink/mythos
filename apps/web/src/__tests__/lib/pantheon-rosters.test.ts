@@ -1,11 +1,12 @@
 import { describe, expect, it } from "vitest";
 import deities from "@/data/deities.json";
+import pantheons from "@/data/pantheons.json";
 import roster from "@/data/pantheon-rosters.json";
 import { PANTHEON_IDS, isPantheonComplete } from "@/lib/pantheon-rosters";
 
 describe("pantheon-rosters", () => {
-  it("lists all 16 pantheons including Aztec", () => {
-    expect(PANTHEON_IDS).toHaveLength(16);
+  it("lists every pantheon including Aztec", () => {
+    expect(PANTHEON_IDS).toEqual(pantheons.map((p) => p.id));
     expect(PANTHEON_IDS).toContain("aztec-pantheon");
     expect(PANTHEON_IDS).toContain("roman-pantheon");
   });

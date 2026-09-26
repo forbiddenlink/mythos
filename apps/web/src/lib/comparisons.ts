@@ -4,6 +4,7 @@
 import deitiesData from "../data/deities.json";
 import pantheonsData from "../data/pantheons.json";
 import relationshipsData from "../data/relationships.json";
+import { readableParallelNote } from "./parallel-notes";
 
 /**
  * Indexable head-to-head comparison pages.
@@ -240,7 +241,8 @@ function parallelNotes(x: RawDeity, y: RawDeity): string[] {
     ...(y.crossPantheonParallels ?? []).filter((p) => p.deityId === x.id),
   ]
     .map((p) => (p.note ?? "").trim())
-    .filter((note) => note.length > 0);
+    .filter((note) => note.length > 0)
+    .map(readableParallelNote);
   return [...new Set(notes)];
 }
 

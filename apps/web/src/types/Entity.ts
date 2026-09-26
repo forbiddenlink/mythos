@@ -19,30 +19,46 @@ export interface SearchResult {
   icon?: string; // identifier for icon component
 }
 
+/**
+ * Optional structured link from a free-text citation to a work in
+ * `sources.json`. Mirrors `SourceReferenceFields` in `src/lib/schemas.ts`.
+ */
+export interface SourceReference {
+  /** `id` of a record in `src/data/sources.json`. */
+  sourceId?: string;
+  /** Book, chapter, line, or section within that work. */
+  locator?: string;
+}
+
+/** A quoted or paraphrased passage attached to an entity. */
+export interface PrimarySource extends SourceReference {
+  text: string;
+  /** Human-readable citation label (always present, even with `sourceId`). */
+  source: string;
+  date?: string;
+}
+
 // Specific schemas for data files
 export interface Creature extends BaseEntity {
   habitat: string;
   abilities: string[];
   dangerLevel: number; // 1-10
   detailedBio?: string;
-  primarySources?: Array<{
-    text: string;
-    source: string;
-    date?: string;
-  }>;
+  primarySources?: PrimarySource[];
 }
 
 export interface Artifact extends BaseEntity {
+  /** Deity or hero id of the owner, when the owner has an entry. */
   ownerId?: string;
+  /** Catalog `ownerId` belongs to; set whenever `ownerId` is. */
+  ownerKind?: "deity" | "hero";
+  /** Display text for owners with no entry, or a fuller owner description. */
+  ownerLabel?: string;
   originStory?: string;
   origin?: string;
   powers: string[];
   detailedBio?: string;
-  primarySources?: Array<{
-    text: string;
-    source: string;
-    date?: string;
-  }>;
+  primarySources?: PrimarySource[];
 }
 
 export interface Pronunciation {
@@ -72,11 +88,13 @@ export interface Deity extends BaseEntity {
     deityId: string;
     note: string;
   }>;
-  primarySources?: Array<{
-    text: string;
-    source: string;
-    date?: string;
+  /** Parallels whose counterpart is a hero in heroes.json rather than a deity. */
+  heroParallels?: Array<{
+    pantheonId: string;
+    heroId: string;
+    note: string;
   }>;
+  primarySources?: PrimarySource[];
   worship?: {
     temples?: string[];
     festivals?: string[];
@@ -86,7 +104,7 @@ export interface Deity extends BaseEntity {
   sources?: string[];
 }
 
-export interface MythVariant {
+export interface MythVariant extends SourceReference {
   source: string;
   passage?: string;
   sourceUrl?: string;
@@ -108,16 +126,18 @@ export interface Story extends BaseEntity {
   moralThemes: string[];
   culturalSignificance: string;
   imageUrl?: string;
-  citationSources?: Array<{
-    title: string;
-    url?: string;
-    author?: string;
-    lines?: string;
-    book?: string;
-    chapters?: string;
-    chapter?: string;
-    type?: string;
-  }>;
+  citationSources?: Array<
+    SourceReference & {
+      title: string;
+      url?: string;
+      author?: string;
+      lines?: string;
+      book?: string;
+      chapters?: string;
+      chapter?: string;
+      type?: string;
+    }
+  >;
   featuredDeities?: string[];
   featuredLocations?: string[];
   relatedStories?: string[];
@@ -147,12 +167,75 @@ export interface UserProgress {
   totalXP: number;
 }
 
-export interface Tour {
-  id: string;
-  name: string;
-  description: string;
+/**
+ * How an entity image was made (mirrors `ImageProvenanceKindSchema`).
+ * Resolve per entity with `getImageProvenance` from `src/lib/image-provenance.ts`.
+ */
+export type ImageProvenanceKind =
+  | "illustration-ai"
+  | "illustration-procedural"
+  | "public-domain"
+  | "licensed"
+  | "unverified";
+
+/**
+ * How a location relates to the map (mirrors `LocationGeographySchema`):
+ * a real place, a mythic place pinned to a traditional identification, or a
+ * realm with no terrestrial coordinates.
+ */
+export type LocationGeography = "physical" | "identified" | "mythic";
+
+export interface MythLocation extends BaseEntity {
+  locationType: string;
   pantheonId: string;
-  locations: string[];
+  /** null when `geography` is "mythic". */
+  latitude: number | null;
+  longitude: number | null;
+  geography: LocationGeography;
+  coordinateNote?: string;
+  detailedBio?: string;
+  primarySources?: PrimarySource[];
+}
+
+/**
+ * Canonical stored relationship types (mirrors `RELATIONSHIP_TYPES` in
+ * `src/lib/schemas.ts`). Read as "fromDeity <type> toDeity".
+ */
+export type RelationshipType =
+  | "parent_of"
+  | "sibling_of"
+  | "spouse_of"
+  | "lover_of"
+  | "ally_of"
+  | "enemy_of"
+  | "aspect_of";
+
+export interface Relationship {
+  id: string;
+  fromDeityId: string;
+  toDeityId: string;
+  relationshipType: RelationshipType;
+  confidenceLevel: "high" | "medium" | "low";
+  description?: string;
+  storyContext?: string;
+  isDisputed?: boolean;
+}
+
+/** Which catalog a journey's `heroId` points into. */
+export type JourneyHeroKind = "hero" | "deity";
+
+export interface JourneySummary {
+  id: string;
+  /** Id in heroes.json when `heroKind` is "hero", deities.json when "deity". */
+  heroId: string;
+  heroKind: JourneyHeroKind;
+  heroName: string;
+  title: string;
+  slug: string;
+  pantheonId: string;
+  imageUrl?: string;
+  /** "otherworld" routes cross realms with no coordinates (no map). */
+  setting?: "earthly" | "otherworld";
 }
 
 export interface Pantheon extends BaseEntity {
@@ -165,13 +248,19 @@ export interface Pantheon extends BaseEntity {
   timePeriodEnd?: number | null;
   description: string;
   detailedHistory?: string;
-  citationSources?: Array<{
-    title: string;
-    author?: string;
-    date?: string;
-    type?: string;
-  }>;
+  citationSources?: Array<
+    SourceReference & {
+      title: string;
+      author?: string;
+      date?: string;
+      type?: string;
+    }
+  >;
   imageUrl?: string;
   figuresLabel?: string;
+  /**
+   * A regional collection page rather than a pantheon: it groups figures from
+   * several unrelated peoples and may have no deities or stories of its own.
+   */
+  isCollection?: boolean;
 }
-

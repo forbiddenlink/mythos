@@ -3,6 +3,9 @@ import { generateBaseMetadata } from "@/lib/metadata";
 import { FAQJsonLd } from "@/components/seo/JsonLd";
 import facts from "@/data/mythology-facts.json";
 import deitiesData from "@/data/deities.json";
+import { resolveFestivalDeitySlugs } from "@/lib/antiquity-festivals";
+import { PageHeader } from "@/components/layout/page-header";
+import { FESTIVALS } from "@/lib/antiquity-festivals";
 import { FactsPageClient, type FactDeityInfo } from "./FactsPageClient";
 
 // Computed on the server to keep the 586 KB deities.json out of the client bundle
@@ -12,12 +15,14 @@ for (const d of deitiesData as Array<{
   slug: string;
   name: string;
   pantheonId: string;
+  imageUrl?: string | null;
 }>) {
   const entry: FactDeityInfo = {
     id: d.id,
     slug: d.slug,
     name: d.name,
     pantheonId: d.pantheonId,
+    imageUrl: d.imageUrl ?? null,
   };
   DEITY_LOOKUP[d.id] = entry;
   DEITY_LOOKUP[d.slug] = entry;
@@ -90,7 +95,17 @@ export default function FactsPage() {
   return (
     <>
       <FAQJsonLd questions={uniqueFaqQuestions} />
-      <FactsPageClient deityLookup={DEITY_LOOKUP} />
+      <PageHeader
+        mark="torch"
+        eyebrow="Did you know"
+        title="Mythology Facts & Ancient Almanac"
+        lede={`Curated discoveries about gods, words and rites, and the festival calendars of ${new Set(FESTIVALS.map((f) => f.pantheonId)).size} ancient traditions.`}
+      />
+      <FactsPageClient
+        facts={facts}
+        deityLookup={DEITY_LOOKUP}
+        festivalDeitySlugs={resolveFestivalDeitySlugs(deitiesData)}
+      />
     </>
   );
 }

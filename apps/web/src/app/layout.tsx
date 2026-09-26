@@ -6,15 +6,12 @@ import { OrganizationJsonLd, WebSiteJsonLd } from "@/components/seo/JsonLd";
 import { generateBaseMetadata, googleSiteVerification } from "@/lib/metadata";
 import { AchievementNotificationProvider } from "@/providers/achievement-notification-provider";
 import { BookmarksProvider } from "@/providers/bookmarks-provider";
-import { LeaderboardProvider } from "@/providers/leaderboard-provider";
 import { ProgressProvider } from "@/providers/progress-provider";
-import { QueryProvider } from "@/providers/query-provider";
 import { ReviewProvider } from "@/providers/review-provider";
 import { ThemeProvider } from "@/providers/theme-provider";
 import type { Metadata, Viewport } from "next";
-import { NextIntlClientProvider } from "next-intl";
+import { IntlProvider } from "@/components/i18n/IntlProvider";
 import { getLocale, getMessages } from "next-intl/server";
-import { headers } from "next/headers";
 import { cinzel, crimsonPro, sourceSans } from "./fonts";
 import "./globals.css";
 
@@ -54,7 +51,9 @@ export default async function RootLayout({
 }>) {
   const locale = await getLocale();
   const messages = await getMessages();
-  const nonce = (await headers()).get("x-nonce") ?? undefined;
+  // No request APIs here (headers/cookies): they would opt every route out of
+  // static generation. Locale switching happens client-side in IntlProvider;
+  // CSP for static pages is hash-based (see src/proxy.ts).
 
   return (
     <html lang={locale} suppressHydrationWarning>
@@ -68,41 +67,36 @@ export default async function RootLayout({
       >
         <WebSiteJsonLd />
         <OrganizationJsonLd />
-        <NextIntlClientProvider messages={messages} locale={locale}>
+        <IntlProvider messages={messages} locale={locale}>
           <ThemeProvider
             attribute="class"
             defaultTheme="system"
             enableSystem
             disableTransitionOnChange
-            nonce={nonce}
           >
-            <QueryProvider>
-              <BookmarksProvider>
-                <ProgressProvider>
-                  <ReviewProvider>
-                    <LeaderboardProvider>
-                      <AchievementNotificationProvider>
-                        <SkipToContent />
-                        <div className="flex min-h-screen flex-col">
-                          <Header />
-                          <main
-                            id="main-content"
-                            className="flex-1 scroll-mt-16"
-                            tabIndex={-1}
-                          >
-                            {children}
-                          </main>
-                          <Footer />
-                        </div>
-                        <GlobalClientAddons />
-                      </AchievementNotificationProvider>
-                    </LeaderboardProvider>
-                  </ReviewProvider>
-                </ProgressProvider>
-              </BookmarksProvider>
-            </QueryProvider>
+            <BookmarksProvider>
+              <ProgressProvider>
+                <ReviewProvider>
+                  <AchievementNotificationProvider>
+                    <SkipToContent />
+                    <div className="flex min-h-screen flex-col">
+                      <Header />
+                      <main
+                        id="main-content"
+                        className="flex-1 scroll-mt-16"
+                        tabIndex={-1}
+                      >
+                        {children}
+                      </main>
+                      <Footer />
+                    </div>
+                    <GlobalClientAddons />
+                  </AchievementNotificationProvider>
+                </ReviewProvider>
+              </ProgressProvider>
+            </BookmarksProvider>
           </ThemeProvider>
-        </NextIntlClientProvider>
+        </IntlProvider>
       </body>
     </html>
   );

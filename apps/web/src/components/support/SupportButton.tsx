@@ -16,18 +16,18 @@ export function SupportButton({
   label = "Support through Stripe",
   size = "lg",
   variant = "gold",
+  href = SUPPORT_CHECKOUT_URL,
 }: {
   placement: string;
   label?: string;
   size?: "sm" | "default" | "lg";
   variant?: "gold" | "outline" | "default";
+  /** Checkout link; defaults to the one-time payment link. */
+  href?: string;
 }) {
   return (
     <Button asChild variant={variant} size={size}>
-      <a
-        href={SUPPORT_CHECKOUT_URL}
-        onClick={() => trackEvent("support_click", { placement })}
-      >
+      <a href={href} onClick={() => trackEvent("support_click", { placement })}>
         {label} <ArrowUpRight aria-hidden="true" className="size-4" />
       </a>
     </Button>

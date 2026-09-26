@@ -45,14 +45,14 @@ export function FooterTools() {
   return (
     <section
       aria-label="Optional browsing tools"
-      className="mt-10 border-t border-border/50 pt-6"
+      className="mt-10 border-t border-border/70 pt-4"
     >
-      <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
+      <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
         <RandomDiscoveryButton />
         {process.env.NEXT_PUBLIC_ORACLE_ENABLED === "true" && <OracleChat />}
         <Button
           variant="ghost"
-          className="min-h-11 px-0 text-foreground"
+          className="min-h-10 px-0 text-sm font-normal text-muted-foreground hover:bg-transparent hover:text-foreground"
           disabled={!hydrated}
           aria-expanded={audioOpen}
           aria-controls="footer-audio-controls"
@@ -63,7 +63,7 @@ export function FooterTools() {
         >
           Ambient audio
         </Button>
-        <AchievementNotificationToggle className="inline-flex min-h-11 cursor-pointer items-center text-sm text-muted-foreground" />
+        <AchievementNotificationToggle className="inline-flex min-h-10 cursor-pointer items-center gap-2 text-sm text-muted-foreground" />
       </div>
       <div id="footer-audio-controls" hidden={!audioOpen} className="pt-4">
         {audioLoaded && <AudioEnhancements />}

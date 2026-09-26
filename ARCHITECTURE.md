@@ -4,9 +4,9 @@ Verified against the repository on September 23, 2026. This describes the web ap
 
 ## Runtime and data boundaries
 
-`apps/web` is a self-contained Next.js App Router application. Its encyclopedia data comes from versioned JSON in `src/data/`; a database is not required to browse the site. Pages use server-side catalog lookups and client-side filtering/interaction. The separate `/api/graphql` route exposes the JSON catalog, but normal encyclopedia pages do not all fetch through GraphQL or React Query.
+`apps/web` is a self-contained Next.js App Router application. Its encyclopedia data comes from versioned JSON in `src/data/`; a database is not required to browse the site. Pages use server-side catalog lookups and client-side filtering/interaction. There is no public data API: the former `/api/graphql` facade and the disabled Hygraph CMS stubs (`/api/hygraph/*`, `/api/preview`, `/api/revalidate`) were removed because nothing in the app called them. The remaining route handlers under `src/app/api/` (search, analytics, CSP reports, story-quiz generation, Oracle) serve the app itself.
 
-`apps/api` is an optional Rust/Axum/async-graphql service with PostgreSQL migrations and seed data. It is not a dependency of the web app's current catalog browsing path.
+The optional Rust/Axum/async-graphql service that used to live in `apps/api` (with PostgreSQL migrations, seed data and a `docker-compose.yml` Postgres service) was retired in September 2026: the web app never depended on it. It remains in history; the last `main` commit containing it is `42ada2685ba563ef0a9ead081940e4a849391f66` (its last change was `ba36dfc`). Restore it with `git checkout 42ada26 -- apps/api docker-compose.yml`.
 
 ```mermaid
 flowchart TB
@@ -17,18 +17,15 @@ flowchart TB
     HTML --> Client[Interactive React components]
     Client --> Local[Local storage: bookmarks, progress, reviews]
     Client --> Visual[On-demand maps, graphs and audio]
-    Browser --> GraphQL[Optional web API: /api/graphql]
-    Catalog --> GraphQL
     Browser --> Support[Support page]
     Support --> Stripe[Stripe-hosted one-time checkout]
     Browser -. optional Oracle .-> Oracle[/api/oracle]
     Oracle --> Limits[Upstash rate limits and daily cap]
     Oracle --> Provider[Configured Anthropic or Groq model]
     Catalog --> Oracle
-    Rust[Separate optional Rust API] --> Postgres[PostgreSQL]
 ```
 
-The main catalogs currently contain 16 tradition records, 233 deities, 27 heroes, 108 stories, 63 creatures, 52 artifacts, and 127 locations. These are catalog counts, not claims that every tradition is equally covered or every passage has received scholarly review.
+The main catalogs currently contain 27 tradition records (26 pantheons and 1 regional collection), 359 deities, 37 heroes, 162 stories, 103 creatures, 76 artifacts, and 184 locations. These are catalog counts, not claims that every tradition is equally covered or every passage has received scholarly review.
 
 ## Catalog navigation
 
@@ -74,11 +71,11 @@ flowchart LR
     Collections --> Places
 ```
 
-See [entity types](apps/web/src/types/Entity.ts), [catalog schemas](apps/web/src/lib/schemas.ts), and the [GraphQL route](apps/web/src/app/api/graphql/route.ts) for actual fields. GraphQL imports the Zod-inferred schema types; keep these consistent with the separate entity interfaces.
+See [entity types](apps/web/src/types/Entity.ts) and [catalog schemas](apps/web/src/lib/schemas.ts) for actual fields. The Zod schemas validate the principal catalogs in tests; keep them consistent with the separate entity interfaces.
 
 ## State, privacy and optional services
 
-- `src/app/layout.tsx` owns the provider stack: locale, theme, React Query, bookmarks, progress, review, leaderboard, and achievement notifications. Saved learning state is browser-local; it is not an account-backed cross-device service.
+- `src/app/layout.tsx` owns the provider stack: locale, theme, bookmarks, progress, review, leaderboard, and achievement notifications. Saved learning state is browser-local; it is not an account-backed cross-device service.
 - Search loads on command-palette intent. Audio controls and playback are optional. Achievement notifications default off.
 - Vercel analytics, Web Vitals, and Sentry browser collection are consent-gated. Global Privacy Control takes precedence over analytics opt-in. Session replay is off by default.
 - Oracle requires explicit enablement and credentials. Production requests fail closed without Upstash for both Anthropic and Groq. Shared per-IP limits and the global daily cap require Upstash; only development can fall back to in-memory limits. The kill switch disables Oracle and story-quiz generation. No Oracle key belongs in browser code.
@@ -101,7 +98,7 @@ flowchart LR
     Main --> Production[Vercel production deployment]
 ```
 
-A preview does not mean production was promoted. Do not bypass failing checks or assume an old passing run covers a new commit. Preserve unique commits and dirty worktrees before branch cleanup. The optional Rust service needs separate database-backed validation if it changes.
+A preview does not mean production was promoted. Do not bypass failing checks or assume an old passing run covers a new commit. Preserve unique commits and dirty worktrees before branch cleanup.
 
 ## Performance and verification
 

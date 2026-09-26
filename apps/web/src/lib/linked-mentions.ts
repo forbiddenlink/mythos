@@ -1,8 +1,10 @@
+import "server-only";
+
 import deitiesData from "@/data/deities.json";
 import storiesData from "@/data/stories.json";
 import artifactsData from "@/data/artifacts.json";
 import journeysData from "@/data/journeys.json";
-import { normalizeDeityReference } from "@/lib/deities";
+import { normalizeDeityReference } from "@/lib/deity-reference";
 
 export type MentionKind = "story" | "artifact" | "journey" | "parallel";
 
@@ -27,7 +29,8 @@ interface ArtifactRow {
   id: string;
   slug: string;
   name: string;
-  owner?: string | null;
+  ownerId?: string;
+  ownerKind?: "deity" | "hero";
   type?: string;
 }
 
@@ -103,8 +106,8 @@ export function getLinkedMentionsForDeity(deityId: string): LinkedMention[] {
   }
 
   for (const artifact of artifacts) {
-    if (!artifact.owner) continue;
-    const ownerNorm = normalizeDeityReference(artifact.owner);
+    if (!artifact.ownerId || artifact.ownerKind !== "deity") continue;
+    const ownerNorm = normalizeDeityReference(artifact.ownerId);
     if (
       ownerNorm === normId ||
       ownerNorm === normalizeDeityReference(deity.slug)

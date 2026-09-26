@@ -8,6 +8,7 @@ import { ARTIFACT_ALIASES } from "./src/lib/artifact-aliases";
 import { LOCATION_ALIASES } from "./src/lib/location-aliases";
 import { STORY_ALIASES } from "./src/lib/story-aliases";
 import { getReversedComparisonSlugs } from "./src/lib/comparisons";
+import { CONSOLIDATION_REDIRECTS } from "./src/lib/route-redirects";
 
 const withNextIntl = createNextIntlPlugin("./i18n.ts");
 const withBundleAnalyzer = bundleAnalyzer({
@@ -127,9 +128,10 @@ const nextConfig: NextConfig = {
             key: "Cross-Origin-Opener-Policy",
             value: "same-origin",
           },
-          // Content-Security-Policy is set per-request in middleware.ts so it
-          // can carry a per-request script nonce (with 'strict-dynamic' in
-          // production). Reporting-Endpoints stays here since it is static.
+          // Content-Security-Policy is set per request in src/proxy.ts: build-time
+          // SHA-256 hashes for prerendered pages plus a per-request nonce for
+          // dynamic ones (see src/lib/csp.ts). Reporting-Endpoints stays here
+          // since it is static.
           {
             key: "Reporting-Endpoints",
             value: 'csp-endpoint="/api/csp-report"',
@@ -140,6 +142,7 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
+      ...CONSOLIDATION_REDIRECTS,
       ...Object.entries(STORY_ALIASES).flatMap(([from, to]) => [
         {
           source: `/stories/${from}`,

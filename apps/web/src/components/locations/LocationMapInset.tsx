@@ -185,5 +185,3 @@ export function LocationMapInset({
     </div>
   );
 }
-
-export default LocationMapInset;

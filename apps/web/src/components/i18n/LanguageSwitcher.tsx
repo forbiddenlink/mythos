@@ -3,7 +3,7 @@
 import { localeFlags, localeNames, locales, type Locale } from "@/i18n/config";
 import { ChevronDown, Globe } from "lucide-react";
 import { useLocale } from "next-intl";
-import { useRouter } from "next/navigation";
+import { saveLocale } from "@/i18n/client-locale";
 import { useEffect, useRef, useState } from "react";
 
 export function LanguageSwitcher() {
@@ -11,7 +11,6 @@ export function LanguageSwitcher() {
   const [mounted, setMounted] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const currentLocale = useLocale() as Locale;
-  const router = useRouter();
 
   useEffect(() => {
     // eslint-disable-next-line react-hooks/set-state-in-effect -- standard hydration-safe mounted flag
@@ -46,29 +45,16 @@ export function LanguageSwitcher() {
   }, []);
 
   const handleLocaleChange = (locale: Locale) => {
-    // Set cookie for server-side locale detection (mirrors the flags proxy.ts
-    // sets on this same cookie).
-    const secureFlag = process.env.NODE_ENV === "production" ? ";Secure" : "";
-    // eslint-disable-next-line react-hooks/immutability -- document.cookie is a standard browser API
-    document.cookie = `locale=${locale};path=/;max-age=31536000;SameSite=Lax${secureFlag}`;
-
-    // Store in localStorage as backup
-    try {
-      localStorage.setItem("locale", locale);
-    } catch {
-      /* blocked */
-    }
-
+    // Pages are prerendered in the default locale; IntlProvider swaps the
+    // messages in place when it hears about the change.
+    saveLocale(locale);
     setIsOpen(false);
-
-    // Refresh the page to apply new locale
-    router.refresh();
   };
 
   // Prevent hydration mismatch
   if (!mounted) {
     return (
-      <div className="flex items-center justify-center p-2 text-muted-foreground rounded-lg">
+      <div className="flex h-10 items-center justify-center px-2.5 text-muted-foreground">
         <Globe className="h-4 w-4" />
       </div>
     );
@@ -78,15 +64,13 @@ export function LanguageSwitcher() {
     <div className="relative" ref={dropdownRef}>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex min-h-11 items-center gap-1.5 px-3 py-2 text-sm text-foreground/80 hover:text-foreground rounded-lg hover:bg-muted/50 transition-all duration-200"
+        className="flex h-10 items-center gap-1.5 rounded-md px-2.5 text-sm text-muted-foreground transition-colors hover:bg-muted hover:text-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold"
         aria-label={`Interface language: ${currentLocale.toUpperCase()}. Navigation and Oracle chat follow this locale; most encyclopedia pages remain in English.`}
         title="Navigation and Oracle language"
         aria-expanded={isOpen ? "true" : "false"}
         aria-haspopup="menu"
       >
-        <span className="text-base" aria-hidden="true">
-          {localeFlags[currentLocale]}
-        </span>
+        <Globe className="h-4 w-4" aria-hidden="true" />
         <span className="hidden sm:inline text-xs font-medium uppercase">
           {currentLocale}
         </span>

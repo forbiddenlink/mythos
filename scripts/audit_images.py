@@ -1,7 +1,9 @@
 import os, json, glob
 from collections import defaultdict
 
-data_dir = "/Volumes/LizsDisk/mythos/apps/web/src/data"
+from _repo_paths import DATA_DIR, WEB_PUBLIC
+
+data_dir = str(DATA_DIR)
 json_files = glob.glob(os.path.join(data_dir, "*.json"))
 
 image_usage = defaultdict(list)

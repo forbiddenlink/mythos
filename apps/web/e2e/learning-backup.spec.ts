@@ -109,7 +109,7 @@ test.describe("Learning backup", () => {
     await page.getByRole("button", { name: "Restore this backup" }).click();
     await reloaded;
     await expect(
-      page.getByRole("heading", { name: "Your Journey" }),
+      page.getByRole("heading", { level: 1, name: "Your Stats" }),
     ).toBeVisible();
 
     const restored = await page.evaluate(() => ({

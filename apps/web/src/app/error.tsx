@@ -1,11 +1,11 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { AlertTriangle, RotateCcw } from "lucide-react";
-import { MythosMark } from "@/components/icons/mythos-marks";
 import Link from "next/link";
+import { RotateCcw } from "lucide-react";
 import { useEffect } from "react";
+import { Container } from "@/components/layout/container";
+import { MythosMark } from "@/components/icons/mythos-marks";
+import { OpenSearchButton } from "@/components/search/OpenSearchButton";
 
 export default function ErrorPage({
   error,
@@ -30,94 +30,67 @@ export default function ErrorPage({
         // Ignore Sentry load errors on the error page.
       });
   }, [error]);
+
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-linear-to-b from-midnight via-midnight-light to-midnight px-4 py-16">
-      {/* Background effects */}
-      <div className="fixed inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full bg-red-500/5 blur-3xl" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 rounded-full bg-gold/5 blur-3xl" />
-      </div>
+    <div className="relative isolate overflow-hidden">
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[32rem] bg-[radial-gradient(ellipse_60%_70%_at_20%_0%,color-mix(in_oklch,var(--gold)_12%,transparent),transparent_70%)]"
+      />
+      <Container size="reading" className="section-space-lg">
+        <p className="type-eyebrow flex items-center gap-2">
+          <MythosMark id="urn" className="size-4" />
+          Something went wrong
+        </p>
+        <h1 className="page-title mt-4 text-foreground">
+          This page could not be shown
+        </h1>
+        <p className="type-lede mt-4 text-muted-foreground">
+          We hit an unexpected problem while loading it. Try again, or return
+          home and continue exploring. If it keeps happening, your device or
+          network may have stale data; a hard refresh usually clears it.
+        </p>
 
-      <div className="relative z-10 max-w-2xl mx-auto text-center">
-        {/* Error icon */}
-        <div className="flex justify-center mb-8">
-          <div className="relative">
-            <div className="absolute -inset-5 rounded-full bg-gradient-radial from-red-500/20 to-transparent animate-pulse" />
-            <div className="relative p-6 rounded-full border border-gold/30 bg-midnight-light/80 backdrop-blur-sm">
-              <AlertTriangle className="w-12 h-12 text-gold" />
-            </div>
-          </div>
-        </div>
-
-        {/* Error title */}
-        <h1 className="page-title text-parchment mb-4">Something Went Wrong</h1>
-
-        {/* Clear guidance first, themed flavor second */}
-        <div className="relative max-w-xl mx-auto mb-8 p-6 rounded-lg border border-gold/10 bg-midnight-light/30 backdrop-blur-sm">
-          <div className="absolute top-0 left-0 w-4 h-4 border-t border-l border-gold/30" />
-          <div className="absolute top-0 right-0 w-4 h-4 border-t border-r border-gold/30" />
-          <div className="absolute bottom-0 left-0 w-4 h-4 border-b border-l border-gold/30" />
-          <div className="absolute bottom-0 right-0 w-4 h-4 border-b border-r border-gold/30" />
-
-          <p className="text-gold-light/90 font-body leading-relaxed">
-            We hit an unexpected problem while loading this page. Try again, or
-            return home and continue exploring.
-          </p>
-          <p className="text-parchment/50 text-sm mt-3">
-            If it keeps happening, your device or network may have stale data.
-          </p>
-        </div>
-
-        {/* Error details in development */}
         {process.env.NODE_ENV === "development" && (
-          <Card className="border-red-500/20 bg-midnight-light/50 mb-8 text-left">
-            <CardContent className="p-5">
-              <p className="text-xs uppercase tracking-wide text-red-400/70 mb-2 font-semibold">
-                Error Details
+          <div className="mt-8 rounded-md border border-destructive/30 bg-destructive/5 p-4">
+            <p className="type-meta font-semibold uppercase tracking-wide text-destructive">
+              Error details
+            </p>
+            <code className="mt-2 block overflow-x-auto whitespace-pre-wrap wrap-break-word text-sm text-foreground/80">
+              {error.message}
+            </code>
+            {error.digest && (
+              <p className="mt-2 type-meta text-muted-foreground">
+                Digest: {error.digest}
               </p>
-              <code className="block text-sm text-parchment/60 bg-midnight/50 rounded p-3 overflow-x-auto whitespace-pre-wrap wrap-break-word">
-                {error.message}
-              </code>
-              {error.digest && (
-                <p className="text-xs text-parchment/30 mt-2">
-                  Digest: {error.digest}
-                </p>
-              )}
-            </CardContent>
-          </Card>
+            )}
+          </div>
         )}
 
-        {/* Action buttons */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Button
+        <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3">
+          <button
+            type="button"
             onClick={reset}
-            size="lg"
-            className="bg-linear-to-r from-gold-dark via-gold to-gold-dark hover:from-gold hover:via-gold-light hover:to-gold text-midnight font-semibold px-8"
+            className="inline-flex min-h-11 items-center gap-2 rounded-md bg-gold px-5 type-ui font-semibold text-midnight transition-colors hover:bg-gold-light focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold"
           >
-            <RotateCcw className="w-4 h-4 mr-2" />
-            Try Again
-          </Button>
-          <Button
-            asChild
-            size="lg"
-            variant="outline"
-            className="border-gold/40 text-gold hover:bg-gold/10 hover:border-gold/60"
+            <RotateCcw className="size-4" aria-hidden="true" />
+            Try again
+          </button>
+          <Link
+            href="/"
+            className="inline-flex min-h-11 items-center type-ui font-medium text-gold-text underline decoration-gold/40 underline-offset-4 hover:decoration-current"
           >
-            <Link href="/">
-              <MythosMark id="temple" className="w-4 h-4 mr-2" />
-              Return Home
-            </Link>
-          </Button>
+            Return home
+          </Link>
         </div>
 
-        {/* Subtle footer hint */}
-        <div className="mt-10 text-sm text-muted-foreground">
-          <p>
-            If this issue persists, try clearing your browser cache or returning
-            later.
+        <div className="mt-12 border-t border-border/70 pt-8">
+          <p className="type-ui mb-3 text-muted-foreground">
+            Or search for what you were looking for:
           </p>
+          <OpenSearchButton />
         </div>
-      </div>
+      </Container>
     </div>
   );
 }

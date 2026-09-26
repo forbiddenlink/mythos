@@ -22,17 +22,17 @@ export function GraphLegend({
   return (
     <div
       className={cn(
-        "bg-white/95 dark:bg-slate-900/95 backdrop-blur-sm rounded-lg border border-slate-200 dark:border-slate-700 p-4 shadow-lg",
+        "rounded-lg border border-border bg-popover p-4 text-popover-foreground shadow-lg",
         className,
       )}
     >
-      <div className="font-semibold text-sm text-slate-900 dark:text-slate-100 mb-3">
+      <div className="mb-3 font-serif text-base font-semibold text-foreground">
         Legend
       </div>
 
       {/* Pantheon Colors */}
       <div className="space-y-2 mb-4">
-        <div className="text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider">
+        <div className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
           Pantheons
         </div>
         <div className="grid grid-cols-2 gap-2">
@@ -42,7 +42,7 @@ export function GraphLegend({
                 className="w-3 h-3 rounded-full shrink-0"
                 style={{ backgroundColor: pantheon.color }}
               />
-              <span className="text-xs text-slate-600 dark:text-slate-300 truncate">
+              <span className="text-sm text-foreground/85 truncate">
                 {pantheon.name}
               </span>
             </div>
@@ -52,16 +52,14 @@ export function GraphLegend({
 
       {/* Relationship Types */}
       {showRelationships && (
-        <div className="space-y-2 pt-3 border-t border-slate-200 dark:border-slate-700">
-          <div className="text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider">
+        <div className="space-y-2 pt-3 border-t border-border">
+          <div className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
             Relationships
           </div>
           <div className="space-y-1.5">
             <div className="flex items-center gap-2">
-              <div className="w-6 h-0.5 bg-slate-600 dark:bg-slate-400" />
-              <span className="text-xs text-slate-600 dark:text-slate-300">
-                Parent/Child
-              </span>
+              <div className="w-6 h-0.5 bg-foreground/60" />
+              <span className="text-sm text-foreground/85">Parent/Child</span>
             </div>
             <div className="flex items-center gap-2">
               <div
@@ -71,9 +69,7 @@ export function GraphLegend({
                     "repeating-linear-gradient(90deg, #ec4899, #ec4899 4px, transparent 4px, transparent 8px)",
                 }}
               />
-              <span className="text-xs text-slate-600 dark:text-slate-300">
-                Spouse/Lover
-              </span>
+              <span className="text-sm text-foreground/85">Spouse/Lover</span>
             </div>
             <div className="flex items-center gap-2">
               <div
@@ -83,9 +79,7 @@ export function GraphLegend({
                     "repeating-linear-gradient(90deg, #3b82f6, #3b82f6 2px, transparent 2px, transparent 4px)",
                 }}
               />
-              <span className="text-xs text-slate-600 dark:text-slate-300">
-                Sibling
-              </span>
+              <span className="text-sm text-foreground/85">Sibling</span>
             </div>
             <div className="flex items-center gap-2">
               <div
@@ -95,31 +89,25 @@ export function GraphLegend({
                   boxShadow: "0 0 8px #fbbf24",
                 }}
               />
-              <span className="text-xs text-slate-600 dark:text-slate-300">
-                Cross-Pantheon
-              </span>
+              <span className="text-sm text-foreground/85">Cross-Pantheon</span>
             </div>
           </div>
         </div>
       )}
 
       {/* Node Size */}
-      <div className="space-y-2 pt-3 border-t border-slate-200 dark:border-slate-700 mt-3">
-        <div className="text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider">
+      <div className="space-y-2 pt-3 border-t border-border mt-3">
+        <div className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
           Node Size
         </div>
         <div className="flex items-center gap-3">
           <div className="flex items-center gap-1.5">
-            <div className="w-4 h-4 rounded-full bg-slate-400 dark:bg-slate-500" />
-            <span className="text-xs text-slate-600 dark:text-slate-300">
-              Major
-            </span>
+            <div className="w-4 h-4 rounded-full bg-muted-foreground" />
+            <span className="text-sm text-foreground/85">Major</span>
           </div>
           <div className="flex items-center gap-1.5">
-            <div className="w-3 h-3 rounded-full bg-slate-400 dark:bg-slate-500" />
-            <span className="text-xs text-slate-600 dark:text-slate-300">
-              Minor
-            </span>
+            <div className="w-3 h-3 rounded-full bg-muted-foreground" />
+            <span className="text-sm text-foreground/85">Minor</span>
           </div>
         </div>
       </div>

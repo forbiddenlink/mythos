@@ -18,7 +18,6 @@ import {
   ExternalLink,
   Timer,
 } from "lucide-react";
-import { getDeityPath } from "@/lib/deities";
 import type {
   RelationshipQuestion,
   QuestionType,
@@ -269,7 +268,7 @@ export function RelationshipQuizCard({
 
                 {question.questionType !== "domain" && (
                   <Link
-                    href={getDeityPath(question.correctDeityId)}
+                    href={`/deities/${question.correctDeitySlug}`}
                     className="inline-flex items-center gap-1 mt-2 text-sm text-primary hover:underline"
                   >
                     Learn more about {question.correctAnswer}

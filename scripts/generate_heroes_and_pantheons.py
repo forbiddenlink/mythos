@@ -5,13 +5,14 @@ Generates the 7 missing hero plates and 3 missing pantheon covers for Mythos Atl
 matching the established dark-academia classical atlas aesthetic.
 """
 
+import argparse
 import os
 import math
-import subprocess
-from PIL import Image, ImageDraw, ImageFont, ImageFilter
 
-REPO_ROOT = "/Volumes/LizsDisk/mythos"
-WEB_PUBLIC = os.path.join(REPO_ROOT, "apps/web/public")
+from _plate_emblems import draw_emblem
+from _plate_art import pantheon_of, render_plate, write_plate
+from _repo_paths import WEB_PUBLIC
+
 HEROES_DIR = os.path.join(WEB_PUBLIC, "heroes")
 PANTHEONS_DIR = os.path.join(WEB_PUBLIC, "pantheons")
 
@@ -84,40 +85,23 @@ NEW_HEROES = [
         "accent": (205, 150, 75),     # Cuneiform Lapis & Gold
         "bg_tone": (22, 16, 14),
         "motif": "etana_eagle"
-    }
+    },
+
+    # PERSIAN / IRANIAN (2026-09)
+    {"id": "rostam", "name": "ROSTAM", "epithet": "CHAMPION OF IRAN · RIDER OF RAKHSH", "pantheon": "PERSIAN", "accent": (200, 140, 70), "bg_tone": (20, 14, 12), "motif": "emblem_mace"},
 ]
 
 W_HERO, H_HERO = 768, 1024
-
-def draw_ornament_corners(draw, x0, y0, x1, y1, color):
-    s = 24
-    for cx, cy, dx, dy in [(x0, y0, 1, 1), (x1, y0, -1, 1), (x0, y1, 1, -1), (x1, y1, -1, -1)]:
-        draw.line([(cx, cy), (cx + dx * s, cy)], fill=color, width=2)
-        draw.line([(cx, cy), (cx, cy + dy * s)], fill=color, width=2)
-        draw.ellipse([cx + dx * 8 - 3, cy + dy * 8 - 3, cx + dx * 8 + 3, cy + dy * 8 + 3], fill=color)
-
-def draw_greek_key_border(draw, x0, y0, x1, y1, color):
-    draw.rectangle([x0, y0, x1, y1], outline=color, width=1)
-    draw.rectangle([x0 + 8, y0 + 8, x1 - 8, y1 - 8], outline=(color[0]//2, color[1]//2, color[2]//2), width=1)
-    draw.rectangle([x0 + 14, y0 + 14, x1 - 14, y1 - 14], outline=color, width=2)
 
 def draw_new_hero_motif(draw, cx, cy, radius, motif, accent):
     gold = accent
     pale_gold = (min(255, gold[0] + 50), min(255, gold[1] + 50), min(255, gold[2] + 50))
     dark_gold = (gold[0] // 2, gold[1] // 2, gold[2] // 2)
 
-    # Medallion outer rings
-    for r, w in [(radius, 3), (radius - 12, 1), (radius - 20, 2)]:
-        draw.ellipse([cx - r, cy - r, cx + r, cy + r], outline=gold, width=w)
+    # The medallion rings are drawn by _plate_art.render_plate.
 
-    for i in range(24):
-        angle = i * (2 * math.pi / 24)
-        r1 = radius - 8
-        r2 = radius - 3 if i % 2 == 0 else radius - 5
-        draw.line([
-            (cx + r1 * math.cos(angle), cy + r1 * math.sin(angle)),
-            (cx + r2 * math.cos(angle), cy + r2 * math.sin(angle))
-        ], fill=dark_gold, width=1)
+    if draw_emblem(draw, cx, cy, motif, accent, gold):
+        return
 
     if motif == "kusanagi_sword":
         # Sacred Bronze Sword of Yamato Takeru & Sun Disk
@@ -210,66 +194,19 @@ def draw_new_hero_motif(draw, cx, cy, radius, motif, accent):
         draw.line([(cx, cy + 45), (cx, cy + 85)], fill=gold, width=4)
 
 def generate_hero_plate(hero):
-    img = Image.new("RGBA", (W_HERO, H_HERO), hero["bg_tone"] + (255,))
     accent = hero["accent"]
-    gold = (212, 175, 55)
-
-    # Radial ambient glow
-    rad_overlay = Image.new("RGBA", (W_HERO, H_HERO), (0, 0, 0, 0))
-    rad_draw = ImageDraw.Draw(rad_overlay)
-    cx, cy = W_HERO // 2, 440
-    for r in range(350, 50, -10):
-        alpha = int(45 * (1.0 - r / 350.0))
-        rad_draw.ellipse([cx - r, cy - r, cx + r, cy + r], fill=accent + (alpha,))
-    img = Image.alpha_composite(img, rad_overlay)
-    draw = ImageDraw.Draw(img)
-
-    # Classical borders
-    draw_greek_key_border(draw, 32, 32, W_HERO - 32, H_HERO - 32, gold)
-    draw_ornament_corners(draw, 32, 32, W_HERO - 32, H_HERO - 32, gold)
-
-    # Header plate rule
-    draw.line([(64, 90), (W_HERO - 64, 90)], fill=gold, width=1)
-    draw.line([(64, 94), (W_HERO - 64, 94)], fill=(gold[0]//2, gold[1]//2, gold[2]//2), width=1)
-
-    tag_text = f"MYTHOS ATLAS · {hero['pantheon']} HEROIC TRADITION"
-    font_candidates = [
-        "/System/Library/Fonts/Supplemental/Times New Roman.ttf",
-        "/System/Library/Fonts/Supplemental/Times New Roman Bold.ttf",
-        "/System/Library/Fonts/Supplemental/Times New Roman Italic.ttf"
-    ]
-    try:
-        font_sm = ImageFont.truetype(font_candidates[0], 16)
-        font_lg = ImageFont.truetype(font_candidates[1], 44)
-        font_sub = ImageFont.truetype(font_candidates[2], 18)
-    except:
-        font_sm = font_lg = font_sub = ImageFont.load_default()
-
-    draw.text((W_HERO // 2, 65), tag_text, font=font_sm, fill=(200, 180, 140), anchor="mm")
-
-    # Center Medallion
-    draw_new_hero_motif(draw, cx, cy, 175, hero["motif"], accent)
-
-    # Nameplate bottom
-    draw.line([(80, 750), (W_HERO - 80, 750)], fill=(gold[0]//2, gold[1]//2, gold[2]//2), width=1)
-    draw.line([(80, 754), (W_HERO - 80, 754)], fill=gold, width=2)
-    draw.line([(80, 758), (W_HERO - 80, 758)], fill=(gold[0]//2, gold[1]//2, gold[2]//2), width=1)
-
-    draw.text((W_HERO // 2, 810), hero["name"], font=font_lg, fill=(245, 235, 220), anchor="mm")
-    draw.text((W_HERO // 2, 860), hero["epithet"], font=font_sub, fill=(212, 175, 55), anchor="mm")
-
-    # Footer Archival stamp
-    draw.text((W_HERO // 2, 940), "CODEX HEROUM · FOLIO ANNUUM", font=font_sm, fill=(130, 120, 100), anchor="mm")
-    draw.line([(W_HERO // 2 - 60, 965), (W_HERO // 2 + 60, 965)], fill=gold, width=1)
-
-    # Export PNG
-    png_path = os.path.join(HEROES_DIR, f"{hero['id']}.png")
-    img.convert("RGB").save(png_path, "PNG")
-
-    # Export WebP
-    webp_path = os.path.join(HEROES_DIR, f"{hero['id']}.webp")
-    subprocess.run(["/opt/homebrew/bin/cwebp", "-q", "85", png_path, "-o", webp_path], check=True, stdout=subprocess.DEVNULL)
-    print(f"  ✓ Hero: {hero['id']} -> PNG & WebP")
+    img = render_plate(
+        kind="hero",
+        key=hero["id"],
+        size=(W_HERO, H_HERO),
+        accent=accent,
+        bg=hero["bg_tone"],
+        pantheon=pantheon_of("hero", hero["id"]),
+        hint=hero["epithet"],
+        emblem=lambda draw, cx, cy: draw_new_hero_motif(draw, cx, cy, 175, hero["motif"], accent),
+    )
+    path = write_plate(img, HEROES_DIR, hero["id"])
+    print(f"  ✓ Hero: {hero['id']} -> {os.path.basename(path)}")
 
 # ---------------------------------------------------------------------------
 # 2. Pantheon Covers (3 additions)
@@ -298,39 +235,41 @@ NEW_PANTHEONS = [
         "accent": (195, 65, 55),      # Cedar Ochre & Vermilion
         "bg_tone": (18, 12, 14),
         "motif": "tlingit_raven"
-    }
+    },
+    {
+        "slug": "yoruba",
+        "name": "YORUBA TRADITION",
+        "culture": "ILE-IFE AND THE ORISHA",
+        "accent": (200, 140, 60),
+        "bg_tone": (20, 14, 10),
+        "motif": "yoruba_chain"
+    },
+    {
+        "slug": "akan",
+        "name": "AKAN TRADITION",
+        "culture": "NYAME, ASASE YAA AND ANANSE",
+        "accent": (215, 175, 45),
+        "bg_tone": (20, 18, 10),
+        "motif": "akan_web"
+    },
+
+    # INCA & ANDEAN (2026-09)
+    {"slug": "inca", "name": "INCA & ANDEAN TRADITION", "culture": "TAWANTINSUYU · THE ANDES", "accent": (215, 165, 55), "bg_tone": (20, 14, 12), "motif": "emblem_sun_face"},
+
+    # PERSIAN / IRANIAN (2026-09)
+    {"slug": "persian", "name": "PERSIAN (IRANIAN) TRADITION", "culture": "AVESTA · SHAHNAMEH", "accent": (90, 130, 210), "bg_tone": (12, 14, 24), "motif": "emblem_winged_disc"},
+
+    # FINNISH / KALEVALA (2026-09)
+    {"slug": "finnish", "name": "FINNISH TRADITION", "culture": "KALEVALA · KARELIA", "accent": (130, 190, 170), "bg_tone": (10, 12, 20), "motif": "emblem_kantele"},
+
+    # KOREAN (2026-09)
+    {"slug": "korean", "name": "KOREAN TRADITION", "culture": "GOJOSEON · GOGURYEO · SILLA", "accent": (130, 185, 165), "bg_tone": (10, 14, 14), "motif": "emblem_tree_altar"},
 ]
 
-def generate_pantheon_plate(p):
-    w, h = 1024, 768
-    img = Image.new("RGBA", (w, h), p["bg_tone"] + (255,))
-    accent = p["accent"]
-    gold = (212, 175, 55)
-
-    # Ambient radial washes
-    rad = Image.new("RGBA", (w, h), (0,0,0,0))
-    rdraw = ImageDraw.Draw(rad)
-    cx, cy = w // 2, h // 2
-    for r in range(450, 50, -15):
-        alpha = int(35 * (1.0 - r / 450.0))
-        rdraw.ellipse([cx - r, cy - r, cx + r, cy + r], fill=accent + (alpha,))
-    img = Image.alpha_composite(img, rad)
-    draw = ImageDraw.Draw(img)
-
-    # Double classical outer borders
-    draw.rectangle([32, 32, w - 32, h - 32], outline=gold, width=2)
-    draw.rectangle([42, 42, w - 42, h - 42], outline=(gold[0]//2, gold[1]//2, gold[2]//2), width=1)
-
-    # Corner brackets
-    draw_ornament_corners(draw, 42, 42, w - 42, h - 42, gold)
-
-    # Center Medallion
-    med_r = 180
-    draw.ellipse([cx - med_r, cy - med_r - 20, cx + med_r, cy + med_r - 20], outline=gold, width=3)
-    draw.ellipse([cx - med_r + 14, cy - med_r - 6, cx + med_r - 14, cy + med_r - 34], outline=(gold[0]//2, gold[1]//2, gold[2]//2), width=1)
-
-    # Medallion motifs
-    m_cy = cy - 20
+def draw_pantheon_motif(draw, cx, m_cy, p, accent, gold):
+    """Emblem for a pantheon cover, centred on (cx, m_cy)."""
+    cy = m_cy + 20
+    draw_emblem(draw, cx, m_cy, p["motif"], accent, gold, p["bg_tone"])
     if p["motif"] == "slavic_sanctuary":
         # Four-faced Zbruch Idol & Sacred Oak Thunders
         draw.line([(cx - 25, m_cy - 90), (cx - 25, m_cy + 85)], fill=gold, width=4)
@@ -360,43 +299,72 @@ def generate_pantheon_plate(p):
         draw.polygon([(cx, m_cy - 95), (cx - 15, m_cy - 80), (cx + 15, m_cy - 80)], fill=gold)
 
     elif p["motif"] == "tlingit_raven":
-        # Northwest Coast Formline Raven & Sun in the Box
-        draw.ellipse([cx - 75, m_cy - 65, cx + 75, m_cy + 65], outline=gold, width=3)
-        # Raven's curved beak holding the sun
-        draw.arc([cx - 85, m_cy - 45, cx + 25, m_cy + 35], start=180, end=350, fill=(245, 230, 180), width=6)
-        draw.line([(cx - 85, m_cy - 5), (cx - 15, m_cy - 5)], fill=gold, width=5)
-        # Daylight radiant sphere in the beak
-        draw.ellipse([cx - 80, m_cy - 35, cx - 40, m_cy + 5], fill=(245, 230, 180))
-        # Formline ovoids
-        draw.ellipse([cx + 5, m_cy - 25, cx + 55, m_cy + 25], outline=gold, width=4)
-        draw.ellipse([cx + 20, m_cy - 10, cx + 45, cy + 10], fill=accent)
+        # Daylight released over the coastal sea (plain marks; no formline ovoids,
+        # crest figures or other Northwest Coast design conventions)
+        pale = (245, 230, 180)
+        draw.ellipse([cx - 32, m_cy - 70, cx + 32, m_cy - 6], fill=pale, outline=gold, width=3)
+        for k, half in enumerate((80, 70, 58)):
+            y = m_cy + 18 + k * 20
+            draw.arc([cx - half, y - 12, cx + half, y + 12], start=10, end=170, fill=gold, width=4)
 
-    # Typography
-    try:
-        font_lg = ImageFont.truetype("/System/Library/Fonts/Supplemental/Times New Roman Bold.ttf", 46)
-        font_sub = ImageFont.truetype("/System/Library/Fonts/Supplemental/Times New Roman.ttf", 20)
-    except:
-        font_lg = font_sub = ImageFont.load_default()
+    elif p["motif"] == "yoruba_chain":
+        # The chain let down from the sky, the snail shell of earth, and the five-toed hen
+        for i in range(7):
+            y = m_cy - 110 + i * 22
+            draw.ellipse([cx - 9, y, cx + 9, y + 18], outline=gold, width=3)
+        draw.arc([cx - 60, m_cy + 30, cx + 60, m_cy + 110], start=180, end=360, fill=(245, 230, 180), width=5)
+        draw.ellipse([cx - 22, m_cy + 45, cx + 22, m_cy + 80], outline=gold, width=3)
 
-    draw.text((cx, h - 120), p["name"], font=font_lg, fill=(245, 235, 220), anchor="mm")
-    draw.text((cx, h - 75), f"CODEX MYTHOLOGIAE · {p['culture']}", font=font_sub, fill=gold, anchor="mm")
+    elif p["motif"] == "akan_web":
+        # Ananse's web
+        for k in range(8):
+            ang = k * (math.pi / 4)
+            draw.line([(cx, m_cy), (cx + 110 * math.cos(ang), m_cy + 110 * math.sin(ang))], fill=gold, width=2)
+        for r in (30, 55, 80, 105):
+            draw.ellipse([cx - r, m_cy - r, cx + r, m_cy + r], outline=(245, 230, 180), width=2)
+        draw.ellipse([cx - 12, m_cy - 12, cx + 12, m_cy + 12], fill=accent)
 
-    # Export JPG
-    jpg_path = os.path.join(PANTHEONS_DIR, f"{p['slug']}.jpg")
-    img.convert("RGB").save(jpg_path, "JPEG", quality=90)
 
-    # Export 640x640 PNG
-    png_path = os.path.join(PANTHEONS_DIR, f"{p['slug']}.png")
-    img.resize((640, 640), Image.Resampling.LANCZOS).convert("RGB").save(png_path, "PNG")
-    print(f"  ✓ Pantheon: {p['slug']} -> JPG & PNG")
+def generate_pantheon_plate(p):
+    accent = p["accent"]
+    gold = (212, 175, 55)
+    img = render_plate(
+        kind="pantheon",
+        key=p["slug"],
+        size=(1024, 768),
+        accent=accent,
+        bg=p["bg_tone"],
+        pantheon=f"{p['slug']}-pantheon",
+        hint=p["culture"],
+        emblem=lambda draw, cx, cy: draw_pantheon_motif(draw, cx, cy, p, accent, gold),
+        emblem_extent=100,
+    )
+    path = write_plate(img, PANTHEONS_DIR, p["slug"])
+    print(f"  ✓ Pantheon: {p['slug']} -> {os.path.basename(path)}")
+
 
 if __name__ == "__main__":
-    print("Generating Hero Plates...")
-    for h in NEW_HEROES:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument(
+        "--only",
+        help="Comma-separated hero ids or pantheon slugs to (re)generate; default is every plate.",
+    )
+    args = parser.parse_args()
+    wanted = set(args.only.split(",")) if args.only else None
+
+    heroes = [h for h in NEW_HEROES if wanted is None or h["id"] in wanted]
+    pantheons = [p for p in NEW_PANTHEONS if wanted is None or p["slug"] in wanted]
+    if wanted:
+        missing = wanted - {h["id"] for h in heroes} - {p["slug"] for p in pantheons}
+        if missing:
+            raise SystemExit(f"Unknown ids: {', '.join(sorted(missing))}")
+
+    print(f"Generating {len(heroes)} Hero Plates...")
+    for h in heroes:
         generate_hero_plate(h)
 
-    print("Generating Pantheon Covers...")
-    for p in NEW_PANTHEONS:
+    print(f"Generating {len(pantheons)} Pantheon Covers...")
+    for p in pantheons:
         generate_pantheon_plate(p)
 
-    print("All 7 Heroes and 3 Pantheons successfully generated!")
+    print("Hero and pantheon plates generated.")

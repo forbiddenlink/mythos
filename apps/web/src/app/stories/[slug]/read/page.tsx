@@ -6,9 +6,6 @@ import { generateBaseMetadata, generateNotFoundMetadata } from "@/lib/metadata";
 import { canonicalStorySlug } from "@/lib/story-aliases";
 import { ScrollytellingReader } from "@/components/stories/ScrollytellingReader";
 
-// ISR: revalidate weekly, matching the story reference page.
-export const revalidate = 604800;
-
 interface StoryData {
   id: string;
   pantheonId: string;
@@ -22,6 +19,11 @@ interface StoryData {
 interface PageProps {
   params: Promise<{ slug: string }>;
 }
+
+// Every valid param is prerendered by generateStaticParams; anything else is a
+// 404 served from the static not-found page. (On-demand rendering of unknown
+// params would cache HTML carrying one request's CSP nonce.)
+export const dynamicParams = false;
 
 // Only stories with a full narrative get a cinematic reading.
 export function generateStaticParams() {
@@ -49,7 +51,10 @@ export async function generateMetadata({
   return generateBaseMetadata({
     title: `${story.title} — A Reading`,
     description: `Read ${story.title} as a scroll-driven, cinematic ${pantheonName} myth.`,
-    url: `/stories/${story.slug}/read`,
+    // The reading presents the same narrative as the story entry, so the entry
+    // is canonical: signals consolidate there instead of splitting across two
+    // URLs with identical text.
+    url: `/stories/${story.slug}`,
     image: story.imageUrl || "/og-image.png",
     type: "article",
   });

@@ -40,6 +40,15 @@ const PANTHEON_NAMES: Record<string, string> = {
   "slavic-pantheon": "Slavic",
   "haudenosaunee-pantheon": "Haudenosaunee",
   "tlingit-haida-pantheon": "Tlingit & Haida",
+  "hittite-pantheon": "Hittite",
+  "canaanite-pantheon": "Canaanite",
+  "inuit-pantheon": "Inuit",
+  "aboriginal-australian-pantheon": "Aboriginal Australian",
+  "dine-pantheon": "Diné",
+  "inca-pantheon": "Inca & Andean",
+  "persian-pantheon": "Persian",
+  "finnish-pantheon": "Finnish",
+  "korean-pantheon": "Korean",
 };
 
 const MASTERY_THRESHOLDS = {

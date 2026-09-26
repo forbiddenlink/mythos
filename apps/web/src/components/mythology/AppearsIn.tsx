@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { BookOpen } from "lucide-react";
 import { getAppearsIn } from "@/lib/appears-in";
 
 interface AppearsInProps {
@@ -9,8 +8,8 @@ interface AppearsInProps {
 }
 
 /**
- * "Appears in" — derived from sources.json's `characters` field, not
- * hand-maintained per deity/hero. See src/lib/appears-in.ts.
+ * "Appears in": the works that feature a figure, derived from sources.json's
+ * `characters` field rather than maintained per entry. See src/lib/appears-in.ts.
  */
 export function AppearsIn({ entityId, kind, className }: AppearsInProps) {
   const entries = getAppearsIn(entityId, kind);
@@ -20,35 +19,32 @@ export function AppearsIn({ entityId, kind, className }: AppearsInProps) {
   }
 
   return (
-    <section className={className ?? "max-w-[68ch]"}>
-      <h2 className="font-serif text-2xl font-semibold text-foreground mb-1 border-l-4 border-gold pl-4 flex items-center gap-2">
-        <BookOpen className="h-5 w-5 text-gold" />
-        Appears In
-      </h2>
-      <p className="text-muted-foreground text-sm mb-5 pl-5">
-        Ancient and classical works featuring this figure
+    <section aria-labelledby="appears-in-heading" className={className}>
+      <h3 id="appears-in-heading" className="type-h3 text-foreground">
+        Appears in
+      </h3>
+      <p className="mt-1.5 type-ui text-muted-foreground">
+        Ancient and classical works featuring this figure.
       </p>
-      <ul className="space-y-4">
+      <ul className="mt-4 divide-y divide-border/70 border-y border-border/70">
         {entries.map((entry) => (
-          <li
-            key={`${entry.sourceId}-${entry.where}`}
-            className="border-l-2 border-gold/30 pl-4"
-          >
-            <div className="flex flex-wrap items-baseline gap-x-2 gap-y-1">
+          <li key={`${entry.sourceId}-${entry.where}`} className="py-3">
+            <p className="flex flex-wrap items-baseline gap-x-3 gap-y-0.5">
               <Link
                 href={`/sources/${entry.sourceId}`}
-                className="font-medium text-foreground hover:text-gold transition-colors"
+                className="font-body text-[1.125rem] italic text-foreground underline decoration-gold/40 underline-offset-4 hover:text-gold-text hover:decoration-current"
               >
                 {entry.title}
               </Link>
-              {entry.author && (
-                <span className="text-xs uppercase tracking-wide text-muted-foreground">
+              {entry.author ? (
+                <span className="type-meta text-muted-foreground">
                   {entry.author}
                 </span>
-              )}
-            </div>
-            <p className="text-muted-foreground text-sm mt-1">
-              {entry.role} ({entry.where})
+              ) : null}
+            </p>
+            <p className="mt-1 type-ui text-foreground/85">
+              {entry.role}{" "}
+              <span className="text-muted-foreground">({entry.where})</span>
             </p>
           </li>
         ))}

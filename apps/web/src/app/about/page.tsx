@@ -1,29 +1,70 @@
 import Link from "next/link";
-import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
+import { ArrowRight } from "lucide-react";
 import { AboutPageJsonLd } from "@/components/seo/JsonLd";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { generateBaseMetadata } from "@/lib/metadata";
-import { RouteHero } from "@/components/layout/route-hero";
-import {
-  pageLedeOnDarkClass,
-  pageTitleOnDarkClass,
-} from "@/components/layout/page-typography";
-import { MythosMark } from "@/components/icons/mythos-marks";
-import { HeroMark } from "@/components/icons/hero-mark";
-import { cn } from "@/lib/utils";
+import { Container } from "@/components/layout/container";
+import { PageHeader } from "@/components/layout/page-header";
+import { InfoColumns } from "@/components/layout/info-page";
 import deitiesData from "@/data/deities.json";
-import pantheonsData from "@/data/pantheons.json";
 import storiesData from "@/data/stories.json";
 import locationsData from "@/data/locations.json";
+import { getTraditionCount } from "@/lib/data/catalog";
+import { countImagesByKind } from "@/lib/image-provenance";
+
+const IMAGE_COUNTS = countImagesByKind();
 
 // Derived from the data files so the About copy can never drift from the atlas
 // again (it previously undercounted locations by 38 and overstated deities).
 const COVERAGE = {
-  pantheons: pantheonsData.length,
+  pantheons: getTraditionCount(),
   deities: deitiesData.length,
   stories: storiesData.length,
   locations: locationsData.length,
 } as const;
+
+const COVERAGE_FIGURES = [
+  { value: COVERAGE.pantheons, label: "traditions", href: "/pantheons" },
+  { value: COVERAGE.deities, label: "deities", href: "/deities" },
+  { value: COVERAGE.stories, label: "stories", href: "/stories" },
+  { value: COVERAGE.locations, label: "sacred places", href: "/locations" },
+] as const;
+
+const WAYS_IN = [
+  {
+    title: "Follow a family",
+    body: "Family trees and a knowledge graph show who descends from whom and which figures echo each other across traditions.",
+    href: "/family-tree",
+    link: "Open the family tree",
+  },
+  {
+    title: "Read the myths",
+    body: "Retellings drawn from primary sources such as the Eddas, the Theogony and the Popol Vuh, each with its citations.",
+    href: "/stories",
+    link: "Browse the stories",
+  },
+  {
+    title: "Compare traditions",
+    body: "Set figures side by side to see where sky fathers, tricksters and rulers of the dead meet and where they part.",
+    href: "/compare",
+    link: "Compare figures",
+  },
+  {
+    title: "Make it stick",
+    body: "Quizzes, a daily myth and spaced-repetition review turn reading into something you remember.",
+    href: "/quiz",
+    link: "Take a quiz",
+  },
+] as const;
+
+const STACK = [
+  "Next.js 16 (App Router)",
+  "React 19",
+  "TypeScript",
+  "Tailwind CSS",
+  "A static JSON content layer",
+  "ReactFlow and D3",
+  "Vercel hosting",
+];
 
 export const metadata = generateBaseMetadata({
   title: "About Mythos Atlas",
@@ -38,270 +79,203 @@ export const metadata = generateBaseMetadata({
   ],
 });
 
+const TOC = [
+  { id: "about-mission", label: "Why this atlas exists" },
+  { id: "about-ways-in", label: "Four ways in" },
+  { id: "images", label: "About the images" },
+  { id: "about-creator", label: "Who makes it" },
+  { id: "about-status", label: "Project status" },
+];
+
 export default function AboutPage() {
   return (
-    <div className="min-h-screen bg-mythic">
+    <div className="min-h-screen">
       <AboutPageJsonLd
         creatorName="Elizabeth Stein"
         creatorDescription="A passionate developer and mythology enthusiast who combines technical expertise with a deep appreciation for ancient cultures and storytelling."
       />
-      {/* Hero Section */}
-      <RouteHero>
-        <div className="flex items-center justify-center mb-6">
-          <HeroMark mark="temple" tone="gold" size="lg" />
-        </div>
-        <h1 className={cn(pageTitleOnDarkClass, "mb-6")}>About Mythos Atlas</h1>
-        <div className="flex items-center justify-center gap-4 mb-6">
-          <div className="w-12 h-px bg-linear-to-r from-transparent to-gold/40" />
-          <div className="w-1.5 h-1.5 rotate-45 bg-gold/50" />
-          <div className="w-12 h-px bg-linear-to-l from-transparent to-gold/40" />
-        </div>
-        <p className={pageLedeOnDarkClass}>
-          An interactive encyclopedia of ancient mythology
-        </p>
-      </RouteHero>
+      <PageHeader
+        eyebrow="The project"
+        mark="temple"
+        title="About Mythos Atlas"
+        lede="An illustrated encyclopedia of world mythology, built so that gods, stories and places connect instead of sitting in separate entries."
+      />
 
-      {/* Content Section */}
-      <div className="container mx-auto max-w-4xl px-4 py-16">
-        <Breadcrumbs />
-
-        <div className="mt-8 space-y-8">
-          <Card className="border-gold/20 bg-card">
-            <CardHeader>
-              <CardTitle
-                as="h2"
-                className="text-foreground text-2xl font-serif"
+      <Container className="pt-10 md:pt-14">
+        <ul
+          aria-label="The atlas at a glance"
+          className="grid grid-cols-2 gap-px overflow-hidden rounded-lg border border-border/70 bg-border/70 md:grid-cols-4"
+        >
+          {COVERAGE_FIGURES.map((figure) => (
+            <li key={figure.label} className="bg-background">
+              <Link
+                href={figure.href}
+                className="group flex h-full flex-col gap-1 px-5 py-5 transition-colors hover:bg-muted/50 focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-gold md:px-6 md:py-6"
               >
-                Our Mission
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-4">
-              <p className="text-foreground/80 leading-relaxed text-lg">
-                Mythos Atlas is built for learners who want mythology to stick —
-                students, self-taught readers, and curious explorers who need
-                more than isolated encyclopedia entries.
-              </p>
-              <p className="text-foreground/80 leading-relaxed text-lg">
-                I connect pantheons, deities, stories, places, and family trees
-                so you can move from quick orientation into deeper study, then
-                reinforce what you learn with quizzes and review.
-              </p>
-              <p className="text-foreground/80 leading-relaxed text-lg">
-                The atlas treats myths as an interconnected map: open a deity,
-                follow their stories and relations, test yourself, and return
-                with a clearer sense of the culture that shaped them.
-              </p>
-            </CardContent>
-          </Card>
+                <span className="order-2 flex items-center gap-1.5 type-ui text-muted-foreground group-hover:text-foreground">
+                  {figure.label}
+                  <ArrowRight
+                    className="size-3.5 transition-transform group-hover:translate-x-0.5"
+                    aria-hidden="true"
+                  />
+                </span>
+                <span className="order-1 font-serif text-3xl font-semibold tabular-nums text-foreground md:text-4xl">
+                  {figure.value}
+                </span>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </Container>
 
-          <section
-            aria-labelledby="support-atlas"
-            className="border-y border-border py-6"
-          >
-            <h2 id="support-atlas" className="page-section-title">
-              Support the atlas
-            </h2>
-            <p className="mt-3 text-muted-foreground leading-relaxed">
-              Mythos Atlas is an independent project. Optional contributions
-              help with source research, design and upkeep.
+      <Container className="section-space">
+        <InfoColumns toc={TOC} aside={<SupportCard />}>
+          <section aria-labelledby="about-mission">
+            <h2 id="about-mission">Why this atlas exists</h2>
+            <p>
+              Mythos Atlas is built for learners who want mythology to stick:
+              students, self-taught readers and curious explorers who need more
+              than isolated encyclopedia entries.
             </p>
-            <Link
-              href="/support"
-              className="mt-3 inline-flex min-h-11 items-center text-gold-text underline underline-offset-4"
-            >
-              Support Mythos Atlas
-            </Link>
+            <p>
+              It connects pantheons, deities, stories, places and family trees
+              so you can move from quick orientation into deeper study, then
+              reinforce what you learn with quizzes and review. Open a deity,
+              follow their stories and relations, test yourself, and return with
+              a clearer sense of the culture that shaped them.
+            </p>
           </section>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <Card className="border-gold/20 bg-card">
-              <CardHeader>
-                <div className="flex items-center gap-3 mb-2">
-                  <MythosMark id="temple" className="h-6 w-6 text-gold-text" />
-                  <CardTitle as="h2" className="text-foreground">
-                    Global Coverage
-                  </CardTitle>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">
-                  Browse {COVERAGE.pantheons} pantheons from Greek to Yoruba,
-                  with {COVERAGE.deities} deities, {COVERAGE.stories} stories,
-                  and {COVERAGE.locations} sacred locations documented.
-                </p>
-              </CardContent>
-            </Card>
+          <section aria-labelledby="about-ways-in">
+            <h2 id="about-ways-in">Four ways in</h2>
+            <ul className="mt-6! list-none! space-y-0! divide-y divide-border/70 border-y border-border/70 pl-0!">
+              {WAYS_IN.map((way) => (
+                <li
+                  key={way.href}
+                  className="grid gap-2 py-5 pl-0! sm:grid-cols-[11rem_minmax(0,1fr)] sm:gap-6"
+                >
+                  <h3 className="mt-0! text-lg!">{way.title}</h3>
+                  <div className="mt-0!">
+                    <p className="text-muted-foreground">{way.body}</p>
+                    <p className="mt-2">
+                      <Link href={way.href} className="type-ui font-medium">
+                        {way.link}
+                      </Link>
+                    </p>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </section>
 
-            <Card className="border-gold/20 bg-card">
-              <CardHeader>
-                <div className="flex items-center gap-3 mb-2">
-                  <MythosMark id="tree" className="h-6 w-6 text-gold-text" />
-                  <CardTitle as="h2" className="text-foreground">
-                    Deity Relationships
-                  </CardTitle>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">
-                  Visualize complex family trees and relationships between gods
-                  and goddesses through interactive diagrams.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="border-gold/20 bg-card">
-              <CardHeader>
-                <div className="flex items-center gap-3 mb-2">
-                  <MythosMark id="scroll" className="h-6 w-6 text-gold-text" />
-                  <CardTitle as="h2" className="text-foreground">
-                    Epic Stories
-                  </CardTitle>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">
-                  Read original myths from primary sources—the Eddas, Theogony,
-                  Popol Vuh, and more—with modern context and academic
-                  citations.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="border-gold/20 bg-card">
-              <CardHeader>
-                <div className="flex items-center gap-3 mb-2">
-                  <MythosMark id="codex" className="h-6 w-6 text-gold-text" />
-                  <CardTitle as="h2" className="text-foreground">
-                    Open Platform
-                  </CardTitle>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">
-                  Built with modern web technologies and designed to be
-                  accessible, fast, and user-friendly across all devices.
-                </p>
-              </CardContent>
-            </Card>
-          </div>
-
-          <Card className="border-gold/20 bg-card">
-            <CardHeader>
-              <CardTitle
-                as="h2"
-                className="text-foreground text-2xl font-serif"
+          <section id="images" aria-labelledby="about-images-title">
+            <h2 id="about-images-title">About the images</h2>
+            <p>
+              The pictures of deities, heroes, creatures, artifacts, places and
+              stories in the catalog are illustrations made for Mythos Atlas.{" "}
+              {IMAGE_COUNTS["illustration-ai"]} were generated with an AI image
+              model; {IMAGE_COUNTS["illustration-procedural"]} are ornamental
+              plates drawn by code, with a border, an emblem and a name.
+            </p>
+            <p>
+              They are interpretations to help you find your way. They are not
+              historical artworks or archaeological finds, and they are not
+              evidence of how a tradition pictured its gods. Pages mark them
+              with an <strong>Illustrative image</strong> label.
+            </p>
+            <p>
+              One photograph is used as a card background: the Acropolis of
+              Athens at sunset, by{" "}
+              <a
+                href="https://unsplash.com/photos/G8OyUvtAxUQ"
+                rel="noopener noreferrer"
+                target="_blank"
               >
-                Creator
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-4">
-              <div className="flex items-start gap-4">
-                <div className="p-3 rounded-lg bg-gold/10 border border-gold/20 shrink-0">
-                  <MythosMark id="codex" className="h-6 w-6 text-gold-text" />
-                </div>
-                <div className="flex-1">
-                  <p className="text-foreground font-semibold text-xl mb-2">
-                    Elizabeth Stein
-                  </p>
-                  <p className="text-foreground/80 leading-relaxed">
-                    Mythos Atlas was built by Elizabeth Stein, a passionate
-                    developer and mythology enthusiast who combines technical
-                    expertise with a deep appreciation for ancient cultures and
-                    storytelling.
-                  </p>
-                </div>
-              </div>
-              <p className="text-muted-foreground text-sm italic border-l-2 border-gold/30 pl-4">
-                &quot;I built Mythos Atlas because I couldn&apos;t find a
-                mythology resource that combined scholarly accuracy with good
-                design. These stories deserve better than dusty encyclopedias or
-                clickbait listicles.&quot;
-              </p>
-            </CardContent>
-          </Card>
+                Stavrialena Gontzou on Unsplash
+              </a>
+              , used under the Unsplash License.
+            </p>
+            <p>
+              Historical objects are shown separately with their museum records:
+              the institution, accession number and image rights appear beside
+              each one, linked to the museum&apos;s own page.
+            </p>
+            <p className="text-muted-foreground">
+              If an illustration misrepresents a tradition, please{" "}
+              <Link href="/contact">tell us</Link> and it will be reviewed or
+              replaced.
+            </p>
+          </section>
 
-          <Card className="border-gold/20 bg-card">
-            <CardHeader>
-              <CardTitle
-                as="h2"
-                className="text-foreground text-2xl font-serif"
-              >
-                Technology Stack
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-3">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 rounded-full bg-gold"></div>
-                  <span className="text-foreground/80">
-                    Next.js 16 (App Router)
-                  </span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 rounded-full bg-gold"></div>
-                  <span className="text-foreground/80">React 19</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 rounded-full bg-gold"></div>
-                  <span className="text-foreground/80">TypeScript</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 rounded-full bg-gold"></div>
-                  <span className="text-foreground/80">Built-in data API</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 rounded-full bg-gold"></div>
-                  <span className="text-foreground/80">Tailwind CSS</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 rounded-full bg-gold"></div>
-                  <span className="text-foreground/80">
-                    Static JSON content layer
-                  </span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 rounded-full bg-gold"></div>
-                  <span className="text-foreground/80">ReactFlow & D3</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 rounded-full bg-gold"></div>
-                  <span className="text-foreground/80">Vercel Hosting</span>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
+          <section aria-labelledby="about-creator">
+            <h2 id="about-creator">Who makes it</h2>
+            <p>
+              Mythos Atlas is written, designed and built by{" "}
+              <strong>Elizabeth Stein</strong>, a developer and mythology
+              enthusiast who combines technical craft with a deep appreciation
+              for ancient cultures and storytelling.
+            </p>
+            <blockquote className="border-l-2 border-gold/50 pl-5 font-body text-xl italic leading-relaxed text-foreground">
+              &ldquo;I built Mythos Atlas because I couldn&apos;t find a
+              mythology resource that combined scholarly accuracy with good
+              design. These stories deserve better than dusty encyclopedias or
+              clickbait listicles.&rdquo;
+            </blockquote>
+          </section>
 
-          <Card className="border-gold/20 bg-card">
-            <CardHeader>
-              <CardTitle
-                as="h2"
-                className="text-foreground text-2xl font-serif"
-              >
-                Project Status
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-3">
-              <p className="text-foreground/80 leading-relaxed">
-                <strong className="text-gold-text">Last Updated:</strong> August
-                2026
-              </p>
-              <p className="text-foreground/80 leading-relaxed">
-                Mythos Atlas is an ongoing project with regular updates. The
-                encyclopedia currently spans 16 pantheons, and we continuously
-                expand depth, source coverage, and cross-cultural links across
-                traditions.
-              </p>
-              <div className="pt-2 border-t border-gold/20">
-                <p className="text-muted-foreground text-sm">
-                  Have suggestions or found an error? We&apos;re continuously
-                  improving accuracy and coverage based on scholarly sources and
-                  community feedback.
-                </p>
-              </div>
-            </CardContent>
-          </Card>
-        </div>
-      </div>
+          <section aria-labelledby="about-status">
+            <h2 id="about-status">Project status</h2>
+            <p>
+              The atlas is an ongoing, independent project with regular updates.
+              It currently spans {COVERAGE.pantheons} traditions, and each
+              release deepens source coverage and the links between them. The{" "}
+              <Link href="/changelog">changelog</Link> lists what changed and
+              when; the <Link href="/sources">sources</Link> page lists the
+              works every entry draws on.
+            </p>
+            <p className="type-ui text-muted-foreground">
+              Built with {STACK.join(", ")}. Last updated August 2026.
+            </p>
+          </section>
+        </InfoColumns>
+      </Container>
     </div>
+  );
+}
+
+function SupportCard() {
+  return (
+    <aside
+      aria-labelledby="support-atlas"
+      className="rounded-lg border border-gold/30 bg-gold/[0.06] p-6"
+    >
+      <p className="type-eyebrow">Independent and ad-free</p>
+      <h2
+        id="support-atlas"
+        className="mt-2 font-serif text-2xl font-semibold text-foreground"
+      >
+        Support the atlas
+      </h2>
+      <p className="mt-3 type-reading text-muted-foreground">
+        Optional contributions help with source research, design and upkeep.
+        Nothing is behind a paywall.
+      </p>
+      <Link
+        href="/support"
+        className="mt-5 inline-flex min-h-11 items-center gap-2 rounded-md bg-gold px-5 type-ui font-semibold text-midnight transition-colors hover:bg-gold-light focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold"
+      >
+        Support Mythos Atlas
+      </Link>
+      <p className="mt-4 type-ui text-muted-foreground">
+        Found an error or have a suggestion?{" "}
+        <Link
+          href="/contact"
+          className="text-gold-text underline underline-offset-4"
+        >
+          Get in touch
+        </Link>
+        .
+      </p>
+    </aside>
   );
 }

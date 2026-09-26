@@ -279,7 +279,7 @@ export function groupEventsByEra(
     "heroic",
     "decline",
   ];
-  eras.forEach((era) => groups.set(era, []));
+  for (const era of eras) groups.set(era, []);
 
   // Group events
   events.forEach((event) => {
@@ -289,15 +289,6 @@ export function groupEventsByEra(
   });
 
   return groups;
-}
-
-/**
- * Gets unique pantheons from events
- */
-export function getUniquePantheons(events: TimelineEvent[]): string[] {
-  const pantheons = new Set<string>();
-  events.forEach((e) => pantheons.add(e.pantheon));
-  return Array.from(pantheons);
 }
 
 /**
@@ -378,6 +369,18 @@ export const PANTHEON_COLORS: Record<
     text: "text-patina",
     dot: "bg-patina",
   },
+  "yoruba-pantheon": {
+    bg: "bg-bronze/20",
+    border: "border-bronze/40",
+    text: "text-bronze",
+    dot: "bg-bronze",
+  },
+  "akan-pantheon": {
+    bg: "bg-patina/15",
+    border: "border-patina/35",
+    text: "text-patina",
+    dot: "bg-patina",
+  },
   "polynesian-pantheon": {
     bg: "bg-patina/15",
     border: "border-patina/35",
@@ -407,6 +410,60 @@ export const PANTHEON_COLORS: Record<
     border: "border-destructive/35",
     text: "text-destructive",
     dot: "bg-destructive",
+  },
+  "hittite-pantheon": {
+    bg: "bg-bronze/20",
+    border: "border-bronze/40",
+    text: "text-bronze",
+    dot: "bg-bronze",
+  },
+  "canaanite-pantheon": {
+    bg: "bg-destructive/15",
+    border: "border-destructive/35",
+    text: "text-destructive",
+    dot: "bg-destructive",
+  },
+  "inuit-pantheon": {
+    bg: "bg-patina/20",
+    border: "border-patina/40",
+    text: "text-patina",
+    dot: "bg-patina",
+  },
+  "aboriginal-australian-pantheon": {
+    bg: "bg-bronze/20",
+    border: "border-bronze/40",
+    text: "text-bronze",
+    dot: "bg-bronze",
+  },
+  "dine-pantheon": {
+    bg: "bg-patina/20",
+    border: "border-patina/40",
+    text: "text-patina",
+    dot: "bg-patina",
+  },
+  "inca-pantheon": {
+    bg: "bg-gold/15",
+    border: "border-gold/35",
+    text: "text-gold",
+    dot: "bg-gold",
+  },
+  "persian-pantheon": {
+    bg: "bg-patina/15",
+    border: "border-patina/35",
+    text: "text-patina",
+    dot: "bg-patina",
+  },
+  "finnish-pantheon": {
+    bg: "bg-patina/15",
+    border: "border-patina/35",
+    text: "text-patina",
+    dot: "bg-patina",
+  },
+  "korean-pantheon": {
+    bg: "bg-bronze/15",
+    border: "border-bronze/35",
+    text: "text-bronze",
+    dot: "bg-bronze",
   },
 };
 

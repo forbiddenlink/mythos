@@ -43,7 +43,7 @@ function Figure({ figure }: { figure: CosmologyFigure }) {
     <li>
       <Link
         href={figure.href}
-        className="group inline-flex items-center gap-2 rounded-full border border-parchment/15 bg-midnight/60 py-0.5 pl-0.5 pr-3 text-xs text-parchment/85 transition-colors hover:border-gold/60 hover:text-gold-light focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+        className="group inline-flex items-center gap-2 rounded-full border border-parchment/15 bg-midnight/60 py-0.5 pl-0.5 pr-3 text-[0.8125rem] text-parchment/85 transition-colors hover:border-gold/60 hover:text-gold-light focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
       >
         {figure.imageUrl ? (
           <Image
@@ -56,7 +56,7 @@ function Figure({ figure }: { figure: CosmologyFigure }) {
         ) : (
           <span
             aria-hidden
-            className="flex h-6 w-6 items-center justify-center rounded-full bg-gold/15 font-serif text-[0.65rem] text-gold-light ring-1 ring-gold/40"
+            className="flex h-6 w-6 items-center justify-center rounded-full bg-gold/15 font-serif text-xs text-gold-light ring-1 ring-gold/40"
           >
             {figure.name.charAt(0)}
           </span>
@@ -77,21 +77,8 @@ export function CosmologyDiagram({
   const { axis } = cosmology;
 
   return (
-    <section
-      aria-labelledby="cosmology-title"
-      className="mb-14"
-      style={{ "--cosmos-accent": accent } as React.CSSProperties}
-    >
-      <p className="mb-2 text-xs uppercase tracking-[0.25em] text-gold-text">
-        Cosmology
-      </p>
-      <h2
-        id="cosmology-title"
-        className="mb-3 font-serif text-3xl font-semibold text-foreground"
-      >
-        {cosmology.title}
-      </h2>
-      <p className="mb-8 max-w-[68ch] font-body text-lg leading-relaxed text-muted-foreground">
+    <div style={{ "--cosmos-accent": accent } as React.CSSProperties}>
+      <p className="mb-8 max-w-reading type-reading text-muted-foreground">
         {cosmology.summary}
       </p>
 
@@ -106,7 +93,7 @@ export function CosmologyDiagram({
 
         {axis && (
           <div className="relative flex justify-start px-4 pt-5 md:justify-center">
-            <p className="rounded-full border border-gold/40 bg-midnight px-4 py-1 text-center text-xs text-parchment/80">
+            <p className="rounded-full border border-gold/40 bg-midnight px-4 py-1 text-center text-[0.8125rem] text-parchment/80">
               <span className="font-serif uppercase tracking-[0.2em] text-gold-light">
                 {axis.name}
               </span>
@@ -126,7 +113,7 @@ export function CosmologyDiagram({
                 <h3 className="font-serif text-sm uppercase tracking-[0.2em] text-gold-light">
                   {tier.label}
                 </h3>
-                <span className="text-[0.65rem] uppercase tracking-[0.3em] text-parchment/60 md:absolute md:left-8">
+                <span className="text-xs uppercase tracking-[0.3em] text-parchment/60 md:absolute md:left-8">
                   {BAND_NAME[tier.band]}
                 </span>
               </div>
@@ -165,7 +152,7 @@ export function CosmologyDiagram({
                     {realm.place && (
                       <Link
                         href={realm.place.href}
-                        className="mt-3 inline-block text-xs uppercase tracking-[0.15em] text-gold-light underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+                        className="mt-3 inline-block text-[0.8125rem] uppercase tracking-[0.15em] text-gold-light underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
                       >
                         Visit {realm.place.name}
                         <span aria-hidden> →</span>
@@ -186,11 +173,11 @@ export function CosmologyDiagram({
           </span>
           {cosmology.variantNote}
         </p>
-        <p className="mt-2 text-xs">
+        <p className="mt-2 text-[0.8125rem]">
           <span className="uppercase tracking-[0.15em]">Drawn from:</span>{" "}
           {cosmology.sources.join("; ")}
         </p>
       </aside>
-    </section>
+    </div>
   );
 }

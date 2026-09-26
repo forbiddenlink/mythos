@@ -1,50 +1,46 @@
 "use client";
 
-import { useState, useMemo, useCallback, useEffect, useRef } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
-import {
-  Filter,
-  ChevronRight,
-  Sparkles,
-  Calendar,
-  Search,
-  X,
-  Copy,
-  Check,
-  Quote,
-  Share2,
-} from "lucide-react";
-import { MythosMark } from "@/components/icons/mythos-marks";
-import { HeroMark } from "@/components/icons/hero-mark";
-import { motion } from "framer-motion";
-import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
+import { Calendar, Check, Copy, Share2, Shuffle, Sparkles } from "lucide-react";
 import { AntiquityCalendar } from "@/components/calendar/AntiquityCalendar";
-import { getPantheonColor } from "@/lib/pantheon-colors";
-import facts from "@/data/mythology-facts.json";
+import {
+  ChipRow,
+  EmptyResults,
+  FilterChip,
+  FilterToolbar,
+  ToolbarSearch,
+  ViewToggle,
+} from "@/components/entities/FilterToolbar";
+import { Container } from "@/components/layout/container";
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
 
 export interface FactDeityInfo {
   id: string;
   slug: string;
   name: string;
   pantheonId: string;
+  imageUrl: string | null;
 }
 
-interface FactsPageClientProps {
-  /**
-   * Slim lookup table created server-side in page.tsx, so deities.json (586 KB)
-   * does not need to be loaded into the client bundle.
-   */
-  deityLookup?: Record<string, FactDeityInfo>;
-}
-
-interface _Fact {
+export interface Fact {
   id: string;
   fact: string;
   category: string;
   relatedDeities: string[];
+}
+
+interface FactsPageClientProps {
+  facts: Fact[];
+  /**
+   * Slim lookup table created server-side in page.tsx, so deities.json
+   * never reaches the client bundle.
+   */
+  deityLookup?: Record<string, FactDeityInfo>;
+  /** Festival honored-deity name → deity page slug, resolved on the server. */
+  festivalDeitySlugs?: Record<string, string>;
 }
 
 /**
@@ -80,27 +76,22 @@ const categoryLabels: Record<string, string> = {
   history: "Historical",
 };
 
-const categoryColors: Record<string, string> = {
-  connections: "bg-gold/15 text-gold-text border-gold/30 hover:bg-gold/25",
-  language: "bg-patina/15 text-patina border-patina/30 hover:bg-patina/25",
-  science: "bg-bronze/15 text-bronze border-bronze/30 hover:bg-bronze/25",
-  origins: "bg-gold/15 text-gold border-gold/30 hover:bg-gold/25",
-  symbolism: "bg-bronze/15 text-bronze border-bronze/30 hover:bg-bronze/25",
-  stories: "bg-patina/15 text-patina border-patina/30 hover:bg-patina/25",
-  misconceptions:
-    "bg-destructive/15 text-destructive border-destructive/30 hover:bg-destructive/25",
-  history: "bg-muted text-muted-foreground border-border hover:bg-muted/80",
-};
-
-const categories = Array.from(new Set(facts.map((f) => f.category)));
-
-export function FactsPageClient({ deityLookup = {} }: FactsPageClientProps) {
+export function FactsPageClient({
+  facts,
+  deityLookup = {},
+  festivalDeitySlugs = {},
+}: FactsPageClientProps) {
   const [activeTab, setActiveTab] = useState<"facts" | "calendar">("facts");
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
   const [shuffleKey, setShuffleKey] = useState(0);
   const [copiedId, setCopiedId] = useState<string | null>(null);
   const searchInputRef = useRef<HTMLInputElement>(null);
+
+  const categories = useMemo(
+    () => Array.from(new Set(facts.map((f) => f.category))),
+    [facts],
+  );
 
   // Keyboard shortcut '/' to quickly focus search
   useEffect(() => {
@@ -121,27 +112,22 @@ export function FactsPageClient({ deityLookup = {} }: FactsPageClientProps) {
 
   const filteredFacts = useMemo(() => {
     let result = facts;
-
     if (selectedCategory) {
       result = result.filter((f) => f.category === selectedCategory);
     }
-
-    if (searchQuery.trim()) {
-      const q = searchQuery.toLowerCase().trim();
-      result = result.filter((f) => {
-        const textMatch = f.fact.toLowerCase().includes(q);
-        const categoryMatch = (categoryLabels[f.category] || f.category)
-          .toLowerCase()
-          .includes(q);
-        const deityMatch = f.relatedDeities.some((id) =>
-          id.toLowerCase().includes(q),
-        );
-        return textMatch || categoryMatch || deityMatch;
-      });
+    const q = searchQuery.toLowerCase().trim();
+    if (q) {
+      result = result.filter(
+        (f) =>
+          f.fact.toLowerCase().includes(q) ||
+          (categoryLabels[f.category] || f.category)
+            .toLowerCase()
+            .includes(q) ||
+          f.relatedDeities.some((id) => id.toLowerCase().includes(q)),
+      );
     }
-
     return seededShuffle(result, shuffleKey);
-  }, [selectedCategory, searchQuery, shuffleKey]);
+  }, [facts, selectedCategory, searchQuery, shuffleKey]);
 
   const getDeityInfo = useCallback(
     (ids: string[]) =>
@@ -151,7 +137,7 @@ export function FactsPageClient({ deityLookup = {} }: FactsPageClientProps) {
     [deityLookup],
   );
 
-  const handleCopyFact = useCallback((fact: (typeof facts)[0]) => {
+  const handleCopyFact = useCallback((fact: Fact) => {
     const shareText = `"${fact.fact}" — Mythos Atlas (https://mythosatlas.com/facts)`;
     if (typeof navigator !== "undefined" && navigator.clipboard) {
       navigator.clipboard.writeText(shareText);
@@ -164,13 +150,12 @@ export function FactsPageClient({ deityLookup = {} }: FactsPageClientProps) {
   }, []);
 
   const handleShareFact = useCallback(
-    async (fact: (typeof facts)[0]) => {
+    async (fact: Fact) => {
       const shareData = {
         title: "Mythology Fact - Mythos Atlas",
         text: `"${fact.fact}"`,
         url: "https://mythosatlas.com/facts",
       };
-
       if (
         typeof navigator !== "undefined" &&
         navigator.share &&
@@ -183,302 +168,198 @@ export function FactsPageClient({ deityLookup = {} }: FactsPageClientProps) {
           // User dismissed or aborted share
         }
       }
-      // Fallback to clipboard
       handleCopyFact(fact);
     },
     [handleCopyFact],
   );
 
-  return (
-    <div className="min-h-screen bg-gradient-to-b from-background to-mythic">
-      <div className="container mx-auto max-w-7xl px-4 py-12 space-y-10">
-        <Breadcrumbs />
+  const viewSwitch = (
+    <ViewToggle
+      label="Switch between facts and the festival almanac"
+      value={activeTab}
+      onChange={setActiveTab}
+      alwaysShowLabels
+      options={[
+        {
+          value: "facts",
+          label: `Curated Facts (${facts.length})`,
+          icon: Sparkles,
+        },
+        {
+          value: "calendar",
+          label: "Ancient Festival Almanac",
+          icon: Calendar,
+        },
+      ]}
+    />
+  );
 
-        <div className="text-center mb-8 mt-4">
-          <div className="flex items-center justify-center mb-6">
-            <HeroMark mark="torch" tone="light" size="lg" />
-          </div>
-
-          <h1 className="page-title text-foreground mb-4">
-            Mythology Facts & Ancient Almanac
-          </h1>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Curated discoveries, historical insights, and seasonal liturgical
-            calendars from 13 world traditions.
-          </p>
-
-          {/* View Switcher */}
-          <div className="flex justify-center mt-6">
-            <div
-              role="group"
-              aria-label="Switch between facts and the festival almanac"
-              className="inline-flex rounded-lg border border-border/80 bg-card/70 p-1 shadow-inner"
-            >
-              <button
-                type="button"
-                aria-pressed={activeTab === "facts"}
-                onClick={() => setActiveTab("facts")}
-                className={`flex items-center gap-2 px-4 py-2 rounded-md text-xs sm:text-sm font-semibold transition-all cursor-pointer ${
-                  activeTab === "facts"
-                    ? "bg-gold text-midnight shadow-sm"
-                    : "text-muted-foreground hover:text-foreground"
-                }`}
-              >
-                <Sparkles className="size-4" />
-                Curated Facts ({facts.length})
-              </button>
-              <button
-                type="button"
-                aria-pressed={activeTab === "calendar"}
-                onClick={() => setActiveTab("calendar")}
-                className={`flex items-center gap-2 px-4 py-2 rounded-md text-xs sm:text-sm font-semibold transition-all cursor-pointer ${
-                  activeTab === "calendar"
-                    ? "bg-gold text-midnight shadow-sm"
-                    : "text-muted-foreground hover:text-foreground"
-                }`}
-              >
-                <Calendar className="size-4" />
-                Ancient Festival Almanac
-              </button>
-            </div>
-          </div>
+  if (activeTab === "calendar") {
+    return (
+      <Container className="pt-6 pb-12 md:pt-8">
+        <div className="border-b border-border/70 pb-4">{viewSwitch}</div>
+        <div className="pt-8">
+          <AntiquityCalendar deitySlugs={festivalDeitySlugs} />
         </div>
+      </Container>
+    );
+  }
 
-        {activeTab === "facts" ? (
-          <div className="space-y-8">
-            {/* Search Bar + Controls */}
-            <div className="max-w-xl mx-auto">
-              <div className="relative">
-                <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 size-4 text-muted-foreground pointer-events-none" />
-                <input
-                  ref={searchInputRef}
-                  type="text"
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  placeholder="Search facts by keyword, deity, or topic... (Press '/' to focus)"
-                  aria-label="Search facts by keyword, deity, or topic"
-                  className="w-full pl-10 pr-10 py-2.5 rounded-lg border border-border bg-card/80 text-foreground placeholder:text-muted-foreground text-sm focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold transition-all"
-                />
-                {searchQuery && (
-                  <button
-                    type="button"
-                    onClick={() => setSearchQuery("")}
-                    aria-label="Clear search query"
-                    className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground p-1"
-                  >
-                    <X className="size-4" />
-                  </button>
-                )}
-              </div>
-            </div>
-
-            {/* Category filters */}
-            <div className="flex flex-wrap items-center justify-center gap-2">
-              <div className="flex items-center gap-2 text-sm text-muted-foreground mr-2">
-                <Filter className="h-4 w-4" />
-                <span>Filter:</span>
-              </div>
-
-              <Button
-                variant={selectedCategory === null ? "default" : "outline"}
-                size="sm"
-                onClick={() => setSelectedCategory(null)}
-                className={
-                  selectedCategory === null
-                    ? "bg-gold hover:bg-gold/90 text-black font-semibold shadow-sm"
-                    : ""
+  return (
+    <Container className="pt-6 pb-12 md:pt-8">
+      <div className="mb-4">{viewSwitch}</div>
+      <FilterToolbar
+        label="Filter facts"
+        count={
+          searchQuery.trim() || selectedCategory
+            ? `${filteredFacts.length} of ${facts.length} facts`
+            : `${facts.length} facts`
+        }
+        chips={
+          <ChipRow label="Category">
+            <FilterChip
+              active={selectedCategory === null}
+              onClick={() => setSelectedCategory(null)}
+              count={facts.length}
+            >
+              All
+            </FilterChip>
+            {categories.map((category) => (
+              <FilterChip
+                key={category}
+                active={selectedCategory === category}
+                onClick={() =>
+                  setSelectedCategory((curr) =>
+                    curr === category ? null : category,
+                  )
                 }
+                count={facts.filter((f) => f.category === category).length}
               >
-                All ({facts.length})
-              </Button>
+                {categoryLabels[category] || category}
+              </FilterChip>
+            ))}
+          </ChipRow>
+        }
+      >
+        <ToolbarSearch
+          id="facts-search"
+          label="Search facts by keyword, deity, or topic"
+          placeholder="Search facts… (press / to focus)"
+          value={searchQuery}
+          onChange={setSearchQuery}
+          inputRef={searchInputRef}
+        />
+        <Button
+          variant="ghost"
+          size="sm"
+          onClick={() => setShuffleKey((k) => k + 1)}
+          title="Shuffle facts display order"
+        >
+          <Shuffle aria-hidden="true" />
+          Shuffle
+        </Button>
+      </FilterToolbar>
 
-              {categories.map((category) => {
-                const count = facts.filter(
-                  (f) => f.category === category,
-                ).length;
-                return (
-                  <Button
-                    key={category}
-                    variant="outline"
-                    size="sm"
-                    onClick={() =>
-                      setSelectedCategory((curr) =>
-                        curr === category ? null : category,
-                      )
-                    }
-                    className={
-                      selectedCategory === category
-                        ? categoryColors[category]
-                        : "border-border/60 hover:border-gold/30 text-muted-foreground hover:text-foreground"
-                    }
-                  >
-                    {categoryLabels[category] || category} ({count})
-                  </Button>
-                );
-              })}
-
+      <div className="pt-8">
+        {filteredFacts.length === 0 ? (
+          <EmptyResults
+            title="No facts match your query"
+            action={
               <Button
-                variant="ghost"
+                variant="outline"
                 size="sm"
-                onClick={() => setShuffleKey((k) => k + 1)}
-                className="ml-2 text-gold hover:text-gold-light"
-                title="Shuffle facts display order"
+                onClick={() => {
+                  setSearchQuery("");
+                  setSelectedCategory(null);
+                }}
               >
-                <MythosMark id="lot" className="h-4 w-4 mr-1" />
-                Shuffle
+                Reset filters
               </Button>
-            </div>
-
-            {/* Result count when filtering or searching */}
-            {(searchQuery.trim() || selectedCategory) && (
-              <div className="text-center text-xs text-muted-foreground">
-                Showing {filteredFacts.length} of {facts.length} facts
-                {searchQuery.trim() && (
-                  <span> matching &ldquo;{searchQuery}&rdquo;</span>
-                )}
-                {selectedCategory && (
-                  <span> in category {categoryLabels[selectedCategory]}</span>
-                )}
-              </div>
-            )}
-
-            {/* Facts grid */}
-            {filteredFacts.length === 0 ? (
-              <div className="text-center py-16 border border-dashed border-border/80 rounded-xl max-w-md mx-auto">
-                <Quote className="size-10 text-muted-foreground/40 mx-auto mb-3" />
-                <h3 className="font-serif text-lg font-medium text-foreground">
-                  No facts match your query
-                </h3>
-                <p className="text-sm text-muted-foreground mt-1">
-                  Try adjusting your search terms or clearing the filter.
-                </p>
-                <Button
-                  variant="outline"
-                  size="sm"
-                  onClick={() => {
-                    setSearchQuery("");
-                    setSelectedCategory(null);
-                  }}
-                  className="mt-4 text-xs"
-                >
-                  Reset filters
-                </Button>
-              </div>
-            ) : (
-              <div className="grid gap-4 md:grid-cols-2">
-                {filteredFacts.map((fact, index) => {
-                  const relatedDeities = getDeityInfo(fact.relatedDeities);
-                  const isCopied = copiedId === fact.id;
-
-                  return (
-                    <motion.div
-                      key={fact.id}
-                      initial={{ opacity: 0, y: 15 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{
-                        delay: Math.min(index * 0.02, 0.3),
-                        duration: 0.25,
-                      }}
-                    >
-                      <Card className="Card parchment-card group relative h-full bg-card/85 transition-all duration-300 hover:-translate-y-1 hover:border-gold/50 shadow-sm overflow-hidden flex flex-col justify-between">
-                        {/* Subtle classical watermark */}
-                        <Quote
-                          className="absolute -bottom-3 -right-3 size-24 text-gold/5 pointer-events-none select-none"
-                          aria-hidden="true"
-                        />
-
-                        <CardContent className="p-6 relative z-10 flex flex-col justify-between h-full">
-                          <div>
-                            {/* Card Header: Category Badge + Copy/Share actions */}
-                            <div className="flex items-center justify-between gap-2 mb-3">
-                              <Badge
-                                variant="outline"
-                                className={`text-xs ${categoryColors[fact.category] || ""}`}
-                              >
-                                {categoryLabels[fact.category] || fact.category}
-                              </Badge>
-
-                              <div className="flex items-center gap-1 opacity-80 group-hover:opacity-100 transition-opacity">
-                                <button
-                                  type="button"
-                                  onClick={() => handleCopyFact(fact)}
-                                  aria-label={
-                                    isCopied
-                                      ? "Fact copied to clipboard"
-                                      : "Copy fact to clipboard"
-                                  }
-                                  title="Copy quote"
-                                  className="p-1.5 rounded-md hover:bg-gold/10 text-muted-foreground hover:text-gold transition-colors cursor-pointer"
-                                >
-                                  {isCopied ? (
-                                    <span className="flex items-center gap-1 text-xs text-gold">
-                                      <Check className="size-3.5" />
-                                      <span className="text-[10px] font-medium">
-                                        Copied
-                                      </span>
-                                    </span>
-                                  ) : (
-                                    <Copy className="size-3.5" />
-                                  )}
-                                </button>
-                                <button
-                                  type="button"
-                                  onClick={() => handleShareFact(fact)}
-                                  aria-label="Share this fact"
-                                  title="Share fact"
-                                  className="p-1.5 rounded-md hover:bg-gold/10 text-muted-foreground hover:text-gold transition-colors cursor-pointer"
-                                >
-                                  <Share2 className="size-3.5" />
-                                </button>
-                              </div>
-                            </div>
-
-                            {/* Fact Text */}
-                            <p className="font-serif text-base sm:text-lg text-foreground/95 leading-relaxed mb-5">
-                              &ldquo;{fact.fact}&rdquo;
-                            </p>
-                          </div>
-
-                          {/* Related Deities */}
-                          {relatedDeities.length > 0 && (
-                            <div className="flex flex-wrap items-center gap-2 pt-3 border-t border-border/60">
-                              <span className="text-xs text-muted-foreground uppercase tracking-wider text-[10px]">
-                                Deities:
-                              </span>
-                              {relatedDeities.map((deity) => {
-                                const dotColor = getPantheonColor(
-                                  deity.pantheonId,
-                                );
-                                return (
-                                  <Link
-                                    key={deity.id}
-                                    href={`/deities/${deity.slug}`}
-                                    className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-background/70 border border-border/70 text-xs text-foreground/90 hover:border-gold/60 hover:text-gold hover:bg-gold/5 transition-colors"
-                                  >
-                                    <span
-                                      className="size-1.5 rounded-full shrink-0"
-                                      style={{ backgroundColor: dotColor }}
-                                      aria-hidden="true"
-                                    />
-                                    <span>{deity.name}</span>
-                                    <ChevronRight className="h-3 w-3 text-gold/70" />
-                                  </Link>
-                                );
-                              })}
-                            </div>
-                          )}
-                        </CardContent>
-                      </Card>
-                    </motion.div>
-                  );
-                })}
-              </div>
-            )}
-          </div>
+            }
+          >
+            Try another keyword or clear the category.
+          </EmptyResults>
         ) : (
-          <AntiquityCalendar />
+          <div className="grid gap-5 md:grid-cols-2">
+            {filteredFacts.map((fact) => {
+              const relatedDeities = getDeityInfo(fact.relatedDeities);
+              const isCopied = copiedId === fact.id;
+              return (
+                <Card
+                  key={fact.id}
+                  className="Card h-full justify-between gap-5 bg-card px-6 py-6"
+                >
+                  <div>
+                    <div className="flex items-center justify-between gap-2">
+                      <p className="type-eyebrow">
+                        {categoryLabels[fact.category] || fact.category}
+                      </p>
+                      <div className="-mr-2 flex items-center">
+                        <button
+                          type="button"
+                          onClick={() => handleCopyFact(fact)}
+                          aria-label={
+                            isCopied
+                              ? "Fact copied to clipboard"
+                              : "Copy fact to clipboard"
+                          }
+                          title="Copy quote"
+                          className="flex size-9 items-center justify-center rounded-md text-muted-foreground transition-colors hover:bg-gold/10 hover:text-gold-text focus-visible:outline-2 focus-visible:outline-gold"
+                        >
+                          {isCopied ? (
+                            <Check className="size-4" aria-hidden="true" />
+                          ) : (
+                            <Copy className="size-4" aria-hidden="true" />
+                          )}
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() => handleShareFact(fact)}
+                          aria-label="Share this fact"
+                          title="Share fact"
+                          className="flex size-9 items-center justify-center rounded-md text-muted-foreground transition-colors hover:bg-gold/10 hover:text-gold-text focus-visible:outline-2 focus-visible:outline-gold"
+                        >
+                          <Share2 className="size-4" aria-hidden="true" />
+                        </button>
+                      </div>
+                    </div>
+                    <blockquote className="mt-3 font-body text-xl leading-relaxed text-foreground">
+                      {fact.fact}
+                    </blockquote>
+                  </div>
+
+                  {relatedDeities.length > 0 && (
+                    <ul
+                      className="flex flex-wrap gap-2 border-t border-border/60 pt-4"
+                      aria-label="Related deities"
+                    >
+                      {relatedDeities.map((deity) => (
+                        <li key={deity.id}>
+                          <Link
+                            href={`/deities/${deity.slug}`}
+                            className="inline-flex min-h-9 items-center gap-2 rounded-full border border-border bg-background py-0.5 pl-0.5 pr-3 text-sm text-foreground transition-colors hover:border-gold/60 hover:text-gold-text focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold"
+                          >
+                            {deity.imageUrl ? (
+                              <Image
+                                src={deity.imageUrl}
+                                alt=""
+                                width={28}
+                                height={28}
+                                className="size-7 rounded-full object-cover object-top"
+                              />
+                            ) : null}
+                            {deity.name}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </Card>
+              );
+            })}
+          </div>
         )}
       </div>
-    </div>
+    </Container>
   );
 }

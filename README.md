@@ -9,8 +9,8 @@ An interactive mythology and folklore explorer built with Next.js.
 
 ## Features
 
-- Browse mythology from 16 world cultures (Greek, Norse, Egyptian, Japanese, Celtic, and more)
-- Explore 233 deities, 27 heroes, 108 stories, 63 creatures, 52 artifacts, and 127 locations
+- Browse mythology from world cultures (Greek, Norse, Egyptian, Japanese, Celtic, Yoruba, and more)
+- Explore 359 deities, 37 heroes, 162 stories, 103 creatures, 76 artifacts, and 184 locations
 - Interactive family trees and relationship visualizations
 - Optional Oracle mythology Q&A (requires configuration and production rate limits)
 - Quiz games and achievement tracking
@@ -30,14 +30,14 @@ pnpm install --frozen-lockfile
 pnpm --filter web dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) to view the app. The encyclopedia runs without Oracle credentials or the optional Rust/PostgreSQL service. For Oracle, copy `apps/web/.env.example` to `apps/web/.env.local` and configure the required values; never commit that file.
+Open [http://localhost:3000](http://localhost:3000) to view the app. The encyclopedia runs without Oracle credentials or a database. For Oracle, copy `apps/web/.env.example` to `apps/web/.env.local` and configure the required values; never commit that file.
 
 ## Tech Stack
 
 - **Framework:** Next.js 16 (App Router) + React 19
 - **Language:** TypeScript
 - **Styling:** Tailwind CSS v4 + shadcn/ui
-- **Data:** versioned JSON used by pages and the separate web GraphQL endpoint
+- **Data:** versioned JSON catalogs imported by pages (no database or public data API)
 - **Visualizations:** ReactFlow, D3.js, React Three Fiber
 - **Testing:** Vitest (unit), Playwright (E2E)
 - **Deployment:** Vercel
@@ -47,7 +47,6 @@ Open [http://localhost:3000](http://localhost:3000) to view the app. The encyclo
 ```
 mythos/
 ├── apps/
-│   ├── api/          # Optional Rust/PostgreSQL service
 │   └── web/          # Self-contained Next.js app
 │       ├── src/
 │       │   ├── app/          # App Router pages

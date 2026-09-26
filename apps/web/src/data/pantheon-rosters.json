@@ -20,7 +20,19 @@
     "cronus",
     "gaia",
     "uranus",
-    "hecate"
+    "hecate",
+    "helios",
+    "selene",
+    "eos",
+    "tethys",
+    "asclepius",
+    "plutus",
+    "dioscuri",
+    "atlas",
+    "nyx",
+    "nemesis",
+    "thanatos",
+    "melinoe"
   ],
   "norse-pantheon": [
     "odin",
@@ -39,7 +51,8 @@
     "ymir",
     "hodr",
     "idun",
-    "bragi"
+    "bragi",
+    "skadi"
   ],
   "egyptian-pantheon": [
     "ra",
@@ -95,7 +108,12 @@
     "agni",
     "sita",
     "ravana",
-    "yama"
+    "yama",
+    "kartikeya",
+    "usha",
+    "ganga",
+    "ashvins",
+    "purusha"
   ],
   "japanese-pantheon": [
     "izanagi",
@@ -163,7 +181,8 @@
     "pangu",
     "hou-yi",
     "nuwa",
-    "fuxi"
+    "fuxi",
+    "longwang"
   ],
   "mesopotamian-pantheon": [
     "anu",
@@ -179,30 +198,10 @@
     "gilgamesh",
     "enkidu",
     "dumuzi",
-    "utnapishtim"
+    "utnapishtim",
+    "ninhursag"
   ],
-  "african-pantheon": [
-    "olodumare",
-    "obatala",
-    "ogun",
-    "shango",
-    "oshun",
-    "yemoja",
-    "eshu",
-    "oya",
-    "orunmila",
-    "osanyin",
-    "nana-buruku",
-    "shopona",
-    "oduduwa",
-    "olokun",
-    "aje",
-    "aganju",
-    "ibeji",
-    "ori",
-    "anansi",
-    "nyame"
-  ],
+  "african-pantheon": [],
   "polynesian-pantheon": [
     "maui",
     "pele",
@@ -252,11 +251,158 @@
     "triglav",
     "chernobog"
   ],
-  "haudenosaunee-pantheon": ["sky-woman", "sapling", "flint", "turtle"],
+  "haudenosaunee-pantheon": [
+    "sky-woman",
+    "sapling",
+    "flint",
+    "turtle",
+    "hinon",
+    "earth-holder",
+    "sky-womans-daughter",
+    "gaha",
+    "three-sisters",
+    "dew-eagle"
+  ],
   "tlingit-haida-pantheon": [
     "raven",
     "fog-woman",
     "chief-fog-over-the-salmon",
-    "naas-shaak-aankawu"
+    "naas-shaak-aankawu",
+    "petrel",
+    "old-woman-underneath",
+    "djilaqons",
+    "master-carpenter"
+  ],
+  "yoruba-pantheon": [
+    "olodumare",
+    "obatala",
+    "ogun",
+    "shango",
+    "oshun",
+    "yemoja",
+    "eshu",
+    "oya",
+    "orunmila",
+    "osanyin",
+    "nana-buruku",
+    "shopona",
+    "oduduwa",
+    "olokun",
+    "aje",
+    "aganju",
+    "ibeji",
+    "ori"
+  ],
+  "akan-pantheon": ["anansi", "nyame", "asase-yaa", "tano", "bia"],
+  "hittite-pantheon": [
+    "tarhunna",
+    "sun-goddess-of-arinna",
+    "kumarbi",
+    "telipinu",
+    "hannahanna",
+    "inara",
+    "kamrusepa",
+    "shaushka",
+    "sun-goddess-of-the-earth",
+    "alalu"
+  ],
+  "canaanite-pantheon": [
+    "baal",
+    "anat",
+    "el",
+    "athirat",
+    "yam",
+    "mot",
+    "kothar-wa-khasis",
+    "shapash",
+    "athtar",
+    "athtart"
+  ],
+  "inuit-pantheon": [
+    "sedna",
+    "anguta",
+    "anningan",
+    "malina",
+    "sila",
+    "pinga",
+    "tornarsuk",
+    "tulunigraq"
+  ],
+  "aboriginal-australian-pantheon": [
+    "bunjil",
+    "pallian",
+    "baiame",
+    "rainbow-serpent",
+    "wagyl",
+    "seven-sisters",
+    "wati-nyiru",
+    "kuniya",
+    "liru"
+  ],
+  "dine-pantheon": [
+    "changing-woman",
+    "white-shell-woman",
+    "monster-slayer",
+    "born-for-water",
+    "first-man",
+    "first-woman",
+    "spider-woman",
+    "coyote",
+    "johonaaei",
+    "talking-god"
+  ],
+  "inca-pantheon": [
+    "viracocha",
+    "inti",
+    "mama-killa",
+    "pachamama",
+    "mama-qucha",
+    "illapa",
+    "pachacamac",
+    "pariacaca",
+    "cuniraya-viracocha",
+    "huallallo-carhuincho",
+    "manco-capac",
+    "mama-ocllo"
+  ],
+  "persian-pantheon": [
+    "ahura-mazda",
+    "angra-mainyu",
+    "mithra",
+    "anahita",
+    "tishtrya",
+    "verethragna",
+    "atar",
+    "spenta-armaiti",
+    "sraosha",
+    "zurvan",
+    "yima"
+  ],
+  "finnish-pantheon": [
+    "ukko",
+    "ilmatar",
+    "vainamoinen",
+    "ilmarinen",
+    "lemminkainen",
+    "louhi",
+    "tuoni",
+    "tapio",
+    "mielikki",
+    "ahti",
+    "vellamo"
+  ],
+  "korean-pantheon": [
+    "hwanin",
+    "hwanung",
+    "ungnyeo",
+    "dangun",
+    "haemosu",
+    "yuhwa",
+    "habaek",
+    "jumong",
+    "bak-hyeokgeose",
+    "bari-gongju",
+    "mireuk",
+    "seokga"
   ]
 }

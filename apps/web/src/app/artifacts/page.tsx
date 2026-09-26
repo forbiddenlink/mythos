@@ -1,40 +1,63 @@
-"use client";
-
-import { useState } from "react";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { LayoutGrid, Table, Gem } from "lucide-react";
-import Link from "next/link";
-import Image from "next/image";
-import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
-import { Badge } from "@/components/ui/badge";
-import { CollectionPageJsonLd } from "@/components/seo/JsonLd";
+import { CatalogGallery } from "@/components/entities/CatalogGallery";
+import { AboutThisPage } from "@/components/layout/about-this-page";
+import { Container } from "@/components/layout/container";
 import { PageHero } from "@/components/layout/page-hero";
+import { CollectionPageJsonLd } from "@/components/seo/JsonLd";
+import { getPantheonShortNames } from "@/lib/data/catalog";
 import artifactsData from "@/data/artifacts.json";
 
-interface Artifact {
+interface ArtifactRecord {
   id: string;
   pantheonId: string;
   name: string;
   slug: string;
   ownerId?: string;
-  owner?: string;
+  ownerLabel?: string;
   type: string;
   description: string;
   powers: string[];
   imageUrl: string | null;
 }
 
-export default function ArtifactsPage() {
-  const [viewMode, setViewMode] = useState<"grid" | "table">("grid");
-  const artifacts = artifactsData as Artifact[];
+const artifacts = artifactsData as ArtifactRecord[];
 
+const capitalize = (value: string) =>
+  value.charAt(0).toUpperCase() + value.slice(1);
+
+/** "Weapon and fishhook" → "weapon"; rare types group under "other". */
+const MAIN_TYPES = new Set([
+  "weapon",
+  "armor",
+  "tool",
+  "vessel",
+  "jewelry",
+  "vehicle",
+  "relic",
+  "staff",
+]);
+function typeGroup(type: string): string {
+  const first = type.split(" ")[0].toLowerCase();
+  return MAIN_TYPES.has(first) ? first : "other";
+}
+
+// Card and table fields only; biographies and sources stay on the server.
+const items = artifacts.map((artifact) => ({
+  id: artifact.id,
+  slug: artifact.slug,
+  name: artifact.name,
+  pantheonId: artifact.pantheonId,
+  description: artifact.description,
+  imageUrl: artifact.imageUrl,
+  subtitle: artifact.powers[0],
+  badge: capitalize(artifact.type),
+  facet: typeGroup(artifact.type),
+  cells: [
+    capitalize(artifact.type),
+    artifact.ownerLabel ?? capitalize(artifact.ownerId ?? "—"),
+  ],
+}));
+
+export default function ArtifactsPage() {
   return (
     <div className="min-h-screen">
       <CollectionPageJsonLd
@@ -47,209 +70,33 @@ export default function ArtifactsPage() {
         mark="relic"
         tagline="The Arsenal"
         title="Legendary Artifacts"
-        description="Weapons, shields, and mystical objects of power wielded by the gods and heroes of old."
+        description="Weapons, shields and objects of power wielded by the gods and heroes of old."
         colorScheme="purple"
         backgroundImage="/deities-list-hero.jpg"
         backgroundAlt="Relics and divine artifacts of ancient myth"
-        minHeight="min-h-[40vh]"
       />
-
-      {/* Content Section */}
-      <div className="container mx-auto max-w-6xl px-4 py-16">
-        <Breadcrumbs />
-        <section className="mt-6 rounded-2xl border border-border/60 bg-card/60 p-6 shadow-sm">
-          <h2 className="font-serif text-2xl text-foreground">
-            Follow Objects Through Their Stories
-          </h2>
-          <p className="mt-3 max-w-4xl text-sm leading-7 text-muted-foreground">
-            Mythic artifacts matter because they carry ownership, symbolism, and
-            narrative consequences. Use this catalog to compare how different
-            traditions imagine divine power through weapons, relics, armor, and
-            sacred tools. The table view is best for scanning object types and
-            owners, while the card view is better for browsing. Open an artifact
-            entry when you want its origin, powers, and the heroes or gods most
-            closely tied to it.
-          </p>
-        </section>
-        <div className="mt-8 flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <Button
-              variant={viewMode === "grid" ? "default" : "outline"}
-              size="sm"
-              onClick={() => setViewMode("grid")}
-              className="gap-2"
-            >
-              <LayoutGrid className="h-4 w-4" />
-              Grid
-            </Button>
-            <Button
-              variant={viewMode === "table" ? "default" : "outline"}
-              size="sm"
-              onClick={() => setViewMode("table")}
-              className="gap-2"
-            >
-              <Table className="h-4 w-4" />
-              Table
-            </Button>
-          </div>
-        </div>
-
-        {viewMode === "table" ? (
-          <div className="rounded-lg border border-border overflow-hidden">
-            <div className="overflow-x-auto">
-              <table className="w-full">
-                <thead className="bg-muted">
-                  <tr>
-                    <th className="px-4 py-3 text-left text-sm font-semibold text-foreground">
-                      Name
-                    </th>
-                    <th className="px-4 py-3 text-left text-sm font-semibold text-foreground">
-                      Mythology
-                    </th>
-                    <th className="px-4 py-3 text-left text-sm font-semibold text-foreground">
-                      Type
-                    </th>
-                    <th className="px-4 py-3 text-left text-sm font-semibold text-foreground">
-                      Owner
-                    </th>
-                    <th className="px-4 py-3 text-left text-sm font-semibold text-foreground min-w-50">
-                      Description
-                    </th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-border">
-                  {artifacts.map((artifact) => (
-                    <tr
-                      key={artifact.id}
-                      className="hover:bg-muted/50 transition-colors"
-                    >
-                      <td className="px-4 py-3 text-sm whitespace-nowrap">
-                        {artifact.slug ? (
-                          <Link
-                            href={`/artifacts/${artifact.slug}`}
-                            className="font-medium text-gold-text hover:text-gold dark:text-gold dark:hover:text-gold-light hover:underline"
-                          >
-                            {artifact.name}
-                          </Link>
-                        ) : (
-                          <span className="font-medium">{artifact.name}</span>
-                        )}
-                      </td>
-                      <td className="px-4 py-3 text-sm">
-                        <span className="px-2 py-0.5 text-xs rounded-full bg-muted text-muted-foreground whitespace-nowrap">
-                          {{
-                            "greek-pantheon": "Greek",
-                            "norse-pantheon": "Norse",
-                            "egyptian-pantheon": "Egyptian",
-                            "roman-pantheon": "Roman",
-                            "hindu-pantheon": "Hindu",
-                            "japanese-pantheon": "Japanese",
-                            "celtic-pantheon": "Celtic",
-                            "mesopotamian-pantheon": "Mesopotamian",
-                          }[artifact.pantheonId] || artifact.pantheonId}
-                        </span>
-                      </td>
-                      <td className="px-4 py-3 text-sm">
-                        <Badge
-                          variant="outline"
-                          className="border-bronze/50 text-bronze bg-bronze/5 capitalize"
-                        >
-                          {artifact.type}
-                        </Badge>
-                      </td>
-                      <td className="px-4 py-3 text-sm text-muted-foreground whitespace-nowrap capitalize">
-                        {artifact.ownerId || artifact.owner || "—"}
-                      </td>
-                      <td className="px-4 py-3 text-sm text-muted-foreground max-w-xs">
-                        <span className="line-clamp-2">
-                          {artifact.description}
-                        </span>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </div>
-        ) : (
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {artifacts.map((artifact, index) => (
-              <Link
-                key={artifact.id}
-                href={`/artifacts/${artifact.slug}`}
-                className="group pantheon-reveal"
-              >
-                <Card
-                  asArticle
-                  className="h-full cursor-pointer parchment-card bg-card transition-transform duration-300 hover:-translate-y-1 hover:border-bronze/40 transition-all duration-300"
-                >
-                  <CardHeader>
-                    <div className="flex items-start justify-between">
-                      {artifact.imageUrl ? (
-                        <div className="rounded-xl overflow-hidden border border-bronze/25 shadow-sm">
-                          <Image
-                            src={artifact.imageUrl}
-                            alt={artifact.name}
-                            width={64}
-                            height={64}
-                            sizes="64px"
-                            priority={index < 3}
-                            className="h-16 w-16 object-cover"
-                          />
-                        </div>
-                      ) : (
-                        <div className="p-2.5 rounded-xl bg-bronze/10 border border-bronze/25 group-hover:bg-bronze/15 transition-colors duration-300">
-                          <Gem
-                            className="h-5 w-5 text-bronze"
-                            strokeWidth={1.5}
-                          />
-                        </div>
-                      )}
-
-                      <Badge
-                        variant="outline"
-                        className="border-bronze/50 text-bronze bg-bronze/5"
-                      >
-                        {artifact.type}
-                      </Badge>
-                    </div>
-                    <CardTitle className="text-foreground mt-4 group-hover:text-gold transition-colors duration-300">
-                      {artifact.name}
-                    </CardTitle>
-                    <CardDescription>
-                      {artifact.powers && artifact.powers.length > 0
-                        ? artifact.powers[0]
-                        : "Legendary Item"}
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-muted-foreground text-sm line-clamp-3 leading-relaxed mb-4">
-                      {artifact.description}
-                    </p>
-                    {artifact.powers.length > 0 && (
-                      <div className="flex flex-wrap gap-1.5">
-                        {artifact.powers.slice(0, 3).map((power) => (
-                          <span
-                            key={power}
-                            className="text-xs px-2 py-0.5 rounded-full bg-muted text-muted-foreground"
-                          >
-                            {power}
-                          </span>
-                        ))}
-                        {artifact.powers.length > 3 && (
-                          <span className="text-xs px-2 py-0.5 text-muted-foreground">
-                            +{artifact.powers.length - 3}
-                          </span>
-                        )}
-                      </div>
-                    )}
-                  </CardContent>
-                </Card>
-              </Link>
-            ))}
-          </div>
-        )}
-      </div>
+      <Container className="pt-6 pb-12 md:pt-8">
+        <CatalogGallery
+          items={items}
+          traditionNames={getPantheonShortNames()}
+          basePath="/artifacts"
+          noun="artifacts"
+          searchLabel="Search artifacts"
+          facetLabel="Types"
+          columns={["Type", "Owner"]}
+        />
+      </Container>
+      <AboutThisPage title="About the artifacts">
+        <p>
+          Mythic artifacts matter because they carry ownership, symbolism, and
+          narrative consequences. Use this catalog to compare how different
+          traditions imagine divine power through weapons, relics, armor, and
+          sacred tools. The table view is best for scanning object types and
+          owners, while the card view is better for browsing. Open an artifact
+          entry when you want its origin, powers, and the heroes or gods most
+          closely tied to it.
+        </p>
+      </AboutThisPage>
     </div>
   );
 }

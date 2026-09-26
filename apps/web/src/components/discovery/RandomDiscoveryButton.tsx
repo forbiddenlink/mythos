@@ -13,6 +13,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { ProgressContext } from "@/providers/progress-provider";
+import { loadDeityIndex } from "@/lib/catalog-client";
 
 interface Deity {
   id: string;
@@ -67,7 +68,8 @@ export function RandomDiscoveryButton() {
     setLoading(true);
     setError(null);
     try {
-      const { default: deities } = await import("@/data/deities.json");
+      // Slim index (~⅕ of deities.json), fetched once on first discovery intent.
+      const deities = await loadDeityIndex();
       setDeity(
         pickDiscoveryDeity(
           deities,

@@ -1,4 +1,9 @@
 import { CollectionPageJsonLd } from "@/components/seo/JsonLd";
+import {
+  getDeityListItems,
+  getPantheonShortNames,
+  getTraditionCount,
+} from "@/lib/data/catalog";
 import { DeitiesPageClient } from "./DeitiesPageClient";
 
 export default function DeitiesPage() {
@@ -9,7 +14,11 @@ export default function DeitiesPage() {
         description="Browse gods and goddesses from Greek, Norse, Egyptian, Roman, Hindu, Japanese, Celtic, and Aztec mythologies."
         url="/deities"
       />
-      <DeitiesPageClient />
+      <DeitiesPageClient
+        deities={getDeityListItems()}
+        traditionCount={getTraditionCount()}
+        traditionNames={getPantheonShortNames()}
+      />
     </>
   );
 }

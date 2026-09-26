@@ -5,6 +5,16 @@ import { ProgressProvider } from "@/providers/progress-provider";
 import { ReviewProvider, useReview } from "@/providers/review-provider";
 import { addDaysToLocalDate, getLocalYesterday } from "@/lib/date";
 
+// The provider fetches slim indexes from /api/catalog/*; serve the real catalog.
+vi.mock("@/lib/catalog-client", async () => {
+  const deities = (await import("@/data/deities.json")).default;
+  const stories = (await import("@/data/stories.json")).default;
+  return {
+    loadDeityIndex: async () => deities,
+    loadStoryIndex: async () => stories,
+  };
+});
+
 const PROGRESS_STORAGE_KEY = "mythos-atlas-progress";
 
 function Providers({ children }: Readonly<{ children: ReactNode }>) {

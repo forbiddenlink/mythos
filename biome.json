@@ -1,10 +1,11 @@
 {
-  "$schema": "https://biomejs.dev/schemas/2.5.8/schema.json",
-  "assist": { "actions": { "source": { "organizeImports": "on" } } },
+  "$schema": "https://biomejs.dev/schemas/2.5.14/schema.json",
+  "assist": { "actions": { "source": { "organizeImports": "off" } } },
   "linter": {
     "enabled": true,
     "rules": {
       "recommended": true,
+      "a11y": "off",
       "complexity": {
         "noUselessFragments": "warn",
         "noUselessTypeConstraint": "error"
@@ -25,17 +26,10 @@
     }
   },
   "formatter": {
-    "enabled": true,
-    "indentStyle": "space",
-    "indentWidth": 2,
-    "lineWidth": 80
+    "enabled": false
   },
-  "javascript": {
-    "formatter": {
-      "quoteStyle": "double",
-      "semicolons": "always",
-      "trailingCommas": "all"
-    }
+  "css": {
+    "parser": { "tailwindDirectives": true }
   },
   "files": {
     "includes": [
@@ -50,7 +44,7 @@
       "!**/public",
       "!**/.history",
       "!**/.agents",
-      "!**/.claude",
+      "!.claude",
       "!**/.specter",
       "!**/.playwright-mcp",
       "!**/.turbo",

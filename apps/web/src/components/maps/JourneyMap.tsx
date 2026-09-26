@@ -210,7 +210,7 @@ export function JourneyMap({
     if (!map) return;
 
     // Clear existing markers
-    markersRef.current.forEach((marker) => marker.remove());
+    for (const marker of markersRef.current) marker.remove();
     markersRef.current = [];
 
     // Add markers

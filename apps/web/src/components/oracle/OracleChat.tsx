@@ -4,15 +4,15 @@ import { createPortal } from "react-dom";
 import { trackEvent } from "@/lib/analytics/events";
 import { Button } from "@/components/ui/button";
 import { useFocusTrap } from "@/hooks/use-focus-trap";
+import type { OracleSourcesPayload } from "@/lib/oracle/citations";
+import { isNotInSourcesAnswer } from "@/lib/oracle/coverage";
+import { readOracleStream } from "@/lib/oracle/stream-client";
 import {
-  ORACLE_CITATIONS_HEADER,
-  ORACLE_GROUNDING_HITS_HEADER,
-} from "@/lib/oracle/constants";
-import type { OracleCitation } from "@/lib/oracle/citations";
-import { decodeCitationsHeader } from "@/lib/oracle/citations";
+  OracleSources,
+  renderOracleText,
+} from "@/components/oracle/OracleAnswer";
 import { AnimatePresence, motion } from "framer-motion";
 import { Eye, Loader2, Send, Sparkles, X } from "lucide-react";
-import Link from "next/link";
 import { useLocale, useMessages, useTranslations } from "next-intl";
 import { useCallback, useEffect, useRef, useState } from "react";
 
@@ -20,10 +20,10 @@ interface Message {
   id: string;
   role: "user" | "assistant";
   content: string;
-  /** Atlas encyclopedia snippets attached to this reply (from API). */
-  groundingHits?: number;
-  /** Structured sources from the same Atlas retrieval pass. */
-  citations?: OracleCitation[];
+  /** Grounding metadata streamed with this reply (entity pages + primary sources). */
+  sources?: OracleSourcesPayload | null;
+  /** Set once the reply has finished streaming. */
+  done?: boolean;
 }
 
 export function OracleChat() {
@@ -124,26 +124,7 @@ export function OracleChat() {
           throw new Error(errorData.error || t("errors.consultFailed"));
         }
 
-        const groundingHitsRaw = response.headers.get(
-          ORACLE_GROUNDING_HITS_HEADER,
-        );
-        const groundingHits = Math.max(
-          0,
-          parseInt(groundingHitsRaw ?? "0", 10) || 0,
-        );
-
-        // Grounded vs ungrounded is the quality signal worth tracking: an
-        // Oracle answering with zero source hits is the failure mode.
-        trackEvent("oracle_asked", { grounded: groundingHits > 0 });
-
-        const citationsRaw = response.headers.get(ORACLE_CITATIONS_HEADER);
-        const citations = citationsRaw
-          ? decodeCitationsHeader(citationsRaw)
-          : [];
-
-        // Handle streaming response
-        const reader = response.body?.getReader();
-        if (!reader) throw new Error(t("errors.noStream"));
+        if (!response.body) throw new Error(t("errors.noStream"));
 
         const assistantMessage: Message = {
           id: (Date.now() + 1).toString(),
@@ -152,30 +133,32 @@ export function OracleChat() {
         };
         setMessages((prev) => [...prev, assistantMessage]);
 
-        const decoder = new TextDecoder();
-        let fullContent = "";
-
-        while (true) {
-          const { done, value } = await reader.read();
-          if (done) break;
-
-          const chunk = decoder.decode(value, { stream: true });
-          fullContent += chunk;
-
+        const update = (patch: Partial<Message>) =>
           setMessages((prev) =>
             prev.map((m) =>
-              m.id === assistantMessage.id ? { ...m, content: fullContent } : m,
+              m.id === assistantMessage.id ? { ...m, ...patch } : m,
             ),
           );
-        }
 
-        setMessages((prev) =>
-          prev.map((m) =>
-            m.id === assistantMessage.id
-              ? { ...m, content: fullContent, groundingHits, citations }
-              : m,
-          ),
-        );
+        let tracked = false;
+        const result = await readOracleStream(response.body, {
+          onSources: (sources) => {
+            // Grounded vs ungrounded is the quality signal worth tracking: an
+            // Oracle answering with zero source hits is the failure mode.
+            if (!tracked) {
+              tracked = true;
+              trackEvent("oracle_asked", { grounded: sources.hitCount > 0 });
+            }
+            update({ sources });
+          },
+          onText: (content) => update({ content }),
+        });
+
+        update({
+          content: result.text,
+          sources: result.sources,
+          done: true,
+        });
       } catch (err) {
         setError(err instanceof Error ? err.message : t("errors.generic"));
       } finally {
@@ -282,6 +265,7 @@ export function OracleChat() {
                           </p>
                           {suggestedQuestions.slice(0, 3).map((question) => (
                             <button
+                              type="button"
                               key={question}
                               onClick={() => handleSuggestedQuestion(question)}
                               className="block w-full text-left text-sm text-gold/70 hover:text-gold bg-gold/5 hover:bg-gold/10 rounded-lg px-3 py-2 transition-colors"
@@ -312,50 +296,46 @@ export function OracleChat() {
                                   <Loader2 className="h-4 w-4 shrink-0 animate-spin" />
                                   {t("loading")}
                                 </span>
+                              ) : message.role === "assistant" ? (
+                                renderOracleText(
+                                  message.content,
+                                  "text-gold underline underline-offset-2 hover:text-gold-light",
+                                )
                               ) : (
                                 message.content
                               )}
                             </p>
                             {message.role === "assistant" &&
-                              message.groundingHits != null &&
-                              message.groundingHits > 0 && (
-                                <p
-                                  className="mt-2 flex items-center gap-1.5 text-[10px] leading-tight text-parchment/50"
-                                  aria-label={t("groundingAria", {
-                                    count: message.groundingHits,
-                                  })}
-                                >
-                                  <Sparkles className="size-3 shrink-0 text-gold/60" />
-                                  <span>
+                              message.done &&
+                              message.sources &&
+                              message.sources.hitCount > 0 &&
+                              !isNotInSourcesAnswer(message.content) && (
+                                <p className="mt-2 flex items-center gap-1.5 text-[10px] leading-tight text-parchment/50">
+                                  <Sparkles
+                                    aria-hidden="true"
+                                    className="size-3 shrink-0 text-gold/60"
+                                  />
+                                  <span className="sr-only">
+                                    {t("groundingAria", {
+                                      count: message.sources.hitCount,
+                                    })}
+                                  </span>
+                                  <span aria-hidden="true">
                                     {t("groundingLine", {
-                                      count: message.groundingHits,
+                                      count: message.sources.hitCount,
                                     })}
                                   </span>
                                 </p>
                               )}
-                            {message.role === "assistant" &&
-                              message.citations &&
-                              message.citations.length > 0 && (
-                                <ul
-                                  className="mt-2 space-y-1 border-t border-gold/15 pt-2"
-                                  aria-label={t("sourcesAria")}
-                                >
-                                  {message.citations.slice(0, 10).map((c) => (
-                                    <li key={`${c.type}-${c.slug}`}>
-                                      <Link
-                                        href={c.path}
-                                        className="text-[11px] text-gold/80 underline-offset-2 hover:text-gold hover:underline"
-                                      >
-                                        {c.title}
-                                      </Link>
-                                      <span className="text-[10px] text-parchment/45">
-                                        {" "}
-                                        · {c.type}
-                                      </span>
-                                    </li>
-                                  ))}
-                                </ul>
-                              )}
+                            {message.role === "assistant" && message.done && (
+                              <OracleSources
+                                sources={message.sources ?? null}
+                                notInSources={
+                                  message.sources?.hitCount === 0 ||
+                                  isNotInSourcesAnswer(message.content)
+                                }
+                              />
+                            )}
                           </div>
                         </div>
                       ))
@@ -414,5 +394,3 @@ export function OracleChat() {
     </>
   );
 }
-
-export default OracleChat;

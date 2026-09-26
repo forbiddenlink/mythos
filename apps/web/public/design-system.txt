@@ -22,15 +22,56 @@ Text-safety helpers: --text-soft, --text-soft-strong, --text-on-tint
 - Radius: --radius 0.5rem base → --radius-sm … --radius-4xl
 - Z-index scale: --z-base/dropdown/sticky/modal/toast/cursor
 
-## Typography + surface utility classes (use these, not raw values)
-.text-display, .text-h1/h2/h3, .page-title, .page-section-title, .page-eyebrow, .page-lede, .page-shell,
-.glass-card (glassmorphism), gold shimmer/gradient text, .bg-mythic / .bg-hero-gradient (atmospheric), ornate borders, noise overlay
+## Type scale (one size per role; globals.css "TYPE SCALE")
+- .type-display   home hero brand only          40→80px Cinzel
+- .detail-title   entity page H1 (DetailHero)   36→64px Cinzel
+- .page-title     index/hub H1 (PageHeader)     32→48px Cinzel
+- .page-section-title  section H2 (SectionHeading, ArticleSection)  26→34px Cinzel
+- .type-h3        subsection                    20px Cinzel
+- .type-reading   long-form body                18→19px Crimson Pro (prose uses it too)
+- .type-lede      one-sentence intro            19→21px Crimson Pro
+- .type-ui        controls, card copy           15px Source Sans (14px is the floor for UI text)
+- .type-meta      captions, counts              13px Source Sans (12px only for true metadata)
+- .type-eyebrow   kicker above a title          13px caps, --gold-text (AA on both themes)
+Muted text = text-muted-foreground (AA on background, card and muted in both themes). Don't fade it further with /70.
+Legacy: .page-eyebrow, .page-lede, .text-display/.text-h1/h2/h3 remain for old pages; new work uses the classes above.
+
+## Layout grid (globals.css + apps/web/src/components/layout/)
+- Container widths: reading 68ch · content 1200px · wide 1360px (Tailwind: max-w-reading / max-w-content / max-w-wide).
+- Gutters (--gutter): 16px phone, 24px ≥640, 32px ≥1024. Section spacing: --section-space-sm/-/-lg = 48/72/96px desktop (40/56/72 phone).
+- <Container size="reading|content|wide"> — every section sits in one so edges align header → footer (.layout-container).
+- <Section spacing="sm|md|lg" tone="default|muted|dark" size> — vertical rhythm + Container. tone="dark" scopes the .dark tokens.
+- <SectionHeading eyebrow title description action={{href,label}} as="h2|h3" id align> — the ONLY section-title treatment. No left bars, no icon-per-heading.
+- <PageHeader eyebrow mark title lede count actions image imageAlt breadcrumbs accent> — compact index header with the breadcrumb built in; with `image` it is a short midnight band. <PageHero> (legacy props: tagline/description/backgroundImage) renders it; don't add <Breadcrumbs/> under either.
+- <AboutThisPage title defaultOpen size> — native <details> below the content for "how to use"/SEO explainer text. Never put explainer boxes above the tool/grid.
+- Entity pages: <DetailLayout hero facts toc aside after asideLabel> + <DetailHero image imageCaption eyebrow title titleAddon nativeName epithets tags lede actions meta accentColor> + <ArticleSection id title eyebrow description reading> + aside blocks <FactList facts/>, <OnThisPage items/>, <RelatedFigures figures/>, <AsideLinks title links/>. Reference implementation: app/deities/[slug]/page.tsx.
+- DetailHero extras: imageAspect="portrait|square|landscape"; media={node} replaces the frame (compare pair portraits, source title plate, collection mosaic).
+- Entity link collections (components/layout/entity-gallery.tsx): <EntityGallery items aspect columns/> image-led tiles; <EntityList items columns/> thumbnail manuscript list.
+- Entry sources: <EntitySources {...record} appearsIn provenance/> (components/sources/EntitySources.tsx) inside ArticleSection "Sources and further reading": provenance line, Ancient sources | Source notes, Works cited, Appears in, one Further reading list (catalogued works + bibliography lines with *emphasis* rendered). Subsections are h3.type-h3; no cards, no left bars.
+- Prose: <ReadingProse markdown dropCap/> (components/content/reading-prose.tsx) shifts catalog "##" to h3 under the section h2; <InlineMarkdown text/> for bibliography lines.
+- Parallel figures: components/mythology/ParallelFigures.tsx (variant annotated|portraits; aria-label ends "across pantheons").
+- Entity cards (components/entities/EntityCard.tsx): the ONE card for catalog entries on index pages. <EntityCard href title image aspect="portrait|landscape" variant="grid|list" tradition traditionColor subtitle description descriptionLines badges action meta linkLabel imageAlt media headingLevel priority> — portrait 4:5 for deities/heroes, landscape 3:2 for places/stories/artifacts/creatures/traditions; borderless editorial card, title link stretches over the card, badges (<EntityBadge tone="dark|gold">) top-left and action (BookmarkButton variant="light") top-right on the image, never nested in the link. No image → the title's initial on midnight. Lay out with <EntityGrid aspect variant> (portrait 2→3→4 cols, landscape 1→2→3, list = divided rows); <EntityCardSkeleton> while data loads. Tradition labels: shortTraditionName() / getPantheonShortNames() ("Canaanite", not "Canaanite Pantheon (Ugarit)").
+- List-page filters (components/entities/FilterToolbar.tsx): <FilterToolbar count view chips> directly under the PageHeader, holding <ToolbarSearch>, Select triggers and a <ViewToggle>; chip rows via <ChipRow label> + <FilterChip active count color>; empty results via <EmptyResults>. Explainers go in <AboutThisPage> below the grid.
+- Tool pages (components/layout/tool-stage.tsx): PageHeader, then <ToolToolbar label> (one compact control row) and the visualization in a Container size="wide". While code loads, show <StageLoading label mark tone className> (same height as the stage, aria-busy) instead of a spinner; <SegmentedControl> for 2-4 views. Explainer text goes in <AboutThisPage> below the tool.
+- Empty states: <EmptyState mark eyebrow title description actions preview> — invitation on the left, a quiet preview of the filled page on the right (sample stats, a sample card). Links use primaryLinkClass / secondaryLinkClass.
+- Info pages (components/layout/info-page.tsx): <InfoPage eyebrow mark title lede meta toc aside> or <InfoColumns toc aside> — a 68ch prose column on the header's left edge (plain h2/h3/p/ul styled by infoProseClass) with a sticky "On this page" list on wide screens.
+
+## Surface utility classes
+.glass-card (glassmorphism), gold shimmer/gradient text, .bg-mythic / .bg-hero-gradient (atmospheric), ornate borders, noise overlay, .illuminated-tale (drop cap)
 
 ## Components — apps/web/src/components/ui/ (shadcn, cva, 18 files)
 button, card, badge, dialog, select, tabs, command, input, progress, slider, hover-card, pagination-controls,
-skeleton-cards, achievement-toast, bookmark-button, export-button, logo, pronunciation, theme-toggle
+achievement-toast, bookmark-button, export-button, logo, pronunciation, theme-toggle
 - Button (cva): variants default/destructive/outline/secondary/ghost/link/gold (custom: bg-gold text-midnight); sizes default/sm/lg/icon/icon-sm/icon-lg
-- Card (cva): variants default/glass (.glass-card)/elevated (.card-elevated)
+- Card (cva): variants default/glass (.glass-card)/elevated (.card-elevated); `interactive` opts into the hover lift — set it only on cards that are link/button targets (static cards must not move on hover)
+
+## Chrome
+- Header: always-solid bar, 64px, content-width grid; nav triggers and icon controls are 40px; the current section shows a 2px gold underline (aria-current on links).
+- Footer: brand + newsletter column and four link columns, compact; optional tools (random deity, Oracle, audio, notifications) in one row; no decorative image band above it.
+
+## Imagery
+- Lead with portraits: catalog images via next/image (fill + sizes), 4:5 for figures, 3:2/4:3 for places. Never show a grey placeholder or an icon as content; fall back to the figure's initial.
+- Procedural "plates" (drawn by code) are stand-ins; don't feature them in hero/showcase slots.
 
 ## Hard rules (.impeccable.md — 5 principles)
 - Named theme tokens over hardcoded skins. Brand-first. Depth on FEW surfaces (prefer manuscript lists/prose over card-soup; cards only for interactive/structured data). Atlas-like interactivity. Non-negotiable accessibility.

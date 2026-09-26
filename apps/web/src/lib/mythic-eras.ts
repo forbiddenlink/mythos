@@ -41,15 +41,15 @@ export const MYTHIC_ERAS: MythicEra[] = [
   {
     id: "precolumbian",
     label: "Pre-Columbian Americas",
-    blurb: "Mesoamerica through contact",
+    blurb: "Mesoamerica and the Andes through contact",
     start: -2000,
-    end: 1521,
-    pantheonIds: ["aztec-pantheon", "mesoamerican-pantheon"],
+    end: 1572,
+    pantheonIds: ["aztec-pantheon", "mesoamerican-pantheon", "inca-pantheon"],
   },
   {
     id: "asia-pacific",
     label: "Asia & Pacific",
-    blurb: "Hindu, Chinese, Japanese, Polynesian",
+    blurb: "Hindu, Chinese, Japanese, Korean, Polynesian",
     start: -1600,
     end: 1900,
     pantheonIds: [
@@ -57,6 +57,7 @@ export const MYTHIC_ERAS: MythicEra[] = [
       "chinese-pantheon",
       "japanese-pantheon",
       "polynesian-pantheon",
+      "korean-pantheon",
     ],
   },
   {
@@ -65,7 +66,7 @@ export const MYTHIC_ERAS: MythicEra[] = [
     blurb: "Distinct traditions across Africa; no shared historical period",
     start: null,
     end: null,
-    pantheonIds: ["african-pantheon"],
+    pantheonIds: ["african-pantheon", "yoruba-pantheon", "akan-pantheon"],
   },
   {
     id: "medieval-slavic-world",
@@ -91,6 +92,55 @@ export const MYTHIC_ERAS: MythicEra[] = [
     start: -11000,
     end: 2026,
     pantheonIds: ["tlingit-haida-pantheon"],
+  },
+  {
+    id: "late-bronze-age-anatolia-levant",
+    label: "Hittite Anatolia & Ugarit",
+    blurb: "Late Bronze Age Hattusa and the city of Ugarit",
+    start: -1650,
+    end: -1180,
+    pantheonIds: ["hittite-pantheon", "canaanite-pantheon"],
+  },
+  {
+    id: "inuit-arctic",
+    label: "Inuit Nunangat & Kalaallit Nunaat",
+    blurb: "Inuit Arctic from Alaska to Greenland, a living tradition",
+    start: 1000,
+    end: 2026,
+    pantheonIds: ["inuit-pantheon"],
+  },
+  {
+    id: "aboriginal-australia",
+    label: "Aboriginal Australia",
+    blurb: "Many nations, many Dreamings; living traditions, not a past era",
+    start: null,
+    end: null,
+    pantheonIds: ["aboriginal-australian-pantheon"],
+  },
+  {
+    id: "dine-bikeyah",
+    label: "Diné Bikéyah",
+    blurb: "The land between the four sacred mountains, a living tradition",
+    start: null,
+    end: null,
+    pantheonIds: ["dine-pantheon"],
+  },
+  {
+    id: "ancient-iran",
+    label: "Ancient Iran",
+    blurb: "Avestan hymns, Achaemenid and Sasanian kings, and the Shahnameh",
+    start: -1500,
+    end: 1010,
+    pantheonIds: ["persian-pantheon"],
+  },
+  {
+    id: "finnic-north",
+    label: "Finnic North",
+    blurb:
+      "Finnish and Karelian runo-song, from Agricola's list to the Kalevala",
+    start: 800,
+    end: 1849,
+    pantheonIds: ["finnish-pantheon"],
   },
 ];
 

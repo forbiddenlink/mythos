@@ -22,7 +22,7 @@ import {
   Play,
   Clock,
 } from "lucide-react";
-import { getDeityPath } from "@/lib/deities";
+import { normalizeDeityReference } from "@/lib/deity-reference";
 import { isRequiredLearningPathStep } from "@/lib/recommendations";
 import type {
   LearningPath,
@@ -66,7 +66,7 @@ const goalIconColors: Record<LearningGoal, string> = {
 function getStepLink(step: LearningPathStep): string {
   switch (step.type) {
     case "deity":
-      return getDeityPath(step.itemId);
+      return `/deities/${step.slug ?? normalizeDeityReference(step.itemId)}`;
     case "story":
       return `/stories/${step.itemId}`;
     case "quiz":
@@ -113,9 +113,7 @@ export function LearningPathCard({
   const isStarted = path.progress > 0;
 
   return (
-    <Card
-      className={`group relative overflow-hidden transition-all duration-300 hover:shadow-lg hover:-translate-y-1 ${className}`}
-    >
+    <Card className={`group relative overflow-hidden ${className}`}>
       {/* Gradient accent at top */}
       <div
         className={`absolute top-0 left-0 right-0 h-1 bg-linear-to-r ${gradientColor}`}

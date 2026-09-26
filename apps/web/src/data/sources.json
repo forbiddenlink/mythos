@@ -1782,5 +1782,1521 @@
       }
     ],
     "readingOrder": "Thomas Kinsella's 1969 translation is the classic English starting point; Ciaran Carson's 2007 Penguin Classics translation is a livelier modern alternative."
+  },
+  {
+    "id": "florentine-codex",
+    "title": "Florentine Codex (General History of the Things of New Spain)",
+    "author": "Bernardino de Sahagún and Nahua scholars",
+    "year": "c. 1545-1577",
+    "type": "ancient-text",
+    "language": "Nahuatl and Spanish",
+    "description": "A twelve-book encyclopedia of Nahua religion, society, and history compiled by the Franciscan Sahagún with Nahua elders and trilingual Nahua scholars. The principal written source for Aztec gods, festivals, and myths such as the birth of Huitzilopochtli at Coatepec.",
+    "translators": [
+      {
+        "name": "Arthur J. O. Anderson and Charles E. Dibble",
+        "year": 1950
+      }
+    ]
+  },
+  {
+    "id": "leyenda-de-los-soles",
+    "title": "Leyenda de los Soles (Legend of the Suns)",
+    "author": "Anonymous Nahua author",
+    "year": "1558",
+    "type": "ancient-text",
+    "language": "Nahuatl",
+    "description": "A Nahuatl account of the successive world ages (Suns) and their destructions, Quetzalcoatl's recovery of human bones from Mictlan, and the discovery of maize, preserved in the Codex Chimalpopoca.",
+    "translators": [
+      {
+        "name": "John Bierhorst",
+        "year": 1992
+      }
+    ]
+  },
+  {
+    "id": "myths-mexico-peru",
+    "title": "The Myths of Mexico and Peru",
+    "author": "Lewis Spence",
+    "year": 1913,
+    "type": "academic",
+    "language": "English",
+    "description": "An early twentieth-century popular survey retelling Aztec, Maya, and Inca myths from Sahagún, the Popol Vuh, and colonial chronicles. Useful as a period retelling, but dated in its interpretations.",
+    "externalUrl": "https://www.sacred-texts.com/nam/mmp/index.htm"
+  },
+  {
+    "id": "cath-maige-tuired",
+    "title": "Cath Maige Tuired (The Second Battle of Mag Tuired)",
+    "author": "Anonymous (Irish Mythological Cycle)",
+    "year": "c. 9th-12th century CE",
+    "type": "ancient-text",
+    "language": "Old and Middle Irish",
+    "description": "The Mythological Cycle tale of the war between the Túatha Dé Danann and the Fomoire, including Nuada's silver arm, the reign of Bres, Lug's arrival at Tara, Dian Cécht's healing well, and the death of Balor.",
+    "translators": [
+      {
+        "name": "Whitley Stokes",
+        "year": 1891
+      },
+      {
+        "name": "Elizabeth A. Gray",
+        "year": 1982
+      }
+    ]
+  },
+  {
+    "id": "lebor-gabala-erenn",
+    "title": "Lebor Gabála Érenn (The Book of the Taking of Ireland)",
+    "author": "Anonymous (Irish learned tradition)",
+    "year": "11th century CE",
+    "type": "ancient-text",
+    "language": "Middle Irish",
+    "description": "A medieval pseudo-history narrating the successive invasions of Ireland, including the coming of the Túatha Dé Danann with their four treasures and their defeat by the Milesians.",
+    "translators": [
+      {
+        "name": "R. A. Stewart Macalister",
+        "year": 1938
+      }
+    ]
+  },
+  {
+    "id": "gods-and-fighting-men",
+    "title": "Gods and Fighting Men",
+    "author": "Lady Augusta Gregory",
+    "year": 1904,
+    "type": "translation",
+    "language": "English",
+    "description": "Lady Gregory's retelling of the Irish Mythological and Fenian cycles, drawn from translations of medieval Irish texts. A literary adaptation rather than a line-by-line translation.",
+    "externalUrl": "https://www.sacred-texts.com/neu/celt/gafm/index.htm"
+  },
+  {
+    "id": "plutarch-isis-osiris",
+    "title": "On Isis and Osiris (De Iside et Osiride)",
+    "author": "Plutarch",
+    "year": "c. 100 CE",
+    "type": "ancient-text",
+    "language": "Ancient Greek",
+    "description": "Plutarch's essay on Egyptian religion and the only connected ancient narrative of the Osiris myth: Set's murder of Osiris, Isis's search, and Horus's vengeance, told with Greek names and philosophical interpretation.",
+    "translators": [
+      {
+        "name": "Frank Cole Babbitt",
+        "year": 1936
+      }
+    ]
+  },
+  {
+    "id": "argonautica",
+    "title": "Argonautica",
+    "author": "Apollonius of Rhodes",
+    "year": "3rd century BCE",
+    "type": "ancient-text",
+    "language": "Ancient Greek",
+    "description": "The Hellenistic epic of Jason and the Argonauts: the voyage to Colchis, Medea's love and magic, the winning of the Golden Fleece, and the long return journey.",
+    "translators": [
+      {
+        "name": "R. C. Seaton",
+        "year": 1912
+      },
+      {
+        "name": "Peter Green",
+        "year": 1997
+      }
+    ]
+  },
+  {
+    "id": "fasti",
+    "title": "Fasti",
+    "author": "Ovid",
+    "year": "c. 8-17 CE",
+    "type": "ancient-text",
+    "language": "Latin",
+    "description": "Ovid's unfinished poem on the Roman calendar, covering January to June, which explains festivals and rites through myth and aetiology.",
+    "translators": [
+      {
+        "name": "James G. Frazer",
+        "year": 1931
+      },
+      {
+        "name": "A. J. Boyle and R. D. Woodard",
+        "year": 2000
+      }
+    ]
+  },
+  {
+    "id": "vishnu-purana",
+    "title": "Vishnu Purana",
+    "author": "Anonymous (Puranic tradition)",
+    "year": "c. 1st millennium CE",
+    "type": "ancient-text",
+    "language": "Sanskrit",
+    "description": "One of the major Puranas, presenting cosmology, genealogies, and the avatars of Vishnu, including an early full account of Krishna's life.",
+    "translators": [
+      {
+        "name": "H. H. Wilson",
+        "year": 1840
+      },
+      {
+        "name": "Manmatha Nath Dutt",
+        "year": 1896
+      }
+    ]
+  },
+  {
+    "id": "journey-to-the-west",
+    "title": "Journey to the West (Xiyouji)",
+    "author": "Wu Cheng'en (attributed)",
+    "year": "c. 1592 CE",
+    "type": "ancient-text",
+    "language": "Vernacular Chinese",
+    "description": "The Ming novel of the monk Xuanzang's pilgrimage to India with Sun Wukong and his companions, including the Monkey King's rebellion against Heaven and his imprisonment under the Five Elements Mountain.",
+    "translators": [
+      {
+        "name": "Arthur Waley (abridged, as Monkey)",
+        "year": 1942
+      },
+      {
+        "name": "Anthony C. Yu",
+        "year": 1977
+      },
+      {
+        "name": "W. J. F. Jenner",
+        "year": 1982
+      }
+    ]
+  },
+  {
+    "id": "huainanzi",
+    "title": "Huainanzi",
+    "author": "Scholars at the court of Liu An, King of Huainan",
+    "year": "139 BCE",
+    "type": "ancient-text",
+    "language": "Classical Chinese",
+    "description": "A Han-dynasty compendium of cosmology, statecraft, and lore that preserves early accounts of Nüwa repairing the sky and Yi shooting down the suns.",
+    "translators": [
+      {
+        "name": "John S. Major, Sarah A. Queen, Andrew Seth Meyer, and Harold D. Roth",
+        "year": 2010
+      }
+    ]
+  },
+  {
+    "id": "russian-primary-chronicle",
+    "title": "Russian Primary Chronicle (Povest' vremennykh let)",
+    "author": "Kievan monastic chroniclers (traditionally Nestor)",
+    "year": "c. 1113 CE",
+    "type": "ancient-text",
+    "language": "Old East Slavic",
+    "description": "The chief narrative history of Kievan Rus', whose entries for 907, 945, 980, and 988 name Perun and Veles in treaty oaths and list the idols Prince Vladimir set up in Kyiv.",
+    "translators": [
+      {
+        "name": "Samuel Hazzard Cross and Olgerd P. Sherbowitz-Wetzor",
+        "year": 1953
+      }
+    ]
+  },
+  {
+    "id": "afanasyev-russian-fairy-tales",
+    "title": "Narodnye russkie skazki (Russian Fairy Tales)",
+    "author": "Alexander Afanasyev",
+    "year": "1855-1863",
+    "type": "academic",
+    "language": "Russian",
+    "description": "The classic nineteenth-century collection of East Slavic folktales, source of many Baba Yaga and Koschei stories. Folklore recorded centuries after the pre-Christian period, not evidence of ancient myth by itself.",
+    "translators": [
+      {
+        "name": "Norbert Guterman",
+        "year": 1945
+      }
+    ]
+  },
+  {
+    "id": "iroquoian-cosmology",
+    "title": "Iroquoian Cosmology",
+    "author": "J. N. B. Hewitt (Tuscarora)",
+    "year": "1903, 1928",
+    "type": "academic",
+    "language": "English, Onondaga, Seneca, and Mohawk",
+    "description": "Texts and translations of Haudenosaunee creation accounts recorded by the Tuscarora ethnologist Hewitt, published in the 21st and 43rd Annual Reports of the Bureau of American Ethnology."
+  },
+  {
+    "id": "seneca-myths-folk-tales",
+    "title": "Seneca Myths and Folk Tales",
+    "author": "Arthur C. Parker (Seneca)",
+    "year": 1923,
+    "type": "academic",
+    "language": "English",
+    "description": "A collection of Seneca narratives recorded by the Seneca archaeologist and ethnologist Arthur C. Parker, including creation and trickster stories."
+  },
+  {
+    "id": "hittite-myths-hoffner",
+    "title": "Hittite Myths",
+    "author": "Harry A. Hoffner Jr. (translator; ed. Gary M. Beckman)",
+    "year": "1990; 2nd ed. 1998",
+    "type": "translation",
+    "language": "Hittite (English translation)",
+    "description": "The standard English translation of Hittite mythological texts, covering both the Anatolian myths preserved in rituals (the Illuyanka tales, the disappearance of Telipinu and other vanishing deities) and the Hurrian Kumarbi cycle translated into Hittite. Hoffner marks gaps and damaged passages throughout.",
+    "translators": [
+      {
+        "name": "Harry A. Hoffner Jr.",
+        "year": 1998
+      }
+    ],
+    "characters": [
+      {
+        "id": "tarhunna",
+        "kind": "deity",
+        "role": "the Storm-god, defeated and then victorious against the serpent; the Hurrian Teššub of the Kumarbi cycle",
+        "where": "Illuyanka tales (CTH 321); Kumarbi cycle (CTH 344-348)"
+      },
+      {
+        "id": "telipinu",
+        "kind": "deity",
+        "role": "the god whose angry departure starves the land",
+        "where": "The Disappearance of Telipinu (CTH 324)"
+      },
+      {
+        "id": "hannahanna",
+        "kind": "deity",
+        "role": "the mother goddess who sends the bee to find Telipinu",
+        "where": "The Disappearance of Telipinu (CTH 324)"
+      },
+      {
+        "id": "inara",
+        "kind": "deity",
+        "role": "prepares the feast that traps the serpent",
+        "where": "Illuyanka tales, first version (CTH 321)"
+      },
+      {
+        "id": "kamrusepa",
+        "kind": "deity",
+        "role": "performs the rite that soothes Telipinu's anger",
+        "where": "The Disappearance of Telipinu (CTH 324)"
+      }
+    ],
+    "keyScenes": [
+      {
+        "title": "The Serpent at the Feast",
+        "where": "Illuyanka tales, first version (CTH 321)",
+        "summary": "Inara lays out a feast; the serpent and its children eat and drink until they cannot squeeze back into their hole, and the mortal Hupašiya binds them for the Storm-god."
+      },
+      {
+        "title": "The Bee Finds Telipinu",
+        "where": "The Disappearance of Telipinu (CTH 324)",
+        "summary": "After the Sun-god's eagle and the Storm-god himself fail, Hannahanna's bee finds Telipinu asleep in a meadow near Lihzina and stings him awake."
+      }
+    ],
+    "readingOrder": "Start with the Illuyanka tales and the Disappearance of Telipinu, which are short and Anatolian; then read the Song of Kumarbi and the Song of Ullikummi together as a Hurrian cycle."
+  },
+  {
+    "id": "kumarbi-cycle",
+    "title": "The Kumarbi Cycle (Song of Kumarbi, Song of Hedammu, Song of Ullikummi)",
+    "author": "Anonymous Hurrian poets; Hittite translations from the Hattusa archives",
+    "year": "Hurrian originals probably before the 14th c. BCE; surviving Hittite copies 14th-13th c. BCE",
+    "type": "ancient-text",
+    "language": "Hittite (translated from Hurrian), with Hurrian-language fragments",
+    "description": "A cycle of Hurrian songs about the struggle for kingship in heaven between Kumarbi, father of the gods, and the storm-god Teššub. Known mainly from Hittite translations found at Hattusa (CTH 344-348), it is the closest Near Eastern parallel to the succession myth of Hesiod's Theogony. Every song in the cycle is fragmentary.",
+    "translators": [
+      {
+        "name": "Harry A. Hoffner Jr.",
+        "year": 1998
+      }
+    ],
+    "characters": [
+      {
+        "id": "kumarbi",
+        "kind": "deity",
+        "role": "father of the gods, who seizes kingship from Anu and plots against Teššub",
+        "where": "Song of Kumarbi (CTH 344); Song of Ullikummi (CTH 345)"
+      },
+      {
+        "id": "alalu",
+        "kind": "deity",
+        "role": "the first king in heaven, overthrown by Anu",
+        "where": "Song of Kumarbi (CTH 344), opening"
+      },
+      {
+        "id": "tarhunna",
+        "kind": "deity",
+        "role": "Teššub, the storm-god born from Kumarbi, who wins kingship",
+        "where": "throughout the cycle"
+      },
+      {
+        "id": "shaushka",
+        "kind": "deity",
+        "role": "Teššub's sister, who tries to seduce Hedammu and Ullikummi",
+        "where": "Song of Hedammu (CTH 348); Song of Ullikummi (CTH 345)"
+      }
+    ],
+    "keyScenes": [
+      {
+        "title": "The Succession in Heaven",
+        "where": "Song of Kumarbi (CTH 344)",
+        "summary": "Alalu reigns nine years before Anu overthrows him; Anu reigns nine years before Kumarbi bites off his loins and swallows the seed of the storm-god."
+      },
+      {
+        "title": "The Stone Monster on Upelluri's Shoulder",
+        "where": "Song of Ullikummi (CTH 345)",
+        "summary": "Kumarbi fathers a basalt giant on a great rock and hides it on the shoulder of the world-bearing giant Upelluri, where it grows until it reaches the sky."
+      },
+      {
+        "title": "The Ancient Copper Cutter",
+        "where": "Song of Ullikummi (CTH 345)",
+        "summary": "Ea brings out the tool that once separated heaven from earth and cuts Ullikummi's feet from Upelluri's shoulder."
+      }
+    ],
+    "readingOrder": "Read the Song of Kumarbi first, then the Song of Ullikummi; the Song of Hedammu is more fragmentary and best read after both."
+  },
+  {
+    "id": "baal-cycle",
+    "title": "The Baal Cycle (KTU 1.1-1.6)",
+    "author": "Anonymous Ugaritic poet(s); tablets copied by the scribe Ilimilku",
+    "year": "Tablets of the late 13th or early 12th c. BCE; the poem is older",
+    "type": "ancient-text",
+    "language": "Ugaritic",
+    "description": "Six damaged tablets from Ugarit telling how the storm-god Baal defeats Yamm (the Sea), wins permission to build his palace on Mount Zaphon, descends into the throat of Mot (Death), and returns to life. The order of the first tablets and many passages are uncertain.",
+    "translators": [
+      {
+        "name": "Mark S. Smith (in Ugaritic Narrative Poetry, ed. S. B. Parker)",
+        "year": 1997
+      },
+      {
+        "name": "Nicolas Wyatt (Religious Texts from Ugarit)",
+        "year": 2002
+      },
+      {
+        "name": "Michael D. Coogan and Mark S. Smith (Stories from Ancient Canaan)",
+        "year": 2012
+      }
+    ],
+    "characters": [
+      {
+        "id": "baal",
+        "kind": "deity",
+        "role": "the storm-god who defeats Yamm, builds his palace, dies, and returns",
+        "where": "throughout, KTU 1.1-1.6"
+      },
+      {
+        "id": "anat",
+        "kind": "deity",
+        "role": "Baal's warrior ally who finds his body and destroys Mot",
+        "where": "KTU 1.3; 1.6 I-II"
+      },
+      {
+        "id": "el",
+        "kind": "deity",
+        "role": "the aged king of the gods who grants and withholds permission",
+        "where": "KTU 1.1-1.6"
+      },
+      {
+        "id": "athirat",
+        "kind": "deity",
+        "role": "El's consort, persuaded to intercede for Baal's palace",
+        "where": "KTU 1.4 II-V; 1.6 I"
+      },
+      {
+        "id": "yam",
+        "kind": "deity",
+        "role": "the Sea, Baal's first rival",
+        "where": "KTU 1.1-1.2"
+      },
+      {
+        "id": "mot",
+        "kind": "deity",
+        "role": "Death, who swallows Baal",
+        "where": "KTU 1.4 VIII-1.6"
+      },
+      {
+        "id": "kothar-wa-khasis",
+        "kind": "deity",
+        "role": "craftsman who makes Baal's clubs and builds his palace",
+        "where": "KTU 1.2 IV; 1.4 V-VII"
+      },
+      {
+        "id": "shapash",
+        "kind": "deity",
+        "role": "sun-goddess who helps recover Baal and warns Mot",
+        "where": "KTU 1.6 I, VI"
+      },
+      {
+        "id": "athtar",
+        "kind": "deity",
+        "role": "tries and fails to fill Baal's throne",
+        "where": "KTU 1.6 I"
+      },
+      {
+        "id": "athtart",
+        "kind": "deity",
+        "role": "restrains Baal and later urges him to finish Yamm",
+        "where": "KTU 1.2 I, IV"
+      }
+    ],
+    "keyScenes": [
+      {
+        "title": "Yagrush and Ayyamur",
+        "where": "KTU 1.2 IV",
+        "summary": "Kothar-wa-Khasis makes two named clubs for Baal; the second strikes Yamm on the head and he falls."
+      },
+      {
+        "title": "The Window in the Palace",
+        "where": "KTU 1.4 V-VII",
+        "summary": "Baal at first refuses a window in his new palace, then allows it; through the rift in the clouds he thunders."
+      },
+      {
+        "title": "Anat Destroys Mot",
+        "where": "KTU 1.6 II",
+        "summary": "Anat seizes Mot, splits him with a blade, winnows, burns, grinds, and sows him like grain."
+      },
+      {
+        "title": "Baal Lives",
+        "where": "KTU 1.6 III",
+        "summary": "El dreams that the heavens rain oil and the wadis run with honey, and knows that Baal is alive."
+      }
+    ],
+    "readingOrder": "Read tablets 1.1-1.2 (Baal and Yamm), then 1.3-1.4 (the palace), then 1.5-1.6 (Baal and Mot). Mark S. Smith's translations mark gaps and uncertain readings clearly."
+  },
+  {
+    "id": "aqhat-epic",
+    "title": "The Epic of Aqhat (KTU 1.17-1.19)",
+    "author": "Anonymous Ugaritic poet; tablets copied by the scribe Ilimilku",
+    "year": "Tablets of the late 13th or early 12th c. BCE",
+    "type": "ancient-text",
+    "language": "Ugaritic",
+    "description": "Three tablets telling how the righteous Danel is granted a son, Aqhat; how the goddess Anat covets the bow the craftsman god gives him and has him killed; and how his sister Pughat sets out to avenge him. The ending is lost.",
+    "translators": [
+      {
+        "name": "Simon B. Parker (in Ugaritic Narrative Poetry)",
+        "year": 1997
+      },
+      {
+        "name": "Nicolas Wyatt (Religious Texts from Ugarit)",
+        "year": 2002
+      }
+    ],
+    "characters": [
+      {
+        "id": "aqhat",
+        "kind": "hero",
+        "role": "Danel's son, killed for refusing to give Anat his bow",
+        "where": "KTU 1.17-1.19"
+      },
+      {
+        "id": "anat",
+        "kind": "deity",
+        "role": "covets the bow and arranges Aqhat's death",
+        "where": "KTU 1.17 VI; 1.18"
+      },
+      {
+        "id": "kothar-wa-khasis",
+        "kind": "deity",
+        "role": "brings the bow to Danel's house",
+        "where": "KTU 1.17 V"
+      },
+      {
+        "id": "el",
+        "kind": "deity",
+        "role": "blesses Danel with a son; permits Anat's revenge",
+        "where": "KTU 1.17 I; 1.18 I"
+      },
+      {
+        "id": "baal",
+        "kind": "deity",
+        "role": "intercedes for Danel; breaks the wings of the vultures",
+        "where": "KTU 1.17 I; 1.19 III"
+      }
+    ],
+    "keyScenes": [
+      {
+        "title": "The Gift of the Bow",
+        "where": "KTU 1.17 V",
+        "summary": "Kothar-wa-Khasis arrives at Danel's house carrying a bow and arrows, and Danel gives the bow to his son."
+      },
+      {
+        "title": "Anat's Offer",
+        "where": "KTU 1.17 VI",
+        "summary": "Anat offers Aqhat silver, gold, and then immortality for the bow; he refuses and mocks her."
+      },
+      {
+        "title": "Pughat Sets Out",
+        "where": "KTU 1.19 IV",
+        "summary": "Aqhat's sister arms herself beneath a woman's clothes and goes to the camp of his killer, where the text breaks off."
+      }
+    ],
+    "readingOrder": "Read straight through; Parker's translation is short and clearly annotated."
+  },
+  {
+    "id": "kirta-epic",
+    "title": "The Epic of Kirta (KTU 1.14-1.16)",
+    "author": "Anonymous Ugaritic poet; tablets copied by the scribe Ilimilku",
+    "year": "Tablets of the late 13th or early 12th c. BCE",
+    "type": "ancient-text",
+    "language": "Ugaritic",
+    "description": "Three tablets about King Kirta, who loses his family, wins a new bride on El's instructions, forgets a vow to the goddess Athirat, falls ill, and is healed by a being El creates, only to be challenged by his own son. The ending is lost.",
+    "translators": [
+      {
+        "name": "Edward L. Greenstein (in Ugaritic Narrative Poetry)",
+        "year": 1997
+      },
+      {
+        "name": "Nicolas Wyatt (Religious Texts from Ugarit)",
+        "year": 2002
+      }
+    ],
+    "characters": [
+      {
+        "id": "kirta",
+        "kind": "hero",
+        "role": "the king whose house is restored and then endangered",
+        "where": "KTU 1.14-1.16"
+      },
+      {
+        "id": "el",
+        "kind": "deity",
+        "role": "appears to Kirta in a dream, blesses his marriage, and heals him",
+        "where": "KTU 1.14 I-III; 1.15 II; 1.16 V"
+      },
+      {
+        "id": "athirat",
+        "kind": "deity",
+        "role": "receives Kirta's vow and punishes its neglect",
+        "where": "KTU 1.14 IV; 1.15 III"
+      }
+    ],
+    "keyScenes": [
+      {
+        "title": "El's Dream",
+        "where": "KTU 1.14 I-III",
+        "summary": "El appears to the grieving king in a dream and tells him to march on Udm and ask King Pabil for his daughter Hurriya."
+      },
+      {
+        "title": "The Forgotten Vow",
+        "where": "KTU 1.14 IV; 1.15 III",
+        "summary": "Kirta vows gold and silver to Athirat if he wins Hurriya, then fails to pay, and the goddess remembers."
+      }
+    ],
+    "readingOrder": "Read straight through; Greenstein's translation notes the many gaps."
+  },
+  {
+    "id": "rasmussen-fifth-thule",
+    "title": "Report of the Fifth Thule Expedition 1921-24",
+    "author": "Knud Rasmussen (with named Inuit speakers, among them Aua, Orpingalik, Netsit, and Igjugarjuk)",
+    "year": "1929-1932 (vols. 7-9 on Inuit intellectual culture)",
+    "type": "translation",
+    "language": "Inuktitut dialects (English translation)",
+    "description": "The ethnographic reports of the expedition led by the Greenlandic-Danish Knud Rasmussen across Arctic Canada to Alaska. The volumes on the Iglulik (1929), Caribou Inuit (1930), and Netsilingmiut (1931) record the words of named Inuit speakers about the Sea Woman, the Moon Spirit, Sila, and the work of angakkuit. Invaluable, but an outsider's compilation that uses terms many Inuit now reject.",
+    "translators": [
+      {
+        "name": "W. Worster and W. E. Calvert",
+        "year": 1929
+      }
+    ],
+    "characters": [
+      {
+        "id": "sedna",
+        "kind": "deity",
+        "role": "the Sea Woman, as Takanaaluk (Iglulik) and Nuliajuk (Netsilingmiut)",
+        "where": "Intellectual Culture of the Iglulik Eskimos; The Netsilik Eskimos"
+      },
+      {
+        "id": "sila",
+        "kind": "deity",
+        "role": "Sila, the power of air and weather",
+        "where": "Iglulik and Caribou Inuit volumes"
+      },
+      {
+        "id": "pinga",
+        "kind": "deity",
+        "role": "Pinga, 'the one up there', among the Caribou Inuit",
+        "where": "Intellectual Culture of the Caribou Eskimos"
+      },
+      {
+        "id": "anningan",
+        "kind": "deity",
+        "role": "the Moon Spirit (Taqqiq) and the story of the sun and moon siblings",
+        "where": "Intellectual Culture of the Iglulik Eskimos"
+      }
+    ],
+    "keyScenes": [
+      {
+        "title": "The Journey to the Sea Woman",
+        "where": "Intellectual Culture of the Iglulik Eskimos",
+        "summary": "Iglulik speakers describe how an angakkuq travels to the bottom of the sea to comb the Sea Woman's hair so that she will release the animals."
+      },
+      {
+        "title": "Nuliajuk the Orphan",
+        "where": "The Netsilik Eskimos",
+        "summary": "An orphan girl pushed from a raft of kayaks clings to its edge, her fingers are cut, and she sinks to become Nuliajuk, mother of the sea animals."
+      }
+    ],
+    "readingOrder": "Read the Iglulik volume first; then the Netsilik volume for Nuliajuk. Pair both with Interviewing Inuit Elders, vol. 4."
+  },
+  {
+    "id": "boas-central-eskimo",
+    "title": "The Central Eskimo",
+    "author": "Franz Boas",
+    "year": "1888",
+    "type": "academic",
+    "language": "English (with Inuktitut terms)",
+    "description": "Boas's ethnography of the Inuit of Baffin Island and neighbouring regions, based on his 1883-84 stay in Cumberland Sound. It contains the account of Sedna and her father Anguta that made the name 'Sedna' widely known, and the story of the sun and moon siblings. An outsider's early record, using terminology now outdated.",
+    "externalUrl": "https://www.gutenberg.org/ebooks/42084",
+    "characters": [
+      {
+        "id": "sedna",
+        "kind": "deity",
+        "role": "mistress of Adlivun and the sea animals",
+        "where": "section on religious ideas and traditions"
+      },
+      {
+        "id": "anguta",
+        "kind": "deity",
+        "role": "Sedna's father, who carries the dead to Adlivun",
+        "where": "section on religious ideas and traditions"
+      },
+      {
+        "id": "anningan",
+        "kind": "deity",
+        "role": "the brother who becomes the moon",
+        "where": "traditions, the sun and moon"
+      },
+      {
+        "id": "malina",
+        "kind": "deity",
+        "role": "the sister who becomes the sun",
+        "where": "traditions, the sun and moon"
+      }
+    ],
+    "keyScenes": [
+      {
+        "title": "Sedna and the Fulmar",
+        "where": "traditions",
+        "summary": "Sedna is deceived into marrying a fulmar; her father rescues her, throws her overboard in a storm, and cuts her fingers, which become the sea mammals."
+      },
+      {
+        "title": "The Sun and the Moon",
+        "where": "traditions",
+        "summary": "A sister discovers her brother is the one visiting her in the dark; she flees with a torch and becomes the sun, and he pursues her and becomes the moon."
+      }
+    ],
+    "readingOrder": "Read the sections on religion and traditions; compare with Rasmussen and with Interviewing Inuit Elders."
+  },
+  {
+    "id": "interviewing-inuit-elders-cosmology",
+    "title": "Interviewing Inuit Elders, Volume 4: Cosmology and Shamanism",
+    "author": "Mariano Aupilaarjuk, Lucassie Nutaraaluk, Rose Iqallijuq, Johanasi Ujarak, Isidore Ijituuq, and Michel Kupaaq; ed. Bernard Saladin d'Anglure",
+    "year": "2001",
+    "type": "academic",
+    "language": "English and Inuktitut",
+    "description": "Part of a Nunavut Arctic College series in which Inuit students interviewed elders in 1998 about their own knowledge. This volume covers the Sea Woman (including the Iglulik name Uinigumasuittuq), the moon, Sila, and the work of angakkuit, in the elders' own words. A key Inuit-led source.",
+    "characters": [
+      {
+        "id": "sedna",
+        "kind": "deity",
+        "role": "the Sea Woman as Uinigumasuittuq and Takannaaluk",
+        "where": "chapters on cosmology"
+      },
+      {
+        "id": "sila",
+        "kind": "deity",
+        "role": "Sila, weather and the world's order",
+        "where": "chapters on cosmology"
+      }
+    ],
+    "keyScenes": [
+      {
+        "title": "The One Who Did Not Want a Husband",
+        "where": "chapters on cosmology",
+        "summary": "Elders tell the story of the young woman who refused to marry and became the Sea Woman."
+      }
+    ],
+    "readingOrder": "A good first book: elders speak in their own words, with Inuktitut terms explained."
+  },
+  {
+    "id": "songlines-seven-sisters",
+    "title": "Songlines: Tracking the Seven Sisters",
+    "author": "Margo Neale (ed.), with Martu, Ngaanyatjarra, and Aṉangu Pitjantjatjara Yankunytjatjara knowledge holders and artists",
+    "year": "2017",
+    "type": "academic",
+    "language": "English, with Martu Wangka, Ngaanyatjarra, Pitjantjatjara, and Yankunytjatjara terms",
+    "description": "Catalogue of the National Museum of Australia's exhibition, developed with the custodians of the Seven Sisters songlines of the Western and Central Deserts, who decided what could be shared publicly. The exhibition later toured to Paris, Berlin, Plymouth, Perth, and New Delhi.",
+    "externalUrl": "https://www.nma.gov.au/exhibitions/songlines",
+    "characters": [
+      {
+        "id": "seven-sisters",
+        "kind": "deity",
+        "role": "the ancestral sisters (Minyipuru, Kungkarangkalpa) who flee across the deserts",
+        "where": "throughout"
+      },
+      {
+        "id": "wati-nyiru",
+        "kind": "deity",
+        "role": "the man (Yurla, Wati Nyiru) who pursues them",
+        "where": "throughout"
+      }
+    ],
+    "keyScenes": [
+      {
+        "title": "The pursuit across the deserts",
+        "where": "Martu, Ngaanyatjarra, and APY sections",
+        "summary": "The sisters travel across the Countries of several peoples, pursued by a man who uses magic and changes shape; the places they pass are marked in the land."
+      },
+      {
+        "title": "Into the sky",
+        "where": "concluding sections",
+        "summary": "The sisters rise into the sky as the Pleiades, and the man follows, seen in stars of Orion."
+      }
+    ],
+    "readingOrder": "Begin with the custodians' own introductions and the maps of the songlines before the art."
+  },
+  {
+    "id": "navaho-legends-matthews",
+    "title": "Navaho Legends",
+    "author": "Washington Matthews",
+    "year": "1897",
+    "type": "translation",
+    "language": "Diné bizaad (Navajo), English translation",
+    "description": "Matthews's translation of the Diné origin story and related narratives, recorded in the 1880s from Diné ceremonial practitioners. A foundational but outsider source, in an outdated orthography (Estsánatlehi, Nayénĕzgani, Tóbadzĭstsíni). Accounts in it differ from later tellings, for example on the mothers of the Hero Twins.",
+    "translators": [
+      {
+        "name": "Washington Matthews",
+        "year": 1897
+      }
+    ],
+    "characters": [
+      {
+        "id": "changing-woman",
+        "kind": "deity",
+        "role": "Estsánatlehi, mother of Monster Slayer",
+        "where": "origin legend, the war gods"
+      },
+      {
+        "id": "white-shell-woman",
+        "kind": "deity",
+        "role": "Yolkaí Estsán, mother of Born for Water in this version",
+        "where": "origin legend"
+      },
+      {
+        "id": "monster-slayer",
+        "kind": "deity",
+        "role": "Nayénĕzgani, slayer of the monsters",
+        "where": "origin legend, the war gods"
+      },
+      {
+        "id": "born-for-water",
+        "kind": "deity",
+        "role": "Tóbadzĭstsíni, his brother",
+        "where": "origin legend, the war gods"
+      },
+      {
+        "id": "johonaaei",
+        "kind": "deity",
+        "role": "Tsóhanoai, the Sun Bearer, the twins' father",
+        "where": "origin legend, the twins' journey"
+      },
+      {
+        "id": "spider-woman",
+        "kind": "deity",
+        "role": "helps the twins on their journey",
+        "where": "origin legend, the twins' journey"
+      },
+      {
+        "id": "first-man",
+        "kind": "deity",
+        "role": "Atsé Hastín, leader in the lower worlds",
+        "where": "origin legend"
+      },
+      {
+        "id": "first-woman",
+        "kind": "deity",
+        "role": "Atsé Estsán",
+        "where": "origin legend"
+      },
+      {
+        "id": "coyote",
+        "kind": "deity",
+        "role": "troublemaker in the lower worlds",
+        "where": "origin legend"
+      }
+    ],
+    "keyScenes": [
+      {
+        "title": "The Flood of the Lower World",
+        "where": "origin legend",
+        "summary": "Water rises through the lower world and the people escape upward through a great reed."
+      },
+      {
+        "title": "The Twins at the Sun's House",
+        "where": "origin legend, the war gods",
+        "summary": "The twins reach their father's house, survive his tests with Spider Woman's help, and receive weapons of lightning."
+      },
+      {
+        "title": "Monsters Spared",
+        "where": "origin legend, the war gods",
+        "summary": "Monster Slayer spares Old Age, Cold, Poverty, and Hunger when each explains its place in life."
+      }
+    ],
+    "readingOrder": "Read the introduction on orthography and sources first; pair with Diné-authored works."
+  },
+  {
+    "id": "dine-bahane-zolbrod",
+    "title": "Diné bahane': The Navajo Creation Story",
+    "author": "Paul G. Zolbrod",
+    "year": "1984",
+    "type": "translation",
+    "language": "English (from Diné sources recorded by Matthews and others)",
+    "description": "A continuous English rendering of the Diné creation story, from the lower worlds through the emergence, the birth of Changing Woman, the Hero Twins, and the origin of the clans. Widely read, and criticised by some Diné readers for combining versions into a single narrative by a non-Diné author.",
+    "characters": [
+      {
+        "id": "first-man",
+        "kind": "deity",
+        "role": "finds Changing Woman as an infant",
+        "where": "Part Three"
+      },
+      {
+        "id": "changing-woman",
+        "kind": "deity",
+        "role": "mother of the Hero Twins",
+        "where": "Parts Three and Four"
+      },
+      {
+        "id": "monster-slayer",
+        "kind": "deity",
+        "role": "Naayééʼ Neizghání",
+        "where": "Part Four"
+      },
+      {
+        "id": "coyote",
+        "kind": "deity",
+        "role": "First Scolder, who scatters the stars",
+        "where": "Part Two"
+      }
+    ],
+    "keyScenes": [
+      {
+        "title": "The Finding of Changing Woman",
+        "where": "Part Three",
+        "summary": "First Man finds an infant girl on Chʼóolʼį́ʼí, and she is raised by First Man and First Woman."
+      },
+      {
+        "title": "The Scattering of the Stars",
+        "where": "Part Two",
+        "summary": "Coyote grows impatient as the stars are placed carefully in the sky, and scatters the rest."
+      }
+    ],
+    "readingOrder": "Read with the introduction, and alongside Diné-authored sources that present these stories in their own terms."
+  },
+  {
+    "id": "betanzos-suma-y-narracion",
+    "title": "Suma y narración de los Incas (Narrative of the Incas)",
+    "author": "Juan de Betanzos",
+    "year": "1551",
+    "type": "ancient-text",
+    "language": "Spanish",
+    "description": "An early account of Inca history and origins written in Cusco by a Spanish interpreter married to Cuxirimay Ocllo, a noblewoman of Atahualpa's lineage, and drawing on her royal kin. Its opening chapters give the fullest early version of Con Tici Viracocha's creation at Lake Titicaca and Tiwanaku.",
+    "translators": [
+      {
+        "name": "Roland Hamilton and Dana Buchanan",
+        "year": 1996
+      }
+    ]
+  },
+  {
+    "id": "garcilaso-royal-commentaries",
+    "title": "Comentarios Reales de los Incas (Royal Commentaries of the Incas)",
+    "author": "Inca Garcilaso de la Vega",
+    "year": "1609",
+    "type": "ancient-text",
+    "language": "Spanish",
+    "description": "A history of the Incas written in Spain by the son of a Spanish captain and the Inca noblewoman Chimpu Ocllo. Source of the best-known version of Manco Cápac and Mama Ocllo as children of the Sun, and of detailed descriptions of the Coricancha and Inti Raymi, filtered through the author's wish to present Inca religion as a preparation for Christianity.",
+    "translators": [
+      {
+        "name": "Clements R. Markham",
+        "year": 1869
+      },
+      {
+        "name": "Harold V. Livermore",
+        "year": 1966
+      }
+    ]
+  },
+  {
+    "id": "huarochiri-manuscript",
+    "title": "The Huarochirí Manuscript",
+    "author": "Anonymous Andean compiler(s), in the orbit of Francisco de Ávila",
+    "year": "c. 1598-1608",
+    "type": "ancient-text",
+    "language": "Quechua",
+    "description": "The only extended collection of Andean myth written in an Andean language before or soon after the conquest: 31 chapters on the huacas of Huarochirí province (Pariacaca, Cuniraya, Chaupi Ñamca, Pachacamac) and their people, recorded by Quechua-speaking Christians during the campaigns against 'idolatry'.",
+    "translators": [
+      {
+        "name": "José María Arguedas (Spanish)",
+        "year": 1966
+      },
+      {
+        "name": "Gerald Taylor (Spanish)",
+        "year": 1987
+      },
+      {
+        "name": "Frank Salomon and George L. Urioste",
+        "year": 1991
+      }
+    ]
+  },
+  {
+    "id": "avila-tratado-huarochiri",
+    "title": "Tratado y relación de los errores, falsos dioses y otras supersticiones (Narrative of the Errors, False Gods, and Other Superstitions of the Indians of Huarochirí)",
+    "author": "Francisco de Ávila",
+    "year": "1608",
+    "type": "ancient-text",
+    "language": "Spanish",
+    "description": "The extirpator Francisco de Ávila's unfinished Spanish treatise retelling, with hostile commentary, the first chapters of the Quechua Huarochirí material: Cuniraya and Cavillaca, the llama and the flood, Huatyacuri, and Pariacaca's birth from five eggs.",
+    "translators": [
+      {
+        "name": "Clements R. Markham",
+        "year": 1873
+      }
+    ],
+    "externalUrl": "https://eada.lib.umd.edu/text-entries/narrative-of-the-errors-false-gods-and-other-superstitions-and-diabolical-rites-in-which-the-indians-of-the-province-of-huarochiri-lived-in-ancient-times/"
+  },
+  {
+    "id": "molina-fables-and-rites",
+    "title": "Relación de las fábulas y ritos de los Incas (Account of the Fables and Rites of the Incas)",
+    "author": "Cristóbal de Molina (of Cusco)",
+    "year": "c. 1575",
+    "type": "ancient-text",
+    "language": "Spanish",
+    "description": "A Cusco priest's account of Inca origin stories and the ritual calendar, based on testimony from elders who had served the Inca state cult; it records Quechua prayers to the Creator and describes the Citua purification and the initiation rites at Huanacauri.",
+    "translators": [
+      {
+        "name": "Clements R. Markham",
+        "year": 1873
+      },
+      {
+        "name": "Brian S. Bauer, Vania Smith-Oka, and Gabriel E. Cantarutti",
+        "year": 2011
+      }
+    ]
+  },
+  {
+    "id": "sarmiento-history-of-the-incas",
+    "title": "Historia de los Incas (History of the Incas)",
+    "author": "Pedro Sarmiento de Gamboa",
+    "year": "1572",
+    "type": "ancient-text",
+    "language": "Spanish",
+    "description": "A history commissioned by Viceroy Francisco de Toledo, compiled from interviews with Inca lineage heads and read back to them for correction, but written to portray the Incas as tyrants. It tells Viracocha's creation and flood, and the Pacaritambo origin of the Ayar siblings.",
+    "translators": [
+      {
+        "name": "Clements R. Markham",
+        "year": 1907
+      }
+    ],
+    "externalUrl": "https://archive.org/details/historyincas00oviegoog"
+  },
+  {
+    "id": "guaman-poma-nueva-coronica",
+    "title": "El primer nueva corónica y buen gobierno (The First New Chronicle and Good Government)",
+    "author": "Felipe Guaman Poma de Ayala",
+    "year": "c. 1615",
+    "type": "ancient-text",
+    "language": "Spanish and Quechua",
+    "description": "An illustrated 1,189-page letter to Philip III by an Andean noble from Lucanas, with nearly 400 drawings of Inca rulers, ritual calendar, and colonial abuses. The manuscript is held by the Royal Danish Library in Copenhagen.",
+    "translators": [
+      {
+        "name": "Roland Hamilton",
+        "year": 2009
+      }
+    ]
+  },
+  {
+    "id": "acosta-natural-moral-history",
+    "title": "Historia natural y moral de las Indias (Natural and Moral History of the Indies)",
+    "author": "José de Acosta",
+    "year": "1590",
+    "type": "ancient-text",
+    "language": "Spanish",
+    "description": "A Jesuit's survey of the natural world and religions of Peru and Mexico; its fifth book summarizes Andean worship of the Creator, Sun, thunder, earth (Pachamama), and sea (Mamacocha), largely following the jurist Polo de Ondegardo.",
+    "translators": [
+      {
+        "name": "Edward Grimston",
+        "year": 1604
+      }
+    ]
+  },
+  {
+    "id": "cobo-inca-religion",
+    "title": "Historia del Nuevo Mundo, Books 13-14 (Inca Religion and Customs)",
+    "author": "Bernabé Cobo",
+    "year": "1653",
+    "type": "ancient-text",
+    "language": "Spanish",
+    "description": "A Jesuit's late but systematic synthesis of earlier reports on Inca religion, including the gods of the Cusco state cult, the sky and thunder, and the list of shrines arranged along the ceque lines of Cusco.",
+    "translators": [
+      {
+        "name": "Roland Hamilton",
+        "year": 1990
+      }
+    ]
+  },
+  {
+    "id": "avesta",
+    "title": "The Avesta (Zend-Avesta)",
+    "author": "Zoroastrian priestly tradition; the Gathas are attributed to Zarathushtra",
+    "year": "Gathas c. 1500-1000 BCE (date disputed); later parts through the Achaemenid era; written down in the Sasanian period",
+    "type": "ancient-text",
+    "language": "Avestan",
+    "description": "The scripture of Zoroastrianism: the Gathas (hymns attributed to Zarathushtra), the Yasna liturgy, the Yashts (hymns to Mithra, Anahita, Tishtrya, Verethragna and others), and the Vendidad (purity law, with the myths of the sixteen lands and of Yima's enclosure). Transmitted orally for centuries; the surviving manuscripts are medieval.",
+    "translators": [
+      {
+        "name": "James Darmesteter (Vendidad, Yashts; Sacred Books of the East 4 and 23)",
+        "year": 1880
+      },
+      {
+        "name": "L. H. Mills (Yasna and Gathas; Sacred Books of the East 31)",
+        "year": 1887
+      },
+      {
+        "name": "Helmut Humbach (Gathas)",
+        "year": 1991
+      }
+    ],
+    "externalUrl": "https://www.avesta.org/",
+    "characters": [
+      {
+        "id": "ahura-mazda",
+        "kind": "deity",
+        "role": "the Wise Lord, creator, addressed in the Gathas and speaker of the Yashts and Vendidad",
+        "where": "throughout"
+      },
+      {
+        "id": "mithra",
+        "kind": "deity",
+        "role": "lord of wide pastures and guardian of contracts",
+        "where": "Yasht 10 (Mihr Yasht)"
+      },
+      {
+        "id": "anahita",
+        "kind": "deity",
+        "role": "the heavenly river-goddess Ardvi Sura Anahita",
+        "where": "Yasht 5 (Aban Yasht)"
+      },
+      {
+        "id": "tishtrya",
+        "kind": "deity",
+        "role": "the star Sirius, who battles the drought demon Apaosha",
+        "where": "Yasht 8 (Tir Yasht)"
+      },
+      {
+        "id": "verethragna",
+        "kind": "deity",
+        "role": "victory, coming in ten shapes",
+        "where": "Yasht 14 (Bahram Yasht)"
+      },
+      {
+        "id": "yima",
+        "kind": "deity",
+        "role": "the first king, who builds the Var against the winters",
+        "where": "Vendidad 2; Yasht 19"
+      }
+    ],
+    "keyScenes": [
+      {
+        "title": "The Two Spirits",
+        "where": "Yasna 30",
+        "summary": "Zarathushtra describes the two primal spirits and the choice between truth and the lie that every being must make."
+      },
+      {
+        "title": "The Sixteen Lands",
+        "where": "Vendidad 1",
+        "summary": "Ahura Mazda creates sixteen good lands, and Angra Mainyu counter-creates a plague against each."
+      },
+      {
+        "title": "Yima's Var",
+        "where": "Vendidad 2",
+        "summary": "Warned of devastating winters, Yima builds an enclosure to preserve the best of every kind of creature."
+      },
+      {
+        "title": "Tishtrya and Apaosha",
+        "where": "Yasht 8",
+        "summary": "The star Sirius, as a white horse, battles the black horse of drought at the sea Vouru-Kasha and releases the rains."
+      }
+    ],
+    "readingOrder": "Start with the Yashts in Darmesteter's Sacred Books of the East translation (volume 23), which contain the most vivid narrative hymns, then the Vendidad's first two chapters (volume 4). Read the Gathas last and in a modern translation such as Humbach's, since their language is archaic and every English rendering involves heavy interpretation."
+  },
+  {
+    "id": "bundahishn",
+    "title": "Bundahishn (Primal Creation)",
+    "author": "Zoroastrian priests, compiled from older material",
+    "year": "compiled 9th century CE",
+    "type": "ancient-text",
+    "language": "Middle Persian (Pahlavi)",
+    "description": "The fullest Zoroastrian account of cosmology: the two principles of light and darkness, Ahriman's assault on Ohrmazd's creation, the first man Gayomard and the sole-created bull, and the end of time. Survives in a shorter Indian and a longer Iranian recension.",
+    "translators": [
+      {
+        "name": "E. W. West (Sacred Books of the East 5)",
+        "year": 1880
+      },
+      {
+        "name": "B. T. Anklesaria (Greater Bundahishn)",
+        "year": 1956
+      }
+    ],
+    "externalUrl": "https://www.avesta.org/mp/bundahis.html"
+  },
+  {
+    "id": "shahnameh",
+    "title": "Shahnameh (The Book of Kings)",
+    "author": "Abolqasem Ferdowsi",
+    "year": "completed 1010 CE",
+    "type": "ancient-text",
+    "language": "Persian",
+    "description": "The Persian national epic of roughly fifty thousand couplets, telling the history of Iran's kings from the first man to the Arab conquest. Composed in the Islamic era from older Iranian traditions, it retells Avestan figures as kings and heroes: Yima as Jamshid, Azhi Dahaka as Zahhak, Thraetaona as Fereydun.",
+    "translators": [
+      {
+        "name": "Helen Zimmern (abridged prose, The Epic of Kings)",
+        "year": 1883
+      },
+      {
+        "name": "Arthur George Warner and Edmond Warner",
+        "year": 1905
+      },
+      {
+        "name": "Dick Davis",
+        "year": 2006
+      }
+    ],
+    "characters": [
+      {
+        "id": "rostam",
+        "kind": "hero",
+        "role": "Iran's greatest champion",
+        "where": "from the reign of Manuchehr to that of Goshtasp"
+      },
+      {
+        "id": "yima",
+        "kind": "deity",
+        "role": "retold as King Jamshid, who loses the royal glory through pride",
+        "where": "reign of Jamshid"
+      }
+    ],
+    "keyScenes": [
+      {
+        "title": "Zahhak and Kaveh",
+        "where": "reigns of Zahhak and Fereydun",
+        "summary": "The serpent-shouldered tyrant is overthrown when the blacksmith Kaveh raises his leather apron as a banner for Fereydun."
+      },
+      {
+        "title": "Zal and the Simurgh",
+        "where": "reign of Manuchehr",
+        "summary": "Exposed as an infant for his white hair, Zal is raised by the Simurgh on Mount Alborz."
+      },
+      {
+        "title": "Rostam and Sohrab",
+        "where": "reign of Kay Kavus",
+        "summary": "Rostam kills his own son in single combat, learning who he is only as he dies."
+      }
+    ],
+    "readingOrder": "Dick Davis's 2006 prose-and-verse translation is the most readable complete selection; the Warners' nine-volume verse translation (1905-1925) is complete and public domain but archaic."
+  },
+  {
+    "id": "behistun-inscription",
+    "title": "Behistun Inscription",
+    "author": "Darius I of Persia",
+    "year": "c. 520 BCE",
+    "type": "ancient-text",
+    "language": "Old Persian, Elamite, and Babylonian",
+    "description": "Darius I's trilingual account of his seizure of power, carved on a cliff at Bisotun in western Iran, which repeatedly credits his success to 'the favor of Ahuramazda'; its decipherment in the nineteenth century opened cuneiform to modern scholarship.",
+    "translators": [
+      {
+        "name": "L. W. King and R. C. Thompson",
+        "year": 1907
+      },
+      {
+        "name": "Roland G. Kent",
+        "year": 1950
+      }
+    ]
+  },
+  {
+    "id": "herodotus-histories",
+    "title": "Histories",
+    "author": "Herodotus",
+    "year": "c. 430 BCE",
+    "type": "ancient-text",
+    "language": "Ancient Greek",
+    "description": "The Greek historian's account of the Persian Wars, whose first book includes the earliest outside description of Persian religion: sacrifice on mountaintops, without temples or images, to the sky, sun, moon, earth, fire, water, and winds.",
+    "translators": [
+      {
+        "name": "George Rawlinson",
+        "year": 1858
+      },
+      {
+        "name": "A. D. Godley",
+        "year": 1920
+      }
+    ]
+  },
+  {
+    "id": "kalevala",
+    "title": "Kalevala",
+    "author": "Elias Lönnrot (compiler), from Finnish and Karelian oral poetry",
+    "year": "1835 (Old Kalevala); 1849 (New Kalevala, 50 runes)",
+    "type": "ancient-text",
+    "language": "Finnish",
+    "description": "The Finnish national epic, compiled by the physician and folklorist Elias Lönnrot from runo-songs he and others collected, chiefly in Viena (White Sea) Karelia and Finnish Karelia. Lönnrot selected, joined, and sometimes rewrote the songs into a continuous story, so the Kalevala is a nineteenth-century literary work built from genuine folk poetry rather than a single ancient text.",
+    "translators": [
+      {
+        "name": "John Martin Crawford",
+        "year": 1888
+      },
+      {
+        "name": "W. F. Kirby",
+        "year": 1907
+      },
+      {
+        "name": "Francis Peabody Magoun Jr.",
+        "year": 1963
+      },
+      {
+        "name": "Keith Bosley",
+        "year": 1989
+      }
+    ],
+    "externalUrl": "https://www.sacred-texts.com/neu/kveng/index.htm",
+    "characters": [
+      {
+        "id": "vainamoinen",
+        "kind": "deity",
+        "role": "the eternal singer and sage, central hero of the epic",
+        "where": "Runes 1-50"
+      },
+      {
+        "id": "ilmarinen",
+        "kind": "deity",
+        "role": "the smith who forges the Sampo",
+        "where": "Runes 7-10, 18-25, 37-49"
+      },
+      {
+        "id": "lemminkainen",
+        "kind": "deity",
+        "role": "the reckless adventurer killed at the river of Tuonela and restored by his mother",
+        "where": "Runes 11-15, 26-30"
+      },
+      {
+        "id": "louhi",
+        "kind": "deity",
+        "role": "the mistress of Pohjola, keeper of the Sampo",
+        "where": "Runes 7-10, 42-49"
+      },
+      {
+        "id": "ilmatar",
+        "kind": "deity",
+        "role": "the air-maiden, mother of Väinämöinen",
+        "where": "Rune 1"
+      }
+    ],
+    "keyScenes": [
+      {
+        "title": "The Creation",
+        "where": "Rune 1",
+        "summary": "A duck lays eggs on Ilmatar's knee in the primeval sea; the broken eggs become earth, sky, sun, moon, stars, and clouds."
+      },
+      {
+        "title": "The Forging of the Sampo",
+        "where": "Rune 10",
+        "summary": "Ilmarinen forges the wonder-mill that grinds grain, salt, and money for Louhi of Pohjola."
+      },
+      {
+        "title": "Lemminkäinen's Mother",
+        "where": "Rune 15",
+        "summary": "Lemminkäinen's mother rakes the pieces of her son from the river of Tuonela and restores him to life."
+      },
+      {
+        "title": "Kullervo",
+        "where": "Runes 31-36",
+        "summary": "The wronged, doomed Kullervo takes revenge on his enemies and, after unknowingly seducing his sister, dies on his own sword."
+      },
+      {
+        "title": "The Theft of the Sampo",
+        "where": "Runes 39-43",
+        "summary": "The heroes steal the Sampo; Louhi pursues them as a giant eagle, and the Sampo shatters in the sea."
+      }
+    ],
+    "readingOrder": "Keith Bosley's 1989 verse translation or Eino Friberg's 1988 version are the most readable modern renderings; Crawford (1888) and Kirby (1907) are public domain and freely available but in a Longfellow-like trochaic meter. Read Runes 1-10 first for the creation and the Sampo, then 31-36 (Kullervo) and 39-43 (the theft of the Sampo)."
+  },
+  {
+    "id": "agricola-psalter-preface",
+    "title": "Dauidin Psaltari (The Psalter of David), verse preface",
+    "author": "Mikael Agricola",
+    "year": "1551",
+    "type": "ancient-text",
+    "language": "Finnish",
+    "description": "The Lutheran reformer Agricola's Finnish Psalter opens with a rhymed list of the 'idols' formerly worshipped by the Tavastians and Karelians, the earliest written source for many Finnish deities, among them Tapio, Ahti, Väinämöinen, Ilmarinen, and Ukko."
+  },
+  {
+    "id": "suomen-kansan-vanhat-runot",
+    "title": "Suomen Kansan Vanhat Runot (Ancient Poems of the Finnish People)",
+    "author": "Finnish Literature Society (SKS), eds.",
+    "year": "1908-1948; 1997",
+    "type": "academic",
+    "language": "Finnish and Karelian",
+    "description": "The 34-volume scholarly edition of the Kalevala-metre runo-songs collected in Finland, Karelia, and Ingria from the seventeenth to the twentieth century, about 89,000 texts, now searchable online. It is the evidence behind the Kalevala, showing the variants Lönnrot chose among.",
+    "externalUrl": "https://skvr.fi/"
+  },
+  {
+    "id": "samguk-yusa",
+    "title": "Samguk Yusa (Memorabilia of the Three Kingdoms)",
+    "author": "Iryeon (Buddhist monk)",
+    "year": "c. 1281-1289",
+    "type": "ancient-text",
+    "language": "Literary Chinese",
+    "description": "A collection of histories, legends, and Buddhist tales of Korea's ancient kingdoms compiled by the monk Iryeon, preserving the earliest surviving text of the Dangun myth (citing an older 'Old Record'), the birth of Silla's founder Bak Hyeokgeose, and the story of the flute Manpasikjeok.",
+    "translators": [
+      {
+        "name": "Ha Tae-hung and Grafton K. Mintz",
+        "year": 1972
+      }
+    ],
+    "characters": [
+      {
+        "id": "hwanung",
+        "kind": "deity",
+        "role": "son of the Lord of Heaven, who descends to Mount Taebaek",
+        "where": "Book 1, Gojoseon"
+      },
+      {
+        "id": "ungnyeo",
+        "kind": "deity",
+        "role": "the bear who becomes a woman",
+        "where": "Book 1, Gojoseon"
+      },
+      {
+        "id": "dangun",
+        "kind": "deity",
+        "role": "founder of Gojoseon",
+        "where": "Book 1, Gojoseon"
+      },
+      {
+        "id": "bak-hyeokgeose",
+        "kind": "deity",
+        "role": "egg-born founder of Silla",
+        "where": "Book 1, Silla's founder King Hyeokgeose"
+      }
+    ],
+    "keyScenes": [
+      {
+        "title": "The Bear and the Tiger",
+        "where": "Book 1, Gojoseon",
+        "summary": "A bear and a tiger ask Hwanung to make them human; only the bear keeps the taboo of mugwort, garlic, and darkness, and becomes the mother of Dangun."
+      },
+      {
+        "title": "The Egg at Najeong",
+        "where": "Book 1, Silla's founder",
+        "summary": "A white horse kneels by the Najeong well beside an egg from which the founder of Silla is born."
+      },
+      {
+        "title": "The Flute that Calms Ten Thousand Waves",
+        "where": "Book 2, Manpasikjeok",
+        "summary": "A sea dragon gives King Sinmun a bamboo from which a flute is made that ends war, disease, drought, and storms."
+      }
+    ],
+    "readingOrder": "Ha Tae-hung and Grafton Mintz's 1972 English translation is the standard complete version; begin with Book 1's opening entries on Gojoseon and the founders of the Three Kingdoms, then Book 2's Silla legends."
+  },
+  {
+    "id": "samguk-sagi",
+    "title": "Samguk Sagi (History of the Three Kingdoms)",
+    "author": "Kim Busik and compilers",
+    "year": "1145",
+    "type": "ancient-text",
+    "language": "Literary Chinese",
+    "description": "The oldest surviving official history of Korea, compiled under royal order in the Goryeo dynasty on the model of Chinese dynastic histories. Its annals open with the foundation stories of Silla, Goguryeo, and Baekje, including the full birth and flight of Jumong.",
+    "translators": [
+      {
+        "name": "Edward J. Shultz and Hugh H. W. Kang (Koguryo Annals)",
+        "year": 2011
+      },
+      {
+        "name": "Edward J. Shultz and Hugh H. W. Kang (Silla Annals)",
+        "year": 2012
+      }
+    ]
+  },
+  {
+    "id": "gwanggaeto-stele",
+    "title": "Gwanggaeto Stele",
+    "author": "Erected by King Jangsu of Goguryeo",
+    "year": "414 CE",
+    "type": "ancient-text",
+    "language": "Literary Chinese",
+    "description": "A 6.4-meter stone monument to King Gwanggaeto the Great at Ji'an, Jilin, China, whose opening lines are the earliest written account of Goguryeo's foundation: King Chumo, son of the Heavenly Emperor and of the daughter of the River Earl, breaking from an egg."
+  },
+  {
+    "id": "dongmyeongwang-pyeon",
+    "title": "Dongmyeongwang-pyeon (The Lay of King Dongmyeong)",
+    "author": "Yi Gyu-bo",
+    "year": "1193",
+    "type": "ancient-text",
+    "language": "Literary Chinese",
+    "description": "A long narrative poem on the founder of Goguryeo by the Goryeo poet Yi Gyu-bo, preserved in his collected works (1241), with prose notes quoting the lost 'Old History of the Three Kingdoms'; it contains the fullest account of Haemosu's descent and his transformation contest with the River Earl."
+  },
+  {
+    "id": "joseon-singa-yupyeon",
+    "title": "Joseon Singa Yupyeon (Surviving Sacred Songs of Korea)",
+    "author": "Son Jin-tae (compiler)",
+    "year": "1930",
+    "type": "academic",
+    "language": "Korean",
+    "description": "A collection of shamanic songs recorded in the 1920s, including the Changse-ga ('Song of the Creation of the World'), sung in 1923 by the shaman Kim Ssang-dori of Hamheung, the only full Korean shamanic creation narrative of Mireuk and Seokga recorded in the north."
+  },
+  {
+    "id": "hanguk-muga-jip",
+    "title": "Hanguk Muga Jip (Collection of Korean Shamanic Songs)",
+    "author": "Kim Tae-gon (compiler)",
+    "year": "1971-1980",
+    "type": "academic",
+    "language": "Korean",
+    "description": "A four-volume collection of shamanic narrative songs (muga) transcribed from performances across Korea, including many versions of the Bari Gongju narrative sung at rites for the dead."
+  },
+  {
+    "id": "orphic-hymns",
+    "title": "Orphic Hymns",
+    "author": "Anonymous (Orphic tradition)",
+    "year": "c. 2nd-3rd century CE",
+    "type": "ancient-text",
+    "language": "Ancient Greek",
+    "description": "A collection of 87 short hymns for use in cult, attributed to Orpheus and usually dated to the Roman imperial period, probably from western Asia Minor. It preserves invocations of gods and powers who are otherwise thinly attested, including the only ancient account of Melinoë.",
+    "translators": [
+      {
+        "name": "Thomas Taylor",
+        "year": 1792
+      },
+      {
+        "name": "Apostolos N. Athanassakis",
+        "year": 1977
+      }
+    ],
+    "characters": [
+      {
+        "id": "hecate",
+        "kind": "deity",
+        "role": "invoked as goddess of the crossroads",
+        "where": "Hymn 1"
+      },
+      {
+        "id": "nyx",
+        "kind": "deity",
+        "role": "invoked as mother of gods and men",
+        "where": "Hymn 3"
+      },
+      {
+        "id": "melinoe",
+        "kind": "deity",
+        "role": "sole ancient account of the goddess",
+        "where": "Hymn 71"
+      },
+      {
+        "id": "thanatos",
+        "kind": "deity",
+        "role": "invoked as Death",
+        "where": "Hymn 87"
+      }
+    ],
+    "readingOrder": "Athanassakis's facing-page translation (1977, revised with Wolkow 2013) is the standard modern English edition; Thomas Taylor's 1792 verse translation is out of copyright. Hymn numbers on this site follow the modern numbering used by Athanassakis (1 Hecate, 3 Nyx, 71 Melinoë, 87 Thanatos); Taylor's translation, as reproduced on Theoi.com, gives no separate number to the Hecate hymn and numbers the others one lower (2 Night, 70 Melinoë, 86 Death)."
   }
 ]

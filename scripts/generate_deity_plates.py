@@ -1,19 +1,19 @@
 #!/usr/bin/env python3
 """
 generate_deity_plates.py
-Generates archival classical portrait plates for the 43 missing deities in Mythos Atlas,
+Generates archival classical portrait plates for deities in Mythos Atlas that have no\nillustration (43 in the first pass, 15 more in 2026-09),
 adhering to the dark-academia classical atlas style in .impeccable.md.
 """
 
 import os
 import math
-import subprocess
-from PIL import Image, ImageDraw, ImageFont
+import argparse
 
-REPO_ROOT = "/Volumes/LizsDisk/mythos"
-WEB_PUBLIC = os.path.join(REPO_ROOT, "apps/web/public")
+from _plate_emblems import draw_emblem
+from _plate_art import pantheon_of, render_plate, write_plate
+from _repo_paths import WEB_PUBLIC
+
 DEITIES_DIR = os.path.join(WEB_PUBLIC, "deities")
-os.makedirs(DEITIES_DIR, exist_ok=True)
 
 W, H = 768, 1024
 
@@ -28,6 +28,7 @@ DEITIES = [
     {"id": "ymir", "name": "YMIR", "tag": "NORSE PRIMORDIAL", "domain": "FROST GIANTS · MATERIAL OF CREATION", "accent": (110, 170, 220), "bg": (12, 18, 26), "motif": "frost_chasm"},
     {"id": "hodr", "name": "HÖÐR", "tag": "NORSE GOD", "domain": "DARKNESS · WINTER · THE SHADOWED GOD", "accent": (130, 140, 170), "bg": (16, 16, 22), "motif": "blind_bow"},
     {"id": "idun", "name": "IÐUNN", "tag": "NORSE GODDESS", "domain": "YOUTH · RENEWAL · GOLDEN APPLES", "accent": (235, 180, 60), "bg": (20, 18, 12), "motif": "golden_apples"},
+    {"id": "loki", "name": "LOKI", "tag": "NORSE GOD", "domain": "TRICKERY · FIRE · THE BOUND ONE", "accent": (120, 160, 90), "bg": (14, 18, 14), "motif": "emblem_serpent_flame"},
     {"id": "bragi", "name": "BRAGI", "tag": "NORSE GOD", "domain": "POETRY · SKALDIC ELOQUENCE · THE HARP", "accent": (210, 155, 75), "bg": (22, 16, 14), "motif": "skald_harp"},
 
     # HINDU
@@ -73,25 +74,211 @@ DEITIES = [
     {"id": "raven", "name": "RAVEN", "tag": "TLINGIT & HAIDA", "domain": "YÉIL · THE TRANSFORMER · BRINGER OF LIGHT", "accent": (210, 75, 65), "bg": (20, 12, 14), "motif": "raven_light"},
     {"id": "fog-woman", "name": "FOG WOMAN", "tag": "TLINGIT & HAIDA", "domain": "RIVER MISTS · SALMON RUNS · SPRINGTIME", "accent": (120, 185, 185), "bg": (14, 20, 24), "motif": "salmon_mist"},
     {"id": "chief-fog-over-the-salmon", "name": "CHIEF FOG", "tag": "TLINGIT & HAIDA", "domain": "RIVER MOUTH CANOPIES · MISTS OF HARVEST", "accent": (150, 165, 175), "bg": (16, 18, 22), "motif": "fog_river"},
-    {"id": "naas-shaak-aankawu", "name": "NAAS SHAAK", "tag": "TLINGIT & HAIDA", "domain": "KEEPER OF DAYLIGHT · THREE BOXES OF STARS", "accent": (225, 160, 50), "bg": (22, 16, 14), "motif": "three_boxes"}
+    {"id": "naas-shaak-aankawu", "name": "NAAS SHAAK", "tag": "TLINGIT & HAIDA", "domain": "KEEPER OF DAYLIGHT · THREE BOXES OF STARS", "accent": (225, 160, 50), "bg": (22, 16, 14), "motif": "three_boxes"},
+
+    # 2026-09 additions: targets of cross-pantheon parallels that had no entry
+    {"id": "helios", "name": "HELIOS", "tag": "GREEK TITAN-BORN GOD", "domain": "THE SUN · ALL-SEEING WITNESS", "accent": (235, 175, 55), "bg": (26, 18, 10), "motif": "sun_disc"},
+    {"id": "selene", "name": "SELENE", "tag": "GREEK TITAN-BORN GODDESS", "domain": "THE MOON · THE MONTHS · ENDYMION", "accent": (170, 185, 220), "bg": (14, 16, 26), "motif": "starry_vault"},
+    {"id": "eos", "name": "EOS", "tag": "GREEK TITAN-BORN GODDESS", "domain": "ROSY-FINGERED DAWN · TITHONUS", "accent": (230, 130, 110), "bg": (24, 14, 16), "motif": "solar_wheel"},
+    {"id": "tethys", "name": "TETHYS", "tag": "GREEK TITANESS", "domain": "MOTHER OF RIVERS · WIFE OF OCEANUS", "accent": (80, 160, 175), "bg": (10, 20, 24), "motif": "salmon_mist"},
+    {"id": "asclepius", "name": "ASCLEPIUS", "tag": "GREEK GOD", "domain": "HEALING · THE SERPENT STAFF", "accent": (120, 175, 120), "bg": (14, 22, 16), "motif": "dual_serpents"},
+    {"id": "plutus", "name": "PLUTUS", "tag": "GREEK GOD", "domain": "WEALTH OF THE HARVEST · SON OF DEMETER", "accent": (215, 170, 70), "bg": (22, 18, 12), "motif": "golden_apples"},
+    {"id": "dioscuri", "name": "THE DIOSCURI", "tag": "GREEK DIVINE TWINS", "domain": "CASTOR & POLYDEUCES · SAVIORS AT SEA", "accent": (150, 170, 215), "bg": (14, 16, 24), "motif": "starry_vault"},
+    {"id": "kartikeya", "name": "KARTIKEYA", "tag": "HINDU GOD", "domain": "WAR · GENERAL OF THE GODS · THE SPEAR", "accent": (220, 95, 60), "bg": (26, 14, 12), "motif": "thunder_axe"},
+    {"id": "usha", "name": "USHA", "tag": "VEDIC GODDESS", "domain": "THE DAWN · AWAKENER OF ALL", "accent": (240, 150, 90), "bg": (26, 16, 12), "motif": "sun_disc"},
+    {"id": "ganga", "name": "GANGA", "tag": "HINDU GODDESS", "domain": "THE SACRED RIVER · PURIFICATION", "accent": (95, 175, 200), "bg": (10, 18, 24), "motif": "salmon_mist"},
+    {"id": "ashvins", "name": "THE ASHVINS", "tag": "VEDIC DIVINE TWINS", "domain": "HORSEMEN OF DAWN · PHYSICIANS", "accent": (210, 175, 90), "bg": (22, 18, 12), "motif": "solar_wheel"},
+    {"id": "purusha", "name": "PURUSHA", "tag": "VEDIC COSMIC BEING", "domain": "THE THOUSAND-HEADED PERSON · SACRIFICE", "accent": (200, 140, 70), "bg": (22, 16, 12), "motif": "four_faces"},
+    {"id": "skadi", "name": "SKAÐI", "tag": "NORSE GODDESS", "domain": "MOUNTAINS · WINTER · THE HUNT", "accent": (160, 195, 225), "bg": (12, 18, 26), "motif": "frost_chasm"},
+    {"id": "longwang", "name": "LONGWANG", "tag": "CHINESE DRAGON KINGS", "domain": "SEAS · RIVERS · BRINGERS OF RAIN", "accent": (80, 170, 140), "bg": (10, 20, 18), "motif": "fog_river"},
+    {"id": "ninhursag", "name": "NINHURSAG", "tag": "MESOPOTAMIAN GODDESS", "domain": "LADY OF THE MOUNTAIN · MOTHER OF BIRTH", "accent": (175, 150, 95), "bg": (20, 18, 14), "motif": "earth_vines"},
+    # 2026-09 additions: deeper Haudenosaunee, Tlingit & Haida, and Akan coverage
+    {
+        "id": "asase-yaa",
+        "name": "ASASE YAA",
+        "tag": "AKAN",
+        "domain": "THE EARTH · THURSDAY-BORN · LIBATION",
+        "accent": (150, 120, 70),
+        "bg": (20, 16, 12),
+        "motif": "earth_vines"
+    },
+    {
+        "id": "tano",
+        "name": "TANO",
+        "tag": "AKAN OBOSOM",
+        "domain": "THE TANO RIVER · FOREMOST OF THE ABOSOM",
+        "accent": (80, 150, 170),
+        "bg": (12, 18, 22),
+        "motif": "fog_river"
+    },
+    {
+        "id": "bia",
+        "name": "BIA",
+        "tag": "AKAN OBOSOM",
+        "domain": "THE BIA RIVER · BROTHER OF TANO",
+        "accent": (90, 160, 130),
+        "bg": (12, 20, 18),
+        "motif": "fog_river"
+    },
+    {
+        "id": "hinon",
+        "name": "HINON",
+        "tag": "HAUDENOSAUNEE",
+        "domain": "THE THUNDERER · MAKER OF RAINS",
+        "accent": (120, 150, 220),
+        "bg": (12, 16, 26),
+        "motif": "thunder_axe"
+    },
+    {
+        "id": "earth-holder",
+        "name": "EARTH HOLDER",
+        "tag": "HAUDENOSAUNEE",
+        "domain": "CHIEF OF THE SKY WORLD · THE CELESTIAL TREE",
+        "accent": (150, 180, 230),
+        "bg": (12, 16, 26),
+        "motif": "starry_vault"
+    },
+    {
+        "id": "sky-womans-daughter",
+        "name": "SKY WOMAN'S DAUGHTER",
+        "tag": "HAUDENOSAUNEE",
+        "domain": "MOTHER OF THE TWINS · GIVER OF THE FOOD PLANTS",
+        "accent": (140, 190, 110),
+        "bg": (14, 20, 14),
+        "motif": "corn_shoot"
+    },
+    {
+        "id": "gaha",
+        "name": "GA'HA'",
+        "tag": "HAUDENOSAUNEE",
+        "domain": "THE GENTLE WIND · RIPENER OF FRUITS",
+        "accent": (150, 190, 210),
+        "bg": (14, 18, 24),
+        "motif": "wind_gale"
+    },
+    {
+        "id": "three-sisters",
+        "name": "THE THREE SISTERS",
+        "tag": "HAUDENOSAUNEE",
+        "domain": "CORN · BEANS · SQUASH",
+        "accent": (200, 170, 70),
+        "bg": (20, 18, 12),
+        "motif": "corn_shoot"
+    },
+    {
+        "id": "dew-eagle",
+        "name": "DEW EAGLE",
+        "tag": "HAUDENOSAUNEE",
+        "domain": "GUARDIAN OF THE UPPER AIR",
+        "accent": (180, 200, 230),
+        "bg": (14, 16, 24),
+        "motif": "winged_canine"
+    },
+    {
+        "id": "petrel",
+        "name": "PETREL",
+        "tag": "TLINGIT & HAIDA",
+        "domain": "GANOOK · KEEPER OF THE EVERLASTING SPRING",
+        "accent": (110, 170, 200),
+        "bg": (12, 18, 24),
+        "motif": "salmon_mist"
+    },
+    {
+        "id": "old-woman-underneath",
+        "name": "OLD-WOMAN-UNDERNEATH",
+        "tag": "TLINGIT & HAIDA",
+        "domain": "KEEPER OF THE EARTH-POST · THE TIDES",
+        "accent": (170, 130, 90),
+        "bg": (20, 16, 14),
+        "motif": "flint_chert"
+    },
+    {
+        "id": "djilaqons",
+        "name": "DJILAQONS",
+        "tag": "TLINGIT & HAIDA",
+        "domain": "ANCESTRESS OF THE EAGLE CLANS",
+        "accent": (210, 90, 70),
+        "bg": (22, 14, 14),
+        "motif": "black_raven"
+    },
+    {
+        "id": "master-carpenter",
+        "name": "MASTER CARPENTER",
+        "tag": "TLINGIT & HAIDA",
+        "domain": "SUPERNATURAL CRAFTSMAN · CANOE-MAKER",
+        "accent": (190, 120, 70),
+        "bg": (22, 16, 12),
+        "motif": "three_boxes"
+    },
+
+    # INCA & ANDEAN (2026-09)
+    {"id": "viracocha", "name": "VIRACOCHA", "tag": "INCA CREATOR", "domain": "MAKER OF SUN, MOON & THE NATIONS", "accent": (215, 165, 70), "bg": (22, 16, 12), "motif": "emblem_lake_island"},
+    {"id": "inti", "name": "INTI", "tag": "INCA GOD", "domain": "THE SUN · ANCESTOR OF THE INCA KINGS", "accent": (225, 170, 50), "bg": (24, 16, 10), "motif": "emblem_sun_face"},
+    {"id": "mama-killa", "name": "MAMA KILLA", "tag": "INCA GODDESS", "domain": "MOTHER MOON · THE MONTHS · THE QUEEN", "accent": (185, 195, 215), "bg": (14, 16, 24), "motif": "emblem_moon"},
+    {"id": "pachamama", "name": "PACHAMAMA", "tag": "ANDEAN GODDESS", "domain": "EARTH MOTHER · FIELDS · OFFERINGS", "accent": (150, 170, 80), "bg": (18, 18, 12), "motif": "emblem_earth"},
+    {"id": "mama-qucha", "name": "MAMA QUCHA", "tag": "ANDEAN GODDESS", "domain": "MOTHER SEA · LAKES & WATERS", "accent": (80, 160, 180), "bg": (10, 18, 24), "motif": "emblem_waves"},
+    {"id": "illapa", "name": "ILLAPA", "tag": "INCA GOD", "domain": "THUNDER · LIGHTNING · RAIN & HAIL", "accent": (140, 165, 215), "bg": (14, 16, 26), "motif": "emblem_lightning"},
+    {"id": "pachacamac", "name": "PACHACAMAC", "tag": "ANDEAN ORACLE GOD", "domain": "ANIMATOR OF THE WORLD · THE COAST", "accent": (200, 140, 80), "bg": (22, 16, 12), "motif": "emblem_pyramid"},
+    {"id": "pariacaca", "name": "PARIACACA", "tag": "HUAROCHIRÍ HUACA", "domain": "SNOW MOUNTAIN · STORM · IRRIGATION", "accent": (170, 200, 225), "bg": (12, 16, 24), "motif": "emblem_eggs"},
+    {"id": "cuniraya-viracocha", "name": "CUNIRAYA", "tag": "HUAROCHIRÍ HUACA", "domain": "TRICKSTER CREATOR · TERRACES & CANALS", "accent": (195, 150, 90), "bg": (20, 16, 12), "motif": "emblem_bird"},
+    {"id": "huallallo-carhuincho", "name": "HUALLALLO", "tag": "HUAROCHIRÍ HUACA", "domain": "FIRE · LORD OF THE OLD HOT WORLD", "accent": (215, 95, 55), "bg": (24, 12, 10), "motif": "emblem_flame"},
+    {"id": "manco-capac", "name": "MANCO CÁPAC", "tag": "INCA ANCESTOR", "domain": "FIRST INCA · FOUNDER OF CUSCO", "accent": (220, 175, 60), "bg": (22, 16, 12), "motif": "emblem_rod"},
+    {"id": "mama-ocllo", "name": "MAMA OCLLO", "tag": "INCA ANCESTRESS", "domain": "FOUNDING MOTHER · SPINNING & WEAVING", "accent": (190, 120, 150), "bg": (22, 14, 18), "motif": "emblem_flower"},
+
+    # PERSIAN / IRANIAN (2026-09)
+    {"id": "ahura-mazda", "name": "AHURA MAZDA", "tag": "ZOROASTRIAN CREATOR", "domain": "THE WISE LORD · TRUTH · LIGHT", "accent": (215, 175, 70), "bg": (14, 16, 26), "motif": "emblem_winged_disc"},
+    {"id": "angra-mainyu", "name": "ANGRA MAINYU", "tag": "ZOROASTRIAN ADVERSARY", "domain": "THE HOSTILE SPIRIT · THE LIE", "accent": (130, 80, 110), "bg": (12, 10, 14), "motif": "emblem_serpent"},
+    {"id": "mithra", "name": "MITHRA", "tag": "IRANIAN YAZATA", "domain": "THE COVENANT · DAWN · JUDGMENT", "accent": (230, 165, 70), "bg": (22, 14, 12), "motif": "emblem_sun"},
+    {"id": "anahita", "name": "ANAHITA", "tag": "IRANIAN YAZATA", "domain": "THE HEAVENLY RIVER · BIRTH · PURITY", "accent": (100, 170, 205), "bg": (10, 16, 26), "motif": "emblem_water_flower"},
+    {"id": "tishtrya", "name": "TISHTRYA", "tag": "IRANIAN YAZATA", "domain": "THE STAR SIRIUS · BRINGER OF RAIN", "accent": (180, 200, 235), "bg": (10, 14, 26), "motif": "emblem_horse"},
+    {"id": "verethragna", "name": "VERETHRAGNA", "tag": "IRANIAN YAZATA", "domain": "VICTORY · THE TEN INCARNATIONS", "accent": (205, 130, 70), "bg": (22, 14, 12), "motif": "emblem_beast"},
+    {"id": "atar", "name": "ATAR", "tag": "IRANIAN YAZATA", "domain": "SACRED FIRE · SON OF AHURA MAZDA", "accent": (230, 110, 50), "bg": (24, 12, 10), "motif": "emblem_fire"},
+    {"id": "spenta-armaiti", "name": "SPENTA ARMAITI", "tag": "AMESHA SPENTA", "domain": "DEVOTION · GUARDIAN OF THE EARTH", "accent": (150, 175, 95), "bg": (16, 18, 12), "motif": "emblem_earth"},
+    {"id": "sraosha", "name": "SRAOSHA", "tag": "IRANIAN YAZATA", "domain": "OBEDIENCE · GUARDIAN OF SOULS", "accent": (190, 180, 150), "bg": (14, 14, 20), "motif": "emblem_bird"},
+    {"id": "zurvan", "name": "ZURVAN", "tag": "ZURVANITE PRINCIPLE", "domain": "INFINITE TIME · FATHER OF TWINS", "accent": (160, 150, 200), "bg": (12, 12, 20), "motif": "emblem_stars"},
+    {"id": "yima", "name": "YIMA", "tag": "PRIMORDIAL KING", "domain": "THE GOLDEN AGE · THE VAR · JAMSHID", "accent": (90, 130, 210), "bg": (12, 14, 24), "motif": "emblem_cup"},
+
+    # FINNISH / KALEVALA (2026-09)
+    {"id": "ukko", "name": "UKKO", "tag": "FINNISH GOD", "domain": "SKY · THUNDER · RAIN", "accent": (150, 175, 225), "bg": (12, 14, 24), "motif": "emblem_lightning"},
+    {"id": "ilmatar", "name": "ILMATAR", "tag": "FINNISH PRIMORDIAL", "domain": "DAUGHTER OF THE AIR · THE WORLD EGG", "accent": (190, 205, 230), "bg": (12, 16, 24), "motif": "emblem_egg"},
+    {"id": "vainamoinen", "name": "VÄINÄMÖINEN", "tag": "FINNISH SAGE", "domain": "THE ETERNAL SINGER · THE KANTELE", "accent": (215, 175, 90), "bg": (18, 16, 12), "motif": "emblem_kantele"},
+    {"id": "ilmarinen", "name": "ILMARINEN", "tag": "FINNISH SMITH", "domain": "FORGER OF THE SKY & THE SAMPO", "accent": (225, 130, 60), "bg": (22, 14, 10), "motif": "emblem_mill"},
+    {"id": "lemminkainen", "name": "LEMMINKÄINEN", "tag": "FINNISH HERO", "domain": "ADVENTURE · DEATH & RETURN", "accent": (205, 120, 110), "bg": (20, 12, 14), "motif": "emblem_underworld_river"},
+    {"id": "louhi", "name": "LOUHI", "tag": "MISTRESS OF POHJOLA", "domain": "THE DARK NORTH · SORCERY", "accent": (150, 140, 200), "bg": (12, 12, 20), "motif": "emblem_great_bird"},
+    {"id": "tuoni", "name": "TUONI", "tag": "FINNISH GOD", "domain": "DEATH · LORD OF TUONELA", "accent": (120, 130, 150), "bg": (10, 10, 14), "motif": "emblem_gate_below"},
+    {"id": "tapio", "name": "TAPIO", "tag": "FINNISH GOD", "domain": "KING OF THE FOREST · GAME", "accent": (110, 160, 100), "bg": (12, 18, 12), "motif": "emblem_elk"},
+    {"id": "mielikki", "name": "MIELIKKI", "tag": "FINNISH GODDESS", "domain": "MISTRESS OF THE FOREST", "accent": (150, 185, 110), "bg": (14, 18, 12), "motif": "emblem_flower"},
+    {"id": "ahti", "name": "AHTI", "tag": "FINNISH GOD", "domain": "KING OF THE WAVES · FISH", "accent": (90, 160, 190), "bg": (10, 16, 22), "motif": "emblem_fish"},
+    {"id": "vellamo", "name": "VELLAMO", "tag": "FINNISH GODDESS", "domain": "MISTRESS OF THE WATERS", "accent": (110, 175, 200), "bg": (10, 16, 24), "motif": "emblem_water_flower"},
+
+    # KOREAN (2026-09)
+    {"id": "hwanin", "name": "HWANIN", "tag": "KOREAN GOD", "domain": "LORD OF HEAVEN", "accent": (200, 210, 230), "bg": (12, 14, 22), "motif": "emblem_sun"},
+    {"id": "hwanung", "name": "HWANUNG", "tag": "KOREAN GOD", "domain": "DESCENT TO THE SINDANSU", "accent": (215, 180, 90), "bg": (16, 16, 12), "motif": "emblem_tree_altar"},
+    {"id": "ungnyeo", "name": "UNGNYEO", "tag": "KOREAN ANCESTRESS", "domain": "THE BEAR WOMAN", "accent": (170, 130, 95), "bg": (16, 12, 10), "motif": "emblem_bear_cave"},
+    {"id": "dangun", "name": "DANGUN WANGGEOM", "tag": "KOREAN FOUNDER", "domain": "FOUNDER OF GOJOSEON", "accent": (130, 185, 165), "bg": (10, 16, 14), "motif": "emblem_mountain"},
+    {"id": "haemosu", "name": "HAEMOSU", "tag": "KOREAN GOD", "domain": "SON OF HEAVEN · FIVE DRAGONS", "accent": (225, 190, 90), "bg": (18, 14, 10), "motif": "emblem_crow_sun"},
+    {"id": "yuhwa", "name": "YUHWA", "tag": "KOREAN GODDESS", "domain": "WILLOW FLOWER · MOTHER OF JUMONG", "accent": (150, 200, 170), "bg": (10, 16, 14), "motif": "emblem_water_flower"},
+    {"id": "habaek", "name": "HABAEK", "tag": "KOREAN GOD", "domain": "LORD OF THE RIVER", "accent": (90, 160, 190), "bg": (10, 14, 20), "motif": "emblem_waves"},
+    {"id": "jumong", "name": "JUMONG", "tag": "KOREAN FOUNDER", "domain": "FOUNDER OF GOGURYEO · ARCHER", "accent": (205, 120, 90), "bg": (18, 12, 10), "motif": "emblem_egg"},
+    {"id": "bak-hyeokgeose", "name": "BAK HYEOKGEOSE", "tag": "KOREAN FOUNDER", "domain": "FOUNDER OF SILLA · BORN OF AN EGG", "accent": (215, 180, 100), "bg": (16, 14, 10), "motif": "emblem_well"},
+    {"id": "bari-gongju", "name": "BARI GONGJU", "tag": "KOREAN GODDESS", "domain": "GUIDE OF THE DEAD", "accent": (200, 170, 210), "bg": (14, 12, 18), "motif": "emblem_flower"},
+    {"id": "mireuk", "name": "MIREUK", "tag": "KOREAN CREATOR", "domain": "SEPARATOR OF HEAVEN & EARTH", "accent": (190, 205, 230), "bg": (12, 14, 20), "motif": "emblem_sun_face"},
+    {"id": "seokga", "name": "SEOKGA", "tag": "KOREAN GOD", "domain": "USURPER OF THE HUMAN AGE", "accent": (200, 150, 110), "bg": (16, 12, 10), "motif": "emblem_moon"},
+    # 2026-09 additions: figures behind the Percy Jackson and Hades II guides
+    {"id": "atlas", "name": "ATLAS", "tag": "GREEK TITAN", "domain": "BEARER OF THE SKY · SON OF IAPETUS", "accent": (205, 160, 80), "bg": (22, 18, 14), "motif": "starry_vault"},
+    {"id": "nyx", "name": "NYX", "tag": "GREEK PRIMORDIAL", "domain": "NIGHT · MOTHER OF SLEEP & DEATH", "accent": (120, 110, 190), "bg": (12, 12, 24), "motif": "starry_vault"},
+    {"id": "nemesis", "name": "NEMESIS", "tag": "GREEK GODDESS", "domain": "RETRIBUTION · DUE MEASURE · RHAMNOUS", "accent": (190, 150, 90), "bg": (20, 16, 14), "motif": "sickle_hourglass"},
+    {"id": "thanatos", "name": "THANATOS", "tag": "GREEK GOD", "domain": "DEATH · SON OF NIGHT · TWIN OF SLEEP", "accent": (150, 150, 170), "bg": (14, 14, 18), "motif": "black_raven"},
+    {"id": "melinoe", "name": "MELINOË", "tag": "GREEK GODDESS", "domain": "GHOSTS · NIGHT TERRORS · ORPHIC HYMN 71", "accent": (215, 170, 70), "bg": (18, 14, 20), "motif": "triple_torch"}
 ]
 
 def draw_deity_motif(draw, cx, cy, radius, motif, accent, gold):
     pale = (min(255, gold[0] + 50), min(255, gold[1] + 50), min(255, gold[2] + 50))
-    dark = (gold[0] // 2, gold[1] // 2, gold[2] // 2)
 
-    # Medallion outer rings
-    for r, w in [(radius, 3), (radius - 12, 1), (radius - 20, 2)]:
-        draw.ellipse([cx - r, cy - r, cx + r, cy + r], outline=gold, width=w)
+    # The medallion rings are drawn by _plate_art.render_plate.
 
-    for i in range(24):
-        angle = i * (2 * math.pi / 24)
-        r1 = radius - 8
-        r2 = radius - 3 if i % 2 == 0 else radius - 5
-        draw.line([
-            (cx + r1 * math.cos(angle), cy + r1 * math.sin(angle)),
-            (cx + r2 * math.cos(angle), cy + r2 * math.sin(angle))
-        ], fill=dark, width=1)
+    if draw_emblem(draw, cx, cy, motif, accent, gold):
+        return
 
     # Motifs tailored to each of the 43 deities
     if motif in ("sickle_hourglass", "harvest_scythe"):
@@ -204,72 +391,34 @@ def draw_deity_motif(draw, cx, cy, radius, motif, accent, gold):
         draw.line([(cx, cy - 70), (cx, cy + 70)], fill=gold, width=3)
 
 def generate_deity_plate(d):
-    img = Image.new("RGBA", (W, H), d["bg"] + (255,))
     accent = d["accent"]
     gold = (212, 175, 55)
-
-    # Ambient radial wash
-    rad = Image.new("RGBA", (W, H), (0, 0, 0, 0))
-    rdraw = ImageDraw.Draw(rad)
-    cx, cy = W // 2, 440
-    for r in range(350, 50, -10):
-        alpha = int(45 * (1.0 - r / 350.0))
-        rdraw.ellipse([cx - r, cy - r, cx + r, cy + r], fill=accent + (alpha,))
-    img = Image.alpha_composite(img, rad)
-    draw = ImageDraw.Draw(img)
-
-    # Classical Greek key / antique borders
-    draw.rectangle([32, 32, W - 32, H - 32], outline=gold, width=1)
-    draw.rectangle([40, 40, W - 40, H - 40], outline=(gold[0]//2, gold[1]//2, gold[2]//2), width=1)
-    draw.rectangle([46, 46, W - 46, H - 46], outline=gold, width=2)
-
-    # Corner brackets
-    s = 24
-    for bx, by, dx, dy in [(32, 32, 1, 1), (W - 32, 32, -1, 1), (32, H - 32, 1, -1), (W - 32, H - 32, -1, -1)]:
-        draw.line([(bx, by), (bx + dx * s, by)], fill=gold, width=2)
-        draw.line([(bx, by), (bx, by + dy * s)], fill=gold, width=2)
-        draw.ellipse([bx + dx * 8 - 3, by + dy * 8 - 3, bx + dx * 8 + 3, by + dy * 8 + 3], fill=gold)
-
-    # Header plate rule
-    draw.line([(64, 90), (W - 64, 90)], fill=gold, width=1)
-    draw.line([(64, 94), (W - 64, 94)], fill=(gold[0]//2, gold[1]//2, gold[2]//2), width=1)
-
-    tag_text = f"MYTHOS ATLAS · {d['tag']}"
-    try:
-        font_sm = ImageFont.truetype("/System/Library/Fonts/Supplemental/Times New Roman.ttf", 16)
-        font_lg = ImageFont.truetype("/System/Library/Fonts/Supplemental/Times New Roman Bold.ttf", 46)
-        font_sub = ImageFont.truetype("/System/Library/Fonts/Supplemental/Times New Roman Italic.ttf", 17)
-    except:
-        font_sm = font_lg = font_sub = ImageFont.load_default()
-
-    draw.text((W // 2, 65), tag_text, font=font_sm, fill=(200, 180, 140), anchor="mm")
-
-    # Center Medallion
-    draw_deity_motif(draw, cx, cy, 175, d["motif"], accent, gold)
-
-    # Nameplate bottom
-    draw.line([(80, 750), (W - 80, 750)], fill=(gold[0]//2, gold[1]//2, gold[2]//2), width=1)
-    draw.line([(80, 754), (W - 80, 754)], fill=gold, width=2)
-    draw.line([(80, 758), (W - 80, 758)], fill=(gold[0]//2, gold[1]//2, gold[2]//2), width=1)
-
-    draw.text((W // 2, 810), d["name"], font=font_lg, fill=(245, 235, 220), anchor="mm")
-    draw.text((W // 2, 860), d["domain"], font=font_sub, fill=gold, anchor="mm")
-
-    # Footer Archival stamp
-    draw.text((W // 2, 940), "CODEX THEOLOGICUS · FOLIO SACRUM", font=font_sm, fill=(130, 120, 100), anchor="mm")
-    draw.line([(W // 2 - 60, 965), (W // 2 + 60, 965)], fill=gold, width=1)
-
-    # Export PNG
-    png_path = os.path.join(DEITIES_DIR, f"{d['id']}.png")
-    img.convert("RGB").save(png_path, "PNG")
-
-    # Export WebP
-    webp_path = os.path.join(DEITIES_DIR, f"{d['id']}.webp")
-    subprocess.run(["/opt/homebrew/bin/cwebp", "-q", "85", png_path, "-o", webp_path], check=True, stdout=subprocess.DEVNULL)
-    print(f"  ✓ Deity: {d['id']} -> PNG & WebP")
+    img = render_plate(
+        kind="deity",
+        key=d["id"],
+        size=(W, H),
+        accent=accent,
+        bg=d["bg"],
+        pantheon=pantheon_of("deity", d["id"]),
+        hint=d["domain"],
+        emblem=lambda draw, cx, cy: draw_deity_motif(draw, cx, cy, 175, d["motif"], accent, gold),
+    )
+    path = write_plate(img, DEITIES_DIR, d["id"])
+    print(f"  ✓ Deity: {d['id']} -> {os.path.basename(path)}")
 
 if __name__ == "__main__":
-    print(f"Generating {len(DEITIES)} Deity Portrait Plates...")
-    for d in DEITIES:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument(
+        "--only",
+        help="Comma-separated deity ids to (re)generate; default is every plate.",
+    )
+    args = parser.parse_args()
+    wanted = set(args.only.split(",")) if args.only else None
+    selected = [d for d in DEITIES if wanted is None or d["id"] in wanted]
+    if wanted and len(selected) != len(wanted):
+        missing = wanted - {d["id"] for d in selected}
+        raise SystemExit(f"Unknown deity ids: {', '.join(sorted(missing))}")
+    print(f"Generating {len(selected)} Deity Portrait Plates...")
+    for d in selected:
         generate_deity_plate(d)
-    print("All 43 Deity Plates successfully generated!")
+    print(f"{len(selected)} deity plates generated in {DEITIES_DIR}")

@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Link from "next/link";
 
 const STORAGE_KEY = "mythos_quiz_disappointed_v1";
 
@@ -43,60 +42,50 @@ export function RetentionPulse() {
     }
   }, []);
 
-  if (pulse === undefined) return null;
+  // Nothing to show until the reader has answered the post-quiz question.
+  if (!pulse) return null;
 
   return (
-    <section className="rounded-xl border border-border/60 bg-card/60 p-5">
-      <h2 className="font-serif text-xl text-foreground">Atlas pulse</h2>
-      <p className="mt-1 text-sm text-muted-foreground">
-        Sean Ellis signal from this device (last 14 days on the quiz).
+    <section className="rounded-lg border border-border/70 bg-card p-5">
+      <h2 className="font-serif text-xl font-semibold text-foreground">
+        Your quiz feedback
+      </h2>
+      <p className="mt-1 type-ui text-muted-foreground">
+        What you told us after your latest quiz on this device.
       </p>
-      {pulse ? (
-        <dl className="mt-4 grid gap-2 text-sm sm:grid-cols-3">
-          <div>
-            <dt className="text-xs uppercase tracking-wider text-muted-foreground">
-              Answer
-            </dt>
-            <dd className="mt-0.5 font-medium text-gold">
-              {LABELS[pulse.rating]}
-            </dd>
-          </div>
-          <div>
-            <dt className="text-xs uppercase tracking-wider text-muted-foreground">
-              Quiz score
-            </dt>
-            <dd className="mt-0.5 text-foreground">
-              {typeof pulse.score === "number" &&
-              typeof pulse.total === "number"
-                ? `${pulse.score}/${pulse.total}`
-                : "—"}
-            </dd>
-          </div>
-          <div>
-            <dt className="text-xs uppercase tracking-wider text-muted-foreground">
-              Recorded
-            </dt>
-            <dd className="mt-0.5 text-foreground">
-              {new Date(pulse.at).toLocaleDateString(undefined, {
-                month: "short",
-                day: "numeric",
-                year: "numeric",
-              })}
-            </dd>
-          </div>
-        </dl>
-      ) : (
-        <p className="mt-4 text-sm text-muted-foreground">
-          No pulse yet.{" "}
-          <Link
-            href="/quiz"
-            className="text-gold underline-offset-4 hover:underline"
-          >
-            Finish a quiz
-          </Link>{" "}
-          to leave one — it guides what we deepen next.
-        </p>
-      )}
+
+      <dl className="mt-4 grid gap-2 text-sm sm:grid-cols-3">
+        <div>
+          <dt className="text-xs uppercase tracking-wider text-muted-foreground">
+            Answer
+          </dt>
+          <dd className="mt-0.5 font-medium text-gold-text">
+            {LABELS[pulse.rating]}
+          </dd>
+        </div>
+        <div>
+          <dt className="text-xs uppercase tracking-wider text-muted-foreground">
+            Quiz score
+          </dt>
+          <dd className="mt-0.5 text-foreground">
+            {typeof pulse.score === "number" && typeof pulse.total === "number"
+              ? `${pulse.score}/${pulse.total}`
+              : "—"}
+          </dd>
+        </div>
+        <div>
+          <dt className="text-xs uppercase tracking-wider text-muted-foreground">
+            Recorded
+          </dt>
+          <dd className="mt-0.5 text-foreground">
+            {new Date(pulse.at).toLocaleDateString(undefined, {
+              month: "short",
+              day: "numeric",
+              year: "numeric",
+            })}
+          </dd>
+        </div>
+      </dl>
     </section>
   );
 }

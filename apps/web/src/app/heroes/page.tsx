@@ -1,33 +1,19 @@
 import { CollectionPageJsonLd } from "@/components/seo/JsonLd";
-import { HeroesPageClient } from "./HeroesPageClient";
-
-import heroes from "@/data/heroes.json";
-import pantheons from "@/data/pantheons.json";
-
+import { getHeroes, getPantheonShortNames } from "@/lib/data/catalog";
 import type { CatalogQuery } from "@/lib/catalog-query";
+import { HeroesPageClient, type HeroListItem } from "./HeroesPageClient";
 
-const heroCards = heroes.map(
-  ({
-    id,
-    pantheonId,
-    name,
-    slug,
-    description,
-    alternateNames,
-    imageUrl,
-    keyDeeds,
-  }) => ({
-    id,
-    pantheonId,
-    name,
-    slug,
-    description,
-    alternateNames,
-    imageUrl,
-    keyDeeds,
-  }),
-);
-const traditionLabels = pantheons.map(({ id, name }) => ({ id, name }));
+// Card fields only; biographies, deeds and sources stay on the server.
+const heroCards: HeroListItem[] = getHeroes().map((hero) => ({
+  id: hero.id,
+  pantheonId: hero.pantheonId ?? "",
+  name: hero.name,
+  slug: hero.slug,
+  description: String(hero.description ?? ""),
+  alternateNames: (hero.alternateNames as string[] | undefined) ?? [],
+  imageUrl: (hero.imageUrl as string | null | undefined) ?? null,
+  keyDeedCount: Array.isArray(hero.keyDeeds) ? hero.keyDeeds.length : 0,
+}));
 
 export default async function HeroesPage({
   searchParams,
@@ -46,7 +32,7 @@ export default async function HeroesPage({
         key={JSON.stringify(query)}
         initialQuery={query}
         allHeroes={heroCards}
-        pantheons={traditionLabels}
+        traditionNames={getPantheonShortNames()}
       />
     </>
   );

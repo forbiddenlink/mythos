@@ -1,5 +1,6 @@
 /**
- * Shared Upstash / development in-memory rate limiters for Oracle, quiz, and search.
+ * Shared Upstash / development in-memory rate limiters for Oracle, quiz,
+ * search, and newsletter sign-ups.
  * Production fails closed when Upstash is not configured.
  */
 
@@ -13,12 +14,23 @@ const RATE_LIMIT_WINDOW_MS = 60 * 60 * 1000;
 // the chat buckets while still bounding the billed-embeddings cost.
 const SEARCH_RATE_LIMIT = 60;
 
-type Bucket = "oracle" | "quiz" | "search";
+// Oracle requests with no determinable client IP get their own, stricter
+// bucket keyed by a header fingerprint (see client-identity.ts) instead of
+// sharing one "anonymous" key that a single abuser could exhaust for everyone.
+const ORACLE_ANONYMOUS_RATE_LIMIT = 3;
+
+// Newsletter sign-ups: a person subscribes once; a handful per hour per IP
+// covers typos and shared networks while keeping list-bombing expensive.
+const NEWSLETTER_RATE_LIMIT = 5;
+
+type Bucket = "oracle" | "oracle-anon" | "quiz" | "search" | "newsletter";
 
 const BUCKET_LIMITS: Record<Bucket, number> = {
   oracle: RATE_LIMIT,
+  "oracle-anon": ORACLE_ANONYMOUS_RATE_LIMIT,
   quiz: RATE_LIMIT,
   search: SEARCH_RATE_LIMIT,
+  newsletter: NEWSLETTER_RATE_LIMIT,
 };
 
 const memoryStores: Record<
@@ -26,14 +38,18 @@ const memoryStores: Record<
   Map<string, { count: number; resetTime: number }>
 > = {
   oracle: new Map(),
+  "oracle-anon": new Map(),
   quiz: new Map(),
   search: new Map(),
+  newsletter: new Map(),
 };
 
 const edgeLimiters: Record<Bucket, Ratelimit | null | undefined> = {
   oracle: undefined,
+  "oracle-anon": undefined,
   quiz: undefined,
   search: undefined,
+  newsletter: undefined,
 };
 
 function isProductionRuntime(): boolean {
@@ -120,6 +136,16 @@ export async function checkOracleRateLimit(
   return checkBucketRateLimit("oracle", identifier);
 }
 
+/**
+ * Oracle chat rate limit for requests with no determinable client IP
+ * (3/hr per header fingerprint, separate from the per-IP bucket).
+ */
+export async function checkOracleAnonymousRateLimit(
+  identifier: string,
+): Promise<OracleRateLimitResult> {
+  return checkBucketRateLimit("oracle-anon", identifier);
+}
+
 /** Story quiz generation rate limit (separate from Oracle). */
 export async function checkQuizRateLimit(
   identifier: string,
@@ -132,4 +158,11 @@ export async function checkSearchRateLimit(
   identifier: string,
 ): Promise<OracleRateLimitResult> {
   return checkBucketRateLimit("search", identifier);
+}
+
+/** Newsletter sign-up rate limit (5/hr per client key). */
+export async function checkNewsletterRateLimit(
+  identifier: string,
+): Promise<OracleRateLimitResult> {
+  return checkBucketRateLimit("newsletter", identifier);
 }

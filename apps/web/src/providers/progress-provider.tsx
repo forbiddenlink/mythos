@@ -7,6 +7,7 @@ import {
   createContext,
   useCallback,
   useEffect,
+  useRef,
   useLayoutEffect,
   useMemo,
   useState,
@@ -22,6 +23,8 @@ export interface UserProgress {
   quizScores: Record<string, number>;
   achievements: string[];
   dailyStreak: number;
+  /** Best daily streak ever reached (carried over from the retired stats store). */
+  longestStreak: number;
   lastVisit: string; // ISO date
   totalXP: number;
   streakFreezes: number;
@@ -51,6 +54,9 @@ export interface ProgressStats {
   totalAchievements: number;
   totalXP: number;
   dailyStreak: number;
+  longestStreak: number;
+  quickQuizHighScore: number;
+  dailyChallengeStreak: number;
 }
 
 export interface ProgressContextValue {
@@ -82,6 +88,7 @@ const DEFAULT_PROGRESS: UserProgress = {
   quizScores: {},
   achievements: [],
   dailyStreak: 0,
+  longestStreak: 0,
   lastVisit: "",
   totalXP: 0,
   streakFreezes: 2,
@@ -110,10 +117,41 @@ function getYesterday(): string {
   return getLocalYesterday();
 }
 
+/**
+ * The retired "leaderboard" store kept the best streak per local user id.
+ * Read it once so that number survives the move into progress; the old keys
+ * are left untouched.
+ */
+const LEGACY_STATS_STORAGE_KEY = "mythos-atlas-leaderboard";
+const LEGACY_USER_ID_STORAGE_KEY = "mythos-atlas-user-id";
+
+export function readLegacyLongestStreak(): number {
+  try {
+    const userId = localStorage.getItem(LEGACY_USER_ID_STORAGE_KEY);
+    const stored = localStorage.getItem(LEGACY_STATS_STORAGE_KEY);
+    if (!userId || !stored) return 0;
+    const entries: unknown = JSON.parse(stored);
+    if (!Array.isArray(entries)) return 0;
+    const own = entries.find(
+      (entry): entry is { longestStreak: number } =>
+        entry !== null &&
+        typeof entry === "object" &&
+        (entry as { id?: unknown }).id === userId,
+    );
+    const best = own?.longestStreak;
+    return typeof best === "number" && Number.isInteger(best) && best > 0
+      ? best
+      : 0;
+  } catch {
+    return 0;
+  }
+}
+
 function loadProgress(): UserProgress {
   if (globalThis.window === undefined) return DEFAULT_PROGRESS;
   try {
     const stored = localStorage.getItem(PROGRESS_STORAGE_KEY);
+    let progress = DEFAULT_PROGRESS;
     if (stored) {
       const parsed = JSON.parse(stored);
       // Merge with defaults to handle any missing fields from older versions
@@ -123,15 +161,22 @@ function loadProgress(): UserProgress {
           const result = schema.safeParse(parsed?.[key]);
           return [
             key,
-            result.success
+            result.success && result.data !== undefined
               ? result.data
               : DEFAULT_PROGRESS[key as keyof typeof DEFAULT_PROGRESS],
           ];
         },
       );
-      return { ...DEFAULT_PROGRESS, ...Object.fromEntries(fields) };
+      progress = { ...DEFAULT_PROGRESS, ...Object.fromEntries(fields) };
     }
-    return DEFAULT_PROGRESS;
+    const longestStreak = Math.max(
+      progress.longestStreak,
+      progress.dailyStreak,
+      readLegacyLongestStreak(),
+    );
+    return longestStreak === progress.longestStreak
+      ? progress
+      : { ...progress, longestStreak };
   } catch {
     return DEFAULT_PROGRESS;
   }
@@ -148,14 +193,34 @@ function saveProgress(progress: UserProgress) {
 export function ProgressProvider({
   children,
 }: Readonly<{ children: ReactNode }>) {
-  const [progress, setProgress] = useState<UserProgress>(DEFAULT_PROGRESS);
+  const [progress, setProgressState] = useState<UserProgress>(DEFAULT_PROGRESS);
   const [mounted, setMounted] = useState(false);
+  // Page effects run before this provider's mount effect, so a view tracked
+  // on first render would be overwritten by the saved progress. Queue updates
+  // until the saved state is loaded, then replay them on top of it.
+  const loadedRef = useRef(false);
+  const pendingRef = useRef<Array<(prev: UserProgress) => UserProgress>>([]);
+  const setProgress = useCallback(
+    (update: (prev: UserProgress) => UserProgress) => {
+      if (!loadedRef.current) {
+        pendingRef.current.push(update);
+        return;
+      }
+      setProgressState(update);
+    },
+    [],
+  );
 
   // Hydration-safe: load from localStorage on client mount
   useEffect(() => {
-    const initialProgress = loadProgress();
+    let initialProgress = loadProgress();
+    for (const update of pendingRef.current) {
+      initialProgress = update(initialProgress);
+    }
+    pendingRef.current = [];
+    loadedRef.current = true;
     // eslint-disable-next-line react-hooks/set-state-in-effect -- hydration-safe: seed state from localStorage on client mount
-    setProgress(initialProgress);
+    setProgressState(initialProgress);
     saveProgress(initialProgress);
     setMounted(true);
   }, []);
@@ -180,7 +245,7 @@ export function ProgressProvider({
   useEffect(() => {
     const handleStorage = (event: StorageEvent) => {
       if (event.key === PROGRESS_STORAGE_KEY) {
-        setProgress(loadProgress());
+        setProgressState(loadProgress());
       }
     };
     window.addEventListener("storage", handleStorage);
@@ -199,9 +264,11 @@ export function ProgressProvider({
 
       // Visited yesterday, increment streak
       if (prev.lastVisit === yesterday) {
+        const dailyStreak = prev.dailyStreak + 1;
         return {
           ...prev,
-          dailyStreak: prev.dailyStreak + 1,
+          dailyStreak,
+          longestStreak: Math.max(prev.longestStreak, dailyStreak),
           lastVisit: today,
         };
       }
@@ -224,10 +291,11 @@ export function ProgressProvider({
       return {
         ...prev,
         dailyStreak: 1,
+        longestStreak: Math.max(prev.longestStreak, 1),
         lastVisit: today,
       };
     });
-  }, []);
+  }, [setProgress]);
 
   const useStreakFreeze = useCallback((): boolean => {
     let freezeUsed = false;
@@ -243,148 +311,172 @@ export function ProgressProvider({
       return prev;
     });
     return freezeUsed;
-  }, []);
+  }, [setProgress]);
 
-  const addStreakFreeze = useCallback((count: number) => {
-    setProgress((prev) => ({
-      ...prev,
-      streakFreezes: prev.streakFreezes + count,
-    }));
-  }, []);
-
-  const updateQuickQuizHighScore = useCallback((score: number) => {
-    setProgress((prev) => {
-      if (score <= prev.quickQuizHighScore) {
-        return prev;
-      }
-      return {
+  const addStreakFreeze = useCallback(
+    (count: number) => {
+      setProgress((prev) => ({
         ...prev,
-        quickQuizHighScore: score,
-      };
-    });
-  }, []);
+        streakFreezes: prev.streakFreezes + count,
+      }));
+    },
+    [setProgress],
+  );
 
-  const trackDeityView = useCallback((deityId: string, pantheonId?: string) => {
-    setProgress((prev) => {
-      const today = getToday();
-      const isNewDeity = !prev.deitiesViewed.includes(deityId);
+  const updateQuickQuizHighScore = useCallback(
+    (score: number) => {
+      setProgress((prev) => {
+        if (score <= prev.quickQuizHighScore) {
+          return prev;
+        }
+        return {
+          ...prev,
+          quickQuizHighScore: score,
+        };
+      });
+    },
+    [setProgress],
+  );
 
-      // Update today's activity
-      const todayActivity =
-        prev.todayActivity.date === today
-          ? prev.todayActivity
-          : {
-              date: today,
-              deitiesViewed: [],
-              storiesRead: [],
-              pantheonsViewed: [],
-              quizCompleted: false,
-              quizScore: 0,
-            };
+  const trackDeityView = useCallback(
+    (deityId: string, pantheonId?: string) => {
+      setProgress((prev) => {
+        const today = getToday();
+        const isNewDeity = !prev.deitiesViewed.includes(deityId);
 
-      const updatedTodayActivity = {
-        ...todayActivity,
-        deitiesViewed: todayActivity.deitiesViewed.includes(deityId)
-          ? todayActivity.deitiesViewed
-          : [...todayActivity.deitiesViewed, deityId],
-        pantheonsViewed:
-          pantheonId && !todayActivity.pantheonsViewed.includes(pantheonId)
-            ? [...todayActivity.pantheonsViewed, pantheonId]
-            : todayActivity.pantheonsViewed,
-      };
+        // Update today's activity
+        const todayActivity =
+          prev.todayActivity.date === today
+            ? prev.todayActivity
+            : {
+                date: today,
+                deitiesViewed: [],
+                storiesRead: [],
+                pantheonsViewed: [],
+                quizCompleted: false,
+                quizScore: 0,
+              };
 
-      return {
+        const updatedTodayActivity = {
+          ...todayActivity,
+          deitiesViewed: todayActivity.deitiesViewed.includes(deityId)
+            ? todayActivity.deitiesViewed
+            : [...todayActivity.deitiesViewed, deityId],
+          pantheonsViewed:
+            pantheonId && !todayActivity.pantheonsViewed.includes(pantheonId)
+              ? [...todayActivity.pantheonsViewed, pantheonId]
+              : todayActivity.pantheonsViewed,
+        };
+
+        return {
+          ...prev,
+          deitiesViewed: isNewDeity
+            ? [...prev.deitiesViewed, deityId]
+            : prev.deitiesViewed,
+          todayActivity: updatedTodayActivity,
+        };
+      });
+    },
+    [setProgress],
+  );
+
+  const trackStoryRead = useCallback(
+    (storyId: string) => {
+      setProgress((prev) => {
+        const today = getToday();
+        const isNewStory = !prev.storiesRead.includes(storyId);
+
+        // Update today's activity
+        const todayActivity =
+          prev.todayActivity.date === today
+            ? prev.todayActivity
+            : {
+                date: today,
+                deitiesViewed: [],
+                storiesRead: [],
+                pantheonsViewed: [],
+                quizCompleted: false,
+                quizScore: 0,
+              };
+
+        const updatedTodayActivity = {
+          ...todayActivity,
+          storiesRead: todayActivity.storiesRead.includes(storyId)
+            ? todayActivity.storiesRead
+            : [...todayActivity.storiesRead, storyId],
+        };
+
+        return {
+          ...prev,
+          storiesRead: isNewStory
+            ? [...prev.storiesRead, storyId]
+            : prev.storiesRead,
+          todayActivity: updatedTodayActivity,
+        };
+      });
+    },
+    [setProgress],
+  );
+
+  const trackPantheonExplore = useCallback(
+    (pantheonId: string) => {
+      setProgress((prev) => {
+        if (prev.pantheonsExplored.includes(pantheonId)) {
+          return prev;
+        }
+        return {
+          ...prev,
+          pantheonsExplored: [...prev.pantheonsExplored, pantheonId],
+        };
+      });
+    },
+    [setProgress],
+  );
+
+  const trackLocationVisit = useCallback(
+    (locationId: string) => {
+      setProgress((prev) => {
+        if (prev.locationsVisited.includes(locationId)) {
+          return prev;
+        }
+        return {
+          ...prev,
+          locationsVisited: [...prev.locationsVisited, locationId],
+        };
+      });
+    },
+    [setProgress],
+  );
+
+  const recordQuizScore = useCallback(
+    (quizId: string, score: number) => {
+      setProgress((prev) => ({
         ...prev,
-        deitiesViewed: isNewDeity
-          ? [...prev.deitiesViewed, deityId]
-          : prev.deitiesViewed,
-        todayActivity: updatedTodayActivity,
-      };
-    });
-  }, []);
+        quizScores: {
+          ...prev.quizScores,
+          [quizId]: Math.max(prev.quizScores[quizId] ?? 0, score),
+        },
+      }));
+    },
+    [setProgress],
+  );
 
-  const trackStoryRead = useCallback((storyId: string) => {
-    setProgress((prev) => {
-      const today = getToday();
-      const isNewStory = !prev.storiesRead.includes(storyId);
-
-      // Update today's activity
-      const todayActivity =
-        prev.todayActivity.date === today
-          ? prev.todayActivity
-          : {
-              date: today,
-              deitiesViewed: [],
-              storiesRead: [],
-              pantheonsViewed: [],
-              quizCompleted: false,
-              quizScore: 0,
-            };
-
-      const updatedTodayActivity = {
-        ...todayActivity,
-        storiesRead: todayActivity.storiesRead.includes(storyId)
-          ? todayActivity.storiesRead
-          : [...todayActivity.storiesRead, storyId],
-      };
-
-      return {
-        ...prev,
-        storiesRead: isNewStory
-          ? [...prev.storiesRead, storyId]
-          : prev.storiesRead,
-        todayActivity: updatedTodayActivity,
-      };
-    });
-  }, []);
-
-  const trackPantheonExplore = useCallback((pantheonId: string) => {
-    setProgress((prev) => {
-      if (prev.pantheonsExplored.includes(pantheonId)) {
-        return prev;
-      }
-      return {
-        ...prev,
-        pantheonsExplored: [...prev.pantheonsExplored, pantheonId],
-      };
-    });
-  }, []);
-
-  const trackLocationVisit = useCallback((locationId: string) => {
-    setProgress((prev) => {
-      if (prev.locationsVisited.includes(locationId)) {
-        return prev;
-      }
-      return {
-        ...prev,
-        locationsVisited: [...prev.locationsVisited, locationId],
-      };
-    });
-  }, []);
-
-  const recordQuizScore = useCallback((quizId: string, score: number) => {
-    setProgress((prev) => ({
-      ...prev,
-      quizScores: {
-        ...prev.quizScores,
-        [quizId]: Math.max(prev.quizScores[quizId] ?? 0, score),
-      },
-    }));
-  }, []);
-
-  const unlockAchievement = useCallback((achievementId: string, xp: number) => {
-    setProgress((prev) => {
-      if (prev.achievements.includes(achievementId)) {
-        return prev;
-      }
-      trackEvent("achievement_unlocked", { achievementId });
-      return {
-        ...prev,
-        achievements: [...prev.achievements, achievementId],
-        totalXP: prev.totalXP + xp,
-      };
-    });
-  }, []);
+  const unlockAchievement = useCallback(
+    (achievementId: string, xp: number) => {
+      setProgress((prev) => {
+        if (prev.achievements.includes(achievementId)) {
+          return prev;
+        }
+        trackEvent("achievement_unlocked", { achievementId });
+        return {
+          ...prev,
+          achievements: [...prev.achievements, achievementId],
+          totalXP: prev.totalXP + xp,
+        };
+      });
+    },
+    [setProgress],
+  );
 
   const getStats = useCallback((): ProgressStats => {
     const quizScoresArray = Object.values(progress.quizScores);
@@ -404,6 +496,9 @@ export function ProgressProvider({
       totalAchievements: progress.achievements.length,
       totalXP: progress.totalXP,
       dailyStreak: progress.dailyStreak,
+      longestStreak: Math.max(progress.longestStreak, progress.dailyStreak),
+      quickQuizHighScore: progress.quickQuizHighScore,
+      dailyChallengeStreak: progress.dailyChallengeStreak,
     };
   }, [progress]);
 
@@ -444,7 +539,7 @@ export function ProgressProvider({
         };
       });
     },
-    [],
+    [setProgress],
   );
 
   const isDailyChallengeClaimed = useCallback(
@@ -456,33 +551,36 @@ export function ProgressProvider({
     [progress.claimedDailyChallenges],
   );
 
-  const trackQuizCompletion = useCallback((score: number) => {
-    setProgress((prev) => {
-      const today = getToday();
+  const trackQuizCompletion = useCallback(
+    (score: number) => {
+      setProgress((prev) => {
+        const today = getToday();
 
-      // Update today's activity
-      const todayActivity =
-        prev.todayActivity.date === today
-          ? prev.todayActivity
-          : {
-              date: today,
-              deitiesViewed: [],
-              storiesRead: [],
-              pantheonsViewed: [],
-              quizCompleted: false,
-              quizScore: 0,
-            };
+        // Update today's activity
+        const todayActivity =
+          prev.todayActivity.date === today
+            ? prev.todayActivity
+            : {
+                date: today,
+                deitiesViewed: [],
+                storiesRead: [],
+                pantheonsViewed: [],
+                quizCompleted: false,
+                quizScore: 0,
+              };
 
-      return {
-        ...prev,
-        todayActivity: {
-          ...todayActivity,
-          quizCompleted: true,
-          quizScore: Math.max(todayActivity.quizScore, score),
-        },
-      };
-    });
-  }, []);
+        return {
+          ...prev,
+          todayActivity: {
+            ...todayActivity,
+            quizCompleted: true,
+            quizScore: Math.max(todayActivity.quizScore, score),
+          },
+        };
+      });
+    },
+    [setProgress],
+  );
 
   const contextValue = useMemo(
     () => ({

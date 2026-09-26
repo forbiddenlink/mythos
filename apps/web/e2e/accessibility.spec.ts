@@ -11,8 +11,7 @@ const pagesToTest = [
   { path: "/quiz", name: "Quiz Hub" },
   { path: "/achievements", name: "Achievements" },
   { path: "/compare", name: "Compare" },
-  { path: "/learning-paths", name: "Learning Paths" },
-  { path: "/collections", name: "Collections" },
+  { path: "/paths", name: "Paths" },
   { path: "/facts", name: "Facts" },
 ];
 
@@ -76,6 +75,10 @@ test.describe("Reading pages at narrow widths", () => {
       "/deities/gaia",
       "/stories/first-twins-ibeji",
       "/sources/iliad",
+      "/guides/odyssey",
+      "/guides/percy-jackson-titans-curse",
+      "/guides/hades-ii",
+      "/gods-of/war",
     ]) {
       test(`${path} remains accessible in ${theme} mode`, async ({ page }) => {
         await page.addInitScript(

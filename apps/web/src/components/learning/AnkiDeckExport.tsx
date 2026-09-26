@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   Card,
   CardContent,
@@ -13,29 +13,34 @@ import {
   generateAnkiTsv,
   createDeityFlashcards,
   downloadAnkiDeck,
+  toDeityCardData,
   type DeityCardData,
 } from "@/lib/anki-export";
-import deitiesData from "@/data/deities.json";
-import pantheonsData from "@/data/pantheons.json";
+import { loadDeityIndex } from "@/lib/catalog-client";
 
-interface RawDeity {
-  id: string;
-  name: string;
-  pantheonId: string;
-  domain: string[];
-  symbols: string[];
-  description: string | null;
-  originStory: string | null;
-  alternateNames?: string[];
-  pronunciation?: {
-    ipa: string;
-    phonetic: string;
-  };
+export interface AnkiDeckExportProps {
+  pantheons: Array<{ id: string; name: string; slug: string }>;
+  /** Deity count per pantheon id. */
+  deityCounts: Record<string, number>;
+  totalDeities: number;
+  /** Preview card per pantheon id, plus "all" for the whole catalog. */
+  samples: Record<string, DeityCardData>;
 }
 
-export function AnkiDeckExport() {
+/**
+ * Flashcard deck exporter. Renders from server-computed counts and preview
+ * cards; the deity index is fetched only when the user downloads a deck.
+ */
+export function AnkiDeckExport({
+  pantheons,
+  deityCounts,
+  totalDeities,
+  samples,
+}: AnkiDeckExportProps) {
   const [selectedPantheon, setSelectedPantheon] = useState<string>("all");
   const [downloaded, setDownloaded] = useState(false);
+  const [downloading, setDownloading] = useState(false);
+  const [failed, setFailed] = useState(false);
   const resetTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   // Clear the "downloaded" confirmation timer so it cannot fire after unmount.
@@ -45,52 +50,43 @@ export function AnkiDeckExport() {
     };
   }, []);
 
-  const pantheons = pantheonsData as Array<{
-    id: string;
-    name: string;
-    slug: string;
-  }>;
-  const deities = deitiesData as RawDeity[];
+  const pantheonName = (id: string) =>
+    pantheons.find((p) => p.id === id)?.name.replace(" Pantheon", "") ?? id;
+  const selectedCount =
+    selectedPantheon === "all"
+      ? totalDeities
+      : (deityCounts[selectedPantheon] ?? 0);
 
-  const pantheonNameMap = useMemo(() => {
-    return new Map(
-      pantheons.map((p) => [p.id, p.name.replace(" Pantheon", "")]),
-    );
-  }, [pantheons]);
+  const handleDownload = async () => {
+    setDownloading(true);
+    setFailed(false);
+    try {
+      const index = await loadDeityIndex();
+      const cardDataList: DeityCardData[] = index
+        .filter(
+          (d) =>
+            selectedPantheon === "all" || d.pantheonId === selectedPantheon,
+        )
+        .map((d) => toDeityCardData(d, pantheonName(d.pantheonId)));
+      const flashcards = createDeityFlashcards(cardDataList);
+      const tsvContent = generateAnkiTsv(flashcards);
+      const filename =
+        selectedPantheon === "all"
+          ? "MythosAtlas_All_Pantheons_Deities"
+          : `MythosAtlas_${pantheonName(selectedPantheon).replace(/\s+/g, "_")}`;
+      downloadAnkiDeck(filename, tsvContent);
 
-  const filteredDeities = useMemo(() => {
-    if (selectedPantheon === "all") return deities;
-    return deities.filter((d) => d.pantheonId === selectedPantheon);
-  }, [deities, selectedPantheon]);
-
-  const cardDataList: DeityCardData[] = useMemo(() => {
-    return filteredDeities.map((d) => ({
-      name: d.name,
-      pantheon: pantheonNameMap.get(d.pantheonId) ?? d.pantheonId,
-      domains: d.domain ?? [],
-      symbols: d.symbols ?? [],
-      description: d.description ?? "Deity from ancient mythology.",
-      pronunciation: d.pronunciation,
-      alternateNames: d.alternateNames,
-      originStory: d.originStory ?? undefined,
-    }));
-  }, [filteredDeities, pantheonNameMap]);
-
-  const handleDownload = () => {
-    const flashcards = createDeityFlashcards(cardDataList);
-    const tsvContent = generateAnkiTsv(flashcards);
-    const filename =
-      selectedPantheon === "all"
-        ? "MythosAtlas_All_Pantheons_Deities"
-        : `MythosAtlas_${(pantheonNameMap.get(selectedPantheon) ?? "Deities").replace(/\s+/g, "_")}`;
-    downloadAnkiDeck(filename, tsvContent);
-
-    setDownloaded(true);
-    if (resetTimer.current) clearTimeout(resetTimer.current);
-    resetTimer.current = setTimeout(() => setDownloaded(false), 2500);
+      setDownloaded(true);
+      if (resetTimer.current) clearTimeout(resetTimer.current);
+      resetTimer.current = setTimeout(() => setDownloaded(false), 2500);
+    } catch {
+      setFailed(true);
+    } finally {
+      setDownloading(false);
+    }
   };
 
-  const sampleCard = cardDataList[0];
+  const sampleCard = samples[selectedPantheon];
 
   return (
     <Card className="border-gold/30 bg-card/90 shadow-xl overflow-hidden">
@@ -112,6 +108,7 @@ export function AnkiDeckExport() {
           </div>
           <Button
             onClick={handleDownload}
+            disabled={downloading}
             aria-live="polite"
             className="gap-2 bg-gold text-midnight hover:bg-gold-light font-semibold shadow-md shadow-gold/20"
           >
@@ -122,7 +119,9 @@ export function AnkiDeckExport() {
             )}
             {downloaded
               ? "Deck Downloaded!"
-              : `Download ${cardDataList.length} Cards`}
+              : failed
+                ? "Download failed, try again"
+                : `Download ${selectedCount} Cards`}
           </Button>
         </div>
       </div>
@@ -149,16 +148,14 @@ export function AnkiDeckExport() {
                   onClick={() => setSelectedPantheon("all")}
                   className={`px-3 py-1.5 rounded-md text-xs font-medium transition-all ${
                     selectedPantheon === "all"
-                      ? "border border-gold bg-gold/15 text-gold font-semibold"
+                      ? "border border-gold bg-gold/15 text-gold-text font-semibold"
                       : "border border-border bg-card text-muted-foreground hover:text-foreground"
                   }`}
                 >
-                  All {pantheons.length} Pantheons ({deities.length})
+                  All {pantheons.length} Pantheons ({totalDeities})
                 </button>
                 {pantheons.map((p) => {
-                  const count = deities.filter(
-                    (d) => d.pantheonId === p.id,
-                  ).length;
+                  const count = deityCounts[p.id] ?? 0;
                   return (
                     <button
                       key={p.id}
@@ -167,7 +164,7 @@ export function AnkiDeckExport() {
                       onClick={() => setSelectedPantheon(p.id)}
                       className={`px-3 py-1.5 rounded-md text-xs font-medium transition-all ${
                         selectedPantheon === p.id
-                          ? "border border-gold bg-gold/15 text-gold font-semibold"
+                          ? "border border-gold bg-gold/15 text-gold-text font-semibold"
                           : "border border-border bg-card text-muted-foreground hover:text-foreground"
                       }`}
                     >
@@ -196,19 +193,19 @@ export function AnkiDeckExport() {
           {/* Flashcard Live Preview */}
           {sampleCard && (
             <div className="flex flex-col justify-center">
-              <span className="text-xs uppercase tracking-wider text-gold/80 font-medium mb-2 flex items-center gap-1.5">
+              <span className="text-xs uppercase tracking-wider text-gold-text font-medium mb-2 flex items-center gap-1.5">
                 <Sparkles className="size-3.5" /> Card Preview
               </span>
-              <div className="rounded-xl border border-gold/40 bg-midnight/80 p-5 text-parchment shadow-lg">
+              <div className="dark rounded-xl border border-gold/40 bg-midnight p-5 text-parchment shadow-lg">
                 <div className="border-b border-gold/20 pb-3 text-center">
                   <span className="font-serif text-lg font-bold text-gold-text">
                     {sampleCard.name}
                   </span>
-                  <div className="text-[11px] uppercase tracking-widest text-parchment/60 mt-0.5">
+                  <div className="text-[11px] uppercase tracking-widest text-parchment/75 mt-0.5">
                     {sampleCard.pantheon}
                   </div>
                   {sampleCard.pronunciation?.ipa && (
-                    <div className="text-xs text-gold/70 mt-1">
+                    <div className="text-xs text-gold-light mt-1">
                       /{sampleCard.pronunciation.ipa}/
                     </div>
                   )}

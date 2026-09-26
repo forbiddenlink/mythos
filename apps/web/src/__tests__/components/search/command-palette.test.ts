@@ -3,7 +3,7 @@ import { join } from "node:path";
 import { describe, expect, it } from "vitest";
 
 describe("command palette navigation", () => {
-  it("disables cmdk's built-in filter so Fuse results stay clickable", () => {
+  it("disables cmdk's built-in filter so search results stay clickable", () => {
     const src = readFileSync(
       join(__dirname, "../../../components/ui/command.tsx"),
       "utf8",

@@ -25,10 +25,17 @@ const PANTHEON_TRACKS: Record<string, string> = {
   "mesopotamian-pantheon": "/audio/ambient/egyptian-ambiance.mp3",
   "mesoamerican-pantheon": "/audio/ambient/aztec-ambiance.mp3",
   "african-pantheon": "/audio/ambient/default.mp3",
+  "yoruba-pantheon": "/audio/ambient/default.mp3",
+  "akan-pantheon": "/audio/ambient/default.mp3",
   "polynesian-pantheon": "/audio/ambient/default.mp3",
   "slavic-pantheon": "/audio/ambient/default.mp3",
   "haudenosaunee-pantheon": "/audio/ambient/default.mp3",
   "tlingit-haida-pantheon": "/audio/ambient/default.mp3",
+  "hittite-pantheon": "/audio/ambient/default.mp3",
+  "canaanite-pantheon": "/audio/ambient/default.mp3",
+  "inuit-pantheon": "/audio/ambient/default.mp3",
+  "aboriginal-australian-pantheon": "/audio/ambient/default.mp3",
+  "dine-pantheon": "/audio/ambient/default.mp3",
   default: "/audio/ambient/default.mp3",
 };
 

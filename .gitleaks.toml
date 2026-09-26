@@ -13,7 +13,6 @@ paths = [
   '''(^|/)\.next/''',
   '''(^|/)coverage/''',
   '''(^|/)dist/''',
-  '''(^|/)apps/api/target/''',
   '''(^|/)pnpm-lock\.yaml$''',
   '''(^|/)package-lock\.json$''',
   '''(^|/)docs/audits/''',

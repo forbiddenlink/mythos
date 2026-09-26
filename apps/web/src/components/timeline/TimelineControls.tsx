@@ -1,8 +1,8 @@
 "use client";
 
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { RotateCcw } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 interface TimelineControlsProps {
   currentRange: [number, number];
@@ -45,102 +45,99 @@ export function TimelineControls({
     onRangeChange(nextRange);
   };
 
+  const inputClass =
+    "h-10 w-28 rounded-md border border-border bg-background px-3 type-ui tabular-nums text-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold";
+
   return (
-    <div className="w-full bg-card/50 backdrop-blur-sm border border-border rounded-xl p-6 space-y-6 mb-8">
-      {/* Header & Stats */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-        <div>
-          <h2 className="font-serif text-lg font-semibold text-foreground">
-            Timeline Filters
-          </h2>
-          <p className="text-sm text-muted-foreground">
-            Set a custom year range or jump to a named era.
-          </p>
-        </div>
-        <div className="flex items-center gap-2">
-          <Badge
-            variant="outline"
-            className="text-base py-1 px-3 border-gold/30 bg-gold/5 text-gold font-mono"
-          >
-            {formatYear(currentRange[0])} — {formatYear(currentRange[1])}
-          </Badge>
-          <Button
-            size="icon"
-            variant="ghost"
-            onClick={() => onRangeChange([minYear, maxYear])}
-            aria-label="Reset Timeline"
-          >
-            <RotateCcw className="h-4 w-4 text-muted-foreground hover:text-foreground" />
-          </Button>
-        </div>
+    <div
+      role="group"
+      aria-label="Timeline range"
+      className="flex flex-wrap items-center gap-x-5 gap-y-3 border-b border-border/70 pb-4"
+    >
+      <div
+        role="group"
+        aria-label="Jump to an era"
+        className="inline-flex flex-wrap rounded-md border border-border bg-muted/50 p-0.5"
+      >
+        {ERAS.map((era) => {
+          const selected =
+            currentRange[0] === era.range[0] &&
+            currentRange[1] === era.range[1];
+          return (
+            <button
+              key={era.label}
+              type="button"
+              aria-pressed={selected}
+              onClick={() => onRangeChange(era.range as [number, number])}
+              className={cn(
+                "inline-flex min-h-10 items-center rounded-[5px] px-3 type-ui font-medium transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold",
+                selected
+                  ? "bg-background text-foreground shadow-sm ring-1 ring-border"
+                  : "text-muted-foreground hover:text-foreground",
+              )}
+            >
+              {era.label}
+            </button>
+          );
+        })}
       </div>
 
-      {/* Range Inputs */}
-      <div className="grid gap-4 md:grid-cols-2">
-        <div className="space-y-2">
-          <label
-            htmlFor="timeline-start-year"
-            className="text-sm font-medium text-foreground"
-          >
-            Start year
-          </label>
-          <input
-            id="timeline-start-year"
-            type="number"
-            inputMode="numeric"
-            min={minYear}
-            max={maxYear}
-            step={50}
-            value={currentRange[0]}
-            onChange={(event) =>
-              updateBoundary(0, Number.parseInt(event.target.value, 10))
-            }
-            className="flex h-10 w-full rounded-lg border border-border bg-background px-3 py-2 text-sm text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
-          />
-          <p className="text-xs font-mono text-muted-foreground">
-            {formatYear(currentRange[0])}
-          </p>
-        </div>
-
-        <div className="space-y-2">
-          <label
-            htmlFor="timeline-end-year"
-            className="text-sm font-medium text-foreground"
-          >
-            End year
-          </label>
-          <input
-            id="timeline-end-year"
-            type="number"
-            inputMode="numeric"
-            min={minYear}
-            max={maxYear}
-            step={50}
-            value={currentRange[1]}
-            onChange={(event) =>
-              updateBoundary(1, Number.parseInt(event.target.value, 10))
-            }
-            className="flex h-10 w-full rounded-lg border border-border bg-background px-3 py-2 text-sm text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
-          />
-          <p className="text-xs font-mono text-muted-foreground">
-            {formatYear(currentRange[1])}
-          </p>
-        </div>
+      <div className="flex flex-wrap items-center gap-3">
+        <label
+          htmlFor="timeline-start-year"
+          className="type-ui font-medium text-muted-foreground"
+        >
+          Start year
+        </label>
+        <input
+          id="timeline-start-year"
+          type="number"
+          inputMode="numeric"
+          min={minYear}
+          max={maxYear}
+          step={50}
+          value={currentRange[0]}
+          onChange={(event) =>
+            updateBoundary(0, Number.parseInt(event.target.value, 10))
+          }
+          className={inputClass}
+        />
+        <label
+          htmlFor="timeline-end-year"
+          className="type-ui font-medium text-muted-foreground"
+        >
+          End year
+        </label>
+        <input
+          id="timeline-end-year"
+          type="number"
+          inputMode="numeric"
+          min={minYear}
+          max={maxYear}
+          step={50}
+          value={currentRange[1]}
+          onChange={(event) =>
+            updateBoundary(1, Number.parseInt(event.target.value, 10))
+          }
+          className={inputClass}
+        />
       </div>
 
-      {/* Quick Eras */}
-      <div className="flex flex-wrap gap-2">
-        {ERAS.map((era) => (
-          <Button
-            key={era.label}
-            variant="outline"
-            size="sm"
-            onClick={() => onRangeChange(era.range as [number, number])}
-            className="text-xs border-dashed border-border/60 hover:border-gold/50 hover:bg-gold/5 hover:text-gold"
-          >
-            {era.label}
-          </Button>
-        ))}
+      <div className="flex items-center gap-1 lg:ml-auto">
+        <output
+          aria-live="polite"
+          className="type-ui font-medium tabular-nums text-gold-text"
+        >
+          {formatYear(currentRange[0])} – {formatYear(currentRange[1])}
+        </output>
+        <Button
+          size="icon"
+          variant="ghost"
+          onClick={() => onRangeChange([minYear, maxYear])}
+          aria-label="Reset Timeline"
+        >
+          <RotateCcw className="size-4 text-muted-foreground" />
+        </Button>
       </div>
     </div>
   );

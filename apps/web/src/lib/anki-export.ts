@@ -1,3 +1,32 @@
+/** Deity fields a flashcard is built from. */
+export interface DeityCardSource {
+  name: string;
+  pantheonId: string;
+  domain?: string[] | null;
+  symbols?: string[] | null;
+  description?: string | null;
+  originStory?: string | null;
+  alternateNames?: string[];
+  pronunciation?: { ipa?: string; phonetic?: string };
+}
+
+/** Map a catalog deity to flashcard data, labelling its pantheon. */
+export function toDeityCardData(
+  d: DeityCardSource,
+  pantheonName: string,
+): DeityCardData {
+  return {
+    name: d.name,
+    pantheon: pantheonName,
+    domains: d.domain ?? [],
+    symbols: d.symbols ?? [],
+    description: d.description ?? "Deity from ancient mythology.",
+    pronunciation: d.pronunciation,
+    alternateNames: d.alternateNames,
+    originStory: d.originStory ?? undefined,
+  };
+}
+
 /**
  * Anki & Quizlet Spaced-Repetition Deck Exporter for Mythos Atlas
  *

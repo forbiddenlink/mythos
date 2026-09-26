@@ -157,7 +157,13 @@ describe("stories.json data integrity", () => {
   });
 
   it("every pantheon should have at least one story", () => {
-    for (const pantheon of pantheons) {
+    // Regional collections (isCollection) group creatures from several
+    // unrelated peoples and carry no stories of their own.
+    for (const pantheon of pantheons as Array<{
+      id: string;
+      isCollection?: boolean;
+    }>) {
+      if (pantheon.isCollection) continue;
       const pantheonStories = stories.filter(
         (s: { pantheonId: string }) => s.pantheonId === pantheon.id,
       );

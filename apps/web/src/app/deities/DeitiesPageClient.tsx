@@ -1,49 +1,49 @@
 "use client";
 
+import { useEffect, useMemo, useState } from "react";
+import Link from "next/link";
+import { ArrowDownAZ, ArrowUpAZ, LayoutGrid, Table } from "lucide-react";
 import { DeitiesTable } from "@/components/deities/DeitiesTable";
-import { DeityFilters } from "@/components/deities/DeityFilters";
+import {
+  EntityBadge,
+  EntityCard,
+  EntityGrid,
+} from "@/components/entities/EntityCard";
+import {
+  EmptyResults,
+  FilterToolbar,
+  ToolbarSearch,
+  ViewToggle,
+} from "@/components/entities/FilterToolbar";
+import { AboutThisPage } from "@/components/layout/about-this-page";
+import { Container } from "@/components/layout/container";
 import { PageHero } from "@/components/layout/page-hero";
-import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
 import { BookmarkButton } from "@/components/ui/bookmark-button";
 import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
 import { PaginationControls } from "@/components/ui/pagination-controls";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { usePagination } from "@/hooks/usePagination";
-import deitiesData from "@/data/deities.json";
-import { LayoutGrid, Sparkles, Table } from "lucide-react";
-import Image from "next/image";
-import Link from "next/link";
-import { useEffect, useState } from "react";
+import type { DeityListItem } from "@/lib/data/types";
+import { getPantheonColor } from "@/lib/pantheon-colors";
 
-interface Deity {
-  id: string;
-  name: string;
-  slug: string;
-  gender: string | null;
-  domain: string[];
-  symbols: string[];
-  description: string | null;
-  importanceRank: number | null;
-  imageUrl: string | null;
-  alternateNames: string[];
-}
+type Deity = DeityListItem;
 
 const RECOMMENDED_DEITIES = [
   {
     href: "/deities/demeter",
     label: "Demeter",
-    note: "Harvest, sacred law, and the seasonal cycle",
+    note: "harvest, sacred law, and the seasonal cycle",
   },
   {
     href: "/deities/hestia",
     label: "Hestia",
-    note: "The hearth goddess at the center of Greek ritual life",
+    note: "the hearth goddess at the center of Greek ritual life",
   },
   {
     href: "/deities/sif",
@@ -53,62 +53,101 @@ const RECOMMENDED_DEITIES = [
   {
     href: "/deities/bastet",
     label: "Bastet",
-    note: "Protection, cats, music, and household devotion",
+    note: "protection, cats, music, and household devotion",
   },
   {
     href: "/deities/hathor",
     label: "Hathor",
-    note: "Joy, kingship, motherhood, and festival culture",
+    note: "joy, kingship, motherhood, and festival culture",
   },
   {
     href: "/deities/sekhmet",
     label: "Sekhmet",
-    note: "Solar wrath, plague, war, and divine healing",
+    note: "solar wrath, plague, war, and divine healing",
   },
 ];
 
-export function DeitiesPageClient() {
-  const allDeities = deitiesData as Deity[];
-  const [viewMode, setViewMode] = useState<"grid" | "table">("grid");
-  const [filteredDeities, setFilteredDeities] = useState<Deity[]>(allDeities);
-  const [filtersVersion, setFiltersVersion] = useState(0);
-  const hasActiveFilters = filteredDeities !== allDeities;
-  const displayDeities = hasActiveFilters ? filteredDeities : allDeities;
+const capitalize = (value: string) =>
+  value.charAt(0).toUpperCase() + value.slice(1);
 
-  let deitiesContent;
-  if (displayDeities.length === 0 && hasActiveFilters) {
-    deitiesContent = (
-      <div className="text-center py-20">
-        <div className="inline-flex items-center justify-center w-20 h-20 rounded-xl bg-muted border border-border mb-6">
-          <Sparkles
-            className="h-10 w-10 text-muted-foreground"
-            strokeWidth={1.5}
-          />
-        </div>
-        <h2 className="text-2xl font-serif font-semibold mb-2 text-foreground">
-          No deities found
-        </h2>
-        <p className="text-muted-foreground">
-          Try adjusting your filters to find what you&apos;re looking for
-        </p>
-        <Button
-          variant="outline"
-          size="sm"
-          className="mt-4"
-          onClick={() => {
-            setFilteredDeities(allDeities);
-            setFiltersVersion((prev) => prev + 1);
-          }}
-        >
-          Clear filters
-        </Button>
-      </div>
+export function DeitiesPageClient({
+  deities: allDeities,
+  traditionCount,
+  traditionNames,
+}: Readonly<{
+  deities: Deity[];
+  /** Traditions in the atlas (collections excluded), counted on the server. */
+  traditionCount: number;
+  /** Pantheon id → short name ("Greek"), computed on the server. */
+  traditionNames: Record<string, string>;
+}>) {
+  const [viewMode, setViewMode] = useState<"grid" | "table">("grid");
+  const [nameSearch, setNameSearch] = useState("");
+  const [pantheonFilter, setPantheonFilter] = useState("all");
+  const [genderFilter, setGenderFilter] = useState("all");
+  const [domainFilter, setDomainFilter] = useState("all");
+  const [sortBy, setSortBy] = useState<"importance" | "name">("importance");
+  const [sortOrder, setSortOrder] = useState<"asc" | "desc">("asc");
+
+  const traditionName = (id: string) =>
+    traditionNames[id] ?? capitalize(id.replace(/-pantheon$/, ""));
+
+  const allDomains = useMemo(
+    () =>
+      Array.from(new Set(allDeities.flatMap((d) => d.domain ?? []))).sort(
+        (a, b) => a.localeCompare(b),
+      ),
+    [allDeities],
+  );
+  const allPantheons = useMemo(
+    () =>
+      Array.from(new Set(allDeities.map((d) => d.pantheonId))).sort((a, b) =>
+        (traditionNames[a] ?? a).localeCompare(traditionNames[b] ?? b),
+      ),
+    [allDeities, traditionNames],
+  );
+
+  const displayDeities = useMemo(() => {
+    const query = nameSearch.trim().toLowerCase();
+    const filtered = allDeities.filter(
+      (d) =>
+        (!query ||
+          d.name.toLowerCase().includes(query) ||
+          d.alternateNames?.some((n) => n.toLowerCase().includes(query))) &&
+        (genderFilter === "all" || d.gender === genderFilter) &&
+        (domainFilter === "all" || d.domain?.includes(domainFilter)) &&
+        (pantheonFilter === "all" || d.pantheonId === pantheonFilter),
     );
-  } else if (viewMode === "table") {
-    deitiesContent = <DeitiesTable deities={displayDeities} />;
-  } else {
-    deitiesContent = <PaginatedDeityGrid deities={displayDeities} />;
-  }
+    filtered.sort((a, b) => {
+      const comparison =
+        sortBy === "name"
+          ? a.name.localeCompare(b.name)
+          : (a.importanceRank || 999) - (b.importanceRank || 999);
+      return sortOrder === "asc" ? comparison : -comparison;
+    });
+    return filtered;
+  }, [
+    allDeities,
+    nameSearch,
+    genderFilter,
+    domainFilter,
+    pantheonFilter,
+    sortBy,
+    sortOrder,
+  ]);
+
+  const hasActiveFilters =
+    nameSearch.trim() !== "" ||
+    genderFilter !== "all" ||
+    domainFilter !== "all" ||
+    pantheonFilter !== "all";
+
+  const resetFilters = () => {
+    setNameSearch("");
+    setGenderFilter("all");
+    setDomainFilter("all");
+    setPantheonFilter("all");
+  };
 
   return (
     <div className="min-h-screen">
@@ -116,92 +155,168 @@ export function DeitiesPageClient() {
         mark="laurel"
         tagline="Divine Beings"
         title="Deities"
-        description="Gods and goddesses from 16 pantheons, with family trees, domains, and stories"
+        description={`Gods and goddesses from ${traditionCount} traditions, with family trees, domains, and stories.`}
         backgroundImage="/deities-list-hero.jpg"
         backgroundAlt="A dramatic collage of deities from ancient mythology"
         colorScheme="gold"
       />
 
-      {/* Content Section */}
-      <div className="container mx-auto max-w-6xl px-4 py-16 bg-mythic">
-        <Breadcrumbs />
-        <section className="mt-6 rounded-2xl border border-border/60 bg-card/60 p-6 shadow-sm">
-          <h2 className="font-serif text-2xl text-foreground">
-            Browse By Domain, Symbol, And Role
-          </h2>
-          <p className="mt-3 max-w-4xl text-sm leading-7 text-muted-foreground">
-            This directory works best when you use it to compare divine
-            functions across traditions rather than reading one entry at a time.
-            Filter by pantheon, switch between grid and table views, and look
-            for recurring patterns such as storm gods, underworld rulers,
-            healers, culture heroes, and tricksters. Once you find a deity, jump
-            into the full entry for symbols, relationships, stories, and linked
-            places in the broader mythology graph.
-          </p>
-        </section>
-        <section className="mt-6 rounded-2xl border border-border/60 bg-card/60 p-6 shadow-sm">
-          <h2 className="font-serif text-2xl text-foreground">
-            Good Next Stops
-          </h2>
-          <p className="mt-3 max-w-4xl text-sm leading-7 text-muted-foreground">
-            If you want a few strong follow-up entries after the major sky and
-            underworld gods, start with these pages. They broaden the atlas into
-            hearth cults, agricultural religion, Egyptian protection deities,
-            and Norse family life.
-          </p>
-          <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-            {RECOMMENDED_DEITIES.map((deity) => (
-              <Link
-                key={deity.href}
-                href={deity.href}
-                className="rounded-xl border border-border bg-background/70 px-4 py-4 transition-colors hover:border-gold/40"
-              >
-                <p className="text-sm font-semibold text-foreground">
-                  {deity.label}
-                </p>
-                <p className="mt-1 text-xs leading-6 text-muted-foreground">
-                  {deity.note}
-                </p>
-              </Link>
-            ))}
-          </div>
-        </section>
-        <div className="mt-8 flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <Button
-              variant={viewMode === "grid" ? "default" : "outline"}
-              size="sm"
-              onClick={() => setViewMode("grid")}
-              className="gap-2"
+      <Container className="pt-6 pb-4 md:pt-8">
+        <FilterToolbar
+          label="Filter deities"
+          count={
+            hasActiveFilters
+              ? `${displayDeities.length} of ${allDeities.length} deities`
+              : `${allDeities.length} deities`
+          }
+          view={
+            <div className="max-sm:hidden">
+              <ViewToggle
+                label="Deity view"
+                value={viewMode}
+                onChange={setViewMode}
+                options={[
+                  { value: "grid", label: "Grid", icon: LayoutGrid },
+                  {
+                    value: "table",
+                    label: "Table",
+                    icon: Table,
+                  },
+                ]}
+              />
+            </div>
+          }
+        >
+          <ToolbarSearch
+            id="deity-search"
+            label="Search deities by name"
+            placeholder="Search by name…"
+            value={nameSearch}
+            onChange={setNameSearch}
+          />
+          <Select value={pantheonFilter} onValueChange={setPantheonFilter}>
+            <SelectTrigger className="w-40">
+              <SelectValue placeholder="Tradition" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="all">All traditions</SelectItem>
+              {allPantheons.map((pantheon) => (
+                <SelectItem key={pantheon} value={pantheon}>
+                  {traditionName(pantheon)}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+          <Select value={domainFilter} onValueChange={setDomainFilter}>
+            <SelectTrigger className="w-36">
+              <SelectValue placeholder="Domain" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="all">All domains</SelectItem>
+              {allDomains.map((domain) => (
+                <SelectItem key={domain} value={domain}>
+                  {capitalize(domain)}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+          <Select value={genderFilter} onValueChange={setGenderFilter}>
+            <SelectTrigger className="w-32">
+              <SelectValue placeholder="Gender" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="all">All genders</SelectItem>
+              <SelectItem value="male">Male</SelectItem>
+              <SelectItem value="female">Female</SelectItem>
+            </SelectContent>
+          </Select>
+          <div className="flex items-center gap-1">
+            <Select
+              value={sortBy}
+              onValueChange={(value) =>
+                setSortBy(value as "importance" | "name")
+              }
             >
-              <LayoutGrid className="h-4 w-4" />
-              Grid
-            </Button>
+              <SelectTrigger className="w-36">
+                <SelectValue placeholder="Sort by" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="importance">By importance</SelectItem>
+                <SelectItem value="name">By name</SelectItem>
+              </SelectContent>
+            </Select>
             <Button
-              variant={viewMode === "table" ? "default" : "outline"}
-              size="sm"
-              onClick={() => setViewMode("table")}
-              className="gap-2 hidden sm:flex"
+              variant="ghost"
+              size="icon"
+              onClick={() => setSortOrder(sortOrder === "asc" ? "desc" : "asc")}
+              aria-label={
+                sortOrder === "asc" ? "Sort descending" : "Sort ascending"
+              }
             >
-              <Table className="h-4 w-4" />
-              Table
+              {sortOrder === "asc" ? <ArrowDownAZ /> : <ArrowUpAZ />}
             </Button>
           </div>
-        </div>
+          {hasActiveFilters ? (
+            <Button variant="link" size="sm" onClick={resetFilters}>
+              Reset
+            </Button>
+          ) : null}
+        </FilterToolbar>
+      </Container>
 
-        <DeityFilters
-          key={filtersVersion}
-          deities={allDeities}
-          onFilteredChange={setFilteredDeities}
-        />
+      <Container className="pt-6 pb-12">
+        {displayDeities.length === 0 ? (
+          <EmptyResults
+            title="No deities found"
+            action={
+              <Button variant="outline" size="sm" onClick={resetFilters}>
+                Clear filters
+              </Button>
+            }
+          >
+            Try another name, tradition or domain.
+          </EmptyResults>
+        ) : viewMode === "table" ? (
+          <DeitiesTable deities={displayDeities} />
+        ) : (
+          <PaginatedDeityGrid
+            deities={displayDeities}
+            traditionName={traditionName}
+          />
+        )}
+      </Container>
 
-        {deitiesContent}
-      </div>
+      <AboutThisPage title="About the deity directory">
+        <p>
+          This directory works best when you use it to compare divine functions
+          across traditions rather than reading one entry at a time. Filter by
+          tradition, switch between grid and table views, and look for recurring
+          patterns such as storm gods, underworld rulers, healers, culture
+          heroes, and tricksters. Once you find a deity, jump into the full
+          entry for symbols, relationships, stories, and linked places in the
+          broader mythology graph.
+        </p>
+        <p>
+          Good next stops after the major sky and underworld gods broaden the
+          atlas into hearth cults, agricultural religion, Egyptian protection
+          deities, and Norse family life:
+        </p>
+        <ul className="list-disc space-y-1 pl-5">
+          {RECOMMENDED_DEITIES.map((deity) => (
+            <li key={deity.href}>
+              <Link href={deity.href}>{deity.label}</Link>: {deity.note}
+            </li>
+          ))}
+        </ul>
+      </AboutThisPage>
     </div>
   );
 }
 
-function PaginatedDeityGrid({ deities }: Readonly<{ deities: Deity[] }>) {
+function PaginatedDeityGrid({
+  deities,
+  traditionName,
+}: Readonly<{ deities: Deity[]; traditionName: (id: string) => string }>) {
   const pagination = usePagination(deities, 24);
 
   // Reset to first page when filtered data changes
@@ -212,70 +327,40 @@ function PaginatedDeityGrid({ deities }: Readonly<{ deities: Deity[] }>) {
 
   return (
     <>
-      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <EntityGrid aspect="portrait">
         {pagination.paginatedData.map((deity, index) => (
-          <Card
+          <EntityCard
             key={deity.id}
-            asArticle
-            className="parchment-card group relative h-full bg-card transition-transform duration-300 hover:-translate-y-1"
-          >
-            <div className="absolute top-4 right-4 z-10 flex items-center gap-2">
-              {deity.importanceRank && deity.importanceRank <= 5 && (
-                <span className="text-xs font-medium px-2.5 py-1 rounded-full bg-gold/20 border border-gold/30 text-amber-900 dark:text-amber-100">
-                  Major Deity
-                </span>
-              )}
-              <BookmarkButton type="deity" id={deity.id} size="sm" />
-            </div>
-            <Link
-              href={`/deities/${deity.slug}`}
-              className="block h-full rounded-[inherit] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold/50"
-              aria-label={`View ${deity.name}`}
-            >
-              <CardHeader>
-                <div className="flex items-start justify-between pr-24">
-                  {deity.imageUrl ? (
-                    <div className="rounded-xl overflow-hidden border border-gold/20 shadow-sm">
-                      <Image
-                        src={deity.imageUrl}
-                        alt=""
-                        width={64}
-                        height={64}
-                        sizes="64px"
-                        priority={index < 3}
-                        className="h-16 w-16 object-cover"
-                      />
-                    </div>
-                  ) : (
-                    <div className="p-2.5 rounded-xl bg-gold/10 border border-gold/20 group-hover:bg-gold/15 transition-colors duration-300">
-                      <Sparkles
-                        className="h-5 w-5 text-gold"
-                        strokeWidth={1.5}
-                        aria-hidden="true"
-                      />
-                    </div>
-                  )}
-                </div>
-                <CardTitle className="text-foreground mt-4 group-hover:text-gold transition-colors duration-300">
-                  {deity.name}
-                </CardTitle>
-                {deity.domain && deity.domain.length > 0 && (
-                  <CardDescription>
-                    {deity.domain.slice(0, 3).join(", ")}
-                  </CardDescription>
-                )}
-              </CardHeader>
-              {deity.description && (
-                <CardContent>
-                  <p className="text-muted-foreground text-sm line-clamp-3 leading-relaxed">
-                    {deity.description}
-                  </p>
-                </CardContent>
-              )}
-            </Link>
-          </Card>
+            href={`/deities/${deity.slug}`}
+            title={deity.name}
+            image={deity.imageUrl}
+            imagePosition="50% 22%"
+            aspect="portrait"
+            priority={index < 4}
+            tradition={traditionName(deity.pantheonId)}
+            traditionColor={getPantheonColor(deity.pantheonId)}
+            subtitle={
+              deity.domain?.length
+                ? deity.domain.slice(0, 3).map(capitalize).join(" · ")
+                : undefined
+            }
+            description={deity.description}
+            badges={
+              deity.importanceRank === 1 ? (
+                <EntityBadge tone="gold">Major deity</EntityBadge>
+              ) : undefined
+            }
+            action={
+              <BookmarkButton
+                type="deity"
+                id={deity.id}
+                size="md"
+                variant="light"
+              />
+            }
+          />
         ))}
-      </div>
+      </EntityGrid>
 
       {pagination.totalPages > 1 && (
         <PaginationControls
@@ -291,7 +376,7 @@ function PaginatedDeityGrid({ deities }: Readonly<{ deities: Deity[] }>) {
           startIndex={pagination.startIndex}
           endIndex={pagination.endIndex}
           totalItems={pagination.totalItems}
-          className="mt-8"
+          className="mt-12"
         />
       )}
     </>

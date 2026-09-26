@@ -1,24 +1,37 @@
 import { CollectionsShowcase } from "@/components/home/CollectionsShowcase";
-import { CTASection } from "@/components/home/CTASection";
 import { DidYouKnow } from "@/components/home/DidYouKnow";
-import { AtlasOpensHero } from "@/components/home/AtlasOpensHero";
+import { GuidesStrip } from "@/components/home/GuidesStrip";
+import {
+  AtlasOpensHero,
+  type HeroFigure,
+} from "@/components/home/AtlasOpensHero";
 import { InteractiveStoriesBanner } from "@/components/home/InteractiveStoriesBanner";
-import { PantheonShowcase } from "@/components/home/PantheonShowcase";
+import {
+  PantheonShowcase,
+  type FeaturedTradition,
+} from "@/components/home/PantheonShowcase";
+import { TodaysMyth } from "@/components/home/TodaysMyth";
 import { SyncretismStrip } from "@/components/mythology/SyncretismStrip";
 import { generateBaseMetadata } from "@/lib/metadata";
-import deitiesData from "@/data/deities.json";
+import {
+  getBranchingStories,
+  getDeities,
+  getPantheons,
+  getTraditionCount,
+} from "@/lib/data/catalog";
 import storiesData from "@/data/stories.json";
-import pantheonsData from "@/data/pantheons.json";
 import creaturesData from "@/data/creatures.json";
 import artifactsData from "@/data/artifacts.json";
 import locationsData from "@/data/locations.json";
 
-// Computed on the server (this is a Server Component). Importing the source
-// JSON here keeps it OUT of the client bundle — only the small derived values below
-// serialize to the client components as props.
+// Computed on the server (this is a Server Component). Reading the catalog
+// here keeps it OUT of the client bundle: only the small derived values below
+// reach the client components as props.
+const deities = getDeities();
+
 const HERO_COUNTS = {
-  pantheons: (pantheonsData as unknown[]).length,
-  deities: (deitiesData as unknown[]).length,
+  pantheons: getTraditionCount(),
+  deities: deities.length,
   stories: (storiesData as unknown[]).length,
   creatures: (creaturesData as unknown[]).length,
   artifacts: (artifactsData as unknown[]).length,
@@ -26,19 +39,113 @@ const HERO_COUNTS = {
 } as const;
 
 // Slim id/slug -> {name, slug} lookup for DidYouKnow's related-deity chips, so the
-// full 492 KB deities.json no longer ships to the browser. Keyed by BOTH id and
-// slug because fact.relatedDeities entries can be either.
+// full deities.json never ships to the browser. Keyed by BOTH id and slug because
+// fact.relatedDeities entries can be either.
 const DEITY_LOOKUP: Record<string, { name: string; slug: string }> = {};
-for (const d of deitiesData as { id: string; slug: string; name: string }[]) {
+for (const d of deities) {
   const entry = { name: d.name, slug: d.slug };
   DEITY_LOOKUP[d.id] = entry;
   DEITY_LOOKUP[d.slug] = entry;
 }
 
+const pantheonShortName = (pantheonId: string) =>
+  getPantheons()
+    .find((p) => p.id === pantheonId)
+    ?.name.replace(/ Pantheon$/, "") ?? pantheonId.replace(/-pantheon$/, "");
+
+// Portraits for the hero mosaic: well-known figures from six traditions.
+const HERO_FIGURES: HeroFigure[] = [
+  "zeus",
+  "isis",
+  "odin",
+  "shiva",
+  "quetzalcoatl",
+  "amaterasu",
+].flatMap((slug) => {
+  const deity = deities.find((d) => d.slug === slug);
+  return deity?.imageUrl
+    ? [
+        {
+          name: deity.name,
+          slug: deity.slug,
+          imageUrl: deity.imageUrl,
+          tradition: pantheonShortName(deity.pantheonId),
+        },
+      ]
+    : [];
+});
+
+// Featured traditions, each with a curated one-line pitch and a local image
+// (a landscape cover, or a representative portrait where the cover is a plate).
+const FEATURED_TRADITIONS: Array<{
+  slug: string;
+  image: string;
+  description: string;
+}> = [
+  {
+    slug: "greek",
+    image: "/deities/athena.jpg",
+    description:
+      "The Olympian gods who ruled from Mount Olympus, shaping the fate of mortals and heroes alike.",
+  },
+  {
+    slug: "norse",
+    image: "/pantheons/norse.jpg",
+    description:
+      "The Æsir and Vanir of Asgard, warriors and seers across the Nine Worlds.",
+  },
+  {
+    slug: "egyptian",
+    image: "/pantheons/egyptian.jpg",
+    description:
+      "The divine rulers of the Nile Valley, guardians of life, death and rebirth.",
+  },
+  {
+    slug: "hindu",
+    image: "/pantheons/hindu.jpg",
+    description:
+      "A vast family of gods centered on the Trimurti, governing dharma and karma.",
+  },
+  {
+    slug: "japanese",
+    image: "/pantheons/japanese.jpg",
+    description:
+      "The kami of nature and ancestors, inhabiting the islands and shrines of Japan.",
+  },
+];
+
+const TRADITIONS: FeaturedTradition[] = FEATURED_TRADITIONS.flatMap(
+  (featured) => {
+    const pantheon = getPantheons().find((p) => p.slug === featured.slug);
+    if (!pantheon) return [];
+    return [
+      {
+        name: pantheon.name,
+        slug: pantheon.slug,
+        culture: pantheon.culture,
+        description: featured.description,
+        imageUrl: featured.image,
+        figureCount: deities.filter((d) => d.pantheonId === pantheon.id).length,
+        figuresLabel: "deities",
+      },
+    ];
+  },
+);
+
+const INTERACTIVE_STORIES = getBranchingStories().map(
+  ({ id, slug, title, description, coverImage, totalEndings }) => ({
+    id,
+    slug,
+    title,
+    description,
+    coverImage,
+    totalEndings,
+  }),
+);
+
 export const metadata = generateBaseMetadata({
   title: "Mythos Atlas - Explore World Mythology",
-  description:
-    "Explore gods, myths, and legendary worlds from 16 civilizations with family trees, quizzes, stories, and interactive mythology tools.",
+  description: `Explore gods, myths, and legendary worlds from ${getTraditionCount()} traditions with family trees, quizzes, stories, and interactive mythology tools.`,
   url: "/",
   keywords: [
     "mythology",
@@ -55,21 +162,17 @@ export const metadata = generateBaseMetadata({
 export default function Home() {
   return (
     <div className="min-h-screen">
-      {/* Preload the hero background so it stops being a ~8s LCP (CSS bg images
-          are discovered late + fetched at low priority otherwise). */}
-      <link
-        rel="preload"
-        as="image"
-        href="/hero-columns.webp"
-        fetchPriority="high"
+      <AtlasOpensHero counts={HERO_COUNTS} figures={HERO_FIGURES} />
+      <PantheonShowcase
+        traditions={TRADITIONS}
+        totalTraditions={HERO_COUNTS.pantheons}
       />
-      <AtlasOpensHero counts={HERO_COUNTS} />
-      <PantheonShowcase />
+      <TodaysMyth />
       <CollectionsShowcase />
       <SyncretismStrip />
-      <InteractiveStoriesBanner />
+      <InteractiveStoriesBanner stories={INTERACTIVE_STORIES} />
+      <GuidesStrip />
       <DidYouKnow deityLookup={DEITY_LOOKUP} />
-      <CTASection />
     </div>
   );
 }

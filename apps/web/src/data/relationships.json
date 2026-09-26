@@ -342,7 +342,7 @@
     "id": "r48",
     "fromDeityId": "venus",
     "toDeityId": "mars",
-    "relationshipType": "lover",
+    "relationshipType": "lover_of",
     "confidenceLevel": "high",
     "description": "Famous affair of Venus and Mars"
   },
@@ -1198,7 +1198,7 @@
     "id": "r187",
     "fromDeityId": "manannan-mac-lir",
     "toDeityId": "aine",
-    "relationshipType": "lover",
+    "relationshipType": "lover_of",
     "confidenceLevel": "medium",
     "description": "Munster folklore sometimes binds Aine to Manannan"
   },
@@ -1380,11 +1380,11 @@
   },
   {
     "id": "r210",
-    "fromDeityId": "yemoja",
-    "toDeityId": "nana-buruku",
-    "relationshipType": "child_of",
+    "fromDeityId": "nana-buruku",
+    "toDeityId": "yemoja",
+    "relationshipType": "parent_of",
     "confidenceLevel": "medium",
-    "description": "Nana Buruku is the elder behind several water mothers"
+    "description": "Nana Buruku is the elder mother behind several water mothers, Yemoja among them"
   },
   {
     "id": "r211",
@@ -1768,5 +1768,982 @@
     "relationshipType": "parent_of",
     "confidenceLevel": "low",
     "description": "In Swanton's telling, Raven transforms into a hemlock needle and is reborn as this old man's doted-on grandson, not his son; the site's relationship categories have no grandparent/grandchild type, so this edge is marked low confidence to flag that the actual kinship is one generation removed from what 'parent_of' literally states."
+  },
+  {
+    "id": "mesopotamian-enlil-sin-nanna",
+    "fromDeityId": "enlil",
+    "toDeityId": "sin-nanna",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high",
+    "description": "In the Sumerian myth Enlil and Ninlil, Nanna-Suen is the first child Ninlil conceives by Enlil."
+  },
+  {
+    "id": "mesopotamian-sin-nanna-shamash",
+    "fromDeityId": "sin-nanna",
+    "toDeityId": "shamash",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high",
+    "description": "Utu/Shamash, the sun, is regularly called the son of the moon god Nanna/Sin and his wife Ningal."
+  },
+  {
+    "id": "mesopotamian-sin-nanna-inanna",
+    "fromDeityId": "sin-nanna",
+    "toDeityId": "inanna",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "medium",
+    "description": "Many Sumerian texts make Inanna the daughter of Nanna and Ningal; others name An as her father."
+  },
+  {
+    "id": "african-nana-buruku-shopona",
+    "fromDeityId": "nana-buruku",
+    "toDeityId": "shopona",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "medium",
+    "description": "In Afro-Brazilian Candomblé, Nanã is the mother of Omolu/Obaluaiê, the earth-and-smallpox orisha known in Yorubaland as Sopona."
+  },
+  {
+    "id": "hindu-yama-ashvins",
+    "fromDeityId": "yama",
+    "toDeityId": "ashvins",
+    "relationshipType": "sibling_of",
+    "confidenceLevel": "medium",
+    "description": "Rigveda 10.17 says Saranyu bore the Ashvins and deserted 'both twinned pairs', the Ashvins and Yama with Yami."
+  },
+  {
+    "id": "slavic-khors-dazhbog",
+    "fromDeityId": "khors",
+    "toDeityId": "dazhbog",
+    "relationshipType": "aspect_of",
+    "confidenceLevel": "low",
+    "description": "Some scholars read Khors as another name or aspect of the sun god Dazhbog, since the Primary Chronicle lists them side by side; others see an Iranian moon or sun deity in his own right. No medieval source equates them.",
+    "isDisputed": true
+  },
+  {
+    "id": "slavic-perun-mokosh",
+    "fromDeityId": "perun",
+    "toDeityId": "mokosh",
+    "relationshipType": "spouse_of",
+    "confidenceLevel": "low",
+    "description": "A modern reconstruction (Ivanov and Toporov) pairs the thunder god with Mokosh as his wife; the Primary Chronicle lists both among Vladimir's idols but gives no marriage.",
+    "isDisputed": true
+  },
+  {
+    "id": "greek-helios-selene",
+    "fromDeityId": "helios",
+    "toDeityId": "selene",
+    "relationshipType": "sibling_of",
+    "confidenceLevel": "high",
+    "description": "Hesiod's Theogony (371-374) names Helios, Selene, and Eos as the children of Hyperion and Theia."
+  },
+  {
+    "id": "greek-helios-eos",
+    "fromDeityId": "helios",
+    "toDeityId": "eos",
+    "relationshipType": "sibling_of",
+    "confidenceLevel": "high",
+    "description": "Children of Hyperion and Theia (Theogony 371-374)."
+  },
+  {
+    "id": "greek-selene-eos",
+    "fromDeityId": "selene",
+    "toDeityId": "eos",
+    "relationshipType": "sibling_of",
+    "confidenceLevel": "high",
+    "description": "Children of Hyperion and Theia (Theogony 371-374)."
+  },
+  {
+    "id": "greek-gaia-tethys",
+    "fromDeityId": "gaia",
+    "toDeityId": "tethys",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high",
+    "description": "Tethys is among the Titans Gaia bore to Uranus (Theogony 132-136)."
+  },
+  {
+    "id": "greek-uranus-tethys",
+    "fromDeityId": "uranus",
+    "toDeityId": "tethys",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high",
+    "description": "Tethys is among the Titans born to Uranus and Gaia (Theogony 132-136)."
+  },
+  {
+    "id": "greek-cronus-tethys",
+    "fromDeityId": "cronus",
+    "toDeityId": "tethys",
+    "relationshipType": "sibling_of",
+    "confidenceLevel": "high",
+    "description": "Cronus and Tethys are both Titans, children of Gaia and Uranus."
+  },
+  {
+    "id": "greek-apollo-asclepius",
+    "fromDeityId": "apollo",
+    "toDeityId": "asclepius",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high",
+    "description": "The Homeric Hymn to Asclepius names him son of Apollo and Coronis."
+  },
+  {
+    "id": "greek-demeter-plutus",
+    "fromDeityId": "demeter",
+    "toDeityId": "plutus",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high",
+    "description": "Demeter bore Plutus to the hero Iasion in a thrice-plowed field in Crete (Theogony 969-974)."
+  },
+  {
+    "id": "greek-zeus-dioscuri",
+    "fromDeityId": "zeus",
+    "toDeityId": "dioscuri",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high",
+    "description": "The Homeric Hymns call Castor and Polydeuces sons of Zeus and Leda; Pindar makes only Polydeuces Zeus's son, and the Odyssey names Tyndareus as father of both."
+  },
+  {
+    "id": "hindu-shiva-kartikeya",
+    "fromDeityId": "shiva",
+    "toDeityId": "kartikeya",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high",
+    "description": "Kartikeya is born from Shiva's seed to destroy the demon Taraka."
+  },
+  {
+    "id": "hindu-parvati-kartikeya",
+    "fromDeityId": "parvati",
+    "toDeityId": "kartikeya",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "medium",
+    "description": "Parvati is his mother in Puranic and devotional tradition, though many birth stories have him carried by Agni, Ganga, and the Krittikas rather than born from her."
+  },
+  {
+    "id": "hindu-ganesha-kartikeya",
+    "fromDeityId": "ganesha",
+    "toDeityId": "kartikeya",
+    "relationshipType": "sibling_of",
+    "confidenceLevel": "high",
+    "description": "Both are sons of Shiva and Parvati."
+  },
+  {
+    "id": "hindu-ganga-parvati",
+    "fromDeityId": "ganga",
+    "toDeityId": "parvati",
+    "relationshipType": "sibling_of",
+    "confidenceLevel": "high",
+    "description": "The Ramayana (Bala Kanda) makes Ganga the elder daughter of Himavat and Uma (Parvati) the younger."
+  },
+  {
+    "id": "hindu-ganga-kartikeya",
+    "fromDeityId": "ganga",
+    "toDeityId": "kartikeya",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "medium",
+    "description": "In the Ramayana and Mahabharata versions of his birth, Ganga receives Shiva's fiery seed and bears the child."
+  },
+  {
+    "id": "hindu-indra-usha",
+    "fromDeityId": "indra",
+    "toDeityId": "usha",
+    "relationshipType": "enemy_of",
+    "confidenceLevel": "medium",
+    "description": "Rigveda 4.30 praises Indra for smashing the wagon of Dawn, a rare hostile episode between them."
+  },
+  {
+    "id": "norse-skadi-njord",
+    "fromDeityId": "skadi",
+    "toDeityId": "njord",
+    "relationshipType": "spouse_of",
+    "confidenceLevel": "high",
+    "description": "Skadi chose Njord by his feet as compensation for her father Thjazi; the marriage failed over mountains and sea (Gylfaginning 23)."
+  },
+  {
+    "id": "norse-skadi-loki",
+    "fromDeityId": "skadi",
+    "toDeityId": "loki",
+    "relationshipType": "enemy_of",
+    "confidenceLevel": "high",
+    "description": "Skadi fastens a venomous serpent above the bound Loki (Gylfaginning 50) and trades threats with him in Lokasenna."
+  },
+  {
+    "id": "chinese-longwang-sun-wukong",
+    "fromDeityId": "longwang",
+    "toDeityId": "sun-wukong",
+    "relationshipType": "enemy_of",
+    "confidenceLevel": "high",
+    "description": "Sun Wukong takes the Ruyi Jingu Bang from Ao Guang's palace and bullies the Dragon Kings for armor (Journey to the West, ch. 3)."
+  },
+  {
+    "id": "chinese-jade-emperor-longwang",
+    "fromDeityId": "jade-emperor",
+    "toDeityId": "longwang",
+    "relationshipType": "ally_of",
+    "confidenceLevel": "medium",
+    "description": "The Dragon Kings serve as officials of the Jade Emperor's celestial court and petition him against Sun Wukong."
+  },
+  {
+    "id": "mesopotamian-enki-ninhursag",
+    "fromDeityId": "enki",
+    "toDeityId": "ninhursag",
+    "relationshipType": "spouse_of",
+    "confidenceLevel": "high",
+    "description": "Enki and Ninhursag couple in Dilmun in the Sumerian myth that bears their names."
+  },
+  {
+    "id": "akan-nyame-asase-yaa",
+    "fromDeityId": "nyame",
+    "toDeityId": "asase-yaa",
+    "relationshipType": "spouse_of",
+    "confidenceLevel": "low",
+    "description": "Sky and earth are paired in Akan prayer, the sky god named first and the earth second; many modern writers call Asase Yaa Nyame's wife, but no narrative marriage is recorded in the sources used here.",
+    "isDisputed": true
+  },
+  {
+    "id": "akan-nyame-tano",
+    "fromDeityId": "nyame",
+    "toDeityId": "tano",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "medium",
+    "description": "Tano is one of the two sons among whom Nyame divides the land in the Asante and Agni versions of the inheritance story."
+  },
+  {
+    "id": "akan-nyame-bia",
+    "fromDeityId": "nyame",
+    "toDeityId": "bia",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "medium",
+    "description": "Bia is Nyame's other son in the inheritance story, the brother who loses (or, in the Agni telling, wins) the fertile land."
+  },
+  {
+    "id": "akan-tano-bia",
+    "fromDeityId": "tano",
+    "toDeityId": "bia",
+    "relationshipType": "sibling_of",
+    "confidenceLevel": "medium",
+    "description": "Brothers and rivals, their quarrel over Nyame's land explains the courses of the two rivers."
+  },
+  {
+    "id": "haudenosaunee-earth-holder-sky-woman",
+    "fromDeityId": "earth-holder",
+    "toDeityId": "sky-woman",
+    "relationshipType": "spouse_of",
+    "confidenceLevel": "high",
+    "description": "Sky Woman is the wife of the Sky World's chief in the Seneca, Onondaga, and Mohawk tellings recorded by Parker and Hewitt."
+  },
+  {
+    "id": "haudenosaunee-sky-woman-daughter",
+    "fromDeityId": "sky-woman",
+    "toDeityId": "sky-womans-daughter",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high",
+    "description": "Sky Woman gives birth to a daughter on the new earth in the recorded tellings."
+  },
+  {
+    "id": "haudenosaunee-daughter-sapling",
+    "fromDeityId": "sky-womans-daughter",
+    "toDeityId": "sapling",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high",
+    "description": "The daughter of Sky Woman is the mother of the twins."
+  },
+  {
+    "id": "haudenosaunee-daughter-flint",
+    "fromDeityId": "sky-womans-daughter",
+    "toDeityId": "flint",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high",
+    "description": "The daughter of Sky Woman is the mother of the twins and dies at Flint's birth."
+  },
+  {
+    "id": "haudenosaunee-gaha-daughter",
+    "fromDeityId": "gaha",
+    "toDeityId": "sky-womans-daughter",
+    "relationshipType": "spouse_of",
+    "confidenceLevel": "low",
+    "isDisputed": true,
+    "description": "In the Seneca cosmology Parker summarises, Sky Woman's daughter marries the gentle wind; other tellings recorded by Hewitt name the twins' father differently."
+  },
+  {
+    "id": "haudenosaunee-hinon-sapling",
+    "fromDeityId": "hinon",
+    "toDeityId": "sapling",
+    "relationshipType": "ally_of",
+    "confidenceLevel": "medium",
+    "description": "Parker describes the Thunderer as a servant of the good-minded twin, who assigns him his work of bringing rain and destroying underworld monsters."
+  },
+  {
+    "id": "tlingit-raven-petrel",
+    "fromDeityId": "raven",
+    "toDeityId": "petrel",
+    "relationshipType": "enemy_of",
+    "confidenceLevel": "high",
+    "description": "Raven tricks Petrel out of his everlasting spring and escapes with the water (Swanton, Tlingit Myths and Texts, Sitka Raven cycle)."
+  },
+  {
+    "id": "tlingit-raven-old-woman-underneath",
+    "fromDeityId": "raven",
+    "toDeityId": "old-woman-underneath",
+    "relationshipType": "enemy_of",
+    "confidenceLevel": "high",
+    "description": "Raven attacks Old-woman-underneath until she agrees to let the tide rise and fall (Swanton, Sitka Raven cycle)."
+  },
+  {
+    "id": "slavic-perun-veles-oaths",
+    "fromDeityId": "perun",
+    "toDeityId": "veles",
+    "relationshipType": "ally_of",
+    "confidenceLevel": "medium",
+    "description": "Attested pairing: in the treaties recorded in the Primary Chronicle (s.a. 907 and 971) the Rus' swear by Perun and by Volos, the cattle god, together. This is joint invocation in oaths, not a narrated alliance; the opposed 'enemy' reading of the same pair is a modern reconstruction."
+  },
+  {
+    "id": "hittite-storm-god-sun-goddess-arinna",
+    "fromDeityId": "tarhunna",
+    "toDeityId": "sun-goddess-of-arinna",
+    "relationshipType": "spouse_of",
+    "confidenceLevel": "high",
+    "description": "The Storm-god of Hatti and the Sun-goddess of Arinna head the Hittite state cult as a divine couple in royal prayers and festival texts; Puduhepa's prayer (CTH 384) further equates the goddess with Teššub's consort Hebat."
+  },
+  {
+    "id": "hittite-storm-god-telipinu",
+    "fromDeityId": "tarhunna",
+    "toDeityId": "telipinu",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high",
+    "description": "In the Disappearance of Telipinu (CTH 324) the Storm-god searches for 'my son Telipinu'."
+  },
+  {
+    "id": "hittite-alalu-kumarbi",
+    "fromDeityId": "alalu",
+    "toDeityId": "kumarbi",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "medium",
+    "description": "The Song of Kumarbi calls Kumarbi the offspring (literally 'seed') of Alalu; the term may indicate descent rather than direct fatherhood."
+  },
+  {
+    "id": "hittite-kumarbi-storm-god-birth",
+    "fromDeityId": "kumarbi",
+    "toDeityId": "tarhunna",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "medium",
+    "description": "In the Song of Kumarbi the storm-god is conceived when Kumarbi swallows Anu's manhood and is born from Kumarbi's body; Anu is the begetter, so this edge records the birth, not ordinary fatherhood."
+  },
+  {
+    "id": "hittite-kumarbi-storm-god-enmity",
+    "fromDeityId": "kumarbi",
+    "toDeityId": "tarhunna",
+    "relationshipType": "enemy_of",
+    "confidenceLevel": "high",
+    "description": "Throughout the Kumarbi cycle Kumarbi plots to overthrow Teššub, fathering Hedammu and Ullikummi for that purpose."
+  },
+  {
+    "id": "hittite-shaushka-storm-god",
+    "fromDeityId": "shaushka",
+    "toDeityId": "tarhunna",
+    "relationshipType": "sibling_of",
+    "confidenceLevel": "high",
+    "description": "The Hurrian songs make Šauška the sister of Teššub; she goes with him to Mount Hazzi in the Song of Ullikummi."
+  },
+  {
+    "id": "hittite-inara-storm-god",
+    "fromDeityId": "inara",
+    "toDeityId": "tarhunna",
+    "relationshipType": "ally_of",
+    "confidenceLevel": "high",
+    "description": "Inara prepares the feast that traps the serpent Illuyanka so that the Storm-god can kill it (CTH 321, first version)."
+  },
+  {
+    "id": "hittite-hannahanna-storm-god",
+    "fromDeityId": "hannahanna",
+    "toDeityId": "tarhunna",
+    "relationshipType": "ally_of",
+    "confidenceLevel": "high",
+    "description": "Hannahanna counsels the Storm-god in the search for Telipinu and sends the bee that finds him (CTH 324)."
+  },
+  {
+    "id": "hittite-kamrusepa-telipinu",
+    "fromDeityId": "kamrusepa",
+    "toDeityId": "telipinu",
+    "relationshipType": "ally_of",
+    "confidenceLevel": "medium",
+    "description": "Kamrušepa performs the rite that removes Telipinu's anger and allows his return (CTH 324); the relationship is ritual rather than personal."
+  },
+  {
+    "id": "canaanite-el-athirat",
+    "fromDeityId": "el",
+    "toDeityId": "athirat",
+    "relationshipType": "spouse_of",
+    "confidenceLevel": "high",
+    "description": "Athirat is El's consort throughout the Ugaritic texts; he welcomes her as his wife in KTU 1.4 IV."
+  },
+  {
+    "id": "canaanite-el-yam",
+    "fromDeityId": "el",
+    "toDeityId": "yam",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "medium",
+    "description": "El proclaims Yam's name and calls him beloved (KTU 1.1 IV); in Smith's reading El also calls him 'my son' (line 14), but the surrounding text is damaged, so the kinship rests on a single passage."
+  },
+  {
+    "id": "canaanite-el-mot",
+    "fromDeityId": "el",
+    "toDeityId": "mot",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "medium",
+    "description": "Mot is called bn ilm, usually translated 'son of El' (some translate 'divine Mot'), and 'beloved of El'."
+  },
+  {
+    "id": "canaanite-baal-yam",
+    "fromDeityId": "baal",
+    "toDeityId": "yam",
+    "relationshipType": "enemy_of",
+    "confidenceLevel": "high",
+    "description": "Baal fights and defeats Yam with the clubs Yagrush and Ayyamur (KTU 1.2 IV)."
+  },
+  {
+    "id": "canaanite-baal-mot",
+    "fromDeityId": "baal",
+    "toDeityId": "mot",
+    "relationshipType": "enemy_of",
+    "confidenceLevel": "high",
+    "description": "Mot swallows Baal (KTU 1.5), and the two fight again in the seventh year (KTU 1.6 VI)."
+  },
+  {
+    "id": "canaanite-anat-baal",
+    "fromDeityId": "anat",
+    "toDeityId": "baal",
+    "relationshipType": "sibling_of",
+    "confidenceLevel": "medium",
+    "description": "Anat is called Baal's sister in the Ugaritic texts and acts as his ally; some scholars also see a sexual relationship between them in fragmentary texts, which this site does not assert."
+  },
+  {
+    "id": "canaanite-anat-mot",
+    "fromDeityId": "anat",
+    "toDeityId": "mot",
+    "relationshipType": "enemy_of",
+    "confidenceLevel": "high",
+    "description": "Anat seizes Mot and destroys him (KTU 1.6 II)."
+  },
+  {
+    "id": "canaanite-kothar-baal",
+    "fromDeityId": "kothar-wa-khasis",
+    "toDeityId": "baal",
+    "relationshipType": "ally_of",
+    "confidenceLevel": "high",
+    "description": "Kothar-wa-Khasis makes Baal's clubs (KTU 1.2 IV) and builds his palace (KTU 1.4 V-VII)."
+  },
+  {
+    "id": "canaanite-shapash-anat",
+    "fromDeityId": "shapash",
+    "toDeityId": "anat",
+    "relationshipType": "ally_of",
+    "confidenceLevel": "high",
+    "description": "Shapash helps Anat lift Baal's body and later searches for him at her request (KTU 1.6 I, III-IV)."
+  },
+  {
+    "id": "canaanite-athtart-baal",
+    "fromDeityId": "athtart",
+    "toDeityId": "baal",
+    "relationshipType": "ally_of",
+    "confidenceLevel": "medium",
+    "description": "Athtart restrains Baal before Yam's messengers and urges him on after Yam falls (KTU 1.2 I, IV); the tone of the second passage is debated."
+  },
+  {
+    "id": "canaanite-athirat-athtar",
+    "fromDeityId": "athirat",
+    "toDeityId": "athtar",
+    "relationshipType": "ally_of",
+    "confidenceLevel": "medium",
+    "description": "Athirat proposes Athtar as king after Baal's death (KTU 1.6 I); he is counted among her sons in some translations, but the text does not state it directly."
+  },
+  {
+    "id": "inuit-anningan-malina",
+    "fromDeityId": "anningan",
+    "toDeityId": "malina",
+    "relationshipType": "sibling_of",
+    "confidenceLevel": "high",
+    "description": "The moon and the sun are brother and sister in Inuit tradition from Greenland to Alaska; Boas notes that the Baffin Island and Greenlandic tellings correspond exactly."
+  },
+  {
+    "id": "inuit-anguta-sedna",
+    "fromDeityId": "anguta",
+    "toDeityId": "sedna",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high",
+    "description": "In the Baffin Island tellings Boas recorded, Anguta is Sedna's father; many other regional versions give the Sea Woman's father no name, or tell a different origin entirely."
+  },
+  {
+    "id": "aboriginal-bunjil-pallian",
+    "fromDeityId": "bunjil",
+    "toDeityId": "pallian",
+    "relationshipType": "sibling_of",
+    "confidenceLevel": "medium",
+    "description": "Public Kulin tellings, including a Wadawurrung Elder's, and nineteenth-century Victorian records call Pallian Bunjil's brother; records differ on names and details."
+  },
+  {
+    "id": "aboriginal-wati-nyiru-seven-sisters",
+    "fromDeityId": "wati-nyiru",
+    "toDeityId": "seven-sisters",
+    "relationshipType": "enemy_of",
+    "confidenceLevel": "high",
+    "description": "In the Seven Sisters songlines shared through the National Museum of Australia, Yurla or Wati Nyiru pursues the sisters across the deserts; 'enemy' here means pursuer."
+  },
+  {
+    "id": "aboriginal-kuniya-liru",
+    "fromDeityId": "kuniya",
+    "toDeityId": "liru",
+    "relationshipType": "enemy_of",
+    "confidenceLevel": "high",
+    "description": "In the Aṉangu Tjukurpa shared at Uluṟu, the Liru kill Kuniya's nephew and Kuniya strikes down a Liru warrior at Muṯitjulu."
+  },
+  {
+    "id": "dine-sun-monster-slayer",
+    "fromDeityId": "johonaaei",
+    "toDeityId": "monster-slayer",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high",
+    "description": "The Sun is Monster Slayer's father in Matthews's version and in later tellings; he tests the twins before acknowledging them."
+  },
+  {
+    "id": "dine-changing-woman-monster-slayer",
+    "fromDeityId": "changing-woman",
+    "toDeityId": "monster-slayer",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high",
+    "description": "Changing Woman is Monster Slayer's mother in every published version used here."
+  },
+  {
+    "id": "dine-changing-woman-born-for-water",
+    "fromDeityId": "changing-woman",
+    "toDeityId": "born-for-water",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "medium",
+    "description": "In many later tellings Changing Woman is the mother of both twins; in Matthews's 1897 version Born for Water is White Shell Woman's son by the water."
+  },
+  {
+    "id": "dine-white-shell-woman-born-for-water",
+    "fromDeityId": "white-shell-woman",
+    "toDeityId": "born-for-water",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "medium",
+    "description": "In Matthews's Navaho Legends (1897), White Shell Woman conceives Born for Water by the water; later tellings often give both twins to Changing Woman."
+  },
+  {
+    "id": "dine-twins",
+    "fromDeityId": "monster-slayer",
+    "toDeityId": "born-for-water",
+    "relationshipType": "sibling_of",
+    "confidenceLevel": "high",
+    "description": "The Hero Twins are brothers in every version, whether born of one mother or two."
+  },
+  {
+    "id": "dine-sun-changing-woman",
+    "fromDeityId": "johonaaei",
+    "toDeityId": "changing-woman",
+    "relationshipType": "spouse_of",
+    "confidenceLevel": "medium",
+    "description": "The Sun is the father of Changing Woman's son and later asks her to live with him in the house he builds in the west; the texts describe a partnership rather than a formal marriage."
+  },
+  {
+    "id": "dine-first-man-first-woman",
+    "fromDeityId": "first-man",
+    "toDeityId": "first-woman",
+    "relationshipType": "spouse_of",
+    "confidenceLevel": "high",
+    "description": "First Man and First Woman are partners from the lower worlds onward; their quarrel leads to the separation of the sexes."
+  },
+  {
+    "id": "dine-spider-woman-twins",
+    "fromDeityId": "spider-woman",
+    "toDeityId": "monster-slayer",
+    "relationshipType": "ally_of",
+    "confidenceLevel": "high",
+    "description": "Spider Woman guides the twins and gives them protection and words for the dangers of the journey to the Sun."
+  },
+  {
+    "id": "dine-white-shell-changing-woman",
+    "fromDeityId": "white-shell-woman",
+    "toDeityId": "changing-woman",
+    "relationshipType": "aspect_of",
+    "confidenceLevel": "low",
+    "description": "Many later tellings treat White Shell Woman as another name or aspect of Changing Woman, while Matthews (1897) has the gods bring a turquoise image and a white shell image to life as two women, 'the two divine sisters'; marked low confidence because the versions disagree."
+  },
+  {
+    "id": "dine-first-man-changing-woman",
+    "fromDeityId": "first-man",
+    "toDeityId": "changing-woman",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "low",
+    "description": "In Zolbrod's Diné bahane' (1984) and tellings like it, First Man hears an infant cry on Chʼóolʼį́ʼí and finds a turquoise figure there, which the Holy People bring to life; they tell First Man and First Woman to raise her as their daughter. In Matthews (1897) the turquoise image is found by an unnamed family and the gods leave the two sisters on the mountain, with no fostering by First Man. This is fosterage, not birth, and it is marked low confidence for that reason."
+  },
+  {
+    "id": "inca-inti-mama-killa",
+    "fromDeityId": "inti",
+    "toDeityId": "mama-killa",
+    "relationshipType": "spouse_of",
+    "confidenceLevel": "high",
+    "description": "Garcilaso calls the Moon the sister and wife of the Sun; her silver chamber in the Coricancha stood beside his (Comentarios Reales, Part I, Book 3)."
+  },
+  {
+    "id": "inca-inti-manco-capac",
+    "fromDeityId": "inti",
+    "toDeityId": "manco-capac",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "medium",
+    "description": "In Garcilaso's version the Sun sends his son Manco Cápac to Lake Titicaca; the Pacaritambo version of Betanzos and Sarmiento has Manco emerge from a cave instead."
+  },
+  {
+    "id": "inca-inti-mama-ocllo",
+    "fromDeityId": "inti",
+    "toDeityId": "mama-ocllo",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "medium",
+    "description": "Mama Ocllo is the Sun's daughter in Garcilaso's version; in the Pacaritambo version she is one of four sisters from the cave of Tambo Toco."
+  },
+  {
+    "id": "inca-mama-killa-manco-capac",
+    "fromDeityId": "mama-killa",
+    "toDeityId": "manco-capac",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "low",
+    "description": "Garcilaso says the Incas held the Moon to be the sister and wife of the Sun and 'mother of the Incas and of all their generation' (Comentarios Reales, Part 1); the founding siblings' descent from her is implied rather than narrated."
+  },
+  {
+    "id": "inca-manco-capac-mama-ocllo-spouse",
+    "fromDeityId": "manco-capac",
+    "toDeityId": "mama-ocllo",
+    "relationshipType": "spouse_of",
+    "confidenceLevel": "high",
+    "description": "Brother and wife of Manco Cápac in both Garcilaso's and the Pacaritambo versions; mother of his successor Sinchi Roca."
+  },
+  {
+    "id": "inca-manco-capac-mama-ocllo-sibling",
+    "fromDeityId": "manco-capac",
+    "toDeityId": "mama-ocllo",
+    "relationshipType": "sibling_of",
+    "confidenceLevel": "high",
+    "description": "The founding couple are brother and sister in every major version, a model for the later royal sibling marriage."
+  },
+  {
+    "id": "inca-pariacaca-huallallo",
+    "fromDeityId": "pariacaca",
+    "toDeityId": "huallallo-carhuincho",
+    "relationshipType": "enemy_of",
+    "confidenceLevel": "high",
+    "description": "Pariacaca defeats Huallallo Carhuincho and drives him into the Antis lowlands (Huarochirí Manuscript, chs. 8 and 16)."
+  },
+  {
+    "id": "inca-cuniraya-viracocha",
+    "fromDeityId": "cuniraya-viracocha",
+    "toDeityId": "viracocha",
+    "relationshipType": "aspect_of",
+    "confidenceLevel": "medium",
+    "description": "The Huarochirí material records him invoked as 'Cuniraya Viracocha, lord of all'; whether he was a local form of the state Creator or a local deity later identified with him is debated.",
+    "isDisputed": true
+  },
+  {
+    "id": "persian-ahura-mazda-angra-mainyu-enemy",
+    "fromDeityId": "ahura-mazda",
+    "toDeityId": "angra-mainyu",
+    "relationshipType": "enemy_of",
+    "confidenceLevel": "high",
+    "description": "The Hostile Spirit counter-creates a plague against each good land Ahura Mazda makes (Vendidad 1) and assaults his creation (Bundahishn)."
+  },
+  {
+    "id": "persian-ahura-mazda-angra-mainyu-twins",
+    "fromDeityId": "ahura-mazda",
+    "toDeityId": "angra-mainyu",
+    "relationshipType": "sibling_of",
+    "confidenceLevel": "low",
+    "description": "Twin sons of Zurvan only in the Zurvanite current reported by Eznik of Kolb; the Gathas call the two primal spirits twins (Yasna 30.3), but orthodox tradition holds Ohrmazd uncreated.",
+    "isDisputed": true
+  },
+  {
+    "id": "persian-zurvan-ahura-mazda",
+    "fromDeityId": "zurvan",
+    "toDeityId": "ahura-mazda",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "low",
+    "description": "Ohrmazd is born of Zurvan's sacrifice in the Zurvanite myth (Eznik of Kolb, 5th c.); rejected by later Zoroastrian orthodoxy.",
+    "isDisputed": true
+  },
+  {
+    "id": "persian-zurvan-angra-mainyu",
+    "fromDeityId": "zurvan",
+    "toDeityId": "angra-mainyu",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "low",
+    "description": "Ahriman is born of Zurvan's doubt in the Zurvanite myth (Eznik of Kolb, 5th c.).",
+    "isDisputed": true
+  },
+  {
+    "id": "persian-ahura-mazda-atar",
+    "fromDeityId": "ahura-mazda",
+    "toDeityId": "atar",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high",
+    "description": "'Atar, the son of Ahura Mazda' is a standing Avestan formula (e.g. Yasht 19.46-50)."
+  },
+  {
+    "id": "persian-ahura-mazda-spenta-armaiti",
+    "fromDeityId": "ahura-mazda",
+    "toDeityId": "spenta-armaiti",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high",
+    "description": "The Gathas call Armaiti the daughter of Ahura Mazda (Yasna 45.4)."
+  },
+  {
+    "id": "persian-mithra-ahura-mazda",
+    "fromDeityId": "mithra",
+    "toDeityId": "ahura-mazda",
+    "relationshipType": "ally_of",
+    "confidenceLevel": "high",
+    "description": "'When I created Mithra ... I created him as worthy of sacrifice, as worthy of prayer as myself' (Yasht 10.1)."
+  },
+  {
+    "id": "persian-verethragna-mithra",
+    "fromDeityId": "verethragna",
+    "toDeityId": "mithra",
+    "relationshipType": "ally_of",
+    "confidenceLevel": "high",
+    "description": "Verethragna runs before Mithra's chariot in the shape of a boar (Yasht 10.70)."
+  },
+  {
+    "id": "persian-sraosha-mithra",
+    "fromDeityId": "sraosha",
+    "toDeityId": "mithra",
+    "relationshipType": "ally_of",
+    "confidenceLevel": "medium",
+    "description": "With Rashnu they judge each soul at the Chinvat Bridge in Zoroastrian eschatology."
+  },
+  {
+    "id": "persian-tishtrya-ahura-mazda",
+    "fromDeityId": "tishtrya",
+    "toDeityId": "ahura-mazda",
+    "relationshipType": "ally_of",
+    "confidenceLevel": "high",
+    "description": "'For Ahura Mazda gave him assistance; so did the waters and the plants' (Yasht 8.7)."
+  },
+  {
+    "id": "persian-tishtrya-mithra",
+    "fromDeityId": "tishtrya",
+    "toDeityId": "mithra",
+    "relationshipType": "ally_of",
+    "confidenceLevel": "high",
+    "description": "Mithra 'opened a wide way unto him' as Tishtrya flew to the sea Vouru-Kasha (Yasht 8.7)."
+  },
+  {
+    "id": "persian-anahita-ahura-mazda",
+    "fromDeityId": "anahita",
+    "toDeityId": "ahura-mazda",
+    "relationshipType": "ally_of",
+    "confidenceLevel": "high",
+    "description": "Ahura Mazda calls her 'this spring of mine', and she 'proceeded forth from the Maker Mazda' (Yasht 5.1, 5.7)."
+  },
+  {
+    "id": "persian-anahita-mithra",
+    "fromDeityId": "anahita",
+    "toDeityId": "mithra",
+    "relationshipType": "ally_of",
+    "confidenceLevel": "medium",
+    "description": "Invoked together with Ahuramazda by Artaxerxes II (r. 404-358 BCE), the first Achaemenid inscriptions to name either."
+  },
+  {
+    "id": "persian-yima-ahura-mazda",
+    "fromDeityId": "yima",
+    "toDeityId": "ahura-mazda",
+    "relationshipType": "ally_of",
+    "confidenceLevel": "high",
+    "description": "The first mortal with whom Ahura Mazda conversed, who agreed to rule and protect his world (Vendidad 2)."
+  },
+  {
+    "id": "persian-yima-spenta-armaiti",
+    "fromDeityId": "yima",
+    "toDeityId": "spenta-armaiti",
+    "relationshipType": "ally_of",
+    "confidenceLevel": "medium",
+    "description": "Yima calls on Spenta Armaiti to stretch the earth wider for the growing world (Vendidad 2.10)."
+  },
+  {
+    "id": "persian-atar-angra-mainyu",
+    "fromDeityId": "atar",
+    "toDeityId": "angra-mainyu",
+    "relationshipType": "enemy_of",
+    "confidenceLevel": "medium",
+    "description": "In the struggle for the Glory, the Good Spirit sends Atar and the Evil Spirit sends Azhi Dahaka (Yasht 19.46-50)."
+  },
+  {
+    "id": "finnish-ilmatar-vainamoinen",
+    "fromDeityId": "ilmatar",
+    "toDeityId": "vainamoinen",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high",
+    "description": "Väinämöinen is 'delivered from his mother, Ilmatar, the Ether's daughter' (Kalevala, Rune 1); in most folk variants he has no such mother."
+  },
+  {
+    "id": "finnish-tapio-mielikki",
+    "fromDeityId": "tapio",
+    "toDeityId": "mielikki",
+    "relationshipType": "spouse_of",
+    "confidenceLevel": "high",
+    "description": "Mielikki is the forest's mistress and Tapio's wife in folk charms and in Lemminkäinen's prayers (Kalevala, Rune 14)."
+  },
+  {
+    "id": "finnish-ahti-vellamo",
+    "fromDeityId": "ahti",
+    "toDeityId": "vellamo",
+    "relationshipType": "spouse_of",
+    "confidenceLevel": "high",
+    "description": "The king and mistress of the waters, paired in folk poetry and in the Kalevala."
+  },
+  {
+    "id": "finnish-louhi-vainamoinen",
+    "fromDeityId": "louhi",
+    "toDeityId": "vainamoinen",
+    "relationshipType": "enemy_of",
+    "confidenceLevel": "high",
+    "description": "Louhi pursues Väinämöinen as a giant eagle to recover the Sampo, and he breaks her talons with his rudder (Kalevala, Rune 43)."
+  },
+  {
+    "id": "finnish-louhi-lemminkainen",
+    "fromDeityId": "louhi",
+    "toDeityId": "lemminkainen",
+    "relationshipType": "enemy_of",
+    "confidenceLevel": "high",
+    "description": "Louhi sends Lemminkäinen on the tasks that end in his death at Tuonela (Kalevala, Runes 13-14), and he later kills the master of Pohjola (Rune 27)."
+  },
+  {
+    "id": "finnish-louhi-ilmarinen",
+    "fromDeityId": "louhi",
+    "toDeityId": "ilmarinen",
+    "relationshipType": "enemy_of",
+    "confidenceLevel": "medium",
+    "description": "Ilmarinen forges the Sampo for Louhi and marries her daughter, but joins the raid that steals it from her (Kalevala, Runes 10, 18-25, 42)."
+  },
+  {
+    "id": "finnish-vainamoinen-ilmarinen",
+    "fromDeityId": "vainamoinen",
+    "toDeityId": "ilmarinen",
+    "relationshipType": "ally_of",
+    "confidenceLevel": "high",
+    "description": "Companions in the theft of the Sampo; Väinämöinen calls the smith his brother and tricks him into forging the Sampo (Kalevala, Runes 10, 39-43)."
+  },
+  {
+    "id": "finnish-vainamoinen-lemminkainen",
+    "fromDeityId": "vainamoinen",
+    "toDeityId": "lemminkainen",
+    "relationshipType": "ally_of",
+    "confidenceLevel": "high",
+    "description": "Lemminkäinen joins Väinämöinen and Ilmarinen in the raid on Pohjola (Kalevala, Runes 39-43)."
+  },
+  {
+    "id": "korean-hwanin-hwanung",
+    "fromDeityId": "hwanin",
+    "toDeityId": "hwanung",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high",
+    "description": "Hwanung is Hwanin's son by a secondary wife (Samguk Yusa, Book 1, 'Gojoseon')."
+  },
+  {
+    "id": "korean-hwanung-ungnyeo",
+    "fromDeityId": "hwanung",
+    "toDeityId": "ungnyeo",
+    "relationshipType": "spouse_of",
+    "confidenceLevel": "high",
+    "description": "Hwanung takes human form for a time and marries the bear-woman (Samguk Yusa, Book 1)."
+  },
+  {
+    "id": "korean-hwanung-dangun",
+    "fromDeityId": "hwanung",
+    "toDeityId": "dangun",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high",
+    "description": "Father of Dangun Wanggeom (Samguk Yusa, Book 1)."
+  },
+  {
+    "id": "korean-ungnyeo-dangun",
+    "fromDeityId": "ungnyeo",
+    "toDeityId": "dangun",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high",
+    "description": "Mother of Dangun Wanggeom (Samguk Yusa, Book 1); the near-contemporary Jewang ungi gives a different mother."
+  },
+  {
+    "id": "korean-habaek-yuhwa",
+    "fromDeityId": "habaek",
+    "toDeityId": "yuhwa",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high",
+    "description": "Yuhwa is the daughter of Habaek, the River Earl (Gwanggaeto Stele; Samguk Sagi; Dongmyeongwang-pyeon)."
+  },
+  {
+    "id": "korean-haemosu-yuhwa",
+    "fromDeityId": "haemosu",
+    "toDeityId": "yuhwa",
+    "relationshipType": "lover_of",
+    "confidenceLevel": "high",
+    "description": "Haemosu lures Yuhwa to a house by the Amnok River and abandons her (Samguk Sagi); Yi Gyu-bo adds a wedding after a contest with Habaek."
+  },
+  {
+    "id": "korean-haemosu-jumong",
+    "fromDeityId": "haemosu",
+    "toDeityId": "jumong",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "medium",
+    "description": "Named as Jumong's father in the Samguk Yusa and Yi Gyu-bo's poem; the Samguk Sagi has Yuhwa conceive from sunlight after Haemosu's departure, and the Gwanggaeto Stele says only 'son of the Heavenly Emperor'."
+  },
+  {
+    "id": "korean-yuhwa-jumong",
+    "fromDeityId": "yuhwa",
+    "toDeityId": "jumong",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high",
+    "description": "Jumong hatches from the egg Yuhwa lays in East Buyeo (Samguk Sagi; Gwanggaeto Stele)."
+  },
+  {
+    "id": "korean-mireuk-seokga",
+    "fromDeityId": "mireuk",
+    "toDeityId": "seokga",
+    "relationshipType": "enemy_of",
+    "confidenceLevel": "high",
+    "description": "Seokga wins the world from Mireuk by stealing the flower from his knee (Changse-ga, recorded 1923)."
+  },
+  {
+    "id": "greek-atlas-prometheus",
+    "fromDeityId": "atlas",
+    "toDeityId": "prometheus",
+    "relationshipType": "sibling_of",
+    "confidenceLevel": "high",
+    "description": "Both are sons of Iapetus and Clymene (Hesiod, Theogony 507-514)."
+  },
+  {
+    "id": "greek-nyx-nemesis",
+    "fromDeityId": "nyx",
+    "toDeityId": "nemesis",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high",
+    "description": "Night bore Nemesis without a partner (Hesiod, Theogony 223-224)."
+  },
+  {
+    "id": "greek-nyx-thanatos",
+    "fromDeityId": "nyx",
+    "toDeityId": "thanatos",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high",
+    "description": "Night bore Death, with Sleep and Doom, without a partner (Hesiod, Theogony 211-212)."
+  },
+  {
+    "id": "greek-persephone-melinoe",
+    "fromDeityId": "persephone",
+    "toDeityId": "melinoe",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "medium",
+    "description": "Only source: Orphic Hymn 71, where Persephone bears Melinoë by the Cocytus."
+  },
+  {
+    "id": "greek-zeus-melinoe",
+    "fromDeityId": "zeus",
+    "toDeityId": "melinoe",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "medium",
+    "description": "Only source: Orphic Hymn 71, where Zeus fathers Melinoë in the guise of Plouton (Hades).",
+    "isDisputed": true
   }
 ]
