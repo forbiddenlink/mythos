@@ -5,19 +5,18 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { BookmarkButton } from "@/components/ui/bookmark-button";
 import { Progress } from "@/components/ui/progress";
-import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
-import { Sparkles, ScrollText, BookOpen } from "lucide-react";
-import { HeroMark } from "@/components/icons/hero-mark";
+import Image from "next/image";
+import { Container } from "@/components/layout/container";
+import { PageHeader } from "@/components/layout/page-header";
+import {
+  EmptyState,
+  primaryLinkClass,
+  secondaryLinkClass,
+} from "@/components/layout/tool-stage";
+import { Sparkles, ScrollText, BookOpen, Heart } from "lucide-react";
 import { MythosMark } from "@/components/icons/mythos-marks";
 import Link from "next/link";
 import type { BookmarkType } from "@/providers/bookmarks-provider";
-import { RouteHero } from "@/components/layout/route-hero";
-import {
-  pageEyebrowClass,
-  pageLedeOnDarkClass,
-  pageTitleOnDarkClass,
-} from "@/components/layout/page-typography";
-import { cn } from "@/lib/utils";
 
 interface Deity {
   id: string;
@@ -109,43 +108,38 @@ export function BookmarksPageClient({
 
   const isEmpty = allBookmarks.length === 0;
 
+  const header = (
+    <PageHeader
+      eyebrow="Your collection"
+      mark="favor"
+      title="Bookmarks"
+      lede={
+        isEmpty
+          ? "Save favourite deities, heroes, stories, pantheons and sources to come back to."
+          : `${allBookmarks.length} saved item${allBookmarks.length !== 1 ? "s" : ""}, kept in this browser.`
+      }
+    />
+  );
+
   if (isEmpty) {
     return (
-      <div className="page-shell max-w-4xl min-h-screen">
-        <Breadcrumbs />
-        <h1 className="page-title text-foreground">Bookmarks</h1>
-        <EmptyState />
+      <div className="min-h-screen">
+        {header}
+        <Container className="section-space-sm">
+          <BookmarksEmpty />
+        </Container>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-mythic">
-      {/* Hero Section */}
-      <RouteHero>
-        <div className="flex items-center justify-center mb-6">
-          <HeroMark mark="favor" tone="gold" size="lg" />
-        </div>
-        <span className={pageEyebrowClass}>Your Collection</span>
-        <h1 className={cn(pageTitleOnDarkClass, "mb-6")}>Bookmarks</h1>
-        <div className="flex items-center justify-center gap-4 mb-6">
-          <div className="w-12 h-px bg-linear-to-r from-transparent to-gold/40" />
-          <div className="w-1.5 h-1.5 rotate-45 bg-gold/50" />
-          <div className="w-12 h-px bg-linear-to-l from-transparent to-gold/40" />
-        </div>
-        <p className={pageLedeOnDarkClass}>
-          {isEmpty
-            ? "Save favorite deities, heroes, stories, pantheons, and sources"
-            : `${allBookmarks.length} saved item${allBookmarks.length !== 1 ? "s" : ""}`}
-        </p>
-      </RouteHero>
+    <div className="min-h-screen">
+      {header}
 
       {/* Content Section */}
-      <div className="page-shell max-w-6xl">
-        <Breadcrumbs />
-
+      <div className="page-shell">
         {isEmpty ? (
-          <EmptyState />
+          <BookmarksEmpty />
         ) : (
           <div className="mt-8 space-y-12">
             {heroBookmarks.length > 0 && (
@@ -447,43 +441,75 @@ function BookmarkCard({
   );
 }
 
-function EmptyState() {
+const PREVIEW_ROWS = [
+  { name: "Athena", meta: "Deity · Greek", image: "/deities/athena.jpg" },
+  { name: "Odin", meta: "Deity · Norse", image: "/deities/odin.jpg" },
+  { name: "Isis", meta: "Deity · Egyptian", image: "/deities/isis.jpg" },
+];
+
+function BookmarksEmpty() {
   return (
-    <section className="mt-8 max-w-2xl" aria-labelledby="bookmarks-empty-title">
-      <h2
-        id="bookmarks-empty-title"
-        className="font-serif text-2xl text-foreground"
-      >
-        Keep a reading list
-      </h2>
-      <p className="mt-4 font-body text-xl leading-relaxed text-foreground">
-        Save a figure, story or source with its heart button. Your saved entries
-        will appear here, ready to open again.
-      </p>
-      <div className="mt-6 flex flex-wrap gap-4">
-        <Link
-          href="/stories"
-          className="inline-flex min-h-11 items-center rounded-md bg-gold px-5 font-medium text-midnight hover:bg-gold-light"
-        >
-          Find a story to save
-        </Link>
-        <Link
-          href="/deities"
-          className="inline-flex min-h-11 items-center text-gold-text underline underline-offset-4"
-        >
-          Browse figures
-        </Link>
-      </div>
-      <p className="mt-8 border-t border-border pt-5 text-sm text-muted-foreground">
-        Bookmarks are saved in this browser. You can export or restore them from{" "}
-        <Link
-          href="/progress"
-          className="text-gold-text underline underline-offset-4"
-        >
-          Progress
-        </Link>
-        .
-      </p>
-    </section>
+    <EmptyState
+      id="bookmarks-empty-title"
+      mark="favor"
+      eyebrow="Nothing saved yet"
+      title="Keep a reading list"
+      description="Save a figure, story or source with its heart button. Your saved entries will appear here, ready to open again."
+      actions={
+        <>
+          <Link href="/stories" className={primaryLinkClass}>
+            Find a story to save
+          </Link>
+          <Link href="/deities" className={secondaryLinkClass}>
+            Browse figures
+          </Link>
+        </>
+      }
+      preview={
+        <figure className="mx-auto max-w-md">
+          <ul
+            aria-hidden="true"
+            className="divide-y divide-border/70 overflow-hidden rounded-lg border border-border/70 bg-card shadow-xl shadow-black/5"
+          >
+            {PREVIEW_ROWS.map((row) => (
+              <li key={row.name} className="flex items-center gap-4 px-5 py-4">
+                <span className="relative block size-14 shrink-0 overflow-hidden rounded-md bg-muted ring-1 ring-border/70">
+                  <Image
+                    src={row.image}
+                    alt=""
+                    fill
+                    sizes="56px"
+                    className="object-cover object-top"
+                  />
+                </span>
+                <span className="min-w-0 flex-1">
+                  <span className="block font-serif text-lg font-semibold text-foreground">
+                    {row.name}
+                  </span>
+                  <span className="block type-meta text-muted-foreground">
+                    {row.meta}
+                  </span>
+                </span>
+                <Heart
+                  className="size-5 fill-gold text-gold"
+                  aria-hidden="true"
+                />
+              </li>
+            ))}
+          </ul>
+          <figcaption className="mt-4 text-center type-meta text-muted-foreground">
+            A sample list. Bookmarks are saved in this browser; export or
+            restore them from{" "}
+            <Link
+              href="/progress"
+              className="text-gold-text underline underline-offset-4"
+            >
+              Your Stats
+            </Link>
+            .
+          </figcaption>
+        </figure>
+      }
+    />
   );
 }
