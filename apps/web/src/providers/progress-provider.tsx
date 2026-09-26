@@ -7,6 +7,7 @@ import {
   createContext,
   useCallback,
   useEffect,
+  useRef,
   useLayoutEffect,
   useMemo,
   useState,
@@ -192,14 +193,34 @@ function saveProgress(progress: UserProgress) {
 export function ProgressProvider({
   children,
 }: Readonly<{ children: ReactNode }>) {
-  const [progress, setProgress] = useState<UserProgress>(DEFAULT_PROGRESS);
+  const [progress, setProgressState] = useState<UserProgress>(DEFAULT_PROGRESS);
   const [mounted, setMounted] = useState(false);
+  // Page effects run before this provider's mount effect, so a view tracked
+  // on first render would be overwritten by the saved progress. Queue updates
+  // until the saved state is loaded, then replay them on top of it.
+  const loadedRef = useRef(false);
+  const pendingRef = useRef<Array<(prev: UserProgress) => UserProgress>>([]);
+  const setProgress = useCallback(
+    (update: (prev: UserProgress) => UserProgress) => {
+      if (!loadedRef.current) {
+        pendingRef.current.push(update);
+        return;
+      }
+      setProgressState(update);
+    },
+    [],
+  );
 
   // Hydration-safe: load from localStorage on client mount
   useEffect(() => {
-    const initialProgress = loadProgress();
+    let initialProgress = loadProgress();
+    for (const update of pendingRef.current) {
+      initialProgress = update(initialProgress);
+    }
+    pendingRef.current = [];
+    loadedRef.current = true;
     // eslint-disable-next-line react-hooks/set-state-in-effect -- hydration-safe: seed state from localStorage on client mount
-    setProgress(initialProgress);
+    setProgressState(initialProgress);
     saveProgress(initialProgress);
     setMounted(true);
   }, []);
@@ -224,7 +245,7 @@ export function ProgressProvider({
   useEffect(() => {
     const handleStorage = (event: StorageEvent) => {
       if (event.key === PROGRESS_STORAGE_KEY) {
-        setProgress(loadProgress());
+        setProgressState(loadProgress());
       }
     };
     window.addEventListener("storage", handleStorage);

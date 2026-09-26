@@ -1,3 +1,5 @@
+import { Suspense } from "react";
+import { RouteFallback } from "@/components/layout/route-fallback";
 import {
   DEITY_LIST_FIELDS,
   getDeities,
@@ -9,12 +11,14 @@ import { ComparePageClient } from "./ComparePageClient";
 
 export default function Page() {
   return (
-    <ComparePageClient
-      deitiesData={getDeities().map((deity) => ({
-        ...pick(deity, DEITY_LIST_FIELDS),
-        crossPantheonParallels: resolveParallelRefs(deity),
-      }))}
-      pantheonsData={project(getPantheons(), ["id", "name", "slug"])}
-    />
+    <Suspense fallback={<RouteFallback />}>
+      <ComparePageClient
+        deitiesData={getDeities().map((deity) => ({
+          ...pick(deity, DEITY_LIST_FIELDS),
+          crossPantheonParallels: resolveParallelRefs(deity),
+        }))}
+        pantheonsData={project(getPantheons(), ["id", "name", "slug"])}
+      />
+    </Suspense>
   );
 }

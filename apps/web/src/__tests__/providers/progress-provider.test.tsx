@@ -1,6 +1,6 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
 import { renderHook, act } from "@testing-library/react";
-import { ReactNode, useContext } from "react";
+import { ReactNode, useContext, useEffect } from "react";
 import {
   ProgressProvider,
   ProgressContext,
@@ -49,6 +49,34 @@ describe("ProgressProvider", () => {
 
   afterEach(() => {
     vi.useRealTimers();
+  });
+
+  describe("Updates before the saved progress loads", () => {
+    it("keeps a view tracked on first render and the saved history", () => {
+      localStorageData["mythos-atlas-progress"] = JSON.stringify({
+        deitiesViewed: ["hera"],
+      });
+      // Child effects run before the provider's mount effect, as on a
+      // prerendered page whose tracker mounts with the provider.
+      const { result } = renderHook(
+        () => {
+          const context = useProgress();
+          const { trackDeityView } = context;
+          useEffect(() => {
+            trackDeityView("zeus", "greek-pantheon");
+          }, [trackDeityView]);
+          return context;
+        },
+        { wrapper },
+      );
+      expect(result.current.progress.deitiesViewed).toEqual(
+        expect.arrayContaining(["hera", "zeus"]),
+      );
+      const saved = JSON.parse(localStorageData["mythos-atlas-progress"]);
+      expect(saved.deitiesViewed).toEqual(
+        expect.arrayContaining(["hera", "zeus"]),
+      );
+    });
   });
 
   describe("State initialization", () => {
