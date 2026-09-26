@@ -10,7 +10,9 @@ import deities from "@/data/deities.json";
 import heroes from "@/data/heroes.json";
 import journeys from "@/data/journeys.json";
 import pantheons from "@/data/pantheons.json";
+import relationships from "@/data/relationships.json";
 import { normalizeDeityReference } from "@/lib/deities";
+import { RELATIONSHIP_TYPES } from "@/lib/schemas";
 
 type Parallel = { pantheonId: string; deityId: string; note: string };
 type HeroParallel = { pantheonId: string; heroId: string; note: string };
@@ -94,6 +96,74 @@ describe("deity cross-pantheon parallels", () => {
         .map((p) => `${deity.id} -> ${p.deityId}`),
     );
     expect(heroTargets).toEqual([]);
+  });
+});
+
+describe("relationships", () => {
+  const relationshipList = relationships as Array<{
+    id: string;
+    fromDeityId: string;
+    toDeityId: string;
+    relationshipType: string;
+  }>;
+
+  it("stores only the canonical relationship types", () => {
+    const allowed = new Set<string>(RELATIONSHIP_TYPES);
+    const odd = relationshipList
+      .filter((r) => !allowed.has(r.relationshipType))
+      .map((r) => `${r.id}: ${r.relationshipType}`);
+    expect(odd).toEqual([]);
+  });
+
+  it("does not store the same pair twice with the same type", () => {
+    const symmetric = new Set([
+      "sibling_of",
+      "spouse_of",
+      "lover_of",
+      "ally_of",
+      "enemy_of",
+    ]);
+    const seen = new Set<string>();
+    const duplicates: string[] = [];
+    for (const r of relationshipList) {
+      const pair = symmetric.has(r.relationshipType)
+        ? [r.fromDeityId, r.toDeityId].sort().join("|")
+        : `${r.fromDeityId}|${r.toDeityId}`;
+      const key = `${r.relationshipType}:${pair}`;
+      if (seen.has(key)) duplicates.push(`${r.id} (${key})`);
+      seen.add(key);
+    }
+    expect(duplicates).toEqual([]);
+  });
+
+  it("connects every deity to the family graph unless it has no attested kin", () => {
+    // Figures for which the sources give no relationship to another deity in
+    // this catalog. Adding kin for them would be invention, not coverage.
+    const noAttestedKin = new Set([
+      "cernunnos",
+      "guan-yu",
+      "ori",
+      "yum-kaax",
+      "ek-chuaj",
+      "bes",
+      "medb",
+      "stribog",
+      "simargl",
+      "svantevit",
+      "triglav",
+      "chernobog",
+      "purusha",
+    ]);
+    const inGraph = new Set(
+      relationshipList.flatMap((r) => [r.fromDeityId, r.toDeityId]),
+    );
+    const isolated = deityList
+      .map((d) => d.id)
+      .filter((id) => !inGraph.has(id) && !noAttestedKin.has(id));
+    expect(isolated).toEqual([]);
+    for (const id of noAttestedKin) {
+      expect(deityById.has(id), id).toBe(true);
+    }
   });
 });
 

@@ -162,6 +162,30 @@ export interface UserProgress {
   totalXP: number;
 }
 
+/**
+ * Canonical stored relationship types (mirrors `RELATIONSHIP_TYPES` in
+ * `src/lib/schemas.ts`). Read as "fromDeity <type> toDeity".
+ */
+export type RelationshipType =
+  | "parent_of"
+  | "sibling_of"
+  | "spouse_of"
+  | "lover_of"
+  | "ally_of"
+  | "enemy_of"
+  | "aspect_of";
+
+export interface Relationship {
+  id: string;
+  fromDeityId: string;
+  toDeityId: string;
+  relationshipType: RelationshipType;
+  confidenceLevel: "high" | "medium" | "low";
+  description?: string;
+  storyContext?: string;
+  isDisputed?: boolean;
+}
+
 /** Which catalog a journey's `heroId` points into. */
 export type JourneyHeroKind = "hero" | "deity";
 

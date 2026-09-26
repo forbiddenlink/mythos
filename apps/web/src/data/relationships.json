@@ -342,7 +342,7 @@
     "id": "r48",
     "fromDeityId": "venus",
     "toDeityId": "mars",
-    "relationshipType": "lover",
+    "relationshipType": "lover_of",
     "confidenceLevel": "high",
     "description": "Famous affair of Venus and Mars"
   },
@@ -1198,7 +1198,7 @@
     "id": "r187",
     "fromDeityId": "manannan-mac-lir",
     "toDeityId": "aine",
-    "relationshipType": "lover",
+    "relationshipType": "lover_of",
     "confidenceLevel": "medium",
     "description": "Munster folklore sometimes binds Aine to Manannan"
   },
@@ -1380,11 +1380,11 @@
   },
   {
     "id": "r210",
-    "fromDeityId": "yemoja",
-    "toDeityId": "nana-buruku",
-    "relationshipType": "child_of",
+    "fromDeityId": "nana-buruku",
+    "toDeityId": "yemoja",
+    "relationshipType": "parent_of",
     "confidenceLevel": "medium",
-    "description": "Nana Buruku is the elder behind several water mothers"
+    "description": "Nana Buruku is the elder mother behind several water mothers, Yemoja among them"
   },
   {
     "id": "r211",
@@ -1768,5 +1768,223 @@
     "relationshipType": "parent_of",
     "confidenceLevel": "low",
     "description": "In Swanton's telling, Raven transforms into a hemlock needle and is reborn as this old man's doted-on grandson, not his son; the site's relationship categories have no grandparent/grandchild type, so this edge is marked low confidence to flag that the actual kinship is one generation removed from what 'parent_of' literally states."
+  },
+  {
+    "id": "mesopotamian-enlil-sin-nanna",
+    "fromDeityId": "enlil",
+    "toDeityId": "sin-nanna",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high",
+    "description": "In the Sumerian myth Enlil and Ninlil, Nanna-Suen is the first child Ninlil conceives by Enlil."
+  },
+  {
+    "id": "mesopotamian-sin-nanna-shamash",
+    "fromDeityId": "sin-nanna",
+    "toDeityId": "shamash",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high",
+    "description": "Utu/Shamash, the sun, is regularly called the son of the moon god Nanna/Sin and his wife Ningal."
+  },
+  {
+    "id": "mesopotamian-sin-nanna-inanna",
+    "fromDeityId": "sin-nanna",
+    "toDeityId": "inanna",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "medium",
+    "description": "Many Sumerian texts make Inanna the daughter of Nanna and Ningal; others name An as her father."
+  },
+  {
+    "id": "african-nana-buruku-shopona",
+    "fromDeityId": "nana-buruku",
+    "toDeityId": "shopona",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "medium",
+    "description": "In Afro-Brazilian Candomblé, Nanã is the mother of Omolu/Obaluaiê, the earth-and-smallpox orisha known in Yorubaland as Sopona."
+  },
+  {
+    "id": "hindu-yama-ashvins",
+    "fromDeityId": "yama",
+    "toDeityId": "ashvins",
+    "relationshipType": "sibling_of",
+    "confidenceLevel": "medium",
+    "description": "Rigveda 10.17 says Saranyu bore the Ashvins and deserted 'both twinned pairs', the Ashvins and Yama with Yami."
+  },
+  {
+    "id": "slavic-khors-dazhbog",
+    "fromDeityId": "khors",
+    "toDeityId": "dazhbog",
+    "relationshipType": "aspect_of",
+    "confidenceLevel": "low",
+    "description": "Some scholars read Khors as another name or aspect of the sun god Dazhbog, since the Primary Chronicle lists them side by side; others see an Iranian moon or sun deity in his own right. No medieval source equates them.",
+    "isDisputed": true
+  },
+  {
+    "id": "slavic-perun-mokosh",
+    "fromDeityId": "perun",
+    "toDeityId": "mokosh",
+    "relationshipType": "spouse_of",
+    "confidenceLevel": "low",
+    "description": "A modern reconstruction (Ivanov and Toporov) pairs the thunder god with Mokosh as his wife; the Primary Chronicle lists both among Vladimir's idols but gives no marriage.",
+    "isDisputed": true
+  },
+  {
+    "id": "greek-helios-selene",
+    "fromDeityId": "helios",
+    "toDeityId": "selene",
+    "relationshipType": "sibling_of",
+    "confidenceLevel": "high",
+    "description": "Hesiod's Theogony (371-374) names Helios, Selene, and Eos as the children of Hyperion and Theia."
+  },
+  {
+    "id": "greek-helios-eos",
+    "fromDeityId": "helios",
+    "toDeityId": "eos",
+    "relationshipType": "sibling_of",
+    "confidenceLevel": "high",
+    "description": "Children of Hyperion and Theia (Theogony 371-374)."
+  },
+  {
+    "id": "greek-selene-eos",
+    "fromDeityId": "selene",
+    "toDeityId": "eos",
+    "relationshipType": "sibling_of",
+    "confidenceLevel": "high",
+    "description": "Children of Hyperion and Theia (Theogony 371-374)."
+  },
+  {
+    "id": "greek-gaia-tethys",
+    "fromDeityId": "gaia",
+    "toDeityId": "tethys",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high",
+    "description": "Tethys is among the Titans Gaia bore to Uranus (Theogony 132-136)."
+  },
+  {
+    "id": "greek-uranus-tethys",
+    "fromDeityId": "uranus",
+    "toDeityId": "tethys",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high",
+    "description": "Tethys is among the Titans born to Uranus and Gaia (Theogony 132-136)."
+  },
+  {
+    "id": "greek-cronus-tethys",
+    "fromDeityId": "cronus",
+    "toDeityId": "tethys",
+    "relationshipType": "sibling_of",
+    "confidenceLevel": "high",
+    "description": "Cronus and Tethys are both Titans, children of Gaia and Uranus."
+  },
+  {
+    "id": "greek-apollo-asclepius",
+    "fromDeityId": "apollo",
+    "toDeityId": "asclepius",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high",
+    "description": "The Homeric Hymn to Asclepius names him son of Apollo and Coronis."
+  },
+  {
+    "id": "greek-demeter-plutus",
+    "fromDeityId": "demeter",
+    "toDeityId": "plutus",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high",
+    "description": "Demeter bore Plutus to the hero Iasion in a thrice-plowed field in Crete (Theogony 969-974)."
+  },
+  {
+    "id": "greek-zeus-dioscuri",
+    "fromDeityId": "zeus",
+    "toDeityId": "dioscuri",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high",
+    "description": "The Homeric Hymns call Castor and Polydeuces sons of Zeus and Leda; Pindar makes only Polydeuces Zeus's son, and the Odyssey names Tyndareus as father of both."
+  },
+  {
+    "id": "hindu-shiva-kartikeya",
+    "fromDeityId": "shiva",
+    "toDeityId": "kartikeya",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high",
+    "description": "Kartikeya is born from Shiva's seed to destroy the demon Taraka."
+  },
+  {
+    "id": "hindu-parvati-kartikeya",
+    "fromDeityId": "parvati",
+    "toDeityId": "kartikeya",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "medium",
+    "description": "Parvati is his mother in Puranic and devotional tradition, though many birth stories have him carried by Agni, Ganga, and the Krittikas rather than born from her."
+  },
+  {
+    "id": "hindu-ganesha-kartikeya",
+    "fromDeityId": "ganesha",
+    "toDeityId": "kartikeya",
+    "relationshipType": "sibling_of",
+    "confidenceLevel": "high",
+    "description": "Both are sons of Shiva and Parvati."
+  },
+  {
+    "id": "hindu-ganga-parvati",
+    "fromDeityId": "ganga",
+    "toDeityId": "parvati",
+    "relationshipType": "sibling_of",
+    "confidenceLevel": "high",
+    "description": "The Ramayana (Bala Kanda) makes Ganga the elder daughter of Himavat and Uma (Parvati) the younger."
+  },
+  {
+    "id": "hindu-ganga-kartikeya",
+    "fromDeityId": "ganga",
+    "toDeityId": "kartikeya",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "medium",
+    "description": "In the Ramayana and Mahabharata versions of his birth, Ganga receives Shiva's fiery seed and bears the child."
+  },
+  {
+    "id": "hindu-indra-usha",
+    "fromDeityId": "indra",
+    "toDeityId": "usha",
+    "relationshipType": "enemy_of",
+    "confidenceLevel": "medium",
+    "description": "Rigveda 4.30 praises Indra for smashing the wagon of Dawn, a rare hostile episode between them."
+  },
+  {
+    "id": "norse-skadi-njord",
+    "fromDeityId": "skadi",
+    "toDeityId": "njord",
+    "relationshipType": "spouse_of",
+    "confidenceLevel": "high",
+    "description": "Skadi chose Njord by his feet as compensation for her father Thjazi; the marriage failed over mountains and sea (Gylfaginning 23)."
+  },
+  {
+    "id": "norse-skadi-loki",
+    "fromDeityId": "skadi",
+    "toDeityId": "loki",
+    "relationshipType": "enemy_of",
+    "confidenceLevel": "high",
+    "description": "Skadi fastens a venomous serpent above the bound Loki (Gylfaginning 50) and trades threats with him in Lokasenna."
+  },
+  {
+    "id": "chinese-longwang-sun-wukong",
+    "fromDeityId": "longwang",
+    "toDeityId": "sun-wukong",
+    "relationshipType": "enemy_of",
+    "confidenceLevel": "high",
+    "description": "Sun Wukong takes the Ruyi Jingu Bang from Ao Guang's palace and bullies the Dragon Kings for armor (Journey to the West, ch. 3)."
+  },
+  {
+    "id": "chinese-jade-emperor-longwang",
+    "fromDeityId": "jade-emperor",
+    "toDeityId": "longwang",
+    "relationshipType": "ally_of",
+    "confidenceLevel": "medium",
+    "description": "The Dragon Kings serve as officials of the Jade Emperor's celestial court and petition him against Sun Wukong."
+  },
+  {
+    "id": "mesopotamian-enki-ninhursag",
+    "fromDeityId": "enki",
+    "toDeityId": "ninhursag",
+    "relationshipType": "spouse_of",
+    "confidenceLevel": "high",
+    "description": "Enki and Ninhursag couple in Dilmun in the Sumerian myth that bears their names."
   }
 ]

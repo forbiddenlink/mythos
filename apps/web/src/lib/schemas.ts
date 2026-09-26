@@ -258,12 +258,31 @@ export type Location = z.infer<typeof LocationSchema>;
 // RELATIONSHIP
 // ═══════════════════════════════════════════════════════════════════
 
+/**
+ * Stored relationship types, always read "from <type> to": `parent_of`
+ * means fromDeity is the parent of toDeity. There is no stored `child_of`;
+ * the inverse is derived at read time (see `src/lib/relationships.ts`).
+ */
+export const RELATIONSHIP_TYPES = [
+  "parent_of",
+  "sibling_of",
+  "spouse_of",
+  "lover_of",
+  "ally_of",
+  "enemy_of",
+  "aspect_of",
+] as const;
+
+export const RelationshipTypeSchema = z.enum(RELATIONSHIP_TYPES);
+
+export type RelationshipType = z.infer<typeof RelationshipTypeSchema>;
+
 export const RelationshipSchema = z.looseObject({
   id: z.string(),
   fromDeityId: z.string(),
   toDeityId: z.string(),
-  relationshipType: z.string(),
-  confidenceLevel: z.string(),
+  relationshipType: RelationshipTypeSchema,
+  confidenceLevel: z.enum(["high", "medium", "low"]),
   description: z.string().optional(),
   storyContext: z.string().optional(),
   isDisputed: z.boolean().optional(),
