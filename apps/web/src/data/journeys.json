@@ -2,6 +2,7 @@
   {
     "id": "odyssey",
     "heroId": "odysseus",
+    "heroKind": "hero",
     "heroName": "Odysseus",
     "title": "The Odyssey",
     "slug": "odyssey",
@@ -228,6 +229,7 @@
   {
     "id": "jason-argonauts",
     "heroId": "jason",
+    "heroKind": "hero",
     "heroName": "Jason",
     "title": "Quest for the Golden Fleece",
     "slug": "golden-fleece",
@@ -450,6 +452,7 @@
   {
     "id": "heracles-labors",
     "heroId": "heracles",
+    "heroKind": "hero",
     "heroName": "Heracles",
     "title": "The Twelve Labors",
     "slug": "twelve-labors",
@@ -651,6 +654,7 @@
   {
     "id": "gilgamesh-quest",
     "heroId": "gilgamesh",
+    "heroKind": "deity",
     "heroName": "Gilgamesh",
     "title": "The Quest for Immortality",
     "slug": "gilgamesh-quest",
@@ -743,6 +747,7 @@
   {
     "id": "xibalba-hero-twins",
     "heroId": "hero-twins",
+    "heroKind": "deity",
     "heroName": "Hunahpu and Xbalanque",
     "title": "Descent into Xibalba",
     "slug": "xibalba-hero-twins",
@@ -836,6 +841,7 @@
   {
     "id": "maui-island-fishing",
     "heroId": "maui",
+    "heroKind": "deity",
     "heroName": "Maui",
     "title": "Fishing Up the Islands",
     "slug": "maui-island-fishing",

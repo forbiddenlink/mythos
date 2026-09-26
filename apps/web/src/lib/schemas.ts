@@ -272,6 +272,33 @@ export const RelationshipSchema = z.looseObject({
 export type Relationship = z.infer<typeof RelationshipSchema>;
 
 // ═══════════════════════════════════════════════════════════════════
+// JOURNEY
+// ═══════════════════════════════════════════════════════════════════
+
+/**
+ * A journey's protagonist is usually a hero in heroes.json, but a few epic
+ * travellers (Gilgamesh, the Hero Twins, Maui) are catalogued as deities and
+ * heroes.json deliberately never duplicates a deity. `heroKind` says which
+ * catalog `heroId` belongs to.
+ */
+export const JourneyHeroKindSchema = z.enum(["hero", "deity"]);
+
+export type JourneyHeroKind = z.infer<typeof JourneyHeroKindSchema>;
+
+export const JourneySchema = z.looseObject({
+  id: z.string(),
+  heroId: z.string(),
+  heroKind: JourneyHeroKindSchema,
+  heroName: z.string(),
+  title: z.string(),
+  slug: z.string(),
+  pantheonId: z.string(),
+  imageUrl: z.string().optional(),
+});
+
+export type Journey = z.infer<typeof JourneySchema>;
+
+// ═══════════════════════════════════════════════════════════════════
 // ARRAY VALIDATORS (for validating entire data files)
 // ═══════════════════════════════════════════════════════════════════
 
@@ -282,6 +309,7 @@ export const CreaturesArraySchema = z.array(CreatureSchema);
 export const ArtifactsArraySchema = z.array(ArtifactSchema);
 export const LocationsArraySchema = z.array(LocationSchema);
 export const RelationshipsArraySchema = z.array(RelationshipSchema);
+export const JourneysArraySchema = z.array(JourneySchema);
 
 // ═══════════════════════════════════════════════════════════════════
 // VALIDATION HELPERS

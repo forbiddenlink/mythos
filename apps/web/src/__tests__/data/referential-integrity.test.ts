@@ -8,6 +8,7 @@
 import { describe, expect, it } from "vitest";
 import deities from "@/data/deities.json";
 import heroes from "@/data/heroes.json";
+import journeys from "@/data/journeys.json";
 import pantheons from "@/data/pantheons.json";
 import { normalizeDeityReference } from "@/lib/deities";
 
@@ -93,5 +94,39 @@ describe("deity cross-pantheon parallels", () => {
         .map((p) => `${deity.id} -> ${p.deityId}`),
     );
     expect(heroTargets).toEqual([]);
+  });
+});
+
+describe("journeys", () => {
+  it("resolves every heroId in the catalog its heroKind names", () => {
+    const unresolved: string[] = [];
+    for (const journey of journeys as Array<{
+      id: string;
+      heroId: string;
+      heroKind: string;
+      pantheonId: string;
+    }>) {
+      const catalog =
+        journey.heroKind === "hero"
+          ? heroById
+          : journey.heroKind === "deity"
+            ? deityById
+            : undefined;
+      const protagonist = catalog?.get(journey.heroId);
+      if (!protagonist) {
+        unresolved.push(`${journey.id}: ${journey.heroKind}/${journey.heroId}`);
+        continue;
+      }
+      expect(protagonist.pantheonId, journey.id).toBe(journey.pantheonId);
+    }
+    expect(unresolved).toEqual([]);
+  });
+
+  it("uses heroKind 'hero' whenever the protagonist has a hero entry", () => {
+    for (const journey of journeys) {
+      if (heroById.has(journey.heroId)) {
+        expect(journey.heroKind, journey.id).toBe("hero");
+      }
+    }
   });
 });

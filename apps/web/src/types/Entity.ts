@@ -162,6 +162,21 @@ export interface UserProgress {
   totalXP: number;
 }
 
+/** Which catalog a journey's `heroId` points into. */
+export type JourneyHeroKind = "hero" | "deity";
+
+export interface JourneySummary {
+  id: string;
+  /** Id in heroes.json when `heroKind` is "hero", deities.json when "deity". */
+  heroId: string;
+  heroKind: JourneyHeroKind;
+  heroName: string;
+  title: string;
+  slug: string;
+  pantheonId: string;
+  imageUrl?: string;
+}
+
 export interface Tour {
   id: string;
   name: string;
