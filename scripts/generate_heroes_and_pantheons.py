@@ -307,6 +307,9 @@ NEW_PANTHEONS = [
 
     # FINNISH / KALEVALA (2026-09)
     {"slug": "finnish", "name": "FINNISH TRADITION", "culture": "KALEVALA · KARELIA", "accent": (130, 190, 170), "bg_tone": (10, 12, 20), "motif": "emblem_kantele"},
+
+    # KOREAN (2026-09)
+    {"slug": "korean", "name": "KOREAN TRADITION", "culture": "GOJOSEON · GOGURYEO · SILLA", "accent": (130, 185, 165), "bg_tone": (10, 14, 14), "motif": "emblem_tree_altar"},
 ]
 
 def generate_pantheon_plate(p):

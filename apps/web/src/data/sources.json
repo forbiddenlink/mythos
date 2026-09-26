@@ -2482,5 +2482,119 @@
     "language": "Finnish and Karelian",
     "description": "The 34-volume scholarly edition of the Kalevala-metre runo-songs collected in Finland, Karelia, and Ingria from the seventeenth to the twentieth century, about 89,000 texts, now searchable online. It is the evidence behind the Kalevala, showing the variants Lönnrot chose among.",
     "externalUrl": "https://skvr.fi/"
+  },
+  {
+    "id": "samguk-yusa",
+    "title": "Samguk Yusa (Memorabilia of the Three Kingdoms)",
+    "author": "Iryeon (Buddhist monk)",
+    "year": "c. 1281-1289",
+    "type": "ancient-text",
+    "language": "Literary Chinese",
+    "description": "A collection of histories, legends, and Buddhist tales of Korea's ancient kingdoms compiled by the monk Iryeon, preserving the earliest surviving text of the Dangun myth (citing an older 'Old Record'), the birth of Silla's founder Bak Hyeokgeose, and the story of the flute Manpasikjeok.",
+    "translators": [
+      {
+        "name": "Ha Tae-hung and Grafton K. Mintz",
+        "year": 1972
+      }
+    ],
+    "characters": [
+      {
+        "id": "hwanung",
+        "kind": "deity",
+        "role": "son of the Lord of Heaven, who descends to Mount Taebaek",
+        "where": "Book 1, Gojoseon"
+      },
+      {
+        "id": "ungnyeo",
+        "kind": "deity",
+        "role": "the bear who becomes a woman",
+        "where": "Book 1, Gojoseon"
+      },
+      {
+        "id": "dangun",
+        "kind": "deity",
+        "role": "founder of Gojoseon",
+        "where": "Book 1, Gojoseon"
+      },
+      {
+        "id": "bak-hyeokgeose",
+        "kind": "deity",
+        "role": "egg-born founder of Silla",
+        "where": "Book 1, Silla's founder King Hyeokgeose"
+      }
+    ],
+    "keyScenes": [
+      {
+        "title": "The Bear and the Tiger",
+        "where": "Book 1, Gojoseon",
+        "summary": "A bear and a tiger ask Hwanung to make them human; only the bear keeps the taboo of mugwort, garlic, and darkness, and becomes the mother of Dangun."
+      },
+      {
+        "title": "The Egg at Najeong",
+        "where": "Book 1, Silla's founder",
+        "summary": "A white horse kneels by the Najeong well beside an egg from which the founder of Silla is born."
+      },
+      {
+        "title": "The Flute that Calms Ten Thousand Waves",
+        "where": "Book 2, Manpasikjeok",
+        "summary": "A sea dragon gives King Sinmun a bamboo from which a flute is made that ends war, disease, drought, and storms."
+      }
+    ],
+    "readingOrder": "Ha Tae-hung and Grafton Mintz's 1972 English translation is the standard complete version; begin with Book 1's opening entries on Gojoseon and the founders of the Three Kingdoms, then Book 2's Silla legends."
+  },
+  {
+    "id": "samguk-sagi",
+    "title": "Samguk Sagi (History of the Three Kingdoms)",
+    "author": "Kim Busik and compilers",
+    "year": "1145",
+    "type": "ancient-text",
+    "language": "Literary Chinese",
+    "description": "The oldest surviving official history of Korea, compiled under royal order in the Goryeo dynasty on the model of Chinese dynastic histories. Its annals open with the foundation stories of Silla, Goguryeo, and Baekje, including the full birth and flight of Jumong.",
+    "translators": [
+      {
+        "name": "Edward J. Shultz and Hugh H. W. Kang (Koguryo Annals)",
+        "year": 2011
+      },
+      {
+        "name": "Edward J. Shultz and Hugh H. W. Kang (Silla Annals)",
+        "year": 2012
+      }
+    ]
+  },
+  {
+    "id": "gwanggaeto-stele",
+    "title": "Gwanggaeto Stele",
+    "author": "Erected by King Jangsu of Goguryeo",
+    "year": "414 CE",
+    "type": "ancient-text",
+    "language": "Literary Chinese",
+    "description": "A 6.4-meter stone monument to King Gwanggaeto the Great at Ji'an, Jilin, China, whose opening lines are the earliest written account of Goguryeo's foundation: King Chumo, son of the Heavenly Emperor and of the daughter of the River Earl, breaking from an egg."
+  },
+  {
+    "id": "dongmyeongwang-pyeon",
+    "title": "Dongmyeongwang-pyeon (The Lay of King Dongmyeong)",
+    "author": "Yi Gyu-bo",
+    "year": "1193",
+    "type": "ancient-text",
+    "language": "Literary Chinese",
+    "description": "A long narrative poem on the founder of Goguryeo by the Goryeo poet Yi Gyu-bo, preserved in his collected works (1241), with prose notes quoting the lost 'Old History of the Three Kingdoms'; it contains the fullest account of Haemosu's descent and his transformation contest with the River Earl."
+  },
+  {
+    "id": "joseon-singa-yupyeon",
+    "title": "Joseon Singa Yupyeon (Surviving Sacred Songs of Korea)",
+    "author": "Son Jin-tae (compiler)",
+    "year": "1930",
+    "type": "academic",
+    "language": "Korean",
+    "description": "A collection of shamanic songs recorded in the 1920s, including the Changse-ga ('Song of the Creation of the World'), sung in 1923 by the shaman Kim Ssang-dori of Hamheung, the only full Korean shamanic creation narrative of Mireuk and Seokga recorded in the north."
+  },
+  {
+    "id": "hanguk-muga-jip",
+    "title": "Hanguk Muga Jip (Collection of Korean Shamanic Songs)",
+    "author": "Kim Tae-gon (compiler)",
+    "year": "1971-1980",
+    "type": "academic",
+    "language": "Korean",
+    "description": "A four-volume collection of shamanic narrative songs (muga) transcribed from performances across Korea, including many versions of the Bari Gongju narrative sung at rites for the dead."
   }
 ]

@@ -1666,5 +1666,86 @@
         "date": "Lönnrot's compilation 1849; trans. 1888"
       }
     ]
+  },
+  {
+    "id": "cheonbuin",
+    "pantheonId": "korean-pantheon",
+    "name": "Cheonbuin (Three Heavenly Seals)",
+    "slug": "cheonbuin",
+    "ownerId": "hwanung",
+    "ownerKind": "deity",
+    "description": "The three heavenly seals or tokens that Hwanin gave his son Hwanung as signs of heaven's authority when he sent him down to rule the world at Mount Taebaek.",
+    "type": "regalia",
+    "powers": [
+      "Conferring heaven's authority to rule",
+      "Marking the legitimacy of the heavenly descent"
+    ],
+    "origin": "Given by Hwanin to Hwanung before his descent (Samguk Yusa, Book 1, 'Gojoseon').",
+    "currentLocation": "Unknown; they appear only in the myth",
+    "imageUrl": "/artifacts/cheonbuin.png",
+    "relatedStories": ["dangun-and-the-bear-woman"],
+    "detailedBio": "## Heaven's tokens\n\nThe *Samguk Yusa* says only that Hwanin gave Hwanung 'three heavenly seals' (*cheonbuin samgae*) and sent him down to rule. The text does not say what they were. The word *bu* means a tally or token of authority and *in* a seal, and the three objects mark Hwanung's rule as delegated by heaven.\n\n## Interpretations\n\nScholars have proposed that the three seals reflect the ritual regalia of early Korean or northeast Asian rulers and shamans, commonly identified as a bronze mirror, a bronze sword, and a bronze bell or rattle, objects found together in Bronze Age burials of the Korean peninsula and Manchuria. The comparison with the three imperial regalia of Japan (mirror, sword, and jewel) is also often made. These identifications are modern hypotheses; the myth itself names no objects.\n\n## In modern tradition\n\nDaejonggyo and other Dangun-centered movements treat the three seals as symbols of the heavenly mandate, and they appear in modern art depicting Hwanung's descent.",
+    "primarySources": [
+      {
+        "text": "He gave him three heavenly seals and sent him to go and rule there.",
+        "source": "Iryeon, Samguk Yusa, Book 1, 'Gojoseon (Wanggeom Joseon)' (paraphrase)",
+        "sourceId": "samguk-yusa",
+        "locator": "Book 1, Gojoseon",
+        "date": "compiled c. 1281-1289"
+      }
+    ]
+  },
+  {
+    "id": "manpasikjeok-flute",
+    "pantheonId": "korean-pantheon",
+    "name": "Manpasikjeok",
+    "slug": "manpasikjeok-flute",
+    "ownerLabel": "King Sinmun of Silla, gift of the sea dragon of King Munmu",
+    "description": "The bamboo flute made from a stalk that was two by day and one by night, given to Silla by the sea dragon of King Munmu; when played it drove off enemies, cured sickness, brought rain in drought, and calmed the wind and waves.",
+    "type": "instrument",
+    "powers": [
+      "Driving off enemy armies",
+      "Curing disease",
+      "Bringing or stopping rain",
+      "Calming wind and waves"
+    ],
+    "origin": "Cut from the bamboo on a floating mountain in the East Sea in 682 and made into a flute by King Sinmun (Samguk Yusa, Book 2).",
+    "currentLocation": "Kept in the Silla royal treasury, according to the Samguk Yusa; now lost",
+    "imageUrl": "/artifacts/manpasikjeok-flute.png",
+    "relatedStories": ["manpasikjeok"],
+    "detailedBio": "## The bamboo of the floating mountain\n\nIn the *Samguk Yusa*, a small turtle-shaped mountain floats toward the temple of Gameunsa in 682, and on it grows a bamboo that is two stalks by day and one by night. A dragon tells King Sinmun that the bamboo, like two hands clapping, makes sound only when joined, and that a flute made from it will bring peace to the world, a gift from his father, King Munmu, now a sea dragon, and the general Kim Yu-sin, now a heavenly god.\n\n## The flute's powers\n\nWhen the flute was played, the text says, enemy soldiers retreated, disease was healed, drought ended in rain and floods cleared, and wind and waves grew still, so it was called 'the flute that calms ten thousand waves'. It was kept in the royal treasury, and the *Samguk Yusa* tells how in a later reign it was lost and recovered and given a longer title.\n\n## Legacy\n\nManpasikjeok has become a symbol of harmony and national peace in Korea. Traditional Korean transverse bamboo flutes (*daegeum*) are sometimes linked with it in popular tradition, though the historical instrument's form is unknown.",
+    "primarySources": [
+      {
+        "text": "When this flute was blown, enemy soldiers withdrew, sickness was cured, rain fell in drought and cleared in floods, and the wind stopped and the waves grew calm; so it was called Manpasikjeok.",
+        "source": "Iryeon, Samguk Yusa, Book 2, 'Manpasikjeok' (paraphrase)",
+        "sourceId": "samguk-yusa",
+        "locator": "Book 2, Manpasikjeok",
+        "date": "compiled c. 1281-1289"
+      }
+    ]
+  },
+  {
+    "id": "water-of-life",
+    "pantheonId": "korean-pantheon",
+    "name": "Water of Life and Flowers of Revival",
+    "slug": "water-of-life",
+    "ownerId": "bari-gongju",
+    "ownerKind": "deity",
+    "description": "The medicinal water of the Western Heaven and the flowers that restore bone, flesh, and breath, which Princess Bari brings back from the end of the world to revive her dead parents.",
+    "type": "elixir",
+    "powers": ["Restoring the dead to life", "Healing mortal illness"],
+    "origin": "Guarded at the source in the Western Heaven, and earned by Bari through years of labor (Bari Gongju muga).",
+    "currentLocation": "The Western Heaven, in the song",
+    "imageUrl": "/artifacts/water-of-life.png",
+    "relatedStories": ["princess-bari"],
+    "detailedBio": "## The medicine water\n\nIn the Bari Gongju songs, King Ogu and Queen Gildae fall mortally ill and learn that only the medicinal water (*yaksu*) of the Western Heaven can save them. Bari earns it by years of labor for its guardian, drawing water, cutting firewood, and tending fire, and brings it home in a vessel.\n\n## The flowers\n\nAlong with the water she gathers flowers that restore the parts of a body: in many versions a flower that revives bone, one that restores flesh, and one that restores breath. When she meets her parents' funeral procession, she lays the flowers on their bodies and pours the water into their mouths, and they return to life.\n\n## Flowers of life in Korean shamanism\n\nFlowers that restore life appear in several Korean shamanic narratives, especially in Jeju, where the Seocheon flower field in the other world is tended by a flower-guardian god, and flowers of life and death decide human fates. Paper flowers are prominent in Korean shamanic rites for the dead.",
+    "primarySources": [
+      {
+        "text": "She laid the flowers of bone, flesh, and breath on the bodies of her parents and poured the water of life into their mouths, and they rose as if from sleep.",
+        "source": "Bari Gongju muga (paraphrase of the revival scene common to many versions)",
+        "sourceId": "hanguk-muga-jip",
+        "date": "recorded 20th century"
+      }
+    ]
   }
 ]

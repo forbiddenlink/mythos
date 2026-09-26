@@ -417,6 +417,12 @@ export const PANTHEON_COLORS: Record<
     text: "text-patina",
     dot: "bg-patina",
   },
+  "korean-pantheon": {
+    bg: "bg-bronze/15",
+    border: "border-bronze/35",
+    text: "text-bronze",
+    dot: "bg-bronze",
+  },
 };
 
 /**

@@ -14548,5 +14548,595 @@
       "phonetic": "VEL-lah-moh"
     },
     "imageUrl": "/deities/vellamo.png"
+  },
+  {
+    "id": "hwanin",
+    "pantheonId": "korean-pantheon",
+    "name": "Hwanin",
+    "slug": "hwanin",
+    "originalLanguageName": {
+      "text": "桓因 (환인)",
+      "language": "Literary Chinese / Korean",
+      "transliteration": "Hwanin",
+      "meaning": "Name of disputed meaning; Iryeon glosses him as Jeseok (Śakra, i.e. Indra)"
+    },
+    "alternateNames": ["Jeseok (in Iryeon's gloss)"],
+    "gender": "male",
+    "traditionRole": "Lord of Heaven",
+    "domain": ["heaven", "sovereignty over the world"],
+    "symbols": ["the three heavenly seals", "the sky"],
+    "description": "The Lord of Heaven in the Dangun myth, who sees that his son Hwanung longs for the human world, looks down on Mount Taebaek as a place where he could 'widely benefit humanity', and sends him down with three heavenly seals.",
+    "detailedBio": "## In the Samguk Yusa\n\nThe Dangun myth in Iryeon's *Samguk Yusa* (c. 1281-1289), quoting an older 'Old Record' (*Gogi*), opens with Hwanin. His son by a secondary wife, Hwanung, often longed for the world below and desired human society. Knowing his son's wish, Hwanin looked down on Mount Taebaek among three high peaks, judged that it was a place where one could 'widely benefit humanity' (*hongik ingan*), and gave Hwanung three heavenly seals (*cheonbuin*) and sent him down to rule.\n\n## Iryeon's gloss\n\nAt Hwanin's name Iryeon adds a brief note: 'that is, Jeseok', the Korean form of Śakra, the Buddhist name of the Vedic god Indra, king of the gods of the Trayastrimsha heaven. The note shows a Buddhist monk reading the native Lord of Heaven through a Buddhist lens; whether the older tradition already had this association is unknown. Later Korean religious movements, such as Daejonggyo (founded 1909), revere Hwanin, Hwanung, and Dangun together as a trinity.\n\n## Hongik ingan\n\nThe phrase 'widely benefit humanity', attached in the myth to Hwanin's choice of Taebaek, became a founding ideal of modern South Korean education, written into the Education Act of 1949.",
+    "originStory": "No origin is told; he is the ruler of heaven when the myth begins.",
+    "importanceRank": 1,
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "hindu-pantheon",
+        "deityId": "indra",
+        "note": "Iryeon's thirteenth-century note identifies Hwanin with Jeseok (Śakra), the Buddhist name of Indra, king of the gods. The identification is a Buddhist monk's gloss, not evidence that the Korean sky-lord derives from Indra."
+      }
+    ],
+    "primarySources": [
+      {
+        "text": "In ancient times Hwanin (that is, Jeseok) had a son by a secondary wife, Hwanung, who often desired the world under heaven. His father, knowing his son's intention, looked down on Samwi-Taebaek and saw that it was a place where he could widely benefit humanity; he gave him three heavenly seals and sent him to rule there.",
+        "source": "Iryeon, Samguk Yusa, Book 1, 'Gojoseon (Wanggeom Joseon)', quoting the Old Record (paraphrase)",
+        "sourceId": "samguk-yusa",
+        "locator": "Book 1, Gojoseon",
+        "date": "compiled c. 1281-1289"
+      }
+    ],
+    "worship": {
+      "temples": [
+        "Samseonggung and other shrines of Daejonggyo and related modern movements venerate Hwanin, Hwanung, and Dangun together."
+      ],
+      "festivals": [
+        "National Foundation Day (Gaecheonjeol, 3 October), celebrating the 'opening of heaven' when Hwanung descended and Dangun founded Joseon."
+      ],
+      "practices": "Honored chiefly as the heavenly origin of the Dangun lineage; the ideal of hongik ingan associated with his choice of Taebaek is cited in South Korean education law."
+    },
+    "pronunciation": {
+      "ipa": "/hwa.nin/",
+      "phonetic": "HWAH-nin"
+    },
+    "imageUrl": "/deities/hwanin.png"
+  },
+  {
+    "id": "hwanung",
+    "pantheonId": "korean-pantheon",
+    "name": "Hwanung",
+    "slug": "hwanung",
+    "originalLanguageName": {
+      "text": "桓雄 (환웅)",
+      "language": "Literary Chinese / Korean",
+      "transliteration": "Hwanung",
+      "meaning": "Name of disputed meaning"
+    },
+    "alternateNames": ["Hwanung Cheonwang (Heavenly King Hwanung)"],
+    "gender": "male",
+    "domain": ["heaven's rule on earth", "agriculture", "life and law"],
+    "symbols": [
+      "the sacred altar tree (Sindansu)",
+      "the three heavenly seals",
+      "the Wind Earl, Rain Master, and Cloud Master"
+    ],
+    "description": "The son of the Lord of Heaven who descends to Mount Taebaek with three thousand followers and the ministers of wind, rain, and clouds, founds the 'City of God' beneath the sacred altar tree, and fathers Dangun with the bear-woman Ungnyeo.",
+    "detailedBio": "## Descent to Taebaek\n\nIn the *Samguk Yusa* Dangun myth, Hwanung, son of the Lord of Heaven, receives three heavenly seals from his father and descends with three thousand followers to the summit of Mount Taebaek, beneath the sacred altar tree (*Sindansu*). He calls the place Sinsi, the 'City of God', and is called Heavenly King Hwanung. With the Wind Earl, the Rain Master, and the Cloud Master, he takes charge of grain, life, sickness, punishment, and good and evil, some three hundred and sixty human affairs in all, and rules and civilizes the world.\n\n## The bear and the tiger\n\nA bear and a tiger living in one cave pray to him constantly to become human. He gives them a bundle of sacred mugwort and twenty cloves of garlic, telling them to eat these and avoid the sunlight for a hundred days. The bear keeps the taboo and after twenty-one days becomes a woman; the tiger does not. When the bear-woman prays beneath the altar tree for a child, Hwanung takes human form for a time and marries her, and she bears Dangun.\n\n## Reading the myth\n\nThe ministers of wind, rain, and clouds make Hwanung a bringer of agriculture and order, and many scholars read the bear and tiger as the totems of peoples who joined or resisted a sky-worshipping group. Such interpretations are modern hypotheses; the text itself tells a sacred story of the origin of the first Korean kingdom.",
+    "originStory": "Son of Hwanin, the Lord of Heaven, by a secondary wife (Samguk Yusa, Book 1).",
+    "importanceRank": 2,
+    "crossPantheonParallels": [],
+    "primarySources": [
+      {
+        "text": "Hwanung led three thousand followers down to the summit of Mount Taebaek beneath the sacred altar tree; he called it the City of God and was called Heavenly King Hwanung. Leading the Wind Earl, the Rain Master, and the Cloud Master, he took charge of grain, life, sickness, punishment, and good and evil, some three hundred and sixty affairs of men.",
+        "source": "Iryeon, Samguk Yusa, Book 1, 'Gojoseon (Wanggeom Joseon)' (paraphrase)",
+        "sourceId": "samguk-yusa",
+        "locator": "Book 1, Gojoseon",
+        "date": "compiled c. 1281-1289"
+      }
+    ],
+    "worship": {
+      "temples": [
+        "Honored with Hwanin and Dangun at shrines of Daejonggyo and in modern Dangun rites."
+      ],
+      "festivals": [
+        "National Foundation Day (Gaecheonjeol, 3 October), which commemorates the 'opening of heaven' by his descent."
+      ],
+      "practices": "Venerated in modern Dangun-centered religious movements; the sacred tree and mountain of his descent echo village guardian trees and mountain altars in Korean folk religion."
+    },
+    "pronunciation": {
+      "ipa": "/hwa.nuŋ/",
+      "phonetic": "HWAH-noong"
+    },
+    "imageUrl": "/deities/hwanung.png"
+  },
+  {
+    "id": "ungnyeo",
+    "pantheonId": "korean-pantheon",
+    "name": "Ungnyeo",
+    "slug": "ungnyeo",
+    "originalLanguageName": {
+      "text": "熊女 (웅녀)",
+      "language": "Literary Chinese / Korean",
+      "transliteration": "Ungnyeo",
+      "meaning": "\"Bear woman\""
+    },
+    "alternateNames": ["The Bear Woman"],
+    "gender": "female",
+    "traditionRole": "Ancestral Mother",
+    "domain": ["endurance", "motherhood", "transformation"],
+    "symbols": ["the bear", "mugwort and garlic", "the cave"],
+    "description": "The bear who, with a tiger, begs Hwanung to become human, endures twenty-one days in darkness eating only mugwort and garlic, becomes a woman, and by Hwanung bears Dangun, founder of the first Korean kingdom.",
+    "detailedBio": "## From bear to woman\n\nIn the Dangun myth of the *Samguk Yusa*, a bear and a tiger living together in a cave pray constantly to Hwanung to become human. He gives them a bundle of sacred mugwort and twenty cloves of garlic and tells them to avoid the sunlight for a hundred days. Both eat and withdraw; the bear keeps the taboo, and after three times seven days (twenty-one days) she obtains a woman's body. The tiger cannot keep it and remains a tiger.\n\n## Mother of Dangun\n\nThe bear-woman has no one to marry, and prays beneath the sacred altar tree for a child. Hwanung takes human form for a time and marries her, and she bears a son, Dangun Wanggeom, who founds Joseon. The text names her only as *Ungnyeo*, 'bear woman'.\n\n## Meaning and afterlife\n\nThe twenty-one days (*samchil-il*) of her seclusion echo a Korean custom of observing twenty-one days of taboo after childbirth, and her story is often read as a story of patience and transformation. Mugwort and garlic remain everyday foods and medicines in Korea. Scholars have long debated whether the bear reflects a bear-honoring people or a wider northern Eurasian bear cult; the myth itself gives no such explanation.",
+    "originStory": "A bear living in a cave with a tiger, transformed into a woman through Hwanung's instructions (Samguk Yusa, Book 1).",
+    "importanceRank": 2,
+    "crossPantheonParallels": [],
+    "primarySources": [
+      {
+        "text": "A bear and a tiger living in the same cave always prayed to the god Hwanung to become human. The god gave them a bundle of sacred mugwort and twenty cloves of garlic, saying: 'Eat these and do not see the sunlight for a hundred days, and you will attain human form.' The bear kept the taboo and after twenty-one days obtained a woman's body; the tiger could not keep it and did not.",
+        "source": "Iryeon, Samguk Yusa, Book 1, 'Gojoseon (Wanggeom Joseon)' (paraphrase)",
+        "sourceId": "samguk-yusa",
+        "locator": "Book 1, Gojoseon",
+        "date": "compiled c. 1281-1289"
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [],
+      "practices": "Honored as the ancestral mother of the Korean people in modern Dangun-centered traditions; no separate historical cult of Ungnyeo is documented."
+    },
+    "pronunciation": {
+      "ipa": "/uŋ.ɲʌ/",
+      "phonetic": "OONG-nyuh"
+    },
+    "imageUrl": "/deities/ungnyeo.png"
+  },
+  {
+    "id": "dangun",
+    "pantheonId": "korean-pantheon",
+    "name": "Dangun",
+    "slug": "dangun",
+    "originalLanguageName": {
+      "text": "檀君王儉 (단군왕검)",
+      "language": "Literary Chinese / Korean",
+      "transliteration": "Dangun Wanggeom",
+      "meaning": "Dangun is often read as 'lord of the altar (or sandalwood tree)'; Wanggeom as 'king'. Both readings are debated."
+    },
+    "alternateNames": ["Dangun Wanggeom", "Tangun"],
+    "gender": "male",
+    "traditionRole": "Founding Ancestor",
+    "domain": [
+      "the founding of Joseon",
+      "the Korean people",
+      "the mountains (as mountain god)"
+    ],
+    "symbols": ["the altar tree", "Mount Asadal", "the altar of Chamseongdan"],
+    "description": "The son of the heavenly Hwanung and the bear-woman Ungnyeo, who in the Samguk Yusa founds the kingdom of Joseon (Gojoseon), rules for fifteen hundred years, and at last becomes a mountain god; honored as the founding ancestor of the Korean people.",
+    "detailedBio": "## In the Samguk Yusa\n\nIryeon's *Samguk Yusa* gives two accounts. From a Chinese 'Book of Wei' it quotes that two thousand years earlier Dangun Wanggeom set his capital at Asadal and founded a state called Joseon, in the time of the sage-emperor Yao. From the Korean 'Old Record' it tells the full myth: born of Hwanung and Ungnyeo, Dangun made his capital at Pyongyang in the fiftieth year of Yao, called his state Joseon, later moved to Asadal on Mount Baegak, and ruled for fifteen hundred years. When the Zhou king enfeoffed Gija in Joseon, Dangun moved away, returned to Asadal, and became a mountain god, having lived 1,908 years. Iryeon himself notes that the traditional year does not match Yao's reign.\n\n## The date and the nation\n\nThe date 2333 BCE for Dangun's founding, used for South Korea's National Foundation Day, is a later calculation by Joseon-dynasty historians, not the Samguk Yusa's own statement, and the historical state of Gojoseon is known from Chinese sources from about the fourth century BCE until its conquest by the Han in 108 BCE. Dangun became a powerful symbol of national identity, especially under Japanese colonial rule (1910-1945), when the religion Daejonggyo (founded 1909) and independence activists honored him as the common ancestor of all Koreans.\n\n## Two Koreas\n\nSouth Korea celebrates Gaecheonjeol on 3 October. North Korea announced in 1993 that it had found Dangun's bones near Pyongyang and built a large mausoleum in 1994; most historians outside North Korea regard the claim as political rather than archaeological.",
+    "originStory": "Son of Hwanung, the son of the Lord of Heaven, and Ungnyeo, the bear who became a woman (Samguk Yusa, Book 1).",
+    "importanceRank": 1,
+    "crossPantheonParallels": [],
+    "primarySources": [
+      {
+        "text": "She bore a son called Dangun Wanggeom. In the fiftieth year of Emperor Yao he made his capital at Pyongyang and first called the state Joseon; later he moved his capital to Asadal on Mount Baegak and ruled the state for fifteen hundred years. He afterwards returned to Asadal, hid himself, and became a mountain god, living 1,908 years.",
+        "source": "Iryeon, Samguk Yusa, Book 1, 'Gojoseon (Wanggeom Joseon)' (paraphrase)",
+        "sourceId": "samguk-yusa",
+        "locator": "Book 1, Gojoseon",
+        "date": "compiled c. 1281-1289"
+      }
+    ],
+    "worship": {
+      "temples": [
+        "Chamseongdan, the stone altar on Mount Mani, Ganghwa Island, traditionally said to have been built by Dangun for sacrifices to heaven.",
+        "Samseongsa shrine at Guwol-san and other historic Dangun shrines; the modern Mausoleum of Dangun near Pyongyang (North Korea, 1994)."
+      ],
+      "festivals": [
+        "National Foundation Day (Gaecheonjeol, 3 October) in South Korea, with a heaven rite at Chamseongdan."
+      ],
+      "practices": "Rites to Dangun as national ancestor were held by Joseon kings and revived by Daejonggyo in the twentieth century; the torch of the Korean National Sports Festival is lit at Chamseongdan."
+    },
+    "pronunciation": {
+      "ipa": "/tan.ɡun/",
+      "phonetic": "DAHN-goon"
+    },
+    "imageUrl": "/deities/dangun.png"
+  },
+  {
+    "id": "haemosu",
+    "pantheonId": "korean-pantheon",
+    "name": "Haemosu",
+    "slug": "haemosu",
+    "originalLanguageName": {
+      "text": "解慕漱 (해모수)",
+      "language": "Literary Chinese / Korean",
+      "transliteration": "Haemosu",
+      "meaning": "Name often connected with Korean *hae*, 'sun', but the etymology is uncertain"
+    },
+    "alternateNames": ["Son of Heaven (Cheonja)"],
+    "gender": "male",
+    "domain": ["heaven", "the sun", "kingship"],
+    "symbols": [
+      "a chariot drawn by five dragons",
+      "a crown of crow feathers",
+      "the dragon-light sword"
+    ],
+    "description": "The Son of Heaven who descends in a five-dragon chariot, seduces Yuhwa, daughter of the River Earl, by the Amnok (Yalu) River, and becomes the father of Jumong, founder of Goguryeo.",
+    "detailedBio": "## The Son of Heaven\n\nIn Kim Busik's *Samguk Sagi* (1145), Yuhwa tells King Geumwa of East Buyeo that a man calling himself Haemosu, son of Heaven, lured her to a house by the Amnok (Yalu) River beneath Mount Ungsim, lay with her, and never returned; her parents, ashamed, banished her. Yi Gyu-bo's *Lay of King Dongmyeong* (1193), quoting a lost older history, describes Haemosu's descent more grandly: he comes down in a chariot drawn by five dragons, with a hundred followers riding swans, wearing a crown of crow feathers and a sword of dragon-light, going up to heaven at evening and descending in the morning.\n\n## The contest with the River Earl\n\nIn Yi Gyu-bo's version, Haemosu meets the River Earl's daughters bathing, captures Yuhwa, and then asks her father, Habaek, for her hand. Habaek tests his divine claim with a contest of transformations: Habaek becomes a carp and Haemosu an otter; Habaek a deer and Haemosu a wolf; Habaek a pheasant and Haemosu a hawk. Convinced, Habaek holds a wedding feast, but Haemosu leaves Yuhwa and returns to heaven alone.\n\n## Other sources\n\nThe *Samguk Yusa* also names Haemosu as a Son of Heaven who founded North Buyeo. The Gwanggaeto Stele (414 CE) simply calls Jumong the son of the Heavenly Emperor, without naming Haemosu.",
+    "originStory": "Son of Heaven (the Heavenly Emperor), in Samguk Sagi and Yi Gyu-bo's poem.",
+    "importanceRank": 3,
+    "crossPantheonParallels": [],
+    "primarySources": [
+      {
+        "text": "Yuhwa said: 'I am the daughter of Habaek. A man who said he was Haemosu, the son of Heaven, enticed me to a house by the Amnok River beneath Mount Ungsim, lay with me, and went away and did not return.'",
+        "source": "Kim Busik, Samguk Sagi, Annals of Goguryeo, King Dongmyeong (paraphrase)",
+        "sourceId": "samguk-sagi",
+        "locator": "Annals of Goguryeo 1",
+        "date": "completed 1145"
+      },
+      {
+        "text": "The Son of Heaven came down riding a chariot drawn by five dragons, with a hundred followers riding white swans; on his head he wore a crown of crow feathers, at his waist a sword of dragon-light.",
+        "source": "Yi Gyu-bo, Dongmyeongwang-pyeon, prose note quoting the Old History of the Three Kingdoms (paraphrase)",
+        "sourceId": "dongmyeongwang-pyeon",
+        "date": "1193"
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [],
+      "practices": "Honored as the heavenly father of the Goguryeo royal line; Goguryeo's festival of heaven, the Dongmaeng in the tenth month, is recorded in Chinese histories but not tied to Haemosu by name."
+    },
+    "pronunciation": {
+      "ipa": "/hɛ.mo.su/",
+      "phonetic": "HEH-moh-soo"
+    },
+    "imageUrl": "/deities/haemosu.png"
+  },
+  {
+    "id": "yuhwa",
+    "pantheonId": "korean-pantheon",
+    "name": "Yuhwa",
+    "slug": "yuhwa",
+    "originalLanguageName": {
+      "text": "柳花 (유화)",
+      "language": "Literary Chinese / Korean",
+      "transliteration": "Yuhwa",
+      "meaning": "\"Willow flower\""
+    },
+    "alternateNames": ["Lady Yuhwa", "Buyeo-sin (the Buyeo goddess)"],
+    "gender": "female",
+    "traditionRole": "Ancestral Mother",
+    "domain": ["rivers", "motherhood", "agriculture"],
+    "symbols": ["the willow", "the egg", "grain seeds carried by doves"],
+    "description": "The daughter of Habaek, the River Earl, who is seduced and abandoned by Haemosu, banished by her parents, sheltered by King Geumwa of East Buyeo, and there lays the egg from which Jumong hatches; later worshipped by Goguryeo as a mother goddess.",
+    "detailedBio": "## The River Earl's daughter\n\nIn the *Samguk Sagi*, King Geumwa of East Buyeo finds Yuhwa south of Mount Taebaek at Ubalsu, where her parents have banished her after her union with Haemosu. He shuts her in a room, where sunlight follows her even when she moves away from it, and she conceives. She lays an egg as large as five measures of grain. Geumwa has it thrown to dogs and pigs, which will not eat it; left on the road, where horses and cattle step around it; and in the fields, where birds cover it with their wings. He cannot break it and returns it to her, and a boy breaks out: Jumong.\n\n## Helping her son\n\nWhen Jumong must flee Geumwa's jealous sons, Yuhwa advises him on choosing the best horse. Yi Gyu-bo's poem adds that when Jumong forgets the grain seeds she has prepared, she sends them after him with a pair of doves, which he shoots down to recover the seeds, then revives.\n\n## A worshipped mother\n\nThe *Samguk Sagi* records that Yuhwa died in East Buyeo in the fourteenth year of Jumong's reign and that Geumwa buried her with the rites of a queen dowager and built her a shrine. Chinese histories of the sixth and seventh centuries report that Goguryeo kept two shrines, one to the 'Buyeo goddess', carved in wood in the form of a woman, and one to the 'Gaodeng god', said to be their ancestor and her son; scholars identify these as Yuhwa and Jumong.",
+    "originStory": "Eldest daughter of Habaek, the River Earl (Samguk Sagi; Dongmyeongwang-pyeon).",
+    "importanceRank": 2,
+    "crossPantheonParallels": [],
+    "primarySources": [
+      {
+        "text": "She was shut in a room, and the sunlight shone on her; when she moved away, it followed her. She conceived and laid an egg as large as five measures.",
+        "source": "Kim Busik, Samguk Sagi, Annals of Goguryeo, King Dongmyeong (paraphrase)",
+        "sourceId": "samguk-sagi",
+        "locator": "Annals of Goguryeo 1",
+        "date": "completed 1145"
+      },
+      {
+        "text": "They have two shrines: one to the god of Buyeo, carved of wood in the shape of a woman; the other to the god Gaodeng, said to be their first ancestor, the son of the god of Buyeo.",
+        "source": "Zhou shu, account of Goguryeo (paraphrase)",
+        "date": "compiled 636 CE"
+      }
+    ],
+    "worship": {
+      "temples": [
+        "A shrine built for her in East Buyeo by King Geumwa, according to the Samguk Sagi; the Goguryeo shrine of the 'Buyeo goddess' described in Chinese histories."
+      ],
+      "festivals": [],
+      "practices": "Honored by the Goguryeo court as the mother of the dynasty's founder, with a wooden image, according to seventh-century Chinese sources."
+    },
+    "pronunciation": {
+      "ipa": "/ju.ɦwa/",
+      "phonetic": "YOO-hwah"
+    },
+    "imageUrl": "/deities/yuhwa.png"
+  },
+  {
+    "id": "habaek",
+    "pantheonId": "korean-pantheon",
+    "name": "Habaek",
+    "slug": "habaek",
+    "originalLanguageName": {
+      "text": "河伯 (하백)",
+      "language": "Literary Chinese / Korean",
+      "transliteration": "Habaek",
+      "meaning": "\"River Earl\", a title shared with the Chinese river god Hebo"
+    },
+    "alternateNames": ["River Earl"],
+    "gender": "male",
+    "domain": ["rivers", "waters", "transformation"],
+    "symbols": ["the river palace", "the carp"],
+    "description": "The River Earl, water god of the Amnok (Yalu) region and father of Yuhwa, who tests Haemosu's divine claim in a contest of transformations and is claimed by Goguryeo's kings as the founder's maternal grandfather.",
+    "detailedBio": "## The founder's grandfather\n\nThe Gwanggaeto Stele (414 CE) opens by declaring that the founder, King Chumo, was the son of the Heavenly Emperor and that 'his mother was the daughter of Habaek', and when Chumo reaches a river he cannot cross, he calls out that he is the son of heaven and grandson of Habaek. The river god's lineage was thus part of the Goguryeo royal claim from the earliest written record.\n\n## The contest of shapes\n\nIn Yi Gyu-bo's *Lay of King Dongmyeong* (1193), Habaek lives in a palace beneath the waters, with three daughters, of whom Yuhwa is the eldest. When Haemosu seizes Yuhwa and asks for her hand, Habaek demands proof of divinity and they contest in transformations: carp and otter, deer and wolf, pheasant and hawk. Each time Haemosu's form overcomes Habaek's, and Habaek accepts him, only for Haemosu to abandon Yuhwa. Habaek, angered, punishes his daughter and casts her out.\n\n## The title\n\n*Habaek* is the Korean reading of *Hebo*, 'Earl of the River', the title of the god of the Yellow River in Chinese tradition. The Goguryeo figure is a local water god whose title was borrowed or translated; he should not be simply identified with the Chinese deity.",
+    "originStory": "No origin is told; he is the lord of the river when the myth begins.",
+    "importanceRank": 3,
+    "crossPantheonParallels": [],
+    "primarySources": [
+      {
+        "text": "In olden times, when the founder King Chumo laid the foundations, he came from North Buyeo; he was the son of the Heavenly Emperor, and his mother was the daughter of Habaek. He broke an egg and came down into the world.",
+        "source": "Gwanggaeto Stele, opening lines (paraphrase)",
+        "sourceId": "gwanggaeto-stele",
+        "locator": "face 1, opening",
+        "date": "414 CE"
+      },
+      {
+        "text": "Habaek changed into a carp, and the king changed into an otter and caught him; Habaek changed into a deer, and the king into a wolf; Habaek into a pheasant, and the king into a hawk.",
+        "source": "Yi Gyu-bo, Dongmyeongwang-pyeon (paraphrase)",
+        "sourceId": "dongmyeongwang-pyeon",
+        "date": "1193"
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [],
+      "practices": "Invoked in Goguryeo royal genealogy as the founder's maternal grandfather; no separate record of his cult survives."
+    },
+    "pronunciation": {
+      "ipa": "/ha.bɛk̚/",
+      "phonetic": "HAH-baek"
+    },
+    "imageUrl": "/deities/habaek.png"
+  },
+  {
+    "id": "jumong",
+    "pantheonId": "korean-pantheon",
+    "name": "Jumong",
+    "slug": "jumong",
+    "originalLanguageName": {
+      "text": "朱蒙 (주몽)",
+      "language": "Literary Chinese / Korean",
+      "transliteration": "Jumong; Chumo on the Gwanggaeto Stele",
+      "meaning": "'Good archer' in the language of Buyeo, according to the Samguk Sagi"
+    },
+    "alternateNames": ["King Dongmyeong", "Chumo", "Go Jumong"],
+    "gender": "male",
+    "traditionRole": "Founding King",
+    "domain": ["archery", "the founding of Goguryeo", "kingship"],
+    "symbols": ["the bow", "the egg", "the bridge of fish and turtles"],
+    "description": "The egg-born son of Heaven and of the River Earl's daughter, a peerless archer who flees East Buyeo when fish and turtles rise to bridge a river for him, founds Goguryeo at Jolbon, and in the earliest account ascends to heaven on a yellow dragon.",
+    "detailedBio": "## The earliest account\n\nThe Gwanggaeto Stele of 414 CE, the oldest written source for any Korean foundation myth, says that King Chumo, son of the Heavenly Emperor and the daughter of Habaek, broke from an egg; traveling south, he reached a great river and declared himself son of heaven and grandson of Habaek, and reeds joined and turtles surfaced to let him cross. He founded his capital on the mountain west of Holbon. Tired of the world, he was fetched by a yellow dragon sent from heaven and rose to heaven from a hill east of Holbon, standing on the dragon's head.\n\n## The Samguk Sagi\n\nKim Busik's history (1145) gives the fuller version. Born from Yuhwa's egg in the palace of King Geumwa of East Buyeo, the boy made his own bow and arrows at seven and never missed, and 'Jumong', the Buyeo word for a good archer, became his name. Geumwa's sons plotted to kill him. Set to tend the king's horses, he starved the best horse and fattened the poor ones; the king took the fat horses and left him the fine thin one. Warned by his mother, he fled with three companions. At the Eomsa River, with pursuers behind him and no bridge, he declared himself son of Heaven and grandson of Habaek, and fish and turtles rose to make a bridge, sinking again after he crossed. He founded Goguryeo at Jolbon in 37 BCE, at the age of twenty-two, and took the surname Go.\n\n## Worship\n\nGoguryeo worshipped its founder at a royal shrine, and Chinese histories name a Goguryeo god 'Gaodeng', the son of the Buyeo goddess, generally identified with Jumong. The traditional date of 37 BCE is not independently confirmed.",
+    "originStory": "Hatched from an egg laid by Yuhwa, daughter of Habaek, after she was touched by the sunlight of Heaven; son of Haemosu in Samguk Yusa and Yi Gyu-bo.",
+    "importanceRank": 1,
+    "crossPantheonParallels": [],
+    "primarySources": [
+      {
+        "text": "He came south and his road passed the great river of Eomni in Buyeo. The king, at the ford, said: 'I am the son of August Heaven, and my mother is the daughter of Habaek; I am King Chumo. Join the reeds and float the turtles for me!' At his word the reeds joined and the turtles surfaced, and he crossed.",
+        "source": "Gwanggaeto Stele (paraphrase)",
+        "sourceId": "gwanggaeto-stele",
+        "locator": "face 1, opening",
+        "date": "414 CE"
+      },
+      {
+        "text": "At seven he made a bow and arrows himself, and shot a hundred times and hit a hundred times; in the speech of Buyeo, one who shoots well is called 'jumong', so this became his name.",
+        "source": "Kim Busik, Samguk Sagi, Annals of Goguryeo, King Dongmyeong (paraphrase)",
+        "sourceId": "samguk-sagi",
+        "locator": "Annals of Goguryeo 1",
+        "date": "completed 1145"
+      }
+    ],
+    "worship": {
+      "temples": [
+        "The shrine of the founder in the Goguryeo capitals, to which later kings made offerings, according to the Samguk Sagi; the 'Gaodeng god' shrine described in Chinese histories."
+      ],
+      "festivals": [],
+      "practices": "Royal ancestor worship at the founder's shrine; the Goguryeo harvest festival of heaven (Dongmaeng) recorded in Chinese histories."
+    },
+    "pronunciation": {
+      "ipa": "/tɕu.moŋ/",
+      "phonetic": "JOO-mong"
+    },
+    "imageUrl": "/deities/jumong.png"
+  },
+  {
+    "id": "bak-hyeokgeose",
+    "pantheonId": "korean-pantheon",
+    "name": "Bak Hyeokgeose",
+    "slug": "bak-hyeokgeose",
+    "originalLanguageName": {
+      "text": "朴赫居世 (박혁거세)",
+      "language": "Literary Chinese / Korean",
+      "transliteration": "Bak Hyeokgeose",
+      "meaning": "Hyeokgeose, 'one who brightens the world'; the surname Bak is explained by his gourd-like (bak) egg"
+    },
+    "alternateNames": ["Hyeokgeose Geoseogan", "Bulgunae (Brightness)"],
+    "gender": "male",
+    "traditionRole": "Founding King",
+    "domain": ["the founding of Silla", "brightness", "kingship"],
+    "symbols": ["the purple egg", "the white horse", "the Najeong well"],
+    "description": "The egg-born founder of Silla, found by the six village chiefs beside the Najeong well where a white horse knelt and then rose into heaven; crowned at thirteen with his queen Aryeong, born from a dragon at another well.",
+    "detailedBio": "## The egg at Najeong\n\nIn Iryeon's *Samguk Yusa*, the chiefs of six villages of the Gyeongju plain gather on the bank of the Al River and agree that they need a ruler. Looking south, they see a strange light like lightning at the Najeong well at the foot of Mount Yang, and a white horse kneeling there as if bowing. They find a purple egg; the horse, seeing them, neighs and rises into the sky. From the egg comes a boy of great beauty. When they bathe him in the Eastern Spring, his body gives off light, birds and beasts dance, heaven and earth shake, and the sun and moon shine clear. They name him Hyeokgeose, 'brightening the world', and give him the surname Bak because the egg was like a gourd (*bak*).\n\n## Aryeong\n\nOn the same day a chicken-dragon appears at the Aryeong well and a girl is born from its side, with lips like a chicken's beak until she is bathed in the northern stream. The two are raised together, and when Hyeokgeose is thirteen (traditionally 57 BCE), he becomes king with Aryeong as queen, and the state is called Seorabeol.\n\n## Death\n\nAfter sixty-one years of rule, the *Samguk Yusa* says, he ascended to heaven, and seven days later his body fell to the earth in five parts. When the people tried to bury them together, a great serpent prevented them, so they buried the five parts in five tombs, the Oreung ('Five Tombs'), also called the Serpent Tombs. The traditional dates are not historical; Silla emerged as a state in the following centuries.",
+    "originStory": "Born from a purple egg found beside the Najeong well where a white horse knelt and then rose to heaven (Samguk Yusa, Book 1; Samguk Sagi).",
+    "importanceRank": 2,
+    "crossPantheonParallels": [],
+    "primarySources": [
+      {
+        "text": "They looked south and saw at the Najeong well below Mount Yang a strange light like lightning reaching to the ground, and a white horse kneeling there as if bowing. They went and found a purple egg; the horse, seeing people, neighed long and rose up to heaven. They broke the egg and found a boy, fair of form.",
+        "source": "Iryeon, Samguk Yusa, Book 1, 'Silla's Founder King Hyeokgeose' (paraphrase)",
+        "sourceId": "samguk-yusa",
+        "locator": "Book 1, Hyeokgeose",
+        "date": "compiled c. 1281-1289"
+      },
+      {
+        "text": "The chief of Goheo village, Sobeolgong, looked toward the forest beside the Najeong at the foot of Mount Yang and saw a horse kneeling and neighing; when he went there the horse suddenly vanished and there was only a large egg.",
+        "source": "Kim Busik, Samguk Sagi, Annals of Silla, Hyeokgeose (paraphrase)",
+        "sourceId": "samguk-sagi",
+        "locator": "Annals of Silla 1",
+        "date": "completed 1145"
+      }
+    ],
+    "worship": {
+      "temples": [
+        "The Najeong site in Gyeongju, where excavations uncovered the foundations of an octagonal building interpreted as a shrine to the founder.",
+        "Sungdeokjeon, the shrine to Bak Hyeokgeose beside the Oreung (Five Tombs) in Gyeongju."
+      ],
+      "festivals": [],
+      "practices": "Silla kings sacrificed at the founder's shrine; the Bak clan continues ancestral rites at Sungdeokjeon."
+    },
+    "pronunciation": {
+      "ipa": "/pak̚ çʌk̚.k͈ʌ.se/",
+      "phonetic": "BAHK hyuhk-guh-SEH"
+    },
+    "imageUrl": "/deities/bak-hyeokgeose.png"
+  },
+  {
+    "id": "bari-gongju",
+    "pantheonId": "korean-pantheon",
+    "name": "Bari Gongju",
+    "slug": "bari-gongju",
+    "originalLanguageName": {
+      "text": "바리공주",
+      "language": "Korean",
+      "transliteration": "Bari Gongju",
+      "meaning": "\"The Abandoned Princess\" (from *beorida*, 'to throw away')"
+    },
+    "alternateNames": ["Princess Bari", "Baridegi", "Bari-degi"],
+    "gender": "female",
+    "traditionRole": "Guide of the Dead",
+    "domain": [
+      "the dead and their passage",
+      "healing",
+      "the patron of shamans"
+    ],
+    "symbols": ["the water of life", "the flowers of revival", "the jade box"],
+    "description": "The seventh daughter of a king, thrown away at birth, who alone agrees to journey to the Western Heaven for the water of life when her parents are dying; she returns in time to revive them and becomes the goddess who guides the dead to the other world.",
+    "detailedBio": "## A song for the dead\n\nThe story of Princess Bari is a *muga*, a shamanic narrative song, sung by Korean shamans in rites for the dead such as the Seoul *jinogwi-gut* and the east-coast *ogu-gut*, where the shaman guides the soul of the dead to the other world as Bari did. It exists in many dozens of recorded versions; one of the first to be written down was recorded from a Seoul shaman and published by Akiba Takashi and Akamatsu Chijō in 1937, and the folklorist Kim Tae-gon later recorded many more.\n\n## The story\n\nIn a common version, King Ogu marries Queen Gildae in an inauspicious year, as a fortune-teller had warned, and they have only daughters. When the seventh daughter is born, the king in anger has her cast away in a jade box into the water. She is rescued and raised by an old couple, or in some versions protected by the Buddha or by animals. Years later the king and queen fall mortally ill, and learn that only medicinal water from the Western Heaven can save them. The six elder daughters refuse. Bari, found and summoned, agrees to go, repaying the debt of her birth if not of her upbringing.\n\n## The journey and the return\n\nDressed as a man, she crosses mountains, rivers, and hells, sometimes helped by the Buddha. At the source of the water, its guardian demands years of labor: drawing water, cutting firewood, and tending fire, and in many versions he marries her and she bears him seven sons. At last she returns with the water and the flowers that restore bone, flesh, and breath, and meets her parents' funeral procession. She revives them. Offered wealth and half the kingdom, she asks instead to become the one who guides the dead, and she is honored as the ancestor of shamans.\n\n## Meaning\n\nThe story reverses the Confucian preference for sons: the rejected daughter alone fulfills filial duty. It is one of the best-known Korean myths and has been retold in modern novels, plays, and music.",
+    "originStory": "The seventh daughter of King Ogu and Queen Gildae, abandoned at birth (versions differ in names and details).",
+    "importanceRank": 2,
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "mesopotamian-pantheon",
+        "deityId": "inanna",
+        "note": "Both descend through the realm of the dead and return, with the power of life at stake; Bari goes willingly to fetch the water of life for her parents, while Inanna descends to claim the underworld and must be rescued. The comparison is typological."
+      }
+    ],
+    "primarySources": [
+      {
+        "text": "The six elder princesses would not go to the Western Heaven for the medicine water; the youngest, the princess who had been thrown away, said she would go, for though she owed nothing for her upbringing, she owed her parents for her birth.",
+        "source": "Bari Gongju muga, Seoul versions, as collected in Hanguk Muga Jip (paraphrase)",
+        "sourceId": "hanguk-muga-jip",
+        "date": "recorded 20th century"
+      },
+      {
+        "text": "She sprinkled the water of life and laid the flowers of bone, flesh, and breath upon them, and the king and queen came back to life.",
+        "source": "Bari Gongju muga (paraphrase of the revival scene common to many versions)",
+        "sourceId": "hanguk-muga-jip",
+        "date": "recorded 20th century"
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [],
+      "practices": "Her song is performed by shamans in rites for the dead (jinogwi-gut in Seoul, ogu-gut on the east coast), in which the shaman, in Bari's role, leads the soul of the deceased to the other world."
+    },
+    "pronunciation": {
+      "ipa": "/pa.ɾi koŋ.dʑu/",
+      "phonetic": "BAH-ree GONG-joo"
+    },
+    "imageUrl": "/deities/bari-gongju.png"
+  },
+  {
+    "id": "mireuk",
+    "pantheonId": "korean-pantheon",
+    "name": "Mireuk",
+    "slug": "mireuk",
+    "originalLanguageName": {
+      "text": "미륵",
+      "language": "Korean",
+      "transliteration": "Mireuk",
+      "meaning": "The Korean name of Maitreya, the future Buddha; in the shamanic creation song, a creator god"
+    },
+    "alternateNames": ["Mireuk-nim"],
+    "gender": "male",
+    "traditionRole": "Creator",
+    "domain": [
+      "creation",
+      "the separation of heaven and earth",
+      "the first age of the world"
+    ],
+    "symbols": [
+      "copper pillars at the four corners of the earth",
+      "golden and silver trays",
+      "the flower"
+    ],
+    "description": "The creator of the world in the Korean shamanic Song of Creation, who separates heaven and earth, props up the sky with copper pillars, makes stars from an extra sun and moon, and creates the first humans, before losing the world to the cheating Seokga.",
+    "detailedBio": "## The Song of Creation\n\nIn 1923 the folklorist Son Jin-tae recorded the *Changse-ga* ('Song of the Creation of the World') from the shaman Kim Ssang-dori of Hamheung in northern Korea, publishing it in 1930. It begins when heaven and earth came into being and Mireuk was born. Heaven and earth were stuck together, and Mireuk pushed the sky up like the lid of a pot and set copper pillars at the four corners of the earth to hold it. There were two suns and two moons; Mireuk took one moon to make the stars of the Big Dipper and the Southern Dipper, and one sun to make the great and small stars.\n\n## Fire, water, and people\n\nMireuk wove clothes from arrowroot vines. To learn where fire and water come from, he questioned a grasshopper and a frog, who did not know, and then a mouse, who told him to strike stone and steel on one mountain and find spring water on another, and was rewarded with the right to all the rice chests in the world. Then Mireuk held a golden tray in one hand and a silver tray in the other and prayed to heaven; five insects fell on each, and they grew into the first men and women.\n\n## The lost world\n\nWhen Seokga came to claim the world, Mireuk won their first contests, but in the last, a contest of growing a flower while asleep, Seokga cheated and stole the flower from Mireuk's lap. Mireuk surrendered the world with a curse on Seokga's age: it would be full of wickedness and misery. The name Mireuk, the future Buddha Maitreya, gives this lost golden age a hope of return, a theme found in Korean messianic movements.",
+    "originStory": "Born when heaven and earth came into being (Changse-ga, recorded 1923).",
+    "importanceRank": 2,
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "chinese-pantheon",
+        "deityId": "pangu",
+        "note": "Both are primordial beings who separate a joined heaven and earth at the beginning of the world; the Korean song adds pillars at the earth's corners, recalling Nüwa's repair of the sky."
+      },
+      {
+        "pantheonId": "chinese-pantheon",
+        "deityId": "nuwa",
+        "note": "Nüwa props up the sky with four pillars (the legs of a great turtle) after it collapses, as Mireuk sets copper pillars at the earth's four corners; Nüwa also creates humans, as Mireuk does from insects on golden and silver trays."
+      }
+    ],
+    "primarySources": [
+      {
+        "text": "When heaven and earth came into being, Mireuk was born. Heaven and earth were stuck together and would not part, so he raised the sky like the lid of a pot and set up copper pillars at the four corners of the earth.",
+        "source": "Changse-ga (Song of Creation), sung by Kim Ssang-dori, in Son Jin-tae, Joseon Singa Yupyeon (paraphrase)",
+        "sourceId": "joseon-singa-yupyeon",
+        "date": "recorded 1923; published 1930"
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [],
+      "practices": "Invoked as creator in the shamanic creation songs of the Hamgyeong region; folk veneration of stone Mireuk statues in Korean villages, often for children and protection, draws on the same name."
+    },
+    "pronunciation": {
+      "ipa": "/mi.ɾɯk̚/",
+      "phonetic": "MEE-rook"
+    },
+    "imageUrl": "/deities/mireuk.png"
+  },
+  {
+    "id": "seokga",
+    "pantheonId": "korean-pantheon",
+    "name": "Seokga",
+    "slug": "seokga",
+    "originalLanguageName": {
+      "text": "석가",
+      "language": "Korean",
+      "transliteration": "Seokga",
+      "meaning": "The Korean name of Shakyamuni, the historical Buddha; in the shamanic creation song, a rival creator"
+    },
+    "alternateNames": ["Seokga-nim"],
+    "gender": "male",
+    "traditionRole": "Usurper of the World",
+    "domain": ["the present age of the world", "trickery"],
+    "symbols": ["the stolen flower"],
+    "description": "The rival of Mireuk in the Korean shamanic Song of Creation, who wins rule of the world by stealing the flower that blossomed on Mireuk's knee while they slept, bringing about the imperfect present age.",
+    "detailedBio": "## The contest\n\nIn the *Changse-ga* recorded in 1923 from the shaman Kim Ssang-dori, Seokga appears after Mireuk has ordered the world and demands to rule it. Mireuk proposes contests. In the first, each lowers a bottle into the East Sea, Mireuk on a golden cord and Seokga on a silver one; Seokga's cord breaks. In the second, each tries to freeze a river in summer; again Mireuk succeeds. In the last, they agree to lie down and sleep, and the one on whose knee a flower blooms will rule. A flower blooms on Mireuk's knee; Seokga, only pretending to sleep, breaks it off and puts it on his own.\n\n## The curse\n\nWaking, Mireuk knows what has happened and yields the world, but curses Seokga's age: because it was won by theft, the world will be full of cheats, thieves, and misery, and its flowers will quickly wither. Seokga then begins his rule; in the song he goes hunting with his followers, some of whom refuse to eat the meat and turn into rocks and pine trees.\n\n## A shamanic, not Buddhist, story\n\nAlthough Seokga bears the Buddha's name, the song is not Buddhist doctrine; it uses the names of the present Buddha and the future Buddha for the rulers of the present, flawed age and the lost first age. A similar flower-growing contest between twin brothers, Daebyeol-wang and Sobyeol-wang, appears in the Jeju creation myth *Cheonjiwang bonpuri*, suggesting a shared Korean shamanic motif.",
+    "originStory": "No origin is told; he arrives after Mireuk has made the world (Changse-ga).",
+    "importanceRank": 4,
+    "crossPantheonParallels": [],
+    "primarySources": [
+      {
+        "text": "They lay down to sleep, agreeing that whoever grew a flower on his knee would rule the world. A flower bloomed on Mireuk's knee; Seokga, pretending to sleep, broke it off and set it on his own knee.",
+        "source": "Changse-ga (Song of Creation), sung by Kim Ssang-dori, in Son Jin-tae, Joseon Singa Yupyeon (paraphrase)",
+        "sourceId": "joseon-singa-yupyeon",
+        "date": "recorded 1923; published 1930"
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [],
+      "practices": "A figure of the shamanic creation song rather than of worship; the song explains why the present world is flawed."
+    },
+    "pronunciation": {
+      "ipa": "/sʌk̚.k͈a/",
+      "phonetic": "SUHK-kah"
+    },
+    "imageUrl": "/deities/seokga.png"
   }
 ]

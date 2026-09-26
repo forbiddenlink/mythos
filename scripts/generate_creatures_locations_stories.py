@@ -123,6 +123,11 @@ CREATURES = [
     {"id": "elk-of-hiisi", "name": "ELK OF HIISI", "subtitle": "THE FIRST TASK OF LEMMINKÄINEN", "accent": (150, 130, 95), "bg": (14, 16, 12), "motif": "emblem_elk"},
     {"id": "swan-of-tuonela", "name": "SWAN OF TUONELA", "subtitle": "ON THE RIVER OF THE DEAD", "accent": (200, 205, 215), "bg": (8, 10, 14), "motif": "emblem_swan"},
     {"id": "great-pike", "name": "THE GREAT PIKE", "subtitle": "BONES OF THE FIRST KANTELE", "accent": (130, 170, 130), "bg": (10, 16, 16), "motif": "emblem_fish"},
+
+    # KOREAN (2026-09)
+    {"id": "samjok-o", "name": "SAMJOK-O", "subtitle": "THE THREE-LEGGED CROW", "accent": (225, 160, 70), "bg": (18, 12, 10), "motif": "emblem_crow_sun"},
+    {"id": "haetae", "name": "HAETAE", "subtitle": "GUARDIAN BEAST OF JUSTICE", "accent": (180, 170, 140), "bg": (14, 14, 12), "motif": "emblem_beast"},
+    {"id": "munmu-sea-dragon", "name": "THE SEA DRAGON", "subtitle": "KING MUNMU'S GUARDIANSHIP", "accent": (90, 170, 170), "bg": (10, 14, 18), "motif": "emblem_dragon"},
 ]
 
 def draw_creature_motif(draw, cx, cy, r, motif, accent, gold):
@@ -289,6 +294,14 @@ LOCATIONS = [
     {"id": "vainola", "name": "KALEVALA", "subtitle": "LAND OF THE HEROES", "accent": (150, 185, 110), "bg": (12, 16, 12), "motif": "emblem_village_lake"},
     {"id": "vuokkiniemi", "name": "VUOKKINIEMI", "subtitle": "VILLAGE OF THE RUNO-SINGERS", "accent": (180, 170, 130), "bg": (12, 14, 16), "motif": "emblem_village_lake"},
     {"id": "kalevala-town", "name": "KALEVALA (UHTUA)", "subtitle": "VIENA KARELIA", "accent": (170, 180, 150), "bg": (12, 14, 16), "motif": "emblem_village_lake"},
+
+    # KOREAN (2026-09)
+    {"id": "mount-myohyang", "name": "MYOHYANGSAN", "subtitle": "MOUNT TAEBAEK OF THE SAMGUK YUSA", "accent": (130, 185, 165), "bg": (10, 14, 12), "motif": "emblem_mountain"},
+    {"id": "chamseongdan", "name": "CHAMSEONGDAN", "subtitle": "ALTAR ON MANISAN, GANGHWA", "accent": (180, 170, 140), "bg": (12, 14, 14), "motif": "emblem_tree_altar"},
+    {"id": "wunu-mountain", "name": "WUNÜ MOUNTAIN", "subtitle": "HOLGEN, FIRST GOGURYEO CAPITAL", "accent": (170, 150, 120), "bg": (14, 12, 10), "motif": "emblem_mountain"},
+    {"id": "najeong", "name": "NAJEONG", "subtitle": "THE WELL OF THE WHITE HORSE", "accent": (215, 180, 100), "bg": (14, 14, 10), "motif": "emblem_well"},
+    {"id": "daewangam", "name": "DAEWANGAM", "subtitle": "THE UNDERWATER TOMB OF KING MUNMU", "accent": (90, 160, 190), "bg": (10, 14, 20), "motif": "emblem_sea_rock"},
+    {"id": "jeoseung", "name": "JEOSEUNG", "subtitle": "THE OTHER WORLD", "accent": (160, 150, 190), "bg": (10, 10, 16), "motif": "emblem_gate_below"},
 ]
 
 def draw_location_motif(draw, cx, cy, r, motif, accent, gold):
@@ -473,6 +486,14 @@ STORIES = [
     {"id": "lemminkainens-mother", "name": "LEMMINKÄINEN'S MOTHER", "subtitle": "THE RAKE AND THE RIVER", "accent": (205, 120, 110), "bg": (14, 10, 12), "motif": "emblem_underworld_river"},
     {"id": "theft-of-the-sampo", "name": "THEFT OF THE SAMPO", "subtitle": "THE EAGLE OVER THE SEA", "accent": (150, 140, 200), "bg": (10, 12, 20), "motif": "emblem_great_bird"},
     {"id": "kullervo", "name": "KULLERVO", "subtitle": "THE DOOMED SLAVE", "accent": (170, 110, 100), "bg": (16, 10, 10), "motif": "emblem_flame"},
+
+    # KOREAN (2026-09)
+    {"id": "dangun-and-the-bear-woman", "name": "DANGUN & THE BEAR WOMAN", "subtitle": "THE FOUNDING OF GOJOSEON", "accent": (170, 130, 95), "bg": (14, 12, 10), "motif": "emblem_bear_cave"},
+    {"id": "jumong-son-of-heaven", "name": "JUMONG", "subtitle": "SON OF HEAVEN, GRANDSON OF THE RIVER", "accent": (205, 120, 90), "bg": (16, 12, 10), "motif": "emblem_egg"},
+    {"id": "bak-hyeokgeose-and-the-egg", "name": "BAK HYEOKGEOSE", "subtitle": "THE EGG BY THE WELL", "accent": (215, 180, 100), "bg": (14, 14, 10), "motif": "emblem_well"},
+    {"id": "princess-bari", "name": "PRINCESS BARI", "subtitle": "THE ABANDONED DAUGHTER", "accent": (200, 170, 210), "bg": (12, 10, 16), "motif": "emblem_flower"},
+    {"id": "mireuk-and-seokga", "name": "MIREUK & SEOKGA", "subtitle": "THE CONTEST FOR THE WORLD", "accent": (190, 205, 230), "bg": (10, 12, 18), "motif": "emblem_water_flower"},
+    {"id": "manpasikjeok", "name": "MANPASIKJEOK", "subtitle": "THE DRAGON'S BAMBOO", "accent": (90, 170, 170), "bg": (10, 14, 18), "motif": "emblem_flute"},
 ]
 
 def draw_story_motif(draw, cx, cy, r, motif, accent, gold):
@@ -628,6 +649,11 @@ ARTIFACTS = [
     {"id": "sampo", "name": "SAMPO", "subtitle": "THE MILL OF PLENTY", "accent": (220, 170, 70), "bg": (18, 14, 12), "motif": "emblem_mill"},
     {"id": "vainamoinens-kantele", "name": "THE FIRST KANTELE", "subtitle": "HARP OF PIKE-BONE", "accent": (215, 175, 90), "bg": (18, 16, 12), "motif": "emblem_kantele"},
     {"id": "golden-maiden", "name": "THE GOLDEN MAIDEN", "subtitle": "BRIDE FROM THE FORGE", "accent": (225, 185, 80), "bg": (18, 14, 10), "motif": "emblem_flame"},
+
+    # KOREAN (2026-09)
+    {"id": "cheonbuin", "name": "CHEONBUIN", "subtitle": "THE THREE HEAVENLY SEALS", "accent": (215, 180, 90), "bg": (16, 14, 10), "motif": "emblem_seals"},
+    {"id": "manpasikjeok-flute", "name": "MANPASIKJEOK", "subtitle": "THE FLUTE THAT CALMS TEN THOUSAND WAVES", "accent": (150, 190, 130), "bg": (10, 16, 14), "motif": "emblem_flute"},
+    {"id": "water-of-life", "name": "WATER OF LIFE", "subtitle": "BROUGHT BACK BY PRINCESS BARI", "accent": (140, 190, 210), "bg": (10, 14, 18), "motif": "emblem_well"},
 ]
 
 def draw_artifact_motif(draw, cx, cy, r, motif, accent, gold):

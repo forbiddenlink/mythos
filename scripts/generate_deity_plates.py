@@ -131,6 +131,20 @@ DEITIES = [
     {"id": "mielikki", "name": "MIELIKKI", "tag": "FINNISH GODDESS", "domain": "MISTRESS OF THE FOREST", "accent": (150, 185, 110), "bg": (14, 18, 12), "motif": "emblem_flower"},
     {"id": "ahti", "name": "AHTI", "tag": "FINNISH GOD", "domain": "KING OF THE WAVES · FISH", "accent": (90, 160, 190), "bg": (10, 16, 22), "motif": "emblem_fish"},
     {"id": "vellamo", "name": "VELLAMO", "tag": "FINNISH GODDESS", "domain": "MISTRESS OF THE WATERS", "accent": (110, 175, 200), "bg": (10, 16, 24), "motif": "emblem_water_flower"},
+
+    # KOREAN (2026-09)
+    {"id": "hwanin", "name": "HWANIN", "tag": "KOREAN GOD", "domain": "LORD OF HEAVEN", "accent": (200, 210, 230), "bg": (12, 14, 22), "motif": "emblem_sun"},
+    {"id": "hwanung", "name": "HWANUNG", "tag": "KOREAN GOD", "domain": "DESCENT TO THE SINDANSU", "accent": (215, 180, 90), "bg": (16, 16, 12), "motif": "emblem_tree_altar"},
+    {"id": "ungnyeo", "name": "UNGNYEO", "tag": "KOREAN ANCESTRESS", "domain": "THE BEAR WOMAN", "accent": (170, 130, 95), "bg": (16, 12, 10), "motif": "emblem_bear_cave"},
+    {"id": "dangun", "name": "DANGUN WANGGEOM", "tag": "KOREAN FOUNDER", "domain": "FOUNDER OF GOJOSEON", "accent": (130, 185, 165), "bg": (10, 16, 14), "motif": "emblem_mountain"},
+    {"id": "haemosu", "name": "HAEMOSU", "tag": "KOREAN GOD", "domain": "SON OF HEAVEN · FIVE DRAGONS", "accent": (225, 190, 90), "bg": (18, 14, 10), "motif": "emblem_crow_sun"},
+    {"id": "yuhwa", "name": "YUHWA", "tag": "KOREAN GODDESS", "domain": "WILLOW FLOWER · MOTHER OF JUMONG", "accent": (150, 200, 170), "bg": (10, 16, 14), "motif": "emblem_water_flower"},
+    {"id": "habaek", "name": "HABAEK", "tag": "KOREAN GOD", "domain": "LORD OF THE RIVER", "accent": (90, 160, 190), "bg": (10, 14, 20), "motif": "emblem_waves"},
+    {"id": "jumong", "name": "JUMONG", "tag": "KOREAN FOUNDER", "domain": "FOUNDER OF GOGURYEO · ARCHER", "accent": (205, 120, 90), "bg": (18, 12, 10), "motif": "emblem_egg"},
+    {"id": "bak-hyeokgeose", "name": "BAK HYEOKGEOSE", "tag": "KOREAN FOUNDER", "domain": "FOUNDER OF SILLA · BORN OF AN EGG", "accent": (215, 180, 100), "bg": (16, 14, 10), "motif": "emblem_well"},
+    {"id": "bari-gongju", "name": "BARI GONGJU", "tag": "KOREAN GODDESS", "domain": "GUIDE OF THE DEAD", "accent": (200, 170, 210), "bg": (14, 12, 18), "motif": "emblem_flower"},
+    {"id": "mireuk", "name": "MIREUK", "tag": "KOREAN CREATOR", "domain": "SEPARATOR OF HEAVEN & EARTH", "accent": (190, 205, 230), "bg": (12, 14, 20), "motif": "emblem_sun_face"},
+    {"id": "seokga", "name": "SEOKGA", "tag": "KOREAN GOD", "domain": "USURPER OF THE HUMAN AGE", "accent": (200, 150, 110), "bg": (16, 12, 10), "motif": "emblem_moon"},
 ]
 
 def draw_deity_motif(draw, cx, cy, radius, motif, accent, gold):

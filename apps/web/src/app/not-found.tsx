@@ -49,6 +49,7 @@ function getPantheonLabel(pantheonId: string): string {
     "inca-pantheon": "Inca & Andean",
     "persian-pantheon": "Persian",
     "finnish-pantheon": "Finnish",
+    "korean-pantheon": "Korean",
   };
   return labels[pantheonId] || "Ancient";
 }

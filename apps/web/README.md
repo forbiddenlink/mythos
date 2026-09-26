@@ -4,13 +4,13 @@
 
 ## Overview
 
-Web frontend for Mythos Atlas, an interactive encyclopedia of ancient mythology featuring **19 pantheons**, **282 deities**, **28 heroes**, **126 stories**, **74 creatures**, **61 artifacts**, and **144 mythological locations** — plus quizzes, interactive family trees, branching stories, and spaced-repetition review.
+Web frontend for Mythos Atlas, an interactive encyclopedia of ancient mythology featuring **20 pantheons**, **294 deities**, **28 heroes**, **132 stories**, **77 creatures**, **64 artifacts**, and **150 mythological locations** — plus quizzes, interactive family trees, branching stories, and spaced-repetition review.
 
 **Built by Elizabeth Stein** using Next.js 16, React 19, TypeScript 5, and modern web technologies.
 
 ## Features
 
-- 🏛️ **19 Pantheons** — Greek, Norse, Egyptian, Roman, Hindu, Japanese, Celtic, Aztec, Chinese, Mesopotamian, African (Yoruba), Polynesian, Mesoamerican, Slavic, Haudenosaunee, Tlingit & Haida, Inca & Andean, Persian, Finnish
+- 🏛️ **20 Pantheons** — Greek, Norse, Egyptian, Roman, Hindu, Japanese, Celtic, Aztec, Chinese, Mesopotamian, African (Yoruba), Polynesian, Mesoamerican, Slavic, Haudenosaunee, Tlingit & Haida, Inca & Andean, Persian, Finnish, Korean
 - 👑 **248 Deity Profiles** — Filterable by gender, domain, and pantheon with smart sorting
 - 📖 **108 Epic Stories** — Including interactive branching narratives (choose-your-own-adventure)
 - 🐉 **63 Creatures** — Mythological beasts with detailed profiles
@@ -117,13 +117,13 @@ src/
 │   ├── ui/               # shadcn/ui components
 │   └── ...               # animations, audio, i18n, pwa, seo, etc.
 ├── data/                 # JSON data files
-│   ├── pantheons.json    # 19 pantheons
-│   ├── deities.json      # 282 deities
+│   ├── pantheons.json    # 20 pantheons
+│   ├── deities.json      # 294 deities
 │   ├── heroes.json       # 28 heroes
-│   ├── stories.json      # 126 stories
-│   ├── creatures.json    # 74 creatures
-│   ├── artifacts.json    # 61 artifacts
-│   ├── locations.json    # 144 locations
+│   ├── stories.json      # 132 stories
+│   ├── creatures.json    # 77 creatures
+│   ├── artifacts.json    # 64 artifacts
+│   ├── locations.json    # 150 locations
 │   ├── sources.json      # 34 primary/academic sources
 │   └── relationships.json
 ├── hooks/                # Custom React hooks

@@ -169,6 +169,10 @@ describe("relationships", () => {
       // entries of their own; no kinship with catalogued figures is attested.
       "ukko",
       "tuoni",
+      // Korean: Bak Hyeokgeose's parents are unnamed (an egg left by a white
+      // horse), and Princess Bari's royal parents have no entries of their own.
+      "bak-hyeokgeose",
+      "bari-gongju",
     ]);
     const inGraph = new Set(
       relationshipList.flatMap((r) => [r.fromDeityId, r.toDeityId]),

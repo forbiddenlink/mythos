@@ -4453,5 +4453,259 @@
     "featuredDeities": ["ilmarinen", "vainamoinen"],
     "relatedStories": ["forging-of-the-sampo"],
     "imageUrl": "/stories/kullervo.png"
+  },
+  {
+    "id": "dangun-and-the-bear-woman",
+    "pantheonId": "korean-pantheon",
+    "title": "Dangun and the Bear Woman",
+    "slug": "dangun-and-the-bear-woman",
+    "summary": "The son of the Lord of Heaven descends to Mount Taebaek to rule the human world; a bear who endures twenty-one days of darkness on mugwort and garlic becomes a woman, marries him, and bears Dangun, founder of the first Korean kingdom.",
+    "fullNarrative": "## The son who longed for the world\n\nIryeon's *Samguk Yusa*, compiled in the late thirteenth century, opens its history of Korea with a story taken from an older 'Old Record'. In ancient times Hwanin, the Lord of Heaven, had a son by a secondary wife named Hwanung, who often longed for the world below heaven and desired to live among humans. His father knew his heart. Looking down on the mountains, he saw that Mount Taebaek was a place where his son could widely benefit humanity, and he gave Hwanung three heavenly seals and sent him down to rule.\n\n## The City of God\n\nHwanung descended with three thousand followers to the summit of Mount Taebaek, beneath the sacred altar tree, and called the place Sinsi, the City of God. He was called the Heavenly King. With him came the Wind Earl, the Rain Master, and the Cloud Master, and he took charge of grain, life, sickness, punishment, and good and evil, some three hundred and sixty affairs of human life, ruling the world and bringing it to order.\n\n## The bear and the tiger\n\nIn a cave nearby lived a bear and a tiger, and both prayed constantly to Hwanung that they might become human. The god gave them a bundle of sacred mugwort and twenty cloves of garlic and said: eat these, and do not look upon the sunlight for a hundred days, and you will gain human form. The bear and the tiger took them and withdrew into the dark. The bear kept the taboo, and after twenty-one days she became a woman. The tiger could not endure it, and remained a tiger.\n\n## The birth of Dangun\n\nThe bear-woman, Ungnyeo, had no one to marry, and she went every day to pray beneath the altar tree for a child. Hwanung took on human form for a while and married her, and she bore a son. He was called Dangun Wanggeom.\n\n## The kingdom of Joseon\n\nIn the fiftieth year of the sage-emperor Yao, Dangun set his capital at Pyongyang and first called his kingdom Joseon. Later he moved the capital to Asadal on Mount Baegak, and he ruled for fifteen hundred years. When King Wu of Zhou granted Joseon to Gija, Dangun moved away; afterward he returned to Asadal, withdrew into the mountains, and became a mountain god. He lived to the age of one thousand nine hundred and eight.\n\n## What the text says and what came later\n\nIryeon adds small notes of his own: that Hwanin means Jeseok, the Buddhist Indra; that Taebaek is the present Myohyangsan; and that the year given for the founding does not match Yao's reign. The famous date of 2333 BCE for Dangun's founding was calculated by later historians, and the modern ideals attached to the story, the nation's descent from a single ancestor and the principle of 'widely benefiting humanity', took shape in the twentieth century, especially under Japanese colonial rule, when Dangun became a symbol of Korean independence.",
+    "keyExcerpts": "Hwanin sends Hwanung down to Mount Taebaek with three heavenly seals; Hwanung founds the City of God with the ministers of wind, rain, and clouds; the bear endures twenty-one days on mugwort and garlic and becomes a woman while the tiger fails; she bears Dangun, who founds Joseon and becomes a mountain god.",
+    "category": "origin",
+    "moralThemes": [
+      "endurance and transformation",
+      "heaven's care for humanity",
+      "the origin of a people"
+    ],
+    "culturalSignificance": "The foundation myth of the Korean nation, celebrated on National Foundation Day and central to modern Korean identity, first preserved in the Samguk Yusa's citation of an older record.",
+    "citationSources": [
+      {
+        "title": "Samguk Yusa, Book 1, 'Gojoseon (Wanggeom Joseon)'",
+        "sourceId": "samguk-yusa",
+        "author": "Iryeon; trans. Ha Tae-hung and Grafton K. Mintz",
+        "date": "c. 1281-1289; trans. 1972",
+        "type": "primary"
+      },
+      {
+        "title": "Jewang ungi (Rhymed Record of Emperors and Kings)",
+        "author": "Yi Seung-hyu",
+        "date": "1287",
+        "type": "primary"
+      }
+    ],
+    "variants": [
+      {
+        "source": "Yi Seung-hyu, Jewang ungi",
+        "date": "1287",
+        "difference": "Composed within a few years of the Samguk Yusa, it makes Dangun the child of Hwanung's granddaughter, who was made human by drinking medicine, and the 'god of the sandalwood tree', rather than of a bear-woman.",
+        "note": "The two nearly contemporary Goryeo versions show that the bear episode was not the only form of the story in circulation."
+      }
+    ],
+    "featuredDeities": ["hwanin", "hwanung", "ungnyeo", "dangun"],
+    "featuredLocations": ["mount-myohyang", "chamseongdan"],
+    "relatedStories": ["jumong-son-of-heaven"],
+    "imageUrl": "/stories/dangun-and-the-bear-woman.png"
+  },
+  {
+    "id": "jumong-son-of-heaven",
+    "pantheonId": "korean-pantheon",
+    "title": "Jumong, Son of Heaven and the River",
+    "slug": "jumong-son-of-heaven",
+    "summary": "Born from an egg laid by the River Earl's daughter, Jumong grows into a matchless archer at the court of East Buyeo; fleeing the jealous princes, he is saved when fish and turtles rise to bridge a river, and he founds the kingdom of Goguryeo.",
+    "fullNarrative": "## The river's daughter\n\nThe history of Goguryeo in Kim Busik's *Samguk Sagi* (1145) begins with King Geumwa of East Buyeo, who found a young woman south of Mount Taebaek. She told him she was Yuhwa, daughter of Habaek, the River Earl. While she was out with her sisters, a man who called himself Haemosu, son of Heaven, had lured her to a house by the Amnok River beneath Mount Ungsim and lain with her, and then gone away and never come back. Her parents, ashamed, had banished her.\n\n## The egg\n\nGeumwa, finding this strange, shut her in a room. The sunlight shone on her there, and when she moved away from it, it followed her. She conceived, and laid an egg as large as five measures of grain. The king was disgusted and had it thrown to the dogs and pigs, but they would not eat it. He had it left on the road, but the horses and cattle stepped around it. He had it left in the fields, and the birds covered it with their wings. He tried to break it himself and could not, and gave it back to its mother. She wrapped it and kept it warm, and a boy broke out of the shell, of extraordinary looks.\n\n## The archer\n\nAt seven he made his own bow and arrows, and shot a hundred times without missing. In the speech of Buyeo a good archer was called *jumong*, and that became his name. Geumwa's seven sons, led by the eldest, Daeso, resented him and wanted him killed. Set to tend the king's horses, Jumong recognized the finest one and starved it until it was thin, while he fattened the poor horses; the king took the fat ones for himself and gave the thin one to Jumong.\n\n## The bridge of fish and turtles\n\nWhen his mother warned him that the princes meant to kill him, Jumong fled with three companions, Oi, Mai, and Hyeopbo. At the Eomsa River there was no bridge, and the pursuing riders were close behind. Jumong cried out to the water: I am the son of Heaven and the grandson of Habaek; today I flee, and my pursuers are upon me; what shall I do? Fish and turtles rose to the surface and formed a bridge, and he crossed. Then they sank, and the riders could not follow.\n\n## Goguryeo\n\nJumong came to Jolbon, where the land was rich and the mountains strong, and founded his capital there, naming the state Goguryeo and taking Go as his family name. The *Samguk Sagi* dates this to 37 BCE, when he was twenty-two.\n\n## The oldest version\n\nNine centuries before Kim Busik, the Gwanggaeto Stele of 414 CE had already told the story in brief: King Chumo, son of the Heavenly Emperor and the daughter of Habaek, broke from an egg; at a great river, reeds joined and turtles surfaced so he could cross; he built his capital on the mountain west of Holbon; and when he no longer delighted in the world, heaven sent a yellow dragon, and he rose to heaven standing on its head.",
+    "keyExcerpts": "Yuhwa, banished for her union with Haemosu, conceives from sunlight and lays an egg that animals protect; the boy Jumong becomes a peerless archer, tricks the king into giving him the best horse, and flees across a bridge of fish and turtles to found Goguryeo at Jolbon.",
+    "category": "origin",
+    "moralThemes": [
+      "divine birth and legitimacy",
+      "persecution and escape",
+      "skill and cunning"
+    ],
+    "culturalSignificance": "The foundation myth of Goguryeo, attested on the Gwanggaeto Stele of 414 CE as the oldest written Korean myth, and the basis of popular modern retellings such as the television drama 'Jumong' (2006-2007).",
+    "citationSources": [
+      {
+        "title": "Samguk Sagi, Annals of Goguryeo, King Dongmyeong",
+        "sourceId": "samguk-sagi",
+        "author": "Kim Busik; trans. Edward J. Shultz and Hugh H. W. Kang",
+        "date": "1145; trans. 2011",
+        "type": "primary"
+      },
+      {
+        "title": "Gwanggaeto Stele, opening lines",
+        "sourceId": "gwanggaeto-stele",
+        "author": "Goguryeo court",
+        "date": "414 CE",
+        "type": "primary"
+      },
+      {
+        "title": "Dongmyeongwang-pyeon",
+        "sourceId": "dongmyeongwang-pyeon",
+        "author": "Yi Gyu-bo",
+        "date": "1193",
+        "type": "primary"
+      }
+    ],
+    "variants": [
+      {
+        "source": "Gwanggaeto Stele",
+        "sourceId": "gwanggaeto-stele",
+        "date": "414 CE",
+        "difference": "The founder is called Chumo, son of the Heavenly Emperor (Haemosu is not named); reeds and turtles, not fish and turtles, make his crossing; and he ends his life by ascending to heaven on a yellow dragon.",
+        "note": "The oldest written version, erected by his descendants."
+      },
+      {
+        "source": "Yi Gyu-bo, Dongmyeongwang-pyeon",
+        "sourceId": "dongmyeongwang-pyeon",
+        "date": "1193",
+        "difference": "Adds Haemosu's descent in a five-dragon chariot, his transformation contest with Habaek, and Yuhwa's doves carrying grain seeds after her fleeing son.",
+        "note": "Quotes the lost 'Old History of the Three Kingdoms'."
+      }
+    ],
+    "featuredDeities": ["jumong", "yuhwa", "haemosu", "habaek"],
+    "featuredLocations": ["wunu-mountain"],
+    "relatedStories": [
+      "dangun-and-the-bear-woman",
+      "bak-hyeokgeose-and-the-egg"
+    ],
+    "imageUrl": "/stories/jumong-son-of-heaven.png"
+  },
+  {
+    "id": "bak-hyeokgeose-and-the-egg",
+    "pantheonId": "korean-pantheon",
+    "title": "Bak Hyeokgeose and the Egg at Najeong",
+    "slug": "bak-hyeokgeose-and-the-egg",
+    "summary": "The six village chiefs of the Gyeongju plain, seeking a king, see a white horse kneeling at the Najeong well beside a purple egg; the horse rises into heaven, and from the egg comes the radiant boy who will found Silla, crowned at thirteen with a queen born from a dragon.",
+    "fullNarrative": "## Six villages without a king\n\nIryeon's *Samguk Yusa* tells that in the year the Chinese reckoned as the first year of the Dijie era of the Former Han (69 BCE), on the first day of the third month, the chiefs of the six villages of Jinhan gathered with their sons on the bank of the Al River. They said: we have no ruler over the people, and they do as they please; let us find a man of virtue, make him king, and found a state.\n\n## The white horse\n\nThey climbed to a high place and looked south. At the Najeong well below Mount Yang they saw a strange light like lightning touching the ground, and a white horse kneeling there as if bowing. Going down to look, they found a purple egg (some say a large blue egg). When the horse saw them, it neighed long and rose up into the sky.\n\n## The radiant boy\n\nThey broke open the egg and found a boy of beautiful form. They were astonished, and bathed him in the Eastern Spring. His body gave off light; birds and beasts danced together; heaven and earth shook; and the sun and moon shone clear. So they named him Hyeokgeose, 'one who brightens the world'. Because the egg was like a gourd, called *bak*, they gave him the surname Bak.\n\n## The queen from the dragon\n\nPeople congratulated each other, saying that the Son of Heaven had come down and now a virtuous queen must be found for him. That same day, at the Aryeong well in Saryang village, a chicken-dragon appeared, and from its left side a girl was born. Her face was lovely, but her lips were like a chicken's beak. When she was bathed in the northern stream of Wolseong, the beak fell away. She was named after the well, Aryeong.\n\n## King and queen\n\nThe two children were raised in a palace built at the foot of Mount Namsan. When they were thirteen, the boy was made king and the girl queen, and the state was called Seorabeol. After sixty-one years of rule, the king ascended to heaven; seven days later his body fell back to the earth in five parts, and the queen too died. When the people tried to bury them together, a great serpent drove them off, so they buried the five parts in five tombs, called the Five Tombs or the Serpent Tombs.\n\n## Another version\n\nKim Busik's *Samguk Sagi* tells a shorter version: the chief of Goheo village, Sobeolgong, saw a horse kneeling and neighing in the forest by the Najeong well; when he went there, the horse vanished and there was only a large egg, from which the child came. The two accounts agree on the well, the horse, and the egg, the three emblems of Silla's heavenly origin.",
+    "keyExcerpts": "The six village chiefs see a light and a kneeling white horse at the Najeong well; the horse rises to heaven, leaving a purple egg from which the radiant Hyeokgeose is born; the chicken-dragon of Aryeong well gives birth to his queen; after his death his body falls from heaven in five parts.",
+    "category": "legend",
+    "moralThemes": [
+      "heavenly legitimacy",
+      "the need for rightful rule",
+      "harmony of king and queen"
+    ],
+    "culturalSignificance": "The foundation myth of Silla, the kingdom that later unified most of the Korean peninsula; the Najeong well and the Five Tombs in Gyeongju remain places of memory and ancestral rites.",
+    "citationSources": [
+      {
+        "title": "Samguk Yusa, Book 1, 'Silla's Founder King Hyeokgeose'",
+        "sourceId": "samguk-yusa",
+        "author": "Iryeon; trans. Ha Tae-hung and Grafton K. Mintz",
+        "date": "c. 1281-1289; trans. 1972",
+        "type": "primary"
+      },
+      {
+        "title": "Samguk Sagi, Annals of Silla, Hyeokgeose",
+        "sourceId": "samguk-sagi",
+        "author": "Kim Busik; trans. Edward J. Shultz and Hugh H. W. Kang",
+        "date": "1145; trans. 2012",
+        "type": "primary"
+      }
+    ],
+    "featuredDeities": ["bak-hyeokgeose"],
+    "featuredLocations": ["najeong"],
+    "relatedStories": ["jumong-son-of-heaven", "manpasikjeok"],
+    "imageUrl": "/stories/bak-hyeokgeose-and-the-egg.png"
+  },
+  {
+    "id": "princess-bari",
+    "pantheonId": "korean-pantheon",
+    "title": "Princess Bari",
+    "slug": "princess-bari",
+    "summary": "Cast away at birth for being a seventh daughter, Princess Bari is the only child willing to journey to the Western Heaven for the water that can save her dying parents; after years of labor and hardship she returns in time to revive them, and becomes the goddess who guides the dead.",
+    "fullNarrative": "## A song sung for the dead\n\nThis story is not a written text but a song, performed by Korean shamans in rituals that send the dead to the other world. It exists in many versions; this retelling follows the main line common to the Seoul-region versions.\n\n## The seventh daughter\n\nKing Ogu married Queen Gildae, though a fortune-teller had warned that the year was unlucky and that if they married then they would have only daughters. So it was: one daughter was born, then another, until there were six. When the queen bore a seventh daughter, the king, who longed for a son, ordered her thrown away. The baby was put in a jade box and cast into the water. She was named Bari, 'the thrown-away one'. But the box did not sink. In some versions a golden turtle carried it to shore; in others the Buddha saw it; and an old childless couple took the baby home and raised her.\n\n## The illness\n\nYears later the king and queen fell ill with a sickness no doctor could cure. In a dream or through a diviner they learned that they had been punished for abandoning their child, and that only the medicinal water of the Western Heaven, at the end of the world, could save them. They asked each of their six daughters to go. Each refused, with an excuse. At last the king sent for the child he had thrown away. When Bari was brought before her parents, she agreed to go: she had received nothing from them in her upbringing, she said, but she owed them her birth.\n\n## The journey\n\nDisguised as a man, Bari set out. She crossed mountains and rivers and passed through the hells where the dead are punished, sometimes helped by the Buddha, who gave her a flower or a staff that parted the waters. At the source of the medicine water she found its guardian, a huge and fearsome being. He would give her the water only if she paid for it with labor: she drew water for three years, cut firewood for three years, and tended the fire for three years. In many versions he then asked her to marry him, and she bore him seven sons.\n\n## The return\n\nAt last she filled her vessel with the water of life, gathered the flowers that restore bone, flesh, and breath, and hurried home with her husband and sons. As she reached her parents' country she met a funeral procession: her parents had already died. She stopped the biers, laid the flowers on their bodies, and poured the water of life into their mouths, and the king and queen came back to life.\n\n## The goddess of the dead\n\nThe grateful king offered her half his kingdom, wealth, anything she wished. She refused. Instead she asked to become the one who leads the souls of the dead to the other world, and so she became the goddess of the passage of the dead and the ancestor of shamans; in some versions her seven sons became the seven stars of the Big Dipper. When a shaman sings her story at a funeral rite, the shaman walks Bari's road to guide the soul of the dead.",
+    "keyExcerpts": "The seventh daughter of King Ogu is cast away in a jade box; when her parents are dying, only she agrees to fetch the water of life from the Western Heaven; she labors for years for its guardian, returns to meet her parents' funeral, revives them, and chooses to become the guide of the dead.",
+    "category": "quest",
+    "moralThemes": [
+      "filial devotion against rejection",
+      "the worth of daughters",
+      "compassion for the dead"
+    ],
+    "culturalSignificance": "The central narrative of Korean rites for the dead and the origin story of shamans in the Seoul tradition, widely retold in modern Korean literature and theatre as a story of a rejected daughter's strength.",
+    "citationSources": [
+      {
+        "title": "Hanguk Muga Jip (versions of Bari Gongju)",
+        "sourceId": "hanguk-muga-jip",
+        "author": "Kim Tae-gon, comp.",
+        "date": "1971-1980",
+        "type": "primary"
+      },
+      {
+        "title": "Chōsen fuzoku no kenkyū (Studies of Korean Shamanism)",
+        "author": "Akiba Takashi and Akamatsu Chijō",
+        "date": "1937",
+        "type": "primary"
+      }
+    ],
+    "variants": [
+      {
+        "source": "East-coast (ogu-gut) versions",
+        "difference": "The names of the parents, the rescuer of the infant, and the helpers on the road differ; the guardian of the water may be called Mujangseung or Mujang-sin, and the number of years of service varies.",
+        "note": "Muga change with each shaman and region; there is no single authoritative text."
+      }
+    ],
+    "featuredDeities": ["bari-gongju"],
+    "featuredLocations": ["jeoseung"],
+    "relatedStories": ["mireuk-and-seokga"],
+    "imageUrl": "/stories/princess-bari.png"
+  },
+  {
+    "id": "mireuk-and-seokga",
+    "pantheonId": "korean-pantheon",
+    "title": "Mireuk and Seokga: The Song of Creation",
+    "slug": "mireuk-and-seokga",
+    "summary": "Mireuk separates heaven and earth, props the sky with copper pillars, makes stars from an extra sun and moon, learns the secrets of fire and water from a mouse, and creates people; but the rival Seokga wins the world by stealing the flower that bloomed on Mireuk's knee, and so the present age is full of wrongs.",
+    "fullNarrative": "## Heaven and earth apart\n\nThe *Changse-ga*, 'Song of the Creation of the World', was sung in 1923 by the shaman Kim Ssang-dori of Hamheung and recorded by the folklorist Son Jin-tae. When heaven and earth came into being, it begins, Mireuk was born. Heaven and earth clung together and would not separate, so Mireuk pushed the sky up until it bulged like the lid of a pot, and at the four corners of the earth he set up copper pillars to hold it.\n\n## Stars and clothing\n\nIn those days there were two suns and two moons. Mireuk took down one of the moons and made from it the Big Dipper and the Southern Dipper, and took down one of the suns and made the great stars and the small stars. He had no clothes, so he gathered arrowroot vines from the mountains, spun them, and wove himself a robe.\n\n## Fire and water\n\nMireuk wanted to know where fire and water come from. He caught a grasshopper and asked it, but it said to ask the frog, who knew more; the frog said to ask the mouse. The mouse asked what it would be given for the answer, and Mireuk promised it all the rice chests in the world. The mouse told him to go to one mountain and strike stone against steel for fire, and to another to find a spring of water. So people learned fire and water, and the mouse has eaten from the rice chests ever since.\n\n## The first people\n\nThen Mireuk held a golden tray in one hand and a silver tray in the other and prayed to heaven. Insects fell from the sky, five on each tray. The insects on the golden tray became men, and those on the silver tray became women, and they grew up and married, and the world was filled with people living in peace.\n\n## Seokga\n\nThen Seokga appeared and said that he would rule the world. Mireuk said his age had not yet ended. They agreed to contests. First each lowered a bottle into the East Sea on a cord, Mireuk's golden and Seokga's silver; Seokga's cord broke. Next each tried to freeze a river in the middle of summer; Mireuk's river froze. Then they agreed to lie down together and sleep, and whoever grew a flower on his knee would have the world. As they slept, a flower bloomed on Mireuk's knee. Seokga, who was only pretending to sleep, snapped it off and set it on his own knee.\n\n## The curse\n\nWhen Mireuk woke, he knew. Because you have stolen my flower, he said, in your age the flowers will wither in ten days; and your age will be full of thieves and cheats, of misery and wrongdoing. Then he went away, and Seokga began to rule the world. That, the song says, is why the world is as it is.\n\n## One motif, many songs\n\nThe flower contest reappears in the Jeju creation myth *Cheonjiwang bonpuri*, where twin brothers, Daebyeol-wang and Sobyeol-wang, compete by growing flowers, and the younger cheats to win this world, leaving the elder to rule the world of the dead. Across Korea the story explains the imperfection of the present world as the result of a stolen victory.",
+    "keyExcerpts": "Mireuk raises the sky and sets copper pillars at the earth's corners, makes stars from an extra sun and moon, learns fire and water from a mouse rewarded with the rice chests, and creates people from insects on golden and silver trays; Seokga wins the world by stealing the flower from Mireuk's knee.",
+    "category": "creation",
+    "moralThemes": [
+      "a stolen victory",
+      "why the world is imperfect",
+      "the origin of fire, water, and people"
+    ],
+    "culturalSignificance": "The fullest Korean shamanic creation narrative from the mainland, preserved in a single 1923 recording, and a key example of how Korean shamanism reused Buddhist names for its own gods.",
+    "citationSources": [
+      {
+        "title": "Changse-ga, in Joseon Singa Yupyeon",
+        "sourceId": "joseon-singa-yupyeon",
+        "author": "sung by Kim Ssang-dori; recorded by Son Jin-tae",
+        "date": "1923; published 1930",
+        "type": "primary"
+      }
+    ],
+    "variants": [
+      {
+        "source": "Cheonjiwang bonpuri (Jeju shamanic myth)",
+        "difference": "Twin sons of the Heavenly King, Daebyeol-wang and Sobyeol-wang, shoot down the extra sun and moon with arrows and hold the flower-growing contest; the cheating younger brother gets this world and the elder the world of the dead.",
+        "note": "A separate Jeju tradition sharing the stolen-flower motif."
+      }
+    ],
+    "featuredDeities": ["mireuk", "seokga"],
+    "relatedStories": ["princess-bari", "dangun-and-the-bear-woman"],
+    "imageUrl": "/stories/mireuk-and-seokga.png"
+  },
+  {
+    "id": "manpasikjeok",
+    "pantheonId": "korean-pantheon",
+    "title": "Manpasikjeok: The Flute That Calms Ten Thousand Waves",
+    "slug": "manpasikjeok",
+    "summary": "King Munmu of Silla asks to be buried in the East Sea so he can become a dragon and guard the kingdom; his son receives from a sea dragon a bamboo that is two by day and one by night, and makes from it a flute that drives off enemies, heals the sick, brings rain, and stills the waves.",
+    "fullNarrative": "## A king who became a dragon\n\nKing Munmu of Silla (r. 661-681) completed the unification of most of the Korean peninsula under Silla. The *Samguk Sagi* records his deathbed instructions: he was to be cremated in the Buddhist manner and his remains buried in the East Sea. The *Samguk Yusa* adds that he wished to become a great dragon after death, to protect the kingdom from invaders and uphold the Buddhist law. His son, King Sinmun, completed the temple of Gameunsa on the coast, 'the temple of gratitude', in his father's honor.\n\n## The floating mountain\n\nIn the fifth month of 682, the *Samguk Yusa* says, an official reported that a small mountain was floating toward Gameunsa on the East Sea, drifting back and forth with the waves. The king's diviner said that the late king, now a sea dragon, and the great general Kim Yu-sin, now a god in heaven, wished to send a treasure to guard the state, and that the king should go to the shore. The mountain was shaped like the head of a turtle, and on its top grew a bamboo that was two stalks by day and joined into one by night.\n\n## The dragon's gift\n\nThe king went to the pavilion called Iyeondae to watch. When the bamboo became one, heaven and earth shook, and a storm and darkness lasted seven days. When they cleared, the king sailed to the mountain, and a dragon came to him bearing a belt of black jade. The king asked why the bamboo parted and joined. The dragon answered: just as one hand cannot make a sound but two hands clapping can, this bamboo makes sound only when joined. It is a sign that the king will rule the world by sound. Cut it and make a flute, and the whole world will be at peace. Your father has become a great dragon of the sea, and Kim Yu-sin a god of heaven; the two sages of one mind have sent this treasure.\n\n## The flute\n\nThe king had the bamboo cut, and the mountain and the dragon vanished. He made a flute from it and kept it in the royal treasury. When it was played, enemy armies withdrew, sickness was healed, drought brought rain and floods cleared, and the wind died and the waves grew calm. It was called Manpasikjeok, 'the flute that calms ten thousand waves', and honored as a national treasure. Later kings, the *Samguk Yusa* says, gave it further titles when it was lost and found again.\n\n## The sea and the shore\n\nOff the coast near Gameunsa stands Daewangam, 'the rock of the great king', traditionally identified as King Munmu's underwater tomb, and the ruins of Gameunsa still show its twin stone pagodas. The story joins the Silla state's Buddhist piety with older ideas of sea dragons as guardians.",
+    "keyExcerpts": "King Munmu asks to be buried at sea to become a guardian dragon; a floating turtle-shaped mountain brings a bamboo that is two by day and one by night; a dragon explains that it makes sound only when joined, and the flute made from it stills enemies, sickness, drought, and waves.",
+    "category": "legend",
+    "moralThemes": [
+      "a ruler's devotion beyond death",
+      "harmony and unity",
+      "protection of the state"
+    ],
+    "culturalSignificance": "A Silla legend of state protection that links the kingdom's unification with Buddhist and dragon beliefs, and gives meaning to Daewangam and the Gameunsa temple site on the Gyeongju coast.",
+    "citationSources": [
+      {
+        "title": "Samguk Yusa, Book 2, 'Manpasikjeok'",
+        "sourceId": "samguk-yusa",
+        "author": "Iryeon; trans. Ha Tae-hung and Grafton K. Mintz",
+        "date": "c. 1281-1289; trans. 1972",
+        "type": "primary"
+      },
+      {
+        "title": "Samguk Sagi, Annals of Silla, King Munmu, year 21",
+        "sourceId": "samguk-sagi",
+        "author": "Kim Busik",
+        "date": "1145",
+        "type": "primary"
+      }
+    ],
+    "featuredDeities": [],
+    "featuredLocations": ["daewangam"],
+    "relatedStories": ["bak-hyeokgeose-and-the-egg"],
+    "imageUrl": "/stories/manpasikjeok.png"
   }
 ]

@@ -1787,5 +1787,74 @@
       }
     ],
     "imageUrl": "/creatures/great-pike.png"
+  },
+  {
+    "id": "samjok-o",
+    "pantheonId": "korean-pantheon",
+    "name": "Samjok-o",
+    "slug": "samjok-o",
+    "description": "The three-legged crow that lives in the sun, painted in a solar disk on the walls of Goguryeo tombs, usually paired with a toad or hare in the moon.",
+    "habitat": "The sun",
+    "abilities": [
+      "dwelling in the sun",
+      "symbolizing heavenly and royal power"
+    ],
+    "dangerLevel": 1,
+    "detailedBio": "## In Goguryeo tomb murals\n\nThe three-legged crow (*samjok-o*) appears inside a golden sun disk in the painted tombs of Goguryeo (fourth to seventh centuries CE), near Ji'an in China and Pyongyang in North Korea, among them the Ohoebun tombs at Ji'an. It is often painted opposite a moon disk containing a toad or a hare, the pair representing sun and moon, day and night, in the ceiling paintings that turned the tomb into a model of the heavens.\n\n## A shared East Asian emblem\n\nThe three-legged crow in the sun is known in Chinese art and texts from the Han dynasty onward, and in Japan as the Yatagarasu; in Korea it became particularly associated with Goguryeo and with the heavenly descent of its kings, who claimed the sun and heaven as ancestors. Haemosu, Goguryeo's heavenly founder-father, wears a crown of crow feathers in Yi Gyu-bo's poem.\n\n## Modern use\n\nThe samjok-o has been proposed and used as a national emblem in modern Korea, and it appears in Korean popular culture as a symbol of Goguryeo's power.",
+    "primarySources": [
+      {
+        "text": "On the ceilings of Goguryeo tombs the sun is painted as a golden disk containing a three-legged crow, facing a moon disk with a toad.",
+        "source": "Goguryeo tomb murals, Ji'an and Pyongyang regions (description of the paintings)",
+        "date": "4th-7th centuries CE"
+      }
+    ],
+    "imageUrl": "/creatures/samjok-o.png"
+  },
+  {
+    "id": "haetae",
+    "pantheonId": "korean-pantheon",
+    "name": "Haetae",
+    "slug": "haetae",
+    "description": "A lion-like guardian beast that can tell right from wrong, whose stone statues guard Gyeongbokgung Palace in Seoul and were believed to protect it from fire.",
+    "habitat": "Before palaces and public buildings",
+    "abilities": [
+      "discerning justice",
+      "guarding against fire and disaster"
+    ],
+    "dangerLevel": 2,
+    "detailedBio": "## A beast of justice\n\nThe haetae (also *haechi*) is a mythical beast, often shown with a lion-like body, scales, and sometimes a single horn, that was believed able to distinguish right from wrong and to butt the guilty. It derives from the Chinese *xiezhi*, a unicorned beast of judgment associated with law courts, and in Joseon-dynasty Korea it became an emblem of justice worn on the rank badges of officials of the Office of the Inspector-General.\n\n## Guardians of Gwanghwamun\n\nA pair of stone haetae stands before Gwanghwamun, the main gate of Gyeongbokgung Palace in Seoul, carved when the palace was rebuilt in the 1860s under the regent Heungseon Daewongun. According to a widely told tradition, they were placed to guard the palace against fire, facing Mount Gwanak to the south, whose fiery energy geomancers feared.\n\n## Seoul's symbol\n\nThe city of Seoul adopted the haechi as its official symbol in 2009, and it appears throughout the city on signs and souvenirs.",
+    "primarySources": [
+      {
+        "text": "A pair of stone haetae stands before Gwanghwamun, the main gate of Gyeongbokgung, carved during the palace's reconstruction in the 1860s.",
+        "source": "Gyeongbokgung Palace, Seoul (monument)",
+        "date": "1860s"
+      }
+    ],
+    "imageUrl": "/creatures/haetae.png"
+  },
+  {
+    "id": "munmu-sea-dragon",
+    "pantheonId": "korean-pantheon",
+    "name": "Sea Dragon of King Munmu",
+    "slug": "munmu-sea-dragon",
+    "description": "The great dragon of the East Sea that King Munmu of Silla vowed to become after death to protect his kingdom, and who gave his son the bamboo for the flute Manpasikjeok.",
+    "habitat": "The East Sea off the Gyeongju coast",
+    "abilities": [
+      "guarding the kingdom from invaders",
+      "raising storms and darkness",
+      "bestowing sacred treasures"
+    ],
+    "dangerLevel": 3,
+    "detailedBio": "## A king's vow\n\nThe *Samguk Yusa* reports that King Munmu of Silla (r. 661-681), who completed Silla's unification of most of the Korean peninsula, told the monk Jiui that he wished after death to become a great dragon, to guard the state and honor the Buddhist law, and asked to be buried in the East Sea. The *Samguk Sagi* records his last instruction to be cremated and his remains placed in the sea.\n\n## The dragon's treasure\n\nIn 682, the *Samguk Yusa* says, a floating mountain brought a bamboo to Gameunsa, the temple his son King Sinmun had completed for him, and a dragon appeared to Sinmun with a belt of black jade, explaining that the late king had become a great dragon of the sea and the general Kim Yu-sin a god of heaven, and that they sent the bamboo for a flute to keep the world at peace.\n\n## Dragons in Korea\n\nKorean dragons (*yong*) are generally benevolent powers of water and rain, living in underwater palaces and associated with kingship. Munmu's story made the East Sea dragon a guardian of the nation, and Daewangam, the rock traditionally identified as his tomb, remains a site of pilgrimage and shamanic rites.",
+    "primarySources": [
+      {
+        "text": "The king said: 'After my death I wish to become a great dragon of the state, to honor the Buddhist law and guard the country.'",
+        "source": "Iryeon, Samguk Yusa, Book 2, 'King Munmu' (paraphrase)",
+        "sourceId": "samguk-yusa",
+        "locator": "Book 2, King Munmu",
+        "date": "compiled c. 1281-1289"
+      }
+    ],
+    "imageUrl": "/creatures/munmu-sea-dragon.png"
   }
 ]

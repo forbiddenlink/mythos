@@ -49,7 +49,7 @@ export const MYTHIC_ERAS: MythicEra[] = [
   {
     id: "asia-pacific",
     label: "Asia & Pacific",
-    blurb: "Hindu, Chinese, Japanese, Polynesian",
+    blurb: "Hindu, Chinese, Japanese, Korean, Polynesian",
     start: -1600,
     end: 1900,
     pantheonIds: [
@@ -57,6 +57,7 @@ export const MYTHIC_ERAS: MythicEra[] = [
       "chinese-pantheon",
       "japanese-pantheon",
       "polynesian-pantheon",
+      "korean-pantheon",
     ],
   },
   {

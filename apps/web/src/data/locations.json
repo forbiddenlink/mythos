@@ -2953,5 +2953,136 @@
       }
     ],
     "imageUrl": "/locations/kalevala-town.png"
+  },
+  {
+    "id": "mount-myohyang",
+    "name": "Mount Myohyang (Taebaek of the Dangun myth)",
+    "slug": "mount-myohyang",
+    "locationType": "mountain",
+    "pantheonId": "korean-pantheon",
+    "description": "The mountain in North Korea that Iryeon's thirteenth-century note identifies as Mount Taebaek, where Hwanung descended beneath the sacred altar tree; other traditions place Taebaek at Baekdusan or at Taebaeksan in the south.",
+    "latitude": 40.0186,
+    "longitude": 126.3331,
+    "geography": "identified",
+    "coordinateNote": "Iryeon's note in the Samguk Yusa ('Taebaek is the present Myohyangsan') is the basis for this pin; later traditions identify the mountain of Hwanung's descent with Baekdusan or with Taebaeksan in Gangwon Province, South Korea.",
+    "detailedBio": "## Iryeon's identification\n\nThe Dangun myth in the *Samguk Yusa* says Hwanung descended to the summit of Mount Taebaek, beneath the sacred altar tree. At that point Iryeon adds a short note: Taebaek is 'the present Myohyangsan', a mountain range in what is now North Pyongan Province, North Korea. That thirteenth-century identification is the one pinned here.\n\n## Other Taebaeks\n\nTaebaek ('great white') is a name several mountains have borne. Many Koreans today associate the myth with Baekdusan (Changbaishan), the volcano on the China-North Korea border, and South Korea's Taebaeksan in Gangwon Province has an altar, Cheonjedan, where rites to heaven and to Dangun are held on National Foundation Day. None of these can be shown to be the mountain the original teller meant.\n\n## Myohyangsan today\n\nMyohyangsan is famous for the Buddhist temple Bohyeonsa, founded in the eleventh century, and for its scenery, and it hosts the International Friendship Exhibition of gifts to North Korea's leaders. A cave on the mountain is traditionally called Dangun's cave.",
+    "primarySources": [
+      {
+        "text": "Hwanung descended to the summit of Taebaek-san (Taebaek is the present Myohyangsan) beneath the sacred altar tree.",
+        "source": "Iryeon, Samguk Yusa, Book 1, 'Gojoseon', with Iryeon's note (paraphrase)",
+        "sourceId": "samguk-yusa",
+        "locator": "Book 1, Gojoseon",
+        "date": "compiled c. 1281-1289"
+      }
+    ],
+    "imageUrl": "/locations/mount-myohyang.png"
+  },
+  {
+    "id": "chamseongdan",
+    "name": "Chamseongdan",
+    "slug": "chamseongdan",
+    "locationType": "sacred_site",
+    "pantheonId": "korean-pantheon",
+    "description": "The stone altar on the summit of Mount Mani on Ganghwa Island, traditionally said to have been built by Dangun for sacrifices to heaven, where rites are held on National Foundation Day and the National Sports Festival torch is lit.",
+    "latitude": 37.6158,
+    "longitude": 126.4281,
+    "geography": "physical",
+    "detailedBio": "## Dangun's altar\n\nChamseongdan stands near the summit of Manisan, the highest peak of Ganghwa Island at the mouth of the Han River, west of Seoul. Tradition, recorded in Goryeo and Joseon geographies, holds that Dangun built an altar here to offer sacrifices to heaven. The present stone structure, a round lower terrace and a square upper platform symbolizing heaven and earth, has been rebuilt and repaired many times, and its age cannot be traced to antiquity.\n\n## Royal and national rites\n\nGoryeo and Joseon kings sent officials to perform rites at the altar. Today, on National Foundation Day (3 October), a ceremony to heaven is held at Chamseongdan, and since the mid-twentieth century the flame for Korea's National Sports Festival has been kindled here by women dressed as priestesses.\n\n## Protected site\n\nChamseongdan is designated a Historic Site of South Korea and draws many hikers and visitors, especially at the new year and on Foundation Day.",
+    "primarySources": [
+      {
+        "text": "On the summit of Mount Mani is the altar of Chamseongdan, which tradition says Dangun built for sacrifices to heaven.",
+        "source": "Joseon-era geographies of Ganghwa (e.g., Sinjeung Dongguk Yeoji Seungnam, 1530) (paraphrase)",
+        "date": "16th century"
+      }
+    ],
+    "imageUrl": "/locations/chamseongdan.png"
+  },
+  {
+    "id": "wunu-mountain",
+    "name": "Wunü Mountain (Jolbon)",
+    "slug": "wunu-mountain",
+    "locationType": "mountain",
+    "pantheonId": "korean-pantheon",
+    "description": "The flat-topped mountain fortress near Huanren, Liaoning, China, widely identified as Holbon or Jolbon, where the Gwanggaeto Stele and the Samguk Sagi say Jumong founded Goguryeo's first capital.",
+    "latitude": 41.328,
+    "longitude": 125.4174,
+    "geography": "identified",
+    "coordinateNote": "Wunü Mountain City (Korean Onyeosanseong) is the site most scholars identify with Holbon/Jolbon, the first Goguryeo capital named on the Gwanggaeto Stele; the identification is widely accepted but not proven by an inscription on the site.",
+    "detailedBio": "## The first capital\n\nThe Gwanggaeto Stele (414 CE) says that Chumo built his capital 'on the mountain west of Holbon', and the *Samguk Sagi* says Jumong founded Goguryeo at Jolbon. Most scholars identify this first capital with the mountain fortress on Wunü Mountain ('Five Women Mountain'), a sheer-sided, flat-topped mountain rising above the Hun River valley near the city of Huanren in Liaoning Province, China. Excavations have found walls, building foundations, and Goguryeo artifacts on its summit plateau.\n\n## World Heritage\n\nWunü Mountain City is part of the UNESCO World Heritage Site 'Capital Cities and Tombs of the Ancient Koguryo Kingdom' (inscribed 2004), with the later capital at Ji'an, where the Gwanggaeto Stele stands.\n\n## A contested heritage\n\nGoguryeo's history is claimed by both Korean and Chinese historiography, and the site's interpretation has been part of that debate; this entry follows the Korean foundation myth's own geography and the archaeological identification.",
+    "primarySources": [
+      {
+        "text": "On the mountain west of Holbon by the Biryu valley he built walls and established his capital.",
+        "source": "Gwanggaeto Stele, opening lines (paraphrase)",
+        "sourceId": "gwanggaeto-stele",
+        "locator": "face 1, opening",
+        "date": "414 CE"
+      }
+    ],
+    "imageUrl": "/locations/wunu-mountain.png"
+  },
+  {
+    "id": "najeong",
+    "name": "Najeong",
+    "slug": "najeong",
+    "locationType": "sacred_site",
+    "pantheonId": "korean-pantheon",
+    "description": "The well site in Gyeongju where, in the Samguk Yusa and Samguk Sagi, a white horse knelt beside the egg from which Silla's founder Bak Hyeokgeose was born; excavated as the site of an ancient shrine.",
+    "latitude": 35.8158,
+    "longitude": 129.2125,
+    "geography": "physical",
+    "detailedBio": "## The founder's well\n\nNajeong lies in the southern part of Gyeongju, the capital of ancient Silla, near the foot of Mount Namsan. According to both the *Samguk Yusa* and the *Samguk Sagi*, it was here, by a well in a wood, that the six village chiefs saw a white horse kneeling beside a great egg, from which the founder Bak Hyeokgeose was born.\n\n## A shrine excavated\n\nThe *Samguk Sagi* records that later Silla kings built a shrine at the founder's birthplace. Excavations at Najeong in the early 2000s uncovered the foundations of a large octagonal building, surrounded by walls, interpreted as that shrine, over the remains of earlier structures. The site is a Historic Site of South Korea; a memorial stele of the Joseon period stands there.\n\n## Other founder sites\n\nNearby are the Five Tombs (Oreung), traditionally the burial place of Bak Hyeokgeose, Queen Aryeong, and early kings, with the ancestral shrine Sungdeokjeon, and the Aryeong well of the queen's birth.",
+    "primarySources": [
+      {
+        "text": "At the Najeong well below Mount Yang a white horse knelt as if bowing, and there lay a purple egg.",
+        "source": "Iryeon, Samguk Yusa, Book 1, 'Silla's Founder King Hyeokgeose' (paraphrase)",
+        "sourceId": "samguk-yusa",
+        "locator": "Book 1, Hyeokgeose",
+        "date": "compiled c. 1281-1289"
+      }
+    ],
+    "imageUrl": "/locations/najeong.png"
+  },
+  {
+    "id": "daewangam",
+    "name": "Daewangam",
+    "slug": "daewangam",
+    "locationType": "tomb",
+    "pantheonId": "korean-pantheon",
+    "description": "The rocky islet off the Gyeongju coast traditionally identified as the underwater tomb of King Munmu of Silla, who asked to be buried in the East Sea so that he could become a dragon and guard the kingdom.",
+    "latitude": 35.7381,
+    "longitude": 129.4869,
+    "geography": "physical",
+    "detailedBio": "## The great king's rock\n\nDaewangam, 'rock of the great king', is a group of rocks about two hundred meters off Bonggil Beach on the East Sea coast of Gyeongju. It is traditionally identified as the burial place of King Munmu (r. 661-681), who according to the *Samguk Sagi* asked to be cremated and buried in the sea, and according to the *Samguk Yusa* wished to become a dragon to guard Silla. A pool in the center of the rocks, with a large stone lying in it, has been interpreted as the resting place of his remains, though whether ashes were placed there has not been proven.\n\n## Gameunsa and Iyeondae\n\nNearby on the shore are the ruins of Gameunsa, the temple King Sinmun completed for his father, with its two stone pagodas, and the pavilion site of Iyeondae, from which, in the *Samguk Yusa*, Sinmun watched the floating mountain that brought the bamboo for the flute Manpasikjeok. Excavations at Gameunsa found an unusual space beneath the main hall's floor, traditionally explained as a passage for the dragon.\n\n## A living site\n\nDaewangam is a Historic Site of South Korea. Shamans perform rites on the beach facing the rock, and many visitors come to watch the sunrise over it.",
+    "primarySources": [
+      {
+        "text": "The king left instructions that after his death he should be cremated in the western manner and buried in the East Sea; he was buried on the great rock in the sea.",
+        "source": "Kim Busik, Samguk Sagi, Annals of Silla, King Munmu, year 21 (paraphrase)",
+        "sourceId": "samguk-sagi",
+        "locator": "Annals of Silla, Munmu 21",
+        "date": "completed 1145"
+      }
+    ],
+    "imageUrl": "/locations/daewangam.png"
+  },
+  {
+    "id": "jeoseung",
+    "name": "Jeoseung",
+    "slug": "jeoseung",
+    "locationType": "underworld",
+    "pantheonId": "korean-pantheon",
+    "description": "The 'other world' of the dead in Korean belief, reached by a long road across mountains, rivers, and hells, beyond which lies the Western Heaven where Princess Bari found the water of life; the realm to which she guides the souls of the dead.",
+    "latitude": null,
+    "longitude": null,
+    "geography": "mythic",
+    "detailedBio": "## This world and that world\n\nKorean speech distinguishes *iseung*, 'this world' of the living, from *jeoseung*, 'that world' of the dead. In shamanic belief the soul of the dead must travel a long road to jeoseung, crossing rivers and mountains and passing through the courts of the Ten Kings of the underworld, a Buddhist-influenced idea, where it is judged. Rites for the dead, such as the Seoul *jinogwi-gut*, are performed to guide the soul safely along the road and prevent it from lingering in this world.\n\n## Bari's road\n\nIn the Bari Gongju songs, the princess travels this road while alive, passing through the hells to the Western Heaven, where she earns the water of life. Having walked it, she becomes the one who leads the dead along it, and shamans reenact her journey in the rite.\n\n## Messengers of the dead\n\nKorean tradition also knows the *jeoseung saja*, the messengers who come to lead the dead away, familiar today from folk tales, films, and television dramas.",
+    "primarySources": [
+      {
+        "text": "The princess passed through mountains, rivers, and the hells of the dead on the road to the Western Heaven, where the medicine water was kept.",
+        "source": "Bari Gongju muga, Seoul versions, as collected in Hanguk Muga Jip (paraphrase)",
+        "sourceId": "hanguk-muga-jip",
+        "date": "recorded 20th century"
+      }
+    ],
+    "imageUrl": "/locations/jeoseung.png"
   }
 ]

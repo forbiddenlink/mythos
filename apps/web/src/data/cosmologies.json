@@ -1576,5 +1576,89 @@
         ]
       }
     ]
+  },
+  {
+    "pantheonId": "korean-pantheon",
+    "title": "Heaven, This World, and That World",
+    "summary": "Heaven above, from which the Lord of Heaven's son and the founders of kingdoms descend to sacred mountains and rivers; this world (iseung) of mountains, founders, and guardian beasts; the dragon palaces of the waters; and that world (jeoseung), the road of the dead to which Princess Bari is guide.",
+    "axis": {
+      "name": "The Sacred Altar Tree on Mount Taebaek (Sindansu)",
+      "kind": "tree",
+      "note": "In the Dangun myth Hwanung descends to the summit of Mount Taebaek beneath the sacred altar tree, and the bear-woman prays beneath it for a child. Sacred mountains and village guardian trees remain meeting points of heaven and earth in Korean folk religion."
+    },
+    "variantNote": "Korea has no single systematic cosmology in its early texts. This arrangement combines the vertical descent of the foundation myths (heaven to mountain), the waters of the River Earl and the sea dragon, and the shamanic distinction between iseung and jeoseung, which in rites for the dead is a long horizontal road as much as a place below. Buddhist ideas (the Ten Kings of the underworld, the Western Paradise) and Daoist ones (the Jade Emperor in heaven) are woven into later shamanic songs; Jeju Island's shamanic myths describe their own heavenly and underworld realms.",
+    "sources": [
+      "Iryeon, Samguk Yusa, c. 1281-1289, Book 1 ('Gojoseon'; 'Silla's Founder')",
+      "Kim Busik, Samguk Sagi, 1145, Annals of Goguryeo",
+      "Kim Tae-gon, Hanguk Muga Jip, 1971-1980 (Bari Gongju)"
+    ],
+    "tiers": [
+      {
+        "id": "haneul",
+        "label": "Haneul: Heaven",
+        "band": "sky",
+        "realms": [
+          {
+            "name": "The Heaven of Hwanin",
+            "originalName": "하늘",
+            "description": "The realm of the Lord of Heaven and the Son of Heaven, from which Hwanung and Haemosu descend and to which founders return; the sun holds the three-legged crow.",
+            "deities": ["hwanin", "haemosu"],
+            "creatures": ["samjok-o"]
+          }
+        ]
+      },
+      {
+        "id": "iseung",
+        "label": "Iseung: This World",
+        "band": "earth",
+        "realms": [
+          {
+            "name": "Sacred Mountains and Kingdoms",
+            "originalName": "이승",
+            "description": "The world of the living, where heaven touches earth on sacred mountains and founders are born beside wells and rivers; Mireuk made it and Seokga rules it.",
+            "deities": [
+              "hwanung",
+              "ungnyeo",
+              "dangun",
+              "jumong",
+              "bak-hyeokgeose",
+              "mireuk",
+              "seokga"
+            ],
+            "creatures": ["haetae"],
+            "locationId": "mount-myohyang"
+          }
+        ]
+      },
+      {
+        "id": "yonggung",
+        "label": "The Waters and the Dragon Palace",
+        "band": "water",
+        "realms": [
+          {
+            "name": "River Palaces and the Dragon Palace",
+            "originalName": "용궁",
+            "description": "The palace of the River Earl beneath the waters, and the dragon palace of the sea, where Silla's King Munmu watches over the coast as a dragon.",
+            "deities": ["habaek", "yuhwa"],
+            "creatures": ["munmu-sea-dragon"],
+            "locationId": "daewangam"
+          }
+        ]
+      },
+      {
+        "id": "jeoseung",
+        "label": "Jeoseung: That World",
+        "band": "under",
+        "realms": [
+          {
+            "name": "The Road of the Dead",
+            "originalName": "저승",
+            "description": "The other world, reached by a long road through rivers, mountains, and the courts of judgment, beyond which lies the Western Heaven where Bari found the water of life.",
+            "deities": ["bari-gongju"],
+            "locationId": "jeoseung"
+          }
+        ]
+      }
+    ]
   }
 ]

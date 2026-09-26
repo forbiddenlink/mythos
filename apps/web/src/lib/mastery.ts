@@ -43,6 +43,7 @@ const PANTHEON_NAMES: Record<string, string> = {
   "inca-pantheon": "Inca & Andean",
   "persian-pantheon": "Persian",
   "finnish-pantheon": "Finnish",
+  "korean-pantheon": "Korean",
 };
 
 const MASTERY_THRESHOLDS = {

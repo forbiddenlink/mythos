@@ -4,8 +4,8 @@ import roster from "@/data/pantheon-rosters.json";
 import { PANTHEON_IDS, isPantheonComplete } from "@/lib/pantheon-rosters";
 
 describe("pantheon-rosters", () => {
-  it("lists all 19 pantheons including Aztec", () => {
-    expect(PANTHEON_IDS).toHaveLength(19);
+  it("lists all 20 pantheons including Aztec", () => {
+    expect(PANTHEON_IDS).toHaveLength(20);
     expect(PANTHEON_IDS).toContain("aztec-pantheon");
     expect(PANTHEON_IDS).toContain("roman-pantheon");
   });

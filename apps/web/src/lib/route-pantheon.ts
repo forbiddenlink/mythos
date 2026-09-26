@@ -250,6 +250,18 @@ export const DEITY_PANTHEON_MAP: Record<string, string> = {
   mielikki: "finnish-pantheon",
   ahti: "finnish-pantheon",
   vellamo: "finnish-pantheon",
+  hwanin: "korean-pantheon",
+  hwanung: "korean-pantheon",
+  ungnyeo: "korean-pantheon",
+  dangun: "korean-pantheon",
+  haemosu: "korean-pantheon",
+  yuhwa: "korean-pantheon",
+  habaek: "korean-pantheon",
+  jumong: "korean-pantheon",
+  "bak-hyeokgeose": "korean-pantheon",
+  "bari-gongju": "korean-pantheon",
+  mireuk: "korean-pantheon",
+  seokga: "korean-pantheon",
 };
 
 export const STORY_PANTHEON_MAP: Record<string, string> = {
@@ -378,6 +390,12 @@ export const STORY_PANTHEON_MAP: Record<string, string> = {
   "lemminkainens-mother": "finnish-pantheon",
   "theft-of-the-sampo": "finnish-pantheon",
   kullervo: "finnish-pantheon",
+  "dangun-and-the-bear-woman": "korean-pantheon",
+  "jumong-son-of-heaven": "korean-pantheon",
+  "bak-hyeokgeose-and-the-egg": "korean-pantheon",
+  "princess-bari": "korean-pantheon",
+  "mireuk-and-seokga": "korean-pantheon",
+  manpasikjeok: "korean-pantheon",
 };
 
 /**

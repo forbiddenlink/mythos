@@ -2246,5 +2246,77 @@
     "relationshipType": "ally_of",
     "confidenceLevel": "high",
     "description": "Lemminkäinen joins Väinämöinen and Ilmarinen in the raid on Pohjola (Kalevala, Runes 39-43)."
+  },
+  {
+    "id": "korean-hwanin-hwanung",
+    "fromDeityId": "hwanin",
+    "toDeityId": "hwanung",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high",
+    "description": "Hwanung is Hwanin's son by a secondary wife (Samguk Yusa, Book 1, 'Gojoseon')."
+  },
+  {
+    "id": "korean-hwanung-ungnyeo",
+    "fromDeityId": "hwanung",
+    "toDeityId": "ungnyeo",
+    "relationshipType": "spouse_of",
+    "confidenceLevel": "high",
+    "description": "Hwanung takes human form for a time and marries the bear-woman (Samguk Yusa, Book 1)."
+  },
+  {
+    "id": "korean-hwanung-dangun",
+    "fromDeityId": "hwanung",
+    "toDeityId": "dangun",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high",
+    "description": "Father of Dangun Wanggeom (Samguk Yusa, Book 1)."
+  },
+  {
+    "id": "korean-ungnyeo-dangun",
+    "fromDeityId": "ungnyeo",
+    "toDeityId": "dangun",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high",
+    "description": "Mother of Dangun Wanggeom (Samguk Yusa, Book 1); the near-contemporary Jewang ungi gives a different mother."
+  },
+  {
+    "id": "korean-habaek-yuhwa",
+    "fromDeityId": "habaek",
+    "toDeityId": "yuhwa",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high",
+    "description": "Yuhwa is the daughter of Habaek, the River Earl (Gwanggaeto Stele; Samguk Sagi; Dongmyeongwang-pyeon)."
+  },
+  {
+    "id": "korean-haemosu-yuhwa",
+    "fromDeityId": "haemosu",
+    "toDeityId": "yuhwa",
+    "relationshipType": "lover_of",
+    "confidenceLevel": "high",
+    "description": "Haemosu lures Yuhwa to a house by the Amnok River and abandons her (Samguk Sagi); Yi Gyu-bo adds a wedding after a contest with Habaek."
+  },
+  {
+    "id": "korean-haemosu-jumong",
+    "fromDeityId": "haemosu",
+    "toDeityId": "jumong",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "medium",
+    "description": "Named as Jumong's father in the Samguk Yusa and Yi Gyu-bo's poem; the Samguk Sagi has Yuhwa conceive from sunlight after Haemosu's departure, and the Gwanggaeto Stele says only 'son of the Heavenly Emperor'."
+  },
+  {
+    "id": "korean-yuhwa-jumong",
+    "fromDeityId": "yuhwa",
+    "toDeityId": "jumong",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high",
+    "description": "Jumong hatches from the egg Yuhwa lays in East Buyeo (Samguk Sagi; Gwanggaeto Stele)."
+  },
+  {
+    "id": "korean-mireuk-seokga",
+    "fromDeityId": "mireuk",
+    "toDeityId": "seokga",
+    "relationshipType": "enemy_of",
+    "confidenceLevel": "high",
+    "description": "Seokga wins the world from Mireuk by stealing the flower from his knee (Changse-ga, recorded 1923)."
   }
 ]

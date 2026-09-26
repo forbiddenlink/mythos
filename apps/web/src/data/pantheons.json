@@ -720,5 +720,62 @@
     ],
     "imageUrl": "/pantheons/finnish.jpg",
     "figuresLabel": "Gods, Spirits & Heroes"
+  },
+  {
+    "id": "korean-pantheon",
+    "name": "Korean Tradition",
+    "slug": "korean",
+    "culture": "Korean: the foundation myths of the Three Kingdoms and the shamanic (muism) narrative tradition",
+    "region": "Korean Peninsula and Manchuria",
+    "timePeriodStart": 400,
+    "timePeriodEnd": null,
+    "description": "The founders and gods of Korean tradition: Dangun, born of the Lord of Heaven's son and a bear who became a woman; the egg-born kings Jumong and Bak Hyeokgeose; and the goddesses and creators of shamanic song, such as Princess Bari, guide of the dead, and Mireuk, who separated heaven from earth.",
+    "detailedHistory": "## Two bodies of myth\n\nKorean myth reaches us through two very different channels. The first is the **foundation myths** of the ancient kingdoms, written in Literary Chinese by later historians and monks. The earliest datable text is the stele erected in 414 CE for King Gwanggaeto of Goguryeo, whose opening lines tell of the founder Chumo (Jumong), son of the Heavenly Emperor and the River Earl's daughter, breaking out of an egg. Kim Busik's official *Samguk Sagi* (1145) gives full accounts of the founders of Silla, Goguryeo, and Baekje, and the monk Iryeon's *Samguk Yusa* (c. 1281-1289) preserves the earliest surviving telling of the Dangun myth, citing an older record now lost. These texts were written centuries after the events they describe, by scholars with Confucian or Buddhist commitments, and their dates for legendary kings are traditional rather than historical.\n\nThe second channel is **muga**, the narrative songs of Korean shamans (*mudang*), performed in rituals (*gut*) and transmitted orally until folklorists began recording them in the twentieth century. They include creation songs in which the deities Mireuk and Seokga contend for the world, and the long narrative of Princess Bari, the abandoned daughter who becomes the guide of the dead. Each song exists in many regional versions; on Jeju Island a distinct body of shamanic myths (*bonpuri*) survives.\n\n## Heaven, founders, and descent\n\nA recurring pattern links the foundation myths: a heavenly figure descends to a mountain or river, unites with an earthly woman associated with animals, water, or the land, and their child founds a kingdom. Hwanung descends to Mount Taebaek and marries the bear-woman Ungnyeo; Haemosu, son of Heaven, unites with Yuhwa, daughter of the River Earl; Silla's founder emerges from an egg beside a well, heralded by a white horse from the sky. Egg births and heavenly descent tie royal legitimacy to heaven.\n\n## Buddhist names, shamanic gods\n\nThe creator figures of the shamanic songs, Mireuk and Seokga, bear the Korean names of the Buddhas Maitreya and Shakyamuni, but in the songs they are rival creator gods whose contest explains why the world is imperfect; they are not Buddhist doctrine. Iryeon, a Buddhist monk, likewise glosses the Lord of Heaven Hwanin as Jeseok, the Buddhist name of Indra. Such layering is typical of Korean religion, in which shamanism, Buddhism, Confucianism, and Daoist elements have long coexisted.\n\n## Living traditions\n\nKorean shamanism remains a living practice, with mudang performing gut for healing, good fortune, and the dead. Dangun is honored on National Foundation Day (Gaecheonjeol, 3 October) in South Korea, whose traditional founding date of 2333 BCE is a calculation by later Joseon-era historians rather than a statement of the Samguk Yusa itself; in North Korea, a 'Mausoleum of Dangun' near Pyongyang, built in 1994 after the reported discovery of his bones, is regarded by most historians outside the country as a political monument rather than an archaeological fact.",
+    "citationSources": [
+      {
+        "title": "Samguk Yusa",
+        "author": "Iryeon; trans. Ha Tae-hung and Grafton K. Mintz",
+        "date": "c. 1281-1289; trans. 1972",
+        "type": "primary",
+        "sourceId": "samguk-yusa"
+      },
+      {
+        "title": "Samguk Sagi",
+        "author": "Kim Busik",
+        "date": "1145",
+        "type": "primary",
+        "sourceId": "samguk-sagi"
+      },
+      {
+        "title": "Gwanggaeto Stele inscription",
+        "author": "Goguryeo court",
+        "date": "414 CE",
+        "type": "primary",
+        "sourceId": "gwanggaeto-stele"
+      },
+      {
+        "title": "Dongmyeongwang-pyeon",
+        "author": "Yi Gyu-bo",
+        "date": "1193",
+        "type": "primary",
+        "sourceId": "dongmyeongwang-pyeon"
+      },
+      {
+        "title": "Joseon Singa Yupyeon",
+        "author": "Son Jin-tae",
+        "date": "1930",
+        "type": "primary",
+        "sourceId": "joseon-singa-yupyeon"
+      },
+      {
+        "title": "Hanguk Muga Jip",
+        "author": "Kim Tae-gon",
+        "date": "1971-1980",
+        "type": "primary",
+        "sourceId": "hanguk-muga-jip"
+      }
+    ],
+    "imageUrl": "/pantheons/korean.jpg",
+    "figuresLabel": "Gods, Founders & Shamanic Deities"
   }
 ]
