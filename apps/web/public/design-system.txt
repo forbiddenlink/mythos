@@ -45,6 +45,10 @@ Legacy: .page-eyebrow, .page-lede, .text-display/.text-h1/h2/h3 remain for old p
 - <PageHeader eyebrow mark title lede count actions image imageAlt breadcrumbs accent> — compact index header with the breadcrumb built in; with `image` it is a short midnight band. <PageHero> (legacy props: tagline/description/backgroundImage) renders it; don't add <Breadcrumbs/> under either.
 - <AboutThisPage title defaultOpen size> — native <details> below the content for "how to use"/SEO explainer text. Never put explainer boxes above the tool/grid.
 - Entity pages: <DetailLayout hero facts toc aside after asideLabel> + <DetailHero image imageCaption eyebrow title titleAddon nativeName epithets tags lede actions meta accentColor> + <ArticleSection id title eyebrow description reading> + aside blocks <FactList facts/>, <OnThisPage items/>, <RelatedFigures figures/>, <AsideLinks title links/>. Reference implementation: app/deities/[slug]/page.tsx.
+- DetailHero extras: imageAspect="portrait|square|landscape"; media={node} replaces the frame (compare pair portraits, source title plate, collection mosaic).
+- Entity link collections (components/layout/entity-gallery.tsx): <EntityGallery items aspect columns/> image-led tiles; <EntityList items columns/> thumbnail manuscript list.
+- Entry sources: <EntitySources {...record} appearsIn provenance/> (components/sources/EntitySources.tsx) inside ArticleSection "Sources and further reading": provenance line, Ancient sources | Source notes, Works cited, Appears in, one Further reading list (catalogued works + bibliography lines with *emphasis* rendered). Subsections are h3.type-h3; no cards, no left bars.
+- Prose: <ReadingProse markdown dropCap/> (components/content/reading-prose.tsx) shifts catalog "##" to h3 under the section h2; <InlineMarkdown text/> for bibliography lines.
 - Parallel figures: components/mythology/ParallelFigures.tsx (variant annotated|portraits; aria-label ends "across pantheons").
 
 ## Surface utility classes

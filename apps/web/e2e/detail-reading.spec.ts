@@ -52,7 +52,9 @@ test.describe("Detail-page reading", () => {
       const navigation = main.getByRole("navigation", { name: "On this page" });
       await navigation.getByRole("link", { name: `About ${name}` }).click();
       await expect(main.locator("#about")).toBeInViewport();
-      await navigation.getByRole("link", { name: "Source notes" }).click();
+      await navigation
+        .getByRole("link", { name: "Sources and further reading" })
+        .click();
       await expect(
         main.getByRole("heading", { name: "Source notes", exact: true }),
       ).toBeInViewport();
