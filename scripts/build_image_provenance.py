@@ -75,6 +75,15 @@ def tradition_pantheons() -> set[str]:
     return set()
 
 
+# Images whose origin could not be established from the repository. Keyed by
+# (entity type, id); these must be credited or replaced before they are
+# described as anything more specific.
+UNVERIFIED = {
+    # Photographic (signature mark lower right), added before the current
+    # history; neither the photographer nor a license is recorded.
+    ("pantheon", "greek-pantheon"),
+}
+
 GENERATORS = {
     "procedural-plate": {
         "kind": "illustration-procedural",
@@ -90,6 +99,11 @@ GENERATORS = {
         "label": "AI-generated illustration",
         "description": "Generated with a text-to-image model (scripts/generate_missing.py via Magica flux_2_max, or renders imported by scripts/move_and_update.py). Illustrative only; not historical artwork and not evidence of how the tradition depicted the subject. Inferred per image: the pipelines did not record the model or prompt for each file.",
         "scripts": ["scripts/generate_missing.py", "scripts/move_and_update.py"],
+    },
+    "unverified": {
+        "kind": "unverified",
+        "label": "Image source not verified",
+        "description": "Origin and license were not recorded when the image was added. It needs a credit or a replacement.",
     },
 }
 
@@ -128,6 +142,9 @@ def build() -> dict:
             pantheon = record["id"] if entity_type == "pantheon" else record.get("pantheonId")
             if pantheon in traditions:
                 script = TRADITION_SCRIPT
+            if (entity_type, record["id"]) in UNVERIFIED:
+                rows[record["id"]] = "unverified"
+                continue
             rows[record["id"]] = "procedural-plate" if script else "ai-illustration"
         entities[entity_type] = dict(sorted(rows.items()))
     return {

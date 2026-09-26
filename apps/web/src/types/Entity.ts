@@ -172,7 +172,11 @@ export interface UserProgress {
  * Resolve per entity with `getImageProvenance` from `src/lib/image-provenance.ts`.
  */
 export type ImageProvenanceKind =
-  "illustration-ai" | "illustration-procedural" | "public-domain" | "licensed";
+  | "illustration-ai"
+  | "illustration-procedural"
+  | "public-domain"
+  | "licensed"
+  | "unverified";
 
 /**
  * How a location relates to the map (mirrors `LocationGeographySchema`):

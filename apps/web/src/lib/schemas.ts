@@ -357,6 +357,7 @@ export const ImageProvenanceKindSchema = z.enum([
   "illustration-procedural",
   "public-domain",
   "licensed",
+  "unverified",
 ]);
 
 export type ImageProvenanceKind = z.infer<typeof ImageProvenanceKindSchema>;

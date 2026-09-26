@@ -19,6 +19,11 @@
       "label": "AI-generated illustration",
       "description": "Generated with a text-to-image model (scripts/generate_missing.py via Magica flux_2_max, or renders imported by scripts/move_and_update.py). Illustrative only; not historical artwork and not evidence of how the tradition depicted the subject. Inferred per image: the pipelines did not record the model or prompt for each file.",
       "scripts": ["scripts/generate_missing.py", "scripts/move_and_update.py"]
+    },
+    "unverified": {
+      "kind": "unverified",
+      "label": "Image source not verified",
+      "description": "Origin and license were not recorded when the image was added. It needs a credit or a replacement."
     }
   },
   "entities": {
@@ -958,7 +963,7 @@
       "dine-pantheon": "procedural-plate",
       "egyptian-pantheon": "ai-illustration",
       "finnish-pantheon": "procedural-plate",
-      "greek-pantheon": "ai-illustration",
+      "greek-pantheon": "unverified",
       "haudenosaunee-pantheon": "procedural-plate",
       "hindu-pantheon": "ai-illustration",
       "hittite-pantheon": "procedural-plate",
