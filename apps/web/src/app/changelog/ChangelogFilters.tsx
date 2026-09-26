@@ -1,50 +1,53 @@
-'use client';
-
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import { Sparkles, Bug, BookOpen, LayoutGrid } from 'lucide-react';
-import { cn } from '@/lib/utils';
-import type { ChangelogType } from '@/components/changelog/ChangelogEntry';
+import Link from "next/link";
+import { cn } from "@/lib/utils";
+import type { ChangelogType } from "@/components/changelog/ChangelogEntry";
 
 interface ChangelogFiltersProps {
   activeFilter?: ChangelogType;
+  counts: Record<"all" | ChangelogType, number>;
 }
 
 const filters = [
-  { type: undefined, label: 'All', icon: LayoutGrid },
-  { type: 'feature' as const, label: 'Features', icon: Sparkles },
-  { type: 'fix' as const, label: 'Fixes', icon: Bug },
-  { type: 'content' as const, label: 'Content', icon: BookOpen },
-];
+  { type: undefined, key: "all", label: "All" },
+  { type: "feature" as const, key: "feature", label: "Features" },
+  { type: "fix" as const, key: "fix", label: "Fixes" },
+  { type: "content" as const, key: "content", label: "Content" },
+] as const;
 
-export function ChangelogFilters({ activeFilter }: ChangelogFiltersProps) {
-  const pathname = usePathname();
-
+export function ChangelogFilters({
+  activeFilter,
+  counts,
+}: ChangelogFiltersProps) {
   return (
-    <div className="flex flex-wrap gap-2" role="group" aria-label="Filter changelog entries">
+    <nav
+      aria-label="Filter changelog entries"
+      className="inline-flex flex-wrap rounded-md border border-border bg-muted/50 p-0.5"
+    >
       {filters.map((filter) => {
         const isActive = activeFilter === filter.type;
-        const Icon = filter.icon;
-        const href = filter.type ? `${pathname}?type=${filter.type}` : pathname;
+        const href = filter.type
+          ? `/changelog?type=${filter.type}`
+          : "/changelog";
 
         return (
           <Link
             key={filter.label}
             href={href}
             className={cn(
-              'inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200',
-              'border border-border/60 hover:border-gold/40',
+              "inline-flex min-h-10 items-center gap-2 rounded-[5px] px-3.5 type-ui font-medium transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold",
               isActive
-                ? 'bg-gold/20 text-gold border-gold/40'
-                : 'bg-midnight-light/50 text-parchment/70 hover:text-parchment hover:bg-midnight-light'
+                ? "bg-background text-foreground shadow-sm ring-1 ring-border"
+                : "text-muted-foreground hover:text-foreground",
             )}
-            aria-current={isActive ? 'page' : undefined}
+            aria-current={isActive ? "page" : undefined}
           >
-            <Icon className="h-4 w-4" />
             {filter.label}
+            <span className="type-meta tabular-nums text-muted-foreground">
+              {counts[filter.key]}
+            </span>
           </Link>
         );
       })}
-    </div>
+    </nav>
   );
 }

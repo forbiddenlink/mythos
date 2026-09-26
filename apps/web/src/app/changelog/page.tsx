@@ -1,4 +1,5 @@
-import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
+import { Container } from "@/components/layout/container";
+import { PageHeader } from "@/components/layout/page-header";
 import { generateBaseMetadata } from "@/lib/metadata";
 import {
   ChangelogEntry,
@@ -7,12 +8,6 @@ import {
 } from "@/components/changelog/ChangelogEntry";
 import { ChangelogFilters } from "./ChangelogFilters";
 import changelogData from "@/data/changelog.json";
-import { RouteHero } from "@/components/layout/route-hero";
-import {
-  pageLedeOnDarkClass,
-  pageTitleOnDarkClass,
-} from "@/components/layout/page-typography";
-import { cn } from "@/lib/utils";
 
 interface ChangelogPageProps {
   searchParams: Promise<{ type?: string }>;
@@ -60,32 +55,28 @@ export default async function ChangelogPage({
     (entry) => !filterType || entry.type === filterType,
   );
 
+  const all = changelogData as ChangelogEntryData[];
+  const counts = {
+    all: all.length,
+    feature: all.filter((entry) => entry.type === "feature").length,
+    fix: all.filter((entry) => entry.type === "fix").length,
+    content: all.filter((entry) => entry.type === "content").length,
+  };
+
   return (
-    <div className="min-h-screen bg-mythic">
-      {/* Hero Section */}
-      <RouteHero heightClassName="min-h-[35vh]">
-        <h1 className={cn(pageTitleOnDarkClass, "mb-6")}>Changelog</h1>
-        <div className="flex items-center justify-center gap-4 mb-6">
-          <div className="w-12 h-px bg-linear-to-r from-transparent to-gold/40" />
-          <div className="w-1.5 h-1.5 rotate-45 bg-gold/50" />
-          <div className="w-12 h-px bg-linear-to-l from-transparent to-gold/40" />
-        </div>
-        <p className={pageLedeOnDarkClass}>
-          Track the evolution of Mythos Atlas with every new feature, fix, and
-          content update
-        </p>
-      </RouteHero>
+    <div className="min-h-screen">
+      <PageHeader
+        eyebrow="Release notes"
+        mark="chronos"
+        title="Changelog"
+        lede="Every new feature, fix and content update to Mythos Atlas, newest first."
+        count={`${all.length} releases`}
+      />
 
-      {/* Content Section */}
-      <div className="page-shell max-w-4xl">
-        <Breadcrumbs />
+      <Container className="section-space-sm">
+        <ChangelogFilters activeFilter={filterType} counts={counts} />
 
-        <div className="mt-8 mb-12">
-          <ChangelogFilters activeFilter={filterType} />
-        </div>
-
-        {/* Timeline */}
-        <div className="relative">
+        <div className="mt-10 md:mt-12">
           {entries.length > 0 ? (
             entries.map((entry, index) => (
               <ChangelogEntry
@@ -95,14 +86,12 @@ export default async function ChangelogPage({
               />
             ))
           ) : (
-            <div className="text-center py-12">
-              <p className="text-parchment/70 text-lg">
-                No entries found for this filter.
-              </p>
-            </div>
+            <p className="py-12 type-reading text-muted-foreground">
+              No entries found for this filter.
+            </p>
           )}
         </div>
-      </div>
+      </Container>
     </div>
   );
 }

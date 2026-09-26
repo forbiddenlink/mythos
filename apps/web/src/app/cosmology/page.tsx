@@ -3,9 +3,9 @@ import pantheons from "@/data/pantheons.json";
 import { getAllCosmologies, type CosmologyBand } from "@/lib/cosmology";
 import { getPantheonColor } from "@/lib/pantheon-colors";
 import { generateBaseMetadata } from "@/lib/metadata";
-import { RouteHero } from "@/components/layout/route-hero";
-import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
-import { MythosMark } from "@/components/icons/mythos-marks";
+import { AboutThisPage } from "@/components/layout/about-this-page";
+import { Container } from "@/components/layout/container";
+import { PageHeader } from "@/components/layout/page-header";
 import cosmologiesData from "@/data/cosmologies.json";
 
 export const metadata = generateBaseMetadata({
@@ -48,39 +48,18 @@ export default function CosmologyPage() {
   const pantheonById = new Map(pantheons.map((p) => [p.id, p]));
 
   return (
-    <div className="min-h-screen bg-mythic">
-      <div className="relative overflow-hidden bg-midnight">
-        <RouteHero>
-          <div className="mb-6 flex justify-center">
-            <MythosMark id="tree" className="h-8 w-8 text-gold" />
-          </div>
-          <h1 className="page-title mb-6 text-parchment">
-            Cosmologies Compared
-          </h1>
-          <p className="mx-auto max-w-2xl font-body text-lg leading-relaxed text-parchment/75 md:text-xl">
-            Every culture drew its own map of the universe. Here are{" "}
-            {cosmologies.length} of them side by side, from the highest heaven
-            to the deepest pit.
-          </p>
-        </RouteHero>
-      </div>
+    <div className="min-h-screen">
+      <PageHeader
+        eyebrow="Mythic universes"
+        mark="tree"
+        title="Cosmologies Compared"
+        lede={`Every culture drew its own map of the universe. Here are ${cosmologies.length} of them side by side, from the highest heaven to the deepest pit.`}
+      />
 
-      <div className="container mx-auto max-w-7xl px-4 py-16">
-        <Breadcrumbs />
-
-        <div className="mt-8 mb-10 max-w-[68ch] font-body text-lg leading-relaxed text-muted-foreground">
-          <p>
-            Some traditions stack worlds in layers. Others join them with a
-            tree, a mountain, or a chain, and a few, like the Irish, set the
-            Otherworld beside this one instead of above or below it. Each column
-            follows that culture&apos;s own sources. Open a pantheon to see who
-            lives in each realm and where the sources disagree.
-          </p>
-        </div>
-
+      <Container size="wide" className="section-space-sm">
         <ul
           aria-label="Legend"
-          className="mb-8 flex flex-wrap gap-x-5 gap-y-2 text-xs uppercase tracking-[0.15em] text-muted-foreground"
+          className="mb-8 flex flex-wrap gap-x-6 gap-y-2 type-meta font-medium text-muted-foreground"
         >
           {LEGEND.map((l) => (
             <li key={l.band} className="flex items-center gap-2">
@@ -105,7 +84,7 @@ export default function CosmologyPage() {
                   className="group flex h-full flex-col rounded-xl border border-gold/20 bg-midnight p-4 text-parchment transition-transform hover:-translate-y-1 hover:border-gold/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold motion-reduce:transition-none motion-reduce:hover:translate-y-0"
                   style={{ boxShadow: `inset 0 3px 0 ${accent}` }}
                 >
-                  <p className="text-[0.65rem] uppercase tracking-[0.25em] text-parchment/60">
+                  <p className="type-meta uppercase tracking-[0.16em] text-parchment/70">
                     {pantheon.culture}
                   </p>
                   <h2 className="mt-1 mb-4 font-serif text-lg leading-snug text-parchment group-hover:text-gold-light">
@@ -127,10 +106,10 @@ export default function CosmologyPage() {
                         <div
                           className={`rounded-md border px-2 py-1.5 text-center ${BAND_FILL[tier.band]}`}
                         >
-                          <p className="text-[0.7rem] uppercase tracking-[0.12em] text-gold-light">
+                          <p className="text-[0.75rem] font-medium uppercase tracking-[0.1em] text-gold-light">
                             {tier.label}
                           </p>
-                          <p className="text-xs text-parchment/80">
+                          <p className="type-meta text-parchment/85">
                             {tier.realms.map((r) => r.name).join(" · ")}
                           </p>
                         </div>
@@ -139,7 +118,7 @@ export default function CosmologyPage() {
                   </div>
 
                   {c.axis && (
-                    <p className="mt-3 text-xs text-parchment/65">
+                    <p className="mt-3 type-meta text-parchment/75">
                       <span className="text-gold-light">Axis:</span>{" "}
                       {c.axis.name}
                     </p>
@@ -149,7 +128,17 @@ export default function CosmologyPage() {
             );
           })}
         </ol>
-      </div>
+      </Container>
+
+      <AboutThisPage title="How to read these maps">
+        <p>
+          Some traditions stack worlds in layers. Others join them with a tree,
+          a mountain or a chain, and a few, like the Irish, set the Otherworld
+          beside this one instead of above or below it. Each column follows that
+          culture&apos;s own sources. Open a pantheon to see who lives in each
+          realm and where the sources disagree.
+        </p>
+      </AboutThisPage>
     </div>
   );
 }

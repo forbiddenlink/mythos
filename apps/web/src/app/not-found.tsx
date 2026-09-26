@@ -1,10 +1,15 @@
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import deitiesData from "@/data/deities.json";
-import storiesData from "@/data/stories.json";
-import { generateBaseMetadata } from "@/lib/metadata";
-import { MythosMark } from "@/components/icons/mythos-marks";
+import Image from "next/image";
 import Link from "next/link";
+import { ArrowRight } from "lucide-react";
+import { Container } from "@/components/layout/container";
+import { MythosMark, type MythosMarkId } from "@/components/icons/mythos-marks";
+import { OpenSearchButton } from "@/components/search/OpenSearchButton";
+import {
+  getDeities,
+  getPantheonShortNames,
+  getStories,
+} from "@/lib/data/catalog";
+import { generateBaseMetadata } from "@/lib/metadata";
 
 export const metadata = {
   ...generateBaseMetadata({
@@ -16,220 +21,196 @@ export const metadata = {
   robots: { index: false, follow: true },
 };
 
-interface Deity {
-  id: string;
-  name: string;
-  slug: string;
-  pantheonId: string;
-  domain: string[];
-}
+// Well-known figures with portraits; the page shows three, rotating hourly.
+const FEATURED_SLUGS = [
+  "athena",
+  "odin",
+  "isis",
+  "amaterasu",
+  "shiva",
+  "quetzalcoatl",
+  "anubis",
+  "freyja",
+  "apollo",
+];
 
-interface Story {
-  id: string;
-  title: string;
-  slug: string;
-  pantheonId: string;
-}
+const SECTIONS: Array<{ href: string; label: string; mark: MythosMarkId }> = [
+  { href: "/pantheons", label: "Pantheons", mark: "temple" },
+  { href: "/deities", label: "Deities", mark: "laurel" },
+  { href: "/stories", label: "Stories", mark: "scroll" },
+  { href: "/creatures", label: "Creatures", mark: "serpent" },
+  { href: "/family-tree", label: "Family tree", mark: "tree" },
+  { href: "/quiz", label: "Quizzes", mark: "lyre" },
+];
 
-function getPantheonLabel(pantheonId: string): string {
-  const labels: Record<string, string> = {
-    "greek-pantheon": "Greek",
-    "norse-pantheon": "Norse",
-    "egyptian-pantheon": "Egyptian",
-    "roman-pantheon": "Roman",
-    "celtic-pantheon": "Celtic",
-    "hindu-pantheon": "Hindu",
-    "japanese-pantheon": "Japanese",
-    "chinese-pantheon": "Chinese",
-    "mesoamerican-pantheon": "Mesoamerican",
-    "mesopotamian-pantheon": "Mesopotamian",
-    "slavic-pantheon": "Slavic",
-    "haudenosaunee-pantheon": "Haudenosaunee",
-    "tlingit-haida-pantheon": "Tlingit & Haida",
-    "hittite-pantheon": "Hittite",
-    "canaanite-pantheon": "Canaanite",
-    "inuit-pantheon": "Inuit",
-    "aboriginal-australian-pantheon": "Aboriginal Australian",
-    "dine-pantheon": "Diné",
-    "inca-pantheon": "Inca & Andean",
-    "persian-pantheon": "Persian",
-    "finnish-pantheon": "Finnish",
-    "korean-pantheon": "Korean",
-  };
-  return labels[pantheonId] || "Ancient";
-}
-
-// Get random suggestions - seeded by current hour for some consistency
-function getRandomSuggestions() {
-  const deities = deitiesData as Deity[];
-  const stories = storiesData as Story[];
-
-  // Use current timestamp for seeding (changes hourly)
-  const seed = Math.floor(Date.now() / (1000 * 60 * 60));
-
-  // Pick 3 random deities
-  const shuffledDeities = deities.toSorted((a, b) => {
-    const xa =
-      Math.sin(seed + a.id.length * 7 + (a.id.codePointAt(0) ?? 0)) * 10000;
-    const xb =
-      Math.sin(seed + b.id.length * 7 + (b.id.codePointAt(0) ?? 0)) * 10000;
-    return xa - Math.floor(xa) - (xb - Math.floor(xb));
+function pickSuggestions() {
+  const hour = Math.floor(Date.now() / (1000 * 60 * 60));
+  const deities = getDeities();
+  const names = getPantheonShortNames();
+  const featured = FEATURED_SLUGS.flatMap((slug) => {
+    const deity = deities.find((d) => d.slug === slug);
+    return deity?.imageUrl
+      ? [
+          {
+            name: deity.name,
+            slug: deity.slug,
+            imageUrl: deity.imageUrl,
+            tradition: names[deity.pantheonId] ?? "",
+          },
+        ]
+      : [];
   });
-  const suggestedDeities = shuffledDeities.slice(0, 3);
+  const start = featured.length > 0 ? hour % featured.length : 0;
+  const figures = [0, 1, 2]
+    .map((offset) => featured[(start + offset) % featured.length])
+    .filter(Boolean);
 
-  // Pick 2 random stories
-  const shuffledStories = stories.toSorted((a, b) => {
-    const xa =
-      Math.sin(seed + a.id.length * 13 + (a.id.codePointAt(0) ?? 0)) * 10000;
-    const xb =
-      Math.sin(seed + b.id.length * 13 + (b.id.codePointAt(0) ?? 0)) * 10000;
-    return xa - Math.floor(xa) - (xb - Math.floor(xb));
-  });
-  const suggestedStories = shuffledStories.slice(0, 2);
+  const stories = getStories();
+  const storyStart = stories.length > 0 ? (hour * 7) % stories.length : 0;
+  const tales = [0, 1, 2]
+    .map((offset) => stories[(storyStart + offset * 11) % stories.length])
+    .filter(Boolean)
+    .map((story) => ({
+      title: story.title,
+      slug: story.slug,
+      tradition: names[story.pantheonId] ?? "",
+    }));
 
-  return { suggestedDeities, suggestedStories };
+  return { figures, tales };
 }
 
 export default function NotFound() {
-  const { suggestedDeities, suggestedStories } = getRandomSuggestions();
+  const { figures, tales } = pickSuggestions();
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-linear-to-b from-midnight via-midnight-light to-midnight px-4 py-16">
-      {/* Background effects */}
-      <div className="fixed inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full bg-gold/5 blur-3xl" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 rounded-full bg-gold/5 blur-3xl" />
-      </div>
-
-      <div className="relative z-10 max-w-3xl mx-auto text-center">
-        {/* Lost traveler icon */}
-        <div className="flex justify-center mb-8">
-          <div className="relative">
-            <div className="absolute -inset-5 rounded-full bg-gradient-radial from-gold/20 to-transparent animate-pulse" />
-            <div className="relative p-6 rounded-full border border-gold/30 bg-midnight-light/80 backdrop-blur-sm">
-              <MythosMark id="compass" className="w-10 h-10 text-gold" />
+    <div className="relative isolate overflow-hidden">
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[36rem] bg-[radial-gradient(ellipse_60%_70%_at_20%_0%,color-mix(in_oklch,var(--gold)_14%,transparent),transparent_70%)]"
+      />
+      <Container className="section-space">
+        <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:gap-16">
+          <div className="max-w-xl">
+            <p className="type-eyebrow flex items-center gap-2">
+              <MythosMark id="compass" className="size-4" />
+              Error 404 · Page not found
+            </p>
+            <h1 className="page-title mt-4 text-foreground">
+              This path leads off the map
+            </h1>
+            <p className="type-lede mt-4 text-muted-foreground">
+              The page you requested does not exist or may have moved. Search
+              the atlas, or pick up one of the trails below.
+            </p>
+            <OpenSearchButton className="mt-8" />
+            <div className="mt-5 flex flex-wrap items-center gap-x-6 gap-y-2">
+              <Link
+                href="/"
+                className="inline-flex min-h-11 items-center gap-2 rounded-md bg-gold px-5 type-ui font-semibold text-midnight transition-colors hover:bg-gold-light focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold"
+              >
+                Return home
+              </Link>
+              <Link
+                href="/pantheons"
+                className="inline-flex min-h-11 items-center gap-1.5 type-ui font-medium text-gold-text underline decoration-gold/40 underline-offset-4 hover:decoration-current"
+              >
+                Explore pantheons
+              </Link>
             </div>
           </div>
+
+          {figures.length > 0 ? (
+            <section aria-labelledby="not-found-figures">
+              <h2
+                id="not-found-figures"
+                className="type-eyebrow mb-4 text-muted-foreground!"
+              >
+                Perhaps you were seeking
+              </h2>
+              <ul className="grid grid-cols-3 gap-3 sm:gap-4">
+                {figures.map((figure) => (
+                  <li key={figure.slug}>
+                    <Link
+                      href={`/deities/${figure.slug}`}
+                      className="group block focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold"
+                    >
+                      <span className="relative block aspect-4/5 overflow-hidden rounded-md bg-muted ring-1 ring-border/70">
+                        <Image
+                          src={figure.imageUrl}
+                          alt=""
+                          fill
+                          sizes="(min-width: 1024px) 12rem, 30vw"
+                          className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.04]"
+                        />
+                      </span>
+                      <span className="mt-2 block font-serif text-base font-semibold leading-tight text-foreground group-hover:text-gold-text sm:text-lg">
+                        {figure.name}
+                      </span>
+                      <span className="block type-meta text-muted-foreground">
+                        {figure.tradition}
+                      </span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          ) : null}
         </div>
 
-        {/* Error title */}
-        <h1 className="page-title text-parchment mb-4">404</h1>
-
-        <h2 className="font-serif text-2xl md:text-3xl text-parchment mb-4">
-          Page Not Found
-        </h2>
-
-        {/* Mythological flavor text */}
-        <div className="relative max-w-xl mx-auto mb-8 p-6 rounded-lg border border-gold/10 bg-midnight-light/30 backdrop-blur-sm">
-          <div className="absolute top-0 left-0 w-4 h-4 border-t border-l border-gold/30" />
-          <div className="absolute top-0 right-0 w-4 h-4 border-t border-r border-gold/30" />
-          <div className="absolute bottom-0 left-0 w-4 h-4 border-b border-l border-gold/30" />
-          <div className="absolute bottom-0 right-0 w-4 h-4 border-b border-r border-gold/30" />
-
-          <p className="text-gold-light/90 font-body leading-relaxed">
-            The page you requested does not exist or may have moved.
-          </p>
-          <p className="text-parchment/50 text-sm mt-3">
-            Use the links below to continue exploring Mythos Atlas.
-          </p>
-        </div>
-
-        {/* Return home button */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-          <Button
-            asChild
-            size="lg"
-            className="bg-linear-to-r from-gold-dark via-gold to-gold-dark hover:from-gold hover:via-gold-light hover:to-gold text-midnight font-semibold px-8"
-          >
-            <Link href="/">
-              <MythosMark id="temple" className="w-4 h-4 mr-2" />
-              Return Home
-            </Link>
-          </Button>
-          <Button
-            asChild
-            size="lg"
-            variant="outline"
-            className="border-gold/40 text-gold hover:bg-gold/10 hover:border-gold/60"
-          >
-            <Link href="/pantheons">Explore Pantheons</Link>
-          </Button>
-        </div>
-
-        {/* Suggestions section */}
-        <div className="text-left">
-          <div className="flex items-center justify-center gap-2 mb-6">
-            <MythosMark id="constellation" className="w-4 h-4 text-gold" />
-            <span className="text-sm font-medium text-gold uppercase tracking-wide">
-              Perhaps you were seeking...
-            </span>
-            <MythosMark id="constellation" className="w-4 h-4 text-gold" />
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-4">
-            {/* Deity suggestions */}
-            <Card className="border-gold/20 bg-midnight-light/50">
-              <CardContent className="p-5">
-                <div className="flex items-center gap-2 mb-4">
-                  <MythosMark id="laurel" className="w-4 h-4 text-gold" />
-                  <span className="font-serif font-semibold text-parchment">
-                    Deities to Discover
-                  </span>
-                </div>
-                <ul className="space-y-2">
-                  {suggestedDeities.map((deity) => (
-                    <li key={deity.id}>
-                      <Link
-                        href={`/deities/${deity.slug}`}
-                        className="flex items-center gap-2 text-sm text-parchment/70 hover:text-gold transition-colors group"
-                      >
-                        <span className="w-1.5 h-1.5 rounded-full bg-gold/40 group-hover:bg-gold transition-colors" />
-                        <span>{deity.name}</span>
-                        <span className="text-parchment/40">
-                          - {getPantheonLabel(deity.pantheonId)}
+        <div className="mt-16 grid gap-12 border-t border-border/70 pt-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:gap-16">
+          <nav aria-labelledby="not-found-sections">
+            <h2 id="not-found-sections" className="type-h3 text-foreground">
+              Browse the atlas
+            </h2>
+            <ul className="mt-4 grid grid-cols-2 gap-2 sm:grid-cols-3">
+              {SECTIONS.map((section) => (
+                <li key={section.href}>
+                  <Link
+                    href={section.href}
+                    className="flex min-h-12 items-center gap-3 rounded-md border border-border/70 px-3 type-ui font-medium text-foreground transition-colors hover:border-gold/50 hover:bg-gold/5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold"
+                  >
+                    <MythosMark
+                      id={section.mark}
+                      className="size-4 shrink-0 text-gold-text"
+                    />
+                    {section.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+          {tales.length > 0 ? (
+            <section aria-labelledby="not-found-tales">
+              <h2 id="not-found-tales" className="type-h3 text-foreground">
+                Tales to explore
+              </h2>
+              <ul className="mt-4 divide-y divide-border/70 border-y border-border/70">
+                {tales.map((tale) => (
+                  <li key={tale.slug}>
+                    <Link
+                      href={`/stories/${tale.slug}`}
+                      className="group flex min-h-14 items-center justify-between gap-4 py-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold"
+                    >
+                      <span className="min-w-0">
+                        <span className="block truncate font-body text-lg text-foreground group-hover:text-gold-text">
+                          {tale.title}
                         </span>
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </CardContent>
-            </Card>
-
-            {/* Story suggestions */}
-            <Card className="border-gold/20 bg-midnight-light/50">
-              <CardContent className="p-5">
-                <div className="flex items-center gap-2 mb-4">
-                  <MythosMark id="scroll" className="w-4 h-4 text-gold" />
-                  <span className="font-serif font-semibold text-parchment">
-                    Tales to Explore
-                  </span>
-                </div>
-                <ul className="space-y-2">
-                  {suggestedStories.map((story) => (
-                    <li key={story.id}>
-                      <Link
-                        href={`/stories/${story.slug}`}
-                        className="flex items-center gap-2 text-sm text-parchment/70 hover:text-gold transition-colors group"
-                      >
-                        <span className="w-1.5 h-1.5 rounded-full bg-gold/40 group-hover:bg-gold transition-colors" />
-                        <span className="line-clamp-1">{story.title}</span>
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </CardContent>
-            </Card>
-          </div>
+                        <span className="block type-meta text-muted-foreground">
+                          {tale.tradition}
+                        </span>
+                      </span>
+                      <ArrowRight
+                        className="size-4 shrink-0 text-muted-foreground transition-transform group-hover:translate-x-0.5"
+                        aria-hidden="true"
+                      />
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          ) : null}
         </div>
-
-        {/* Search hint */}
-        <div className="mt-8 text-sm text-muted-foreground">
-          <p>
-            Try using the search (⌘K / Ctrl+K) to find what you&apos;re looking
-            for
-          </p>
-        </div>
-      </div>
+      </Container>
     </div>
   );
 }

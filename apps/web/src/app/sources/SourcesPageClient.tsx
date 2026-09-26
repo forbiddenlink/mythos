@@ -3,7 +3,6 @@
 import { useMemo, useState } from "react";
 import Link from "next/link";
 import { BookOpen, Scroll, Search, Sparkles, X, Users } from "lucide-react";
-import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -145,8 +144,6 @@ export function SourcesPageClient() {
 
   return (
     <div className="page-shell max-w-5xl">
-      <Breadcrumbs />
-
       {/* Editorial Methodology Card */}
       <Card className="border-gold/20 bg-card/70 p-6 md:p-8 backdrop-blur-xs shadow-sm mt-6">
         <CardHeader className="p-0 pb-4">
@@ -197,7 +194,7 @@ export function SourcesPageClient() {
           </div>
           <div className="text-xs text-muted-foreground shrink-0 self-center sm:self-auto">
             Showing{" "}
-            <span className="font-semibold text-gold">
+            <span className="font-semibold text-gold-text">
               {filteredSources.length}
             </span>{" "}
             of {sources.length} works

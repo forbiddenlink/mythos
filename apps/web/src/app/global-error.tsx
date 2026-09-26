@@ -30,10 +30,10 @@ export default function GlobalError({
 
   return (
     <html lang="en" className={`${cinzel.variable} ${sourceSans.variable}`}>
-      <body className="min-h-screen flex flex-col items-center justify-center bg-linear-to-b from-slate-950 via-slate-900 to-slate-950 text-slate-200 font-sans antialiased">
+      <body className="min-h-screen flex flex-col items-center justify-center bg-[#0d1024] text-[#f3e9d2] font-sans antialiased">
         <div className="max-w-lg mx-auto text-center px-6 py-16">
           {/* Icon */}
-          <div className="mx-auto mb-8 flex h-20 w-20 items-center justify-center rounded-full border border-amber-500/30 bg-slate-800/80">
+          <div className="mx-auto mb-8 flex h-20 w-20 items-center justify-center rounded-full border border-[#d4a53c]/35 bg-[#171b36]">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="40"
@@ -44,7 +44,7 @@ export default function GlobalError({
               strokeWidth="2"
               strokeLinecap="round"
               strokeLinejoin="round"
-              className="text-amber-500"
+              className="text-[#e2bb62]"
             >
               <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z" />
               <path d="M12 9v4" />
@@ -54,15 +54,15 @@ export default function GlobalError({
 
           {/* Heading */}
           <h1
-            className="text-4xl md:text-5xl font-bold mb-4 bg-linear-to-r from-amber-400 via-amber-300 to-amber-500 bg-clip-text text-transparent"
+            className="text-3xl md:text-4xl font-semibold mb-4 text-[#f3e9d2]"
             style={{ fontFamily: "var(--font-cinzel), serif" }}
           >
-            Critical Error
+            The atlas could not load
           </h1>
 
-          <p className="text-slate-400 mb-4 leading-relaxed">
-            A catastrophic disturbance has shattered the ancient wards
-            protecting this realm. The root layout itself has fallen.
+          <p className="text-[#f3e9d2]/80 mb-8 leading-relaxed">
+            Mythos Atlas hit an unexpected problem and could not load. Try
+            again, or return to the home page.
           </p>
 
           {process.env.NODE_ENV === "development" && (
@@ -74,7 +74,7 @@ export default function GlobalError({
                 {error.message}
               </code>
               {error.digest && (
-                <p className="text-xs text-slate-500 mt-2">
+                <p className="text-xs text-[#f3e9d2]/60 mt-2">
                   Digest: {error.digest}
                 </p>
               )}
@@ -85,7 +85,7 @@ export default function GlobalError({
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <button
               onClick={reset}
-              className="inline-flex items-center justify-center gap-2 rounded-md bg-linear-to-r from-amber-600 via-amber-500 to-amber-600 px-6 py-3 text-sm font-semibold text-slate-950 shadow-lg hover:from-amber-500 hover:via-amber-400 hover:to-amber-500 transition-all"
+              className="inline-flex items-center justify-center gap-2 rounded-md bg-[#d4a53c] px-6 py-3 text-sm font-semibold text-[#0d1024] hover:bg-[#e2bb62] transition-colors"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -105,7 +105,7 @@ export default function GlobalError({
             </button>
             <Link
               href="/"
-              className="inline-flex items-center justify-center gap-2 rounded-md border border-amber-500/40 px-6 py-3 text-sm font-medium text-amber-400 hover:bg-amber-500/10 hover:border-amber-500/60 transition-all"
+              className="inline-flex items-center justify-center gap-2 rounded-md border border-[#d4a53c]/50 px-6 py-3 text-sm font-medium text-[#e2bb62] hover:bg-[#d4a53c]/10 transition-colors"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -125,7 +125,7 @@ export default function GlobalError({
             </Link>
           </div>
 
-          <p className="mt-10 text-xs text-slate-500">
+          <p className="mt-10 text-xs text-[#f3e9d2]/60">
             If this keeps happening, try clearing your browser cache or
             returning later.
           </p>
