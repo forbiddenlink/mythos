@@ -1456,3 +1456,14 @@ html.cookie-banner-open {
     break-before: page;
   }
 }
+
+/* Tool-page stage loading bar (components/layout/tool-stage.tsx). Applied
+   through motion-safe:, so reduced motion shows a still bar. */
+@keyframes stage-sweep {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(300%);
+  }
+}

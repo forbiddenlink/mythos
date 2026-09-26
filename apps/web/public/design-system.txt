@@ -46,6 +46,9 @@ Legacy: .page-eyebrow, .page-lede, .text-display/.text-h1/h2/h3 remain for old p
 - <AboutThisPage title defaultOpen size> — native <details> below the content for "how to use"/SEO explainer text. Never put explainer boxes above the tool/grid.
 - Entity pages: <DetailLayout hero facts toc aside after asideLabel> + <DetailHero image imageCaption eyebrow title titleAddon nativeName epithets tags lede actions meta accentColor> + <ArticleSection id title eyebrow description reading> + aside blocks <FactList facts/>, <OnThisPage items/>, <RelatedFigures figures/>, <AsideLinks title links/>. Reference implementation: app/deities/[slug]/page.tsx.
 - Parallel figures: components/mythology/ParallelFigures.tsx (variant annotated|portraits; aria-label ends "across pantheons").
+- Tool pages (components/layout/tool-stage.tsx): PageHeader, then <ToolToolbar label> (one compact control row) and the visualization in a Container size="wide". While code loads, show <StageLoading label mark tone className> (same height as the stage, aria-busy) instead of a spinner; <SegmentedControl> for 2-4 views. Explainer text goes in <AboutThisPage> below the tool.
+- Empty states: <EmptyState mark eyebrow title description actions preview> — invitation on the left, a quiet preview of the filled page on the right (sample stats, a sample card). Links use primaryLinkClass / secondaryLinkClass.
+- Info pages (components/layout/info-page.tsx): <InfoPage eyebrow mark title lede meta toc aside> or <InfoColumns toc aside> — a 68ch prose column on the header's left edge (plain h2/h3/p/ul styled by infoProseClass) with a sticky "On this page" list on wide screens.
 
 ## Surface utility classes
 .glass-card (glassmorphism), gold shimmer/gradient text, .bg-mythic / .bg-hero-gradient (atmospheric), ornate borders, noise overlay, .illuminated-tale (drop cap)
