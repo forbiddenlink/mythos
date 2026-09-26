@@ -25,7 +25,7 @@
         "type": "primary"
       }
     ],
-    "imageUrl": "/pantheons/greek.jpg"
+    "imageUrl": "https://images.unsplash.com/photo-1557686583-560ae7baba2a?auto=format&fit=crop&w=1600&q=80"
   },
   {
     "id": "norse-pantheon",

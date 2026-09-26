@@ -215,6 +215,19 @@ export default function AboutPage() {
                 with an <strong>Illustrative image</strong> label.
               </p>
               <p>
+                One photograph is used as a card background: the Acropolis of
+                Athens at sunset, by{" "}
+                <a
+                  href="https://unsplash.com/photos/G8OyUvtAxUQ"
+                  className="text-gold-text underline"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  Stavrialena Gontzou on Unsplash
+                </a>
+                , used under the Unsplash License.
+              </p>
+              <p>
                 Historical objects are shown separately with their museum
                 records: the institution, accession number and image rights
                 appear beside each one, linked to the museum&apos;s own page.

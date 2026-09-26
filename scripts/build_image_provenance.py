@@ -78,10 +78,11 @@ def tradition_pantheons() -> set[str]:
 # Images whose origin could not be established from the repository. Keyed by
 # (entity type, id); these must be credited or replaced before they are
 # described as anything more specific.
-UNVERIFIED = {
-    # Photographic (signature mark lower right), added before the current
-    # history; neither the photographer nor a license is recorded.
-    ("pantheon", "greek-pantheon"),
+UNVERIFIED: set[tuple[str, str]] = set()
+
+# Sourced photographs, hotlinked from their host as the host's API terms ask.
+SOURCED = {
+    ("pantheon", "greek-pantheon"): "unsplash-acropolis-gontzou",
 }
 
 GENERATORS = {
@@ -99,6 +100,13 @@ GENERATORS = {
         "label": "AI-generated illustration",
         "description": "Generated with a text-to-image model (scripts/generate_missing.py via Magica flux_2_max, or renders imported by scripts/move_and_update.py). Illustrative only; not historical artwork and not evidence of how the tradition depicted the subject. Inferred per image: the pipelines did not record the model or prompt for each file.",
         "scripts": ["scripts/generate_missing.py", "scripts/move_and_update.py"],
+    },
+    "unsplash-acropolis-gontzou": {
+        "kind": "licensed",
+        "label": "Photograph by Stavrialena Gontzou on Unsplash",
+        "description": "The Acropolis of Athens at sunset. Used under the Unsplash License and hotlinked from Unsplash.",
+        "license": "Unsplash License (https://unsplash.com/license)",
+        "source": "https://unsplash.com/photos/G8OyUvtAxUQ",
     },
     "unverified": {
         "kind": "unverified",
@@ -131,6 +139,10 @@ def build() -> dict:
         records = json.loads((DATA_DIR / filename).read_text(encoding="utf-8"))
         rows: dict[str, str] = {}
         for record in records:
+            sourced = SOURCED.get((entity_type, record["id"]))
+            if sourced:
+                rows[record["id"]] = sourced
+                continue
             url = record.get("imageUrl")
             if not url or not url.startswith("/"):
                 continue
