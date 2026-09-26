@@ -319,7 +319,9 @@ describe("citation sourceIds", () => {
     out: Array<[string, string]>,
   ): void {
     if (Array.isArray(value)) {
-      value.forEach((item, i) => collectSourceIds(item, `${path}[${i}]`, out));
+      value.forEach((item, i) => {
+        collectSourceIds(item, `${path}[${i}]`, out);
+      });
     } else if (value && typeof value === "object") {
       for (const [key, child] of Object.entries(value)) {
         if (key === "sourceId" && typeof child === "string") {
