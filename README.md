@@ -30,7 +30,7 @@ pnpm install --frozen-lockfile
 pnpm --filter web dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) to view the app. The encyclopedia runs without Oracle credentials or the optional Rust/PostgreSQL service. For Oracle, copy `apps/web/.env.example` to `apps/web/.env.local` and configure the required values; never commit that file.
+Open [http://localhost:3000](http://localhost:3000) to view the app. The encyclopedia runs without Oracle credentials or a database. For Oracle, copy `apps/web/.env.example` to `apps/web/.env.local` and configure the required values; never commit that file.
 
 ## Tech Stack
 
@@ -47,7 +47,6 @@ Open [http://localhost:3000](http://localhost:3000) to view the app. The encyclo
 ```
 mythos/
 ├── apps/
-│   ├── api/          # Optional Rust/PostgreSQL service
 │   └── web/          # Self-contained Next.js app
 │       ├── src/
 │       │   ├── app/          # App Router pages

@@ -14,8 +14,7 @@
 *.yml text eol=lf
 *.yaml text eol=lf
 
-# Rust
-*.rs text eol=lf
+# TOML
 *.toml text eol=lf
 
 # SQL
@@ -56,7 +55,6 @@
 pnpm-lock.yaml -diff
 package-lock.json -diff
 yarn.lock -diff
-Cargo.lock -diff
 
 # Generated files
 *.min.js -diff

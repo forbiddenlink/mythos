@@ -8,12 +8,11 @@ This file provides guidance to agents when working with code in this repository.
 
 Mythos Atlas is an interactive mythology encyclopedia. Live site: https://mythosatlas.com
 
-It's a **pnpm + Turborepo monorepo** with two apps:
+It's a **pnpm + Turborepo monorepo** with one app:
 
 - **`apps/web`** - Next.js 16 (App Router) + React 19 frontend. Pages read static JSON data files from `src/data/` directly; there is no database and no public data API.
-- **`apps/api`** - Rust (Axum + async-graphql + SQLx) backend targeting PostgreSQL. Secondary/optional; mirrors the GraphQL API.
 
-In practice, the web app is self-contained: its `/api/graphql` route handler reads directly from JSON files in `src/data/`, so the Rust API is not required for local development.
+The former optional Rust/PostgreSQL backend (`apps/api`) was retired; see ARCHITECTURE.md for where it lives in history.
 
 ## Stack
 
@@ -21,7 +20,6 @@ In practice, the web app is self-contained: its `/api/graphql` route handler rea
 - pnpm 10.34.5 (`packageManager` field enforced), Turborepo
 - Node v22.22.2 (see `.nvmrc`)
 - Biome (`biome.json` at root) alongside ESLint/Prettier via Husky + lint-staged
-- Rust (Axum, async-graphql, SQLx) for the optional `apps/api`
 
 ## Commands
 
@@ -54,15 +52,6 @@ pnpm biome:check
 pnpm biome:fix
 ```
 
-Rust API (optional; requires Rust toolchain + PostgreSQL via docker-compose):
-
-```bash
-docker compose up -d                # Postgres on port 5435
-cd apps/api && cargo watch -x run   # dev server on :8000
-cargo test
-cargo check
-```
-
 ## Layout
 
 - `apps/web/src/app/` - Next.js App Router pages, including route handlers under `api/` (`oracle`, `search`, `analytics`, `csp-report`, `quiz`)
@@ -72,7 +61,6 @@ cargo check
 - `apps/web/messages/` - next-intl translation messages (en, es, fr, de)
 - `apps/web/e2e/` - Playwright specs
 - `apps/web/src/__tests__/` - Vitest unit tests, mirroring `src/` structure
-- `apps/api/` - Rust backend (optional)
 - `docs/` - project documentation
 
 ## Conventions

@@ -6,7 +6,7 @@ Verified against the repository on September 23, 2026. This describes the web ap
 
 `apps/web` is a self-contained Next.js App Router application. Its encyclopedia data comes from versioned JSON in `src/data/`; a database is not required to browse the site. Pages use server-side catalog lookups and client-side filtering/interaction. There is no public data API: the former `/api/graphql` facade and the disabled Hygraph CMS stubs (`/api/hygraph/*`, `/api/preview`, `/api/revalidate`) were removed because nothing in the app called them. The remaining route handlers under `src/app/api/` (search, analytics, CSP reports, story-quiz generation, Oracle) serve the app itself.
 
-`apps/api` is an optional Rust/Axum/async-graphql service with PostgreSQL migrations and seed data. It is not a dependency of the web app's current catalog browsing path.
+The optional Rust/Axum/async-graphql service that used to live in `apps/api` (with PostgreSQL migrations, seed data and a `docker-compose.yml` Postgres service) was retired in September 2026: the web app never depended on it. It remains in history; the last `main` commit containing it is `42ada2685ba563ef0a9ead081940e4a849391f66` (its last change was `ba36dfc`). Restore it with `git checkout 42ada26 -- apps/api docker-compose.yml`.
 
 ```mermaid
 flowchart TB
@@ -23,7 +23,6 @@ flowchart TB
     Oracle --> Limits[Upstash rate limits and daily cap]
     Oracle --> Provider[Configured Anthropic or Groq model]
     Catalog --> Oracle
-    Rust[Separate optional Rust API] --> Postgres[PostgreSQL]
 ```
 
 The main catalogs currently contain 16 tradition records, 233 deities, 27 heroes, 108 stories, 63 creatures, 52 artifacts, and 127 locations. These are catalog counts, not claims that every tradition is equally covered or every passage has received scholarly review.
@@ -99,7 +98,7 @@ flowchart LR
     Main --> Production[Vercel production deployment]
 ```
 
-A preview does not mean production was promoted. Do not bypass failing checks or assume an old passing run covers a new commit. Preserve unique commits and dirty worktrees before branch cleanup. The optional Rust service needs separate database-backed validation if it changes.
+A preview does not mean production was promoted. Do not bypass failing checks or assume an old passing run covers a new commit. Preserve unique commits and dirty worktrees before branch cleanup.
 
 ## Performance and verification
 

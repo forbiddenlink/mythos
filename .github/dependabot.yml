@@ -3,7 +3,6 @@ updates:
   - package-ecosystem: "npm"
     directories:
       - "/"
-      - "/apps/api"
       - "/apps/web"
     schedule:
       interval: "weekly"
