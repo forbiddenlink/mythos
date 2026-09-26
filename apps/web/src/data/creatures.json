@@ -1957,5 +1957,341 @@
       }
     ],
     "imageUrl": "/creatures/teehooltsodii.png"
+  },
+  {
+    "id": "amaru",
+    "pantheonId": "inca-pantheon",
+    "name": "Amaru",
+    "slug": "amaru",
+    "description": "The great serpent of Andean tradition, linked with water, the underworld, and upheaval; in the Huarochirí stories Huallallo Carhuincho sends an amaru against Pariacaca, who turns it to stone with a golden staff.",
+    "habitat": "Beneath the earth, in lakes and springs, and emerging from mountains",
+    "abilities": [
+      "emerging from the earth",
+      "causing upheaval",
+      "turning to stone when defeated"
+    ],
+    "dangerLevel": 7,
+    "detailedBio": "## In the Huarochirí stories\n\n*Amaru* is the ordinary Quechua word for a large snake, and in Andean tradition it names a mighty serpent associated with water, the underworld, and violent change. In the Huarochirí Manuscript's account of the war between Pariacaca and Huallallo Carhuincho, Huallallo sends an amaru against the snow-mountain god; Pariacaca strikes it with a golden staff and it freezes into stone. Commentators note that the Huarochirí amaru is described with two heads, and two-headed serpents appear in older Andean art, on Moche and Chimú ceramics among others.\n\n## Serpent of power and rebellion\n\nThe serpent's name carried authority. A palace of the Inca Huayna Capac in Cusco was called Amarucancha, 'enclosure of the serpent' (its site is now occupied by the Jesuit church of La Compañía), and the last Inca ruler of Vilcabamba, executed in 1572, was Túpac Amaru, 'royal serpent'. In 1780 José Gabriel Condorcanqui took the name Túpac Amaru II when he led the great Andean rebellion against Spanish rule, and the name has remained a symbol of resistance.\n\n## Caution\n\nModern popular writing often presents the amaru as a fixed 'Inca dragon' with standard attributes. The colonial sources show a range of serpent beings rather than a single canonical monster; this entry keeps to the Huarochirí episode and the documented uses of the name.",
+    "primarySources": [
+      {
+        "text": "In the war with Pariacaca, Huallallo Carhuincho sent against him an amaru, a great serpent; Pariacaca struck it with his golden staff and it turned to stone.",
+        "source": "Huarochirí Manuscript, Huallallo Carhuincho episodes (paraphrase)",
+        "sourceId": "huarochiri-manuscript",
+        "locator": "chs. 8 and 16",
+        "date": "compiled c. 1598-1608"
+      }
+    ],
+    "imageUrl": "/creatures/amaru.png"
+  },
+  {
+    "id": "yacana",
+    "pantheonId": "inca-pantheon",
+    "name": "Yacana",
+    "slug": "yacana",
+    "description": "The celestial llama of the Huarochirí Manuscript, a dark shape in the Milky Way that walks down at midnight to drink from the sea; if it did not drink, the ocean would flood the world.",
+    "habitat": "The Milky Way (Mayu, the river of the sky)",
+    "abilities": [
+      "drinking the ocean to keep it from flooding the world",
+      "moving along the river of the sky",
+      "bestowing good fortune in herds"
+    ],
+    "dangerLevel": 1,
+    "detailedBio": "## The llama in the Milky Way\n\nChapter 29 of the Huarochirí Manuscript describes the Yacana as a llama-shaped being that moves through the middle of the sky along the Milky Way, which Andean people called Mayu, 'the river'. It has two eyes and a long neck, and it walks down at midnight, unseen, to drink water from the sea; if it did not, the manuscript says, the sea would flood the whole world. The same chapter names other stars and star groups, among them a smaller llama (the Yacana's young) and figures associated with herds.\n\n## Dark-cloud constellations\n\nUnlike most European constellations, which join bright stars, the Yacana is a shape made by dark dust lanes against the bright band of the Milky Way. The anthropologist Gary Urton, working in the Quechua community of Misminay near Cusco in the 1970s, documented a living system of such dark-cloud animals, including a llama whose eyes are the bright stars Alpha and Beta Centauri, closely matching the Huarochirí description written nearly four centuries earlier.\n\n## Water and the cosmos\n\nThe Yacana belongs to an Andean picture of water circulating between the sea, the sky, and the earth: the celestial river carries water across the sky, and the llama's drinking keeps the balance. Herders associated it with the fertility of their animals, and the manuscript connects its descent with good fortune for the llama flocks.",
+    "primarySources": [
+      {
+        "text": "The Yacana, a llama-shaped being, walks through the middle of the sky along the Milky Way; at midnight it drinks water from the sea, and if it did not drink, the water would flood the whole world.",
+        "source": "Huarochirí Manuscript, ch. 29 (paraphrase)",
+        "sourceId": "huarochiri-manuscript",
+        "locator": "ch. 29",
+        "date": "compiled c. 1598-1608"
+      }
+    ],
+    "imageUrl": "/creatures/yacana.png"
+  },
+  {
+    "id": "urcuchillay",
+    "pantheonId": "inca-pantheon",
+    "name": "Urcuchillay",
+    "slug": "urcuchillay",
+    "description": "The many-colored male llama of the stars, reported by colonial writers as the celestial guardian that herders prayed to for the increase and protection of their flocks.",
+    "habitat": "The night sky",
+    "abilities": [
+      "protecting llama and alpaca herds",
+      "promoting the increase of flocks"
+    ],
+    "dangerLevel": 1,
+    "detailedBio": "## A star for herders\n\nThe jurist Juan Polo de Ondegardo, investigating Andean religion in Cusco in the 1550s-1570s, reported that herders worshipped a star they called Urcuchillay, which they imagined as a male llama of many colors and credited with the protection and increase of the flocks; the Jesuit José de Acosta (1590) repeated his account. Polo reported similar star-guardians for other animals and for particular human activities, suggesting a general Andean idea that each kind of creature had a celestial prototype watching over it.\n\n## Herding and the sky\n\nLlamas and alpacas were the basis of Andean wealth: food, wool for cloth, transport, and the most important sacrificial animals of the state cult. It is no surprise that the sky itself held llamas, from the dark-cloud Yacana of the Huarochirí Manuscript to Urcuchillay's bright star. The *urku* in the name means 'male' (used of animals).\n\n## Identification\n\nWhich star Urcuchillay was is not stated clearly in the colonial sources, and modern proposals differ. This entry treats it as a named celestial guardian of herds without asserting a particular modern constellation.",
+    "primarySources": [
+      {
+        "text": "They worshipped a star called Urcuchillay, which they said was a ram of many colors and had charge of the preservation of their flocks.",
+        "source": "José de Acosta, Historia natural y moral de las Indias, Book 5, following Polo de Ondegardo (paraphrase)",
+        "sourceId": "acosta-natural-moral-history",
+        "locator": "Book 5",
+        "date": "published 1590"
+      }
+    ],
+    "imageUrl": "/creatures/urcuchillay.png"
+  },
+  {
+    "id": "simurgh",
+    "pantheonId": "persian-pantheon",
+    "name": "Simurgh",
+    "slug": "simurgh",
+    "description": "The great wise bird of Persian tradition, who in the Shahnameh raises the abandoned Zal on Mount Alborz, guides the birth of Rostam, and heals him in his combat with Esfandiyar; descended from the Avestan bird Saena.",
+    "habitat": "Mount Alborz; in Middle Persian texts, the tree of all seeds in the cosmic sea",
+    "abilities": [
+      "healing",
+      "wisdom and foreknowledge",
+      "summoned by burning her feather",
+      "carrying a person in flight"
+    ],
+    "dangerLevel": 3,
+    "detailedBio": "## From Saena to Simurgh\n\nThe name Simurgh (Middle Persian Senmurw) comes from the Avestan *saena meregha*, 'the bird Saena', a great bird mentioned in the Yashts. Middle Persian texts make the Senmurw a being of cosmic scale nesting in the tree of all seeds that stands in the middle of the sea Vouru-Kasha; when it rises from the tree, seeds are scattered to be carried by the rains over the world.\n\n## In the Shahnameh\n\nFerdowsi's Simurgh is the protector of Zal and his family. She finds the white-haired infant abandoned on Mount Alborz and raises him with her chicks, and when his father comes to reclaim him she gives Zal a feather to burn in need. Later she guides the difficult birth of Rostam by instructing a surgical delivery, and she heals Rostam and his horse Rakhsh after their near-fatal combat with Esfandiyar, revealing to Rostam how the invulnerable prince can be killed. The Shahnameh also knows a hostile Simurgh, killed by Esfandiyar in his seven trials, which suggests more than one tradition behind the figure.\n\n## A symbol of the divine\n\nIn Attar's twelfth-century Sufi allegory *The Conference of the Birds*, the birds of the world set out to find the Simurgh as their king; only thirty (*si murgh*, 'thirty birds') arrive, and they discover that the Simurgh they sought is themselves, a famous play on the name. The Simurgh appears widely in Persian painting and textiles.",
+    "primarySources": [
+      {
+        "text": "The Simurgh saw the crying infant on the mountain, took pity on him, and raised him in her nest with her young; when his father came, she gave the boy one of her feathers to burn whenever he needed her.",
+        "source": "Ferdowsi, Shahnameh, reign of Manuchehr (paraphrase)",
+        "sourceId": "shahnameh",
+        "locator": "reign of Manuchehr",
+        "date": "completed 1010 CE"
+      }
+    ],
+    "imageUrl": "/creatures/simurgh.png"
+  },
+  {
+    "id": "azhi-dahaka",
+    "pantheonId": "persian-pantheon",
+    "name": "Azhi Dahaka",
+    "slug": "azhi-dahaka",
+    "description": "The three-headed, three-mouthed, six-eyed dragon of the Avesta, created by Angra Mainyu to destroy the good world and smitten by the hero Thraetaona; retold in the Shahnameh as Zahhak, the tyrant with serpents on his shoulders.",
+    "habitat": "Bound within Mount Damavand",
+    "abilities": [
+      "three heads and a thousand senses",
+      "vast destructive power",
+      "breaking free at the end of time (Middle Persian tradition)"
+    ],
+    "dangerLevel": 10,
+    "detailedBio": "## In the Avesta\n\nThe Zamyad Yasht calls Azhi Dahaka 'the three-mouthed, the three-headed, the six-eyed, who had a thousand senses, that most powerful, fiendish Druj', created by Angra Mainyu against the material world. He struggles with Atar, the fire, for possession of the royal Glory, and is smitten by Thraetaona, heir of the Athwya clan. The Vendidad names the land of Varena as the place 'for which was born Thraetaona, who smote Azi Dahaka', and the Greater Bundahishn, as Darmesteter noted, identifies that land with Mount Damavand, where the dragon was bound with iron bonds. The Aban Yasht says that he sacrificed to Anahita, asking to empty the seven regions of the earth of men, and that she refused him.\n\n## Zahhak\n\nIn Ferdowsi's Shahnameh the dragon has become a human king, Zahhak, whose shoulders sprout two serpents after the Devil kisses them and who feeds the serpents on human brains through a reign of a thousand years, until Fereydun, the epic form of Thraetaona, overthrows him and chains him in a cave in Mount Damavand.\n\n## At the end of time\n\nMiddle Persian tradition holds that near the end of the world Dahag will break his bonds and ravage creation until the hero Keresaspa is raised to kill him, one of the events that lead to the final renovation.",
+    "primarySources": [
+      {
+        "text": "Who smote Azhi Dahaka, the three-mouthed, the three-headed, the six-eyed, who had a thousand senses, that most powerful, fiendish Druj, that demon baleful to the world, the strongest Druj that Angra Mainyu created against the material world.",
+        "source": "Avesta, Yasht 19.37 (trans. Darmesteter)",
+        "sourceId": "avesta",
+        "locator": "Yasht 19.37",
+        "date": "Younger Avestan; trans. 1883"
+      }
+    ],
+    "imageUrl": "/creatures/azhi-dahaka.png"
+  },
+  {
+    "id": "div-e-sepid",
+    "pantheonId": "persian-pantheon",
+    "name": "Div-e Sepid",
+    "slug": "div-e-sepid",
+    "description": "The White Div, lord of the demons of Mazandaran in the Shahnameh, who blinds King Kay Kavus and his army and is killed by Rostam in his cave at the end of the hero's Seven Trials.",
+    "habitat": "A cave in the mountains of Mazandaran",
+    "abilities": [
+      "immense size and strength",
+      "sorcery",
+      "raising storms and darkness",
+      "striking armies blind"
+    ],
+    "dangerLevel": 8,
+    "detailedBio": "## The demons of Mazandaran\n\nIn the Shahnameh the *divs* (from Avestan *daeva*, the false gods rejected by Zoroastrianism) are demons of great strength and sorcery. The reckless King Kay Kavus, tempted by a demon's song about the beauty of Mazandaran, invades it against all advice; the White Div, chief of its demons, answers with a storm of hail and darkness that strikes the king and his army blind, and holds them captive.\n\n## The seventh trial\n\nRostam rides to the rescue by the shorter, deadlier road, passing seven trials (*Haft Khan*): a lion, a waterless desert, a dragon, a sorceress, a warrior-demon, the demon lord Arzhang, and finally the White Div. Guided by the captured Olad, he waits until midday, when the demons sleep, enters the dark cave, and finds the White Div, huge as a mountain. They fight savagely; Rostam tears off one of the demon's legs, and at last kills him and cuts out his liver. The blood of the White Div, dropped into their eyes, restores the sight of Kay Kavus and his men.\n\n## In art\n\nRostam's combat with the White Div, often showing the spotted white demon in the cave, is one of the most frequently illustrated scenes in Persian manuscript painting.",
+    "primarySources": [
+      {
+        "text": "Rostam went into the cave of the White Div, found him asleep, and after a fierce struggle killed him and took his liver, whose blood restored the sight of Kay Kavus and his men.",
+        "source": "Ferdowsi, Shahnameh, the Seven Trials of Rostam (paraphrase)",
+        "sourceId": "shahnameh",
+        "locator": "reign of Kay Kavus",
+        "date": "completed 1010 CE"
+      }
+    ],
+    "imageUrl": "/creatures/div-e-sepid.png"
+  },
+  {
+    "id": "apaosha",
+    "pantheonId": "persian-pantheon",
+    "name": "Apaosha",
+    "slug": "apaosha",
+    "description": "The daeva of drought in the Avesta, who in the shape of a black horse 'stamped with brands of terror' fights the star Tishtrya at the edge of the cosmic sea to keep the rains from falling.",
+    "habitat": "The shores of the sea Vouru-Kasha",
+    "abilities": [
+      "withholding the rains",
+      "taking the shape of a black horse",
+      "overpowering a neglected god"
+    ],
+    "dangerLevel": 6,
+    "detailedBio": "## The black horse\n\nThe Tir Yasht (Yasht 8) describes Apaosha rushing down to meet the star Tishtrya, who has come to the sea Vouru-Kasha as a white horse with golden ears, in the shape of a dark horse, black with black ears, black back, and black tail, stamped with brands of terror. They meet hoof against hoof and fight for three days and nights, and the first time Apaosha wins, driving Tishtrya from the sea.\n\n## Defeated by right worship\n\nThe hymn makes Tishtrya's defeat a consequence of neglect: men had not worshipped him by his own name. When he receives that worship he returns with the strength of ten horses, camels, bulls, mountains, and rivers, and at noon he overcomes Apaosha and drives him away; the waters of the sea rise as clouds and spread the rain over the seven regions.\n\n## Drought as a demon\n\nThe name has been interpreted as 'the withholder of water' or similar, though its etymology is disputed. In the Middle Persian Bundahishn the battle of Tishtar and Apush is retold as part of Ahriman's assault on the waters of creation.",
+    "primarySources": [
+      {
+        "text": "But there rushes down to meet him the Daeva Apaosha, in the shape of a dark horse, black with black ears, black with a black back, black with a black tail, stamped with brands of terror.",
+        "source": "Avesta, Yasht 8.21 (trans. Darmesteter)",
+        "sourceId": "avesta",
+        "locator": "Yasht 8.21",
+        "date": "Younger Avestan; trans. 1883"
+      }
+    ],
+    "imageUrl": "/creatures/apaosha.png"
+  },
+  {
+    "id": "iku-turso",
+    "pantheonId": "finnish-pantheon",
+    "name": "Iku-Turso",
+    "slug": "iku-turso",
+    "description": "The sea-monster of Finnish tradition whom Louhi raises from the depths to stop the heroes carrying off the Sampo; Väinämöinen lifts him out of the water by the ears and makes him swear never to rise before men again.",
+    "habitat": "The depths of the sea",
+    "abilities": [
+      "rising from the deep to overturn ships",
+      "commanded by sorcery"
+    ],
+    "dangerLevel": 7,
+    "detailedBio": "## In the Kalevala\n\nIn Rune 42, when Väinämöinen, Ilmarinen, and Lemminkäinen are fleeing Pohjola with the Sampo, Louhi calls up Iku-Turso, 'son of Old-age', from the sea to seize the heroes and drown them. He rises beside the ship, but Väinämöinen grabs him by the ears, lifts him out of the water, and demands to know why he has come. Iku-Turso admits he was sent to capture them, and promises never again to rise before the eyes of men; Väinämöinen throws him back.\n\n## In folk tradition\n\nIn folk poetry and charms Iku-Turso (or Turso) is a monstrous being of the sea, sometimes connected with the origin of diseases and with the great oak of creation songs. The name is linked by many scholars with *Turisas*, whom Agricola lists in 1551 as a god who gave victory in war, though whether the two are the same figure is uncertain. Descriptions of Turso's form vary; he is often imagined with many arms, like a giant squid or octopus, but this image is largely modern.\n\n## Legacy\n\nIku-Turso has become a familiar figure in Finnish popular culture, and a Finnish Navy submarine of the 1930s was named after him.",
+    "primarySources": [
+      {
+        "text": "Wainamoinen, brave and mighty, / Seizes quick the water-monster, / Lifts him by his ears and questions: / \"Iku-Turso, son of Old-age, / Why art rising from the blue-sea? / Wherefore dost thou leave thy castle, / Show thyself to mighty heroes, / To the heroes of Wainola?\"",
+        "source": "Kalevala (trans. John Martin Crawford, 1888), Rune XLII",
+        "sourceId": "kalevala",
+        "locator": "Rune 42",
+        "date": "Lönnrot's compilation 1849; trans. 1888"
+      }
+    ],
+    "imageUrl": "/creatures/iku-turso.png"
+  },
+  {
+    "id": "elk-of-hiisi",
+    "pantheonId": "finnish-pantheon",
+    "name": "Elk of Hiisi",
+    "slug": "elk-of-hiisi",
+    "description": "The magical elk built by the demon Hiisi's folk from forest materials, which Louhi sets Lemminkäinen to ski down as the first of his tasks, and which he captures only after praying to Tapio and Mielikki.",
+    "habitat": "The forests of Hiisi, in the North",
+    "abilities": [
+      "outrunning any hunter",
+      "trampling villages",
+      "made by magic"
+    ],
+    "dangerLevel": 4,
+    "detailedBio": "## The first task\n\nIn Runes 13 and 14 of the Kalevala, Louhi tells Lemminkäinen that he must ski down Hiisi's elk (Crawford translates it as 'wild-moose') before she will give him her daughter. The creature has been made by Hiisi's people from the materials of the forest, with a head of rotten wood, horns of willow branches, legs of fence stakes, and veins of dry grass, and it runs wild through the villages of Lapland, overturning pots and startling the women.\n\n## The chase\n\nLemminkäinen has a master ski-maker craft him the best skis ever made and sets off. He overtakes the elk and catches it, but it breaks free and smashes his skis. Then he prays to Ukko and to the forest's rulers, Tapio and Mielikki, promising offerings of gold and silver; they drive the elk to him, and he brings it to Pohjola.\n\n## Hiisi\n\nHiisi originally meant a sacred grove or burial place in Finnish, attested in place names across Finland; after Christianization the word came to mean a demon or evil spirit, and the Kalevala's Hiisi is a devilish power of the forest. The elk hunt reflects the central place of elk hunting on skis in the Finnish past, depicted in prehistoric rock paintings.",
+    "primarySources": [
+      {
+        "text": "\"Mistress of the woods, Mielikki, / Forest-mother, formed in beauty, / For the wild-moose of thy kingdom; / Bring me here thy keys of silver.\"",
+        "source": "Kalevala (trans. John Martin Crawford, 1888), Rune XIV",
+        "sourceId": "kalevala",
+        "locator": "Rune 14",
+        "date": "Lönnrot's compilation 1849; trans. 1888"
+      }
+    ],
+    "imageUrl": "/creatures/elk-of-hiisi.png"
+  },
+  {
+    "id": "swan-of-tuonela",
+    "pantheonId": "finnish-pantheon",
+    "name": "Swan of Tuonela",
+    "slug": "swan-of-tuonela",
+    "description": "The swan that swims on the black river of Tuonela, the river of the dead, which Louhi orders Lemminkäinen to shoot with a single arrow; the task leads to his death.",
+    "habitat": "The black river of Tuonela",
+    "abilities": [
+      "dwelling at the boundary of death",
+      "luring the living to the river of the dead"
+    ],
+    "dangerLevel": 5,
+    "detailedBio": "## The third task\n\nIn Rune 14, Louhi's last task for Lemminkäinen is to shoot the swan on the river of Tuonela with a single arrow. He goes to the black river, but the blind herdsman he insulted at Pohjola is waiting there and kills him with a water-serpent before he can shoot; his body is thrown into the river and cut apart by Tuoni's son. The swan itself does nothing in the story; it is the sign of the boundary between the living and the dead, and a target no living man should seek.\n\n## Swans and death\n\nSwans were regarded as sacred or taboo birds in parts of Finnish and Karelian tradition, and killing one was thought to bring misfortune. The swan of the river of the dead joins that respect to the image of the river crossing.\n\n## Sibelius\n\nJean Sibelius's tone poem *The Swan of Tuonela* (1895), part of his *Lemminkäinen Suite*, with its famous cor anglais solo representing the swan's song over the dark river, made the image internationally known.",
+    "primarySources": [
+      {
+        "text": "Louhi told Lemminkäinen that he must shoot, with a single arrow, the swan swimming on the black river of Tuonela, in the stream of the holy river.",
+        "source": "Kalevala, Rune 14 (paraphrase)",
+        "sourceId": "kalevala",
+        "locator": "Rune 14",
+        "date": "Lönnrot's compilation 1849; trans. 1888"
+      }
+    ],
+    "imageUrl": "/creatures/swan-of-tuonela.png"
+  },
+  {
+    "id": "great-pike",
+    "pantheonId": "finnish-pantheon",
+    "name": "The Great Pike",
+    "slug": "great-pike",
+    "description": "The gigantic pike on whose shoulders the heroes' ship runs aground on the way to steal the Sampo; Väinämöinen kills it and makes the first kantele from its jawbone.",
+    "habitat": "Rapids and deep waters",
+    "abilities": ["holding a ship fast", "enormous size"],
+    "dangerLevel": 5,
+    "detailedBio": "## Aground on a fish\n\nIn Rune 40 of the Kalevala, as the heroes sail toward Pohjola, their ship comes to a halt in the rapids, stuck fast on something beneath the water. Lemminkäinen probes with his sword and finds they are resting on the shoulders of an enormous pike. Lemminkäinen and Ilmarinen try to kill it and fail; Väinämöinen thrusts his sword into the water and lifts the fish out, and they cut it up and eat it.\n\n## The first kantele\n\nLooking at the bones left from the meal, Väinämöinen wonders whether something marvelous could be made from them. When no one else will try, he makes a kantele himself, with the frame from the pike's jawbone, the pegs from its teeth, and the strings from the hair of Hiisi's gelding. None of the others can play it, but when Väinämöinen does, all creation comes to listen.\n\n## The kantele\n\nThe kantele, a plucked zither, is Finland's national instrument, and its origin in the Kalevala has made the pike a symbol of Finnish music. Another giant pike, the pike of Tuonela, is caught by Ilmarinen with an eagle of fire as one of his bridal tasks in Rune 19.",
+    "primarySources": [
+      {
+        "text": "\"Something wondrous might be builded / From these jaws, and teeth, and fish-bones; / Might a magic harp be fashioned.\"",
+        "source": "Kalevala (trans. John Martin Crawford, 1888), Rune XL",
+        "sourceId": "kalevala",
+        "locator": "Rune 40",
+        "date": "Lönnrot's compilation 1849; trans. 1888"
+      }
+    ],
+    "imageUrl": "/creatures/great-pike.png"
+  },
+  {
+    "id": "samjok-o",
+    "pantheonId": "korean-pantheon",
+    "name": "Samjok-o",
+    "slug": "samjok-o",
+    "description": "The three-legged crow that lives in the sun, painted in a solar disk on the walls of Goguryeo tombs, usually paired with a toad or hare in the moon.",
+    "habitat": "The sun",
+    "abilities": [
+      "dwelling in the sun",
+      "symbolizing heavenly and royal power"
+    ],
+    "dangerLevel": 1,
+    "detailedBio": "## In Goguryeo tomb murals\n\nThe three-legged crow (*samjok-o*) appears inside a golden sun disk in the painted tombs of Goguryeo (fourth to seventh centuries CE), near Ji'an in China and Pyongyang in North Korea, among them the Ohoebun tombs at Ji'an. It is often painted opposite a moon disk containing a toad or a hare, the pair representing sun and moon, day and night, in the ceiling paintings that turned the tomb into a model of the heavens.\n\n## A shared East Asian emblem\n\nThe three-legged crow in the sun is known in Chinese art and texts from the Han dynasty onward, and in Japan as the Yatagarasu; in Korea it became particularly associated with Goguryeo and with the heavenly descent of its kings, who claimed the sun and heaven as ancestors. Haemosu, Goguryeo's heavenly founder-father, wears a crown of crow feathers in Yi Gyu-bo's poem.\n\n## Modern use\n\nThe samjok-o has been proposed and used as a national emblem in modern Korea, and it appears in Korean popular culture as a symbol of Goguryeo's power.",
+    "primarySources": [
+      {
+        "text": "On the ceilings of Goguryeo tombs the sun is painted as a golden disk containing a three-legged crow, facing a moon disk with a toad.",
+        "source": "Goguryeo tomb murals, Ji'an and Pyongyang regions (description of the paintings)",
+        "date": "4th-7th centuries CE"
+      }
+    ],
+    "imageUrl": "/creatures/samjok-o.png"
+  },
+  {
+    "id": "haetae",
+    "pantheonId": "korean-pantheon",
+    "name": "Haetae",
+    "slug": "haetae",
+    "description": "A lion-like guardian beast that can tell right from wrong, whose stone statues guard Gyeongbokgung Palace in Seoul and were believed to protect it from fire.",
+    "habitat": "Before palaces and public buildings",
+    "abilities": ["discerning justice", "guarding against fire and disaster"],
+    "dangerLevel": 2,
+    "detailedBio": "## A beast of justice\n\nThe haetae (also *haechi*) is a mythical beast, often shown with a lion-like body, scales, and sometimes a single horn, that was believed able to distinguish right from wrong and to butt the guilty. It derives from the Chinese *xiezhi*, a unicorned beast of judgment associated with law courts, and in Joseon-dynasty Korea it became an emblem of justice worn on the rank badges of officials of the Office of the Inspector-General.\n\n## Guardians of Gwanghwamun\n\nA pair of stone haetae stands before Gwanghwamun, the main gate of Gyeongbokgung Palace in Seoul, carved when the palace was rebuilt in the 1860s under the regent Heungseon Daewongun. According to a widely told tradition, they were placed to guard the palace against fire, facing Mount Gwanak to the south, whose fiery energy geomancers feared.\n\n## Seoul's symbol\n\nThe city of Seoul adopted the haechi as its official symbol in 2009, and it appears throughout the city on signs and souvenirs.",
+    "primarySources": [
+      {
+        "text": "A pair of stone haetae stands before Gwanghwamun, the main gate of Gyeongbokgung, carved during the palace's reconstruction in the 1860s.",
+        "source": "Gyeongbokgung Palace, Seoul (monument)",
+        "date": "1860s"
+      }
+    ],
+    "imageUrl": "/creatures/haetae.png"
+  },
+  {
+    "id": "munmu-sea-dragon",
+    "pantheonId": "korean-pantheon",
+    "name": "Sea Dragon of King Munmu",
+    "slug": "munmu-sea-dragon",
+    "description": "The great dragon of the East Sea that King Munmu of Silla vowed to become after death to protect his kingdom, and who gave his son the bamboo for the flute Manpasikjeok.",
+    "habitat": "The East Sea off the Gyeongju coast",
+    "abilities": [
+      "guarding the kingdom from invaders",
+      "raising storms and darkness",
+      "bestowing sacred treasures"
+    ],
+    "dangerLevel": 3,
+    "detailedBio": "## A king's vow\n\nThe *Samguk Yusa* reports that King Munmu of Silla (r. 661-681), who completed Silla's unification of most of the Korean peninsula, told the monk Jiui that he wished after death to become a great dragon, to guard the state and honor the Buddhist law, and asked to be buried in the East Sea. The *Samguk Sagi* records his last instruction to be cremated and his remains placed in the sea.\n\n## The dragon's treasure\n\nIn 682, the *Samguk Yusa* says, a floating mountain brought a bamboo to Gameunsa, the temple his son King Sinmun had completed for him, and a dragon appeared to Sinmun with a belt of black jade, explaining that the late king had become a great dragon of the sea and the general Kim Yu-sin a god of heaven, and that they sent the bamboo for a flute to keep the world at peace.\n\n## Dragons in Korea\n\nKorean dragons (*yong*) are generally benevolent powers of water and rain, living in underwater palaces and associated with kingship. Munmu's story made the East Sea dragon a guardian of the nation, and Daewangam, the rock traditionally identified as his tomb, remains a site of pilgrimage and shamanic rites.",
+    "primarySources": [
+      {
+        "text": "The king said: 'After my death I wish to become a great dragon of the state, to honor the Buddhist law and guard the country.'",
+        "source": "Iryeon, Samguk Yusa, Book 2, 'King Munmu' (paraphrase)",
+        "sourceId": "samguk-yusa",
+        "locator": "Book 2, King Munmu",
+        "date": "compiled c. 1281-1289"
+      }
+    ],
+    "imageUrl": "/creatures/munmu-sea-dragon.png"
   }
 ]

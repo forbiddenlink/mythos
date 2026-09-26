@@ -1781,5 +1781,356 @@
         ]
       }
     ]
+  },
+  {
+    "pantheonId": "inca-pantheon",
+    "title": "Hanan Pacha, Kay Pacha, Uku Pacha: The Andean Worlds",
+    "summary": "An upper world of Sun, Moon, Thunder, and the heavenly river; this world of mountains, fields, and the sea; and an inner world from which ancestors emerged and serpents rise. Water circulates between them.",
+    "axis": {
+      "name": "Mayu, the River of the Sky",
+      "kind": "river",
+      "note": "The Milky Way, called Mayu ('river'), along which the llama Yacana walks to drink from the sea and from which the Thunder draws rain (Huarochirí Manuscript ch. 29; Cobo). It links sky, earth, and ocean in a single circuit of water rather than standing as a vertical tree or pillar."
+    },
+    "variantNote": "The neat three-level scheme of hanan pacha (upper world), kay pacha (this world), and uku pacha (inner or lower world) is well known today, but these terms are prominent in the Quechua catechisms of the 1580s, which used hanan pacha for the Christian heaven and ucu pacha for hell. Scholars debate how far the tripartite model reflects pre-conquest thought; the older sources show a world organized just as much by water, mountains, and the places of emergence (pacarinas) from which each people came. This diagram uses the three levels as a convenient frame, with that caution.",
+    "sources": [
+      "Huarochirí Manuscript, c. 1598-1608 (trans. Frank Salomon and George L. Urioste, 1991), chs. 1-6 and 29",
+      "Juan de Betanzos, Suma y narración de los Incas, 1551, Part 1, chs. 1-2",
+      "Bernabé Cobo, Historia del Nuevo Mundo, 1653, Books 13-14"
+    ],
+    "tiers": [
+      {
+        "id": "hanan-pacha",
+        "label": "Hanan Pacha: The Upper World",
+        "band": "sky",
+        "realms": [
+          {
+            "name": "Hanan Pacha",
+            "originalName": "hanan pacha",
+            "description": "The world above: the Sun, the Moon, the Thunder with his sling, the stars and dark-cloud animals, and the river of the Milky Way.",
+            "deities": ["inti", "mama-killa", "illapa", "viracocha"],
+            "creatures": ["yacana", "urcuchillay"],
+            "locationId": "isla-del-sol"
+          }
+        ]
+      },
+      {
+        "id": "kay-pacha",
+        "label": "Kay Pacha: This World",
+        "band": "earth",
+        "realms": [
+          {
+            "name": "Kay Pacha",
+            "originalName": "kay pacha",
+            "description": "The world of the living: the earth mother, the mountain lords and huacas, the fields and herds, and the city of Cusco at the center of the four quarters.",
+            "deities": [
+              "pachamama",
+              "pariacaca",
+              "pachacamac",
+              "cuniraya-viracocha",
+              "manco-capac",
+              "mama-ocllo"
+            ],
+            "locationId": "coricancha"
+          }
+        ]
+      },
+      {
+        "id": "mama-qucha",
+        "label": "Mama Qucha: The Sea",
+        "band": "water",
+        "realms": [
+          {
+            "name": "The Sea and the Lakes",
+            "originalName": "mama qucha",
+            "description": "The mother of waters at the edge of the world, into which Cavillaca vanished at Pachacamac and from which the sky-llama drinks at midnight.",
+            "deities": ["mama-qucha"],
+            "locationId": "pachacamac-sanctuary"
+          }
+        ]
+      },
+      {
+        "id": "uku-pacha",
+        "label": "Uku Pacha: The Inner World",
+        "band": "under",
+        "realms": [
+          {
+            "name": "Uku Pacha",
+            "originalName": "uku pacha",
+            "description": "The world within: the dark places beneath the earth through which Viracocha sent the peoples to emerge at their pacarinas, the realm of seeds and the dead, and the home of serpents such as the amaru.",
+            "deities": ["huallallo-carhuincho"],
+            "creatures": ["amaru"]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "pantheonId": "persian-pantheon",
+    "title": "Endless Light, the Seven Regions, and the House of the Lie",
+    "summary": "A world between light and darkness: the House of Song above, the stations of stars, moon, and sun, the seven regions of the earth around the world-mountain Hara and the sea Vouru-Kasha, the Chinvat Bridge that every soul must cross, and the House of the Lie below.",
+    "axis": {
+      "name": "Hara Berezaiti (High Hara)",
+      "kind": "mountain",
+      "note": "The world-mountain around which the sun, moon, and stars revolve; the Mihr Yasht has Mithra rise over Hara before the sun, and the Chinvat Bridge stretches from its peak. Later identified with the Alborz range of northern Iran."
+    },
+    "variantNote": "This arrangement follows the Middle Persian synthesis (Bundahishn, Arda Viraf, Menog-i Khrad), which systematizes allusions scattered through the Avesta; the Gathas themselves describe the House of Song, the House of the Lie, and the Bridge of the Separator, but not a full map. The three stations of the stars, moon, and sun correspond in later texts to good thoughts, good words, and good deeds. The Shahnameh has no cosmology of this kind; its Alborz is an earthly mountain where the Simurgh nests.",
+    "sources": [
+      "Avesta, trans. James Darmesteter and L. H. Mills, Sacred Books of the East 4, 23, 31 (1880-1887)",
+      "Bundahishn, trans. E. W. West, Sacred Books of the East 5 (1880)",
+      "The Book of Arda Viraf, 9th-10th century CE"
+    ],
+    "tiers": [
+      {
+        "id": "garo-demana",
+        "label": "Garo-demana: The House of Song",
+        "band": "beyond",
+        "realms": [
+          {
+            "name": "The House of Song and the Endless Lights",
+            "originalName": "Garō.dəmāna / Garōdmān",
+            "description": "The highest heaven, the dwelling of Ahura Mazda and the Beneficent Immortals, reached by righteous souls after the bridge.",
+            "deities": ["ahura-mazda", "spenta-armaiti"]
+          }
+        ]
+      },
+      {
+        "id": "stations",
+        "label": "The Stations of the Sun, Moon, and Stars",
+        "band": "sky",
+        "realms": [
+          {
+            "name": "The Heavens",
+            "description": "The spheres of the stars, moon, and sun, crossed by Mithra's chariot and by Tishtrya, the rain-star, on his flight to the sea.",
+            "deities": ["mithra", "tishtrya", "verethragna"]
+          }
+        ]
+      },
+      {
+        "id": "karshvars",
+        "label": "The Seven Regions of the Earth",
+        "band": "earth",
+        "realms": [
+          {
+            "name": "Xvaniratha and the Six Outer Regions",
+            "originalName": "haft kišwar",
+            "description": "The inhabited central region and the six surrounding ones, ringed by mountains, where fire burns on the altars and Yima once ruled a deathless golden age.",
+            "deities": ["atar", "yima"],
+            "creatures": ["simurgh"],
+            "locationId": "mount-damavand"
+          }
+        ]
+      },
+      {
+        "id": "chinvat",
+        "label": "The Chinvat Bridge",
+        "band": "beyond",
+        "realms": [
+          {
+            "name": "The Bridge of the Separator",
+            "originalName": "Cinvatō Pərətu",
+            "description": "The crossing every soul makes on the fourth dawn after death, judged by Mithra, Sraosha, and Rashnu: broad for the righteous, narrow as a blade for the wicked.",
+            "deities": ["sraosha"],
+            "locationId": "chinvat-bridge"
+          }
+        ]
+      },
+      {
+        "id": "vourukasha",
+        "label": "The Sea Vouru-Kasha",
+        "band": "water",
+        "realms": [
+          {
+            "name": "Vouru-Kasha, the Wide-Bayed Sea",
+            "originalName": "Vouru.kaša",
+            "description": "The cosmic sea into which Anahita's heavenly river pours and from which all waters flow, where Tishtrya battles the drought demon and the tree of all seeds stands.",
+            "deities": ["anahita"],
+            "creatures": ["apaosha"]
+          }
+        ]
+      },
+      {
+        "id": "drujo-demana",
+        "label": "Drujo-demana: The House of the Lie",
+        "band": "under",
+        "realms": [
+          {
+            "name": "The House of the Lie",
+            "originalName": "Drūjō.dəmāna / Dušox",
+            "description": "The place of darkness, stench, and torment into which the wicked fall from the bridge, the realm of the Hostile Spirit and his demons until the final renewal.",
+            "deities": ["angra-mainyu"],
+            "creatures": ["azhi-dahaka", "div-e-sepid"]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "pantheonId": "finnish-pantheon",
+    "title": "The Egg-Born World and the Nail of the North",
+    "summary": "A world made from the pieces of an egg: the vault of the sky above, forged by Ilmarinen and turning on the Nail of the North; the lands of Kalevala and dark Pohjola; the waters of Ahti; and Tuonela, the land of the dead beyond the black river.",
+    "axis": {
+      "name": "The Nail of the North (Pohjan naula)",
+      "kind": "pillar",
+      "note": "In Finnish folk cosmology the sky turns around the North Star, imagined as a nail or pillar holding it up. The folklorist Uno Harva read the Sampo itself as a form of this world pillar; that interpretation is one of many and remains disputed."
+    },
+    "variantNote": "No single Finnish cosmology was ever written down. This diagram combines the Kalevala's creation from the egg (Rune 1), folk beliefs about the sky's vault (taivaankansi) forged by Ilmarinen and the Milky Way as the 'birds' path' (Linnunrata) leading to Lintukoto, the warm home of birds at the edge of the world, and the Kalevala's journeys to Pohjola and Tuonela. Lönnrot's epic arranges these materials; the folk tradition is more varied and less systematic.",
+    "sources": [
+      "Elias Lönnrot, Kalevala, 1849 (trans. John Martin Crawford, 1888), Runes 1, 10, 16",
+      "Uno Holmberg (Harva), Finno-Ugric Mythology, The Mythology of All Races vol. 4, 1927",
+      "Suomen Kansan Vanhat Runot, 1908-1948"
+    ],
+    "tiers": [
+      {
+        "id": "taivas",
+        "label": "Taivas: The Vault of the Sky",
+        "band": "sky",
+        "realms": [
+          {
+            "name": "The Sky-Lid and the Birds' Path",
+            "originalName": "taivaankansi, Linnunrata",
+            "description": "The dome of heaven made from the upper half of the egg and hammered by Ilmarinen, turning on the Nail of the North; the Milky Way is the path of migrating birds to Lintukoto at the world's edge, and Ukko rules above.",
+            "deities": ["ukko", "ilmatar"]
+          }
+        ]
+      },
+      {
+        "id": "kalevala-land",
+        "label": "The Lands of Kalevala and Pohjola",
+        "band": "earth",
+        "realms": [
+          {
+            "name": "Kalevala (Väinölä)",
+            "description": "The heroes' homeland, where Väinämöinen sows the first trees and the forest belongs to Tapio and Mielikki.",
+            "deities": [
+              "vainamoinen",
+              "ilmarinen",
+              "lemminkainen",
+              "tapio",
+              "mielikki"
+            ],
+            "creatures": ["elk-of-hiisi"],
+            "locationId": "vainola"
+          },
+          {
+            "name": "Pohjola",
+            "description": "The dark, rich North ruled by Louhi, where the Sampo was forged and locked in the mountain.",
+            "deities": ["louhi"],
+            "locationId": "pohjola"
+          }
+        ]
+      },
+      {
+        "id": "ahtola",
+        "label": "Ahtola: The Waters",
+        "band": "water",
+        "realms": [
+          {
+            "name": "Ahtola",
+            "description": "The realm of the waters beneath the waves, ruled by Ahti and Vellamo, home of fish, water-maidens, and the monster Iku-Turso; the shattered Sampo's greater pieces enrich it.",
+            "deities": ["ahti", "vellamo"],
+            "creatures": ["iku-turso", "great-pike"]
+          }
+        ]
+      },
+      {
+        "id": "tuonela",
+        "label": "Tuonela: The Land of the Dead",
+        "band": "under",
+        "realms": [
+          {
+            "name": "Tuonela (Manala)",
+            "originalName": "Tuonela, Manala",
+            "description": "The land of the dead beyond the black river, ruled by Tuoni, where the swan swims and from which no living visitor escapes easily.",
+            "deities": ["tuoni"],
+            "creatures": ["swan-of-tuonela"],
+            "locationId": "tuonela"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "pantheonId": "korean-pantheon",
+    "title": "Heaven, This World, and That World",
+    "summary": "Heaven above, from which the Lord of Heaven's son and the founders of kingdoms descend to sacred mountains and rivers; this world (iseung) of mountains, founders, and guardian beasts; the dragon palaces of the waters; and that world (jeoseung), the road of the dead to which Princess Bari is guide.",
+    "axis": {
+      "name": "The Sacred Altar Tree on Mount Taebaek (Sindansu)",
+      "kind": "tree",
+      "note": "In the Dangun myth Hwanung descends to the summit of Mount Taebaek beneath the sacred altar tree, and the bear-woman prays beneath it for a child. Sacred mountains and village guardian trees remain meeting points of heaven and earth in Korean folk religion."
+    },
+    "variantNote": "Korea has no single systematic cosmology in its early texts. This arrangement combines the vertical descent of the foundation myths (heaven to mountain), the waters of the River Earl and the sea dragon, and the shamanic distinction between iseung and jeoseung, which in rites for the dead is a long horizontal road as much as a place below. Buddhist ideas (the Ten Kings of the underworld, the Western Paradise) and Daoist ones (the Jade Emperor in heaven) are woven into later shamanic songs; Jeju Island's shamanic myths describe their own heavenly and underworld realms.",
+    "sources": [
+      "Iryeon, Samguk Yusa, c. 1281-1289, Book 1 ('Gojoseon'; 'Silla's Founder')",
+      "Kim Busik, Samguk Sagi, 1145, Annals of Goguryeo",
+      "Kim Tae-gon, Hanguk Muga Jip, 1971-1980 (Bari Gongju)"
+    ],
+    "tiers": [
+      {
+        "id": "haneul",
+        "label": "Haneul: Heaven",
+        "band": "sky",
+        "realms": [
+          {
+            "name": "The Heaven of Hwanin",
+            "originalName": "하늘",
+            "description": "The realm of the Lord of Heaven and the Son of Heaven, from which Hwanung and Haemosu descend and to which founders return; the sun holds the three-legged crow.",
+            "deities": ["hwanin", "haemosu"],
+            "creatures": ["samjok-o"]
+          }
+        ]
+      },
+      {
+        "id": "iseung",
+        "label": "Iseung: This World",
+        "band": "earth",
+        "realms": [
+          {
+            "name": "Sacred Mountains and Kingdoms",
+            "originalName": "이승",
+            "description": "The world of the living, where heaven touches earth on sacred mountains and founders are born beside wells and rivers; Mireuk made it and Seokga rules it.",
+            "deities": [
+              "hwanung",
+              "ungnyeo",
+              "dangun",
+              "jumong",
+              "bak-hyeokgeose",
+              "mireuk",
+              "seokga"
+            ],
+            "creatures": ["haetae"],
+            "locationId": "mount-myohyang"
+          }
+        ]
+      },
+      {
+        "id": "yonggung",
+        "label": "The Waters and the Dragon Palace",
+        "band": "water",
+        "realms": [
+          {
+            "name": "River Palaces and the Dragon Palace",
+            "originalName": "용궁",
+            "description": "The palace of the River Earl beneath the waters, and the dragon palace of the sea, where Silla's King Munmu watches over the coast as a dragon.",
+            "deities": ["habaek", "yuhwa"],
+            "creatures": ["munmu-sea-dragon"],
+            "locationId": "daewangam"
+          }
+        ]
+      },
+      {
+        "id": "jeoseung",
+        "label": "Jeoseung: That World",
+        "band": "under",
+        "realms": [
+          {
+            "name": "The Road of the Dead",
+            "originalName": "저승",
+            "description": "The other world, reached by a long road through rivers, mountains, and the courts of judgment, beyond which lies the Western Heaven where Bari found the water of life.",
+            "deities": ["bari-gongju"],
+            "locationId": "jeoseung"
+          }
+        ]
+      }
+    ]
   }
 ]

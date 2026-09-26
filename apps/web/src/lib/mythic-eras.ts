@@ -41,15 +41,15 @@ export const MYTHIC_ERAS: MythicEra[] = [
   {
     id: "precolumbian",
     label: "Pre-Columbian Americas",
-    blurb: "Mesoamerica through contact",
+    blurb: "Mesoamerica and the Andes through contact",
     start: -2000,
-    end: 1521,
-    pantheonIds: ["aztec-pantheon", "mesoamerican-pantheon"],
+    end: 1572,
+    pantheonIds: ["aztec-pantheon", "mesoamerican-pantheon", "inca-pantheon"],
   },
   {
     id: "asia-pacific",
     label: "Asia & Pacific",
-    blurb: "Hindu, Chinese, Japanese, Polynesian",
+    blurb: "Hindu, Chinese, Japanese, Korean, Polynesian",
     start: -1600,
     end: 1900,
     pantheonIds: [
@@ -57,6 +57,7 @@ export const MYTHIC_ERAS: MythicEra[] = [
       "chinese-pantheon",
       "japanese-pantheon",
       "polynesian-pantheon",
+      "korean-pantheon",
     ],
   },
   {
@@ -123,6 +124,23 @@ export const MYTHIC_ERAS: MythicEra[] = [
     start: null,
     end: null,
     pantheonIds: ["dine-pantheon"],
+  },
+  {
+    id: "ancient-iran",
+    label: "Ancient Iran",
+    blurb: "Avestan hymns, Achaemenid and Sasanian kings, and the Shahnameh",
+    start: -1500,
+    end: 1010,
+    pantheonIds: ["persian-pantheon"],
+  },
+  {
+    id: "finnic-north",
+    label: "Finnic North",
+    blurb:
+      "Finnish and Karelian runo-song, from Agricola's list to the Kalevala",
+    start: 800,
+    end: 1849,
+    pantheonIds: ["finnish-pantheon"],
   },
 ];
 

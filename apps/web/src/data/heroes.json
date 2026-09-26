@@ -1417,5 +1417,58 @@
         "date": "2009"
       }
     ]
+  },
+  {
+    "id": "rostam",
+    "pantheonId": "persian-pantheon",
+    "name": "Rostam",
+    "slug": "rostam",
+    "gender": "male",
+    "alternateNames": ["Rustam", "Rostam-e Dastan", "Tahamtan"],
+    "description": "The greatest champion of Ferdowsi's Shahnameh, lord of Zabulistan and defender of Iran's kings for centuries, rider of the horse Rakhsh, who in the epic's most famous tragedy kills his own son Sohrab without knowing him.",
+    "detailedBio": "## Born with the Simurgh's help\n\nRostam is the son of Zal, the white-haired hero raised by the Simurgh, and of Rudabeh, princess of Kabul. His birth is so difficult that Zal burns one of the Simurgh's feathers; the bird appears and instructs that the child be cut from his mother's side while she is drugged with wine, and that the wound be healed with herbs and a stroke of her feather. As a boy he kills a raging white elephant, and he chooses the colt Rakhsh, who will carry him through the epic.\n\n## Champion of Iran\n\nRostam serves the kings of Iran against Turan and against demons. To rescue King Kay Kavus from captivity in Mazandaran, he passes through seven trials (the *Haft Khan*), among them a lion, a dragon, a sorceress, and at last the White Div, whose blood restores the sight of the blinded king and his army. He fights the Turanian king Afrasiyab through many reigns and rescues the hero Bizhan from a pit.\n\n## Tragedies\n\nTwo tragedies define him. Unrecognized, he kills his son Sohrab in single combat, learning the truth only from the armband he had left with the boy's mother. And late in life he is forced into combat with the prince Esfandiyar, who is invulnerable except in his eyes; with the Simurgh's help Rostam kills him with an arrow of tamarisk, knowing that whoever kills Esfandiyar is doomed.\n\n## Before Ferdowsi\n\nRostam has no clear place in the Avesta. His legends are associated with Sistan in eastern Iran and appear in Sogdian and Middle Persian fragments before Ferdowsi, who drew on older prose chronicles for the epic.",
+    "parentage": {
+      "mortalParentName": "Zal, son of Sam (father), and Rudabeh, daughter of Mehrab of Kabul (mother)",
+      "note": "Wholly mortal parentage in the Shahnameh; his birth is attended by the Simurgh, whose feather Zal burns to summon her."
+    },
+    "keyDeeds": [
+      "Born by a surgical birth guided by the Simurgh",
+      "Chose and tamed the horse Rakhsh",
+      "Passed the Seven Trials (Haft Khan) and killed the White Div to free Kay Kavus",
+      "Killed his son Sohrab in single combat without knowing him",
+      "Rescued Bizhan from Afrasiyab's pit",
+      "Killed the invulnerable prince Esfandiyar with a tamarisk arrow, on the Simurgh's advice"
+    ],
+    "fate": "His half-brother Shaghad and the king of Kabul lure him into a hunting ground lined with hidden pits of spears and swords; Rakhsh falls in with him. Dying, Rostam asks for his bow and kills Shaghad with an arrow that pierces the tree he hides behind.",
+    "relatedDeityIds": [],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "celtic-pantheon",
+        "refId": "cu-chulainn",
+        "kind": "hero",
+        "note": "Both heroes kill their own sons in single combat without recognizing them until too late: Rostam and Sohrab in the Shahnameh, Cú Chulainn and Connla in the Irish tale 'The Death of Aífe's Only Son'. The father-son combat is a widely noted comparative motif."
+      }
+    ],
+    "imageUrl": "/heroes/rostam.png",
+    "pronunciation": {
+      "ipa": "/rosˈtæm/",
+      "phonetic": "ross-TAM"
+    },
+    "primarySources": [
+      {
+        "text": "When Rostam saw the armband on Sohrab's arm, the token he had left with Tahmineh, he tore his clothes and wept, knowing he had killed his own son.",
+        "source": "Ferdowsi, Shahnameh, 'Rostam and Sohrab', reign of Kay Kavus (paraphrase)",
+        "sourceId": "shahnameh",
+        "locator": "reign of Kay Kavus",
+        "date": "completed 1010 CE"
+      },
+      {
+        "text": "Rostam went into the cave of the White Div, found him asleep, and after a fierce struggle killed him and took his liver, whose blood restored the sight of Kay Kavus and his men.",
+        "source": "Ferdowsi, Shahnameh, the Seven Trials of Rostam (paraphrase)",
+        "sourceId": "shahnameh",
+        "locator": "reign of Kay Kavus",
+        "date": "completed 1010 CE"
+      }
+    ]
   }
 ]

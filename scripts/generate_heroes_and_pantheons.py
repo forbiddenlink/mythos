@@ -5,10 +5,12 @@ Generates the 7 missing hero plates and 3 missing pantheon covers for Mythos Atl
 matching the established dark-academia classical atlas aesthetic.
 """
 
+import argparse
 import os
 import math
 from PIL import Image, ImageDraw, ImageFilter
 
+from _plate_emblems import draw_emblem
 from _repo_paths import WEB_PUBLIC, serif_font, write_webp
 
 HEROES_DIR = os.path.join(WEB_PUBLIC, "heroes")
@@ -83,7 +85,10 @@ NEW_HEROES = [
         "accent": (205, 150, 75),     # Cuneiform Lapis & Gold
         "bg_tone": (22, 16, 14),
         "motif": "etana_eagle"
-    }
+    },
+
+    # PERSIAN / IRANIAN (2026-09)
+    {"id": "rostam", "name": "ROSTAM", "epithet": "CHAMPION OF IRAN · RIDER OF RAKHSH", "pantheon": "PERSIAN", "accent": (200, 140, 70), "bg_tone": (20, 14, 12), "motif": "emblem_mace"},
 ]
 
 W_HERO, H_HERO = 768, 1024
@@ -117,6 +122,9 @@ def draw_new_hero_motif(draw, cx, cy, radius, motif, accent):
             (cx + r1 * math.cos(angle), cy + r1 * math.sin(angle)),
             (cx + r2 * math.cos(angle), cy + r2 * math.sin(angle))
         ], fill=dark_gold, width=1)
+
+    if draw_emblem(draw, cx, cy, motif, accent, gold):
+        return
 
     if motif == "kusanagi_sword":
         # Sacred Bronze Sword of Yamato Takeru & Sun Disk
@@ -305,7 +313,19 @@ NEW_PANTHEONS = [
         "accent": (215, 175, 45),
         "bg_tone": (20, 18, 10),
         "motif": "akan_web"
-    }
+    },
+
+    # INCA & ANDEAN (2026-09)
+    {"slug": "inca", "name": "INCA & ANDEAN TRADITION", "culture": "TAWANTINSUYU · THE ANDES", "accent": (215, 165, 55), "bg_tone": (20, 14, 12), "motif": "emblem_sun_face"},
+
+    # PERSIAN / IRANIAN (2026-09)
+    {"slug": "persian", "name": "PERSIAN (IRANIAN) TRADITION", "culture": "AVESTA · SHAHNAMEH", "accent": (90, 130, 210), "bg_tone": (12, 14, 24), "motif": "emblem_winged_disc"},
+
+    # FINNISH / KALEVALA (2026-09)
+    {"slug": "finnish", "name": "FINNISH TRADITION", "culture": "KALEVALA · KARELIA", "accent": (130, 190, 170), "bg_tone": (10, 12, 20), "motif": "emblem_kantele"},
+
+    # KOREAN (2026-09)
+    {"slug": "korean", "name": "KOREAN TRADITION", "culture": "GOJOSEON · GOGURYEO · SILLA", "accent": (130, 185, 165), "bg_tone": (10, 14, 14), "motif": "emblem_tree_altar"},
 ]
 
 def generate_pantheon_plate(p):
@@ -338,6 +358,7 @@ def generate_pantheon_plate(p):
 
     # Medallion motifs
     m_cy = cy - 20
+    draw_emblem(draw, cx, m_cy, p["motif"], accent, gold, p["bg_tone"])
     if p["motif"] == "slavic_sanctuary":
         # Four-faced Zbruch Idol & Sacred Oak Thunders
         draw.line([(cx - 25, m_cy - 90), (cx - 25, m_cy + 85)], fill=gold, width=4)
@@ -412,9 +433,7 @@ def generate_pantheon_plate(p):
     print(f"  ✓ Pantheon: {p['slug']} -> JPG & PNG")
 
 if __name__ == "__main__":
-    import argparse
-
-    parser = argparse.ArgumentParser(description="Generate hero plates and pantheon covers.")
+    parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument(
         "--only",
         help="Comma-separated hero ids or pantheon slugs to (re)generate; default is every plate.",
@@ -422,12 +441,19 @@ if __name__ == "__main__":
     args = parser.parse_args()
     wanted = set(args.only.split(",")) if args.only else None
 
-    print("Generating Hero Plates...")
-    for h in NEW_HEROES:
-        if wanted is None or h["id"] in wanted:
-            generate_hero_plate(h)
+    heroes = [h for h in NEW_HEROES if wanted is None or h["id"] in wanted]
+    pantheons = [p for p in NEW_PANTHEONS if wanted is None or p["slug"] in wanted]
+    if wanted:
+        missing = wanted - {h["id"] for h in heroes} - {p["slug"] for p in pantheons}
+        if missing:
+            raise SystemExit(f"Unknown ids: {', '.join(sorted(missing))}")
 
-    print("Generating Pantheon Covers...")
-    for p in NEW_PANTHEONS:
-        if wanted is None or p["slug"] in wanted:
-            generate_pantheon_plate(p)
+    print(f"Generating {len(heroes)} Hero Plates...")
+    for h in heroes:
+        generate_hero_plate(h)
+
+    print(f"Generating {len(pantheons)} Pantheon Covers...")
+    for p in pantheons:
+        generate_pantheon_plate(p)
+
+    print("Hero and pantheon plates generated.")

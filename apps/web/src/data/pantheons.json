@@ -882,5 +882,223 @@
     ],
     "imageUrl": "/pantheons/dine.jpg",
     "figuresLabel": "Holy People (Diyin Dineʼé)"
+  },
+  {
+    "id": "inca-pantheon",
+    "name": "Inca and Andean Tradition",
+    "slug": "inca",
+    "culture": "Inca (Tawantinsuyu) and the wider Quechua- and Aymara-speaking Andean world",
+    "region": "Andes (western South America)",
+    "timePeriodStart": 1200,
+    "timePeriodEnd": 1572,
+    "description": "The religion of the Inca state and the older Andean shrines it absorbed: Viracocha the maker rising from Lake Titicaca, Inti the Sun as ancestor of the Inca kings, and the mountain and coastal huacas of the Huarochirí Manuscript, all known through writers of the colonial era.",
+    "detailedHistory": "## Known only through the colonial filter\n\nThe Incas kept records on knotted cords (khipu) read by trained specialists, but they left no written narratives of their gods. Every story on this site was written down after the Spanish invasion of 1532, by people with their own purposes. Juan de Betanzos (1551) wrote in Cusco with the help of his wife's royal Inca kin. Cristóbal de Molina (c. 1575) questioned elders who had served in the state cult. Pedro Sarmiento de Gamboa (1572) interviewed Inca lineage heads for a viceroy who wanted the Incas shown as tyrants. The Inca Garcilaso de la Vega (1609), son of a Spanish captain and an Inca noblewoman, wrote from Spain decades later and presented Inca religion as a noble monotheism that anticipated Christianity. Felipe Guaman Poma de Ayala (c. 1615), an Andean noble, drew and wrote a long protest to the Spanish king. And much of what survives about local gods comes from the campaigns to destroy them: the Quechua Huarochirí Manuscript (c. 1598-1608) was compiled in the circle of the extirpator Francisco de Ávila. Each of these sources is used here for what it can show, with its point of view stated.\n\n## Two layers: the state cult and the huacas\n\nAt the top of the Inca state cult stood the Creator (called Viracocha, Con Tici Viracocha, or Pachayachachic), the Sun (Inti), the Thunder (Illapa), and the Moon (Mama Killa), whose images and chambers were housed in the Coricancha, the gold-sheathed temple at the center of Cusco. Beneath and alongside them were countless huacas: mountains, springs, stones, ancestral mummies, and regional gods with their own priests, oracles, and stories, such as Pachacamac on the coast and Pariacaca in the highlands of Huarochirí. The Inca state generally absorbed these rather than abolishing them, adding a Temple of the Sun beside Pachacamac's ancient shrine, for example, and keeping the images of conquered peoples' huacas in Cusco. Around Cusco itself, the Jesuit Bernabé Cobo later listed more than three hundred shrines arranged along imaginary lines (ceques) radiating from the Coricancha.\n\n## Origins, ancestors, and the Sun\n\nThe Inca kings claimed descent from the Sun through the founding ancestor Manco Cápac. Chroniclers preserve two main versions of that origin: in one, told by Garcilaso, the Sun sends his son and daughter to Lake Titicaca to civilize humanity; in the other, told by Betanzos and Sarmiento, four brothers and four sisters emerge from a cave at Pacaritambo and travel to the valley of Cusco. Andean peoples more generally traced each lineage to a pacarina, a place of emergence such as a lake, spring, or cave.\n\n## After 1572, and today\n\nThe Inca state ended with the fall of Vilcabamba and the execution of Túpac Amaru in 1572, when the Sun image called the Punchao was also captured. Andean religion did not end with it. Quechua and Aymara communities continue to make offerings to Pachamama and to the mountain lords (apus), often alongside Catholic practice, and the Inti Raymi solstice pageant has been re-staged at Sacsayhuamán in Cusco since 1944 as a civic festival reconstructed largely from Garcilaso's description.",
+    "citationSources": [
+      {
+        "title": "Suma y narración de los Incas",
+        "author": "Juan de Betanzos",
+        "date": "1551",
+        "type": "primary",
+        "sourceId": "betanzos-suma-y-narracion"
+      },
+      {
+        "title": "Relación de las fábulas y ritos de los Incas",
+        "author": "Cristóbal de Molina",
+        "date": "c. 1575",
+        "type": "primary",
+        "sourceId": "molina-fables-and-rites"
+      },
+      {
+        "title": "Comentarios Reales de los Incas",
+        "author": "Inca Garcilaso de la Vega",
+        "date": "1609",
+        "type": "primary",
+        "sourceId": "garcilaso-royal-commentaries"
+      },
+      {
+        "title": "The Huarochirí Manuscript",
+        "author": "Anonymous; trans. Frank Salomon and George L. Urioste",
+        "date": "c. 1598-1608; trans. 1991",
+        "type": "primary",
+        "sourceId": "huarochiri-manuscript"
+      },
+      {
+        "title": "El primer nueva corónica y buen gobierno",
+        "author": "Felipe Guaman Poma de Ayala",
+        "date": "c. 1615",
+        "type": "primary",
+        "sourceId": "guaman-poma-nueva-coronica"
+      },
+      {
+        "title": "Inca Religion and Customs (Historia del Nuevo Mundo, Books 13-14)",
+        "author": "Bernabé Cobo; trans. Roland Hamilton",
+        "date": "1653; trans. 1990",
+        "type": "primary",
+        "sourceId": "cobo-inca-religion"
+      }
+    ],
+    "imageUrl": "/pantheons/inca.jpg",
+    "figuresLabel": "Deities, Huacas & Ancestors"
+  },
+  {
+    "id": "persian-pantheon",
+    "name": "Persian (Iranian) Tradition",
+    "slug": "persian",
+    "culture": "Ancient Iranian: Avestan and Zoroastrian religion, the Achaemenid and Sasanian empires, and the Persian epic tradition",
+    "region": "Iranian plateau and Central Asia",
+    "timePeriodStart": -1500,
+    "timePeriodEnd": null,
+    "description": "The divine beings and heroes of ancient Iran in two distinct layers: the Zoroastrian scripture of the Avesta, with Ahura Mazda, Angra Mainyu, Mithra, and Anahita, and Ferdowsi's Shahnameh, which a thousand years later retold Iran's primeval kings and heroes as epic.",
+    "detailedHistory": "## Two traditions, kept apart\n\nThis entry draws on two bodies of material that should not be blurred together. The first is the **Avesta**, the scripture of Zoroastrianism, composed in Avestan, an Old Iranian language close to the Sanskrit of the Rigveda. Its oldest part, the **Gathas**, are seventeen hymns attributed to the prophet Zarathushtra; their date is disputed, with most scholars placing them somewhere between about 1500 and 1000 BCE on linguistic grounds and others later. The younger parts include the **Yashts**, hymns to individual divine beings such as Mithra, Anahita, and the star Tishtrya, and the **Vendidad**, a book of purity law that preserves myths of creation and of the first king, Yima. The Avesta was transmitted orally for many centuries, written down in a script devised in the Sasanian period, and survives only in medieval manuscripts. Middle Persian books of the ninth and tenth centuries CE, above all the **Bundahishn**, systematize its cosmology.\n\nThe second is the **Shahnameh** ('Book of Kings'), the Persian epic completed by Ferdowsi in 1010 CE, in Islamic-era Iran, from older chronicles of the Iranian kings. It contains no gods: Ferdowsi was a Muslim, and the Avestan figures reappear transformed into kings and villains, so that Yima becomes King Jamshid and the three-headed dragon Azhi Dahaka becomes the serpent-shouldered tyrant Zahhak. Its great heroes, Rostam above all, have no clear Avestan counterparts. Each record on this site says which layer it comes from.\n\n## One God, and beings worthy of worship\n\nZoroastrianism is a living religion, and 'pantheon' fits it only loosely. Zoroastrians today regard **Ahura Mazda**, the Wise Lord, as the one uncreated God. The **Amesha Spentas** ('Beneficent Immortals') such as Spenta Armaiti are his emanations or aspects, and the **yazatas** ('beings worthy of worship') such as Mithra, Anahita, and Tishtrya are divine beings created by him and honored in their own hymns. Opposed to this good creation is **Angra Mainyu** (Ahriman), the Hostile Spirit, who is not a god to be worshipped but the source of death, lies, and every corruption. At the heart of the Gathas is the choice between truth (*asha*) and the lie (*druj*) that each person must make.\n\n## Kings and inscriptions\n\nThe Achaemenid kings (550-330 BCE) credited their rule to 'the favor of Ahuramazda' in inscriptions at Behistun, Persepolis, and Naqsh-e Rostam; Artaxerxes II (r. 404-358 BCE) is the first king whose inscriptions also name Anahita and Mithra. Herodotus reports that the Persians worshipped without temples or statues, on the tops of mountains. Under the Sasanians (224-651 CE) Zoroastrianism became a state church with great fire temples, and a speculative current, Zurvanism, made Infinite Time the father of both spirits. After the Arab conquest the religion became a minority in Iran; many Zoroastrians migrated to India, where they are known as Parsis. Zoroastrian communities survive today in Iran, India, and a worldwide diaspora, and festivals rooted in the old calendar, above all **Nowruz**, the new year at the spring equinox, are celebrated across the Iranian world.\n\n## Cautions\n\nThe winged figure in a disc on Achaemenid reliefs, now called the Faravahar, is popularly identified with Ahura Mazda, but scholars disagree whether it represents the god, the royal glory, or the king's guardian spirit. The Mithras of the Roman mystery cult shares a name with the Iranian Mithra, but how much, if anything, of Iranian belief lay behind the Roman mysteries remains debated.",
+    "citationSources": [
+      {
+        "title": "The Zend-Avesta, Parts I-II (Vendidad; Yashts)",
+        "author": "trans. James Darmesteter",
+        "date": "1880, 1883",
+        "type": "primary",
+        "sourceId": "avesta"
+      },
+      {
+        "title": "The Zend-Avesta, Part III (Yasna, Gathas)",
+        "author": "trans. L. H. Mills",
+        "date": "1887",
+        "type": "primary",
+        "sourceId": "avesta"
+      },
+      {
+        "title": "Bundahishn",
+        "author": "trans. E. W. West",
+        "date": "1880",
+        "type": "primary",
+        "sourceId": "bundahishn"
+      },
+      {
+        "title": "Shahnameh",
+        "author": "Abolqasem Ferdowsi; trans. A. G. and E. Warner; Dick Davis",
+        "date": "1010 CE; trans. 1905-1925, 2006",
+        "type": "primary",
+        "sourceId": "shahnameh"
+      },
+      {
+        "title": "Behistun Inscription",
+        "author": "Darius I",
+        "date": "c. 520 BCE",
+        "type": "primary",
+        "sourceId": "behistun-inscription"
+      },
+      {
+        "title": "A History of Zoroastrianism",
+        "author": "Mary Boyce",
+        "date": "1975-1991",
+        "type": "secondary"
+      }
+    ],
+    "imageUrl": "/pantheons/persian.jpg",
+    "figuresLabel": "Divine Beings & Kings"
+  },
+  {
+    "id": "finnish-pantheon",
+    "name": "Finnish Tradition (Kalevala)",
+    "slug": "finnish",
+    "culture": "Finnish and Karelian (Baltic Finnic) peoples",
+    "region": "Finland and Karelia (Northern Europe)",
+    "timePeriodStart": 800,
+    "timePeriodEnd": 1849,
+    "description": "The gods and heroes of Finnish and Karelian runo-song, known from Mikael Agricola's list of 1551, from thousands of folk poems collected in the eighteenth and nineteenth centuries, and above all from Elias Lönnrot's national epic, the Kalevala.",
+    "detailedHistory": "## A tradition recorded late\n\nThe Baltic Finnic peoples, ancestors of the Finns, Karelians, and Estonians, had no writing before Christianization, which reached Finland gradually between the eleventh and thirteenth centuries through Swedish and Novgorodian influence. The earliest written list of Finnish gods comes from the Lutheran reformer Mikael Agricola, who prefaced his Finnish Psalter of 1551 with a rhymed catalog of the 'idols' of the Tavastians and Karelians: Tapio who gave game from the forest, Ahti who brought fish from the water, Väinämöinen who made songs, Ilmarinen who made calm and storm, Ukko whose bowl was drunk at the spring sowing, and many more. Christfrid Ganander's *Mythologia Fennica* (1789) added a dictionary of beliefs and names.\n\n## Runo-song\n\nThe richest evidence is oral poetry in the Kalevala metre, a trochaic line with heavy alliteration and parallelism, sung in Finland, Karelia, and Ingria. It includes epic songs about Väinämöinen, Ilmarinen, and Lemminkäinen, charms (*loitsut*) that invoke the origin of iron, fire, or disease to gain power over it, lyric songs, and wedding songs. The tradition survived longest among the Orthodox Karelians of Viena (White Sea) Karelia, now in Russia. Collected from the late eighteenth century on, these songs fill the 34 volumes of *Suomen Kansan Vanhat Runot*.\n\n## Lönnrot's Kalevala\n\nThe physician Elias Lönnrot made eleven collecting journeys between 1828 and 1844, meeting singers such as Arhippa Perttunen of Latvajärvi in Viena Karelia. From his own and others' collections he compiled the *Kalevala* (1835; expanded edition of 50 runes, 1849), joining separate songs into a continuous epic, harmonizing names, supplying linking passages, and sometimes moving episodes between characters. The creation from the eggs, for example, is laid on the knee of Väinämöinen himself in most folk variants; Lönnrot gave the role to the air-maiden he named Ilmatar. The Kalevala is therefore both a work of genuine folk poetry and a nineteenth-century literary creation, and it shaped Finnish national identity during the period of Russian rule before independence in 1917.\n\n## What this entry does\n\nEach record here says whether it rests on Agricola, on folk poetry, or on the Kalevala as Lönnrot arranged it. Quotations from the Kalevala are from John Martin Crawford's public-domain English translation of 1888, which follows the 50-rune edition.",
+    "citationSources": [
+      {
+        "title": "Kalevala",
+        "author": "Elias Lönnrot; trans. John Martin Crawford (1888), W. F. Kirby (1907), Keith Bosley (1989)",
+        "date": "1849",
+        "type": "primary",
+        "sourceId": "kalevala"
+      },
+      {
+        "title": "Dauidin Psaltari, verse preface",
+        "author": "Mikael Agricola",
+        "date": "1551",
+        "type": "primary",
+        "sourceId": "agricola-psalter-preface"
+      },
+      {
+        "title": "Suomen Kansan Vanhat Runot",
+        "author": "Finnish Literature Society",
+        "date": "1908-1948; 1997",
+        "type": "primary",
+        "sourceId": "suomen-kansan-vanhat-runot"
+      },
+      {
+        "title": "Mythologia Fennica",
+        "author": "Christfrid Ganander",
+        "date": "1789",
+        "type": "primary"
+      },
+      {
+        "title": "Finno-Ugric Mythology (The Mythology of All Races, vol. 4)",
+        "author": "Uno Holmberg (Harva)",
+        "date": "1927",
+        "type": "secondary"
+      }
+    ],
+    "imageUrl": "/pantheons/finnish.jpg",
+    "figuresLabel": "Gods, Spirits & Heroes"
+  },
+  {
+    "id": "korean-pantheon",
+    "name": "Korean Tradition",
+    "slug": "korean",
+    "culture": "Korean: the foundation myths of the Three Kingdoms and the shamanic (muism) narrative tradition",
+    "region": "Korean Peninsula and Manchuria",
+    "timePeriodStart": 400,
+    "timePeriodEnd": null,
+    "description": "The founders and gods of Korean tradition: Dangun, born of the Lord of Heaven's son and a bear who became a woman; the egg-born kings Jumong and Bak Hyeokgeose; and the goddesses and creators of shamanic song, such as Princess Bari, guide of the dead, and Mireuk, who separated heaven from earth.",
+    "detailedHistory": "## Two bodies of myth\n\nKorean myth reaches us through two very different channels. The first is the **foundation myths** of the ancient kingdoms, written in Literary Chinese by later historians and monks. The earliest datable text is the stele erected in 414 CE for King Gwanggaeto of Goguryeo, whose opening lines tell of the founder Chumo (Jumong), son of the Heavenly Emperor and the River Earl's daughter, breaking out of an egg. Kim Busik's official *Samguk Sagi* (1145) gives full accounts of the founders of Silla, Goguryeo, and Baekje, and the monk Iryeon's *Samguk Yusa* (c. 1281-1289) preserves the earliest surviving telling of the Dangun myth, citing an older record now lost. These texts were written centuries after the events they describe, by scholars with Confucian or Buddhist commitments, and their dates for legendary kings are traditional rather than historical.\n\nThe second channel is **muga**, the narrative songs of Korean shamans (*mudang*), performed in rituals (*gut*) and transmitted orally until folklorists began recording them in the twentieth century. They include creation songs in which the deities Mireuk and Seokga contend for the world, and the long narrative of Princess Bari, the abandoned daughter who becomes the guide of the dead. Each song exists in many regional versions; on Jeju Island a distinct body of shamanic myths (*bonpuri*) survives.\n\n## Heaven, founders, and descent\n\nA recurring pattern links the foundation myths: a heavenly figure descends to a mountain or river, unites with an earthly woman associated with animals, water, or the land, and their child founds a kingdom. Hwanung descends to Mount Taebaek and marries the bear-woman Ungnyeo; Haemosu, son of Heaven, unites with Yuhwa, daughter of the River Earl; Silla's founder emerges from an egg beside a well, heralded by a white horse from the sky. Egg births and heavenly descent tie royal legitimacy to heaven.\n\n## Buddhist names, shamanic gods\n\nThe creator figures of the shamanic songs, Mireuk and Seokga, bear the Korean names of the Buddhas Maitreya and Shakyamuni, but in the songs they are rival creator gods whose contest explains why the world is imperfect; they are not Buddhist doctrine. Iryeon, a Buddhist monk, likewise glosses the Lord of Heaven Hwanin as Jeseok, the Buddhist name of Indra. Such layering is typical of Korean religion, in which shamanism, Buddhism, Confucianism, and Daoist elements have long coexisted.\n\n## Living traditions\n\nKorean shamanism remains a living practice, with mudang performing gut for healing, good fortune, and the dead. Dangun is honored on National Foundation Day (Gaecheonjeol, 3 October) in South Korea, whose traditional founding date of 2333 BCE is a calculation by later Joseon-era historians rather than a statement of the Samguk Yusa itself; in North Korea, a 'Mausoleum of Dangun' near Pyongyang, built in 1994 after the reported discovery of his bones, is regarded by most historians outside the country as a political monument rather than an archaeological fact.",
+    "citationSources": [
+      {
+        "title": "Samguk Yusa",
+        "author": "Iryeon; trans. Ha Tae-hung and Grafton K. Mintz",
+        "date": "c. 1281-1289; trans. 1972",
+        "type": "primary",
+        "sourceId": "samguk-yusa"
+      },
+      {
+        "title": "Samguk Sagi",
+        "author": "Kim Busik",
+        "date": "1145",
+        "type": "primary",
+        "sourceId": "samguk-sagi"
+      },
+      {
+        "title": "Gwanggaeto Stele inscription",
+        "author": "Goguryeo court",
+        "date": "414 CE",
+        "type": "primary",
+        "sourceId": "gwanggaeto-stele"
+      },
+      {
+        "title": "Dongmyeongwang-pyeon",
+        "author": "Yi Gyu-bo",
+        "date": "1193",
+        "type": "primary",
+        "sourceId": "dongmyeongwang-pyeon"
+      },
+      {
+        "title": "Joseon Singa Yupyeon",
+        "author": "Son Jin-tae",
+        "date": "1930",
+        "type": "primary",
+        "sourceId": "joseon-singa-yupyeon"
+      },
+      {
+        "title": "Hanguk Muga Jip",
+        "author": "Kim Tae-gon",
+        "date": "1971-1980",
+        "type": "primary",
+        "sourceId": "hanguk-muga-jip"
+      }
+    ],
+    "imageUrl": "/pantheons/korean.jpg",
+    "figuresLabel": "Gods, Founders & Shamanic Deities"
   }
 ]

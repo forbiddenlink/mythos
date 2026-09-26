@@ -441,6 +441,30 @@ export const PANTHEON_COLORS: Record<
     text: "text-patina",
     dot: "bg-patina",
   },
+  "inca-pantheon": {
+    bg: "bg-gold/15",
+    border: "border-gold/35",
+    text: "text-gold",
+    dot: "bg-gold",
+  },
+  "persian-pantheon": {
+    bg: "bg-patina/15",
+    border: "border-patina/35",
+    text: "text-patina",
+    dot: "bg-patina",
+  },
+  "finnish-pantheon": {
+    bg: "bg-patina/15",
+    border: "border-patina/35",
+    text: "text-patina",
+    dot: "bg-patina",
+  },
+  "korean-pantheon": {
+    bg: "bg-bronze/15",
+    border: "border-bronze/35",
+    text: "text-bronze",
+    dot: "bg-bronze",
+  },
 };
 
 /**

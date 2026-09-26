@@ -3277,5 +3277,517 @@
     ],
     "imageUrl": "/locations/gobernador-knob.png",
     "geography": "physical"
+  },
+  {
+    "id": "isla-del-sol",
+    "name": "Island of the Sun (Lake Titicaca)",
+    "slug": "isla-del-sol",
+    "locationType": "island",
+    "pantheonId": "inca-pantheon",
+    "description": "The island in the Bolivian part of Lake Titicaca honored in Inca times as the place where the Sun first rose, site of a major Inca pilgrimage sanctuary centered on a sacred rock.",
+    "latitude": -16.0206,
+    "longitude": -69.1764,
+    "geography": "physical",
+    "detailedBio": "## Where the Sun rose\n\nThe Island of the Sun lies in the southern part of Lake Titicaca, today in Bolivia. Colonial writers including Bernabé Cobo and the Augustinian Alonso Ramos Gavilán (1621) report that Andeans held that the Sun had first risen from a great rock on the island after a time of darkness, and the Inca state turned the place into one of its most important pilgrimage centers, alongside the neighboring Island of the Moon (Coati).\n\n## The Inca sanctuary\n\nPilgrims passed through checkpoints on the mainland and the island before approaching the sacred rock, where offerings were made; Inca buildings still stand on the island, including the structures known as Pilkokaina and the Chincana. Archaeological survey by Brian Bauer and Charles Stanish has shown that the island had been a ritual center well before the Incas, who expanded and reorganized it.\n\n## In the myths\n\nThe island connects the two great Inca origin traditions: Betanzos's Viracocha makes the sun rise in the Titicaca basin, and Garcilaso's Sun places his children Manco Cápac and Mama Ocllo in the lake.",
+    "primarySources": [
+      {
+        "text": "They say that after a long darkness the Sun rose from a great rock on the island of Titicaca, and for this reason the Incas made it one of their principal shrines.",
+        "source": "Bernabé Cobo, Historia del Nuevo Mundo, Book 13 (paraphrase)",
+        "sourceId": "cobo-inca-religion",
+        "locator": "Book 13",
+        "date": "written 1653"
+      }
+    ],
+    "imageUrl": "/locations/isla-del-sol.png"
+  },
+  {
+    "id": "tiwanaku",
+    "name": "Tiwanaku",
+    "slug": "tiwanaku",
+    "locationType": "city",
+    "pantheonId": "inca-pantheon",
+    "description": "The ruined ceremonial city south of Lake Titicaca, capital of an Andean civilization of about 500-1000 CE, which the Incas claimed as the place where Viracocha made the sun, moon, and peoples.",
+    "latitude": -16.5547,
+    "longitude": -68.6733,
+    "geography": "physical",
+    "detailedBio": "## An older city\n\nTiwanaku, in the Bolivian altiplano near the southern shore of Lake Titicaca, was the center of a powerful state that flourished roughly between 500 and 1000 CE, centuries before the Incas. Its monuments include the stepped platform of Akapana, the sunken court, the Kalasasaya enclosure, and the monolithic Gateway of the Sun with its carved staff-bearing figure.\n\n## Claimed by the Incas\n\nBy the time the Incas incorporated the Titicaca basin in the fifteenth century, Tiwanaku was already in ruins. The Incas made it part of their own sacred history: in Betanzos's and Molina's accounts, it is at Tiwanaku that Viracocha makes the sun, moon, and stars and shapes the peoples in stone. Pedro Cieza de León, who visited in the 1540s, described the great stones and statues and recorded local claims that they had been made in a single night.\n\n## Today\n\nTiwanaku is a UNESCO World Heritage Site and a focus of Aymara cultural identity; Aymara New Year celebrations at the June solstice have been held there in recent decades.",
+    "primarySources": [
+      {
+        "text": "At Tiahuanaco the Creator made the sun, the moon, and the stars, and there he made the peoples of the land in stone and painted on each the dress it was to wear.",
+        "source": "Juan de Betanzos, Suma y narración de los Incas, Part 1, ch. 1 (paraphrase)",
+        "sourceId": "betanzos-suma-y-narracion",
+        "locator": "Part 1, ch. 1",
+        "date": "written 1551"
+      }
+    ],
+    "imageUrl": "/locations/tiwanaku.png"
+  },
+  {
+    "id": "coricancha",
+    "name": "Coricancha",
+    "slug": "coricancha",
+    "locationType": "temple",
+    "pantheonId": "inca-pantheon",
+    "description": "The 'golden enclosure', chief temple of the Sun in Cusco, where the images of the Creator, Sun, Moon, Thunder, and other powers were kept; its Inca stonework survives beneath the church and convent of Santo Domingo.",
+    "latitude": -13.52,
+    "longitude": -71.9756,
+    "geography": "physical",
+    "detailedBio": "## The golden enclosure\n\nThe Coricancha (*quri kancha*, 'golden enclosure') was the religious center of the Inca empire. Garcilaso de la Vega describes a main temple of the Sun with walls covered in gold plates, a great golden image of the Sun, and surrounding chambers dedicated to the Moon (lined with silver), to Venus and the stars, to thunder and lightning, and to the rainbow. The mummified bodies of past kings sat in state before the Sun's image. Bernabé Cobo later described the ceque system: lines of shrines radiating out from the Coricancha across the Cusco valley.\n\n## Stripped and rebuilt\n\nIn 1533 Spanish agents sent to collect Atahualpa's ransom pried the gold plates from its walls. The temple was then given to the Dominican order, whose church and convent of Santo Domingo were built on top of it. Earthquakes in 1650 and 1950 damaged the colonial buildings and exposed more of the fine Inca masonry beneath, including the famous curved wall on the west side.\n\n## Today\n\nThe site combines a working Catholic convent with a museum of the Inca structures, and is a focal point of Cusco's annual Inti Raymi pageant, which begins there before moving to Sacsayhuamán.",
+    "primarySources": [
+      {
+        "text": "The walls of the temple of the Sun were covered from the roof to the ground with plates of gold, and around a cloister stood chambers for the Moon, the stars, the thunder and lightning, and the rainbow.",
+        "source": "Garcilaso de la Vega, Comentarios Reales, Part I, Book 3 (paraphrase)",
+        "sourceId": "garcilaso-royal-commentaries",
+        "locator": "Part I, Book 3",
+        "date": "published 1609"
+      }
+    ],
+    "imageUrl": "/locations/coricancha.png"
+  },
+  {
+    "id": "pachacamac-sanctuary",
+    "name": "Sanctuary of Pachacamac",
+    "slug": "pachacamac-sanctuary",
+    "locationType": "sacred_site",
+    "pantheonId": "inca-pantheon",
+    "description": "The great oracle sanctuary near the mouth of the Lurín River south of Lima, center of Pachacamac's cult for over a thousand years, where the Incas added a Temple of the Sun and Hernando Pizarro broke the idol in 1533.",
+    "latitude": -12.2567,
+    "longitude": -76.9003,
+    "geography": "physical",
+    "detailedBio": "## A millennium of pilgrims\n\nThe adobe pyramids and plazas of Pachacamac spread over the desert coast just south of Lima, overlooking the Pacific near the mouth of the Lurín River. The site was a religious center from roughly the early centuries CE, grew in importance under the Wari influence of the later first millennium, and under the Ychsma polity became the seat of an oracle consulted from far along the coast and highlands.\n\n## Inca and Spanish\n\nThe Incas, taking the coast in the fifteenth century, built a Temple of the Sun on the hill above the older Painted Temple and a house of chosen women (acllahuasi), while continuing to consult Pachacamac's oracle. In January 1533 Hernando Pizarro arrived seeking gold, forced his way into the sanctuary, and had the idol destroyed; his letter and the account of Miguel de Estete describe the episode. A carved wooden idol found at the Painted Temple in 1938 is displayed in the site museum.\n\n## In the stories\n\nIn the Huarochirí stories, the proud huaca Cavillaca walks into the sea at Pachacamac with her child and becomes stone, and Cuniraya meets Pachacamac's daughters on the beach there.",
+    "primarySources": [
+      {
+        "text": "She disappeared, and came to the sea coast of Pachacamac, where she entered the sea with her child, and was turned into a rock. They say that the two rocks may still be seen, which are mother and child.",
+        "source": "Francisco de Ávila, Tratado de los errores, ch. II (trans. Markham 1873)",
+        "sourceId": "avila-tratado-huarochiri",
+        "locator": "ch. II",
+        "date": "written 1608; trans. 1873"
+      }
+    ],
+    "imageUrl": "/locations/pachacamac-sanctuary.png"
+  },
+  {
+    "id": "huanacauri",
+    "name": "Huanacauri",
+    "slug": "huanacauri",
+    "locationType": "mountain",
+    "pantheonId": "inca-pantheon",
+    "description": "The sacred hill southeast of Cusco where, in Garcilaso's account, the Sun's golden rod sank into the earth, and where in the Pacaritambo tradition Ayar Uchu turned to stone; one of the holiest huacas of the Inca capital.",
+    "latitude": -13.5944,
+    "longitude": -71.9056,
+    "geography": "physical",
+    "detailedBio": "## The founding hill\n\nHuanacauri (Wanakawri) is a mountain south of Cusco visible from the city. Both major origin traditions of the Inca dynasty pass through it: in Garcilaso de la Vega's version, the golden rod given by the Sun to Manco Cápac and Mama Ocllo sinks into the ground here, showing them where to found Cusco; in the Pacaritambo version told by Betanzos and Sarmiento, Ayar Uchu, one of Manco's brothers, turns to stone on its summit and becomes a huaca, asking his siblings to honor him.\n\n## A huaca of the state\n\nHuanacauri was among the most important shrines in the Cusco region. Cristóbal de Molina describes how young Inca nobles, in the initiation rites (huarachicoy) held during the month of Capac Raymi, made pilgrimages to Huanacauri with offerings before receiving the breechcloths and ear ornaments of adulthood. The stone of Ayar Uchu was also carried into war as a guarantor of victory, according to colonial reports.\n\n## Today\n\nThe summit, with Inca remains, is reached by hikers from the Cusco valley, and remains part of the sacred landscape of local communities.",
+    "primarySources": [
+      {
+        "text": "On the hill called Huanacauri the golden rod sank into the ground so that they saw it no more.",
+        "source": "Garcilaso de la Vega, Comentarios Reales, Part I, Book 1, ch. 15 (paraphrase)",
+        "sourceId": "garcilaso-royal-commentaries",
+        "locator": "Part I, Book 1, ch. 15",
+        "date": "published 1609"
+      },
+      {
+        "text": "In the month of Capac Raymi the young men who were to be made knights went with offerings to the huaca of Huanacauri.",
+        "source": "Cristóbal de Molina, Relación de las fábulas y ritos de los Incas (paraphrase)",
+        "sourceId": "molina-fables-and-rites",
+        "date": "written c. 1575"
+      }
+    ],
+    "imageUrl": "/locations/huanacauri.png"
+  },
+  {
+    "id": "nevado-pariacaca",
+    "name": "Pariacaca Mountain",
+    "slug": "nevado-pariacaca",
+    "locationType": "mountain",
+    "pantheonId": "inca-pantheon",
+    "description": "The glaciated peak on the border of Peru's Lima and Junín regions that was, and was the home of, the god Pariacaca of the Huarochirí Manuscript, crossed by an Inca road from Jauja to the coast.",
+    "latitude": -11.9917,
+    "longitude": -75.9917,
+    "geography": "physical",
+    "detailedBio": "## The mountain as god\n\nIn Andean religion a great mountain can be a god in its own right, and Pariacaca is the clearest case in the colonial record. The Huarochirí Manuscript treats the snow peak and the god Pariacaca as one: born from five eggs on the nearby mountain Condorcoto, he goes up to the heights, defeats Huallallo Carhuincho, and establishes his cult, with the peoples of the province making pilgrimage to him.\n\n## Snow and water\n\nThe peak rises well above 5,000 meters on the continental divide in the Cordillera Central. Its snowmelt feeds the rivers and valleys of Huarochirí and Yauyos below, so that the mountain's role as the giver of irrigation water in the stories follows the landscape closely.\n\n## The road over the pass\n\nAn Inca road connecting the highland center of Jauja (Xauxa) with Pachacamac on the coast crossed the Pariacaca range; stretches of this route, with stone stairways, form part of the Qhapaq Ñan (Andean Road System) World Heritage listing. Spanish travelers of 1533 described the difficult crossing.",
+    "primarySources": [
+      {
+        "text": "Pariacaca ascended to the heights and there ordained how he was to be worshipped, and all the people of the province came to him with offerings.",
+        "source": "Huarochirí Manuscript, chs. 8-9 (paraphrase)",
+        "sourceId": "huarochiri-manuscript",
+        "locator": "chs. 8-9",
+        "date": "compiled c. 1598-1608"
+      }
+    ],
+    "imageUrl": "/locations/nevado-pariacaca.png"
+  },
+  {
+    "id": "persepolis",
+    "name": "Persepolis",
+    "slug": "persepolis",
+    "locationType": "palace",
+    "pantheonId": "persian-pantheon",
+    "description": "The ceremonial capital of the Achaemenid kings in Fars, begun by Darius I around 518 BCE and burned by Alexander in 330 BCE, whose reliefs show the winged figure in a disc; later called Takht-e Jamshid, 'the Throne of Jamshid'.",
+    "latitude": 29.935,
+    "longitude": 52.89,
+    "geography": "physical",
+    "detailedBio": "## Parsa\n\nPersepolis (Old Persian *Parsa*) stands on a great terrace at the foot of a mountain in the Marvdasht plain of Fars, southwestern Iran. Darius I began it around 518 BCE, and his successors Xerxes and Artaxerxes I added audience halls, palaces, and a treasury. Its staircases carry reliefs of delegations from across the empire bringing gifts to the king, and its inscriptions invoke Ahuramazda's protection over the land. Alexander of Macedon burned it in 330 BCE.\n\n## The winged figure\n\nAbove royal figures on the reliefs hovers a figure emerging from a winged disc, now popularly called the Faravahar. It is often identified as Ahuramazda, but scholars also argue that it represents the royal glory (*khvarenah*) or the king's guardian spirit (*fravashi*); the identification is disputed.\n\n## Jamshid's Throne\n\nLong after its fall, Persians called the ruins *Takht-e Jamshid*, 'the Throne of Jamshid', linking them with the legendary king of the Shahnameh. Persepolis is a UNESCO World Heritage Site.",
+    "primarySources": [
+      {
+        "text": "Says Darius the King: may Ahuramazda protect this country from a hostile army, from famine, from the Lie.",
+        "source": "Darius I, inscription at Persepolis (DPd) (paraphrase)",
+        "date": "c. 515 BCE"
+      }
+    ],
+    "imageUrl": "/locations/persepolis.png"
+  },
+  {
+    "id": "behistun",
+    "name": "Behistun",
+    "slug": "behistun",
+    "locationType": "monument",
+    "pantheonId": "persian-pantheon",
+    "description": "The cliff at Bisotun in western Iran where Darius I carved a trilingual inscription and relief around 520 BCE, attributing his rise to 'the favor of Ahuramazda'; the key to the decipherment of cuneiform.",
+    "latitude": 34.3906,
+    "longitude": 47.4358,
+    "geography": "physical",
+    "detailedBio": "## The inscription\n\nHigh on a cliff above the ancient road from Mesopotamia to the Iranian plateau, Darius I had his account of his seizure of power carved in Old Persian, Elamite, and Babylonian. It tells how he overthrew the usurper Gaumata and put down rebellions across the empire in a single year, and it repeatedly credits his success to 'the favor of Ahuramazda', while condemning his enemies as followers of the Lie (*drauga*), a word related to the Avestan *druj*.\n\n## The relief\n\nAbove the text, Darius stands with his foot on the prostrate Gaumata before a line of bound rebel kings, beneath the winged figure in a disc. The scene joins royal power, divine favor, and the triumph of truth over falsehood.\n\n## Decipherment\n\nIn the 1830s and 1840s the British officer Henry Rawlinson copied the inscription at great risk from the cliff face; his work on the Old Persian text, and then on the Babylonian, opened Mesopotamian cuneiform to modern scholarship. Behistun is a UNESCO World Heritage Site.",
+    "primarySources": [
+      {
+        "text": "Darius the King says: by the favor of Ahuramazda I am king; Ahuramazda granted me the kingdom.",
+        "source": "Behistun Inscription, col. I (paraphrase)",
+        "sourceId": "behistun-inscription",
+        "locator": "col. I",
+        "date": "c. 520 BCE"
+      }
+    ],
+    "imageUrl": "/locations/behistun.png"
+  },
+  {
+    "id": "naqsh-e-rostam",
+    "name": "Naqsh-e Rostam",
+    "slug": "naqsh-e-rostam",
+    "locationType": "tomb",
+    "pantheonId": "persian-pantheon",
+    "description": "The cliff near Persepolis bearing the rock-cut tombs of Darius I and other Achaemenid kings and the Sasanian relief of Ardashir I receiving the ring of kingship from Ohrmazd, whose horse tramples Ahriman.",
+    "latitude": 29.9889,
+    "longitude": 52.8747,
+    "geography": "physical",
+    "detailedBio": "## Royal tombs\n\nA few kilometers north of Persepolis, four cross-shaped tombs are cut high in the cliff: those of Darius I, whose inscription praises Ahuramazda as the great god who created earth, sky, man, and happiness for man, and of three of his successors. Each façade shows the king before a fire altar, beneath the winged figure in a disc.\n\n## The investiture of Ardashir\n\nBelow the tombs, the Sasanian kings carved their own reliefs. In the most famous, Ardashir I (r. 224-242 CE), founder of the dynasty, receives the ring of kingship from Ohrmazd, both on horseback; beneath Ardashir's horse lies his defeated predecessor, the Parthian king Artabanus IV, and beneath Ohrmazd's lies Ahriman, identified by the snakes in his hair. Trilingual inscriptions name the figures.\n\n## Why 'Rostam'\n\nThe site's name, 'Picture of Rostam', comes from later Persians' belief that the carved Sasanian warriors depicted the hero of the Shahnameh.",
+    "primarySources": [
+      {
+        "text": "A great god is Ahuramazda, who created this earth, who created that sky, who created man, who created happiness for man, who made Darius king.",
+        "source": "Darius I, tomb inscription at Naqsh-e Rostam (DNa), §1 (paraphrase)",
+        "date": "c. 490 BCE"
+      }
+    ],
+    "imageUrl": "/locations/naqsh-e-rostam.png"
+  },
+  {
+    "id": "takht-e-soleyman",
+    "name": "Takht-e Soleyman",
+    "slug": "takht-e-soleyman",
+    "locationType": "temple",
+    "pantheonId": "persian-pantheon",
+    "description": "The Sasanian royal sanctuary in northwestern Iran built around a crater lake, home of Adur Gushnasp, the great fire of the warriors and kings, one of the three most sacred fires of Sasanian Zoroastrianism.",
+    "latitude": 36.6032,
+    "longitude": 47.2359,
+    "geography": "physical",
+    "detailedBio": "## The fire of the kings\n\nIn the mountains of West Azerbaijan province, a walled Sasanian complex surrounds a spring-fed lake in a limestone crater. Excavations have identified it with Shiz, site of Adur Gushnasp, the sacred fire of the warrior class and of the kings, one of the three great fires named in Sasanian tradition alongside Adur Farnbag (the fire of priests) and Adur Burzen-Mihr (the fire of farmers). Sasanian kings made gifts to it, and tradition says they came there after their accession.\n\n## Fire and water\n\nThe site joins a fire temple with a sacred lake, the two elements most honored in Zoroastrian ritual, and scholars have connected its water with the cult of Anahita. The Byzantine emperor Heraclius sacked it in 624 CE during his war with Khosrow II.\n\n## The later name\n\nThe name 'Throne of Solomon' was given in the Islamic period, linking the site to the prophet-king of Islamic legend. It is a UNESCO World Heritage Site.",
+    "primarySources": [
+      {
+        "text": "The Glory departs threefold, as it belongs to the king as priest, warrior, and husbandman, identical with the fires Adar Farnbag, Adar Gushasp, and Adar Burzin Mehr.",
+        "source": "James Darmesteter, note to Avesta, Yasht 19.35 (paraphrase of the commentary tradition)",
+        "sourceId": "avesta",
+        "locator": "Yasht 19.35, note",
+        "date": "note published 1883"
+      }
+    ],
+    "imageUrl": "/locations/takht-e-soleyman.png"
+  },
+  {
+    "id": "mount-damavand",
+    "name": "Mount Damavand",
+    "slug": "mount-damavand",
+    "locationType": "mountain",
+    "pantheonId": "persian-pantheon",
+    "description": "The volcanic peak in the Alborz range northeast of Tehran, the highest mountain in Iran, in which the Shahnameh's tyrant Zahhak lies chained in a cave, and which Middle Persian tradition connects with the binding of the dragon Azhi Dahaka.",
+    "latitude": 35.951,
+    "longitude": 52.109,
+    "geography": "physical",
+    "detailedBio": "## Iran's highest mountain\n\nDamavand is a dormant stratovolcano rising to about 5,600 meters above the Caspian slope of the Alborz range, northeast of Tehran, and its snow-capped cone is a national symbol of Iran, pictured on banknotes and in poetry.\n\n## The prison of the dragon\n\nIn Ferdowsi's Shahnameh, Fereydun, told by the heavenly messenger Sorush not to kill the defeated Zahhak, carries him to Mount Damavand and chains him in a cave inside the mountain, where he is to remain until the end of time. The tradition is older than Ferdowsi: the Vendidad names the land of Varena as the birthplace of Thraetaona, who smote Azhi Dahaka, and Darmesteter noted that the Greater Bundahishn identifies it with Damavand, where the dragon was bound with iron bonds. Local folklore held that the fumes from the mountain's vents were the breath of the imprisoned tyrant.\n\n## At the end of time\n\nMiddle Persian eschatology foretells that Dahag will break free near the end of the world before the hero Keresaspa kills him.",
+    "primarySources": [
+      {
+        "text": "Fereydun brought Zahhak to Mount Damavand and chained him in a deep cave in the mountain, fastening him with heavy nails so that he could not escape.",
+        "source": "Ferdowsi, Shahnameh, reign of Fereydun (paraphrase)",
+        "sourceId": "shahnameh",
+        "locator": "reign of Fereydun",
+        "date": "completed 1010 CE"
+      },
+      {
+        "text": "The fourteenth of the good lands and countries which I, Ahura Mazda, created, was the four-cornered Varena, for which was born Thraetaona, who smote Azi Dahaka.",
+        "source": "Avesta, Vendidad 1.17 (trans. Darmesteter)",
+        "sourceId": "avesta",
+        "locator": "Vendidad 1.17",
+        "date": "Younger Avestan; trans. 1880"
+      }
+    ],
+    "imageUrl": "/locations/mount-damavand.png"
+  },
+  {
+    "id": "chinvat-bridge",
+    "name": "Chinvat Bridge",
+    "slug": "chinvat-bridge",
+    "locationType": "realm",
+    "pantheonId": "persian-pantheon",
+    "description": "The Bridge of the Separator, which every soul must cross on the fourth dawn after death: broad for the righteous, who are met by a beautiful maiden, and narrow as a blade for the wicked, who fall into the House of the Lie.",
+    "latitude": null,
+    "longitude": null,
+    "geography": "mythic",
+    "detailedBio": "## The bridge of judgment\n\nThe Gathas already speak of the 'Bridge of the Separator' (*cinvato peretu*) where each soul is judged by its deeds. Later Avestan and Middle Persian texts describe the scene in detail. For three nights after death the soul remains near the body, guarded by Sraosha. On the fourth dawn it comes to the bridge, which stretches from the peak of Mount Hara to the heavens, and its deeds are weighed by Mithra, Sraosha, and Rashnu.\n\n## Maiden or hag\n\nThe soul of a righteous person is met by its own *daena*, its conscience or religious self, in the form of a beautiful maiden who says she is the embodiment of its good thoughts, words, and deeds; the bridge becomes broad, and the soul passes over to the House of Song. The wicked soul meets a hideous hag, the bridge narrows to the width of a blade, and the soul falls into the House of the Lie. The ninth-century *Book of Arda Viraf* describes a priest's visionary journey across the bridge to see heaven and hell.\n\n## A lasting image\n\nThe image of a narrow bridge over the abyss that the righteous cross and the wicked fall from appears also in Islamic tradition (the *sirat*), and its possible Iranian background is widely discussed.",
+    "primarySources": [
+      {
+        "text": "The righteous soul is met at the bridge by its own conscience in the form of a beautiful maiden, who says: I am thy good thoughts, good words, and good deeds.",
+        "source": "Hadokht Nask, ch. 2 (paraphrase)",
+        "sourceId": "avesta",
+        "locator": "Hadokht Nask 2",
+        "date": "Younger Avestan"
+      }
+    ],
+    "imageUrl": "/locations/chinvat-bridge.png"
+  },
+  {
+    "id": "tuonela",
+    "name": "Tuonela",
+    "slug": "tuonela",
+    "locationType": "underworld",
+    "pantheonId": "finnish-pantheon",
+    "description": "The land of the dead in Finnish tradition, ruled by Tuoni, lying beyond a black river on which the swan of Tuonela swims and across which Tuoni's daughter ferries the dead.",
+    "latitude": null,
+    "longitude": null,
+    "geography": "mythic",
+    "detailedBio": "## The land beyond the river\n\nFinnish and Karelian tradition places the dead in Tuonela, also called Manala, the land 'under the ground', reached by crossing a dark river. In the Kalevala it has its own household: Tuoni, the lord; Tuonetar, the mistress; Tuoni's daughter, the ferrywoman; and a son who is a killer. On the river swims the swan of Tuonela.\n\n## Visitors\n\nVäinämöinen travels to Tuonela in Rune 16 to seek three magic words and barely escapes by turning into a steel serpent to slip through the iron nets Tuoni's son stretches across the river; he warns the young never to go there. Lemminkäinen dies at its river in Rune 14, and his mother rakes his body from its waters in Rune 15. Ilmarinen, as one of his bridal tasks, catches the great pike of Tuonela.\n\n## Belief and practice\n\nThe idea of Tuonela as a separate world of the dead, with its own river and rulers, coexisted in folk belief with the idea that the dead lived on in the grave and returned to visit their families at the autumn Kekri feast.",
+    "primarySources": [
+      {
+        "text": "Väinämöinen came to the river of Tuonela, and Tuoni's daughter, washing clothes at the black water, at first refused to ferry him, for no living man should come to Tuonela.",
+        "source": "Kalevala, Rune 16 (paraphrase)",
+        "sourceId": "kalevala",
+        "locator": "Rune 16",
+        "date": "Lönnrot's compilation 1849; trans. 1888"
+      }
+    ],
+    "imageUrl": "/locations/tuonela.png"
+  },
+  {
+    "id": "pohjola",
+    "name": "Pohjola",
+    "slug": "pohjola",
+    "locationType": "realm",
+    "pantheonId": "finnish-pantheon",
+    "description": "The dark, cold land of the North ruled by Louhi, home of the Sampo and of the maidens the Kalevala heroes seek as brides, a hostile and magical realm opposite the heroes' home of Kalevala.",
+    "latitude": null,
+    "longitude": null,
+    "geography": "mythic",
+    "detailedBio": "## The North\n\n*Pohjola* means 'the North' or 'the place at the bottom'. In Finnish folk poetry it is a cold, dark land of sorcerers and man-eaters, the source of diseases, frost, and wolves, and also a place of wealth and desirable brides. Its gate is guarded, its people are hostile, and its mistress, Louhi, is a powerful witch.\n\n## In the Kalevala\n\nThe Kalevala's plot turns on journeys between Kalevala (or Väinölä), the heroes' home, and Pohjola. Väinämöinen is stranded there; Ilmarinen forges the Sampo there and later marries Louhi's daughter there; Lemminkäinen performs his tasks and kills Pohjola's master there; and the heroes finally steal the Sampo from its mountain. Its prosperity comes from the Sampo, and its later poverty from the Sampo's loss.\n\n## Geography\n\nNineteenth-century readers often identified Pohjola with Lapland, and the Kalevala sometimes blends the two, but Pohjola is better understood as a mythic land of the north, and this site does not place it on the map. The identification of its people with the Sámi reflects historical Finnish attitudes that modern scholarship treats with caution.",
+    "primarySources": [
+      {
+        "text": "Pohjola, the dark land of the North, where men are eaten and heroes drowned, and where Louhi, its gap-toothed mistress, keeps her daughters and the Sampo.",
+        "source": "Kalevala, Runes 7 and 10 (paraphrase)",
+        "sourceId": "kalevala",
+        "locator": "Runes 7, 10",
+        "date": "Lönnrot's compilation 1849; trans. 1888"
+      }
+    ],
+    "imageUrl": "/locations/pohjola.png"
+  },
+  {
+    "id": "vainola",
+    "name": "Kalevala (Väinölä)",
+    "slug": "vainola",
+    "locationType": "realm",
+    "pantheonId": "finnish-pantheon",
+    "description": "The heroes' homeland in the Kalevala, the land of Kaleva's descendants where Väinämöinen, Ilmarinen, and Lemminkäinen live, and which Lönnrot's title names; a mythic counterpart to the dark North of Pohjola.",
+    "latitude": null,
+    "longitude": null,
+    "geography": "mythic",
+    "detailedBio": "## The land of Kaleva\n\n*Kalevala* means 'the land (or dwelling) of Kaleva', a legendary ancestor figure only faintly attested in folk poetry, whose descendants (the 'sons of Kaleva') are giants or heroes in Finnish and Estonian tradition. Lönnrot used the name for the heroes' homeland and for his epic; the songs also call it Väinölä, 'Väinämöinen's home'.\n\n## In the epic\n\nKalevala is where Väinämöinen sows the first trees and grain, where Ilmarinen has his forge, and where the heroes return from their journeys to Pohjola. When the Sampo shatters, its fragments drift ashore there, bringing prosperity; Louhi's revenge brings plague and a bear against it, and she steals its sun and moon.\n\n## Not a place on the map\n\nThe land of Kalevala is not a real region. The Russian Karelian village of Uhtua was renamed Kalevala in 1963 in honor of the epic, and this site lists that town separately; the epic homeland itself is mythic.",
+    "primarySources": [
+      {
+        "text": "The pieces of the Sampo drifted to the shores of Kalevala, and Väinämöinen gathered them and planted them, praying that the land might prosper.",
+        "source": "Kalevala, Rune 43 (paraphrase)",
+        "sourceId": "kalevala",
+        "locator": "Rune 43",
+        "date": "Lönnrot's compilation 1849; trans. 1888"
+      }
+    ],
+    "imageUrl": "/locations/vainola.png"
+  },
+  {
+    "id": "vuokkiniemi",
+    "name": "Vuokkiniemi (Voknavolok)",
+    "slug": "vuokkiniemi",
+    "locationType": "region",
+    "pantheonId": "finnish-pantheon",
+    "description": "The village and parish in Viena (White Sea) Karelia, now in the Russian Republic of Karelia, whose runo-singers, above all Arhippa Perttunen of nearby Latvajärvi, sang thousands of lines to Elias Lönnrot in 1834.",
+    "latitude": 64.9517,
+    "longitude": 30.5533,
+    "geography": "physical",
+    "detailedBio": "## A singing parish\n\nVuokkiniemi (Russian Voknavolok) lies on a lake in Viena Karelia, near the present border with Finland. In the nineteenth century it and its surrounding villages were among the richest sources of Kalevala-metre epic poetry anywhere. The tradition survived there longer than in Finland itself, among Orthodox Karelian families in which singing passed from generation to generation.\n\n## Arhippa Perttunen\n\nOn his fifth collecting journey, in 1834, Elias Lönnrot visited the elderly singer Arhippa Perttunen at Latvajärvi in the Vuokkiniemi area. Over several days Perttunen sang him several thousand lines of epic poetry, including songs of Väinämöinen, the Sampo, and Lemminkäinen, and the material shaped the first Kalevala of 1835. Perttunen's son Miihkali Perttunen was later also recorded as a singer.\n\n## Today\n\nVuokkiniemi is a small village in the Kalevala district of the Republic of Karelia, and the region's runo-singing villages are remembered as the cradle of the Kalevala.",
+    "primarySources": [
+      {
+        "text": "At Latvajärvi Lönnrot recorded from the old singer Arhippa Perttunen songs of Väinämöinen, of the Sampo, and of Lemminkäinen, several thousand lines in all.",
+        "source": "Elias Lönnrot's travel notes of 1834, as summarized in Suomen Kansan Vanhat Runot (paraphrase)",
+        "sourceId": "suomen-kansan-vanhat-runot",
+        "date": "recorded 1834"
+      }
+    ],
+    "imageUrl": "/locations/vuokkiniemi.png"
+  },
+  {
+    "id": "kalevala-town",
+    "name": "Kalevala (Uhtua)",
+    "slug": "kalevala-town",
+    "locationType": "city",
+    "pantheonId": "finnish-pantheon",
+    "description": "The Viena Karelian village formerly called Uhtua, visited by Lönnrot and other collectors of runo-song, and renamed Kalevala in 1963 in honor of the epic; now the center of the Kalevala district of the Republic of Karelia.",
+    "latitude": 65.2167,
+    "longitude": 31.1833,
+    "geography": "physical",
+    "detailedBio": "## Uhtua\n\nUhtua (Russian Ukhta) is a village on the waterways of Viena Karelia, in the region where the runo-singing tradition behind the Kalevala was strongest. Lönnrot passed through it on his collecting journeys, and later folklorists recorded singers in the surrounding villages.\n\n## Renamed for the epic\n\nIn 1963 the Soviet authorities renamed Uhtua 'Kalevala' in honor of the Finnish epic, recognizing the region's role in its creation; the surrounding district became the Kalevala district. The renaming reflects how the Kalevala came to be claimed as the heritage of Karelians on both sides of the border.\n\n## Distinct from the epic homeland\n\nThe town should not be confused with the mythic land of Kalevala in the epic, which has no location. It is included here as a real place tied to the tradition's recording.",
+    "primarySources": [
+      {
+        "text": "Lönnrot's collecting journeys in Viena Karelia took him to Uhtua and the surrounding villages, where he recorded runo-singers.",
+        "source": "Elias Lönnrot's travel notes, 1830s, as summarized in Suomen Kansan Vanhat Runot (paraphrase)",
+        "sourceId": "suomen-kansan-vanhat-runot",
+        "date": "1830s"
+      }
+    ],
+    "imageUrl": "/locations/kalevala-town.png"
+  },
+  {
+    "id": "mount-myohyang",
+    "name": "Mount Myohyang (Taebaek of the Dangun myth)",
+    "slug": "mount-myohyang",
+    "locationType": "mountain",
+    "pantheonId": "korean-pantheon",
+    "description": "The mountain in North Korea that Iryeon's thirteenth-century note identifies as Mount Taebaek, where Hwanung descended beneath the sacred altar tree; other traditions place Taebaek at Baekdusan or at Taebaeksan in the south.",
+    "latitude": 40.0186,
+    "longitude": 126.3331,
+    "geography": "identified",
+    "coordinateNote": "Iryeon's note in the Samguk Yusa ('Taebaek is the present Myohyangsan') is the basis for this pin; later traditions identify the mountain of Hwanung's descent with Baekdusan or with Taebaeksan in Gangwon Province, South Korea.",
+    "detailedBio": "## Iryeon's identification\n\nThe Dangun myth in the *Samguk Yusa* says Hwanung descended to the summit of Mount Taebaek, beneath the sacred altar tree. At that point Iryeon adds a short note: Taebaek is 'the present Myohyangsan', a mountain range in what is now North Pyongan Province, North Korea. That thirteenth-century identification is the one pinned here.\n\n## Other Taebaeks\n\nTaebaek ('great white') is a name several mountains have borne. Many Koreans today associate the myth with Baekdusan (Changbaishan), the volcano on the China-North Korea border, and South Korea's Taebaeksan in Gangwon Province has an altar, Cheonjedan, where rites to heaven and to Dangun are held on National Foundation Day. None of these can be shown to be the mountain the original teller meant.\n\n## Myohyangsan today\n\nMyohyangsan is famous for the Buddhist temple Bohyeonsa, founded in the eleventh century, and for its scenery, and it hosts the International Friendship Exhibition of gifts to North Korea's leaders. A cave on the mountain is traditionally called Dangun's cave.",
+    "primarySources": [
+      {
+        "text": "Hwanung descended to the summit of Taebaek-san (Taebaek is the present Myohyangsan) beneath the sacred altar tree.",
+        "source": "Iryeon, Samguk Yusa, Book 1, 'Gojoseon', with Iryeon's note (paraphrase)",
+        "sourceId": "samguk-yusa",
+        "locator": "Book 1, Gojoseon",
+        "date": "compiled c. 1281-1289"
+      }
+    ],
+    "imageUrl": "/locations/mount-myohyang.png"
+  },
+  {
+    "id": "chamseongdan",
+    "name": "Chamseongdan",
+    "slug": "chamseongdan",
+    "locationType": "sacred_site",
+    "pantheonId": "korean-pantheon",
+    "description": "The stone altar on the summit of Mount Mani on Ganghwa Island, traditionally said to have been built by Dangun for sacrifices to heaven, where rites are held on National Foundation Day and the National Sports Festival torch is lit.",
+    "latitude": 37.6158,
+    "longitude": 126.4281,
+    "geography": "physical",
+    "detailedBio": "## Dangun's altar\n\nChamseongdan stands near the summit of Manisan, the highest peak of Ganghwa Island at the mouth of the Han River, west of Seoul. Tradition, recorded in Goryeo and Joseon geographies, holds that Dangun built an altar here to offer sacrifices to heaven. The present stone structure, a round lower terrace and a square upper platform symbolizing heaven and earth, has been rebuilt and repaired many times, and its age cannot be traced to antiquity.\n\n## Royal and national rites\n\nGoryeo and Joseon kings sent officials to perform rites at the altar. Today, on National Foundation Day (3 October), a ceremony to heaven is held at Chamseongdan, and since the mid-twentieth century the flame for Korea's National Sports Festival has been kindled here by women dressed as priestesses.\n\n## Protected site\n\nChamseongdan is designated a Historic Site of South Korea and draws many hikers and visitors, especially at the new year and on Foundation Day.",
+    "primarySources": [
+      {
+        "text": "On the summit of Mount Mani is the altar of Chamseongdan, which tradition says Dangun built for sacrifices to heaven.",
+        "source": "Joseon-era geographies of Ganghwa (e.g., Sinjeung Dongguk Yeoji Seungnam, 1530) (paraphrase)",
+        "date": "16th century"
+      }
+    ],
+    "imageUrl": "/locations/chamseongdan.png"
+  },
+  {
+    "id": "wunu-mountain",
+    "name": "Wunü Mountain (Jolbon)",
+    "slug": "wunu-mountain",
+    "locationType": "mountain",
+    "pantheonId": "korean-pantheon",
+    "description": "The flat-topped mountain fortress near Huanren, Liaoning, China, widely identified as Holbon or Jolbon, where the Gwanggaeto Stele and the Samguk Sagi say Jumong founded Goguryeo's first capital.",
+    "latitude": 41.328,
+    "longitude": 125.4174,
+    "geography": "identified",
+    "coordinateNote": "Wunü Mountain City (Korean Onyeosanseong) is the site most scholars identify with Holbon/Jolbon, the first Goguryeo capital named on the Gwanggaeto Stele; the identification is widely accepted but not proven by an inscription on the site.",
+    "detailedBio": "## The first capital\n\nThe Gwanggaeto Stele (414 CE) says that Chumo built his capital 'on the mountain west of Holbon', and the *Samguk Sagi* says Jumong founded Goguryeo at Jolbon. Most scholars identify this first capital with the mountain fortress on Wunü Mountain ('Five Women Mountain'), a sheer-sided, flat-topped mountain rising above the Hun River valley near the city of Huanren in Liaoning Province, China. Excavations have found walls, building foundations, and Goguryeo artifacts on its summit plateau.\n\n## World Heritage\n\nWunü Mountain City is part of the UNESCO World Heritage Site 'Capital Cities and Tombs of the Ancient Koguryo Kingdom' (inscribed 2004), with the later capital at Ji'an, where the Gwanggaeto Stele stands.\n\n## A contested heritage\n\nGoguryeo's history is claimed by both Korean and Chinese historiography, and the site's interpretation has been part of that debate; this entry follows the Korean foundation myth's own geography and the archaeological identification.",
+    "primarySources": [
+      {
+        "text": "On the mountain west of Holbon by the Biryu valley he built walls and established his capital.",
+        "source": "Gwanggaeto Stele, opening lines (paraphrase)",
+        "sourceId": "gwanggaeto-stele",
+        "locator": "face 1, opening",
+        "date": "414 CE"
+      }
+    ],
+    "imageUrl": "/locations/wunu-mountain.png"
+  },
+  {
+    "id": "najeong",
+    "name": "Najeong",
+    "slug": "najeong",
+    "locationType": "sacred_site",
+    "pantheonId": "korean-pantheon",
+    "description": "The well site in Gyeongju where, in the Samguk Yusa and Samguk Sagi, a white horse knelt beside the egg from which Silla's founder Bak Hyeokgeose was born; excavated as the site of an ancient shrine.",
+    "latitude": 35.8158,
+    "longitude": 129.2125,
+    "geography": "physical",
+    "detailedBio": "## The founder's well\n\nNajeong lies in the southern part of Gyeongju, the capital of ancient Silla, near the foot of Mount Namsan. According to both the *Samguk Yusa* and the *Samguk Sagi*, it was here, by a well in a wood, that the six village chiefs saw a white horse kneeling beside a great egg, from which the founder Bak Hyeokgeose was born.\n\n## A shrine excavated\n\nThe *Samguk Sagi* records that later Silla kings built a shrine at the founder's birthplace. Excavations at Najeong in the early 2000s uncovered the foundations of a large octagonal building, surrounded by walls, interpreted as that shrine, over the remains of earlier structures. The site is a Historic Site of South Korea; a memorial stele of the Joseon period stands there.\n\n## Other founder sites\n\nNearby are the Five Tombs (Oreung), traditionally the burial place of Bak Hyeokgeose, Queen Aryeong, and early kings, with the ancestral shrine Sungdeokjeon, and the Aryeong well of the queen's birth.",
+    "primarySources": [
+      {
+        "text": "At the Najeong well below Mount Yang a white horse knelt as if bowing, and there lay a purple egg.",
+        "source": "Iryeon, Samguk Yusa, Book 1, 'Silla's Founder King Hyeokgeose' (paraphrase)",
+        "sourceId": "samguk-yusa",
+        "locator": "Book 1, Hyeokgeose",
+        "date": "compiled c. 1281-1289"
+      }
+    ],
+    "imageUrl": "/locations/najeong.png"
+  },
+  {
+    "id": "daewangam",
+    "name": "Daewangam",
+    "slug": "daewangam",
+    "locationType": "tomb",
+    "pantheonId": "korean-pantheon",
+    "description": "The rocky islet off the Gyeongju coast traditionally identified as the underwater tomb of King Munmu of Silla, who asked to be buried in the East Sea so that he could become a dragon and guard the kingdom.",
+    "latitude": 35.7381,
+    "longitude": 129.4869,
+    "geography": "physical",
+    "detailedBio": "## The great king's rock\n\nDaewangam, 'rock of the great king', is a group of rocks about two hundred meters off Bonggil Beach on the East Sea coast of Gyeongju. It is traditionally identified as the burial place of King Munmu (r. 661-681), who according to the *Samguk Sagi* asked to be cremated and buried in the sea, and according to the *Samguk Yusa* wished to become a dragon to guard Silla. A pool in the center of the rocks, with a large stone lying in it, has been interpreted as the resting place of his remains, though whether ashes were placed there has not been proven.\n\n## Gameunsa and Iyeondae\n\nNearby on the shore are the ruins of Gameunsa, the temple King Sinmun completed for his father, with its two stone pagodas, and the pavilion site of Iyeondae, from which, in the *Samguk Yusa*, Sinmun watched the floating mountain that brought the bamboo for the flute Manpasikjeok. Excavations at Gameunsa found an unusual space beneath the main hall's floor, traditionally explained as a passage for the dragon.\n\n## A living site\n\nDaewangam is a Historic Site of South Korea. Shamans perform rites on the beach facing the rock, and many visitors come to watch the sunrise over it.",
+    "primarySources": [
+      {
+        "text": "The king left instructions that after his death he should be cremated in the western manner and buried in the East Sea; he was buried on the great rock in the sea.",
+        "source": "Kim Busik, Samguk Sagi, Annals of Silla, King Munmu, year 21 (paraphrase)",
+        "sourceId": "samguk-sagi",
+        "locator": "Annals of Silla, Munmu 21",
+        "date": "completed 1145"
+      }
+    ],
+    "imageUrl": "/locations/daewangam.png"
+  },
+  {
+    "id": "jeoseung",
+    "name": "Jeoseung",
+    "slug": "jeoseung",
+    "locationType": "underworld",
+    "pantheonId": "korean-pantheon",
+    "description": "The 'other world' of the dead in Korean belief, reached by a long road across mountains, rivers, and hells, beyond which lies the Western Heaven where Princess Bari found the water of life; the realm to which she guides the souls of the dead.",
+    "latitude": null,
+    "longitude": null,
+    "geography": "mythic",
+    "detailedBio": "## This world and that world\n\nKorean speech distinguishes *iseung*, 'this world' of the living, from *jeoseung*, 'that world' of the dead. In shamanic belief the soul of the dead must travel a long road to jeoseung, crossing rivers and mountains and passing through the courts of the Ten Kings of the underworld, a Buddhist-influenced idea, where it is judged. Rites for the dead, such as the Seoul *jinogwi-gut*, are performed to guide the soul safely along the road and prevent it from lingering in this world.\n\n## Bari's road\n\nIn the Bari Gongju songs, the princess travels this road while alive, passing through the hells to the Western Heaven, where she earns the water of life. Having walked it, she becomes the one who leads the dead along it, and shamans reenact her journey in the rite.\n\n## Messengers of the dead\n\nKorean tradition also knows the *jeoseung saja*, the messengers who come to lead the dead away, familiar today from folk tales, films, and television dramas.",
+    "primarySources": [
+      {
+        "text": "The princess passed through mountains, rivers, and the hells of the dead on the road to the Western Heaven, where the medicine water was kept.",
+        "source": "Bari Gongju muga, Seoul versions, as collected in Hanguk Muga Jip (paraphrase)",
+        "sourceId": "hanguk-muga-jip",
+        "date": "recorded 20th century"
+      }
+    ],
+    "imageUrl": "/locations/jeoseung.png"
   }
 ]

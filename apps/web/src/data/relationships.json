@@ -2372,5 +2372,337 @@
     "relationshipType": "parent_of",
     "confidenceLevel": "low",
     "description": "In many tellings First Man finds the infant Changing Woman and he and First Woman raise her; this is fosterage, not birth, and it is marked low confidence for that reason."
+  },
+  {
+    "id": "inca-inti-mama-killa",
+    "fromDeityId": "inti",
+    "toDeityId": "mama-killa",
+    "relationshipType": "spouse_of",
+    "confidenceLevel": "high",
+    "description": "Garcilaso calls the Moon the sister and wife of the Sun; her silver chamber in the Coricancha stood beside his (Comentarios Reales, Part I, Book 3)."
+  },
+  {
+    "id": "inca-inti-manco-capac",
+    "fromDeityId": "inti",
+    "toDeityId": "manco-capac",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "medium",
+    "description": "In Garcilaso's version the Sun sends his son Manco Cápac to Lake Titicaca; the Pacaritambo version of Betanzos and Sarmiento has Manco emerge from a cave instead."
+  },
+  {
+    "id": "inca-inti-mama-ocllo",
+    "fromDeityId": "inti",
+    "toDeityId": "mama-ocllo",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "medium",
+    "description": "Mama Ocllo is the Sun's daughter in Garcilaso's version; in the Pacaritambo version she is one of four sisters from the cave of Tambo Toco."
+  },
+  {
+    "id": "inca-mama-killa-manco-capac",
+    "fromDeityId": "mama-killa",
+    "toDeityId": "manco-capac",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "low",
+    "description": "Garcilaso calls the Moon mother of the Incas; the founding siblings' descent from her is implied rather than narrated."
+  },
+  {
+    "id": "inca-manco-capac-mama-ocllo-spouse",
+    "fromDeityId": "manco-capac",
+    "toDeityId": "mama-ocllo",
+    "relationshipType": "spouse_of",
+    "confidenceLevel": "high",
+    "description": "Brother and wife of Manco Cápac in both Garcilaso's and the Pacaritambo versions; mother of his successor Sinchi Roca."
+  },
+  {
+    "id": "inca-manco-capac-mama-ocllo-sibling",
+    "fromDeityId": "manco-capac",
+    "toDeityId": "mama-ocllo",
+    "relationshipType": "sibling_of",
+    "confidenceLevel": "high",
+    "description": "The founding couple are brother and sister in every major version, a model for the later royal sibling marriage."
+  },
+  {
+    "id": "inca-pariacaca-huallallo",
+    "fromDeityId": "pariacaca",
+    "toDeityId": "huallallo-carhuincho",
+    "relationshipType": "enemy_of",
+    "confidenceLevel": "high",
+    "description": "Pariacaca defeats Huallallo Carhuincho and drives him into the Antis lowlands (Huarochirí Manuscript, chs. 8 and 16)."
+  },
+  {
+    "id": "inca-cuniraya-viracocha",
+    "fromDeityId": "cuniraya-viracocha",
+    "toDeityId": "viracocha",
+    "relationshipType": "aspect_of",
+    "confidenceLevel": "medium",
+    "description": "The Huarochirí material records him invoked as 'Cuniraya Viracocha, lord of all'; whether he was a local form of the state Creator or a local deity later identified with him is debated.",
+    "isDisputed": true
+  },
+  {
+    "id": "persian-ahura-mazda-angra-mainyu-enemy",
+    "fromDeityId": "ahura-mazda",
+    "toDeityId": "angra-mainyu",
+    "relationshipType": "enemy_of",
+    "confidenceLevel": "high",
+    "description": "The Hostile Spirit counter-creates a plague against each good land Ahura Mazda makes (Vendidad 1) and assaults his creation (Bundahishn)."
+  },
+  {
+    "id": "persian-ahura-mazda-angra-mainyu-twins",
+    "fromDeityId": "ahura-mazda",
+    "toDeityId": "angra-mainyu",
+    "relationshipType": "sibling_of",
+    "confidenceLevel": "low",
+    "description": "Twin sons of Zurvan only in the Zurvanite current reported by Eznik of Kolb; the Gathas call the two primal spirits twins (Yasna 30.3), but orthodox tradition holds Ohrmazd uncreated.",
+    "isDisputed": true
+  },
+  {
+    "id": "persian-zurvan-ahura-mazda",
+    "fromDeityId": "zurvan",
+    "toDeityId": "ahura-mazda",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "low",
+    "description": "Ohrmazd is born of Zurvan's sacrifice in the Zurvanite myth (Eznik of Kolb, 5th c.); rejected by later Zoroastrian orthodoxy.",
+    "isDisputed": true
+  },
+  {
+    "id": "persian-zurvan-angra-mainyu",
+    "fromDeityId": "zurvan",
+    "toDeityId": "angra-mainyu",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "low",
+    "description": "Ahriman is born of Zurvan's doubt in the Zurvanite myth (Eznik of Kolb, 5th c.).",
+    "isDisputed": true
+  },
+  {
+    "id": "persian-ahura-mazda-atar",
+    "fromDeityId": "ahura-mazda",
+    "toDeityId": "atar",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high",
+    "description": "'Atar, the son of Ahura Mazda' is a standing Avestan formula (e.g. Yasht 19.46-50)."
+  },
+  {
+    "id": "persian-ahura-mazda-spenta-armaiti",
+    "fromDeityId": "ahura-mazda",
+    "toDeityId": "spenta-armaiti",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high",
+    "description": "The Gathas call Armaiti the daughter of Ahura Mazda (Yasna 45.4)."
+  },
+  {
+    "id": "persian-mithra-ahura-mazda",
+    "fromDeityId": "mithra",
+    "toDeityId": "ahura-mazda",
+    "relationshipType": "ally_of",
+    "confidenceLevel": "high",
+    "description": "'When I created Mithra ... I created him as worthy of sacrifice, as worthy of prayer as myself' (Yasht 10.1)."
+  },
+  {
+    "id": "persian-verethragna-mithra",
+    "fromDeityId": "verethragna",
+    "toDeityId": "mithra",
+    "relationshipType": "ally_of",
+    "confidenceLevel": "high",
+    "description": "Verethragna runs before Mithra's chariot in the shape of a boar (Yasht 10.70)."
+  },
+  {
+    "id": "persian-sraosha-mithra",
+    "fromDeityId": "sraosha",
+    "toDeityId": "mithra",
+    "relationshipType": "ally_of",
+    "confidenceLevel": "medium",
+    "description": "With Rashnu they judge each soul at the Chinvat Bridge in Zoroastrian eschatology."
+  },
+  {
+    "id": "persian-tishtrya-ahura-mazda",
+    "fromDeityId": "tishtrya",
+    "toDeityId": "ahura-mazda",
+    "relationshipType": "ally_of",
+    "confidenceLevel": "high",
+    "description": "'For Ahura Mazda gave him assistance; so did the waters and the plants' (Yasht 8.7)."
+  },
+  {
+    "id": "persian-tishtrya-mithra",
+    "fromDeityId": "tishtrya",
+    "toDeityId": "mithra",
+    "relationshipType": "ally_of",
+    "confidenceLevel": "high",
+    "description": "Mithra 'opened a wide way unto him' as Tishtrya flew to the sea Vouru-Kasha (Yasht 8.7)."
+  },
+  {
+    "id": "persian-anahita-ahura-mazda",
+    "fromDeityId": "anahita",
+    "toDeityId": "ahura-mazda",
+    "relationshipType": "ally_of",
+    "confidenceLevel": "high",
+    "description": "Ahura Mazda calls her 'this spring of mine', and she 'proceeded forth from the Maker Mazda' (Yasht 5.1, 5.7)."
+  },
+  {
+    "id": "persian-anahita-mithra",
+    "fromDeityId": "anahita",
+    "toDeityId": "mithra",
+    "relationshipType": "ally_of",
+    "confidenceLevel": "medium",
+    "description": "Invoked together with Ahuramazda by Artaxerxes II (r. 404-358 BCE), the first Achaemenid inscriptions to name either."
+  },
+  {
+    "id": "persian-yima-ahura-mazda",
+    "fromDeityId": "yima",
+    "toDeityId": "ahura-mazda",
+    "relationshipType": "ally_of",
+    "confidenceLevel": "high",
+    "description": "The first mortal with whom Ahura Mazda conversed, who agreed to rule and protect his world (Vendidad 2)."
+  },
+  {
+    "id": "persian-yima-spenta-armaiti",
+    "fromDeityId": "yima",
+    "toDeityId": "spenta-armaiti",
+    "relationshipType": "ally_of",
+    "confidenceLevel": "medium",
+    "description": "Yima calls on Spenta Armaiti to stretch the earth wider for the growing world (Vendidad 2.10)."
+  },
+  {
+    "id": "persian-atar-angra-mainyu",
+    "fromDeityId": "atar",
+    "toDeityId": "angra-mainyu",
+    "relationshipType": "enemy_of",
+    "confidenceLevel": "medium",
+    "description": "In the struggle for the Glory, the Good Spirit sends Atar and the Evil Spirit sends Azhi Dahaka (Yasht 19.46-50)."
+  },
+  {
+    "id": "finnish-ilmatar-vainamoinen",
+    "fromDeityId": "ilmatar",
+    "toDeityId": "vainamoinen",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high",
+    "description": "Väinämöinen is 'delivered from his mother, Ilmatar, the Ether's daughter' (Kalevala, Rune 1); in most folk variants he has no such mother."
+  },
+  {
+    "id": "finnish-tapio-mielikki",
+    "fromDeityId": "tapio",
+    "toDeityId": "mielikki",
+    "relationshipType": "spouse_of",
+    "confidenceLevel": "high",
+    "description": "Mielikki is the forest's mistress and Tapio's wife in folk charms and in Lemminkäinen's prayers (Kalevala, Rune 14)."
+  },
+  {
+    "id": "finnish-ahti-vellamo",
+    "fromDeityId": "ahti",
+    "toDeityId": "vellamo",
+    "relationshipType": "spouse_of",
+    "confidenceLevel": "high",
+    "description": "The king and mistress of the waters, paired in folk poetry and in the Kalevala."
+  },
+  {
+    "id": "finnish-louhi-vainamoinen",
+    "fromDeityId": "louhi",
+    "toDeityId": "vainamoinen",
+    "relationshipType": "enemy_of",
+    "confidenceLevel": "high",
+    "description": "Louhi pursues Väinämöinen as a giant eagle to recover the Sampo, and he breaks her talons with his rudder (Kalevala, Rune 43)."
+  },
+  {
+    "id": "finnish-louhi-lemminkainen",
+    "fromDeityId": "louhi",
+    "toDeityId": "lemminkainen",
+    "relationshipType": "enemy_of",
+    "confidenceLevel": "high",
+    "description": "Louhi sends Lemminkäinen on the tasks that end in his death at Tuonela (Kalevala, Runes 13-14), and he later kills the master of Pohjola (Rune 27)."
+  },
+  {
+    "id": "finnish-louhi-ilmarinen",
+    "fromDeityId": "louhi",
+    "toDeityId": "ilmarinen",
+    "relationshipType": "enemy_of",
+    "confidenceLevel": "medium",
+    "description": "Ilmarinen forges the Sampo for Louhi and marries her daughter, but joins the raid that steals it from her (Kalevala, Runes 10, 18-25, 42)."
+  },
+  {
+    "id": "finnish-vainamoinen-ilmarinen",
+    "fromDeityId": "vainamoinen",
+    "toDeityId": "ilmarinen",
+    "relationshipType": "ally_of",
+    "confidenceLevel": "high",
+    "description": "Companions in the theft of the Sampo; Väinämöinen calls the smith his brother and tricks him into forging the Sampo (Kalevala, Runes 10, 39-43)."
+  },
+  {
+    "id": "finnish-vainamoinen-lemminkainen",
+    "fromDeityId": "vainamoinen",
+    "toDeityId": "lemminkainen",
+    "relationshipType": "ally_of",
+    "confidenceLevel": "high",
+    "description": "Lemminkäinen joins Väinämöinen and Ilmarinen in the raid on Pohjola (Kalevala, Runes 39-43)."
+  },
+  {
+    "id": "korean-hwanin-hwanung",
+    "fromDeityId": "hwanin",
+    "toDeityId": "hwanung",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high",
+    "description": "Hwanung is Hwanin's son by a secondary wife (Samguk Yusa, Book 1, 'Gojoseon')."
+  },
+  {
+    "id": "korean-hwanung-ungnyeo",
+    "fromDeityId": "hwanung",
+    "toDeityId": "ungnyeo",
+    "relationshipType": "spouse_of",
+    "confidenceLevel": "high",
+    "description": "Hwanung takes human form for a time and marries the bear-woman (Samguk Yusa, Book 1)."
+  },
+  {
+    "id": "korean-hwanung-dangun",
+    "fromDeityId": "hwanung",
+    "toDeityId": "dangun",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high",
+    "description": "Father of Dangun Wanggeom (Samguk Yusa, Book 1)."
+  },
+  {
+    "id": "korean-ungnyeo-dangun",
+    "fromDeityId": "ungnyeo",
+    "toDeityId": "dangun",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high",
+    "description": "Mother of Dangun Wanggeom (Samguk Yusa, Book 1); the near-contemporary Jewang ungi gives a different mother."
+  },
+  {
+    "id": "korean-habaek-yuhwa",
+    "fromDeityId": "habaek",
+    "toDeityId": "yuhwa",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high",
+    "description": "Yuhwa is the daughter of Habaek, the River Earl (Gwanggaeto Stele; Samguk Sagi; Dongmyeongwang-pyeon)."
+  },
+  {
+    "id": "korean-haemosu-yuhwa",
+    "fromDeityId": "haemosu",
+    "toDeityId": "yuhwa",
+    "relationshipType": "lover_of",
+    "confidenceLevel": "high",
+    "description": "Haemosu lures Yuhwa to a house by the Amnok River and abandons her (Samguk Sagi); Yi Gyu-bo adds a wedding after a contest with Habaek."
+  },
+  {
+    "id": "korean-haemosu-jumong",
+    "fromDeityId": "haemosu",
+    "toDeityId": "jumong",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "medium",
+    "description": "Named as Jumong's father in the Samguk Yusa and Yi Gyu-bo's poem; the Samguk Sagi has Yuhwa conceive from sunlight after Haemosu's departure, and the Gwanggaeto Stele says only 'son of the Heavenly Emperor'."
+  },
+  {
+    "id": "korean-yuhwa-jumong",
+    "fromDeityId": "yuhwa",
+    "toDeityId": "jumong",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high",
+    "description": "Jumong hatches from the egg Yuhwa lays in East Buyeo (Samguk Sagi; Gwanggaeto Stele)."
+  },
+  {
+    "id": "korean-mireuk-seokga",
+    "fromDeityId": "mireuk",
+    "toDeityId": "seokga",
+    "relationshipType": "enemy_of",
+    "confidenceLevel": "high",
+    "description": "Seokga wins the world from Mireuk by stealing the flower from his knee (Changse-ga, recorded 1923)."
   }
 ]

@@ -51,6 +51,10 @@ function getPantheonLabel(pantheonId: string): string {
     "inuit-pantheon": "Inuit",
     "aboriginal-australian-pantheon": "Aboriginal Australian",
     "dine-pantheon": "Diné",
+    "inca-pantheon": "Inca & Andean",
+    "persian-pantheon": "Persian",
+    "finnish-pantheon": "Finnish",
+    "korean-pantheon": "Korean",
   };
   return labels[pantheonId] || "Ancient";
 }

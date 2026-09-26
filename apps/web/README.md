@@ -4,18 +4,18 @@
 
 ## Overview
 
-Web frontend for Mythos Atlas, an interactive encyclopedia of ancient mythology featuring **22 pantheons** (plus a regional collection), **308 deities**, **36 heroes**, **138 stories**, **87 creatures**, **64 artifacts**, and **160 mythological locations** — plus quizzes, interactive family trees, branching stories, and spaced-repetition review.
+Web frontend for Mythos Atlas, an interactive encyclopedia of ancient mythology featuring **26 pantheons** (plus a regional collection), **354 deities**, **37 heroes**, **162 stories**, **101 creatures**, **76 artifacts**, and **183 mythological locations** — plus quizzes, interactive family trees, branching stories, and spaced-repetition review.
 
 **Built by Elizabeth Stein** using Next.js 16, React 19, TypeScript 5, and modern web technologies.
 
 ## Features
 
-- 🏛️ **22 Pantheons** — Greek, Norse, Egyptian, Roman, Hindu, Japanese, Celtic, Aztec, Chinese, Mesopotamian, Yoruba, Akan, Polynesian, Mesoamerican, Slavic, Haudenosaunee, Tlingit & Haida, Hittite, Canaanite, Inuit, Aboriginal Australian, Diné
-- 👑 **308 Deity Profiles** — Filterable by gender, domain, and pantheon with smart sorting
-- 📖 **138 Epic Stories** — Including interactive branching narratives (choose-your-own-adventure)
-- 🐉 **87 Creatures** — Mythological beasts with detailed profiles
-- ⚔️ **64 Artifacts** — Legendary items with interactive 3D viewer (React Three Fiber)
-- 🗺️ **160 Locations** — Interactive mythological map with filters and 3 guided journeys
+- 🏛️ **26 Pantheons** — Greek, Norse, Egyptian, Roman, Hindu, Japanese, Celtic, Aztec, Chinese, Mesopotamian, Yoruba, Akan, Polynesian, Mesoamerican, Slavic, Haudenosaunee, Tlingit & Haida, Hittite, Canaanite, Inuit, Aboriginal Australian, Diné, Inca & Andean, Persian, Finnish, Korean
+- 👑 **354 Deity Profiles** — Filterable by gender, domain, and pantheon with smart sorting
+- 📖 **162 Epic Stories** — Including interactive branching narratives (choose-your-own-adventure)
+- 🐉 **101 Creatures** — Mythological beasts with detailed profiles
+- ⚔️ **76 Artifacts** — Legendary items with interactive 3D viewer (React Three Fiber)
+- 🗺️ **183 Locations** — Interactive mythological map with filters and 3 guided journeys
 - 🌳 **Family Trees** — Network graph (ReactFlow) and hierarchical (D3.js) visualizations
 - 🧠 **Quizzes & Games** — Relationship quiz, personality quiz, quick quiz, symbol memory game
 - 📚 **Spaced Repetition** — Flashcard review system with intelligent scheduling
@@ -117,13 +117,13 @@ src/
 │   ├── ui/               # shadcn/ui components
 │   └── ...               # animations, audio, i18n, pwa, seo, etc.
 ├── data/                 # JSON data files
-│   ├── pantheons.json    # 22 pantheons + 1 regional collection
-│   ├── deities.json      # 308 deities
-│   ├── heroes.json       # 36 heroes
-│   ├── stories.json      # 138 stories
-│   ├── creatures.json    # 87 creatures
-│   ├── artifacts.json    # 64 artifacts
-│   ├── locations.json    # 160 locations
+│   ├── pantheons.json    # 26 pantheons + 1 regional collection
+│   ├── deities.json      # 354 deities
+│   ├── heroes.json       # 37 heroes
+│   ├── stories.json      # 162 stories
+│   ├── creatures.json    # 101 creatures
+│   ├── artifacts.json    # 76 artifacts
+│   ├── locations.json    # 183 locations
 │   ├── sources.json      # 34 primary/academic sources
 │   └── relationships.json
 ├── hooks/                # Custom React hooks

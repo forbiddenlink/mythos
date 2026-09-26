@@ -345,5 +345,59 @@
     "coyote",
     "johonaaei",
     "talking-god"
+  ],
+  "inca-pantheon": [
+    "viracocha",
+    "inti",
+    "mama-killa",
+    "pachamama",
+    "mama-qucha",
+    "illapa",
+    "pachacamac",
+    "pariacaca",
+    "cuniraya-viracocha",
+    "huallallo-carhuincho",
+    "manco-capac",
+    "mama-ocllo"
+  ],
+  "persian-pantheon": [
+    "ahura-mazda",
+    "angra-mainyu",
+    "mithra",
+    "anahita",
+    "tishtrya",
+    "verethragna",
+    "atar",
+    "spenta-armaiti",
+    "sraosha",
+    "zurvan",
+    "yima"
+  ],
+  "finnish-pantheon": [
+    "ukko",
+    "ilmatar",
+    "vainamoinen",
+    "ilmarinen",
+    "lemminkainen",
+    "louhi",
+    "tuoni",
+    "tapio",
+    "mielikki",
+    "ahti",
+    "vellamo"
+  ],
+  "korean-pantheon": [
+    "hwanin",
+    "hwanung",
+    "ungnyeo",
+    "dangun",
+    "haemosu",
+    "yuhwa",
+    "habaek",
+    "jumong",
+    "bak-hyeokgeose",
+    "bari-gongju",
+    "mireuk",
+    "seokga"
   ]
 }

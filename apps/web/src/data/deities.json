@@ -15455,5 +15455,2418 @@
       "practices": "The Holy People are part of a living religion. Ceremonies associated with them, including the Blessingway (Hózhǫ́ǫ́jí) and the chantways conducted by hataałii (ceremonial practitioners), are not described on this site, and sandpaintings are not reproduced, because they are sacred and made for healing within ceremony."
     },
     "traditionRole": "Holy Person"
+  },
+  {
+    "id": "viracocha",
+    "pantheonId": "inca-pantheon",
+    "name": "Viracocha",
+    "slug": "viracocha",
+    "originalLanguageName": {
+      "text": "Wiraqucha",
+      "language": "Quechua",
+      "transliteration": "Wiraqucha (Spanish spellings Viracocha, Uiracocha)",
+      "meaning": "Etymology disputed; often glossed 'sea foam' or 'lake of fat', neither securely established. Chroniclers also give titles such as Con Tici Viracocha and Pachayachachic ('teacher of the world')."
+    },
+    "alternateNames": [
+      "Con Tici Viracocha",
+      "Tici Viracocha",
+      "Pachayachachic",
+      "Wiraqucha"
+    ],
+    "gender": "male",
+    "traditionRole": "Creator",
+    "domain": ["creation", "the ordering of peoples", "civilization"],
+    "symbols": [
+      "Lake Titicaca",
+      "a staff",
+      "stone figures of the first people"
+    ],
+    "description": "The creator of the Inca state cult, who in Betanzos's account rises from Lake Titicaca, makes the sun, moon, and stars at Tiwanaku, shapes each nation from stone, and finally walks away across the western sea.",
+    "detailedBio": "## Attestation\n\nThe fullest early account is Juan de Betanzos's *Suma y narración de los Incas* (1551), which opens with Con Tici Viracocha emerging from Lake Titicaca into a world without light. He makes a first people who displease him and turns them to stone; he then goes to Tiwanaku, makes the sun, moon, and stars, and shapes the nations of the Andes in stone, painting on each its dress and giving it a language, before sending them underground to emerge from their own springs, caves, and hills. Cristóbal de Molina (c. 1575) and Pedro Sarmiento de Gamboa (1572) tell related versions; Sarmiento adds that the Creator destroyed an earlier world by a flood.\n\n## The departing maker\n\nViracocha then travels northwest through the highlands with two helpers who take the coast and the forest edge. At Cacha, where the Incas later built the great temple now called Raqchi, people attack him and he calls fire down on a hill before relenting. He passes through Cusco and at the coast near Puerto Viejo (Manta, in modern Ecuador) walks away over the sea.\n\n## A god seen through Spanish eyes\n\nViracocha's image in the chronicles is especially exposed to colonial reshaping. Betanzos describes him as a tall man in a long white robe carrying a staff, details that invited comparison with Christian apostles; Andeans also called the Spaniards *viracochas*, a usage Francisco de Ávila notes and that later writers sometimes misread as proof that the invaders were taken for gods. Garcilaso, keen to present an Andean monotheism, gives the role of invisible supreme god to Pachacamac instead. Scholars continue to debate how far the Creator's pre-eminence reflects Inca state theology and how far it reflects Spanish expectations.",
+    "originStory": "Viracocha is uncreated in the chronicles: he emerges from Lake Titicaca before there is light, and everything else, including the sun and moon, is his work.",
+    "importanceRank": 1,
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "aztec-pantheon",
+        "deityId": "quetzalcoatl",
+        "note": "Both are creator and culture-hero figures remembered as departing over the sea (Viracocha from the Ecuadorian coast in Betanzos, Quetzalcoatl eastward from Tollan), and in both cases colonial writers reshaped the departure into a prophecy of Spanish arrival. The comparison is typological; there is no evidence of contact between the two traditions."
+      }
+    ],
+    "primarySources": [
+      {
+        "text": "In ancient times the land was in darkness; out of a lake in the Collao came a lord called Con Tici Viracocha, who made the sun, the day, the moon and the stars at Tiahuanaco, and then shaped the peoples of the land in stone.",
+        "source": "Juan de Betanzos, Suma y narración de los Incas, Part 1, ch. 1 (paraphrase)",
+        "sourceId": "betanzos-suma-y-narracion",
+        "locator": "Part 1, ch. 1",
+        "date": "written 1551"
+      },
+      {
+        "text": "When the Indians worshipped it they said, \"Coniraya Uiracocha [...] thou art Lord of all: thine are the crops, and thine are all the people.\"",
+        "source": "Francisco de Ávila, Tratado de los errores, ch. I (trans. Markham 1873), on the invocation of Viracocha's name in Huarochirí",
+        "sourceId": "avila-tratado-huarochiri",
+        "locator": "ch. I",
+        "date": "written 1608; trans. 1873"
+      }
+    ],
+    "worship": {
+      "temples": [
+        "The temple at Cacha (the archaeological site of Raqchi, Cusco region), which Betanzos says the Incas built where Viracocha called down fire; its great central wall still stands.",
+        "In Cusco the Creator was honored in the state cult beside the Sun and Thunder; the Andean chronicler Juan de Santa Cruz Pachacuti Yamqui (c. 1613) drew an oval gold plate representing the Creator above the altar of the Coricancha."
+      ],
+      "festivals": [],
+      "practices": "Molina records Quechua prayers addressed to the Creator by Cusco priests and nobles, recited during the great state ceremonies rather than at a festival of Viracocha's own. No calendrical festival devoted solely to him is securely attested."
+    },
+    "pronunciation": {
+      "ipa": "/wiɾaˈqotʃa/",
+      "phonetic": "wee-rah-KOH-chah"
+    },
+    "imageUrl": "/deities/viracocha.png"
+  },
+  {
+    "id": "inti",
+    "pantheonId": "inca-pantheon",
+    "name": "Inti",
+    "slug": "inti",
+    "originalLanguageName": {
+      "text": "Inti",
+      "language": "Quechua",
+      "meaning": "\"Sun\""
+    },
+    "alternateNames": ["Punchao", "Apu Inti"],
+    "gender": "male",
+    "traditionRole": "Dynastic Ancestor",
+    "domain": ["the sun", "kingship", "harvest"],
+    "symbols": ["a golden disk", "the Punchao image", "gold"],
+    "description": "The Sun, divine ancestor of the Inca kings and center of the state cult, worshipped in the gold-sheathed Coricancha of Cusco and at the June solstice festival of Inti Raymi.",
+    "detailedBio": "## The Sun as royal ancestor\n\nThe Inca kings called themselves children of the Sun (*intip churin*), and Garcilaso de la Vega's version of the dynasty's origin has the Sun himself send his son Manco Cápac and daughter Mama Ocllo to Lake Titicaca to teach humanity. Sun worship was the most visible part of the imperial cult: the Sun owned lands and herds in every conquered province, and communities of chosen women (*acllacuna*) wove cloth and brewed maize beer for him.\n\n## The Coricancha and the Punchao\n\nIn Cusco the Sun's chief temple, the Coricancha, had walls plated with gold, which Spanish agents stripped in 1533 to pay Atahualpa's ransom. Its most sacred image was the Punchao ('day'), a golden figure of the Sun that later chroniclers describe as containing the powdered hearts of past kings. The Punchao was carried into the Vilcabamba refuge after the conquest and captured by Viceroy Toledo's forces in 1572; its later fate is unknown.\n\n## Inti Raymi\n\nGarcilaso describes Inti Raymi, the Sun's festival at the June solstice (midwinter in the southern Andes), as the greatest ceremony of the year, when the ruler and nobles greeted the rising sun in Cusco's main square. The modern Inti Raymi performed at Sacsayhuamán each 24 June since 1944 is a reconstruction based largely on Garcilaso, not a continuous survival.",
+    "originStory": "In Betanzos's account the Sun is made by Viracocha at Tiwanaku, rising from the Island of the Sun in Lake Titicaca; in Inca royal ideology he is the father of the first Inca, Manco Cápac.",
+    "importanceRank": 1,
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "japanese-pantheon",
+        "deityId": "amaterasu",
+        "note": "Both are sun deities claimed as the direct ancestor of a ruling dynasty (the Sapa Inca as 'son of the Sun'; the Japanese imperial line as descendants of Amaterasu), with the ruler serving as the sun's chief priest."
+      },
+      {
+        "pantheonId": "aztec-pantheon",
+        "deityId": "tonatiuh",
+        "note": "Both are sun gods at the center of an expanding American state's official cult, though Inti's role as royal ancestor has no close Mexica equivalent."
+      }
+    ],
+    "primarySources": [
+      {
+        "text": "Our father the Sun, seeing men living like wild beasts, took pity on them and sent from heaven to earth a son and a daughter of his to teach them to know him as their god, and to live by reason and law.",
+        "source": "Garcilaso de la Vega, Comentarios Reales, Part I, Book 1, ch. 15 (paraphrase of the origin speech)",
+        "sourceId": "garcilaso-royal-commentaries",
+        "locator": "Part I, Book 1, ch. 15",
+        "date": "published 1609"
+      },
+      {
+        "text": "The temple of the Sun in Cusco had its walls covered from top to bottom with plates of gold, and its great image of the Sun was of gold, with rays and flames.",
+        "source": "Garcilaso de la Vega, Comentarios Reales, Part I, Book 3 (paraphrase of the Coricancha description)",
+        "sourceId": "garcilaso-royal-commentaries",
+        "locator": "Part I, Book 3",
+        "date": "published 1609"
+      }
+    ],
+    "worship": {
+      "temples": [
+        "The Coricancha in Cusco, the chief temple of the Sun, whose curved Inca masonry survives beneath the Dominican church and convent of Santo Domingo.",
+        "Sun temples built by the Incas across the empire, including one at Pachacamac beside the older coastal sanctuary and another on the Island of the Sun in Lake Titicaca."
+      ],
+      "festivals": [
+        "Inti Raymi, at the June solstice, described by Garcilaso (Part I, Book 6); re-staged at Sacsayhuamán since 1944 as a reconstructed civic pageant."
+      ],
+      "practices": "The Sun held lands and herds in every province; chosen women (acllacuna) in walled compounds wove fine cloth and prepared maize beer for his cult; llamas and cloth were burned as offerings in Cusco."
+    },
+    "pronunciation": {
+      "ipa": "/ˈinti/",
+      "phonetic": "IN-tee"
+    },
+    "imageUrl": "/deities/inti.png"
+  },
+  {
+    "id": "mama-killa",
+    "pantheonId": "inca-pantheon",
+    "name": "Mama Killa",
+    "slug": "mama-killa",
+    "originalLanguageName": {
+      "text": "Mama Killa",
+      "language": "Quechua",
+      "meaning": "\"Mother Moon\""
+    },
+    "alternateNames": ["Mama Quilla"],
+    "gender": "female",
+    "domain": ["the moon", "the calendar", "the queen (coya)"],
+    "symbols": ["silver", "the crescent", "a woman's face in silver"],
+    "description": "The Moon, sister and wife of the Sun in the Inca state cult, honored in a silver-lined chamber of the Coricancha and associated with the queen and with the reckoning of months and festivals.",
+    "detailedBio": "## Wife of the Sun\n\nGarcilaso de la Vega calls the Moon *Mama Quilla*, 'Mother Moon', and describes her as the sister and wife of the Sun and the mother of the Incas. In the Coricancha her chamber was lined with silver and held a silver image with a woman's face, and the bodies of dead queens (*coyas*) were set there, much as the kings' bodies sat before the Sun. The pairing mirrors the royal marriage of the Inca ruler to his sister-queen, and the queen was the Moon's earthly counterpart.\n\n## Months and eclipses\n\nThe Inca calendar combined solar observations with lunar months (*killa* means both 'moon' and 'month'), and many festivals were timed by the moon. Guaman Poma's calendar names the September month *Coya Raymi*, the feast of the queen, the season of the Citua purification ceremonies that Molina describes. Garcilaso reports that during a lunar eclipse people believed the Moon was falling sick and might die, and shouted, blew horns, and beat dogs to make them howl so that she would wake.\n\n## Evidence\n\nMama Killa is attested almost entirely through descriptions of the Cusco state cult; no extended myth about her survives comparable to those of Viracocha or the Huarochirí huacas.",
+    "originStory": "Made by Viracocha at Tiwanaku together with the Sun and the stars, in Betanzos's account; in royal ideology she is the Sun's sister-wife and mother of the Inca lineage.",
+    "importanceRank": 2,
+    "crossPantheonParallels": [],
+    "primarySources": [
+      {
+        "text": "The chamber of the Moon, wife of the Sun, was lined entirely with silver, and her image had a woman's face; they called her Mama Quilla, Mother Moon, and placed before her the bodies of the dead queens.",
+        "source": "Garcilaso de la Vega, Comentarios Reales, Part I, Book 3 (paraphrase)",
+        "sourceId": "garcilaso-royal-commentaries",
+        "locator": "Part I, Book 3",
+        "date": "published 1609"
+      },
+      {
+        "text": "When the moon was eclipsed they said she was sick and would die and fall from the sky; they raised a great noise and beat their dogs to make them howl and call her back.",
+        "source": "Garcilaso de la Vega, Comentarios Reales, Part I, Book 2 (paraphrase of the eclipse custom)",
+        "sourceId": "garcilaso-royal-commentaries",
+        "locator": "Part I, Book 2",
+        "date": "published 1609"
+      }
+    ],
+    "worship": {
+      "temples": [
+        "A silver-lined chamber of the Coricancha in Cusco dedicated to the Moon, according to Garcilaso."
+      ],
+      "festivals": [
+        "Coya Raymi (September), the queen's month in Guaman Poma's calendar, when the Citua purification was held in Cusco."
+      ],
+      "practices": "Noise-making, horn-blowing, and beating dogs to make them howl during lunar eclipses, as reported by Garcilaso; the queen (coya) was regarded as the Moon's counterpart."
+    },
+    "pronunciation": {
+      "ipa": "/ˈmama ˈkiʎa/",
+      "phonetic": "MAH-mah KEE-lyah"
+    },
+    "imageUrl": "/deities/mama-killa.png"
+  },
+  {
+    "id": "pachamama",
+    "pantheonId": "inca-pantheon",
+    "name": "Pachamama",
+    "slug": "pachamama",
+    "originalLanguageName": {
+      "text": "Pachamama",
+      "language": "Quechua and Aymara",
+      "meaning": "\"Earth Mother\" or \"World Mother\" (pacha: earth, world, time)"
+    },
+    "alternateNames": ["Mama Pacha"],
+    "gender": "female",
+    "domain": ["the earth", "fertility", "agriculture"],
+    "symbols": [
+      "the planted field",
+      "maize beer poured on the ground",
+      "coca leaves"
+    ],
+    "description": "The Earth Mother of the Andes, recorded by colonial writers as receiving offerings of maize beer and coca in the fields, and still honored by Quechua and Aymara communities today.",
+    "detailedBio": "## Colonial attestation\n\nPachamama is named in the Jesuit José de Acosta's *Natural and Moral History of the Indies* (1590), which lists among the objects of Andean worship the earth, called Pachamama, and the sea, called Mamacocha, following the jurist Polo de Ondegardo's earlier inquiries. The extirpation literature of the early seventeenth century, such as Pablo José de Arriaga's *Extirpación de la idolatría del Pirú* (1621), describes offerings of maize beer and coca made to the earth in agricultural rites. She belonged less to the imperial theology of Cusco than to everyday agricultural practice, which is one reason her cult survived the destruction of the state religion.\n\n## A living tradition\n\nOfferings to Pachamama continue across the Andes: the *ch'alla*, sprinkling alcohol or maize beer on the ground before drinking, and the burned or buried *despacho* bundles prepared by ritual specialists, especially in August, the month considered hers in much of highland Peru, Bolivia, and northwest Argentina. In colonial art she was sometimes merged with the Virgin Mary; the anonymous painting *La Virgen del Cerro* (c. 1720) in Potosí shows Mary as the silver mountain itself.\n\n## Cautions\n\nMuch popular writing today presents Pachamama as an ancient goddess with elaborate myths. The colonial sources attest her name and offerings, not a detailed mythology; modern ritual practice is her richest record.",
+    "originStory": "No origin narrative survives in the colonial sources; she is the earth itself, addressed as mother.",
+    "importanceRank": 2,
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "greek-pantheon",
+        "deityId": "gaia",
+        "note": "Both personify the earth as a mother, though Gaia has a developed genealogy and mythology in Hesiod while Pachamama is attested chiefly through agricultural offerings."
+      }
+    ],
+    "primarySources": [
+      {
+        "text": "They worshipped the earth, which they called Pachamama, and the sea, which they called Mamacocha.",
+        "source": "José de Acosta, Historia natural y moral de las Indias, Book 5 (paraphrase)",
+        "sourceId": "acosta-natural-moral-history",
+        "locator": "Book 5",
+        "date": "published 1590"
+      },
+      {
+        "text": "In their sowing and harvest rites they make offerings of chicha and coca to the earth, which they call Mama Pacha.",
+        "source": "Pablo José de Arriaga, Extirpación de la idolatría del Pirú (paraphrase)",
+        "date": "published 1621"
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [
+        "August offerings to Pachamama, widely observed today in highland Peru, Bolivia, and northwest Argentina (a living practice, documented ethnographically rather than in pre-conquest sources)."
+      ],
+      "practices": "Libations of maize beer (chicha) and offerings of coca to the earth before plowing and at harvest, recorded by colonial writers; today the ch'alla libation and despacho offering bundles."
+    },
+    "pronunciation": {
+      "ipa": "/pat͡ʃaˈmama/",
+      "phonetic": "pah-chah-MAH-mah"
+    },
+    "imageUrl": "/deities/pachamama.png"
+  },
+  {
+    "id": "mama-qucha",
+    "pantheonId": "inca-pantheon",
+    "name": "Mama Qucha",
+    "slug": "mama-qucha",
+    "originalLanguageName": {
+      "text": "Mama Qucha",
+      "language": "Quechua",
+      "meaning": "\"Mother Lake\" or \"Mother Sea\""
+    },
+    "alternateNames": ["Mamacocha", "Mama Cocha"],
+    "gender": "female",
+    "domain": ["the sea", "lakes and waters", "fishing"],
+    "symbols": ["the sea", "shells (mullu)", "lakes"],
+    "description": "The Sea Mother, named by colonial writers alongside Pachamama as the mother of waters, especially important to coastal fishing peoples and connected in highland thought to the lakes and springs that fed the fields.",
+    "detailedBio": "## Attestation\n\nJosé de Acosta (1590), following Polo de Ondegardo, lists the sea, called Mamacocha, among the principal objects of Andean worship, and the seventeenth-century extirpators report coastal fishing communities making offerings to the sea. The word *qucha* means lake as well as sea, and highland people also addressed lakes, springs, and lagoons as sources of the water that became rain and irrigation.\n\n## Water in Andean thought\n\nThe Huarochirí Manuscript describes a cosmos in which water circulates: the celestial llama Yacana drinks from the sea at night so that the ocean does not flood the world, and the Milky Way is a river in the sky. Spondylus shell (*mullu*), traded up from the warm waters off Ecuador, was among the most valued offerings throughout the Andes, a material link between the sea and highland rites for water.\n\n## Limits of the record\n\nNo narrative myth about Mama Qucha herself survives in the major sources; she is known from lists of worshipped powers and from offering practices. This entry keeps to that evidence.",
+    "originStory": "No origin story survives; she is the sea itself, addressed as mother.",
+    "importanceRank": 4,
+    "crossPantheonParallels": [],
+    "primarySources": [
+      {
+        "text": "They worshipped the sea, which they called Mamacocha, and the earth, which they called Pachamama.",
+        "source": "José de Acosta, Historia natural y moral de las Indias, Book 5 (paraphrase)",
+        "sourceId": "acosta-natural-moral-history",
+        "locator": "Book 5",
+        "date": "published 1590"
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [],
+      "practices": "Offerings to the sea by coastal fishing communities, and offerings to lakes and springs as sources of irrigation water, reported by colonial extirpators; spondylus shell (mullu) was a prized offering throughout the Andes."
+    },
+    "pronunciation": {
+      "ipa": "/ˈmama ˈqot͡ʃa/",
+      "phonetic": "MAH-mah KOH-chah"
+    },
+    "imageUrl": "/deities/mama-qucha.png"
+  },
+  {
+    "id": "illapa",
+    "pantheonId": "inca-pantheon",
+    "name": "Illapa",
+    "slug": "illapa",
+    "originalLanguageName": {
+      "text": "Illapa",
+      "language": "Quechua",
+      "meaning": "\"Thunder, lightning\"; also called Chuquilla ('golden light') and Catuilla"
+    },
+    "alternateNames": ["Chuquilla", "Catuilla"],
+    "gender": "male",
+    "domain": ["thunder", "lightning", "rain", "hail"],
+    "symbols": ["a sling", "a club", "the flash of lightning"],
+    "description": "The Thunder of the Inca state cult, imagined as a man in the sky with a sling and club who draws rain from the heavenly river; after the conquest he was widely identified with Saint James (Santiago).",
+    "detailedBio": "## The Thunder in Cusco\n\nIllapa was one of the principal powers of the Cusco state cult, with his own chamber in the Coricancha according to Garcilaso and his own image, lands, and servants according to Molina and Cobo. Bernabé Cobo (1653), summarizing earlier reports, says the Andeans imagined him as a man in the sky with a club in one hand and a sling in the other: the crack of the sling was the thunder, the flash of his clothing the lightning, and he drew water from the river of the sky, the Milky Way, and poured it down as rain.\n\n## Rain, hail, and the mountains\n\nBecause he controlled rain and hail, Illapa was petitioned in times of drought, often on mountaintops. Colonial extirpators report that people struck by lightning and survived were thought chosen for ritual office, and that twins, and children born feet-first, were considered children of the lightning.\n\n## Santiago\n\nThe Spanish battle cry to Saint James and the saint's thundering horse made an easy identification: in colonial and modern Andean usage *Santiago* became a name for the thunder itself. This fusion is a post-conquest development, well documented in the extirpation literature, and not evidence about pre-conquest belief.",
+    "originStory": "No birth narrative survives; the Thunder appears in the chronicles as one of the great powers of the sky, ranked after the Creator and the Sun.",
+    "importanceRank": 3,
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "mesoamerican-pantheon",
+        "deityId": "tlaloc",
+        "note": "Both are storm and rain gods of American states, petitioned on mountains in time of drought; Illapa wields a sling, Tlaloc the lightning serpent. The resemblance is typological, not historical."
+      }
+    ],
+    "primarySources": [
+      {
+        "text": "They imagined the Thunder as a man in the sky, with a club in his left hand and a sling in his right; the thunder was the crack of his sling, and he took water from a river in the sky and poured it on the earth as rain.",
+        "source": "Bernabé Cobo, Historia del Nuevo Mundo, Book 13 (paraphrase)",
+        "sourceId": "cobo-inca-religion",
+        "locator": "Book 13",
+        "date": "written 1653"
+      },
+      {
+        "text": "One chamber of the temple of the Sun was dedicated to the thunder and lightning, which they called Illapa.",
+        "source": "Garcilaso de la Vega, Comentarios Reales, Part I, Book 3 (paraphrase)",
+        "sourceId": "garcilaso-royal-commentaries",
+        "locator": "Part I, Book 3",
+        "date": "published 1609"
+      }
+    ],
+    "worship": {
+      "temples": [
+        "A chamber of the Coricancha in Cusco dedicated to thunder and lightning, according to Garcilaso."
+      ],
+      "festivals": [],
+      "practices": "Prayers and offerings for rain and against hail, often made on mountaintops; people who survived lightning strikes were thought chosen for ritual office, and twins were regarded as children of the lightning, according to seventeenth-century extirpation reports."
+    },
+    "pronunciation": {
+      "ipa": "/iˈʎapa/",
+      "phonetic": "ee-LYAH-pah"
+    },
+    "imageUrl": "/deities/illapa.png"
+  },
+  {
+    "id": "pachacamac",
+    "pantheonId": "inca-pantheon",
+    "name": "Pachacamac",
+    "slug": "pachacamac",
+    "originalLanguageName": {
+      "text": "Pachakamaq",
+      "language": "Quechua",
+      "meaning": "\"Animator (or maker) of the world\""
+    },
+    "alternateNames": ["Pachakamaq", "Pacha Camac"],
+    "gender": "male",
+    "domain": ["the earth and its tremors", "oracles", "the coast"],
+    "symbols": [
+      "a carved wooden staff-idol",
+      "the sanctuary on the Lurín coast"
+    ],
+    "description": "The great oracle god of the central Peruvian coast, whose sanctuary south of Lima drew pilgrims for centuries before the Incas, and who kept his shrine even after the Incas built a Temple of the Sun beside it.",
+    "detailedBio": "## The oracle of the coast\n\nPachacamac's sanctuary near the mouth of the Lurín River, south of modern Lima, was a pilgrimage and oracle center for well over a thousand years. When the Incas conquered the coast in the fifteenth century they did not suppress it; they built a Temple of the Sun and a house of chosen women on the same site, and consulted the oracle themselves. Hernando Pizarro reached the sanctuary in January 1533 in search of its gold, forced his way into the inner chamber, and had the idol broken before the assembled people, an episode described in his own letter and in Miguel de Estete's account.\n\n## Garcilaso's invisible god\n\nGarcilaso de la Vega argued that the Incas worshipped Pachacamac inwardly as the unseen sustainer of the world, a supreme god like the Christian one, and that the coastal idol was a corruption. This interpretation served Garcilaso's apologetic purpose and is not accepted at face value by historians, who treat Pachacamac first as a powerful regional huaca with a far-reaching oracle network.\n\n## In the Huarochirí stories\n\nThe Huarochirí material gives Pachacamac a wife, Urpay Huachac, and two daughters, whom Cuniraya encounters on the shore at Pachacamac after Cavillaca disappears into the sea there. A carved wooden figure recovered at the site in 1938, now in the site museum, has been radiocarbon-dated to the eighth or ninth century CE and may be an image of the god.",
+    "originStory": "No surviving account describes Pachacamac's origin; later coastal traditions recorded by the Augustinian Antonio de la Calancha (1638) make him a son of the Sun, but that version is late and heavily reworked.",
+    "importanceRank": 2,
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "greek-pantheon",
+        "deityId": "apollo",
+        "note": "Both presided over pan-regional oracle sanctuaries (Pachacamac, Delphi) consulted by rulers from far beyond their home territory, and both shrines were taken over rather than abolished by later powers. The comparison concerns the institution of the oracle, not the gods' characters."
+      }
+    ],
+    "primarySources": [
+      {
+        "text": "When he reached the sea-shore he found that Cavillaca and her child were turned into stone; and as he walked along the beach he met two beautiful young daughters of Pachacamac, who guarded a great serpent, because their mother was absent, visiting the recently arrived Cavillaca in the sea.",
+        "source": "Francisco de Ávila, Tratado de los errores, ch. II (trans. Markham 1873)",
+        "sourceId": "avila-tratado-huarochiri",
+        "locator": "ch. II",
+        "date": "written 1608; trans. 1873"
+      },
+      {
+        "text": "The Incas held in their hearts that Pachacamac was the one who gave life to the universe and sustained it, and did not dare to take his name on their lips or build him temples, because they had not seen him.",
+        "source": "Garcilaso de la Vega, Comentarios Reales, Part I, Book 2 (paraphrase)",
+        "sourceId": "garcilaso-royal-commentaries",
+        "locator": "Part I, Book 2",
+        "date": "published 1609"
+      }
+    ],
+    "worship": {
+      "temples": [
+        "The sanctuary of Pachacamac on the Lurín coast south of Lima, including the Painted Temple and, from the Inca period, a Temple of the Sun and a house of chosen women (acllahuasi)."
+      ],
+      "festivals": [],
+      "practices": "Pilgrims and rulers consulted the oracle through its priests, bringing offerings of cloth, gold, and other goods; branch shrines of Pachacamac elsewhere on the coast were regarded as his 'children'."
+    },
+    "pronunciation": {
+      "ipa": "/pat͡ʃaˈkamak/",
+      "phonetic": "pah-chah-KAH-mahk"
+    },
+    "imageUrl": "/deities/pachacamac.png"
+  },
+  {
+    "id": "pariacaca",
+    "pantheonId": "inca-pantheon",
+    "name": "Pariacaca",
+    "slug": "pariacaca",
+    "originalLanguageName": {
+      "text": "Paria Caca",
+      "language": "Quechua",
+      "meaning": "A snow mountain and the god who is that mountain; caca (qaqa) means 'crag'"
+    },
+    "alternateNames": ["Paria Caca"],
+    "gender": "male",
+    "domain": ["rain and storm", "irrigation water", "the snow mountain"],
+    "symbols": ["five eggs", "five falcons", "the snow peak", "a golden staff"],
+    "description": "The snow-mountain god of the Huarochirí Manuscript, born from five eggs on Mount Condorcoto, who drowns a village that refused him drink, brings irrigation water to the fields of Cupara, and drives the fire-eating Huallallo Carhuincho out of the highlands.",
+    "detailedBio": "## Born from five eggs\n\nThe Quechua Huarochirí Manuscript (c. 1598-1608) makes Pariacaca the central huaca of the Checa and other peoples of Huarochirí province, in the mountains east of Lima. He appears on the mountain Condorcoto as five eggs; the eggs hatch as five falcons that become five persons, and the manuscript itself debates whether these were five brothers or Pariacaca and his children (ch. 16). His son Huatyacuri, a poor man who eats only half-cooked potatoes, prepares his coming by humbling a rich lord who claimed to be a god.\n\n## Storm, flood, and water\n\nPariacaca's power is the power of water: rain, hail, flood, and irrigation. When the people of a village feasting below Huarochirí ignore him, disguised as a poor stranger, except for one woman who offers him maize beer, he warns her to flee and destroys the village with a storm five days later. When the young woman Choque Suso weeps over her dry maize, he opens the channels that still water the fields of Cupara. And he drives out Huallallo Carhuincho, the earlier god of a hot lowland world, in a contest of water against fire.\n\n## A mountain and a cult\n\nPariacaca is also the glaciated peak of that name on the border of Lima and Junín regions, crossed by an Inca road from Jauja to the coast. The manuscript describes the annual gatherings in which his worshippers climbed toward him, and the priests and offerings of his cult, in the chapters the compiler titled on how he 'began to ordain his own cult' (ch. 9).",
+    "originStory": "Pariacaca appears on the mountain Condorcoto as five eggs, which hatch into five falcons and then five men (Huarochirí Manuscript, chs. 5-6).",
+    "importanceRank": 2,
+    "crossPantheonParallels": [],
+    "primarySources": [
+      {
+        "text": "They say that in those days there appeared five large eggs on a mountain between Huarochiri and Chorrillo, towards the south, (and this is the origin of Pariacaca) called Condorcoto.",
+        "source": "Francisco de Ávila, Tratado de los errores, ch. V (trans. Markham 1873)",
+        "sourceId": "avila-tratado-huarochiri",
+        "locator": "ch. V",
+        "date": "written 1608; trans. 1873"
+      },
+      {
+        "text": "They say that those five eggs in Condorcoto, one of which contained Pariacaca, opened, and five falcons issued from them, who were presently turned into five men, who went about performing wonderful miracles.",
+        "source": "Francisco de Ávila, Tratado de los errores, ch. V (trans. Markham 1873)",
+        "sourceId": "avila-tratado-huarochiri",
+        "locator": "ch. V",
+        "date": "written 1608; trans. 1873"
+      }
+    ],
+    "worship": {
+      "temples": [
+        "Pariacaca mountain itself, on the watershed between the Lima and Junín regions of Peru, and shrines to his children and companions throughout Huarochirí province."
+      ],
+      "festivals": [
+        "An annual festival of Pariacaca in which the Checa and other ayllus gathered with offerings, described in the Huarochirí Manuscript (ch. 9)."
+      ],
+      "practices": "Offerings of llamas, coca, and maize beer; the stone forms of figures in his stories, such as Choque Suso at the head of the Cupara irrigation channel, received their own offerings into the seventeenth century, as Ávila complains."
+    },
+    "pronunciation": {
+      "ipa": "/paɾjaˈkaka/",
+      "phonetic": "pah-ree-ah-KAH-kah"
+    },
+    "imageUrl": "/deities/pariacaca.png"
+  },
+  {
+    "id": "cuniraya-viracocha",
+    "pantheonId": "inca-pantheon",
+    "name": "Cuniraya Viracocha",
+    "slug": "cuniraya-viracocha",
+    "originalLanguageName": {
+      "text": "Cuni Raya Vira Cocha",
+      "language": "Quechua",
+      "meaning": "Name of uncertain etymology; the Huarochirí material links him with the creator's name Viracocha"
+    },
+    "alternateNames": ["Coniraya", "Cuni Raya"],
+    "gender": "male",
+    "traditionRole": "Trickster Creator",
+    "domain": [
+      "irrigation and terraces",
+      "trickery",
+      "the ordering of animals"
+    ],
+    "symbols": ["beggar's rags", "a lúcuma fruit", "a hollow cane"],
+    "description": "The ragged trickster-creator of the Huarochirí stories, who makes terraces and canals with a word, fathers a child on the proud huaca Cavillaca through a fruit, and blesses or curses each animal he meets as he chases her to the sea.",
+    "detailedBio": "## A creator in rags\n\nThe Huarochirí Manuscript (ch. 2) and Francisco de Ávila's Spanish retelling (1608) describe Cuniraya wandering the land as a lice-ridden beggar whom people mock. Yet with a word he makes terraces rise on the ravine sides and, by throwing a cane, sets irrigation channels flowing. In the most famous story he fathers a child on the beautiful and aloof huaca Cavillaca by placing his seed in a ripe lúcuma fruit, then pursues her to the sea at Pachacamac, rewarding the condor, puma, and falcon that give him hopeful news and cursing the skunk, fox, and parrots that do not.\n\n## Cuniraya and Viracocha\n\nThe manuscript and Ávila both report that people invoked him as 'Cuniraya Viracocha' and called him lord of all, and Ávila, who was trying to prove the invocation older than the Spaniards, insists it was used 'long before there were any tidings of Spaniards'. Whether Cuniraya was originally a local deity later identified with the Inca state's Creator, or a local form of the same Creator, is debated; Ávila's retelling admits it is not certain whether he came before or after Pariacaca. This site links the two through an 'aspect of' relationship marked as disputed.\n\n## Explaining the world\n\nMany of Cuniraya's acts explain features of the world: why condors eat carrion unharmed, why the puma's skin is worn with its head in festival dances, why foxes stink and are hunted, and why there are fish in the sea (he tips them out of Urpay Huachac's pond in revenge). Ávila records that people in his parishes still acted on these blessings and curses in the early 1600s.",
+    "originStory": "No birth is told; he simply 'appeared in the form and dress of a very poor Indian' in the most ancient times (Ávila, ch. II).",
+    "importanceRank": 3,
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "tlingit-haida-pantheon",
+        "deityId": "raven",
+        "note": "Both are trickster-transformers whose travels and appetites account for features of the world and the habits of animals, creating by redistributing things as much as by making them."
+      }
+    ],
+    "primarySources": [
+      {
+        "text": "They say that in most ancient times the Coniraya Uiracocha appeared in the form and dress of a very poor Indian clothed in rags, insomuch that those who knew not who he was reviled him and called him a lousy wretch.",
+        "source": "Francisco de Ávila, Tratado de los errores, ch. II (trans. Markham 1873)",
+        "sourceId": "avila-tratado-huarochiri",
+        "locator": "ch. II",
+        "date": "written 1608; trans. 1873"
+      },
+      {
+        "text": "In commencing any arduous or difficult undertaking, they threw a piece of coca [...] on the ground, as an oblation, and said, \"Tell me, O Lord Coniraya Uiracocha, how I am to do this?\"",
+        "source": "Francisco de Ávila, Tratado de los errores, ch. I (trans. Markham 1873)",
+        "sourceId": "avila-tratado-huarochiri",
+        "locator": "ch. I",
+        "date": "written 1608; trans. 1873"
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [],
+      "practices": "Invoked before difficult work, especially by weavers, with a leaf of coca thrown on the ground as an offering, according to Ávila; Ávila also reports a stone into which Cuniraya was said to have been turned, above the Cupara irrigation channel."
+    },
+    "pronunciation": {
+      "ipa": "/kuniˈɾaja/",
+      "phonetic": "koo-nee-RAH-yah"
+    },
+    "imageUrl": "/deities/cuniraya-viracocha.png"
+  },
+  {
+    "id": "huallallo-carhuincho",
+    "pantheonId": "inca-pantheon",
+    "name": "Huallallo Carhuincho",
+    "slug": "huallallo-carhuincho",
+    "originalLanguageName": {
+      "text": "Huallallo Caruincho",
+      "language": "Quechua",
+      "meaning": "Name of uncertain meaning"
+    },
+    "alternateNames": ["Huallallo Caruincho", "Caruyuchu Huayallo"],
+    "gender": "male",
+    "domain": ["fire", "the hot lowland (yunca) world", "an earlier age"],
+    "symbols": ["fire", "the eaten child", "the Amaru serpent"],
+    "description": "The fearsome earlier god of the Huarochirí stories, who ruled a hot lowland world and demanded one of every two children as food, until Pariacaca's storms drove him east into the Antis lowlands.",
+    "detailedBio": "## Lord of the earlier world\n\nThe Huarochirí material opens with a world before the present one, when the province was hot lowland (*yunca*) country, the dead returned to life on the fifth day, and crops ripened in five days. Its lord was Huallallo Carhuincho, who had defeated the still earlier huacas Yanamca and Tutañamca. Ávila's retelling (1608) says he ordered that no woman should bear more than two children, one of whom was to be given him to eat.\n\n## Defeated by Pariacaca\n\nPariacaca, born from five eggs on Condorcoto, sets out to confront him. In the manuscript's chapters on their contest (chs. 8 and 16), Huallallo is associated with fire and Pariacaca with rain and hail; Huallallo sends monstrous creatures against his enemy, including a serpent (amaru), and is finally driven out toward the eastern lowlands, the Antis. The contest has been read as a charter for the dominance of the highland peoples who worshipped Pariacaca over lowland-associated groups, and as a mythic memory of changing climate or ecology; neither reading is stated by the manuscript itself.\n\n## Why he is here\n\nHuallallo Carhuincho is included because he is a named huaca in the source, not merely a monster: the manuscript associates him with the Huanca people of the Jauja valley, among whom he was remembered as a god.",
+    "originStory": "No origin is told; he is simply lord of the land after defeating the huacas Yanamca and Tutañamca (Huarochirí Manuscript, ch. 1).",
+    "importanceRank": 5,
+    "crossPantheonParallels": [],
+    "primarySources": [
+      {
+        "text": "He ordered that no woman should bring forth more than two children, of which one was to be sacrificed for him to eat, and the other [...] might be brought up.",
+        "source": "Francisco de Ávila, Tratado de los errores, ch. I (trans. Markham 1873)",
+        "sourceId": "avila-tratado-huarochiri",
+        "locator": "ch. I",
+        "date": "written 1608; trans. 1873"
+      },
+      {
+        "text": "Huallallo Carhuincho, lord of the hot early world, fought Pariacaca, who came against him with rain and hail; defeated, Huallallo fled toward the Antis lowlands.",
+        "source": "Huarochirí Manuscript, chs. 8 and 16 (paraphrase)",
+        "sourceId": "huarochiri-manuscript",
+        "locator": "chs. 8 and 16",
+        "date": "compiled c. 1598-1608"
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [],
+      "practices": "The Huarochirí Manuscript associates him with the Huanca people of the Jauja valley; it gives no details of rites performed for him."
+    },
+    "pronunciation": {
+      "ipa": "/waˈʎaʎo kaɾˈwint͡ʃo/",
+      "phonetic": "wah-LYAH-lyoh kar-WEEN-choh"
+    },
+    "imageUrl": "/deities/huallallo-carhuincho.png"
+  },
+  {
+    "id": "manco-capac",
+    "pantheonId": "inca-pantheon",
+    "name": "Manco Cápac",
+    "slug": "manco-capac",
+    "originalLanguageName": {
+      "text": "Manqu Qhapaq",
+      "language": "Quechua",
+      "meaning": "Qhapaq means 'powerful, royal'; Manqu is of uncertain meaning"
+    },
+    "alternateNames": ["Manco Capac", "Ayar Manco", "Manqu Qhapaq"],
+    "gender": "male",
+    "traditionRole": "Founding Ancestor",
+    "domain": ["the founding of Cusco", "kingship", "agriculture"],
+    "symbols": ["a golden rod", "the hill of Huanacauri"],
+    "description": "The first Inca, founder of Cusco, presented by Garcilaso as a son of the Sun sent to Lake Titicaca with his sister-wife Mama Ocllo, and by Betanzos and Sarmiento as the leader of four brothers and four sisters who emerged from a cave at Pacaritambo.",
+    "detailedBio": "## Two origin traditions\n\nThe chroniclers preserve two main accounts of Manco Cápac. Garcilaso de la Vega (1609) says the Sun, pitying humanity's savage state, placed his son and daughter in Lake Titicaca with a golden rod; they were to settle where it sank into the ground at a single thrust, which happened at Huanacauri above the valley of Cusco. Juan de Betanzos (1551) and Pedro Sarmiento de Gamboa (1572) instead tell of four brothers, the Ayars, and four sisters who emerged from a cave called Tambo Toco at Pacaritambo, south of Cusco. On the journey one brother, Ayar Cachi, is tricked back into the cave and sealed in; another, Ayar Uchu, turns to stone on Huanacauri; and Manco, the survivor, founds Cusco.\n\n## Ancestor and huaca\n\nWhatever his historicity, Manco Cápac functioned as the dynasty's founding ancestor, and the Inca kings traced their right to rule to him and through him to the Sun. The ruling lineages of Cusco each claimed descent from a particular king, beginning with Manco's. His stone at Huanacauri and the sites of the Pacaritambo journey were huacas visited in the initiation rites of young Inca nobles, which Molina describes.\n\n## Historicity\n\nModern historians generally treat the first Inca rulers in the king lists, Manco Cápac among them, as legendary or semi-legendary; firmer chronology begins with Pachacuti in the fifteenth century.",
+    "originStory": "Son of the Sun and brother-husband of Mama Ocllo in Garcilaso's version; the leader of the Ayar siblings who emerged from the cave of Tambo Toco at Pacaritambo in Betanzos's and Sarmiento's.",
+    "importanceRank": 2,
+    "crossPantheonParallels": [],
+    "primarySources": [
+      {
+        "text": "Our father the Sun placed these two children of his in the lake Titicaca and gave them a rod of gold, half a yard long and two fingers thick, saying that wherever it sank into the earth at a single thrust, there they should settle.",
+        "source": "Garcilaso de la Vega, Comentarios Reales, Part I, Book 1, ch. 15 (paraphrase)",
+        "sourceId": "garcilaso-royal-commentaries",
+        "locator": "Part I, Book 1, ch. 15",
+        "date": "published 1609"
+      },
+      {
+        "text": "From the window of a cave called Capac Toco at Tambo Toco came four brothers and four sisters, and the eldest was called Manco Capac.",
+        "source": "Pedro Sarmiento de Gamboa, Historia de los Incas (paraphrase)",
+        "sourceId": "sarmiento-history-of-the-incas",
+        "date": "written 1572"
+      }
+    ],
+    "worship": {
+      "temples": [
+        "The huaca of Huanacauri above Cusco, and the cave of Tambo Toco at Pacaritambo, both visited in Inca state rituals connected with the founding journey."
+      ],
+      "festivals": [
+        "The initiation of young Inca nobles (huarachicoy) during Capac Raymi, which included pilgrimages to Huanacauri, as described by Molina."
+      ],
+      "practices": "Veneration of the founding ancestor through his lineage and the huacas of the founding journey; the royal mummies of later kings, not a mummy of Manco, were the focus of ancestor cult in Cusco."
+    },
+    "pronunciation": {
+      "ipa": "/ˈmaŋko ˈqʰapaq/",
+      "phonetic": "MAHN-koh KAH-pahk"
+    },
+    "imageUrl": "/deities/manco-capac.png"
+  },
+  {
+    "id": "mama-ocllo",
+    "pantheonId": "inca-pantheon",
+    "name": "Mama Ocllo",
+    "slug": "mama-ocllo",
+    "originalLanguageName": {
+      "text": "Mama Uqllu",
+      "language": "Quechua",
+      "meaning": "Name of uncertain meaning"
+    },
+    "alternateNames": ["Mama Ocllo Huaco", "Mama Uqllu"],
+    "gender": "female",
+    "traditionRole": "Founding Ancestress",
+    "domain": [
+      "the founding of Cusco",
+      "spinning and weaving",
+      "the household"
+    ],
+    "symbols": ["the spindle", "cloth"],
+    "description": "The founding ancestress of the Incas, sister and wife of Manco Cápac, who in Garcilaso's account taught the women of Cusco to spin, weave, and keep house while her brother taught the men to farm.",
+    "detailedBio": "## In Garcilaso\n\nIn Garcilaso de la Vega's *Royal Commentaries* (1609), Mama Ocllo is the Sun's daughter, sent with her brother Manco Cápac from Lake Titicaca to civilize humanity. When their golden rod sinks at Huanacauri, the pair separate to call the people together, he to the north of the valley and she to the south, and while Manco teaches the men agriculture and irrigation, Mama Ocllo teaches the women to spin, weave, and sew clothing. The division reflects the gendered order of Inca society, in which fine cloth was among the most valuable of all goods.\n\n## In the Pacaritambo version\n\nIn Betanzos and Sarmiento, Mama Ocllo is one of the four sisters who emerge from the cave at Pacaritambo, and she becomes Manco's wife and the mother of the next ruler, Sinchi Roca. Sarmiento gives a more warlike role to another sister, Mama Huaco, who in his hostile account kills one of the valley's earlier inhabitants; this version has been read as reflecting both real conflict over the valley and Toledo's wish to depict the Incas as usurpers.\n\n## Legacy\n\nLike Manco, Mama Ocllo is a legendary ancestor rather than a securely historical figure. The Inca queen (*coya*) inherited her role as the Moon's earthly counterpart.",
+    "originStory": "Daughter of the Sun and the Moon in Garcilaso's version; one of the four sisters from the cave at Pacaritambo in Betanzos's and Sarmiento's.",
+    "importanceRank": 3,
+    "crossPantheonParallels": [],
+    "primarySources": [
+      {
+        "text": "The Inca taught the men to till the soil and bring water in channels, and the queen taught the women to spin and weave cotton and wool and to make clothing for themselves, their husbands, and their children.",
+        "source": "Garcilaso de la Vega, Comentarios Reales, Part I, Book 1 (paraphrase)",
+        "sourceId": "garcilaso-royal-commentaries",
+        "locator": "Part I, Book 1",
+        "date": "published 1609"
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [],
+      "practices": "Honored as founding ancestress of the royal lineage; her role as the first coya passed to each Inca queen, who was regarded as the Moon's counterpart on earth."
+    },
+    "pronunciation": {
+      "ipa": "/ˈmama ˈoqʎo/",
+      "phonetic": "MAH-mah OHK-lyoh"
+    },
+    "imageUrl": "/deities/mama-ocllo.png"
+  },
+  {
+    "id": "ahura-mazda",
+    "pantheonId": "persian-pantheon",
+    "name": "Ahura Mazda",
+    "slug": "ahura-mazda",
+    "originalLanguageName": {
+      "text": "Ahura Mazdā",
+      "language": "Avestan",
+      "transliteration": "Ahura Mazdā; Old Persian Auramazdā; Middle Persian Ohrmazd",
+      "meaning": "\"Wise Lord\" or \"Lord Wisdom\""
+    },
+    "alternateNames": ["Ohrmazd", "Auramazda", "Hormozd", "Wise Lord"],
+    "gender": "male",
+    "traditionRole": "Creator",
+    "domain": ["creation", "wisdom", "truth (asha)", "kingship"],
+    "symbols": ["fire", "light", "the sky"],
+    "description": "The Wise Lord, uncreated creator of the good world in Zoroastrianism, addressed by Zarathushtra in the Gathas and credited by the Achaemenid kings with their rule; opposed by the Hostile Spirit, Angra Mainyu.",
+    "detailedBio": "## In the Gathas\n\nZarathushtra's hymns address Ahura Mazda as the creator who established the earth below and held up the sky, who ordered the paths of sun and stars, and who is the father of the good powers: Truth (*Asha*), Good Mind (*Vohu Manah*), and Devotion (*Armaiti*), whom one hymn calls his daughter. The Gathas are hymns of questioning and devotion rather than narratives; they present a world in which every being must choose between truth and the lie, and in which the Wise Lord will judge by that choice.\n\n## In the Achaemenid inscriptions\n\nDarius I (r. 522-486 BCE) names Ahuramazda again and again in his inscription at Behistun, attributing his seizure of power to 'the favor of Ahuramazda', and his tomb inscription at Naqsh-e Rostam praises Ahuramazda as the great god who created earth, sky, man, and happiness for man, and who made Darius king. Whether the early Achaemenids were Zoroastrians in a strict sense is debated, but their god is recognizably the same.\n\n## Ohrmazd against Ahriman\n\nIn the Middle Persian books of the ninth century CE, Ohrmazd dwells in endless light above and Ahriman in darkness below; their struggle shapes a cosmic history of twelve thousand years that ends with the renovation of the world (*frashokereti*). Zoroastrians today worship Ahura Mazda as the one God, in the presence of fire as the symbol of his light and truth.",
+    "originStory": "Uncreated in orthodox Zoroastrianism. In the Sasanian-era Zurvanite current, known mainly from Christian and Armenian polemic, Ohrmazd and Ahriman are twin sons of Zurvan, Infinite Time.",
+    "importanceRank": 1,
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "greek-pantheon",
+        "deityId": "zeus",
+        "note": "Herodotus (1.131) says the Persians called the whole vault of the sky Zeus, and at Nemrut Dağ in Commagene (1st century BCE) King Antiochus I paired the two as Zeus-Oromasdes; the equation is a Greek interpretation, not a claim of identity."
+      }
+    ],
+    "primarySources": [
+      {
+        "text": "This I ask Thee, tell me truly, O Ahura: who upheld the earth beneath and the sky from falling? Who made the waters and the plants?",
+        "source": "Avesta, Yasna 44.4 (paraphrase of the Gathic questions)",
+        "sourceId": "avesta",
+        "locator": "Yasna 44.4",
+        "date": "Gathas, date disputed (c. 1500-1000 BCE)"
+      },
+      {
+        "text": "A great god is Ahuramazda, who created this earth, who created that sky, who created man, who created happiness for man, who made Darius king.",
+        "source": "Darius I, tomb inscription at Naqsh-e Rostam (DNa), §1 (paraphrase)",
+        "date": "c. 490 BCE"
+      },
+      {
+        "text": "Darius the King says: by the favor of Ahuramazda I am king; Ahuramazda granted me the kingdom.",
+        "source": "Behistun Inscription, col. I (paraphrase)",
+        "sourceId": "behistun-inscription",
+        "locator": "col. I",
+        "date": "c. 520 BCE"
+      }
+    ],
+    "worship": {
+      "temples": [
+        "Zoroastrian fire temples, in which a consecrated fire is kept burning as the focus of worship; the highest grade, the Atash Behram, includes the fire at Yazd, Iran, and the Iranshah fire at Udvada, India."
+      ],
+      "festivals": [
+        "The six seasonal gahambars and Nowruz, the new year at the spring equinox."
+      ],
+      "practices": "Prayer five times a day in the presence of fire or light, with the Ahuna Vairya and Ashem Vohu prayers; the tying of the sacred cord (kusti) over the sacred shirt (sudreh). Herodotus reports that the ancient Persians sacrificed on mountaintops without temples or statues."
+    },
+    "pronunciation": {
+      "ipa": "/aˈhuːɾa ˈmazdaː/",
+      "phonetic": "ah-HOO-rah MAHZ-dah"
+    },
+    "imageUrl": "/deities/ahura-mazda.png"
+  },
+  {
+    "id": "angra-mainyu",
+    "pantheonId": "persian-pantheon",
+    "name": "Angra Mainyu",
+    "slug": "angra-mainyu",
+    "originalLanguageName": {
+      "text": "Aŋra Mainyu",
+      "language": "Avestan",
+      "transliteration": "Angra Mainyu; Middle Persian Ahriman",
+      "meaning": "\"Hostile (or Destructive) Spirit\""
+    },
+    "alternateNames": ["Ahriman", "Ahreman", "the Hostile Spirit"],
+    "gender": "male",
+    "traditionRole": "Adversary",
+    "domain": ["destruction", "the lie (druj)", "death", "darkness"],
+    "symbols": ["darkness", "noxious creatures (khrafstra)", "winter"],
+    "description": "The Hostile Spirit of Zoroastrianism, source of death, lies, and every plague, who in the Vendidad 'counter-creates' an evil against each good land Ahura Mazda makes, and who will be defeated at the end of time.",
+    "detailedBio": "## The counter-creator\n\nThe opening chapter of the Vendidad lists sixteen good lands created by Ahura Mazda and, against each, a plague created by Angra Mainyu, 'who is all death': the serpent and winter, the locust, plunder, doubt, witchcraft, and more. The pattern of creation and counter-creation is the core of his character: he makes nothing good, only corruption of what is good.\n\n## In the Gathas and after\n\nThe Gathas speak of two primal spirits, one more beneficent and one hostile, and of the choice every being makes between them; they do not describe the Hostile Spirit in narrative detail. The Middle Persian books of the ninth century develop Ahriman into a cosmic adversary: dwelling in endless darkness, he attacks Ohrmazd's creation, breaks through the sky, kills the first man Gayomard and the primordial bull, and fills the world with noxious creatures, beginning the mixed age of good and evil in which humanity now lives. At the end, he will be defeated and rendered powerless.\n\n## Not worshipped\n\nAngra Mainyu is not a god who received worship; Zoroastrian practice aims to repel him, through truthfulness, purity laws, and the destruction of creatures regarded as his. The Sasanian-era Zurvanite current made him Ohrmazd's twin brother, born of Zurvan's doubt, a view rejected by later orthodoxy.",
+    "originStory": "In the Gathas one of two primal spirits, called twins (Yasna 30.3); in the Zurvanite myth the elder of Zurvan's twin sons, born of his father's doubt.",
+    "importanceRank": 1,
+    "crossPantheonParallels": [],
+    "primarySources": [
+      {
+        "text": "The first of the good lands and countries which I, Ahura Mazda, created, was the Airyana Vaeja, by the Vanguhi Daitya. Thereupon came Angra Mainyu, who is all death, and he counter-created the serpent in the river and Winter, a work of the Daevas.",
+        "source": "Avesta, Vendidad, Fargard 1.2 (trans. Darmesteter)",
+        "sourceId": "avesta",
+        "locator": "Vendidad 1.2",
+        "date": "Younger Avestan; trans. 1880"
+      },
+      {
+        "text": "The evil-doing Angra Mainyu bows and flees, becoming powerless.",
+        "source": "Avesta, Yasht 19.96 (trans. Darmesteter)",
+        "sourceId": "avesta",
+        "locator": "Yasht 19.96",
+        "date": "Younger Avestan; trans. 1883"
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [],
+      "practices": "Not worshipped. Zoroastrian purity laws, truthfulness, and the ritual killing of creatures regarded as his (khrafstra) are ways of opposing him."
+    },
+    "pronunciation": {
+      "ipa": "/ˈaŋɡɾa ˈmainju/",
+      "phonetic": "AHN-grah MINE-yoo"
+    },
+    "imageUrl": "/deities/angra-mainyu.png"
+  },
+  {
+    "id": "mithra",
+    "pantheonId": "persian-pantheon",
+    "name": "Mithra",
+    "slug": "mithra",
+    "originalLanguageName": {
+      "text": "Miθra",
+      "language": "Avestan",
+      "transliteration": "Mithra; Middle Persian Mihr",
+      "meaning": "\"Contract, covenant\""
+    },
+    "alternateNames": ["Mihr", "Mehr", "Mithra of wide pastures"],
+    "gender": "male",
+    "domain": [
+      "contracts and oaths",
+      "truth",
+      "the light of dawn",
+      "judgment of souls"
+    ],
+    "symbols": [
+      "a thousand ears and ten thousand eyes",
+      "the chariot drawn by white horses",
+      "the boar Verethragna running before him"
+    ],
+    "description": "The yazata of the covenant, 'lord of wide pastures', who watches with a thousand ears and ten thousand eyes over everyone who keeps or breaks their word, and whom Ahura Mazda created 'as worthy of sacrifice as myself'.",
+    "detailedBio": "## The Mihr Yasht\n\nYasht 10, one of the longest hymns of the Avesta, is devoted to Mithra. It opens with Ahura Mazda declaring that he created Mithra as worthy of sacrifice and prayer as himself, and it describes a watchful, terrible god of the covenant: the first of the heavenly beings to rise over Mount Hara before the sun, he drives a chariot across the sky, sees everything with his thousand ears and ten thousand eyes, and brings ruin on the 'Mithra-deceiver' who breaks a contract, while protecting those who keep faith. Before him runs Verethragna, victory, in the shape of a boar.\n\n## Kings, oaths, and the Sun\n\nArtaxerxes II (r. 404-358 BCE) is the first Achaemenid king to invoke Mithra in his inscriptions, alongside Ahuramazda and Anahita. Greek writers equated Mithra with the Sun: Strabo reports that the Persians honor Helios, 'whom they call Mithras'. In Middle Persian tradition Mihr, with Sraosha and Rashnu, judges each soul at the Chinvat Bridge, and the seventh month and the autumn festival of Mehregan bear his name.\n\n## Mithra and Mithras\n\nThe Roman mystery god Mithras, worshipped in underground chambers across the Roman Empire from the first century CE and shown slaying a bull, shares Mithra's name. How much the Roman cult drew from Iranian religion is a long-standing scholarly debate; the bull-slaying scene, central to Roman Mithraism, has no counterpart in the Avesta.",
+    "originStory": "Created by Ahura Mazda as worthy of worship as himself (Yasht 10.1).",
+    "importanceRank": 2,
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "greek-pantheon",
+        "deityId": "helios",
+        "note": "Strabo (Geography 15.3.13) says the Persians honor Helios, 'whom they call Mithras', and the Commagene inscriptions at Nemrut Dağ name a combined Apollo-Mithras-Helios-Hermes; the solar identification is Greek interpretation of Mithra's association with light and dawn."
+      },
+      {
+        "pantheonId": "mesopotamian-pantheon",
+        "deityId": "shamash",
+        "note": "Both are all-seeing gods of the sun's light who guard oaths and justice, though Mithra's primary sense is the covenant itself rather than the solar disk."
+      }
+    ],
+    "primarySources": [
+      {
+        "text": "Ahura Mazda spake unto Spitama Zarathushtra, saying: 'Verily, when I created Mithra, the lord of wide pastures, O Spitama! I created him as worthy of sacrifice, as worthy of prayer as myself, Ahura Mazda.'",
+        "source": "Avesta, Yasht 10.1 (trans. Darmesteter)",
+        "sourceId": "avesta",
+        "locator": "Yasht 10.1",
+        "date": "Younger Avestan; trans. 1883"
+      },
+      {
+        "text": "They also honor Helios, whom they call Mithras, and Selene and Aphrodite, and fire and earth and winds and water.",
+        "source": "Strabo, Geography 15.3.13 (paraphrase)",
+        "date": "early 1st century CE"
+      }
+    ],
+    "worship": {
+      "temples": [
+        "Zoroastrian fire temples are also called Dar-e Mehr, 'the court of Mithra'."
+      ],
+      "festivals": [
+        "Mehregan, the autumn festival on the day Mihr of the month Mihr, still celebrated in Iran."
+      ],
+      "practices": "Invoked as witness and guardian of contracts and oaths; in Zoroastrian eschatology he judges souls with Sraosha and Rashnu at the Chinvat Bridge."
+    },
+    "pronunciation": {
+      "ipa": "/ˈmiθɾa/",
+      "phonetic": "MITH-rah"
+    },
+    "imageUrl": "/deities/mithra.png"
+  },
+  {
+    "id": "anahita",
+    "pantheonId": "persian-pantheon",
+    "name": "Anahita",
+    "slug": "anahita",
+    "originalLanguageName": {
+      "text": "Arəduuī Sūrā Anāhitā",
+      "language": "Avestan",
+      "transliteration": "Ardvi Sura Anahita; Middle Persian Anahid",
+      "meaning": "\"The Moist, Strong, Undefiled\""
+    },
+    "alternateNames": ["Ardvi Sura Anahita", "Anahid", "Nahid", "Anaitis"],
+    "gender": "female",
+    "domain": ["the waters", "fertility and birth", "purity", "victory"],
+    "symbols": [
+      "the heavenly river",
+      "a golden mantle",
+      "a crown of stars",
+      "beaver-skin robes"
+    ],
+    "description": "The yazata of the waters, the heavenly river that flows from Mount Hukairya into the sea Vouru-Kasha and feeds every stream on earth, invoked for fertility, safe childbirth, and victory, and honored by Achaemenid and Sasanian kings.",
+    "detailedBio": "## The Aban Yasht\n\nYasht 5 is Anahita's hymn. Ahura Mazda commands sacrifice to 'this spring of mine', a river as large as all the waters on earth that runs from the height Hukairya down to the sea Vouru-Kasha, and from which all the waters of the seven regions of the world flow. She purifies the seed of males and the wombs of females and brings safe birth and milk. The hymn then catalogs heroes and villains who sacrificed to her, granting the prayers of the righteous and refusing the wicked, and it ends with a vivid description of her as a tall, strong maiden in a golden mantle, with golden earrings, a crown of stars, and robes of beaver skins.\n\n## A royal goddess\n\nArtaxerxes II (r. 404-358 BCE) names Anahita with Ahuramazda and Mithra in his inscriptions, and the Babylonian priest Berossus, quoted by later Greek authors, says that he set up statues of 'Aphrodite Anaitis' in cities across the empire, an innovation in a religion that had not used cult images. Under the Sasanians, the dynasty's ancestor Sasan was remembered as the custodian of a fire temple of Anahid at Istakhr, and Sasanian kings honored her.\n\n## Name and identifications\n\nThe name combines several epithets: *aredvi* ('moist' or 'high'), *sura* ('strong'), and *anahita* ('undefiled'). Scholars have long compared the heavenly river with the Vedic river-goddess Sarasvati, whose name is cognate with the Iranian region Harahvaiti, and Greek writers equated Anahita with Artemis or Aphrodite.",
+    "originStory": "She 'proceeded forth from the Maker Mazda' (Yasht 5.7), who brought her waters down to the earth.",
+    "importanceRank": 2,
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "hindu-pantheon",
+        "deityId": "saraswati",
+        "note": "Both are divine rivers personified as goddesses of fertility and purity; the Avestan region name Harahvaiti is the cognate of Sarasvati, and scholars have long compared Anahita's heavenly river with the Rigvedic river-goddess."
+      },
+      {
+        "pantheonId": "greek-pantheon",
+        "deityId": "aphrodite",
+        "note": "Berossus, as quoted by Clement of Alexandria, calls the image Artaxerxes II set up 'Aphrodite Anaitis'; Greek writers also identified her with Artemis. The equations reflect Greek interpretation."
+      }
+    ],
+    "primarySources": [
+      {
+        "text": "Offer up a sacrifice, O Spitama Zarathushtra! unto this spring of mine, Ardvi Sura Anahita, the wide-expanding and health-giving, who hates the Daevas and obeys the laws of Ahura.",
+        "source": "Avesta, Yasht 5.1 (trans. Darmesteter)",
+        "sourceId": "avesta",
+        "locator": "Yasht 5.1",
+        "date": "Younger Avestan; trans. 1883"
+      },
+      {
+        "text": "She stands, the good Ardvi Sura Anahita, wearing a golden mantle, waiting for a man who shall offer her libations and prayers.",
+        "source": "Avesta, Yasht 5.123 (trans. Darmesteter)",
+        "sourceId": "avesta",
+        "locator": "Yasht 5.123",
+        "date": "Younger Avestan; trans. 1883"
+      }
+    ],
+    "worship": {
+      "temples": [
+        "A fire temple of Anahid at Istakhr in Persis, whose custodian Sasan was remembered as the ancestor of the Sasanian kings (al-Tabari).",
+        "Images of Anahita set up by Artaxerxes II in Babylon, Susa, Ecbatana, Persepolis, Bactra, Damascus, and Sardis, according to Berossus as quoted by Clement of Alexandria."
+      ],
+      "festivals": [
+        "Abangan, the feast of the waters on the day Aban of the month Aban in the Zoroastrian calendar."
+      ],
+      "practices": "Libations and prayers at rivers and springs; invoked for fertility, safe childbirth, and the purity of water."
+    },
+    "pronunciation": {
+      "ipa": "/anaːˈhiːtaː/",
+      "phonetic": "ah-nah-HEE-tah"
+    },
+    "imageUrl": "/deities/anahita.png"
+  },
+  {
+    "id": "tishtrya",
+    "pantheonId": "persian-pantheon",
+    "name": "Tishtrya",
+    "slug": "tishtrya",
+    "originalLanguageName": {
+      "text": "Tištriia",
+      "language": "Avestan",
+      "transliteration": "Tishtrya; Middle Persian Tishtar, Tir",
+      "meaning": "The star Sirius"
+    },
+    "alternateNames": ["Tishtar", "Tir", "Sirius"],
+    "gender": "male",
+    "domain": ["rain", "the star Sirius", "fertility of the land"],
+    "symbols": [
+      "a white horse with golden ears",
+      "a golden-horned bull",
+      "the arrow of Erekhsha"
+    ],
+    "description": "The star Sirius as a rain-bringing yazata, who in the Tir Yasht descends to the cosmic sea as a white horse, is at first overcome by the black horse of the drought demon Apaosha, and then, strengthened by worship, defeats him and releases the rains.",
+    "detailedBio": "## The Tir Yasht\n\nYasht 8 is devoted to Tishtrya, the brightest star in the sky. He flies toward the sea Vouru-Kasha as swiftly as the arrow that the archer Erekhsha shot from Mount Khshaotha to Mount Hvanvant, and Ahura Mazda, the waters, and the plants aid him, while Mithra opens a wide way for him. He takes three forms in turn: a young man of fifteen, a bull with golden horns, and a white horse with golden ears.\n\n## Battle with drought\n\nAs a white horse he goes down to the sea, where the demon of drought, Apaosha, rushes to meet him as a black horse 'stamped with brands of terror'. They fight hoof against hoof for three days and nights, and Apaosha wins, driving Tishtrya from the sea. Tishtrya laments that men do not worship him with a sacrifice in which he is invoked by his own name; when he receives such worship, he returns with renewed strength, defeats Apaosha at noon, and the waters of Vouru-Kasha rise in clouds that carry rain to the seven regions of the earth.\n\n## Festival and later tradition\n\nThe summer festival of Tirgan, on the day Tir of the month Tir, honored Tishtrya and was later linked with the legend of the archer Arash (Avestan Erekhsha), whose arrow fixed the frontier between Iran and Turan. Tirgan is still celebrated in parts of Iran, with water-splashing and the tying of colored bands.",
+    "originStory": "No birth is told; he is the star Sirius, a creation of Ahura Mazda.",
+    "importanceRank": 3,
+    "crossPantheonParallels": [],
+    "primarySources": [
+      {
+        "text": "For Ahura Mazda gave him assistance; so did the waters and the plants; and Mithra, the lord of wide pastures, opened a wide way unto him.",
+        "source": "Avesta, Yasht 8.7 (trans. Darmesteter)",
+        "sourceId": "avesta",
+        "locator": "Yasht 8.7",
+        "date": "Younger Avestan; trans. 1883"
+      },
+      {
+        "text": "The bright and glorious Tistrya goes down to the sea Vouru-Kasha in the shape of a white, beautiful horse, with golden ears and a golden caparison.",
+        "source": "Avesta, Yasht 8.20 (trans. Darmesteter; diacritics simplified)",
+        "sourceId": "avesta",
+        "locator": "Yasht 8.20",
+        "date": "Younger Avestan; trans. 1883"
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [
+        "Tirgan, the midsummer festival on the day Tir of the month Tir, still observed in parts of Iran."
+      ],
+      "practices": "Sacrifice in which he is invoked by his own name, which the Tir Yasht presents as the source of his strength against drought; prayers for rain."
+    },
+    "pronunciation": {
+      "ipa": "/ˈtiʃtrija/",
+      "phonetic": "TISH-tree-yah"
+    },
+    "imageUrl": "/deities/tishtrya.png"
+  },
+  {
+    "id": "verethragna",
+    "pantheonId": "persian-pantheon",
+    "name": "Verethragna",
+    "slug": "verethragna",
+    "originalLanguageName": {
+      "text": "Vərəθraγna",
+      "language": "Avestan",
+      "transliteration": "Verethragna; Middle Persian Wahram, Bahram",
+      "meaning": "\"Smiting of resistance\", victory"
+    },
+    "alternateNames": ["Bahram", "Wahram", "Vahagn (Armenian)"],
+    "gender": "male",
+    "domain": ["victory", "strength", "protection in battle"],
+    "symbols": ["the boar", "the raven-like bird Varaghna", "ten incarnations"],
+    "description": "The yazata of victory, 'best-armed of the heavenly gods', who comes to Zarathushtra in ten shapes, from a strong wind and a golden-horned bull to a boar and a raven-like bird, and who gives his name to the highest grade of sacred fire.",
+    "detailedBio": "## Ten incarnations\n\nYasht 14 answers Zarathushtra's question, 'Who is the best-armed of the heavenly gods?', with Verethragna, and describes him coming in ten successive forms: a strong, beautiful wind; a bull with yellow ears and golden horns; a white horse with a golden caparison; a burden-bearing camel; a sharp-toothed boar; a youth of fifteen; the swift bird Varaghna; a wild ram; a fighting buck; and a man holding a golden sword. Each bears the Glory made by Mazda. His feather, the hymn says, protects the one who carries it, a motif that recurs in the Shahnameh with the Simurgh's feather.\n\n## Companion of Mithra\n\nIn the Mihr Yasht Verethragna runs before Mithra's chariot in the form of a fierce boar. Kings and warriors invoked him for victory; several Sasanian kings bore his name as Bahram (Wahram), and the Kushan kings of Central Asia put him on their coins as Orlagno.\n\n## The victorious fire\n\nThe highest grade of Zoroastrian sacred fire is the Atash Behram, the 'victorious fire' or 'fire of Verethragna', consecrated from sixteen kinds of fire. The name Vrtrahan ('slayer of Vrtra') is an epithet of the Vedic Indra, and the Iranian and Indian words derive from the same Indo-Iranian root.",
+    "originStory": "A being 'made by Ahura' (Yasht 14.1); no birth narrative is told.",
+    "importanceRank": 3,
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "hindu-pantheon",
+        "deityId": "indra",
+        "note": "Verethragna's name is cognate with Vrtrahan, 'slayer of Vrtra', the chief epithet of the Vedic Indra; in Iran the word became a god of victory in his own right rather than an epithet of a storm god."
+      },
+      {
+        "pantheonId": "greek-pantheon",
+        "deityId": "ares",
+        "note": "At Nemrut Dağ in Commagene (1st century BCE) Antiochus I honored a combined Artagnes-Heracles-Ares, a Hellenistic equation of Verethragna with Greek gods of strength and war."
+      }
+    ],
+    "heroParallels": [
+      {
+        "pantheonId": "greek-pantheon",
+        "heroId": "heracles",
+        "note": "The Commagene inscriptions equate Artagnes (Verethragna) with Heracles, and Parthian and Kushan images show Verethragna with Heracles' club; the pairing is iconographic and Hellenistic."
+      }
+    ],
+    "primarySources": [
+      {
+        "text": "Zarathushtra asked Ahura Mazda: 'Who is the best-armed of the heavenly gods?' Ahura Mazda answered: 'It is Verethraghna, made by Ahura, O Spitama Zarathushtra!'",
+        "source": "Avesta, Yasht 14.1 (trans. Darmesteter)",
+        "sourceId": "avesta",
+        "locator": "Yasht 14.1",
+        "date": "Younger Avestan; trans. 1883"
+      },
+      {
+        "text": "Verethraghna, made by Ahura, came to him first, running in the shape of a strong, beautiful wind, made by Mazda; he bore the good Glory, made by Mazda, the Glory made by Mazda, that is both health and strength.",
+        "source": "Avesta, Yasht 14.2 (trans. Darmesteter)",
+        "sourceId": "avesta",
+        "locator": "Yasht 14.2",
+        "date": "Younger Avestan; trans. 1883"
+      }
+    ],
+    "worship": {
+      "temples": [
+        "Atash Behram fire temples, the highest grade of Zoroastrian fire, whose name means the fire of Bahram (Verethragna): among them the fires at Yazd in Iran and at Udvada and Mumbai in India."
+      ],
+      "festivals": [],
+      "practices": "Invoked for victory and protection; the Bahram Yasht is recited for protection, and the twentieth day of each Zoroastrian month is dedicated to him."
+    },
+    "pronunciation": {
+      "ipa": "/vɛrɛθˈraɣna/",
+      "phonetic": "veh-reth-RAHG-nah"
+    },
+    "imageUrl": "/deities/verethragna.png"
+  },
+  {
+    "id": "atar",
+    "pantheonId": "persian-pantheon",
+    "name": "Atar",
+    "slug": "atar",
+    "originalLanguageName": {
+      "text": "Ātar",
+      "language": "Avestan",
+      "transliteration": "Atar; Middle Persian Adur, Azar",
+      "meaning": "\"Fire\""
+    },
+    "alternateNames": ["Adur", "Azar", "Atash"],
+    "gender": "male",
+    "domain": ["fire", "truth", "ritual purity"],
+    "symbols": ["the sacred fire", "the fire altar"],
+    "description": "Fire as a divine being, 'son of Ahura Mazda', the visible focus of Zoroastrian worship, who in the Zamyad Yasht faces down the three-mouthed dragon Azhi Dahaka in the struggle for the royal Glory.",
+    "detailedBio": "## Son of Ahura Mazda\n\nThe Avesta calls Atar, fire, 'the son of Ahura Mazda', and fire is the element through which Zoroastrians approach God: prayers are said facing a fire or another source of light, and consecrated fires are kept burning in fire temples. Fire is not itself worshipped as God, Zoroastrians emphasize, but honored as the purest of creations and the symbol of truth and divine light.\n\n## Atar against the dragon\n\nThe Zamyad Yasht (Yasht 19) tells how the Good Spirit and the Evil Spirit struggled for the royal Glory (*khvarenah*) after it left Yima. Atar came forward to seize it, but the three-mouthed Azhi Dahaka rushed at him, threatening to extinguish him so that he would never again blaze on the earth; Atar drew back his hands. Then when Azhi tried to seize it, Atar threatened in turn to enter the dragon and blaze up in his jaws, and Azhi drew back. The Glory escaped into the sea Vouru-Kasha.\n\n## The great fires\n\nSasanian tradition named three great fires: Adur Farnbag, the fire of the priests; Adur Gushnasp, the fire of the warriors and kings, housed at the sanctuary now called Takht-e Soleyman in northwestern Iran; and Adur Burzen-Mihr, the fire of the farmers. Fires are graded today as Atash Behram, Atash Adaran, and Atash Dadgah, according to their consecration.",
+    "originStory": "Son of Ahura Mazda, in the standard Avestan formula.",
+    "importanceRank": 3,
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "hindu-pantheon",
+        "deityId": "agni",
+        "note": "Both are sacrificial fire personified as a god at the center of Indo-Iranian ritual; the names are not cognate, but the ritual role of fire as the medium between worshippers and the divine is shared."
+      }
+    ],
+    "primarySources": [
+      {
+        "text": "Then forward came Atar, the son of Ahura Mazda, thinking thus in his heart: 'I want to seize that Glory that cannot be forcibly seized.' But Azhi Dahaka, the three-mouthed, he of the evil law, rushed on his back, thinking of extinguishing it.",
+        "source": "Avesta, Yasht 19.47 (trans. Darmesteter)",
+        "sourceId": "avesta",
+        "locator": "Yasht 19.47",
+        "date": "Younger Avestan; trans. 1883"
+      },
+      {
+        "text": "'There give it up to me, thou three-mouthed Azhi Dahaka. If thou seizest that Glory that cannot be forcibly seized, then I will enter thy hinder part, I will blaze up in thy jaws.'",
+        "source": "Avesta, Yasht 19.50 (trans. Darmesteter)",
+        "sourceId": "avesta",
+        "locator": "Yasht 19.50",
+        "date": "Younger Avestan; trans. 1883"
+      }
+    ],
+    "worship": {
+      "temples": [
+        "The Sasanian royal fire Adur Gushnasp at Takht-e Soleyman, Iran.",
+        "Living Atash Behram fires at Yazd (Iran) and Udvada (India), among others."
+      ],
+      "festivals": [
+        "Adargan, the feast of fire on the day Adar of the month Adar."
+      ],
+      "practices": "Consecrated fires are fed with sandalwood and incense by priests five times a day; the faithful pray facing the fire and must never pollute it."
+    },
+    "pronunciation": {
+      "ipa": "/ˈaːtar/",
+      "phonetic": "AH-tar"
+    },
+    "imageUrl": "/deities/atar.png"
+  },
+  {
+    "id": "spenta-armaiti",
+    "pantheonId": "persian-pantheon",
+    "name": "Spenta Armaiti",
+    "slug": "spenta-armaiti",
+    "originalLanguageName": {
+      "text": "Spəṇtā Ārmaiti",
+      "language": "Avestan",
+      "transliteration": "Spenta Armaiti; Middle Persian Spandarmad, Esfand",
+      "meaning": "\"Beneficent Devotion\" or \"Holy Right-Mindedness\""
+    },
+    "alternateNames": ["Spandarmad", "Esfand", "Armaiti"],
+    "gender": "female",
+    "traditionRole": "Amesha Spenta",
+    "domain": ["devotion", "the earth", "serenity"],
+    "symbols": ["the earth", "the month Esfand"],
+    "description": "One of the Amesha Spentas, the Beneficent Immortals: devotion personified, called Ahura Mazda's daughter in the Gathas, and in later tradition the guardian of the earth, whom Yima asks to stretch wider to hold the growing world.",
+    "detailedBio": "## In the Gathas\n\nArmaiti, 'right-mindedness' or 'devotion', is one of the qualities of Ahura Mazda that the Gathas address almost as persons. One hymn (Yasna 45.4) calls her his daughter, the doer of good deeds. With Truth (Asha), Good Mind (Vohu Manah), Dominion (Khshathra), Wholeness (Haurvatat), and Immortality (Ameretat), she belongs to the group later called the Amesha Spentas, the 'Beneficent Immortals', each of whom came to be associated with one part of the good creation.\n\n## Guardian of the earth\n\nArmaiti's part is the earth. In the Vendidad, when the world has grown too crowded, Yima presses the earth with his golden seal and calls on her by name: 'O Spenta Armaiti, kindly open asunder and stretch thyself afar', and the earth grows larger. Middle Persian texts make Spandarmad the guardian of the earth and of good women.\n\n## Esfand\n\nThe twelfth month of the Iranian calendar, Esfand, and the fifth day of each month bear her name, and the festival of Sepandarmazgan, when the day and month names coincide, was traditionally a festival of women and of the earth; it has been revived in modern Iran.",
+    "originStory": "Called the daughter of Ahura Mazda in the Gathas (Yasna 45.4).",
+    "importanceRank": 4,
+    "crossPantheonParallels": [],
+    "primarySources": [
+      {
+        "text": "Ahura Mazda is the father of Good Mind, and his daughter is Armaiti of good deeds.",
+        "source": "Avesta, Yasna 45.4 (paraphrase of the Gathic verse)",
+        "sourceId": "avesta",
+        "locator": "Yasna 45.4",
+        "date": "Gathas, date disputed (c. 1500-1000 BCE)"
+      },
+      {
+        "text": "'O Spenta Armaiti, kindly open asunder and stretch thyself afar, to bear flocks and herds and men.'",
+        "source": "Avesta, Vendidad 2.10 (trans. Darmesteter)",
+        "sourceId": "avesta",
+        "locator": "Vendidad 2.10",
+        "date": "Younger Avestan; trans. 1880"
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [
+        "Sepandarmazgan (Esfandgan), on the day Spandarmad of the month Spandarmad, traditionally a festival of women and the earth."
+      ],
+      "practices": "Invoked as guardian of the earth; the earth must be kept pure, which is one reason Zoroastrian law forbade burying the dead in it."
+    },
+    "pronunciation": {
+      "ipa": "/ˈspɛnta ˈaːrmaiti/",
+      "phonetic": "SPEN-tah AR-my-tee"
+    },
+    "imageUrl": "/deities/spenta-armaiti.png"
+  },
+  {
+    "id": "sraosha",
+    "pantheonId": "persian-pantheon",
+    "name": "Sraosha",
+    "slug": "sraosha",
+    "originalLanguageName": {
+      "text": "Sraoša",
+      "language": "Avestan",
+      "transliteration": "Sraosha; Middle Persian Srosh; Persian Sorush",
+      "meaning": "\"Hearkening, obedience\""
+    },
+    "alternateNames": ["Srosh", "Sorush"],
+    "gender": "male",
+    "domain": [
+      "obedience to the divine word",
+      "prayer",
+      "protection of the soul",
+      "judgment"
+    ],
+    "symbols": [
+      "the rooster",
+      "a raised weapon against the demons of the night"
+    ],
+    "description": "The yazata of 'hearkening' to the divine word, who guards the world by night against the demons, protects the soul for three nights after death, and judges it at the Chinvat Bridge with Mithra and Rashnu; in the Shahnameh, as Sorush, a heavenly messenger.",
+    "detailedBio": "## The hymn of Sraosha\n\nThe Srosh Yasht (Yasna 57) praises Sraosha as the first to worship Ahura Mazda with the sacred twigs and the first to sing the Gathas, and as a warrior who strikes down Aeshma, the demon of fury. He never sleeps, but watches over the world through the night, when the demons are strongest; the rooster, which wakes people for dawn prayer, is his bird.\n\n## Guardian of the dead\n\nIn Zoroastrian tradition the soul of the dead remains near the body for three nights, protected by Sraosha, and prayers to him (the Srosh Baj) are recited during that time. On the fourth dawn the soul comes to the Chinvat Bridge, where Mithra, Sraosha, and Rashnu weigh its deeds.\n\n## Sorush in the Shahnameh\n\nFerdowsi's Sorush is a heavenly messenger who appears at crucial moments: he warns King Kayumars of the demon who has killed his son, and he instructs Fereydun not to kill the defeated Zahhak but to chain him in Mount Damavand.",
+    "originStory": "A being created by Ahura Mazda; no birth narrative is told.",
+    "importanceRank": 4,
+    "crossPantheonParallels": [],
+    "primarySources": [
+      {
+        "text": "We sacrifice unto the holy, strong Sraosha, the incarnate Word, who first worshipped Ahura Mazda and first sang the Gathas.",
+        "source": "Avesta, Yasna 57 (Srosh Yasht) (paraphrase)",
+        "sourceId": "avesta",
+        "locator": "Yasna 57",
+        "date": "Younger Avestan"
+      },
+      {
+        "text": "Sorush came to Fereydun and told him not to kill Zahhak, whose time had not come, but to bind him and take him to Mount Damavand.",
+        "source": "Ferdowsi, Shahnameh, reign of Fereydun (paraphrase)",
+        "sourceId": "shahnameh",
+        "locator": "reign of Fereydun",
+        "date": "completed 1010 CE"
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [],
+      "practices": "The Srosh Baj prayer, recited at night and for the soul of the dead during the three nights after death; the seventeenth day of each Zoroastrian month is dedicated to him."
+    },
+    "pronunciation": {
+      "ipa": "/ˈsraoʃa/",
+      "phonetic": "SROW-shah"
+    },
+    "imageUrl": "/deities/sraosha.png"
+  },
+  {
+    "id": "zurvan",
+    "pantheonId": "persian-pantheon",
+    "name": "Zurvan",
+    "slug": "zurvan",
+    "originalLanguageName": {
+      "text": "Zurvān",
+      "language": "Middle Persian (Avestan zruuan)",
+      "meaning": "\"Time\""
+    },
+    "alternateNames": ["Zurvan Akarana (Infinite Time)", "Zamān"],
+    "gender": "androgynous",
+    "domain": ["time", "fate", "the origin of the two spirits"],
+    "symbols": ["infinite time", "the barsom twigs of sacrifice"],
+    "description": "Infinite Time, whom a Sasanian-era current of Zoroastrian thought made the father of both Ohrmazd and Ahriman, born as twins from his sacrifice and his doubt; known mainly from hostile Christian and Armenian writers, and rejected by later orthodoxy.",
+    "detailedBio": "## The Zurvanite myth\n\nThe fullest account comes not from a Zoroastrian text but from the fifth-century Armenian Christian Eznik of Kolb, in his *Refutation of the Sects*, with parallels in Syriac Christian sources. Before anything existed, Zurvan offered sacrifice for a thousand years in order to have a son who would create heaven and earth. Then he doubted whether his sacrifice would bear fruit, and from his doubt Ahriman was conceived, while from the sacrifice Ohrmazd was conceived. Zurvan vowed that whichever son reached him first would be king. Ohrmazd, knowing this, told his brother; Ahriman tore open the womb and presented himself, and Zurvan, bound by his vow, gave him rule for nine thousand years, after which Ohrmazd would reign.\n\n## A heresy or a current?\n\nHow widespread Zurvanism was is disputed. Some scholars saw it as the dominant theology of the Sasanian court; others see it as one speculative current among several. The Avesta mentions Zruvan, Time, only as a minor divine being, and the ninth-century Middle Persian books that became the basis of later orthodoxy present Ohrmazd as uncreated and Ahriman as his opposite, not his twin. No cult of Zurvan with temples or festivals is attested.\n\n## Why the myth mattered\n\nThe Zurvanite story tried to answer a question the Gathas leave open: why there should be two spirits at all. Its answer, that evil arose from a moment of doubt within a single origin, made the twins brothers, which later Zoroastrians found incompatible with Ohrmazd's goodness.",
+    "originStory": "Uncreated, the first being in the Zurvanite myth.",
+    "importanceRank": 5,
+    "crossPantheonParallels": [],
+    "primarySources": [
+      {
+        "text": "Zurvan offered sacrifice for a thousand years to have a son; then he doubted, and from the sacrifice Ohrmazd was conceived and from the doubt Ahriman.",
+        "source": "Eznik of Kolb, Refutation of the Sects, Book 2 (paraphrase)",
+        "date": "5th century CE"
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [],
+      "practices": "No cult is attested; Zurvanism appears as a theological current within Sasanian Zoroastrianism, known largely through its opponents."
+    },
+    "pronunciation": {
+      "ipa": "/zurˈvaːn/",
+      "phonetic": "zoor-VAHN"
+    },
+    "imageUrl": "/deities/zurvan.png"
+  },
+  {
+    "id": "yima",
+    "pantheonId": "persian-pantheon",
+    "name": "Yima",
+    "slug": "yima",
+    "originalLanguageName": {
+      "text": "Yima Xšaēta",
+      "language": "Avestan",
+      "transliteration": "Yima Khshaeta; Middle Persian Jam; Persian Jamshid",
+      "meaning": "\"Radiant Yima\"; Yima means 'twin'"
+    },
+    "alternateNames": ["Jamshid", "Jam", "Yima Khshaeta"],
+    "gender": "male",
+    "traditionRole": "Primordial King",
+    "domain": ["kingship", "the golden age", "preservation of life"],
+    "symbols": [
+      "a golden seal and a gold-inlaid dagger",
+      "the Var enclosure",
+      "the world-revealing cup (later tradition)"
+    ],
+    "description": "The first king, son of Vivahvant, under whose rule there was neither cold nor heat, age nor death; in the Vendidad he builds an enclosure to preserve life from devastating winters, and in the Shahnameh, as Jamshid, he loses the royal Glory through pride.",
+    "detailedBio": "## The good shepherd\n\nIn the Vendidad (Fargard 2), Ahura Mazda first asks Yima, son of Vivanghat, to be the bearer of his religion; Yima declines but agrees to rule and protect the world, promising that under him there will be neither cold wind nor hot wind, disease nor death. Given a golden seal and a gold-inlaid dagger, he enlarges the earth three times as it fills with people and animals, calling on Spenta Armaiti to stretch wider. Warned of terrible winters to come, he builds the Var, an enclosure in which the best of every kind of person, animal, plant, and fire is preserved.\n\n## The lost Glory\n\nThe Zamyad Yasht (Yasht 19) says that when Yima began to delight in words of falsehood, the royal Glory fled from him in the shape of a bird, three times; Mithra, Thraetaona, and Keresaspa seized it in turn. The same hymn names Spityura as the one 'who sawed Yima in twain'.\n\n## Jamshid in the Shahnameh\n\nFerdowsi's Jamshid is a great civilizing king who teaches crafts, divides society into classes, and has the demons raise his jeweled throne into the sky, a day remembered as Nowruz. Growing proud, he claims to be the world's creator; the divine glory (*farr*) leaves him, and the usurper Zahhak takes his throne and later has him sawn in two. The ruins of Persepolis came to be called Takht-e Jamshid, 'Jamshid's Throne'.\n\n## The Indian twin\n\nYima is the Iranian counterpart of the Vedic Yama: both are sons of the sun-related Vivahvant or Vivasvant, and both names mean 'twin'. In India Yama became king of the dead; in Iran Yima remained the king of a lost golden age.",
+    "originStory": "Son of Vivanghat (Vivahvant), the first mortal with whom Ahura Mazda conversed before Zarathushtra (Vendidad 2.2).",
+    "importanceRank": 3,
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "hindu-pantheon",
+        "deityId": "yama",
+        "note": "Yima and the Vedic Yama are the same Indo-Iranian figure: both are sons of Vivahvant/Vivasvant and both names mean 'twin'. The traditions diverged, making Yama lord of the dead and Yima the king of a vanished golden age."
+      }
+    ],
+    "primarySources": [
+      {
+        "text": "'Yes! I will make thy world increase, I will make thy world grow. Yes! I will nourish, and rule, and watch over thy world. There shall be, while I am king, neither cold wind nor hot wind, neither disease nor death.'",
+        "source": "Avesta, Vendidad 2.5 (trans. Darmesteter)",
+        "sourceId": "avesta",
+        "locator": "Vendidad 2.5",
+        "date": "Younger Avestan; trans. 1880"
+      },
+      {
+        "text": "But when he began to find delight in words of falsehood and untruth, the Glory was seen to flee away from him in the shape of a bird.",
+        "source": "Avesta, Yasht 19.34 (trans. Darmesteter)",
+        "sourceId": "avesta",
+        "locator": "Yasht 19.34",
+        "date": "Younger Avestan; trans. 1883"
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [
+        "Nowruz, the Iranian new year, which the Shahnameh traces to the day Jamshid's throne was raised into the sky."
+      ],
+      "practices": "Remembered rather than worshipped: Yima is honored in Zoroastrian tradition as the righteous first king who lost his glory through a lie, and Jamshid is a figure of Nowruz lore."
+    },
+    "pronunciation": {
+      "ipa": "/ˈjima/",
+      "phonetic": "YEE-mah"
+    },
+    "imageUrl": "/deities/yima.png"
+  },
+  {
+    "id": "ukko",
+    "pantheonId": "finnish-pantheon",
+    "name": "Ukko",
+    "slug": "ukko",
+    "originalLanguageName": {
+      "text": "Ukko",
+      "language": "Finnish",
+      "meaning": "\"Old man, grandfather\"; called Ukko ylijumala, 'Ukko, highest god'"
+    },
+    "alternateNames": ["Ukko ylijumala", "Isäinen (the Father)"],
+    "gender": "male",
+    "domain": ["the sky", "thunder", "rain", "the harvest"],
+    "symbols": ["the thunderbolt", "stone axes (ukonvaaja)", "Ukko's bowl"],
+    "description": "The sky and thunder god of Finnish and Karelian tradition, 'highest god' of the runo-songs, whose feast at the spring sowing Agricola condemned in 1551 and whom the Kalevala's heroes and Ilmatar call on in need.",
+    "detailedBio": "## Attestation\n\nMikael Agricola's list of 1551 includes Ukko, and describes a spring rite: when the sowing was done, Ukko's bowl (*Ukon malja*) was drunk, and Agricola complains of the drunkenness and shameful conduct that went with it. Folk poetry calls him *ylijumala*, the highest god, and addresses him in charms and prayers for rain and against storms; a thunderstorm is still *ukonilma*, 'Ukko's weather', in Finnish. Neolithic stone axes turned up by the plough were called *ukonvaaja* or *ukonkirves*, 'Ukko's wedge' or 'axe', and were believed to be thunderbolts he had hurled.\n\n## In the Kalevala\n\nUkko appears as the supreme power to whom the characters pray. In the first rune the air-maiden Ilmatar, adrift and in labor on the primeval sea, calls on him: 'Ukko, thou O God, up yonder, / Thou the ruler of the heavens'. Heroes invoke him for help with bow, boat, and battle, and when Louhi hides the sun and moon, Ukko strikes fire to make a new light.\n\n## An older thunder god\n\nThe Finnish word *perkele*, now a notorious curse meaning 'devil', is an old borrowing of the Baltic thunder god's name (Lithuanian Perkūnas), suggesting that Finnic peoples once knew a thunder god under that name before Christianity demonized it. Some later sources give Ukko a consort, called Akka or Rauni, but the evidence for her is thin.",
+    "originStory": "No birth or origin is told; Ukko is the old man of the sky, above all.",
+    "importanceRank": 2,
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "norse-pantheon",
+        "deityId": "thor",
+        "note": "Both are thunder gods associated with a hurled weapon and with farming and rain; Finnish 'torstai' (Thursday) is borrowed from the Scandinavian name of Thor's day, a sign of long contact."
+      },
+      {
+        "pantheonId": "slavic-pantheon",
+        "deityId": "perun",
+        "note": "Both are sky-and-thunder gods of the wider Indo-European and Baltic-Finnic region; the Finnish curse word 'perkele' derives from the Baltic thunder god Perkūnas, Perun's cognate."
+      }
+    ],
+    "primarySources": [
+      {
+        "text": "Ukko, thou O God, up yonder, / Thou the ruler of the heavens, / Come thou hither, thou art needed, / Come thou hither, I implore thee.",
+        "source": "Kalevala (trans. John Martin Crawford, 1888), Rune I",
+        "sourceId": "kalevala",
+        "locator": "Rune 1",
+        "date": "Lönnrot's compilation 1849; trans. 1888"
+      },
+      {
+        "text": "When the spring sowing was sown, then Ukko's bowl was drunk; Ukko's basket was brought, and the maids and wives got drunk.",
+        "source": "Mikael Agricola, preface to Dauidin Psaltari (paraphrase)",
+        "sourceId": "agricola-psalter-preface",
+        "date": "1551"
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [
+        "Ukko's feast at the spring sowing, when 'Ukko's bowl' was drunk, as condemned by Agricola in 1551."
+      ],
+      "practices": "Prayers and charms for rain and against thunder and hail; stone axes found in the fields were kept as thunderbolts and used in folk healing and protection."
+    },
+    "pronunciation": {
+      "ipa": "/ˈukːo/",
+      "phonetic": "OOK-koh"
+    },
+    "imageUrl": "/deities/ukko.png"
+  },
+  {
+    "id": "ilmatar",
+    "pantheonId": "finnish-pantheon",
+    "name": "Ilmatar",
+    "slug": "ilmatar",
+    "originalLanguageName": {
+      "text": "Ilmatar",
+      "language": "Finnish",
+      "meaning": "\"Air-maiden\" (ilma, air, with the feminine suffix -tar)"
+    },
+    "alternateNames": [
+      "Ilman impi (Maiden of the Air)",
+      "Veden emo (Water-mother)"
+    ],
+    "gender": "female",
+    "traditionRole": "Primordial Mother",
+    "domain": ["the air", "creation", "the primeval sea"],
+    "symbols": ["the duck's eggs", "the primeval sea"],
+    "description": "The virgin daughter of the air who, in the Kalevala's first rune, descends to the primeval sea, becomes pregnant by wind and wave, and on whose knee a duck lays the eggs from which earth, sky, sun, moon, and stars are made; mother of Väinämöinen.",
+    "detailedBio": "## In the Kalevala\n\nLönnrot's epic opens with the maiden of the air, long alone in the empty heavens, who descends to the sea. The east wind and the waves make her pregnant, and she drifts for seven hundred years, unable to give birth. A duck, searching for a place to nest, sees her raised knee as a grassy hillock and lays six golden eggs and one of iron there. When the knee grows hot, Ilmatar jerks it, the eggs fall and break, and their pieces become the earth below, the vault of heaven above, the sun from the yolk, the moon from the white, the stars from the speckled parts, and the clouds from the dark. Ilmatar then shapes the coasts, bays, and reefs with her body, and finally gives birth to Väinämöinen.\n\n## Lönnrot's arrangement\n\nIn most of the folk variants Lönnrot knew, it is Väinämöinen himself, floating on the sea, on whose knee the bird lays its eggs. The name *Ilmatar* and her role as creator-mother are largely Lönnrot's shaping of scattered material; the first edition of 1835 differs from the canonical edition of 1849. The world-egg motif itself is old and widespread in Finnic tradition.",
+    "originStory": "The daughter of the air, living alone in the heavens before she descends to the sea (Kalevala, Rune 1).",
+    "importanceRank": 2,
+    "crossPantheonParallels": [],
+    "primarySources": [
+      {
+        "text": "Six, the golden eggs she lays there, / Then a seventh, an egg of iron.",
+        "source": "Kalevala (trans. John Martin Crawford, 1888), Rune I",
+        "sourceId": "kalevala",
+        "locator": "Rune 1",
+        "date": "Lönnrot's compilation 1849; trans. 1888"
+      },
+      {
+        "text": "Thus our hero, Wainamoinen, / Thus the wonderful enchanter / Was delivered from his mother, / Ilmatar, the Ether's daughter.",
+        "source": "Kalevala (trans. John Martin Crawford, 1888), Rune I",
+        "sourceId": "kalevala",
+        "locator": "Rune 1",
+        "date": "Lönnrot's compilation 1849; trans. 1888"
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [],
+      "practices": "Not known as an object of cult; Ilmatar is a figure of Lönnrot's epic built on folk-poetry motifs of the air-maiden and water-mother."
+    },
+    "pronunciation": {
+      "ipa": "/ˈilmɑtɑr/",
+      "phonetic": "IL-mah-tar"
+    },
+    "imageUrl": "/deities/ilmatar.png"
+  },
+  {
+    "id": "vainamoinen",
+    "pantheonId": "finnish-pantheon",
+    "name": "Väinämöinen",
+    "slug": "vainamoinen",
+    "originalLanguageName": {
+      "text": "Väinämöinen",
+      "language": "Finnish",
+      "meaning": "Possibly from *väinä*, 'broad, slow river'"
+    },
+    "alternateNames": [
+      "Väinö",
+      "Wainamoinen",
+      "Vanha Väinämöinen (Old Väinämöinen)"
+    ],
+    "gender": "male",
+    "traditionRole": "Eternal Singer",
+    "domain": ["song and poetry", "wisdom and magic", "the kantele"],
+    "symbols": ["the kantele", "the boat", "the Sampo"],
+    "description": "The 'steady old' singer and sage of Finnish runo-song, named by Agricola in 1551 as the maker of songs, who in the Kalevala is born of Ilmatar, sings his rival into a bog, builds the first kantele from a pike's jawbone, leads the theft of the Sampo, and finally sails away.",
+    "detailedBio": "## Attestation\n\nAgricola's list of 1551 says that Väinämöinen 'forged songs'. In folk poetry he is the eternal sage (*tietäjä iänikuinen*), a singer whose words have creative and magical force: he sings the world into order, sings rivals into the ground, and knows the 'origins' of things, the charms that give power over iron, fire, and wounds. In many folk variants he is himself the one on whose knee the world-egg is laid.\n\n## In the Kalevala\n\nLönnrot made him the epic's central figure. Born old from Ilmatar after centuries in the womb, he clears and sows the land, defeats the young Joukahainen in a singing contest by singing him into a swamp, and loses the promised bride Aino, who drowns herself rather than marry an old man. Stranded in Pohjola, he sends his brother-smith Ilmarinen to forge the Sampo. He builds a boat by singing, seeks lost words from the dead giant Antero Vipunen, makes the first kantele from the jawbone of a giant pike, and plays it so beautifully that every creature comes to listen and he weeps. He leads the raid that takes the Sampo from Louhi.\n\n## Departure\n\nIn the last rune, a virgin named Marjatta bears a son who is baptized king of Karelia over Väinämöinen's objection. The old sage sails away in a copper boat, leaving his kantele and songs to the people, a close echo of Christianity supplanting the old ways.",
+    "originStory": "Born of Ilmatar after thirty years in her womb on the primeval sea (Kalevala, Rune 1).",
+    "importanceRank": 1,
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "norse-pantheon",
+        "deityId": "odin",
+        "note": "Both are aged, wise masters of poetry and magical knowledge who win contests of wisdom; the resemblance is typological, not a borrowing."
+      }
+    ],
+    "heroParallels": [
+      {
+        "pantheonId": "greek-pantheon",
+        "heroId": "orpheus",
+        "note": "Both are singers whose music enchants all living creatures, Väinämöinen with the pike-bone kantele (Kalevala, Runes 40-41), Orpheus with the lyre."
+      }
+    ],
+    "primarySources": [
+      {
+        "text": "Väinämöinen forged songs.",
+        "source": "Mikael Agricola, preface to Dauidin Psaltari (paraphrase)",
+        "sourceId": "agricola-psalter-preface",
+        "date": "1551"
+      },
+      {
+        "text": "Wainamoinen, brave and mighty, / Seizes quick the water-monster, / Lifts him by his ears and questions: / \"Iku-Turso, son of Old-age, / Why art rising from the blue-sea?\"",
+        "source": "Kalevala (trans. John Martin Crawford, 1888), Rune XLII",
+        "sourceId": "kalevala",
+        "locator": "Rune 42",
+        "date": "Lönnrot's compilation 1849; trans. 1888"
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [
+        "Kalevala Day (28 February), Finland's day of Finnish culture, marking the date Lönnrot signed the preface to the first Kalevala in 1835."
+      ],
+      "practices": "Invoked in folk charms as the first and greatest sage; tietäjät (folk healers and seers) claimed his knowledge of the 'origins' of things."
+    },
+    "pronunciation": {
+      "ipa": "/ˈʋæi̯næmøi̯nen/",
+      "phonetic": "VAI-na-muh-ee-nen"
+    },
+    "imageUrl": "/deities/vainamoinen.png"
+  },
+  {
+    "id": "ilmarinen",
+    "pantheonId": "finnish-pantheon",
+    "name": "Ilmarinen",
+    "slug": "ilmarinen",
+    "originalLanguageName": {
+      "text": "Ilmarinen",
+      "language": "Finnish",
+      "meaning": "From *ilma*, 'air, weather, sky'"
+    },
+    "alternateNames": ["Seppo Ilmarinen (Ilmarinen the Smith)"],
+    "gender": "male",
+    "domain": ["smithcraft", "the weather", "the forging of the sky"],
+    "symbols": ["the hammer and forge", "the Sampo", "the vault of heaven"],
+    "description": "The eternal smith of Finnish tradition, who forged the vault of the sky and, in the Kalevala, the Sampo for Louhi of Pohjola; named by Agricola in 1551 as the maker of calm and storm who carried travelers on their way.",
+    "detailedBio": "## A weather god become smith\n\nAgricola's list of 1551 says Ilmarinen 'made peace and weather and carried travelers forward', a role as a god of the air and winds that matches his name, from *ilma*, 'air, weather'. In the runo-songs he is above all the smith (*seppo*), the one 'who forged the sky, who hammered out the lid of the air', so skilled that no trace of hammer or tongs can be seen on his work.\n\n## In the Kalevala\n\nVäinämöinen tricks him into going to Pohjola, where he forges the Sampo, after failed attempts that produce a crossbow, a boat, a cow, and a plough, each of which he throws back into the fire. Louhi does not give him her daughter until later, after he has ploughed a field of serpents, bridled the bear of Tuoni and the wolf of Manala, and caught the great pike of Tuonela. His wife is killed through Kullervo's revenge; grief-stricken, he forges a bride of gold and silver who stays cold in his bed, and Väinämöinen warns the young men against making such idols. He joins the raid on the Sampo and later forges a false sun and moon when Louhi hides the real ones.\n\n## Craft and power\n\nThe smith's knowledge in Finnish tradition is also magical: the charm of the origin of iron, sung in Rune 9, tells how iron was born and how the smith first tempered it, knowledge that gives power to heal wounds made by iron.",
+    "originStory": "In folk poetry, and in the Kalevala's charm of the origin of iron, he is born on a hill of charcoal with a copper hammer in his hand.",
+    "importanceRank": 2,
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "greek-pantheon",
+        "deityId": "hephaestus",
+        "note": "Both are divine master smiths who forge marvels for others, including a manufactured woman (Hephaestus's Pandora, Ilmarinen's golden bride) that brings no good."
+      },
+      {
+        "pantheonId": "celtic-pantheon",
+        "deityId": "goibniu",
+        "note": "Both are smiths of the gods whose craft carries supernatural power."
+      }
+    ],
+    "primarySources": [
+      {
+        "text": "Ilmarinen, metal-artist, / Thou that long ago wert forging, / Forging earth a concave cover, / Yesterday wert forging wonders, / Forge thou now, immortal blacksmith, / Forge a rake with shaft of copper.",
+        "source": "Kalevala (trans. John Martin Crawford, 1888), Rune XV",
+        "sourceId": "kalevala",
+        "locator": "Rune 15",
+        "date": "Lönnrot's compilation 1849; trans. 1888"
+      },
+      {
+        "text": "Forges skilfully the Sampo; / On one side the flour is grinding, / On another salt is making, / On a third is money forging.",
+        "source": "Kalevala (trans. John Martin Crawford, 1888), Rune X",
+        "sourceId": "kalevala",
+        "locator": "Rune 10",
+        "date": "Lönnrot's compilation 1849; trans. 1888"
+      },
+      {
+        "text": "Ilmarinen made peace and weather, and carried travelers forward.",
+        "source": "Mikael Agricola, preface to Dauidin Psaltari (paraphrase)",
+        "sourceId": "agricola-psalter-preface",
+        "date": "1551"
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [],
+      "practices": "Invoked in smiths' charms, especially the 'origin of iron'; Agricola records him as a weather god who helped travelers."
+    },
+    "pronunciation": {
+      "ipa": "/ˈilmɑrinen/",
+      "phonetic": "IL-mah-ree-nen"
+    },
+    "imageUrl": "/deities/ilmarinen.png"
+  },
+  {
+    "id": "lemminkainen",
+    "pantheonId": "finnish-pantheon",
+    "name": "Lemminkäinen",
+    "slug": "lemminkainen",
+    "originalLanguageName": {
+      "text": "Lemminkäinen",
+      "language": "Finnish",
+      "meaning": "Possibly from *lempi*, 'love, passion'"
+    },
+    "alternateNames": ["Ahti Saarelainen", "Kaukomieli", "Lemminkainen"],
+    "gender": "male",
+    "domain": ["adventure", "love and seduction", "war", "magic song"],
+    "symbols": [
+      "the hairbrush that bleeds",
+      "the copper rake",
+      "the swan of Tuonela"
+    ],
+    "description": "The reckless, handsome adventurer of the Kalevala, who is killed at the river of Tuonela while trying to shoot its swan and cut to pieces, and whom his mother rakes from the river and restores to life.",
+    "detailedBio": "## A composite hero\n\nIn Finnish folk poetry Lemminkäinen, Ahti Saarelainen ('Ahti the Islander'), and Kaukomieli were related but partly separate figures, heroes of songs about uninvited guests at feasts, sea raids, and duels of magic. Lönnrot combined them into one character, which is why the Kalevala calls him by all three names.\n\n## Death and return\n\nIn the Kalevala Lemminkäinen abducts and marries Kyllikki, then goes to Pohjola to woo Louhi's daughter, leaving his hairbrush with his mother: if it bleeds, he is dead. Louhi sets him three tasks: to ski down the elk of Hiisi, to bridle the fire-breathing gelding of Hiisi, and to shoot the swan on the black river of Tuonela with a single arrow. At the river a blind cowherd he had insulted kills him with a water-snake and throws him in, and the son of Tuoni hacks his body to pieces. The hairbrush bleeds. His mother searches the world, has Ilmarinen forge a long copper rake, and rakes his pieces from the river; she joins them with charms, and a bee brings honey from beyond the ninth heaven to anoint him until he rises again.\n\n## Later deeds\n\nHe returns uninvited to the wedding feast at Pohjola, kills its master in a sword duel, and must hide on an island. Later he joins Väinämöinen and Ilmarinen in the raid on the Sampo, where his singing wakes the crane that rouses Pohjola. Jean Sibelius's *Lemminkäinen Suite* (1895-1896), including *The Swan of Tuonela*, made him known internationally.",
+    "originStory": "Son of a devoted, unnamed mother, the 'islander' raised on the headland; the Kalevala gives no divine parentage.",
+    "importanceRank": 3,
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "egyptian-pantheon",
+        "deityId": "osiris",
+        "note": "Both are dismembered and scattered in water, then gathered and restored by a devoted woman (Lemminkäinen by his mother with a copper rake, Osiris by Isis), a parallel often noted by comparative mythologists."
+      }
+    ],
+    "primarySources": [
+      {
+        "text": "\"Ilmarinen, metal-artist, / [...] Forge thou now, immortal blacksmith, / Forge a rake with shaft of copper.\"",
+        "source": "Kalevala (trans. John Martin Crawford, 1888), Rune XV (the mother's plea for the rake)",
+        "sourceId": "kalevala",
+        "locator": "Rune 15",
+        "date": "Lönnrot's compilation 1849; trans. 1888"
+      },
+      {
+        "text": "The mother raked the river of Tuonela with the copper rake and drew out the pieces of her son, and joined them with charms; the bee brought honey from above the ninth heaven, and she anointed him until he woke.",
+        "source": "Kalevala, Rune 15 (paraphrase)",
+        "sourceId": "kalevala",
+        "locator": "Rune 15",
+        "date": "Lönnrot's compilation 1849; trans. 1888"
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [],
+      "practices": "A hero of song rather than an object of worship; his episodes were sung as epic and adapted in charms."
+    },
+    "pronunciation": {
+      "ipa": "/ˈlemːiŋkæi̯nen/",
+      "phonetic": "LEM-min-kai-nen"
+    },
+    "imageUrl": "/deities/lemminkainen.png"
+  },
+  {
+    "id": "louhi",
+    "pantheonId": "finnish-pantheon",
+    "name": "Louhi",
+    "slug": "louhi",
+    "originalLanguageName": {
+      "text": "Louhi",
+      "language": "Finnish",
+      "meaning": "Etymology uncertain; also called Pohjan akka ('Old Woman of the North')"
+    },
+    "alternateNames": [
+      "Pohjan akka",
+      "Pohjolan emäntä (Mistress of Pohjola)",
+      "Louhiatar"
+    ],
+    "gender": "female",
+    "domain": ["the North (Pohjola)", "sorcery", "the Sampo"],
+    "symbols": ["the Sampo", "the eagle", "the stone mountain"],
+    "description": "The powerful, gap-toothed mistress of Pohjola, the dark North, who demands the forging of the Sampo in exchange for her daughter, pursues the heroes as a giant eagle when they steal it, and hides the sun and moon in a mountain.",
+    "detailedBio": "## Mistress of the North\n\nIn Finnish folk poetry the Old Woman of the North, *Pohjan akka*, rules Pohjola, a cold, dark, hostile land somewhere to the north, and is a formidable sorceress; in charms the related *Louhiatar* or *Loviatar* is the mother of diseases. The Kalevala makes Louhi the chief antagonist of the Kalevala heroes, though an ambivalent one: she rescues the shipwrecked Väinämöinen and bargains fairly for her daughter's marriage.\n\n## The Sampo\n\nLouhi promises her daughter to the man who can forge the Sampo, a wonder-mill that grinds grain, salt, and money. Ilmarinen succeeds, and she locks it in the rock-mountain of Pohjola behind nine locks, where it roots itself deep in the earth. When the heroes steal it, she sends fog, wind, and the sea-monster Iku-Turso after them, then transforms herself into a giant eagle carrying a hundred warriors under her wings. Väinämöinen smashes her talons with his rudder, and in the struggle the Sampo falls into the sea and breaks; Louhi carries home only its lid, which is why, the epic says, the North is poor.\n\n## Revenge\n\nLouhi then sends plagues and a bear against Kalevala and steals the sun and moon, hiding them in a mountain until Ilmarinen's forging frightens her into releasing them. Her daughter becomes Ilmarinen's wife and is killed by Kullervo's wolves and bears.",
+    "originStory": "No origin is told; she is simply the mistress of Pohjola.",
+    "importanceRank": 2,
+    "crossPantheonParallels": [],
+    "primarySources": [
+      {
+        "text": "Louhi locked the Sampo within the stone mountain of Pohjola, behind nine locks, and it put down roots nine fathoms deep, one into the earth, one into the sea shore, one into the home mountain.",
+        "source": "Kalevala, Rune 10 (paraphrase)",
+        "sourceId": "kalevala",
+        "locator": "Rune 10",
+        "date": "Lönnrot's compilation 1849; trans. 1888"
+      },
+      {
+        "text": "Louhi changed herself into a great eagle, took a hundred men under her wings and a thousand on her tail, and flew after the heroes to seize the Sampo.",
+        "source": "Kalevala, Rune 43 (paraphrase)",
+        "sourceId": "kalevala",
+        "locator": "Rune 43",
+        "date": "Lönnrot's compilation 1849; trans. 1888"
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [],
+      "practices": "Not worshipped; in folk charms the related figure of the Old Woman of the North, mother of diseases, is named in order to banish illness back to Pohjola."
+    },
+    "pronunciation": {
+      "ipa": "/ˈlou̯hi/",
+      "phonetic": "LOH-hee"
+    },
+    "imageUrl": "/deities/louhi.png"
+  },
+  {
+    "id": "tuoni",
+    "pantheonId": "finnish-pantheon",
+    "name": "Tuoni",
+    "slug": "tuoni",
+    "originalLanguageName": {
+      "text": "Tuoni",
+      "language": "Finnish",
+      "meaning": "\"Death\" or \"the dead\"; his realm is Tuonela"
+    },
+    "alternateNames": ["Tuonen herra (Lord of Tuoni)", "Mana"],
+    "gender": "male",
+    "domain": ["death", "the underworld (Tuonela)"],
+    "symbols": ["the black river", "the swan of Tuonela", "iron nets"],
+    "description": "The lord of Tuonela, the land of the dead beyond a dark river, whose daughter ferries the dead, whose son hacks Lemminkäinen to pieces, and whose realm Väinämöinen escapes only by turning himself into a serpent.",
+    "detailedBio": "## Tuonela and Manala\n\nFinnish folk tradition places the dead in Tuonela, also called Manala ('the land under the earth'), reached by crossing a dark river. Its ruler, Tuoni, is a shadowy figure; his family is more vivid. The Kalevala names Tuoni's daughter (*Tuonen tytti*) as the ferrywoman, Tuonetar as the mistress of the house, and a son of Tuoni who is a killer.\n\n## Journeys to the dead\n\nIn the Kalevala Väinämöinen travels to Tuonela to seek three magic words he needs to finish his boat. Tuoni's daughter at first refuses to ferry a living man; once he is across, Tuonetar gives him beer full of frogs and worms and puts him to sleep, while Tuoni's son stretches iron nets across the river to keep him from leaving. Väinämöinen escapes by turning into a steel serpent and slipping through the mesh, and warns the young never to go to Tuonela. Lemminkäinen dies at Tuonela's river trying to shoot its swan, and Tuoni's son cuts his body into pieces.\n\n## Belief\n\nArchaeology and folk custom show careful care for the dead among Finns and Karelians, including memorial meals and grave houses in Karelian Orthodox cemeteries; the dead were thought to continue their existence and to need offerings. How far Tuoni was a personal god rather than a personification of death is uncertain.",
+    "originStory": "No origin is told.",
+    "importanceRank": 3,
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "greek-pantheon",
+        "deityId": "hades",
+        "note": "Both rule a land of the dead reached across a river with a ferryman (Tuoni's daughter, Charon), from which a living visitor returns only with difficulty."
+      }
+    ],
+    "primarySources": [
+      {
+        "text": "Tuoni's son stretched nets of iron and copper across the river of Tuonela so that Väinämöinen should not escape; but Väinämöinen changed into a serpent of steel and slipped through the meshes.",
+        "source": "Kalevala, Rune 16 (paraphrase)",
+        "sourceId": "kalevala",
+        "locator": "Rune 16",
+        "date": "Lönnrot's compilation 1849; trans. 1888"
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [
+        "Kekri, the traditional autumn harvest feast, when the spirits of the dead were believed to visit and were offered food (a festival of the dead in general, not of Tuoni himself)."
+      ],
+      "practices": "Care for the dead through memorial meals and offerings at graves; charms to keep death and the dead in Tuonela."
+    },
+    "pronunciation": {
+      "ipa": "/ˈtuo̯ni/",
+      "phonetic": "TWOH-nee"
+    },
+    "imageUrl": "/deities/tuoni.png"
+  },
+  {
+    "id": "tapio",
+    "pantheonId": "finnish-pantheon",
+    "name": "Tapio",
+    "slug": "tapio",
+    "originalLanguageName": {
+      "text": "Tapio",
+      "language": "Finnish",
+      "meaning": "Name of uncertain etymology; his realm is Tapiola"
+    },
+    "alternateNames": ["Metsän kuningas (King of the Forest)"],
+    "gender": "male",
+    "domain": ["the forest", "game and hunting"],
+    "symbols": ["the spruce forest", "a hat of fir", "a beard of moss"],
+    "description": "The god of the forest and giver of game, named by Agricola in 1551, whom hunters in the runo-songs and the Kalevala address with his wife Mielikki to open the forest's storehouse to them.",
+    "detailedBio": "## Attestation\n\nAgricola's list of 1551 says of the Tavastians that Tapio gave them game from the forest. In folk poetry and charms, Tapio is the old king of the forest, with a beard of lichen and a hat of fir, living in Tapiola with his wife Mielikki, their son Nyyrikki, and daughter Tellervo. Hunters sang to him to ask for game, promising respect and offerings, and avoided offending the forest by loud boasting or careless behavior.\n\n## In the Kalevala\n\nWhen Lemminkäinen must capture the elk of Hiisi, he prays to Tapio and Mielikki to open their forest to him, promising gifts of gold and silver, and the elk is driven into his hands. In another rune, cattle charms ask the forest powers to protect the herds while they graze in the woods.\n\n## The forest in Finnish life\n\nFor a people whose land was mostly forest, Tapio stood for the forest as a society with its own rulers, rights, and moods. Sibelius's last tone poem, *Tapiola* (1926), takes its name from his realm.",
+    "originStory": "No origin is told.",
+    "importanceRank": 3,
+    "crossPantheonParallels": [],
+    "primarySources": [
+      {
+        "text": "Tapio gave game from the forest.",
+        "source": "Mikael Agricola, preface to Dauidin Psaltari (paraphrase)",
+        "sourceId": "agricola-psalter-preface",
+        "date": "1551"
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [],
+      "practices": "Hunters' prayers and charms to Tapio and Mielikki before the hunt; small offerings and respectful behavior in the forest; the first catch was sometimes left on a tree stump for the forest."
+    },
+    "pronunciation": {
+      "ipa": "/ˈtɑpio/",
+      "phonetic": "TAH-pee-oh"
+    },
+    "imageUrl": "/deities/tapio.png"
+  },
+  {
+    "id": "mielikki",
+    "pantheonId": "finnish-pantheon",
+    "name": "Mielikki",
+    "slug": "mielikki",
+    "originalLanguageName": {
+      "text": "Mielikki",
+      "language": "Finnish",
+      "meaning": "Possibly from *mieli*, 'mind, favor'"
+    },
+    "alternateNames": ["Metsän emäntä (Mistress of the Forest)"],
+    "gender": "female",
+    "domain": [
+      "the forest",
+      "the hunt",
+      "the protection of cattle in the woods"
+    ],
+    "symbols": [
+      "the keys of the forest storehouse",
+      "gold and silver ornaments"
+    ],
+    "description": "The mistress of the forest and wife of Tapio, who holds the keys to the forest's storehouse of game and whom hunters and herders, and Lemminkäinen in the Kalevala, entreat for luck and protection.",
+    "detailedBio": "## Mistress of the forest\n\nIn Finnish runo-songs and charms, Mielikki is the forest's mistress (*metsän emäntä*) and the wife of Tapio, the forest's king. Hunters ask her to open the forest's storehouse and send them game; herders ask her to keep their cattle safe from bears and wolves when the animals graze in the woods. She was often imagined as more generous than her husband, and prayers flatter her beauty and ornaments.\n\n## In the Kalevala\n\nWhen Lemminkäinen hunts the elk of Hiisi, he addresses her directly: 'Mistress of the woods, Mielikki, / Forest-mother, formed in beauty', asking her for her silver keys, and she drives the elk to him. Later cattle charms in the epic ask Mielikki and other forest powers to protect the herd.\n\n## Evidence\n\nMielikki is not in Agricola's list, but she is well attested in charms and songs recorded from the eighteenth century onward and appears in Ganander's *Mythologia Fennica* (1789).",
+    "originStory": "No origin is told.",
+    "importanceRank": 4,
+    "crossPantheonParallels": [],
+    "primarySources": [
+      {
+        "text": "\"Mistress of the woods, Mielikki, / Forest-mother, formed in beauty, / [...] Bring me here thy keys of silver.\"",
+        "source": "Kalevala (trans. John Martin Crawford, 1888), Rune XIV",
+        "sourceId": "kalevala",
+        "locator": "Rune 14",
+        "date": "Lönnrot's compilation 1849; trans. 1888"
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [],
+      "practices": "Hunters' and herders' prayers and charms for game and for the safety of cattle grazing in the forest."
+    },
+    "pronunciation": {
+      "ipa": "/ˈmie̯likːi/",
+      "phonetic": "MYEH-lik-kee"
+    },
+    "imageUrl": "/deities/mielikki.png"
+  },
+  {
+    "id": "ahti",
+    "pantheonId": "finnish-pantheon",
+    "name": "Ahti",
+    "slug": "ahti",
+    "originalLanguageName": {
+      "text": "Ahti",
+      "language": "Finnish",
+      "meaning": "Name of uncertain etymology; the Kalevala also uses Ahto; his realm is Ahtola"
+    },
+    "alternateNames": ["Ahto", "Allon kuningas (King of the Waves)"],
+    "gender": "male",
+    "domain": ["the sea and waters", "fish and fishing"],
+    "symbols": ["the waves", "a beard of grass", "fish"],
+    "description": "The god of waters and fish, named by Agricola in 1551 as the one who brought fish from the water, called king of the waves in the runo-songs, husband of Vellamo and lord of the underwater realm of Ahtola.",
+    "detailedBio": "## Attestation\n\nAgricola's list of 1551 says that Ahti brought fish from the waters. Folk poetry calls him *Ahto*, king of the waves, with a beard of grass, ruling Ahtola, a rich realm beneath the water, with his wife Vellamo. Fishermen asked him for a good catch and took care not to offend him.\n\n## In the Kalevala\n\nWhen Väinämöinen plays his new kantele (Rune 41), all creatures come to listen, and among them Ahto, king of the waves, rises from the water to hear. The Kalevala's hero Lemminkäinen is also called Ahti Saarelainen, 'Ahti the Islander', but he is a different figure from the water god, and the shared name is one of the knots Lönnrot inherited from folk tradition.\n\n## Waters in Finnish life\n\nFinland has tens of thousands of lakes and a long coast; fishing was as important as hunting. Ahti and Vellamo were the water's counterparts to Tapio and Mielikki of the forest.",
+    "originStory": "No origin is told.",
+    "importanceRank": 3,
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "norse-pantheon",
+        "deityId": "njord",
+        "note": "Both are gods of the sea and its bounty invoked by fishermen; the comparison is typological."
+      }
+    ],
+    "primarySources": [
+      {
+        "text": "Ahti brought fish from the waters.",
+        "source": "Mikael Agricola, preface to Dauidin Psaltari (paraphrase)",
+        "sourceId": "agricola-psalter-preface",
+        "date": "1551"
+      },
+      {
+        "text": "When Väinämöinen played the kantele, Ahto, king of the waves, rose to the surface of the water to listen.",
+        "source": "Kalevala, Rune 41 (paraphrase)",
+        "sourceId": "kalevala",
+        "locator": "Rune 41",
+        "date": "Lönnrot's compilation 1849; trans. 1888"
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [],
+      "practices": "Fishermen's prayers and charms for a good catch; offerings of the first fish or of small gifts to the water."
+    },
+    "pronunciation": {
+      "ipa": "/ˈɑhti/",
+      "phonetic": "AHH-tee"
+    },
+    "imageUrl": "/deities/ahti.png"
+  },
+  {
+    "id": "vellamo",
+    "pantheonId": "finnish-pantheon",
+    "name": "Vellamo",
+    "slug": "vellamo",
+    "originalLanguageName": {
+      "text": "Vellamo",
+      "language": "Finnish",
+      "meaning": "Possibly from *velloa*, 'to surge, roll' (of waves)"
+    },
+    "alternateNames": ["Veden emäntä (Mistress of the Water)"],
+    "gender": "female",
+    "domain": ["the waters", "the sea", "fish"],
+    "symbols": ["the waves", "the water-maidens"],
+    "description": "The mistress of the waters and wife of Ahti in Finnish runo-song, whose water-maidens appear in the Kalevala and who was asked for good fishing and calm seas.",
+    "detailedBio": "## Mistress of the water\n\nIn Finnish folk poetry and charms, Vellamo is the mistress of the waters (*veden emäntä*) and the wife of Ahti. She and her maidens, the water-maidens (*Vellamon neidot*), live in the depths, and fishermen addressed her for a good catch and for calm weather.\n\n## In the Kalevala\n\nVellamo and her maidens appear among the water beings of the epic: in the rune of Väinämöinen's music the mistress of the waters comes to listen alongside Ahto. Lönnrot's use of her follows the folk poems' pairing of the water's king and queen.\n\n## Evidence\n\nVellamo is not in Agricola's list but is attested in folk poetry and in Ganander's *Mythologia Fennica* (1789). The maritime museum center Vellamo in Kotka is named after her.",
+    "originStory": "No origin is told.",
+    "importanceRank": 4,
+    "crossPantheonParallels": [],
+    "primarySources": [
+      {
+        "text": "Vellamo, mistress of the water, with her maidens, came to hear the kantele.",
+        "source": "Kalevala, Rune 41 (paraphrase)",
+        "sourceId": "kalevala",
+        "locator": "Rune 41",
+        "date": "Lönnrot's compilation 1849; trans. 1888"
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [],
+      "practices": "Fishermen's and seafarers' prayers for a good catch and calm water, paired with prayers to Ahti."
+    },
+    "pronunciation": {
+      "ipa": "/ˈʋelːɑmo/",
+      "phonetic": "VEL-lah-moh"
+    },
+    "imageUrl": "/deities/vellamo.png"
+  },
+  {
+    "id": "hwanin",
+    "pantheonId": "korean-pantheon",
+    "name": "Hwanin",
+    "slug": "hwanin",
+    "originalLanguageName": {
+      "text": "桓因 (환인)",
+      "language": "Literary Chinese / Korean",
+      "transliteration": "Hwanin",
+      "meaning": "Name of disputed meaning; Iryeon glosses him as Jeseok (Śakra, i.e. Indra)"
+    },
+    "alternateNames": ["Jeseok (in Iryeon's gloss)"],
+    "gender": "male",
+    "traditionRole": "Lord of Heaven",
+    "domain": ["heaven", "sovereignty over the world"],
+    "symbols": ["the three heavenly seals", "the sky"],
+    "description": "The Lord of Heaven in the Dangun myth, who sees that his son Hwanung longs for the human world, looks down on Mount Taebaek as a place where he could 'widely benefit humanity', and sends him down with three heavenly seals.",
+    "detailedBio": "## In the Samguk Yusa\n\nThe Dangun myth in Iryeon's *Samguk Yusa* (c. 1281-1289), quoting an older 'Old Record' (*Gogi*), opens with Hwanin. His son by a secondary wife, Hwanung, often longed for the world below and desired human society. Knowing his son's wish, Hwanin looked down on Mount Taebaek among three high peaks, judged that it was a place where one could 'widely benefit humanity' (*hongik ingan*), and gave Hwanung three heavenly seals (*cheonbuin*) and sent him down to rule.\n\n## Iryeon's gloss\n\nAt Hwanin's name Iryeon adds a brief note: 'that is, Jeseok', the Korean form of Śakra, the Buddhist name of the Vedic god Indra, king of the gods of the Trayastrimsha heaven. The note shows a Buddhist monk reading the native Lord of Heaven through a Buddhist lens; whether the older tradition already had this association is unknown. Later Korean religious movements, such as Daejonggyo (founded 1909), revere Hwanin, Hwanung, and Dangun together as a trinity.\n\n## Hongik ingan\n\nThe phrase 'widely benefit humanity', attached in the myth to Hwanin's choice of Taebaek, became a founding ideal of modern South Korean education, written into the Education Act of 1949.",
+    "originStory": "No origin is told; he is the ruler of heaven when the myth begins.",
+    "importanceRank": 1,
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "hindu-pantheon",
+        "deityId": "indra",
+        "note": "Iryeon's thirteenth-century note identifies Hwanin with Jeseok (Śakra), the Buddhist name of Indra, king of the gods. The identification is a Buddhist monk's gloss, not evidence that the Korean sky-lord derives from Indra."
+      }
+    ],
+    "primarySources": [
+      {
+        "text": "In ancient times Hwanin (that is, Jeseok) had a son by a secondary wife, Hwanung, who often desired the world under heaven. His father, knowing his son's intention, looked down on Samwi-Taebaek and saw that it was a place where he could widely benefit humanity; he gave him three heavenly seals and sent him to rule there.",
+        "source": "Iryeon, Samguk Yusa, Book 1, 'Gojoseon (Wanggeom Joseon)', quoting the Old Record (paraphrase)",
+        "sourceId": "samguk-yusa",
+        "locator": "Book 1, Gojoseon",
+        "date": "compiled c. 1281-1289"
+      }
+    ],
+    "worship": {
+      "temples": [
+        "Samseonggung and other shrines of Daejonggyo and related modern movements venerate Hwanin, Hwanung, and Dangun together."
+      ],
+      "festivals": [
+        "National Foundation Day (Gaecheonjeol, 3 October), celebrating the 'opening of heaven' when Hwanung descended and Dangun founded Joseon."
+      ],
+      "practices": "Honored chiefly as the heavenly origin of the Dangun lineage; the ideal of hongik ingan associated with his choice of Taebaek is cited in South Korean education law."
+    },
+    "pronunciation": {
+      "ipa": "/hwa.nin/",
+      "phonetic": "HWAH-nin"
+    },
+    "imageUrl": "/deities/hwanin.png"
+  },
+  {
+    "id": "hwanung",
+    "pantheonId": "korean-pantheon",
+    "name": "Hwanung",
+    "slug": "hwanung",
+    "originalLanguageName": {
+      "text": "桓雄 (환웅)",
+      "language": "Literary Chinese / Korean",
+      "transliteration": "Hwanung",
+      "meaning": "Name of disputed meaning"
+    },
+    "alternateNames": ["Hwanung Cheonwang (Heavenly King Hwanung)"],
+    "gender": "male",
+    "domain": ["heaven's rule on earth", "agriculture", "life and law"],
+    "symbols": [
+      "the sacred altar tree (Sindansu)",
+      "the three heavenly seals",
+      "the Wind Earl, Rain Master, and Cloud Master"
+    ],
+    "description": "The son of the Lord of Heaven who descends to Mount Taebaek with three thousand followers and the ministers of wind, rain, and clouds, founds the 'City of God' beneath the sacred altar tree, and fathers Dangun with the bear-woman Ungnyeo.",
+    "detailedBio": "## Descent to Taebaek\n\nIn the *Samguk Yusa* Dangun myth, Hwanung, son of the Lord of Heaven, receives three heavenly seals from his father and descends with three thousand followers to the summit of Mount Taebaek, beneath the sacred altar tree (*Sindansu*). He calls the place Sinsi, the 'City of God', and is called Heavenly King Hwanung. With the Wind Earl, the Rain Master, and the Cloud Master, he takes charge of grain, life, sickness, punishment, and good and evil, some three hundred and sixty human affairs in all, and rules and civilizes the world.\n\n## The bear and the tiger\n\nA bear and a tiger living in one cave pray to him constantly to become human. He gives them a bundle of sacred mugwort and twenty cloves of garlic, telling them to eat these and avoid the sunlight for a hundred days. The bear keeps the taboo and after twenty-one days becomes a woman; the tiger does not. When the bear-woman prays beneath the altar tree for a child, Hwanung takes human form for a time and marries her, and she bears Dangun.\n\n## Reading the myth\n\nThe ministers of wind, rain, and clouds make Hwanung a bringer of agriculture and order, and many scholars read the bear and tiger as the totems of peoples who joined or resisted a sky-worshipping group. Such interpretations are modern hypotheses; the text itself tells a sacred story of the origin of the first Korean kingdom.",
+    "originStory": "Son of Hwanin, the Lord of Heaven, by a secondary wife (Samguk Yusa, Book 1).",
+    "importanceRank": 2,
+    "crossPantheonParallels": [],
+    "primarySources": [
+      {
+        "text": "Hwanung led three thousand followers down to the summit of Mount Taebaek beneath the sacred altar tree; he called it the City of God and was called Heavenly King Hwanung. Leading the Wind Earl, the Rain Master, and the Cloud Master, he took charge of grain, life, sickness, punishment, and good and evil, some three hundred and sixty affairs of men.",
+        "source": "Iryeon, Samguk Yusa, Book 1, 'Gojoseon (Wanggeom Joseon)' (paraphrase)",
+        "sourceId": "samguk-yusa",
+        "locator": "Book 1, Gojoseon",
+        "date": "compiled c. 1281-1289"
+      }
+    ],
+    "worship": {
+      "temples": [
+        "Honored with Hwanin and Dangun at shrines of Daejonggyo and in modern Dangun rites."
+      ],
+      "festivals": [
+        "National Foundation Day (Gaecheonjeol, 3 October), which commemorates the 'opening of heaven' by his descent."
+      ],
+      "practices": "Venerated in modern Dangun-centered religious movements; the sacred tree and mountain of his descent echo village guardian trees and mountain altars in Korean folk religion."
+    },
+    "pronunciation": {
+      "ipa": "/hwa.nuŋ/",
+      "phonetic": "HWAH-noong"
+    },
+    "imageUrl": "/deities/hwanung.png"
+  },
+  {
+    "id": "ungnyeo",
+    "pantheonId": "korean-pantheon",
+    "name": "Ungnyeo",
+    "slug": "ungnyeo",
+    "originalLanguageName": {
+      "text": "熊女 (웅녀)",
+      "language": "Literary Chinese / Korean",
+      "transliteration": "Ungnyeo",
+      "meaning": "\"Bear woman\""
+    },
+    "alternateNames": ["The Bear Woman"],
+    "gender": "female",
+    "traditionRole": "Ancestral Mother",
+    "domain": ["endurance", "motherhood", "transformation"],
+    "symbols": ["the bear", "mugwort and garlic", "the cave"],
+    "description": "The bear who, with a tiger, begs Hwanung to become human, endures twenty-one days in darkness eating only mugwort and garlic, becomes a woman, and by Hwanung bears Dangun, founder of the first Korean kingdom.",
+    "detailedBio": "## From bear to woman\n\nIn the Dangun myth of the *Samguk Yusa*, a bear and a tiger living together in a cave pray constantly to Hwanung to become human. He gives them a bundle of sacred mugwort and twenty cloves of garlic and tells them to avoid the sunlight for a hundred days. Both eat and withdraw; the bear keeps the taboo, and after three times seven days (twenty-one days) she obtains a woman's body. The tiger cannot keep it and remains a tiger.\n\n## Mother of Dangun\n\nThe bear-woman has no one to marry, and prays beneath the sacred altar tree for a child. Hwanung takes human form for a time and marries her, and she bears a son, Dangun Wanggeom, who founds Joseon. The text names her only as *Ungnyeo*, 'bear woman'.\n\n## Meaning and afterlife\n\nThe twenty-one days (*samchil-il*) of her seclusion echo a Korean custom of observing twenty-one days of taboo after childbirth, and her story is often read as a story of patience and transformation. Mugwort and garlic remain everyday foods and medicines in Korea. Scholars have long debated whether the bear reflects a bear-honoring people or a wider northern Eurasian bear cult; the myth itself gives no such explanation.",
+    "originStory": "A bear living in a cave with a tiger, transformed into a woman through Hwanung's instructions (Samguk Yusa, Book 1).",
+    "importanceRank": 2,
+    "crossPantheonParallels": [],
+    "primarySources": [
+      {
+        "text": "A bear and a tiger living in the same cave always prayed to the god Hwanung to become human. The god gave them a bundle of sacred mugwort and twenty cloves of garlic, saying: 'Eat these and do not see the sunlight for a hundred days, and you will attain human form.' The bear kept the taboo and after twenty-one days obtained a woman's body; the tiger could not keep it and did not.",
+        "source": "Iryeon, Samguk Yusa, Book 1, 'Gojoseon (Wanggeom Joseon)' (paraphrase)",
+        "sourceId": "samguk-yusa",
+        "locator": "Book 1, Gojoseon",
+        "date": "compiled c. 1281-1289"
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [],
+      "practices": "Honored as the ancestral mother of the Korean people in modern Dangun-centered traditions; no separate historical cult of Ungnyeo is documented."
+    },
+    "pronunciation": {
+      "ipa": "/uŋ.ɲʌ/",
+      "phonetic": "OONG-nyuh"
+    },
+    "imageUrl": "/deities/ungnyeo.png"
+  },
+  {
+    "id": "dangun",
+    "pantheonId": "korean-pantheon",
+    "name": "Dangun",
+    "slug": "dangun",
+    "originalLanguageName": {
+      "text": "檀君王儉 (단군왕검)",
+      "language": "Literary Chinese / Korean",
+      "transliteration": "Dangun Wanggeom",
+      "meaning": "Dangun is often read as 'lord of the altar (or sandalwood tree)'; Wanggeom as 'king'. Both readings are debated."
+    },
+    "alternateNames": ["Dangun Wanggeom", "Tangun"],
+    "gender": "male",
+    "traditionRole": "Founding Ancestor",
+    "domain": [
+      "the founding of Joseon",
+      "the Korean people",
+      "the mountains (as mountain god)"
+    ],
+    "symbols": ["the altar tree", "Mount Asadal", "the altar of Chamseongdan"],
+    "description": "The son of the heavenly Hwanung and the bear-woman Ungnyeo, who in the Samguk Yusa founds the kingdom of Joseon (Gojoseon), rules for fifteen hundred years, and at last becomes a mountain god; honored as the founding ancestor of the Korean people.",
+    "detailedBio": "## In the Samguk Yusa\n\nIryeon's *Samguk Yusa* gives two accounts. From a Chinese 'Book of Wei' it quotes that two thousand years earlier Dangun Wanggeom set his capital at Asadal and founded a state called Joseon, in the time of the sage-emperor Yao. From the Korean 'Old Record' it tells the full myth: born of Hwanung and Ungnyeo, Dangun made his capital at Pyongyang in the fiftieth year of Yao, called his state Joseon, later moved to Asadal on Mount Baegak, and ruled for fifteen hundred years. When the Zhou king enfeoffed Gija in Joseon, Dangun moved away, returned to Asadal, and became a mountain god, having lived 1,908 years. Iryeon himself notes that the traditional year does not match Yao's reign.\n\n## The date and the nation\n\nThe date 2333 BCE for Dangun's founding, used for South Korea's National Foundation Day, is a later calculation by Joseon-dynasty historians, not the Samguk Yusa's own statement, and the historical state of Gojoseon is known from Chinese sources from about the fourth century BCE until its conquest by the Han in 108 BCE. Dangun became a powerful symbol of national identity, especially under Japanese colonial rule (1910-1945), when the religion Daejonggyo (founded 1909) and independence activists honored him as the common ancestor of all Koreans.\n\n## Two Koreas\n\nSouth Korea celebrates Gaecheonjeol on 3 October. North Korea announced in 1993 that it had found Dangun's bones near Pyongyang and built a large mausoleum in 1994; most historians outside North Korea regard the claim as political rather than archaeological.",
+    "originStory": "Son of Hwanung, the son of the Lord of Heaven, and Ungnyeo, the bear who became a woman (Samguk Yusa, Book 1).",
+    "importanceRank": 1,
+    "crossPantheonParallels": [],
+    "primarySources": [
+      {
+        "text": "She bore a son called Dangun Wanggeom. In the fiftieth year of Emperor Yao he made his capital at Pyongyang and first called the state Joseon; later he moved his capital to Asadal on Mount Baegak and ruled the state for fifteen hundred years. He afterwards returned to Asadal, hid himself, and became a mountain god, living 1,908 years.",
+        "source": "Iryeon, Samguk Yusa, Book 1, 'Gojoseon (Wanggeom Joseon)' (paraphrase)",
+        "sourceId": "samguk-yusa",
+        "locator": "Book 1, Gojoseon",
+        "date": "compiled c. 1281-1289"
+      }
+    ],
+    "worship": {
+      "temples": [
+        "Chamseongdan, the stone altar on Mount Mani, Ganghwa Island, traditionally said to have been built by Dangun for sacrifices to heaven.",
+        "Samseongsa shrine at Guwol-san and other historic Dangun shrines; the modern Mausoleum of Dangun near Pyongyang (North Korea, 1994)."
+      ],
+      "festivals": [
+        "National Foundation Day (Gaecheonjeol, 3 October) in South Korea, with a heaven rite at Chamseongdan."
+      ],
+      "practices": "Rites to Dangun as national ancestor were held by Joseon kings and revived by Daejonggyo in the twentieth century; the torch of the Korean National Sports Festival is lit at Chamseongdan."
+    },
+    "pronunciation": {
+      "ipa": "/tan.ɡun/",
+      "phonetic": "DAHN-goon"
+    },
+    "imageUrl": "/deities/dangun.png"
+  },
+  {
+    "id": "haemosu",
+    "pantheonId": "korean-pantheon",
+    "name": "Haemosu",
+    "slug": "haemosu",
+    "originalLanguageName": {
+      "text": "解慕漱 (해모수)",
+      "language": "Literary Chinese / Korean",
+      "transliteration": "Haemosu",
+      "meaning": "Name often connected with Korean *hae*, 'sun', but the etymology is uncertain"
+    },
+    "alternateNames": ["Son of Heaven (Cheonja)"],
+    "gender": "male",
+    "domain": ["heaven", "the sun", "kingship"],
+    "symbols": [
+      "a chariot drawn by five dragons",
+      "a crown of crow feathers",
+      "the dragon-light sword"
+    ],
+    "description": "The Son of Heaven who descends in a five-dragon chariot, seduces Yuhwa, daughter of the River Earl, by the Amnok (Yalu) River, and becomes the father of Jumong, founder of Goguryeo.",
+    "detailedBio": "## The Son of Heaven\n\nIn Kim Busik's *Samguk Sagi* (1145), Yuhwa tells King Geumwa of East Buyeo that a man calling himself Haemosu, son of Heaven, lured her to a house by the Amnok (Yalu) River beneath Mount Ungsim, lay with her, and never returned; her parents, ashamed, banished her. Yi Gyu-bo's *Lay of King Dongmyeong* (1193), quoting a lost older history, describes Haemosu's descent more grandly: he comes down in a chariot drawn by five dragons, with a hundred followers riding swans, wearing a crown of crow feathers and a sword of dragon-light, going up to heaven at evening and descending in the morning.\n\n## The contest with the River Earl\n\nIn Yi Gyu-bo's version, Haemosu meets the River Earl's daughters bathing, captures Yuhwa, and then asks her father, Habaek, for her hand. Habaek tests his divine claim with a contest of transformations: Habaek becomes a carp and Haemosu an otter; Habaek a deer and Haemosu a wolf; Habaek a pheasant and Haemosu a hawk. Convinced, Habaek holds a wedding feast, but Haemosu leaves Yuhwa and returns to heaven alone.\n\n## Other sources\n\nThe *Samguk Yusa* also names Haemosu as a Son of Heaven who founded North Buyeo. The Gwanggaeto Stele (414 CE) simply calls Jumong the son of the Heavenly Emperor, without naming Haemosu.",
+    "originStory": "Son of Heaven (the Heavenly Emperor), in Samguk Sagi and Yi Gyu-bo's poem.",
+    "importanceRank": 3,
+    "crossPantheonParallels": [],
+    "primarySources": [
+      {
+        "text": "Yuhwa said: 'I am the daughter of Habaek. A man who said he was Haemosu, the son of Heaven, enticed me to a house by the Amnok River beneath Mount Ungsim, lay with me, and went away and did not return.'",
+        "source": "Kim Busik, Samguk Sagi, Annals of Goguryeo, King Dongmyeong (paraphrase)",
+        "sourceId": "samguk-sagi",
+        "locator": "Annals of Goguryeo 1",
+        "date": "completed 1145"
+      },
+      {
+        "text": "The Son of Heaven came down riding a chariot drawn by five dragons, with a hundred followers riding white swans; on his head he wore a crown of crow feathers, at his waist a sword of dragon-light.",
+        "source": "Yi Gyu-bo, Dongmyeongwang-pyeon, prose note quoting the Old History of the Three Kingdoms (paraphrase)",
+        "sourceId": "dongmyeongwang-pyeon",
+        "date": "1193"
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [],
+      "practices": "Honored as the heavenly father of the Goguryeo royal line; Goguryeo's festival of heaven, the Dongmaeng in the tenth month, is recorded in Chinese histories but not tied to Haemosu by name."
+    },
+    "pronunciation": {
+      "ipa": "/hɛ.mo.su/",
+      "phonetic": "HEH-moh-soo"
+    },
+    "imageUrl": "/deities/haemosu.png"
+  },
+  {
+    "id": "yuhwa",
+    "pantheonId": "korean-pantheon",
+    "name": "Yuhwa",
+    "slug": "yuhwa",
+    "originalLanguageName": {
+      "text": "柳花 (유화)",
+      "language": "Literary Chinese / Korean",
+      "transliteration": "Yuhwa",
+      "meaning": "\"Willow flower\""
+    },
+    "alternateNames": ["Lady Yuhwa", "Buyeo-sin (the Buyeo goddess)"],
+    "gender": "female",
+    "traditionRole": "Ancestral Mother",
+    "domain": ["rivers", "motherhood", "agriculture"],
+    "symbols": ["the willow", "the egg", "grain seeds carried by doves"],
+    "description": "The daughter of Habaek, the River Earl, who is seduced and abandoned by Haemosu, banished by her parents, sheltered by King Geumwa of East Buyeo, and there lays the egg from which Jumong hatches; later worshipped by Goguryeo as a mother goddess.",
+    "detailedBio": "## The River Earl's daughter\n\nIn the *Samguk Sagi*, King Geumwa of East Buyeo finds Yuhwa south of Mount Taebaek at Ubalsu, where her parents have banished her after her union with Haemosu. He shuts her in a room, where sunlight follows her even when she moves away from it, and she conceives. She lays an egg as large as five measures of grain. Geumwa has it thrown to dogs and pigs, which will not eat it; left on the road, where horses and cattle step around it; and in the fields, where birds cover it with their wings. He cannot break it and returns it to her, and a boy breaks out: Jumong.\n\n## Helping her son\n\nWhen Jumong must flee Geumwa's jealous sons, Yuhwa advises him on choosing the best horse. Yi Gyu-bo's poem adds that when Jumong forgets the grain seeds she has prepared, she sends them after him with a pair of doves, which he shoots down to recover the seeds, then revives.\n\n## A worshipped mother\n\nThe *Samguk Sagi* records that Yuhwa died in East Buyeo in the fourteenth year of Jumong's reign and that Geumwa buried her with the rites of a queen dowager and built her a shrine. Chinese histories of the sixth and seventh centuries report that Goguryeo kept two shrines, one to the 'Buyeo goddess', carved in wood in the form of a woman, and one to the 'Gaodeng god', said to be their ancestor and her son; scholars identify these as Yuhwa and Jumong.",
+    "originStory": "Eldest daughter of Habaek, the River Earl (Samguk Sagi; Dongmyeongwang-pyeon).",
+    "importanceRank": 2,
+    "crossPantheonParallels": [],
+    "primarySources": [
+      {
+        "text": "She was shut in a room, and the sunlight shone on her; when she moved away, it followed her. She conceived and laid an egg as large as five measures.",
+        "source": "Kim Busik, Samguk Sagi, Annals of Goguryeo, King Dongmyeong (paraphrase)",
+        "sourceId": "samguk-sagi",
+        "locator": "Annals of Goguryeo 1",
+        "date": "completed 1145"
+      },
+      {
+        "text": "They have two shrines: one to the god of Buyeo, carved of wood in the shape of a woman; the other to the god Gaodeng, said to be their first ancestor, the son of the god of Buyeo.",
+        "source": "Zhou shu, account of Goguryeo (paraphrase)",
+        "date": "compiled 636 CE"
+      }
+    ],
+    "worship": {
+      "temples": [
+        "A shrine built for her in East Buyeo by King Geumwa, according to the Samguk Sagi; the Goguryeo shrine of the 'Buyeo goddess' described in Chinese histories."
+      ],
+      "festivals": [],
+      "practices": "Honored by the Goguryeo court as the mother of the dynasty's founder, with a wooden image, according to seventh-century Chinese sources."
+    },
+    "pronunciation": {
+      "ipa": "/ju.ɦwa/",
+      "phonetic": "YOO-hwah"
+    },
+    "imageUrl": "/deities/yuhwa.png"
+  },
+  {
+    "id": "habaek",
+    "pantheonId": "korean-pantheon",
+    "name": "Habaek",
+    "slug": "habaek",
+    "originalLanguageName": {
+      "text": "河伯 (하백)",
+      "language": "Literary Chinese / Korean",
+      "transliteration": "Habaek",
+      "meaning": "\"River Earl\", a title shared with the Chinese river god Hebo"
+    },
+    "alternateNames": ["River Earl"],
+    "gender": "male",
+    "domain": ["rivers", "waters", "transformation"],
+    "symbols": ["the river palace", "the carp"],
+    "description": "The River Earl, water god of the Amnok (Yalu) region and father of Yuhwa, who tests Haemosu's divine claim in a contest of transformations and is claimed by Goguryeo's kings as the founder's maternal grandfather.",
+    "detailedBio": "## The founder's grandfather\n\nThe Gwanggaeto Stele (414 CE) opens by declaring that the founder, King Chumo, was the son of the Heavenly Emperor and that 'his mother was the daughter of Habaek', and when Chumo reaches a river he cannot cross, he calls out that he is the son of heaven and grandson of Habaek. The river god's lineage was thus part of the Goguryeo royal claim from the earliest written record.\n\n## The contest of shapes\n\nIn Yi Gyu-bo's *Lay of King Dongmyeong* (1193), Habaek lives in a palace beneath the waters, with three daughters, of whom Yuhwa is the eldest. When Haemosu seizes Yuhwa and asks for her hand, Habaek demands proof of divinity and they contest in transformations: carp and otter, deer and wolf, pheasant and hawk. Each time Haemosu's form overcomes Habaek's, and Habaek accepts him, only for Haemosu to abandon Yuhwa. Habaek, angered, punishes his daughter and casts her out.\n\n## The title\n\n*Habaek* is the Korean reading of *Hebo*, 'Earl of the River', the title of the god of the Yellow River in Chinese tradition. The Goguryeo figure is a local water god whose title was borrowed or translated; he should not be simply identified with the Chinese deity.",
+    "originStory": "No origin is told; he is the lord of the river when the myth begins.",
+    "importanceRank": 3,
+    "crossPantheonParallels": [],
+    "primarySources": [
+      {
+        "text": "In olden times, when the founder King Chumo laid the foundations, he came from North Buyeo; he was the son of the Heavenly Emperor, and his mother was the daughter of Habaek. He broke an egg and came down into the world.",
+        "source": "Gwanggaeto Stele, opening lines (paraphrase)",
+        "sourceId": "gwanggaeto-stele",
+        "locator": "face 1, opening",
+        "date": "414 CE"
+      },
+      {
+        "text": "Habaek changed into a carp, and the king changed into an otter and caught him; Habaek changed into a deer, and the king into a wolf; Habaek into a pheasant, and the king into a hawk.",
+        "source": "Yi Gyu-bo, Dongmyeongwang-pyeon (paraphrase)",
+        "sourceId": "dongmyeongwang-pyeon",
+        "date": "1193"
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [],
+      "practices": "Invoked in Goguryeo royal genealogy as the founder's maternal grandfather; no separate record of his cult survives."
+    },
+    "pronunciation": {
+      "ipa": "/ha.bɛk̚/",
+      "phonetic": "HAH-baek"
+    },
+    "imageUrl": "/deities/habaek.png"
+  },
+  {
+    "id": "jumong",
+    "pantheonId": "korean-pantheon",
+    "name": "Jumong",
+    "slug": "jumong",
+    "originalLanguageName": {
+      "text": "朱蒙 (주몽)",
+      "language": "Literary Chinese / Korean",
+      "transliteration": "Jumong; Chumo on the Gwanggaeto Stele",
+      "meaning": "'Good archer' in the language of Buyeo, according to the Samguk Sagi"
+    },
+    "alternateNames": ["King Dongmyeong", "Chumo", "Go Jumong"],
+    "gender": "male",
+    "traditionRole": "Founding King",
+    "domain": ["archery", "the founding of Goguryeo", "kingship"],
+    "symbols": ["the bow", "the egg", "the bridge of fish and turtles"],
+    "description": "The egg-born son of Heaven and of the River Earl's daughter, a peerless archer who flees East Buyeo when fish and turtles rise to bridge a river for him, founds Goguryeo at Jolbon, and in the earliest account ascends to heaven on a yellow dragon.",
+    "detailedBio": "## The earliest account\n\nThe Gwanggaeto Stele of 414 CE, the oldest written source for any Korean foundation myth, says that King Chumo, son of the Heavenly Emperor and the daughter of Habaek, broke from an egg; traveling south, he reached a great river and declared himself son of heaven and grandson of Habaek, and reeds joined and turtles surfaced to let him cross. He founded his capital on the mountain west of Holbon. Tired of the world, he was fetched by a yellow dragon sent from heaven and rose to heaven from a hill east of Holbon, standing on the dragon's head.\n\n## The Samguk Sagi\n\nKim Busik's history (1145) gives the fuller version. Born from Yuhwa's egg in the palace of King Geumwa of East Buyeo, the boy made his own bow and arrows at seven and never missed, and 'Jumong', the Buyeo word for a good archer, became his name. Geumwa's sons plotted to kill him. Set to tend the king's horses, he starved the best horse and fattened the poor ones; the king took the fat horses and left him the fine thin one. Warned by his mother, he fled with three companions. At the Eomsa River, with pursuers behind him and no bridge, he declared himself son of Heaven and grandson of Habaek, and fish and turtles rose to make a bridge, sinking again after he crossed. He founded Goguryeo at Jolbon in 37 BCE, at the age of twenty-two, and took the surname Go.\n\n## Worship\n\nGoguryeo worshipped its founder at a royal shrine, and Chinese histories name a Goguryeo god 'Gaodeng', the son of the Buyeo goddess, generally identified with Jumong. The traditional date of 37 BCE is not independently confirmed.",
+    "originStory": "Hatched from an egg laid by Yuhwa, daughter of Habaek, after she was touched by the sunlight of Heaven; son of Haemosu in Samguk Yusa and Yi Gyu-bo.",
+    "importanceRank": 1,
+    "crossPantheonParallels": [],
+    "primarySources": [
+      {
+        "text": "He came south and his road passed the great river of Eomni in Buyeo. The king, at the ford, said: 'I am the son of August Heaven, and my mother is the daughter of Habaek; I am King Chumo. Join the reeds and float the turtles for me!' At his word the reeds joined and the turtles surfaced, and he crossed.",
+        "source": "Gwanggaeto Stele (paraphrase)",
+        "sourceId": "gwanggaeto-stele",
+        "locator": "face 1, opening",
+        "date": "414 CE"
+      },
+      {
+        "text": "At seven he made a bow and arrows himself, and shot a hundred times and hit a hundred times; in the speech of Buyeo, one who shoots well is called 'jumong', so this became his name.",
+        "source": "Kim Busik, Samguk Sagi, Annals of Goguryeo, King Dongmyeong (paraphrase)",
+        "sourceId": "samguk-sagi",
+        "locator": "Annals of Goguryeo 1",
+        "date": "completed 1145"
+      }
+    ],
+    "worship": {
+      "temples": [
+        "The shrine of the founder in the Goguryeo capitals, to which later kings made offerings, according to the Samguk Sagi; the 'Gaodeng god' shrine described in Chinese histories."
+      ],
+      "festivals": [],
+      "practices": "Royal ancestor worship at the founder's shrine; the Goguryeo harvest festival of heaven (Dongmaeng) recorded in Chinese histories."
+    },
+    "pronunciation": {
+      "ipa": "/tɕu.moŋ/",
+      "phonetic": "JOO-mong"
+    },
+    "imageUrl": "/deities/jumong.png"
+  },
+  {
+    "id": "bak-hyeokgeose",
+    "pantheonId": "korean-pantheon",
+    "name": "Bak Hyeokgeose",
+    "slug": "bak-hyeokgeose",
+    "originalLanguageName": {
+      "text": "朴赫居世 (박혁거세)",
+      "language": "Literary Chinese / Korean",
+      "transliteration": "Bak Hyeokgeose",
+      "meaning": "Hyeokgeose, 'one who brightens the world'; the surname Bak is explained by his gourd-like (bak) egg"
+    },
+    "alternateNames": ["Hyeokgeose Geoseogan", "Bulgunae (Brightness)"],
+    "gender": "male",
+    "traditionRole": "Founding King",
+    "domain": ["the founding of Silla", "brightness", "kingship"],
+    "symbols": ["the purple egg", "the white horse", "the Najeong well"],
+    "description": "The egg-born founder of Silla, found by the six village chiefs beside the Najeong well where a white horse knelt and then rose into heaven; crowned at thirteen with his queen Aryeong, born from a dragon at another well.",
+    "detailedBio": "## The egg at Najeong\n\nIn Iryeon's *Samguk Yusa*, the chiefs of six villages of the Gyeongju plain gather on the bank of the Al River and agree that they need a ruler. Looking south, they see a strange light like lightning at the Najeong well at the foot of Mount Yang, and a white horse kneeling there as if bowing. They find a purple egg; the horse, seeing them, neighs and rises into the sky. From the egg comes a boy of great beauty. When they bathe him in the Eastern Spring, his body gives off light, birds and beasts dance, heaven and earth shake, and the sun and moon shine clear. They name him Hyeokgeose, 'brightening the world', and give him the surname Bak because the egg was like a gourd (*bak*).\n\n## Aryeong\n\nOn the same day a chicken-dragon appears at the Aryeong well and a girl is born from its side, with lips like a chicken's beak until she is bathed in the northern stream. The two are raised together, and when Hyeokgeose is thirteen (traditionally 57 BCE), he becomes king with Aryeong as queen, and the state is called Seorabeol.\n\n## Death\n\nAfter sixty-one years of rule, the *Samguk Yusa* says, he ascended to heaven, and seven days later his body fell to the earth in five parts. When the people tried to bury them together, a great serpent prevented them, so they buried the five parts in five tombs, the Oreung ('Five Tombs'), also called the Serpent Tombs. The traditional dates are not historical; Silla emerged as a state in the following centuries.",
+    "originStory": "Born from a purple egg found beside the Najeong well where a white horse knelt and then rose to heaven (Samguk Yusa, Book 1; Samguk Sagi).",
+    "importanceRank": 2,
+    "crossPantheonParallels": [],
+    "primarySources": [
+      {
+        "text": "They looked south and saw at the Najeong well below Mount Yang a strange light like lightning reaching to the ground, and a white horse kneeling there as if bowing. They went and found a purple egg; the horse, seeing people, neighed long and rose up to heaven. They broke the egg and found a boy, fair of form.",
+        "source": "Iryeon, Samguk Yusa, Book 1, 'Silla's Founder King Hyeokgeose' (paraphrase)",
+        "sourceId": "samguk-yusa",
+        "locator": "Book 1, Hyeokgeose",
+        "date": "compiled c. 1281-1289"
+      },
+      {
+        "text": "The chief of Goheo village, Sobeolgong, looked toward the forest beside the Najeong at the foot of Mount Yang and saw a horse kneeling and neighing; when he went there the horse suddenly vanished and there was only a large egg.",
+        "source": "Kim Busik, Samguk Sagi, Annals of Silla, Hyeokgeose (paraphrase)",
+        "sourceId": "samguk-sagi",
+        "locator": "Annals of Silla 1",
+        "date": "completed 1145"
+      }
+    ],
+    "worship": {
+      "temples": [
+        "The Najeong site in Gyeongju, where excavations uncovered the foundations of an octagonal building interpreted as a shrine to the founder.",
+        "Sungdeokjeon, the shrine to Bak Hyeokgeose beside the Oreung (Five Tombs) in Gyeongju."
+      ],
+      "festivals": [],
+      "practices": "Silla kings sacrificed at the founder's shrine; the Bak clan continues ancestral rites at Sungdeokjeon."
+    },
+    "pronunciation": {
+      "ipa": "/pak̚ çʌk̚.k͈ʌ.se/",
+      "phonetic": "BAHK hyuhk-guh-SEH"
+    },
+    "imageUrl": "/deities/bak-hyeokgeose.png"
+  },
+  {
+    "id": "bari-gongju",
+    "pantheonId": "korean-pantheon",
+    "name": "Bari Gongju",
+    "slug": "bari-gongju",
+    "originalLanguageName": {
+      "text": "바리공주",
+      "language": "Korean",
+      "transliteration": "Bari Gongju",
+      "meaning": "\"The Abandoned Princess\" (from *beorida*, 'to throw away')"
+    },
+    "alternateNames": ["Princess Bari", "Baridegi", "Bari-degi"],
+    "gender": "female",
+    "traditionRole": "Guide of the Dead",
+    "domain": [
+      "the dead and their passage",
+      "healing",
+      "the patron of shamans"
+    ],
+    "symbols": ["the water of life", "the flowers of revival", "the jade box"],
+    "description": "The seventh daughter of a king, thrown away at birth, who alone agrees to journey to the Western Heaven for the water of life when her parents are dying; she returns in time to revive them and becomes the goddess who guides the dead to the other world.",
+    "detailedBio": "## A song for the dead\n\nThe story of Princess Bari is a *muga*, a shamanic narrative song, sung by Korean shamans in rites for the dead such as the Seoul *jinogwi-gut* and the east-coast *ogu-gut*, where the shaman guides the soul of the dead to the other world as Bari did. It exists in many dozens of recorded versions; one of the first to be written down was recorded from a Seoul shaman and published by Akiba Takashi and Akamatsu Chijō in 1937, and the folklorist Kim Tae-gon later recorded many more.\n\n## The story\n\nIn a common version, King Ogu marries Queen Gildae in an inauspicious year, as a fortune-teller had warned, and they have only daughters. When the seventh daughter is born, the king in anger has her cast away in a jade box into the water. She is rescued and raised by an old couple, or in some versions protected by the Buddha or by animals. Years later the king and queen fall mortally ill, and learn that only medicinal water from the Western Heaven can save them. The six elder daughters refuse. Bari, found and summoned, agrees to go, repaying the debt of her birth if not of her upbringing.\n\n## The journey and the return\n\nDressed as a man, she crosses mountains, rivers, and hells, sometimes helped by the Buddha. At the source of the water, its guardian demands years of labor: drawing water, cutting firewood, and tending fire, and in many versions he marries her and she bears him seven sons. At last she returns with the water and the flowers that restore bone, flesh, and breath, and meets her parents' funeral procession. She revives them. Offered wealth and half the kingdom, she asks instead to become the one who guides the dead, and she is honored as the ancestor of shamans.\n\n## Meaning\n\nThe story reverses the Confucian preference for sons: the rejected daughter alone fulfills filial duty. It is one of the best-known Korean myths and has been retold in modern novels, plays, and music.",
+    "originStory": "The seventh daughter of King Ogu and Queen Gildae, abandoned at birth (versions differ in names and details).",
+    "importanceRank": 2,
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "mesopotamian-pantheon",
+        "deityId": "inanna",
+        "note": "Both descend through the realm of the dead and return, with the power of life at stake; Bari goes willingly to fetch the water of life for her parents, while Inanna descends to claim the underworld and must be rescued. The comparison is typological."
+      }
+    ],
+    "primarySources": [
+      {
+        "text": "The six elder princesses would not go to the Western Heaven for the medicine water; the youngest, the princess who had been thrown away, said she would go, for though she owed nothing for her upbringing, she owed her parents for her birth.",
+        "source": "Bari Gongju muga, Seoul versions, as collected in Hanguk Muga Jip (paraphrase)",
+        "sourceId": "hanguk-muga-jip",
+        "date": "recorded 20th century"
+      },
+      {
+        "text": "She sprinkled the water of life and laid the flowers of bone, flesh, and breath upon them, and the king and queen came back to life.",
+        "source": "Bari Gongju muga (paraphrase of the revival scene common to many versions)",
+        "sourceId": "hanguk-muga-jip",
+        "date": "recorded 20th century"
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [],
+      "practices": "Her song is performed by shamans in rites for the dead (jinogwi-gut in Seoul, ogu-gut on the east coast), in which the shaman, in Bari's role, leads the soul of the deceased to the other world."
+    },
+    "pronunciation": {
+      "ipa": "/pa.ɾi koŋ.dʑu/",
+      "phonetic": "BAH-ree GONG-joo"
+    },
+    "imageUrl": "/deities/bari-gongju.png"
+  },
+  {
+    "id": "mireuk",
+    "pantheonId": "korean-pantheon",
+    "name": "Mireuk",
+    "slug": "mireuk",
+    "originalLanguageName": {
+      "text": "미륵",
+      "language": "Korean",
+      "transliteration": "Mireuk",
+      "meaning": "The Korean name of Maitreya, the future Buddha; in the shamanic creation song, a creator god"
+    },
+    "alternateNames": ["Mireuk-nim"],
+    "gender": "male",
+    "traditionRole": "Creator",
+    "domain": [
+      "creation",
+      "the separation of heaven and earth",
+      "the first age of the world"
+    ],
+    "symbols": [
+      "copper pillars at the four corners of the earth",
+      "golden and silver trays",
+      "the flower"
+    ],
+    "description": "The creator of the world in the Korean shamanic Song of Creation, who separates heaven and earth, props up the sky with copper pillars, makes stars from an extra sun and moon, and creates the first humans, before losing the world to the cheating Seokga.",
+    "detailedBio": "## The Song of Creation\n\nIn 1923 the folklorist Son Jin-tae recorded the *Changse-ga* ('Song of the Creation of the World') from the shaman Kim Ssang-dori of Hamheung in northern Korea, publishing it in 1930. It begins when heaven and earth came into being and Mireuk was born. Heaven and earth were stuck together, and Mireuk pushed the sky up like the lid of a pot and set copper pillars at the four corners of the earth to hold it. There were two suns and two moons; Mireuk took one moon to make the stars of the Big Dipper and the Southern Dipper, and one sun to make the great and small stars.\n\n## Fire, water, and people\n\nMireuk wove clothes from arrowroot vines. To learn where fire and water come from, he questioned a grasshopper and a frog, who did not know, and then a mouse, who told him to strike stone and steel on one mountain and find spring water on another, and was rewarded with the right to all the rice chests in the world. Then Mireuk held a golden tray in one hand and a silver tray in the other and prayed to heaven; five insects fell on each, and they grew into the first men and women.\n\n## The lost world\n\nWhen Seokga came to claim the world, Mireuk won their first contests, but in the last, a contest of growing a flower while asleep, Seokga cheated and stole the flower from Mireuk's lap. Mireuk surrendered the world with a curse on Seokga's age: it would be full of wickedness and misery. The name Mireuk, the future Buddha Maitreya, gives this lost golden age a hope of return, a theme found in Korean messianic movements.",
+    "originStory": "Born when heaven and earth came into being (Changse-ga, recorded 1923).",
+    "importanceRank": 2,
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "chinese-pantheon",
+        "deityId": "pangu",
+        "note": "Both are primordial beings who separate a joined heaven and earth at the beginning of the world; the Korean song adds pillars at the earth's corners, recalling Nüwa's repair of the sky."
+      },
+      {
+        "pantheonId": "chinese-pantheon",
+        "deityId": "nuwa",
+        "note": "Nüwa props up the sky with four pillars (the legs of a great turtle) after it collapses, as Mireuk sets copper pillars at the earth's four corners; Nüwa also creates humans, as Mireuk does from insects on golden and silver trays."
+      }
+    ],
+    "primarySources": [
+      {
+        "text": "When heaven and earth came into being, Mireuk was born. Heaven and earth were stuck together and would not part, so he raised the sky like the lid of a pot and set up copper pillars at the four corners of the earth.",
+        "source": "Changse-ga (Song of Creation), sung by Kim Ssang-dori, in Son Jin-tae, Joseon Singa Yupyeon (paraphrase)",
+        "sourceId": "joseon-singa-yupyeon",
+        "date": "recorded 1923; published 1930"
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [],
+      "practices": "Invoked as creator in the shamanic creation songs of the Hamgyeong region; folk veneration of stone Mireuk statues in Korean villages, often for children and protection, draws on the same name."
+    },
+    "pronunciation": {
+      "ipa": "/mi.ɾɯk̚/",
+      "phonetic": "MEE-rook"
+    },
+    "imageUrl": "/deities/mireuk.png"
+  },
+  {
+    "id": "seokga",
+    "pantheonId": "korean-pantheon",
+    "name": "Seokga",
+    "slug": "seokga",
+    "originalLanguageName": {
+      "text": "석가",
+      "language": "Korean",
+      "transliteration": "Seokga",
+      "meaning": "The Korean name of Shakyamuni, the historical Buddha; in the shamanic creation song, a rival creator"
+    },
+    "alternateNames": ["Seokga-nim"],
+    "gender": "male",
+    "traditionRole": "Usurper of the World",
+    "domain": ["the present age of the world", "trickery"],
+    "symbols": ["the stolen flower"],
+    "description": "The rival of Mireuk in the Korean shamanic Song of Creation, who wins rule of the world by stealing the flower that blossomed on Mireuk's knee while they slept, bringing about the imperfect present age.",
+    "detailedBio": "## The contest\n\nIn the *Changse-ga* recorded in 1923 from the shaman Kim Ssang-dori, Seokga appears after Mireuk has ordered the world and demands to rule it. Mireuk proposes contests. In the first, each lowers a bottle into the East Sea, Mireuk on a golden cord and Seokga on a silver one; Seokga's cord breaks. In the second, each tries to freeze a river in summer; again Mireuk succeeds. In the last, they agree to lie down and sleep, and the one on whose knee a flower blooms will rule. A flower blooms on Mireuk's knee; Seokga, only pretending to sleep, breaks it off and puts it on his own.\n\n## The curse\n\nWaking, Mireuk knows what has happened and yields the world, but curses Seokga's age: because it was won by theft, the world will be full of cheats, thieves, and misery, and its flowers will quickly wither. Seokga then begins his rule; in the song he goes hunting with his followers, some of whom refuse to eat the meat and turn into rocks and pine trees.\n\n## A shamanic, not Buddhist, story\n\nAlthough Seokga bears the Buddha's name, the song is not Buddhist doctrine; it uses the names of the present Buddha and the future Buddha for the rulers of the present, flawed age and the lost first age. A similar flower-growing contest between twin brothers, Daebyeol-wang and Sobyeol-wang, appears in the Jeju creation myth *Cheonjiwang bonpuri*, suggesting a shared Korean shamanic motif.",
+    "originStory": "No origin is told; he arrives after Mireuk has made the world (Changse-ga).",
+    "importanceRank": 4,
+    "crossPantheonParallels": [],
+    "primarySources": [
+      {
+        "text": "They lay down to sleep, agreeing that whoever grew a flower on his knee would rule the world. A flower bloomed on Mireuk's knee; Seokga, pretending to sleep, broke it off and set it on his own knee.",
+        "source": "Changse-ga (Song of Creation), sung by Kim Ssang-dori, in Son Jin-tae, Joseon Singa Yupyeon (paraphrase)",
+        "sourceId": "joseon-singa-yupyeon",
+        "date": "recorded 1923; published 1930"
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [],
+      "practices": "A figure of the shamanic creation song rather than of worship; the song explains why the present world is flawed."
+    },
+    "pronunciation": {
+      "ipa": "/sʌk̚.k͈a/",
+      "phonetic": "SUHK-kah"
+    },
+    "imageUrl": "/deities/seokga.png"
   }
 ]

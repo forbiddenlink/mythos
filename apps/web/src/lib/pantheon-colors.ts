@@ -27,6 +27,10 @@ export const PANTHEON_COLORS: Record<string, string> = {
   "inuit-pantheon": "#3d6f8e", // sea-ice blue (open water at the floe edge)
   "aboriginal-australian-pantheon": "#8f4a2c", // inland earth red (landscape tone, not a ceremonial pigment reference)
   "dine-pantheon": "#2c7a7b", // turquoise
+  "inca-pantheon": "#a3294f", // cochineal carmine (the red dye of Inca tapestry cloth, qompi)
+  "persian-pantheon": "#2c4a9a", // lapis lazuli (Achaemenid glazed brick, Sasanian and Persian manuscript blue)
+  "finnish-pantheon": "#5e5a8c", // twilight violet (the polar-night kaamos sky over lakes and birch)
+  "korean-pantheon": "#5f8f7e", // celadon (the jade-green glaze of Goryeo stoneware)
 };
 
 export function getPantheonColor(pantheonId: string): string {
@@ -159,6 +163,26 @@ const PANTHEON_ACCENTS: Record<string, PantheonAccent> = {
     primary: "#3fa3a0",
     secondary: "#b08a4a",
     label: "Diné",
+  },
+  "inca-pantheon": {
+    primary: "#b83a5c",
+    secondary: "#8a2340",
+    label: "Inca & Andean",
+  },
+  "persian-pantheon": {
+    primary: "#3b5bb0",
+    secondary: "#233c7a",
+    label: "Persian",
+  },
+  "finnish-pantheon": {
+    primary: "#6f6aa3",
+    secondary: "#4a467a",
+    label: "Finnish",
+  },
+  "korean-pantheon": {
+    primary: "#6fa391",
+    secondary: "#487565",
+    label: "Korean",
   },
 };
 
