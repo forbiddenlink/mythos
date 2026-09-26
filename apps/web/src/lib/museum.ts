@@ -60,3 +60,11 @@ export function getMuseumPortrait(
     null
   );
 }
+
+/** Documented objects and later interpretations of one story. */
+export function getMuseumObjectsForStory(
+  storyId: string,
+  source: MuseumObject[] = objectsData as MuseumObject[],
+): MuseumObject[] {
+  return source.filter((o) => o.storyIds?.includes(storyId));
+}

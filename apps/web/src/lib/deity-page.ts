@@ -7,6 +7,7 @@ import {
   type DeityLookup,
   type DeityLookupEntry,
 } from "@/lib/deity-reference";
+import { readableParallelNote } from "@/lib/parallel-notes";
 import { getPantheonColor } from "@/lib/pantheon-colors";
 
 export function formatSlugAsTitle(slug: string): string {
@@ -68,7 +69,7 @@ export function resolveParallels(
     const figure = relatedDeity ?? relatedHero;
     return {
       deityId: parallel.deityId,
-      note: parallel.note,
+      note: readableParallelNote(parallel.note),
       pantheonId: parallel.pantheonId,
       pantheonLabel: formatPantheonLabel(parallel.pantheonId),
       pantheonColor: getPantheonColor(parallel.pantheonId),
