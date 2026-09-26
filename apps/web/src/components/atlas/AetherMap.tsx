@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls, Line, Html, Stars } from "@react-three/drei";
@@ -11,6 +10,9 @@ import {
   prettyPantheonName,
   type AtlasNode,
 } from "@/lib/atlas-layout";
+import { MythosMark } from "@/components/icons/mythos-marks";
+import { StageLoading } from "@/components/layout/tool-stage";
+import { cn } from "@/lib/utils";
 
 /* ----------------------------- one deity star ---------------------------- */
 
@@ -171,67 +173,23 @@ function Scene({
   );
 }
 
-/* --------------------- accessible / no-WebGL fallback -------------------- */
-
-function AtlasFallback({
-  layout,
-  intro,
-  showTitle = true,
-}: {
-  layout: AtlasLayout;
-  intro?: string;
-  showTitle?: boolean;
-}) {
-  const { pantheons, nodes } = layout;
-  return (
-    <div className="mx-auto max-w-5xl px-4 py-16">
-      {showTitle && (
-        <h1 className="mb-4 font-serif text-3xl text-foreground md:text-4xl">
-          Every god, one sky
-        </h1>
-      )}
-      <p className="mb-8 text-muted-foreground">
-        {intro ??
-          "An interactive star map of every deity, grouped by pantheon. (A text list is shown here because motion is reduced or 3D is unavailable.)"}
-      </p>
-      <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-        {pantheons.map((p) => (
-          <section key={p.id}>
-            <h2 className="mb-2 font-serif text-lg text-foreground">
-              {p.name}
-            </h2>
-            <ul className="space-y-1">
-              {nodes
-                .filter((n) => n.pantheonId === p.id)
-                .sort((a, b) => a.importanceRank - b.importanceRank)
-                .map((n) => (
-                  <li key={n.id}>
-                    <Link
-                      href={`/deities/${n.slug}`}
-                      className="text-sm text-foreground/80 hover:text-gold transition-colors"
-                    >
-                      {n.name}
-                    </Link>
-                  </li>
-                ))}
-            </ul>
-          </section>
-        ))}
-      </div>
-    </div>
-  );
-}
-
 /* ------------------------------- wrapper --------------------------------- */
 
+type StageState = "pending" | "canvas" | "reduced" | "no-webgl";
+
+const STAGE_HEIGHT = "h-[min(76vh,46rem)] min-h-[28rem]";
+
+/**
+ * The 3D star map stage. The server and first paint show a loading frame; the
+ * canvas mounts only with WebGL and without a reduced-motion preference. The
+ * page lists every deity below the stage (AtlasTraditionGrid), so the canvas is
+ * an enhancement, never the only way in.
+ */
 export function AetherMap({ layout }: { layout: AtlasLayout }) {
   const router = useRouter();
-  const [ready, setReady] = useState(false);
-  const [useCanvas, setUseCanvas] = useState(false);
+  const [state, setState] = useState<StageState>("pending");
 
   useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect -- client-only gate: mount the WebGL scene after hydration
-    setReady(true);
     const reduced = window.matchMedia(
       "(prefers-reduced-motion: reduce)",
     ).matches;
@@ -246,21 +204,71 @@ export function AetherMap({ layout }: { layout: AtlasLayout }) {
     } catch {
       webgl = false;
     }
-    setUseCanvas(!reduced && webgl);
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- client-only gate: choose the stage after hydration
+    setState(!webgl ? "no-webgl" : reduced ? "reduced" : "canvas");
   }, []);
 
-  // Server + first paint: render the accessible fallback (also the
-  // reduced-motion / no-WebGL experience). Progressive enhancement.
-  if (!ready || !useCanvas) return <AtlasFallback layout={layout} />;
+  if (state === "pending") {
+    return (
+      <StageLoading
+        tone="dark"
+        mark="constellation"
+        label="Lighting the stars…"
+        className={cn(STAGE_HEIGHT, "rounded-lg")}
+      />
+    );
+  }
+
+  if (state !== "canvas") {
+    return (
+      <div className="dark relative isolate flex flex-col gap-4 overflow-hidden rounded-lg bg-midnight px-6 py-6 text-foreground sm:flex-row sm:items-center sm:justify-between md:px-8">
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 -z-10 bg-[radial-gradient(circle,color-mix(in_oklch,var(--parchment)_40%,transparent)_1px,transparent_1.5px)] bg-size-[26px_26px] opacity-20"
+        />
+        <div className="flex items-start gap-4">
+          <MythosMark
+            id="constellation"
+            className="mt-0.5 size-7 shrink-0 text-gold-light"
+          />
+          <div>
+            <p className="font-serif text-lg font-semibold text-parchment">
+              {state === "reduced"
+                ? "The star map is resting"
+                : "The star map needs 3D graphics"}
+            </p>
+            <p className="mt-1 max-w-2xl type-ui text-parchment/80">
+              {state === "reduced"
+                ? "Your device asks for reduced motion, so the orbiting 3D map is off. Every figure is listed below by tradition."
+                : "This browser cannot draw the 3D map. Every figure is listed below by tradition."}
+            </p>
+          </div>
+        </div>
+        {state === "reduced" ? (
+          <button
+            type="button"
+            onClick={() => setState("canvas")}
+            className="inline-flex min-h-11 shrink-0 items-center justify-center rounded-md border border-gold/50 px-4 type-ui font-medium text-gold-light transition-colors hover:bg-gold/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold"
+          >
+            Show the star map anyway
+          </button>
+        ) : null}
+      </div>
+    );
+  }
 
   return (
     <div
-      className="relative h-[calc(100vh-4rem)] w-full"
+      className={cn(
+        "relative w-full overflow-hidden rounded-lg bg-[#0a0a19] ring-1 ring-border",
+        STAGE_HEIGHT,
+      )}
       data-interactive
-      aria-label="Interactive Aether Map of deities"
+      role="img"
+      aria-label="Interactive 3D star map of deities, grouped by tradition. Every figure is also listed below the map."
     >
       <Canvas
-        camera={{ position: [0, 6, 46], fov: 55 }}
+        camera={{ position: [0, 30, 42], fov: 52 }}
         dpr={[1, 1.5]}
         gl={{ antialias: false, powerPreference: "low-power" }}
       >
@@ -270,37 +278,9 @@ export function AetherMap({ layout }: { layout: AtlasLayout }) {
         />
       </Canvas>
 
-      {/* HUD overlay */}
-      <div className="pointer-events-none absolute inset-x-0 top-0 flex flex-col items-center gap-1 px-4 pt-8 text-center">
-        <span className="text-xs uppercase tracking-[0.35em] text-gold/80">
-          The Aether Map
-        </span>
-        <h1 className="font-serif text-3xl text-parchment md:text-4xl">
-          Every god, one sky
-        </h1>
-        <p className="max-w-md text-sm text-parchment/70">
-          Stars are deities, sized by importance and coloured by pantheon;
-          threads are their relationships.
-        </p>
-        <span className="mt-1 text-[0.7rem] uppercase tracking-widest text-parchment/50">
-          drag to orbit · scroll to zoom · click a star
-        </span>
-      </div>
-
-      {/* Keyboard- and screen-reader-navigable equivalent of the star map.
-          The <canvas> above is not keyboard-operable, so every deity is reachable
-          here too (WCAG 2.1.1). Visually hidden until a keyboard user tabs into
-          it, then shown as a scrollable overlay panel. */}
-      <nav
-        aria-label="Aether Map deities, list view"
-        className="sr-only focus-within:not-sr-only focus-within:absolute focus-within:inset-0 focus-within:z-20 focus-within:overflow-y-auto focus-within:bg-background"
-      >
-        <AtlasFallback
-          layout={layout}
-          showTitle={false}
-          intro="Every deity, grouped by pantheon — a keyboard- and screen-reader-navigable list of the star map above."
-        />
-      </nav>
+      <p className="pointer-events-none absolute inset-x-0 bottom-0 bg-linear-to-t from-[#0a0a19] to-transparent px-4 pt-10 pb-4 text-center type-meta uppercase tracking-[0.2em] text-parchment/75">
+        Drag to orbit · scroll to zoom · click a star
+      </p>
     </div>
   );
 }

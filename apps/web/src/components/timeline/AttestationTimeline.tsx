@@ -8,7 +8,7 @@ import { formatYear, type AttestationPoint } from "@/lib/attestation";
 type Point = AttestationPoint;
 
 const VIEW_W = 1000;
-const PAD_L = 150;
+const PAD_L = 196;
 const PAD_R = 40;
 const PAD_TOP = 16;
 const ROW_H = 46;
@@ -17,6 +17,7 @@ const AXIS_H = 40;
 function pantheonLabel(id: string): string {
   return id
     .replace(/-pantheon$/, "")
+    .replace(/-/g, " ")
     .replace(/(^|\s)\S/g, (c) => c.toUpperCase());
 }
 
@@ -77,17 +78,17 @@ export function AttestationTimeline({
 
   return (
     <div className="w-full">
-      <div className="mb-4 flex flex-wrap items-baseline justify-between gap-2">
-        <h2 className="font-serif text-2xl text-gold-text">
-          Deities by Oldest Catalogued Date
+      <div className="mb-6 flex flex-wrap items-end justify-between gap-3">
+        <h2 className="page-section-title text-foreground">
+          Deities by oldest catalogued date
         </h2>
-        <p className="text-sm text-muted-foreground">
+        <p className="type-ui text-muted-foreground">
           {points.length} of {total} placed by the oldest dated work recorded in
           this catalog
         </p>
       </div>
 
-      <div className="relative overflow-x-auto rounded-2xl border border-gold/15 bg-muted/50 p-4">
+      <div className="relative overflow-x-auto rounded-lg border border-border bg-card p-4">
         <svg
           viewBox={`0 0 ${VIEW_W} ${height}`}
           className="h-auto w-full min-w-[720px]"
@@ -126,15 +127,15 @@ export function AttestationTimeline({
                   y1={laneY(i)}
                   x2={VIEW_W - PAD_R}
                   y2={laneY(i)}
-                  stroke="rgba(255,255,255,0.05)"
+                  stroke="var(--border)"
                 />
+                <circle cx={PAD_L - 10} cy={laneY(i)} r={3.5} fill={color} />
                 <text
-                  x={PAD_L - 12}
+                  x={PAD_L - 20}
                   y={laneY(i) + 4}
                   textAnchor="end"
-                  fill={color}
                   fontSize="13"
-                  className="font-serif"
+                  className="fill-foreground font-serif"
                 >
                   {pantheonLabel(pid)}
                 </text>
