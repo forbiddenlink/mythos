@@ -172,7 +172,7 @@ const GUIDES: StudyGuide[] = [
       {
         title: "Spin a Rosetta collection",
         body: "Open a themed collection and read the Rosetta Wheel for one archetype across cultures.",
-        href: "/collections",
+        href: "/paths#collections",
       },
       {
         title: "Compare myth types",
@@ -220,7 +220,7 @@ export function StudyGuidePage({ slug }: { slug: string }) {
       <div className="container mx-auto max-w-3xl px-4 py-24 text-center">
         <h1 className="page-title">Guide not found</h1>
         <Link
-          href="/study"
+          href="/paths#study-guides"
           className="mt-4 inline-block text-gold-text underline"
         >
           All study guides
@@ -334,15 +334,18 @@ export function StudyGuidePage({ slug }: { slug: string }) {
 
         <p className="mt-12 text-sm text-muted-foreground">
           More routes:{" "}
-          <Link href="/study" className="text-gold-text hover:underline">
+          <Link
+            href="/paths#study-guides"
+            className="text-gold-text hover:underline"
+          >
             all study guides
           </Link>
           {" · "}
           <Link
-            href="/learning-paths"
+            href="/paths#reading-paths"
             className="text-gold-text hover:underline"
           >
-            personalized learning paths
+            your reading paths
           </Link>
         </p>
       </div>

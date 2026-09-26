@@ -249,7 +249,7 @@ export default async function CollectionPage({ params }: PageProps) {
       {/* Content */}
       <div className="container mx-auto max-w-7xl px-4 py-12">
         <Button asChild variant="ghost" size="sm" className="mb-8">
-          <Link href="/collections">
+          <Link href="/paths#collections">
             <ArrowLeft className="h-4 w-4 mr-2" />
             All Collections
           </Link>

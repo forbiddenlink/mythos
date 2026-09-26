@@ -26,4 +26,10 @@ export const CONSOLIDATION_REDIRECTS: readonly RouteRedirect[] = [
   permanent("/tours/norse-realms", "/journeys/nine-realms"),
   permanent("/tours/egyptian-afterlife", "/journeys/duat-night-journey"),
   permanent("/tours/:path*", "/journeys"),
+
+  // Learning paths, collections and study guides share one hub, /paths.
+  // Detail pages (/collections/[slug], /study/[slug]) keep their URLs.
+  permanent("/learning-paths", "/paths#reading-paths"),
+  permanent("/collections", "/paths#collections"),
+  permanent("/study", "/paths#study-guides"),
 ];

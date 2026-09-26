@@ -12,13 +12,28 @@ interface BreadcrumbItem {
   href: string;
 }
 
+/**
+ * Hubs retired by the consolidation. Their detail pages keep their URLs, so
+ * the parent crumb points at the page that now lists them.
+ */
+const PARENT_CRUMBS: Record<string, BreadcrumbItem> = {
+  "/collections": { label: "Paths", href: "/paths" },
+  "/study": { label: "Paths", href: "/paths" },
+  "/story-timeline": { label: "Timeline", href: "/timeline" },
+};
+
 function generateBreadcrumbs(pathname: string): BreadcrumbItem[] {
   const paths = pathname.split("/").filter(Boolean);
   const breadcrumbs: BreadcrumbItem[] = [{ label: "Home", href: "/" }];
 
   let currentPath = "";
-  paths.forEach((path) => {
+  paths.forEach((path, index) => {
     currentPath += `/${path}`;
+    const parent = PARENT_CRUMBS[currentPath];
+    if (parent && index < paths.length - 1) {
+      breadcrumbs.push(parent);
+      return;
+    }
 
     // Format label: capitalize and replace hyphens with spaces
     const label = path
