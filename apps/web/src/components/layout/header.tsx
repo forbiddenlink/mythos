@@ -9,6 +9,7 @@ import { useEffect, useMemo, useState } from "react";
 
 import { LanguageSwitcher } from "@/components/i18n/LanguageSwitcher";
 import { MegaMenu } from "@/components/layout/mega-menu";
+import { MOBILE_MORE_NAV, PRIMARY_NAV } from "@/components/layout/nav-config";
 import { MobileNav } from "@/components/layout/mobile-nav";
 import { QuickActions } from "@/components/layout/quick-actions";
 
@@ -18,58 +19,16 @@ export function Header() {
   const [mounted, setMounted] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
-  // Navigation structure for mobile
+  // Mobile menu: the same primary IA plus a "More" section.
   const mobileNavSections = useMemo(
-    () => [
-      {
-        title: t("navigation.startHere"),
-        links: [
-          { href: "/pantheons", label: t("navigation.pantheons") },
-          { href: "/deities", label: t("navigation.deities") },
-          { href: "/heroes", label: t("navigation.heroes") },
-          { href: "/stories", label: t("navigation.stories") },
-          { href: "/creatures", label: t("navigation.creatures") },
-          { href: "/artifacts", label: t("navigation.artifacts") },
-          { href: "/locations", label: t("navigation.locations") },
-          { href: "/quiz", label: t("navigation.quiz") },
-        ],
-      },
-      {
-        title: t("navigation.discover"),
-        links: [
-          { href: "/collections", label: t("navigation.collections") },
-          { href: "/journeys", label: t("navigation.heroJourneys") },
-          { href: "/family-tree", label: t("navigation.familyTree") },
-          { href: "/compare", label: t("navigation.compareDeities") },
-          { href: "/atlas", label: t("navigation.atlas") },
-          { href: "/cosmology", label: t("navigation.cosmology") },
-          { href: "/knowledge-graph", label: t("navigation.knowledgeGraph") },
-          ...(process.env.NEXT_PUBLIC_ORACLE_ENABLED === "true"
-            ? [{ href: "/oracle", label: t("navigation.oracle") }]
-            : []),
-        ],
-      },
-      {
-        title: t("navigation.learn"),
-        links: [
-          { href: "/learning-paths", label: t("navigation.learningPaths") },
-          { href: "/review", label: t("navigation.dailyReview") },
-          { href: "/progress", label: t("navigation.yourStats") },
-          { href: "/achievements", label: t("navigation.achievements") },
-        ],
-      },
-      {
-        title: t("navigation.more"),
-        links: [
-          { href: "/bookmarks", label: t("navigation.bookmarks") },
-          { href: "/sources", label: t("navigation.sources") },
-          { href: "/changelog", label: t("navigation.changelog") },
-          { href: "/about", label: t("pages.about.title") },
-          { href: "/contact", label: t("navigation.contactMythosAtlas") },
-          { href: "/privacy", label: t("navigation.privacyPolicy") },
-        ],
-      },
-    ],
+    () =>
+      [...PRIMARY_NAV, MOBILE_MORE_NAV].map((group) => ({
+        title: t(`navigation.${group.titleKey}`),
+        links: group.items.map((item) => ({
+          href: item.href,
+          label: t(`navigation.${item.labelKey}`),
+        })),
+      })),
     [t],
   );
 

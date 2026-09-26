@@ -4,6 +4,11 @@ import { cn } from "@/lib/utils";
 import { AnimatePresence, motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import { MythosMark, type MythosMarkId } from "@/components/icons/mythos-marks";
+import {
+  PRIMARY_DIRECT_LINK,
+  PRIMARY_NAV,
+} from "@/components/layout/nav-config";
+import { useTranslations } from "next-intl";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 
@@ -18,155 +23,6 @@ interface MenuSection {
   label: string;
   items: MenuItem[];
 }
-
-const exploreMenu: MenuSection = {
-  label: "Browse",
-  items: [
-    {
-      label: "Pantheons",
-      href: "/pantheons",
-      description: "Start with the major myth traditions",
-      mark: "temple",
-    },
-    {
-      label: "Deities",
-      href: "/deities",
-      description: "Gods and goddesses from all pantheons",
-      mark: "laurel",
-    },
-    {
-      label: "Heroes",
-      href: "/heroes",
-      description: "Mortal champions from the world's great epics",
-      mark: "blade",
-    },
-    {
-      label: "Stories",
-      href: "/stories",
-      description: "Myths, legends, and epic tales",
-      mark: "scroll",
-    },
-    {
-      label: "Creatures",
-      href: "/creatures",
-      description: "Legendary beasts and monsters",
-      mark: "serpent",
-    },
-    {
-      label: "Artifacts",
-      href: "/artifacts",
-      description: "Mythical weapons and divine relics",
-      mark: "relic",
-    },
-    {
-      label: "Locations",
-      href: "/locations",
-      description: "Sacred places and mythical realms",
-      mark: "peak",
-    },
-  ],
-};
-
-const discoverMenu: MenuSection = {
-  label: "Discover",
-  items: [
-    {
-      label: "Collections",
-      href: "/collections",
-      description: "Follow a theme across traditions",
-      mark: "codex",
-    },
-    {
-      label: "Hero Journeys",
-      href: "/journeys",
-      description: "Follow a story from place to place",
-      mark: "compass",
-    },
-    {
-      label: "Family Tree",
-      href: "/family-tree",
-      description: "Trace parents, siblings, and descendants",
-      mark: "tree",
-    },
-    {
-      label: "Compare Deities",
-      href: "/compare",
-      description: "Compare the roles and attributes of two deities",
-      mark: "scales",
-    },
-    {
-      label: "Aether Map",
-      href: "/atlas",
-      description: "Browse deities by tradition and domain",
-      mark: "constellation",
-    },
-    {
-      label: "Cosmologies",
-      href: "/cosmology",
-      description: "Explore heavens, worlds, and underworlds",
-      mark: "tree",
-    },
-    // The Oracle is linked only when it is switched on for this deployment.
-    ...(process.env.NEXT_PUBLIC_ORACLE_ENABLED === "true"
-      ? [
-          {
-            label: "The Oracle",
-            href: "/oracle",
-            description: "Ask questions with catalog references",
-            mark: "owl" as const,
-          },
-        ]
-      : []),
-  ],
-};
-
-const learnMenu: MenuSection = {
-  label: "Learn",
-  items: [
-    {
-      label: "Study Guides",
-      href: "/study",
-      description: "Read source passages with guided questions",
-      mark: "torch",
-    },
-    {
-      label: "Quiz",
-      href: "/quiz",
-      description: "Test your mythology knowledge",
-      mark: "lyre",
-    },
-    {
-      label: "Daily Review",
-      href: "/review",
-      description: "Revisit what you have read with flashcards",
-      mark: "chronos",
-    },
-    {
-      label: "Learning Paths",
-      href: "/learning-paths",
-      description: "Work through a sequence of readings",
-      mark: "scroll",
-    },
-    {
-      label: "Guided Tours",
-      href: "/tours",
-      description: "Explore a subject through selected stops",
-      mark: "compass",
-    },
-    {
-      label: "Achievements",
-      href: "/achievements",
-      description: "Badges and milestones",
-      mark: "laurel",
-    },
-    {
-      label: "Your Stats",
-      href: "/progress",
-      description: "Track streaks, XP, and milestones",
-      mark: "favor",
-    },
-  ],
-};
 
 interface MegaMenuDropdownProps {
   section: MenuSection;
@@ -295,66 +151,43 @@ function MegaMenuDropdown({
 }
 
 export function MegaMenu() {
+  const t = useTranslations();
   const [openMenu, setOpenMenu] = useState<string | null>(null);
 
-  const handleOpen = (label: string) => {
-    setOpenMenu(label);
-  };
-
-  const handleClose = () => {
-    setOpenMenu(null);
-  };
+  const sections: MenuSection[] = PRIMARY_NAV.map((group) => ({
+    label: t(`navigation.${group.titleKey}`),
+    items: group.items.map((item) => ({
+      label: t(`navigation.${item.labelKey}`),
+      href: item.href,
+      description: item.descriptionKey
+        ? t(`navDescriptions.${item.descriptionKey}`)
+        : undefined,
+      mark: item.mark,
+    })),
+  }));
 
   return (
-    <nav className="hidden lg:flex items-center gap-1 xl:gap-2">
-      {/* Browse dropdown */}
-      <MegaMenuDropdown
-        section={exploreMenu}
-        isOpen={openMenu === "Browse"}
-        onOpen={() => handleOpen("Browse")}
-        onClose={handleClose}
-      />
+    <nav
+      aria-label="Primary"
+      className="hidden lg:flex items-center gap-1 xl:gap-2"
+    >
+      {sections.map((section) => (
+        <MegaMenuDropdown
+          key={section.label}
+          section={section}
+          isOpen={openMenu === section.label}
+          onOpen={() => setOpenMenu(section.label)}
+          onClose={() => setOpenMenu(null)}
+        />
+      ))}
 
-      {/* Discover dropdown */}
-      <MegaMenuDropdown
-        section={discoverMenu}
-        isOpen={openMenu === "Discover"}
-        onOpen={() => handleOpen("Discover")}
-        onClose={handleClose}
-      />
-
-      {/* Learn dropdown */}
-      <MegaMenuDropdown
-        section={learnMenu}
-        isOpen={openMenu === "Learn"}
-        onOpen={() => handleOpen("Learn")}
-        onClose={handleClose}
-      />
-
-      {/* Quiz - direct link */}
       <Link
-        href="/quiz"
+        href={PRIMARY_DIRECT_LINK.href}
         className="relative inline-flex min-h-12 items-center px-4 py-2.5 text-sm font-medium text-foreground hover:text-gold transition-colors duration-200 group"
       >
-        <span className="relative z-10">Quiz</span>
-        <span className="absolute inset-x-1 -bottom-px h-px bg-linear-to-r from-transparent via-gold/60 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
-      </Link>
-
-      {/* Progress - direct link */}
-      <Link
-        href="/progress"
-        className="relative inline-flex min-h-12 items-center px-4 py-2.5 text-sm font-medium text-foreground hover:text-gold transition-colors duration-200 group"
-      >
-        <span className="relative z-10">Progress</span>
-        <span className="absolute inset-x-1 -bottom-px h-px bg-linear-to-r from-transparent via-gold/60 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
-      </Link>
-
-      {/* About - direct link */}
-      <Link
-        href="/about"
-        className="relative inline-flex min-h-12 items-center px-4 py-2.5 text-sm font-medium text-foreground hover:text-gold transition-colors duration-200 group"
-      >
-        <span className="relative z-10">About</span>
+        <span className="relative z-10">
+          {t(`navigation.${PRIMARY_DIRECT_LINK.labelKey}`)}
+        </span>
         <span className="absolute inset-x-1 -bottom-px h-px bg-linear-to-r from-transparent via-gold/60 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
       </Link>
     </nav>
