@@ -4,6 +4,7 @@ import { CookieSettingsButton } from "@/components/privacy/CookieSettingsButton"
 import Link from "next/link";
 import { Github } from "@/components/icons/brand";
 import { CorrectionLink } from "@/components/layout/CorrectionLink";
+import { NewsletterSignup } from "@/components/newsletter/NewsletterSignup";
 
 // Secondary destinations live here; the header carries the primary IA
 // (components/layout/nav-config.ts).
@@ -92,6 +93,7 @@ export function Footer() {
               </a>
               <CorrectionLink />
             </div>
+            <NewsletterSignup placement="footer" className="mt-8" />
           </div>
 
           {/* Explore links */}

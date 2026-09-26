@@ -24,6 +24,7 @@ describe("analytics event taxonomy", () => {
 
   it("validates event names at runtime", () => {
     expect(isAnalyticsEventName("support_click")).toBe(true);
+    expect(isAnalyticsEventName("newsletter_signup")).toBe(true);
     expect(isAnalyticsEventName("definitely_not_an_event")).toBe(false);
   });
 

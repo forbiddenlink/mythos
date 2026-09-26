@@ -47,22 +47,23 @@ Two reasons:
 
 ## Event taxonomy
 
-| Event                             | Fires when                                      | Answers                                          |
-| --------------------------------- | ----------------------------------------------- | ------------------------------------------------ |
-| `entry_viewed`                    | A deity or story detail page mounts             | Which pantheons earn attention                   |
-| `search_performed`                | Debounced search resolves                       | Which searches return nothing — the content gaps |
-| `share_clicked`                   | Any share surface is used                       | Whether the viral loop exists                    |
-| `quiz_started` / `quiz_completed` | Quiz lifecycle                                  | Quiz drop-off                                    |
-| `oracle_asked`                    | An Oracle reply streams, tagged grounded or not | Whether the Oracle cites sources                 |
-| `story_read_progress`             | Reader passes a depth marker                    | Whether stories are read or bounced              |
-| `study_session_completed`         | A spaced-repetition session ends                | Whether the study loop retains                   |
-| `bookmark_added`                  | A bookmark is saved                             | Intent to return                                 |
-| `export_generated`                | PDF or Anki export succeeds                     | Which artifacts people keep                      |
-| `achievement_unlocked`            | An achievement fires                            | Whether gamification lands                       |
-| `pmf_survey_answered`             | The retention survey is answered                | Product-market fit                               |
-| `web_vital`                       | Each Core Web Vital reports                     | Field performance per route                      |
-| `support_page_viewed`             | The support page or a nudge renders             | Top of the conversion funnel                     |
-| `support_click`                   | Any route to Stripe checkout                    | The only conversion the site has                 |
+| Event                             | Fires when                                        | Answers                                          |
+| --------------------------------- | ------------------------------------------------- | ------------------------------------------------ |
+| `entry_viewed`                    | A deity or story detail page mounts               | Which pantheons earn attention                   |
+| `search_performed`                | Debounced search resolves                         | Which searches return nothing — the content gaps |
+| `share_clicked`                   | Any share surface is used                         | Whether the viral loop exists                    |
+| `quiz_started` / `quiz_completed` | Quiz lifecycle                                    | Quiz drop-off                                    |
+| `oracle_asked`                    | An Oracle reply streams, tagged grounded or not   | Whether the Oracle cites sources                 |
+| `story_read_progress`             | Reader passes a depth marker                      | Whether stories are read or bounced              |
+| `study_session_completed`         | A spaced-repetition session ends                  | Whether the study loop retains                   |
+| `bookmark_added`                  | A bookmark is saved                               | Intent to return                                 |
+| `export_generated`                | PDF or Anki export succeeds                       | Which artifacts people keep                      |
+| `achievement_unlocked`            | An achievement fires                              | Whether gamification lands                       |
+| `pmf_survey_answered`             | The retention survey is answered                  | Product-market fit                               |
+| `web_vital`                       | Each Core Web Vital reports                       | Field performance per route                      |
+| `support_page_viewed`             | The support page or a nudge renders               | Top of the conversion funnel                     |
+| `support_click`                   | Any route to Stripe checkout                      | The only conversion the site has                 |
+| `newsletter_signup`               | The digest sign-up is accepted by /api/newsletter | Whether readers want a weekly return path        |
 
 ## The support ask
 

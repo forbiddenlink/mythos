@@ -179,7 +179,33 @@ export default function PrivacyPolicyPage() {
             <li>
               Stripe - Optional support payments through a hosted checkout
             </li>
+            <li>Resend - The optional weekly myth email digest</li>
           </ul>
+        </section>
+
+        <section id="newsletter" className="mb-8 scroll-mt-24">
+          <h2 className="font-display text-2xl font-semibold text-foreground">
+            Weekly Myth Digest
+          </h2>
+          <p className="mt-4 text-muted-foreground">
+            If you sign up for the weekly digest and tick the consent box, the
+            email address you enter is sent to Resend, our email provider, and
+            stored there as a contact on the digest list. We use it only to send
+            the digest. Every email includes an unsubscribe link, and you can
+            ask for your address to be deleted through the{" "}
+            <Link href="/contact" className="text-gold-text underline">
+              contact page
+            </Link>
+            . See{" "}
+            <a
+              href="https://resend.com/legal/privacy-policy"
+              className="text-gold-text underline"
+            >
+              Resend’s privacy policy
+            </a>{" "}
+            for details about its processing. Sign-up requests are rate limited
+            by network address, which is used only for that check.
+          </p>
         </section>
 
         <section className="mb-8">

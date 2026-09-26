@@ -1,5 +1,6 @@
 /**
- * Shared Upstash / development in-memory rate limiters for Oracle, quiz, and search.
+ * Shared Upstash / development in-memory rate limiters for Oracle, quiz,
+ * search, and newsletter sign-ups.
  * Production fails closed when Upstash is not configured.
  */
 
@@ -18,13 +19,18 @@ const SEARCH_RATE_LIMIT = 60;
 // sharing one "anonymous" key that a single abuser could exhaust for everyone.
 const ORACLE_ANONYMOUS_RATE_LIMIT = 3;
 
-type Bucket = "oracle" | "oracle-anon" | "quiz" | "search";
+// Newsletter sign-ups: a person subscribes once; a handful per hour per IP
+// covers typos and shared networks while keeping list-bombing expensive.
+const NEWSLETTER_RATE_LIMIT = 5;
+
+type Bucket = "oracle" | "oracle-anon" | "quiz" | "search" | "newsletter";
 
 const BUCKET_LIMITS: Record<Bucket, number> = {
   oracle: RATE_LIMIT,
   "oracle-anon": ORACLE_ANONYMOUS_RATE_LIMIT,
   quiz: RATE_LIMIT,
   search: SEARCH_RATE_LIMIT,
+  newsletter: NEWSLETTER_RATE_LIMIT,
 };
 
 const memoryStores: Record<
@@ -35,6 +41,7 @@ const memoryStores: Record<
   "oracle-anon": new Map(),
   quiz: new Map(),
   search: new Map(),
+  newsletter: new Map(),
 };
 
 const edgeLimiters: Record<Bucket, Ratelimit | null | undefined> = {
@@ -42,6 +49,7 @@ const edgeLimiters: Record<Bucket, Ratelimit | null | undefined> = {
   "oracle-anon": undefined,
   quiz: undefined,
   search: undefined,
+  newsletter: undefined,
 };
 
 function isProductionRuntime(): boolean {
@@ -150,4 +158,11 @@ export async function checkSearchRateLimit(
   identifier: string,
 ): Promise<OracleRateLimitResult> {
   return checkBucketRateLimit("search", identifier);
+}
+
+/** Newsletter sign-up rate limit (5/hr per client key). */
+export async function checkNewsletterRateLimit(
+  identifier: string,
+): Promise<OracleRateLimitResult> {
+  return checkBucketRateLimit("newsletter", identifier);
 }
