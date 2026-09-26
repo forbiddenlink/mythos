@@ -166,6 +166,22 @@ test.describe("hub pages", () => {
     });
   }
 
+  test("entry share cards render as PNGs", async ({ request }) => {
+    for (const path of [
+      "/deities/zeus",
+      "/stories/ragnarok",
+      "/pantheons/greek",
+      "/heroes/achilles",
+      "/creatures/nemean-lion",
+      "/compare/zeus-vs-odin",
+      "/gods-of/war",
+    ]) {
+      const response = await request.get(`${path}/opengraph-image`);
+      expect(response.status(), path).toBe(200);
+      expect(response.headers()["content-type"], path).toContain("image/png");
+    }
+  });
+
   test("guide OG images are PNGs", async ({ request }) => {
     const response = await request.get("/guides/odyssey/opengraph-image");
     expect(response.status()).toBe(200);

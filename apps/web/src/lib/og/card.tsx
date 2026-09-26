@@ -1,4 +1,5 @@
 import { ImageResponse } from "next/og";
+import { PANTHEON_COLORS } from "@/lib/pantheon-colors";
 
 /**
  * Shared Open Graph card for entry, comparison, domain and guide pages.
@@ -38,10 +39,14 @@ const PANTHEON_PALETTE: Record<string, OgPalette> = {
   slavic: { bg: "#1c1a2e", accent: "#9fa8da" },
 };
 
-/** Palette for a pantheon id ("greek-pantheon" or "greek"); gold on midnight otherwise. */
+/**
+ * Palette for a pantheon id ("greek-pantheon" or "greek"). Traditions without a
+ * tuned pair keep the midnight ground with their shared accent colour.
+ */
 export function ogPalette(pantheonId?: string | null): OgPalette {
   const key = (pantheonId ?? "").replace(/-pantheon$/, "");
-  return PANTHEON_PALETTE[key] ?? { bg: "#1a1a2e", accent: GOLD };
+  const accent = pantheonId ? PANTHEON_COLORS[pantheonId] : undefined;
+  return PANTHEON_PALETTE[key] ?? { bg: "#1a1a2e", accent: accent ?? GOLD };
 }
 
 interface OgCardInput {

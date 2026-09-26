@@ -1,7 +1,8 @@
 import { getGodsOfDomain, godsOfTitle } from "@/lib/gods-of";
 import { renderOgCard } from "@/lib/og/card";
 
-export const runtime = "edge";
+// Node runtime: the catalogs these cards read are too large for an edge bundle.
+export const runtime = "nodejs";
 export const alt = "Gods of a divine domain across world mythology";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
