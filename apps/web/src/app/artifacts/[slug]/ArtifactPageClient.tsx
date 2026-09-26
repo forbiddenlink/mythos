@@ -1,6 +1,9 @@
 "use client";
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { ShareButton } from "@/components/sharing/ShareButton";
+import { IllustrativeImageCaption } from "@/components/content/IllustrativeImageCaption";
+import type { ImageNote } from "@/lib/image-provenance";
 import { Badge } from "@/components/ui/badge";
 import { Zap, Gem } from "lucide-react";
 import Link from "next/link";
@@ -51,12 +54,15 @@ interface ArtifactPageClientProps {
   slug: string;
   owner?: ArtifactOwner | null;
   relatedStories?: ArtifactRelatedStory[];
+  /** Image provenance for the caption, resolved on the server. */
+  imageNote?: ImageNote;
 }
 
 export function ArtifactPageClient({
   slug,
   owner = null,
   relatedStories = [],
+  imageNote,
 }: ArtifactPageClientProps) {
   const artifact =
     (artifactsData as Artifact[]).find(
@@ -138,6 +144,13 @@ export function ArtifactPageClient({
                 </a>
               ) : null}
             </nav>
+            <ShareButton
+              surface="artifact_page"
+              title={`${artifact.name} - Mythos Atlas`}
+              text={`Discover ${artifact.name}, a mythical ${artifact.type.toLowerCase()}, on Mythos Atlas`}
+              url={`https://mythosatlas.com/artifacts/${artifact.slug}`}
+              className="w-fit"
+            />
           </div>
         </div>
       </div>
@@ -147,26 +160,31 @@ export function ArtifactPageClient({
         <div className="space-y-8">
           <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
             <div className="order-last min-w-0 md:order-first md:col-span-1 space-y-6">
-              <div className="relative w-full aspect-square overflow-hidden shadow-2xl border border-bronze/25 bg-midnight/50">
-                {artifact.imageUrl ? (
-                  <Image
-                    src={artifact.imageUrl}
-                    alt={artifact.name}
-                    fill
-                    sizes="(min-width: 768px) 20rem, 100vw"
-                    className="object-cover p-4 hover:scale-105 transition-transform duration-500"
-                    priority
-                  />
-                ) : (
-                  <div className="w-full h-full flex items-center justify-center">
-                    <Gem className="h-16 w-16 text-gold-text/20" />
-                  </div>
-                )}
-              </div>
+              <figure className="space-y-2">
+                <div className="relative w-full aspect-square overflow-hidden shadow-2xl border border-bronze/25 bg-midnight/50">
+                  {artifact.imageUrl ? (
+                    <Image
+                      src={artifact.imageUrl}
+                      alt={artifact.name}
+                      fill
+                      sizes="(min-width: 768px) 20rem, 100vw"
+                      className="object-cover p-4 hover:scale-105 transition-transform duration-500"
+                      priority
+                    />
+                  ) : (
+                    <div className="w-full h-full flex items-center justify-center">
+                      <Gem className="h-16 w-16 text-gold-text/20" />
+                    </div>
+                  )}
+                </div>
 
-              <p className="text-xs text-muted-foreground">
-                Editorial illustration of {artifact.name}
-              </p>
+                {artifact.imageUrl ? (
+                  <IllustrativeImageCaption
+                    note={imageNote}
+                    subject={`Illustration of ${artifact.name}`}
+                  />
+                ) : null}
+              </figure>
 
               <ArtifactProvenance
                 pantheonId={artifact.pantheonId}

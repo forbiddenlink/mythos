@@ -11,6 +11,7 @@ import Image from "next/image";
 import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
 import { CollectionPageJsonLd } from "@/components/seo/JsonLd";
 import { EditorialByline } from "@/components/content/EditorialByline";
+import { ShareButton } from "@/components/sharing/ShareButton";
 import ReactMarkdown from "react-markdown";
 import pantheonsData from "@/data/pantheons.json";
 import deitiesData from "@/data/deities.json";
@@ -163,6 +164,14 @@ export function PantheonPageClient({ slug }: PantheonPageClientProps) {
             )}
           </nav>
           <EditorialByline className="mt-4 max-w-2xl" tone="light" />
+          <div className="mt-5 flex flex-wrap items-center gap-4">
+            <ShareButton
+              surface="pantheon_page"
+              title={`${pantheon.name} - Mythos Atlas`}
+              text={`Explore the ${pantheon.name} of ${pantheon.culture} mythology on Mythos Atlas`}
+              url={`https://mythosatlas.com/pantheons/${pantheon.slug}`}
+            />
+          </div>
         </RouteHero>
       </div>
 

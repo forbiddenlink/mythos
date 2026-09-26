@@ -1,6 +1,9 @@
 "use client";
 
 import { BreadcrumbJsonLd, PlaceJsonLd } from "@/components/seo/JsonLd";
+import { ShareButton } from "@/components/sharing/ShareButton";
+import { IllustrativeImageCaption } from "@/components/content/IllustrativeImageCaption";
+import type { ImageNote } from "@/lib/image-provenance";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { SourceProvenance } from "@/components/deities/SourceProvenance";
@@ -59,6 +62,8 @@ interface Location {
 
 interface LocationPageClientProps {
   slug: string;
+  /** Image provenance for the caption, resolved on the server. */
+  imageNote?: ImageNote;
 }
 
 // ─── Helpers ────────────────────────────────────────────────────────────
@@ -94,7 +99,10 @@ function getTypeIcon(type: string) {
 }
 
 // ─── Component ──────────────────────────────────────────────────────────
-export function LocationPageClient({ slug }: LocationPageClientProps) {
+export function LocationPageClient({
+  slug,
+  imageNote,
+}: LocationPageClientProps) {
   const location = (locations as Location[]).find((l) => l.id === slug);
   const pantheon = pantheons.find((p) => p.id === location?.pantheonId);
 
@@ -221,6 +229,13 @@ export function LocationPageClient({ slug }: LocationPageClientProps) {
                 </a>
               ) : null}
             </nav>
+            <ShareButton
+              surface="location_page"
+              title={`${location.name} - Mythos Atlas`}
+              text={`Explore ${location.name}, a sacred place in ${pantheonName} mythology, on Mythos Atlas`}
+              url={`https://mythosatlas.com/locations/${location.id}`}
+              className="w-fit"
+            />
 
             {hasCoordinates && (
               <div className="flex items-center gap-2 text-parchment/80 text-sm">
@@ -254,9 +269,11 @@ export function LocationPageClient({ slug }: LocationPageClientProps) {
                 />
                 <div className="absolute inset-0 ring-1 ring-inset ring-white/10 rounded-xl" />
               </div>
-              <figcaption className="px-3 py-2 text-xs text-muted-foreground">
-                Editorial illustration of {location.name}
-              </figcaption>
+              <IllustrativeImageCaption
+                note={imageNote}
+                subject={`Illustration of ${location.name}`}
+                className="px-3 py-2"
+              />
             </figure>
           )}
 

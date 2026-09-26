@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { getIllustrativeImageNote } from "@/lib/image-provenance";
 import { notFound, redirect } from "next/navigation";
 import { TrackPageView } from "@/components/analytics/TrackPageView";
 import stories from "@/data/stories.json";
@@ -161,6 +162,7 @@ export default async function StoryPage({ params }: PageProps) {
         featuredLocationsData={featuredLocationsData}
         relatedStoriesData={relatedStoriesData}
         museumObjects={<MuseumObjects storyId={story.id} />}
+        imageNote={getIllustrativeImageNote("story", story.id)}
         versions={getMythVersions(slug)}
       />
     </>

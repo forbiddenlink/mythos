@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { getIllustrativeImageNote } from "@/lib/image-provenance";
 import { notFound, redirect } from "next/navigation";
 import locations from "@/data/locations.json";
 import pantheons from "@/data/pantheons.json";
@@ -94,5 +95,10 @@ export default async function LocationPage({ params }: PageProps) {
     notFound();
   }
 
-  return <LocationPageClient slug={slug} />;
+  return (
+    <LocationPageClient
+      slug={slug}
+      imageNote={getIllustrativeImageNote("location", location.id)}
+    />
+  );
 }

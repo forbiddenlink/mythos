@@ -15,6 +15,9 @@ import deitiesData from "@/data/deities.json";
 import storiesData from "@/data/stories.json";
 import locationsData from "@/data/locations.json";
 import { getTraditionCount } from "@/lib/data/catalog";
+import { countImagesByKind } from "@/lib/image-provenance";
+
+const IMAGE_COUNTS = countImagesByKind();
 
 // Derived from the data files so the About copy can never drift from the atlas
 // again (it previously undercounted locations by 38 and overstated deities).
@@ -184,6 +187,47 @@ export default function AboutPage() {
               </CardContent>
             </Card>
           </div>
+
+          <section
+            id="images"
+            aria-labelledby="about-images-title"
+            className="scroll-mt-24 border-y border-gold/20 py-8"
+          >
+            <h2
+              id="about-images-title"
+              className="font-serif text-2xl text-foreground"
+            >
+              About the images
+            </h2>
+            <div className="mt-4 max-w-2xl space-y-4 font-body text-lg leading-relaxed text-foreground/85">
+              <p>
+                The pictures of deities, heroes, creatures, artifacts, places
+                and stories in the catalog are illustrations made for Mythos
+                Atlas. {IMAGE_COUNTS["illustration-ai"]} were generated with an
+                AI image model; {IMAGE_COUNTS["illustration-procedural"]} are
+                ornamental plates drawn by code, with a border, an emblem and a
+                name.
+              </p>
+              <p>
+                They are interpretations to help you find your way. They are not
+                historical artworks or archaeological finds, and they are not
+                evidence of how a tradition pictured its gods. Pages mark them
+                with an <strong>Illustrative image</strong> label.
+              </p>
+              <p>
+                Historical objects are shown separately with their museum
+                records: the institution, accession number and image rights
+                appear beside each one, linked to the museum&apos;s own page.
+              </p>
+              <p className="text-base text-muted-foreground">
+                If an illustration misrepresents a tradition, please{" "}
+                <Link href="/contact" className="text-gold-text underline">
+                  tell us
+                </Link>{" "}
+                and it will be reviewed or replaced.
+              </p>
+            </div>
+          </section>
 
           <Card className="border-gold/20 bg-card">
             <CardHeader>

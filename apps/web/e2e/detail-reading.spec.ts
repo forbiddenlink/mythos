@@ -70,12 +70,16 @@ test.describe("Detail-page reading", () => {
           ),
         ).toBeVisible();
         await expect(
-          main.getByText("Editorial illustration of Heracles"),
+          main.getByTestId("illustrative-image-caption"),
         ).toHaveCount(0);
       } else {
+        const caption = main.getByTestId("illustrative-image-caption");
+        await expect(caption).toBeVisible();
+        await expect(caption).toContainText(`Illustration of ${name}`);
+        await expect(caption).toContainText("Illustrative image");
         await expect(
-          main.getByText(`Editorial illustration of ${name}`, { exact: true }),
-        ).toBeVisible();
+          caption.getByRole("link", { name: "About our images" }),
+        ).toHaveAttribute("href", "/about#images");
       }
       expect(
         await page.evaluate(

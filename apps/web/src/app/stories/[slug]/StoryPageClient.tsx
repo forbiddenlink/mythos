@@ -1,6 +1,8 @@
 "use client";
 
 import { useContext, useEffect, type ReactNode } from "react";
+import { IllustrativeImageCaption } from "@/components/content/IllustrativeImageCaption";
+import type { ImageNote } from "@/lib/image-provenance";
 import {
   Card,
   CardContent,
@@ -119,6 +121,8 @@ export interface StoryPageClientProps {
   }>;
   museumObjects: ReactNode;
   versions?: MythVersions | null;
+  /** Image provenance for the caption, resolved on the server. */
+  imageNote?: ImageNote;
 }
 
 // Stories that have cinematic versions available
@@ -132,6 +136,7 @@ export function StoryPageClient({
   relatedStoriesData,
   museumObjects,
   versions = null,
+  imageNote,
 }: StoryPageClientProps) {
   const hasRelatedContent =
     featuredDeitiesData.length > 0 ||
@@ -212,10 +217,11 @@ export function StoryPageClient({
                   fetchPriority="high"
                 />
               </div>
-              <figcaption className="mt-2 text-xs leading-relaxed text-muted-foreground">
-                Story illustration. Historical objects are identified separately
-                with their museum records.
-              </figcaption>
+              <IllustrativeImageCaption
+                note={imageNote}
+                subject="Story illustration. Historical objects are identified separately with their museum records"
+                className="mt-2"
+              />
             </figure>
           )}
         </header>

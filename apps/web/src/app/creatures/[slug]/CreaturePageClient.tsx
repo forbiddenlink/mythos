@@ -1,6 +1,9 @@
 "use client";
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { ShareButton } from "@/components/sharing/ShareButton";
+import { IllustrativeImageCaption } from "@/components/content/IllustrativeImageCaption";
+import type { ImageNote } from "@/lib/image-provenance";
 import { Badge } from "@/components/ui/badge";
 import { ShieldAlert, Zap, MapPin, Skull, Users } from "lucide-react";
 import Link from "next/link";
@@ -43,12 +46,15 @@ interface CreaturePageClientProps {
   slug: string;
   samePantheonDeities?: PantheonDeitySummary[];
   museumObjects?: MuseumObject[];
+  /** Image provenance for the caption, resolved on the server. */
+  imageNote?: ImageNote;
 }
 
 export function CreaturePageClient({
   slug,
   samePantheonDeities = [],
   museumObjects = [],
+  imageNote,
 }: CreaturePageClientProps) {
   const creature =
     (creaturesData as Creature[]).find(
@@ -155,6 +161,13 @@ export function CreaturePageClient({
                 </a>
               ) : null}
             </nav>
+            <ShareButton
+              surface="creature_page"
+              title={`${creature.name} - Mythos Atlas`}
+              text={`Meet ${creature.name} in the Mythos Atlas bestiary`}
+              url={`https://mythosatlas.com/creatures/${creature.slug}`}
+              className="w-fit"
+            />
           </div>
         </div>
       </div>
@@ -176,9 +189,11 @@ export function CreaturePageClient({
                 />
                 <div className="absolute inset-0 ring-1 ring-inset ring-white/10 rounded-xl"></div>
               </div>
-              <figcaption className="px-3 py-2 text-xs text-muted-foreground">
-                Editorial illustration of {creature.name}
-              </figcaption>
+              <IllustrativeImageCaption
+                note={imageNote}
+                subject={`Illustration of ${creature.name}`}
+                className="px-3 py-2"
+              />
             </figure>
           )}
 
