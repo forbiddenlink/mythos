@@ -6,6 +6,7 @@
  * rendering a dead link or an empty card.
  */
 import { describe, expect, it } from "vitest";
+import artifacts from "@/data/artifacts.json";
 import deities from "@/data/deities.json";
 import heroes from "@/data/heroes.json";
 import journeys from "@/data/journeys.json";
@@ -163,6 +164,63 @@ describe("relationships", () => {
     expect(isolated).toEqual([]);
     for (const id of noAttestedKin) {
       expect(deityById.has(id), id).toBe(true);
+    }
+  });
+});
+
+describe("artifact owners", () => {
+  type ArtifactOwner = {
+    id: string;
+    owner?: unknown;
+    ownerId?: string;
+    ownerKind?: string;
+    ownerLabel?: string;
+  };
+  const artifactList = artifacts as ArtifactOwner[];
+
+  it("no longer uses the free-text owner field", () => {
+    expect(artifactList.filter((a) => "owner" in a).map((a) => a.id)).toEqual(
+      [],
+    );
+  });
+
+  it("resolves every ownerId in the catalog its ownerKind names", () => {
+    const unresolved: string[] = [];
+    for (const artifact of artifactList) {
+      if (artifact.ownerId === undefined) {
+        expect(artifact.ownerKind, artifact.id).toBeUndefined();
+        continue;
+      }
+      const catalog =
+        artifact.ownerKind === "deity"
+          ? deityById
+          : artifact.ownerKind === "hero"
+            ? heroById
+            : undefined;
+      if (!catalog?.has(artifact.ownerId)) {
+        unresolved.push(
+          `${artifact.id}: ${artifact.ownerKind}/${artifact.ownerId}`,
+        );
+      }
+    }
+    expect(unresolved).toEqual([]);
+  });
+
+  it("gives every artifact either a linked owner or an owner label", () => {
+    const ownerless = artifactList
+      .filter((a) => !a.ownerId && !a.ownerLabel?.trim())
+      .map((a) => a.id);
+    expect(ownerless).toEqual([]);
+  });
+
+  it("keeps ownerLabel for text an id cannot express", () => {
+    // A label that is just the id restated adds nothing; drop it instead.
+    for (const artifact of artifactList) {
+      if (!artifact.ownerId || !artifact.ownerLabel) continue;
+      expect(
+        normalizeDeityReference(artifact.ownerLabel),
+        artifact.id,
+      ).not.toBe(artifact.ownerId);
     }
   });
 });

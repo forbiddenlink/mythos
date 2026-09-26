@@ -221,7 +221,15 @@ export const ArtifactSchema = z.looseObject({
   pantheonId: z.string(),
   name: z.string(),
   slug: z.string(),
+  /** Deity or hero id of the owner, when the owner has an entry. */
   ownerId: z.string().optional(),
+  /** Catalog `ownerId` belongs to; required whenever `ownerId` is set. */
+  ownerKind: z.enum(["deity", "hero"]).optional(),
+  /**
+   * Display text for owners with no entity (e.g. "King Arthur") or a fuller
+   * description of an entity owner (e.g. "Set and other Egyptian deities").
+   */
+  ownerLabel: z.string().optional(),
   type: z.string(),
   description: z.string(),
   powers: z.array(z.string()),

@@ -5,7 +5,11 @@ import deitiesData from "@/data/deities.json";
 import pantheons from "@/data/pantheons.json";
 import storiesData from "@/data/stories.json";
 import { canonicalArtifactSlug } from "@/lib/artifact-aliases";
-import { generateBaseMetadata, generateNotFoundMetadata, shortPantheonName } from "@/lib/metadata";
+import {
+  generateBaseMetadata,
+  generateNotFoundMetadata,
+  shortPantheonName,
+} from "@/lib/metadata";
 import { ArtifactPageClient } from "./ArtifactPageClient";
 
 // ISR: Revalidate every week (604800 seconds)
@@ -19,7 +23,8 @@ interface ArtifactData {
   description: string;
   type: string;
   powers: string[];
-  owner?: string;
+  ownerId?: string;
+  ownerKind?: "deity" | "hero";
   imageUrl?: string;
 }
 
@@ -93,11 +98,13 @@ export default async function ArtifactPage({ params }: PageProps) {
     notFound();
   }
 
-  const owner = artifact.owner
-    ? ((deitiesData as Array<{ id: string; slug: string; name: string }>).find(
-        (deity) => deity.id === artifact.owner || deity.slug === artifact.owner,
-      ) ?? null)
-    : null;
+  // The provenance panel links owners to /deities/, so only deity owners resolve here.
+  const owner =
+    artifact.ownerId && artifact.ownerKind === "deity"
+      ? ((
+          deitiesData as Array<{ id: string; slug: string; name: string }>
+        ).find((deity) => deity.id === artifact.ownerId) ?? null)
+      : null;
 
   const relatedStories = (artifact.relatedStories ?? [])
     .map((id) => {

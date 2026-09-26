@@ -48,7 +48,12 @@ export interface Creature extends BaseEntity {
 }
 
 export interface Artifact extends BaseEntity {
+  /** Deity or hero id of the owner, when the owner has an entry. */
   ownerId?: string;
+  /** Catalog `ownerId` belongs to; set whenever `ownerId` is. */
+  ownerKind?: "deity" | "hero";
+  /** Display text for owners with no entry, or a fuller owner description. */
+  ownerLabel?: string;
   originStory?: string;
   origin?: string;
   powers: string[];

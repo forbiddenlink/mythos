@@ -27,7 +27,8 @@ interface ArtifactRow {
   id: string;
   slug: string;
   name: string;
-  owner?: string | null;
+  ownerId?: string;
+  ownerKind?: "deity" | "hero";
   type?: string;
 }
 
@@ -103,8 +104,8 @@ export function getLinkedMentionsForDeity(deityId: string): LinkedMention[] {
   }
 
   for (const artifact of artifacts) {
-    if (!artifact.owner) continue;
-    const ownerNorm = normalizeDeityReference(artifact.owner);
+    if (!artifact.ownerId || artifact.ownerKind !== "deity") continue;
+    const ownerNorm = normalizeDeityReference(artifact.ownerId);
     if (
       ownerNorm === normId ||
       ownerNorm === normalizeDeityReference(deity.slug)
