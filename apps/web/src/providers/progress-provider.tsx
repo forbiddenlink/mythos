@@ -295,7 +295,7 @@ export function ProgressProvider({
         lastVisit: today,
       };
     });
-  }, []);
+  }, [setProgress]);
 
   const useStreakFreeze = useCallback((): boolean => {
     let freezeUsed = false;
@@ -311,148 +311,172 @@ export function ProgressProvider({
       return prev;
     });
     return freezeUsed;
-  }, []);
+  }, [setProgress]);
 
-  const addStreakFreeze = useCallback((count: number) => {
-    setProgress((prev) => ({
-      ...prev,
-      streakFreezes: prev.streakFreezes + count,
-    }));
-  }, []);
-
-  const updateQuickQuizHighScore = useCallback((score: number) => {
-    setProgress((prev) => {
-      if (score <= prev.quickQuizHighScore) {
-        return prev;
-      }
-      return {
+  const addStreakFreeze = useCallback(
+    (count: number) => {
+      setProgress((prev) => ({
         ...prev,
-        quickQuizHighScore: score,
-      };
-    });
-  }, []);
+        streakFreezes: prev.streakFreezes + count,
+      }));
+    },
+    [setProgress],
+  );
 
-  const trackDeityView = useCallback((deityId: string, pantheonId?: string) => {
-    setProgress((prev) => {
-      const today = getToday();
-      const isNewDeity = !prev.deitiesViewed.includes(deityId);
+  const updateQuickQuizHighScore = useCallback(
+    (score: number) => {
+      setProgress((prev) => {
+        if (score <= prev.quickQuizHighScore) {
+          return prev;
+        }
+        return {
+          ...prev,
+          quickQuizHighScore: score,
+        };
+      });
+    },
+    [setProgress],
+  );
 
-      // Update today's activity
-      const todayActivity =
-        prev.todayActivity.date === today
-          ? prev.todayActivity
-          : {
-              date: today,
-              deitiesViewed: [],
-              storiesRead: [],
-              pantheonsViewed: [],
-              quizCompleted: false,
-              quizScore: 0,
-            };
+  const trackDeityView = useCallback(
+    (deityId: string, pantheonId?: string) => {
+      setProgress((prev) => {
+        const today = getToday();
+        const isNewDeity = !prev.deitiesViewed.includes(deityId);
 
-      const updatedTodayActivity = {
-        ...todayActivity,
-        deitiesViewed: todayActivity.deitiesViewed.includes(deityId)
-          ? todayActivity.deitiesViewed
-          : [...todayActivity.deitiesViewed, deityId],
-        pantheonsViewed:
-          pantheonId && !todayActivity.pantheonsViewed.includes(pantheonId)
-            ? [...todayActivity.pantheonsViewed, pantheonId]
-            : todayActivity.pantheonsViewed,
-      };
+        // Update today's activity
+        const todayActivity =
+          prev.todayActivity.date === today
+            ? prev.todayActivity
+            : {
+                date: today,
+                deitiesViewed: [],
+                storiesRead: [],
+                pantheonsViewed: [],
+                quizCompleted: false,
+                quizScore: 0,
+              };
 
-      return {
+        const updatedTodayActivity = {
+          ...todayActivity,
+          deitiesViewed: todayActivity.deitiesViewed.includes(deityId)
+            ? todayActivity.deitiesViewed
+            : [...todayActivity.deitiesViewed, deityId],
+          pantheonsViewed:
+            pantheonId && !todayActivity.pantheonsViewed.includes(pantheonId)
+              ? [...todayActivity.pantheonsViewed, pantheonId]
+              : todayActivity.pantheonsViewed,
+        };
+
+        return {
+          ...prev,
+          deitiesViewed: isNewDeity
+            ? [...prev.deitiesViewed, deityId]
+            : prev.deitiesViewed,
+          todayActivity: updatedTodayActivity,
+        };
+      });
+    },
+    [setProgress],
+  );
+
+  const trackStoryRead = useCallback(
+    (storyId: string) => {
+      setProgress((prev) => {
+        const today = getToday();
+        const isNewStory = !prev.storiesRead.includes(storyId);
+
+        // Update today's activity
+        const todayActivity =
+          prev.todayActivity.date === today
+            ? prev.todayActivity
+            : {
+                date: today,
+                deitiesViewed: [],
+                storiesRead: [],
+                pantheonsViewed: [],
+                quizCompleted: false,
+                quizScore: 0,
+              };
+
+        const updatedTodayActivity = {
+          ...todayActivity,
+          storiesRead: todayActivity.storiesRead.includes(storyId)
+            ? todayActivity.storiesRead
+            : [...todayActivity.storiesRead, storyId],
+        };
+
+        return {
+          ...prev,
+          storiesRead: isNewStory
+            ? [...prev.storiesRead, storyId]
+            : prev.storiesRead,
+          todayActivity: updatedTodayActivity,
+        };
+      });
+    },
+    [setProgress],
+  );
+
+  const trackPantheonExplore = useCallback(
+    (pantheonId: string) => {
+      setProgress((prev) => {
+        if (prev.pantheonsExplored.includes(pantheonId)) {
+          return prev;
+        }
+        return {
+          ...prev,
+          pantheonsExplored: [...prev.pantheonsExplored, pantheonId],
+        };
+      });
+    },
+    [setProgress],
+  );
+
+  const trackLocationVisit = useCallback(
+    (locationId: string) => {
+      setProgress((prev) => {
+        if (prev.locationsVisited.includes(locationId)) {
+          return prev;
+        }
+        return {
+          ...prev,
+          locationsVisited: [...prev.locationsVisited, locationId],
+        };
+      });
+    },
+    [setProgress],
+  );
+
+  const recordQuizScore = useCallback(
+    (quizId: string, score: number) => {
+      setProgress((prev) => ({
         ...prev,
-        deitiesViewed: isNewDeity
-          ? [...prev.deitiesViewed, deityId]
-          : prev.deitiesViewed,
-        todayActivity: updatedTodayActivity,
-      };
-    });
-  }, []);
+        quizScores: {
+          ...prev.quizScores,
+          [quizId]: Math.max(prev.quizScores[quizId] ?? 0, score),
+        },
+      }));
+    },
+    [setProgress],
+  );
 
-  const trackStoryRead = useCallback((storyId: string) => {
-    setProgress((prev) => {
-      const today = getToday();
-      const isNewStory = !prev.storiesRead.includes(storyId);
-
-      // Update today's activity
-      const todayActivity =
-        prev.todayActivity.date === today
-          ? prev.todayActivity
-          : {
-              date: today,
-              deitiesViewed: [],
-              storiesRead: [],
-              pantheonsViewed: [],
-              quizCompleted: false,
-              quizScore: 0,
-            };
-
-      const updatedTodayActivity = {
-        ...todayActivity,
-        storiesRead: todayActivity.storiesRead.includes(storyId)
-          ? todayActivity.storiesRead
-          : [...todayActivity.storiesRead, storyId],
-      };
-
-      return {
-        ...prev,
-        storiesRead: isNewStory
-          ? [...prev.storiesRead, storyId]
-          : prev.storiesRead,
-        todayActivity: updatedTodayActivity,
-      };
-    });
-  }, []);
-
-  const trackPantheonExplore = useCallback((pantheonId: string) => {
-    setProgress((prev) => {
-      if (prev.pantheonsExplored.includes(pantheonId)) {
-        return prev;
-      }
-      return {
-        ...prev,
-        pantheonsExplored: [...prev.pantheonsExplored, pantheonId],
-      };
-    });
-  }, []);
-
-  const trackLocationVisit = useCallback((locationId: string) => {
-    setProgress((prev) => {
-      if (prev.locationsVisited.includes(locationId)) {
-        return prev;
-      }
-      return {
-        ...prev,
-        locationsVisited: [...prev.locationsVisited, locationId],
-      };
-    });
-  }, []);
-
-  const recordQuizScore = useCallback((quizId: string, score: number) => {
-    setProgress((prev) => ({
-      ...prev,
-      quizScores: {
-        ...prev.quizScores,
-        [quizId]: Math.max(prev.quizScores[quizId] ?? 0, score),
-      },
-    }));
-  }, []);
-
-  const unlockAchievement = useCallback((achievementId: string, xp: number) => {
-    setProgress((prev) => {
-      if (prev.achievements.includes(achievementId)) {
-        return prev;
-      }
-      trackEvent("achievement_unlocked", { achievementId });
-      return {
-        ...prev,
-        achievements: [...prev.achievements, achievementId],
-        totalXP: prev.totalXP + xp,
-      };
-    });
-  }, []);
+  const unlockAchievement = useCallback(
+    (achievementId: string, xp: number) => {
+      setProgress((prev) => {
+        if (prev.achievements.includes(achievementId)) {
+          return prev;
+        }
+        trackEvent("achievement_unlocked", { achievementId });
+        return {
+          ...prev,
+          achievements: [...prev.achievements, achievementId],
+          totalXP: prev.totalXP + xp,
+        };
+      });
+    },
+    [setProgress],
+  );
 
   const getStats = useCallback((): ProgressStats => {
     const quizScoresArray = Object.values(progress.quizScores);
@@ -515,7 +539,7 @@ export function ProgressProvider({
         };
       });
     },
-    [],
+    [setProgress],
   );
 
   const isDailyChallengeClaimed = useCallback(
@@ -527,33 +551,36 @@ export function ProgressProvider({
     [progress.claimedDailyChallenges],
   );
 
-  const trackQuizCompletion = useCallback((score: number) => {
-    setProgress((prev) => {
-      const today = getToday();
+  const trackQuizCompletion = useCallback(
+    (score: number) => {
+      setProgress((prev) => {
+        const today = getToday();
 
-      // Update today's activity
-      const todayActivity =
-        prev.todayActivity.date === today
-          ? prev.todayActivity
-          : {
-              date: today,
-              deitiesViewed: [],
-              storiesRead: [],
-              pantheonsViewed: [],
-              quizCompleted: false,
-              quizScore: 0,
-            };
+        // Update today's activity
+        const todayActivity =
+          prev.todayActivity.date === today
+            ? prev.todayActivity
+            : {
+                date: today,
+                deitiesViewed: [],
+                storiesRead: [],
+                pantheonsViewed: [],
+                quizCompleted: false,
+                quizScore: 0,
+              };
 
-      return {
-        ...prev,
-        todayActivity: {
-          ...todayActivity,
-          quizCompleted: true,
-          quizScore: Math.max(todayActivity.quizScore, score),
-        },
-      };
-    });
-  }, []);
+        return {
+          ...prev,
+          todayActivity: {
+            ...todayActivity,
+            quizCompleted: true,
+            quizScore: Math.max(todayActivity.quizScore, score),
+          },
+        };
+      });
+    },
+    [setProgress],
+  );
 
   const contextValue = useMemo(
     () => ({
