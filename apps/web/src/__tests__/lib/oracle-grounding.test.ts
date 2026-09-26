@@ -1,7 +1,9 @@
 import { describe, expect, it } from "vitest";
 import {
   buildOracleGroundingContext,
+  exactNameMatches,
   getOracleGrounding,
+  getOracleGroundingForConversation,
   lastUserMessageText,
 } from "@/lib/oracle/grounding";
 
@@ -52,5 +54,73 @@ describe("oracle grounding", () => {
         { role: "user", content: "second" },
       ]),
     ).toBe("second");
+  });
+
+  it("streams primary sources (title + locator) drawn from the snippets", async () => {
+    const { primarySources, context } = await getOracleGrounding(
+      "Who is Zeus?",
+      {
+        locale: "en",
+      },
+    );
+    const theogony = primarySources.find((s) => /Theogony/.test(s.title));
+    expect(theogony).toBeDefined();
+    expect(theogony?.locator).toMatch(/^\d+–\d+$/);
+    expect(theogony?.path).toBe("/sources/theogony");
+    expect(context).toMatch(/Primary sources: .*Hesiod, Theogony \d+–\d+/);
+  });
+
+  it("matches aliases exactly (Jupiter → Zeus page, Ulysses → Odysseus)", () => {
+    expect(exactNameMatches("Tell me about Jove").map((h) => h.slug)).toContain(
+      "zeus",
+    );
+    expect(exactNameMatches("Who was Ulysses?").map((h) => h.slug)).toContain(
+      "odysseus",
+    );
+  });
+
+  it("only matches very short names when capitalised", () => {
+    expect(
+      exactNameMatches("a set of rules").some((h) => h.slug === "set"),
+    ).toBe(false);
+    expect(exactNameMatches("Who is Set?").some((h) => h.slug === "set")).toBe(
+      true,
+    );
+  });
+
+  it("adds cross-pantheon counterparts for comparison questions", async () => {
+    const { citations } = await getOracleGrounding(
+      "What is the Norse counterpart of Zeus?",
+      { locale: "en" },
+    );
+    const slugs = citations.map((c) => c.slug);
+    expect(slugs).toContain("zeus");
+    expect(slugs).toContain("odin");
+  });
+
+  it("pulls in stories featuring a matched hero", async () => {
+    const { citations } = await getOracleGrounding("Odysseus", {
+      locale: "en",
+    });
+    expect(citations.some((c) => c.type === "story")).toBe(true);
+  });
+
+  it("carries the topic into follow-ups that retrieve nothing on their own", async () => {
+    const { citations } = await getOracleGroundingForConversation(
+      [
+        { role: "user", content: "Who is Zeus?" },
+        { role: "assistant", content: "The king of the gods." },
+        { role: "user", content: "and then?" },
+      ],
+      { locale: "en" },
+    );
+    expect(citations.some((c) => c.slug === "zeus")).toBe(true);
+  });
+
+  it("returns no grounding for gibberish", async () => {
+    const g = await getOracleGrounding("qwxz vbnq", { locale: "en" });
+    expect(g.hitCount).toBe(0);
+    expect(g.citations).toEqual([]);
+    expect(g.primarySources).toEqual([]);
   });
 });

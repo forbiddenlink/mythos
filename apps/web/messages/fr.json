@@ -297,6 +297,10 @@
     "sourcesAria": "Sources de l'Atlas",
     "groundingAria": "Réponse fondée sur {count} entrées de l'encyclopédie",
     "groundingLine": "{count, plural, one {Ancré dans Mythos Atlas · # entrée} other {Ancré dans Mythos Atlas · # entrées}}",
+    "entitiesLabel": "Pages de l'Atlas utilisées",
+    "primarySourcesLabel": "Sources primaires",
+    "notInSourcesTitle": "Absent de nos sources",
+    "notInSourcesBody": "Mythos Atlas n'a aucune entrée qui réponde à cela ; l'Oracle ne devinera donc pas.",
     "errors": {
       "generic": "Une erreur s'est produite",
       "consultFailed": "Impossible de consulter l'Oracle",

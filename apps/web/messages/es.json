@@ -297,6 +297,10 @@
     "sourcesAria": "Fuentes del Atlas",
     "groundingAria": "Respuesta basada en {count} entradas de la enciclopedia",
     "groundingLine": "{count, plural, one {Basado en Mythos Atlas · # entrada} other {Basado en Mythos Atlas · # entradas}}",
+    "entitiesLabel": "Páginas del Atlas consultadas",
+    "primarySourcesLabel": "Fuentes primarias",
+    "notInSourcesTitle": "No está en nuestras fuentes",
+    "notInSourcesBody": "Mythos Atlas no tiene ninguna entrada que responda a esto, así que el Oráculo no adivinará.",
     "errors": {
       "generic": "Ha ocurrido un error",
       "consultFailed": "No se pudo consultar al Oráculo",

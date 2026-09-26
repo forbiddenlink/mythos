@@ -297,6 +297,10 @@
     "sourcesAria": "Atlas-Quellen",
     "groundingAria": "Antwort gestützt auf {count} Enzyklopädie-Einträge",
     "groundingLine": "{count, plural, one {Verankert in Mythos Atlas · # Eintrag} other {Verankert in Mythos Atlas · # Einträge}}",
+    "entitiesLabel": "Verwendete Atlas-Seiten",
+    "primarySourcesLabel": "Primärquellen",
+    "notInSourcesTitle": "Nicht in unseren Quellen",
+    "notInSourcesBody": "Mythos Atlas hat keinen Eintrag, der dies beantwortet, deshalb rät das Orakel nicht.",
     "errors": {
       "generic": "Ein Fehler ist aufgetreten",
       "consultFailed": "Das Orakel konnte nicht befragt werden",

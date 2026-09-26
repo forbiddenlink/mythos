@@ -297,6 +297,10 @@
     "sourcesAria": "Atlas sources",
     "groundingAria": "Answer grounded in {count} encyclopedia entries",
     "groundingLine": "{count, plural, one {Grounded in Mythos Atlas · # entry} other {Grounded in Mythos Atlas · # entries}}",
+    "entitiesLabel": "Atlas pages used",
+    "primarySourcesLabel": "Primary sources",
+    "notInSourcesTitle": "Not in our sources",
+    "notInSourcesBody": "Mythos Atlas has no entry that answers this, so the Oracle will not guess.",
     "errors": {
       "generic": "An error occurred",
       "consultFailed": "Failed to consult the Oracle",

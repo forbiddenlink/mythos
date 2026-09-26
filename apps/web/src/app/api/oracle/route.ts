@@ -1,27 +1,37 @@
-import { streamText } from "ai";
-import { NextRequest } from "next/server";
+import {
+  createUIMessageStream,
+  createUIMessageStreamResponse,
+  streamText,
+  toUIMessageStream,
+  type ToolSet,
+  type UIMessage,
+} from "ai";
+import type { NextRequest } from "next/server";
 import { z } from "zod";
 import type { Locale } from "@/i18n/config";
-import {
-  ORACLE_CITATIONS_HEADER,
-  ORACLE_GROUNDING_HITS_HEADER,
-} from "@/lib/oracle/constants";
-import { encodeCitationsHeader } from "@/lib/oracle/citations";
-import {
-  getOracleGrounding,
-  lastUserMessageText,
-} from "@/lib/oracle/grounding";
-import {
-  oracleLocaleInstruction,
-  parseOracleLocale,
-} from "@/lib/oracle/oracle-locale";
+import type { OracleSourcesPayload } from "@/lib/oracle/citations";
+import { getOracleClientIdentity } from "@/lib/oracle/client-identity";
+import { ORACLE_SOURCES_CHUNK_TYPE } from "@/lib/oracle/constants";
+import { notInSourcesReply } from "@/lib/oracle/coverage";
 import { checkGlobalOracleBudget } from "@/lib/oracle/global-budget";
-import { getOracleModel } from "@/lib/oracle/provider";
-import { checkOracleRateLimit } from "@/lib/oracle/rate-limit";
+import { getOracleGroundingForConversation } from "@/lib/oracle/grounding";
+import { trimOracleHistory } from "@/lib/oracle/history";
+import { parseOracleLocale } from "@/lib/oracle/oracle-locale";
+import { buildOracleSystemPrompt } from "@/lib/oracle/prompt";
+import { getOracleModelSelection } from "@/lib/oracle/provider";
+import {
+  checkOracleAnonymousRateLimit,
+  checkOracleRateLimit,
+} from "@/lib/oracle/rate-limit";
 import {
   forbiddenUnlessSameOrigin,
   isOracleKillSwitchOn,
 } from "@/lib/oracle/request-guards";
+import {
+  estimateOracleRequestTokens,
+  reserveOracleTokens,
+  settleOracleTokens,
+} from "@/lib/oracle/token-budget";
 import { logger } from "@/lib/logger";
 import { readJsonBody } from "@/lib/http/read-json-body";
 
@@ -42,71 +52,44 @@ const BodySchema = z.object({
   locale: z.enum(["en", "es", "fr", "de"]).optional(),
 });
 
-function getClientIp(req: NextRequest): string {
-  const vercelForwarded = req.headers
-    .get("x-vercel-forwarded-for")
-    ?.split(",")[0]
-    ?.trim();
-  if (vercelForwarded) return vercelForwarded;
+type OracleUIMessage = UIMessage<
+  unknown,
+  { [K in "oracle-sources"]: OracleSourcesPayload }
+>;
 
-  const realIp = req.headers.get("x-real-ip")?.trim();
-  if (realIp) return realIp;
+const STREAM_ERROR_MESSAGE = "The mists cloud the Oracle's vision. Try again.";
 
-  const forwarded = req.headers.get("x-forwarded-for");
-  if (forwarded) {
-    const hops = forwarded
-      .split(",")
-      .map((part) => part.trim())
-      .filter(Boolean);
-    // Prefer the last hop (proxy-appended) when a chain is present.
-    if (hops.length > 0) return hops[hops.length - 1]!;
-  }
-
-  return "anonymous";
+function jsonError(status: number, error: string): Response {
+  return new Response(JSON.stringify({ error }), {
+    status,
+    headers: { "Content-Type": "application/json" },
+  });
 }
-const BASE_SYSTEM_PROMPT = `You are the Oracle of Delphi, ancient keeper of divine wisdom and mysteries.
 
-Your role:
-- Answer questions about mythology from ALL cultures: Greek, Roman, Norse, Egyptian, Hindu, Japanese, Celtic, Aztec, Chinese, and more
-- Speak in a mystical yet helpful manner, weaving ancient knowledge with clarity
-- Keep responses concise (2-3 paragraphs maximum)
-- When REFERENCE material from Mythos Atlas is provided below, prefer it for facts about entities and stories on this site, and you may mention paths like /deities/zeus so seekers know where to read more (speak naturally; do not paste raw URLs unless helpful)
-- Be honest about your source: when you answer from the REFERENCE material, you may speak with its authority; when the REFERENCE material does not cover something and you are drawing on general mythological knowledge instead, say so plainly (e.g. "the Atlas is silent on this, but the wider myths tell us...") rather than blending the two without distinction
-- If you do not know a specific detail (a name, date, genealogy, or minor variant), say the ancients have not revealed it to you rather than inventing one
-- When relevant, mention specific deities, stories, or mythological concepts
-- Draw connections between different mythologies when appropriate
-- If asked about something outside mythology, gently redirect to mythological topics
+function sourcesChunk(payload: OracleSourcesPayload) {
+  return { type: ORACLE_SOURCES_CHUNK_TYPE, data: payload } as const;
+}
 
-Your voice:
-- Wise and ancient, but not cryptic to the point of confusion
-- Occasionally use phrases like "The ancients knew...", "As the myths tell us...", "The gods speak of..."
-- Be respectful of all mythological traditions
-- Show genuine interest in sharing knowledge
-
-Remember: You are a guide through the mythological realm, here to enlighten and educate seekers of ancient wisdom.`;
-
-function buildSystemPrompt(grounding: string, locale: Locale): string {
-  const localeBlock = oracleLocaleInstruction(locale);
-  const base = `${BASE_SYSTEM_PROMPT}${localeBlock}`;
-
-  if (!grounding.trim()) return base;
-  return `${base}
-
----
-
-${grounding}`;
+/** Stream a fixed reply (no model call) in the same wire format as a model answer. */
+function staticReplyResponse(
+  payload: OracleSourcesPayload,
+  text: string,
+): Response {
+  const stream = createUIMessageStream<OracleUIMessage>({
+    execute: ({ writer }) => {
+      writer.write(sourcesChunk(payload));
+      writer.write({ type: "text-start", id: "oracle-static" });
+      writer.write({ type: "text-delta", id: "oracle-static", delta: text });
+      writer.write({ type: "text-end", id: "oracle-static" });
+    },
+  });
+  return createUIMessageStreamResponse({ stream });
 }
 
 export async function POST(req: NextRequest) {
   try {
     if (isOracleKillSwitchOn()) {
-      return new Response(
-        JSON.stringify({ error: "The Oracle is temporarily offline." }),
-        {
-          status: 503,
-          headers: { "Content-Type": "application/json" },
-        },
-      );
+      return jsonError(503, "The Oracle is temporarily offline.");
     }
 
     const originBlock = forbiddenUnlessSameOrigin(req);
@@ -114,99 +97,134 @@ export async function POST(req: NextRequest) {
 
     const body = await readJsonBody(req, MAX_REQUEST_BODY_BYTES);
     if (!body.ok) {
-      return new Response(JSON.stringify({ error: "Invalid request body" }), {
-        status: body.reason === "too_large" ? 413 : 400,
-        headers: { "Content-Type": "application/json" },
-      });
+      return jsonError(
+        body.reason === "too_large" ? 413 : 400,
+        "Invalid request body",
+      );
     }
 
     const parsed = BodySchema.safeParse(body.value);
-    if (!parsed.success) {
-      return new Response(JSON.stringify({ error: "Invalid request body" }), {
-        status: 400,
-        headers: { "Content-Type": "application/json" },
-      });
+    if (!parsed.success) return jsonError(400, "Invalid request body");
+
+    const locale: Locale = parseOracleLocale(parsed.data.locale);
+    const messages = trimOracleHistory(parsed.data.messages);
+    if (messages.length === 0) return jsonError(400, "Invalid request body");
+
+    const client = getOracleClientIdentity(req.headers);
+    const rateLimit =
+      client.kind === "ip"
+        ? await checkOracleRateLimit(client.key)
+        : await checkOracleAnonymousRateLimit(client.key);
+    if (!rateLimit.allowed) {
+      return rateLimit.reason === "misconfigured"
+        ? jsonError(
+            503,
+            "The Oracle is unavailable. Rate limiting is not configured.",
+          )
+        : jsonError(429, "The Oracle must rest. Please return in an hour.");
     }
 
-    const { messages, locale: localeRaw } = parsed.data;
-    const locale = parseOracleLocale(localeRaw);
-
-    const rateLimit = await checkOracleRateLimit(getClientIp(req));
-    if (!rateLimit.allowed) {
-      if (rateLimit.reason === "misconfigured") {
-        return new Response(
-          JSON.stringify({
-            error:
-              "The Oracle is unavailable. Rate limiting is not configured.",
-          }),
-          { status: 503, headers: { "Content-Type": "application/json" } },
-        );
-      }
-      return new Response(
-        JSON.stringify({
-          error: "The Oracle must rest. Please return in an hour.",
-        }),
-        { status: 429, headers: { "Content-Type": "application/json" } },
+    const selection = getOracleModelSelection();
+    if (!selection) {
+      return jsonError(
+        503,
+        "The Oracle is not yet awakened. No model provider is configured.",
       );
+    }
+
+    const grounding = await getOracleGroundingForConversation(messages, {
+      locale,
+    });
+    const sources: OracleSourcesPayload = {
+      hitCount: grounding.hitCount,
+      entities: grounding.citations,
+      primarySources: grounding.primarySources,
+    };
+
+    // Nothing in Mythos Atlas matched: say so without spending a model call,
+    // so the Oracle cannot improvise a myth from outside our sources.
+    if (grounding.hitCount === 0) {
+      return staticReplyResponse(sources, notInSourcesReply(locale));
     }
 
     const budget = await checkGlobalOracleBudget();
     if (!budget.allowed) {
-      if (budget.reason === "misconfigured") {
-        return new Response(
-          JSON.stringify({
-            error:
-              "The Oracle is unavailable. Rate limiting is not configured.",
-          }),
-          { status: 503, headers: { "Content-Type": "application/json" } },
-        );
-      }
-      return new Response(
-        JSON.stringify({
-          error:
+      return budget.reason === "misconfigured"
+        ? jsonError(
+            503,
+            "The Oracle is unavailable. Rate limiting is not configured.",
+          )
+        : jsonError(
+            429,
             "The Oracle has reached today's capacity. Please return tomorrow.",
-        }),
-        { status: 429, headers: { "Content-Type": "application/json" } },
-      );
+          );
     }
 
-    const model = getOracleModel();
-    if (!model) {
-      return new Response(
-        JSON.stringify({
-          error:
-            "The Oracle is not yet awakened. No model provider is configured.",
-        }),
-        { status: 503, headers: { "Content-Type": "application/json" } },
-      );
+    const system = buildOracleSystemPrompt(grounding.context, locale);
+    const tokens = await reserveOracleTokens(
+      estimateOracleRequestTokens({
+        system,
+        messages,
+        maxOutputTokens: MAX_OUTPUT_TOKENS,
+      }),
+    );
+    if (!tokens.allowed) {
+      return tokens.reason === "misconfigured"
+        ? jsonError(
+            503,
+            "The Oracle is unavailable. Rate limiting is not configured.",
+          )
+        : jsonError(
+            429,
+            "The Oracle has reached today's capacity. Please return tomorrow.",
+          );
     }
-
-    const latestUser = lastUserMessageText(messages);
-    const {
-      context: grounding,
-      hitCount,
-      citations,
-    } = await getOracleGrounding(latestUser, { locale });
-    const system = buildSystemPrompt(grounding, locale);
+    const reservation = tokens.reservation;
 
     const result = streamText({
-      model,
+      model: selection.model,
       system,
       messages,
       maxOutputTokens: MAX_OUTPUT_TOKENS,
-    });
-
-    const citationHeader =
-      citations.length > 0 ? encodeCitationsHeader(citations) : "";
-
-    return result.toTextStreamResponse({
-      headers: {
-        [ORACLE_GROUNDING_HITS_HEADER]: String(hitCount),
-        ...(citationHeader
-          ? { [ORACLE_CITATIONS_HEADER]: citationHeader }
-          : {}),
+      onEnd: async ({ totalUsage }) => {
+        const used =
+          totalUsage.totalTokens ??
+          (totalUsage.inputTokens != null && totalUsage.outputTokens != null
+            ? totalUsage.inputTokens + totalUsage.outputTokens
+            : undefined);
+        try {
+          await settleOracleTokens(reservation, used);
+        } catch (error) {
+          logger.exception(
+            error instanceof Error ? error : new Error(String(error)),
+            { route: "/api/oracle", step: "settle-token-budget" },
+          );
+        }
+      },
+      onError: ({ error }) => {
+        logger.exception(
+          error instanceof Error ? error : new Error("Oracle stream error"),
+          { route: "/api/oracle", provider: selection.provider },
+        );
       },
     });
+
+    const stream = createUIMessageStream<OracleUIMessage>({
+      execute: ({ writer }) => {
+        // Grounding metadata goes first, in the body, so the client can render
+        // sources under the answer without relying on size-limited headers.
+        writer.write(sourcesChunk(sources));
+        writer.merge(
+          toUIMessageStream<ToolSet, OracleUIMessage>({
+            stream: result.stream,
+            onError: () => STREAM_ERROR_MESSAGE,
+          }),
+        );
+      },
+      onError: () => STREAM_ERROR_MESSAGE,
+    });
+
+    return createUIMessageStreamResponse({ stream });
   } catch (error) {
     logger.exception(
       error instanceof Error ? error : new Error("Oracle route error"),
@@ -214,11 +232,6 @@ export async function POST(req: NextRequest) {
         route: "/api/oracle",
       },
     );
-    return new Response(
-      JSON.stringify({
-        error: "The mists cloud the Oracle's vision. Try again.",
-      }),
-      { status: 500, headers: { "Content-Type": "application/json" } },
-    );
+    return jsonError(500, STREAM_ERROR_MESSAGE);
   }
 }

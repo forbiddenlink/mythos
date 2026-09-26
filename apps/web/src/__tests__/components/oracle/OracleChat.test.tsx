@@ -3,7 +3,6 @@ import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 import type { ReactNode } from "react";
 import { NextIntlClientProvider } from "next-intl";
 import { OracleChat } from "@/components/oracle/OracleChat";
-import { ORACLE_GROUNDING_HITS_HEADER } from "@/lib/oracle/constants";
 import enMessages from "../../../../messages/en.json";
 
 vi.mock("framer-motion", () => ({
@@ -18,6 +17,38 @@ vi.mock("framer-motion", () => ({
   AnimatePresence: ({ children }: { children?: ReactNode }) => <>{children}</>,
 }));
 
+const GROUNDED_EVENTS = [
+  { type: "start" },
+  {
+    type: "data-oracle-sources",
+    data: {
+      hitCount: 1,
+      entities: [
+        { type: "deity", slug: "zeus", title: "Zeus", path: "/deities/zeus" },
+      ],
+      primarySources: [{ title: "Hesiod, Theogony", locator: "71–73" }],
+    },
+  },
+  { type: "text-start", id: "a" },
+  {
+    type: "text-delta",
+    id: "a",
+    delta: "Hello seeker. [Zeus](/deities/zeus) reigns.",
+  },
+  { type: "text-end", id: "a" },
+  { type: "finish" },
+];
+
+function sseResponse(events: unknown[]): Response {
+  const raw =
+    events.map((e) => `data: ${JSON.stringify(e)}\n\n`).join("") +
+    "data: [DONE]\n\n";
+  return new Response(raw, {
+    status: 200,
+    headers: { "content-type": "text/event-stream" },
+  });
+}
+
 function Providers({ children }: { children: ReactNode }) {
   return (
     <NextIntlClientProvider locale="en" messages={enMessages}>
@@ -30,31 +61,7 @@ describe("OracleChat", () => {
   beforeEach(() => {
     vi.stubGlobal(
       "fetch",
-      vi.fn(() =>
-        Promise.resolve({
-          ok: true,
-          headers: new Headers({
-            [ORACLE_GROUNDING_HITS_HEADER]: "0",
-          }),
-          json: () => Promise.resolve({}),
-          body: {
-            getReader: () => {
-              let done = false;
-              return {
-                read: () => {
-                  if (done)
-                    return Promise.resolve({ done: true, value: undefined });
-                  done = true;
-                  return Promise.resolve({
-                    done: false,
-                    value: new TextEncoder().encode("Hello seeker."),
-                  });
-                },
-              };
-            },
-          },
-        } as Response),
-      ),
+      vi.fn(() => Promise.resolve(sseResponse(GROUNDED_EVENTS))),
     );
   });
 
@@ -120,5 +127,60 @@ describe("OracleChat", () => {
     };
     expect(body.messages.some((m) => m.content === firstSuggestion)).toBe(true);
     expect(body.locale).toBe("en");
+  });
+
+  it("renders inline Atlas links, entity pages and primary sources under the answer", async () => {
+    render(
+      <Providers>
+        <OracleChat />
+      </Providers>,
+    );
+    fireEvent.click(screen.getByRole("button", { name: /ask the oracle/i }));
+    fireEvent.click(
+      screen.getByRole("button", {
+        name: enMessages.oracle.suggestedQuestions[0],
+      }),
+    );
+
+    const links = await screen.findAllByRole("link", { name: "Zeus" });
+    expect(links.every((a) => a.getAttribute("href") === "/deities/zeus")).toBe(
+      true,
+    );
+    expect(links.length).toBeGreaterThanOrEqual(2); // inline + sources list
+    expect(screen.getByText("Hesiod, Theogony 71–73")).toBeInTheDocument();
+    expect(screen.queryByTestId("oracle-not-in-sources")).toBeNull();
+  });
+
+  it("shows the not-in-our-sources state", async () => {
+    vi.mocked(fetch).mockResolvedValueOnce(
+      sseResponse([
+        {
+          type: "data-oracle-sources",
+          data: { hitCount: 0, entities: [], primarySources: [] },
+        },
+        { type: "text-start", id: "a" },
+        {
+          type: "text-delta",
+          id: "a",
+          delta: "Our sources don't cover that. Ask about a myth.",
+        },
+        { type: "text-end", id: "a" },
+      ]),
+    );
+    render(
+      <Providers>
+        <OracleChat />
+      </Providers>,
+    );
+    fireEvent.click(screen.getByRole("button", { name: /ask the oracle/i }));
+    fireEvent.click(
+      screen.getByRole("button", {
+        name: enMessages.oracle.suggestedQuestions[0],
+      }),
+    );
+
+    expect(
+      await screen.findByTestId("oracle-not-in-sources"),
+    ).toHaveTextContent(enMessages.oracle.notInSourcesTitle);
   });
 });
