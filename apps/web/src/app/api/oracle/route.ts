@@ -35,7 +35,9 @@ import {
 import { logger } from "@/lib/logger";
 import { readJsonBody } from "@/lib/http/read-json-body";
 
-const MAX_OUTPUT_TOKENS = 800;
+// Claude's adaptive thinking spends from the same output ceiling as the
+// answer, so keep effort low for short grounded replies and leave headroom.
+const MAX_OUTPUT_TOKENS = 1_200;
 
 const MAX_MESSAGE_CONTENT_CHARS = 4_000;
 const MAX_MESSAGES = 20;
@@ -186,6 +188,10 @@ export async function POST(req: NextRequest) {
       system,
       messages,
       maxOutputTokens: MAX_OUTPUT_TOKENS,
+      providerOptions:
+        selection.provider === "anthropic"
+          ? { anthropic: { effort: "low" } }
+          : undefined,
       onEnd: async ({ totalUsage }) => {
         const used =
           totalUsage.totalTokens ??
