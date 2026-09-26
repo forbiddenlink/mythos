@@ -22,13 +22,15 @@ export function FeaturedInGuides({
         className,
       )}
     >
-      <p className="page-eyebrow text-muted-foreground">Featured in</p>
+      <p className="text-sm font-medium uppercase tracking-[0.2em] text-muted-foreground">
+        Featured in
+      </p>
       <ul className="mt-1 space-y-1">
         {guides.map((guide) => (
           <li key={guide.slug}>
             <Link
               href={`/guides/${guide.slug}`}
-              className="font-body text-lg text-foreground underline-offset-4 hover:text-gold-text hover:underline"
+              className="font-body text-lg text-foreground underline decoration-gold/50 underline-offset-4 hover:text-gold-text hover:decoration-current"
             >
               {guide.title}
             </Link>

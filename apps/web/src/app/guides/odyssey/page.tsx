@@ -392,7 +392,7 @@ export default function OdysseyGuide() {
               place it is. Trace them on the map in the{" "}
               <Link
                 href="/journeys/odyssey"
-                className="text-gold-text underline-offset-4 hover:underline"
+                className="text-gold-text underline decoration-gold/50 underline-offset-4 hover:decoration-current"
               >
                 Odyssey journey
               </Link>
@@ -407,13 +407,13 @@ export default function OdysseyGuide() {
                   aria-hidden="true"
                   className="absolute -left-[33px] top-1 flex size-4 items-center justify-center rounded-full border border-gold bg-background text-[10px] text-gold-text"
                 />
-                <p className="page-eyebrow text-muted-foreground">
+                <p className="text-sm font-medium uppercase tracking-[0.2em] text-muted-foreground">
                   {index + 1}. {stop.books} ·{" "}
                   {GEOGRAPHY_LABEL[stop.place.geography]}
                 </p>
                 <Link
                   href={stop.place.href}
-                  className="font-serif text-xl text-foreground underline-offset-4 hover:text-gold-text hover:underline"
+                  className="font-serif text-xl text-foreground underline decoration-gold/50 underline-offset-4 hover:text-gold-text hover:decoration-current"
                 >
                   {stop.place.name}
                 </Link>

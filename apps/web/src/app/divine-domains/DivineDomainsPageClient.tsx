@@ -279,7 +279,7 @@ export function DivineDomainsPageClient({
                   {domainPages[selectedDomain.toLowerCase()] ? (
                     <Link
                       href={`/gods-of/${domainPages[selectedDomain.toLowerCase()]}`}
-                      className="mt-1 inline-block text-sm text-gold-text underline-offset-4 hover:underline"
+                      className="mt-1 inline-block text-sm text-gold-text underline decoration-gold/50 underline-offset-4 hover:decoration-current"
                     >
                       Read the full {selectedDomain} page
                     </Link>

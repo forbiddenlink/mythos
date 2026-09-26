@@ -51,7 +51,7 @@ export function DeityFamilyFaq({
                   {k.slug ? (
                     <Link
                       href={`/deities/${k.slug}`}
-                      className="text-foreground underline-offset-4 hover:text-gold-text hover:underline"
+                      className="text-foreground underline decoration-gold/50 underline-offset-4 hover:text-gold-text hover:decoration-current"
                     >
                       {k.name}
                     </Link>

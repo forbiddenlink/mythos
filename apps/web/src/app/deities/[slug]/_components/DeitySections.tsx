@@ -135,7 +135,7 @@ export function DeityParallels({
               {compareSlugs[parallel.deityId] ? (
                 <Link
                   href={`/compare/${compareSlugs[parallel.deityId]}`}
-                  className="mt-1 inline-block text-sm text-gold-text underline-offset-4 hover:underline"
+                  className="mt-1 inline-block text-sm text-gold-text underline decoration-gold/50 underline-offset-4 hover:decoration-current"
                 >
                   Compare {deity.name} and {parallel.name} side by side
                 </Link>

@@ -265,13 +265,15 @@ export default async function DeityPage({ params }: PageProps) {
                     aria-label="Other gods of these domains"
                     className="max-w-[68ch] text-sm text-muted-foreground"
                   >
-                    <span className="page-eyebrow mr-2">Across traditions</span>
+                    <span className="text-sm font-medium uppercase tracking-[0.2em] mr-2">
+                      Across traditions
+                    </span>
                     {domainPages.map((page, index) => (
                       <span key={page.slug}>
                         {index > 0 ? " · " : null}
                         <Link
                           href={`/gods-of/${page.slug}`}
-                          className="text-foreground underline-offset-4 hover:text-gold-text hover:underline"
+                          className="text-foreground underline decoration-gold/50 underline-offset-4 hover:text-gold-text hover:decoration-current"
                         >
                           Gods of {page.label}
                         </Link>

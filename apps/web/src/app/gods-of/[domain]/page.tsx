@@ -152,7 +152,7 @@ export default async function GodsOfDomainPage({
             <a
               key={tradition.pantheonId}
               href={`#${tradition.pantheonId}`}
-              className="text-muted-foreground underline-offset-4 hover:text-gold-text hover:underline"
+              className="text-muted-foreground underline decoration-gold/50 underline-offset-4 hover:text-gold-text hover:decoration-current"
             >
               {tradition.name} ({tradition.deities.length})
             </a>
@@ -188,7 +188,7 @@ export default async function GodsOfDomainPage({
                     <div className="min-w-0 space-y-1">
                       <Link
                         href={`/deities/${deity.slug}`}
-                        className="font-serif text-xl text-foreground underline-offset-4 hover:text-gold-text hover:underline"
+                        className="font-serif text-xl text-foreground underline decoration-gold/50 underline-offset-4 hover:text-gold-text hover:decoration-current"
                       >
                         {deity.name}
                       </Link>
@@ -227,7 +227,7 @@ export default async function GodsOfDomainPage({
                   <p className="font-body text-lg text-foreground">
                     <Link
                       href={`/deities/${parallel.a.slug}`}
-                      className="underline-offset-4 hover:text-gold-text hover:underline"
+                      className="underline decoration-gold/50 underline-offset-4 hover:text-gold-text hover:decoration-current"
                     >
                       {parallel.a.name}
                     </Link>{" "}
@@ -237,7 +237,7 @@ export default async function GodsOfDomainPage({
                     and{" "}
                     <Link
                       href={`/deities/${parallel.b.slug}`}
-                      className="underline-offset-4 hover:text-gold-text hover:underline"
+                      className="underline decoration-gold/50 underline-offset-4 hover:text-gold-text hover:decoration-current"
                     >
                       {parallel.b.name}
                     </Link>{" "}
@@ -251,7 +251,7 @@ export default async function GodsOfDomainPage({
                   {parallel.compareSlug ? (
                     <Link
                       href={`/compare/${parallel.compareSlug}`}
-                      className="mt-1 inline-flex items-center gap-1 text-sm text-gold-text underline-offset-4 hover:underline"
+                      className="mt-1 inline-flex items-center gap-1 text-sm text-gold-text underline decoration-gold/50 underline-offset-4 hover:decoration-current"
                     >
                       Compare {parallel.a.name} and {parallel.b.name}
                       <ArrowRight className="size-3.5" aria-hidden="true" />
@@ -291,7 +291,7 @@ export default async function GodsOfDomainPage({
                 <li key={other.slug}>
                   <Link
                     href={`/gods-of/${other.slug}`}
-                    className="text-foreground underline-offset-4 hover:text-gold-text hover:underline"
+                    className="text-foreground underline decoration-gold/50 underline-offset-4 hover:text-gold-text hover:decoration-current"
                   >
                     {godsOfTitle(other)}
                   </Link>
@@ -309,14 +309,14 @@ export default async function GodsOfDomainPage({
           . See every domain side by side on{" "}
           <Link
             href="/divine-domains"
-            className="text-gold-text underline-offset-4 hover:underline"
+            className="text-gold-text underline decoration-gold/50 underline-offset-4 hover:decoration-current"
           >
             Divine Domains
           </Link>
           , or browse every{" "}
           <Link
             href="/compare/parallels"
-            className="text-gold-text underline-offset-4 hover:underline"
+            className="text-gold-text underline decoration-gold/50 underline-offset-4 hover:decoration-current"
           >
             cross-pantheon parallel
           </Link>

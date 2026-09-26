@@ -418,7 +418,7 @@ export default function HadesIIGuide() {
             not game text. See{" "}
             <Link
               href="/sources"
-              className="text-gold-text underline-offset-4 hover:underline"
+              className="text-gold-text underline decoration-gold/50 underline-offset-4 hover:decoration-current"
             >
               Sources
             </Link>{" "}

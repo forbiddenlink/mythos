@@ -47,7 +47,7 @@ export default function GuidesIndex() {
             <li key={guide.slug} className="py-6">
               <Link
                 href={`/guides/${guide.slug}`}
-                className="font-serif text-2xl text-foreground underline-offset-4 hover:text-gold-text hover:underline"
+                className="font-serif text-2xl text-foreground underline decoration-gold/50 underline-offset-4 hover:text-gold-text hover:decoration-current"
               >
                 {guide.title}
               </Link>
@@ -61,7 +61,7 @@ export default function GuidesIndex() {
           Looking for a single domain instead? See the{" "}
           <Link
             href="/divine-domains"
-            className="text-gold-text underline-offset-4 hover:underline"
+            className="text-gold-text underline decoration-gold/50 underline-offset-4 hover:decoration-current"
           >
             gods by domain
           </Link>

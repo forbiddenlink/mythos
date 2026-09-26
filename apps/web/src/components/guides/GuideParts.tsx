@@ -58,7 +58,7 @@ function Citations({ citations }: Readonly<{ citations: GuideCitation[] }>) {
           {citation.href ? (
             <Link
               href={citation.href}
-              className="underline-offset-4 hover:text-gold-text hover:underline"
+              className="underline decoration-gold/50 underline-offset-4 hover:text-gold-text hover:decoration-current"
             >
               {citation.label}
             </Link>
@@ -78,7 +78,7 @@ export function EntityLinks({
   if (entities.length === 0) return null;
   return (
     <p className="mt-2 text-sm">
-      <span className="page-eyebrow mr-2 text-muted-foreground">
+      <span className="text-sm font-medium uppercase tracking-[0.2em] mr-2 text-muted-foreground">
         In the atlas
       </span>
       {entities.map((entity, index) => (
@@ -86,7 +86,7 @@ export function EntityLinks({
           {index > 0 ? " · " : null}
           <Link
             href={entity.href}
-            className="font-body text-base text-foreground underline-offset-4 hover:text-gold-text hover:underline"
+            className="font-body text-base text-foreground underline decoration-gold/50 underline-offset-4 hover:text-gold-text hover:decoration-current"
           >
             {entity.name}
           </Link>
@@ -128,13 +128,17 @@ export function MythComparison({
       </h3>
       <div className="mt-4 grid gap-6 md:grid-cols-2">
         <div>
-          <p className="page-eyebrow text-muted-foreground">{retellingLabel}</p>
+          <p className="text-sm font-medium uppercase tracking-[0.2em] text-muted-foreground">
+            {retellingLabel}
+          </p>
           <div className="mt-2 font-body text-lg leading-relaxed text-foreground/90">
             {retelling}
           </div>
         </div>
         <div className="md:border-l md:border-gold/30 md:pl-6">
-          <p className="page-eyebrow text-gold-text">In the ancient sources</p>
+          <p className="text-sm font-medium uppercase tracking-[0.2em] text-gold-text">
+            In the ancient sources
+          </p>
           <div className="mt-2 font-body text-lg leading-relaxed text-foreground">
             {myth}
           </div>
@@ -171,7 +175,7 @@ export function EntityRoster({
           <div className="min-w-0">
             <Link
               href={entity.href}
-              className="font-serif text-xl text-foreground underline-offset-4 hover:text-gold-text hover:underline"
+              className="font-serif text-xl text-foreground underline decoration-gold/50 underline-offset-4 hover:text-gold-text hover:decoration-current"
             >
               {entity.name}
             </Link>
@@ -217,13 +221,15 @@ export function GuideContents({
 }: Readonly<{ items: Array<{ id: string; label: string }> }>) {
   return (
     <nav aria-label="On this page" className="mt-8 max-w-[68ch]">
-      <p className="page-eyebrow text-muted-foreground">On this page</p>
+      <p className="text-sm font-medium uppercase tracking-[0.2em] text-muted-foreground">
+        On this page
+      </p>
       <ol className="mt-2 flex flex-wrap gap-x-5 gap-y-1 font-body text-base">
         {items.map((item) => (
           <li key={item.id}>
             <a
               href={`#${item.id}`}
-              className="text-foreground underline-offset-4 hover:text-gold-text hover:underline"
+              className="text-foreground underline decoration-gold/50 underline-offset-4 hover:text-gold-text hover:decoration-current"
             >
               {item.label}
             </a>

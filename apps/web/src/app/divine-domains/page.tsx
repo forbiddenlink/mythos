@@ -40,7 +40,7 @@ function DomainIndex() {
           <li key={page.slug}>
             <Link
               href={`/gods-of/${page.slug}`}
-              className="text-foreground underline-offset-4 hover:text-gold-text hover:underline"
+              className="text-foreground underline decoration-gold/50 underline-offset-4 hover:text-gold-text hover:decoration-current"
             >
               {godsOfTitle(page)}
             </Link>{" "}
