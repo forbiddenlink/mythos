@@ -67,8 +67,8 @@ export function ExplorationWrapped({
 
   if (summary.deityCount === 0 && summary.storyCount === 0) {
     return (
-      <section className="border border-border/60 bg-card/50 p-6">
-        <div className="mb-2 flex items-center gap-2 text-xs uppercase tracking-[0.22em] text-gold/80">
+      <section className="rounded-lg border border-border/70 bg-card p-6">
+        <div className="mb-2 flex items-center gap-2 type-eyebrow">
           <MythosMark id="chronos" className="h-4 w-4 text-gold" />
           Exploration Wrapped
         </div>
@@ -81,7 +81,7 @@ export function ExplorationWrapped({
         </p>
         <Link
           href="/deities"
-          className="mt-4 inline-block text-sm text-gold underline-offset-4 hover:underline"
+          className="mt-4 inline-block text-sm text-gold-text underline underline-offset-4"
         >
           Start exploring →
         </Link>
@@ -90,12 +90,14 @@ export function ExplorationWrapped({
   }
 
   return (
-    <section className="border border-gold/30 bg-linear-to-br from-card via-card to-gold/5 p-6">
-      <div className="mb-2 flex items-center gap-2 text-xs uppercase tracking-[0.22em] text-gold/80">
+    <section className="rounded-lg border border-border/70 bg-card p-6">
+      <div className="mb-2 flex items-center gap-2 type-eyebrow">
         <MythosMark id="laurel" className="h-4 w-4 text-gold" />
         Exploration Wrapped
       </div>
-      <h2 className="font-serif text-2xl text-foreground">Your atlas so far</h2>
+      <h2 className="font-serif text-2xl font-semibold text-foreground">
+        Your atlas so far
+      </h2>
       <p className="mt-1 text-sm text-muted-foreground">
         A personal snapshot of what you&apos;ve opened in Mythos: a trail
         through the atlas.
@@ -110,12 +112,14 @@ export function ExplorationWrapped({
         ].map((stat) => (
           <div
             key={stat.label}
-            className="border border-border/50 bg-background/40 p-3"
+            className="rounded-md border border-border/60 bg-background/60 p-3"
           >
             <dt className="text-xs uppercase tracking-wide text-muted-foreground">
               {stat.label}
             </dt>
-            <dd className="font-serif text-3xl text-gold">{stat.value}</dd>
+            <dd className="font-serif text-3xl font-semibold tabular-nums text-foreground">
+              {stat.value}
+            </dd>
           </div>
         ))}
       </dl>
@@ -134,7 +138,7 @@ export function ExplorationWrapped({
                 <li key={d.id}>
                   <Link
                     href={`/deities/${d.slug}`}
-                    className="text-sm text-gold hover:underline"
+                    className="text-sm text-gold-text underline decoration-gold/40 underline-offset-4 hover:decoration-current"
                   >
                     {d.name}
                   </Link>
@@ -149,7 +153,7 @@ export function ExplorationWrapped({
             Still cold
           </p>
           <p className="mt-1 text-sm text-muted-foreground">
-            Pantheons you haven&apos;t opened yet — good Discover targets.
+            Traditions you haven&apos;t opened yet: good places to go next.
           </p>
           {summary.cold.length > 0 ? (
             <ul className="mt-3 space-y-1">
@@ -165,7 +169,9 @@ export function ExplorationWrapped({
               ))}
             </ul>
           ) : (
-            <p className="mt-3 text-sm text-gold">Every pantheon touched.</p>
+            <p className="mt-3 text-sm text-gold-text">
+              Every pantheon touched.
+            </p>
           )}
         </div>
       </div>
@@ -180,7 +186,7 @@ export function ExplorationWrapped({
               <li key={s.id}>
                 <Link
                   href={`/stories/${s.slug}`}
-                  className="text-sm text-gold hover:underline"
+                  className="text-sm text-gold-text underline decoration-gold/40 underline-offset-4 hover:decoration-current"
                 >
                   {s.title}
                 </Link>

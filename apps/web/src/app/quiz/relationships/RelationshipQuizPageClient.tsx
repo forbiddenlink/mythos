@@ -3,8 +3,6 @@
 import { useState, useEffect, useCallback } from "react";
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
-import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
-import { SimplePageHeader } from "@/components/layout/simple-page-header";
 import { RelationshipQuizCard } from "@/components/quiz/RelationshipQuizCard";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -250,10 +248,8 @@ export function RelationshipQuizPageClient({
     const percentage = Math.round((score / total) * 100);
 
     return (
-      <div className="min-h-screen bg-linear-to-b from-background to-mythic">
-        <div className="container mx-auto max-w-4xl px-4 py-12">
-          <Breadcrumbs />
-
+      <div>
+        <div>
           <Card className="max-w-2xl mx-auto mt-6 border-gold/20 shadow-xl overflow-hidden relative">
             <div className="absolute inset-0 bg-linear-to-br from-gold/5 via-transparent to-transparent pointer-events-none" />
             <CardHeader className="text-center pt-8">
@@ -265,8 +261,8 @@ export function RelationshipQuizPageClient({
                   Shared Result
                 </Badge>
               </div>
-              <div className="mx-auto mb-6 p-6 rounded-full bg-linear-to-br from-gold/20 to-amber-500/10 w-fit ring-1 ring-gold/30 shadow-inner">
-                <Trophy className="h-16 w-16 text-gold drop-shadow-md" />
+              <div className="mx-auto mb-4 flex size-16 items-center justify-center rounded-full border border-gold/40 bg-gold/10">
+                <Trophy className="size-8 text-gold-text" aria-hidden="true" />
               </div>
               <CardTitle className="text-3xl font-serif">
                 Quiz Results
@@ -338,15 +334,13 @@ export function RelationshipQuizPageClient({
     );
 
     return (
-      <div className="min-h-screen bg-linear-to-b from-background to-mythic">
-        <div className="container mx-auto max-w-4xl px-4 py-12">
-          <Breadcrumbs />
-
+      <div>
+        <div>
           <Card className="max-w-2xl mx-auto mt-6 border-gold/20 shadow-xl overflow-hidden relative">
             <div className="absolute inset-0 bg-linear-to-br from-gold/5 via-transparent to-transparent pointer-events-none" />
             <CardHeader className="text-center pt-8">
-              <div className="mx-auto mb-6 p-6 rounded-full bg-linear-to-br from-gold/20 to-amber-500/10 w-fit ring-1 ring-gold/30 shadow-inner">
-                <Trophy className="h-16 w-16 text-gold drop-shadow-md" />
+              <div className="mx-auto mb-4 flex size-16 items-center justify-center rounded-full border border-gold/40 bg-gold/10">
+                <Trophy className="size-8 text-gold-text" aria-hidden="true" />
               </div>
               <CardTitle className="text-3xl font-serif">
                 Quiz Complete!
@@ -447,10 +441,8 @@ export function RelationshipQuizPageClient({
     const hasAnswered = quizState.answers.length > quizState.currentIndex;
 
     return (
-      <div className="min-h-screen bg-linear-to-b from-background to-mythic">
-        <div className="container mx-auto max-w-4xl px-4 py-12">
-          <Breadcrumbs />
-
+      <div>
+        <div>
           <div className="mt-6 space-y-6">
             {/* Progress Header */}
             <div className="flex items-center justify-between">
@@ -523,77 +515,9 @@ export function RelationshipQuizPageClient({
 
   // Quiz Setup Screen
   return (
-    <div className="min-h-screen bg-linear-to-b from-background to-mythic">
-      <div className="page-shell max-w-4xl">
-        <Breadcrumbs />
-
-        <SimplePageHeader
-          mark="tree"
-          tagline="Family ties"
-          title="Divine Relationships Quiz"
-          description="Test your knowledge of divine family ties, marriages, and connections across pantheons"
-        />
-
-        <section className="mx-auto mb-8 max-w-3xl rounded-xl border border-border/60 bg-card/60 p-6">
-          <h2 className="page-section-title text-foreground">
-            Study Mythology As A Web Of Relationships
-          </h2>
-          <p className="mt-3 leading-relaxed text-muted-foreground">
-            This quiz is designed for the part of mythology that pure symbol
-            recall cannot capture: who is related to whom, which marriages bind
-            divine houses together, and where rivalries, siblings, and parentage
-            change the meaning of a story.
-          </p>
-          <p className="mt-3 leading-relaxed text-muted-foreground">
-            Use it after browsing the{" "}
-            <Link
-              href="/family-tree"
-              className="text-gold underline hover:text-gold/80"
-            >
-              family tree
-            </Link>{" "}
-            or a set of deity pages. The questions work best when you are
-            testing structure, not just isolated facts, and they are a useful
-            bridge between visual genealogy and narrative reading.
-          </p>
-          <p className="mt-3 leading-relaxed text-muted-foreground">
-            If you want a wider practice loop, pair this route with the{" "}
-            <Link
-              href="/quiz/quick"
-              className="text-gold underline hover:text-gold/80"
-            >
-              quick quiz
-            </Link>{" "}
-            for speed and the{" "}
-            <Link
-              href="/games/memory"
-              className="text-gold underline hover:text-gold/80"
-            >
-              symbol memory game
-            </Link>{" "}
-            for recognition before returning here for relationship depth.
-          </p>
-          <p className="mt-3 leading-relaxed text-muted-foreground">
-            That makes this page useful for more than trivia. It trains the
-            connective tissue of mythology, which is often the difference
-            between recognizing a name and actually understanding how a story or
-            pantheon structure fits together.
-          </p>
-          <p className="mt-3 leading-relaxed text-muted-foreground">
-            It is also one of the fastest ways to spot where your mental model
-            breaks. If parentage, marriage, and sibling questions keep blurring
-            together, the issue is usually not one missed fact but an unclear
-            internal map of the pantheon itself.
-          </p>
-          <p className="mt-3 leading-relaxed text-muted-foreground">
-            Once that structure improves, story pages become easier to follow
-            because motivations, rivalries, inheritances, and alliances stop
-            feeling like isolated details. The quiz is useful precisely because
-            it turns those hidden gaps into something you can measure quickly.
-          </p>
-        </section>
-
-        <Card className="max-w-xl mx-auto border-gold/20 shadow-xl">
+    <div>
+      <div>
+        <Card className="mx-auto max-w-xl border-gold/30 shadow-xl shadow-black/5">
           <CardHeader>
             <CardTitle className="text-xl font-serif flex items-center gap-2">
               <Target className="h-5 w-5 text-gold" />

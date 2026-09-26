@@ -1,15 +1,29 @@
 "use client";
 
+import Link from "next/link";
+import { Lock } from "lucide-react";
+import { Container } from "@/components/layout/container";
+import { PageHeader } from "@/components/layout/page-header";
+import {
+  primaryLinkClass,
+  secondaryLinkClass,
+} from "@/components/layout/tool-stage";
 import { Progress } from "@/components/ui/progress";
-import { categoryLabels, tierColors } from "@/data/achievements";
+import { categoryLabels } from "@/data/achievements";
 import {
   useAchievements,
   type AchievementWithStatus,
 } from "@/hooks/useAchievements";
-import { motion } from "framer-motion";
-import { Lock } from "lucide-react";
-import { HeroMark } from "@/components/icons/hero-mark";
 import { MythosMark, type MythosMarkId } from "@/components/icons/mythos-marks";
+import { cn } from "@/lib/utils";
+
+const CATEGORY_ORDER = [
+  "exploration",
+  "learning",
+  "mastery",
+  "dedication",
+  "special",
+] as const;
 
 const categoryMarks: Record<string, MythosMarkId> = {
   exploration: "compass",
@@ -19,149 +33,107 @@ const categoryMarks: Record<string, MythosMarkId> = {
   special: "constellation",
 };
 
-const tierBadgeClasses: Record<string, string> = {
-  mythic: "bg-bronze/15 text-bronze border-bronze/40",
-  gold: "bg-gold/15 text-gold border-gold/40",
-  silver: "bg-muted text-foreground border-border",
-  bronze: "bg-bronze/10 text-bronze border-bronze/30",
+const TIER_LABEL: Record<string, string> = {
+  mythic: "Mythic",
+  gold: "Gold",
+  silver: "Silver",
+  bronze: "Bronze",
 };
 
-function AchievementCard({
-  achievement,
-}: Readonly<{
-  achievement: AchievementWithStatus;
-}>) {
-  const colors = tierColors[achievement.tier];
-  const isUnlocked = achievement.unlocked;
-  const progressPercent = achievement.progress
+/** Ring colour for an unlocked medallion, by tier. */
+const TIER_RING: Record<string, string> = {
+  mythic: "ring-bronze bg-bronze/15",
+  gold: "ring-gold bg-gold/15",
+  silver: "ring-muted-foreground/60 bg-muted",
+  bronze: "ring-bronze/70 bg-bronze/10",
+};
+
+const tierOrder = { mythic: 0, gold: 1, silver: 2, bronze: 3 } as const;
+
+function progressPercent(achievement: AchievementWithStatus): number {
+  return achievement.progress
     ? Math.min(
         100,
         (achievement.progress.current / achievement.progress.target) * 100,
       )
     : 0;
+}
 
+function Medallion({
+  achievement,
+  size = "md",
+}: Readonly<{ achievement: AchievementWithStatus; size?: "md" | "lg" }>) {
+  const unlocked = achievement.unlocked;
   return (
-    <motion.div
-      initial={{ y: 16 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.25, ease: "easeOut" }}
-      className={`relative rounded-xl border p-5 transition-all duration-300 bg-card ${
-        isUnlocked ? `${colors.border} ${colors.bg} shadow-lg` : "border-border"
-      } ${isUnlocked ? "shadow-lg" : "border-border/80 bg-muted/20"}`}
-    >
-      {/* Lock overlay for locked achievements */}
-      {!achievement.unlocked && (
-        <div className="absolute top-3 right-3">
-          <Lock className="h-4 w-4 text-muted-foreground" />
-        </div>
+    <span
+      aria-hidden="true"
+      className={cn(
+        "relative flex shrink-0 items-center justify-center rounded-full ring-2",
+        size === "lg" ? "size-16 text-3xl" : "size-12 text-2xl",
+        unlocked ? TIER_RING[achievement.tier] : "bg-muted ring-border",
       )}
-
-      <div className="flex items-start gap-4">
-        {/* Icon */}
-        <div
-          className={`relative shrink-0 flex h-14 w-14 items-center justify-center border text-2xl ${
-            isUnlocked
-              ? `${colors.bg} ${colors.border}`
-              : "bg-muted border-border"
-          }`}
-        >
-          <span className="absolute left-0 top-0 h-2 w-2 border-l border-t border-current opacity-40" />
-          <span className="absolute right-0 top-0 h-2 w-2 border-r border-t border-current opacity-40" />
-          <span className="absolute bottom-0 left-0 h-2 w-2 border-b border-l border-current opacity-40" />
-          <span className="absolute bottom-0 right-0 h-2 w-2 border-b border-r border-current opacity-40" />
-          <span className="relative">{achievement.icon}</span>
-        </div>
-
-        {/* Content */}
-        <div className="flex-1 min-w-0">
-          <div className="flex items-center gap-2 mb-1">
-            <h3 className="font-semibold text-foreground">
-              {achievement.name}
-            </h3>
-            <span
-              className={`text-xs px-2 py-0.5 rounded-full border ${
-                isUnlocked
-                  ? tierBadgeClasses[achievement.tier]
-                  : "bg-slate-900 text-white border-slate-700 dark:bg-slate-100 dark:text-slate-950 dark:border-slate-300"
-              }`}
-            >
-              {achievement.tier}
-            </span>
-          </div>
-
-          <p className="text-sm text-foreground/85 mb-3">
-            {achievement.description}
-          </p>
-
-          {/* Progress bar for locked achievements */}
-          {!achievement.unlocked && achievement.progress && (
-            <div className="space-y-1">
-              <Progress
-                value={progressPercent}
-                className="h-2"
-                aria-label={`${achievement.name} progress: ${achievement.progress.current} of ${achievement.progress.target}`}
-              />
-              <p className="text-xs text-foreground/80">
-                {achievement.progress.current} / {achievement.progress.target}
-              </p>
-            </div>
-          )}
-
-          {/* XP reward */}
-          <div className="flex items-center gap-1 mt-2">
-            <MythosMark
-              id="laurel"
-              className={`h-3.5 w-3.5 ${achievement.unlocked ? "text-gold" : "text-foreground/70"}`}
-            />
-            <span
-              className={`text-xs ${achievement.unlocked ? "text-gold" : "text-foreground/80"}`}
-            >
-              {achievement.xp} XP
-            </span>
-          </div>
-        </div>
-      </div>
-    </motion.div>
+    >
+      <span className={cn(!unlocked && "opacity-45 grayscale")}>
+        {achievement.icon}
+      </span>
+      {!unlocked ? (
+        <span className="absolute -right-1 -bottom-1 flex size-5 items-center justify-center rounded-full border border-border bg-background">
+          <Lock className="size-3 text-muted-foreground" />
+        </span>
+      ) : null}
+    </span>
   );
 }
 
-function CategorySection({
-  category,
-  achievements,
-}: Readonly<{
-  category: keyof typeof categoryLabels;
-  achievements: AchievementWithStatus[];
-}>) {
-  const markId = categoryMarks[category] ?? "laurel";
-  const unlockedCount = achievements.filter((a) => a.unlocked).length;
+function AchievementCard({
+  achievement,
+}: Readonly<{ achievement: AchievementWithStatus }>) {
+  const unlocked = achievement.unlocked;
+  const percent = progressPercent(achievement);
 
   return (
-    <section className="mb-12">
-      <div className="flex items-center gap-3 mb-6">
-        <MythosMark id={markId} className="h-5 w-5 text-gold" />
-        <div>
-          <h2 className="text-xl font-serif text-foreground">
-            {categoryLabels[category]}
-          </h2>
-          <p className="text-sm text-muted-foreground">
-            {unlockedCount} / {achievements.length} unlocked
-          </p>
-        </div>
-      </div>
+    <article
+      className={cn(
+        "flex h-full gap-4 rounded-lg border p-5",
+        unlocked ? "border-gold/40 bg-gold/[0.06]" : "border-border/70 bg-card",
+      )}
+    >
+      <Medallion achievement={achievement} />
+      <div className="min-w-0 flex-1">
+        <h3 className="font-serif text-lg font-semibold leading-snug text-foreground">
+          {achievement.name}
+        </h3>
+        <p className="mt-1 type-ui text-muted-foreground">
+          {achievement.description}
+        </p>
 
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {achievements.map((achievement, index) => (
-          <motion.div
-            key={achievement.id}
-            initial={{ y: 16 }}
-            animate={{ y: 0 }}
-            transition={{ delay: index * 0.05 }}
-          >
-            <AchievementCard achievement={achievement} />
-          </motion.div>
-        ))}
+        {!unlocked && achievement.progress ? (
+          <div className="mt-3">
+            <Progress
+              value={percent}
+              className="h-1.5"
+              aria-label={`${achievement.name} progress: ${achievement.progress.current} of ${achievement.progress.target}`}
+            />
+          </div>
+        ) : null}
+
+        <p className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-1 type-meta text-muted-foreground">
+          <span className={cn(unlocked && "font-medium text-gold-text")}>
+            {unlocked ? "Unlocked" : TIER_LABEL[achievement.tier]}
+          </span>
+          {!unlocked && achievement.progress ? (
+            <span className="tabular-nums">
+              {Math.min(
+                achievement.progress.current,
+                achievement.progress.target,
+              )}{" "}
+              / {achievement.progress.target}
+            </span>
+          ) : null}
+          <span className="tabular-nums">{achievement.xp} XP</span>
+        </p>
       </div>
-    </section>
+    </article>
   );
 }
 
@@ -170,20 +142,15 @@ export function AchievementsPageClient({
 }: Readonly<{ traditionCount: number }>) {
   const { achievements, unlockedCount, totalCount } = useAchievements();
 
-  // Group achievements by category
   const grouped = achievements.reduce(
     (acc, achievement) => {
-      if (!acc[achievement.category]) {
-        acc[achievement.category] = [];
-      }
-      acc[achievement.category].push(achievement);
+      const list = acc[achievement.category] ?? [];
+      list.push(achievement);
+      acc[achievement.category] = list;
       return acc;
     },
     {} as Record<string, AchievementWithStatus[]>,
   );
-
-  // Sort each category: unlocked first, then by tier
-  const tierOrder = { mythic: 0, gold: 1, silver: 2, bronze: 3 };
   Object.values(grouped).forEach((list) => {
     list.sort((a, b) => {
       if (a.unlocked !== b.unlocked) return a.unlocked ? -1 : 1;
@@ -195,88 +162,139 @@ export function AchievementsPageClient({
     .filter((a) => a.unlocked)
     .reduce((sum, a) => sum + a.xp, 0);
 
+  // The three locked badges fewest steps from done (ties: the smaller reward,
+  // which is usually the more approachable badge).
+  const stepsLeft = (a: AchievementWithStatus) =>
+    a.progress
+      ? Math.max(0, a.progress.target - a.progress.current)
+      : Number.POSITIVE_INFINITY;
+  const nextUp = achievements
+    .filter((a) => !a.unlocked)
+    .toSorted((a, b) => stepsLeft(a) - stepsLeft(b) || a.xp - b.xp)
+    .slice(0, 3);
+
   return (
-    <div className="min-h-screen bg-linear-to-b from-background via-muted/30 to-background dark:from-midnight dark:via-mythic dark:to-midnight">
-      {/* Hero Section */}
-      <section className="relative py-20 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-radial from-gold/5 via-transparent to-transparent" />
-
-        <div className="container mx-auto px-4 relative z-10">
-          <motion.div
-            initial={{ y: 20 }}
-            animate={{ y: 0 }}
-            transition={{ duration: 0.3, ease: "easeOut" }}
-            className="text-center max-w-3xl mx-auto"
-          >
-            <div className="mb-6 flex justify-center">
-              <HeroMark mark="laurel" tone="light" size="lg" />
+    <div className="min-h-screen">
+      <PageHeader
+        eyebrow="Your achievements"
+        mark="laurel"
+        title="Achievements"
+        lede={`Earn badges as you read stories, study deities and test your knowledge across all ${traditionCount} traditions.`}
+      >
+        <dl className="flex flex-wrap gap-x-10 gap-y-4">
+          {[
+            { label: "Unlocked", value: unlockedCount },
+            { label: "In the hall", value: totalCount },
+            { label: "XP earned", value: totalXP },
+          ].map((figure) => (
+            <div key={figure.label} className="border-l border-gold/40 pl-4">
+              <dt className="type-meta uppercase tracking-[0.14em] text-muted-foreground">
+                {figure.label}
+              </dt>
+              <dd className="font-serif text-3xl font-semibold tabular-nums text-foreground">
+                {figure.value}
+              </dd>
             </div>
-            <span className="page-eyebrow mb-4 block text-gold">
-              Your Achievements
-            </span>
+          ))}
+        </dl>
+      </PageHeader>
 
-            <h1 className="page-title text-foreground mb-4">
-              Hall of <span className="text-gradient-gold">Glory</span>
-            </h1>
-
-            <p className="text-lg text-muted-foreground mb-8">
-              Earn badges as you read stories, study deities, and test your
-              knowledge across all {traditionCount} traditions.
-            </p>
-
-            <p className="mx-auto max-w-2xl text-sm leading-7 text-muted-foreground">
-              Achievements give longer-term shape to the site. Instead of
-              treating each visit as a disconnected page view, they turn
-              reading, review, quizzes, and exploration into a visible record of
-              what you have actually covered and reinforced.
-            </p>
-
-            {/* Stats */}
-            <div className="flex items-center justify-center gap-8">
-              <div className="text-center">
-                <div className="text-3xl font-bold text-gold">
-                  {unlockedCount}
+      {unlockedCount === 0 && nextUp.length > 0 ? (
+        <section
+          aria-labelledby="achievements-first"
+          className="border-b border-border/60"
+        >
+          <Container className="section-space-sm">
+            <div className="grid gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-center lg:gap-14">
+              <div className="max-w-xl">
+                <p className="type-eyebrow">No badges yet</p>
+                <h2
+                  id="achievements-first"
+                  className="page-section-title mt-2 text-foreground"
+                >
+                  Your first badge is one page away
+                </h2>
+                <p className="type-lede mt-3 text-muted-foreground">
+                  Badges unlock as you read, take quizzes and come back on later
+                  days. Everything is recorded in this browser only.
+                </p>
+                <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-3">
+                  <Link href="/deities" className={primaryLinkClass}>
+                    Open a deity
+                  </Link>
+                  <Link href="/quiz" className={secondaryLinkClass}>
+                    Take a quiz
+                  </Link>
                 </div>
-                <div className="text-sm text-muted-foreground">Unlocked</div>
               </div>
-              <div className="w-px h-12 bg-gold/20" />
-              <div className="text-center">
-                <div className="text-3xl font-bold text-foreground/70">
-                  {totalCount}
-                </div>
-                <div className="text-sm text-muted-foreground">Total</div>
-              </div>
-              <div className="w-px h-12 bg-gold/20" />
-              <div className="text-center">
-                <div className="text-3xl font-bold text-gold">{totalXP}</div>
-                <div className="text-sm text-muted-foreground">XP Earned</div>
+              <div>
+                <p className="type-ui mb-3 font-medium text-foreground">
+                  Closest to unlocking
+                </p>
+                <ul className="divide-y divide-border/70 rounded-lg border border-border/70 bg-card">
+                  {nextUp.map((achievement) => (
+                    <li
+                      key={achievement.id}
+                      className="flex items-center gap-4 px-5 py-4"
+                    >
+                      <Medallion achievement={achievement} />
+                      <div className="min-w-0 flex-1">
+                        <p className="font-serif text-base font-semibold text-foreground">
+                          {achievement.name}
+                        </p>
+                        <p className="type-ui text-muted-foreground">
+                          {achievement.description}
+                        </p>
+                      </div>
+                      <span className="type-meta tabular-nums text-muted-foreground">
+                        {achievement.xp} XP
+                      </span>
+                    </li>
+                  ))}
+                </ul>
               </div>
             </div>
-          </motion.div>
-        </div>
-      </section>
+          </Container>
+        </section>
+      ) : null}
 
-      {/* Achievement Categories */}
-      <section className="container mx-auto px-4 pb-20">
-        {(
-          [
-            "exploration",
-            "learning",
-            "mastery",
-            "dedication",
-            "special",
-          ] as const
-        ).map(
-          (category) =>
-            grouped[category]?.length > 0 && (
-              <CategorySection
-                key={category}
-                category={category}
-                achievements={grouped[category]}
-              />
-            ),
-        )}
-      </section>
+      <Container className="section-space-sm">
+        {CATEGORY_ORDER.map((category) => {
+          const list = grouped[category];
+          if (!list?.length) return null;
+          const unlocked = list.filter((a) => a.unlocked).length;
+          return (
+            <section
+              key={category}
+              aria-labelledby={`achievements-${category}`}
+              className="mb-14 last:mb-0"
+            >
+              <div className="mb-6 flex flex-wrap items-end justify-between gap-3 border-b border-border/70 pb-3">
+                <h2
+                  id={`achievements-${category}`}
+                  className="flex items-center gap-3 font-serif text-2xl font-semibold text-foreground"
+                >
+                  <MythosMark
+                    id={categoryMarks[category] ?? "laurel"}
+                    className="size-5 text-gold-text"
+                  />
+                  {categoryLabels[category]}
+                </h2>
+                <p className="type-ui tabular-nums text-muted-foreground">
+                  {unlocked} / {list.length} unlocked
+                </p>
+              </div>
+              <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                {list.map((achievement) => (
+                  <li key={achievement.id}>
+                    <AchievementCard achievement={achievement} />
+                  </li>
+                ))}
+              </ul>
+            </section>
+          );
+        })}
+      </Container>
     </div>
   );
 }

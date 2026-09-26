@@ -353,29 +353,6 @@ export const achievements: Achievement[] = [
   },
 ];
 
-export const tierColors = {
-  bronze: {
-    bg: "bg-amber-900/20",
-    border: "border-amber-700/50",
-    text: "text-amber-500",
-  },
-  silver: {
-    bg: "bg-slate-400/20",
-    border: "border-slate-400/50",
-    text: "text-slate-300",
-  },
-  gold: {
-    bg: "bg-yellow-500/20",
-    border: "border-yellow-500/50",
-    text: "text-yellow-400",
-  },
-  mythic: {
-    bg: "bg-bronze/20",
-    border: "border-bronze/50",
-    text: "text-bronze",
-  },
-};
-
 export const categoryLabels = {
   exploration: "Exploration",
   learning: "Learning",

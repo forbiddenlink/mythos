@@ -1,7 +1,6 @@
 "use client";
 
 import { MythComparisonView } from "@/components/compare/MythComparisonView";
-import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -12,16 +11,11 @@ import {
   compareMythVersions,
   getAvailableCategories,
 } from "@/lib/myth-comparison";
-import { ArrowLeft, Check, Share2, Sparkles } from "lucide-react";
-import { HeroMark } from "@/components/icons/hero-mark";
+import { Check, Share2 } from "lucide-react";
 import { useTranslations } from "next-intl";
-import Image from "next/image";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useCallback, useEffect, useMemo, useState } from "react";
-
-const HERO_IMAGE_WIDTH = 1920;
-const HERO_IMAGE_HEIGHT = 1080;
 
 interface Pantheon {
   id: string;
@@ -242,313 +236,248 @@ export function CompareMythsPageClient({
   };
 
   return (
-    <div className="min-h-screen">
-      {/* Hero Section */}
-      <div className="relative h-[40vh] min-h-80 flex items-center justify-center overflow-hidden">
-        {/* Background Image */}
-        <div className="absolute inset-0 z-0">
-          <Image
-            src="/stories-hero.jpg"
-            alt="Compare Myths"
-            width={HERO_IMAGE_WIDTH}
-            height={HERO_IMAGE_HEIGHT}
-            sizes="100vw"
-            className="h-full w-full object-cover"
-            priority
-          />
-        </div>
-        {/* Gradient Overlay */}
-        <div className="absolute inset-0 bg-linear-to-b from-midnight/70 via-midnight/60 to-midnight/80 z-10" />
-
-        {/* Radial gold glow */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[120%] h-[60%] bg-gradient-radial from-gold/10 via-transparent to-transparent z-10" />
-
-        {/* Hero Content */}
-        <div className="relative z-20 text-center px-4 max-w-4xl mx-auto">
-          <div className="flex items-center justify-center mb-6">
-            <HeroMark mark="scales" tone="gold" size="lg" />
-          </div>
-          <span className="inline-block text-gold/80 text-sm tracking-[0.25em] uppercase mb-4 font-medium">
-            {t("heroTagline")}
+    <div>
+      <div className="mb-6 flex flex-wrap items-center justify-end gap-3 empty:hidden">
+        {selectedStories.length > 0 && (
+          <span className="type-meta text-muted-foreground">
+            {t("selectedCount", { count: selectedStories.length, max: 3 })}
           </span>
-          <h1 className="page-title text-parchment mb-6">{t("title")}</h1>
-          <div className="flex items-center justify-center gap-4 mb-6">
-            <div className="w-12 h-px bg-linear-to-r from-transparent to-gold/40" />
-            <div className="w-1.5 h-1.5 rotate-45 bg-gold/50" />
-            <div className="w-12 h-px bg-linear-to-l from-transparent to-gold/40" />
-          </div>
-          <p className="text-lg md:text-xl text-parchment/70 max-w-2xl mx-auto font-body leading-relaxed">
-            {t("description")}
-          </p>
-        </div>
+        )}
+        {selectedStories.length > 0 && (
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={handleShare}
+            className="gap-2"
+          >
+            {shareStatus === "success" ? (
+              <Check className="h-4 w-4" />
+            ) : (
+              <Share2 className="h-4 w-4" />
+            )}
+            {shareLabel}
+          </Button>
+        )}
       </div>
 
-      {/* Content Section */}
-      <div className="container mx-auto max-w-7xl px-4 py-16 bg-mythic">
-        <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between mb-8">
-          <div className="flex flex-wrap items-center gap-2 sm:gap-4">
-            <Breadcrumbs />
-            <Button asChild variant="ghost" size="sm" className="gap-2">
-              <Link href="/compare">
-                <ArrowLeft className="h-4 w-4" />
-                {t("deityComparison")}
-              </Link>
-            </Button>
-            {selectedStories.length > 0 && (
-              <span className="text-xs text-muted-foreground rounded-full border border-border px-2 py-1">
-                {t("selectedCount", { count: selectedStories.length, max: 3 })}
+      {/* Story Selector */}
+      <div className="mb-12">
+        <h2 className="page-section-title mb-6 text-foreground">
+          {t("selectMyths")}
+        </h2>
+
+        {/* Selected Stories Chips */}
+        {selectedStories.length > 0 && (
+          <div className="flex flex-wrap gap-2 mb-4">
+            {selectedStories.map((story) => (
+              <Badge
+                key={story.id}
+                variant="secondary"
+                className="px-3 py-1.5 text-sm flex items-center gap-2 bg-primary/10 border-primary/20"
+              >
+                {story.title}
+                <button
+                  onClick={() => handleRemove(story.id)}
+                  className="hover:text-destructive transition-colors"
+                  aria-label={`Remove ${story.title}`}
+                >
+                  <span className="text-lg leading-none">&times;</span>
+                </button>
+              </Badge>
+            ))}
+            {selectedStories.length < 3 && (
+              <span className="text-sm text-muted-foreground self-center">
+                {t("selectUpToMore", { count: 3 - selectedStories.length })}
               </span>
             )}
           </div>
-          {selectedStories.length > 0 && (
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={handleShare}
-              className="gap-2"
-            >
-              {shareStatus === "success" ? (
-                <Check className="h-4 w-4" />
-              ) : (
-                <Share2 className="h-4 w-4" />
-              )}
-              {shareLabel}
-            </Button>
-          )}
-        </div>
-
-        <div className="mb-8 rounded-lg border border-border/60 bg-card/60 p-4">
-          <p className="text-sm text-muted-foreground">{t("modeHint")}</p>
-          <div className="mt-3 flex flex-wrap gap-2">
-            <Button asChild size="sm" variant="default">
-              <Link href="/compare/myths">{t("primaryModeCta")}</Link>
-            </Button>
-            <Button asChild size="sm" variant="outline">
-              <Link href="/compare">{t("switchModeCta")}</Link>
-            </Button>
-          </div>
-        </div>
-
-        {/* Story Selector */}
-        <div className="mb-12">
-          <h2 className="text-xl font-serif font-semibold mb-4">
-            {t("selectMyths")}
-          </h2>
-
-          {/* Selected Stories Chips */}
-          {selectedStories.length > 0 && (
-            <div className="flex flex-wrap gap-2 mb-4">
-              {selectedStories.map((story) => (
-                <Badge
-                  key={story.id}
-                  variant="secondary"
-                  className="px-3 py-1.5 text-sm flex items-center gap-2 bg-primary/10 border-primary/20"
-                >
-                  {story.title}
-                  <button
-                    onClick={() => handleRemove(story.id)}
-                    className="hover:text-destructive transition-colors"
-                    aria-label={`Remove ${story.title}`}
-                  >
-                    <span className="text-lg leading-none">&times;</span>
-                  </button>
-                </Badge>
-              ))}
-              {selectedStories.length < 3 && (
-                <span className="text-sm text-muted-foreground self-center">
-                  {t("selectUpToMore", { count: 3 - selectedStories.length })}
-                </span>
-              )}
-            </div>
-          )}
-
-          {/* Filters */}
-          {selectedStories.length < 3 && (
-            <div className="space-y-4">
-              {/* Category and Pantheon Filters */}
-              <div className="flex flex-wrap gap-2">
-                <Button
-                  variant={selectedCategory === null ? "default" : "outline"}
-                  size="sm"
-                  onClick={() => setSelectedCategory(null)}
-                >
-                  {t("allCategories")}
-                </Button>
-                {categories.slice(0, 8).map((category) => (
-                  <Button
-                    key={category}
-                    variant={
-                      selectedCategory === category ? "default" : "outline"
-                    }
-                    size="sm"
-                    onClick={() => setSelectedCategory(category)}
-                    className="capitalize"
-                  >
-                    {category}
-                  </Button>
-                ))}
-              </div>
-
-              <div className="flex flex-wrap gap-2">
-                <Button
-                  variant={selectedPantheon === null ? "default" : "outline"}
-                  size="sm"
-                  onClick={() => setSelectedPantheon(null)}
-                >
-                  {t("allCultures")}
-                </Button>
-                {pantheons.map((pantheon) => (
-                  <Button
-                    key={pantheon.id}
-                    variant={
-                      selectedPantheon === pantheon.id ? "default" : "outline"
-                    }
-                    size="sm"
-                    onClick={() => setSelectedPantheon(pantheon.id)}
-                  >
-                    {pantheon.name.replace(" Pantheon", "")}
-                  </Button>
-                ))}
-                {hasActiveFilters && (
-                  <Button variant="ghost" size="sm" onClick={clearFilters}>
-                    {t("clearFilters")}
-                  </Button>
-                )}
-              </div>
-
-              {/* Search Input */}
-              <div className="relative">
-                <label htmlFor="compare-myth-search" className="sr-only">
-                  Search myths by title, theme, or summary
-                </label>
-                <Input
-                  id="compare-myth-search"
-                  type="text"
-                  placeholder={t("searchPlaceholder")}
-                  value={searchQuery}
-                  onChange={(e) => {
-                    setSearchQuery(e.target.value);
-                    setIsDropdownOpen(true);
-                  }}
-                  onFocus={() => setIsDropdownOpen(true)}
-                  className="pl-4"
-                />
-              </div>
-
-              {/* Dropdown Results */}
-              {isDropdownOpen &&
-                (searchQuery || selectedCategory || selectedPantheon) && (
-                  <div className="border rounded-lg bg-card shadow-lg max-h-80 overflow-y-auto">
-                    {filteredStories.length === 0 ? (
-                      <div className="p-4 text-center text-muted-foreground">
-                        {t("noMythsFound")}
-                      </div>
-                    ) : (
-                      <ul className="divide-y divide-border">
-                        {filteredStories.slice(0, 15).map((story) => (
-                          <li key={story.id}>
-                            <button
-                              onClick={() => handleSelect(story)}
-                              className="w-full px-4 py-3 text-left hover:bg-muted/50 transition-colors"
-                            >
-                              <div className="flex items-start justify-between gap-4">
-                                <div className="flex-1 min-w-0">
-                                  <span className="font-medium">
-                                    {story.title}
-                                  </span>
-                                  <span className="text-muted-foreground text-sm ml-2">
-                                    ({formatPantheonName(story.pantheonId)})
-                                  </span>
-                                  <p className="text-sm text-muted-foreground mt-1 line-clamp-1">
-                                    {story.summary}
-                                  </p>
-                                  <div className="flex gap-1 mt-1.5">
-                                    <Badge
-                                      variant="outline"
-                                      className="text-xs capitalize"
-                                    >
-                                      {story.category}
-                                    </Badge>
-                                  </div>
-                                </div>
-                              </div>
-                            </button>
-                          </li>
-                        ))}
-                      </ul>
-                    )}
-                  </div>
-                )}
-            </div>
-          )}
-        </div>
-
-        {/* Predefined Comparisons */}
-        {selectedStories.length === 0 && (
-          <div className="mb-12">
-            <h2 className="text-xl font-serif font-semibold mb-4">
-              {t("suggestedComparisons")}
-            </h2>
-            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {PRESET_MYTH_COMPARISONS.map((preset) => {
-                // Check how many stories are available
-                const availableStories = preset.storyIds.filter((id) =>
-                  storyMap.has(id),
-                );
-                if (availableStories.length < 2) return null;
-
-                return (
-                  <button
-                    key={preset.id}
-                    onClick={() => handlePresetComparison(availableStories)}
-                    className="p-4 rounded-lg border border-border/60 bg-card hover:border-gold/50 hover:bg-gold/5 transition-all text-left group"
-                  >
-                    <div className="flex items-center gap-3 mb-2">
-                      <Sparkles className="h-5 w-5 text-gold" />
-                      <h3 className="font-serif font-semibold group-hover:text-gold transition-colors">
-                        {preset.name}
-                      </h3>
-                    </div>
-                    <p className="text-sm text-muted-foreground mb-3">
-                      {preset.description}
-                    </p>
-                    <p className="text-xs text-muted-foreground">
-                      {availableStories
-                        .slice(0, 3)
-                        .map((id) => storyMap.get(id)?.title || id)
-                        .join(", ")}
-                    </p>
-                  </button>
-                );
-              })}
-            </div>
-          </div>
         )}
 
-        {/* Comparison View */}
+        {/* Filters */}
+        {selectedStories.length < 3 && (
+          <div className="space-y-4">
+            {/* Category and Pantheon Filters */}
+            <div className="flex flex-wrap gap-2">
+              <Button
+                variant={selectedCategory === null ? "default" : "outline"}
+                size="sm"
+                onClick={() => setSelectedCategory(null)}
+              >
+                {t("allCategories")}
+              </Button>
+              {categories.slice(0, 8).map((category) => (
+                <Button
+                  key={category}
+                  variant={
+                    selectedCategory === category ? "default" : "outline"
+                  }
+                  size="sm"
+                  onClick={() => setSelectedCategory(category)}
+                  className="capitalize"
+                >
+                  {category}
+                </Button>
+              ))}
+            </div>
+
+            <div className="flex flex-wrap gap-2">
+              <Button
+                variant={selectedPantheon === null ? "default" : "outline"}
+                size="sm"
+                onClick={() => setSelectedPantheon(null)}
+              >
+                {t("allCultures")}
+              </Button>
+              {pantheons.map((pantheon) => (
+                <Button
+                  key={pantheon.id}
+                  variant={
+                    selectedPantheon === pantheon.id ? "default" : "outline"
+                  }
+                  size="sm"
+                  onClick={() => setSelectedPantheon(pantheon.id)}
+                >
+                  {pantheon.name.replace(" Pantheon", "")}
+                </Button>
+              ))}
+              {hasActiveFilters && (
+                <Button variant="ghost" size="sm" onClick={clearFilters}>
+                  {t("clearFilters")}
+                </Button>
+              )}
+            </div>
+
+            {/* Search Input */}
+            <div className="relative">
+              <label htmlFor="compare-myth-search" className="sr-only">
+                Search myths by title, theme, or summary
+              </label>
+              <Input
+                id="compare-myth-search"
+                type="text"
+                placeholder={t("searchPlaceholder")}
+                value={searchQuery}
+                onChange={(e) => {
+                  setSearchQuery(e.target.value);
+                  setIsDropdownOpen(true);
+                }}
+                onFocus={() => setIsDropdownOpen(true)}
+                className="pl-4"
+              />
+            </div>
+
+            {/* Dropdown Results */}
+            {isDropdownOpen &&
+              (searchQuery || selectedCategory || selectedPantheon) && (
+                <div className="border rounded-lg bg-card shadow-lg max-h-80 overflow-y-auto">
+                  {filteredStories.length === 0 ? (
+                    <div className="p-4 text-center text-muted-foreground">
+                      {t("noMythsFound")}
+                    </div>
+                  ) : (
+                    <ul className="divide-y divide-border">
+                      {filteredStories.slice(0, 15).map((story) => (
+                        <li key={story.id}>
+                          <button
+                            onClick={() => handleSelect(story)}
+                            className="w-full px-4 py-3 text-left hover:bg-muted/50 transition-colors"
+                          >
+                            <div className="flex items-start justify-between gap-4">
+                              <div className="flex-1 min-w-0">
+                                <span className="font-medium">
+                                  {story.title}
+                                </span>
+                                <span className="text-muted-foreground text-sm ml-2">
+                                  ({formatPantheonName(story.pantheonId)})
+                                </span>
+                                <p className="text-sm text-muted-foreground mt-1 line-clamp-1">
+                                  {story.summary}
+                                </p>
+                                <div className="flex gap-1 mt-1.5">
+                                  <Badge
+                                    variant="outline"
+                                    className="text-xs capitalize"
+                                  >
+                                    {story.category}
+                                  </Badge>
+                                </div>
+                              </div>
+                            </div>
+                          </button>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
+              )}
+          </div>
+        )}
+      </div>
+
+      {/* Predefined Comparisons */}
+      {selectedStories.length === 0 && (
+        <div className="mb-12">
+          <h2 className="page-section-title mb-6 text-foreground">
+            {t("suggestedComparisons")}
+          </h2>
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {PRESET_MYTH_COMPARISONS.map((preset) => {
+              // Check how many stories are available
+              const availableStories = preset.storyIds.filter((id) =>
+                storyMap.has(id),
+              );
+              if (availableStories.length < 2) return null;
+
+              return (
+                <button
+                  key={preset.id}
+                  onClick={() => handlePresetComparison(availableStories)}
+                  className="group flex h-full flex-col rounded-lg border border-border/70 bg-card p-5 text-left transition-colors hover:border-gold/50 hover:bg-gold/5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold"
+                >
+                  <h3 className="font-serif text-lg font-semibold text-foreground group-hover:text-gold-text">
+                    {preset.name}
+                  </h3>
+                  <p className="mt-1 flex-1 type-ui text-muted-foreground">
+                    {preset.description}
+                  </p>
+                  <p className="mt-3 border-t border-border/70 pt-3 type-meta text-muted-foreground">
+                    {availableStories
+                      .slice(0, 3)
+                      .map((id) => storyMap.get(id)?.title || id)
+                      .join(", ")}
+                  </p>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      )}
+
+      {/* Comparison View */}
+      {selectedStories.length > 0 ? (
         <MythComparisonView
           stories={selectedStories}
           comparison={comparison}
           onRemove={handleRemove}
           pantheonMap={pantheonMap}
         />
+      ) : null}
 
-        {selectedStories.length >= 2 && (
-          <div className="mt-8 rounded-lg border border-border/60 bg-card/60 p-4">
-            <p className="text-sm text-muted-foreground mb-3">
-              {t("nextStepHint")}
-            </p>
-            <div className="flex flex-wrap gap-2">
-              <Button asChild size="sm" variant="outline">
-                <Link href="/stories">{t("nextStepStories")}</Link>
-              </Button>
-              <Button asChild size="sm" variant="outline">
-                <Link href="/sources">{t("nextStepSources")}</Link>
-              </Button>
-            </div>
+      {selectedStories.length >= 2 && (
+        <div className="mt-10 border-t border-border/70 pt-6">
+          <p className="type-ui text-muted-foreground mb-3">
+            {t("nextStepHint")}
+          </p>
+          <div className="flex flex-wrap gap-2">
+            <Button asChild size="sm" variant="outline">
+              <Link href="/stories">{t("nextStepStories")}</Link>
+            </Button>
+            <Button asChild size="sm" variant="outline">
+              <Link href="/sources">{t("nextStepSources")}</Link>
+            </Button>
           </div>
-        )}
-      </div>
+        </div>
+      )}
     </div>
   );
 }

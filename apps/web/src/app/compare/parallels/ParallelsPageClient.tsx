@@ -2,9 +2,8 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { PageHero } from "@/components/layout/page-hero";
+import Image from "next/image";
+import { SegmentedControl } from "@/components/layout/tool-stage";
 import { ArchetypeMatrix } from "@/components/compare/ArchetypeMatrix";
 import type { ArchetypeDeity } from "@/components/compare/ArchetypeMatrix";
 import { Sparkles, ArrowLeftRight } from "lucide-react";
@@ -35,121 +34,131 @@ export function ParallelsPageClient({
   const [activeTab, setActiveTab] = useState<"archetypes" | "pairs">(
     "archetypes",
   );
-  const traditionCount = new Set(
-    edges.flatMap((e) => [e.fromPantheon, e.toPantheon]),
-  ).size;
-
   return (
-    <div className="min-h-screen">
-      <PageHero
-        mark="scales"
-        tagline="Comparative mythology"
-        title="Cross-Pantheon Parallels"
-        description={`Explore universal motifs, syncretism, and analogies between figures from ${traditionCount} world traditions — uncovering how different ancient cultures personified natural forces and human experience.`}
+    <div className="space-y-10">
+      <SegmentedControl<"archetypes" | "pairs">
+        label="Switch comparison mode"
+        value={activeTab}
+        onChange={setActiveTab}
+        options={[
+          {
+            value: "archetypes",
+            label: (
+              <>
+                <Sparkles className="size-4" aria-hidden="true" />
+                Archetype Matrix
+              </>
+            ),
+          },
+          {
+            value: "pairs",
+            label: (
+              <>
+                <ArrowLeftRight className="size-4" aria-hidden="true" />
+                Direct Equivalences ({edges.length})
+              </>
+            ),
+          },
+        ]}
       />
 
-      <div className="container mx-auto max-w-6xl px-4 py-10 bg-mythic space-y-10">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-          {/* Mode Switcher Tabs */}
-          <div
-            role="group"
-            aria-label="Switch comparison mode"
-            className="flex rounded-lg border border-border/80 bg-card/60 p-1 shrink-0"
+      {activeTab === "archetypes" ? (
+        <ArchetypeMatrix deities={deities} pantheons={pantheons} />
+      ) : (
+        <section aria-labelledby="equivalences-title">
+          <h2
+            id="equivalences-title"
+            className="page-section-title text-foreground"
           >
-            <button
-              type="button"
-              aria-pressed={activeTab === "archetypes"}
-              onClick={() => setActiveTab("archetypes")}
-              className={`flex items-center gap-2 px-3.5 py-1.5 rounded-md text-xs font-semibold transition-all cursor-pointer ${
-                activeTab === "archetypes"
-                  ? "bg-gold text-midnight shadow-sm"
-                  : "text-muted-foreground hover:text-foreground"
-              }`}
-            >
-              <Sparkles className="size-3.5" />
-              Archetype Matrix
-            </button>
-            <button
-              type="button"
-              aria-pressed={activeTab === "pairs"}
-              onClick={() => setActiveTab("pairs")}
-              className={`flex items-center gap-2 px-3.5 py-1.5 rounded-md text-xs font-semibold transition-all cursor-pointer ${
-                activeTab === "pairs"
-                  ? "bg-gold text-midnight shadow-sm"
-                  : "text-muted-foreground hover:text-foreground"
-              }`}
-            >
-              <ArrowLeftRight className="size-3.5" />
-              Direct Equivalences ({edges.length})
-            </button>
-          </div>
-        </div>
+            Curated editorial equivalences
+          </h2>
+          <p className="type-lede mt-2 max-w-3xl text-muted-foreground">
+            These pairwise comparisons reflect reception history and scholarly
+            analogies (such as <em>interpretatio graeca</em> and{" "}
+            <em>interpretatio romana</em>).
+          </p>
 
-        {activeTab === "archetypes" ? (
-          <ArchetypeMatrix deities={deities} pantheons={pantheons} />
-        ) : (
-          <section className="space-y-6">
-            <div>
-              <h2 className="font-serif text-2xl font-semibold text-foreground mb-2">
-                Curated Editorial Equivalences
-              </h2>
-              <p className="text-sm text-muted-foreground max-w-3xl leading-relaxed">
-                These pairwise comparisons reflect reception history and
-                scholarly analogies (such as <em>interpretatio graeca</em> and{" "}
-                <em>interpretatio romana</em>).
-              </p>
-            </div>
+          {edges.length === 0 ? (
+            <p className="mt-8 text-muted-foreground">
+              No parallels indexed yet.
+            </p>
+          ) : (
+            <ul className="mt-8 grid gap-4 md:grid-cols-2">
+              {edges.map((e) => (
+                <li
+                  key={`${e.fromDeityId}-${e.toDeityId}`}
+                  className="flex h-full gap-4 rounded-lg border border-border/70 bg-card p-4"
+                >
+                  <span className="flex shrink-0 -space-x-3" aria-hidden="true">
+                    {[
+                      { name: e.fromName, image: e.fromImage },
+                      { name: e.toName, image: e.toImage },
+                    ].map((figure) => (
+                      <span
+                        key={figure.name}
+                        className="relative block size-14 overflow-hidden rounded-full bg-muted ring-2 ring-card"
+                      >
+                        {figure.image ? (
+                          <Image
+                            src={figure.image}
+                            alt=""
+                            fill
+                            sizes="56px"
+                            className="object-cover object-top"
+                          />
+                        ) : (
+                          <span className="flex h-full items-center justify-center font-serif text-lg font-semibold text-gold-text">
+                            {figure.name.charAt(0)}
+                          </span>
+                        )}
+                      </span>
+                    ))}
+                  </span>
+                  <div className="min-w-0">
+                    <h3 className="font-serif text-lg font-semibold leading-snug text-foreground">
+                      <Link
+                        href={`/deities/${e.fromSlug}`}
+                        className="hover:text-gold-text"
+                      >
+                        {e.fromName}
+                      </Link>
+                      <span className="mx-2 text-gold-text" aria-hidden="true">
+                        ↔
+                      </span>
+                      <span className="sr-only"> and </span>
+                      <Link
+                        href={`/deities/${e.toSlug}`}
+                        className="hover:text-gold-text"
+                      >
+                        {e.toName}
+                      </Link>
+                    </h3>
+                    <p className="type-meta uppercase tracking-[0.12em] text-muted-foreground">
+                      {e.fromPantheon} · {e.toPantheon}
+                    </p>
+                    <p className="mt-2 type-ui text-muted-foreground">
+                      {e.note}
+                    </p>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          )}
+        </section>
+      )}
 
-            {edges.length === 0 ? (
-              <p className="text-muted-foreground">No parallels indexed yet.</p>
-            ) : (
-              <ul className="grid gap-4 md:grid-cols-2">
-                {edges.map((e) => (
-                  <li key={`${e.fromDeityId}-${e.toDeityId}`}>
-                    <Card className="h-full border-border/60 bg-card hover:border-gold/40 transition-colors">
-                      <CardHeader className="pb-2">
-                        <div className="flex flex-wrap items-center gap-2 text-sm">
-                          <Badge variant="secondary">{e.fromPantheon}</Badge>
-                          <Link
-                            href={`/deities/${e.fromSlug}`}
-                            className="font-serif font-semibold text-foreground hover:text-gold-text transition-colors"
-                          >
-                            {e.fromName}
-                          </Link>
-                          <span className="text-gold-text font-bold">↔</span>
-                          <Badge variant="secondary">{e.toPantheon}</Badge>
-                          <Link
-                            href={`/deities/${e.toSlug}`}
-                            className="font-serif font-semibold text-foreground hover:text-gold-text transition-colors"
-                          >
-                            {e.toName}
-                          </Link>
-                        </div>
-                        <CardTitle className="sr-only">
-                          {e.fromName} and {e.toName}
-                        </CardTitle>
-                      </CardHeader>
-                      <CardContent className="text-sm text-muted-foreground leading-relaxed">
-                        {e.note}
-                      </CardContent>
-                    </Card>
-                  </li>
-                ))}
-              </ul>
-            )}
-          </section>
-        )}
-
-        <p className="pt-6 border-t border-border/60 text-xs text-muted-foreground max-w-2xl leading-relaxed">
-          <strong>Editorial Standards:</strong> Parallels and universal
-          archetypes reflect cross-cultural motifs and historical syncretism
-          rather than genetic identity. Explore the{" "}
-          <Link href="/about" className="text-gold-text hover:underline">
-            About
-          </Link>{" "}
-          page for our methodology and citation standards.
-        </p>
-      </div>
+      <p className="max-w-2xl border-t border-border/70 pt-6 type-ui text-muted-foreground">
+        <strong className="text-foreground">Editorial standards:</strong>{" "}
+        Parallels and universal archetypes reflect cross-cultural motifs and
+        historical syncretism rather than genetic identity. See the{" "}
+        <Link
+          href="/about"
+          className="text-gold-text underline underline-offset-4"
+        >
+          About
+        </Link>{" "}
+        page for our methodology and citation standards.
+      </p>
     </div>
   );
 }

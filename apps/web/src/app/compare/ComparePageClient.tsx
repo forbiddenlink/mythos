@@ -3,9 +3,9 @@
 import type { Deity } from "@/components/compare/ComparisonCard";
 import { ComparisonSelector } from "@/components/compare/ComparisonSelector";
 import { ComparisonTable } from "@/components/compare/ComparisonTable";
-import { PageHero } from "@/components/layout/page-hero";
 import { Button } from "@/components/ui/button";
-import { BookOpen, Check, Share2, Sparkles } from "lucide-react";
+import { Check, Share2 } from "lucide-react";
+import Image from "next/image";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
@@ -173,33 +173,17 @@ export function ComparePageClient({
   }
 
   return (
-    <div className="min-h-screen">
-      <PageHero
-        mark="scales"
-        tagline={t("heroTagline")}
-        title={t("title")}
-        description={t("description")}
-        backgroundImage="/deities-list-hero.jpg"
-        backgroundAlt="Compare deities across pantheons"
-        minHeight="min-h-[40vh]"
-      />
-
-      {/* Content Section */}
-      <div className="page-shell bg-mythic">
-        <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between mb-8">
-          <div className="flex flex-wrap items-center gap-2 sm:gap-4">
-            <Button asChild variant="ghost" size="sm" className="gap-2">
-              <Link href="/compare/myths">
-                <BookOpen className="h-4 w-4" />
-                {t("compareMyths")}
-              </Link>
-            </Button>
-            {selectedDeities.length > 0 && (
-              <span className="text-xs text-muted-foreground rounded-full border border-border px-2 py-1">
-                {t("selectedCount", { count: selectedDeities.length, max: 4 })}
-              </span>
-            )}
-          </div>
+    <div>
+      <div className="flex flex-wrap items-end justify-between gap-4">
+        <h2 className="page-section-title text-foreground">
+          {t("selectDeities")}
+        </h2>
+        <div className="flex flex-wrap items-center gap-3">
+          {selectedDeities.length > 0 && (
+            <span className="type-meta text-muted-foreground">
+              {t("selectedCount", { count: selectedDeities.length, max: 4 })}
+            </span>
+          )}
           {selectedDeities.length > 0 && (
             <Button
               variant="outline"
@@ -216,135 +200,112 @@ export function ComparePageClient({
             </Button>
           )}
         </div>
+      </div>
 
-        <div className="mb-8 rounded-lg border border-border/60 bg-card/60 p-4">
-          <p className="text-sm text-muted-foreground">{t("modeHint")}</p>
-          <div className="mt-3 flex flex-wrap gap-2">
-            <Button asChild size="sm" variant="default">
-              <Link href="/compare">{t("primaryModeCta")}</Link>
-            </Button>
-            <Button asChild size="sm" variant="outline">
-              <Link href="/compare/myths">{t("switchModeCta")}</Link>
-            </Button>
-          </div>
-        </div>
+      <div className="mt-6">
+        <ComparisonSelector
+          deities={allDeities}
+          selectedDeities={selectedDeities}
+          onSelect={handleSelect}
+          onRemove={handleRemove}
+          maxSelection={4}
+          pantheons={pantheons}
+        />
+      </div>
 
-        <section className="mb-10 rounded-2xl border border-border/60 bg-card/50 p-6">
-          <h2 className="font-serif text-2xl font-semibold mb-3">
-            Compare Roles, Symbols, and Overlaps
+      {selectedDeities.length === 0 ? (
+        <section aria-labelledby="suggested-comparisons" className="mt-14">
+          <h2
+            id="suggested-comparisons"
+            className="page-section-title text-foreground"
+          >
+            {t("suggestedComparisons")}
           </h2>
-          <p className="text-muted-foreground leading-relaxed">
-            This comparison view is designed for cross-reading. Pick deities
-            from one culture or mix figures across multiple pantheons to see
-            where their roles align, where their symbols diverge, and which
-            attributes were shared across ancient traditions.
+          <p className="type-lede mt-2 text-muted-foreground">
+            Start from a classic pairing, or pick up to four figures above.
           </p>
-          <p className="mt-3 text-muted-foreground leading-relaxed">
-            The most useful comparisons often pair a well-known deity with a
-            less familiar counterpart. That makes it easier to spot patterns in
-            rulership, war, love, fertility, the underworld, and celestial
-            authority without flattening the myths into one generic archetype.
-          </p>
-          <p className="mt-3 text-muted-foreground leading-relaxed">
-            Once you have a comparison on screen, use it as a launch point into
-            stories, source excerpts, and pantheon pages. The strongest matches
-            are often the ones that look similar at first glance but diverge in
-            mythic function once you read the surrounding narratives.
-          </p>
-          <p className="mt-3 text-muted-foreground leading-relaxed">
-            You can also use this tool as a reading guide. Compare first to
-            frame the question, then move outward into the original myths and
-            supporting pages to see how each culture defines sovereignty,
-            kinship, justice, fate, or divine power on its own terms.
-          </p>
-          <p className="mt-3 text-muted-foreground leading-relaxed">
-            When a comparison feels especially close, check the linked pantheon
-            context before calling two figures equivalents. Shared domains often
-            hide major differences in ritual role, moral character, or place in
-            the larger cosmology, and those differences are usually where the
-            most interesting reading begins.
-          </p>
+          <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {PREDEFINED_COMPARISONS.map((comparison) => {
+              const available = comparison.deities
+                .map((id) => deityMap.get(id))
+                .filter((d): d is Deity => d !== undefined);
+              if (available.length < 2) return null;
+
+              return (
+                <li key={comparison.name}>
+                  <button
+                    type="button"
+                    onClick={() =>
+                      handlePredefinedComparison(available.map((d) => d.id))
+                    }
+                    className="group flex h-full w-full items-center gap-5 rounded-lg border border-border/70 bg-card p-4 text-left transition-colors hover:border-gold/50 hover:bg-gold/5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold"
+                  >
+                    <span
+                      className="flex shrink-0 -space-x-4"
+                      aria-hidden="true"
+                    >
+                      {available.slice(0, 3).map((deity) => (
+                        <span
+                          key={deity.id}
+                          className="relative block size-14 overflow-hidden rounded-full bg-muted ring-2 ring-card"
+                        >
+                          {deity.imageUrl ? (
+                            <Image
+                              src={deity.imageUrl}
+                              alt=""
+                              fill
+                              sizes="56px"
+                              className="object-cover object-top"
+                            />
+                          ) : (
+                            <span className="flex h-full items-center justify-center font-serif text-lg font-semibold text-gold-text">
+                              {deity.name.charAt(0)}
+                            </span>
+                          )}
+                        </span>
+                      ))}
+                    </span>
+                    <span className="min-w-0">
+                      <span className="block font-serif text-lg font-semibold text-foreground group-hover:text-gold-text">
+                        {comparison.name}
+                      </span>
+                      <span className="block type-ui text-muted-foreground">
+                        {available.map((d) => d.name).join(", ")}
+                      </span>
+                    </span>
+                  </button>
+                </li>
+              );
+            })}
+          </ul>
         </section>
-
-        {/* Deity Selector */}
-        <div className="mb-12">
-          <h2 className="text-xl font-serif font-semibold mb-4">
-            {t("selectDeities")}
-          </h2>
-          <ComparisonSelector
-            deities={allDeities}
-            selectedDeities={selectedDeities}
-            onSelect={handleSelect}
+      ) : (
+        <div className="mt-10">
+          <ComparisonTable
+            deities={selectedDeities}
             onRemove={handleRemove}
-            maxSelection={4}
             pantheons={pantheons}
           />
         </div>
+      )}
 
-        {/* Predefined Comparisons */}
-        {selectedDeities.length === 0 && (
-          <div className="mb-12">
-            <h2 className="text-xl font-serif font-semibold mb-4">
-              {t("suggestedComparisons")}
-            </h2>
-            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {PREDEFINED_COMPARISONS.map((comparison) => {
-                // Check if all deities exist
-                const availableDeities = comparison.deities.filter((id) =>
-                  deityMap.has(id),
-                );
-                if (availableDeities.length < 2) return null;
-
-                return (
-                  <button
-                    key={comparison.name}
-                    onClick={() => handlePredefinedComparison(availableDeities)}
-                    className="p-4 rounded-lg border border-border/60 bg-card hover:border-gold/50 hover:bg-gold/5 transition-all text-left group"
-                  >
-                    <div className="flex items-center gap-3 mb-2">
-                      <Sparkles className="h-5 w-5 text-gold" />
-                      <h3 className="font-serif font-semibold group-hover:text-gold transition-colors">
-                        {comparison.name}
-                      </h3>
-                    </div>
-                    <p className="text-sm text-muted-foreground mb-3">
-                      {comparison.description}
-                    </p>
-                    <p className="text-xs text-muted-foreground">
-                      {availableDeities
-                        .map((id) => deityMap.get(id)?.name || id)
-                        .join(", ")}
-                    </p>
-                  </button>
-                );
-              })}
-            </div>
-          </div>
-        )}
-
-        {/* Comparison Table */}
-        <ComparisonTable
-          deities={selectedDeities}
-          onRemove={handleRemove}
-          pantheons={pantheons}
-        />
-
-        {selectedDeities.length >= 2 && (
-          <div className="mt-8 rounded-lg border border-border/60 bg-card/60 p-4">
-            <p className="text-sm text-muted-foreground mb-3">
-              {t("nextStepHint")}
-            </p>
-            <div className="flex flex-wrap gap-2">
-              <Button asChild size="sm" variant="outline">
-                <Link href="/stories">{t("nextStepStories")}</Link>
-              </Button>
-              <Button asChild size="sm" variant="outline">
-                <Link href="/quiz">{t("nextStepQuiz")}</Link>
-              </Button>
-            </div>
-          </div>
-        )}
-      </div>
+      {selectedDeities.length >= 2 && (
+        <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-3 border-t border-border/70 pt-6">
+          <p className="type-ui text-muted-foreground">{t("nextStepHint")}</p>
+          <Link
+            href="/stories"
+            className="type-ui font-medium text-gold-text underline decoration-gold/40 underline-offset-4 hover:decoration-current"
+          >
+            {t("nextStepStories")}
+          </Link>
+          <Link
+            href="/quiz"
+            className="type-ui font-medium text-gold-text underline decoration-gold/40 underline-offset-4 hover:decoration-current"
+          >
+            {t("nextStepQuiz")}
+          </Link>
+        </div>
+      )}
     </div>
   );
 }

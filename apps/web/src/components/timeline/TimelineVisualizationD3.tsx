@@ -5,7 +5,6 @@ import * as d3 from "d3";
 import { motion, AnimatePresence } from "framer-motion";
 import { RotateCcw } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
 import { PANTHEON_HEX as PANTHEON_COLORS } from "@/lib/pantheon-colors";
 
@@ -44,6 +43,11 @@ interface TimelineVisualizationProps {
 // ---------------------------------------------------------------------------
 
 const MARGIN = { top: 40, right: 40, bottom: 40, left: 220 };
+
+/** Narrower label column and edge on phones, so the bars keep real width. */
+function marginFor(width: number) {
+  return width < 640 ? { ...MARGIN, left: 150, right: 16 } : MARGIN;
+}
 const TIMELINE_START = -3500;
 const TIMELINE_END = 2025;
 
@@ -116,7 +120,8 @@ export function TimelineVisualizationD3({
 
     const svg = d3.select(svgRef.current);
     const width = containerRef.current?.getBoundingClientRect().width || 0;
-    const innerWidth = width - MARGIN.left - MARGIN.right;
+    const margin = marginFor(width);
+    const innerWidth = width - margin.left - margin.right;
 
     // Calculate the transform needed to show viewRange
     // Current Scale Domain: [-3500, 2025] -> Total Span: 5525
@@ -180,8 +185,9 @@ export function TimelineVisualizationD3({
     const svg = d3.select(svgRef.current);
     const container = containerRef.current;
     const { width } = container.getBoundingClientRect();
+    const margin = marginFor(width);
     const height = chartHeight;
-    const innerWidth = width - MARGIN.left - MARGIN.right;
+    const innerWidth = width - margin.left - margin.right;
     const innerHeight = height - MARGIN.top - MARGIN.bottom;
 
     // Clear previous
@@ -257,15 +263,15 @@ export function TimelineVisualizationD3({
     const bgLayer = svg
       .append("g")
       .attr("class", "bg-layer")
-      .attr("transform", `translate(${MARGIN.left}, ${MARGIN.top})`);
+      .attr("transform", `translate(${margin.left}, ${MARGIN.top})`);
     const axisLayer = svg
       .append("g")
       .attr("class", "axis-layer")
-      .attr("transform", `translate(${MARGIN.left}, ${MARGIN.top})`);
+      .attr("transform", `translate(${margin.left}, ${MARGIN.top})`);
     const contentLayer = svg
       .append("g")
       .attr("class", "content-layer")
-      .attr("transform", `translate(${MARGIN.left}, ${MARGIN.top})`);
+      .attr("transform", `translate(${margin.left}, ${MARGIN.top})`);
 
     // Clip path ensures content doesn't draw over margins
     defs
@@ -368,7 +374,7 @@ export function TimelineVisualizationD3({
 
         if (d.timePeriodStart === null && d.timePeriodEnd === null) {
           g.append("text")
-            .attr("x", MARGIN.left)
+            .attr("x", margin.left)
             .attr("y", barHeight / 2)
             .attr("dominant-baseline", "middle")
             .attr("fill", "currentColor")
@@ -467,7 +473,7 @@ export function TimelineVisualizationD3({
             g.append("rect")
               .attr("x", 0)
               .attr("y", 0)
-              .attr("width", MARGIN.left - 10)
+              .attr("width", margin.left - 10)
               .attr("height", barHeight)
               .attr("rx", 4)
               .attr("fill", "transparent")
@@ -513,7 +519,7 @@ export function TimelineVisualizationD3({
             .attr(
               "class",
               cn(
-                "text-sm font-medium transition-colors label-text",
+                "text-xs font-medium transition-colors label-text sm:text-sm",
                 selectedPantheon === d.id
                   ? "text-white"
                   : "text-muted-foreground",
@@ -532,36 +538,7 @@ export function TimelineVisualizationD3({
   }, [pantheons, events, selectedPantheon, chartHeight]); // Re-run when selection changes
 
   return (
-    <div className="relative w-full rounded-xl border border-border bg-black/40 backdrop-blur-md shadow-2xl overflow-hidden">
-      {/* Header / Controls */}
-      <div className="absolute top-4 right-4 z-10 flex items-center gap-2">
-        <Badge
-          variant="outline"
-          className="bg-black/50 backdrop-blur border-gold/20 text-gold"
-        >
-          <span className="mr-1">●</span> Interactive Mode
-        </Badge>
-        <Button
-          size="icon-sm"
-          aria-label="Reset timeline zoom"
-          variant="outline"
-          className="h-8 w-8 bg-black/50"
-          onClick={() => {
-            // Logic to reset zoom would involve re-selecting svg and invoking zoom.transform
-            if (svgRef.current) {
-              const svg = d3.select(svgRef.current);
-              svg
-                .transition()
-                .duration(750)
-                // @ts-expect-error - d3.zoom().transform type mismatch with call signature
-                .call(d3.zoom().transform, d3.zoomIdentity);
-            }
-          }}
-        >
-          <RotateCcw className="h-3.5 w-3.5" />
-        </Button>
-      </div>
-
+    <div className="dark relative w-full overflow-hidden rounded-lg bg-midnight text-foreground ring-1 ring-border">
       <div
         ref={containerRef}
         className="w-full relative"
@@ -594,8 +571,29 @@ export function TimelineVisualizationD3({
       </div>
 
       {/* Footer Info */}
-      <div className="p-3 border-t border-white/5 bg-white/5 text-[10px] text-center text-muted-foreground">
-        Scroll to zoom &middot; Drag to pan &middot; Hover events for details
+      <div className="flex items-center justify-between gap-4 border-t border-parchment/10 px-4 py-2">
+        <p className="type-meta text-muted-foreground">
+          Scroll to zoom &middot; Drag to pan &middot; Hover events for details
+        </p>
+        <Button
+          size="icon-sm"
+          aria-label="Reset timeline zoom"
+          variant="outline"
+          className="h-9 w-9 bg-midnight/80"
+          onClick={() => {
+            // Logic to reset zoom would involve re-selecting svg and invoking zoom.transform
+            if (svgRef.current) {
+              const svg = d3.select(svgRef.current);
+              svg
+                .transition()
+                .duration(750)
+                // @ts-expect-error - d3.zoom().transform type mismatch with call signature
+                .call(d3.zoom().transform, d3.zoomIdentity);
+            }
+          }}
+        >
+          <RotateCcw className="h-3.5 w-3.5" />
+        </Button>
       </div>
     </div>
   );

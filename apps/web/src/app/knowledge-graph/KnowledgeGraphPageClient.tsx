@@ -3,25 +3,19 @@
 import { useState, useMemo, useCallback, useRef } from "react";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/navigation";
-import Image from "next/image";
-import { Maximize2, Minimize2, Loader2 } from "lucide-react";
+import { Maximize2, Minimize2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { GraphControls } from "@/components/graph/GraphControls";
 import { GraphLegend } from "@/components/graph/GraphLegend";
 import type { KnowledgeGraphControls } from "@/components/graph/KnowledgeGraph";
-import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
-import { HeroMark } from "@/components/icons/hero-mark";
 import { MythosMark } from "@/components/icons/mythos-marks";
+import { StageLoading } from "@/components/layout/tool-stage";
 import { normalizeDeityReference } from "@/lib/deity-reference";
 import { useProgress } from "@/hooks/use-progress";
-
-const HERO_IMAGE_WIDTH = 1920;
-const HERO_IMAGE_HEIGHT = 1080;
-
 import { PANTHEON_COLORS } from "@/lib/pantheon-colors";
+import { cn } from "@/lib/utils";
 
-// Lazy load heavy ReactFlow-based knowledge graph
+// Lazy load the heavy ReactFlow-based knowledge graph.
 const KnowledgeGraph = dynamic(
   () =>
     import("@/components/graph/KnowledgeGraph").then((mod) => ({
@@ -29,17 +23,17 @@ const KnowledgeGraph = dynamic(
     })),
   {
     loading: () => (
-      <div className="h-150 flex items-center justify-center">
-        <Loader2 className="h-8 w-8 animate-spin text-primary" />
-      </div>
+      <StageLoading
+        tone="dark"
+        mark="constellation"
+        label="Charting every relationship…"
+        className="h-full rounded-lg"
+      />
     ),
     ssr: false,
   },
 );
 
-// Import data directly
-
-// Types
 interface Deity {
   id: string;
   name: string;
@@ -78,9 +72,9 @@ interface KnowledgeGraphPageClientProps {
 }
 
 export function KnowledgeGraphPageClient({
-  deitiesData,
-  relationshipsData,
-  pantheonsData,
+  deitiesData: deities,
+  relationshipsData: relationships,
+  pantheonsData: pantheons,
 }: Readonly<KnowledgeGraphPageClientProps>) {
   const router = useRouter();
   const { progress } = useProgress();
@@ -97,12 +91,10 @@ export function KnowledgeGraphPageClient({
     [progress.deitiesViewed],
   );
 
-  // Initialize with all pantheons selected
   const [selectedPantheons, setSelectedPantheons] = useState<Set<string>>(
-    () => new Set((pantheonsData as Pantheon[]).map((p) => p.id)),
+    () => new Set(pantheons.map((p) => p.id)),
   );
 
-  // Relationship filters
   const [relationshipFilters, setRelationshipFilters] = useState({
     parent: true,
     spouse: true,
@@ -110,44 +102,34 @@ export function KnowledgeGraphPageClient({
     crossPantheon: true,
   });
 
-  // Cast data to proper types
-  const deities = deitiesData as Deity[];
-  const relationships = relationshipsData as Relationship[];
-  const pantheons = pantheonsData as Pantheon[];
+  const pantheonColors = useMemo(
+    () =>
+      pantheons.map((p) => ({
+        id: p.id,
+        name: p.name.replace(" Pantheon", ""),
+        color: PANTHEON_COLORS[p.id] || "#6b7280",
+      })),
+    [pantheons],
+  );
 
-  // Prepare pantheon colors for legend
-  const pantheonColors = useMemo(() => {
-    return pantheons.map((p) => ({
-      id: p.id,
-      name: p.name.replace(" Pantheon", ""),
-      color: PANTHEON_COLORS[p.id] || "#6b7280",
-    }));
-  }, [pantheons]);
-
-  // Handlers
   const handleNodeClick = useCallback(
-    (deityId: string, slug: string) => {
+    (_deityId: string, slug: string) => {
       router.push(`/deities/${slug}`);
     },
     [router],
   );
-
   const handleZoomIn = useCallback(() => {
     graphControlsRef.current?.zoomIn();
   }, []);
-
   const handleZoomOut = useCallback(() => {
     graphControlsRef.current?.zoomOut();
   }, []);
-
   const handleFitView = useCallback(() => {
     graphControlsRef.current?.fitView();
   }, []);
-
   const handleCenterNode = useCallback((nodeId: string) => {
     graphControlsRef.current?.centerNode(nodeId);
   }, []);
-
   const handleControlsReady = useCallback(
     (controls: KnowledgeGraphControls) => {
       graphControlsRef.current = controls;
@@ -155,11 +137,7 @@ export function KnowledgeGraphPageClient({
     [],
   );
 
-  const toggleFullscreen = useCallback(() => {
-    setIsFullscreen((prev) => !prev);
-  }, []);
-
-  // Stats
+  // Live counts for the current filter.
   const stats = useMemo(() => {
     const filteredDeities = deities.filter((d) =>
       selectedPantheons.has(d.pantheonId),
@@ -169,337 +147,171 @@ export function KnowledgeGraphPageClient({
     filteredDeities.forEach((deity) => {
       deityReferenceMap.set(normalizeDeityReference(deity.id), deity);
       deityReferenceMap.set(normalizeDeityReference(deity.slug), deity);
-
       deity.alternateNames?.forEach((alternateName) => {
         deityReferenceMap.set(normalizeDeityReference(alternateName), deity);
       });
     });
 
-    const filteredRelationships = relationships.filter(
+    const connections = relationships.filter(
       (r) =>
         filteredDeityIds.has(r.fromDeityId) &&
         filteredDeityIds.has(r.toDeityId),
-    );
+    ).length;
 
     const crossPantheonCount = filteredDeities.reduce((count, d) => {
       if (!d.crossPantheonParallels) return count;
       return (
         count +
         d.crossPantheonParallels.filter((parallel) => {
-          const targetDeity = deityReferenceMap.get(
+          const target = deityReferenceMap.get(
             normalizeDeityReference(parallel.deityId),
           );
-          return Boolean(targetDeity && filteredDeityIds.has(targetDeity.id));
+          return Boolean(target && filteredDeityIds.has(target.id));
         }).length
       );
     }, 0);
 
     return {
       deities: filteredDeities.length,
-      relationships: filteredRelationships.length,
-      crossPantheon: crossPantheonCount / 2, // Divide by 2 since each connection is counted twice
+      relationships: connections,
+      // Each parallel is listed on both figures.
+      crossPantheon: Math.floor(crossPantheonCount / 2),
     };
   }, [deities, relationships, selectedPantheons]);
 
+  const controls = (
+    <GraphControls
+      pantheons={pantheons}
+      deities={deities}
+      selectedPantheons={selectedPantheons}
+      onPantheonsChange={setSelectedPantheons}
+      relationshipFilters={relationshipFilters}
+      onRelationshipFiltersChange={setRelationshipFilters}
+      onZoomIn={handleZoomIn}
+      onZoomOut={handleZoomOut}
+      onFitView={handleFitView}
+      onCenterNode={handleCenterNode}
+      clusterByPantheon={clusterByPantheon}
+      onClusterChange={setClusterByPantheon}
+      layoutMode={layoutMode}
+      onLayoutModeChange={setLayoutMode}
+    />
+  );
+
+  const graph = (
+    <KnowledgeGraph
+      deities={deities}
+      relationships={relationships}
+      pantheons={pantheons}
+      selectedPantheons={selectedPantheons}
+      relationshipFilters={relationshipFilters}
+      clusterByPantheon={clusterByPantheon}
+      layoutMode={layoutMode}
+      exploreMode={exploreMode}
+      exploredDeityIds={exploredDeityIds}
+      onNodeClick={handleNodeClick}
+      onControlsReady={handleControlsReady}
+    />
+  );
+
+  const legend = (
+    <details className="relative">
+      <summary className="flex h-8 cursor-pointer list-none items-center gap-2 rounded-md border border-border bg-background px-3 text-sm font-medium text-foreground shadow-xs marker:hidden hover:bg-muted focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold [&::-webkit-details-marker]:hidden">
+        <MythosMark id="constellation" className="size-4 text-gold-text" />
+        Legend
+      </summary>
+      <GraphLegend
+        pantheonColors={pantheonColors}
+        className="absolute top-full right-0 z-30 mt-2 max-h-[60vh] w-[min(22rem,calc(100vw-2rem))] overflow-y-auto"
+      />
+    </details>
+  );
+
   if (isFullscreen) {
     return (
-      <div className="fixed inset-0 z-50 bg-midnight">
-        {/* Fullscreen header */}
-        <div className="absolute top-0 left-0 right-0 z-10 p-4 bg-linear-to-b from-midnight to-transparent">
-          <div className="flex items-center justify-between">
-            <h1 className="font-serif text-xl font-bold text-parchment flex items-center gap-2">
-              <MythosMark id="constellation" className="h-5 w-5 text-gold" />
-              Knowledge Graph
-            </h1>
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={toggleFullscreen}
-              className="bg-midnight/80 border-gold/30 text-parchment hover:bg-midnight-light hover:border-gold/50"
-            >
-              <Minimize2 className="h-4 w-4 mr-2" />
-              Exit Fullscreen
-            </Button>
-          </div>
+      <div className="fixed inset-0 z-50 flex flex-col bg-midnight">
+        <div className="dark flex flex-wrap items-center justify-between gap-3 border-b border-parchment/10 px-4 py-3">
+          <p className="flex items-center gap-2 font-serif text-lg font-semibold text-parchment">
+            <MythosMark id="constellation" className="size-5 text-gold-light" />
+            Knowledge Graph
+          </p>
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={() => setIsFullscreen(false)}
+            className="gap-2"
+          >
+            <Minimize2 className="size-4" aria-hidden="true" />
+            Exit fullscreen
+          </Button>
         </div>
-
-        {/* Fullscreen controls */}
-        <div className="absolute top-16 left-4 z-10 w-80">
-          <GraphControls
-            pantheons={pantheons}
-            deities={deities}
-            selectedPantheons={selectedPantheons}
-            onPantheonsChange={setSelectedPantheons}
-            relationshipFilters={relationshipFilters}
-            onRelationshipFiltersChange={setRelationshipFilters}
-            onZoomIn={handleZoomIn}
-            onZoomOut={handleZoomOut}
-            onFitView={handleFitView}
-            onCenterNode={handleCenterNode}
-            clusterByPantheon={clusterByPantheon}
-            onClusterChange={setClusterByPantheon}
-            layoutMode={layoutMode}
-            onLayoutModeChange={setLayoutMode}
-          />
+        <div className="dark flex flex-wrap items-start gap-3 border-b border-parchment/10 px-4 py-3">
+          <div className="min-w-0 flex-1">{controls}</div>
+          {legend}
         </div>
-
-        {/* Fullscreen legend */}
-        <div className="absolute bottom-4 left-4 z-10">
-          <GraphLegend pantheonColors={pantheonColors} />
-        </div>
-
-        {/* Graph */}
-        <div className="w-full h-full">
-          <KnowledgeGraph
-            deities={deities}
-            relationships={relationships}
-            pantheons={pantheons}
-            selectedPantheons={selectedPantheons}
-            relationshipFilters={relationshipFilters}
-            clusterByPantheon={clusterByPantheon}
-            layoutMode={layoutMode}
-            exploreMode={exploreMode}
-            exploredDeityIds={exploredDeityIds}
-            onNodeClick={handleNodeClick}
-            onControlsReady={handleControlsReady}
-          />
-        </div>
+        <div className="relative min-h-0 flex-1 p-3">{graph}</div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen">
-      {/* Hero Section */}
-      <div className="relative overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <Image
-            src="/family-tree-hero.jpg"
-            alt="Knowledge Graph"
-            width={HERO_IMAGE_WIDTH}
-            height={HERO_IMAGE_HEIGHT}
-            sizes="100vw"
-            className="h-full w-full object-cover"
-            priority
-          />
-          <div className="absolute inset-0 bg-linear-to-br from-midnight/90 via-midnight/75 to-bronze/40" />
-          <div className="absolute inset-0 bg-linear-to-t from-midnight via-transparent to-midnight/50" />
-        </div>
-
-        <div className="container mx-auto max-w-7xl px-4 py-16 relative z-10">
-          <div className="flex items-center gap-3 mb-4">
-            <div className="flex h-12 w-12 items-center justify-center border border-gold/40 bg-midnight/60 shadow-lg">
-              <HeroMark mark="constellation" tone="gold" size="md" />
-            </div>
-            <div>
-              <h1 className="font-serif text-4xl font-bold tracking-tight text-parchment">
-                Knowledge Graph
-              </h1>
-              <p className="text-lg text-parchment/80 mt-1 font-light">
-                Explore deity relationships across all mythologies
-              </p>
-            </div>
-          </div>
-
-          {/* Quick Stats */}
-          <div className="flex flex-wrap gap-6 mt-6">
-            <div className="text-center">
-              <div className="text-3xl font-bold text-parchment">
-                {stats.deities}
-              </div>
-              <div className="text-sm text-parchment/70">Deities</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-parchment">
-                {stats.relationships}
-              </div>
-              <div className="text-sm text-parchment/70">Connections</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-gold">
-                {Math.floor(stats.crossPantheon)}
-              </div>
-              <div className="text-sm text-parchment/70">
-                Cross-Pantheon Links
-              </div>
-            </div>
-          </div>
-
-          <div className="mt-8 max-w-3xl text-parchment/85">
-            <p className="leading-relaxed">
-              The knowledge graph maps parentage, marriage, rivalry, and
-              cross-pantheon parallels in one interactive view. Instead of
-              reading mythological figures one at a time, you can trace how
-              whole divine networks connect across traditions and across time.
-            </p>
-            <p className="mt-3 leading-relaxed">
-              Use the controls to isolate a single culture or keep multiple
-              pantheons visible when you want to compare recurring archetypes,
-              contested lineages, or equivalent gods that appear under different
-              names in different civilizations.
-            </p>
-            <p className="mt-3 leading-relaxed">
-              The graph is most useful when you alternate between overview and
-              detail: scan the network to see which figures cluster together,
-              then open individual deity pages to confirm why a connection
-              exists and what makes it mythologically significant.
-            </p>
-            <p className="mt-3 leading-relaxed">
-              For comparative work, start narrow with one pantheon, then widen
-              the filter to watch parallel figures appear. That shift reveals
-              which relationships are internal to one tradition and which ones
-              reflect a larger pattern that repeats across cultures.
-            </p>
-            <p className="mt-3 leading-relaxed">
-              If you are using the graph for research or teaching, treat it as a
-              navigation layer rather than a final answer. The strongest use
-              case is spotting a connection here, then opening the relevant
-              deity pages and source notes to confirm what kind of relationship
-              the graph is actually showing.
-            </p>
-          </div>
+    <div>
+      <div className="flex flex-col gap-4 border-b border-border/70 pb-4 lg:flex-row lg:items-start">
+        <div className="min-w-0 flex-1">{controls}</div>
+        <div className="flex flex-wrap items-center gap-2">
+          {legend}
+          <Button
+            type="button"
+            variant="outline"
+            size="sm"
+            aria-pressed={exploreMode}
+            onClick={() => setExploreMode((v) => !v)}
+            className={cn(
+              "gap-2",
+              exploreMode &&
+                "border-gold bg-gold text-midnight hover:bg-gold-light",
+            )}
+          >
+            <MythosMark id="constellation" className="size-4" />
+            {exploreMode ? "Explore mode on" : "Explore mode"}
+          </Button>
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={() => setIsFullscreen(true)}
+            className="gap-2"
+            aria-label="Expand graph to fullscreen"
+          >
+            <Maximize2 className="size-4" aria-hidden="true" />
+            <span className="hidden sm:inline">Fullscreen</span>
+          </Button>
         </div>
       </div>
 
-      {/* Content Section */}
-      <div className="container mx-auto max-w-7xl px-4 py-12">
-        <Breadcrumbs />
+      <p className="mt-3 type-ui text-muted-foreground" aria-live="polite">
+        <span className="font-medium tabular-nums text-foreground">
+          {stats.deities}
+        </span>{" "}
+        deities ·{" "}
+        <span className="font-medium tabular-nums text-foreground">
+          {stats.relationships}
+        </span>{" "}
+        connections ·{" "}
+        <span className="font-medium tabular-nums text-gold-text">
+          {stats.crossPantheon}
+        </span>{" "}
+        cross-pantheon links
+        {exploreMode ? (
+          <span>
+            {" "}
+            · Click a deity to focus its neighbourhood; visited figures keep a
+            patina ring.
+          </span>
+        ) : null}
+      </p>
 
-        <div className="mb-4 flex flex-wrap items-center gap-3">
-          <Button
-            type="button"
-            variant={exploreMode ? "default" : "outline"}
-            size="sm"
-            onClick={() => setExploreMode((v) => !v)}
-            className={
-              exploreMode ? "bg-gold text-midnight hover:bg-gold/90" : ""
-            }
-          >
-            <MythosMark id="constellation" className="mr-2 h-4 w-4" />
-            {exploreMode ? "Explore mode on" : "Explore mode"}
-          </Button>
-          <p className="text-sm text-muted-foreground">
-            Click a deity to focus its neighborhood; visited nodes keep a patina
-            ring.
-          </p>
-        </div>
-
-        {/* Controls Bar */}
-        <section className="mb-6">
-          <h2 className="sr-only">Graph Controls</h2>
-          <GraphControls
-            pantheons={pantheons}
-            deities={deities}
-            selectedPantheons={selectedPantheons}
-            onPantheonsChange={setSelectedPantheons}
-            relationshipFilters={relationshipFilters}
-            onRelationshipFiltersChange={setRelationshipFilters}
-            onZoomIn={handleZoomIn}
-            onZoomOut={handleZoomOut}
-            onFitView={handleFitView}
-            onCenterNode={handleCenterNode}
-            clusterByPantheon={clusterByPantheon}
-            onClusterChange={setClusterByPantheon}
-            layoutMode={layoutMode}
-            onLayoutModeChange={setLayoutMode}
-          />
-        </section>
-
-        {/* Main Graph Card */}
-        <Card className="bg-card overflow-hidden border-border">
-          <CardHeader className="border-b border-border/50 bg-muted/30">
-            <div className="flex items-center justify-between">
-              <CardTitle className="font-serif flex items-center gap-2">
-                <MythosMark id="constellation" className="h-5 w-5 text-gold" />
-                Interactive Graph
-                <span className="text-muted-foreground font-sans font-normal text-sm">
-                  {selectedPantheons.size} pantheon
-                  {selectedPantheons.size !== 1 ? "s" : ""} selected
-                </span>
-              </CardTitle>
-              <Button
-                variant="outline"
-                size="sm"
-                onClick={toggleFullscreen}
-                className="gap-2"
-                aria-label="Expand graph to fullscreen"
-              >
-                <Maximize2 className="h-4 w-4" />
-                <span className="hidden sm:inline">Fullscreen</span>
-              </Button>
-            </div>
-          </CardHeader>
-          <CardContent className="p-0">
-            <div className="w-full h-150 relative">
-              <KnowledgeGraph
-                deities={deities}
-                relationships={relationships}
-                pantheons={pantheons}
-                selectedPantheons={selectedPantheons}
-                relationshipFilters={relationshipFilters}
-                clusterByPantheon={clusterByPantheon}
-                layoutMode={layoutMode}
-                exploreMode={exploreMode}
-                exploredDeityIds={exploredDeityIds}
-                onNodeClick={handleNodeClick}
-                onControlsReady={handleControlsReady}
-              />
-
-              {/* Floating Legend */}
-              <div className="absolute bottom-4 left-4">
-                <GraphLegend
-                  pantheonColors={pantheonColors}
-                  className="max-w-xs"
-                />
-              </div>
-            </div>
-          </CardContent>
-        </Card>
-
-        {/* Tips Card */}
-        <section className="mt-8">
-          <h2 className="sr-only">Graph Tips and Legend</h2>
-          <div className="grid gap-4 md:grid-cols-2">
-            <Card className="bg-card border-border">
-              <CardHeader>
-                <CardTitle className="text-sm font-medium font-serif">
-                  How to Use
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-2 text-sm text-muted-foreground">
-                <p>- Drag to pan around the graph</p>
-                <p>- Scroll to zoom in/out</p>
-                <p>- Click on a deity node to view their profile</p>
-                <p>- Use filters to show/hide relationship types</p>
-                <p>- Toggle clustering to group by pantheon</p>
-                <p>- Use the minimap for quick navigation</p>
-              </CardContent>
-            </Card>
-
-            <Card className="bg-card border-border">
-              <CardHeader>
-                <CardTitle className="text-sm font-medium font-serif">
-                  About Cross-Pantheon Links
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-2 text-sm text-muted-foreground">
-                <p>
-                  The golden glowing connections show parallel deities across
-                  different mythologies. These represent similar gods with
-                  shared attributes or roles:
-                </p>
-                <ul className="list-disc list-inside space-y-1 mt-2">
-                  <li>Zeus (Greek) = Jupiter (Roman) = Odin (Norse)</li>
-                  <li>Aphrodite (Greek) = Venus (Roman) = Freyja (Norse)</li>
-                  <li>
-                    Hades is also called Pluto in Roman sources; Osiris is a
-                    compared ruler of the dead
-                  </li>
-                </ul>
-              </CardContent>
-            </Card>
-          </div>
-        </section>
+      <div className="relative mt-4 h-[min(78vh,50rem)] min-h-[36rem]">
+        {graph}
       </div>
     </div>
   );

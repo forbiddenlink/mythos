@@ -1,13 +1,17 @@
 "use client";
 
-import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Container } from "@/components/layout/container";
+import { PageHeader } from "@/components/layout/page-header";
+import {
+  EmptyState,
+  primaryLinkClass,
+  secondaryLinkClass,
+} from "@/components/layout/tool-stage";
 import { Progress } from "@/components/ui/progress";
 import {
   ProgressContext,
   type ProgressContextValue,
 } from "@/providers/progress-provider";
-import { HeroMark } from "@/components/icons/hero-mark";
 import { MythosMark, type MythosMarkId } from "@/components/icons/mythos-marks";
 import {
   ExplorationWrapped,
@@ -79,14 +83,16 @@ function StatFigure({
 }>) {
   return (
     <div className="flex flex-col gap-1 border-l border-gold/30 pl-4">
-      <dt className="flex items-center gap-1.5 text-xs uppercase tracking-[0.18em] text-parchment/70">
+      <dt className="flex items-center gap-1.5 type-meta uppercase tracking-[0.16em] text-parchment/75">
         <MythosMark id={mark} className="h-3.5 w-3.5 text-gold" />
         {label}
       </dt>
       <dd className="font-serif text-3xl font-semibold tabular-nums text-parchment">
         {value}
       </dd>
-      {detail ? <dd className="text-xs text-parchment/70">{detail}</dd> : null}
+      {detail ? (
+        <dd className="type-meta text-parchment/75">{detail}</dd>
+      ) : null}
     </div>
   );
 }
@@ -121,76 +127,74 @@ export function ProgressPageClient({
     stats.totalQuizzesTaken > 0 ||
     stats.totalAchievements > 0;
 
+  const header = (
+    <PageHeader
+      eyebrow="Progress"
+      mark="laurel"
+      title="Your Stats"
+      lede="A record of your own reading, review and quizzes in this browser. Nothing here is compared with other readers."
+    />
+  );
+
   if (!hasActivity) {
     return (
-      <div className="page-shell max-w-4xl min-h-screen">
-        <Breadcrumbs />
-        <h1 className="page-title text-foreground">Your Stats</h1>
-        <section
-          className="mt-8 max-w-2xl"
-          aria-labelledby="progress-start-title"
-        >
-          <h2
+      <div className="min-h-screen">
+        {header}
+        <Container className="section-space-sm">
+          <EmptyState
             id="progress-start-title"
-            className="font-serif text-2xl text-foreground"
+            mark="compass"
+            eyebrow="Nothing recorded yet"
+            title="Begin with something that interests you"
+            description="Open a figure or read a story. This page records the entries you visit and the traditions you explore, alongside your quiz results."
+            actions={
+              <>
+                <NextLink href="/pantheons" className={primaryLinkClass}>
+                  Choose a tradition
+                </NextLink>
+                <NextLink href="/stories" className={secondaryLinkClass}>
+                  Find a story
+                </NextLink>
+              </>
+            }
+            preview={
+              <StatsPreview
+                totals={totals}
+                caption="What fills in as you explore"
+              />
+            }
+          />
+        </Container>
+        <Container className="pb-16 md:pb-24">
+          <section
+            aria-label="Learning backup and restore"
+            className="border-t border-border/70 pt-10"
           >
-            Begin with something that interests you
-          </h2>
-          <p className="mt-4 font-body text-xl leading-relaxed text-foreground">
-            Open a figure or read a story. This page will record the entries you
-            visit and the traditions you explore, alongside your quiz results.
-          </p>
-          <div className="mt-6 flex flex-wrap gap-4">
-            <NextLink
-              href="/pantheons"
-              className="inline-flex min-h-11 items-center rounded-md bg-gold px-5 font-medium text-midnight hover:bg-gold-light"
-            >
-              Choose a tradition
-            </NextLink>
-            <NextLink
-              href="/stories"
-              className="inline-flex min-h-11 items-center text-gold-text underline underline-offset-4"
-            >
-              Find a story
-            </NextLink>
-          </div>
-          <p className="mt-8 border-t border-border pt-5 text-sm text-muted-foreground">
-            Your activity is saved in this browser. If you have a learning
-            backup, restore it below to continue where you left off.
-          </p>
-        </section>
-        <section className="mt-8" aria-label="Learning backup and restore">
-          <LearningBackup />
-        </section>
+            <p className="mb-4 max-w-2xl type-ui text-muted-foreground">
+              Your activity is saved in this browser. If you have a learning
+              backup, restore it here to continue where you left off.
+            </p>
+            <LearningBackup />
+          </section>
+        </Container>
       </div>
     );
   }
 
   return (
     <div className="min-h-screen">
-      {/* Hero Section */}
-      <div className="relative overflow-hidden bg-linear-to-b from-midnight via-midnight/95 to-mythic py-16 md:py-20">
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-0 left-1/4 w-96 h-96 bg-gold/5 rounded-full blur-3xl" />
-          <div className="absolute bottom-0 right-1/4 w-64 h-64 bg-bronze/5 rounded-full blur-3xl" />
-        </div>
+      {header}
 
-        <div className="container mx-auto max-w-5xl px-4 relative z-10">
-          <div className="flex items-center gap-4">
-            <HeroMark mark="laurel" tone="gold" size="md" />
-            <div>
-              <span className="block text-gold/80 text-sm tracking-[0.25em] uppercase font-medium">
-                Progress
-              </span>
-              <h1 className="page-title text-parchment">Your Stats</h1>
-            </div>
-          </div>
-          <p className="mt-4 max-w-2xl text-parchment/75">
-            A record of your own reading, review and quizzes in this browser.
-            Nothing here is compared with other readers.
-          </p>
-
-          <dl className="mt-10 grid grid-cols-2 gap-6 md:grid-cols-4">
+      <section
+        aria-label="Summary"
+        className="dark relative isolate overflow-hidden bg-midnight text-foreground"
+      >
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_60%_90%_at_15%_0%,color-mix(in_oklch,var(--gold)_18%,transparent),transparent_70%)]"
+        />
+        <Container className="py-10 md:py-12">
+          <dl className="grid grid-cols-2 gap-x-6 gap-y-8 md:grid-cols-4">
             <StatFigure
               label={`Level ${level}`}
               value={`${stats.totalXP} XP`}
@@ -224,43 +228,34 @@ export function ProgressPageClient({
               mark="laurel"
             />
           </dl>
-          <div className="mt-3 max-w-xs">
-            <Progress
-              value={(xpInCurrentLevel / xpToNextLevel) * 100}
-              className="h-1.5 bg-parchment/15"
-              aria-label={`Level progress: ${xpInCurrentLevel} of ${xpToNextLevel} XP`}
-            />
-          </div>
-          <p className="mt-6">
+          <div className="mt-6 flex flex-wrap items-center justify-between gap-4">
+            <div className="w-full max-w-xs">
+              <Progress
+                value={(xpInCurrentLevel / xpToNextLevel) * 100}
+                className="h-1.5 bg-parchment/15"
+                aria-label={`Level progress: ${xpInCurrentLevel} of ${xpToNextLevel} XP`}
+              />
+            </div>
             <NextLink
               href="/achievements"
-              className="inline-flex min-h-11 items-center text-sm font-medium text-gold underline-offset-4 hover:underline"
+              className="inline-flex min-h-11 items-center type-ui font-medium text-gold-light underline decoration-gold/40 underline-offset-4 hover:decoration-current"
             >
               See every achievement →
             </NextLink>
-          </p>
-        </div>
-      </div>
+          </div>
+        </Container>
+      </section>
 
-      {/* Main Content */}
-      <div className="container mx-auto max-w-7xl px-4 py-12 bg-mythic">
-        <Breadcrumbs />
-
-        <div className="mt-8 mb-10 space-y-6">
-          <ExplorationWrapped catalog={catalog} />
-          <RetentionPulse />
-        </div>
-
-        {/* Discovery Progress Section */}
-        <section className="mt-8">
-          <Card className="bg-card/80 backdrop-blur-sm">
-            <CardHeader>
-              <CardTitle as="h2" className="flex items-center gap-2">
-                <MythosMark id="compass" className="h-5 w-5 text-gold" />
-                Discovery Progress
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-6">
+      <Container className="section-space-sm">
+        <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:gap-14">
+          <section aria-labelledby="discovery-progress-title">
+            <h2
+              id="discovery-progress-title"
+              className="page-section-title text-foreground"
+            >
+              Discovery Progress
+            </h2>
+            <div className="mt-6 space-y-6">
               <ProgressBar
                 label="Deities Viewed"
                 current={stats.totalDeitiesViewed}
@@ -285,18 +280,83 @@ export function ProgressPageClient({
                 total={totals.pantheons}
                 mark="temple"
               />
-            </CardContent>
-          </Card>
-        </section>
+            </div>
+          </section>
+          <div className="space-y-6">
+            <ExplorationWrapped catalog={catalog} />
+            <RetentionPulse />
+          </div>
+        </div>
 
-        <section className="mt-8" aria-label="Learning backup and restore">
-          <p className="mb-3 text-sm text-muted-foreground">
+        <section
+          className="mt-14 border-t border-border/70 pt-10"
+          aria-label="Learning backup and restore"
+        >
+          <p className="mb-4 max-w-2xl type-ui text-muted-foreground">
             Your stats are stored on this device and browser only. Download a
             backup to keep them or move them to another browser.
           </p>
           <LearningBackup />
         </section>
-      </div>
+      </Container>
     </div>
+  );
+}
+
+/** Zeroed figures and bars: a preview of the page for a first visit. */
+function StatsPreview({
+  totals,
+  caption,
+}: Readonly<{ totals: CatalogTotals; caption: string }>) {
+  const rows: Array<{ label: string; total: number; mark: MythosMarkId }> = [
+    { label: "Deities viewed", total: totals.deities, mark: "owl" },
+    { label: "Stories read", total: totals.stories, mark: "scroll" },
+    { label: "Locations visited", total: totals.locations, mark: "peak" },
+    { label: "Pantheons explored", total: totals.pantheons, mark: "temple" },
+  ];
+  return (
+    <figure className="overflow-hidden rounded-lg border border-border/70 bg-card shadow-xl shadow-black/5">
+      <div className="dark relative isolate bg-midnight px-6 py-6 text-parchment">
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_70%_100%_at_0%_0%,color-mix(in_oklch,var(--gold)_18%,transparent),transparent_70%)]"
+        />
+        <div className="grid grid-cols-3 gap-4" aria-hidden="true">
+          {[
+            ["Level 0", "0 XP"],
+            ["Streak", "0"],
+            ["Badges", `0 / ${totals.achievements}`],
+          ].map(([label, value]) => (
+            <div key={label} className="border-l border-gold/30 pl-3">
+              <p className="type-meta uppercase tracking-[0.14em] text-parchment/70">
+                {label}
+              </p>
+              <p className="mt-1 font-serif text-2xl font-semibold tabular-nums">
+                {value}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+      <ul className="space-y-4 px-6 py-6">
+        {rows.map((row) => (
+          <li key={row.label}>
+            <div className="flex items-center justify-between type-ui">
+              <span className="flex items-center gap-2 text-foreground">
+                <MythosMark id={row.mark} className="size-4 text-gold-text" />
+                {row.label}
+              </span>
+              <span className="tabular-nums text-muted-foreground">
+                0 / {row.total}
+              </span>
+            </div>
+            <div className="mt-2 h-2 rounded-full bg-muted" />
+          </li>
+        ))}
+      </ul>
+      <figcaption className="border-t border-border/70 px-6 py-3 type-meta text-muted-foreground">
+        {caption}
+      </figcaption>
+    </figure>
   );
 }
