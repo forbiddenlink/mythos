@@ -179,101 +179,44 @@ export function QuickQuizPageClient({
   };
 
   return (
-    <div className="min-h-screen bg-linear-to-b from-background to-mythic relative">
-      <div className="container mx-auto max-w-2xl px-4 py-12">
-        <div className="text-center mb-8">
-          <div className="flex items-center justify-center mb-4">
-            <div className="p-4 rounded-xl border border-gold/20 bg-gold/5">
-              <Zap className="h-10 w-10 text-gold" />
-            </div>
-          </div>
-          <h1 className="page-title text-foreground mb-2">Quick Quiz</h1>
-          <p className="text-muted-foreground">
-            60 seconds. How many can you get?
-          </p>
-        </div>
-
-        <section className="mb-8 rounded-2xl border border-border/60 bg-card/60 p-6">
-          <h2 className="page-section-title text-foreground">
-            Use The Quick Quiz For Fast Recall
-          </h2>
-          <p className="mt-3 leading-relaxed text-muted-foreground">
-            This mode is built for speed rather than long explanation. It works
-            best when you want to check whether deity domains and names are
-            becoming automatic, especially after reading reference pages or
-            finishing a deeper story session.
-          </p>
-          <p className="mt-3 leading-relaxed text-muted-foreground">
-            Short bursts are the point. Play a round, note which questions slow
-            you down, then branch into the full{" "}
-            <Link
-              href="/quiz"
-              className="text-gold underline hover:text-gold/80"
-            >
-              quiz hub
-            </Link>
-            , the{" "}
-            <Link
-              href="/games"
-              className="text-gold underline hover:text-gold/80"
-            >
-              games section
-            </Link>
-            , or the relevant deity pages before coming back for another timed
-            run.
-          </p>
-          <p className="mt-3 leading-relaxed text-muted-foreground">
-            Because every question is compressed into a few seconds of recall,
-            the quick quiz is useful as a warm-up, a checkpoint, or a daily
-            habit when you do not have time for a longer mythology session.
-          </p>
-          <p className="mt-3 leading-relaxed text-muted-foreground">
-            It also helps expose clusters of weak recall. If several questions
-            around war, sun, or underworld figures keep slowing you down, that
-            is usually a sign to revisit those deity pages before moving into a
-            longer review or relationship quiz session.
-          </p>
-          <p className="mt-3 leading-relaxed text-muted-foreground">
-            Because the quiz is timed, it measures confidence as much as raw
-            correctness. A right answer that takes too long usually means the
-            concept is still fragile, which makes this mode a useful checkpoint
-            before you assume a page or pantheon has really stuck.
-          </p>
-          <p className="mt-3 leading-relaxed text-muted-foreground">
-            The best results usually come from repetition across days. One fast
-            round in the morning or after a reading session creates a small but
-            reliable habit, and those habits tend to improve recognition faster
-            than occasional long cram sessions.
-          </p>
-        </section>
-
+    <div className="relative">
+      <div>
         {gameState === "ready" && (
-          <Card className="text-center">
-            <CardHeader>
-              <CardTitle className="font-serif text-2xl">
-                Ready to Race?
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-6">
-              <p className="text-muted-foreground">
-                Answer as many mythology questions as you can in 60 seconds!
-              </p>
-              <div className="flex items-center justify-center gap-4 text-sm">
-                <div className="flex items-center gap-2">
-                  <Timer className="h-4 w-4 text-gold" />
-                  <span>60 seconds</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Trophy className="h-4 w-4 text-gold" />
-                  <span>High Score: {highScore}</span>
-                </div>
-              </div>
-              <Button onClick={startGame} size="lg" className="gap-2">
-                <Zap className="h-5 w-5" />
-                Start Quiz
-              </Button>
-            </CardContent>
-          </Card>
+          <section
+            aria-labelledby="quick-quiz-ready"
+            className="dark relative isolate overflow-hidden rounded-lg bg-midnight px-6 py-10 text-center text-foreground md:px-10 md:py-14"
+          >
+            <div
+              aria-hidden="true"
+              className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_60%_70%_at_50%_0%,color-mix(in_oklch,var(--gold)_22%,transparent),transparent_70%)]"
+            />
+            <p className="font-serif text-7xl font-semibold tabular-nums text-gold-light md:text-8xl">
+              60
+            </p>
+            <p className="type-eyebrow mt-1 text-parchment/75">seconds</p>
+            <h2
+              id="quick-quiz-ready"
+              className="mt-6 font-serif text-2xl font-semibold text-parchment md:text-3xl"
+            >
+              Ready to race?
+            </h2>
+            <p className="mx-auto mt-2 max-w-md type-reading text-parchment/80">
+              Answer as many mythology questions as you can before the time runs
+              out.
+            </p>
+            <Button
+              onClick={startGame}
+              size="lg"
+              className="mt-8 h-12 gap-2 bg-gold px-8 font-semibold text-midnight hover:bg-gold-light"
+            >
+              <Zap className="h-5 w-5" />
+              Start Quiz
+            </Button>
+            <p className="mt-5 flex items-center justify-center gap-2 type-ui text-parchment/75">
+              <Trophy className="size-4 text-gold-light" aria-hidden="true" />
+              High Score: {highScore}
+            </p>
+          </section>
         )}
 
         {gameState === "playing" && question && (
@@ -354,7 +297,9 @@ export function QuickQuizPageClient({
             </CardHeader>
             <CardContent className="space-y-6">
               <div className="py-8">
-                <div className="text-6xl font-bold text-gold mb-2">{score}</div>
+                <div className="mb-2 font-serif text-6xl font-semibold tabular-nums text-gold-text">
+                  {score}
+                </div>
                 <p className="text-muted-foreground">correct answers</p>
               </div>
 

@@ -618,7 +618,7 @@ export function PersonalityQuiz() {
           </div>
 
           <div className="p-4 rounded-lg bg-gold/5 border border-gold/20">
-            <h4 className="font-semibold text-gold mb-2 flex items-center gap-2">
+            <h4 className="font-semibold text-gold-text mb-2 flex items-center gap-2">
               <Sparkles className="h-4 w-4" />
               Why You Matched
             </h4>
@@ -700,7 +700,7 @@ export function PersonalityQuiz() {
           />
         </div>
         <output
-          className="flex items-center gap-2 px-3 py-1 rounded-full bg-gold/10 border border-gold/20 text-gold text-sm font-medium"
+          className="flex items-center gap-2 px-3 py-1 rounded-full bg-gold/10 border border-gold/20 text-gold-text text-sm font-medium"
           aria-label="Personality quiz in progress"
         >
           <Sparkles className="h-3.5 w-3.5" aria-hidden="true" />

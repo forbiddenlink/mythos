@@ -9,19 +9,8 @@ import {
   CardFooter,
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
-import {
-  Trophy,
-  RefreshCw,
-  ArrowRight,
-  Check,
-  X,
-  Sparkles,
-  Image as ImageIcon,
-  Users,
-  Crown,
-} from "lucide-react";
+import { Trophy, RefreshCw, ArrowRight, Check, X, Crown } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { ShareButton } from "@/components/sharing/ShareButton";
@@ -366,7 +355,7 @@ export function MythologyQuiz({ pool }: { pool: MythologyQuizPool }) {
     globalThis.location.reload();
   };
 
-  if (questions.length === 0) return null;
+  if (questions.length === 0) return <QuizSkeleton />;
 
   if (quizCompleted) {
     const percentage = Math.round((score / questions.length) * 100);
@@ -374,13 +363,13 @@ export function MythologyQuiz({ pool }: { pool: MythologyQuizPool }) {
     let resultMessage: ReactNode;
     if (percentage >= 80) {
       resultMessage = (
-        <p className="text-lg text-gold font-serif">
+        <p className="text-lg text-gold-text font-serif">
           Radiant divine wisdom! You rival Athena herself!
         </p>
       );
     } else if (percentage >= 60) {
       resultMessage = (
-        <p className="text-lg text-parchment font-serif">
+        <p className="text-lg text-foreground font-serif">
           A worthy effort! Make an offering to the Muses and try again.
         </p>
       );
@@ -396,14 +385,14 @@ export function MythologyQuiz({ pool }: { pool: MythologyQuizPool }) {
       <Card className="max-w-2xl mx-auto border-gold/20 shadow-xl overflow-hidden relative">
         <div className="absolute inset-0 bg-linear-to-br from-gold/5 via-transparent to-transparent pointer-events-none" />
         <CardHeader className="text-center pt-8">
-          <div className="mx-auto mb-6 p-6 rounded-full bg-linear-to-br from-gold/20 to-amber-500/10 w-fit ring-1 ring-gold/30 shadow-inner">
-            <Trophy className="h-16 w-16 text-gold drop-shadow-md" />
+          <div className="mx-auto mb-4 flex size-16 items-center justify-center rounded-full border border-gold/40 bg-gold/10">
+            <Trophy className="size-8 text-gold-text" aria-hidden="true" />
           </div>
           <CardTitle className="text-3xl font-serif">Quiz Complete!</CardTitle>
         </CardHeader>
         <CardContent className="space-y-8 pb-8">
           <div className="text-center">
-            <div className="text-6xl font-bold text-gold mb-2 tracking-tight">
+            <div className="mb-2 font-serif text-6xl font-semibold tabular-nums tracking-tight text-gold-text">
               {score}/{questions.length}
             </div>
             <p className="text-lg text-muted-foreground font-medium">
@@ -417,10 +406,10 @@ export function MythologyQuiz({ pool }: { pool: MythologyQuizPool }) {
               <div className="font-bold text-lg">{score * 100}</div>
             </div>
             <div className="text-center p-3 rounded-lg w-24 border border-gold/20 bg-gold/5">
-              <div className="text-gold/80 mb-1 flex items-center justify-center gap-1">
+              <div className="text-gold-text mb-1 flex items-center justify-center gap-1">
                 <Crown className="h-3 w-3" /> Best
               </div>
-              <div className="font-bold text-lg text-gold">
+              <div className="font-bold text-lg text-gold-text">
                 {highScore * 100}
               </div>
             </div>
@@ -457,15 +446,6 @@ export function MythologyQuiz({ pool }: { pool: MythologyQuizPool }) {
 
   const question = questions[currentQuestion];
 
-  let questionIcon: ReactNode;
-  if (question.type === "visual") {
-    questionIcon = <ImageIcon className="h-6 w-6 text-bronze" />;
-  } else if (question.type === "relationship") {
-    questionIcon = <Users className="h-6 w-6 text-blue-500" />;
-  } else {
-    questionIcon = <Sparkles className="h-6 w-6 text-gold" />;
-  }
-
   let questionTypeLabel: string;
   if (question.type === "visual") {
     questionTypeLabel = "Visual ID";
@@ -495,7 +475,7 @@ export function MythologyQuiz({ pool }: { pool: MythologyQuizPool }) {
           />
         </div>
         <output
-          className="flex items-center gap-2 px-3 py-1 rounded-full bg-gold/10 border border-gold/20 text-gold text-sm font-medium"
+          className="flex items-center gap-2 px-3 py-1 rounded-full bg-gold/10 border border-gold/20 text-gold-text text-sm font-medium"
           aria-label={`Current score: ${score} correct answers`}
         >
           <Trophy className="h-3.5 w-3.5" aria-hidden="true" />
@@ -509,22 +489,13 @@ export function MythologyQuiz({ pool }: { pool: MythologyQuizPool }) {
         aria-label={`Quiz question ${currentQuestion + 1} of ${questions.length}`}
       >
         <CardHeader className="pb-2">
-          <div className="flex items-start gap-4">
-            <div className="p-3 rounded-xl bg-muted border border-border shrink-0 mt-1">
-              {questionIcon}
-            </div>
-            <div>
-              <Badge variant="secondary" className="mb-2 w-fit">
-                {questionTypeLabel}
-              </Badge>
-              <CardTitle
-                id="quiz-question"
-                className="text-xl md:text-2xl leading-tight font-serif"
-              >
-                {question.question}
-              </CardTitle>
-            </div>
-          </div>
+          <p className="type-eyebrow">{questionTypeLabel}</p>
+          <CardTitle
+            id="quiz-question"
+            className="mt-2 font-serif text-xl leading-snug md:text-2xl"
+          >
+            {question.question}
+          </CardTitle>
         </CardHeader>
 
         <CardContent className="space-y-6 pt-4">
@@ -612,7 +583,7 @@ export function MythologyQuiz({ pool }: { pool: MythologyQuizPool }) {
               <p className="mt-3 pl-10">
                 <Link
                   href={question.learnMoreHref}
-                  className="text-gold underline underline-offset-4 hover:text-gold/80"
+                  className="text-gold-text underline underline-offset-4 hover:decoration-current"
                 >
                   {question.learnMoreLabel}
                 </Link>
@@ -645,6 +616,45 @@ export function MythologyQuiz({ pool }: { pool: MythologyQuizPool }) {
             </Button>
           </CardFooter>
         )}
+      </Card>
+    </div>
+  );
+}
+
+/**
+ * Server-rendered stand-in: the questions are drawn at random on the client,
+ * so the static HTML shows the quiz frame (same size, no answers) instead of
+ * an empty gap until hydration.
+ */
+function QuizSkeleton() {
+  return (
+    <div className="mx-auto max-w-2xl space-y-6" aria-busy="true">
+      <div className="flex items-center justify-between">
+        <div className="space-y-1">
+          <span className="text-sm font-medium uppercase tracking-wider text-muted-foreground">
+            Five questions
+          </span>
+          <div className="h-1.5 w-32 rounded-full bg-muted" />
+        </div>
+      </div>
+      <Card className="overflow-hidden border-t-4 border-t-gold shadow-lg">
+        <CardHeader className="pb-2">
+          <p className="type-eyebrow">Knowledge</p>
+          <p
+            role="status"
+            className="mt-2 font-serif text-xl leading-snug md:text-2xl"
+          >
+            Drawing your questions from the atlas…
+          </p>
+        </CardHeader>
+        <CardContent className="space-y-3 pt-4" aria-hidden="true">
+          {[0, 1, 2, 3].map((row) => (
+            <div
+              key={row}
+              className="h-15 rounded-md border border-border bg-muted/40 motion-safe:animate-pulse"
+            />
+          ))}
+        </CardContent>
       </Card>
     </div>
   );
