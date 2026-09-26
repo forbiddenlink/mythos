@@ -44,7 +44,9 @@ export function Header() {
           { href: "/atlas", label: t("navigation.atlas") },
           { href: "/cosmology", label: t("navigation.cosmology") },
           { href: "/knowledge-graph", label: t("navigation.knowledgeGraph") },
-          { href: "/oracle", label: t("navigation.oracle") },
+          ...(process.env.NEXT_PUBLIC_ORACLE_ENABLED === "true"
+            ? [{ href: "/oracle", label: t("navigation.oracle") }]
+            : []),
         ],
       },
       {

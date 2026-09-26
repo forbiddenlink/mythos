@@ -8,7 +8,12 @@
  *
  * Makes real, billed calls to whichever provider `getOracleModel()`
  * resolves (Anthropic by default if ANTHROPIC_API_KEY is set, else Groq).
- * Run manually, locally: `pnpm eval:oracle`. Never wired into CI.
+ * Run manually, locally: `pnpm --filter web eval:oracle`. Never wired into CI.
+ *
+ * The response body is the AI SDK UI message stream; grounding metadata
+ * (hit count, entity pages, primary sources) arrives in its
+ * `data-oracle-sources` part and is read with the same client helper the UI
+ * uses, so citation checks exercise the real wire format.
  *
  * Each case gets a distinct fake x-forwarded-for IP so the Oracle's
  * in-memory per-IP rate limiter (10 req/hr, see src/lib/oracle/rate-limit.ts)
@@ -17,11 +22,9 @@
 
 import { NextRequest } from "next/server";
 import { POST } from "@/app/api/oracle/route";
-import { decodeCitationsHeader } from "@/lib/oracle/citations";
-import {
-  ORACLE_CITATIONS_HEADER,
-  ORACLE_GROUNDING_HITS_HEADER,
-} from "@/lib/oracle/constants";
+import type { OracleSourcesPayload } from "@/lib/oracle/citations";
+import { isNotInSourcesAnswer } from "@/lib/oracle/coverage";
+import { readOracleStream } from "@/lib/oracle/stream-client";
 import {
   type Assertion,
   type EvalCase,
@@ -46,6 +49,7 @@ interface CaseResult {
   status: number;
   hitCount: number;
   citationCount: number;
+  primarySourceCount: number;
   answer: string;
   assertionResults: AssertionResult[];
   error?: string;
@@ -59,11 +63,17 @@ function matchAny(text: string, patterns: (string | RegExp)[]): boolean {
   );
 }
 
+/** Site paths the answer links inline as markdown, e.g. [Zeus](/deities/zeus). */
+function inlineLinkedPaths(answer: string): string[] {
+  return [...answer.matchAll(/\]\((\/[^)\s]+)\)/g)].map((m) => m[1]!);
+}
+
 function checkAssertion(
   assertion: Assertion,
   answer: string,
-  hitCount: number,
+  sources: OracleSourcesPayload | null,
 ): AssertionResult {
+  const hitCount = sources?.hitCount ?? 0;
   switch (assertion.kind) {
     case "containsAll": {
       const missing = assertion.patterns.filter((p) => !matchAny(answer, [p]));
@@ -126,6 +136,49 @@ function checkAssertion(
         detail: `groundedHit: expected ${assertion.expected ? ">0" : "0"}, got ${hitCount}`,
       };
     }
+    case "citesAtlas": {
+      // Every inline link must point at a page the grounding supplied, and
+      // there must be at least one.
+      const given = new Set(sources?.entities.map((e) => e.path) ?? []);
+      const linked = inlineLinkedPaths(answer);
+      const invented = linked.filter((p) => !given.has(p));
+      const pass = linked.length > 0 && invented.length === 0;
+      return {
+        pass,
+        detail: pass
+          ? `citesAtlas: ${linked.length} inline link(s), all from grounding`
+          : linked.length === 0
+            ? "citesAtlas: no inline links to Atlas pages"
+            : `citesAtlas: links not in grounding: ${invented.join(", ")}`,
+      };
+    }
+    case "citesPath": {
+      const pass =
+        inlineLinkedPaths(answer).includes(assertion.path) ||
+        (sources?.entities.some((e) => e.path === assertion.path) ?? false);
+      return {
+        pass,
+        detail: pass
+          ? `citesPath: ${assertion.path} cited`
+          : `citesPath: ${assertion.path} neither linked nor in sources`,
+      };
+    }
+    case "hasPrimarySource": {
+      const pass = (sources?.primarySources.length ?? 0) > 0;
+      return {
+        pass,
+        detail: `hasPrimarySource: ${sources?.primarySources.length ?? 0} primary source(s) streamed`,
+      };
+    }
+    case "notInSources": {
+      const pass = isNotInSourcesAnswer(answer);
+      return {
+        pass,
+        detail: pass
+          ? 'notInSources: answer opens with "Our sources don\'t cover that."'
+          : "notInSources: answer did not declare the gap (possible invented myth)",
+      };
+    }
     default:
       return { pass: false, detail: "unknown assertion kind" };
   }
@@ -156,32 +209,26 @@ async function runCase(evalCase: EvalCase, index: number): Promise<CaseResult> {
 
   try {
     const res = await POST(req);
-    const answer = await res.text();
 
-    if (res.status !== 200) {
+    if (res.status !== 200 || !res.body) {
+      const text = await res.text();
       return {
         case: evalCase,
         pass: false,
         status: res.status,
         hitCount: 0,
         citationCount: 0,
-        answer,
+        primarySourceCount: 0,
+        answer: text,
         assertionResults: [],
-        error: `non-200 status (${res.status}): ${answer}`,
+        error: `non-200 status (${res.status}): ${text}`,
       };
     }
 
-    const hitCount = Number.parseInt(
-      res.headers.get(ORACLE_GROUNDING_HITS_HEADER) ?? "0",
-      10,
-    );
-    const citationsHeader = res.headers.get(ORACLE_CITATIONS_HEADER);
-    const citationCount = citationsHeader
-      ? decodeCitationsHeader(citationsHeader).length
-      : 0;
+    const { text: answer, sources } = await readOracleStream(res.body);
 
     const assertionResults = evalCase.assertions.map((a) =>
-      checkAssertion(a, answer, hitCount),
+      checkAssertion(a, answer, sources),
     );
     const pass = assertionResults.every((r) => r.pass);
 
@@ -189,8 +236,9 @@ async function runCase(evalCase: EvalCase, index: number): Promise<CaseResult> {
       case: evalCase,
       pass,
       status: res.status,
-      hitCount,
-      citationCount,
+      hitCount: sources?.hitCount ?? 0,
+      citationCount: sources?.entities.length ?? 0,
+      primarySourceCount: sources?.primarySources.length ?? 0,
       answer,
       assertionResults,
     };
@@ -201,6 +249,7 @@ async function runCase(evalCase: EvalCase, index: number): Promise<CaseResult> {
       status: 0,
       hitCount: 0,
       citationCount: 0,
+      primarySourceCount: 0,
       answer: "",
       assertionResults: [],
       error: error instanceof Error ? error.message : String(error),
@@ -218,7 +267,9 @@ function printResult(result: CaseResult, index: number, total: number): void {
     console.log(`  ERROR: ${result.error}`);
     return;
   }
-  console.log(`  hits=${result.hitCount} citations=${result.citationCount}`);
+  console.log(
+    `  hits=${result.hitCount} entities=${result.citationCount} primarySources=${result.primarySourceCount}`,
+  );
   for (const ar of result.assertionResults) {
     console.log(`  ${ar.pass ? "  ok" : " MISS"}  ${ar.detail}`);
   }

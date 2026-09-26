@@ -7,9 +7,9 @@
 
 ## Oracle spend spike
 
-1. Set `ORACLE_KILL_SWITCH=true` in Vercel (Production) and redeploy. Hiding `NEXT_PUBLIC_ORACLE_ENABLED` only removes the footer control; removing one provider key can select the other configured provider.
+1. Set `ORACLE_KILL_SWITCH=true` in Vercel (Production) and redeploy. Hiding `NEXT_PUBLIC_ORACLE_ENABLED` only removes the footer control and nav links; without `ORACLE_PROVIDER`, removing one provider key can select the other configured provider (a pinned `ORACLE_PROVIDER` never switches).
 2. Check Upstash Redis keys `mythos:oracle*` and usage in the configured provider account.
-3. Optionally lower `ORACLE_DAILY_REQUEST_CAP` (default 500).
+3. Optionally lower `ORACLE_DAILY_REQUEST_CAP` (default 500) or `ORACLE_DAILY_TOKEN_CAP` (default 2,000,000; counter at `mythos:oracle:tokens:<UTC day>`).
 
 ## Production configuration (Oracle on)
 
@@ -22,7 +22,7 @@ UPSTASH_REDIS_REST_TOKEN=
 NEXT_PUBLIC_ORACLE_ENABLED=true
 ```
 
-Model overrides: `ANTHROPIC_ORACLE_MODEL` or `GROQ_ORACLE_MODEL`. Optional controls: `ORACLE_KILL_SWITCH`, `ORACLE_DAILY_REQUEST_CAP`, `SENTRY_*`, `NEXT_PUBLIC_SENTRY_DSN`.
+Model overrides: `ANTHROPIC_ORACLE_MODEL` or `GROQ_ORACLE_MODEL`. Optional controls: `ORACLE_KILL_SWITCH`, `ORACLE_DAILY_REQUEST_CAP`, `ORACLE_DAILY_TOKEN_CAP`, `SENTRY_*`, `NEXT_PUBLIC_SENTRY_DSN`.
 
 The kill switch disables both Oracle and story-quiz generation. Production requests require shared Redis for both Anthropic and Groq; per-IP limits and the global daily cap fail closed without it. Only development can fall back to in-memory limits. Do not infer account billing status from the provider name.
 

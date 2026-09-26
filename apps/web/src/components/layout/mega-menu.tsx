@@ -106,12 +106,17 @@ const discoverMenu: MenuSection = {
       description: "Explore heavens, worlds, and underworlds",
       mark: "tree",
     },
-    {
-      label: "The Oracle",
-      href: "/oracle",
-      description: "Ask questions with catalog references",
-      mark: "owl",
-    },
+    // The Oracle is linked only when it is switched on for this deployment.
+    ...(process.env.NEXT_PUBLIC_ORACLE_ENABLED === "true"
+      ? [
+          {
+            label: "The Oracle",
+            href: "/oracle",
+            description: "Ask questions with catalog references",
+            mark: "owl" as const,
+          },
+        ]
+      : []),
   ],
 };
 
