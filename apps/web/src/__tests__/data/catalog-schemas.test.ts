@@ -40,7 +40,7 @@ function catalogStrings(value: unknown): string[] {
   return [];
 }
 
-describe("catalogs served by the GraphQL route", () => {
+describe("principal catalog datasets", () => {
   it.each(catalogs)(
     "$name satisfies its runtime schema",
     ({ schema, data }) => {

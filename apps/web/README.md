@@ -36,7 +36,6 @@ Web frontend for Mythos Atlas, an interactive encyclopedia of ancient mythology 
 | UI             | React                        | 19.2.8        |
 | Language       | TypeScript                   | 6.0.3         |
 | Styling        | Tailwind CSS                 | ^4.3          |
-| Data Fetching  | React Query (TanStack)       | ^5.102        |
 | Graphs         | ReactFlow                    | ^11.11        |
 | Visualizations | D3.js                        | ^7.9          |
 | 3D Rendering   | React Three Fiber / Three.js | ^9.7 / ^0.185 |
@@ -97,7 +96,7 @@ src/
 │   ├── review/           # Spaced repetition flashcards
 │   ├── stories/          # Story collection + branching stories
 │   ├── timeline/         # Mythological timeline
-│   └── api/graphql/      # GraphQL API route
+│   └── api/              # App-internal route handlers (search, analytics, Oracle)
 ├── components/           # React components (~40 directories)
 │   ├── artifacts/        # 3D artifact viewer
 │   ├── challenges/       # Daily challenges
@@ -134,8 +133,6 @@ src/
 │   └── use-background-sync, use-debounce
 ├── i18n/                 # Internationalization config
 ├── lib/                  # Utilities and logic
-│   ├── graphql-client.ts # GraphQL setup
-│   ├── queries.ts        # GraphQL query definitions
 │   ├── recommendations.ts
 │   ├── search.ts         # Fuse.js search engine
 │   ├── branching-story.ts
@@ -146,7 +143,7 @@ src/
 │   └── utils.ts
 ├── providers/            # Context providers
 │   ├── achievement-notification, bookmarks, leaderboard
-│   ├── progress, query, review, theme
+│   ├── progress, review, theme
 │   └── ...
 ├── types/                # TypeScript definitions
 └── proxy.ts              # i18n routing proxy
@@ -175,12 +172,11 @@ Automatic deployments on push to `main` via GitHub integration.
 
 ## Environment Variables
 
-No environment variables required — the app uses static JSON data files served through a GraphQL layer.
+No environment variables are required to browse — pages import static JSON data files directly. See `.env.example` for the optional Oracle, analytics and Sentry settings.
 
 ## Learn More
 
 - [Next.js Documentation](https://nextjs.org/docs)
-- [React Query Documentation](https://tanstack.com/query/latest)
 - [Tailwind CSS](https://tailwindcss.com/docs)
 - [shadcn/ui](https://ui.shadcn.com/)
 

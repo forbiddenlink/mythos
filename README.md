@@ -37,7 +37,7 @@ Open [http://localhost:3000](http://localhost:3000) to view the app. The encyclo
 - **Framework:** Next.js 16 (App Router) + React 19
 - **Language:** TypeScript
 - **Styling:** Tailwind CSS v4 + shadcn/ui
-- **Data:** versioned JSON used by pages and the separate web GraphQL endpoint
+- **Data:** versioned JSON catalogs imported by pages (no database or public data API)
 - **Visualizations:** ReactFlow, D3.js, React Three Fiber
 - **Testing:** Vitest (unit), Playwright (E2E)
 - **Deployment:** Vercel

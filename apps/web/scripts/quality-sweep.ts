@@ -74,7 +74,6 @@ const routes = [
   "/stories/ragnarok/cinematic",
   "/stories/titanomachy/cinematic",
   "/oracle",
-  "/api",
   "/stories/osiris-myth",
   "/stories/inanna-descent",
   "/stories/labors-of-hercules",

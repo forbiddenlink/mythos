@@ -10,7 +10,7 @@ Mythos Atlas is an interactive mythology encyclopedia. Live site: https://mythos
 
 It's a **pnpm + Turborepo monorepo** with two apps:
 
-- **`apps/web`** - Next.js 16 (App Router) + React 19 frontend. Serves a GraphQL API from a Next.js route handler backed by static JSON data files. This is the primary app where most development happens.
+- **`apps/web`** - Next.js 16 (App Router) + React 19 frontend. Pages read static JSON data files from `src/data/` directly; there is no database and no public data API.
 - **`apps/api`** - Rust (Axum + async-graphql + SQLx) backend targeting PostgreSQL. Secondary/optional; mirrors the GraphQL API.
 
 In practice, the web app is self-contained: its `/api/graphql` route handler reads directly from JSON files in `src/data/`, so the Rust API is not required for local development.
@@ -65,9 +65,9 @@ cargo check
 
 ## Layout
 
-- `apps/web/src/app/` - Next.js App Router pages, including `api/graphql/route.ts` and `api/oracle/route.ts`
+- `apps/web/src/app/` - Next.js App Router pages, including route handlers under `api/` (`oracle`, `search`, `analytics`, `csp-report`, `quiz`)
 - `apps/web/src/data/` - static JSON content: `pantheons.json`, `deities.json`, `stories.json`, `creatures.json`, `artifacts.json`, `locations.json`, `relationships.json`, plus game/progress data (`achievements.json`, `challenges.json`, `collections.json`, `journeys.json`, etc.)
-- `apps/web/src/types/Entity.ts` - entity types (`Deity`, `Creature`, `Artifact`, `Story`, `Pantheon`, etc.) - the GraphQL route imports Zod-inferred types from `src/lib/schemas.ts`; keep these consistent with the entity interfaces
+- `apps/web/src/types/Entity.ts` - entity types (`Deity`, `Creature`, `Artifact`, `Story`, `Pantheon`, etc.) - the Zod catalog schemas in `src/lib/schemas.ts` (validated in tests) must stay consistent with these interfaces
 - `apps/web/src/components/ui/` - shadcn/ui components (new-york style), configured via `apps/web/components.json`
 - `apps/web/messages/` - next-intl translation messages (en, es, fr, de)
 - `apps/web/e2e/` - Playwright specs
@@ -115,7 +115,7 @@ From `apps/web/.env.example`:
 
 ## Gotchas
 
-- GraphQL's `src/lib/schemas.ts` contracts and `src/types/Entity.ts` interfaces must be kept in sync.
+- The `src/lib/schemas.ts` Zod contracts and `src/types/Entity.ts` interfaces must be kept in sync.
 - Analytics events are a closed set in `src/lib/analytics/events.ts`, validated at runtime on both client and server. Add the name there first or the event is dropped. See `docs/analytics.md`.
 - Use the configured `pnpm --filter web build` webpack pipeline; next-pwa is not active.
 - Vercel Analytics/Speed Insights load only after cookie consent (and never when Global Privacy Control is on); `NEXT_PUBLIC_VERCEL_ANALYTICS_ID` is unused by current code.
