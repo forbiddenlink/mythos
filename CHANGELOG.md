@@ -5,6 +5,19 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.7.0](https://github.com/forbiddenlink/mythos/compare/v1.6.0...v1.7.0) (2026-09-26)
+
+
+### Features
+
+* atlas overhaul with static rendering, cited Oracle, 26 traditions and a full visual redesign ([#131](https://github.com/forbiddenlink/mythos/issues/131)) ([3f45444](https://github.com/forbiddenlink/mythos/commit/3f45444630cddbff8e953b25d474c64b51b245c9))
+
+
+### Bug Fixes
+
+* **analytics:** keep the PostHog rewrite targets absolute ([#129](https://github.com/forbiddenlink/mythos/issues/129)) ([42ada26](https://github.com/forbiddenlink/mythos/commit/42ada2685ba563ef0a9ead081940e4a849391f66))
+* **sentry:** drop duplicate middleware transactions ([#132](https://github.com/forbiddenlink/mythos/issues/132)) ([9e0efeb](https://github.com/forbiddenlink/mythos/commit/9e0efeb189cd32fdaeebf7ec54471b32e0667284))
+
 ## [1.6.0](https://github.com/forbiddenlink/mythos/compare/v1.5.0...v1.6.0) (2026-09-25)
 
 
