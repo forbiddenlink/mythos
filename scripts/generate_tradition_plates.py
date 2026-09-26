@@ -12,21 +12,23 @@ Usage:
     python3 scripts/generate_tradition_plates.py --pantheon hittite-pantheon
     python3 scripts/generate_tradition_plates.py --only tarhunna,kumarbi
     python3 scripts/generate_tradition_plates.py --pantheon dine-pantheon --kinds deities,stories
+    python3 scripts/generate_tradition_plates.py --all
 
-Two plate styles exist:
+Two plate styles exist, both rendered by _plate_art.py:
 
-* "medallion" - the dark-academia medallion used across the site, with a
-  small geometric emblem inside ringed borders.
-* "abstract" - a deliberately plain typographic plate: one thin frame, a
-  horizon rule, and at most a single unornamented shape (a disc, a ridge
-  line, a river line, or small cross-shaped stars). It is used for
-  Aboriginal Australian and Diné entries so the site does not imitate
-  culturally owned visual forms: no dot fields, no concentric-circle or
-  U-shape iconography, no cross-hatching (rarrk), no sandpainting figures,
-  no four-colour directional schemes. These plates are placeholders, not
-  depictions; community-made or licensed artwork should replace them.
+* "medallion" - the site's engraved gold medallion (tradition border band,
+  embossed emblem, atmospheric ground). Plates carry no text; the site
+  prints names in HTML.
+* "abstract" - a plain landscape: sky, horizon, land, and at most one
+  unornamented element (a sun or moon disc, a ridge, a river, or a night
+  sky). It is used for Aboriginal Australian and Diné entries so the site
+  does not imitate culturally owned visual forms: no dot fields, no
+  concentric-circle or U-shape iconography, no cross-hatching (rarrk), no
+  sandpainting figures, no four-colour directional schemes, no medallion or
+  border ornament. These plates are placeholders, not depictions;
+  community-made or licensed artwork should replace them.
 
-Requires Pillow (pip install Pillow).
+Requires Pillow and numpy (pip install Pillow numpy).
 """
 
 from __future__ import annotations
@@ -34,19 +36,16 @@ from __future__ import annotations
 import argparse
 import json
 import math
-from pathlib import Path
 
-from PIL import Image, ImageDraw, ImageFont
+from _plate_art import render_abstract_plate, render_plate, write_plate
 
-REPO_ROOT = Path(__file__).resolve().parents[1]
-DATA = REPO_ROOT / "apps" / "web" / "src" / "data"
-PUBLIC = REPO_ROOT / "apps" / "web" / "public"
+from _repo_paths import DATA_DIR as DATA, REPO_ROOT, WEB_PUBLIC as PUBLIC
 
 GOLD = (212, 175, 55)
 PARCHMENT = (245, 235, 220)
 MUTED = (200, 180, 140)
 
-ABSTRACT_PANTHEONS = {"aboriginal-australian-pantheon", "dine-pantheon"}
+ABSTRACT_PANTHEONS = {"aboriginal-australian-pantheon", "dine-pantheon"}  # see _plate_art
 
 # Per-pantheon background and accent (dark ground, pigment accent).
 PALETTES = {
@@ -57,14 +56,6 @@ PALETTES = {
     "dine-pantheon": ((13, 19, 21), (90, 160, 160)),
 }
 DEFAULT_PALETTE = ((18, 16, 14), (200, 160, 90))
-
-SHORT_NAMES = {
-    "hittite-pantheon": "HITTITE",
-    "canaanite-pantheon": "CANAANITE · UGARIT",
-    "inuit-pantheon": "INUIT",
-    "aboriginal-australian-pantheon": "ABORIGINAL AUSTRALIA",
-    "dine-pantheon": "DINÉ",
-}
 
 # Emblem per entity id. Anything not listed falls back to KIND_DEFAULTS.
 MOTIFS = {
@@ -116,7 +107,7 @@ KIND_DEFAULTS = {
 ABSTRACT_DEFAULT = "disc"
 
 KINDS = {
-    # kind: (json file, output dir, size, webp?)
+    # kind: (json file, output dir, size, unused)
     "deities": ("deities.json", "deities", (768, 1024), True),
     "heroes": ("heroes.json", "heroes", (768, 1024), True),
     "stories": ("stories.json", "stories", (768, 768), False),
@@ -124,35 +115,6 @@ KINDS = {
     "artifacts": ("artifacts.json", "artifacts", (768, 768), False),
     "locations": ("locations.json", "locations", (768, 768), False),
 }
-
-
-def font(size: int, style: str = "regular"):
-    names = {
-        "regular": ["Times New Roman.ttf", "LiberationSerif-Regular.ttf", "DejaVuSerif.ttf"],
-        "bold": ["Times New Roman Bold.ttf", "LiberationSerif-Bold.ttf", "DejaVuSerif-Bold.ttf"],
-        "italic": ["Times New Roman Italic.ttf", "LiberationSerif-Italic.ttf", "DejaVuSerif-Italic.ttf"],
-    }[style]
-    dirs = [
-        Path("/System/Library/Fonts/Supplemental"),
-        Path("/usr/share/fonts/truetype/liberation"),
-        Path("/usr/share/fonts/truetype/dejavu"),
-    ]
-    for d in dirs:
-        for n in names:
-            p = d / n
-            if p.exists():
-                return ImageFont.truetype(str(p), size)
-    return ImageFont.load_default()
-
-
-def fit_text(draw, text, style, start, max_width, min_size=14):
-    size = start
-    while size > min_size:
-        f = font(size, style)
-        if draw.textlength(text, font=f) <= max_width:
-            return f
-        size -= 2
-    return font(min_size, style)
 
 
 def dim(c, k=0.5):
@@ -163,15 +125,6 @@ def light(c, d=50):
     return tuple(min(255, v + d) for v in c)
 
 
-def radial_wash(img, cx, cy, radius, accent, strength=40):
-    layer = Image.new("RGBA", img.size, (0, 0, 0, 0))
-    ld = ImageDraw.Draw(layer)
-    for r in range(radius, 40, -10):
-        alpha = int(strength * (1.0 - r / float(radius)))
-        ld.ellipse([cx - r, cy - r, cx + r, cy + r], fill=accent + (alpha,))
-    return Image.alpha_composite(img, layer)
-
-
 # ---------------------------------------------------------------------------
 # Emblems for the medallion style
 # ---------------------------------------------------------------------------
@@ -179,9 +132,17 @@ def radial_wash(img, cx, cy, radius, accent, strength=40):
 def emblem(draw, motif, cx, cy, s, accent):
     pale = light(GOLD)
     if motif == "storm":
-        pts = [(cx - 0.2 * s, cy - 0.7 * s), (cx + 0.15 * s, cy - 0.1 * s), (cx - 0.1 * s, cy - 0.05 * s), (cx + 0.2 * s, cy + 0.7 * s)]
-        draw.line(pts, fill=pale, width=6, joint="curve")
-        draw.arc([cx - 0.7 * s, cy - 0.9 * s, cx + 0.7 * s, cy - 0.2 * s], 200, 340, fill=GOLD, width=3)
+        # cloud bank, forked bolt and slanting rain
+        for dx, dy, r in ((-0.32, -0.42, 0.24), (0.0, -0.55, 0.3), (0.34, -0.42, 0.22)):
+            draw.ellipse([cx + (dx - r) * s, cy + (dy - r) * s, cx + (dx + r) * s, cy + (dy + r) * s], fill=dim(accent, 0.7), outline=pale, width=3)
+        draw.rectangle([cx - 0.52 * s, cy - 0.42 * s, cx + 0.52 * s, cy - 0.24 * s], fill=dim(accent, 0.7))
+        draw.line([(cx - 0.56 * s, cy - 0.24 * s), (cx + 0.56 * s, cy - 0.24 * s)], fill=pale, width=3)
+        bolt = [(cx + 0.02 * s, cy - 0.22 * s), (cx - 0.16 * s, cy + 0.14 * s), (cx + 0.02 * s, cy + 0.12 * s),
+                (cx - 0.12 * s, cy + 0.72 * s), (cx + 0.22 * s, cy + 0.02 * s), (cx + 0.04 * s, cy + 0.04 * s), (cx + 0.18 * s, cy - 0.22 * s)]
+        draw.polygon(bolt, fill=pale, outline=GOLD)
+        for i in range(6):
+            x = cx - 0.55 * s + i * 0.2 * s + (0.25 * s if i >= 3 else 0)
+            draw.line([(x, cy - 0.1 * s), (x - 0.1 * s, cy + 0.25 * s)], fill=GOLD, width=2)
     elif motif == "sun":
         r = 0.32 * s
         draw.ellipse([cx - r, cy - r, cx + r, cy + r], fill=accent, outline=pale, width=3)
@@ -238,8 +199,15 @@ def emblem(draw, motif, cx, cy, s, accent):
         hx, hy = pts[-1]
         draw.ellipse([hx - 0.08 * s, hy - 0.08 * s, hx + 0.08 * s, hy + 0.08 * s], fill=accent, outline=pale)
     elif motif == "sea":
-        for i, wy in enumerate((-0.3, 0.0, 0.3)):
-            draw.arc([cx - 0.7 * s, cy + (wy - 0.15) * s, cx + 0.7 * s, cy + (wy + 0.15) * s], 10, 170, fill=pale if i == 1 else GOLD, width=4)
+        # rolling swell: a curling crest over rows of scalloped waves
+        draw.arc([cx - 0.62 * s, cy - 0.72 * s, cx + 0.18 * s, cy + 0.08 * s], 150, 390, fill=pale, width=6)
+        draw.arc([cx - 0.36 * s, cy - 0.5 * s, cx - 0.02 * s, cy - 0.16 * s], 150, 400, fill=GOLD, width=4)
+        draw.ellipse([cx - 0.24 * s, cy - 0.38 * s, cx - 0.14 * s, cy - 0.28 * s], fill=accent)
+        for row, wy in enumerate((0.12, 0.3, 0.48)):
+            n = 5 - (row % 2)
+            for i in range(n):
+                x0 = cx - 0.7 * s + (i + (0.5 if row % 2 else 0)) * 0.28 * s
+                draw.arc([x0, cy + (wy - 0.1) * s, x0 + 0.28 * s, cy + (wy + 0.1) * s], 180, 360, fill=pale if row == 1 else GOLD, width=4)
     elif motif == "blade":
         draw.polygon([(cx - 0.55 * s, cy + 0.35 * s), (cx + 0.5 * s, cy - 0.45 * s), (cx + 0.2 * s, cy + 0.1 * s)], fill=accent, outline=pale)
         draw.line([(cx - 0.55 * s, cy + 0.35 * s), (cx - 0.7 * s, cy + 0.5 * s)], fill=GOLD, width=6)
@@ -280,8 +248,15 @@ def emblem(draw, motif, cx, cy, s, accent):
     elif motif == "crown":
         draw.polygon([(cx - 0.5 * s, cy + 0.3 * s), (cx - 0.5 * s, cy - 0.3 * s), (cx - 0.25 * s, cy), (cx, cy - 0.45 * s), (cx + 0.25 * s, cy), (cx + 0.5 * s, cy - 0.3 * s), (cx + 0.5 * s, cy + 0.3 * s)], fill=accent, outline=pale)
     elif motif == "wind":
-        for i, wy in enumerate((-0.3, 0, 0.3)):
-            draw.arc([cx - 0.6 * s + i * 0.1 * s, cy + (wy - 0.2) * s, cx + 0.4 * s + i * 0.1 * s, cy + (wy + 0.2) * s], 200, 350, fill=pale if i == 1 else GOLD, width=4)
+        # three gusts, each ending in a curl
+        for i, wy in enumerate((-0.35, 0.0, 0.35)):
+            x0 = cx - 0.7 * s + i * 0.08 * s
+            x1 = cx + 0.25 * s + i * 0.1 * s
+            y = cy + wy * s
+            draw.line([(x0, y), (x1, y)], fill=pale if i == 1 else GOLD, width=5)
+            r = (0.16 - i * 0.02) * s
+            draw.arc([x1 - r, y - 2 * r, x1 + r, y], 90, 400, fill=pale if i == 1 else GOLD, width=5)
+            draw.ellipse([x1 - r * 0.35, y - r * 1.35, x1 + r * 0.35, y - r * 0.65], fill=accent)
     elif motif == "bird":
         draw.line([(cx - 0.6 * s, cy - 0.1 * s), (cx, cy + 0.2 * s), (cx + 0.6 * s, cy - 0.1 * s)], fill=pale, width=7, joint="curve")
         draw.arc([cx - 0.7 * s, cy + 0.35 * s, cx + 0.7 * s, cy + 0.65 * s], 10, 170, fill=GOLD, width=3)
@@ -294,145 +269,58 @@ def emblem(draw, motif, cx, cy, s, accent):
         draw.ellipse([cx - r, cy - r, cx + r, cy + r], outline=pale, fill=accent, width=3)
 
 
-def medallion(draw, cx, cy, radius):
-    for r, w in [(radius, 3), (radius - 12, 1)]:
-        draw.ellipse([cx - r, cy - r, cx + r, cy + r], outline=GOLD, width=w)
-
-
-# ---------------------------------------------------------------------------
-# Shapes for the abstract style (plain, unornamented)
-# ---------------------------------------------------------------------------
-
-def abstract_shape(draw, motif, cx, cy, s, accent):
-    line = light(accent, 40)
-    if motif == "disc":
-        r = 0.22 * s
-        draw.ellipse([cx - r, cy - 0.35 * s - r, cx + r, cy - 0.35 * s + r], fill=line)
-    elif motif == "ridge":
-        pts = [(cx - 0.9 * s, cy + 0.1 * s), (cx - 0.35 * s, cy - 0.2 * s), (cx + 0.05 * s, cy - 0.05 * s), (cx + 0.5 * s, cy - 0.3 * s), (cx + 0.9 * s, cy + 0.1 * s)]
-        draw.line(pts, fill=line, width=3, joint="curve")
-    elif motif == "river":
-        pts = [(cx - 0.9 * s + i * 0.06 * s, cy + 0.25 * s + 0.08 * s * math.sin(i / 3.0)) for i in range(31)]
-        draw.line(pts, fill=line, width=3, joint="curve")
-    elif motif == "stars":
-        for dx, dy in [(-0.5, -0.45), (-0.1, -0.6), (0.3, -0.4), (0.6, -0.55)]:
-            x, y, r = cx + dx * s, cy + dy * s, 0.05 * s
-            draw.line([(x - r, y), (x + r, y)], fill=line, width=2)
-            draw.line([(x, y - r), (x, y + r)], fill=line, width=2)
-
-
 # ---------------------------------------------------------------------------
 # Rendering
 # ---------------------------------------------------------------------------
 
-def caption_for(kind, rec):
-    if kind in ("deities", "heroes"):
-        dom = rec.get("domain") or rec.get("keyDeeds") or []
-        if kind == "deities":
-            return " · ".join(d.upper() for d in dom[:3])
-        return (rec.get("traditionRole") or "LEGENDARY FIGURE").upper()
-    if kind == "stories":
-        return rec.get("category", "myth").upper()
-    if kind == "creatures":
-        return "BEING OF STORY"
-    if kind == "artifacts":
-        return rec.get("type", "object").upper()
-    if kind == "locations":
-        return rec.get("locationType", "place").replace("_", " ").upper()
-    return ""
+KIND_TYPES = {"deities": "deity", "heroes": "hero", "stories": "story", "creatures": "creature",
+              "artifacts": "artifact", "locations": "location"}
 
 
-def title_for(rec):
-    name = rec.get("name") or rec.get("title")
-    # Drop parenthetical glosses from the plate title; they stay in the record.
-    if "(" in name:
-        name = name.split("(")[0].strip()
-    return name.upper()
+def hint_for(kind, rec):
+    """Words the renderer reads to choose the plate's atmosphere."""
+    parts = []
+    for key in ("domain", "keyDeeds", "abilities", "powers"):
+        val = rec.get(key)
+        if isinstance(val, list):
+            parts.extend(str(v) for v in val[:4])
+    for key in ("traditionRole", "category", "type", "locationType", "description"):
+        if isinstance(rec.get(key), str):
+            parts.append(rec[key][:160])
+    return " ".join(parts)
 
 
 def render(kind, rec, pantheon_id):
-    json_name, out_dir, (w, h), make_webp = KINDS[kind]
-    bg, accent = PALETTES.get(pantheon_id, DEFAULT_PALETTE)
-    style = "abstract" if pantheon_id in ABSTRACT_PANTHEONS else "medallion"
-    img = Image.new("RGBA", (w, h), bg + (255,))
-    cx, cy = w // 2, int(h * (0.43 if h > w else 0.46))
-    draw = ImageDraw.Draw(img)
-    tag = f"MYTHOS ATLAS · {SHORT_NAMES.get(pantheon_id, 'MYTHIC TRADITION')}"
-    title = title_for(rec)
-    caption = caption_for(kind, rec)
-
-    if style == "medallion":
-        img = radial_wash(img, cx, cy, int(min(w, h) * 0.45), accent)
-        draw = ImageDraw.Draw(img)
-        draw.rectangle([28, 28, w - 28, h - 28], outline=GOLD, width=2)
-        draw.rectangle([36, 36, w - 36, h - 36], outline=dim(GOLD), width=1)
-        for bx, by, dx, dy in [(28, 28, 1, 1), (w - 28, 28, -1, 1), (28, h - 28, 1, -1), (w - 28, h - 28, -1, -1)]:
-            draw.line([(bx, by), (bx + dx * 22, by)], fill=GOLD, width=2)
-            draw.line([(bx, by), (bx, by + dy * 22)], fill=GOLD, width=2)
-        draw.line([(56, 80), (w - 56, 80)], fill=dim(GOLD), width=1)
-        radius = int(min(w, h) * 0.19)
-        medallion(draw, cx, cy, radius)
-        motif = MOTIFS.get(rec["id"], KIND_DEFAULTS.get(kind, "star"))
-        emblem(draw, motif, cx, cy, radius * 0.62, accent)
-        rule_y = int(h * (0.73 if h > w else 0.83))
-        draw.line([(64, rule_y), (w - 64, rule_y)], fill=GOLD, width=2)
-    else:
-        # Plain typographic plate: single thin frame, horizon rule, one shape.
-        draw.rectangle([32, 32, w - 32, h - 32], outline=dim(accent, 0.9), width=1)
-        horizon = cy + int(min(w, h) * 0.12)
-        draw.line([(80, horizon), (w - 80, horizon)], fill=dim(accent, 0.9), width=1)
+    _json_name, out_dir, size, _webp = KINDS[kind]
+    if pantheon_id in ABSTRACT_PANTHEONS:
         motif = MOTIFS.get(rec["id"], ABSTRACT_DEFAULT)
-        abstract_shape(draw, motif, cx, horizon - int(min(w, h) * 0.05), min(w, h) * 0.3, accent)
-        rule_y = int(h * (0.73 if h > w else 0.83))
-
-    draw.text((w // 2, 58), tag, font=font(15), fill=MUTED, anchor="mm")
-    tf = fit_text(draw, title, "bold", 46 if h > w else 40, w - 140)
-    draw.text((w // 2, rule_y + (60 if h > w else 42)), title, font=tf, fill=PARCHMENT, anchor="mm")
-    if caption:
-        cf = fit_text(draw, caption, "italic", 17, w - 150, 11)
-        draw.text((w // 2, rule_y + (108 if h > w else 78)), caption, font=cf, fill=GOLD if style == "medallion" else light(accent, 30), anchor="mm")
-    if h > w:
-        stamp = "CODEX THEOLOGICUS · FOLIO SACRUM" if style == "medallion" else "PLACEHOLDER PLATE · NOT A DEPICTION"
-        draw.text((w // 2, h - 70), stamp, font=font(14), fill=(130, 120, 100), anchor="mm")
-
-    out = PUBLIC / out_dir
-    out.mkdir(parents=True, exist_ok=True)
-    rgb = img.convert("RGB")
-    rgb.save(out / f"{rec['id']}.png", "PNG", optimize=True)
-    if make_webp:
-        rgb.save(out / f"{rec['id']}.webp", "WEBP", quality=85)
-    return out / f"{rec['id']}.png"
+        img = render_abstract_plate(key=rec["id"], size=size, motif=motif, pantheon=pantheon_id)
+    else:
+        bg, accent = PALETTES.get(pantheon_id, DEFAULT_PALETTE)
+        motif = MOTIFS.get(rec["id"], KIND_DEFAULTS.get(kind, "star"))
+        img = render_plate(
+            kind=KIND_TYPES[kind], key=rec["id"], size=size, accent=accent, bg=bg,
+            pantheon=pantheon_id, hint=hint_for(kind, rec),
+            emblem=lambda draw, cx, cy: emblem(draw, motif, cx, cy, 130, accent),
+        )
+    return write_plate(img, PUBLIC / out_dir, rec["id"])
 
 
 def render_pantheon(rec):
     pid = rec["id"]
-    bg, accent = PALETTES.get(pid, DEFAULT_PALETTE)
-    style = "abstract" if pid in ABSTRACT_PANTHEONS else "medallion"
-    w, h = 1024, 768
-    img = Image.new("RGBA", (w, h), bg + (255,))
-    cx, cy = w // 2, 330
-    draw = ImageDraw.Draw(img)
-    if style == "medallion":
-        img = radial_wash(img, cx, cy, 380, accent)
-        draw = ImageDraw.Draw(img)
-        draw.rectangle([32, 32, w - 32, h - 32], outline=GOLD, width=2)
-        draw.rectangle([42, 42, w - 42, h - 42], outline=dim(GOLD), width=1)
-        medallion(draw, cx, cy, 170)
-        emblem(draw, {"hittite-pantheon": "storm", "canaanite-pantheon": "mountain", "inuit-pantheon": "sea"}.get(pid, "star"), cx, cy, 105, accent)
+    size = (1024, 768)
+    if pid in ABSTRACT_PANTHEONS:
+        motif = "ridge" if pid == "aboriginal-australian-pantheon" else "disc"
+        img = render_abstract_plate(key=pid, size=size, motif=motif, pantheon=pid)
     else:
-        draw.rectangle([36, 36, w - 36, h - 36], outline=dim(accent, 0.9), width=1)
-        draw.line([(100, 420), (w - 100, 420)], fill=dim(accent, 0.9), width=1)
-        abstract_shape(draw, "ridge" if pid == "aboriginal-australian-pantheon" else "disc", cx, 400, 260, accent)
-    name = rec["name"].upper()
-    draw.text((w // 2, 600), name, font=fit_text(draw, name, "bold", 52, w - 160), fill=PARCHMENT, anchor="mm")
-    sub = rec["region"].upper()
-    draw.text((w // 2, 655), sub, font=fit_text(draw, sub, "regular", 20, w - 200, 12), fill=GOLD if style == "medallion" else light(accent, 30), anchor="mm")
-    out = PUBLIC / "pantheons"
-    slug = rec["slug"]
-    rgb = img.convert("RGB")
-    rgb.save(out / f"{slug}.jpg", "JPEG", quality=90)
-    rgb.save(out / f"{slug}.png", "PNG", optimize=True)
-    return out / f"{slug}.jpg"
+        bg, accent = PALETTES.get(pid, DEFAULT_PALETTE)
+        motif = {"hittite-pantheon": "storm", "canaanite-pantheon": "mountain", "inuit-pantheon": "sea"}.get(pid, "star")
+        img = render_plate(
+            kind="pantheon", key=pid, size=size, accent=accent, bg=bg, pantheon=pid,
+            hint=rec.get("region", ""),
+            emblem=lambda draw, cx, cy: emblem(draw, motif, cx, cy, 130, accent),
+        )
+    return write_plate(img, PUBLIC / "pantheons", rec["slug"])
 
 
 def main():
@@ -440,7 +328,10 @@ def main():
     ap.add_argument("--pantheon", action="append", default=[], help="pantheon id (repeatable)")
     ap.add_argument("--only", default="", help="comma-separated entity ids")
     ap.add_argument("--kinds", default=",".join(list(KINDS) + ["pantheons"]))
+    ap.add_argument("--all", action="store_true", help="every pantheon in PALETTES")
     args = ap.parse_args()
+    if args.all:
+        args.pantheon = sorted(set(args.pantheon) | set(PALETTES))
     only = {x.strip() for x in args.only.split(",") if x.strip()}
     kinds = [k.strip() for k in args.kinds.split(",") if k.strip()]
     if not args.pantheon and not only:

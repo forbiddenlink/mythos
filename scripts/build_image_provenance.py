@@ -89,7 +89,7 @@ GENERATORS = {
     "procedural-plate": {
         "kind": "illustration-procedural",
         "label": "Procedural archival plate",
-        "description": "Ornamental plate drawn programmatically with Pillow: border, emblem, and name. Decorative, not a depiction from any source.",
+        "description": "Ornamental plate drawn programmatically with Pillow and numpy: an engraved medallion with a border band and emblem, or a plain landscape for Aboriginal Australian and Diné entries. Decorative, not a depiction from any source.",
         "license": "Project artwork, same license as the repository",
         "scripts": sorted(
             {script for script, *_ in PROCEDURAL_SOURCES} | {TRADITION_SCRIPT}

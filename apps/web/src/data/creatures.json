@@ -1225,7 +1225,7 @@
         "date": "collected and published 1855–1863"
       }
     ],
-    "imageUrl": "/creatures/leshy.png"
+    "imageUrl": "/creatures/leshy.webp"
   },
   {
     "id": "rusalka",
@@ -1249,7 +1249,7 @@
         "date": "collected and published 1855–1863"
       }
     ],
-    "imageUrl": "/creatures/rusalka.png"
+    "imageUrl": "/creatures/rusalka.webp"
   },
   {
     "id": "domovoi",
@@ -1273,7 +1273,7 @@
         "date": "collected and published 1855–1863"
       }
     ],
-    "imageUrl": "/creatures/domovoi.png"
+    "imageUrl": "/creatures/domovoi.webp"
   },
   {
     "id": "vodyanoy",
@@ -1297,7 +1297,7 @@
         "date": "collected and published 1855–1863"
       }
     ],
-    "imageUrl": "/creatures/vodyanoy.png"
+    "imageUrl": "/creatures/vodyanoy.webp"
   },
   {
     "id": "zmey-gorynych",
@@ -1327,7 +1327,7 @@
         "date": "oral tradition; earliest transcriptions 18th–19th century"
       }
     ],
-    "imageUrl": "/creatures/zmey-gorynych.png"
+    "imageUrl": "/creatures/zmey-gorynych.webp"
   },
   {
     "id": "koschei",
@@ -1352,7 +1352,7 @@
         "date": "collected and published 1855–1863"
       }
     ],
-    "imageUrl": "/creatures/koschei.png"
+    "imageUrl": "/creatures/koschei.webp"
   },
   {
     "id": "baba-yaga",
@@ -1377,7 +1377,7 @@
         "date": "collected and published 1855–1863"
       }
     ],
-    "imageUrl": "/creatures/baba-yaga.png"
+    "imageUrl": "/creatures/baba-yaga.webp"
   },
   {
     "id": "mmoatia",
@@ -1392,7 +1392,7 @@
       "Mischief toward travellers"
     ],
     "dangerLevel": 3,
-    "imageUrl": "/creatures/mmoatia.png",
+    "imageUrl": "/creatures/mmoatia.webp",
     "detailedBio": "## The little folk of the forest\n\nRattray's Asante informants described mmoatia (singular aboatia) as very small forest beings, sometimes said to have feet pointing backwards, who could make themselves unseen, stole food and palm wine, and knew the medicinal uses of plants. They were said to teach that knowledge to some people, and Rattray recorded the belief that certain priests had learned their craft from them. They are not gods and are not served at shrines; they belong, with the sasabonsam, to the dangerous and unpredictable life of the deep forest.\n\n## In the stories\n\nIn the tale Rattray printed as the origin of anansesem, the fourth prize Nyame demands for his stories is a mmoatia. Ananse carves a wooden doll, covers it with sticky gum, and sets it beside a bowl of mashed yam; the fairy eats the yam, grows angry when the doll does not answer her, strikes it, and sticks fast. The same sticky-figure trick travelled to the Americas and appears in African American and Caribbean tales.",
     "primarySources": [
       {
@@ -1420,7 +1420,7 @@
       "Cannibal hunger in some tellings"
     ],
     "dangerLevel": 8,
-    "imageUrl": "/creatures/stone-giants.png",
+    "imageUrl": "/creatures/stone-giants.webp",
     "detailedBio": "## Coats of flint\n\nParker describes the Stone Giants, or Stone Coats (Gĕnnon'sgwā'), as beings like people but gigantic and covered with coats of flint. They are not gods: celestial powers such as the Thunderer can harm them, but the arrows of men cannot. The early Iroquois, he writes, were said to have fought many wars with them, and the last of them was killed in a cave. Several of the tales in his collection, including 'Beyond-the-Rapids and the Stone Giant' and 'The Stone Giant's Battle', turn on meeting one.\n\n## An older record\n\nThe Tuscarora writer David Cusick's *Sketches of Ancient History of the Six Nations* (1827), one of the earliest Haudenosaunee-authored books, already describes 'stonish giants' who came from the west and troubled the people until the Holder of the Heavens destroyed most of them. The long record, from Cusick to Parker, shows the Stone Giants as one of the most widely told monster traditions of the Haudenosaunee.",
     "primarySources": [
       {
@@ -1446,7 +1446,7 @@
     "habitat": "Lakes and deep rivers",
     "abilities": ["Takes human form", "Poisons waters", "Lives beneath lakes"],
     "dangerLevel": 8,
-    "imageUrl": "/creatures/horned-serpent.png",
+    "imageUrl": "/creatures/horned-serpent.webp",
     "detailedBio": "## Beneath the lake\n\nParker lists the Horned Snake (Gas'hais'dowänen) among the monster beasts of Seneca tradition: a serpent of the underwaters that can transform itself into a man. In tale 26 of his collection such a serpent appears as a graceful young man in fine clothing and lures a girl away to a lodge beneath a lake, full of trophies that turn out to be the skins of great serpents. When she realises what her husband is and flees, the serpent pursues her, and the Thunderer kills it with an arrow of lightning.\n\n## The Thunderer's enemy\n\nThe hostility between the Thunderers and the horned serpents runs through Haudenosaunee and other Northeastern and Great Lakes traditions: the powers of the sky strike down the powers of the deep waters. Parker's tale ends with the Thunderer showing the people that the serpent's power can be contained, which ties the story to medicine practice; this site does not describe that practice.",
     "primarySources": [
       {
@@ -1478,7 +1478,7 @@
       "Bringing good fortune"
     ],
     "dangerLevel": 2,
-    "imageUrl": "/creatures/djogeon.png",
+    "imageUrl": "/creatures/djogeon.webp",
     "detailedBio": "## Little people of the gulches\n\nParker describes the Djogĕ'on as little people who live in caves, a people by themselves who live in houses as humans do and frequent deep gulches and the banks of streams. They can be tricky but in general do not injure people. They are poor hunters, and considerate people throw them small gifts over cliffs, including fingernail parings, which they use as hunting medicine, and tobacco when they are heard drumming. Out of gratitude they warn people of danger or help them to good fortune.\n\n## Stories and continuity\n\nParker's tale 52, 'A Tale of the Djogeon or Pygmies', is one of several in his collection featuring them, and Little People appear in the traditions of many Northeastern nations. They are not presented as dangerous monsters so much as neighbours who expect respect, and stories about them continue to be told. This site does not describe any ceremonial observance connected with them.",
     "primarySources": [
       {
@@ -1499,7 +1499,7 @@
     "habitat": "Forests of the Seneca country",
     "abilities": ["Shape-changing", "Tireless running", "Near-invulnerability"],
     "dangerLevel": 9,
-    "imageUrl": "/creatures/niagwahe.png",
+    "imageUrl": "/creatures/niagwahe.webp",
     "detailedBio": "## The racer\n\nParker names the Monster Bear, Niă'gwai'he'gōwā, as the most feared of the magic beasts and the one most often entangled in human lives. It loves to race: in various forms it tries to persuade people, boys especially, to bet their lives on a race that runs from sunrise to sunset. It has a vulnerable spot on the bottom of one foot, and unless a hero strikes that spot, it does not die.\n\n## After death\n\nIts bones, Parker adds, were prized in magic medicine, and dust from its leg bone was said to make a runner invincible, a detail this site notes without describing any practice. Tales 57 to 59 in Parker's collection, including 'Nia'gwahe the Mammoth Bear', tell of boys who outwit or defeat it, usually by finding the one place where it can be wounded.",
     "primarySources": [
       {
@@ -1531,7 +1531,7 @@
       "Appearing as a flying head"
     ],
     "dangerLevel": 7,
-    "imageUrl": "/creatures/dagwanoenyent.png",
+    "imageUrl": "/creatures/dagwanoenyent.webp",
     "detailedBio": "## A head with streaming hair\n\nParker lists Dagwanoeient, the Storm Wind, among the nature beings of Seneca tradition and describes it appearing as a flying head with long streaming hair. It is the violent counterpart of Gä'ha', the kindly zephyr, and its passage tears through forests. The Flying Heads of Haudenosaunee story, enormous heads that fly through the air on their own hair, belong to the same family of images, and the Tuscarora writer David Cusick already described flying heads troubling the people in 1827.\n\n## Kept apart from ceremony\n\nMasks and the societies that use them are ceremonial matters the Haudenosaunee have asked outsiders not to depict or describe, and some winds and faces in Seneca tradition are connected with that practice. This entry is therefore limited to the storm wind as it appears in published descriptions and stories.",
     "primarySources": [
       {
@@ -1561,7 +1561,7 @@
       "Transforming people into land otters"
     ],
     "dangerLevel": 7,
-    "imageUrl": "/creatures/kooshdaa-kaa.png",
+    "imageUrl": "/creatures/kooshdaa-kaa.webp",
     "detailedBio": "## The Land Otter People\n\nKóoshdaa Káa, 'land otter man', names the Land Otter People of Tlingit belief. People who drowned or were lost in the forest or at sea were said to be taken by them, and, unless rescued, to become land otters themselves. They could appear to a lost person in the shape of a relative or friend, leading them further away. Swanton's *Tlingit Myths and Texts* (1909) includes stories such as 'The Land-Otter Sister' and 'The Land-Otter Son', in which people are drawn into the land otters' world.\n\n## Protection\n\nRecorded accounts say that shamans could recover people taken by them, and land otters were closely associated with shamanic power. The belief is still widely known in Southeast Alaska, and stories about encounters continue to be told. This entry describes published stories and does not describe shamanic practice.",
     "primarySources": [
       {
@@ -1584,7 +1584,7 @@
       "Hunting whales"
     ],
     "dangerLevel": 4,
-    "imageUrl": "/creatures/gonakadet.png",
+    "imageUrl": "/creatures/gonakadet.webp",
     "detailedBio": "## The wealth-bringer\n\nGonakadet (Gunakadeit) is one of the best-known sea beings of Tlingit tradition. Swanton's *Tlingit Myths and Texts* (1909), in its Wrangell Raven myth, names Gonakadet as the head chief of the killer-whale people under the ocean and records the belief that the sight of him brings good fortune, and he is associated with wealth throughout Tlingit art and story.\n\n## The son-in-law story\n\nSwanton prints the widely told son-in-law story as 'Origin of the Gonaqadet' (story 33). A high-caste young man is scorned by his mother-in-law as a lazy gambler. He traps a monster in a lake with a split tree, skins it, and wearing the skin hunts at night, leaving salmon, halibut, seals, and at last whales on the beach during a famine. His mother-in-law claims the food comes through her own spirit power and is honoured as a shaman. One dawn a raven calls before he can take off the skin, and he dies inside it; his wife reveals the truth, and her mother dies of shame. The wife lays his body and the skin by the lake, and later he rises in the monster's form and takes her down to its house. Swanton's text ends by saying that this Gonaqadet brings good luck to those who see him, as do his wife and their children, the Daughters of the Creek.\n\n## On poles and house posts\n\nGonakadet appears on house posts and poles as a crest of particular clans. Edward Keithahn's *Monuments in Cedar* (1945) notes that the Gonakadet pole standing before Chief Shakes's house at Wrangell held the ashes of the father and mother of Chief Shakes VI; a duplicate now stands in the same spot.",
     "primarySources": [
       {
@@ -1617,7 +1617,7 @@
       "Haunting crossroads"
     ],
     "dangerLevel": 6,
-    "imageUrl": "/creatures/cihuateteo.png",
+    "imageUrl": "/creatures/cihuateteo.webp",
     "detailedBio": "## Women who died as warriors\n\nSahagún's Nahua informants, recorded in the *Florentine Codex*, compared a woman who died in her first childbirth to a warrior who died in battle: she had fought and been taken. Such women became cihuateteo, 'goddess women' (also cihuapipiltin, 'noblewomen'), and went to the western paradise, Cihuatlampa, 'the place of women'. Just as dead warriors escorted the sun from dawn to noon, the cihuateteo carried it from noon down to its setting. Book 6 describes the midwife's address to the dead mother, and Book 1 the cihuapipiltin.\n\n## Feared at the crossroads\n\nTheir honour made them dangerous. On particular days in the ritual calendar they were believed to descend to earth and gather at crossroads, where they could strike children with paralysis or seizures, and parents kept children indoors on those days. Small shrines at crossroads received offerings to them. Young warriors, Sahagún adds, sought the hair or fingers of a woman who had died this way as talismans for battle, so her husband and kin guarded her burial.\n\n## In stone\n\nSeveral carved stone figures of cihuateteo, with clawed hands and skull faces, survive in museum collections from the Tenochtitlan area.",
     "primarySources": [
       {
@@ -1637,7 +1637,7 @@
     "habitat": "Fields and dry country of Central Mexico",
     "abilities": ["Moving in either direction", "Foretelling misfortune"],
     "dangerLevel": 2,
-    "imageUrl": "/creatures/maquizcoatl.png",
+    "imageUrl": "/creatures/maquizcoatl.webp",
     "detailedBio": "## A snake with two heads\n\nBook 11 of the *Florentine Codex*, Sahagún's encyclopaedia of the natural world as described by his Nahua informants, includes a long chapter on serpents. Among them is the maquizcoatl, which the Nahua artist of Book 11 drew as a serpent with a head at each end. Its name joins maquiztli, a bracelet or precious bead, with coatl, serpent; the Spanish-era Nahuatl dictionary of Alonso de Molina glosses it simply as a two-headed snake, and the word could also be applied to a two-faced person or gossip.\n\n## An omen\n\nLike many creatures in Book 11, the maquizcoatl is described with its meanings as well as its appearance, and two-headed serpents were regarded as bearers of bad omens. The chapter mixes observation of real animals with lore about them, and it is not always possible to tell where one stops and the other begins; blunt-tailed snakes whose tails resemble heads may lie behind the image.\n\n## Two-headed serpents in Mexica art\n\nThe best-known two-headed serpent of Mexica art is the turquoise-mosaic pectoral in the British Museum, which the museum connects with the maquizcoatl and its associations with omens and elite display; the object's precise meaning remains debated.",
     "primarySources": [
       {
@@ -1670,7 +1670,7 @@
         "date": "Late Bronze Age copies"
       }
     ],
-    "imageUrl": "/creatures/illuyanka.png"
+    "imageUrl": "/creatures/illuyanka.webp"
   },
   {
     "id": "ullikummi",
@@ -1693,7 +1693,7 @@
         "date": "Hittite copies 13th c. BCE"
       }
     ],
-    "imageUrl": "/creatures/ullikummi.png"
+    "imageUrl": "/creatures/ullikummi.webp"
   },
   {
     "id": "hedammu",
@@ -1715,7 +1715,7 @@
         "date": "Hurrian composition; fragmentary Hittite copies"
       }
     ],
-    "imageUrl": "/creatures/hedammu.png"
+    "imageUrl": "/creatures/hedammu.webp"
   },
   {
     "id": "lotan",
@@ -1738,7 +1738,7 @@
         "date": "tablets of the late 13th or early 12th c. BCE"
       }
     ],
-    "imageUrl": "/creatures/lotan.png"
+    "imageUrl": "/creatures/lotan.webp"
   },
   {
     "id": "tunnanu",
@@ -1760,7 +1760,7 @@
         "date": "tablets of the late 13th or early 12th c. BCE"
       }
     ],
-    "imageUrl": "/creatures/tunnanu.png"
+    "imageUrl": "/creatures/tunnanu.webp"
   },
   {
     "id": "qalupalik",
@@ -1783,7 +1783,7 @@
         "date": "2011"
       }
     ],
-    "imageUrl": "/creatures/qalupalik.png"
+    "imageUrl": "/creatures/qalupalik.webp"
   },
   {
     "id": "tupilaq",
@@ -1806,7 +1806,7 @@
         "date": "1875"
       }
     ],
-    "imageUrl": "/creatures/tupilaq.png"
+    "imageUrl": "/creatures/tupilaq.webp"
   },
   {
     "id": "ijiraq",
@@ -1829,7 +1829,7 @@
         "date": "2001"
       }
     ],
-    "imageUrl": "/creatures/ijiraq.png"
+    "imageUrl": "/creatures/ijiraq.webp"
   },
   {
     "id": "bunyip",
@@ -1852,7 +1852,7 @@
         "date": "2001"
       }
     ],
-    "imageUrl": "/creatures/bunyip.png"
+    "imageUrl": "/creatures/bunyip.webp"
   },
   {
     "id": "mimih",
@@ -1875,7 +1875,7 @@
         "date": "accessed 2026"
       }
     ],
-    "imageUrl": "/creatures/mimih.png"
+    "imageUrl": "/creatures/mimih.webp"
   },
   {
     "id": "yeiitsoh",
@@ -1898,7 +1898,7 @@
         "date": "1897"
       }
     ],
-    "imageUrl": "/creatures/yeiitsoh.png"
+    "imageUrl": "/creatures/yeiitsoh.webp"
   },
   {
     "id": "deelgeed",
@@ -1920,7 +1920,7 @@
         "date": "1897"
       }
     ],
-    "imageUrl": "/creatures/deelgeed.png"
+    "imageUrl": "/creatures/deelgeed.webp"
   },
   {
     "id": "tse-ninahalee",
@@ -1942,7 +1942,7 @@
         "date": "1897"
       }
     ],
-    "imageUrl": "/creatures/tse-ninahalee.png"
+    "imageUrl": "/creatures/tse-ninahalee.webp"
   },
   {
     "id": "teehooltsodii",
@@ -1961,7 +1961,7 @@
         "date": "1897"
       }
     ],
-    "imageUrl": "/creatures/teehooltsodii.png"
+    "imageUrl": "/creatures/teehooltsodii.webp"
   },
   {
     "id": "amaru",
@@ -1986,7 +1986,7 @@
         "date": "compiled c. 1598-1608"
       }
     ],
-    "imageUrl": "/creatures/amaru.png"
+    "imageUrl": "/creatures/amaru.webp"
   },
   {
     "id": "yacana",
@@ -2011,7 +2011,7 @@
         "date": "compiled c. 1598-1608"
       }
     ],
-    "imageUrl": "/creatures/yacana.png"
+    "imageUrl": "/creatures/yacana.webp"
   },
   {
     "id": "urcuchillay",
@@ -2042,7 +2042,7 @@
         "date": "completed 1653"
       }
     ],
-    "imageUrl": "/creatures/urcuchillay.png"
+    "imageUrl": "/creatures/urcuchillay.webp"
   },
   {
     "id": "simurgh",
@@ -2068,7 +2068,7 @@
         "date": "completed 1010 CE"
       }
     ],
-    "imageUrl": "/creatures/simurgh.png"
+    "imageUrl": "/creatures/simurgh.webp"
   },
   {
     "id": "azhi-dahaka",
@@ -2093,7 +2093,7 @@
         "date": "Younger Avestan; trans. 1883"
       }
     ],
-    "imageUrl": "/creatures/azhi-dahaka.png"
+    "imageUrl": "/creatures/azhi-dahaka.webp"
   },
   {
     "id": "div-e-sepid",
@@ -2119,7 +2119,7 @@
         "date": "completed 1010 CE"
       }
     ],
-    "imageUrl": "/creatures/div-e-sepid.png"
+    "imageUrl": "/creatures/div-e-sepid.webp"
   },
   {
     "id": "apaosha",
@@ -2144,7 +2144,7 @@
         "date": "Younger Avestan; trans. 1883"
       }
     ],
-    "imageUrl": "/creatures/apaosha.png"
+    "imageUrl": "/creatures/apaosha.webp"
   },
   {
     "id": "iku-turso",
@@ -2168,7 +2168,7 @@
         "date": "Lönnrot's compilation 1849; trans. 1888"
       }
     ],
-    "imageUrl": "/creatures/iku-turso.png"
+    "imageUrl": "/creatures/iku-turso.webp"
   },
   {
     "id": "elk-of-hiisi",
@@ -2193,7 +2193,7 @@
         "date": "Lönnrot's compilation 1849; trans. 1888"
       }
     ],
-    "imageUrl": "/creatures/elk-of-hiisi.png"
+    "imageUrl": "/creatures/elk-of-hiisi.webp"
   },
   {
     "id": "swan-of-tuonela",
@@ -2217,7 +2217,7 @@
         "date": "Lönnrot's compilation 1849; trans. 1888"
       }
     ],
-    "imageUrl": "/creatures/swan-of-tuonela.png"
+    "imageUrl": "/creatures/swan-of-tuonela.webp"
   },
   {
     "id": "great-pike",
@@ -2238,7 +2238,7 @@
         "date": "Lönnrot's compilation 1849; trans. 1888"
       }
     ],
-    "imageUrl": "/creatures/great-pike.png"
+    "imageUrl": "/creatures/great-pike.webp"
   },
   {
     "id": "samjok-o",
@@ -2260,7 +2260,7 @@
         "date": "4th-7th centuries CE"
       }
     ],
-    "imageUrl": "/creatures/samjok-o.png"
+    "imageUrl": "/creatures/samjok-o.webp"
   },
   {
     "id": "haetae",
@@ -2279,7 +2279,7 @@
         "date": "1860s"
       }
     ],
-    "imageUrl": "/creatures/haetae.png"
+    "imageUrl": "/creatures/haetae.webp"
   },
   {
     "id": "munmu-sea-dragon",
@@ -2304,7 +2304,7 @@
         "date": "compiled c. 1281-1289"
       }
     ],
-    "imageUrl": "/creatures/munmu-sea-dragon.png"
+    "imageUrl": "/creatures/munmu-sea-dragon.webp"
   },
   {
     "id": "nemean-lion",
@@ -2315,7 +2315,7 @@
     "habitat": "The hills of Nemea, northeast Peloponnese",
     "abilities": ["Hide no weapon could pierce", "Twin-mouthed lair"],
     "dangerLevel": 7,
-    "imageUrl": "/creatures/nemean-lion.png",
+    "imageUrl": "/creatures/nemean-lion.webp",
     "detailedBio": "## Hera's Nursling\n\nHesiod places the lion in the brood of monsters descended from Echidna: mated with the dog Orthus, the mother of the Sphinx (Hesiod's 'she' may be Echidna or the Chimera) bore the Nemean lion, which Hera reared and settled in the hills of Nemea as a plague to the people there. Apollodorus instead calls it the offspring of Typhon.\n\n## The First Labour\n\nIn Apollodorus's account Eurystheus's first command was to bring back the lion's skin. The beast could not be wounded, so when Heracles' arrows failed he drove it into its cave, which had two mouths, blocked one entrance, went in by the other and choked it to death. He carried the carcass to Mycenae; Eurystheus was so frightened that he forbade Heracles to enter the city again and had him display his future trophies outside the gates. The lion skin, worn as a cloak with the head as a hood, became Heracles' constant attribute in art. Nemea later hosted the Nemean Games, one of the four great Panhellenic festivals.",
     "primarySources": [
       {
@@ -2343,7 +2343,7 @@
     "habitat": "The garden of the Hesperides, at the western edge of the world",
     "abilities": ["Many heads", "Many voices", "Guardian of the golden apples"],
     "dangerLevel": 7,
-    "imageUrl": "/creatures/ladon.png",
+    "imageUrl": "/creatures/ladon.webp",
     "detailedBio": "## Guardian of the Apples\n\nThe golden apples were Earth's gift at the wedding of Zeus and Hera, planted in a garden beyond the ocean and tended by the Hesperides. Hesiod ends his list of the children of the sea-powers Ceto and Phorcys with a terrible serpent that guards the golden apples in the hidden places of the dark earth at its far bounds. Apollodorus makes the guardian an immortal dragon with a hundred heads, born of Typhon and Echidna, which spoke with many different voices.\n\n## The Name and the Death\n\nThe name Ladon is best known from Apollonius of Rhodes. In the *Argonautica*, the Argonauts, parched in the Libyan desert, come upon the garden the day after Heracles has passed through: the serpent Ladon lies dead by the golden apple tree, shot with arrows dipped in the Hydra's poison, while the Hesperides lament. Apollodorus preserves two versions of how Heracles got the apples: by sending Atlas for them while he held the sky, or by killing the serpent and picking them himself.",
     "primarySources": [
       {

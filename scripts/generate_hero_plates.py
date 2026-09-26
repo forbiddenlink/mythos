@@ -1,9 +1,9 @@
 import os
 import math
 import argparse
-from PIL import Image, ImageDraw, ImageFilter
 
-from _repo_paths import WEB_PUBLIC, serif_font, write_webp
+from _plate_art import pantheon_of, render_plate, write_plate
+from _repo_paths import WEB_PUBLIC
 
 OUTPUT_DIR = os.path.join(WEB_PUBLIC, "heroes")
 
@@ -246,37 +246,12 @@ HEROES = [
 
 W, H = 768, 1024
 
-def draw_ornament_corners(draw, x0, y0, x1, y1, color):
-    s = 24
-    # Corner brackets with classical meander notches
-    for cx, cy, dx, dy in [(x0, y0, 1, 1), (x1, y0, -1, 1), (x0, y1, 1, -1), (x1, y1, -1, -1)]:
-        draw.line([(cx, cy), (cx + dx * s, cy)], fill=color, width=2)
-        draw.line([(cx, cy), (cx, cy + dy * s)], fill=color, width=2)
-        draw.ellipse([cx + dx * 8 - 3, cy + dy * 8 - 3, cx + dx * 8 + 3, cy + dy * 8 + 3], fill=color)
-
-def draw_greek_key_border(draw, x0, y0, x1, y1, color):
-    draw.rectangle([x0, y0, x1, y1], outline=color, width=1)
-    draw.rectangle([x0 + 8, y0 + 8, x1 - 8, y1 - 8], outline=(color[0]//2, color[1]//2, color[2]//2), width=1)
-    draw.rectangle([x0 + 14, y0 + 14, x1 - 14, y1 - 14], outline=color, width=2)
-
 def draw_heroic_motif(draw, cx, cy, radius, motif, accent):
     gold = accent
     pale_gold = (min(255, gold[0] + 50), min(255, gold[1] + 50), min(255, gold[2] + 50))
     dark_gold = (gold[0] // 2, gold[1] // 2, gold[2] // 2)
 
-    # Medallion outer rings
-    for r, w in [(radius, 3), (radius - 12, 1), (radius - 20, 2)]:
-        draw.ellipse([cx - r, cy - r, cx + r, cy + r], outline=gold, width=w)
-
-    # 12 decorative sun / star rays
-    for i in range(24):
-        angle = i * (2 * math.pi / 24)
-        r1 = radius - 8
-        r2 = radius - 3 if i % 2 == 0 else radius - 5
-        draw.line([
-            (cx + r1 * math.cos(angle), cy + r1 * math.sin(angle)),
-            (cx + r2 * math.cos(angle), cy + r2 * math.sin(angle))
-        ], fill=dark_gold, width=1)
+    # The medallion rings are drawn by _plate_art.render_plate.
 
     # Center motif
     if motif == "helmet_shield":
@@ -483,61 +458,19 @@ def draw_heroic_motif(draw, cx, cy, radius, motif, accent):
 
 
 def generate_hero_plate(hero):
-    img = Image.new("RGBA", (W, H), hero["bg_tone"] + (255,))
-    draw = ImageDraw.Draw(img)
-
     accent = hero["accent"]
-    gold = (212, 175, 55)
-
-    # 1. Subtle radial gradient atmosphere
-    rad_overlay = Image.new("RGBA", (W, H), (0, 0, 0, 0))
-    rad_draw = ImageDraw.Draw(rad_overlay)
-    cx, cy = W // 2, 440
-    for r in range(350, 50, -10):
-        alpha = int(45 * (1.0 - r / 350.0))
-        rad_draw.ellipse([cx - r, cy - r, cx + r, cy + r], fill=accent + (alpha,))
-    img = Image.alpha_composite(img, rad_overlay)
-    draw = ImageDraw.Draw(img)
-
-    # 2. Classical borders
-    draw_greek_key_border(draw, 32, 32, W - 32, H - 32, gold)
-    draw_ornament_corners(draw, 32, 32, W - 32, H - 32, gold)
-
-    # 3. Archival Header Plate
-    draw.line([(64, 90), (W - 64, 90)], fill=gold, width=1)
-    draw.line([(64, 94), (W - 64, 94)], fill=(gold[0]//2, gold[1]//2, gold[2]//2), width=1)
-
-    # Tradition tag top
-    tag_text = f"MYTHOS ATLAS · {hero['pantheon']} HEROIC TRADITION"
-    font_sm = serif_font("regular", 16)
-    font_lg = serif_font("bold", 46)
-    font_sub = serif_font("italic", 18)
-
-    draw.text((W // 2, 65), tag_text, font=font_sm, fill=(200, 180, 140), anchor="mm")
-
-    # 4. Center Heroic Medallion
-    draw_heroic_motif(draw, cx, cy, 175, hero["motif"], accent)
-
-    # 5. Bottom Archival Nameplate
-    draw.line([(80, 750), (W - 80, 750)], fill=(gold[0]//2, gold[1]//2, gold[2]//2), width=1)
-    draw.line([(80, 754), (W - 80, 754)], fill=gold, width=2)
-    draw.line([(80, 758), (W - 80, 758)], fill=(gold[0]//2, gold[1]//2, gold[2]//2), width=1)
-
-    draw.text((W // 2, 810), hero["name"], font=font_lg, fill=(245, 235, 220), anchor="mm")
-    draw.text((W // 2, 860), hero["epithet"], font=font_sub, fill=(212, 175, 55), anchor="mm")
-
-    # Footer Latin / Greek archival stamp
-    draw.text((W // 2, 940), "CODEX HEROUM · FOLIO ANNUUM", font=font_sm, fill=(130, 120, 100), anchor="mm")
-    draw.line([(W // 2 - 60, 965), (W // 2 + 60, 965)], fill=gold, width=1)
-
-    # Save PNG
-    png_path = os.path.join(OUTPUT_DIR, f"{hero['id']}.png")
-    img.convert("RGB").save(png_path, "PNG")
-
-    # Save WebP using cwebp
-    webp_path = os.path.join(OUTPUT_DIR, f"{hero['id']}.webp")
-    write_webp(png_path, webp_path)
-    print(f"Generated: {hero['id']} -> {png_path} & {webp_path}")
+    img = render_plate(
+        kind="hero",
+        key=hero["id"],
+        size=(W, H),
+        accent=accent,
+        bg=hero["bg_tone"],
+        pantheon=pantheon_of("hero", hero["id"]),
+        hint=hero["epithet"],
+        emblem=lambda draw, cx, cy: draw_heroic_motif(draw, cx, cy, 175, hero["motif"], accent),
+    )
+    path = write_plate(img, OUTPUT_DIR, hero["id"])
+    print(f"Generated: {hero['id']} -> {os.path.basename(path)}")
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Generate archival hero plates.")

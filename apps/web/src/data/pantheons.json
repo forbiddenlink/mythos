@@ -479,7 +479,7 @@
         "type": "secondary"
       }
     ],
-    "imageUrl": "/pantheons/slavic.jpg"
+    "imageUrl": "/pantheons/slavic.webp"
   },
   {
     "id": "haudenosaunee-pantheon",
@@ -519,7 +519,7 @@
         "type": "primary"
       }
     ],
-    "imageUrl": "/pantheons/haudenosaunee.jpg",
+    "imageUrl": "/pantheons/haudenosaunee.webp",
     "figuresLabel": "Sacred Beings & Ancestors"
   },
   {
@@ -564,7 +564,7 @@
         "type": "primary"
       }
     ],
-    "imageUrl": "/pantheons/tlingit-haida.jpg",
+    "imageUrl": "/pantheons/tlingit-haida.webp",
     "figuresLabel": "Ancestral Spirits & Transformers"
   },
   {
@@ -603,7 +603,7 @@
         "type": "secondary"
       }
     ],
-    "imageUrl": "/pantheons/yoruba.jpg",
+    "imageUrl": "/pantheons/yoruba.webp",
     "figuresLabel": "Olodumare & the Orisha"
   },
   {
@@ -642,7 +642,7 @@
         "type": "secondary"
       }
     ],
-    "imageUrl": "/pantheons/akan.jpg",
+    "imageUrl": "/pantheons/akan.webp",
     "figuresLabel": "Nyame, the Abosom & Ananse"
   },
   {
@@ -683,7 +683,7 @@
         "type": "secondary"
       }
     ],
-    "imageUrl": "/pantheons/hittite.jpg"
+    "imageUrl": "/pantheons/hittite.webp"
   },
   {
     "id": "canaanite-pantheon",
@@ -736,7 +736,7 @@
         "type": "primary"
       }
     ],
-    "imageUrl": "/pantheons/canaanite.jpg"
+    "imageUrl": "/pantheons/canaanite.webp"
   },
   {
     "id": "inuit-pantheon",
@@ -785,7 +785,7 @@
         "sourceId": "interviewing-inuit-elders-cosmology"
       }
     ],
-    "imageUrl": "/pantheons/inuit.jpg",
+    "imageUrl": "/pantheons/inuit.webp",
     "figuresLabel": "Spirits & Powers"
   },
   {
@@ -833,7 +833,7 @@
         "type": "secondary"
       }
     ],
-    "imageUrl": "/pantheons/aboriginal-australian.jpg",
+    "imageUrl": "/pantheons/aboriginal-australian.webp",
     "figuresLabel": "Ancestral Beings"
   },
   {
@@ -880,7 +880,7 @@
         "type": "secondary"
       }
     ],
-    "imageUrl": "/pantheons/dine.jpg",
+    "imageUrl": "/pantheons/dine.webp",
     "figuresLabel": "Holy People (Diyin Dineʼé)"
   },
   {
@@ -937,7 +937,7 @@
         "sourceId": "cobo-inca-religion"
       }
     ],
-    "imageUrl": "/pantheons/inca.jpg",
+    "imageUrl": "/pantheons/inca.webp",
     "figuresLabel": "Deities, Huacas & Ancestors"
   },
   {
@@ -993,7 +993,7 @@
         "type": "secondary"
       }
     ],
-    "imageUrl": "/pantheons/persian.jpg",
+    "imageUrl": "/pantheons/persian.webp",
     "figuresLabel": "Divine Beings & Kings"
   },
   {
@@ -1041,7 +1041,7 @@
         "type": "secondary"
       }
     ],
-    "imageUrl": "/pantheons/finnish.jpg",
+    "imageUrl": "/pantheons/finnish.webp",
     "figuresLabel": "Gods, Spirits & Heroes"
   },
   {
@@ -1098,7 +1098,7 @@
         "sourceId": "hanguk-muga-jip"
       }
     ],
-    "imageUrl": "/pantheons/korean.jpg",
+    "imageUrl": "/pantheons/korean.webp",
     "figuresLabel": "Gods, Founders & Shamanic Deities"
   }
 ]
