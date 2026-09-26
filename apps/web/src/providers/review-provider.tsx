@@ -122,6 +122,7 @@ const PANTHEON_NAMES: Record<string, string> = {
   "haudenosaunee-pantheon": "Haudenosaunee",
   "tlingit-haida-pantheon": "Tlingit & Haida",
   "hittite-pantheon": "Hittite",
+  "canaanite-pantheon": "Canaanite",
 };
 
 function formatPantheonLabel(pantheonId: string): string {

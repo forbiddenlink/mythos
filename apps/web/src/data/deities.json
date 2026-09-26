@@ -11392,6 +11392,11 @@
     ],
     "crossPantheonParallels": [
       {
+        "pantheonId": "canaanite-pantheon",
+        "deityId": "baal",
+        "note": "Both storm-gods have their mountain at Jebel Aqra, Hurrian-Hittite Hazzi and Ugaritic Zaphon, and both defeat a sea or serpent enemy; Ugaritic god-lists equate Teššub with Baal."
+      },
+      {
         "pantheonId": "greek-pantheon",
         "deityId": "zeus",
         "note": "Both are storm-kings who win rule in heaven after a succession struggle; the Kumarbi cycle is the closest Near Eastern parallel to the succession myth of Hesiod's Theogony."
@@ -11512,6 +11517,11 @@
       "López-Ruiz, Carolina. *When the Gods Were Born: Greek Cosmogonies and the Near East* (Harvard University Press, 2010)."
     ],
     "crossPantheonParallels": [
+      {
+        "pantheonId": "canaanite-pantheon",
+        "deityId": "el",
+        "note": "Ugaritic multilingual god-lists equate Kumarbi with El, the aged father of the gods."
+      },
       {
         "pantheonId": "greek-pantheon",
         "deityId": "cronus",
@@ -11812,6 +11822,549 @@
       {
         "sourceId": "kumarbi-cycle",
         "note": "The opening of the Song of Kumarbi"
+      }
+    ]
+  },
+  {
+    "id": "baal",
+    "pantheonId": "canaanite-pantheon",
+    "name": "Baal (Baʿlu Haddu)",
+    "slug": "baal",
+    "originalLanguageName": {
+      "text": "bʿl hd",
+      "language": "Ugaritic",
+      "transliteration": "Baʿlu Haddu",
+      "meaning": "'Lord' (baʿlu) Haddu, the storm-god's personal name"
+    },
+    "alternateNames": [
+      "Hadad",
+      "Haddu",
+      "Aliyan Baal (Mightiest Baal)",
+      "Rider of the Clouds",
+      "Baal Zaphon"
+    ],
+    "gender": "male",
+    "domain": ["storms", "rain", "fertility", "kingship among the gods"],
+    "symbols": ["thunderbolt and club", "the bull", "Mount Zaphon"],
+    "description": "The storm-god of Ugarit, 'Rider of the Clouds', whose rain makes the land fertile; he defeats Yamm the Sea, builds his palace on Mount Zaphon, is swallowed by Mot (Death), and returns to life.",
+    "detailedBio": "## Lord Haddu\n\nBaal is a title, \"lord\", and at Ugarit it belongs above all to the storm-god whose personal name was Haddu (Hadad). He is \"Mightiest Baal\" (aliyn bʿl) and \"Rider of the Clouds\" (rkb ʿrpt), and his voice is the thunder. Ugaritic texts call him the son of Dagan, a grain-god worshipped along the middle Euphrates, even though he lives among El's family; the tension between those two statements has never been fully explained. His home is Mount Zaphon (Ṣapānu), the mountain north of Ugarit now called Jebel Aqra, and one of the two great temples on Ugarit's acropolis is generally identified as his.\n\n## The Baal Cycle\n\nBaal's story is told in the six tablets of the Baal Cycle (KTU 1.1-1.6). He defeats Yamm, the Sea, who had been granted kingship by El, using two clubs made by the craftsman Kothar-wa-Khasis. He then campaigns, with the help of Anat and Athirat, for a palace of his own, and when it is built on Zaphon he gives his thunder voice through a window in the clouds. Finally he challenges Mot, Death, and is swallowed; the earth dries up until Anat destroys Mot and El dreams that Baal lives. After seven years Baal and Mot fight again, and Mot yields.\n\n## Rain and the agricultural year\n\nMany scholars have read Baal's death and return as reflecting the eastern Mediterranean year, with its dry summer and rainy winter. The texts support a link between Baal and rain (his absence dries the furrows) but do not state that the cycle was performed annually, and this site presents that seasonal reading as an interpretation.\n\n## Beyond Ugarit\n\nBaal-Hadad was worshipped across the Levant and beyond, and under local titles (Baal Shamem, Baal of Tyre) into the first millennium BCE. The Hebrew Bible's polemic against \"the Baals\" reflects that later, wider cult; Ugarit preserves his mythology from his own worshippers.",
+    "importanceRank": 1,
+    "imageUrl": "/deities/baal.png",
+    "primarySources": [
+      {
+        "text": "Kothar-wa-Khasis fashions two clubs for Baal and names them Yagrush and Ayyamur; the second strikes Yamm between the eyes and he collapses (paraphrase).",
+        "source": "Baal Cycle, KTU 1.2 IV",
+        "date": "tablets of the late 13th or early 12th c. BCE"
+      },
+      {
+        "text": "El dreams that the heavens rain oil and the wadis run with honey, and knows that Mightiest Baal is alive (paraphrase).",
+        "source": "Baal Cycle, KTU 1.6 III",
+        "date": "tablets of the late 13th or early 12th c. BCE"
+      }
+    ],
+    "furtherReading": [
+      {
+        "sourceId": "baal-cycle",
+        "note": "The whole cycle, tablet by tablet"
+      }
+    ],
+    "sources": [
+      "Smith, Mark S. *The Ugaritic Baal Cycle*, vols. 1-2 (Brill, 1994, 2009), with Wayne T. Pitard for vol. 2.",
+      "Smith, Mark S. *The Early History of God* (2nd ed., Eerdmans, 2002)."
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "hittite-pantheon",
+        "deityId": "tarhunna",
+        "note": "Both storm-gods have their mountain at Jebel Aqra (Ugaritic Zaphon, Hurrian-Hittite Hazzi) and both fight a sea or serpent enemy; the Hurrian storm-god Teššub watches Ullikummi from Mount Hazzi."
+      },
+      {
+        "pantheonId": "greek-pantheon",
+        "deityId": "zeus",
+        "note": "Both are storm-kings who win their rule against a chaotic rival; Greek sources later called the same mountain Kasios and worshipped Zeus Kasios there."
+      }
+    ],
+    "worship": {
+      "temples": [
+        "Temple of Baal on the acropolis of Ugarit",
+        "Mount Zaphon (Jebel Aqra)"
+      ],
+      "festivals": [],
+      "practices": "Ugaritic ritual texts list offerings to Baal of Zaphon and to Baal under several local titles; stone anchors dedicated in his temple at Ugarit suggest the devotion of seafarers."
+    }
+  },
+  {
+    "id": "anat",
+    "pantheonId": "canaanite-pantheon",
+    "name": "Anat",
+    "slug": "anat",
+    "originalLanguageName": {
+      "text": "ʿnt",
+      "language": "Ugaritic",
+      "transliteration": "ʿAnatu",
+      "meaning": "Uncertain"
+    },
+    "alternateNames": ["Virgin Anat (btlt ʿnt)", "Yabamat Liʾmim", "Anath"],
+    "gender": "female",
+    "domain": ["war", "hunting", "loyalty to Baal"],
+    "symbols": ["bow and arrows", "the heads and hands of the slain", "wings"],
+    "description": "The young warrior goddess of Ugarit, Baal's sister and fiercest ally, who wades through battle, bullies El into granting Baal a palace, finds Baal's body, and destroys Mot.",
+    "detailedBio": "## The warrior\n\nAnat is the most violent figure in Ugaritic poetry. In the Baal Cycle (KTU 1.3 II) she fights two armies, heaping up heads and hands, wading knee-deep and then neck-deep in the blood of warriors, before washing herself with dew and rain. She boasts that she has already defeated Yamm, the dragon Tunnan, and the twisting serpent. Her usual epithet, \"Virgin Anat\" (btlt ʿnt), marks her as a young, unmarried woman, and the texts are more interested in her ferocity than in any maternal role.\n\n## Baal's ally\n\nAnat is called Baal's sister and acts as his champion. When Baal needs a palace she goes to El and threatens to smash his grey head until it runs with blood unless he consents (KTU 1.3 V). When Baal dies she searches the land for him, carries his body to Zaphon with the help of the sun-goddess Shapash, buries him, and mourns. Then she seizes Mot and destroys him as a farmer destroys grain: splitting, winnowing, burning, grinding, and sowing him in the field (KTU 1.6 II).\n\n## Anat and Aqhat\n\nIn the Epic of Aqhat, Anat covets the bow that the craftsman god gave the young Aqhat. She offers him riches and even immortality; he refuses and tells her that bows are for warriors. With El's reluctant permission she has him killed by her henchman Yatpan, and the land suffers drought as a result. The poem does not present her as a simple villain; she seems to regret the bow's loss, which breaks in the killing.\n\n## Beyond Ugarit\n\nAnat was worshipped in Egypt in the New Kingdom, where Ramesses II named a daughter Bint-Anat, and in a bilingual inscription from Cyprus she is equated with the Greek Athena.",
+    "importanceRank": 1,
+    "imageUrl": "/deities/anat.png",
+    "primarySources": [
+      {
+        "text": "Anat fights in the valley, wading in the blood of warriors up to her knees and then her neck, with heads and hands hung about her (paraphrase).",
+        "source": "Baal Cycle, KTU 1.3 II",
+        "date": "tablets of the late 13th or early 12th c. BCE"
+      },
+      {
+        "text": "Anat seizes Mot, splits him with a blade, winnows him in a sieve, burns him with fire, grinds him with millstones, and sows him in the field (paraphrase).",
+        "source": "Baal Cycle, KTU 1.6 II",
+        "date": "tablets of the late 13th or early 12th c. BCE"
+      }
+    ],
+    "furtherReading": [
+      {
+        "sourceId": "baal-cycle",
+        "note": "Anat's battle and her destruction of Mot"
+      },
+      {
+        "sourceId": "aqhat-epic",
+        "note": "Anat and the bow of Aqhat"
+      }
+    ],
+    "sources": [
+      "Day, Peggy L. \"Anat.\" In *Dictionary of Deities and Demons in the Bible* (2nd ed., Brill, 1999)."
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "greek-pantheon",
+        "deityId": "athena",
+        "note": "A Phoenician-Greek bilingual inscription from Cyprus equates Anat with Athena; both are unmarried warrior goddesses."
+      },
+      {
+        "pantheonId": "mesopotamian-pantheon",
+        "deityId": "inanna",
+        "note": "Both are young goddesses of war whose ferocity is a central part of their mythology; they are distinct figures, not equated in the Ugaritic texts."
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [],
+      "practices": "Anat receives offerings in Ugaritic ritual lists; her cult spread to New Kingdom Egypt."
+    }
+  },
+  {
+    "id": "el",
+    "pantheonId": "canaanite-pantheon",
+    "name": "El (Ilu)",
+    "slug": "el",
+    "originalLanguageName": {
+      "text": "il",
+      "language": "Ugaritic",
+      "transliteration": "ʾIlu",
+      "meaning": "'God'; the common Semitic word for a god, used as his name"
+    },
+    "alternateNames": [
+      "Ilu",
+      "Bull El (ṯr il)",
+      "Father of Years (ab šnm)",
+      "Creator of Creatures (bny bnwt)"
+    ],
+    "gender": "male",
+    "domain": [
+      "kingship over the gods",
+      "creation",
+      "wisdom",
+      "the divine assembly"
+    ],
+    "symbols": [
+      "the bull",
+      "grey beard",
+      "the tent at the source of the two rivers"
+    ],
+    "description": "The aged king and father of the gods at Ugarit, 'Bull El', 'Father of Years', who presides over the divine assembly from his dwelling at the source of the two rivers and whose permission every younger god seeks.",
+    "detailedBio": "## The father of the gods\n\nEl's name is simply the common Semitic word for \"god\". At Ugarit he is the head of the pantheon, the \"Father of Years\" and \"Creator of Creatures\", with a grey beard that other gods praise for its wisdom. He dwells far from the other gods \"at the source of the two rivers, in the midst of the springs of the two deeps\", in a tent or pavilion, and the assembly of the gods meets on his mountain. His consort is Athirat, and the gods are collectively \"the sons of El\".\n\n## The king who grants permission\n\nIn the Baal Cycle El rarely acts; he decides. He proclaims Yamm's name and kingship, gives in to Yamm's demand for Baal, grants Baal's palace after Anat's threats and Athirat's persuasion, mourns Baal's death by gashing himself and pouring dust on his head, proposes a replacement king, and at last dreams that Baal is alive. His authority is real but can be pressured, and scholars debate how far the Baal Cycle reflects a real rise of Baal at El's expense.\n\n## Kindly El\n\nIn the epics of Kirta and Aqhat, El is the compassionate \"Kindly El, the Benevolent\" (lṭpn il d pid), who appears to the grieving Kirta in a dream, blesses Danel with a son, and creates a healing figure to cure Kirta when no other god will act. This benevolent father is a different emphasis from the pressured king of the Baal Cycle, and both belong to the same god.\n\n## Beyond Ugarit\n\nUgaritic god-lists equate El with the Hurrian Kumarbi, and the Phoenician History attributed to Philo of Byblos equates him with the Greek Kronos. The name and several of El's titles appear in the Hebrew Bible, a connection much discussed by historians of religion.",
+    "importanceRank": 1,
+    "imageUrl": "/deities/el.png",
+    "primarySources": [
+      {
+        "text": "The messengers go to El at the source of the two rivers, in the midst of the springs of the two deeps, and enter his pavilion (paraphrase of a recurring formula).",
+        "source": "Baal Cycle, KTU 1.4 IV and parallels",
+        "date": "tablets of the late 13th or early 12th c. BCE"
+      },
+      {
+        "text": "Kindly El the Benevolent comes down to Kirta in his dream and asks why he weeps (paraphrase).",
+        "source": "Epic of Kirta, KTU 1.14 I",
+        "date": "tablets of the late 13th or early 12th c. BCE"
+      }
+    ],
+    "furtherReading": [
+      {
+        "sourceId": "baal-cycle",
+        "note": "El as king of the divine assembly"
+      },
+      {
+        "sourceId": "kirta-epic",
+        "note": "El as the compassionate father"
+      }
+    ],
+    "sources": [
+      "Cross, Frank Moore. *Canaanite Myth and Hebrew Epic* (Harvard University Press, 1973), ch. 1-2."
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "hittite-pantheon",
+        "deityId": "kumarbi",
+        "note": "Ugaritic multilingual god-lists equate El with the Hurrian father of the gods Kumarbi."
+      },
+      {
+        "pantheonId": "greek-pantheon",
+        "deityId": "cronus",
+        "note": "The Phoenician History attributed to Philo of Byblos (preserved by Eusebius) renders El as Kronos."
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [],
+      "practices": "El heads the Ugaritic offering lists; no temple at Ugarit is securely identified as his."
+    }
+  },
+  {
+    "id": "athirat",
+    "pantheonId": "canaanite-pantheon",
+    "name": "Athirat (Asherah)",
+    "slug": "athirat",
+    "originalLanguageName": {
+      "text": "aṯrt",
+      "language": "Ugaritic",
+      "transliteration": "ʾAṯiratu",
+      "meaning": "Uncertain; her full title is 'Lady Athirat of the Sea'"
+    },
+    "alternateNames": [
+      "Asherah",
+      "Lady Athirat of the Sea (rbt aṯrt ym)",
+      "Creatress of the Gods (qnyt ilm)"
+    ],
+    "gender": "female",
+    "domain": ["motherhood of the gods", "queenship", "intercession with El"],
+    "symbols": ["the spindle", "the sea", "the seventy sons"],
+    "description": "El's consort, 'Lady Athirat of the Sea' and 'Creatress of the Gods', mother of the seventy sons of El, who can persuade El when no one else can.",
+    "detailedBio": "## Queen mother of the gods\n\nAthirat is El's wife and the mother of the gods, who are called her seventy sons. Her titles are \"Lady Athirat of the Sea\" and \"Creatress of the Gods\". In the Baal Cycle she is first seen by the sea, spinning, when Baal and Anat come to her with gifts made by Kothar-wa-Khasis (KTU 1.4 II), and at first she fears they come as enemies.\n\n## The intercessor\n\nAthirat is the one god El reliably listens to. It is her visit to El, riding a donkey saddled by her servant, that finally wins Baal permission for his palace; El greets her warmly and asks whether she is hungry or thirsty before she makes her request (KTU 1.4 IV-V). After Baal's death it is Athirat whom El asks to name a new king from among her sons, and she proposes Athtar (KTU 1.6 I).\n\n## In the Epic of Kirta\n\nKing Kirta stops at the shrine of \"Athirat of Tyre, goddess of Sidon\" on his way to war and vows to give her twice a bride's weight in silver and three times in gold if he succeeds. He wins his bride and forgets the vow, and Athirat remembers; his illness follows.\n\n## Asherah\n\nAthirat is the Ugaritic form of the goddess the Hebrew Bible calls Asherah. Inscriptions from Kuntillet ʿAjrud and Khirbet el-Qom in the eighth century BCE, invoking \"Yahweh and his asherah\", are much debated evidence for her later cult; this site notes that debate without taking a side on it.",
+    "importanceRank": 1,
+    "imageUrl": "/deities/athirat.png",
+    "primarySources": [
+      {
+        "text": "Athirat rides to El, who laughs with pleasure and asks why she has come, and she persuades him to allow a house to be built for Baal (paraphrase).",
+        "source": "Baal Cycle, KTU 1.4 IV-V",
+        "date": "tablets of the late 13th or early 12th c. BCE"
+      },
+      {
+        "text": "Kirta vows at the shrine of Athirat of Tyre and the goddess of Sidon to give her double in silver and triple in gold (paraphrase).",
+        "source": "Epic of Kirta, KTU 1.14 IV",
+        "date": "tablets of the late 13th or early 12th c. BCE"
+      }
+    ],
+    "furtherReading": [
+      {
+        "sourceId": "baal-cycle",
+        "note": "Athirat's intercession for Baal's palace"
+      },
+      {
+        "sourceId": "kirta-epic",
+        "note": "Kirta's vow at her shrine"
+      }
+    ],
+    "sources": [
+      "Hadley, Judith M. *The Cult of Asherah in Ancient Israel and Judah* (Cambridge University Press, 2000)."
+    ],
+    "worship": {
+      "temples": ["Her shrine at Tyre and Sidon, named in the Epic of Kirta"],
+      "festivals": [],
+      "practices": "Athirat receives offerings in Ugaritic ritual texts; vows made to her, like Kirta's, were expected to be paid."
+    }
+  },
+  {
+    "id": "yam",
+    "pantheonId": "canaanite-pantheon",
+    "name": "Yam (Yammu)",
+    "slug": "yam",
+    "originalLanguageName": {
+      "text": "ym",
+      "language": "Ugaritic",
+      "transliteration": "Yammu",
+      "meaning": "'Sea'"
+    },
+    "alternateNames": [
+      "Prince Sea (zbl ym)",
+      "Judge River (ṯpṭ nhr)",
+      "Beloved of El"
+    ],
+    "gender": "male",
+    "domain": ["the sea", "rivers", "chaotic waters"],
+    "symbols": ["the sea", "the river"],
+    "description": "The Sea as a god, 'Prince Sea, Judge River', El's favourite, who demands that Baal be handed over as his captive and is struck down by Baal's clubs.",
+    "detailedBio": "## Prince Sea, Judge River\n\nYam, whose name simply means \"sea\", is always paired in poetic parallelism with \"River\": he is \"Prince Sea\" and \"Judge River\". He is \"beloved of El\", and in the fragmentary first tablet of the Baal Cycle El proclaims his name and gives him a house built by Kothar-wa-Khasis (KTU 1.1-1.2). His power over the waters is also a claim to kingship among the gods.\n\n## The demand for Baal\n\nIn KTU 1.2 I Yam sends messengers to the assembly of the gods on El's mountain with a blunt order: hand over Baal and his followers. The gods lower their heads onto their knees in fear, Baal rebukes them, and El agrees that Baal is Yam's servant. Baal lunges at the messengers and has to be held back by Anat and Athtart.\n\n## Defeat\n\nWith two clubs made by Kothar-wa-Khasis, Baal fights Yam. The first club, Yagrush, strikes his shoulders but does not fell him; the second, Ayyamur, strikes him on the head and he collapses. Athtart then urges Baal to finish him, and the text declares that Yam is dead and Baal shall be king (KTU 1.2 IV). Elsewhere, Anat boasts that she herself defeated Yam.\n\n## The sea and the serpent\n\nYam is associated with sea-monsters, the dragon Tunnan and the serpent Litan, and his defeat belongs to a wide Near Eastern pattern of a storm-god subduing the sea. The Hebrew Bible uses the same imagery when it describes God rebuking or dividing the sea (yam).",
+    "importanceRank": 2,
+    "imageUrl": "/deities/yam.png",
+    "primarySources": [
+      {
+        "text": "Yam's messengers demand that the gods give up Baal and his followers, and the gods lower their heads to their knees (paraphrase).",
+        "source": "Baal Cycle, KTU 1.2 I",
+        "date": "tablets of the late 13th or early 12th c. BCE"
+      },
+      {
+        "text": "The club Ayyamur strikes Prince Sea on the head; Yam sinks to the ground, his joints shake, and Baal drags him down (paraphrase).",
+        "source": "Baal Cycle, KTU 1.2 IV",
+        "date": "tablets of the late 13th or early 12th c. BCE"
+      }
+    ],
+    "furtherReading": [
+      {
+        "sourceId": "baal-cycle",
+        "note": "The conflict of Baal and Yam, KTU 1.1-1.2"
+      }
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "mesopotamian-pantheon",
+        "deityId": "tiamat",
+        "note": "Both are personified seas defeated by a younger god who then becomes king, Yam by Baal and Tiamat by Marduk; the Ugaritic and Babylonian texts are independent tellings of a shared regional pattern."
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [],
+      "practices": "Yam receives offerings in some Ugaritic ritual lists, showing that the Sea was honoured in cult as well as defeated in myth."
+    }
+  },
+  {
+    "id": "mot",
+    "pantheonId": "canaanite-pantheon",
+    "name": "Mot",
+    "slug": "mot",
+    "originalLanguageName": {
+      "text": "mt",
+      "language": "Ugaritic",
+      "transliteration": "Môtu",
+      "meaning": "'Death'"
+    },
+    "alternateNames": ["Death", "Beloved of El (ydd il)", "Son of El (bn ilm)"],
+    "gender": "male",
+    "domain": ["death", "the underworld", "drought and sterility"],
+    "symbols": ["an open throat", "the muddy city Hmry"],
+    "description": "Death personified, whose throat reaches to the heavens and whose lip touches the earth, who swallows Baal and is himself destroyed by Anat and then fights Baal to a standstill.",
+    "detailedBio": "## Death with a throat\n\nMot is death itself, not a ruler of the dead. The Baal Cycle gives him an enormous appetite: one lip to the earth, one lip to the heavens, a tongue to the stars (KTU 1.5 II), and a craving that the text compares to a lion's hunger and a dolphin's thirst. His city is Hmry (\"Miry\" or \"Muddy\"), where he sits on a throne in a land of filth, and messengers are warned not to come too close in case he swallows them.\n\n## Baal in Mot's throat\n\nAfter Baal builds his palace and declares his kingship, Mot answers with a threat, reminding Baal of the serpent Litan he defeated and warning that Baal must now come down into his throat (KTU 1.5 I). Baal submits. His death is announced to El, who mourns, and to Anat, who searches for him.\n\n## Mot destroyed, and back again\n\nAnat finds Mot and treats him like grain at harvest, splitting, winnowing, burning, grinding, and sowing him (KTU 1.6 II), and the birds eat his remains. Yet in the seventh year Mot returns, demanding compensation, and he and Baal fight like wild oxen, serpents, and stallions until both fall. Only when the sun-goddess Shapash warns Mot that El will overturn his throne does he give way and acknowledge Baal's kingship (KTU 1.6 VI).\n\n## Interpretation\n\nThe grain imagery of Mot's destruction has led some scholars to read him as a harvest figure, but most now see the language as Anat's way of annihilating him completely. Mot is never finally destroyed: death can be driven back, not abolished.",
+    "importanceRank": 2,
+    "imageUrl": "/deities/mot.png",
+    "primarySources": [
+      {
+        "text": "Mot sends word that he will swallow Baal, with one lip to the earth and one to the heavens (paraphrase).",
+        "source": "Baal Cycle, KTU 1.5 II",
+        "date": "tablets of the late 13th or early 12th c. BCE"
+      },
+      {
+        "text": "Shapash warns Mot that Bull El will overturn his throne and break his sceptre if he fights on, and Mot yields to Baal (paraphrase).",
+        "source": "Baal Cycle, KTU 1.6 VI",
+        "date": "tablets of the late 13th or early 12th c. BCE"
+      }
+    ],
+    "furtherReading": [
+      {
+        "sourceId": "baal-cycle",
+        "note": "Baal and Mot, KTU 1.4 VIII-1.6"
+      }
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "greek-pantheon",
+        "deityId": "hades",
+        "note": "Both are gods of death who hold a divine figure in the underworld; unlike Hades, Mot is death itself rather than the ruler of the dead, and he never rules a structured realm of souls."
+      }
+    ]
+  },
+  {
+    "id": "kothar-wa-khasis",
+    "pantheonId": "canaanite-pantheon",
+    "name": "Kothar-wa-Khasis",
+    "slug": "kothar-wa-khasis",
+    "originalLanguageName": {
+      "text": "kṯr w ḫss",
+      "language": "Ugaritic",
+      "transliteration": "Kôṯaru-wa-Ḫasīsu",
+      "meaning": "'Skilful and Wise'"
+    },
+    "alternateNames": [
+      "Kothar",
+      "Kothar-and-Khasis",
+      "Chousor (in Philo of Byblos)"
+    ],
+    "gender": "male",
+    "domain": [
+      "craftsmanship",
+      "metalwork",
+      "building",
+      "magic and incantation"
+    ],
+    "symbols": ["the forge", "the bow", "the clubs Yagrush and Ayyamur"],
+    "description": "The craftsman god, 'Skilful and Wise', who makes Baal's two clubs, builds his palace of cedar and silver, and brings the fateful bow to the house of Danel.",
+    "detailedBio": "## Skilful and Wise\n\nKothar-wa-Khasis has a double name, \"Skilful and Wise\", and is treated as a single god. He is the divine smith and builder, and he also knows incantations: when he names Baal's clubs he speaks words of power over them. His homes are far away, in Kaphtor (Crete) and Ḥkpt (Memphis, the city of the Egyptian craftsman god Ptah), which reflects Ugarit's position in a trading world that reached from the Aegean to Egypt.\n\n## Maker of weapons\n\nIn the Baal Cycle he makes two clubs for Baal and names them Yagrush (\"Driver\") and Ayyamur (\"Expeller\"); the second fells Yam (KTU 1.2 IV). He also forges the lavish gifts Baal and Anat take to Athirat (KTU 1.4 I), and the silver and gold palace on Zaphon.\n\n## The window\n\nWhile building the palace, Kothar-wa-Khasis twice proposes a window and Baal twice refuses; at last Baal agrees, and the window becomes the rift in the clouds through which his thunder sounds (KTU 1.4 V-VII). The exchange is a small comic scene, with the craftsman patiently saying \"you will come back to my words\".\n\n## The bow of Aqhat\n\nIn the Epic of Aqhat he arrives at Danel's house carrying a bow and arrows; Danel's wife serves him food and drink, and the bow passes to Aqhat, setting off the tragedy (KTU 1.17 V).",
+    "importanceRank": 2,
+    "imageUrl": "/deities/kothar-wa-khasis.png",
+    "primarySources": [
+      {
+        "text": "Kothar-wa-Khasis says he will put a window in the palace; Baal refuses, and Kothar replies that Baal will come back to his words (paraphrase).",
+        "source": "Baal Cycle, KTU 1.4 V-VI",
+        "date": "tablets of the late 13th or early 12th c. BCE"
+      }
+    ],
+    "furtherReading": [
+      {
+        "sourceId": "baal-cycle",
+        "note": "The clubs and the palace"
+      },
+      {
+        "sourceId": "aqhat-epic",
+        "note": "The gift of the bow"
+      }
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "greek-pantheon",
+        "deityId": "hephaestus",
+        "note": "Philo of Byblos's Phoenician History equates the craftsman Chousor with Hephaestus; both are divine smiths who make the weapons and houses of the gods."
+      },
+      {
+        "pantheonId": "egyptian-pantheon",
+        "deityId": "ptah",
+        "note": "Kothar's seat is at Ḥkpt, Memphis, the city of Ptah, the Egyptian patron of craftsmen; the Ugaritic poets appear to have linked the two."
+      }
+    ]
+  },
+  {
+    "id": "shapash",
+    "pantheonId": "canaanite-pantheon",
+    "name": "Shapash",
+    "slug": "shapash",
+    "originalLanguageName": {
+      "text": "špš",
+      "language": "Ugaritic",
+      "transliteration": "Šapšu",
+      "meaning": "'Sun'"
+    },
+    "alternateNames": ["Shapshu", "Torch of the Gods (nrt ilm)"],
+    "gender": "female",
+    "domain": [
+      "the sun",
+      "seeing and searching",
+      "passage between the living and the dead"
+    ],
+    "symbols": ["the sun disk", "the torch"],
+    "description": "The sun-goddess of Ugarit, 'Torch of the Gods', who sees everything on her daily journey, helps Anat carry Baal's body, searches for him, and warns Mot to yield.",
+    "detailedBio": "## Torch of the Gods\n\nAt Ugarit the sun is a goddess, Shapash, the \"Torch of the Gods\". Because she crosses the sky by day and, in Ugaritic belief, passes through the underworld by night, she can go where other gods cannot, and she acts as a go-between for the realms of the living and the dead.\n\n## In the Baal Cycle\n\nShapash appears at the crucial moments of the cycle's last tablets. She helps Anat lift Baal's body onto Anat's shoulder so that Anat can carry it to Zaphon for burial (KTU 1.6 I). When El dreams that Baal lives, Anat asks Shapash to search for him, and she agrees. When Baal and Mot fight to exhaustion, it is Shapash who warns Mot that El will overturn his throne if he continues, and Mot gives way (KTU 1.6 VI). The cycle closes with a hymn to her, praising her rule over the shades of the dead.\n\n## In ritual\n\nShapash also appears in Ugaritic incantations against snakebite, in which a mare's daughter calls on the sun to carry her message to the gods; and in the royal funerary liturgy (KTU 1.161), where she is called on to accompany the dead king. Her solar role is not simply heavenly; it is a role of crossing.",
+    "importanceRank": 2,
+    "imageUrl": "/deities/shapash.png",
+    "primarySources": [
+      {
+        "text": "Shapash, Torch of the Gods, lifts Mightiest Baal onto the shoulder of Anat, and Anat carries him to the heights of Zaphon (paraphrase).",
+        "source": "Baal Cycle, KTU 1.6 I",
+        "date": "tablets of the late 13th or early 12th c. BCE"
+      }
+    ],
+    "furtherReading": [
+      {
+        "sourceId": "baal-cycle",
+        "note": "Shapash in the last tablets of the cycle"
+      }
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "hittite-pantheon",
+        "deityId": "sun-goddess-of-arinna",
+        "note": "Both are female sun deities in Late Bronze Age pantheons that also knew a sun passing through the underworld; they belong to different traditions."
+      }
+    ]
+  },
+  {
+    "id": "athtar",
+    "pantheonId": "canaanite-pantheon",
+    "name": "Athtar",
+    "slug": "athtar",
+    "originalLanguageName": {
+      "text": "ʿṯtr",
+      "language": "Ugaritic",
+      "transliteration": "ʿAṯtaru",
+      "meaning": "Related to the name of the Venus star deity across Semitic languages"
+    },
+    "alternateNames": ["Athtar the Terrible (ʿṯtr ʿrẓ)", "Attar"],
+    "gender": "male",
+    "domain": [
+      "the morning star",
+      "irrigation (disputed)",
+      "a failed claim to kingship"
+    ],
+    "symbols": ["the throne too large for him"],
+    "description": "The god whom Athirat proposes as king after Baal's death, who climbs onto Baal's throne on Zaphon and finds that his feet do not reach the footstool.",
+    "detailedBio": "## A king too small for the throne\n\nAthtar's best-known scene is brief. After Baal's death, El asks Athirat to name one of her sons as king, and she proposes \"Athtar the Terrible\". Athtar goes up to Baal's throne on the heights of Zaphon, but his feet do not reach the footstool and his head does not reach its top. He admits that he cannot be king on Zaphon, comes down, and rules instead over the broad earth (KTU 1.6 I).\n\n## A rival of Yam and Baal\n\nIn the fragmentary early tablets of the cycle, Athtar also seems to complain that he has no palace like other gods, and is told by Shapash that he will not be king because El favours Yam (KTU 1.2 III). The passage is broken and its interpretation debated.\n\n## The Venus star\n\nThe name Athtar is related to the name of the Venus-star deity across the Semitic world, including the South Arabian ʿAthtar and, in feminine form, Athtart and Mesopotamian Ištar. Older scholarship made him an irrigation god, contrasted with the rain-god Baal; that theory rests on thin evidence and is presented here only as a proposal.",
+    "importanceRank": 3,
+    "imageUrl": "/deities/athtar.png",
+    "primarySources": [
+      {
+        "text": "Athtar the Terrible goes up to the heights of Zaphon and sits on Baal's throne; his feet do not reach the footstool, his head does not reach its top (paraphrase).",
+        "source": "Baal Cycle, KTU 1.6 I",
+        "date": "tablets of the late 13th or early 12th c. BCE"
+      }
+    ],
+    "furtherReading": [
+      {
+        "sourceId": "baal-cycle",
+        "note": "Athtar's attempt on the throne"
+      }
+    ]
+  },
+  {
+    "id": "athtart",
+    "pantheonId": "canaanite-pantheon",
+    "name": "Athtart (Astarte)",
+    "slug": "athtart",
+    "originalLanguageName": {
+      "text": "ʿṯtrt",
+      "language": "Ugaritic",
+      "transliteration": "ʿAṯtartu",
+      "meaning": "Feminine form of Athtar"
+    },
+    "alternateNames": ["Astarte", "Ashtart", "Name of Baal (šm bʿl)"],
+    "gender": "female",
+    "domain": ["war", "hunting", "love (in later Phoenician cult)"],
+    "symbols": ["the horse", "the hunt"],
+    "description": "A warrior and hunting goddess who, with Anat, holds Baal back from attacking Yam's messengers and then urges him to finish Yam off; better known in later centuries as the Phoenician Astarte.",
+    "detailedBio": "## Holding Baal back\n\nIn the Baal Cycle, when Yam's messengers demand that Baal be surrendered, Baal seizes a weapon to strike them, and two goddesses restrain him: Anat takes his right hand and Athtart his left (KTU 1.2 I). They remind him that messengers are not to be harmed.\n\n## Urging him on\n\nAfter Baal's second club fells Yam, it is Athtart who calls out to Baal, rebuking him or urging him to \"scatter\" the defeated Sea, since Yam is now their captive (KTU 1.2 IV). The passage is damaged and translators differ on its exact tone, but it shows her as a warrior at Baal's side.\n\n## A hunter\n\nIn a separate Ugaritic text (KTU 1.92) Athtart goes hunting in the steppe, and she appears in Ugaritic ritual texts with an equestrian aspect. In Egyptian New Kingdom texts she is a war goddess associated with horses and chariots.\n\n## Astarte\n\nIn the first millennium BCE, Athtart became Astarte, a major goddess of the Phoenician cities, especially Sidon and Tyre, where the royal inscription of Eshmunazar calls her \"Astarte, name of Baal\". Greek writers identified her with Aphrodite. The Ugaritic Athtart is a less prominent and more martial figure than that later goddess.",
+    "importanceRank": 3,
+    "imageUrl": "/deities/athtart.png",
+    "primarySources": [
+      {
+        "text": "Anat seizes Baal's right hand and Athtart his left, holding him back from Yam's messengers (paraphrase).",
+        "source": "Baal Cycle, KTU 1.2 I",
+        "date": "tablets of the late 13th or early 12th c. BCE"
+      }
+    ],
+    "furtherReading": [
+      {
+        "sourceId": "baal-cycle",
+        "note": "Athtart in the conflict with Yam"
+      }
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "greek-pantheon",
+        "deityId": "aphrodite",
+        "note": "Greek writers identified the Phoenician Astarte with Aphrodite; the Ugaritic Athtart is mainly a warrior and huntress."
+      },
+      {
+        "pantheonId": "mesopotamian-pantheon",
+        "deityId": "inanna",
+        "note": "Athtart's name is cognate with Ištar's, and both combine war with, in later periods, love."
       }
     ]
   }

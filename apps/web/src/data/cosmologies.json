@@ -1392,5 +1392,94 @@
         ]
       }
     ]
+  },
+  {
+    "pantheonId": "canaanite-pantheon",
+    "title": "Zaphon, the Sea, and the Throat of Death",
+    "summary": "Ugaritic myth places Baal's palace on Mount Zaphon, El's pavilion at the source of the cosmic rivers, the Sea as a rival power, and Mot's muddy city below the earth, entered through his throat.",
+    "axis": {
+      "name": "Mount Zaphon",
+      "kind": "mountain",
+      "note": "Baal's mountain, the real Jebel Aqra north of Ugarit, where his palace, his burial, and his final battle with Mot take place; it links the storm in the sky to the land below."
+    },
+    "variantNote": "The Ugaritic texts never lay out a complete map of the cosmos; this diagram assembles places named in the Baal Cycle. Mot's realm is reached through two mountains at the edge of the earth, and El's dwelling lies at the source of the cosmic waters, but how these fit together spatially is not stated, and later Phoenician cosmogonies (preserved by Philo of Byblos) differ considerably.",
+    "sources": [
+      "Baal Cycle, KTU 1.1-1.6",
+      "M. S. Smith, in Ugaritic Narrative Poetry (ed. S. B. Parker), 1997",
+      "N. Wyatt, Religious Texts from Ugarit, 2nd ed., 2002"
+    ],
+    "tiers": [
+      {
+        "id": "els-domain",
+        "label": "El's domain",
+        "band": "beyond",
+        "realms": [
+          {
+            "name": "The source of the two rivers",
+            "description": "El's pavilion at the edge of the world, where the springs of the two deeps rise and the gods come for his decisions.",
+            "deities": ["el", "athirat"],
+            "locationId": "source-of-the-two-rivers"
+          }
+        ]
+      },
+      {
+        "id": "zaphon",
+        "label": "Zaphon and the heavens",
+        "band": "sky",
+        "realms": [
+          {
+            "name": "The heights of Zaphon",
+            "originalName": "Ṣapānu",
+            "description": "Baal's palace of silver and gold, with its window in the clouds.",
+            "deities": ["baal", "anat", "athtart", "kothar-wa-khasis"],
+            "locationId": "mount-zaphon"
+          },
+          {
+            "name": "The sun's course",
+            "description": "The path of Shapash, Torch of the Gods, who sees all and passes also through the underworld.",
+            "deities": ["shapash"]
+          }
+        ]
+      },
+      {
+        "id": "earth",
+        "label": "The broad earth",
+        "band": "earth",
+        "realms": [
+          {
+            "name": "The land",
+            "description": "The fields that dry when Baal is dead and revive when he returns; Athtar rules here after failing on Zaphon.",
+            "deities": ["athtar"],
+            "locationId": "ugarit"
+          }
+        ]
+      },
+      {
+        "id": "sea",
+        "label": "The Sea",
+        "band": "water",
+        "realms": [
+          {
+            "name": "Yam's waters",
+            "description": "The Sea and River, rival powers subdued by Baal, home to the serpent Litan and the dragon Tunnan.",
+            "deities": ["yam"],
+            "creatures": ["lotan", "tunnanu"]
+          }
+        ]
+      },
+      {
+        "id": "mot",
+        "label": "The land of Mot",
+        "band": "under",
+        "realms": [
+          {
+            "name": "Hmry, Mot's city",
+            "originalName": "hmry",
+            "description": "Death's muddy city beneath the earth, reached between the mountains at the world's edge and through his enormous throat.",
+            "deities": ["mot"]
+          }
+        ]
+      }
+    ]
   }
 ]

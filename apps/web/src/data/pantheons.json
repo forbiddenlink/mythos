@@ -573,5 +573,58 @@
       }
     ],
     "imageUrl": "/pantheons/hittite.jpg"
+  },
+  {
+    "id": "canaanite-pantheon",
+    "name": "Canaanite Pantheon (Ugarit)",
+    "slug": "canaanite",
+    "culture": "West Semitic (Canaanite), known chiefly from the Ugaritic texts of Ras Shamra",
+    "region": "The Levant (coastal Syria, Lebanon, and Israel/Palestine)",
+    "timePeriodStart": -1450,
+    "timePeriodEnd": -1185,
+    "description": "The gods of the Late Bronze Age Levant as the clay tablets of Ugarit preserve them: aged El and Lady Athirat at the head of the divine family, and the storm-god Baal, who defeats the Sea, builds his palace on Mount Zaphon, and is swallowed by Death before he returns.",
+    "detailedHistory": "## Ugarit and the problem of the word \"Canaanite\"\n\nAlmost everything known in detail about the myths of the ancient Levant before the first millennium BCE comes from one city: Ugarit, on the Syrian coast at Ras Shamra, north of modern Latakia. In 1928 a farmer's plough broke into a tomb nearby; excavations led by Claude Schaeffer from 1929 uncovered a wealthy port city, destroyed around 1185 BCE, and archives written in a previously unknown alphabetic cuneiform of thirty signs. The mythological poems on this site come from those archives. \"Canaanite\" is the conventional scholarly label for the shared West Semitic religion of the Levant, and it is used here for that reason; but the people of Ugarit did not call themselves Canaanites (an Ugaritic text lists a \"Canaanite\" as a foreigner), and the Ugaritic myths should not be assumed to describe every Levantine city. Where later Phoenician or biblical evidence differs, this site says so.\n\n## The texts and their scribe\n\nThe three great narrative poems, the Baal Cycle (KTU 1.1-1.6), the Epic of Aqhat (KTU 1.17-1.19), and the Epic of Kirta (KTU 1.14-1.16), survive on tablets copied in the late thirteenth or early twelfth century BCE. Several carry a colophon naming the scribe Ilimilku, who worked under a king Niqmaddu, although the poems themselves are older. All are damaged: whole columns are missing, the order of the Baal tablets is partly reconstructed, and the endings of Aqhat and Kirta are lost. Citations here use the standard KTU numbering (Keilalphabetische Texte aus Ugarit, also published in English as CAT), by tablet and column, so readers can check any retelling against a modern translation such as those of Mark S. Smith, Simon B. Parker, Edward L. Greenstein, and Nicolas Wyatt.\n\n## The divine family\n\nAt the head of the pantheon stands El (Ilu), the aged \"Father of Years\" and \"Bull El\", creator of creatures, who presides over the assembly of the gods from his dwelling at the source of the two rivers. His consort is Athirat, \"Lady Athirat of the Sea\", mother of the seventy gods. The drama of the myths, though, belongs to a younger generation: Baal (Baʿlu Haddu), the storm-god of rain and fertility, \"Rider of the Clouds\", who is called the son of Dagan; his fierce sister-ally Anat; the Sea (Yamm) and Death (Mot), both favourites of El; the craftsman god Kothar-wa-Khasis; and the sun-goddess Shapash, who sees everything as she crosses the sky and the underworld.\n\n## Why these texts matter\n\nThe Ugaritic poems are the closest surviving literary context for the Hebrew Bible's poetry. Biblical texts use the same divine names (El, Baal, Asherah), the same image of a storm-god riding the clouds, and even nearly the same words: Isaiah 27:1 describes \"Leviathan the twisting serpent\" in terms close to the Ugaritic description of Litan. The relationship is one of shared language and imagery across a region, not of one text copying another, and this site describes Ugaritic religion on its own terms rather than as background to the Bible. Readers of Jewish and Christian scripture should also know that biblical polemic against \"Baal\" and \"Asherah\" was written centuries later and from a very different standpoint; the Ugaritic texts are the only surviving account of these gods from their own worshippers.",
+    "citationSources": [
+      {
+        "title": "The Baal Cycle (KTU 1.1-1.6)",
+        "author": "Ugaritic poem; scribe Ilimilku",
+        "date": "tablets of the late 13th or early 12th c. BCE",
+        "type": "primary",
+        "sourceId": "baal-cycle"
+      },
+      {
+        "title": "The Epic of Aqhat (KTU 1.17-1.19)",
+        "author": "Ugaritic poem; scribe Ilimilku",
+        "date": "tablets of the late 13th or early 12th c. BCE",
+        "type": "primary",
+        "sourceId": "aqhat-epic"
+      },
+      {
+        "title": "The Epic of Kirta (KTU 1.14-1.16)",
+        "author": "Ugaritic poem; scribe Ilimilku",
+        "date": "tablets of the late 13th or early 12th c. BCE",
+        "type": "primary",
+        "sourceId": "kirta-epic"
+      },
+      {
+        "title": "Ugaritic Narrative Poetry (SBL Writings from the Ancient World 9), ed. Simon B. Parker",
+        "author": "Mark S. Smith, Simon B. Parker, Edward L. Greenstein (translators)",
+        "date": "1997",
+        "type": "primary"
+      },
+      {
+        "title": "Stories from Ancient Canaan (2nd ed.)",
+        "author": "Michael D. Coogan and Mark S. Smith",
+        "date": "2012",
+        "type": "primary"
+      },
+      {
+        "title": "Religious Texts from Ugarit (2nd ed.)",
+        "author": "Nicolas Wyatt",
+        "date": "2002",
+        "type": "primary"
+      }
+    ],
+    "imageUrl": "/pantheons/canaanite.jpg"
   }
 ]

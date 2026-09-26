@@ -62,6 +62,7 @@ const PANTHEON_COLORS: Record<string, string> = {
   "haudenosaunee-pantheon": "bg-teal-500/20 text-teal-400 border-teal-500/30",
   "tlingit-haida-pantheon": "bg-rose-500/20 text-rose-400 border-rose-500/30",
   "hittite-pantheon": "bg-orange-700/20 text-orange-500 border-orange-700/30",
+  "canaanite-pantheon": "bg-fuchsia-500/20 text-fuchsia-400 border-fuchsia-500/30",
 };
 
 function getPantheonColor(pantheonId: string): string {

@@ -1840,5 +1840,93 @@
     "relationshipType": "ally_of",
     "confidenceLevel": "medium",
     "description": "Kamrušepa performs the rite that removes Telipinu's anger and allows his return (CTH 324); the relationship is ritual rather than personal."
+  },
+  {
+    "id": "canaanite-el-athirat",
+    "fromDeityId": "el",
+    "toDeityId": "athirat",
+    "relationshipType": "spouse_of",
+    "confidenceLevel": "high",
+    "description": "Athirat is El's consort throughout the Ugaritic texts; he welcomes her as his wife in KTU 1.4 IV."
+  },
+  {
+    "id": "canaanite-el-yam",
+    "fromDeityId": "el",
+    "toDeityId": "yam",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "medium",
+    "description": "El proclaims Yam's name and calls him beloved (KTU 1.1 IV); the damaged text appears to call him El's son, but the reading is not certain."
+  },
+  {
+    "id": "canaanite-el-mot",
+    "fromDeityId": "el",
+    "toDeityId": "mot",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "medium",
+    "description": "Mot is called bn ilm, usually translated 'son of El' (some translate 'divine Mot'), and 'beloved of El'."
+  },
+  {
+    "id": "canaanite-baal-yam",
+    "fromDeityId": "baal",
+    "toDeityId": "yam",
+    "relationshipType": "enemy_of",
+    "confidenceLevel": "high",
+    "description": "Baal fights and defeats Yam with the clubs Yagrush and Ayyamur (KTU 1.2 IV)."
+  },
+  {
+    "id": "canaanite-baal-mot",
+    "fromDeityId": "baal",
+    "toDeityId": "mot",
+    "relationshipType": "enemy_of",
+    "confidenceLevel": "high",
+    "description": "Mot swallows Baal (KTU 1.5), and the two fight again in the seventh year (KTU 1.6 VI)."
+  },
+  {
+    "id": "canaanite-anat-baal",
+    "fromDeityId": "anat",
+    "toDeityId": "baal",
+    "relationshipType": "sibling_of",
+    "confidenceLevel": "medium",
+    "description": "Anat is called Baal's sister in the Ugaritic texts and acts as his ally; some scholars also see a sexual relationship between them in fragmentary texts, which this site does not assert."
+  },
+  {
+    "id": "canaanite-anat-mot",
+    "fromDeityId": "anat",
+    "toDeityId": "mot",
+    "relationshipType": "enemy_of",
+    "confidenceLevel": "high",
+    "description": "Anat seizes Mot and destroys him (KTU 1.6 II)."
+  },
+  {
+    "id": "canaanite-kothar-baal",
+    "fromDeityId": "kothar-wa-khasis",
+    "toDeityId": "baal",
+    "relationshipType": "ally_of",
+    "confidenceLevel": "high",
+    "description": "Kothar-wa-Khasis makes Baal's clubs (KTU 1.2 IV) and builds his palace (KTU 1.4 V-VII)."
+  },
+  {
+    "id": "canaanite-shapash-anat",
+    "fromDeityId": "shapash",
+    "toDeityId": "anat",
+    "relationshipType": "ally_of",
+    "confidenceLevel": "high",
+    "description": "Shapash helps Anat lift Baal's body and later searches for him at her request (KTU 1.6 I, III-IV)."
+  },
+  {
+    "id": "canaanite-athtart-baal",
+    "fromDeityId": "athtart",
+    "toDeityId": "baal",
+    "relationshipType": "ally_of",
+    "confidenceLevel": "medium",
+    "description": "Athtart restrains Baal before Yam's messengers and urges him on after Yam falls (KTU 1.2 I, IV); the tone of the second passage is debated."
+  },
+  {
+    "id": "canaanite-athirat-athtar",
+    "fromDeityId": "athirat",
+    "toDeityId": "athtar",
+    "relationshipType": "ally_of",
+    "confidenceLevel": "medium",
+    "description": "Athirat proposes Athtar as king after Baal's death (KTU 1.6 I); he is counted among her sons in some translations, but the text does not state it directly."
   }
 ]

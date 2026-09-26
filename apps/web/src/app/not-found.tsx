@@ -47,6 +47,7 @@ function getPantheonLabel(pantheonId: string): string {
     "haudenosaunee-pantheon": "Haudenosaunee",
     "tlingit-haida-pantheon": "Tlingit & Haida",
     "hittite-pantheon": "Hittite",
+    "canaanite-pantheon": "Canaanite",
   };
   return labels[pantheonId] || "Ancient";
 }

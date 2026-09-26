@@ -1381,5 +1381,53 @@
         "date": "Old Hittite composition; later copies"
       }
     ]
+  },
+  {
+    "id": "yagrush-and-ayyamur",
+    "pantheonId": "canaanite-pantheon",
+    "name": "Yagrush and Ayyamur",
+    "slug": "yagrush-and-ayyamur",
+    "description": "The two clubs that Kothar-wa-Khasis makes and names for Baal: Yagrush, 'Driver', which fails to fell Yam, and Ayyamur, 'Expeller', which strikes him down.",
+    "type": "weapon",
+    "powers": [
+      "named and charged with a spell by the craftsman god",
+      "leap from Baal's hand like an eagle",
+      "Ayyamur fells the Sea"
+    ],
+    "owner": "baal",
+    "origin": "Baal Cycle, KTU 1.2 IV: made and named by Kothar-wa-Khasis for Baal's fight with Yam.",
+    "currentLocation": "Wielded by Baal on Mount Zaphon",
+    "imageUrl": "/artifacts/yagrush-and-ayyamur.png",
+    "relatedStories": ["baal-and-yam"],
+    "detailedBio": "## Named weapons\n\nIn KTU 1.2 IV, Kothar-wa-Khasis fashions two clubs (ṣmdm) for Baal and gives each a name, speaking over it words that tell it what to do. The first is Yagrush (\"Driver\" or \"Chaser\"), commanded to drive Yam from his throne. It leaps from Baal's hand like an eagle and strikes Yam's shoulders and chest, but Yam does not fall. The second is Ayyamur (\"Expeller\" or \"Driver-out\"), commanded to expel Yam from his seat. It strikes Yam's head, between the eyes, and the Sea collapses.\n\n## Word and weapon\n\nThe scene joins craft and speech: Kothar is both smith and speaker of incantations, and the naming is part of what makes the weapons effective. The clubs are among the earliest named weapons in any surviving literature.\n\n## In art\n\nThe storm-god's club or mace is his standard weapon in Levantine art. The well-known \"Baal au foudre\" stele from Ugarit, now in the Louvre, shows the god striding with a raised club in one hand and a spear or lightning-shaft ending in plant growth in the other. The stele does not label the weapons, and this site does not claim they are Yagrush and Ayyamur, but it shows how Ugaritians pictured their storm-god armed.",
+    "primarySources": [
+      {
+        "text": "Kothar-wa-Khasis brings down two clubs and proclaims their names: Yagrush, drive Yam from his throne; Ayyamur, expel Yam from his seat (paraphrase).",
+        "source": "Baal Cycle, KTU 1.2 IV",
+        "date": "tablets of the late 13th or early 12th c. BCE"
+      }
+    ]
+  },
+  {
+    "id": "bow-of-aqhat",
+    "pantheonId": "canaanite-pantheon",
+    "name": "The Bow of Aqhat",
+    "slug": "bow-of-aqhat",
+    "description": "The bow and arrows that Kothar-wa-Khasis brings to Danel's house and that pass to Aqhat; the goddess Anat's desire for it leads to Aqhat's death, and it is broken or lost in the killing.",
+    "type": "weapon",
+    "powers": ["made by the craftsman god", "desired by the goddess of war"],
+    "owner": "Aqhat, son of Danel",
+    "origin": "Epic of Aqhat, KTU 1.17 V: brought by Kothar-wa-Khasis to Danel, who gives it to his son.",
+    "currentLocation": "Broken or lost in the water when Aqhat is killed; Anat never obtains it",
+    "imageUrl": "/artifacts/bow-of-aqhat.png",
+    "relatedStories": ["legend-of-aqhat"],
+    "detailedBio": "## A divine gift\n\nIn KTU 1.17 V, Danel is sitting at the city gate, judging, when he sees Kothar-wa-Khasis approaching, carrying a bow and a quiver of arrows. Danel and his wife feed and honour the god, and he leaves the bow with them. Danel gives it to Aqhat and tells him to offer the choicest of his game to the gods.\n\n## The object of desire\n\nAt a feast Anat sees the bow and demands it, offering silver, gold, and finally immortality. The poem describes the materials a bow is made of, horn, sinew, and wood, when Aqhat tells her to make her own, with the implication that a goddess does not need his. His refusal leads to his death.\n\n## Broken\n\nWhen Anat's henchman Yatpan kills Aqhat, the bow is broken or falls into the water; the passage is damaged. Anat laments, and says she killed Aqhat only for the bow. The object that caused the tragedy is lost to everyone, which many readers take as the poem's comment on the futility of her desire.",
+    "primarySources": [
+      {
+        "text": "Danel sees Kothar-wa-Khasis coming, carrying a bow and a quiver of arrows, and has a lamb prepared for the god (paraphrase).",
+        "source": "Epic of Aqhat, KTU 1.17 V",
+        "date": "tablets of the late 13th or early 12th c. BCE"
+      }
+    ]
   }
 ]

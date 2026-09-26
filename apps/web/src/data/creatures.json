@@ -1403,5 +1403,50 @@
       }
     ],
     "imageUrl": "/creatures/hedammu.png"
+  },
+  {
+    "id": "lotan",
+    "pantheonId": "canaanite-pantheon",
+    "name": "Litan (Lotan)",
+    "slug": "lotan",
+    "description": "The seven-headed 'fleeing serpent, twisting serpent' whom Baal struck down, recalled by Mot in the Baal Cycle; its Ugaritic epithets reappear almost word for word in the Hebrew Bible's description of Leviathan.",
+    "habitat": "The sea",
+    "abilities": [
+      "seven heads",
+      "coiling, twisting motion",
+      "embodies the chaos of the sea"
+    ],
+    "dangerLevel": 9,
+    "detailedBio": "## The twisting serpent\n\nLitan (ltn, often vocalised Lotan) appears in Mot's message to Baal at the start of KTU 1.5: because Baal struck down Litan, the fleeing serpent, destroyed the twisting serpent, the tyrant with seven heads, the heavens will wither and Baal must come down into Death's throat (paraphrase). The victory over Litan is recalled rather than narrated; no surviving Ugaritic text describes the fight itself.\n\n## Anat's claim\n\nIn KTU 1.3 III Anat boasts of destroying a series of monsters: Yam, the dragon Tunnan, the twisting serpent, the seven-headed tyrant. The overlap in wording suggests that the Ugaritic poets had a fixed set of epithets for this creature and could assign its defeat to Baal or Anat.\n\n## Leviathan\n\nIsaiah 27:1 promises that God will punish \"Leviathan the fleeing serpent, Leviathan the twisting serpent\", and Psalm 74:14 speaks of crushing the heads of Leviathan. The Hebrew name liwyātān corresponds to Ugaritic ltn, and the epithets match. The biblical passages show that the imagery of the storm-god's battle with a sea serpent remained alive in Levantine poetry for many centuries.",
+    "primarySources": [
+      {
+        "text": "Mot reminds Baal that he struck Litan, the fleeing serpent, and destroyed the twisting serpent, the tyrant with seven heads (paraphrase).",
+        "source": "Baal Cycle, KTU 1.5 I",
+        "date": "tablets of the late 13th or early 12th c. BCE"
+      }
+    ],
+    "imageUrl": "/creatures/lotan.png"
+  },
+  {
+    "id": "tunnanu",
+    "pantheonId": "canaanite-pantheon",
+    "name": "Tunnan",
+    "slug": "tunnanu",
+    "description": "A sea-dragon named among the monsters that the goddess Anat boasts of having muzzled and destroyed; the Ugaritic counterpart of the biblical tannin.",
+    "habitat": "The sea",
+    "abilities": [
+      "a sea-dragon of the chaotic waters",
+      "must be muzzled or bound"
+    ],
+    "dangerLevel": 7,
+    "detailedBio": "## Anat's boast\n\nTunnan (tnn) appears in Anat's speech in KTU 1.3 III, when she lists the enemies of Baal she has defeated: she has destroyed Yam, El's beloved, finished off River, muzzled Tunnan, and destroyed the twisting serpent. The verb usually translated \"muzzled\" or \"bound\" suggests a creature that had to be restrained rather than simply killed. Another Ugaritic passage associates Tunnan with the sea and with Baal's victory as well.\n\n## A group of sea-monsters\n\nUgaritic poetry does not describe Tunnan in detail; it belongs to a group of chaos creatures associated with Yam, the Sea, including Litan and the twisting serpent. Whether these are separate creatures or several names for one monster is debated.\n\n## Tannin\n\nThe Hebrew word tannîn, \"sea-monster\" or \"dragon\", corresponds to Ugaritic tnn. In Genesis 1:21 God creates the great tanninim, and in Isaiah 51:9 the arm of the Lord pierces the tannin. As with Litan and Leviathan, the Ugaritic texts show the older mythological background of a word that biblical writers used in their own way.",
+    "primarySources": [
+      {
+        "text": "Anat boasts that she destroyed Yam, El's beloved, muzzled Tunnan, and destroyed the twisting serpent (paraphrase).",
+        "source": "Baal Cycle, KTU 1.3 III",
+        "date": "tablets of the late 13th or early 12th c. BCE"
+      }
+    ],
+    "imageUrl": "/creatures/tunnanu.png"
   }
 ]

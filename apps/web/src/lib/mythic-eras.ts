@@ -98,7 +98,7 @@ export const MYTHIC_ERAS: MythicEra[] = [
     blurb: "Late Bronze Age Hattusa and the city of Ugarit",
     start: -1650,
     end: -1180,
-    pantheonIds: ["hittite-pantheon"],
+    pantheonIds: ["hittite-pantheon", "canaanite-pantheon"],
   },
 ];
 

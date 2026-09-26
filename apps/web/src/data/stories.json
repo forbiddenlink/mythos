@@ -3888,5 +3888,277 @@
       }
     ],
     "imageUrl": "/stories/disappearance-of-telipinu.png"
+  },
+  {
+    "id": "baal-and-yam",
+    "pantheonId": "canaanite-pantheon",
+    "title": "Baal and Yam: The Storm Against the Sea",
+    "slug": "baal-and-yam",
+    "summary": "Yam, the Sea, favoured by El, demands that the gods hand Baal over as his captive; armed with two clubs made by Kothar-wa-Khasis, Baal strikes Yam down and claims kingship.",
+    "fullNarrative": "## The first tablets\n\nThis episode comes from the first two tablets of the Baal Cycle (KTU 1.1-1.2), which are badly damaged; scholars disagree about the order of some columns, and much of KTU 1.1 is too broken to translate continuously. The outline below follows the reconstruction in Mark S. Smith's translation.\n\n## El favours the Sea\n\nIn the broken opening, El proclaims the name and status of Yam, Prince Sea and Judge River, whom he calls beloved, and the craftsman god Kothar-wa-Khasis is summoned to build Yam a house. Athtar seems to object that he, too, lacks a palace, and is told by the sun-goddess Shapash that El has chosen Yam (KTU 1.2 III). The balance of power among the gods is shifting toward the Sea.\n\n## The messengers\n\nYam then sends two messengers to the assembly of the gods, which is feasting on El's mountain. They are told not to bow, and to deliver the message standing: the gods must give up Baal and his followers, so that Yam may take his gold (KTU 1.2 I). When the messengers arrive, the gods lower their heads onto their knees in fear. Baal, standing by El, rebukes them for cowering. But El agrees to the demand: Baal is to be Yam's slave, and will bring him tribute.\n\nBaal is furious. He seizes a weapon to attack the messengers, and two goddesses hold him back: Anat seizes his right hand and Athtart his left, reminding him that messengers must not be harmed.\n\n## Two clubs\n\nThe central scene is in KTU 1.2 IV. Kothar-wa-Khasis encourages Baal: now is the time to strike his enemy and take his eternal kingship. He fashions two clubs and gives each a name with a spell over it. The first is Yagrush, \"Driver\", told to drive Yam from his throne. It leaps from Baal's hand like an eagle and strikes Yam on the shoulders and chest, but Yam does not fall. The second is Ayyamur, \"Expeller\", told to expel Yam from his seat. It strikes Yam on the head, between the eyes, and Prince Sea collapses to the ground, his joints shaking, his body slumping. Baal drags him down and sets about finishing him.\n\n## Athtart's cry\n\nAthtart then calls out to Baal. The lines are damaged and translators differ: she either rebukes Baal or urges him to \"scatter\" the defeated Sea, because Yam is now their captive. The episode ends with a declaration that Yam is dead and Baal shall be king.\n\n## What the story means\n\nThe battle of a storm-god with the sea is one of the oldest and most widespread myths of the ancient Near East. At Ugarit, a harbour city dependent on the sea but vulnerable to it, the story makes Baal the guarantor of order: the waters that can drown are subdued by the god who sends rain. The same pattern appears in Babylon, where Marduk defeats Tiamat, and in biblical poetry, where God rebukes the sea and crushes the dragon. Scholars disagree about whether the Ugaritic story was recited at a particular festival; the texts themselves do not say.\n\n## Anat's claim\n\nA different tablet (KTU 1.3 III) has Anat boast that she herself destroyed Yam, El's beloved, and the dragon Tunnan and the twisting serpent. Ugaritic tradition could credit more than one god with the victory over the Sea.",
+    "keyExcerpts": "Yam's messengers demand Baal from the cowering assembly; Anat and Athtart hold Baal back; then Kothar-wa-Khasis names two clubs, Yagrush and Ayyamur, and the second fells Prince Sea.",
+    "category": "war",
+    "moralThemes": [
+      "order over chaos",
+      "courage against a cowed assembly",
+      "kingship won by combat"
+    ],
+    "culturalSignificance": "The Ugaritic form of the storm-god-versus-sea myth, and one of the closest literary parallels to biblical images of God subduing the sea; its named clubs are among the earliest named weapons in literature.",
+    "citationSources": [
+      {
+        "title": "The Baal Cycle (KTU 1.1-1.6)",
+        "author": "Ugaritic poem; tablets written by the scribe Ilimilku",
+        "date": "tablets of the late 13th or early 12th c. BCE",
+        "type": "primary",
+        "sourceId": "baal-cycle",
+        "chapter": "KTU 1.1-1.2 (especially 1.2 I and 1.2 IV)"
+      },
+      {
+        "title": "Ugaritic Narrative Poetry (SBL Writings from the Ancient World 9), ed. Simon B. Parker",
+        "author": "Mark S. Smith (translator of the Baal Cycle)",
+        "date": "1997",
+        "type": "primary",
+        "chapter": "The Baal Cycle"
+      }
+    ],
+    "featuredDeities": [
+      "baal",
+      "yam",
+      "el",
+      "kothar-wa-khasis",
+      "anat",
+      "athtart",
+      "athtar"
+    ],
+    "featuredLocations": ["ugarit"],
+    "relatedStories": [
+      "palace-of-baal",
+      "baal-and-mot",
+      "storm-god-and-illuyanka"
+    ],
+    "variants": [
+      {
+        "source": "Baal Cycle, KTU 1.3 III",
+        "difference": "Anat claims that she herself destroyed Yam, the dragon Tunnan, and the twisting serpent.",
+        "note": "Ugaritic tradition attributes the victory over the Sea to more than one deity."
+      },
+      {
+        "source": "Enuma Elish",
+        "difference": "In Babylon the sea is Tiamat, and Marduk defeats her with winds and a net before making heaven and earth from her body.",
+        "note": "A related regional pattern, not the same story."
+      }
+    ],
+    "furtherReading": [
+      {
+        "sourceId": "baal-cycle",
+        "note": "KTU 1.1-1.2 in translation"
+      },
+      {
+        "sourceId": "enuma-elish",
+        "note": "The Babylonian storm-god-versus-sea myth for comparison"
+      }
+    ],
+    "imageUrl": "/stories/baal-and-yam.png"
+  },
+  {
+    "id": "palace-of-baal",
+    "pantheonId": "canaanite-pantheon",
+    "title": "The Palace of Baal",
+    "slug": "palace-of-baal",
+    "summary": "Having defeated Yam, Baal still has no house of his own; Anat threatens El, Athirat persuades him, and Kothar-wa-Khasis builds a palace of cedar, silver, and gold on Mount Zaphon, with a window through which Baal thunders.",
+    "fullNarrative": "## Victory without a house\n\nAfter his victory over Yam, Baal laments that he has no house like the other gods: El has a dwelling, Athirat has one, but Baal and his daughters live without a palace (KTU 1.3 V; 1.4 I). In Ugaritic thinking a king needs a house; the story of the palace is the story of Baal's kingship being made permanent. It fills tablets KTU 1.3 and 1.4, with gaps.\n\n## Anat's feast and fury\n\nThe episode opens with Anat. In one of the most violent passages in ancient literature, she fights in the valley between two towns, cutting down warriors until heads fly like balls and hands like locusts, and she wades in blood up to her knees and then her neck, before cleansing herself with dew and rain (KTU 1.3 II). Baal sends messengers to her asking her to set aside war and come to him, promising to reveal the secret of the lightning. She comes, and agrees to go to El on his behalf.\n\nAt El's dwelling at the source of the two rivers, Anat threatens the old god: she will drag him down like a lamb and make his grey hair run with blood unless he grants Baal a house (KTU 1.3 V). El answers mildly but does not give in.\n\n## Athirat's intercession\n\nA different approach is needed. Baal and Anat have Kothar-wa-Khasis make splendid gifts, furniture, a footstool, a table, and a bowl, of gold and silver, and take them to Athirat (KTU 1.4 I-II). She is by the sea, spinning, when she sees them coming, and at first she is afraid; when she sees the gifts she rejoices. She saddles a donkey and rides to El. El greets her with pleasure, laughing, and asks whether she is hungry or thirsty. She praises his wisdom and asks for Baal's house. El consents: let a house be built for Baal (KTU 1.4 IV-V).\n\n## Cedar, silver, and gold\n\nKothar-wa-Khasis is summoned from far-off Kaphtor. Timber is brought from Lebanon and Sirion, and the house is built on Zaphon; for seven days fire burns inside it, and the silver becomes plates and the gold becomes bricks (KTU 1.4 VI).\n\n## The window\n\nDuring the building, Kothar twice proposes to put a window in the palace, and Baal twice refuses; the reason he gives is lost or unclear in the text. Kothar tells him calmly that he will come back to his words. After the palace is finished and Baal has held a great feast for the gods, his seventy brothers, he returns and agrees. A window is opened, a rift in the clouds, and Baal gives his holy voice: the earth shakes and the mountains tremble, and his enemies flee to the forests (KTU 1.4 VII).\n\n## Kingship declared, and Death answers\n\nBaal declares that he alone will rule over the gods and sends messengers to Mot, Death, with his claim. That message opens the final and darkest part of the cycle.\n\n## Reading the story\n\nThe palace episode shows how Ugaritic poets imagined divine politics: a young god wins by force, but needs the consent of the old king and the persuasion of the queen mother to make his victory lasting. Baal's temple on the acropolis of Ugarit, facing toward Mount Zaphon, was the earthly counterpart of this mythical palace, though the texts do not explicitly identify the two.",
+    "keyExcerpts": "Anat threatens El and Athirat persuades him; Kothar-wa-Khasis builds a palace of silver and gold on Zaphon; Baal at last agrees to a window, and through the rift in the clouds his voice shakes the earth.",
+    "category": "myth",
+    "moralThemes": [
+      "kingship needs consent as well as victory",
+      "persuasion succeeds where threats fail",
+      "the storm's voice"
+    ],
+    "culturalSignificance": "The central episode of the Baal Cycle, explaining Baal's temple and his thunder; its descriptions of divine diplomacy and building are key evidence for how Ugaritians imagined kingship.",
+    "citationSources": [
+      {
+        "title": "The Baal Cycle (KTU 1.1-1.6)",
+        "author": "Ugaritic poem; tablets written by the scribe Ilimilku",
+        "date": "tablets of the late 13th or early 12th c. BCE",
+        "type": "primary",
+        "sourceId": "baal-cycle",
+        "chapter": "KTU 1.3-1.4 (especially 1.3 II, 1.3 V, 1.4 IV-VII)"
+      },
+      {
+        "title": "Ugaritic Narrative Poetry (SBL Writings from the Ancient World 9), ed. Simon B. Parker",
+        "author": "Mark S. Smith (translator of the Baal Cycle)",
+        "date": "1997",
+        "type": "primary",
+        "chapter": "The Baal Cycle"
+      }
+    ],
+    "featuredDeities": ["baal", "anat", "el", "athirat", "kothar-wa-khasis"],
+    "featuredLocations": ["mount-zaphon", "source-of-the-two-rivers"],
+    "relatedStories": ["baal-and-yam", "baal-and-mot"],
+    "furtherReading": [
+      {
+        "sourceId": "baal-cycle",
+        "note": "KTU 1.3-1.4 in translation"
+      }
+    ],
+    "imageUrl": "/stories/palace-of-baal.png"
+  },
+  {
+    "id": "baal-and-mot",
+    "pantheonId": "canaanite-pantheon",
+    "title": "Baal and Mot: The Storm-god in the Throat of Death",
+    "slug": "baal-and-mot",
+    "summary": "Baal goes down into the throat of Mot, Death, and the land dries up; Anat finds his body, destroys Mot like threshed grain, and El dreams that Baal lives; seven years later the two gods fight, and Mot yields.",
+    "fullNarrative": "## Death answers\n\nThe last two tablets of the Baal Cycle (KTU 1.5-1.6) tell the story of Baal and Mot. When Baal, newly enthroned in his palace, sends messengers to Mot claiming kingship, Death replies with a threat. He reminds Baal that he struck down Litan, the fleeing serpent, the twisting serpent with seven heads, and says that because of it Baal must now come down into his throat (KTU 1.5 I). Mot describes his appetite: one lip to the earth, one lip to the heavens, a tongue reaching the stars (KTU 1.5 II).\n\n## Submission\n\nBaal is afraid. He sends back word that he is Mot's servant forever. Before going down he is told to take with him his clouds, his winds, his rain, and his attendants, and he couples with a heifer, which bears a son; the purpose of that episode is debated. Then Baal goes down to the underworld, and the text reports that he is dead (KTU 1.5 V-VI).\n\n## Mourning\n\nMessengers find El and report that they have found Baal fallen on the ground. El comes down from his throne, sits in the dust, pours dirt on his head, gashes his cheeks and arms, and cries out that Baal is dead: what will become of the people? (KTU 1.5 VI). Anat, too, roams every mountain looking for him, and finds his body. With the help of the sun-goddess Shapash she carries it to Zaphon, buries it, and offers sacrifices (KTU 1.6 I).\n\n## A replacement king\n\nEl asks Athirat to name one of her sons as king, and she proposes Athtar. He climbs onto Baal's throne, but his feet do not reach the footstool and his head does not reach the top; he comes down and rules instead over the earth (KTU 1.6 I).\n\n## Anat destroys Mot\n\nDays and months pass. Anat longs for Baal like a cow for her calf. At last she seizes Mot. With a blade she splits him; with a sieve she winnows him; with fire she burns him; with millstones she grinds him; in the field she sows him, and the birds eat his flesh (KTU 1.6 II).\n\n## El's dream\n\nEl then dreams: the heavens rain oil, the wadis run with honey. He laughs, puts his feet on the footstool, and declares that Mightiest Baal is alive (KTU 1.6 III). But the furrows are still dry, and Shapash is sent to find him.\n\n## The last battle\n\nIn the seventh year, Mot comes back to complain of what he has suffered. He and Baal meet on Zaphon and fight. They gore like wild oxen, bite like serpents, kick like stallions; both fall. Then Shapash calls to Mot: how can he fight Baal? If El hears of it he will overturn Mot's throne and break his sceptre. Mot is afraid, and yields, acknowledging Baal's kingship (KTU 1.6 VI). The cycle ends with a hymn to Shapash and a colophon naming the scribe Ilimilku.\n\n## Interpretation\n\nThe story links Baal's absence with drought and his return with rain, and many scholars have read it as a myth of the agricultural year. Others stress that it tells of a single cosmic crisis, and that the text never describes an annual cycle. Either way, its central claim is stark: even the king of the gods can be swallowed by Death, and he returns only through the loyalty of others.",
+    "keyExcerpts": "Mot, whose lips reach earth and heaven, swallows Baal; El mourns in the dust, Anat buries Baal on Zaphon and grinds Mot like grain, El dreams of rain of oil and wadis of honey, and after seven years Mot yields.",
+    "category": "death",
+    "moralThemes": [
+      "death overcome but never abolished",
+      "loyalty that outlasts death",
+      "the dependence of life on rain"
+    ],
+    "culturalSignificance": "The fullest ancient Near Eastern myth of a god's death and return, central to modern debates about 'dying and rising gods'; its Litan passage is closely echoed in Isaiah 27:1.",
+    "citationSources": [
+      {
+        "title": "The Baal Cycle (KTU 1.1-1.6)",
+        "author": "Ugaritic poem; tablets written by the scribe Ilimilku",
+        "date": "tablets of the late 13th or early 12th c. BCE",
+        "type": "primary",
+        "sourceId": "baal-cycle",
+        "chapter": "KTU 1.5-1.6 (especially 1.5 I, 1.5 VI, 1.6 I-III, 1.6 VI)"
+      },
+      {
+        "title": "Ugaritic Narrative Poetry (SBL Writings from the Ancient World 9), ed. Simon B. Parker",
+        "author": "Mark S. Smith (translator of the Baal Cycle)",
+        "date": "1997",
+        "type": "primary",
+        "chapter": "The Baal Cycle"
+      },
+      {
+        "title": "Stories from Ancient Canaan (2nd ed.)",
+        "author": "Michael D. Coogan and Mark S. Smith",
+        "date": "2012",
+        "type": "secondary"
+      }
+    ],
+    "featuredDeities": [
+      "baal",
+      "mot",
+      "anat",
+      "el",
+      "shapash",
+      "athirat",
+      "athtar"
+    ],
+    "featuredLocations": ["mount-zaphon"],
+    "relatedStories": ["palace-of-baal", "disappearance-of-telipinu"],
+    "variants": [
+      {
+        "source": "Isaiah 27:1 (Hebrew Bible)",
+        "difference": "Leviathan, 'the fleeing serpent, the twisting serpent', is to be punished by God with his sword on a future day.",
+        "note": "Uses almost the same epithets as Mot's description of Litan in KTU 1.5 I; shared poetic tradition rather than direct borrowing."
+      }
+    ],
+    "furtherReading": [
+      {
+        "sourceId": "baal-cycle",
+        "note": "KTU 1.5-1.6 in translation"
+      }
+    ],
+    "imageUrl": "/stories/baal-and-mot.png"
+  },
+  {
+    "id": "legend-of-aqhat",
+    "pantheonId": "canaanite-pantheon",
+    "title": "The Legend of Aqhat",
+    "slug": "legend-of-aqhat",
+    "summary": "The righteous Danel is granted a son, Aqhat, who receives a divine bow; when Aqhat refuses to give it to the goddess Anat even for immortality, she has him killed, and the land withers as his sister Pughat sets out for revenge.",
+    "fullNarrative": "## A father's prayer\n\nThe Epic of Aqhat survives on three tablets (KTU 1.17-1.19), with the beginning and end missing. It opens with Danel, a ruler called \"the man of Rapiu\", who judges the case of the widow and the orphan at the city gate, but who has no son. For six days he makes offerings to the gods and sleeps in the sanctuary; on the seventh Baal takes pity and asks El to bless him. El agrees, and promises a son who will perform a son's duties: set up his father's ancestral stela, hold his hand when he is drunk, plaster his roof, wash his clothes (KTU 1.17 I). The list is one of the best descriptions of filial duty in ancient literature. Danel rejoices, and in time Aqhat is born.\n\n## The gift of the bow\n\nOne day, sitting at the gate, Danel sees the craftsman god Kothar-wa-Khasis coming, carrying a bow and arrows. He has his wife Danatiya prepare a lamb, and they feed and honour the god. Kothar leaves the bow, and Danel gives it to Aqhat, telling him to offer the first of his hunting to the gods (KTU 1.17 V).\n\n## Anat's offer\n\nAt a feast, the goddess Anat sees the bow and wants it. She offers Aqhat silver and gold; he tells her to have Kothar make her one. She offers him immortality: to count years with Baal, to live as long as the gods. Aqhat refuses, saying she should not deceive him; old age and death come to all men, and he will die the death of all men. He adds that bows are for warriors, and asks whether women now hunt (paraphrase of KTU 1.17 VI). Anat laughs, but warns him.\n\n## The vultures\n\nAnat goes to El and, after threatening him, gets permission for revenge. She recruits her henchman Yatpan. While Aqhat sits eating, Anat carries Yatpan like a bird among a flock of vultures hovering over him, and Yatpan strikes him on the head; his life goes out of him like breath (KTU 1.18 IV). But the bow is broken or falls into the water in the attack, and Anat does not get it.\n\n## Drought and mourning\n\nDanel's daughter Pughat, \"who carries water on her shoulder\" and \"knows the course of the stars\", sees the fields drying and the birds circling, and weeps. News comes that Aqhat is dead. Danel prays that Baal will break the wings of the vultures; one by one they fall, and he searches their bodies, until in Sumul, the mother of vultures, he finds his son's remains. He buries them, curses the towns near the place where Aqhat died, and mourns for seven years (KTU 1.19 I-IV).\n\n## Pughat's revenge\n\nThen Pughat asks her father's blessing to avenge her brother. She puts on a warrior's clothes and weapons beneath a woman's garments and goes to Yatpan's camp. He welcomes her, thinking her one of Anat's women, drinks her wine, and boasts that the hand that killed Aqhat will kill thousands. Pughat keeps serving him. There the tablet breaks off, and the rest of the story is lost.\n\n## Themes\n\nThe poem sets human mortality against divine desire: Aqhat's refusal of immortality is either wisdom or pride, and scholars have argued both. It is also a story about the duties of children, the justice of rulers, and a sister's courage, and about a land that suffers when the gods act on their passions.",
+    "keyExcerpts": "Anat offers Aqhat immortality for his bow; he answers that he will die the death of all men. She sends Yatpan among the vultures to kill him, the land withers, and his sister Pughat goes armed beneath her dress to her brother's killer.",
+    "category": "tragedy",
+    "moralThemes": [
+      "mortality accepted or defied",
+      "filial duty",
+      "a sister's vengeance",
+      "the cost of divine desire"
+    ],
+    "culturalSignificance": "One of the three great Ugaritic epics, notable for its catalogue of a son's duties, its ruler who judges widows and orphans (a figure echoed in Ezekiel's 'Daniel'), and its unfinished story of female revenge.",
+    "citationSources": [
+      {
+        "title": "The Epic of Aqhat (KTU 1.17-1.19)",
+        "author": "Ugaritic poem; scribe Ilimilku",
+        "date": "tablets of the late 13th or early 12th c. BCE",
+        "type": "primary",
+        "sourceId": "aqhat-epic",
+        "chapter": "KTU 1.17 I, 1.17 V-VI, 1.18 IV, 1.19 I-IV"
+      },
+      {
+        "title": "Ugaritic Narrative Poetry (SBL Writings from the Ancient World 9), ed. Simon B. Parker",
+        "author": "Simon B. Parker (translator of Aqhat)",
+        "date": "1997",
+        "type": "primary",
+        "chapter": "Aqhat"
+      }
+    ],
+    "featuredDeities": ["anat", "kothar-wa-khasis", "el", "baal"],
+    "featuredLocations": ["ugarit"],
+    "relatedStories": ["legend-of-kirta"],
+    "variants": [
+      {
+        "source": "Ezekiel 14:14, 20; 28:3 (Hebrew Bible)",
+        "difference": "Ezekiel names a righteous and wise 'Daniel' (Dnʾl) alongside Noah and Job.",
+        "note": "Many scholars identify this figure with the Ugaritic Danel rather than with the later biblical Daniel; the link is probable but not certain."
+      }
+    ],
+    "furtherReading": [
+      {
+        "sourceId": "aqhat-epic",
+        "note": "The epic in translation"
+      }
+    ],
+    "imageUrl": "/stories/legend-of-aqhat.png"
+  },
+  {
+    "id": "legend-of-kirta",
+    "pantheonId": "canaanite-pantheon",
+    "title": "The Legend of Kirta",
+    "slug": "legend-of-kirta",
+    "summary": "King Kirta, bereft of his family, follows El's dream-instructions to win a new bride, but forgets his vow to Athirat and falls deathly ill; El himself creates a healer to save him, before Kirta's own son challenges his right to rule.",
+    "fullNarrative": "## A house destroyed\n\nThe Epic of Kirta survives on three tablets (KTU 1.14-1.16); a fourth may have existed. It begins with the ruin of King Kirta's house. His family is destroyed one by one: a wife lost, children dead of disease, carried off by flood, struck by the sword, until the king has no heir. Kirta goes into his chamber and weeps, his tears falling like shekels to the ground, until he falls asleep (KTU 1.14 I).\n\n## El's dream\n\nEl, his divine father, comes down to him in a dream and asks why he weeps: does he want silver, gold, horses, kingship? Kirta answers that he wants only sons. El then gives detailed instructions. Kirta is to wash, make an offering on the tower, and gather an army so large that it will cover the fields like locusts; even the newly married man must leave his bride. He is to march for seven days to Udm the Great, the city of King Pabil, besiege it without attacking, refuse Pabil's offers of silver, gold, slaves, horses, and chariots, and ask only for Pabil's daughter, Hurriya, whose beauty is like Anat's and Athtart's (KTU 1.14 II-III).\n\n## The vow\n\nKirta wakes and does exactly as El said, with one addition. On the third day of the march he stops at the shrine of Athirat of Tyre, goddess of Sidon, and makes a vow: if he brings Hurriya into his house, he will give twice her weight in silver and three times in gold (KTU 1.14 IV). Everything happens as foretold: Pabil offers riches, Kirta refuses, and Hurriya is given to him.\n\n## Blessing, and a debt forgotten\n\nAt the wedding feast the gods come, and El blesses Kirta: Hurriya will bear him seven or eight sons, and a daughter, and one son will be nursed by the goddesses Athirat and Anat (KTU 1.15 II). The children are born. But Kirta has not paid his vow, and Athirat remembers: she asks whether Kirta has changed his vow, and says she will break her own promise (KTU 1.15 III).\n\n## Sickness\n\nKirta falls ill. His son Ilhu weeps and asks how a son of El can die; his daughter Thitmanat mourns. The land suffers; the text describes the fields waiting for rain (KTU 1.16 I-III). El asks the gods seven times who will drive out the illness, and none answers. So El himself takes clay and makes a healing being, Shaʿtaqat, a female figure who flies over the towns to Kirta's bed and drives away the sickness. Kirta recovers, eats, and returns to his throne (KTU 1.16 V-VI).\n\n## The challenge of Yassib\n\nBut his eldest son Yassib, thinking his father still weak, confronts him: Kirta has let his hand fall slack; he has not judged the widow's case or the orphan's; he should step down and let Yassib rule. Kirta answers with a curse, calling on the god Horon and on Athtart, Name of Baal, to break his son's head. The tablet ends with the curse.\n\n## Themes\n\nThe poem asks what makes a king legitimate. Kirta is called a son of El and is saved by El's direct action, yet he is mortal, he fails in piety, and his son's challenge uses the standard language of royal duty to the weak. It is one of the earliest works of literature to examine the gap between sacred kingship and human failing.",
+    "keyExcerpts": "El comes to the weeping king in a dream and sends him to win Hurriya; Kirta vows gold to Athirat and forgets, falls ill, is healed by the being Shaʿtaqat whom El shapes from clay, and then curses the son who tries to depose him.",
+    "category": "legend",
+    "moralThemes": [
+      "the fragility of kingship",
+      "vows remembered by the gods",
+      "the duty of rulers to the weak"
+    ],
+    "culturalSignificance": "A royal epic that probes sacred kingship, and an important source for Ugaritic ideas of vows, healing, and the king's duty to judge widows and orphans.",
+    "citationSources": [
+      {
+        "title": "The Epic of Kirta (KTU 1.14-1.16)",
+        "author": "Ugaritic poem; scribe Ilimilku",
+        "date": "tablets of the late 13th or early 12th c. BCE",
+        "type": "primary",
+        "sourceId": "kirta-epic",
+        "chapter": "KTU 1.14 I-IV, 1.15 II-III, 1.16 I-VI"
+      },
+      {
+        "title": "Ugaritic Narrative Poetry (SBL Writings from the Ancient World 9), ed. Simon B. Parker",
+        "author": "Edward L. Greenstein (translator of Kirta)",
+        "date": "1997",
+        "type": "primary",
+        "chapter": "Kirta"
+      }
+    ],
+    "featuredDeities": ["el", "athirat", "baal", "anat", "athtart"],
+    "featuredLocations": ["ugarit"],
+    "relatedStories": ["legend-of-aqhat"],
+    "furtherReading": [
+      {
+        "sourceId": "kirta-epic",
+        "note": "The epic in translation"
+      }
+    ],
+    "imageUrl": "/stories/legend-of-kirta.png"
   }
 ]

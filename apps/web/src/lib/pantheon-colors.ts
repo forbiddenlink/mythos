@@ -21,6 +21,7 @@ export const PANTHEON_COLORS: Record<string, string> = {
   "haudenosaunee-pantheon": "#1f5c47", // white pine spruce-green (the Tree of Peace)
   "tlingit-haida-pantheon": "#a8442c", // formline ochre-red (Northwest Coast red paint, cedar bark)
   "hittite-pantheon": "#7a4a2a", // baked-clay terracotta (Hattusa tablets and mudbrick)
+  "canaanite-pantheon": "#6b2d5c", // Tyrian purple (murex dye of the Levantine coast)
 };
 
 export function getPantheonColor(pantheonId: string): string {
@@ -123,6 +124,11 @@ const PANTHEON_ACCENTS: Record<string, PantheonAccent> = {
     primary: "#b8703f",
     secondary: "#6f7f5a",
     label: "Hittite",
+  },
+  "canaanite-pantheon": {
+    primary: "#9b4a86",
+    secondary: "#c28a3a",
+    label: "Canaanite",
   },
 };
 

@@ -226,6 +226,16 @@ export const DEITY_PANTHEON_MAP: Record<string, string> = {
   shaushka: "hittite-pantheon",
   "sun-goddess-of-the-earth": "hittite-pantheon",
   alalu: "hittite-pantheon",
+  baal: "canaanite-pantheon",
+  anat: "canaanite-pantheon",
+  el: "canaanite-pantheon",
+  athirat: "canaanite-pantheon",
+  yam: "canaanite-pantheon",
+  mot: "canaanite-pantheon",
+  "kothar-wa-khasis": "canaanite-pantheon",
+  shapash: "canaanite-pantheon",
+  athtar: "canaanite-pantheon",
+  athtart: "canaanite-pantheon",
 };
 
 export const STORY_PANTHEON_MAP: Record<string, string> = {
@@ -340,6 +350,11 @@ export const STORY_PANTHEON_MAP: Record<string, string> = {
   "song-of-ullikummi": "hittite-pantheon",
   "storm-god-and-illuyanka": "hittite-pantheon",
   "disappearance-of-telipinu": "hittite-pantheon",
+  "baal-and-yam": "canaanite-pantheon",
+  "palace-of-baal": "canaanite-pantheon",
+  "baal-and-mot": "canaanite-pantheon",
+  "legend-of-aqhat": "canaanite-pantheon",
+  "legend-of-kirta": "canaanite-pantheon",
 };
 
 /**

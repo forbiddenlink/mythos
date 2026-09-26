@@ -2366,5 +2366,59 @@
       }
     ],
     "imageUrl": "/locations/urkesh.png"
+  },
+  {
+    "id": "ugarit",
+    "name": "Ugarit (Ras Shamra)",
+    "locationType": "city",
+    "pantheonId": "canaanite-pantheon",
+    "description": "The Late Bronze Age port city on the Syrian coast whose archives of alphabetic cuneiform tablets preserve the Baal Cycle and the epics of Aqhat and Kirta; destroyed around 1185 BCE.",
+    "latitude": 35.6019,
+    "longitude": 35.7822,
+    "detailedBio": "## Discovery\n\nIn 1928 a farmer ploughing near the bay of Minet el-Beida, north of Latakia, broke into an ancient tomb. The following year French excavators under Claude Schaeffer began digging at the nearby mound of Ras Shamra and found the city of Ugarit, known from Egyptian and Hittite records but until then unlocated. Excavation has continued, with interruptions, ever since.\n\n## A cosmopolitan port\n\nUgarit was a wealthy kingdom trading with Egypt, Cyprus, the Aegean, the Hittite empire (to which it was a vassal), and Mesopotamia. Its scribes wrote in Akkadian, Sumerian, Hurrian, Hittite, Egyptian, Cypro-Minoan, and in their own Ugaritic language, for which they used an alphabet of thirty cuneiform signs. Multilingual god-lists from the site equate the Ugaritic gods with Hurrian and Mesopotamian ones.\n\n## Temples and archives\n\nTwo temples on the acropolis are generally identified as those of Baal and of Dagan. The mythological tablets were found mostly in the house of the high priest nearby, and several carry the colophon of the scribe Ilimilku. The city was destroyed around 1185 BCE during the upheavals that ended the Late Bronze Age, and never reoccupied as a city.",
+    "primarySources": [
+      {
+        "text": "Colophon: the scribe Ilimilku, student of the chief priest, wrote the tablet in the reign of Niqmaddu, king of Ugarit (paraphrase).",
+        "source": "Baal Cycle, KTU 1.6 VI (colophon)",
+        "date": "tablets of the late 13th or early 12th c. BCE"
+      }
+    ],
+    "imageUrl": "/locations/ugarit.png"
+  },
+  {
+    "id": "mount-zaphon",
+    "name": "Mount Zaphon (Jebel Aqra)",
+    "locationType": "mountain",
+    "pantheonId": "canaanite-pantheon",
+    "description": "The mountain north of Ugarit, now Jebel Aqra on the Syrian-Turkish border, where Baal's palace stands in myth; the Hurrian-Hittite Mount Hazzi and the Greek Mount Kasios.",
+    "latitude": 35.9525,
+    "longitude": 35.9692,
+    "detailedBio": "## Baal's mountain\n\nṢapānu, Zaphon, is Baal's home in the Ugaritic texts. His palace is built on its heights, Anat buries his body there, and he and Mot fight their final battle on it. Baal is often called Baal of Zaphon, and Ugaritic ritual texts treat the mountain itself as divine, listing offerings to it.\n\n## A real mountain\n\nZaphon is Jebel Aqra (Kel Dağı in Turkish), rising about 1,700 metres from the coast at the mouth of the Orontes, some 40 kilometres north of Ugarit and visible from the city. Storms build over it from the sea, which suits a storm-god's seat.\n\n## One mountain, many gods\n\nThe same mountain was Mount Hazzi to the Hurrians and Hittites, where the storm-god Teššub climbs to look at the stone giant Ullikummi, and Mount Kasios to the Greeks, where Zeus Kasios was worshipped and where some Greek sources place Zeus's battle with Typhon. The Hebrew word ṣāpôn, \"north\", derives from the mountain's name, and Psalm 48 describes Mount Zion as \"the heights of Zaphon\". Few places in the ancient world show so clearly how one sacred landscape passed between traditions.",
+    "primarySources": [
+      {
+        "text": "Anat carries Baal's body to the heights of Zaphon, weeps, and buries him there (paraphrase).",
+        "source": "Baal Cycle, KTU 1.6 I",
+        "date": "tablets of the late 13th or early 12th c. BCE"
+      }
+    ],
+    "imageUrl": "/locations/mount-zaphon.png"
+  },
+  {
+    "id": "source-of-the-two-rivers",
+    "name": "The Source of the Two Rivers",
+    "locationType": "mythical_realm",
+    "pantheonId": "canaanite-pantheon",
+    "description": "El's remote dwelling 'at the source of the two rivers, in the midst of the springs of the two deeps', where gods and messengers go to seek his decisions; a mythical place without a known earthly location.",
+    "latitude": null,
+    "longitude": null,
+    "detailedBio": "## Where El lives\n\nWhenever a god in the Baal Cycle needs El's decision, the text uses a set formula: the traveller sets face toward El, at the source of the two rivers, in the midst of the springs of the two deeps, enters his domain, and comes to the pavilion of the King, the Father of Years (paraphrase). The dwelling is a tent or pavilion rather than a palace, and it lies at the far edge of the world, where the waters of the deep rise.\n\n## The mountain of assembly\n\nA related place is the mountain where the assembly of the gods meets, which Ugaritic texts call Mount Lel (or the mountain of Night); Yam's messengers come to the gods feasting there in KTU 1.2 I. Whether the source of the rivers and the mountain of assembly are the same place is not clear.\n\n## Not on the map\n\nScholars have tried to identify El's home with real places, including sources of the Jordan or springs in Lebanon, but the texts give no geography, and this site treats it as a mythical realm. The idea of a god dwelling where the cosmic waters rise has a parallel in the Mesopotamian Enki's home in the Apsu, and some interpreters compare the biblical Eden's rivers.",
+    "primarySources": [
+      {
+        "text": "She sets her face toward El at the source of the two rivers, in the midst of the springs of the two deeps; she enters the domain of El and comes to the pavilion of the King, Father of Years (paraphrase).",
+        "source": "Baal Cycle, KTU 1.4 IV",
+        "date": "tablets of the late 13th or early 12th c. BCE"
+      }
+    ],
+    "imageUrl": "/locations/source-of-the-two-rivers.png"
   }
 ]

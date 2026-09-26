@@ -4,18 +4,18 @@
 
 ## Overview
 
-Web frontend for Mythos Atlas, an interactive encyclopedia of ancient mythology featuring **17 pantheons**, **243 deities**, **27 heroes**, **112 stories**, **66 creatures**, **54 artifacts**, and **131 mythological locations** — plus quizzes, interactive family trees, 3D artifact viewers, branching stories, and spaced-repetition review.
+Web frontend for Mythos Atlas, an interactive encyclopedia of ancient mythology featuring **18 pantheons**, **253 deities**, **29 heroes**, **117 stories**, **68 creatures**, **56 artifacts**, and **134 mythological locations** — plus quizzes, interactive family trees, 3D artifact viewers, branching stories, and spaced-repetition review.
 
 **Built by Elizabeth Stein** using Next.js 16, React 19, TypeScript 5, and modern web technologies.
 
 ## Features
 
-- 🏛️ **17 Pantheons** — Greek, Norse, Egyptian, Roman, Hindu, Japanese, Celtic, Aztec, Chinese, Mesopotamian, African (Yoruba), Polynesian, Mesoamerican, Slavic, Haudenosaunee, Tlingit & Haida, Hittite
-- 👑 **243 Deity Profiles** — Filterable by gender, domain, and pantheon with smart sorting
-- 📖 **112 Epic Stories** — Including interactive branching narratives (choose-your-own-adventure)
-- 🐉 **66 Creatures** — Mythological beasts with detailed profiles
-- ⚔️ **54 Artifacts** — Legendary items with interactive 3D viewer (React Three Fiber)
-- 🗺️ **131 Locations** — Interactive mythological map with filters and 3 guided journeys
+- 🏛️ **18 Pantheons** — Greek, Norse, Egyptian, Roman, Hindu, Japanese, Celtic, Aztec, Chinese, Mesopotamian, African (Yoruba), Polynesian, Mesoamerican, Slavic, Haudenosaunee, Tlingit & Haida, Hittite, Canaanite (Ugarit)
+- 👑 **253 Deity Profiles** — Filterable by gender, domain, and pantheon with smart sorting
+- 📖 **117 Epic Stories** — Including interactive branching narratives (choose-your-own-adventure)
+- 🐉 **68 Creatures** — Mythological beasts with detailed profiles
+- ⚔️ **56 Artifacts** — Legendary items with interactive 3D viewer (React Three Fiber)
+- 🗺️ **134 Locations** — Interactive mythological map with filters and 3 guided journeys
 - 🌳 **Family Trees** — Network graph (ReactFlow) and hierarchical (D3.js) visualizations
 - 🧠 **Quizzes & Games** — Relationship quiz, personality quiz, quick quiz, symbol memory game
 - 📚 **Spaced Repetition** — Flashcard review system with intelligent scheduling
@@ -119,14 +119,14 @@ src/
 │   ├── ui/               # shadcn/ui components
 │   └── ...               # animations, audio, i18n, pwa, seo, etc.
 ├── data/                 # JSON data files
-│   ├── pantheons.json    # 17 pantheons
-│   ├── deities.json      # 243 deities
-│   ├── heroes.json       # 27 heroes
-│   ├── stories.json      # 112 stories
-│   ├── creatures.json    # 66 creatures
-│   ├── artifacts.json    # 54 artifacts
-│   ├── locations.json    # 131 locations
-│   ├── sources.json      # 36 primary/academic sources
+│   ├── pantheons.json    # 18 pantheons
+│   ├── deities.json      # 253 deities
+│   ├── heroes.json       # 29 heroes
+│   ├── stories.json      # 117 stories
+│   ├── creatures.json    # 68 creatures
+│   ├── artifacts.json    # 56 artifacts
+│   ├── locations.json    # 134 locations
+│   ├── sources.json      # 39 primary/academic sources
 │   └── relationships.json
 ├── hooks/                # Custom React hooks
 │   ├── useAchievements, useBookmarks, usePagination

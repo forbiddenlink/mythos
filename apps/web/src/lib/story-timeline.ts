@@ -414,6 +414,12 @@ export const PANTHEON_COLORS: Record<
     text: "text-bronze",
     dot: "bg-bronze",
   },
+  "canaanite-pantheon": {
+    bg: "bg-destructive/15",
+    border: "border-destructive/35",
+    text: "text-destructive",
+    dot: "bg-destructive",
+  },
 };
 
 /**

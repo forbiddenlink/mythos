@@ -1901,5 +1901,234 @@
       }
     ],
     "readingOrder": "Read the Song of Kumarbi first, then the Song of Ullikummi; the Song of Hedammu is more fragmentary and best read after both."
+  },
+  {
+    "id": "baal-cycle",
+    "title": "The Baal Cycle (KTU 1.1-1.6)",
+    "author": "Anonymous Ugaritic poet(s); tablets copied by the scribe Ilimilku",
+    "year": "Tablets of the late 13th or early 12th c. BCE; the poem is older",
+    "type": "ancient-text",
+    "language": "Ugaritic",
+    "description": "Six damaged tablets from Ugarit telling how the storm-god Baal defeats Yamm (the Sea), wins permission to build his palace on Mount Zaphon, descends into the throat of Mot (Death), and returns to life. The order of the first tablets and many passages are uncertain.",
+    "translators": [
+      {
+        "name": "Mark S. Smith (in Ugaritic Narrative Poetry, ed. S. B. Parker)",
+        "year": 1997
+      },
+      {
+        "name": "Nicolas Wyatt (Religious Texts from Ugarit)",
+        "year": 2002
+      },
+      {
+        "name": "Michael D. Coogan and Mark S. Smith (Stories from Ancient Canaan)",
+        "year": 2012
+      }
+    ],
+    "characters": [
+      {
+        "id": "baal",
+        "kind": "deity",
+        "role": "the storm-god who defeats Yamm, builds his palace, dies, and returns",
+        "where": "throughout, KTU 1.1-1.6"
+      },
+      {
+        "id": "anat",
+        "kind": "deity",
+        "role": "Baal's warrior ally who finds his body and destroys Mot",
+        "where": "KTU 1.3; 1.6 I-II"
+      },
+      {
+        "id": "el",
+        "kind": "deity",
+        "role": "the aged king of the gods who grants and withholds permission",
+        "where": "KTU 1.1-1.6"
+      },
+      {
+        "id": "athirat",
+        "kind": "deity",
+        "role": "El's consort, persuaded to intercede for Baal's palace",
+        "where": "KTU 1.4 II-V; 1.6 I"
+      },
+      {
+        "id": "yam",
+        "kind": "deity",
+        "role": "the Sea, Baal's first rival",
+        "where": "KTU 1.1-1.2"
+      },
+      {
+        "id": "mot",
+        "kind": "deity",
+        "role": "Death, who swallows Baal",
+        "where": "KTU 1.4 VIII-1.6"
+      },
+      {
+        "id": "kothar-wa-khasis",
+        "kind": "deity",
+        "role": "craftsman who makes Baal's clubs and builds his palace",
+        "where": "KTU 1.2 IV; 1.4 V-VII"
+      },
+      {
+        "id": "shapash",
+        "kind": "deity",
+        "role": "sun-goddess who helps recover Baal and warns Mot",
+        "where": "KTU 1.6 I, VI"
+      },
+      {
+        "id": "athtar",
+        "kind": "deity",
+        "role": "tries and fails to fill Baal's throne",
+        "where": "KTU 1.6 I"
+      },
+      {
+        "id": "athtart",
+        "kind": "deity",
+        "role": "restrains Baal and later urges him to finish Yamm",
+        "where": "KTU 1.2 I, IV"
+      }
+    ],
+    "keyScenes": [
+      {
+        "title": "Yagrush and Ayyamur",
+        "where": "KTU 1.2 IV",
+        "summary": "Kothar-wa-Khasis makes two named clubs for Baal; the second strikes Yamm on the head and he falls."
+      },
+      {
+        "title": "The Window in the Palace",
+        "where": "KTU 1.4 V-VII",
+        "summary": "Baal at first refuses a window in his new palace, then allows it; through the rift in the clouds he thunders."
+      },
+      {
+        "title": "Anat Destroys Mot",
+        "where": "KTU 1.6 II",
+        "summary": "Anat seizes Mot, splits him with a blade, winnows, burns, grinds, and sows him like grain."
+      },
+      {
+        "title": "Baal Lives",
+        "where": "KTU 1.6 III",
+        "summary": "El dreams that the heavens rain oil and the wadis run with honey, and knows that Baal is alive."
+      }
+    ],
+    "readingOrder": "Read tablets 1.1-1.2 (Baal and Yamm), then 1.3-1.4 (the palace), then 1.5-1.6 (Baal and Mot). Mark S. Smith's translations mark gaps and uncertain readings clearly."
+  },
+  {
+    "id": "aqhat-epic",
+    "title": "The Epic of Aqhat (KTU 1.17-1.19)",
+    "author": "Anonymous Ugaritic poet; tablets copied by the scribe Ilimilku",
+    "year": "Tablets of the late 13th or early 12th c. BCE",
+    "type": "ancient-text",
+    "language": "Ugaritic",
+    "description": "Three tablets telling how the righteous Danel is granted a son, Aqhat; how the goddess Anat covets the bow the craftsman god gives him and has him killed; and how his sister Pughat sets out to avenge him. The ending is lost.",
+    "translators": [
+      {
+        "name": "Simon B. Parker (in Ugaritic Narrative Poetry)",
+        "year": 1997
+      },
+      {
+        "name": "Nicolas Wyatt (Religious Texts from Ugarit)",
+        "year": 2002
+      }
+    ],
+    "characters": [
+      {
+        "id": "aqhat",
+        "kind": "hero",
+        "role": "Danel's son, killed for refusing to give Anat his bow",
+        "where": "KTU 1.17-1.19"
+      },
+      {
+        "id": "anat",
+        "kind": "deity",
+        "role": "covets the bow and arranges Aqhat's death",
+        "where": "KTU 1.17 VI; 1.18"
+      },
+      {
+        "id": "kothar-wa-khasis",
+        "kind": "deity",
+        "role": "brings the bow to Danel's house",
+        "where": "KTU 1.17 V"
+      },
+      {
+        "id": "el",
+        "kind": "deity",
+        "role": "blesses Danel with a son; permits Anat's revenge",
+        "where": "KTU 1.17 I; 1.18 I"
+      },
+      {
+        "id": "baal",
+        "kind": "deity",
+        "role": "intercedes for Danel; breaks the wings of the vultures",
+        "where": "KTU 1.17 I; 1.19 III"
+      }
+    ],
+    "keyScenes": [
+      {
+        "title": "The Gift of the Bow",
+        "where": "KTU 1.17 V",
+        "summary": "Kothar-wa-Khasis arrives at Danel's house carrying a bow and arrows, and Danel gives the bow to his son."
+      },
+      {
+        "title": "Anat's Offer",
+        "where": "KTU 1.17 VI",
+        "summary": "Anat offers Aqhat silver, gold, and then immortality for the bow; he refuses and mocks her."
+      },
+      {
+        "title": "Pughat Sets Out",
+        "where": "KTU 1.19 IV",
+        "summary": "Aqhat's sister arms herself beneath a woman's clothes and goes to the camp of his killer, where the text breaks off."
+      }
+    ],
+    "readingOrder": "Read straight through; Parker's translation is short and clearly annotated."
+  },
+  {
+    "id": "kirta-epic",
+    "title": "The Epic of Kirta (KTU 1.14-1.16)",
+    "author": "Anonymous Ugaritic poet; tablets copied by the scribe Ilimilku",
+    "year": "Tablets of the late 13th or early 12th c. BCE",
+    "type": "ancient-text",
+    "language": "Ugaritic",
+    "description": "Three tablets about King Kirta, who loses his family, wins a new bride on El's instructions, forgets a vow to the goddess Athirat, falls ill, and is healed by a being El creates, only to be challenged by his own son. The ending is lost.",
+    "translators": [
+      {
+        "name": "Edward L. Greenstein (in Ugaritic Narrative Poetry)",
+        "year": 1997
+      },
+      {
+        "name": "Nicolas Wyatt (Religious Texts from Ugarit)",
+        "year": 2002
+      }
+    ],
+    "characters": [
+      {
+        "id": "kirta",
+        "kind": "hero",
+        "role": "the king whose house is restored and then endangered",
+        "where": "KTU 1.14-1.16"
+      },
+      {
+        "id": "el",
+        "kind": "deity",
+        "role": "appears to Kirta in a dream, blesses his marriage, and heals him",
+        "where": "KTU 1.14 I-III; 1.15 II; 1.16 V"
+      },
+      {
+        "id": "athirat",
+        "kind": "deity",
+        "role": "receives Kirta's vow and punishes its neglect",
+        "where": "KTU 1.14 IV; 1.15 III"
+      }
+    ],
+    "keyScenes": [
+      {
+        "title": "El's Dream",
+        "where": "KTU 1.14 I-III",
+        "summary": "El appears to the grieving king in a dream and tells him to march on Udm and ask King Pabil for his daughter Hurriya."
+      },
+      {
+        "title": "The Forgotten Vow",
+        "where": "KTU 1.14 IV; 1.15 III",
+        "summary": "Kirta vows gold and silver to Athirat if he wins Hurriya, then fails to pay, and the goddess remembers."
+      }
+    ],
+    "readingOrder": "Read straight through; Greenstein's translation notes the many gaps."
   }
 ]
