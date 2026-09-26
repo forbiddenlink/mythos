@@ -13,7 +13,7 @@ export function DeityFamilyFaq({
   if (answers.length === 0) return null;
 
   return (
-    <section aria-labelledby="family-faq-heading" className="max-w-[68ch]">
+    <section aria-labelledby="family-faq-heading" className="max-w-reading">
       <FAQJsonLd
         id="deity-family-faq-jsonld"
         questions={answers.map(({ question, answer }) => ({
@@ -21,23 +21,16 @@ export function DeityFamilyFaq({
           answer,
         }))}
       />
-      <h2
-        id="family-faq-heading"
-        className="font-serif text-2xl font-semibold text-foreground mb-1 border-l-4 border-gold pl-4"
-      >
+      <h2 id="family-faq-heading" className="type-h3 mb-5 text-foreground">
         {deityName}&apos;s family at a glance
       </h2>
-      <p className="text-muted-foreground text-sm mb-5 pl-5">
-        From the atlas&apos;s kinship records. Ancient sources often disagree on
-        divine genealogy; the full tree is below.
-      </p>
       <dl className="space-y-5">
         {answers.map((entry) => (
           <div key={entry.question}>
-            <dt className="font-serif text-lg text-foreground">
+            <dt className="font-body text-lg font-semibold text-foreground">
               {entry.question}
             </dt>
-            <dd className="mt-1 font-body text-muted-foreground">
+            <dd className="mt-1 type-reading text-foreground/85">
               {entry.lead}{" "}
               {entry.kin.map((k, index) => (
                 <span key={k.key}>

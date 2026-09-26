@@ -13,17 +13,27 @@ import {
   shortPantheonName,
 } from "@/lib/metadata";
 import { getMuseumObjectsFor, getMuseumPortrait } from "@/lib/museum";
-import { ComparisonLinks } from "@/components/compare/ComparisonLinks";
-import { FeaturedInGuides } from "@/components/guides/FeaturedInGuides";
+import { EditorialByline } from "@/components/content/EditorialByline";
+import { AboutThisPage } from "@/components/layout/about-this-page";
+import {
+  ArticleSection,
+  AsideLinks,
+  DetailLayout,
+  FactList,
+  RelatedFigures,
+  type TocItem,
+} from "@/components/layout/detail-layout";
+import { guidesFeaturing } from "@/lib/guides";
 import { counterpart, getComparisonsForDeity } from "@/lib/comparisons";
 import { familyFaq } from "@/lib/deity-faq";
 import { godsOfLinksForDomains } from "@/lib/gods-of";
 import { BloodlineTapestry } from "@/components/deities/BloodlineTapestry";
 import { DeityStoryRecommendations } from "@/components/deities/DeityStoryRecommendations";
-import { RelatedDeities } from "@/components/deities/RelatedDeities";
 import { MuseumGallery } from "@/components/museum/MuseumGallery";
-import { LinkedMentions } from "@/components/mythology/LinkedMentions";
-import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
+import {
+  hasLinkedMentions,
+  LinkedMentions,
+} from "@/components/mythology/LinkedMentions";
 import { DeityJsonLd } from "@/components/seo/JsonLd";
 import { getAppearsIn } from "@/lib/appears-in";
 import { citedWorksFor } from "@/lib/seo/cited-works";
@@ -39,6 +49,9 @@ import { project } from "@/lib/data/project";
 import {
   buildBloodline,
   deitiesInRelationships,
+  formatPantheonLabel,
+  hasLineage,
+  type Kin,
   interactiveStoriesFeaturing,
   relationshipsFor,
   resolveParallels,
@@ -49,11 +62,11 @@ import { DeityFamilyFaq } from "./_components/DeityFamilyFaq";
 import { DeityFamilyTree } from "./_components/DeityFamilyTree";
 import { DeityHero } from "./_components/DeityHero";
 import {
-  DeityAttributes,
   DeityNarrative,
   DeityParallels,
   DeitySources,
   DeityWorship,
+  hasWorship,
 } from "./_components/DeitySections";
 import { DeityViewTracker } from "./_components/DeityViewTracker";
 
@@ -67,6 +80,13 @@ interface DeityData {
   alternateNames?: string[];
   imageUrl?: string;
 }
+
+// Relationship labels describe this deity's side ("Parent" of Ares); the aside
+// names the related figure's role instead.
+const RELATED_ROLE: Record<string, string> = {
+  Parent: "Child",
+  Child: "Parent",
+};
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -214,6 +234,149 @@ export default async function DeityPage({ params }: PageProps) {
     getAppearsIn(deity.id, "deity").length,
   );
 
+  // Portraits for the parallels, keyed by the page each one links to.
+  const parallelImages: Record<string, string | null | undefined> = {};
+  for (const parallel of parallels) {
+    if (!parallel.href || !parallel.slug) continue;
+    const figure = parallel.href.startsWith("/heroes/")
+      ? heroes.find((hero) => hero.slug === parallel.slug)
+      : allDeities.find((d) => d.slug === parallel.slug);
+    parallelImages[parallel.href] = figure?.imageUrl;
+  }
+
+  const familyAnswers = familyFaq(deity.name, bloodline);
+  const hasFamily = hasLineage(bloodline) || familyAnswers.length > 0;
+  const interactiveStories = interactiveStoriesFeaturing(
+    deity.id,
+    getBranchingStories(),
+  );
+  const hasAtlasLinks =
+    hasLinkedMentions(deity.id) || interactiveStories.length > 0;
+  const worship = hasWorship(deity);
+  const relatedDeities = selectRelatedDeities(
+    deity.id,
+    deity.pantheonId,
+    getTopRelatedDeities(deity.id, 6),
+    allDeities,
+  );
+  const comparisons = getComparisonsForDeity(deity.id);
+  const guides = guidesFeaturing("deity", deity.id);
+
+  const toc: TocItem[] = [
+    { id: "deity-about", label: `About ${deity.name}` },
+    ...(parallels.length > 0
+      ? [{ id: "parallels", label: "Across traditions" }]
+      : []),
+    ...(worship ? [{ id: "worship", label: "Worship" }] : []),
+    ...(hasFamily ? [{ id: "family", label: "Family" }] : []),
+    ...(hasAtlasLinks ? [{ id: "in-the-atlas", label: "In the atlas" }] : []),
+    ...(museumObjects.length > 0 ? [{ id: "in-art", label: "In art" }] : []),
+    ...(hasSources
+      ? [{ id: "deity-sources", label: "Sources and further reading" }]
+      : []),
+    ...(familyTreeRelationships.length > 0
+      ? [{ id: "family-tree", label: "Family tree" }]
+      : []),
+  ];
+
+  const kinList = (kin: Kin[], max = 6) =>
+    kin.length === 0 ? null : (
+      <>
+        {kin.slice(0, max).map((k, index) => (
+          <span key={k.key}>
+            {index > 0 ? ", " : null}
+            {k.slug ? (
+              <Link
+                href={`/deities/${k.slug}`}
+                className="underline decoration-gold/40 underline-offset-4 hover:text-gold-text hover:decoration-current"
+              >
+                {k.name}
+              </Link>
+            ) : (
+              k.name
+            )}
+          </span>
+        ))}
+        {kin.length > max ? ` and ${kin.length - max} more` : null}
+      </>
+    );
+
+  const facts = (
+    <FactList
+      facts={[
+        {
+          label: "Tradition",
+          value: pantheon ? (
+            <Link
+              href={`/pantheons/${pantheon.slug}`}
+              className="underline decoration-gold/40 underline-offset-4 hover:text-gold-text hover:decoration-current"
+            >
+              {pantheon.name}
+            </Link>
+          ) : (
+            formatPantheonLabel(deity.pantheonId)
+          ),
+        },
+        { label: "Role", value: deity.traditionRole },
+        {
+          label: "Domains",
+          value: deity.domain?.length ? (
+            <span className="capitalize">{deity.domain.join(", ")}</span>
+          ) : null,
+        },
+        {
+          label: "Symbols",
+          value: deity.symbols?.length ? deity.symbols.join(", ") : null,
+        },
+        { label: "Parents", value: kinList(bloodline.parents) },
+        {
+          label: bloodline.consorts.length === 1 ? "Consort" : "Consorts",
+          value: kinList(bloodline.consorts),
+        },
+        { label: "Children", value: kinList(bloodline.children) },
+      ]}
+    />
+  );
+
+  const aside = (
+    <>
+      <RelatedFigures
+        title="Related figures"
+        figures={relatedDeities.map((related) => ({
+          name: related.name,
+          href: `/deities/${related.slug}`,
+          imageUrl: related.imageUrl,
+          meta: RELATED_ROLE[related.label] ?? related.label,
+        }))}
+      />
+      <AsideLinks
+        title="Featured in guides"
+        links={guides.map((guide) => ({
+          href: `/guides/${guide.slug}`,
+          label: guide.title,
+        }))}
+      />
+      <AsideLinks
+        title="Compare side by side"
+        links={comparisons.map((comparison) => {
+          const other = counterpart(comparison, deity.id);
+          return {
+            href: `/compare/${comparison.slug}`,
+            label: `${deity.name} vs ${other.displayName}`,
+            meta: other.pantheonName,
+          };
+        })}
+      />
+      <AsideLinks
+        title="Across traditions"
+        links={domainPages.map((page) => ({
+          href: `/gods-of/${page.slug}`,
+          label: `Gods of ${page.label}`,
+        }))}
+      />
+    </>
+  );
+
   return (
     <>
       <TrackPageView
@@ -225,108 +388,145 @@ export default async function DeityPage({ params }: PageProps) {
         }}
       />
       <DeityViewTracker deityId={deity.id} pantheonId={deity.pantheonId} />
-      <div className="min-h-screen">
-        <DeityJsonLd
-          name={deity.name}
-          description={
-            deity.description || `${deity.name} - deity from ancient mythology`
-          }
-          alternateNames={deity.alternateNames}
-          domains={deity.domain}
-          url={`/deities/${deity.slug}`}
-          image={deity.imageUrl || undefined}
-          tradition={shortPantheonName(pantheon)}
-          citations={citedWorksFor(deity)}
-        />
-        <DeityHero
-          deity={deity}
-          traditionLabel={pantheon?.name}
-          museumPortrait={getMuseumPortrait(museumObjects)}
-          hasSources={hasSources}
-          imageNote={getIllustrativeImageNote("deity", deity.id)}
-        />
-
-        <div className="container mx-auto max-w-4xl px-4 py-12">
-          <Breadcrumbs />
-          <div className="space-y-8">
-            <div className="space-y-8">
-              <LinkedMentions deityId={deity.id} deityName={deity.name} />
-              <div className="space-y-12">
-                <DeityNarrative deity={deity} />
-                <FeaturedInGuides kind="deity" id={deity.id} />
-                <DeityParallels
-                  deity={deity}
-                  parallels={parallels}
-                  compareSlugs={compareSlugs}
-                />
-                <DeitySources deity={deity} />
-                <DeityWorship deity={deity} />
-                <DeityAttributes deity={deity} />
-                {domainPages.length > 0 ? (
-                  <nav
-                    aria-label="Other gods of these domains"
-                    className="max-w-[68ch] text-sm text-muted-foreground"
-                  >
-                    <span className="text-sm font-medium uppercase tracking-[0.2em] mr-2">
-                      Across traditions
-                    </span>
-                    {domainPages.map((page, index) => (
-                      <span key={page.slug}>
-                        {index > 0 ? " · " : null}
-                        <Link
-                          href={`/gods-of/${page.slug}`}
-                          className="text-foreground underline decoration-gold/50 underline-offset-4 hover:text-gold-text hover:decoration-current"
-                        >
-                          Gods of {page.label}
-                        </Link>
-                      </span>
-                    ))}
-                  </nav>
-                ) : null}
-              </div>
-            </div>
-
-            <MuseumGallery name={deity.name} objects={museumObjects} />
-
-            <RelatedDeities
-              deities={selectRelatedDeities(
-                deity.id,
-                deity.pantheonId,
-                getTopRelatedDeities(deity.id, 6),
-                allDeities,
-              )}
-            />
-
-            <DeityStoryRecommendations
-              deityName={deity.name}
-              stories={interactiveStoriesFeaturing(
-                deity.id,
-                getBranchingStories(),
-              )}
-            />
-
-            <BloodlineTapestry
-              deityId={deity.id}
-              deityName={deity.name}
-              pantheonId={deity.pantheonId}
-              bloodline={bloodline}
-            />
-
-            <DeityFamilyFaq
-              deityName={deity.name}
-              answers={familyFaq(deity.name, bloodline)}
-            />
-
+      <DeityJsonLd
+        name={deity.name}
+        description={
+          deity.description || `${deity.name} - deity from ancient mythology`
+        }
+        alternateNames={deity.alternateNames}
+        domains={deity.domain}
+        url={`/deities/${deity.slug}`}
+        image={deity.imageUrl || undefined}
+        tradition={shortPantheonName(pantheon)}
+        citations={citedWorksFor(deity)}
+      />
+      <DetailLayout
+        hero={
+          <DeityHero
+            deity={deity}
+            traditionLabel={pantheon?.name}
+            museumPortrait={getMuseumPortrait(museumObjects)}
+            imageNote={getIllustrativeImageNote("deity", deity.id)}
+          />
+        }
+        facts={facts}
+        toc={toc}
+        aside={aside}
+        asideLabel={`${deity.name} at a glance`}
+        after={
+          familyTreeRelationships.length > 0 ? (
             <DeityFamilyTree
               deityId={deity.id}
               deityName={deity.name}
               deities={familyTreeDeities}
               relationships={familyTreeRelationships}
             />
-          </div>
+          ) : null
+        }
+      >
+        <div className="space-y-16 md:space-y-20">
+          <ArticleSection id="deity-about" title={`About ${deity.name}`}>
+            <DeityNarrative deity={deity} />
+          </ArticleSection>
+
+          {parallels.length > 0 ? (
+            <ArticleSection
+              id="parallels"
+              eyebrow="Across traditions"
+              title="Parallel figures"
+              description={`Figures who play a role like ${deity.name}'s in other traditions.`}
+              reading={false}
+            >
+              <DeityParallels
+                deity={deity}
+                parallels={parallels}
+                compareSlugs={compareSlugs}
+                images={parallelImages}
+              />
+            </ArticleSection>
+          ) : null}
+
+          {worship ? (
+            <ArticleSection
+              id="worship"
+              title="Worship and cult"
+              description={`Temples, festivals, and practices recorded for ${deity.name}`}
+            >
+              <DeityWorship deity={deity} />
+            </ArticleSection>
+          ) : null}
+
+          {hasFamily ? (
+            <ArticleSection id="family" title="Family" reading={false}>
+              <div className="space-y-10">
+                <BloodlineTapestry
+                  deityId={deity.id}
+                  deityName={deity.name}
+                  pantheonId={deity.pantheonId}
+                  bloodline={bloodline}
+                />
+                <DeityFamilyFaq
+                  deityName={deity.name}
+                  answers={familyAnswers}
+                />
+              </div>
+            </ArticleSection>
+          ) : null}
+
+          {hasAtlasLinks ? (
+            <ArticleSection
+              id="in-the-atlas"
+              eyebrow="In the atlas"
+              title={`Where ${deity.name} appears`}
+              reading={false}
+            >
+              <div className="space-y-10">
+                <LinkedMentions deityId={deity.id} deityName={deity.name} />
+                {interactiveStories.length > 0 ? (
+                  <div>
+                    <h3 className="type-h3 mb-2 text-foreground">
+                      Play the myth
+                    </h3>
+                    <DeityStoryRecommendations
+                      deityName={deity.name}
+                      stories={interactiveStories}
+                    />
+                  </div>
+                ) : null}
+              </div>
+            </ArticleSection>
+          ) : null}
+
+          {museumObjects.length > 0 ? (
+            <div id="in-art" className="scroll-mt-24">
+              <MuseumGallery name={deity.name} objects={museumObjects} />
+            </div>
+          ) : null}
+
+          {hasSources ? (
+            <ArticleSection
+              id="deity-sources"
+              title="Sources and further reading"
+            >
+              <DeitySources deity={deity} />
+            </ArticleSection>
+          ) : null}
+
+          <AboutThisPage title="About this entry" size={false}>
+            <EditorialByline />
+            <p>
+              Parallels are editorial comparisons across traditions: a shared
+              role does not, by itself, establish a shared origin.
+            </p>
+            {hasFamily ? (
+              <p>
+                Family relationships come from the atlas&apos;s kinship records.
+                Ancient sources often disagree on divine genealogy.
+              </p>
+            ) : null}
+          </AboutThisPage>
         </div>
-      </div>
-      <ComparisonLinks deityId={deity.id} deityName={deity.name} />
+      </DetailLayout>
     </>
   );
 }

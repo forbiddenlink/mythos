@@ -24,7 +24,7 @@ import { Button } from "@/components/ui/button";
 import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
 import { generateBaseMetadata, generateNotFoundMetadata } from "@/lib/metadata";
 import { ItemListJsonLd } from "@/components/seo/JsonLd";
-import { RosettaWheel } from "@/components/collections/RosettaWheel";
+import { ParallelFigures } from "@/components/mythology/ParallelFigures";
 import collections from "@/data/collections.json";
 import deities from "@/data/deities.json";
 import stories from "@/data/stories.json";
@@ -261,13 +261,16 @@ export default async function CollectionPage({ params }: PageProps) {
           across traditions.
         </p>
 
-        {/* Cross-pantheon archetype wheel */}
-        <RosettaWheel
-          archetype={collection.name}
-          deities={collectionDeities.map((d) => ({
+        {/* The archetype across traditions, as a row of portraits */}
+        <ParallelFigures
+          variant="portraits"
+          label={`${collection.name} across pantheons`}
+          className="mb-16"
+          figures={collectionDeities.map((d) => ({
             name: d.name,
-            slug: d.slug,
+            href: `/deities/${d.slug}`,
             pantheonId: d.pantheonId,
+            imageUrl: d.imageUrl,
           }))}
         />
 

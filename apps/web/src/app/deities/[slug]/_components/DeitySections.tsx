@@ -1,169 +1,97 @@
-import Link from "next/link";
 import ReactMarkdown from "react-markdown";
-import {
-  Building,
-  Calendar,
-  ScrollText,
-  Shield,
-  Sparkles,
-  Users,
-} from "lucide-react";
-import {
-  RosettaWheel,
-  type WheelDeity,
-} from "@/components/collections/RosettaWheel";
 import { SourceProvenance } from "@/components/deities/SourceProvenance";
-import { MythosMark } from "@/components/icons/mythos-marks";
 import { AppearsIn } from "@/components/mythology/AppearsIn";
+import {
+  ParallelFigures,
+  type ParallelFigure,
+} from "@/components/mythology/ParallelFigures";
 import { CatalogSourceNotes } from "@/components/sources/CatalogSourceNotes";
 import { EntityPlainSourcesList } from "@/components/sources/EntityPlainSourcesList";
 import { ReferencesList } from "@/components/sources/ReferencesList";
 import { SourceExcerptsList } from "@/components/sources/SourceExcerpt";
-import { Badge } from "@/components/ui/badge";
 import type { DeityRecord } from "@/lib/data/types";
-import { formatPantheonLabel, type ResolvedParallel } from "@/lib/deity-page";
+import type { ResolvedParallel } from "@/lib/deity-page";
 
-/** Detailed biography (markdown, rendered on the server) and origin story. */
+/** Reading styles for long-form catalog prose (markdown rendered on the server). */
+const readingProseClass =
+  "prose prose-lg max-w-none dark:prose-invert type-reading prose-p:my-4 prose-p:leading-[1.7] prose-headings:font-serif prose-headings:font-semibold prose-headings:text-foreground prose-h2:mt-10 prose-h2:mb-3 prose-h2:text-[1.375rem] prose-h3:text-xl prose-a:text-gold-text prose-a:decoration-gold/50 prose-a:underline-offset-4 prose-strong:text-foreground text-foreground/90";
+
+/** Detailed biography and origin story. */
 export function DeityNarrative({ deity }: { deity: DeityRecord }) {
   return (
     <>
-      <section id="deity-about" className="max-w-[68ch] scroll-mt-24">
-        <h2 className="font-serif text-2xl font-semibold text-foreground mb-5 border-l-4 border-gold pl-4">
-          About {deity.name}
-        </h2>
-        {deity.detailedBio ? (
-          <div className="prose prose-lg dark:prose-invert prose-headings:font-serif prose-headings:text-gold-text prose-a:text-gold dark:prose-a:text-gold-light max-w-none leading-relaxed [&>p:first-of-type]:first-letter:float-left [&>p:first-of-type]:first-letter:mr-3 [&>p:first-of-type]:first-letter:mt-1 [&>p:first-of-type]:first-letter:font-serif [&>p:first-of-type]:first-letter:text-6xl [&>p:first-of-type]:first-letter:leading-[0.8] [&>p:first-of-type]:first-letter:text-gold">
-            <ReactMarkdown>{deity.detailedBio}</ReactMarkdown>
-          </div>
-        ) : (
-          <p className="text-muted-foreground leading-relaxed text-lg">
-            {deity.description}
-          </p>
-        )}
-      </section>
+      {deity.detailedBio ? (
+        <div className={`illuminated-tale ${readingProseClass}`}>
+          <ReactMarkdown>{deity.detailedBio}</ReactMarkdown>
+        </div>
+      ) : (
+        <p className="type-reading text-foreground/90">{deity.description}</p>
+      )}
 
       {deity.originStory && (
-        <section className="max-w-[68ch]">
-          <h2 className="font-serif text-xl font-semibold text-foreground mb-4">
-            Origin Story
-          </h2>
-          <p className="text-lg text-muted-foreground leading-relaxed whitespace-pre-line">
+        <div className="mt-10">
+          <h3 className="type-h3 text-foreground">Origin story</h3>
+          <p className="type-reading mt-3 whitespace-pre-line text-foreground/90">
             {deity.originStory}
           </p>
-        </section>
+        </div>
       )}
     </>
   );
 }
 
-/** Rosetta wheel plus the annotated list of cross-pantheon parallels. */
+/** Cross-pantheon parallels with portraits, notes and comparison links. */
 export function DeityParallels({
   deity,
   parallels,
   compareSlugs = {},
+  images = {},
 }: {
   deity: DeityRecord;
   parallels: ResolvedParallel[];
   /** Counterpart id → slug of its /compare page with this deity, when one exists. */
   compareSlugs?: Record<string, string>;
+  /** Counterpart href → portrait. */
+  images?: Record<string, string | null | undefined>;
 }) {
   if (parallels.length === 0) return null;
 
-  const wheel: WheelDeity[] = [
-    { name: deity.name, slug: deity.slug, pantheonId: deity.pantheonId },
-    ...parallels.flatMap((p) =>
-      p.href && p.slug
-        ? [
-            {
-              name: p.name,
-              slug: p.slug,
-              pantheonId: p.pantheonId,
-              href: p.href,
-            },
-          ]
-        : [],
-    ),
-  ];
+  const figures: ParallelFigure[] = parallels.map((parallel) => ({
+    name: parallel.name,
+    href: parallel.href,
+    pantheonId: parallel.pantheonId,
+    traditionLabel: parallel.pantheonLabel,
+    imageUrl: parallel.href ? images[parallel.href] : null,
+    note: parallel.note,
+    compare: compareSlugs[parallel.deityId]
+      ? {
+          href: `/compare/${compareSlugs[parallel.deityId]}`,
+          label: `Compare ${deity.name} and ${parallel.name} side by side`,
+        }
+      : undefined,
+  }));
 
   return (
-    <>
-      <RosettaWheel
-        archetype={deity.domain?.[0] ?? formatPantheonLabel(deity.pantheonId)}
-        deities={wheel}
-      />
-      <section className="max-w-[68ch]">
-        <h2 className="font-serif text-2xl font-semibold text-foreground mb-1 border-l-4 border-gold pl-4 flex items-center gap-2">
-          <MythosMark id="scales" className="h-5 w-5 text-gold" />
-          Cross-Pantheon Parallels
-        </h2>
-        <p className="text-muted-foreground text-sm mb-5 pl-5">
-          Editorial comparisons across traditions; shared roles do not establish
-          a shared origin.
-        </p>
-        <ul className="space-y-4">
-          {parallels.map((parallel) => (
-            <li
-              key={parallel.deityId}
-              className="border-l-2 pl-4"
-              style={{ borderColor: parallel.pantheonColor }}
-            >
-              <div className="flex flex-wrap items-baseline gap-x-2 gap-y-1">
-                {parallel.href ? (
-                  <Link
-                    href={parallel.href}
-                    className="font-medium text-foreground hover:text-gold transition-colors"
-                  >
-                    {parallel.name}
-                  </Link>
-                ) : (
-                  <span className="font-medium text-foreground">
-                    {parallel.name}
-                  </span>
-                )}
-                <span className="inline-flex items-center gap-1.5 text-xs uppercase tracking-wide text-muted-foreground">
-                  <span
-                    className="inline-block size-2 rounded-full"
-                    style={{ backgroundColor: parallel.pantheonColor }}
-                    aria-hidden
-                  />
-                  {parallel.pantheonLabel}
-                </span>
-              </div>
-              <p className="text-muted-foreground text-sm mt-1">
-                {parallel.note}
-              </p>
-              {compareSlugs[parallel.deityId] ? (
-                <Link
-                  href={`/compare/${compareSlugs[parallel.deityId]}`}
-                  className="mt-1 inline-block text-sm text-gold-text underline decoration-gold/50 underline-offset-4 hover:decoration-current"
-                >
-                  Compare {deity.name} and {parallel.name} side by side
-                </Link>
-              ) : null}
-            </li>
-          ))}
-        </ul>
-      </section>
-    </>
+    <ParallelFigures
+      label={`${deity.domain?.[0] ?? deity.name} across pantheons`}
+      figures={figures}
+    />
   );
 }
 
 /** Source coverage, excerpts, "appears in", further reading and bibliography. */
 export function DeitySources({ deity }: { deity: DeityRecord }) {
   return (
-    <div id="deity-sources" className="space-y-12 scroll-mt-24">
-      <div className="reveal-on-scroll">
-        <SourceProvenance sources={deity.primarySources} />
-      </div>
+    <div className="space-y-10">
+      <SourceProvenance sources={deity.primarySources} />
 
       {deity.primarySourceExcerpts &&
         deity.primarySourceExcerpts.length > 0 && (
-          <section className="max-w-[68ch]">
-            <h2 className="font-serif text-2xl font-semibold text-foreground mb-1 border-l-4 border-gold pl-4 flex items-center gap-2">
-              <ScrollText className="h-5 w-5 text-gold" />
-              Ancient Sources
-            </h2>
-            <p className="text-muted-foreground text-sm mb-5 pl-5">
+          <section aria-labelledby="deity-ancient-sources">
+            <h3 id="deity-ancient-sources" className="type-h3 text-foreground">
+              Ancient sources
+            </h3>
+            <p className="mt-1 mb-5 text-[0.9375rem] text-muted-foreground">
               Quotations, paraphrases and verification notes. Each passage
               states what has been checked.
             </p>
@@ -197,39 +125,36 @@ export function DeitySources({ deity }: { deity: DeityRecord }) {
   );
 }
 
+/** Whether the deity has any worship records to show. */
+export function hasWorship(deity: DeityRecord): boolean {
+  const worship = deity.worship;
+  return Boolean(
+    worship &&
+    (worship.temples?.length || worship.festivals?.length || worship.practices),
+  );
+}
+
 /** Temples, festivals and practices. */
 export function DeityWorship({ deity }: { deity: DeityRecord }) {
   const worship = deity.worship;
-  if (
-    !worship ||
-    !(worship.temples?.length || worship.festivals?.length || worship.practices)
-  ) {
-    return null;
-  }
+  if (!worship || !hasWorship(deity)) return null;
 
   return (
-    <section className="max-w-[68ch]">
-      <h2 className="font-serif text-2xl font-semibold text-foreground mb-1 border-l-4 border-gold pl-4 flex items-center gap-2">
-        <Sparkles className="h-5 w-5 text-gold" />
-        Worship & Cult
-      </h2>
-      <p className="text-muted-foreground text-sm mb-5 pl-5">
-        Temples, festivals, and practices recorded for {deity.name}
-      </p>
-      <div className="space-y-6">
+    <div className="space-y-8">
+      {worship.practices && (
+        <p className="type-reading text-foreground/90">{worship.practices}</p>
+      )}
+
+      <div className="grid gap-8 sm:grid-cols-2">
         {worship.temples && worship.temples.length > 0 && (
           <div>
-            <h4 className="font-medium flex items-center gap-2 text-foreground mb-3">
-              <Building className="h-4 w-4 text-muted-foreground" />
-              Sacred Temples
-            </h4>
-            <ul className="space-y-2">
+            <h3 className="type-h3 text-foreground">Sacred sites</h3>
+            <ul className="mt-3 divide-y divide-border/70 border-y border-border/70">
               {worship.temples.map((temple) => (
                 <li
                   key={temple}
-                  className="text-muted-foreground flex items-start gap-2"
+                  className="py-2.5 text-[0.9375rem] leading-snug text-foreground/90"
                 >
-                  <span className="text-gold mt-1">&#8226;</span>
                   {temple}
                 </li>
               ))}
@@ -239,81 +164,20 @@ export function DeityWorship({ deity }: { deity: DeityRecord }) {
 
         {worship.festivals && worship.festivals.length > 0 && (
           <div>
-            <h4 className="font-medium flex items-center gap-2 text-foreground mb-3">
-              <Calendar className="h-4 w-4 text-muted-foreground" />
-              Festivals & Celebrations
-            </h4>
-            <div className="flex flex-wrap gap-2">
+            <h3 className="type-h3 text-foreground">Festivals</h3>
+            <ul className="mt-3 divide-y divide-border/70 border-y border-border/70">
               {worship.festivals.map((festival) => (
-                <Badge
+                <li
                   key={festival}
-                  variant="outline"
-                  className="max-w-full whitespace-normal border-gold/30 text-gold-text"
+                  className="py-2.5 text-[0.9375rem] leading-snug text-foreground/90"
                 >
                   {festival}
-                </Badge>
+                </li>
               ))}
-            </div>
-          </div>
-        )}
-
-        {worship.practices && (
-          <div>
-            <h4 className="font-medium text-foreground mb-2">
-              Worship Practices
-            </h4>
-            <p className="text-muted-foreground leading-relaxed">
-              {worship.practices}
-            </p>
+            </ul>
           </div>
         )}
       </div>
-    </section>
-  );
-}
-
-/** Domains & symbols — compact metadata, not twin cards. */
-export function DeityAttributes({ deity }: { deity: DeityRecord }) {
-  if (!deity.domain?.length && !deity.symbols?.length) return null;
-  return (
-    <div className="grid gap-8 sm:grid-cols-2 border-y border-border/70 py-6">
-      {deity.domain && deity.domain.length > 0 && (
-        <section>
-          <h3 className="font-serif text-lg font-semibold text-foreground mb-3 flex items-center gap-2">
-            <Shield className="h-4 w-4 text-gold" aria-hidden />
-            Domains
-          </h3>
-          <ul className="flex flex-wrap gap-2" aria-label="Domains">
-            {deity.domain.map((d) => (
-              <li
-                key={d}
-                className="border border-gold/30 bg-gold/10 px-3 py-1 text-xs font-medium uppercase tracking-wider text-gold-text"
-              >
-                {d}
-              </li>
-            ))}
-          </ul>
-        </section>
-      )}
-
-      {deity.symbols && deity.symbols.length > 0 && (
-        <section>
-          <h3 className="font-serif text-lg font-semibold text-foreground mb-3 flex items-center gap-2">
-            <Users className="h-4 w-4 text-gold" aria-hidden />
-            Symbols
-          </h3>
-          <ul className="flex flex-wrap gap-2" aria-label="Symbols">
-            {deity.symbols.map((s) => (
-              <li
-                key={s}
-                className="border border-border px-3 py-1 text-xs text-muted-foreground"
-              >
-                {s}
-              </li>
-            ))}
-          </ul>
-        </section>
-      )}
     </div>
   );
 }
