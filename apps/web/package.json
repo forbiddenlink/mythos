@@ -8,6 +8,7 @@
     "build": "next build --webpack",
     "build:ci": "NEXT_PUBLIC_ORACLE_ENABLED=true next build --webpack",
     "analyze": "ANALYZE=true next build --webpack",
+    "bundle:budget": "node scripts/check-bundle-budget.mjs",
     "start": "next start",
     "lint": "eslint",
     "test": "vitest run",

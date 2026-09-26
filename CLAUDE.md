@@ -80,7 +80,7 @@ pnpm knip                             # unused files/deps/exports (CI)
 - Unit: Vitest + `@testing-library/react`, jsdom environment. Tests in `apps/web/src/__tests__/`.
 - Coverage gate (`apps/web/vitest.config.mjs`): measures every file under `src/lib/**` (oracle, analytics, search, http, etc.) plus `use-debounce` and `progress-provider`. Aggregate thresholds are lines 64 / statements 62 / functions 68 / branches 52 (a little under measured values); the core learning modules (spaced-repetition, mastery, search, relationship-quiz, utils, use-debounce, progress-provider) keep 80/80/80/70, and `src/lib/analytics/**` needs 90 lines. Components and routes are not in the gate; Playwright covers them.
 - E2E: Playwright, specs in `apps/web/e2e/`. Config pre-sets `mythos-cookie-consent` in localStorage to bypass the consent banner.
-- CI (`.github/workflows/test.yml`, push/PR to main): lint + typecheck → unit tests with coverage (uploaded to Codecov) → E2E with Playwright (Chromium only).
+- CI (`.github/workflows/test.yml`, push/PR to main): ESLint + typecheck + Biome + knip → unit tests with coverage (uploaded to Codecov) → production build, first-load JS bundle budget (`pnpm --filter web bundle:budget`, see `docs/ops/bundle-budget.md`), then E2E with Playwright (Chromium only).
 
 ## Env vars
 
