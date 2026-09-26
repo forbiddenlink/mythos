@@ -78,7 +78,7 @@ cargo check
 ## Conventions
 
 - **Path alias**: `@/*` maps to `apps/web/src/*` (tsconfig.json, vitest.config.mjs)
-- **Provider stack** (`src/app/layout.tsx`): `NextIntlClientProvider > ThemeProvider > QueryProvider > BookmarksProvider > ProgressProvider > ReviewProvider > LeaderboardProvider > AchievementNotificationProvider`, then `Footer` (renders `FooterTools`, which gates the Oracle chat button on `NEXT_PUBLIC_ORACLE_ENABLED === "true"`) and `GlobalClientAddons` (command palette search, PWA/analytics hooks, optional install prompt). Progress, bookmarks, and achievements persist to localStorage via their providers.
+- **Provider stack** (`src/app/layout.tsx`): `NextIntlClientProvider > ThemeProvider > BookmarksProvider > ProgressProvider > ReviewProvider > LeaderboardProvider > AchievementNotificationProvider`, then `Footer` (renders `FooterTools`, which gates the Oracle chat button on `NEXT_PUBLIC_ORACLE_ENABLED === "true"`) and `GlobalClientAddons` (command palette search, PWA/analytics hooks, optional install prompt). Progress, bookmarks, and achievements persist to localStorage via their providers.
 - **Commits**: Conventional Commits (`feat:`, `fix:`, `docs:`, `refactor:`, `test:`, `chore:`)
 - **Branches**: `feature/*`, `fix/*`, `docs/*`
 - **Pre-commit**: Husky runs lint-staged (ESLint --fix + Prettier on staged `.ts`/`.tsx` files)
