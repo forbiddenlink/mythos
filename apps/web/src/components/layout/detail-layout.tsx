@@ -99,6 +99,10 @@ interface DetailHeroImage {
 
 interface DetailHeroProps {
   image?: DetailHeroImage | null;
+  /** Frame shape: 4:5 figures (default), 1:1 plates, 4:3 places and covers. */
+  imageAspect?: "portrait" | "square" | "landscape";
+  /** Replaces the image frame entirely (e.g. two portraits side by side). */
+  media?: React.ReactNode;
   /** Caption under the image (credit, illustrative-image note). */
   imageCaption?: React.ReactNode;
   /** Shown in the frame when there is no image (e.g. the initial). */
@@ -133,6 +137,8 @@ interface DetailHeroProps {
  */
 export function DetailHero({
   image,
+  imageAspect = "portrait",
+  media,
   imageCaption,
   imageFallback,
   eyebrow,
@@ -151,7 +157,7 @@ export function DetailHero({
   titleTransitionName,
 }: DetailHeroProps) {
   return (
-    <div className="dark relative isolate overflow-hidden bg-midnight text-foreground">
+    <div className="dark relative isolate overflow-hidden border-b border-gold/15 bg-midnight text-foreground">
       <div className="absolute inset-0 -z-10" aria-hidden="true">
         {accentColor ? (
           <div
@@ -180,7 +186,18 @@ export function DetailHero({
 
         {/* Phones read the title first, then the portrait, then the rest;
             wider screens put the portrait beside both text groups. */}
-        <div className="grid grid-cols-1 gap-x-10 gap-y-7 md:grid-cols-[minmax(0,17rem)_minmax(0,1fr)] md:grid-rows-[1fr_auto_auto_1fr] lg:grid-cols-[minmax(0,22rem)_minmax(0,1fr)] lg:gap-x-16">
+        <div
+          className={cn(
+            "grid grid-cols-1 gap-x-10 gap-y-7 md:grid-rows-[1fr_auto_auto_1fr] lg:gap-x-16",
+            media
+              ? "md:grid-cols-[minmax(0,20rem)_minmax(0,1fr)] lg:grid-cols-[minmax(0,28rem)_minmax(0,1fr)]"
+              : imageAspect === "landscape"
+                ? "md:grid-cols-[minmax(0,19rem)_minmax(0,1fr)] lg:grid-cols-[minmax(0,30rem)_minmax(0,1fr)]"
+                : imageAspect === "square"
+                  ? "md:grid-cols-[minmax(0,17rem)_minmax(0,1fr)] lg:grid-cols-[minmax(0,24rem)_minmax(0,1fr)]"
+                  : "md:grid-cols-[minmax(0,17rem)_minmax(0,1fr)] lg:grid-cols-[minmax(0,22rem)_minmax(0,1fr)]",
+          )}
+        >
           <div className="min-w-0 md:col-start-2 md:row-start-2">
             {eyebrow ? (
               <p className="type-eyebrow mb-3 flex flex-wrap items-center gap-x-2 gap-y-1 text-gold-light">
@@ -211,39 +228,61 @@ export function DetailHero({
             ) : null}
           </div>
 
-          <figure
-            className="mx-auto w-full max-w-[15rem] md:col-start-1 md:row-span-4 md:row-start-1 md:mx-0 md:max-w-none md:self-center"
-            style={
-              imageTransitionName
-                ? { viewTransitionName: imageTransitionName }
-                : undefined
-            }
-          >
-            <div className="relative aspect-4/5 overflow-hidden rounded-md bg-midnight-light shadow-2xl shadow-black/50 ring-1 ring-gold/25">
-              {image ? (
-                <Image
-                  src={image.src}
-                  alt={image.alt}
-                  fill
-                  priority
-                  unoptimized={image.unoptimized}
-                  sizes="(min-width: 1024px) 22rem, (min-width: 768px) 17rem, 15rem"
-                  className={cn(
-                    image.fit === "contain"
-                      ? "object-contain p-3"
-                      : "object-cover object-top",
-                  )}
-                />
-              ) : (
-                <div className="flex h-full items-center justify-center">
-                  {imageFallback}
-                </div>
-              )}
+          {media ? (
+            <div className="min-w-0 md:col-start-1 md:row-span-4 md:row-start-1 md:self-center">
+              {media}
             </div>
-            {imageCaption ? (
-              <figcaption className="mt-2">{imageCaption}</figcaption>
-            ) : null}
-          </figure>
+          ) : (
+            <figure
+              className={cn(
+                "mx-auto w-full md:col-start-1 md:row-span-4 md:row-start-1 md:mx-0 md:max-w-none md:self-center",
+                imageAspect === "portrait" ? "max-w-[15rem]" : "max-w-[22rem]",
+              )}
+              style={
+                imageTransitionName
+                  ? { viewTransitionName: imageTransitionName }
+                  : undefined
+              }
+            >
+              <div
+                className={cn(
+                  "relative overflow-hidden rounded-md bg-midnight-light shadow-2xl shadow-black/50 ring-1 ring-gold/25",
+                  imageAspect === "portrait"
+                    ? "aspect-4/5"
+                    : imageAspect === "landscape"
+                      ? "aspect-4/3"
+                      : "aspect-square",
+                )}
+              >
+                {image ? (
+                  <Image
+                    src={image.src}
+                    alt={image.alt}
+                    fill
+                    priority
+                    unoptimized={image.unoptimized}
+                    sizes={
+                      imageAspect === "landscape"
+                        ? "(min-width: 1024px) 30rem, (min-width: 768px) 19rem, 22rem"
+                        : "(min-width: 1024px) 24rem, (min-width: 768px) 17rem, 22rem"
+                    }
+                    className={cn(
+                      image.fit === "contain"
+                        ? "object-contain p-3"
+                        : imageAspect === "portrait"
+                          ? "object-cover object-top"
+                          : "object-cover",
+                    )}
+                  />
+                ) : (
+                  <div className="flex h-full items-center justify-center">
+                    {imageFallback}
+                  </div>
+                )}
+              </div>
+              {imageCaption ? <div className="mt-2">{imageCaption}</div> : null}
+            </figure>
+          )}
 
           <div className="min-w-0 md:col-start-2 md:row-start-3">
             {tags && tags.length > 0 ? (
@@ -415,12 +454,12 @@ export function RelatedFigures({
   return (
     <section aria-label={title}>
       <AsideHeading>{title}</AsideHeading>
-      <ul className="grid gap-1 sm:grid-cols-2 lg:grid-cols-1">
+      <ul className="grid grid-cols-1 gap-1 sm:grid-cols-2 lg:grid-cols-1">
         {figures.map((figure) => (
-          <li key={figure.href}>
+          <li key={figure.href} className="min-w-0">
             <Link
               href={figure.href}
-              className="group flex min-h-14 items-center gap-3 rounded-md p-1.5 -mx-1.5 transition-colors hover:bg-muted/60"
+              className="group flex min-h-14 items-center gap-3 rounded-md py-1.5 transition-colors hover:bg-muted/60"
             >
               <span className="relative size-12 shrink-0 overflow-hidden rounded-md bg-muted ring-1 ring-border">
                 {figure.imageUrl ? (

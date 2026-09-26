@@ -1,11 +1,9 @@
-"use client";
-
 import Image from "next/image";
 import Link from "next/link";
-import { useMemo } from "react";
-import ReactMarkdown from "react-markdown";
-import { motion, useReducedMotion, useScroll, useSpring } from "framer-motion";
+import { ArrowLeft } from "lucide-react";
+import { ReadingProse } from "@/components/content/reading-prose";
 import { getPantheonColor } from "@/lib/pantheon-colors";
+import { ReadingProgress } from "./ReadingProgress";
 
 interface Plate {
   heading?: string;
@@ -67,6 +65,12 @@ interface ScrollytellingReaderProps {
   backHref: string;
 }
 
+/**
+ * The cinematic reading: the tale set as numbered chapters on a dark,
+ * candle-lit page under a full-bleed title plate. Server-rendered and static,
+ * so every word is visible without JavaScript or scrolling; only the reading
+ * progress rail runs in the browser.
+ */
 export function ScrollytellingReader({
   title,
   narrative,
@@ -75,150 +79,114 @@ export function ScrollytellingReader({
   imageUrl,
   backHref,
 }: ScrollytellingReaderProps) {
-  const reduce = useReducedMotion();
   const color = getPantheonColor(pantheonId);
-  const plates = useMemo(() => splitIntoPlates(narrative), [narrative]);
-
-  const { scrollYProgress } = useScroll();
-  const progress = useSpring(scrollYProgress, {
-    stiffness: 90,
-    damping: 24,
-    restDelta: 0.001,
-  });
-
-  // Motion is opt-in: reduced-motion readers get a clean, fully-visible article.
-  const plateMotion = reduce
-    ? {
-        initial: false as const,
-        animate: { opacity: 1, y: 0 },
-        transition: { duration: 0 },
-      }
-    : {
-        initial: { opacity: 0, y: 48 },
-        whileInView: { opacity: 1, y: 0 },
-        viewport: { once: true, margin: "-15% 0px -15% 0px" },
-        transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] as const },
-      };
+  const plates = splitIntoPlates(narrative);
 
   return (
-    <div className="relative bg-midnight text-parchment">
-      {/* Reading progress rail — pantheon-tinted */}
-      <motion.div
-        aria-hidden
-        className="fixed inset-x-0 top-0 z-50 h-[3px] origin-left"
-        style={{ scaleX: progress, backgroundColor: color }}
-      />
-
-      {/* Persistent atmospheric backdrop */}
-      <div className="fixed inset-0 -z-10">
-        {imageUrl ? (
-          <Image
-            src={imageUrl}
-            alt=""
-            fill
-            priority
-            sizes="100vw"
-            className="object-cover opacity-[0.18]"
-          />
-        ) : null}
-        <div
-          className="absolute inset-0"
-          style={{
-            background: `radial-gradient(1200px 800px at 50% 10%, ${color}22, transparent 60%), linear-gradient(to bottom, rgba(11,12,20,0.65), rgba(11,12,20,0.92))`,
-          }}
-        />
-      </div>
+    <div className="dark relative isolate bg-midnight text-parchment">
+      <ReadingProgress color={color} />
 
       {/* Title plate */}
-      <header className="relative flex min-h-screen flex-col items-center justify-center px-6 text-center">
-        <Link
-          href={backHref}
-          className="absolute left-4 top-6 text-sm tracking-wide text-parchment/60 transition-colors hover:text-gold sm:left-8"
-        >
-          ← Back to the tale
-        </Link>
-        <motion.div
-          initial={reduce ? false : { opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: reduce ? 0 : 0.9, ease: "easeOut" }}
-        >
-          <span className="mb-6 block text-xs uppercase tracking-[0.35em] text-parchment/80">
-            {pantheonName ? `${pantheonName} · A Reading` : "A Reading"}
-          </span>
-          <h1 className="mx-auto max-w-3xl font-serif text-4xl leading-tight text-parchment sm:text-6xl">
-            {title}
-          </h1>
-          <div className="mt-8 flex items-center justify-center gap-4">
-            <span
-              className="h-px w-16"
-              style={{ backgroundColor: `${color}80` }}
+      <header className="relative isolate flex min-h-[78vh] flex-col overflow-hidden">
+        <div className="absolute inset-0 -z-10" aria-hidden="true">
+          {imageUrl ? (
+            <Image
+              src={imageUrl}
+              alt=""
+              fill
+              priority
+              sizes="100vw"
+              className="object-cover opacity-45"
             />
-            <span
-              className="h-2 w-2 rotate-45"
-              style={{ backgroundColor: color }}
-            />
-            <span
-              className="h-px w-16"
-              style={{ backgroundColor: `${color}80` }}
-            />
+          ) : null}
+          <div
+            className="absolute inset-0"
+            style={{
+              background: `radial-gradient(ellipse 80% 70% at 50% 35%, color-mix(in oklch, ${color} 22%, transparent), transparent 70%)`,
+            }}
+          />
+          <div className="absolute inset-0 bg-linear-to-b from-midnight/70 via-midnight/50 to-midnight" />
+        </div>
+
+        <div className="layout-container layout-container-content pt-6">
+          <Link
+            href={backHref}
+            className="inline-flex min-h-11 items-center gap-2 type-ui text-parchment/80 transition-colors hover:text-gold-light"
+          >
+            <ArrowLeft className="size-4" aria-hidden="true" />
+            Back to the entry
+          </Link>
+        </div>
+
+        <div className="layout-container layout-container-content flex flex-1 flex-col items-center justify-center pb-16 pt-10 text-center">
+          <div>
+            <p className="type-eyebrow text-gold-light">
+              {pantheonName ? `${pantheonName} · A reading` : "A reading"}
+            </p>
+            <h1 className="detail-title mx-auto mt-5 max-w-[18ch] text-parchment text-balance">
+              {title}
+            </h1>
+            <div
+              className="mt-8 flex items-center justify-center gap-4"
+              aria-hidden="true"
+            >
+              <span className="h-px w-16 bg-gold/50" />
+              <span className="size-2 rotate-45 bg-gold" />
+              <span className="h-px w-16 bg-gold/50" />
+            </div>
+            <p className="mt-6 type-ui text-parchment/75">
+              {plates.length} {plates.length === 1 ? "chapter" : "chapters"}
+            </p>
           </div>
-          <p className="mt-8 text-sm text-parchment/60">
-            Scroll to unfold the myth
-          </p>
-        </motion.div>
+        </div>
       </header>
 
-      {/* Story plates */}
-      <div className="relative">
-        {plates.map((plate, index) => (
-          <section
-            key={index}
-            className="flex min-h-screen items-center justify-center px-6 py-24"
-          >
-            <motion.article
-              {...plateMotion}
-              className="w-full max-w-[64ch] rounded-2xl border border-gold/15 bg-midnight/60 p-8 shadow-[0_20px_60px_-30px_rgba(0,0,0,0.9)] backdrop-blur-md sm:p-12"
+      {/* The tale */}
+      <article className="layout-container layout-container-content pb-8">
+        <div className="mx-auto max-w-reading">
+          {plates.map((plate, index) => (
+            <section
+              // biome-ignore lint/suspicious/noArrayIndexKey: plates are positional
+              key={index}
+              aria-label={plate.heading ?? `Chapter ${index + 1}`}
+              className="border-t border-gold/15 py-14 first:border-t-0 first:pt-6 md:py-20"
             >
-              <span
-                aria-hidden
-                className="mb-6 block font-serif text-sm tracking-widest text-parchment/80"
+              <p
+                aria-hidden="true"
+                className="font-serif text-sm tracking-[0.3em] text-gold-light"
               >
                 {String(index + 1).padStart(2, "0")}
-              </span>
+              </p>
               {plate.heading ? (
-                <h2 className="mb-6 font-serif text-2xl text-gold sm:text-3xl">
+                <h2 className="page-section-title mt-3 text-parchment">
                   {plate.heading}
                 </h2>
               ) : null}
-              <div className="prose prose-invert prose-gold max-w-none prose-p:text-lg prose-p:leading-relaxed prose-p:text-parchment/90 prose-strong:text-gold/80 prose-blockquote:border-l-gold/40 prose-blockquote:text-parchment/70">
-                <ReactMarkdown>{plate.body}</ReactMarkdown>
-              </div>
-            </motion.article>
-          </section>
-        ))}
-      </div>
+              <ReadingProse
+                markdown={plate.body}
+                dropCap={index === 0}
+                className="mt-6 text-parchment/90 prose-p:text-parchment/90 prose-strong:text-gold-light"
+              />
+            </section>
+          ))}
+        </div>
+      </article>
 
       {/* Finis */}
-      <footer className="flex min-h-[60vh] flex-col items-center justify-center px-6 text-center">
-        <div className="flex items-center justify-center gap-4">
-          <span
-            className="h-px w-20"
-            style={{ backgroundColor: `${color}66` }}
-          />
-          <span className="font-serif text-xl text-parchment/80">Finis</span>
-          <span
-            className="h-px w-20"
-            style={{ backgroundColor: `${color}66` }}
-          />
+      <footer className="layout-container layout-container-content flex flex-col items-center pb-24 pt-8 text-center">
+        <div
+          className="flex items-center justify-center gap-4"
+          aria-hidden="true"
+        >
+          <span className="h-px w-20 bg-gold/40" />
+          <span className="font-serif text-xl text-parchment/85">Finis</span>
+          <span className="h-px w-20 bg-gold/40" />
         </div>
-        <p className="mt-6 text-sm text-parchment/60">
-          Thus concludes the tale.
-        </p>
         <Link
           href={backHref}
-          className="mt-10 rounded-full border border-gold/30 px-6 py-2 text-sm text-gold transition-colors hover:bg-gold/10"
+          className="mt-10 inline-flex min-h-11 items-center rounded-full border border-gold/40 px-6 type-ui text-gold-light transition-colors hover:bg-gold/10"
         >
-          Return to the reference page
+          Sources and context for this myth
         </Link>
       </footer>
     </div>

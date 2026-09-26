@@ -138,10 +138,13 @@ test.describe("Story and source reading", () => {
       page.getByRole("link", { name: "Cinematic reading", exact: true }),
     ).toHaveAttribute("href", "/stories/perseus-medusa/read");
     await page
-      .getByRole("link", { name: "Sources and context", exact: true })
+      .getByRole("link", { name: "Sources and further reading", exact: true })
       .click();
     await expect(
-      page.getByRole("heading", { name: "Sources and context", exact: true }),
+      page.getByRole("heading", {
+        name: "Sources and further reading",
+        exact: true,
+      }),
     ).toBeInViewport();
   });
 

@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { Languages, ExternalLink } from "lucide-react";
 import { cn } from "@/lib/utils";
-import sourcesData from "@/data/sources.json";
 
 export interface PrimarySourceExcerpt {
   text: string;
@@ -25,14 +24,6 @@ interface SourceExcerptProps {
   variant?: "default" | "compact";
 }
 
-interface Source {
-  id: string;
-  title: string;
-  author?: string;
-  year?: string | number;
-  externalUrl?: string;
-}
-
 export function SourceExcerpt({
   excerpt,
   className,
@@ -40,9 +31,6 @@ export function SourceExcerpt({
 }: SourceExcerptProps) {
   const [showOriginal, setShowOriginal] = useState(false);
 
-  const linkedSource = excerpt.sourceId
-    ? (sourcesData as Source[]).find((source) => source.id === excerpt.sourceId)
-    : null;
   const isDirectQuotation =
     excerpt.quoteStatus === "direct-quotation" &&
     excerpt.verification === "verified";
@@ -56,26 +44,19 @@ export function SourceExcerpt({
       : excerpt.quoteStatus === "editorial-paraphrase"
         ? "Editorial paraphrase"
         : "Original wording unverified";
-  const readUrl = excerpt.sourceUrl || linkedSource?.externalUrl;
+  const readUrl = excerpt.sourceUrl;
 
   return (
-    <figure
-      className={cn(
-        "border-l-2 border-gold/40 bg-muted/30",
-        variant === "compact" ? "p-4" : "p-6",
-        className,
-      )}
-    >
-      <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
-        <span className="text-xs font-medium uppercase tracking-wide text-gold-text">
-          {statusLabel}
-        </span>
+    <figure className={cn(variant === "compact" ? "py-4" : "py-6", className)}>
+      <div className="mb-3 flex flex-wrap items-center justify-between gap-3">
+        <span className="type-eyebrow">{statusLabel}</span>
         {isDirectQuotation &&
           excerpt.originalLanguage &&
           excerpt.text !== excerpt.translation && (
             <button
+              type="button"
               onClick={() => setShowOriginal(!showOriginal)}
-              className="inline-flex min-h-11 items-center gap-2 border border-border bg-background px-3 py-2 text-sm text-foreground hover:bg-muted"
+              className="inline-flex min-h-10 items-center gap-2 rounded-full border border-border px-3 type-ui text-foreground transition-colors hover:border-gold/50 hover:text-gold-text"
               aria-pressed={showOriginal}
               aria-label={
                 showOriginal ? "Translation" : excerpt.originalLanguage
@@ -87,14 +68,14 @@ export function SourceExcerpt({
           )}
       </div>
       {isUnverified ? (
-        <p className="text-sm leading-relaxed text-muted-foreground">
+        <p className="type-ui text-muted-foreground">
           This passage is awaiting verification against its source edition. Its
           wording is withheld until that check is complete.
         </p>
       ) : isDirectQuotation ? (
         <blockquote>
           <p
-            className="font-body text-lg leading-relaxed text-foreground"
+            className="font-body text-[1.25rem] leading-relaxed text-foreground"
             lang={
               showOriginal && excerpt.originalLanguage
                 ? getLanguageCode(excerpt.originalLanguage)
@@ -105,11 +86,11 @@ export function SourceExcerpt({
           </p>
         </blockquote>
       ) : (
-        <p className="font-body text-lg leading-relaxed text-foreground">
+        <p className="font-body text-[1.1875rem] leading-relaxed text-foreground/90">
           {excerpt.translation}
         </p>
       )}
-      <figcaption className="mt-5 space-y-2 border-t border-border pt-4 text-sm leading-relaxed text-muted-foreground">
+      <figcaption className="mt-4 space-y-1 type-meta text-muted-foreground">
         <p>
           <cite className="font-medium not-italic text-foreground">
             {excerpt.source}
@@ -132,7 +113,7 @@ export function SourceExcerpt({
             href={readUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex min-h-11 items-center gap-2 text-gold-text underline underline-offset-4"
+            className="inline-flex min-h-10 items-center gap-1.5 type-ui text-gold-text underline decoration-gold/40 underline-offset-4 hover:decoration-current"
             aria-label={`Read source: ${excerpt.source} (opens in new tab)`}
           >
             Read source{" "}
@@ -181,7 +162,12 @@ export function SourceExcerptsList({
   }
 
   return (
-    <div className={cn("space-y-4", className)}>
+    <div
+      className={cn(
+        "divide-y divide-border/70 border-y border-border/70",
+        className,
+      )}
+    >
       {excerpts.map((excerpt, index) => (
         <SourceExcerpt
           key={`${excerpt.sourceId || excerpt.source}-${index}`}

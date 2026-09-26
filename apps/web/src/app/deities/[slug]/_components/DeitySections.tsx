@@ -1,29 +1,17 @@
-import ReactMarkdown from "react-markdown";
-import { SourceProvenance } from "@/components/deities/SourceProvenance";
-import { AppearsIn } from "@/components/mythology/AppearsIn";
+import { ReadingProse } from "@/components/content/reading-prose";
 import {
   ParallelFigures,
   type ParallelFigure,
 } from "@/components/mythology/ParallelFigures";
-import { CatalogSourceNotes } from "@/components/sources/CatalogSourceNotes";
-import { EntityPlainSourcesList } from "@/components/sources/EntityPlainSourcesList";
-import { ReferencesList } from "@/components/sources/ReferencesList";
-import { SourceExcerptsList } from "@/components/sources/SourceExcerpt";
 import type { DeityRecord } from "@/lib/data/types";
 import type { ResolvedParallel } from "@/lib/deity-page";
-
-/** Reading styles for long-form catalog prose (markdown rendered on the server). */
-const readingProseClass =
-  "prose prose-lg max-w-none dark:prose-invert type-reading prose-p:my-4 prose-p:leading-[1.7] prose-headings:font-serif prose-headings:font-semibold prose-headings:text-foreground prose-h2:mt-10 prose-h2:mb-3 prose-h2:text-[1.375rem] prose-h3:text-xl prose-a:text-gold-text prose-a:decoration-gold/50 prose-a:underline-offset-4 prose-strong:text-foreground text-foreground/90";
 
 /** Detailed biography and origin story. */
 export function DeityNarrative({ deity }: { deity: DeityRecord }) {
   return (
     <>
       {deity.detailedBio ? (
-        <div className={`illuminated-tale ${readingProseClass}`}>
-          <ReactMarkdown>{deity.detailedBio}</ReactMarkdown>
-        </div>
+        <ReadingProse markdown={deity.detailedBio} dropCap />
       ) : (
         <p className="type-reading text-foreground/90">{deity.description}</p>
       )}
@@ -76,52 +64,6 @@ export function DeityParallels({
       label={`${deity.domain?.[0] ?? deity.name} across pantheons`}
       figures={figures}
     />
-  );
-}
-
-/** Source coverage, excerpts, "appears in", further reading and bibliography. */
-export function DeitySources({ deity }: { deity: DeityRecord }) {
-  return (
-    <div className="space-y-10">
-      <SourceProvenance sources={deity.primarySources} />
-
-      {deity.primarySourceExcerpts &&
-        deity.primarySourceExcerpts.length > 0 && (
-          <section aria-labelledby="deity-ancient-sources">
-            <h3 id="deity-ancient-sources" className="type-h3 text-foreground">
-              Ancient sources
-            </h3>
-            <p className="mt-1 mb-5 text-[0.9375rem] text-muted-foreground">
-              Quotations, paraphrases and verification notes. Each passage
-              states what has been checked.
-            </p>
-            <SourceExcerptsList excerpts={deity.primarySourceExcerpts} />
-          </section>
-        )}
-
-      {/* Legacy source notes without edition metadata */}
-      {deity.primarySources &&
-        deity.primarySources.length > 0 &&
-        !deity.primarySourceExcerpts?.length && (
-          <CatalogSourceNotes sources={deity.primarySources} />
-        )}
-
-      <AppearsIn entityId={deity.id} kind="deity" />
-
-      {deity.furtherReading && deity.furtherReading.length > 0 && (
-        <ReferencesList
-          references={deity.furtherReading}
-          title="Further Reading"
-          showDescriptions={false}
-          collapsible={true}
-          defaultExpanded={false}
-        />
-      )}
-
-      {deity.sources && deity.sources.length > 0 && (
-        <EntityPlainSourcesList lines={deity.sources} variant="deity" />
-      )}
-    </div>
   );
 }
 

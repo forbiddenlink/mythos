@@ -69,19 +69,18 @@ export function VersionMatrix({ versions }: { versions: MythVersions }) {
 
   return (
     <section
+      id="versions"
       aria-labelledby="version-matrix-title"
-      className="border-y border-border py-8"
+      className="scroll-mt-24"
     >
-      <p className="mb-2 text-xs uppercase tracking-[0.25em] text-gold-text">
-        One myth, many tellings
-      </p>
+      <p className="type-eyebrow mb-2">One myth, many tellings</p>
       <h2
         id="version-matrix-title"
         className="page-section-title text-foreground"
       >
         {versions.question}
       </h2>
-      <p className="mt-3 max-w-[68ch] font-body text-lg leading-relaxed text-muted-foreground">
+      <p className="mt-3 max-w-reading type-reading text-muted-foreground">
         {versions.takeaway}
       </p>
 
@@ -100,14 +99,14 @@ export function VersionMatrix({ versions }: { versions: MythVersions }) {
                 <span
                   className={`block h-4 w-4 rounded-full border-2 ${s.reference ? "border-gold bg-gold" : "border-gold/70 bg-background"}`}
                 />
-                <span className="absolute left-1/2 top-5 -translate-x-1/2 whitespace-nowrap text-[0.65rem] text-muted-foreground">
+                <span className="absolute left-1/2 top-5 -translate-x-1/2 whitespace-nowrap text-xs text-muted-foreground">
                   {i + 1}
                 </span>
               </div>
             );
           })}
         </div>
-        <div className="mx-4 mt-1 flex justify-between text-[0.65rem] uppercase tracking-[0.15em] text-muted-foreground">
+        <div className="mx-4 mt-1 flex justify-between text-xs uppercase tracking-[0.15em] text-muted-foreground">
           <span>{formatYear(min)}</span>
           <span>{formatYear(max)}</span>
         </div>
@@ -115,7 +114,7 @@ export function VersionMatrix({ versions }: { versions: MythVersions }) {
 
       <ul
         aria-label="Legend"
-        className="mt-6 flex flex-wrap gap-x-5 gap-y-2 text-xs text-muted-foreground"
+        className="mt-6 flex flex-wrap gap-x-5 gap-y-2 text-[0.8125rem] text-muted-foreground"
       >
         {(Object.keys(STATE_LABEL) as BeatState[]).map((state) => (
           <li key={state} className="flex items-center gap-2">
@@ -147,7 +146,7 @@ export function VersionMatrix({ versions }: { versions: MythVersions }) {
             <tr className="bg-muted/40 align-bottom">
               <th
                 scope="col"
-                className="sticky left-0 z-10 w-40 bg-muted/90 p-3 text-xs font-normal uppercase tracking-[0.15em] text-muted-foreground backdrop-blur"
+                className="sticky left-0 z-10 w-40 bg-muted/90 p-3 text-[0.8125rem] font-normal uppercase tracking-[0.15em] text-muted-foreground backdrop-blur"
               >
                 Moment
               </th>
@@ -157,16 +156,14 @@ export function VersionMatrix({ versions }: { versions: MythVersions }) {
                   scope="col"
                   className={`p-3 align-bottom font-normal ${s.reference ? "bg-gold/10" : ""}`}
                 >
-                  <span className="text-[0.65rem] text-muted-foreground">
-                    {i + 1}
-                  </span>
+                  <span className="text-xs text-muted-foreground">{i + 1}</span>
                   <span className="block font-serif text-sm leading-snug text-foreground">
                     {s.name}
                   </span>
-                  <span className="mt-1 block text-xs leading-relaxed text-muted-foreground">
+                  <span className="mt-1 block text-[0.8125rem] leading-relaxed text-muted-foreground">
                     {s.work}
                   </span>
-                  <span className="mt-1 block text-xs text-muted-foreground">
+                  <span className="mt-1 block text-[0.8125rem] text-muted-foreground">
                     {s.date}
                   </span>
                   {s.readingUrl && (
@@ -174,12 +171,12 @@ export function VersionMatrix({ versions }: { versions: MythVersions }) {
                       href={s.readingUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="mt-2 inline-flex min-h-11 items-center text-xs text-gold-text underline underline-offset-4"
+                      className="mt-2 inline-flex min-h-11 items-center text-[0.8125rem] text-gold-text underline underline-offset-4"
                     >
                       Read the passage (opens a new tab)
                     </a>
                   )}
-                  <span className="mt-1 block text-[0.65rem] uppercase tracking-[0.12em] text-gold-text">
+                  <span className="mt-1 block text-xs uppercase tracking-[0.12em] text-gold-text">
                     {KIND_LABEL[s.kind]}
                     {s.reference && " · baseline"}
                   </span>
@@ -228,7 +225,7 @@ export function VersionMatrix({ versions }: { versions: MythVersions }) {
           </tbody>
         </table>
       </div>
-      <p className="mt-3 text-xs text-muted-foreground">
+      <p className="mt-3 text-[0.8125rem] text-muted-foreground">
         Dates are approximate. For manuscripts copied long after composition,
         the position shows the estimated date of the telling.
       </p>

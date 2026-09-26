@@ -41,9 +41,9 @@ export function DeityHero({
       tone="light"
     />
   ) : museumPortrait ? (
-    <span className="type-meta text-parchment/75">
+    <figcaption className="type-meta text-parchment/75">
       {museumPortrait.title}, {museumPortrait.institution}
-    </span>
+    </figcaption>
   ) : null;
 
   return (
