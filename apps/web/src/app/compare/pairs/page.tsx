@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
 import { PageHero } from "@/components/layout/page-hero";
 import { generateBaseMetadata } from "@/lib/metadata";
 import { getDeityComparisons } from "@/lib/comparisons";
@@ -52,8 +51,6 @@ export default function ComparisonIndexPage() {
       />
 
       <div className="page-shell pb-16">
-        <Breadcrumbs />
-
         {ordered.map(([label, entries]) => (
           <section key={label} className="mt-10">
             <h2 className="page-section-title">{label}</h2>

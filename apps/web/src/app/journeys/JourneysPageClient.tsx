@@ -20,7 +20,6 @@ import {
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
 import { PageHero } from "@/components/layout/page-hero";
 import { PANTHEON_BG_LABEL as PANTHEON_COLORS } from "@/lib/pantheon-colors";
 import { mappedWaypoints, type JourneySetting } from "@/lib/journeys";
@@ -93,7 +92,6 @@ export function JourneysPageClient({
 
       {/* Content Section */}
       <div className="page-shell bg-mythic">
-        <Breadcrumbs />
         <p className="mt-4 max-w-3xl text-sm leading-7 text-muted-foreground">
           Earthly voyages are drawn on a map. Journeys through otherworlds, such
           as the Nine Realms or the Duat, follow their realms in order, and

@@ -66,6 +66,13 @@
   --radius-3xl: calc(var(--radius) + 12px);
   --radius-4xl: calc(var(--radius) + 16px);
 
+  /* Container widths (max-w-reading / max-w-content / max-w-wide). One grid:
+     reading for long prose, content for pages, wide for galleries and
+     visualizations. Use the <Container> primitive rather than raw classes. */
+  --container-reading: 68ch;
+  --container-content: 75rem;
+  --container-wide: 85rem;
+
   /* Z-index scale - coordinated stacking order (generates z-base/z-dropdown/etc.
      Tailwind utilities). Establishing the scale only; existing components still
      hand-pick raw z-[n] values and are not migrated here. */
@@ -86,6 +93,14 @@
   color-scheme: light;
   --radius: 0.5rem;
   --cookie-banner-offset: 0px;
+
+  /* Layout rhythm. Gutters 16 / 24 / 32px; section spacing 48 / 72 / 96px on
+     desktop (smaller on phones). Consumed by .layout-container and
+     .section-space-* (components/layout/container.tsx, section.tsx). */
+  --gutter: 1rem;
+  --section-space-sm: 2.5rem;
+  --section-space: 3.5rem;
+  --section-space-lg: 4.5rem;
 
   /* Core palette - warm parchment light theme */
   --background: oklch(0.97 0.008 85);
@@ -109,7 +124,7 @@
 
   /* Muted - warm gray */
   --muted: oklch(0.93 0.01 85);
-  --muted-foreground: oklch(0.4 0.02 260);
+  --muted-foreground: oklch(0.42 0.022 260); /* 6.9:1 on --background */
 
   /* Accent - burnished gold */
   --accent: oklch(0.72 0.14 70);
@@ -161,6 +176,21 @@
   --sidebar-ring: oklch(0.65 0.12 70);
 }
 
+@media (min-width: 640px) {
+  :root {
+    --gutter: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --gutter: 2rem;
+    --section-space-sm: 3rem;
+    --section-space: 4.5rem;
+    --section-space-lg: 6rem;
+  }
+}
+
 html.cookie-banner-open {
   --cookie-banner-offset: 4.5rem;
   scroll-padding-bottom: var(--cookie-banner-offset);
@@ -190,7 +220,7 @@ html.cookie-banner-open {
 
   /* Muted */
   --muted: oklch(0.22 0.03 265);
-  --muted-foreground: oklch(0.62 0.02 260);
+  --muted-foreground: oklch(0.74 0.018 260); /* 8:1 on --background */
 
   /* Accent - luminous gold */
   --accent: oklch(0.78 0.14 70);
@@ -205,7 +235,7 @@ html.cookie-banner-open {
   --info: oklch(0.68 0.15 240);
 
   /* Borders and inputs */
-  --border: oklch(0.28 0.04 265);
+  --border: oklch(0.3 0.04 265);
   --input: oklch(0.24 0.035 265);
   --ring: oklch(0.72 0.14 70);
 
@@ -251,6 +281,11 @@ html.cookie-banner-open {
   body {
     @apply bg-background text-foreground;
   }
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
 }
 
 @layer utilities {
@@ -285,12 +320,42 @@ html.cookie-banner-open {
     line-height: 1.6;
   }
 
+  /* ═══════════════════════════════════════════════════════════════════
+     TYPE SCALE (one size per role; see public/design-system.txt)
+     display      home hero brand           40 → 80px  Cinzel
+     detail-title entity page H1            36 → 64px  Cinzel
+     page-title   index / hub H1            32 → 48px  Cinzel
+     section      section heading (H2)      26 → 34px  Cinzel
+     h3           subsection                20px       Cinzel
+     reading      long-form body            18 → 19px  Crimson Pro
+     lede         one-sentence intro        19 → 21px  Crimson Pro
+     ui           controls, card copy       15px       Source Sans
+     meta         captions, counts          13px       Source Sans
+     eyebrow      kicker above a title      13px caps  Source Sans
+     ═══════════════════════════════════════════════════════════════════ */
+  .type-display {
+    font-family: var(--font-cinzel), ui-serif, Georgia, serif;
+    font-size: clamp(2.5rem, 1.6rem + 4vw, 5rem);
+    line-height: 1.02;
+    letter-spacing: -0.02em;
+    font-weight: 600;
+  }
+
+  .detail-title {
+    font-family: var(--font-cinzel), ui-serif, Georgia, serif;
+    font-size: clamp(2.25rem, 1.5rem + 3vw, 4rem);
+    line-height: 1.05;
+    letter-spacing: -0.015em;
+    font-weight: 600;
+    overflow-wrap: anywhere;
+  }
+
   /* Canonical page chrome — prefer these over ad-hoc text-4xl/5xl/6xl recipes */
   .page-title {
     font-family: var(--font-cinzel), ui-serif, Georgia, serif;
-    font-size: clamp(1.75rem, 5vw, 4.5rem);
+    font-size: clamp(2rem, 1.5rem + 2vw, 3rem);
     line-height: 1.1;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.015em;
     font-weight: 600;
     text-wrap: pretty;
     overflow-wrap: anywhere;
@@ -298,25 +363,71 @@ html.cookie-banner-open {
 
   .page-section-title {
     font-family: var(--font-cinzel), ui-serif, Georgia, serif;
-    font-size: clamp(1.5rem, 3vw, 2rem);
-    line-height: 1.25;
+    font-size: clamp(1.625rem, 1.35rem + 1vw, 2.125rem);
+    line-height: 1.2;
     font-weight: 600;
     text-wrap: pretty;
   }
 
+  .type-h3 {
+    font-family: var(--font-cinzel), ui-serif, Georgia, serif;
+    font-size: 1.25rem;
+    line-height: 1.3;
+    font-weight: 600;
+  }
+
+  .type-reading {
+    font-family: var(--font-crimson), ui-serif, Georgia, serif;
+    font-size: 1.125rem;
+    line-height: 1.7;
+  }
+
+  @media (min-width: 768px) {
+    .type-reading {
+      font-size: 1.1875rem;
+    }
+  }
+
+  .type-lede {
+    font-family: var(--font-crimson), ui-serif, Georgia, serif;
+    font-size: clamp(1.1875rem, 1.1rem + 0.35vw, 1.3125rem);
+    line-height: 1.55;
+  }
+
+  .type-ui {
+    font-size: 0.9375rem;
+    line-height: 1.5;
+  }
+
+  .type-meta {
+    font-size: 0.8125rem;
+    line-height: 1.45;
+    letter-spacing: 0.01em;
+  }
+
+  .type-eyebrow {
+    font-family: var(--font-source-sans), ui-sans-serif, system-ui, sans-serif;
+    font-size: 0.8125rem;
+    line-height: 1.3;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold-text);
+  }
+
   .page-eyebrow {
     display: inline-block;
-    font-size: 0.875rem;
-    letter-spacing: 0.25em;
+    font-size: 0.8125rem;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
     margin-bottom: 1rem;
     font-weight: 500;
-    color: color-mix(in oklch, var(--gold) 80%, transparent);
+    color: var(--gold-text);
   }
 
   .page-lede {
-    font-size: 1.125rem;
-    line-height: 1.6;
+    font-size: 1.1875rem;
+    line-height: 1.55;
     max-width: 42rem;
     margin-inline: auto;
     font-family: var(--font-crimson), ui-serif, Georgia, serif;
@@ -324,16 +435,43 @@ html.cookie-banner-open {
 
   .page-shell {
     width: 100%;
-    max-width: 80rem;
+    max-width: var(--container-content);
     margin-inline: auto;
-    padding-inline: 1rem;
-    padding-block: 2.5rem;
+    padding-inline: var(--gutter);
+    padding-block: var(--section-space-sm);
   }
 
-  @media (min-width: 768px) {
-    .page-shell {
-      padding-block: 3rem;
-    }
+  /* ═══════════════════════════════════════════════════════════════════
+     LAYOUT PRIMITIVES (components/layout/container.tsx, section.tsx)
+     ═══════════════════════════════════════════════════════════════════ */
+  .layout-container {
+    width: 100%;
+    margin-inline: auto;
+    padding-inline: var(--gutter);
+  }
+
+  .layout-container-reading {
+    max-width: calc(var(--container-reading) + 2 * var(--gutter));
+  }
+
+  .layout-container-content {
+    max-width: calc(var(--container-content) + 2 * var(--gutter));
+  }
+
+  .layout-container-wide {
+    max-width: calc(var(--container-wide) + 2 * var(--gutter));
+  }
+
+  .section-space-sm {
+    padding-block: var(--section-space-sm);
+  }
+
+  .section-space {
+    padding-block: var(--section-space);
+  }
+
+  .section-space-lg {
+    padding-block: var(--section-space-lg);
   }
 
   .text-safe-muted {

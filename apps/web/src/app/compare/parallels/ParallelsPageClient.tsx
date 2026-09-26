@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { PageHero } from "@/components/layout/page-hero";
@@ -51,8 +50,6 @@ export function ParallelsPageClient({
 
       <div className="container mx-auto max-w-6xl px-4 py-10 bg-mythic space-y-10">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-          <Breadcrumbs />
-
           {/* Mode Switcher Tabs */}
           <div
             role="group"

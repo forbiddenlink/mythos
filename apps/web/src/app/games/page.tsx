@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
 import { PageHero } from "@/components/layout/page-hero";
 import { MythosMark, type MythosMarkId } from "@/components/icons/mythos-marks";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -49,7 +48,6 @@ export default function GamesPage() {
       />
 
       <div className="container mx-auto max-w-6xl px-4 py-12 bg-mythic">
-        <Breadcrumbs />
         <section className="mt-6 rounded-2xl border border-border/60 bg-card/60 p-6 shadow-sm">
           <h2 className="font-serif text-2xl text-foreground">
             Learn By Playing

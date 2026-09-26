@@ -1,6 +1,5 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
 import { PageHero } from "@/components/layout/page-hero";
 import { generateBaseMetadata } from "@/lib/metadata";
 import deitiesData from "@/data/deities.json";
@@ -265,8 +264,6 @@ export function StudyGuidePage({ slug }: { slug: string }) {
         description={guide.description}
       />
       <div className="container mx-auto max-w-4xl px-4 py-12 bg-mythic">
-        <Breadcrumbs />
-
         <ol className="mt-10 space-y-6">
           {guide.steps.map((step, i) => (
             <li

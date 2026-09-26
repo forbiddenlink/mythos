@@ -3,7 +3,6 @@
 import type { Deity } from "@/components/compare/ComparisonCard";
 import { ComparisonSelector } from "@/components/compare/ComparisonSelector";
 import { ComparisonTable } from "@/components/compare/ComparisonTable";
-import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
 import { PageHero } from "@/components/layout/page-hero";
 import { Button } from "@/components/ui/button";
 import { BookOpen, Check, Share2, Sparkles } from "lucide-react";
@@ -189,7 +188,6 @@ export function ComparePageClient({
       <div className="page-shell bg-mythic">
         <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between mb-8">
           <div className="flex flex-wrap items-center gap-2 sm:gap-4">
-            <Breadcrumbs />
             <Button asChild variant="ghost" size="sm" className="gap-2">
               <Link href="/compare/myths">
                 <BookOpen className="h-4 w-4" />

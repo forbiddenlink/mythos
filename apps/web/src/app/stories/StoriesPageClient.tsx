@@ -1,7 +1,6 @@
 "use client";
 
 import { PageHero } from "@/components/layout/page-hero";
-import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
 import { CollectionPageJsonLd } from "@/components/seo/JsonLd";
 import { StoryFilters } from "@/components/stories/StoryFilters";
 import { Badge } from "@/components/ui/badge";
@@ -273,7 +272,6 @@ export function StoriesPageClient({
 
       {/* Stories Grid */}
       <div className="container mx-auto max-w-7xl px-4 py-12 bg-mythic">
-        <Breadcrumbs />
         <section className="mt-6 rounded-2xl border border-border/60 bg-card/60 p-6 shadow-sm">
           <h2 className="font-serif text-2xl text-foreground">
             Read The Core Myths First

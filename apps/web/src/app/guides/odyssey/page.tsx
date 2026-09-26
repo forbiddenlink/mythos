@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { PageHero } from "@/components/layout/page-hero";
-import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
 import {
   EntityRoster,
   GuideContents,
@@ -357,8 +356,6 @@ export default function OdysseyGuide() {
       />
 
       <div className="page-shell pb-20">
-        <Breadcrumbs />
-
         <div className="mt-8 max-w-[68ch] space-y-4 font-body text-lg leading-relaxed text-foreground">
           <p>
             Christopher Nolan&apos;s <em>The Odyssey</em> (2026) has sent a new

@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Clock, Gamepad2, Trophy } from "lucide-react";
 import { PageHero } from "@/components/layout/page-hero";
-import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
 import { MythosMark } from "@/components/icons/mythos-marks";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -99,8 +98,6 @@ export default function InteractiveStoriesIndexPage() {
       />
 
       <div className="container mx-auto max-w-6xl px-4 py-12 bg-mythic">
-        <Breadcrumbs />
-
         <p className="mt-6 max-w-3xl text-sm leading-7 text-muted-foreground">
           Each tale has multiple endings. Progress is saved on this device —
           return anytime to chase the routes you have not found yet. Prefer a
