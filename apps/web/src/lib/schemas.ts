@@ -246,6 +246,22 @@ export type Artifact = z.infer<typeof ArtifactSchema>;
 // LOCATION
 // ═══════════════════════════════════════════════════════════════════
 
+/**
+ * - `physical`: a real place; coordinates mark it.
+ * - `identified`: a mythic place with a traditional or ancient real-world
+ *   identification (Circe's island at Monte Circeo); coordinates mark that
+ *   identification, not proof of the myth.
+ * - `mythic`: a realm or conceptual place with no terrestrial location
+ *   (Asgard, the Duat); latitude and longitude are null.
+ */
+export const LocationGeographySchema = z.enum([
+  "physical",
+  "identified",
+  "mythic",
+]);
+
+export type LocationGeography = z.infer<typeof LocationGeographySchema>;
+
 export const LocationSchema = z.looseObject({
   id: z.string(),
   name: z.string(),
@@ -255,6 +271,9 @@ export const LocationSchema = z.looseObject({
   description: z.string(),
   latitude: z.number().nullable().optional(),
   longitude: z.number().nullable().optional(),
+  geography: LocationGeographySchema,
+  /** Why the coordinates point where they do, for identified places. */
+  coordinateNote: z.string().optional(),
   imageUrl: z.string().optional(),
   detailedBio: z.string().optional(),
   primarySources: z.array(PrimarySourceSchema).optional(),

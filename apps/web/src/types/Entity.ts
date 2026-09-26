@@ -168,6 +168,25 @@ export interface UserProgress {
 }
 
 /**
+ * How a location relates to the map (mirrors `LocationGeographySchema`):
+ * a real place, a mythic place pinned to a traditional identification, or a
+ * realm with no terrestrial coordinates.
+ */
+export type LocationGeography = "physical" | "identified" | "mythic";
+
+export interface MythLocation extends BaseEntity {
+  locationType: string;
+  pantheonId: string;
+  /** null when `geography` is "mythic". */
+  latitude: number | null;
+  longitude: number | null;
+  geography: LocationGeography;
+  coordinateNote?: string;
+  detailedBio?: string;
+  primarySources?: PrimarySource[];
+}
+
+/**
  * Canonical stored relationship types (mirrors `RELATIONSHIP_TYPES` in
  * `src/lib/schemas.ts`). Read as "fromDeity <type> toDeity".
  */

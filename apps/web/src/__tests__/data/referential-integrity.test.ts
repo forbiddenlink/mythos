@@ -10,6 +10,7 @@ import artifacts from "@/data/artifacts.json";
 import deities from "@/data/deities.json";
 import heroes from "@/data/heroes.json";
 import journeys from "@/data/journeys.json";
+import locations from "@/data/locations.json";
 import pantheons from "@/data/pantheons.json";
 import relationships from "@/data/relationships.json";
 import { normalizeDeityReference } from "@/lib/deities";
@@ -221,6 +222,76 @@ describe("artifact owners", () => {
         normalizeDeityReference(artifact.ownerLabel),
         artifact.id,
       ).not.toBe(artifact.ownerId);
+    }
+  });
+});
+
+describe("location coordinates", () => {
+  type LocationRecord = {
+    id: string;
+    latitude?: number | null;
+    longitude?: number | null;
+    geography?: string;
+    coordinateNote?: string;
+  };
+  const locationList = locations as LocationRecord[];
+
+  it("classifies every location's geography", () => {
+    const unclassified = locationList
+      .filter(
+        (l) =>
+          !["physical", "identified", "mythic"].includes(l.geography ?? ""),
+      )
+      .map((l) => l.id);
+    expect(unclassified).toEqual([]);
+  });
+
+  it("gives every physical or identified place valid coordinates", () => {
+    const missing: string[] = [];
+    for (const loc of locationList) {
+      if (loc.geography === "mythic") continue;
+      const { latitude, longitude } = loc;
+      if (
+        typeof latitude !== "number" ||
+        typeof longitude !== "number" ||
+        Math.abs(latitude) > 90 ||
+        Math.abs(longitude) > 180
+      ) {
+        missing.push(loc.id);
+      }
+    }
+    expect(missing).toEqual([]);
+  });
+
+  it("keeps mythic realms off the map", () => {
+    const pinned = locationList
+      .filter(
+        (l) =>
+          l.geography === "mythic" &&
+          (l.latitude != null || l.longitude != null),
+      )
+      .map((l) => l.id);
+    expect(pinned).toEqual([]);
+  });
+
+  it("does not stack distinct places on one point", () => {
+    const byPoint = new Map<string, string[]>();
+    for (const loc of locationList) {
+      if (loc.latitude == null || loc.longitude == null) continue;
+      const key = `${loc.latitude},${loc.longitude}`;
+      byPoint.set(key, [...(byPoint.get(key) ?? []), loc.id]);
+    }
+    const stacked = [...byPoint.entries()]
+      .filter(([, ids]) => ids.length > 1)
+      .map(([point, ids]) => `${point}: ${ids.join(", ")}`);
+    expect(stacked).toEqual([]);
+  });
+
+  it("explains coordinates only where there are coordinates", () => {
+    for (const loc of locationList) {
+      if (loc.coordinateNote) {
+        expect(loc.latitude, loc.id).not.toBeNull();
+      }
     }
   });
 });
