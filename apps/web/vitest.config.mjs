@@ -29,7 +29,6 @@ export default defineConfig({
         'src/lib/search.ts',
         'src/lib/relationship-quiz.ts',
         'src/lib/utils.ts',
-        'src/lib/safe-redirect.ts',
         'src/hooks/use-debounce.ts',
         'src/providers/progress-provider.tsx',
       ],

@@ -4,7 +4,7 @@
 
 ## Summary
 
-Mythos Atlas is a research-oriented reference and learning site for ancient and world mythology. Content is curated into structured entries with cross-links, maps, knowledge graphs, and study tools (quizzes, spaced repetition, learning paths). The site is built with Next.js; static JSON is the primary data source, with optional Hygraph CMS for editorial workflows when configured.
+Mythos Atlas is a research-oriented reference and learning site for ancient and world mythology. Content is curated into structured entries with cross-links, maps, knowledge graphs, and study tools (quizzes, spaced repetition, learning paths). The site is built with Next.js; all content is served from versioned static JSON.
 
 ## URL aliases
 
@@ -29,7 +29,7 @@ Mythos Atlas is a research-oriented reference and learning site for ancient and 
 
 ## API routes (not for general crawling)
 
-`/api/*` routes are application APIs (GraphQL facade, previews, webhooks, Oracle AI). They are disallowed in robots.txt. Do not rely on them as stable public content APIs without maintainer agreement.
+`/api/*` routes are internal application APIs (search, analytics, CSP reports, quiz generation, Oracle AI). They are disallowed in robots.txt. Do not rely on them as stable public content APIs without maintainer agreement.
 
 ## Oracle (AI assistant)
 
