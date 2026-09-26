@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import { generateBaseMetadata } from "@/lib/metadata";
+import { isOracleEnabled } from "@/lib/oracle/availability";
 import { OracleConsult } from "@/components/oracle/OracleConsult";
 import { ParchmentShaderBackground } from "@/components/effects/ParchmentShaderBackground";
 
-export const metadata: Metadata = generateBaseMetadata({
+const baseMetadata: Metadata = generateBaseMetadata({
   title: "The Oracle of Delphi",
   description:
     "Consult the Oracle — an AI seer grounded in the Mythos Atlas's own sources. Pose a petition about the gods, myths, and their meanings, and receive a prophecy with citations.",
@@ -19,9 +20,15 @@ export const metadata: Metadata = generateBaseMetadata({
   ],
 });
 
-const oracleEnabled = process.env.NEXT_PUBLIC_ORACLE_ENABLED === "true";
+export function generateMetadata(): Metadata {
+  // A disabled Oracle is an empty shell: keep it out of search results.
+  return isOracleEnabled()
+    ? baseMetadata
+    : { ...baseMetadata, robots: { index: false, follow: true } };
+}
 
 export default function OraclePage() {
+  const oracleEnabled = isOracleEnabled();
   return (
     <div className="relative min-h-screen overflow-hidden bg-midnight text-parchment">
       {/* Atmospheric temple background — GLSL parchment/candlelight, with a

@@ -10,6 +10,7 @@ import collections from "@/data/collections.json";
 import heroes from "@/data/heroes.json";
 import sources from "@/data/sources.json";
 import { getDeityComparisons } from "@/lib/comparisons";
+import { isOracleEnabled } from "@/lib/oracle/availability";
 
 const BASE_URL = "https://mythosatlas.com";
 
@@ -127,6 +128,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.7,
     },
+    // Listed only while the Oracle is switched on (see src/lib/oracle/availability.ts).
+    ...(isOracleEnabled()
+      ? [
+          {
+            url: `${BASE_URL}/oracle`,
+            changeFrequency: "monthly" as const,
+            priority: 0.6,
+          },
+        ]
+      : []),
     {
       url: `${BASE_URL}/privacy`,
       changeFrequency: "yearly",

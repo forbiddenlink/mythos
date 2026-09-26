@@ -97,14 +97,15 @@ cargo check
 From `apps/web/.env.example`:
 
 - `ANTHROPIC_API_KEY` / `GROQ_API_KEY` - server-side credentials for the configured Oracle provider
-- `ORACLE_PROVIDER` - optional `anthropic` or `groq`; default precedence is Anthropic when keyed, then Groq
+- `ORACLE_PROVIDER` - optional `anthropic` or `groq`; default precedence is Anthropic when keyed, then Groq. A pinned provider never falls back to the other (missing key or construction failure = Oracle unavailable, logged)
 - `GROQ_ORACLE_MODEL` - optional Groq model override; see `src/lib/oracle/provider.ts` for defaults
 - `ANTHROPIC_ORACLE_MODEL` - optional override for the Oracle model
-- `OPENAI_EMBEDDINGS_API_KEY` / `OPENAI_API_KEY` - optional, semantic Oracle grounding
-- `UPSTASH_REDIS_REST_URL`, `UPSTASH_REDIS_REST_TOKEN` - required in production for both Anthropic and Groq: shared per-IP limits and the global daily cap fail closed without them. Only development can fall back to in-memory limits
+- `OPENAI_EMBEDDINGS_API_KEY` / `OPENAI_API_KEY` - optional, semantic Oracle grounding; inert until `src/data/oracle-embeddings.json` is generated with `pnpm --filter web generate:embeddings`
+- `UPSTASH_REDIS_REST_URL`, `UPSTASH_REDIS_REST_TOKEN` - required in production for both Anthropic and Groq: shared per-IP limits and the global daily request/token caps fail closed without them. Only development can fall back to in-memory limits. Oracle requests with no determinable client IP are not pooled into one shared key: they use a stricter separate bucket (3/hr) keyed by a User-Agent + Accept-Language hash (`src/lib/oracle/client-identity.ts`)
 - `ORACLE_KILL_SWITCH` - optional, disables Oracle and generated story quizzes; apply environment changes through the deployment configuration
 - `ORACLE_DAILY_REQUEST_CAP` - optional global daily request cap (default 500, requires Upstash)
-- `NEXT_PUBLIC_ORACLE_ENABLED` - shows the footer Oracle control; the server also requires a configured provider
+- `ORACLE_DAILY_TOKEN_CAP` - optional global daily Oracle token budget (default 2,000,000 estimated input+output tokens, reserved per request and settled to actual usage; requires Upstash, fails closed in production like the request cap)
+- `NEXT_PUBLIC_ORACLE_ENABLED` - shows the footer Oracle control and the header/mega-menu `/oracle` links; the server also requires a configured provider. When the flag is off or no provider is configured, `/oracle` is `noindex` and left out of the sitemap
 - `NEXT_PUBLIC_PWA_INSTALL_PROMPT` - optional install prompt, off by default
 - `NEXT_PUBLIC_POSTHOG_KEY` / `POSTHOG_KEY` - product analytics. Without a key the app runs normally, `trackEvent` has no sink, and `/api/analytics/*` answers 501 instead of acknowledging events it cannot store
 - `NEXT_PUBLIC_POSTHOG_HOST`, `NEXT_PUBLIC_POSTHOG_ASSET_HOST`, `NEXT_PUBLIC_POSTHOG_UI_HOST`, `POSTHOG_HOST` - PostHog hosts; browser traffic is proxied through the `/ingest` rewrite in `next.config.ts`
