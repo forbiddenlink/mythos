@@ -17,16 +17,13 @@ import { shortRegionName } from "@/lib/tradition-name";
 
 const STAR_CHART_SLUGS = ["zeus", "odin", "ra", "athena", "thor"];
 
-/**
- * Local catalog imagery only: a remote cover (fetched through the image
- * optimizer at request time) falls back to the tradition's leading portrait.
- */
+/** The catalog cover, or the tradition's leading portrait when there is none. */
 function coverImage(pantheonId: string, imageUrl?: string | null) {
-  if (imageUrl && !/^https?:/.test(imageUrl)) return imageUrl;
+  if (imageUrl) return imageUrl;
   const lead = getDeities()
     .filter((d) => d.pantheonId === pantheonId && d.imageUrl)
     .sort((a, b) => (a.importanceRank ?? 99) - (b.importanceRank ?? 99))[0];
-  return lead?.imageUrl ?? imageUrl ?? null;
+  return lead?.imageUrl ?? null;
 }
 
 function countBy(items: readonly { pantheonId: string }[]) {
