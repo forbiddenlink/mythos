@@ -1782,5 +1782,247 @@
       }
     ],
     "readingOrder": "Thomas Kinsella's 1969 translation is the classic English starting point; Ciaran Carson's 2007 Penguin Classics translation is a livelier modern alternative."
+  },
+  {
+    "id": "florentine-codex",
+    "title": "Florentine Codex (General History of the Things of New Spain)",
+    "author": "Bernardino de Sahagún and Nahua scholars",
+    "year": "c. 1545-1577",
+    "type": "ancient-text",
+    "language": "Nahuatl and Spanish",
+    "description": "A twelve-book encyclopedia of Nahua religion, society, and history compiled by the Franciscan Sahagún with Nahua elders and trilingual Nahua scholars. The principal written source for Aztec gods, festivals, and myths such as the birth of Huitzilopochtli at Coatepec.",
+    "translators": [
+      {
+        "name": "Arthur J. O. Anderson and Charles E. Dibble",
+        "year": 1950
+      }
+    ]
+  },
+  {
+    "id": "leyenda-de-los-soles",
+    "title": "Leyenda de los Soles (Legend of the Suns)",
+    "author": "Anonymous Nahua author",
+    "year": "1558",
+    "type": "ancient-text",
+    "language": "Nahuatl",
+    "description": "A Nahuatl account of the successive world ages (Suns) and their destructions, Quetzalcoatl's recovery of human bones from Mictlan, and the discovery of maize, preserved in the Codex Chimalpopoca.",
+    "translators": [
+      {
+        "name": "John Bierhorst",
+        "year": 1992
+      }
+    ]
+  },
+  {
+    "id": "myths-mexico-peru",
+    "title": "The Myths of Mexico and Peru",
+    "author": "Lewis Spence",
+    "year": 1913,
+    "type": "academic",
+    "language": "English",
+    "description": "An early twentieth-century popular survey retelling Aztec, Maya, and Inca myths from Sahagún, the Popol Vuh, and colonial chronicles. Useful as a period retelling, but dated in its interpretations.",
+    "externalUrl": "https://www.sacred-texts.com/nam/mmp/index.htm"
+  },
+  {
+    "id": "cath-maige-tuired",
+    "title": "Cath Maige Tuired (The Second Battle of Mag Tuired)",
+    "author": "Anonymous (Irish Mythological Cycle)",
+    "year": "c. 9th-12th century CE",
+    "type": "ancient-text",
+    "language": "Old and Middle Irish",
+    "description": "The Mythological Cycle tale of the war between the Túatha Dé Danann and the Fomoire, including Nuada's silver arm, the reign of Bres, Lug's arrival at Tara, Dian Cécht's healing well, and the death of Balor.",
+    "translators": [
+      {
+        "name": "Whitley Stokes",
+        "year": 1891
+      },
+      {
+        "name": "Elizabeth A. Gray",
+        "year": 1982
+      }
+    ]
+  },
+  {
+    "id": "lebor-gabala-erenn",
+    "title": "Lebor Gabála Érenn (The Book of the Taking of Ireland)",
+    "author": "Anonymous (Irish learned tradition)",
+    "year": "11th century CE",
+    "type": "ancient-text",
+    "language": "Middle Irish",
+    "description": "A medieval pseudo-history narrating the successive invasions of Ireland, including the coming of the Túatha Dé Danann with their four treasures and their defeat by the Milesians.",
+    "translators": [
+      {
+        "name": "R. A. Stewart Macalister",
+        "year": 1938
+      }
+    ]
+  },
+  {
+    "id": "gods-and-fighting-men",
+    "title": "Gods and Fighting Men",
+    "author": "Lady Augusta Gregory",
+    "year": 1904,
+    "type": "translation",
+    "language": "English",
+    "description": "Lady Gregory's retelling of the Irish Mythological and Fenian cycles, drawn from translations of medieval Irish texts. A literary adaptation rather than a line-by-line translation.",
+    "externalUrl": "https://www.sacred-texts.com/neu/celt/gafm/index.htm"
+  },
+  {
+    "id": "plutarch-isis-osiris",
+    "title": "On Isis and Osiris (De Iside et Osiride)",
+    "author": "Plutarch",
+    "year": "c. 100 CE",
+    "type": "ancient-text",
+    "language": "Ancient Greek",
+    "description": "Plutarch's essay on Egyptian religion and the only connected ancient narrative of the Osiris myth: Set's murder of Osiris, Isis's search, and Horus's vengeance, told with Greek names and philosophical interpretation.",
+    "translators": [
+      {
+        "name": "Frank Cole Babbitt",
+        "year": 1936
+      }
+    ]
+  },
+  {
+    "id": "argonautica",
+    "title": "Argonautica",
+    "author": "Apollonius of Rhodes",
+    "year": "3rd century BCE",
+    "type": "ancient-text",
+    "language": "Ancient Greek",
+    "description": "The Hellenistic epic of Jason and the Argonauts: the voyage to Colchis, Medea's love and magic, the winning of the Golden Fleece, and the long return journey.",
+    "translators": [
+      {
+        "name": "R. C. Seaton",
+        "year": 1912
+      },
+      {
+        "name": "Peter Green",
+        "year": 1997
+      }
+    ]
+  },
+  {
+    "id": "fasti",
+    "title": "Fasti",
+    "author": "Ovid",
+    "year": "c. 8-17 CE",
+    "type": "ancient-text",
+    "language": "Latin",
+    "description": "Ovid's unfinished poem on the Roman calendar, covering January to June, which explains festivals and rites through myth and aetiology.",
+    "translators": [
+      {
+        "name": "James G. Frazer",
+        "year": 1931
+      },
+      {
+        "name": "A. J. Boyle and R. D. Woodard",
+        "year": 2000
+      }
+    ]
+  },
+  {
+    "id": "vishnu-purana",
+    "title": "Vishnu Purana",
+    "author": "Anonymous (Puranic tradition)",
+    "year": "c. 1st millennium CE",
+    "type": "ancient-text",
+    "language": "Sanskrit",
+    "description": "One of the major Puranas, presenting cosmology, genealogies, and the avatars of Vishnu, including an early full account of Krishna's life.",
+    "translators": [
+      {
+        "name": "H. H. Wilson",
+        "year": 1840
+      },
+      {
+        "name": "Manmatha Nath Dutt",
+        "year": 1896
+      }
+    ]
+  },
+  {
+    "id": "journey-to-the-west",
+    "title": "Journey to the West (Xiyouji)",
+    "author": "Wu Cheng'en (attributed)",
+    "year": "c. 1592 CE",
+    "type": "ancient-text",
+    "language": "Vernacular Chinese",
+    "description": "The Ming novel of the monk Xuanzang's pilgrimage to India with Sun Wukong and his companions, including the Monkey King's rebellion against Heaven and his imprisonment under the Five Elements Mountain.",
+    "translators": [
+      {
+        "name": "Arthur Waley (abridged, as Monkey)",
+        "year": 1942
+      },
+      {
+        "name": "Anthony C. Yu",
+        "year": 1977
+      },
+      {
+        "name": "W. J. F. Jenner",
+        "year": 1982
+      }
+    ]
+  },
+  {
+    "id": "huainanzi",
+    "title": "Huainanzi",
+    "author": "Scholars at the court of Liu An, King of Huainan",
+    "year": "139 BCE",
+    "type": "ancient-text",
+    "language": "Classical Chinese",
+    "description": "A Han-dynasty compendium of cosmology, statecraft, and lore that preserves early accounts of Nüwa repairing the sky and Yi shooting down the suns.",
+    "translators": [
+      {
+        "name": "John S. Major, Sarah A. Queen, Andrew Seth Meyer, and Harold D. Roth",
+        "year": 2010
+      }
+    ]
+  },
+  {
+    "id": "russian-primary-chronicle",
+    "title": "Russian Primary Chronicle (Povest' vremennykh let)",
+    "author": "Kievan monastic chroniclers (traditionally Nestor)",
+    "year": "c. 1113 CE",
+    "type": "ancient-text",
+    "language": "Old East Slavic",
+    "description": "The chief narrative history of Kievan Rus', whose entries for 907, 945, 980, and 988 name Perun and Veles in treaty oaths and list the idols Prince Vladimir set up in Kyiv.",
+    "translators": [
+      {
+        "name": "Samuel Hazzard Cross and Olgerd P. Sherbowitz-Wetzor",
+        "year": 1953
+      }
+    ]
+  },
+  {
+    "id": "afanasyev-russian-fairy-tales",
+    "title": "Narodnye russkie skazki (Russian Fairy Tales)",
+    "author": "Alexander Afanasyev",
+    "year": "1855-1863",
+    "type": "academic",
+    "language": "Russian",
+    "description": "The classic nineteenth-century collection of East Slavic folktales, source of many Baba Yaga and Koschei stories. Folklore recorded centuries after the pre-Christian period, not evidence of ancient myth by itself.",
+    "translators": [
+      {
+        "name": "Norbert Guterman",
+        "year": 1945
+      }
+    ]
+  },
+  {
+    "id": "iroquoian-cosmology",
+    "title": "Iroquoian Cosmology",
+    "author": "J. N. B. Hewitt (Tuscarora)",
+    "year": "1903, 1928",
+    "type": "academic",
+    "language": "English, Onondaga, Seneca, and Mohawk",
+    "description": "Texts and translations of Haudenosaunee creation accounts recorded by the Tuscarora ethnologist Hewitt, published in the 21st and 43rd Annual Reports of the Bureau of American Ethnology."
+  },
+  {
+    "id": "seneca-myths-folk-tales",
+    "title": "Seneca Myths and Folk Tales",
+    "author": "Arthur C. Parker (Seneca)",
+    "year": 1923,
+    "type": "academic",
+    "language": "English",
+    "description": "A collection of Seneca narratives recorded by the Seneca archaeologist and ethnologist Arthur C. Parker, including creation and trickster stories."
   }
 ]

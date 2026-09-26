@@ -6,8 +6,10 @@ import time
 import urllib.request
 import urllib.error
 
-data_dir = "/Volumes/LizsDisk/mythos/apps/web/src/data"
-public_dir = "/Volumes/LizsDisk/mythos/apps/web/public"
+from _repo_paths import DATA_DIR, WEB_PUBLIC
+
+data_dir = str(DATA_DIR)
+public_dir = str(WEB_PUBLIC)
 
 # --- Magica image generation (flux_2_max). Requires MAGICA_KEY in env. ---
 MAGICA_BASE = "https://api.magica.com/api/v1"

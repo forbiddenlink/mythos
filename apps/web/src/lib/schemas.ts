@@ -9,6 +9,16 @@ import { z } from "zod";
 
 const JsonObjectSchema = z.record(z.string(), z.unknown());
 
+/**
+ * Optional structured link from a free-text citation to a work in
+ * `sources.json`. `source` stays the human-readable label; `sourceId` names
+ * the catalog record and `locator` the book, line, or chapter within it.
+ */
+const SourceReferenceFields = {
+  sourceId: z.string().optional(),
+  locator: z.string().optional(),
+};
+
 const CitationSourceSchema = z.looseObject({
   title: z.string(),
   url: z.url({ protocol: /^https?$/ }).optional(),
@@ -19,6 +29,7 @@ const CitationSourceSchema = z.looseObject({
   book: z.string().optional(),
   chapter: z.string().optional(),
   chapters: z.string().optional(),
+  ...SourceReferenceFields,
 });
 
 const PrimarySourceExcerptSchema = z.looseObject({
@@ -43,6 +54,15 @@ const PrimarySourceExcerptSchema = z.looseObject({
   edition: z.string().min(1),
 });
 
+export const PrimarySourceSchema = z.looseObject({
+  text: z.string(),
+  source: z.string(),
+  date: z.string().optional(),
+  ...SourceReferenceFields,
+});
+
+export type PrimarySource = z.infer<typeof PrimarySourceSchema>;
+
 const MythVariantSchema = z.looseObject({
   source: z.string(),
   passage: z.string().optional(),
@@ -51,6 +71,7 @@ const MythVariantSchema = z.looseObject({
   date: z.string().optional(),
   difference: z.string(),
   note: z.string().optional(),
+  ...SourceReferenceFields,
 });
 
 // ═══════════════════════════════════════════════════════════════════
@@ -120,15 +141,17 @@ export const DeitySchema = z.looseObject({
       }),
     )
     .optional(),
-  primarySources: z
+  /** Parallels whose counterpart is a hero in heroes.json, not a deity. */
+  heroParallels: z
     .array(
       z.looseObject({
-        text: z.string(),
-        source: z.string(),
-        date: z.string().optional(),
+        pantheonId: z.string(),
+        heroId: z.string(),
+        note: z.string(),
       }),
     )
     .optional(),
+  primarySources: z.array(PrimarySourceSchema).optional(),
   primarySourceExcerpts: z.array(PrimarySourceExcerptSchema).optional(),
   furtherReading: z.array(JsonObjectSchema).optional(),
   worship: z
@@ -184,15 +207,7 @@ export const CreatureSchema = z.looseObject({
   dangerLevel: z.number().min(1).max(10),
   imageUrl: z.string().optional(),
   detailedBio: z.string().optional(),
-  primarySources: z
-    .array(
-      z.object({
-        text: z.string(),
-        source: z.string(),
-        date: z.string().optional(),
-      }),
-    )
-    .optional(),
+  primarySources: z.array(PrimarySourceSchema).optional(),
 });
 
 export type Creature = z.infer<typeof CreatureSchema>;
@@ -206,7 +221,15 @@ export const ArtifactSchema = z.looseObject({
   pantheonId: z.string(),
   name: z.string(),
   slug: z.string(),
+  /** Deity or hero id of the owner, when the owner has an entry. */
   ownerId: z.string().optional(),
+  /** Catalog `ownerId` belongs to; required whenever `ownerId` is set. */
+  ownerKind: z.enum(["deity", "hero"]).optional(),
+  /**
+   * Display text for owners with no entity (e.g. "King Arthur") or a fuller
+   * description of an entity owner (e.g. "Set and other Egyptian deities").
+   */
+  ownerLabel: z.string().optional(),
   type: z.string(),
   description: z.string(),
   powers: z.array(z.string()),
@@ -214,15 +237,7 @@ export const ArtifactSchema = z.looseObject({
   origin: z.string().optional(),
   imageUrl: z.string().optional(),
   detailedBio: z.string().optional(),
-  primarySources: z
-    .array(
-      z.object({
-        text: z.string(),
-        source: z.string(),
-        date: z.string().optional(),
-      }),
-    )
-    .optional(),
+  primarySources: z.array(PrimarySourceSchema).optional(),
 });
 
 export type Artifact = z.infer<typeof ArtifactSchema>;
@@ -230,6 +245,22 @@ export type Artifact = z.infer<typeof ArtifactSchema>;
 // ═══════════════════════════════════════════════════════════════════
 // LOCATION
 // ═══════════════════════════════════════════════════════════════════
+
+/**
+ * - `physical`: a real place; coordinates mark it.
+ * - `identified`: a mythic place with a traditional or ancient real-world
+ *   identification (Circe's island at Monte Circeo); coordinates mark that
+ *   identification, not proof of the myth.
+ * - `mythic`: a realm or conceptual place with no terrestrial location
+ *   (Asgard, the Duat); latitude and longitude are null.
+ */
+export const LocationGeographySchema = z.enum([
+  "physical",
+  "identified",
+  "mythic",
+]);
+
+export type LocationGeography = z.infer<typeof LocationGeographySchema>;
 
 export const LocationSchema = z.looseObject({
   id: z.string(),
@@ -240,17 +271,12 @@ export const LocationSchema = z.looseObject({
   description: z.string(),
   latitude: z.number().nullable().optional(),
   longitude: z.number().nullable().optional(),
+  geography: LocationGeographySchema,
+  /** Why the coordinates point where they do, for identified places. */
+  coordinateNote: z.string().optional(),
   imageUrl: z.string().optional(),
   detailedBio: z.string().optional(),
-  primarySources: z
-    .array(
-      z.object({
-        text: z.string(),
-        source: z.string(),
-        date: z.string().optional(),
-      }),
-    )
-    .optional(),
+  primarySources: z.array(PrimarySourceSchema).optional(),
 });
 
 export type Location = z.infer<typeof LocationSchema>;
@@ -259,18 +285,116 @@ export type Location = z.infer<typeof LocationSchema>;
 // RELATIONSHIP
 // ═══════════════════════════════════════════════════════════════════
 
+/**
+ * Stored relationship types, always read "from <type> to": `parent_of`
+ * means fromDeity is the parent of toDeity. There is no stored `child_of`;
+ * the inverse is derived at read time (see `src/lib/relationships.ts`).
+ */
+export const RELATIONSHIP_TYPES = [
+  "parent_of",
+  "sibling_of",
+  "spouse_of",
+  "lover_of",
+  "ally_of",
+  "enemy_of",
+  "aspect_of",
+] as const;
+
+export const RelationshipTypeSchema = z.enum(RELATIONSHIP_TYPES);
+
+export type RelationshipType = z.infer<typeof RelationshipTypeSchema>;
+
 export const RelationshipSchema = z.looseObject({
   id: z.string(),
   fromDeityId: z.string(),
   toDeityId: z.string(),
-  relationshipType: z.string(),
-  confidenceLevel: z.string(),
+  relationshipType: RelationshipTypeSchema,
+  confidenceLevel: z.enum(["high", "medium", "low"]),
   description: z.string().optional(),
   storyContext: z.string().optional(),
   isDisputed: z.boolean().optional(),
 });
 
 export type Relationship = z.infer<typeof RelationshipSchema>;
+
+// ═══════════════════════════════════════════════════════════════════
+// JOURNEY
+// ═══════════════════════════════════════════════════════════════════
+
+/**
+ * A journey's protagonist is usually a hero in heroes.json, but a few epic
+ * travellers (Gilgamesh, the Hero Twins, Maui) are catalogued as deities and
+ * heroes.json deliberately never duplicates a deity. `heroKind` says which
+ * catalog `heroId` belongs to.
+ */
+export const JourneyHeroKindSchema = z.enum(["hero", "deity"]);
+
+export type JourneyHeroKind = z.infer<typeof JourneyHeroKindSchema>;
+
+export const JourneySchema = z.looseObject({
+  id: z.string(),
+  heroId: z.string(),
+  heroKind: JourneyHeroKindSchema,
+  heroName: z.string(),
+  title: z.string(),
+  slug: z.string(),
+  pantheonId: z.string(),
+  imageUrl: z.string().optional(),
+});
+
+export type Journey = z.infer<typeof JourneySchema>;
+
+// ═══════════════════════════════════════════════════════════════════
+// IMAGE PROVENANCE (src/data/image-provenance.json)
+// ═══════════════════════════════════════════════════════════════════
+
+/**
+ * How an entity image was made. Only the illustration kinds occur today;
+ * the others exist so a future sourced image can be recorded honestly.
+ */
+export const ImageProvenanceKindSchema = z.enum([
+  "illustration-ai",
+  "illustration-procedural",
+  "public-domain",
+  "licensed",
+]);
+
+export type ImageProvenanceKind = z.infer<typeof ImageProvenanceKindSchema>;
+
+export const ImageGeneratorSchema = z.looseObject({
+  kind: ImageProvenanceKindSchema,
+  label: z.string(),
+  description: z.string(),
+  license: z.string().optional(),
+  source: z.string().optional(),
+  scripts: z.array(z.string()).optional(),
+});
+
+export const IMAGE_ENTITY_TYPES = [
+  "deity",
+  "hero",
+  "creature",
+  "artifact",
+  "location",
+  "story",
+  "pantheon",
+  "journey",
+] as const;
+
+export type ImageEntityType = (typeof IMAGE_ENTITY_TYPES)[number];
+
+/**
+ * Central provenance map: `entities[type][id]` names a key in `generators`.
+ * Kept out of the entity records so 600+ entries share a handful of
+ * descriptions; regenerate with `scripts/build_image_provenance.py`.
+ */
+export const ImageProvenanceFileSchema = z.looseObject({
+  generators: z.record(z.string(), ImageGeneratorSchema),
+  entities: z.record(
+    z.enum(IMAGE_ENTITY_TYPES),
+    z.record(z.string(), z.string()),
+  ),
+});
 
 // ═══════════════════════════════════════════════════════════════════
 // ARRAY VALIDATORS (for validating entire data files)
@@ -283,6 +407,7 @@ export const CreaturesArraySchema = z.array(CreatureSchema);
 export const ArtifactsArraySchema = z.array(ArtifactSchema);
 export const LocationsArraySchema = z.array(LocationSchema);
 export const RelationshipsArraySchema = z.array(RelationshipSchema);
+export const JourneysArraySchema = z.array(JourneySchema);
 
 // ═══════════════════════════════════════════════════════════════════
 // VALIDATION HELPERS

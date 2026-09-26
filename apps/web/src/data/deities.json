@@ -23,11 +23,13 @@
       {
         "text": "And when the blessed gods had finished their toil, and settled by force their struggle for honours with the Titans, they pressed far-seeing Olympian Zeus to reign and to rule over them. And he divided their dignities amongst them.",
         "source": "Hesiod, Theogony",
+        "sourceId": "theogony",
         "date": "c. 700 BCE"
       },
       {
         "text": "Zeus, the father of gods and men, whose power is the greatest among the immortals.",
         "source": "Homer, Iliad",
+        "sourceId": "iliad",
         "date": "c. 750 BCE"
       }
     ],
@@ -143,6 +145,8 @@
       {
         "text": "Hera, golden-throned queen, whom Rhea bare, immortal queen, the wife of Zeus who holds the aegis, sister and bedmate of loud-thundering Zeus.",
         "source": "Homeric Hymn 12, To Hera",
+        "sourceId": "homeric-hymns",
+        "locator": "Hymn 12, To Hera",
         "date": "c. 650 BCE"
       }
     ],
@@ -208,11 +212,13 @@
       {
         "text": "I am Poseidon, and my lot was the grey sea to be my habitation for ever, when we cast lots and divided all things into three portions.",
         "source": "Homer, Iliad",
+        "sourceId": "iliad",
         "date": "c. 750 BCE"
       },
       {
         "text": "The Earth-Shaker who girdles the earth made the earth and sea tremble beneath him, and all the high peaks and forests quaked.",
         "source": "Homer, Odyssey",
+        "sourceId": "odyssey",
         "date": "c. 725 BCE"
       }
     ],
@@ -273,6 +279,7 @@
       {
         "text": "He caught her up reluctant on his golden car and bare her away lamenting. Then she cried out shrilly with her voice, calling upon her father, the Son of Cronos, who is most high and excellent. But no one heard her voice, neither of the deathless gods nor of mortal men.",
         "source": "Homeric Hymn to Demeter",
+        "sourceId": "homeric-hymns",
         "date": "c. 650 BCE"
       }
     ],
@@ -332,11 +339,13 @@
       {
         "text": "From his own head he bore her, the grey-eyed Tritogeneia, the unwearying queen who delights in tumults and wars and battles.",
         "source": "Hesiod, Theogony",
+        "sourceId": "theogony",
         "date": "c. 700 BCE"
       },
       {
         "text": "For I am here to stay your fury, if you will obey—sent from the white-armed goddess Hera, who loves both of you in her heart and cares for you both alike. Come, cease from strife, and let not your hand draw the sword.",
         "source": "Homer, Odyssey",
+        "sourceId": "odyssey",
         "date": "c. 725 BCE"
       }
     ],
@@ -392,6 +401,7 @@
       {
         "text": "Phoebus Apollo, as soon as he was born, sprang forth from the immortal limbs, and all the goddesses cried aloud. Then you, O Far-Shooter, went over the mountain ridges to rocky Pytho, and there slew the bloated serpent with your bow.",
         "source": "Homeric Hymn to Apollo",
+        "sourceId": "homeric-hymns",
         "date": "c. 650 BCE"
       },
       {
@@ -459,6 +469,8 @@
       {
         "text": "I sing of Artemis, whose shafts are of gold, who cheers on the hounds, the pure maiden, shooter of stags, who delights in archery, own sister to Apollo with the golden sword.",
         "source": "Homeric Hymn XXVII, To Artemis (trans. Evelyn-White)",
+        "sourceId": "homeric-hymns",
+        "locator": "Hymn XXVII, To Artemis",
         "date": "c. 6th century BCE"
       }
     ],
@@ -505,6 +517,8 @@
       {
         "text": "Ares, exceeding in strength, chariot-rider, golden-helmed, doughty in heart, shield-bearer, Saviour of cities, harnessed in bronze, strong of arm, unwearying, mighty with the spear.",
         "source": "Homeric Hymn VIII, To Ares (trans. Evelyn-White)",
+        "sourceId": "homeric-hymns",
+        "locator": "Hymn VIII, To Ares",
         "date": "date disputed (Orphic in character, likely later)"
       }
     ],
@@ -550,6 +564,8 @@
       {
         "text": "Muse, tell me the deeds of golden Aphrodite the Cyprian, who stirs up sweet passion in the gods and subdues the tribes of mortal men and birds that fly in air and all the many creatures of land and sea.",
         "source": "Homeric Hymn V, To Aphrodite (trans. Evelyn-White)",
+        "sourceId": "homeric-hymns",
+        "locator": "Hymn V, To Aphrodite",
         "date": "c. 7th century BCE"
       }
     ],
@@ -596,6 +612,8 @@
       {
         "text": "Muse, sing of Hermes, the son of Zeus and Maia, lord of Cyllene and Arcadia rich in flocks, the luck-bringing messenger of the immortals whom Maia bare, the rich-tressed nymph.",
         "source": "Homeric Hymn IV, To Hermes (trans. Evelyn-White)",
+        "sourceId": "homeric-hymns",
+        "locator": "Hymn IV, To Hermes",
         "date": "c. 6th century BCE"
       }
     ],
@@ -641,6 +659,8 @@
       {
         "text": "I will tell of Dionysus, the son of glorious Semele, how he appeared on a jutting headland by the shore of the fruitless sea, seeming like a stripling in the first flush of manhood.",
         "source": "Homeric Hymn VII, To Dionysus (trans. Evelyn-White)",
+        "sourceId": "homeric-hymns",
+        "locator": "Hymn VII, To Dionysus",
         "date": "c. 7th-6th century BCE"
       }
     ],
@@ -686,6 +706,8 @@
       {
         "text": "I begin to sing of rich-haired Demeter, awful goddess—of her and her trim-ankled daughter whom Aidoneus rapt away, given to him by all-seeing Zeus the loud-thunderer.",
         "source": "Homeric Hymn II, To Demeter (trans. Evelyn-White)",
+        "sourceId": "homeric-hymns",
+        "locator": "Hymn II, To Demeter",
         "date": "c. 7th century BCE"
       }
     ],
@@ -726,6 +748,8 @@
       {
         "text": "Sing, clear-voiced Muses, of Hephaestus famed for inventions. With bright-eyed Athene he taught men glorious gifts throughout the world.",
         "source": "Homeric Hymn XX, To Hephaestus (trans. Evelyn-White)",
+        "sourceId": "homeric-hymns",
+        "locator": "Hymn XX, To Hephaestus",
         "date": "c. 6th-4th century BCE"
       }
     ],
@@ -771,6 +795,8 @@
       {
         "text": "Hestia, in the high dwellings of all, both deathless gods and men who walk on earth, you have gained an everlasting abode and highest honour.",
         "source": "Homeric Hymn XXIX, To Hestia (trans. Evelyn-White)",
+        "sourceId": "homeric-hymns",
+        "locator": "Hymn XXIX, To Hestia",
         "date": "c. 6th-4th century BCE"
       }
     ],
@@ -830,6 +856,8 @@
       {
         "text": "I know that I hung on a windy tree nine long nights, wounded with a spear, dedicated to Odin, myself to myself, on that tree of which no man knows from where its roots run.",
         "source": "Havamal, Poetic Edda",
+        "sourceId": "poetic-edda",
+        "locator": "Havamal",
         "date": "c. 10th century CE"
       }
     ],
@@ -938,6 +966,8 @@
       {
         "text": "He is called Asa-Thor, or Oku-Thor. He is the strongest of all gods and men, and rules over the realm which is called Thrudvang.",
         "source": "Prose Edda, Gylfaginning (trans. Anderson)",
+        "sourceId": "prose-edda",
+        "locator": "Gylfaginning",
         "date": "c. 1220 CE"
       }
     ],
@@ -1007,6 +1037,8 @@
       {
         "text": "He is the originator of deceit, and the disgrace of all gods and men.",
         "source": "Prose Edda, Gylfaginning (trans. Anderson)",
+        "sourceId": "prose-edda",
+        "locator": "Gylfaginning",
         "date": "c. 1220 CE"
       }
     ],
@@ -1050,6 +1082,8 @@
       {
         "text": "Frigg is his wife, and she knows the fate of men, although she tells not thereof.",
         "source": "Prose Edda, Gylfaginning (trans. Anderson)",
+        "sourceId": "prose-edda",
+        "locator": "Gylfaginning",
         "date": "c. 1220 CE"
       }
     ],
@@ -1100,6 +1134,8 @@
       {
         "text": "Freyja is the most famous of the goddesses. She has in heaven a dwelling which is called Folkvang, and when she rides to the battle, one half of the slain belong to her, and the other half to Odin.",
         "source": "Prose Edda, Gylfaginning (trans. Anderson)",
+        "sourceId": "prose-edda",
+        "locator": "Gylfaginning",
         "date": "c. 1220 CE"
       }
     ],
@@ -1140,6 +1176,8 @@
       {
         "text": "He is so fair of face and so bright that rays of light issue from him; and there is a plant so white that it is likened unto Balder's brow, and it is the whitest of all plants.",
         "source": "Prose Edda, Gylfaginning (trans. Anderson)",
+        "sourceId": "prose-edda",
+        "locator": "Gylfaginning",
         "date": "c. 1220 CE"
       }
     ],
@@ -1188,6 +1226,8 @@
       {
         "text": "There is yet an asa, whose name is Tyr. He is very daring and stout-hearted. He sways victory in war, wherefore warriors should call on him.",
         "source": "Prose Edda, Gylfaginning (trans. Anderson)",
+        "sourceId": "prose-edda",
+        "locator": "Gylfaginning",
         "date": "c. 1220 CE"
       }
     ],
@@ -1233,11 +1273,15 @@
       {
         "text": "Heimdal is the name of one. He is also called the white-asa. He is great and holy; born of nine maidens, all of whom were sisters.",
         "source": "Prose Edda, Gylfaginning (trans. Anderson)",
+        "sourceId": "prose-edda",
+        "locator": "Gylfaginning",
         "date": "c. 1220 CE"
       },
       {
         "text": "He hears the grass grow and the wool on the backs of the sheep, and of course all things that sound louder than these.",
         "source": "Prose Edda, Gylfaginning (trans. Anderson)",
+        "sourceId": "prose-edda",
+        "locator": "Gylfaginning",
         "date": "c. 1220 CE"
       }
     ],
@@ -1288,6 +1332,8 @@
       {
         "text": "The third asa is he who is called Njord. He dwells in Noatun, which is in heaven. He rules the course of the wind and checks the fury of the sea and of fire.",
         "source": "Prose Edda, Gylfaginning (trans. Anderson)",
+        "sourceId": "prose-edda",
+        "locator": "Gylfaginning",
         "date": "c. 1220 CE"
       }
     ],
@@ -1334,6 +1380,8 @@
       {
         "text": "Frey is the most famous of the asas. He rules over rain and sunshine, and over the fruits of the earth. It is good to call on him for harvests and peace.",
         "source": "Prose Edda, Gylfaginning (trans. Anderson)",
+        "sourceId": "prose-edda",
+        "locator": "Gylfaginning",
         "date": "c. 1220 CE"
       }
     ],
@@ -1368,6 +1416,8 @@
       {
         "text": "When the gods saw how much he grew every day, and all prophecies declared that he was predestined to become fatal to them, they resolved to make a very strong fetter.",
         "source": "Prose Edda, Gylfaginning (trans. Anderson)",
+        "sourceId": "prose-edda",
+        "locator": "Gylfaginning",
         "date": "c. 1220 CE"
       }
     ],
@@ -1416,6 +1466,8 @@
       {
         "text": "Hel he cast into Niflheim, and gave her power over nine worlds, that she should appoint abodes to them that are sent to her, namely, those who die from sickness or old age.",
         "source": "Prose Edda, Gylfaginning (trans. Anderson)",
+        "sourceId": "prose-edda",
+        "locator": "Gylfaginning",
         "date": "c. 1220 CE"
       }
     ],
@@ -1456,6 +1508,8 @@
       {
         "text": "Hail to thee, Loki, and take thou here The crystal cup of old mead; For me at least, alone of the gods, Blameless thou knowest to be.",
         "source": "Poetic Edda, Lokasenna st. 53 (trans. Bellows)",
+        "sourceId": "poetic-edda",
+        "locator": "Lokasenna st. 53",
         "date": "c. 900-1100 CE"
       }
     ],
@@ -1506,6 +1560,8 @@
       {
         "text": "Homage to thee, O Ra, at thy tremendous rising! Thou risest! Thou shinest! The heavens are rolled aside! Thou art the King of Gods, thou art the All-comprising.",
         "source": "Book of the Dead, Hymn to Ra",
+        "sourceId": "book-of-the-dead",
+        "locator": "Hymn to Ra",
         "date": "c. 1550-50 BCE"
       }
     ],
@@ -1605,11 +1661,14 @@
       {
         "text": "Glory be to thee, O Osiris Un-Nefer, thou great god in Abtu, King of Eternity, Lord of Everlastingness, God whose existence is millions of years, eldest son of Nut, begotten by Geb, Lord of the Crowns of the South and the North.",
         "source": "The Book of the Dead, Hymn to Osiris (trans. Budge)",
+        "sourceId": "book-of-the-dead",
+        "locator": "Hymn to Osiris",
         "date": "New Kingdom text; Budge translation 1895"
       },
       {
         "text": "They relate that on the first of these days Osiris was born, and at the hour of his birth a voice issued forth saying, 'The Lord of All advances to the light.'",
         "source": "Plutarch, Isis and Osiris (trans. Babbitt)",
+        "sourceId": "plutarch-isis-osiris",
         "date": "c. 100 CE"
       }
     ],
@@ -1667,6 +1726,7 @@
       {
         "text": "In Sais the statue of Athena, whom they believe to be Isis, bore the inscription: 'I am all that has been, and is, and shall be, and my robe no mortal has yet uncovered.'",
         "source": "Plutarch, Isis and Osiris (trans. Babbitt)",
+        "sourceId": "plutarch-isis-osiris",
         "date": "c. 100 CE"
       }
     ],
@@ -1716,6 +1776,7 @@
       {
         "text": "After a time Osiris asked Horus what he held to be the most noble of all things. When Horus replied, 'To avenge one's father and mother for evil done to them,' Osiris then asked him what animal he considered the most useful for them who go forth to battle.",
         "source": "Plutarch, Isis and Osiris (trans. Babbitt)",
+        "sourceId": "plutarch-isis-osiris",
         "date": "c. 100 CE"
       }
     ],
@@ -1768,6 +1829,7 @@
       {
         "text": "Typhon, having secretly measured Osiris's body and having made ready a beautiful chest of corresponding size artistically ornamented, caused it to be brought into the room where the festivity was in progress.",
         "source": "Plutarch, Isis and Osiris (trans. Babbitt) — 'Typhon' is Plutarch's Greek name for Set",
+        "sourceId": "plutarch-isis-osiris",
         "date": "c. 100 CE"
       }
     ],
@@ -1817,6 +1879,7 @@
       {
         "text": "And when the child had been found, with the help of dogs which led Isis to it, it was brought up and became her guardian and attendant, receiving the name of Anubis, and it is said to protect the gods just as dogs protect men.",
         "source": "Plutarch, Isis and Osiris (trans. Babbitt)",
+        "sourceId": "plutarch-isis-osiris",
         "date": "c. 100 CE"
       }
     ],
@@ -1893,6 +1956,7 @@
       {
         "text": "Thoth, the skillful of fingers, who wrote the books, who established the offering-loaves of the gods.",
         "source": "Book of the Dead, spell 182 (composite Egyptian scribal tradition)",
+        "sourceId": "book-of-the-dead",
         "date": "c. 1550–50 BCE"
       }
     ],
@@ -2029,6 +2093,8 @@
       {
         "text": "Homage to you, O ye gods who dwell in your Hall of Maati. I know you and I know your names. Let me not fall under your slaughtering knives.",
         "source": "The Book of the Dead, Chapter CXXV (trans. Budge)",
+        "sourceId": "book-of-the-dead",
+        "locator": "Chapter CXXV",
         "date": "c. 1550 BCE (Budge trans.)"
       }
     ],
@@ -2061,6 +2127,7 @@
       {
         "text": "And on the fifth Nephthys, to whom they give the name of Finality and the name of Aphrodite, and some also the name of Victory.",
         "source": "Plutarch, Isis and Osiris (trans. Babbitt)",
+        "sourceId": "plutarch-isis-osiris",
         "date": "c. 100 CE"
       }
     ],
@@ -2191,6 +2258,8 @@
       {
         "text": "But he, the King of Heav'n, obscure on high, bar'd his red arm, and, launching from the sky his writhen bolt, not shaking empty smoke, down to the deep abyss the flaming felon strook.",
         "source": "Virgil, Aeneid, Book VI (trans. Dryden)",
+        "sourceId": "aeneid",
+        "locator": "Book VI",
         "date": "c. 19 BCE"
       }
     ],
@@ -2238,6 +2307,8 @@
       {
         "text": "But I, who walk in awful state above, the majesty of heav'n, the sister wife of Jove, for length of years my fruitless force employ against the thin remains of ruin'd Troy!",
         "source": "Virgil, Aeneid, Book I (trans. Dryden)",
+        "sourceId": "aeneid",
+        "locator": "Book I",
         "date": "c. 19 BCE"
       }
     ],
@@ -2283,6 +2354,8 @@
       {
         "text": "Meantime imperial Neptune heard the sound of raging billows breaking on the ground. Displeas'd, and fearing for his wat'ry reign, he rear'd his awful head above the main, serene in majesty.",
         "source": "Virgil, Aeneid, Book I (trans. Dryden)",
+        "sourceId": "aeneid",
+        "locator": "Book I",
         "date": "c. 19 BCE"
       }
     ],
@@ -2324,6 +2397,8 @@
       {
         "text": "Inferior ministers, for Mars, repair his broken axletrees and blunted war, and send him forth again with furbish'd arms, to wake the lazy war with trumpets' loud alarms.",
         "source": "Virgil, Aeneid, Book VIII (trans. Dryden)",
+        "sourceId": "aeneid",
+        "locator": "Book VIII",
         "date": "c. 19 BCE"
       }
     ],
@@ -2371,6 +2446,8 @@
       {
         "text": "But Venus, anxious for her son's affairs, new counsels tries, and new designs prepares: that Cupid should assume the shape and face of sweet Ascanius, and the sprightly grace.",
         "source": "Virgil, Aeneid, Book I (trans. Dryden)",
+        "sourceId": "aeneid",
+        "locator": "Book I",
         "date": "c. 19 BCE"
       }
     ],
@@ -2417,6 +2494,8 @@
       {
         "text": "Could angry Pallas, with revengeful spleen, the Grecian navy burn, and drown the men? She, for the fault of one offending foe, the bolts of Jove himself presum'd to throw.",
         "source": "Virgil, Aeneid, Book I (trans. Dryden)",
+        "sourceId": "aeneid",
+        "locator": "Book I",
         "date": "c. 19 BCE"
       }
     ],
@@ -2461,6 +2540,8 @@
       {
         "text": "Indulgent god, propitious pow'r to Troy, swift to relieve, unwilling to destroy, directed by whose hand the Dardan dart pierc'd the proud Grecian's only mortal part.",
         "source": "Virgil, Aeneid, Book III (trans. Dryden)",
+        "sourceId": "aeneid",
+        "locator": "Book III",
         "date": "c. 19 BCE"
       }
     ],
@@ -2501,6 +2582,8 @@
       {
         "text": "But chaste Diana, who his death deplor'd, with Aesculapian herbs his life restor'd.",
         "source": "Virgil, Aeneid, Book VII (trans. Dryden)",
+        "sourceId": "aeneid",
+        "locator": "Book VII",
         "date": "c. 19 BCE"
       }
     ],
@@ -2558,6 +2641,8 @@
       {
         "text": "Your sire is Mercury, whom long before on cold Cyllene's top fair Maia bore.",
         "source": "Virgil, Aeneid, Book VIII (trans. Dryden)",
+        "sourceId": "aeneid",
+        "locator": "Book VIII",
         "date": "c. 19 BCE"
       }
     ],
@@ -2598,6 +2683,8 @@
       {
         "text": "Thou, Bacchus, god of joys and friendly cheer, and gracious Juno, both be present here!",
         "source": "Virgil, Aeneid, Book I (trans. Dryden)",
+        "sourceId": "aeneid",
+        "locator": "Book I",
         "date": "c. 19 BCE"
       }
     ],
@@ -2646,6 +2733,8 @@
       {
         "text": "'My sons,' said Vulcan, 'set your tasks aside; your strength and master-skill must now be tried. Arms for a hero forge; arms that require your force, your speed, and all your forming fire.'",
         "source": "Virgil, Aeneid, Book VIII (trans. Dryden)",
+        "sourceId": "aeneid",
+        "locator": "Book VIII",
         "date": "c. 19 BCE"
       }
     ],
@@ -2696,6 +2785,8 @@
       {
         "text": "Thou mayst not be the son-in-law of Ceres against her will. The girl should have been asked of her mother, not carried away.",
         "source": "Ovid, Metamorphoses, Book V (trans. Riley)",
+        "sourceId": "metamorphoses",
+        "locator": "Book V",
         "date": "c. 8 CE"
       }
     ],
@@ -2737,6 +2828,8 @@
       {
         "text": "With ancient Vesta from the sacred choir, the wreaths and relics of th' immortal fire.",
         "source": "Virgil, Aeneid, Book II (trans. Dryden)",
+        "sourceId": "aeneid",
+        "locator": "Book II",
         "date": "c. 19 BCE"
       }
     ],
@@ -2790,6 +2883,8 @@
       {
         "text": "And ancient Janus, with his double face, and bunch of keys, the porter of the place.",
         "source": "Virgil, Aeneid, Book VII (trans. Dryden)",
+        "sourceId": "aeneid",
+        "locator": "Book VII",
         "date": "c. 19 BCE"
       }
     ],
@@ -2837,6 +2932,7 @@
       {
         "text": "Brahma said, 'Do ye seek the protection of the Supreme of supreme deities, that Lord, the Destroyer of Asuras, the cause of all creation, protection and destruction; even Vishnu. He will provide for your welfare.'",
         "source": "Vishnu Purana (trans. Dutt, after Wilson)",
+        "sourceId": "vishnu-purana",
         "date": "c. 300-1000 CE"
       }
     ],
@@ -2877,6 +2973,8 @@
       {
         "text": "I will declare the mighty deeds of Visnu, of him who measured out the earthly regions, Who propped the highest place of congregation, thrice setting down his footstep, widely striding.",
         "source": "Rig Veda 1.154.1 (trans. Griffith)",
+        "sourceId": "rigveda",
+        "locator": "1.154.1",
         "date": "c. 1500-1200 BCE"
       }
     ],
@@ -2939,6 +3037,7 @@
       {
         "text": "And thereon, he said unto the Lord of creatures, 'let me have a name.' And the Lord said, 'O divine one, thou art named Rudra. Do not cry. Have patience.'",
         "source": "Vishnu Purana (trans. Dutt, after Wilson)",
+        "sourceId": "vishnu-purana",
         "date": "c. 300-1000 CE"
       }
     ],
@@ -2986,6 +3085,7 @@
       {
         "text": "Sri is earth, and Hari, the supporter thereof. The reverend one is contentment, and, O Maitreya, Lakshmi is permanent peace.",
         "source": "Vishnu Purana (trans. Dutt, after Wilson)",
+        "sourceId": "vishnu-purana",
         "date": "c. 300-1000 CE"
       }
     ],
@@ -3032,6 +3132,8 @@
       {
         "text": "May the divine Sarasvati, rich in her wealth, protect us well, Furthering all our thoughts with might.",
         "source": "Rig Veda 6.61.4 (trans. Griffith)",
+        "sourceId": "rigveda",
+        "locator": "6.61.4",
         "date": "c. 1500-1200 BCE"
       }
     ],
@@ -3066,6 +3168,7 @@
       {
         "text": "Rudra took to his wife Sati, and through Daksha's ire, Sati renounced her person. And then she became the daughter of Himavat by name Uma. Then the reverend Bhava again married Uma, who was his solely.",
         "source": "Vishnu Purana (trans. Dutt, after Wilson) — names her Uma, the standard alternate name for Parvati",
+        "sourceId": "vishnu-purana",
         "date": "c. 300-1000 CE"
       }
     ],
@@ -3253,6 +3356,8 @@
       {
         "text": "Then, by Sampati's counsel led, Brave Hanuman, who mocked at dread, Sprang at one wild tremendous leap Two hundred leagues across the deep.",
         "source": "Ramayana of Valmiki, Book V, Sundara Kanda (trans. Griffith)",
+        "sourceId": "ramayana",
+        "locator": "Book V, Sundara Kanda",
         "date": "c. 400 BCE-400 CE"
       }
     ],
@@ -3295,6 +3400,8 @@
       {
         "text": "From old Ikshvaku's line he came, Known to the world by Rama's name: With soul subdued, a chief of might, In Scripture versed, in glory bright.",
         "source": "Ramayana of Valmiki, Book I (trans. Griffith)",
+        "sourceId": "ramayana",
+        "locator": "Book I",
         "date": "c. 400 BCE-400 CE"
       }
     ],
@@ -3330,6 +3437,8 @@
       {
         "text": "When Righteousness Declines, O Bharata! when Wickedness Is strong, I rise, from age to age, and take Visible shape, and move a man with men, Succouring the good, thrusting the evil back, And setting Virtue on her seat again.",
         "source": "Bhagavad Gita, Ch. IV (trans. Arnold, 'The Song Celestial')",
+        "sourceId": "mahabharata",
+        "locator": "Bhagavad Gita, Ch. IV",
         "date": "c. 200 BCE"
       }
     ],
@@ -3382,6 +3491,8 @@
       {
         "text": "I will declare the manly deeds of Indra, the first that he achieved, the Thunder-wielder. He slew the Dragon, then disclosed the waters, and cleft the channels of the mountain torrents.",
         "source": "Rig Veda 1.32.1 (trans. Griffith)",
+        "sourceId": "rigveda",
+        "locator": "1.32.1",
         "date": "c. 1500-1200 BCE"
       }
     ],
@@ -3436,6 +3547,8 @@
       {
         "text": "I laud Agni, the chosen Priest, God, minister of sacrifice, The Hotar, lavishest of wealth.",
         "source": "Rig Veda 1.1.1 (trans. Griffith)",
+        "sourceId": "rigveda",
+        "locator": "1.1.1",
         "date": "c. 1500-1200 BCE"
       }
     ],
@@ -3467,6 +3580,8 @@
       {
         "text": "Nay! hideous! I have come to a hideous and polluted land,—I have! So I will perform the purification of my august person.",
         "source": "Kojiki (trans. Chamberlain), Sect. X",
+        "sourceId": "kojiki",
+        "locator": "Sect. X",
         "date": "712 CE"
       }
     ],
@@ -3508,6 +3623,8 @@
       {
         "text": "Lamentable indeed that thou earnest not sooner! I have eaten of the furnace of Hades.",
         "source": "Kojiki (trans. Chamberlain), Sect. IX",
+        "sourceId": "kojiki",
+        "locator": "Sect. IX",
         "date": "712 CE"
       }
     ],
@@ -3555,6 +3672,8 @@
       {
         "text": "The name of the Deity that was born as he thereupon washed his left august eye was the Heaven-Shining-Great-August-Deity.",
         "source": "Kojiki (trans. Chamberlain), Sect. X",
+        "sourceId": "kojiki",
+        "locator": "Sect. X",
         "date": "712 CE"
       }
     ],
@@ -3620,6 +3739,8 @@
       {
         "text": "The name of the Deity that was next born as he washed his right august eye was His Augustness, Moon-Night Possessor.",
         "source": "Kojiki (trans. Chamberlain), Sect. X",
+        "sourceId": "kojiki",
+        "locator": "Sect. X",
         "date": "712 CE"
       }
     ],
@@ -3661,11 +3782,15 @@
       {
         "text": "The name of the Deity that was next born as he washed his august nose was His Brave-Swift-Impetuous-Male-Augustness.",
         "source": "Kojiki (trans. Chamberlain), Sect. X",
+        "sourceId": "kojiki",
+        "locator": "Sect. X",
         "date": "712 CE"
       },
       {
         "text": "I wail because I wish to depart to my deceased mother's land, to the Nether Distant Land.",
         "source": "Kojiki (trans. Chamberlain), Sect. XII",
+        "sourceId": "kojiki",
+        "locator": "Sect. XII",
         "date": "712 CE"
       }
     ],
@@ -3805,6 +3930,7 @@
       {
         "text": "Thunder kami are born from Izanami's rotting body in Yomi as Izanagi flees; later art gives the drum-circle oni a name, Raijin.",
         "source": "Kojiki, Yomi episode (Chamberlain), with later folk identification",
+        "sourceId": "kojiki",
         "date": "712 CE; iconography later"
       }
     ],
@@ -3942,6 +4068,7 @@
       {
         "text": "From Murias was brought the Dagda's cauldron. No company ever went away from it unsatisfied.",
         "source": "Cath Maige Tuired (trans. Gray)",
+        "sourceId": "cath-maige-tuired",
         "date": "medieval Irish, c. 9th-12th c. CE"
       }
     ],
@@ -3987,6 +4114,7 @@
       {
         "text": "Then after the battle was won and the slaughter had been cleaned away, the Morrigan, the daughter of Ernmas, proceeded to announce the battle and the great victory which had occurred there to the royal heights of Ireland.",
         "source": "Cath Maige Tuired (trans. Gray)",
+        "sourceId": "cath-maige-tuired",
         "date": "medieval Irish, c. 9th-12th c. CE"
       }
     ],
@@ -4027,6 +4155,7 @@
       {
         "text": "From Gorias was brought the spear which Lug had. No battle was ever sustained against it, or against the man who held it in his hand.",
         "source": "Cath Maige Tuired (trans. Gray)",
+        "sourceId": "cath-maige-tuired",
         "date": "medieval Irish, c. 9th-12th c. CE"
       }
     ],
@@ -4074,6 +4203,7 @@
       {
         "text": "Brig came and keened for her son. At first she shrieked, in the end she wept. Then for the first time weeping and shrieking were heard in Ireland.",
         "source": "Cath Maige Tuired (trans. Gray)",
+        "sourceId": "cath-maige-tuired",
         "date": "medieval Irish, c. 9th-12th c. CE"
       }
     ],
@@ -4108,6 +4238,7 @@
       {
         "text": "Then after the preparation for the battle had been settled, Lug and the Dagda and Ogma went to the three gods of Danu, and they gave Lug equipment for the battle.",
         "source": "Cath Maige Tuired (trans. Gray)",
+        "sourceId": "cath-maige-tuired",
         "date": "medieval Irish, c. 9th-12th c. CE"
       }
     ],
@@ -4148,6 +4279,7 @@
       {
         "text": "Nuadu's hand was cut off in that battle. So with Credne the brazier helping him, Dian Cecht the physician put on him a silver hand that moved as well as any other hand.",
         "source": "Cath Maige Tuired (trans. Gray)",
+        "sourceId": "cath-maige-tuired",
         "date": "medieval Irish, c. 9th-12th c. CE"
       }
     ],
@@ -4191,6 +4323,7 @@
       {
         "text": "Now as to Manannan the Proud, son of Lir, after he had made places for the rest of the Tuatha de Danaan to live in, he went away out of Ireland himself.",
         "source": "Lady Gregory, Gods and Fighting Men (1904)",
+        "sourceId": "gods-and-fighting-men",
         "date": "1904 CE (compilation of medieval Irish sources)"
       }
     ],
@@ -4224,6 +4357,7 @@
       {
         "text": "In his hand he held a silver harp with strings of red gold, and the sound of its strings was sweeter than all music under the sky.",
         "source": "Lady Gregory, Gods and Fighting Men (1904)",
+        "sourceId": "gods-and-fighting-men",
         "date": "1904 CE (compilation of medieval Irish sources)"
       }
     ],
@@ -4296,6 +4430,7 @@
       {
         "text": "Then Ogma threw the flagstone, which required fourscore yoke of oxen to move it, through the side of the hall so that it lay outside against Tara.",
         "source": "Cath Maige Tuired (trans. Gray)",
+        "sourceId": "cath-maige-tuired",
         "date": "medieval Irish, c. 9th-12th c. CE"
       }
     ],
@@ -4327,6 +4462,7 @@
       {
         "text": "Dian Cecht put into it every herb that grew in Ireland.",
         "source": "Cath Maige Tuired (trans. Gray), on the healing well of Slaine",
+        "sourceId": "cath-maige-tuired",
         "date": "medieval Irish, c. 9th-12th c. CE"
       }
     ],
@@ -4370,6 +4506,7 @@
       {
         "text": "Goibniu the smith was in the smithy making swords and spears and javelins. He would make those weapons with three strokes.",
         "source": "Cath Maige Tuired (trans. Gray)",
+        "sourceId": "cath-maige-tuired",
         "date": "medieval Irish, c. 9th-12th c. CE"
       }
     ],
@@ -4401,6 +4538,7 @@
       {
         "text": "Those that did cures by herbs said she had power over the whole body; and she used to give gifts of poetry and of music, and they called her the Leanan Sidhe, the Sweetheart of the Sidhe.",
         "source": "Lady Gregory, Gods and Fighting Men (1904)",
+        "sourceId": "gods-and-fighting-men",
         "date": "1904 CE (compilation of medieval Irish sources)"
       }
     ],
@@ -4432,6 +4570,7 @@
       {
         "text": "Many great battles will happen for your sake to Echaid of Midhe; destruction will fall upon the Sidhe, and war on thousands of men.",
         "source": "Lady Gregory, Gods and Fighting Men (1904)",
+        "sourceId": "gods-and-fighting-men",
         "date": "1904 CE (compilation of medieval Irish sources)"
       }
     ],
@@ -4470,6 +4609,7 @@
       {
         "text": "You are welcome, old man. I have known for many days that you would come. I am exceedingly indisposed. The malady affects my entire system, and I can use neither my hands nor feet.",
         "source": "Lewis Spence, The Myths of Mexico and Peru (1913), retelling Sahagún",
+        "sourceId": "myths-mexico-peru",
         "date": "16th c. account (Spence 1913)"
       }
     ],
@@ -4511,6 +4651,7 @@
       {
         "text": "O brother, hearken attentively to what I have to say to you. I am fully informed of what is about to happen.",
         "source": "Lewis Spence, The Myths of Mexico and Peru (1913)",
+        "sourceId": "myths-mexico-peru",
         "date": "Spence 1913, from Aztec myth"
       }
     ],
@@ -4554,6 +4695,7 @@
       {
         "text": "How are you, my son? I have brought you a drug which you should drink, and which will put an end to the course of your malady.",
         "source": "Lewis Spence, The Myths of Mexico and Peru (1913), retelling Sahagún",
+        "sourceId": "myths-mexico-peru",
         "date": "16th c. account (Spence 1913)"
       }
     ],
@@ -4595,6 +4737,7 @@
       {
         "text": "Under the shadow of the mountain of Coatepec, near the Toltec city of Tollan, there dwelt a pious widow called Coatlicue, the mother of a tribe of Indians called Centzonuitznaua.",
         "source": "Lewis Spence, The Myths of Mexico and Peru (1913)",
+        "sourceId": "myths-mexico-peru",
         "date": "Spence 1913, from Aztec myth"
       }
     ],
@@ -4627,6 +4770,7 @@
       {
         "text": "Xochiquetzal, goddess of flowers and love, dwelt in the place above the heavens called Tamoanchan.",
         "source": "Florentine Codex",
+        "sourceId": "florentine-codex",
         "date": "16th Century"
       }
     ],
@@ -4685,6 +4829,7 @@
       {
         "text": "She was called the eater of filth. She ate the sins of men who confessed to her priest.",
         "source": "Florentine Codex",
+        "sourceId": "florentine-codex",
         "date": "16th Century"
       }
     ],
@@ -4723,6 +4868,7 @@
       {
         "text": "Mayahuel was the goddess of maguey. She was said to have four hundred breasts with which she nursed her four hundred children.",
         "source": "Florentine Codex",
+        "sourceId": "florentine-codex",
         "date": "16th Century"
       }
     ],
@@ -4761,6 +4907,7 @@
       {
         "text": "Tonatiuh, the sun, demands hearts. Without chalchiuatl, the precious water, he will not move.",
         "source": "Leyenda de los Soles",
+        "sourceId": "leyenda-de-los-soles",
         "date": "16th Century"
       }
     ],
@@ -4814,6 +4961,7 @@
       {
         "text": "Xolotl, they said, was unwilling to die. He fled, transforming into maize, into maguey, and finally into the axolotl of the water.",
         "source": "Florentine Codex",
+        "sourceId": "florentine-codex",
         "date": "16th Century"
       }
     ],
@@ -4862,6 +5010,7 @@
       {
         "text": "He struck off her head and cast her down from Coatepec, and her body fell to pieces at the foot of the mountain.",
         "source": "Florentine Codex",
+        "sourceId": "florentine-codex",
         "date": "16th Century"
       }
     ],
@@ -4905,6 +5054,7 @@
       {
         "text": "He is the old god, Huehueteotl. He dwells in the navel of the earth, in the enclosure of turquoise.",
         "source": "Florentine Codex",
+        "sourceId": "florentine-codex",
         "date": "16th Century"
       }
     ],
@@ -5001,6 +5151,7 @@
       {
         "text": "The Jade Emperor in his Lingxiao Palace rules the three realms of Heaven, Earth, and the Underworld.",
         "source": "Journey to the West",
+        "sourceId": "journey-to-the-west",
         "date": "1592 CE"
       }
     ],
@@ -5067,6 +5218,8 @@
       {
         "text": "My name is Sun Wukong. I was born of Heaven and Earth, nourished by the sun and moon, formed by the creative essence of the universe!",
         "source": "Journey to the West, Chapter 1",
+        "sourceId": "journey-to-the-west",
+        "locator": "Chapter 1",
         "date": "1592 CE"
       }
     ],
@@ -5235,6 +5388,7 @@
       {
         "text": "True Lord Erlang, with his celestial hound and truth-seeing eye, was the only warrior of Heaven who could match the Great Sage.",
         "source": "Journey to the West",
+        "sourceId": "journey-to-the-west",
         "date": "1592 CE"
       }
     ],
@@ -5243,10 +5397,12 @@
         "pantheonId": "hindu-pantheon",
         "deityId": "shiva",
         "note": "Both possess a powerful third eye that sees truth and can unleash destructive power"
-      },
+      }
+    ],
+    "heroParallels": [
       {
         "pantheonId": "greek-pantheon",
-        "deityId": "heracles",
+        "heroId": "heracles",
         "note": "Both are semi-divine warriors of immense strength who serve the king of the gods"
       }
     ],
@@ -5620,6 +5776,7 @@
       {
         "text": "When Yao was ruler, the ten suns all rose at once, scorching the crops and killing plants. Yao ordered Yi to shoot at them. Yi shot nine of them.",
         "source": "Huainanzi",
+        "sourceId": "huainanzi",
         "date": "139 BCE"
       }
     ],
@@ -5628,10 +5785,12 @@
         "pantheonId": "greek-pantheon",
         "deityId": "apollo",
         "note": "Both are divine archers associated with the sun, though Apollo drives the sun while Hou Yi shot them down"
-      },
+      }
+    ],
+    "heroParallels": [
       {
         "pantheonId": "hindu-pantheon",
-        "deityId": "arjuna",
+        "heroId": "arjuna",
         "note": "Both are legendary archers who accomplish seemingly impossible feats"
       }
     ],
@@ -5668,6 +5827,7 @@
       {
         "text": "In ancient times, the four poles of the world collapsed, the nine regions were rent asunder, Heaven did not cover all, and Earth did not support all. Nuwa smelted stones of five colors to repair the azure sky.",
         "source": "Huainanzi",
+        "sourceId": "huainanzi",
         "date": "139 BCE"
       }
     ],
@@ -5679,7 +5839,7 @@
       },
       {
         "pantheonId": "mesopotamian-pantheon",
-        "deityId": "aruru",
+        "deityId": "ninhursag",
         "note": "Both are creator goddesses who fashion humans from clay"
       }
     ],
@@ -5906,6 +6066,8 @@
       {
         "text": "He split her like a shellfish into two parts: half of her he set up as a ceiling, the sky; he pulled down the bar and posted guards. He directed them not to let her waters escape.",
         "source": "Enuma Elish, Tablet IV",
+        "sourceId": "enuma-elish",
+        "locator": "Tablet IV",
         "date": "c. 1100 BCE"
       }
     ],
@@ -6035,6 +6197,8 @@
       {
         "text": "Mother Tiamat, who fashioned all things, made in addition eleven monsters. Among the gods her children she elevated Kingu and made him chief among them.",
         "source": "Enuma Elish, Tablet I",
+        "sourceId": "enuma-elish",
+        "locator": "Tablet I",
         "date": "c. 1100 BCE"
       }
     ],
@@ -6168,13 +6332,16 @@
       {
         "text": "He who saw the Deep, the foundation of the country, who knew the seas, was wise in all matters.",
         "source": "Epic of Gilgamesh, Tablet I (Standard Babylonian Version)",
+        "sourceId": "epic-of-gilgamesh",
+        "locator": "Tablet I",
         "date": "c. 1200-1000 BCE"
       }
     ],
-    "crossPantheonParallels": [
+    "crossPantheonParallels": [],
+    "heroParallels": [
       {
         "pantheonId": "greek-pantheon",
-        "deityId": "heracles",
+        "heroId": "heracles",
         "note": "Both are demigod heroes of superhuman strength who perform legendary feats"
       }
     ],
@@ -6208,6 +6375,8 @@
       {
         "text": "With the gazelles he feeds on grass, with the wild beasts he drinks at the water-hole. His heart delights with the wild creatures in the water.",
         "source": "Epic of Gilgamesh, Tablet I (Standard Babylonian Version)",
+        "sourceId": "epic-of-gilgamesh",
+        "locator": "Tablet I",
         "date": "c. 1200-1000 BCE"
       }
     ],
@@ -6246,6 +6415,7 @@
       {
         "text": "Only the Maker, Modeler alone, Sovereign Plumed Serpent, the Bearers, Begetters, were in the water, a glittering light.",
         "source": "Popol Vuh",
+        "sourceId": "popol-vuh",
         "date": "c. 1550 CE (recording ancient traditions)"
       }
     ],
@@ -6390,7 +6560,7 @@
     "imageUrl": "/deities/chaac.png",
     "crossPantheonParallels": [
       {
-        "pantheonId": "aztec-pantheon",
+        "pantheonId": "mesoamerican-pantheon",
         "deityId": "tlaloc",
         "note": "Tlaloc is the Aztec equivalent of Chaac, both being rain gods essential to maize agriculture"
       },
@@ -6408,6 +6578,7 @@
       {
         "text": "Chac, the rain-god, is the possessor of an elongated nose, not unlike the proboscis of a tapir, which of course is the spout whence comes the rain which he blows over the earth.",
         "source": "Lewis Spence, The Myths of Mexico and Peru (1913)",
+        "sourceId": "myths-mexico-peru",
         "date": "Spence 1913, from Maya sources"
       }
     ],
@@ -6435,12 +6606,13 @@
       {
         "text": "The lords of Xibalba are One Death and Seven Death.",
         "source": "Popol Vuh",
+        "sourceId": "popol-vuh",
         "date": "c. 1550 CE (recording ancient traditions)"
       }
     ],
     "crossPantheonParallels": [
       {
-        "pantheonId": "aztec-pantheon",
+        "pantheonId": "mesoamerican-pantheon",
         "deityId": "mictlantecuhtli",
         "note": "Both are skeletal death gods ruling the underworld"
       },
@@ -6478,6 +6650,7 @@
       {
         "text": "Tlaloc was a great god among the Mexicans. He was lord of the earthly paradise called Tlalocan.",
         "source": "Florentine Codex",
+        "sourceId": "florentine-codex",
         "date": "16th Century"
       }
     ],
@@ -6528,6 +6701,7 @@
       {
         "text": "And the priests who wore the skins of the captives went about the city, going from house to house, visiting and demanding gifts.",
         "source": "Florentine Codex",
+        "sourceId": "florentine-codex",
         "date": "16th Century"
       }
     ],
@@ -6571,6 +6745,7 @@
       {
         "text": "And Quetzalcoatl went to Mictlan to the Lord and Lady of the Dead.",
         "source": "Leyenda de los Soles",
+        "sourceId": "leyenda-de-los-soles",
         "date": "16th Century"
       }
     ],
@@ -6616,6 +6791,7 @@
       {
         "text": "And the skull of One Hunahpu was there in the fork of the tree.",
         "source": "Popol Vuh",
+        "sourceId": "popol-vuh",
         "date": "c. 1550 CE (recording ancient traditions)"
       }
     ],
@@ -6659,13 +6835,14 @@
       {
         "text": "And this is the great defeat of the rulers of Xibalba: only through a miracle did the boys accomplish it.",
         "source": "Popol Vuh",
+        "sourceId": "popol-vuh",
         "date": "c. 1550 CE (recording ancient traditions)"
       }
     ],
     "crossPantheonParallels": [
       {
         "pantheonId": "greek-pantheon",
-        "deityId": "castor-pollux",
+        "deityId": "dioscuri",
         "note": "Both are divine twin heroes"
       },
       {
@@ -6708,6 +6885,7 @@
       {
         "text": "Chalchiuhtlicue was the goddess of water - of the seas, rivers, and lakes. She was the wife of Tlaloc.",
         "source": "Florentine Codex",
+        "sourceId": "florentine-codex",
         "date": "16th Century"
       }
     ],
@@ -8079,6 +8257,7 @@
       {
         "text": "Ame-no-Uzume-no-Mikoto bound up her sleeves with a cord of heavenly hikage vine, tied around her head a head-band of the heavenly masaki vine, bound together bundles of sasa leaves to hold in her hands, and overturning a bucket before the heavenly rock-cave door, stamped resoundingly upon it.",
         "source": "Kojiki",
+        "sourceId": "kojiki",
         "date": "712 CE"
       }
     ],
@@ -8130,6 +8309,7 @@
       {
         "text": "Through giving birth to this child, her august private parts were burned, and she sickened and lay down.",
         "source": "Kojiki",
+        "sourceId": "kojiki",
         "date": "712 CE"
       }
     ],
@@ -8192,11 +8372,13 @@
       {
         "text": "Then Oho-kuni-nushi-no-Kami appeared, and made and consolidated this land together with the Dwarf Deity Sukuna-biko-na.",
         "source": "Kojiki",
+        "sourceId": "kojiki",
         "date": "712 CE"
       },
       {
         "text": "If thou wilt rule the visible affairs, I will rule the unseen. If thou wilt build me a palace with columns broad and high, I will dwell there.",
         "source": "Nihon Shoki",
+        "sourceId": "nihon-shoki",
         "date": "720 CE"
       }
     ],
@@ -8246,6 +8428,7 @@
       {
         "text": "And ready-witted Prometheus he bound with inextricable bonds, cruel chains, and drove a shaft through his middle, and set on him a long-winged eagle, which used to eat his immortal liver.",
         "source": "Hesiod, Theogony",
+        "sourceId": "theogony",
         "date": "c. 700 BCE"
       },
       {
@@ -8303,11 +8486,13 @@
       {
         "text": "Perseus, after leaving the daughters of Phorcys, made his way to the Gorgons. They were sleeping at that moment. Perseus cut off Medusa's head, and flew back.",
         "source": "Apollodorus, Bibliotheca",
+        "sourceId": "library-apollodorus",
         "date": "c. 100 CE"
       },
       {
         "text": "Her the Deliverer slew, who on his feet had wings; and one eye, shared in turn, betrayed the Gorgons.",
         "source": "Ovid, Metamorphoses",
+        "sourceId": "metamorphoses",
         "date": "c. 8 CE"
       }
     ],
@@ -8360,11 +8545,13 @@
       {
         "text": "But he secretly put in my mouth sweet food, a pomegranate seed, and forced me to taste against my will.",
         "source": "Homeric Hymn to Demeter",
+        "sourceId": "homeric-hymns",
         "date": "c. 650 BCE"
       },
       {
         "text": "There queenly Persephone received me kindly, and gave me food and drink, and every day they come who dwell beneath and hold their sacrifices.",
         "source": "Homer, Odyssey",
+        "sourceId": "odyssey",
         "date": "c. 750 BCE"
       }
     ],
@@ -8375,7 +8562,7 @@
         "note": "Proserpina is the Roman name for this goddess, kept here as an alias rather than a second article. Ovid's account, told in The Rape of Proserpina, sets the abduction in Sicily and is not the same text as the Homeric Hymn to Demeter."
       },
       {
-        "pantheonId": "sumerian-pantheon",
+        "pantheonId": "mesopotamian-pantheon",
         "deityId": "ereshkigal",
         "note": "Both are queens of the underworld, though Ereshkigal was always a chthonic deity rather than an abducted goddess"
       }
@@ -8724,6 +8911,7 @@
       {
         "text": "In Yucatan the sun-god was known as Kinich-ahau (Lord of the Face of the Sun). He was identified with the Fire-bird, or Arara, and was thus called Kinich-Kakmo.",
         "source": "Lewis Spence, The Myths of Mexico and Peru (1913)",
+        "sourceId": "myths-mexico-peru",
         "date": "Spence 1913, from Maya sources"
       }
     ],
@@ -8755,6 +8943,7 @@
       {
         "text": "Brinton calls this god Ghanan, and Schellhas thinks he may be identical with a deity Yum Kaax, whose name means \"Lord of the Harvest Fields.\"",
         "source": "Lewis Spence, The Myths of Mexico and Peru (1913)",
+        "sourceId": "myths-mexico-peru",
         "date": "Spence 1913, from Maya sources"
       }
     ],
@@ -8824,6 +9013,7 @@
       {
         "text": "The black god Ekchuah was the god of merchants and cacao-planters. He is represented in the manuscripts several times.",
         "source": "Lewis Spence, The Myths of Mexico and Peru (1913)",
+        "sourceId": "myths-mexico-peru",
         "date": "Spence 1913, from Maya sources"
       }
     ],
@@ -8862,6 +9052,7 @@
       {
         "text": "Sahagun says of him that a fête was held in his honour, which was preceded by a rigorous fast. The people covered themselves with ornaments and jewels symbolic of the deity.",
         "source": "Lewis Spence, The Myths of Mexico and Peru (1913), citing Sahagún",
+        "sourceId": "myths-mexico-peru",
         "date": "16th c. account (Spence 1913)"
       }
     ],
@@ -8902,6 +9093,7 @@
       {
         "text": "The victim sacrificed at the Xalaquia wore a ritual dress made from the fibres of the aloe, and with this garment the maize-god Centeotl was clothed.",
         "source": "Lewis Spence, The Myths of Mexico and Peru (1913)",
+        "sourceId": "myths-mexico-peru",
         "date": "Spence 1913, from Aztec sources"
       }
     ],
@@ -8939,11 +9131,13 @@
       {
         "text": "And her sons, whom she bore, great Heaven used to call Titans as a term of reproach... but her youngest, wily Cronos the most terrible of her children, hated his lusty sire.",
         "source": "Hesiod, Theogony (trans. Evelyn-White)",
+        "sourceId": "theogony",
         "date": "c. 700 BCE"
       },
       {
         "text": "But great Cronos the wily took courage and answered his dear mother: 'Mother, I will undertake to do this deed.'",
         "source": "Hesiod, Theogony (trans. Evelyn-White)",
+        "sourceId": "theogony",
         "date": "c. 700 BCE"
       }
     ],
@@ -9031,11 +9225,13 @@
       {
         "text": "Verily at the first Chaos came to be, but next wide-bosomed Earth, the ever-sure foundation of all the deathless ones.",
         "source": "Hesiod, Theogony (trans. Evelyn-White)",
+        "sourceId": "theogony",
         "date": "c. 700 BCE"
       },
       {
         "text": "And Earth first bare starry Heaven, equal to herself, to cover her on every side, and to be an ever-sure abiding-place for the blessed gods.",
         "source": "Hesiod, Theogony (trans. Evelyn-White)",
+        "sourceId": "theogony",
         "date": "c. 700 BCE"
       }
     ],
@@ -9123,11 +9319,13 @@
       {
         "text": "And Earth first bare starry Heaven, equal to herself, to cover her on every side, and to be an ever-sure abiding-place for the blessed gods.",
         "source": "Hesiod, Theogony (trans. Evelyn-White)",
+        "sourceId": "theogony",
         "date": "c. 700 BCE"
       },
       {
         "text": "These sons whom he begot were the most terrible of children, and they hated their own father from the first.",
         "source": "Hesiod, Theogony (trans. Evelyn-White)",
+        "sourceId": "theogony",
         "date": "c. 700 BCE"
       }
     ],
@@ -9200,11 +9398,13 @@
       {
         "text": "Zeus the son of Cronos honoured her above all: he gave her splendid gifts, to have a share of the earth and the unfruitful sea.",
         "source": "Hesiod, Theogony (trans. Evelyn-White)",
+        "sourceId": "theogony",
         "date": "c. 700 BCE"
       },
       {
         "text": "Hecate with bright veil... came near, and spoke to her, and much she lamented and clasped her in her arms.",
         "source": "Homeric Hymn to Demeter (trans. Evelyn-White)",
+        "sourceId": "homeric-hymns",
         "date": "c. 7th century BCE"
       }
     ],
@@ -9290,11 +9490,15 @@
       {
         "text": "Of Ymir's flesh the earth was made, and of his blood the sea, of his bones the hills, of his hair the trees, of his skull the sky.",
         "source": "Grimnismal, Poetic Edda (trans. Bellows)",
+        "sourceId": "poetic-edda",
+        "locator": "Grimnismal",
         "date": "c. 10th-13th century CE (manuscript compiled 13th century)"
       },
       {
         "text": "It is said that when he slept he fell into a sweat, and then there grew under his left hand a man and a woman.",
         "source": "Snorri Sturluson, Prose Edda, Gylfaginning (trans. Brodeur)",
+        "sourceId": "prose-edda",
+        "locator": "Gylfaginning",
         "date": "c. 1220 CE"
       }
     ],
@@ -9382,11 +9586,15 @@
       {
         "text": "Then said Gangleri: 'Hodr shot Baldr with mistletoe?' ... 'That is great tidings,' said Gangleri, 'if Baldr's kinsman had not vengeance for him.'",
         "source": "Snorri Sturluson, Prose Edda, Gylfaginning (trans. Brodeur)",
+        "sourceId": "prose-edda",
+        "locator": "Gylfaginning",
         "date": "c. 1220 CE"
       },
       {
         "text": "Brodr Baldrs var borinn snimma, sa nam Oðins sonr einnættr vega.",
         "source": "Voluspa, Poetic Edda (on Vali's vengeance against Hodr)",
+        "sourceId": "poetic-edda",
+        "locator": "Voluspa",
         "date": "c. 10th century CE"
       }
     ],
@@ -9443,6 +9651,8 @@
       {
         "text": "Bragi's wife is Idun... she keeps in her box the apples which the gods must taste whensoever they grow old, and then they all become young.",
         "source": "Snorri Sturluson, Prose Edda, Gylfaginning (trans. Brodeur)",
+        "sourceId": "prose-edda",
+        "locator": "Gylfaginning",
         "date": "c. 1220 CE"
       }
     ],
@@ -9507,6 +9717,8 @@
       {
         "text": "Bragi is renowned for wisdom, and most of all for fluency of speech and skill with words. He knows most of skaldship, and after him skaldship is called bragr.",
         "source": "Snorri Sturluson, Prose Edda, Gylfaginning (trans. Brodeur)",
+        "sourceId": "prose-edda",
+        "locator": "Gylfaginning",
         "date": "c. 1220 CE"
       }
     ],
@@ -9570,11 +9782,15 @@
       {
         "text": "Then, as the king was ploughing, from the ploughed earth up sprung, a maiden springing from the furrow, whom men Sita call.",
         "source": "Ramayana of Valmiki, Bala Kanda (trans. Griffith)",
+        "sourceId": "ramayana",
+        "locator": "Bala Kanda",
         "date": "c. 400 BCE-400 CE"
       },
       {
         "text": "If thou, deluded, deem me weak, and helpless for the want of thee, thy folly shall be seen in me, protectress of mine own chastity.",
         "source": "Ramayana of Valmiki, Sundara Kanda (trans. Griffith, Sita's refusal of Ravana)",
+        "sourceId": "ramayana",
+        "locator": "Sundara Kanda",
         "date": "c. 400 BCE-400 CE"
       }
     ],
@@ -9648,11 +9864,15 @@
       {
         "text": "Ten heads and twenty arms had he, the mighty lord of Lanka's isle.",
         "source": "Ramayana of Valmiki, Uttara Kanda (trans. Griffith)",
+        "sourceId": "ramayana",
+        "locator": "Uttara Kanda",
         "date": "c. 400 BCE-400 CE"
       },
       {
         "text": "I am Ravana, dread to all the worlds, before whose might the gods themselves have fled.",
         "source": "Ramayana of Valmiki, Sundara Kanda (trans. Griffith, paraphrased boast to Sita)",
+        "sourceId": "ramayana",
+        "locator": "Sundara Kanda",
         "date": "c. 400 BCE-400 CE"
       }
     ],
@@ -9715,11 +9935,15 @@
       {
         "text": "Yama was the first to find us the way. This pasture never can be taken from us. Men born on earth will travel their own pathway to the place where our early fathers travelled.",
         "source": "Rigveda 10.14 (trans. Griffith)",
+        "sourceId": "rigveda",
+        "locator": "10.14",
         "date": "c. 1500-1200 BCE"
       },
       {
         "text": "Not thus, my sister, have the holy singers spoken of old, in heaven, upon this earth-child: not seemly is it that a sister court her brother.",
         "source": "Rigveda 10.10, the Yama-Yami dialogue (trans. Griffith)",
+        "sourceId": "rigveda",
+        "locator": "10.10",
         "date": "c. 1500-1200 BCE"
       }
     ],
@@ -10013,6 +10237,8 @@
       {
         "text": "Atum-Khoprer... you spat out as Shu, you spat out as Tefnut.",
         "source": "Pyramid Texts, Utterance 600 (trans. Faulkner, paraphrased)",
+        "sourceId": "pyramid-texts",
+        "locator": "Utterance 600",
         "date": "Old Kingdom, c. 2400-2300 BCE"
       }
     ],
@@ -10076,6 +10302,7 @@
       {
         "text": "They relate that Rhea [Nut], without the knowledge of Helios [Ra], had intercourse with Cronus [Geb], and that Helios, on detecting the intrigue, invoked a curse upon her, that she should not be delivered of her child in any month or any year.",
         "source": "Plutarch, Isis and Osiris (trans. Babbitt, using his Greek equivalents for the Egyptian gods)",
+        "sourceId": "plutarch-isis-osiris",
         "date": "c. 100 CE"
       }
     ],
@@ -10212,11 +10439,13 @@
       {
         "text": "I never had one man without another waiting in his shadow... but you're the first man I've found that wasn't jealous, or mean, or afraid.",
         "source": "Táin Bó Cúailnge, the pillow talk (trans. Kinsella)",
+        "sourceId": "tain-bo-cuailnge",
         "date": "Medieval Irish, earliest recension c. 8th-9th century CE, manuscripts 12th century"
       },
       {
         "text": "'I will follow you,' said Medb, 'until the men of Ireland fall about me, or until I take with me the bull.'",
         "source": "Táin Bó Cúailnge (paraphrased, trans. Kinsella)",
+        "sourceId": "tain-bo-cuailnge",
         "date": "Medieval Irish, earliest recension c. 8th-9th century CE"
       }
     ],
@@ -10420,11 +10649,15 @@
       {
         "text": "Tear down the house, build a boat! Abandon riches and seek survival! Spurn property, save life! Take on board the boat all living things' seed!",
         "source": "Epic of Gilgamesh, Tablet XI, Standard Babylonian Version (trans. George)",
+        "sourceId": "epic-of-gilgamesh",
+        "locator": "Tablet XI, Standard Babylonian Version",
         "date": "c. 1200-1000 BCE"
       },
       {
         "text": "The gods crowded like flies about the sacrificer.",
         "source": "Epic of Gilgamesh, Tablet XI (trans. Sandars, on the gods' response to Utnapishtim's post-flood offering)",
+        "sourceId": "epic-of-gilgamesh",
+        "locator": "Tablet XI",
         "date": "c. 1200-1000 BCE"
       }
     ],
@@ -10479,6 +10712,8 @@
       {
         "text": "And the lord of the region of the dead was named Mictlantecutli, and his consort was named Mictecacihuatl.",
         "source": "Bernardino de Sahagún, Florentine Codex, Book 3 (trans. Anderson & Dibble)",
+        "sourceId": "florentine-codex",
+        "locator": "Book 3",
         "date": "Compiled 1545-1590 CE, from earlier Nahua tradition"
       }
     ],
@@ -10617,11 +10852,15 @@
       {
         "text": "And Igor summoned the [Byzantine] envoys, and went to the hill where Perun stood, and they laid down their arms, their shields, and their gold, and swore oaths.",
         "source": "Russian Primary Chronicle, s.a. 945 (paraphrase of the treaty oath)",
+        "sourceId": "russian-primary-chronicle",
+        "locator": "s.a. 945",
         "date": "entry for 945 CE; chronicle compiled early 12th c."
       },
       {
         "text": "And Vladimir set up idols on the hill outside the palace: Perun of wood with a head of silver and a moustache of gold, and Khors, Dazhbog, Stribog, Simargl, and Mokosh.",
         "source": "Russian Primary Chronicle, s.a. 980 (paraphrase)",
+        "sourceId": "russian-primary-chronicle",
+        "locator": "s.a. 980",
         "date": "entry for 980 CE; chronicle compiled early 12th c."
       }
     ],
@@ -10660,11 +10899,15 @@
       {
         "text": "Let those who break this oath [...] be cursed by God in whom they believe, and by Perun and Volos, the cattle god.",
         "source": "Russian Primary Chronicle, s.a. 907 (paraphrase of the treaty oath)",
+        "sourceId": "russian-primary-chronicle",
+        "locator": "s.a. 907",
         "date": "entry for 907 CE; chronicle compiled early 12th c."
       },
       {
         "text": "And the Rus' who are not baptized lay down their shields and their naked swords [...] swearing for themselves and for all Rus' by Perun their god, and Volos, the god of cattle.",
         "source": "Russian Primary Chronicle, s.a. 945 (paraphrase of the treaty oath)",
+        "sourceId": "russian-primary-chronicle",
+        "locator": "s.a. 945",
         "date": "entry for 945 CE; chronicle compiled early 12th c."
       }
     ],
@@ -10701,6 +10944,8 @@
       {
         "text": "And he set up idols on the hill [...] and Mokosh.",
         "source": "Russian Primary Chronicle, s.a. 980 (paraphrase)",
+        "sourceId": "russian-primary-chronicle",
+        "locator": "s.a. 980",
         "date": "entry for 980 CE; chronicle compiled early 12th c."
       }
     ],
@@ -10774,6 +11019,8 @@
       {
         "text": "And he set up idols [...] Dazhbog [...] on the hill outside the palace.",
         "source": "Russian Primary Chronicle, s.a. 980 (paraphrase)",
+        "sourceId": "russian-primary-chronicle",
+        "locator": "s.a. 980",
         "date": "entry for 980 CE; chronicle compiled early 12th c."
       },
       {
@@ -10815,6 +11062,8 @@
       {
         "text": "And he set up idols [...] Stribog [...] on the hill outside the palace.",
         "source": "Russian Primary Chronicle, s.a. 980 (paraphrase)",
+        "sourceId": "russian-primary-chronicle",
+        "locator": "s.a. 980",
         "date": "entry for 980 CE; chronicle compiled early 12th c."
       },
       {
@@ -10856,6 +11105,8 @@
       {
         "text": "And he set up idols [...] Khors [...] on the hill outside the palace.",
         "source": "Russian Primary Chronicle, s.a. 980 (paraphrase)",
+        "sourceId": "russian-primary-chronicle",
+        "locator": "s.a. 980",
         "date": "entry for 980 CE; chronicle compiled early 12th c."
       }
     ],
@@ -10894,6 +11145,8 @@
       {
         "text": "And he set up idols [...] Simargl [...] on the hill outside the palace.",
         "source": "Russian Primary Chronicle, s.a. 980 (paraphrase)",
+        "sourceId": "russian-primary-chronicle",
+        "locator": "s.a. 980",
         "date": "entry for 980 CE; chronicle compiled early 12th c."
       }
     ],
@@ -11081,11 +11334,13 @@
       {
         "text": "A composite account drawing on Hewitt's recorded Onondaga, Seneca, and Mohawk tellings of Sky Woman's fall and the founding of Turtle Island.",
         "source": "J.N.B. Hewitt, Iroquoian Cosmology, Bureau of American Ethnology Annual Reports 21 and 43",
+        "sourceId": "iroquoian-cosmology",
         "date": "1903 and 1928"
       },
       {
         "text": "A Seneca telling of the sky woman's fall and the diving animals, recorded from named Seneca tellers.",
         "source": "Arthur C. Parker, Seneca Myths and Folk Tales",
+        "sourceId": "seneca-myths-folk-tales",
         "date": "1923"
       }
     ],
@@ -11119,11 +11374,13 @@
       {
         "text": "A Seneca telling of the Twins' birth and their shaping of the world's features, recorded from named tellers.",
         "source": "Arthur C. Parker, Seneca Myths and Folk Tales",
+        "sourceId": "seneca-myths-folk-tales",
         "date": "1923"
       },
       {
         "text": "A comparative record of Onondaga, Seneca, and Mohawk tellings of the Twins' contest.",
         "source": "J.N.B. Hewitt, Iroquoian Cosmology, Bureau of American Ethnology Annual Reports 21 and 43",
+        "sourceId": "iroquoian-cosmology",
         "date": "1903 and 1928"
       }
     ],
@@ -11157,11 +11414,13 @@
       {
         "text": "A Seneca telling of Flint's birth and his shaping of the world's difficult features, recorded from named tellers.",
         "source": "Arthur C. Parker, Seneca Myths and Folk Tales",
+        "sourceId": "seneca-myths-folk-tales",
         "date": "1923"
       },
       {
         "text": "A comparative record of Onondaga, Seneca, and Mohawk tellings of the Twins' contest.",
         "source": "J.N.B. Hewitt, Iroquoian Cosmology, Bureau of American Ethnology Annual Reports 21 and 43",
+        "sourceId": "iroquoian-cosmology",
         "date": "1903 and 1928"
       }
     ],
@@ -11191,11 +11450,13 @@
       {
         "text": "A Seneca telling of the diving animals and the growth of the earth on the turtle's back, recorded from named tellers.",
         "source": "Arthur C. Parker, Seneca Myths and Folk Tales",
+        "sourceId": "seneca-myths-folk-tales",
         "date": "1923"
       },
       {
         "text": "A comparative record of Onondaga, Seneca, and Mohawk tellings of the earth-diver episode.",
         "source": "J.N.B. Hewitt, Iroquoian Cosmology, Bureau of American Ethnology Annual Reports 21 and 43",
+        "sourceId": "iroquoian-cosmology",
         "date": "1903 and 1928"
       }
     ],
@@ -11338,5 +11599,1131 @@
     },
     "imageUrl": "/deities/naas-shaak-aankawu.png",
     "traditionRole": "Daylight Keeper"
+  },
+  {
+    "id": "helios",
+    "pantheonId": "greek-pantheon",
+    "name": "Helios",
+    "slug": "helios",
+    "originalLanguageName": {
+      "text": "Ἥλιος",
+      "language": "Ancient Greek",
+      "transliteration": "Hēlios",
+      "meaning": "Sun"
+    },
+    "alternateNames": ["Helius", "Hyperion (as epithet)", "Sol (Roman)"],
+    "gender": "male",
+    "domain": ["the sun", "sight", "oaths", "daylight"],
+    "symbols": [
+      "four-horse chariot",
+      "radiate crown",
+      "golden helmet",
+      "cattle of the sun"
+    ],
+    "description": "The Titan-born sun who drives his chariot across the sky each day and sees everything beneath it. Son of Hyperion and Theia, brother of Selene (Moon) and Eos (Dawn), Helios is the witness gods and mortals call on because nothing happens outside his gaze.",
+    "detailedBio": "## The Sun Who Sees All\n\nHesiod names Helios as a child of the Titans Hyperion and Theia, born with his sisters Selene and Eos. He is not an Olympian but an older power, and Greek poetry treats him less as a ruler than as a witness: because he crosses the whole sky every day, he sees what others miss.\n\n### Witness and Informer\n\nThat role drives his best-known appearances. In the *Homeric Hymn to Demeter* it is Helios who tells the grieving goddess that Hades carried off Persephone with Zeus's consent. In the *Odyssey*, the minstrel Demodocus sings how Helios spied Aphrodite with Ares and reported it to Hephaestus. Oaths in Homer call on him for the same reason.\n\n### The Cattle of the Sun\n\nThe *Odyssey* gives Helios sacred herds on the island of Thrinacia. When Odysseus's starving crew slaughter them, Helios demands vengeance from Zeus, and the ship is wrecked; only Odysseus survives.\n\n### Phaethon and Rhodes\n\nLater writers, above all Ovid, tell how his son Phaethon begged to drive the sun-chariot for a day and lost control of the horses until Zeus struck him down. Rhodes claimed Helios as its patron; the Colossus of Rhodes, one of the Seven Wonders, was a bronze statue of him. In Classical and later thought Helios was increasingly identified with Apollo, but the two begin as distinct gods.",
+    "originStory": "Helios was born to the Titans Hyperion and Theia, together with his sisters Selene and Eos. Hesiod lists the three light-bringers as a single brood; the Homeric Hymn to Helios names their mother Euryphaessa, 'far-shining', a title that may be another name for Theia.",
+    "importanceRank": 3,
+    "primarySources": [
+      {
+        "text": "And now, O Muse Calliope, daughter of Zeus, begin to sing of glowing Helios whom mild-eyed Euryphaessa, the far-shining one, bare to the Son of Earth and starry Heaven.",
+        "source": "Homeric Hymn 31, To Helios (trans. Evelyn-White)",
+        "date": "c. 6th century BCE",
+        "sourceId": "homeric-hymns",
+        "locator": "Hymn 31.1-3"
+      },
+      {
+        "text": "And Theia was subject in love to Hyperion and bare great Helius (Sun) and clear Selene (Moon) and Eos (Dawn) who shines upon all that are on earth and upon the deathless Gods who live in the wide heaven.",
+        "source": "Hesiod, Theogony (trans. Evelyn-White)",
+        "date": "c. 700 BCE",
+        "sourceId": "theogony",
+        "locator": "371-374"
+      }
+    ],
+    "furtherReading": [
+      {
+        "sourceId": "homeric-hymns",
+        "note": "Hymn 31 to Helios and the Hymn to Demeter, where Helios reveals Persephone's abduction"
+      },
+      {
+        "sourceId": "odyssey",
+        "note": "The cattle of the sun on Thrinacia (Book 12)"
+      },
+      {
+        "sourceId": "metamorphoses",
+        "note": "Ovid's telling of Phaethon and the sun-chariot (Books 1-2)"
+      }
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "aztec-pantheon",
+        "deityId": "tonatiuh",
+        "note": "Both are personifications of the sun who travel across the sky"
+      },
+      {
+        "pantheonId": "egyptian-pantheon",
+        "deityId": "ra",
+        "note": "Both cross the sky daily, though Ra is a creator and king of the gods while Helios is a subordinate Titan-born power"
+      },
+      {
+        "pantheonId": "mesopotamian-pantheon",
+        "deityId": "shamash",
+        "note": "Both sun gods see everything on their daily course and are invoked as witnesses of oaths and justice"
+      }
+    ],
+    "pronunciation": {
+      "ipa": "/ˈhiːliəs/",
+      "phonetic": "HEE-lee-us"
+    },
+    "worship": {
+      "temples": ["Rhodes, where the Colossus represented him"],
+      "festivals": ["Halieia (Rhodian games in his honor)"],
+      "practices": "Rhodes gave Helios civic cult with games; a Roman report says the Rhodians yearly cast a four-horse chariot into the sea for him. Elsewhere he was more often invoked than worshipped, especially as witness to oaths."
+    },
+    "imageUrl": "/deities/helios.png"
+  },
+  {
+    "id": "selene",
+    "pantheonId": "greek-pantheon",
+    "name": "Selene",
+    "slug": "selene",
+    "originalLanguageName": {
+      "text": "Σελήνη",
+      "language": "Ancient Greek",
+      "transliteration": "Selēnē",
+      "meaning": "Moon (related to selas, 'light, brightness')"
+    },
+    "alternateNames": ["Mene", "Luna (Roman)"],
+    "gender": "female",
+    "domain": ["the moon", "night", "the months"],
+    "symbols": ["crescent", "two-horse chariot", "billowing veil", "torch"],
+    "description": "The Titan-born goddess of the moon, daughter of Hyperion and Theia and sister of Helios and Eos. She drives her team across the night sky, and poets tell of her love for the sleeping shepherd Endymion.",
+    "detailedBio": "## The Moon in Her Chariot\n\nSelene is the moon itself, imagined as a goddess who bathes in Ocean and drives her horses across the sky at night. Hesiod places her with Helios and Eos among the children of Hyperion and Theia. The *Homeric Hymn to Selene* describes the radiance from her head filling the air and calls her full moon a sign and token to mortals, since the month was counted by her phases.\n\n### Endymion\n\nHer best-known myth is her love for Endymion, a beautiful young man cast into endless sleep. Sources disagree on the details: in some he is a king of Elis, in others a shepherd on Mount Latmus in Caria, and the sleep is sometimes Zeus's gift and sometimes Selene's wish. The story became a favorite subject of Roman sarcophagi, where Selene descends from her chariot toward the sleeper.\n\n### Selene and Artemis\n\nSelene is distinct from Artemis in early poetry. From the Classical period on, writers increasingly identified the moon with Artemis (as they identified the sun with Apollo), and in Roman art Luna and Diana overlap. Selene herself received little formal cult; she belongs more to poetry, astronomy, and magic than to temple worship.",
+    "originStory": "Selene was born to the Titans Hyperion and Theia, sister of Helios the sun and Eos the dawn. The Homeric Hymn to Selene adds that Zeus lay with her and that she bore a daughter, Pandia.",
+    "importanceRank": 4,
+    "primarySources": [
+      {
+        "text": "And next, sweet voiced Muses, daughters of Zeus, well-skilled in song, tell of the long-winged Moon. From her immortal head a radiance is shown from heaven and embraces earth.",
+        "source": "Homeric Hymn 32, To Selene (trans. Evelyn-White)",
+        "date": "c. 6th century BCE",
+        "sourceId": "homeric-hymns",
+        "locator": "Hymn 32.1-4"
+      },
+      {
+        "text": "And Theia was subject in love to Hyperion and bare great Helius (Sun) and clear Selene (Moon) and Eos (Dawn) who shines upon all that are on earth and upon the deathless Gods who live in the wide heaven.",
+        "source": "Hesiod, Theogony (trans. Evelyn-White)",
+        "date": "c. 700 BCE",
+        "sourceId": "theogony",
+        "locator": "371-374"
+      }
+    ],
+    "furtherReading": [
+      {
+        "sourceId": "homeric-hymns",
+        "note": "Hymn 32, the fullest early description of Selene"
+      },
+      {
+        "sourceId": "theogony",
+        "note": "Her place among the Titan-born light-bringers"
+      }
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "aztec-pantheon",
+        "deityId": "coyolxauhqui",
+        "note": "Both are lunar goddesses who traverse the night sky"
+      },
+      {
+        "pantheonId": "mesopotamian-pantheon",
+        "deityId": "sin-nanna",
+        "note": "Both are the moon personified and linked to the reckoning of months, though Nanna is a major city god and Selene had little cult"
+      },
+      {
+        "pantheonId": "japanese-pantheon",
+        "deityId": "tsukuyomi",
+        "note": "Both are moon deities born as siblings of the sun"
+      }
+    ],
+    "pronunciation": {
+      "ipa": "/sɪˈliːni/",
+      "phonetic": "sih-LEE-nee"
+    },
+    "imageUrl": "/deities/selene.png"
+  },
+  {
+    "id": "eos",
+    "pantheonId": "greek-pantheon",
+    "name": "Eos",
+    "slug": "eos",
+    "originalLanguageName": {
+      "text": "Ἠώς",
+      "language": "Ancient Greek",
+      "transliteration": "Ēōs",
+      "meaning": "Dawn (cognate with Sanskrit Uṣas and Latin Aurora)"
+    },
+    "alternateNames": ["Aurora (Roman)"],
+    "gender": "female",
+    "domain": ["dawn", "morning light"],
+    "symbols": ["saffron robe", "rosy fingers", "chariot", "wings (in art)"],
+    "description": "The goddess of dawn, sister of Helios and Selene, who rises each morning from the bed of her mortal consort Tithonus to bring light to gods and men. Homer's formula 'rosy-fingered Dawn' marks the start of countless days in the Iliad and Odyssey.",
+    "detailedBio": "## Rosy-Fingered Dawn\n\nEos is the dawn made divine. Hesiod names her with Helios and Selene as a child of Hyperion and Theia, and he also makes her mother of the winds and the stars by the Titan Astraeus. In Homer she is chiefly a time-marker: the formula of 'early-born, rosy-fingered Dawn' opens new days again and again in the *Iliad* and the *Odyssey*.\n\n### Tithonus\n\nEos is famous for carrying off beautiful young men. The most poignant story, told in the *Homeric Hymn to Aphrodite*, concerns the Trojan prince Tithonus: Eos asked Zeus to make him immortal but forgot to ask that he stay young. He aged endlessly, until she shut him away in a room where he still babbles on. Their son was Memnon, king of the Ethiopians, whom Achilles killed at Troy in the lost epic *Aethiopis*.\n\n### An Indo-European Dawn\n\nEos's name is one of the clearest inherited divine names in Greek. It is cognate with the Vedic dawn goddess Uṣas and the Latin Aurora, all from a reconstructed Proto-Indo-European *h₂éwsōs. The shared imagery of a young goddess who opens the doors of the sky, reddens the east, and returns eternally young is a long-standing topic of comparative study.",
+    "originStory": "Eos was born to the Titans Hyperion and Theia with her siblings Helios and Selene. Each morning she rises from the streams of Ocean at the eastern edge of the world to announce the sun.",
+    "importanceRank": 5,
+    "primarySources": [
+      {
+        "text": "And Theia was subject in love to Hyperion and bare great Helius (Sun) and clear Selene (Moon) and Eos (Dawn) who shines upon all that are on earth and upon the deathless Gods who live in the wide heaven.",
+        "source": "Hesiod, Theogony (trans. Evelyn-White)",
+        "date": "c. 700 BCE",
+        "sourceId": "theogony",
+        "locator": "371-374"
+      },
+      {
+        "text": "So also golden-throned Eos rapt away Tithonus who was of your race and like the deathless gods.",
+        "source": "Homeric Hymn 5, To Aphrodite (trans. Evelyn-White)",
+        "date": "c. 7th-6th century BCE",
+        "sourceId": "homeric-hymns",
+        "locator": "Hymn 5.218-219"
+      }
+    ],
+    "furtherReading": [
+      {
+        "sourceId": "homeric-hymns",
+        "note": "The Hymn to Aphrodite, for Eos and Tithonus"
+      },
+      {
+        "sourceId": "iliad",
+        "note": "The formulaic dawns that open each new day of fighting"
+      }
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "hindu-pantheon",
+        "deityId": "usha",
+        "note": "Eos and Usha share an inherited Indo-European name and much of the same imagery of a youthful dawn who opens the sky"
+      },
+      {
+        "pantheonId": "japanese-pantheon",
+        "deityId": "ame-no-uzume",
+        "note": "A thematic comparison only: Ame-no-Uzume's dance restores the sun's light, while Eos is the dawn itself"
+      }
+    ],
+    "pronunciation": {
+      "ipa": "/ˈiːɒs/",
+      "phonetic": "EE-oss"
+    },
+    "imageUrl": "/deities/eos.png"
+  },
+  {
+    "id": "tethys",
+    "pantheonId": "greek-pantheon",
+    "name": "Tethys",
+    "slug": "tethys",
+    "originalLanguageName": {
+      "text": "Τηθύς",
+      "language": "Ancient Greek",
+      "transliteration": "Tēthys",
+      "meaning": "Uncertain; possibly related to tēthē, 'grandmother, nurse'"
+    },
+    "alternateNames": [],
+    "gender": "female",
+    "domain": ["fresh waters", "rivers and springs", "primordial motherhood"],
+    "symbols": ["winged brow (in Roman mosaics)", "water"],
+    "description": "A Titaness, daughter of Gaia and Uranus and wife of her brother Oceanus. Hesiod makes her mother of the world's rivers and of the three thousand Oceanid nymphs; in the Iliad Hera calls her 'mother Tethys' and recalls being raised in her house.",
+    "detailedBio": "## Mother of Rivers\n\nTethys is one of the twelve Titans born to Gaia and Uranus. Paired with her brother Oceanus, the great river that encircles the earth, she becomes in Hesiod's *Theogony* the mother of all rivers (Nile, Alpheus, Scamander, and many more) and of the Oceanids, the three thousand nymphs of springs and streams.\n\n### Hera's Foster-Mother\n\nIn the *Iliad*, Hera recalls that when Zeus thrust Cronus beneath the earth, she was taken to the house of Oceanus and Tethys, who reared her. The same passage calls Oceanus the source from which the gods are sprung and Tethys their mother, an alternative to Hesiod's cosmogony that has drawn comparison with Near Eastern pairs such as Apsu and Tiamat.\n\n### Little Myth, Little Cult\n\nTethys has almost no narrative of her own and no known temple cult. She is a genealogical figure whose importance lies in the offspring and fosterlings she gathers around her. Later Roman mosaics show her with small wings on her brow, and Ovid has Juno persuade Tethys and Oceanus to bar the Great Bear from their waters, explaining why the constellation never sets.",
+    "originStory": "Tethys was among the children Gaia bore to Uranus, the generation of Titans that preceded the Olympians. She married her brother Oceanus and bore him the rivers and the Oceanid nymphs.",
+    "importanceRank": 6,
+    "primarySources": [
+      {
+        "text": "But afterwards she lay with Heaven and bare deep-swirling Oceanus, Coeus and Crius and Hyperion and Iapetus, Theia and Rhea, Themis and Mnemosyne and gold-crowned Phoebe and lovely Tethys.",
+        "source": "Hesiod, Theogony (trans. Evelyn-White)",
+        "date": "c. 700 BCE",
+        "sourceId": "theogony",
+        "locator": "132-136 (Theoi section 134)"
+      },
+      {
+        "text": "And Tethys bare to Ocean eddying rivers, Nilus, and Alpheus, and deep-swirling Eridanus, Strymon, and Meander, and the fair stream of Ister, and Phasis.",
+        "source": "Hesiod, Theogony (trans. Evelyn-White)",
+        "date": "c. 700 BCE",
+        "sourceId": "theogony",
+        "locator": "337-340 (Theoi section 334)"
+      }
+    ],
+    "furtherReading": [
+      {
+        "sourceId": "theogony",
+        "note": "The catalogue of rivers and Oceanids born to Tethys and Oceanus"
+      },
+      {
+        "sourceId": "iliad",
+        "note": "Book 14, where Hera recalls being fostered by Oceanus and Tethys"
+      }
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "african-pantheon",
+        "deityId": "yemoja",
+        "note": "Both are mother goddesses of waters and of many offspring"
+      },
+      {
+        "pantheonId": "mesopotamian-pantheon",
+        "deityId": "tiamat",
+        "note": "Iliad 14 makes Oceanus and Tethys the origin of the gods, a watery primordial couple often compared with Apsu and Tiamat"
+      }
+    ],
+    "pronunciation": {
+      "ipa": "/ˈtiːθɪs/",
+      "phonetic": "TEE-thiss"
+    },
+    "imageUrl": "/deities/tethys.png"
+  },
+  {
+    "id": "asclepius",
+    "pantheonId": "greek-pantheon",
+    "name": "Asclepius",
+    "slug": "asclepius",
+    "originalLanguageName": {
+      "text": "Ἀσκληπιός",
+      "language": "Ancient Greek",
+      "transliteration": "Asklēpios",
+      "meaning": "Uncertain etymology"
+    },
+    "alternateNames": ["Asklepios", "Aesculapius (Roman)"],
+    "gender": "male",
+    "domain": ["healing", "medicine", "physicians"],
+    "symbols": ["staff with a single coiled serpent", "serpents", "dogs"],
+    "description": "The healer god, son of Apollo and the mortal Coronis, trained in medicine by the centaur Chiron. His skill grew so great that he raised the dead, and Zeus struck him with a thunderbolt; he was nonetheless worshipped across the Greek and Roman world at sanctuaries where the sick slept in hope of a cure.",
+    "detailedBio": "## Son of Apollo\n\nThe *Homeric Hymn to Asclepius* names him son of Apollo and of Coronis, daughter of King Phlegyas, born in the Dotian plain of Thessaly. Pindar's third *Pythian Ode* tells the darker version: Coronis was unfaithful to Apollo while carrying his child, Artemis killed her, and Apollo snatched the infant from her funeral pyre and gave him to the centaur Chiron to raise and teach.\n\n### The Healer Struck Down\n\nIn Homer, Asclepius is still a mortal physician-king whose sons Machaon and Podalirius serve as healers at Troy. Later poets make his skill boundless: he raised the dead, and Zeus, fearing the order of mortality overturned, killed him with a thunderbolt. Apollo's revenge on the Cyclopes who forged the bolt led to his year of servitude to Admetus.\n\n### Sanctuaries of Healing\n\nWhatever his mythic death, Asclepius became one of the most widely worshipped gods of the Greek world. His great sanctuary at Epidaurus, and others at Kos, Pergamon, and Athens, practiced incubation: the sick slept in a sacred hall hoping the god would heal them or prescribe a cure in a dream. Inscriptions at Epidaurus record the cures claimed. In 293 BCE the cult was brought to Rome, where he was worshipped as Aesculapius on the Tiber Island. His snake-entwined staff remains a symbol of medicine; his daughters included Hygieia (Health) and Panacea (All-Healing).",
+    "originStory": "Asclepius was the son of Apollo and Coronis. When Coronis was killed for her infidelity, Apollo rescued the unborn child from her pyre and entrusted him to the centaur Chiron, who taught him the healing arts.",
+    "importanceRank": 3,
+    "primarySources": [
+      {
+        "text": "I begin to sing of Asclepius, son of Apollo and healer of sicknesses. In the Dotian plain fair Coronis, daughter of King Phlegyas, bare him, a great joy to men, a soother of cruel pangs.",
+        "source": "Homeric Hymn 16, To Asclepius (trans. Evelyn-White)",
+        "date": "c. 6th century BCE",
+        "sourceId": "homeric-hymns",
+        "locator": "Hymn 16.1-4"
+      },
+      {
+        "text": "Asclepius, taught by Chiron, healed every kind of sickness, but when he was tempted by gold to bring back a man already dead, Zeus hurled his thunderbolt and took the life from both.",
+        "source": "Pindar, Pythian Ode 3.45-58 (paraphrase)",
+        "date": "c. 474 BCE"
+      }
+    ],
+    "furtherReading": [
+      {
+        "sourceId": "homeric-hymns",
+        "note": "The short Hymn 16 to Asclepius"
+      },
+      {
+        "sourceId": "iliad",
+        "note": "Machaon and Podalirius, the sons of Asclepius who heal the wounded at Troy"
+      },
+      {
+        "sourceId": "library-apollodorus",
+        "note": "Book 3 on Asclepius raising the dead and his death by thunderbolt"
+      }
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "african-pantheon",
+        "deityId": "osanyin",
+        "note": "Both are gods of healing and medicine"
+      },
+      {
+        "pantheonId": "japanese-pantheon",
+        "deityId": "okuninushi",
+        "note": "Both are associated with medicine and healing, and both undergo death and restoration in their myths"
+      },
+      {
+        "pantheonId": "celtic-pantheon",
+        "deityId": "dian-cecht",
+        "note": "Both are divine physicians whose healing reaches toward restoring the dead"
+      }
+    ],
+    "pronunciation": {
+      "ipa": "/æˈskliːpiəs/",
+      "phonetic": "ass-KLEE-pee-us"
+    },
+    "worship": {
+      "temples": [
+        "Sanctuary of Asclepius at Epidaurus",
+        "Asclepieion of Kos",
+        "Asclepieion of Pergamon",
+        "Temple of Aesculapius on the Tiber Island, Rome"
+      ],
+      "festivals": [
+        "Asclepieia (festivals at Epidaurus and Athens)",
+        "Epidauria at Athens, within the Eleusinian Mysteries"
+      ],
+      "practices": "Incubation: the sick purified themselves, offered sacrifice, and slept in the sanctuary's abaton hoping for a healing dream. Votive models of healed body parts and inscribed cure records were left at the shrines."
+    },
+    "imageUrl": "/deities/asclepius.png"
+  },
+  {
+    "id": "plutus",
+    "pantheonId": "greek-pantheon",
+    "name": "Plutus",
+    "slug": "plutus",
+    "originalLanguageName": {
+      "text": "Πλοῦτος",
+      "language": "Ancient Greek",
+      "transliteration": "Ploutos",
+      "meaning": "Wealth"
+    },
+    "alternateNames": ["Ploutos"],
+    "gender": "male",
+    "domain": ["wealth", "agricultural abundance"],
+    "symbols": [
+      "cornucopia",
+      "child held by Eirene (Peace) or Tyche (Fortune)"
+    ],
+    "description": "The god of wealth, son of Demeter and the hero Iasion, born in a thrice-plowed field on Crete. Originally the wealth of the harvest, he became the personification of riches in general, most memorably as the blind god of Aristophanes' comedy.",
+    "detailedBio": "## Wealth from the Field\n\nHesiod tells how Demeter lay with the hero Iasion in a thrice-plowed fallow field on Crete and bore Plutus, a kindly god who goes everywhere over land and sea and makes rich whoever finds him. The story roots wealth in grain: in an agrarian world, the harvest was riches.\n\n### Blind Wealth\n\nBy the Classical period Plutus had become an abstract personification of money and fortune. Aristophanes' last surviving comedy, *Plutus* (388 BCE), builds its plot on the idea that Zeus blinded him so he could not tell good people from bad, which is why the wicked prosper. When the god's sight is restored at a sanctuary of Asclepius, wealth flows to the honest, and the gods lose their offerings.\n\n### Peace Holding Wealth\n\nPlutus is best known in art as a child. Cephisodotus's statue of Eirene (Peace) holding the infant Plutus, set up in Athens in the 370s BCE and known from Roman copies, expressed the idea that prosperity is nurtured by peace. He is distinct from Plouton, a title of Hades as lord of the riches beneath the earth, though ancient writers sometimes played on the similarity.",
+    "originStory": "Plutus was born to Demeter and the mortal hero Iasion, who lay together in a thrice-plowed fallow field in Crete. In the version Homer knows, Zeus killed Iasion with a thunderbolt for this union.",
+    "importanceRank": 8,
+    "primarySources": [
+      {
+        "text": "Demeter, bright goddess, was joined in sweet love with the hero Iasion in a thrice-ploughed fallow in the rich land of Crete, and bare Plutus, a kindly god who goes everywhere over land and the sea's wide back.",
+        "source": "Hesiod, Theogony (trans. Evelyn-White)",
+        "date": "c. 700 BCE",
+        "sourceId": "theogony",
+        "locator": "969-972"
+      },
+      {
+        "text": "Plutus explains that Zeus blinded him out of spite toward good men, so that he wanders without knowing whom he enriches; restored to sight in a sanctuary of Asclepius, he resolves to visit only the just.",
+        "source": "Aristophanes, Plutus (paraphrase)",
+        "date": "388 BCE"
+      }
+    ],
+    "furtherReading": [
+      {
+        "sourceId": "theogony",
+        "note": "The birth of Plutus to Demeter and Iasion"
+      }
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "japanese-pantheon",
+        "deityId": "daikokuten",
+        "note": "Both are deities of wealth and abundance"
+      },
+      {
+        "pantheonId": "african-pantheon",
+        "deityId": "aje",
+        "note": "Both personify wealth as a divine power that chooses whom it enriches"
+      },
+      {
+        "pantheonId": "hindu-pantheon",
+        "deityId": "lakshmi",
+        "note": "Both are divine sources of prosperity, though Lakshmi is a major goddess and Plutus a minor personification"
+      }
+    ],
+    "pronunciation": {
+      "ipa": "/ˈpluːtəs/",
+      "phonetic": "PLOO-tus"
+    },
+    "imageUrl": "/deities/plutus.png"
+  },
+  {
+    "id": "dioscuri",
+    "pantheonId": "greek-pantheon",
+    "name": "The Dioscuri (Castor and Polydeuces)",
+    "slug": "dioscuri",
+    "originalLanguageName": {
+      "text": "Διόσκουροι",
+      "language": "Ancient Greek",
+      "transliteration": "Dioskouroi",
+      "meaning": "Sons of Zeus"
+    },
+    "alternateNames": [
+      "Castor and Pollux",
+      "Castor and Polydeuces",
+      "Tyndaridae",
+      "Gemini",
+      "Castor-Pollux"
+    ],
+    "gender": "male",
+    "domain": [
+      "rescue at sea",
+      "horsemanship",
+      "boxing",
+      "hospitality",
+      "twins"
+    ],
+    "symbols": [
+      "twin stars",
+      "horses",
+      "egg-shaped caps (piloi)",
+      "dokana (twin beams)"
+    ],
+    "description": "The divine twins Castor, tamer of horses, and Polydeuces (Pollux), the boxer, sons of Leda and brothers of Helen. Sailors prayed to them in storms, and after Castor's death the brothers were said to share immortality, alternating days between Olympus and the world below.",
+    "detailedBio": "## Sons of Zeus\n\nThe Homeric Hymns call the Tyndaridae the sons of Zeus, born to Leda beneath Mount Taygetus in Sparta: Castor the horse-tamer and Polydeuces the boxer. Other traditions differ: the *Odyssey* calls both sons of Leda's husband Tyndareus, while Pindar divides them, making Castor mortal and Polydeuces the immortal son of Zeus.\n\n### Shared Immortality\n\nThat division drives their central myth. In Pindar's tenth *Nemean Ode*, Castor is killed in a feud with their cousins Idas and Lynceus. Polydeuces refuses immortality without his brother, and Zeus allows them to share it, spending alternate days among the gods and beneath the earth. The *Odyssey* already knows them as living and dying by turns.\n\n### Saviors at Sea\n\nThey sailed with the Argonauts, rescued their sister Helen from Theseus, and above all appeared to sailors in storms. The Homeric Hymn describes them darting through the air on tawny wings to calm the winds; later sailors identified the glow of St. Elmo's fire with them.\n\n### Cult in Sparta and Rome\n\nSparta honored them as protectors, and their symbol, the dokana of two upright beams joined by crossbars, went with Spartan kings to war. Rome adopted them early: the Temple of Castor and Pollux in the Forum commemorated their legendary appearance at the Battle of Lake Regillus. They are the stars of the constellation Gemini.",
+    "originStory": "Leda bore the twins beneath Mount Taygetus after Zeus lay with her; some versions make only Polydeuces the son of Zeus and Castor the son of her husband Tyndareus. Their sisters were Helen and Clytemnestra.",
+    "importanceRank": 5,
+    "primarySources": [
+      {
+        "text": "Sing, clear-voiced Muse, of Castor and Polydeuces, the Tyndaridae, who sprang from Olympian Zeus. Beneath the heights of Taygetus stately Leda bare them.",
+        "source": "Homeric Hymn 17, To the Dioscuri (trans. Evelyn-White)",
+        "date": "c. 6th century BCE",
+        "sourceId": "homeric-hymns",
+        "locator": "Hymn 17.1-3"
+      },
+      {
+        "text": "Then the shipmen call upon the sons of great Zeus with vows of white lambs, going to the forepart of the prow; but the strong wind and the waves of the sea lay the ship under water, until suddenly these two are seen darting through the air on tawny wings.",
+        "source": "Homeric Hymn 33, To the Dioscuri (trans. Evelyn-White)",
+        "date": "c. 6th century BCE",
+        "sourceId": "homeric-hymns",
+        "locator": "Hymn 33"
+      }
+    ],
+    "furtherReading": [
+      {
+        "sourceId": "homeric-hymns",
+        "note": "Hymns 17 and 33 to the Dioscuri"
+      },
+      {
+        "sourceId": "library-apollodorus",
+        "note": "Their birth, the fight with Idas and Lynceus, and the shared immortality"
+      }
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "hindu-pantheon",
+        "deityId": "ashvins",
+        "note": "Both are divine horsemen twins and rescuers, a pairing often traced to shared Indo-European tradition"
+      },
+      {
+        "pantheonId": "mesoamerican-pantheon",
+        "deityId": "hero-twins",
+        "note": "Both are divine twin heroes"
+      }
+    ],
+    "pronunciation": {
+      "ipa": "/daɪˈɒskjʊraɪ/",
+      "phonetic": "dy-OSS-kyoo-ry"
+    },
+    "worship": {
+      "temples": [
+        "Temple of Castor and Pollux, Roman Forum",
+        "Sanctuaries at Sparta and Therapne"
+      ],
+      "festivals": [
+        "Theoxenia (divine hospitality feasts)",
+        "Roman celebration on 15 July, the anniversary of Lake Regillus"
+      ],
+      "practices": "Invoked by sailors in storms and by Spartan armies, which carried their emblem to war. Households set out couches and tables to host them at theoxenia feasts."
+    },
+    "imageUrl": "/deities/dioscuri.png"
+  },
+  {
+    "id": "kartikeya",
+    "pantheonId": "hindu-pantheon",
+    "name": "Kartikeya",
+    "slug": "kartikeya",
+    "originalLanguageName": {
+      "text": "कार्त्तिकेय",
+      "language": "Sanskrit",
+      "transliteration": "Kārttikeya",
+      "meaning": "Son of the Kṛttikās (the Pleiades)"
+    },
+    "alternateNames": [
+      "Skanda",
+      "Murugan",
+      "Subrahmanya",
+      "Kumara",
+      "Shanmukha"
+    ],
+    "gender": "male",
+    "domain": ["war", "leadership of the divine army", "youth", "victory"],
+    "symbols": [
+      "spear (vel or shakti)",
+      "peacock mount",
+      "rooster banner",
+      "six faces"
+    ],
+    "description": "The god of war and commander of the gods' army, son of Shiva, born to destroy the demon Taraka. Raised by the six Krittikas (the Pleiades), he is often shown with six faces; in the Tamil south he is worshipped as Murugan, one of the most beloved gods of the region.",
+    "detailedBio": "## Born to Defeat Taraka\n\nThe gods, oppressed by the demon Taraka, learned that only a son of Shiva could destroy him. Tellings of the birth vary widely across the *Mahabharata*, the *Ramayana*, the Puranas, and Kalidasa's poem *Kumarasambhava*: Shiva's fiery seed passes through Agni and the river Ganga before the child is born in a bed of reeds and nursed by the six Krittikas, the stars of the Pleiades. From them he takes the name Kartikeya, and from nursing all six at once, his six faces.\n\n### General of the Gods\n\nAs Skanda he is made commander of the divine army and kills Taraka with his spear. In the *Bhagavad Gita*, Krishna says that among the leaders of armies he is Skanda. He rides a peacock and carries a rooster on his banner.\n\n### Murugan of the Tamil Lands\n\nIn Tamil Nadu and among Tamil communities worldwide, the god known as Murugan holds a central place. Early Tamil poetry already celebrates a youthful hill god Murugan, whose cult merged with that of Skanda. His six sacred abodes (Arupadai Veedu), among them Palani and Tiruchendur, draw vast pilgrimages, and the festival of Thaipusam is celebrated from Malaysia to Mauritius.\n\n### Family\n\nHe is the brother of Ganesha. Northern traditions often present Kartikeya as a celibate youth, while southern traditions give him two consorts, Devasena and Valli.",
+    "originStory": "Born to end the demon Taraka, Kartikeya arose from the seed of Shiva, carried by Agni and the river Ganga, and was nursed by the six Krittikas. Parvati accepted him as her son, and the gods made him general of their army.",
+    "importanceRank": 2,
+    "primarySources": [
+      {
+        "text": "'mid Warriors heavenly Skanda; of all the water-floods the Sea which drinketh each",
+        "source": "Bhagavad Gita, Ch. X (trans. Arnold, 'The Song Celestial')",
+        "date": "c. 2nd century BCE-2nd century CE",
+        "sourceId": "mahabharata",
+        "locator": "Bhagavad Gita 10.24"
+      },
+      {
+        "text": "The gods, unable to withstand the demon Taraka, are told that only a son born of Shiva can defeat him; the poem follows Parvati's austerities and her marriage to Shiva, whose son Kumara is destined to destroy the demon.",
+        "source": "Kalidasa, Kumarasambhava (paraphrase)",
+        "date": "c. 5th century CE"
+      }
+    ],
+    "furtherReading": [
+      {
+        "sourceId": "mahabharata",
+        "note": "The Vana and Shalya Parvas recount Skanda's birth and consecration as general"
+      },
+      {
+        "sourceId": "hindu-myths-doniger",
+        "note": "Translated Puranic versions of the birth of Skanda"
+      }
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "chinese-pantheon",
+        "deityId": "nezha",
+        "note": "Both are young warrior gods who command divine armies"
+      },
+      {
+        "pantheonId": "greek-pantheon",
+        "deityId": "ares",
+        "note": "Both are war gods, though Kartikeya is a revered general and savior while Ares is a disliked embodiment of battle-fury"
+      }
+    ],
+    "pronunciation": {
+      "ipa": "/kɑːrtɪˈkeɪjə/",
+      "phonetic": "kar-tih-KAY-yuh"
+    },
+    "worship": {
+      "temples": [
+        "Palani Murugan Temple, Tamil Nadu",
+        "Tiruchendur Murugan Temple, Tamil Nadu",
+        "Batu Caves, Malaysia"
+      ],
+      "festivals": ["Thaipusam", "Skanda Shashti"],
+      "practices": "Devotees carry kavadi (decorated burdens) in fulfillment of vows, especially at Thaipusam, and fast and recite his victories over the demons during Skanda Shashti."
+    },
+    "imageUrl": "/deities/kartikeya.png"
+  },
+  {
+    "id": "usha",
+    "pantheonId": "hindu-pantheon",
+    "name": "Usha",
+    "slug": "usha",
+    "originalLanguageName": {
+      "text": "उषस्",
+      "language": "Sanskrit",
+      "transliteration": "Uṣas",
+      "meaning": "Dawn"
+    },
+    "alternateNames": ["Ushas", "Uṣas"],
+    "gender": "female",
+    "domain": ["dawn", "awakening", "renewal of days"],
+    "symbols": [
+      "red cows or horses",
+      "shining chariot",
+      "open doors of heaven"
+    ],
+    "description": "The Vedic goddess of dawn, praised in some twenty hymns of the Rigveda as a radiant young woman who drives away darkness, wakes every living creature, and returns each morning ever young while the generations of mortals pass away.",
+    "detailedBio": "## The Most Praised Goddess\n\nUsha is among the most celebrated goddesses of the Rigveda, which addresses about twenty hymns to her. She is the daughter of Heaven, sister of Night, and the brilliant maiden who unbars the doors of the sky. Her light rouses people to their work and to sacrifice: she causes Agni's fire to be kindled at the morning rite.\n\n### Ever Young, Ever Returning\n\nThe hymns dwell on a poignant contrast. Usha is ancient, yet each morning she is born anew; the men who watched earlier dawns are gone, and those who will watch later dawns are still to come. Rigveda 1.113 turns this into a meditation on time and mortality.\n\n### An Indo-European Dawn\n\nHer name is cognate with Greek Eos and Latin Aurora, from a reconstructed Proto-Indo-European dawn goddess. Shared images, such as the reddening east, the chariot, and the youthful goddess who opens heaven, make her central to comparative study of Indo-European myth.\n\n### After the Vedas\n\nUsha did not keep her prominence in later Hinduism, where the solar Surya and the great goddesses overshadowed her. The morning twilight prayers and the dawn hymns recited in Vedic ritual preserve her memory.",
+    "originStory": "Usha is called the daughter of Dyaus (Heaven) and the sister of Ratri (Night), with whom she shares an unending path, the two alternating across the sky.",
+    "importanceRank": 3,
+    "primarySources": [
+      {
+        "text": "This light is come, amid all lights the fairest; born is the brilliant, far-extending brightness.",
+        "source": "Rigveda 1.113.1 (trans. Griffith)",
+        "date": "c. 1500-1200 BCE",
+        "sourceId": "rigveda",
+        "locator": "1.113.1"
+      },
+      {
+        "text": "Gone are the men who in the days before us looked on the rising of the earlier Morning. We, we the living, now behold her brightness and they come nigh who shall hereafter see her.",
+        "source": "Rigveda 1.113.11 (trans. Griffith)",
+        "date": "c. 1500-1200 BCE",
+        "sourceId": "rigveda",
+        "locator": "1.113.11"
+      }
+    ],
+    "furtherReading": [
+      {
+        "sourceId": "rigveda",
+        "note": "The dawn hymns, including 1.48, 1.92, and 1.113"
+      },
+      {
+        "sourceId": "hindu-myths-doniger",
+        "note": "Context for the Vedic dawn among the early gods"
+      }
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "greek-pantheon",
+        "deityId": "eos",
+        "note": "Usha and Eos share an inherited Indo-European name and the image of a youthful dawn who opens the sky"
+      },
+      {
+        "pantheonId": "japanese-pantheon",
+        "deityId": "ame-no-uzume",
+        "note": "A thematic comparison of figures associated with dawn; this is not evidence of a shared origin"
+      }
+    ],
+    "pronunciation": {
+      "ipa": "/ˈuːʃɑː/",
+      "phonetic": "OO-shah"
+    },
+    "worship": {
+      "practices": "Invoked in the Vedic morning sacrifice, when the fire is kindled at dawn; her hymns are recited in the morning litany of Soma ritual. She has no major temple cult in later Hinduism."
+    },
+    "imageUrl": "/deities/usha.png"
+  },
+  {
+    "id": "ganga",
+    "pantheonId": "hindu-pantheon",
+    "name": "Ganga",
+    "slug": "ganga",
+    "originalLanguageName": {
+      "text": "गङ्गा",
+      "language": "Sanskrit",
+      "transliteration": "Gaṅgā",
+      "meaning": "The Ganges; 'swift-goer'"
+    },
+    "alternateNames": ["Ganges", "Jahnavi", "Bhagirathi", "Mother Ganga"],
+    "gender": "female",
+    "domain": ["the river Ganges", "purification", "liberation of the dead"],
+    "symbols": [
+      "makara (river creature) mount",
+      "water pot",
+      "lotus",
+      "Shiva's matted locks"
+    ],
+    "description": "The sacred river Ganges as a goddess, who descended from heaven to purify the ashes of King Sagara's sons and was caught in Shiva's matted hair to break the force of her fall. Bathing in her waters and immersing ashes in them are among the most important acts of Hindu devotion.",
+    "detailedBio": "## Daughter of the Mountain\n\nThe *Ramayana* makes Ganga the elder daughter of Himavat, lord of mountains, and sister of Uma (Parvati). The gods asked for her and took her to heaven, where she flowed as the celestial river.\n\n### The Descent\n\nThe same epic tells why she came down. The sixty thousand sons of King Sagara, searching for their father's sacrificial horse, were burned to ash by the sage Kapila. Only Ganga's waters could purify their remains. After generations of austerities, their descendant Bhagiratha won her descent, but her fall would have shattered the earth, so Shiva received her in his matted locks and released her gently. Ganga followed Bhagiratha's chariot to the sea and the underworld, and the ashes were redeemed; hence her name Bhagirathi.\n\n### Mother of Heroes\n\nIn the *Mahabharata* Ganga takes human form as the wife of King Shantanu and mother of Bhishma. Some versions of Skanda's birth have her carry Shiva's fiery seed, making her one of Kartikeya's mothers.\n\n### The Living River\n\nGanga is present in her river. Pilgrims bathe at Haridwar, Prayagraj, and Varanasi to wash away sin; ashes of the dead are immersed in her waters; and the Kumbh Mela gathers millions at her banks. In the *Bhagavad Gita*, Krishna names himself as Ganga among rivers.",
+    "originStory": "The Ramayana makes Ganga the elder daughter of Himavat and Mena and sister of Uma. Given to the gods, she flowed in heaven until King Bhagiratha's austerities brought her down to earth, broken in her fall by Shiva's hair, to purify the ashes of Sagara's sons.",
+    "importanceRank": 2,
+    "primarySources": [
+      {
+        "text": "Gangá was elder-born: then came The fair one known by Umá's name.",
+        "source": "Ramayana of Valmiki, Bala Kanda, Canto XXXVI (trans. Griffith)",
+        "date": "c. 5th century BCE-3rd century CE",
+        "sourceId": "ramayana",
+        "locator": "Book I, Canto XXXVI"
+      },
+      {
+        "text": "Favour ye this my laud, O Gaṅgā, Yamunā, O Sutudri, Paruṣṇī and Sarasvatī",
+        "source": "Rigveda 10.75.5 (trans. Griffith)",
+        "date": "c. 1500-1000 BCE",
+        "sourceId": "rigveda",
+        "locator": "10.75.5"
+      },
+      {
+        "text": "Makar 'mid fishes of the sea, and Ganges 'mid the streams",
+        "source": "Bhagavad Gita, Ch. X (trans. Arnold, 'The Song Celestial')",
+        "date": "c. 2nd century BCE-2nd century CE",
+        "sourceId": "mahabharata",
+        "locator": "Bhagavad Gita 10.31"
+      }
+    ],
+    "furtherReading": [
+      {
+        "sourceId": "ramayana",
+        "note": "Bala Kanda, the birth of Ganga and her descent to earth"
+      },
+      {
+        "sourceId": "mahabharata",
+        "note": "Ganga as wife of Shantanu and mother of Bhishma (Adi Parva)"
+      }
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "mesoamerican-pantheon",
+        "deityId": "chalchiuhtlicue",
+        "note": "Both are river goddesses associated with purification"
+      },
+      {
+        "pantheonId": "african-pantheon",
+        "deityId": "oshun",
+        "note": "Both are goddesses present in a specific sacred river whose waters heal and bless"
+      }
+    ],
+    "pronunciation": {
+      "ipa": "/ˈɡʌŋɡɑː/",
+      "phonetic": "GUNG-gah"
+    },
+    "worship": {
+      "temples": [
+        "Gangotri Temple at the river's Himalayan source",
+        "Har Ki Pauri ghat, Haridwar",
+        "Dashashwamedh Ghat, Varanasi"
+      ],
+      "festivals": [
+        "Ganga Dussehra (her descent to earth)",
+        "Kumbh Mela",
+        "Ganga Aarti (daily evening lamp ritual)"
+      ],
+      "practices": "Ritual bathing to remove sin, immersion of the ashes of the dead, and carrying sealed pots of Ganga water home for household rites."
+    },
+    "imageUrl": "/deities/ganga.png"
+  },
+  {
+    "id": "ashvins",
+    "pantheonId": "hindu-pantheon",
+    "name": "The Ashvins",
+    "slug": "ashvins",
+    "originalLanguageName": {
+      "text": "अश्विनौ",
+      "language": "Sanskrit",
+      "transliteration": "Aśvinau",
+      "meaning": "The two horsemen (from aśva, 'horse')"
+    },
+    "alternateNames": ["Ashvini Kumaras", "Nasatyas", "Dasras", "Aśvins"],
+    "gender": "male",
+    "domain": ["healing", "rescue", "the morning light", "horses"],
+    "symbols": [
+      "golden three-wheeled chariot",
+      "horses or birds drawing the chariot",
+      "honey"
+    ],
+    "description": "The divine twin horsemen of the Rigveda, physicians of the gods who arrive in their chariot at dawn to heal the sick, rescue the shipwrecked, and restore youth to the old. More than fifty Rigvedic hymns are addressed to them.",
+    "detailedBio": "## Twin Horsemen of the Dawn\n\nThe Ashvins are always paired and almost never distinguished. Their name means 'horsemen'; they are also called the Nasatyas. They drive a golden three-wheeled chariot and appear with the dawn, which ties them to Usha in the morning rites.\n\n### Divine Physicians\n\nThe hymns praise them above all as rescuers and healers. They restore the aged sage Chyavana to youth, give an iron leg to the warrior-woman Vishpala, save Bhujyu from drowning at sea, and give sight to the blind. Because they heal, later tradition names them physicians of the gods.\n\n### Parentage\n\nRigveda 10.17 says that Saranyu, wife of the sun god Vivasvat, bore the Ashvins and then abandoned both pairs of twins, meaning the Ashvins and Yama and Yami. Later texts elaborate that she had taken the form of a mare.\n\n### Indo-European Twins\n\nComparative mythologists have long set the Ashvins beside the Greek Dioscuri and the Baltic sons of God: youthful divine twins linked to horses, to the dawn and the sun-maiden, and to rescue. In the *Mahabharata*, the Pandava twins Nakula and Sahadeva are their sons.",
+    "originStory": "Rigveda 10.17 says Saranyu, daughter of Tvashtar and wife of Vivasvat, bore the Ashvin brothers before leaving her children. Later tradition tells that she conceived them in the form of a mare.",
+    "importanceRank": 4,
+    "primarySources": [
+      {
+        "text": "Ye Aśvins, rich in treasure, Lords of splendour, having nimble hands, Accept the sacrificial food.",
+        "source": "Rigveda 1.3.1 (trans. Griffith)",
+        "date": "c. 1500-1200 BCE",
+        "sourceId": "rigveda",
+        "locator": "1.3.1"
+      },
+      {
+        "text": "Saranyu brought to him the Aśvin brothers, and then deserted both twinned pairs of children.",
+        "source": "Rigveda 10.17.2 (trans. Griffith)",
+        "date": "c. 1500-1000 BCE",
+        "sourceId": "rigveda",
+        "locator": "10.17.2"
+      }
+    ],
+    "furtherReading": [
+      {
+        "sourceId": "rigveda",
+        "note": "Book 1 hymns 112-120 list their rescues; 10.17 gives their parentage"
+      },
+      {
+        "sourceId": "mahabharata",
+        "note": "Nakula and Sahadeva, the Pandava twins fathered by the Ashvins"
+      }
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "greek-pantheon",
+        "deityId": "dioscuri",
+        "note": "Both are horse-linked divine twins who rescue mortals, a pairing often traced to Indo-European tradition"
+      },
+      {
+        "pantheonId": "mesoamerican-pantheon",
+        "deityId": "hero-twins",
+        "note": "Both are divine twins associated with cosmic functions"
+      },
+      {
+        "pantheonId": "african-pantheon",
+        "deityId": "ibeji",
+        "note": "Both are sacred twin powers who bring blessing and protection"
+      }
+    ],
+    "pronunciation": {
+      "ipa": "/ˈəʃvɪnz/",
+      "phonetic": "USH-vinz"
+    },
+    "worship": {
+      "practices": "Honored in the Vedic morning Soma pressing and with offerings of milk and honey; in later tradition invoked as the physicians of the gods."
+    },
+    "imageUrl": "/deities/ashvins.png"
+  },
+  {
+    "id": "purusha",
+    "pantheonId": "hindu-pantheon",
+    "name": "Purusha",
+    "slug": "purusha",
+    "originalLanguageName": {
+      "text": "पुरुष",
+      "language": "Sanskrit",
+      "transliteration": "Puruṣa",
+      "meaning": "Man, person; the cosmic person"
+    },
+    "alternateNames": ["Purusa", "Puruṣa", "the Cosmic Person"],
+    "gender": "male",
+    "domain": ["the cosmos", "sacrifice", "creation", "the social order"],
+    "symbols": ["a thousand heads, eyes, and feet", "the sacrificial victim"],
+    "description": "The primordial cosmic being of Rigveda 10.90, the Purusha Sukta, whom the gods sacrificed so that the world could be made from his body: the sun from his eye, the moon from his mind, the sky from his head, the earth from his feet, and the four social classes from his mouth, arms, thighs, and feet.",
+    "detailedBio": "## The Thousand-Headed Person\n\nThe Purusha Sukta (Rigveda 10.90) describes a cosmic Person with a thousand heads, eyes, and feet who covers the earth and extends beyond it. All creatures are a quarter of him; three quarters are immortal in heaven.\n\n### Creation by Sacrifice\n\nThe gods perform a sacrifice with Purusha as the offering. From it come the sacred verses and chants, horses, cattle, goats, and sheep. When he is divided, the Brahmin comes from his mouth, the warrior (Rajanya) from his arms, the Vaishya from his thighs, and the Shudra from his feet. The moon is born from his mind, the sun from his eye, Indra and Agni from his mouth, and wind from his breath; the air, sky, earth, and directions are formed from his body.\n\n### Influence and Controversy\n\nThis late Rigvedic hymn is the earliest text to name the four varnas together, and it has been cited for millennia to ground social hierarchy in the cosmos, a use that modern reformers have sharply criticized. In the Upanishads and in Samkhya philosophy, Purusha becomes the principle of pure consciousness, and Vaishnava tradition identifies the cosmic Person with Vishnu.\n\n### A World Made from a Body\n\nThe idea of a world fashioned from a primordial being's body appears elsewhere, from the Norse giant Ymir to the Chinese Pangu, and is a classic subject of comparative mythology.",
+    "originStory": "Rigveda 10.90 says that from Purusha was born Viraj, and from Viraj Purusha again, a paradox of mutual origin. The gods then bound him as their sacrificial victim and made the ordered world from his divided body.",
+    "importanceRank": 5,
+    "primarySources": [
+      {
+        "text": "A THOUSAND heads hath Puruṣa, a thousand eyes, a thousand feet. On every side pervading earth he fills a space ten fingers wide.",
+        "source": "Rigveda 10.90.1 (trans. Griffith)",
+        "date": "c. 1200-1000 BCE",
+        "sourceId": "rigveda",
+        "locator": "10.90.1"
+      },
+      {
+        "text": "The Moon was gendered from his mind, and from his eye the Sun had birth; Indra and Agni from his mouth were born, and Vāyu from his breath.",
+        "source": "Rigveda 10.90.13 (trans. Griffith)",
+        "date": "c. 1200-1000 BCE",
+        "sourceId": "rigveda",
+        "locator": "10.90.13"
+      }
+    ],
+    "furtherReading": [
+      {
+        "sourceId": "rigveda",
+        "note": "The Purusha Sukta, hymn 10.90"
+      },
+      {
+        "sourceId": "hindu-myths-doniger",
+        "note": "Translation and commentary on the Vedic creation hymns"
+      }
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "chinese-pantheon",
+        "deityId": "pangu",
+        "note": "Both are cosmic beings whose bodies become the parts of the world"
+      },
+      {
+        "pantheonId": "norse-pantheon",
+        "deityId": "ymir",
+        "note": "Both are primordial beings killed or sacrificed by the gods so that the world can be made from their bodies"
+      }
+    ],
+    "pronunciation": {
+      "ipa": "/ˈpʊrʊʃə/",
+      "phonetic": "POO-roo-shuh"
+    },
+    "worship": {
+      "practices": "The Purusha Sukta is recited in Vedic and temple ritual, including daily worship of Vishnu, rather than Purusha receiving a separate cult."
+    },
+    "imageUrl": "/deities/purusha.png"
+  },
+  {
+    "id": "skadi",
+    "pantheonId": "norse-pantheon",
+    "name": "Skadi",
+    "slug": "skadi",
+    "originalLanguageName": {
+      "text": "Skaði",
+      "language": "Old Norse",
+      "transliteration": "Skaði",
+      "meaning": "Uncertain; possibly 'harm' or 'shadow'"
+    },
+    "alternateNames": [
+      "Skaði",
+      "Öndurgoð (Snowshoe-Goddess)",
+      "Öndurdís (Lady of the Snowshoes)"
+    ],
+    "gender": "female",
+    "domain": ["mountains", "winter", "hunting", "skiing"],
+    "symbols": ["snowshoes or skis", "bow", "mountain home Thrymheim"],
+    "description": "A giantess who came armed to Asgard to avenge her father Thjazi and was offered a husband in compensation, choosing Njord by his feet alone. She is the huntress of the snowy mountains who travels on snowshoes with her bow.",
+    "detailedBio": "## Vengeance for Thjazi\n\nSkadi's father, the giant Thjazi, abducted the goddess Idunn and her apples of youth and was killed by the gods when he pursued Loki back to Asgard. Snorri Sturluson's *Skaldskaparmal* tells how Skadi took up helmet, mail, and weapons and went to Asgard to avenge him. The gods offered compensation: she might choose a husband from among them, seeing only their feet. Hoping for Baldr, she chose the most beautiful feet, and they belonged to Njord, god of the sea. The gods also had to make her laugh, which Loki managed with a crude trick, and Odin threw Thjazi's eyes into the sky as stars.\n\n### Mountains and Sea\n\nThe marriage failed. Skadi wanted to live in her father's mountain hall Thrymheim; Njord wanted his seaside home Noatun. They agreed to alternate, nine nights in each, but each hated the other's home, and Skadi returned to the mountains, where she hunts on snowshoes with her bow.\n\n### Against Loki\n\nSkadi is bitterly hostile to Loki. When the gods bind him after Baldr's death, it is Skadi who fastens a venomous serpent above his face. In the poem *Lokasenna* Loki taunts her with his part in her father's death, and she answers with threats.\n\n### Traces of Cult\n\nPlace names in Norway and Sweden may preserve her name, suggesting she had cult sites, though scholars dispute the readings. Later sources, including the *Ynglinga saga*, pair her with Odin as ancestress of Norwegian jarls.",
+    "originStory": "Skadi is the daughter of the giant Thjazi. After the gods killed him, she came to Asgard in arms to avenge him and accepted a marriage to Njord, chosen by his feet, as part of the settlement.",
+    "importanceRank": 4,
+    "primarySources": [
+      {
+        "text": "Njördr has to wife the woman called Skadi, daughter of Thjazi the giant. Skadi would fain dwell in the abode which her father had had, which is on certain mountains, in the place called Thrymheimr; but Njördr would be near the sea.",
+        "source": "Snorri Sturluson, Prose Edda, Gylfaginning (trans. Brodeur)",
+        "date": "c. 1220 CE",
+        "sourceId": "prose-edda",
+        "locator": "Gylfaginning 23"
+      },
+      {
+        "text": "Then Skadi went up onto the mountain, and dwelt in Thrymheimr. And she goes for the more part on snowshoes and with a bow and arrow, and shoots beasts; she is called Snowshoe-Goddess or Lady of the Snowshoes.",
+        "source": "Snorri Sturluson, Prose Edda, Gylfaginning (trans. Brodeur)",
+        "date": "c. 1220 CE",
+        "sourceId": "prose-edda",
+        "locator": "Gylfaginning 23"
+      }
+    ],
+    "furtherReading": [
+      {
+        "sourceId": "prose-edda",
+        "note": "Gylfaginning 23 on her marriage; Skaldskaparmal on the settlement for Thjazi"
+      },
+      {
+        "sourceId": "poetic-edda",
+        "note": "Lokasenna, where she trades threats with Loki"
+      },
+      {
+        "sourceId": "norse-mythology-crossley-holland",
+        "note": "Retelling of the marriage by the feet and the failed compromise"
+      }
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "polynesian-pantheon",
+        "deityId": "poliahu",
+        "note": "Both are goddesses associated with snow and high mountains"
+      },
+      {
+        "pantheonId": "greek-pantheon",
+        "deityId": "artemis",
+        "note": "Both are huntresses with the bow who keep to the wild mountains"
+      }
+    ],
+    "pronunciation": {
+      "ipa": "/ˈskɑːði/",
+      "phonetic": "SKAH-thee"
+    },
+    "imageUrl": "/deities/skadi.png"
+  },
+  {
+    "id": "longwang",
+    "pantheonId": "chinese-pantheon",
+    "name": "Longwang (the Dragon Kings)",
+    "slug": "longwang",
+    "originalLanguageName": {
+      "text": "龍王",
+      "language": "Chinese",
+      "transliteration": "Lóngwáng",
+      "meaning": "Dragon King"
+    },
+    "alternateNames": [
+      "Dragon King",
+      "Dragon Kings of the Four Seas",
+      "Ao Guang (Dragon King of the Eastern Sea)",
+      "Long Wang"
+    ],
+    "gender": "male",
+    "domain": ["seas", "rivers", "rain", "weather"],
+    "symbols": [
+      "dragon form",
+      "pearl",
+      "underwater crystal palace",
+      "tablet of office"
+    ],
+    "description": "The dragon kings who rule the waters and send the rain, most famously the Dragon Kings of the Four Seas led by Ao Guang of the Eastern Sea. They govern as officials of the heavenly bureaucracy under the Jade Emperor, and their temples stood in villages across China wherever farmers prayed for rain.",
+    "detailedBio": "## Rulers of the Waters\n\nThe belief that dragons control water and rain is ancient in China. With the arrival of Buddhism, the Indian naga kings of the sutras, serpent rulers of underwater palaces, merged with native dragon lore to produce the Dragon King (Longwang). By late imperial times every sea, river, lake, and well could have its dragon king, and the most prominent were the four kings of the Eastern, Southern, Western, and Northern Seas.\n\n### Officials of Heaven\n\nIn popular religion the Dragon Kings serve in the celestial bureaucracy. They send rain on the Jade Emperor's command and can be punished for disobedience. *Journey to the West* opens its episode of the Tang emperor with the Jing River Dragon King, who alters the amount of rain ordered by Heaven and is condemned to execution.\n\n### Ao Guang and the Monkey King\n\nThe novel's most famous scene has Sun Wukong visit Ao Guang's crystal palace beneath the Eastern Sea in search of a weapon. None suffices until he lifts the iron pillar once used to measure the sea, which shrinks at his command into the Ruyi Jingu Bang. The humiliated Dragon Kings complain to the Jade Emperor, one of the provocations that lead to Heaven's campaign against Sun Wukong. Ao Guang also appears in *Investiture of the Gods*, where the boy Nezha kills his son.\n\n### Rain Temples\n\nLongwang temples were among the most common village shrines in north China. In droughts, communities carried his image in procession, and officials themselves performed rain prayers.",
+    "originStory": "The Dragon Kings grew from the ancient Chinese association of dragons with water and rain, combined after the arrival of Buddhism with the naga kings of Indian scripture. Popular religion made them officials appointed by the Jade Emperor over each body of water.",
+    "importanceRank": 3,
+    "primarySources": [
+      {
+        "text": "Sun Wukong dives to the Dragon Palace of the Eastern Sea and demands a weapon; rejecting every blade and halberd, he takes the great iron pillar once used to fix the depth of the waters, and Ao Guang afterwards carries his complaint to the Jade Emperor.",
+        "source": "Wu Cheng'en, Journey to the West, ch. 3 (paraphrase)",
+        "sourceId": "journey-to-the-west",
+        "date": "c. 1592 CE",
+        "locator": "ch. 3"
+      },
+      {
+        "text": "The Jing River Dragon King, set on discrediting a fortune-teller, alters the hour and measure of the rain Heaven had ordered; he is sentenced to death, and the minister Wei Zheng carries out the execution in a dream.",
+        "source": "Wu Cheng'en, Journey to the West, ch. 9-10 (paraphrase)",
+        "sourceId": "journey-to-the-west",
+        "date": "c. 1592 CE",
+        "locator": "ch. 9-10"
+      }
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "japanese-pantheon",
+        "deityId": "ryujin",
+        "note": "The Chinese Dragon Kings directly influenced Japanese Ryujin mythology through cultural exchange"
+      },
+      {
+        "pantheonId": "greek-pantheon",
+        "deityId": "poseidon",
+        "note": "Both are sovereigns of the sea who dwell in palaces beneath the waves"
+      }
+    ],
+    "pronunciation": {
+      "ipa": "/lʊŋ wɑːŋ/",
+      "phonetic": "loong wahng"
+    },
+    "worship": {
+      "temples": [
+        "Village Longwang temples throughout north China",
+        "Dragon King temples beside springs, wells, and rivers"
+      ],
+      "festivals": [
+        "Rain prayers in drought",
+        "Dragon King's birthday observances (dates vary by region)"
+      ],
+      "practices": "In drought, communities processed the Dragon King's image, offered sacrifice, and sometimes set the image in the sun to press him to send rain."
+    },
+    "imageUrl": "/deities/longwang.png"
+  },
+  {
+    "id": "ninhursag",
+    "pantheonId": "mesopotamian-pantheon",
+    "name": "Ninhursag",
+    "slug": "ninhursag",
+    "originalLanguageName": {
+      "text": "𒀭𒊩𒌆𒄯𒊕",
+      "language": "Sumerian",
+      "transliteration": "dNin-ḫur-saĝ",
+      "meaning": "Lady of the mountain (or foothills)"
+    },
+    "alternateNames": [
+      "Ninhursaga",
+      "Ninmah",
+      "Nintu",
+      "Damgalnuna",
+      "Aruru",
+      "Belet-ili (Akkadian)",
+      "Mami"
+    ],
+    "gender": "female",
+    "domain": [
+      "birth",
+      "creation of humans",
+      "mountains and foothills",
+      "motherhood"
+    ],
+    "symbols": [
+      "omega-shaped symbol (possibly a uterus or cow's uterus)",
+      "stags",
+      "the foothills"
+    ],
+    "description": "The great Sumerian mother goddess, 'Lady of the Mountain', who presides over birth and the shaping of humankind. Under names such as Ninmah, Nintu, and Aruru, she fashions people from clay; in the Epic of Gilgamesh, as Aruru, she creates Enkidu.",
+    "detailedBio": "## The Mother Goddess\n\nNinhursag was among the most important deities of early Sumer, often ranked with An, Enlil, and Enki among the great gods. Many names cluster around her (Ninmah 'exalted lady', Nintu 'lady of birth', Aruru, and the Akkadian Belet-ili 'lady of the gods'), and scholars debate how far these were once distinct goddesses. All share her central role as divine midwife and shaper of life.\n\n### Maker of Humankind\n\nIn the Sumerian *Enki and Ninmah*, the goddess forms humans from clay with Enki. In the Babylonian *Atrahasis*, the birth goddess Mami (Nintu) mixes clay with the flesh and blood of a slain god to create people to bear the gods' labor. In the *Epic of Gilgamesh*, the gods ask Aruru, who made Gilgamesh, to make his equal: she washes her hands, pinches off clay, and casts it into the wilderness, and Enkidu is born.\n\n### Enki and Ninhursag\n\nIn the myth set in the paradise of Dilmun, Enki couples with Ninhursag and then with a line of daughters and granddaughters, and eats plants she has grown. Ninhursag curses him, and he sickens until she relents and bears eight healing deities, one for each ailing part of his body.\n\n### Cult\n\nHer temples stood at Kesh and Adab, and at Tell al-Ubaid near Ur, where a temple to her dating to the Early Dynastic period was excavated in the 1920s.",
+    "originStory": "Ninhursag belongs to the oldest generation of Sumerian great gods. One Sumerian tradition says her name 'Lady of the Mountain' was given by her son Ninurta when he heaped up the foothills after defeating the demon Asag.",
+    "importanceRank": 2,
+    "primarySources": [
+      {
+        "text": "The gods call on Aruru, who made Gilgamesh, to create his equal; she washes her hands, pinches off clay, and throws it into the wilderness, and there she creates Enkidu.",
+        "source": "Epic of Gilgamesh, Tablet I (Standard Babylonian Version) (paraphrase)",
+        "date": "c. 1200-1000 BCE (standard version)",
+        "sourceId": "epic-of-gilgamesh",
+        "locator": "Tablet I"
+      },
+      {
+        "text": "After Enki eats the plants she has grown in Dilmun, Ninhursag curses him and withdraws; only when she returns and gives birth to healing deities for each afflicted part of his body is he restored.",
+        "source": "Enki and Ninhursag (Sumerian) (paraphrase)",
+        "date": "c. early 2nd millennium BCE"
+      }
+    ],
+    "furtherReading": [
+      {
+        "sourceId": "epic-of-gilgamesh",
+        "note": "Tablet I, Aruru's creation of Enkidu"
+      },
+      {
+        "sourceId": "ancient-iraq-roux",
+        "note": "Background on the great Sumerian gods and their cult cities"
+      }
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "chinese-pantheon",
+        "deityId": "nuwa",
+        "note": "Both are creator goddesses who fashion humans from clay"
+      },
+      {
+        "pantheonId": "greek-pantheon",
+        "deityId": "gaia",
+        "note": "Both are primordial mother figures tied to the land and the origin of life"
+      }
+    ],
+    "pronunciation": {
+      "ipa": "/nɪnˈhʊrsæɡ/",
+      "phonetic": "nin-HUR-sag"
+    },
+    "worship": {
+      "temples": [
+        "Temple at Kesh",
+        "Temple at Adab",
+        "Early Dynastic temple at Tell al-Ubaid near Ur"
+      ],
+      "practices": "Invoked as the divine midwife and 'mother of the gods'; kings of Lagash and other cities claimed to have been nourished by her milk."
+    },
+    "imageUrl": "/deities/ninhursag.png"
   }
 ]

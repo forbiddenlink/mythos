@@ -7,6 +7,7 @@ import creatures from "@/data/creatures.json";
 import artifacts from "@/data/artifacts.json";
 import locations from "@/data/locations.json";
 import relationships from "@/data/relationships.json";
+import journeys from "@/data/journeys.json";
 import {
   PantheonsArraySchema,
   DeitiesArraySchema,
@@ -15,6 +16,7 @@ import {
   ArtifactsArraySchema,
   LocationsArraySchema,
   RelationshipsArraySchema,
+  JourneysArraySchema,
 } from "@/lib/schemas";
 
 const catalogs: Array<{ name: string; schema: ZodType; data: unknown }> = [
@@ -29,6 +31,7 @@ const catalogs: Array<{ name: string; schema: ZodType; data: unknown }> = [
     schema: RelationshipsArraySchema,
     data: relationships,
   },
+  { name: "journeys", schema: JourneysArraySchema, data: journeys },
 ];
 
 function catalogStrings(value: unknown): string[] {

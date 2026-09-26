@@ -24,7 +24,7 @@ interface Artifact {
   name: string;
   slug: string;
   ownerId?: string;
-  owner?: string;
+  ownerLabel?: string;
   type: string;
   description: string;
   powers: string[];
@@ -158,7 +158,7 @@ export default function ArtifactsPage() {
                         </Badge>
                       </td>
                       <td className="px-4 py-3 text-sm text-muted-foreground whitespace-nowrap capitalize">
-                        {artifact.ownerId || artifact.owner || "—"}
+                        {artifact.ownerLabel || artifact.ownerId || "—"}
                       </td>
                       <td className="px-4 py-3 text-sm text-muted-foreground max-w-xs">
                         <span className="line-clamp-2">

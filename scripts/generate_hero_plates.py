@@ -1,10 +1,11 @@
 import os
 import math
-import subprocess
-from PIL import Image, ImageDraw, ImageFont, ImageFilter
+import argparse
+from PIL import Image, ImageDraw, ImageFilter
 
-OUTPUT_DIR = "apps/web/public/heroes"
-os.makedirs(OUTPUT_DIR, exist_ok=True)
+from _repo_paths import WEB_PUBLIC, serif_font, write_webp
+
+OUTPUT_DIR = os.path.join(WEB_PUBLIC, "heroes")
 
 HEROES = [
     {
@@ -454,12 +455,9 @@ def generate_hero_plate(hero):
 
     # Tradition tag top
     tag_text = f"MYTHOS ATLAS · {hero['pantheon']} HEROIC TRADITION"
-    try:
-        font_sm = ImageFont.truetype("/System/Library/Fonts/Supplemental/Times New Roman.ttf", 16)
-        font_lg = ImageFont.truetype("/System/Library/Fonts/Supplemental/Times New Roman Bold.ttf", 46)
-        font_sub = ImageFont.truetype("/System/Library/Fonts/Supplemental/Times New Roman Italic.ttf", 18)
-    except:
-        font_sm = font_lg = font_sub = ImageFont.load_default()
+    font_sm = serif_font("regular", 16)
+    font_lg = serif_font("bold", 46)
+    font_sub = serif_font("italic", 18)
 
     draw.text((W // 2, 65), tag_text, font=font_sm, fill=(200, 180, 140), anchor="mm")
 
@@ -484,10 +482,20 @@ def generate_hero_plate(hero):
 
     # Save WebP using cwebp
     webp_path = os.path.join(OUTPUT_DIR, f"{hero['id']}.webp")
-    subprocess.run(["/opt/homebrew/bin/cwebp", "-q", "85", png_path, "-o", webp_path], check=True, stdout=subprocess.DEVNULL)
+    write_webp(png_path, webp_path)
     print(f"Generated: {hero['id']} -> {png_path} & {webp_path}")
 
-for h in HEROES:
-    generate_hero_plate(h)
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description="Generate archival hero plates.")
+    parser.add_argument(
+        "--only",
+        help="Comma-separated hero ids to (re)generate; default is every plate.",
+    )
+    args = parser.parse_args()
+    os.makedirs(OUTPUT_DIR, exist_ok=True)
+    wanted = set(args.only.split(",")) if args.only else None
+    selected = [h for h in HEROES if wanted is None or h["id"] in wanted]
+    for h in selected:
+        generate_hero_plate(h)
 
-print("All 20 hero plates successfully generated.")
+    print(f"{len(selected)} hero plates generated in {OUTPUT_DIR}")

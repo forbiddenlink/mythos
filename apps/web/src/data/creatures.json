@@ -17,6 +17,8 @@
       {
         "text": "When the gods saw how much he grew every day, and all prophecies declared that he was predestined to become fatal to them, they resolved to make a very strong fetter.",
         "source": "Prose Edda, Gylfaginning (trans. Anderson)",
+        "sourceId": "prose-edda",
+        "locator": "Gylfaginning",
         "date": "c. 1220 CE"
       }
     ]
@@ -40,6 +42,7 @@
       {
         "text": "A fearful hound... with brazen voice, watches before the gates of Hades, pitiless, and of evil name.",
         "source": "Hesiod, Theogony",
+        "sourceId": "theogony",
         "date": "c. 700 BCE"
       }
     ]
@@ -63,6 +66,7 @@
       {
         "text": "Its eyes were like winter cherries, and it had eight heads and eight tails. On its body grew moss and trees.",
         "source": "Kojiki (trans. Chamberlain)",
+        "sourceId": "kojiki",
         "date": "712 CE"
       }
     ]
@@ -109,6 +113,7 @@
       {
         "text": "She was raised by Hera, goddess of the white arms, out of anger at Heracles, and the Hydra of Lerna was evil.",
         "source": "Hesiod, Theogony",
+        "sourceId": "theogony",
         "date": "c. 700 BCE"
       }
     ]
@@ -132,6 +137,8 @@
       {
         "text": "A thing of immortal make, not human, lion-fronted and snake behind, a goat in the middle, and snorting out the breath of the terrible flame of bright fire.",
         "source": "Homer, Iliad 6",
+        "sourceId": "iliad",
+        "locator": "Book 6",
         "date": "c. 750 BCE"
       }
     ]
@@ -155,6 +162,8 @@
       {
         "text": "And she gave birth to Asterius, who was called the Minotaur. He had the face of a bull, but the rest of his body was human.",
         "source": "Apollodorus, Library 3.1.4",
+        "sourceId": "library-apollodorus",
+        "locator": "3.1.4",
         "date": "c. 1st–2nd century CE"
       }
     ]
@@ -178,6 +187,8 @@
       {
         "text": "The Sphinx, a creature with the face of a woman, the breast and feet and tail of a lion, and the wings of a bird, learned a riddle from the Muses.",
         "source": "Apollodorus, Library 3.5.8",
+        "sourceId": "library-apollodorus",
+        "locator": "3.5.8",
         "date": "c. 1st–2nd century CE"
       }
     ]
@@ -201,6 +212,8 @@
       {
         "text": "They have no assemblies for making council, nor appointed laws, but they dwell on the peaks of lofty mountains in hollow caves.",
         "source": "Homer, Odyssey 9",
+        "sourceId": "odyssey",
+        "locator": "Book 9",
         "date": "c. 700 BCE"
       }
     ]
@@ -224,6 +237,7 @@
       {
         "text": "And from the Gorgon the horse Pegasus sprang, and Chrysaor the hero, when Perseus cut off her head.",
         "source": "Hesiod, Theogony",
+        "sourceId": "theogony",
         "date": "c. 700 BCE"
       }
     ]
@@ -247,6 +261,8 @@
       {
         "text": "Thor shall put to death the Midgard Serpent, and shall wade away nine paces; then shall he fall dead to the earth, because of the venom.",
         "source": "Prose Edda, Gylfaginning (trans. Anderson)",
+        "sourceId": "prose-edda",
+        "locator": "Gylfaginning",
         "date": "c. 1220 CE"
       }
     ]
@@ -270,6 +286,8 @@
       {
         "text": "The best of all horses is Sleipnir; he has eight legs. He belongs to Odin.",
         "source": "Prose Edda, Gylfaginning (trans. Anderson)",
+        "sourceId": "prose-edda",
+        "locator": "Gylfaginning",
         "date": "c. 1220 CE"
       }
     ]
@@ -293,6 +311,8 @@
       {
         "text": "There Nidhogg sucks the corpses of the dead; the wolf tears men.",
         "source": "Poetic Edda, Voluspa",
+        "sourceId": "poetic-edda",
+        "locator": "Voluspa",
         "date": "c. 10th–13th century CE"
       }
     ]
@@ -362,6 +382,8 @@
       {
         "text": "The Devourer sits beside the scale; the heart that is heavy with wrong is given to her, and that person shall not exist.",
         "source": "Book of the Dead, Spell 125 (judgment scene)",
+        "sourceId": "book-of-the-dead",
+        "locator": "Spell 125",
         "date": "c. 1550–50 BCE"
       }
     ]
@@ -408,6 +430,7 @@
       {
         "text": "The bennu is the ba of Ra, the bird of the benben in Heliopolis, named in the Pyramid Texts as a form of becoming.",
         "source": "Pyramid Texts (Heliopolitan solar theology)",
+        "sourceId": "pyramid-texts",
         "date": "c. 2400–2300 BCE"
       }
     ]
@@ -454,6 +477,8 @@
       {
         "text": "Garuda, son of Vinata, seized the amrita from the gods to ransom his mother, then took Vishnu as lord and became the bane of nagas.",
         "source": "Mahabharata, Adi Parva (Astika Parva)",
+        "sourceId": "mahabharata",
+        "locator": "Adi Parva",
         "date": "c. 400 BCE–400 CE"
       }
     ]
@@ -477,6 +502,8 @@
       {
         "text": "The nagas, sons of Kadru, dwell in Patala; Vasuki became the churning-rope, and Takshaka bit King Parikshit.",
         "source": "Mahabharata, Adi Parva",
+        "sourceId": "mahabharata",
+        "locator": "Adi Parva",
         "date": "c. 400 BCE–400 CE"
       }
     ]
@@ -639,6 +666,7 @@
       {
         "text": "Huwawa is appointed by Enlil to be the terror of the forest; Gilgamesh and Enkidu slay him and fell the cedars, and the gods take notice.",
         "source": "Epic of Gilgamesh, Standard Babylonian version, Tablets IV–V",
+        "sourceId": "epic-of-gilgamesh",
         "date": "c. 1200 BCE"
       }
     ]
@@ -877,6 +905,8 @@
       {
         "text": "When midnight has come... the heir of the house rises, and casting black beans he says nine times: 'These I send; with these beans I redeem me and mine.'",
         "source": "Ovid, Fasti 5 (Lemuria)",
+        "sourceId": "fasti",
+        "locator": "Book 5",
         "date": "c. 8 CE"
       }
     ]
@@ -948,6 +978,8 @@
       {
         "text": "The ahuitzotl lives in the water... it has a hand on its tail, and with it seizes people and makes them drown; the water folk belong to Tlaloc.",
         "source": "Sahagún, Florentine Codex, Book 11",
+        "sourceId": "florentine-codex",
+        "locator": "Book 11",
         "date": "c. 1577 CE"
       }
     ]
@@ -1020,6 +1052,8 @@
       {
         "text": "At Coatepec, Huitzilopochtli is born armed and slays Coyolxauhqui with the xiuhcoatl, the fire serpent.",
         "source": "Florentine Codex, Book 3 (Huitzilopochtli at Coatepec)",
+        "sourceId": "florentine-codex",
+        "locator": "Book 3",
         "date": "c. 1577 CE"
       }
     ]
@@ -1044,6 +1078,7 @@
       {
         "text": "When the sun is eclipsed, the tzitzimime, the star-demons, descend to devour people; women in labor were thought especially exposed.",
         "source": "Sahagún, Florentine Codex (eclipse and tzitzimime notices)",
+        "sourceId": "florentine-codex",
         "date": "c. 1577 CE"
       }
     ]
@@ -1068,6 +1103,7 @@
       {
         "text": "In the House of Bats, Camazotz snatches Hunahpu's head; the twins must finish the Xibalba trials without it.",
         "source": "Popol Vuh (K'iche' Maya)",
+        "sourceId": "popol-vuh",
         "date": "c. 1550–1700 CE"
       }
     ]
@@ -1321,6 +1357,7 @@
       {
         "text": "Collected as part of the largest 19th-century corpus of East Slavic oral folklore.",
         "source": "Alexander Afanasyev, Narodnye russkie skazki (Russian Fairy Tales), 1855–1863",
+        "sourceId": "afanasyev-russian-fairy-tales",
         "date": "collected and published 1855–1863"
       }
     ],
@@ -1344,6 +1381,7 @@
       {
         "text": "Collected as part of the largest 19th-century corpus of East Slavic oral folklore.",
         "source": "Alexander Afanasyev, Narodnye russkie skazki (Russian Fairy Tales), 1855–1863",
+        "sourceId": "afanasyev-russian-fairy-tales",
         "date": "collected and published 1855–1863"
       }
     ],
@@ -1367,6 +1405,7 @@
       {
         "text": "Collected as part of the largest 19th-century corpus of East Slavic oral folklore.",
         "source": "Alexander Afanasyev, Narodnye russkie skazki (Russian Fairy Tales), 1855–1863",
+        "sourceId": "afanasyev-russian-fairy-tales",
         "date": "collected and published 1855–1863"
       }
     ],
@@ -1390,6 +1429,7 @@
       {
         "text": "Collected as part of the largest 19th-century corpus of East Slavic oral folklore.",
         "source": "Alexander Afanasyev, Narodnye russkie skazki (Russian Fairy Tales), 1855–1863",
+        "sourceId": "afanasyev-russian-fairy-tales",
         "date": "collected and published 1855–1863"
       }
     ],
@@ -1414,6 +1454,7 @@
       {
         "text": "Collected as part of the largest 19th-century corpus of East Slavic oral folklore.",
         "source": "Alexander Afanasyev, Narodnye russkie skazki (Russian Fairy Tales), 1855–1863",
+        "sourceId": "afanasyev-russian-fairy-tales",
         "date": "collected and published 1855–1863"
       },
       {
@@ -1443,6 +1484,7 @@
       {
         "text": "Collected as part of the largest 19th-century corpus of East Slavic oral folklore.",
         "source": "Alexander Afanasyev, Narodnye russkie skazki (Russian Fairy Tales), 1855–1863",
+        "sourceId": "afanasyev-russian-fairy-tales",
         "date": "collected and published 1855–1863"
       }
     ],
@@ -1467,6 +1509,7 @@
       {
         "text": "Collected as part of the largest 19th-century corpus of East Slavic oral folklore.",
         "source": "Alexander Afanasyev, Narodnye russkie skazki (Russian Fairy Tales), 1855–1863",
+        "sourceId": "afanasyev-russian-fairy-tales",
         "date": "collected and published 1855–1863"
       }
     ],

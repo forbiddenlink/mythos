@@ -20,12 +20,14 @@
     "citationSources": [
       {
         "title": "Theogony",
+        "sourceId": "theogony",
         "author": "Hesiod",
         "lines": "617-735",
         "type": "primary"
       },
       {
         "title": "Library",
+        "sourceId": "library-apollodorus",
         "author": "Apollodorus",
         "book": "1.2.1",
         "type": "primary"
@@ -79,6 +81,7 @@
     "variants": [
       {
         "source": "Apollodorus's Library",
+        "sourceId": "library-apollodorus",
         "date": "1st-2nd century CE",
         "difference": "Apollodorus provides a more systematic account where Zeus receives a prophecy from Gaia that he can only win with the help of a mortal. This leads to Heracles joining the battle.",
         "note": "This connects the Titanomachy to the later Gigantomachy where Heracles plays a crucial role."
@@ -115,10 +118,12 @@
     "citationSources": [
       {
         "title": "Poetic Edda - Voluspa",
+        "sourceId": "poetic-edda",
         "lines": "40-66"
       },
       {
         "title": "Prose Edda - Gylfaginning",
+        "sourceId": "prose-edda",
         "chapters": "51-53"
       }
     ],
@@ -165,6 +170,7 @@
     "variants": [
       {
         "source": "Voluspa (Poetic Edda)",
+        "sourceId": "poetic-edda",
         "difference": "The Voluspa describes a new world rising from the sea, green and fertile, where the surviving gods find golden game pieces and Baldur returns from Hel.",
         "note": "This optimistic ending may reflect Christian influence, as the poem was recorded after Iceland's conversion."
       },
@@ -175,6 +181,7 @@
       },
       {
         "source": "Snorri's Prose Edda",
+        "sourceId": "prose-edda",
         "difference": "Snorri adds that a 'Mighty One' (possibly Christ) will come to rule after Ragnarok, a detail not found in the older Poetic Edda sources.",
         "note": "Snorri wrote in Christian Iceland and may have syncretized Norse and Christian eschatology."
       }
@@ -195,10 +202,12 @@
     "citationSources": [
       {
         "title": "Poetic Edda - Voluspa",
+        "sourceId": "poetic-edda",
         "lines": "3-18"
       },
       {
         "title": "Prose Edda - Gylfaginning",
+        "sourceId": "prose-edda",
         "chapters": "4-9"
       }
     ]
@@ -218,10 +227,12 @@
     "citationSources": [
       {
         "title": "Prose Edda - Gylfaginning",
+        "sourceId": "prose-edda",
         "chapters": "49-50"
       },
       {
-        "title": "Poetic Edda - Baldrs draumar"
+        "title": "Poetic Edda - Baldrs draumar",
+        "sourceId": "poetic-edda"
       }
     ],
     "variants": [
@@ -258,6 +269,7 @@
     "citationSources": [
       {
         "title": "Prose Edda - Gylfaginning",
+        "sourceId": "prose-edda",
         "chapter": "34"
       }
     ]
@@ -277,10 +289,12 @@
     "citationSources": [
       {
         "title": "Poetic Edda - Voluspa",
+        "sourceId": "poetic-edda",
         "lines": "19-20"
       },
       {
         "title": "Prose Edda - Gylfaginning",
+        "sourceId": "prose-edda",
         "chapters": "15-16"
       }
     ]
@@ -304,6 +318,7 @@
     "citationSources": [
       {
         "title": "Pyramid Texts",
+        "sourceId": "pyramid-texts",
         "spells": "600-602"
       },
       {
@@ -332,10 +347,12 @@
     "citationSources": [
       {
         "title": "Pyramid Texts",
+        "sourceId": "pyramid-texts",
         "spells": "366-375"
       },
       {
-        "title": "Plutarch - De Iside et Osiride"
+        "title": "Plutarch - De Iside et Osiride",
+        "sourceId": "plutarch-isis-osiris"
       }
     ]
   },
@@ -354,6 +371,7 @@
     "citationSources": [
       {
         "title": "Book of the Dead",
+        "sourceId": "book-of-the-dead",
         "spell": "15"
       },
       {
@@ -383,6 +401,7 @@
       },
       {
         "title": "Pyramid Texts",
+        "sourceId": "pyramid-texts",
         "spells": "350-360"
       }
     ]
@@ -402,10 +421,12 @@
     "citationSources": [
       {
         "title": "Book of the Dead",
+        "sourceId": "book-of-the-dead",
         "spell": "125"
       },
       {
-        "title": "Papyrus of Ani"
+        "title": "Papyrus of Ani",
+        "sourceId": "book-of-the-dead"
       }
     ],
     "primarySourceExcerpts": [
@@ -450,6 +471,7 @@
     "citationSources": [
       {
         "title": "Aeneid",
+        "sourceId": "aeneid",
         "author": "Virgil",
         "date": "~19 BCE",
         "type": "primary"
@@ -585,6 +607,7 @@
     "citationSources": [
       {
         "title": "Ramayana",
+        "sourceId": "ramayana",
         "author": "Valmiki",
         "type": "primary"
       }
@@ -631,6 +654,7 @@
     "citationSources": [
       {
         "title": "Mahabharata",
+        "sourceId": "mahabharata",
         "author": "Vyasa",
         "type": "primary"
       }
@@ -701,6 +725,7 @@
     "citationSources": [
       {
         "title": "Kojiki",
+        "sourceId": "kojiki",
         "type": "primary"
       }
     ]
@@ -724,6 +749,7 @@
     "citationSources": [
       {
         "title": "Kojiki",
+        "sourceId": "kojiki",
         "type": "primary"
       }
     ],
@@ -769,6 +795,7 @@
     "citationSources": [
       {
         "title": "Kojiki",
+        "sourceId": "kojiki",
         "type": "primary"
       }
     ]
@@ -792,6 +819,7 @@
     "citationSources": [
       {
         "title": "Cath Maige Tuired",
+        "sourceId": "cath-maige-tuired",
         "type": "primary"
       }
     ]
@@ -839,6 +867,7 @@
     "citationSources": [
       {
         "title": "Leyenda de los Soles",
+        "sourceId": "leyenda-de-los-soles",
         "type": "primary"
       }
     ]
@@ -863,6 +892,7 @@
     "citationSources": [
       {
         "title": "Journey to the West",
+        "sourceId": "journey-to-the-west",
         "author": "Wu Cheng'en",
         "type": "primary"
       }
@@ -887,6 +917,7 @@
     "citationSources": [
       {
         "title": "Huainanzi",
+        "sourceId": "huainanzi",
         "type": "primary"
       }
     ],
@@ -913,6 +944,7 @@
     "citationSources": [
       {
         "title": "Huainanzi",
+        "sourceId": "huainanzi",
         "date": "139 BCE",
         "type": "primary"
       },
@@ -993,6 +1025,7 @@
       },
       {
         "title": "Journey to the West",
+        "sourceId": "journey-to-the-west",
         "author": "Wu Cheng'en",
         "date": "1592 CE",
         "type": "secondary"
@@ -1064,6 +1097,7 @@
     "citationSources": [
       {
         "title": "Huainanzi",
+        "sourceId": "huainanzi",
         "date": "139 BCE",
         "type": "primary"
       },
@@ -1076,6 +1110,7 @@
     "variants": [
       {
         "source": "Huainanzi",
+        "sourceId": "huainanzi",
         "difference": "The earliest version does not name the goddess who repairs the sky, attributing the act simply to a nameless divine figure.",
         "note": "Nuwa was later identified as the sky-repairer, merging two separate mythological traditions."
       }
@@ -1102,12 +1137,14 @@
     "citationSources": [
       {
         "title": "Theogony",
+        "sourceId": "theogony",
         "author": "Hesiod",
         "lines": "507-616",
         "type": "primary"
       },
       {
         "title": "Works and Days",
+        "sourceId": "works-and-days",
         "author": "Hesiod",
         "lines": "42-105",
         "type": "primary"
@@ -1123,6 +1160,7 @@
     "variants": [
       {
         "source": "Hesiod's Works and Days",
+        "sourceId": "works-and-days",
         "date": "8th century BCE",
         "difference": "In Works and Days, Prometheus's theft of fire leads directly to the creation of Pandora as punishment for mankind, making fire a double-edged gift that brings both civilization and suffering.",
         "note": "Hesiod presents Prometheus more ambiguously, as someone whose defiance brought unintended consequences."
@@ -1162,12 +1200,14 @@
     "citationSources": [
       {
         "title": "Library",
+        "sourceId": "library-apollodorus",
         "author": "Apollodorus",
         "book": "2.4.1-2.4.5",
         "type": "primary"
       },
       {
         "title": "Metamorphoses",
+        "sourceId": "metamorphoses",
         "author": "Ovid",
         "book": "4.604-5.249",
         "type": "primary"
@@ -1178,6 +1218,7 @@
     "variants": [
       {
         "source": "Hesiod's Theogony",
+        "sourceId": "theogony",
         "passage": "Theogony 270–286",
         "sourceUrl": "https://www.theoi.com/Text/HesiodTheogony.html",
         "translator": "Hugh G. Evelyn-White",
@@ -1187,6 +1228,7 @@
       },
       {
         "source": "Ovid's Metamorphoses",
+        "sourceId": "metamorphoses",
         "passage": "Metamorphoses 4.790–803",
         "sourceUrl": "https://www.poetryintranslation.com/PITBR/Latin/Metamorph4.php",
         "translator": "A. S. Kline",
@@ -1231,6 +1273,7 @@
       },
       {
         "title": "Library",
+        "sourceId": "library-apollodorus",
         "author": "Apollodorus",
         "book": "Epitome 1.7-1.9",
         "type": "primary"
@@ -1261,6 +1304,7 @@
     "citationSources": [
       {
         "title": "Metamorphoses",
+        "sourceId": "metamorphoses",
         "author": "Ovid",
         "book": "10.1-85, 11.1-84",
         "type": "primary"
@@ -1315,17 +1359,20 @@
     "citationSources": [
       {
         "title": "Iliad",
+        "sourceId": "iliad",
         "author": "Homer",
         "type": "primary"
       },
       {
         "title": "Aeneid",
+        "sourceId": "aeneid",
         "author": "Virgil",
         "book": "2",
         "type": "primary"
       },
       {
         "title": "Library",
+        "sourceId": "library-apollodorus",
         "author": "Apollodorus",
         "book": "Epitome 3-5",
         "type": "primary"
@@ -1354,6 +1401,7 @@
       },
       {
         "source": "Homer's Iliad vs. Later Sources",
+        "sourceId": "iliad",
         "difference": "The Iliad never mentions Achilles' famous 'heel' vulnerability. In Homer, Achilles is simply a mortal who knows he is fated to die young.",
         "note": "The 'Achilles heel' concept appears in later Roman sources, particularly Statius's Achilleid (1st century CE)."
       }
@@ -1423,6 +1471,7 @@
     "citationSources": [
       {
         "title": "Prose Edda - Skaldskaparmal",
+        "sourceId": "prose-edda",
         "author": "Snorri Sturluson",
         "chapters": "1-6",
         "type": "primary"
@@ -1446,6 +1495,7 @@
     "citationSources": [
       {
         "title": "Prose Edda - Gylfaginning",
+        "sourceId": "prose-edda",
         "author": "Snorri Sturluson",
         "chapters": "44-47",
         "type": "primary"
@@ -1469,6 +1519,7 @@
     "citationSources": [
       {
         "title": "Poetic Edda - Havamal",
+        "sourceId": "poetic-edda",
         "stanzas": "138-145",
         "type": "primary"
       }
@@ -1491,10 +1542,12 @@
     "citationSources": [
       {
         "title": "Book of the Dead",
+        "sourceId": "book-of-the-dead",
         "type": "primary"
       },
       {
         "title": "Papyrus of Ani",
+        "sourceId": "book-of-the-dead",
         "type": "primary"
       }
     ],
@@ -1584,11 +1637,13 @@
     "citationSources": [
       {
         "title": "Kojiki",
+        "sourceId": "kojiki",
         "book": "1",
         "type": "primary"
       },
       {
         "title": "Nihon Shoki",
+        "sourceId": "nihon-shoki",
         "book": "1",
         "type": "primary"
       }
@@ -1611,11 +1666,13 @@
     "citationSources": [
       {
         "title": "Kojiki",
+        "sourceId": "kojiki",
         "book": "1",
         "type": "primary"
       },
       {
         "title": "Nihon Shoki",
+        "sourceId": "nihon-shoki",
         "type": "primary"
       }
     ],
@@ -1637,6 +1694,7 @@
     "citationSources": [
       {
         "title": "Tain Bo Cuailnge",
+        "sourceId": "tain-bo-cuailnge",
         "collection": "Ulster Cycle",
         "type": "primary"
       },
@@ -1823,6 +1881,7 @@
     "citationSources": [
       {
         "title": "Epic of Gilgamesh (Standard Babylonian Version)",
+        "sourceId": "epic-of-gilgamesh",
         "author": "Sin-leqi-unninni",
         "date": "c. 1200 BCE",
         "type": "primary"
@@ -1918,6 +1977,7 @@
     "citationSources": [
       {
         "title": "Enuma Elish",
+        "sourceId": "enuma-elish",
         "date": "c. 1100 BCE",
         "type": "primary"
       }
@@ -1975,6 +2035,7 @@
     "citationSources": [
       {
         "title": "Epic of Gilgamesh, Tablet XI",
+        "sourceId": "epic-of-gilgamesh",
         "date": "c. 1200 BCE",
         "type": "primary"
       },
@@ -2002,6 +2063,7 @@
     "citationSources": [
       {
         "title": "Epic of Gilgamesh, Tablets I-II",
+        "sourceId": "epic-of-gilgamesh",
         "date": "c. 1200 BCE",
         "type": "primary"
       }
@@ -2029,6 +2091,7 @@
     "citationSources": [
       {
         "title": "Leyenda de los Soles",
+        "sourceId": "leyenda-de-los-soles",
         "date": "c. 1558 CE",
         "type": "primary"
       }
@@ -2056,6 +2119,7 @@
     "citationSources": [
       {
         "title": "Popol Vuh",
+        "sourceId": "popol-vuh",
         "date": "c. 1550 CE (recording ancient traditions)",
         "type": "primary"
       }
@@ -2109,6 +2173,7 @@
     "citationSources": [
       {
         "title": "Popol Vuh",
+        "sourceId": "popol-vuh",
         "date": "c. 1550 CE (recording ancient traditions)",
         "type": "primary"
       },
@@ -2458,6 +2523,7 @@
     "citationSources": [
       {
         "title": "Florentine Codex, Book 3",
+        "sourceId": "florentine-codex",
         "type": "primary"
       },
       {
@@ -2493,6 +2559,7 @@
       },
       {
         "title": "Florentine Codex, Book 3",
+        "sourceId": "florentine-codex",
         "type": "primary"
       }
     ],
@@ -2519,6 +2586,7 @@
     "citationSources": [
       {
         "title": "Florentine Codex, Book 3, Appendix",
+        "sourceId": "florentine-codex",
         "type": "primary"
       },
       {
@@ -2621,6 +2689,7 @@
     "citationSources": [
       {
         "title": "Popol Vuh",
+        "sourceId": "popol-vuh",
         "author": "Anonymous K'iche' Maya text; trans. Allen J. Christenson",
         "chapter": "Part III",
         "type": "primary",
@@ -2651,12 +2720,14 @@
     "citationSources": [
       {
         "title": "Metamorphoses",
+        "sourceId": "metamorphoses",
         "author": "Ovid",
         "book": "5.341-571",
         "type": "primary"
       },
       {
         "title": "Fasti",
+        "sourceId": "fasti",
         "author": "Ovid",
         "book": "4.417-620",
         "type": "primary"
@@ -2692,6 +2763,7 @@
       },
       {
         "title": "Fasti",
+        "sourceId": "fasti",
         "author": "Ovid",
         "book": "2.721-852",
         "type": "primary"
@@ -2721,12 +2793,14 @@
     "citationSources": [
       {
         "title": "Library",
+        "sourceId": "library-apollodorus",
         "author": "Apollodorus",
         "book": "2.4.8-2.5.12",
         "type": "primary"
       },
       {
         "title": "Metamorphoses",
+        "sourceId": "metamorphoses",
         "author": "Ovid",
         "book": "9.1-272",
         "type": "primary"
@@ -2737,6 +2811,7 @@
     "variants": [
       {
         "source": "Pseudo-Apollodorus, Library",
+        "sourceId": "library-apollodorus",
         "passage": "Library 2.4.12",
         "sourceUrl": "https://www.theoi.com/Text/Apollodorus2.html",
         "translator": "James George Frazer",
@@ -2776,6 +2851,7 @@
     "citationSources": [
       {
         "title": "Aeneid",
+        "sourceId": "aeneid",
         "author": "Virgil",
         "book": "1.305-756, 4.1-705, 6.450-476",
         "type": "primary"
@@ -2805,6 +2881,7 @@
     "citationSources": [
       {
         "title": "Leyenda de los Soles",
+        "sourceId": "leyenda-de-los-soles",
         "type": "primary"
       },
       {
@@ -2840,6 +2917,7 @@
     "citationSources": [
       {
         "title": "Florentine Codex",
+        "sourceId": "florentine-codex",
         "author": "Bernardino de Sahagún",
         "book": "1, 2",
         "type": "primary"
@@ -2873,6 +2951,7 @@
       },
       {
         "title": "Florentine Codex",
+        "sourceId": "florentine-codex",
         "author": "Bernardino de Sahagún",
         "type": "primary"
       }
@@ -2901,6 +2980,7 @@
     "citationSources": [
       {
         "title": "Florentine Codex",
+        "sourceId": "florentine-codex",
         "author": "Bernardino de Sahagún",
         "book": "1, 4",
         "type": "primary"
@@ -2940,6 +3020,7 @@
       },
       {
         "title": "Vishnu Purana",
+        "sourceId": "vishnu-purana",
         "book": "1.17-20",
         "type": "primary"
       }
@@ -2968,6 +3049,7 @@
     "citationSources": [
       {
         "title": "Mahabharata",
+        "sourceId": "mahabharata",
         "book": "Adi Parva",
         "type": "primary"
       },
@@ -3033,6 +3115,7 @@
     "citationSources": [
       {
         "title": "Ramayana",
+        "sourceId": "ramayana",
         "author": "Valmiki",
         "book": "Sundara Kanda",
         "type": "primary"
@@ -3067,12 +3150,14 @@
     "citationSources": [
       {
         "title": "Metamorphoses",
+        "sourceId": "metamorphoses",
         "author": "Ovid",
         "book": "8.183-235",
         "type": "primary"
       },
       {
         "title": "Library",
+        "sourceId": "library-apollodorus",
         "author": "Apollodorus",
         "book": "Epitome 1.12-13",
         "type": "primary"
@@ -3102,6 +3187,7 @@
     "citationSources": [
       {
         "title": "Library",
+        "sourceId": "library-apollodorus",
         "author": "Apollodorus",
         "book": "Epitome 3.1-3",
         "type": "primary"
@@ -3137,6 +3223,7 @@
     "citationSources": [
       {
         "title": "Metamorphoses",
+        "sourceId": "metamorphoses",
         "author": "Ovid",
         "book": "10.243-297",
         "type": "primary"
@@ -3166,6 +3253,7 @@
     "citationSources": [
       {
         "title": "Metamorphoses",
+        "sourceId": "metamorphoses",
         "author": "Ovid",
         "book": "3.339-510",
         "type": "primary"
@@ -3181,10 +3269,12 @@
     "citationSources": [
       {
         "title": "Kojiki",
+        "sourceId": "kojiki",
         "type": "primary"
       },
       {
         "title": "Nihon Shoki",
+        "sourceId": "nihon-shoki",
         "type": "primary"
       }
     ],
@@ -3212,6 +3302,7 @@
     "citationSources": [
       {
         "title": "Kojiki",
+        "sourceId": "kojiki",
         "type": "primary"
       }
     ],
@@ -3346,6 +3437,7 @@
     "citationSources": [
       {
         "title": "Russian Primary Chronicle (Povest' vremennykh let), s.a. 980 and 988",
+        "sourceId": "russian-primary-chronicle",
         "author": "unattributed monastic chroniclers, Kiev",
         "date": "compiled early 12th c.; Laurentian codex 1377, Hypatian codex c. 1425",
         "type": "primary"
@@ -3431,6 +3523,7 @@
     "citationSources": [
       {
         "title": "Narodnye russkie skazki (Russian Fairy Tales)",
+        "sourceId": "afanasyev-russian-fairy-tales",
         "author": "Alexander Afanasyev",
         "date": "1855–1863",
         "type": "secondary"
@@ -3455,12 +3548,14 @@
     "citationSources": [
       {
         "title": "Seneca Myths and Folk Tales",
+        "sourceId": "seneca-myths-folk-tales",
         "author": "Arthur C. Parker (Seneca)",
         "date": "1923",
         "type": "primary"
       },
       {
         "title": "Iroquoian Cosmology, Bureau of American Ethnology Annual Reports 21 and 43",
+        "sourceId": "iroquoian-cosmology",
         "author": "J.N.B. Hewitt (Tuscarora)",
         "date": "1903 and 1928",
         "type": "primary"
@@ -3486,12 +3581,14 @@
     "citationSources": [
       {
         "title": "Seneca Myths and Folk Tales",
+        "sourceId": "seneca-myths-folk-tales",
         "author": "Arthur C. Parker (Seneca)",
         "date": "1923",
         "type": "primary"
       },
       {
         "title": "Iroquoian Cosmology, Bureau of American Ethnology Annual Reports 21 and 43",
+        "sourceId": "iroquoian-cosmology",
         "author": "J.N.B. Hewitt (Tuscarora)",
         "date": "1903 and 1928",
         "type": "primary"
@@ -3609,30 +3706,35 @@
     "citationSources": [
       {
         "title": "Homeric Hymn to Demeter (Hymn 2)",
+        "sourceId": "homeric-hymns",
         "author": "Anonymous",
         "book": "entire hymn",
         "type": "primary"
       },
       {
         "title": "Theogony",
+        "sourceId": "theogony",
         "author": "Hesiod",
         "book": "912-914",
         "type": "primary"
       },
       {
         "title": "Metamorphoses",
+        "sourceId": "metamorphoses",
         "author": "Ovid",
         "book": "5.341-661",
         "type": "primary"
       },
       {
         "title": "Fasti",
+        "sourceId": "fasti",
         "author": "Ovid",
         "book": "4.417-620",
         "type": "primary"
       },
       {
         "title": "Library",
+        "sourceId": "library-apollodorus",
         "author": "Apollodorus",
         "book": "1.5.1-3",
         "type": "primary"
@@ -3650,12 +3752,14 @@
     "variants": [
       {
         "source": "Ovid, Metamorphoses 5",
+        "sourceId": "metamorphoses",
         "date": "c. 8 CE",
         "difference": "Set in Sicily near Henna. Venus and Cupid cause Dis to fall in love, the nymph Cyane resists and dissolves into water, and Ascalaphus reveals that Proserpina ate seven seeds. The year is split in half.",
         "note": "Ovid turns a cult hymn into a story about the reach of love's power."
       },
       {
         "source": "Apollodorus, Library 1.5",
+        "sourceId": "library-apollodorus",
         "date": "1st-2nd century CE",
         "difference": "Ascalaphus, son of Acheron, testifies against Persephone, and Demeter punishes him. The third of the year below is kept from the hymn.",
         "note": "A compact mythographer's summary."

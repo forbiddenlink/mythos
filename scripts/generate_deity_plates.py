@@ -1,19 +1,18 @@
 #!/usr/bin/env python3
 """
 generate_deity_plates.py
-Generates archival classical portrait plates for the 43 missing deities in Mythos Atlas,
+Generates archival classical portrait plates for deities in Mythos Atlas that have no\nillustration (43 in the first pass, 15 more in 2026-09),
 adhering to the dark-academia classical atlas style in .impeccable.md.
 """
 
 import os
 import math
-import subprocess
-from PIL import Image, ImageDraw, ImageFont
+import argparse
+from PIL import Image, ImageDraw
 
-REPO_ROOT = "/Volumes/LizsDisk/mythos"
-WEB_PUBLIC = os.path.join(REPO_ROOT, "apps/web/public")
+from _repo_paths import WEB_PUBLIC, serif_font, write_webp
+
 DEITIES_DIR = os.path.join(WEB_PUBLIC, "deities")
-os.makedirs(DEITIES_DIR, exist_ok=True)
 
 W, H = 768, 1024
 
@@ -73,7 +72,24 @@ DEITIES = [
     {"id": "raven", "name": "RAVEN", "tag": "TLINGIT & HAIDA", "domain": "YÉIL · THE TRANSFORMER · BRINGER OF LIGHT", "accent": (210, 75, 65), "bg": (20, 12, 14), "motif": "raven_light"},
     {"id": "fog-woman", "name": "FOG WOMAN", "tag": "TLINGIT & HAIDA", "domain": "RIVER MISTS · SALMON RUNS · SPRINGTIME", "accent": (120, 185, 185), "bg": (14, 20, 24), "motif": "salmon_mist"},
     {"id": "chief-fog-over-the-salmon", "name": "CHIEF FOG", "tag": "TLINGIT & HAIDA", "domain": "RIVER MOUTH CANOPIES · MISTS OF HARVEST", "accent": (150, 165, 175), "bg": (16, 18, 22), "motif": "fog_river"},
-    {"id": "naas-shaak-aankawu", "name": "NAAS SHAAK", "tag": "TLINGIT & HAIDA", "domain": "KEEPER OF DAYLIGHT · THREE BOXES OF STARS", "accent": (225, 160, 50), "bg": (22, 16, 14), "motif": "three_boxes"}
+    {"id": "naas-shaak-aankawu", "name": "NAAS SHAAK", "tag": "TLINGIT & HAIDA", "domain": "KEEPER OF DAYLIGHT · THREE BOXES OF STARS", "accent": (225, 160, 50), "bg": (22, 16, 14), "motif": "three_boxes"},
+
+    # 2026-09 additions: targets of cross-pantheon parallels that had no entry
+    {"id": "helios", "name": "HELIOS", "tag": "GREEK TITAN-BORN GOD", "domain": "THE SUN · ALL-SEEING WITNESS", "accent": (235, 175, 55), "bg": (26, 18, 10), "motif": "sun_disc"},
+    {"id": "selene", "name": "SELENE", "tag": "GREEK TITAN-BORN GODDESS", "domain": "THE MOON · THE MONTHS · ENDYMION", "accent": (170, 185, 220), "bg": (14, 16, 26), "motif": "starry_vault"},
+    {"id": "eos", "name": "EOS", "tag": "GREEK TITAN-BORN GODDESS", "domain": "ROSY-FINGERED DAWN · TITHONUS", "accent": (230, 130, 110), "bg": (24, 14, 16), "motif": "solar_wheel"},
+    {"id": "tethys", "name": "TETHYS", "tag": "GREEK TITANESS", "domain": "MOTHER OF RIVERS · WIFE OF OCEANUS", "accent": (80, 160, 175), "bg": (10, 20, 24), "motif": "salmon_mist"},
+    {"id": "asclepius", "name": "ASCLEPIUS", "tag": "GREEK GOD", "domain": "HEALING · THE SERPENT STAFF", "accent": (120, 175, 120), "bg": (14, 22, 16), "motif": "dual_serpents"},
+    {"id": "plutus", "name": "PLUTUS", "tag": "GREEK GOD", "domain": "WEALTH OF THE HARVEST · SON OF DEMETER", "accent": (215, 170, 70), "bg": (22, 18, 12), "motif": "golden_apples"},
+    {"id": "dioscuri", "name": "THE DIOSCURI", "tag": "GREEK DIVINE TWINS", "domain": "CASTOR & POLYDEUCES · SAVIORS AT SEA", "accent": (150, 170, 215), "bg": (14, 16, 24), "motif": "starry_vault"},
+    {"id": "kartikeya", "name": "KARTIKEYA", "tag": "HINDU GOD", "domain": "WAR · GENERAL OF THE GODS · THE SPEAR", "accent": (220, 95, 60), "bg": (26, 14, 12), "motif": "thunder_axe"},
+    {"id": "usha", "name": "USHA", "tag": "VEDIC GODDESS", "domain": "THE DAWN · AWAKENER OF ALL", "accent": (240, 150, 90), "bg": (26, 16, 12), "motif": "sun_disc"},
+    {"id": "ganga", "name": "GANGA", "tag": "HINDU GODDESS", "domain": "THE SACRED RIVER · PURIFICATION", "accent": (95, 175, 200), "bg": (10, 18, 24), "motif": "salmon_mist"},
+    {"id": "ashvins", "name": "THE ASHVINS", "tag": "VEDIC DIVINE TWINS", "domain": "HORSEMEN OF DAWN · PHYSICIANS", "accent": (210, 175, 90), "bg": (22, 18, 12), "motif": "solar_wheel"},
+    {"id": "purusha", "name": "PURUSHA", "tag": "VEDIC COSMIC BEING", "domain": "THE THOUSAND-HEADED PERSON · SACRIFICE", "accent": (200, 140, 70), "bg": (22, 16, 12), "motif": "four_faces"},
+    {"id": "skadi", "name": "SKAÐI", "tag": "NORSE GODDESS", "domain": "MOUNTAINS · WINTER · THE HUNT", "accent": (160, 195, 225), "bg": (12, 18, 26), "motif": "frost_chasm"},
+    {"id": "longwang", "name": "LONGWANG", "tag": "CHINESE DRAGON KINGS", "domain": "SEAS · RIVERS · BRINGERS OF RAIN", "accent": (80, 170, 140), "bg": (10, 20, 18), "motif": "fog_river"},
+    {"id": "ninhursag", "name": "NINHURSAG", "tag": "MESOPOTAMIAN GODDESS", "domain": "LADY OF THE MOUNTAIN · MOTHER OF BIRTH", "accent": (175, 150, 95), "bg": (20, 18, 14), "motif": "earth_vines"},
 ]
 
 def draw_deity_motif(draw, cx, cy, radius, motif, accent, gold):
@@ -204,6 +220,7 @@ def draw_deity_motif(draw, cx, cy, radius, motif, accent, gold):
         draw.line([(cx, cy - 70), (cx, cy + 70)], fill=gold, width=3)
 
 def generate_deity_plate(d):
+    os.makedirs(DEITIES_DIR, exist_ok=True)
     img = Image.new("RGBA", (W, H), d["bg"] + (255,))
     accent = d["accent"]
     gold = (212, 175, 55)
@@ -235,12 +252,9 @@ def generate_deity_plate(d):
     draw.line([(64, 94), (W - 64, 94)], fill=(gold[0]//2, gold[1]//2, gold[2]//2), width=1)
 
     tag_text = f"MYTHOS ATLAS · {d['tag']}"
-    try:
-        font_sm = ImageFont.truetype("/System/Library/Fonts/Supplemental/Times New Roman.ttf", 16)
-        font_lg = ImageFont.truetype("/System/Library/Fonts/Supplemental/Times New Roman Bold.ttf", 46)
-        font_sub = ImageFont.truetype("/System/Library/Fonts/Supplemental/Times New Roman Italic.ttf", 17)
-    except:
-        font_sm = font_lg = font_sub = ImageFont.load_default()
+    font_sm = serif_font("regular", 16)
+    font_lg = serif_font("bold", 46)
+    font_sub = serif_font("italic", 17)
 
     draw.text((W // 2, 65), tag_text, font=font_sm, fill=(200, 180, 140), anchor="mm")
 
@@ -265,11 +279,22 @@ def generate_deity_plate(d):
 
     # Export WebP
     webp_path = os.path.join(DEITIES_DIR, f"{d['id']}.webp")
-    subprocess.run(["/opt/homebrew/bin/cwebp", "-q", "85", png_path, "-o", webp_path], check=True, stdout=subprocess.DEVNULL)
+    write_webp(png_path, webp_path)
     print(f"  ✓ Deity: {d['id']} -> PNG & WebP")
 
 if __name__ == "__main__":
-    print(f"Generating {len(DEITIES)} Deity Portrait Plates...")
-    for d in DEITIES:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument(
+        "--only",
+        help="Comma-separated deity ids to (re)generate; default is every plate.",
+    )
+    args = parser.parse_args()
+    wanted = set(args.only.split(",")) if args.only else None
+    selected = [d for d in DEITIES if wanted is None or d["id"] in wanted]
+    if wanted and len(selected) != len(wanted):
+        missing = wanted - {d["id"] for d in selected}
+        raise SystemExit(f"Unknown deity ids: {', '.join(sorted(missing))}")
+    print(f"Generating {len(selected)} Deity Portrait Plates...")
+    for d in selected:
         generate_deity_plate(d)
-    print("All 43 Deity Plates successfully generated!")
+    print(f"{len(selected)} deity plates generated in {DEITIES_DIR}")

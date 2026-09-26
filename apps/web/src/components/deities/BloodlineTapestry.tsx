@@ -140,7 +140,7 @@ export function BloodlineTapestry({
           else push(children, other); // I am parent OF other
           break;
         case "spouse_of":
-        case "lover":
+        case "lover_of":
           push(consorts, other);
           break;
         case "sibling_of":
