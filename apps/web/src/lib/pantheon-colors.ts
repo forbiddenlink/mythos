@@ -186,16 +186,7 @@ const PANTHEON_ACCENTS: Record<string, PantheonAccent> = {
   },
 };
 
-/** {bg,label} shape — locations/page.tsx, journeys/page.tsx, journeys/[slug]/JourneyPageClient.tsx */
-export const PANTHEON_BG_LABEL: Record<string, { bg: string; label: string }> =
-  Object.fromEntries(
-    Object.entries(PANTHEON_ACCENTS).map(([id, a]) => [
-      id,
-      { bg: a.primary, label: a.label },
-    ]),
-  );
-
-/** {primary,secondary} shape — components/maps/JourneyMap.tsx, JourneyPreviewMap.tsx */
+/** {primary,secondary} shape — components/maps/JourneyMap.tsx */
 export const PANTHEON_PRIMARY_SECONDARY: Record<
   string,
   { primary: string; secondary: string }
