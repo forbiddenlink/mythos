@@ -188,6 +188,60 @@ HEROES = [
         "bg_tone": (26, 16, 10),
         "motif": "gandiva_bow"
     },
+    {
+        "id": "peacemaker",
+        "name": "THE PEACEMAKER",
+        "epithet": "MESSENGER OF THE GREAT LAW OF PEACE",
+        "pantheon": "HAUDENOSAUNEE",
+        "accent": (90, 160, 130),
+        "bg_tone": (12, 20, 18),
+        "motif": "swan_crown"
+    },
+    {
+        "id": "hiawatha",
+        "name": "HIAWATHA",
+        "epithet": "THE WORDS OF CONDOLENCE",
+        "pantheon": "HAUDENOSAUNEE",
+        "accent": (200, 190, 160),
+        "bg_tone": (16, 18, 20),
+        "motif": "loom"
+    },
+    {
+        "id": "jikonhsaseh",
+        "name": "JIKONHSASEH",
+        "epithet": "MOTHER OF NATIONS",
+        "pantheon": "HAUDENOSAUNEE",
+        "accent": (190, 140, 170),
+        "bg_tone": (20, 14, 20),
+        "motif": "loom"
+    },
+    {
+        "id": "tadodaho",
+        "name": "TADODAHO",
+        "epithet": "FIREKEEPER OF THE CONFEDERACY",
+        "pantheon": "HAUDENOSAUNEE",
+        "accent": (200, 110, 60),
+        "bg_tone": (22, 14, 12),
+        "motif": "dragon_sword"
+    },
+    {
+        "id": "kats",
+        "name": "KAATS'",
+        "epithet": "THE MAN WHO MARRIED THE BEAR",
+        "pantheon": "TLINGIT",
+        "accent": (170, 120, 80),
+        "bg_tone": (20, 16, 12),
+        "motif": "lion_club"
+    },
+    {
+        "id": "natsilane",
+        "name": "NAATSILANEI",
+        "epithet": "CARVER OF THE KILLER WHALES",
+        "pantheon": "TLINGIT",
+        "accent": (90, 150, 190),
+        "bg_tone": (12, 18, 24),
+        "motif": "bow_ship"
+    }
 ]
 
 W, H = 768, 1024

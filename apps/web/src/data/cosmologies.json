@@ -1021,7 +1021,7 @@
     ]
   },
   {
-    "pantheonId": "african-pantheon",
+    "pantheonId": "yoruba-pantheon",
     "title": "Ọ̀run and Ayé",
     "summary": "In Yoruba thought, Ọ̀run, the invisible realm of Olodumare, the orisha, and the ancestors, sits above Ayé, the visible world. Obatala came down a chain from Ọ̀run to create land on the primordial waters at Ile-Ife.",
     "axis": {
@@ -1029,7 +1029,7 @@
       "kind": "chain",
       "note": "The chain by which Obatala (or Oduduwa, in other versions) descended to create the land."
     },
-    "variantNote": "This view follows Yoruba tradition, which is still a living religion. Whether Obatala or Oduduwa created the land differs between tellings. Other figures in this pantheon, such as the Akan Nyame and Anansi, come from separate traditions with their own cosmologies.",
+    "variantNote": "This view follows Yoruba tradition, which is still a living religion. Whether Obatala or Oduduwa created the land differs between tellings, and houses of worship arrange the orisha differently. The Akan sky god Nyame and Anansi belong to a separate tradition, with its own page and cosmology.",
     "sources": [
       "Ifá literary corpus (Odù Ifá)",
       "Yoruba oral tradition recorded by Samuel Johnson, The History of the Yorubas (1921)"
@@ -1305,6 +1305,97 @@
             "description": "The single world of sea, forest, and river where Raven's stories take place: the Nass River household where daylight is stolen, and the beach at Rose Spit, Haida Gwaii, where the first people leave the clamshell.",
             "deities": ["raven", "fog-woman", "naas-shaak-aankawu"],
             "locationId": "haida-gwaii"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "pantheonId": "akan-pantheon",
+    "title": "Nyame Above, Asase Yaa Below",
+    "summary": "In Akan thought the sky god Nyame is above and remote, the earth Asase Yaa is below and honoured on her day, and the abosom of rivers and the ancestors stand between. The dead go on to Asamando, the land of the ancestors.",
+    "axis": null,
+    "variantNote": "Akan religion is a living tradition with regional differences between Asante, Bono, Fante, and other Akan peoples; this layout is a simplified guide drawn from Rattray's recordings and Akan writers such as Danquah, not a fixed diagram used by practitioners.",
+    "sources": [
+      "R. S. Rattray, Ashanti (1923)",
+      "R. S. Rattray, Religion and Art in Ashanti (1927)",
+      "J. B. Danquah, The Akan Doctrine of God (1944)"
+    ],
+    "tiers": [
+      {
+        "id": "sky",
+        "label": "The sky",
+        "band": "sky",
+        "realms": [
+          {
+            "name": "Nyame's sky",
+            "description": "The home of the supreme sky god, who once lived close to people and withdrew upward. Ananse climbs to it to buy the stories.",
+            "deities": ["nyame", "anansi"]
+          }
+        ]
+      },
+      {
+        "id": "earth",
+        "label": "The earth and its waters",
+        "band": "earth",
+        "realms": [
+          {
+            "name": "Asase",
+            "description": "The earth herself, Asase Yaa, honoured with libations; in many Akan areas farming stops on her day.",
+            "deities": ["asase-yaa"]
+          },
+          {
+            "name": "Rivers and forest",
+            "description": "The abosom of rivers such as Tano and Bia, and the beings of the deep forest.",
+            "deities": ["tano", "bia"],
+            "creatures": ["asanbosam", "mmoatia"]
+          }
+        ]
+      },
+      {
+        "id": "ancestors",
+        "label": "Asamando",
+        "band": "under",
+        "realms": [
+          {
+            "name": "Asamando",
+            "description": "The land of the ancestors (nsamanfo), where the dead continue and from which they remain concerned with the living lineage."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "pantheonId": "african-pantheon",
+    "title": "Many Traditions, No Single Cosmos",
+    "summary": "This collection gathers beings from separate African peoples. They share no cosmology; the grouping below only sorts them by the places their own traditions associate them with.",
+    "axis": null,
+    "variantNote": "Each being here belongs to a different people (Zulu and Xhosa, Swahili, Mandinka, Ewe, Mongo) or, in Mami Wata's case, to a widespread modern devotional tradition. Their placement side by side is a browsing aid, not a reconstruction of any shared worldview.",
+    "sources": [
+      "Individual ethnographic and folklore records cited on each creature entry"
+    ],
+    "tiers": [
+      {
+        "id": "forest",
+        "label": "Forests and villages",
+        "band": "earth",
+        "realms": [
+          {
+            "name": "Forest and village edge",
+            "description": "Beings said to haunt the forest or to slip into villages at night.",
+            "creatures": ["adze", "eloko", "popobawa"]
+          }
+        ]
+      },
+      {
+        "id": "waters",
+        "label": "Rivers, swamps, and seas",
+        "band": "water",
+        "realms": [
+          {
+            "name": "Waters",
+            "description": "Water spirits and river beings from several unrelated traditions.",
+            "creatures": ["mami-wata", "tikoloshe", "ninki-nanka"]
           }
         ]
       }

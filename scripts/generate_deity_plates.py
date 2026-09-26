@@ -90,6 +90,124 @@ DEITIES = [
     {"id": "skadi", "name": "SKAÐI", "tag": "NORSE GODDESS", "domain": "MOUNTAINS · WINTER · THE HUNT", "accent": (160, 195, 225), "bg": (12, 18, 26), "motif": "frost_chasm"},
     {"id": "longwang", "name": "LONGWANG", "tag": "CHINESE DRAGON KINGS", "domain": "SEAS · RIVERS · BRINGERS OF RAIN", "accent": (80, 170, 140), "bg": (10, 20, 18), "motif": "fog_river"},
     {"id": "ninhursag", "name": "NINHURSAG", "tag": "MESOPOTAMIAN GODDESS", "domain": "LADY OF THE MOUNTAIN · MOTHER OF BIRTH", "accent": (175, 150, 95), "bg": (20, 18, 14), "motif": "earth_vines"},
+    # 2026-09 additions: deeper Haudenosaunee, Tlingit & Haida, and Akan coverage
+    {
+        "id": "asase-yaa",
+        "name": "ASASE YAA",
+        "tag": "AKAN",
+        "domain": "THE EARTH · THURSDAY-BORN · LIBATION",
+        "accent": (150, 120, 70),
+        "bg": (20, 16, 12),
+        "motif": "earth_vines"
+    },
+    {
+        "id": "tano",
+        "name": "TANO",
+        "tag": "AKAN OBOSOM",
+        "domain": "THE TANO RIVER · FOREMOST OF THE ABOSOM",
+        "accent": (80, 150, 170),
+        "bg": (12, 18, 22),
+        "motif": "fog_river"
+    },
+    {
+        "id": "bia",
+        "name": "BIA",
+        "tag": "AKAN OBOSOM",
+        "domain": "THE BIA RIVER · BROTHER OF TANO",
+        "accent": (90, 160, 130),
+        "bg": (12, 20, 18),
+        "motif": "fog_river"
+    },
+    {
+        "id": "hinon",
+        "name": "HINON",
+        "tag": "HAUDENOSAUNEE",
+        "domain": "THE THUNDERER · MAKER OF RAINS",
+        "accent": (120, 150, 220),
+        "bg": (12, 16, 26),
+        "motif": "thunder_axe"
+    },
+    {
+        "id": "earth-holder",
+        "name": "EARTH HOLDER",
+        "tag": "HAUDENOSAUNEE",
+        "domain": "CHIEF OF THE SKY WORLD · THE CELESTIAL TREE",
+        "accent": (150, 180, 230),
+        "bg": (12, 16, 26),
+        "motif": "starry_vault"
+    },
+    {
+        "id": "sky-womans-daughter",
+        "name": "SKY WOMAN'S DAUGHTER",
+        "tag": "HAUDENOSAUNEE",
+        "domain": "MOTHER OF THE TWINS · GIVER OF THE FOOD PLANTS",
+        "accent": (140, 190, 110),
+        "bg": (14, 20, 14),
+        "motif": "corn_shoot"
+    },
+    {
+        "id": "gaha",
+        "name": "GA'HA'",
+        "tag": "HAUDENOSAUNEE",
+        "domain": "THE GENTLE WIND · RIPENER OF FRUITS",
+        "accent": (150, 190, 210),
+        "bg": (14, 18, 24),
+        "motif": "wind_gale"
+    },
+    {
+        "id": "three-sisters",
+        "name": "THE THREE SISTERS",
+        "tag": "HAUDENOSAUNEE",
+        "domain": "CORN · BEANS · SQUASH",
+        "accent": (200, 170, 70),
+        "bg": (20, 18, 12),
+        "motif": "corn_shoot"
+    },
+    {
+        "id": "dew-eagle",
+        "name": "DEW EAGLE",
+        "tag": "HAUDENOSAUNEE",
+        "domain": "GUARDIAN OF THE UPPER AIR",
+        "accent": (180, 200, 230),
+        "bg": (14, 16, 24),
+        "motif": "winged_canine"
+    },
+    {
+        "id": "petrel",
+        "name": "PETREL",
+        "tag": "TLINGIT & HAIDA",
+        "domain": "GANOOK · KEEPER OF THE EVERLASTING SPRING",
+        "accent": (110, 170, 200),
+        "bg": (12, 18, 24),
+        "motif": "salmon_mist"
+    },
+    {
+        "id": "old-woman-underneath",
+        "name": "OLD-WOMAN-UNDERNEATH",
+        "tag": "TLINGIT & HAIDA",
+        "domain": "KEEPER OF THE EARTH-POST · THE TIDES",
+        "accent": (170, 130, 90),
+        "bg": (20, 16, 14),
+        "motif": "flint_chert"
+    },
+    {
+        "id": "djilaqons",
+        "name": "DJILAQONS",
+        "tag": "TLINGIT & HAIDA",
+        "domain": "ANCESTRESS OF THE EAGLE CLANS",
+        "accent": (210, 90, 70),
+        "bg": (22, 14, 14),
+        "motif": "black_raven"
+    },
+    {
+        "id": "master-carpenter",
+        "name": "MASTER CARPENTER",
+        "tag": "TLINGIT & HAIDA",
+        "domain": "SUPERNATURAL CRAFTSMAN · CANOE-MAKER",
+        "accent": (190, 120, 70),
+        "bg": (22, 16, 12),
+        "motif": "three_boxes"
+    }
 ]
 
 def draw_deity_motif(draw, cx, cy, radius, motif, accent, gold):

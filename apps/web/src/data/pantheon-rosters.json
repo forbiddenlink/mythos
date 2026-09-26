@@ -196,28 +196,7 @@
     "utnapishtim",
     "ninhursag"
   ],
-  "african-pantheon": [
-    "olodumare",
-    "obatala",
-    "ogun",
-    "shango",
-    "oshun",
-    "yemoja",
-    "eshu",
-    "oya",
-    "orunmila",
-    "osanyin",
-    "nana-buruku",
-    "shopona",
-    "oduduwa",
-    "olokun",
-    "aje",
-    "aganju",
-    "ibeji",
-    "ori",
-    "anansi",
-    "nyame"
-  ],
+  "african-pantheon": [],
   "polynesian-pantheon": [
     "maui",
     "pele",
@@ -267,11 +246,47 @@
     "triglav",
     "chernobog"
   ],
-  "haudenosaunee-pantheon": ["sky-woman", "sapling", "flint", "turtle"],
+  "haudenosaunee-pantheon": [
+    "sky-woman",
+    "sapling",
+    "flint",
+    "turtle",
+    "hinon",
+    "earth-holder",
+    "sky-womans-daughter",
+    "gaha",
+    "three-sisters",
+    "dew-eagle"
+  ],
   "tlingit-haida-pantheon": [
     "raven",
     "fog-woman",
     "chief-fog-over-the-salmon",
-    "naas-shaak-aankawu"
-  ]
+    "naas-shaak-aankawu",
+    "petrel",
+    "old-woman-underneath",
+    "djilaqons",
+    "master-carpenter"
+  ],
+  "yoruba-pantheon": [
+    "olodumare",
+    "obatala",
+    "ogun",
+    "shango",
+    "oshun",
+    "yemoja",
+    "eshu",
+    "oya",
+    "orunmila",
+    "osanyin",
+    "nana-buruku",
+    "shopona",
+    "oduduwa",
+    "olokun",
+    "aje",
+    "aganju",
+    "ibeji",
+    "ori"
+  ],
+  "akan-pantheon": ["anansi", "nyame", "asase-yaa", "tano", "bia"]
 }

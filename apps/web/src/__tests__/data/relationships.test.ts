@@ -127,7 +127,12 @@ describe("relationships.json data integrity", () => {
         }
       }
     }
-    for (const pantheon of pantheons) {
+    for (const pantheon of pantheons as Array<{
+      id: string;
+      isCollection?: boolean;
+    }>) {
+      // Regional collections hold no deities, so there is no family to graph.
+      if (pantheon.isCollection) continue;
       expect(
         covered.get(pantheon.id)?.size ?? 0,
         `${pantheon.id} is underrepresented in relationships.json`,

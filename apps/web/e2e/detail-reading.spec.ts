@@ -106,8 +106,8 @@ test.describe("Detail-page reading", () => {
     await expect(page.locator("main")).not.toContainText(
       "African Pantheon (Yoruba)",
     );
-    await expect(page.locator("main")).toContainText("Akan");
-    await expect(page.locator("main")).toContainText("African Traditions");
+    await expect(page.locator("main")).toContainText("Akan Tradition");
+    await expect(page.locator("main")).not.toContainText("African Traditions");
     await page.goto("/deities/oshun");
     await expect(page.locator("main")).toContainText(
       "Temples, festivals, and practices recorded for Oshun",

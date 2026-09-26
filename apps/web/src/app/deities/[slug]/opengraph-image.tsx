@@ -20,6 +20,8 @@ const pantheonColors: Record<string, { bg: string; accent: string }> = {
   chinese: { bg: '#2e1a1a', accent: '#ff4500' },
   mesoamerican: { bg: '#1a2e2a', accent: '#00ced1' },
   african: { bg: '#2e2e1a', accent: '#ffd700' },
+  yoruba: { bg: '#2e241a', accent: '#e0a040' },
+  akan: { bg: '#2e2a14', accent: '#f2c230' },
   polynesian: { bg: '#1a2e2e', accent: '#20b2aa' },
 };
 

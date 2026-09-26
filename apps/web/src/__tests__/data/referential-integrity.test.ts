@@ -158,6 +158,10 @@ describe("relationships", () => {
       "triglav",
       "chernobog",
       "purusha",
+      "three-sisters",
+      "dew-eagle",
+      "djilaqons",
+      "master-carpenter",
     ]);
     const inGraph = new Set(
       relationshipList.flatMap((r) => [r.fromDeityId, r.toDeityId]),

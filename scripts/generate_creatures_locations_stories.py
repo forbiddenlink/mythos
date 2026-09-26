@@ -14,10 +14,12 @@ from _repo_paths import WEB_PUBLIC, serif_font, write_webp
 CREATURES_DIR = os.path.join(WEB_PUBLIC, "creatures")
 LOCATIONS_DIR = os.path.join(WEB_PUBLIC, "locations")
 STORIES_DIR = os.path.join(WEB_PUBLIC, "stories")
+ARTIFACTS_DIR = os.path.join(WEB_PUBLIC, "artifacts")
 
 os.makedirs(CREATURES_DIR, exist_ok=True)
 os.makedirs(LOCATIONS_DIR, exist_ok=True)
 os.makedirs(STORIES_DIR, exist_ok=True)
+os.makedirs(ARTIFACTS_DIR, exist_ok=True)
 
 SIZE = 768
 
@@ -100,6 +102,86 @@ CREATURES = [
         "accent": (195, 150, 75),
         "bg": (20, 16, 12),
         "motif": "baba_yaga_hut"
+    },
+    {
+        "id": "mmoatia",
+        "name": "MMOATIA",
+        "subtitle": "LITTLE FOLK OF THE ASANTE FOREST",
+        "accent": (140, 180, 100),
+        "bg": (14, 20, 14),
+        "motif": "leshy_antlers"
+    },
+    {
+        "id": "stone-giants",
+        "name": "STONE GIANTS",
+        "subtitle": "GENONSGWA · COATS OF FLINT",
+        "accent": (170, 150, 120),
+        "bg": (18, 16, 14),
+        "motif": "koschei_needle"
+    },
+    {
+        "id": "horned-serpent",
+        "name": "HORNED SERPENT",
+        "subtitle": "SERPENT OF THE DEEP WATERS",
+        "accent": (90, 160, 150),
+        "bg": (10, 20, 20),
+        "motif": "zmey_dragon"
+    },
+    {
+        "id": "djogeon",
+        "name": "DJOGEON",
+        "subtitle": "THE LITTLE PEOPLE OF THE GULCHES",
+        "accent": (160, 170, 110),
+        "bg": (16, 18, 12),
+        "motif": "domovoi_hearth"
+    },
+    {
+        "id": "niagwahe",
+        "name": "NIA'GWAHE",
+        "subtitle": "THE MONSTER BEAR",
+        "accent": (170, 110, 80),
+        "bg": (20, 14, 12),
+        "motif": "leshy_antlers"
+    },
+    {
+        "id": "dagwanoenyent",
+        "name": "DAGWANOENYENT",
+        "subtitle": "THE STORM WIND · FLYING HEAD",
+        "accent": (140, 160, 200),
+        "bg": (14, 16, 24),
+        "motif": "vodyanoy_swirl"
+    },
+    {
+        "id": "kooshdaa-kaa",
+        "name": "KOOSHDAA KAA",
+        "subtitle": "THE LAND OTTER PEOPLE",
+        "accent": (130, 150, 120),
+        "bg": (14, 18, 16),
+        "motif": "rusalka_water"
+    },
+    {
+        "id": "gonakadet",
+        "name": "GONAKADET",
+        "subtitle": "BRINGER OF WEALTH FROM THE SEA",
+        "accent": (200, 90, 70),
+        "bg": (22, 14, 14),
+        "motif": "vodyanoy_swirl"
+    },
+    {
+        "id": "cihuateteo",
+        "name": "CIHUATETEO",
+        "subtitle": "WOMEN WHO ESCORT THE SETTING SUN",
+        "accent": (210, 130, 80),
+        "bg": (24, 14, 12),
+        "motif": "koschei_needle"
+    },
+    {
+        "id": "maquizcoatl",
+        "name": "MAQUIZCOATL",
+        "subtitle": "THE TWO-HEADED SERPENT",
+        "accent": (100, 170, 140),
+        "bg": (12, 20, 18),
+        "motif": "zmey_dragon"
     }
 ]
 
@@ -240,6 +322,110 @@ LOCATIONS = [
         "accent": (195, 75, 65),
         "bg": (20, 14, 16),
         "motif": "haida_totem"
+    },
+    {
+        "id": "sky-world",
+        "name": "THE SKY WORLD",
+        "subtitle": "WHERE THE CELESTIAL TREE STOOD",
+        "accent": (120, 160, 220),
+        "bg": (12, 16, 26),
+        "motif": "onondaga_pine"
+    },
+    {
+        "id": "cohoes-falls",
+        "name": "COHOES FALLS",
+        "subtitle": "THE PEACEMAKER'S TEST · MOHAWK RIVER",
+        "accent": (90, 150, 190),
+        "bg": (12, 18, 24),
+        "motif": "peryn_ring"
+    },
+    {
+        "id": "nass-river",
+        "name": "NASS RIVER",
+        "subtitle": "WHERE THE DAYLIGHT WAS KEPT",
+        "accent": (200, 90, 70),
+        "bg": (20, 14, 16),
+        "motif": "haida_totem"
+    },
+    {
+        "id": "templo-mayor",
+        "name": "TEMPLO MAYOR",
+        "subtitle": "COATEPEC MADE IN STONE · TENOCHTITLAN",
+        "accent": (200, 110, 70),
+        "bg": (24, 14, 12),
+        "motif": "szczecin_temple"
+    },
+    {
+        "id": "omeyocan",
+        "name": "OMEYOCAN",
+        "subtitle": "THE PLACE OF DUALITY",
+        "accent": (90, 170, 170),
+        "bg": (12, 20, 22),
+        "motif": "peryn_ring"
+    },
+    {
+        "id": "temple-of-vesta",
+        "name": "TEMPLE OF VESTA",
+        "subtitle": "THE HEARTH OF ROME",
+        "accent": (210, 120, 70),
+        "bg": (24, 14, 12),
+        "motif": "szczecin_temple"
+    },
+    {
+        "id": "lake-nemi",
+        "name": "LAKE NEMI",
+        "subtitle": "DIANA'S MIRROR · THE GROVE OF ARICIA",
+        "accent": (110, 160, 190),
+        "bg": (12, 18, 24),
+        "motif": "arkona_cliffs"
+    },
+    {
+        "id": "lake-avernus",
+        "name": "LAKE AVERNUS",
+        "subtitle": "THE DOOR TO THE UNDERWORLD",
+        "accent": (120, 120, 160),
+        "bg": (14, 14, 22),
+        "motif": "arkona_cliffs"
+    },
+    {
+        "id": "palatine-hill",
+        "name": "PALATINE HILL",
+        "subtitle": "ROMULUS'S CITY · THE LUPERCAL",
+        "accent": (200, 150, 80),
+        "bg": (22, 18, 12),
+        "motif": "kiev_hill"
+    },
+    {
+        "id": "emain-macha",
+        "name": "EMAIN MACHA",
+        "subtitle": "ROYAL SEAT OF ULSTER",
+        "accent": (110, 170, 120),
+        "bg": (12, 20, 16),
+        "motif": "peryn_ring"
+    },
+    {
+        "id": "rathcroghan",
+        "name": "RATHCROGHAN",
+        "subtitle": "CRUACHAN · COURT OF MEDB",
+        "accent": (160, 150, 90),
+        "bg": (18, 18, 12),
+        "motif": "kiev_hill"
+    },
+    {
+        "id": "aquae-sulis",
+        "name": "AQUAE SULIS",
+        "subtitle": "SPRING OF SULIS MINERVA · BATH",
+        "accent": (190, 160, 100),
+        "bg": (20, 18, 14),
+        "motif": "szczecin_temple"
+    },
+    {
+        "id": "moytirra",
+        "name": "MAG TUIRED",
+        "subtitle": "THE PLAIN OF THE SECOND BATTLE",
+        "accent": (160, 130, 110),
+        "bg": (18, 16, 14),
+        "motif": "arkona_cliffs"
     }
 ]
 
@@ -397,6 +583,62 @@ STORIES = [
         "accent": (175, 120, 190),
         "bg": (20, 14, 22),
         "motif": "story_persephone"
+    },
+    {
+        "id": "tano-and-bia-divide-the-land",
+        "name": "TANO AND BIA",
+        "subtitle": "NYAME DIVIDES THE LAND",
+        "accent": (190, 160, 70),
+        "bg": (20, 18, 12),
+        "motif": "story_twins"
+    },
+    {
+        "id": "hinon-and-the-horned-serpent",
+        "name": "THE THUNDERER AND THE SERPENT",
+        "subtitle": "HI'NON'S ARROW",
+        "accent": (120, 150, 220),
+        "bg": (12, 16, 26),
+        "motif": "story_perun_veles"
+    },
+    {
+        "id": "hiawatha-and-the-condolence",
+        "name": "THE WORDS OF CONDOLENCE",
+        "subtitle": "HIAWATHA AND THE PEACEMAKER",
+        "accent": (190, 190, 170),
+        "bg": (16, 18, 20),
+        "motif": "story_peacemaker"
+    },
+    {
+        "id": "origin-of-the-three-sisters",
+        "name": "THE THREE SISTERS",
+        "subtitle": "CORN, BEANS AND SQUASH",
+        "accent": (200, 170, 70),
+        "bg": (20, 18, 12),
+        "motif": "story_sky_woman"
+    },
+    {
+        "id": "raven-and-petrel",
+        "name": "RAVEN STEALS THE WATER",
+        "subtitle": "PETREL'S EVERLASTING SPRING",
+        "accent": (110, 170, 200),
+        "bg": (12, 18, 24),
+        "motif": "story_raven_sun"
+    },
+    {
+        "id": "kats-and-the-bear-wife",
+        "name": "KAATS' AND THE BEAR WIFE",
+        "subtitle": "A KAAGWAANTAAN STORY",
+        "accent": (170, 120, 80),
+        "bg": (20, 16, 12),
+        "motif": "story_horse"
+    },
+    {
+        "id": "natsilane-and-the-killer-whales",
+        "name": "THE FIRST KILLER WHALES",
+        "subtitle": "CARVED FROM YELLOW CEDAR",
+        "accent": (90, 150, 190),
+        "bg": (12, 18, 24),
+        "motif": "story_clamshell"
     }
 ]
 
@@ -496,6 +738,68 @@ def draw_story_motif(draw, cx, cy, r, motif, accent, gold):
             ang = sp * (math.pi / 3)
             draw.ellipse([cx + 15*math.cos(ang) - 6, cy - 70 + 15*math.sin(ang) - 6, cx + 15*math.cos(ang) + 6, cy - 70 + 15*math.sin(ang) + 6], fill=gold)
 
+# ---------------------------------------------------------------------------
+# 4. Artifacts (drawn with the story emblems)
+# ---------------------------------------------------------------------------
+ARTIFACTS = [
+    {
+        "id": "svantevits-horn",
+        "name": "SVANTEVIT'S HORN",
+        "subtitle": "THE HARVEST ORACLE OF ARKONA",
+        "accent": (200, 160, 90),
+        "bg": (22, 18, 14),
+        "motif": "story_horse"
+    },
+    {
+        "id": "idol-of-perun-kyiv",
+        "name": "IDOL OF PERUN",
+        "subtitle": "SILVER HEAD · GOLDEN MOUSTACHE · KYIV",
+        "accent": (220, 170, 60),
+        "bg": (22, 18, 12),
+        "motif": "story_vladimir"
+    },
+    {
+        "id": "triglav-idol-szczecin",
+        "name": "IDOL OF TRIGLAV",
+        "subtitle": "THREE HEADS · SZCZECIN",
+        "accent": (170, 140, 110),
+        "bg": (18, 16, 18),
+        "motif": "story_twins"
+    },
+    {
+        "id": "zbruch-idol",
+        "name": "ZBRUCH IDOL",
+        "subtitle": "FOUR FACES UNDER ONE CAP",
+        "accent": (170, 160, 140),
+        "bg": (18, 18, 16),
+        "motif": "story_vladimir"
+    },
+    {
+        "id": "jawbone-of-muri-ranga-whenua",
+        "name": "THE ENCHANTED JAWBONE",
+        "subtitle": "MURI-RANGA-WHENUA'S GIFT TO MAUI",
+        "accent": (200, 190, 150),
+        "bg": (12, 18, 22),
+        "motif": "story_clamshell"
+    },
+    {
+        "id": "nga-kete-o-te-wananga",
+        "name": "NGA KETE O TE WANANGA",
+        "subtitle": "THE THREE BASKETS OF KNOWLEDGE",
+        "accent": (190, 150, 80),
+        "bg": (14, 20, 20),
+        "motif": "story_ibeji"
+    },
+    {
+        "id": "matahourua",
+        "name": "MATAHOURUA",
+        "subtitle": "KUPE'S VOYAGING CANOE",
+        "accent": (90, 160, 180),
+        "bg": (10, 18, 22),
+        "motif": "story_raven_sun"
+    }
+]
+
 def generate_square_plate(item, out_dir, category_tag, motif_fn):
     img = Image.new("RGBA", (SIZE, SIZE), item["bg"] + (255,))
     accent = item["accent"]
@@ -532,16 +836,28 @@ def generate_square_plate(item, out_dir, category_tag, motif_fn):
     print(f"  ✓ {item['id']} -> PNG & WebP")
 
 if __name__ == "__main__":
-    print("Generating Creature Plates...")
-    for c in CREATURES:
-        generate_square_plate(c, CREATURES_DIR, "BESTIARY ARCHIVE", draw_creature_motif)
+    import argparse
 
-    print("Generating Location Plates...")
-    for loc in LOCATIONS:
-        generate_square_plate(loc, LOCATIONS_DIR, "SACRED GEOGRAPHY", draw_location_motif)
+    parser = argparse.ArgumentParser(description="Generate creature, location, story, and artifact plates.")
+    parser.add_argument(
+        "--only",
+        help="Comma-separated ids to (re)generate; default is every plate.",
+    )
+    args = parser.parse_args()
+    wanted = set(args.only.split(",")) if args.only else None
 
-    print("Generating Story Plates...")
-    for s in STORIES:
-        generate_square_plate(s, STORIES_DIR, "MYTHIC TRADITION", draw_story_motif)
+    def pick(items):
+        return [i for i in items if wanted is None or i["id"] in wanted]
 
-    print("Creatures, Locations, and Stories completed!")
+    groups = [
+        (CREATURES, CREATURES_DIR, "BESTIARY ARCHIVE", draw_creature_motif),
+        (LOCATIONS, LOCATIONS_DIR, "SACRED GEOGRAPHY", draw_location_motif),
+        (STORIES, STORIES_DIR, "MYTHIC TRADITION", draw_story_motif),
+        (ARTIFACTS, ARTIFACTS_DIR, "RELIQUARY", draw_story_motif),
+    ]
+    known = {i["id"] for items, *_ in groups for i in items}
+    if wanted and not wanted <= known:
+        raise SystemExit(f"Unknown ids: {', '.join(sorted(wanted - known))}")
+    for items, out_dir, tag, motif_fn in groups:
+        for item in pick(items):
+            generate_square_plate(item, out_dir, tag, motif_fn)

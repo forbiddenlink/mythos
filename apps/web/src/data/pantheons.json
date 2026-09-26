@@ -291,12 +291,12 @@
     "id": "african-pantheon",
     "name": "African Traditions",
     "slug": "african",
-    "culture": "Yoruba, Akan, and other African traditions",
+    "culture": "Several distinct African peoples (Zulu and Xhosa, Swahili, Mandinka, Ewe, Mongo) and the Mami Wata tradition",
     "region": "Africa and the African diaspora",
     "timePeriodStart": null,
     "timePeriodEnd": null,
-    "description": "A collection of distinct African religious and storytelling traditions. Yoruba orishas appear alongside Akan figures such as Anansi and Nyame, and beings from other regions. These entries do not form a single shared pantheon.",
-    "detailedHistory": "## Distinct traditions, shared collection\n\nThis collection brings together entries from several African traditions for browsing. It does not imply a common religion, origin, or historical period. Anansi and Nyame belong to Akan traditions; the Yoruba orishas have their own religious contexts.\n\n### Yoruba traditions\n\nMany entries in this collection concern Yoruba religion, rooted in southwestern Nigeria and neighboring Benin. Orishas connect religious practice with particular places, communities, and aspects of life. Ifa divination is one part of this living tradition.\n\n### Akan storytelling\n\nAnansi and Nyame appear in Akan-Ashanti tales, including the account of Anansi obtaining stories from Nyame. The version included here follows R. S. Rattray's collected account; it is one recorded version rather than a universal telling.\n\n### Reading across traditions\n\nFollow each entry's cultural description and references. Similar roles, such as creator or trickster, do not make figures interchangeable. The broader collection also contains beings from other African regions; their inclusion here should not be read as Yoruba or Akan attribution.",
+    "description": "A regional collection, not a pantheon: beings from African traditions that do not yet have their own entry on this site. Yoruba orisha and Akan figures such as Nyame and Anansi now have their own pages.",
+    "detailedHistory": "## A collection, not a pantheon\n\nThis page used to gather Yoruba orisha, Akan figures, and beings from several other African peoples under one heading. That grouping implied a shared religion that never existed, so the two best-documented traditions now have their own entries, and this page keeps only what remains: creatures and spirits from peoples whose traditions this site has not yet covered in depth. Nothing here implies a common origin, date, or cosmology.\n\n### Yoruba traditions\n\nThe orisha of the Yoruba of southwestern Nigeria and neighbouring Benin, with the creation at Ile-Ife, Ifa divination, and the diaspora religions that grew from them, are now on the [Yoruba Tradition](/pantheons/yoruba) page.\n\n### Akan storytelling\n\nNyame, Asase Yaa, the river abosom, and Kwaku Ananse the spider, known largely through R. S. Rattray's recordings of Asante tellers in the 1920s, are now on the [Akan Tradition](/pantheons/akan) page.\n\n### What stays here\n\nThe beings still listed on this page come from separate peoples and should be read that way: the tikoloshe from Zulu and Xhosa belief in South Africa, the popobawa from late-20th-century reports on Zanzibar and Pemba, the ninki-nanka from Mandinka and neighbouring traditions of the Gambia and Senegal, the adze from Ewe belief in Ghana and Togo, and the eloko from the Mongo of the Congo basin. Mami Wata is the exception: a water spirit venerated across West and Central Africa and the diaspora, whose modern image owes much to 19th- and 20th-century trade and print culture. Each entry names the people it belongs to, and none should be read as Yoruba or Akan.",
     "citationSources": [
       {
         "title": "Ifa divination system",
@@ -319,7 +319,9 @@
         "url": "https://api.pageplace.de/preview/DT0400.9781107776746_A23755138/preview-9781107776746_A23755138.pdf"
       }
     ],
-    "imageUrl": "/pantheons/african.jpg"
+    "imageUrl": "/pantheons/african.jpg",
+    "isCollection": true,
+    "figuresLabel": "Figures"
   },
   {
     "id": "polynesian-pantheon",
@@ -559,5 +561,83 @@
     ],
     "imageUrl": "/pantheons/tlingit-haida.jpg",
     "figuresLabel": "Ancestral Spirits & Transformers"
+  },
+  {
+    "id": "yoruba-pantheon",
+    "name": "Yoruba Tradition",
+    "slug": "yoruba",
+    "culture": "Yoruba (southwestern Nigeria, Benin, and Togo) and the Orisha religions of the diaspora",
+    "region": "West Africa and the Americas",
+    "timePeriodStart": null,
+    "timePeriodEnd": null,
+    "description": "The orisha of Yoruba religion, a living tradition centred on Ile-Ife: Olodumare above, Obatala and Oduduwa at the making of the land, Orunmila and Ifa divination, and orisha such as Ogun, Shango, Oshun, and Yemoja who crossed the Atlantic into Santería, Candomblé, and related faiths.",
+    "detailedHistory": "## A living religion\n\nYoruba religion is practised today in Nigeria, Benin, and Togo, and, through the forced migration of the Atlantic slave trade, in Cuban Santería (Regla de Ocha), Brazilian Candomblé, Trinidadian Orisha worship, and communities across the Americas. It has no single scripture and no single orthodoxy: each orisha is worshipped through particular lineages, towns, and houses, and practice differs from one to the next. This page presents what published sources and practitioners share publicly, and notes where houses and tellers disagree.\n\n## Olodumare and the orisha\n\nOlodumare (also Olorun, 'owner of the sky') is the supreme being, remote from daily worship and approached through the orisha. The orisha are many (tradition speaks of 401, or of 'countless') and include deities who were present at creation, such as Obatala, and deified ancestors and kings, such as Shango, remembered as a king of Oyo. Eshu carries sacrifice and messages between people and the orisha and must be acknowledged first; Orunmila is the witness of destiny whose wisdom speaks through Ifa.\n\n## Ile-Ife and the making of the land\n\nCreation stories centre on Ile-Ife, regarded as the place where the land was first spread over the primordial waters. Tellings disagree on the central actor: in many, Obatala is sent down a chain from the sky with earth in a snail shell and a five-toed hen to scatter it, but falls asleep drunk on palm wine, and Oduduwa completes the task and becomes the first ruler of Ife. Samuel Johnson's *The History of the Yorubas* (completed 1897, published 1921) records the Oyo tradition; Ife's own traditions give Oduduwa greater weight. The disagreement is itself historical evidence of rival centres, and this site presents both.\n\n## Ifa\n\nIfa divination, inscribed by UNESCO on the Representative List of the Intangible Cultural Heritage of Humanity (2008), is a vast oral literature of verses (ese) organised into 256 signs (odu). A babalawo casts palm nuts or a divining chain and recites the verses of the resulting sign, many of which contain the myths summarised on this site. Wande Abimbola's editions and translations of Ifa verses (1970s onward) are among the most important published records.\n\n## Dates\n\nThe tradition has no founding date. Ile-Ife was a major urban and artistic centre by about the 11th to 15th centuries CE, the period of its celebrated copper-alloy and terracotta heads, but those dates belong to the city and its art, not to the beginning of the religion.",
+    "citationSources": [
+      {
+        "title": "Ifa divination system",
+        "author": "UNESCO",
+        "type": "institutional reference",
+        "url": "https://ich.unesco.org/en/RL/ifa-divination-system-00146"
+      },
+      {
+        "title": "The History of the Yorubas",
+        "author": "Samuel Johnson",
+        "date": "1921 (completed 1897)",
+        "type": "primary"
+      },
+      {
+        "title": "Ifá: An Exposition of Ifá Literary Corpus",
+        "author": "Wande Abimbola",
+        "date": "1976",
+        "type": "secondary"
+      },
+      {
+        "title": "Ifa Divination: Communication between Gods and Men in West Africa",
+        "author": "William Bascom",
+        "date": "1969",
+        "type": "secondary"
+      }
+    ],
+    "imageUrl": "/pantheons/yoruba.jpg",
+    "figuresLabel": "Olodumare & the Orisha"
+  },
+  {
+    "id": "akan-pantheon",
+    "name": "Akan Tradition",
+    "slug": "akan",
+    "culture": "Akan (Asante, Bono, Fante, Akuapem, and related peoples)",
+    "region": "Ghana and eastern Côte d’Ivoire",
+    "timePeriodStart": null,
+    "timePeriodEnd": null,
+    "description": "The sky god Nyame and the earth Asase Yaa, the river abosom such as Tano, and Kwaku Ananse the spider, who bought the world's stories from Nyame: the religious and storytelling tradition of the Akan peoples of Ghana and Côte d'Ivoire.",
+    "detailedHistory": "## Sky, earth, and the abosom\n\nAkan religion recognises a supreme sky god, Nyame (also Onyame or Onyankopon), and the earth, Asase Yaa, who is honoured rather than served through shrines and priests. Between people and the sky god stand the abosom, powers associated with rivers, lakes, and other features of the land, such as Tano of the Tano River, and the ancestors (nsamanfo), whose presence is central to Akan religious and political life. Akan religion is a living tradition in Ghana today, alongside Christianity and Islam.\n\n## Rattray and the record\n\nMuch of the written record comes from R. S. Rattray, a British colonial anthropologist in the Gold Coast, whose *Ashanti* (1923), *Religion and Art in Ashanti* (1927), and *Akan-Ashanti Folk-Tales* (1930) recorded Asante belief and storytelling, the last with the Twi text beside the English. Rattray worked through colonial structures and his interpretations should be read critically, but the tales he printed were told to him by named and unnamed Akan speakers. Akan scholars such as J. B. Danquah, in *The Akan Doctrine of God* (1944), wrote about the same tradition from within it.\n\n## Anansesem\n\nAkan folktales are called anansesem, 'spider stories', whether or not Kwaku Ananse appears in them, because of the tale Rattray printed as the account of how all stories came to belong to the spider: Ananse buys them from Nyame by capturing the python, the leopard, the hornets, and the forest fairy. Tellings traditionally open and close with set formulas disclaiming literal truth. Ananse stories travelled with enslaved Akan people to the Caribbean and the Americas, where he survives as Anansi, Anancy, and Aunt Nancy.\n\n## Dates\n\nThe tradition has no recorded founding date; Akan states such as Bono and later Asante emerged between roughly the 13th and 18th centuries, but the religion is older than any one state and this site does not assign it a start year.",
+    "citationSources": [
+      {
+        "title": "Akan-Ashanti Folk-Tales",
+        "author": "R. S. Rattray, collector and translator",
+        "date": "1930",
+        "type": "oral tradition"
+      },
+      {
+        "title": "Ashanti",
+        "author": "R. S. Rattray",
+        "date": "1923",
+        "type": "secondary"
+      },
+      {
+        "title": "Religion and Art in Ashanti",
+        "author": "R. S. Rattray",
+        "date": "1927",
+        "type": "secondary"
+      },
+      {
+        "title": "The Akan Doctrine of God",
+        "author": "J. B. Danquah",
+        "date": "1944",
+        "type": "secondary"
+      }
+    ],
+    "imageUrl": "/pantheons/akan.jpg",
+    "figuresLabel": "Nyame, the Abosom & Ananse"
   }
 ]

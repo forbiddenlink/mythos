@@ -2356,7 +2356,7 @@
   },
   {
     "id": "yoruba-creation",
-    "pantheonId": "african-pantheon",
+    "pantheonId": "yoruba-pantheon",
     "title": "The Creation of Ile-Ife",
     "slug": "yoruba-creation",
     "summary": "How Obatala descended from heaven with a snail shell of sand and a white hen to create land from the primordial waters, founding the sacred city of Ile-Ife.",
@@ -2388,7 +2388,7 @@
   },
   {
     "id": "shango-becomes-orisha",
-    "pantheonId": "african-pantheon",
+    "pantheonId": "yoruba-pantheon",
     "title": "How Shango Became an Orisha",
     "slug": "shango-becomes-orisha",
     "summary": "The story of the fourth king of Oyo, who mastered thunder and lightning but faced tragedy, only to be elevated to divine status after his death.",
@@ -2419,7 +2419,7 @@
   },
   {
     "id": "oshun-saves-world",
-    "pantheonId": "african-pantheon",
+    "pantheonId": "yoruba-pantheon",
     "title": "Oshun Saves the World",
     "slug": "oshun-saves-world",
     "summary": "When the world was dying and all the male Orishas had failed, Oshun transformed herself into a peacock and flew to heaven, sacrificing her beauty to save creation.",
@@ -2449,7 +2449,7 @@
   },
   {
     "id": "eshu-two-friends",
-    "pantheonId": "african-pantheon",
+    "pantheonId": "yoruba-pantheon",
     "title": "Eshu and the Two Friends",
     "slug": "eshu-two-friends",
     "summary": "A classic trickster tale in which Eshu teaches two best friends a painful lesson about the dangers of perspective and assumption.",
@@ -2479,7 +2479,7 @@
   },
   {
     "id": "ogun-shango-contest",
-    "pantheonId": "african-pantheon",
+    "pantheonId": "yoruba-pantheon",
     "title": "The Contest Between Ogun and Shango",
     "slug": "ogun-shango-contest",
     "summary": "A tale of rivalry between two great Orishas - Ogun of iron and Shango of thunder - who compete for supremacy with unexpected results.",
@@ -2600,7 +2600,7 @@
   },
   {
     "id": "anansi-bought-stories",
-    "pantheonId": "african-pantheon",
+    "pantheonId": "akan-pantheon",
     "title": "How Anansi Bought the World's Stories",
     "slug": "anansi-bought-stories",
     "summary": "The clever spider Anansi bargains with the sky god Nyame to purchase all the world's stories by completing four impossible tasks.",
@@ -2626,7 +2626,7 @@
   },
   {
     "id": "oduduwa-creation-earth",
-    "pantheonId": "african-pantheon",
+    "pantheonId": "yoruba-pantheon",
     "title": "Oduduwa and the Creation of the Earth",
     "slug": "oduduwa-creation-earth",
     "summary": "After Obatala fails his divine mission, Oduduwa descends from heaven to create dry land and establish the sacred city of Ile-Ife.",
@@ -2653,7 +2653,7 @@
   },
   {
     "id": "first-twins-ibeji",
-    "pantheonId": "african-pantheon",
+    "pantheonId": "yoruba-pantheon",
     "title": "Ibeji and the Care of Twins",
     "slug": "first-twins-ibeji",
     "summary": "An introduction to Yoruba twin commemoration and the carved figures known as ere ibeji, based on a documented museum object.",
@@ -3766,5 +3766,215 @@
       }
     ],
     "imageUrl": "/stories/abduction-of-persephone.png"
+  },
+  {
+    "id": "tano-and-bia-divide-the-land",
+    "pantheonId": "akan-pantheon",
+    "title": "Tano and Bia Divide the Land",
+    "slug": "tano-and-bia-divide-the-land",
+    "summary": "The sky god Nyame means to divide his lands between his sons Tano and Bia, but a goat's advice sends the wrong son to receive the fertile country, and the rivalry of two rivers begins.",
+    "fullNarrative": "## Two versions, two riverbanks\n\nThis story is told on both sides of the modern Ghana and Côte d'Ivoire border, and it is told differently on each side. The version followed here is the Asante one as summarised in modern reference works; the Agni (Anyi) version from Côte d'Ivoire reverses which brother is favoured and which is tricked. Neither is the correct version; each explains the land from the point of view of the people telling it.\n\n## Nyame's plan\n\nNyame, the sky god, had two sons, Bia and Tano, and when they were grown he decided to divide the land between them. He meant the rich, well-watered country to go to Bia, the son who pleased him most, and the poorer, drier land to Tano. He told his servant, the goat, to send the sons to him in the morning so that he could make the gift.\n\n## The goat's advice\n\nThe goat favoured Tano. Going to him first, the goat told him what Nyame intended and advised him to go to his father early, before his brother, in Bia's place. Nyame took the son before him to be Bia and gave him the fertile land. When Bia came later and asked for his share, the gift could not be taken back, and he received what was left: the country to the west.\n\n## The rivers\n\nSo Tano became the great river of the fertile Bono and Asante country, honoured as the foremost of the abosom, and Bia the river that flows westward into what is now Côte d'Ivoire. In the Agni telling the goat's help goes the other way, Bia gains the better share, and Tano has to take his inheritance back by force, driving his brother west. Either way, the story makes the two rivers brothers and their peoples rivals, and it closes with the division standing: what the sky god has given, he does not take back.",
+    "keyExcerpts": "Nyame means the fertile land for one son, but the goat sends the other to receive it first, and the gift cannot be undone.",
+    "category": "rivalry",
+    "moralThemes": [
+      "a gift once given cannot be taken back",
+      "favouritism and its consequences",
+      "geography explained through kinship"
+    ],
+    "culturalSignificance": "An Akan account of the rivers Tano and Bia and of the relationship between the peoples who live along them, told in opposite versions in Ghana and Côte d'Ivoire.",
+    "citationSources": [
+      {
+        "title": "African Mythology A to Z",
+        "author": "Patricia Ann Lynch and Jeremy Roberts",
+        "date": "2010",
+        "type": "secondary"
+      },
+      {
+        "title": "Ashanti",
+        "author": "R. S. Rattray",
+        "date": "1923",
+        "type": "secondary"
+      }
+    ],
+    "featuredDeities": ["nyame", "tano", "bia"],
+    "imageUrl": "/stories/tano-and-bia-divide-the-land.png"
+  },
+  {
+    "id": "hinon-and-the-horned-serpent",
+    "pantheonId": "haudenosaunee-pantheon",
+    "title": "The Thunderer and the Horned Serpent",
+    "slug": "hinon-and-the-horned-serpent",
+    "summary": "A young woman runs away with a handsome stranger who takes her to a lodge beneath a lake; when she discovers he is a horned serpent, the Thunderer Hi'non strikes the monster down and brings her home.",
+    "fullNarrative": "## A Seneca telling\n\nThis retelling follows tale 26 in Arthur C. Parker's *Seneca Myths and Folk Tales* (1923), 'The Horned Serpent Runs Away with a Girl Who is Rescued by the Thunderer'. It is one Seneca version of a story shape told across the Northeast and Great Lakes: the sky powers against the powers of the deep waters. Details differ from teller to teller.\n\n## Two suitors\n\nThe Thunderer, Hi'non, often hovered about a certain village, hoping to win a young woman there, and he hated all evil beings and watched for them at their work. One night he found that another suitor was visiting her: a graceful young man in a fine suit of clothing that shone as if freshly washed, with a black stripe of porcupine quills down the back, a long neck, and small, bright eyes. The stranger asked her to come away with him, and she promised to go in three days.\n\n## The lodge beneath the lake\n\nOn the third night she went with him. He led her over the hills to the high rocky shore of a lake, took her by the waist, climbed down the cliff, and dived with her into the water. They came to a dim lodge full of fine things, and there they were married. Her husband urged her to choose a new dress from the many hanging in the lodge, but each smelled of fish, and she hesitated. Looking more closely, she understood that the garments were the skins of great serpents.\n\n## The Thunderer's arrow\n\nShe fled, forcing her way up through the water to the surface on a stormy night. Behind her came a monstrous serpent with blazing eyes and horns on its head, and in the flash of lightning she saw that its eyes were her husband's. As it coiled to seize her on the slippery rocks, there was a peal of thunder and a blinding flash, and the serpent fell dead, struck by one of Hi'non's arrows. A strong arm caught her and carried her home to her father's lodge.\n\n## Purification\n\nThe Thunderer told her she must be purified, and in the women's sweat lodge she was freed of the serpent's young, which the Thunderer killed as they fled. He then showed the people that the serpent's power could be contained, so that it could no longer harm them.",
+    "keyExcerpts": "As the serpent coiled to seize her, there was a peal of thunder, a blinding flash, and it fell dead, struck by one of Hi'non's arrows.",
+    "category": "romance",
+    "moralThemes": [
+      "appearances can deceive",
+      "the sky powers protect the people from the powers of the deep"
+    ],
+    "culturalSignificance": "A Seneca story of the Thunderers' enmity with the horned serpents, recorded by the Seneca scholar Arthur C. Parker, and one expression of a sky-against-water opposition found across the Northeast and Great Lakes.",
+    "citationSources": [
+      {
+        "title": "Seneca Myths and Folk Tales, tale 26",
+        "sourceId": "seneca-myths-folk-tales",
+        "author": "Arthur C. Parker (Seneca)",
+        "date": "1923",
+        "type": "primary"
+      }
+    ],
+    "featuredDeities": ["hinon"],
+    "imageUrl": "/stories/hinon-and-the-horned-serpent.png"
+  },
+  {
+    "id": "hiawatha-and-the-condolence",
+    "pantheonId": "haudenosaunee-pantheon",
+    "title": "Hiawatha and the Words of Condolence",
+    "slug": "hiawatha-and-the-condolence",
+    "summary": "Hiawatha, destroyed by grief after the deaths of his daughters, strings shells to carry words of comfort; the Peacemaker finds him and condoles him, and the words that restore him become the Condolence still used by the Confederacy.",
+    "fullNarrative": "## A story that is also a ceremony\n\nThis story belongs to the founding of the Great Law of Peace, and the words at its centre are still spoken when a Confederacy chief dies and a successor is raised. What follows is the outline shared publicly by the Onondaga Nation and recorded in Arthur C. Parker's 1916 edition of the Great Law and, earlier, in Horatio Hale's *The Iroquois Book of Rites* (1883). It does not reproduce the ceremonial words themselves.\n\n## Grief\n\nIn a time of constant war, an Onondaga man named Hiawatha loses his daughters, one after another; in the tradition Parker recorded, their deaths are the work of the feared Onondaga leader Tadodaho. Hiawatha's grief is so great that he can no longer stay among his people. He leaves them and wanders alone.\n\n## The shell strings\n\nAt a lake he gathers shells and strings them. He sets up the strings and says that if he found anyone burdened with grief as he was, he would take these strings and console them, and the strings would become words. But there is no one to console him.\n\n## Condolence\n\nThe Peacemaker, carrying his message of peace to the nations, finds Hiawatha. Taking up the strings, he speaks words of condolence: he wipes the tears from Hiawatha's eyes so that he can see clearly, clears his ears so that he can hear, and clears his throat so that he can speak. Hiawatha's mind is restored. He becomes the Peacemaker's partner and speaker, and together they carry the Great Law to the Mohawk, Oneida, Cayuga, and Seneca, and at last to Tadodaho.\n\n## Why it matters\n\nThe story explains why grief must be answered before any council can do its work: a mind clouded by loss cannot think of peace. The shell strings became wampum, used to carry and confirm words, and the Condolence remains one of the Confederacy's central observances.",
+    "keyExcerpts": "The Peacemaker takes up Hiawatha's shell strings and wipes away his tears, clears his ears, and clears his throat, so that he can see, hear, and speak again.",
+    "category": "origin",
+    "moralThemes": [
+      "grief must be answered before peace can be made",
+      "words carried with care can heal"
+    ],
+    "culturalSignificance": "The origin of the Condolence and of the use of wampum strings to carry words, and a central episode in the founding of the Haudenosaunee Confederacy.",
+    "citationSources": [
+      {
+        "title": "The Constitution of the Five Nations (\"The Dekanawida Legend\")",
+        "author": "Arthur C. Parker (Seneca)",
+        "date": "1916",
+        "type": "primary"
+      },
+      {
+        "title": "The Iroquois Book of Rites",
+        "author": "Horatio Hale",
+        "date": "1883",
+        "type": "primary"
+      },
+      {
+        "title": "History",
+        "author": "Onondaga Nation",
+        "date": "onondaganation.org, accessed 2026",
+        "type": "primary"
+      }
+    ],
+    "featuredDeities": [],
+    "featuredLocations": ["onondaga-lake"],
+    "imageUrl": "/stories/hiawatha-and-the-condolence.png"
+  },
+  {
+    "id": "origin-of-the-three-sisters",
+    "pantheonId": "haudenosaunee-pantheon",
+    "title": "The Origin of the Three Sisters",
+    "slug": "origin-of-the-three-sisters",
+    "summary": "Sky Woman's daughter dies giving birth to the twins Sapling and Flint, and from her grave grow the corn, beans, and squash the people live on.",
+    "fullNarrative": "## One strand of the creation\n\nThis episode is part of the larger account of Sky Woman's fall and the twins' shaping of the world. It is summarised here from the Seneca material in Arthur C. Parker's *Seneca Myths and Folk Tales* (1923) and the Onondaga, Seneca, and Mohawk texts in J.N.B. Hewitt's *Iroquoian Cosmology*. Tellers differ on many details, and the variants are noted.\n\n## The daughter\n\nOn the new earth that has grown across the Great Turtle's back, Sky Woman gives birth to a daughter, who grows quickly. When she is grown she conceives: in the Seneca telling Parker summarises, she marries Gä'ha', the gentle wind; other tellings name a different visitor or leave the father unnamed. She is carrying twins.\n\n## The twins' birth\n\nThe twins argue before they are born about how to enter the world. The first, Sapling, is born in the ordinary way. The second, Flint, forces his way out through his mother's side or armpit, and she dies. Sky Woman, grieving, asks which of them killed their mother; in many tellings Flint blames his brother, and she believes him.\n\n## The grave\n\nSky Woman buries her daughter, and from the grave the food plants begin to grow: corn, beans, and squash, and in several tellings tobacco as well. Tellers differ on which plant grows from which part of her body, and in some versions the sun and the moon are made from her face or body too. The plants that sustain the people are, in this way, the gift of the twins' mother, and the Seneca remember the corn, the bean, and the squash as inseparable sisters, the Dion'he'kon.\n\n## The twins take up the work\n\nFrom here the story becomes the twins' contest: Sapling making the world good to live in, Flint making it hard. But it begins with a death that feeds everyone who comes after.",
+    "keyExcerpts": "From the grave of the twins' mother grow corn, beans, and squash, the sisters the people live on.",
+    "category": "origin",
+    "moralThemes": [
+      "life springing from loss",
+      "the food plants as a gift to be thanked"
+    ],
+    "culturalSignificance": "Connects the Three Sisters of Haudenosaunee agriculture to the creation, and explains why the crops are thanked as relatives rather than treated as mere produce.",
+    "citationSources": [
+      {
+        "title": "Seneca Myths and Folk Tales",
+        "sourceId": "seneca-myths-folk-tales",
+        "author": "Arthur C. Parker (Seneca)",
+        "date": "1923",
+        "type": "primary"
+      },
+      {
+        "title": "Iroquoian Cosmology",
+        "sourceId": "iroquoian-cosmology",
+        "author": "J.N.B. Hewitt (Tuscarora)",
+        "date": "1903 and 1928",
+        "type": "primary"
+      }
+    ],
+    "featuredDeities": [
+      "sky-womans-daughter",
+      "sky-woman",
+      "sapling",
+      "flint",
+      "gaha",
+      "three-sisters"
+    ],
+    "imageUrl": "/stories/origin-of-the-three-sisters.png"
+  },
+  {
+    "id": "raven-and-petrel",
+    "pantheonId": "tlingit-haida-pantheon",
+    "title": "Raven Steals the Fresh Water",
+    "slug": "raven-and-petrel",
+    "summary": "Raven tricks Petrel, who owns the world's only fresh water, drinks his everlasting spring dry, is blackened by the smoke of Petrel's fire as he escapes, and spits out the water to make the rivers of the northern coast.",
+    "fullNarrative": "## A Sitka telling\n\nThis episode belongs to the long Raven cycle recorded in English at Sitka and published by John R. Swanton in *Tlingit Myths and Texts* (1909). Tlingit tellers tell it in many ways, and in its fullest forms Raven stories can be clan property; this is the published version, retold in summary.\n\n## No water to drink\n\nAfter Raven had freed the stars, the moon, and daylight, there was still no fresh water to drink in the world. Raven heard of a man named Petrel (Ganook) who owned an everlasting spring. Petrel kept it covered and slept beside it, so that no one could take any.\n\n## The trick\n\nRaven came to Petrel's house and was taken in for the night. While Petrel slept, Raven took some dog dung and put it beside him. Then he woke Petrel and told him he had soiled himself and his clothes. Petrel, ashamed, went outside to clean himself, and Raven went straight to the spring, took off its cover, and began to drink.\n\n## The smoke hole\n\nPetrel came back and saw what Raven was doing. Raven flew up toward the smoke hole, but Petrel called on his spirits to hold him there, and Raven hung in the smoke of Petrel's fire until at last he got free. Raven had been white; the smoke turned him black, and ravens have been black ever since.\n\n## The rivers\n\nFlying over the land with his mouth full, Raven let the water fall. Where it fell the great rivers began: the Nass, the Stikine, the Taku, the Chilkat, and the Alsek, and from the smaller drops came the many little creeks where the salmon run. So the fresh water that one man had kept to himself became the rivers everyone shares.",
+    "keyExcerpts": "Raven drinks Petrel's everlasting spring, is blackened by the smoke as he escapes, and spits out the water to make the Nass, Stikine, Taku, Chilkat, and Alsek rivers.",
+    "category": "trickster",
+    "moralThemes": [
+      "what is hoarded is made common",
+      "cunning over possession"
+    ],
+    "culturalSignificance": "Explains the origin of the major rivers of the Tlingit country and the raven's black colour, and is one of the best-known episodes of the Raven cycle.",
+    "citationSources": [
+      {
+        "title": "Tlingit Myths and Texts, \"Raven\" (Sitka, recorded in English)",
+        "author": "John R. Swanton",
+        "date": "1909",
+        "type": "primary"
+      }
+    ],
+    "featuredDeities": ["raven", "petrel"],
+    "featuredLocations": ["nass-river"],
+    "relatedStories": ["raven-steals-the-light"],
+    "imageUrl": "/stories/raven-and-petrel.png"
+  },
+  {
+    "id": "kats-and-the-bear-wife",
+    "pantheonId": "tlingit-haida-pantheon",
+    "title": "Kaatsʼ and the Bear Wife",
+    "slug": "kats-and-the-bear-wife",
+    "summary": "A Kaagwaantaan hunter of Sitka marries a bear woman and fathers bear children; returning to his people under a promise never to touch or smile at his human family, he breaks it and is killed by his cubs.",
+    "fullNarrative": "## A clan story\n\nThis story belongs to the Kaagwaantaan clan of the Tlingit, for whom the bear is a crest. The retelling below follows the version John R. Swanton recorded and published in *Tlingit Myths and Texts* (1909) as 'Kâts!'. Related stories of people who marry bears are told widely across the Northwest Coast and the interior.\n\n## Into the den\n\nKaats' was a hunter of the Kaagwaantaan who lived at Sitka. A female bear took him as her husband, and he lived with her in the bears' world, where she bore him children who were cubs.\n\n## The promise\n\nIn time Kaats' went back to his own people. Before he left, his bear wife made him promise that he would not touch or smile at his human wife and children. He kept hunting for his bear family, bringing game down to the shore, where his rough, strong cubs came to haul them away.\n\n## The breaking\n\nOne day, moved by his human family, Kaats' broke the promise. When he next went to the bear family, his cubs fell on him and killed him.\n\n## After\n\nSwanton's text follows the bear children after their father's death and records that the last of them was killed at White Stone Narrows. It also connects the story to the reasons people did not eat grizzly bear meat. The story joins the human and animal worlds through marriage and makes the obligations of both binding.",
+    "keyExcerpts": "His bear wife lets him return to his people only if he promises never to touch or smile at his human family; when he does, his cubs kill him.",
+    "category": "tragedy",
+    "moralThemes": [
+      "promises across worlds are binding",
+      "kinship with animals carries obligations"
+    ],
+    "culturalSignificance": "A Kaagwaantaan clan story connected with the bear crest and with a Tlingit avoidance of grizzly meat, and one of the best-known Northwest Coast bear-marriage stories.",
+    "citationSources": [
+      {
+        "title": "Tlingit Myths and Texts, story 19, \"Kâts!\"",
+        "author": "John R. Swanton",
+        "date": "1909",
+        "type": "primary"
+      }
+    ],
+    "featuredDeities": [],
+    "imageUrl": "/stories/kats-and-the-bear-wife.png"
+  },
+  {
+    "id": "natsilane-and-the-killer-whales",
+    "pantheonId": "tlingit-haida-pantheon",
+    "title": "Naatsilanéi Carves the Killer Whales",
+    "slug": "natsilane-and-the-killer-whales",
+    "summary": "A carver of the Tsague'dî tries wood after wood until killer whales carved from yellow cedar come alive, and sends them into the sea to hunt, forbidding them ever to harm a human being.",
+    "fullNarrative": "## A clan origin\n\nThis story explains the origin of the killer whale and why one Tlingit clan uses it as a crest. It follows the short version John R. Swanton published in 1909 as 'Origin of the Killer Whale', and notes where widely retold versions add more.\n\n## The failed carvings\n\nNaatsilanéi, of the Tsague'dî, a branch of the DAqL!awe'dî, set out to make killer whales. He carved them first from red cedar, but when he put them in the water they only floated. He tried hemlock, and then other woods, and each time the carvings lay on the surface like driftwood.\n\n## Yellow cedar\n\nThen he carved them from yellow cedar. When he put these in the water, they came alive and swam. He made them in several kinds, marking one with white paint so that it became the white-mouthed killer whale, and he named the long, slender red one that swims at the front 'killer-whale-spear'.\n\n## The instruction\n\nHe told the whales that when they went up to the heads of the bays they were to hunt for seal, halibut, and everything else under the sea, but that they were never to hurt a human being. Because the Tsague'dî are a branch of the DAqL!awe'dî, Swanton records, the DAqL!awe'dî alone use the killer whale as their emblem.\n\n## Other tellings\n\nMany later tellings frame the carving with a story of betrayal: jealous brothers-in-law abandon Naatsilanéi on a distant sea rock, the sea lions rescue him, and his first command to the new whales is to overturn the brothers-in-law's canoe, before he forbids them ever to harm people again. Those episodes come from those other tellings, not from Swanton's text.",
+    "keyExcerpts": "Carvings of red cedar and hemlock only float; carved from yellow cedar, the killer whales come alive, and he tells them never to hurt a human being.",
+    "category": "origin",
+    "moralThemes": ["persistence in craft", "power bound by responsibility"],
+    "culturalSignificance": "The Tlingit origin of the killer whale and of its use as a clan crest, and an expression of the Northwest Coast understanding of carving as a way of bringing beings into the world.",
+    "citationSources": [
+      {
+        "title": "Tlingit Myths and Texts, story 4, \"Origin of the Killer Whale\"",
+        "author": "John R. Swanton",
+        "date": "1909",
+        "type": "primary"
+      }
+    ],
+    "featuredDeities": [],
+    "imageUrl": "/stories/natsilane-and-the-killer-whales.png"
   }
 ]

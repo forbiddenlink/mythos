@@ -4,18 +4,18 @@
 
 ## Overview
 
-Web frontend for Mythos Atlas, an interactive encyclopedia of ancient mythology featuring **16 pantheons**, **248 deities**, **27 heroes**, **108 stories**, **63 creatures**, **52 artifacts**, and **127 mythological locations** — plus quizzes, interactive family trees, branching stories, and spaced-repetition review.
+Web frontend for Mythos Atlas, an interactive encyclopedia of ancient mythology featuring **17 pantheons** (plus a regional collection), **261 deities**, **33 heroes**, **115 stories**, **73 creatures**, **59 artifacts**, and **140 mythological locations** — plus quizzes, interactive family trees, branching stories, and spaced-repetition review.
 
 **Built by Elizabeth Stein** using Next.js 16, React 19, TypeScript 5, and modern web technologies.
 
 ## Features
 
 - 🏛️ **16 Pantheons** — Greek, Norse, Egyptian, Roman, Hindu, Japanese, Celtic, Aztec, Chinese, Mesopotamian, African (Yoruba), Polynesian, Mesoamerican, Slavic, Haudenosaunee, Tlingit & Haida
-- 👑 **248 Deity Profiles** — Filterable by gender, domain, and pantheon with smart sorting
+- 👑 **261 Deity Profiles** — Filterable by gender, domain, and pantheon with smart sorting
 - 📖 **108 Epic Stories** — Including interactive branching narratives (choose-your-own-adventure)
 - 🐉 **63 Creatures** — Mythological beasts with detailed profiles
 - ⚔️ **52 Artifacts** — Legendary items with interactive 3D viewer (React Three Fiber)
-- 🗺️ **127 Locations** — Interactive mythological map with filters and 3 guided journeys
+- 🗺️ **140 Locations** — Interactive mythological map with filters and 3 guided journeys
 - 🌳 **Family Trees** — Network graph (ReactFlow) and hierarchical (D3.js) visualizations
 - 🧠 **Quizzes & Games** — Relationship quiz, personality quiz, quick quiz, symbol memory game
 - 📚 **Spaced Repetition** — Flashcard review system with intelligent scheduling
@@ -117,13 +117,13 @@ src/
 │   ├── ui/               # shadcn/ui components
 │   └── ...               # animations, audio, i18n, pwa, seo, etc.
 ├── data/                 # JSON data files
-│   ├── pantheons.json    # 16 pantheons
-│   ├── deities.json      # 248 deities
-│   ├── heroes.json       # 27 heroes
-│   ├── stories.json      # 108 stories
-│   ├── creatures.json    # 63 creatures
-│   ├── artifacts.json    # 52 artifacts
-│   ├── locations.json    # 127 locations
+│   ├── pantheons.json    # 17 pantheons + 1 regional collection
+│   ├── deities.json      # 261 deities
+│   ├── heroes.json       # 33 heroes
+│   ├── stories.json      # 115 stories
+│   ├── creatures.json    # 73 creatures
+│   ├── artifacts.json    # 59 artifacts
+│   ├── locations.json    # 140 locations
 │   ├── sources.json      # 34 primary/academic sources
 │   └── relationships.json
 ├── hooks/                # Custom React hooks

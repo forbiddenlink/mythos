@@ -369,6 +369,18 @@ export const PANTHEON_COLORS: Record<
     text: "text-patina",
     dot: "bg-patina",
   },
+  "yoruba-pantheon": {
+    bg: "bg-bronze/20",
+    border: "border-bronze/40",
+    text: "text-bronze",
+    dot: "bg-bronze",
+  },
+  "akan-pantheon": {
+    bg: "bg-patina/15",
+    border: "border-patina/35",
+    text: "text-patina",
+    dot: "bg-patina",
+  },
   "polynesian-pantheon": {
     bg: "bg-patina/15",
     border: "border-patina/35",
