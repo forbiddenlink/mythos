@@ -1481,5 +1481,78 @@
         ]
       }
     ]
+  },
+  {
+    "pantheonId": "inuit-pantheon",
+    "title": "Sky, Land, Sea, and the Lands of the Dead",
+    "summary": "Inuit tradition as recorded in several regions places the moon's house and a land of the dead in the sky, people on the land and ice, the Sea Woman's house at the bottom of the sea, and Adlivun beneath; Sila, the air and world, surrounds all.",
+    "axis": null,
+    "variantNote": "This diagram assembles accounts from different regions and periods, above all Boas's Baffin Island record of Adlivun and Qudlivun and Rasmussen's Iglulik reports of the Sea Woman and Moon Spirit. Inuit tradition does not share a single fixed map of the cosmos: where the dead go, and whether there is one land of the dead or several, differs by region and teller, and many Inuit today are Christian. Sila, being the air and the world itself, is shown in the sky tier only for convenience.",
+    "sources": [
+      "Franz Boas, The Central Eskimo, 1888",
+      "Knud Rasmussen, Intellectual Culture of the Iglulik Eskimos, 1929",
+      "Interviewing Inuit Elders, vol. 4: Cosmology and Shamanism, 2001"
+    ],
+    "tiers": [
+      {
+        "id": "sky",
+        "label": "The sky",
+        "band": "sky",
+        "realms": [
+          {
+            "name": "The sky and the moon's house",
+            "description": "Where the sun sister and the moon brother travel, where the Moon Spirit has his house, and, in Boas's Baffin account, where Qudlivun, a happy land of the dead, lies for those who died by violence; the northern lights are often described as the dead at play.",
+            "deities": ["malina", "anningan", "pinga"]
+          },
+          {
+            "name": "Sila",
+            "description": "The air, weather, and surrounding world, and the power that dwells in them.",
+            "deities": ["sila", "tornarsuk"]
+          }
+        ]
+      },
+      {
+        "id": "land",
+        "label": "The land and the ice",
+        "band": "earth",
+        "realms": [
+          {
+            "name": "Nuna, the land",
+            "description": "Where people live, hunt, and travel, and where beings such as the ijirait lead the careless astray.",
+            "deities": ["tulunigraq"],
+            "creatures": ["ijiraq"],
+            "locationId": "tikigaq-point-hope"
+          }
+        ]
+      },
+      {
+        "id": "sea",
+        "label": "The sea",
+        "band": "water",
+        "realms": [
+          {
+            "name": "The Sea Woman's house",
+            "description": "At the bottom of the sea, where the Sea Woman keeps the seals, walrus, and whales, and where an angakkuq may travel to comb her hair.",
+            "deities": ["sedna"],
+            "creatures": ["qalupalik", "tupilaq"],
+            "locationId": "igloolik"
+          }
+        ]
+      },
+      {
+        "id": "adlivun",
+        "label": "Adlivun",
+        "band": "under",
+        "realms": [
+          {
+            "name": "Adlivun",
+            "originalName": "Adlivun",
+            "description": "In Boas's Baffin Island account, the land beneath where Sedna is mistress and to which her father Anguta carries the dead.",
+            "deities": ["anguta"],
+            "locationId": "cumberland-sound"
+          }
+        ]
+      }
+    ]
   }
 ]

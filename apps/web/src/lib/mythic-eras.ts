@@ -100,6 +100,14 @@ export const MYTHIC_ERAS: MythicEra[] = [
     end: -1180,
     pantheonIds: ["hittite-pantheon", "canaanite-pantheon"],
   },
+  {
+    id: "inuit-arctic",
+    label: "Inuit Nunangat & Kalaallit Nunaat",
+    blurb: "Inuit Arctic from Alaska to Greenland, a living tradition",
+    start: 1000,
+    end: 2026,
+    pantheonIds: ["inuit-pantheon"],
+  },
 ];
 
 export function pantheonIdsForEraId(eraId: string): Set<string> | null {

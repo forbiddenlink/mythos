@@ -12367,5 +12367,397 @@
         "note": "Athtart's name is cognate with Ištar's, and both combine war with, in later periods, love."
       }
     ]
+  },
+  {
+    "id": "sedna",
+    "pantheonId": "inuit-pantheon",
+    "name": "Sedna (the Sea Woman)",
+    "slug": "sedna",
+    "originalLanguageName": {
+      "text": "ᓄᓕᐊᔪᒃ (Nuliajuk)",
+      "language": "Inuktitut (Netsilingmiut)",
+      "transliteration": "Nuliajuk",
+      "meaning": "A regional name; each of the Sea Woman's names has its own sense in its own dialect"
+    },
+    "alternateNames": [
+      "Nuliajuk (Netsilingmiut)",
+      "Takannaaluk or Takanaaluk arnaaluk (Iglulik)",
+      "Uinigumasuittuq (Iglulik, 'the one who did not want a husband')",
+      "Sassuma Arnaa (West Greenland, 'mother of the deep')",
+      "Arnarquagssaq (Greenland)",
+      "Sanna / Sedna (Baffin Island)"
+    ],
+    "gender": "female",
+    "domain": [
+      "the sea and its animals",
+      "the success or failure of hunting",
+      "the observance of taboos"
+    ],
+    "symbols": [
+      "seals, walrus, and whales",
+      "tangled hair",
+      "fingerless hands"
+    ],
+    "description": "The woman at the bottom of the sea who keeps the seals, walrus, and whales, known by different names across the Arctic (Sedna on Baffin Island, Nuliajuk among the Netsilingmiut, Takannaaluk in Iglulik, Sassuma Arnaa in Greenland); when people break taboos, the animals are held back until an angakkuq combs her hair.",
+    "detailedBio": "## Many names, one great power\n\nAcross the Inuit Arctic there is a woman who lives at the bottom of the sea and keeps the sea mammals on which people depend. Her names differ by region, and so do her stories. Franz Boas recorded her as Sedna in Cumberland Sound, Baffin Island, in the 1880s, and that is the name most outsiders know; the Netsilingmiut call her Nuliajuk; in Iglulik she is Takannaaluk and, in the telling of elders interviewed for Nunavut Arctic College, Uinigumasuittuq, \"the one who did not want a husband\"; in West Greenland she is Sassuma Arnaa, \"mother of the deep\". This site uses \"Sedna\" only as the most widely recognised name.\n\n## How she came to the sea\n\nThe stories of her origin vary. In Boas's Baffin Island account she is a young woman who refuses every suitor, is lured away by a fulmar disguised as a man, and is rescued by her father, who, when the fulmar raises a storm, throws her into the sea and cuts off her fingers as she clings to the boat; the joints become the whales, seals, and ground seals. In other tellings, including one Boas also recorded, she marries a dog. Among the Netsilingmiut, as Rasmussen recorded, Nuliajuk is an orphan girl whom no one wants, pushed off a raft of kayaks during a crossing; her fingers are cut as she holds on, and she sinks to become the mother of the sea animals. The different beginnings lead to the same place: a woman wronged, maimed, and enthroned beneath the sea.\n\n## Keeper of the animals\n\nBecause she has no fingers, she cannot comb her own hair. When people break the rules that govern relations with animals and with birth and death, the misdeeds gather in her hair as dirt and tangles, and she keeps the animals back, so that hunters come home empty-handed. In the Iglulik accounts recorded by Rasmussen, an angakkuq travels in spirit to her house at the bottom of the sea, combs and cleans her hair, and persuades her to release the animals, and people confess the breaches that caused the trouble.\n\n## Today\n\nThe Sea Woman remains one of the most widely told Inuit stories and one of the most frequent subjects of Inuit art, from Cape Dorset prints to contemporary sculpture. Many Inuit tellers stress her dignity and the justice of her anger; she is not a monster but the guardian of a relationship between people and animals that must be kept.",
+    "importanceRank": 1,
+    "imageUrl": "/deities/sedna.png",
+    "primarySources": [
+      {
+        "text": "The dead, who are seized by Sedna's father, Anguta, are carried to this dwelling.",
+        "source": "Franz Boas, The Central Eskimo",
+        "date": "1888"
+      },
+      {
+        "text": "An Iglulik account of the angakkuq's spirit journey to the bottom of the sea to comb the Sea Woman's hair and win the release of the sea animals (paraphrase).",
+        "source": "Knud Rasmussen, Intellectual Culture of the Iglulik Eskimos (Report of the Fifth Thule Expedition 1921-24, vol. 7, no. 1)",
+        "date": "1929"
+      }
+    ],
+    "furtherReading": [
+      {
+        "sourceId": "interviewing-inuit-elders-cosmology",
+        "note": "Iglulik elders on the Sea Woman, in their own words"
+      },
+      {
+        "sourceId": "rasmussen-fifth-thule",
+        "note": "Iglulik and Netsilik accounts of Takanaaluk and Nuliajuk"
+      },
+      {
+        "sourceId": "boas-central-eskimo",
+        "note": "The Baffin Island account that made 'Sedna' widely known"
+      }
+    ],
+    "sources": [
+      "Laugrand, Frédéric, and Jarich Oosten. *Inuit Shamanism and Christianity* (McGill-Queen's University Press, 2010).",
+      "Fienup-Riordan, Ann. *Hunting Tradition in a Changing World* (Rutgers University Press, 2000), on Yup'ik and Inuit relations with animals."
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "japanese-pantheon",
+        "deityId": "ryujin",
+        "note": "Both are powers beneath the sea who control the sea's creatures and bounty; the Sea Woman's relationship with hunters and taboos is distinctively Inuit, and the comparison is typological only."
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [
+        "Autumn Sedna feasts recorded by Boas in Baffin Island in the 1880s"
+      ],
+      "practices": "This is part of a living tradition. Inuit relationships with these figures today range from continued respect and storytelling to Christian faith that sets older practice aside, and they vary by family and community; this site does not describe angakkuq (shamanic) practice beyond what elders and Inuit-led publishers have chosen to make public."
+    },
+    "traditionRole": "Mother of the Sea Animals"
+  },
+  {
+    "id": "anguta",
+    "pantheonId": "inuit-pantheon",
+    "name": "Anguta",
+    "slug": "anguta",
+    "alternateNames": ["Sedna's father"],
+    "gender": "male",
+    "domain": ["the dead", "the underworld Adlivun"],
+    "symbols": ["the boat", "maimed hands and feet"],
+    "description": "In Baffin Island tellings recorded by Franz Boas, the Sea Woman's father, who cut off her fingers and now lives with her in Adlivun, carrying the dead to that dwelling.",
+    "detailedBio": "## A regional figure\n\nAnguta belongs to the Baffin Island tellings of the Sea Woman recorded by Franz Boas in Cumberland Sound in the 1880s. Many other regional versions give the Sea Woman's father no name, or no afterlife role, or no part in the story at all, as in the Netsilik story of the orphan Nuliajuk. This site includes him because Boas's account is a major published source, not because he is found across the Inuit Arctic.\n\n## Father and punisher\n\nIn Boas's account it is Anguta who rescues his daughter from her fulmar husband, and Anguta who, when the bird raises a storm, throws her overboard and cuts off her fingers as she clings to the boat. He is afterwards punished: in one version his own dogs gnaw off his hands and feet as he lies sleeping on the shore, and the earth opens and takes him, his daughter, and the dogs down to Adlivun.\n\n## Keeper of the dead\n\nBoas reports that the dead are seized by Sedna's father, Anguta, and carried to Adlivun, the land beneath the earth and sea where Sedna is mistress. Boas also describes a happier land of the dead above, Qudlivun, for those who died by violence or in childbirth. These accounts describe beliefs recorded in one region at one time, and they should not be taken as a fixed Inuit doctrine of the afterlife.",
+    "importanceRank": 3,
+    "imageUrl": "/deities/anguta.png",
+    "primarySources": [
+      {
+        "text": "The dead, who are seized by Sedna's father, Anguta, are carried to this dwelling.",
+        "source": "Franz Boas, The Central Eskimo",
+        "date": "1888"
+      }
+    ],
+    "furtherReading": [
+      {
+        "sourceId": "boas-central-eskimo",
+        "note": "The Baffin Island account of Sedna, Anguta, and Adlivun"
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [],
+      "practices": "This is part of a living tradition. Inuit relationships with these figures today range from continued respect and storytelling to Christian faith that sets older practice aside, and they vary by family and community; this site does not describe angakkuq (shamanic) practice beyond what elders and Inuit-led publishers have chosen to make public."
+    },
+    "traditionRole": "Carrier of the Dead (Baffin tellings)"
+  },
+  {
+    "id": "anningan",
+    "pantheonId": "inuit-pantheon",
+    "name": "Anningan (the Moon Man)",
+    "slug": "anningan",
+    "originalLanguageName": {
+      "text": "ᑕᖅᑭᖅ (Taqqiq)",
+      "language": "Inuktitut",
+      "transliteration": "Taqqiq; Greenlandic Aningaaq",
+      "meaning": "'Moon'"
+    },
+    "alternateNames": [
+      "Aningaaq (Greenland)",
+      "Taqqiq, the Moon Spirit (Iglulik)",
+      "Igaluk (Alaska, in some sources)"
+    ],
+    "gender": "male",
+    "domain": [
+      "the moon",
+      "the tides and hunting",
+      "the fertility of women",
+      "the enforcement of taboos"
+    ],
+    "symbols": ["the moon", "a dimmed torch", "his dog-sled in the sky"],
+    "description": "The brother who became the moon after pursuing his sister, the sun, across the sky; in Iglulik tradition the Moon Spirit also helps angakkuit, watches over hunting and the birth of children, and punishes those who break taboos.",
+    "detailedBio": "## The brother in the sky\n\nAcross the Inuit Arctic the moon is a man and the sun is his sister. The story of how they came to the sky, told in slightly different forms from Greenland to Alaska, begins with a brother who visits his sister in the dark and a sister who discovers who he is; she flees with a burning torch and becomes the sun, and he chases her with a torch that goes out to embers and becomes the moon. His pursuit never ends, which is why the moon follows the sun and sometimes catches her, in an eclipse. The name Anningan, common in English-language books, reflects the Greenlandic Aningaaq; in Iglulik he is Taqqiq, the Moon Spirit.\n\n## The Moon Spirit's work\n\nIn Iglulik accounts recorded by Rasmussen, the Moon Spirit is a powerful and on the whole benevolent figure. He lives in a house in the sky, travels by dog-sled, helps angakkuit who visit him in spirit, can give luck in hunting, and is linked with the conception of children. He also punishes people who break taboos. The moon's monthly disappearance is explained in some tellings as his absence while he hunts.\n\n## Regional differences\n\nIn Greenland, Aningaaq's house in the sky and his neighbours are described in detail in Rink's collections; in parts of Alaska the moon is linked with a man called Igaluk in popular sources, though those accounts are less securely documented. As with the Sea Woman, the moon's name and role differ by region, and this entry reports those differences rather than choosing one.",
+    "importanceRank": 1,
+    "imageUrl": "/deities/anningan.png",
+    "primarySources": [
+      {
+        "text": "Boas reports that moon and sun are regarded as brother and sister, and that the Baffin Island tradition corresponds closely with the Greenlandic one (paraphrase).",
+        "source": "Franz Boas, The Central Eskimo",
+        "date": "1888"
+      },
+      {
+        "text": "Iglulik speakers describe the Moon Spirit's house in the sky and his help to angakkuit and to women who wish for children (paraphrase).",
+        "source": "Knud Rasmussen, Intellectual Culture of the Iglulik Eskimos (Report of the Fifth Thule Expedition 1921-24, vol. 7, no. 1)",
+        "date": "1929"
+      }
+    ],
+    "furtherReading": [
+      {
+        "sourceId": "boas-central-eskimo",
+        "note": "The sun and moon siblings on Baffin Island"
+      },
+      {
+        "sourceId": "rasmussen-fifth-thule",
+        "note": "The Iglulik Moon Spirit"
+      }
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "japanese-pantheon",
+        "deityId": "tsukuyomi",
+        "note": "Both are male moon figures whose separation from the sun explains why sun and moon are never together; the stories are otherwise unrelated."
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [],
+      "practices": "This is part of a living tradition. Inuit relationships with these figures today range from continued respect and storytelling to Christian faith that sets older practice aside, and they vary by family and community; this site does not describe angakkuq (shamanic) practice beyond what elders and Inuit-led publishers have chosen to make public."
+    },
+    "traditionRole": "The Moon"
+  },
+  {
+    "id": "malina",
+    "pantheonId": "inuit-pantheon",
+    "name": "Malina (the Sun Woman)",
+    "slug": "malina",
+    "originalLanguageName": {
+      "text": "ᓯᕿᓂᖅ (Siqiniq)",
+      "language": "Inuktitut",
+      "transliteration": "Siqiniq ('sun'); Greenlandic Malina",
+      "meaning": "'Sun'; Malina is the sister's name in Greenlandic tellings"
+    },
+    "alternateNames": ["Siqiniq (the sun)", "The Sun Sister"],
+    "gender": "female",
+    "domain": ["the sun", "light and warmth"],
+    "symbols": ["a blazing torch", "hands blackened with soot"],
+    "description": "The sister who became the sun: when she discovered that the visitor in the dark was her brother, she fled with a burning torch into the sky, and he has pursued her ever since as the moon.",
+    "detailedBio": "## The sister's torch\n\nIn the widely told Inuit story of the sun and moon, a young woman is visited in the dark by a man she cannot see. To find out who he is, she blackens her hands with soot from the lamp and marks him. When the lamps are lit she sees the marks on her brother. In anger and shame she flees with a burning torch; he follows with his own, but his falls or burns down to embers. Both rise into the sky, where she becomes the sun and he, with his faint light, becomes the moon.\n\n## Why she has a name\n\nThe name Malina, now common in English-language books, comes from Greenlandic tellings. In many Canadian Inuit versions the sister is simply the sun, Siqiniq. The name is used here because readers will meet it in general reference works, not because it is universal.\n\n## A story about boundaries\n\nThe story is told as an explanation of the sky, but also as a story about kinship rules and their violation, and about the lasting consequences of a wrong. Boas noted in the 1880s that the Baffin Island version corresponded closely to the Greenlandic one, showing how widely the story had travelled.",
+    "importanceRank": 1,
+    "imageUrl": "/deities/malina.png",
+    "primarySources": [
+      {
+        "text": "The brother and sister are lifted into the sky as they run, the sister becoming the sun and the brother, whose torch has dimmed, the moon (paraphrase).",
+        "source": "Franz Boas, The Central Eskimo",
+        "date": "1888"
+      }
+    ],
+    "furtherReading": [
+      {
+        "sourceId": "boas-central-eskimo",
+        "note": "The Baffin Island telling of the sun and moon"
+      }
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "japanese-pantheon",
+        "deityId": "amaterasu",
+        "note": "Both are female sun figures separated from a male moon; Amaterasu's separation from Tsukuyomi follows a different story entirely."
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [],
+      "practices": "This is part of a living tradition. Inuit relationships with these figures today range from continued respect and storytelling to Christian faith that sets older practice aside, and they vary by family and community; this site does not describe angakkuq (shamanic) practice beyond what elders and Inuit-led publishers have chosen to make public."
+    },
+    "traditionRole": "The Sun"
+  },
+  {
+    "id": "sila",
+    "pantheonId": "inuit-pantheon",
+    "name": "Sila",
+    "slug": "sila",
+    "originalLanguageName": {
+      "text": "ᓯᓚ",
+      "language": "Inuktitut",
+      "transliteration": "Sila; Silap inua ('the indweller of Sila'); Hila (Kivalliq)",
+      "meaning": "Air, weather, the outdoors, the world, and also intelligence or good sense"
+    },
+    "alternateNames": [
+      "Silap inua",
+      "Hila (Caribou Inuit dialects)",
+      "Sillap inua (Greenland)"
+    ],
+    "gender": "none",
+    "domain": [
+      "air and weather",
+      "the order of the world",
+      "wisdom and awareness"
+    ],
+    "symbols": ["wind", "breath", "the open sky"],
+    "description": "The air, weather, and surrounding world, and the power that dwells in them; a word that also means intelligence or good sense, and that Inuit speakers described to Rasmussen as a great power that speaks through storms and calm.",
+    "detailedBio": "## A word with many meanings\n\nIn Inuktitut and related languages, sila means the air, the weather, the outdoors, the world around us, and also a person's intelligence or good judgement: someone with sila is sensible. Silap inua, \"the indweller of sila\", names the power that lives in all of these. Because the word covers so much, Sila is poorly described as a \"sky god\"; it is closer to the living order of the world that surrounds people and can respond to how they behave.\n\n## What speakers told Rasmussen\n\nThe best-known description comes from Rasmussen's conversation with Najagneq, a Yup'ik (not Inuit) angalkuq he met at Nome, Alaska, recorded in *Across Arctic America* (1927). Najagneq described Sila as a power not easily explained in words, a great spirit that upholds the world, the weather, and all life, and that speaks not in words but through storm, snow, rain, and the fury of the sea, and through sunshine and calm and small children at play; when all is well it keeps silent (paraphrase). Rasmussen's Iglulik and Caribou Inuit reports record related ideas, and among the Caribou Inuit the power is called Hila. The Yup'ik and Inuit are related but distinct peoples, and this site notes where a description comes from.\n\n## Sila today\n\nIn recent decades Inuit leaders have spoken of sila in discussions of Arctic climate change, where the old word for weather and the world's order carries new weight. The concept remains part of everyday language, not only of the old religion.",
+    "importanceRank": 2,
+    "imageUrl": "/deities/sila.png",
+    "primarySources": [
+      {
+        "text": "Najagneq describes Sila as a great spirit that upholds the world, the weather, and all life, speaking to people through storm, snow, rain, and the fury of the sea, and withdrawing when all is well (paraphrase).",
+        "source": "Knud Rasmussen, Across Arctic America: Narrative of the Fifth Thule Expedition",
+        "date": "1927"
+      },
+      {
+        "text": "Iglulik speakers name the powers that govern life, among them Sila, the spirit of the air (paraphrase).",
+        "source": "Knud Rasmussen, Intellectual Culture of the Iglulik Eskimos (Report of the Fifth Thule Expedition 1921-24, vol. 7, no. 1)",
+        "date": "1929"
+      }
+    ],
+    "furtherReading": [
+      {
+        "sourceId": "rasmussen-fifth-thule",
+        "note": "Sila in the Iglulik and Caribou Inuit volumes"
+      },
+      {
+        "sourceId": "interviewing-inuit-elders-cosmology",
+        "note": "Elders on sila and the order of the world"
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [],
+      "practices": "This is part of a living tradition. Inuit relationships with these figures today range from continued respect and storytelling to Christian faith that sets older practice aside, and they vary by family and community; this site does not describe angakkuq (shamanic) practice beyond what elders and Inuit-led publishers have chosen to make public."
+    },
+    "traditionRole": "Breath of the World"
+  },
+  {
+    "id": "pinga",
+    "pantheonId": "inuit-pantheon",
+    "name": "Pinga",
+    "slug": "pinga",
+    "alternateNames": ["'The one up there' (Caribou Inuit)"],
+    "gender": "female",
+    "domain": [
+      "the caribou and other land animals",
+      "watching over people's conduct",
+      "souls"
+    ],
+    "symbols": ["the caribou"],
+    "description": "Among the inland Caribou Inuit of the Kivalliq region, a female power 'up above' who watches over the caribou and over how people treat the animals they hunt.",
+    "detailedBio": "## An inland power\n\nPinga is known chiefly from Rasmussen's report on the Caribou Inuit (Kivallirmiut) of the barren lands west of Hudson Bay, *Intellectual Culture of the Caribou Eskimos* (1930). For these inland people, who lived by the caribou rather than by sea mammals, the Sea Woman mattered less, and speakers described instead a female power who lives above, called Pinga, \"the one up there\".\n\n## What she watches\n\nAs Rasmussen's speakers described her, Pinga watches over the caribou and other land animals, and over whether people respect them: killing more than is needed or mistreating the carcasses offends her. She is also associated with souls. Rasmussen reports that some speakers linked her with Hila (Sila), the power of the air, though the relationship is not clearly defined in his account, and this site does not treat them as the same.\n\n## Limits of the record\n\nPinga's name and role come from one ethnographer's report of one region in the 1920s. She is not a pan-Inuit figure, and the details should be taken as what particular Caribou Inuit told Rasmussen, not as a fixed doctrine.",
+    "importanceRank": 3,
+    "imageUrl": "/deities/pinga.png",
+    "primarySources": [
+      {
+        "text": "Caribou Inuit speakers describe Pinga, a female spirit up above who watches over the animals and over people's respect for them (paraphrase).",
+        "source": "Knud Rasmussen, Intellectual Culture of the Caribou Eskimos (Report of the Fifth Thule Expedition, vol. 7, no. 2)",
+        "date": "1930"
+      }
+    ],
+    "furtherReading": [
+      {
+        "sourceId": "rasmussen-fifth-thule",
+        "note": "The Caribou Inuit volume"
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [],
+      "practices": "This is part of a living tradition. Inuit relationships with these figures today range from continued respect and storytelling to Christian faith that sets older practice aside, and they vary by family and community; this site does not describe angakkuq (shamanic) practice beyond what elders and Inuit-led publishers have chosen to make public."
+    },
+    "traditionRole": "Watcher of the Caribou"
+  },
+  {
+    "id": "tornarsuk",
+    "pantheonId": "inuit-pantheon",
+    "name": "Tornarsuk",
+    "slug": "tornarsuk",
+    "originalLanguageName": {
+      "text": "Tornaarsuk",
+      "language": "Kalaallisut (Greenlandic)",
+      "transliteration": "Tornaarsuk; Labrador Torngarsoak",
+      "meaning": "'Great spirit' or 'great helping spirit', from tornaq, a helping spirit"
+    },
+    "alternateNames": ["Torngarsuk", "Torngarsoak (Labrador)"],
+    "gender": "none",
+    "domain": ["the helping spirits of angakkuit", "knowledge and guidance"],
+    "symbols": ["the helping spirit (tornaq)"],
+    "description": "In Greenland and Labrador, the greatest of the helping spirits (tornait) on whom angakkuit relied; eighteenth-century missionaries recast the figure as the Devil, a reinterpretation this site notes rather than repeats.",
+    "detailedBio": "## The great helper\n\nA tornaq (plural tornait, tuurngait in Canadian dialects) is a helping spirit with whom an angakkuq works. Tornaarsuk, \"the great tornaq\", was described by eighteenth-century observers in Greenland as the chief of these helpers, the power from whom angakkuit gained knowledge and whose guidance they sought on behalf of their communities. Labrador sources describe a similar figure, Torngarsoak.\n\n## A missionary reinterpretation\n\nThe Danish-Norwegian missionary Hans Egede, who arrived in Greenland in 1721, and the Moravian missionaries who followed, looked for a devil in Inuit religion and found one in Tornarsuk. In Christian Greenlandic, the name came to be used for the Devil. Later scholars have pointed out that this equation says more about the missionaries' expectations than about Inuit belief, in which helping spirits were neither simply good nor simply evil.\n\n## Why this entry is short\n\nAlmost everything written about Tornarsuk in the eighteenth and nineteenth centuries comes through that missionary lens, and the practice of angakkuit with their helping spirits is not something this site describes in detail. The entry records the figure and the history of how outsiders changed its meaning.",
+    "importanceRank": 3,
+    "imageUrl": "/deities/tornarsuk.png",
+    "primarySources": [
+      {
+        "text": "Greenlandic accounts of the chief helping spirit of the angakkuit, recorded by missionaries and later collectors (paraphrase).",
+        "source": "Hinrich Rink, Tales and Traditions of the Eskimo",
+        "date": "1875"
+      }
+    ],
+    "sources": [
+      "Laugrand, Frédéric, and Jarich Oosten. *Inuit Shamanism and Christianity* (McGill-Queen's University Press, 2010)."
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [],
+      "practices": "This is part of a living tradition. Inuit relationships with these figures today range from continued respect and storytelling to Christian faith that sets older practice aside, and they vary by family and community; this site does not describe angakkuq (shamanic) practice beyond what elders and Inuit-led publishers have chosen to make public."
+    },
+    "traditionRole": "Great Helping Spirit"
+  },
+  {
+    "id": "tulunigraq",
+    "pantheonId": "inuit-pantheon",
+    "name": "Tulunigraq (Raven Man)",
+    "slug": "tulunigraq",
+    "originalLanguageName": {
+      "text": "Tuluŋigraq",
+      "language": "Iñupiaq (Tikiġaq dialect)",
+      "transliteration": "Tulunigraq",
+      "meaning": "'Something like a raven'"
+    },
+    "alternateNames": ["Raven Man", "Tulugaq (raven)"],
+    "gender": "male",
+    "domain": ["the making of the land at Tikiġaq", "whaling"],
+    "symbols": ["the raven", "the harpoon", "the whale"],
+    "description": "In the Iñupiaq tradition of Tikiġaq (Point Hope, Alaska), the Raven Man who harpooned a great sea creature whose body became the land on which the village stands.",
+    "detailedBio": "## Raven Man of Tikiġaq\n\nTikiġaq, the Iñupiaq village known in English as Point Hope, stands on a long gravel spit reaching into the Chukchi Sea, and its people are among the oldest whaling communities in North America. Their tradition tells that the land itself was once a living creature of the sea, harpooned by Tulunigraq, Raven Man, a being part raven and part man.\n\n## Recorded with the community\n\nThe fullest published account comes from Tom Lowenstein's work with Tikiġaq elders, above all Asatchaq, in the 1970s, published as *Ancient Land: Sacred Whale* (1993). Lowenstein stresses that the creature is not simply named a whale in the telling, and that the story is bound up with the village's whaling life and with the ceremonies of the whaling season, which this site does not describe.\n\n## Raven across the North\n\nRaven is a major figure across the North Pacific, from Siberia to the Northwest Coast, and in many Alaskan traditions, Iñupiaq and Yup'ik alike, he is a maker and trickster. Tulunigraq's story is specific to Tikiġaq; it should not be merged with the Tlingit and Haida Raven, who belongs to a different people and language, though the parallels are real.",
+    "importanceRank": 2,
+    "imageUrl": "/deities/tulunigraq.png",
+    "primarySources": [
+      {
+        "text": "Tikiġaq elders tell how Raven Man harpooned a great sea creature whose body became the land of Tikiġaq (paraphrase).",
+        "source": "Tom Lowenstein, Ancient Land: Sacred Whale: The Inuit Hunt and Its Rituals (from the tellings of Asatchaq and others)",
+        "date": "1993"
+      }
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "tlingit-haida-pantheon",
+        "deityId": "raven",
+        "note": "Both are Raven figures who remake the world, among different Northern peoples; the Tikiġaq and Tlingit-Haida stories are distinct traditions, not versions of one."
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [],
+      "practices": "This is part of a living tradition. Inuit relationships with these figures today range from continued respect and storytelling to Christian faith that sets older practice aside, and they vary by family and community; this site does not describe angakkuq (shamanic) practice beyond what elders and Inuit-led publishers have chosen to make public."
+    },
+    "traditionRole": "Maker of the Land (Tikiġaq)"
   }
 ]

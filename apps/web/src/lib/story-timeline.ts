@@ -420,6 +420,12 @@ export const PANTHEON_COLORS: Record<
     text: "text-destructive",
     dot: "bg-destructive",
   },
+  "inuit-pantheon": {
+    bg: "bg-patina/20",
+    border: "border-patina/40",
+    text: "text-patina",
+    dot: "bg-patina",
+  },
 };
 
 /**

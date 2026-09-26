@@ -1448,5 +1448,74 @@
       }
     ],
     "imageUrl": "/creatures/tunnanu.png"
+  },
+  {
+    "id": "qalupalik",
+    "pantheonId": "inuit-pantheon",
+    "name": "Qalupalik",
+    "slug": "qalupalik",
+    "description": "A human-like being with green skin and long hair who lives in the sea and snatches children who wander too close to the edge of the ice, carrying them away in the amauti (hood) on her back.",
+    "habitat": "The sea beneath the ice, near the floe edge and the shoreline",
+    "abilities": [
+      "hums or calls to lure children",
+      "carries children away in her amauti",
+      "lives underwater"
+    ],
+    "dangerLevel": 6,
+    "detailedBio": "## A warning at the water's edge\n\nThe qalupalik (plural qalupalliit) is a being from Inuit tradition in Nunavut and other regions: human-like but with greenish skin, long hair, and long fingernails, living in the sea. She wears an amauti, the woman's parka with a large pouch in the back for carrying a baby, and in it she carries away children who wander too near the water or the edge of the sea ice without an adult. Some tellings say you can hear her humming before she appears.\n\n## A story with a purpose\n\nStories of the qalupalik were told to keep young children away from dangerous places, the tide cracks, the floe edge, and thin ice, where a fall into freezing water would be fatal. They are cautionary, and many Inuit remember being warned about the qalupalik as children.\n\n## Told by Inuit today\n\nThe qalupalik appears in books published by Inuit-owned Inhabit Media, among them *The Legend of the Qalupalik* (2011), and in Inuit animation and film. She is one of the best-known figures of Inuit storytelling among younger audiences, and her story continues to be told by Inuit themselves rather than only recorded by outsiders.",
+    "primarySources": [
+      {
+        "text": "A published Inuit retelling of the qalupalik who takes children who disobey their parents and go too near the sea (paraphrase).",
+        "source": "Elisha Kilabuk, The Legend of the Qalupalik (Inhabit Media)",
+        "date": "2011"
+      }
+    ],
+    "imageUrl": "/creatures/qalupalik.png"
+  },
+  {
+    "id": "tupilaq",
+    "pantheonId": "inuit-pantheon",
+    "name": "Tupilaq",
+    "slug": "tupilaq",
+    "description": "In Greenlandic tradition, a being secretly made from animal parts and sometimes human remains and brought to life to harm an enemy; it could be turned back against its maker. Carved tupilaq figures are now a Greenlandic art form.",
+    "habitat": "The sea, where it was sent to find its victim",
+    "abilities": [
+      "made and animated for revenge",
+      "can be turned against its maker by a stronger angakkuq",
+      "takes animal form, often a seal"
+    ],
+    "dangerLevel": 7,
+    "detailedBio": "## A made thing\n\nIn Greenlandic belief, a tupilaq (plural tupilait) was a being made in secret, from parts of different animals and sometimes human remains, and brought to life with songs and rituals in order to harm an enemy. It was set loose in the sea, often in the form of a seal, to find and kill its victim. Making one was dangerous: if the intended victim had a stronger angakkuq, the tupilaq could be turned back to destroy the one who made it.\n\n## From belief to carving\n\nThe original tupilait were not meant to be seen, and none survive. When Europeans in East Greenland in the late nineteenth century asked what a tupilaq looked like, Greenlandic carvers made small figures to show them, and from these a whole art form grew. Today tupilaq figures carved from bone, antler, narwhal and walrus tusk, and soapstone are among the best-known Greenlandic artworks, often grotesque composites of human and animal features.\n\n## Sources\n\nDescriptions of tupilait come mainly from Greenlandic tellings recorded by Hinrich Rink and later Danish ethnographers, and from the Tasiilaq (Ammassalik) region of East Greenland. The practice described belongs to the past; the carvings are a living art.",
+    "primarySources": [
+      {
+        "text": "Greenlandic accounts of the tupilaq, a creature made and animated to kill an enemy, and of its turning back against its maker (paraphrase).",
+        "source": "Hinrich Rink, Tales and Traditions of the Eskimo",
+        "date": "1875"
+      }
+    ],
+    "imageUrl": "/creatures/tupilaq.png"
+  },
+  {
+    "id": "ijiraq",
+    "pantheonId": "inuit-pantheon",
+    "name": "Ijiraq",
+    "slug": "ijiraq",
+    "description": "A shape-shifting being of the Kivalliq and Iglulik regions that can take the form of a caribou or a person and leads travellers and children astray, so that they cannot find their way home.",
+    "habitat": "The open land of the tundra and uplands",
+    "abilities": [
+      "shape-shifts, often into caribou",
+      "hides people and makes them forget",
+      "cannot be seen directly, only from the corner of the eye"
+    ],
+    "dangerLevel": 5,
+    "detailedBio": "## Shape-shifters of the land\n\nIjirait (singular ijiraq) are beings of the land in the traditions of the Kivalliq (west of Hudson Bay) and Iglulik regions of Nunavut. They can appear as caribou or as people, and are said to be hard to look at directly: you may glimpse one from the corner of your eye, but when you turn, it is gone. Their faces, in some tellings, are sideways.\n\n## Losing the way\n\nIjirait are known for leading people astray. A hunter may follow a caribou that is really an ijiraq and find himself lost; children who wander from camp may be taken by ijirait and hidden, and forget where they came from. Stories tell of lost people who find their way back by recognising an inuksuk, a stone marker, or by the help of others.\n\n## Told today\n\nIjirait appear in Nunavut Arctic College elders' volumes and in books from Inuit-owned publishers, and remain part of how children are taught caution on the land. The name has also been given to a moon of Saturn, Ijiraq, named alongside other Inuit-named moons.",
+    "primarySources": [
+      {
+        "text": "Nunavut elders describe the ijirait, shape-changing beings of the land who can appear as caribou and hide people from their families (paraphrase).",
+        "source": "Interviewing Inuit Elders, vol. 4: Cosmology and Shamanism (ed. Bernard Saladin d'Anglure; Nunavut Arctic College)",
+        "date": "2001"
+      }
+    ],
+    "imageUrl": "/creatures/ijiraq.png"
   }
 ]

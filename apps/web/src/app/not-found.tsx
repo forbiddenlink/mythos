@@ -48,6 +48,7 @@ function getPantheonLabel(pantheonId: string): string {
     "tlingit-haida-pantheon": "Tlingit & Haida",
     "hittite-pantheon": "Hittite",
     "canaanite-pantheon": "Canaanite",
+    "inuit-pantheon": "Inuit",
   };
   return labels[pantheonId] || "Ancient";
 }

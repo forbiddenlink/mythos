@@ -1150,5 +1150,39 @@
         "date": "tablets of the late 13th or early 12th c. BCE"
       }
     ]
+  },
+  {
+    "id": "kiviuq",
+    "pantheonId": "inuit-pantheon",
+    "name": "Kiviuq",
+    "slug": "kiviuq",
+    "gender": "male",
+    "alternateNames": ["Kiviok", "Qiviuq", "Qiviuk", "Kiviung (Boas)"],
+    "description": "The great wanderer of Inuit epic, told from Alaska to Greenland, who travels by kayak and on foot through encounters with dangerous and marvellous beings; many tellers say he is still travelling.",
+    "detailedBio": "## An epic told everywhere\n\nKiviuq (spelled in many ways, including Qiviuq and Kiviok) is the hero of the longest Inuit story cycle, told across the whole Inuit Arctic. His adventures are episodes that tellers combine and order differently; no two tellings are the same, and there is no single correct sequence. Many elders say Kiviuq has lived many lifetimes and is still travelling, and that he will return.\n\n## How the wandering begins\n\nIn many Canadian tellings the story begins with an orphan boy who is mocked and mistreated by the young men of his camp. His grandmother, or the boy himself, raises a storm with a magical seal, and the kayakers who tormented him are drowned. Only Kiviuq, a strong and skilled kayaker, survives, carried far out to sea, and so begins his journey.\n\n## Episodes\n\nAmong the episodes widely told are Kiviuq's escape from a woman who tries to kill and cook him; his passage in his kayak between the snapping shells of a giant mussel or clam; his marriage to a fox-woman who takes off her fur to become a wife; and his marriage to a goose-woman, who flies away and whom he follows on a long journey. Each is told with its own lessons about hospitality, danger, endurance, and respect.\n\n## Sources\n\nKiviuq's stories have been gathered from Inuit tellers across the Arctic by, among others, the storyteller and folklorist Kira Van Deusen, whose project with Inuit elders produced the book *Kiviuq: An Inuit Hero and His Siberian Cousins* (2009) and a public website of elders' tellings, and they appear in books from the Inuit-owned publisher Inhabit Media.",
+    "parentage": {
+      "mortalParentName": "Not given in most tellings",
+      "note": "Kiviuq's parentage is not a focus of the stories; in several tellings the orphan boy and his grandmother, not Kiviuq's own family, set the story in motion."
+    },
+    "keyDeeds": [
+      "Survived the storm raised in revenge for the mistreated orphan",
+      "Escaped a woman who meant to kill and cook him",
+      "Passed in his kayak between the snapping shells of a giant mussel",
+      "Married a fox-woman and a goose-woman, and followed the goose-wife on a long journey"
+    ],
+    "fate": "Many tellers say Kiviuq is still alive and travelling, having lived many lifetimes, and that he will one day return.",
+    "relatedDeityIds": [],
+    "imageUrl": "/heroes/kiviuq.png",
+    "pronunciation": {
+      "ipa": "/kiviuq/",
+      "phonetic": "KEE-vee-ook"
+    },
+    "primarySources": [
+      {
+        "text": "Kiviuq's episodes as told by elders across the Inuit Arctic, with regional variants side by side (paraphrase).",
+        "source": "Kira Van Deusen, Kiviuq: An Inuit Hero and His Siberian Cousins (McGill-Queen's University Press)",
+        "date": "2009"
+      }
+    ]
   }
 ]

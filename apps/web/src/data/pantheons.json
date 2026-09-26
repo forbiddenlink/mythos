@@ -626,5 +626,55 @@
       }
     ],
     "imageUrl": "/pantheons/canaanite.jpg"
+  },
+  {
+    "id": "inuit-pantheon",
+    "name": "Inuit Tradition",
+    "slug": "inuit",
+    "culture": "Inuit (Inuit Nunangat in Canada, Kalaallit Nunaat/Greenland, and Iñupiat Alaska), with strong regional variation",
+    "region": "The Arctic, from northern Alaska across Canada to Greenland",
+    "timePeriodStart": 1000,
+    "timePeriodEnd": null,
+    "description": "A living Arctic tradition whose powers go by different names from region to region: the Sea Woman who keeps the sea animals (Sedna, Nuliajuk, Takannaaluk, Sassuma Arnaa), the Moon Man and Sun Woman, and Sila, the breath of the world, told by Inuit from Alaska to Greenland.",
+    "detailedHistory": "## One people, many regions, many names\n\nInuit live across the Arctic: in Inuit Nunangat in Canada (the Inuvialuit Settlement Region, Nunavut, Nunavik, and Nunatsiavut), in Kalaallit Nunaat (Greenland), and, as Iñupiat, in northern Alaska. They share a language family and a great deal of story, but not a single scripture or standardised mythology. The same figure goes by different names from one region to the next, and the stories told about her differ too. The Sea Woman whom Franz Boas recorded as **Sedna** in Cumberland Sound on Baffin Island in the 1880s is **Nuliajuk** among the Netsilingmiut, **Takannaaluk** or **Uinigumasuittuq** in Iglulik tellings, and **Sassuma Arnaa**, \"mother of the deep\", in West Greenland. \"Sedna\" has become the name the wider world knows, even giving its name to a distant dwarf planet, but it is one regional name among many, and this site gives the others alongside it wherever they are known.\n\n## A living tradition\n\nThese are not the beliefs of a vanished people. Inuit elders, storytellers, artists, and publishers tell these stories today, in Inuktitut and other Inuit languages as well as in English, Danish, and French. Many Inuit are also Christian, and communities and families hold a wide range of views about the old powers and about the angakkuit (shamans) who once dealt with them. The dates attached to this entry reflect archaeology, not the age of any story: the ancestors of today's Inuit, known to archaeologists as the Thule people, spread east from Alaska across the Arctic from roughly 1000 to 1300 CE, meeting the earlier Arctic people whom Inuit tradition remembers as the Tuniit.\n\n## Sources and their limits\n\nMuch of what outsiders know comes from ethnographers of the late nineteenth and early twentieth centuries: Franz Boas's *The Central Eskimo* (1888), Hinrich Rink's Greenland collections, and above all the reports of the Fifth Thule Expedition (1921-24) led by Knud Rasmussen, who was himself of Greenlandic Inuit and Danish descent and recorded the words of named Inuit speakers such as Aua in Iglulik and Orpingalik among the Netsilingmiut. These books preserve invaluable testimony, but they also use terms, including \"Eskimo\", that many Inuit now reject, and they reflect the interests of their compilers. This site recommends reading them alongside Inuit-authored and community-led work: the Nunavut Arctic College series *Interviewing Inuit Elders*, in which Inuit students interviewed elders about their own knowledge; the books of Inhabit Media, an Inuit-owned publisher in Iqaluit; and the films of Isuma and other Inuit filmmakers.\n\n## What this site includes\n\nThe stories here are ones that Inuit elders and Inuit-led publishers have made public and that appear in published sources. They are summarised, not presented as authoritative scripts, and details that concern the practice of angakkuuniq (shamanism) are described only in general terms. Where a story differs by region, the differences are the point, not an obstacle to be smoothed away.",
+    "citationSources": [
+      {
+        "title": "Franz Boas, The Central Eskimo (Sixth Annual Report of the Bureau of Ethnology)",
+        "author": "Franz Boas",
+        "date": "1888",
+        "type": "primary",
+        "sourceId": "boas-central-eskimo"
+      },
+      {
+        "title": "Knud Rasmussen, Intellectual Culture of the Iglulik Eskimos (Report of the Fifth Thule Expedition 1921-24, vol. 7, no. 1)",
+        "author": "Knud Rasmussen",
+        "date": "1929",
+        "type": "primary",
+        "sourceId": "rasmussen-fifth-thule"
+      },
+      {
+        "title": "Knud Rasmussen, The Netsilik Eskimos: Social Life and Spiritual Culture (Report of the Fifth Thule Expedition, vol. 8, nos. 1-2)",
+        "author": "Knud Rasmussen",
+        "date": "1931",
+        "type": "primary",
+        "sourceId": "rasmussen-fifth-thule"
+      },
+      {
+        "title": "Knud Rasmussen, Intellectual Culture of the Caribou Eskimos (Report of the Fifth Thule Expedition, vol. 7, no. 2)",
+        "author": "Knud Rasmussen",
+        "date": "1930",
+        "type": "primary",
+        "sourceId": "rasmussen-fifth-thule"
+      },
+      {
+        "title": "Interviewing Inuit Elders, vol. 4: Cosmology and Shamanism (ed. Bernard Saladin d'Anglure; Nunavut Arctic College)",
+        "author": "Mariano Aupilaarjuk, Lucassie Nutaraaluk, Rose Iqallijuq, Johanasi Ujarak, Isidore Ijituuq, Michel Kupaaq; ed. Bernard Saladin d'Anglure",
+        "date": "2001",
+        "type": "primary",
+        "sourceId": "interviewing-inuit-elders-cosmology"
+      }
+    ],
+    "imageUrl": "/pantheons/inuit.jpg",
+    "figuresLabel": "Spirits & Powers"
   }
 ]

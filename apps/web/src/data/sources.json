@@ -2130,5 +2130,139 @@
       }
     ],
     "readingOrder": "Read straight through; Greenstein's translation notes the many gaps."
+  },
+  {
+    "id": "rasmussen-fifth-thule",
+    "title": "Report of the Fifth Thule Expedition 1921-24",
+    "author": "Knud Rasmussen (with named Inuit speakers, among them Aua, Orpingalik, Netsit, and Igjugarjuk)",
+    "year": "1929-1932 (vols. 7-9 on Inuit intellectual culture)",
+    "type": "translation",
+    "language": "Inuktitut dialects (English translation)",
+    "description": "The ethnographic reports of the expedition led by the Greenlandic-Danish Knud Rasmussen across Arctic Canada to Alaska. The volumes on the Iglulik (1929), Caribou Inuit (1930), and Netsilingmiut (1931) record the words of named Inuit speakers about the Sea Woman, the Moon Spirit, Sila, and the work of angakkuit. Invaluable, but an outsider's compilation that uses terms many Inuit now reject.",
+    "translators": [
+      {
+        "name": "W. Worster and W. E. Calvert",
+        "year": 1929
+      }
+    ],
+    "characters": [
+      {
+        "id": "sedna",
+        "kind": "deity",
+        "role": "the Sea Woman, as Takanaaluk (Iglulik) and Nuliajuk (Netsilingmiut)",
+        "where": "Intellectual Culture of the Iglulik Eskimos; The Netsilik Eskimos"
+      },
+      {
+        "id": "sila",
+        "kind": "deity",
+        "role": "Sila, the power of air and weather",
+        "where": "Iglulik and Caribou Inuit volumes"
+      },
+      {
+        "id": "pinga",
+        "kind": "deity",
+        "role": "Pinga, 'the one up there', among the Caribou Inuit",
+        "where": "Intellectual Culture of the Caribou Eskimos"
+      },
+      {
+        "id": "anningan",
+        "kind": "deity",
+        "role": "the Moon Spirit (Taqqiq) and the story of the sun and moon siblings",
+        "where": "Intellectual Culture of the Iglulik Eskimos"
+      }
+    ],
+    "keyScenes": [
+      {
+        "title": "The Journey to the Sea Woman",
+        "where": "Intellectual Culture of the Iglulik Eskimos",
+        "summary": "Iglulik speakers describe how an angakkuq travels to the bottom of the sea to comb the Sea Woman's hair so that she will release the animals."
+      },
+      {
+        "title": "Nuliajuk the Orphan",
+        "where": "The Netsilik Eskimos",
+        "summary": "An orphan girl pushed from a raft of kayaks clings to its edge, her fingers are cut, and she sinks to become Nuliajuk, mother of the sea animals."
+      }
+    ],
+    "readingOrder": "Read the Iglulik volume first; then the Netsilik volume for Nuliajuk. Pair both with Interviewing Inuit Elders, vol. 4."
+  },
+  {
+    "id": "boas-central-eskimo",
+    "title": "The Central Eskimo",
+    "author": "Franz Boas",
+    "year": "1888",
+    "type": "academic",
+    "language": "English (with Inuktitut terms)",
+    "description": "Boas's ethnography of the Inuit of Baffin Island and neighbouring regions, based on his 1883-84 stay in Cumberland Sound. It contains the account of Sedna and her father Anguta that made the name 'Sedna' widely known, and the story of the sun and moon siblings. An outsider's early record, using terminology now outdated.",
+    "externalUrl": "https://www.gutenberg.org/ebooks/42084",
+    "characters": [
+      {
+        "id": "sedna",
+        "kind": "deity",
+        "role": "mistress of Adlivun and the sea animals",
+        "where": "section on religious ideas and traditions"
+      },
+      {
+        "id": "anguta",
+        "kind": "deity",
+        "role": "Sedna's father, who carries the dead to Adlivun",
+        "where": "section on religious ideas and traditions"
+      },
+      {
+        "id": "anningan",
+        "kind": "deity",
+        "role": "the brother who becomes the moon",
+        "where": "traditions, the sun and moon"
+      },
+      {
+        "id": "malina",
+        "kind": "deity",
+        "role": "the sister who becomes the sun",
+        "where": "traditions, the sun and moon"
+      }
+    ],
+    "keyScenes": [
+      {
+        "title": "Sedna and the Fulmar",
+        "where": "traditions",
+        "summary": "Sedna is deceived into marrying a fulmar; her father rescues her, throws her overboard in a storm, and cuts her fingers, which become the sea mammals."
+      },
+      {
+        "title": "The Sun and the Moon",
+        "where": "traditions",
+        "summary": "A sister discovers her brother is the one visiting her in the dark; she flees with a torch and becomes the sun, and he pursues her and becomes the moon."
+      }
+    ],
+    "readingOrder": "Read the sections on religion and traditions; compare with Rasmussen and with Interviewing Inuit Elders."
+  },
+  {
+    "id": "interviewing-inuit-elders-cosmology",
+    "title": "Interviewing Inuit Elders, Volume 4: Cosmology and Shamanism",
+    "author": "Mariano Aupilaarjuk, Lucassie Nutaraaluk, Rose Iqallijuq, Johanasi Ujarak, Isidore Ijituuq, and Michel Kupaaq; ed. Bernard Saladin d'Anglure",
+    "year": "2001",
+    "type": "academic",
+    "language": "English and Inuktitut",
+    "description": "Part of a Nunavut Arctic College series in which Inuit students interviewed elders in 1998 about their own knowledge. This volume covers the Sea Woman (including the Iglulik name Uinigumasuittuq), the moon, Sila, and the work of angakkuit, in the elders' own words. A key Inuit-led source.",
+    "characters": [
+      {
+        "id": "sedna",
+        "kind": "deity",
+        "role": "the Sea Woman as Uinigumasuittuq and Takannaaluk",
+        "where": "chapters on cosmology"
+      },
+      {
+        "id": "sila",
+        "kind": "deity",
+        "role": "Sila, weather and the world's order",
+        "where": "chapters on cosmology"
+      }
+    ],
+    "keyScenes": [
+      {
+        "title": "The One Who Did Not Want a Husband",
+        "where": "chapters on cosmology",
+        "summary": "Elders tell the story of the young woman who refused to marry and became the Sea Woman."
+      }
+    ],
+    "readingOrder": "A good first book: elders speak in their own words, with Inuktitut terms explained."
   }
 ]

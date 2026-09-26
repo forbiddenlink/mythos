@@ -1928,5 +1928,21 @@
     "relationshipType": "ally_of",
     "confidenceLevel": "medium",
     "description": "Athirat proposes Athtar as king after Baal's death (KTU 1.6 I); he is counted among her sons in some translations, but the text does not state it directly."
+  },
+  {
+    "id": "inuit-anningan-malina",
+    "fromDeityId": "anningan",
+    "toDeityId": "malina",
+    "relationshipType": "sibling_of",
+    "confidenceLevel": "high",
+    "description": "The moon and the sun are brother and sister in Inuit tradition from Greenland to Alaska; Boas notes that the Baffin Island and Greenlandic tellings correspond exactly."
+  },
+  {
+    "id": "inuit-anguta-sedna",
+    "fromDeityId": "anguta",
+    "toDeityId": "sedna",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high",
+    "description": "In the Baffin Island tellings Boas recorded, Anguta is Sedna's father; many other regional versions give the Sea Woman's father no name, or tell a different origin entirely."
   }
 ]

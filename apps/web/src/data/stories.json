@@ -4160,5 +4160,229 @@
       }
     ],
     "imageUrl": "/stories/legend-of-kirta.png"
+  },
+  {
+    "id": "the-sea-woman",
+    "pantheonId": "inuit-pantheon",
+    "title": "The Sea Woman: Sedna, Nuliajuk, Takannaaluk",
+    "slug": "the-sea-woman",
+    "summary": "Across the Inuit Arctic a young woman is wronged, thrown into the sea, and maimed, and becomes the keeper of the sea animals; the details, and even her name, change from region to region.",
+    "fullNarrative": "## One story, many tellings\n\nThis is probably the most widely known Inuit story, and it is told differently in almost every region. What follows gives three published forms side by side rather than blending them into one: the Baffin Island telling Franz Boas recorded as the story of Sedna in the 1880s, the Netsilik telling of Nuliajuk that Knud Rasmussen recorded in the 1920s, and the Iglulik account of what an angakkuq must do when the Sea Woman withholds the animals. Iglulik elders interviewed by Nunavut Arctic College students in 1998 tell her story as that of Uinigumasuittuq, \"the one who did not want a husband\".\n\n## Baffin Island: the fulmar\n\nIn the version Boas recorded in Cumberland Sound, a young woman lives with her father and refuses every man who asks to marry her. In spring a fulmar flies to her from across the ice and sings to her, promising a warm house, soft skins, and plenty of food. She goes with him over the sea, and discovers that he has lied: she lives in a miserable tent of fish skins and eats only fish. After a year her father comes in his boat to visit, and when he sees how she lives he kills the fulmar and takes her away.\n\nThe other fulmars, mourning their companion, pursue the boat and raise a violent storm. The father, afraid for his life, throws his daughter overboard to appease them. She clings to the edge of the boat; he cuts off the first joints of her fingers, which fall into the sea and become whales; she holds on again, and the second joints become seals; the stumps become ground seals. The storm dies away, and the father lets her climb back in. Boas's account goes on to describe the daughter's revenge, the father's punishment, and all three, father, daughter, and dog, going down to Adlivun, where she is mistress.\n\n## Netsilik: the orphan girl\n\nAmong the Netsilingmiut the Sea Woman is Nuliajuk, and in the telling Rasmussen recorded she begins as an orphan girl whom no one cares for. When the people move camp across the water on a raft of kayaks lashed together, they push her into the sea. She grabs the edge of the raft, and they cut off her fingers. She sinks to the bottom, and her fingers become the seals; she becomes the mother of the sea animals, and, the Netsilingmiut told Rasmussen, the most feared of the powers, because she controls the animals on which life depends.\n\n## Iglulik: the hair that must be combed\n\nIglulik speakers described to Rasmussen, and elders later described in their own publications, what happens when people break the rules governing hunting, childbirth, and death. The breaches become dirt and tangles in the Sea Woman's hair. Having no fingers, she cannot comb it, and in anger and discomfort she keeps the seals, walrus, and whales in her house, so that hunters return empty-handed and families go hungry.\n\nWhen that happens, an angakkuq undertakes a spirit journey to her house at the bottom of the sea, passing dangers on the way. The angakkuq combs and cleans her hair, soothes her, and asks her to let the animals go, and back in the community people confess the breaches that caused her anger. This site does not describe the practice beyond what published elders' accounts make public.\n\n## What the story teaches\n\nIn every version the Sea Woman is someone who was wronged: tricked, rejected, or discarded, and maimed by those who should have protected her. Her power over the animals is bound up with that wrong, and with the obligations people have to one another and to the animals they hunt. Tellers today often stress her dignity and the justice of her anger; she is not a sea monster but the keeper of a relationship that people must maintain.",
+    "keyExcerpts": "Wronged and thrown into the sea, the young woman's severed finger joints become the whales and seals; from the sea floor she keeps the animals, releasing them only when her tangled hair, heavy with people's wrongdoing, is combed.",
+    "category": "origin",
+    "moralThemes": [
+      "respect for animals and for the rules of the hunt",
+      "consequences of mistreating the vulnerable",
+      "confession and restoration"
+    ],
+    "culturalSignificance": "The central Inuit account of where the sea mammals came from and why hunting succeeds or fails, still told and depicted by Inuit artists and storytellers; its many regional names are a reminder that Inuit tradition is not one standardised mythology.",
+    "citationSources": [
+      {
+        "title": "Franz Boas, The Central Eskimo (Sixth Annual Report of the Bureau of Ethnology)",
+        "author": "Franz Boas",
+        "date": "1888",
+        "type": "primary",
+        "sourceId": "boas-central-eskimo",
+        "chapter": "Religious ideas and traditions: Sedna and the fulmar"
+      },
+      {
+        "title": "Knud Rasmussen, The Netsilik Eskimos: Social Life and Spiritual Culture (Report of the Fifth Thule Expedition, vol. 8, nos. 1-2)",
+        "author": "Knud Rasmussen",
+        "date": "1931",
+        "type": "primary",
+        "sourceId": "rasmussen-fifth-thule",
+        "chapter": "Nuliajuk"
+      },
+      {
+        "title": "Knud Rasmussen, Intellectual Culture of the Iglulik Eskimos (Report of the Fifth Thule Expedition 1921-24, vol. 7, no. 1)",
+        "author": "Knud Rasmussen",
+        "date": "1929",
+        "type": "primary",
+        "sourceId": "rasmussen-fifth-thule",
+        "chapter": "The Sea Spirit and the shaman's journey"
+      },
+      {
+        "title": "Interviewing Inuit Elders, vol. 4: Cosmology and Shamanism (ed. Bernard Saladin d'Anglure; Nunavut Arctic College)",
+        "author": "Iglulik and Nunavut elders; ed. Bernard Saladin d'Anglure",
+        "date": "2001",
+        "type": "primary",
+        "sourceId": "interviewing-inuit-elders-cosmology",
+        "chapter": "Uinigumasuittuq"
+      }
+    ],
+    "featuredDeities": ["sedna", "anguta"],
+    "featuredLocations": ["cumberland-sound", "igloolik"],
+    "relatedStories": ["sun-sister-and-moon-brother"],
+    "variants": [
+      {
+        "source": "Franz Boas, The Central Eskimo (Baffin Island)",
+        "date": "1888",
+        "difference": "Sedna is lured away by a fulmar; her father rescues her, throws her overboard in the storm the fulmars raise, and cuts her fingers."
+      },
+      {
+        "source": "Knud Rasmussen, The Netsilik Eskimos",
+        "date": "1931",
+        "difference": "Nuliajuk is an orphan girl pushed from a raft of kayaks; her fingers are cut as she clings to it."
+      },
+      {
+        "source": "Dog-husband tellings (Baffin Island and elsewhere)",
+        "difference": "The young woman marries a dog and bears his children before becoming the Sea Woman.",
+        "note": "Boas also recorded this version; its details vary widely by region."
+      }
+    ],
+    "furtherReading": [
+      {
+        "sourceId": "interviewing-inuit-elders-cosmology",
+        "note": "Elders' own accounts"
+      },
+      {
+        "sourceId": "rasmussen-fifth-thule",
+        "note": "Iglulik and Netsilik tellings"
+      },
+      {
+        "sourceId": "boas-central-eskimo",
+        "note": "The Baffin Island telling"
+      }
+    ],
+    "imageUrl": "/stories/the-sea-woman.png"
+  },
+  {
+    "id": "sun-sister-and-moon-brother",
+    "pantheonId": "inuit-pantheon",
+    "title": "The Sun Sister and the Moon Brother",
+    "slug": "sun-sister-and-moon-brother",
+    "summary": "A young woman discovers that the visitor who comes to her in the dark is her own brother; she flees with a blazing torch and becomes the sun, and he follows with a torch burned down to embers and becomes the moon.",
+    "fullNarrative": "## A story told across the Arctic\n\nThe story of how the sun and moon came to the sky is told, with variations, from Greenland to Alaska. Franz Boas noted in 1888 that the Baffin Island version corresponded exactly to the Greenlandic one; Rasmussen heard it in Iglulik and elsewhere in the 1920s. In Greenlandic tellings the sister is often named Malina and the brother Aningaaq; in many Canadian tellings they are simply the sun and the moon. The story deals with a serious breach of kinship rules, and tellers handle it with care; this retelling stays at the level of published summaries.\n\n## The visitor in the dark\n\nLong ago, a brother and sister lived in a large village. In the winter, when people gathered in the dance house (qaggiq) and the lamps were put out, a man came to the sister in the darkness, and she could not tell who he was. It happened again and again. Determined to learn his identity, she blackened her hands with soot from the lamp, and the next time he came she marked him, smearing the soot on his face or his back.\n\n## The discovery\n\nWhen the lamps were lit again, she looked at the men, and saw the soot on her brother. In some tellings she speaks bitterly to him before she leaves; in some Greenlandic tellings she cuts herself in grief and anger, a detail this site mentions but does not dwell on. Then she seized a burning brand of moss and fat, or a torch, and ran out of the house.\n\n## The pursuit\n\nHer brother seized a torch too and ran after her. She ran faster and faster, and her torch blazed; he stumbled or fell in the snow, and his torch was nearly put out, so that it glowed only faintly, like embers. Running, the two were lifted up from the earth and into the sky. The sister, with her bright flame, became the sun. The brother, with his dim light, became the moon, and he pursues her still.\n\n## What the sky shows\n\nMany details of the sky are explained by the story. The moon follows the sun but never quite reaches her, except at an eclipse. The dark marks on the moon's face are the soot from his sister's hands. In some regions the moon's monthly absence is explained as his going away to hunt, and the moon became, in Iglulik belief, a powerful spirit in his own right, with a house in the sky and a role in hunting luck and in the conception of children.\n\n## How the story is used\n\nLike many Inuit stories, this one explains a feature of the world and at the same time teaches about human conduct: the rules of kinship, the lasting consequences of a wrong, and the way shame and anger can separate people for ever. Elders have pointed out that such stories were told to children and young people as ways of passing on those rules.\n\n## Regional differences\n\nThe name of the torch, the manner of the sister's flight, whether she cuts herself, and what she says to her brother all vary by region. In some Alaskan tellings the moon is linked with a man named Igaluk. Readers should treat the version here as a composite outline of published tellings, not as the definitive form.",
+    "keyExcerpts": "The sister marks the visitor in the dark with soot, sees the marks on her brother, and flees with a blazing torch to become the sun; he follows with a torch burned to embers and becomes the moon, still chasing her across the sky.",
+    "category": "origin",
+    "moralThemes": [
+      "the rules of kinship",
+      "shame and its consequences",
+      "why the moon follows the sun"
+    ],
+    "culturalSignificance": "One of the most widespread Inuit origin stories, recorded from Greenland to Alaska, and the source of the Moon Spirit's importance in Iglulik belief.",
+    "citationSources": [
+      {
+        "title": "Franz Boas, The Central Eskimo (Sixth Annual Report of the Bureau of Ethnology)",
+        "author": "Franz Boas",
+        "date": "1888",
+        "type": "primary",
+        "sourceId": "boas-central-eskimo",
+        "chapter": "Traditions: the sun and the moon"
+      },
+      {
+        "title": "Knud Rasmussen, Intellectual Culture of the Iglulik Eskimos (Report of the Fifth Thule Expedition 1921-24, vol. 7, no. 1)",
+        "author": "Knud Rasmussen",
+        "date": "1929",
+        "type": "primary",
+        "sourceId": "rasmussen-fifth-thule",
+        "chapter": "The Moon Spirit"
+      },
+      {
+        "title": "Tales and Traditions of the Eskimo",
+        "author": "Hinrich Rink",
+        "date": "1875",
+        "type": "primary"
+      }
+    ],
+    "featuredDeities": ["malina", "anningan"],
+    "featuredLocations": ["igloolik"],
+    "relatedStories": ["the-sea-woman"],
+    "variants": [
+      {
+        "source": "Greenlandic tellings (Rink)",
+        "date": "1875",
+        "difference": "The sister, often named Malina, cuts herself in grief before fleeing; the brother is Aningaaq."
+      },
+      {
+        "source": "Franz Boas, The Central Eskimo (Baffin Island)",
+        "date": "1888",
+        "difference": "The brother's torch goes out in the pursuit and glows only faintly; both are lifted into the sky."
+      }
+    ],
+    "furtherReading": [
+      {
+        "sourceId": "boas-central-eskimo",
+        "note": "The Baffin Island telling"
+      },
+      {
+        "sourceId": "rasmussen-fifth-thule",
+        "note": "The Moon Spirit in Iglulik belief"
+      }
+    ],
+    "imageUrl": "/stories/sun-sister-and-moon-brother.png"
+  },
+  {
+    "id": "kiviuq-and-the-journeys",
+    "pantheonId": "inuit-pantheon",
+    "title": "Kiviuq's Journeys",
+    "slug": "kiviuq-and-the-journeys",
+    "summary": "After a storm raised to avenge a mistreated orphan drowns the kayakers who mocked him, Kiviuq alone survives and begins a journey of many lifetimes, meeting a murderous woman, giant snapping shells, a fox-wife, and a goose-wife.",
+    "fullNarrative": "## The longest story\n\nKiviuq's story is not one tale but a cycle of episodes, told from Alaska to Greenland and arranged differently by every teller. Inuit elders have said that it could take many nights to tell in full, and that Kiviuq has lived many lifetimes and is still travelling. What follows is a summary of widely told episodes, drawn from published collections of elders' tellings, especially those gathered by Kira Van Deusen with Inuit storytellers; it is not a fixed sequence.\n\n## The orphan and the storm\n\nIn many Canadian tellings, the story starts with an orphan boy who lives with his grandmother. The young men of the camp mock him and mistreat him; in some versions they tear his clothes or throw him into the water. His grandmother, a woman with power, makes a magical seal, or dresses the boy in a seal skin, and sends him out to lure the young men far out to sea in their kayaks. When they are far from land, a storm rises, and all of them are drowned except one: Kiviuq, the strongest and most skilled kayaker, who is carried away across the sea. So his wandering begins, from an act of cruelty and its punishment.\n\n## The woman who meant to kill him\n\nKiviuq comes to a house where an old woman, sometimes called the bee-woman in English retellings, lives with her daughter. The woman plans to kill him while he sleeps, as she has killed others, using her ulu (woman's knife) or cooking him in her pot. Warned in some tellings by the daughter or by his own suspicion, Kiviuq escapes, and in several versions he turns the woman's own trap back on her.\n\n## The snapping shells\n\nOn his journey by kayak Kiviuq must pass between the two halves of a giant mussel or clam that opens and slams shut on anything that tries to cross. He waits for his moment and paddles through as it opens; the shells snap shut just behind him, catching the tail of his kayak but not him. Other episodes set him against giant fish, cannibal giants, and dangerous landscapes that must be crossed by skill and patience.\n\n## The fox-wife and the goose-wife\n\nKiviuq marries more than once. In one episode he returns home to find that his house has been cleaned and his clothes prepared, and discovers a fox who takes off her fur and becomes a woman; she becomes his wife, until a slight about her smell, in some tellings, drives her back to her animal form. In another, he takes the clothes of a woman who has shed her goose skin, so that she cannot fly away, and marries her; later she gathers feathers and flies south with the geese, and Kiviuq follows her on a long and difficult journey.\n\n## Still travelling\n\nTellers disagree on how the story ends, or whether it ends. Many say Kiviuq is still alive, wandering somewhere in the Arctic, and that he will come back when he is needed. Kiviuq is honoured today in Nunavut in schools, books, films, and the names of places and organisations.\n\n## What the episodes teach\n\nEach episode carries lessons: the danger of cruelty to the vulnerable, the need for caution with strangers, patience and skill in crossing danger, and the respect owed to animals, who may be people in another form. Van Deusen's project shows how tellers in each community adapt the episodes to their own landscape and concerns, which is part of what keeps the story alive.",
+    "keyExcerpts": "A storm raised for a mistreated orphan drowns his tormentors; only Kiviuq survives, beginning a wandering of many lifetimes past a murderous host, snapping giant shells, and marriages to a fox-woman and a goose-woman.",
+    "category": "hero",
+    "moralThemes": [
+      "the consequences of cruelty",
+      "endurance and skill",
+      "respect for animals as persons"
+    ],
+    "culturalSignificance": "The great epic cycle of the Inuit Arctic, told across the whole region with local variation; Kiviuq remains a figure of identity and endurance in Nunavut and elsewhere.",
+    "citationSources": [
+      {
+        "title": "Kiviuq: An Inuit Hero and His Siberian Cousins",
+        "author": "Kira Van Deusen (with Inuit storytellers)",
+        "date": "2009",
+        "type": "primary",
+        "chapter": "Episodes of the Kiviuq cycle"
+      },
+      {
+        "title": "Franz Boas, The Central Eskimo (Sixth Annual Report of the Bureau of Ethnology)",
+        "author": "Franz Boas",
+        "date": "1888",
+        "type": "primary",
+        "sourceId": "boas-central-eskimo",
+        "chapter": "Traditions: Kiviung"
+      }
+    ],
+    "featuredDeities": [],
+    "featuredLocations": ["igloolik"],
+    "relatedStories": ["the-sea-woman"],
+    "furtherReading": [
+      {
+        "sourceId": "boas-central-eskimo",
+        "note": "An early recorded telling of Kiviung from Baffin Island"
+      }
+    ],
+    "imageUrl": "/stories/kiviuq-and-the-journeys.png"
+  },
+  {
+    "id": "raven-harpoons-the-whale-land",
+    "pantheonId": "inuit-pantheon",
+    "title": "Raven Man and the Land of Tikiġaq",
+    "slug": "raven-harpoons-the-whale-land",
+    "summary": "In the Iñupiaq tradition of Point Hope, Alaska, Tulunigraq, the Raven Man, harpoons a great creature of the sea whose body becomes the land of Tikiġaq, where the whaling village stands.",
+    "fullNarrative": "## A village on a living creature\n\nTikiġaq, known in English as Point Hope, is an Iñupiaq village on a gravel spit that reaches far out into the Chukchi Sea in northwest Alaska. Its people have hunted bowhead whales from this point for many centuries, and the archaeological sites nearby, including the old settlement of Ipiutak, are among the most important in the Arctic. The people of Tikiġaq tell that their land was once a living creature of the sea, and that the village stands on its body.\n\n## Where the story comes from\n\nThe account summarised here comes from Tom Lowenstein's work with Tikiġaq elders in the 1970s, above all Asatchaq, a renowned storyteller, published in *Ancient Land: Sacred Whale: The Inuit Hunt and Its Rituals* (1993). Lowenstein recorded the stories in Iñupiaq and English with the elders' involvement and discussed their meaning with them. This site gives only a summary, and does not describe the whaling-season ceremonies that the stories connect to.\n\n## Raven Man's hunt\n\nLong ago, before the land was there, Tulunigraq, a being who was something like a raven and something like a man, went hunting on the water. There he encountered a great creature of the sea. In Lowenstein's account the creature is not simply called a whale; it is a great beast of the sea, sometimes likened to a whale, whose nature the telling leaves partly mysterious. Raven Man harpooned it, and when he had killed it, its body did not sink. It lay on the water and became land: the long point of Tikiġaq, where the people would live.\n\n## The land as body\n\nTikiġaq people describe their land as the creature's body, and parts of the landscape as parts of it. The idea that the village stands on a harpooned animal ties the land and its people to the whale hunt that sustained them: the land itself was the first catch. Lowenstein's book shows how this story shaped the way people understood their place, their houses, and their obligations to the whales that give themselves to hunters.\n\n## Raven across the North\n\nRaven is a major figure across the far North. In other Alaskan traditions, Iñupiaq and Yup'ik, he is a creator and a trickster who brings light and makes people; on the Northwest Coast, among the Tlingit and Haida, he steals daylight and frees the first people from a clamshell. These are distinct stories from distinct peoples. What Tikiġaq's story shares with them is a Raven who makes the world by doing, not by speaking.\n\n## A living place\n\nPoint Hope remains an active whaling community, and the bowhead hunt remains central to its life. The story of Raven Man is part of how the community understands that life today, not a relic from the past. Readers interested in more should turn to Iñupiat-authored sources and the community's own institutions.",
+    "keyExcerpts": "Before the land existed, Raven Man harpooned a great creature of the sea; its body did not sink but became the long point of Tikiġaq, so that the whaling village stands on the body of its first catch.",
+    "category": "creation",
+    "moralThemes": [
+      "land and people bound to the hunt",
+      "the whale's gift",
+      "place as a living being"
+    ],
+    "culturalSignificance": "The founding story of Tikiġaq (Point Hope), one of the oldest continuously occupied whaling communities in North America, linking the land to the bowhead hunt that sustains it.",
+    "citationSources": [
+      {
+        "title": "Ancient Land: Sacred Whale: The Inuit Hunt and Its Rituals",
+        "author": "Tom Lowenstein (from the tellings of Asatchaq and other Tikiġaq elders)",
+        "date": "1993",
+        "type": "primary",
+        "chapter": "Raven Man and the whale-land"
+      }
+    ],
+    "featuredDeities": ["tulunigraq"],
+    "featuredLocations": ["tikigaq-point-hope"],
+    "relatedStories": ["raven-steals-the-light", "raven-and-the-first-men"],
+    "furtherReading": [],
+    "imageUrl": "/stories/raven-harpoons-the-whale-land.png"
   }
 ]

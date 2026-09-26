@@ -42,6 +42,7 @@ const PANTHEON_NAMES: Record<string, string> = {
   "tlingit-haida-pantheon": "Tlingit & Haida",
   "hittite-pantheon": "Hittite",
   "canaanite-pantheon": "Canaanite",
+  "inuit-pantheon": "Inuit",
 };
 
 const MASTERY_THRESHOLDS = {

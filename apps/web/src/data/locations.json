@@ -2420,5 +2420,77 @@
       }
     ],
     "imageUrl": "/locations/source-of-the-two-rivers.png"
+  },
+  {
+    "id": "cumberland-sound",
+    "name": "Cumberland Sound (Kangiqtualuk)",
+    "locationType": "body_of_water",
+    "pantheonId": "inuit-pantheon",
+    "description": "The deep inlet on the east coast of Baffin Island, Nunavut, where Franz Boas recorded the story of Sedna and her father Anguta in 1883-84; home of the community of Pangnirtung.",
+    "latitude": 65.8,
+    "longitude": -66.3,
+    "detailedBio": "## Where 'Sedna' was written down\n\nFranz Boas spent the winter of 1883-84 among the Inuit of Cumberland Sound, based largely at the whaling station on Kekerten Island. His ethnography *The Central Eskimo* (1888), drawing on what people there told him, includes the account of Sedna, her fulmar husband, and her father Anguta that made \"Sedna\" the name by which the Sea Woman is best known outside the Arctic. The coordinates given here mark the approximate centre of the sound.\n\n## A whaling world\n\nIn Boas's time Cumberland Sound was a centre of the Scottish and American whaling trade, and Inuit worked closely with the whalers; Kekerten is now a territorial historic park. Boas also recorded the autumn feasts associated with Sedna that were held in the sound's camps.\n\n## Pangnirtung today\n\nThe community of Pangnirtung (Panniqtuuq), on the sound's northeast shore, is known for its print shop and weaving studio, whose artists have depicted the Sea Woman among many other subjects. The story Boas recorded here continues to be told and interpreted by Inuit artists of the region.",
+    "primarySources": [
+      {
+        "text": "Boas describes great autumn feasts in the Cumberland Sound camps connected with the Sedna tradition (paraphrase).",
+        "source": "Franz Boas, The Central Eskimo",
+        "date": "1888"
+      }
+    ],
+    "imageUrl": "/locations/cumberland-sound.png"
+  },
+  {
+    "id": "igloolik",
+    "name": "Igloolik (Iglulik)",
+    "locationType": "island",
+    "pantheonId": "inuit-pantheon",
+    "description": "The island community in the Foxe Basin, Nunavut, whose people told Knud Rasmussen about the Sea Woman, the Moon Spirit, and Sila in the 1920s, and whose elders continue to share that knowledge.",
+    "latitude": 69.3765,
+    "longitude": -81.7998,
+    "detailedBio": "## Aua's country\n\nIn 1922 Knud Rasmussen and the Fifth Thule Expedition stayed among the Iglulingmiut, and the angakkuq Aua and his family became among his most important teachers. *Intellectual Culture of the Iglulik Eskimos* (1929) records their accounts of Takanaaluk, the Sea Woman; of Taqqiq, the Moon Spirit; and of Sila, as well as Aua's often-quoted explanation that people observe their rules not because they know why, but because they fear what happens when they are broken.\n\n## An archaeological heartland\n\nThe Igloolik area is rich in archaeological sites from the Dorset and Thule periods, the ancestors of today's Inuit and the earlier people Inuit tradition calls the Tuniit.\n\n## Keeping knowledge\n\nIgloolik has been a centre of Inuit-led cultural work. The Igloolik Oral History Project has recorded elders' knowledge for decades, and the film company Isuma, founded there, made *Atanarjuat: The Fast Runner* (2001), the first feature film written, directed, and acted in Inuktitut, which retells an Iglulik legend.",
+    "primarySources": [
+      {
+        "text": "Iglulik speakers, among them Aua, describe to Rasmussen the Sea Spirit, the Moon Spirit, and Sila (paraphrase).",
+        "source": "Knud Rasmussen, Intellectual Culture of the Iglulik Eskimos (Report of the Fifth Thule Expedition 1921-24, vol. 7, no. 1)",
+        "date": "1929"
+      }
+    ],
+    "imageUrl": "/locations/igloolik.png"
+  },
+  {
+    "id": "tikigaq-point-hope",
+    "name": "Tikiġaq (Point Hope)",
+    "locationType": "coast",
+    "pantheonId": "inuit-pantheon",
+    "description": "The Iñupiaq whaling village on a gravel spit in the Chukchi Sea, northwest Alaska, whose land, in the community's tradition, is the body of a sea creature harpooned by Raven Man.",
+    "latitude": 68.3475,
+    "longitude": -166.764,
+    "detailedBio": "## An ancient whaling point\n\nTikiġaq, whose name refers to its shape as a pointing finger, stands on a long spit extending into the Chukchi Sea. People have lived here for well over a thousand years; the nearby site of Ipiutak, excavated around 1940, revealed an extraordinary early Arctic culture, and the village's later history is bound up with the hunting of bowhead whales from the ice edge each spring.\n\n## The land as a whale\n\nIn Tikiġaq tradition, as told by elders to Tom Lowenstein and published in *Ancient Land: Sacred Whale* (1993), the land of the point was once a great creature of the sea, harpooned by Tulunigraq, Raven Man; its body became the land on which the village stands. The story ties the community's home to the hunt that sustains it.\n\n## Today\n\nPoint Hope remains an active Iñupiaq whaling community in the North Slope Borough of Alaska. Coastal erosion has forced the village to move inland from its old site, and the community, like others in the Arctic, faces rapid environmental change.",
+    "primarySources": [
+      {
+        "text": "Tikiġaq elders describe the point as the body of the creature harpooned by Raven Man (paraphrase).",
+        "source": "Tom Lowenstein, Ancient Land: Sacred Whale",
+        "date": "1993"
+      }
+    ],
+    "imageUrl": "/locations/tikigaq-point-hope.png"
+  },
+  {
+    "id": "torngat-mountains",
+    "name": "Torngat Mountains",
+    "locationType": "mountain",
+    "pantheonId": "inuit-pantheon",
+    "description": "The mountains of northern Labrador and Nunavik whose name is usually explained as 'place of spirits', from the Inuktitut tuurngait; now a national park co-managed with the Inuit of Nunatsiavut and Nunavik.",
+    "latitude": 58.9,
+    "longitude": -63.7,
+    "detailedBio": "## Place of spirits\n\nThe Torngat Mountains rise along the northern tip of Labrador, on the boundary between Nunatsiavut (Labrador) and Nunavik (Quebec). Their name is usually explained as coming from tuurngait, the helping spirits of Inuit belief, so that it means something like \"place of spirits\"; Labrador traditions recorded in the early twentieth century associated the region with Torngarsoak, the great spirit. The coordinates given here mark the approximate centre of the range.\n\n## A homeland\n\nInuit and their predecessors have used the Torngat coast for thousands of years, hunting, fishing, and travelling through its fjords. In the twentieth century many Inuit families were relocated away from the northern Labrador coast, and the return of Inuit to the land through park base camps and programmes has been an important part of cultural renewal.\n\n## Co-management\n\nTorngat Mountains National Park, created under the Labrador Inuit Land Claims Agreement (a park reserve from 2005 and a national park from 2008), is co-managed by Parks Canada and a board including Inuit of Nunatsiavut and Nunavik, and Inuit guides and bear guards work with visitors. It is an example of the land associated with spirits being cared for by the people whose tradition named it.",
+    "primarySources": [
+      {
+        "text": "Labrador Inuit traditions of Torngarsoak, the great spirit associated with the northern mountains (paraphrase).",
+        "source": "E. W. Hawkes, The Labrador Eskimo (Geological Survey of Canada, Memoir 91)",
+        "date": "1916"
+      }
+    ],
+    "imageUrl": "/locations/torngat-mountains.png"
   }
 ]

@@ -28,7 +28,7 @@ flowchart TB
     Rust[Separate optional Rust API] --> Postgres[PostgreSQL]
 ```
 
-The main catalogs currently contain 18 tradition records, 253 deities, 29 heroes, 117 stories, 68 creatures, 56 artifacts, and 134 locations. These are catalog counts, not claims that every tradition is equally covered or every passage has received scholarly review.
+The main catalogs currently contain 19 tradition records, 261 deities, 30 heroes, 121 stories, 71 creatures, 56 artifacts, and 138 locations. These are catalog counts, not claims that every tradition is equally covered or every passage has received scholarly review.
 
 ## Catalog navigation
 

@@ -236,6 +236,14 @@ export const DEITY_PANTHEON_MAP: Record<string, string> = {
   shapash: "canaanite-pantheon",
   athtar: "canaanite-pantheon",
   athtart: "canaanite-pantheon",
+  sedna: "inuit-pantheon",
+  anguta: "inuit-pantheon",
+  anningan: "inuit-pantheon",
+  malina: "inuit-pantheon",
+  sila: "inuit-pantheon",
+  pinga: "inuit-pantheon",
+  tornarsuk: "inuit-pantheon",
+  tulunigraq: "inuit-pantheon",
 };
 
 export const STORY_PANTHEON_MAP: Record<string, string> = {
@@ -355,6 +363,10 @@ export const STORY_PANTHEON_MAP: Record<string, string> = {
   "baal-and-mot": "canaanite-pantheon",
   "legend-of-aqhat": "canaanite-pantheon",
   "legend-of-kirta": "canaanite-pantheon",
+  "the-sea-woman": "inuit-pantheon",
+  "sun-sister-and-moon-brother": "inuit-pantheon",
+  "kiviuq-and-the-journeys": "inuit-pantheon",
+  "raven-harpoons-the-whale-land": "inuit-pantheon",
 };
 
 /**
