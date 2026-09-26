@@ -32,8 +32,7 @@ const footerLinks = {
     { label: "Guided Tours", href: "/tours" },
     { label: "Daily Review", href: "/review" },
     { label: "Achievements", href: "/achievements" },
-    { label: "Your Stats", href: "/leaderboard" },
-    { label: "Your Progress", href: "/progress" },
+    { label: "Your Stats", href: "/progress" },
   ],
   info: [
     { label: "About Mythos Atlas", href: "/about" },

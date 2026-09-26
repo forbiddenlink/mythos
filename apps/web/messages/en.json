@@ -29,7 +29,7 @@
     "collections": "Collections",
     "learningPaths": "Learning Paths",
     "achievements": "Achievements",
-    "leaderboard": "Leaderboard",
+    "yourStats": "Your Stats",
     "sources": "Sources",
     "changelog": "Changelog",
     "contactMythosAtlas": "Contact Mythos Atlas",
@@ -209,8 +209,8 @@
       "learn": "Learn"
     },
     "progress": {
-      "title": "Your Progress",
-      "description": "Track your mythology learning journey",
+      "title": "Your Stats",
+      "description": "Your own XP, streaks and quiz bests in this browser",
       "deitiesExplored": "Deities Explored",
       "storiesRead": "Stories Read",
       "quizzesCompleted": "Quizzes Completed",

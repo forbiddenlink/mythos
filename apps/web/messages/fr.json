@@ -29,7 +29,7 @@
     "collections": "Collections",
     "learningPaths": "Parcours d'Apprentissage",
     "achievements": "Réalisations",
-    "leaderboard": "Classement",
+    "yourStats": "Vos statistiques",
     "sources": "Sources",
     "changelog": "Journal des Modifications",
     "contactMythosAtlas": "Contacter Mythos Atlas",
@@ -209,8 +209,8 @@
       "learn": "Apprendre"
     },
     "progress": {
-      "title": "Votre Progrès",
-      "description": "Suivez votre parcours d'apprentissage de la mythologie",
+      "title": "Vos statistiques",
+      "description": "Votre XP, vos séries et vos meilleurs scores dans ce navigateur",
       "deitiesExplored": "Divinités Explorées",
       "storiesRead": "Histoires Lues",
       "quizzesCompleted": "Quiz Complétés",

@@ -8,6 +8,7 @@ import { ARTIFACT_ALIASES } from "./src/lib/artifact-aliases";
 import { LOCATION_ALIASES } from "./src/lib/location-aliases";
 import { STORY_ALIASES } from "./src/lib/story-aliases";
 import { getReversedComparisonSlugs } from "./src/lib/comparisons";
+import { CONSOLIDATION_REDIRECTS } from "./src/lib/route-redirects";
 
 const withNextIntl = createNextIntlPlugin("./i18n.ts");
 const withBundleAnalyzer = bundleAnalyzer({
@@ -141,6 +142,7 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
+      ...CONSOLIDATION_REDIRECTS,
       ...Object.entries(STORY_ALIASES).flatMap(([from, to]) => [
         {
           source: `/stories/${from}`,

@@ -209,11 +209,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.4,
     },
     {
-      url: `${BASE_URL}/leaderboard`,
-      changeFrequency: "daily",
-      priority: 0.5,
-    },
-    {
       url: `${BASE_URL}/collections`,
       changeFrequency: "monthly",
       priority: 0.7,

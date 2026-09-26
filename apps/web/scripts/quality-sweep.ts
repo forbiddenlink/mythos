@@ -25,7 +25,6 @@ const routes = [
   "/bookmarks",
   "/progress",
   "/achievements",
-  "/leaderboard",
   "/quiz",
   "/quiz/quick",
   "/quiz/relationships",

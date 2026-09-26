@@ -1,3 +1,4 @@
+import { achievements } from "@/data/achievements";
 import locations from "@/data/locations.json";
 import {
   getDeityRefs,
@@ -17,6 +18,7 @@ export default function ProgressPage() {
         stories: getStories().length,
         locations: locations.length,
         pantheons: getPantheons().length,
+        achievements: achievements.length,
       }}
       catalog={{
         deities: getDeityRefs(),

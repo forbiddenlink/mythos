@@ -54,9 +54,8 @@ export function Header() {
         links: [
           { href: "/learning-paths", label: t("navigation.learningPaths") },
           { href: "/review", label: t("navigation.dailyReview") },
-          { href: "/progress", label: t("navigation.progress") },
+          { href: "/progress", label: t("navigation.yourStats") },
           { href: "/achievements", label: t("navigation.achievements") },
-          { href: "/leaderboard", label: t("navigation.leaderboard") },
         ],
       },
       {

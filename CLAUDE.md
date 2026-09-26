@@ -56,7 +56,7 @@ pnpm knip                             # unused files/deps/exports (CI)
 ## Layout
 
 - `apps/web/src/app/` - Next.js App Router pages, including route handlers under `api/` (`oracle`, `search`, `analytics`, `csp-report`, `quiz`)
-- `apps/web/src/data/` - static JSON content: `pantheons.json`, `deities.json`, `stories.json`, `creatures.json`, `artifacts.json`, `locations.json`, `relationships.json`, plus game/progress data (`achievements.json`, `challenges.json`, `collections.json`, `journeys.json`, etc.)
+- `apps/web/src/data/` - static JSON content: `pantheons.json`, `deities.json`, `stories.json`, `creatures.json`, `artifacts.json`, `locations.json`, `relationships.json`, plus game/progress data (`achievements.ts`, `daily-challenges.json`, `collections.json`, `journeys.json`, etc.)
 - `apps/web/src/types/Entity.ts` - entity types (`Deity`, `Creature`, `Artifact`, `Story`, `Pantheon`, etc.) - the Zod catalog schemas in `src/lib/schemas.ts` (validated in tests) must stay consistent with these interfaces
 - `apps/web/src/components/ui/` - shadcn/ui components (new-york style), configured via `apps/web/components.json`
 - `apps/web/messages/` - next-intl translation messages (en, es, fr, de)
@@ -67,7 +67,7 @@ pnpm knip                             # unused files/deps/exports (CI)
 ## Conventions
 
 - **Path alias**: `@/*` maps to `apps/web/src/*` (tsconfig.json, vitest.config.mjs)
-- **Provider stack** (`src/app/layout.tsx`): `NextIntlClientProvider > ThemeProvider > BookmarksProvider > ProgressProvider > ReviewProvider > LeaderboardProvider > AchievementNotificationProvider`, then `Footer` (renders `FooterTools`, which gates the Oracle chat button on `NEXT_PUBLIC_ORACLE_ENABLED === "true"`) and `GlobalClientAddons` (command palette search, PWA/analytics hooks, optional install prompt). Progress, bookmarks, and achievements persist to localStorage via their providers.
+- **Provider stack** (`src/app/layout.tsx`): `NextIntlClientProvider > ThemeProvider > BookmarksProvider > ProgressProvider > ReviewProvider > AchievementNotificationProvider`, then `Footer` (renders `FooterTools`, which gates the Oracle chat button on `NEXT_PUBLIC_ORACLE_ENABLED === "true"`) and `GlobalClientAddons` (command palette search, PWA/analytics hooks, optional install prompt). Progress (including the "Your Stats" figures on `/progress`), bookmarks, and achievements persist to localStorage via their providers; there is no cross-user leaderboard.
 - **Commits**: Conventional Commits (`feat:`, `fix:`, `docs:`, `refactor:`, `test:`, `chore:`)
 - **Branches**: `feature/*`, `fix/*`, `docs/*`
 - **Pre-commit**: Husky runs lint-staged (ESLint --fix + Prettier on staged `.ts`/`.tsx` files)
