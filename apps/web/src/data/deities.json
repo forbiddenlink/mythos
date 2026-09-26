@@ -13228,5 +13228,2232 @@
       "practices": "No ceremony for this figure is described in the published sources this site draws on."
     },
     "traditionRole": "Supernatural Craftsman"
+  },
+  {
+    "id": "tarhunna",
+    "pantheonId": "hittite-pantheon",
+    "name": "Tarhunna (the Storm-god of Hatti)",
+    "slug": "tarhunna",
+    "originalLanguageName": {
+      "text": "dU / dIŠKUR (read Tarḫunna)",
+      "language": "Hittite (Sumerogram)",
+      "transliteration": "Tarḫunna",
+      "meaning": "Probably 'the conqueror', from the Anatolian root tarḫu- 'to overcome'"
+    },
+    "alternateNames": [
+      "Storm-god of Hatti",
+      "Teššub (Hurrian)",
+      "Taru (Hattian)",
+      "Tarḫunt (Luwian)",
+      "Teshub"
+    ],
+    "gender": "male",
+    "domain": ["storms", "rain", "kingship", "the fertility of the land"],
+    "symbols": ["bull", "mace and lightning", "mountain"],
+    "description": "The chief god of the Hittite state: a storm-god of rain and thunder who gives the land its fertility, fights the serpent Illuyanka, and, under his Hurrian name Teššub, wins kingship in heaven in the Kumarbi cycle.",
+    "detailedBio": "## One god, several names\n\nHittite scribes usually wrote the storm-god's name with a Sumerian word-sign (dU or dIŠKUR, \"the Storm-god\"), so the Hittite reading is partly reconstructed; Tarḫunna is the most widely accepted reading, and the Luwian form Tarḫunt survived into the first millennium BCE. The same logogram covered the Hattian storm-god Taru and, from the fifteenth century onward, the Hurrian storm-god Teššub, whom the later Hittite royal family, closely tied to Hurrian Kizzuwatna, promoted to the head of the state cult. On this site these are treated as one entry because the Hittite sources themselves write them with one sign, but readers should know that the Hattian, Hittite, and Hurrian storm-gods had separate origins and were brought together by scribes and kings.\n\n## Storm-god of Hatti and local storm-gods\n\nThe Storm-god of Hatti was the king's divine lord; the king called himself the god's administrator, and treaties invoked the storm-god first among the divine witnesses. Alongside him, dozens of local storm-gods had their own cult cities, the most important being the Storm-god of Nerik and the Storm-god of Zippalanda, both regarded as his sons in cult texts. His sacred animals were two bulls, named Šeri and Hurri in Hurrian tradition, which draw his chariot.\n\n## In the myths\n\nIn the Anatolian Illuyanka tales, recited at the Purulli festival of Nerik, the storm-god is first defeated by the serpent Illuyanka and wins only with the help of others: the goddess Inara and her mortal helper Hupašiya in one version, and his own mortal son in the other. In the Hurrian Kumarbi cycle he appears as Teššub, conceived when Kumarbi swallows the seed of the sky-god Anu, born out of Kumarbi's body, and victorious in the struggle for kingship in heaven, though he loses his first battle against the stone giant Ullikummi and needs the wisdom of Ea to win. That pattern, a storm-king who is beaten before he triumphs, runs through both strands of his mythology.",
+    "importanceRank": 1,
+    "imageUrl": "/deities/tarhunna.png",
+    "primarySources": [
+      {
+        "text": "The Storm-god is defeated by the serpent Illuyanka in the first encounter and prevails only after Inara's feast and Hupašiya's rope (paraphrase).",
+        "source": "Illuyanka tales, CTH 321, trans. H. A. Hoffner Jr., Hittite Myths",
+        "date": "Late Bronze Age copies of an older Hattian-Anatolian tradition"
+      },
+      {
+        "text": "Kumarbi learns from Anu that by swallowing his manhood he has become pregnant with the Storm-god, the river Aranzah (the Tigris), and Tašmišu (paraphrase).",
+        "source": "Song of Kumarbi, CTH 344, trans. H. A. Hoffner Jr., Hittite Myths",
+        "date": "Hurrian composition; Hittite copies 14th-13th c. BCE"
+      }
+    ],
+    "furtherReading": [
+      {
+        "sourceId": "hittite-myths-hoffner",
+        "note": "Translations of the Illuyanka tales and the Kumarbi cycle"
+      },
+      {
+        "sourceId": "kumarbi-cycle",
+        "note": "The Hurrian songs in which the storm-god wins kingship in heaven"
+      }
+    ],
+    "sources": [
+      "Collins, Billie Jean. *The Hittites and Their World* (Society of Biblical Literature, 2007).",
+      "Schwemer, Daniel. \"The Storm-Gods of the Ancient Near East: Summary, Synthesis, Recent Studies.\" *Journal of Ancient Near Eastern Religions* 7-8 (2007-2008)."
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "canaanite-pantheon",
+        "deityId": "baal",
+        "note": "Both storm-gods have their mountain at Jebel Aqra, Hurrian-Hittite Hazzi and Ugaritic Zaphon, and both defeat a sea or serpent enemy; Ugaritic god-lists equate Teššub with Baal."
+      },
+      {
+        "pantheonId": "greek-pantheon",
+        "deityId": "zeus",
+        "note": "Both are storm-kings who win rule in heaven after a succession struggle; the Kumarbi cycle is the closest Near Eastern parallel to the succession myth of Hesiod's Theogony."
+      },
+      {
+        "pantheonId": "norse-pantheon",
+        "deityId": "thor",
+        "note": "Both are storm-gods whose defining myth is combat with a great serpent (Illuyanka, Jörmungandr); the resemblance belongs to a widespread storm-god-versus-serpent pattern, not a shared text."
+      },
+      {
+        "pantheonId": "slavic-pantheon",
+        "deityId": "perun",
+        "note": "Comparative mythologists group the Illuyanka combat with the reconstructed Perun-Veles conflict as storm-god-versus-serpent myths; for Perun the combat is a scholarly reconstruction, while for the Hittite storm-god it is attested in text."
+      }
+    ],
+    "worship": {
+      "temples": [
+        "Great Temple (Temple 1) at Hattusa, shared with the Sun-goddess of Arinna",
+        "Temple of the Storm-god of Nerik at Oymaağaç Höyük"
+      ],
+      "festivals": [
+        "Purulli festival at Nerik",
+        "AN.TAḪ.ŠUM (spring) and nuntarriyašḫa (autumn) state festivals"
+      ],
+      "practices": "The king served as the storm-god's priest and steward, offering bread, beer, and animals at state festivals; the Illuyanka story was recited at the Purulli festival of Nerik."
+    }
+  },
+  {
+    "id": "sun-goddess-of-arinna",
+    "pantheonId": "hittite-pantheon",
+    "name": "Sun-goddess of Arinna",
+    "slug": "sun-goddess-of-arinna",
+    "originalLanguageName": {
+      "text": "dUTU URUArinna",
+      "language": "Hittite (Sumerogram)",
+      "transliteration": "Arinnitti (reading uncertain); Hattian Wurunšemu",
+      "meaning": "the Sun (goddess) of the city of Arinna"
+    },
+    "alternateNames": [
+      "Wurunšemu (Hattian)",
+      "Arinnitti",
+      "Hebat (by royal equation)"
+    ],
+    "gender": "female",
+    "domain": ["the sun", "kingship", "the protection of the Hittite state"],
+    "symbols": ["sun disk", "the city of Arinna"],
+    "description": "The Hattian sun-goddess of the holy city of Arinna, queen of the land of Hatti and, with the Storm-god, the highest deity of the Hittite state cult; Queen Puduhepa's prayer equates her with the Hurrian goddess Hebat.",
+    "detailedBio": "## Queen of the land of Hatti\n\nThe Sun-goddess of Arinna was a Hattian deity (her Hattian name was Wurunšemu) whom the Hittite kings made one of the two heads of their state religion. Royal prayers address her as the queen of the land of Hatti, and kings described the land and kingship as belonging to her and the Storm-god, who was regarded as her husband. Her holy city, Arinna, lay within a day's journey of Hattusa, but its site has never been securely identified; this site therefore does not give it a map location.\n\n## Hebat of the cedar land\n\nIn a well-known prayer (CTH 384), Queen Puduhepa, the Hurrian-born wife of King Hattusili III in the thirteenth century BCE, tells the goddess that in the land of Hatti she took the name Sun-goddess of Arinna, while in the land of cedars she took the name Hebat (paraphrase). The prayer is a deliberate theological equation by a Hurrian queen, bringing her native goddess, Teššub's consort, into line with the goddess of the Hittite state cult; it is evidence of how the pantheon was merged, not proof that the two goddesses were originally one.\n\n## Not the only sun deity\n\nHittite religion distinguished several solar deities: the Sun-goddess of Arinna; the male Sun-god of Heaven (Ištanu, Hurrian Šimige), who plays a role in myths such as the Disappearance of Telipinu; and the Sun-goddess of the Earth, an underworld goddess. This site keeps them apart, following the texts.",
+    "importanceRank": 1,
+    "imageUrl": "/deities/sun-goddess-of-arinna.png",
+    "primarySources": [
+      {
+        "text": "Queen Puduhepa addresses the Sun-goddess of Arinna as her lady and says that in Hatti she bears that name, while in the land of cedars she is called Hebat (paraphrase).",
+        "source": "Prayer of Puduhepa to the Sun-goddess of Arinna, CTH 384, trans. I. Singer, Hittite Prayers",
+        "date": "13th c. BCE"
+      }
+    ],
+    "sources": [
+      "Singer, Itamar. *Hittite Prayers* (Society of Biblical Literature, 2002), prayers of Muršili II and Puduhepa."
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "japanese-pantheon",
+        "deityId": "amaterasu",
+        "note": "Both are female sun deities at the head of a royal state cult; the traditions are historically unrelated, and the comparison is typological only."
+      }
+    ],
+    "worship": {
+      "temples": [
+        "Temple at Arinna (site unidentified)",
+        "Great Temple at Hattusa, shared with the Storm-god"
+      ],
+      "festivals": [
+        "Royal festival visits to Arinna during the AN.TAḪ.ŠUM spring festival"
+      ],
+      "practices": "Kings and queens addressed her in written prayers in times of plague and crisis, and royal journeys to Arinna were part of the great state festivals."
+    }
+  },
+  {
+    "id": "kumarbi",
+    "pantheonId": "hittite-pantheon",
+    "name": "Kumarbi",
+    "slug": "kumarbi",
+    "originalLanguageName": {
+      "text": "dKumarbi",
+      "language": "Hurrian (in Hittite texts)",
+      "transliteration": "Kumarbi",
+      "meaning": "Probably 'he of (the city of) Kumar'; the etymology is uncertain"
+    },
+    "alternateNames": ["Father of the gods (Hurrian)"],
+    "gender": "male",
+    "domain": ["the older order of gods", "grain", "kingship in heaven"],
+    "symbols": ["the city of Urkeš", "the swallowed stone"],
+    "description": "Hurrian father of the gods who seizes kingship in heaven by biting off the sky-god Anu's loins, unwittingly conceives the storm-god Teššub, and spends the rest of the Kumarbi cycle fathering monsters to overthrow him.",
+    "detailedBio": "## A Hurrian god in Hittite translation\n\nKumarbi belongs to the Hurrian pantheon of northern Syria and Upper Mesopotamia. His city was Urkeš (modern Tell Mozan in northeastern Syria), one of the oldest Hurrian centres, and he was equated in god-lists with the Mesopotamian grain-god Dagan and with Enlil. Everything known of his mythology comes from Hurrian songs preserved mainly in Hittite translation at Hattusa: the Song of Kumarbi (CTH 344), the Song of Hedammu (CTH 348), and the Song of Ullikummi (CTH 345).\n\n## Kingship in heaven\n\nIn the Song of Kumarbi, kingship in heaven passes through three generations. Alalu reigns nine years until his cup-bearer Anu, the sky, overthrows him; Anu reigns nine years until his cup-bearer Kumarbi, described as the offspring of Alalu, rebels. Kumarbi chases Anu into the sky, drags him down by the feet, and bites off his loins; Anu warns him that he has swallowed the seed of three powerful gods, among them the storm-god. Kumarbi spits out what he can but remains pregnant, and the storm-god is eventually born out of his body. The text is badly broken at this point; it appears that Kumarbi tries to devour the child and is given a stone instead, an episode widely compared with Rhea's stone in Hesiod.\n\n## The plotter\n\nIn the later songs Kumarbi, deposed, keeps plotting: he marries the daughter of the Sea and fathers the sea-serpent Hedammu, and he fathers the basalt giant Ullikummi on a great rock, sending both against Teššub. Neither succeeds. He is not presented as simply evil; he is the displaced older king of an older order, and the songs follow his schemes with some sympathy.",
+    "importanceRank": 1,
+    "imageUrl": "/deities/kumarbi.png",
+    "primarySources": [
+      {
+        "text": "Kumarbi, the offspring of Alalu, serves Anu as cup-bearer for nine years and then rebels, biting off Anu's loins as he flees to the sky (paraphrase).",
+        "source": "Song of Kumarbi, CTH 344, trans. H. A. Hoffner Jr., Hittite Myths",
+        "date": "Hurrian composition; Hittite copies 14th-13th c. BCE"
+      },
+      {
+        "text": "Kumarbi takes counsel in his city Urkeš and plans a rival for Teššub, begetting the stone giant Ullikummi (paraphrase).",
+        "source": "Song of Ullikummi, CTH 345, trans. H. A. Hoffner Jr., Hittite Myths",
+        "date": "Hurrian composition; Hittite copies 13th c. BCE"
+      }
+    ],
+    "furtherReading": [
+      {
+        "sourceId": "kumarbi-cycle",
+        "note": "The songs in which Kumarbi seizes and loses kingship in heaven"
+      }
+    ],
+    "sources": [
+      "Güterbock, Hans G. \"The Hittite Version of the Hurrian Kumarbi Myths: Oriental Forerunners of Hesiod.\" *American Journal of Archaeology* 52 (1948).",
+      "López-Ruiz, Carolina. *When the Gods Were Born: Greek Cosmogonies and the Near East* (Harvard University Press, 2010)."
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "canaanite-pantheon",
+        "deityId": "el",
+        "note": "Ugaritic multilingual god-lists equate Kumarbi with El, the aged father of the gods."
+      },
+      {
+        "pantheonId": "greek-pantheon",
+        "deityId": "cronus",
+        "note": "Both are second-generation sky-kings who mutilate their predecessor, swallow what they should not, and are displaced by a storm-god; Güterbock's 1948 study made this the best-known Near Eastern parallel to Hesiod."
+      }
+    ],
+    "worship": {
+      "temples": ["Urkeš (Tell Mozan), his traditional Hurrian cult city"],
+      "festivals": [],
+      "practices": "Kumarbi received offerings in Hurrian cult lists (kaluti) alongside other gods of the Hurrian pantheon; he is far more prominent in myth than in recorded Hittite state ritual."
+    }
+  },
+  {
+    "id": "telipinu",
+    "pantheonId": "hittite-pantheon",
+    "name": "Telipinu",
+    "slug": "telipinu",
+    "originalLanguageName": {
+      "text": "dTelipinu",
+      "language": "Hattian (in Hittite texts)",
+      "transliteration": "Telipinu",
+      "meaning": "Hattian name; often explained as 'exalted son', though the etymology is debated"
+    },
+    "alternateNames": ["Telepinu", "Telepinus"],
+    "gender": "male",
+    "domain": ["agriculture", "the growth of crops", "fertility of herds"],
+    "symbols": ["the eya tree", "the kurša hunting bag", "the bee"],
+    "description": "A Hattian god of farming and growth, son of the Storm-god, whose angry departure makes the whole land barren until a bee finds him asleep and a ritual soothes his rage.",
+    "detailedBio": "## The god who goes missing\n\nTelipinu is a Hattian deity of agriculture and growth, called in the myth the son of the Storm-god. He is best known from the Disappearance of Telipinu (CTH 324), one of several Hittite \"vanishing god\" texts in which a deity leaves in anger and the world begins to die. The same pattern is told of the Storm-god, the Sun-god, the mother goddess Hannahanna, and others; Telipinu's version is simply the best preserved.\n\n## A myth inside a ritual\n\nThe Telipinu text is not a free-standing story but the narrative part of a ritual: it tells why the god left, then gives the words and actions that will bring him back and bind his anger in the underworld. Its closing image, an evergreen eya tree set up before Telipinu with a hunting bag of sheep's fleece hanging from it, holding fat, grain, wine, cattle, sheep, long life, and offspring, reflects actual cult practice.\n\n## Why his anger matters\n\nThe text never fully explains what enraged Telipinu. What it describes in detail is the result: mist and smoke fill houses, the fire dies on the hearth, gods and animals and people all cease to thrive, and barley and wheat stop growing. The myth models how the Hittites understood blight and famine, as the withdrawal of a god whose presence makes life possible, and how ritual could restore the relationship.",
+    "importanceRank": 1,
+    "imageUrl": "/deities/telipinu.png",
+    "primarySources": [
+      {
+        "text": "Telipinu goes off in anger, putting his right shoe on his left foot and his left shoe on his right; mist seizes the windows, smoke seizes the house, and barley and wheat no longer grow (paraphrase).",
+        "source": "Disappearance of Telipinu, CTH 324, trans. H. A. Hoffner Jr., Hittite Myths",
+        "date": "Old Hittite composition; later copies"
+      }
+    ],
+    "furtherReading": [
+      {
+        "sourceId": "hittite-myths-hoffner",
+        "note": "The full Telipinu text and the related vanishing-god myths"
+      }
+    ],
+    "sources": [
+      "Beckman, Gary. \"The Wrath of Telipinu.\" In *The Context of Scripture*, vol. 1, ed. W. W. Hallo (Brill, 1997)."
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "greek-pantheon",
+        "deityId": "demeter",
+        "note": "Both are agricultural deities whose withdrawal in grief or anger makes the earth barren until the gods intervene; the resemblance is typological."
+      },
+      {
+        "pantheonId": "mesopotamian-pantheon",
+        "deityId": "dumuzi",
+        "note": "Both belong to the Near Eastern family of 'disappearing god' myths tied to the agricultural year, though Dumuzi's absence is a death in the underworld and Telipinu's is an angry departure."
+      }
+    ],
+    "worship": {
+      "temples": [
+        "Temples at Kašḫa, Tawiniya, and Hanḫana (sites not securely identified)"
+      ],
+      "festivals": [],
+      "practices": "Invocation rituals (mugawar) recited the story of his disappearance and used honey, fragrant oils, and sweet foods to draw him home; an evergreen eya tree hung with a fleece bag stood before him."
+    }
+  },
+  {
+    "id": "hannahanna",
+    "pantheonId": "hittite-pantheon",
+    "name": "Hannahanna",
+    "slug": "hannahanna",
+    "originalLanguageName": {
+      "text": "dḪannaḫanna (often written dNIN.TU or dMAḪ)",
+      "language": "Hittite",
+      "transliteration": "Ḫannaḫanna",
+      "meaning": "'Grandmother', from Hittite ḫanna- 'grandmother'"
+    },
+    "alternateNames": ["The Grandmother", "Mother goddess"],
+    "gender": "female",
+    "domain": ["birth", "motherhood", "wise counsel"],
+    "symbols": ["the bee"],
+    "description": "The Hittite mother goddess, 'the Grandmother', who when every other god has failed sends a bee to find the missing Telipinu.",
+    "detailedBio": "## The Grandmother\n\nHannahanna's name simply means \"grandmother\", and scribes often wrote it with Sumerian signs used for Mesopotamian birth and mother goddesses. She is a figure of wisdom and authority among the gods: in the Disappearance of Telipinu it is she who tells the Storm-god to go and look for his son, and she who, when he returns empty-handed, sends the bee.\n\n## The bee\n\nThe scene is one of the most memorable in Hittite literature. The Storm-god objects that the bee is small and its wings are small; Hannahanna sends it anyway, telling it to find Telipinu, sting his hands and feet to wake him, and smear him with wax. The bee finds him asleep in a meadow near the town of Lihzina and does exactly that, though waking Telipinu only makes him angrier, and a further ritual is needed.\n\n## A vanishing goddess herself\n\nLike several Hittite deities, Hannahanna has her own fragmentary \"disappearance\" myth, in which she too departs in anger and must be brought back, again with the help of a bee. The recurrence of the bee as the messenger who finds hidden gods is one of the distinctive features of this Anatolian tradition.",
+    "importanceRank": 2,
+    "imageUrl": "/deities/hannahanna.png",
+    "primarySources": [
+      {
+        "text": "Hannahanna sends a bee to search for Telipinu, instructing it to sting his hands and feet and to wipe his eyes and feet with wax (paraphrase).",
+        "source": "Disappearance of Telipinu, CTH 324, trans. H. A. Hoffner Jr., Hittite Myths",
+        "date": "Old Hittite composition; later copies"
+      }
+    ],
+    "furtherReading": [
+      {
+        "sourceId": "hittite-myths-hoffner",
+        "note": "Includes both the Telipinu myth and the fragmentary myth of Hannahanna's own disappearance"
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [],
+      "practices": "She appears in birth rituals and in the vanishing-god rituals; no major temple of hers has been identified archaeologically."
+    }
+  },
+  {
+    "id": "inara",
+    "pantheonId": "hittite-pantheon",
+    "name": "Inara",
+    "slug": "inara",
+    "originalLanguageName": {
+      "text": "dInara",
+      "language": "Hattian (in Hittite texts)",
+      "transliteration": "Inar(a)",
+      "meaning": "Hattian name; possibly related to Hittite innara- 'vigorous'"
+    },
+    "alternateNames": ["Inar"],
+    "gender": "female",
+    "domain": ["wild animals", "protection", "the hunt"],
+    "symbols": ["the feast of vessels", "the house on the cliff"],
+    "description": "A Hattian goddess of the wild who helps the Storm-god defeat the serpent Illuyanka by laying out a great feast and recruiting the mortal Hupašiya.",
+    "detailedBio": "## The goddess of the first Illuyanka tale\n\nInara is a Hattian protective goddess associated with wild animals, known above all from the first version of the Illuyanka story. After the Storm-god is beaten by the serpent, Inara prepares a feast with vessels of wine and other drinks, and goes to the town of Zigaratta, where she meets a mortal man, Hupašiya. He agrees to help on condition that he may sleep with her; she agrees, hides him near the feast, and lures the serpent and its children out. When they have eaten and drunk so much that they cannot fit back into their hole, Hupašiya ties them up with a rope and the Storm-god kills them.\n\n## The house on the cliff\n\nThe sequel is strange and only partly preserved. Inara builds a house on a cliff in the land of Tarukka and installs Hupašiya there, forbidding him to look out of the window while she is away. He disobeys, sees his wife and children, and begs to go home. At this point the tablet breaks; most scholars infer that Inara punished him, but the text does not say so, and this site does not supply an ending.\n\n## A protective deity\n\nOutside this story, Inara belongs to a group of Hittite protective deities of the countryside, sometimes linked with the stag god of the wild. Her role in the myth, turning the Storm-god's defeat into victory through planning rather than force, is characteristic of the Anatolian tales, in which the storm-god rarely wins alone.",
+    "importanceRank": 2,
+    "imageUrl": "/deities/inara.png",
+    "primarySources": [
+      {
+        "text": "Inara prepares a feast, goes to Zigaratta, and enlists the mortal Hupašiya, who binds the gorged serpent with a rope so that the Storm-god can kill it (paraphrase).",
+        "source": "Illuyanka tales, first version, CTH 321, trans. H. A. Hoffner Jr., Hittite Myths",
+        "date": "Late Bronze Age copies of an older Anatolian tradition"
+      }
+    ],
+    "furtherReading": [
+      {
+        "sourceId": "hittite-myths-hoffner",
+        "note": "The two versions of the Illuyanka story"
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": ["Invoked in festival texts of the Hattian cult"],
+      "practices": "Received offerings among the protective deities of the countryside in Hattian-derived festivals."
+    }
+  },
+  {
+    "id": "kamrusepa",
+    "pantheonId": "hittite-pantheon",
+    "name": "Kamrušepa",
+    "slug": "kamrusepa",
+    "originalLanguageName": {
+      "text": "dKamrušepa",
+      "language": "Hattian / Hittite",
+      "transliteration": "Kamrušepa",
+      "meaning": "Uncertain"
+    },
+    "alternateNames": ["Kamrusepa", "Katahzipuri (Hattian counterpart)"],
+    "gender": "female",
+    "domain": ["magic", "healing", "ritual purification"],
+    "symbols": ["the ritual fire", "the eagle's wing"],
+    "description": "Goddess of magic and healing rites, who in the Telipinu myth performs the ritual that draws out the angry god's rage and sends it to the Dark Earth.",
+    "detailedBio": "## The divine ritual expert\n\nKamrušepa is the goddess of magic in the Hittite texts, the divine model for human ritual practitioners. In incantations the healer often describes a problem and then says what Kamrušepa did about it, so that the human rite repeats a divine precedent. Her Hattian counterpart is Katahzipuri.\n\n## Soothing Telipinu\n\nIn the Disappearance of Telipinu, waking the god by the bee's sting only makes his anger worse, and he begins to destroy the land. The gods then turn to Kamrušepa, who performs a purification: she takes away his anger, rage, and sullenness, and the ritual sends them down to the Dark Earth, where they are locked in bronze vessels with lids of lead so that they cannot return. The text alternates between her actions and the words of a mortal ritualist, which shows how the myth was used: the human performer repeats what the goddess once did.\n\n## Other texts\n\nKamrušepa also appears in Luwian incantations and in rituals for healing people and animals; she is associated with the Sun-god and with the gate of the gods. She is known almost entirely from ritual literature, not from temples or state festivals.",
+    "importanceRank": 3,
+    "imageUrl": "/deities/kamrusepa.png",
+    "primarySources": [
+      {
+        "text": "Kamrušepa performs the rite that removes Telipinu's anger, and his anger is shut away in bronze vessels in the Dark Earth (paraphrase).",
+        "source": "Disappearance of Telipinu, CTH 324, trans. H. A. Hoffner Jr., Hittite Myths",
+        "date": "Old Hittite composition; later copies"
+      }
+    ],
+    "furtherReading": [
+      {
+        "sourceId": "hittite-myths-hoffner",
+        "note": "Kamrušepa's role in the Telipinu ritual"
+      }
+    ]
+  },
+  {
+    "id": "shaushka",
+    "pantheonId": "hittite-pantheon",
+    "name": "Šauška",
+    "slug": "shaushka",
+    "originalLanguageName": {
+      "text": "dIŠTAR (read Šauška)",
+      "language": "Hurrian (in Hittite texts)",
+      "transliteration": "Šauška",
+      "meaning": "Hurrian name; commonly explained as 'the great one'"
+    },
+    "alternateNames": ["Shaushka", "Šawuška", "Ištar of Nineveh (by equation)"],
+    "gender": "female",
+    "domain": ["love and sexuality", "war", "healing"],
+    "symbols": ["wings", "the lion", "the attendants Ninatta and Kulitta"],
+    "description": "Hurrian goddess of love and war and sister of the storm-god Teššub, who in the Kumarbi cycle tries to overcome her brother's monstrous enemies by seduction.",
+    "detailedBio": "## A Hurrian Ištar\n\nŠauška is the Hurrian goddess whom Hittite scribes wrote with the sign for the Mesopotamian Ištar; her most famous cult was at Nineveh. She was a goddess of both love and war and could appear in male as well as female form. She became personally important to the Hittite royal family: King Hattusili III named her as his protective goddess in his autobiographical *Apology*.\n\n## Teššub's sister\n\nIn the Kumarbi cycle she is Teššub's sister and one of his closest allies. In the Song of Hedammu she confronts the sea-serpent by bathing, adorning herself, and displaying her beauty, drawing the monster out of the sea; the text is fragmentary but implies that she overcomes it by seduction and drugged drink. In the Song of Ullikummi she tries the same tactic against the stone giant and fails, because, as a great wave tells her, Ullikummi is deaf and blind and cannot be moved by beauty.\n\n## At Yazılıkaya\n\nŠauška appears twice in the relief procession of the rock sanctuary of Yazılıkaya near Hattusa, once among the male gods (reflecting her dual aspect) and once among the goddesses, accompanied by her attendants Ninatta and Kulitta.",
+    "importanceRank": 2,
+    "imageUrl": "/deities/shaushka.png",
+    "primarySources": [
+      {
+        "text": "Šauška sings and displays herself to the stone giant, but a great wave tells her that Ullikummi is deaf and blind and has no compassion (paraphrase).",
+        "source": "Song of Ullikummi, CTH 345, trans. H. A. Hoffner Jr., Hittite Myths",
+        "date": "Hurrian composition; Hittite copies 13th c. BCE"
+      }
+    ],
+    "furtherReading": [
+      {
+        "sourceId": "kumarbi-cycle",
+        "note": "Šauška against Hedammu and Ullikummi"
+      }
+    ],
+    "sources": [
+      "Wegner, Ilse. *Gestalt und Kult der Ištar-Šawuška in Kleinasien* (Butzon & Bercker, 1981)."
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "mesopotamian-pantheon",
+        "deityId": "inanna",
+        "note": "Hittite scribes wrote Šauška's name with the Ištar sign, and ancient god-lists equate her with the Mesopotamian goddess of love and war."
+      }
+    ],
+    "worship": {
+      "temples": [
+        "Nineveh (her principal Hurrian cult centre)",
+        "Šamuḫa, where Hattusili III served her"
+      ],
+      "festivals": [],
+      "practices": "Hattusili III credited her with his rise to power; her statue from Nineveh was sent to Egypt to heal the pharaoh in the Amarna letters, showing her healing role."
+    }
+  },
+  {
+    "id": "sun-goddess-of-the-earth",
+    "pantheonId": "hittite-pantheon",
+    "name": "Sun-goddess of the Earth",
+    "slug": "sun-goddess-of-the-earth",
+    "originalLanguageName": {
+      "text": "taknaš dUTU",
+      "language": "Hittite",
+      "transliteration": "taknaš Ištanu",
+      "meaning": "the Sun (deity) of the Earth"
+    },
+    "alternateNames": [
+      "Allani (Hurrian)",
+      "Ereškigal (by equation)",
+      "Lelwani (associated)"
+    ],
+    "gender": "female",
+    "domain": ["the underworld", "the dead", "purification"],
+    "symbols": ["the Dark Earth", "the doors and bolts of the underworld"],
+    "description": "The Hittite ruler of the underworld, the 'Dark Earth', identified with the Hurrian Allani and the Mesopotamian Ereškigal: the sun as it travels beneath the earth at night.",
+    "detailedBio": "## The sun below\n\nThe Hittites imagined a sun deity of the underworld, the Sun-goddess of the Earth, who ruled the \"Dark Earth\" (dankui tekan) beneath the land of the living. The idea seems to be that the sun passes through the underworld at night; the goddess who governs that realm is its solar counterpart. In Hurrian texts she corresponds to Allani, the lady of the underworld, and god-lists equate her with the Mesopotamian Ereškigal.\n\n## The realm where anger is locked away\n\nThe Dark Earth is where Hittite rituals sent evils they wanted gone for good. At the end of the Telipinu myth, the god's anger is sent down to the Dark Earth, where the doorkeeper opens seven doors and draws back seven bolts, and bronze vessels with lids of lead stand ready to hold whatever goes in, so that it never comes back up. The same realm houses the \"Former Gods\", the older generation of deities banished below, whom Ea consults in the Song of Ullikummi.\n\n## In ritual rather than story\n\nThe Sun-goddess of the Earth appears mainly in purification rituals and in offerings for the dead rather than in narrative myth. This site includes her because the underworld she rules is essential to how Hittite myths end: problems are solved not by destroying them but by sending them down and sealing them in.",
+    "importanceRank": 3,
+    "imageUrl": "/deities/sun-goddess-of-the-earth.png",
+    "primarySources": [
+      {
+        "text": "The doorkeeper opens the seven doors of the Dark Earth and draws back seven bolts; bronze vessels with lids of lead stand there, and what goes in does not come out again (paraphrase).",
+        "source": "Disappearance of Telipinu, CTH 324, trans. H. A. Hoffner Jr., Hittite Myths",
+        "date": "Old Hittite composition; later copies"
+      }
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "mesopotamian-pantheon",
+        "deityId": "ereshkigal",
+        "note": "Ancient god-lists equate the Hurrian Allani, the Hittite Sun-goddess of the Earth, and Ereškigal as rulers of the underworld."
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [],
+      "practices": "Invoked in purification rituals that sent impurity and evil into the Dark Earth, and in rites for the dead."
+    }
+  },
+  {
+    "id": "alalu",
+    "pantheonId": "hittite-pantheon",
+    "name": "Alalu",
+    "slug": "alalu",
+    "originalLanguageName": {
+      "text": "dAlalu",
+      "language": "Hurrian (in Hittite texts)",
+      "transliteration": "Alalu",
+      "meaning": "Possibly derived from a Mesopotamian name (Alala) found in god-lists"
+    },
+    "alternateNames": ["Alalus"],
+    "gender": "male",
+    "domain": ["the first kingship in heaven", "the Former Gods"],
+    "symbols": ["the cup-bearer's cup", "the Dark Earth"],
+    "description": "The first king in heaven in the Hurrian Song of Kumarbi, overthrown by his cup-bearer Anu after nine years and driven down to the Dark Earth; Kumarbi is called his offspring.",
+    "detailedBio": "## The first king\n\nThe Song of Kumarbi opens by calling on the Former Gods to listen, and then tells how, in earlier years, Alalu was king in heaven. Anu, the mightiest of the gods, served him as cup-bearer, bowing at his feet and handing him his drink. After nine years Anu rebelled and defeated him, and Alalu fled down to the Dark Earth.\n\n## Father of the plotter\n\nKumarbi, who later overthrows Anu, is described as Alalu's offspring, so the struggle for kingship in heaven becomes a feud between two lineages: Alalu and his descendant Kumarbi on one side, Anu and the storm-god conceived from his seed on the other. Alalu himself plays no further part in the surviving text.\n\n## Among the Former Gods\n\nAlalu belongs to the group Hittite texts call the Former Gods (karuileš šiuneš), primeval deities who were banished to the underworld and who are invoked in rituals as a group. The idea of a whole older generation of gods deposed and confined below the earth is another point of contact with the Greek Titans, but Alalu himself has no clear Greek equivalent.",
+    "importanceRank": 3,
+    "imageUrl": "/deities/alalu.png",
+    "primarySources": [
+      {
+        "text": "In former years Alalu was king in heaven, and Anu, first among the gods, stood before him as cup-bearer; after nine years Anu fought Alalu and defeated him, and Alalu fled down to the Dark Earth (paraphrase).",
+        "source": "Song of Kumarbi, CTH 344, trans. H. A. Hoffner Jr., Hittite Myths",
+        "date": "Hurrian composition; Hittite copies 14th-13th c. BCE"
+      }
+    ],
+    "furtherReading": [
+      {
+        "sourceId": "kumarbi-cycle",
+        "note": "The opening of the Song of Kumarbi"
+      }
+    ]
+  },
+  {
+    "id": "baal",
+    "pantheonId": "canaanite-pantheon",
+    "name": "Baal (Baʿlu Haddu)",
+    "slug": "baal",
+    "originalLanguageName": {
+      "text": "bʿl hd",
+      "language": "Ugaritic",
+      "transliteration": "Baʿlu Haddu",
+      "meaning": "'Lord' (baʿlu) Haddu, the storm-god's personal name"
+    },
+    "alternateNames": [
+      "Hadad",
+      "Haddu",
+      "Aliyan Baal (Mightiest Baal)",
+      "Rider of the Clouds",
+      "Baal Zaphon"
+    ],
+    "gender": "male",
+    "domain": ["storms", "rain", "fertility", "kingship among the gods"],
+    "symbols": ["thunderbolt and club", "the bull", "Mount Zaphon"],
+    "description": "The storm-god of Ugarit, 'Rider of the Clouds', whose rain makes the land fertile; he defeats Yamm the Sea, builds his palace on Mount Zaphon, is swallowed by Mot (Death), and returns to life.",
+    "detailedBio": "## Lord Haddu\n\nBaal is a title, \"lord\", and at Ugarit it belongs above all to the storm-god whose personal name was Haddu (Hadad). He is \"Mightiest Baal\" (aliyn bʿl) and \"Rider of the Clouds\" (rkb ʿrpt), and his voice is the thunder. Ugaritic texts call him the son of Dagan, a grain-god worshipped along the middle Euphrates, even though he lives among El's family; the tension between those two statements has never been fully explained. His home is Mount Zaphon (Ṣapānu), the mountain north of Ugarit now called Jebel Aqra, and one of the two great temples on Ugarit's acropolis is generally identified as his.\n\n## The Baal Cycle\n\nBaal's story is told in the six tablets of the Baal Cycle (KTU 1.1-1.6). He defeats Yamm, the Sea, who had been granted kingship by El, using two clubs made by the craftsman Kothar-wa-Khasis. He then campaigns, with the help of Anat and Athirat, for a palace of his own, and when it is built on Zaphon he gives his thunder voice through a window in the clouds. Finally he challenges Mot, Death, and is swallowed; the earth dries up until Anat destroys Mot and El dreams that Baal lives. After seven years Baal and Mot fight again, and Mot yields.\n\n## Rain and the agricultural year\n\nMany scholars have read Baal's death and return as reflecting the eastern Mediterranean year, with its dry summer and rainy winter. The texts support a link between Baal and rain (his absence dries the furrows) but do not state that the cycle was performed annually, and this site presents that seasonal reading as an interpretation.\n\n## Beyond Ugarit\n\nBaal-Hadad was worshipped across the Levant and beyond, and under local titles (Baal Shamem, Baal of Tyre) into the first millennium BCE. The Hebrew Bible's polemic against \"the Baals\" reflects that later, wider cult; Ugarit preserves his mythology from his own worshippers.",
+    "importanceRank": 1,
+    "imageUrl": "/deities/baal.png",
+    "primarySources": [
+      {
+        "text": "Kothar-wa-Khasis fashions two clubs for Baal and names them Yagrush and Ayyamur; the second strikes Yamm between the eyes and he collapses (paraphrase).",
+        "source": "Baal Cycle, KTU 1.2 IV",
+        "date": "tablets of the late 13th or early 12th c. BCE"
+      },
+      {
+        "text": "El dreams that the heavens rain oil and the wadis run with honey, and knows that Mightiest Baal is alive (paraphrase).",
+        "source": "Baal Cycle, KTU 1.6 III",
+        "date": "tablets of the late 13th or early 12th c. BCE"
+      }
+    ],
+    "furtherReading": [
+      {
+        "sourceId": "baal-cycle",
+        "note": "The whole cycle, tablet by tablet"
+      }
+    ],
+    "sources": [
+      "Smith, Mark S. *The Ugaritic Baal Cycle*, vols. 1-2 (Brill, 1994, 2009), with Wayne T. Pitard for vol. 2.",
+      "Smith, Mark S. *The Early History of God* (2nd ed., Eerdmans, 2002)."
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "hittite-pantheon",
+        "deityId": "tarhunna",
+        "note": "Both storm-gods have their mountain at Jebel Aqra (Ugaritic Zaphon, Hurrian-Hittite Hazzi) and both fight a sea or serpent enemy; the Hurrian storm-god Teššub watches Ullikummi from Mount Hazzi."
+      },
+      {
+        "pantheonId": "greek-pantheon",
+        "deityId": "zeus",
+        "note": "Both are storm-kings who win their rule against a chaotic rival; Greek sources later called the same mountain Kasios and worshipped Zeus Kasios there."
+      }
+    ],
+    "worship": {
+      "temples": [
+        "Temple of Baal on the acropolis of Ugarit",
+        "Mount Zaphon (Jebel Aqra)"
+      ],
+      "festivals": [],
+      "practices": "Ugaritic ritual texts list offerings to Baal of Zaphon and to Baal under several local titles; stone anchors dedicated in his temple at Ugarit suggest the devotion of seafarers."
+    }
+  },
+  {
+    "id": "anat",
+    "pantheonId": "canaanite-pantheon",
+    "name": "Anat",
+    "slug": "anat",
+    "originalLanguageName": {
+      "text": "ʿnt",
+      "language": "Ugaritic",
+      "transliteration": "ʿAnatu",
+      "meaning": "Uncertain"
+    },
+    "alternateNames": ["Virgin Anat (btlt ʿnt)", "Yabamat Liʾmim", "Anath"],
+    "gender": "female",
+    "domain": ["war", "hunting", "loyalty to Baal"],
+    "symbols": ["bow and arrows", "the heads and hands of the slain", "wings"],
+    "description": "The young warrior goddess of Ugarit, Baal's sister and fiercest ally, who wades through battle, bullies El into granting Baal a palace, finds Baal's body, and destroys Mot.",
+    "detailedBio": "## The warrior\n\nAnat is the most violent figure in Ugaritic poetry. In the Baal Cycle (KTU 1.3 II) she fights two armies, heaping up heads and hands, wading knee-deep and then neck-deep in the blood of warriors, before washing herself with dew and rain. She boasts that she has already defeated Yamm, the dragon Tunnan, and the twisting serpent. Her usual epithet, \"Virgin Anat\" (btlt ʿnt), marks her as a young, unmarried woman, and the texts are more interested in her ferocity than in any maternal role.\n\n## Baal's ally\n\nAnat is called Baal's sister and acts as his champion. When Baal needs a palace she goes to El and threatens to smash his grey head until it runs with blood unless he consents (KTU 1.3 V). When Baal dies she searches the land for him, carries his body to Zaphon with the help of the sun-goddess Shapash, buries him, and mourns. Then she seizes Mot and destroys him as a farmer destroys grain: splitting, winnowing, burning, grinding, and sowing him in the field (KTU 1.6 II).\n\n## Anat and Aqhat\n\nIn the Epic of Aqhat, Anat covets the bow that the craftsman god gave the young Aqhat. She offers him riches and even immortality; he refuses and tells her that bows are for warriors. With El's reluctant permission she has him killed by her henchman Yatpan, and the land suffers drought as a result. The poem does not present her as a simple villain; she seems to regret the bow's loss, which breaks in the killing.\n\n## Beyond Ugarit\n\nAnat was worshipped in Egypt in the New Kingdom, where Ramesses II named a daughter Bint-Anat, and in a bilingual inscription from Cyprus she is equated with the Greek Athena.",
+    "importanceRank": 1,
+    "imageUrl": "/deities/anat.png",
+    "primarySources": [
+      {
+        "text": "Anat fights in the valley, wading in the blood of warriors up to her knees and then her neck, with heads and hands hung about her (paraphrase).",
+        "source": "Baal Cycle, KTU 1.3 II",
+        "date": "tablets of the late 13th or early 12th c. BCE"
+      },
+      {
+        "text": "Anat seizes Mot, splits him with a blade, winnows him in a sieve, burns him with fire, grinds him with millstones, and sows him in the field (paraphrase).",
+        "source": "Baal Cycle, KTU 1.6 II",
+        "date": "tablets of the late 13th or early 12th c. BCE"
+      }
+    ],
+    "furtherReading": [
+      {
+        "sourceId": "baal-cycle",
+        "note": "Anat's battle and her destruction of Mot"
+      },
+      {
+        "sourceId": "aqhat-epic",
+        "note": "Anat and the bow of Aqhat"
+      }
+    ],
+    "sources": [
+      "Day, Peggy L. \"Anat.\" In *Dictionary of Deities and Demons in the Bible* (2nd ed., Brill, 1999)."
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "greek-pantheon",
+        "deityId": "athena",
+        "note": "A Phoenician-Greek bilingual inscription from Cyprus equates Anat with Athena; both are unmarried warrior goddesses."
+      },
+      {
+        "pantheonId": "mesopotamian-pantheon",
+        "deityId": "inanna",
+        "note": "Both are young goddesses of war whose ferocity is a central part of their mythology; they are distinct figures, not equated in the Ugaritic texts."
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [],
+      "practices": "Anat receives offerings in Ugaritic ritual lists; her cult spread to New Kingdom Egypt."
+    }
+  },
+  {
+    "id": "el",
+    "pantheonId": "canaanite-pantheon",
+    "name": "El (Ilu)",
+    "slug": "el",
+    "originalLanguageName": {
+      "text": "il",
+      "language": "Ugaritic",
+      "transliteration": "ʾIlu",
+      "meaning": "'God'; the common Semitic word for a god, used as his name"
+    },
+    "alternateNames": [
+      "Ilu",
+      "Bull El (ṯr il)",
+      "Father of Years (ab šnm)",
+      "Creator of Creatures (bny bnwt)"
+    ],
+    "gender": "male",
+    "domain": [
+      "kingship over the gods",
+      "creation",
+      "wisdom",
+      "the divine assembly"
+    ],
+    "symbols": [
+      "the bull",
+      "grey beard",
+      "the tent at the source of the two rivers"
+    ],
+    "description": "The aged king and father of the gods at Ugarit, 'Bull El', 'Father of Years', who presides over the divine assembly from his dwelling at the source of the two rivers and whose permission every younger god seeks.",
+    "detailedBio": "## The father of the gods\n\nEl's name is simply the common Semitic word for \"god\". At Ugarit he is the head of the pantheon, the \"Father of Years\" and \"Creator of Creatures\", with a grey beard that other gods praise for its wisdom. He dwells far from the other gods \"at the source of the two rivers, in the midst of the springs of the two deeps\", in a tent or pavilion, and the assembly of the gods meets on his mountain. His consort is Athirat, and the gods are collectively \"the sons of El\".\n\n## The king who grants permission\n\nIn the Baal Cycle El rarely acts; he decides. He proclaims Yamm's name and kingship, gives in to Yamm's demand for Baal, grants Baal's palace after Anat's threats and Athirat's persuasion, mourns Baal's death by gashing himself and pouring dust on his head, proposes a replacement king, and at last dreams that Baal is alive. His authority is real but can be pressured, and scholars debate how far the Baal Cycle reflects a real rise of Baal at El's expense.\n\n## Kindly El\n\nIn the epics of Kirta and Aqhat, El is the compassionate \"Kindly El, the Benevolent\" (lṭpn il d pid), who appears to the grieving Kirta in a dream, blesses Danel with a son, and creates a healing figure to cure Kirta when no other god will act. This benevolent father is a different emphasis from the pressured king of the Baal Cycle, and both belong to the same god.\n\n## Beyond Ugarit\n\nUgaritic god-lists equate El with the Hurrian Kumarbi, and the Phoenician History attributed to Philo of Byblos equates him with the Greek Kronos. The name and several of El's titles appear in the Hebrew Bible, a connection much discussed by historians of religion.",
+    "importanceRank": 1,
+    "imageUrl": "/deities/el.png",
+    "primarySources": [
+      {
+        "text": "The messengers go to El at the source of the two rivers, in the midst of the springs of the two deeps, and enter his pavilion (paraphrase of a recurring formula).",
+        "source": "Baal Cycle, KTU 1.4 IV and parallels",
+        "date": "tablets of the late 13th or early 12th c. BCE"
+      },
+      {
+        "text": "Kindly El the Benevolent comes down to Kirta in his dream and asks why he weeps (paraphrase).",
+        "source": "Epic of Kirta, KTU 1.14 I",
+        "date": "tablets of the late 13th or early 12th c. BCE"
+      }
+    ],
+    "furtherReading": [
+      {
+        "sourceId": "baal-cycle",
+        "note": "El as king of the divine assembly"
+      },
+      {
+        "sourceId": "kirta-epic",
+        "note": "El as the compassionate father"
+      }
+    ],
+    "sources": [
+      "Cross, Frank Moore. *Canaanite Myth and Hebrew Epic* (Harvard University Press, 1973), ch. 1-2."
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "hittite-pantheon",
+        "deityId": "kumarbi",
+        "note": "Ugaritic multilingual god-lists equate El with the Hurrian father of the gods Kumarbi."
+      },
+      {
+        "pantheonId": "greek-pantheon",
+        "deityId": "cronus",
+        "note": "The Phoenician History attributed to Philo of Byblos (preserved by Eusebius) renders El as Kronos."
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [],
+      "practices": "El heads the Ugaritic offering lists; no temple at Ugarit is securely identified as his."
+    }
+  },
+  {
+    "id": "athirat",
+    "pantheonId": "canaanite-pantheon",
+    "name": "Athirat (Asherah)",
+    "slug": "athirat",
+    "originalLanguageName": {
+      "text": "aṯrt",
+      "language": "Ugaritic",
+      "transliteration": "ʾAṯiratu",
+      "meaning": "Uncertain; her full title is 'Lady Athirat of the Sea'"
+    },
+    "alternateNames": [
+      "Asherah",
+      "Lady Athirat of the Sea (rbt aṯrt ym)",
+      "Creatress of the Gods (qnyt ilm)"
+    ],
+    "gender": "female",
+    "domain": ["motherhood of the gods", "queenship", "intercession with El"],
+    "symbols": ["the spindle", "the sea", "the seventy sons"],
+    "description": "El's consort, 'Lady Athirat of the Sea' and 'Creatress of the Gods', mother of the seventy sons of El, who can persuade El when no one else can.",
+    "detailedBio": "## Queen mother of the gods\n\nAthirat is El's wife and the mother of the gods, who are called her seventy sons. Her titles are \"Lady Athirat of the Sea\" and \"Creatress of the Gods\". In the Baal Cycle she is first seen by the sea, spinning, when Baal and Anat come to her with gifts made by Kothar-wa-Khasis (KTU 1.4 II), and at first she fears they come as enemies.\n\n## The intercessor\n\nAthirat is the one god El reliably listens to. It is her visit to El, riding a donkey saddled by her servant, that finally wins Baal permission for his palace; El greets her warmly and asks whether she is hungry or thirsty before she makes her request (KTU 1.4 IV-V). After Baal's death it is Athirat whom El asks to name a new king from among her sons, and she proposes Athtar (KTU 1.6 I).\n\n## In the Epic of Kirta\n\nKing Kirta stops at the shrine of \"Athirat of Tyre, goddess of Sidon\" on his way to war and vows to give her twice a bride's weight in silver and three times in gold if he succeeds. He wins his bride and forgets the vow, and Athirat remembers; his illness follows.\n\n## Asherah\n\nAthirat is the Ugaritic form of the goddess the Hebrew Bible calls Asherah. Inscriptions from Kuntillet ʿAjrud and Khirbet el-Qom in the eighth century BCE, invoking \"Yahweh and his asherah\", are much debated evidence for her later cult; this site notes that debate without taking a side on it.",
+    "importanceRank": 1,
+    "imageUrl": "/deities/athirat.png",
+    "primarySources": [
+      {
+        "text": "Athirat rides to El, who laughs with pleasure and asks why she has come, and she persuades him to allow a house to be built for Baal (paraphrase).",
+        "source": "Baal Cycle, KTU 1.4 IV-V",
+        "date": "tablets of the late 13th or early 12th c. BCE"
+      },
+      {
+        "text": "Kirta vows at the shrine of Athirat of Tyre and the goddess of Sidon to give her double in silver and triple in gold (paraphrase).",
+        "source": "Epic of Kirta, KTU 1.14 IV",
+        "date": "tablets of the late 13th or early 12th c. BCE"
+      }
+    ],
+    "furtherReading": [
+      {
+        "sourceId": "baal-cycle",
+        "note": "Athirat's intercession for Baal's palace"
+      },
+      {
+        "sourceId": "kirta-epic",
+        "note": "Kirta's vow at her shrine"
+      }
+    ],
+    "sources": [
+      "Hadley, Judith M. *The Cult of Asherah in Ancient Israel and Judah* (Cambridge University Press, 2000)."
+    ],
+    "worship": {
+      "temples": ["Her shrine at Tyre and Sidon, named in the Epic of Kirta"],
+      "festivals": [],
+      "practices": "Athirat receives offerings in Ugaritic ritual texts; vows made to her, like Kirta's, were expected to be paid."
+    }
+  },
+  {
+    "id": "yam",
+    "pantheonId": "canaanite-pantheon",
+    "name": "Yam (Yammu)",
+    "slug": "yam",
+    "originalLanguageName": {
+      "text": "ym",
+      "language": "Ugaritic",
+      "transliteration": "Yammu",
+      "meaning": "'Sea'"
+    },
+    "alternateNames": [
+      "Prince Sea (zbl ym)",
+      "Judge River (ṯpṭ nhr)",
+      "Beloved of El"
+    ],
+    "gender": "male",
+    "domain": ["the sea", "rivers", "chaotic waters"],
+    "symbols": ["the sea", "the river"],
+    "description": "The Sea as a god, 'Prince Sea, Judge River', El's favourite, who demands that Baal be handed over as his captive and is struck down by Baal's clubs.",
+    "detailedBio": "## Prince Sea, Judge River\n\nYam, whose name simply means \"sea\", is always paired in poetic parallelism with \"River\": he is \"Prince Sea\" and \"Judge River\". He is \"beloved of El\", and in the fragmentary first tablet of the Baal Cycle El proclaims his name and gives him a house built by Kothar-wa-Khasis (KTU 1.1-1.2). His power over the waters is also a claim to kingship among the gods.\n\n## The demand for Baal\n\nIn KTU 1.2 I Yam sends messengers to the assembly of the gods on El's mountain with a blunt order: hand over Baal and his followers. The gods lower their heads onto their knees in fear, Baal rebukes them, and El agrees that Baal is Yam's servant. Baal lunges at the messengers and has to be held back by Anat and Athtart.\n\n## Defeat\n\nWith two clubs made by Kothar-wa-Khasis, Baal fights Yam. The first club, Yagrush, strikes his shoulders but does not fell him; the second, Ayyamur, strikes him on the head and he collapses. Athtart then urges Baal to finish him, and the text declares that Yam is dead and Baal shall be king (KTU 1.2 IV). Elsewhere, Anat boasts that she herself defeated Yam.\n\n## The sea and the serpent\n\nYam is associated with sea-monsters, the dragon Tunnan and the serpent Litan, and his defeat belongs to a wide Near Eastern pattern of a storm-god subduing the sea. The Hebrew Bible uses the same imagery when it describes God rebuking or dividing the sea (yam).",
+    "importanceRank": 2,
+    "imageUrl": "/deities/yam.png",
+    "primarySources": [
+      {
+        "text": "Yam's messengers demand that the gods give up Baal and his followers, and the gods lower their heads to their knees (paraphrase).",
+        "source": "Baal Cycle, KTU 1.2 I",
+        "date": "tablets of the late 13th or early 12th c. BCE"
+      },
+      {
+        "text": "The club Ayyamur strikes Prince Sea on the head; Yam sinks to the ground, his joints shake, and Baal drags him down (paraphrase).",
+        "source": "Baal Cycle, KTU 1.2 IV",
+        "date": "tablets of the late 13th or early 12th c. BCE"
+      }
+    ],
+    "furtherReading": [
+      {
+        "sourceId": "baal-cycle",
+        "note": "The conflict of Baal and Yam, KTU 1.1-1.2"
+      }
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "mesopotamian-pantheon",
+        "deityId": "tiamat",
+        "note": "Both are personified seas defeated by a younger god who then becomes king, Yam by Baal and Tiamat by Marduk; the Ugaritic and Babylonian texts are independent tellings of a shared regional pattern."
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [],
+      "practices": "Yam receives offerings in some Ugaritic ritual lists, showing that the Sea was honoured in cult as well as defeated in myth."
+    }
+  },
+  {
+    "id": "mot",
+    "pantheonId": "canaanite-pantheon",
+    "name": "Mot",
+    "slug": "mot",
+    "originalLanguageName": {
+      "text": "mt",
+      "language": "Ugaritic",
+      "transliteration": "Môtu",
+      "meaning": "'Death'"
+    },
+    "alternateNames": ["Death", "Beloved of El (ydd il)", "Son of El (bn ilm)"],
+    "gender": "male",
+    "domain": ["death", "the underworld", "drought and sterility"],
+    "symbols": ["an open throat", "the muddy city Hmry"],
+    "description": "Death personified, whose throat reaches to the heavens and whose lip touches the earth, who swallows Baal and is himself destroyed by Anat and then fights Baal to a standstill.",
+    "detailedBio": "## Death with a throat\n\nMot is death itself, not a ruler of the dead. The Baal Cycle gives him an enormous appetite: one lip to the earth, one lip to the heavens, a tongue to the stars (KTU 1.5 II), and a craving that the text compares to a lion's hunger and a dolphin's thirst. His city is Hmry (\"Miry\" or \"Muddy\"), where he sits on a throne in a land of filth, and messengers are warned not to come too close in case he swallows them.\n\n## Baal in Mot's throat\n\nAfter Baal builds his palace and declares his kingship, Mot answers with a threat, reminding Baal of the serpent Litan he defeated and warning that Baal must now come down into his throat (KTU 1.5 I). Baal submits. His death is announced to El, who mourns, and to Anat, who searches for him.\n\n## Mot destroyed, and back again\n\nAnat finds Mot and treats him like grain at harvest, splitting, winnowing, burning, grinding, and sowing him (KTU 1.6 II), and the birds eat his remains. Yet in the seventh year Mot returns, demanding compensation, and he and Baal fight like wild oxen, serpents, and stallions until both fall. Only when the sun-goddess Shapash warns Mot that El will overturn his throne does he give way and acknowledge Baal's kingship (KTU 1.6 VI).\n\n## Interpretation\n\nThe grain imagery of Mot's destruction has led some scholars to read him as a harvest figure, but most now see the language as Anat's way of annihilating him completely. Mot is never finally destroyed: death can be driven back, not abolished.",
+    "importanceRank": 2,
+    "imageUrl": "/deities/mot.png",
+    "primarySources": [
+      {
+        "text": "Mot sends word that he will swallow Baal, with one lip to the earth and one to the heavens (paraphrase).",
+        "source": "Baal Cycle, KTU 1.5 II",
+        "date": "tablets of the late 13th or early 12th c. BCE"
+      },
+      {
+        "text": "Shapash warns Mot that Bull El will overturn his throne and break his sceptre if he fights on, and Mot yields to Baal (paraphrase).",
+        "source": "Baal Cycle, KTU 1.6 VI",
+        "date": "tablets of the late 13th or early 12th c. BCE"
+      }
+    ],
+    "furtherReading": [
+      {
+        "sourceId": "baal-cycle",
+        "note": "Baal and Mot, KTU 1.4 VIII-1.6"
+      }
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "greek-pantheon",
+        "deityId": "hades",
+        "note": "Both are gods of death who hold a divine figure in the underworld; unlike Hades, Mot is death itself rather than the ruler of the dead, and he never rules a structured realm of souls."
+      }
+    ]
+  },
+  {
+    "id": "kothar-wa-khasis",
+    "pantheonId": "canaanite-pantheon",
+    "name": "Kothar-wa-Khasis",
+    "slug": "kothar-wa-khasis",
+    "originalLanguageName": {
+      "text": "kṯr w ḫss",
+      "language": "Ugaritic",
+      "transliteration": "Kôṯaru-wa-Ḫasīsu",
+      "meaning": "'Skilful and Wise'"
+    },
+    "alternateNames": [
+      "Kothar",
+      "Kothar-and-Khasis",
+      "Chousor (in Philo of Byblos)"
+    ],
+    "gender": "male",
+    "domain": [
+      "craftsmanship",
+      "metalwork",
+      "building",
+      "magic and incantation"
+    ],
+    "symbols": ["the forge", "the bow", "the clubs Yagrush and Ayyamur"],
+    "description": "The craftsman god, 'Skilful and Wise', who makes Baal's two clubs, builds his palace of cedar and silver, and brings the fateful bow to the house of Danel.",
+    "detailedBio": "## Skilful and Wise\n\nKothar-wa-Khasis has a double name, \"Skilful and Wise\", and is treated as a single god. He is the divine smith and builder, and he also knows incantations: when he names Baal's clubs he speaks words of power over them. His homes are far away, in Kaphtor (Crete) and Ḥkpt (Memphis, the city of the Egyptian craftsman god Ptah), which reflects Ugarit's position in a trading world that reached from the Aegean to Egypt.\n\n## Maker of weapons\n\nIn the Baal Cycle he makes two clubs for Baal and names them Yagrush (\"Driver\") and Ayyamur (\"Expeller\"); the second fells Yam (KTU 1.2 IV). He also forges the lavish gifts Baal and Anat take to Athirat (KTU 1.4 I), and the silver and gold palace on Zaphon.\n\n## The window\n\nWhile building the palace, Kothar-wa-Khasis twice proposes a window and Baal twice refuses; at last Baal agrees, and the window becomes the rift in the clouds through which his thunder sounds (KTU 1.4 V-VII). The exchange is a small comic scene, with the craftsman patiently saying \"you will come back to my words\".\n\n## The bow of Aqhat\n\nIn the Epic of Aqhat he arrives at Danel's house carrying a bow and arrows; Danel's wife serves him food and drink, and the bow passes to Aqhat, setting off the tragedy (KTU 1.17 V).",
+    "importanceRank": 2,
+    "imageUrl": "/deities/kothar-wa-khasis.png",
+    "primarySources": [
+      {
+        "text": "Kothar-wa-Khasis says he will put a window in the palace; Baal refuses, and Kothar replies that Baal will come back to his words (paraphrase).",
+        "source": "Baal Cycle, KTU 1.4 V-VI",
+        "date": "tablets of the late 13th or early 12th c. BCE"
+      }
+    ],
+    "furtherReading": [
+      {
+        "sourceId": "baal-cycle",
+        "note": "The clubs and the palace"
+      },
+      {
+        "sourceId": "aqhat-epic",
+        "note": "The gift of the bow"
+      }
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "greek-pantheon",
+        "deityId": "hephaestus",
+        "note": "Philo of Byblos's Phoenician History equates the craftsman Chousor with Hephaestus; both are divine smiths who make the weapons and houses of the gods."
+      },
+      {
+        "pantheonId": "egyptian-pantheon",
+        "deityId": "ptah",
+        "note": "Kothar's seat is at Ḥkpt, Memphis, the city of Ptah, the Egyptian patron of craftsmen; the Ugaritic poets appear to have linked the two."
+      }
+    ]
+  },
+  {
+    "id": "shapash",
+    "pantheonId": "canaanite-pantheon",
+    "name": "Shapash",
+    "slug": "shapash",
+    "originalLanguageName": {
+      "text": "špš",
+      "language": "Ugaritic",
+      "transliteration": "Šapšu",
+      "meaning": "'Sun'"
+    },
+    "alternateNames": ["Shapshu", "Torch of the Gods (nrt ilm)"],
+    "gender": "female",
+    "domain": [
+      "the sun",
+      "seeing and searching",
+      "passage between the living and the dead"
+    ],
+    "symbols": ["the sun disk", "the torch"],
+    "description": "The sun-goddess of Ugarit, 'Torch of the Gods', who sees everything on her daily journey, helps Anat carry Baal's body, searches for him, and warns Mot to yield.",
+    "detailedBio": "## Torch of the Gods\n\nAt Ugarit the sun is a goddess, Shapash, the \"Torch of the Gods\". Because she crosses the sky by day and, in Ugaritic belief, passes through the underworld by night, she can go where other gods cannot, and she acts as a go-between for the realms of the living and the dead.\n\n## In the Baal Cycle\n\nShapash appears at the crucial moments of the cycle's last tablets. She helps Anat lift Baal's body onto Anat's shoulder so that Anat can carry it to Zaphon for burial (KTU 1.6 I). When El dreams that Baal lives, Anat asks Shapash to search for him, and she agrees. When Baal and Mot fight to exhaustion, it is Shapash who warns Mot that El will overturn his throne if he continues, and Mot gives way (KTU 1.6 VI). The cycle closes with a hymn to her, praising her rule over the shades of the dead.\n\n## In ritual\n\nShapash also appears in Ugaritic incantations against snakebite, in which a mare's daughter calls on the sun to carry her message to the gods; and in the royal funerary liturgy (KTU 1.161), where she is called on to accompany the dead king. Her solar role is not simply heavenly; it is a role of crossing.",
+    "importanceRank": 2,
+    "imageUrl": "/deities/shapash.png",
+    "primarySources": [
+      {
+        "text": "Shapash, Torch of the Gods, lifts Mightiest Baal onto the shoulder of Anat, and Anat carries him to the heights of Zaphon (paraphrase).",
+        "source": "Baal Cycle, KTU 1.6 I",
+        "date": "tablets of the late 13th or early 12th c. BCE"
+      }
+    ],
+    "furtherReading": [
+      {
+        "sourceId": "baal-cycle",
+        "note": "Shapash in the last tablets of the cycle"
+      }
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "hittite-pantheon",
+        "deityId": "sun-goddess-of-arinna",
+        "note": "Both are female sun deities in Late Bronze Age pantheons that also knew a sun passing through the underworld; they belong to different traditions."
+      }
+    ]
+  },
+  {
+    "id": "athtar",
+    "pantheonId": "canaanite-pantheon",
+    "name": "Athtar",
+    "slug": "athtar",
+    "originalLanguageName": {
+      "text": "ʿṯtr",
+      "language": "Ugaritic",
+      "transliteration": "ʿAṯtaru",
+      "meaning": "Related to the name of the Venus star deity across Semitic languages"
+    },
+    "alternateNames": ["Athtar the Terrible (ʿṯtr ʿrẓ)", "Attar"],
+    "gender": "male",
+    "domain": [
+      "the morning star",
+      "irrigation (disputed)",
+      "a failed claim to kingship"
+    ],
+    "symbols": ["the throne too large for him"],
+    "description": "The god whom Athirat proposes as king after Baal's death, who climbs onto Baal's throne on Zaphon and finds that his feet do not reach the footstool.",
+    "detailedBio": "## A king too small for the throne\n\nAthtar's best-known scene is brief. After Baal's death, El asks Athirat to name one of her sons as king, and she proposes \"Athtar the Terrible\". Athtar goes up to Baal's throne on the heights of Zaphon, but his feet do not reach the footstool and his head does not reach its top. He admits that he cannot be king on Zaphon, comes down, and rules instead over the broad earth (KTU 1.6 I).\n\n## A rival of Yam and Baal\n\nIn the fragmentary early tablets of the cycle, Athtar also seems to complain that he has no palace like other gods, and is told by Shapash that he will not be king because El favours Yam (KTU 1.2 III). The passage is broken and its interpretation debated.\n\n## The Venus star\n\nThe name Athtar is related to the name of the Venus-star deity across the Semitic world, including the South Arabian ʿAthtar and, in feminine form, Athtart and Mesopotamian Ištar. Older scholarship made him an irrigation god, contrasted with the rain-god Baal; that theory rests on thin evidence and is presented here only as a proposal.",
+    "importanceRank": 3,
+    "imageUrl": "/deities/athtar.png",
+    "primarySources": [
+      {
+        "text": "Athtar the Terrible goes up to the heights of Zaphon and sits on Baal's throne; his feet do not reach the footstool, his head does not reach its top (paraphrase).",
+        "source": "Baal Cycle, KTU 1.6 I",
+        "date": "tablets of the late 13th or early 12th c. BCE"
+      }
+    ],
+    "furtherReading": [
+      {
+        "sourceId": "baal-cycle",
+        "note": "Athtar's attempt on the throne"
+      }
+    ]
+  },
+  {
+    "id": "athtart",
+    "pantheonId": "canaanite-pantheon",
+    "name": "Athtart (Astarte)",
+    "slug": "athtart",
+    "originalLanguageName": {
+      "text": "ʿṯtrt",
+      "language": "Ugaritic",
+      "transliteration": "ʿAṯtartu",
+      "meaning": "Feminine form of Athtar"
+    },
+    "alternateNames": ["Astarte", "Ashtart", "Name of Baal (šm bʿl)"],
+    "gender": "female",
+    "domain": ["war", "hunting", "love (in later Phoenician cult)"],
+    "symbols": ["the horse", "the hunt"],
+    "description": "A warrior and hunting goddess who, with Anat, holds Baal back from attacking Yam's messengers and then urges him to finish Yam off; better known in later centuries as the Phoenician Astarte.",
+    "detailedBio": "## Holding Baal back\n\nIn the Baal Cycle, when Yam's messengers demand that Baal be surrendered, Baal seizes a weapon to strike them, and two goddesses restrain him: Anat takes his right hand and Athtart his left (KTU 1.2 I). They remind him that messengers are not to be harmed.\n\n## Urging him on\n\nAfter Baal's second club fells Yam, it is Athtart who calls out to Baal, rebuking him or urging him to \"scatter\" the defeated Sea, since Yam is now their captive (KTU 1.2 IV). The passage is damaged and translators differ on its exact tone, but it shows her as a warrior at Baal's side.\n\n## A hunter\n\nIn a separate Ugaritic text (KTU 1.92) Athtart goes hunting in the steppe, and she appears in Ugaritic ritual texts with an equestrian aspect. In Egyptian New Kingdom texts she is a war goddess associated with horses and chariots.\n\n## Astarte\n\nIn the first millennium BCE, Athtart became Astarte, a major goddess of the Phoenician cities, especially Sidon and Tyre, where the royal inscription of Eshmunazar calls her \"Astarte, name of Baal\". Greek writers identified her with Aphrodite. The Ugaritic Athtart is a less prominent and more martial figure than that later goddess.",
+    "importanceRank": 3,
+    "imageUrl": "/deities/athtart.png",
+    "primarySources": [
+      {
+        "text": "Anat seizes Baal's right hand and Athtart his left, holding him back from Yam's messengers (paraphrase).",
+        "source": "Baal Cycle, KTU 1.2 I",
+        "date": "tablets of the late 13th or early 12th c. BCE"
+      }
+    ],
+    "furtherReading": [
+      {
+        "sourceId": "baal-cycle",
+        "note": "Athtart in the conflict with Yam"
+      }
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "greek-pantheon",
+        "deityId": "aphrodite",
+        "note": "Greek writers identified the Phoenician Astarte with Aphrodite; the Ugaritic Athtart is mainly a warrior and huntress."
+      },
+      {
+        "pantheonId": "mesopotamian-pantheon",
+        "deityId": "inanna",
+        "note": "Athtart's name is cognate with Ištar's, and both combine war with, in later periods, love."
+      }
+    ]
+  },
+  {
+    "id": "sedna",
+    "pantheonId": "inuit-pantheon",
+    "name": "Sedna (the Sea Woman)",
+    "slug": "sedna",
+    "originalLanguageName": {
+      "text": "ᓄᓕᐊᔪᒃ (Nuliajuk)",
+      "language": "Inuktitut (Netsilingmiut)",
+      "transliteration": "Nuliajuk",
+      "meaning": "A regional name; each of the Sea Woman's names has its own sense in its own dialect"
+    },
+    "alternateNames": [
+      "Nuliajuk (Netsilingmiut)",
+      "Takannaaluk or Takanaaluk arnaaluk (Iglulik)",
+      "Uinigumasuittuq (Iglulik, 'the one who did not want a husband')",
+      "Sassuma Arnaa (West Greenland, 'mother of the deep')",
+      "Arnarquagssaq (Greenland)",
+      "Sanna / Sedna (Baffin Island)"
+    ],
+    "gender": "female",
+    "domain": [
+      "the sea and its animals",
+      "the success or failure of hunting",
+      "the observance of taboos"
+    ],
+    "symbols": [
+      "seals, walrus, and whales",
+      "tangled hair",
+      "fingerless hands"
+    ],
+    "description": "The woman at the bottom of the sea who keeps the seals, walrus, and whales, known by different names across the Arctic (Sedna on Baffin Island, Nuliajuk among the Netsilingmiut, Takannaaluk in Iglulik, Sassuma Arnaa in Greenland); when people break taboos, the animals are held back until an angakkuq combs her hair.",
+    "detailedBio": "## Many names, one great power\n\nAcross the Inuit Arctic there is a woman who lives at the bottom of the sea and keeps the sea mammals on which people depend. Her names differ by region, and so do her stories. Franz Boas recorded her as Sedna in Cumberland Sound, Baffin Island, in the 1880s, and that is the name most outsiders know; the Netsilingmiut call her Nuliajuk; in Iglulik she is Takannaaluk and, in the telling of elders interviewed for Nunavut Arctic College, Uinigumasuittuq, \"the one who did not want a husband\"; in West Greenland she is Sassuma Arnaa, \"mother of the deep\". This site uses \"Sedna\" only as the most widely recognised name.\n\n## How she came to the sea\n\nThe stories of her origin vary. In Boas's Baffin Island account she is a young woman who refuses every suitor, is lured away by a fulmar disguised as a man, and is rescued by her father, who, when the fulmar raises a storm, throws her into the sea and cuts off her fingers as she clings to the boat; the joints become the whales, seals, and ground seals. In other tellings, including one Boas also recorded, she marries a dog. Among the Netsilingmiut, as Rasmussen recorded, Nuliajuk is an orphan girl whom no one wants, pushed off a raft of kayaks during a crossing; her fingers are cut as she holds on, and she sinks to become the mother of the sea animals. The different beginnings lead to the same place: a woman wronged, maimed, and enthroned beneath the sea.\n\n## Keeper of the animals\n\nBecause she has no fingers, she cannot comb her own hair. When people break the rules that govern relations with animals and with birth and death, the misdeeds gather in her hair as dirt and tangles, and she keeps the animals back, so that hunters come home empty-handed. In the Iglulik accounts recorded by Rasmussen, an angakkuq travels in spirit to her house at the bottom of the sea, combs and cleans her hair, and persuades her to release the animals, and people confess the breaches that caused the trouble.\n\n## Today\n\nThe Sea Woman remains one of the most widely told Inuit stories and one of the most frequent subjects of Inuit art, from Cape Dorset prints to contemporary sculpture. Many Inuit tellers stress her dignity and the justice of her anger; she is not a monster but the guardian of a relationship between people and animals that must be kept.",
+    "importanceRank": 1,
+    "imageUrl": "/deities/sedna.png",
+    "primarySources": [
+      {
+        "text": "The dead, who are seized by Sedna's father, Anguta, are carried to this dwelling.",
+        "source": "Franz Boas, The Central Eskimo",
+        "date": "1888"
+      },
+      {
+        "text": "An Iglulik account of the angakkuq's spirit journey to the bottom of the sea to comb the Sea Woman's hair and win the release of the sea animals (paraphrase).",
+        "source": "Knud Rasmussen, Intellectual Culture of the Iglulik Eskimos (Report of the Fifth Thule Expedition 1921-24, vol. 7, no. 1)",
+        "date": "1929"
+      }
+    ],
+    "furtherReading": [
+      {
+        "sourceId": "interviewing-inuit-elders-cosmology",
+        "note": "Iglulik elders on the Sea Woman, in their own words"
+      },
+      {
+        "sourceId": "rasmussen-fifth-thule",
+        "note": "Iglulik and Netsilik accounts of Takanaaluk and Nuliajuk"
+      },
+      {
+        "sourceId": "boas-central-eskimo",
+        "note": "The Baffin Island account that made 'Sedna' widely known"
+      }
+    ],
+    "sources": [
+      "Laugrand, Frédéric, and Jarich Oosten. *Inuit Shamanism and Christianity* (McGill-Queen's University Press, 2010).",
+      "Fienup-Riordan, Ann. *Hunting Tradition in a Changing World* (Rutgers University Press, 2000), on Yup'ik and Inuit relations with animals."
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "japanese-pantheon",
+        "deityId": "ryujin",
+        "note": "Both are powers beneath the sea who control the sea's creatures and bounty; the Sea Woman's relationship with hunters and taboos is distinctively Inuit, and the comparison is typological only."
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [
+        "Autumn Sedna feasts recorded by Boas in Baffin Island in the 1880s"
+      ],
+      "practices": "This is part of a living tradition. Inuit relationships with these figures today range from continued respect and storytelling to Christian faith that sets older practice aside, and they vary by family and community; this site does not describe angakkuq (shamanic) practice beyond what elders and Inuit-led publishers have chosen to make public."
+    },
+    "traditionRole": "Mother of the Sea Animals"
+  },
+  {
+    "id": "anguta",
+    "pantheonId": "inuit-pantheon",
+    "name": "Anguta",
+    "slug": "anguta",
+    "alternateNames": ["Sedna's father"],
+    "gender": "male",
+    "domain": ["the dead", "the underworld Adlivun"],
+    "symbols": ["the boat", "maimed hands and feet"],
+    "description": "In Baffin Island tellings recorded by Franz Boas, the Sea Woman's father, who cut off her fingers and now lives with her in Adlivun, carrying the dead to that dwelling.",
+    "detailedBio": "## A regional figure\n\nAnguta belongs to the Baffin Island tellings of the Sea Woman recorded by Franz Boas in Cumberland Sound in the 1880s. Many other regional versions give the Sea Woman's father no name, or no afterlife role, or no part in the story at all, as in the Netsilik story of the orphan Nuliajuk. This site includes him because Boas's account is a major published source, not because he is found across the Inuit Arctic.\n\n## Father and punisher\n\nIn Boas's account it is Anguta who rescues his daughter from her fulmar husband, and Anguta who, when the bird raises a storm, throws her overboard and cuts off her fingers as she clings to the boat. He is afterwards punished: in one version his own dogs gnaw off his hands and feet as he lies sleeping on the shore, and the earth opens and takes him, his daughter, and the dogs down to Adlivun.\n\n## Keeper of the dead\n\nBoas reports that the dead are seized by Sedna's father, Anguta, and carried to Adlivun, the land beneath the earth and sea where Sedna is mistress. Boas also describes a happier land of the dead above, Qudlivun, for those who died by violence or in childbirth. These accounts describe beliefs recorded in one region at one time, and they should not be taken as a fixed Inuit doctrine of the afterlife.",
+    "importanceRank": 3,
+    "imageUrl": "/deities/anguta.png",
+    "primarySources": [
+      {
+        "text": "The dead, who are seized by Sedna's father, Anguta, are carried to this dwelling.",
+        "source": "Franz Boas, The Central Eskimo",
+        "date": "1888"
+      }
+    ],
+    "furtherReading": [
+      {
+        "sourceId": "boas-central-eskimo",
+        "note": "The Baffin Island account of Sedna, Anguta, and Adlivun"
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [],
+      "practices": "This is part of a living tradition. Inuit relationships with these figures today range from continued respect and storytelling to Christian faith that sets older practice aside, and they vary by family and community; this site does not describe angakkuq (shamanic) practice beyond what elders and Inuit-led publishers have chosen to make public."
+    },
+    "traditionRole": "Carrier of the Dead (Baffin tellings)"
+  },
+  {
+    "id": "anningan",
+    "pantheonId": "inuit-pantheon",
+    "name": "Anningan (the Moon Man)",
+    "slug": "anningan",
+    "originalLanguageName": {
+      "text": "ᑕᖅᑭᖅ (Taqqiq)",
+      "language": "Inuktitut",
+      "transliteration": "Taqqiq; Greenlandic Aningaaq",
+      "meaning": "'Moon'"
+    },
+    "alternateNames": [
+      "Aningaaq (Greenland)",
+      "Taqqiq, the Moon Spirit (Iglulik)",
+      "Igaluk (Alaska, in some sources)"
+    ],
+    "gender": "male",
+    "domain": [
+      "the moon",
+      "the tides and hunting",
+      "the fertility of women",
+      "the enforcement of taboos"
+    ],
+    "symbols": ["the moon", "a dimmed torch", "his dog-sled in the sky"],
+    "description": "The brother who became the moon after pursuing his sister, the sun, across the sky; in Iglulik tradition the Moon Spirit also helps angakkuit, watches over hunting and the birth of children, and punishes those who break taboos.",
+    "detailedBio": "## The brother in the sky\n\nAcross the Inuit Arctic the moon is a man and the sun is his sister. The story of how they came to the sky, told in slightly different forms from Greenland to Alaska, begins with a brother who visits his sister in the dark and a sister who discovers who he is; she flees with a burning torch and becomes the sun, and he chases her with a torch that goes out to embers and becomes the moon. His pursuit never ends, which is why the moon follows the sun and sometimes catches her, in an eclipse. The name Anningan, common in English-language books, reflects the Greenlandic Aningaaq; in Iglulik he is Taqqiq, the Moon Spirit.\n\n## The Moon Spirit's work\n\nIn Iglulik accounts recorded by Rasmussen, the Moon Spirit is a powerful and on the whole benevolent figure. He lives in a house in the sky, travels by dog-sled, helps angakkuit who visit him in spirit, can give luck in hunting, and is linked with the conception of children. He also punishes people who break taboos. The moon's monthly disappearance is explained in some tellings as his absence while he hunts.\n\n## Regional differences\n\nIn Greenland, Aningaaq's house in the sky and his neighbours are described in detail in Rink's collections; in parts of Alaska the moon is linked with a man called Igaluk in popular sources, though those accounts are less securely documented. As with the Sea Woman, the moon's name and role differ by region, and this entry reports those differences rather than choosing one.",
+    "importanceRank": 1,
+    "imageUrl": "/deities/anningan.png",
+    "primarySources": [
+      {
+        "text": "Boas reports that moon and sun are regarded as brother and sister, and that the Baffin Island tradition corresponds closely with the Greenlandic one (paraphrase).",
+        "source": "Franz Boas, The Central Eskimo",
+        "date": "1888"
+      },
+      {
+        "text": "Iglulik speakers describe the Moon Spirit's house in the sky and his help to angakkuit and to women who wish for children (paraphrase).",
+        "source": "Knud Rasmussen, Intellectual Culture of the Iglulik Eskimos (Report of the Fifth Thule Expedition 1921-24, vol. 7, no. 1)",
+        "date": "1929"
+      }
+    ],
+    "furtherReading": [
+      {
+        "sourceId": "boas-central-eskimo",
+        "note": "The sun and moon siblings on Baffin Island"
+      },
+      {
+        "sourceId": "rasmussen-fifth-thule",
+        "note": "The Iglulik Moon Spirit"
+      }
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "japanese-pantheon",
+        "deityId": "tsukuyomi",
+        "note": "Both are male moon figures whose separation from the sun explains why sun and moon are never together; the stories are otherwise unrelated."
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [],
+      "practices": "This is part of a living tradition. Inuit relationships with these figures today range from continued respect and storytelling to Christian faith that sets older practice aside, and they vary by family and community; this site does not describe angakkuq (shamanic) practice beyond what elders and Inuit-led publishers have chosen to make public."
+    },
+    "traditionRole": "The Moon"
+  },
+  {
+    "id": "malina",
+    "pantheonId": "inuit-pantheon",
+    "name": "Malina (the Sun Woman)",
+    "slug": "malina",
+    "originalLanguageName": {
+      "text": "ᓯᕿᓂᖅ (Siqiniq)",
+      "language": "Inuktitut",
+      "transliteration": "Siqiniq ('sun'); Greenlandic Malina",
+      "meaning": "'Sun'; Malina is the sister's name in Greenlandic tellings"
+    },
+    "alternateNames": ["Siqiniq (the sun)", "The Sun Sister"],
+    "gender": "female",
+    "domain": ["the sun", "light and warmth"],
+    "symbols": ["a blazing torch", "hands blackened with soot"],
+    "description": "The sister who became the sun: when she discovered that the visitor in the dark was her brother, she fled with a burning torch into the sky, and he has pursued her ever since as the moon.",
+    "detailedBio": "## The sister's torch\n\nIn the widely told Inuit story of the sun and moon, a young woman is visited in the dark by a man she cannot see. To find out who he is, she blackens her hands with soot from the lamp and marks him. When the lamps are lit she sees the marks on her brother. In anger and shame she flees with a burning torch; he follows with his own, but his falls or burns down to embers. Both rise into the sky, where she becomes the sun and he, with his faint light, becomes the moon.\n\n## Why she has a name\n\nThe name Malina, now common in English-language books, comes from Greenlandic tellings. In many Canadian Inuit versions the sister is simply the sun, Siqiniq. The name is used here because readers will meet it in general reference works, not because it is universal.\n\n## A story about boundaries\n\nThe story is told as an explanation of the sky, but also as a story about kinship rules and their violation, and about the lasting consequences of a wrong. Boas noted in the 1880s that the Baffin Island version corresponded closely to the Greenlandic one, showing how widely the story had travelled.",
+    "importanceRank": 1,
+    "imageUrl": "/deities/malina.png",
+    "primarySources": [
+      {
+        "text": "The brother and sister are lifted into the sky as they run, the sister becoming the sun and the brother, whose torch has dimmed, the moon (paraphrase).",
+        "source": "Franz Boas, The Central Eskimo",
+        "date": "1888"
+      }
+    ],
+    "furtherReading": [
+      {
+        "sourceId": "boas-central-eskimo",
+        "note": "The Baffin Island telling of the sun and moon"
+      }
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "japanese-pantheon",
+        "deityId": "amaterasu",
+        "note": "Both are female sun figures separated from a male moon; Amaterasu's separation from Tsukuyomi follows a different story entirely."
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [],
+      "practices": "This is part of a living tradition. Inuit relationships with these figures today range from continued respect and storytelling to Christian faith that sets older practice aside, and they vary by family and community; this site does not describe angakkuq (shamanic) practice beyond what elders and Inuit-led publishers have chosen to make public."
+    },
+    "traditionRole": "The Sun"
+  },
+  {
+    "id": "sila",
+    "pantheonId": "inuit-pantheon",
+    "name": "Sila",
+    "slug": "sila",
+    "originalLanguageName": {
+      "text": "ᓯᓚ",
+      "language": "Inuktitut",
+      "transliteration": "Sila; Silap inua ('the indweller of Sila'); Hila (Kivalliq)",
+      "meaning": "Air, weather, the outdoors, the world, and also intelligence or good sense"
+    },
+    "alternateNames": [
+      "Silap inua",
+      "Hila (Caribou Inuit dialects)",
+      "Sillap inua (Greenland)"
+    ],
+    "gender": "none",
+    "domain": [
+      "air and weather",
+      "the order of the world",
+      "wisdom and awareness"
+    ],
+    "symbols": ["wind", "breath", "the open sky"],
+    "description": "The air, weather, and surrounding world, and the power that dwells in them; a word that also means intelligence or good sense, and that Inuit speakers described to Rasmussen as a great power that speaks through storms and calm.",
+    "detailedBio": "## A word with many meanings\n\nIn Inuktitut and related languages, sila means the air, the weather, the outdoors, the world around us, and also a person's intelligence or good judgement: someone with sila is sensible. Silap inua, \"the indweller of sila\", names the power that lives in all of these. Because the word covers so much, Sila is poorly described as a \"sky god\"; it is closer to the living order of the world that surrounds people and can respond to how they behave.\n\n## What speakers told Rasmussen\n\nThe best-known description comes from Rasmussen's conversation with Najagneq, a Yup'ik (not Inuit) angalkuq he met at Nome, Alaska, recorded in *Across Arctic America* (1927). Najagneq described Sila as a power not easily explained in words, a great spirit that upholds the world, the weather, and all life, and that speaks not in words but through storm, snow, rain, and the fury of the sea, and through sunshine and calm and small children at play; when all is well it keeps silent (paraphrase). Rasmussen's Iglulik and Caribou Inuit reports record related ideas, and among the Caribou Inuit the power is called Hila. The Yup'ik and Inuit are related but distinct peoples, and this site notes where a description comes from.\n\n## Sila today\n\nIn recent decades Inuit leaders have spoken of sila in discussions of Arctic climate change, where the old word for weather and the world's order carries new weight. The concept remains part of everyday language, not only of the old religion.",
+    "importanceRank": 2,
+    "imageUrl": "/deities/sila.png",
+    "primarySources": [
+      {
+        "text": "Najagneq describes Sila as a great spirit that upholds the world, the weather, and all life, speaking to people through storm, snow, rain, and the fury of the sea, and withdrawing when all is well (paraphrase).",
+        "source": "Knud Rasmussen, Across Arctic America: Narrative of the Fifth Thule Expedition",
+        "date": "1927"
+      },
+      {
+        "text": "Iglulik speakers name the powers that govern life, among them Sila, the spirit of the air (paraphrase).",
+        "source": "Knud Rasmussen, Intellectual Culture of the Iglulik Eskimos (Report of the Fifth Thule Expedition 1921-24, vol. 7, no. 1)",
+        "date": "1929"
+      }
+    ],
+    "furtherReading": [
+      {
+        "sourceId": "rasmussen-fifth-thule",
+        "note": "Sila in the Iglulik and Caribou Inuit volumes"
+      },
+      {
+        "sourceId": "interviewing-inuit-elders-cosmology",
+        "note": "Elders on sila and the order of the world"
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [],
+      "practices": "This is part of a living tradition. Inuit relationships with these figures today range from continued respect and storytelling to Christian faith that sets older practice aside, and they vary by family and community; this site does not describe angakkuq (shamanic) practice beyond what elders and Inuit-led publishers have chosen to make public."
+    },
+    "traditionRole": "Breath of the World"
+  },
+  {
+    "id": "pinga",
+    "pantheonId": "inuit-pantheon",
+    "name": "Pinga",
+    "slug": "pinga",
+    "alternateNames": ["'The one up there' (Caribou Inuit)"],
+    "gender": "female",
+    "domain": [
+      "the caribou and other land animals",
+      "watching over people's conduct",
+      "souls"
+    ],
+    "symbols": ["the caribou"],
+    "description": "Among the inland Caribou Inuit of the Kivalliq region, a female power 'up above' who watches over the caribou and over how people treat the animals they hunt.",
+    "detailedBio": "## An inland power\n\nPinga is known chiefly from Rasmussen's report on the Caribou Inuit (Kivallirmiut) of the barren lands west of Hudson Bay, *Intellectual Culture of the Caribou Eskimos* (1930). For these inland people, who lived by the caribou rather than by sea mammals, the Sea Woman mattered less, and speakers described instead a female power who lives above, called Pinga, \"the one up there\".\n\n## What she watches\n\nAs Rasmussen's speakers described her, Pinga watches over the caribou and other land animals, and over whether people respect them: killing more than is needed or mistreating the carcasses offends her. She is also associated with souls. Rasmussen reports that some speakers linked her with Hila (Sila), the power of the air, though the relationship is not clearly defined in his account, and this site does not treat them as the same.\n\n## Limits of the record\n\nPinga's name and role come from one ethnographer's report of one region in the 1920s. She is not a pan-Inuit figure, and the details should be taken as what particular Caribou Inuit told Rasmussen, not as a fixed doctrine.",
+    "importanceRank": 3,
+    "imageUrl": "/deities/pinga.png",
+    "primarySources": [
+      {
+        "text": "Caribou Inuit speakers describe Pinga, a female spirit up above who watches over the animals and over people's respect for them (paraphrase).",
+        "source": "Knud Rasmussen, Intellectual Culture of the Caribou Eskimos (Report of the Fifth Thule Expedition, vol. 7, no. 2)",
+        "date": "1930"
+      }
+    ],
+    "furtherReading": [
+      {
+        "sourceId": "rasmussen-fifth-thule",
+        "note": "The Caribou Inuit volume"
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [],
+      "practices": "This is part of a living tradition. Inuit relationships with these figures today range from continued respect and storytelling to Christian faith that sets older practice aside, and they vary by family and community; this site does not describe angakkuq (shamanic) practice beyond what elders and Inuit-led publishers have chosen to make public."
+    },
+    "traditionRole": "Watcher of the Caribou"
+  },
+  {
+    "id": "tornarsuk",
+    "pantheonId": "inuit-pantheon",
+    "name": "Tornarsuk",
+    "slug": "tornarsuk",
+    "originalLanguageName": {
+      "text": "Tornaarsuk",
+      "language": "Kalaallisut (Greenlandic)",
+      "transliteration": "Tornaarsuk; Labrador Torngarsoak",
+      "meaning": "'Great spirit' or 'great helping spirit', from tornaq, a helping spirit"
+    },
+    "alternateNames": ["Torngarsuk", "Torngarsoak (Labrador)"],
+    "gender": "none",
+    "domain": ["the helping spirits of angakkuit", "knowledge and guidance"],
+    "symbols": ["the helping spirit (tornaq)"],
+    "description": "In Greenland and Labrador, the greatest of the helping spirits (tornait) on whom angakkuit relied; eighteenth-century missionaries recast the figure as the Devil, a reinterpretation this site notes rather than repeats.",
+    "detailedBio": "## The great helper\n\nA tornaq (plural tornait, tuurngait in Canadian dialects) is a helping spirit with whom an angakkuq works. Tornaarsuk, \"the great tornaq\", was described by eighteenth-century observers in Greenland as the chief of these helpers, the power from whom angakkuit gained knowledge and whose guidance they sought on behalf of their communities. Labrador sources describe a similar figure, Torngarsoak.\n\n## A missionary reinterpretation\n\nThe Danish-Norwegian missionary Hans Egede, who arrived in Greenland in 1721, and the Moravian missionaries who followed, looked for a devil in Inuit religion and found one in Tornarsuk. In Christian Greenlandic, the name came to be used for the Devil. Later scholars have pointed out that this equation says more about the missionaries' expectations than about Inuit belief, in which helping spirits were neither simply good nor simply evil.\n\n## Why this entry is short\n\nAlmost everything written about Tornarsuk in the eighteenth and nineteenth centuries comes through that missionary lens, and the practice of angakkuit with their helping spirits is not something this site describes in detail. The entry records the figure and the history of how outsiders changed its meaning.",
+    "importanceRank": 3,
+    "imageUrl": "/deities/tornarsuk.png",
+    "primarySources": [
+      {
+        "text": "Greenlandic accounts of the chief helping spirit of the angakkuit, recorded by missionaries and later collectors (paraphrase).",
+        "source": "Hinrich Rink, Tales and Traditions of the Eskimo",
+        "date": "1875"
+      }
+    ],
+    "sources": [
+      "Laugrand, Frédéric, and Jarich Oosten. *Inuit Shamanism and Christianity* (McGill-Queen's University Press, 2010)."
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [],
+      "practices": "This is part of a living tradition. Inuit relationships with these figures today range from continued respect and storytelling to Christian faith that sets older practice aside, and they vary by family and community; this site does not describe angakkuq (shamanic) practice beyond what elders and Inuit-led publishers have chosen to make public."
+    },
+    "traditionRole": "Great Helping Spirit"
+  },
+  {
+    "id": "tulunigraq",
+    "pantheonId": "inuit-pantheon",
+    "name": "Tulunigraq (Raven Man)",
+    "slug": "tulunigraq",
+    "originalLanguageName": {
+      "text": "Tuluŋigraq",
+      "language": "Iñupiaq (Tikiġaq dialect)",
+      "transliteration": "Tulunigraq",
+      "meaning": "'Something like a raven'"
+    },
+    "alternateNames": ["Raven Man", "Tulugaq (raven)"],
+    "gender": "male",
+    "domain": ["the making of the land at Tikiġaq", "whaling"],
+    "symbols": ["the raven", "the harpoon", "the whale"],
+    "description": "In the Iñupiaq tradition of Tikiġaq (Point Hope, Alaska), the Raven Man who harpooned a great sea creature whose body became the land on which the village stands.",
+    "detailedBio": "## Raven Man of Tikiġaq\n\nTikiġaq, the Iñupiaq village known in English as Point Hope, stands on a long gravel spit reaching into the Chukchi Sea, and its people are among the oldest whaling communities in North America. Their tradition tells that the land itself was once a living creature of the sea, harpooned by Tulunigraq, Raven Man, a being part raven and part man.\n\n## Recorded with the community\n\nThe fullest published account comes from Tom Lowenstein's work with Tikiġaq elders, above all Asatchaq, in the 1970s, published as *Ancient Land: Sacred Whale* (1993). Lowenstein stresses that the creature is not simply named a whale in the telling, and that the story is bound up with the village's whaling life and with the ceremonies of the whaling season, which this site does not describe.\n\n## Raven across the North\n\nRaven is a major figure across the North Pacific, from Siberia to the Northwest Coast, and in many Alaskan traditions, Iñupiaq and Yup'ik alike, he is a maker and trickster. Tulunigraq's story is specific to Tikiġaq; it should not be merged with the Tlingit and Haida Raven, who belongs to a different people and language, though the parallels are real.",
+    "importanceRank": 2,
+    "imageUrl": "/deities/tulunigraq.png",
+    "primarySources": [
+      {
+        "text": "Tikiġaq elders tell how Raven Man harpooned a great sea creature whose body became the land of Tikiġaq (paraphrase).",
+        "source": "Tom Lowenstein, Ancient Land: Sacred Whale: The Inuit Hunt and Its Rituals (from the tellings of Asatchaq and others)",
+        "date": "1993"
+      }
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "tlingit-haida-pantheon",
+        "deityId": "raven",
+        "note": "Both are Raven figures who remake the world, among different Northern peoples; the Tikiġaq and Tlingit-Haida stories are distinct traditions, not versions of one."
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [],
+      "practices": "This is part of a living tradition. Inuit relationships with these figures today range from continued respect and storytelling to Christian faith that sets older practice aside, and they vary by family and community; this site does not describe angakkuq (shamanic) practice beyond what elders and Inuit-led publishers have chosen to make public."
+    },
+    "traditionRole": "Maker of the Land (Tikiġaq)"
+  },
+  {
+    "id": "bunjil",
+    "pantheonId": "aboriginal-australian-pantheon",
+    "name": "Bunjil",
+    "slug": "bunjil",
+    "originalLanguageName": {
+      "text": "Bunjil / Bundjil",
+      "language": "Woiwurrung and other Kulin languages",
+      "transliteration": "Bunjil",
+      "meaning": "Wedge-tailed eagle"
+    },
+    "alternateNames": ["Bundjil", "Pundjel (older spelling)", "Eaglehawk"],
+    "gender": "male",
+    "domain": [
+      "creation of the land and people (Kulin)",
+      "law",
+      "the wedge-tailed eagle"
+    ],
+    "symbols": ["the wedge-tailed eagle", "the star Altair"],
+    "description": "The creator ancestor of the Kulin nations of central Victoria, a wedge-tailed eagle who shaped the land, made people, gave them law, and rose into the sky, where the Wurundjeri and Boon Wurrung see him as the star Altair.",
+    "detailedBio": "## Creator of the Kulin\n\nBunjil is the creator ancestor of the Kulin nations of central Victoria, among them the Wurundjeri Woi-wurrung, Boon Wurrung, Wadawurrung, Taungurung, and Dja Dja Wurrung peoples. He takes the form of the wedge-tailed eagle, and he is one of the two moiety ancestors of the Kulin, the other being Waa (Waang), the crow; every Kulin person belongs to Bunjil's moiety or Waa's, which governs marriage and relationships. The Wurundjeri Woi-wurrung Cultural Heritage Aboriginal Corporation and other Kulin organisations share Bunjil's story publicly today.\n\n## What he made\n\nIn publicly shared Kulin tellings, Bunjil shaped the land, its mountains, rivers, plants, and animals, and made the first people, and gave them the law by which to live. His brother Pallian, who had charge of the waters, is said in many tellings to have brought the first women from the water. Bunjil's family includes two wives and a son, Binbeal, the rainbow. When his work was done, he went up into the sky.\n\n## In the stars\n\nMuseums Victoria, drawing on Boon Wurrung and Wurundjeri knowledge, reports that Bunjil is associated with the star Altair, and his two wives, in the form of black swans, with the stars on either side of it. The only known rock painting of Bunjil is at Bunjil's Shelter near Stawell, on Djab Wurrung Country.\n\n## Earlier records\n\nNineteenth-century colonists such as William Thomas and Robert Brough Smyth recorded Bunjil stories and often described him as a \"Supreme Being\"; those descriptions reflect the recorders' own religious frameworks as well as what Kulin people told them. The Kulin nations' own tellings are the authority for his story.",
+    "importanceRank": 1,
+    "imageUrl": "/deities/bunjil.png",
+    "primarySources": [
+      {
+        "text": "Museums Victoria reports that the Boon Wurrung and Wurundjeri connect Bunjil the eagle with the star Altair, and his two black-swan wives with the stars on either side (paraphrase).",
+        "source": "Museums Victoria, 'First Peoples of Australia Astronomy' (Melbourne Planetarium fact sheet)",
+        "date": "accessed 2026"
+      },
+      {
+        "text": "Kulin creation accounts recorded in colonial Victoria, including Bunjil's making of the land and his ascent to the sky (paraphrase).",
+        "source": "R. Brough Smyth, The Aborigines of Victoria, vol. 1",
+        "date": "1878"
+      }
+    ],
+    "furtherReading": [],
+    "sources": [
+      "Wurundjeri Woi-wurrung Cultural Heritage Aboriginal Corporation, public cultural information on Bunjil (wurundjeri.com.au)."
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [],
+      "practices": "This site does not describe ceremonies, sacred sites, or practices associated with this figure. Only the publicly shared story is summarised here; custodianship of the story belongs to the people named, and their own tellings take precedence."
+    },
+    "traditionRole": "Creator Ancestor (Kulin)"
+  },
+  {
+    "id": "pallian",
+    "pantheonId": "aboriginal-australian-pantheon",
+    "name": "Pallian",
+    "slug": "pallian",
+    "alternateNames": ["Palian", "Balayang (in some records)"],
+    "gender": "male",
+    "domain": [
+      "the waters: rivers, creeks, and billabongs (Kulin)",
+      "the making of the first women"
+    ],
+    "symbols": ["water", "the bat (in some records)"],
+    "description": "In Kulin tellings, Bunjil's brother, who had charge of the waters and who, beating the water with his hands, brought forth the first women.",
+    "detailedBio": "## Bunjil's brother\n\nPallian appears in Kulin creation stories as Bunjil's brother, who was given charge of the rivers, creeks, and billabongs. In a telling shared publicly by a Wadawurrung Elder, after Bunjil had made the first men, Pallian began to thump the water with his hands until the water took the shape of two women, who became the first women. Similar accounts were recorded in the nineteenth century in colonial Victoria.\n\n## Names and records\n\nColonial sources spell his name in several ways, and some associate the name Balayang, and the bat, with Bunjil's brother; whether these are the same figure in every Kulin tradition is not clear from the published records, and this site follows the public Kulin tellings in calling him Pallian.\n\n## Why he matters\n\nPallian's story makes creation a shared work between brothers, one with the land and one with the water, and it grounds the relationship between men and women in the first acts of making. Like Bunjil's story, it belongs to the Kulin nations, whose own tellings take precedence over any summary here.",
+    "importanceRank": 2,
+    "imageUrl": "/deities/pallian.png",
+    "primarySources": [
+      {
+        "text": "A Wadawurrung Elder's public telling of the Kulin creation: Bunjil's brother Pallian, who had charge of the waters, thumped the water with his hands until it took the shape of women (paraphrase).",
+        "source": "Wadawurrung Elder's telling shared by the National Wool Museum, Geelong",
+        "date": "accessed 2026"
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [],
+      "practices": "This site does not describe ceremonies, sacred sites, or practices associated with this figure. Only the publicly shared story is summarised here; custodianship of the story belongs to the people named, and their own tellings take precedence."
+    },
+    "traditionRole": "Ancestral Being of the Waters (Kulin)"
+  },
+  {
+    "id": "baiame",
+    "pantheonId": "aboriginal-australian-pantheon",
+    "name": "Baiame",
+    "slug": "baiame",
+    "originalLanguageName": {
+      "text": "Baayami / Baiame",
+      "language": "Gamilaraay, Wiradjuri, Ngiyampaa, Yuwaalaraay and neighbouring languages",
+      "transliteration": "Baayami",
+      "meaning": "Often explained as related to a verb 'to make'; the etymology is debated"
+    },
+    "alternateNames": ["Baayami", "Biame", "Byamee"],
+    "gender": "male",
+    "domain": [
+      "creation (south-eastern Australia)",
+      "law",
+      "the Brewarrina fish traps"
+    ],
+    "symbols": ["the net thrown over the river", "the sky camp"],
+    "description": "The creator ancestor of several peoples of New South Wales, among them the Gamilaraay, Wiradjuri, Ngiyampaa (Ngemba), and Yuwaalaraay, who made rivers and laws; at Brewarrina he revealed the design of the fish traps, Baiame's Ngunnhu.",
+    "detailedBio": "## A creator of many nations\n\nBaiame is a creator ancestor for a number of peoples of central and northern New South Wales, including the Gamilaraay (Kamilaroi), Wiradjuri, Ngiyampaa (including the Ngemba of Brewarrina), and Yuwaalaraay (Euahlayi). Stories shared by these peoples describe Baiame travelling the land, shaping rivers and landforms, giving law, and eventually going up to live in the sky. Each people tells his story in its own way, and this site does not merge them.\n\n## Baiame's Ngunnhu\n\nThe best documented public story is from Brewarrina, on the Barwon River. The Australian Government's National Heritage listing, prepared with the local Aboriginal community, records that the ancestral creation being Baiame revealed the design of the fish traps by throwing his net over the river, and that he and his two sons, Booma-ooma-nowi and Ghinda-inda-mui, built the traps to that design. Baiame allocated particular traps to each family group and made them responsible for their use and maintenance.\n\n## Restricted aspects\n\nBaiame is also associated with ceremonies, including initiation, that are restricted to initiated people; those are not described here. Nineteenth-century missionaries and ethnographers often presented Baiame as a supreme being comparable to the Christian God, a framing that scholars have questioned and that may reflect missionary influence as much as earlier belief.\n\n## Rock art\n\nA painted figure in a rock shelter at Milbrodale in the Hunter Valley, on Wonnarua Country, is widely known as Baiame's Cave; the site's significance is for its custodians to explain.",
+    "importanceRank": 2,
+    "imageUrl": "/deities/baiame.png",
+    "primarySources": [
+      {
+        "text": "According to Aboriginal tradition the ancestral creation being Baiame revealed the design of the traps by throwing his net over the river.",
+        "source": "Australian Government, National Heritage List: Brewarrina Aboriginal Fish Traps (Baiame's Ngunnhu)",
+        "date": "accessed 2026"
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [],
+      "practices": "This site does not describe ceremonies, sacred sites, or practices associated with this figure. Only the publicly shared story is summarised here; custodianship of the story belongs to the people named, and their own tellings take precedence."
+    },
+    "traditionRole": "Creator Ancestor (NSW nations)"
+  },
+  {
+    "id": "rainbow-serpent",
+    "pantheonId": "aboriginal-australian-pantheon",
+    "name": "Rainbow Serpent (an umbrella term)",
+    "slug": "rainbow-serpent",
+    "alternateNames": [
+      "Wagyl or Waugal (Noongar)",
+      "Ngalyod (Kunwinjku, western Arnhem Land)",
+      "many other names in other languages"
+    ],
+    "gender": "none",
+    "domain": ["water, rain, and waterholes", "the shaping of the land"],
+    "symbols": ["the rainbow", "the waterhole"],
+    "description": "An English umbrella term, introduced by the anthropologist A. R. Radcliffe-Brown in 1926, for the many great serpent beings associated with water and rain in the traditions of different Aboriginal peoples; each has its own name, Country, and story.",
+    "detailedBio": "## A scholar's category\n\n\"Rainbow Serpent\" is not an Aboriginal name. The anthropologist A. R. Radcliffe-Brown used it in a 1926 paper, \"The Rainbow-Serpent Myth of Australia\", to group together serpent beings he found in the traditions of many peoples across the continent, associated with water, rain, and the rainbow. The term stuck, and it is now used widely, including by some Aboriginal people speaking in English, but it can hide the differences between distinct beings with their own names, Countries, and laws.\n\n## Some named beings\n\nAmong publicly known serpent beings associated with water are the Wagyl (or Waugal) of the Noongar people of south-western Western Australia, who shaped the rivers and waterways, including the Derbarl Yerrigan (Swan River); and Ngalyod of the Kunwinjku people of western Arnhem Land, who appears in publicly exhibited bark paintings. These are not simply local names for one being, and this site gives the Wagyl its own entry. Not every great snake in Aboriginal story is a \"Rainbow Serpent\": Kuniya at Uluṟu, for instance, is a woma python woman with her own story, and should not be folded into this category.\n\n## Water, law, and care\n\nIn many traditions serpent beings are associated with permanent water, and with the law governing how people approach it; stories warn against disturbing certain waterholes. Some stories associated with serpent beings are restricted, and this site includes only those shared publicly.\n\n## In wider culture\n\nPopular books and artworks have made the \"Rainbow Serpent\" one of the best-known images of Aboriginal Australia worldwide. Readers who want to know more should look for stories told by the particular people concerned, under their own names for the being.",
+    "importanceRank": 3,
+    "imageUrl": "/deities/rainbow-serpent.png",
+    "primarySources": [
+      {
+        "text": "Radcliffe-Brown groups the serpent beings associated with water and the rainbow in many Aboriginal traditions under the name 'Rainbow-Serpent' (paraphrase).",
+        "source": "A. R. Radcliffe-Brown, 'The Rainbow-Serpent Myth of Australia', Journal of the Royal Anthropological Institute 56",
+        "date": "1926"
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [],
+      "practices": "This site does not describe ceremonies, sacred sites, or practices associated with this figure. Only the publicly shared story is summarised here; custodianship of the story belongs to the people named, and their own tellings take precedence."
+    },
+    "traditionRole": "Scholarly Umbrella Term"
+  },
+  {
+    "id": "wagyl",
+    "pantheonId": "aboriginal-australian-pantheon",
+    "name": "Wagyl (Waugal)",
+    "slug": "wagyl",
+    "originalLanguageName": {
+      "text": "Wagyl / Waugal",
+      "language": "Noongar",
+      "transliteration": "Wagyl, Waugal, Waakal",
+      "meaning": "The serpent being of Noongar tradition"
+    },
+    "alternateNames": ["Waugal", "Waakal", "Wakarl"],
+    "gender": "none",
+    "domain": [
+      "the rivers, lakes, and wetlands of Noongar Country",
+      "fresh water"
+    ],
+    "symbols": ["the Derbarl Yerrigan (Swan River)", "fresh water"],
+    "description": "The serpent being of the Noongar people of south-western Western Australia, who in the Nyitting (creation time) moved across the land shaping its rivers, lakes, and wetlands, including the Derbarl Yerrigan (Swan River) at Perth.",
+    "detailedBio": "## Noongar Country\n\nThe Noongar are the Aboriginal people of the south-west of Western Australia, made up of several language groups, among them the Whadjuk around Perth. The Wagyl (also spelled Waugal, Waakal, and in other ways) is the serpent being of Noongar tradition. Noongar organisations and local governments working with Noongar Elders publicly share that in the Nyitting, the creation time, the Wagyl moved across the land and created its waterways: rivers, lakes, and wetlands.\n\n## The Derbarl Yerrigan\n\nThe best-known Wagyl story in public sources concerns the Derbarl Yerrigan, the Swan River at Perth: the Wagyl's movements shaped the river's course, and its resting places along the river are important to Whadjuk Noongar people. The Wagyl is associated with fresh water and with the responsibility to care for it.\n\n## A living responsibility\n\nNoongar people have acted to protect places associated with the Wagyl. The best-known example is Goonininup, on the Swan River below Kings Park, where Noongar people protested the redevelopment of the Old Swan Brewery site from 1989 because of its association with the Wagyl. The Wagyl is not only a figure of the past but part of Noongar responsibility for Country today.\n\n## Variation\n\nDifferent Noongar groups tell Wagyl stories in different ways, and some knowledge about the Wagyl is not public. This summary follows what Noongar organisations such as the South West Aboriginal Land and Sea Council (Kaartdijin Noongar) and local councils working with Noongar Elders have published.",
+    "importanceRank": 2,
+    "imageUrl": "/deities/wagyl.png",
+    "primarySources": [
+      {
+        "text": "During the Nyitting (Creation Time), the great creator snake called the Waugal or Wagyl moved down the Derbal Yerrigan and created the waterways and landscapes.",
+        "source": "City of Swan, 'Aboriginal history' (prepared with Noongar community input)",
+        "date": "accessed 2026"
+      }
+    ],
+    "sources": [
+      "South West Aboriginal Land and Sea Council, Kaartdijin Noongar (Noongar Knowledge), noongarculture.org.au."
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [],
+      "practices": "This site does not describe ceremonies, sacred sites, or practices associated with this figure. Only the publicly shared story is summarised here; custodianship of the story belongs to the people named, and their own tellings take precedence."
+    },
+    "traditionRole": "Serpent Being of the Waters (Noongar)"
+  },
+  {
+    "id": "seven-sisters",
+    "pantheonId": "aboriginal-australian-pantheon",
+    "name": "The Seven Sisters (Minyipuru, Kungkarangkalpa)",
+    "slug": "seven-sisters",
+    "originalLanguageName": {
+      "text": "Minyipuru; Kungkarangkalpa",
+      "language": "Martu Wangka; Pitjantjatjara and Yankunytjatjara",
+      "transliteration": "Minyipuru (Martu); Kungkarangkalpa or Kungkarrangkalpa (Aṉangu)",
+      "meaning": "Kungkarangkalpa is often glossed as 'the seven sisters'"
+    },
+    "alternateNames": [
+      "Minyipuru (Martu)",
+      "Kungkarangkalpa (Aṉangu Pitjantjatjara Yankunytjatjara)",
+      "the Pleiades"
+    ],
+    "gender": "female",
+    "domain": [
+      "the Seven Sisters songline",
+      "the Pleiades",
+      "women's strength and sisterhood"
+    ],
+    "symbols": [
+      "the Pleiades",
+      "the sisters' camps and rockholes along the songline"
+    ],
+    "description": "Ancestral sisters whose flight across the Western and Central Deserts, pursued by a man who uses magic, is recorded in songlines of the Martu, Ngaanyatjarra, and Aṉangu Pitjantjatjara Yankunytjatjara peoples, and who became the Pleiades.",
+    "detailedBio": "## A songline across many Countries\n\nThe Seven Sisters travel across the Western and Central Deserts, through the Countries of the Martu (who call them Minyipuru), the Ngaanyatjarra, and the Aṉangu Pitjantjatjara Yankunytjatjara (who call them Kungkarangkalpa), pursued by a man who desires one or all of them. Their journey forms songlines that cross hundreds of kilometres of what are now Western Australia, South Australia, and the Northern Territory, and the places where they camped, rested, and escaped are marked in the land.\n\n## Shared through Songlines\n\nThe custodians of these songlines worked with the National Museum of Australia to share parts of the story publicly in the exhibition *Songlines: Tracking the Seven Sisters* (2017), through paintings, weavings, song, dance, and digital media, deciding themselves what could be shown. Aṉangu senior women artists quoted by the museum describe themselves as big sisters to the young women, with a duty, as in the Seven Sisters story, to teach and protect them.\n\n## In the sky\n\nThe sisters rise into the sky as the Pleiades. Stories of sisters and the Pleiades are found in many Aboriginal traditions beyond the deserts as well, but they are told in their own ways by their own peoples.\n\n## What is not here\n\nParts of the Seven Sisters story are women's knowledge, or are restricted in other ways, and are not public. This entry keeps to the outline that the custodians chose to share.",
+    "importanceRank": 1,
+    "imageUrl": "/deities/seven-sisters.png",
+    "primarySources": [
+      {
+        "text": "Aṉangu senior women artists describe themselves as big sisters (kanguru pulka) to the young women, who, as in the Seven Sisters story, must teach and protect their young sisters (paraphrase of statement quoted by the museum).",
+        "source": "National Museum of Australia, Songlines: Tracking the Seven Sisters (exhibition and catalogue, ed. Margo Neale)",
+        "date": "2016 statement; exhibition 2017"
+      }
+    ],
+    "furtherReading": [
+      {
+        "sourceId": "songlines-seven-sisters",
+        "note": "The custodians' own presentation of the songline"
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [],
+      "practices": "This site does not describe ceremonies, sacred sites, or practices associated with this figure. Only the publicly shared story is summarised here; custodianship of the story belongs to the people named, and their own tellings take precedence."
+    },
+    "traditionRole": "Ancestral Sisters (Western and Central Deserts)"
+  },
+  {
+    "id": "wati-nyiru",
+    "pantheonId": "aboriginal-australian-pantheon",
+    "name": "Wati Nyiru (Yurla)",
+    "slug": "wati-nyiru",
+    "originalLanguageName": {
+      "text": "Wati Nyiru; Yurla",
+      "language": "Pitjantjatjara and Yankunytjatjara; Martu Wangka",
+      "transliteration": "Wati Nyiru (Aṉangu); Yurla (Martu)",
+      "meaning": "Wati means 'man'"
+    },
+    "alternateNames": ["Yurla (Martu)", "Nyiru"],
+    "gender": "male",
+    "domain": ["pursuit and desire", "shape-changing magic"],
+    "symbols": ["stars of Orion"],
+    "description": "The man who pursues the Seven Sisters across the deserts, using magic and changing his shape to trick them; called Wati Nyiru by Aṉangu and Yurla by the Martu.",
+    "detailedBio": "## The pursuer\n\nIn the Seven Sisters songlines shared publicly by Martu, Ngaanyatjarra, and Aṉangu Pitjantjatjara Yankunytjatjara custodians, the sisters are pursued by a man, Yurla to the Martu and Wati Nyiru to Aṉangu. He is a sorcerer who uses magic and changes his shape to get close to them, taking the form of things in the landscape to trick them, and he never gives up.\n\n## A story about conduct\n\nAs the custodians have presented it, the story of Wati Nyiru is also a lesson about proper and improper behaviour, and about the strength of sisters and women who look after one another. The sisters escape him again and again, helped by their own powers and by each other.\n\n## In the sky\n\nWhen the sisters rise into the sky as the Pleiades, the man follows, and is seen in stars of the constellation known in Western astronomy as Orion, still pursuing them across the night sky.\n\n## Limits\n\nThis entry summarises only what was shared publicly through the National Museum of Australia's *Songlines* exhibition and its catalogue. Other parts of the story are restricted and are not described.",
+    "importanceRank": 2,
+    "imageUrl": "/deities/wati-nyiru.png",
+    "primarySources": [
+      {
+        "text": "The Seven Sisters are pursued across three deserts by the sorcerer Wati Nyiru (paraphrase of the exhibition's public description).",
+        "source": "National Museum of Australia, Songlines: Tracking the Seven Sisters (exhibition and catalogue, ed. Margo Neale)",
+        "date": "2017"
+      }
+    ],
+    "furtherReading": [
+      {
+        "sourceId": "songlines-seven-sisters",
+        "note": "The custodians' presentation of the pursuit"
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [],
+      "practices": "This site does not describe ceremonies, sacred sites, or practices associated with this figure. Only the publicly shared story is summarised here; custodianship of the story belongs to the people named, and their own tellings take precedence."
+    },
+    "traditionRole": "Ancestral Pursuer (Western and Central Deserts)"
+  },
+  {
+    "id": "kuniya",
+    "pantheonId": "aboriginal-australian-pantheon",
+    "name": "Kuniya",
+    "slug": "kuniya",
+    "originalLanguageName": {
+      "text": "Kuniya",
+      "language": "Pitjantjatjara and Yankunytjatjara",
+      "transliteration": "Kuniya",
+      "meaning": "Woma python"
+    },
+    "alternateNames": ["Kuniya, the woma python woman"],
+    "gender": "female",
+    "domain": [
+      "the woma python",
+      "the south side of Uluṟu",
+      "protection of kin"
+    ],
+    "symbols": ["the woma python", "the wana (digging stick)"],
+    "description": "The woma python woman of Aṉangu Tjukurpa who came to Uluṟu and, when her nephew was killed by Liru warriors, confronted and struck down a Liru warrior at Muṯitjulu Waterhole; the marks of the fight remain in the rock.",
+    "detailedBio": "## An Aṉangu ancestor\n\nKuniya is the woma python in the Tjukurpa (the law and ancestral knowledge) of the Aṉangu, the traditional owners of Uluṟu-Kata Tjuṯa National Park. Her story is one that Aṉangu share publicly with visitors, told on signs along the Kuniya walk to Muṯitjulu Waterhole and on the park's website, both prepared with Aṉangu.\n\n## Her story\n\nAs Aṉangu tell it publicly, Kuniya travelled to Uluṟu from far away. Her nephew, a young Kuniya man, was attacked and killed by a war party of Liru, venomous snake men. Filled with grief and anger, Kuniya came to Muṯitjulu and confronted one of the Liru warriors. She took up her wana, her digging stick, and struck him on the head, and he died. Features of the rock face at Muṯitjulu are the marks of this encounter.\n\n## Not a \"Rainbow Serpent\"\n\nKuniya is a woma python woman, not an example of the scholarly category \"Rainbow Serpent\", and her story should be understood on its own terms, as Aṉangu tell it.\n\n## Visiting respectfully\n\nAṉangu ask visitors to Uluṟu to respect culturally sensitive areas, including places where photography is not permitted, and no longer permit climbing Uluṟu, which was closed to climbing in 2019 at the request of the traditional owners.",
+    "importanceRank": 1,
+    "imageUrl": "/deities/kuniya.png",
+    "primarySources": [
+      {
+        "text": "Kuniya's nephew is killed by a war party of Liru; at Muṯitjulu she strikes a Liru warrior with her wana (digging stick) (paraphrase of the public telling).",
+        "source": "Uluṟu-Kata Tjuṯa National Park (Parks Australia, with Aṉangu traditional owners), 'The Kuniya & Liru stories'",
+        "date": "accessed 2026"
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [],
+      "practices": "This site does not describe ceremonies, sacred sites, or practices associated with this figure. Only the publicly shared story is summarised here; custodianship of the story belongs to the people named, and their own tellings take precedence."
+    },
+    "traditionRole": "Ancestral Being (Aṉangu)"
+  },
+  {
+    "id": "liru",
+    "pantheonId": "aboriginal-australian-pantheon",
+    "name": "Liru",
+    "slug": "liru",
+    "originalLanguageName": {
+      "text": "Liru",
+      "language": "Pitjantjatjara and Yankunytjatjara",
+      "transliteration": "Liru",
+      "meaning": "Venomous snake (brown snake)"
+    },
+    "alternateNames": ["the Liru warriors"],
+    "gender": "male",
+    "domain": ["venomous snakes", "the warriors of the Kuniya and Liru story"],
+    "symbols": ["spears", "the venomous snake"],
+    "description": "The venomous snake men of Aṉangu Tjukurpa, a war party who attacked and killed Kuniya's nephew and one of whom Kuniya struck down at Muṯitjulu.",
+    "detailedBio": "## The warriors\n\nIn the Aṉangu story of Kuniya and Liru, shared publicly at Uluṟu-Kata Tjuṯa National Park, the Liru are venomous snake men who came as a war party. They attacked Kuniya's nephew and killed him, and the marks of their spears are said to remain on the rock of Uluṟu.\n\n## The confrontation\n\nKuniya, grieving and angry, came to Muṯitjulu and faced one of the Liru warriors. She struck him with her wana, her digging stick, and killed him. Aṉangu point to features of the rock as evidence of this story.\n\n## A collective figure\n\nLiru in this story is a group, not a single named individual, and this entry treats them collectively. The story is part of Aṉangu Tjukurpa, and the public telling is the one Aṉangu have chosen to share with visitors; other knowledge connected with it is not public.",
+    "importanceRank": 3,
+    "imageUrl": "/deities/liru.png",
+    "primarySources": [
+      {
+        "text": "A war party of Liru, poisonous snake men, attack Kuniya's nephew; Kuniya confronts one of them at Muṯitjulu (paraphrase of the public telling).",
+        "source": "Uluṟu-Kata Tjuṯa National Park (Parks Australia, with Aṉangu traditional owners), 'The Kuniya & Liru stories'",
+        "date": "accessed 2026"
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [],
+      "practices": "This site does not describe ceremonies, sacred sites, or practices associated with this figure. Only the publicly shared story is summarised here; custodianship of the story belongs to the people named, and their own tellings take precedence."
+    },
+    "traditionRole": "Ancestral Beings (Aṉangu)"
+  },
+  {
+    "id": "changing-woman",
+    "pantheonId": "dine-pantheon",
+    "name": "Changing Woman (Asdzą́ą́ Nádleehé)",
+    "slug": "changing-woman",
+    "originalLanguageName": {
+      "text": "Asdzą́ą́ Nádleehé",
+      "language": "Diné bizaad (Navajo)",
+      "transliteration": "Asdzą́ą́ Nádleehé",
+      "meaning": "'Woman who changes', 'the woman who is transformed time and again'"
+    },
+    "alternateNames": ["Estsánatlehi (Matthews's spelling)", "Asdzą́ą́ Nádleehé"],
+    "gender": "female",
+    "domain": [
+      "the renewal of life and the seasons",
+      "motherhood",
+      "the origin of the clans",
+      "the Kinaaldá"
+    ],
+    "symbols": ["turquoise", "the house in the west"],
+    "description": "The most beloved of the Diné Holy People, 'Woman who changes', found as an infant on Chʼóolʼį́ʼí, mother of the Hero Twins by the Sun, and creator of the first Diné clans; she grows old and young again with the seasons.",
+    "detailedBio": "## Woman who changes\n\nAsdzą́ą́ Nádleehé, Changing Woman, is often described as the most beloved and benevolent of the Diné Holy People. Her name refers to her renewal: she grows old in winter and becomes young again in spring, in the cycle of the seasons and of life itself. She is associated with the earth, with growth, and with the Blessingway, the ceremony at the heart of Diné religion, which this site does not describe.\n\n## Her finding\n\nIn many tellings, including those gathered in Zolbrod's *Diné bahaneʼ*, First Man finds her as an infant on top of Chʼóolʼį́ʼí (Gobernador Knob) in a place of dark cloud and rain, and she is raised by First Man and First Woman. She grows to womanhood in days, and her puberty ceremony, the first Kinaaldá, is the pattern for the Kinaaldá still held for Diné girls today. Matthews's 1897 version tells her origin differently, and this site does not choose between them.\n\n## Mother of the Hero Twins\n\nBy the Sun, Jóhonaaʼéí, she becomes the mother of Naayééʼ Neizghání, Monster Slayer; in many tellings she is also the mother of his twin, Tóbájíshchíní, Born for Water, while in Matthews's version Born for Water is the son of White Shell Woman. She hides the boys from the monsters and later sends them on their way.\n\n## The west and the clans\n\nWhen the monsters have been overcome, Changing Woman goes to live in the west, in a house the Sun built for her on the water. There, in widely published tellings, she creates the first Diné clans from skin rubbed from her own body, and sends them east to Diné Bikéyah. The clan system she began remains the basis of Diné identity: a Diné person introduces themselves by their clans.",
+    "importanceRank": 1,
+    "imageUrl": "/deities/changing-woman.png",
+    "primarySources": [
+      {
+        "text": "Estsánatlehi bears Nayénĕzgani to the Sun and, with Yolkaí Estsán, raises the twins and hides them from the monsters (paraphrase).",
+        "source": "Washington Matthews, Navaho Legends",
+        "date": "1897"
+      },
+      {
+        "text": "First Man finds an infant girl on the mountain Chʼóolʼį́ʼí, and she is raised to become Changing Woman (paraphrase).",
+        "source": "Paul G. Zolbrod, Diné bahaneʼ",
+        "date": "1984"
+      }
+    ],
+    "furtherReading": [
+      {
+        "sourceId": "navaho-legends-matthews",
+        "note": "Estsánatlehi in the 1897 translation"
+      },
+      {
+        "sourceId": "dine-bahane-zolbrod",
+        "note": "Her finding and the Kinaaldá"
+      }
+    ],
+    "sources": [
+      "Frisbie, Charlotte Johnson. *Kinaaldá: A Study of the Navaho Girl's Puberty Ceremony* (Wesleyan University Press, 1967; University of Utah Press, 1993)."
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [],
+      "practices": "The Holy People are part of a living religion. Ceremonies associated with them, including the Blessingway (Hózhǫ́ǫ́jí) and the chantways conducted by hataałii (ceremonial practitioners), are not described on this site, and sandpaintings are not reproduced, because they are sacred and made for healing within ceremony."
+    },
+    "traditionRole": "Holy Person"
+  },
+  {
+    "id": "white-shell-woman",
+    "pantheonId": "dine-pantheon",
+    "name": "White Shell Woman (Yoołgaii Asdzą́ą́)",
+    "slug": "white-shell-woman",
+    "originalLanguageName": {
+      "text": "Yoołgaii Asdzą́ą́",
+      "language": "Diné bizaad (Navajo)",
+      "transliteration": "Yoołgaii Asdzą́ą́",
+      "meaning": "'White Shell Woman'"
+    },
+    "alternateNames": ["Yolkaí Estsán (Matthews's spelling)"],
+    "gender": "female",
+    "domain": ["white shell", "the east", "motherhood"],
+    "symbols": ["white shell"],
+    "description": "A Holy Person who in Matthews's 1897 version lives with Changing Woman and is the mother of Born for Water; in many later tellings she is another name or aspect of Changing Woman herself.",
+    "detailedBio": "## Two women, or one?\n\nWhite Shell Woman's relationship to Changing Woman differs from telling to telling. In Washington Matthews's *Navaho Legends* (1897), Yolkaí Estsán and Estsánatlehi are two women who live together; Changing Woman conceives a son by the Sun, and White Shell Woman conceives a son by the water, and the two boys grow up together as brothers: Monster Slayer and Born for Water. In many later tellings, White Shell Woman is another name for Changing Woman, or an aspect of her, and both twins are Changing Woman's sons.\n\n## White shell\n\nWhite shell is one of the four sacred stones of Diné tradition, associated with the east and with Sisnaajiní (Blanca Peak), the sacred mountain of the east. White Shell Woman's name links her with that stone and direction.\n\n## Why both entries exist\n\nThis site keeps White Shell Woman as a separate entry because a major published source treats her as a separate person, and because merging her into Changing Woman would erase that version. Readers should understand that many Diné tellers would not separate them.",
+    "importanceRank": 2,
+    "imageUrl": "/deities/white-shell-woman.png",
+    "primarySources": [
+      {
+        "text": "Yolkaí Estsán conceives a son by the water, who is named Tóbadzĭstsíni, Child of the Water, and is raised with his brother (paraphrase).",
+        "source": "Washington Matthews, Navaho Legends",
+        "date": "1897"
+      }
+    ],
+    "furtherReading": [
+      {
+        "sourceId": "navaho-legends-matthews",
+        "note": "Yolkaí Estsán in the 1897 version"
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [],
+      "practices": "The Holy People are part of a living religion. Ceremonies associated with them, including the Blessingway (Hózhǫ́ǫ́jí) and the chantways conducted by hataałii (ceremonial practitioners), are not described on this site, and sandpaintings are not reproduced, because they are sacred and made for healing within ceremony."
+    },
+    "traditionRole": "Holy Person"
+  },
+  {
+    "id": "monster-slayer",
+    "pantheonId": "dine-pantheon",
+    "name": "Monster Slayer (Naayééʼ Neizghání)",
+    "slug": "monster-slayer",
+    "originalLanguageName": {
+      "text": "Naayééʼ Neizghání",
+      "language": "Diné bizaad (Navajo)",
+      "transliteration": "Naayééʼ Neizghání",
+      "meaning": "'He who kills monsters (alien gods)'"
+    },
+    "alternateNames": [
+      "Nayénĕzgani (Matthews's spelling)",
+      "Slayer of Alien Gods"
+    ],
+    "gender": "male",
+    "domain": [
+      "protection of the Diné",
+      "the destruction of the monsters",
+      "war and courage"
+    ],
+    "symbols": ["lightning arrows", "flint armor"],
+    "description": "The elder of the Hero Twins, son of Changing Woman and the Sun, who with his brother journeys to their father's house and returns with lightning weapons to destroy the monsters that preyed on the Earth Surface People.",
+    "detailedBio": "## The elder twin\n\nNaayééʼ Neizghání, Monster Slayer, and his brother Tóbájíshchíní, Born for Water, are the Hero Twins of Diné tradition. Monster Slayer is the son of Changing Woman and the Sun, Jóhonaaʼéí. The twins grow up hidden from the naayééʼ, the monsters that are killing the people, and in time set out to find their father.\n\n## To the Sun and back\n\nHelped by Spider Woman, who gives them protection and words to pacify the guardians along the way, the twins pass through dangerous places and reach the Sun's house. The Sun tests them severely before he accepts them as his sons, and then gives them armour of flint and weapons, among them arrows of lightning. They return to the earth, and their first victim is Yéʼiitsoh, the Big Monster, killed near Tsoodził (Mount Taylor).\n\n## The monsters, and those spared\n\nAfter Yéʼiitsoh, Monster Slayer goes on to destroy many other monsters, among them the horned Déélgééd and the monster eagles of Tsé Bitʼaʼí (Shiprock). But in Matthews's 1897 version he spares Old Age, Cold, Poverty, and Hunger when each explains why the people need it: without old age there would be no new generations; without cold, no snow and water; without poverty, no new things made; without hunger, no pleasure in food. The story ends not with a world cleansed of every difficulty but with a world in balance.\n\n## After the killing\n\nIn several tellings the twins must undergo ceremonies to be restored after so much killing, which are the origin of ceremonies still practised; this site does not describe them.",
+    "importanceRank": 1,
+    "imageUrl": "/deities/monster-slayer.png",
+    "primarySources": [
+      {
+        "text": "Nayénĕzgani spares Old Age, Cold, Poverty, and Hunger when each argues that the people would be worse off without it (paraphrase).",
+        "source": "Washington Matthews, Navaho Legends",
+        "date": "1897"
+      }
+    ],
+    "furtherReading": [
+      {
+        "sourceId": "navaho-legends-matthews",
+        "note": "The war gods' journey and their battles"
+      },
+      {
+        "sourceId": "dine-bahane-zolbrod",
+        "note": "Part Four of the creation story"
+      }
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "mesoamerican-pantheon",
+        "deityId": "hero-twins",
+        "note": "Both are pairs of twin brothers who confront monstrous beings and must prove themselves to powerful elders; the Diné and K'iche' Maya stories are distinct traditions, not versions of one."
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [],
+      "practices": "The Holy People are part of a living religion. Ceremonies associated with them, including the Blessingway (Hózhǫ́ǫ́jí) and the chantways conducted by hataałii (ceremonial practitioners), are not described on this site, and sandpaintings are not reproduced, because they are sacred and made for healing within ceremony."
+    },
+    "traditionRole": "Holy Person · Hero Twin"
+  },
+  {
+    "id": "born-for-water",
+    "pantheonId": "dine-pantheon",
+    "name": "Born for Water (Tóbájíshchíní)",
+    "slug": "born-for-water",
+    "originalLanguageName": {
+      "text": "Tóbájíshchíní",
+      "language": "Diné bizaad (Navajo)",
+      "transliteration": "Tóbájíshchíní",
+      "meaning": "'Born for water' or 'child of the water'"
+    },
+    "alternateNames": [
+      "Tóbadzĭstsíni (Matthews's spelling)",
+      "Child of the Water"
+    ],
+    "gender": "male",
+    "domain": ["protection", "the Hero Twins' partnership"],
+    "symbols": ["water"],
+    "description": "The younger of the Hero Twins, Monster Slayer's brother; in Matthews's version the son of White Shell Woman by the water, in many later tellings Changing Woman's son by the Sun.",
+    "detailedBio": "## The younger twin\n\nTóbájíshchíní, Born for Water, is the brother of Monster Slayer, and the two act together through the journey to their father's house and the killing of the first monster. His name, usually translated \"born for water\" or \"child of the water\", reflects the version of his birth told in Matthews's *Navaho Legends*, in which White Shell Woman conceives him by the dripping of water, while Changing Woman conceives Monster Slayer by the Sun. In many later tellings both are Changing Woman's twin sons by the Sun.\n\n## Staying home\n\nAfter the twins kill Yéʼiitsoh, the brothers' paths divide in many tellings: Monster Slayer goes out to destroy the other monsters, while Born for Water stays at home to watch over their mothers, keeping watch over a sign (in some tellings a prayer-stick) that will show whether his brother is in danger. The partnership, one who goes out and one who guards, is part of what the twins represent.\n\n## Together\n\nThe twins are often invoked together, and in ceremonial contexts that this site does not describe they have complementary roles.",
+    "importanceRank": 2,
+    "imageUrl": "/deities/born-for-water.png",
+    "primarySources": [
+      {
+        "text": "Tóbadzĭstsíni stays at home to guard the mothers while his brother goes out against the monsters, watching a sign that would warn him of danger (paraphrase).",
+        "source": "Washington Matthews, Navaho Legends",
+        "date": "1897"
+      }
+    ],
+    "furtherReading": [
+      {
+        "sourceId": "navaho-legends-matthews",
+        "note": "Tóbadzĭstsíni in the 1897 version"
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [],
+      "practices": "The Holy People are part of a living religion. Ceremonies associated with them, including the Blessingway (Hózhǫ́ǫ́jí) and the chantways conducted by hataałii (ceremonial practitioners), are not described on this site, and sandpaintings are not reproduced, because they are sacred and made for healing within ceremony."
+    },
+    "traditionRole": "Holy Person · Hero Twin"
+  },
+  {
+    "id": "first-man",
+    "pantheonId": "dine-pantheon",
+    "name": "First Man (Áłtsé Hastiin)",
+    "slug": "first-man",
+    "originalLanguageName": {
+      "text": "Áłtsé Hastiin",
+      "language": "Diné bizaad (Navajo)",
+      "transliteration": "Áłtsé Hastiin",
+      "meaning": "'First Man'"
+    },
+    "alternateNames": ["Atsé Hastín (Matthews's spelling)"],
+    "gender": "male",
+    "domain": [
+      "leadership in the lower worlds",
+      "the ordering of the world",
+      "power used for good and ill"
+    ],
+    "symbols": ["white corn (in some tellings)", "the medicine bundle"],
+    "description": "One of the first beings of the lower worlds, who with First Woman leads the people through the emergence, helps order the world above, and in many tellings finds the infant Changing Woman.",
+    "detailedBio": "## In the lower worlds\n\nÁłtsé Hastiin, First Man, is formed in the lower worlds, in many tellings together with First Woman, and he is a leader of the beings who journey upward through successive worlds into this one, the Glittering World. Tellings differ on the number and colours of the worlds and on how First Man and First Woman come into being.\n\n## Ordering the world\n\nIn the world above, First Man takes part in shaping and ordering things: setting the sacred mountains in place and, in many tellings, arranging the stars in the sky, a careful work that Coyote disrupts by scattering the rest. He holds a medicine bundle of great power.\n\n## An ambiguous power\n\nFirst Man is not simply good. In some tellings he is associated with witchcraft as well as with protective knowledge, and he is linked to the origin of the monsters that later threaten the people. Diné tradition treats power as something that can be used for good or ill, and First Man embodies that ambiguity.\n\n## Finding Changing Woman\n\nIn many tellings, including Zolbrod's, it is First Man who finds the infant Changing Woman on Chʼóolʼį́ʼí, and he and First Woman raise her.",
+    "importanceRank": 1,
+    "imageUrl": "/deities/first-man.png",
+    "primarySources": [
+      {
+        "text": "Atsé Hastín and Atsé Estsán lead the people upward through the lower worlds (paraphrase).",
+        "source": "Washington Matthews, Navaho Legends",
+        "date": "1897"
+      }
+    ],
+    "furtherReading": [
+      {
+        "sourceId": "dine-bahane-zolbrod",
+        "note": "First Man in Parts One to Three"
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [],
+      "practices": "The Holy People are part of a living religion. Ceremonies associated with them, including the Blessingway (Hózhǫ́ǫ́jí) and the chantways conducted by hataałii (ceremonial practitioners), are not described on this site, and sandpaintings are not reproduced, because they are sacred and made for healing within ceremony."
+    },
+    "traditionRole": "Holy Person"
+  },
+  {
+    "id": "first-woman",
+    "pantheonId": "dine-pantheon",
+    "name": "First Woman (Áłtsé Asdzą́ą́)",
+    "slug": "first-woman",
+    "originalLanguageName": {
+      "text": "Áłtsé Asdzą́ą́",
+      "language": "Diné bizaad (Navajo)",
+      "transliteration": "Áłtsé Asdzą́ą́",
+      "meaning": "'First Woman'"
+    },
+    "alternateNames": ["Atsé Estsán (Matthews's spelling)"],
+    "gender": "female",
+    "domain": [
+      "the lower worlds and the emergence",
+      "the relationship of women and men"
+    ],
+    "symbols": ["yellow corn (in some tellings)"],
+    "description": "First Man's partner in the lower worlds, whose quarrel with him leads to the separation of women and men and, in many tellings, to the birth of the monsters; she helps raise Changing Woman.",
+    "detailedBio": "## Partner of First Man\n\nÁłtsé Asdzą́ą́, First Woman, comes into being in the lower worlds with First Man, and the two are partners through the journey upward. Like First Man, she is a being of great and ambiguous power.\n\n## The separation of the sexes\n\nA central episode of the origin story in many tellings, including Matthews's and Zolbrod's, is a quarrel between First Woman and First Man that leads the men and women to live apart, on opposite sides of a river. Both sides suffer, and eventually they reunite. In many tellings the monsters that later prey on the people were born as a consequence of that separation. The episode is often told as a lesson about the interdependence of women and men.\n\n## Raising Changing Woman\n\nIn many tellings First Woman raises the infant Changing Woman with First Man, and takes part in her Kinaaldá.",
+    "importanceRank": 1,
+    "imageUrl": "/deities/first-woman.png",
+    "primarySources": [
+      {
+        "text": "A quarrel between First Man and First Woman leads the men and women to live apart across a river until hardship reunites them (paraphrase).",
+        "source": "Washington Matthews, Navaho Legends",
+        "date": "1897"
+      }
+    ],
+    "furtherReading": [
+      {
+        "sourceId": "dine-bahane-zolbrod",
+        "note": "The separation of the sexes"
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [],
+      "practices": "The Holy People are part of a living religion. Ceremonies associated with them, including the Blessingway (Hózhǫ́ǫ́jí) and the chantways conducted by hataałii (ceremonial practitioners), are not described on this site, and sandpaintings are not reproduced, because they are sacred and made for healing within ceremony."
+    },
+    "traditionRole": "Holy Person"
+  },
+  {
+    "id": "spider-woman",
+    "pantheonId": "dine-pantheon",
+    "name": "Spider Woman (Naʼashjéʼiiʼ Asdzą́ą́)",
+    "slug": "spider-woman",
+    "originalLanguageName": {
+      "text": "Naʼashjéʼiiʼ Asdzą́ą́",
+      "language": "Diné bizaad (Navajo)",
+      "transliteration": "Naʼashjéʼiiʼ Asdzą́ą́",
+      "meaning": "'Spider Woman'"
+    },
+    "alternateNames": ["Spider Grandmother (in some English retellings)"],
+    "gender": "female",
+    "domain": ["weaving", "help and protection", "knowledge"],
+    "symbols": ["the spider", "the loom"],
+    "description": "The Holy Person who guides the Hero Twins on their way to the Sun, giving them protection and words to calm the guardians; in Diné tradition she also taught weaving.",
+    "detailedBio": "## The twins' helper\n\nWhen the Hero Twins set out to find their father, they come upon Spider Woman, who lives underground and invites them in. She tells them who their father is and how dangerous the way to his house will be, and she gives them protection, in Matthews's version a sacred feather, and a prayer or chant to pacify the dangers and guardians they will meet. Her help makes the journey possible.\n\n## Weaving\n\nDiné tradition credits Spider Woman with teaching weaving, and Spider Man with making the first loom. Weaving remains one of the great Diné arts, and weavers speak of the knowledge as a gift from the Holy People. Some weavers leave a small line (sometimes called a spirit line) running out from the pattern; practices and explanations differ, and this site does not describe them further.\n\n## Spider Rock\n\nTsé Naʼashjéʼiiʼ, Spider Rock, a sandstone spire in Canyon de Chelly, is associated with Spider Woman. Canyon de Chelly is on Navajo Nation land and is visited with Diné guides.",
+    "importanceRank": 2,
+    "imageUrl": "/deities/spider-woman.png",
+    "primarySources": [
+      {
+        "text": "Spider Woman receives the twins in her dwelling, tells them the way to their father's house, and gives them a charm and words to subdue the enemies on the way (paraphrase).",
+        "source": "Washington Matthews, Navaho Legends",
+        "date": "1897"
+      }
+    ],
+    "furtherReading": [
+      {
+        "sourceId": "navaho-legends-matthews",
+        "note": "The twins' meeting with Spider Woman"
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [],
+      "practices": "The Holy People are part of a living religion. Ceremonies associated with them, including the Blessingway (Hózhǫ́ǫ́jí) and the chantways conducted by hataałii (ceremonial practitioners), are not described on this site, and sandpaintings are not reproduced, because they are sacred and made for healing within ceremony."
+    },
+    "traditionRole": "Holy Person"
+  },
+  {
+    "id": "coyote",
+    "pantheonId": "dine-pantheon",
+    "name": "Coyote (Máʼii)",
+    "slug": "coyote",
+    "originalLanguageName": {
+      "text": "Máʼii",
+      "language": "Diné bizaad (Navajo)",
+      "transliteration": "Máʼii",
+      "meaning": "'Coyote'"
+    },
+    "alternateNames": ["Máʼii", "First Scolder (Áłtsé Hashkéé)", "First Angry"],
+    "gender": "male",
+    "domain": [
+      "disorder and change",
+      "the scattering of the stars",
+      "death (in some tellings)"
+    ],
+    "symbols": ["the scattered stars", "the coyote"],
+    "description": "The disruptive Holy Person of the Diné origin story, whose theft of the Water Monster's child brings the flood of the lower world and whose impatience scatters the stars; Coyote stories are traditionally told only in winter.",
+    "detailedBio": "## Told in winter\n\nCoyote stories hold a special place in Diné tradition, and many Diné people teach that they should be told only in winter. This entry summarises Coyote's role in published accounts of the origin story; readers who follow the seasonal practice may prefer to read it in winter.\n\n## Troublemaker in the lower worlds\n\nIn Matthews's and later tellings, Coyote is present from the lower worlds onward, curious, impatient, and unable to leave things alone. His most serious act is stealing the child of Tééhooltsódii, the Water Monster; in response the Water Monster floods the world, and the people must climb upward to escape. The theft is eventually discovered and the child returned.\n\n## The scattered stars\n\nIn widely published tellings, when the stars are being carefully placed in the sky to make patterns that would teach the people, Coyote grows impatient, seizes what remains, and flings it across the sky, which is why so many stars lie scattered without order. Zolbrod calls Coyote \"First Scolder\".\n\n## Death\n\nIn some tellings Coyote decides that death should be permanent, throwing a stone (or hide) into the water with the reasoning that if people did not die, the world would be too crowded. Tellings differ, and this site does not present one as definitive.\n\n## Neither good nor evil\n\nCoyote is a Holy Person, and his actions have consequences that shape the world. Diné tradition treats him as a figure to learn from, including by his mistakes, and Coyote stories carry lessons about conduct.",
+    "importanceRank": 2,
+    "imageUrl": "/deities/coyote.png",
+    "primarySources": [
+      {
+        "text": "Coyote steals the child of the water monster, and the waters rise until the people escape upward (paraphrase).",
+        "source": "Washington Matthews, Navaho Legends",
+        "date": "1897"
+      },
+      {
+        "text": "Coyote, impatient with the careful placing of the stars, scatters the rest across the sky (paraphrase).",
+        "source": "Paul G. Zolbrod, Diné bahaneʼ",
+        "date": "1984"
+      }
+    ],
+    "furtherReading": [
+      {
+        "sourceId": "dine-bahane-zolbrod",
+        "note": "Coyote as First Scolder"
+      }
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "tlingit-haida-pantheon",
+        "deityId": "raven",
+        "note": "Both are world-changing tricksters among Indigenous peoples of North America, whose disruptions shape how the world is; the Diné and Northwest Coast traditions are distinct."
+      },
+      {
+        "pantheonId": "norse-pantheon",
+        "deityId": "loki",
+        "note": "Both are boundary-crossing tricksters whose mischief changes the world for good and ill; the comparison is typological only."
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [],
+      "practices": "Many Diné families and teachers tell this story, like other Coyote and origin stories, only in the winter months, after the first frost and before the first thunder of spring. Readers who wish to follow that practice may prefer to return to this page in winter."
+    },
+    "traditionRole": "Holy Person"
+  },
+  {
+    "id": "johonaaei",
+    "pantheonId": "dine-pantheon",
+    "name": "The Sun Bearer (Jóhonaaʼéí)",
+    "slug": "johonaaei",
+    "originalLanguageName": {
+      "text": "Jóhonaaʼéí",
+      "language": "Diné bizaad (Navajo)",
+      "transliteration": "Jóhonaaʼéí",
+      "meaning": "'Sun'; the one who carries the sun"
+    },
+    "alternateNames": [
+      "Tsóhanoai (Matthews's spelling)",
+      "Sun Bearer",
+      "the Sun"
+    ],
+    "gender": "male",
+    "domain": [
+      "the sun",
+      "fatherhood of the Hero Twins",
+      "trial and recognition"
+    ],
+    "symbols": ["the sun", "the turquoise house in the east"],
+    "description": "The Sun, who carries the sun across the sky, father of Monster Slayer by Changing Woman; he tests the twins harshly before recognising them as his sons and giving them lightning weapons.",
+    "detailedBio": "## The one who carries the sun\n\nJóhonaaʼéí is the Sun, often described in English as the Sun Bearer because he carries the sun across the sky each day. He lives in a house in the east, described in Matthews's version as made of turquoise, from which he sets out each morning.\n\n## Father of the twins\n\nBy Changing Woman he is the father of Monster Slayer, and in many tellings of Born for Water too. When the twins arrive at his house, he is not pleased: his wife asks him whose children these are, and he tests the boys severely, throwing them against spikes, shutting them in an overheated sweat house, and offering them poisoned tobacco. Spider Woman's gifts and the help of others protect them, and at last he acknowledges them as his sons.\n\n## Gifts and a price\n\nThe Sun gives the twins armour of flint and weapons, including arrows of lightning, to destroy the monsters, and himself strikes the first blow against Yéʼiitsoh, who in some tellings is also his son. Later, in widely published tellings, he asks Changing Woman to live with him in the west, and builds her a house there on the water.",
+    "importanceRank": 2,
+    "imageUrl": "/deities/johonaaei.png",
+    "primarySources": [
+      {
+        "text": "Tsóhanoai tests the twins in his house before owning them as his sons and giving them armour and weapons against the alien gods (paraphrase).",
+        "source": "Washington Matthews, Navaho Legends",
+        "date": "1897"
+      }
+    ],
+    "furtherReading": [
+      {
+        "sourceId": "navaho-legends-matthews",
+        "note": "The twins at the Sun's house"
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [],
+      "practices": "The Holy People are part of a living religion. Ceremonies associated with them, including the Blessingway (Hózhǫ́ǫ́jí) and the chantways conducted by hataałii (ceremonial practitioners), are not described on this site, and sandpaintings are not reproduced, because they are sacred and made for healing within ceremony."
+    },
+    "traditionRole": "Holy Person"
+  },
+  {
+    "id": "talking-god",
+    "pantheonId": "dine-pantheon",
+    "name": "Talking God (Haashchʼééłtiʼí)",
+    "slug": "talking-god",
+    "originalLanguageName": {
+      "text": "Haashchʼééłtiʼí",
+      "language": "Diné bizaad (Navajo)",
+      "transliteration": "Haashchʼééłtiʼí",
+      "meaning": "Often rendered 'Talking God'"
+    },
+    "alternateNames": ["Hastséyalti (Matthews's spelling)"],
+    "gender": "male",
+    "domain": ["the dawn and the east", "guidance and teaching"],
+    "symbols": ["the dawn"],
+    "description": "A leading Holy Person associated with the dawn and the east, who appears at key moments of the origin story to guide and teach; the ceremonies in which he appears are not described here.",
+    "detailedBio": "## A guide\n\nHaashchʼééłtiʼí, Talking God, is one of the most important of the Holy People, associated with the east and the dawn. In the origin story, as published by Matthews and Zolbrod, he appears at key moments to guide, teach, and help the people and other Holy People; in several tellings he is present at the finding or raising of Changing Woman, and he helps the Hero Twins.\n\n## In ceremony\n\nTalking God is a leader of the yéʼii, Holy People who are represented in certain Diné ceremonies. Those ceremonies are sacred, and this site does not describe them or reproduce images associated with them.\n\n## Limits of this entry\n\nBecause much of what is significant about Talking God belongs to ceremonial knowledge, this entry is deliberately brief, and records only the outline found in published narrative sources.",
+    "importanceRank": 3,
+    "imageUrl": "/deities/talking-god.png",
+    "primarySources": [
+      {
+        "text": "Hastséyalti appears in the origin legend as a guide and helper of the people (paraphrase).",
+        "source": "Washington Matthews, Navaho Legends",
+        "date": "1897"
+      }
+    ],
+    "furtherReading": [
+      {
+        "sourceId": "navaho-legends-matthews",
+        "note": "Hastséyalti in the origin legend"
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [],
+      "practices": "The Holy People are part of a living religion. Ceremonies associated with them, including the Blessingway (Hózhǫ́ǫ́jí) and the chantways conducted by hataałii (ceremonial practitioners), are not described on this site, and sandpaintings are not reproduced, because they are sacred and made for healing within ceremony."
+    },
+    "traditionRole": "Holy Person"
   }
 ]

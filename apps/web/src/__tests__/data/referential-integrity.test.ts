@@ -162,6 +162,16 @@ describe("relationships", () => {
       "dew-eagle",
       "djilaqons",
       "master-carpenter",
+      "sun-goddess-of-the-earth",
+      "sila",
+      "pinga",
+      "tornarsuk",
+      "tulunigraq",
+      "baiame",
+      "rainbow-serpent",
+      "wagyl",
+      "coyote",
+      "talking-god",
     ]);
     const inGraph = new Set(
       relationshipList.flatMap((r) => [r.fromDeityId, r.toDeityId]),

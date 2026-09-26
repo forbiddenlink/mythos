@@ -3982,5 +3982,1258 @@
     ],
     "featuredDeities": [],
     "imageUrl": "/stories/natsilane-and-the-killer-whales.png"
+  },
+  {
+    "id": "song-of-kumarbi",
+    "pantheonId": "hittite-pantheon",
+    "title": "The Song of Kumarbi: Kingship in Heaven",
+    "slug": "song-of-kumarbi",
+    "summary": "A Hurrian song, preserved in Hittite translation, in which kingship in heaven passes from Alalu to Anu to Kumarbi, who bites off Anu's loins and finds himself pregnant with the storm-god who will overthrow him.",
+    "fullNarrative": "## A Hurrian song, not a Hittite one\n\nThis story comes from the Song of Kumarbi (CTH 344), the opening song of a Hurrian cycle about kingship among the gods. It survives in Hittite translation on tablets from Hattusa; its gods (Kumarbi, Teššub, Tašmišu) and places (Urkeš, the Hurrian cities of the east) are Hurrian, not native Hittite. The tablets are badly damaged, and the second half of the story in particular is full of gaps. What follows keeps close to Hoffner's translation and says so where the text is broken.\n\n## Nine years, and nine years\n\nThe singer calls on the Former Gods, the primeval deities of the underworld, to listen. Long ago, Alalu was king in heaven. Anu, the mightiest of the gods, served him as cup-bearer, bowing at his feet and putting the drinking cup in his hand. For nine years Alalu reigned. In the ninth year Anu went to war against him, defeated him, and Alalu fled down to the Dark Earth. Anu took the throne, and now Kumarbi, the offspring of Alalu, served Anu as cup-bearer, bowing at his feet in turn.\n\nFor nine years Anu reigned. In the ninth year Kumarbi rose against him. Anu could not withstand him; he slipped from Kumarbi's grasp and fled upward into the sky like a bird. Kumarbi rushed after him, seized him by the feet, and dragged him down from the sky. Then he bit off Anu's loins, and Anu's manhood went into Kumarbi's insides.\n\n## Anu's warning\n\nKumarbi rejoiced and laughed, but Anu turned to him and told him not to celebrate. By swallowing his manhood, Anu said, Kumarbi had become pregnant with a heavy burden: the Storm-god, the river Aranzah (the Tigris), and the god Tašmišu. Kumarbi, alarmed, spat out what he could; the text says that some of what he spat fell on a mountain, Kanzura, and grew there. Anu went back up to the sky, and Kumarbi went away to the city of Nippur.\n\n## The difficult birth\n\nThe following columns are the most broken part of the song. They seem to describe the gods inside Kumarbi discussing how to get out of him, and the problem of which part of his body they could leave through. At one point Kumarbi asks to be given his child to eat, and is given a stone instead, which hurts his teeth; the stone is then set up as an object of worship. The Storm-god is eventually born, and the song seems to have gone on to describe his coming to power, but the details are lost.\n\n## What the story does\n\nThe song explains how the storm-god Teššub came to rule the gods: not as the son of the reigning king, but as a child carried by his father's enemy, born out of that enemy's body, and destined to take his throne. The pattern of succession (a first king overthrown by his cup-bearer, who is overthrown in turn, until a storm-god rules) sets up the conflict of the rest of the cycle, in which the deposed Kumarbi fathers monsters to take kingship back.\n\n## The Hesiod question\n\nWhen the Hittite tablets were first published, scholars immediately noticed how closely this story resembles Hesiod's *Theogony*, composed centuries later in Greece: the succession of sky-kings, the mutilation of the sky-god, the swallowing, and the stone given in place of a child. Hans Güterbock's 1948 study made the comparison famous, and most scholars now accept that some version of this Near Eastern succession myth reached early Greek poets, probably through Syria and the eastern Mediterranean. The two stories are not the same, however: Kumarbi swallows Anu's seed, not his own children, and the stone episode belongs to a different moment. This site keeps them apart as related but distinct traditions.",
+    "keyExcerpts": "Alalu reigns in heaven until Anu overthrows him; Anu reigns until Kumarbi drags him from the sky and bites off his loins, becoming pregnant with the Storm-god who will one day take his throne.",
+    "category": "cosmology",
+    "moralThemes": [
+      "the instability of kingship",
+      "succession and rebellion",
+      "unintended consequences"
+    ],
+    "culturalSignificance": "The central succession myth of the Hurrian pantheon as the Hittites received it, and the closest known Near Eastern parallel to Hesiod's Theogony; its discovery reshaped the study of early Greek myth.",
+    "citationSources": [
+      {
+        "title": "Song of Kumarbi (CTH 344)",
+        "author": "Hurrian composition in Hittite translation",
+        "date": "Hittite copies 14th-13th c. BCE",
+        "type": "primary",
+        "sourceId": "kumarbi-cycle",
+        "chapter": "Song of Kumarbi, CTH 344"
+      },
+      {
+        "title": "Hittite Myths (2nd ed., SBL Writings from the Ancient World 2)",
+        "author": "Harry A. Hoffner Jr. (translator)",
+        "date": "1998",
+        "type": "primary",
+        "sourceId": "hittite-myths-hoffner",
+        "chapter": "The Song of Kumarbi"
+      },
+      {
+        "title": "The Hittite Version of the Hurrian Kumarbi Myths: Oriental Forerunners of Hesiod",
+        "author": "Hans G. Güterbock, American Journal of Archaeology 52",
+        "date": "1948",
+        "type": "secondary"
+      }
+    ],
+    "featuredDeities": ["alalu", "kumarbi", "tarhunna"],
+    "featuredLocations": ["urkesh"],
+    "relatedStories": ["song-of-ullikummi", "titanomachy"],
+    "variants": [
+      {
+        "source": "Hesiod, Theogony",
+        "sourceId": "theogony",
+        "date": "c. 700 BCE",
+        "difference": "In Hesiod the succession runs Ouranos, Kronos, Zeus; Kronos castrates Ouranos with a sickle and swallows his own children, and Rhea gives him a stone in place of Zeus.",
+        "note": "Related but distinct: the Hurrian song has Kumarbi swallow Anu's seed and bear the storm-god himself."
+      }
+    ],
+    "furtherReading": [
+      {
+        "sourceId": "kumarbi-cycle",
+        "note": "The whole Hurrian cycle in Hittite translation"
+      },
+      {
+        "sourceId": "hittite-myths-hoffner",
+        "note": "Hoffner's translation, with gaps marked"
+      },
+      {
+        "sourceId": "theogony",
+        "note": "The Greek succession myth for comparison"
+      }
+    ],
+    "imageUrl": "/stories/song-of-kumarbi.png"
+  },
+  {
+    "id": "song-of-ullikummi",
+    "pantheonId": "hittite-pantheon",
+    "title": "The Song of Ullikummi",
+    "slug": "song-of-ullikummi",
+    "summary": "Kumarbi fathers a giant of basalt on a great rock and hides it on the shoulder of Upelluri in the sea, where it grows until it reaches heaven; Teššub is defeated until Ea cuts the monster from its base with the ancient copper tool that once separated heaven and earth.",
+    "fullNarrative": "## The longest Hurrian song\n\nThe Song of Ullikummi (CTH 345) is the best preserved song of the Hurrian Kumarbi cycle, known from several Hittite copies found at Hattusa. It continues the conflict of the Song of Kumarbi: the storm-god Teššub now rules in heaven, and the deposed Kumarbi wants his kingship back. The ending of the song is lost.\n\n## A rival made of stone\n\nKumarbi takes wisdom into his mind and plans an enemy for Teššub. He leaves his city of Urkeš and goes to a place where a huge rock lies, and he sleeps with the rock as with a woman. The rock gives birth to a son made of basalt, and Kumarbi names him Ullikummi, a name that announces his purpose: he is to destroy Kummiya, Teššub's city. To keep the child hidden from the gods until he is grown, Kumarbi has him taken down to the Dark Earth and placed on the right shoulder of Upelluri, the giant who stands in the sea and carries heaven and earth. There the stone child grows, a great distance each day and each month, until he stands out of the sea and his head reaches the sky.\n\n## The gods see him\n\nThe Sun-god is the first to notice the giant rising from the sea and goes to warn Teššub. Teššub, with his brother Tašmišu and his sister Šauška, climbs Mount Hazzi to look, and when he sees the monster he sits down and weeps. Šauška tries her own weapon: she adorns herself and sings to Ullikummi on the shore. But a great wave rises from the sea and tells her that there is no point singing to him, because he is deaf and cannot hear, and blind and cannot see, and has no compassion.\n\n## Defeat\n\nTeššub prepares for war, harnessing his bulls Šeri and Hurri to his chariot and calling out his storms and lightning. He attacks, with seventy gods beside him, but the battle goes badly. Ullikummi keeps growing and pushes all the way up to the gates of Kummiya, forcing Teššub's wife Hebat out of her temple so that she can no longer get news of her husband. Tašmišu brings Teššub the bad news and advises him to go to the wise god Ea.\n\n## The copper cutter\n\nEa goes first to Enlil and then to Upelluri, and asks the giant whether he knows what is standing on his shoulder. Upelluri says that he felt nothing when heaven and earth were built on him, nothing when they were cut apart, and now only a slight pain in his shoulder, though he does not know which god causes it. Ea then goes to the Former Gods and asks them to open the ancient storehouses and bring out the copper cutting tool with which heaven and earth were once separated. With it he cuts Ullikummi's feet away from Upelluri's shoulder, and the stone giant loses his strength.\n\n## The lost ending\n\nEa tells the gods to fight again, and Teššub mounts his chariot for a second battle. The song clearly moved toward his victory, but the last part of the text is broken, and the final defeat of Ullikummi is not preserved. The Hittite translators copied the song in the thirteenth century BCE, at the height of Hurrian influence at the Hittite court.\n\n## Reading the song\n\nThe central image, a monster growing on the shoulder of a world-bearing giant, cut free by the tool that once divided heaven from earth, is a myth about the structure of the cosmos as much as about a single fight. Scholars have compared Upelluri to the Greek Atlas and Ullikummi to Typhon, the last monster Zeus defeats in Hesiod; these are parallels in type, and this site does not treat any of them as the source of the others.",
+    "keyExcerpts": "A stone giant grows on the shoulder of Upelluri until it reaches heaven; Teššub loses the first battle, and only Ea's ancient copper cutter, which once divided heaven from earth, can sever the monster from its base.",
+    "category": "war",
+    "moralThemes": [
+      "wisdom over force",
+      "the cost of vengeance",
+      "cosmic order restored"
+    ],
+    "culturalSignificance": "The fullest surviving Hurrian myth, and an important witness to Hurrian influence at the thirteenth-century Hittite court; its monster-and-storm-god plot is often compared with Zeus's battle with Typhon.",
+    "citationSources": [
+      {
+        "title": "Song of Ullikummi (CTH 345)",
+        "author": "Hurrian composition in Hittite translation",
+        "date": "Hittite copies 13th c. BCE",
+        "type": "primary",
+        "sourceId": "kumarbi-cycle",
+        "chapter": "Song of Ullikummi, CTH 345"
+      },
+      {
+        "title": "Hittite Myths (2nd ed., SBL Writings from the Ancient World 2)",
+        "author": "Harry A. Hoffner Jr. (translator)",
+        "date": "1998",
+        "type": "primary",
+        "sourceId": "hittite-myths-hoffner",
+        "chapter": "The Song of Ullikummi"
+      }
+    ],
+    "featuredDeities": ["kumarbi", "tarhunna", "shaushka"],
+    "featuredLocations": ["urkesh"],
+    "relatedStories": ["song-of-kumarbi"],
+    "variants": [
+      {
+        "source": "Hesiod, Theogony 820-880",
+        "sourceId": "theogony",
+        "date": "c. 700 BCE",
+        "difference": "Zeus's last great opponent is Typhon, a monster born of Gaia and Tartarus, whom Zeus defeats with his thunderbolt without needing another god's help.",
+        "note": "A typological parallel often noted by scholars; the Greek account lacks Upelluri and the copper cutter."
+      }
+    ],
+    "furtherReading": [
+      {
+        "sourceId": "kumarbi-cycle",
+        "note": "The Hurrian cycle this song belongs to"
+      },
+      {
+        "sourceId": "hittite-myths-hoffner",
+        "note": "Hoffner's translation of all the surviving copies"
+      }
+    ],
+    "imageUrl": "/stories/song-of-ullikummi.png"
+  },
+  {
+    "id": "storm-god-and-illuyanka",
+    "pantheonId": "hittite-pantheon",
+    "title": "The Storm-god and the Serpent Illuyanka",
+    "slug": "storm-god-and-illuyanka",
+    "summary": "Two versions of an Anatolian myth recited at the Purulli festival of Nerik: in one the goddess Inara traps the serpent with a feast, in the other the Storm-god's son wins back his father's stolen heart and eyes.",
+    "fullNarrative": "## A festival text from Nerik\n\nThe Illuyanka tales (CTH 321) are Anatolian, not Hurrian. They are preserved on a single composition that presents itself as the words of Kella, a priest of the Storm-god of Nerik, and explains the Purulli festival, a spring festival of the sacred city of Nerik in the north of the Hittite lands. The text gives two different versions of the storm-god's fight with the serpent, one after the other, noting that the first way of telling it is no longer used. Illuyanka itself simply means \"serpent\" or \"dragon\" in Hittite.\n\n## The first version: a feast and a rope\n\nThe Storm-god and the serpent fought at a place called Kiškilušša, and the serpent defeated the Storm-god. The Storm-god called on all the gods for help, and the goddess Inara prepared a feast, setting out vessels of wine and other drinks in abundance. Then she went to the town of Zigaratta and found a mortal man named Hupašiya. She asked for his help, and he agreed on one condition: that he might sleep with her. Inara agreed, took him to the feast, and hid him.\n\nInara adorned herself and called the serpent up from its hole. The serpent came up with its children, and they ate and drank until they had emptied every vessel. Then they could not fit back into their hole. Hupašiya came out of hiding and tied the serpent up with a rope, and the Storm-god came with the other gods and killed it.\n\nInara then built a house on a cliff in the land of Tarukka and settled Hupašiya in it, telling him not to look out of the window while she was away, or he would see his wife and children. After twenty days he opened the window, saw them, and when Inara returned he begged to go home. Here the tablet breaks. Most scholars assume Inara killed or punished him, but the surviving text does not say.\n\n## The second version: a stolen heart\n\nIn the second version, the serpent defeated the Storm-god and took his heart and his eyes. To get them back, the Storm-god married the daughter of a poor man and had a son. When the son grew up, he married the serpent's daughter. The Storm-god told his son to ask for his heart and eyes as a gift when he went to his wife's house, and the serpent gave them. Restored, the Storm-god went down to the sea to fight the serpent again, and this time he was winning. His son, who was with the serpent, called out that he belonged to the serpent's household now, and told his father not to spare him. So the Storm-god killed both the serpent and his own son.\n\n## Why two versions?\n\nThe text ties both stories to the Purulli festival and to the cult of Nerik, and it seems to preserve two local traditions side by side rather than choosing one. In neither version does the storm-god win by strength alone: he needs a goddess and a mortal in one, and a son whom he must sacrifice in the other. The victory is costly for everyone who helps.\n\n## Place in a wider pattern\n\nThe combat of a storm-god with a serpent or sea monster is one of the most widespread motifs in the ancient world, from Baal's fight with Yamm and Litan at Ugarit to Thor and Jörmungandr in Norse myth. The Illuyanka tales are among the oldest written examples, but their particular details, the feast, the rope, the stolen heart and eyes, and the mortal who pays for helping a god, are distinctively Anatolian.",
+    "keyExcerpts": "Inara's feast traps the gorged serpent and a mortal ties it with a rope; in the later telling, the Storm-god's son wins back his father's heart and eyes and dies alongside the serpent.",
+    "category": "war",
+    "moralThemes": [
+      "victory through cunning rather than strength",
+      "the price paid by those who help the gods",
+      "divided loyalty"
+    ],
+    "culturalSignificance": "One of the oldest written storm-god-versus-serpent myths, and a rare example of a myth whose ritual setting (the Purulli festival of Nerik) is stated in the text itself.",
+    "citationSources": [
+      {
+        "title": "Hittite Myths (2nd ed., SBL Writings from the Ancient World 2)",
+        "author": "Harry A. Hoffner Jr. (translator)",
+        "date": "1998",
+        "type": "primary",
+        "sourceId": "hittite-myths-hoffner",
+        "chapter": "The Illuyanka Tales, CTH 321"
+      },
+      {
+        "title": "The Storm-God and the Serpent (Illuyanka)",
+        "author": "Gary Beckman, in The Context of Scripture vol. 1 (ed. W. W. Hallo)",
+        "date": "1997",
+        "type": "secondary"
+      }
+    ],
+    "featuredDeities": ["tarhunna", "inara"],
+    "featuredLocations": ["nerik"],
+    "relatedStories": ["disappearance-of-telipinu"],
+    "variants": [
+      {
+        "source": "Illuyanka tales, second version (CTH 321)",
+        "difference": "The serpent steals the Storm-god's heart and eyes; the Storm-god's son by a mortal woman marries the serpent's daughter, recovers them, and is killed with the serpent at his own request.",
+        "note": "The text itself presents this as the later way of telling the story."
+      }
+    ],
+    "furtherReading": [
+      {
+        "sourceId": "hittite-myths-hoffner",
+        "note": "Both versions of the Illuyanka story in translation"
+      }
+    ],
+    "imageUrl": "/stories/storm-god-and-illuyanka.png"
+  },
+  {
+    "id": "disappearance-of-telipinu",
+    "pantheonId": "hittite-pantheon",
+    "title": "The Disappearance of Telipinu",
+    "slug": "disappearance-of-telipinu",
+    "summary": "The farming god Telipinu leaves in anger and the land withers; after the gods' searches fail, Hannahanna's bee finds him asleep, and the goddess Kamrušepa's ritual locks his rage away in the Dark Earth.",
+    "fullNarrative": "## A myth used as a ritual\n\nThe Disappearance of Telipinu (CTH 324) is the best preserved of several Hittite \"vanishing god\" texts. It is Anatolian in origin and written in Hittite; its god, Telipinu, was originally Hattian. It survives not as literature for its own sake but as the narrative part of an invocation ritual meant to bring an angry god home and restore the land's fertility. The beginning of the text is damaged.\n\n## The god walks out\n\nTelipinu became angry; the reason is lost in the damaged opening. In his rage he put his right shoe on his left foot and his left shoe on his right, and he left. Mist seized the windows, smoke seized the house. On the hearth the logs were stifled; on the altars the gods were stifled; in the fold the sheep were stifled, and in the pen the cattle. The sheep refused her lamb and the cow refused her calf. Telipinu went off and took with him grain, the fertility of the herds, growth and plenty, into the steppe and the meadow, and lay down in a meadow, where he was overcome with sleep.\n\nBarley and wheat no longer grew. Cattle, sheep, and people no longer conceived, and those already pregnant could not give birth. The mountains and trees dried up, the springs dried up, and famine came to the land. Gods and people alike were dying of hunger.\n\n## The search\n\nThe great Sun-god gave a feast and invited the thousand gods, but they ate and were not satisfied, drank and did not quench their thirst. The Storm-god realised that his son Telipinu was gone, and the gods began to search. The Sun-god sent out the swift eagle to look over the high mountains, the deep valleys, and the dark waters; the eagle came back without finding him. The Storm-god then spoke to Hannahanna, the Grandmother, who told him to go and look himself. He went to Telipinu's city and knocked at the gate, but he could not find him either, and he sat down to rest.\n\n## The bee\n\nHannahanna then sent a bee. The Storm-god objected that the bee was small and its wings were small, and that the great gods had already searched in vain. But Hannahanna told the bee to find Telipinu, sting his hands and feet to make him stand up, and wipe his eyes and feet with wax to purify him, and then bring him back. The bee searched the high mountains, the deep valleys, and the dark waters, until at last it found Telipinu asleep in a meadow in the grove of Lihzina. It stung his hands and feet, and he got up.\n\n## Worse before better\n\nWaking only made Telipinu angrier. He complained that he had been sleeping in his rage and that they had woken him and forced him to speak, and in his fury he began to destroy the land, flooding rivers and knocking down houses. So the gods turned to Kamrušepa, the goddess of magic, and a ritual began: the anger, rage, and sullenness of Telipinu were drawn out and taken away. The doorkeeper of the Dark Earth opened the seven doors and drew back the seven bolts, and down in the Dark Earth stood bronze vessels with lids of lead. Whatever goes into them does not come back out; it perishes there. So Telipinu's anger was shut away.\n\n## Home again\n\nTelipinu came back to his house and cared once more for his land. The mist left the windows and the smoke left the house; the altars and the hearth were restored; the sheep took back her lamb and the cow her calf. Before Telipinu stood an evergreen eya tree, and from it hung a hunting bag of sheep's fleece holding sheep fat, grain, wine, cattle and sheep, and long life and offspring.\n\n## What the story shows\n\nThe text lets us see how Hittites thought about blight and famine: as the absence of a god whose presence keeps life going, which could be repaired by finding, soothing, and honouring him. The ritual words that follow the story were meant to do exactly that for a real community in a real bad year.",
+    "keyExcerpts": "Telipinu storms off with his shoes on the wrong feet; the land withers, the eagle and the Storm-god fail to find him, and only Hannahanna's small bee succeeds, before Kamrušepa's rite locks his anger in bronze vessels in the Dark Earth.",
+    "category": "myth",
+    "moralThemes": [
+      "the dependence of life on divine presence",
+      "small helpers succeed where the mighty fail",
+      "anger contained rather than destroyed"
+    ],
+    "culturalSignificance": "The best preserved Hittite vanishing-god myth, embedded in a ritual meant for use in real crises of blight or famine; its evergreen tree hung with a fleece reflects actual Hittite cult practice.",
+    "citationSources": [
+      {
+        "title": "Hittite Myths (2nd ed., SBL Writings from the Ancient World 2)",
+        "author": "Harry A. Hoffner Jr. (translator)",
+        "date": "1998",
+        "type": "primary",
+        "sourceId": "hittite-myths-hoffner",
+        "chapter": "The Disappearance of Telipinu, CTH 324"
+      },
+      {
+        "title": "The Wrath of Telipinu",
+        "author": "Gary Beckman, in The Context of Scripture vol. 1 (ed. W. W. Hallo)",
+        "date": "1997",
+        "type": "secondary"
+      }
+    ],
+    "featuredDeities": [
+      "telipinu",
+      "tarhunna",
+      "hannahanna",
+      "kamrusepa",
+      "sun-goddess-of-the-earth"
+    ],
+    "featuredLocations": ["hattusa"],
+    "relatedStories": ["storm-god-and-illuyanka"],
+    "variants": [
+      {
+        "source": "Other Hittite vanishing-god texts (CTH 323-336)",
+        "difference": "Similar stories are told of the Storm-god, the Sun-god, Hannahanna, and other deities; in several of them the bee again finds the missing god.",
+        "note": "Telipinu's is the best preserved example of a recurring Anatolian ritual pattern."
+      }
+    ],
+    "furtherReading": [
+      {
+        "sourceId": "hittite-myths-hoffner",
+        "note": "The Telipinu text and the other vanishing-god myths"
+      }
+    ],
+    "imageUrl": "/stories/disappearance-of-telipinu.png"
+  },
+  {
+    "id": "baal-and-yam",
+    "pantheonId": "canaanite-pantheon",
+    "title": "Baal and Yam: The Storm Against the Sea",
+    "slug": "baal-and-yam",
+    "summary": "Yam, the Sea, favoured by El, demands that the gods hand Baal over as his captive; armed with two clubs made by Kothar-wa-Khasis, Baal strikes Yam down and claims kingship.",
+    "fullNarrative": "## The first tablets\n\nThis episode comes from the first two tablets of the Baal Cycle (KTU 1.1-1.2), which are badly damaged; scholars disagree about the order of some columns, and much of KTU 1.1 is too broken to translate continuously. The outline below follows the reconstruction in Mark S. Smith's translation.\n\n## El favours the Sea\n\nIn the broken opening, El proclaims the name and status of Yam, Prince Sea and Judge River, whom he calls beloved, and the craftsman god Kothar-wa-Khasis is summoned to build Yam a house. Athtar seems to object that he, too, lacks a palace, and is told by the sun-goddess Shapash that El has chosen Yam (KTU 1.2 III). The balance of power among the gods is shifting toward the Sea.\n\n## The messengers\n\nYam then sends two messengers to the assembly of the gods, which is feasting on El's mountain. They are told not to bow, and to deliver the message standing: the gods must give up Baal and his followers, so that Yam may take his gold (KTU 1.2 I). When the messengers arrive, the gods lower their heads onto their knees in fear. Baal, standing by El, rebukes them for cowering. But El agrees to the demand: Baal is to be Yam's slave, and will bring him tribute.\n\nBaal is furious. He seizes a weapon to attack the messengers, and two goddesses hold him back: Anat seizes his right hand and Athtart his left, reminding him that messengers must not be harmed.\n\n## Two clubs\n\nThe central scene is in KTU 1.2 IV. Kothar-wa-Khasis encourages Baal: now is the time to strike his enemy and take his eternal kingship. He fashions two clubs and gives each a name with a spell over it. The first is Yagrush, \"Driver\", told to drive Yam from his throne. It leaps from Baal's hand like an eagle and strikes Yam on the shoulders and chest, but Yam does not fall. The second is Ayyamur, \"Expeller\", told to expel Yam from his seat. It strikes Yam on the head, between the eyes, and Prince Sea collapses to the ground, his joints shaking, his body slumping. Baal drags him down and sets about finishing him.\n\n## Athtart's cry\n\nAthtart then calls out to Baal. The lines are damaged and translators differ: she either rebukes Baal or urges him to \"scatter\" the defeated Sea, because Yam is now their captive. The episode ends with a declaration that Yam is dead and Baal shall be king.\n\n## What the story means\n\nThe battle of a storm-god with the sea is one of the oldest and most widespread myths of the ancient Near East. At Ugarit, a harbour city dependent on the sea but vulnerable to it, the story makes Baal the guarantor of order: the waters that can drown are subdued by the god who sends rain. The same pattern appears in Babylon, where Marduk defeats Tiamat, and in biblical poetry, where God rebukes the sea and crushes the dragon. Scholars disagree about whether the Ugaritic story was recited at a particular festival; the texts themselves do not say.\n\n## Anat's claim\n\nA different tablet (KTU 1.3 III) has Anat boast that she herself destroyed Yam, El's beloved, and the dragon Tunnan and the twisting serpent. Ugaritic tradition could credit more than one god with the victory over the Sea.",
+    "keyExcerpts": "Yam's messengers demand Baal from the cowering assembly; Anat and Athtart hold Baal back; then Kothar-wa-Khasis names two clubs, Yagrush and Ayyamur, and the second fells Prince Sea.",
+    "category": "war",
+    "moralThemes": [
+      "order over chaos",
+      "courage against a cowed assembly",
+      "kingship won by combat"
+    ],
+    "culturalSignificance": "The Ugaritic form of the storm-god-versus-sea myth, and one of the closest literary parallels to biblical images of God subduing the sea; its named clubs are among the earliest named weapons in literature.",
+    "citationSources": [
+      {
+        "title": "The Baal Cycle (KTU 1.1-1.6)",
+        "author": "Ugaritic poem; tablets written by the scribe Ilimilku",
+        "date": "tablets of the late 13th or early 12th c. BCE",
+        "type": "primary",
+        "sourceId": "baal-cycle",
+        "chapter": "KTU 1.1-1.2 (especially 1.2 I and 1.2 IV)"
+      },
+      {
+        "title": "Ugaritic Narrative Poetry (SBL Writings from the Ancient World 9), ed. Simon B. Parker",
+        "author": "Mark S. Smith (translator of the Baal Cycle)",
+        "date": "1997",
+        "type": "primary",
+        "chapter": "The Baal Cycle"
+      }
+    ],
+    "featuredDeities": [
+      "baal",
+      "yam",
+      "el",
+      "kothar-wa-khasis",
+      "anat",
+      "athtart",
+      "athtar"
+    ],
+    "featuredLocations": ["ugarit"],
+    "relatedStories": [
+      "palace-of-baal",
+      "baal-and-mot",
+      "storm-god-and-illuyanka"
+    ],
+    "variants": [
+      {
+        "source": "Baal Cycle, KTU 1.3 III",
+        "difference": "Anat claims that she herself destroyed Yam, the dragon Tunnan, and the twisting serpent.",
+        "note": "Ugaritic tradition attributes the victory over the Sea to more than one deity."
+      },
+      {
+        "source": "Enuma Elish",
+        "sourceId": "enuma-elish",
+        "difference": "In Babylon the sea is Tiamat, and Marduk defeats her with winds and a net before making heaven and earth from her body.",
+        "note": "A related regional pattern, not the same story."
+      }
+    ],
+    "furtherReading": [
+      {
+        "sourceId": "baal-cycle",
+        "note": "KTU 1.1-1.2 in translation"
+      },
+      {
+        "sourceId": "enuma-elish",
+        "note": "The Babylonian storm-god-versus-sea myth for comparison"
+      }
+    ],
+    "imageUrl": "/stories/baal-and-yam.png"
+  },
+  {
+    "id": "palace-of-baal",
+    "pantheonId": "canaanite-pantheon",
+    "title": "The Palace of Baal",
+    "slug": "palace-of-baal",
+    "summary": "Having defeated Yam, Baal still has no house of his own; Anat threatens El, Athirat persuades him, and Kothar-wa-Khasis builds a palace of cedar, silver, and gold on Mount Zaphon, with a window through which Baal thunders.",
+    "fullNarrative": "## Victory without a house\n\nAfter his victory over Yam, Baal laments that he has no house like the other gods: El has a dwelling, Athirat has one, but Baal and his daughters live without a palace (KTU 1.3 V; 1.4 I). In Ugaritic thinking a king needs a house; the story of the palace is the story of Baal's kingship being made permanent. It fills tablets KTU 1.3 and 1.4, with gaps.\n\n## Anat's feast and fury\n\nThe episode opens with Anat. In one of the most violent passages in ancient literature, she fights in the valley between two towns, cutting down warriors until heads fly like balls and hands like locusts, and she wades in blood up to her knees and then her neck, before cleansing herself with dew and rain (KTU 1.3 II). Baal sends messengers to her asking her to set aside war and come to him, promising to reveal the secret of the lightning. She comes, and agrees to go to El on his behalf.\n\nAt El's dwelling at the source of the two rivers, Anat threatens the old god: she will drag him down like a lamb and make his grey hair run with blood unless he grants Baal a house (KTU 1.3 V). El answers mildly but does not give in.\n\n## Athirat's intercession\n\nA different approach is needed. Baal and Anat have Kothar-wa-Khasis make splendid gifts, furniture, a footstool, a table, and a bowl, of gold and silver, and take them to Athirat (KTU 1.4 I-II). She is by the sea, spinning, when she sees them coming, and at first she is afraid; when she sees the gifts she rejoices. She saddles a donkey and rides to El. El greets her with pleasure, laughing, and asks whether she is hungry or thirsty. She praises his wisdom and asks for Baal's house. El consents: let a house be built for Baal (KTU 1.4 IV-V).\n\n## Cedar, silver, and gold\n\nKothar-wa-Khasis is summoned from far-off Kaphtor. Timber is brought from Lebanon and Sirion, and the house is built on Zaphon; for seven days fire burns inside it, and the silver becomes plates and the gold becomes bricks (KTU 1.4 VI).\n\n## The window\n\nDuring the building, Kothar twice proposes to put a window in the palace, and Baal twice refuses; the reason he gives is lost or unclear in the text. Kothar tells him calmly that he will come back to his words. After the palace is finished and Baal has held a great feast for the gods, his seventy brothers, he returns and agrees. A window is opened, a rift in the clouds, and Baal gives his holy voice: the earth shakes and the mountains tremble, and his enemies flee to the forests (KTU 1.4 VII).\n\n## Kingship declared, and Death answers\n\nBaal declares that he alone will rule over the gods and sends messengers to Mot, Death, with his claim. That message opens the final and darkest part of the cycle.\n\n## Reading the story\n\nThe palace episode shows how Ugaritic poets imagined divine politics: a young god wins by force, but needs the consent of the old king and the persuasion of the queen mother to make his victory lasting. Baal's temple on the acropolis of Ugarit, facing toward Mount Zaphon, was the earthly counterpart of this mythical palace, though the texts do not explicitly identify the two.",
+    "keyExcerpts": "Anat threatens El and Athirat persuades him; Kothar-wa-Khasis builds a palace of silver and gold on Zaphon; Baal at last agrees to a window, and through the rift in the clouds his voice shakes the earth.",
+    "category": "myth",
+    "moralThemes": [
+      "kingship needs consent as well as victory",
+      "persuasion succeeds where threats fail",
+      "the storm's voice"
+    ],
+    "culturalSignificance": "The central episode of the Baal Cycle, explaining Baal's temple and his thunder; its descriptions of divine diplomacy and building are key evidence for how Ugaritians imagined kingship.",
+    "citationSources": [
+      {
+        "title": "The Baal Cycle (KTU 1.1-1.6)",
+        "author": "Ugaritic poem; tablets written by the scribe Ilimilku",
+        "date": "tablets of the late 13th or early 12th c. BCE",
+        "type": "primary",
+        "sourceId": "baal-cycle",
+        "chapter": "KTU 1.3-1.4 (especially 1.3 II, 1.3 V, 1.4 IV-VII)"
+      },
+      {
+        "title": "Ugaritic Narrative Poetry (SBL Writings from the Ancient World 9), ed. Simon B. Parker",
+        "author": "Mark S. Smith (translator of the Baal Cycle)",
+        "date": "1997",
+        "type": "primary",
+        "chapter": "The Baal Cycle"
+      }
+    ],
+    "featuredDeities": ["baal", "anat", "el", "athirat", "kothar-wa-khasis"],
+    "featuredLocations": ["mount-zaphon", "source-of-the-two-rivers"],
+    "relatedStories": ["baal-and-yam", "baal-and-mot"],
+    "furtherReading": [
+      {
+        "sourceId": "baal-cycle",
+        "note": "KTU 1.3-1.4 in translation"
+      }
+    ],
+    "imageUrl": "/stories/palace-of-baal.png"
+  },
+  {
+    "id": "baal-and-mot",
+    "pantheonId": "canaanite-pantheon",
+    "title": "Baal and Mot: The Storm-god in the Throat of Death",
+    "slug": "baal-and-mot",
+    "summary": "Baal goes down into the throat of Mot, Death, and the land dries up; Anat finds his body, destroys Mot like threshed grain, and El dreams that Baal lives; seven years later the two gods fight, and Mot yields.",
+    "fullNarrative": "## Death answers\n\nThe last two tablets of the Baal Cycle (KTU 1.5-1.6) tell the story of Baal and Mot. When Baal, newly enthroned in his palace, sends messengers to Mot claiming kingship, Death replies with a threat. He reminds Baal that he struck down Litan, the fleeing serpent, the twisting serpent with seven heads, and says that because of it Baal must now come down into his throat (KTU 1.5 I). Mot describes his appetite: one lip to the earth, one lip to the heavens, a tongue reaching the stars (KTU 1.5 II).\n\n## Submission\n\nBaal is afraid. He sends back word that he is Mot's servant forever. Before going down he is told to take with him his clouds, his winds, his rain, and his attendants, and he couples with a heifer, which bears a son; the purpose of that episode is debated. Then Baal goes down to the underworld, and the text reports that he is dead (KTU 1.5 V-VI).\n\n## Mourning\n\nMessengers find El and report that they have found Baal fallen on the ground. El comes down from his throne, sits in the dust, pours dirt on his head, gashes his cheeks and arms, and cries out that Baal is dead: what will become of the people? (KTU 1.5 VI). Anat, too, roams every mountain looking for him, and finds his body. With the help of the sun-goddess Shapash she carries it to Zaphon, buries it, and offers sacrifices (KTU 1.6 I).\n\n## A replacement king\n\nEl asks Athirat to name one of her sons as king, and she proposes Athtar. He climbs onto Baal's throne, but his feet do not reach the footstool and his head does not reach the top; he comes down and rules instead over the earth (KTU 1.6 I).\n\n## Anat destroys Mot\n\nDays and months pass. Anat longs for Baal like a cow for her calf. At last she seizes Mot. With a blade she splits him; with a sieve she winnows him; with fire she burns him; with millstones she grinds him; in the field she sows him, and the birds eat his flesh (KTU 1.6 II).\n\n## El's dream\n\nEl then dreams: the heavens rain oil, the wadis run with honey. He laughs, puts his feet on the footstool, and declares that Mightiest Baal is alive (KTU 1.6 III). But the furrows are still dry, and Shapash is sent to find him.\n\n## The last battle\n\nIn the seventh year, Mot comes back to complain of what he has suffered. He and Baal meet on Zaphon and fight. They gore like wild oxen, bite like serpents, kick like stallions; both fall. Then Shapash calls to Mot: how can he fight Baal? If El hears of it he will overturn Mot's throne and break his sceptre. Mot is afraid, and yields, acknowledging Baal's kingship (KTU 1.6 VI). The cycle ends with a hymn to Shapash and a colophon naming the scribe Ilimilku.\n\n## Interpretation\n\nThe story links Baal's absence with drought and his return with rain, and many scholars have read it as a myth of the agricultural year. Others stress that it tells of a single cosmic crisis, and that the text never describes an annual cycle. Either way, its central claim is stark: even the king of the gods can be swallowed by Death, and he returns only through the loyalty of others.",
+    "keyExcerpts": "Mot, whose lips reach earth and heaven, swallows Baal; El mourns in the dust, Anat buries Baal on Zaphon and grinds Mot like grain, El dreams of rain of oil and wadis of honey, and after seven years Mot yields.",
+    "category": "death",
+    "moralThemes": [
+      "death overcome but never abolished",
+      "loyalty that outlasts death",
+      "the dependence of life on rain"
+    ],
+    "culturalSignificance": "The fullest ancient Near Eastern myth of a god's death and return, central to modern debates about 'dying and rising gods'; its Litan passage is closely echoed in Isaiah 27:1.",
+    "citationSources": [
+      {
+        "title": "The Baal Cycle (KTU 1.1-1.6)",
+        "author": "Ugaritic poem; tablets written by the scribe Ilimilku",
+        "date": "tablets of the late 13th or early 12th c. BCE",
+        "type": "primary",
+        "sourceId": "baal-cycle",
+        "chapter": "KTU 1.5-1.6 (especially 1.5 I, 1.5 VI, 1.6 I-III, 1.6 VI)"
+      },
+      {
+        "title": "Ugaritic Narrative Poetry (SBL Writings from the Ancient World 9), ed. Simon B. Parker",
+        "author": "Mark S. Smith (translator of the Baal Cycle)",
+        "date": "1997",
+        "type": "primary",
+        "chapter": "The Baal Cycle"
+      },
+      {
+        "title": "Stories from Ancient Canaan (2nd ed.)",
+        "author": "Michael D. Coogan and Mark S. Smith",
+        "date": "2012",
+        "type": "secondary"
+      }
+    ],
+    "featuredDeities": [
+      "baal",
+      "mot",
+      "anat",
+      "el",
+      "shapash",
+      "athirat",
+      "athtar"
+    ],
+    "featuredLocations": ["mount-zaphon"],
+    "relatedStories": ["palace-of-baal", "disappearance-of-telipinu"],
+    "variants": [
+      {
+        "source": "Isaiah 27:1 (Hebrew Bible)",
+        "difference": "Leviathan, 'the fleeing serpent, the twisting serpent', is to be punished by God with his sword on a future day.",
+        "note": "Uses almost the same epithets as Mot's description of Litan in KTU 1.5 I; shared poetic tradition rather than direct borrowing."
+      }
+    ],
+    "furtherReading": [
+      {
+        "sourceId": "baal-cycle",
+        "note": "KTU 1.5-1.6 in translation"
+      }
+    ],
+    "imageUrl": "/stories/baal-and-mot.png"
+  },
+  {
+    "id": "legend-of-aqhat",
+    "pantheonId": "canaanite-pantheon",
+    "title": "The Legend of Aqhat",
+    "slug": "legend-of-aqhat",
+    "summary": "The righteous Danel is granted a son, Aqhat, who receives a divine bow; when Aqhat refuses to give it to the goddess Anat even for immortality, she has him killed, and the land withers as his sister Pughat sets out for revenge.",
+    "fullNarrative": "## A father's prayer\n\nThe Epic of Aqhat survives on three tablets (KTU 1.17-1.19), with the beginning and end missing. It opens with Danel, a ruler called \"the man of Rapiu\", who judges the case of the widow and the orphan at the city gate, but who has no son. For six days he makes offerings to the gods and sleeps in the sanctuary; on the seventh Baal takes pity and asks El to bless him. El agrees, and promises a son who will perform a son's duties: set up his father's ancestral stela, hold his hand when he is drunk, plaster his roof, wash his clothes (KTU 1.17 I). The list is one of the best descriptions of filial duty in ancient literature. Danel rejoices, and in time Aqhat is born.\n\n## The gift of the bow\n\nOne day, sitting at the gate, Danel sees the craftsman god Kothar-wa-Khasis coming, carrying a bow and arrows. He has his wife Danatiya prepare a lamb, and they feed and honour the god. Kothar leaves the bow, and Danel gives it to Aqhat, telling him to offer the first of his hunting to the gods (KTU 1.17 V).\n\n## Anat's offer\n\nAt a feast, the goddess Anat sees the bow and wants it. She offers Aqhat silver and gold; he tells her to have Kothar make her one. She offers him immortality: to count years with Baal, to live as long as the gods. Aqhat refuses, saying she should not deceive him; old age and death come to all men, and he will die the death of all men. He adds that bows are for warriors, and asks whether women now hunt (paraphrase of KTU 1.17 VI). Anat laughs, but warns him.\n\n## The vultures\n\nAnat goes to El and, after threatening him, gets permission for revenge. She recruits her henchman Yatpan. While Aqhat sits eating, Anat carries Yatpan like a bird among a flock of vultures hovering over him, and Yatpan strikes him on the head; his life goes out of him like breath (KTU 1.18 IV). But the bow is broken or falls into the water in the attack, and Anat does not get it.\n\n## Drought and mourning\n\nDanel's daughter Pughat, \"who carries water on her shoulder\" and \"knows the course of the stars\", sees the fields drying and the birds circling, and weeps. News comes that Aqhat is dead. Danel prays that Baal will break the wings of the vultures; one by one they fall, and he searches their bodies, until in Sumul, the mother of vultures, he finds his son's remains. He buries them, curses the towns near the place where Aqhat died, and mourns for seven years (KTU 1.19 I-IV).\n\n## Pughat's revenge\n\nThen Pughat asks her father's blessing to avenge her brother. She puts on a warrior's clothes and weapons beneath a woman's garments and goes to Yatpan's camp. He welcomes her, thinking her one of Anat's women, drinks her wine, and boasts that the hand that killed Aqhat will kill thousands. Pughat keeps serving him. There the tablet breaks off, and the rest of the story is lost.\n\n## Themes\n\nThe poem sets human mortality against divine desire: Aqhat's refusal of immortality is either wisdom or pride, and scholars have argued both. It is also a story about the duties of children, the justice of rulers, and a sister's courage, and about a land that suffers when the gods act on their passions.",
+    "keyExcerpts": "Anat offers Aqhat immortality for his bow; he answers that he will die the death of all men. She sends Yatpan among the vultures to kill him, the land withers, and his sister Pughat goes armed beneath her dress to her brother's killer.",
+    "category": "tragedy",
+    "moralThemes": [
+      "mortality accepted or defied",
+      "filial duty",
+      "a sister's vengeance",
+      "the cost of divine desire"
+    ],
+    "culturalSignificance": "One of the three great Ugaritic epics, notable for its catalogue of a son's duties, its ruler who judges widows and orphans (a figure echoed in Ezekiel's 'Daniel'), and its unfinished story of female revenge.",
+    "citationSources": [
+      {
+        "title": "The Epic of Aqhat (KTU 1.17-1.19)",
+        "author": "Ugaritic poem; scribe Ilimilku",
+        "date": "tablets of the late 13th or early 12th c. BCE",
+        "type": "primary",
+        "sourceId": "aqhat-epic",
+        "chapter": "KTU 1.17 I, 1.17 V-VI, 1.18 IV, 1.19 I-IV"
+      },
+      {
+        "title": "Ugaritic Narrative Poetry (SBL Writings from the Ancient World 9), ed. Simon B. Parker",
+        "author": "Simon B. Parker (translator of Aqhat)",
+        "date": "1997",
+        "type": "primary",
+        "chapter": "Aqhat"
+      }
+    ],
+    "featuredDeities": ["anat", "kothar-wa-khasis", "el", "baal"],
+    "featuredLocations": ["ugarit"],
+    "relatedStories": ["legend-of-kirta"],
+    "variants": [
+      {
+        "source": "Ezekiel 14:14, 20; 28:3 (Hebrew Bible)",
+        "difference": "Ezekiel names a righteous and wise 'Daniel' (Dnʾl) alongside Noah and Job.",
+        "note": "Many scholars identify this figure with the Ugaritic Danel rather than with the later biblical Daniel; the link is probable but not certain."
+      }
+    ],
+    "furtherReading": [
+      {
+        "sourceId": "aqhat-epic",
+        "note": "The epic in translation"
+      }
+    ],
+    "imageUrl": "/stories/legend-of-aqhat.png"
+  },
+  {
+    "id": "legend-of-kirta",
+    "pantheonId": "canaanite-pantheon",
+    "title": "The Legend of Kirta",
+    "slug": "legend-of-kirta",
+    "summary": "King Kirta, bereft of his family, follows El's dream-instructions to win a new bride, but forgets his vow to Athirat and falls deathly ill; El himself creates a healer to save him, before Kirta's own son challenges his right to rule.",
+    "fullNarrative": "## A house destroyed\n\nThe Epic of Kirta survives on three tablets (KTU 1.14-1.16); a fourth may have existed. It begins with the ruin of King Kirta's house. His family is destroyed one by one: a wife lost, children dead of disease, carried off by flood, struck by the sword, until the king has no heir. Kirta goes into his chamber and weeps, his tears falling like shekels to the ground, until he falls asleep (KTU 1.14 I).\n\n## El's dream\n\nEl, his divine father, comes down to him in a dream and asks why he weeps: does he want silver, gold, horses, kingship? Kirta answers that he wants only sons. El then gives detailed instructions. Kirta is to wash, make an offering on the tower, and gather an army so large that it will cover the fields like locusts; even the newly married man must leave his bride. He is to march for seven days to Udm the Great, the city of King Pabil, besiege it without attacking, refuse Pabil's offers of silver, gold, slaves, horses, and chariots, and ask only for Pabil's daughter, Hurriya, whose beauty is like Anat's and Athtart's (KTU 1.14 II-III).\n\n## The vow\n\nKirta wakes and does exactly as El said, with one addition. On the third day of the march he stops at the shrine of Athirat of Tyre, goddess of Sidon, and makes a vow: if he brings Hurriya into his house, he will give twice her weight in silver and three times in gold (KTU 1.14 IV). Everything happens as foretold: Pabil offers riches, Kirta refuses, and Hurriya is given to him.\n\n## Blessing, and a debt forgotten\n\nAt the wedding feast the gods come, and El blesses Kirta: Hurriya will bear him seven or eight sons, and a daughter, and one son will be nursed by the goddesses Athirat and Anat (KTU 1.15 II). The children are born. But Kirta has not paid his vow, and Athirat remembers: she asks whether Kirta has changed his vow, and says she will break her own promise (KTU 1.15 III).\n\n## Sickness\n\nKirta falls ill. His son Ilhu weeps and asks how a son of El can die; his daughter Thitmanat mourns. The land suffers; the text describes the fields waiting for rain (KTU 1.16 I-III). El asks the gods seven times who will drive out the illness, and none answers. So El himself takes clay and makes a healing being, Shaʿtaqat, a female figure who flies over the towns to Kirta's bed and drives away the sickness. Kirta recovers, eats, and returns to his throne (KTU 1.16 V-VI).\n\n## The challenge of Yassib\n\nBut his eldest son Yassib, thinking his father still weak, confronts him: Kirta has let his hand fall slack; he has not judged the widow's case or the orphan's; he should step down and let Yassib rule. Kirta answers with a curse, calling on the god Horon and on Athtart, Name of Baal, to break his son's head. The tablet ends with the curse.\n\n## Themes\n\nThe poem asks what makes a king legitimate. Kirta is called a son of El and is saved by El's direct action, yet he is mortal, he fails in piety, and his son's challenge uses the standard language of royal duty to the weak. It is one of the earliest works of literature to examine the gap between sacred kingship and human failing.",
+    "keyExcerpts": "El comes to the weeping king in a dream and sends him to win Hurriya; Kirta vows gold to Athirat and forgets, falls ill, is healed by the being Shaʿtaqat whom El shapes from clay, and then curses the son who tries to depose him.",
+    "category": "legend",
+    "moralThemes": [
+      "the fragility of kingship",
+      "vows remembered by the gods",
+      "the duty of rulers to the weak"
+    ],
+    "culturalSignificance": "A royal epic that probes sacred kingship, and an important source for Ugaritic ideas of vows, healing, and the king's duty to judge widows and orphans.",
+    "citationSources": [
+      {
+        "title": "The Epic of Kirta (KTU 1.14-1.16)",
+        "author": "Ugaritic poem; scribe Ilimilku",
+        "date": "tablets of the late 13th or early 12th c. BCE",
+        "type": "primary",
+        "sourceId": "kirta-epic",
+        "chapter": "KTU 1.14 I-IV, 1.15 II-III, 1.16 I-VI"
+      },
+      {
+        "title": "Ugaritic Narrative Poetry (SBL Writings from the Ancient World 9), ed. Simon B. Parker",
+        "author": "Edward L. Greenstein (translator of Kirta)",
+        "date": "1997",
+        "type": "primary",
+        "chapter": "Kirta"
+      }
+    ],
+    "featuredDeities": ["el", "athirat", "baal", "anat", "athtart"],
+    "featuredLocations": ["ugarit"],
+    "relatedStories": ["legend-of-aqhat"],
+    "furtherReading": [
+      {
+        "sourceId": "kirta-epic",
+        "note": "The epic in translation"
+      }
+    ],
+    "imageUrl": "/stories/legend-of-kirta.png"
+  },
+  {
+    "id": "the-sea-woman",
+    "pantheonId": "inuit-pantheon",
+    "title": "The Sea Woman: Sedna, Nuliajuk, Takannaaluk",
+    "slug": "the-sea-woman",
+    "summary": "Across the Inuit Arctic a young woman is wronged, thrown into the sea, and maimed, and becomes the keeper of the sea animals; the details, and even her name, change from region to region.",
+    "fullNarrative": "## One story, many tellings\n\nThis is probably the most widely known Inuit story, and it is told differently in almost every region. What follows gives three published forms side by side rather than blending them into one: the Baffin Island telling Franz Boas recorded as the story of Sedna in the 1880s, the Netsilik telling of Nuliajuk that Knud Rasmussen recorded in the 1920s, and the Iglulik account of what an angakkuq must do when the Sea Woman withholds the animals. Iglulik elders interviewed by Nunavut Arctic College students in 1998 tell her story as that of Uinigumasuittuq, \"the one who did not want a husband\".\n\n## Baffin Island: the fulmar\n\nIn the version Boas recorded in Cumberland Sound, a young woman lives with her father and refuses every man who asks to marry her. In spring a fulmar flies to her from across the ice and sings to her, promising a warm house, soft skins, and plenty of food. She goes with him over the sea, and discovers that he has lied: she lives in a miserable tent of fish skins and eats only fish. After a year her father comes in his boat to visit, and when he sees how she lives he kills the fulmar and takes her away.\n\nThe other fulmars, mourning their companion, pursue the boat and raise a violent storm. The father, afraid for his life, throws his daughter overboard to appease them. She clings to the edge of the boat; he cuts off the first joints of her fingers, which fall into the sea and become whales; she holds on again, and the second joints become seals; the stumps become ground seals. The storm dies away, and the father lets her climb back in. Boas's account goes on to describe the daughter's revenge, the father's punishment, and all three, father, daughter, and dog, going down to Adlivun, where she is mistress.\n\n## Netsilik: the orphan girl\n\nAmong the Netsilingmiut the Sea Woman is Nuliajuk, and in the telling Rasmussen recorded she begins as an orphan girl whom no one cares for. When the people move camp across the water on a raft of kayaks lashed together, they push her into the sea. She grabs the edge of the raft, and they cut off her fingers. She sinks to the bottom, and her fingers become the seals; she becomes the mother of the sea animals, and, the Netsilingmiut told Rasmussen, the most feared of the powers, because she controls the animals on which life depends.\n\n## Iglulik: the hair that must be combed\n\nIglulik speakers described to Rasmussen, and elders later described in their own publications, what happens when people break the rules governing hunting, childbirth, and death. The breaches become dirt and tangles in the Sea Woman's hair. Having no fingers, she cannot comb it, and in anger and discomfort she keeps the seals, walrus, and whales in her house, so that hunters return empty-handed and families go hungry.\n\nWhen that happens, an angakkuq undertakes a spirit journey to her house at the bottom of the sea, passing dangers on the way. The angakkuq combs and cleans her hair, soothes her, and asks her to let the animals go, and back in the community people confess the breaches that caused her anger. This site does not describe the practice beyond what published elders' accounts make public.\n\n## What the story teaches\n\nIn every version the Sea Woman is someone who was wronged: tricked, rejected, or discarded, and maimed by those who should have protected her. Her power over the animals is bound up with that wrong, and with the obligations people have to one another and to the animals they hunt. Tellers today often stress her dignity and the justice of her anger; she is not a sea monster but the keeper of a relationship that people must maintain.",
+    "keyExcerpts": "Wronged and thrown into the sea, the young woman's severed finger joints become the whales and seals; from the sea floor she keeps the animals, releasing them only when her tangled hair, heavy with people's wrongdoing, is combed.",
+    "category": "origin",
+    "moralThemes": [
+      "respect for animals and for the rules of the hunt",
+      "consequences of mistreating the vulnerable",
+      "confession and restoration"
+    ],
+    "culturalSignificance": "The central Inuit account of where the sea mammals came from and why hunting succeeds or fails, still told and depicted by Inuit artists and storytellers; its many regional names are a reminder that Inuit tradition is not one standardised mythology.",
+    "citationSources": [
+      {
+        "title": "Franz Boas, The Central Eskimo (Sixth Annual Report of the Bureau of Ethnology)",
+        "author": "Franz Boas",
+        "date": "1888",
+        "type": "primary",
+        "sourceId": "boas-central-eskimo",
+        "chapter": "Religious ideas and traditions: Sedna and the fulmar"
+      },
+      {
+        "title": "Knud Rasmussen, The Netsilik Eskimos: Social Life and Spiritual Culture (Report of the Fifth Thule Expedition, vol. 8, nos. 1-2)",
+        "author": "Knud Rasmussen",
+        "date": "1931",
+        "type": "primary",
+        "sourceId": "rasmussen-fifth-thule",
+        "chapter": "Nuliajuk"
+      },
+      {
+        "title": "Knud Rasmussen, Intellectual Culture of the Iglulik Eskimos (Report of the Fifth Thule Expedition 1921-24, vol. 7, no. 1)",
+        "author": "Knud Rasmussen",
+        "date": "1929",
+        "type": "primary",
+        "sourceId": "rasmussen-fifth-thule",
+        "chapter": "The Sea Spirit and the shaman's journey"
+      },
+      {
+        "title": "Interviewing Inuit Elders, vol. 4: Cosmology and Shamanism (ed. Bernard Saladin d'Anglure; Nunavut Arctic College)",
+        "author": "Iglulik and Nunavut elders; ed. Bernard Saladin d'Anglure",
+        "date": "2001",
+        "type": "primary",
+        "sourceId": "interviewing-inuit-elders-cosmology",
+        "chapter": "Uinigumasuittuq"
+      }
+    ],
+    "featuredDeities": ["sedna", "anguta"],
+    "featuredLocations": ["cumberland-sound", "igloolik"],
+    "relatedStories": ["sun-sister-and-moon-brother"],
+    "variants": [
+      {
+        "source": "Franz Boas, The Central Eskimo (Baffin Island)",
+        "date": "1888",
+        "difference": "Sedna is lured away by a fulmar; her father rescues her, throws her overboard in the storm the fulmars raise, and cuts her fingers."
+      },
+      {
+        "source": "Knud Rasmussen, The Netsilik Eskimos",
+        "date": "1931",
+        "difference": "Nuliajuk is an orphan girl pushed from a raft of kayaks; her fingers are cut as she clings to it."
+      },
+      {
+        "source": "Dog-husband tellings (Baffin Island and elsewhere)",
+        "difference": "The young woman marries a dog and bears his children before becoming the Sea Woman.",
+        "note": "Boas also recorded this version; its details vary widely by region."
+      }
+    ],
+    "furtherReading": [
+      {
+        "sourceId": "interviewing-inuit-elders-cosmology",
+        "note": "Elders' own accounts"
+      },
+      {
+        "sourceId": "rasmussen-fifth-thule",
+        "note": "Iglulik and Netsilik tellings"
+      },
+      {
+        "sourceId": "boas-central-eskimo",
+        "note": "The Baffin Island telling"
+      }
+    ],
+    "imageUrl": "/stories/the-sea-woman.png"
+  },
+  {
+    "id": "sun-sister-and-moon-brother",
+    "pantheonId": "inuit-pantheon",
+    "title": "The Sun Sister and the Moon Brother",
+    "slug": "sun-sister-and-moon-brother",
+    "summary": "A young woman discovers that the visitor who comes to her in the dark is her own brother; she flees with a blazing torch and becomes the sun, and he follows with a torch burned down to embers and becomes the moon.",
+    "fullNarrative": "## A story told across the Arctic\n\nThe story of how the sun and moon came to the sky is told, with variations, from Greenland to Alaska. Franz Boas noted in 1888 that the Baffin Island version corresponded exactly to the Greenlandic one; Rasmussen heard it in Iglulik and elsewhere in the 1920s. In Greenlandic tellings the sister is often named Malina and the brother Aningaaq; in many Canadian tellings they are simply the sun and the moon. The story deals with a serious breach of kinship rules, and tellers handle it with care; this retelling stays at the level of published summaries.\n\n## The visitor in the dark\n\nLong ago, a brother and sister lived in a large village. In the winter, when people gathered in the dance house (qaggiq) and the lamps were put out, a man came to the sister in the darkness, and she could not tell who he was. It happened again and again. Determined to learn his identity, she blackened her hands with soot from the lamp, and the next time he came she marked him, smearing the soot on his face or his back.\n\n## The discovery\n\nWhen the lamps were lit again, she looked at the men, and saw the soot on her brother. In some tellings she speaks bitterly to him before she leaves; in some Greenlandic tellings she cuts herself in grief and anger, a detail this site mentions but does not dwell on. Then she seized a burning brand of moss and fat, or a torch, and ran out of the house.\n\n## The pursuit\n\nHer brother seized a torch too and ran after her. She ran faster and faster, and her torch blazed; he stumbled or fell in the snow, and his torch was nearly put out, so that it glowed only faintly, like embers. Running, the two were lifted up from the earth and into the sky. The sister, with her bright flame, became the sun. The brother, with his dim light, became the moon, and he pursues her still.\n\n## What the sky shows\n\nMany details of the sky are explained by the story. The moon follows the sun but never quite reaches her, except at an eclipse. The dark marks on the moon's face are the soot from his sister's hands. In some regions the moon's monthly absence is explained as his going away to hunt, and the moon became, in Iglulik belief, a powerful spirit in his own right, with a house in the sky and a role in hunting luck and in the conception of children.\n\n## How the story is used\n\nLike many Inuit stories, this one explains a feature of the world and at the same time teaches about human conduct: the rules of kinship, the lasting consequences of a wrong, and the way shame and anger can separate people for ever. Elders have pointed out that such stories were told to children and young people as ways of passing on those rules.\n\n## Regional differences\n\nThe name of the torch, the manner of the sister's flight, whether she cuts herself, and what she says to her brother all vary by region. In some Alaskan tellings the moon is linked with a man named Igaluk. Readers should treat the version here as a composite outline of published tellings, not as the definitive form.",
+    "keyExcerpts": "The sister marks the visitor in the dark with soot, sees the marks on her brother, and flees with a blazing torch to become the sun; he follows with a torch burned to embers and becomes the moon, still chasing her across the sky.",
+    "category": "origin",
+    "moralThemes": [
+      "the rules of kinship",
+      "shame and its consequences",
+      "why the moon follows the sun"
+    ],
+    "culturalSignificance": "One of the most widespread Inuit origin stories, recorded from Greenland to Alaska, and the source of the Moon Spirit's importance in Iglulik belief.",
+    "citationSources": [
+      {
+        "title": "Franz Boas, The Central Eskimo (Sixth Annual Report of the Bureau of Ethnology)",
+        "author": "Franz Boas",
+        "date": "1888",
+        "type": "primary",
+        "sourceId": "boas-central-eskimo",
+        "chapter": "Traditions: the sun and the moon"
+      },
+      {
+        "title": "Knud Rasmussen, Intellectual Culture of the Iglulik Eskimos (Report of the Fifth Thule Expedition 1921-24, vol. 7, no. 1)",
+        "author": "Knud Rasmussen",
+        "date": "1929",
+        "type": "primary",
+        "sourceId": "rasmussen-fifth-thule",
+        "chapter": "The Moon Spirit"
+      },
+      {
+        "title": "Tales and Traditions of the Eskimo",
+        "author": "Hinrich Rink",
+        "date": "1875",
+        "type": "primary"
+      }
+    ],
+    "featuredDeities": ["malina", "anningan"],
+    "featuredLocations": ["igloolik"],
+    "relatedStories": ["the-sea-woman"],
+    "variants": [
+      {
+        "source": "Greenlandic tellings (Rink)",
+        "date": "1875",
+        "difference": "The sister, often named Malina, cuts herself in grief before fleeing; the brother is Aningaaq."
+      },
+      {
+        "source": "Franz Boas, The Central Eskimo (Baffin Island)",
+        "date": "1888",
+        "difference": "The brother's torch goes out in the pursuit and glows only faintly; both are lifted into the sky."
+      }
+    ],
+    "furtherReading": [
+      {
+        "sourceId": "boas-central-eskimo",
+        "note": "The Baffin Island telling"
+      },
+      {
+        "sourceId": "rasmussen-fifth-thule",
+        "note": "The Moon Spirit in Iglulik belief"
+      }
+    ],
+    "imageUrl": "/stories/sun-sister-and-moon-brother.png"
+  },
+  {
+    "id": "kiviuq-and-the-journeys",
+    "pantheonId": "inuit-pantheon",
+    "title": "Kiviuq's Journeys",
+    "slug": "kiviuq-and-the-journeys",
+    "summary": "After a storm raised to avenge a mistreated orphan drowns the kayakers who mocked him, Kiviuq alone survives and begins a journey of many lifetimes, meeting a murderous woman, giant snapping shells, a fox-wife, and a goose-wife.",
+    "fullNarrative": "## The longest story\n\nKiviuq's story is not one tale but a cycle of episodes, told from Alaska to Greenland and arranged differently by every teller. Inuit elders have said that it could take many nights to tell in full, and that Kiviuq has lived many lifetimes and is still travelling. What follows is a summary of widely told episodes, drawn from published collections of elders' tellings, especially those gathered by Kira Van Deusen with Inuit storytellers; it is not a fixed sequence.\n\n## The orphan and the storm\n\nIn many Canadian tellings, the story starts with an orphan boy who lives with his grandmother. The young men of the camp mock him and mistreat him; in some versions they tear his clothes or throw him into the water. His grandmother, a woman with power, makes a magical seal, or dresses the boy in a seal skin, and sends him out to lure the young men far out to sea in their kayaks. When they are far from land, a storm rises, and all of them are drowned except one: Kiviuq, the strongest and most skilled kayaker, who is carried away across the sea. So his wandering begins, from an act of cruelty and its punishment.\n\n## The woman who meant to kill him\n\nKiviuq comes to a house where an old woman, sometimes called the bee-woman in English retellings, lives with her daughter. The woman plans to kill him while he sleeps, as she has killed others, using her ulu (woman's knife) or cooking him in her pot. Warned in some tellings by the daughter or by his own suspicion, Kiviuq escapes, and in several versions he turns the woman's own trap back on her.\n\n## The snapping shells\n\nOn his journey by kayak Kiviuq must pass between the two halves of a giant mussel or clam that opens and slams shut on anything that tries to cross. He waits for his moment and paddles through as it opens; the shells snap shut just behind him, catching the tail of his kayak but not him. Other episodes set him against giant fish, cannibal giants, and dangerous landscapes that must be crossed by skill and patience.\n\n## The fox-wife and the goose-wife\n\nKiviuq marries more than once. In one episode he returns home to find that his house has been cleaned and his clothes prepared, and discovers a fox who takes off her fur and becomes a woman; she becomes his wife, until a slight about her smell, in some tellings, drives her back to her animal form. In another, he takes the clothes of a woman who has shed her goose skin, so that she cannot fly away, and marries her; later she gathers feathers and flies south with the geese, and Kiviuq follows her on a long and difficult journey.\n\n## Still travelling\n\nTellers disagree on how the story ends, or whether it ends. Many say Kiviuq is still alive, wandering somewhere in the Arctic, and that he will come back when he is needed. Kiviuq is honoured today in Nunavut in schools, books, films, and the names of places and organisations.\n\n## What the episodes teach\n\nEach episode carries lessons: the danger of cruelty to the vulnerable, the need for caution with strangers, patience and skill in crossing danger, and the respect owed to animals, who may be people in another form. Van Deusen's project shows how tellers in each community adapt the episodes to their own landscape and concerns, which is part of what keeps the story alive.",
+    "keyExcerpts": "A storm raised for a mistreated orphan drowns his tormentors; only Kiviuq survives, beginning a wandering of many lifetimes past a murderous host, snapping giant shells, and marriages to a fox-woman and a goose-woman.",
+    "category": "hero",
+    "moralThemes": [
+      "the consequences of cruelty",
+      "endurance and skill",
+      "respect for animals as persons"
+    ],
+    "culturalSignificance": "The great epic cycle of the Inuit Arctic, told across the whole region with local variation; Kiviuq remains a figure of identity and endurance in Nunavut and elsewhere.",
+    "citationSources": [
+      {
+        "title": "Kiviuq: An Inuit Hero and His Siberian Cousins",
+        "author": "Kira Van Deusen (with Inuit storytellers)",
+        "date": "2009",
+        "type": "primary",
+        "chapter": "Episodes of the Kiviuq cycle"
+      },
+      {
+        "title": "Franz Boas, The Central Eskimo (Sixth Annual Report of the Bureau of Ethnology)",
+        "author": "Franz Boas",
+        "date": "1888",
+        "type": "primary",
+        "sourceId": "boas-central-eskimo",
+        "chapter": "Traditions: Kiviung"
+      }
+    ],
+    "featuredDeities": [],
+    "featuredLocations": ["igloolik"],
+    "relatedStories": ["the-sea-woman"],
+    "furtherReading": [
+      {
+        "sourceId": "boas-central-eskimo",
+        "note": "An early recorded telling of Kiviung from Baffin Island"
+      }
+    ],
+    "imageUrl": "/stories/kiviuq-and-the-journeys.png"
+  },
+  {
+    "id": "raven-harpoons-the-whale-land",
+    "pantheonId": "inuit-pantheon",
+    "title": "Raven Man and the Land of Tikiġaq",
+    "slug": "raven-harpoons-the-whale-land",
+    "summary": "In the Iñupiaq tradition of Point Hope, Alaska, Tulunigraq, the Raven Man, harpoons a great creature of the sea whose body becomes the land of Tikiġaq, where the whaling village stands.",
+    "fullNarrative": "## A village on a living creature\n\nTikiġaq, known in English as Point Hope, is an Iñupiaq village on a gravel spit that reaches far out into the Chukchi Sea in northwest Alaska. Its people have hunted bowhead whales from this point for many centuries, and the archaeological sites nearby, including the old settlement of Ipiutak, are among the most important in the Arctic. The people of Tikiġaq tell that their land was once a living creature of the sea, and that the village stands on its body.\n\n## Where the story comes from\n\nThe account summarised here comes from Tom Lowenstein's work with Tikiġaq elders in the 1970s, above all Asatchaq, a renowned storyteller, published in *Ancient Land: Sacred Whale: The Inuit Hunt and Its Rituals* (1993). Lowenstein recorded the stories in Iñupiaq and English with the elders' involvement and discussed their meaning with them. This site gives only a summary, and does not describe the whaling-season ceremonies that the stories connect to.\n\n## Raven Man's hunt\n\nLong ago, before the land was there, Tulunigraq, a being who was something like a raven and something like a man, went hunting on the water. There he encountered a great creature of the sea. In Lowenstein's account the creature is not simply called a whale; it is a great beast of the sea, sometimes likened to a whale, whose nature the telling leaves partly mysterious. Raven Man harpooned it, and when he had killed it, its body did not sink. It lay on the water and became land: the long point of Tikiġaq, where the people would live.\n\n## The land as body\n\nTikiġaq people describe their land as the creature's body, and parts of the landscape as parts of it. The idea that the village stands on a harpooned animal ties the land and its people to the whale hunt that sustained them: the land itself was the first catch. Lowenstein's book shows how this story shaped the way people understood their place, their houses, and their obligations to the whales that give themselves to hunters.\n\n## Raven across the North\n\nRaven is a major figure across the far North. In other Alaskan traditions, Iñupiaq and Yup'ik, he is a creator and a trickster who brings light and makes people; on the Northwest Coast, among the Tlingit and Haida, he steals daylight and frees the first people from a clamshell. These are distinct stories from distinct peoples. What Tikiġaq's story shares with them is a Raven who makes the world by doing, not by speaking.\n\n## A living place\n\nPoint Hope remains an active whaling community, and the bowhead hunt remains central to its life. The story of Raven Man is part of how the community understands that life today, not a relic from the past. Readers interested in more should turn to Iñupiat-authored sources and the community's own institutions.",
+    "keyExcerpts": "Before the land existed, Raven Man harpooned a great creature of the sea; its body did not sink but became the long point of Tikiġaq, so that the whaling village stands on the body of its first catch.",
+    "category": "creation",
+    "moralThemes": [
+      "land and people bound to the hunt",
+      "the whale's gift",
+      "place as a living being"
+    ],
+    "culturalSignificance": "The founding story of Tikiġaq (Point Hope), one of the oldest continuously occupied whaling communities in North America, linking the land to the bowhead hunt that sustains it.",
+    "citationSources": [
+      {
+        "title": "Ancient Land: Sacred Whale: The Inuit Hunt and Its Rituals",
+        "author": "Tom Lowenstein (from the tellings of Asatchaq and other Tikiġaq elders)",
+        "date": "1993",
+        "type": "primary",
+        "chapter": "Raven Man and the whale-land"
+      }
+    ],
+    "featuredDeities": ["tulunigraq"],
+    "featuredLocations": ["tikigaq-point-hope"],
+    "relatedStories": ["raven-steals-the-light", "raven-and-the-first-men"],
+    "furtherReading": [],
+    "imageUrl": "/stories/raven-harpoons-the-whale-land.png"
+  },
+  {
+    "id": "bunjil-and-the-kulin-country",
+    "pantheonId": "aboriginal-australian-pantheon",
+    "title": "Bunjil and the Making of Kulin Country",
+    "slug": "bunjil-and-the-kulin-country",
+    "summary": "A Kulin creation story from central Victoria, shared publicly by Kulin people: Bunjil the eagle shapes the land and the first men, his brother Pallian brings the first women from the water, and Bunjil gives them law before rising into the sky.",
+    "fullNarrative": "## Whose story this is\n\nThis story belongs to the Kulin nations of central Victoria, including the Wurundjeri Woi-wurrung, Boon Wurrung, Wadawurrung, Taungurung, and Dja Dja Wurrung peoples, whose Countries surround and include what is now Melbourne. Kulin Elders and organisations share Bunjil's story publicly today, and parts of it were also recorded by colonial observers in the nineteenth century. The summary below follows the public outline of those tellings; it is not the full story, and it is not told in the way a Kulin Elder would tell it on Country.\n\n## Bunjil and Pallian\n\nBunjil, the wedge-tailed eagle, is the creator ancestor. In the public tellings he shaped the land of the Kulin: its hills and plains, its rivers, its trees and plants, and its animals. Then he made the first people. In one widely shared telling, Bunjil shaped two men, and gave them life; his brother Pallian, who had been given charge of the rivers, creeks, and billabongs, then beat the water with his hands until two women took shape in it, and they became the first women. So men and women, the land and the water, came into being together.\n\n## The law\n\nBunjil gave the people law: how to live on Country, how to care for it, and how to behave toward one another. Among the Kulin, people belong to one of two moieties, Bunjil the eagle or Waa the crow, and the law of the moieties governs marriage and relationships. Stories shared publicly also tell of Bunjil stepping in when people did not follow the law, and in one telling of his turning back the rising sea when the people agreed to change their ways.\n\n## Rising into the sky\n\nWhen his work was done, Bunjil gathered his family. In one widely published telling, the keeper of the winds (named as Waa the crow in some accounts and as another being in others) opened his bag of winds, and a strong wind carried Bunjil and his people up into the sky. Boon Wurrung and Wurundjeri people connect Bunjil with the bright star Altair, with his two wives, as black swans, on either side. From the sky, Bunjil watches over the land and people he made.\n\n## Bunjil in Country today\n\nBunjil's presence is marked in Country and in present-day Melbourne. The only known rock painting of Bunjil is at Bunjil's Shelter in the Black Range near Stawell, on Djab Wurrung Country. In Melbourne's Docklands, a large sculpture of an eagle refers to Bunjil. Kulin people continue to refer to Bunjil when they welcome visitors to Country, reminding them of his law of caring for the land and its children.\n\n## Earlier records\n\nColonists such as the Assistant Protector William Thomas and the writer R. Brough Smyth recorded Kulin stories of Bunjil in the nineteenth century, often calling him a supreme being. Those records preserve some details but also reflect their authors' assumptions, and they were made during the dispossession of the Kulin nations. Kulin peoples' own tellings are the authority for this story.",
+    "keyExcerpts": "Bunjil the eagle shapes the land and the first men, his brother Pallian brings the first women out of the water, and Bunjil gives the people law before a great wind lifts him and his family into the sky.",
+    "category": "creation",
+    "moralThemes": [
+      "caring for Country",
+      "living by the law",
+      "men and women made together"
+    ],
+    "culturalSignificance": "The creation story of the Kulin nations, still invoked in Welcome to Country and in Kulin cultural life; Bunjil's law of caring for the land is central to how Kulin people describe their responsibilities.",
+    "citationSources": [
+      {
+        "title": "Museums Victoria, First Peoples of Australia Astronomy (Melbourne Planetarium)",
+        "author": "Museums Victoria, drawing on Boon Wurrung and Wurundjeri knowledge",
+        "date": "accessed 2026",
+        "type": "primary",
+        "chapter": "Warepil and Bunjil",
+        "url": "https://museumsvictoria.com.au/scienceworks/melbourne-planetarium/fact-sheets/first-peoples-of-australia-astronomy/"
+      },
+      {
+        "title": "The Aborigines of Victoria, vol. 1",
+        "author": "R. Brough Smyth (colonial record)",
+        "date": "1878",
+        "type": "secondary"
+      }
+    ],
+    "featuredDeities": ["bunjil", "pallian"],
+    "featuredLocations": ["bunjils-shelter"],
+    "relatedStories": ["the-seven-sisters-songline"],
+    "variants": [
+      {
+        "source": "Colonial records (Thomas; Smyth 1878)",
+        "difference": "The keeper of the winds who lifts Bunjil into the sky is named differently in different records, and colonial writers describe Bunjil as a 'supreme being'.",
+        "note": "This summary follows a publicly shared telling. It is not the full story, and restricted parts are not included; the people named are its custodians."
+      }
+    ],
+    "furtherReading": [],
+    "imageUrl": "/stories/bunjil-and-the-kulin-country.png"
+  },
+  {
+    "id": "the-seven-sisters-songline",
+    "pantheonId": "aboriginal-australian-pantheon",
+    "title": "The Seven Sisters Songline",
+    "slug": "the-seven-sisters-songline",
+    "summary": "Shared by Martu, Ngaanyatjarra, and Aṉangu Pitjantjatjara Yankunytjatjara custodians through the National Museum of Australia: ancestral sisters flee across the deserts from a man who uses magic to pursue them, and rise into the sky as the Pleiades.",
+    "fullNarrative": "## Whose story this is\n\nThe Seven Sisters songlines belong to peoples of the Western and Central Deserts, among them the Martu, the Ngaanyatjarra, and the Aṉangu Pitjantjatjara Yankunytjatjara (APY). The Martu call the sisters Minyipuru and the pursuer Yurla; Aṉangu call the sisters Kungkarangkalpa and the pursuer Wati Nyiru. In 2017 the custodians of these songlines worked with the National Museum of Australia on the exhibition *Songlines: Tracking the Seven Sisters*, deciding what could be shared with the public through painting, weaving, song, dance, and film. This summary follows what they chose to share, and no more.\n\n## A songline, not a single tale\n\nA songline follows the journey of ancestral beings across the land. The Seven Sisters' journey runs for hundreds of kilometres across what are now Western Australia, South Australia, and the Northern Territory, through the Countries of many peoples, each of whom holds and tells the part of the story that belongs to their Country. Rockholes, hills, and other features along the way mark where the sisters camped, rested, dug for water, or escaped. Knowing the songline means knowing the land.\n\n## The pursuit\n\nThe sisters travel together, and they are pursued by a man who desires them, or one of them. He is a sorcerer who uses magic and changes his shape to get close to them, becoming, in public tellings, things in the landscape that might tempt or deceive the sisters. The sisters escape him again and again, using their own powers and relying on one another. At some places he comes close; at others they elude him entirely. The shape of the land along the songline records these encounters.\n\n## Into the sky\n\nAt last the sisters rise into the sky, where they are the star cluster known in Western astronomy as the Pleiades. The man follows them, and is seen in stars of Orion, still in pursuit across the night sky.\n\n## What the story teaches\n\nAs the custodians presented it, the Seven Sisters story carries lessons about proper conduct, about the danger of uncontrolled desire, and above all about the strength of women who stand together. Aṉangu senior women artists, speaking to the museum in 2016, described themselves as big sisters to the young women, with the duty, as in the Seven Sisters story, to teach and protect their younger sisters (paraphrase). The story is also a way of holding knowledge of Country: where water is, how to travel, and how the land is connected.\n\n## Shared on the custodians' terms\n\nThe exhibition opened in Canberra in 2017 and toured internationally, to Paris, Berlin, Plymouth, Perth, and New Delhi. It was widely recognised as a model of how knowledge holders can share part of a songline publicly while keeping restricted knowledge protected. Some parts of the Seven Sisters story are women's knowledge or otherwise restricted, and this site does not include them.\n\n## Beyond the deserts\n\nStories connecting sisters with the Pleiades are found among other Aboriginal peoples as well, in their own forms and languages. They should not be assumed to be the same story as the desert songlines described here.",
+    "keyExcerpts": "Ancestral sisters flee across the Western and Central Deserts from a shape-changing man, Yurla or Wati Nyiru, leaving their marks in the land; they rise into the sky as the Pleiades, and he follows as stars of Orion.",
+    "category": "legend",
+    "moralThemes": [
+      "sisters who protect one another",
+      "the danger of uncontrolled desire",
+      "knowledge of Country held in story"
+    ],
+    "culturalSignificance": "One of the great songlines of the Western and Central Deserts, shared in part by its custodians through the National Museum of Australia's internationally touring exhibition as a model of community-controlled cultural sharing.",
+    "citationSources": [
+      {
+        "title": "National Museum of Australia, Songlines: Tracking the Seven Sisters (exhibition and catalogue, ed. Margo Neale)",
+        "author": "Margo Neale (ed.), with Martu, Ngaanyatjarra, and APY custodians",
+        "date": "2017",
+        "type": "primary",
+        "sourceId": "songlines-seven-sisters",
+        "url": "https://www.nma.gov.au/exhibitions/songlines"
+      },
+      {
+        "title": "Songlines: The Power and Promise (First Knowledges series)",
+        "author": "Margo Neale and Lynne Kelly",
+        "date": "2020",
+        "type": "secondary"
+      }
+    ],
+    "featuredDeities": ["seven-sisters", "wati-nyiru"],
+    "featuredLocations": [],
+    "relatedStories": ["kuniya-and-liru"],
+    "variants": [
+      {
+        "source": "Martu tellings",
+        "difference": "The sisters are the Minyipuru and the pursuer is Yurla.",
+        "note": "This summary follows a publicly shared telling. It is not the full story, and restricted parts are not included; the people named are its custodians."
+      },
+      {
+        "source": "Aṉangu Pitjantjatjara Yankunytjatjara tellings",
+        "difference": "The sisters are the Kungkarangkalpa and the pursuer is Wati Nyiru.",
+        "note": "This summary follows a publicly shared telling. It is not the full story, and restricted parts are not included; the people named are its custodians."
+      }
+    ],
+    "furtherReading": [
+      {
+        "sourceId": "songlines-seven-sisters",
+        "note": "The exhibition catalogue, shaped by the custodians"
+      }
+    ],
+    "imageUrl": "/stories/the-seven-sisters-songline.png"
+  },
+  {
+    "id": "baiames-ngunnhu",
+    "pantheonId": "aboriginal-australian-pantheon",
+    "title": "Baiame's Ngunnhu: The Brewarrina Fish Traps",
+    "slug": "baiames-ngunnhu",
+    "summary": "Shared by the Ngemba people and their neighbours at Brewarrina, New South Wales: the ancestral creation being Baiame revealed the design of the stone fish traps in the Barwon River by throwing his net over it, and gave each family group a trap to use and maintain.",
+    "fullNarrative": "## Whose story this is\n\nBaiame's Ngunnhu are the stone fish traps in the Barwon River at Brewarrina, in north-western New South Wales. The Ngemba (Ngiyampaa) people are their custodians, and they shared use of the traps with neighbouring peoples, including, as the National Heritage listing records, the Morowari, Paarkinji, Weilwan, Barabinja, Ualarai, and Kamilaroi. The story summarised here is the one recorded in that listing, prepared with the Aboriginal community, and told publicly by Brewarrina's Aboriginal people. It is not a complete account of Baiame, who is associated with other stories and with restricted ceremonies not described here.\n\n## The net over the river\n\nAccording to Aboriginal tradition, the ancestral creation being Baiame revealed the design of the traps by throwing his net over the river. The pattern of the net, laid across the water, became the plan of the traps: a network of dry-stone walls and pens across the riverbed. Baiame and his two sons, Booma-ooma-nowi and Ghinda-inda-mui, then built the traps to that design.\n\n## Responsibility for the traps\n\nBaiame did not simply make the traps and leave. He allocated particular traps to each family group and made them responsible for their use and maintenance. The traps were therefore a system of law as well as a structure: who could fish where, who was responsible for repairing which walls, and how the catch was shared. Neighbouring peoples were invited to Brewarrina for gatherings, ceremonies, and trade, especially when the fish were running.\n\n## How the traps work\n\nThe design of rock weirs and pens allowed large numbers of fish to be guided and caught, particularly during their spring migrations, and it withstood both floods and low water. The traps show a detailed understanding of river flow and fish behaviour, and they are among the largest and most complex Aboriginal fish traps known. Their age is not known with certainty; the story places their origin in Baiame's time, and archaeologists regard them as very old.\n\n## Damage and recognition\n\nAfter colonisation, the traps were damaged: stones were removed for building, and a weir later built across the river altered the flow and buried part of the system. In 2005 the Brewarrina Aboriginal Fish Traps were added to Australia's National Heritage List, recognising both the traps and the Baiame story. Local Aboriginal people continue to care for the traps and to lead work on their future.\n\n## What the story teaches\n\nThe story of Baiame's Ngunnhu joins technology, law, and sharing. The traps are a gift that comes with duties: each family's responsibility for its part of the system, and a sharing of the river's abundance with neighbours. That combination of practical knowledge and law is characteristic of how many Aboriginal stories connect people to Country.",
+    "keyExcerpts": "Baiame throws his net over the Barwon River and its pattern becomes the plan of the stone fish traps; with his sons he builds them, and gives each family group a trap to use and care for.",
+    "category": "origin",
+    "moralThemes": [
+      "knowledge given with responsibility",
+      "sharing the river's abundance",
+      "caring for Country"
+    ],
+    "culturalSignificance": "The origin story of one of the largest Aboriginal fish-trap systems, National Heritage listed in 2005 in recognition of both the traps and the Baiame story; a continuing centre of Ngemba cultural life.",
+    "citationSources": [
+      {
+        "title": "Australian Government, National Heritage List: Brewarrina Aboriginal Fish Traps (Baiame's Ngunnhu)",
+        "author": "Department of Climate Change, Energy, the Environment and Water, with the Brewarrina Aboriginal community",
+        "date": "inscribed 2005; accessed 2026",
+        "type": "primary",
+        "url": "https://www.dcceew.gov.au/parks-heritage/heritage/places/national/brewarrina",
+        "chapter": "The story of Baiame's Ngunnhu"
+      }
+    ],
+    "featuredDeities": ["baiame"],
+    "featuredLocations": ["brewarrina-fish-traps"],
+    "relatedStories": ["bunjil-and-the-kulin-country"],
+    "variants": [
+      {
+        "source": "Other Baiame traditions (Gamilaraay, Wiradjuri, Yuwaalaraay)",
+        "difference": "Other peoples tell different Baiame stories, about shaping rivers and landforms and about his going up to the sky.",
+        "note": "This summary follows a publicly shared telling. It is not the full story, and restricted parts are not included; the people named are its custodians."
+      }
+    ],
+    "furtherReading": [],
+    "imageUrl": "/stories/baiames-ngunnhu.png"
+  },
+  {
+    "id": "wagyl-and-derbarl-yerrigan",
+    "pantheonId": "aboriginal-australian-pantheon",
+    "title": "The Wagyl and the Derbarl Yerrigan",
+    "slug": "wagyl-and-derbarl-yerrigan",
+    "summary": "Shared publicly by Whadjuk Noongar people: in the Nyitting, the creation time, the Wagyl moved across the land and shaped the Derbarl Yerrigan (Swan River) and the waterways of the Perth region.",
+    "fullNarrative": "## Whose story this is\n\nThe Wagyl belongs to the Noongar people of the south-west of Western Australia, and this story in particular to the Whadjuk Noongar, whose Country includes the city of Perth and the Derbarl Yerrigan, the Swan River. Noongar organisations, including the South West Aboriginal Land and Sea Council through its Kaartdijin Noongar (Noongar Knowledge) project, and local councils working with Noongar Elders share this story publicly. The summary below follows those public tellings; Noongar people tell it in their own ways, and some Wagyl knowledge is not public.\n\n## The Nyitting\n\nNoongar people speak of the Nyitting, the creation time, often translated as \"the cold time\", when the land took its present shape. In the Nyitting, the Wagyl, a great serpent being, moved across the land. As it travelled, its body carved out the land, and its tracks became the rivers, lakes, and wetlands. The Derbarl Yerrigan, winding from the hills to the sea through what is now Perth, follows the Wagyl's movements.\n\n## Resting places\n\nAlong the river are places where the Wagyl rested, and these are important to Whadjuk Noongar people. One such place is associated with the foot of Kaarta Gar-up (Mount Eliza, below Kings Park), at Goonininup, near a freshwater spring. The Wagyl continues to be present in the waters it made, and Noongar people have responsibility for caring for them.\n\n## Protecting the Wagyl's places\n\nIn 1989 Noongar people began a long protest against the redevelopment of the Old Swan Brewery site at Goonininup, because of its association with the Wagyl. The protest became one of the best-known Aboriginal heritage struggles in Western Australia. Although the redevelopment eventually went ahead, the campaign brought wide public attention to Noongar connections to the river, and to the Wagyl as a living part of Noongar law rather than a figure of the past.\n\n## Water and responsibility\n\nThe Wagyl is associated with fresh water, and Noongar people describe the Wagyl's waters as places to be respected. Some tellings say the Wagyl should not be disturbed, and that certain places should be approached only with care. In a dry region, the story connects people to the sources of fresh water and to the obligation to protect them.\n\n## Many waterways\n\nWagyl stories are told across Noongar Country, not only in Perth, and connect other rivers, lakes, and wetlands of the south-west. Different Noongar groups tell them differently. Readers who want to know more should seek out the tellings of Noongar Elders and organisations.\n\n## A note on names\n\nThe Swan River's Noongar name is often spelled Derbarl Yerrigan, and the Wagyl's name Wagyl, Waugal, or Waakal; Noongar spelling varies because the language was written down by many different people. This site uses the spellings found in current Noongar-led public sources.",
+    "keyExcerpts": "In the Nyitting the Wagyl moves across the land, and its tracks become the rivers and wetlands; the Derbarl Yerrigan winding through Perth follows its course, and its resting places remain in Whadjuk Noongar care.",
+    "category": "creation",
+    "moralThemes": [
+      "responsibility for fresh water",
+      "respect for sacred places",
+      "the living presence of the creation time"
+    ],
+    "culturalSignificance": "The Whadjuk Noongar account of the origin of the Swan River and the waterways of the Perth region, central to Noongar heritage campaigns including the protests at Goonininup from 1989.",
+    "citationSources": [
+      {
+        "title": "Kaartdijin Noongar: Noongar Knowledge",
+        "author": "South West Aboriginal Land and Sea Council",
+        "date": "noongarculture.org.au, accessed 2026",
+        "type": "primary"
+      },
+      {
+        "title": "Aboriginal history",
+        "author": "City of Swan (prepared with Noongar community input)",
+        "date": "accessed 2026",
+        "type": "primary",
+        "url": "https://www.swan.wa.gov.au/city-and-council/city-history/aboriginal-history"
+      }
+    ],
+    "featuredDeities": ["wagyl", "rainbow-serpent"],
+    "featuredLocations": ["derbarl-yerrigan"],
+    "relatedStories": ["baiames-ngunnhu"],
+    "variants": [
+      {
+        "source": "Other Noongar groups",
+        "difference": "Wagyl stories are also told for other rivers, lakes, and wetlands across Noongar Country, differently by different groups.",
+        "note": "This summary follows a publicly shared telling. It is not the full story, and restricted parts are not included; the people named are its custodians."
+      }
+    ],
+    "furtherReading": [],
+    "imageUrl": "/stories/wagyl-and-derbarl-yerrigan.png"
+  },
+  {
+    "id": "kuniya-and-liru",
+    "pantheonId": "aboriginal-australian-pantheon",
+    "title": "Kuniya and Liru at Uluṟu",
+    "slug": "kuniya-and-liru",
+    "summary": "Shared publicly by Aṉangu at Uluṟu-Kata Tjuṯa National Park: when Liru warriors kill her nephew, Kuniya the woma python woman confronts one of them at Muṯitjulu Waterhole and strikes him down with her digging stick.",
+    "fullNarrative": "## Whose story this is\n\nThis is Aṉangu Tjukurpa, the law and ancestral knowledge of the Aṉangu, the traditional owners of Uluṟu-Kata Tjuṯa National Park in the Northern Territory. Aṉangu share this story publicly with visitors: it is told on signs along the Kuniya walk to Muṯitjulu Waterhole and on the park's website, both prepared with Aṉangu, and by Aṉangu guides. Uluṟu holds many Tjukurpa stories, and many of them are not public; this summary keeps to the public telling of Kuniya and Liru.\n\n## Kuniya comes to Uluṟu\n\nKuniya, the woma python, came to Uluṟu from far away, travelling across the land. At Uluṟu she laid her eggs and made her camp. Her nephew, a young Kuniya man, also came to the area.\n\n## The Liru war party\n\nA war party of Liru, venomous snake men, came to Uluṟu. They attacked Kuniya's nephew with their spears and killed him. The spear marks are said to remain on the rock of Uluṟu, and Aṉangu point to them when they tell the story.\n\n## Kuniya's grief and anger\n\nWhen Kuniya learned that her nephew had been killed, she was overcome with grief and anger. She came to Muṯitjulu to confront the Liru. As the public telling describes it, she performed a powerful dance and took up her wana, her digging stick. She struck one of the Liru warriors on the head, and he died. Features of the rock face at Muṯitjulu record this encounter: the marks of the blow, and the forms of Kuniya and the Liru warrior.\n\n## Muṯitjulu Waterhole\n\nMuṯitjulu is one of the few permanent waterholes at Uluṟu and an important place for Aṉangu. The public story teaches visitors about the Tjukurpa that gives the place its meaning, and about the proper response to wrongdoing within Aṉangu law. Aṉangu guides explain that the story also carries lessons about responsibility to kin and about the consequences of violence.\n\n## Visiting on Aṉangu terms\n\nUluṟu-Kata Tjuṯa National Park is jointly managed by Aṉangu and Parks Australia, following the return of the land to its traditional owners in 1985. Aṉangu ask visitors to respect culturally sensitive sites, including places where photography is not allowed. At the request of the traditional owners, climbing Uluṟu was permanently closed in October 2019.\n\n## Not a \"Rainbow Serpent\"\n\nKuniya is sometimes loosely called a \"Rainbow Serpent\" in popular writing. She is a woma python woman in a specific Aṉangu story, and her story should be understood as Aṉangu tell it, not folded into a general category.",
+    "keyExcerpts": "Liru warriors spear Kuniya's nephew; in grief and anger Kuniya confronts one of them at Muṯitjulu Waterhole and strikes him with her wana, and the marks of the encounter remain in the rock of Uluṟu.",
+    "category": "legend",
+    "moralThemes": [
+      "responsibility to kin",
+      "the consequences of violence",
+      "law held in the land"
+    ],
+    "culturalSignificance": "One of the Tjukurpa stories Aṉangu share publicly at Uluṟu, told along the Kuniya walk to Muṯitjulu Waterhole; part of the jointly managed park's presentation of Aṉangu law to visitors.",
+    "citationSources": [
+      {
+        "title": "Uluṟu-Kata Tjuṯa National Park (Parks Australia, with Aṉangu traditional owners), 'The Kuniya & Liru stories'",
+        "author": "Aṉangu traditional owners and Parks Australia",
+        "date": "accessed 2026",
+        "type": "primary",
+        "url": "https://uluru.gov.au/discover/culture/stories/kuniya-liru-stories/"
+      }
+    ],
+    "featuredDeities": ["kuniya", "liru"],
+    "featuredLocations": ["uluru"],
+    "relatedStories": ["the-seven-sisters-songline"],
+    "furtherReading": [],
+    "imageUrl": "/stories/kuniya-and-liru.png"
+  },
+  {
+    "id": "the-dine-emergence",
+    "pantheonId": "dine-pantheon",
+    "title": "The Emergence Through the Lower Worlds",
+    "slug": "the-dine-emergence",
+    "summary": "In the Diné origin story, beings journey upward through a series of lower worlds, leaving each because of wrongdoing or disaster, until, fleeing a flood caused by Coyote's theft of the Water Monster's child, they emerge through a reed into this, the Glittering World.",
+    "fullNarrative": "## Before reading\n\nThis is part of the Diné origin story, which many Diné families teach should be told only in winter. It is summarised here at the level of published sources, chiefly Washington Matthews's *Navaho Legends* (1897) and Paul G. Zolbrod's *Diné bahaneʼ* (1984), both by non-Diné authors, and the Diné-authored *Navajo History* (1971). Diné tellings differ in the number of worlds, their colours, their inhabitants, and the order of events; the outline below is not the authoritative version, and it omits ceremonial knowledge.\n\n## The lower worlds\n\nThe story begins in a world below this one, small and dark, inhabited by beings that many tellings call Air-Spirit People or insect people. They quarrel and behave wrongly, and in consequence they are driven out, often by rising water or by the powers of the world around them. They fly or climb upward through an opening in the sky into a second world, where they meet other beings, and there again wrongdoing leads to their departure; and so on through a third world and a fourth. Tellings give different colours to these worlds, often black, blue, and yellow, and the fourth is sometimes described as white or glittering. In the course of the journey First Man and First Woman come into being, and with them Coyote and others.\n\n## The separation of the sexes\n\nIn one of the lower worlds, many tellings place a quarrel between First Man and First Woman over which of them contributes more. The men and women separate and live on opposite sides of a river. At first each side thinks it can manage alone; over time both suffer, and they come back together. But during the separation, according to many tellings, things happened that later gave rise to the monsters that would prey on the people.\n\n## Coyote and the Water Monster\n\nIn the last of the lower worlds, Coyote does something that endangers everyone: he steals the child of Tééhooltsódii, the Water Monster, and hides it. The Water Monster, searching for its child, causes the waters to rise. The flood grows until it threatens to drown everything.\n\n## The reed\n\nThe people search for a way out. In Matthews's version and others, they plant a great reed, which grows up until it reaches the sky above, and the people climb inside it to escape the rising water. At the top, animals such as the locust or the badger help to open the way through into the world above. When the people emerge, the waters follow; the theft is discovered, Coyote is made to give the Water Monster's child back, and the waters recede. The place of emergence is identified differently by different tellers.\n\n## The Glittering World\n\nThe people come out into this world, the fifth in many tellings, called the Glittering World. There the Holy People set things in order: the sacred mountains are placed at the four directions, the sun and moon are set on their courses, and the stars are placed, a careful work that Coyote disrupts by scattering the rest. The world is ready for Changing Woman, whose story comes next.\n\n## Meaning\n\nThe emergence story is often described as a journey toward order and balance, in which each world is left because of disorder and the people learn, slowly and at great cost, how to live properly. It grounds the Diné in their land: they did not come from somewhere else, but emerged into the world bounded by the sacred mountains.",
+    "keyExcerpts": "Driven from world to world by their own disorder, the beings of the lower worlds flee a flood raised by the Water Monster after Coyote steals its child, climbing up through a great reed into the Glittering World.",
+    "category": "creation",
+    "moralThemes": [
+      "the consequences of disorder",
+      "the interdependence of women and men",
+      "the journey toward balance (hózhó)"
+    ],
+    "culturalSignificance": "The Diné account of emergence into this world, which grounds the people in Diné Bikéyah, the land between the four sacred mountains, and underlies ceremonial knowledge that is not described here.",
+    "citationSources": [
+      {
+        "title": "Navaho Legends (Memoirs of the American Folk-Lore Society 5)",
+        "author": "Washington Matthews",
+        "date": "1897",
+        "type": "primary",
+        "sourceId": "navaho-legends-matthews",
+        "chapter": "The origin legend: the lower worlds"
+      },
+      {
+        "title": "Diné bahane': The Navajo Creation Story",
+        "author": "Paul G. Zolbrod",
+        "date": "1984",
+        "type": "primary",
+        "sourceId": "dine-bahane-zolbrod",
+        "chapter": "Parts One and Two"
+      },
+      {
+        "title": "Navajo History, vol. 1 (Navajo Curriculum Center, Rough Rock Demonstration School; ed. Ethelou Yazzie)",
+        "author": "Navajo Curriculum Center (Diné-authored)",
+        "date": "1971",
+        "type": "secondary"
+      }
+    ],
+    "featuredDeities": ["first-man", "first-woman", "coyote"],
+    "featuredLocations": [],
+    "relatedStories": ["birth-of-changing-woman"],
+    "variants": [
+      {
+        "source": "Washington Matthews, Navaho Legends",
+        "date": "1897",
+        "difference": "Gives its own sequence and colours of the lower worlds and its own inhabitants for each.",
+        "note": "Summary-level only. Many Diné families and teachers tell this story, like other Coyote and origin stories, only in the winter months, after the first frost and before the first thunder of spring. Readers who wish to follow that practice may prefer to return to this page in winter."
+      },
+      {
+        "source": "Paul G. Zolbrod, Diné bahaneʼ",
+        "date": "1984",
+        "difference": "Presents a continuous composite narrative through four lower worlds into the fifth, the Glittering World.",
+        "note": "Criticised by some Diné readers as a composite by a non-Diné author."
+      }
+    ],
+    "furtherReading": [
+      {
+        "sourceId": "navaho-legends-matthews",
+        "note": "The 1897 translation"
+      },
+      {
+        "sourceId": "dine-bahane-zolbrod",
+        "note": "A continuous English rendering"
+      }
+    ],
+    "imageUrl": "/stories/the-dine-emergence.png"
+  },
+  {
+    "id": "birth-of-changing-woman",
+    "pantheonId": "dine-pantheon",
+    "title": "The Finding of Changing Woman",
+    "slug": "birth-of-changing-woman",
+    "summary": "In many tellings, First Man finds an infant girl on Chʼóolʼį́ʼí amid dark cloud and rain; raised by First Man and First Woman, she grows swiftly to womanhood, and her puberty ceremony becomes the first Kinaaldá.",
+    "fullNarrative": "## Before reading\n\nThis story is part of the Diné origin story and is summarised here at the level of published sources, chiefly Zolbrod's *Diné bahaneʼ* and Matthews's *Navaho Legends*, which tell it differently. Changing Woman is among the most revered of the Holy People, and her story is connected with the Blessingway and the Kinaaldá, ceremonies that this site does not describe. Many Diné families teach that origin stories are told in winter.\n\n## A world in danger\n\nAfter the emergence into the Glittering World, the people are threatened by the naayééʼ, the monsters that were born, in many tellings, as a consequence of the separation of women and men in the lower worlds. The monsters kill and devour people until only a few are left. The world needs a new beginning.\n\n## On Chʼóolʼį́ʼí\n\nIn many tellings, including Zolbrod's, First Man sees a dark cloud resting on the top of Chʼóolʼį́ʼí, the mountain known in English as Gobernador Knob, in what is now northern New Mexico, and hears the sound of a baby crying. He climbs up in the rain and finds an infant girl lying there. He brings her down, and First Man and First Woman raise her, in some tellings with the help and guidance of Talking God and other Holy People, who give instructions for her care.\n\n## Growing up\n\nThe girl grows with extraordinary speed, reaching womanhood in a matter of days rather than years. When she comes of age, a ceremony is held for her: the first Kinaaldá, the puberty ceremony that Diné girls still undergo today, modelled on hers. This site notes the ceremony's origin in her story but does not describe it.\n\n## Changing Woman\n\nThe young woman becomes Asdzą́ą́ Nádleehé, Changing Woman, so named because she changes: she grows old with the winter and young again with the spring, and so embodies the renewal of life and the seasons. In Matthews's version her origin and her companionship with White Shell Woman are told differently, and this site presents both versions without choosing.\n\n## The Sun\n\nAs a young woman, Changing Woman goes out alone, and in many tellings she lies in the sun, or the Sun comes to her, and she conceives. In Matthews's version White Shell Woman, alone at a waterfall, conceives by the water at the same time. Their sons, the Hero Twins, will be born in a few days and grow with the same astonishing speed, to become the ones who will rid the world of the monsters.\n\n## Why this story matters\n\nChanging Woman's finding marks the turning point of the origin story, from a world overrun by monsters to one that can be renewed. Her Kinaaldá links every Diné girl's coming of age to hers, and her later creation of the clans links every Diné person to her. She is often described as the embodiment of the earth's renewal and of hózhó.",
+    "keyExcerpts": "First Man follows a baby's cry to the cloud-covered top of Chʼóolʼį́ʼí and finds the infant who will become Changing Woman; she grows to womanhood in days, and her coming-of-age becomes the first Kinaaldá.",
+    "category": "origin",
+    "moralThemes": [
+      "renewal",
+      "the care of children",
+      "a new beginning in a dangerous world"
+    ],
+    "culturalSignificance": "The origin of Changing Woman and of the Kinaaldá, the puberty ceremony still held for Diné girls; a turning point of the Diné origin story toward renewal and hózhó.",
+    "citationSources": [
+      {
+        "title": "Diné bahane': The Navajo Creation Story",
+        "author": "Paul G. Zolbrod",
+        "date": "1984",
+        "type": "primary",
+        "sourceId": "dine-bahane-zolbrod",
+        "chapter": "Part Three"
+      },
+      {
+        "title": "Navaho Legends (Memoirs of the American Folk-Lore Society 5)",
+        "author": "Washington Matthews",
+        "date": "1897",
+        "type": "primary",
+        "sourceId": "navaho-legends-matthews",
+        "chapter": "The origin legend: Estsánatlehi and Yolkaí Estsán"
+      },
+      {
+        "title": "Kinaaldá: A Study of the Navaho Girl's Puberty Ceremony",
+        "author": "Charlotte Johnson Frisbie",
+        "date": "1967",
+        "type": "secondary"
+      }
+    ],
+    "featuredDeities": [
+      "changing-woman",
+      "first-man",
+      "first-woman",
+      "talking-god",
+      "white-shell-woman",
+      "johonaaei"
+    ],
+    "featuredLocations": ["gobernador-knob"],
+    "relatedStories": ["the-dine-emergence", "twins-journey-to-the-sun"],
+    "variants": [
+      {
+        "source": "Washington Matthews, Navaho Legends",
+        "date": "1897",
+        "difference": "Changing Woman and White Shell Woman appear as two women; White Shell Woman conceives Born for Water by the water while Changing Woman conceives Monster Slayer by the Sun.",
+        "note": "Summary-level only. Many Diné families and teachers tell this story, like other Coyote and origin stories, only in the winter months, after the first frost and before the first thunder of spring. Readers who wish to follow that practice may prefer to return to this page in winter."
+      }
+    ],
+    "furtherReading": [
+      {
+        "sourceId": "dine-bahane-zolbrod",
+        "note": "Part Three"
+      },
+      {
+        "sourceId": "navaho-legends-matthews",
+        "note": "The 1897 version"
+      }
+    ],
+    "imageUrl": "/stories/birth-of-changing-woman.png"
+  },
+  {
+    "id": "twins-journey-to-the-sun",
+    "pantheonId": "dine-pantheon",
+    "title": "The Hero Twins' Journey to Their Father",
+    "slug": "twins-journey-to-the-sun",
+    "summary": "The twin sons of Changing Woman set out to find their father, the Sun; guided by Spider Woman, they pass through deadly places, survive the Sun's tests, and return with armour of flint and arrows of lightning.",
+    "fullNarrative": "## Before reading\n\nThis episode of the Diné origin story is summarised from Matthews's *Navaho Legends* (1897) and Zolbrod's *Diné bahaneʼ* (1984). It is closely connected with ceremonies that this site does not describe, and many Diné families teach that it is told in winter.\n\n## Hidden boys\n\nThe twins, Naayééʼ Neizghání and Tóbájíshchíní, grow up quickly and in hiding, because the monsters are still killing people. In Matthews's version, when the giant Yéʼiitsoh comes looking for them, their mother hides them and tells him that the footprints he sees are her own, made because she is lonely. The boys grow restless and ask who their father is; at first their mother will not tell them.\n\n## Spider Woman\n\nSetting out, the twins see smoke rising from a hole in the ground and find Spider Woman living below. She asks who they are and where they are going, and tells them that their father is the Sun and that the way to his house is full of danger. She gives them protection, in Matthews's version a sacred feather, and words to say to calm the dangers they will meet.\n\n## The dangers of the way\n\nOn their journey they pass through a series of deadly places, which in Matthews's version include rocks that crush travellers, reeds that cut them to pieces, cactus that tears them, and boiling sands; with Spider Woman's words and help each danger is calmed and they pass through. At last they cross a wide water and reach the house of the Sun.\n\n## At the Sun's house\n\nGuardians at the doors, bears, serpents, winds, and lightnings in Matthews's account, are quieted by Spider Woman's words. Inside, the Sun's wife hides them. When the Sun returns he asks who has come; his wife confronts him about his own conduct, and he finds the boys. He tests them harshly, throwing them against spikes of shell and stone at the four directions, shutting them in a sweat house heated to kill, and giving them poisoned tobacco. Protected by what Spider Woman gave them and by others who help, the twins survive every test.\n\n## Recognition and gifts\n\nAt last the Sun acknowledges them as his sons. He asks what they have come for, and they ask for weapons to kill the monsters that are destroying the people. The Sun gives them armour of flint and weapons, including arrows of lightning, and sends them back to the earth on a path of lightning or rainbow, placing them on the top of a mountain from which they can see the lands below.\n\n## The first battle\n\nTheir first enemy is Yéʼiitsoh, the Big Monster, who lives near Tsoodził (Mount Taylor). When he comes to drink at a lake, the twins confront him; the Sun himself strikes the first blow with lightning, and the twins finish him with their lightning arrows. The blood that flows from him becomes the lava flows near the mountain, and his head becomes a distant peak.\n\n## Meaning\n\nThe journey is a coming of age: the sons must find and prove themselves to a father who does not at first want them, and they succeed because of help given freely, above all Spider Woman's. It is also the origin of the weapons and protections that later ceremonies draw on.",
+    "keyExcerpts": "Guided by Spider Woman's words, the twins pass crushing rocks and cutting reeds, survive their father the Sun's deadly tests, and return with flint armour and lightning arrows to kill Yéʼiitsoh beside Tsoodził.",
+    "category": "hero",
+    "moralThemes": [
+      "help freely given",
+      "proving oneself to a reluctant father",
+      "courage against overwhelming odds"
+    ],
+    "culturalSignificance": "The Hero Twins' journey is central to the Diné origin story and to ceremonies of protection, which are not described here; its landmarks tie the story to the land around Tsoodził.",
+    "citationSources": [
+      {
+        "title": "Navaho Legends (Memoirs of the American Folk-Lore Society 5)",
+        "author": "Washington Matthews",
+        "date": "1897",
+        "type": "primary",
+        "sourceId": "navaho-legends-matthews",
+        "chapter": "The origin legend: the war gods"
+      },
+      {
+        "title": "Diné bahane': The Navajo Creation Story",
+        "author": "Paul G. Zolbrod",
+        "date": "1984",
+        "type": "primary",
+        "sourceId": "dine-bahane-zolbrod",
+        "chapter": "Part Four"
+      }
+    ],
+    "featuredDeities": [
+      "monster-slayer",
+      "born-for-water",
+      "spider-woman",
+      "johonaaei",
+      "changing-woman"
+    ],
+    "featuredLocations": ["mount-taylor"],
+    "relatedStories": [
+      "birth-of-changing-woman",
+      "monster-slayer-and-the-naayee"
+    ],
+    "variants": [
+      {
+        "source": "Washington Matthews, Navaho Legends",
+        "date": "1897",
+        "difference": "Born for Water is White Shell Woman's son by the water; the Sun nonetheless receives both boys.",
+        "note": "Summary-level only. Many Diné families and teachers tell this story, like other Coyote and origin stories, only in the winter months, after the first frost and before the first thunder of spring. Readers who wish to follow that practice may prefer to return to this page in winter."
+      }
+    ],
+    "furtherReading": [
+      {
+        "sourceId": "navaho-legends-matthews",
+        "note": "The war gods' journey"
+      },
+      {
+        "sourceId": "dine-bahane-zolbrod",
+        "note": "Part Four"
+      }
+    ],
+    "imageUrl": "/stories/twins-journey-to-the-sun.png"
+  },
+  {
+    "id": "monster-slayer-and-the-naayee",
+    "pantheonId": "dine-pantheon",
+    "title": "Monster Slayer and the Monsters",
+    "slug": "monster-slayer-and-the-naayee",
+    "summary": "After Yéʼiitsoh, Monster Slayer destroys the other monsters that prey on the people, from the horned Déélgééd to the monster eagles of Shiprock, but spares Old Age, Cold, Poverty, and Hunger when each explains why the world needs it.",
+    "fullNarrative": "## Before reading\n\nThis episode continues the Hero Twins' story, summarised here from Matthews's *Navaho Legends* (1897) and other published sources. It is connected with ceremonies not described on this site, and many Diné families teach that it is told in winter.\n\n## The brothers divide their work\n\nAfter Yéʼiitsoh is killed, the brothers' paths divide in many tellings. Born for Water stays at home to protect their mothers, watching a sign that will show whether his brother is in danger. Monster Slayer goes out, one monster after another, to free the land.\n\n## The horned monster\n\nDéélgééd is a great horned beast that lives on an open plain, where no one can approach it unseen. Gopher offers help: he digs a tunnel beneath the monster, and in Matthews's version gnaws away the hair over its heart. Monster Slayer crawls through the tunnel and shoots a lightning arrow into the beast's heart. It tears at the tunnels with its horns, but dies. Gopher asks for its hide, and wears it still; in some tellings Ground Squirrel paints its face with the monster's blood, and has stripes to this day.\n\n## The monster eagles\n\nOn Tsé Bitʼaʼí, the rock with wings (Shiprock, in what is now northwest New Mexico), live the Tsé Nináhálééh, monstrous birds who carry people off to feed their young. Monster Slayer lets himself be carried to their nest, protected by the feather Spider Woman gave him, and kills the adult birds when they return. He spares the young, turning them into the eagle and the owl, to be useful to the people. The feathers of the monster birds become the smaller birds of the world.\n\n## Others\n\nMonster Slayer goes on to overcome many others, among them a monster that kicks travellers off a cliff, the Eye Killers, and a Traveling Rock. Each defeat leaves a mark on the land or gives something to the people.\n\n## Those who were spared\n\nAt last Monster Slayer seeks out the last of the beings that make people suffer. He finds Old Age, a bent old woman, and prepares to kill her; she tells him that without old age people would not die and give way to the young, and the world would stand still. He spares her. He finds Cold, a shivering woman on a high mountain; she tells him that without her there would be no snow, and without snow no water. He spares her. He finds Poverty, and is told that without it clothes would never wear out and people would never make new things. He finds Hunger, and is told that without hunger people would take no pleasure in food and would not work to grow and hunt it. He spares them all. In Matthews's version Sleep and Louse also make their case.\n\n## Meaning\n\nThe story does not end with a world freed of every hardship, but with one in balance. The monsters that destroyed life are gone; the hardships that belong to life remain, because each has its place. The story is often cited as an expression of hózhó: not the absence of difficulty, but right relationship among all things.",
+    "keyExcerpts": "With Gopher's tunnel Monster Slayer shoots the horned Déélgééd through the heart; at Shiprock he kills the monster eagles and turns their young into eagle and owl; and he spares Old Age, Cold, Poverty, and Hunger, each of which has a place in life.",
+    "category": "hero",
+    "moralThemes": [
+      "balance rather than perfection",
+      "help from small creatures",
+      "the necessary hardships of life"
+    ],
+    "culturalSignificance": "The completion of the Hero Twins' work, which explains features of the land and of animals and expresses the Diné understanding of balance, hózhó.",
+    "citationSources": [
+      {
+        "title": "Navaho Legends (Memoirs of the American Folk-Lore Society 5)",
+        "author": "Washington Matthews",
+        "date": "1897",
+        "type": "primary",
+        "sourceId": "navaho-legends-matthews",
+        "chapter": "The origin legend: the slaying of the alien gods"
+      },
+      {
+        "title": "Diné bahane': The Navajo Creation Story",
+        "author": "Paul G. Zolbrod",
+        "date": "1984",
+        "type": "primary",
+        "sourceId": "dine-bahane-zolbrod",
+        "chapter": "Part Four"
+      }
+    ],
+    "featuredDeities": ["monster-slayer", "born-for-water", "spider-woman"],
+    "featuredLocations": ["mount-taylor"],
+    "relatedStories": ["twins-journey-to-the-sun", "changing-woman-goes-west"],
+    "variants": [
+      {
+        "source": "Washington Matthews, Navaho Legends",
+        "date": "1897",
+        "difference": "Adds Sleep and Louse to the beings who argue for their place and are spared.",
+        "note": "Summary-level only. Many Diné families and teachers tell this story, like other Coyote and origin stories, only in the winter months, after the first frost and before the first thunder of spring. Readers who wish to follow that practice may prefer to return to this page in winter."
+      }
+    ],
+    "furtherReading": [
+      {
+        "sourceId": "navaho-legends-matthews",
+        "note": "The slaying of the alien gods"
+      }
+    ],
+    "imageUrl": "/stories/monster-slayer-and-the-naayee.png"
+  },
+  {
+    "id": "changing-woman-goes-west",
+    "pantheonId": "dine-pantheon",
+    "title": "Changing Woman Goes West and Makes the Clans",
+    "slug": "changing-woman-goes-west",
+    "summary": "With the monsters gone, Changing Woman goes to live in the west in a house the Sun built for her on the water; there she makes the first Diné clans from her own skin and sends them east to the land between the sacred mountains.",
+    "fullNarrative": "## Before reading\n\nThis episode is summarised from Matthews's *Navaho Legends* (1897), Zolbrod's *Diné bahaneʼ* (1984), and the Diné-authored *Navajo History* (1971). Accounts of the origin of the clans differ by family and clan, and the version below is an outline, not the authoritative telling. Many Diné families teach that origin stories are told in winter.\n\n## The Sun's request\n\nWhen the monsters have been overcome, the Sun asks Changing Woman to come and live with him. In widely published tellings she agrees on conditions: a beautiful house must be built for her in the west, on the water, furnished with everything she needs, so that she will not be lonely while he travels each day. The Sun builds the house, and Changing Woman goes to live there. Each evening the Sun returns to her in the west.\n\n## Loneliness in the west\n\nIn her house in the west, Changing Woman is lonely, and she thinks of the land to the east where the Earth Surface People are few. She decides to make more people.\n\n## The first clans\n\nIn the tellings recorded by Matthews and others, Changing Woman rubs skin from different parts of her body, from her breast, her back, and beneath her arms, and from it she forms the first people of four clans. The number and names of the first clans differ between tellings. She gives them instructions and sends them east, toward the land between the sacred mountains, with animal companions, in some tellings bears and other animals, to protect them on the way.\n\n## The journey east\n\nThe people travel east, meeting others and learning as they go, until they reach the land bounded by Sisnaajiní, Tsoodził, Dookʼoʼoosłííd, and Dibé Ntsaa. Other clans join them later, in many tellings from other peoples, which is why the clan system includes clans with origins among neighbouring nations.\n\n## Clans today\n\nThe clan system that Changing Woman began remains central to Diné life. A Diné person introduces themselves by four clans: the mother's clan, to which one belongs; the father's clan, for which one is born; the maternal grandfather's clan; and the paternal grandfather's clan. Clan relationships determine kinship, marriage, and responsibilities, and the introduction by clans is a daily reminder of the story of Changing Woman.\n\n## Changing Woman today\n\nChanging Woman remains in the west, and she continues to grow old and young again with the seasons. She is honoured as the mother of the Diné, and her story connects the renewal of the earth, the coming of age of girls, and the identity of every Diné person.\n\n## A note on sources\n\nMatthews recorded one account of the clans' origins in the 1880s; Diné clan histories are far richer and more varied than any published summary, and many belong to particular clans and families. This site does not attempt to list the clans or tell their individual histories.",
+    "keyExcerpts": "Changing Woman goes to live in the west in the house the Sun built on the water; lonely there, she forms the first clans from skin rubbed from her body and sends them east to the land between the sacred mountains.",
+    "category": "origin",
+    "moralThemes": [
+      "kinship and belonging",
+      "renewal",
+      "a people formed from their mother"
+    ],
+    "culturalSignificance": "The origin of the Diné clan system, which remains the basis of Diné identity and kinship; every self-introduction by clan recalls Changing Woman.",
+    "citationSources": [
+      {
+        "title": "Navaho Legends (Memoirs of the American Folk-Lore Society 5)",
+        "author": "Washington Matthews",
+        "date": "1897",
+        "type": "primary",
+        "sourceId": "navaho-legends-matthews",
+        "chapter": "The origin legend: the growth of the Navaho nation"
+      },
+      {
+        "title": "Navajo History, vol. 1 (Navajo Curriculum Center, Rough Rock Demonstration School; ed. Ethelou Yazzie)",
+        "author": "Navajo Curriculum Center (Diné-authored)",
+        "date": "1971",
+        "type": "secondary"
+      },
+      {
+        "title": "Diné bahane': The Navajo Creation Story",
+        "author": "Paul G. Zolbrod",
+        "date": "1984",
+        "type": "primary",
+        "sourceId": "dine-bahane-zolbrod",
+        "chapter": "Part Four"
+      }
+    ],
+    "featuredDeities": ["changing-woman", "johonaaei"],
+    "featuredLocations": [
+      "blanca-peak",
+      "mount-taylor",
+      "san-francisco-peaks",
+      "hesperus-mountain"
+    ],
+    "relatedStories": [
+      "monster-slayer-and-the-naayee",
+      "birth-of-changing-woman"
+    ],
+    "variants": [
+      {
+        "source": "Clan and family tellings",
+        "difference": "The number, names, and journeys of the first clans differ between tellings, and many clan histories are held by the clans themselves.",
+        "note": "Summary-level only. Many Diné families and teachers tell this story, like other Coyote and origin stories, only in the winter months, after the first frost and before the first thunder of spring. Readers who wish to follow that practice may prefer to return to this page in winter."
+      }
+    ],
+    "furtherReading": [
+      {
+        "sourceId": "navaho-legends-matthews",
+        "note": "Matthews's account of the growth of the nation"
+      }
+    ],
+    "imageUrl": "/stories/changing-woman-goes-west.png"
   }
 ]

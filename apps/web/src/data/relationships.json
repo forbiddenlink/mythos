@@ -2092,5 +2092,285 @@
     "relationshipType": "ally_of",
     "confidenceLevel": "medium",
     "description": "Attested pairing: in the treaties recorded in the Primary Chronicle (s.a. 907 and 971) the Rus' swear by Perun and by Volos, the cattle god, together. This is joint invocation in oaths, not a narrated alliance; the opposed 'enemy' reading of the same pair is a modern reconstruction."
+  },
+  {
+    "id": "hittite-storm-god-sun-goddess-arinna",
+    "fromDeityId": "tarhunna",
+    "toDeityId": "sun-goddess-of-arinna",
+    "relationshipType": "spouse_of",
+    "confidenceLevel": "high",
+    "description": "The Storm-god of Hatti and the Sun-goddess of Arinna head the Hittite state cult as a divine couple in royal prayers and festival texts; Puduhepa's prayer (CTH 384) further equates the goddess with Teššub's consort Hebat."
+  },
+  {
+    "id": "hittite-storm-god-telipinu",
+    "fromDeityId": "tarhunna",
+    "toDeityId": "telipinu",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high",
+    "description": "In the Disappearance of Telipinu (CTH 324) the Storm-god searches for 'my son Telipinu'."
+  },
+  {
+    "id": "hittite-alalu-kumarbi",
+    "fromDeityId": "alalu",
+    "toDeityId": "kumarbi",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "medium",
+    "description": "The Song of Kumarbi calls Kumarbi the offspring (literally 'seed') of Alalu; the term may indicate descent rather than direct fatherhood."
+  },
+  {
+    "id": "hittite-kumarbi-storm-god-birth",
+    "fromDeityId": "kumarbi",
+    "toDeityId": "tarhunna",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "medium",
+    "description": "In the Song of Kumarbi the storm-god is conceived when Kumarbi swallows Anu's manhood and is born from Kumarbi's body; Anu is the begetter, so this edge records the birth, not ordinary fatherhood."
+  },
+  {
+    "id": "hittite-kumarbi-storm-god-enmity",
+    "fromDeityId": "kumarbi",
+    "toDeityId": "tarhunna",
+    "relationshipType": "enemy_of",
+    "confidenceLevel": "high",
+    "description": "Throughout the Kumarbi cycle Kumarbi plots to overthrow Teššub, fathering Hedammu and Ullikummi for that purpose."
+  },
+  {
+    "id": "hittite-shaushka-storm-god",
+    "fromDeityId": "shaushka",
+    "toDeityId": "tarhunna",
+    "relationshipType": "sibling_of",
+    "confidenceLevel": "high",
+    "description": "The Hurrian songs make Šauška the sister of Teššub; she goes with him to Mount Hazzi in the Song of Ullikummi."
+  },
+  {
+    "id": "hittite-inara-storm-god",
+    "fromDeityId": "inara",
+    "toDeityId": "tarhunna",
+    "relationshipType": "ally_of",
+    "confidenceLevel": "high",
+    "description": "Inara prepares the feast that traps the serpent Illuyanka so that the Storm-god can kill it (CTH 321, first version)."
+  },
+  {
+    "id": "hittite-hannahanna-storm-god",
+    "fromDeityId": "hannahanna",
+    "toDeityId": "tarhunna",
+    "relationshipType": "ally_of",
+    "confidenceLevel": "high",
+    "description": "Hannahanna counsels the Storm-god in the search for Telipinu and sends the bee that finds him (CTH 324)."
+  },
+  {
+    "id": "hittite-kamrusepa-telipinu",
+    "fromDeityId": "kamrusepa",
+    "toDeityId": "telipinu",
+    "relationshipType": "ally_of",
+    "confidenceLevel": "medium",
+    "description": "Kamrušepa performs the rite that removes Telipinu's anger and allows his return (CTH 324); the relationship is ritual rather than personal."
+  },
+  {
+    "id": "canaanite-el-athirat",
+    "fromDeityId": "el",
+    "toDeityId": "athirat",
+    "relationshipType": "spouse_of",
+    "confidenceLevel": "high",
+    "description": "Athirat is El's consort throughout the Ugaritic texts; he welcomes her as his wife in KTU 1.4 IV."
+  },
+  {
+    "id": "canaanite-el-yam",
+    "fromDeityId": "el",
+    "toDeityId": "yam",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "medium",
+    "description": "El proclaims Yam's name and calls him beloved (KTU 1.1 IV); the damaged text appears to call him El's son, but the reading is not certain."
+  },
+  {
+    "id": "canaanite-el-mot",
+    "fromDeityId": "el",
+    "toDeityId": "mot",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "medium",
+    "description": "Mot is called bn ilm, usually translated 'son of El' (some translate 'divine Mot'), and 'beloved of El'."
+  },
+  {
+    "id": "canaanite-baal-yam",
+    "fromDeityId": "baal",
+    "toDeityId": "yam",
+    "relationshipType": "enemy_of",
+    "confidenceLevel": "high",
+    "description": "Baal fights and defeats Yam with the clubs Yagrush and Ayyamur (KTU 1.2 IV)."
+  },
+  {
+    "id": "canaanite-baal-mot",
+    "fromDeityId": "baal",
+    "toDeityId": "mot",
+    "relationshipType": "enemy_of",
+    "confidenceLevel": "high",
+    "description": "Mot swallows Baal (KTU 1.5), and the two fight again in the seventh year (KTU 1.6 VI)."
+  },
+  {
+    "id": "canaanite-anat-baal",
+    "fromDeityId": "anat",
+    "toDeityId": "baal",
+    "relationshipType": "sibling_of",
+    "confidenceLevel": "medium",
+    "description": "Anat is called Baal's sister in the Ugaritic texts and acts as his ally; some scholars also see a sexual relationship between them in fragmentary texts, which this site does not assert."
+  },
+  {
+    "id": "canaanite-anat-mot",
+    "fromDeityId": "anat",
+    "toDeityId": "mot",
+    "relationshipType": "enemy_of",
+    "confidenceLevel": "high",
+    "description": "Anat seizes Mot and destroys him (KTU 1.6 II)."
+  },
+  {
+    "id": "canaanite-kothar-baal",
+    "fromDeityId": "kothar-wa-khasis",
+    "toDeityId": "baal",
+    "relationshipType": "ally_of",
+    "confidenceLevel": "high",
+    "description": "Kothar-wa-Khasis makes Baal's clubs (KTU 1.2 IV) and builds his palace (KTU 1.4 V-VII)."
+  },
+  {
+    "id": "canaanite-shapash-anat",
+    "fromDeityId": "shapash",
+    "toDeityId": "anat",
+    "relationshipType": "ally_of",
+    "confidenceLevel": "high",
+    "description": "Shapash helps Anat lift Baal's body and later searches for him at her request (KTU 1.6 I, III-IV)."
+  },
+  {
+    "id": "canaanite-athtart-baal",
+    "fromDeityId": "athtart",
+    "toDeityId": "baal",
+    "relationshipType": "ally_of",
+    "confidenceLevel": "medium",
+    "description": "Athtart restrains Baal before Yam's messengers and urges him on after Yam falls (KTU 1.2 I, IV); the tone of the second passage is debated."
+  },
+  {
+    "id": "canaanite-athirat-athtar",
+    "fromDeityId": "athirat",
+    "toDeityId": "athtar",
+    "relationshipType": "ally_of",
+    "confidenceLevel": "medium",
+    "description": "Athirat proposes Athtar as king after Baal's death (KTU 1.6 I); he is counted among her sons in some translations, but the text does not state it directly."
+  },
+  {
+    "id": "inuit-anningan-malina",
+    "fromDeityId": "anningan",
+    "toDeityId": "malina",
+    "relationshipType": "sibling_of",
+    "confidenceLevel": "high",
+    "description": "The moon and the sun are brother and sister in Inuit tradition from Greenland to Alaska; Boas notes that the Baffin Island and Greenlandic tellings correspond exactly."
+  },
+  {
+    "id": "inuit-anguta-sedna",
+    "fromDeityId": "anguta",
+    "toDeityId": "sedna",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high",
+    "description": "In the Baffin Island tellings Boas recorded, Anguta is Sedna's father; many other regional versions give the Sea Woman's father no name, or tell a different origin entirely."
+  },
+  {
+    "id": "aboriginal-bunjil-pallian",
+    "fromDeityId": "bunjil",
+    "toDeityId": "pallian",
+    "relationshipType": "sibling_of",
+    "confidenceLevel": "medium",
+    "description": "Public Kulin tellings, including a Wadawurrung Elder's, and nineteenth-century Victorian records call Pallian Bunjil's brother; records differ on names and details."
+  },
+  {
+    "id": "aboriginal-wati-nyiru-seven-sisters",
+    "fromDeityId": "wati-nyiru",
+    "toDeityId": "seven-sisters",
+    "relationshipType": "enemy_of",
+    "confidenceLevel": "high",
+    "description": "In the Seven Sisters songlines shared through the National Museum of Australia, Yurla or Wati Nyiru pursues the sisters across the deserts; 'enemy' here means pursuer."
+  },
+  {
+    "id": "aboriginal-kuniya-liru",
+    "fromDeityId": "kuniya",
+    "toDeityId": "liru",
+    "relationshipType": "enemy_of",
+    "confidenceLevel": "high",
+    "description": "In the Aṉangu Tjukurpa shared at Uluṟu, the Liru kill Kuniya's nephew and Kuniya strikes down a Liru warrior at Muṯitjulu."
+  },
+  {
+    "id": "dine-sun-monster-slayer",
+    "fromDeityId": "johonaaei",
+    "toDeityId": "monster-slayer",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high",
+    "description": "The Sun is Monster Slayer's father in Matthews's version and in later tellings; he tests the twins before acknowledging them."
+  },
+  {
+    "id": "dine-changing-woman-monster-slayer",
+    "fromDeityId": "changing-woman",
+    "toDeityId": "monster-slayer",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high",
+    "description": "Changing Woman is Monster Slayer's mother in every published version used here."
+  },
+  {
+    "id": "dine-changing-woman-born-for-water",
+    "fromDeityId": "changing-woman",
+    "toDeityId": "born-for-water",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "medium",
+    "description": "In many later tellings Changing Woman is the mother of both twins; in Matthews's 1897 version Born for Water is White Shell Woman's son by the water."
+  },
+  {
+    "id": "dine-white-shell-woman-born-for-water",
+    "fromDeityId": "white-shell-woman",
+    "toDeityId": "born-for-water",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "medium",
+    "description": "In Matthews's Navaho Legends (1897), White Shell Woman conceives Born for Water by the water; later tellings often give both twins to Changing Woman."
+  },
+  {
+    "id": "dine-twins",
+    "fromDeityId": "monster-slayer",
+    "toDeityId": "born-for-water",
+    "relationshipType": "sibling_of",
+    "confidenceLevel": "high",
+    "description": "The Hero Twins are brothers in every version, whether born of one mother or two."
+  },
+  {
+    "id": "dine-sun-changing-woman",
+    "fromDeityId": "johonaaei",
+    "toDeityId": "changing-woman",
+    "relationshipType": "spouse_of",
+    "confidenceLevel": "medium",
+    "description": "The Sun is the father of Changing Woman's son and later asks her to live with him in the house he builds in the west; the texts describe a partnership rather than a formal marriage."
+  },
+  {
+    "id": "dine-first-man-first-woman",
+    "fromDeityId": "first-man",
+    "toDeityId": "first-woman",
+    "relationshipType": "spouse_of",
+    "confidenceLevel": "high",
+    "description": "First Man and First Woman are partners from the lower worlds onward; their quarrel leads to the separation of the sexes."
+  },
+  {
+    "id": "dine-spider-woman-twins",
+    "fromDeityId": "spider-woman",
+    "toDeityId": "monster-slayer",
+    "relationshipType": "ally_of",
+    "confidenceLevel": "high",
+    "description": "Spider Woman guides the twins and gives them protection and words for the dangers of the journey to the Sun."
+  },
+  {
+    "id": "dine-white-shell-changing-woman",
+    "fromDeityId": "white-shell-woman",
+    "toDeityId": "changing-woman",
+    "relationshipType": "aspect_of",
+    "confidenceLevel": "low",
+    "description": "Many later tellings treat White Shell Woman as another name or aspect of Changing Woman, while Matthews presents them as two women; marked low confidence because the versions disagree."
+  },
+  {
+    "id": "dine-first-man-changing-woman",
+    "fromDeityId": "first-man",
+    "toDeityId": "changing-woman",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "low",
+    "description": "In many tellings First Man finds the infant Changing Woman and he and First Woman raise her; this is fosterage, not birth, and it is marked low confidence for that reason."
   }
 ]

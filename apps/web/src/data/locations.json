@@ -2896,5 +2896,386 @@
         "date": "text 9th–12th century; manuscript 16th century"
       }
     ]
+  },
+  {
+    "id": "hattusa",
+    "name": "Hattusa",
+    "locationType": "city",
+    "pantheonId": "hittite-pantheon",
+    "description": "The Hittite capital near modern Boğazkale in central Türkiye, whose temple archives preserved almost every Hittite myth known today.",
+    "latitude": 40.0197,
+    "longitude": 34.6153,
+    "detailedBio": "## Capital and archive\n\nHattusa was the capital of the Hittite kingdom for most of its history, from the reign of Hattusili I in the seventeenth century BCE until the city was abandoned around 1180 BCE. Its ruins, near the village of Boğazkale (formerly Boğazköy) in Çorum Province, include massive fortification walls, gates carved with lions and sphinxes, and dozens of temples. The site is a UNESCO World Heritage Site.\n\n## Where the myths were found\n\nGerman excavations beginning in 1906 recovered tens of thousands of clay tablet fragments from the temples and palace archives. Among them were treaties, prayers, festival texts, and the mythological texts on this site: the Illuyanka tales, the Disappearance of Telipinu, and the Hittite translations of the Hurrian Kumarbi cycle. It was on the basis of these tablets that Bedřich Hrozný identified Hittite as an Indo-European language in 1915.\n\n## The Great Temple\n\nThe largest temple in the lower city, often called Temple 1, is generally thought to have been dedicated to the Storm-god of Hatti and the Sun-goddess of Arinna, the two chief deities of the state. Its storerooms held large numbers of tablets and storage vessels.",
+    "primarySources": [
+      {
+        "text": "The mythological tablets of CTH 321, 324, and 344-348 were excavated in the archives of Hattusa and published in the series Keilschrifttexte aus Boghazköi (KBo) and Keilschrifturkunden aus Boghazköi (KUB).",
+        "source": "H. A. Hoffner Jr., Hittite Myths (introduction and text notes)",
+        "date": "1998"
+      }
+    ],
+    "imageUrl": "/locations/hattusa.png",
+    "geography": "physical"
+  },
+  {
+    "id": "yazilikaya",
+    "name": "Yazılıkaya",
+    "locationType": "sacred_site",
+    "pantheonId": "hittite-pantheon",
+    "description": "An open-air rock sanctuary just outside Hattusa whose carved procession of gods and goddesses, labelled in Hieroglyphic Luwian, shows the Hurrian-influenced pantheon of the thirteenth century BCE.",
+    "latitude": 40.0256,
+    "longitude": 34.6278,
+    "detailedBio": "## A gallery of the gods\n\nYazılıkaya (\"inscribed rock\" in Turkish) is a natural rock sanctuary about a kilometre and a half northeast of Hattusa. In its main chamber, reliefs carved mostly in the thirteenth century BCE show two processions converging on the back wall: gods on the left and goddesses on the right, each labelled with a name in Hieroglyphic Luwian.\n\n## The meeting of Teššub and Hebat\n\nAt the centre, the storm-god Teššub, standing on two mountain-gods, faces the goddess Hebat, who stands on a panther; behind her comes their son Šarruma. The names are Hurrian, reflecting the Hurrian theology promoted by the royal family in the thirteenth century, and the procession is often compared with the Hurrian offering lists (kaluti) that rank gods in the same order. Šauška appears on both sides of the procession.\n\n## King Tudhaliya IV\n\nA large relief shows King Tudhaliya IV, who is usually credited with the sanctuary's final form, and a smaller chamber holds a relief of Šarruma embracing the king, along with the enigmatic \"sword god\". The sanctuary may have been used for the spring festival; its exact function is still debated.",
+    "primarySources": [
+      {
+        "text": "The Hieroglyphic Luwian labels of the main chamber name the gods of the procession, headed by Teššub and Hebat, in an order close to Hurrian offering lists.",
+        "source": "E. Laroche, 'Le panthéon de Yazılıkaya', Journal of Cuneiform Studies 6",
+        "date": "1952"
+      }
+    ],
+    "imageUrl": "/locations/yazilikaya.png",
+    "geography": "physical"
+  },
+  {
+    "id": "nerik",
+    "name": "Nerik (Oymaağaç Höyük)",
+    "locationType": "sacred_site",
+    "pantheonId": "hittite-pantheon",
+    "description": "The holy city of the Storm-god of Nerik in the north of the Hittite lands, where the Illuyanka story was recited at the Purulli festival; identified with Oymaağaç Höyük near Vezirköprü.",
+    "latitude": 41.2079,
+    "longitude": 35.43,
+    "detailedBio": "## The Storm-god's northern city\n\nNerik was one of the oldest and holiest cult centres of the Hattian and Hittite world, the seat of the Storm-god of Nerik, who was regarded as a son of the Storm-god of Hatti. The Illuyanka tales present themselves as the words of Kella, a priest of the Storm-god of Nerik, and link the serpent myth to the Purulli festival celebrated there.\n\n## Lost and restored\n\nFor much of the Hittite period Nerik lay in territory overrun by the Kaška, a people of the Black Sea hinterland, and the Hittite kings could not reach it; its cult was maintained from other towns. Hattusili III, in the thirteenth century BCE, recovered and rebuilt the city and made much of its restoration in his own texts.\n\n## Oymaağaç Höyük\n\nSince 2005 a German-Turkish excavation at Oymaağaç Höyük, in the Vezirköprü district of Samsun Province, has uncovered a large Hittite temple and cuneiform tablets mentioning Nerik, and the site is now widely identified as the ancient city. The coordinates given here are those of the mound.",
+    "primarySources": [
+      {
+        "text": "The Illuyanka text introduces itself as the words of Kella, priest of the Storm-god of Nerik, concerning the Purulli festival (paraphrase).",
+        "source": "Illuyanka tales, CTH 321, trans. H. A. Hoffner Jr., Hittite Myths",
+        "date": "Late Bronze Age copies"
+      }
+    ],
+    "imageUrl": "/locations/nerik.png",
+    "geography": "physical"
+  },
+  {
+    "id": "urkesh",
+    "name": "Urkeš (Tell Mozan)",
+    "locationType": "city",
+    "pantheonId": "hittite-pantheon",
+    "description": "The ancient Hurrian city in northeastern Syria that the Kumarbi cycle names as Kumarbi's home, identified with the mound of Tell Mozan.",
+    "latitude": 37.0572,
+    "longitude": 40.9975,
+    "detailedBio": "## Kumarbi's city\n\nIn the Hurrian songs preserved at Hattusa, Kumarbi is the god of Urkeš: in the Song of Ullikummi he takes counsel in his mind and sets out from his city of Urkeš to plan Teššub's downfall. Hurrian tradition regarded Urkeš as an ancient and venerable city, and a Hurrian foundation inscription of its early kings has been found.\n\n## Tell Mozan\n\nExcavations at Tell Mozan in northeastern Syria, directed by Giorgio Buccellati and Marilyn Kelly-Buccellati from 1984, identified the site as Urkeš through inscribed seal impressions naming its kings (endan). Finds include a large temple terrace and a deep underground stone structure that the excavators interpret as a ritual pit (ābi) for communicating with the underworld, the kind of pit Hurrian rituals used to call up the Former Gods.\n\n## Not a Hittite city\n\nUrkeš was never part of the Hittite kingdom; it belongs on this site because the Hurrian myths the Hittites translated place Kumarbi there. It is a reminder that the Kumarbi cycle comes from a different world from native Anatolian tradition.",
+    "primarySources": [
+      {
+        "text": "Kumarbi takes wisdom into his mind and rises from his city Urkeš to plan a rival for Teššub (paraphrase).",
+        "source": "Song of Ullikummi, CTH 345, trans. H. A. Hoffner Jr., Hittite Myths",
+        "date": "Hittite copies 13th c. BCE"
+      }
+    ],
+    "imageUrl": "/locations/urkesh.png",
+    "geography": "physical"
+  },
+  {
+    "id": "ugarit",
+    "name": "Ugarit (Ras Shamra)",
+    "locationType": "city",
+    "pantheonId": "canaanite-pantheon",
+    "description": "The Late Bronze Age port city on the Syrian coast whose archives of alphabetic cuneiform tablets preserve the Baal Cycle and the epics of Aqhat and Kirta; destroyed around 1185 BCE.",
+    "latitude": 35.6019,
+    "longitude": 35.7822,
+    "detailedBio": "## Discovery\n\nIn 1928 a farmer ploughing near the bay of Minet el-Beida, north of Latakia, broke into an ancient tomb. The following year French excavators under Claude Schaeffer began digging at the nearby mound of Ras Shamra and found the city of Ugarit, known from Egyptian and Hittite records but until then unlocated. Excavation has continued, with interruptions, ever since.\n\n## A cosmopolitan port\n\nUgarit was a wealthy kingdom trading with Egypt, Cyprus, the Aegean, the Hittite empire (to which it was a vassal), and Mesopotamia. Its scribes wrote in Akkadian, Sumerian, Hurrian, Hittite, Egyptian, Cypro-Minoan, and in their own Ugaritic language, for which they used an alphabet of thirty cuneiform signs. Multilingual god-lists from the site equate the Ugaritic gods with Hurrian and Mesopotamian ones.\n\n## Temples and archives\n\nTwo temples on the acropolis are generally identified as those of Baal and of Dagan. The mythological tablets were found mostly in the house of the high priest nearby, and several carry the colophon of the scribe Ilimilku. The city was destroyed around 1185 BCE during the upheavals that ended the Late Bronze Age, and never reoccupied as a city.",
+    "primarySources": [
+      {
+        "text": "Colophon: the scribe Ilimilku, student of the chief priest, wrote the tablet in the reign of Niqmaddu, king of Ugarit (paraphrase).",
+        "source": "Baal Cycle, KTU 1.6 VI (colophon)",
+        "date": "tablets of the late 13th or early 12th c. BCE"
+      }
+    ],
+    "imageUrl": "/locations/ugarit.png",
+    "geography": "physical"
+  },
+  {
+    "id": "mount-zaphon",
+    "name": "Mount Zaphon (Jebel Aqra)",
+    "locationType": "mountain",
+    "pantheonId": "canaanite-pantheon",
+    "description": "The mountain north of Ugarit, now Jebel Aqra on the Syrian-Turkish border, where Baal's palace stands in myth; the Hurrian-Hittite Mount Hazzi and the Greek Mount Kasios.",
+    "latitude": 35.9525,
+    "longitude": 35.9692,
+    "detailedBio": "## Baal's mountain\n\nṢapānu, Zaphon, is Baal's home in the Ugaritic texts. His palace is built on its heights, Anat buries his body there, and he and Mot fight their final battle on it. Baal is often called Baal of Zaphon, and Ugaritic ritual texts treat the mountain itself as divine, listing offerings to it.\n\n## A real mountain\n\nZaphon is Jebel Aqra (Kel Dağı in Turkish), rising about 1,700 metres from the coast at the mouth of the Orontes, some 40 kilometres north of Ugarit and visible from the city. Storms build over it from the sea, which suits a storm-god's seat.\n\n## One mountain, many gods\n\nThe same mountain was Mount Hazzi to the Hurrians and Hittites, where the storm-god Teššub climbs to look at the stone giant Ullikummi, and Mount Kasios to the Greeks, where Zeus Kasios was worshipped and where some Greek sources place Zeus's battle with Typhon. The Hebrew word ṣāpôn, \"north\", derives from the mountain's name, and Psalm 48 describes Mount Zion as \"the heights of Zaphon\". Few places in the ancient world show so clearly how one sacred landscape passed between traditions.",
+    "primarySources": [
+      {
+        "text": "Anat carries Baal's body to the heights of Zaphon, weeps, and buries him there (paraphrase).",
+        "source": "Baal Cycle, KTU 1.6 I",
+        "date": "tablets of the late 13th or early 12th c. BCE"
+      }
+    ],
+    "imageUrl": "/locations/mount-zaphon.png",
+    "geography": "identified",
+    "coordinateNote": "Baal's mountain Zaphon is identified with Jebel Aqra (Mount Kasios) on the Syrian–Turkish coast north of Ugarit."
+  },
+  {
+    "id": "source-of-the-two-rivers",
+    "name": "The Source of the Two Rivers",
+    "locationType": "mythical_realm",
+    "pantheonId": "canaanite-pantheon",
+    "description": "El's remote dwelling 'at the source of the two rivers, in the midst of the springs of the two deeps', where gods and messengers go to seek his decisions; a mythical place without a known earthly location.",
+    "latitude": null,
+    "longitude": null,
+    "detailedBio": "## Where El lives\n\nWhenever a god in the Baal Cycle needs El's decision, the text uses a set formula: the traveller sets face toward El, at the source of the two rivers, in the midst of the springs of the two deeps, enters his domain, and comes to the pavilion of the King, the Father of Years (paraphrase). The dwelling is a tent or pavilion rather than a palace, and it lies at the far edge of the world, where the waters of the deep rise.\n\n## The mountain of assembly\n\nA related place is the mountain where the assembly of the gods meets, which Ugaritic texts call Mount Lel (or the mountain of Night); Yam's messengers come to the gods feasting there in KTU 1.2 I. Whether the source of the rivers and the mountain of assembly are the same place is not clear.\n\n## Not on the map\n\nScholars have tried to identify El's home with real places, including sources of the Jordan or springs in Lebanon, but the texts give no geography, and this site treats it as a mythical realm. The idea of a god dwelling where the cosmic waters rise has a parallel in the Mesopotamian Enki's home in the Apsu, and some interpreters compare the biblical Eden's rivers.",
+    "primarySources": [
+      {
+        "text": "She sets her face toward El at the source of the two rivers, in the midst of the springs of the two deeps; she enters the domain of El and comes to the pavilion of the King, Father of Years (paraphrase).",
+        "source": "Baal Cycle, KTU 1.4 IV",
+        "date": "tablets of the late 13th or early 12th c. BCE"
+      }
+    ],
+    "imageUrl": "/locations/source-of-the-two-rivers.png",
+    "geography": "mythic"
+  },
+  {
+    "id": "cumberland-sound",
+    "name": "Cumberland Sound (Kangiqtualuk)",
+    "locationType": "body_of_water",
+    "pantheonId": "inuit-pantheon",
+    "description": "The deep inlet on the east coast of Baffin Island, Nunavut, where Franz Boas recorded the story of Sedna and her father Anguta in 1883-84; home of the community of Pangnirtung.",
+    "latitude": 65.8,
+    "longitude": -66.3,
+    "detailedBio": "## Where 'Sedna' was written down\n\nFranz Boas spent the winter of 1883-84 among the Inuit of Cumberland Sound, based largely at the whaling station on Kekerten Island. His ethnography *The Central Eskimo* (1888), drawing on what people there told him, includes the account of Sedna, her fulmar husband, and her father Anguta that made \"Sedna\" the name by which the Sea Woman is best known outside the Arctic. The coordinates given here mark the approximate centre of the sound.\n\n## A whaling world\n\nIn Boas's time Cumberland Sound was a centre of the Scottish and American whaling trade, and Inuit worked closely with the whalers; Kekerten is now a territorial historic park. Boas also recorded the autumn feasts associated with Sedna that were held in the sound's camps.\n\n## Pangnirtung today\n\nThe community of Pangnirtung (Panniqtuuq), on the sound's northeast shore, is known for its print shop and weaving studio, whose artists have depicted the Sea Woman among many other subjects. The story Boas recorded here continues to be told and interpreted by Inuit artists of the region.",
+    "primarySources": [
+      {
+        "text": "Boas describes great autumn feasts in the Cumberland Sound camps connected with the Sedna tradition (paraphrase).",
+        "source": "Franz Boas, The Central Eskimo",
+        "date": "1888"
+      }
+    ],
+    "imageUrl": "/locations/cumberland-sound.png",
+    "geography": "physical"
+  },
+  {
+    "id": "igloolik",
+    "name": "Igloolik (Iglulik)",
+    "locationType": "island",
+    "pantheonId": "inuit-pantheon",
+    "description": "The island community in the Foxe Basin, Nunavut, whose people told Knud Rasmussen about the Sea Woman, the Moon Spirit, and Sila in the 1920s, and whose elders continue to share that knowledge.",
+    "latitude": 69.3765,
+    "longitude": -81.7998,
+    "detailedBio": "## Aua's country\n\nIn 1922 Knud Rasmussen and the Fifth Thule Expedition stayed among the Iglulingmiut, and the angakkuq Aua and his family became among his most important teachers. *Intellectual Culture of the Iglulik Eskimos* (1929) records their accounts of Takanaaluk, the Sea Woman; of Taqqiq, the Moon Spirit; and of Sila, as well as Aua's often-quoted explanation that people observe their rules not because they know why, but because they fear what happens when they are broken.\n\n## An archaeological heartland\n\nThe Igloolik area is rich in archaeological sites from the Dorset and Thule periods, the ancestors of today's Inuit and the earlier people Inuit tradition calls the Tuniit.\n\n## Keeping knowledge\n\nIgloolik has been a centre of Inuit-led cultural work. The Igloolik Oral History Project has recorded elders' knowledge for decades, and the film company Isuma, founded there, made *Atanarjuat: The Fast Runner* (2001), the first feature film written, directed, and acted in Inuktitut, which retells an Iglulik legend.",
+    "primarySources": [
+      {
+        "text": "Iglulik speakers, among them Aua, describe to Rasmussen the Sea Spirit, the Moon Spirit, and Sila (paraphrase).",
+        "source": "Knud Rasmussen, Intellectual Culture of the Iglulik Eskimos (Report of the Fifth Thule Expedition 1921-24, vol. 7, no. 1)",
+        "date": "1929"
+      }
+    ],
+    "imageUrl": "/locations/igloolik.png",
+    "geography": "physical"
+  },
+  {
+    "id": "tikigaq-point-hope",
+    "name": "Tikiġaq (Point Hope)",
+    "locationType": "coast",
+    "pantheonId": "inuit-pantheon",
+    "description": "The Iñupiaq whaling village on a gravel spit in the Chukchi Sea, northwest Alaska, whose land, in the community's tradition, is the body of a sea creature harpooned by Raven Man.",
+    "latitude": 68.3475,
+    "longitude": -166.764,
+    "detailedBio": "## An ancient whaling point\n\nTikiġaq, whose name refers to its shape as a pointing finger, stands on a long spit extending into the Chukchi Sea. People have lived here for well over a thousand years; the nearby site of Ipiutak, excavated around 1940, revealed an extraordinary early Arctic culture, and the village's later history is bound up with the hunting of bowhead whales from the ice edge each spring.\n\n## The land as a whale\n\nIn Tikiġaq tradition, as told by elders to Tom Lowenstein and published in *Ancient Land: Sacred Whale* (1993), the land of the point was once a great creature of the sea, harpooned by Tulunigraq, Raven Man; its body became the land on which the village stands. The story ties the community's home to the hunt that sustains it.\n\n## Today\n\nPoint Hope remains an active Iñupiaq whaling community in the North Slope Borough of Alaska. Coastal erosion has forced the village to move inland from its old site, and the community, like others in the Arctic, faces rapid environmental change.",
+    "primarySources": [
+      {
+        "text": "Tikiġaq elders describe the point as the body of the creature harpooned by Raven Man (paraphrase).",
+        "source": "Tom Lowenstein, Ancient Land: Sacred Whale",
+        "date": "1993"
+      }
+    ],
+    "imageUrl": "/locations/tikigaq-point-hope.png",
+    "geography": "physical"
+  },
+  {
+    "id": "torngat-mountains",
+    "name": "Torngat Mountains",
+    "locationType": "mountain",
+    "pantheonId": "inuit-pantheon",
+    "description": "The mountains of northern Labrador and Nunavik whose name is usually explained as 'place of spirits', from the Inuktitut tuurngait; now a national park co-managed with the Inuit of Nunatsiavut and Nunavik.",
+    "latitude": 58.9,
+    "longitude": -63.7,
+    "detailedBio": "## Place of spirits\n\nThe Torngat Mountains rise along the northern tip of Labrador, on the boundary between Nunatsiavut (Labrador) and Nunavik (Quebec). Their name is usually explained as coming from tuurngait, the helping spirits of Inuit belief, so that it means something like \"place of spirits\"; Labrador traditions recorded in the early twentieth century associated the region with Torngarsoak, the great spirit. The coordinates given here mark the approximate centre of the range.\n\n## A homeland\n\nInuit and their predecessors have used the Torngat coast for thousands of years, hunting, fishing, and travelling through its fjords. In the twentieth century many Inuit families were relocated away from the northern Labrador coast, and the return of Inuit to the land through park base camps and programmes has been an important part of cultural renewal.\n\n## Co-management\n\nTorngat Mountains National Park, created under the Labrador Inuit Land Claims Agreement (a park reserve from 2005 and a national park from 2008), is co-managed by Parks Canada and a board including Inuit of Nunatsiavut and Nunavik, and Inuit guides and bear guards work with visitors. It is an example of the land associated with spirits being cared for by the people whose tradition named it.",
+    "primarySources": [
+      {
+        "text": "Labrador Inuit traditions of Torngarsoak, the great spirit associated with the northern mountains (paraphrase).",
+        "source": "E. W. Hawkes, The Labrador Eskimo (Geological Survey of Canada, Memoir 91)",
+        "date": "1916"
+      }
+    ],
+    "imageUrl": "/locations/torngat-mountains.png",
+    "geography": "physical"
+  },
+  {
+    "id": "brewarrina-fish-traps",
+    "name": "Baiame's Ngunnhu (Brewarrina Fish Traps)",
+    "locationType": "sacred_site",
+    "pantheonId": "aboriginal-australian-pantheon",
+    "description": "Stone fish traps in the Barwon River at Brewarrina, New South Wales, whose design the ancestral creation being Baiame revealed; National Heritage listed in 2005 and cared for by the Ngemba people and their neighbours.",
+    "latitude": -29.9603,
+    "longitude": 146.8617,
+    "detailedBio": "## A system of stone\n\nBaiame's Ngunnhu is a network of dry-stone walls and pens across the Barwon River at Brewarrina, in north-western New South Wales. The design guided fish, especially during spring migrations, into pens where they could be caught, and resisted both floods and low water. It is among the largest and most complex Aboriginal fish-trap systems known.\n\n## Story and law\n\nAccording to the Ngemba people and their neighbours, as recorded in the National Heritage listing, the ancestral creation being Baiame revealed the design by throwing his net over the river, built the traps with his two sons, and allocated them to family groups who were responsible for their use and maintenance. Neighbouring peoples gathered here for ceremony and trade.\n\n## Heritage and care\n\nThe traps were damaged after colonisation, and a weir later built across the river altered its flow and buried part of them. They were added to the National Heritage List in 2005. The Brewarrina Aboriginal community continues to care for the traps, and the site is visited through local Aboriginal-led cultural tourism. The coordinates given here are approximate.",
+    "primarySources": [
+      {
+        "text": "The Ngemba people of Brewarrina used their advanced knowledge of river hydrology and fish ecology to trap and catch large numbers of fresh water fish.",
+        "source": "Australian Government, National Heritage List: Brewarrina Aboriginal Fish Traps (Baiame's Ngunnhu)",
+        "date": "accessed 2026"
+      }
+    ],
+    "imageUrl": "/locations/brewarrina-fish-traps.png",
+    "geography": "physical"
+  },
+  {
+    "id": "bunjils-shelter",
+    "name": "Bunjil's Shelter",
+    "locationType": "sacred_site",
+    "pantheonId": "aboriginal-australian-pantheon",
+    "description": "A rock shelter in the Black Range near Stawell, Victoria, on Djab Wurrung Country, holding the only known rock painting of Bunjil.",
+    "latitude": -37.1394,
+    "longitude": 142.7333,
+    "detailedBio": "## Bunjil in the rock\n\nBunjil's Shelter, in the Black Range Scenic Reserve about ten kilometres south of Stawell in western Victoria, holds a painting of a figure understood as Bunjil, with two dogs, the only rock painting of Bunjil known. The site is on Djab Wurrung Country and is significant to the Djab Wurrung and other Kulin and neighbouring peoples; Bunjil is also said to have sheltered in the Gariwerd (Grampians) region.\n\n## Protection\n\nThe painting is protected behind a grille, and the site is managed as a heritage place. Visitors are asked to treat it with respect. Research on the painting has considered its age and the way it has been retouched over time, but its meaning is for its custodians to explain.\n\n## Part of a wider landscape\n\nBunjil's Shelter lies near Gariwerd, a region rich in rock art sites managed with Traditional Owners, and near the Brambuk cultural centre at Halls Gap, where Aboriginal communities of the region share aspects of their culture with visitors.",
+    "primarySources": [
+      {
+        "text": "Rock art research on Bunjil's Shelter in the Black Range near Stawell, in Djab Wurrung Country (paraphrase).",
+        "source": "Rock Art Research, 'Bunyip, Bunjil and mother-in-law avoidance'",
+        "date": "accessed 2026"
+      }
+    ],
+    "imageUrl": "/locations/bunjils-shelter.png",
+    "geography": "physical"
+  },
+  {
+    "id": "derbarl-yerrigan",
+    "name": "Derbarl Yerrigan (Swan River)",
+    "locationType": "body_of_water",
+    "pantheonId": "aboriginal-australian-pantheon",
+    "description": "The river that runs through Perth, Western Australia, whose course Whadjuk Noongar tradition attributes to the Wagyl; its resting places, including Goonininup below Kaarta Gar-up (Kings Park), are important Noongar places.",
+    "latitude": -31.9633,
+    "longitude": 115.8697,
+    "detailedBio": "## A Noongar river\n\nThe Derbarl Yerrigan, the Swan River, flows from the Darling Scarp through Perth to the Indian Ocean at Fremantle. For Whadjuk Noongar people it is at the heart of Country: a source of food and fresh water and a place of story. In the public Noongar telling, the Wagyl shaped the river in the Nyitting as it moved across the land. The coordinates given here mark Perth Water, in the city.\n\n## Goonininup\n\nAt the foot of Kaarta Gar-up (Mount Eliza, below Kings Park) is Goonininup, near a freshwater spring, associated with the Wagyl. From 1989 Noongar people protested the redevelopment of the Old Swan Brewery on this site; the protest became a landmark in Western Australian heritage politics.\n\n## Today\n\nNoongar names for the river and for places along it are increasingly used in Perth, and Noongar-led tours and public art along the foreshore share aspects of the Derbarl Yerrigan's story with residents and visitors.",
+    "primarySources": [
+      {
+        "text": "During the Nyitting (Creation Time), the great creator snake called the Waugal or Wagyl moved down the Derbal Yerrigan and created the waterways and landscapes.",
+        "source": "City of Swan, 'Aboriginal history'",
+        "date": "accessed 2026"
+      }
+    ],
+    "imageUrl": "/locations/derbarl-yerrigan.png",
+    "geography": "physical"
+  },
+  {
+    "id": "uluru",
+    "name": "Uluṟu",
+    "locationType": "sacred_site",
+    "pantheonId": "aboriginal-australian-pantheon",
+    "description": "The great sandstone monolith in Uluṟu-Kata Tjuṯa National Park, Northern Territory, shaped by the actions of Aṉangu ancestral beings, including Kuniya and the Liru; jointly managed by Aṉangu and Parks Australia.",
+    "latitude": -25.3444,
+    "longitude": 131.0369,
+    "detailedBio": "## Aṉangu Country\n\nUluṟu is part of the Country of the Aṉangu, the traditional owners of Uluṟu-Kata Tjuṯa National Park. For Aṉangu, the features of Uluṟu are evidence of the actions of ancestral beings in the Tjukurpa: the Kuniya (woma python) and the Liru (venomous snake men), the Mala (rufous hare-wallaby) people, and others. Some of these stories are shared publicly with visitors; many are not.\n\n## Handback and joint management\n\nTitle to Uluṟu-Kata Tjuṯa was handed back to its traditional owners on 26 October 1985, and the park has since been jointly managed by Aṉangu and Parks Australia. It is a UNESCO World Heritage Site for both its natural and cultural values.\n\n## Respect\n\nAṉangu ask visitors not to photograph certain culturally sensitive areas. Climbing Uluṟu, long discouraged by the traditional owners, was permanently closed in October 2019. Visitors can learn the publicly shared stories along walks such as the Kuniya walk to Muṯitjulu Waterhole.",
+    "primarySources": [
+      {
+        "text": "Aṉangu share the Kuniya and Liru Tjukurpa publicly along the walk to Muṯitjulu Waterhole (paraphrase).",
+        "source": "Uluṟu-Kata Tjuṯa National Park (Parks Australia, with Aṉangu traditional owners), 'The Kuniya & Liru stories'",
+        "date": "accessed 2026"
+      }
+    ],
+    "imageUrl": "/locations/uluru.png",
+    "geography": "physical"
+  },
+  {
+    "id": "blanca-peak",
+    "name": "Sisnaajiní (Blanca Peak)",
+    "locationType": "mountain",
+    "pantheonId": "dine-pantheon",
+    "description": "The sacred mountain of the east bounding Diné Bikéyah, in the Sangre de Cristo Range of southern Colorado, associated with white shell and the dawn.",
+    "latitude": 37.5775,
+    "longitude": -105.4856,
+    "detailedBio": "## The eastern boundary\n\nSisnaajiní, known in English as Blanca Peak, is the sacred mountain of the east, one of the four that bound Diné Bikéyah. It rises to about 4,370 metres in the Sierra Blanca massif of the Sangre de Cristo Mountains in southern Colorado. It is associated with the east, with the dawn, and with white shell.\n\n## A holy mountain\n\nIn the Diné origin story the sacred mountains were set in place by the Holy People after the emergence, each with its own adornments and associations. Soil and other materials from the four mountains are used in ceremonies that this site does not describe.\n\n## Today\n\nThe mountain lies outside the present boundaries of the Navajo Nation, on land that includes private and public holdings. Diné people continue to regard it as sacred, and the protection of the sacred mountains is a recurring concern of the Navajo Nation.",
+    "primarySources": [
+      {
+        "text": "The Holy People set the sacred mountains in place at the four directions after the emergence (paraphrase).",
+        "source": "Washington Matthews, Navaho Legends",
+        "date": "1897"
+      }
+    ],
+    "imageUrl": "/locations/blanca-peak.png",
+    "geography": "physical"
+  },
+  {
+    "id": "mount-taylor",
+    "name": "Tsoodził (Mount Taylor)",
+    "locationType": "mountain",
+    "pantheonId": "dine-pantheon",
+    "description": "The sacred mountain of the south, in New Mexico, associated with turquoise; near it the Hero Twins killed Yéʼiitsoh, whose blood is said to have become the lava flows of the region.",
+    "latitude": 35.2383,
+    "longitude": -107.6086,
+    "detailedBio": "## The southern boundary\n\nTsoodził, known in English as Mount Taylor, is the sacred mountain of the south, a volcanic peak rising to about 3,445 metres near Grants, New Mexico. It is associated with the south and with turquoise, and it is sacred to several peoples of the region, including the Acoma and Laguna Pueblos, Zuni, and Hopi as well as the Diné.\n\n## Yéʼiitsoh\n\nIn the Hero Twins' story, the giant Yéʼiitsoh lived near Tsoodził, and the twins killed him at a lake nearby. Widely told accounts say his blood became the black lava flows, the malpais, near the mountain, and his head became Cabezon Peak to the east.\n\n## Protection\n\nIn 2008 and 2009 the State of New Mexico listed Mount Taylor as a Traditional Cultural Property at the request of Native nations, including the Navajo Nation, amid concern over proposed uranium mining; the listing was upheld by the New Mexico Supreme Court in 2014.",
+    "primarySources": [
+      {
+        "text": "The twins meet Yéitso at a lake near Tsoťsil and kill him with lightning (paraphrase).",
+        "source": "Washington Matthews, Navaho Legends",
+        "date": "1897"
+      }
+    ],
+    "imageUrl": "/locations/mount-taylor.png",
+    "geography": "physical"
+  },
+  {
+    "id": "san-francisco-peaks",
+    "name": "Dookʼoʼoosłííd (San Francisco Peaks)",
+    "locationType": "mountain",
+    "pantheonId": "dine-pantheon",
+    "description": "The sacred mountain of the west, near Flagstaff, Arizona, associated with abalone shell; sacred to many Native nations, and the subject of long legal disputes over a ski resort.",
+    "latitude": 35.3464,
+    "longitude": -111.678,
+    "detailedBio": "## The western boundary\n\nDookʼoʼoosłííd, the San Francisco Peaks, is the sacred mountain of the west, whose highest summit, Humphreys Peak, reaches about 3,850 metres north of Flagstaff, Arizona. It is associated with the west and with abalone shell. The peaks are sacred to many Native nations of the region, including the Hopi, for whom they are the home of the katsinam, as well as the Diné.\n\n## A contested mountain\n\nThe peaks have been the focus of long legal and political disputes over the Arizona Snowbowl ski resort, including its use of treated wastewater to make artificial snow, which the Navajo Nation, the Hopi Tribe, and others opposed as a desecration. In *Navajo Nation v. United States Forest Service* (2008), a federal appeals court ruled against the tribes. The dispute is often cited in discussions of sacred-site protection in the United States.\n\n## In the story\n\nAlong with the other sacred mountains, Dookʼoʼoosłííd was set in place by the Holy People after the emergence, and it marks the western edge of Diné Bikéyah, toward which Changing Woman went to live.",
+    "primarySources": [
+      {
+        "text": "The Holy People set the sacred mountains in place at the four directions after the emergence (paraphrase).",
+        "source": "Washington Matthews, Navaho Legends",
+        "date": "1897"
+      }
+    ],
+    "imageUrl": "/locations/san-francisco-peaks.png",
+    "geography": "physical"
+  },
+  {
+    "id": "hesperus-mountain",
+    "name": "Dibé Ntsaa (Hesperus Mountain)",
+    "locationType": "mountain",
+    "pantheonId": "dine-pantheon",
+    "description": "The sacred mountain of the north, usually identified with Hesperus Mountain in the La Plata Mountains of southwestern Colorado, associated with jet.",
+    "latitude": 37.445,
+    "longitude": -108.089,
+    "detailedBio": "## The northern boundary\n\nDibé Ntsaa, \"big mountain sheep\", is the sacred mountain of the north, usually identified with Hesperus Mountain, the highest summit of the La Plata Mountains in southwestern Colorado, at about 4,035 metres. It is associated with the north and with jet (black stone).\n\n## Identification\n\nMost sources identify Dibé Ntsaa with Hesperus Mountain, but some Diné accounts and scholars have identified the northern sacred mountain differently, and this site notes that the identification is not uniform.\n\n## In the story\n\nWith Sisnaajiní, Tsoodził, and Dookʼoʼoosłííd, Dibé Ntsaa bounds Diné Bikéyah, the land into which the people emerged and within which, in the Diné understanding, they belong.",
+    "primarySources": [
+      {
+        "text": "The Holy People set the sacred mountains in place at the four directions after the emergence (paraphrase).",
+        "source": "Washington Matthews, Navaho Legends",
+        "date": "1897"
+      }
+    ],
+    "imageUrl": "/locations/hesperus-mountain.png",
+    "geography": "physical"
+  },
+  {
+    "id": "gobernador-knob",
+    "name": "Chʼóolʼį́ʼí (Gobernador Knob)",
+    "locationType": "mountain",
+    "pantheonId": "dine-pantheon",
+    "description": "A small peak in the Dinétah region of northern New Mexico where, in many tellings, First Man found the infant Changing Woman.",
+    "latitude": 36.7822,
+    "longitude": -107.5934,
+    "detailedBio": "## Where Changing Woman was found\n\nChʼóolʼį́ʼí, known in English as Gobernador Knob, is a small summit in Rio Arriba County, northern New Mexico, within the Four Corners region. In many tellings of the Diné origin story, it is here that First Man, following the sound of a baby's cry beneath a dark cloud, found the infant who would become Changing Woman.\n\n## Dinétah\n\nChʼóolʼį́ʼí lies in Dinétah, the region along the upper San Juan River where, in Diné tradition and in the archaeological record, early Diné life was centred. Together with nearby Dziłnaʼoodiłii (Huerfano Mountain), it is among the sacred mountains within the land bounded by the four directional mountains.\n\n## Respect\n\nThe knob is on public land, and it remains a sacred place for Diné people. This site gives its location because it is widely published, and asks readers to treat it accordingly.",
+    "primarySources": [
+      {
+        "text": "First Man finds an infant girl on the mountain Chʼóolʼį́ʼí (paraphrase).",
+        "source": "Paul G. Zolbrod, Diné bahaneʼ",
+        "date": "1984"
+      }
+    ],
+    "imageUrl": "/locations/gobernador-knob.png",
+    "geography": "physical"
   }
 ]

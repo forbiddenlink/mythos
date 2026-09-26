@@ -1400,5 +1400,386 @@
         ]
       }
     ]
+  },
+  {
+    "pantheonId": "hittite-pantheon",
+    "title": "Heaven, the Dark Earth, and the Giant in the Sea",
+    "summary": "Hittite texts describe heaven above, the land of the living, and the Dark Earth below, where the Former Gods and sealed-away evils lie; the Hurrian Song of Ullikummi adds Upelluri, the giant in the sea on whom heaven and earth were built.",
+    "axis": {
+      "name": "Upelluri",
+      "kind": "pillar",
+      "note": "In the Hurrian Song of Ullikummi, Upelluri is a giant standing in the sea on whom heaven and earth were built and then cut apart. He is not attested in native Anatolian myth, so this axis belongs to the Hurrian strand of the pantheon only."
+    },
+    "variantNote": "This diagram combines two traditions that the Hittite archives kept side by side: native Anatolian ideas of heaven, earth, and the Dark Earth (from rituals such as the Telipinu myth) and the Hurrian cosmology of the Kumarbi cycle, with its Former Gods, its giant Upelluri, and heaven and earth once joined. No single Hittite text lays out the whole scheme.",
+    "sources": [
+      "Disappearance of Telipinu (CTH 324)",
+      "Song of Kumarbi (CTH 344)",
+      "Song of Ullikummi (CTH 345)",
+      "H. A. Hoffner Jr., Hittite Myths, 2nd ed., 1998"
+    ],
+    "tiers": [
+      {
+        "id": "heaven",
+        "label": "Heaven",
+        "band": "sky",
+        "realms": [
+          {
+            "name": "Heaven (nepiš)",
+            "originalName": "nepiš",
+            "description": "The seat of kingship among the gods, ruled in turn by Alalu, Anu, Kumarbi, and the storm-god in the Hurrian songs.",
+            "deities": ["tarhunna", "shaushka"]
+          }
+        ]
+      },
+      {
+        "id": "earth",
+        "label": "The land",
+        "band": "earth",
+        "realms": [
+          {
+            "name": "The land of Hatti",
+            "description": "The land of the living, whose fertility depends on gods such as Telipinu staying present and content; the Sun-goddess of Arinna is its queen.",
+            "deities": [
+              "sun-goddess-of-arinna",
+              "telipinu",
+              "hannahanna",
+              "inara",
+              "kamrusepa"
+            ],
+            "creatures": ["illuyanka"],
+            "locationId": "hattusa"
+          },
+          {
+            "name": "Urkeš",
+            "description": "Kumarbi's city in the Hurrian songs, from which he plots against Teššub.",
+            "deities": ["kumarbi"],
+            "locationId": "urkesh"
+          }
+        ]
+      },
+      {
+        "id": "sea",
+        "label": "The sea",
+        "band": "water",
+        "realms": [
+          {
+            "name": "The sea around Upelluri",
+            "description": "Where Kumarbi's monsters are hidden and grow: the serpent Hedammu, and the stone giant Ullikummi on Upelluri's shoulder.",
+            "creatures": ["hedammu", "ullikummi"]
+          }
+        ]
+      },
+      {
+        "id": "dark-earth",
+        "label": "The Dark Earth",
+        "band": "under",
+        "realms": [
+          {
+            "name": "The Dark Earth",
+            "originalName": "dankui tekan",
+            "description": "The underworld behind seven doors and seven bolts, where bronze vessels with lead lids hold what must never return, and where the Former Gods, among them Alalu, were banished.",
+            "deities": ["sun-goddess-of-the-earth", "alalu"]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "pantheonId": "canaanite-pantheon",
+    "title": "Zaphon, the Sea, and the Throat of Death",
+    "summary": "Ugaritic myth places Baal's palace on Mount Zaphon, El's pavilion at the source of the cosmic rivers, the Sea as a rival power, and Mot's muddy city below the earth, entered through his throat.",
+    "axis": {
+      "name": "Mount Zaphon",
+      "kind": "mountain",
+      "note": "Baal's mountain, the real Jebel Aqra north of Ugarit, where his palace, his burial, and his final battle with Mot take place; it links the storm in the sky to the land below."
+    },
+    "variantNote": "The Ugaritic texts never lay out a complete map of the cosmos; this diagram assembles places named in the Baal Cycle. Mot's realm is reached through two mountains at the edge of the earth, and El's dwelling lies at the source of the cosmic waters, but how these fit together spatially is not stated, and later Phoenician cosmogonies (preserved by Philo of Byblos) differ considerably.",
+    "sources": [
+      "Baal Cycle, KTU 1.1-1.6",
+      "M. S. Smith, in Ugaritic Narrative Poetry (ed. S. B. Parker), 1997",
+      "N. Wyatt, Religious Texts from Ugarit, 2nd ed., 2002"
+    ],
+    "tiers": [
+      {
+        "id": "els-domain",
+        "label": "El's domain",
+        "band": "beyond",
+        "realms": [
+          {
+            "name": "The source of the two rivers",
+            "description": "El's pavilion at the edge of the world, where the springs of the two deeps rise and the gods come for his decisions.",
+            "deities": ["el", "athirat"],
+            "locationId": "source-of-the-two-rivers"
+          }
+        ]
+      },
+      {
+        "id": "zaphon",
+        "label": "Zaphon and the heavens",
+        "band": "sky",
+        "realms": [
+          {
+            "name": "The heights of Zaphon",
+            "originalName": "Ṣapānu",
+            "description": "Baal's palace of silver and gold, with its window in the clouds.",
+            "deities": ["baal", "anat", "athtart", "kothar-wa-khasis"],
+            "locationId": "mount-zaphon"
+          },
+          {
+            "name": "The sun's course",
+            "description": "The path of Shapash, Torch of the Gods, who sees all and passes also through the underworld.",
+            "deities": ["shapash"]
+          }
+        ]
+      },
+      {
+        "id": "earth",
+        "label": "The broad earth",
+        "band": "earth",
+        "realms": [
+          {
+            "name": "The land",
+            "description": "The fields that dry when Baal is dead and revive when he returns; Athtar rules here after failing on Zaphon.",
+            "deities": ["athtar"],
+            "locationId": "ugarit"
+          }
+        ]
+      },
+      {
+        "id": "sea",
+        "label": "The Sea",
+        "band": "water",
+        "realms": [
+          {
+            "name": "Yam's waters",
+            "description": "The Sea and River, rival powers subdued by Baal, home to the serpent Litan and the dragon Tunnan.",
+            "deities": ["yam"],
+            "creatures": ["lotan", "tunnanu"]
+          }
+        ]
+      },
+      {
+        "id": "mot",
+        "label": "The land of Mot",
+        "band": "under",
+        "realms": [
+          {
+            "name": "Hmry, Mot's city",
+            "originalName": "hmry",
+            "description": "Death's muddy city beneath the earth, reached between the mountains at the world's edge and through his enormous throat.",
+            "deities": ["mot"]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "pantheonId": "inuit-pantheon",
+    "title": "Sky, Land, Sea, and the Lands of the Dead",
+    "summary": "Inuit tradition as recorded in several regions places the moon's house and a land of the dead in the sky, people on the land and ice, the Sea Woman's house at the bottom of the sea, and Adlivun beneath; Sila, the air and world, surrounds all.",
+    "axis": null,
+    "variantNote": "This diagram assembles accounts from different regions and periods, above all Boas's Baffin Island record of Adlivun and Qudlivun and Rasmussen's Iglulik reports of the Sea Woman and Moon Spirit. Inuit tradition does not share a single fixed map of the cosmos: where the dead go, and whether there is one land of the dead or several, differs by region and teller, and many Inuit today are Christian. Sila, being the air and the world itself, is shown in the sky tier only for convenience.",
+    "sources": [
+      "Franz Boas, The Central Eskimo, 1888",
+      "Knud Rasmussen, Intellectual Culture of the Iglulik Eskimos, 1929",
+      "Interviewing Inuit Elders, vol. 4: Cosmology and Shamanism, 2001"
+    ],
+    "tiers": [
+      {
+        "id": "sky",
+        "label": "The sky",
+        "band": "sky",
+        "realms": [
+          {
+            "name": "The sky and the moon's house",
+            "description": "Where the sun sister and the moon brother travel, where the Moon Spirit has his house, and, in Boas's Baffin account, where Qudlivun, a happy land of the dead, lies for those who died by violence; the northern lights are often described as the dead at play.",
+            "deities": ["malina", "anningan", "pinga"]
+          },
+          {
+            "name": "Sila",
+            "description": "The air, weather, and surrounding world, and the power that dwells in them.",
+            "deities": ["sila", "tornarsuk"]
+          }
+        ]
+      },
+      {
+        "id": "land",
+        "label": "The land and the ice",
+        "band": "earth",
+        "realms": [
+          {
+            "name": "Nuna, the land",
+            "description": "Where people live, hunt, and travel, and where beings such as the ijirait lead the careless astray.",
+            "deities": ["tulunigraq"],
+            "creatures": ["ijiraq"],
+            "locationId": "tikigaq-point-hope"
+          }
+        ]
+      },
+      {
+        "id": "sea",
+        "label": "The sea",
+        "band": "water",
+        "realms": [
+          {
+            "name": "The Sea Woman's house",
+            "description": "At the bottom of the sea, where the Sea Woman keeps the seals, walrus, and whales, and where an angakkuq may travel to comb her hair.",
+            "deities": ["sedna"],
+            "creatures": ["qalupalik", "tupilaq"],
+            "locationId": "igloolik"
+          }
+        ]
+      },
+      {
+        "id": "adlivun",
+        "label": "Adlivun",
+        "band": "under",
+        "realms": [
+          {
+            "name": "Adlivun",
+            "originalName": "Adlivun",
+            "description": "In Boas's Baffin Island account, the land beneath where Sedna is mistress and to which her father Anguta carries the dead.",
+            "deities": ["anguta"],
+            "locationId": "cumberland-sound"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "pantheonId": "aboriginal-australian-pantheon",
+    "title": "Country, Sky, and Water: No Single Map",
+    "summary": "There is no one Aboriginal cosmology. This diagram only sorts the publicly shared stories on this site by where their beings are found: ancestors in the sky, in the land, and in the waters, each belonging to a particular people and Country.",
+    "axis": null,
+    "variantNote": "Hundreds of Aboriginal nations have their own understandings of the world, and many are not public. A layered diagram like this one is this site's format, not an Aboriginal model; it groups beings from the Kulin, Noongar, Ngemba, Aṉangu, and Western Desert stories on this site only by where each story places them (in the sky, on the land, or in the water), and it should not be read as a combined Aboriginal cosmos. The Dreaming is not a past era beneath the present, and this diagram has no underworld tier for that reason.",
+    "sources": [
+      "National Museum of Australia, Songlines: Tracking the Seven Sisters, 2017",
+      "Uluṟu-Kata Tjuṯa National Park, The Kuniya & Liru stories",
+      "Museums Victoria, First Peoples of Australia Astronomy",
+      "W. E. H. Stanner, 'The Dreaming', 1953"
+    ],
+    "tiers": [
+      {
+        "id": "sky",
+        "label": "In the sky",
+        "band": "sky",
+        "realms": [
+          {
+            "name": "The night sky",
+            "description": "Where, in their own peoples' stories, Bunjil is seen as Altair (Kulin), and the Seven Sisters as the Pleiades, pursued by Wati Nyiru in Orion (Western and Central Deserts).",
+            "deities": ["bunjil", "seven-sisters", "wati-nyiru"]
+          }
+        ]
+      },
+      {
+        "id": "country",
+        "label": "In Country",
+        "band": "earth",
+        "realms": [
+          {
+            "name": "Uluṟu and the desert",
+            "description": "Aṉangu Country, where Kuniya and the Liru left their marks in the rock.",
+            "deities": ["kuniya", "liru"],
+            "locationId": "uluru"
+          },
+          {
+            "name": "Kulin and Ngemba Country",
+            "description": "Land shaped by Bunjil in central Victoria, and the Barwon River at Brewarrina where Baiame laid out the fish traps.",
+            "deities": ["baiame"],
+            "creatures": ["mimih"],
+            "locationId": "brewarrina-fish-traps"
+          }
+        ]
+      },
+      {
+        "id": "waters",
+        "label": "In the waters",
+        "band": "water",
+        "realms": [
+          {
+            "name": "Rivers and waterholes",
+            "description": "The waters made or kept by serpent beings such as the Noongar Wagyl, and by Pallian among the Kulin; dangerous water beings live in some waterholes of the south-east.",
+            "deities": ["wagyl", "rainbow-serpent", "pallian"],
+            "creatures": ["bunyip"],
+            "locationId": "derbarl-yerrigan"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "pantheonId": "dine-pantheon",
+    "title": "The Lower Worlds and the Glittering World",
+    "summary": "Beings journey upward through several lower worlds, escaping by a reed into the Glittering World, which the Holy People bound with four sacred mountains; the Sun crosses the sky above.",
+    "axis": {
+      "name": "The emergence reed",
+      "kind": "path",
+      "note": "In Matthews's version and others, the people climb up inside a great reed to escape the flood of the lower world. The place of emergence is identified differently by different tellers, and this site does not locate it."
+    },
+    "variantNote": "Diné tellings differ in the number of lower worlds (often four below this, the fifth), in their colours, and in their inhabitants; this diagram follows the outline shared by Matthews, Zolbrod, and the Diné-authored Navajo History without choosing between versions. Much Diné cosmological knowledge belongs to ceremony and is not represented here, and many families teach that the emergence story is told only in winter.",
+    "sources": [
+      "Washington Matthews, Navaho Legends, 1897",
+      "Paul G. Zolbrod, Diné bahaneʼ, 1984",
+      "Navajo Curriculum Center, Navajo History, 1971"
+    ],
+    "tiers": [
+      {
+        "id": "sky",
+        "label": "The sky",
+        "band": "sky",
+        "realms": [
+          {
+            "name": "The Sun's path",
+            "description": "The Sun Bearer carries the sun across the sky from his house in the east, returning each evening to the west where Changing Woman lives.",
+            "deities": ["johonaaei"]
+          }
+        ]
+      },
+      {
+        "id": "glittering-world",
+        "label": "The Glittering World",
+        "band": "earth",
+        "realms": [
+          {
+            "name": "Diné Bikéyah",
+            "description": "The land between the four sacred mountains, where Changing Woman was found, the twins killed the monsters, and the clans settled.",
+            "deities": [
+              "changing-woman",
+              "white-shell-woman",
+              "monster-slayer",
+              "born-for-water",
+              "spider-woman",
+              "talking-god"
+            ],
+            "creatures": ["yeiitsoh", "deelgeed", "tse-ninahalee"],
+            "locationId": "gobernador-knob"
+          }
+        ]
+      },
+      {
+        "id": "waters",
+        "label": "The waters below",
+        "band": "water",
+        "realms": [
+          {
+            "name": "The Water Monster's waters",
+            "description": "The waters of the lower world that rose when Coyote stole the Water Monster's child.",
+            "creatures": ["teehooltsodii"]
+          }
+        ]
+      },
+      {
+        "id": "lower-worlds",
+        "label": "The lower worlds",
+        "band": "under",
+        "realms": [
+          {
+            "name": "The lower worlds",
+            "description": "The earlier worlds through which the beings travelled upward, leaving each because of disorder; home of First Man, First Woman, and Coyote before the emergence.",
+            "deities": ["first-man", "first-woman", "coyote"]
+          }
+        ]
+      }
+    ]
   }
 ]

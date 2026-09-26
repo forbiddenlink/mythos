@@ -59,13 +59,30 @@ PROCEDURAL_SOURCES = [
     ("scripts/generate_creatures_locations_stories.py", "ARTIFACTS", "artifacts", "id"),
 ]
 
+# Plates drawn per tradition straight from the catalog (no id list): every
+# entity whose pantheon is in the script's PALETTES map was drawn by it.
+TRADITION_SCRIPT = "scripts/generate_tradition_plates.py"
+
+
+def tradition_pantheons() -> set[str]:
+    tree = ast.parse((REPO_ROOT / TRADITION_SCRIPT).read_text(encoding="utf-8"))
+    for node in ast.walk(tree):
+        if isinstance(node, ast.Assign) and any(
+            isinstance(t, ast.Name) and t.id == "PALETTES" for t in node.targets
+        ):
+            return set(ast.literal_eval(node.value))
+    return set()
+
+
 GENERATORS = {
     "procedural-plate": {
         "kind": "illustration-procedural",
         "label": "Procedural archival plate",
         "description": "Ornamental plate drawn programmatically with Pillow: border, emblem, and name. Decorative, not a depiction from any source.",
         "license": "Project artwork, same license as the repository",
-        "scripts": sorted({script for script, *_ in PROCEDURAL_SOURCES}),
+        "scripts": sorted(
+            {script for script, *_ in PROCEDURAL_SOURCES} | {TRADITION_SCRIPT}
+        ),
     },
     "ai-illustration": {
         "kind": "illustration-ai",
@@ -93,6 +110,7 @@ def procedural_images() -> dict[str, str]:
 
 def build() -> dict:
     plates = procedural_images()
+    traditions = tradition_pantheons()
     entities: dict[str, dict[str, str]] = {}
     for entity_type, (filename, folder) in CATALOGS.items():
         records = json.loads((DATA_DIR / filename).read_text(encoding="utf-8"))
@@ -106,6 +124,9 @@ def build() -> dict:
                 raise SystemExit(f"{entity_type}:{record['id']} image missing: {url}")
             stem_key = f"{path.parent.as_posix()}/{path.stem}"
             script = plates.get(stem_key) if path.parent.as_posix() == folder else None
+            pantheon = record["id"] if entity_type == "pantheon" else record.get("pantheonId")
+            if pantheon in traditions:
+                script = TRADITION_SCRIPT
             rows[record["id"]] = "procedural-plate" if script else "ai-illustration"
         entities[entity_type] = dict(sorted(rows.items()))
     return {

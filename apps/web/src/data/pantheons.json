@@ -644,5 +644,243 @@
     ],
     "imageUrl": "/pantheons/akan.jpg",
     "figuresLabel": "Nyame, the Abosom & Ananse"
+  },
+  {
+    "id": "hittite-pantheon",
+    "name": "Hittite Pantheon",
+    "slug": "hittite",
+    "culture": "Hittite, with Hattian, Hurrian, and Luwian strands (Late Bronze Age Anatolia)",
+    "region": "Anatolia (central Türkiye) and northern Syria",
+    "timePeriodStart": -1650,
+    "timePeriodEnd": -1180,
+    "description": "The \"thousand gods of Hatti\": the layered pantheon of the Hittite kingdom, where a native storm-god and sun-goddess stood beside Hattian local deities and Hurrian gods whose myths, the Song of Kumarbi and the Song of Ullikummi, were translated into Hittite at the capital Hattusa.",
+    "detailedHistory": "## A pantheon assembled, not inherited\n\nThe Hittite kings of the Late Bronze Age (from about 1650 BCE until the collapse of the kingdom around 1180 BCE) ruled from Hattusa, near modern Boğazkale in central Türkiye, and their scribes spoke of \"the thousand gods of Hatti\" when they listed the divine witnesses to a treaty. The phrase was not an exaggeration so much as an honest description of how the pantheon was built: the Hittites, speakers of an Indo-European language, settled among the Hattians, a non-Indo-European people whose gods (the Storm-god of Nerik, the Sun-goddess of Arinna, Telipinu, Inara) they kept; they absorbed Luwian and Palaic deities from neighbouring Anatolian peoples; and from the fifteenth century BCE onward they took in the gods of the Hurrians of northern Syria and Mesopotamia, including Teššub, Hebat, Šauška, and Kumarbi. Rather than replacing local gods, Hittite religion tended to add them, so that the same storm-god might be worshipped under a Hattian, a Hittite, and a Hurrian name in different rites.\n\n## Where the myths come from, and why that matters\n\nAlmost everything on this site about Hittite myth comes from clay tablets excavated at Hattusa since 1906, the archive that allowed Bedřich Hrozný to identify Hittite as an Indo-European language in 1915. Two very different kinds of story survive. The Illuyanka tales and the myth of Telipinu's disappearance are **Anatolian and Hattian** in origin, and they survive because they were written down as part of rituals and festivals: the Illuyanka story was recited at the Purulli festival of Nerik, and the Telipinu story sits inside an invocation meant to coax an angry god home. The Song of Kumarbi, the Song of Ullikummi, and the Song of Hedammu, by contrast, are **Hurrian** literary compositions translated into Hittite; Hurrian-language fragments of the same cycle also survive, and its gods, places, and even its hero Teššub are Hurrian. Modern scholars group these songs as the Kumarbi cycle. This site marks the difference on every story, because treating Hurrian songs as native Hittite myth, a common simplification, hides how the pantheon was actually put together.\n\n## Fragmentary texts\n\nNearly every one of these compositions is broken. Tablets are damaged, columns are missing, and several endings, including the end of the Song of Ullikummi, are simply lost. Where this site retells a story, it follows the translations of Harry A. Hoffner Jr. (*Hittite Myths*, 2nd ed., 1998) and marks gaps as gaps rather than filling them from later Greek parallels. Text numbers in the *Catalogue des Textes Hittites* (CTH), the standard reference system for Hittite compositions, are given so readers can find each text in any modern edition.\n\n## Why Hittite myth matters beyond Anatolia\n\nThe Kumarbi cycle's succession of sky-kings (Alalu, then Anu, then Kumarbi, then the storm-god) and its castration and swallowing episodes are the closest known Near Eastern parallel to Hesiod's *Theogony*, and the storm-god's battle with the serpent Illuyanka belongs to a wide family of storm-god-versus-serpent stories stretching from Ugarit to Scandinavia. This site notes those parallels where they are well established, while treating the Hittite and Hurrian texts on their own terms first.",
+    "citationSources": [
+      {
+        "title": "Hittite Myths (2nd ed., SBL Writings from the Ancient World 2)",
+        "author": "Harry A. Hoffner Jr. (translator)",
+        "date": "1998",
+        "type": "primary",
+        "sourceId": "hittite-myths-hoffner"
+      },
+      {
+        "title": "The Kumarbi Cycle (Song of Kumarbi, Song of Hedammu, Song of Ullikummi), CTH 344-348",
+        "author": "Hurrian compositions in Hittite translation, Hattusa archives",
+        "date": "Late Bronze Age copies, 14th-13th c. BCE",
+        "type": "primary",
+        "sourceId": "kumarbi-cycle"
+      },
+      {
+        "title": "Hittite Prayers (SBL Writings from the Ancient World 11)",
+        "author": "Itamar Singer",
+        "date": "2002",
+        "type": "secondary"
+      },
+      {
+        "title": "The Hittites and Their World",
+        "author": "Billie Jean Collins",
+        "date": "2007",
+        "type": "secondary"
+      }
+    ],
+    "imageUrl": "/pantheons/hittite.jpg"
+  },
+  {
+    "id": "canaanite-pantheon",
+    "name": "Canaanite Pantheon (Ugarit)",
+    "slug": "canaanite",
+    "culture": "West Semitic (Canaanite), known chiefly from the Ugaritic texts of Ras Shamra",
+    "region": "The Levant (coastal Syria, Lebanon, and Israel/Palestine)",
+    "timePeriodStart": -1450,
+    "timePeriodEnd": -1185,
+    "description": "The gods of the Late Bronze Age Levant as the clay tablets of Ugarit preserve them: aged El and Lady Athirat at the head of the divine family, and the storm-god Baal, who defeats the Sea, builds his palace on Mount Zaphon, and is swallowed by Death before he returns.",
+    "detailedHistory": "## Ugarit and the problem of the word \"Canaanite\"\n\nAlmost everything known in detail about the myths of the ancient Levant before the first millennium BCE comes from one city: Ugarit, on the Syrian coast at Ras Shamra, north of modern Latakia. In 1928 a farmer's plough broke into a tomb nearby; excavations led by Claude Schaeffer from 1929 uncovered a wealthy port city, destroyed around 1185 BCE, and archives written in a previously unknown alphabetic cuneiform of thirty signs. The mythological poems on this site come from those archives. \"Canaanite\" is the conventional scholarly label for the shared West Semitic religion of the Levant, and it is used here for that reason; but the people of Ugarit did not call themselves Canaanites (an Ugaritic text lists a \"Canaanite\" as a foreigner), and the Ugaritic myths should not be assumed to describe every Levantine city. Where later Phoenician or biblical evidence differs, this site says so.\n\n## The texts and their scribe\n\nThe three great narrative poems, the Baal Cycle (KTU 1.1-1.6), the Epic of Aqhat (KTU 1.17-1.19), and the Epic of Kirta (KTU 1.14-1.16), survive on tablets copied in the late thirteenth or early twelfth century BCE. Several carry a colophon naming the scribe Ilimilku, who worked under a king Niqmaddu, although the poems themselves are older. All are damaged: whole columns are missing, the order of the Baal tablets is partly reconstructed, and the endings of Aqhat and Kirta are lost. Citations here use the standard KTU numbering (Keilalphabetische Texte aus Ugarit, also published in English as CAT), by tablet and column, so readers can check any retelling against a modern translation such as those of Mark S. Smith, Simon B. Parker, Edward L. Greenstein, and Nicolas Wyatt.\n\n## The divine family\n\nAt the head of the pantheon stands El (Ilu), the aged \"Father of Years\" and \"Bull El\", creator of creatures, who presides over the assembly of the gods from his dwelling at the source of the two rivers. His consort is Athirat, \"Lady Athirat of the Sea\", mother of the seventy gods. The drama of the myths, though, belongs to a younger generation: Baal (Baʿlu Haddu), the storm-god of rain and fertility, \"Rider of the Clouds\", who is called the son of Dagan; his fierce sister-ally Anat; the Sea (Yamm) and Death (Mot), both favourites of El; the craftsman god Kothar-wa-Khasis; and the sun-goddess Shapash, who sees everything as she crosses the sky and the underworld.\n\n## Why these texts matter\n\nThe Ugaritic poems are the closest surviving literary context for the Hebrew Bible's poetry. Biblical texts use the same divine names (El, Baal, Asherah), the same image of a storm-god riding the clouds, and even nearly the same words: Isaiah 27:1 describes \"Leviathan the twisting serpent\" in terms close to the Ugaritic description of Litan. The relationship is one of shared language and imagery across a region, not of one text copying another, and this site describes Ugaritic religion on its own terms rather than as background to the Bible. Readers of Jewish and Christian scripture should also know that biblical polemic against \"Baal\" and \"Asherah\" was written centuries later and from a very different standpoint; the Ugaritic texts are the only surviving account of these gods from their own worshippers.",
+    "citationSources": [
+      {
+        "title": "The Baal Cycle (KTU 1.1-1.6)",
+        "author": "Ugaritic poem; scribe Ilimilku",
+        "date": "tablets of the late 13th or early 12th c. BCE",
+        "type": "primary",
+        "sourceId": "baal-cycle"
+      },
+      {
+        "title": "The Epic of Aqhat (KTU 1.17-1.19)",
+        "author": "Ugaritic poem; scribe Ilimilku",
+        "date": "tablets of the late 13th or early 12th c. BCE",
+        "type": "primary",
+        "sourceId": "aqhat-epic"
+      },
+      {
+        "title": "The Epic of Kirta (KTU 1.14-1.16)",
+        "author": "Ugaritic poem; scribe Ilimilku",
+        "date": "tablets of the late 13th or early 12th c. BCE",
+        "type": "primary",
+        "sourceId": "kirta-epic"
+      },
+      {
+        "title": "Ugaritic Narrative Poetry (SBL Writings from the Ancient World 9), ed. Simon B. Parker",
+        "author": "Mark S. Smith, Simon B. Parker, Edward L. Greenstein (translators)",
+        "date": "1997",
+        "type": "primary"
+      },
+      {
+        "title": "Stories from Ancient Canaan (2nd ed.)",
+        "author": "Michael D. Coogan and Mark S. Smith",
+        "date": "2012",
+        "type": "primary"
+      },
+      {
+        "title": "Religious Texts from Ugarit (2nd ed.)",
+        "author": "Nicolas Wyatt",
+        "date": "2002",
+        "type": "primary"
+      }
+    ],
+    "imageUrl": "/pantheons/canaanite.jpg"
+  },
+  {
+    "id": "inuit-pantheon",
+    "name": "Inuit Tradition",
+    "slug": "inuit",
+    "culture": "Inuit (Inuit Nunangat in Canada, Kalaallit Nunaat/Greenland, and Iñupiat Alaska), with strong regional variation",
+    "region": "The Arctic, from northern Alaska across Canada to Greenland",
+    "timePeriodStart": 1000,
+    "timePeriodEnd": null,
+    "description": "A living Arctic tradition whose powers go by different names from region to region: the Sea Woman who keeps the sea animals (Sedna, Nuliajuk, Takannaaluk, Sassuma Arnaa), the Moon Man and Sun Woman, and Sila, the breath of the world, told by Inuit from Alaska to Greenland.",
+    "detailedHistory": "## One people, many regions, many names\n\nInuit live across the Arctic: in Inuit Nunangat in Canada (the Inuvialuit Settlement Region, Nunavut, Nunavik, and Nunatsiavut), in Kalaallit Nunaat (Greenland), and, as Iñupiat, in northern Alaska. They share a language family and a great deal of story, but not a single scripture or standardised mythology. The same figure goes by different names from one region to the next, and the stories told about her differ too. The Sea Woman whom Franz Boas recorded as **Sedna** in Cumberland Sound on Baffin Island in the 1880s is **Nuliajuk** among the Netsilingmiut, **Takannaaluk** or **Uinigumasuittuq** in Iglulik tellings, and **Sassuma Arnaa**, \"mother of the deep\", in West Greenland. \"Sedna\" has become the name the wider world knows, even giving its name to a distant dwarf planet, but it is one regional name among many, and this site gives the others alongside it wherever they are known.\n\n## A living tradition\n\nThese are not the beliefs of a vanished people. Inuit elders, storytellers, artists, and publishers tell these stories today, in Inuktitut and other Inuit languages as well as in English, Danish, and French. Many Inuit are also Christian, and communities and families hold a wide range of views about the old powers and about the angakkuit (shamans) who once dealt with them. The dates attached to this entry reflect archaeology, not the age of any story: the ancestors of today's Inuit, known to archaeologists as the Thule people, spread east from Alaska across the Arctic from roughly 1000 to 1300 CE, meeting the earlier Arctic people whom Inuit tradition remembers as the Tuniit.\n\n## Sources and their limits\n\nMuch of what outsiders know comes from ethnographers of the late nineteenth and early twentieth centuries: Franz Boas's *The Central Eskimo* (1888), Hinrich Rink's Greenland collections, and above all the reports of the Fifth Thule Expedition (1921-24) led by Knud Rasmussen, who was himself of Greenlandic Inuit and Danish descent and recorded the words of named Inuit speakers such as Aua in Iglulik and Orpingalik among the Netsilingmiut. These books preserve invaluable testimony, but they also use terms, including \"Eskimo\", that many Inuit now reject, and they reflect the interests of their compilers. This site recommends reading them alongside Inuit-authored and community-led work: the Nunavut Arctic College series *Interviewing Inuit Elders*, in which Inuit students interviewed elders about their own knowledge; the books of Inhabit Media, an Inuit-owned publisher in Iqaluit; and the films of Isuma and other Inuit filmmakers.\n\n## What this site includes\n\nThe stories here are ones that Inuit elders and Inuit-led publishers have made public and that appear in published sources. They are summarised, not presented as authoritative scripts, and details that concern the practice of angakkuuniq (shamanism) are described only in general terms. Where a story differs by region, the differences are the point, not an obstacle to be smoothed away.",
+    "citationSources": [
+      {
+        "title": "Franz Boas, The Central Eskimo (Sixth Annual Report of the Bureau of Ethnology)",
+        "author": "Franz Boas",
+        "date": "1888",
+        "type": "primary",
+        "sourceId": "boas-central-eskimo"
+      },
+      {
+        "title": "Knud Rasmussen, Intellectual Culture of the Iglulik Eskimos (Report of the Fifth Thule Expedition 1921-24, vol. 7, no. 1)",
+        "author": "Knud Rasmussen",
+        "date": "1929",
+        "type": "primary",
+        "sourceId": "rasmussen-fifth-thule"
+      },
+      {
+        "title": "Knud Rasmussen, The Netsilik Eskimos: Social Life and Spiritual Culture (Report of the Fifth Thule Expedition, vol. 8, nos. 1-2)",
+        "author": "Knud Rasmussen",
+        "date": "1931",
+        "type": "primary",
+        "sourceId": "rasmussen-fifth-thule"
+      },
+      {
+        "title": "Knud Rasmussen, Intellectual Culture of the Caribou Eskimos (Report of the Fifth Thule Expedition, vol. 7, no. 2)",
+        "author": "Knud Rasmussen",
+        "date": "1930",
+        "type": "primary",
+        "sourceId": "rasmussen-fifth-thule"
+      },
+      {
+        "title": "Interviewing Inuit Elders, vol. 4: Cosmology and Shamanism (ed. Bernard Saladin d'Anglure; Nunavut Arctic College)",
+        "author": "Mariano Aupilaarjuk, Lucassie Nutaraaluk, Rose Iqallijuq, Johanasi Ujarak, Isidore Ijituuq, Michel Kupaaq; ed. Bernard Saladin d'Anglure",
+        "date": "2001",
+        "type": "primary",
+        "sourceId": "interviewing-inuit-elders-cosmology"
+      }
+    ],
+    "imageUrl": "/pantheons/inuit.jpg",
+    "figuresLabel": "Spirits & Powers"
+  },
+  {
+    "id": "aboriginal-australian-pantheon",
+    "name": "Aboriginal Australian Traditions",
+    "slug": "aboriginal-australian",
+    "culture": "Many distinct Aboriginal nations and language groups; this entry draws on publicly shared stories of the Kulin nations, the Ngemba and Wiradjuri, the Whadjuk Noongar, the Aṉangu, and the Martu, Ngaanyatjarra, and Aṉangu Pitjantjatjara Yankunytjatjara peoples",
+    "region": "Australia (many distinct Countries)",
+    "timePeriodStart": null,
+    "timePeriodEnd": null,
+    "description": "Not one mythology but the living laws and stories of hundreds of Aboriginal nations, often called the Dreaming in English. This entry is a respectful introduction limited to stories that their custodians have chosen to share publicly, each attributed to its people and Country.",
+    "detailedHistory": "## A cultural note before reading\n\nThis entry includes only stories that Aboriginal custodians have chosen to share publicly, in forms published by or with the communities concerned: through national park signage written with traditional owners, national heritage listings prepared in consultation with communities, museum exhibitions developed with knowledge holders, and community organisations' own publications. Much Aboriginal knowledge is secret or sacred, restricted by gender, age, or initiation, or belongs to particular families and clans; none of that material is included here, and where a figure is associated with restricted ceremony, this site says so and stops. Summaries on this site are not a substitute for the tellings of the peoples themselves, and readers are encouraged to seek out community-authored sources, such as the publications of Aboriginal land councils and cultural centres, the First Knowledges book series, and works by Aboriginal authors.\n\nAboriginal and Torres Strait Islander readers are advised that sources linked from this entry may contain names and images of people who have died.\n\n## Not one mythology\n\nBefore colonisation there were more than 250 Aboriginal languages and many more dialects, each the language of a people with its own Country, law, and stories. There is no single \"Aboriginal mythology\", any more than there is a single European one, and presenting Kulin, Noongar, and Aṉangu stories on one page does not mean they belong to one system. Each story on this site is attributed to the people and Country it belongs to. Torres Strait Islander peoples have their own distinct traditions, which this entry does not cover.\n\n## The Dreaming, and the words for it\n\n\"The Dreaming\" and \"Dreamtime\" are English words, popularised by the anthropologists Baldwin Spencer and Francis Gillen from an Arrernte term, and by W. E. H. Stanner's essay \"The Dreaming\" (1953). Aboriginal languages have their own terms, with their own meanings: Jukurrpa in Warlpiri, Tjukurpa for Aṉangu, Altyerre in Arrernte, Nyitting for Noongar people, and many others. These words name something that is not simply a distant past: ancestral beings travelled and shaped the land, established law, and remain present in Country, in the stars, and in the lives of their descendants. Stanner's word for this was \"everywhen\". This entry therefore does not give a start or end date.\n\n## Not \"gods\"\n\nThe beings on this page are called ancestral beings or creator beings, not gods. Some, like Bunjil and Baiame, were described by nineteenth-century missionaries and ethnographers as a \"Supreme Being\" or \"All-Father\", and scholars have long debated how much those descriptions were shaped by Christian expectations. Others, like the Seven Sisters or Kuniya and Liru, are ancestors whose actions left their marks on the land. The site's usual \"deity\" format is used for technical reasons only, and each figure is labelled as an ancestral being.\n\n## Songlines and Country\n\nMany ancestral journeys are recorded as songlines: sequences of songs, stories, dances, and designs that follow the ancestors' tracks across the land, sometimes for thousands of kilometres and through the Countries of many peoples. A songline is at once a map, a law, and a history. The Seven Sisters songline shared through the National Museum of Australia's exhibition *Songlines: Tracking the Seven Sisters* (2017) is one publicly shared example.\n\n## Colonisation and continuity\n\nColonisation from 1788 brought dispossession, violence, the removal of children, and the suppression of languages and ceremonies. Aboriginal law and story nonetheless continue, held by elders, taught in communities, and increasingly shared on Aboriginal terms, as in the co-management of Uluṟu-Kata Tjuṯa National Park and the National Heritage listing of Baiame's Ngunnhu at Brewarrina. The recognition of Aboriginal cultural authority over these stories is part of that continuing history.",
+    "citationSources": [
+      {
+        "title": "National Museum of Australia, Songlines: Tracking the Seven Sisters (exhibition and catalogue, ed. Margo Neale)",
+        "author": "Margo Neale (ed.), with Martu, Ngaanyatjarra, and Aṉangu Pitjantjatjara Yankunytjatjara custodians",
+        "date": "2017",
+        "type": "primary",
+        "sourceId": "songlines-seven-sisters"
+      },
+      {
+        "title": "Uluṟu-Kata Tjuṯa National Park (Parks Australia, with Aṉangu traditional owners), 'The Kuniya & Liru stories'",
+        "author": "Aṉangu traditional owners and Parks Australia",
+        "date": "uluru.gov.au, accessed 2026",
+        "type": "primary",
+        "url": "https://uluru.gov.au/discover/culture/stories/kuniya-liru-stories/"
+      },
+      {
+        "title": "Australian Government, National Heritage List: Brewarrina Aboriginal Fish Traps (Baiame's Ngunnhu)",
+        "author": "Department of Climate Change, Energy, the Environment and Water",
+        "date": "inscribed 2005; accessed 2026",
+        "type": "primary",
+        "url": "https://www.dcceew.gov.au/parks-heritage/heritage/places/national/brewarrina"
+      },
+      {
+        "title": "The Dreaming",
+        "author": "W. E. H. Stanner",
+        "date": "1953",
+        "type": "secondary"
+      },
+      {
+        "title": "Songlines: The Power and Promise (First Knowledges series)",
+        "author": "Margo Neale and Lynne Kelly",
+        "date": "2020",
+        "type": "secondary"
+      }
+    ],
+    "imageUrl": "/pantheons/aboriginal-australian.jpg",
+    "figuresLabel": "Ancestral Beings"
+  },
+  {
+    "id": "dine-pantheon",
+    "name": "Diné (Navajo) Tradition",
+    "slug": "dine",
+    "culture": "Diné (Navajo), within Diné Bikéyah, the land between the four sacred mountains",
+    "region": "Diné Bikéyah (the Navajo Nation and surrounding lands of the Four Corners region, southwestern United States)",
+    "timePeriodStart": null,
+    "timePeriodEnd": null,
+    "description": "The living tradition of the Diné, the People, whose Holy People (Diyin Dineʼé) include Changing Woman, the Hero Twins Monster Slayer and Born for Water, First Man and First Woman, Spider Woman, and Coyote; told here only at summary level, with seasonal and ceremonial restrictions respected.",
+    "detailedHistory": "## A note on telling these stories\n\nThe stories on this page are sacred narratives of a living people. Many Diné families teach that Coyote stories, and much of the account of the emergence and the Holy People, should be told only in winter, after the first frost and before the thunder of spring; telling them out of season can be harmful. Diné scholars, including the historian Jennifer Nez Denetdale, have also cautioned that outsiders' retellings have often distorted Diné history and religion, stripped stories of their ceremonial context, or treated them as quaint folklore. This site therefore keeps retellings short and at the level of published summaries, attributes them to their sources, does not describe ceremonies, and does not reproduce sandpaintings or ceremonial images; the plates on these pages are deliberately plain placeholders. Readers are encouraged to learn from Diné-authored works and Diné institutions such as Diné College and the Navajo Nation Museum.\n\n## The Diné and Diné Bikéyah\n\nThe Diné (the People), known in English as the Navajo, are one of the largest Native nations in the United States; the Navajo Nation's land spans parts of Arizona, New Mexico, and Utah. Diné Bikéyah, Diné land, is bounded by four sacred mountains: Sisnaajiní (Blanca Peak) in the east, Tsoodził (Mount Taylor) in the south, Dookʼoʼoosłííd (the San Francisco Peaks) in the west, and Dibé Ntsaa (Hesperus Mountain) in the north. Within them lie other sacred places, including Dziłnaʼoodiłii (Huerfano Mountain) and Chʼóolʼį́ʼí (Gobernador Knob), where Changing Woman was found. Archaeologists and linguists relate the Diné to other Athabaskan-speaking peoples of the north; Diné tradition tells of an emergence into this world from worlds below. This site does not set one account against the other, and gives no start date.\n\n## The Holy People\n\nThe Diyin Dineʼé, Holy People, are powerful beings who shaped the world and gave the Diné their way of life; the Diné are the Earth Surface People (Nihookáá Dineʼé). \"Holy\" here means powerful and to be approached carefully, not necessarily good: Coyote is among the Holy People, and so are beings who caused harm. Central to Diné thought is hózhó, often translated as beauty, harmony, or balance, which ceremonies seek to restore.\n\n## Sources and their limits\n\nThe best-known published sources were produced by outsiders. Washington Matthews, a U.S. Army surgeon who worked with Diné ceremonial practitioners in the 1880s, published *Navaho Legends* in 1897, a translation of the origin story and related narratives in the orthography of his day. Paul G. Zolbrod's *Diné bahaneʼ: The Navajo Creation Story* (1984) reworked Matthews's material and other sources into a continuous English narrative, and has itself been criticised by Diné readers for presenting a composite as if it were one authoritative telling. Diné-authored works include *Navajo History* (1971), produced by the Navajo Curriculum Center at Rough Rock Demonstration School, and essays gathered in *Diné Perspectives: Revitalizing and Reclaiming Navajo Thought* (2014, edited by Lloyd L. Lee). Accounts vary by family, clan, and ceremonial tradition, and differences between versions are not errors.",
+    "citationSources": [
+      {
+        "title": "Navaho Legends (Memoirs of the American Folk-Lore Society 5)",
+        "author": "Washington Matthews",
+        "date": "1897",
+        "type": "primary",
+        "sourceId": "navaho-legends-matthews"
+      },
+      {
+        "title": "Diné bahane': The Navajo Creation Story",
+        "author": "Paul G. Zolbrod",
+        "date": "1984",
+        "type": "primary",
+        "sourceId": "dine-bahane-zolbrod"
+      },
+      {
+        "title": "Navajo History, vol. 1 (Navajo Curriculum Center, Rough Rock Demonstration School; ed. Ethelou Yazzie)",
+        "author": "Navajo Curriculum Center (Diné-authored)",
+        "date": "1971",
+        "type": "secondary"
+      },
+      {
+        "title": "Reclaiming Diné History: The Legacies of Navajo Chief Manuelito and Juanita",
+        "author": "Jennifer Nez Denetdale",
+        "date": "2007",
+        "type": "secondary"
+      },
+      {
+        "title": "Diné Perspectives: Revitalizing and Reclaiming Navajo Thought",
+        "author": "Lloyd L. Lee (ed.)",
+        "date": "2014",
+        "type": "secondary"
+      }
+    ],
+    "imageUrl": "/pantheons/dine.jpg",
+    "figuresLabel": "Holy People (Diyin Dineʼé)"
   }
 ]

@@ -288,5 +288,62 @@
     "ibeji",
     "ori"
   ],
-  "akan-pantheon": ["anansi", "nyame", "asase-yaa", "tano", "bia"]
+  "akan-pantheon": ["anansi", "nyame", "asase-yaa", "tano", "bia"],
+  "hittite-pantheon": [
+    "tarhunna",
+    "sun-goddess-of-arinna",
+    "kumarbi",
+    "telipinu",
+    "hannahanna",
+    "inara",
+    "kamrusepa",
+    "shaushka",
+    "sun-goddess-of-the-earth",
+    "alalu"
+  ],
+  "canaanite-pantheon": [
+    "baal",
+    "anat",
+    "el",
+    "athirat",
+    "yam",
+    "mot",
+    "kothar-wa-khasis",
+    "shapash",
+    "athtar",
+    "athtart"
+  ],
+  "inuit-pantheon": [
+    "sedna",
+    "anguta",
+    "anningan",
+    "malina",
+    "sila",
+    "pinga",
+    "tornarsuk",
+    "tulunigraq"
+  ],
+  "aboriginal-australian-pantheon": [
+    "bunjil",
+    "pallian",
+    "baiame",
+    "rainbow-serpent",
+    "wagyl",
+    "seven-sisters",
+    "wati-nyiru",
+    "kuniya",
+    "liru"
+  ],
+  "dine-pantheon": [
+    "changing-woman",
+    "white-shell-woman",
+    "monster-slayer",
+    "born-for-water",
+    "first-man",
+    "first-woman",
+    "spider-woman",
+    "coyote",
+    "johonaaei",
+    "talking-god"
+  ]
 }

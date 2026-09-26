@@ -64,6 +64,13 @@ const PANTHEON_COLORS: Record<string, string> = {
   "african-pantheon": "bg-bronze/20 text-bronze border-bronze/30",
   "yoruba-pantheon": "bg-amber-600/20 text-amber-500 border-amber-600/30",
   "akan-pantheon": "bg-yellow-600/20 text-yellow-500 border-yellow-600/30",
+  "hittite-pantheon": "bg-orange-700/20 text-orange-500 border-orange-700/30",
+  "canaanite-pantheon":
+    "bg-fuchsia-500/20 text-fuchsia-400 border-fuchsia-500/30",
+  "inuit-pantheon": "bg-sky-500/20 text-sky-400 border-sky-500/30",
+  "aboriginal-australian-pantheon":
+    "bg-red-700/20 text-red-400 border-red-700/30",
+  "dine-pantheon": "bg-cyan-700/20 text-cyan-300 border-cyan-700/30",
   "polynesian-pantheon": "bg-cyan-500/20 text-cyan-400 border-cyan-500/30",
   "mesoamerican-pantheon": "bg-lime-500/20 text-lime-400 border-lime-500/30",
   "slavic-pantheon": "bg-indigo-500/20 text-indigo-400 border-indigo-500/30",

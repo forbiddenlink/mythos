@@ -411,6 +411,36 @@ export const PANTHEON_COLORS: Record<
     text: "text-destructive",
     dot: "bg-destructive",
   },
+  "hittite-pantheon": {
+    bg: "bg-bronze/20",
+    border: "border-bronze/40",
+    text: "text-bronze",
+    dot: "bg-bronze",
+  },
+  "canaanite-pantheon": {
+    bg: "bg-destructive/15",
+    border: "border-destructive/35",
+    text: "text-destructive",
+    dot: "bg-destructive",
+  },
+  "inuit-pantheon": {
+    bg: "bg-patina/20",
+    border: "border-patina/40",
+    text: "text-patina",
+    dot: "bg-patina",
+  },
+  "aboriginal-australian-pantheon": {
+    bg: "bg-bronze/20",
+    border: "border-bronze/40",
+    text: "text-bronze",
+    dot: "bg-bronze",
+  },
+  "dine-pantheon": {
+    bg: "bg-patina/20",
+    border: "border-patina/40",
+    text: "text-patina",
+    dot: "bg-patina",
+  },
 };
 
 /**

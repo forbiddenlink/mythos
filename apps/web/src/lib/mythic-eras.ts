@@ -92,6 +92,38 @@ export const MYTHIC_ERAS: MythicEra[] = [
     end: 2026,
     pantheonIds: ["tlingit-haida-pantheon"],
   },
+  {
+    id: "late-bronze-age-anatolia-levant",
+    label: "Hittite Anatolia & Ugarit",
+    blurb: "Late Bronze Age Hattusa and the city of Ugarit",
+    start: -1650,
+    end: -1180,
+    pantheonIds: ["hittite-pantheon", "canaanite-pantheon"],
+  },
+  {
+    id: "inuit-arctic",
+    label: "Inuit Nunangat & Kalaallit Nunaat",
+    blurb: "Inuit Arctic from Alaska to Greenland, a living tradition",
+    start: 1000,
+    end: 2026,
+    pantheonIds: ["inuit-pantheon"],
+  },
+  {
+    id: "aboriginal-australia",
+    label: "Aboriginal Australia",
+    blurb: "Many nations, many Dreamings; living traditions, not a past era",
+    start: null,
+    end: null,
+    pantheonIds: ["aboriginal-australian-pantheon"],
+  },
+  {
+    id: "dine-bikeyah",
+    label: "Diné Bikéyah",
+    blurb: "The land between the four sacred mountains, a living tradition",
+    start: null,
+    end: null,
+    pantheonIds: ["dine-pantheon"],
+  },
 ];
 
 export function pantheonIdsForEraId(eraId: string): Set<string> | null {
